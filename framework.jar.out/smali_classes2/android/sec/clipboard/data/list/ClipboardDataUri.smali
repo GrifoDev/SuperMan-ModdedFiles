@@ -36,13 +36,11 @@
 
     invoke-direct {v0}, Lcom/samsung/android/content/clipboard/data/SemUriClipData;-><init>()V
 
-    invoke-virtual {p0, v0}, Landroid/sec/clipboard/data/ClipboardData;->restoreBaseData(Lcom/samsung/android/content/clipboard/data/SemClipData;)V
+    invoke-virtual {p0, v0}, Landroid/sec/clipboard/data/list/ClipboardDataUri;->restoreBaseData(Lcom/samsung/android/content/clipboard/data/SemClipData;)V
 
     move-object v1, v0
 
-    nop
-
-    nop
+    check-cast v1, Lcom/samsung/android/content/clipboard/data/SemUriClipData;
 
     iget-object v2, p0, Landroid/sec/clipboard/data/list/ClipboardDataUri;->mValue:Ljava/lang/String;
 
@@ -54,9 +52,7 @@
 
     move-object v1, v0
 
-    nop
-
-    nop
+    check-cast v1, Lcom/samsung/android/content/clipboard/data/SemUriClipData;
 
     iget-object v2, p0, Landroid/sec/clipboard/data/list/ClipboardDataUri;->mPreviewImgPath:Ljava/lang/String;
 

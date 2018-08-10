@@ -1,5 +1,5 @@
-.class public Landroid/view/DisplayListCanvas;
-.super Landroid/graphics/Canvas;
+.class public final Landroid/view/DisplayListCanvas;
+.super Landroid/view/RecordingCanvas;
 .source "DisplayListCanvas.java"
 
 
@@ -7,8 +7,6 @@
 .field private static final MAX_BITMAP_SIZE:I = 0x6400000
 
 .field private static final POOL_LIMIT:I = 0x19
-
-.field private static sIsAvailable:Z
 
 .field private static final sPool:Landroid/util/Pools$SynchronizedPool;
     .annotation system Ldalvik/annotation/Signature;
@@ -42,23 +40,19 @@
 
     sput-object v0, Landroid/view/DisplayListCanvas;->sPool:Landroid/util/Pools$SynchronizedPool;
 
-    invoke-static {}, Landroid/view/DisplayListCanvas;->nIsAvailable()Z
-
-    move-result v0
-
-    sput-boolean v0, Landroid/view/DisplayListCanvas;->sIsAvailable:Z
-
     return-void
 .end method
 
-.method private constructor <init>(II)V
+.method private constructor <init>(Landroid/view/RenderNode;II)V
     .locals 2
 
-    invoke-static {p1, p2}, Landroid/view/DisplayListCanvas;->nCreateDisplayListCanvas(II)J
+    iget-wide v0, p1, Landroid/view/RenderNode;->mNativeRenderNode:J
+
+    invoke-static {v0, v1, p2, p3}, Landroid/view/DisplayListCanvas;->nCreateDisplayListCanvas(JII)J
 
     move-result-wide v0
 
-    invoke-direct {p0, v0, v1}, Landroid/graphics/Canvas;-><init>(J)V
+    invoke-direct {p0, v0, v1}, Landroid/view/RecordingCanvas;-><init>(J)V
 
     const/4 v0, 0x0
 
@@ -67,91 +61,108 @@
     return-void
 .end method
 
-.method static isAvailable()Z
-    .locals 1
-
-    sget-boolean v0, Landroid/view/DisplayListCanvas;->sIsAvailable:Z
-
-    return v0
-.end method
-
 .method private static native nCallDrawGLFunction(JJLjava/lang/Runnable;)V
+    .annotation build Ldalvik/annotation/optimization/FastNative;
+    .end annotation
 .end method
 
-.method private static native nCreateDisplayListCanvas(II)J
+.method private static native nCreateDisplayListCanvas(JII)J
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
 .end method
 
 .method private static native nDrawCircle(JJJJJ)V
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
 .end method
 
 .method private static native nDrawLayer(JJ)V
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
 .end method
 
 .method private static native nDrawRenderNode(JJ)V
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
 .end method
 
 .method private static native nDrawRoundRect(JJJJJJJJ)V
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
 .end method
 
-.method protected static native nFinishRecording(J)J
+.method private static native nFinishRecording(J)J
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
 .end method
 
 .method private static native nGetMaximumTextureHeight()I
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
 .end method
 
 .method private static native nGetMaximumTextureWidth()I
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
 .end method
 
 .method private static native nInsertReorderBarrier(JZ)V
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
 .end method
 
-.method private static native nIsAvailable()Z
-.end method
-
-.method private static native nResetDisplayListCanvas(JII)V
+.method private static native nResetDisplayListCanvas(JJII)V
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
 .end method
 
 .method static obtain(Landroid/view/RenderNode;II)Landroid/view/DisplayListCanvas;
-    .locals 4
+    .locals 7
 
     if-nez p0, :cond_0
 
-    new-instance v1, Ljava/lang/IllegalArgumentException;
+    new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    const-string/jumbo v2, "node cannot be null"
+    const-string/jumbo v1, "node cannot be null"
 
-    invoke-direct {v1, v2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v1
+    throw v0
 
     :cond_0
-    sget-object v1, Landroid/view/DisplayListCanvas;->sPool:Landroid/util/Pools$SynchronizedPool;
+    sget-object v0, Landroid/view/DisplayListCanvas;->sPool:Landroid/util/Pools$SynchronizedPool;
 
-    invoke-virtual {v1}, Landroid/util/Pools$SynchronizedPool;->acquire()Ljava/lang/Object;
+    invoke-virtual {v0}, Landroid/util/Pools$SynchronizedPool;->acquire()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v6
 
-    check-cast v0, Landroid/view/DisplayListCanvas;
+    check-cast v6, Landroid/view/DisplayListCanvas;
 
-    if-nez v0, :cond_1
+    if-nez v6, :cond_1
 
-    new-instance v0, Landroid/view/DisplayListCanvas;
+    new-instance v6, Landroid/view/DisplayListCanvas;
 
-    invoke-direct {v0, p1, p2}, Landroid/view/DisplayListCanvas;-><init>(II)V
+    invoke-direct {v6, p0, p1, p2}, Landroid/view/DisplayListCanvas;-><init>(Landroid/view/RenderNode;II)V
 
     :goto_0
-    iput-object p0, v0, Landroid/view/DisplayListCanvas;->mNode:Landroid/view/RenderNode;
+    iput-object p0, v6, Landroid/view/DisplayListCanvas;->mNode:Landroid/view/RenderNode;
 
-    iput p1, v0, Landroid/view/DisplayListCanvas;->mWidth:I
+    iput p1, v6, Landroid/view/DisplayListCanvas;->mWidth:I
 
-    iput p2, v0, Landroid/view/DisplayListCanvas;->mHeight:I
+    iput p2, v6, Landroid/view/DisplayListCanvas;->mHeight:I
 
-    return-object v0
+    return-object v6
 
     :cond_1
-    iget-wide v2, v0, Landroid/view/DisplayListCanvas;->mNativeCanvasWrapper:J
+    iget-wide v0, v6, Landroid/view/DisplayListCanvas;->mNativeCanvasWrapper:J
 
-    invoke-static {v2, v3, p1, p2}, Landroid/view/DisplayListCanvas;->nResetDisplayListCanvas(JII)V
+    iget-wide v2, p0, Landroid/view/RenderNode;->mNativeRenderNode:J
+
+    move v4, p1
+
+    move v5, p2
+
+    invoke-static/range {v0 .. v5}, Landroid/view/DisplayListCanvas;->nResetDisplayListCanvas(JJII)V
 
     goto :goto_0
 .end method
@@ -467,7 +478,7 @@
 .method protected throwIfCannotDraw(Landroid/graphics/Bitmap;)V
     .locals 4
 
-    invoke-super {p0, p1}, Landroid/graphics/Canvas;->throwIfCannotDraw(Landroid/graphics/Bitmap;)V
+    invoke-super {p0, p1}, Landroid/view/RecordingCanvas;->throwIfCannotDraw(Landroid/graphics/Bitmap;)V
 
     invoke-virtual {p1}, Landroid/graphics/Bitmap;->getByteCount()I
 

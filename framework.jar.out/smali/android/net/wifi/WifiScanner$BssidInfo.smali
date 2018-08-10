@@ -13,6 +13,9 @@
     name = "BssidInfo"
 .end annotation
 
+.annotation runtime Ljava/lang/Deprecated;
+.end annotation
+
 
 # instance fields
 .field public bssid:Ljava/lang/String;

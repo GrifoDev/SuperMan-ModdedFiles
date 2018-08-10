@@ -595,490 +595,553 @@
 .end method
 
 .method private static getOffsetForBackspaceKey(Ljava/lang/CharSequence;I)I
-    .locals 24
+    .locals 25
 
-    const/16 v21, 0x1
+    const/16 v22, 0x1
 
     move/from16 v0, p1
 
-    move/from16 v1, v21
+    move/from16 v1, v22
 
     if-gt v0, v1, :cond_0
 
-    const/16 v21, 0x0
+    const/16 v22, 0x0
 
-    return v21
+    return v22
 
     :cond_0
-    const/4 v15, 0x0
+    const/16 v16, 0x0
 
-    const/4 v13, 0x1
+    const/4 v14, 0x1
 
-    const/4 v4, 0x2
+    const/4 v5, 0x2
 
-    const/4 v7, 0x3
+    const/4 v8, 0x3
 
-    const/4 v3, 0x4
+    const/4 v4, 0x4
 
-    const/4 v6, 0x5
+    const/4 v7, 0x5
 
-    const/4 v5, 0x6
+    const/4 v6, 0x6
 
-    const/4 v10, 0x7
+    const/4 v3, 0x7
 
-    const/16 v9, 0x8
+    const/16 v10, 0x8
 
-    const/16 v8, 0x9
+    const/16 v9, 0x9
 
-    const/16 v14, 0xa
+    const/16 v15, 0xa
 
     const/16 v11, 0xb
 
-    const/16 v12, 0xc
+    const/16 v13, 0xc
 
-    const/16 v17, 0x0
+    const/16 v12, 0xd
 
     const/16 v18, 0x0
 
     const/16 v19, 0x0
 
-    move/from16 v20, p1
+    const/16 v20, 0x0
+
+    move/from16 v21, p1
 
     :cond_1
     move-object/from16 v0, p0
 
-    move/from16 v1, v20
+    move/from16 v1, v21
 
     invoke-static {v0, v1}, Ljava/lang/Character;->codePointBefore(Ljava/lang/CharSequence;I)I
 
-    move-result v16
+    move-result v17
 
-    invoke-static/range {v16 .. v16}, Ljava/lang/Character;->charCount(I)I
+    invoke-static/range {v17 .. v17}, Ljava/lang/Character;->charCount(I)I
 
-    move-result v21
+    move-result v22
 
-    sub-int v20, v20, v21
+    sub-int v21, v21, v22
 
-    packed-switch v19, :pswitch_data_0
+    packed-switch v20, :pswitch_data_0
 
-    new-instance v21, Ljava/lang/IllegalArgumentException;
+    new-instance v22, Ljava/lang/IllegalArgumentException;
 
-    new-instance v22, Ljava/lang/StringBuilder;
+    new-instance v23, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v22 .. v22}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v23 .. v23}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v23, "state "
+    const-string/jumbo v24, "state "
 
-    invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v23 .. v24}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v22
+    move-result-object v23
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v23
 
-    move/from16 v1, v19
+    move/from16 v1, v20
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v22
+    move-result-object v23
 
-    const-string/jumbo v23, " is unknown"
+    const-string/jumbo v24, " is unknown"
 
-    invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v23 .. v24}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v22
+    move-result-object v23
 
-    invoke-virtual/range {v22 .. v22}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v23 .. v23}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v22
+    move-result-object v23
 
-    invoke-direct/range {v21 .. v22}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct/range {v22 .. v23}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v21
+    throw v22
 
     :pswitch_0
-    invoke-static/range {v16 .. v16}, Ljava/lang/Character;->charCount(I)I
+    invoke-static/range {v17 .. v17}, Ljava/lang/Character;->charCount(I)I
 
-    move-result v17
+    move-result v18
 
-    const/16 v21, 0xa
+    const/16 v22, 0xa
 
-    move/from16 v0, v16
+    move/from16 v0, v17
 
-    move/from16 v1, v21
+    move/from16 v1, v22
 
     if-ne v0, v1, :cond_3
 
-    const/16 v19, 0x1
+    const/16 v20, 0x1
 
     :goto_0
-    if-lez v20, :cond_2
+    if-lez v21, :cond_2
 
-    const/16 v21, 0xc
+    const/16 v22, 0xd
 
-    move/from16 v0, v19
+    move/from16 v0, v20
 
-    move/from16 v1, v21
+    move/from16 v1, v22
 
     if-ne v0, v1, :cond_1
 
     :cond_2
-    sub-int v21, p1, v17
+    sub-int v22, p1, v18
 
-    const/16 v22, 0x1
+    const/16 v23, 0x1
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v21
+    move/from16 v1, v22
 
-    move/from16 v2, v22
+    move/from16 v2, v23
 
     invoke-static {v0, v1, v2}, Landroid/text/method/BaseKeyListener;->adjustReplacementSpan(Ljava/lang/CharSequence;IZ)I
 
-    move-result v21
+    move-result v22
 
-    return v21
+    return v22
 
     :cond_3
-    invoke-static/range {v16 .. v16}, Landroid/text/method/BaseKeyListener;->isVariationSelector(I)Z
+    invoke-static/range {v17 .. v17}, Landroid/text/method/BaseKeyListener;->isVariationSelector(I)Z
 
-    move-result v21
+    move-result v22
 
-    if-eqz v21, :cond_4
+    if-eqz v22, :cond_4
 
-    const/16 v19, 0x6
+    const/16 v20, 0x6
 
     goto :goto_0
 
     :cond_4
-    invoke-static/range {v16 .. v16}, Landroid/text/Emoji;->isRegionalIndicatorSymbol(I)Z
+    invoke-static/range {v17 .. v17}, Landroid/text/Emoji;->isRegionalIndicatorSymbol(I)Z
 
-    move-result v21
+    move-result v22
 
-    if-eqz v21, :cond_5
+    if-eqz v22, :cond_5
 
-    const/16 v19, 0xa
+    const/16 v20, 0xa
 
     goto :goto_0
 
     :cond_5
-    invoke-static/range {v16 .. v16}, Landroid/text/Emoji;->isEmojiModifier(I)Z
+    invoke-static/range {v17 .. v17}, Landroid/text/Emoji;->isEmojiModifier(I)Z
 
-    move-result v21
+    move-result v22
 
-    if-eqz v21, :cond_6
+    if-eqz v22, :cond_6
 
-    const/16 v19, 0x4
+    const/16 v20, 0x4
 
     goto :goto_0
 
     :cond_6
-    sget v21, Landroid/text/Emoji;->COMBINING_ENCLOSING_KEYCAP:I
+    sget v22, Landroid/text/Emoji;->COMBINING_ENCLOSING_KEYCAP:I
 
-    move/from16 v0, v16
+    move/from16 v0, v17
 
-    move/from16 v1, v21
+    move/from16 v1, v22
 
     if-ne v0, v1, :cond_7
 
-    const/16 v19, 0x2
+    const/16 v20, 0x2
 
     goto :goto_0
 
     :cond_7
-    invoke-static/range {v16 .. v16}, Landroid/text/Emoji;->isEmoji(I)Z
+    invoke-static/range {v17 .. v17}, Landroid/text/Emoji;->isEmoji(I)Z
 
-    move-result v21
+    move-result v22
 
-    if-eqz v21, :cond_8
+    if-eqz v22, :cond_8
 
-    const/16 v19, 0x7
+    const/16 v20, 0x7
 
     goto :goto_0
 
     :cond_8
-    const/16 v19, 0xc
+    sget v22, Landroid/text/Emoji;->CANCEL_TAG:I
+
+    move/from16 v0, v17
+
+    move/from16 v1, v22
+
+    if-ne v0, v1, :cond_9
+
+    const/16 v20, 0xc
+
+    goto :goto_0
+
+    :cond_9
+    const/16 v20, 0xd
 
     goto :goto_0
 
     :pswitch_1
-    const/16 v21, 0xd
+    const/16 v22, 0xd
 
-    move/from16 v0, v16
+    move/from16 v0, v17
 
-    move/from16 v1, v21
+    move/from16 v1, v22
 
-    if-ne v0, v1, :cond_9
+    if-ne v0, v1, :cond_a
 
-    add-int/lit8 v17, v17, 0x1
-
-    :cond_9
-    const/16 v19, 0xc
-
-    :pswitch_2
-    invoke-static/range {v16 .. v16}, Landroid/text/Emoji;->isRegionalIndicatorSymbol(I)Z
-
-    move-result v21
-
-    if-eqz v21, :cond_a
-
-    add-int/lit8 v17, v17, 0x2
-
-    const/16 v19, 0xb
-
-    goto :goto_0
+    add-int/lit8 v18, v18, 0x1
 
     :cond_a
-    const/16 v19, 0xc
+    const/16 v20, 0xd
 
     goto :goto_0
 
-    :pswitch_3
-    invoke-static/range {v16 .. v16}, Landroid/text/Emoji;->isRegionalIndicatorSymbol(I)Z
+    :pswitch_2
+    invoke-static/range {v17 .. v17}, Landroid/text/Emoji;->isRegionalIndicatorSymbol(I)Z
 
-    move-result v21
+    move-result v22
 
-    if-eqz v21, :cond_b
+    if-eqz v22, :cond_b
 
-    add-int/lit8 v17, v17, -0x2
+    add-int/lit8 v18, v18, 0x2
 
-    const/16 v19, 0xa
+    const/16 v20, 0xb
 
     goto :goto_0
 
     :cond_b
-    const/16 v19, 0xc
+    const/16 v20, 0xd
 
     goto :goto_0
 
-    :pswitch_4
-    invoke-static/range {v16 .. v16}, Landroid/text/method/BaseKeyListener;->isVariationSelector(I)Z
+    :pswitch_3
+    invoke-static/range {v17 .. v17}, Landroid/text/Emoji;->isRegionalIndicatorSymbol(I)Z
 
-    move-result v21
+    move-result v22
 
-    if-eqz v21, :cond_c
+    if-eqz v22, :cond_c
 
-    invoke-static/range {v16 .. v16}, Ljava/lang/Character;->charCount(I)I
+    add-int/lit8 v18, v18, -0x2
 
-    move-result v18
-
-    const/16 v19, 0x3
+    const/16 v20, 0xa
 
     goto :goto_0
 
     :cond_c
-    invoke-static/range {v16 .. v16}, Landroid/text/Emoji;->isKeycapBase(I)Z
+    const/16 v20, 0xd
 
-    move-result v21
+    goto :goto_0
 
-    if-eqz v21, :cond_d
+    :pswitch_4
+    invoke-static/range {v17 .. v17}, Landroid/text/method/BaseKeyListener;->isVariationSelector(I)Z
 
-    invoke-static/range {v16 .. v16}, Ljava/lang/Character;->charCount(I)I
+    move-result v22
 
-    move-result v21
+    if-eqz v22, :cond_d
 
-    add-int v17, v17, v21
+    invoke-static/range {v17 .. v17}, Ljava/lang/Character;->charCount(I)I
+
+    move-result v19
+
+    const/16 v20, 0x3
+
+    goto/16 :goto_0
 
     :cond_d
-    const/16 v19, 0xc
+    invoke-static/range {v17 .. v17}, Landroid/text/Emoji;->isKeycapBase(I)Z
+
+    move-result v22
+
+    if-eqz v22, :cond_e
+
+    invoke-static/range {v17 .. v17}, Ljava/lang/Character;->charCount(I)I
+
+    move-result v22
+
+    add-int v18, v18, v22
+
+    :cond_e
+    const/16 v20, 0xd
 
     goto/16 :goto_0
 
     :pswitch_5
-    invoke-static/range {v16 .. v16}, Landroid/text/Emoji;->isKeycapBase(I)Z
+    invoke-static/range {v17 .. v17}, Landroid/text/Emoji;->isKeycapBase(I)Z
 
-    move-result v21
+    move-result v22
 
-    if-eqz v21, :cond_e
+    if-eqz v22, :cond_f
 
-    invoke-static/range {v16 .. v16}, Ljava/lang/Character;->charCount(I)I
+    invoke-static/range {v17 .. v17}, Ljava/lang/Character;->charCount(I)I
 
-    move-result v21
+    move-result v22
 
-    add-int v21, v21, v18
+    add-int v22, v22, v19
 
-    add-int v17, v17, v21
+    add-int v18, v18, v22
 
-    :cond_e
-    const/16 v19, 0xc
+    :cond_f
+    const/16 v20, 0xd
 
     goto/16 :goto_0
 
     :pswitch_6
-    invoke-static/range {v16 .. v16}, Landroid/text/method/BaseKeyListener;->isVariationSelector(I)Z
+    invoke-static/range {v17 .. v17}, Landroid/text/method/BaseKeyListener;->isVariationSelector(I)Z
 
-    move-result v21
+    move-result v22
 
-    if-eqz v21, :cond_f
+    if-eqz v22, :cond_10
 
-    invoke-static/range {v16 .. v16}, Ljava/lang/Character;->charCount(I)I
+    invoke-static/range {v17 .. v17}, Ljava/lang/Character;->charCount(I)I
 
-    move-result v18
+    move-result v19
 
-    const/16 v19, 0x5
+    const/16 v20, 0x5
 
     goto/16 :goto_0
 
-    :cond_f
-    invoke-static/range {v16 .. v16}, Landroid/text/Emoji;->isEmojiModifierBase(I)Z
-
-    move-result v21
-
-    if-eqz v21, :cond_10
-
-    invoke-static/range {v16 .. v16}, Ljava/lang/Character;->charCount(I)I
-
-    move-result v21
-
-    add-int v17, v17, v21
-
     :cond_10
-    const/16 v19, 0xc
+    invoke-static/range {v17 .. v17}, Landroid/text/Emoji;->isEmojiModifierBase(I)Z
+
+    move-result v22
+
+    if-eqz v22, :cond_11
+
+    invoke-static/range {v17 .. v17}, Ljava/lang/Character;->charCount(I)I
+
+    move-result v22
+
+    add-int v18, v18, v22
+
+    :cond_11
+    const/16 v20, 0xd
 
     goto/16 :goto_0
 
     :pswitch_7
-    invoke-static/range {v16 .. v16}, Landroid/text/Emoji;->isEmojiModifierBase(I)Z
+    invoke-static/range {v17 .. v17}, Landroid/text/Emoji;->isEmojiModifierBase(I)Z
 
-    move-result v21
+    move-result v22
 
-    if-eqz v21, :cond_11
+    if-eqz v22, :cond_12
 
-    invoke-static/range {v16 .. v16}, Ljava/lang/Character;->charCount(I)I
+    invoke-static/range {v17 .. v17}, Ljava/lang/Character;->charCount(I)I
 
-    move-result v21
+    move-result v22
 
-    add-int v21, v21, v18
+    add-int v22, v22, v19
 
-    add-int v17, v17, v21
+    add-int v18, v18, v22
 
-    :cond_11
-    const/16 v19, 0xc
+    :cond_12
+    const/16 v20, 0xd
 
     goto/16 :goto_0
 
     :pswitch_8
-    invoke-static/range {v16 .. v16}, Landroid/text/Emoji;->isEmoji(I)Z
+    invoke-static/range {v17 .. v17}, Landroid/text/Emoji;->isEmoji(I)Z
 
-    move-result v21
+    move-result v22
 
-    if-eqz v21, :cond_12
+    if-eqz v22, :cond_13
 
-    invoke-static/range {v16 .. v16}, Ljava/lang/Character;->charCount(I)I
+    invoke-static/range {v17 .. v17}, Ljava/lang/Character;->charCount(I)I
 
-    move-result v21
+    move-result v22
 
-    add-int v17, v17, v21
+    add-int v18, v18, v22
 
-    const/16 v19, 0x7
+    const/16 v20, 0x7
 
     goto/16 :goto_0
 
-    :cond_12
-    invoke-static/range {v16 .. v16}, Landroid/text/method/BaseKeyListener;->isVariationSelector(I)Z
-
-    move-result v21
-
-    if-nez v21, :cond_13
-
-    invoke-static/range {v16 .. v16}, Landroid/icu/lang/UCharacter;->getCombiningClass(I)I
-
-    move-result v21
-
-    if-nez v21, :cond_13
-
-    invoke-static/range {v16 .. v16}, Ljava/lang/Character;->charCount(I)I
-
-    move-result v21
-
-    add-int v17, v17, v21
-
     :cond_13
-    const/16 v19, 0xc
+    invoke-static/range {v17 .. v17}, Landroid/text/method/BaseKeyListener;->isVariationSelector(I)Z
+
+    move-result v22
+
+    if-nez v22, :cond_14
+
+    invoke-static/range {v17 .. v17}, Landroid/icu/lang/UCharacter;->getCombiningClass(I)I
+
+    move-result v22
+
+    if-nez v22, :cond_14
+
+    invoke-static/range {v17 .. v17}, Ljava/lang/Character;->charCount(I)I
+
+    move-result v22
+
+    add-int v18, v18, v22
+
+    :cond_14
+    const/16 v20, 0xd
 
     goto/16 :goto_0
 
     :pswitch_9
-    sget v21, Landroid/text/Emoji;->ZERO_WIDTH_JOINER:I
+    sget v22, Landroid/text/Emoji;->ZERO_WIDTH_JOINER:I
 
-    move/from16 v0, v16
+    move/from16 v0, v17
 
-    move/from16 v1, v21
+    move/from16 v1, v22
 
-    if-ne v0, v1, :cond_14
+    if-ne v0, v1, :cond_15
 
-    const/16 v19, 0x8
-
-    goto/16 :goto_0
-
-    :cond_14
-    const/16 v19, 0xc
-
-    goto/16 :goto_0
-
-    :pswitch_a
-    invoke-static/range {v16 .. v16}, Landroid/text/Emoji;->isEmoji(I)Z
-
-    move-result v21
-
-    if-eqz v21, :cond_15
-
-    invoke-static/range {v16 .. v16}, Ljava/lang/Character;->charCount(I)I
-
-    move-result v21
-
-    add-int/lit8 v21, v21, 0x1
-
-    add-int v17, v17, v21
-
-    const/16 v19, 0x7
+    const/16 v20, 0x8
 
     goto/16 :goto_0
 
     :cond_15
-    invoke-static/range {v16 .. v16}, Landroid/text/method/BaseKeyListener;->isVariationSelector(I)Z
+    const/16 v20, 0xd
 
-    move-result v21
+    goto/16 :goto_0
 
-    if-eqz v21, :cond_16
+    :pswitch_a
+    invoke-static/range {v17 .. v17}, Landroid/text/Emoji;->isEmoji(I)Z
 
-    invoke-static/range {v16 .. v16}, Ljava/lang/Character;->charCount(I)I
+    move-result v22
 
-    move-result v18
+    if-eqz v22, :cond_17
 
-    const/16 v19, 0x9
+    invoke-static/range {v17 .. v17}, Ljava/lang/Character;->charCount(I)I
+
+    move-result v22
+
+    add-int/lit8 v22, v22, 0x1
+
+    add-int v18, v18, v22
+
+    invoke-static/range {v17 .. v17}, Landroid/text/Emoji;->isEmojiModifier(I)Z
+
+    move-result v22
+
+    if-eqz v22, :cond_16
+
+    const/16 v20, 0x4
 
     goto/16 :goto_0
 
     :cond_16
-    const/16 v19, 0xc
-
-    goto/16 :goto_0
-
-    :pswitch_b
-    invoke-static/range {v16 .. v16}, Landroid/text/Emoji;->isEmoji(I)Z
-
-    move-result v21
-
-    if-eqz v21, :cond_17
-
-    add-int/lit8 v21, v18, 0x1
-
-    invoke-static/range {v16 .. v16}, Ljava/lang/Character;->charCount(I)I
-
-    move-result v22
-
-    add-int v21, v21, v22
-
-    add-int v17, v17, v21
-
-    const/16 v18, 0x0
-
-    const/16 v19, 0x7
+    const/16 v20, 0x7
 
     goto/16 :goto_0
 
     :cond_17
-    const/16 v19, 0xc
+    invoke-static/range {v17 .. v17}, Landroid/text/method/BaseKeyListener;->isVariationSelector(I)Z
+
+    move-result v22
+
+    if-eqz v22, :cond_18
+
+    invoke-static/range {v17 .. v17}, Ljava/lang/Character;->charCount(I)I
+
+    move-result v19
+
+    const/16 v20, 0x9
+
+    goto/16 :goto_0
+
+    :cond_18
+    const/16 v20, 0xd
+
+    goto/16 :goto_0
+
+    :pswitch_b
+    invoke-static/range {v17 .. v17}, Landroid/text/Emoji;->isEmoji(I)Z
+
+    move-result v22
+
+    if-eqz v22, :cond_19
+
+    add-int/lit8 v22, v19, 0x1
+
+    invoke-static/range {v17 .. v17}, Ljava/lang/Character;->charCount(I)I
+
+    move-result v23
+
+    add-int v22, v22, v23
+
+    add-int v18, v18, v22
+
+    const/16 v19, 0x0
+
+    const/16 v20, 0x7
+
+    goto/16 :goto_0
+
+    :cond_19
+    const/16 v20, 0xd
+
+    goto/16 :goto_0
+
+    :pswitch_c
+    invoke-static/range {v17 .. v17}, Landroid/text/Emoji;->isTagSpecChar(I)Z
+
+    move-result v22
+
+    if-eqz v22, :cond_1a
+
+    add-int/lit8 v18, v18, 0x2
+
+    goto/16 :goto_0
+
+    :cond_1a
+    invoke-static/range {v17 .. v17}, Landroid/text/Emoji;->isEmoji(I)Z
+
+    move-result v22
+
+    if-eqz v22, :cond_1b
+
+    invoke-static/range {v17 .. v17}, Ljava/lang/Character;->charCount(I)I
+
+    move-result v22
+
+    add-int v18, v18, v22
+
+    const/16 v20, 0xd
+
+    goto/16 :goto_0
+
+    :cond_1b
+    const/16 v18, 0x2
+
+    const/16 v20, 0xd
 
     goto/16 :goto_0
 
@@ -1098,6 +1161,7 @@
         :pswitch_b
         :pswitch_2
         :pswitch_3
+        :pswitch_c
     .end packed-switch
 .end method
 

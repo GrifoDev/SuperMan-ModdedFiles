@@ -452,6 +452,8 @@
 .method protected destroyHardwareResources()V
     .locals 0
 
+    invoke-super {p0}, Landroid/view/View;->destroyHardwareResources()V
+
     invoke-direct {p0}, Landroid/view/TextureView;->destroyHardwareLayer()V
 
     return-void
@@ -598,125 +600,125 @@
 .end method
 
 .method getHardwareLayer()Landroid/view/HardwareLayer;
-    .locals 7
+    .locals 6
 
-    const/4 v1, 0x1
+    const/4 v5, 0x0
 
     const/4 v2, 0x0
 
-    const/4 v4, 0x0
+    iget-object v1, p0, Landroid/view/TextureView;->mLayer:Landroid/view/HardwareLayer;
 
-    iget-object v3, p0, Landroid/view/TextureView;->mLayer:Landroid/view/HardwareLayer;
+    if-nez v1, :cond_4
 
-    if-nez v3, :cond_4
+    iget-object v1, p0, Landroid/view/TextureView;->mAttachInfo:Landroid/view/View$AttachInfo;
 
-    iget-object v3, p0, Landroid/view/TextureView;->mAttachInfo:Landroid/view/View$AttachInfo;
+    if-eqz v1, :cond_0
 
-    if-eqz v3, :cond_0
+    iget-object v1, p0, Landroid/view/TextureView;->mAttachInfo:Landroid/view/View$AttachInfo;
 
-    iget-object v3, p0, Landroid/view/TextureView;->mAttachInfo:Landroid/view/View$AttachInfo;
+    iget-object v1, v1, Landroid/view/View$AttachInfo;->mThreadedRenderer:Landroid/view/ThreadedRenderer;
 
-    iget-object v3, v3, Landroid/view/View$AttachInfo;->mHardwareRenderer:Landroid/view/ThreadedRenderer;
-
-    if-nez v3, :cond_1
+    if-nez v1, :cond_1
 
     :cond_0
-    return-object v4
+    return-object v2
 
     :cond_1
-    iget-object v3, p0, Landroid/view/TextureView;->mAttachInfo:Landroid/view/View$AttachInfo;
+    iget-object v1, p0, Landroid/view/TextureView;->mAttachInfo:Landroid/view/View$AttachInfo;
 
-    iget-object v3, v3, Landroid/view/View$AttachInfo;->mHardwareRenderer:Landroid/view/ThreadedRenderer;
+    iget-object v1, v1, Landroid/view/View$AttachInfo;->mThreadedRenderer:Landroid/view/ThreadedRenderer;
 
-    invoke-virtual {v3}, Landroid/view/ThreadedRenderer;->createTextureLayer()Landroid/view/HardwareLayer;
+    invoke-virtual {v1}, Landroid/view/ThreadedRenderer;->createTextureLayer()Landroid/view/HardwareLayer;
 
-    move-result-object v3
+    move-result-object v1
 
-    iput-object v3, p0, Landroid/view/TextureView;->mLayer:Landroid/view/HardwareLayer;
+    iput-object v1, p0, Landroid/view/TextureView;->mLayer:Landroid/view/HardwareLayer;
 
-    iget-object v3, p0, Landroid/view/TextureView;->mSurface:Landroid/graphics/SurfaceTexture;
+    iget-object v1, p0, Landroid/view/TextureView;->mSurface:Landroid/graphics/SurfaceTexture;
 
-    if-nez v3, :cond_6
+    if-nez v1, :cond_6
 
-    move v0, v1
+    const/4 v0, 0x1
 
     :goto_0
     if-eqz v0, :cond_2
 
-    new-instance v3, Landroid/graphics/SurfaceTexture;
+    new-instance v1, Landroid/graphics/SurfaceTexture;
 
-    invoke-direct {v3, v2}, Landroid/graphics/SurfaceTexture;-><init>(Z)V
+    invoke-direct {v1, v5}, Landroid/graphics/SurfaceTexture;-><init>(Z)V
 
-    iput-object v3, p0, Landroid/view/TextureView;->mSurface:Landroid/graphics/SurfaceTexture;
+    iput-object v1, p0, Landroid/view/TextureView;->mSurface:Landroid/graphics/SurfaceTexture;
 
-    iget-object v3, p0, Landroid/view/TextureView;->mSurface:Landroid/graphics/SurfaceTexture;
+    iget-object v1, p0, Landroid/view/TextureView;->mSurface:Landroid/graphics/SurfaceTexture;
 
-    invoke-direct {p0, v3}, Landroid/view/TextureView;->nCreateNativeWindow(Landroid/graphics/SurfaceTexture;)V
+    invoke-direct {p0, v1}, Landroid/view/TextureView;->nCreateNativeWindow(Landroid/graphics/SurfaceTexture;)V
 
     :cond_2
-    iget-object v3, p0, Landroid/view/TextureView;->mLayer:Landroid/view/HardwareLayer;
+    iget-object v1, p0, Landroid/view/TextureView;->mLayer:Landroid/view/HardwareLayer;
 
-    iget-object v4, p0, Landroid/view/TextureView;->mSurface:Landroid/graphics/SurfaceTexture;
+    iget-object v2, p0, Landroid/view/TextureView;->mSurface:Landroid/graphics/SurfaceTexture;
 
-    invoke-virtual {v3, v4}, Landroid/view/HardwareLayer;->setSurfaceTexture(Landroid/graphics/SurfaceTexture;)V
+    invoke-virtual {v1, v2}, Landroid/view/HardwareLayer;->setSurfaceTexture(Landroid/graphics/SurfaceTexture;)V
 
-    iget-object v3, p0, Landroid/view/TextureView;->mSurface:Landroid/graphics/SurfaceTexture;
+    iget-object v1, p0, Landroid/view/TextureView;->mSurface:Landroid/graphics/SurfaceTexture;
 
     invoke-virtual {p0}, Landroid/view/TextureView;->getWidth()I
 
-    move-result v4
+    move-result v2
 
     invoke-virtual {p0}, Landroid/view/TextureView;->getHeight()I
 
-    move-result v5
+    move-result v3
 
-    invoke-virtual {v3, v4, v5}, Landroid/graphics/SurfaceTexture;->setDefaultBufferSize(II)V
+    invoke-virtual {v1, v2, v3}, Landroid/graphics/SurfaceTexture;->setDefaultBufferSize(II)V
 
-    iget-object v3, p0, Landroid/view/TextureView;->mSurface:Landroid/graphics/SurfaceTexture;
+    iget-object v1, p0, Landroid/view/TextureView;->mSurface:Landroid/graphics/SurfaceTexture;
 
-    iget-object v4, p0, Landroid/view/TextureView;->mUpdateListener:Landroid/graphics/SurfaceTexture$OnFrameAvailableListener;
+    iget-object v2, p0, Landroid/view/TextureView;->mUpdateListener:Landroid/graphics/SurfaceTexture$OnFrameAvailableListener;
 
-    iget-object v5, p0, Landroid/view/TextureView;->mAttachInfo:Landroid/view/View$AttachInfo;
+    iget-object v3, p0, Landroid/view/TextureView;->mAttachInfo:Landroid/view/View$AttachInfo;
 
-    iget-object v5, v5, Landroid/view/View$AttachInfo;->mHandler:Landroid/os/Handler;
+    iget-object v3, v3, Landroid/view/View$AttachInfo;->mHandler:Landroid/os/Handler;
 
-    invoke-virtual {v3, v4, v5}, Landroid/graphics/SurfaceTexture;->setOnFrameAvailableListener(Landroid/graphics/SurfaceTexture$OnFrameAvailableListener;Landroid/os/Handler;)V
+    invoke-virtual {v1, v2, v3}, Landroid/graphics/SurfaceTexture;->setOnFrameAvailableListener(Landroid/graphics/SurfaceTexture$OnFrameAvailableListener;Landroid/os/Handler;)V
 
-    iget-object v3, p0, Landroid/view/TextureView;->mListener:Landroid/view/TextureView$SurfaceTextureListener;
+    iget-object v1, p0, Landroid/view/TextureView;->mListener:Landroid/view/TextureView$SurfaceTextureListener;
 
-    if-eqz v3, :cond_3
+    if-eqz v1, :cond_3
 
     if-eqz v0, :cond_3
 
-    iget-object v3, p0, Landroid/view/TextureView;->mListener:Landroid/view/TextureView$SurfaceTextureListener;
+    iget-object v1, p0, Landroid/view/TextureView;->mListener:Landroid/view/TextureView$SurfaceTextureListener;
 
-    iget-object v4, p0, Landroid/view/TextureView;->mSurface:Landroid/graphics/SurfaceTexture;
+    iget-object v2, p0, Landroid/view/TextureView;->mSurface:Landroid/graphics/SurfaceTexture;
 
     invoke-virtual {p0}, Landroid/view/TextureView;->getWidth()I
 
-    move-result v5
+    move-result v3
 
     invoke-virtual {p0}, Landroid/view/TextureView;->getHeight()I
 
-    move-result v6
+    move-result v4
 
-    invoke-interface {v3, v4, v5, v6}, Landroid/view/TextureView$SurfaceTextureListener;->onSurfaceTextureAvailable(Landroid/graphics/SurfaceTexture;II)V
+    invoke-interface {v1, v2, v3, v4}, Landroid/view/TextureView$SurfaceTextureListener;->onSurfaceTextureAvailable(Landroid/graphics/SurfaceTexture;II)V
 
     :cond_3
-    iget-object v3, p0, Landroid/view/TextureView;->mLayer:Landroid/view/HardwareLayer;
+    iget-object v1, p0, Landroid/view/TextureView;->mLayer:Landroid/view/HardwareLayer;
 
-    iget-object v4, p0, Landroid/view/TextureView;->mLayerPaint:Landroid/graphics/Paint;
+    iget-object v2, p0, Landroid/view/TextureView;->mLayerPaint:Landroid/graphics/Paint;
 
-    invoke-virtual {v3, v4}, Landroid/view/HardwareLayer;->setLayerPaint(Landroid/graphics/Paint;)V
+    invoke-virtual {v1, v2}, Landroid/view/HardwareLayer;->setLayerPaint(Landroid/graphics/Paint;)V
 
     :cond_4
-    iget-boolean v3, p0, Landroid/view/TextureView;->mUpdateSurface:Z
+    iget-boolean v1, p0, Landroid/view/TextureView;->mUpdateSurface:Z
 
-    if-eqz v3, :cond_5
+    if-eqz v1, :cond_5
 
-    iput-boolean v2, p0, Landroid/view/TextureView;->mUpdateSurface:Z
+    iput-boolean v5, p0, Landroid/view/TextureView;->mUpdateSurface:Z
 
     invoke-direct {p0}, Landroid/view/TextureView;->updateLayer()V
+
+    const/4 v1, 0x1
 
     iput-boolean v1, p0, Landroid/view/TextureView;->mMatrixChanged:Z
 
@@ -744,7 +746,7 @@
     return-object v1
 
     :cond_6
-    move v0, v2
+    const/4 v0, 0x0
 
     goto :goto_0
 .end method
@@ -1043,12 +1045,10 @@
 
     sget-boolean v0, Landroid/view/TextureView;->sTextureViewIgnoresDrawableSetters:Z
 
-    if-eqz v0, :cond_1
+    xor-int/lit8 v0, v0, 0x1
 
-    :cond_0
-    return-void
+    if-eqz v0, :cond_0
 
-    :cond_1
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     const-string/jumbo v1, "TextureView doesn\'t support displaying a background drawable"
@@ -1056,6 +1056,9 @@
     invoke-direct {v0, v1}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
 
     throw v0
+
+    :cond_0
+    return-void
 .end method
 
 .method public setForeground(Landroid/graphics/drawable/Drawable;)V
@@ -1065,12 +1068,10 @@
 
     sget-boolean v0, Landroid/view/TextureView;->sTextureViewIgnoresDrawableSetters:Z
 
-    if-eqz v0, :cond_1
+    xor-int/lit8 v0, v0, 0x1
 
-    :cond_0
-    return-void
+    if-eqz v0, :cond_0
 
-    :cond_1
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     const-string/jumbo v1, "TextureView doesn\'t support displaying a foreground drawable"
@@ -1078,6 +1079,9 @@
     invoke-direct {v0, v1}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
 
     throw v0
+
+    :cond_0
+    return-void
 .end method
 
 .method public setLayerPaint(Landroid/graphics/Paint;)V

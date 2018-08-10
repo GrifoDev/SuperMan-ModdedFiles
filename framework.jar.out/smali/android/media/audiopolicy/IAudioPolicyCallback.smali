@@ -15,6 +15,14 @@
 
 
 # virtual methods
+.method public abstract notifyAudioFocusAbandon(Landroid/media/AudioFocusInfo;)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract notifyAudioFocusGrant(Landroid/media/AudioFocusInfo;I)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -24,6 +32,14 @@
 .end method
 
 .method public abstract notifyAudioFocusLoss(Landroid/media/AudioFocusInfo;Z)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract notifyAudioFocusRequest(Landroid/media/AudioFocusInfo;I)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

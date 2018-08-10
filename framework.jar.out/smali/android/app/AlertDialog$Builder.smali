@@ -17,9 +17,9 @@
 # instance fields
 .field private final P:Lcom/android/internal/app/AlertController$AlertParams;
 
-.field private mIsDeviceDefaultLight:Z
+.field private mIsDeviceDefault:Z
 
-.field private mTheme:I
+.field private mThemeResId:I
 
 
 # direct methods
@@ -38,33 +38,25 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;I)V
-    .locals 7
+    .locals 5
 
-    const/4 v6, 0x1
-
-    const/4 v5, 0x0
+    const/4 v4, 0x0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    new-instance v2, Lcom/android/internal/app/AlertController$AlertParams;
+    new-instance v1, Lcom/android/internal/app/AlertController$AlertParams;
 
-    new-instance v3, Landroid/view/ContextThemeWrapper;
+    new-instance v2, Landroid/view/ContextThemeWrapper;
 
     invoke-static {p1, p2}, Landroid/app/AlertDialog;->resolveDialogTheme(Landroid/content/Context;I)I
 
-    move-result v4
+    move-result v3
 
-    invoke-direct {v3, p1, v4}, Landroid/view/ContextThemeWrapper;-><init>(Landroid/content/Context;I)V
+    invoke-direct {v2, p1, v3}, Landroid/view/ContextThemeWrapper;-><init>(Landroid/content/Context;I)V
 
-    invoke-direct {v2, v3}, Lcom/android/internal/app/AlertController$AlertParams;-><init>(Landroid/content/Context;)V
+    invoke-direct {v1, v2}, Lcom/android/internal/app/AlertController$AlertParams;-><init>(Landroid/content/Context;)V
 
-    iput-object v2, p0, Landroid/app/AlertDialog$Builder;->P:Lcom/android/internal/app/AlertController$AlertParams;
-
-    iput p2, p0, Landroid/app/AlertDialog$Builder;->mTheme:I
-
-    new-instance v1, Landroid/util/TypedValue;
-
-    invoke-direct {v1}, Landroid/util/TypedValue;-><init>()V
+    iput-object v1, p0, Landroid/app/AlertDialog$Builder;->P:Lcom/android/internal/app/AlertController$AlertParams;
 
     new-instance v0, Landroid/util/TypedValue;
 
@@ -72,31 +64,23 @@
 
     invoke-virtual {p1}, Landroid/content/Context;->getTheme()Landroid/content/res/Resources$Theme;
 
-    move-result-object v2
+    move-result-object v1
 
-    const v3, 0x11600cb
+    const v2, 0x1110082
 
-    invoke-virtual {v2, v3, v1, v5}, Landroid/content/res/Resources$Theme;->resolveAttribute(ILandroid/util/TypedValue;Z)Z
+    invoke-virtual {v1, v2, v0, v4}, Landroid/content/res/Resources$Theme;->resolveAttribute(ILandroid/util/TypedValue;Z)Z
 
-    invoke-virtual {p1}, Landroid/content/Context;->getTheme()Landroid/content/res/Resources$Theme;
+    iget v1, v0, Landroid/util/TypedValue;->data:I
 
-    move-result-object v2
+    if-eqz v1, :cond_0
 
-    const v3, 0x11600cd
+    const/4 v1, 0x1
 
-    invoke-virtual {v2, v3, v0, v6}, Landroid/content/res/Resources$Theme;->resolveAttribute(ILandroid/util/TypedValue;Z)Z
-
-    iget v2, v1, Landroid/util/TypedValue;->data:I
-
-    if-eqz v2, :cond_0
-
-    iget v2, v0, Landroid/util/TypedValue;->data:I
-
-    if-nez v2, :cond_0
-
-    iput-boolean v6, p0, Landroid/app/AlertDialog$Builder;->mIsDeviceDefaultLight:Z
+    iput-boolean v1, p0, Landroid/app/AlertDialog$Builder;->mIsDeviceDefault:Z
 
     :cond_0
+    iput p2, p0, Landroid/app/AlertDialog$Builder;->mThemeResId:I
+
     return-void
 .end method
 
@@ -107,7 +91,7 @@
 
     const/4 v3, 0x0
 
-    iget-boolean v1, p0, Landroid/app/AlertDialog$Builder;->mIsDeviceDefaultLight:Z
+    iget-boolean v1, p0, Landroid/app/AlertDialog$Builder;->mIsDeviceDefault:Z
 
     if-eqz v1, :cond_2
 
@@ -117,7 +101,7 @@
 
     iget-object v1, v1, Lcom/android/internal/app/AlertController$AlertParams;->mContext:Landroid/content/Context;
 
-    iget v2, p0, Landroid/app/AlertDialog$Builder;->mTheme:I
+    iget v2, p0, Landroid/app/AlertDialog$Builder;->mThemeResId:I
 
     invoke-direct {v0, v1, v2, v3}, Landroid/app/AlertDialog;-><init>(Landroid/content/Context;IZ)V
 

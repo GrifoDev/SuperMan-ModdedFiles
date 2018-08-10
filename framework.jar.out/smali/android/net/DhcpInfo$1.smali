@@ -87,12 +87,6 @@
 
     iput v1, v0, Landroid/net/DhcpInfo;->leaseDuration:I
 
-    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
-
-    move-result v1
-
-    iput v1, v0, Landroid/net/DhcpInfo;->resultAfterRoaming:I
-
     return-object v0
 .end method
 

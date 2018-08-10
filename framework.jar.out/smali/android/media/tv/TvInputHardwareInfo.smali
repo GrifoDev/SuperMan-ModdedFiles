@@ -16,6 +16,12 @@
 
 
 # static fields
+.field public static final CABLE_CONNECTION_STATUS_CONNECTED:I = 0x1
+
+.field public static final CABLE_CONNECTION_STATUS_DISCONNECTED:I = 0x2
+
+.field public static final CABLE_CONNECTION_STATUS_UNKNOWN:I = 0x0
+
 .field public static final CREATOR:Landroid/os/Parcelable$Creator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -55,6 +61,8 @@
 
 .field private mAudioType:I
 
+.field private mCableConnectionStatus:I
+
 .field private mDeviceId:I
 
 .field private mHdmiPortId:I
@@ -90,7 +98,7 @@
 .method static synthetic -set2(Landroid/media/tv/TvInputHardwareInfo;I)I
     .locals 0
 
-    iput p1, p0, Landroid/media/tv/TvInputHardwareInfo;->mDeviceId:I
+    iput p1, p0, Landroid/media/tv/TvInputHardwareInfo;->mCableConnectionStatus:I
 
     return p1
 .end method
@@ -98,12 +106,20 @@
 .method static synthetic -set3(Landroid/media/tv/TvInputHardwareInfo;I)I
     .locals 0
 
-    iput p1, p0, Landroid/media/tv/TvInputHardwareInfo;->mHdmiPortId:I
+    iput p1, p0, Landroid/media/tv/TvInputHardwareInfo;->mDeviceId:I
 
     return p1
 .end method
 
 .method static synthetic -set4(Landroid/media/tv/TvInputHardwareInfo;I)I
+    .locals 0
+
+    iput p1, p0, Landroid/media/tv/TvInputHardwareInfo;->mHdmiPortId:I
+
+    return p1
+.end method
+
+.method static synthetic -set5(Landroid/media/tv/TvInputHardwareInfo;I)I
     .locals 0
 
     iput p1, p0, Landroid/media/tv/TvInputHardwareInfo;->mType:I
@@ -161,6 +177,14 @@
     .locals 1
 
     iget v0, p0, Landroid/media/tv/TvInputHardwareInfo;->mAudioType:I
+
+    return v0
+.end method
+
+.method public getCableConnectionStatus()I
+    .locals 1
+
+    iget v0, p0, Landroid/media/tv/TvInputHardwareInfo;->mCableConnectionStatus:I
 
     return v0
 .end method
@@ -242,6 +266,12 @@
     iput v0, p0, Landroid/media/tv/TvInputHardwareInfo;->mHdmiPortId:I
 
     :cond_0
+    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
+
+    move-result v0
+
+    iput v0, p0, Landroid/media/tv/TvInputHardwareInfo;->mCableConnectionStatus:I
+
     return-void
 .end method
 
@@ -311,6 +341,16 @@
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     :cond_0
+    const-string/jumbo v1, ", cable_connection_status="
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    iget v2, p0, Landroid/media/tv/TvInputHardwareInfo;->mCableConnectionStatus:I
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
     const-string/jumbo v1, "}"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -352,5 +392,9 @@
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
     :cond_0
+    iget v0, p0, Landroid/media/tv/TvInputHardwareInfo;->mCableConnectionStatus:I
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
+
     return-void
 .end method

@@ -96,7 +96,7 @@
 
     iget v2, p0, Lcom/samsung/android/hardware/context/SemContextAutoRotationAttribute;->mDeviceType:I
 
-    invoke-virtual {v0, v1, v2}, Landroid/os/BaseBundle;->putInt(Ljava/lang/String;I)V
+    invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
     const/4 v1, 0x6
 

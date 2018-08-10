@@ -5,7 +5,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Landroid/telephony/PhoneStateListener;-><init>(ILandroid/os/Looper;)V
+    value = Landroid/telephony/PhoneStateListener;-><init>(Ljava/lang/Integer;Landroid/os/Looper;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -229,13 +229,43 @@
 
     iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
+    check-cast v0, Ljava/lang/Integer;
+
+    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
+
+    move-result v0
+
+    invoke-virtual {v1, v0}, Landroid/telephony/PhoneStateListener;->onVoiceActivationStateChanged(I)V
+
+    goto/16 :goto_0
+
+    :sswitch_10
+    iget-object v1, p0, Landroid/telephony/PhoneStateListener$1;->this$0:Landroid/telephony/PhoneStateListener;
+
+    iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
+
+    check-cast v0, Ljava/lang/Integer;
+
+    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
+
+    move-result v0
+
+    invoke-virtual {v1, v0}, Landroid/telephony/PhoneStateListener;->onDataActivationStateChanged(I)V
+
+    goto/16 :goto_0
+
+    :sswitch_11
+    iget-object v1, p0, Landroid/telephony/PhoneStateListener$1;->this$0:Landroid/telephony/PhoneStateListener;
+
+    iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
+
     check-cast v0, [B
 
     invoke-virtual {v1, v0}, Landroid/telephony/PhoneStateListener;->onOemHookRawEvent([B)V
 
     goto/16 :goto_0
 
-    :sswitch_10
+    :sswitch_12
     iget-object v1, p0, Landroid/telephony/PhoneStateListener$1;->this$0:Landroid/telephony/PhoneStateListener;
 
     iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
@@ -250,30 +280,10 @@
 
     goto/16 :goto_0
 
-    :sswitch_11
-    iget-object v0, p0, Landroid/telephony/PhoneStateListener$1;->this$0:Landroid/telephony/PhoneStateListener;
-
-    invoke-virtual {v0}, Landroid/telephony/PhoneStateListener;->onFdnUpdated()V
-
-    goto/16 :goto_0
-
-    :sswitch_12
-    iget-object v0, p0, Landroid/telephony/PhoneStateListener$1;->this$0:Landroid/telephony/PhoneStateListener;
-
-    iget v1, p1, Landroid/os/Message;->arg1:I
-
-    iget v2, p1, Landroid/os/Message;->arg2:I
-
-    invoke-virtual {v0, v1, v2}, Landroid/telephony/PhoneStateListener;->onDunDataConnectionStateChanged(II)V
-
-    goto/16 :goto_0
-
     :sswitch_13
     iget-object v0, p0, Landroid/telephony/PhoneStateListener$1;->this$0:Landroid/telephony/PhoneStateListener;
 
-    iget v1, p1, Landroid/os/Message;->arg1:I
-
-    invoke-virtual {v0, v1}, Landroid/telephony/PhoneStateListener;->onDunDataActivity(I)V
+    invoke-virtual {v0}, Landroid/telephony/PhoneStateListener;->onFdnUpdated()V
 
     goto/16 :goto_0
 
@@ -303,11 +313,11 @@
         0x1000 -> :sswitch_c
         0x2000 -> :sswitch_d
         0x4000 -> :sswitch_e
-        0x8000 -> :sswitch_f
-        0x10000 -> :sswitch_10
-        0x20000 -> :sswitch_11
-        0x40000 -> :sswitch_13
-        0x80000 -> :sswitch_12
+        0x8000 -> :sswitch_11
+        0x10000 -> :sswitch_12
+        0x20000 -> :sswitch_f
+        0x40000 -> :sswitch_10
+        0x80000 -> :sswitch_13
         0x100000 -> :sswitch_14
     .end sparse-switch
 .end method

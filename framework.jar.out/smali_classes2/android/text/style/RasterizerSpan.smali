@@ -36,7 +36,7 @@
 
     iget-object v0, p0, Landroid/text/style/RasterizerSpan;->mRasterizer:Landroid/graphics/Rasterizer;
 
-    invoke-virtual {p1, v0}, Landroid/graphics/Paint;->setRasterizer(Landroid/graphics/Rasterizer;)Landroid/graphics/Rasterizer;
+    invoke-virtual {p1, v0}, Landroid/text/TextPaint;->setRasterizer(Landroid/graphics/Rasterizer;)Landroid/graphics/Rasterizer;
 
     return-void
 .end method

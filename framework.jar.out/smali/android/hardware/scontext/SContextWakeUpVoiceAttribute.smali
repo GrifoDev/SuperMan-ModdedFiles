@@ -142,7 +142,7 @@
 
     iget v2, p0, Landroid/hardware/scontext/SContextWakeUpVoiceAttribute;->mMode:I
 
-    invoke-virtual {v0, v1, v2}, Landroid/os/BaseBundle;->putInt(Ljava/lang/String;I)V
+    invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
     iget v1, p0, Landroid/hardware/scontext/SContextWakeUpVoiceAttribute;->mMode:I
 
@@ -154,7 +154,7 @@
 
     iget v2, p0, Landroid/hardware/scontext/SContextWakeUpVoiceAttribute;->mVoiceMode:I
 
-    invoke-virtual {v0, v1, v2}, Landroid/os/BaseBundle;->putInt(Ljava/lang/String;I)V
+    invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
     :goto_0
     const/16 v1, 0x10

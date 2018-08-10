@@ -493,13 +493,11 @@
 .end method
 
 .method protected onBoundsChange(Landroid/graphics/Rect;)V
-    .locals 14
+    .locals 13
 
-    const v13, 0x461c4000    # 10000.0f
+    const v12, 0x461c4000    # 10000.0f
 
-    const/4 v12, 0x0
-
-    const/4 v0, 0x0
+    const/4 v11, 0x0
 
     invoke-virtual {p0}, Landroid/graphics/drawable/ScaleDrawable;->getDrawable()Landroid/graphics/drawable/Drawable;
 
@@ -507,9 +505,9 @@
 
     iget-object v4, p0, Landroid/graphics/drawable/ScaleDrawable;->mTmpRect:Landroid/graphics/Rect;
 
-    iget-object v3, p0, Landroid/graphics/drawable/ScaleDrawable;->mState:Landroid/graphics/drawable/ScaleDrawable$ScaleState;
+    iget-object v0, p0, Landroid/graphics/drawable/ScaleDrawable;->mState:Landroid/graphics/drawable/ScaleDrawable$ScaleState;
 
-    iget-boolean v10, v3, Landroid/graphics/drawable/ScaleDrawable$ScaleState;->mUseIntrinsicSizeAsMin:Z
+    iget-boolean v10, v0, Landroid/graphics/drawable/ScaleDrawable$ScaleState;->mUseIntrinsicSizeAsMin:Z
 
     invoke-virtual {p0}, Landroid/graphics/drawable/ScaleDrawable;->getLevel()I
 
@@ -519,13 +517,13 @@
 
     move-result v1
 
-    iget-object v3, p0, Landroid/graphics/drawable/ScaleDrawable;->mState:Landroid/graphics/drawable/ScaleDrawable$ScaleState;
+    iget-object v0, p0, Landroid/graphics/drawable/ScaleDrawable;->mState:Landroid/graphics/drawable/ScaleDrawable$ScaleState;
 
-    iget v3, v3, Landroid/graphics/drawable/ScaleDrawable$ScaleState;->mScaleWidth:F
+    iget v0, v0, Landroid/graphics/drawable/ScaleDrawable$ScaleState;->mScaleWidth:F
 
-    cmpl-float v3, v3, v12
+    cmpl-float v0, v0, v11
 
-    if-lez v3, :cond_0
+    if-lez v0, :cond_0
 
     if-eqz v10, :cond_3
 
@@ -534,38 +532,38 @@
     move-result v8
 
     :goto_0
-    sub-int v3, v1, v8
+    sub-int v0, v1, v8
 
-    rsub-int v11, v9, 0x2710
+    rsub-int v3, v9, 0x2710
 
-    mul-int/2addr v3, v11
+    mul-int/2addr v0, v3
 
-    int-to-float v3, v3
+    int-to-float v0, v0
 
-    iget-object v11, p0, Landroid/graphics/drawable/ScaleDrawable;->mState:Landroid/graphics/drawable/ScaleDrawable$ScaleState;
+    iget-object v3, p0, Landroid/graphics/drawable/ScaleDrawable;->mState:Landroid/graphics/drawable/ScaleDrawable$ScaleState;
 
-    iget v11, v11, Landroid/graphics/drawable/ScaleDrawable$ScaleState;->mScaleWidth:F
+    iget v3, v3, Landroid/graphics/drawable/ScaleDrawable$ScaleState;->mScaleWidth:F
 
-    mul-float/2addr v3, v11
+    mul-float/2addr v0, v3
 
-    div-float/2addr v3, v13
+    div-float/2addr v0, v12
 
-    float-to-int v3, v3
+    float-to-int v0, v0
 
-    sub-int/2addr v1, v3
+    sub-int/2addr v1, v0
 
     :cond_0
     invoke-virtual {p1}, Landroid/graphics/Rect;->height()I
 
     move-result v2
 
-    iget-object v3, p0, Landroid/graphics/drawable/ScaleDrawable;->mState:Landroid/graphics/drawable/ScaleDrawable$ScaleState;
+    iget-object v0, p0, Landroid/graphics/drawable/ScaleDrawable;->mState:Landroid/graphics/drawable/ScaleDrawable$ScaleState;
 
-    iget v3, v3, Landroid/graphics/drawable/ScaleDrawable$ScaleState;->mScaleHeight:F
+    iget v0, v0, Landroid/graphics/drawable/ScaleDrawable$ScaleState;->mScaleHeight:F
 
-    cmpl-float v3, v3, v12
+    cmpl-float v0, v0, v11
 
-    if-lez v3, :cond_1
+    if-lez v0, :cond_1
 
     if-eqz v10, :cond_4
 
@@ -588,7 +586,7 @@
 
     mul-float/2addr v0, v3
 
-    div-float/2addr v0, v13
+    div-float/2addr v0, v12
 
     float-to-int v0, v0
 
@@ -625,12 +623,12 @@
     return-void
 
     :cond_3
-    move v8, v0
+    const/4 v8, 0x0
 
     goto :goto_0
 
     :cond_4
-    move v7, v0
+    const/4 v7, 0x0
 
     goto :goto_1
 .end method

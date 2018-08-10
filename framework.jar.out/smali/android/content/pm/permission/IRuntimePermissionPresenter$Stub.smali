@@ -28,8 +28,6 @@
 
 .field static final TRANSACTION_getAppPermissions:I = 0x1
 
-.field static final TRANSACTION_getAppsUsingPermissions:I = 0x2
-
 
 # direct methods
 .method public constructor <init>()V
@@ -39,7 +37,7 @@
 
     const-string/jumbo v0, "android.content.pm.permission.IRuntimePermissionPresenter"
 
-    invoke-virtual {p0, p0, v0}, Landroid/os/Binder;->attachInterface(Landroid/os/IInterface;Ljava/lang/String;)V
+    invoke-virtual {p0, p0, v0}, Landroid/content/pm/permission/IRuntimePermissionPresenter$Stub;->attachInterface(Landroid/os/IInterface;Ljava/lang/String;)V
 
     return-void
 .end method
@@ -87,34 +85,34 @@
 .end method
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    .locals 5
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    const/4 v4, 0x1
+    const/4 v3, 0x1
 
     sparse-switch p1, :sswitch_data_0
 
     invoke-super {p0, p1, p2, p3, p4}, Landroid/os/Binder;->onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    move-result v3
+    move-result v2
+
+    return v2
+
+    :sswitch_0
+    const-string/jumbo v2, "android.content.pm.permission.IRuntimePermissionPresenter"
+
+    invoke-virtual {p3, v2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
     return v3
 
-    :sswitch_0
-    const-string/jumbo v3, "android.content.pm.permission.IRuntimePermissionPresenter"
-
-    invoke-virtual {p3, v3}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
-
-    return v4
-
     :sswitch_1
-    const-string/jumbo v3, "android.content.pm.permission.IRuntimePermissionPresenter"
+    const-string/jumbo v2, "android.content.pm.permission.IRuntimePermissionPresenter"
 
-    invoke-virtual {p2, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v2}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
@@ -122,77 +120,31 @@
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v3
+    move-result v2
 
-    if-eqz v3, :cond_0
+    if-eqz v2, :cond_0
 
-    sget-object v3, Landroid/os/RemoteCallback;->CREATOR:Landroid/os/Parcelable$Creator;
+    sget-object v2, Landroid/os/RemoteCallback;->CREATOR:Landroid/os/Parcelable$Creator;
 
-    invoke-interface {v3, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+    invoke-interface {v2, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v1
 
-    check-cast v2, Landroid/os/RemoteCallback;
+    check-cast v1, Landroid/os/RemoteCallback;
 
     :goto_0
-    invoke-virtual {p0, v0, v2}, Landroid/content/pm/permission/IRuntimePermissionPresenter$Stub;->getAppPermissions(Ljava/lang/String;Landroid/os/RemoteCallback;)V
+    invoke-virtual {p0, v0, v1}, Landroid/content/pm/permission/IRuntimePermissionPresenter$Stub;->getAppPermissions(Ljava/lang/String;Landroid/os/RemoteCallback;)V
 
-    return v4
+    return v3
 
     :cond_0
-    const/4 v2, 0x0
-
-    goto :goto_0
-
-    :sswitch_2
-    const-string/jumbo v3, "android.content.pm.permission.IRuntimePermissionPresenter"
-
-    invoke-virtual {p2, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v3
-
-    if-eqz v3, :cond_1
-
-    const/4 v1, 0x1
-
-    :goto_1
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v3
-
-    if-eqz v3, :cond_2
-
-    sget-object v3, Landroid/os/RemoteCallback;->CREATOR:Landroid/os/Parcelable$Creator;
-
-    invoke-interface {v3, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Landroid/os/RemoteCallback;
-
-    :goto_2
-    invoke-virtual {p0, v1, v2}, Landroid/content/pm/permission/IRuntimePermissionPresenter$Stub;->getAppsUsingPermissions(ZLandroid/os/RemoteCallback;)V
-
-    return v4
-
-    :cond_1
     const/4 v1, 0x0
 
-    goto :goto_1
-
-    :cond_2
-    const/4 v2, 0x0
-
-    goto :goto_2
-
-    nop
+    goto :goto_0
 
     :sswitch_data_0
     .sparse-switch
         0x1 -> :sswitch_1
-        0x2 -> :sswitch_2
         0x5f4e5446 -> :sswitch_0
     .end sparse-switch
 .end method

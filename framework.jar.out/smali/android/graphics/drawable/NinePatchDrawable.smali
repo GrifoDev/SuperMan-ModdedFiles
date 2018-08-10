@@ -670,7 +670,7 @@
 
     move-result v8
 
-    if-eqz v8, :cond_3
+    if-eqz v8, :cond_2
 
     new-instance v5, Landroid/graphics/BitmapFactory$Options;
 
@@ -678,11 +678,8 @@
 
     iget-boolean v13, v9, Landroid/graphics/drawable/NinePatchDrawable$NinePatchState;->mDither:Z
 
-    if-eqz v13, :cond_0
+    xor-int/lit8 v13, v13, 0x1
 
-    const/4 v13, 0x0
-
-    :goto_0
     iput-boolean v13, v5, Landroid/graphics/BitmapFactory$Options;->inDither:Z
 
     invoke-virtual {v7}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
@@ -720,8 +717,8 @@
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    :goto_1
-    if-nez v1, :cond_1
+    :goto_0
+    if-nez v1, :cond_0
 
     new-instance v13, Lorg/xmlpull/v1/XmlPullParserException;
 
@@ -752,16 +749,11 @@
     throw v13
 
     :cond_0
-    const/4 v13, 0x1
-
-    goto :goto_0
-
-    :cond_1
     invoke-virtual {v1}, Landroid/graphics/Bitmap;->getNinePatchChunk()[B
 
     move-result-object v13
 
-    if-nez v13, :cond_2
+    if-nez v13, :cond_1
 
     new-instance v13, Lorg/xmlpull/v1/XmlPullParserException;
 
@@ -791,7 +783,7 @@
 
     throw v13
 
-    :cond_2
+    :cond_1
     invoke-virtual {v1, v4}, Landroid/graphics/Bitmap;->getOpticalInsets(Landroid/graphics/Rect;)V
 
     new-instance v13, Landroid/graphics/NinePatch;
@@ -812,7 +804,7 @@
 
     iput-object v13, v9, Landroid/graphics/drawable/NinePatchDrawable$NinePatchState;->mOpticalInsets:Landroid/graphics/Insets;
 
-    :cond_3
+    :cond_2
     iget-boolean v13, v9, Landroid/graphics/drawable/NinePatchDrawable$NinePatchState;->mAutoMirrored:Z
 
     const/4 v14, 0x4
@@ -849,7 +841,7 @@
 
     const/4 v13, -0x1
 
-    if-eq v11, v13, :cond_4
+    if-eq v11, v13, :cond_3
 
     sget-object v13, Landroid/graphics/PorterDuff$Mode;->SRC_IN:Landroid/graphics/PorterDuff$Mode;
 
@@ -859,7 +851,7 @@
 
     iput-object v13, v9, Landroid/graphics/drawable/NinePatchDrawable$NinePatchState;->mTintMode:Landroid/graphics/PorterDuff$Mode;
 
-    :cond_4
+    :cond_3
     const/4 v13, 0x2
 
     move-object/from16 v0, p1
@@ -868,17 +860,17 @@
 
     move-result-object v10
 
-    if-eqz v10, :cond_5
+    if-eqz v10, :cond_4
 
     iput-object v10, v9, Landroid/graphics/drawable/NinePatchDrawable$NinePatchState;->mTint:Landroid/content/res/ColorStateList;
 
-    :cond_5
+    :cond_4
     return-void
 
     :catch_0
     move-exception v2
 
-    goto/16 :goto_1
+    goto/16 :goto_0
 .end method
 
 
@@ -1939,6 +1931,32 @@
     move-result-object v0
 
     return-object v0
+.end method
+
+.method public hasFocusStateSpecified()Z
+    .locals 1
+
+    iget-object v0, p0, Landroid/graphics/drawable/NinePatchDrawable;->mNinePatchState:Landroid/graphics/drawable/NinePatchDrawable$NinePatchState;
+
+    iget-object v0, v0, Landroid/graphics/drawable/NinePatchDrawable$NinePatchState;->mTint:Landroid/content/res/ColorStateList;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Landroid/graphics/drawable/NinePatchDrawable;->mNinePatchState:Landroid/graphics/drawable/NinePatchDrawable$NinePatchState;
+
+    iget-object v0, v0, Landroid/graphics/drawable/NinePatchDrawable$NinePatchState;->mTint:Landroid/content/res/ColorStateList;
+
+    invoke-virtual {v0}, Landroid/content/res/ColorStateList;->hasFocusStateSpecified()Z
+
+    move-result v0
+
+    :goto_0
+    return v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
 .end method
 
 .method public inflate(Landroid/content/res/Resources;Lorg/xmlpull/v1/XmlPullParser;Landroid/util/AttributeSet;Landroid/content/res/Resources$Theme;)V

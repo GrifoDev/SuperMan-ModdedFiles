@@ -1654,7 +1654,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_3
 
     :cond_0
     iget-object v2, p0, Landroid/util/JsonReader;->buffer:[C
@@ -1682,7 +1682,11 @@
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    xor-int/lit8 v2, v2, 0x1
+
+    if-eqz v2, :cond_1
+
+    return v0
 
     :cond_1
     invoke-direct {p0}, Landroid/util/JsonReader;->checkLenient()V
@@ -1695,9 +1699,6 @@
 
     sparse-switch v1, :sswitch_data_1
 
-    return v0
-
-    :cond_2
     return v0
 
     :sswitch_2
@@ -1713,7 +1714,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_3
+    if-nez v2, :cond_2
 
     const-string/jumbo v2, "Unterminated comment"
 
@@ -1723,7 +1724,7 @@
 
     throw v2
 
-    :cond_3
+    :cond_2
     iget v2, p0, Landroid/util/JsonReader;->pos:I
 
     add-int/lit8 v2, v2, 0x2
@@ -1750,7 +1751,7 @@
 
     goto :goto_0
 
-    :cond_4
+    :cond_3
     new-instance v2, Ljava/io/EOFException;
 
     const-string/jumbo v3, "End of input"
@@ -2153,7 +2154,17 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    xor-int/lit8 v2, v2, 0x1
+
+    if-eqz v2, :cond_0
+
+    const-string/jumbo v2, "Unterminated escape sequence"
+
+    invoke-direct {p0, v2}, Landroid/util/JsonReader;->syntaxError(Ljava/lang/String;)Ljava/io/IOException;
+
+    move-result-object v2
+
+    throw v2
 
     :cond_0
     iget-object v2, p0, Landroid/util/JsonReader;->buffer:[C
@@ -2170,7 +2181,23 @@
 
     return v0
 
-    :cond_1
+    :sswitch_0
+    iget v2, p0, Landroid/util/JsonReader;->pos:I
+
+    add-int/lit8 v2, v2, 0x4
+
+    iget v3, p0, Landroid/util/JsonReader;->limit:I
+
+    if-le v2, v3, :cond_1
+
+    invoke-direct {p0, v5}, Landroid/util/JsonReader;->fillBuffer(I)Z
+
+    move-result v2
+
+    xor-int/lit8 v2, v2, 0x1
+
+    if-eqz v2, :cond_1
+
     const-string/jumbo v2, "Unterminated escape sequence"
 
     invoke-direct {p0, v2}, Landroid/util/JsonReader;->syntaxError(Ljava/lang/String;)Ljava/io/IOException;
@@ -2179,22 +2206,7 @@
 
     throw v2
 
-    :sswitch_0
-    iget v2, p0, Landroid/util/JsonReader;->pos:I
-
-    add-int/lit8 v2, v2, 0x4
-
-    iget v3, p0, Landroid/util/JsonReader;->limit:I
-
-    if-le v2, v3, :cond_2
-
-    invoke-direct {p0, v5}, Landroid/util/JsonReader;->fillBuffer(I)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_3
-
-    :cond_2
+    :cond_1
     iget-object v2, p0, Landroid/util/JsonReader;->stringPool:Llibcore/internal/StringPool;
 
     iget-object v3, p0, Landroid/util/JsonReader;->buffer:[C
@@ -2220,15 +2232,6 @@
     int-to-char v2, v2
 
     return v2
-
-    :cond_3
-    const-string/jumbo v2, "Unterminated escape sequence"
-
-    invoke-direct {p0, v2}, Landroid/util/JsonReader;->syntaxError(Ljava/lang/String;)Ljava/io/IOException;
-
-    move-result-object v2
-
-    throw v2
 
     :sswitch_1
     const/16 v2, 0x9

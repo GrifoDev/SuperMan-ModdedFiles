@@ -45,7 +45,7 @@
 .method protected addAlgorithmSpecificParametersToBegin(Landroid/security/keymaster/KeymasterArguments;)V
     .locals 2
 
-    invoke-virtual {p0}, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->isEncrypting()Z
+    invoke-virtual {p0}, Landroid/security/keystore/AndroidKeyStoreAuthenticatedAESCipherSpi;->isEncrypting()Z
 
     move-result v0
 
@@ -236,11 +236,9 @@
     throw v0
 
     :cond_2
-    nop
+    check-cast p2, Landroid/security/keystore/AndroidKeyStoreSecretKey;
 
-    nop
-
-    invoke-virtual {p0, p2}, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->setKey(Landroid/security/keystore/AndroidKeyStoreKey;)V
+    invoke-virtual {p0, p2}, Landroid/security/keystore/AndroidKeyStoreAuthenticatedAESCipherSpi;->setKey(Landroid/security/keystore/AndroidKeyStoreKey;)V
 
     return-void
 .end method
@@ -287,7 +285,9 @@
 
     move-result v1
 
-    if-nez v1, :cond_1
+    xor-int/lit8 v1, v1, 0x1
+
+    if-eqz v1, :cond_1
 
     new-instance v1, Ljava/security/ProviderException;
 

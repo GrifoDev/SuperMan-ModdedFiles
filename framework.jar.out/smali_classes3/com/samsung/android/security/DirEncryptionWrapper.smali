@@ -24,7 +24,7 @@
 # instance fields
 .field private mContext:Landroid/content/Context;
 
-.field private mMountService:Landroid/os/storage/IMountService;
+.field private mMountService:Landroid/os/storage/IStorageManager;
 
 .field private mStorageManager:Landroid/os/storage/StorageManager;
 
@@ -81,7 +81,7 @@
 
     iput-object v0, p0, Lcom/samsung/android/security/DirEncryptionWrapper;->mStorageManager:Landroid/os/storage/StorageManager;
 
-    iput-object v0, p0, Lcom/samsung/android/security/DirEncryptionWrapper;->mMountService:Landroid/os/storage/IMountService;
+    iput-object v0, p0, Lcom/samsung/android/security/DirEncryptionWrapper;->mMountService:Landroid/os/storage/IStorageManager;
 
     iput-object p1, p0, Lcom/samsung/android/security/DirEncryptionWrapper;->mContext:Landroid/content/Context;
 
@@ -124,7 +124,7 @@
 
     invoke-static {v3}, Lcom/samsung/android/security/DirEncryptionWrapper;->logE(Ljava/lang/String;)V
 
-    invoke-virtual {v1}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v1}, Ljava/lang/Exception;->printStackTrace()V
 
     goto :goto_0
 
@@ -310,10 +310,10 @@
     return v1
 .end method
 
-.method public getMountService()Landroid/os/storage/IMountService;
+.method public getMountService()Landroid/os/storage/IStorageManager;
     .locals 2
 
-    iget-object v1, p0, Lcom/samsung/android/security/DirEncryptionWrapper;->mMountService:Landroid/os/storage/IMountService;
+    iget-object v1, p0, Lcom/samsung/android/security/DirEncryptionWrapper;->mMountService:Landroid/os/storage/IStorageManager;
 
     if-nez v1, :cond_0
 
@@ -325,15 +325,15 @@
 
     if-eqz v0, :cond_1
 
-    invoke-static {v0}, Landroid/os/storage/IMountService$Stub;->asInterface(Landroid/os/IBinder;)Landroid/os/storage/IMountService;
+    invoke-static {v0}, Landroid/os/storage/IStorageManager$Stub;->asInterface(Landroid/os/IBinder;)Landroid/os/storage/IStorageManager;
 
     move-result-object v1
 
-    iput-object v1, p0, Lcom/samsung/android/security/DirEncryptionWrapper;->mMountService:Landroid/os/storage/IMountService;
+    iput-object v1, p0, Lcom/samsung/android/security/DirEncryptionWrapper;->mMountService:Landroid/os/storage/IStorageManager;
 
     :cond_0
     :goto_0
-    iget-object v1, p0, Lcom/samsung/android/security/DirEncryptionWrapper;->mMountService:Landroid/os/storage/IMountService;
+    iget-object v1, p0, Lcom/samsung/android/security/DirEncryptionWrapper;->mMountService:Landroid/os/storage/IStorageManager;
 
     return-object v1
 
@@ -475,7 +475,7 @@
     .locals 3
 
     :try_start_0
-    invoke-virtual {p0}, Lcom/samsung/android/security/DirEncryptionWrapper;->getMountService()Landroid/os/storage/IMountService;
+    invoke-virtual {p0}, Lcom/samsung/android/security/DirEncryptionWrapper;->getMountService()Landroid/os/storage/IStorageManager;
 
     move-result-object v1
 
@@ -483,7 +483,7 @@
 
     move-result-object v2
 
-    invoke-interface {v1, v2}, Landroid/os/storage/IMountService;->mountVolume(Ljava/lang/String;)I
+    invoke-interface {v1, v2}, Landroid/os/storage/IStorageManager;->mountVolume(Ljava/lang/String;)I
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -494,7 +494,7 @@
     :catch_0
     move-exception v0
 
-    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
 
     const/4 v1, 0x0
 
@@ -589,7 +589,7 @@
     const/4 v5, 0x0
 
     :try_start_0
-    invoke-virtual {p0}, Lcom/samsung/android/security/DirEncryptionWrapper;->getMountService()Landroid/os/storage/IMountService;
+    invoke-virtual {p0}, Lcom/samsung/android/security/DirEncryptionWrapper;->getMountService()Landroid/os/storage/IStorageManager;
 
     move-result-object v1
 
@@ -619,7 +619,7 @@
 
     const/4 v4, 0x0
 
-    invoke-interface {v1, v2, v3, v4}, Landroid/os/storage/IMountService;->unmountVolume(Ljava/lang/String;ZZ)V
+    invoke-interface {v1, v2, v3, v4}, Landroid/os/storage/IStorageManager;->unmountVolume(Ljava/lang/String;ZZ)V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -628,7 +628,7 @@
     :catch_0
     move-exception v0
 
-    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
 
     return v5
 .end method
@@ -641,7 +641,7 @@
     const/4 v5, 0x0
 
     :try_start_0
-    invoke-virtual {p0}, Lcom/samsung/android/security/DirEncryptionWrapper;->getMountService()Landroid/os/storage/IMountService;
+    invoke-virtual {p0}, Lcom/samsung/android/security/DirEncryptionWrapper;->getMountService()Landroid/os/storage/IStorageManager;
 
     move-result-object v1
 
@@ -653,7 +653,7 @@
 
     const/4 v4, 0x0
 
-    invoke-interface {v1, v2, v3, v4}, Landroid/os/storage/IMountService;->unmountVolume(Ljava/lang/String;ZZ)V
+    invoke-interface {v1, v2, v3, v4}, Landroid/os/storage/IStorageManager;->unmountVolume(Ljava/lang/String;ZZ)V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -662,7 +662,7 @@
     :catch_0
     move-exception v0
 
-    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
 
     return v5
 .end method

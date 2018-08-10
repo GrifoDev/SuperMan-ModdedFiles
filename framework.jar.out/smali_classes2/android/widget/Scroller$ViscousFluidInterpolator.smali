@@ -63,55 +63,57 @@
 .end method
 
 .method private static viscousFluid(F)F
-    .locals 3
+    .locals 5
 
-    const/high16 v2, 0x3f800000    # 1.0f
+    const/high16 v4, 0x3f800000    # 1.0f
 
-    const/high16 v0, 0x41000000    # 8.0f
+    const/high16 v1, 0x41000000    # 8.0f
 
-    mul-float/2addr p0, v0
+    mul-float/2addr p0, v1
 
-    cmpg-float v0, p0, v2
+    cmpg-float v1, p0, v4
 
-    if-gez v0, :cond_0
+    if-gez v1, :cond_0
 
-    neg-float v0, p0
+    neg-float v1, p0
 
-    float-to-double v0, v0
+    float-to-double v2, v1
 
-    invoke-static {v0, v1}, Ljava/lang/Math;->exp(D)D
+    invoke-static {v2, v3}, Ljava/lang/Math;->exp(D)D
 
-    move-result-wide v0
+    move-result-wide v2
 
-    double-to-float v0, v0
+    double-to-float v1, v2
 
-    sub-float v0, v2, v0
+    sub-float v1, v4, v1
 
-    sub-float/2addr p0, v0
+    sub-float/2addr p0, v1
 
     :goto_0
     return p0
 
     :cond_0
-    sub-float v0, v2, p0
+    const v0, 0x3ebc5ab2
 
-    float-to-double v0, v0
+    sub-float v1, v4, p0
 
-    invoke-static {v0, v1}, Ljava/lang/Math;->exp(D)D
+    float-to-double v2, v1
 
-    move-result-wide v0
+    invoke-static {v2, v3}, Ljava/lang/Math;->exp(D)D
 
-    double-to-float v0, v0
+    move-result-wide v2
 
-    sub-float p0, v2, v0
+    double-to-float v1, v2
 
-    const v0, 0x3f21d2a7
+    sub-float p0, v4, v1
 
-    mul-float/2addr v0, p0
+    const v1, 0x3f21d2a7
 
-    const v1, 0x3ebc5ab2
+    mul-float/2addr v1, p0
 
-    add-float p0, v1, v0
+    const v2, 0x3ebc5ab2
+
+    add-float p0, v2, v1
 
     goto :goto_0
 .end method

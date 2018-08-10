@@ -59,6 +59,8 @@
 
 .field public static final ACTION_CAMERA_BUTTON:Ljava/lang/String; = "android.intent.action.CAMERA_BUTTON"
 
+.field public static final ACTION_CARRIER_SETUP:Ljava/lang/String; = "android.intent.action.CARRIER_SETUP"
+
 .field public static final ACTION_CHOOSER:Ljava/lang/String; = "android.intent.action.CHOOSER"
 
 .field public static final ACTION_CLEAR_DNS_CACHE:Ljava/lang/String; = "android.intent.action.CLEAR_DNS_CACHE"
@@ -77,17 +79,60 @@
 
 .field public static final ACTION_DELETE:Ljava/lang/String; = "android.intent.action.DELETE"
 
+.field public static final ACTION_DEVICE_FILENODE_FULL:Ljava/lang/String; = "com.samsung.intent.action.DEVICE_FILENODE_FULL"
+
+.field public static final ACTION_DEVICE_FILENODE_NOT_FULL:Ljava/lang/String; = "com.samsung.intent.action.DEVICE_FILENODE_NOT_FULL "
+
+.field public static final ACTION_DEVICE_INITIALIZATION_WIZARD:Ljava/lang/String; = "android.intent.action.DEVICE_INITIALIZATION_WIZARD"
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
+
+.field public static final ACTION_DEVICE_LOCKED_CHANGED:Ljava/lang/String; = "android.intent.action.DEVICE_LOCKED_CHANGED"
+
+.field public static final ACTION_DEVICE_STORAGE_EXHAUSTION:Ljava/lang/String; = "android.intent.action.DEVICE_STORAGE_EXHAUSTION"
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
+
 .field public static final ACTION_DEVICE_STORAGE_FULL:Ljava/lang/String; = "android.intent.action.DEVICE_STORAGE_FULL"
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
+
+.field public static final ACTION_DEVICE_STORAGE_FULL_SEC:Ljava/lang/String; = "com.samsung.intent.action.DEVICE_STORAGE_FULL"
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
 
 .field public static final ACTION_DEVICE_STORAGE_LOW:Ljava/lang/String; = "android.intent.action.DEVICE_STORAGE_LOW"
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
+
+.field public static final ACTION_DEVICE_STORAGE_NOT_EXHAUSTION:Ljava/lang/String; = "android.intent.action.DEVICE_STORAGE_NOT_EXHAUSTION"
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
 
 .field public static final ACTION_DEVICE_STORAGE_NOT_FULL:Ljava/lang/String; = "android.intent.action.DEVICE_STORAGE_NOT_FULL"
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
+
+.field public static final ACTION_DEVICE_STORAGE_NOT_FULL_SEC:Ljava/lang/String; = "com.samsung.intent.action.DEVICE_STORAGE_NOT_FULL"
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
 
 .field public static final ACTION_DEVICE_STORAGE_OK:Ljava/lang/String; = "android.intent.action.DEVICE_STORAGE_OK"
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
 
 .field public static final ACTION_DIAL:Ljava/lang/String; = "android.intent.action.DIAL"
 
-.field public static final ACTION_DISMISS_KEYBOARD_SHORTCUTS:Ljava/lang/String; = "android.intent.action.DISMISS_KEYBOARD_SHORTCUTS"
+.field public static final ACTION_DISMISS_KEYBOARD_SHORTCUTS:Ljava/lang/String; = "com.android.intent.action.DISMISS_KEYBOARD_SHORTCUTS"
 
 .field public static final ACTION_DOCK_EVENT:Ljava/lang/String; = "android.intent.action.DOCK_EVENT"
 
@@ -99,9 +144,13 @@
 
 .field public static final ACTION_EDIT:Ljava/lang/String; = "android.intent.action.EDIT"
 
+.field public static final ACTION_EPHEMERAL_RESOLVER_SETTINGS:Ljava/lang/String; = "android.intent.action.EPHEMERAL_RESOLVER_SETTINGS"
+
 .field public static final ACTION_EXTERNAL_APPLICATIONS_AVAILABLE:Ljava/lang/String; = "android.intent.action.EXTERNAL_APPLICATIONS_AVAILABLE"
 
 .field public static final ACTION_EXTERNAL_APPLICATIONS_UNAVAILABLE:Ljava/lang/String; = "android.intent.action.EXTERNAL_APPLICATIONS_UNAVAILABLE"
+
+.field public static final ACTION_FACTORY_RESET:Ljava/lang/String; = "android.intent.action.FACTORY_RESET"
 
 .field public static final ACTION_FACTORY_TEST:Ljava/lang/String; = "android.intent.action.FACTORY_TEST"
 
@@ -135,11 +184,13 @@
 
 .field public static final ACTION_INSTALL_EPHEMERAL_PACKAGE:Ljava/lang/String; = "android.intent.action.INSTALL_EPHEMERAL_PACKAGE"
 
+.field public static final ACTION_INSTALL_INSTANT_APP_PACKAGE:Ljava/lang/String; = "android.intent.action.INSTALL_INSTANT_APP_PACKAGE"
+
 .field public static final ACTION_INSTALL_PACKAGE:Ljava/lang/String; = "android.intent.action.INSTALL_PACKAGE"
 
-.field public static final ACTION_INTENT_FILTER_NEEDS_VERIFICATION:Ljava/lang/String; = "android.intent.action.INTENT_FILTER_NEEDS_VERIFICATION"
+.field public static final ACTION_INSTANT_APP_RESOLVER_SETTINGS:Ljava/lang/String; = "android.intent.action.INSTANT_APP_RESOLVER_SETTINGS"
 
-.field public static final ACTION_KNOXDESKTOP_STATE_CHANGED:Ljava/lang/String; = "android.intent.action.KNOXDESKTOP_STATE_CHANGED"
+.field public static final ACTION_INTENT_FILTER_NEEDS_VERIFICATION:Ljava/lang/String; = "android.intent.action.INTENT_FILTER_NEEDS_VERIFICATION"
 
 .field public static final ACTION_KNOX_DOCK_WINDOW_CHANGED:Ljava/lang/String; = "com.samsung.sec.knox.KNOX_DOCK_WINDOW_CHANGED"
 
@@ -172,6 +223,11 @@
 .field public static final ACTION_MANAGE_PERMISSION_APPS:Ljava/lang/String; = "android.intent.action.MANAGE_PERMISSION_APPS"
 
 .field public static final ACTION_MASTER_CLEAR:Ljava/lang/String; = "android.intent.action.MASTER_CLEAR"
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
+
+.field public static final ACTION_MASTER_CLEAR_NOTIFICATION:Ljava/lang/String; = "android.intent.action.MASTER_CLEAR_NOTIFICATION"
 
 .field public static final ACTION_MEDIA_BAD_REMOVAL:Ljava/lang/String; = "android.intent.action.MEDIA_BAD_REMOVAL"
 
@@ -210,6 +266,8 @@
 .field public static final ACTION_OPEN_DOCUMENT:Ljava/lang/String; = "android.intent.action.OPEN_DOCUMENT"
 
 .field public static final ACTION_OPEN_DOCUMENT_TREE:Ljava/lang/String; = "android.intent.action.OPEN_DOCUMENT_TREE"
+
+.field public static final ACTION_OVERLAY_CHANGED:Ljava/lang/String; = "android.intent.action.OVERLAY_CHANGED"
 
 .field public static final ACTION_PACKAGES_SUSPENDED:Ljava/lang/String; = "android.intent.action.PACKAGES_SUSPENDED"
 
@@ -252,6 +310,8 @@
 
 .field public static final ACTION_POWER_USAGE_SUMMARY:Ljava/lang/String; = "android.intent.action.POWER_USAGE_SUMMARY"
 
+.field public static final ACTION_PREFERRED_ACTIVITY_CHANGED:Ljava/lang/String; = "android.intent.action.ACTION_PREFERRED_ACTIVITY_CHANGED"
+
 .field public static final ACTION_PRE_BOOT_COMPLETED:Ljava/lang/String; = "android.intent.action.PRE_BOOT_COMPLETED"
 
 .field public static final ACTION_PROCESS_TEXT:Ljava/lang/String; = "android.intent.action.PROCESS_TEXT"
@@ -268,9 +328,11 @@
 
 .field public static final ACTION_REMOTE_INTENT:Ljava/lang/String; = "com.google.android.c2dm.intent.RECEIVE"
 
-.field public static final ACTION_REQUEST_SHUTDOWN:Ljava/lang/String; = "android.intent.action.ACTION_REQUEST_SHUTDOWN"
+.field public static final ACTION_REQUEST_SHUTDOWN:Ljava/lang/String; = "com.android.internal.intent.action.REQUEST_SHUTDOWN"
 
 .field public static final ACTION_RESOLVE_EPHEMERAL_PACKAGE:Ljava/lang/String; = "android.intent.action.RESOLVE_EPHEMERAL_PACKAGE"
+
+.field public static final ACTION_RESOLVE_INSTANT_APP_PACKAGE:Ljava/lang/String; = "android.intent.action.RESOLVE_INSTANT_APP_PACKAGE"
 
 .field public static final ACTION_REVIEW_PERMISSIONS:Ljava/lang/String; = "android.intent.action.REVIEW_PERMISSIONS"
 
@@ -294,19 +356,24 @@
 
 .field public static final ACTION_SEND_MULTIPLE:Ljava/lang/String; = "android.intent.action.SEND_MULTIPLE"
 
+.field public static final ACTION_SERVICE_STATE:Ljava/lang/String; = "android.intent.action.SERVICE_STATE"
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
+
 .field public static final ACTION_SETTING_RESTORED:Ljava/lang/String; = "android.os.action.SETTING_RESTORED"
 
 .field public static final ACTION_SET_WALLPAPER:Ljava/lang/String; = "android.intent.action.SET_WALLPAPER"
 
 .field public static final ACTION_SHOW_APP_INFO:Ljava/lang/String; = "android.intent.action.SHOW_APP_INFO"
 
-.field public static final ACTION_SHOW_BRIGHTNESS_DIALOG:Ljava/lang/String; = "android.intent.action.SHOW_BRIGHTNESS_DIALOG"
+.field public static final ACTION_SHOW_BRIGHTNESS_DIALOG:Ljava/lang/String; = "com.android.intent.action.SHOW_BRIGHTNESS_DIALOG"
 
-.field public static final ACTION_SHOW_KEYBOARD_SHORTCUTS:Ljava/lang/String; = "android.intent.action.SHOW_KEYBOARD_SHORTCUTS"
+.field public static final ACTION_SHOW_KEYBOARD_SHORTCUTS:Ljava/lang/String; = "com.android.intent.action.SHOW_KEYBOARD_SHORTCUTS"
 
 .field public static final ACTION_SHUTDOWN:Ljava/lang/String; = "android.intent.action.ACTION_SHUTDOWN"
 
-.field public static final ACTION_SIM_ACTIVATION_REQUEST:Ljava/lang/String; = "android.intent.action.SIM_ACTIVATION_REQUEST"
+.field public static final ACTION_SIM_STATE_CHANGED:Ljava/lang/String; = "android.intent.action.SIM_STATE_CHANGED"
 
 .field public static final ACTION_SWEEP_FULL_SCREEN:Ljava/lang/String; = "com.samsung.android.motion.SWEEP_FULL_SCREEN"
 
@@ -467,9 +534,13 @@
 
 .field public static final CATEGORY_TEST:Ljava/lang/String; = "android.intent.category.TEST"
 
+.field public static final CATEGORY_TYPED_OPENABLE:Ljava/lang/String; = "android.intent.category.TYPED_OPENABLE"
+
 .field public static final CATEGORY_UNIT_TEST:Ljava/lang/String; = "android.intent.category.UNIT_TEST"
 
 .field public static final CATEGORY_VOICE:Ljava/lang/String; = "android.intent.category.VOICE"
+
+.field public static final CATEGORY_VR_HOME:Ljava/lang/String; = "android.intent.category.VR_HOME"
 
 .field public static final CREATOR:Landroid/os/Parcelable$Creator;
     .annotation system Ldalvik/annotation/Signature;
@@ -503,11 +574,25 @@
 
 .field public static final EXTRA_ASSIST_UID:Ljava/lang/String; = "android.intent.extra.ASSIST_UID"
 
+.field public static final EXTRA_AUTO_LAUNCH_SINGLE_CHOICE:Ljava/lang/String; = "android.intent.extra.AUTO_LAUNCH_SINGLE_CHOICE"
+
 .field public static final EXTRA_BCC:Ljava/lang/String; = "android.intent.extra.BCC"
 
 .field public static final EXTRA_BUG_REPORT:Ljava/lang/String; = "android.intent.extra.BUG_REPORT"
 
+.field public static final EXTRA_CALLING_PACKAGE:Ljava/lang/String; = "android.intent.extra.CALLING_PACKAGE"
+
 .field public static final EXTRA_CC:Ljava/lang/String; = "android.intent.extra.CC"
+
+.field public static final EXTRA_CDMA_DEFAULT_ROAMING_INDICATOR:Ljava/lang/String; = "cdmaDefaultRoamingIndicator"
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
+
+.field public static final EXTRA_CDMA_ROAMING_INDICATOR:Ljava/lang/String; = "cdmaRoamingIndicator"
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
 
 .field public static final EXTRA_CHANGED_COMPONENT_NAME:Ljava/lang/String; = "android.intent.extra.changed_component_name"
     .annotation runtime Ljava/lang/Deprecated;
@@ -532,7 +617,46 @@
 
 .field public static final EXTRA_CLIENT_LABEL:Ljava/lang/String; = "android.intent.extra.client_label"
 
+.field public static final EXTRA_COMPONENT_NAME:Ljava/lang/String; = "android.intent.extra.COMPONENT_NAME"
+
+.field public static final EXTRA_CONTENT_ANNOTATIONS:Ljava/lang/String; = "android.intent.extra.CONTENT_ANNOTATIONS"
+
+.field public static final EXTRA_CSS_INDICATOR:Ljava/lang/String; = "cssIndicator"
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
+
+.field public static final EXTRA_DATA_OPERATOR_ALPHA_LONG:Ljava/lang/String; = "data-operator-alpha-long"
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
+
+.field public static final EXTRA_DATA_OPERATOR_ALPHA_SHORT:Ljava/lang/String; = "data-operator-alpha-short"
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
+
+.field public static final EXTRA_DATA_OPERATOR_NUMERIC:Ljava/lang/String; = "data-operator-numeric"
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
+
+.field public static final EXTRA_DATA_RADIO_TECH:Ljava/lang/String; = "dataRadioTechnology"
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
+
+.field public static final EXTRA_DATA_REG_STATE:Ljava/lang/String; = "dataRegState"
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
+
 .field public static final EXTRA_DATA_REMOVED:Ljava/lang/String; = "android.intent.extra.DATA_REMOVED"
+
+.field public static final EXTRA_DATA_ROAMING_TYPE:Ljava/lang/String; = "dataRoamingType"
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
 
 .field public static final EXTRA_DOCK_STATE:Ljava/lang/String; = "android.intent.extra.DOCK_STATE"
 
@@ -552,6 +676,8 @@
 
 .field public static final EXTRA_DOCK_STATE_HMT:I = 0x69
 
+.field public static final EXTRA_DOCK_STATE_HMT_TETHERED:I = 0x70
+
 .field public static final EXTRA_DOCK_STATE_KEYBOARD:I = 0x67
 
 .field public static final EXTRA_DOCK_STATE_LE_DESK:I = 0x3
@@ -564,11 +690,29 @@
 
 .field public static final EXTRA_EMAIL:Ljava/lang/String; = "android.intent.extra.EMAIL"
 
+.field public static final EXTRA_EMERGENCY_ONLY:Ljava/lang/String; = "emergencyOnly"
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
+
 .field public static final EXTRA_EPHEMERAL_FAILURE:Ljava/lang/String; = "android.intent.extra.EPHEMERAL_FAILURE"
+
+.field public static final EXTRA_EPHEMERAL_HOSTNAME:Ljava/lang/String; = "android.intent.extra.EPHEMERAL_HOSTNAME"
 
 .field public static final EXTRA_EPHEMERAL_SUCCESS:Ljava/lang/String; = "android.intent.extra.EPHEMERAL_SUCCESS"
 
+.field public static final EXTRA_EPHEMERAL_TOKEN:Ljava/lang/String; = "android.intent.extra.EPHEMERAL_TOKEN"
+
 .field public static final EXTRA_EXCLUDE_COMPONENTS:Ljava/lang/String; = "android.intent.extra.EXCLUDE_COMPONENTS"
+
+.field public static final EXTRA_FORCE_FACTORY_RESET:Ljava/lang/String; = "android.intent.extra.FORCE_FACTORY_RESET"
+
+.field public static final EXTRA_FORCE_MASTER_CLEAR:Ljava/lang/String; = "android.intent.extra.FORCE_MASTER_CLEAR"
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
+
+.field public static final EXTRA_FROM_STORAGE:Ljava/lang/String; = "android.intent.extra.FROM_STORAGE"
 
 .field public static final EXTRA_HTML_TEXT:Ljava/lang/String; = "android.intent.extra.HTML_TEXT"
 
@@ -584,6 +728,16 @@
 
 .field public static final EXTRA_INTENT_FROM_MARS:Ljava/lang/String; = "com.samsung.android.intent.extra.INTENT_FROM_MARS"
 
+.field public static final EXTRA_IS_DATA_ROAMING_FROM_REGISTRATION:Ljava/lang/String; = "isDataRoamingFromRegistration"
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
+
+.field public static final EXTRA_IS_USING_CARRIER_AGGREGATION:Ljava/lang/String; = "isUsingCarrierAggregation"
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
+
 .field public static final EXTRA_KEY_CONFIRM:Ljava/lang/String; = "android.intent.extra.KEY_CONFIRM"
 
 .field public static final EXTRA_KEY_EVENT:Ljava/lang/String; = "android.intent.extra.KEY_EVENT"
@@ -594,6 +748,16 @@
 
 .field public static final EXTRA_LOCAL_ONLY:Ljava/lang/String; = "android.intent.extra.LOCAL_ONLY"
 
+.field public static final EXTRA_LTE_EARFCN_RSRP_BOOST:Ljava/lang/String; = "LteEarfcnRsrpBoost"
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
+
+.field public static final EXTRA_MANUAL:Ljava/lang/String; = "manual"
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
+
 .field public static final EXTRA_MEDIA_RESOURCE_TYPE:Ljava/lang/String; = "android.intent.extra.MEDIA_RESOURCE_TYPE"
 
 .field public static final EXTRA_MEDIA_RESOURCE_TYPE_AUDIO_CODEC:I = 0x1
@@ -602,7 +766,27 @@
 
 .field public static final EXTRA_MIME_TYPES:Ljava/lang/String; = "android.intent.extra.MIME_TYPES"
 
+.field public static final EXTRA_NETWORK_ID:Ljava/lang/String; = "networkId"
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
+
 .field public static final EXTRA_NOT_UNKNOWN_SOURCE:Ljava/lang/String; = "android.intent.extra.NOT_UNKNOWN_SOURCE"
+
+.field public static final EXTRA_OPERATOR_ALPHA_LONG:Ljava/lang/String; = "operator-alpha-long"
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
+
+.field public static final EXTRA_OPERATOR_ALPHA_SHORT:Ljava/lang/String; = "operator-alpha-short"
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
+
+.field public static final EXTRA_OPERATOR_NUMERIC:Ljava/lang/String; = "operator-numeric"
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
 
 .field public static final EXTRA_ORIGINATING_UID:Ljava/lang/String; = "android.intent.extra.ORIGINATING_UID"
 
@@ -621,6 +805,13 @@
 .field public static final EXTRA_PROCESS_TEXT:Ljava/lang/String; = "android.intent.extra.PROCESS_TEXT"
 
 .field public static final EXTRA_PROCESS_TEXT_READONLY:Ljava/lang/String; = "android.intent.extra.PROCESS_TEXT_READONLY"
+
+.field public static final EXTRA_QUICK_VIEW_ADVANCED:Ljava/lang/String; = "android.intent.extra.QUICK_VIEW_ADVANCED"
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
+
+.field public static final EXTRA_QUICK_VIEW_FEATURES:Ljava/lang/String; = "android.intent.extra.QUICK_VIEW_FEATURES"
 
 .field public static final EXTRA_QUIET_MODE:Ljava/lang/String; = "android.intent.extra.QUIET_MODE"
 
@@ -659,12 +850,24 @@
 .field public static final EXTRA_SETTING_PREVIOUS_VALUE:Ljava/lang/String; = "previous_value"
 
 .field public static final EXTRA_SHORTCUT_ICON:Ljava/lang/String; = "android.intent.extra.shortcut.ICON"
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
 
 .field public static final EXTRA_SHORTCUT_ICON_RESOURCE:Ljava/lang/String; = "android.intent.extra.shortcut.ICON_RESOURCE"
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
 
 .field public static final EXTRA_SHORTCUT_INTENT:Ljava/lang/String; = "android.intent.extra.shortcut.INTENT"
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
 
 .field public static final EXTRA_SHORTCUT_NAME:Ljava/lang/String; = "android.intent.extra.shortcut.NAME"
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
 
 .field public static final EXTRA_SHUTDOWN_USERSPACE_ONLY:Ljava/lang/String; = "android.intent.extra.SHUTDOWN_USERSPACE_ONLY"
 
@@ -676,9 +879,16 @@
 
 .field public static final EXTRA_SMART_DOCK_STATE_UNDOCKED:I = 0x0
 
+.field public static final EXTRA_SPLIT_NAME:Ljava/lang/String; = "android.intent.extra.SPLIT_NAME"
+
 .field public static final EXTRA_STREAM:Ljava/lang/String; = "android.intent.extra.STREAM"
 
 .field public static final EXTRA_SUBJECT:Ljava/lang/String; = "android.intent.extra.SUBJECT"
+
+.field public static final EXTRA_SYSTEM_ID:Ljava/lang/String; = "systemId"
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
 
 .field public static final EXTRA_TASK_ID:Ljava/lang/String; = "android.intent.extra.TASK_ID"
 
@@ -696,6 +906,12 @@
 
 .field public static final EXTRA_TIME_PREF_24_HOUR_FORMAT:Ljava/lang/String; = "android.intent.extra.TIME_PREF_24_HOUR_FORMAT"
 
+.field public static final EXTRA_TIME_PREF_VALUE_USE_12_HOUR:I = 0x0
+
+.field public static final EXTRA_TIME_PREF_VALUE_USE_24_HOUR:I = 0x1
+
+.field public static final EXTRA_TIME_PREF_VALUE_USE_LOCALE_DEFAULT:I = 0x2
+
 .field public static final EXTRA_TITLE:Ljava/lang/String; = "android.intent.extra.TITLE"
 
 .field public static final EXTRA_UID:Ljava/lang/String; = "android.intent.extra.UID"
@@ -708,10 +924,6 @@
 
 .field public static final EXTRA_USB_HID_DEVICE_NAME:Ljava/lang/String; = "android.intent.extra.device_name"
 
-.field public static final EXTRA_USB_HID_STATE_ATTACHED:I = 0x1
-
-.field public static final EXTRA_USB_HID_STATE_DETTACHED:I = 0x0
-
 .field public static final EXTRA_USER:Ljava/lang/String; = "android.intent.extra.USER"
 
 .field public static final EXTRA_USER_HANDLE:Ljava/lang/String; = "android.intent.extra.user_handle"
@@ -719,6 +931,25 @@
 .field public static final EXTRA_USER_ID:Ljava/lang/String; = "android.intent.extra.USER_ID"
 
 .field public static final EXTRA_USER_REQUESTED_SHUTDOWN:Ljava/lang/String; = "android.intent.extra.USER_REQUESTED_SHUTDOWN"
+
+.field public static final EXTRA_VERIFICATION_BUNDLE:Ljava/lang/String; = "android.intent.extra.VERIFICATION_BUNDLE"
+
+.field public static final EXTRA_VERSION_CODE:Ljava/lang/String; = "android.intent.extra.VERSION_CODE"
+
+.field public static final EXTRA_VOICE_RADIO_TECH:Ljava/lang/String; = "radioTechnology"
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
+
+.field public static final EXTRA_VOICE_REG_STATE:Ljava/lang/String; = "voiceRegState"
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
+
+.field public static final EXTRA_VOICE_ROAMING_TYPE:Ljava/lang/String; = "voiceRoamingType"
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
 
 .field public static final EXTRA_WIPE_EXTERNAL_STORAGE:Ljava/lang/String; = "android.intent.extra.WIPE_EXTERNAL_STORAGE"
 
@@ -745,6 +976,9 @@
 .field public static final FLAG_ACTIVITY_CLEAR_TOP:I = 0x4000000
 
 .field public static final FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET:I = 0x80000
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
 
 .field public static final FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS:I = 0x800000
 
@@ -794,6 +1028,8 @@
 
 .field public static final FLAG_GRANT_WRITE_URI_PERMISSION:I = 0x2
 
+.field public static final FLAG_IGNORE_EPHEMERAL:I = 0x200
+
 .field public static final FLAG_INCLUDE_STOPPED_PACKAGES:I = 0x20
 
 .field public static final FLAG_RECEIVER_BOOT_UPGRADE:I = 0x2000000
@@ -801,6 +1037,8 @@
 .field public static final FLAG_RECEIVER_EXCLUDE_BACKGROUND:I = 0x800000
 
 .field public static final FLAG_RECEIVER_FOREGROUND:I = 0x10000000
+
+.field public static final FLAG_RECEIVER_FROM_SHELL:I = 0x400000
 
 .field public static final FLAG_RECEIVER_INCLUDE_BACKGROUND:I = 0x1000000
 
@@ -811,6 +1049,8 @@
 .field public static final FLAG_RECEIVER_REGISTERED_ONLY_BEFORE_BOOT:I = 0x4000000
 
 .field public static final FLAG_RECEIVER_REPLACE_PENDING:I = 0x20000000
+
+.field public static final FLAG_RECEIVER_VISIBLE_TO_INSTANT_APPS:I = 0x200000
 
 .field public static final IMMUTABLE_FLAGS:I = 0xc3
 
@@ -828,6 +1068,14 @@
 
 .field public static final SAMSUNGFRAMEWORK_MULTISCREEN_MULTISCREENLAUNCHPARAMS:Ljava/lang/String; = "com.samsung.android.multiscreen.MultiScreenLaunchParams"
 
+.field public static final SAMSUNGFRAMEWORK_MULTIWINDOW_STARTPAIRACTIVITY_CHILD:I = 0xb
+
+.field public static final SAMSUNGFRAMEWORK_MULTIWINDOW_STARTPAIRACTIVITY_DOCKED:I = 0x3
+
+.field public static final SAMSUNGFRAMEWORK_MULTIWINDOW_STARTPAIRACTIVITY_FULLSCREEN:I = 0x1
+
+.field public static final SAMSUNGFRAMEWORK_MULTIWINDOW_STARTPAIRACTIVITY_NONE:I = -0x1
+
 .field public static final SEM_ACTION_CANCEL_ALARM_FROM_MARS:Ljava/lang/String; = "com.samsung.android.intent.action.CANCEL_ALARM_FROM_MARS"
 
 .field public static final SEM_ACTION_PALM_DOWN:Ljava/lang/String; = "com.samsung.android.motion.PALM_DOWN"
@@ -842,9 +1090,21 @@
 
 .field public static final SEM_ACTION_USER_SWITCHED:Ljava/lang/String; = "android.intent.action.USER_SWITCHED"
 
+.field public static final SEM_EXTRA_DOCK_ID:Ljava/lang/String; = "com.sec.intent.extra.DOCK_ID"
+
 .field public static final SEM_EXTRA_DOCK_STATE_AUDIO_DOCK:I = 0x65
 
+.field public static final SEM_EXTRA_DOCK_STATE_DEX_PAD:I = 0x72
+
+.field public static final SEM_EXTRA_DOCK_STATE_DEX_STATION:I = 0x6e
+
+.field public static final SEM_EXTRA_DOCK_STATE_HDMI_ADAPTER:I = 0x6f
+
 .field public static final SEM_EXTRA_DOCK_STATE_MIRRORLINK:I = 0x68
+
+.field public static final SEM_EXTRA_DOCK_STATE_MULTIPORT_ADAPTER:I = 0x6d
+
+.field public static final SEM_EXTRA_DOCK_STATE_REQUIRES_ID:I = 0xc8
 
 .field public static final SEM_EXTRA_KEY_CONFIRM:Ljava/lang/String; = "android.intent.extra.KEY_CONFIRM"
 
@@ -887,8 +1147,6 @@
 # instance fields
 .field private mAction:Ljava/lang/String;
 
-.field private mBroadcastQueueHint:I
-
 .field private mCategories:Landroid/util/ArraySet;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -912,9 +1170,17 @@
 
 .field private mFlags:I
 
+.field private mFromPendingIntent:Z
+
 .field private mLaunchParams:Ljava/lang/Object;
 
+.field private mLaunchToken:Ljava/lang/String;
+
 .field private mPackage:Ljava/lang/String;
+
+.field private mPairActivityMode:I
+
+.field private mPairActivityUserId:I
 
 .field private mSelector:Landroid/content/Intent;
 
@@ -989,9 +1255,19 @@
     .catch Ljava/lang/InstantiationException; {:try_start_0 .. :try_end_0} :catch_0
 
     :cond_0
+    const/4 v2, 0x0
+
+    iput-boolean v2, p0, Landroid/content/Intent;->mFromPendingIntent:Z
+
     const/4 v2, -0x1
 
-    iput v2, p0, Landroid/content/Intent;->mBroadcastQueueHint:I
+    iput v2, p0, Landroid/content/Intent;->mPairActivityMode:I
+
+    invoke-static {}, Landroid/os/UserHandle;->myUserId()I
+
+    move-result v2
+
+    iput v2, p0, Landroid/content/Intent;->mPairActivityUserId:I
 
     return-void
 
@@ -1052,9 +1328,19 @@
     .catch Ljava/lang/InstantiationException; {:try_start_0 .. :try_end_0} :catch_0
 
     :cond_0
+    const/4 v2, 0x0
+
+    iput-boolean v2, p0, Landroid/content/Intent;->mFromPendingIntent:Z
+
     const/4 v2, -0x1
 
-    iput v2, p0, Landroid/content/Intent;->mBroadcastQueueHint:I
+    iput v2, p0, Landroid/content/Intent;->mPairActivityMode:I
+
+    invoke-static {}, Landroid/os/UserHandle;->myUserId()I
+
+    move-result v2
+
+    iput v2, p0, Landroid/content/Intent;->mPairActivityUserId:I
 
     new-instance v2, Landroid/content/ComponentName;
 
@@ -1113,9 +1399,19 @@
     .catch Ljava/lang/InstantiationException; {:try_start_0 .. :try_end_0} :catch_0
 
     :cond_0
+    const/4 v2, 0x0
+
+    iput-boolean v2, p0, Landroid/content/Intent;->mFromPendingIntent:Z
+
     const/4 v2, -0x1
 
-    iput v2, p0, Landroid/content/Intent;->mBroadcastQueueHint:I
+    iput v2, p0, Landroid/content/Intent;->mPairActivityMode:I
+
+    invoke-static {}, Landroid/os/UserHandle;->myUserId()I
+
+    move-result v2
+
+    iput v2, p0, Landroid/content/Intent;->mPairActivityUserId:I
 
     iget-object v2, p1, Landroid/content/Intent;->mAction:Ljava/lang/String;
 
@@ -1144,6 +1440,10 @@
     iget v2, p1, Landroid/content/Intent;->mContentUserHint:I
 
     iput v2, p0, Landroid/content/Intent;->mContentUserHint:I
+
+    iget-object v2, p1, Landroid/content/Intent;->mLaunchToken:Ljava/lang/String;
+
+    iput-object v2, p0, Landroid/content/Intent;->mLaunchToken:Ljava/lang/String;
 
     iget-object v2, p1, Landroid/content/Intent;->mCategories:Landroid/util/ArraySet;
 
@@ -1214,9 +1514,17 @@
 
     iput-object v2, p0, Landroid/content/Intent;->mLaunchParams:Ljava/lang/Object;
 
-    iget v2, p1, Landroid/content/Intent;->mBroadcastQueueHint:I
+    iget v2, p1, Landroid/content/Intent;->mPairActivityMode:I
 
-    iput v2, p0, Landroid/content/Intent;->mBroadcastQueueHint:I
+    iput v2, p0, Landroid/content/Intent;->mPairActivityMode:I
+
+    iget v2, p1, Landroid/content/Intent;->mPairActivityUserId:I
+
+    iput v2, p0, Landroid/content/Intent;->mPairActivityUserId:I
+
+    iget-boolean v2, p1, Landroid/content/Intent;->mFromPendingIntent:Z
+
+    iput-boolean v2, p0, Landroid/content/Intent;->mFromPendingIntent:Z
 
     return-void
 
@@ -1269,9 +1577,19 @@
     .catch Ljava/lang/InstantiationException; {:try_start_0 .. :try_end_0} :catch_0
 
     :cond_0
+    const/4 v2, 0x0
+
+    iput-boolean v2, p0, Landroid/content/Intent;->mFromPendingIntent:Z
+
     const/4 v2, -0x1
 
-    iput v2, p0, Landroid/content/Intent;->mBroadcastQueueHint:I
+    iput v2, p0, Landroid/content/Intent;->mPairActivityMode:I
+
+    invoke-static {}, Landroid/os/UserHandle;->myUserId()I
+
+    move-result v2
+
+    iput v2, p0, Landroid/content/Intent;->mPairActivityUserId:I
 
     iget-object v2, p1, Landroid/content/Intent;->mAction:Ljava/lang/String;
 
@@ -1310,9 +1628,17 @@
 
     iput-object v2, p0, Landroid/content/Intent;->mLaunchParams:Ljava/lang/Object;
 
-    iget v2, p1, Landroid/content/Intent;->mBroadcastQueueHint:I
+    iget v2, p1, Landroid/content/Intent;->mPairActivityMode:I
 
-    iput v2, p0, Landroid/content/Intent;->mBroadcastQueueHint:I
+    iput v2, p0, Landroid/content/Intent;->mPairActivityMode:I
+
+    iget v2, p1, Landroid/content/Intent;->mPairActivityUserId:I
+
+    iput v2, p0, Landroid/content/Intent;->mPairActivityUserId:I
+
+    iget-boolean v2, p1, Landroid/content/Intent;->mFromPendingIntent:Z
+
+    iput-boolean v2, p0, Landroid/content/Intent;->mFromPendingIntent:Z
 
     return-void
 
@@ -1365,9 +1691,19 @@
     .catch Ljava/lang/InstantiationException; {:try_start_0 .. :try_end_0} :catch_0
 
     :cond_0
+    const/4 v2, 0x0
+
+    iput-boolean v2, p0, Landroid/content/Intent;->mFromPendingIntent:Z
+
     const/4 v2, -0x1
 
-    iput v2, p0, Landroid/content/Intent;->mBroadcastQueueHint:I
+    iput v2, p0, Landroid/content/Intent;->mPairActivityMode:I
+
+    invoke-static {}, Landroid/os/UserHandle;->myUserId()I
+
+    move-result v2
+
+    iput v2, p0, Landroid/content/Intent;->mPairActivityUserId:I
 
     invoke-virtual {p0, p1}, Landroid/content/Intent;->readFromParcel(Landroid/os/Parcel;)V
 
@@ -1422,9 +1758,19 @@
     .catch Ljava/lang/InstantiationException; {:try_start_0 .. :try_end_0} :catch_0
 
     :cond_0
+    const/4 v2, 0x0
+
+    iput-boolean v2, p0, Landroid/content/Intent;->mFromPendingIntent:Z
+
     const/4 v2, -0x1
 
-    iput v2, p0, Landroid/content/Intent;->mBroadcastQueueHint:I
+    iput v2, p0, Landroid/content/Intent;->mPairActivityMode:I
+
+    invoke-static {}, Landroid/os/UserHandle;->myUserId()I
+
+    move-result v2
+
+    iput v2, p0, Landroid/content/Intent;->mPairActivityUserId:I
 
     invoke-virtual {p0, p1}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
 
@@ -1479,9 +1825,19 @@
     .catch Ljava/lang/InstantiationException; {:try_start_0 .. :try_end_0} :catch_0
 
     :cond_0
+    const/4 v2, 0x0
+
+    iput-boolean v2, p0, Landroid/content/Intent;->mFromPendingIntent:Z
+
     const/4 v2, -0x1
 
-    iput v2, p0, Landroid/content/Intent;->mBroadcastQueueHint:I
+    iput v2, p0, Landroid/content/Intent;->mPairActivityMode:I
+
+    invoke-static {}, Landroid/os/UserHandle;->myUserId()I
+
+    move-result v2
+
+    iput v2, p0, Landroid/content/Intent;->mPairActivityUserId:I
 
     invoke-virtual {p0, p1}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
 
@@ -1548,9 +1904,19 @@
     .catch Ljava/lang/InstantiationException; {:try_start_0 .. :try_end_0} :catch_0
 
     :cond_0
+    const/4 v2, 0x0
+
+    iput-boolean v2, p0, Landroid/content/Intent;->mFromPendingIntent:Z
+
     const/4 v2, -0x1
 
-    iput v2, p0, Landroid/content/Intent;->mBroadcastQueueHint:I
+    iput v2, p0, Landroid/content/Intent;->mPairActivityMode:I
+
+    invoke-static {}, Landroid/os/UserHandle;->myUserId()I
+
+    move-result v2
+
+    iput v2, p0, Landroid/content/Intent;->mPairActivityUserId:I
 
     invoke-virtual {p0, p1}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
 
@@ -2792,7 +3158,7 @@
 
     move-result-object v27
 
-    if-eqz v27, :cond_42
+    if-eqz v27, :cond_44
 
     const-string/jumbo v33, "-a"
 
@@ -3087,7 +3453,7 @@
 
     move-result-object v10
 
-    if-nez v10, :cond_33
+    if-nez v10, :cond_35
 
     new-instance v33, Ljava/lang/IllegalArgumentException;
 
@@ -3169,7 +3535,7 @@
 
     move/from16 v1, v33
 
-    if-ge v0, v1, :cond_34
+    if-ge v0, v1, :cond_36
 
     aget-object v33, v29, v16
 
@@ -3241,7 +3607,7 @@
 
     move/from16 v1, v33
 
-    if-ge v0, v1, :cond_35
+    if-ge v0, v1, :cond_37
 
     aget-object v33, v29, v16
 
@@ -3346,7 +3712,7 @@
 
     move/from16 v1, v33
 
-    if-ge v0, v1, :cond_36
+    if-ge v0, v1, :cond_38
 
     aget-object v33, v29, v16
 
@@ -3418,7 +3784,7 @@
 
     move/from16 v1, v33
 
-    if-ge v0, v1, :cond_37
+    if-ge v0, v1, :cond_39
 
     aget-object v33, v29, v16
 
@@ -3525,7 +3891,7 @@
 
     move/from16 v1, v33
 
-    if-ge v0, v1, :cond_38
+    if-ge v0, v1, :cond_3a
 
     aget-object v33, v29, v16
 
@@ -3597,7 +3963,7 @@
 
     move/from16 v1, v33
 
-    if-ge v0, v1, :cond_39
+    if-ge v0, v1, :cond_3b
 
     aget-object v33, v29, v16
 
@@ -3708,7 +4074,7 @@
 
     move/from16 v1, v33
 
-    if-ge v0, v1, :cond_3a
+    if-ge v0, v1, :cond_3c
 
     aget-object v33, v29, v16
 
@@ -3769,7 +4135,7 @@
 
     move-result v33
 
-    if-eqz v33, :cond_3b
+    if-eqz v33, :cond_3d
 
     :cond_15
     const/4 v5, 0x1
@@ -3804,7 +4170,7 @@
 
     move-result-object v10
 
-    if-nez v10, :cond_3f
+    if-nez v10, :cond_41
 
     new-instance v33, Ljava/lang/IllegalArgumentException;
 
@@ -4476,6 +4842,52 @@
     goto/16 :goto_0
 
     :cond_32
+    const-string/jumbo v33, "--receiver-no-abort"
+
+    move-object/from16 v0, v27
+
+    move-object/from16 v1, v33
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v33
+
+    if-eqz v33, :cond_33
+
+    const/high16 v33, 0x8000000
+
+    move-object/from16 v0, v18
+
+    move/from16 v1, v33
+
+    invoke-virtual {v0, v1}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
+
+    goto/16 :goto_0
+
+    :cond_33
+    const-string/jumbo v33, "--receiver-include-background"
+
+    move-object/from16 v0, v27
+
+    move-object/from16 v1, v33
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v33
+
+    if-eqz v33, :cond_34
+
+    const/high16 v33, 0x1000000
+
+    move-object/from16 v0, v18
+
+    move/from16 v1, v33
+
+    invoke-virtual {v0, v1}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
+
+    goto/16 :goto_0
+
+    :cond_34
     const-string/jumbo v33, "--selector"
 
     move-object/from16 v0, v27
@@ -4486,7 +4898,7 @@
 
     move-result v33
 
-    if-eqz v33, :cond_40
+    if-eqz v33, :cond_42
 
     move-object/from16 v0, v18
 
@@ -4500,7 +4912,7 @@
 
     goto/16 :goto_0
 
-    :cond_33
+    :cond_35
     move-object/from16 v0, v18
 
     move-object/from16 v1, v19
@@ -4509,7 +4921,7 @@
 
     goto/16 :goto_0
 
-    :cond_34
+    :cond_36
     move-object/from16 v0, v18
 
     move-object/from16 v1, v19
@@ -4520,7 +4932,7 @@
 
     goto/16 :goto_0
 
-    :cond_35
+    :cond_37
     move-object/from16 v0, v18
 
     move-object/from16 v1, v19
@@ -4531,7 +4943,7 @@
 
     goto/16 :goto_0
 
-    :cond_36
+    :cond_38
     move-object/from16 v0, v18
 
     move-object/from16 v1, v19
@@ -4544,7 +4956,7 @@
 
     goto/16 :goto_0
 
-    :cond_37
+    :cond_39
     move-object/from16 v0, v18
 
     move-object/from16 v1, v19
@@ -4557,7 +4969,7 @@
 
     goto/16 :goto_0
 
-    :cond_38
+    :cond_3a
     move-object/from16 v0, v18
 
     move-object/from16 v1, v19
@@ -4570,14 +4982,14 @@
 
     goto/16 :goto_0
 
-    :cond_39
+    :cond_3b
     invoke-virtual/range {v18 .. v20}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/io/Serializable;)Landroid/content/Intent;
 
     const/4 v14, 0x1
 
     goto/16 :goto_0
 
-    :cond_3a
+    :cond_3c
     move-object/from16 v0, v18
 
     move-object/from16 v1, v19
@@ -4590,7 +5002,7 @@
 
     goto/16 :goto_0
 
-    :cond_3b
+    :cond_3d
     const-string/jumbo v33, "false"
 
     move-object/from16 v0, v33
@@ -4601,7 +5013,7 @@
 
     move-result v33
 
-    if-nez v33, :cond_3c
+    if-nez v33, :cond_3e
 
     const-string/jumbo v33, "f"
 
@@ -4613,14 +5025,14 @@
 
     move-result v33
 
-    if-eqz v33, :cond_3d
+    if-eqz v33, :cond_3f
 
-    :cond_3c
+    :cond_3e
     const/4 v5, 0x0
 
     goto/16 :goto_8
 
-    :cond_3d
+    :cond_3f
     :try_start_0
     invoke-static/range {v32 .. v32}, Ljava/lang/Integer;->decode(Ljava/lang/String;)Ljava/lang/Integer;
 
@@ -4632,13 +5044,13 @@
 
     move-result v33
 
-    if-eqz v33, :cond_3e
+    if-eqz v33, :cond_40
 
     const/4 v5, 0x1
 
     goto/16 :goto_8
 
-    :cond_3e
+    :cond_40
     const/4 v5, 0x0
 
     goto/16 :goto_8
@@ -4674,7 +5086,7 @@
 
     throw v33
 
-    :cond_3f
+    :cond_41
     move-object/from16 v0, v18
 
     invoke-virtual {v0, v10}, Landroid/content/Intent;->setComponent(Landroid/content/ComponentName;)Landroid/content/Intent;
@@ -4689,8 +5101,8 @@
 
     goto/16 :goto_0
 
-    :cond_40
-    if-eqz p1, :cond_41
+    :cond_42
+    if-eqz p1, :cond_43
 
     move-object/from16 v0, p1
 
@@ -4704,7 +5116,7 @@
 
     if-nez v33, :cond_0
 
-    :cond_41
+    :cond_43
     new-instance v33, Ljava/lang/IllegalArgumentException;
 
     new-instance v34, Ljava/lang/StringBuilder;
@@ -4733,7 +5145,7 @@
 
     throw v33
 
-    :cond_42
+    :cond_44
     move-object/from16 v0, v18
 
     move-object/from16 v1, v30
@@ -4744,12 +5156,12 @@
 
     move-object/from16 v1, v17
 
-    if-eq v0, v1, :cond_44
+    if-eq v0, v1, :cond_46
 
     const/4 v15, 0x1
 
     :goto_9
-    if-eqz v15, :cond_4d
+    if-eqz v15, :cond_4f
 
     invoke-virtual/range {v17 .. v18}, Landroid/content/Intent;->setSelector(Landroid/content/Intent;)V
 
@@ -4760,9 +5172,9 @@
 
     const/4 v6, 0x0
 
-    if-nez v4, :cond_45
+    if-nez v4, :cond_47
 
-    if-eqz v15, :cond_43
+    if-eqz v15, :cond_45
 
     new-instance v6, Landroid/content/Intent;
 
@@ -4778,9 +5190,9 @@
 
     invoke-virtual {v6, v0}, Landroid/content/Intent;->addCategory(Ljava/lang/String;)Landroid/content/Intent;
 
-    :cond_43
+    :cond_45
     :goto_b
-    if-eqz v6, :cond_4a
+    if-eqz v6, :cond_4c
 
     invoke-virtual/range {v17 .. v17}, Landroid/content/Intent;->getExtras()Landroid/os/Bundle;
 
@@ -4812,13 +5224,13 @@
 
     move-result-object v33
 
-    if-eqz v33, :cond_48
+    if-eqz v33, :cond_4a
 
     invoke-virtual {v6}, Landroid/content/Intent;->getCategories()Ljava/util/Set;
 
     move-result-object v33
 
-    if-eqz v33, :cond_48
+    if-eqz v33, :cond_4a
 
     new-instance v9, Ljava/util/HashSet;
 
@@ -4839,7 +5251,7 @@
 
     move-result v33
 
-    if-eqz v33, :cond_48
+    if-eqz v33, :cond_4a
 
     invoke-interface {v8}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -4851,12 +5263,12 @@
 
     goto :goto_c
 
-    :cond_44
+    :cond_46
     const/4 v15, 0x0
 
     goto :goto_9
 
-    :cond_45
+    :cond_47
     const/16 v33, 0x3a
 
     move/from16 v0, v33
@@ -4865,7 +5277,7 @@
 
     move-result v33
 
-    if-ltz v33, :cond_46
+    if-ltz v33, :cond_48
 
     const/16 v33, 0x7
 
@@ -4877,7 +5289,7 @@
 
     goto :goto_b
 
-    :cond_46
+    :cond_48
     const/16 v33, 0x2f
 
     move/from16 v0, v33
@@ -4886,7 +5298,7 @@
 
     move-result v33
 
-    if-ltz v33, :cond_47
+    if-ltz v33, :cond_49
 
     new-instance v6, Landroid/content/Intent;
 
@@ -4912,7 +5324,7 @@
 
     goto/16 :goto_b
 
-    :cond_47
+    :cond_49
     new-instance v6, Landroid/content/Intent;
 
     const-string/jumbo v33, "android.intent.action.MAIN"
@@ -4931,7 +5343,7 @@
 
     goto/16 :goto_b
 
-    :cond_48
+    :cond_4a
     const/16 v33, 0x48
 
     move-object/from16 v0, v17
@@ -4940,11 +5352,11 @@
 
     invoke-virtual {v0, v6, v1}, Landroid/content/Intent;->fillIn(Landroid/content/Intent;I)I
 
-    if-nez v13, :cond_4b
+    if-nez v13, :cond_4d
 
     move-object/from16 v13, v31
 
-    :cond_49
+    :cond_4b
     :goto_d
     move-object/from16 v0, v17
 
@@ -4952,8 +5364,8 @@
 
     const/4 v14, 0x1
 
-    :cond_4a
-    if-nez v14, :cond_4c
+    :cond_4c
+    if-nez v14, :cond_4e
 
     new-instance v33, Ljava/lang/IllegalArgumentException;
 
@@ -4963,8 +5375,8 @@
 
     throw v33
 
-    :cond_4b
-    if-eqz v31, :cond_49
+    :cond_4d
+    if-eqz v31, :cond_4b
 
     move-object/from16 v0, v31
 
@@ -4974,10 +5386,10 @@
 
     goto :goto_d
 
-    :cond_4c
+    :cond_4e
     return-object v17
 
-    :cond_4d
+    :cond_4f
     move-object/from16 v17, v18
 
     goto/16 :goto_a
@@ -5205,40 +5617,10 @@
 
     if-nez v24, :cond_0
 
-    if-eqz v4, :cond_1
+    xor-int/lit8 v24, v4, 0x1
 
-    :cond_0
-    const-string/jumbo v24, "#"
+    if-eqz v24, :cond_0
 
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v24
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->lastIndexOf(Ljava/lang/String;)I
-
-    move-result v14
-
-    const/16 v24, -0x1
-
-    move/from16 v0, v24
-
-    if-ne v14, v0, :cond_2
-
-    if-nez v4, :cond_4
-
-    new-instance v24, Landroid/content/Intent;
-
-    const-string/jumbo v25, "android.intent.action.VIEW"
-
-    invoke-static/range {p0 .. p0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
-
-    move-result-object v26
-
-    invoke-direct/range {v24 .. v26}, Landroid/content/Intent;-><init>(Ljava/lang/String;Landroid/net/Uri;)V
-
-    return-object v24
-
-    :cond_1
     new-instance v16, Landroid/content/Intent;
 
     const-string/jumbo v24, "android.intent.action.VIEW"
@@ -5306,8 +5688,39 @@
 
     throw v24
 
-    :cond_2
+    :cond_0
     :try_start_3
+    const-string/jumbo v24, "#"
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v24
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->lastIndexOf(Ljava/lang/String;)I
+
+    move-result v14
+
+    const/16 v24, -0x1
+
+    move/from16 v0, v24
+
+    if-ne v14, v0, :cond_1
+
+    if-nez v4, :cond_3
+
+    new-instance v24, Landroid/content/Intent;
+
+    const-string/jumbo v25, "android.intent.action.VIEW"
+
+    invoke-static/range {p0 .. p0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v26
+
+    invoke-direct/range {v24 .. v26}, Landroid/content/Intent;-><init>(Ljava/lang/String;Landroid/net/Uri;)V
+
+    return-object v24
+
+    :cond_1
     const-string/jumbo v24, "#Intent;"
 
     move-object/from16 v0, p0
@@ -5318,9 +5731,9 @@
 
     move-result v24
 
-    if-nez v24, :cond_4
+    if-nez v24, :cond_3
 
-    if-nez v4, :cond_3
+    if-nez v4, :cond_2
 
     invoke-static/range {p0 .. p1}, Landroid/content/Intent;->getIntentOld(Ljava/lang/String;I)Landroid/content/Intent;
 
@@ -5328,10 +5741,10 @@
 
     return-object v24
 
-    :cond_3
+    :cond_2
     const/4 v14, -0x1
 
-    :cond_4
+    :cond_3
     new-instance v16, Landroid/content/Intent;
 
     const-string/jumbo v24, "android.intent.action.VIEW"
@@ -5350,7 +5763,7 @@
 
     const/16 v21, 0x0
 
-    if-ltz v14, :cond_9
+    if-ltz v14, :cond_6
 
     const/16 v24, 0x0
 
@@ -5367,7 +5780,7 @@
     move-object/from16 v17, v16
 
     :goto_0
-    if-ltz v14, :cond_5
+    if-ltz v14, :cond_1c
 
     const-string/jumbo v24, "end"
 
@@ -5379,111 +5792,12 @@
 
     move-result v24
 
-    if-eqz v24, :cond_a
+    xor-int/lit8 v24, v24, 0x1
 
-    :cond_5
-    if-eqz v15, :cond_2b
+    if-eqz v24, :cond_1c
 
-    move-object/from16 v0, v16
-
-    iget-object v0, v0, Landroid/content/Intent;->mPackage:Ljava/lang/String;
-
-    move-object/from16 v24, v0
-
-    if-nez v24, :cond_6
-
-    invoke-virtual/range {v16 .. v17}, Landroid/content/Intent;->setSelector(Landroid/content/Intent;)V
-
-    :cond_6
-    :goto_1
-    if-eqz v8, :cond_8
-
-    const-string/jumbo v24, "intent:"
-
-    move-object/from16 v0, v24
-
-    invoke-virtual {v8, v0}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
-
-    move-result v24
-
-    if-eqz v24, :cond_22
-
-    const/16 v24, 0x7
-
-    move/from16 v0, v24
-
-    invoke-virtual {v8, v0}, Ljava/lang/String;->substring(I)Ljava/lang/String;
-
-    move-result-object v8
-
-    if-eqz v21, :cond_7
-
-    new-instance v24, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v24 .. v24}, Ljava/lang/StringBuilder;-><init>()V
-
-    move-object/from16 v0, v24
-
-    move-object/from16 v1, v21
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v24
-
-    const/16 v25, 0x3a
-
-    invoke-virtual/range {v24 .. v25}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
-
-    move-result-object v24
-
-    move-object/from16 v0, v24
-
-    invoke-virtual {v0, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v24
-
-    invoke-virtual/range {v24 .. v24}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v8
-
-    :cond_7
-    :goto_2
-    invoke-virtual {v8}, Ljava/lang/String;->length()I
-    :try_end_3
-    .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_3 .. :try_end_3} :catch_1
-
-    move-result v24
-
-    if-lez v24, :cond_8
-
-    :try_start_4
-    invoke-static {v8}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
-
-    move-result-object v24
-
-    move-object/from16 v0, v24
-
-    move-object/from16 v1, v16
-
-    iput-object v0, v1, Landroid/content/Intent;->mData:Landroid/net/Uri;
-    :try_end_4
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_4 .. :try_end_4} :catch_2
-    .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_4 .. :try_end_4} :catch_1
-
-    :cond_8
-    return-object v16
-
-    :cond_9
-    move-object/from16 v8, p0
-
-    move-object/from16 v17, v16
-
-    goto :goto_0
-
-    :cond_a
     const/16 v24, 0x3d
 
-    :try_start_5
     move-object/from16 v0, p0
 
     move/from16 v1, v24
@@ -5492,11 +5806,11 @@
 
     move-result v12
 
-    if-gez v12, :cond_b
+    if-gez v12, :cond_4
 
     add-int/lit8 v12, v14, -0x1
 
-    :cond_b
+    :cond_4
     const/16 v24, 0x3b
 
     move-object/from16 v0, p0
@@ -5509,7 +5823,7 @@
 
     move/from16 v0, v22
 
-    if-ge v12, v0, :cond_d
+    if-ge v12, v0, :cond_7
 
     add-int/lit8 v24, v12, 0x1
 
@@ -5527,7 +5841,7 @@
 
     move-result-object v23
 
-    :goto_3
+    :goto_1
     const-string/jumbo v24, "action="
 
     move-object/from16 v0, p0
@@ -5538,7 +5852,7 @@
 
     move-result v24
 
-    if-eqz v24, :cond_e
+    if-eqz v24, :cond_8
 
     move-object/from16 v0, v17
 
@@ -5546,22 +5860,29 @@
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
 
-    if-nez v15, :cond_c
+    if-nez v15, :cond_5
 
     const/4 v13, 0x1
 
-    :cond_c
-    :goto_4
+    :cond_5
+    :goto_2
     add-int/lit8 v14, v22, 0x1
 
-    goto/16 :goto_0
+    goto :goto_0
 
-    :cond_d
+    :cond_6
+    move-object/from16 v8, p0
+
+    move-object/from16 v17, v16
+
+    goto :goto_0
+
+    :cond_7
     const-string/jumbo v23, ""
 
-    goto :goto_3
+    goto :goto_1
 
-    :cond_e
+    :cond_8
     const-string/jumbo v24, "category="
 
     move-object/from16 v0, p0
@@ -5572,7 +5893,7 @@
 
     move-result v24
 
-    if-eqz v24, :cond_f
+    if-eqz v24, :cond_9
 
     move-object/from16 v0, v17
 
@@ -5580,9 +5901,9 @@
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->addCategory(Ljava/lang/String;)Landroid/content/Intent;
 
-    goto :goto_4
+    goto :goto_2
 
-    :cond_f
+    :cond_9
     const-string/jumbo v24, "type="
 
     move-object/from16 v0, p0
@@ -5593,7 +5914,7 @@
 
     move-result v24
 
-    if-eqz v24, :cond_10
+    if-eqz v24, :cond_a
 
     move-object/from16 v0, v23
 
@@ -5601,9 +5922,9 @@
 
     iput-object v0, v1, Landroid/content/Intent;->mType:Ljava/lang/String;
 
-    goto :goto_4
+    goto :goto_2
 
-    :cond_10
+    :cond_a
     const-string/jumbo v24, "launchFlags="
 
     move-object/from16 v0, p0
@@ -5614,7 +5935,7 @@
 
     move-result v24
 
-    if-eqz v24, :cond_11
+    if-eqz v24, :cond_b
 
     invoke-static/range {v23 .. v23}, Ljava/lang/Integer;->decode(Ljava/lang/String;)Ljava/lang/Integer;
 
@@ -5632,7 +5953,7 @@
 
     and-int/lit8 v24, p1, 0x4
 
-    if-nez v24, :cond_c
+    if-nez v24, :cond_5
 
     move-object/from16 v0, v17
 
@@ -5652,9 +5973,9 @@
 
     iput v0, v1, Landroid/content/Intent;->mFlags:I
 
-    goto :goto_4
+    goto :goto_2
 
-    :cond_11
+    :cond_b
     const-string/jumbo v24, "package="
 
     move-object/from16 v0, p0
@@ -5665,7 +5986,7 @@
 
     move-result v24
 
-    if-eqz v24, :cond_12
+    if-eqz v24, :cond_c
 
     move-object/from16 v0, v23
 
@@ -5673,9 +5994,9 @@
 
     iput-object v0, v1, Landroid/content/Intent;->mPackage:Ljava/lang/String;
 
-    goto :goto_4
+    goto :goto_2
 
-    :cond_12
+    :cond_c
     const-string/jumbo v24, "component="
 
     move-object/from16 v0, p0
@@ -5686,7 +6007,7 @@
 
     move-result v24
 
-    if-eqz v24, :cond_13
+    if-eqz v24, :cond_d
 
     invoke-static/range {v23 .. v23}, Landroid/content/ComponentName;->unflattenFromString(Ljava/lang/String;)Landroid/content/ComponentName;
 
@@ -5698,9 +6019,9 @@
 
     iput-object v0, v1, Landroid/content/Intent;->mComponent:Landroid/content/ComponentName;
 
-    goto/16 :goto_4
+    goto/16 :goto_2
 
-    :cond_13
+    :cond_d
     const-string/jumbo v24, "scheme="
 
     move-object/from16 v0, p0
@@ -5711,9 +6032,9 @@
 
     move-result v24
 
-    if-eqz v24, :cond_15
+    if-eqz v24, :cond_f
 
-    if-eqz v15, :cond_14
+    if-eqz v15, :cond_e
 
     new-instance v24, Ljava/lang/StringBuilder;
 
@@ -5747,14 +6068,14 @@
 
     iput-object v0, v1, Landroid/content/Intent;->mData:Landroid/net/Uri;
 
-    goto/16 :goto_4
+    goto/16 :goto_2
 
-    :cond_14
+    :cond_e
     move-object/from16 v21, v23
 
-    goto/16 :goto_4
+    goto/16 :goto_2
 
-    :cond_15
+    :cond_f
     const-string/jumbo v24, "sourceBounds="
 
     move-object/from16 v0, p0
@@ -5765,7 +6086,7 @@
 
     move-result v24
 
-    if-eqz v24, :cond_16
+    if-eqz v24, :cond_10
 
     invoke-static/range {v23 .. v23}, Landroid/graphics/Rect;->unflattenFromString(Ljava/lang/String;)Landroid/graphics/Rect;
 
@@ -5777,16 +6098,16 @@
 
     iput-object v0, v1, Landroid/content/Intent;->mSourceBounds:Landroid/graphics/Rect;
 
-    goto/16 :goto_4
+    goto/16 :goto_2
 
-    :cond_16
+    :cond_10
     add-int/lit8 v24, v14, 0x3
 
     move/from16 v0, v22
 
     move/from16 v1, v24
 
-    if-ne v0, v1, :cond_17
+    if-ne v0, v1, :cond_11
 
     const-string/jumbo v24, "SEL"
 
@@ -5798,7 +6119,7 @@
 
     move-result v24
 
-    if-eqz v24, :cond_17
+    if-eqz v24, :cond_11
 
     new-instance v17, Landroid/content/Intent;
 
@@ -5806,9 +6127,9 @@
 
     const/4 v15, 0x1
 
-    goto/16 :goto_4
+    goto/16 :goto_2
 
-    :cond_17
+    :cond_11
     add-int/lit8 v24, v14, 0x2
 
     move-object/from16 v0, p0
@@ -5829,7 +6150,7 @@
 
     move-object/from16 v24, v0
 
-    if-nez v24, :cond_18
+    if-nez v24, :cond_12
 
     new-instance v24, Landroid/os/Bundle;
 
@@ -5841,7 +6162,7 @@
 
     iput-object v0, v1, Landroid/content/Intent;->mExtras:Landroid/os/Bundle;
 
-    :cond_18
+    :cond_12
     move-object/from16 v0, v17
 
     iget-object v6, v0, Landroid/content/Intent;->mExtras:Landroid/os/Bundle;
@@ -5856,7 +6177,7 @@
 
     move-result v24
 
-    if-eqz v24, :cond_19
+    if-eqz v24, :cond_13
 
     move-object/from16 v0, v18
 
@@ -5864,9 +6185,9 @@
 
     invoke-virtual {v6, v0, v1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    goto/16 :goto_4
+    goto/16 :goto_2
 
-    :cond_19
+    :cond_13
     const-string/jumbo v24, "B."
 
     move-object/from16 v0, p0
@@ -5877,7 +6198,7 @@
 
     move-result v24
 
-    if-eqz v24, :cond_1a
+    if-eqz v24, :cond_14
 
     invoke-static/range {v23 .. v23}, Ljava/lang/Boolean;->parseBoolean(Ljava/lang/String;)Z
 
@@ -5889,9 +6210,9 @@
 
     invoke-virtual {v6, v0, v1}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
 
-    goto/16 :goto_4
+    goto/16 :goto_2
 
-    :cond_1a
+    :cond_14
     const-string/jumbo v24, "b."
 
     move-object/from16 v0, p0
@@ -5902,7 +6223,7 @@
 
     move-result v24
 
-    if-eqz v24, :cond_1b
+    if-eqz v24, :cond_15
 
     invoke-static/range {v23 .. v23}, Ljava/lang/Byte;->parseByte(Ljava/lang/String;)B
 
@@ -5914,9 +6235,9 @@
 
     invoke-virtual {v6, v0, v1}, Landroid/os/Bundle;->putByte(Ljava/lang/String;B)V
 
-    goto/16 :goto_4
+    goto/16 :goto_2
 
-    :cond_1b
+    :cond_15
     const-string/jumbo v24, "c."
 
     move-object/from16 v0, p0
@@ -5927,7 +6248,7 @@
 
     move-result v24
 
-    if-eqz v24, :cond_1c
+    if-eqz v24, :cond_16
 
     const/16 v24, 0x0
 
@@ -5941,9 +6262,9 @@
 
     invoke-virtual {v6, v0, v1}, Landroid/os/Bundle;->putChar(Ljava/lang/String;C)V
 
-    goto/16 :goto_4
+    goto/16 :goto_2
 
-    :cond_1c
+    :cond_16
     const-string/jumbo v24, "d."
 
     move-object/from16 v0, p0
@@ -5954,7 +6275,7 @@
 
     move-result v24
 
-    if-eqz v24, :cond_1d
+    if-eqz v24, :cond_17
 
     invoke-static/range {v23 .. v23}, Ljava/lang/Double;->parseDouble(Ljava/lang/String;)D
 
@@ -5966,9 +6287,9 @@
 
     invoke-virtual {v6, v0, v1, v2}, Landroid/os/Bundle;->putDouble(Ljava/lang/String;D)V
 
-    goto/16 :goto_4
+    goto/16 :goto_2
 
-    :cond_1d
+    :cond_17
     const-string/jumbo v24, "f."
 
     move-object/from16 v0, p0
@@ -5979,7 +6300,7 @@
 
     move-result v24
 
-    if-eqz v24, :cond_1e
+    if-eqz v24, :cond_18
 
     invoke-static/range {v23 .. v23}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
 
@@ -5991,9 +6312,9 @@
 
     invoke-virtual {v6, v0, v1}, Landroid/os/Bundle;->putFloat(Ljava/lang/String;F)V
 
-    goto/16 :goto_4
+    goto/16 :goto_2
 
-    :cond_1e
+    :cond_18
     const-string/jumbo v24, "i."
 
     move-object/from16 v0, p0
@@ -6004,7 +6325,7 @@
 
     move-result v24
 
-    if-eqz v24, :cond_1f
+    if-eqz v24, :cond_19
 
     invoke-static/range {v23 .. v23}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
@@ -6016,9 +6337,9 @@
 
     invoke-virtual {v6, v0, v1}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
-    goto/16 :goto_4
+    goto/16 :goto_2
 
-    :cond_1f
+    :cond_19
     const-string/jumbo v24, "l."
 
     move-object/from16 v0, p0
@@ -6029,7 +6350,7 @@
 
     move-result v24
 
-    if-eqz v24, :cond_20
+    if-eqz v24, :cond_1a
 
     invoke-static/range {v23 .. v23}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
 
@@ -6041,9 +6362,9 @@
 
     invoke-virtual {v6, v0, v1, v2}, Landroid/os/Bundle;->putLong(Ljava/lang/String;J)V
 
-    goto/16 :goto_4
+    goto/16 :goto_2
 
-    :cond_20
+    :cond_1a
     const-string/jumbo v24, "s."
 
     move-object/from16 v0, p0
@@ -6054,7 +6375,7 @@
 
     move-result v24
 
-    if-eqz v24, :cond_21
+    if-eqz v24, :cond_1b
 
     invoke-static/range {v23 .. v23}, Ljava/lang/Short;->parseShort(Ljava/lang/String;)S
 
@@ -6066,9 +6387,9 @@
 
     invoke-virtual {v6, v0, v1}, Landroid/os/Bundle;->putShort(Ljava/lang/String;S)V
 
-    goto/16 :goto_4
+    goto/16 :goto_2
 
-    :cond_21
+    :cond_1b
     new-instance v24, Ljava/net/URISyntaxException;
 
     const-string/jumbo v25, "unknown EXTRA type"
@@ -6083,7 +6404,100 @@
 
     throw v24
 
-    :cond_22
+    :cond_1c
+    if-eqz v15, :cond_29
+
+    move-object/from16 v0, v16
+
+    iget-object v0, v0, Landroid/content/Intent;->mPackage:Ljava/lang/String;
+
+    move-object/from16 v24, v0
+
+    if-nez v24, :cond_1d
+
+    invoke-virtual/range {v16 .. v17}, Landroid/content/Intent;->setSelector(Landroid/content/Intent;)V
+
+    :cond_1d
+    :goto_3
+    if-eqz v8, :cond_1f
+
+    const-string/jumbo v24, "intent:"
+
+    move-object/from16 v0, v24
+
+    invoke-virtual {v8, v0}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v24
+
+    if-eqz v24, :cond_20
+
+    const/16 v24, 0x7
+
+    move/from16 v0, v24
+
+    invoke-virtual {v8, v0}, Ljava/lang/String;->substring(I)Ljava/lang/String;
+
+    move-result-object v8
+
+    if-eqz v21, :cond_1e
+
+    new-instance v24, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v24 .. v24}, Ljava/lang/StringBuilder;-><init>()V
+
+    move-object/from16 v0, v24
+
+    move-object/from16 v1, v21
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v24
+
+    const/16 v25, 0x3a
+
+    invoke-virtual/range {v24 .. v25}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    move-result-object v24
+
+    move-object/from16 v0, v24
+
+    invoke-virtual {v0, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v24
+
+    invoke-virtual/range {v24 .. v24}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v8
+
+    :cond_1e
+    :goto_4
+    invoke-virtual {v8}, Ljava/lang/String;->length()I
+    :try_end_3
+    .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_3 .. :try_end_3} :catch_1
+
+    move-result v24
+
+    if-lez v24, :cond_1f
+
+    :try_start_4
+    invoke-static {v8}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v24
+
+    move-object/from16 v0, v24
+
+    move-object/from16 v1, v16
+
+    iput-object v0, v1, Landroid/content/Intent;->mData:Landroid/net/Uri;
+    :try_end_4
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_4 .. :try_end_4} :catch_2
+    .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_4 .. :try_end_4} :catch_1
+
+    :cond_1f
+    return-object v16
+
+    :cond_20
+    :try_start_5
     const-string/jumbo v24, "android-app:"
 
     move-object/from16 v0, v24
@@ -6092,7 +6506,7 @@
 
     move-result v24
 
-    if-eqz v24, :cond_7
+    if-eqz v24, :cond_1e
 
     const/16 v24, 0xc
 
@@ -6108,7 +6522,7 @@
 
     move/from16 v1, v25
 
-    if-ne v0, v1, :cond_2a
+    if-ne v0, v1, :cond_28
 
     const/16 v24, 0xd
 
@@ -6124,7 +6538,7 @@
 
     move/from16 v1, v25
 
-    if-ne v0, v1, :cond_2a
+    if-ne v0, v1, :cond_28
 
     const/16 v24, 0x2f
 
@@ -6138,7 +6552,7 @@
 
     move-result v11
 
-    if-gez v11, :cond_24
+    if-gez v11, :cond_22
 
     const/16 v24, 0xe
 
@@ -6154,7 +6568,7 @@
 
     iput-object v0, v1, Landroid/content/Intent;->mPackage:Ljava/lang/String;
 
-    if-nez v13, :cond_23
+    if-nez v13, :cond_21
 
     const-string/jumbo v24, "android.intent.action.MAIN"
 
@@ -6164,12 +6578,12 @@
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
 
-    :cond_23
+    :cond_21
     const-string/jumbo v8, ""
 
-    goto/16 :goto_2
+    goto :goto_4
 
-    :cond_24
+    :cond_22
     const/4 v5, 0x0
 
     const/16 v24, 0xe
@@ -6196,7 +6610,7 @@
 
     move/from16 v1, v25
 
-    if-ge v0, v1, :cond_25
+    if-ge v0, v1, :cond_23
 
     const/16 v24, 0x2f
 
@@ -6210,7 +6624,7 @@
 
     move-result v19
 
-    if-ltz v19, :cond_27
+    if-ltz v19, :cond_25
 
     add-int/lit8 v24, v11, 0x1
 
@@ -6232,7 +6646,7 @@
 
     move/from16 v1, v24
 
-    if-ge v0, v1, :cond_25
+    if-ge v0, v1, :cond_23
 
     const/16 v24, 0x2f
 
@@ -6246,7 +6660,7 @@
 
     move-result v20
 
-    if-ltz v20, :cond_25
+    if-ltz v20, :cond_23
 
     add-int/lit8 v24, v19, 0x1
 
@@ -6260,11 +6674,11 @@
 
     move/from16 v11, v20
 
-    :cond_25
+    :cond_23
     :goto_5
-    if-nez v21, :cond_28
+    if-nez v21, :cond_26
 
-    if-nez v13, :cond_26
+    if-nez v13, :cond_24
 
     const-string/jumbo v24, "android.intent.action.MAIN"
 
@@ -6274,12 +6688,12 @@
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
 
-    :cond_26
+    :cond_24
     const-string/jumbo v8, ""
 
-    goto/16 :goto_2
+    goto/16 :goto_4
 
-    :cond_27
+    :cond_25
     add-int/lit8 v24, v11, 0x1
 
     move/from16 v0, v24
@@ -6290,8 +6704,8 @@
 
     goto :goto_5
 
-    :cond_28
-    if-nez v5, :cond_29
+    :cond_26
+    if-nez v5, :cond_27
 
     new-instance v24, Ljava/lang/StringBuilder;
 
@@ -6315,9 +6729,9 @@
 
     move-result-object v8
 
-    goto/16 :goto_2
+    goto/16 :goto_4
 
-    :cond_29
+    :cond_27
     new-instance v24, Ljava/lang/StringBuilder;
 
     invoke-direct/range {v24 .. v24}, Ljava/lang/StringBuilder;-><init>()V
@@ -6354,12 +6768,12 @@
 
     move-result-object v8
 
-    goto/16 :goto_2
+    goto/16 :goto_4
 
-    :cond_2a
+    :cond_28
     const-string/jumbo v8, ""
 
-    goto/16 :goto_2
+    goto/16 :goto_4
 
     :catch_2
     move-exception v9
@@ -6382,10 +6796,10 @@
     :try_end_5
     .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_5 .. :try_end_5} :catch_1
 
-    :cond_2b
+    :cond_29
     move-object/from16 v16, v17
 
-    goto/16 :goto_1
+    goto/16 :goto_3
 .end method
 
 .method public static printIntentArgsHelp(Ljava/io/PrintWriter;Ljava/lang/String;)V
@@ -6393,7 +6807,7 @@
 
     const/4 v2, 0x0
 
-    const/16 v3, 0x2e
+    const/16 v3, 0x2f
 
     new-array v1, v3, [Ljava/lang/String;
 
@@ -6569,7 +6983,7 @@
 
     aput-object v3, v1, v4
 
-    const-string/jumbo v3, "    [--f <FLAG>]"
+    const-string/jumbo v3, "    [-f <FLAG>]"
 
     const/16 v4, 0x1d
 
@@ -6653,21 +7067,27 @@
 
     aput-object v3, v1, v4
 
-    const-string/jumbo v3, "    [--receiver-foreground]"
+    const-string/jumbo v3, "    [--receiver-foreground] [--receiver-no-abort]"
 
     const/16 v4, 0x2b
 
     aput-object v3, v1, v4
 
-    const-string/jumbo v3, "    [--selector]"
+    const-string/jumbo v3, "    [--receiver-include-background]"
 
     const/16 v4, 0x2c
 
     aput-object v3, v1, v4
 
-    const-string/jumbo v3, "    [<URI> | <PACKAGE> | <COMPONENT>]"
+    const-string/jumbo v3, "    [--selector]"
 
     const/16 v4, 0x2d
+
+    aput-object v3, v1, v4
+
+    const-string/jumbo v3, "    [<URI> | <PACKAGE> | <COMPONENT>]"
+
+    const/16 v4, 0x2e
 
     aput-object v3, v1, v4
 
@@ -6997,11 +7417,9 @@
 .end method
 
 .method private toUriInner(Ljava/lang/StringBuilder;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;I)V
-    .locals 10
+    .locals 9
 
-    const/4 v6, 0x0
-
-    const/16 v9, 0x3b
+    const/16 v8, 0x3b
 
     if-eqz p2, :cond_0
 
@@ -7015,7 +7433,7 @@
 
     move-result-object v5
 
-    invoke-virtual {v5, v9}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v8}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     :cond_0
     iget-object v5, p0, Landroid/content/Intent;->mAction:Ljava/lang/String;
@@ -7028,30 +7446,49 @@
 
     move-result v5
 
-    if-eqz v5, :cond_2
+    xor-int/lit8 v5, v5, 0x1
+
+    if-eqz v5, :cond_1
+
+    const-string/jumbo v5, "action="
+
+    invoke-virtual {p1, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    iget-object v6, p0, Landroid/content/Intent;->mAction:Ljava/lang/String;
+
+    invoke-static {v6}, Landroid/net/Uri;->encode(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5, v8}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     :cond_1
-    :goto_0
     iget-object v5, p0, Landroid/content/Intent;->mCategories:Landroid/util/ArraySet;
 
-    if-eqz v5, :cond_3
+    if-eqz v5, :cond_2
 
     const/4 v1, 0x0
 
-    :goto_1
+    :goto_0
     iget-object v5, p0, Landroid/content/Intent;->mCategories:Landroid/util/ArraySet;
 
     invoke-virtual {v5}, Landroid/util/ArraySet;->size()I
 
     move-result v5
 
-    if-ge v1, v5, :cond_3
+    if-ge v1, v5, :cond_2
 
     const-string/jumbo v5, "category="
 
     invoke-virtual {p1, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v7
+    move-result-object v6
 
     iget-object v5, p0, Landroid/content/Intent;->mCategories:Landroid/util/ArraySet;
 
@@ -7065,41 +7502,20 @@
 
     move-result-object v5
 
-    invoke-virtual {v7, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v5
 
-    invoke-virtual {v5, v9}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v8}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_1
-
-    :cond_2
-    const-string/jumbo v5, "action="
-
-    invoke-virtual {p1, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    iget-object v7, p0, Landroid/content/Intent;->mAction:Ljava/lang/String;
-
-    invoke-static {v7}, Landroid/net/Uri;->encode(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-virtual {v5, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5, v9}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
-
     goto :goto_0
 
-    :cond_3
+    :cond_2
     iget-object v5, p0, Landroid/content/Intent;->mType:Ljava/lang/String;
 
-    if-eqz v5, :cond_4
+    if-eqz v5, :cond_3
 
     const-string/jumbo v5, "type="
 
@@ -7107,24 +7523,24 @@
 
     move-result-object v5
 
-    iget-object v7, p0, Landroid/content/Intent;->mType:Ljava/lang/String;
+    iget-object v6, p0, Landroid/content/Intent;->mType:Ljava/lang/String;
 
-    const-string/jumbo v8, "/"
+    const-string/jumbo v7, "/"
 
-    invoke-static {v7, v8}, Landroid/net/Uri;->encode(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v6, v7}, Landroid/net/Uri;->encode(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v7
+    move-result-object v6
 
-    invoke-virtual {v5, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v5
 
-    invoke-virtual {v5, v9}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v8}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    :cond_4
+    :cond_3
     iget v5, p0, Landroid/content/Intent;->mFlags:I
 
-    if-eqz v5, :cond_5
+    if-eqz v5, :cond_4
 
     const-string/jumbo v5, "launchFlags=0x"
 
@@ -7132,22 +7548,22 @@
 
     move-result-object v5
 
-    iget v7, p0, Landroid/content/Intent;->mFlags:I
+    iget v6, p0, Landroid/content/Intent;->mFlags:I
 
-    invoke-static {v7}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
+    invoke-static {v6}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
 
-    move-result-object v7
+    move-result-object v6
 
-    invoke-virtual {v5, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v5
 
-    invoke-virtual {v5, v9}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v8}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    :cond_5
+    :cond_4
     iget-object v5, p0, Landroid/content/Intent;->mPackage:Ljava/lang/String;
 
-    if-eqz v5, :cond_6
+    if-eqz v5, :cond_5
 
     iget-object v5, p0, Landroid/content/Intent;->mPackage:Ljava/lang/String;
 
@@ -7155,13 +7571,32 @@
 
     move-result v5
 
-    if-eqz v5, :cond_a
+    xor-int/lit8 v5, v5, 0x1
 
-    :cond_6
-    :goto_2
+    if-eqz v5, :cond_5
+
+    const-string/jumbo v5, "package="
+
+    invoke-virtual {p1, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    iget-object v6, p0, Landroid/content/Intent;->mPackage:Ljava/lang/String;
+
+    invoke-static {v6}, Landroid/net/Uri;->encode(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5, v8}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    :cond_5
     iget-object v5, p0, Landroid/content/Intent;->mComponent:Landroid/content/ComponentName;
 
-    if-eqz v5, :cond_7
+    if-eqz v5, :cond_6
 
     const-string/jumbo v5, "component="
 
@@ -7169,28 +7604,28 @@
 
     move-result-object v5
 
-    iget-object v7, p0, Landroid/content/Intent;->mComponent:Landroid/content/ComponentName;
+    iget-object v6, p0, Landroid/content/Intent;->mComponent:Landroid/content/ComponentName;
 
-    invoke-virtual {v7}, Landroid/content/ComponentName;->flattenToShortString()Ljava/lang/String;
+    invoke-virtual {v6}, Landroid/content/ComponentName;->flattenToShortString()Ljava/lang/String;
 
-    move-result-object v7
+    move-result-object v6
 
-    const-string/jumbo v8, "/"
+    const-string/jumbo v7, "/"
 
-    invoke-static {v7, v8}, Landroid/net/Uri;->encode(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v6, v7}, Landroid/net/Uri;->encode(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v7
+    move-result-object v6
 
-    invoke-virtual {v5, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v5
 
-    invoke-virtual {v5, v9}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v8}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    :cond_7
+    :cond_6
     iget-object v5, p0, Landroid/content/Intent;->mSourceBounds:Landroid/graphics/Rect;
 
-    if-eqz v5, :cond_8
+    if-eqz v5, :cond_7
 
     const-string/jumbo v5, "sourceBounds="
 
@@ -7198,26 +7633,26 @@
 
     move-result-object v5
 
-    iget-object v7, p0, Landroid/content/Intent;->mSourceBounds:Landroid/graphics/Rect;
+    iget-object v6, p0, Landroid/content/Intent;->mSourceBounds:Landroid/graphics/Rect;
 
-    invoke-virtual {v7}, Landroid/graphics/Rect;->flattenToString()Ljava/lang/String;
+    invoke-virtual {v6}, Landroid/graphics/Rect;->flattenToString()Ljava/lang/String;
 
-    move-result-object v7
+    move-result-object v6
 
-    invoke-static {v7}, Landroid/net/Uri;->encode(Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v6}, Landroid/net/Uri;->encode(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v7
+    move-result-object v6
 
-    invoke-virtual {v5, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v5
 
-    invoke-virtual {v5, v9}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v8}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    :cond_8
+    :cond_7
     iget-object v5, p0, Landroid/content/Intent;->mExtras:Landroid/os/Bundle;
 
-    if-eqz v5, :cond_14
+    if-eqz v5, :cond_12
 
     iget-object v5, p0, Landroid/content/Intent;->mExtras:Landroid/os/Bundle;
 
@@ -7229,13 +7664,13 @@
 
     move-result-object v3
 
-    :cond_9
-    :goto_3
+    :cond_8
+    :goto_1
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v5
 
-    if-eqz v5, :cond_14
+    if-eqz v5, :cond_12
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -7251,12 +7686,12 @@
 
     instance-of v5, v4, Ljava/lang/String;
 
-    if-eqz v5, :cond_b
+    if-eqz v5, :cond_9
 
     const/16 v0, 0x53
 
-    :goto_4
-    if-eqz v0, :cond_9
+    :goto_2
+    if-eqz v0, :cond_8
 
     invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
@@ -7284,109 +7719,88 @@
 
     invoke-virtual {p1, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p1, v9}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, v8}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    goto :goto_3
+    goto :goto_1
 
-    :cond_a
-    const-string/jumbo v5, "package="
-
-    invoke-virtual {p1, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    iget-object v7, p0, Landroid/content/Intent;->mPackage:Ljava/lang/String;
-
-    invoke-static {v7}, Landroid/net/Uri;->encode(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-virtual {v5, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5, v9}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
-
-    goto/16 :goto_2
-
-    :cond_b
+    :cond_9
     instance-of v5, v4, Ljava/lang/Boolean;
 
-    if-eqz v5, :cond_c
+    if-eqz v5, :cond_a
 
     const/16 v0, 0x42
 
-    goto :goto_4
+    goto :goto_2
 
-    :cond_c
+    :cond_a
     instance-of v5, v4, Ljava/lang/Byte;
 
-    if-eqz v5, :cond_d
+    if-eqz v5, :cond_b
 
     const/16 v0, 0x62
 
-    goto :goto_4
+    goto :goto_2
 
-    :cond_d
+    :cond_b
     instance-of v5, v4, Ljava/lang/Character;
 
-    if-eqz v5, :cond_e
+    if-eqz v5, :cond_c
 
     const/16 v0, 0x63
 
-    goto :goto_4
+    goto :goto_2
 
-    :cond_e
+    :cond_c
     instance-of v5, v4, Ljava/lang/Double;
 
-    if-eqz v5, :cond_f
+    if-eqz v5, :cond_d
 
     const/16 v0, 0x64
 
-    goto :goto_4
+    goto :goto_2
 
-    :cond_f
+    :cond_d
     instance-of v5, v4, Ljava/lang/Float;
 
-    if-eqz v5, :cond_10
+    if-eqz v5, :cond_e
 
     const/16 v0, 0x66
 
-    goto :goto_4
+    goto :goto_2
 
-    :cond_10
+    :cond_e
     instance-of v5, v4, Ljava/lang/Integer;
 
-    if-eqz v5, :cond_11
+    if-eqz v5, :cond_f
 
     const/16 v0, 0x69
 
-    goto :goto_4
+    goto :goto_2
 
-    :cond_11
+    :cond_f
     instance-of v5, v4, Ljava/lang/Long;
 
-    if-eqz v5, :cond_12
+    if-eqz v5, :cond_10
 
     const/16 v0, 0x6c
 
-    goto :goto_4
+    goto :goto_2
 
-    :cond_12
+    :cond_10
     instance-of v5, v4, Ljava/lang/Short;
 
-    if-eqz v5, :cond_13
+    if-eqz v5, :cond_11
 
     const/16 v0, 0x73
 
-    goto :goto_4
+    goto :goto_2
 
-    :cond_13
-    move v0, v6
+    :cond_11
+    const/4 v0, 0x0
 
-    goto :goto_4
+    goto :goto_2
 
-    :cond_14
+    :cond_12
     return-void
 .end method
 
@@ -8150,14 +8564,6 @@
     goto :goto_0
 .end method
 
-.method public getBroadcastQueueHint()I
-    .locals 1
-
-    iget v0, p0, Landroid/content/Intent;->mBroadcastQueueHint:I
-
-    return v0
-.end method
-
 .method public getBundleExtra(Ljava/lang/String;)Landroid/os/Bundle;
     .locals 2
 
@@ -8670,6 +9076,14 @@
     return-object v0
 .end method
 
+.method public getLaunchToken()Ljava/lang/String;
+    .locals 1
+
+    iget-object v0, p0, Landroid/content/Intent;->mLaunchToken:Ljava/lang/String;
+
+    return-object v0
+.end method
+
 .method public getLongArrayExtra(Ljava/lang/String;)[J
     .locals 2
 
@@ -8718,6 +9132,22 @@
     iget-object v0, p0, Landroid/content/Intent;->mPackage:Ljava/lang/String;
 
     return-object v0
+.end method
+
+.method public getPairActivity()I
+    .locals 1
+
+    iget v0, p0, Landroid/content/Intent;->mPairActivityMode:I
+
+    return v0
+.end method
+
+.method public getPairActivityUserId()I
+    .locals 1
+
+    iget v0, p0, Landroid/content/Intent;->mPairActivityUserId:I
+
+    return v0
 .end method
 
 .method public getParcelableArrayExtra(Ljava/lang/String;)[Landroid/os/Parcelable;
@@ -9098,6 +9528,14 @@
     const/4 v0, 0x0
 
     goto :goto_0
+.end method
+
+.method public isFromPendingIntent()Z
+    .locals 1
+
+    iget-boolean v0, p0, Landroid/content/Intent;->mFromPendingIntent:Z
+
+    return v0
 .end method
 
 .method public migrateExtraStreamToClipData()Z
@@ -9670,8 +10108,6 @@
 .method public prepareToLeaveProcess(Landroid/content/Context;)V
     .locals 3
 
-    const/4 v0, 0x1
-
     iget-object v1, p0, Landroid/content/Intent;->mComponent:Landroid/content/ComponentName;
 
     if-eqz v1, :cond_0
@@ -9690,212 +10126,270 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    xor-int/lit8 v0, v1, 0x1
 
-    const/4 v0, 0x0
-
-    :cond_0
+    :goto_0
     invoke-virtual {p0, v0}, Landroid/content/Intent;->prepareToLeaveProcess(Z)V
 
     return-void
+
+    :cond_0
+    const/4 v0, 0x1
+
+    goto :goto_0
 .end method
 
 .method public prepareToLeaveProcess(Z)V
-    .locals 2
+    .locals 4
 
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
-    invoke-virtual {p0, v0}, Landroid/content/Intent;->setAllowFds(Z)V
+    invoke-virtual {p0, v1}, Landroid/content/Intent;->setAllowFds(Z)V
 
-    iget-object v0, p0, Landroid/content/Intent;->mSelector:Landroid/content/Intent;
+    iget-object v1, p0, Landroid/content/Intent;->mSelector:Landroid/content/Intent;
 
-    if-eqz v0, :cond_0
+    if-eqz v1, :cond_0
 
-    iget-object v0, p0, Landroid/content/Intent;->mSelector:Landroid/content/Intent;
+    iget-object v1, p0, Landroid/content/Intent;->mSelector:Landroid/content/Intent;
+
+    invoke-virtual {v1, p1}, Landroid/content/Intent;->prepareToLeaveProcess(Z)V
+
+    :cond_0
+    iget-object v1, p0, Landroid/content/Intent;->mClipData:Landroid/content/ClipData;
+
+    if-eqz v1, :cond_1
+
+    iget-object v1, p0, Landroid/content/Intent;->mClipData:Landroid/content/ClipData;
+
+    invoke-virtual {p0}, Landroid/content/Intent;->getFlags()I
+
+    move-result v2
+
+    invoke-virtual {v1, p1, v2}, Landroid/content/ClipData;->prepareToLeaveProcess(ZI)V
+
+    :cond_1
+    iget-object v1, p0, Landroid/content/Intent;->mExtras:Landroid/os/Bundle;
+
+    if-eqz v1, :cond_2
+
+    iget-object v1, p0, Landroid/content/Intent;->mExtras:Landroid/os/Bundle;
+
+    invoke-virtual {v1}, Landroid/os/Bundle;->isParcelled()Z
+
+    move-result v1
+
+    xor-int/lit8 v1, v1, 0x1
+
+    if-eqz v1, :cond_2
+
+    iget-object v1, p0, Landroid/content/Intent;->mExtras:Landroid/os/Bundle;
+
+    const-string/jumbo v2, "android.intent.extra.INTENT"
+
+    invoke-virtual {v1, v2}, Landroid/os/Bundle;->get(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    instance-of v1, v0, Landroid/content/Intent;
+
+    if-eqz v1, :cond_2
+
+    check-cast v0, Landroid/content/Intent;
 
     invoke-virtual {v0, p1}, Landroid/content/Intent;->prepareToLeaveProcess(Z)V
 
-    :cond_0
-    iget-object v0, p0, Landroid/content/Intent;->mClipData:Landroid/content/ClipData;
+    :cond_2
+    iget-object v1, p0, Landroid/content/Intent;->mAction:Ljava/lang/String;
 
-    if-eqz v0, :cond_1
+    if-eqz v1, :cond_3
 
-    iget-object v0, p0, Landroid/content/Intent;->mClipData:Landroid/content/ClipData;
+    iget-object v1, p0, Landroid/content/Intent;->mData:Landroid/net/Uri;
 
-    invoke-virtual {v0, p1}, Landroid/content/ClipData;->prepareToLeaveProcess(Z)V
-
-    :cond_1
-    iget-object v0, p0, Landroid/content/Intent;->mAction:Ljava/lang/String;
-
-    if-eqz v0, :cond_3
-
-    iget-object v0, p0, Landroid/content/Intent;->mData:Landroid/net/Uri;
-
-    if-eqz v0, :cond_3
+    if-eqz v1, :cond_3
 
     invoke-static {}, Landroid/os/StrictMode;->vmFileUriExposureEnabled()Z
 
-    move-result v0
+    move-result v1
 
-    if-eqz v0, :cond_3
+    if-eqz v1, :cond_3
 
     if-eqz p1, :cond_3
 
-    iget-object v0, p0, Landroid/content/Intent;->mAction:Ljava/lang/String;
+    iget-object v1, p0, Landroid/content/Intent;->mAction:Ljava/lang/String;
 
-    const-string/jumbo v1, "android.intent.action.MEDIA_REMOVED"
+    const-string/jumbo v2, "android.intent.action.MEDIA_REMOVED"
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_5
+
+    :cond_3
+    :goto_0
+    iget-object v1, p0, Landroid/content/Intent;->mAction:Ljava/lang/String;
+
+    if-eqz v1, :cond_4
+
+    iget-object v1, p0, Landroid/content/Intent;->mData:Landroid/net/Uri;
+
+    if-eqz v1, :cond_4
+
+    invoke-static {}, Landroid/os/StrictMode;->vmContentUriWithoutPermissionEnabled()Z
 
     move-result v1
 
     if-eqz v1, :cond_4
 
-    :cond_2
-    iget-object v0, p0, Landroid/content/Intent;->mAction:Ljava/lang/String;
+    if-eqz p1, :cond_4
 
-    const-string/jumbo v1, "android.intent.action.MEDIA_MOUNTED"
+    iget-object v1, p0, Landroid/content/Intent;->mAction:Ljava/lang/String;
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    const-string/jumbo v2, "android.intent.action.PROVIDER_CHANGED"
 
-    move-result v0
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    if-eqz v0, :cond_3
+    move-result v1
 
-    iget-object v0, p0, Landroid/content/Intent;->mExtras:Landroid/os/Bundle;
-
-    if-nez v0, :cond_3
-
-    iget-object v0, p0, Landroid/content/Intent;->mData:Landroid/net/Uri;
-
-    const-string/jumbo v1, "Intent.getData()"
-
-    invoke-virtual {v0, v1}, Landroid/net/Uri;->checkFileUriExposed(Ljava/lang/String;)V
-
-    :cond_3
-    :goto_0
-    return-void
+    if-eqz v1, :cond_6
 
     :cond_4
-    const-string/jumbo v1, "android.intent.action.MEDIA_UNMOUNTED"
+    :goto_1
+    return-void
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    :cond_5
+    const-string/jumbo v2, "android.intent.action.MEDIA_UNMOUNTED"
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_3
+
+    const-string/jumbo v2, "android.intent.action.MEDIA_CHECKING"
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_3
+
+    const-string/jumbo v2, "android.intent.action.MEDIA_NOFS"
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_3
+
+    const-string/jumbo v2, "android.intent.action.MEDIA_MOUNTED"
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_3
+
+    const-string/jumbo v2, "android.intent.action.MEDIA_SHARED"
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_3
+
+    const-string/jumbo v2, "android.intent.action.MEDIA_UNSHARED"
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_3
+
+    const-string/jumbo v2, "android.intent.action.MEDIA_BAD_REMOVAL"
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_3
+
+    const-string/jumbo v2, "android.intent.action.MEDIA_UNMOUNTABLE"
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_3
+
+    const-string/jumbo v2, "android.intent.action.MEDIA_EJECT"
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_3
+
+    const-string/jumbo v2, "android.intent.action.MEDIA_SCANNER_STARTED"
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_3
+
+    const-string/jumbo v2, "android.intent.action.MEDIA_SCANNER_FINISHED"
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_3
+
+    const-string/jumbo v2, "android.intent.action.MEDIA_SCANNER_SCAN_FILE"
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_3
+
+    const-string/jumbo v2, "android.intent.action.PACKAGE_NEEDS_VERIFICATION"
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_3
+
+    const-string/jumbo v2, "android.intent.action.PACKAGE_VERIFIED"
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_3
 
-    const-string/jumbo v1, "android.intent.action.MEDIA_CHECKING"
+    iget-object v1, p0, Landroid/content/Intent;->mData:Landroid/net/Uri;
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    const-string/jumbo v2, "Intent.getData()"
 
-    move-result v1
-
-    if-nez v1, :cond_2
-
-    const-string/jumbo v1, "android.intent.action.MEDIA_NOFS"
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-nez v1, :cond_2
-
-    const-string/jumbo v1, "android.intent.action.MEDIA_MOUNTED"
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-nez v1, :cond_2
-
-    const-string/jumbo v1, "android.intent.action.MEDIA_SHARED"
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-nez v1, :cond_2
-
-    const-string/jumbo v1, "android.intent.action.MEDIA_UNSHARED"
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-nez v1, :cond_2
-
-    const-string/jumbo v1, "android.intent.action.MEDIA_BAD_REMOVAL"
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-nez v1, :cond_2
-
-    const-string/jumbo v1, "android.intent.action.MEDIA_UNMOUNTABLE"
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-nez v1, :cond_2
-
-    const-string/jumbo v1, "android.intent.action.MEDIA_EJECT"
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-nez v1, :cond_2
-
-    const-string/jumbo v1, "android.intent.action.MEDIA_SCANNER_STARTED"
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-nez v1, :cond_2
-
-    const-string/jumbo v1, "android.intent.action.MEDIA_SCANNER_FINISHED"
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-nez v1, :cond_2
-
-    const-string/jumbo v1, "android.intent.action.MEDIA_SCANNER_SCAN_FILE"
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-nez v1, :cond_2
-
-    const-string/jumbo v1, "android.intent.action.PACKAGE_NEEDS_VERIFICATION"
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-nez v1, :cond_2
-
-    const-string/jumbo v1, "android.intent.action.PACKAGE_VERIFIED"
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_2
-
-    iget-object v0, p0, Landroid/content/Intent;->mData:Landroid/net/Uri;
-
-    const-string/jumbo v1, "Intent.getData()"
-
-    invoke-virtual {v0, v1}, Landroid/net/Uri;->checkFileUriExposed(Ljava/lang/String;)V
+    invoke-virtual {v1, v2}, Landroid/net/Uri;->checkFileUriExposed(Ljava/lang/String;)V
 
     goto/16 :goto_0
+
+    :cond_6
+    iget-object v1, p0, Landroid/content/Intent;->mData:Landroid/net/Uri;
+
+    const-string/jumbo v2, "Intent.getData()"
+
+    invoke-virtual {p0}, Landroid/content/Intent;->getFlags()I
+
+    move-result v3
+
+    invoke-virtual {v1, v2, v3}, Landroid/net/Uri;->checkContentUriWithoutPermission(Ljava/lang/String;I)V
+
+    goto/16 :goto_1
 .end method
 
 .method public prepareToLeaveUser(I)V
@@ -10794,7 +11288,13 @@
 
     move-result v5
 
-    iput v5, p0, Landroid/content/Intent;->mBroadcastQueueHint:I
+    iput v5, p0, Landroid/content/Intent;->mPairActivityMode:I
+
+    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
+
+    move-result v5
+
+    iput v5, p0, Landroid/content/Intent;->mPairActivityUserId:I
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readBundle()Landroid/os/Bundle;
 
@@ -10881,6 +11381,20 @@
     return-void
 .end method
 
+.method public removeFlags(I)V
+    .locals 2
+
+    iget v0, p0, Landroid/content/Intent;->mFlags:I
+
+    not-int v1, p1
+
+    and-int/2addr v0, v1
+
+    iput v0, p0, Landroid/content/Intent;->mFlags:I
+
+    return-void
+.end method
+
 .method public removeUnsafeExtras()V
     .locals 1
 
@@ -10890,7 +11404,11 @@
 
     iget-object v0, p0, Landroid/content/Intent;->mExtras:Landroid/os/Bundle;
 
-    invoke-virtual {v0}, Landroid/os/Bundle;->filterValues()V
+    invoke-virtual {v0}, Landroid/os/Bundle;->filterValues()Landroid/os/Bundle;
+
+    move-result-object v0
+
+    iput-object v0, p0, Landroid/content/Intent;->mExtras:Landroid/os/Bundle;
 
     :cond_0
     return-void
@@ -11496,14 +12014,6 @@
     return-void
 .end method
 
-.method public setBroadcastQueueHint(I)Landroid/content/Intent;
-    .locals 0
-
-    iput p1, p0, Landroid/content/Intent;->mBroadcastQueueHint:I
-
-    return-object p0
-.end method
-
 .method public setClass(Landroid/content/Context;Ljava/lang/Class;)Landroid/content/Intent;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
@@ -11657,6 +12167,14 @@
     return-object p0
 .end method
 
+.method public setFromPendingIntent(Z)V
+    .locals 0
+
+    iput-boolean p1, p0, Landroid/content/Intent;->mFromPendingIntent:Z
+
+    return-void
+.end method
+
 .method public setLaunchParams(Ljava/lang/Object;)V
     .locals 2
 
@@ -11672,6 +12190,14 @@
 
     :cond_0
     iput-object p1, p0, Landroid/content/Intent;->mLaunchParams:Ljava/lang/Object;
+
+    return-void
+.end method
+
+.method public setLaunchToken(Ljava/lang/String;)V
+    .locals 0
+
+    iput-object p1, p0, Landroid/content/Intent;->mLaunchToken:Ljava/lang/String;
 
     return-void
 .end method
@@ -11697,6 +12223,22 @@
     iput-object p1, p0, Landroid/content/Intent;->mPackage:Ljava/lang/String;
 
     return-object p0
+.end method
+
+.method public setPairActivity(I)V
+    .locals 0
+
+    iput p1, p0, Landroid/content/Intent;->mPairActivityMode:I
+
+    return-void
+.end method
+
+.method public setPairActivityUserId(I)V
+    .locals 0
+
+    iput p1, p0, Landroid/content/Intent;->mPairActivityUserId:I
+
+    return-void
 .end method
 
 .method public setSelector(Landroid/content/Intent;)V
@@ -11987,7 +12529,7 @@
 
     if-eqz v0, :cond_1a
 
-    const-string/jumbo v0, "nfc://secure:it should not be shown "
+    const-string/jumbo v0, "nfc://secure:it should not be shown"
 
     invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -12091,34 +12633,34 @@
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     :cond_e
-    iget-object v0, p0, Landroid/content/Intent;->mLaunchParams:Ljava/lang/Object;
-
-    if-eqz v0, :cond_f
-
-    const-string/jumbo v0, " launchParam="
-
-    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    iget-object v1, p0, Landroid/content/Intent;->mLaunchParams:Ljava/lang/Object;
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    :cond_f
-    iget v0, p0, Landroid/content/Intent;->mBroadcastQueueHint:I
+    iget v0, p0, Landroid/content/Intent;->mPairActivityMode:I
 
     const/4 v1, -0x1
 
-    if-eq v0, v1, :cond_10
+    if-eq v0, v1, :cond_f
 
-    const-string/jumbo v0, " bqHint="
+    const-string/jumbo v0, " PairActivity="
 
     invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
-    iget v1, p0, Landroid/content/Intent;->mBroadcastQueueHint:I
+    iget v1, p0, Landroid/content/Intent;->mPairActivityMode:I
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    :cond_f
+    iget v0, p0, Landroid/content/Intent;->mPairActivityUserId:I
+
+    if-eqz v0, :cond_10
+
+    const-string/jumbo v0, " PairActivityUserId="
+
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    iget v1, p0, Landroid/content/Intent;->mPairActivityUserId:I
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
@@ -12274,7 +12816,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_1e
+    if-eqz v0, :cond_1d
 
     iget-object v0, p0, Landroid/content/Intent;->mClipData:Landroid/content/ClipData;
 
@@ -12286,9 +12828,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1d
-
-    const/4 v6, 0x0
+    xor-int/lit8 v6, v0, 0x1
 
     :goto_3
     iget-object v0, p0, Landroid/content/Intent;->mClipData:Landroid/content/ClipData;
@@ -12298,11 +12838,6 @@
     goto :goto_2
 
     :cond_1d
-    const/4 v6, 0x1
-
-    goto :goto_3
-
-    :cond_1e
     const/4 v6, 0x1
 
     goto :goto_3
@@ -12746,7 +13281,11 @@
     invoke-interface {v2, p1, p2}, Landroid/os/Parcelable;->writeToParcel(Landroid/os/Parcel;I)V
 
     :goto_4
-    iget v2, p0, Landroid/content/Intent;->mBroadcastQueueHint:I
+    iget v2, p0, Landroid/content/Intent;->mPairActivityMode:I
+
+    invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeInt(I)V
+
+    iget v2, p0, Landroid/content/Intent;->mPairActivityUserId:I
 
     invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeInt(I)V
 

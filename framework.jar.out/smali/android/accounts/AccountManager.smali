@@ -16,7 +16,13 @@
 
 
 # static fields
+.field public static final ACCOUNT_ACCESS_TOKEN_TYPE:Ljava/lang/String; = "com.android.AccountManager.ACCOUNT_ACCESS_TOKEN_TYPE"
+
+.field public static final ACTION_ACCOUNT_REMOVED:Ljava/lang/String; = "android.accounts.action.ACCOUNT_REMOVED"
+
 .field public static final ACTION_AUTHENTICATOR_INTENT:Ljava/lang/String; = "android.accounts.AccountAuthenticator"
+
+.field public static final ACTION_VISIBLE_ACCOUNTS_CHANGED:Ljava/lang/String; = "android.accounts.action.VISIBLE_ACCOUNTS_CHANGED"
 
 .field public static final AUTHENTICATOR_ATTRIBUTES_NAME:Ljava/lang/String; = "account-authenticator"
 
@@ -43,6 +49,8 @@
 .field public static final ERROR_CODE_USER_RESTRICTED:I = 0x64
 
 .field public static final KEY_ACCOUNTS:Ljava/lang/String; = "accounts"
+
+.field public static final KEY_ACCOUNT_ACCESS_ID:Ljava/lang/String; = "accountAccessId"
 
 .field public static final KEY_ACCOUNT_AUTHENTICATOR_RESPONSE:Ljava/lang/String; = "accountAuthenticatorResponse"
 
@@ -88,7 +96,21 @@
 
 .field public static final LOGIN_ACCOUNTS_CHANGED_ACTION:Ljava/lang/String; = "android.accounts.LOGIN_ACCOUNTS_CHANGED"
 
+.field public static final PACKAGE_NAME_KEY_LEGACY_NOT_VISIBLE:Ljava/lang/String; = "android:accounts:key_legacy_not_visible"
+
+.field public static final PACKAGE_NAME_KEY_LEGACY_VISIBLE:Ljava/lang/String; = "android:accounts:key_legacy_visible"
+
 .field private static final TAG:Ljava/lang/String; = "AccountManager"
+
+.field public static final VISIBILITY_NOT_VISIBLE:I = 0x3
+
+.field public static final VISIBILITY_UNDEFINED:I = 0x0
+
+.field public static final VISIBILITY_USER_MANAGED_NOT_VISIBLE:I = 0x4
+
+.field public static final VISIBILITY_USER_MANAGED_VISIBLE:I = 0x2
+
+.field public static final VISIBILITY_VISIBLE:I = 0x1
 
 
 # instance fields
@@ -102,6 +124,20 @@
             "Landroid/accounts/OnAccountsUpdateListener;",
             "Landroid/os/Handler;",
             ">;"
+        }
+    .end annotation
+.end field
+
+.field private final mAccountsUpdatedListenersTypes:Ljava/util/HashMap;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/HashMap",
+            "<",
+            "Landroid/accounts/OnAccountsUpdateListener;",
+            "Ljava/util/Set",
+            "<",
+            "Ljava/lang/String;",
+            ">;>;"
         }
     .end annotation
 .end field
@@ -122,7 +158,15 @@
     return-object v0
 .end method
 
-.method static synthetic -get1(Landroid/accounts/AccountManager;)Landroid/content/Context;
+.method static synthetic -get1(Landroid/accounts/AccountManager;)Ljava/util/HashMap;
+    .locals 1
+
+    iget-object v0, p0, Landroid/accounts/AccountManager;->mAccountsUpdatedListenersTypes:Ljava/util/HashMap;
+
+    return-object v0
+.end method
+
+.method static synthetic -get2(Landroid/accounts/AccountManager;)Landroid/content/Context;
     .locals 1
 
     iget-object v0, p0, Landroid/accounts/AccountManager;->mContext:Landroid/content/Context;
@@ -130,7 +174,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get2(Landroid/accounts/AccountManager;)Landroid/os/Handler;
+.method static synthetic -get3(Landroid/accounts/AccountManager;)Landroid/os/Handler;
     .locals 1
 
     iget-object v0, p0, Landroid/accounts/AccountManager;->mMainHandler:Landroid/os/Handler;
@@ -138,7 +182,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get3(Landroid/accounts/AccountManager;)Landroid/accounts/IAccountManager;
+.method static synthetic -get4(Landroid/accounts/AccountManager;)Landroid/accounts/IAccountManager;
     .locals 1
 
     iget-object v0, p0, Landroid/accounts/AccountManager;->mService:Landroid/accounts/IAccountManager;
@@ -164,7 +208,15 @@
     return-void
 .end method
 
-.method static synthetic -wrap2(Landroid/accounts/AccountManager;Landroid/os/Handler;Landroid/accounts/AccountManagerCallback;Landroid/accounts/AccountManagerFuture;)V
+.method static synthetic -wrap2(Landroid/accounts/AccountManager;Ljava/lang/String;[Ljava/lang/String;Landroid/accounts/AccountManagerCallback;Landroid/os/Handler;)V
+    .locals 0
+
+    invoke-direct {p0, p1, p2, p3, p4}, Landroid/accounts/AccountManager;->getAccountByTypeAndFeatures(Ljava/lang/String;[Ljava/lang/String;Landroid/accounts/AccountManagerCallback;Landroid/os/Handler;)V
+
+    return-void
+.end method
+
+.method static synthetic -wrap3(Landroid/accounts/AccountManager;Landroid/os/Handler;Landroid/accounts/AccountManagerCallback;Landroid/accounts/AccountManagerFuture;)V
     .locals 0
 
     invoke-direct {p0, p1, p2, p3}, Landroid/accounts/AccountManager;->postToHandler(Landroid/os/Handler;Landroid/accounts/AccountManagerCallback;Landroid/accounts/AccountManagerFuture;)V
@@ -172,7 +224,7 @@
     return-void
 .end method
 
-.method static synthetic -wrap3(Landroid/accounts/AccountManager;Landroid/os/Handler;Landroid/accounts/OnAccountsUpdateListener;[Landroid/accounts/Account;)V
+.method static synthetic -wrap4(Landroid/accounts/AccountManager;Landroid/os/Handler;Landroid/accounts/OnAccountsUpdateListener;[Landroid/accounts/Account;)V
     .locals 0
 
     invoke-direct {p0, p1, p2, p3}, Landroid/accounts/AccountManager;->postToHandler(Landroid/os/Handler;Landroid/accounts/OnAccountsUpdateListener;[Landroid/accounts/Account;)V
@@ -190,6 +242,12 @@
     move-result-object v0
 
     iput-object v0, p0, Landroid/accounts/AccountManager;->mAccountsUpdatedListeners:Ljava/util/HashMap;
+
+    invoke-static {}, Lcom/google/android/collect/Maps;->newHashMap()Ljava/util/HashMap;
+
+    move-result-object v0
+
+    iput-object v0, p0, Landroid/accounts/AccountManager;->mAccountsUpdatedListenersTypes:Ljava/util/HashMap;
 
     new-instance v0, Landroid/accounts/AccountManager$1;
 
@@ -226,6 +284,12 @@
     move-result-object v0
 
     iput-object v0, p0, Landroid/accounts/AccountManager;->mAccountsUpdatedListeners:Ljava/util/HashMap;
+
+    invoke-static {}, Lcom/google/android/collect/Maps;->newHashMap()Ljava/util/HashMap;
+
+    move-result-object v0
+
+    iput-object v0, p0, Landroid/accounts/AccountManager;->mAccountsUpdatedListenersTypes:Ljava/util/HashMap;
 
     new-instance v0, Landroid/accounts/AccountManager$1;
 
@@ -368,6 +432,46 @@
     return-object v0
 .end method
 
+.method private getAccountByTypeAndFeatures(Ljava/lang/String;[Ljava/lang/String;Landroid/accounts/AccountManagerCallback;Landroid/os/Handler;)V
+    .locals 8
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/lang/String;",
+            "[",
+            "Ljava/lang/String;",
+            "Landroid/accounts/AccountManagerCallback",
+            "<",
+            "Landroid/os/Bundle;",
+            ">;",
+            "Landroid/os/Handler;",
+            ")V"
+        }
+    .end annotation
+
+    new-instance v0, Landroid/accounts/AccountManager$20;
+
+    const/4 v3, 0x0
+
+    move-object v1, p0
+
+    move-object v2, p0
+
+    move-object v4, p4
+
+    move-object v5, p3
+
+    move-object v6, p1
+
+    move-object v7, p2
+
+    invoke-direct/range {v0 .. v7}, Landroid/accounts/AccountManager$20;-><init>(Landroid/accounts/AccountManager;Landroid/accounts/AccountManager;Landroid/app/Activity;Landroid/os/Handler;Landroid/accounts/AccountManagerCallback;Ljava/lang/String;[Ljava/lang/String;)V
+
+    invoke-virtual {v0}, Landroid/accounts/AccountManager$20;->start()Landroid/accounts/AccountManagerFuture;
+
+    return-void
+.end method
+
 .method public static newChooseAccountIntent(Landroid/accounts/Account;Ljava/util/ArrayList;[Ljava/lang/String;ZLjava/lang/String;Ljava/lang/String;[Ljava/lang/String;Landroid/os/Bundle;)Landroid/content/Intent;
     .locals 7
     .annotation system Ldalvik/annotation/Signature;
@@ -445,7 +549,7 @@
 
     move-result-object v3
 
-    const v4, 0x1040061
+    const v4, 0x10401e8
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -587,12 +691,10 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    xor-int/lit8 v1, v1, 0x1
 
-    :cond_0
-    return-object p0
+    if-eqz v1, :cond_0
 
-    :cond_1
     new-instance v0, Landroid/os/Bundle;
 
     invoke-direct {v0, p0}, Landroid/os/Bundle;-><init>(Landroid/os/Bundle;)V
@@ -604,6 +706,9 @@
     invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
     return-object v0
+
+    :cond_0
+    return-object p0
 .end method
 
 
@@ -825,101 +930,209 @@
     throw v1
 .end method
 
-.method public addOnAccountsUpdatedListener(Landroid/accounts/OnAccountsUpdateListener;Landroid/os/Handler;Z)V
-    .locals 5
+.method public addAccountExplicitly(Landroid/accounts/Account;Ljava/lang/String;Landroid/os/Bundle;Ljava/util/Map;)Z
+    .locals 3
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Landroid/accounts/Account;",
+            "Ljava/lang/String;",
+            "Landroid/os/Bundle;",
+            "Ljava/util/Map",
+            "<",
+            "Ljava/lang/String;",
+            "Ljava/lang/Integer;",
+            ">;)Z"
+        }
+    .end annotation
 
     if-nez p1, :cond_0
 
-    new-instance v2, Ljava/lang/IllegalArgumentException;
+    new-instance v1, Ljava/lang/IllegalArgumentException;
 
-    const-string/jumbo v3, "the listener is null"
+    const-string/jumbo v2, "account is null"
 
-    invoke-direct {v2, v3}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v2
+    throw v1
 
     :cond_0
-    iget-object v3, p0, Landroid/accounts/AccountManager;->mAccountsUpdatedListeners:Ljava/util/HashMap;
+    :try_start_0
+    iget-object v1, p0, Landroid/accounts/AccountManager;->mService:Landroid/accounts/IAccountManager;
 
-    monitor-enter v3
+    invoke-interface {v1, p1, p2, p3, p4}, Landroid/accounts/IAccountManager;->addAccountExplicitlyWithVisibility(Landroid/accounts/Account;Ljava/lang/String;Landroid/os/Bundle;Ljava/util/Map;)Z
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v1
+
+    return v1
+
+    :catch_0
+    move-exception v0
+
+    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+
+    move-result-object v1
+
+    throw v1
+.end method
+
+.method public addOnAccountsUpdatedListener(Landroid/accounts/OnAccountsUpdateListener;Landroid/os/Handler;Z)V
+    .locals 1
+
+    const/4 v0, 0x0
+
+    invoke-virtual {p0, p1, p2, p3, v0}, Landroid/accounts/AccountManager;->addOnAccountsUpdatedListener(Landroid/accounts/OnAccountsUpdateListener;Landroid/os/Handler;Z[Ljava/lang/String;)V
+
+    return-void
+.end method
+
+.method public addOnAccountsUpdatedListener(Landroid/accounts/OnAccountsUpdateListener;Landroid/os/Handler;Z[Ljava/lang/String;)V
+    .locals 7
+
+    if-nez p1, :cond_0
+
+    new-instance v3, Ljava/lang/IllegalArgumentException;
+
+    const-string/jumbo v4, "the listener is null"
+
+    invoke-direct {v3, v4}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v3
+
+    :cond_0
+    iget-object v4, p0, Landroid/accounts/AccountManager;->mAccountsUpdatedListeners:Ljava/util/HashMap;
+
+    monitor-enter v4
 
     :try_start_0
-    iget-object v2, p0, Landroid/accounts/AccountManager;->mAccountsUpdatedListeners:Ljava/util/HashMap;
+    iget-object v3, p0, Landroid/accounts/AccountManager;->mAccountsUpdatedListeners:Ljava/util/HashMap;
 
-    invoke-virtual {v2, p1}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z
+    invoke-virtual {v3, p1}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result v3
 
-    if-eqz v2, :cond_1
+    if-eqz v3, :cond_1
 
-    new-instance v2, Ljava/lang/IllegalStateException;
+    new-instance v3, Ljava/lang/IllegalStateException;
 
-    const-string/jumbo v4, "this listener is already added"
+    const-string/jumbo v5, "this listener is already added"
 
-    invoke-direct {v2, v4}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v3, v5}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v2
+    throw v3
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     :catchall_0
-    move-exception v2
+    move-exception v3
 
-    monitor-exit v3
+    monitor-exit v4
 
-    throw v2
+    throw v3
 
     :cond_1
     :try_start_1
-    iget-object v2, p0, Landroid/accounts/AccountManager;->mAccountsUpdatedListeners:Ljava/util/HashMap;
+    iget-object v3, p0, Landroid/accounts/AccountManager;->mAccountsUpdatedListeners:Ljava/util/HashMap;
 
-    invoke-virtual {v2}, Ljava/util/HashMap;->isEmpty()Z
+    invoke-virtual {v3}, Ljava/util/HashMap;->isEmpty()Z
 
-    move-result v1
+    move-result v2
 
-    iget-object v2, p0, Landroid/accounts/AccountManager;->mAccountsUpdatedListeners:Ljava/util/HashMap;
+    iget-object v3, p0, Landroid/accounts/AccountManager;->mAccountsUpdatedListeners:Ljava/util/HashMap;
 
-    invoke-virtual {v2, p1, p2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v3, p1, p2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    if-eqz v1, :cond_2
+    if-eqz p4, :cond_4
 
-    new-instance v0, Landroid/content/IntentFilter;
+    iget-object v3, p0, Landroid/accounts/AccountManager;->mAccountsUpdatedListenersTypes:Ljava/util/HashMap;
 
-    invoke-direct {v0}, Landroid/content/IntentFilter;-><init>()V
+    new-instance v5, Ljava/util/HashSet;
 
-    const-string/jumbo v2, "android.accounts.LOGIN_ACCOUNTS_CHANGED"
+    invoke-static {p4}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
 
-    invoke-virtual {v0, v2}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+    move-result-object v6
 
-    const-string/jumbo v2, "android.intent.action.DEVICE_STORAGE_OK"
+    invoke-direct {v5, v6}, Ljava/util/HashSet;-><init>(Ljava/util/Collection;)V
 
-    invoke-virtual {v0, v2}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+    invoke-virtual {v3, p1, v5}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    iget-object v2, p0, Landroid/accounts/AccountManager;->mContext:Landroid/content/Context;
+    :goto_0
+    if-eqz v2, :cond_2
 
-    iget-object v4, p0, Landroid/accounts/AccountManager;->mAccountsChangedBroadcastReceiver:Landroid/content/BroadcastReceiver;
+    new-instance v1, Landroid/content/IntentFilter;
 
-    invoke-virtual {v2, v4, v0}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
+    invoke-direct {v1}, Landroid/content/IntentFilter;-><init>()V
+
+    const-string/jumbo v3, "android.accounts.action.VISIBLE_ACCOUNTS_CHANGED"
+
+    invoke-virtual {v1, v3}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+
+    const-string/jumbo v3, "android.intent.action.DEVICE_STORAGE_OK"
+
+    invoke-virtual {v1, v3}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+
+    iget-object v3, p0, Landroid/accounts/AccountManager;->mContext:Landroid/content/Context;
+
+    iget-object v5, p0, Landroid/accounts/AccountManager;->mAccountsChangedBroadcastReceiver:Landroid/content/BroadcastReceiver;
+
+    invoke-virtual {v3, v5, v1}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     :cond_2
-    monitor-exit v3
+    :try_start_2
+    iget-object v3, p0, Landroid/accounts/AccountManager;->mService:Landroid/accounts/IAccountManager;
+
+    iget-object v5, p0, Landroid/accounts/AccountManager;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v5}, Landroid/content/Context;->getOpPackageName()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-interface {v3, p4, v5}, Landroid/accounts/IAccountManager;->registerAccountListener([Ljava/lang/String;Ljava/lang/String;)V
+    :try_end_2
+    .catch Landroid/os/RemoteException; {:try_start_2 .. :try_end_2} :catch_0
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+
+    monitor-exit v4
 
     if-eqz p3, :cond_3
 
     invoke-virtual {p0}, Landroid/accounts/AccountManager;->getAccounts()[Landroid/accounts/Account;
 
-    move-result-object v2
+    move-result-object v3
 
-    invoke-direct {p0, p2, p1, v2}, Landroid/accounts/AccountManager;->postToHandler(Landroid/os/Handler;Landroid/accounts/OnAccountsUpdateListener;[Landroid/accounts/Account;)V
+    invoke-direct {p0, p2, p1, v3}, Landroid/accounts/AccountManager;->postToHandler(Landroid/os/Handler;Landroid/accounts/OnAccountsUpdateListener;[Landroid/accounts/Account;)V
 
     :cond_3
     return-void
+
+    :cond_4
+    :try_start_3
+    iget-object v3, p0, Landroid/accounts/AccountManager;->mAccountsUpdatedListenersTypes:Ljava/util/HashMap;
+
+    const/4 v5, 0x0
+
+    invoke-virtual {v3, p1, v5}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    goto :goto_0
+
+    :catch_0
+    move-exception v0
+
+    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+
+    move-result-object v3
+
+    throw v3
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
 .end method
 
 .method public addSharedAccountsFromParentUser(Landroid/os/UserHandle;Landroid/os/UserHandle;)V
-    .locals 4
+    .locals 5
 
     :try_start_0
     iget-object v1, p0, Landroid/accounts/AccountManager;->mService:Landroid/accounts/IAccountManager;
@@ -932,7 +1145,13 @@
 
     move-result v3
 
-    invoke-interface {v1, v2, v3}, Landroid/accounts/IAccountManager;->addSharedAccountsFromParentUser(II)V
+    iget-object v4, p0, Landroid/accounts/AccountManager;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v4}, Landroid/content/Context;->getOpPackageName()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-interface {v1, v2, v3, v4}, Landroid/accounts/IAccountManager;->addSharedAccountsFromParentUser(IILjava/lang/String;)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -1260,6 +1479,30 @@
     return-object v0
 .end method
 
+.method public createRequestAccountAccessIntentSenderAsUser(Landroid/accounts/Account;Ljava/lang/String;Landroid/os/UserHandle;)Landroid/content/IntentSender;
+    .locals 2
+
+    :try_start_0
+    iget-object v1, p0, Landroid/accounts/AccountManager;->mService:Landroid/accounts/IAccountManager;
+
+    invoke-interface {v1, p1, p2, p3}, Landroid/accounts/IAccountManager;->createRequestAccountAccessIntentSenderAsUser(Landroid/accounts/Account;Ljava/lang/String;Landroid/os/UserHandle;)Landroid/content/IntentSender;
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result-object v1
+
+    return-object v1
+
+    :catch_0
+    move-exception v0
+
+    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+
+    move-result-object v1
+
+    throw v1
+.end method
+
 .method public editProperties(Ljava/lang/String;Landroid/app/Activity;Landroid/accounts/AccountManagerCallback;Landroid/os/Handler;)Landroid/accounts/AccountManagerFuture;
     .locals 8
     .annotation system Ldalvik/annotation/Signature;
@@ -1403,7 +1646,7 @@
 
     invoke-virtual {v8, v0, v1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    new-instance v0, Landroid/accounts/AccountManager$22;
+    new-instance v0, Landroid/accounts/AccountManager$23;
 
     move-object v1, p0
 
@@ -1421,13 +1664,48 @@
 
     move-object v9, p3
 
-    invoke-direct/range {v0 .. v9}, Landroid/accounts/AccountManager$22;-><init>(Landroid/accounts/AccountManager;Landroid/accounts/AccountManager;Landroid/app/Activity;Landroid/os/Handler;Landroid/accounts/AccountManagerCallback;Landroid/os/Bundle;Landroid/app/Activity;Landroid/os/Bundle;Landroid/os/UserHandle;)V
+    invoke-direct/range {v0 .. v9}, Landroid/accounts/AccountManager$23;-><init>(Landroid/accounts/AccountManager;Landroid/accounts/AccountManager;Landroid/app/Activity;Landroid/os/Handler;Landroid/accounts/AccountManagerCallback;Landroid/os/Bundle;Landroid/app/Activity;Landroid/os/Bundle;Landroid/os/UserHandle;)V
 
-    invoke-virtual {v0}, Landroid/accounts/AccountManager$22;->start()Landroid/accounts/AccountManagerFuture;
+    invoke-virtual {v0}, Landroid/accounts/AccountManager$23;->start()Landroid/accounts/AccountManagerFuture;
 
     move-result-object v0
 
     return-object v0
+.end method
+
+.method public getAccountVisibility(Landroid/accounts/Account;Ljava/lang/String;)I
+    .locals 3
+
+    if-nez p1, :cond_0
+
+    new-instance v1, Ljava/lang/IllegalArgumentException;
+
+    const-string/jumbo v2, "account is null"
+
+    invoke-direct {v1, v2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v1
+
+    :cond_0
+    :try_start_0
+    iget-object v1, p0, Landroid/accounts/AccountManager;->mService:Landroid/accounts/IAccountManager;
+
+    invoke-interface {v1, p1, p2}, Landroid/accounts/IAccountManager;->getAccountVisibility(Landroid/accounts/Account;Ljava/lang/String;)I
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v1
+
+    return v1
+
+    :catch_0
+    move-exception v0
+
+    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+
+    move-result-object v1
+
+    throw v1
 .end method
 
 .method public getAccounts()[Landroid/accounts/Account;
@@ -1460,6 +1738,43 @@
     move-result-object v1
 
     throw v1
+.end method
+
+.method public getAccountsAndVisibilityForPackage(Ljava/lang/String;Ljava/lang/String;)Ljava/util/Map;
+    .locals 3
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/lang/String;",
+            "Ljava/lang/String;",
+            ")",
+            "Ljava/util/Map",
+            "<",
+            "Landroid/accounts/Account;",
+            "Ljava/lang/Integer;",
+            ">;"
+        }
+    .end annotation
+
+    :try_start_0
+    iget-object v2, p0, Landroid/accounts/AccountManager;->mService:Landroid/accounts/IAccountManager;
+
+    invoke-interface {v2, p1, p2}, Landroid/accounts/IAccountManager;->getAccountsAndVisibilityForPackage(Ljava/lang/String;Ljava/lang/String;)Ljava/util/Map;
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result-object v1
+
+    return-object v1
+
+    :catch_0
+    move-exception v0
+
+    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+
+    move-result-object v2
+
+    throw v2
 .end method
 
 .method public getAccountsAsUser(I)[Landroid/accounts/Account;
@@ -2020,38 +2335,21 @@
 .end method
 
 .method public getAuthenticatorTypes()[Landroid/accounts/AuthenticatorDescription;
-    .locals 4
+    .locals 3
 
     :try_start_0
-    iget-object v2, p0, Landroid/accounts/AccountManager;->mService:Landroid/accounts/IAccountManager;
+    iget-object v1, p0, Landroid/accounts/AccountManager;->mService:Landroid/accounts/IAccountManager;
 
     invoke-static {}, Landroid/os/UserHandle;->getCallingUserId()I
 
-    move-result v3
+    move-result v2
 
-    invoke-interface {v2, v3}, Landroid/accounts/IAccountManager;->getAuthenticatorTypes(I)[Landroid/accounts/AuthenticatorDescription;
-
-    move-result-object v1
-
-    sget-boolean v2, Landroid/os/Build;->IS_SYSTEM_SECURE:Z
-
-    if-eqz v2, :cond_0
-
-    if-eqz v1, :cond_0
-
-    iget-object v2, p0, Landroid/accounts/AccountManager;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v2}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v2
-
-    iget-object v3, p0, Landroid/accounts/AccountManager;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v2, v3, v1}, Landroid/content/res/Resources;->addAccountsNames(Landroid/content/Context;[Landroid/accounts/AuthenticatorDescription;)V
+    invoke-interface {v1, v2}, Landroid/accounts/IAccountManager;->getAuthenticatorTypes(I)[Landroid/accounts/AuthenticatorDescription;
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    :cond_0
+    move-result-object v1
+
     return-object v1
 
     :catch_0
@@ -2059,9 +2357,9 @@
 
     invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
 
-    move-result-object v2
+    move-result-object v1
 
-    throw v2
+    throw v1
 .end method
 
 .method public getAuthenticatorTypesAsUser(I)[Landroid/accounts/AuthenticatorDescription;
@@ -2086,6 +2384,56 @@
     move-result-object v1
 
     throw v1
+.end method
+
+.method public getPackagesAndVisibilityForAccount(Landroid/accounts/Account;)Ljava/util/Map;
+    .locals 4
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Landroid/accounts/Account;",
+            ")",
+            "Ljava/util/Map",
+            "<",
+            "Ljava/lang/String;",
+            "Ljava/lang/Integer;",
+            ">;"
+        }
+    .end annotation
+
+    if-nez p1, :cond_0
+
+    :try_start_0
+    new-instance v2, Ljava/lang/IllegalArgumentException;
+
+    const-string/jumbo v3, "account is null"
+
+    invoke-direct {v2, v3}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v2
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    :catch_0
+    move-exception v0
+
+    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+
+    move-result-object v2
+
+    throw v2
+
+    :cond_0
+    :try_start_1
+    iget-object v2, p0, Landroid/accounts/AccountManager;->mService:Landroid/accounts/IAccountManager;
+
+    invoke-interface {v2, p1}, Landroid/accounts/IAccountManager;->getPackagesAndVisibilityForAccount(Landroid/accounts/Account;)Ljava/util/Map;
+    :try_end_1
+    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
+
+    move-result-object v1
+
+    return-object v1
 .end method
 
 .method public getPassword(Landroid/accounts/Account;)Ljava/lang/String;
@@ -2221,6 +2569,30 @@
     move-result-object v1
 
     return-object v1
+
+    :catch_0
+    move-exception v0
+
+    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+
+    move-result-object v1
+
+    throw v1
+.end method
+
+.method public hasAccountAccess(Landroid/accounts/Account;Ljava/lang/String;Landroid/os/UserHandle;)Z
+    .locals 2
+
+    :try_start_0
+    iget-object v1, p0, Landroid/accounts/AccountManager;->mService:Landroid/accounts/IAccountManager;
+
+    invoke-interface {v1, p1, p2, p3}, Landroid/accounts/IAccountManager;->hasAccountAccess(Landroid/accounts/Account;Ljava/lang/String;Landroid/os/UserHandle;)Z
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v1
+
+    return v1
 
     :catch_0
     move-exception v0
@@ -2380,7 +2752,7 @@
     throw v0
 
     :cond_1
-    new-instance v0, Landroid/accounts/AccountManager$23;
+    new-instance v0, Landroid/accounts/AccountManager$24;
 
     move-object v1, p0
 
@@ -2394,9 +2766,9 @@
 
     move-object v6, p2
 
-    invoke-direct/range {v0 .. v6}, Landroid/accounts/AccountManager$23;-><init>(Landroid/accounts/AccountManager;Landroid/accounts/AccountManager;Landroid/os/Handler;Landroid/accounts/AccountManagerCallback;Landroid/accounts/Account;Ljava/lang/String;)V
+    invoke-direct/range {v0 .. v6}, Landroid/accounts/AccountManager$24;-><init>(Landroid/accounts/AccountManager;Landroid/accounts/AccountManager;Landroid/os/Handler;Landroid/accounts/AccountManagerCallback;Landroid/accounts/Account;Ljava/lang/String;)V
 
-    invoke-virtual {v0}, Landroid/accounts/AccountManager$23;->start()Landroid/accounts/AccountManager$Future2Task;
+    invoke-virtual {v0}, Landroid/accounts/AccountManager$24;->start()Landroid/accounts/AccountManager$Future2Task;
 
     move-result-object v0
 
@@ -2768,77 +3140,135 @@
 .end method
 
 .method public removeOnAccountsUpdatedListener(Landroid/accounts/OnAccountsUpdateListener;)V
-    .locals 3
+    .locals 6
 
     if-nez p1, :cond_0
 
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance v3, Ljava/lang/IllegalArgumentException;
 
-    const-string/jumbo v1, "listener is null"
+    const-string/jumbo v4, "listener is null"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v3, v4}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw v3
 
     :cond_0
-    iget-object v1, p0, Landroid/accounts/AccountManager;->mAccountsUpdatedListeners:Ljava/util/HashMap;
+    iget-object v4, p0, Landroid/accounts/AccountManager;->mAccountsUpdatedListeners:Ljava/util/HashMap;
 
-    monitor-enter v1
+    monitor-enter v4
 
     :try_start_0
-    iget-object v0, p0, Landroid/accounts/AccountManager;->mAccountsUpdatedListeners:Ljava/util/HashMap;
+    iget-object v3, p0, Landroid/accounts/AccountManager;->mAccountsUpdatedListeners:Ljava/util/HashMap;
 
-    invoke-virtual {v0, p1}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z
+    invoke-virtual {v3, p1}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v3
 
-    if-nez v0, :cond_1
+    if-nez v3, :cond_1
 
-    const-string/jumbo v0, "AccountManager"
+    const-string/jumbo v3, "AccountManager"
 
-    const-string/jumbo v2, "Listener was not previously added"
+    const-string/jumbo v5, "Listener was not previously added"
 
-    invoke-static {v0, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v3, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    monitor-exit v1
+    monitor-exit v4
 
     return-void
 
     :cond_1
     :try_start_1
-    iget-object v0, p0, Landroid/accounts/AccountManager;->mAccountsUpdatedListeners:Ljava/util/HashMap;
+    iget-object v3, p0, Landroid/accounts/AccountManager;->mAccountsUpdatedListenersTypes:Ljava/util/HashMap;
 
-    invoke-virtual {v0, p1}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v3, p1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    iget-object v0, p0, Landroid/accounts/AccountManager;->mAccountsUpdatedListeners:Ljava/util/HashMap;
+    move-result-object v0
 
-    invoke-virtual {v0}, Ljava/util/HashMap;->isEmpty()Z
+    check-cast v0, Ljava/util/Set;
 
-    move-result v0
+    if-eqz v0, :cond_3
 
-    if-eqz v0, :cond_2
+    invoke-interface {v0}, Ljava/util/Set;->size()I
 
-    iget-object v0, p0, Landroid/accounts/AccountManager;->mContext:Landroid/content/Context;
+    move-result v3
 
-    iget-object v2, p0, Landroid/accounts/AccountManager;->mAccountsChangedBroadcastReceiver:Landroid/content/BroadcastReceiver;
+    new-array v3, v3, [Ljava/lang/String;
 
-    invoke-virtual {v0, v2}, Landroid/content/Context;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
+    invoke-interface {v0, v3}, Ljava/util/Set;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, [Ljava/lang/String;
+
+    :goto_0
+    iget-object v3, p0, Landroid/accounts/AccountManager;->mAccountsUpdatedListeners:Ljava/util/HashMap;
+
+    invoke-virtual {v3, p1}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+
+    iget-object v3, p0, Landroid/accounts/AccountManager;->mAccountsUpdatedListenersTypes:Ljava/util/HashMap;
+
+    invoke-virtual {v3, p1}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+
+    iget-object v3, p0, Landroid/accounts/AccountManager;->mAccountsUpdatedListeners:Ljava/util/HashMap;
+
+    invoke-virtual {v3}, Ljava/util/HashMap;->isEmpty()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_2
+
+    iget-object v3, p0, Landroid/accounts/AccountManager;->mContext:Landroid/content/Context;
+
+    iget-object v5, p0, Landroid/accounts/AccountManager;->mAccountsChangedBroadcastReceiver:Landroid/content/BroadcastReceiver;
+
+    invoke-virtual {v3, v5}, Landroid/content/Context;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     :cond_2
-    monitor-exit v1
+    :try_start_2
+    iget-object v3, p0, Landroid/accounts/AccountManager;->mService:Landroid/accounts/IAccountManager;
+
+    iget-object v5, p0, Landroid/accounts/AccountManager;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v5}, Landroid/content/Context;->getOpPackageName()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-interface {v3, v1, v5}, Landroid/accounts/IAccountManager;->unregisterAccountListener([Ljava/lang/String;Ljava/lang/String;)V
+    :try_end_2
+    .catch Landroid/os/RemoteException; {:try_start_2 .. :try_end_2} :catch_0
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+
+    monitor-exit v4
 
     return-void
 
+    :cond_3
+    const/4 v1, 0x0
+
+    goto :goto_0
+
+    :catch_0
+    move-exception v2
+
+    :try_start_3
+    invoke-virtual {v2}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+
+    move-result-object v3
+
+    throw v3
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+
     :catchall_0
-    move-exception v0
+    move-exception v3
 
-    monitor-exit v1
+    monitor-exit v4
 
-    throw v0
+    throw v3
 .end method
 
 .method public removeSharedAccount(Landroid/accounts/Account;Landroid/os/UserHandle;)Z
@@ -2936,6 +3366,41 @@
     move-result-object v0
 
     return-object v0
+.end method
+
+.method public setAccountVisibility(Landroid/accounts/Account;Ljava/lang/String;I)Z
+    .locals 3
+
+    if-nez p1, :cond_0
+
+    new-instance v1, Ljava/lang/IllegalArgumentException;
+
+    const-string/jumbo v2, "account is null"
+
+    invoke-direct {v1, v2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v1
+
+    :cond_0
+    :try_start_0
+    iget-object v1, p0, Landroid/accounts/AccountManager;->mService:Landroid/accounts/IAccountManager;
+
+    invoke-interface {v1, p1, p2, p3}, Landroid/accounts/IAccountManager;->setAccountVisibility(Landroid/accounts/Account;Ljava/lang/String;I)Z
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v1
+
+    return v1
+
+    :catch_0
+    move-exception v0
+
+    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+
+    move-result-object v1
+
+    throw v1
 .end method
 
 .method public setAuthToken(Landroid/accounts/Account;Ljava/lang/String;Ljava/lang/String;)V
@@ -3137,7 +3602,7 @@
 
     invoke-virtual {v10, v0, v1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    new-instance v0, Landroid/accounts/AccountManager$20;
+    new-instance v0, Landroid/accounts/AccountManager$21;
 
     move-object v1, p0
 
@@ -3157,9 +3622,9 @@
 
     move-object/from16 v9, p5
 
-    invoke-direct/range {v0 .. v10}, Landroid/accounts/AccountManager$20;-><init>(Landroid/accounts/AccountManager;Landroid/accounts/AccountManager;Landroid/app/Activity;Landroid/os/Handler;Landroid/accounts/AccountManagerCallback;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Landroid/app/Activity;Landroid/os/Bundle;)V
+    invoke-direct/range {v0 .. v10}, Landroid/accounts/AccountManager$21;-><init>(Landroid/accounts/AccountManager;Landroid/accounts/AccountManager;Landroid/app/Activity;Landroid/os/Handler;Landroid/accounts/AccountManagerCallback;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Landroid/app/Activity;Landroid/os/Bundle;)V
 
-    invoke-virtual {v0}, Landroid/accounts/AccountManager$20;->start()Landroid/accounts/AccountManagerFuture;
+    invoke-virtual {v0}, Landroid/accounts/AccountManager$21;->start()Landroid/accounts/AccountManagerFuture;
 
     move-result-object v0
 
@@ -3218,7 +3683,7 @@
 
     invoke-virtual {v9, v0, v1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    new-instance v0, Landroid/accounts/AccountManager$21;
+    new-instance v0, Landroid/accounts/AccountManager$22;
 
     move-object v1, p0
 
@@ -3236,9 +3701,9 @@
 
     move-object v8, p4
 
-    invoke-direct/range {v0 .. v9}, Landroid/accounts/AccountManager$21;-><init>(Landroid/accounts/AccountManager;Landroid/accounts/AccountManager;Landroid/app/Activity;Landroid/os/Handler;Landroid/accounts/AccountManagerCallback;Landroid/accounts/Account;Ljava/lang/String;Landroid/app/Activity;Landroid/os/Bundle;)V
+    invoke-direct/range {v0 .. v9}, Landroid/accounts/AccountManager$22;-><init>(Landroid/accounts/AccountManager;Landroid/accounts/AccountManager;Landroid/app/Activity;Landroid/os/Handler;Landroid/accounts/AccountManagerCallback;Landroid/accounts/Account;Ljava/lang/String;Landroid/app/Activity;Landroid/os/Bundle;)V
 
-    invoke-virtual {v0}, Landroid/accounts/AccountManager$21;->start()Landroid/accounts/AccountManagerFuture;
+    invoke-virtual {v0}, Landroid/accounts/AccountManager$22;->start()Landroid/accounts/AccountManagerFuture;
 
     move-result-object v0
 

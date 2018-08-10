@@ -51,6 +51,8 @@
 .method static convertDeprecatedArguments([I[F)[I
     .locals 34
 
+    const/4 v5, 0x0
+
     const/16 v28, 0x0
 
     move-object/from16 v0, p1

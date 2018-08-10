@@ -30,9 +30,9 @@
 
 .field static final TRANSACTION_computeChargeTimeRemaining:I = 0x13
 
-.field static final TRANSACTION_getAwakeTimeBattery:I = 0x4a
+.field static final TRANSACTION_getAwakeTimeBattery:I = 0x4d
 
-.field static final TRANSACTION_getAwakeTimePlugged:I = 0x4b
+.field static final TRANSACTION_getAwakeTimePlugged:I = 0x4e
 
 .field static final TRANSACTION_getStatistics:I = 0xf
 
@@ -40,17 +40,25 @@
 
 .field static final TRANSACTION_isCharging:I = 0x11
 
-.field static final TRANSACTION_noteBleScanStarted:I = 0x4c
+.field static final TRANSACTION_noteAodService:I = 0x26
 
-.field static final TRANSACTION_noteBleScanStopped:I = 0x4d
+.field static final TRANSACTION_noteBleDutyScanStarted:I = 0x4f
 
-.field static final TRANSACTION_noteBluetoothControllerActivity:I = 0x51
+.field static final TRANSACTION_noteBleDutyScanStopped:I = 0x50
+
+.field static final TRANSACTION_noteBleScanResults:I = 0x54
+
+.field static final TRANSACTION_noteBleScanStarted:I = 0x51
+
+.field static final TRANSACTION_noteBleScanStopped:I = 0x52
+
+.field static final TRANSACTION_noteBluetoothControllerActivity:I = 0x57
 
 .field static final TRANSACTION_noteChangeWakelockFromSource:I = 0x1c
 
-.field static final TRANSACTION_noteConnectivityChanged:I = 0x27
+.field static final TRANSACTION_noteConnectivityChanged:I = 0x2a
 
-.field static final TRANSACTION_noteDeviceIdleMode:I = 0x47
+.field static final TRANSACTION_noteDeviceIdleMode:I = 0x4a
 
 .field static final TRANSACTION_noteEvent:I = 0x14
 
@@ -58,41 +66,45 @@
 
 .field static final TRANSACTION_noteFlashlightOn:I = 0x9
 
-.field static final TRANSACTION_noteFullWifiLockAcquired:I = 0x36
+.field static final TRANSACTION_noteFullWifiLockAcquired:I = 0x39
 
-.field static final TRANSACTION_noteFullWifiLockAcquiredFromSource:I = 0x3c
+.field static final TRANSACTION_noteFullWifiLockAcquiredFromSource:I = 0x3f
 
-.field static final TRANSACTION_noteFullWifiLockReleased:I = 0x37
+.field static final TRANSACTION_noteFullWifiLockReleased:I = 0x3a
 
-.field static final TRANSACTION_noteFullWifiLockReleasedFromSource:I = 0x3d
+.field static final TRANSACTION_noteFullWifiLockReleasedFromSource:I = 0x40
 
-.field static final TRANSACTION_noteInteractive:I = 0x26
+.field static final TRANSACTION_noteInteractive:I = 0x29
 
 .field static final TRANSACTION_noteJobFinish:I = 0x18
 
 .field static final TRANSACTION_noteJobStart:I = 0x17
 
-.field static final TRANSACTION_noteMobileRadioPowerState:I = 0x28
+.field static final TRANSACTION_noteLongPartialWakelockFinish:I = 0x1f
 
-.field static final TRANSACTION_noteModemControllerActivity:I = 0x52
+.field static final TRANSACTION_noteLongPartialWakelockStart:I = 0x1e
 
-.field static final TRANSACTION_noteNetworkInterfaceType:I = 0x45
+.field static final TRANSACTION_noteMobileRadioPowerState:I = 0x2b
 
-.field static final TRANSACTION_noteNetworkStatsEnabled:I = 0x46
+.field static final TRANSACTION_noteModemControllerActivity:I = 0x58
 
-.field static final TRANSACTION_notePhoneDataConnectionState:I = 0x2c
+.field static final TRANSACTION_noteNetworkInterfaceType:I = 0x48
 
-.field static final TRANSACTION_notePhoneOff:I = 0x2a
+.field static final TRANSACTION_noteNetworkStatsEnabled:I = 0x49
 
-.field static final TRANSACTION_notePhoneOn:I = 0x29
+.field static final TRANSACTION_notePhoneDataConnectionState:I = 0x2f
 
-.field static final TRANSACTION_notePhoneSignalStrength:I = 0x2b
+.field static final TRANSACTION_notePhoneOff:I = 0x2d
 
-.field static final TRANSACTION_notePhoneState:I = 0x2d
+.field static final TRANSACTION_notePhoneOn:I = 0x2c
+
+.field static final TRANSACTION_notePhoneSignalStrength:I = 0x2e
+
+.field static final TRANSACTION_notePhoneState:I = 0x30
 
 .field static final TRANSACTION_noteResetAudio:I = 0x8
 
-.field static final TRANSACTION_noteResetBleScan:I = 0x4e
+.field static final TRANSACTION_noteResetBleScan:I = 0x53
 
 .field static final TRANSACTION_noteResetCamera:I = 0xd
 
@@ -100,15 +112,15 @@
 
 .field static final TRANSACTION_noteResetVideo:I = 0x7
 
-.field static final TRANSACTION_noteScreenBrightness:I = 0x23
+.field static final TRANSACTION_noteScreenBrightness:I = 0x25
 
-.field static final TRANSACTION_noteScreenState:I = 0x22
+.field static final TRANSACTION_noteScreenState:I = 0x24
 
 .field static final TRANSACTION_noteStartAudio:I = 0x5
 
 .field static final TRANSACTION_noteStartCamera:I = 0xb
 
-.field static final TRANSACTION_noteStartGps:I = 0x20
+.field static final TRANSACTION_noteStartGps:I = 0x22
 
 .field static final TRANSACTION_noteStartSensor:I = 0x1
 
@@ -122,7 +134,7 @@
 
 .field static final TRANSACTION_noteStopCamera:I = 0xc
 
-.field static final TRANSACTION_noteStopGps:I = 0x21
+.field static final TRANSACTION_noteStopGps:I = 0x23
 
 .field static final TRANSACTION_noteStopSensor:I = 0x2
 
@@ -136,61 +148,61 @@
 
 .field static final TRANSACTION_noteSyncStart:I = 0x15
 
-.field static final TRANSACTION_noteUserActivity:I = 0x24
+.field static final TRANSACTION_noteUserActivity:I = 0x27
 
-.field static final TRANSACTION_noteVibratorOff:I = 0x1f
+.field static final TRANSACTION_noteVibratorOff:I = 0x21
 
-.field static final TRANSACTION_noteVibratorOn:I = 0x1e
+.field static final TRANSACTION_noteVibratorOn:I = 0x20
 
-.field static final TRANSACTION_noteWakeUp:I = 0x25
+.field static final TRANSACTION_noteWakeUp:I = 0x28
 
-.field static final TRANSACTION_noteWifiBatchedScanStartedFromSource:I = 0x40
+.field static final TRANSACTION_noteWifiBatchedScanStartedFromSource:I = 0x43
 
-.field static final TRANSACTION_noteWifiBatchedScanStoppedFromSource:I = 0x41
+.field static final TRANSACTION_noteWifiBatchedScanStoppedFromSource:I = 0x44
 
-.field static final TRANSACTION_noteWifiControllerActivity:I = 0x53
+.field static final TRANSACTION_noteWifiControllerActivity:I = 0x59
 
-.field static final TRANSACTION_noteWifiMulticastDisabled:I = 0x3b
+.field static final TRANSACTION_noteWifiMulticastDisabled:I = 0x3e
 
-.field static final TRANSACTION_noteWifiMulticastDisabledFromSource:I = 0x43
+.field static final TRANSACTION_noteWifiMulticastDisabledFromSource:I = 0x46
 
-.field static final TRANSACTION_noteWifiMulticastEnabled:I = 0x3a
+.field static final TRANSACTION_noteWifiMulticastEnabled:I = 0x3d
 
-.field static final TRANSACTION_noteWifiMulticastEnabledFromSource:I = 0x42
+.field static final TRANSACTION_noteWifiMulticastEnabledFromSource:I = 0x45
 
-.field static final TRANSACTION_noteWifiOff:I = 0x2f
+.field static final TRANSACTION_noteWifiOff:I = 0x32
 
-.field static final TRANSACTION_noteWifiOn:I = 0x2e
+.field static final TRANSACTION_noteWifiOn:I = 0x31
 
-.field static final TRANSACTION_noteWifiRadioPowerState:I = 0x44
+.field static final TRANSACTION_noteWifiRadioPowerState:I = 0x47
 
-.field static final TRANSACTION_noteWifiRssiChanged:I = 0x35
+.field static final TRANSACTION_noteWifiRssiChanged:I = 0x38
 
-.field static final TRANSACTION_noteWifiRunning:I = 0x30
+.field static final TRANSACTION_noteWifiRunning:I = 0x33
 
-.field static final TRANSACTION_noteWifiRunningChanged:I = 0x31
+.field static final TRANSACTION_noteWifiRunningChanged:I = 0x34
 
-.field static final TRANSACTION_noteWifiScanStarted:I = 0x38
+.field static final TRANSACTION_noteWifiScanStarted:I = 0x3b
 
-.field static final TRANSACTION_noteWifiScanStartedFromSource:I = 0x3e
+.field static final TRANSACTION_noteWifiScanStartedFromSource:I = 0x41
 
-.field static final TRANSACTION_noteWifiScanStopped:I = 0x39
+.field static final TRANSACTION_noteWifiScanStopped:I = 0x3c
 
-.field static final TRANSACTION_noteWifiScanStoppedFromSource:I = 0x3f
+.field static final TRANSACTION_noteWifiScanStoppedFromSource:I = 0x42
 
-.field static final TRANSACTION_noteWifiState:I = 0x33
+.field static final TRANSACTION_noteWifiState:I = 0x36
 
-.field static final TRANSACTION_noteWifiStopped:I = 0x32
+.field static final TRANSACTION_noteWifiStopped:I = 0x35
 
-.field static final TRANSACTION_noteWifiSupplicantStateChanged:I = 0x34
+.field static final TRANSACTION_noteWifiSupplicantStateChanged:I = 0x37
 
-.field static final TRANSACTION_setBatteryState:I = 0x48
+.field static final TRANSACTION_setBatteryState:I = 0x4b
 
-.field static final TRANSACTION_setTemperatureNCurrent:I = 0x49
+.field static final TRANSACTION_setTemperatureNCurrent:I = 0x4c
 
-.field static final TRANSACTION_takeUidSnapshot:I = 0x4f
+.field static final TRANSACTION_takeUidSnapshot:I = 0x55
 
-.field static final TRANSACTION_takeUidSnapshots:I = 0x50
+.field static final TRANSACTION_takeUidSnapshots:I = 0x56
 
 
 # direct methods
@@ -249,7 +261,7 @@
 .end method
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    .locals 51
+    .locals 54
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -562,13 +574,13 @@
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/internal/app/IBatteryStats$Stub;->getStatistics()[B
 
-    move-result-object v49
+    move-result-object v52
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     move-object/from16 v0, p3
 
-    move-object/from16 v1, v49
+    move-object/from16 v1, v52
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeByteArray([B)V
 
@@ -585,11 +597,11 @@
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/internal/app/IBatteryStats$Stub;->getStatisticsStream()Landroid/os/ParcelFileDescriptor;
 
-    move-result-object v46
+    move-result-object v47
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v46, :cond_0
+    if-eqz v47, :cond_0
 
     const/4 v4, 0x1
 
@@ -599,7 +611,7 @@
 
     const/4 v4, 0x1
 
-    move-object/from16 v0, v46
+    move-object/from16 v0, v47
 
     move-object/from16 v1, p3
 
@@ -628,11 +640,11 @@
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/internal/app/IBatteryStats$Stub;->isCharging()Z
 
-    move-result v48
+    move-result v51
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v48, :cond_1
+    if-eqz v51, :cond_1
 
     const/4 v4, 0x1
 
@@ -659,13 +671,13 @@
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/internal/app/IBatteryStats$Stub;->computeBatteryTimeRemaining()J
 
-    move-result-wide v44
+    move-result-wide v48
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     move-object/from16 v0, p3
 
-    move-wide/from16 v1, v44
+    move-wide/from16 v1, v48
 
     invoke-virtual {v0, v1, v2}, Landroid/os/Parcel;->writeLong(J)V
 
@@ -682,13 +694,13 @@
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/internal/app/IBatteryStats$Stub;->computeChargeTimeRemaining()J
 
-    move-result-wide v44
+    move-result-wide v48
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     move-object/from16 v0, p3
 
-    move-wide/from16 v1, v44
+    move-wide/from16 v1, v48
 
     invoke-virtual {v0, v1, v2}, Landroid/os/Parcel;->writeLong(J)V
 
@@ -709,7 +721,7 @@
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
-    move-result-object v42
+    move-result-object v45
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
@@ -717,7 +729,7 @@
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v42
+    move-object/from16 v1, v45
 
     move/from16 v2, v26
 
@@ -738,7 +750,7 @@
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
-    move-result-object v36
+    move-result-object v39
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
@@ -746,7 +758,7 @@
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v36
+    move-object/from16 v1, v39
 
     invoke-virtual {v0, v1, v6}, Lcom/android/internal/app/IBatteryStats$Stub;->noteSyncStart(Ljava/lang/String;I)V
 
@@ -765,7 +777,7 @@
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
-    move-result-object v36
+    move-result-object v39
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
@@ -773,7 +785,7 @@
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v36
+    move-object/from16 v1, v39
 
     invoke-virtual {v0, v1, v6}, Lcom/android/internal/app/IBatteryStats$Stub;->noteSyncFinish(Ljava/lang/String;I)V
 
@@ -792,7 +804,7 @@
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
-    move-result-object v36
+    move-result-object v39
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
@@ -800,7 +812,7 @@
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v36
+    move-object/from16 v1, v39
 
     invoke-virtual {v0, v1, v6}, Lcom/android/internal/app/IBatteryStats$Stub;->noteJobStart(Ljava/lang/String;I)V
 
@@ -819,7 +831,7 @@
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
-    move-result-object v36
+    move-result-object v39
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
@@ -827,7 +839,7 @@
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v36
+    move-object/from16 v1, v39
 
     invoke-virtual {v0, v1, v6}, Lcom/android/internal/app/IBatteryStats$Stub;->noteJobFinish(Ljava/lang/String;I)V
 
@@ -1189,19 +1201,27 @@
 
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v39
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v45
+
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v5
-
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readLong()J
-
-    move-result-wide v40
+    move-result v26
 
     move-object/from16 v0, p0
 
-    move-wide/from16 v1, v40
+    move-object/from16 v1, v39
 
-    invoke-virtual {v0, v5, v1, v2}, Lcom/android/internal/app/IBatteryStats$Stub;->noteVibratorOn(IJ)V
+    move-object/from16 v2, v45
+
+    move/from16 v3, v26
+
+    invoke-virtual {v0, v1, v2, v3}, Lcom/android/internal/app/IBatteryStats$Stub;->noteLongPartialWakelockStart(Ljava/lang/String;Ljava/lang/String;I)V
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
@@ -1216,13 +1236,27 @@
 
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v39
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v45
+
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v5
+    move-result v26
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v5}, Lcom/android/internal/app/IBatteryStats$Stub;->noteVibratorOff(I)V
+    move-object/from16 v1, v39
+
+    move-object/from16 v2, v45
+
+    move/from16 v3, v26
+
+    invoke-virtual {v0, v1, v2, v3}, Lcom/android/internal/app/IBatteryStats$Stub;->noteLongPartialWakelockFinish(Ljava/lang/String;Ljava/lang/String;I)V
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
@@ -1241,9 +1275,15 @@
 
     move-result v5
 
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readLong()J
+
+    move-result-wide v42
+
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v5}, Lcom/android/internal/app/IBatteryStats$Stub;->noteStartGps(I)V
+    move-wide/from16 v1, v42
+
+    invoke-virtual {v0, v5, v1, v2}, Lcom/android/internal/app/IBatteryStats$Stub;->noteVibratorOn(IJ)V
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
@@ -1264,7 +1304,7 @@
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v5}, Lcom/android/internal/app/IBatteryStats$Stub;->noteStopGps(I)V
+    invoke-virtual {v0, v5}, Lcom/android/internal/app/IBatteryStats$Stub;->noteVibratorOff(I)V
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
@@ -1285,7 +1325,7 @@
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v5}, Lcom/android/internal/app/IBatteryStats$Stub;->noteScreenState(I)V
+    invoke-virtual {v0, v5}, Lcom/android/internal/app/IBatteryStats$Stub;->noteStartGps(I)V
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
@@ -1306,7 +1346,7 @@
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v5}, Lcom/android/internal/app/IBatteryStats$Stub;->noteScreenBrightness(I)V
+    invoke-virtual {v0, v5}, Lcom/android/internal/app/IBatteryStats$Stub;->noteStopGps(I)V
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
@@ -1315,6 +1355,81 @@
     return v4
 
     :sswitch_24
+    const-string/jumbo v4, "com.android.internal.app.IBatteryStats"
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v5
+
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v5}, Lcom/android/internal/app/IBatteryStats$Stub;->noteScreenState(I)V
+
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    const/4 v4, 0x1
+
+    return v4
+
+    :sswitch_25
+    const-string/jumbo v4, "com.android.internal.app.IBatteryStats"
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v5
+
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v5}, Lcom/android/internal/app/IBatteryStats$Stub;->noteScreenBrightness(I)V
+
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    const/4 v4, 0x1
+
+    return v4
+
+    :sswitch_26
+    const-string/jumbo v4, "com.android.internal.app.IBatteryStats"
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v4
+
+    if-eqz v4, :cond_9
+
+    const/16 v40, 0x1
+
+    :goto_9
+    move-object/from16 v0, p0
+
+    move/from16 v1, v40
+
+    invoke-virtual {v0, v1}, Lcom/android/internal/app/IBatteryStats$Stub;->noteAodService(Z)V
+
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    const/4 v4, 0x1
+
+    return v4
+
+    :cond_9
+    const/16 v40, 0x0
+
+    goto :goto_9
+
+    :sswitch_27
     const-string/jumbo v4, "com.android.internal.app.IBatteryStats"
 
     move-object/from16 v0, p2
@@ -1339,93 +1454,6 @@
 
     return v4
 
-    :sswitch_25
-    const-string/jumbo v4, "com.android.internal.app.IBatteryStats"
-
-    move-object/from16 v0, p2
-
-    invoke-virtual {v0, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v36
-
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v6
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v36
-
-    invoke-virtual {v0, v1, v6}, Lcom/android/internal/app/IBatteryStats$Stub;->noteWakeUp(Ljava/lang/String;I)V
-
-    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
-
-    const/4 v4, 0x1
-
-    return v4
-
-    :sswitch_26
-    const-string/jumbo v4, "com.android.internal.app.IBatteryStats"
-
-    move-object/from16 v0, p2
-
-    invoke-virtual {v0, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v4
-
-    if-eqz v4, :cond_9
-
-    const/16 v37, 0x1
-
-    :goto_9
-    move-object/from16 v0, p0
-
-    move/from16 v1, v37
-
-    invoke-virtual {v0, v1}, Lcom/android/internal/app/IBatteryStats$Stub;->noteInteractive(Z)V
-
-    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
-
-    const/4 v4, 0x1
-
-    return v4
-
-    :cond_9
-    const/16 v37, 0x0
-
-    goto :goto_9
-
-    :sswitch_27
-    const-string/jumbo v4, "com.android.internal.app.IBatteryStats"
-
-    move-object/from16 v0, p2
-
-    invoke-virtual {v0, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v5
-
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v42
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v42
-
-    invoke-virtual {v0, v5, v1}, Lcom/android/internal/app/IBatteryStats$Stub;->noteConnectivityChanged(ILjava/lang/String;)V
-
-    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
-
-    const/4 v4, 0x1
-
-    return v4
-
     :sswitch_28
     const-string/jumbo v4, "com.android.internal.app.IBatteryStats"
 
@@ -1433,25 +1461,19 @@
 
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
-    move-result v5
-
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readLong()J
-
-    move-result-wide v40
+    move-result-object v39
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v26
+    move-result v6
 
     move-object/from16 v0, p0
 
-    move-wide/from16 v1, v40
+    move-object/from16 v1, v39
 
-    move/from16 v3, v26
-
-    invoke-virtual {v0, v5, v1, v2, v3}, Lcom/android/internal/app/IBatteryStats$Stub;->noteMobileRadioPowerState(IJI)V
+    invoke-virtual {v0, v1, v6}, Lcom/android/internal/app/IBatteryStats$Stub;->noteWakeUp(Ljava/lang/String;I)V
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
@@ -1466,13 +1488,31 @@
 
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    invoke-virtual/range {p0 .. p0}, Lcom/android/internal/app/IBatteryStats$Stub;->notePhoneOn()V
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v4
+
+    if-eqz v4, :cond_a
+
+    const/16 v40, 0x1
+
+    :goto_a
+    move-object/from16 v0, p0
+
+    move/from16 v1, v40
+
+    invoke-virtual {v0, v1}, Lcom/android/internal/app/IBatteryStats$Stub;->noteInteractive(Z)V
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     const/4 v4, 0x1
 
     return v4
+
+    :cond_a
+    const/16 v40, 0x0
+
+    goto :goto_a
 
     :sswitch_2a
     const-string/jumbo v4, "com.android.internal.app.IBatteryStats"
@@ -1481,7 +1521,19 @@
 
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    invoke-virtual/range {p0 .. p0}, Lcom/android/internal/app/IBatteryStats$Stub;->notePhoneOff()V
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v5
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v45
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v45
+
+    invoke-virtual {v0, v5, v1}, Lcom/android/internal/app/IBatteryStats$Stub;->noteConnectivityChanged(ILjava/lang/String;)V
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
@@ -1498,9 +1550,72 @@
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
+    move-result v5
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readLong()J
+
+    move-result-wide v42
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v26
+
+    move-object/from16 v0, p0
+
+    move-wide/from16 v1, v42
+
+    move/from16 v3, v26
+
+    invoke-virtual {v0, v5, v1, v2, v3}, Lcom/android/internal/app/IBatteryStats$Stub;->noteMobileRadioPowerState(IJI)V
+
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    const/4 v4, 0x1
+
+    return v4
+
+    :sswitch_2c
+    const-string/jumbo v4, "com.android.internal.app.IBatteryStats"
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual/range {p0 .. p0}, Lcom/android/internal/app/IBatteryStats$Stub;->notePhoneOn()V
+
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    const/4 v4, 0x1
+
+    return v4
+
+    :sswitch_2d
+    const-string/jumbo v4, "com.android.internal.app.IBatteryStats"
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual/range {p0 .. p0}, Lcom/android/internal/app/IBatteryStats$Stub;->notePhoneOff()V
+
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    const/4 v4, 0x1
+
+    return v4
+
+    :sswitch_2e
+    const-string/jumbo v4, "com.android.internal.app.IBatteryStats"
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
+
     move-result v4
 
-    if-eqz v4, :cond_a
+    if-eqz v4, :cond_b
 
     sget-object v4, Landroid/telephony/SignalStrength;->CREATOR:Landroid/os/Parcelable$Creator;
 
@@ -1508,14 +1623,14 @@
 
     invoke-interface {v4, v0}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
 
-    move-result-object v35
+    move-result-object v38
 
-    check-cast v35, Landroid/telephony/SignalStrength;
+    check-cast v38, Landroid/telephony/SignalStrength;
 
-    :goto_a
+    :goto_b
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v35
+    move-object/from16 v1, v38
 
     invoke-virtual {v0, v1}, Lcom/android/internal/app/IBatteryStats$Stub;->notePhoneSignalStrength(Landroid/telephony/SignalStrength;)V
 
@@ -1525,12 +1640,12 @@
 
     return v4
 
-    :cond_a
-    const/16 v35, 0x0
+    :cond_b
+    const/16 v38, 0x0
 
-    goto :goto_a
+    goto :goto_b
 
-    :sswitch_2c
+    :sswitch_2f
     const-string/jumbo v4, "com.android.internal.app.IBatteryStats"
 
     move-object/from16 v0, p2
@@ -1545,14 +1660,14 @@
 
     move-result v4
 
-    if-eqz v4, :cond_b
+    if-eqz v4, :cond_c
 
-    const/16 v43, 0x1
+    const/16 v46, 0x1
 
-    :goto_b
+    :goto_c
     move-object/from16 v0, p0
 
-    move/from16 v1, v43
+    move/from16 v1, v46
 
     invoke-virtual {v0, v5, v1}, Lcom/android/internal/app/IBatteryStats$Stub;->notePhoneDataConnectionState(IZ)V
 
@@ -1562,12 +1677,12 @@
 
     return v4
 
-    :cond_b
-    const/16 v43, 0x0
+    :cond_c
+    const/16 v46, 0x0
 
-    goto :goto_b
+    goto :goto_c
 
-    :sswitch_2d
+    :sswitch_30
     const-string/jumbo v4, "com.android.internal.app.IBatteryStats"
 
     move-object/from16 v0, p2
@@ -1588,7 +1703,7 @@
 
     return v4
 
-    :sswitch_2e
+    :sswitch_31
     const-string/jumbo v4, "com.android.internal.app.IBatteryStats"
 
     move-object/from16 v0, p2
@@ -1603,7 +1718,7 @@
 
     return v4
 
-    :sswitch_2f
+    :sswitch_32
     const-string/jumbo v4, "com.android.internal.app.IBatteryStats"
 
     move-object/from16 v0, p2
@@ -1618,46 +1733,7 @@
 
     return v4
 
-    :sswitch_30
-    const-string/jumbo v4, "com.android.internal.app.IBatteryStats"
-
-    move-object/from16 v0, p2
-
-    invoke-virtual {v0, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v4
-
-    if-eqz v4, :cond_c
-
-    sget-object v4, Landroid/os/WorkSource;->CREATOR:Landroid/os/Parcelable$Creator;
-
-    move-object/from16 v0, p2
-
-    invoke-interface {v4, v0}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-
-    move-result-object v12
-
-    check-cast v12, Landroid/os/WorkSource;
-
-    :goto_c
-    move-object/from16 v0, p0
-
-    invoke-virtual {v0, v12}, Lcom/android/internal/app/IBatteryStats$Stub;->noteWifiRunning(Landroid/os/WorkSource;)V
-
-    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
-
-    const/4 v4, 0x1
-
-    return v4
-
-    :cond_c
-    const/4 v12, 0x0
-
-    goto :goto_c
-
-    :sswitch_31
+    :sswitch_33
     const-string/jumbo v4, "com.android.internal.app.IBatteryStats"
 
     move-object/from16 v0, p2
@@ -1681,28 +1757,9 @@
     check-cast v12, Landroid/os/WorkSource;
 
     :goto_d
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v4
-
-    if-eqz v4, :cond_e
-
-    sget-object v4, Landroid/os/WorkSource;->CREATOR:Landroid/os/Parcelable$Creator;
-
-    move-object/from16 v0, p2
-
-    invoke-interface {v4, v0}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-
-    move-result-object v39
-
-    check-cast v39, Landroid/os/WorkSource;
-
-    :goto_e
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v39
-
-    invoke-virtual {v0, v12, v1}, Lcom/android/internal/app/IBatteryStats$Stub;->noteWifiRunningChanged(Landroid/os/WorkSource;Landroid/os/WorkSource;)V
+    invoke-virtual {v0, v12}, Lcom/android/internal/app/IBatteryStats$Stub;->noteWifiRunning(Landroid/os/WorkSource;)V
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
@@ -1715,18 +1772,30 @@
 
     goto :goto_d
 
-    :cond_e
-    const/16 v39, 0x0
-
-    goto :goto_e
-
-    :sswitch_32
+    :sswitch_34
     const-string/jumbo v4, "com.android.internal.app.IBatteryStats"
 
     move-object/from16 v0, p2
 
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v4
+
+    if-eqz v4, :cond_e
+
+    sget-object v4, Landroid/os/WorkSource;->CREATOR:Landroid/os/Parcelable$Creator;
+
+    move-object/from16 v0, p2
+
+    invoke-interface {v4, v0}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+
+    move-result-object v12
+
+    check-cast v12, Landroid/os/WorkSource;
+
+    :goto_e
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v4
@@ -1739,11 +1808,57 @@
 
     invoke-interface {v4, v0}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
 
+    move-result-object v44
+
+    check-cast v44, Landroid/os/WorkSource;
+
+    :goto_f
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v44
+
+    invoke-virtual {v0, v12, v1}, Lcom/android/internal/app/IBatteryStats$Stub;->noteWifiRunningChanged(Landroid/os/WorkSource;Landroid/os/WorkSource;)V
+
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    const/4 v4, 0x1
+
+    return v4
+
+    :cond_e
+    const/4 v12, 0x0
+
+    goto :goto_e
+
+    :cond_f
+    const/16 v44, 0x0
+
+    goto :goto_f
+
+    :sswitch_35
+    const-string/jumbo v4, "com.android.internal.app.IBatteryStats"
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v4
+
+    if-eqz v4, :cond_10
+
+    sget-object v4, Landroid/os/WorkSource;->CREATOR:Landroid/os/Parcelable$Creator;
+
+    move-object/from16 v0, p2
+
+    invoke-interface {v4, v0}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+
     move-result-object v12
 
     check-cast v12, Landroid/os/WorkSource;
 
-    :goto_f
+    :goto_10
     move-object/from16 v0, p0
 
     invoke-virtual {v0, v12}, Lcom/android/internal/app/IBatteryStats$Stub;->noteWifiStopped(Landroid/os/WorkSource;)V
@@ -1754,12 +1869,12 @@
 
     return v4
 
-    :cond_f
+    :cond_10
     const/4 v12, 0x0
 
-    goto :goto_f
+    goto :goto_10
 
-    :sswitch_33
+    :sswitch_36
     const-string/jumbo v4, "com.android.internal.app.IBatteryStats"
 
     move-object/from16 v0, p2
@@ -1772,11 +1887,11 @@
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
-    move-result-object v42
+    move-result-object v45
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v42
+    move-object/from16 v1, v45
 
     invoke-virtual {v0, v5, v1}, Lcom/android/internal/app/IBatteryStats$Stub;->noteWifiState(ILjava/lang/String;)V
 
@@ -1786,7 +1901,7 @@
 
     return v4
 
-    :sswitch_34
+    :sswitch_37
     const-string/jumbo v4, "com.android.internal.app.IBatteryStats"
 
     move-object/from16 v0, p2
@@ -1801,14 +1916,14 @@
 
     move-result v4
 
-    if-eqz v4, :cond_10
+    if-eqz v4, :cond_11
 
-    const/16 v43, 0x1
+    const/16 v46, 0x1
 
-    :goto_10
+    :goto_11
     move-object/from16 v0, p0
 
-    move/from16 v1, v43
+    move/from16 v1, v46
 
     invoke-virtual {v0, v5, v1}, Lcom/android/internal/app/IBatteryStats$Stub;->noteWifiSupplicantStateChanged(IZ)V
 
@@ -1818,12 +1933,12 @@
 
     return v4
 
-    :cond_10
-    const/16 v43, 0x0
+    :cond_11
+    const/16 v46, 0x0
 
-    goto :goto_10
+    goto :goto_11
 
-    :sswitch_35
+    :sswitch_38
     const-string/jumbo v4, "com.android.internal.app.IBatteryStats"
 
     move-object/from16 v0, p2
@@ -1844,7 +1959,7 @@
 
     return v4
 
-    :sswitch_36
+    :sswitch_39
     const-string/jumbo v4, "com.android.internal.app.IBatteryStats"
 
     move-object/from16 v0, p2
@@ -1865,7 +1980,7 @@
 
     return v4
 
-    :sswitch_37
+    :sswitch_3a
     const-string/jumbo v4, "com.android.internal.app.IBatteryStats"
 
     move-object/from16 v0, p2
@@ -1886,7 +2001,7 @@
 
     return v4
 
-    :sswitch_38
+    :sswitch_3b
     const-string/jumbo v4, "com.android.internal.app.IBatteryStats"
 
     move-object/from16 v0, p2
@@ -1907,7 +2022,7 @@
 
     return v4
 
-    :sswitch_39
+    :sswitch_3c
     const-string/jumbo v4, "com.android.internal.app.IBatteryStats"
 
     move-object/from16 v0, p2
@@ -1928,7 +2043,7 @@
 
     return v4
 
-    :sswitch_3a
+    :sswitch_3d
     const-string/jumbo v4, "com.android.internal.app.IBatteryStats"
 
     move-object/from16 v0, p2
@@ -1949,7 +2064,7 @@
 
     return v4
 
-    :sswitch_3b
+    :sswitch_3e
     const-string/jumbo v4, "com.android.internal.app.IBatteryStats"
 
     move-object/from16 v0, p2
@@ -1970,46 +2085,7 @@
 
     return v4
 
-    :sswitch_3c
-    const-string/jumbo v4, "com.android.internal.app.IBatteryStats"
-
-    move-object/from16 v0, p2
-
-    invoke-virtual {v0, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v4
-
-    if-eqz v4, :cond_11
-
-    sget-object v4, Landroid/os/WorkSource;->CREATOR:Landroid/os/Parcelable$Creator;
-
-    move-object/from16 v0, p2
-
-    invoke-interface {v4, v0}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-
-    move-result-object v12
-
-    check-cast v12, Landroid/os/WorkSource;
-
-    :goto_11
-    move-object/from16 v0, p0
-
-    invoke-virtual {v0, v12}, Lcom/android/internal/app/IBatteryStats$Stub;->noteFullWifiLockAcquiredFromSource(Landroid/os/WorkSource;)V
-
-    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
-
-    const/4 v4, 0x1
-
-    return v4
-
-    :cond_11
-    const/4 v12, 0x0
-
-    goto :goto_11
-
-    :sswitch_3d
+    :sswitch_3f
     const-string/jumbo v4, "com.android.internal.app.IBatteryStats"
 
     move-object/from16 v0, p2
@@ -2035,7 +2111,7 @@
     :goto_12
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v12}, Lcom/android/internal/app/IBatteryStats$Stub;->noteFullWifiLockReleasedFromSource(Landroid/os/WorkSource;)V
+    invoke-virtual {v0, v12}, Lcom/android/internal/app/IBatteryStats$Stub;->noteFullWifiLockAcquiredFromSource(Landroid/os/WorkSource;)V
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
@@ -2048,7 +2124,7 @@
 
     goto :goto_12
 
-    :sswitch_3e
+    :sswitch_40
     const-string/jumbo v4, "com.android.internal.app.IBatteryStats"
 
     move-object/from16 v0, p2
@@ -2074,7 +2150,7 @@
     :goto_13
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v12}, Lcom/android/internal/app/IBatteryStats$Stub;->noteWifiScanStartedFromSource(Landroid/os/WorkSource;)V
+    invoke-virtual {v0, v12}, Lcom/android/internal/app/IBatteryStats$Stub;->noteFullWifiLockReleasedFromSource(Landroid/os/WorkSource;)V
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
@@ -2087,7 +2163,7 @@
 
     goto :goto_13
 
-    :sswitch_3f
+    :sswitch_41
     const-string/jumbo v4, "com.android.internal.app.IBatteryStats"
 
     move-object/from16 v0, p2
@@ -2113,7 +2189,7 @@
     :goto_14
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v12}, Lcom/android/internal/app/IBatteryStats$Stub;->noteWifiScanStoppedFromSource(Landroid/os/WorkSource;)V
+    invoke-virtual {v0, v12}, Lcom/android/internal/app/IBatteryStats$Stub;->noteWifiScanStartedFromSource(Landroid/os/WorkSource;)V
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
@@ -2126,7 +2202,7 @@
 
     goto :goto_14
 
-    :sswitch_40
+    :sswitch_42
     const-string/jumbo v4, "com.android.internal.app.IBatteryStats"
 
     move-object/from16 v0, p2
@@ -2150,13 +2226,9 @@
     check-cast v12, Landroid/os/WorkSource;
 
     :goto_15
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v6
-
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v12, v6}, Lcom/android/internal/app/IBatteryStats$Stub;->noteWifiBatchedScanStartedFromSource(Landroid/os/WorkSource;I)V
+    invoke-virtual {v0, v12}, Lcom/android/internal/app/IBatteryStats$Stub;->noteWifiScanStoppedFromSource(Landroid/os/WorkSource;)V
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
@@ -2169,7 +2241,7 @@
 
     goto :goto_15
 
-    :sswitch_41
+    :sswitch_43
     const-string/jumbo v4, "com.android.internal.app.IBatteryStats"
 
     move-object/from16 v0, p2
@@ -2193,9 +2265,13 @@
     check-cast v12, Landroid/os/WorkSource;
 
     :goto_16
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v6
+
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v12}, Lcom/android/internal/app/IBatteryStats$Stub;->noteWifiBatchedScanStoppedFromSource(Landroid/os/WorkSource;)V
+    invoke-virtual {v0, v12, v6}, Lcom/android/internal/app/IBatteryStats$Stub;->noteWifiBatchedScanStartedFromSource(Landroid/os/WorkSource;I)V
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
@@ -2208,7 +2284,7 @@
 
     goto :goto_16
 
-    :sswitch_42
+    :sswitch_44
     const-string/jumbo v4, "com.android.internal.app.IBatteryStats"
 
     move-object/from16 v0, p2
@@ -2234,7 +2310,7 @@
     :goto_17
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v12}, Lcom/android/internal/app/IBatteryStats$Stub;->noteWifiMulticastEnabledFromSource(Landroid/os/WorkSource;)V
+    invoke-virtual {v0, v12}, Lcom/android/internal/app/IBatteryStats$Stub;->noteWifiBatchedScanStoppedFromSource(Landroid/os/WorkSource;)V
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
@@ -2247,7 +2323,7 @@
 
     goto :goto_17
 
-    :sswitch_43
+    :sswitch_45
     const-string/jumbo v4, "com.android.internal.app.IBatteryStats"
 
     move-object/from16 v0, p2
@@ -2273,7 +2349,7 @@
     :goto_18
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v12}, Lcom/android/internal/app/IBatteryStats$Stub;->noteWifiMulticastDisabledFromSource(Landroid/os/WorkSource;)V
+    invoke-virtual {v0, v12}, Lcom/android/internal/app/IBatteryStats$Stub;->noteWifiMulticastEnabledFromSource(Landroid/os/WorkSource;)V
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
@@ -2286,7 +2362,46 @@
 
     goto :goto_18
 
-    :sswitch_44
+    :sswitch_46
+    const-string/jumbo v4, "com.android.internal.app.IBatteryStats"
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v4
+
+    if-eqz v4, :cond_19
+
+    sget-object v4, Landroid/os/WorkSource;->CREATOR:Landroid/os/Parcelable$Creator;
+
+    move-object/from16 v0, p2
+
+    invoke-interface {v4, v0}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+
+    move-result-object v12
+
+    check-cast v12, Landroid/os/WorkSource;
+
+    :goto_19
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v12}, Lcom/android/internal/app/IBatteryStats$Stub;->noteWifiMulticastDisabledFromSource(Landroid/os/WorkSource;)V
+
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    const/4 v4, 0x1
+
+    return v4
+
+    :cond_19
+    const/4 v12, 0x0
+
+    goto :goto_19
+
+    :sswitch_47
     const-string/jumbo v4, "com.android.internal.app.IBatteryStats"
 
     move-object/from16 v0, p2
@@ -2299,7 +2414,7 @@
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readLong()J
 
-    move-result-wide v40
+    move-result-wide v42
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
@@ -2307,7 +2422,7 @@
 
     move-object/from16 v0, p0
 
-    move-wide/from16 v1, v40
+    move-wide/from16 v1, v42
 
     move/from16 v3, v26
 
@@ -2319,7 +2434,7 @@
 
     return v4
 
-    :sswitch_45
+    :sswitch_48
     const-string/jumbo v4, "com.android.internal.app.IBatteryStats"
 
     move-object/from16 v0, p2
@@ -2328,7 +2443,7 @@
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
-    move-result-object v36
+    move-result-object v39
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
@@ -2336,7 +2451,7 @@
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v36
+    move-object/from16 v1, v39
 
     invoke-virtual {v0, v1, v6}, Lcom/android/internal/app/IBatteryStats$Stub;->noteNetworkInterfaceType(Ljava/lang/String;I)V
 
@@ -2346,7 +2461,7 @@
 
     return v4
 
-    :sswitch_46
+    :sswitch_49
     const-string/jumbo v4, "com.android.internal.app.IBatteryStats"
 
     move-object/from16 v0, p2
@@ -2361,7 +2476,7 @@
 
     return v4
 
-    :sswitch_47
+    :sswitch_4a
     const-string/jumbo v4, "com.android.internal.app.IBatteryStats"
 
     move-object/from16 v0, p2
@@ -2374,7 +2489,7 @@
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
-    move-result-object v42
+    move-result-object v45
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
@@ -2382,7 +2497,7 @@
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v42
+    move-object/from16 v1, v45
 
     move/from16 v2, v26
 
@@ -2394,7 +2509,7 @@
 
     return v4
 
-    :sswitch_48
+    :sswitch_4b
     const-string/jumbo v4, "com.android.internal.app.IBatteryStats"
 
     move-object/from16 v0, p2
@@ -2433,6 +2548,18 @@
 
     move-result v31
 
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v32
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v21
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v34
+
     move-object/from16 v23, p0
 
     move/from16 v24, v5
@@ -2443,7 +2570,9 @@
 
     move/from16 v30, v18
 
-    invoke-virtual/range {v23 .. v31}, Lcom/android/internal/app/IBatteryStats$Stub;->setBatteryState(IIIIIIII)V
+    move/from16 v33, v21
+
+    invoke-virtual/range {v23 .. v34}, Lcom/android/internal/app/IBatteryStats$Stub;->setBatteryState(IIIIIIIIIII)V
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
@@ -2451,7 +2580,7 @@
 
     return v4
 
-    :sswitch_49
+    :sswitch_4c
     const-string/jumbo v4, "com.android.internal.app.IBatteryStats"
 
     move-object/from16 v0, p2
@@ -2498,7 +2627,7 @@
 
     return v4
 
-    :sswitch_4a
+    :sswitch_4d
     const-string/jumbo v4, "com.android.internal.app.IBatteryStats"
 
     move-object/from16 v0, p2
@@ -2507,13 +2636,13 @@
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/internal/app/IBatteryStats$Stub;->getAwakeTimeBattery()J
 
-    move-result-wide v44
+    move-result-wide v48
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     move-object/from16 v0, p3
 
-    move-wide/from16 v1, v44
+    move-wide/from16 v1, v48
 
     invoke-virtual {v0, v1, v2}, Landroid/os/Parcel;->writeLong(J)V
 
@@ -2521,7 +2650,7 @@
 
     return v4
 
-    :sswitch_4b
+    :sswitch_4e
     const-string/jumbo v4, "com.android.internal.app.IBatteryStats"
 
     move-object/from16 v0, p2
@@ -2530,13 +2659,13 @@
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/internal/app/IBatteryStats$Stub;->getAwakeTimePlugged()J
 
-    move-result-wide v44
+    move-result-wide v48
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     move-object/from16 v0, p3
 
-    move-wide/from16 v1, v44
+    move-wide/from16 v1, v48
 
     invoke-virtual {v0, v1, v2}, Landroid/os/Parcel;->writeLong(J)V
 
@@ -2544,46 +2673,7 @@
 
     return v4
 
-    :sswitch_4c
-    const-string/jumbo v4, "com.android.internal.app.IBatteryStats"
-
-    move-object/from16 v0, p2
-
-    invoke-virtual {v0, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v4
-
-    if-eqz v4, :cond_19
-
-    sget-object v4, Landroid/os/WorkSource;->CREATOR:Landroid/os/Parcelable$Creator;
-
-    move-object/from16 v0, p2
-
-    invoke-interface {v4, v0}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-
-    move-result-object v12
-
-    check-cast v12, Landroid/os/WorkSource;
-
-    :goto_19
-    move-object/from16 v0, p0
-
-    invoke-virtual {v0, v12}, Lcom/android/internal/app/IBatteryStats$Stub;->noteBleScanStarted(Landroid/os/WorkSource;)V
-
-    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
-
-    const/4 v4, 0x1
-
-    return v4
-
-    :cond_19
-    const/4 v12, 0x0
-
-    goto :goto_19
-
-    :sswitch_4d
+    :sswitch_4f
     const-string/jumbo v4, "com.android.internal.app.IBatteryStats"
 
     move-object/from16 v0, p2
@@ -2607,9 +2697,26 @@
     check-cast v12, Landroid/os/WorkSource;
 
     :goto_1a
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v4
+
+    if-eqz v4, :cond_1b
+
+    const/16 v46, 0x1
+
+    :goto_1b
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v26
+
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v12}, Lcom/android/internal/app/IBatteryStats$Stub;->noteBleScanStopped(Landroid/os/WorkSource;)V
+    move/from16 v1, v46
+
+    move/from16 v2, v26
+
+    invoke-virtual {v0, v12, v1, v2}, Lcom/android/internal/app/IBatteryStats$Stub;->noteBleDutyScanStarted(Landroid/os/WorkSource;ZI)V
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
@@ -2622,7 +2729,149 @@
 
     goto :goto_1a
 
-    :sswitch_4e
+    :cond_1b
+    const/16 v46, 0x0
+
+    goto :goto_1b
+
+    :sswitch_50
+    const-string/jumbo v4, "com.android.internal.app.IBatteryStats"
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v4
+
+    if-eqz v4, :cond_1c
+
+    sget-object v4, Landroid/os/WorkSource;->CREATOR:Landroid/os/Parcelable$Creator;
+
+    move-object/from16 v0, p2
+
+    invoke-interface {v4, v0}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+
+    move-result-object v12
+
+    check-cast v12, Landroid/os/WorkSource;
+
+    :goto_1c
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v6
+
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v12, v6}, Lcom/android/internal/app/IBatteryStats$Stub;->noteBleDutyScanStopped(Landroid/os/WorkSource;I)V
+
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    const/4 v4, 0x1
+
+    return v4
+
+    :cond_1c
+    const/4 v12, 0x0
+
+    goto :goto_1c
+
+    :sswitch_51
+    const-string/jumbo v4, "com.android.internal.app.IBatteryStats"
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v4
+
+    if-eqz v4, :cond_1d
+
+    sget-object v4, Landroid/os/WorkSource;->CREATOR:Landroid/os/Parcelable$Creator;
+
+    move-object/from16 v0, p2
+
+    invoke-interface {v4, v0}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+
+    move-result-object v12
+
+    check-cast v12, Landroid/os/WorkSource;
+
+    :goto_1d
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v4
+
+    if-eqz v4, :cond_1e
+
+    const/16 v46, 0x1
+
+    :goto_1e
+    move-object/from16 v0, p0
+
+    move/from16 v1, v46
+
+    invoke-virtual {v0, v12, v1}, Lcom/android/internal/app/IBatteryStats$Stub;->noteBleScanStarted(Landroid/os/WorkSource;Z)V
+
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    const/4 v4, 0x1
+
+    return v4
+
+    :cond_1d
+    const/4 v12, 0x0
+
+    goto :goto_1d
+
+    :cond_1e
+    const/16 v46, 0x0
+
+    goto :goto_1e
+
+    :sswitch_52
+    const-string/jumbo v4, "com.android.internal.app.IBatteryStats"
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v4
+
+    if-eqz v4, :cond_1f
+
+    sget-object v4, Landroid/os/WorkSource;->CREATOR:Landroid/os/Parcelable$Creator;
+
+    move-object/from16 v0, p2
+
+    invoke-interface {v4, v0}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+
+    move-result-object v12
+
+    check-cast v12, Landroid/os/WorkSource;
+
+    :goto_1f
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v12}, Lcom/android/internal/app/IBatteryStats$Stub;->noteBleScanStopped(Landroid/os/WorkSource;)V
+
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    const/4 v4, 0x1
+
+    return v4
+
+    :cond_1f
+    const/4 v12, 0x0
+
+    goto :goto_1f
+
+    :sswitch_53
     const-string/jumbo v4, "com.android.internal.app.IBatteryStats"
 
     move-object/from16 v0, p2
@@ -2637,7 +2886,50 @@
 
     return v4
 
-    :sswitch_4f
+    :sswitch_54
+    const-string/jumbo v4, "com.android.internal.app.IBatteryStats"
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v4
+
+    if-eqz v4, :cond_20
+
+    sget-object v4, Landroid/os/WorkSource;->CREATOR:Landroid/os/Parcelable$Creator;
+
+    move-object/from16 v0, p2
+
+    invoke-interface {v4, v0}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+
+    move-result-object v12
+
+    check-cast v12, Landroid/os/WorkSource;
+
+    :goto_20
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v6
+
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v12, v6}, Lcom/android/internal/app/IBatteryStats$Stub;->noteBleScanResults(Landroid/os/WorkSource;I)V
+
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    const/4 v4, 0x1
+
+    return v4
+
+    :cond_20
+    const/4 v12, 0x0
+
+    goto :goto_20
+
+    :sswitch_55
     const-string/jumbo v4, "com.android.internal.app.IBatteryStats"
 
     move-object/from16 v0, p2
@@ -2652,11 +2944,11 @@
 
     invoke-virtual {v0, v5}, Lcom/android/internal/app/IBatteryStats$Stub;->takeUidSnapshot(I)Landroid/os/health/HealthStatsParceler;
 
-    move-result-object v47
+    move-result-object v50
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v47, :cond_1b
+    if-eqz v50, :cond_21
 
     const/4 v4, 0x1
 
@@ -2666,27 +2958,27 @@
 
     const/4 v4, 0x1
 
-    move-object/from16 v0, v47
+    move-object/from16 v0, v50
 
     move-object/from16 v1, p3
 
     invoke-virtual {v0, v1, v4}, Landroid/os/health/HealthStatsParceler;->writeToParcel(Landroid/os/Parcel;I)V
 
-    :goto_1b
+    :goto_21
     const/4 v4, 0x1
 
     return v4
 
-    :cond_1b
+    :cond_21
     const/4 v4, 0x0
 
     move-object/from16 v0, p3
 
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto :goto_1b
+    goto :goto_21
 
-    :sswitch_50
+    :sswitch_56
     const-string/jumbo v4, "com.android.internal.app.IBatteryStats"
 
     move-object/from16 v0, p2
@@ -2695,15 +2987,15 @@
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->createIntArray()[I
 
-    move-result-object v38
+    move-result-object v41
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v38
+    move-object/from16 v1, v41
 
     invoke-virtual {v0, v1}, Lcom/android/internal/app/IBatteryStats$Stub;->takeUidSnapshots([I)[Landroid/os/health/HealthStatsParceler;
 
-    move-result-object v50
+    move-result-object v53
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
@@ -2711,7 +3003,7 @@
 
     move-object/from16 v0, p3
 
-    move-object/from16 v1, v50
+    move-object/from16 v1, v53
 
     invoke-virtual {v0, v1, v4}, Landroid/os/Parcel;->writeTypedArray([Landroid/os/Parcelable;I)V
 
@@ -2719,7 +3011,7 @@
 
     return v4
 
-    :sswitch_51
+    :sswitch_57
     const-string/jumbo v4, "com.android.internal.app.IBatteryStats"
 
     move-object/from16 v0, p2
@@ -2730,7 +3022,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_1c
+    if-eqz v4, :cond_22
 
     sget-object v4, Landroid/bluetooth/BluetoothActivityEnergyInfo;->CREATOR:Landroid/os/Parcelable$Creator;
 
@@ -2738,14 +3030,14 @@
 
     invoke-interface {v4, v0}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
 
-    move-result-object v32
+    move-result-object v35
 
-    check-cast v32, Landroid/bluetooth/BluetoothActivityEnergyInfo;
+    check-cast v35, Landroid/bluetooth/BluetoothActivityEnergyInfo;
 
-    :goto_1c
+    :goto_22
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v32
+    move-object/from16 v1, v35
 
     invoke-virtual {v0, v1}, Lcom/android/internal/app/IBatteryStats$Stub;->noteBluetoothControllerActivity(Landroid/bluetooth/BluetoothActivityEnergyInfo;)V
 
@@ -2753,12 +3045,12 @@
 
     return v4
 
-    :cond_1c
-    const/16 v32, 0x0
+    :cond_22
+    const/16 v35, 0x0
 
-    goto :goto_1c
+    goto :goto_22
 
-    :sswitch_52
+    :sswitch_58
     const-string/jumbo v4, "com.android.internal.app.IBatteryStats"
 
     move-object/from16 v0, p2
@@ -2769,7 +3061,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_1d
+    if-eqz v4, :cond_23
 
     sget-object v4, Landroid/telephony/ModemActivityInfo;->CREATOR:Landroid/os/Parcelable$Creator;
 
@@ -2777,14 +3069,14 @@
 
     invoke-interface {v4, v0}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
 
-    move-result-object v34
+    move-result-object v37
 
-    check-cast v34, Landroid/telephony/ModemActivityInfo;
+    check-cast v37, Landroid/telephony/ModemActivityInfo;
 
-    :goto_1d
+    :goto_23
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v34
+    move-object/from16 v1, v37
 
     invoke-virtual {v0, v1}, Lcom/android/internal/app/IBatteryStats$Stub;->noteModemControllerActivity(Landroid/telephony/ModemActivityInfo;)V
 
@@ -2792,12 +3084,12 @@
 
     return v4
 
-    :cond_1d
-    const/16 v34, 0x0
+    :cond_23
+    const/16 v37, 0x0
 
-    goto :goto_1d
+    goto :goto_23
 
-    :sswitch_53
+    :sswitch_59
     const-string/jumbo v4, "com.android.internal.app.IBatteryStats"
 
     move-object/from16 v0, p2
@@ -2808,7 +3100,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_1e
+    if-eqz v4, :cond_24
 
     sget-object v4, Landroid/net/wifi/WifiActivityEnergyInfo;->CREATOR:Landroid/os/Parcelable$Creator;
 
@@ -2816,14 +3108,14 @@
 
     invoke-interface {v4, v0}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
 
-    move-result-object v33
+    move-result-object v36
 
-    check-cast v33, Landroid/net/wifi/WifiActivityEnergyInfo;
+    check-cast v36, Landroid/net/wifi/WifiActivityEnergyInfo;
 
-    :goto_1e
+    :goto_24
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v33
+    move-object/from16 v1, v36
 
     invoke-virtual {v0, v1}, Lcom/android/internal/app/IBatteryStats$Stub;->noteWifiControllerActivity(Landroid/net/wifi/WifiActivityEnergyInfo;)V
 
@@ -2831,10 +3123,12 @@
 
     return v4
 
-    :cond_1e
-    const/16 v33, 0x0
+    :cond_24
+    const/16 v36, 0x0
 
-    goto :goto_1e
+    goto :goto_24
+
+    nop
 
     :sswitch_data_0
     .sparse-switch
@@ -2921,6 +3215,12 @@
         0x51 -> :sswitch_51
         0x52 -> :sswitch_52
         0x53 -> :sswitch_53
+        0x54 -> :sswitch_54
+        0x55 -> :sswitch_55
+        0x56 -> :sswitch_56
+        0x57 -> :sswitch_57
+        0x58 -> :sswitch_58
+        0x59 -> :sswitch_59
         0x5f4e5446 -> :sswitch_0
     .end sparse-switch
 .end method

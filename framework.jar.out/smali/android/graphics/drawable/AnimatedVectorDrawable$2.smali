@@ -38,7 +38,7 @@
 
     iget-object v3, p0, Landroid/graphics/drawable/AnimatedVectorDrawable$2;->this$0:Landroid/graphics/drawable/AnimatedVectorDrawable;
 
-    invoke-static {v3}, Landroid/graphics/drawable/AnimatedVectorDrawable;->-get0(Landroid/graphics/drawable/AnimatedVectorDrawable;)Ljava/util/ArrayList;
+    invoke-static {v3}, Landroid/graphics/drawable/AnimatedVectorDrawable;->-get1(Landroid/graphics/drawable/AnimatedVectorDrawable;)Ljava/util/ArrayList;
 
     move-result-object v3
 
@@ -78,7 +78,7 @@
 
     iget-object v3, p0, Landroid/graphics/drawable/AnimatedVectorDrawable$2;->this$0:Landroid/graphics/drawable/AnimatedVectorDrawable;
 
-    invoke-static {v3}, Landroid/graphics/drawable/AnimatedVectorDrawable;->-get0(Landroid/graphics/drawable/AnimatedVectorDrawable;)Ljava/util/ArrayList;
+    invoke-static {v3}, Landroid/graphics/drawable/AnimatedVectorDrawable;->-get1(Landroid/graphics/drawable/AnimatedVectorDrawable;)Ljava/util/ArrayList;
 
     move-result-object v3
 

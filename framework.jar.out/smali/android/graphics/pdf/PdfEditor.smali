@@ -70,6 +70,11 @@
 
     iput-object p1, p0, Landroid/graphics/pdf/PdfEditor;->mInput:Landroid/os/ParcelFileDescriptor;
 
+    sget-object v4, Landroid/graphics/pdf/PdfRenderer;->sPdfiumLock:Ljava/lang/Object;
+
+    monitor-enter v4
+
+    :try_start_1
     iget-object v1, p0, Landroid/graphics/pdf/PdfEditor;->mInput:Landroid/os/ParcelFileDescriptor;
 
     invoke-virtual {v1}, Landroid/os/ParcelFileDescriptor;->getFd()I
@@ -78,17 +83,21 @@
 
     invoke-static {v1, v2, v3}, Landroid/graphics/pdf/PdfEditor;->nativeOpen(IJ)J
 
-    move-result-wide v4
+    move-result-wide v6
 
-    iput-wide v4, p0, Landroid/graphics/pdf/PdfEditor;->mNativeDocument:J
+    iput-wide v6, p0, Landroid/graphics/pdf/PdfEditor;->mNativeDocument:J
 
-    iget-wide v4, p0, Landroid/graphics/pdf/PdfEditor;->mNativeDocument:J
+    iget-wide v6, p0, Landroid/graphics/pdf/PdfEditor;->mNativeDocument:J
 
-    invoke-static {v4, v5}, Landroid/graphics/pdf/PdfEditor;->nativeGetPageCount(J)I
+    invoke-static {v6, v7}, Landroid/graphics/pdf/PdfEditor;->nativeGetPageCount(J)I
 
     move-result v1
 
     iput v1, p0, Landroid/graphics/pdf/PdfEditor;->mPageCount:I
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    monitor-exit v4
 
     iget-object v1, p0, Landroid/graphics/pdf/PdfEditor;->mCloseGuard:Ldalvik/system/CloseGuard;
 
@@ -108,14 +117,30 @@
     invoke-direct {v1, v4}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v1
+
+    :catchall_0
+    move-exception v1
+
+    monitor-exit v4
+
+    throw v1
 .end method
 
 .method private doClose()V
-    .locals 2
+    .locals 4
 
-    iget-wide v0, p0, Landroid/graphics/pdf/PdfEditor;->mNativeDocument:J
+    sget-object v1, Landroid/graphics/pdf/PdfRenderer;->sPdfiumLock:Ljava/lang/Object;
 
-    invoke-static {v0, v1}, Landroid/graphics/pdf/PdfEditor;->nativeClose(J)V
+    monitor-enter v1
+
+    :try_start_0
+    iget-wide v2, p0, Landroid/graphics/pdf/PdfEditor;->mNativeDocument:J
+
+    invoke-static {v2, v3}, Landroid/graphics/pdf/PdfEditor;->nativeClose(J)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit v1
 
     iget-object v0, p0, Landroid/graphics/pdf/PdfEditor;->mInput:Landroid/os/ParcelFileDescriptor;
 
@@ -130,6 +155,13 @@
     invoke-virtual {v0}, Ldalvik/system/CloseGuard;->close()V
 
     return-void
+
+    :catchall_0
+    move-exception v0
+
+    monitor-exit v1
+
+    throw v0
 .end method
 
 .method private static native nativeClose(J)V
@@ -230,12 +262,10 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    xor-int/lit8 v0, v0, 0x1
 
-    :cond_0
-    return-void
+    if-eqz v0, :cond_0
 
-    :cond_1
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string/jumbo v1, "Matrix must be afine"
@@ -243,6 +273,9 @@
     invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
     throw v0
+
+    :cond_0
+    return-void
 .end method
 
 .method private throwIfOutCropBoxNull(Landroid/graphics/Rect;)V
@@ -375,7 +408,7 @@
 .end method
 
 .method public getPageCropBox(ILandroid/graphics/Rect;)Z
-    .locals 2
+    .locals 4
 
     invoke-direct {p0}, Landroid/graphics/pdf/PdfEditor;->throwIfClosed()V
 
@@ -383,17 +416,33 @@
 
     invoke-direct {p0, p1}, Landroid/graphics/pdf/PdfEditor;->throwIfPageNotInDocument(I)V
 
-    iget-wide v0, p0, Landroid/graphics/pdf/PdfEditor;->mNativeDocument:J
+    sget-object v1, Landroid/graphics/pdf/PdfRenderer;->sPdfiumLock:Ljava/lang/Object;
 
-    invoke-static {v0, v1, p1, p2}, Landroid/graphics/pdf/PdfEditor;->nativeGetPageCropBox(JILandroid/graphics/Rect;)Z
+    monitor-enter v1
+
+    :try_start_0
+    iget-wide v2, p0, Landroid/graphics/pdf/PdfEditor;->mNativeDocument:J
+
+    invoke-static {v2, v3, p1, p2}, Landroid/graphics/pdf/PdfEditor;->nativeGetPageCropBox(JILandroid/graphics/Rect;)Z
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v0
 
+    monitor-exit v1
+
     return v0
+
+    :catchall_0
+    move-exception v0
+
+    monitor-exit v1
+
+    throw v0
 .end method
 
 .method public getPageMediaBox(ILandroid/graphics/Rect;)Z
-    .locals 2
+    .locals 4
 
     invoke-direct {p0}, Landroid/graphics/pdf/PdfEditor;->throwIfClosed()V
 
@@ -401,17 +450,33 @@
 
     invoke-direct {p0, p1}, Landroid/graphics/pdf/PdfEditor;->throwIfPageNotInDocument(I)V
 
-    iget-wide v0, p0, Landroid/graphics/pdf/PdfEditor;->mNativeDocument:J
+    sget-object v1, Landroid/graphics/pdf/PdfRenderer;->sPdfiumLock:Ljava/lang/Object;
 
-    invoke-static {v0, v1, p1, p2}, Landroid/graphics/pdf/PdfEditor;->nativeGetPageMediaBox(JILandroid/graphics/Rect;)Z
+    monitor-enter v1
+
+    :try_start_0
+    iget-wide v2, p0, Landroid/graphics/pdf/PdfEditor;->mNativeDocument:J
+
+    invoke-static {v2, v3, p1, p2}, Landroid/graphics/pdf/PdfEditor;->nativeGetPageMediaBox(JILandroid/graphics/Rect;)Z
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v0
 
+    monitor-exit v1
+
     return v0
+
+    :catchall_0
+    move-exception v0
+
+    monitor-exit v1
+
+    throw v0
 .end method
 
 .method public getPageSize(ILandroid/graphics/Point;)V
-    .locals 2
+    .locals 4
 
     invoke-direct {p0}, Landroid/graphics/pdf/PdfEditor;->throwIfClosed()V
 
@@ -419,33 +484,65 @@
 
     invoke-direct {p0, p1}, Landroid/graphics/pdf/PdfEditor;->throwIfPageNotInDocument(I)V
 
-    iget-wide v0, p0, Landroid/graphics/pdf/PdfEditor;->mNativeDocument:J
+    sget-object v1, Landroid/graphics/pdf/PdfRenderer;->sPdfiumLock:Ljava/lang/Object;
 
-    invoke-static {v0, v1, p1, p2}, Landroid/graphics/pdf/PdfEditor;->nativeGetPageSize(JILandroid/graphics/Point;)V
+    monitor-enter v1
+
+    :try_start_0
+    iget-wide v2, p0, Landroid/graphics/pdf/PdfEditor;->mNativeDocument:J
+
+    invoke-static {v2, v3, p1, p2}, Landroid/graphics/pdf/PdfEditor;->nativeGetPageSize(JILandroid/graphics/Point;)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit v1
 
     return-void
+
+    :catchall_0
+    move-exception v0
+
+    monitor-exit v1
+
+    throw v0
 .end method
 
 .method public removePage(I)V
-    .locals 2
+    .locals 4
 
     invoke-direct {p0}, Landroid/graphics/pdf/PdfEditor;->throwIfClosed()V
 
     invoke-direct {p0, p1}, Landroid/graphics/pdf/PdfEditor;->throwIfPageNotInDocument(I)V
 
-    iget-wide v0, p0, Landroid/graphics/pdf/PdfEditor;->mNativeDocument:J
+    sget-object v1, Landroid/graphics/pdf/PdfRenderer;->sPdfiumLock:Ljava/lang/Object;
 
-    invoke-static {v0, v1, p1}, Landroid/graphics/pdf/PdfEditor;->nativeRemovePage(JI)I
+    monitor-enter v1
+
+    :try_start_0
+    iget-wide v2, p0, Landroid/graphics/pdf/PdfEditor;->mNativeDocument:J
+
+    invoke-static {v2, v3, p1}, Landroid/graphics/pdf/PdfEditor;->nativeRemovePage(JI)I
 
     move-result v0
 
     iput v0, p0, Landroid/graphics/pdf/PdfEditor;->mPageCount:I
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit v1
 
     return-void
+
+    :catchall_0
+    move-exception v0
+
+    monitor-exit v1
+
+    throw v0
 .end method
 
 .method public setPageCropBox(ILandroid/graphics/Rect;)V
-    .locals 2
+    .locals 4
 
     invoke-direct {p0}, Landroid/graphics/pdf/PdfEditor;->throwIfClosed()V
 
@@ -453,15 +550,31 @@
 
     invoke-direct {p0, p1}, Landroid/graphics/pdf/PdfEditor;->throwIfPageNotInDocument(I)V
 
-    iget-wide v0, p0, Landroid/graphics/pdf/PdfEditor;->mNativeDocument:J
+    sget-object v1, Landroid/graphics/pdf/PdfRenderer;->sPdfiumLock:Ljava/lang/Object;
 
-    invoke-static {v0, v1, p1, p2}, Landroid/graphics/pdf/PdfEditor;->nativeSetPageCropBox(JILandroid/graphics/Rect;)V
+    monitor-enter v1
+
+    :try_start_0
+    iget-wide v2, p0, Landroid/graphics/pdf/PdfEditor;->mNativeDocument:J
+
+    invoke-static {v2, v3, p1, p2}, Landroid/graphics/pdf/PdfEditor;->nativeSetPageCropBox(JILandroid/graphics/Rect;)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit v1
 
     return-void
+
+    :catchall_0
+    move-exception v0
+
+    monitor-exit v1
+
+    throw v0
 .end method
 
 .method public setPageMediaBox(ILandroid/graphics/Rect;)V
-    .locals 2
+    .locals 4
 
     invoke-direct {p0}, Landroid/graphics/pdf/PdfEditor;->throwIfClosed()V
 
@@ -469,17 +582,31 @@
 
     invoke-direct {p0, p1}, Landroid/graphics/pdf/PdfEditor;->throwIfPageNotInDocument(I)V
 
-    iget-wide v0, p0, Landroid/graphics/pdf/PdfEditor;->mNativeDocument:J
+    sget-object v1, Landroid/graphics/pdf/PdfRenderer;->sPdfiumLock:Ljava/lang/Object;
 
-    invoke-static {v0, v1, p1, p2}, Landroid/graphics/pdf/PdfEditor;->nativeSetPageMediaBox(JILandroid/graphics/Rect;)V
+    monitor-enter v1
+
+    :try_start_0
+    iget-wide v2, p0, Landroid/graphics/pdf/PdfEditor;->mNativeDocument:J
+
+    invoke-static {v2, v3, p1, p2}, Landroid/graphics/pdf/PdfEditor;->nativeSetPageMediaBox(JILandroid/graphics/Rect;)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit v1
 
     return-void
+
+    :catchall_0
+    move-exception v0
+
+    monitor-exit v1
+
+    throw v0
 .end method
 
 .method public setTransformAndClip(ILandroid/graphics/Matrix;Landroid/graphics/Rect;)V
-    .locals 10
-
-    const/4 v5, 0x0
+    .locals 11
 
     invoke-direct {p0}, Landroid/graphics/pdf/PdfEditor;->throwIfClosed()V
 
@@ -500,6 +627,11 @@
 
     invoke-virtual {p0, p1, v9}, Landroid/graphics/pdf/PdfEditor;->getPageSize(ILandroid/graphics/Point;)V
 
+    sget-object v10, Landroid/graphics/pdf/PdfRenderer;->sPdfiumLock:Ljava/lang/Object;
+
+    monitor-enter v10
+
+    :try_start_0
     iget-wide v0, p0, Landroid/graphics/pdf/PdfEditor;->mNativeDocument:J
 
     iget-wide v3, p2, Landroid/graphics/Matrix;->native_instance:J
@@ -508,16 +640,34 @@
 
     iget v8, v9, Landroid/graphics/Point;->y:I
 
+    const/4 v5, 0x0
+
+    const/4 v6, 0x0
+
     move v2, p1
 
-    move v6, v5
-
     invoke-static/range {v0 .. v8}, Landroid/graphics/pdf/PdfEditor;->nativeSetTransformAndClip(JIJIIII)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     :goto_0
+    monitor-exit v10
+
     return-void
 
+    :catchall_0
+    move-exception v0
+
+    monitor-exit v10
+
+    throw v0
+
     :cond_1
+    sget-object v10, Landroid/graphics/pdf/PdfRenderer;->sPdfiumLock:Ljava/lang/Object;
+
+    monitor-enter v10
+
+    :try_start_1
     iget-wide v0, p0, Landroid/graphics/pdf/PdfEditor;->mNativeDocument:J
 
     iget-wide v3, p2, Landroid/graphics/Matrix;->native_instance:J
@@ -533,26 +683,51 @@
     move v2, p1
 
     invoke-static/range {v0 .. v8}, Landroid/graphics/pdf/PdfEditor;->nativeSetTransformAndClip(JIJIIII)V
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
     goto :goto_0
+
+    :catchall_1
+    move-exception v0
+
+    monitor-exit v10
+
+    throw v0
 .end method
 
 .method public shouldScaleForPrinting()Z
-    .locals 2
+    .locals 4
 
     invoke-direct {p0}, Landroid/graphics/pdf/PdfEditor;->throwIfClosed()V
 
-    iget-wide v0, p0, Landroid/graphics/pdf/PdfEditor;->mNativeDocument:J
+    sget-object v1, Landroid/graphics/pdf/PdfRenderer;->sPdfiumLock:Ljava/lang/Object;
 
-    invoke-static {v0, v1}, Landroid/graphics/pdf/PdfEditor;->nativeScaleForPrinting(J)Z
+    monitor-enter v1
+
+    :try_start_0
+    iget-wide v2, p0, Landroid/graphics/pdf/PdfEditor;->mNativeDocument:J
+
+    invoke-static {v2, v3}, Landroid/graphics/pdf/PdfEditor;->nativeScaleForPrinting(J)Z
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v0
 
+    monitor-exit v1
+
     return v0
+
+    :catchall_0
+    move-exception v0
+
+    monitor-exit v1
+
+    throw v0
 .end method
 
 .method public write(Landroid/os/ParcelFileDescriptor;)V
-    .locals 3
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -562,21 +737,43 @@
     :try_start_0
     invoke-direct {p0}, Landroid/graphics/pdf/PdfEditor;->throwIfClosed()V
 
-    iget-wide v0, p0, Landroid/graphics/pdf/PdfEditor;->mNativeDocument:J
+    sget-object v1, Landroid/graphics/pdf/PdfRenderer;->sPdfiumLock:Ljava/lang/Object;
+
+    monitor-enter v1
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_1
+
+    :try_start_1
+    iget-wide v2, p0, Landroid/graphics/pdf/PdfEditor;->mNativeDocument:J
 
     invoke-virtual {p1}, Landroid/os/ParcelFileDescriptor;->getFd()I
 
-    move-result v2
+    move-result v0
 
-    invoke-static {v0, v1, v2}, Landroid/graphics/pdf/PdfEditor;->nativeWrite(JI)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    invoke-static {v2, v3, v0}, Landroid/graphics/pdf/PdfEditor;->nativeWrite(JI)V
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    :try_start_2
+    monitor-exit v1
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
     invoke-static {p1}, Llibcore/io/IoUtils;->closeQuietly(Ljava/lang/AutoCloseable;)V
 
     return-void
 
     :catchall_0
+    move-exception v0
+
+    :try_start_3
+    monitor-exit v1
+
+    throw v0
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_1
+
+    :catchall_1
     move-exception v0
 
     invoke-static {p1}, Llibcore/io/IoUtils;->closeQuietly(Ljava/lang/AutoCloseable;)V

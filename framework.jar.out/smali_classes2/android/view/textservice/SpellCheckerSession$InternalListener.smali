@@ -1,4 +1,4 @@
-.class Landroid/view/textservice/SpellCheckerSession$InternalListener;
+.class final Landroid/view/textservice/SpellCheckerSession$InternalListener;
 .super Lcom/android/internal/textservice/ITextServicesSessionListener$Stub;
 .source "SpellCheckerSession.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x1a
     name = "InternalListener"
 .end annotation
 

@@ -96,11 +96,32 @@
     return v0
 
     :cond_0
-    invoke-static {p0}, Ljava/lang/Character;->getDirectionality(C)B
+    invoke-static {p0}, Landroid/text/BidiFormatter$DirectionalityEstimator;->getDirectionality(I)B
 
     move-result v0
 
     goto :goto_0
+.end method
+
+.method private static getDirectionality(I)B
+    .locals 1
+
+    invoke-static {p0}, Landroid/text/Emoji;->isNewEmoji(I)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    const/16 v0, 0xd
+
+    return v0
+
+    :cond_0
+    invoke-static {p0}, Ljava/lang/Character;->getDirectionality(I)B
+
+    move-result v0
+
+    return v0
 .end method
 
 .method private skipEntityBackward()B
@@ -410,7 +431,7 @@
 
     iput v2, p0, Landroid/text/BidiFormatter$DirectionalityEstimator;->charIndex:I
 
-    invoke-static {v0}, Ljava/lang/Character;->getDirectionality(I)B
+    invoke-static {v0}, Landroid/text/BidiFormatter$DirectionalityEstimator;->getDirectionality(I)B
 
     move-result v2
 
@@ -500,7 +521,7 @@
 
     iput v2, p0, Landroid/text/BidiFormatter$DirectionalityEstimator;->charIndex:I
 
-    invoke-static {v0}, Ljava/lang/Character;->getDirectionality(I)B
+    invoke-static {v0}, Landroid/text/BidiFormatter$DirectionalityEstimator;->getDirectionality(I)B
 
     move-result v2
 

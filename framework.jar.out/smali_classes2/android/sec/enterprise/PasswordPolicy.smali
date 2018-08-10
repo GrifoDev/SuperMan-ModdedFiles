@@ -143,6 +143,39 @@
     return v2
 .end method
 
+.method public isMultifactorAuthenticationEnabled()Z
+    .locals 4
+
+    :try_start_0
+    invoke-static {}, Landroid/sec/enterprise/EnterpriseDeviceManager$EDMProxyServiceHelper;->getService()Landroid/sec/enterprise/IEDMProxy;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_0
+
+    invoke-interface {v1}, Landroid/sec/enterprise/IEDMProxy;->isMultifactorAuthenticationEnabled()Z
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v2
+
+    return v2
+
+    :catch_0
+    move-exception v0
+
+    sget-object v2, Landroid/sec/enterprise/PasswordPolicy;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v3, "PXY-isMultifactorAuthenticationEnabled returning default value"
+
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_0
+    const/4 v2, 0x1
+
+    return v2
+.end method
+
 .method public isScreenLockPatternVisibilityEnabled()Z
     .locals 4
 
@@ -174,4 +207,34 @@
     const/4 v2, 0x1
 
     return v2
+.end method
+
+.method public notifyPasswordPolicyOneLockChanged(ZI)V
+    .locals 4
+
+    :try_start_0
+    invoke-static {}, Landroid/sec/enterprise/EnterpriseDeviceManager$EDMProxyServiceHelper;->getService()Landroid/sec/enterprise/IEDMProxy;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_0
+
+    invoke-interface {v1, p1, p2}, Landroid/sec/enterprise/IEDMProxy;->notifyPasswordPolicyOneLockChanged(ZI)V
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    :cond_0
+    :goto_0
+    return-void
+
+    :catch_0
+    move-exception v0
+
+    sget-object v2, Landroid/sec/enterprise/PasswordPolicy;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v3, "PXY-notifyPasswordPolicyOneLockChanged failed to be called"
+
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
 .end method

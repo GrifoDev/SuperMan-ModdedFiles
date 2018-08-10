@@ -768,6 +768,16 @@
     return-object v0
 .end method
 
+.method bridge synthetic cloneConstantState()Landroid/graphics/drawable/DrawableContainer$DrawableContainerState;
+    .locals 1
+
+    invoke-virtual {p0}, Landroid/graphics/drawable/AnimatedStateListDrawable;->cloneConstantState()Landroid/graphics/drawable/AnimatedStateListDrawable$AnimatedStateListState;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
 .method bridge synthetic cloneConstantState()Landroid/graphics/drawable/StateListDrawable$StateListState;
     .locals 1
 

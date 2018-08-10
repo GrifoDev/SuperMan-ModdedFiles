@@ -23,7 +23,7 @@
     .end annotation
 .end method
 
-.method public abstract onUidGone(I)V
+.method public abstract onUidGone(IZ)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -31,7 +31,7 @@
     .end annotation
 .end method
 
-.method public abstract onUidIdle(I)V
+.method public abstract onUidIdle(IZ)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -39,7 +39,7 @@
     .end annotation
 .end method
 
-.method public abstract onUidStateChanged(II)V
+.method public abstract onUidStateChanged(IIJ)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

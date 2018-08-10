@@ -67,17 +67,15 @@
 
 .field private static final START_TENSION:F = 0.5f
 
-.field private static mEnableSmoothFling:Z
+.field private static sIsSmoothFlingEnabled:Z
 
-.field private static mRegulateCurrentTimeInterval:Z
+.field private static sUseRegulateCurrentTimeInterval:Z
 
 
 # instance fields
-.field private fBoostParamVal:[I
+.field private final MINIMUM_BOOSTED_FLING_VELOCITY_NEGATIVE:I
 
-.field private fBoostTimeOut:I
-
-.field private flingBoostTimeOut:I
+.field private final MINIMUM_BOOSTED_FLING_VELOCITY_POSITIVE:I
 
 .field private mCurrVelocity:F
 
@@ -95,15 +93,9 @@
 
 .field private mIsDVFSBoosting:Z
 
-.field private mIsPerfBoostEnabled:Z
-
-.field private mIsPerfLockAcquired:Z
-
 .field private mMaximumVelocity:I
 
 .field private mOver:I
-
-.field private mPerf:Landroid/util/BoostFramework;
 
 .field private mPhysicalCoeff:F
 
@@ -290,11 +282,11 @@
 
     const/4 v14, 0x1
 
-    sput-boolean v14, Landroid/widget/OverScroller$SplineOverScroller;->mEnableSmoothFling:Z
+    sput-boolean v14, Landroid/widget/OverScroller$SplineOverScroller;->sIsSmoothFlingEnabled:Z
 
     const/4 v14, 0x1
 
-    sput-boolean v14, Landroid/widget/OverScroller$SplineOverScroller;->mRegulateCurrentTimeInterval:Z
+    sput-boolean v14, Landroid/widget/OverScroller$SplineOverScroller;->sUseRegulateCurrentTimeInterval:Z
 
     const/4 v6, 0x0
 
@@ -582,18 +574,6 @@
 
     iput v5, p0, Landroid/widget/OverScroller$SplineOverScroller;->mState:I
 
-    const/4 v3, 0x0
-
-    iput-object v3, p0, Landroid/widget/OverScroller$SplineOverScroller;->mPerf:Landroid/util/BoostFramework;
-
-    iput-boolean v5, p0, Landroid/widget/OverScroller$SplineOverScroller;->mIsPerfLockAcquired:Z
-
-    iput-boolean v5, p0, Landroid/widget/OverScroller$SplineOverScroller;->mIsPerfBoostEnabled:Z
-
-    iput v5, p0, Landroid/widget/OverScroller$SplineOverScroller;->fBoostTimeOut:I
-
-    iput v5, p0, Landroid/widget/OverScroller$SplineOverScroller;->flingBoostTimeOut:I
-
     iput v5, p0, Landroid/widget/OverScroller$SplineOverScroller;->mUpdateCount:I
 
     iput-wide v6, p0, Landroid/widget/OverScroller$SplineOverScroller;->mPrevTime:J
@@ -601,6 +581,14 @@
     iput-wide v6, p0, Landroid/widget/OverScroller$SplineOverScroller;->mPrevTimeGap:J
 
     iput-boolean v5, p0, Landroid/widget/OverScroller$SplineOverScroller;->mIsDVFSBoosting:Z
+
+    const/16 v3, 0x320
+
+    iput v3, p0, Landroid/widget/OverScroller$SplineOverScroller;->MINIMUM_BOOSTED_FLING_VELOCITY_POSITIVE:I
+
+    const/16 v3, -0x320
+
+    iput v3, p0, Landroid/widget/OverScroller$SplineOverScroller;->MINIMUM_BOOSTED_FLING_VELOCITY_NEGATIVE:I
 
     const/4 v3, 0x1
 
@@ -610,11 +598,8 @@
 
     move-result v3
 
-    if-eqz v3, :cond_3
+    xor-int/lit8 v1, v3, 0x1
 
-    const/4 v1, 0x0
-
-    :goto_0
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v3
@@ -639,38 +624,9 @@
 
     iput v3, p0, Landroid/widget/OverScroller$SplineOverScroller;->mPhysicalCoeff:F
 
-    iget-boolean v3, p0, Landroid/widget/OverScroller$SplineOverScroller;->mIsPerfBoostEnabled:Z
+    sget-boolean v3, Landroid/widget/OverScroller$SplineOverScroller;->sIsSmoothFlingEnabled:Z
 
     if-eqz v3, :cond_0
-
-    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v3
-
-    const v4, 0x10e00a8
-
-    invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getInteger(I)I
-
-    move-result v3
-
-    iput v3, p0, Landroid/widget/OverScroller$SplineOverScroller;->fBoostTimeOut:I
-
-    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v3
-
-    const v4, 0x107006d
-
-    invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getIntArray(I)[I
-
-    move-result-object v3
-
-    iput-object v3, p0, Landroid/widget/OverScroller$SplineOverScroller;->fBoostParamVal:[I
-
-    :cond_0
-    sget-boolean v3, Landroid/widget/OverScroller$SplineOverScroller;->mEnableSmoothFling:Z
-
-    if-eqz v3, :cond_1
 
     invoke-static {p1}, Landroid/view/ViewConfiguration;->get(Landroid/content/Context;)Landroid/view/ViewConfiguration;
 
@@ -682,18 +638,13 @@
 
     iput v3, p0, Landroid/widget/OverScroller$SplineOverScroller;->mMaximumVelocity:I
 
-    :cond_1
-    if-eqz v1, :cond_2
+    :cond_0
+    if-eqz v1, :cond_1
 
     invoke-virtual {p0, v5}, Landroid/widget/OverScroller$SplineOverScroller;->setMode(I)V
 
-    :cond_2
+    :cond_1
     return-void
-
-    :cond_3
-    const/4 v1, 0x1
-
-    goto :goto_0
 .end method
 
 .method private adjustDuration(III)V
@@ -924,7 +875,7 @@
 
     sub-double v0, v10, v12
 
-    sget-boolean v9, Landroid/widget/OverScroller$SplineOverScroller;->mEnableSmoothFling:Z
+    sget-boolean v9, Landroid/widget/OverScroller$SplineOverScroller;->sIsSmoothFlingEnabled:Z
 
     if-eqz v9, :cond_1
 
@@ -1040,7 +991,7 @@
 
     sub-double v0, v10, v12
 
-    sget-boolean v9, Landroid/widget/OverScroller$SplineOverScroller;->mEnableSmoothFling:Z
+    sget-boolean v9, Landroid/widget/OverScroller$SplineOverScroller;->sIsSmoothFlingEnabled:Z
 
     if-eqz v9, :cond_1
 
@@ -1220,7 +1171,7 @@
 
     iput v3, p0, Landroid/widget/OverScroller$SplineOverScroller;->mDuration:I
 
-    sget-boolean v3, Landroid/widget/OverScroller$SplineOverScroller;->mRegulateCurrentTimeInterval:Z
+    sget-boolean v3, Landroid/widget/OverScroller$SplineOverScroller;->sUseRegulateCurrentTimeInterval:Z
 
     if-eqz v3, :cond_1
 
@@ -1635,7 +1586,7 @@
 
     const-wide/16 v0, 0x0
 
-    if-eqz p2, :cond_2
+    if-eqz p2, :cond_3
 
     invoke-direct {p0, p2}, Landroid/widget/OverScroller$SplineOverScroller;->getSplineFlingDuration(I)I
 
@@ -1649,16 +1600,30 @@
 
     move-result-wide v0
 
-    sget-boolean v2, Landroid/widget/OverScroller$SplineOverScroller;->mEnableSmoothFling:Z
+    sget-boolean v2, Landroid/widget/OverScroller$SplineOverScroller;->sIsSmoothFlingEnabled:Z
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_3
 
     iget-boolean v2, p0, Landroid/widget/OverScroller$SplineOverScroller;->mIsDVFSBoosting:Z
 
-    if-eqz v2, :cond_6
+    xor-int/lit8 v2, v2, 0x1
+
+    if-eqz v2, :cond_3
+
+    const/16 v2, 0x320
+
+    if-ge p2, v2, :cond_2
+
+    const/16 v2, -0x320
+
+    if-gt p2, v2, :cond_3
 
     :cond_2
-    :goto_0
+    invoke-static {v5}, Lcom/samsung/android/os/SemPerfManager;->onSmoothScrollEvent(Z)V
+
+    iput-boolean v5, p0, Landroid/widget/OverScroller$SplineOverScroller;->mIsDVFSBoosting:Z
+
+    :cond_3
     int-to-float v2, p2
 
     invoke-static {v2}, Ljava/lang/Math;->signum(F)F
@@ -1681,7 +1646,7 @@
 
     iget v2, p0, Landroid/widget/OverScroller$SplineOverScroller;->mFinal:I
 
-    if-ge v2, p3, :cond_3
+    if-ge v2, p3, :cond_4
 
     iget v2, p0, Landroid/widget/OverScroller$SplineOverScroller;->mStart:I
 
@@ -1691,10 +1656,10 @@
 
     iput p3, p0, Landroid/widget/OverScroller$SplineOverScroller;->mFinal:I
 
-    :cond_3
+    :cond_4
     iget v2, p0, Landroid/widget/OverScroller$SplineOverScroller;->mFinal:I
 
-    if-le v2, p4, :cond_4
+    if-le v2, p4, :cond_5
 
     iget v2, p0, Landroid/widget/OverScroller$SplineOverScroller;->mStart:I
 
@@ -1704,31 +1669,15 @@
 
     iput p4, p0, Landroid/widget/OverScroller$SplineOverScroller;->mFinal:I
 
-    :cond_4
-    sget-boolean v2, Landroid/widget/OverScroller$SplineOverScroller;->mRegulateCurrentTimeInterval:Z
+    :cond_5
+    sget-boolean v2, Landroid/widget/OverScroller$SplineOverScroller;->sUseRegulateCurrentTimeInterval:Z
 
-    if-eqz v2, :cond_5
+    if-eqz v2, :cond_6
 
     iput v4, p0, Landroid/widget/OverScroller$SplineOverScroller;->mUpdateCount:I
 
-    :cond_5
-    return-void
-
     :cond_6
-    const/16 v2, 0x320
-
-    if-ge p2, v2, :cond_7
-
-    const/16 v2, -0x320
-
-    if-gt p2, v2, :cond_2
-
-    :cond_7
-    invoke-static {v5}, Lcom/samsung/android/os/SemPerfManager;->onSmoothScrollEvent(Z)V
-
-    iput-boolean v5, p0, Landroid/widget/OverScroller$SplineOverScroller;->mIsDVFSBoosting:Z
-
-    goto :goto_0
+    return-void
 .end method
 
 .method notifyEdgeReached(III)V
@@ -1777,27 +1726,31 @@
 .end method
 
 .method public setMode(I)V
-    .locals 2
+    .locals 3
+
+    const/4 v2, 0x0
 
     const/4 v1, 0x1
 
-    const/4 v0, 0x0
+    if-eqz p1, :cond_0
 
-    if-ltz p1, :cond_0
+    if-eq p1, v1, :cond_0
 
-    if-le p1, v1, :cond_1
-
-    :cond_0
     return-void
 
-    :cond_1
-    if-nez p1, :cond_2
+    :cond_0
+    if-ne p1, v1, :cond_1
 
-    sput-boolean v0, Landroid/widget/OverScroller$SplineOverScroller;->mEnableSmoothFling:Z
-
-    sput-boolean v0, Landroid/widget/OverScroller$SplineOverScroller;->mRegulateCurrentTimeInterval:Z
+    move v0, v1
 
     :goto_0
+    sput-boolean v0, Landroid/widget/OverScroller$SplineOverScroller;->sIsSmoothFlingEnabled:Z
+
+    if-ne p1, v1, :cond_2
+
+    :goto_1
+    sput-boolean v1, Landroid/widget/OverScroller$SplineOverScroller;->sUseRegulateCurrentTimeInterval:Z
+
     sget-object v0, Landroid/widget/OverScroller$SplineOverScroller;->INFLEXIONS:[F
 
     aget v0, v0, p1
@@ -1818,22 +1771,25 @@
 
     return-void
 
-    :cond_2
-    sput-boolean v1, Landroid/widget/OverScroller$SplineOverScroller;->mEnableSmoothFling:Z
-
-    sput-boolean v1, Landroid/widget/OverScroller$SplineOverScroller;->mRegulateCurrentTimeInterval:Z
+    :cond_1
+    move v0, v2
 
     goto :goto_0
+
+    :cond_2
+    move v1, v2
+
+    goto :goto_1
 .end method
 
 .method springback(III)Z
-    .locals 4
+    .locals 3
 
-    const/4 v1, 0x1
+    const/4 v2, 0x0
 
-    const/4 v0, 0x0
+    const/4 v0, 0x1
 
-    iput-boolean v1, p0, Landroid/widget/OverScroller$SplineOverScroller;->mFinished:Z
+    iput-boolean v0, p0, Landroid/widget/OverScroller$SplineOverScroller;->mFinished:Z
 
     iput p1, p0, Landroid/widget/OverScroller$SplineOverScroller;->mFinal:I
 
@@ -1841,40 +1797,34 @@
 
     iput p1, p0, Landroid/widget/OverScroller$SplineOverScroller;->mCurrentPosition:I
 
-    iput v0, p0, Landroid/widget/OverScroller$SplineOverScroller;->mVelocity:I
+    iput v2, p0, Landroid/widget/OverScroller$SplineOverScroller;->mVelocity:I
 
     invoke-static {}, Landroid/view/animation/AnimationUtils;->currentAnimationTimeMillis()J
 
-    move-result-wide v2
+    move-result-wide v0
 
-    iput-wide v2, p0, Landroid/widget/OverScroller$SplineOverScroller;->mStartTime:J
+    iput-wide v0, p0, Landroid/widget/OverScroller$SplineOverScroller;->mStartTime:J
 
-    iput v0, p0, Landroid/widget/OverScroller$SplineOverScroller;->mDuration:I
+    iput v2, p0, Landroid/widget/OverScroller$SplineOverScroller;->mDuration:I
 
     if-ge p1, p2, :cond_1
 
-    invoke-direct {p0, p1, p2, v0}, Landroid/widget/OverScroller$SplineOverScroller;->startSpringback(III)V
+    invoke-direct {p0, p1, p2, v2}, Landroid/widget/OverScroller$SplineOverScroller;->startSpringback(III)V
 
     :cond_0
     :goto_0
-    iget-boolean v2, p0, Landroid/widget/OverScroller$SplineOverScroller;->mFinished:Z
+    iget-boolean v0, p0, Landroid/widget/OverScroller$SplineOverScroller;->mFinished:Z
 
-    if-eqz v2, :cond_2
+    xor-int/lit8 v0, v0, 0x1
 
-    :goto_1
     return v0
 
     :cond_1
     if-le p1, p3, :cond_0
 
-    invoke-direct {p0, p1, p3, v0}, Landroid/widget/OverScroller$SplineOverScroller;->startSpringback(III)V
+    invoke-direct {p0, p1, p3, v2}, Landroid/widget/OverScroller$SplineOverScroller;->startSpringback(III)V
 
     goto :goto_0
-
-    :cond_2
-    move v0, v1
-
-    goto :goto_1
 .end method
 
 .method startScroll(III)V
@@ -1910,66 +1860,64 @@
 .end method
 
 .method update()Z
-    .locals 28
+    .locals 26
 
     invoke-static {}, Landroid/view/animation/AnimationUtils;->currentAnimationTimeMillis()J
 
-    move-result-wide v22
+    move-result-wide v20
 
     move-object/from16 v0, p0
 
     iget-wide v0, v0, Landroid/widget/OverScroller$SplineOverScroller;->mStartTime:J
 
-    move-wide/from16 v24, v0
+    move-wide/from16 v22, v0
 
-    sub-long v4, v22, v24
+    sub-long v4, v20, v22
 
-    move-wide v14, v4
+    sget-boolean v22, Landroid/widget/OverScroller$SplineOverScroller;->sUseRegulateCurrentTimeInterval:Z
 
-    sget-boolean v24, Landroid/widget/OverScroller$SplineOverScroller;->mRegulateCurrentTimeInterval:Z
-
-    if-eqz v24, :cond_3
+    if-eqz v22, :cond_3
 
     move-object/from16 v0, p0
 
     iget v0, v0, Landroid/widget/OverScroller$SplineOverScroller;->mState:I
 
-    move/from16 v24, v0
+    move/from16 v22, v0
 
-    if-nez v24, :cond_3
+    if-nez v22, :cond_3
 
     move-object/from16 v0, p0
 
     iget v0, v0, Landroid/widget/OverScroller$SplineOverScroller;->mUpdateCount:I
 
-    move/from16 v24, v0
+    move/from16 v22, v0
 
-    if-lez v24, :cond_0
+    if-lez v22, :cond_0
 
     move-object/from16 v0, p0
 
     iget-wide v0, v0, Landroid/widget/OverScroller$SplineOverScroller;->mPrevTime:J
 
-    move-wide/from16 v24, v0
+    move-wide/from16 v22, v0
 
-    add-long v24, v24, v4
+    add-long v22, v22, v4
 
-    const-wide/16 v26, 0x2
+    const-wide/16 v24, 0x2
 
-    div-long v4, v24, v26
+    div-long v4, v22, v24
 
     :cond_0
     move-object/from16 v0, p0
 
     iget v0, v0, Landroid/widget/OverScroller$SplineOverScroller;->mUpdateCount:I
 
-    move/from16 v24, v0
+    move/from16 v22, v0
 
-    const/16 v25, 0x1e
+    const/16 v23, 0x1e
 
-    move/from16 v0, v24
+    move/from16 v0, v22
 
-    move/from16 v1, v25
+    move/from16 v1, v23
 
     if-le v0, v1, :cond_1
 
@@ -1977,49 +1925,49 @@
 
     iget-wide v0, v0, Landroid/widget/OverScroller$SplineOverScroller;->mPrevTime:J
 
-    move-wide/from16 v24, v0
+    move-wide/from16 v22, v0
 
-    sub-long v6, v4, v24
+    sub-long v6, v4, v22
 
     move-object/from16 v0, p0
 
     iget-wide v0, v0, Landroid/widget/OverScroller$SplineOverScroller;->mPrevTimeGap:J
 
-    move-wide/from16 v24, v0
+    move-wide/from16 v22, v0
 
-    const-wide/16 v26, 0x1
+    const-wide/16 v24, 0x1
 
-    add-long v24, v24, v26
+    add-long v22, v22, v24
 
-    cmp-long v24, v6, v24
+    cmp-long v22, v6, v22
 
-    if-lez v24, :cond_4
+    if-lez v22, :cond_4
 
     move-object/from16 v0, p0
 
     iget-wide v0, v0, Landroid/widget/OverScroller$SplineOverScroller;->mPrevTime:J
 
-    move-wide/from16 v24, v0
+    move-wide/from16 v22, v0
 
     move-object/from16 v0, p0
 
     iget-wide v0, v0, Landroid/widget/OverScroller$SplineOverScroller;->mPrevTimeGap:J
 
-    move-wide/from16 v26, v0
+    move-wide/from16 v24, v0
 
-    add-long v24, v24, v26
+    add-long v22, v22, v24
 
-    const-wide/16 v26, 0x1
+    const-wide/16 v24, 0x1
 
-    add-long v4, v24, v26
+    add-long v4, v22, v24
 
     :cond_1
     :goto_0
-    const-wide/16 v24, 0x0
+    const-wide/16 v22, 0x0
 
-    cmp-long v24, v4, v24
+    cmp-long v22, v4, v22
 
-    if-gez v24, :cond_2
+    if-gez v22, :cond_2
 
     const-wide/16 v4, 0x0
 
@@ -2028,11 +1976,11 @@
 
     iget-wide v0, v0, Landroid/widget/OverScroller$SplineOverScroller;->mPrevTime:J
 
-    move-wide/from16 v24, v0
+    move-wide/from16 v22, v0
 
-    sub-long v24, v4, v24
+    sub-long v22, v4, v22
 
-    move-wide/from16 v0, v24
+    move-wide/from16 v0, v22
 
     move-object/from16 v2, p0
 
@@ -2046,73 +1994,73 @@
 
     iget v0, v0, Landroid/widget/OverScroller$SplineOverScroller;->mUpdateCount:I
 
-    move/from16 v24, v0
+    move/from16 v22, v0
 
-    add-int/lit8 v24, v24, 0x1
+    add-int/lit8 v22, v22, 0x1
 
-    move/from16 v0, v24
+    move/from16 v0, v22
 
     move-object/from16 v1, p0
 
     iput v0, v1, Landroid/widget/OverScroller$SplineOverScroller;->mUpdateCount:I
 
     :cond_3
-    const-wide/16 v24, 0x0
+    const-wide/16 v22, 0x0
 
-    cmp-long v24, v4, v24
+    cmp-long v22, v4, v22
 
-    if-nez v24, :cond_6
+    if-nez v22, :cond_6
 
     move-object/from16 v0, p0
 
     iget v0, v0, Landroid/widget/OverScroller$SplineOverScroller;->mDuration:I
 
-    move/from16 v24, v0
+    move/from16 v22, v0
 
-    if-lez v24, :cond_5
+    if-lez v22, :cond_5
 
-    const/16 v24, 0x1
+    const/16 v22, 0x1
 
     :goto_1
-    return v24
+    return v22
 
     :cond_4
     move-object/from16 v0, p0
 
     iget-wide v0, v0, Landroid/widget/OverScroller$SplineOverScroller;->mPrevTimeGap:J
 
-    move-wide/from16 v24, v0
+    move-wide/from16 v22, v0
 
-    const-wide/16 v26, 0x1
+    const-wide/16 v24, 0x1
 
-    sub-long v24, v24, v26
+    sub-long v22, v22, v24
 
-    cmp-long v24, v6, v24
+    cmp-long v22, v6, v22
 
-    if-gez v24, :cond_1
+    if-gez v22, :cond_1
 
     move-object/from16 v0, p0
 
     iget-wide v0, v0, Landroid/widget/OverScroller$SplineOverScroller;->mPrevTime:J
 
-    move-wide/from16 v24, v0
+    move-wide/from16 v22, v0
 
     move-object/from16 v0, p0
 
     iget-wide v0, v0, Landroid/widget/OverScroller$SplineOverScroller;->mPrevTimeGap:J
 
-    move-wide/from16 v26, v0
+    move-wide/from16 v24, v0
 
-    add-long v24, v24, v26
+    add-long v22, v22, v24
 
-    const-wide/16 v26, 0x1
+    const-wide/16 v24, 0x1
 
-    sub-long v4, v24, v26
+    sub-long v4, v22, v24
 
     goto :goto_0
 
     :cond_5
-    const/16 v24, 0x0
+    const/16 v22, 0x0
 
     goto :goto_1
 
@@ -2121,21 +2069,21 @@
 
     iget v0, v0, Landroid/widget/OverScroller$SplineOverScroller;->mDuration:I
 
-    move/from16 v24, v0
+    move/from16 v22, v0
 
-    move/from16 v0, v24
+    move/from16 v0, v22
 
     int-to-long v0, v0
 
-    move-wide/from16 v24, v0
+    move-wide/from16 v22, v0
 
-    cmp-long v24, v4, v24
+    cmp-long v22, v4, v22
 
-    if-lez v24, :cond_7
+    if-lez v22, :cond_7
 
-    const/16 v24, 0x0
+    const/16 v22, 0x0
 
-    return v24
+    return v22
 
     :cond_7
     const-wide/16 v10, 0x0
@@ -2144,134 +2092,134 @@
 
     iget v0, v0, Landroid/widget/OverScroller$SplineOverScroller;->mState:I
 
-    move/from16 v24, v0
+    move/from16 v22, v0
 
-    packed-switch v24, :pswitch_data_0
+    packed-switch v22, :pswitch_data_0
 
     :goto_2
     move-object/from16 v0, p0
 
     iget v0, v0, Landroid/widget/OverScroller$SplineOverScroller;->mStart:I
 
-    move/from16 v24, v0
+    move/from16 v22, v0
 
     invoke-static {v10, v11}, Ljava/lang/Math;->round(D)J
 
-    move-result-wide v26
+    move-result-wide v24
 
-    move-wide/from16 v0, v26
+    move-wide/from16 v0, v24
 
     long-to-int v0, v0
 
-    move/from16 v25, v0
+    move/from16 v23, v0
 
-    add-int v24, v24, v25
+    add-int v22, v22, v23
 
-    move/from16 v0, v24
+    move/from16 v0, v22
 
     move-object/from16 v1, p0
 
     iput v0, v1, Landroid/widget/OverScroller$SplineOverScroller;->mCurrentPosition:I
 
-    const/16 v24, 0x1
+    const/16 v22, 0x1
 
-    return v24
+    return v22
 
     :pswitch_0
     long-to-float v0, v4
 
-    move/from16 v24, v0
+    move/from16 v22, v0
 
     move-object/from16 v0, p0
 
     iget v0, v0, Landroid/widget/OverScroller$SplineOverScroller;->mSplineDuration:I
 
-    move/from16 v25, v0
+    move/from16 v23, v0
 
-    move/from16 v0, v25
+    move/from16 v0, v23
 
     int-to-float v0, v0
 
-    move/from16 v25, v0
+    move/from16 v23, v0
 
-    div-float v17, v24, v25
+    div-float v15, v22, v23
 
-    const/high16 v24, 0x42c80000    # 100.0f
+    const/high16 v22, 0x42c80000    # 100.0f
 
-    mul-float v24, v24, v17
+    mul-float v22, v22, v15
 
-    move/from16 v0, v24
+    move/from16 v0, v22
 
     float-to-int v13, v0
 
     const/high16 v12, 0x3f800000    # 1.0f
 
-    const/16 v21, 0x0
+    const/16 v19, 0x0
 
-    const/16 v24, 0x64
+    const/16 v22, 0x64
 
-    move/from16 v0, v24
+    move/from16 v0, v22
 
     if-ge v13, v0, :cond_8
 
     int-to-float v0, v13
 
-    move/from16 v24, v0
+    move/from16 v22, v0
 
-    const/high16 v25, 0x42c80000    # 100.0f
+    const/high16 v23, 0x42c80000    # 100.0f
 
-    div-float v19, v24, v25
+    div-float v17, v22, v23
 
-    add-int/lit8 v24, v13, 0x1
+    add-int/lit8 v22, v13, 0x1
 
-    move/from16 v0, v24
+    move/from16 v0, v22
 
     int-to-float v0, v0
 
-    move/from16 v24, v0
+    move/from16 v22, v0
 
-    const/high16 v25, 0x42c80000    # 100.0f
+    const/high16 v23, 0x42c80000    # 100.0f
 
-    div-float v20, v24, v25
+    div-float v18, v22, v23
 
-    sget-object v24, Landroid/widget/OverScroller$SplineOverScroller;->SPLINE_POSITION:[F
+    sget-object v22, Landroid/widget/OverScroller$SplineOverScroller;->SPLINE_POSITION:[F
 
-    aget v8, v24, v13
+    aget v8, v22, v13
 
-    sget-object v24, Landroid/widget/OverScroller$SplineOverScroller;->SPLINE_POSITION:[F
+    sget-object v22, Landroid/widget/OverScroller$SplineOverScroller;->SPLINE_POSITION:[F
 
-    add-int/lit8 v25, v13, 0x1
+    add-int/lit8 v23, v13, 0x1
 
-    aget v9, v24, v25
+    aget v9, v22, v23
 
-    sub-float v24, v9, v8
+    sub-float v22, v9, v8
 
-    sub-float v25, v20, v19
+    sub-float v23, v18, v17
 
-    div-float v21, v24, v25
+    div-float v19, v22, v23
 
-    sub-float v24, v17, v19
+    sub-float v22, v15, v17
 
-    mul-float v24, v24, v21
+    mul-float v22, v22, v19
 
-    add-float v12, v8, v24
+    add-float v12, v8, v22
 
     :cond_8
     move-object/from16 v0, p0
 
     iget v0, v0, Landroid/widget/OverScroller$SplineOverScroller;->mSplineDistance:I
 
-    move/from16 v24, v0
+    move/from16 v22, v0
 
-    move/from16 v0, v24
+    move/from16 v0, v22
 
     int-to-float v0, v0
 
-    move/from16 v24, v0
+    move/from16 v22, v0
 
-    mul-float v24, v24, v12
+    mul-float v22, v22, v12
 
-    move/from16 v0, v24
+    move/from16 v0, v22
 
     float-to-double v10, v0
 
@@ -2279,35 +2227,35 @@
 
     iget v0, v0, Landroid/widget/OverScroller$SplineOverScroller;->mSplineDistance:I
 
-    move/from16 v24, v0
+    move/from16 v22, v0
 
-    move/from16 v0, v24
+    move/from16 v0, v22
 
     int-to-float v0, v0
 
-    move/from16 v24, v0
+    move/from16 v22, v0
 
-    mul-float v24, v24, v21
+    mul-float v22, v22, v19
 
     move-object/from16 v0, p0
 
     iget v0, v0, Landroid/widget/OverScroller$SplineOverScroller;->mSplineDuration:I
 
-    move/from16 v25, v0
+    move/from16 v23, v0
 
-    move/from16 v0, v25
+    move/from16 v0, v23
 
     int-to-float v0, v0
 
-    move/from16 v25, v0
+    move/from16 v23, v0
 
-    div-float v24, v24, v25
+    div-float v22, v22, v23
 
-    const/high16 v25, 0x447a0000    # 1000.0f
+    const/high16 v23, 0x447a0000    # 1000.0f
 
-    mul-float v24, v24, v25
+    mul-float v22, v22, v23
 
-    move/from16 v0, v24
+    move/from16 v0, v22
 
     move-object/from16 v1, p0
 
@@ -2318,35 +2266,35 @@
     :pswitch_1
     long-to-float v0, v4
 
-    move/from16 v24, v0
+    move/from16 v22, v0
 
-    const/high16 v25, 0x447a0000    # 1000.0f
+    const/high16 v23, 0x447a0000    # 1000.0f
 
-    div-float v17, v24, v25
+    div-float v15, v22, v23
 
     move-object/from16 v0, p0
 
     iget v0, v0, Landroid/widget/OverScroller$SplineOverScroller;->mVelocity:I
 
-    move/from16 v24, v0
+    move/from16 v22, v0
 
-    move/from16 v0, v24
+    move/from16 v0, v22
 
     int-to-float v0, v0
 
-    move/from16 v24, v0
+    move/from16 v22, v0
 
     move-object/from16 v0, p0
 
     iget v0, v0, Landroid/widget/OverScroller$SplineOverScroller;->mDeceleration:F
 
-    move/from16 v25, v0
+    move/from16 v23, v0
 
-    mul-float v25, v25, v17
+    mul-float v23, v23, v15
 
-    add-float v24, v24, v25
+    add-float v22, v22, v23
 
-    move/from16 v0, v24
+    move/from16 v0, v22
 
     move-object/from16 v1, p0
 
@@ -2356,33 +2304,33 @@
 
     iget v0, v0, Landroid/widget/OverScroller$SplineOverScroller;->mVelocity:I
 
-    move/from16 v24, v0
+    move/from16 v22, v0
 
-    move/from16 v0, v24
+    move/from16 v0, v22
 
     int-to-float v0, v0
 
-    move/from16 v24, v0
+    move/from16 v22, v0
 
-    mul-float v24, v24, v17
+    mul-float v22, v22, v15
 
     move-object/from16 v0, p0
 
     iget v0, v0, Landroid/widget/OverScroller$SplineOverScroller;->mDeceleration:F
 
-    move/from16 v25, v0
+    move/from16 v23, v0
 
-    mul-float v25, v25, v17
+    mul-float v23, v23, v15
 
-    mul-float v25, v25, v17
+    mul-float v23, v23, v15
 
-    const/high16 v26, 0x40000000    # 2.0f
+    const/high16 v24, 0x40000000    # 2.0f
 
-    div-float v25, v25, v26
+    div-float v23, v23, v24
 
-    add-float v24, v24, v25
+    add-float v22, v22, v23
 
-    move/from16 v0, v24
+    move/from16 v0, v22
 
     float-to-double v10, v0
 
@@ -2391,69 +2339,69 @@
     :pswitch_2
     long-to-float v0, v4
 
-    move/from16 v24, v0
+    move/from16 v22, v0
 
     move-object/from16 v0, p0
 
     iget v0, v0, Landroid/widget/OverScroller$SplineOverScroller;->mDuration:I
 
-    move/from16 v25, v0
+    move/from16 v23, v0
 
-    move/from16 v0, v25
+    move/from16 v0, v23
 
     int-to-float v0, v0
 
-    move/from16 v25, v0
+    move/from16 v23, v0
 
-    div-float v17, v24, v25
+    div-float v15, v22, v23
 
-    mul-float v18, v17, v17
+    mul-float v16, v15, v15
 
     move-object/from16 v0, p0
 
     iget v0, v0, Landroid/widget/OverScroller$SplineOverScroller;->mVelocity:I
 
-    move/from16 v24, v0
+    move/from16 v22, v0
 
-    move/from16 v0, v24
+    move/from16 v0, v22
 
     int-to-float v0, v0
 
-    move/from16 v24, v0
+    move/from16 v22, v0
 
-    invoke-static/range {v24 .. v24}, Ljava/lang/Math;->signum(F)F
+    invoke-static/range {v22 .. v22}, Ljava/lang/Math;->signum(F)F
 
-    move-result v16
+    move-result v14
 
     move-object/from16 v0, p0
 
     iget v0, v0, Landroid/widget/OverScroller$SplineOverScroller;->mOver:I
 
-    move/from16 v24, v0
+    move/from16 v22, v0
 
-    move/from16 v0, v24
+    move/from16 v0, v22
 
     int-to-float v0, v0
 
-    move/from16 v24, v0
+    move/from16 v22, v0
+
+    mul-float v22, v22, v14
+
+    const/high16 v23, 0x40400000    # 3.0f
+
+    mul-float v23, v23, v16
+
+    const/high16 v24, 0x40000000    # 2.0f
+
+    mul-float v24, v24, v15
 
     mul-float v24, v24, v16
 
-    const/high16 v25, 0x40400000    # 3.0f
+    sub-float v23, v23, v24
 
-    mul-float v25, v25, v18
+    mul-float v22, v22, v23
 
-    const/high16 v26, 0x40000000    # 2.0f
-
-    mul-float v26, v26, v17
-
-    mul-float v26, v26, v18
-
-    sub-float v25, v25, v26
-
-    mul-float v24, v24, v25
-
-    move/from16 v0, v24
+    move/from16 v0, v22
 
     float-to-double v10, v0
 
@@ -2461,39 +2409,35 @@
 
     iget v0, v0, Landroid/widget/OverScroller$SplineOverScroller;->mOver:I
 
-    move/from16 v24, v0
+    move/from16 v22, v0
 
-    move/from16 v0, v24
+    move/from16 v0, v22
 
     int-to-float v0, v0
 
-    move/from16 v24, v0
+    move/from16 v22, v0
 
-    mul-float v24, v24, v16
+    mul-float v22, v22, v14
 
-    const/high16 v25, 0x40c00000    # 6.0f
+    const/high16 v23, 0x40c00000    # 6.0f
 
-    mul-float v24, v24, v25
+    mul-float v22, v22, v23
 
-    move/from16 v0, v17
+    neg-float v0, v15
 
-    neg-float v0, v0
+    move/from16 v23, v0
 
-    move/from16 v25, v0
+    add-float v23, v23, v16
 
-    add-float v25, v25, v18
+    mul-float v22, v22, v23
 
-    mul-float v24, v24, v25
-
-    move/from16 v0, v24
+    move/from16 v0, v22
 
     move-object/from16 v1, p0
 
     iput v0, v1, Landroid/widget/OverScroller$SplineOverScroller;->mCurrVelocity:F
 
     goto/16 :goto_2
-
-    nop
 
     :pswitch_data_0
     .packed-switch 0x0

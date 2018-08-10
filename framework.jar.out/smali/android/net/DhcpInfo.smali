@@ -26,8 +26,6 @@
     .end annotation
 .end field
 
-.field public static final RESPONSE_DHCP_REQUEST:I = 0x2
-
 
 # instance fields
 .field public dns1:I
@@ -41,8 +39,6 @@
 .field public leaseDuration:I
 
 .field public netmask:I
-
-.field public resultAfterRoaming:I
 
 .field public serverAddress:I
 
@@ -102,10 +98,6 @@
     iget v0, p1, Landroid/net/DhcpInfo;->leaseDuration:I
 
     iput v0, p0, Landroid/net/DhcpInfo;->leaseDuration:I
-
-    iget v0, p1, Landroid/net/DhcpInfo;->resultAfterRoaming:I
-
-    iput v0, p0, Landroid/net/DhcpInfo;->resultAfterRoaming:I
 
     :cond_0
     return-void
@@ -208,17 +200,6 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    iget v1, p0, Landroid/net/DhcpInfo;->resultAfterRoaming:I
-
-    const/4 v2, 0x2
-
-    if-ne v1, v2, :cond_0
-
-    const-string/jumbo v1, " - Server responded to REQUEST at last DHCP process"
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
-
-    :cond_0
     invoke-virtual {v0}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
     move-result-object v1
@@ -254,10 +235,6 @@
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
     iget v0, p0, Landroid/net/DhcpInfo;->leaseDuration:I
-
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
-
-    iget v0, p0, Landroid/net/DhcpInfo;->resultAfterRoaming:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 

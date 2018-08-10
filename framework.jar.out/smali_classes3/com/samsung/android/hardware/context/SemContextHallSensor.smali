@@ -23,11 +23,15 @@
     .end annotation
 .end field
 
-.field public static final STATUS_BACKFOLD:I = 0x2
+.field public static final MODE_CARRY:I = 0x0
 
-.field public static final STATUS_FOLD:I = 0x0
+.field public static final MODE_KIOSK:I = 0x3
 
-.field public static final STATUS_UNFOLD:I = 0x1
+.field public static final MODE_SMARTPHONE:I = 0x4
+
+.field public static final MODE_TABLE:I = 0x1
+
+.field public static final MODE_TABLET:I = 0x2
 
 
 # instance fields
@@ -74,7 +78,7 @@
 .method private readFromParcel(Landroid/os/Parcel;)V
     .locals 1
 
-    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+    invoke-virtual {p0}, Lcom/samsung/android/hardware/context/SemContextHallSensor;->getClass()Ljava/lang/Class;
 
     move-result-object v0
 
@@ -93,42 +97,14 @@
 
 
 # virtual methods
-.method public getAngle()S
-    .locals 2
-
-    iget-object v0, p0, Lcom/samsung/android/hardware/context/SemContextHallSensor;->mContext:Landroid/os/Bundle;
-
-    const-string/jumbo v1, "Angle"
-
-    invoke-virtual {v0, v1}, Landroid/os/Bundle;->getShort(Ljava/lang/String;)S
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public getIntensity()S
-    .locals 2
-
-    iget-object v0, p0, Lcom/samsung/android/hardware/context/SemContextHallSensor;->mContext:Landroid/os/Bundle;
-
-    const-string/jumbo v1, "Intensity"
-
-    invoke-virtual {v0, v1}, Landroid/os/Bundle;->getShort(Ljava/lang/String;)S
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public getType()S
+.method public getType()I
     .locals 2
 
     iget-object v0, p0, Lcom/samsung/android/hardware/context/SemContextHallSensor;->mContext:Landroid/os/Bundle;
 
     const-string/jumbo v1, "Type"
 
-    invoke-virtual {v0, v1}, Landroid/os/Bundle;->getShort(Ljava/lang/String;)S
+    invoke-virtual {v0, v1}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
 
     move-result v0
 

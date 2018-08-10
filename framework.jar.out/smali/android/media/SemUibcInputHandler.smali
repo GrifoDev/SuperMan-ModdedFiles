@@ -35,28 +35,154 @@
 .method public static native handleKeyDown(II)V
 .end method
 
+.method public static handleKeyDown(Landroid/content/Context;II)V
+    .locals 2
+
+    const-string/jumbo v0, "android.permission.INJECT_EVENTS"
+
+    const-string/jumbo v1, "Need INJECT_EVENT Permission"
+
+    invoke-virtual {p0, v0, v1}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
+
+    invoke-static {p1, p2}, Landroid/media/SemUibcInputHandler;->keyDown(II)V
+
+    return-void
+.end method
+
 .method public static native handleKeyDownASCII(II)V
+.end method
+
+.method public static handleKeyDownASCII(Landroid/content/Context;II)V
+    .locals 2
+
+    const-string/jumbo v0, "android.permission.INJECT_EVENTS"
+
+    const-string/jumbo v1, "Need INJECT_EVENT Permission"
+
+    invoke-virtual {p0, v0, v1}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
+
+    invoke-static {p1, p2}, Landroid/media/SemUibcInputHandler;->keyDownASCII(II)V
+
+    return-void
 .end method
 
 .method public static native handleKeyUp(II)V
 .end method
 
+.method public static handleKeyUp(Landroid/content/Context;II)V
+    .locals 2
+
+    const-string/jumbo v0, "android.permission.INJECT_EVENTS"
+
+    const-string/jumbo v1, "Need INJECT_EVENT Permission"
+
+    invoke-virtual {p0, v0, v1}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
+
+    invoke-static {p1, p2}, Landroid/media/SemUibcInputHandler;->keyUp(II)V
+
+    return-void
+.end method
+
 .method public static native handleKeyUpASCII(II)V
+.end method
+
+.method public static handleKeyUpASCII(Landroid/content/Context;II)V
+    .locals 2
+
+    const-string/jumbo v0, "android.permission.INJECT_EVENTS"
+
+    const-string/jumbo v1, "Need INJECT_EVENT Permission"
+
+    invoke-virtual {p0, v0, v1}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
+
+    invoke-static {p1, p2}, Landroid/media/SemUibcInputHandler;->keyUpASCII(II)V
+
+    return-void
 .end method
 
 .method public static native handleRotate(II)V
 .end method
 
+.method public static handleRotate(Landroid/content/Context;II)V
+    .locals 2
+
+    const-string/jumbo v0, "android.permission.INJECT_EVENTS"
+
+    const-string/jumbo v1, "Need INJECT_EVENT Permission"
+
+    invoke-virtual {p0, v0, v1}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
+
+    invoke-static {p1, p2}, Landroid/media/SemUibcInputHandler;->rotate(II)V
+
+    return-void
+.end method
+
 .method public static native handleScroll(FF)V
+.end method
+
+.method public static handleScroll(Landroid/content/Context;FF)V
+    .locals 2
+
+    const-string/jumbo v0, "android.permission.INJECT_EVENTS"
+
+    const-string/jumbo v1, "Need INJECT_EVENT Permission"
+
+    invoke-virtual {p0, v0, v1}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
+
+    invoke-static {p1, p2}, Landroid/media/SemUibcInputHandler;->scroll(FF)V
+
+    return-void
 .end method
 
 .method public static native handleTouchDown(I[I[I[I)V
 .end method
 
+.method public static handleTouchDown(Landroid/content/Context;I[I[I[I)V
+    .locals 2
+
+    const-string/jumbo v0, "android.permission.INJECT_EVENTS"
+
+    const-string/jumbo v1, "Need INJECT_EVENT Permission"
+
+    invoke-virtual {p0, v0, v1}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
+
+    invoke-static {p1, p2, p3, p4}, Landroid/media/SemUibcInputHandler;->touchDown(I[I[I[I)V
+
+    return-void
+.end method
+
 .method public static native handleTouchMove(I[I[I[I)V
 .end method
 
+.method public static handleTouchMove(Landroid/content/Context;I[I[I[I)V
+    .locals 2
+
+    const-string/jumbo v0, "android.permission.INJECT_EVENTS"
+
+    const-string/jumbo v1, "Need INJECT_EVENT Permission"
+
+    invoke-virtual {p0, v0, v1}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
+
+    invoke-static {p1, p2, p3, p4}, Landroid/media/SemUibcInputHandler;->touchMove(I[I[I[I)V
+
+    return-void
+.end method
+
 .method public static native handleTouchUp(I[I[I[I)V
+.end method
+
+.method public static handleTouchUp(Landroid/content/Context;I[I[I[I)V
+    .locals 2
+
+    const-string/jumbo v0, "android.permission.INJECT_EVENTS"
+
+    const-string/jumbo v1, "Need INJECT_EVENT Permission"
+
+    invoke-virtual {p0, v0, v1}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
+
+    invoke-static {p1, p2, p3, p4}, Landroid/media/SemUibcInputHandler;->touchUp(I[I[I[I)V
+
+    return-void
 .end method
 
 .method public static isActive()Z
@@ -109,4 +235,31 @@
 .end method
 
 .method public static native isActiveUIBC()Z
+.end method
+
+.method private static native keyDown(II)V
+.end method
+
+.method private static native keyDownASCII(II)V
+.end method
+
+.method private static native keyUp(II)V
+.end method
+
+.method private static native keyUpASCII(II)V
+.end method
+
+.method private static native rotate(II)V
+.end method
+
+.method private static native scroll(FF)V
+.end method
+
+.method private static native touchDown(I[I[I[I)V
+.end method
+
+.method private static native touchMove(I[I[I[I)V
+.end method
+
+.method private static native touchUp(I[I[I[I)V
 .end method

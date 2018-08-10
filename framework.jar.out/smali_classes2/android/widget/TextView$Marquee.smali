@@ -153,7 +153,7 @@
 
     iput-object v1, p0, Landroid/widget/TextView$Marquee;->mRestartCallback:Landroid/view/Choreographer$FrameCallback;
 
-    invoke-virtual {p1}, Landroid/view/View;->getContext()Landroid/content/Context;
+    invoke-virtual {p1}, Landroid/widget/TextView;->getContext()Landroid/content/Context;
 
     move-result-object v1
 
@@ -197,7 +197,7 @@
 
     iget-object v1, p0, Landroid/widget/TextView$Marquee;->mView:Ljava/lang/ref/WeakReference;
 
-    invoke-virtual {v1}, Ljava/lang/ref/Reference;->get()Ljava/lang/Object;
+    invoke-virtual {v1}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
 
     move-result-object v0
 
@@ -205,7 +205,7 @@
 
     if-eqz v0, :cond_0
 
-    invoke-virtual {v0}, Landroid/view/View;->invalidate()V
+    invoke-virtual {v0}, Landroid/widget/TextView;->invalidate()V
 
     :cond_0
     return-void
@@ -335,7 +335,7 @@
 
     iget-object v4, p0, Landroid/widget/TextView$Marquee;->mView:Ljava/lang/ref/WeakReference;
 
-    invoke-virtual {v4}, Ljava/lang/ref/Reference;->get()Ljava/lang/Object;
+    invoke-virtual {v4}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
 
     move-result-object v2
 
@@ -357,7 +357,7 @@
 
     iput v4, p0, Landroid/widget/TextView$Marquee;->mScroll:F
 
-    invoke-virtual {v2}, Landroid/view/View;->getWidth()I
+    invoke-virtual {v2}, Landroid/widget/TextView;->getWidth()I
 
     move-result v4
 
@@ -425,7 +425,7 @@
 
     iput v4, p0, Landroid/widget/TextView$Marquee;->mMaxFadeScroll:F
 
-    invoke-virtual {v2}, Landroid/view/View;->invalidate()V
+    invoke-virtual {v2}, Landroid/widget/TextView;->invalidate()V
 
     iget-object v4, p0, Landroid/widget/TextView$Marquee;->mChoreographer:Landroid/view/Choreographer;
 
@@ -487,7 +487,7 @@
 
     iget-object v6, p0, Landroid/widget/TextView$Marquee;->mView:Ljava/lang/ref/WeakReference;
 
-    invoke-virtual {v6}, Ljava/lang/ref/Reference;->get()Ljava/lang/Object;
+    invoke-virtual {v6}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
 
     move-result-object v5
 
@@ -495,13 +495,13 @@
 
     if-eqz v5, :cond_2
 
-    invoke-virtual {v5}, Landroid/view/View;->isFocused()Z
+    invoke-virtual {v5}, Landroid/widget/TextView;->isFocused()Z
 
     move-result v6
 
     if-nez v6, :cond_1
 
-    invoke-virtual {v5}, Landroid/view/View;->isSelected()Z
+    invoke-virtual {v5}, Landroid/widget/TextView;->isSelected()Z
 
     move-result v6
 
@@ -557,7 +557,7 @@
     invoke-virtual {v6, v7, v8, v9}, Landroid/view/Choreographer;->postFrameCallbackDelayed(Landroid/view/Choreographer$FrameCallback;J)V
 
     :goto_0
-    invoke-virtual {v5}, Landroid/view/View;->invalidate()V
+    invoke-virtual {v5}, Landroid/widget/TextView;->invalidate()V
 
     :cond_2
     return-void

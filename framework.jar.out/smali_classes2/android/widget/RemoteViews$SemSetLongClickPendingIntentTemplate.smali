@@ -34,7 +34,7 @@
 
     invoke-direct {p0, v0}, Landroid/widget/RemoteViews$Action;-><init>(Landroid/widget/RemoteViews$Action;)V
 
-    iput p2, p0, Landroid/widget/RemoteViews$Action;->viewId:I
+    iput p2, p0, Landroid/widget/RemoteViews$SemSetLongClickPendingIntentTemplate;->viewId:I
 
     iput-object p3, p0, Landroid/widget/RemoteViews$SemSetLongClickPendingIntentTemplate;->pendingIntentTemplate:Landroid/app/PendingIntent;
 
@@ -54,7 +54,7 @@
 
     move-result v0
 
-    iput v0, p0, Landroid/widget/RemoteViews$Action;->viewId:I
+    iput v0, p0, Landroid/widget/RemoteViews$SemSetLongClickPendingIntentTemplate;->viewId:I
 
     invoke-static {p2}, Landroid/app/PendingIntent;->readPendingIntentOrNullFromParcel(Landroid/os/Parcel;)Landroid/app/PendingIntent;
 
@@ -70,7 +70,7 @@
 .method public apply(Landroid/view/View;Landroid/view/ViewGroup;Landroid/widget/RemoteViews$OnClickHandler;)V
     .locals 6
 
-    iget v3, p0, Landroid/widget/RemoteViews$Action;->viewId:I
+    iget v3, p0, Landroid/widget/RemoteViews$SemSetLongClickPendingIntentTemplate;->viewId:I
 
     invoke-virtual {p1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -87,9 +87,7 @@
 
     move-object v0, v2
 
-    nop
-
-    nop
+    check-cast v0, Landroid/widget/AdapterView;
 
     new-instance v1, Landroid/widget/RemoteViews$SemSetLongClickPendingIntentTemplate$1;
 
@@ -99,7 +97,7 @@
 
     iget-object v3, p0, Landroid/widget/RemoteViews$SemSetLongClickPendingIntentTemplate;->pendingIntentTemplate:Landroid/app/PendingIntent;
 
-    invoke-virtual {v0, v3}, Landroid/view/View;->setTag(Ljava/lang/Object;)V
+    invoke-virtual {v0, v3}, Landroid/widget/AdapterView;->setTag(Ljava/lang/Object;)V
 
     return-void
 
@@ -116,7 +114,7 @@
 
     move-result-object v4
 
-    iget v5, p0, Landroid/widget/RemoteViews$Action;->viewId:I
+    iget v5, p0, Landroid/widget/RemoteViews$SemSetLongClickPendingIntentTemplate;->viewId:I
 
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
@@ -152,7 +150,7 @@
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    iget v0, p0, Landroid/widget/RemoteViews$Action;->viewId:I
+    iget v0, p0, Landroid/widget/RemoteViews$SemSetLongClickPendingIntentTemplate;->viewId:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 

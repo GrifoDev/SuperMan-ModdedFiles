@@ -15,17 +15,17 @@
 
 
 # static fields
-.field public static final config_autoBrightnessAdjustmentMaxGamma:I = 0x1130001
+.field public static final config_autoBrightnessAdjustmentMaxGamma:I = 0x1130000
 
-.field public static final config_dimBehindFadeDuration:I = 0x1130000
+.field public static final config_dimBehindFadeDuration:I = 0x1130001
 
-.field public static final config_maximumScreenDimRatio:I = 0x1130003
+.field public static final config_maximumScreenDimRatio:I = 0x1130002
 
-.field public static final config_screenAutoBrightnessDozeScaleFactor:I = 0x1130002
+.field public static final config_screenAutoBrightnessDozeScaleFactor:I = 0x1130003
 
-.field public static final docked_stack_divider_fixed_ratio:I = 0x1130005
+.field public static final docked_stack_divider_fixed_ratio:I = 0x1130004
 
-.field public static final input_extract_action_margin_bottom:I = 0x113000b
+.field public static final input_extract_action_margin_bottom:I = 0x1130005
 
 .field public static final input_extract_layout_height:I = 0x1130006
 
@@ -37,9 +37,9 @@
 
 .field public static final input_extract_text_margin_bottom:I = 0x113000a
 
-.field public static final letter_to_tile_ratio:I = 0x113000c
+.field public static final letter_to_tile_ratio:I = 0x113000b
 
-.field public static final thumbnail_fullscreen_scale:I = 0x1130004
+.field public static final thumbnail_fullscreen_scale:I = 0x113000c
 
 
 # direct methods

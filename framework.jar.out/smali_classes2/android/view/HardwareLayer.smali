@@ -92,7 +92,7 @@
 .method private static native nSetLayerPaint(JJ)V
 .end method
 
-.method private static native nSetSurfaceTexture(JLandroid/graphics/SurfaceTexture;Z)V
+.method private static native nSetSurfaceTexture(JLandroid/graphics/SurfaceTexture;)V
 .end method
 
 .method private static native nSetTransform(JJ)V
@@ -258,7 +258,7 @@
 .end method
 
 .method public setSurfaceTexture(Landroid/graphics/SurfaceTexture;)V
-    .locals 3
+    .locals 2
 
     iget-object v0, p0, Landroid/view/HardwareLayer;->mFinalizer:Lcom/android/internal/util/VirtualRefBasePtr;
 
@@ -266,9 +266,7 @@
 
     move-result-wide v0
 
-    const/4 v2, 0x0
-
-    invoke-static {v0, v1, p1, v2}, Landroid/view/HardwareLayer;->nSetSurfaceTexture(JLandroid/graphics/SurfaceTexture;Z)V
+    invoke-static {v0, v1, p1}, Landroid/view/HardwareLayer;->nSetSurfaceTexture(JLandroid/graphics/SurfaceTexture;)V
 
     iget-object v0, p0, Landroid/view/HardwareLayer;->mRenderer:Landroid/view/ThreadedRenderer;
 

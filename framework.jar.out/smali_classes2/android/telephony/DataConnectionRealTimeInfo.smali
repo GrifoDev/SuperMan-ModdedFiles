@@ -137,7 +137,7 @@
     return v2
 
     :cond_1
-    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+    invoke-virtual {p0}, Landroid/telephony/DataConnectionRealTimeInfo;->getClass()Ljava/lang/Class;
 
     move-result-object v3
 
@@ -204,6 +204,8 @@
     const-wide/16 v6, 0x11
 
     const-wide/16 v0, 0x11
+
+    const-wide/16 v2, 0x1
 
     iget-wide v4, p0, Landroid/telephony/DataConnectionRealTimeInfo;->mTime:J
 

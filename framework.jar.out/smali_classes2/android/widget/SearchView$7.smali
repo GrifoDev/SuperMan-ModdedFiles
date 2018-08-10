@@ -3,7 +3,7 @@
 .source "SearchView.java"
 
 # interfaces
-.implements Landroid/widget/AdapterView$OnItemClickListener;
+.implements Landroid/widget/AdapterView$OnItemSelectedListener;
 
 
 # annotations
@@ -34,8 +34,8 @@
 
 
 # virtual methods
-.method public onItemClick(Landroid/widget/AdapterView;Landroid/view/View;IJ)V
-    .locals 3
+.method public onItemSelected(Landroid/widget/AdapterView;Landroid/view/View;IJ)V
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -48,11 +48,20 @@
 
     iget-object v0, p0, Landroid/widget/SearchView$7;->this$0:Landroid/widget/SearchView;
 
-    const/4 v1, 0x0
+    invoke-static {v0, p3}, Landroid/widget/SearchView;->-wrap1(Landroid/widget/SearchView;I)Z
 
-    const/4 v2, 0x0
+    return-void
+.end method
 
-    invoke-static {v0, p3, v1, v2}, Landroid/widget/SearchView;->-wrap0(Landroid/widget/SearchView;IILjava/lang/String;)Z
+.method public onNothingSelected(Landroid/widget/AdapterView;)V
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Landroid/widget/AdapterView",
+            "<*>;)V"
+        }
+    .end annotation
 
     return-void
 .end method

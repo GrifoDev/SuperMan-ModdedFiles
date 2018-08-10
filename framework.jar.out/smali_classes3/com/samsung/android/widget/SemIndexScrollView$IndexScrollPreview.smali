@@ -33,10 +33,22 @@
 
 .field private mTextPaint:Landroid/graphics/Paint;
 
+.field private mTextSize:I
+
+.field private mTextWidhtLimit:I
+
 .field final synthetic this$0:Lcom/samsung/android/widget/SemIndexScrollView;
 
 
 # direct methods
+.method static synthetic -wrap0(Lcom/samsung/android/widget/SemIndexScrollView$IndexScrollPreview;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/samsung/android/widget/SemIndexScrollView$IndexScrollPreview;->fadeOutAnimation()V
+
+    return-void
+.end method
+
 .method public constructor <init>(Lcom/samsung/android/widget/SemIndexScrollView;Landroid/content/Context;)V
     .locals 1
 
@@ -50,6 +62,23 @@
 
     invoke-direct {p0, p2}, Lcom/samsung/android/widget/SemIndexScrollView$IndexScrollPreview;->init(Landroid/content/Context;)V
 
+    return-void
+.end method
+
+.method private fadeOutAnimation()V
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/samsung/android/widget/SemIndexScrollView$IndexScrollPreview;->mIsOpen:Z
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {p0}, Lcom/samsung/android/widget/SemIndexScrollView$IndexScrollPreview;->startAnimation()V
+
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Lcom/samsung/android/widget/SemIndexScrollView$IndexScrollPreview;->mIsOpen:Z
+
+    :cond_0
     return-void
 .end method
 
@@ -78,6 +107,26 @@
 
     invoke-virtual {v1, v3}, Landroid/graphics/Paint;->setAntiAlias(Z)V
 
+    const v1, 0x105023a
+
+    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
+
+    move-result v1
+
+    float-to-int v1, v1
+
+    iput v1, p0, Lcom/samsung/android/widget/SemIndexScrollView$IndexScrollPreview;->mTextSize:I
+
+    const v1, 0x105023b
+
+    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
+
+    move-result v1
+
+    float-to-int v1, v1
+
+    iput v1, p0, Lcom/samsung/android/widget/SemIndexScrollView$IndexScrollPreview;->mTextWidhtLimit:I
+
     new-instance v1, Landroid/graphics/Paint;
 
     invoke-direct {v1}, Landroid/graphics/Paint;-><init>()V
@@ -90,7 +139,9 @@
 
     iget-object v1, p0, Lcom/samsung/android/widget/SemIndexScrollView$IndexScrollPreview;->mTextPaint:Landroid/graphics/Paint;
 
-    invoke-static {}, Lcom/samsung/android/widget/SemIndexScrollView;->-get11()Landroid/graphics/Typeface;
+    iget-object v2, p0, Lcom/samsung/android/widget/SemIndexScrollView$IndexScrollPreview;->this$0:Lcom/samsung/android/widget/SemIndexScrollView;
+
+    invoke-static {v2}, Lcom/samsung/android/widget/SemIndexScrollView;->-get6(Lcom/samsung/android/widget/SemIndexScrollView;)Landroid/graphics/Typeface;
 
     move-result-object v2
 
@@ -104,13 +155,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/widget/SemIndexScrollView$IndexScrollPreview;->mTextPaint:Landroid/graphics/Paint;
 
-    const v2, 0x1050362
-
-    invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getDimension(I)F
-
-    move-result v2
-
-    float-to-int v2, v2
+    iget v2, p0, Lcom/samsung/android/widget/SemIndexScrollView$IndexScrollPreview;->mTextSize:I
 
     int-to-float v2, v2
 
@@ -118,7 +163,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/widget/SemIndexScrollView$IndexScrollPreview;->mTextPaint:Landroid/graphics/Paint;
 
-    const v2, 0x1060181
+    const v2, 0x1060175
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -132,7 +177,7 @@
 
     iput-object v1, p0, Lcom/samsung/android/widget/SemIndexScrollView$IndexScrollPreview;->mTextBounds:Landroid/graphics/Rect;
 
-    const v1, 0x1050363
+    const v1, 0x1050239
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -140,7 +185,7 @@
 
     iput v1, p0, Lcom/samsung/android/widget/SemIndexScrollView$IndexScrollPreview;->mPreviewRadius:F
 
-    const v1, 0x1050364
+    const v1, 0x1050238
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -158,34 +203,55 @@
 
 # virtual methods
 .method public close()V
-    .locals 1
+    .locals 8
 
-    iget-boolean v0, p0, Lcom/samsung/android/widget/SemIndexScrollView$IndexScrollPreview;->mIsOpen:Z
+    const-wide/16 v6, 0x64
 
-    if-eqz v0, :cond_0
+    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
-    invoke-virtual {p0}, Lcom/samsung/android/widget/SemIndexScrollView$IndexScrollPreview;->startAnimation()V
+    move-result-wide v2
 
-    const/4 v0, 0x0
+    iget-object v4, p0, Lcom/samsung/android/widget/SemIndexScrollView$IndexScrollPreview;->this$0:Lcom/samsung/android/widget/SemIndexScrollView;
 
-    iput-boolean v0, p0, Lcom/samsung/android/widget/SemIndexScrollView$IndexScrollPreview;->mIsOpen:Z
+    invoke-static {v4}, Lcom/samsung/android/widget/SemIndexScrollView;->-get7(Lcom/samsung/android/widget/SemIndexScrollView;)J
+
+    move-result-wide v4
+
+    sub-long v0, v2, v4
+
+    iget-object v2, p0, Lcom/samsung/android/widget/SemIndexScrollView$IndexScrollPreview;->this$0:Lcom/samsung/android/widget/SemIndexScrollView;
+
+    invoke-static {v2}, Lcom/samsung/android/widget/SemIndexScrollView;->-get5(Lcom/samsung/android/widget/SemIndexScrollView;)Ljava/lang/Runnable;
+
+    move-result-object v2
+
+    invoke-virtual {p0, v2}, Lcom/samsung/android/widget/SemIndexScrollView$IndexScrollPreview;->removeCallbacks(Ljava/lang/Runnable;)Z
+
+    cmp-long v2, v0, v6
+
+    if-gtz v2, :cond_0
+
+    iget-object v2, p0, Lcom/samsung/android/widget/SemIndexScrollView$IndexScrollPreview;->this$0:Lcom/samsung/android/widget/SemIndexScrollView;
+
+    invoke-static {v2}, Lcom/samsung/android/widget/SemIndexScrollView;->-get5(Lcom/samsung/android/widget/SemIndexScrollView;)Ljava/lang/Runnable;
+
+    move-result-object v2
+
+    invoke-virtual {p0, v2, v6, v7}, Lcom/samsung/android/widget/SemIndexScrollView$IndexScrollPreview;->postDelayed(Ljava/lang/Runnable;J)Z
+
+    :goto_0
+    return-void
 
     :cond_0
-    return-void
+    invoke-direct {p0}, Lcom/samsung/android/widget/SemIndexScrollView$IndexScrollPreview;->fadeOutAnimation()V
+
+    goto :goto_0
 .end method
 
 .method protected onDraw(Landroid/graphics/Canvas;)V
     .locals 6
 
     invoke-super {p0, p1}, Landroid/view/View;->onDraw(Landroid/graphics/Canvas;)V
-
-    iget-object v1, p0, Lcom/samsung/android/widget/SemIndexScrollView$IndexScrollPreview;->this$0:Lcom/samsung/android/widget/SemIndexScrollView;
-
-    invoke-static {v1}, Lcom/samsung/android/widget/SemIndexScrollView;->-get4(Lcom/samsung/android/widget/SemIndexScrollView;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
 
     iget-boolean v1, p0, Lcom/samsung/android/widget/SemIndexScrollView$IndexScrollPreview;->mIsOpen:Z
 
@@ -254,23 +320,57 @@
 .end method
 
 .method public open(FLjava/lang/String;)V
-    .locals 1
+    .locals 3
+
+    iget v0, p0, Lcom/samsung/android/widget/SemIndexScrollView$IndexScrollPreview;->mTextSize:I
 
     iput p1, p0, Lcom/samsung/android/widget/SemIndexScrollView$IndexScrollPreview;->mPreviewCenterY:F
 
     iput-object p2, p0, Lcom/samsung/android/widget/SemIndexScrollView$IndexScrollPreview;->mPreviewText:Ljava/lang/String;
 
-    iget-boolean v0, p0, Lcom/samsung/android/widget/SemIndexScrollView$IndexScrollPreview;->mIsOpen:Z
+    iget-object v1, p0, Lcom/samsung/android/widget/SemIndexScrollView$IndexScrollPreview;->mTextPaint:Landroid/graphics/Paint;
 
-    if-nez v0, :cond_0
+    int-to-float v2, v0
+
+    invoke-virtual {v1, v2}, Landroid/graphics/Paint;->setTextSize(F)V
+
+    :goto_0
+    iget-object v1, p0, Lcom/samsung/android/widget/SemIndexScrollView$IndexScrollPreview;->mTextPaint:Landroid/graphics/Paint;
+
+    invoke-virtual {v1, p2}, Landroid/graphics/Paint;->measureText(Ljava/lang/String;)F
+
+    move-result v1
+
+    iget v2, p0, Lcom/samsung/android/widget/SemIndexScrollView$IndexScrollPreview;->mTextWidhtLimit:I
+
+    int-to-float v2, v2
+
+    cmpl-float v1, v1, v2
+
+    if-lez v1, :cond_0
+
+    iget-object v1, p0, Lcom/samsung/android/widget/SemIndexScrollView$IndexScrollPreview;->mTextPaint:Landroid/graphics/Paint;
+
+    add-int/lit8 v0, v0, -0x1
+
+    int-to-float v2, v0
+
+    invoke-virtual {v1, v2}, Landroid/graphics/Paint;->setTextSize(F)V
+
+    goto :goto_0
+
+    :cond_0
+    iget-boolean v1, p0, Lcom/samsung/android/widget/SemIndexScrollView$IndexScrollPreview;->mIsOpen:Z
+
+    if-nez v1, :cond_1
 
     invoke-virtual {p0}, Lcom/samsung/android/widget/SemIndexScrollView$IndexScrollPreview;->startAnimation()V
 
-    const/4 v0, 0x1
+    const/4 v1, 0x1
 
-    iput-boolean v0, p0, Lcom/samsung/android/widget/SemIndexScrollView$IndexScrollPreview;->mIsOpen:Z
+    iput-boolean v1, p0, Lcom/samsung/android/widget/SemIndexScrollView$IndexScrollPreview;->mIsOpen:Z
 
-    :cond_0
+    :cond_1
     return-void
 .end method
 
@@ -287,11 +387,11 @@
 .method public setLayout(IIII)V
     .locals 2
 
-    invoke-virtual {p0, p1, p2, p3, p4}, Landroid/view/View;->layout(IIII)V
+    invoke-virtual {p0, p1, p2, p3, p4}, Lcom/samsung/android/widget/SemIndexScrollView$IndexScrollPreview;->layout(IIII)V
 
     iget-object v0, p0, Lcom/samsung/android/widget/SemIndexScrollView$IndexScrollPreview;->this$0:Lcom/samsung/android/widget/SemIndexScrollView;
 
-    invoke-static {v0}, Lcom/samsung/android/widget/SemIndexScrollView;->-get6(Lcom/samsung/android/widget/SemIndexScrollView;)I
+    invoke-static {v0}, Lcom/samsung/android/widget/SemIndexScrollView;->-get0(Lcom/samsung/android/widget/SemIndexScrollView;)I
 
     move-result v0
 
@@ -345,7 +445,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/widget/SemIndexScrollView$IndexScrollPreview;->this$0:Lcom/samsung/android/widget/SemIndexScrollView;
 
-    invoke-static {v2}, Lcom/samsung/android/widget/SemIndexScrollView;->-get7(Lcom/samsung/android/widget/SemIndexScrollView;)Lcom/samsung/android/widget/SemIndexScrollView$IndexScrollPreview;
+    invoke-static {v2}, Lcom/samsung/android/widget/SemIndexScrollView;->-get1(Lcom/samsung/android/widget/SemIndexScrollView;)Lcom/samsung/android/widget/SemIndexScrollView$IndexScrollPreview;
 
     move-result-object v2
 
@@ -379,7 +479,7 @@
     :cond_0
     iget-object v2, p0, Lcom/samsung/android/widget/SemIndexScrollView$IndexScrollPreview;->this$0:Lcom/samsung/android/widget/SemIndexScrollView;
 
-    invoke-static {v2}, Lcom/samsung/android/widget/SemIndexScrollView;->-get7(Lcom/samsung/android/widget/SemIndexScrollView;)Lcom/samsung/android/widget/SemIndexScrollView$IndexScrollPreview;
+    invoke-static {v2}, Lcom/samsung/android/widget/SemIndexScrollView;->-get1(Lcom/samsung/android/widget/SemIndexScrollView;)Lcom/samsung/android/widget/SemIndexScrollView$IndexScrollPreview;
 
     move-result-object v2
 

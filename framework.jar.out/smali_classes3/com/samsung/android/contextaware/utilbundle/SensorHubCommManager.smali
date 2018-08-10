@@ -11,7 +11,7 @@
 
 
 # instance fields
-.field private mSensorHubManager:Lcom/samsung/android/sensorhub/SensorHubManager;
+.field private mSensorHubManager:Lcom/samsung/android/contextaware/sensorhubmanager/SensorHubManager;
 
 
 # direct methods
@@ -135,18 +135,18 @@
     throw v0
 .end method
 
-.method private getSensorHubManager()Lcom/samsung/android/sensorhub/SensorHubManager;
+.method private getSensorHubManager()Lcom/samsung/android/contextaware/sensorhubmanager/SensorHubManager;
     .locals 1
 
-    iget-object v0, p0, Lcom/samsung/android/contextaware/utilbundle/SensorHubCommManager;->mSensorHubManager:Lcom/samsung/android/sensorhub/SensorHubManager;
+    iget-object v0, p0, Lcom/samsung/android/contextaware/utilbundle/SensorHubCommManager;->mSensorHubManager:Lcom/samsung/android/contextaware/sensorhubmanager/SensorHubManager;
 
     return-object v0
 .end method
 
-.method private setSensorHubManager(Lcom/samsung/android/sensorhub/SensorHubManager;)V
+.method private setSensorHubManager(Lcom/samsung/android/contextaware/sensorhubmanager/SensorHubManager;)V
     .locals 0
 
-    iput-object p1, p0, Lcom/samsung/android/contextaware/utilbundle/SensorHubCommManager;->mSensorHubManager:Lcom/samsung/android/sensorhub/SensorHubManager;
+    iput-object p1, p0, Lcom/samsung/android/contextaware/utilbundle/SensorHubCommManager;->mSensorHubManager:Lcom/samsung/android/contextaware/sensorhubmanager/SensorHubManager;
 
     return-void
 .end method
@@ -154,7 +154,7 @@
 
 # virtual methods
 .method public final initializeManager(Landroid/content/Context;)V
-    .locals 1
+    .locals 2
 
     if-nez p1, :cond_0
 
@@ -165,17 +165,17 @@
     return-void
 
     :cond_0
-    const-string/jumbo v0, "sensorhub"
+    new-instance v0, Lcom/samsung/android/contextaware/sensorhubmanager/SensorHubManager;
 
-    invoke-virtual {p1, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {p1}, Landroid/content/Context;->getMainLooper()Landroid/os/Looper;
 
-    move-result-object v0
+    move-result-object v1
 
-    check-cast v0, Lcom/samsung/android/sensorhub/SensorHubManager;
+    invoke-direct {v0, p1, v1}, Lcom/samsung/android/contextaware/sensorhubmanager/SensorHubManager;-><init>(Landroid/content/Context;Landroid/os/Looper;)V
 
-    invoke-direct {p0, v0}, Lcom/samsung/android/contextaware/utilbundle/SensorHubCommManager;->setSensorHubManager(Lcom/samsung/android/sensorhub/SensorHubManager;)V
+    invoke-direct {p0, v0}, Lcom/samsung/android/contextaware/utilbundle/SensorHubCommManager;->setSensorHubManager(Lcom/samsung/android/contextaware/sensorhubmanager/SensorHubManager;)V
 
-    invoke-direct {p0}, Lcom/samsung/android/contextaware/utilbundle/SensorHubCommManager;->getSensorHubManager()Lcom/samsung/android/sensorhub/SensorHubManager;
+    invoke-direct {p0}, Lcom/samsung/android/contextaware/utilbundle/SensorHubCommManager;->getSensorHubManager()Lcom/samsung/android/contextaware/sensorhubmanager/SensorHubManager;
 
     move-result-object v0
 
@@ -279,10 +279,13 @@
     goto :goto_0
 .end method
 
-.method public final sendPacketToSensorHub(I[B)I
-    .locals 5
+.method public final declared-synchronized sendPacketToSensorHub(I[B)I
+    .locals 4
 
-    invoke-direct {p0}, Lcom/samsung/android/contextaware/utilbundle/SensorHubCommManager;->getSensorHubManager()Lcom/samsung/android/sensorhub/SensorHubManager;
+    monitor-enter p0
+
+    :try_start_0
+    invoke-direct {p0}, Lcom/samsung/android/contextaware/utilbundle/SensorHubCommManager;->getSensorHubManager()Lcom/samsung/android/contextaware/sensorhubmanager/SensorHubManager;
 
     move-result-object v2
 
@@ -291,27 +294,22 @@
     sget-object v2, Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/SensorHubErrors;->ERROR_SENSOR_HUB_MANAGER_NULL_EXEPTION:Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/SensorHubErrors;
 
     invoke-virtual {v2}, Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/SensorHubErrors;->getCode()I
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v2
+
+    monitor-exit p0
 
     return v2
 
     :cond_0
-    invoke-direct {p0}, Lcom/samsung/android/contextaware/utilbundle/SensorHubCommManager;->getSensorHubManager()Lcom/samsung/android/sensorhub/SensorHubManager;
+    :try_start_1
+    invoke-direct {p0}, Lcom/samsung/android/contextaware/utilbundle/SensorHubCommManager;->getSensorHubManager()Lcom/samsung/android/contextaware/sensorhubmanager/SensorHubManager;
 
     move-result-object v2
 
-    invoke-direct {p0}, Lcom/samsung/android/contextaware/utilbundle/SensorHubCommManager;->getSensorHubManager()Lcom/samsung/android/sensorhub/SensorHubManager;
-
-    move-result-object v3
-
-    const/4 v4, 0x1
-
-    invoke-virtual {v3, v4}, Lcom/samsung/android/sensorhub/SensorHubManager;->getDefaultSensorHub(I)Lcom/samsung/android/sensorhub/SensorHub;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3, p1, p2}, Lcom/samsung/android/sensorhub/SensorHubManager;->SendSensorHubData(Lcom/samsung/android/sensorhub/SensorHub;I[B)I
+    invoke-virtual {v2, p1, p2}, Lcom/samsung/android/contextaware/sensorhubmanager/SensorHubManager;->SendSensorHubData(I[B)I
 
     move-result v0
 
@@ -359,10 +357,14 @@
     sget-object v2, Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/SensorHubErrors;->SUCCESS:Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/SensorHubErrors;
 
     invoke-virtual {v2}, Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/SensorHubErrors;->getCode()I
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     move-result v0
 
     :cond_2
+    monitor-exit p0
+
     return v0
 
     :cond_3
@@ -370,6 +372,7 @@
 
     if-ne v0, v2, :cond_4
 
+    :try_start_2
     sget-object v2, Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/SensorHubErrors;->ERROR_I2C_COMM:Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/SensorHubErrors;
 
     invoke-virtual {v2}, Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/SensorHubErrors;->getCode()I
@@ -420,8 +423,17 @@
     move-result-object v2
 
     invoke-static {v2}, Lcom/samsung/android/contextaware/utilbundle/logger/CaLogger;->error(Ljava/lang/String;)V
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     goto :goto_1
+
+    :catchall_0
+    move-exception v2
+
+    monitor-exit p0
+
+    throw v2
 .end method
 
 .method public final terminateManager()V
@@ -429,15 +441,13 @@
 
     const/4 v0, 0x0
 
-    invoke-direct {p0, v0}, Lcom/samsung/android/contextaware/utilbundle/SensorHubCommManager;->setSensorHubManager(Lcom/samsung/android/sensorhub/SensorHubManager;)V
+    invoke-direct {p0, v0}, Lcom/samsung/android/contextaware/utilbundle/SensorHubCommManager;->setSensorHubManager(Lcom/samsung/android/contextaware/sensorhubmanager/SensorHubManager;)V
 
     return-void
 .end method
 
 .method public final varargs testGeneratePacket([B[B)[B
     .locals 1
-    .annotation runtime Landroid/test/FlakyTest;
-    .end annotation
 
     invoke-direct {p0, p1, p2}, Lcom/samsung/android/contextaware/utilbundle/SensorHubCommManager;->generatePacket([B[B)[B
 
@@ -446,12 +456,10 @@
     return-object v0
 .end method
 
-.method public final testGetSensorHubManager()Lcom/samsung/android/sensorhub/SensorHubManager;
+.method public final testGetSensorHubManager()Lcom/samsung/android/contextaware/sensorhubmanager/SensorHubManager;
     .locals 1
-    .annotation runtime Landroid/test/FlakyTest;
-    .end annotation
 
-    iget-object v0, p0, Lcom/samsung/android/contextaware/utilbundle/SensorHubCommManager;->mSensorHubManager:Lcom/samsung/android/sensorhub/SensorHubManager;
+    iget-object v0, p0, Lcom/samsung/android/contextaware/utilbundle/SensorHubCommManager;->mSensorHubManager:Lcom/samsung/android/contextaware/sensorhubmanager/SensorHubManager;
 
     return-object v0
 .end method

@@ -87,47 +87,51 @@
 .end method
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    .locals 2
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    const/4 v1, 0x1
+    const/4 v2, 0x1
 
     sparse-switch p1, :sswitch_data_0
 
     invoke-super {p0, p1, p2, p3, p4}, Landroid/os/Binder;->onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    move-result v0
+    move-result v1
 
-    return v0
+    return v1
 
     :sswitch_0
-    const-string/jumbo v0, "android.app.ITransientNotification"
+    const-string/jumbo v1, "android.app.ITransientNotification"
 
-    invoke-virtual {p3, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p3, v1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    return v1
+    return v2
 
     :sswitch_1
-    const-string/jumbo v0, "android.app.ITransientNotification"
+    const-string/jumbo v1, "android.app.ITransientNotification"
 
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v1}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    invoke-virtual {p0}, Landroid/app/ITransientNotification$Stub;->show()V
+    invoke-virtual {p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
-    return v1
+    move-result-object v0
+
+    invoke-virtual {p0, v0}, Landroid/app/ITransientNotification$Stub;->show(Landroid/os/IBinder;)V
+
+    return v2
 
     :sswitch_2
-    const-string/jumbo v0, "android.app.ITransientNotification"
+    const-string/jumbo v1, "android.app.ITransientNotification"
 
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v1}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p0}, Landroid/app/ITransientNotification$Stub;->hide()V
 
-    return v1
+    return v2
 
     :sswitch_data_0
     .sparse-switch

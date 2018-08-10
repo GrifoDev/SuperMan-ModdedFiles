@@ -103,7 +103,7 @@
     :try_start_0
     sget-object v1, Lcom/samsung/android/media/InteractivePanoramaConverter$ENCODER;->ANDROID_ENCODER:Lcom/samsung/android/media/InteractivePanoramaConverter$ENCODER;
 
-    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
+    invoke-virtual {v1}, Lcom/samsung/android/media/InteractivePanoramaConverter$ENCODER;->ordinal()I
 
     move-result v1
 
@@ -117,7 +117,7 @@
     :try_start_1
     sget-object v1, Lcom/samsung/android/media/InteractivePanoramaConverter$ENCODER;->MP4_CONVERTER:Lcom/samsung/android/media/InteractivePanoramaConverter$ENCODER;
 
-    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
+    invoke-virtual {v1}, Lcom/samsung/android/media/InteractivePanoramaConverter$ENCODER;->ordinal()I
 
     move-result v1
 
@@ -131,7 +131,7 @@
     :try_start_2
     sget-object v1, Lcom/samsung/android/media/InteractivePanoramaConverter$ENCODER;->NATIVE:Lcom/samsung/android/media/InteractivePanoramaConverter$ENCODER;
 
-    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
+    invoke-virtual {v1}, Lcom/samsung/android/media/InteractivePanoramaConverter$ENCODER;->ordinal()I
 
     move-result v1
 
@@ -369,7 +369,7 @@
 
     move-result v18
 
-    if-eqz v18, :cond_3
+    if-eqz v18, :cond_2
 
     sget-object v18, Ljava/lang/Byte;->TYPE:Ljava/lang/Class;
 
@@ -442,7 +442,7 @@
     const/4 v9, 0x0
 
     :cond_0
-    if-ne v8, v15, :cond_4
+    if-ne v8, v15, :cond_3
 
     const/4 v11, 0x0
 
@@ -491,7 +491,7 @@
 
     invoke-static/range {v18 .. v19}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    if-eqz v11, :cond_5
+    if-eqz v11, :cond_4
 
     add-int/lit8 v5, v5, 0x1
 
@@ -547,7 +547,7 @@
 
     :cond_1
     :goto_3
-    if-eqz v11, :cond_2
+    if-eqz v11, :cond_5
 
     move-object/from16 v0, p0
 
@@ -557,45 +557,15 @@
     :try_end_1
     .catch Ljava/lang/InterruptedException; {:try_start_1 .. :try_end_1} :catch_0
 
-    if-eqz v18, :cond_6
+    xor-int/lit8 v18, v18, 0x1
+
+    if-eqz v18, :cond_5
+
+    move v10, v9
+
+    goto/16 :goto_1
 
     :cond_2
-    :goto_4
-    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
-
-    move-result-wide v16
-
-    invoke-virtual {v6}, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/DecoderInterfaceFHD;->deInit()V
-
-    move-object/from16 v0, p0
-
-    iget-wide v0, v0, Lcom/samsung/android/media/InteractivePanoramaConverter;->mDecodeTime:J
-
-    move-wide/from16 v18, v0
-
-    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
-
-    move-result-wide v20
-
-    sub-long v20, v20, v16
-
-    add-long v18, v18, v20
-
-    move-wide/from16 v0, v18
-
-    move-object/from16 v2, p0
-
-    iput-wide v0, v2, Lcom/samsung/android/media/InteractivePanoramaConverter;->mDecodeTime:J
-
-    const-string/jumbo v18, "InteractivePanoramaConverter"
-
-    const-string/jumbo v19, "decodeMp4 completed"
-
-    invoke-static/range {v18 .. v19}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
-
-    return-void
-
-    :cond_3
     sget-object v18, Ljava/lang/Byte;->TYPE:Ljava/lang/Class;
 
     const/16 v19, 0x2
@@ -638,7 +608,7 @@
 
     goto/16 :goto_0
 
-    :cond_4
+    :cond_3
     :try_start_2
     invoke-virtual {v6, v4}, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/DecoderInterfaceFHD;->nextframe(Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/DecoderInterfaceFHD$BufferData;)Z
 
@@ -646,7 +616,7 @@
 
     goto/16 :goto_2
 
-    :cond_5
+    :cond_4
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/samsung/android/media/InteractivePanoramaConverter;->mDecoderGLQueue:Ljava/util/concurrent/BlockingQueue;
@@ -664,22 +634,50 @@
     :catch_0
     move-exception v7
 
-    :goto_5
-    invoke-virtual {v7}, Ljava/lang/Throwable;->printStackTrace()V
+    :goto_4
+    invoke-virtual {v7}, Ljava/lang/InterruptedException;->printStackTrace()V
 
-    goto :goto_4
+    :cond_5
+    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
-    :cond_6
-    move v10, v9
+    move-result-wide v16
 
-    goto/16 :goto_1
+    invoke-virtual {v6}, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/DecoderInterfaceFHD;->deInit()V
+
+    move-object/from16 v0, p0
+
+    iget-wide v0, v0, Lcom/samsung/android/media/InteractivePanoramaConverter;->mDecodeTime:J
+
+    move-wide/from16 v18, v0
+
+    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
+
+    move-result-wide v20
+
+    sub-long v20, v20, v16
+
+    add-long v18, v18, v20
+
+    move-wide/from16 v0, v18
+
+    move-object/from16 v2, p0
+
+    iput-wide v0, v2, Lcom/samsung/android/media/InteractivePanoramaConverter;->mDecodeTime:J
+
+    const-string/jumbo v18, "InteractivePanoramaConverter"
+
+    const-string/jumbo v19, "decodeMp4 completed"
+
+    invoke-static/range {v18 .. v19}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
 
     :catch_1
     move-exception v7
 
     move v9, v10
 
-    goto :goto_5
+    goto :goto_4
 .end method
 
 .method private encodeMp4(Ljava/lang/String;Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/InteractiveShotInfo;)V
@@ -721,7 +719,7 @@
 
     iget-object v5, v0, Lcom/samsung/android/media/InteractivePanoramaConverter;->mEncoder:Lcom/samsung/android/media/InteractivePanoramaConverter$ENCODER;
 
-    invoke-virtual {v5}, Ljava/lang/Enum;->ordinal()I
+    invoke-virtual {v5}, Lcom/samsung/android/media/InteractivePanoramaConverter$ENCODER;->ordinal()I
 
     move-result v5
 
@@ -888,7 +886,7 @@
 
     iget-object v5, v0, Lcom/samsung/android/media/InteractivePanoramaConverter;->mEncoder:Lcom/samsung/android/media/InteractivePanoramaConverter$ENCODER;
 
-    invoke-virtual {v5}, Ljava/lang/Enum;->ordinal()I
+    invoke-virtual {v5}, Lcom/samsung/android/media/InteractivePanoramaConverter$ENCODER;->ordinal()I
 
     move-result v5
 
@@ -1029,7 +1027,7 @@
 
     iget-object v5, v0, Lcom/samsung/android/media/InteractivePanoramaConverter;->mEncoder:Lcom/samsung/android/media/InteractivePanoramaConverter$ENCODER;
 
-    invoke-virtual {v5}, Ljava/lang/Enum;->ordinal()I
+    invoke-virtual {v5}, Lcom/samsung/android/media/InteractivePanoramaConverter$ENCODER;->ordinal()I
 
     move-result v5
 
@@ -1072,7 +1070,7 @@
 
     iget-object v5, v0, Lcom/samsung/android/media/InteractivePanoramaConverter;->mEncoder:Lcom/samsung/android/media/InteractivePanoramaConverter$ENCODER;
 
-    invoke-virtual {v5}, Ljava/lang/Enum;->ordinal()I
+    invoke-virtual {v5}, Lcom/samsung/android/media/InteractivePanoramaConverter$ENCODER;->ordinal()I
 
     move-result v5
 
@@ -1127,7 +1125,7 @@
     :catch_0
     move-exception v16
 
-    invoke-virtual/range {v16 .. v16}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual/range {v16 .. v16}, Ljava/lang/InterruptedException;->printStackTrace()V
 
     goto/16 :goto_2
 
@@ -1181,13 +1179,13 @@
 
     const/4 v4, 0x0
 
-    invoke-virtual {v12, v4}, Ljava/nio/Buffer;->position(I)Ljava/nio/Buffer;
+    invoke-virtual {v12, v4}, Ljava/nio/ByteBuffer;->position(I)Ljava/nio/Buffer;
 
     const/4 v4, 0x0
 
     move-object/from16 v0, v21
 
-    invoke-virtual {v0, v4}, Ljava/nio/Buffer;->position(I)Ljava/nio/Buffer;
+    invoke-virtual {v0, v4}, Ljava/nio/ByteBuffer;->position(I)Ljava/nio/Buffer;
 
     sget v4, Lcom/samsung/android/media/InteractivePanoramaConverter;->TARGET_ENCODE_WIDTH:I
 
@@ -1199,13 +1197,13 @@
 
     const/4 v4, 0x0
 
-    invoke-virtual {v12, v4}, Ljava/nio/Buffer;->position(I)Ljava/nio/Buffer;
+    invoke-virtual {v12, v4}, Ljava/nio/ByteBuffer;->position(I)Ljava/nio/Buffer;
 
     const/4 v4, 0x0
 
     move-object/from16 v0, v21
 
-    invoke-virtual {v0, v4}, Ljava/nio/Buffer;->position(I)Ljava/nio/Buffer;
+    invoke-virtual {v0, v4}, Ljava/nio/ByteBuffer;->position(I)Ljava/nio/Buffer;
 
     invoke-virtual/range {v21 .. v22}, Ljava/nio/ByteBuffer;->get([B)Ljava/nio/ByteBuffer;
 
@@ -1217,7 +1215,7 @@
 
     iget-object v5, v0, Lcom/samsung/android/media/InteractivePanoramaConverter;->mEncoder:Lcom/samsung/android/media/InteractivePanoramaConverter$ENCODER;
 
-    invoke-virtual {v5}, Ljava/lang/Enum;->ordinal()I
+    invoke-virtual {v5}, Lcom/samsung/android/media/InteractivePanoramaConverter$ENCODER;->ordinal()I
 
     move-result v5
 
@@ -1695,7 +1693,7 @@
     move/from16 v19, v20
 
     :goto_2
-    invoke-virtual/range {v18 .. v18}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual/range {v18 .. v18}, Ljava/lang/InterruptedException;->printStackTrace()V
 
     goto :goto_1
 
@@ -2394,7 +2392,7 @@
     move-exception v2
 
     :try_start_9
-    invoke-virtual {v2}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v2}, Ljava/lang/InterruptedException;->printStackTrace()V
     :try_end_9
     .catchall {:try_start_9 .. :try_end_9} :catchall_0
 

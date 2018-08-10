@@ -45,13 +45,13 @@
 
     iput-object p4, p0, Lcom/samsung/android/transcode/EncodeSoundNShot;->mSoundNShotFilePath:Ljava/lang/String;
 
-    const-wide/16 v4, -0x1
-
     const/4 v0, 0x1
 
     new-array v6, v0, [Ljava/lang/String;
 
     aput-object p4, v6, v1
+
+    const-wide/16 v4, -0x1
 
     move-object v0, p0
 
@@ -61,7 +61,7 @@
 
     move v3, p3
 
-    invoke-virtual/range {v0 .. v6}, Lcom/samsung/android/transcode/core/EncodeImages;->initialize(Ljava/lang/String;IIJ[Ljava/lang/String;)V
+    invoke-virtual/range {v0 .. v6}, Lcom/samsung/android/transcode/EncodeSoundNShot;->initialize(Ljava/lang/String;IIJ[Ljava/lang/String;)V
 
     return-void
 
@@ -112,7 +112,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;ILjava/lang/String;)V
-    .locals 7
+    .locals 8
 
     const/4 v1, 0x0
 
@@ -134,23 +134,21 @@
 
     if-eqz v0, :cond_3
 
-    new-instance v0, Landroid/graphics/Rect;
+    new-instance v7, Landroid/graphics/Rect;
 
-    invoke-direct {v0}, Landroid/graphics/Rect;-><init>()V
+    invoke-direct {v7}, Landroid/graphics/Rect;-><init>()V
 
-    invoke-static {p2, v0}, Lcom/samsung/android/transcode/util/CodecsHelper;->fillResolutionRect(ILandroid/graphics/Rect;)V
+    invoke-static {p2, v7}, Lcom/samsung/android/transcode/util/CodecsHelper;->fillResolutionRect(ILandroid/graphics/Rect;)V
 
     iput-object p3, p0, Lcom/samsung/android/transcode/EncodeSoundNShot;->mSoundNShotFilePath:Ljava/lang/String;
 
-    invoke-virtual {v0}, Landroid/graphics/Rect;->width()I
+    invoke-virtual {v7}, Landroid/graphics/Rect;->width()I
 
     move-result v2
 
-    invoke-virtual {v0}, Landroid/graphics/Rect;->height()I
+    invoke-virtual {v7}, Landroid/graphics/Rect;->height()I
 
     move-result v3
-
-    const-wide/16 v4, -0x1
 
     const/4 v0, 0x1
 
@@ -158,11 +156,13 @@
 
     aput-object p3, v6, v1
 
+    const-wide/16 v4, -0x1
+
     move-object v0, p0
 
     move-object v1, p1
 
-    invoke-virtual/range {v0 .. v6}, Lcom/samsung/android/transcode/core/EncodeImages;->initialize(Ljava/lang/String;IIJ[Ljava/lang/String;)V
+    invoke-virtual/range {v0 .. v6}, Lcom/samsung/android/transcode/EncodeSoundNShot;->initialize(Ljava/lang/String;IIJ[Ljava/lang/String;)V
 
     return-void
 
@@ -222,361 +222,461 @@
 .end method
 
 .method private static getSEFDataPosition(Ljava/io/File;)Lcom/samsung/android/transcode/EncodeSoundNShot$SEFDataPosition;
-    .locals 13
+    .locals 32
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    const/16 v12, 0x8
+    new-instance v24, Lcom/samsung/android/transcode/EncodeSoundNShot$SEFDataPosition;
 
-    const/4 v3, 0x0
+    invoke-direct/range {v24 .. v24}, Lcom/samsung/android/transcode/EncodeSoundNShot$SEFDataPosition;-><init>()V
 
-    const/4 v2, 0x0
+    const/4 v8, 0x4
 
-    new-instance v5, Lcom/samsung/android/transcode/EncodeSoundNShot$SEFDataPosition;
+    const/16 v20, 0x100
 
-    invoke-direct {v5}, Lcom/samsung/android/transcode/EncodeSoundNShot$SEFDataPosition;-><init>()V
+    const/16 v10, 0x1e
 
-    const-string/jumbo v0, "SEFT"
+    const/16 v9, 0x15
 
-    const-string/jumbo v4, "IOBS"
+    const-string/jumbo v16, "SEFT"
 
-    const/4 v1, 0x4
+    const-string/jumbo v17, "IOBS"
+
+    const/16 v25, 0x0
+
+    const/16 v28, 0x4
 
     :try_start_0
-    new-array v6, v1, [B
+    move/from16 v0, v28
 
-    new-instance v1, Ljava/io/RandomAccessFile;
+    new-array v0, v0, [B
 
-    invoke-virtual {p0}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
+    move-object/from16 v22, v0
 
-    move-result-object v7
+    new-instance v26, Ljava/io/RandomAccessFile;
 
-    const-string/jumbo v8, "rw"
+    invoke-virtual/range {p0 .. p0}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
 
-    invoke-direct {v1, v7, v8}, Ljava/io/RandomAccessFile;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+    move-result-object v28
+
+    const-string/jumbo v29, "rw"
+
+    move-object/from16 v0, v26
+
+    move-object/from16 v1, v28
+
+    move-object/from16 v2, v29
+
+    invoke-direct {v0, v1, v2}, Ljava/io/RandomAccessFile;-><init>(Ljava/lang/String;Ljava/lang/String;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     :try_start_1
-    invoke-virtual {p0}, Ljava/io/File;->length()J
+    invoke-virtual/range {p0 .. p0}, Ljava/io/File;->length()J
 
-    move-result-wide v8
+    move-result-wide v28
 
-    const-wide/16 v10, 0x4
+    const-wide/16 v30, 0x4
 
-    sub-long/2addr v8, v10
+    sub-long v28, v28, v30
 
-    invoke-virtual {v1, v8, v9}, Ljava/io/RandomAccessFile;->seek(J)V
+    move-object/from16 v0, v26
 
-    invoke-virtual {v1, v6}, Ljava/io/RandomAccessFile;->read([B)I
+    move-wide/from16 v1, v28
 
-    move-result v7
+    invoke-virtual {v0, v1, v2}, Ljava/io/RandomAccessFile;->seek(J)V
 
-    if-lez v7, :cond_0
+    move-object/from16 v0, v26
 
-    new-instance v7, Ljava/lang/String;
+    move-object/from16 v1, v22
 
-    invoke-direct {v7, v6}, Ljava/lang/String;-><init>([B)V
+    invoke-virtual {v0, v1}, Ljava/io/RandomAccessFile;->read([B)I
 
-    invoke-virtual {v7, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    move-result v27
 
-    move-result v0
+    if-lez v27, :cond_0
 
-    if-nez v0, :cond_2
+    new-instance v15, Ljava/lang/String;
 
-    invoke-virtual {v7, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    move-object/from16 v0, v22
+
+    invoke-direct {v15, v0}, Ljava/lang/String;-><init>([B)V
+
+    const/16 v18, 0x0
+
+    invoke-virtual/range {v15 .. v16}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v28
+
+    if-nez v28, :cond_2
+
+    move-object/from16 v0, v17
+
+    invoke-virtual {v15, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
-    move-result v0
+    move-result v28
 
-    if-nez v0, :cond_3
+    if-nez v28, :cond_3
 
-    if-nez v1, :cond_4
+    const/4 v5, 0x0
+
+    if-nez v26, :cond_4
 
     :goto_0
-    return-object v2
+    return-object v5
 
     :cond_0
-    if-nez v1, :cond_1
+    const/4 v4, 0x0
+
+    if-nez v26, :cond_1
 
     :goto_1
-    return-object v2
+    return-object v4
 
     :cond_1
-    invoke-virtual {v1}, Ljava/io/RandomAccessFile;->close()V
+    invoke-virtual/range {v26 .. v26}, Ljava/io/RandomAccessFile;->close()V
 
     goto :goto_1
 
     :cond_2
     :try_start_2
-    invoke-virtual {p0}, Ljava/io/File;->length()J
+    invoke-virtual/range {p0 .. p0}, Ljava/io/File;->length()J
 
-    move-result-wide v6
+    move-result-wide v28
 
-    int-to-long v8, v12
+    const-wide/16 v30, 0x8
 
-    sub-long/2addr v6, v8
+    sub-long v28, v28, v30
 
-    invoke-virtual {v1, v6, v7}, Ljava/io/RandomAccessFile;->seek(J)V
+    move-object/from16 v0, v26
 
-    invoke-virtual {v1}, Ljava/io/RandomAccessFile;->readInt()I
+    move-wide/from16 v1, v28
 
-    move-result v0
+    invoke-virtual {v0, v1, v2}, Ljava/io/RandomAccessFile;->seek(J)V
 
-    invoke-static {v0}, Lcom/samsung/android/transcode/EncodeSoundNShot;->little2big(I)I
+    invoke-virtual/range {v26 .. v26}, Ljava/io/RandomAccessFile;->readInt()I
 
-    move-result v0
+    move-result v28
 
-    add-int/lit8 v0, v0, 0x8
+    invoke-static/range {v28 .. v28}, Lcom/samsung/android/transcode/EncodeSoundNShot;->little2big(I)I
+
+    move-result v28
+
+    add-int/lit8 v18, v28, 0x8
 
     :goto_2
-    const/4 v4, 0x4
+    const/16 v28, 0x4
 
-    new-array v4, v4, [B
+    move/from16 v0, v28
 
-    invoke-virtual {v1, v4}, Ljava/io/RandomAccessFile;->read([B)I
+    new-array v0, v0, [B
 
-    const-wide/16 v6, 0x0
+    move-object/from16 v21, v0
 
-    invoke-virtual {v1, v6, v7}, Ljava/io/RandomAccessFile;->seek(J)V
+    move-object/from16 v0, v26
 
-    invoke-virtual {p0}, Ljava/io/File;->length()J
+    move-object/from16 v1, v21
 
-    move-result-wide v6
+    invoke-virtual {v0, v1}, Ljava/io/RandomAccessFile;->read([B)I
 
-    int-to-long v8, v0
+    const-wide/16 v28, 0x0
 
-    sub-long/2addr v6, v8
+    move-object/from16 v0, v26
 
-    invoke-virtual {v1, v6, v7}, Ljava/io/RandomAccessFile;->seek(J)V
+    move-wide/from16 v1, v28
 
-    invoke-virtual {v1, v4}, Ljava/io/RandomAccessFile;->read([B)I
+    invoke-virtual {v0, v1, v2}, Ljava/io/RandomAccessFile;->seek(J)V
 
-    invoke-virtual {v1}, Ljava/io/RandomAccessFile;->readInt()I
+    invoke-virtual/range {p0 .. p0}, Ljava/io/File;->length()J
 
-    move-result v4
+    move-result-wide v28
 
-    invoke-static {v4}, Lcom/samsung/android/transcode/EncodeSoundNShot;->little2big(I)I
+    move/from16 v0, v18
 
-    invoke-virtual {v1}, Ljava/io/RandomAccessFile;->readInt()I
+    int-to-long v0, v0
 
-    move-result v4
+    move-wide/from16 v30, v0
 
-    invoke-static {v4}, Lcom/samsung/android/transcode/EncodeSoundNShot;->little2big(I)I
+    sub-long v28, v28, v30
 
-    move-result v6
+    move-object/from16 v0, v26
 
-    new-array v7, v6, [I
+    move-wide/from16 v1, v28
 
-    new-array v8, v6, [I
+    invoke-virtual {v0, v1, v2}, Ljava/io/RandomAccessFile;->seek(J)V
 
-    new-array v9, v6, [I
+    move-object/from16 v0, v26
 
-    move v4, v3
+    move-object/from16 v1, v21
+
+    invoke-virtual {v0, v1}, Ljava/io/RandomAccessFile;->read([B)I
+
+    invoke-virtual/range {v26 .. v26}, Ljava/io/RandomAccessFile;->readInt()I
+
+    move-result v28
+
+    invoke-static/range {v28 .. v28}, Lcom/samsung/android/transcode/EncodeSoundNShot;->little2big(I)I
+
+    move-result v19
+
+    invoke-virtual/range {v26 .. v26}, Ljava/io/RandomAccessFile;->readInt()I
+
+    move-result v28
+
+    invoke-static/range {v28 .. v28}, Lcom/samsung/android/transcode/EncodeSoundNShot;->little2big(I)I
+
+    move-result v11
+
+    new-array v12, v11, [I
+
+    new-array v14, v11, [I
+
+    new-array v13, v11, [I
+
+    const/16 v23, 0x0
 
     :goto_3
-    if-lt v4, v6, :cond_5
+    move/from16 v0, v23
+
+    if-lt v0, v11, :cond_5
+
+    const/16 v23, 0x0
 
     :goto_4
-    if-lt v3, v6, :cond_6
+    move/from16 v0, v23
 
-    if-nez v1, :cond_9
+    if-lt v0, v11, :cond_6
+
+    if-nez v26, :cond_9
 
     :goto_5
-    return-object v2
+    const/16 v28, 0x0
+
+    return-object v28
 
     :cond_3
-    invoke-virtual {p0}, Ljava/io/File;->length()J
+    invoke-virtual/range {p0 .. p0}, Ljava/io/File;->length()J
 
-    move-result-wide v6
+    move-result-wide v28
 
-    int-to-long v8, v12
+    const-wide/16 v30, 0x8
 
-    sub-long/2addr v6, v8
+    sub-long v28, v28, v30
 
-    const-wide/16 v8, 0x1e
+    const-wide/16 v30, 0x1e
 
-    sub-long/2addr v6, v8
+    sub-long v28, v28, v30
 
-    invoke-virtual {v1, v6, v7}, Ljava/io/RandomAccessFile;->seek(J)V
+    move-object/from16 v0, v26
 
-    invoke-virtual {v1}, Ljava/io/RandomAccessFile;->readInt()I
+    move-wide/from16 v1, v28
 
-    move-result v0
+    invoke-virtual {v0, v1, v2}, Ljava/io/RandomAccessFile;->seek(J)V
 
-    invoke-static {v0}, Lcom/samsung/android/transcode/EncodeSoundNShot;->little2big(I)I
+    invoke-virtual/range {v26 .. v26}, Ljava/io/RandomAccessFile;->readInt()I
+
+    move-result v28
+
+    invoke-static/range {v28 .. v28}, Lcom/samsung/android/transcode/EncodeSoundNShot;->little2big(I)I
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
-    move-result v0
+    move-result v28
 
-    add-int/lit8 v0, v0, 0x8
+    add-int/lit8 v18, v28, 0x8
 
-    add-int/lit8 v0, v0, 0x1e
+    add-int/lit8 v18, v18, 0x1e
 
     goto :goto_2
 
     :cond_4
-    invoke-virtual {v1}, Ljava/io/RandomAccessFile;->close()V
+    invoke-virtual/range {v26 .. v26}, Ljava/io/RandomAccessFile;->close()V
 
-    goto :goto_0
+    goto/16 :goto_0
 
     :cond_5
     :try_start_3
-    invoke-virtual {v1}, Ljava/io/RandomAccessFile;->readInt()I
+    invoke-virtual/range {v26 .. v26}, Ljava/io/RandomAccessFile;->readInt()I
 
-    move-result v10
+    move-result v28
 
-    invoke-static {v10}, Lcom/samsung/android/transcode/EncodeSoundNShot;->convertSDRDH(I)I
+    invoke-static/range {v28 .. v28}, Lcom/samsung/android/transcode/EncodeSoundNShot;->convertSDRDH(I)I
 
-    move-result v10
+    move-result v28
 
-    aput v10, v7, v4
+    aput v28, v12, v23
 
-    invoke-virtual {v1}, Ljava/io/RandomAccessFile;->readInt()I
+    invoke-virtual/range {v26 .. v26}, Ljava/io/RandomAccessFile;->readInt()I
 
-    move-result v10
+    move-result v28
 
-    invoke-static {v10}, Lcom/samsung/android/transcode/EncodeSoundNShot;->little2big(I)I
+    invoke-static/range {v28 .. v28}, Lcom/samsung/android/transcode/EncodeSoundNShot;->little2big(I)I
 
-    move-result v10
+    move-result v28
 
-    add-int/lit8 v10, v10, -0x15
+    add-int/lit8 v28, v28, -0x15
 
-    aput v10, v8, v4
+    aput v28, v14, v23
 
-    invoke-virtual {v1}, Ljava/io/RandomAccessFile;->readInt()I
+    invoke-virtual/range {v26 .. v26}, Ljava/io/RandomAccessFile;->readInt()I
 
-    move-result v10
+    move-result v28
 
-    invoke-static {v10}, Lcom/samsung/android/transcode/EncodeSoundNShot;->little2big(I)I
+    invoke-static/range {v28 .. v28}, Lcom/samsung/android/transcode/EncodeSoundNShot;->little2big(I)I
 
-    move-result v10
+    move-result v28
 
-    add-int/lit8 v10, v10, -0x15
+    add-int/lit8 v28, v28, -0x15
 
-    aput v10, v9, v4
+    aput v28, v13, v23
 
-    add-int/lit8 v4, v4, 0x1
+    add-int/lit8 v23, v23, 0x1
 
     goto :goto_3
 
     :cond_6
-    aget v4, v7, v3
+    aget v28, v12, v23
 
-    const/16 v10, 0x100
+    const/16 v29, 0x100
 
-    if-eq v4, v10, :cond_7
+    move/from16 v0, v28
 
-    add-int/lit8 v3, v3, 0x1
+    move/from16 v1, v29
+
+    if-eq v0, v1, :cond_7
+
+    add-int/lit8 v23, v23, 0x1
 
     goto :goto_4
 
     :cond_7
-    invoke-virtual {p0}, Ljava/io/File;->length()J
+    invoke-virtual/range {p0 .. p0}, Ljava/io/File;->length()J
 
-    move-result-wide v6
+    move-result-wide v28
 
-    int-to-long v10, v0
+    move/from16 v0, v18
 
-    sub-long/2addr v6, v10
+    int-to-long v0, v0
 
-    aget v0, v8, v3
+    move-wide/from16 v30, v0
 
-    int-to-long v10, v0
+    sub-long v28, v28, v30
 
-    sub-long/2addr v6, v10
+    aget v30, v14, v23
 
-    long-to-int v0, v6
+    move/from16 v0, v30
 
-    iput v0, v5, Lcom/samsung/android/transcode/EncodeSoundNShot$SEFDataPosition;->offset:I
+    int-to-long v0, v0
 
-    aget v0, v9, v3
+    move-wide/from16 v30, v0
 
-    iput v0, v5, Lcom/samsung/android/transcode/EncodeSoundNShot$SEFDataPosition;->length:I
+    sub-long v28, v28, v30
+
+    move-wide/from16 v0, v28
+
+    long-to-int v0, v0
+
+    move/from16 v28, v0
+
+    move/from16 v0, v28
+
+    move-object/from16 v1, v24
+
+    iput v0, v1, Lcom/samsung/android/transcode/EncodeSoundNShot$SEFDataPosition;->offset:I
+
+    aget v28, v13, v23
+
+    move/from16 v0, v28
+
+    move-object/from16 v1, v24
+
+    iput v0, v1, Lcom/samsung/android/transcode/EncodeSoundNShot$SEFDataPosition;->length:I
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_1
 
-    if-nez v1, :cond_8
+    move-object/from16 v6, v24
+
+    if-nez v26, :cond_8
 
     :goto_6
-    return-object v5
+    return-object v24
 
     :cond_8
-    invoke-virtual {v1}, Ljava/io/RandomAccessFile;->close()V
+    invoke-virtual/range {v26 .. v26}, Ljava/io/RandomAccessFile;->close()V
 
     goto :goto_6
 
     :cond_9
-    invoke-virtual {v1}, Ljava/io/RandomAccessFile;->close()V
+    invoke-virtual/range {v26 .. v26}, Ljava/io/RandomAccessFile;->close()V
 
-    goto :goto_5
+    goto/16 :goto_5
 
     :catchall_0
-    move-exception v0
-
-    move-object v1, v2
+    move-exception v7
 
     :goto_7
-    if-nez v1, :cond_a
+    if-nez v25, :cond_a
 
     :goto_8
-    throw v0
+    throw v7
 
     :cond_a
-    invoke-virtual {v1}, Ljava/io/RandomAccessFile;->close()V
+    invoke-virtual/range {v25 .. v25}, Ljava/io/RandomAccessFile;->close()V
 
     goto :goto_8
 
     :catchall_1
-    move-exception v0
+    move-exception v7
+
+    move-object/from16 v25, v26
 
     goto :goto_7
 .end method
 
 .method private isSoundNShot(Ljava/lang/String;)Z
-    .locals 3
+    .locals 4
 
-    const/4 v0, 0x0
+    new-instance v2, Ljava/io/File;
 
-    new-instance v1, Ljava/io/File;
+    invoke-direct {v2, p1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    invoke-direct {v1, p1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+    const/4 v1, 0x0
 
     :try_start_0
-    invoke-static {v1}, Lcom/samsung/android/media/SemExtendedFormat;->isValidFile(Ljava/io/File;)Z
+    invoke-static {v2}, Lcom/samsung/android/media/SemExtendedFormat;->isValidFile(Ljava/io/File;)Z
 
-    move-result v2
+    move-result v3
 
-    if-nez v2, :cond_1
+    if-nez v3, :cond_1
 
     :cond_0
     :goto_0
-    return v0
+    return v1
 
     :cond_1
-    const/16 v2, 0x800
+    const/16 v3, 0x800
 
-    invoke-static {v1, v2}, Lcom/samsung/android/media/SemExtendedFormat;->hasData(Ljava/io/File;I)Z
+    invoke-static {v2, v3}, Lcom/samsung/android/media/SemExtendedFormat;->hasData(Ljava/io/File;I)Z
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    move-result v1
+    move-result v3
 
-    if-eqz v1, :cond_0
+    if-eqz v3, :cond_0
 
-    const/4 v0, 0x1
+    const/4 v1, 0x1
 
     goto :goto_0
 
     :catch_0
-    move-exception v1
+    move-exception v0
 
-    invoke-virtual {v1}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/io/IOException;->printStackTrace()V
 
     goto :goto_0
 .end method
@@ -616,95 +716,104 @@
 
 # virtual methods
 .method protected prepare()V
-    .locals 8
+    .locals 12
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    const-wide/16 v6, 0x400
+    const-wide/16 v10, 0x400
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
+
+    const/4 v3, 0x0
 
     :try_start_0
-    new-instance v3, Ljava/io/File;
+    new-instance v2, Ljava/io/File;
 
-    iget-object v0, p0, Lcom/samsung/android/transcode/EncodeSoundNShot;->mSoundNShotFilePath:Ljava/lang/String;
+    iget-object v6, p0, Lcom/samsung/android/transcode/EncodeSoundNShot;->mSoundNShotFilePath:Ljava/lang/String;
 
-    invoke-direct {v3, v0}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+    invoke-direct {v2, v6}, Ljava/io/File;-><init>(Ljava/lang/String;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     :try_start_1
-    new-instance v1, Ljava/io/FileInputStream;
-
-    invoke-direct {v1, v3}, Ljava/io/FileInputStream;-><init>(Ljava/io/File;)V
+    new-instance v4, Ljava/io/FileInputStream;
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
     :try_start_2
-    invoke-static {v3}, Lcom/samsung/android/transcode/EncodeSoundNShot;->getSEFDataPosition(Ljava/io/File;)Lcom/samsung/android/transcode/EncodeSoundNShot$SEFDataPosition;
-
-    move-result-object v0
-
-    invoke-virtual {v1}, Ljava/io/FileInputStream;->getFD()Ljava/io/FileDescriptor;
-
-    move-result-object v2
-
-    iget v4, v0, Lcom/samsung/android/transcode/EncodeSoundNShot$SEFDataPosition;->offset:I
-
-    iget v0, v0, Lcom/samsung/android/transcode/EncodeSoundNShot$SEFDataPosition;->length:I
-
-    invoke-virtual {p0, v2, v4, v0}, Lcom/samsung/android/transcode/core/EncodeImages;->setAudioData(Ljava/io/FileDescriptor;II)V
+    invoke-direct {v4, v2}, Ljava/io/FileInputStream;-><init>(Ljava/io/File;)V
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_2
 
-    if-nez v1, :cond_0
+    :try_start_3
+    invoke-static {v2}, Lcom/samsung/android/transcode/EncodeSoundNShot;->getSEFDataPosition(Ljava/io/File;)Lcom/samsung/android/transcode/EncodeSoundNShot$SEFDataPosition;
+
+    move-result-object v5
+
+    invoke-virtual {v4}, Ljava/io/FileInputStream;->getFD()Ljava/io/FileDescriptor;
+
+    move-result-object v6
+
+    iget v7, v5, Lcom/samsung/android/transcode/EncodeSoundNShot$SEFDataPosition;->offset:I
+
+    iget v8, v5, Lcom/samsung/android/transcode/EncodeSoundNShot$SEFDataPosition;->length:I
+
+    invoke-virtual {p0, v6, v7, v8}, Lcom/samsung/android/transcode/EncodeSoundNShot;->setAudioData(Ljava/io/FileDescriptor;II)V
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_3
+
+    if-nez v4, :cond_0
+
+    move-object v3, v4
 
     :goto_0
-    invoke-virtual {v3}, Ljava/io/File;->length()J
+    invoke-virtual {v2}, Ljava/io/File;->length()J
 
-    move-result-wide v0
+    move-result-wide v6
 
-    div-long/2addr v0, v6
+    div-long/2addr v6, v10
 
-    long-to-int v0, v0
+    long-to-int v6, v6
 
-    invoke-virtual {p0, v0}, Lcom/samsung/android/transcode/core/EncodeImages;->setMaxOutputSize(I)V
+    invoke-virtual {p0, v6}, Lcom/samsung/android/transcode/EncodeSoundNShot;->setMaxOutputSize(I)V
 
     invoke-super {p0}, Lcom/samsung/android/transcode/core/EncodeImages;->prepare()V
 
     return-void
 
     :cond_0
-    invoke-virtual {v1}, Ljava/io/FileInputStream;->close()V
+    invoke-virtual {v4}, Ljava/io/FileInputStream;->close()V
+
+    const/4 v3, 0x0
 
     goto :goto_0
 
     :catchall_0
     move-exception v0
 
-    move-object v1, v2
-
     :goto_1
-    if-nez v1, :cond_1
+    if-nez v3, :cond_1
 
     :goto_2
-    invoke-virtual {v2}, Ljava/io/File;->length()J
+    invoke-virtual {v1}, Ljava/io/File;->length()J
 
-    move-result-wide v2
+    move-result-wide v6
 
-    div-long/2addr v2, v6
+    div-long/2addr v6, v10
 
-    long-to-int v1, v2
+    long-to-int v6, v6
 
-    invoke-virtual {p0, v1}, Lcom/samsung/android/transcode/core/EncodeImages;->setMaxOutputSize(I)V
+    invoke-virtual {p0, v6}, Lcom/samsung/android/transcode/EncodeSoundNShot;->setMaxOutputSize(I)V
 
     throw v0
 
     :cond_1
-    invoke-virtual {v1}, Ljava/io/FileInputStream;->close()V
+    invoke-virtual {v3}, Ljava/io/FileInputStream;->close()V
+
+    const/4 v3, 0x0
 
     goto :goto_2
 
@@ -713,14 +822,21 @@
 
     move-object v1, v2
 
-    move-object v2, v3
-
     goto :goto_1
 
     :catchall_2
     move-exception v0
 
-    move-object v2, v3
+    move-object v1, v2
+
+    goto :goto_1
+
+    :catchall_3
+    move-exception v0
+
+    move-object v3, v4
+
+    move-object v1, v2
 
     goto :goto_1
 .end method

@@ -13,6 +13,9 @@
     name = "EventListener"
 .end annotation
 
+.annotation runtime Ljava/lang/Deprecated;
+.end annotation
+
 
 # virtual methods
 .method public abstract onDesktopDockConnectionChanged(Z)V

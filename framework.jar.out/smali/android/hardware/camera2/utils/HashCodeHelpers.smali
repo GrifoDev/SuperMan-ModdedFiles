@@ -83,7 +83,7 @@
 .end method
 
 .method public static varargs hashCodeGeneric([Ljava/lang/Object;)I
-    .locals 7
+    .locals 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -101,27 +101,25 @@
     :cond_0
     const/4 v0, 0x1
 
-    array-length v5, p0
-
-    move v4, v3
+    array-length v4, p0
 
     :goto_0
-    if-ge v4, v5, :cond_2
+    if-ge v3, v4, :cond_2
 
-    aget-object v1, p0, v4
+    aget-object v1, p0, v3
 
     if-nez v1, :cond_1
 
-    move v2, v3
+    const/4 v2, 0x0
 
     :goto_1
-    shl-int/lit8 v6, v0, 0x5
+    shl-int/lit8 v5, v0, 0x5
 
-    sub-int/2addr v6, v0
+    sub-int/2addr v5, v0
 
-    xor-int v0, v6, v2
+    xor-int v0, v5, v2
 
-    add-int/lit8 v4, v4, 0x1
+    add-int/lit8 v3, v3, 0x1
 
     goto :goto_0
 

@@ -82,7 +82,7 @@
 
     move-result-object v2
 
-    invoke-virtual {p2}, Ljava/lang/Object;->toString()Ljava/lang/String;
+    invoke-virtual {p2}, Landroid/os/Parcel;->toString()Ljava/lang/String;
 
     move-result-object v3
 
@@ -239,7 +239,7 @@
 
     move-result-object v3
 
-    invoke-virtual {p1}, Ljava/lang/Object;->toString()Ljava/lang/String;
+    invoke-virtual {p1}, Landroid/os/Parcel;->toString()Ljava/lang/String;
 
     move-result-object v4
 

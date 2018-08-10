@@ -39,7 +39,7 @@
 
     iget-object v0, p0, Landroid/widget/AbsListView$1;->this$0:Landroid/widget/AbsListView;
 
-    invoke-static {v0}, Landroid/widget/AbsListView;->-wrap10(Landroid/widget/AbsListView;)V
+    invoke-static {v0}, Landroid/widget/AbsListView;->-wrap13(Landroid/widget/AbsListView;)V
 
     return-void
 .end method

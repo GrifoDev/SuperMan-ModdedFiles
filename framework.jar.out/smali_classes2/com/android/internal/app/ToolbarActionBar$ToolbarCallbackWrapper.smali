@@ -31,6 +31,35 @@
 
 
 # virtual methods
+.method public onCreatePanelView(I)Landroid/view/View;
+    .locals 2
+
+    if-nez p1, :cond_0
+
+    new-instance v0, Landroid/view/View;
+
+    iget-object v1, p0, Lcom/android/internal/app/ToolbarActionBar$ToolbarCallbackWrapper;->this$0:Lcom/android/internal/app/ToolbarActionBar;
+
+    invoke-static {v1}, Lcom/android/internal/app/ToolbarActionBar;->-get0(Lcom/android/internal/app/ToolbarActionBar;)Lcom/android/internal/widget/DecorToolbar;
+
+    move-result-object v1
+
+    invoke-interface {v1}, Lcom/android/internal/widget/DecorToolbar;->getContext()Landroid/content/Context;
+
+    move-result-object v1
+
+    invoke-direct {v0, v1}, Landroid/view/View;-><init>(Landroid/content/Context;)V
+
+    return-object v0
+
+    :cond_0
+    invoke-super {p0, p1}, Landroid/view/WindowCallbackWrapper;->onCreatePanelView(I)Landroid/view/View;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
 .method public onPreparePanel(ILandroid/view/View;Landroid/view/Menu;)Z
     .locals 3
 
@@ -46,13 +75,10 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    xor-int/lit8 v1, v1, 0x1
 
-    :cond_0
-    :goto_0
-    return v0
+    if-eqz v1, :cond_0
 
-    :cond_1
     iget-object v1, p0, Lcom/android/internal/app/ToolbarActionBar$ToolbarCallbackWrapper;->this$0:Lcom/android/internal/app/ToolbarActionBar;
 
     invoke-static {v1}, Lcom/android/internal/app/ToolbarActionBar;->-get0(Lcom/android/internal/app/ToolbarActionBar;)Lcom/android/internal/widget/DecorToolbar;
@@ -67,5 +93,6 @@
 
     invoke-static {v1, v2}, Lcom/android/internal/app/ToolbarActionBar;->-set0(Lcom/android/internal/app/ToolbarActionBar;Z)Z
 
-    goto :goto_0
+    :cond_0
+    return v0
 .end method

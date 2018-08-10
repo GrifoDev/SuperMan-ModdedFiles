@@ -17,7 +17,7 @@
     value = {
         "Landroid/app/SystemServiceRegistry$CachedServiceFetcher",
         "<",
-        "Landroid/os/RecoverySystem;",
+        "Landroid/os/PowerManager;",
         ">;"
     }
 .end annotation
@@ -34,39 +34,50 @@
 
 
 # virtual methods
-.method public createService(Landroid/app/ContextImpl;)Landroid/os/RecoverySystem;
-    .locals 4
+.method public createService(Landroid/app/ContextImpl;)Landroid/os/PowerManager;
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/ServiceManager$ServiceNotFoundException;
+        }
+    .end annotation
 
-    const-string/jumbo v2, "recovery"
+    const-string/jumbo v2, "power"
 
-    invoke-static {v2}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
+    invoke-static {v2}, Landroid/os/ServiceManager;->getServiceOrThrow(Ljava/lang/String;)Landroid/os/IBinder;
 
     move-result-object v0
 
-    invoke-static {v0}, Landroid/os/IRecoverySystem$Stub;->asInterface(Landroid/os/IBinder;)Landroid/os/IRecoverySystem;
+    invoke-static {v0}, Landroid/os/IPowerManager$Stub;->asInterface(Landroid/os/IBinder;)Landroid/os/IPowerManager;
 
     move-result-object v1
 
-    if-nez v1, :cond_0
+    new-instance v2, Landroid/os/PowerManager;
 
-    const-string/jumbo v2, "SystemServiceRegistry"
+    invoke-virtual {p1}, Landroid/app/ContextImpl;->getOuterContext()Landroid/content/Context;
 
-    const-string/jumbo v3, "Failed to get recovery service."
+    move-result-object v3
 
-    invoke-static {v2, v3}, Landroid/util/Log;->wtf(Ljava/lang/String;Ljava/lang/String;)I
+    iget-object v4, p1, Landroid/app/ContextImpl;->mMainThread:Landroid/app/ActivityThread;
 
-    :cond_0
-    new-instance v2, Landroid/os/RecoverySystem;
+    invoke-virtual {v4}, Landroid/app/ActivityThread;->getHandler()Landroid/os/Handler;
 
-    invoke-direct {v2, v1}, Landroid/os/RecoverySystem;-><init>(Landroid/os/IRecoverySystem;)V
+    move-result-object v4
+
+    invoke-direct {v2, v3, v1, v4}, Landroid/os/PowerManager;-><init>(Landroid/content/Context;Landroid/os/IPowerManager;Landroid/os/Handler;)V
 
     return-object v2
 .end method
 
 .method public bridge synthetic createService(Landroid/app/ContextImpl;)Ljava/lang/Object;
     .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/ServiceManager$ServiceNotFoundException;
+        }
+    .end annotation
 
-    invoke-virtual {p0, p1}, Landroid/app/SystemServiceRegistry$34;->createService(Landroid/app/ContextImpl;)Landroid/os/RecoverySystem;
+    invoke-virtual {p0, p1}, Landroid/app/SystemServiceRegistry$34;->createService(Landroid/app/ContextImpl;)Landroid/os/PowerManager;
 
     move-result-object v0
 

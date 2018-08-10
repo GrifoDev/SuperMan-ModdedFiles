@@ -58,13 +58,10 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    xor-int/lit8 v1, v1, 0x1
 
-    :cond_0
-    :goto_0
-    return-void
+    if-eqz v1, :cond_0
 
-    :cond_1
     invoke-virtual {p1}, Lcom/android/internal/view/menu/MenuBuilder;->getRootMenu()Lcom/android/internal/view/menu/MenuBuilder;
 
     move-result-object v1
@@ -73,7 +70,8 @@
 
     invoke-interface {v0, v2, v1}, Landroid/view/Window$Callback;->onPanelClosed(ILandroid/view/Menu;)V
 
-    goto :goto_0
+    :cond_0
+    return-void
 .end method
 
 
@@ -108,10 +106,15 @@
 
     move-result v1
 
-    if-eqz v1, :cond_4
+    xor-int/lit8 v1, v1, 0x1
+
+    if-eqz v1, :cond_1
+
+    const/4 v1, 0x6
+
+    invoke-interface {v0, v1, p1}, Landroid/view/Window$Callback;->onPanelClosed(ILandroid/view/Menu;)V
 
     :cond_1
-    :goto_0
     iget-object v1, p0, Lcom/android/internal/policy/PhoneWindow$PhoneWindowMenuCallback;->mWindow:Lcom/android/internal/policy/PhoneWindow;
 
     iget-object v1, v1, Lcom/android/internal/policy/PhoneWindow;->mContextMenu:Lcom/android/internal/view/menu/ContextMenuBuilder;
@@ -135,13 +138,6 @@
 
     :cond_3
     return-void
-
-    :cond_4
-    const/4 v1, 0x6
-
-    invoke-interface {v0, v1, p1}, Landroid/view/Window$Callback;->onPanelClosed(ILandroid/view/Menu;)V
-
-    goto :goto_0
 .end method
 
 .method public onMenuItemSelected(Lcom/android/internal/view/menu/MenuBuilder;Landroid/view/MenuItem;)Z
@@ -161,20 +157,21 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    xor-int/lit8 v1, v1, 0x1
 
-    :cond_0
-    const/4 v1, 0x0
+    if-eqz v1, :cond_0
 
-    :goto_0
-    return v1
-
-    :cond_1
     const/4 v1, 0x6
 
     invoke-interface {v0, v1, p2}, Landroid/view/Window$Callback;->onMenuItemSelected(ILandroid/view/MenuItem;)Z
 
     move-result v1
+
+    :goto_0
+    return v1
+
+    :cond_0
+    const/4 v1, 0x0
 
     goto :goto_0
 .end method

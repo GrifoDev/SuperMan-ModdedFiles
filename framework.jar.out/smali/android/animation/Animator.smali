@@ -123,6 +123,12 @@
     return-void
 .end method
 
+.method animateBasedOnPlayTime(JJZ)V
+    .locals 0
+
+    return-void
+.end method
+
 .method public appendChangingConfigurations(I)V
     .locals 1
 
@@ -303,6 +309,14 @@
     return-wide v2
 .end method
 
+.method isInitialized()Z
+    .locals 1
+
+    const/4 v0, 0x1
+
+    return v0
+.end method
+
 .method public isPaused()Z
     .locals 1
 
@@ -335,12 +349,10 @@
 
     iget-boolean v3, p0, Landroid/animation/Animator;->mPaused:Z
 
-    if-eqz v3, :cond_1
+    xor-int/lit8 v3, v3, 0x1
 
-    :cond_0
-    return-void
+    if-eqz v3, :cond_0
 
-    :cond_1
     const/4 v3, 0x1
 
     iput-boolean v3, p0, Landroid/animation/Animator;->mPaused:Z
@@ -377,6 +389,17 @@
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
+
+    :cond_0
+    return-void
+.end method
+
+.method pulseAnimationFrame(J)Z
+    .locals 1
+
+    const/4 v0, 0x0
+
+    return v0
 .end method
 
 .method public removeAllListeners()V
@@ -570,8 +593,30 @@
     return-void
 .end method
 
+.method skipToEndValue(Z)V
+    .locals 0
+
+    return-void
+.end method
+
 .method public start()V
     .locals 0
 
     return-void
+.end method
+
+.method startWithoutPulsing(Z)V
+    .locals 0
+
+    if-eqz p1, :cond_0
+
+    invoke-virtual {p0}, Landroid/animation/Animator;->reverse()V
+
+    :goto_0
+    return-void
+
+    :cond_0
+    invoke-virtual {p0}, Landroid/animation/Animator;->start()V
+
+    goto :goto_0
 .end method

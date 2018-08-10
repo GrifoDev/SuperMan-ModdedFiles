@@ -47,7 +47,7 @@
 
     iget-object v0, p0, Landroid/widget/SemExpandableListView$5;->this$0:Landroid/widget/SemExpandableListView;
 
-    invoke-static {v0}, Landroid/widget/SemExpandableListView;->-get30(Landroid/widget/SemExpandableListView;)Landroid/widget/SemExpandableListView$OnGroupExpandListener;
+    invoke-static {v0}, Landroid/widget/SemExpandableListView;->-get35(Landroid/widget/SemExpandableListView;)Landroid/widget/SemExpandableListView$OnGroupExpandListener;
 
     move-result-object v0
 
@@ -55,7 +55,7 @@
 
     iget-object v0, p0, Landroid/widget/SemExpandableListView$5;->this$0:Landroid/widget/SemExpandableListView;
 
-    invoke-static {v0}, Landroid/widget/SemExpandableListView;->-get30(Landroid/widget/SemExpandableListView;)Landroid/widget/SemExpandableListView$OnGroupExpandListener;
+    invoke-static {v0}, Landroid/widget/SemExpandableListView;->-get35(Landroid/widget/SemExpandableListView;)Landroid/widget/SemExpandableListView$OnGroupExpandListener;
 
     move-result-object v0
 
@@ -70,7 +70,7 @@
 
     iget-object v2, p0, Landroid/widget/SemExpandableListView$5;->this$0:Landroid/widget/SemExpandableListView;
 
-    invoke-static {v2}, Landroid/widget/SemExpandableListView;->-get5(Landroid/widget/SemExpandableListView;)Landroid/widget/ExpandableListAdapter;
+    invoke-static {v2}, Landroid/widget/SemExpandableListView;->-get6(Landroid/widget/SemExpandableListView;)Landroid/widget/ExpandableListAdapter;
 
     move-result-object v2
 
@@ -84,7 +84,7 @@
 
     iget v2, p0, Landroid/widget/SemExpandableListView$5;->val$shiftedGroupPosition:I
 
-    invoke-virtual {v0, v1, v2}, Landroid/widget/AbsListView;->smoothScrollToPosition(II)V
+    invoke-virtual {v0, v1, v2}, Landroid/widget/SemExpandableListView;->smoothScrollToPosition(II)V
 
     return-void
 .end method

@@ -160,7 +160,9 @@
 
     move-result v7
 
-    if-nez v7, :cond_2
+    xor-int/lit8 v7, v7, 0x1
+
+    if-eqz v7, :cond_2
 
     :cond_3
     if-nez v0, :cond_4
@@ -317,7 +319,7 @@
     :cond_0
     iget-boolean v6, p0, Landroid/printservice/PrinterDiscoverySession;->mIsDiscoveryStarted:Z
 
-    if-eqz v6, :cond_5
+    if-eqz v6, :cond_6
 
     const/4 v2, 0x0
 
@@ -328,7 +330,7 @@
     const/4 v3, 0x0
 
     :goto_0
-    if-ge v3, v1, :cond_3
+    if-ge v3, v1, :cond_4
 
     invoke-interface {p1, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
@@ -354,12 +356,9 @@
 
     move-result v6
 
-    if-eqz v6, :cond_1
+    xor-int/lit8 v6, v6, 0x1
 
-    :goto_1
-    add-int/lit8 v3, v3, 0x1
-
-    goto :goto_0
+    if-eqz v6, :cond_3
 
     :cond_1
     if-nez v2, :cond_2
@@ -371,10 +370,13 @@
     :cond_2
     invoke-interface {v2, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    goto :goto_1
-
     :cond_3
-    if-eqz v2, :cond_4
+    add-int/lit8 v3, v3, 0x1
+
+    goto :goto_0
+
+    :cond_4
+    if-eqz v2, :cond_5
 
     :try_start_0
     iget-object v6, p0, Landroid/printservice/PrinterDiscoverySession;->mObserver:Landroid/printservice/IPrintServiceClient;
@@ -387,8 +389,8 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    :cond_4
-    :goto_2
+    :cond_5
+    :goto_1
     return-void
 
     :catch_0
@@ -400,12 +402,12 @@
 
     invoke-static {v6, v7, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_2
+    goto :goto_1
 
-    :cond_5
+    :cond_6
     iget-object v6, p0, Landroid/printservice/PrinterDiscoverySession;->mLastSentPrinters:Landroid/util/ArrayMap;
 
-    if-nez v6, :cond_6
+    if-nez v6, :cond_7
 
     new-instance v6, Landroid/util/ArrayMap;
 
@@ -415,15 +417,15 @@
 
     iput-object v6, p0, Landroid/printservice/PrinterDiscoverySession;->mLastSentPrinters:Landroid/util/ArrayMap;
 
-    :cond_6
+    :cond_7
     invoke-interface {p1}, Ljava/util/List;->size()I
 
     move-result v1
 
     const/4 v3, 0x0
 
-    :goto_3
-    if-ge v3, v1, :cond_4
+    :goto_2
+    if-ge v3, v1, :cond_5
 
     invoke-interface {p1, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
@@ -441,7 +443,7 @@
 
     move-result-object v6
 
-    if-nez v6, :cond_7
+    if-nez v6, :cond_8
 
     iget-object v6, p0, Landroid/printservice/PrinterDiscoverySession;->mPrinters:Landroid/util/ArrayMap;
 
@@ -451,10 +453,10 @@
 
     invoke-virtual {v6, v7, v0}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    :cond_7
+    :cond_8
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_3
+    goto :goto_2
 .end method
 
 .method destroy()V
@@ -889,20 +891,18 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    xor-int/lit8 v0, v0, 0x1
 
-    :cond_0
-    :goto_0
-    return-void
+    if-eqz v0, :cond_0
 
-    :cond_1
     iget-object v0, p0, Landroid/printservice/PrinterDiscoverySession;->mTrackedPrinters:Ljava/util/List;
 
     invoke-interface {v0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     invoke-virtual {p0, p1}, Landroid/printservice/PrinterDiscoverySession;->onStartPrinterStateTracking(Landroid/print/PrinterId;)V
 
-    goto :goto_0
+    :cond_0
+    return-void
 .end method
 
 .method stopPrinterDiscovery()V

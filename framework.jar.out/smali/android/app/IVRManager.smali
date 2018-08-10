@@ -4,9 +4,19 @@
 
 
 # static fields
-.field public static final VR_API_MINOR_VERSION_CODE:I = 0x0
+.field public static final GEAR_VR_MANAGER_SERVICE_VERSION_CODE:I = 0x2
 
-.field public static final VR_API_PATCH_VERSION_CODE:I = 0x5
+.field public static final SUPPORT_DAYDREAM:Z = false
+
+.field public static final SUPPORT_HMT:Z = true
+
+.field public static final SUPPORT_SAVR:Z = false
+
+.field public static final SUPPORT_TETHERED:Z = false
+
+.field public static final VR_API_MINOR_VERSION_CODE:I = 0x5
+
+.field public static final VR_API_PATCH_VERSION_CODE:I = 0x1
 
 .field public static final VR_API_VERSION_CODE:I = 0x10
 

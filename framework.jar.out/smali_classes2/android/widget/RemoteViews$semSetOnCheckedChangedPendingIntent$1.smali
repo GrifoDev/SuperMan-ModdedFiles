@@ -46,7 +46,7 @@
 
     invoke-virtual {v2, v0, p2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
-    invoke-virtual {p1}, Landroid/view/View;->getContext()Landroid/content/Context;
+    invoke-virtual {p1}, Landroid/widget/CompoundButton;->getContext()Landroid/content/Context;
 
     move-result-object v0
 

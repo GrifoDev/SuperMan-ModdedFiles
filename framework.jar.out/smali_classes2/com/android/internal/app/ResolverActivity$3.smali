@@ -1,11 +1,14 @@
 .class Lcom/android/internal/app/ResolverActivity$3;
-.super Landroid/content/BroadcastReceiver;
+.super Ljava/lang/Object;
 .source "ResolverActivity.java"
+
+# interfaces
+.implements Landroid/view/View$OnClickListener;
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/android/internal/app/ResolverActivity;
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Lcom/android/internal/app/ResolverActivity;->onCreate(Landroid/os/Bundle;Landroid/content/Intent;Ljava/lang/CharSequence;I[Landroid/content/Intent;Ljava/util/List;Z)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -24,96 +27,57 @@
 
     iput-object p1, p0, Lcom/android/internal/app/ResolverActivity$3;->this$0:Lcom/android/internal/app/ResolverActivity;
 
-    invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 6
+.method public onClick(Landroid/view/View;)V
+    .locals 3
 
-    const-string/jumbo v3, "com.samsung.android.share.ACTION_EM_GETDATA"
+    iget-object v1, p0, Lcom/android/internal/app/ResolverActivity$3;->this$0:Lcom/android/internal/app/ResolverActivity;
 
-    invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
+    iget-object v1, v1, Lcom/android/internal/app/ResolverActivity;->mAdapter:Lcom/android/internal/app/ResolverActivity$ResolveListAdapter;
 
-    move-result-object v4
-
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_0
-
-    const-string/jumbo v3, "command"
-
-    invoke-virtual {p2, v3}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v1
-
-    const-string/jumbo v3, "selectedPackage"
-
-    invoke-virtual {p2, v3}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v1}, Lcom/android/internal/app/ResolverActivity$ResolveListAdapter;->getOtherProfile()Lcom/android/internal/app/ResolverActivity$DisplayResolveInfo;
 
     move-result-object v0
 
-    const-string/jumbo v3, "ResolverActivity"
+    if-nez v0, :cond_0
 
-    new-instance v4, Ljava/lang/StringBuilder;
-
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v5, "EM: command="
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    const-string/jumbo v5, " app="
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    const-string/jumbo v3, "app_selection"
-
-    invoke-virtual {v3, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_0
-
-    invoke-static {}, Landroid/os/Message;->obtain()Landroid/os/Message;
-
-    move-result-object v2
-
-    const/16 v3, 0xbb8
-
-    iput v3, v2, Landroid/os/Message;->what:I
-
-    iput-object v0, v2, Landroid/os/Message;->obj:Ljava/lang/Object;
-
-    iget-object v3, p0, Lcom/android/internal/app/ResolverActivity$3;->this$0:Lcom/android/internal/app/ResolverActivity;
-
-    iget-object v3, v3, Lcom/android/internal/app/ResolverActivity;->mHandler:Landroid/os/Handler;
-
-    invoke-virtual {v3, v2}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
+    return-void
 
     :cond_0
+    iget-object v1, p0, Lcom/android/internal/app/ResolverActivity$3;->this$0:Lcom/android/internal/app/ResolverActivity;
+
+    const/4 v2, -0x1
+
+    invoke-static {v1, v2}, Lcom/android/internal/app/ResolverActivity;->-set5(Lcom/android/internal/app/ResolverActivity;I)I
+
+    iget-object v1, p0, Lcom/android/internal/app/ResolverActivity$3;->this$0:Lcom/android/internal/app/ResolverActivity;
+
+    iget-object v1, v1, Lcom/android/internal/app/ResolverActivity;->mBixby:Lcom/samsung/android/share/SShareBixby;
+
+    if-eqz v1, :cond_1
+
+    iget-object v1, p0, Lcom/android/internal/app/ResolverActivity$3;->this$0:Lcom/android/internal/app/ResolverActivity;
+
+    iget-object v1, v1, Lcom/android/internal/app/ResolverActivity;->mBixby:Lcom/samsung/android/share/SShareBixby;
+
+    invoke-virtual {v1}, Lcom/samsung/android/share/SShareBixby;->sendCancelForBixby()V
+
+    :cond_1
+    iget-object v1, p0, Lcom/android/internal/app/ResolverActivity$3;->this$0:Lcom/android/internal/app/ResolverActivity;
+
+    const/4 v2, 0x0
+
+    invoke-virtual {v1, v0, v2}, Lcom/android/internal/app/ResolverActivity;->onTargetSelected(Lcom/android/internal/app/ResolverActivity$TargetInfo;Z)Z
+
+    iget-object v1, p0, Lcom/android/internal/app/ResolverActivity$3;->this$0:Lcom/android/internal/app/ResolverActivity;
+
+    invoke-virtual {v1}, Lcom/android/internal/app/ResolverActivity;->finish()V
+
     return-void
 .end method

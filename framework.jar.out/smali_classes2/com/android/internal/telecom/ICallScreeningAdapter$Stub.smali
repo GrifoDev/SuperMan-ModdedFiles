@@ -39,7 +39,7 @@
 
     const-string/jumbo v0, "com.android.internal.telecom.ICallScreeningAdapter"
 
-    invoke-virtual {p0, p0, v0}, Landroid/os/Binder;->attachInterface(Landroid/os/IInterface;Ljava/lang/String;)V
+    invoke-virtual {p0, p0, v0}, Lcom/android/internal/telecom/ICallScreeningAdapter$Stub;->attachInterface(Landroid/os/IInterface;Ljava/lang/String;)V
 
     return-void
 .end method
@@ -94,9 +94,7 @@
         }
     .end annotation
 
-    const/4 v4, 0x1
-
-    const/4 v3, 0x0
+    const/4 v5, 0x1
 
     sparse-switch p1, :sswitch_data_0
 
@@ -107,16 +105,16 @@
     return v4
 
     :sswitch_0
-    const-string/jumbo v5, "com.android.internal.telecom.ICallScreeningAdapter"
+    const-string/jumbo v4, "com.android.internal.telecom.ICallScreeningAdapter"
 
-    invoke-virtual {p3, v5}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p3, v4}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    return v4
+    return v5
 
     :sswitch_1
-    const-string/jumbo v5, "com.android.internal.telecom.ICallScreeningAdapter"
+    const-string/jumbo v4, "com.android.internal.telecom.ICallScreeningAdapter"
 
-    invoke-virtual {p2, v5}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
@@ -124,12 +122,12 @@
 
     invoke-virtual {p0, v0}, Lcom/android/internal/telecom/ICallScreeningAdapter$Stub;->allowCall(Ljava/lang/String;)V
 
-    return v4
+    return v5
 
     :sswitch_2
-    const-string/jumbo v5, "com.android.internal.telecom.ICallScreeningAdapter"
+    const-string/jumbo v4, "com.android.internal.telecom.ICallScreeningAdapter"
 
-    invoke-virtual {p2, v5}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
@@ -137,44 +135,51 @@
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v5
+    move-result v4
 
-    if-eqz v5, :cond_1
+    if-eqz v4, :cond_0
 
     const/4 v1, 0x1
 
     :goto_0
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v5
+    move-result v4
 
-    if-eqz v5, :cond_2
+    if-eqz v4, :cond_1
 
     const/4 v2, 0x1
 
     :goto_1
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v5
+    move-result v4
 
-    if-eqz v5, :cond_0
+    if-eqz v4, :cond_2
 
-    move v3, v4
+    const/4 v3, 0x1
 
-    :cond_0
+    :goto_2
     invoke-virtual {p0, v0, v1, v2, v3}, Lcom/android/internal/telecom/ICallScreeningAdapter$Stub;->disallowCall(Ljava/lang/String;ZZZ)V
 
-    return v4
+    return v5
 
-    :cond_1
+    :cond_0
     const/4 v1, 0x0
 
     goto :goto_0
 
-    :cond_2
+    :cond_1
     const/4 v2, 0x0
 
     goto :goto_1
+
+    :cond_2
+    const/4 v3, 0x0
+
+    goto :goto_2
+
+    nop
 
     :sswitch_data_0
     .sparse-switch

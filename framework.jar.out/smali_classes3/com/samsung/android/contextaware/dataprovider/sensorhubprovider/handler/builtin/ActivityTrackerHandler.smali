@@ -61,7 +61,7 @@
 .method protected final disable()V
     .locals 1
 
-    invoke-virtual {p0}, Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/SensorHubModeHandler;->isRunning()Z
+    invoke-virtual {p0}, Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/handler/builtin/ActivityTrackerHandler;->isRunning()Z
 
     move-result v0
 

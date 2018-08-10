@@ -34,8 +34,6 @@
 
 
 # instance fields
-.field private final mListPosition:I
-
 .field private final mMaxDate:J
 
 .field private final mMinDate:J
@@ -95,12 +93,6 @@
 
     iput-wide v0, p0, Lcom/samsung/android/widget/SemDatePicker$SavedState;->mMaxDate:J
 
-    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
-
-    move-result v0
-
-    iput v0, p0, Lcom/samsung/android/widget/SemDatePicker$SavedState;->mListPosition:I
-
     return-void
 .end method
 
@@ -127,8 +119,6 @@
 
     iput-wide p7, p0, Lcom/samsung/android/widget/SemDatePicker$SavedState;->mMaxDate:J
 
-    iput p9, p0, Lcom/samsung/android/widget/SemDatePicker$SavedState;->mListPosition:I
-
     return-void
 .end method
 
@@ -142,14 +132,6 @@
 
 
 # virtual methods
-.method public getListPosition()I
-    .locals 1
-
-    iget v0, p0, Lcom/samsung/android/widget/SemDatePicker$SavedState;->mListPosition:I
-
-    return v0
-.end method
-
 .method public getMaxDate()J
     .locals 2
 
@@ -214,10 +196,6 @@
     iget-wide v0, p0, Lcom/samsung/android/widget/SemDatePicker$SavedState;->mMaxDate:J
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Parcel;->writeLong(J)V
-
-    iget v0, p0, Lcom/samsung/android/widget/SemDatePicker$SavedState;->mListPosition:I
-
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
     return-void
 .end method

@@ -5,19 +5,13 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 2
+    .locals 1
 
     invoke-direct {p0}, Landroid/app/DialogFragment;-><init>()V
 
     const/4 v0, 0x1
 
-    invoke-virtual {p0, v0}, Landroid/app/DialogFragment;->setCancelable(Z)V
-
-    const/4 v0, 0x0
-
-    const v1, 0x103012e
-
-    invoke-virtual {p0, v0, v1}, Landroid/app/DialogFragment;->setStyle(II)V
+    invoke-virtual {p0, v0}, Lcom/android/internal/app/MediaRouteControllerDialogFragment;->setCancelable(Z)V
 
     return-void
 .end method
@@ -29,7 +23,7 @@
 
     new-instance v0, Lcom/android/internal/app/MediaRouteControllerDialog;
 
-    invoke-virtual {p0}, Landroid/app/DialogFragment;->getTheme()I
+    invoke-virtual {p0}, Lcom/android/internal/app/MediaRouteControllerDialogFragment;->getTheme()I
 
     move-result v1
 
@@ -41,7 +35,7 @@
 .method public onCreateDialog(Landroid/os/Bundle;)Landroid/app/Dialog;
     .locals 1
 
-    invoke-virtual {p0}, Landroid/app/Fragment;->getContext()Landroid/content/Context;
+    invoke-virtual {p0}, Lcom/android/internal/app/MediaRouteControllerDialogFragment;->getContext()Landroid/content/Context;
 
     move-result-object v0
 

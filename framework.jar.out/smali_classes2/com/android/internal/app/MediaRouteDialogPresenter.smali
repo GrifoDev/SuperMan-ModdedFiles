@@ -47,13 +47,9 @@
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    xor-int/lit8 v4, v4, 0x1
 
-    new-instance v1, Lcom/android/internal/app/MediaRouteControllerDialog;
-
-    invoke-direct {v1, p0, v5}, Lcom/android/internal/app/MediaRouteControllerDialog;-><init>(Landroid/content/Context;I)V
-
-    return-object v1
+    if-eqz v4, :cond_1
 
     :cond_0
     new-instance v0, Lcom/android/internal/app/MediaRouteChooserDialog;
@@ -65,6 +61,13 @@
     invoke-virtual {v0, p2}, Lcom/android/internal/app/MediaRouteChooserDialog;->setExtendedSettingsClickListener(Landroid/view/View$OnClickListener;)V
 
     return-object v0
+
+    :cond_1
+    new-instance v1, Lcom/android/internal/app/MediaRouteControllerDialog;
+
+    invoke-direct {v1, p0, v5}, Lcom/android/internal/app/MediaRouteControllerDialog;-><init>(Landroid/content/Context;I)V
+
+    return-object v1
 .end method
 
 .method public static showDialogFragment(Landroid/app/Activity;ILandroid/view/View$OnClickListener;)Landroid/app/DialogFragment;
@@ -98,23 +101,9 @@
 
     move-result v5
 
-    if-eqz v5, :cond_0
-
-    const-string/jumbo v5, "android.app.MediaRouteButton:MediaRouteControllerDialogFragment"
-
-    invoke-virtual {v2, v5}, Landroid/app/FragmentManager;->findFragmentByTag(Ljava/lang/String;)Landroid/app/Fragment;
-
-    move-result-object v5
+    xor-int/lit8 v5, v5, 0x1
 
     if-eqz v5, :cond_2
-
-    const-string/jumbo v5, "MediaRouter"
-
-    const-string/jumbo v6, "showDialog(): Route controller dialog already showing!"
-
-    invoke-static {v5, v6}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    return-object v7
 
     :cond_0
     const-string/jumbo v5, "android.app.MediaRouteButton:MediaRouteChooserDialogFragment"
@@ -144,18 +133,35 @@
 
     const-string/jumbo v5, "android.app.MediaRouteButton:MediaRouteChooserDialogFragment"
 
-    invoke-virtual {v0, v2, v5}, Landroid/app/DialogFragment;->show(Landroid/app/FragmentManager;Ljava/lang/String;)V
+    invoke-virtual {v0, v2, v5}, Lcom/android/internal/app/MediaRouteChooserDialogFragment;->show(Landroid/app/FragmentManager;Ljava/lang/String;)V
 
     return-object v0
 
     :cond_2
+    const-string/jumbo v5, "android.app.MediaRouteButton:MediaRouteControllerDialogFragment"
+
+    invoke-virtual {v2, v5}, Landroid/app/FragmentManager;->findFragmentByTag(Ljava/lang/String;)Landroid/app/Fragment;
+
+    move-result-object v5
+
+    if-eqz v5, :cond_3
+
+    const-string/jumbo v5, "MediaRouter"
+
+    const-string/jumbo v6, "showDialog(): Route controller dialog already showing!"
+
+    invoke-static {v5, v6}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-object v7
+
+    :cond_3
     new-instance v1, Lcom/android/internal/app/MediaRouteControllerDialogFragment;
 
     invoke-direct {v1}, Lcom/android/internal/app/MediaRouteControllerDialogFragment;-><init>()V
 
     const-string/jumbo v5, "android.app.MediaRouteButton:MediaRouteControllerDialogFragment"
 
-    invoke-virtual {v1, v2, v5}, Landroid/app/DialogFragment;->show(Landroid/app/FragmentManager;Ljava/lang/String;)V
+    invoke-virtual {v1, v2, v5}, Lcom/android/internal/app/MediaRouteControllerDialogFragment;->show(Landroid/app/FragmentManager;Ljava/lang/String;)V
 
     return-object v1
 .end method

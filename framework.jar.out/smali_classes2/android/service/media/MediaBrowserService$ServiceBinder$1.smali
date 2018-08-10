@@ -135,7 +135,7 @@
 
     move-result-object v4
 
-    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+    invoke-virtual {p0}, Landroid/service/media/MediaBrowserService$ServiceBinder$1;->getClass()Ljava/lang/Class;
 
     move-result-object v5
 

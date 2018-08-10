@@ -1,4 +1,4 @@
-.class final Landroid/database/sqlite/SQLiteConnection$Operation;
+.class public final Landroid/database/sqlite/SQLiteConnection$Operation;
 .super Ljava/lang/Object;
 .source "SQLiteConnection.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1a
+    accessFlags = 0x19
     name = "Operation"
 .end annotation
 
@@ -36,6 +36,8 @@
 
 .field public mException:Ljava/lang/Exception;
 
+.field public mExecutionTime:J
+
 .field public mFinished:Z
 
 .field public mKind:Ljava/lang/String;
@@ -45,6 +47,8 @@
 .field public mSql:Ljava/lang/String;
 
 .field public mStartTime:J
+
+.field public mStartWallTime:J
 
 
 # direct methods
@@ -68,18 +72,10 @@
     return-object v0
 .end method
 
-.method private constructor <init>()V
+.method public constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
-.method synthetic constructor <init>(Landroid/database/sqlite/SQLiteConnection$Operation;)V
-    .locals 0
-
-    invoke-direct {p0}, Landroid/database/sqlite/SQLiteConnection$Operation;-><init>()V
 
     return-void
 .end method
@@ -95,7 +91,7 @@
 
     new-instance v1, Ljava/util/Date;
 
-    iget-wide v2, p0, Landroid/database/sqlite/SQLiteConnection$Operation;->mStartTime:J
+    iget-wide v2, p0, Landroid/database/sqlite/SQLiteConnection$Operation;->mStartWallTime:J
 
     invoke-direct {v1, v2, v3}, Ljava/util/Date;-><init>(J)V
 
@@ -201,11 +197,7 @@
 
     move-result-object v3
 
-    iget-wide v4, p0, Landroid/database/sqlite/SQLiteConnection$Operation;->mEndTime:J
-
-    iget-wide v6, p0, Landroid/database/sqlite/SQLiteConnection$Operation;->mStartTime:J
-
-    sub-long/2addr v4, v6
+    iget-wide v4, p0, Landroid/database/sqlite/SQLiteConnection$Operation;->mExecutionTime:J
 
     invoke-virtual {v3, v4, v5}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
@@ -317,7 +309,7 @@
 
     move-result-wide v4
 
-    iget-wide v6, p0, Landroid/database/sqlite/SQLiteConnection$Operation;->mStartTime:J
+    iget-wide v6, p0, Landroid/database/sqlite/SQLiteConnection$Operation;->mStartWallTime:J
 
     sub-long/2addr v4, v6
 

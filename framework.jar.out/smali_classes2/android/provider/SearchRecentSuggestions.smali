@@ -309,7 +309,15 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    xor-int/lit8 v0, v0, 0x1
+
+    if-eqz v0, :cond_1
+
+    new-instance v0, Ljava/lang/IllegalArgumentException;
+
+    invoke-direct {v0}, Ljava/lang/IllegalArgumentException;-><init>()V
+
+    throw v0
 
     :cond_1
     new-instance v0, Landroid/provider/SearchRecentSuggestions$1;
@@ -321,13 +329,6 @@
     invoke-virtual {v0}, Landroid/provider/SearchRecentSuggestions$1;->start()V
 
     return-void
-
-    :cond_2
-    new-instance v0, Ljava/lang/IllegalArgumentException;
-
-    invoke-direct {v0}, Ljava/lang/IllegalArgumentException;-><init>()V
-
-    throw v0
 .end method
 
 .method protected truncateHistory(Landroid/content/ContentResolver;I)V

@@ -65,7 +65,7 @@
 
     move-result-object v0
 
-    const v1, 0x109017a
+    const v1, 0x1090178
 
     const/4 v2, 0x0
 
@@ -93,11 +93,11 @@
 
     invoke-direct {v1}, Landroid/webkit/FindActionModeCallback$NoAction;-><init>()V
 
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setCustomSelectionActionModeCallback(Landroid/view/ActionMode$Callback;)V
+    invoke-virtual {v0, v1}, Landroid/widget/EditText;->setCustomSelectionActionModeCallback(Landroid/view/ActionMode$Callback;)V
 
     iget-object v0, p0, Landroid/webkit/FindActionModeCallback;->mEditText:Landroid/widget/EditText;
 
-    invoke-virtual {v0, p0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v0, p0}, Landroid/widget/EditText;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     const-string/jumbo v0, ""
 
@@ -105,7 +105,7 @@
 
     iget-object v0, p0, Landroid/webkit/FindActionModeCallback;->mCustomView:Landroid/view/View;
 
-    const v1, 0x102051d
+    const v1, 0x102036c
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -186,14 +186,14 @@
 
     iget-object v0, p0, Landroid/webkit/FindActionModeCallback;->mMatches:Landroid/widget/TextView;
 
-    const v1, 0x1040495
+    const v1, 0x10405e0
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
     :goto_0
     iget-object v0, p0, Landroid/webkit/FindActionModeCallback;->mMatches:Landroid/widget/TextView;
 
-    invoke-virtual {v0, v6}, Landroid/view/View;->setVisibility(I)V
+    invoke-virtual {v0, v6}, Landroid/widget/TextView;->setVisibility(I)V
 
     return-void
 
@@ -228,7 +228,7 @@
 
     aput-object v4, v3, v5
 
-    const v4, 0x1140019
+    const v4, 0x1150013
 
     invoke-virtual {v1, v4, v2, v3}, Landroid/content/res/Resources;->getQuantityString(II[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -293,7 +293,7 @@
 
     const/16 v2, 0x8
 
-    invoke-virtual {v1, v2}, Landroid/view/View;->setVisibility(I)V
+    invoke-virtual {v1, v2}, Landroid/widget/TextView;->setVisibility(I)V
 
     iput-boolean v3, p0, Landroid/webkit/FindActionModeCallback;->mMatchesFound:Z
 
@@ -313,7 +313,7 @@
 
     const/4 v2, 0x4
 
-    invoke-virtual {v1, v2}, Landroid/view/View;->setVisibility(I)V
+    invoke-virtual {v1, v2}, Landroid/widget/TextView;->setVisibility(I)V
 
     iput v3, p0, Landroid/webkit/FindActionModeCallback;->mNumberOfMatches:I
 
@@ -400,7 +400,7 @@
 
     iget-object v1, p0, Landroid/webkit/FindActionModeCallback;->mWebView:Landroid/webkit/WebView;
 
-    invoke-virtual {v1}, Landroid/view/View;->getWindowToken()Landroid/os/IBinder;
+    invoke-virtual {v1}, Landroid/webkit/WebView;->getWindowToken()Landroid/os/IBinder;
 
     move-result-object v1
 
@@ -426,9 +426,9 @@
     goto :goto_0
 
     :pswitch_data_0
-    .packed-switch 0x1020536
-        :pswitch_0
+    .packed-switch 0x10202a0
         :pswitch_1
+        :pswitch_0
     .end packed-switch
 .end method
 
@@ -464,7 +464,7 @@
 
     move-result-object v1
 
-    const v2, 0x1150002
+    const v2, 0x1140002
 
     invoke-virtual {v1, v2, p2}, Landroid/view/MenuInflater;->inflate(ILandroid/view/Menu;)V
 
@@ -486,7 +486,7 @@
 
     const/16 v2, 0x8
 
-    invoke-virtual {v1, v2}, Landroid/view/View;->setVisibility(I)V
+    invoke-virtual {v1, v2}, Landroid/widget/TextView;->setVisibility(I)V
 
     iput-boolean v3, p0, Landroid/webkit/FindActionModeCallback;->mMatchesFound:Z
 
@@ -498,7 +498,7 @@
 
     iget-object v1, p0, Landroid/webkit/FindActionModeCallback;->mEditText:Landroid/widget/EditText;
 
-    invoke-virtual {v1}, Landroid/view/View;->requestFocus()Z
+    invoke-virtual {v1}, Landroid/widget/EditText;->requestFocus()Z
 
     const/4 v1, 0x1
 
@@ -524,7 +524,7 @@
 
     iget-object v1, p0, Landroid/webkit/FindActionModeCallback;->mWebView:Landroid/webkit/WebView;
 
-    invoke-virtual {v1}, Landroid/view/View;->getWindowToken()Landroid/os/IBinder;
+    invoke-virtual {v1}, Landroid/webkit/WebView;->getWindowToken()Landroid/os/IBinder;
 
     move-result-object v1
 
@@ -576,7 +576,7 @@
 
     iget-object v2, p0, Landroid/webkit/FindActionModeCallback;->mEditText:Landroid/widget/EditText;
 
-    invoke-virtual {v2, p1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+    invoke-virtual {v2, p1}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
 
     iget-object v2, p0, Landroid/webkit/FindActionModeCallback;->mEditText:Landroid/widget/EditText;
 
@@ -627,7 +627,7 @@
 
     iget-object v0, p0, Landroid/webkit/FindActionModeCallback;->mEditText:Landroid/widget/EditText;
 
-    invoke-virtual {v0}, Landroid/view/View;->requestFocus()Z
+    invoke-virtual {v0}, Landroid/widget/EditText;->requestFocus()Z
 
     move-result v0
 
@@ -664,7 +664,7 @@
 
     const/16 v1, 0x8
 
-    invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setVisibility(I)V
 
     const/4 v0, 0x0
 

@@ -16,6 +16,8 @@
 
 .field public static final TAG_CSCFEATURE_SETUPWIZARD_CONFIGSTEPSEQUENCETYPE:Ljava/lang/String; = "CscFeature_SetupWizard_ConfigStepSequenceType"
 
+.field public static final TAG_CSCFEATURE_SETUPWIZARD_DISABLEPRIVACYPOLICYAGREEMENT:Ljava/lang/String; = "CscFeature_SetupWizard_DisablePrivacyPolicyAgreement"
+
 .field public static final TAG_CSCFEATURE_SETUPWIZARD_SUPPORTSECHELPDESKCALL:Ljava/lang/String; = "CscFeature_SetupWizard_SupportSecHelpDeskCall"
 
 .field public static final TAG_CSCFEATURE_SETUPWIZARD_SUPPORTTALKBACKAUTOSPEAK:Ljava/lang/String; = "CscFeature_SetupWizard_SupportTalkbackAutoSpeak"

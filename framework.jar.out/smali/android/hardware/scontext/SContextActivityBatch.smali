@@ -101,7 +101,7 @@
 
     const-string/jumbo v1, "Accuracy"
 
-    invoke-virtual {v0, v1}, Landroid/os/BaseBundle;->getIntArray(Ljava/lang/String;)[I
+    invoke-virtual {v0, v1}, Landroid/os/Bundle;->getIntArray(Ljava/lang/String;)[I
 
     move-result-object v0
 
@@ -125,7 +125,7 @@
 
     const-string/jumbo v1, "MostActivity"
 
-    invoke-virtual {v0, v1}, Landroid/os/BaseBundle;->getInt(Ljava/lang/String;)I
+    invoke-virtual {v0, v1}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
 
     move-result v0
 
@@ -139,7 +139,7 @@
 
     const-string/jumbo v1, "ActivityType"
 
-    invoke-virtual {v0, v1}, Landroid/os/BaseBundle;->getIntArray(Ljava/lang/String;)[I
+    invoke-virtual {v0, v1}, Landroid/os/Bundle;->getIntArray(Ljava/lang/String;)[I
 
     move-result-object v0
 
@@ -159,7 +159,7 @@
 
     const-string/jumbo v5, "Count"
 
-    invoke-virtual {v4, v5}, Landroid/os/BaseBundle;->getInt(Ljava/lang/String;)I
+    invoke-virtual {v4, v5}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
 
     move-result v2
 
@@ -167,7 +167,7 @@
 
     const-string/jumbo v5, "Duration"
 
-    invoke-virtual {v4, v5}, Landroid/os/BaseBundle;->getLongArray(Ljava/lang/String;)[J
+    invoke-virtual {v4, v5}, Landroid/os/Bundle;->getLongArray(Ljava/lang/String;)[J
 
     move-result-object v0
 
@@ -184,7 +184,7 @@
 
     const-string/jumbo v5, "TimeStamp"
 
-    invoke-virtual {v4, v5}, Landroid/os/BaseBundle;->getLong(Ljava/lang/String;)J
+    invoke-virtual {v4, v5}, Landroid/os/Bundle;->getLong(Ljava/lang/String;)J
 
     move-result-wide v4
 
@@ -221,7 +221,7 @@
 
     const-string/jumbo v5, "TimeStampArray"
 
-    invoke-virtual {v4, v5}, Landroid/os/BaseBundle;->getLongArray(Ljava/lang/String;)[J
+    invoke-virtual {v4, v5}, Landroid/os/Bundle;->getLongArray(Ljava/lang/String;)[J
 
     move-result-object v3
 
@@ -238,7 +238,7 @@
 
     const-string/jumbo v1, "Mode"
 
-    invoke-virtual {v0, v1}, Landroid/os/BaseBundle;->getInt(Ljava/lang/String;)I
+    invoke-virtual {v0, v1}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
 
     move-result v0
 

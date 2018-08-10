@@ -39,7 +39,7 @@
 
     iget-object v0, p0, Landroid/widget/SemExpandableListView$4;->this$0:Landroid/widget/SemExpandableListView;
 
-    invoke-virtual {v0}, Landroid/widget/AbsListView;->requestLayout()V
+    invoke-virtual {v0}, Landroid/widget/SemExpandableListView;->requestLayout()V
 
     return-void
 .end method

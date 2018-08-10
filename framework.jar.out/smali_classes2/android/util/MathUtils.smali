@@ -8,22 +8,8 @@
 
 .field private static final RAD_TO_DEG:F = 57.295784f
 
-.field private static final sRandom:Ljava/util/Random;
-
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Ljava/util/Random;
-
-    invoke-direct {v0}, Ljava/util/Random;-><init>()V
-
-    sput-object v0, Landroid/util/MathUtils;->sRandom:Ljava/util/Random;
-
-    return-void
-.end method
-
 .method private constructor <init>()V
     .locals 0
 
@@ -657,102 +643,6 @@
     mul-float/2addr v0, p0
 
     return v0
-.end method
-
-.method public static random(F)F
-    .locals 1
-
-    sget-object v0, Landroid/util/MathUtils;->sRandom:Ljava/util/Random;
-
-    invoke-virtual {v0}, Ljava/util/Random;->nextFloat()F
-
-    move-result v0
-
-    mul-float/2addr v0, p0
-
-    return v0
-.end method
-
-.method public static random(FF)F
-    .locals 2
-
-    cmpl-float v0, p0, p1
-
-    if-ltz v0, :cond_0
-
-    return p0
-
-    :cond_0
-    sget-object v0, Landroid/util/MathUtils;->sRandom:Ljava/util/Random;
-
-    invoke-virtual {v0}, Ljava/util/Random;->nextFloat()F
-
-    move-result v0
-
-    sub-float v1, p1, p0
-
-    mul-float/2addr v0, v1
-
-    add-float/2addr v0, p0
-
-    return v0
-.end method
-
-.method public static random(I)I
-    .locals 2
-
-    sget-object v0, Landroid/util/MathUtils;->sRandom:Ljava/util/Random;
-
-    invoke-virtual {v0}, Ljava/util/Random;->nextFloat()F
-
-    move-result v0
-
-    int-to-float v1, p0
-
-    mul-float/2addr v0, v1
-
-    float-to-int v0, v0
-
-    return v0
-.end method
-
-.method public static random(II)I
-    .locals 2
-
-    if-lt p0, p1, :cond_0
-
-    return p0
-
-    :cond_0
-    sget-object v0, Landroid/util/MathUtils;->sRandom:Ljava/util/Random;
-
-    invoke-virtual {v0}, Ljava/util/Random;->nextFloat()F
-
-    move-result v0
-
-    sub-int v1, p1, p0
-
-    int-to-float v1, v1
-
-    mul-float/2addr v0, v1
-
-    int-to-float v1, p0
-
-    add-float/2addr v0, v1
-
-    float-to-int v0, v0
-
-    return v0
-.end method
-
-.method public static randomSeed(J)V
-    .locals 2
-
-    sget-object v0, Landroid/util/MathUtils;->sRandom:Ljava/util/Random;
-
-    invoke-virtual {v0, p0, p1}, Ljava/util/Random;->setSeed(J)V
-
-    return-void
 .end method
 
 .method public static sq(F)F

@@ -18,7 +18,8 @@
 
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Landroid/net/wifi/WifiScanner$ScanSettings$1;
+        Landroid/net/wifi/WifiScanner$ScanSettings$1;,
+        Landroid/net/wifi/WifiScanner$ScanSettings$HiddenNetwork;
     }
 .end annotation
 
@@ -41,7 +42,7 @@
 
 .field public channels:[Landroid/net/wifi/WifiScanner$ChannelSpec;
 
-.field public hiddenNetworkIds:[I
+.field public hiddenNetworks:[Landroid/net/wifi/WifiScanner$ScanSettings$HiddenNetwork;
 
 .field public isPnoScan:Z
 
@@ -55,7 +56,7 @@
 
 .field public reportEvents:I
 
-.field public semIsCreatedByWifiStateMachine:Z
+.field public semPackageName:Ljava/lang/String;
 
 .field public stepCount:I
 
@@ -201,21 +202,44 @@
     invoke-virtual {p1, v3}, Landroid/os/Parcel;->writeInt(I)V
 
     :cond_3
-    iget-object v1, p0, Landroid/net/wifi/WifiScanner$ScanSettings;->hiddenNetworkIds:[I
-
-    invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeIntArray([I)V
-
-    iget-boolean v1, p0, Landroid/net/wifi/WifiScanner$ScanSettings;->semIsCreatedByWifiStateMachine:Z
+    iget-object v1, p0, Landroid/net/wifi/WifiScanner$ScanSettings;->hiddenNetworks:[Landroid/net/wifi/WifiScanner$ScanSettings$HiddenNetwork;
 
     if-eqz v1, :cond_4
 
+    iget-object v1, p0, Landroid/net/wifi/WifiScanner$ScanSettings;->hiddenNetworks:[Landroid/net/wifi/WifiScanner$ScanSettings$HiddenNetwork;
+
+    array-length v1, v1
+
+    invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeInt(I)V
+
+    const/4 v0, 0x0
+
     :goto_3
-    invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeInt(I)V
+    iget-object v1, p0, Landroid/net/wifi/WifiScanner$ScanSettings;->hiddenNetworks:[Landroid/net/wifi/WifiScanner$ScanSettings$HiddenNetwork;
 
-    return-void
+    array-length v1, v1
 
-    :cond_4
-    move v2, v3
+    if-ge v0, v1, :cond_5
+
+    iget-object v1, p0, Landroid/net/wifi/WifiScanner$ScanSettings;->hiddenNetworks:[Landroid/net/wifi/WifiScanner$ScanSettings$HiddenNetwork;
+
+    aget-object v1, v1, v0
+
+    iget-object v1, v1, Landroid/net/wifi/WifiScanner$ScanSettings$HiddenNetwork;->ssid:Ljava/lang/String;
+
+    invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+
+    add-int/lit8 v0, v0, 0x1
 
     goto :goto_3
+
+    :cond_4
+    invoke-virtual {p1, v3}, Landroid/os/Parcel;->writeInt(I)V
+
+    :cond_5
+    iget-object v1, p0, Landroid/net/wifi/WifiScanner$ScanSettings;->semPackageName:Ljava/lang/String;
+
+    invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+
+    return-void
 .end method

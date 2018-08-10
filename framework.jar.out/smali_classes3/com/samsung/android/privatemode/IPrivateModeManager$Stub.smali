@@ -41,7 +41,7 @@
 
     const-string/jumbo v0, "com.samsung.android.privatemode.IPrivateModeManager"
 
-    invoke-virtual {p0, p0, v0}, Landroid/os/Binder;->attachInterface(Landroid/os/IInterface;Ljava/lang/String;)V
+    invoke-virtual {p0, p0, v0}, Lcom/samsung/android/privatemode/IPrivateModeManager$Stub;->attachInterface(Landroid/os/IInterface;Ljava/lang/String;)V
 
     return-void
 .end method
@@ -197,7 +197,7 @@
 
     if-eqz v8, :cond_3
 
-    move v3, v7
+    const/4 v3, 0x1
 
     :goto_1
     invoke-virtual {p0, v0, v3}, Lcom/samsung/android/privatemode/IPrivateModeManager$Stub;->unRegisterClient(Landroid/os/IBinder;Z)Z
@@ -216,7 +216,7 @@
     return v7
 
     :cond_3
-    move v3, v6
+    const/4 v3, 0x0
 
     goto :goto_1
 

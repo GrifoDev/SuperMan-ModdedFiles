@@ -118,7 +118,7 @@
 
     iget-object v4, p0, Landroid/widget/StackView$StackSlider;->mView:Landroid/view/View;
 
-    if-eqz v4, :cond_5
+    if-eqz v4, :cond_6
 
     iget-object v4, p0, Landroid/widget/StackView$StackSlider;->mView:Landroid/view/View;
 
@@ -170,11 +170,18 @@
 
     double-to-float v2, v4
 
+    cmpl-float v4, v0, v2
+
+    if-lez v4, :cond_0
+
+    move v0, v2
+
+    :cond_0
     cmpl-float v4, p2, v8
 
-    if-nez v4, :cond_1
+    if-nez v4, :cond_2
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_1
 
     div-float v4, v0, v2
 
@@ -187,13 +194,13 @@
 
     return v4
 
-    :cond_0
+    :cond_1
     div-float v4, v0, v2
 
     goto :goto_0
 
-    :cond_1
-    if-eqz p1, :cond_3
+    :cond_2
+    if-eqz p1, :cond_4
 
     invoke-static {p2}, Ljava/lang/Math;->abs(F)F
 
@@ -206,20 +213,20 @@
 
     cmpg-float v4, v1, v4
 
-    if-ltz v4, :cond_2
+    if-ltz v4, :cond_3
 
     cmpl-float v4, v1, v9
 
-    if-lez v4, :cond_4
+    if-lez v4, :cond_5
 
-    :cond_2
+    :cond_3
     invoke-direct {p0, p1, v8}, Landroid/widget/StackView$StackSlider;->getDuration(ZF)F
 
     move-result v4
 
     return v4
 
-    :cond_3
+    :cond_4
     sub-float v4, v2, v0
 
     invoke-static {p2}, Ljava/lang/Math;->abs(F)F
@@ -230,98 +237,104 @@
 
     goto :goto_1
 
-    :cond_4
+    :cond_5
     return v1
 
-    :cond_5
+    :cond_6
     return v8
 .end method
 
 .method private highlightAlphaInterpolator(F)F
-    .locals 3
+    .locals 4
 
-    const v2, 0x3f59999a    # 0.85f
+    const v3, 0x3f59999a    # 0.85f
 
-    const v1, 0x3ecccccd    # 0.4f
+    const v2, 0x3ecccccd    # 0.4f
 
-    cmpg-float v0, p1, v1
+    const v0, 0x3ecccccd    # 0.4f
 
-    if-gez v0, :cond_0
+    cmpg-float v1, p1, v2
 
-    div-float v0, p1, v1
+    if-gez v1, :cond_0
 
-    invoke-direct {p0, v0}, Landroid/widget/StackView$StackSlider;->cubic(F)F
+    div-float v1, p1, v2
 
-    move-result v0
+    invoke-direct {p0, v1}, Landroid/widget/StackView$StackSlider;->cubic(F)F
 
-    mul-float/2addr v0, v2
+    move-result v1
 
-    return v0
+    mul-float/2addr v1, v3
+
+    return v1
 
     :cond_0
-    sub-float v0, p1, v1
+    sub-float v1, p1, v2
 
-    const v1, 0x3f19999a    # 0.6f
+    const v2, 0x3f19999a    # 0.6f
 
-    div-float/2addr v0, v1
+    div-float/2addr v1, v2
 
-    const/high16 v1, 0x3f800000    # 1.0f
+    const/high16 v2, 0x3f800000    # 1.0f
 
-    sub-float v0, v1, v0
+    sub-float v1, v2, v1
 
-    invoke-direct {p0, v0}, Landroid/widget/StackView$StackSlider;->cubic(F)F
+    invoke-direct {p0, v1}, Landroid/widget/StackView$StackSlider;->cubic(F)F
 
-    move-result v0
+    move-result v1
 
-    mul-float/2addr v0, v2
+    mul-float/2addr v1, v3
 
-    return v0
+    return v1
 .end method
 
 .method private rotationInterpolator(F)F
-    .locals 2
+    .locals 3
 
-    const v1, 0x3e4ccccd    # 0.2f
+    const v2, 0x3e4ccccd    # 0.2f
 
-    cmpg-float v0, p1, v1
+    const v0, 0x3e4ccccd    # 0.2f
 
-    if-gez v0, :cond_0
+    cmpg-float v1, p1, v2
 
-    const/4 v0, 0x0
+    if-gez v1, :cond_0
 
-    return v0
+    const/4 v1, 0x0
+
+    return v1
 
     :cond_0
-    sub-float v0, p1, v1
+    sub-float v1, p1, v2
 
-    const v1, 0x3f4ccccd    # 0.8f
+    const v2, 0x3f4ccccd    # 0.8f
 
-    div-float/2addr v0, v1
+    div-float/2addr v1, v2
 
-    return v0
+    return v1
 .end method
 
 .method private viewAlphaInterpolator(F)F
-    .locals 2
+    .locals 3
 
-    const v1, 0x3e99999a    # 0.3f
+    const v2, 0x3e99999a    # 0.3f
 
-    cmpl-float v0, p1, v1
+    const v0, 0x3e99999a    # 0.3f
 
-    if-lez v0, :cond_0
+    cmpl-float v1, p1, v2
 
-    sub-float v0, p1, v1
+    if-lez v1, :cond_0
 
-    const v1, 0x3f333333    # 0.7f
+    sub-float v1, p1, v2
 
-    div-float/2addr v0, v1
+    const v2, 0x3f333333    # 0.7f
 
-    return v0
+    div-float/2addr v1, v2
+
+    return v1
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
-    return v0
+    return v1
 .end method
 
 
@@ -448,7 +461,7 @@
 
     move-result-object v2
 
-    invoke-virtual {v2}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+    invoke-virtual {v2}, Landroid/widget/ImageView;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
     move-result-object v0
 
@@ -537,7 +550,7 @@
 
     move-result-object v4
 
-    invoke-virtual {v4}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+    invoke-virtual {v4}, Landroid/widget/ImageView;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
     move-result-object v1
 
@@ -668,7 +681,7 @@
 
     move-result v5
 
-    invoke-virtual {v4, v5}, Landroid/view/View;->setAlpha(F)V
+    invoke-virtual {v4, v5}, Landroid/widget/ImageView;->setAlpha(F)V
 
     sub-float v4, v8, p1
 
@@ -742,7 +755,7 @@
 
     mul-float/2addr v5, v6
 
-    invoke-virtual {v4, v5}, Landroid/view/View;->setRotationX(F)V
+    invoke-virtual {v4, v5}, Landroid/widget/ImageView;->setRotationX(F)V
 
     goto/16 :goto_2
 
@@ -834,7 +847,7 @@
 
     move-result v5
 
-    invoke-virtual {v4, v5}, Landroid/view/View;->setAlpha(F)V
+    invoke-virtual {v4, v5}, Landroid/widget/ImageView;->setAlpha(F)V
 
     goto/16 :goto_2
 
@@ -893,7 +906,7 @@
 
     move-result v5
 
-    invoke-virtual {v4, v5}, Landroid/view/View;->setAlpha(F)V
+    invoke-virtual {v4, v5}, Landroid/widget/ImageView;->setAlpha(F)V
 
     goto/16 :goto_2
 

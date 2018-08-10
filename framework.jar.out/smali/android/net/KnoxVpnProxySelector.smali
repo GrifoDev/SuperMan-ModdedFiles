@@ -385,7 +385,7 @@
 .end method
 
 .method public select(Ljava/net/URI;)Ljava/util/List;
-    .locals 11
+    .locals 12
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -398,343 +398,411 @@
         }
     .end annotation
 
-    const-string/jumbo v8, "KnoxVpnProxySelector"
+    const-string/jumbo v9, "KnoxVpnProxySelector"
 
-    new-instance v9, Ljava/lang/StringBuilder;
+    new-instance v10, Ljava/lang/StringBuilder;
 
-    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v10, "selection of proxy is being reached for the caller "
+    const-string/jumbo v11, "selection of proxy is being reached for the caller "
 
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v9
+    move-result-object v10
 
     invoke-static {}, Landroid/os/Process;->myUid()I
 
-    move-result v10
+    move-result v11
 
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v9
+    move-result-object v10
 
-    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v9
+    move-result-object v10
 
-    invoke-static {v8, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v9, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     invoke-static {}, Lcom/google/android/collect/Lists;->newArrayList()Ljava/util/ArrayList;
 
-    move-result-object v6
+    move-result-object v7
 
     :try_start_0
     invoke-virtual {p1}, Ljava/net/URI;->toURL()Ljava/net/URL;
 
+    move-result-object v9
+
+    invoke-virtual {v9}, Ljava/net/URL;->toString()Ljava/lang/String;
+
     move-result-object v8
 
-    invoke-virtual {v8}, Ljava/net/URL;->toString()Ljava/lang/String;
+    sget-boolean v9, Landroid/net/KnoxVpnProxySelector;->DBG:Z
 
-    move-result-object v7
+    if-eqz v9, :cond_0
 
-    sget-boolean v8, Landroid/net/KnoxVpnProxySelector;->DBG:Z
+    const-string/jumbo v9, "KnoxVpnProxySelector"
 
-    if-eqz v8, :cond_0
+    new-instance v10, Ljava/lang/StringBuilder;
 
-    const-string/jumbo v8, "KnoxVpnProxySelector"
+    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
 
-    new-instance v9, Ljava/lang/StringBuilder;
+    const-string/jumbo v11, "pac url being recieved is "
 
-    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v10, "pac url being recieved is "
+    move-result-object v10
 
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v10, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v9
+    move-result-object v10
 
-    invoke-virtual {v9, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string/jumbo v11, "for the caller "
 
-    move-result-object v9
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v10, "for the caller "
-
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v9
+    move-result-object v10
 
     invoke-static {}, Landroid/os/Process;->myUid()I
 
-    move-result v10
+    move-result v11
 
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v9
+    move-result-object v10
 
-    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v9
+    move-result-object v10
 
-    invoke-static {v8, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v9, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
     invoke-direct {p0}, Landroid/net/KnoxVpnProxySelector;->getConnectivityServiceInstance()Landroid/net/IConnectivityManager;
 
-    move-result-object v8
-
-    invoke-static {}, Landroid/os/Process;->myUid()I
-
-    move-result v9
-
-    invoke-interface {v8, v9}, Landroid/net/IConnectivityManager;->getProxyInfoForUid(I)[Ljava/lang/String;
-
-    move-result-object v5
-
-    const/4 v8, 0x0
-
-    aget-object v1, v5, v8
-
-    sget-boolean v8, Landroid/net/KnoxVpnProxySelector;->DBG:Z
-
-    if-eqz v8, :cond_1
-
-    const-string/jumbo v8, "KnoxVpnProxySelector"
-
-    new-instance v9, Ljava/lang/StringBuilder;
-
-    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v10, "host value is "
-
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    invoke-virtual {v9, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    const-string/jumbo v10, "for caller "
-
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
     move-result-object v9
 
     invoke-static {}, Landroid/os/Process;->myUid()I
 
     move-result v10
 
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-interface {v9, v10}, Landroid/net/IConnectivityManager;->getProxyInfoForUid(I)[Ljava/lang/String;
 
-    move-result-object v9
+    move-result-object v6
 
-    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    const/4 v9, 0x0
 
-    move-result-object v9
+    aget-object v2, v6, v9
 
-    invoke-static {v8, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    sget-boolean v9, Landroid/net/KnoxVpnProxySelector;->DBG:Z
+
+    if-eqz v9, :cond_1
+
+    const-string/jumbo v9, "KnoxVpnProxySelector"
+
+    new-instance v10, Ljava/lang/StringBuilder;
+
+    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v11, "host value is "
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    const-string/jumbo v11, "for caller "
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-static {}, Landroid/os/Process;->myUid()I
+
+    move-result v11
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-static {v9, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_1
-    const/4 v8, 0x1
+    const/4 v9, 0x1
 
-    aget-object v3, v5, v8
+    aget-object v4, v6, v9
 
-    sget-boolean v8, Landroid/net/KnoxVpnProxySelector;->DBG:Z
+    sget-boolean v9, Landroid/net/KnoxVpnProxySelector;->DBG:Z
 
-    if-eqz v8, :cond_2
+    if-eqz v9, :cond_2
 
-    const-string/jumbo v8, "KnoxVpnProxySelector"
+    const-string/jumbo v9, "KnoxVpnProxySelector"
 
-    new-instance v9, Ljava/lang/StringBuilder;
+    new-instance v10, Ljava/lang/StringBuilder;
 
-    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v10, "port value is "
+    const-string/jumbo v11, "port value is "
 
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v9
+    move-result-object v10
 
-    invoke-virtual {v9, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v10, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v9
+    move-result-object v10
 
-    const-string/jumbo v10, "for caller "
+    const-string/jumbo v11, "for caller "
 
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v9
+    move-result-object v10
 
     invoke-static {}, Landroid/os/Process;->myUid()I
 
-    move-result v10
+    move-result v11
 
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v9
+    move-result-object v10
 
-    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v9
+    move-result-object v10
 
-    invoke-static {v8, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v9, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_2
-    if-eqz v1, :cond_3
-
-    if-eqz v3, :cond_3
-
-    invoke-static {v3}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
-
-    move-result v2
-
-    new-instance v4, Ljava/net/Proxy;
-
-    sget-object v8, Ljava/net/Proxy$Type;->HTTP:Ljava/net/Proxy$Type;
-
-    invoke-static {v1, v2}, Ljava/net/InetSocketAddress;->createUnresolved(Ljava/lang/String;I)Ljava/net/InetSocketAddress;
-
-    move-result-object v9
-
-    invoke-direct {v4, v8, v9}, Ljava/net/Proxy;-><init>(Ljava/net/Proxy$Type;Ljava/net/SocketAddress;)V
+    if-eqz v2, :cond_3
 
     if-eqz v4, :cond_3
 
-    const-string/jumbo v8, "KnoxVpnProxySelector"
+    invoke-static {v4}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
-    new-instance v9, Ljava/lang/StringBuilder;
+    move-result v3
 
-    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
+    new-instance v5, Ljava/net/Proxy;
 
-    const-string/jumbo v10, "valid knox vpn proxy is added for caller"
+    sget-object v9, Ljava/net/Proxy$Type;->HTTP:Ljava/net/Proxy$Type;
 
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-static {v2, v3}, Ljava/net/InetSocketAddress;->createUnresolved(Ljava/lang/String;I)Ljava/net/InetSocketAddress;
 
-    move-result-object v9
+    move-result-object v10
+
+    invoke-direct {v5, v9, v10}, Ljava/net/Proxy;-><init>(Ljava/net/Proxy$Type;Ljava/net/SocketAddress;)V
+
+    if-eqz v5, :cond_3
+
+    const-string/jumbo v9, "KnoxVpnProxySelector"
+
+    new-instance v10, Ljava/lang/StringBuilder;
+
+    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v11, "valid knox vpn proxy is added for caller"
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
 
     invoke-static {}, Landroid/os/Process;->myUid()I
 
-    move-result v10
+    move-result v11
 
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v9
+    move-result-object v10
 
-    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v9
+    move-result-object v10
 
-    invoke-static {v8, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v9, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-interface {v6, v4}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v7, v5}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     :cond_3
-    invoke-interface {v6}, Ljava/util/List;->size()I
+    invoke-interface {v7}, Ljava/util/List;->size()I
 
-    move-result v8
+    move-result v9
 
-    if-nez v8, :cond_4
+    if-nez v9, :cond_4
 
-    const-string/jumbo v8, "KnoxVpnProxySelector"
+    const-string/jumbo v9, "KnoxVpnProxySelector"
 
-    new-instance v9, Ljava/lang/StringBuilder;
+    new-instance v10, Ljava/lang/StringBuilder;
 
-    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v10, "in-valid knox vpn proxy is added for caller"
+    const-string/jumbo v11, "in-valid knox vpn proxy is added for caller"
 
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v9
+    move-result-object v10
 
     invoke-static {}, Landroid/os/Process;->myUid()I
 
-    move-result v10
+    move-result v11
 
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v9
+    move-result-object v10
 
-    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v9
+    move-result-object v10
 
-    invoke-static {v8, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v9, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    sget-object v8, Ljava/net/Proxy;->NO_PROXY:Ljava/net/Proxy;
+    sget-object v9, Ljava/net/Proxy;->NO_PROXY:Ljava/net/Proxy;
 
-    invoke-interface {v6, v8}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v7, v9}, Ljava/util/List;->add(Ljava/lang/Object;)Z
     :try_end_0
+    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_1
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     :cond_4
     :goto_0
-    return-object v6
+    return-object v7
 
     :catch_0
     move-exception v0
 
-    const-string/jumbo v8, "KnoxVpnProxySelector"
+    const-string/jumbo v9, "KnoxVpnProxySelector"
 
-    new-instance v9, Ljava/lang/StringBuilder;
+    new-instance v10, Ljava/lang/StringBuilder;
 
-    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v10, "Exception occured for the caller "
+    const-string/jumbo v11, "Exception occured for the caller "
 
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v9
-
-    invoke-static {}, Landroid/os/Process;->myUid()I
-
-    move-result v10
-
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v9
-
-    invoke-static {v8, v9}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    invoke-interface {v6}, Ljava/util/List;->size()I
-
-    move-result v8
-
-    if-nez v8, :cond_4
-
-    const-string/jumbo v8, "KnoxVpnProxySelector"
-
-    new-instance v9, Ljava/lang/StringBuilder;
-
-    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v10, "in-valid knox vpn proxy is added for caller during exception "
-
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v9
+    move-result-object v10
 
     invoke-static {}, Landroid/os/Process;->myUid()I
 
-    move-result v10
+    move-result v11
 
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v9
+    move-result-object v10
 
-    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v9
+    move-result-object v10
 
-    invoke-static {v8, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v9, v10}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    sget-object v8, Ljava/net/Proxy;->NO_PROXY:Ljava/net/Proxy;
+    invoke-interface {v7}, Ljava/util/List;->size()I
 
-    invoke-interface {v6, v8}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    move-result v9
+
+    if-nez v9, :cond_4
+
+    const-string/jumbo v9, "KnoxVpnProxySelector"
+
+    new-instance v10, Ljava/lang/StringBuilder;
+
+    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v11, "in-valid knox vpn proxy is added for caller during exception "
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-static {}, Landroid/os/Process;->myUid()I
+
+    move-result v11
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-static {v9, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    sget-object v9, Ljava/net/Proxy;->NO_PROXY:Ljava/net/Proxy;
+
+    invoke-interface {v7, v9}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     goto :goto_0
+
+    :catch_1
+    move-exception v1
+
+    const-string/jumbo v9, "KnoxVpnProxySelector"
+
+    new-instance v10, Ljava/lang/StringBuilder;
+
+    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v11, "RuntimeException occured for the caller "
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-static {}, Landroid/os/Process;->myUid()I
+
+    move-result v11
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-static {v9, v10}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-interface {v7}, Ljava/util/List;->size()I
+
+    move-result v9
+
+    if-nez v9, :cond_4
+
+    const-string/jumbo v9, "KnoxVpnProxySelector"
+
+    new-instance v10, Ljava/lang/StringBuilder;
+
+    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v11, "in-valid knox vpn proxy is added for caller during exception "
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-static {}, Landroid/os/Process;->myUid()I
+
+    move-result v11
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-static {v9, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    sget-object v9, Ljava/net/Proxy;->NO_PROXY:Ljava/net/Proxy;
+
+    invoke-interface {v7, v9}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    goto/16 :goto_0
 .end method

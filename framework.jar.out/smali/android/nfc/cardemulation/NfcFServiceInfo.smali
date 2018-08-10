@@ -254,12 +254,12 @@
 
     move-result v14
 
-    if-le v14, v4, :cond_b
+    if-le v14, v4, :cond_9
 
     :cond_5
     const/4 v14, 0x1
 
-    if-eq v6, v14, :cond_b
+    if-eq v6, v14, :cond_9
 
     invoke-interface {v8}, Landroid/content/res/XmlResourceParser;->getName()Ljava/lang/String;
 
@@ -267,7 +267,7 @@
 
     const/4 v14, 0x2
 
-    if-ne v6, v14, :cond_8
+    if-ne v6, v14, :cond_7
 
     const-string/jumbo v14, "system-code-filter"
 
@@ -275,9 +275,9 @@
 
     move-result v14
 
-    if-eqz v14, :cond_8
+    if-eqz v14, :cond_7
 
-    if-nez v12, :cond_8
+    if-nez v12, :cond_7
 
     sget-object v14, Lcom/android/internal/R$styleable;->SystemCodeFilter:[I
 
@@ -307,15 +307,10 @@
 
     move-result v14
 
-    if-eqz v14, :cond_7
+    xor-int/lit8 v14, v14, 0x1
 
-    :cond_6
-    :goto_2
-    invoke-virtual {v2}, Landroid/content/res/TypedArray;->recycle()V
+    if-eqz v14, :cond_6
 
-    goto :goto_1
-
-    :cond_7
     const-string/jumbo v14, "NfcFServiceInfo"
 
     new-instance v15, Ljava/lang/StringBuilder;
@@ -340,9 +335,12 @@
 
     const/4 v12, 0x0
 
-    goto :goto_2
+    :cond_6
+    invoke-virtual {v2}, Landroid/content/res/TypedArray;->recycle()V
 
-    :cond_8
+    goto :goto_1
+
+    :cond_7
     const/4 v14, 0x2
 
     if-ne v6, v14, :cond_4
@@ -379,7 +377,7 @@
 
     move-result v14
 
-    if-nez v14, :cond_9
+    if-nez v14, :cond_8
 
     const-string/jumbo v14, "NULL"
 
@@ -387,20 +385,17 @@
 
     move-result v14
 
-    if-eqz v14, :cond_a
+    xor-int/lit8 v14, v14, 0x1
 
-    :cond_9
-    :goto_3
-    invoke-virtual {v2}, Landroid/content/res/TypedArray;->recycle()V
+    if-eqz v14, :cond_8
 
-    goto/16 :goto_1
-
-    :cond_a
     invoke-static {v7}, Landroid/nfc/cardemulation/NfcFCardEmulation;->isValidNfcid2(Ljava/lang/String;)Z
 
     move-result v14
 
-    if-nez v14, :cond_9
+    xor-int/lit8 v14, v14, 0x1
+
+    if-eqz v14, :cond_8
 
     const-string/jumbo v14, "NfcFServiceInfo"
 
@@ -426,23 +421,26 @@
 
     const/4 v7, 0x0
 
-    goto :goto_3
+    :cond_8
+    invoke-virtual {v2}, Landroid/content/res/TypedArray;->recycle()V
 
-    :cond_b
-    if-nez v12, :cond_c
+    goto/16 :goto_1
+
+    :cond_9
+    if-nez v12, :cond_a
 
     const-string/jumbo v12, "NULL"
 
-    :cond_c
+    :cond_a
     move-object/from16 v0, p0
 
     iput-object v12, v0, Landroid/nfc/cardemulation/NfcFServiceInfo;->mSystemCode:Ljava/lang/String;
 
-    if-nez v7, :cond_d
+    if-nez v7, :cond_b
 
     const-string/jumbo v7, "NULL"
 
-    :cond_d
+    :cond_b
     move-object/from16 v0, p0
 
     iput-object v7, v0, Landroid/nfc/cardemulation/NfcFServiceInfo;->mNfcid2:Ljava/lang/String;
@@ -450,11 +448,11 @@
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_2 .. :try_end_2} :catch_0
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    if-eqz v8, :cond_e
+    if-eqz v8, :cond_c
 
     invoke-interface {v8}, Landroid/content/res/XmlResourceParser;->close()V
 
-    :cond_e
+    :cond_c
     iget-object v14, v11, Landroid/content/pm/ServiceInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
 
     iget v14, v14, Landroid/content/pm/ApplicationInfo;->uid:I

@@ -319,6 +319,24 @@
 
     goto/16 :goto_0
 
+    :pswitch_18
+    new-instance v3, Landroid/text/style/AccessibilityClickableSpan;
+
+    invoke-direct {v3, p1}, Landroid/text/style/AccessibilityClickableSpan;-><init>(Landroid/os/Parcel;)V
+
+    invoke-static {p1, v1, v3}, Landroid/text/TextUtils;->-wrap0(Landroid/os/Parcel;Landroid/text/Spannable;Ljava/lang/Object;)V
+
+    goto/16 :goto_0
+
+    :pswitch_19
+    new-instance v3, Landroid/text/style/AccessibilityURLSpan;
+
+    invoke-direct {v3, p1}, Landroid/text/style/AccessibilityURLSpan;-><init>(Landroid/os/Parcel;)V
+
+    invoke-static {p1, v1, v3}, Landroid/text/TextUtils;->-wrap0(Landroid/os/Parcel;Landroid/text/Spannable;Ljava/lang/Object;)V
+
+    goto/16 :goto_0
+
     nop
 
     :pswitch_data_0
@@ -347,6 +365,8 @@
         :pswitch_15
         :pswitch_16
         :pswitch_17
+        :pswitch_18
+        :pswitch_19
     .end packed-switch
 .end method
 

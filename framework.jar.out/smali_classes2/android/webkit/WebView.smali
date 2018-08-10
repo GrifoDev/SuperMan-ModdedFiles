@@ -27,6 +27,12 @@
 
 .field private static final LOGTAG:Ljava/lang/String; = "WebView"
 
+.field public static final RENDERER_PRIORITY_BOUND:I = 0x1
+
+.field public static final RENDERER_PRIORITY_IMPORTANT:I = 0x2
+
+.field public static final RENDERER_PRIORITY_WAIVED:I = 0x0
+
 .field public static final SCHEME_GEO:Ljava/lang/String; = "geo:0,0?q="
 
 .field public static final SCHEME_MAILTO:Ljava/lang/String; = "mailto:"
@@ -312,7 +318,7 @@
 .end method
 
 .method protected constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;IILjava/util/Map;Z)V
-    .locals 2
+    .locals 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -327,15 +333,28 @@
         }
     .end annotation
 
+    const/4 v0, 0x1
+
+    const/4 v1, 0x0
+
     invoke-direct {p0, p1, p2, p3, p4}, Landroid/widget/AbsoluteLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;II)V
 
     invoke-static {}, Landroid/os/Looper;->myLooper()Landroid/os/Looper;
 
-    move-result-object v0
+    move-result-object v2
 
-    iput-object v0, p0, Landroid/webkit/WebView;->mWebViewThread:Landroid/os/Looper;
+    iput-object v2, p0, Landroid/webkit/WebView;->mWebViewThread:Landroid/os/Looper;
 
-    if-nez p1, :cond_0
+    invoke-virtual {p0}, Landroid/webkit/WebView;->getImportantForAutofill()I
+
+    move-result v2
+
+    if-nez v2, :cond_0
+
+    invoke-virtual {p0, v0}, Landroid/webkit/WebView;->setImportantForAutofill(I)V
+
+    :cond_0
+    if-nez p1, :cond_1
 
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
@@ -345,18 +364,16 @@
 
     throw v0
 
-    :cond_0
+    :cond_1
     invoke-virtual {p1}, Landroid/content/Context;->getApplicationInfo()Landroid/content/pm/ApplicationInfo;
 
-    move-result-object v0
+    move-result-object v2
 
-    iget v0, v0, Landroid/content/pm/ApplicationInfo;->targetSdkVersion:I
+    iget v2, v2, Landroid/content/pm/ApplicationInfo;->targetSdkVersion:I
 
-    const/16 v1, 0x12
+    const/16 v3, 0x12
 
-    if-lt v0, v1, :cond_1
-
-    const/4 v0, 0x1
+    if-lt v2, v3, :cond_2
 
     :goto_0
     sput-boolean v0, Landroid/webkit/WebView;->sEnforceThreadChecking:Z
@@ -373,8 +390,8 @@
 
     return-void
 
-    :cond_1
-    const/4 v0, 0x0
+    :cond_2
+    move v0, v1
 
     goto :goto_0
 .end method
@@ -674,30 +691,49 @@
     return-void
 .end method
 
-.method private static declared-synchronized getFactory()Landroid/webkit/WebViewFactoryProvider;
-    .locals 2
+.method public static getCurrentWebViewPackage()Landroid/content/pm/PackageInfo;
+    .locals 3
 
-    const-class v0, Landroid/webkit/WebView;
-
-    monitor-enter v0
-
-    :try_start_0
-    invoke-static {}, Landroid/webkit/WebViewFactory;->getProvider()Landroid/webkit/WebViewFactoryProvider;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    invoke-static {}, Landroid/webkit/WebViewFactory;->getLoadedPackageInfo()Landroid/content/pm/PackageInfo;
 
     move-result-object v1
 
-    monitor-exit v0
+    if-eqz v1, :cond_0
 
     return-object v1
 
-    :catchall_0
-    move-exception v1
+    :cond_0
+    :try_start_0
+    invoke-static {}, Landroid/webkit/WebViewFactory;->getUpdateService()Landroid/webkit/IWebViewUpdateService;
 
-    monitor-exit v0
+    move-result-object v2
 
-    throw v1
+    invoke-interface {v2}, Landroid/webkit/IWebViewUpdateService;->getCurrentWebViewPackage()Landroid/content/pm/PackageInfo;
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result-object v2
+
+    return-object v2
+
+    :catch_0
+    move-exception v0
+
+    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+
+    move-result-object v2
+
+    throw v2
+.end method
+
+.method private static getFactory()Landroid/webkit/WebViewFactoryProvider;
+    .locals 1
+
+    invoke-static {}, Landroid/webkit/WebViewFactory;->getProvider()Landroid/webkit/WebViewFactoryProvider;
+
+    move-result-object v0
+
+    return-object v0
 .end method
 
 .method public static declared-synchronized getPluginList()Landroid/webkit/PluginList;
@@ -779,6 +815,29 @@
     iget-object v0, p0, Landroid/webkit/WebView;->mProvider:Landroid/webkit/WebViewProvider;
 
     invoke-interface {v0, p1, p2}, Landroid/webkit/WebViewProvider;->addJavascriptInterface(Ljava/lang/Object;Ljava/lang/String;)V
+
+    return-void
+.end method
+
+.method public autofill(Landroid/util/SparseArray;)V
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Landroid/util/SparseArray",
+            "<",
+            "Landroid/view/autofill/AutofillValue;",
+            ">;)V"
+        }
+    .end annotation
+
+    iget-object v0, p0, Landroid/webkit/WebView;->mProvider:Landroid/webkit/WebViewProvider;
+
+    invoke-interface {v0}, Landroid/webkit/WebViewProvider;->getViewDelegate()Landroid/webkit/WebViewProvider$ViewDelegate;
+
+    move-result-object v0
+
+    invoke-interface {v0, p1}, Landroid/webkit/WebViewProvider$ViewDelegate;->autofill(Landroid/util/SparseArray;)V
 
     return-void
 .end method
@@ -1512,6 +1571,8 @@
 
 .method public getHttpAuthUsernamePassword(Ljava/lang/String;Ljava/lang/String;)[Ljava/lang/String;
     .locals 1
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 
     invoke-direct {p0}, Landroid/webkit/WebView;->checkThread()V
 
@@ -1555,6 +1616,30 @@
     return v0
 .end method
 
+.method public getRendererPriorityWaivedWhenNotVisible()Z
+    .locals 1
+
+    iget-object v0, p0, Landroid/webkit/WebView;->mProvider:Landroid/webkit/WebViewProvider;
+
+    invoke-interface {v0}, Landroid/webkit/WebViewProvider;->getRendererPriorityWaivedWhenNotVisible()Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public getRendererRequestedPriority()I
+    .locals 1
+
+    iget-object v0, p0, Landroid/webkit/WebView;->mProvider:Landroid/webkit/WebViewProvider;
+
+    invoke-interface {v0}, Landroid/webkit/WebViewProvider;->getRendererRequestedPriority()I
+
+    move-result v0
+
+    return v0
+.end method
+
 .method public getScale()F
     .locals 1
     .annotation runtime Landroid/view/ViewDebug$ExportedProperty;
@@ -1583,6 +1668,18 @@
     iget-object v0, p0, Landroid/webkit/WebView;->mProvider:Landroid/webkit/WebViewProvider;
 
     invoke-interface {v0}, Landroid/webkit/WebViewProvider;->getSettings()Landroid/webkit/WebSettings;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public getTextClassifier()Landroid/view/textclassifier/TextClassifier;
+    .locals 1
+
+    iget-object v0, p0, Landroid/webkit/WebView;->mProvider:Landroid/webkit/WebViewProvider;
+
+    invoke-interface {v0}, Landroid/webkit/WebViewProvider;->getTextClassifier()Landroid/view/textclassifier/TextClassifier;
 
     move-result-object v0
 
@@ -1637,6 +1734,8 @@
 
 .method public getVisibleTitleHeight()I
     .locals 1
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 
     invoke-direct {p0}, Landroid/webkit/WebView;->checkThread()V
 
@@ -1647,6 +1746,34 @@
     move-result v0
 
     return v0
+.end method
+
+.method public getWebChromeClient()Landroid/webkit/WebChromeClient;
+    .locals 1
+
+    invoke-direct {p0}, Landroid/webkit/WebView;->checkThread()V
+
+    iget-object v0, p0, Landroid/webkit/WebView;->mProvider:Landroid/webkit/WebViewProvider;
+
+    invoke-interface {v0}, Landroid/webkit/WebViewProvider;->getWebChromeClient()Landroid/webkit/WebChromeClient;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public getWebViewClient()Landroid/webkit/WebViewClient;
+    .locals 1
+
+    invoke-direct {p0}, Landroid/webkit/WebView;->checkThread()V
+
+    iget-object v0, p0, Landroid/webkit/WebView;->mProvider:Landroid/webkit/WebViewProvider;
+
+    invoke-interface {v0}, Landroid/webkit/WebViewProvider;->getWebViewClient()Landroid/webkit/WebViewClient;
+
+    move-result-object v0
+
+    return-object v0
 .end method
 
 .method public getWebViewProvider()Landroid/webkit/WebViewProvider;
@@ -2144,6 +2271,20 @@
     return-void
 .end method
 
+.method public onMovedToDisplay(ILandroid/content/res/Configuration;)V
+    .locals 1
+
+    iget-object v0, p0, Landroid/webkit/WebView;->mProvider:Landroid/webkit/WebViewProvider;
+
+    invoke-interface {v0}, Landroid/webkit/WebViewProvider;->getViewDelegate()Landroid/webkit/WebViewProvider$ViewDelegate;
+
+    move-result-object v0
+
+    invoke-interface {v0, p1, p2}, Landroid/webkit/WebViewProvider$ViewDelegate;->onMovedToDisplay(ILandroid/content/res/Configuration;)V
+
+    return-void
+.end method
+
 .method protected onOverScrolled(IIZZ)V
     .locals 1
 
@@ -2166,6 +2307,20 @@
     iget-object v0, p0, Landroid/webkit/WebView;->mProvider:Landroid/webkit/WebViewProvider;
 
     invoke-interface {v0}, Landroid/webkit/WebViewProvider;->onPause()V
+
+    return-void
+.end method
+
+.method public onProvideAutofillVirtualStructure(Landroid/view/ViewStructure;I)V
+    .locals 1
+
+    iget-object v0, p0, Landroid/webkit/WebView;->mProvider:Landroid/webkit/WebViewProvider;
+
+    invoke-interface {v0}, Landroid/webkit/WebViewProvider;->getViewDelegate()Landroid/webkit/WebViewProvider$ViewDelegate;
+
+    move-result-object v0
+
+    invoke-interface {v0, p1, p2}, Landroid/webkit/WebViewProvider$ViewDelegate;->onProvideAutofillVirtualStructure(Landroid/view/ViewStructure;I)V
 
     return-void
 .end method
@@ -2773,6 +2928,8 @@
 
 .method public setHttpAuthUsernamePassword(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
     .locals 1
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 
     invoke-direct {p0}, Landroid/webkit/WebView;->checkThread()V
 
@@ -2883,6 +3040,16 @@
     return-void
 .end method
 
+.method public setRendererPriorityPolicy(IZ)V
+    .locals 1
+
+    iget-object v0, p0, Landroid/webkit/WebView;->mProvider:Landroid/webkit/WebViewProvider;
+
+    invoke-interface {v0, p1, p2}, Landroid/webkit/WebViewProvider;->setRendererPriorityPolicy(IZ)V
+
+    return-void
+.end method
+
 .method public setScrollBarStyle(I)V
     .locals 1
 
@@ -2895,6 +3062,16 @@
     invoke-interface {v0, p1}, Landroid/webkit/WebViewProvider$ViewDelegate;->setScrollBarStyle(I)V
 
     invoke-super {p0, p1}, Landroid/widget/AbsoluteLayout;->setScrollBarStyle(I)V
+
+    return-void
+.end method
+
+.method public setTextClassifier(Landroid/view/textclassifier/TextClassifier;)V
+    .locals 1
+
+    iget-object v0, p0, Landroid/webkit/WebView;->mProvider:Landroid/webkit/WebViewProvider;
+
+    invoke-interface {v0, p1}, Landroid/webkit/WebViewProvider;->setTextClassifier(Landroid/view/textclassifier/TextClassifier;)V
 
     return-void
 .end method

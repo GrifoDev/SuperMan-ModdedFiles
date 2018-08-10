@@ -52,26 +52,9 @@
     return v0
 
     :cond_0
-    invoke-interface {p1}, Landroid/view/MenuItem;->getItemId()I
-
-    move-result v0
-
-    const v1, 0x102001f
-
-    if-ne v0, v1, :cond_1
-
     iget-object v0, p0, Landroid/widget/Editor$2;->this$0:Landroid/widget/Editor;
 
-    invoke-static {v0}, Landroid/widget/Editor;->-get13(Landroid/widget/Editor;)Landroid/widget/TextView;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/widget/TextView;->requestFocus()Z
-
-    :cond_1
-    iget-object v0, p0, Landroid/widget/Editor$2;->this$0:Landroid/widget/Editor;
-
-    invoke-static {v0}, Landroid/widget/Editor;->-get13(Landroid/widget/Editor;)Landroid/widget/TextView;
+    invoke-static {v0}, Landroid/widget/Editor;->-get14(Landroid/widget/Editor;)Landroid/widget/TextView;
 
     move-result-object v0
 

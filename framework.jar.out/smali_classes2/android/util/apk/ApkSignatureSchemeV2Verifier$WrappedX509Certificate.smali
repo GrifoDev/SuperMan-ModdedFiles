@@ -106,7 +106,7 @@
 
     iget-object v0, p0, Landroid/util/apk/ApkSignatureSchemeV2Verifier$WrappedX509Certificate;->wrapped:Ljava/security/cert/X509Certificate;
 
-    invoke-virtual {v0}, Ljava/security/cert/Certificate;->getEncoded()[B
+    invoke-virtual {v0}, Ljava/security/cert/X509Certificate;->getEncoded()[B
 
     move-result-object v0
 
@@ -211,7 +211,7 @@
 
     iget-object v0, p0, Landroid/util/apk/ApkSignatureSchemeV2Verifier$WrappedX509Certificate;->wrapped:Ljava/security/cert/X509Certificate;
 
-    invoke-virtual {v0}, Ljava/security/cert/Certificate;->getPublicKey()Ljava/security/PublicKey;
+    invoke-virtual {v0}, Ljava/security/cert/X509Certificate;->getPublicKey()Ljava/security/PublicKey;
 
     move-result-object v0
 
@@ -348,7 +348,7 @@
 
     iget-object v0, p0, Landroid/util/apk/ApkSignatureSchemeV2Verifier$WrappedX509Certificate;->wrapped:Ljava/security/cert/X509Certificate;
 
-    invoke-virtual {v0}, Ljava/security/cert/Certificate;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/security/cert/X509Certificate;->toString()Ljava/lang/String;
 
     move-result-object v0
 
@@ -369,7 +369,7 @@
 
     iget-object v0, p0, Landroid/util/apk/ApkSignatureSchemeV2Verifier$WrappedX509Certificate;->wrapped:Ljava/security/cert/X509Certificate;
 
-    invoke-virtual {v0, p1}, Ljava/security/cert/Certificate;->verify(Ljava/security/PublicKey;)V
+    invoke-virtual {v0, p1}, Ljava/security/cert/X509Certificate;->verify(Ljava/security/PublicKey;)V
 
     return-void
 .end method
@@ -388,7 +388,7 @@
 
     iget-object v0, p0, Landroid/util/apk/ApkSignatureSchemeV2Verifier$WrappedX509Certificate;->wrapped:Ljava/security/cert/X509Certificate;
 
-    invoke-virtual {v0, p1, p2}, Ljava/security/cert/Certificate;->verify(Ljava/security/PublicKey;Ljava/lang/String;)V
+    invoke-virtual {v0, p1, p2}, Ljava/security/cert/X509Certificate;->verify(Ljava/security/PublicKey;Ljava/lang/String;)V
 
     return-void
 .end method

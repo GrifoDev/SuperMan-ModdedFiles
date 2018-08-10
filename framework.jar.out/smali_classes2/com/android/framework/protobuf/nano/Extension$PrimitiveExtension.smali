@@ -73,7 +73,7 @@
 
     move-result v0
 
-    iget v3, p0, Lcom/android/framework/protobuf/nano/Extension;->type:I
+    iget v3, p0, Lcom/android/framework/protobuf/nano/Extension$PrimitiveExtension;->type:I
 
     packed-switch v3, :pswitch_data_0
 
@@ -90,7 +90,7 @@
 
     move-result-object v4
 
-    iget v5, p0, Lcom/android/framework/protobuf/nano/Extension;->type:I
+    iget v5, p0, Lcom/android/framework/protobuf/nano/Extension$PrimitiveExtension;->type:I
 
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
@@ -291,7 +291,7 @@
 .method protected computeRepeatedSerializedSize(Ljava/lang/Object;)I
     .locals 5
 
-    iget v2, p0, Lcom/android/framework/protobuf/nano/Extension;->tag:I
+    iget v2, p0, Lcom/android/framework/protobuf/nano/Extension$PrimitiveExtension;->tag:I
 
     iget v3, p0, Lcom/android/framework/protobuf/nano/Extension$PrimitiveExtension;->nonPackedTag:I
 
@@ -304,7 +304,7 @@
     return v2
 
     :cond_0
-    iget v2, p0, Lcom/android/framework/protobuf/nano/Extension;->tag:I
+    iget v2, p0, Lcom/android/framework/protobuf/nano/Extension$PrimitiveExtension;->tag:I
 
     iget v3, p0, Lcom/android/framework/protobuf/nano/Extension$PrimitiveExtension;->packedTag:I
 
@@ -320,7 +320,7 @@
 
     add-int v1, v0, v2
 
-    iget v2, p0, Lcom/android/framework/protobuf/nano/Extension;->tag:I
+    iget v2, p0, Lcom/android/framework/protobuf/nano/Extension$PrimitiveExtension;->tag:I
 
     invoke-static {v2}, Lcom/android/framework/protobuf/nano/CodedOutputByteBufferNano;->computeRawVarint32Size(I)I
 
@@ -343,7 +343,7 @@
 
     move-result-object v3
 
-    iget v4, p0, Lcom/android/framework/protobuf/nano/Extension;->tag:I
+    iget v4, p0, Lcom/android/framework/protobuf/nano/Extension$PrimitiveExtension;->tag:I
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
@@ -387,7 +387,7 @@
 
     move-object/from16 v0, p0
 
-    iget v0, v0, Lcom/android/framework/protobuf/nano/Extension;->tag:I
+    iget v0, v0, Lcom/android/framework/protobuf/nano/Extension$PrimitiveExtension;->tag:I
 
     move/from16 v19, v0
 
@@ -397,7 +397,7 @@
 
     move-object/from16 v0, p0
 
-    iget v0, v0, Lcom/android/framework/protobuf/nano/Extension;->type:I
+    iget v0, v0, Lcom/android/framework/protobuf/nano/Extension$PrimitiveExtension;->type:I
 
     move/from16 v19, v0
 
@@ -418,7 +418,7 @@
 
     move-object/from16 v0, p0
 
-    iget v0, v0, Lcom/android/framework/protobuf/nano/Extension;->type:I
+    iget v0, v0, Lcom/android/framework/protobuf/nano/Extension$PrimitiveExtension;->type:I
 
     move/from16 v21, v0
 
@@ -722,41 +722,18 @@
 .end method
 
 .method protected readData(Lcom/android/framework/protobuf/nano/CodedInputByteBufferNano;)Ljava/lang/Object;
-    .locals 4
+    .locals 3
 
     :try_start_0
-    iget v1, p0, Lcom/android/framework/protobuf/nano/Extension;->type:I
+    iget v1, p0, Lcom/android/framework/protobuf/nano/Extension$PrimitiveExtension;->type:I
 
-    packed-switch v1, :pswitch_data_0
-
-    :pswitch_0
-    new-instance v1, Ljava/lang/IllegalArgumentException;
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v3, "Unknown type "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    iget v3, p0, Lcom/android/framework/protobuf/nano/Extension;->type:I
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-direct {v1, v2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
-
-    throw v1
+    invoke-virtual {p1, v1}, Lcom/android/framework/protobuf/nano/CodedInputByteBufferNano;->readPrimitiveField(I)Ljava/lang/Object;
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result-object v1
+
+    return-object v1
 
     :catch_0
     move-exception v0
@@ -768,201 +745,6 @@
     invoke-direct {v1, v2, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
 
     throw v1
-
-    :pswitch_1
-    :try_start_1
-    invoke-virtual {p1}, Lcom/android/framework/protobuf/nano/CodedInputByteBufferNano;->readDouble()D
-
-    move-result-wide v2
-
-    invoke-static {v2, v3}, Ljava/lang/Double;->valueOf(D)Ljava/lang/Double;
-
-    move-result-object v1
-
-    return-object v1
-
-    :pswitch_2
-    invoke-virtual {p1}, Lcom/android/framework/protobuf/nano/CodedInputByteBufferNano;->readFloat()F
-
-    move-result v1
-
-    invoke-static {v1}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
-
-    move-result-object v1
-
-    return-object v1
-
-    :pswitch_3
-    invoke-virtual {p1}, Lcom/android/framework/protobuf/nano/CodedInputByteBufferNano;->readInt64()J
-
-    move-result-wide v2
-
-    invoke-static {v2, v3}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
-
-    move-result-object v1
-
-    return-object v1
-
-    :pswitch_4
-    invoke-virtual {p1}, Lcom/android/framework/protobuf/nano/CodedInputByteBufferNano;->readUInt64()J
-
-    move-result-wide v2
-
-    invoke-static {v2, v3}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
-
-    move-result-object v1
-
-    return-object v1
-
-    :pswitch_5
-    invoke-virtual {p1}, Lcom/android/framework/protobuf/nano/CodedInputByteBufferNano;->readInt32()I
-
-    move-result v1
-
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v1
-
-    return-object v1
-
-    :pswitch_6
-    invoke-virtual {p1}, Lcom/android/framework/protobuf/nano/CodedInputByteBufferNano;->readFixed64()J
-
-    move-result-wide v2
-
-    invoke-static {v2, v3}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
-
-    move-result-object v1
-
-    return-object v1
-
-    :pswitch_7
-    invoke-virtual {p1}, Lcom/android/framework/protobuf/nano/CodedInputByteBufferNano;->readFixed32()I
-
-    move-result v1
-
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v1
-
-    return-object v1
-
-    :pswitch_8
-    invoke-virtual {p1}, Lcom/android/framework/protobuf/nano/CodedInputByteBufferNano;->readBool()Z
-
-    move-result v1
-
-    invoke-static {v1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
-
-    move-result-object v1
-
-    return-object v1
-
-    :pswitch_9
-    invoke-virtual {p1}, Lcom/android/framework/protobuf/nano/CodedInputByteBufferNano;->readString()Ljava/lang/String;
-
-    move-result-object v1
-
-    return-object v1
-
-    :pswitch_a
-    invoke-virtual {p1}, Lcom/android/framework/protobuf/nano/CodedInputByteBufferNano;->readBytes()[B
-
-    move-result-object v1
-
-    return-object v1
-
-    :pswitch_b
-    invoke-virtual {p1}, Lcom/android/framework/protobuf/nano/CodedInputByteBufferNano;->readUInt32()I
-
-    move-result v1
-
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v1
-
-    return-object v1
-
-    :pswitch_c
-    invoke-virtual {p1}, Lcom/android/framework/protobuf/nano/CodedInputByteBufferNano;->readEnum()I
-
-    move-result v1
-
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v1
-
-    return-object v1
-
-    :pswitch_d
-    invoke-virtual {p1}, Lcom/android/framework/protobuf/nano/CodedInputByteBufferNano;->readSFixed32()I
-
-    move-result v1
-
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v1
-
-    return-object v1
-
-    :pswitch_e
-    invoke-virtual {p1}, Lcom/android/framework/protobuf/nano/CodedInputByteBufferNano;->readSFixed64()J
-
-    move-result-wide v2
-
-    invoke-static {v2, v3}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
-
-    move-result-object v1
-
-    return-object v1
-
-    :pswitch_f
-    invoke-virtual {p1}, Lcom/android/framework/protobuf/nano/CodedInputByteBufferNano;->readSInt32()I
-
-    move-result v1
-
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v1
-
-    return-object v1
-
-    :pswitch_10
-    invoke-virtual {p1}, Lcom/android/framework/protobuf/nano/CodedInputByteBufferNano;->readSInt64()J
-
-    move-result-wide v2
-
-    invoke-static {v2, v3}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
-    :try_end_1
-    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
-
-    move-result-object v1
-
-    return-object v1
-
-    nop
-
-    :pswitch_data_0
-    .packed-switch 0x1
-        :pswitch_1
-        :pswitch_2
-        :pswitch_3
-        :pswitch_4
-        :pswitch_5
-        :pswitch_6
-        :pswitch_7
-        :pswitch_8
-        :pswitch_9
-        :pswitch_0
-        :pswitch_0
-        :pswitch_a
-        :pswitch_b
-        :pswitch_c
-        :pswitch_d
-        :pswitch_e
-        :pswitch_f
-        :pswitch_10
-    .end packed-switch
 .end method
 
 .method protected readDataInto(Lcom/android/framework/protobuf/nano/UnknownFieldData;Ljava/util/List;)V
@@ -1045,7 +827,7 @@
 .method protected writeRepeatedData(Ljava/lang/Object;Lcom/android/framework/protobuf/nano/CodedOutputByteBufferNano;)V
     .locals 7
 
-    iget v4, p0, Lcom/android/framework/protobuf/nano/Extension;->tag:I
+    iget v4, p0, Lcom/android/framework/protobuf/nano/Extension$PrimitiveExtension;->tag:I
 
     iget v5, p0, Lcom/android/framework/protobuf/nano/Extension$PrimitiveExtension;->nonPackedTag:I
 
@@ -1057,7 +839,7 @@
     return-void
 
     :cond_1
-    iget v4, p0, Lcom/android/framework/protobuf/nano/Extension;->tag:I
+    iget v4, p0, Lcom/android/framework/protobuf/nano/Extension$PrimitiveExtension;->tag:I
 
     iget v5, p0, Lcom/android/framework/protobuf/nano/Extension$PrimitiveExtension;->packedTag:I
 
@@ -1072,13 +854,13 @@
     move-result v1
 
     :try_start_0
-    iget v4, p0, Lcom/android/framework/protobuf/nano/Extension;->tag:I
+    iget v4, p0, Lcom/android/framework/protobuf/nano/Extension$PrimitiveExtension;->tag:I
 
     invoke-virtual {p2, v4}, Lcom/android/framework/protobuf/nano/CodedOutputByteBufferNano;->writeRawVarint32(I)V
 
     invoke-virtual {p2, v1}, Lcom/android/framework/protobuf/nano/CodedOutputByteBufferNano;->writeRawVarint32(I)V
 
-    iget v4, p0, Lcom/android/framework/protobuf/nano/Extension;->type:I
+    iget v4, p0, Lcom/android/framework/protobuf/nano/Extension$PrimitiveExtension;->type:I
 
     packed-switch v4, :pswitch_data_0
 
@@ -1095,7 +877,7 @@
 
     move-result-object v5
 
-    iget v6, p0, Lcom/android/framework/protobuf/nano/Extension;->type:I
+    iget v6, p0, Lcom/android/framework/protobuf/nano/Extension$PrimitiveExtension;->type:I
 
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
@@ -1360,7 +1142,7 @@
 
     move-result-object v5
 
-    iget v6, p0, Lcom/android/framework/protobuf/nano/Extension;->tag:I
+    iget v6, p0, Lcom/android/framework/protobuf/nano/Extension$PrimitiveExtension;->tag:I
 
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
@@ -1427,7 +1209,7 @@
     :try_start_0
     move-object/from16 v0, p0
 
-    iget v0, v0, Lcom/android/framework/protobuf/nano/Extension;->tag:I
+    iget v0, v0, Lcom/android/framework/protobuf/nano/Extension$PrimitiveExtension;->tag:I
 
     move/from16 v21, v0
 
@@ -1439,7 +1221,7 @@
 
     move-object/from16 v0, p0
 
-    iget v0, v0, Lcom/android/framework/protobuf/nano/Extension;->type:I
+    iget v0, v0, Lcom/android/framework/protobuf/nano/Extension$PrimitiveExtension;->type:I
 
     move/from16 v21, v0
 
@@ -1460,7 +1242,7 @@
 
     move-object/from16 v0, p0
 
-    iget v0, v0, Lcom/android/framework/protobuf/nano/Extension;->type:I
+    iget v0, v0, Lcom/android/framework/protobuf/nano/Extension$PrimitiveExtension;->type:I
 
     move/from16 v23, v0
 

@@ -28,7 +28,7 @@
 
     const/4 v0, 0x1
 
-    iput v0, p0, Landroid/widget/MultiSelectPopupWindow$HandleView;->mHandleType:I
+    iput v0, p0, Landroid/widget/MultiSelectPopupWindow$SelectionStartHandleView;->mHandleType:I
 
     return-void
 .end method
@@ -44,7 +44,7 @@
 
     move-result-object v1
 
-    iget-object v3, p0, Landroid/widget/MultiSelectPopupWindow$HandleView;->mDrawableRtl:Landroid/graphics/drawable/Drawable;
+    iget-object v3, p0, Landroid/widget/MultiSelectPopupWindow$SelectionStartHandleView;->mDrawableRtl:Landroid/graphics/drawable/Drawable;
 
     invoke-virtual {v3}, Landroid/graphics/drawable/Drawable;->getIntrinsicWidth()I
 
@@ -52,7 +52,7 @@
 
     div-int/lit8 v0, v3, 0x2
 
-    iget v3, p0, Landroid/widget/MultiSelectPopupWindow$HandleView;->mPositionX:I
+    iget v3, p0, Landroid/widget/MultiSelectPopupWindow$SelectionStartHandleView;->mPositionX:I
 
     invoke-virtual {v1}, Landroid/widget/MultiSelectPopupWindow$PositionListener;->getPositionX()I
 
@@ -60,7 +60,13 @@
 
     add-int/2addr v3, v4
 
-    iget v4, p0, Landroid/widget/MultiSelectPopupWindow$HandleView;->mHotspotX:I
+    iget v4, p0, Landroid/widget/MultiSelectPopupWindow$SelectionStartHandleView;->mHotspotX:I
+
+    add-int/2addr v3, v4
+
+    invoke-virtual {p0}, Landroid/widget/MultiSelectPopupWindow$SelectionStartHandleView;->getHorizontalOffset()I
+
+    move-result v4
 
     add-int/2addr v3, v4
 
@@ -83,9 +89,9 @@
 
     const/4 v3, 0x0
 
-    iget-boolean v0, p0, Landroid/widget/MultiSelectPopupWindow$HandleView;->mbSwitchCursor:Z
+    iget-boolean v0, p0, Landroid/widget/MultiSelectPopupWindow$SelectionStartHandleView;->mbSwitchCursor:Z
 
-    iput-boolean v3, p0, Landroid/widget/MultiSelectPopupWindow$HandleView;->mbSwitchCursor:Z
+    iput-boolean v3, p0, Landroid/widget/MultiSelectPopupWindow$SelectionStartHandleView;->mbSwitchCursor:Z
 
     invoke-direct {p0}, Landroid/widget/MultiSelectPopupWindow$SelectionStartHandleView;->isHandleViewScreenOut()Z
 
@@ -93,16 +99,16 @@
 
     if-eqz v2, :cond_0
 
-    iput-boolean v4, p0, Landroid/widget/MultiSelectPopupWindow$HandleView;->mbSwitchCursor:Z
+    iput-boolean v4, p0, Landroid/widget/MultiSelectPopupWindow$SelectionStartHandleView;->mbSwitchCursor:Z
 
     :cond_0
-    iget-boolean v2, p0, Landroid/widget/MultiSelectPopupWindow$HandleView;->mbSwitchCursor:Z
+    iget-boolean v2, p0, Landroid/widget/MultiSelectPopupWindow$SelectionStartHandleView;->mbSwitchCursor:Z
 
     if-eq v0, v2, :cond_1
 
     invoke-virtual {p0}, Landroid/widget/MultiSelectPopupWindow$SelectionStartHandleView;->updateDrawable()V
 
-    invoke-static {}, Landroid/widget/MultiSelectPopupWindow;->-get2()Landroid/widget/TextView;
+    invoke-static {}, Landroid/widget/MultiSelectPopupWindow;->-get5()Landroid/widget/TextView;
 
     move-result-object v2
 
@@ -122,7 +128,7 @@
 
     sub-float/2addr v2, v3
 
-    iget v3, p0, Landroid/widget/MultiSelectPopupWindow$HandleView;->mHotspotX:I
+    iget v3, p0, Landroid/widget/MultiSelectPopupWindow$SelectionStartHandleView;->mHotspotX:I
 
     int-to-float v3, v3
 
@@ -130,11 +136,11 @@
 
     float-to-int v2, v2
 
-    iput v2, p0, Landroid/widget/MultiSelectPopupWindow$HandleView;->mPositionX:I
+    iput v2, p0, Landroid/widget/MultiSelectPopupWindow$SelectionStartHandleView;->mPositionX:I
 
-    iget v2, p0, Landroid/widget/MultiSelectPopupWindow$HandleView;->mPositionX:I
+    iget v2, p0, Landroid/widget/MultiSelectPopupWindow$SelectionStartHandleView;->mPositionX:I
 
-    invoke-static {}, Landroid/widget/MultiSelectPopupWindow;->-get2()Landroid/widget/TextView;
+    invoke-static {}, Landroid/widget/MultiSelectPopupWindow;->-get5()Landroid/widget/TextView;
 
     move-result-object v3
 
@@ -144,7 +150,7 @@
 
     add-int/2addr v2, v3
 
-    iput v2, p0, Landroid/widget/MultiSelectPopupWindow$HandleView;->mPositionX:I
+    iput v2, p0, Landroid/widget/MultiSelectPopupWindow$SelectionStartHandleView;->mPositionX:I
 
     return v4
 
@@ -155,7 +161,7 @@
 .method public getCurrentCursorOffset()I
     .locals 3
 
-    invoke-static {}, Landroid/widget/MultiSelectPopupWindow;->-get2()Landroid/widget/TextView;
+    invoke-static {}, Landroid/widget/MultiSelectPopupWindow;->-get5()Landroid/widget/TextView;
 
     move-result-object v1
 
@@ -213,9 +219,9 @@
 
     const/4 v0, 0x1
 
-    iput-boolean v0, p0, Landroid/widget/MultiSelectPopupWindow$HandleView;->mPositionHasChanged:Z
+    iput-boolean v0, p0, Landroid/widget/MultiSelectPopupWindow$SelectionStartHandleView;->mPositionHasChanged:Z
 
-    invoke-virtual {p0}, Landroid/view/View;->invalidate()V
+    invoke-virtual {p0}, Landroid/widget/MultiSelectPopupWindow$SelectionStartHandleView;->invalidate()V
 
     return-void
 .end method
@@ -229,23 +235,24 @@
 
     if-eqz v0, :cond_0
 
-    iget-boolean v0, p0, Landroid/widget/MultiSelectPopupWindow$HandleView;->mbSwitchCursor:Z
+    iget-boolean v0, p0, Landroid/widget/MultiSelectPopupWindow$SelectionStartHandleView;->mbSwitchCursor:Z
 
-    if-eqz v0, :cond_1
+    xor-int/lit8 v0, v0, 0x1
 
-    :cond_0
-    const/4 v0, 0x0
+    if-eqz v0, :cond_0
 
-    return v0
-
-    :cond_1
-    invoke-static {}, Landroid/widget/MultiSelectPopupWindow;->-get2()Landroid/widget/TextView;
+    invoke-static {}, Landroid/widget/MultiSelectPopupWindow;->-get5()Landroid/widget/TextView;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/view/View;->invalidate()V
+    invoke-virtual {v0}, Landroid/widget/TextView;->invalidate()V
 
     const/4 v0, 0x1
+
+    return v0
+
+    :cond_0
+    const/4 v0, 0x0
 
     return v0
 .end method
@@ -257,9 +264,9 @@
 
     move-result v1
 
-    iget-object v2, p0, Landroid/widget/MultiSelectPopupWindow$HandleView;->mDrawable:Landroid/graphics/drawable/Drawable;
+    iget-object v2, p0, Landroid/widget/MultiSelectPopupWindow$SelectionStartHandleView;->mDrawable:Landroid/graphics/drawable/Drawable;
 
-    invoke-static {}, Landroid/widget/MultiSelectPopupWindow;->-get2()Landroid/widget/TextView;
+    invoke-static {}, Landroid/widget/MultiSelectPopupWindow;->-get5()Landroid/widget/TextView;
 
     move-result-object v3
 
@@ -271,51 +278,49 @@
 
     move-result v0
 
-    iget-boolean v3, p0, Landroid/widget/MultiSelectPopupWindow$HandleView;->mbSwitchCursor:Z
+    iget-boolean v3, p0, Landroid/widget/MultiSelectPopupWindow$SelectionStartHandleView;->mbSwitchCursor:Z
 
     if-eqz v3, :cond_0
 
-    if-eqz v0, :cond_2
-
-    const/4 v0, 0x0
+    xor-int/lit8 v0, v0, 0x1
 
     :cond_0
+    if-eqz v0, :cond_2
+
+    iget-object v3, p0, Landroid/widget/MultiSelectPopupWindow$SelectionStartHandleView;->mDrawableRtl:Landroid/graphics/drawable/Drawable;
+
     :goto_0
-    if-eqz v0, :cond_3
+    iput-object v3, p0, Landroid/widget/MultiSelectPopupWindow$SelectionStartHandleView;->mDrawable:Landroid/graphics/drawable/Drawable;
 
-    iget-object v3, p0, Landroid/widget/MultiSelectPopupWindow$HandleView;->mDrawableRtl:Landroid/graphics/drawable/Drawable;
-
-    :goto_1
-    iput-object v3, p0, Landroid/widget/MultiSelectPopupWindow$HandleView;->mDrawable:Landroid/graphics/drawable/Drawable;
-
-    iget-object v3, p0, Landroid/widget/MultiSelectPopupWindow$HandleView;->mDrawable:Landroid/graphics/drawable/Drawable;
+    iget-object v3, p0, Landroid/widget/MultiSelectPopupWindow$SelectionStartHandleView;->mDrawable:Landroid/graphics/drawable/Drawable;
 
     invoke-virtual {p0, v3, v0}, Landroid/widget/MultiSelectPopupWindow$SelectionStartHandleView;->getHotspotX(Landroid/graphics/drawable/Drawable;Z)I
 
     move-result v3
 
-    iput v3, p0, Landroid/widget/MultiSelectPopupWindow$HandleView;->mHotspotX:I
+    iput v3, p0, Landroid/widget/MultiSelectPopupWindow$SelectionStartHandleView;->mHotspotX:I
 
-    iget-object v3, p0, Landroid/widget/MultiSelectPopupWindow$HandleView;->mDrawable:Landroid/graphics/drawable/Drawable;
+    invoke-virtual {p0, v0}, Landroid/widget/MultiSelectPopupWindow$SelectionStartHandleView;->getHorizontalGravity(Z)I
+
+    move-result v3
+
+    iput v3, p0, Landroid/widget/MultiSelectPopupWindow$SelectionStartHandleView;->mHorizontalGravity:I
+
+    iget-object v3, p0, Landroid/widget/MultiSelectPopupWindow$SelectionStartHandleView;->mDrawable:Landroid/graphics/drawable/Drawable;
 
     if-eq v2, v3, :cond_1
 
-    invoke-virtual {p0}, Landroid/widget/MultiSelectPopupWindow$HandleView;->recalHandleView()V
+    invoke-virtual {p0}, Landroid/widget/MultiSelectPopupWindow$SelectionStartHandleView;->recalHandleView()V
 
-    invoke-virtual {p0}, Landroid/view/View;->invalidate()V
+    invoke-virtual {p0}, Landroid/widget/MultiSelectPopupWindow$SelectionStartHandleView;->invalidate()V
 
     :cond_1
     return-void
 
     :cond_2
-    const/4 v0, 0x1
+    iget-object v3, p0, Landroid/widget/MultiSelectPopupWindow$SelectionStartHandleView;->mDrawableLtr:Landroid/graphics/drawable/Drawable;
 
     goto :goto_0
-
-    :cond_3
-    iget-object v3, p0, Landroid/widget/MultiSelectPopupWindow$HandleView;->mDrawableLtr:Landroid/graphics/drawable/Drawable;
-
-    goto :goto_1
 .end method
 
 .method public updatePosition(FF)V
@@ -323,7 +328,7 @@
 
     const/4 v4, 0x0
 
-    invoke-static {}, Landroid/widget/MultiSelectPopupWindow;->-get2()Landroid/widget/TextView;
+    invoke-static {}, Landroid/widget/MultiSelectPopupWindow;->-get5()Landroid/widget/TextView;
 
     move-result-object v3
 
@@ -331,7 +336,7 @@
 
     move-result v0
 
-    invoke-static {}, Landroid/widget/MultiSelectPopupWindow;->-get2()Landroid/widget/TextView;
+    invoke-static {}, Landroid/widget/MultiSelectPopupWindow;->-get5()Landroid/widget/TextView;
 
     move-result-object v3
 
@@ -348,11 +353,11 @@
     return-void
 
     :cond_0
-    iget v3, p0, Landroid/widget/MultiSelectPopupWindow$HandleView;->mStartRange:I
+    iget v3, p0, Landroid/widget/MultiSelectPopupWindow$SelectionStartHandleView;->mStartRange:I
 
     if-ge v0, v3, :cond_1
 
-    iget v0, p0, Landroid/widget/MultiSelectPopupWindow$HandleView;->mStartRange:I
+    iget v0, p0, Landroid/widget/MultiSelectPopupWindow$SelectionStartHandleView;->mStartRange:I
 
     :cond_1
     invoke-virtual {p0, v0, v4, v4}, Landroid/widget/MultiSelectPopupWindow$SelectionStartHandleView;->positionAtCursorOffset(IZZ)V
@@ -363,7 +368,7 @@
 .method public updateSelection(I)V
     .locals 3
 
-    invoke-static {}, Landroid/widget/MultiSelectPopupWindow;->-get2()Landroid/widget/TextView;
+    invoke-static {}, Landroid/widget/MultiSelectPopupWindow;->-get5()Landroid/widget/TextView;
 
     move-result-object v1
 
@@ -394,5 +399,18 @@
 
     invoke-virtual {p0}, Landroid/widget/MultiSelectPopupWindow$SelectionStartHandleView;->updateDrawable()V
 
+    invoke-static {}, Landroid/widget/MultiSelectPopupWindow;->-get4()Landroid/view/ActionMode;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_1
+
+    invoke-static {}, Landroid/widget/MultiSelectPopupWindow;->-get4()Landroid/view/ActionMode;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/view/ActionMode;->invalidate()V
+
+    :cond_1
     return-void
 .end method

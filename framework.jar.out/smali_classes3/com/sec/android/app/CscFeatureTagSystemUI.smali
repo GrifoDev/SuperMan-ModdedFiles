@@ -18,6 +18,8 @@
 
 .field public static final TAG_CSCFEATURE_SYSTEMUI_CONFIGDEFSTATUSSIMPLESTATUSBAR:Ljava/lang/String; = "CscFeature_SystemUI_ConfigDefStatusSimpleStatusBar"
 
+.field public static final TAG_CSCFEATURE_SYSTEMUI_CONFIGDETERMINESIGNALSTATE:Ljava/lang/String; = "CscFeature_SystemUI_ConfigDetermineSignalState"
+
 .field public static final TAG_CSCFEATURE_SYSTEMUI_CONFIGDISPLAYPOLICYFORLOCATIONINDICATOR:Ljava/lang/String; = "CscFeature_SystemUI_ConfigDisplayPolicyForLocationIndicator"
 
 .field public static final TAG_CSCFEATURE_SYSTEMUI_CONFIGDNDEXCEPTIONPACKAGE:Ljava/lang/String; = "CscFeature_SystemUI_ConfigDndExceptionPackage"
@@ -30,11 +32,15 @@
 
 .field public static final TAG_CSCFEATURE_SYSTEMUI_CONFIGMAXSTATUSFORNFC:Ljava/lang/String; = "CscFeature_SystemUI_ConfigMaxStatusForNfc"
 
+.field public static final TAG_CSCFEATURE_SYSTEMUI_CONFIGNAVIGATIONBARPOLICY:Ljava/lang/String; = "CscFeature_SystemUI_ConfigNavigationBarPolicy"
+
 .field public static final TAG_CSCFEATURE_SYSTEMUI_CONFIGOPBRANDINGFORDATAINDICATOR:Ljava/lang/String; = "CscFeature_SystemUI_ConfigOpBrandingForDataIndicator"
 
 .field public static final TAG_CSCFEATURE_SYSTEMUI_CONFIGOPBRANDINGFORINDICATORICON:Ljava/lang/String; = "CscFeature_SystemUI_ConfigOpBrandingForIndicatorIcon"
 
 .field public static final TAG_CSCFEATURE_SYSTEMUI_CONFIGOPBRANDINGFORQUICKSETTINGLABEL:Ljava/lang/String; = "CscFeature_SystemUI_ConfigOpBrandingForQuickSettingLabel"
+
+.field public static final TAG_CSCFEATURE_SYSTEMUI_CONFIGOPBRANDINGLTEWIDEBANDICON:Ljava/lang/String; = "CscFeature_SystemUI_ConfigOpBrandingLTEWideBandIcon"
 
 .field public static final TAG_CSCFEATURE_SYSTEMUI_CONFIGOPBRANDINGQUICKSETTINGICON:Ljava/lang/String; = "CscFeature_SystemUI_ConfigOpBrandingQuickSettingIcon"
 
@@ -50,6 +56,12 @@
 
 .field public static final TAG_CSCFEATURE_SYSTEMUI_CONFIGQUICKSETTINGPOPUP:Ljava/lang/String; = "CscFeature_SystemUI_ConfigQuickSettingPopup"
 
+.field public static final TAG_CSCFEATURE_SYSTEMUI_CONFIGRECENTBLOCKLIST:Ljava/lang/String; = "CscFeature_SystemUI_ConfigRecentBlockList"
+
+.field public static final TAG_CSCFEATURE_SYSTEMUI_CONFIGRECENTDEFAULTLOCKLIST:Ljava/lang/String; = "CscFeature_SystemUI_ConfigRecentDefaultLockList"
+
+.field public static final TAG_CSCFEATURE_SYSTEMUI_CONFIGROAMINGICONTYPE:Ljava/lang/String; = "CscFeature_SystemUI_ConfigRoamingIconType"
+
 .field public static final TAG_CSCFEATURE_SYSTEMUI_CONFIGRULEFORSHOWPLMN:Ljava/lang/String; = "CscFeature_SystemUI_ConfigRuleForShowPlmn"
 
 .field public static final TAG_CSCFEATURE_SYSTEMUI_CONFIGRULERSSILEVEL:Ljava/lang/String; = "CscFeature_SystemUI_ConfigRuleRssiLevel"
@@ -60,11 +72,11 @@
 
 .field public static final TAG_CSCFEATURE_SYSTEMUI_DISABLENOSVCDISPLAY:Ljava/lang/String; = "CscFeature_SystemUI_DisableNoSvcDisplay"
 
-.field public static final TAG_CSCFEATURE_SYSTEMUI_DISPLAYPLMNATNOTIFICATIONPANEL:Ljava/lang/String; = "CscFeature_SystemUI_DisplayPlmnAtNotificationPanel"
-
 .field public static final TAG_CSCFEATURE_SYSTEMUI_SUPPORTASSISTANCEAPPCHOOSER:Ljava/lang/String; = "CscFeature_SystemUI_SupportAssistanceAppChooser"
 
 .field public static final TAG_CSCFEATURE_SYSTEMUI_SUPPORTDATAUSAGEVIEWONQUICKPANEL:Ljava/lang/String; = "CscFeature_SystemUI_SupportDataUsageViewOnQuickPanel"
+
+.field public static final TAG_CSCFEATURE_SYSTEMUI_SUPPORTFEMTOCELLICON:Ljava/lang/String; = "CscFeature_SystemUI_SupportFemToCellIcon"
 
 .field public static final TAG_CSCFEATURE_SYSTEMUI_SUPPORTNOSIMNOTIFICATION:Ljava/lang/String; = "CscFeature_SystemUI_SupportNoSimNotification"
 

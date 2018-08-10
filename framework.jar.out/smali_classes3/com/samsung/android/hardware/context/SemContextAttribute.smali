@@ -74,10 +74,173 @@
     return-void
 .end method
 
+.method static getDefaultAttribute(I)Lcom/samsung/android/hardware/context/SemContextAttribute;
+    .locals 1
+
+    sparse-switch p0, :sswitch_data_0
+
+    new-instance v0, Lcom/samsung/android/hardware/context/SemContextAttribute;
+
+    invoke-direct {v0}, Lcom/samsung/android/hardware/context/SemContextAttribute;-><init>()V
+
+    :goto_0
+    return-object v0
+
+    :sswitch_0
+    new-instance v0, Lcom/samsung/android/hardware/context/SemContextApproachAttribute;
+
+    invoke-direct {v0}, Lcom/samsung/android/hardware/context/SemContextApproachAttribute;-><init>()V
+
+    goto :goto_0
+
+    :sswitch_1
+    new-instance v0, Lcom/samsung/android/hardware/context/SemContextPedometerAttribute;
+
+    invoke-direct {v0}, Lcom/samsung/android/hardware/context/SemContextPedometerAttribute;-><init>()V
+
+    goto :goto_0
+
+    :sswitch_2
+    new-instance v0, Lcom/samsung/android/hardware/context/SemContextStepCountAlertAttribute;
+
+    invoke-direct {v0}, Lcom/samsung/android/hardware/context/SemContextStepCountAlertAttribute;-><init>()V
+
+    goto :goto_0
+
+    :sswitch_3
+    new-instance v0, Lcom/samsung/android/hardware/context/SemContextAutoRotationAttribute;
+
+    invoke-direct {v0}, Lcom/samsung/android/hardware/context/SemContextAutoRotationAttribute;-><init>()V
+
+    goto :goto_0
+
+    :sswitch_4
+    new-instance v0, Lcom/samsung/android/hardware/context/SemContextShakeMotionAttribute;
+
+    invoke-direct {v0}, Lcom/samsung/android/hardware/context/SemContextShakeMotionAttribute;-><init>()V
+
+    goto :goto_0
+
+    :sswitch_5
+    new-instance v0, Lcom/samsung/android/hardware/context/SemContextActivityLocationLoggingAttribute;
+
+    invoke-direct {v0}, Lcom/samsung/android/hardware/context/SemContextActivityLocationLoggingAttribute;-><init>()V
+
+    goto :goto_0
+
+    :sswitch_6
+    new-instance v0, Lcom/samsung/android/hardware/context/SemContextActivityNotificationAttribute;
+
+    invoke-direct {v0}, Lcom/samsung/android/hardware/context/SemContextActivityNotificationAttribute;-><init>()V
+
+    goto :goto_0
+
+    :sswitch_7
+    new-instance v0, Lcom/samsung/android/hardware/context/SemContextSpecificPoseAlertAttribute;
+
+    invoke-direct {v0}, Lcom/samsung/android/hardware/context/SemContextSpecificPoseAlertAttribute;-><init>()V
+
+    goto :goto_0
+
+    :sswitch_8
+    new-instance v0, Lcom/samsung/android/hardware/context/SemContextActivityNotificationExAttribute;
+
+    invoke-direct {v0}, Lcom/samsung/android/hardware/context/SemContextActivityNotificationExAttribute;-><init>()V
+
+    goto :goto_0
+
+    :sswitch_9
+    new-instance v0, Lcom/samsung/android/hardware/context/SemContextStepLevelMonitorAttribute;
+
+    invoke-direct {v0}, Lcom/samsung/android/hardware/context/SemContextStepLevelMonitorAttribute;-><init>()V
+
+    goto :goto_0
+
+    :sswitch_a
+    new-instance v0, Lcom/samsung/android/hardware/context/SemContextSedentaryTimerAttribute;
+
+    invoke-direct {v0}, Lcom/samsung/android/hardware/context/SemContextSedentaryTimerAttribute;-><init>()V
+
+    goto :goto_0
+
+    :sswitch_b
+    new-instance v0, Lcom/samsung/android/hardware/context/SemContextFlatMotionForTableModeAttribute;
+
+    invoke-direct {v0}, Lcom/samsung/android/hardware/context/SemContextFlatMotionForTableModeAttribute;-><init>()V
+
+    goto :goto_0
+
+    :sswitch_c
+    new-instance v0, Lcom/samsung/android/hardware/context/SemContextAutoBrightnessAttribute;
+
+    invoke-direct {v0}, Lcom/samsung/android/hardware/context/SemContextAutoBrightnessAttribute;-><init>()V
+
+    goto :goto_0
+
+    :sswitch_d
+    new-instance v0, Lcom/samsung/android/hardware/context/SemContextLocationCoreAttribute;
+
+    invoke-direct {v0}, Lcom/samsung/android/hardware/context/SemContextLocationCoreAttribute;-><init>()V
+
+    goto :goto_0
+
+    :sswitch_e
+    new-instance v0, Lcom/samsung/android/hardware/context/SemContextCarryingDetectionAttribute;
+
+    invoke-direct {v0}, Lcom/samsung/android/hardware/context/SemContextCarryingDetectionAttribute;-><init>()V
+
+    goto :goto_0
+
+    :sswitch_f
+    new-instance v0, Lcom/samsung/android/hardware/context/SemContextInterruptedGyroAttribute;
+
+    invoke-direct {v0}, Lcom/samsung/android/hardware/context/SemContextInterruptedGyroAttribute;-><init>()V
+
+    goto :goto_0
+
+    :sswitch_10
+    new-instance v0, Lcom/samsung/android/hardware/context/SemContextActivityCalibrationAttribute;
+
+    invoke-direct {v0}, Lcom/samsung/android/hardware/context/SemContextActivityCalibrationAttribute;-><init>()V
+
+    goto :goto_0
+
+    :sswitch_11
+    new-instance v0, Lcom/samsung/android/hardware/context/SemContextLocationChangeTriggerAttribute;
+
+    invoke-direct {v0}, Lcom/samsung/android/hardware/context/SemContextLocationChangeTriggerAttribute;-><init>()V
+
+    goto :goto_0
+
+    nop
+
+    :sswitch_data_0
+    .sparse-switch
+        0x1 -> :sswitch_0
+        0x2 -> :sswitch_1
+        0x3 -> :sswitch_2
+        0x6 -> :sswitch_3
+        0xc -> :sswitch_4
+        0x18 -> :sswitch_5
+        0x1b -> :sswitch_6
+        0x1c -> :sswitch_7
+        0x1e -> :sswitch_8
+        0x21 -> :sswitch_9
+        0x23 -> :sswitch_a
+        0x24 -> :sswitch_b
+        0x27 -> :sswitch_c
+        0x2f -> :sswitch_d
+        0x30 -> :sswitch_f
+        0x33 -> :sswitch_e
+        0x35 -> :sswitch_10
+        0x36 -> :sswitch_11
+    .end sparse-switch
+.end method
+
 .method private readFromParcel(Landroid/os/Parcel;)V
     .locals 1
 
-    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+    invoke-virtual {p0}, Lcom/samsung/android/hardware/context/SemContextAttribute;->getClass()Ljava/lang/Class;
 
     move-result-object v0
 
@@ -121,7 +284,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/hardware/context/SemContextAttribute;->mAttribute:Landroid/os/Bundle;
 
-    invoke-virtual {v1, v0}, Landroid/os/BaseBundle;->containsKey(Ljava/lang/String;)Z
+    invoke-virtual {v1, v0}, Landroid/os/Bundle;->containsKey(Ljava/lang/String;)Z
 
     move-result v1
 

@@ -165,7 +165,7 @@
 
     invoke-virtual {v3, p4}, Ljava/nio/ByteBuffer;->putInt(I)Ljava/nio/ByteBuffer;
 
-    invoke-virtual {v3}, Ljava/nio/Buffer;->flip()Ljava/nio/Buffer;
+    invoke-virtual {v3}, Ljava/nio/ByteBuffer;->flip()Ljava/nio/Buffer;
 
     return-object v3
 
@@ -226,7 +226,7 @@
 
     if-ne v3, v5, :cond_0
 
-    invoke-virtual {p0}, Landroid/speech/tts/AbstractSynthesisCallback;->errorCodeOnStop()I
+    invoke-virtual {p0}, Landroid/speech/tts/FileSynthesisCallback;->errorCodeOnStop()I
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -400,7 +400,7 @@
 
     if-ne v6, v8, :cond_1
 
-    invoke-virtual {p0}, Landroid/speech/tts/AbstractSynthesisCallback;->errorCodeOnStop()I
+    invoke-virtual {p0}, Landroid/speech/tts/FileSynthesisCallback;->errorCodeOnStop()I
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
@@ -662,6 +662,16 @@
     throw v1
 .end method
 
+.method public rangeStart(III)V
+    .locals 1
+
+    iget-object v0, p0, Landroid/speech/tts/FileSynthesisCallback;->mDispatcher:Landroid/speech/tts/TextToSpeechService$UtteranceProgressDispatcher;
+
+    invoke-interface {v0, p1, p2, p3}, Landroid/speech/tts/TextToSpeechService$UtteranceProgressDispatcher;->dispatchOnRangeStart(III)V
+
+    return-void
+.end method
+
 .method public start(III)I
     .locals 7
 
@@ -739,7 +749,7 @@
 
     if-ne v2, v4, :cond_1
 
-    invoke-virtual {p0}, Landroid/speech/tts/AbstractSynthesisCallback;->errorCodeOnStop()I
+    invoke-virtual {p0}, Landroid/speech/tts/FileSynthesisCallback;->errorCodeOnStop()I
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 

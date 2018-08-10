@@ -61,23 +61,9 @@
 
     iget v3, p0, Landroid/transition/ChangeText$2;->val$startColor:I
 
-    const/high16 v4, 0xff0000
+    const v4, 0xffffff
 
     and-int/2addr v3, v4
-
-    or-int/2addr v2, v3
-
-    iget v3, p0, Landroid/transition/ChangeText$2;->val$startColor:I
-
-    const v4, 0xff00
-
-    and-int/2addr v3, v4
-
-    or-int/2addr v2, v3
-
-    iget v3, p0, Landroid/transition/ChangeText$2;->val$startColor:I
-
-    and-int/lit16 v3, v3, 0xff
 
     or-int/2addr v2, v3
 

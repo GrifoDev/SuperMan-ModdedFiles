@@ -78,13 +78,13 @@
 
     iput-object v0, p0, Landroid/widget/AppSecurityPermissions$MyPermissionGroupInfo;->mAllPermissions:Ljava/util/ArrayList;
 
-    iget-object v0, p1, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
+    iget-object v0, p1, Landroid/content/pm/PermissionInfo;->packageName:Ljava/lang/String;
 
-    iput-object v0, p0, Landroid/content/pm/PackageItemInfo;->name:Ljava/lang/String;
+    iput-object v0, p0, Landroid/widget/AppSecurityPermissions$MyPermissionGroupInfo;->name:Ljava/lang/String;
 
-    iget-object v0, p1, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
+    iget-object v0, p1, Landroid/content/pm/PermissionInfo;->packageName:Ljava/lang/String;
 
-    iput-object v0, p0, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
+    iput-object v0, p0, Landroid/widget/AppSecurityPermissions$MyPermissionGroupInfo;->packageName:Ljava/lang/String;
 
     return-void
 .end method
@@ -94,18 +94,18 @@
 .method public loadGroupIcon(Landroid/content/Context;Landroid/content/pm/PackageManager;)Landroid/graphics/drawable/Drawable;
     .locals 1
 
-    iget v0, p0, Landroid/content/pm/PackageItemInfo;->icon:I
+    iget v0, p0, Landroid/widget/AppSecurityPermissions$MyPermissionGroupInfo;->icon:I
 
     if-eqz v0, :cond_0
 
-    invoke-virtual {p0, p2}, Landroid/content/pm/PackageItemInfo;->loadUnbadgedIcon(Landroid/content/pm/PackageManager;)Landroid/graphics/drawable/Drawable;
+    invoke-virtual {p0, p2}, Landroid/widget/AppSecurityPermissions$MyPermissionGroupInfo;->loadUnbadgedIcon(Landroid/content/pm/PackageManager;)Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
 
     return-object v0
 
     :cond_0
-    const v0, 0x1080492
+    const v0, 0x10804c2
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 

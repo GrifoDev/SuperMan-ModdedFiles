@@ -216,7 +216,9 @@
 
     instance-of v3, v3, Landroid/widget/TextView;
 
-    if-eqz v3, :cond_0
+    xor-int/lit8 v3, v3, 0x1
+
+    if-nez v3, :cond_0
 
     move-object/from16 v0, p3
 
@@ -224,7 +226,9 @@
 
     instance-of v3, v3, Landroid/widget/TextView;
 
-    if-eqz v3, :cond_0
+    xor-int/lit8 v3, v3, 0x1
+
+    if-nez v3, :cond_0
 
     move-object/from16 v0, p3
 
@@ -412,9 +416,7 @@
 
     move-object v3, v6
 
-    nop
-
-    nop
+    check-cast v3, Landroid/widget/EditText;
 
     move-object/from16 v0, p0
 
@@ -486,7 +488,7 @@
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v11}, Landroid/transition/Transition;->addListener(Landroid/transition/Transition$TransitionListener;)Landroid/transition/Transition;
+    invoke-virtual {v0, v11}, Landroid/transition/ChangeText;->addListener(Landroid/transition/Transition$TransitionListener;)Landroid/transition/Transition;
 
     return-object v21
 
@@ -581,13 +583,23 @@
     if-ne v3, v4, :cond_c
 
     :cond_b
-    const/16 v3, 0xff
+    const/4 v3, 0x2
+
+    new-array v3, v3, [I
+
+    invoke-static/range {v25 .. v25}, Landroid/graphics/Color;->alpha(I)I
+
+    move-result v4
+
+    const/4 v12, 0x0
+
+    aput v4, v3, v12
 
     const/4 v4, 0x0
 
-    filled-new-array {v3, v4}, [I
+    const/4 v12, 0x1
 
-    move-result-object v3
+    aput v4, v3, v12
 
     invoke-static {v3}, Landroid/animation/ValueAnimator;->ofInt([I)Landroid/animation/ValueAnimator;
 
@@ -613,7 +625,7 @@
 
     move-object/from16 v0, v24
 
-    invoke-virtual {v0, v3}, Landroid/animation/Animator;->addListener(Landroid/animation/Animator$AnimatorListener;)V
+    invoke-virtual {v0, v3}, Landroid/animation/ValueAnimator;->addListener(Landroid/animation/Animator$AnimatorListener;)V
 
     :cond_c
     move-object/from16 v0, p0
@@ -633,13 +645,23 @@
     if-ne v3, v4, :cond_e
 
     :cond_d
-    const/4 v3, 0x0
+    const/4 v3, 0x2
 
-    const/16 v4, 0xff
+    new-array v3, v3, [I
 
-    filled-new-array {v3, v4}, [I
+    const/4 v4, 0x0
 
-    move-result-object v3
+    const/4 v12, 0x0
+
+    aput v4, v3, v12
+
+    invoke-static {v10}, Landroid/graphics/Color;->alpha(I)I
+
+    move-result v4
+
+    const/4 v12, 0x1
+
+    aput v4, v3, v12
 
     invoke-static {v3}, Landroid/animation/ValueAnimator;->ofInt([I)Landroid/animation/ValueAnimator;
 
@@ -663,7 +685,7 @@
 
     move-object/from16 v0, v23
 
-    invoke-virtual {v0, v3}, Landroid/animation/Animator;->addListener(Landroid/animation/Animator$AnimatorListener;)V
+    invoke-virtual {v0, v3}, Landroid/animation/ValueAnimator;->addListener(Landroid/animation/Animator$AnimatorListener;)V
 
     :cond_e
     if-eqz v24, :cond_f
@@ -676,9 +698,7 @@
 
     move-object/from16 v3, v21
 
-    nop
-
-    nop
+    check-cast v3, Landroid/animation/AnimatorSet;
 
     const/4 v4, 0x2
 

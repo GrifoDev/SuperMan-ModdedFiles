@@ -235,54 +235,6 @@
 
 
 # virtual methods
-.method public addAtlasableBitmaps(Ljava/util/Collection;)I
-    .locals 3
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/Collection",
-            "<",
-            "Landroid/graphics/Bitmap;",
-            ">;)I"
-        }
-    .end annotation
-
-    iget-object v1, p0, Landroid/graphics/drawable/NinePatchDrawable$NinePatchState;->mNinePatch:Landroid/graphics/NinePatch;
-
-    invoke-virtual {v1}, Landroid/graphics/NinePatch;->getBitmap()Landroid/graphics/Bitmap;
-
-    move-result-object v0
-
-    invoke-virtual {p0, v0}, Landroid/graphics/drawable/NinePatchDrawable$NinePatchState;->isAtlasable(Landroid/graphics/Bitmap;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    invoke-interface {p1, v0}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    invoke-virtual {v0}, Landroid/graphics/Bitmap;->getWidth()I
-
-    move-result v1
-
-    invoke-virtual {v0}, Landroid/graphics/Bitmap;->getHeight()I
-
-    move-result v2
-
-    mul-int/2addr v1, v2
-
-    return v1
-
-    :cond_0
-    const/4 v1, 0x0
-
-    return v1
-.end method
-
 .method public canApplyTheme()Z
     .locals 1
 

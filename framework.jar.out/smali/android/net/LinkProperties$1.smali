@@ -98,7 +98,7 @@
 
     invoke-virtual {v4, v8}, Landroid/net/LinkProperties;->addDnsServer(Ljava/net/InetAddress;)Z
     :try_end_0
-    .catch Ljava/net/UnknownHostException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Ljava/net/UnknownHostException; {:try_start_0 .. :try_end_0} :catch_1
 
     :goto_2
     add-int/lit8 v2, v2, 0x1
@@ -106,6 +106,34 @@
     goto :goto_1
 
     :cond_2
+    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
+
+    move-result v0
+
+    const/4 v2, 0x0
+
+    :goto_3
+    if-ge v2, v0, :cond_3
+
+    :try_start_1
+    invoke-virtual {p1}, Landroid/os/Parcel;->createByteArray()[B
+
+    move-result-object v8
+
+    invoke-static {v8}, Ljava/net/InetAddress;->getByAddress([B)Ljava/net/InetAddress;
+
+    move-result-object v8
+
+    invoke-virtual {v4, v8}, Landroid/net/LinkProperties;->addPcscfServer(Ljava/net/InetAddress;)Z
+    :try_end_1
+    .catch Ljava/net/UnknownHostException; {:try_start_1 .. :try_end_1} :catch_0
+
+    :goto_4
+    add-int/lit8 v2, v2, 0x1
+
+    goto :goto_3
+
+    :cond_3
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v8
@@ -130,8 +158,8 @@
 
     const/4 v2, 0x0
 
-    :goto_3
-    if-ge v2, v0, :cond_3
+    :goto_5
+    if-ge v2, v0, :cond_4
 
     invoke-virtual {p1, v10}, Landroid/os/Parcel;->readParcelable(Ljava/lang/ClassLoader;)Landroid/os/Parcelable;
 
@@ -143,16 +171,16 @@
 
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_3
+    goto :goto_5
 
-    :cond_3
+    :cond_4
     invoke-virtual {p1}, Landroid/os/Parcel;->readByte()B
 
     move-result v8
 
     const/4 v9, 0x1
 
-    if-ne v8, v9, :cond_4
+    if-ne v8, v9, :cond_5
 
     invoke-virtual {p1, v10}, Landroid/os/Parcel;->readParcelable(Ljava/lang/ClassLoader;)Landroid/os/Parcelable;
 
@@ -162,7 +190,7 @@
 
     invoke-virtual {v4, v8}, Landroid/net/LinkProperties;->setHttpProxy(Landroid/net/ProxyInfo;)V
 
-    :cond_4
+    :cond_5
     new-instance v7, Ljava/util/ArrayList;
 
     invoke-direct {v7}, Ljava/util/ArrayList;-><init>()V
@@ -179,12 +207,12 @@
 
     move-result-object v6
 
-    :goto_4
+    :goto_6
     invoke-interface {v6}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v8
 
-    if-eqz v8, :cond_5
+    if-eqz v8, :cond_6
 
     invoke-interface {v6}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -194,12 +222,17 @@
 
     invoke-virtual {v4, v5}, Landroid/net/LinkProperties;->addStackedLink(Landroid/net/LinkProperties;)Z
 
-    goto :goto_4
+    goto :goto_6
 
-    :cond_5
+    :cond_6
     return-object v4
 
     :catch_0
+    move-exception v1
+
+    goto :goto_4
+
+    :catch_1
     move-exception v1
 
     goto :goto_2

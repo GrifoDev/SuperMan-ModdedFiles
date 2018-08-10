@@ -49,6 +49,8 @@
 
 .field private mLevel:I
 
+.field protected mSrcDensityOverride:I
+
 .field private mStateSet:[I
 
 .field private mVisible:Z
@@ -103,6 +105,8 @@
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Landroid/graphics/drawable/Drawable;->mVisible:Z
+
+    iput v1, p0, Landroid/graphics/drawable/Drawable;->mSrcDensityOverride:I
 
     return-void
 .end method
@@ -298,7 +302,7 @@
 
     const-string/jumbo v5, "createFromStream"
 
-    const/4 v8, 0x2
+    const/4 v8, 0x3
 
     new-array v8, v8, [Ljava/lang/Class;
 
@@ -314,6 +318,12 @@
 
     aput-object v9, v8, v10
 
+    const-class v9, Landroid/content/res/Resources;
+
+    const/4 v10, 0x2
+
+    aput-object v9, v8, v10
+
     invoke-virtual {v0, v5, v8}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
 
     move-result-object v0
@@ -325,7 +335,7 @@
 
     sget-object v5, Landroid/graphics/drawable/Drawable;->SprClass:Ljava/lang/Class;
 
-    const/4 v8, 0x2
+    const/4 v8, 0x3
 
     new-array v8, v8, [Ljava/lang/Object;
 
@@ -336,6 +346,10 @@
     const/4 v9, 0x1
 
     aput-object p2, v8, v9
+
+    const/4 v9, 0x2
+
+    aput-object p0, v8, v9
 
     invoke-virtual {v0, v5, v8}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -376,7 +390,7 @@
 
     move-result-object v1
 
-    if-eqz v1, :cond_7
+    if-eqz v1, :cond_8
 
     invoke-virtual {v1}, Landroid/graphics/Bitmap;->getNinePatchChunk()[B
 
@@ -388,9 +402,16 @@
 
     move-result v0
 
-    if-eqz v0, :cond_6
+    xor-int/lit8 v0, v0, 0x1
 
-    :goto_0
+    if-eqz v0, :cond_7
+
+    :cond_6
+    const/4 v2, 0x0
+
+    const/4 v3, 0x0
+
+    :cond_7
     new-instance v4, Landroid/graphics/Rect;
 
     invoke-direct {v4}, Landroid/graphics/Rect;-><init>()V
@@ -407,14 +428,7 @@
 
     return-object v0
 
-    :cond_6
-    const/4 v2, 0x0
-
-    const/4 v3, 0x0
-
-    goto :goto_0
-
-    :cond_7
+    :cond_8
     const/4 v0, 0x0
 
     return-object v0
@@ -479,6 +493,24 @@
 .end method
 
 .method public static createFromXml(Landroid/content/res/Resources;Lorg/xmlpull/v1/XmlPullParser;Landroid/content/res/Resources$Theme;)Landroid/graphics/drawable/Drawable;
+    .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lorg/xmlpull/v1/XmlPullParserException;,
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    const/4 v0, 0x0
+
+    invoke-static {p0, p1, v0, p2}, Landroid/graphics/drawable/Drawable;->createFromXmlForDensity(Landroid/content/res/Resources;Lorg/xmlpull/v1/XmlPullParser;ILandroid/content/res/Resources$Theme;)Landroid/graphics/drawable/Drawable;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public static createFromXmlForDensity(Landroid/content/res/Resources;Lorg/xmlpull/v1/XmlPullParser;ILandroid/content/res/Resources$Theme;)Landroid/graphics/drawable/Drawable;
     .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -516,7 +548,7 @@
     throw v3
 
     :cond_2
-    invoke-static {p0, p1, v0, p2}, Landroid/graphics/drawable/Drawable;->createFromXmlInner(Landroid/content/res/Resources;Lorg/xmlpull/v1/XmlPullParser;Landroid/util/AttributeSet;Landroid/content/res/Resources$Theme;)Landroid/graphics/drawable/Drawable;
+    invoke-static {p0, p1, v0, p2, p3}, Landroid/graphics/drawable/Drawable;->createFromXmlInnerForDensity(Landroid/content/res/Resources;Lorg/xmlpull/v1/XmlPullParser;Landroid/util/AttributeSet;ILandroid/content/res/Resources$Theme;)Landroid/graphics/drawable/Drawable;
 
     move-result-object v1
 
@@ -573,7 +605,25 @@
 .end method
 
 .method public static createFromXmlInner(Landroid/content/res/Resources;Lorg/xmlpull/v1/XmlPullParser;Landroid/util/AttributeSet;Landroid/content/res/Resources$Theme;)Landroid/graphics/drawable/Drawable;
-    .locals 2
+    .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lorg/xmlpull/v1/XmlPullParserException;,
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    const/4 v0, 0x0
+
+    invoke-static {p0, p1, p2, v0, p3}, Landroid/graphics/drawable/Drawable;->createFromXmlInnerForDensity(Landroid/content/res/Resources;Lorg/xmlpull/v1/XmlPullParser;Landroid/util/AttributeSet;ILandroid/content/res/Resources$Theme;)Landroid/graphics/drawable/Drawable;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method static createFromXmlInnerForDensity(Landroid/content/res/Resources;Lorg/xmlpull/v1/XmlPullParser;Landroid/util/AttributeSet;ILandroid/content/res/Resources$Theme;)Landroid/graphics/drawable/Drawable;
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lorg/xmlpull/v1/XmlPullParserException;,
@@ -589,7 +639,15 @@
 
     move-result-object v1
 
-    invoke-virtual {v0, v1, p1, p2, p3}, Landroid/graphics/drawable/DrawableInflater;->inflateFromXml(Ljava/lang/String;Lorg/xmlpull/v1/XmlPullParser;Landroid/util/AttributeSet;Landroid/content/res/Resources$Theme;)Landroid/graphics/drawable/Drawable;
+    move-object v2, p1
+
+    move-object v3, p2
+
+    move v4, p3
+
+    move-object v5, p4
+
+    invoke-virtual/range {v0 .. v5}, Landroid/graphics/drawable/DrawableInflater;->inflateFromXmlForDensity(Ljava/lang/String;Lorg/xmlpull/v1/XmlPullParser;Landroid/util/AttributeSet;ILandroid/content/res/Resources$Theme;)Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
 
@@ -627,7 +685,7 @@
     return-object v0
 .end method
 
-.method static obtainAttributes(Landroid/content/res/Resources;Landroid/content/res/Resources$Theme;Landroid/util/AttributeSet;[I)Landroid/content/res/TypedArray;
+.method protected static obtainAttributes(Landroid/content/res/Resources;Landroid/content/res/Resources$Theme;Landroid/util/AttributeSet;[I)Landroid/content/res/TypedArray;
     .locals 1
 
     const/4 v0, 0x0
@@ -1139,6 +1197,14 @@
     return-object v0
 .end method
 
+.method public hasFocusStateSpecified()Z
+    .locals 1
+
+    const/4 v0, 0x0
+
+    return v0
+.end method
+
 .method public inflate(Landroid/content/res/Resources;Lorg/xmlpull/v1/XmlPullParser;Landroid/util/AttributeSet;)V
     .locals 1
     .annotation system Ldalvik/annotation/Throws;
@@ -1426,13 +1492,42 @@
 .end method
 
 .method public setColorFilter(ILandroid/graphics/PorterDuff$Mode;)V
-    .locals 1
+    .locals 2
 
-    new-instance v0, Landroid/graphics/PorterDuffColorFilter;
+    invoke-virtual {p0}, Landroid/graphics/drawable/Drawable;->getColorFilter()Landroid/graphics/ColorFilter;
 
-    invoke-direct {v0, p1, p2}, Landroid/graphics/PorterDuffColorFilter;-><init>(ILandroid/graphics/PorterDuff$Mode;)V
+    move-result-object v1
 
-    invoke-virtual {p0, v0}, Landroid/graphics/drawable/Drawable;->setColorFilter(Landroid/graphics/ColorFilter;)V
+    instance-of v1, v1, Landroid/graphics/PorterDuffColorFilter;
+
+    if-eqz v1, :cond_0
+
+    invoke-virtual {p0}, Landroid/graphics/drawable/Drawable;->getColorFilter()Landroid/graphics/ColorFilter;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/graphics/PorterDuffColorFilter;
+
+    invoke-virtual {v0}, Landroid/graphics/PorterDuffColorFilter;->getColor()I
+
+    move-result v1
+
+    if-ne v1, p1, :cond_0
+
+    invoke-virtual {v0}, Landroid/graphics/PorterDuffColorFilter;->getMode()Landroid/graphics/PorterDuff$Mode;
+
+    move-result-object v1
+
+    if-ne v1, p2, :cond_0
+
+    return-void
+
+    :cond_0
+    new-instance v1, Landroid/graphics/PorterDuffColorFilter;
+
+    invoke-direct {v1, p1, p2}, Landroid/graphics/PorterDuffColorFilter;-><init>(ILandroid/graphics/PorterDuff$Mode;)V
+
+    invoke-virtual {p0, v1}, Landroid/graphics/drawable/Drawable;->setColorFilter(Landroid/graphics/ColorFilter;)V
 
     return-void
 .end method
@@ -1506,6 +1601,14 @@
     const/4 v0, 0x0
 
     return v0
+.end method
+
+.method final setSrcDensityOverride(I)V
+    .locals 0
+
+    iput p1, p0, Landroid/graphics/drawable/Drawable;->mSrcDensityOverride:I
+
+    return-void
 .end method
 
 .method public setState([I)Z

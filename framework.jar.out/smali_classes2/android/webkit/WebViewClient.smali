@@ -30,6 +30,8 @@
 
 .field public static final ERROR_UNKNOWN:I = -0x1
 
+.field public static final ERROR_UNSAFE_RESOURCE:I = -0x10
+
 .field public static final ERROR_UNSUPPORTED_AUTH_SCHEME:I = -0x3
 
 .field public static final ERROR_UNSUPPORTED_SCHEME:I = -0xa
@@ -176,6 +178,14 @@
     invoke-virtual {p2}, Landroid/webkit/SslErrorHandler;->cancel()V
 
     return-void
+.end method
+
+.method public onRenderProcessGone(Landroid/webkit/WebView;Landroid/webkit/RenderProcessGoneDetail;)Z
+    .locals 1
+
+    const/4 v0, 0x0
+
+    return v0
 .end method
 
 .method public onScaleChanged(Landroid/webkit/WebView;FF)V

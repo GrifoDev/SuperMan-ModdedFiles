@@ -3,6 +3,14 @@
 .source "PackageHelper.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/android/internal/content/PackageHelper$TestableInterface;
+    }
+.end annotation
+
+
 # static fields
 .field public static final APP_INSTALL_AUTO:I = 0x0
 
@@ -36,10 +44,16 @@
 
 .field private static final localLOGV:Z
 
+.field private static sDefaultTestableInterface:Lcom/android/internal/content/PackageHelper$TestableInterface;
+
 
 # direct methods
 .method static constructor <clinit>()V
     .locals 1
+
+    const/4 v0, 0x0
+
+    sput-object v0, Lcom/android/internal/content/PackageHelper;->sDefaultTestableInterface:Lcom/android/internal/content/PackageHelper$TestableInterface;
 
     const/4 v0, 0x0
 
@@ -249,7 +263,7 @@
     add-int/lit8 v2, v1, 0x1
 
     :try_start_0
-    invoke-static {}, Lcom/android/internal/content/PackageHelper;->getMountService()Landroid/os/storage/IMountService;
+    invoke-static {}, Lcom/android/internal/content/PackageHelper;->getStorageManager()Landroid/os/storage/IStorageManager;
 
     move-result-object v0
 
@@ -259,15 +273,18 @@
 
     if-nez v1, :cond_0
 
-    if-eqz p5, :cond_0
+    xor-int/lit8 v1, p5, 0x1
 
+    if-eqz v1, :cond_1
+
+    :cond_0
     const-string/jumbo v1, "PackageHelper"
 
-    const-string/jumbo v3, "createSdDir with fat"
+    const-string/jumbo v3, "createSdDir with ext4"
 
     invoke-static {v1, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    const-string/jumbo v3, "fat"
+    const-string/jumbo v3, "ext4"
 
     move-object v1, p2
 
@@ -277,12 +294,12 @@
 
     move/from16 v6, p5
 
-    invoke-interface/range {v0 .. v6}, Landroid/os/storage/IMountService;->createSecureContainer(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;IZ)I
+    invoke-interface/range {v0 .. v6}, Landroid/os/storage/IStorageManager;->createSecureContainer(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;IZ)I
 
     move-result v9
 
     :goto_0
-    if-eqz v9, :cond_1
+    if-eqz v9, :cond_2
 
     const-string/jumbo v1, "PackageHelper"
 
@@ -310,14 +327,14 @@
 
     return-object v1
 
-    :cond_0
+    :cond_1
     const-string/jumbo v1, "PackageHelper"
 
-    const-string/jumbo v3, "createSdDir with ext4"
+    const-string/jumbo v3, "createSdDir with fat"
 
     invoke-static {v1, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    const-string/jumbo v3, "ext4"
+    const-string/jumbo v3, "fat"
 
     move-object v1, p2
 
@@ -327,14 +344,14 @@
 
     move/from16 v6, p5
 
-    invoke-interface/range {v0 .. v6}, Landroid/os/storage/IMountService;->createSecureContainer(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;IZ)I
+    invoke-interface/range {v0 .. v6}, Landroid/os/storage/IStorageManager;->createSecureContainer(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;IZ)I
 
     move-result v9
 
     goto :goto_0
 
-    :cond_1
-    invoke-interface {v0, p2}, Landroid/os/storage/IMountService;->getSecureContainerPath(Ljava/lang/String;)Ljava/lang/String;
+    :cond_2
+    invoke-interface {v0, p2}, Landroid/os/storage/IStorageManager;->getSecureContainerPath(Ljava/lang/String;)Ljava/lang/String;
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -347,7 +364,7 @@
 
     const-string/jumbo v1, "PackageHelper"
 
-    const-string/jumbo v3, "MountService running?"
+    const-string/jumbo v3, "StorageManagerService running?"
 
     invoke-static {v1, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -364,13 +381,13 @@
     const/4 v5, 0x0
 
     :try_start_0
-    invoke-static {}, Lcom/android/internal/content/PackageHelper;->getMountService()Landroid/os/storage/IMountService;
+    invoke-static {}, Lcom/android/internal/content/PackageHelper;->getStorageManager()Landroid/os/storage/IStorageManager;
 
     move-result-object v2
 
     const/4 v3, 0x1
 
-    invoke-interface {v2, p0, v3}, Landroid/os/storage/IMountService;->destroySecureContainer(Ljava/lang/String;Z)I
+    invoke-interface {v2, p0, v3}, Landroid/os/storage/IStorageManager;->destroySecureContainer(Ljava/lang/String;Z)I
 
     move-result v1
 
@@ -661,11 +678,11 @@
     const/4 v5, 0x0
 
     :try_start_0
-    invoke-static {}, Lcom/android/internal/content/PackageHelper;->getMountService()Landroid/os/storage/IMountService;
+    invoke-static {}, Lcom/android/internal/content/PackageHelper;->getStorageManager()Landroid/os/storage/IStorageManager;
 
     move-result-object v2
 
-    invoke-interface {v2, p0}, Landroid/os/storage/IMountService;->finalizeSecureContainer(Ljava/lang/String;)I
+    invoke-interface {v2, p0}, Landroid/os/storage/IStorageManager;->finalizeSecureContainer(Ljava/lang/String;)I
 
     move-result v1
 
@@ -740,8 +757,8 @@
     return v5
 .end method
 
-.method public static fitsOnExternal(Landroid/content/Context;J)Z
-    .locals 11
+.method public static fitsOnExternal(Landroid/content/Context;Landroid/content/pm/PackageInstaller$SessionParams;)Z
+    .locals 12
 
     const/4 v6, 0x0
 
@@ -761,23 +778,20 @@
 
     move-result v7
 
-    if-eqz v7, :cond_1
+    xor-int/lit8 v0, v7, 0x1
 
-    const/4 v0, 0x0
-
-    :goto_0
     invoke-virtual {v3}, Landroid/os/storage/StorageManager;->getVolumeList()[Landroid/os/storage/StorageVolume;
 
     move-result-object v4
 
-    if-eqz v4, :cond_4
+    if-eqz v4, :cond_2
 
     const/4 v1, 0x0
 
-    :goto_1
+    :goto_0
     array-length v7, v4
 
-    if-ge v1, v7, :cond_5
+    if-ge v1, v7, :cond_3
 
     aget-object v5, v4, v1
 
@@ -791,13 +805,13 @@
 
     move-result v7
 
-    if-eqz v7, :cond_3
+    if-eqz v7, :cond_1
 
     invoke-virtual {v5}, Landroid/os/storage/StorageVolume;->isRemovable()Z
 
     move-result v7
 
-    if-eqz v7, :cond_3
+    if-eqz v7, :cond_1
 
     const-string/jumbo v7, "PackageHelper"
 
@@ -825,46 +839,43 @@
 
     invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const-wide/16 v8, 0x0
+    iget-wide v8, p1, Landroid/content/pm/PackageInstaller$SessionParams;->sizeBytes:J
 
-    cmp-long v7, p1, v8
+    const-wide/16 v10, 0x0
+
+    cmp-long v7, v8, v10
 
     if-lez v7, :cond_0
 
-    if-eqz v0, :cond_2
+    xor-int/lit8 v7, v0, 0x1
 
-    :cond_0
-    :goto_2
-    return v6
+    if-eqz v7, :cond_0
 
-    :cond_1
-    const/4 v0, 0x1
+    iget-wide v8, p1, Landroid/content/pm/PackageInstaller$SessionParams;->sizeBytes:J
 
-    goto :goto_0
-
-    :cond_2
     invoke-virtual {v5}, Landroid/os/storage/StorageVolume;->getPathFile()Ljava/io/File;
 
     move-result-object v7
 
     invoke-virtual {v3, v7}, Landroid/os/storage/StorageManager;->getStorageBytesUntilLow(Ljava/io/File;)J
 
-    move-result-wide v8
+    move-result-wide v10
 
-    cmp-long v7, p1, v8
+    cmp-long v7, v8, v10
 
     if-gtz v7, :cond_0
 
     const/4 v6, 0x1
 
-    goto :goto_2
+    :cond_0
+    return v6
 
-    :cond_3
+    :cond_1
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_1
+    goto :goto_0
 
-    :cond_4
+    :cond_2
     const-string/jumbo v7, "PackageHelper"
 
     const-string/jumbo v8, "The storageVolumes is null."
@@ -873,7 +884,7 @@
 
     return v6
 
-    :cond_5
+    :cond_3
     const-string/jumbo v7, "PackageHelper"
 
     const-string/jumbo v8, "Can not find fitsOnExternal volume."
@@ -883,8 +894,13 @@
     return v6
 .end method
 
-.method public static fitsOnInternal(Landroid/content/Context;J)Z
-    .locals 5
+.method public static fitsOnInternal(Landroid/content/Context;Landroid/content/pm/PackageInstaller$SessionParams;)Z
+    .locals 6
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
 
     const-class v2, Landroid/os/storage/StorageManager;
 
@@ -898,11 +914,19 @@
 
     move-result-object v1
 
-    invoke-virtual {v0, v1}, Landroid/os/storage/StorageManager;->getStorageBytesUntilLow(Ljava/io/File;)J
+    iget-wide v2, p1, Landroid/content/pm/PackageInstaller$SessionParams;->sizeBytes:J
 
-    move-result-wide v2
+    iget v4, p1, Landroid/content/pm/PackageInstaller$SessionParams;->installFlags:I
 
-    cmp-long v2, p1, v2
+    invoke-static {v4}, Lcom/android/internal/content/PackageHelper;->translateAllocateFlags(I)I
+
+    move-result v4
+
+    invoke-virtual {v0, v1, v4}, Landroid/os/storage/StorageManager;->getAllocatableBytes(Ljava/io/File;I)J
+
+    move-result-wide v4
+
+    cmp-long v2, v2, v4
 
     if-gtz v2, :cond_0
 
@@ -923,11 +947,11 @@
     const/4 v5, 0x0
 
     :try_start_0
-    invoke-static {}, Lcom/android/internal/content/PackageHelper;->getMountService()Landroid/os/storage/IMountService;
+    invoke-static {}, Lcom/android/internal/content/PackageHelper;->getStorageManager()Landroid/os/storage/IStorageManager;
 
     move-result-object v2
 
-    invoke-interface {v2, p0, p1, p2}, Landroid/os/storage/IMountService;->fixPermissionsSecureContainer(Ljava/lang/String;ILjava/lang/String;)I
+    invoke-interface {v2, p0, p1, p2}, Landroid/os/storage/IStorageManager;->fixPermissionsSecureContainer(Ljava/lang/String;ILjava/lang/String;)I
 
     move-result v1
 
@@ -1002,268 +1026,50 @@
     return v5
 .end method
 
-.method public static getExternalStorageDirectory(Landroid/content/Context;)Ljava/lang/String;
-    .locals 10
+.method private static declared-synchronized getDefaultTestableInterface()Lcom/android/internal/content/PackageHelper$TestableInterface;
+    .locals 2
 
-    const/4 v9, 0x0
+    const-class v1, Lcom/android/internal/content/PackageHelper;
 
-    invoke-static {p0}, Landroid/os/storage/StorageManager;->from(Landroid/content/Context;)Landroid/os/storage/StorageManager;
+    monitor-enter v1
 
-    move-result-object v2
+    :try_start_0
+    sget-object v0, Lcom/android/internal/content/PackageHelper;->sDefaultTestableInterface:Lcom/android/internal/content/PackageHelper$TestableInterface;
 
-    if-nez v2, :cond_0
+    if-nez v0, :cond_0
 
-    const-string/jumbo v7, "PackageHelper"
+    new-instance v0, Lcom/android/internal/content/PackageHelper$1;
 
-    const-string/jumbo v8, "get storage service failed"
+    invoke-direct {v0}, Lcom/android/internal/content/PackageHelper$1;-><init>()V
 
-    invoke-static {v7, v8}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    return-object v9
+    sput-object v0, Lcom/android/internal/content/PackageHelper;->sDefaultTestableInterface:Lcom/android/internal/content/PackageHelper$TestableInterface;
 
     :cond_0
-    sget-boolean v7, Lcom/android/internal/content/PackageHelper;->DEBUG_SD_PATH:Z
+    sget-object v0, Lcom/android/internal/content/PackageHelper;->sDefaultTestableInterface:Lcom/android/internal/content/PackageHelper$TestableInterface;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    if-eqz v7, :cond_1
+    monitor-exit v1
 
-    const-string/jumbo v7, "PackageHelper"
+    return-object v0
 
-    const-string/jumbo v8, "get storage service success"
+    :catchall_0
+    move-exception v0
 
-    invoke-static {v7, v8}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    monitor-exit v1
 
-    :cond_1
-    invoke-virtual {v2}, Landroid/os/storage/StorageManager;->getVolumeList()[Landroid/os/storage/StorageVolume;
-
-    move-result-object v5
-
-    const/4 v1, 0x0
-
-    const/4 v0, 0x0
-
-    :goto_0
-    array-length v7, v5
-
-    if-ge v0, v7, :cond_7
-
-    aget-object v4, v5, v0
-
-    invoke-virtual {v4}, Landroid/os/storage/StorageVolume;->getSubSystem()Ljava/lang/String;
-
-    move-result-object v6
-
-    sget-boolean v7, Lcom/android/internal/content/PackageHelper;->DEBUG_SD_PATH:Z
-
-    if-eqz v7, :cond_2
-
-    const-string/jumbo v7, "PackageHelper"
-
-    new-instance v8, Ljava/lang/StringBuilder;
-
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v9, "subSystem : "
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-static {v7, v8}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_2
-    if-eqz v6, :cond_6
-
-    const-string/jumbo v7, "sd"
-
-    invoke-virtual {v7, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v7
-
-    if-eqz v7, :cond_6
-
-    invoke-virtual {v4}, Landroid/os/storage/StorageVolume;->getPath()Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-virtual {v2, v7}, Landroid/os/storage/StorageManager;->getVolumeState(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v3
-
-    sget-boolean v7, Lcom/android/internal/content/PackageHelper;->DEBUG_SD_PATH:Z
-
-    if-eqz v7, :cond_3
-
-    const-string/jumbo v7, "PackageHelper"
-
-    new-instance v8, Ljava/lang/StringBuilder;
-
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v9, "sd state : "
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-static {v7, v8}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_3
-    const-string/jumbo v7, "mounted"
-
-    invoke-virtual {v7, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v7
-
-    if-eqz v7, :cond_6
-
-    sget-boolean v7, Lcom/android/internal/content/PackageHelper;->DEBUG_SD_PATH:Z
-
-    if-eqz v7, :cond_4
-
-    const-string/jumbo v7, "PackageHelper"
-
-    new-instance v8, Ljava/lang/StringBuilder;
-
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v9, "It is mounted("
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    const-string/jumbo v9, ")"
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-static {v7, v8}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_4
-    invoke-virtual {v4}, Landroid/os/storage/StorageVolume;->getActivitySecureContainer()Z
-
-    move-result v7
-
-    if-eqz v7, :cond_6
-
-    sget-boolean v7, Lcom/android/internal/content/PackageHelper;->DEBUG_SD_PATH:Z
-
-    if-eqz v7, :cond_5
-
-    const-string/jumbo v7, "PackageHelper"
-
-    new-instance v8, Ljava/lang/StringBuilder;
-
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v9, "It is mounted("
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    const-string/jumbo v9, ")"
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-static {v7, v8}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_5
-    invoke-virtual {v4}, Landroid/os/storage/StorageVolume;->getPath()Ljava/lang/String;
-
-    move-result-object v1
-
-    :cond_6
-    add-int/lit8 v0, v0, 0x1
-
-    goto/16 :goto_0
-
-    :cond_7
-    return-object v1
-.end method
-
-.method public static getMountService()Landroid/os/storage/IMountService;
-    .locals 3
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    const-string/jumbo v1, "mount"
-
-    invoke-static {v1}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_0
-
-    invoke-static {v0}, Landroid/os/storage/IMountService$Stub;->asInterface(Landroid/os/IBinder;)Landroid/os/storage/IMountService;
-
-    move-result-object v1
-
-    return-object v1
-
-    :cond_0
-    const-string/jumbo v1, "PackageHelper"
-
-    const-string/jumbo v2, "Can\'t get mount service"
-
-    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    new-instance v1, Landroid/os/RemoteException;
-
-    const-string/jumbo v2, "Could not contact mount service"
-
-    invoke-direct {v1, v2}, Landroid/os/RemoteException;-><init>(Ljava/lang/String;)V
-
-    throw v1
+    throw v0
 .end method
 
 .method public static getSdDir(Ljava/lang/String;)Ljava/lang/String;
     .locals 4
 
     :try_start_0
-    invoke-static {}, Lcom/android/internal/content/PackageHelper;->getMountService()Landroid/os/storage/IMountService;
+    invoke-static {}, Lcom/android/internal/content/PackageHelper;->getStorageManager()Landroid/os/storage/IStorageManager;
 
     move-result-object v1
 
-    invoke-interface {v1, p0}, Landroid/os/storage/IMountService;->getSecureContainerPath(Ljava/lang/String;)Ljava/lang/String;
+    invoke-interface {v1, p0}, Landroid/os/storage/IStorageManager;->getSecureContainerPath(Ljava/lang/String;)Ljava/lang/String;
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -1315,11 +1121,11 @@
     .locals 4
 
     :try_start_0
-    invoke-static {}, Lcom/android/internal/content/PackageHelper;->getMountService()Landroid/os/storage/IMountService;
+    invoke-static {}, Lcom/android/internal/content/PackageHelper;->getStorageManager()Landroid/os/storage/IStorageManager;
 
     move-result-object v1
 
-    invoke-interface {v1, p0}, Landroid/os/storage/IMountService;->getSecureContainerFilesystemPath(Ljava/lang/String;)Ljava/lang/String;
+    invoke-interface {v1, p0}, Landroid/os/storage/IStorageManager;->getSecureContainerFilesystemPath(Ljava/lang/String;)Ljava/lang/String;
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -1371,11 +1177,11 @@
     .locals 4
 
     :try_start_0
-    invoke-static {}, Lcom/android/internal/content/PackageHelper;->getMountService()Landroid/os/storage/IMountService;
+    invoke-static {}, Lcom/android/internal/content/PackageHelper;->getStorageManager()Landroid/os/storage/IStorageManager;
 
     move-result-object v1
 
-    invoke-interface {v1}, Landroid/os/storage/IMountService;->getSecureContainerList()[Ljava/lang/String;
+    invoke-interface {v1}, Landroid/os/storage/IStorageManager;->getSecureContainerList()[Ljava/lang/String;
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -1411,6 +1217,44 @@
     const/4 v1, 0x0
 
     return-object v1
+.end method
+
+.method public static getStorageManager()Landroid/os/storage/IStorageManager;
+    .locals 3
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    const-string/jumbo v1, "mount"
+
+    invoke-static {v1}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    invoke-static {v0}, Landroid/os/storage/IStorageManager$Stub;->asInterface(Landroid/os/IBinder;)Landroid/os/storage/IStorageManager;
+
+    move-result-object v1
+
+    return-object v1
+
+    :cond_0
+    const-string/jumbo v1, "PackageHelper"
+
+    const-string/jumbo v2, "Can\'t get storagemanager service"
+
+    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    new-instance v1, Landroid/os/RemoteException;
+
+    const-string/jumbo v2, "Could not contact storagemanager service"
+
+    invoke-direct {v1, v2}, Landroid/os/RemoteException;-><init>(Ljava/lang/String;)V
+
+    throw v1
 .end method
 
 .method public static hasActiveContainer(Landroid/content/Context;)Z
@@ -1480,11 +1324,11 @@
     .locals 4
 
     :try_start_0
-    invoke-static {}, Lcom/android/internal/content/PackageHelper;->getMountService()Landroid/os/storage/IMountService;
+    invoke-static {}, Lcom/android/internal/content/PackageHelper;->getStorageManager()Landroid/os/storage/IStorageManager;
 
     move-result-object v1
 
-    invoke-interface {v1, p0}, Landroid/os/storage/IMountService;->isSecureContainerMounted(Ljava/lang/String;)Z
+    invoke-interface {v1, p0}, Landroid/os/storage/IStorageManager;->isSecureContainerMounted(Ljava/lang/String;)Z
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -1528,219 +1372,6 @@
     return v1
 .end method
 
-.method public static isExternalStorageMounted(Landroid/content/Context;)Z
-    .locals 10
-
-    const/4 v9, 0x0
-
-    invoke-static {p0}, Landroid/os/storage/StorageManager;->from(Landroid/content/Context;)Landroid/os/storage/StorageManager;
-
-    move-result-object v1
-
-    if-nez v1, :cond_0
-
-    const-string/jumbo v6, "PackageHelper"
-
-    const-string/jumbo v7, "get storage service failed"
-
-    invoke-static {v6, v7}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    return v9
-
-    :cond_0
-    sget-boolean v6, Lcom/android/internal/content/PackageHelper;->DEBUG_SD_PATH:Z
-
-    if-eqz v6, :cond_1
-
-    const-string/jumbo v6, "PackageHelper"
-
-    const-string/jumbo v7, "get storage service success"
-
-    invoke-static {v6, v7}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_1
-    invoke-virtual {v1}, Landroid/os/storage/StorageManager;->getVolumeList()[Landroid/os/storage/StorageVolume;
-
-    move-result-object v4
-
-    const/4 v0, 0x0
-
-    :goto_0
-    array-length v6, v4
-
-    if-ge v0, v6, :cond_7
-
-    aget-object v3, v4, v0
-
-    invoke-virtual {v3}, Landroid/os/storage/StorageVolume;->getSubSystem()Ljava/lang/String;
-
-    move-result-object v5
-
-    sget-boolean v6, Lcom/android/internal/content/PackageHelper;->DEBUG_SD_PATH:Z
-
-    if-eqz v6, :cond_2
-
-    const-string/jumbo v6, "PackageHelper"
-
-    new-instance v7, Ljava/lang/StringBuilder;
-
-    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v8, "subSystem : "
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    invoke-virtual {v7, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-static {v6, v7}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_2
-    if-eqz v5, :cond_6
-
-    const-string/jumbo v6, "sd"
-
-    invoke-virtual {v6, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v6
-
-    if-eqz v6, :cond_6
-
-    invoke-virtual {v3}, Landroid/os/storage/StorageVolume;->getPath()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-virtual {v1, v6}, Landroid/os/storage/StorageManager;->getVolumeState(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v2
-
-    sget-boolean v6, Lcom/android/internal/content/PackageHelper;->DEBUG_SD_PATH:Z
-
-    if-eqz v6, :cond_3
-
-    const-string/jumbo v6, "PackageHelper"
-
-    new-instance v7, Ljava/lang/StringBuilder;
-
-    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v8, "sd state : "
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    invoke-virtual {v7, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-static {v6, v7}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_3
-    const-string/jumbo v6, "mounted"
-
-    invoke-virtual {v6, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v6
-
-    if-eqz v6, :cond_6
-
-    sget-boolean v6, Lcom/android/internal/content/PackageHelper;->DEBUG_SD_PATH:Z
-
-    if-eqz v6, :cond_4
-
-    const-string/jumbo v6, "PackageHelper"
-
-    new-instance v7, Ljava/lang/StringBuilder;
-
-    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v8, "It is mounted("
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    invoke-virtual {v7, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    const-string/jumbo v8, ")"
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-static {v6, v7}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_4
-    invoke-virtual {v3}, Landroid/os/storage/StorageVolume;->getActivitySecureContainer()Z
-
-    move-result v6
-
-    if-eqz v6, :cond_6
-
-    sget-boolean v6, Lcom/android/internal/content/PackageHelper;->DEBUG_SD_PATH:Z
-
-    if-eqz v6, :cond_5
-
-    const-string/jumbo v6, "PackageHelper"
-
-    new-instance v7, Ljava/lang/StringBuilder;
-
-    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v8, "It is mounted("
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    invoke-virtual {v7, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    const-string/jumbo v8, ")"
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-static {v6, v7}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_5
-    const/4 v6, 0x1
-
-    return v6
-
-    :cond_6
-    add-int/lit8 v0, v0, 0x1
-
-    goto/16 :goto_0
-
-    :cond_7
-    return v9
-.end method
-
 .method public static mountSdDir(Ljava/lang/String;Ljava/lang/String;I)Ljava/lang/String;
     .locals 1
 
@@ -1759,11 +1390,11 @@
     const/4 v5, 0x0
 
     :try_start_0
-    invoke-static {}, Lcom/android/internal/content/PackageHelper;->getMountService()Landroid/os/storage/IMountService;
+    invoke-static {}, Lcom/android/internal/content/PackageHelper;->getStorageManager()Landroid/os/storage/IStorageManager;
 
     move-result-object v2
 
-    invoke-interface {v2, p0, p1, p2, p3}, Landroid/os/storage/IMountService;->mountSecureContainer(Ljava/lang/String;Ljava/lang/String;IZ)I
+    invoke-interface {v2, p0, p1, p2, p3}, Landroid/os/storage/IStorageManager;->mountSecureContainer(Ljava/lang/String;Ljava/lang/String;IZ)I
 
     move-result v1
 
@@ -1804,11 +1435,11 @@
     return-object v5
 
     :cond_0
-    invoke-static {}, Lcom/android/internal/content/PackageHelper;->getMountService()Landroid/os/storage/IMountService;
+    invoke-static {}, Lcom/android/internal/content/PackageHelper;->getStorageManager()Landroid/os/storage/IStorageManager;
 
     move-result-object v2
 
-    invoke-interface {v2, p0}, Landroid/os/storage/IMountService;->getSecureContainerPath(Ljava/lang/String;)Ljava/lang/String;
+    invoke-interface {v2, p0}, Landroid/os/storage/IStorageManager;->getSecureContainerPath(Ljava/lang/String;)Ljava/lang/String;
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -1821,7 +1452,7 @@
 
     const-string/jumbo v2, "PackageHelper"
 
-    const-string/jumbo v3, "MountService running?"
+    const-string/jumbo v3, "StorageManagerService running?"
 
     invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -1834,11 +1465,11 @@
     const/4 v5, 0x0
 
     :try_start_0
-    invoke-static {}, Lcom/android/internal/content/PackageHelper;->getMountService()Landroid/os/storage/IMountService;
+    invoke-static {}, Lcom/android/internal/content/PackageHelper;->getStorageManager()Landroid/os/storage/IStorageManager;
 
     move-result-object v2
 
-    invoke-interface {v2, p0, p1}, Landroid/os/storage/IMountService;->renameSecureContainer(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-interface {v2, p0, p1}, Landroid/os/storage/IStorageManager;->renameSecureContainer(Ljava/lang/String;Ljava/lang/String;)I
 
     move-result v1
 
@@ -2035,20 +1666,20 @@
 
     long-to-int v4, v4
 
-    add-int/lit8 v3, v4, 0x1
+    add-int/lit8 v2, v4, 0x1
 
     :try_start_0
-    invoke-static {}, Lcom/android/internal/content/PackageHelper;->getMountService()Landroid/os/storage/IMountService;
+    invoke-static {}, Lcom/android/internal/content/PackageHelper;->getStorageManager()Landroid/os/storage/IStorageManager;
 
-    move-result-object v1
+    move-result-object v3
 
-    invoke-interface {v1, p2, v3, p3}, Landroid/os/storage/IMountService;->resizeSecureContainer(Ljava/lang/String;ILjava/lang/String;)I
+    invoke-interface {v3, p2, v2, p3}, Landroid/os/storage/IStorageManager;->resizeSecureContainer(Ljava/lang/String;ILjava/lang/String;)I
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    move-result v2
+    move-result v1
 
-    if-nez v2, :cond_0
+    if-nez v1, :cond_0
 
     const/4 v4, 0x1
 
@@ -2059,7 +1690,7 @@
 
     const-string/jumbo v4, "PackageHelper"
 
-    const-string/jumbo v5, "MountService running?"
+    const-string/jumbo v5, "StorageManagerService running?"
 
     invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -2089,19 +1720,30 @@
     return v7
 .end method
 
-.method public static resolveInstallLocation(Landroid/content/Context;Ljava/lang/String;IJI)I
-    .locals 9
+.method public static resolveInstallLocation(Landroid/content/Context;Landroid/content/pm/PackageInstaller$SessionParams;)I
+    .locals 12
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    const/4 v11, 0x2
+
+    const/4 v7, 0x1
 
     const/4 v2, 0x0
 
     :try_start_0
     invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
-    move-result-object v7
+    move-result-object v8
 
-    const/16 v8, 0x2000
+    iget-object v9, p1, Landroid/content/pm/PackageInstaller$SessionParams;->appPackageName:Ljava/lang/String;
 
-    invoke-virtual {v7, p1, v8}, Landroid/content/pm/PackageManager;->getApplicationInfo(Ljava/lang/String;I)Landroid/content/pm/ApplicationInfo;
+    const/high16 v10, 0x400000
+
+    invoke-virtual {v8, v9, v10}, Landroid/content/pm/PackageManager;->getApplicationInfo(Ljava/lang/String;I)Landroid/content/pm/ApplicationInfo;
     :try_end_0
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -2110,9 +1752,11 @@
     :goto_0
     const/4 v1, 0x0
 
-    and-int/lit16 v7, p5, 0x800
+    iget v8, p1, Landroid/content/pm/PackageInstaller$SessionParams;->installFlags:I
 
-    if-eqz v7, :cond_4
+    and-int/lit16 v8, v8, 0x800
+
+    if-eqz v8, :cond_5
 
     const/4 v6, 0x1
 
@@ -2125,12 +1769,10 @@
 
     if-nez v0, :cond_0
 
-    const/4 v7, 0x1
-
     if-ne v6, v7, :cond_1
 
     :cond_0
-    invoke-static {p0, p3, p4}, Lcom/android/internal/content/PackageHelper;->fitsOnInternal(Landroid/content/Context;J)Z
+    invoke-static {p0, p1}, Lcom/android/internal/content/PackageHelper;->fitsOnInternal(Landroid/content/Context;Landroid/content/pm/PackageInstaller$SessionParams;)Z
 
     move-result v4
 
@@ -2139,141 +1781,130 @@
 
     if-nez v0, :cond_2
 
-    const/4 v7, 0x2
-
-    if-ne v6, v7, :cond_3
+    if-ne v6, v11, :cond_3
 
     :cond_2
-    invoke-static {p0, p3, p4}, Lcom/android/internal/content/PackageHelper;->fitsOnExternal(Landroid/content/Context;J)Z
+    invoke-static {p0, p1}, Lcom/android/internal/content/PackageHelper;->fitsOnExternal(Landroid/content/Context;Landroid/content/pm/PackageInstaller$SessionParams;)Z
 
     move-result v3
 
     :cond_3
-    const/4 v7, 0x1
-
     if-ne v6, v7, :cond_d
 
     if-eqz v4, :cond_e
 
-    if-eqz v1, :cond_c
+    if-eqz v1, :cond_4
 
     const/4 v7, 0x3
 
-    :goto_2
+    :cond_4
     return v7
 
-    :cond_4
-    and-int/lit8 v7, p5, 0x10
+    :cond_5
+    iget v8, p1, Landroid/content/pm/PackageInstaller$SessionParams;->installFlags:I
 
-    if-eqz v7, :cond_5
+    and-int/lit8 v8, v8, 0x10
+
+    if-eqz v8, :cond_6
 
     const/4 v6, 0x1
-
-    const/4 v0, 0x0
-
-    goto :goto_1
-
-    :cond_5
-    and-int/lit8 v7, p5, 0x8
-
-    if-eqz v7, :cond_6
-
-    const/4 v6, 0x2
 
     const/4 v0, 0x0
 
     goto :goto_1
 
     :cond_6
-    const/4 v7, 0x1
+    iget v8, p1, Landroid/content/pm/PackageInstaller$SessionParams;->installFlags:I
 
-    if-ne p2, v7, :cond_7
+    and-int/lit8 v8, v8, 0x8
 
-    const/4 v6, 0x1
+    if-eqz v8, :cond_7
+
+    const/4 v6, 0x2
 
     const/4 v0, 0x0
 
     goto :goto_1
 
     :cond_7
-    const/4 v7, 0x2
+    iget v8, p1, Landroid/content/pm/PackageInstaller$SessionParams;->installLocation:I
 
-    if-ne p2, v7, :cond_8
+    if-ne v8, v7, :cond_8
 
-    const/4 v6, 0x2
-
-    const/4 v0, 0x1
-
-    goto :goto_1
-
-    :cond_8
-    if-nez p2, :cond_b
-
-    if-eqz v2, :cond_a
-
-    iget v7, v2, Landroid/content/pm/ApplicationInfo;->flags:I
-
-    const/high16 v8, 0x40000
-
-    and-int/2addr v7, v8
-
-    if-eqz v7, :cond_9
-
-    const/4 v6, 0x2
-
-    :goto_3
-    const/4 v0, 0x1
-
-    goto :goto_1
-
-    :cond_9
-    const/4 v6, 0x1
-
-    goto :goto_3
-
-    :cond_a
-    const/4 v6, 0x1
-
-    goto :goto_3
-
-    :cond_b
     const/4 v6, 0x1
 
     const/4 v0, 0x0
 
     goto :goto_1
 
-    :cond_c
-    const/4 v7, 0x1
+    :cond_8
+    iget v8, p1, Landroid/content/pm/PackageInstaller$SessionParams;->installLocation:I
+
+    if-ne v8, v11, :cond_9
+
+    const/4 v6, 0x2
+
+    const/4 v0, 0x1
+
+    goto :goto_1
+
+    :cond_9
+    iget v8, p1, Landroid/content/pm/PackageInstaller$SessionParams;->installLocation:I
+
+    if-nez v8, :cond_c
+
+    if-eqz v2, :cond_b
+
+    iget v8, v2, Landroid/content/pm/ApplicationInfo;->flags:I
+
+    const/high16 v9, 0x40000
+
+    and-int/2addr v8, v9
+
+    if-eqz v8, :cond_a
+
+    const/4 v6, 0x2
+
+    :goto_2
+    const/4 v0, 0x1
+
+    goto :goto_1
+
+    :cond_a
+    const/4 v6, 0x1
 
     goto :goto_2
 
-    :cond_d
-    const/4 v7, 0x2
+    :cond_b
+    const/4 v6, 0x1
 
-    if-ne v6, v7, :cond_e
+    goto :goto_2
+
+    :cond_c
+    const/4 v6, 0x1
+
+    const/4 v0, 0x0
+
+    goto :goto_1
+
+    :cond_d
+    if-ne v6, v11, :cond_e
 
     if-eqz v3, :cond_e
 
-    const/4 v7, 0x2
-
-    return v7
+    return v11
 
     :cond_e
     if-eqz v0, :cond_10
 
     if-eqz v4, :cond_f
 
-    const/4 v7, 0x1
-
     return v7
 
     :cond_f
     if-eqz v3, :cond_10
 
-    const/4 v7, 0x2
-
-    return v7
+    return v11
 
     :cond_10
     const/4 v7, -0x1
@@ -2286,7 +1917,72 @@
     goto :goto_0
 .end method
 
-.method public static resolveInstallVolume(Landroid/content/Context;Ljava/lang/String;IJ)Ljava/lang/String;
+.method public static resolveInstallLocation(Landroid/content/Context;Ljava/lang/String;IJI)I
+    .locals 3
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+
+    new-instance v1, Landroid/content/pm/PackageInstaller$SessionParams;
+
+    const/4 v2, -0x1
+
+    invoke-direct {v1, v2}, Landroid/content/pm/PackageInstaller$SessionParams;-><init>(I)V
+
+    iput-object p1, v1, Landroid/content/pm/PackageInstaller$SessionParams;->appPackageName:Ljava/lang/String;
+
+    iput p2, v1, Landroid/content/pm/PackageInstaller$SessionParams;->installLocation:I
+
+    iput-wide p3, v1, Landroid/content/pm/PackageInstaller$SessionParams;->sizeBytes:J
+
+    iput p5, v1, Landroid/content/pm/PackageInstaller$SessionParams;->installFlags:I
+
+    :try_start_0
+    invoke-static {p0, v1}, Lcom/android/internal/content/PackageHelper;->resolveInstallLocation(Landroid/content/Context;Landroid/content/pm/PackageInstaller$SessionParams;)I
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v2
+
+    return v2
+
+    :catch_0
+    move-exception v0
+
+    new-instance v2, Ljava/lang/IllegalStateException;
+
+    invoke-direct {v2, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/Throwable;)V
+
+    throw v2
+.end method
+
+.method public static resolveInstallVolume(Landroid/content/Context;Landroid/content/pm/PackageInstaller$SessionParams;)Ljava/lang/String;
+    .locals 7
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    invoke-static {}, Lcom/android/internal/content/PackageHelper;->getDefaultTestableInterface()Lcom/android/internal/content/PackageHelper$TestableInterface;
+
+    move-result-object v6
+
+    iget-object v2, p1, Landroid/content/pm/PackageInstaller$SessionParams;->appPackageName:Ljava/lang/String;
+
+    iget v3, p1, Landroid/content/pm/PackageInstaller$SessionParams;->installLocation:I
+
+    iget-wide v4, p1, Landroid/content/pm/PackageInstaller$SessionParams;->sizeBytes:J
+
+    move-object v1, p0
+
+    invoke-static/range {v1 .. v6}, Lcom/android/internal/content/PackageHelper;->resolveInstallVolume(Landroid/content/Context;Ljava/lang/String;IJLcom/android/internal/content/PackageHelper$TestableInterface;)Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public static resolveInstallVolume(Landroid/content/Context;Landroid/content/pm/PackageInstaller$SessionParams;Lcom/android/internal/content/PackageHelper$TestableInterface;)Ljava/lang/String;
     .locals 21
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -2294,374 +1990,533 @@
         }
     .end annotation
 
-    invoke-virtual/range {p0 .. p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+    move-object/from16 v0, p2
 
-    move-result-object v17
+    move-object/from16 v1, p0
 
-    const-string/jumbo v18, "force_allow_on_external"
+    invoke-virtual {v0, v1}, Lcom/android/internal/content/PackageHelper$TestableInterface;->getForceAllowOnExternalSetting(Landroid/content/Context;)Z
 
-    const/16 v19, 0x0
+    move-result v13
 
-    invoke-static/range {v17 .. v19}, Landroid/provider/Settings$Global;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+    move-object/from16 v0, p2
 
-    move-result v17
+    move-object/from16 v1, p0
 
-    if-eqz v17, :cond_2
+    invoke-virtual {v0, v1}, Lcom/android/internal/content/PackageHelper$TestableInterface;->getAllow3rdPartyOnInternalConfig(Landroid/content/Context;)Z
 
-    const/4 v12, 0x1
+    move-result v5
 
-    :goto_0
-    const/4 v10, 0x0
+    move-object/from16 v0, p1
 
-    :try_start_0
-    invoke-virtual/range {p0 .. p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+    iget-object v0, v0, Landroid/content/pm/PackageInstaller$SessionParams;->appPackageName:Ljava/lang/String;
 
-    move-result-object v17
+    move-object/from16 v18, v0
 
-    const/16 v18, 0x2000
+    move-object/from16 v0, p2
 
-    move-object/from16 v0, v17
+    move-object/from16 v1, p0
 
-    move-object/from16 v1, p1
+    move-object/from16 v2, v18
 
-    move/from16 v2, v18
+    invoke-virtual {v0, v1, v2}, Lcom/android/internal/content/PackageHelper$TestableInterface;->getExistingAppInfo(Landroid/content/Context;Ljava/lang/String;)Landroid/content/pm/ApplicationInfo;
 
-    invoke-virtual {v0, v1, v2}, Landroid/content/pm/PackageManager;->getApplicationInfo(Ljava/lang/String;I)Landroid/content/pm/ApplicationInfo;
-    :try_end_0
-    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+    move-result-object v9
 
-    move-result-object v10
+    move-object/from16 v0, p2
 
-    :goto_1
-    const-class v17, Landroid/os/storage/StorageManager;
+    move-object/from16 v1, p0
 
-    move-object/from16 v0, p0
+    move-object/from16 v2, p1
 
-    move-object/from16 v1, v17
+    invoke-virtual {v0, v1, v2}, Lcom/android/internal/content/PackageHelper$TestableInterface;->fitsOnInternalStorage(Landroid/content/Context;Landroid/content/pm/PackageInstaller$SessionParams;)Z
 
-    invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+    move-result v12
 
-    move-result-object v14
+    move-object/from16 v0, p2
 
-    check-cast v14, Landroid/os/storage/StorageManager;
+    move-object/from16 v1, p0
 
-    move-object/from16 v0, p0
+    invoke-virtual {v0, v1}, Lcom/android/internal/content/PackageHelper$TestableInterface;->getStorageManager(Landroid/content/Context;)Landroid/os/storage/StorageManager;
 
-    move-wide/from16 v1, p3
+    move-result-object v15
 
-    invoke-static {v0, v1, v2}, Lcom/android/internal/content/PackageHelper;->fitsOnInternal(Landroid/content/Context;J)Z
+    if-eqz v9, :cond_1
 
-    move-result v11
+    invoke-virtual {v9}, Landroid/content/pm/ApplicationInfo;->isSystemApp()Z
 
+    move-result v18
+
+    if-eqz v18, :cond_1
+
+    if-eqz v12, :cond_0
+
+    sget-object v18, Landroid/os/storage/StorageManager;->UUID_PRIVATE_INTERNAL:Ljava/lang/String;
+
+    return-object v18
+
+    :cond_0
+    new-instance v18, Ljava/io/IOException;
+
+    new-instance v19, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v19 .. v19}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v20, "Not enough space on existing volume "
+
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
+    iget-object v0, v9, Landroid/content/pm/ApplicationInfo;->volumeUuid:Ljava/lang/String;
+
+    move-object/from16 v20, v0
+
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
+    const-string/jumbo v20, " for system app "
+
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
+    move-object/from16 v0, p1
+
+    iget-object v0, v0, Landroid/content/pm/PackageInstaller$SessionParams;->appPackageName:Ljava/lang/String;
+
+    move-object/from16 v20, v0
+
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
+    const-string/jumbo v20, " upgrade"
+
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
+    invoke-virtual/range {v19 .. v19}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v19
+
+    invoke-direct/range {v18 .. v19}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+
+    throw v18
+
+    :cond_1
     new-instance v4, Landroid/util/ArraySet;
 
     invoke-direct {v4}, Landroid/util/ArraySet;-><init>()V
 
-    const/4 v5, 0x0
+    const/4 v8, 0x0
 
-    const-wide/high16 v8, -0x8000000000000000L
+    const-wide/high16 v10, -0x8000000000000000L
 
-    invoke-virtual {v14}, Landroid/os/storage/StorageManager;->getVolumes()Ljava/util/List;
+    invoke-virtual {v15}, Landroid/os/storage/StorageManager;->getVolumes()Ljava/util/List;
+
+    move-result-object v18
+
+    invoke-interface/range {v18 .. v18}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v17
 
-    invoke-interface/range {v17 .. v17}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+    :cond_2
+    :goto_0
+    invoke-interface/range {v17 .. v17}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v18
+
+    if-eqz v18, :cond_5
+
+    invoke-interface/range {v17 .. v17}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v16
 
-    :cond_0
-    :goto_2
-    invoke-interface/range {v16 .. v16}, Ljava/util/Iterator;->hasNext()Z
+    check-cast v16, Landroid/os/storage/VolumeInfo;
 
-    move-result v17
+    const-string/jumbo v18, "private"
 
-    if-eqz v17, :cond_3
+    move-object/from16 v0, v16
 
-    invoke-interface/range {v16 .. v16}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    iget-object v0, v0, Landroid/os/storage/VolumeInfo;->id:Ljava/lang/String;
 
-    move-result-object v15
+    move-object/from16 v19, v0
 
-    check-cast v15, Landroid/os/storage/VolumeInfo;
+    invoke-virtual/range {v18 .. v19}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    iget v0, v15, Landroid/os/storage/VolumeInfo;->type:I
+    move-result v14
 
-    move/from16 v17, v0
+    move-object/from16 v0, v16
 
-    const/16 v18, 0x1
+    iget v0, v0, Landroid/os/storage/VolumeInfo;->type:I
 
-    move/from16 v0, v17
+    move/from16 v18, v0
 
-    move/from16 v1, v18
+    const/16 v19, 0x1
 
-    if-ne v0, v1, :cond_0
+    move/from16 v0, v18
 
-    invoke-virtual {v15}, Landroid/os/storage/VolumeInfo;->isMountedWritable()Z
+    move/from16 v1, v19
 
-    move-result v17
+    if-ne v0, v1, :cond_2
 
-    if-eqz v17, :cond_0
+    invoke-virtual/range {v16 .. v16}, Landroid/os/storage/VolumeInfo;->isMountedWritable()Z
 
-    new-instance v17, Ljava/io/File;
+    move-result v18
 
-    iget-object v0, v15, Landroid/os/storage/VolumeInfo;->path:Ljava/lang/String;
+    if-eqz v18, :cond_2
 
-    move-object/from16 v18, v0
+    if-eqz v14, :cond_3
 
-    invoke-direct/range {v17 .. v18}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+    if-eqz v5, :cond_2
 
-    move-object/from16 v0, v17
+    :cond_3
+    new-instance v18, Ljava/io/File;
 
-    invoke-virtual {v14, v0}, Landroid/os/storage/StorageManager;->getStorageBytesUntilLow(Ljava/io/File;)J
+    move-object/from16 v0, v16
+
+    iget-object v0, v0, Landroid/os/storage/VolumeInfo;->path:Ljava/lang/String;
+
+    move-object/from16 v19, v0
+
+    invoke-direct/range {v18 .. v19}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+
+    move-object/from16 v0, p1
+
+    iget v0, v0, Landroid/content/pm/PackageInstaller$SessionParams;->installFlags:I
+
+    move/from16 v19, v0
+
+    invoke-static/range {v19 .. v19}, Lcom/android/internal/content/PackageHelper;->translateAllocateFlags(I)I
+
+    move-result v19
+
+    move-object/from16 v0, v18
+
+    move/from16 v1, v19
+
+    invoke-virtual {v15, v0, v1}, Landroid/os/storage/StorageManager;->getAllocatableBytes(Ljava/io/File;I)J
 
     move-result-wide v6
 
-    cmp-long v17, v6, p3
+    move-object/from16 v0, p1
 
-    if-ltz v17, :cond_1
+    iget-wide v0, v0, Landroid/content/pm/PackageInstaller$SessionParams;->sizeBytes:J
 
-    iget-object v0, v15, Landroid/os/storage/VolumeInfo;->fsUuid:Ljava/lang/String;
+    move-wide/from16 v18, v0
 
-    move-object/from16 v17, v0
+    cmp-long v18, v6, v18
 
-    move-object/from16 v0, v17
+    if-ltz v18, :cond_4
+
+    move-object/from16 v0, v16
+
+    iget-object v0, v0, Landroid/os/storage/VolumeInfo;->fsUuid:Ljava/lang/String;
+
+    move-object/from16 v18, v0
+
+    move-object/from16 v0, v18
 
     invoke-virtual {v4, v0}, Landroid/util/ArraySet;->add(Ljava/lang/Object;)Z
 
-    :cond_1
-    cmp-long v17, v6, v8
+    :cond_4
+    cmp-long v18, v6, v10
 
-    if-ltz v17, :cond_0
+    if-ltz v18, :cond_2
 
-    move-object v5, v15
+    move-object/from16 v8, v16
 
-    move-wide v8, v6
-
-    goto :goto_2
-
-    :cond_2
-    const/4 v12, 0x0
+    move-wide v10, v6
 
     goto :goto_0
 
-    :cond_3
-    if-eqz v10, :cond_4
-
-    invoke-virtual {v10}, Landroid/content/pm/ApplicationInfo;->isSystemApp()Z
-
-    move-result v17
-
-    if-eqz v17, :cond_4
-
-    const/16 p2, 0x1
-
-    :cond_4
-    if-nez v12, :cond_8
-
-    const/16 v17, 0x1
-
-    move/from16 v0, p2
-
-    move/from16 v1, v17
-
-    if-ne v0, v1, :cond_8
-
-    if-eqz v10, :cond_5
-
-    iget-object v0, v10, Landroid/content/pm/ApplicationInfo;->volumeUuid:Ljava/lang/String;
-
-    move-object/from16 v17, v0
-
-    sget-object v18, Landroid/os/storage/StorageManager;->UUID_PRIVATE_INTERNAL:Ljava/lang/String;
-
-    invoke-static/range {v17 .. v18}, Ljava/util/Objects;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
-
-    move-result v17
-
-    if-eqz v17, :cond_6
-
     :cond_5
-    if-eqz v11, :cond_7
+    if-nez v13, :cond_9
 
-    sget-object v17, Landroid/os/storage/StorageManager;->UUID_PRIVATE_INTERNAL:Ljava/lang/String;
+    move-object/from16 v0, p1
 
-    return-object v17
+    iget v0, v0, Landroid/content/pm/PackageInstaller$SessionParams;->installLocation:I
+
+    move/from16 v18, v0
+
+    const/16 v19, 0x1
+
+    move/from16 v0, v18
+
+    move/from16 v1, v19
+
+    if-ne v0, v1, :cond_9
+
+    if-eqz v9, :cond_6
+
+    iget-object v0, v9, Landroid/content/pm/ApplicationInfo;->volumeUuid:Ljava/lang/String;
+
+    move-object/from16 v18, v0
+
+    sget-object v19, Landroid/os/storage/StorageManager;->UUID_PRIVATE_INTERNAL:Ljava/lang/String;
+
+    invoke-static/range {v18 .. v19}, Ljava/util/Objects;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
+
+    move-result v18
+
+    xor-int/lit8 v18, v18, 0x1
+
+    if-eqz v18, :cond_6
+
+    new-instance v18, Ljava/io/IOException;
+
+    new-instance v19, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v19 .. v19}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v20, "Cannot automatically move "
+
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
+    move-object/from16 v0, p1
+
+    iget-object v0, v0, Landroid/content/pm/PackageInstaller$SessionParams;->appPackageName:Ljava/lang/String;
+
+    move-object/from16 v20, v0
+
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
+    const-string/jumbo v20, " from "
+
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
+    iget-object v0, v9, Landroid/content/pm/ApplicationInfo;->volumeUuid:Ljava/lang/String;
+
+    move-object/from16 v20, v0
+
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
+    const-string/jumbo v20, " to internal storage"
+
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
+    invoke-virtual/range {v19 .. v19}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v19
+
+    invoke-direct/range {v18 .. v19}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+
+    throw v18
 
     :cond_6
-    new-instance v17, Ljava/io/IOException;
+    if-nez v5, :cond_7
 
-    new-instance v18, Ljava/lang/StringBuilder;
+    new-instance v18, Ljava/io/IOException;
 
-    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
+    const-string/jumbo v19, "Not allowed to install non-system apps on internal storage"
 
-    const-string/jumbo v19, "Cannot automatically move "
+    invoke-direct/range {v18 .. v19}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    move-object/from16 v0, v18
-
-    move-object/from16 v1, p1
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    const-string/jumbo v19, " from "
-
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    iget-object v0, v10, Landroid/content/pm/ApplicationInfo;->volumeUuid:Ljava/lang/String;
-
-    move-object/from16 v19, v0
-
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    const-string/jumbo v19, " to internal storage"
-
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v18
-
-    invoke-direct/range {v17 .. v18}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
-
-    throw v17
+    throw v18
 
     :cond_7
-    new-instance v17, Ljava/io/IOException;
-
-    const-string/jumbo v18, "Requested internal only, but not enough space"
-
-    invoke-direct/range {v17 .. v18}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
-
-    throw v17
-
-    :cond_8
-    if-eqz v10, :cond_b
-
-    iget-object v0, v10, Landroid/content/pm/ApplicationInfo;->volumeUuid:Ljava/lang/String;
-
-    move-object/from16 v17, v0
+    if-eqz v12, :cond_8
 
     sget-object v18, Landroid/os/storage/StorageManager;->UUID_PRIVATE_INTERNAL:Ljava/lang/String;
 
-    invoke-static/range {v17 .. v18}, Ljava/util/Objects;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
+    return-object v18
 
-    move-result v17
+    :cond_8
+    new-instance v18, Ljava/io/IOException;
 
-    if-eqz v17, :cond_9
+    const-string/jumbo v19, "Requested internal only, but not enough space"
 
-    if-eqz v11, :cond_9
+    invoke-direct/range {v18 .. v19}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
 
-    sget-object v17, Landroid/os/storage/StorageManager;->UUID_PRIVATE_INTERNAL:Ljava/lang/String;
-
-    return-object v17
+    throw v18
 
     :cond_9
-    iget-object v0, v10, Landroid/content/pm/ApplicationInfo;->volumeUuid:Ljava/lang/String;
+    if-eqz v9, :cond_c
 
-    move-object/from16 v17, v0
+    iget-object v0, v9, Landroid/content/pm/ApplicationInfo;->volumeUuid:Ljava/lang/String;
 
-    move-object/from16 v0, v17
+    move-object/from16 v18, v0
+
+    sget-object v19, Landroid/os/storage/StorageManager;->UUID_PRIVATE_INTERNAL:Ljava/lang/String;
+
+    invoke-static/range {v18 .. v19}, Ljava/util/Objects;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
+
+    move-result v18
+
+    if-eqz v18, :cond_a
+
+    if-eqz v12, :cond_a
+
+    sget-object v18, Landroid/os/storage/StorageManager;->UUID_PRIVATE_INTERNAL:Ljava/lang/String;
+
+    return-object v18
+
+    :cond_a
+    iget-object v0, v9, Landroid/content/pm/ApplicationInfo;->volumeUuid:Ljava/lang/String;
+
+    move-object/from16 v18, v0
+
+    move-object/from16 v0, v18
 
     invoke-virtual {v4, v0}, Landroid/util/ArraySet;->contains(Ljava/lang/Object;)Z
 
-    move-result v17
+    move-result v18
 
-    if-eqz v17, :cond_a
+    if-eqz v18, :cond_b
 
-    iget-object v0, v10, Landroid/content/pm/ApplicationInfo;->volumeUuid:Ljava/lang/String;
+    iget-object v0, v9, Landroid/content/pm/ApplicationInfo;->volumeUuid:Ljava/lang/String;
 
-    move-object/from16 v17, v0
+    move-object/from16 v18, v0
 
-    return-object v17
-
-    :cond_a
-    new-instance v17, Ljava/io/IOException;
-
-    new-instance v18, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v19, "Not enough space on existing volume "
-
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    iget-object v0, v10, Landroid/content/pm/ApplicationInfo;->volumeUuid:Ljava/lang/String;
-
-    move-object/from16 v19, v0
-
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    const-string/jumbo v19, " for "
-
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    move-object/from16 v0, v18
-
-    move-object/from16 v1, p1
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    const-string/jumbo v19, " upgrade"
-
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v18
-
-    invoke-direct/range {v17 .. v18}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
-
-    throw v17
+    return-object v18
 
     :cond_b
-    if-eqz v5, :cond_c
+    new-instance v18, Ljava/io/IOException;
 
-    iget-object v0, v5, Landroid/os/storage/VolumeInfo;->fsUuid:Ljava/lang/String;
+    new-instance v19, Ljava/lang/StringBuilder;
 
-    move-object/from16 v17, v0
+    invoke-direct/range {v19 .. v19}, Ljava/lang/StringBuilder;-><init>()V
 
-    return-object v17
+    const-string/jumbo v20, "Not enough space on existing volume "
+
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
+    iget-object v0, v9, Landroid/content/pm/ApplicationInfo;->volumeUuid:Ljava/lang/String;
+
+    move-object/from16 v20, v0
+
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
+    const-string/jumbo v20, " for "
+
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
+    move-object/from16 v0, p1
+
+    iget-object v0, v0, Landroid/content/pm/PackageInstaller$SessionParams;->appPackageName:Ljava/lang/String;
+
+    move-object/from16 v20, v0
+
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
+    const-string/jumbo v20, " upgrade"
+
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
+    invoke-virtual/range {v19 .. v19}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v19
+
+    invoke-direct/range {v18 .. v19}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+
+    throw v18
 
     :cond_c
-    if-eqz v11, :cond_d
+    if-eqz v8, :cond_d
 
-    sget-object v17, Landroid/os/storage/StorageManager;->UUID_PRIVATE_INTERNAL:Ljava/lang/String;
+    iget-object v0, v8, Landroid/os/storage/VolumeInfo;->fsUuid:Ljava/lang/String;
 
-    return-object v17
+    move-object/from16 v18, v0
+
+    return-object v18
 
     :cond_d
-    new-instance v17, Ljava/io/IOException;
+    new-instance v18, Ljava/io/IOException;
 
-    const-string/jumbo v18, "No special requests, but no room anywhere"
+    new-instance v19, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v17 .. v18}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+    invoke-direct/range {v19 .. v19}, Ljava/lang/StringBuilder;-><init>()V
 
-    throw v17
+    const-string/jumbo v20, "No special requests, but no room on allowed volumes.  allow3rdPartyOnInternal? "
 
-    :catch_0
-    move-exception v13
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto/16 :goto_1
+    move-result-object v19
+
+    move-object/from16 v0, v19
+
+    invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
+    invoke-virtual/range {v19 .. v19}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v19
+
+    invoke-direct/range {v18 .. v19}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+
+    throw v18
+.end method
+
+.method public static resolveInstallVolume(Landroid/content/Context;Ljava/lang/String;IJLcom/android/internal/content/PackageHelper$TestableInterface;)Ljava/lang/String;
+    .locals 3
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+
+    new-instance v0, Landroid/content/pm/PackageInstaller$SessionParams;
+
+    const/4 v1, -0x1
+
+    invoke-direct {v0, v1}, Landroid/content/pm/PackageInstaller$SessionParams;-><init>(I)V
+
+    iput-object p1, v0, Landroid/content/pm/PackageInstaller$SessionParams;->appPackageName:Ljava/lang/String;
+
+    iput p2, v0, Landroid/content/pm/PackageInstaller$SessionParams;->installLocation:I
+
+    iput-wide p3, v0, Landroid/content/pm/PackageInstaller$SessionParams;->sizeBytes:J
+
+    invoke-static {p0, v0, p5}, Lcom/android/internal/content/PackageHelper;->resolveInstallVolume(Landroid/content/Context;Landroid/content/pm/PackageInstaller$SessionParams;Lcom/android/internal/content/PackageHelper$TestableInterface;)Ljava/lang/String;
+
+    move-result-object v1
+
+    return-object v1
+.end method
+
+.method public static translateAllocateFlags(I)I
+    .locals 2
+
+    const/4 v1, 0x0
+
+    const v0, 0x8000
+
+    and-int/2addr v0, p0
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x1
+
+    return v0
+
+    :cond_0
+    return v1
 .end method
 
 .method public static unMountSdDir(Ljava/lang/String;)Z
@@ -2672,13 +2527,13 @@
     const/4 v5, 0x0
 
     :try_start_0
-    invoke-static {}, Lcom/android/internal/content/PackageHelper;->getMountService()Landroid/os/storage/IMountService;
+    invoke-static {}, Lcom/android/internal/content/PackageHelper;->getStorageManager()Landroid/os/storage/IStorageManager;
 
     move-result-object v2
 
     const/4 v3, 0x1
 
-    invoke-interface {v2, p0, v3}, Landroid/os/storage/IMountService;->unmountSecureContainer(Ljava/lang/String;Z)I
+    invoke-interface {v2, p0, v3}, Landroid/os/storage/IStorageManager;->unmountSecureContainer(Ljava/lang/String;Z)I
 
     move-result v1
 
@@ -2728,7 +2583,7 @@
 
     const-string/jumbo v2, "PackageHelper"
 
-    const-string/jumbo v3, "MountService running?"
+    const-string/jumbo v3, "StorageManagerService running?"
 
     invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 

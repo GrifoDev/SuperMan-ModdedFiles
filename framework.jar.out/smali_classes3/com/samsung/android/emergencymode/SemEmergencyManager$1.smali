@@ -104,7 +104,7 @@
 
     move-result v3
 
-    if-eq v2, v8, :cond_5
+    if-eq v2, v8, :cond_6
 
     const/16 v4, 0x800
 
@@ -114,7 +114,9 @@
 
     move-result v4
 
-    if-eqz v4, :cond_6
+    xor-int/lit8 v4, v4, 0x1
+
+    if-nez v4, :cond_4
 
     :cond_2
     const/16 v4, 0x200
@@ -123,25 +125,18 @@
 
     const/16 v4, 0x400
 
-    if-ne v2, v4, :cond_4
+    if-ne v2, v4, :cond_5
 
     :cond_3
     invoke-static {}, Lcom/samsung/android/emergencymode/SemEmergencyManager;->-get2()Z
 
     move-result v4
 
-    if-eqz v4, :cond_6
+    xor-int/lit8 v4, v4, 0x1
+
+    if-eqz v4, :cond_5
 
     :cond_4
-    iget-object v4, p0, Lcom/samsung/android/emergencymode/SemEmergencyManager$1;->this$0:Lcom/samsung/android/emergencymode/SemEmergencyManager;
-
-    invoke-static {v4, v1, v2, v3}, Lcom/samsung/android/emergencymode/SemEmergencyManager;->-wrap0(Lcom/samsung/android/emergencymode/SemEmergencyManager;ZIZ)V
-
-    :cond_5
-    :goto_0
-    return-void
-
-    :cond_6
     const-string/jumbo v4, "EmergencyManager"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -166,6 +161,15 @@
 
     return-void
 
+    :cond_5
+    iget-object v4, p0, Lcom/samsung/android/emergencymode/SemEmergencyManager$1;->this$0:Lcom/samsung/android/emergencymode/SemEmergencyManager;
+
+    invoke-static {v4, v1, v2, v3}, Lcom/samsung/android/emergencymode/SemEmergencyManager;->-wrap0(Lcom/samsung/android/emergencymode/SemEmergencyManager;ZIZ)V
+
+    :cond_6
+    :goto_0
+    return-void
+
     :cond_7
     const-string/jumbo v4, "com.nttdocomo.android.epsmodecontrol.action.CHANGE_MODE"
 
@@ -173,7 +177,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_5
+    if-eqz v4, :cond_6
 
     iget-object v4, p0, Lcom/samsung/android/emergencymode/SemEmergencyManager$1;->this$0:Lcom/samsung/android/emergencymode/SemEmergencyManager;
 
@@ -185,21 +189,26 @@
 
     move-result v4
 
-    if-eqz v4, :cond_8
+    xor-int/lit8 v1, v4, 0x1
 
-    const/4 v1, 0x0
-
-    :goto_1
     const/16 v2, 0x10
 
+    iget-object v4, p0, Lcom/samsung/android/emergencymode/SemEmergencyManager$1;->this$0:Lcom/samsung/android/emergencymode/SemEmergencyManager;
+
+    invoke-virtual {v4}, Lcom/samsung/android/emergencymode/SemEmergencyManager;->getModeType()I
+
+    move-result v4
+
+    const/4 v5, 0x1
+
+    if-ne v4, v5, :cond_8
+
+    const/16 v2, 0x200
+
+    :cond_8
     iget-object v4, p0, Lcom/samsung/android/emergencymode/SemEmergencyManager$1;->this$0:Lcom/samsung/android/emergencymode/SemEmergencyManager;
 
     invoke-static {v4, v1, v2, v7}, Lcom/samsung/android/emergencymode/SemEmergencyManager;->-wrap0(Lcom/samsung/android/emergencymode/SemEmergencyManager;ZIZ)V
 
     goto :goto_0
-
-    :cond_8
-    const/4 v1, 0x1
-
-    goto :goto_1
 .end method

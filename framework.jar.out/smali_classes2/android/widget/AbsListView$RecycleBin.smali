@@ -115,18 +115,6 @@
     return-void
 .end method
 
-.method private clearAccessibilityFromScrap(Landroid/view/View;)V
-    .locals 1
-
-    invoke-virtual {p1}, Landroid/view/View;->clearAccessibilityFocus()V
-
-    const/4 v0, 0x0
-
-    invoke-virtual {p1, v0}, Landroid/view/View;->setAccessibilityDelegate(Landroid/view/View$AccessibilityDelegate;)V
-
-    return-void
-.end method
-
 .method private clearScrap(Ljava/util/ArrayList;)V
     .locals 4
     .annotation system Ldalvik/annotation/Signature;
@@ -167,6 +155,18 @@
     goto :goto_0
 
     :cond_0
+    return-void
+.end method
+
+.method private clearScrapForRebind(Landroid/view/View;)V
+    .locals 1
+
+    invoke-virtual {p1}, Landroid/view/View;->clearAccessibilityFocus()V
+
+    const/4 v0, 0x0
+
+    invoke-virtual {p1, v0}, Landroid/view/View;->setAccessibilityDelegate(Landroid/view/View$AccessibilityDelegate;)V
+
     return-void
 .end method
 
@@ -315,17 +315,29 @@
 .end method
 
 .method private removeDetachedView(Landroid/view/View;Z)V
-    .locals 1
+    .locals 2
 
     const/4 v0, 0x0
+
+    if-eqz p1, :cond_0
 
     invoke-virtual {p1, v0}, Landroid/view/View;->setAccessibilityDelegate(Landroid/view/View$AccessibilityDelegate;)V
 
     iget-object v0, p0, Landroid/widget/AbsListView$RecycleBin;->this$0:Landroid/widget/AbsListView;
 
-    invoke-static {v0, p1, p2}, Landroid/widget/AbsListView;->-wrap13(Landroid/widget/AbsListView;Landroid/view/View;Z)V
+    invoke-static {v0, p1, p2}, Landroid/widget/AbsListView;->-wrap11(Landroid/widget/AbsListView;Landroid/view/View;Z)V
 
+    :goto_0
     return-void
+
+    :cond_0
+    const-string/jumbo v0, "AbsListView"
+
+    const-string/jumbo v1, "removeDetachedView child is null"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
 .end method
 
 .method private retrieveFromScrap(Ljava/util/ArrayList;I)Landroid/view/View;
@@ -403,7 +415,7 @@
 
     check-cast v4, Landroid/view/View;
 
-    invoke-direct {p0, v4}, Landroid/widget/AbsListView$RecycleBin;->clearAccessibilityFromScrap(Landroid/view/View;)V
+    invoke-direct {p0, v4}, Landroid/widget/AbsListView$RecycleBin;->clearScrapForRebind(Landroid/view/View;)V
 
     return-object v4
 
@@ -421,7 +433,7 @@
 
     check-cast v4, Landroid/view/View;
 
-    invoke-direct {p0, v4}, Landroid/widget/AbsListView$RecycleBin;->clearAccessibilityFromScrap(Landroid/view/View;)V
+    invoke-direct {p0, v4}, Landroid/widget/AbsListView$RecycleBin;->clearScrapForRebind(Landroid/view/View;)V
 
     return-object v4
 

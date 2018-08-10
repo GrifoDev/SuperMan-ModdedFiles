@@ -317,12 +317,10 @@
 
     move-result v7
 
-    if-eqz v7, :cond_3
+    xor-int/lit8 v7, v7, 0x1
 
-    :cond_2
-    return-void
+    if-eqz v7, :cond_2
 
-    :cond_3
     new-instance v7, Ljava/lang/RuntimeException;
 
     const-string/jumbo v8, "Could not initialize NativeProgram!"
@@ -330,6 +328,9 @@
     invoke-direct {v7, v8}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
     throw v7
+
+    :cond_2
+    return-void
 .end method
 
 .method private native allocate()Z
@@ -562,12 +563,10 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    xor-int/lit8 v0, v0, 0x1
 
-    :cond_0
-    return-void
+    if-eqz v0, :cond_0
 
-    :cond_1
     new-instance v0, Ljava/lang/RuntimeException;
 
     const-string/jumbo v1, "Could not reset NativeProgram!"
@@ -575,6 +574,9 @@
     invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
     throw v0
+
+    :cond_0
+    return-void
 .end method
 
 .method public setHostValue(Ljava/lang/String;Ljava/lang/Object;)V
@@ -668,7 +670,17 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    xor-int/lit8 v0, v0, 0x1
+
+    if-eqz v0, :cond_1
+
+    new-instance v0, Ljava/lang/RuntimeException;
+
+    const-string/jumbo v1, "Could not tear down NativeProgram!"
+
+    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+
+    throw v0
 
     :cond_1
     invoke-direct {p0}, Landroid/filterfw/core/NativeProgram;->deallocate()Z
@@ -678,13 +690,4 @@
     iput-boolean v0, p0, Landroid/filterfw/core/NativeProgram;->mTornDown:Z
 
     return-void
-
-    :cond_2
-    new-instance v0, Ljava/lang/RuntimeException;
-
-    const-string/jumbo v1, "Could not tear down NativeProgram!"
-
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
-
-    throw v0
 .end method

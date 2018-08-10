@@ -313,7 +313,9 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    xor-int/lit8 v2, v2, 0x1
+
+    if-nez v2, :cond_1
 
     invoke-virtual {p1}, Landroid/media/tv/TvContentRating;->getMainRating()Ljava/lang/String;
 
@@ -325,8 +327,14 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    xor-int/lit8 v2, v2, 0x1
 
+    if-eqz v2, :cond_2
+
+    :cond_1
+    return v4
+
+    :cond_2
     invoke-virtual {p0}, Landroid/media/tv/TvContentRating;->getSubRatings()Ljava/util/List;
 
     move-result-object v0
@@ -335,30 +343,27 @@
 
     move-result-object v1
 
-    if-nez v0, :cond_2
-
-    if-nez v1, :cond_2
-
-    return v5
-
-    :cond_1
-    return v4
-
-    :cond_2
     if-nez v0, :cond_3
 
-    if-eqz v1, :cond_3
-
-    return v4
-
-    :cond_3
-    if-eqz v0, :cond_4
-
-    if-nez v1, :cond_4
+    if-nez v1, :cond_3
 
     return v5
 
+    :cond_3
+    if-nez v0, :cond_4
+
+    if-eqz v1, :cond_4
+
+    return v4
+
     :cond_4
+    if-eqz v0, :cond_5
+
+    if-nez v1, :cond_5
+
+    return v5
+
+    :cond_5
     invoke-interface {v0, v1}, Ljava/util/List;->containsAll(Ljava/util/Collection;)Z
 
     move-result v2
@@ -380,9 +385,7 @@
     :cond_0
     move-object v0, p1
 
-    nop
-
-    nop
+    check-cast v0, Landroid/media/tv/TvContentRating;
 
     iget v1, p0, Landroid/media/tv/TvContentRating;->mHashCode:I
 

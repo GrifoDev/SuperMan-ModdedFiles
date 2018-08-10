@@ -255,7 +255,9 @@
 
     move-result v2
 
-    if-nez v2, :cond_0
+    xor-int/lit8 v2, v2, 0x1
+
+    if-eqz v2, :cond_0
 
     iget-object v2, p0, Lcom/android/internal/app/SuggestedLocaleAdapter$FilterByNativeAndUiNames;->this$0:Lcom/android/internal/app/SuggestedLocaleAdapter;
 
@@ -276,7 +278,7 @@
 
     iget-object v2, p0, Lcom/android/internal/app/SuggestedLocaleAdapter$FilterByNativeAndUiNames;->this$0:Lcom/android/internal/app/SuggestedLocaleAdapter;
 
-    invoke-virtual {v2}, Landroid/widget/BaseAdapter;->notifyDataSetChanged()V
+    invoke-virtual {v2}, Lcom/android/internal/app/SuggestedLocaleAdapter;->notifyDataSetChanged()V
 
     :goto_1
     return-void
@@ -284,7 +286,7 @@
     :cond_3
     iget-object v2, p0, Lcom/android/internal/app/SuggestedLocaleAdapter$FilterByNativeAndUiNames;->this$0:Lcom/android/internal/app/SuggestedLocaleAdapter;
 
-    invoke-virtual {v2}, Landroid/widget/BaseAdapter;->notifyDataSetInvalidated()V
+    invoke-virtual {v2}, Lcom/android/internal/app/SuggestedLocaleAdapter;->notifyDataSetInvalidated()V
 
     goto :goto_1
 .end method

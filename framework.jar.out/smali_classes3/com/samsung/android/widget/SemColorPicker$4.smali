@@ -57,7 +57,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0, v2}, Landroid/view/View;->setSelected(Z)V
+    invoke-virtual {v0, v2}, Lcom/samsung/android/widget/SemGradientColorSeekBar;->setSelected(Z)V
 
     return v2
 
@@ -68,7 +68,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0, v1}, Landroid/view/View;->setSelected(Z)V
+    invoke-virtual {v0, v1}, Lcom/samsung/android/widget/SemGradientColorSeekBar;->setSelected(Z)V
 
     return v1
 

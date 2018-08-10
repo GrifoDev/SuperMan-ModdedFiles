@@ -3,6 +3,14 @@
 .source "Zygote.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/android/internal/os/Zygote$MethodAndArgsCaller;
+    }
+.end annotation
+
+
 # static fields
 .field public static final ABI_32:Ljava/lang/String; = "armeabi"
 
@@ -14,7 +22,7 @@
 
 .field public static final DEBUG_ENABLE_CHECKJNI:I = 0x2
 
-.field public static final DEBUG_ENABLE_DEBUGGER:I = 0x1
+.field public static final DEBUG_ENABLE_JDWP:I = 0x1
 
 .field public static final DEBUG_ENABLE_JNI_LOGGING:I = 0x10
 
@@ -22,9 +30,11 @@
 
 .field public static final DEBUG_GENERATE_DEBUG_INFO:I = 0x20
 
+.field public static final DEBUG_JAVA_DEBUGGABLE:I = 0x100
+
 .field public static final DEBUG_NATIVE_DEBUGGABLE:I = 0x80
 
-.field public static final ENHANCED_ZYGOTE_ASLR_DEBUG:Z = true
+.field public static final ENHANCED_ZYGOTE_ASLR_DEBUG:Z = false
 
 .field public static final ENHANCED_ZYGOTE_ASLR_TAG:Ljava/lang/String; = "Enhanced Zygote ASLR"
 
@@ -100,17 +110,6 @@
 
     sput-object v0, Lcom/android/internal/os/Zygote;->SEINFO_REQUIRE_ORIGINAL_FORK:[Ljava/lang/String;
 
-    const-string/jumbo v1, "Enhanced Zygote ASLR"
-
-    sget-boolean v0, Lcom/android/internal/os/Zygote;->isEnhancedZygoteASLREnabled:Z
-
-    if-eqz v0, :cond_1
-
-    const-string/jumbo v0, "ENABLED!"
-
-    :goto_1
-    invoke-static {v1, v0}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
     new-instance v0, Ldalvik/system/ZygoteHooks;
 
     invoke-direct {v0}, Ldalvik/system/ZygoteHooks;-><init>()V
@@ -123,11 +122,6 @@
     move v0, v2
 
     goto :goto_0
-
-    :cond_1
-    const-string/jumbo v0, "DISABLED!"
-
-    goto :goto_1
 .end method
 
 .method private constructor <init>()V
@@ -234,7 +228,7 @@
     throw v2
 .end method
 
-.method public static forkAndSpecialize(II[II[[IILjava/lang/String;IILjava/lang/String;[ILjava/lang/String;Ljava/lang/String;I)I
+.method public static forkAndSpecialize(II[II[[IILjava/lang/String;IILjava/lang/String;[I[ILjava/lang/String;Ljava/lang/String;)I
     .locals 4
 
     sget-object v1, Lcom/android/internal/os/Zygote;->VM_HOOKS:Ldalvik/system/ZygoteHooks;
@@ -243,7 +237,7 @@
 
     invoke-static {}, Lcom/android/internal/os/Zygote;->resetNicePriority()V
 
-    invoke-static/range {p0 .. p13}, Lcom/android/internal/os/Zygote;->nativeForkAndSpecialize(II[II[[IILjava/lang/String;IILjava/lang/String;[ILjava/lang/String;Ljava/lang/String;I)I
+    invoke-static/range {p0 .. p13}, Lcom/android/internal/os/Zygote;->nativeForkAndSpecialize(II[II[[IILjava/lang/String;IILjava/lang/String;[I[ILjava/lang/String;Ljava/lang/String;)I
 
     move-result v0
 
@@ -294,7 +288,10 @@
     return v0
 .end method
 
-.method private static native nativeForkAndSpecialize(II[II[[IILjava/lang/String;IILjava/lang/String;[ILjava/lang/String;Ljava/lang/String;I)I
+.method protected static native nativeAllowFileAcrossFork(Ljava/lang/String;)V
+.end method
+
+.method private static native nativeForkAndSpecialize(II[II[[IILjava/lang/String;IILjava/lang/String;[I[ILjava/lang/String;Ljava/lang/String;)I
 .end method
 
 .method private static native nativeForkSystemServer(II[II[[IJJ)I

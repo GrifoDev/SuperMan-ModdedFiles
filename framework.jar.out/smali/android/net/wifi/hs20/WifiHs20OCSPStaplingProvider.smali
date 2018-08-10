@@ -3,19 +3,7 @@
 .source "WifiHs20OCSPStaplingProvider.java"
 
 
-# static fields
-.field private static final WifiHs20OCSPStaplingProvider:Ljava/security/Provider;
-
-
 # direct methods
-.method static synthetic -wrap0(Landroid/net/wifi/hs20/WifiHs20OCSPStaplingProvider;)V
-    .locals 0
-
-    invoke-direct {p0}, Landroid/net/wifi/hs20/WifiHs20OCSPStaplingProvider;->setup()V
-
-    return-void
-.end method
-
 .method public constructor <init>()V
     .locals 4
 
@@ -32,12 +20,6 @@
     invoke-direct {v0, p0}, Landroid/net/wifi/hs20/WifiHs20OCSPStaplingProvider$1;-><init>(Landroid/net/wifi/hs20/WifiHs20OCSPStaplingProvider;)V
 
     invoke-static {v0}, Ljava/security/AccessController;->doPrivileged(Ljava/security/PrivilegedAction;)Ljava/lang/Object;
-
-    return-void
-.end method
-
-.method private setup()V
-    .locals 0
 
     return-void
 .end method

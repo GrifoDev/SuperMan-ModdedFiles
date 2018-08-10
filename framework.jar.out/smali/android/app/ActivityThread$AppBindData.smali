@@ -17,6 +17,8 @@
 # instance fields
 .field appInfo:Landroid/content/pm/ApplicationInfo;
 
+.field buildSerial:Ljava/lang/String;
+
 .field compatInfo:Landroid/content/res/CompatibilityInfo;
 
 .field config:Landroid/content/res/Configuration;

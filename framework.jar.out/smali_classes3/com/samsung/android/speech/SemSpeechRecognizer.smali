@@ -237,7 +237,7 @@
 
     const-string/jumbo v2, "commandType"
 
-    invoke-virtual {v0, v2, p1}, Landroid/os/BaseBundle;->putInt(Ljava/lang/String;I)V
+    invoke-virtual {v0, v2, p1}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
     invoke-virtual {v1, v0}, Landroid/os/Message;->setData(Landroid/os/Bundle;)V
 
@@ -318,7 +318,19 @@
 
     :cond_0
     :try_start_1
-    new-instance v0, Lcom/samsung/android/speech/AudioTask;
+    invoke-static {}, Lcom/samsung/android/speech/SemSpeechRecognizer;->isPDTModel()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    sget-object v0, Lcom/samsung/android/speech/SemSpeechRecognizer;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v1, "Load PDTAudioTask"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    new-instance v0, Lcom/samsung/android/speech/PDTAudioTask;
 
     iget-object v1, p0, Lcom/samsung/android/speech/SemSpeechRecognizer;->mListener:Lcom/samsung/android/speech/SemSpeechRecognizer$ResultListener;
 
@@ -330,19 +342,20 @@
 
     move v3, p1
 
-    invoke-direct/range {v0 .. v5}, Lcom/samsung/android/speech/AudioTask;-><init>(Lcom/samsung/android/speech/SemSpeechRecognizer$ResultListener;Ljava/lang/String;IIZ)V
+    invoke-direct/range {v0 .. v5}, Lcom/samsung/android/speech/PDTAudioTask;-><init>(Lcom/samsung/android/speech/SemSpeechRecognizer$ResultListener;Ljava/lang/String;IIZ)V
 
     iput-object v0, p0, Lcom/samsung/android/speech/SemSpeechRecognizer;->audio:Lcom/samsung/android/speech/AudioTask;
 
+    :goto_1
     iget-object v0, p0, Lcom/samsung/android/speech/SemSpeechRecognizer;->audio:Lcom/samsung/android/speech/AudioTask;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2
 
     iget-object v0, p0, Lcom/samsung/android/speech/SemSpeechRecognizer;->audio:Lcom/samsung/android/speech/AudioTask;
 
     iget-object v0, v0, Lcom/samsung/android/speech/AudioTask;->rec:Landroid/media/AudioRecord;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2
 
     iget-object v0, p0, Lcom/samsung/android/speech/SemSpeechRecognizer;->audio:Lcom/samsung/android/speech/AudioTask;
 
@@ -403,22 +416,53 @@
     :try_start_2
     sget-object v0, Lcom/samsung/android/speech/SemSpeechRecognizer;->TAG:Ljava/lang/String;
 
+    const-string/jumbo v1, "Load SensoryAudioTask"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    new-instance v0, Lcom/samsung/android/speech/SensoryAudioTask;
+
+    iget-object v1, p0, Lcom/samsung/android/speech/SemSpeechRecognizer;->mListener:Lcom/samsung/android/speech/SemSpeechRecognizer$ResultListener;
+
+    const-string/jumbo v2, "/system/voicebargeindata"
+
+    iget v4, p0, Lcom/samsung/android/speech/SemSpeechRecognizer;->uselanguage:I
+
+    iget-boolean v5, p0, Lcom/samsung/android/speech/SemSpeechRecognizer;->samsungOOVResult:Z
+
+    move v3, p1
+
+    invoke-direct/range {v0 .. v5}, Lcom/samsung/android/speech/SensoryAudioTask;-><init>(Lcom/samsung/android/speech/SemSpeechRecognizer$ResultListener;Ljava/lang/String;IIZ)V
+
+    iput-object v0, p0, Lcom/samsung/android/speech/SemSpeechRecognizer;->audio:Lcom/samsung/android/speech/AudioTask;
+
+    sget-object v0, Lcom/samsung/android/speech/SemSpeechRecognizer;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v1, "Complete Loading SensoryAudioTask"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_1
+
+    :cond_2
+    sget-object v0, Lcom/samsung/android/speech/SemSpeechRecognizer;->TAG:Ljava/lang/String;
+
     const-string/jumbo v1, "fail to running Bargein"
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     iget-object v0, p0, Lcom/samsung/android/speech/SemSpeechRecognizer;->audio:Lcom/samsung/android/speech/AudioTask;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_3
 
     iget-object v0, p0, Lcom/samsung/android/speech/SemSpeechRecognizer;->audio:Lcom/samsung/android/speech/AudioTask;
 
     invoke-virtual {v0}, Lcom/samsung/android/speech/AudioTask;->stop()V
 
-    :cond_2
+    :cond_3
     iget-object v0, p0, Lcom/samsung/android/speech/SemSpeechRecognizer;->audio_thread:Ljava/lang/Thread;
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_4
 
     sget-object v0, Lcom/samsung/android/speech/SemSpeechRecognizer;->TAG:Ljava/lang/String;
 
@@ -426,22 +470,24 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_3
+    :cond_4
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/samsung/android/speech/SemSpeechRecognizer;->audio:Lcom/samsung/android/speech/AudioTask;
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    goto :goto_0
+    goto/16 :goto_0
 .end method
 
 .method private init()V
     .locals 3
 
+    const/4 v2, 0x1
+
     sget-object v0, Lcom/samsung/android/speech/SemSpeechRecognizer;->TAG:Ljava/lang/String;
 
-    const-string/jumbo v1, "make new BargeInRecognizer VER 15.11.9"
+    const-string/jumbo v1, "make new SemSpeechRecognizer VER 16.11.30"
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -457,22 +503,17 @@
 
     iput-boolean v0, p0, Lcom/samsung/android/speech/SemSpeechRecognizer;->isEnableChineseBargeIn:Z
 
-    const-string/jumbo v0, "/system/voicebargeindata/include/bargein_language_extra_es"
-
-    invoke-static {v0}, Lcom/samsung/android/speech/SemSpeechRecognizer;->isBargeInFile(Ljava/lang/String;)Z
+    invoke-static {}, Lcom/samsung/android/speech/SemSpeechRecognizer;->isPDTModel()Z
 
     move-result v0
 
-    iput-boolean v0, p0, Lcom/samsung/android/speech/SemSpeechRecognizer;->isEnableExtraSpanish:Z
+    if-eqz v0, :cond_0
 
-    const-string/jumbo v0, "/system/voicebargeindata/include/bargein_language_extra_ru"
+    iput-boolean v2, p0, Lcom/samsung/android/speech/SemSpeechRecognizer;->isEnableExtraSpanish:Z
 
-    invoke-static {v0}, Lcom/samsung/android/speech/SemSpeechRecognizer;->isBargeInFile(Ljava/lang/String;)Z
+    iput-boolean v2, p0, Lcom/samsung/android/speech/SemSpeechRecognizer;->isEnableExtraRussian:Z
 
-    move-result v0
-
-    iput-boolean v0, p0, Lcom/samsung/android/speech/SemSpeechRecognizer;->isEnableExtraRussian:Z
-
+    :goto_0
     invoke-direct {p0}, Lcom/samsung/android/speech/SemSpeechRecognizer;->setLanguage()V
 
     const/4 v0, 0x0
@@ -599,31 +640,26 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    sget-object v0, Lcom/samsung/android/speech/SemSpeechRecognizer;->TAG:Ljava/lang/String;
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v2, "mState : "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    iget v2, p0, Lcom/samsung/android/speech/SemSpeechRecognizer;->mState:I
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
     return-void
+
+    :cond_0
+    const-string/jumbo v0, "/system/voicebargeindata/include/bargein_language_extra_es"
+
+    invoke-static {v0}, Lcom/samsung/android/speech/SemSpeechRecognizer;->isBargeInFile(Ljava/lang/String;)Z
+
+    move-result v0
+
+    iput-boolean v0, p0, Lcom/samsung/android/speech/SemSpeechRecognizer;->isEnableExtraSpanish:Z
+
+    const-string/jumbo v0, "/system/voicebargeindata/include/bargein_language_extra_ru"
+
+    invoke-static {v0}, Lcom/samsung/android/speech/SemSpeechRecognizer;->isBargeInFile(Ljava/lang/String;)Z
+
+    move-result v0
+
+    iput-boolean v0, p0, Lcom/samsung/android/speech/SemSpeechRecognizer;->isEnableExtraRussian:Z
+
+    goto/16 :goto_0
 .end method
 
 .method private static isBargeInFile(Ljava/lang/String;)Z
@@ -644,6 +680,36 @@
     return v0
 
     :cond_0
+    const/4 v0, 0x0
+
+    return v0
+.end method
+
+.method private static isPDTModel()Z
+    .locals 1
+
+    const-string/jumbo v0, "/system/lib/libBargeInEngine.so"
+
+    invoke-static {v0}, Lcom/samsung/android/speech/SemSpeechRecognizer;->isBargeInFile(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    const-string/jumbo v0, "/system/lib64/libBargeInEngine.so"
+
+    invoke-static {v0}, Lcom/samsung/android/speech/SemSpeechRecognizer;->isBargeInFile(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    :cond_0
+    const/4 v0, 0x1
+
+    return v0
+
+    :cond_1
     const/4 v0, 0x0
 
     return v0
@@ -727,22 +793,37 @@
 
     const/4 v2, 0x1
 
-    invoke-static {}, Lcom/samsung/android/speech/SemSpeechRecognizer;->isSamsungModel()Z
+    invoke-static {}, Lcom/samsung/android/speech/SemSpeechRecognizer;->isPDTModel()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    iput-boolean v2, p0, Lcom/samsung/android/speech/SemSpeechRecognizer;->samsungOOVResult:Z
+    sget-object v0, Lcom/samsung/android/speech/SemSpeechRecognizer;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v1, "use libBargeInEngine.so"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     return v2
 
     :cond_0
-    invoke-static {}, Lcom/samsung/android/speech/SemSpeechRecognizer;->isSensoryModel()Z
+    invoke-static {}, Lcom/samsung/android/speech/SemSpeechRecognizer;->isSamsungModel()Z
 
     move-result v0
 
     if-eqz v0, :cond_1
+
+    iput-boolean v2, p0, Lcom/samsung/android/speech/SemSpeechRecognizer;->samsungOOVResult:Z
+
+    return v2
+
+    :cond_1
+    invoke-static {}, Lcom/samsung/android/speech/SemSpeechRecognizer;->isSensoryModel()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
 
     iput-boolean v3, p0, Lcom/samsung/android/speech/SemSpeechRecognizer;->samsungOOVResult:Z
 
@@ -754,7 +835,7 @@
 
     return v2
 
-    :cond_1
+    :cond_2
     sget-object v0, Lcom/samsung/android/speech/SemSpeechRecognizer;->TAG:Ljava/lang/String;
 
     const-string/jumbo v1, "Error : Could not find libsasr-jni.so && libSensoryBargeInEngine.so"
@@ -822,14 +903,14 @@
 
     :cond_0
     :goto_1
-    invoke-virtual {v1}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v1}, Ljava/io/IOException;->printStackTrace()V
 
     return-object v7
 
     :catch_1
     move-exception v2
 
-    invoke-virtual {v2}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v2}, Ljava/io/IOException;->printStackTrace()V
 
     goto :goto_1
 
@@ -845,523 +926,528 @@
 .end method
 
 .method private setLanguage()V
-    .locals 9
+    .locals 10
 
-    const/16 v8, 0x8
+    const/16 v9, 0x8
 
-    const/4 v7, 0x1
+    const/4 v8, 0x1
 
     invoke-static {}, Ljava/util/Locale;->getDefault()Ljava/util/Locale;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Ljava/util/Locale;->toString()Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-static {}, Ljava/util/Locale;->getDefault()Ljava/util/Locale;
+    if-nez v0, :cond_1
 
-    move-result-object v4
+    const-string/jumbo v1, "en_US"
 
-    invoke-virtual {v4}, Ljava/util/Locale;->getLanguage()Ljava/lang/String;
+    const-string/jumbo v4, "en"
 
-    move-result-object v3
+    const-string/jumbo v3, "US"
 
-    invoke-static {}, Ljava/util/Locale;->getDefault()Ljava/util/Locale;
+    :goto_0
+    const/4 v2, 0x0
 
-    move-result-object v4
+    sget-object v5, Lcom/samsung/android/speech/SemSpeechRecognizer;->TAG:Ljava/lang/String;
 
-    invoke-virtual {v4}, Ljava/util/Locale;->getCountry()Ljava/lang/String;
+    new-instance v6, Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
 
-    const/4 v1, 0x0
+    const-string/jumbo v7, "stringLanguage : "
 
-    sget-object v4, Lcom/samsung/android/speech/SemSpeechRecognizer;->TAG:Ljava/lang/String;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    new-instance v5, Ljava/lang/StringBuilder;
+    move-result-object v6
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-virtual {v6, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v6, "stringLanguage : "
+    move-result-object v6
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v5, v6}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    sget-object v5, Lcom/samsung/android/speech/SemSpeechRecognizer;->TAG:Ljava/lang/String;
+
+    new-instance v6, Ljava/lang/StringBuilder;
+
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v7, "stringCountry : "
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v5, v6}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    sget-object v5, Lcom/samsung/android/speech/SemSpeechRecognizer;->TAG:Ljava/lang/String;
+
+    new-instance v6, Ljava/lang/StringBuilder;
+
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v7, "sVoiceLanguage : "
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v5, v6}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    if-eqz v4, :cond_0
+
+    sget-object v5, Ljava/util/Locale;->KOREA:Ljava/util/Locale;
+
+    invoke-virtual {v5}, Ljava/util/Locale;->getLanguage()Ljava/lang/String;
 
     move-result-object v5
 
-    invoke-virtual {v5, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result-object v5
+    move-result v5
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    if-eqz v5, :cond_2
 
-    move-result-object v5
+    const/4 v5, 0x0
 
-    invoke-static {v4, v5}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    sget-object v4, Lcom/samsung/android/speech/SemSpeechRecognizer;->TAG:Ljava/lang/String;
-
-    new-instance v5, Ljava/lang/StringBuilder;
-
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v6, "stringCountry : "
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-static {v4, v5}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    sget-object v4, Lcom/samsung/android/speech/SemSpeechRecognizer;->TAG:Ljava/lang/String;
-
-    new-instance v5, Ljava/lang/StringBuilder;
-
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v6, "sVoiceLanguage : "
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-static {v4, v5}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    if-eqz v3, :cond_0
-
-    sget-object v4, Ljava/util/Locale;->KOREA:Ljava/util/Locale;
-
-    invoke-virtual {v4}, Ljava/util/Locale;->getLanguage()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_1
-
-    const/4 v4, 0x0
-
-    iput v4, p0, Lcom/samsung/android/speech/SemSpeechRecognizer;->uselanguage:I
+    iput v5, p0, Lcom/samsung/android/speech/SemSpeechRecognizer;->uselanguage:I
 
     :cond_0
-    :goto_0
+    :goto_1
     return-void
 
     :cond_1
-    sget-object v4, Ljava/util/Locale;->US:Ljava/util/Locale;
+    invoke-virtual {v0}, Ljava/util/Locale;->toString()Ljava/lang/String;
 
-    invoke-virtual {v4}, Ljava/util/Locale;->getLanguage()Ljava/lang/String;
+    move-result-object v1
+
+    invoke-virtual {v0}, Ljava/util/Locale;->getLanguage()Ljava/lang/String;
 
     move-result-object v4
 
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0}, Ljava/util/Locale;->getCountry()Ljava/lang/String;
 
-    move-result v4
-
-    if-eqz v4, :cond_3
-
-    const-string/jumbo v4, "GB"
-
-    invoke-virtual {v2, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_2
-
-    const/16 v4, 0xa
-
-    iput v4, p0, Lcom/samsung/android/speech/SemSpeechRecognizer;->uselanguage:I
+    move-result-object v3
 
     goto :goto_0
 
     :cond_2
-    iput v7, p0, Lcom/samsung/android/speech/SemSpeechRecognizer;->uselanguage:I
+    sget-object v5, Ljava/util/Locale;->US:Ljava/util/Locale;
 
-    goto :goto_0
+    invoke-virtual {v5}, Ljava/util/Locale;->getLanguage()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_4
+
+    const-string/jumbo v5, "GB"
+
+    invoke-virtual {v3, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_3
+
+    const/16 v5, 0xa
+
+    iput v5, p0, Lcom/samsung/android/speech/SemSpeechRecognizer;->uselanguage:I
+
+    goto :goto_1
 
     :cond_3
-    sget-object v4, Ljava/util/Locale;->CHINA:Ljava/util/Locale;
+    iput v8, p0, Lcom/samsung/android/speech/SemSpeechRecognizer;->uselanguage:I
 
-    invoke-virtual {v4}, Ljava/util/Locale;->getLanguage()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_8
-
-    iget-boolean v4, p0, Lcom/samsung/android/speech/SemSpeechRecognizer;->isEnableChineseBargeIn:Z
-
-    if-eqz v4, :cond_8
-
-    const-string/jumbo v4, "CN"
-
-    invoke-virtual {v2, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_4
-
-    const/4 v4, 0x2
-
-    iput v4, p0, Lcom/samsung/android/speech/SemSpeechRecognizer;->uselanguage:I
-
-    goto :goto_0
+    goto :goto_1
 
     :cond_4
-    const-string/jumbo v4, "TW"
+    sget-object v5, Ljava/util/Locale;->CHINA:Ljava/util/Locale;
 
-    invoke-virtual {v2, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v5}, Ljava/util/Locale;->getLanguage()Ljava/lang/String;
 
-    move-result v4
+    move-result-object v5
 
-    if-eqz v4, :cond_5
+    invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    const/16 v4, 0xc
+    move-result v5
 
-    iput v4, p0, Lcom/samsung/android/speech/SemSpeechRecognizer;->uselanguage:I
+    if-eqz v5, :cond_9
 
-    goto :goto_0
+    iget-boolean v5, p0, Lcom/samsung/android/speech/SemSpeechRecognizer;->isEnableChineseBargeIn:Z
+
+    if-eqz v5, :cond_9
+
+    const-string/jumbo v5, "CN"
+
+    invoke-virtual {v3, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_5
+
+    const/4 v5, 0x2
+
+    iput v5, p0, Lcom/samsung/android/speech/SemSpeechRecognizer;->uselanguage:I
+
+    goto :goto_1
 
     :cond_5
-    const-string/jumbo v4, "HK"
+    const-string/jumbo v5, "TW"
 
-    invoke-virtual {v2, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v3, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v4
+    move-result v5
 
-    if-eqz v4, :cond_6
+    if-eqz v5, :cond_6
 
-    const/16 v4, 0xd
+    const/16 v5, 0xc
 
-    iput v4, p0, Lcom/samsung/android/speech/SemSpeechRecognizer;->uselanguage:I
+    iput v5, p0, Lcom/samsung/android/speech/SemSpeechRecognizer;->uselanguage:I
 
-    goto :goto_0
+    goto :goto_1
 
     :cond_6
-    const-string/jumbo v4, "SG"
+    const-string/jumbo v5, "HK"
 
-    invoke-virtual {v2, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v3, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v4
+    move-result v5
 
-    if-eqz v4, :cond_7
+    if-eqz v5, :cond_7
 
-    const/16 v4, 0xe
+    const/16 v5, 0xd
 
-    iput v4, p0, Lcom/samsung/android/speech/SemSpeechRecognizer;->uselanguage:I
+    iput v5, p0, Lcom/samsung/android/speech/SemSpeechRecognizer;->uselanguage:I
 
-    goto :goto_0
+    goto :goto_1
 
     :cond_7
-    iput v7, p0, Lcom/samsung/android/speech/SemSpeechRecognizer;->uselanguage:I
+    const-string/jumbo v5, "SG"
 
-    goto :goto_0
+    invoke-virtual {v3, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_8
+
+    const/16 v5, 0xe
+
+    iput v5, p0, Lcom/samsung/android/speech/SemSpeechRecognizer;->uselanguage:I
+
+    goto :goto_1
 
     :cond_8
-    const-string/jumbo v4, "ES"
+    iput v8, p0, Lcom/samsung/android/speech/SemSpeechRecognizer;->uselanguage:I
 
-    invoke-virtual {v2, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_b
-
-    const/4 v4, 0x3
-
-    iput v4, p0, Lcom/samsung/android/speech/SemSpeechRecognizer;->uselanguage:I
-
-    iget-boolean v4, p0, Lcom/samsung/android/speech/SemSpeechRecognizer;->isEnableExtraSpanish:Z
-
-    if-nez v4, :cond_9
-
-    const-string/jumbo v4, "es"
-
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_a
+    goto :goto_1
 
     :cond_9
-    sget-object v4, Lcom/samsung/android/speech/SemSpeechRecognizer;->TAG:Ljava/lang/String;
+    const-string/jumbo v5, "ES"
 
-    new-instance v5, Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    move-result v5
 
-    const-string/jumbo v6, "Extra Sapnish is enabled : "
+    if-eqz v5, :cond_b
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const/4 v5, 0x3
 
-    move-result-object v5
+    iput v5, p0, Lcom/samsung/android/speech/SemSpeechRecognizer;->uselanguage:I
 
-    invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    iget-boolean v5, p0, Lcom/samsung/android/speech/SemSpeechRecognizer;->isEnableExtraSpanish:Z
 
-    move-result-object v5
+    if-nez v5, :cond_a
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    const-string/jumbo v5, "es"
 
-    move-result-object v5
+    invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    invoke-static {v4, v5}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    move-result v5
 
-    goto/16 :goto_0
+    xor-int/lit8 v5, v5, 0x1
+
+    if-eqz v5, :cond_a
+
+    iput v8, p0, Lcom/samsung/android/speech/SemSpeechRecognizer;->uselanguage:I
+
+    goto/16 :goto_1
 
     :cond_a
-    iput v7, p0, Lcom/samsung/android/speech/SemSpeechRecognizer;->uselanguage:I
+    sget-object v5, Lcom/samsung/android/speech/SemSpeechRecognizer;->TAG:Ljava/lang/String;
 
-    goto/16 :goto_0
+    new-instance v6, Ljava/lang/StringBuilder;
+
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v7, "Extra Sapnish is enabled : "
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v5, v6}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto/16 :goto_1
 
     :cond_b
-    const-string/jumbo v4, "es"
+    const-string/jumbo v5, "es"
 
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v4
+    move-result v5
 
-    if-eqz v4, :cond_c
+    if-eqz v5, :cond_c
 
-    const/16 v4, 0xb
+    const/16 v5, 0xb
 
-    iput v4, p0, Lcom/samsung/android/speech/SemSpeechRecognizer;->uselanguage:I
+    iput v5, p0, Lcom/samsung/android/speech/SemSpeechRecognizer;->uselanguage:I
 
-    goto/16 :goto_0
+    goto/16 :goto_1
 
     :cond_c
-    sget-object v4, Ljava/util/Locale;->FRANCE:Ljava/util/Locale;
+    sget-object v5, Ljava/util/Locale;->FRANCE:Ljava/util/Locale;
 
-    invoke-virtual {v4}, Ljava/util/Locale;->getLanguage()Ljava/lang/String;
+    invoke-virtual {v5}, Ljava/util/Locale;->getLanguage()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v5
 
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v4
+    move-result v5
 
-    if-eqz v4, :cond_d
+    if-eqz v5, :cond_d
 
-    const/4 v4, 0x4
+    const/4 v5, 0x4
 
-    iput v4, p0, Lcom/samsung/android/speech/SemSpeechRecognizer;->uselanguage:I
+    iput v5, p0, Lcom/samsung/android/speech/SemSpeechRecognizer;->uselanguage:I
 
-    goto/16 :goto_0
+    goto/16 :goto_1
 
     :cond_d
-    sget-object v4, Ljava/util/Locale;->GERMAN:Ljava/util/Locale;
+    sget-object v5, Ljava/util/Locale;->GERMAN:Ljava/util/Locale;
 
-    invoke-virtual {v4}, Ljava/util/Locale;->getLanguage()Ljava/lang/String;
+    invoke-virtual {v5}, Ljava/util/Locale;->getLanguage()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v5
 
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v4
+    move-result v5
 
-    if-eqz v4, :cond_e
+    if-eqz v5, :cond_e
 
-    const/4 v4, 0x5
+    const/4 v5, 0x5
 
-    iput v4, p0, Lcom/samsung/android/speech/SemSpeechRecognizer;->uselanguage:I
+    iput v5, p0, Lcom/samsung/android/speech/SemSpeechRecognizer;->uselanguage:I
 
-    goto/16 :goto_0
+    goto/16 :goto_1
 
     :cond_e
-    sget-object v4, Ljava/util/Locale;->ITALY:Ljava/util/Locale;
+    sget-object v5, Ljava/util/Locale;->ITALY:Ljava/util/Locale;
 
-    invoke-virtual {v4}, Ljava/util/Locale;->getLanguage()Ljava/lang/String;
+    invoke-virtual {v5}, Ljava/util/Locale;->getLanguage()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v5
 
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v4
+    move-result v5
 
-    if-eqz v4, :cond_f
+    if-eqz v5, :cond_f
 
-    const/4 v4, 0x6
+    const/4 v5, 0x6
 
-    iput v4, p0, Lcom/samsung/android/speech/SemSpeechRecognizer;->uselanguage:I
+    iput v5, p0, Lcom/samsung/android/speech/SemSpeechRecognizer;->uselanguage:I
 
-    goto/16 :goto_0
+    goto/16 :goto_1
 
     :cond_f
-    sget-object v4, Ljava/util/Locale;->JAPAN:Ljava/util/Locale;
+    sget-object v5, Ljava/util/Locale;->JAPAN:Ljava/util/Locale;
 
-    invoke-virtual {v4}, Ljava/util/Locale;->getLanguage()Ljava/lang/String;
+    invoke-virtual {v5}, Ljava/util/Locale;->getLanguage()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v5
 
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v4
+    move-result v5
 
-    if-eqz v4, :cond_10
+    if-eqz v5, :cond_10
 
-    const/4 v4, 0x7
+    const/4 v5, 0x7
 
-    iput v4, p0, Lcom/samsung/android/speech/SemSpeechRecognizer;->uselanguage:I
+    iput v5, p0, Lcom/samsung/android/speech/SemSpeechRecognizer;->uselanguage:I
 
-    goto/16 :goto_0
+    goto/16 :goto_1
 
     :cond_10
-    const-string/jumbo v4, "ru"
+    const-string/jumbo v5, "ru"
 
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v4
+    move-result v5
 
-    if-eqz v4, :cond_11
+    if-eqz v5, :cond_11
 
-    iput v8, p0, Lcom/samsung/android/speech/SemSpeechRecognizer;->uselanguage:I
+    iput v9, p0, Lcom/samsung/android/speech/SemSpeechRecognizer;->uselanguage:I
 
-    goto/16 :goto_0
+    goto/16 :goto_1
 
     :cond_11
-    const-string/jumbo v4, "pt"
+    const-string/jumbo v5, "pt"
 
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v4
+    move-result v5
 
-    if-eqz v4, :cond_13
+    if-eqz v5, :cond_13
 
-    const-string/jumbo v4, "BR"
+    const-string/jumbo v5, "BR"
 
-    invoke-virtual {v2, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v3, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v4
+    move-result v5
 
-    if-eqz v4, :cond_12
+    if-eqz v5, :cond_12
 
-    const/16 v4, 0x9
+    const/16 v5, 0x9
 
-    iput v4, p0, Lcom/samsung/android/speech/SemSpeechRecognizer;->uselanguage:I
+    iput v5, p0, Lcom/samsung/android/speech/SemSpeechRecognizer;->uselanguage:I
 
-    goto/16 :goto_0
+    goto/16 :goto_1
 
     :cond_12
-    iput v7, p0, Lcom/samsung/android/speech/SemSpeechRecognizer;->uselanguage:I
-
-    goto/16 :goto_0
-
-    :cond_13
-    iget-boolean v4, p0, Lcom/samsung/android/speech/SemSpeechRecognizer;->isEnableExtraRussian:Z
-
-    if-eqz v4, :cond_16
-
-    const-string/jumbo v4, "az_AZ"
-
-    invoke-virtual {v0, v4}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
-
-    move-result v4
-
-    if-nez v4, :cond_14
-
-    const-string/jumbo v4, "kk_KZ"
-
-    invoke-virtual {v0, v4}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
-
-    move-result v4
-
-    if-nez v4, :cond_14
-
-    const-string/jumbo v4, "uz_UZ"
-
-    invoke-virtual {v0, v4}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
-
-    move-result v4
-
-    if-nez v4, :cond_14
-
-    const-string/jumbo v4, "ky_KZ"
-
-    invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v4
-
-    if-nez v4, :cond_14
-
-    const-string/jumbo v4, "tg_TJ"
-
-    invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v4
-
-    if-nez v4, :cond_14
-
-    const-string/jumbo v4, "tk_TM"
-
-    invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v4
-
-    if-nez v4, :cond_14
-
-    const-string/jumbo v4, "be_BY"
-
-    invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_15
-
-    :cond_14
     iput v8, p0, Lcom/samsung/android/speech/SemSpeechRecognizer;->uselanguage:I
 
-    sget-object v4, Lcom/samsung/android/speech/SemSpeechRecognizer;->TAG:Ljava/lang/String;
+    goto/16 :goto_1
 
-    new-instance v5, Ljava/lang/StringBuilder;
+    :cond_13
+    iget-boolean v5, p0, Lcom/samsung/android/speech/SemSpeechRecognizer;->isEnableExtraRussian:Z
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    if-eqz v5, :cond_16
 
-    const-string/jumbo v6, "Extra Russian is enabled : "
+    const-string/jumbo v5, "az_AZ"
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v5}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
 
-    move-result-object v5
+    move-result v5
 
-    invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    if-nez v5, :cond_14
 
-    move-result-object v5
+    const-string/jumbo v5, "kk_KZ"
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v1, v5}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
 
-    move-result-object v5
+    move-result v5
 
-    invoke-static {v4, v5}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    if-nez v5, :cond_14
 
-    goto/16 :goto_0
+    const-string/jumbo v5, "uz_UZ"
+
+    invoke-virtual {v1, v5}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v5
+
+    if-nez v5, :cond_14
+
+    const-string/jumbo v5, "ky_KZ"
+
+    invoke-virtual {v1, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v5
+
+    if-nez v5, :cond_14
+
+    const-string/jumbo v5, "tg_TJ"
+
+    invoke-virtual {v1, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v5
+
+    if-nez v5, :cond_14
+
+    const-string/jumbo v5, "tk_TM"
+
+    invoke-virtual {v1, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v5
+
+    if-nez v5, :cond_14
+
+    const-string/jumbo v5, "be_BY"
+
+    invoke-virtual {v1, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_15
+
+    :cond_14
+    iput v9, p0, Lcom/samsung/android/speech/SemSpeechRecognizer;->uselanguage:I
+
+    sget-object v5, Lcom/samsung/android/speech/SemSpeechRecognizer;->TAG:Ljava/lang/String;
+
+    new-instance v6, Ljava/lang/StringBuilder;
+
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v7, "Extra Russian is enabled : "
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v5, v6}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto/16 :goto_1
 
     :cond_15
-    iput v7, p0, Lcom/samsung/android/speech/SemSpeechRecognizer;->uselanguage:I
+    iput v8, p0, Lcom/samsung/android/speech/SemSpeechRecognizer;->uselanguage:I
 
-    goto/16 :goto_0
+    goto/16 :goto_1
 
     :cond_16
-    iput v7, p0, Lcom/samsung/android/speech/SemSpeechRecognizer;->uselanguage:I
+    iput v8, p0, Lcom/samsung/android/speech/SemSpeechRecognizer;->uselanguage:I
 
-    goto/16 :goto_0
+    goto/16 :goto_1
 .end method
 
 .method private start(I)V
@@ -1696,6 +1782,19 @@
     return-object v0
 
     :pswitch_1
+    invoke-static {}, Lcom/samsung/android/speech/SemSpeechRecognizer;->isPDTModel()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    sget-object v0, Lcom/samsung/android/speech/CommandLanguage;->CALL_PDT:[[Ljava/lang/String;
+
+    aget-object v0, v0, p2
+
+    return-object v0
+
+    :cond_2
     sget-object v0, Lcom/samsung/android/speech/CommandLanguage;->CALL:[[Ljava/lang/String;
 
     aget-object v0, v0, p2
@@ -1730,8 +1829,6 @@
 
     return-object v0
 
-    nop
-
     :pswitch_data_0
     .packed-switch 0x2
         :pswitch_1
@@ -1748,6 +1845,9 @@
 .method public getRecognitionResult()I
     .locals 2
 
+    monitor-enter p0
+
+    :try_start_0
     iget-object v0, p0, Lcom/samsung/android/speech/SemSpeechRecognizer;->audio:Lcom/samsung/android/speech/AudioTask;
 
     if-eqz v0, :cond_0
@@ -1759,13 +1859,29 @@
     const/4 v1, 0x0
 
     aget-short v0, v0, v1
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit p0
 
     return v0
 
     :cond_0
+    :try_start_1
     iget v0, p0, Lcom/samsung/android/speech/SemSpeechRecognizer;->intBargeInResult:I
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    monitor-exit p0
 
     return v0
+
+    :catchall_0
+    move-exception v0
+
+    monitor-exit p0
+
+    throw v0
 .end method
 
 .method public getState()I
@@ -1801,8 +1917,19 @@
 .end method
 
 .method public isChineseMode()Z
-    .locals 1
+    .locals 2
 
+    const/4 v1, 0x1
+
+    invoke-static {}, Lcom/samsung/android/speech/SemSpeechRecognizer;->isPDTModel()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    return v1
+
+    :cond_0
     const/4 v0, 0x2
 
     invoke-static {v0}, Lcom/samsung/android/speech/Config;->GetSamsungModels(I)Ljava/lang/String;
@@ -1813,13 +1940,11 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1
 
-    const/4 v0, 0x1
+    return v1
 
-    return v0
-
-    :cond_0
+    :cond_1
     const/4 v0, 0x0
 
     return v0
@@ -1868,241 +1993,347 @@
 .end method
 
 .method public isEnabled(II)Z
-    .locals 8
+    .locals 11
 
-    const/4 v7, 0x1
+    const/4 v10, 0x0
 
-    invoke-static {}, Lcom/samsung/android/speech/SemSpeechRecognizer;->isSensoryModel()Z
+    const/4 v9, 0x1
 
-    move-result v4
+    invoke-static {}, Lcom/samsung/android/speech/SemSpeechRecognizer;->isPDTModel()Z
 
-    if-eqz v4, :cond_0
+    move-result v6
 
-    invoke-static {p2, p1}, Lcom/samsung/android/speech/Config;->GetSensoryAM(II)Ljava/lang/String;
+    if-eqz v6, :cond_1
 
-    move-result-object v3
-
-    invoke-static {p2, p1}, Lcom/samsung/android/speech/Config;->GetSensoryGRAMMAR(II)Ljava/lang/String;
-
-    move-result-object v2
-
-    new-instance v4, Ljava/lang/StringBuilder;
-
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {v4, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    const-string/jumbo v5, "_v2.raw"
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    new-instance v4, Ljava/lang/StringBuilder;
-
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    const-string/jumbo v5, "_v2.raw"
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v3}, Lcom/samsung/android/speech/SemSpeechRecognizer;->isBargeInFile(Ljava/lang/String;)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_0
-
-    invoke-static {v2}, Lcom/samsung/android/speech/SemSpeechRecognizer;->isBargeInFile(Ljava/lang/String;)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_0
-
-    sget-object v4, Lcom/samsung/android/speech/SemSpeechRecognizer;->TAG:Ljava/lang/String;
-
-    new-instance v5, Ljava/lang/StringBuilder;
-
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v6, "isEnabled: SensoryBargeIn is available in commandType ("
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    const-string/jumbo v6, ") uselanguage("
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    const-string/jumbo v6, ")"
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-static {v4, v5}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    return v7
-
-    :cond_0
-    invoke-static {}, Lcom/samsung/android/speech/SemSpeechRecognizer;->isSamsungModel()Z
-
-    move-result v4
-
-    if-eqz v4, :cond_1
-
-    invoke-static {p2}, Lcom/samsung/android/speech/Config;->GetSamsungModels(I)Ljava/lang/String;
-
-    move-result-object v0
-
-    new-instance v4, Ljava/lang/StringBuilder;
-
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-static {p2}, Lcom/samsung/android/speech/Config;->GetSamsungPath(I)Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-static {p1}, Lcom/samsung/android/speech/Config;->GetSamsungNameList(I)Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-static {p2, p1}, Lcom/samsung/android/speech/Config;->GetPDTAM(II)Ljava/lang/String;
 
     move-result-object v1
 
-    invoke-static {v0}, Lcom/samsung/android/speech/SemSpeechRecognizer;->isBargeInFile(Ljava/lang/String;)Z
+    invoke-static {p2, p1}, Lcom/samsung/android/speech/Config;->GetPDTGRAMMAR(II)Ljava/lang/String;
 
-    move-result v4
+    move-result-object v0
 
-    if-eqz v4, :cond_1
+    new-instance v6, Ljava/lang/StringBuilder;
+
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v6, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    const-string/jumbo v7, "_v01.raw"
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    new-instance v6, Ljava/lang/StringBuilder;
+
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v6, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    const-string/jumbo v7, "_v01.raw"
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
 
     invoke-static {v1}, Lcom/samsung/android/speech/SemSpeechRecognizer;->isBargeInFile(Ljava/lang/String;)Z
 
-    move-result v4
+    move-result v6
 
-    if-eqz v4, :cond_1
+    if-eqz v6, :cond_0
 
-    sget-object v4, Lcom/samsung/android/speech/SemSpeechRecognizer;->TAG:Ljava/lang/String;
+    invoke-static {v0}, Lcom/samsung/android/speech/SemSpeechRecognizer;->isBargeInFile(Ljava/lang/String;)Z
 
-    new-instance v5, Ljava/lang/StringBuilder;
+    move-result v6
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    if-eqz v6, :cond_0
 
-    const-string/jumbo v6, "isEnabled: SamsungBargeIn is available in commandType ("
+    sget-object v6, Lcom/samsung/android/speech/SemSpeechRecognizer;->TAG:Ljava/lang/String;
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    new-instance v7, Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v5, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    const-string/jumbo v8, "isEnabled: PDTBargeIn is available in commandType ("
 
-    move-result-object v5
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v6, ") uselanguage("
+    move-result-object v7
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    move-result-object v7
 
-    invoke-virtual {v5, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    const-string/jumbo v8, ") uselanguage("
 
-    move-result-object v5
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v6, ")"
+    move-result-object v7
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    move-result-object v7
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    const-string/jumbo v8, ")"
 
-    move-result-object v5
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-static {v4, v5}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    move-result-object v7
 
-    return v7
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-static {v6, v7}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    return v9
+
+    :cond_0
+    return v10
 
     :cond_1
-    sget-object v4, Lcom/samsung/android/speech/SemSpeechRecognizer;->TAG:Ljava/lang/String;
+    invoke-static {}, Lcom/samsung/android/speech/SemSpeechRecognizer;->isSensoryModel()Z
 
-    new-instance v5, Ljava/lang/StringBuilder;
+    move-result v6
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    if-eqz v6, :cond_2
 
-    const-string/jumbo v6, "isEnabled: BargeIn is not available in commandType ("
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-static {p2, p1}, Lcom/samsung/android/speech/Config;->GetSensoryAM(II)Ljava/lang/String;
 
     move-result-object v5
 
-    invoke-virtual {v5, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-static {p2, p1}, Lcom/samsung/android/speech/Config;->GetSensoryGRAMMAR(II)Ljava/lang/String;
+
+    move-result-object v4
+
+    new-instance v6, Ljava/lang/StringBuilder;
+
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v6, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    const-string/jumbo v7, "_v2.raw"
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v5
 
-    const-string/jumbo v6, ") uselanguage("
+    new-instance v6, Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
 
-    move-result-object v5
+    invoke-virtual {v6, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-result-object v6
 
-    move-result-object v5
+    const-string/jumbo v7, "_v2.raw"
 
-    const-string/jumbo v6, ")"
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v6
 
-    move-result-object v5
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v4
 
-    move-result-object v5
+    invoke-static {v5}, Lcom/samsung/android/speech/SemSpeechRecognizer;->isBargeInFile(Ljava/lang/String;)Z
 
-    invoke-static {v4, v5}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    move-result v6
 
-    const/4 v4, 0x0
+    if-eqz v6, :cond_2
 
-    return v4
+    invoke-static {v4}, Lcom/samsung/android/speech/SemSpeechRecognizer;->isBargeInFile(Ljava/lang/String;)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_2
+
+    sget-object v6, Lcom/samsung/android/speech/SemSpeechRecognizer;->TAG:Ljava/lang/String;
+
+    new-instance v7, Ljava/lang/StringBuilder;
+
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v8, "isEnabled: SensoryBargeIn is available in commandType ("
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    const-string/jumbo v8, ") uselanguage("
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    const-string/jumbo v8, ")"
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-static {v6, v7}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    return v9
+
+    :cond_2
+    invoke-static {}, Lcom/samsung/android/speech/SemSpeechRecognizer;->isSamsungModel()Z
+
+    move-result v6
+
+    if-eqz v6, :cond_3
+
+    invoke-static {p2}, Lcom/samsung/android/speech/Config;->GetSamsungModels(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    new-instance v6, Ljava/lang/StringBuilder;
+
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-static {p2}, Lcom/samsung/android/speech/Config;->GetSamsungPath(I)Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-static {p1}, Lcom/samsung/android/speech/Config;->GetSamsungNameList(I)Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2}, Lcom/samsung/android/speech/SemSpeechRecognizer;->isBargeInFile(Ljava/lang/String;)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_3
+
+    invoke-static {v3}, Lcom/samsung/android/speech/SemSpeechRecognizer;->isBargeInFile(Ljava/lang/String;)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_3
+
+    sget-object v6, Lcom/samsung/android/speech/SemSpeechRecognizer;->TAG:Ljava/lang/String;
+
+    new-instance v7, Ljava/lang/StringBuilder;
+
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v8, "isEnabled: SamsungBargeIn is available in commandType ("
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    const-string/jumbo v8, ") uselanguage("
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    const-string/jumbo v8, ")"
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-static {v6, v7}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    return v9
+
+    :cond_3
+    sget-object v6, Lcom/samsung/android/speech/SemSpeechRecognizer;->TAG:Ljava/lang/String;
+
+    new-instance v7, Ljava/lang/StringBuilder;
+
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v8, "isEnabled: BargeIn is not available in commandType ("
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    const-string/jumbo v8, ") uselanguage("
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    const-string/jumbo v8, ")"
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-static {v6, v7}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    return v10
 .end method
 
 .method public setContext(Landroid/content/Context;)V
@@ -2403,7 +2634,7 @@
     move-exception v0
 
     :try_start_3
-    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/InterruptedException;->printStackTrace()V
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 

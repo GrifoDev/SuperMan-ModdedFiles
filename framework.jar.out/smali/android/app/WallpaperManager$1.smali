@@ -35,17 +35,17 @@
 
     move-result-object v0
 
-    const-string/jumbo v1, "default_wallpaper.png"
+    const-string/jumbo v1, ".png"
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v1}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
 
     move-result v1
 
     if-nez v1, :cond_0
 
-    const-string/jumbo v1, "default_wallpaper.jpg"
+    const-string/jumbo v1, ".jpg"
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v1}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
 
     move-result v1
 

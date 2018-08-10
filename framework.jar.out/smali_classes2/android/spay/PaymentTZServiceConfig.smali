@@ -67,21 +67,13 @@
 .end method
 
 .method static constructor <clinit>()V
-    .locals 4
+    .locals 2
 
-    const-string/jumbo v0, "msm"
+    sget-object v0, Landroid/os/Build;->BOARD:Ljava/lang/String;
 
-    sget-object v1, Landroid/os/Build;->BOARD:Ljava/lang/String;
+    const-string/jumbo v1, "(?i)(msm[a-z0-9]*)|(sdm[a-z0-9]*)"
 
-    const-string/jumbo v2, "[\\d]*"
-
-    const-string/jumbo v3, ""
-
-    invoke-virtual {v1, v2, v3}, Ljava/lang/String;->replaceAll(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    invoke-virtual {v0, v1}, Ljava/lang/String;->matches(Ljava/lang/String;)Z
 
     move-result v0
 

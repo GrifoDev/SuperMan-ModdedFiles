@@ -15,7 +15,7 @@
 
 
 # virtual methods
-.method public abstract addGeofence(Lcom/samsung/android/location/SemGeofence;)I
+.method public abstract addGeofence(Lcom/samsung/android/location/SemGeofence;Ljava/lang/String;)I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -31,6 +31,46 @@
     .end annotation
 .end method
 
+.method public abstract cleanup()V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract flushCoreBatchedLocations()V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract getGeofenceIdList(Ljava/lang/String;)[I
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract injectDeviceContext(I)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract isCoreBatchingSupported()Z
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract removeCurrentLocation(I)I
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -39,7 +79,7 @@
     .end annotation
 .end method
 
-.method public abstract removeGeofence(I)I
+.method public abstract removeGeofence(ILjava/lang/String;)I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -55,7 +95,7 @@
     .end annotation
 .end method
 
-.method public abstract removeSingleLocation(Landroid/app/PendingIntent;)I
+.method public abstract removeSingleLocation(Landroid/app/PendingIntent;Lcom/samsung/android/location/ISLocationListener;)I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -143,6 +183,14 @@
     .end annotation
 .end method
 
+.method public abstract requestCoreBatchOfLocations(I)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract requestCurrentLocation(Lcom/samsung/android/location/ISCurrentLocListener;)I
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -167,7 +215,7 @@
     .end annotation
 .end method
 
-.method public abstract requestSingleLocation(IIZLandroid/app/PendingIntent;)I
+.method public abstract requestSingleLocation(IIZLandroid/app/PendingIntent;Lcom/samsung/android/location/ISLocationListener;)I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -263,7 +311,7 @@
     .end annotation
 .end method
 
-.method public abstract syncGeofence([I)I
+.method public abstract syncGeofence([ILjava/lang/String;)I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

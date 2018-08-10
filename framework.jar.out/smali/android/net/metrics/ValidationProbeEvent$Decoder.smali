@@ -29,21 +29,33 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 4
+    .locals 5
 
-    const/4 v2, 0x1
+    const/4 v4, 0x1
 
     const/4 v3, 0x0
 
-    new-array v0, v2, [Ljava/lang/Class;
+    new-array v0, v4, [Ljava/lang/Class;
 
     const-class v1, Landroid/net/metrics/ValidationProbeEvent;
 
     aput-object v1, v0, v3
 
-    new-array v1, v2, [Ljava/lang/String;
+    const/4 v1, 0x3
+
+    new-array v1, v1, [Ljava/lang/String;
 
     const-string/jumbo v2, "PROBE_"
+
+    aput-object v2, v1, v3
+
+    const-string/jumbo v2, "FIRST_"
+
+    aput-object v2, v1, v4
+
+    const-string/jumbo v2, "REVALIDATION"
+
+    const/4 v3, 0x2
 
     aput-object v2, v1, v3
 

@@ -83,6 +83,35 @@
     return-void
 .end method
 
+.method public onAudioRouteChanged(Landroid/telecom/Connection;I)V
+    .locals 2
+
+    iget-object v1, p0, Landroid/telecom/ConnectionService$4;->this$0:Landroid/telecom/ConnectionService;
+
+    invoke-static {v1}, Landroid/telecom/ConnectionService;->-get4(Landroid/telecom/ConnectionService;)Ljava/util/Map;
+
+    move-result-object v1
+
+    invoke-interface {v1, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    if-eqz v0, :cond_0
+
+    iget-object v1, p0, Landroid/telecom/ConnectionService$4;->this$0:Landroid/telecom/ConnectionService;
+
+    invoke-static {v1}, Landroid/telecom/ConnectionService;->-get0(Landroid/telecom/ConnectionService;)Landroid/telecom/ConnectionServiceAdapter;
+
+    move-result-object v1
+
+    invoke-virtual {v1, v0, p2}, Landroid/telecom/ConnectionServiceAdapter;->setAudioRoute(Ljava/lang/String;I)V
+
+    :cond_0
+    return-void
+.end method
+
 .method public onCallerDisplayNameChanged(Landroid/telecom/Connection;Ljava/lang/String;I)V
     .locals 2
 
@@ -543,6 +572,35 @@
     return-void
 .end method
 
+.method public onRemoteRttRequest(Landroid/telecom/Connection;)V
+    .locals 2
+
+    iget-object v1, p0, Landroid/telecom/ConnectionService$4;->this$0:Landroid/telecom/ConnectionService;
+
+    invoke-static {v1}, Landroid/telecom/ConnectionService;->-get4(Landroid/telecom/ConnectionService;)Ljava/util/Map;
+
+    move-result-object v1
+
+    invoke-interface {v1, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    if-eqz v0, :cond_0
+
+    iget-object v1, p0, Landroid/telecom/ConnectionService$4;->this$0:Landroid/telecom/ConnectionService;
+
+    invoke-static {v1}, Landroid/telecom/ConnectionService;->-get0(Landroid/telecom/ConnectionService;)Landroid/telecom/ConnectionServiceAdapter;
+
+    move-result-object v1
+
+    invoke-virtual {v1, v0}, Landroid/telecom/ConnectionServiceAdapter;->onRemoteRttRequest(Ljava/lang/String;)V
+
+    :cond_0
+    return-void
+.end method
+
 .method public onRingbackRequested(Landroid/telecom/Connection;Z)V
     .locals 5
 
@@ -582,6 +640,93 @@
 
     invoke-virtual {v1, v0, p2}, Landroid/telecom/ConnectionServiceAdapter;->setRingbackRequested(Ljava/lang/String;Z)V
 
+    return-void
+.end method
+
+.method public onRttInitiationFailure(Landroid/telecom/Connection;I)V
+    .locals 2
+
+    iget-object v1, p0, Landroid/telecom/ConnectionService$4;->this$0:Landroid/telecom/ConnectionService;
+
+    invoke-static {v1}, Landroid/telecom/ConnectionService;->-get4(Landroid/telecom/ConnectionService;)Ljava/util/Map;
+
+    move-result-object v1
+
+    invoke-interface {v1, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    if-eqz v0, :cond_0
+
+    iget-object v1, p0, Landroid/telecom/ConnectionService$4;->this$0:Landroid/telecom/ConnectionService;
+
+    invoke-static {v1}, Landroid/telecom/ConnectionService;->-get0(Landroid/telecom/ConnectionService;)Landroid/telecom/ConnectionServiceAdapter;
+
+    move-result-object v1
+
+    invoke-virtual {v1, v0, p2}, Landroid/telecom/ConnectionServiceAdapter;->onRttInitiationFailure(Ljava/lang/String;I)V
+
+    :cond_0
+    return-void
+.end method
+
+.method public onRttInitiationSuccess(Landroid/telecom/Connection;)V
+    .locals 2
+
+    iget-object v1, p0, Landroid/telecom/ConnectionService$4;->this$0:Landroid/telecom/ConnectionService;
+
+    invoke-static {v1}, Landroid/telecom/ConnectionService;->-get4(Landroid/telecom/ConnectionService;)Ljava/util/Map;
+
+    move-result-object v1
+
+    invoke-interface {v1, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    if-eqz v0, :cond_0
+
+    iget-object v1, p0, Landroid/telecom/ConnectionService$4;->this$0:Landroid/telecom/ConnectionService;
+
+    invoke-static {v1}, Landroid/telecom/ConnectionService;->-get0(Landroid/telecom/ConnectionService;)Landroid/telecom/ConnectionServiceAdapter;
+
+    move-result-object v1
+
+    invoke-virtual {v1, v0}, Landroid/telecom/ConnectionServiceAdapter;->onRttInitiationSuccess(Ljava/lang/String;)V
+
+    :cond_0
+    return-void
+.end method
+
+.method public onRttSessionRemotelyTerminated(Landroid/telecom/Connection;)V
+    .locals 2
+
+    iget-object v1, p0, Landroid/telecom/ConnectionService$4;->this$0:Landroid/telecom/ConnectionService;
+
+    invoke-static {v1}, Landroid/telecom/ConnectionService;->-get4(Landroid/telecom/ConnectionService;)Ljava/util/Map;
+
+    move-result-object v1
+
+    invoke-interface {v1, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    if-eqz v0, :cond_0
+
+    iget-object v1, p0, Landroid/telecom/ConnectionService$4;->this$0:Landroid/telecom/ConnectionService;
+
+    invoke-static {v1}, Landroid/telecom/ConnectionService;->-get0(Landroid/telecom/ConnectionService;)Landroid/telecom/ConnectionServiceAdapter;
+
+    move-result-object v1
+
+    invoke-virtual {v1, v0}, Landroid/telecom/ConnectionServiceAdapter;->onRttSessionRemotelyTerminated(Ljava/lang/String;)V
+
+    :cond_0
     return-void
 .end method
 
@@ -655,11 +800,22 @@
 
     move-result-object v1
 
-    invoke-virtual {v1, v0}, Landroid/telecom/ConnectionServiceAdapter;->setOnHold(Ljava/lang/String;)V
+    invoke-virtual {v1, v0}, Landroid/telecom/ConnectionServiceAdapter;->setPulling(Ljava/lang/String;)V
 
     goto :goto_0
 
     :pswitch_4
+    iget-object v1, p0, Landroid/telecom/ConnectionService$4;->this$0:Landroid/telecom/ConnectionService;
+
+    invoke-static {v1}, Landroid/telecom/ConnectionService;->-get0(Landroid/telecom/ConnectionService;)Landroid/telecom/ConnectionServiceAdapter;
+
+    move-result-object v1
+
+    invoke-virtual {v1, v0}, Landroid/telecom/ConnectionServiceAdapter;->setOnHold(Ljava/lang/String;)V
+
+    goto :goto_0
+
+    :pswitch_5
     iget-object v1, p0, Landroid/telecom/ConnectionService$4;->this$0:Landroid/telecom/ConnectionService;
 
     invoke-static {v1}, Landroid/telecom/ConnectionService;->-get0(Landroid/telecom/ConnectionService;)Landroid/telecom/ConnectionServiceAdapter;
@@ -675,11 +831,12 @@
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0
-        :pswitch_4
+        :pswitch_5
         :pswitch_2
         :pswitch_1
-        :pswitch_3
+        :pswitch_4
         :pswitch_0
+        :pswitch_3
     .end packed-switch
 .end method
 

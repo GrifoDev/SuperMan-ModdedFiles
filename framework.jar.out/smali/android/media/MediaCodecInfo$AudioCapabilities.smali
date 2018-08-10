@@ -63,9 +63,9 @@
 .method private applyLevelLimits()V
     .locals 12
 
-    const/16 v11, 0x3e80
+    const v11, 0xbb80
 
-    const/16 v6, 0x32c8
+    const/16 v6, 0x7d00
 
     const/4 v10, 0x0
 
@@ -79,7 +79,7 @@
 
     const/4 v0, 0x0
 
-    const/4 v1, 0x0
+    const/16 v1, 0x1e
 
     iget-object v5, p0, Landroid/media/MediaCodecInfo$AudioCapabilities;->mParent:Landroid/media/MediaCodecInfo$CodecCapabilities;
 
@@ -118,7 +118,7 @@
     const/4 v1, 0x2
 
     :goto_0
-    if-eqz v4, :cond_c
+    if-eqz v4, :cond_f
 
     invoke-direct {p0, v4}, Landroid/media/MediaCodecInfo$AudioCapabilities;->limitSampleRates([I)V
 
@@ -172,7 +172,9 @@
 
     new-array v4, v8, [I
 
-    aput v11, v4, v10
+    const/16 v5, 0x3e80
+
+    aput v5, v4, v10
 
     const/16 v5, 0x19c8
 
@@ -236,9 +238,7 @@
 
     if-eqz v5, :cond_5
 
-    const/16 v5, 0x7d00
-
-    invoke-static {v5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v5
 
@@ -297,11 +297,11 @@
 
     const/16 v5, 0x2ee0
 
-    const/16 v6, 0x5dc0
+    const/16 v6, 0x3e80
 
-    const v7, 0xbb80
+    const/16 v7, 0x5dc0
 
-    filled-new-array {v9, v5, v11, v6, v7}, [I
+    filled-new-array {v9, v5, v6, v7, v11}, [I
 
     move-result-object v4
 
@@ -430,9 +430,13 @@
 
     aput v9, v4, v10
 
-    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    const/16 v5, 0x32c8
+
+    invoke-static {v5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v5
+
+    const/16 v6, 0x32c8
 
     invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -447,6 +451,103 @@
     goto/16 :goto_0
 
     :cond_b
+    const-string/jumbo v5, "audio/ac3"
+
+    invoke-virtual {v2, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_c
+
+    const v5, 0xac44
+
+    filled-new-array {v6, v5, v11}, [I
+
+    move-result-object v4
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v5
+
+    const v6, 0x9c400
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-static {v5, v6}, Landroid/util/Range;->create(Ljava/lang/Comparable;Ljava/lang/Comparable;)Landroid/util/Range;
+
+    move-result-object v0
+
+    const/4 v1, 0x6
+
+    goto/16 :goto_0
+
+    :cond_c
+    const-string/jumbo v5, "audio/eac3"
+
+    invoke-virtual {v2, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_d
+
+    const v5, 0xac44
+
+    filled-new-array {v6, v5, v11}, [I
+
+    move-result-object v4
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v5
+
+    const v6, 0x5dc000
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-static {v5, v6}, Landroid/util/Range;->create(Ljava/lang/Comparable;Ljava/lang/Comparable;)Landroid/util/Range;
+
+    move-result-object v0
+
+    const/16 v1, 0x8
+
+    goto/16 :goto_0
+
+    :cond_d
+    const-string/jumbo v5, "audio/eac3-joc"
+
+    invoke-virtual {v2, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_e
+
+    new-array v4, v8, [I
+
+    aput v11, v4, v10
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v5
+
+    const v6, 0x5dc000
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-static {v5, v6}, Landroid/util/Range;->create(Ljava/lang/Comparable;Ljava/lang/Comparable;)Landroid/util/Range;
+
+    move-result-object v0
+
+    const/16 v1, 0x8
+
+    goto/16 :goto_0
+
+    :cond_e
     const-string/jumbo v5, "AudioCapabilities"
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -479,7 +580,7 @@
 
     goto/16 :goto_0
 
-    :cond_c
+    :cond_f
     if-eqz v3, :cond_0
 
     new-array v5, v8, [Landroid/util/Range;
@@ -898,7 +999,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_4
 
     const-string/jumbo v5, "max-channel-count"
 
@@ -911,6 +1012,7 @@
     move-result v2
 
     :cond_2
+    :goto_1
     const-string/jumbo v5, "bitrate-range"
 
     invoke-virtual {p1, v5}, Landroid/media/MediaFormat;->containsKey(Ljava/lang/String;)Z
@@ -937,6 +1039,19 @@
     invoke-direct {p0, v2, v0}, Landroid/media/MediaCodecInfo$AudioCapabilities;->applyLimits(ILandroid/util/Range;)V
 
     return-void
+
+    :cond_4
+    iget-object v5, p0, Landroid/media/MediaCodecInfo$AudioCapabilities;->mParent:Landroid/media/MediaCodecInfo$CodecCapabilities;
+
+    iget v5, v5, Landroid/media/MediaCodecInfo$CodecCapabilities;->mError:I
+
+    and-int/lit8 v5, v5, 0x2
+
+    if-eqz v5, :cond_2
+
+    const/4 v2, 0x0
+
+    goto :goto_1
 .end method
 
 .method private supports(Ljava/lang/Integer;Ljava/lang/Integer;)Z

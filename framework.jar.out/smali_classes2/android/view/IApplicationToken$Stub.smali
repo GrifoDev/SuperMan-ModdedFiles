@@ -26,19 +26,9 @@
 # static fields
 .field private static final DESCRIPTOR:Ljava/lang/String; = "android.view.IApplicationToken"
 
-.field static final TRANSACTION_getDisplayId:I = 0x4
+.field static final TRANSACTION_getCustomAspectRatioFrame:I = 0x1
 
-.field static final TRANSACTION_getEdgeTspDeadzone:I = 0x7
-
-.field static final TRANSACTION_getKeyDispatchingTimeout:I = 0x6
-
-.field static final TRANSACTION_keyDispatchingTimedOut:I = 0x5
-
-.field static final TRANSACTION_windowsDrawn:I = 0x1
-
-.field static final TRANSACTION_windowsGone:I = 0x3
-
-.field static final TRANSACTION_windowsVisible:I = 0x2
+.field static final TRANSACTION_needForceImmersiveMode:I = 0x2
 
 
 # direct methods
@@ -97,146 +87,85 @@
 .end method
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    .locals 8
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    const/4 v7, 0x1
+    const/4 v2, 0x0
+
+    const/4 v3, 0x1
 
     sparse-switch p1, :sswitch_data_0
 
     invoke-super {p0, p1, p2, p3, p4}, Landroid/os/Binder;->onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    move-result v6
+    move-result v2
 
-    return v6
+    return v2
 
     :sswitch_0
-    const-string/jumbo v6, "android.view.IApplicationToken"
+    const-string/jumbo v2, "android.view.IApplicationToken"
 
-    invoke-virtual {p3, v6}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p3, v2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    return v7
+    return v3
 
     :sswitch_1
-    const-string/jumbo v6, "android.view.IApplicationToken"
+    const-string/jumbo v4, "android.view.IApplicationToken"
 
-    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    invoke-virtual {p0}, Landroid/view/IApplicationToken$Stub;->windowsDrawn()V
+    new-instance v0, Landroid/graphics/Rect;
+
+    invoke-direct {v0}, Landroid/graphics/Rect;-><init>()V
+
+    invoke-virtual {p0, v0}, Landroid/view/IApplicationToken$Stub;->getCustomAspectRatioFrame(Landroid/graphics/Rect;)V
 
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    return v7
+    if-eqz v0, :cond_0
+
+    invoke-virtual {p3, v3}, Landroid/os/Parcel;->writeInt(I)V
+
+    invoke-virtual {v0, p3, v3}, Landroid/graphics/Rect;->writeToParcel(Landroid/os/Parcel;I)V
+
+    :goto_0
+    return v3
+
+    :cond_0
+    invoke-virtual {p3, v2}, Landroid/os/Parcel;->writeInt(I)V
+
+    goto :goto_0
 
     :sswitch_2
-    const-string/jumbo v6, "android.view.IApplicationToken"
+    const-string/jumbo v4, "android.view.IApplicationToken"
 
-    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    invoke-virtual {p0}, Landroid/view/IApplicationToken$Stub;->windowsVisible()V
-
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
-    return v7
-
-    :sswitch_3
-    const-string/jumbo v6, "android.view.IApplicationToken"
-
-    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    invoke-virtual {p0}, Landroid/view/IApplicationToken$Stub;->windowsGone()V
-
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
-    return v7
-
-    :sswitch_4
-    const-string/jumbo v6, "android.view.IApplicationToken"
-
-    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    invoke-virtual {p0}, Landroid/view/IApplicationToken$Stub;->getDisplayId()I
+    invoke-virtual {p0}, Landroid/view/IApplicationToken$Stub;->needForceImmersiveMode()Z
 
     move-result v1
 
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    invoke-virtual {p3, v1}, Landroid/os/Parcel;->writeInt(I)V
+    if-eqz v1, :cond_1
 
-    return v7
+    move v2, v3
 
-    :sswitch_5
-    const-string/jumbo v6, "android.view.IApplicationToken"
+    :cond_1
+    invoke-virtual {p3, v2}, Landroid/os/Parcel;->writeInt(I)V
 
-    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    return v3
 
-    invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-virtual {p0, v0}, Landroid/view/IApplicationToken$Stub;->keyDispatchingTimedOut(Ljava/lang/String;)Z
-
-    move-result v5
-
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
-    if-eqz v5, :cond_0
-
-    move v6, v7
-
-    :goto_0
-    invoke-virtual {p3, v6}, Landroid/os/Parcel;->writeInt(I)V
-
-    return v7
-
-    :cond_0
-    const/4 v6, 0x0
-
-    goto :goto_0
-
-    :sswitch_6
-    const-string/jumbo v6, "android.view.IApplicationToken"
-
-    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    invoke-virtual {p0}, Landroid/view/IApplicationToken$Stub;->getKeyDispatchingTimeout()J
-
-    move-result-wide v2
-
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
-    invoke-virtual {p3, v2, v3}, Landroid/os/Parcel;->writeLong(J)V
-
-    return v7
-
-    :sswitch_7
-    const-string/jumbo v6, "android.view.IApplicationToken"
-
-    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    invoke-virtual {p0}, Landroid/view/IApplicationToken$Stub;->getEdgeTspDeadzone()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
-    invoke-virtual {p3, v4}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
-
-    return v7
+    nop
 
     :sswitch_data_0
     .sparse-switch
         0x1 -> :sswitch_1
         0x2 -> :sswitch_2
-        0x3 -> :sswitch_3
-        0x4 -> :sswitch_4
-        0x5 -> :sswitch_5
-        0x6 -> :sswitch_6
-        0x7 -> :sswitch_7
         0x5f4e5446 -> :sswitch_0
     .end sparse-switch
 .end method

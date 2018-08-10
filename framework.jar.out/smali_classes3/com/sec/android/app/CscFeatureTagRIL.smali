@@ -14,8 +14,6 @@
 
 .field public static final TAG_CSCFEATURE_RIL_ALLOWDUPLICATEDAPNNAME:Ljava/lang/String; = "CscFeature_RIL_AllowDuplicatedApnName"
 
-.field public static final TAG_CSCFEATURE_RIL_ALLOWIMSAPNFOR3G:Ljava/lang/String; = "CscFeature_RIL_AllowImsApnFor3G"
-
 .field public static final TAG_CSCFEATURE_RIL_ALWAYSDISPLAYGEODESCRIPTION:Ljava/lang/String; = "CscFeature_RIL_AlwaysDisplayGeodescription"
 
 .field public static final TAG_CSCFEATURE_RIL_APNCONTROLBYMODEM:Ljava/lang/String; = "CscFeature_RIL_ApnControlByModem"
@@ -82,9 +80,13 @@
 
 .field public static final TAG_CSCFEATURE_RIL_CONFIGAPNFORHIDEDATAICON:Ljava/lang/String; = "CscFeature_RIL_ConfigApnForHideDataIcon"
 
-.field public static final TAG_CSCFEATURE_RIL_CONFIGAPNSERVERINFO:Ljava/lang/String; = "CscFeature_RIL_ConfigApnServerInfo"
+.field public static final TAG_CSCFEATURE_RIL_CONFIGCBINFOSOURCE:Ljava/lang/String; = "CscFeature_RIL_ConfigCbInfoSource"
+
+.field public static final TAG_CSCFEATURE_RIL_CONFIGCELLBROADCASTRECEIVERPKG:Ljava/lang/String; = "CscFeature_RIL_ConfigCellBroadcastReceiverPkg"
 
 .field public static final TAG_CSCFEATURE_RIL_CONFIGDATASTATUS:Ljava/lang/String; = "CscFeature_RIL_ConfigDataStatus"
+
+.field public static final TAG_CSCFEATURE_RIL_CONFIGDEFAULTNETWORK:Ljava/lang/String; = "CscFeature_RIL_ConfigDefaultNetwork"
 
 .field public static final TAG_CSCFEATURE_RIL_CONFIGDISPLAYTYPEONLTELIMITED:Ljava/lang/String; = "CscFeature_RIL_ConfigDisplayTypeOnLteLimited"
 
@@ -120,6 +122,8 @@
 
 .field public static final TAG_CSCFEATURE_RIL_CONFIGOPERATORLOCK:Ljava/lang/String; = "CscFeature_RIL_ConfigOperatorLock"
 
+.field public static final TAG_CSCFEATURE_RIL_CONFIGOPERATORNETCAPAVER:Ljava/lang/String; = "CscFeature_RIL_ConfigOperatorNetCapaVer"
+
 .field public static final TAG_CSCFEATURE_RIL_CONFIGOPSTYLESIMDETECTDIALOG:Ljava/lang/String; = "CscFeature_RIL_ConfigOPstyleSIMdetectDialog"
 
 .field public static final TAG_CSCFEATURE_RIL_CONFIGPCOCONTROLTYPE:Ljava/lang/String; = "CscFeature_RIL_ConfigPcoControlType"
@@ -137,8 +141,6 @@
 .field public static final TAG_CSCFEATURE_RIL_CONFIGPROVIDECELLINFO:Ljava/lang/String; = "CscFeature_RIL_ConfigProvideCellInfo"
 
 .field public static final TAG_CSCFEATURE_RIL_CONFIGPSONLYLIST:Ljava/lang/String; = "CscFeature_RIL_ConfigPsOnlyList"
-
-.field public static final TAG_CSCFEATURE_RIL_CONFIGPSONLYNETWORKINFO:Ljava/lang/String; = "CscFeature_RIL_ConfigPsOnlyNetworkInfo"
 
 .field public static final TAG_CSCFEATURE_RIL_CONFIGREFRESHTIMEFORSS403ERROR:Ljava/lang/String; = "CscFeature_RIL_ConfigRefreshTimeForSs403Error"
 
@@ -174,11 +176,7 @@
 
 .field public static final TAG_CSCFEATURE_RIL_CONVERTPLUSPREFIXNUMBERTOMNOCODE:Ljava/lang/String; = "CscFeature_RIL_ConvertPlusPrefixNumberToMnoCode"
 
-.field public static final TAG_CSCFEATURE_RIL_CPBASEFD:Ljava/lang/String; = "CscFeature_RIL_CpBaseFd"
-
 .field public static final TAG_CSCFEATURE_RIL_CURRENTDATATECHNOTRESET:Ljava/lang/String; = "CscFeature_RIL_CurrentDataTechNotReset"
-
-.field public static final TAG_CSCFEATURE_RIL_DATAAUTOROAMINGAPNCHANGE:Ljava/lang/String; = "CscFeature_RIL_DataAutoRoamingApnChange"
 
 .field public static final TAG_CSCFEATURE_RIL_DATAPREFDATATECHSNAPSHOT:Ljava/lang/String; = "CscFeature_RIL_DataPrefDataTechSnapShot"
 
@@ -197,6 +195,8 @@
 .field public static final TAG_CSCFEATURE_RIL_DISABLEEDITINGVMNUMBER:Ljava/lang/String; = "CscFeature_RIL_DisableEditingVMNumber"
 
 .field public static final TAG_CSCFEATURE_RIL_DISABLEEONS:Ljava/lang/String; = "CscFeature_RIL_DisableEons"
+
+.field public static final TAG_CSCFEATURE_RIL_DISABLEHWCLAT:Ljava/lang/String; = "CscFeature_RIL_DisableHwClat"
 
 .field public static final TAG_CSCFEATURE_RIL_DISABLELOCALRINGBACKTONEAFTERSRVCC:Ljava/lang/String; = "CscFeature_RIL_DisableLocalRingbacktoneAfterSrvcc"
 
@@ -256,8 +256,6 @@
 
 .field public static final TAG_CSCFEATURE_RIL_ENABLECDMADSBYSIMCARDMANAGER:Ljava/lang/String; = "CscFeature_RIL_EnableCdmaDsBySimCardManager"
 
-.field public static final TAG_CSCFEATURE_RIL_ENABLECHANGEDEFAULTPDN:Ljava/lang/String; = "CscFeature_RIL_EnableChangeDefaultPdn"
-
 .field public static final TAG_CSCFEATURE_RIL_ENABLEDSAC:Ljava/lang/String; = "CscFeature_RIL_EnableDSAC"
 
 .field public static final TAG_CSCFEATURE_RIL_ENABLEIMSSSERRORMSG:Ljava/lang/String; = "CscFeature_RIL_EnableImsSsErrorMsg"
@@ -282,8 +280,6 @@
 
 .field public static final TAG_CSCFEATURE_RIL_EXCEPTIONSID:Ljava/lang/String; = "CscFeature_RIL_ExceptionSid"
 
-.field public static final TAG_CSCFEATURE_RIL_EXTDEVCDMAPACKETACCESSSUPPORT:Ljava/lang/String; = "CscFeature_RIL_ExtDevCdmaPacketAccessSupport"
-
 .field public static final TAG_CSCFEATURE_RIL_EXTENDTRANSMITCHANNELTIMEOUT:Ljava/lang/String; = "CscFeature_RIL_ExtendTransmitChannelTimeout"
 
 .field public static final TAG_CSCFEATURE_RIL_FAKEROAMINGOPTION4:Ljava/lang/String; = "CscFeature_RIL_FakeRoamingOption4"
@@ -292,21 +288,15 @@
 
 .field public static final TAG_CSCFEATURE_RIL_FIXEDSTKMENU:Ljava/lang/String; = "CscFeature_RIL_FixedStkMenu"
 
-.field public static final TAG_CSCFEATURE_RIL_FORCECONNECTIMS:Ljava/lang/String; = "CscFeature_RIL_ForceConnectIMS"
-
 .field public static final TAG_CSCFEATURE_RIL_FORCECONNECTMMS:Ljava/lang/String; = "CscFeature_RIL_ForceConnectMMS"
 
 .field public static final TAG_CSCFEATURE_RIL_FORCECONNECTMMSFORBIDINROAMING:Ljava/lang/String; = "CscFeature_RIL_ForceConnectMmsForbidInRoaming"
-
-.field public static final TAG_CSCFEATURE_RIL_FORCEREL7FD:Ljava/lang/String; = "CscFeature_RIL_ForceRel7Fd"
 
 .field public static final TAG_CSCFEATURE_RIL_GCFSOR:Ljava/lang/String; = "CscFeature_RIL_GcfSor"
 
 .field public static final TAG_CSCFEATURE_RIL_GETDEVICEIDWITHIMEIFORCDMA:Ljava/lang/String; = "CscFeature_RIL_GetDeviceIdwithIMEIforCDMA"
 
 .field public static final TAG_CSCFEATURE_RIL_GLOBALMODESMSADDRESSRULE:Ljava/lang/String; = "CscFeature_RIL_GlobalmodeSmsAddressRule"
-
-.field public static final TAG_CSCFEATURE_RIL_HANDLEUNSUPPORTEDDNS64DURINGDOWNBOOSTER:Ljava/lang/String; = "CscFeature_RIL_HandleUnsupportedDns64DuringDownBooster"
 
 .field public static final TAG_CSCFEATURE_RIL_HANDSETPROPERTY:Ljava/lang/String; = "CscFeature_RIL_HandsetProperty"
 
@@ -332,13 +322,9 @@
 
 .field public static final TAG_CSCFEATURE_RIL_KEEPLTEICONCSFB:Ljava/lang/String; = "CscFeature_RIL_KeepLteIconCsfb"
 
-.field public static final TAG_CSCFEATURE_RIL_KEEPMOBILEDATAEVENWIFION:Ljava/lang/String; = "CscFeature_RIL_KeepMobileDataEvenWifiOn"
-
 .field public static final TAG_CSCFEATURE_RIL_LOADICCIDONLOCK:Ljava/lang/String; = "CscFeature_RIL_LoadIccIdOnLock"
 
 .field public static final TAG_CSCFEATURE_RIL_LTECAPCHECKONBOOTTIME:Ljava/lang/String; = "CscFeature_RIL_LteCapCheckOnBootTime"
-
-.field public static final TAG_CSCFEATURE_RIL_LTEINTERNALATTACHFORCMCMODEM:Ljava/lang/String; = "CscFeature_RIL_LteInternalAttachForCmcModem"
 
 .field public static final TAG_CSCFEATURE_RIL_MMSUAPBUILDID:Ljava/lang/String; = "CscFeature_RIL_MmsUapBuildid"
 
@@ -374,8 +360,6 @@
 
 .field public static final TAG_CSCFEATURE_RIL_OTAUSIMREGISTRATION:Ljava/lang/String; = "CscFeature_RIL_OTAUsimRegistration"
 
-.field public static final TAG_CSCFEATURE_RIL_PCSCFUPDATE:Ljava/lang/String; = "CscFeature_RIL_PcscfUpdate"
-
 .field public static final TAG_CSCFEATURE_RIL_PDPRETRYMECHANISM4:Ljava/lang/String; = "CscFeature_RIL_PDPRetryMechanism4"
 
 .field public static final TAG_CSCFEATURE_RIL_PERMANENTFAILURESSTOPRETRY:Ljava/lang/String; = "CscFeature_RIL_PermanentFailuresStopRetry"
@@ -386,15 +370,9 @@
 
 .field public static final TAG_CSCFEATURE_RIL_PLMNFAKING4MVNO:Ljava/lang/String; = "CscFeature_RIL_PLMNFaking4Mvno"
 
-.field public static final TAG_CSCFEATURE_RIL_PREFERREDCHANGEBYMOBILEDATA:Ljava/lang/String; = "CscFeature_RIL_PreferredChangeByMobileData"
-
-.field public static final TAG_CSCFEATURE_RIL_PREFERREDCHANGEBYMOBILEDATAEXCEPTIONALCASE:Ljava/lang/String; = "CscFeature_RIL_PreferredChangeByMobileDataExceptionalCase"
-
 .field public static final TAG_CSCFEATURE_RIL_PROMPTTODATAROAM:Ljava/lang/String; = "CscFeature_RIL_PromptToDataRoam"
 
 .field public static final TAG_CSCFEATURE_RIL_QMICDMAGSM:Ljava/lang/String; = "CscFeature_RIL_QmiCdmaGsm"
-
-.field public static final TAG_CSCFEATURE_RIL_REDIALVOLTECALLDURINGALERTING:Ljava/lang/String; = "CscFeature_RIL_RedialVoltecallDuringAlerting"
 
 .field public static final TAG_CSCFEATURE_RIL_REFEREONSWITHOUTLAC:Ljava/lang/String; = "CscFeature_RIL_ReferEonsWithoutLac"
 
@@ -431,8 +409,6 @@
 .field public static final TAG_CSCFEATURE_RIL_SETCURRENTPLMN:Ljava/lang/String; = "CscFeature_RIL_SetCurrentplmn"
 
 .field public static final TAG_CSCFEATURE_RIL_SETECCLISTWHENPINENABLED:Ljava/lang/String; = "CscFeature_RIL_SetECCListWhenPinEnabled"
-
-.field public static final TAG_CSCFEATURE_RIL_SETFDFROMSIMOPERATOR:Ljava/lang/String; = "CscFeature_RIL_SetFdFromSimOperator"
 
 .field public static final TAG_CSCFEATURE_RIL_SETNETWORKTYPEWHENRADIOOFF:Ljava/lang/String; = "CscFeature_RIL_SetNetworkTypeWhenRadioOff"
 
@@ -540,9 +516,15 @@
 
 .field public static final TAG_CSCFEATURE_RIL_SUPPORTALLRAT:Ljava/lang/String; = "CscFeature_RIL_SupportAllRat"
 
+.field public static final TAG_CSCFEATURE_RIL_SUPPORTAPTUNEAWAY:Ljava/lang/String; = "CscFeature_RIL_SupportApTuneAway"
+
+.field public static final TAG_CSCFEATURE_RIL_SUPPORTBIPOVERWIFI:Ljava/lang/String; = "CscFeature_RIL_SupportBipOverWifi"
+
 .field public static final TAG_CSCFEATURE_RIL_SUPPORTCALLONAIRPLANEMODE:Ljava/lang/String; = "CscFeature_RIL_SupportCallOnAirplaneMode"
 
 .field public static final TAG_CSCFEATURE_RIL_SUPPORTCELLLOCINFOSERVICE:Ljava/lang/String; = "CscFeature_RIL_SupportCellLocInfoService"
+
+.field public static final TAG_CSCFEATURE_RIL_SUPPORTCHECKFAKEIMEI:Ljava/lang/String; = "CscFeature_RIL_SupportCheckFakeIMEI"
 
 .field public static final TAG_CSCFEATURE_RIL_SUPPORTCLOSECHANNELREPLYFORBIP:Ljava/lang/String; = "CscFeature_RIL_SupportCloseChannelReplyForBIP"
 
@@ -551,6 +533,8 @@
 .field public static final TAG_CSCFEATURE_RIL_SUPPORTCNAPDURINGVOLTECALL:Ljava/lang/String; = "CscFeature_RIL_SupportCnapDuringVolteCall"
 
 .field public static final TAG_CSCFEATURE_RIL_SUPPORTCSIM:Ljava/lang/String; = "CscFeature_RIL_SupportCSIM"
+
+.field public static final TAG_CSCFEATURE_RIL_SUPPORTDYNAMICDATAAPNDURINGROAMING:Ljava/lang/String; = "CscFeature_RIL_SupportDynamicDataApnDuringRoaming"
 
 .field public static final TAG_CSCFEATURE_RIL_SUPPORTEMBMS:Ljava/lang/String; = "CscFeature_RIL_SupportEmbms"
 
@@ -570,9 +554,9 @@
 
 .field public static final TAG_CSCFEATURE_RIL_SUPPORTIMSSERVICE:Ljava/lang/String; = "CscFeature_RIL_SupportImsService"
 
-.field public static final TAG_CSCFEATURE_RIL_SUPPORTINITIALATTACHREQUEST:Ljava/lang/String; = "CscFeature_RIL_SupportInitialAttachRequest"
-
 .field public static final TAG_CSCFEATURE_RIL_SUPPORTLTEROAMING:Ljava/lang/String; = "CscFeature_RIL_SupportLteRoaming"
+
+.field public static final TAG_CSCFEATURE_RIL_SUPPORTMOBILECONNECT:Ljava/lang/String; = "CscFeature_RIL_SupportMobileConnect"
 
 .field public static final TAG_CSCFEATURE_RIL_SUPPORTMODIFYCALLINITDURINGCONFCALL:Ljava/lang/String; = "CscFeature_RIL_SupportModifyCallInitDuringConfCall"
 
@@ -596,15 +580,11 @@
 
 .field public static final TAG_CSCFEATURE_RIL_SUPPORTREMOTESIMUNLOCK:Ljava/lang/String; = "CscFeature_RIL_SupportRemoteSIMunlock"
 
-.field public static final TAG_CSCFEATURE_RIL_SUPPORTRESETSLBFUNCTIONALITY:Ljava/lang/String; = "CscFeature_RIL_SupportResetslbFunctionality"
-
-.field public static final TAG_CSCFEATURE_RIL_SUPPORTSLAVENETWORKMODECHANGE:Ljava/lang/String; = "CscFeature_RIL_SupportSlaveNetworkModeChange"
-
 .field public static final TAG_CSCFEATURE_RIL_SUPPORTSMSFALLBACKFORIMS:Ljava/lang/String; = "CscFeature_RIL_SupportSmsFallbackForIms"
 
-.field public static final TAG_CSCFEATURE_RIL_SUPPORTSPOT:Ljava/lang/String; = "CscFeature_RIL_SupportSpot"
-
 .field public static final TAG_CSCFEATURE_RIL_SUPPORTSRVCC:Ljava/lang/String; = "CscFeature_RIL_SupportSrvcc"
+
+.field public static final TAG_CSCFEATURE_RIL_SUPPORTUSECDMAIMSI:Ljava/lang/String; = "CscFeature_RIL_SupportUseCdmaImsi"
 
 .field public static final TAG_CSCFEATURE_RIL_SUPPORTUSIMMOBILITY:Ljava/lang/String; = "CscFeature_RIL_SupportUsimMobility"
 
@@ -623,8 +603,6 @@
 .field public static final TAG_CSCFEATURE_RIL_SUPPORTWCDMA75MODE:Ljava/lang/String; = "CscFeature_RIL_SupportWcdma75Mode"
 
 .field public static final TAG_CSCFEATURE_RIL_SUPPORTWIFICALLING:Ljava/lang/String; = "CscFeature_RIL_SupportWifiCalling"
-
-.field public static final TAG_CSCFEATURE_RIL_SYNCCSPS:Ljava/lang/String; = "CscFeature_RIL_SyncCsPs"
 
 .field public static final TAG_CSCFEATURE_RIL_TIMOUTSMARTCARDTRANSCHANRESP:Ljava/lang/String; = "CscFeature_RIL_TimoutSmartCardTransChanResp"
 

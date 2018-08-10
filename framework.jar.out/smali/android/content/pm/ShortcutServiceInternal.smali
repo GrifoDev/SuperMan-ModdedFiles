@@ -25,7 +25,7 @@
 .method public abstract addListener(Landroid/content/pm/ShortcutServiceInternal$ShortcutChangeListener;)V
 .end method
 
-.method public abstract createShortcutIntent(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;I)Landroid/content/Intent;
+.method public abstract createShortcutIntents(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;I)[Landroid/content/Intent;
 .end method
 
 .method public abstract getShortcutIconFd(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;I)Landroid/os/ParcelFileDescriptor;
@@ -61,7 +61,7 @@
 .method public abstract isPinnedByCaller(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;I)Z
 .end method
 
-.method public abstract onSystemLocaleChangedNoLock()V
+.method public abstract isRequestPinItemSupported(II)Z
 .end method
 
 .method public abstract pinShortcuts(ILjava/lang/String;Ljava/lang/String;Ljava/util/List;I)V
@@ -76,4 +76,7 @@
             ">;I)V"
         }
     .end annotation
+.end method
+
+.method public abstract requestPinAppWidget(Ljava/lang/String;Landroid/appwidget/AppWidgetProviderInfo;Landroid/os/Bundle;Landroid/content/IntentSender;I)Z
 .end method

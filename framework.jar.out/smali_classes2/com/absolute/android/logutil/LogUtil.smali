@@ -39,16 +39,16 @@
 .end method
 
 .method public static get()Lcom/absolute/android/logutil/LogUtil;
-    .locals 2
+    .locals 3
 
-    sget-object v0, Lcom/absolute/android/logutil/LogUtil;->b:Lcom/absolute/android/logutil/LogUtil;
+    sget-object v1, Lcom/absolute/android/logutil/LogUtil;->b:Lcom/absolute/android/logutil/LogUtil;
 
-    if-eqz v0, :cond_0
+    if-eqz v1, :cond_0
 
     :goto_0
-    sget-object v0, Lcom/absolute/android/logutil/LogUtil;->b:Lcom/absolute/android/logutil/LogUtil;
+    sget-object v1, Lcom/absolute/android/logutil/LogUtil;->b:Lcom/absolute/android/logutil/LogUtil;
 
-    return-object v0
+    return-object v1
 
     :cond_0
     const-string/jumbo v0, "com.absolute.android.common.logutil.LogUtilNoPS"
@@ -56,21 +56,21 @@
     :try_start_0
     invoke-static {v0}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
 
-    move-result-object v0
+    move-result-object v1
 
-    const-class v1, Lcom/absolute/android/logutil/LogUtil;
+    const-class v2, Lcom/absolute/android/logutil/LogUtil;
 
-    invoke-virtual {v0, v1}, Ljava/lang/Class;->asSubclass(Ljava/lang/Class;)Ljava/lang/Class;
+    invoke-virtual {v1, v2}, Ljava/lang/Class;->asSubclass(Ljava/lang/Class;)Ljava/lang/Class;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-virtual {v0}, Ljava/lang/Class;->newInstance()Ljava/lang/Object;
+    invoke-virtual {v1}, Ljava/lang/Class;->newInstance()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v1
 
-    check-cast v0, Lcom/absolute/android/logutil/LogUtil;
+    check-cast v1, Lcom/absolute/android/logutil/LogUtil;
 
-    sput-object v0, Lcom/absolute/android/logutil/LogUtil;->b:Lcom/absolute/android/logutil/LogUtil;
+    sput-object v1, Lcom/absolute/android/logutil/LogUtil;->b:Lcom/absolute/android/logutil/LogUtil;
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -87,32 +87,35 @@
 .end method
 
 .method public static init(Landroid/content/Context;Ljava/lang/String;)V
-    .locals 5
-
-    const/4 v1, 0x0
+    .locals 4
 
     :try_start_0
     sput-object p1, Lcom/absolute/android/logutil/LogUtil;->a:Ljava/lang/String;
 
-    sget-object v0, Lcom/absolute/android/logutil/LogUtil;->b:Lcom/absolute/android/logutil/LogUtil;
+    sget-object v2, Lcom/absolute/android/logutil/LogUtil;->b:Lcom/absolute/android/logutil/LogUtil;
     :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_2
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_1
 
-    if-eqz v0, :cond_0
+    if-eqz v2, :cond_0
 
     return-void
 
     :cond_0
-    :try_start_1
-    const-string/jumbo v0, "ABTPersistenceService"
+    const/4 v0, 0x0
 
-    invoke-virtual {p0, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    :try_start_1
+    const-string/jumbo v2, "ABTPersistenceService"
+
+    invoke-virtual {p0, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
     :try_end_1
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
 
-    move-result-object v0
+    move-result-object v2
 
-    if-eqz v0, :cond_1
+    const/4 v1, 0x0
+
+    if-eqz v2, :cond_1
 
     const/4 v0, 0x1
 
@@ -120,98 +123,98 @@
     if-nez v0, :cond_2
 
     :try_start_2
-    const-string/jumbo v0, "com.absolute.android.logutil.LogUtilNoPS"
+    const-string/jumbo v1, "com.absolute.android.logutil.LogUtilNoPS"
     :try_end_2
-    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_2
+    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_1
 
     :goto_1
     :try_start_3
-    invoke-static {v0}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
+    invoke-static {v1}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
 
-    move-result-object v0
+    move-result-object v2
 
-    const-class v1, Lcom/absolute/android/logutil/LogUtil;
+    const-class v3, Lcom/absolute/android/logutil/LogUtil;
 
-    invoke-virtual {v0, v1}, Ljava/lang/Class;->asSubclass(Ljava/lang/Class;)Ljava/lang/Class;
+    invoke-virtual {v2, v3}, Ljava/lang/Class;->asSubclass(Ljava/lang/Class;)Ljava/lang/Class;
 
-    move-result-object v0
+    move-result-object v2
 
-    invoke-virtual {v0}, Ljava/lang/Class;->newInstance()Ljava/lang/Object;
+    invoke-virtual {v2}, Ljava/lang/Class;->newInstance()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v2
 
-    check-cast v0, Lcom/absolute/android/logutil/LogUtil;
+    check-cast v2, Lcom/absolute/android/logutil/LogUtil;
 
-    sput-object v0, Lcom/absolute/android/logutil/LogUtil;->b:Lcom/absolute/android/logutil/LogUtil;
+    sput-object v2, Lcom/absolute/android/logutil/LogUtil;->b:Lcom/absolute/android/logutil/LogUtil;
 
-    invoke-virtual {v0, p0}, Lcom/absolute/android/logutil/LogUtil;->start(Landroid/content/Context;)V
+    invoke-virtual {v2, p0}, Lcom/absolute/android/logutil/LogUtil;->start(Landroid/content/Context;)V
     :try_end_3
+    .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_2
     .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_1
 
     return-void
 
     :cond_1
     :try_start_4
-    new-instance v0, Ljava/lang/Exception;
+    new-instance v2, Ljava/lang/Exception;
 
-    const-string/jumbo v2, "LogUtil.init: abtPersistMgr == null"
+    const-string/jumbo v3, "LogUtil.init: abtPersistMgr == null"
 
-    invoke-direct {v0, v2}, Ljava/lang/Exception;-><init>(Ljava/lang/String;)V
+    invoke-direct {v2, v3}, Ljava/lang/Exception;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw v2
     :try_end_4
     .catch Ljava/lang/Exception; {:try_start_4 .. :try_end_4} :catch_0
+    .catch Ljava/lang/Exception; {:try_start_4 .. :try_end_4} :catch_1
 
     :catch_0
-    move-exception v0
+    move-exception v1
 
     :try_start_5
-    const-string/jumbo v2, "APS"
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    const-string/jumbo v3, "Exception caught getting PSMgr: "
 
-    const-string/jumbo v4, "Exception caught getting PSMgr: "
+    invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-direct {v3, v4}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-virtual {v1}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
 
-    invoke-virtual {v0}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
+    move-result-object v3
 
-    move-result-object v0
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v2
 
-    move-result-object v0
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v2
 
-    move-result-object v0
+    const-string/jumbo v3, "APS"
 
-    invoke-static {v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    move v0, v1
+    invoke-static {v3, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 
+    :catch_1
+    move-exception v2
+
+    return-void
+
     :cond_2
-    const-string/jumbo v0, "com.absolute.android.logutil.LogUtilWithPS"
+    const-string/jumbo v1, "com.absolute.android.logutil.LogUtilWithPS"
 
     goto :goto_1
 
-    :catch_1
-    move-exception v0
-
-    new-instance v1, Ljava/lang/IllegalStateException;
-
-    invoke-direct {v1, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/Throwable;)V
-
-    throw v1
-    :try_end_5
-    .catch Ljava/lang/Exception; {:try_start_5 .. :try_end_5} :catch_2
-
     :catch_2
-    move-exception v0
+    move-exception v2
 
-    return-void
+    new-instance v3, Ljava/lang/IllegalStateException;
+
+    invoke-direct {v3, v2}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/Throwable;)V
+
+    throw v3
+    :try_end_5
+    .catch Ljava/lang/Exception; {:try_start_5 .. :try_end_5} :catch_1
 .end method
 
 

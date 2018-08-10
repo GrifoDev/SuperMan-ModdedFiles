@@ -56,7 +56,11 @@
 
 .field public static final APPLICATIONPOLICY_DISABLED_CLIPBOARD_BLACKLIST_METHOD:Ljava/lang/String; = "getPackagesFromDisableClipboardBlackList"
 
+.field public static final APPLICATIONPOLICY_DISABLED_CLIPBOARD_BLACKLIST_PERUID_METHOD:Ljava/lang/String; = "getPackagesFromDisableClipboardBlackListPerUidInternal"
+
 .field public static final APPLICATIONPOLICY_DISABLED_CLIPBOARD_WHITELIST_METHOD:Ljava/lang/String; = "getPackagesFromDisableClipboardWhiteList"
+
+.field public static final APPLICATIONPOLICY_DISABLED_CLIPBOARD_WHITELIST_PERUID_METHOD:Ljava/lang/String; = "getPackagesFromDisableClipboardWhiteListPerUidInternal"
 
 .field public static final APPLICATIONPOLICY_GETBATTERYOPTIMIZATIONWHITELIST_METHOD:Ljava/lang/String; = "getAllPackagesFromBatteryOptimizationWhiteList"
 
@@ -228,6 +232,20 @@
 
 .field public static final DEVICESETTINGSPOLICY_NFCSTATECHANGE_METHOD:Ljava/lang/String; = "isNFCStateChangeAllowed"
 
+.field public static final DEXPOLICY:Ljava/lang/String; = "DexPolicy"
+
+.field public static final DEXPOLICY_DEX_CHECK_USE_DEX_MAC_ADDRESS_METHOD:Ljava/lang/String; = "isVirtualMacAddressEnforced"
+
+.field public static final DEXPOLICY_DEX_DISABLED_METHOD:Ljava/lang/String; = "isDexDisabled"
+
+.field public static final DEXPOLICY_DEX_ETHERNETONLY_MODE_METHOD:Ljava/lang/String; = "isEthernetOnlyEnforced"
+
+.field public static final DEXPOLICY_DEX_GET_VIRTUAL_MAC_ADDRESS_METHOD:Ljava/lang/String; = "getVirtualMacAddress"
+
+.field public static final DEXPOLICY_SCREENTIMEOUT_CHANGE_ALLOWED_METHOD:Ljava/lang/String; = "isScreenTimeoutChangeAllowed"
+
+.field public static final DEX_URI:Ljava/lang/String; = "content://com.sec.knox.provider/DexPolicy"
+
 .field public static final DLPPOLICY:Ljava/lang/String; = "DlpPolicy"
 
 .field public static final DLPPOLICY_IS_ALLOWEDTO_SHARE:Ljava/lang/String; = "isAllowedToShare"
@@ -384,6 +402,10 @@
 
 .field public static final FIREWALL_URI:Ljava/lang/String; = "content://com.sec.knox.provider/FirewallPolicy"
 
+.field public static final KEY_GET_CLIPBOARD_BLACKLIST_PERUID:Ljava/lang/String; = "clipboard_blacklist_perUid"
+
+.field public static final KEY_GET_CLIPBOARD_WHITELIST_PERUID:Ljava/lang/String; = "clipboard_whitelist_perUid"
+
 .field public static final KIOSKMODEPOLICY:Ljava/lang/String; = "KioskMode"
 
 .field public static final KIOSKMODE_AIRCOMMANDMODE_METHOD:Ljava/lang/String; = "isAirCommandModeAllowed"
@@ -432,6 +454,8 @@
 
 .field public static final KNOXCUSTOMMANAGERSERVICEPOLICY2:Ljava/lang/String; = "KnoxCustomManagerService2"
 
+.field public static final KNOXCUSTOMMANAGERSERVICE_AIRGESTUREOPTIONSTATE_METHOD:Ljava/lang/String; = "getAirGestureOptionState"
+
 .field public static final KNOXCUSTOMMANAGERSERVICE_APPBLOCKDOWNLOADNAMESPACES_METHOD:Ljava/lang/String; = "getAppBlockDownloadNamespaces"
 
 .field public static final KNOXCUSTOMMANAGERSERVICE_APPBLOCKDOWNLOADSTATE_METHOD:Ljava/lang/String; = "getAppBlockDownloadState"
@@ -467,6 +491,8 @@
 .field public static final KNOXCUSTOMMANAGERSERVICE_HOMEACTIVITY_METHOD:Ljava/lang/String; = "getSealedHomeActivity"
 
 .field public static final KNOXCUSTOMMANAGERSERVICE_INFRAREDSTATE_METHOD:Ljava/lang/String; = "getInfraredState"
+
+.field public static final KNOXCUSTOMMANAGERSERVICE_LOADINGLOGOPATH_METHOD:Ljava/lang/String; = "getLoadingLogoPath"
 
 .field public static final KNOXCUSTOMMANAGERSERVICE_LOCKSCREENHIDDENITEMS_METHOD:Ljava/lang/String; = "getLockScreenHiddenItems"
 
@@ -536,6 +562,8 @@
 
 .field public static final KNOXCUSTOMMANAGERSERVICE_TORCHONVOLUMEBUTTONSSTATE_METHOD:Ljava/lang/String; = "getTorchOnVolumeButtonsState"
 
+.field public static final KNOXCUSTOMMANAGERSERVICE_ULTRAPOWERSAVINGMODE_METHOD:Ljava/lang/String; = "getUltraPowerSavingPackages"
+
 .field public static final KNOXCUSTOMMANAGERSERVICE_USBCONNECTIONTYPE_METHOD:Ljava/lang/String; = "getUsbConnectionType"
 
 .field public static final KNOXCUSTOMMANAGERSERVICE_USBMASSSTORAGESTATE_METHOD:Ljava/lang/String; = "getSealedUsbMassStorageState"
@@ -599,6 +627,8 @@
 .field public static final PASSWORDPOLICY1:Ljava/lang/String; = "PasswordPolicy1"
 
 .field public static final PASSWORDPOLICY2:Ljava/lang/String; = "PasswordPolicy2"
+
+.field public static final PASSWORDPOLICY_BIOMETRICAUTHENTICATIONASUSER_METHOD:Ljava/lang/String; = "isBiometricAuthenticationEnabledAsUser"
 
 .field public static final PASSWORDPOLICY_BIOMETRICAUTHENTICATION_METHOD:Ljava/lang/String; = "isBiometricAuthenticationEnabled"
 
@@ -683,6 +713,8 @@
 .field public static final PHONERESTRICTIONPOLICY_OUTGOINGMMS_METHOD:Ljava/lang/String; = "isOutgoingMmsAllowed"
 
 .field public static final PHONERESTRICTIONPOLICY_OUTGOINGSMS_METHOD:Ljava/lang/String; = "isOutgoingSmsAllowed"
+
+.field public static final PHONERESTRICTIONPOLICY_RCS_ENABLED_METHOD:Ljava/lang/String; = "isRCSEnabled"
 
 .field public static final PHONERESTRICTIONPOLICY_SIMLOCKEDBYADMIN_METHOD:Ljava/lang/String; = "isSimLockedByAdmin"
 
@@ -952,12 +984,107 @@
 
 .field public static final WIFI_URI:Ljava/lang/String; = "content://com.sec.knox.provider2/WifiPolicy"
 
+.field private static list_supportContentObserver:[Ljava/lang/String;
+
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 3
+
+    const/16 v0, 0x9
+
+    new-array v0, v0, [Ljava/lang/String;
+
+    const-string/jumbo v1, "isRCSEnabled"
+
+    const/4 v2, 0x0
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "isSettingsChangesAllowed"
+
+    const/4 v2, 0x1
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "isEmailNotificationsEnabled"
+
+    const/4 v2, 0x2
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "isClipboardAllowed"
+
+    const/4 v2, 0x3
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "isClipboardShareAllowed"
+
+    const/4 v2, 0x4
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "isScreenCaptureEnabled"
+
+    const/4 v2, 0x5
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "isCameraEnabled"
+
+    const/4 v2, 0x6
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "getPackagesFromDisableClipboardBlackList"
+
+    const/4 v2, 0x7
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "getPackagesFromDisableClipboardWhiteList"
+
+    const/16 v2, 0x8
+
+    aput-object v1, v0, v2
+
+    sput-object v0, Landroid/sec/enterprise/content/SecContentProviderURI;->list_supportContentObserver:[Ljava/lang/String;
+
+    return-void
+.end method
+
 .method private constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
+.end method
+
+.method public static isContentObserverSupported(Ljava/lang/String;)Z
+    .locals 1
+
+    if-eqz p0, :cond_0
+
+    sget-object v0, Landroid/sec/enterprise/content/SecContentProviderURI;->list_supportContentObserver:[Ljava/lang/String;
+
+    invoke-static {v0}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
+
+    move-result-object v0
+
+    invoke-interface {v0, p0}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x1
+
+    return v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    return v0
 .end method

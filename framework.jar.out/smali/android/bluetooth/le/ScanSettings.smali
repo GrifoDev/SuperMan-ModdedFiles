@@ -43,13 +43,15 @@
 
 .field public static final MATCH_NUM_ONE_ADVERTISEMENT:I = 0x1
 
+.field public static final PHY_LE_ALL_SUPPORTED:I = 0xff
+
 .field private static final RSSI_MAX:I = 0x14
 
 .field private static final RSSI_MIN:I = -0x80
 
-.field private static final SCAN_INTERVAL_MAX:I = 0x4000
+.field private static final SCAN_INTERVAL_MAX:I = 0x9f560a
 
-.field private static final SCAN_INTERVAL_MIN:I = 0x4
+.field private static final SCAN_INTERVAL_MIN:I = 0x3
 
 .field public static final SCAN_MODE_BALANCED:I = 0x1
 
@@ -63,9 +65,9 @@
 
 .field public static final SCAN_RESULT_TYPE_FULL:I = 0x0
 
-.field private static final SCAN_WINDOW_MAX:I = 0x4000
+.field private static final SCAN_WINDOW_MAX:I = 0x9ff6
 
-.field private static final SCAN_WINDOW_MIN:I = 0x4
+.field private static final SCAN_WINDOW_MIN:I = 0x3
 
 .field public static final SEM_MATCH_MODE_CUSTOM:I = 0x65
 
@@ -79,9 +81,13 @@
 
 .field private mCustomScanWindow:I
 
+.field private mLegacy:Z
+
 .field private mMatchMode:I
 
 .field private mNumOfMatchesPerFilter:I
+
+.field private mPhy:I
 
 .field private mReportDelayMillis:J
 
@@ -107,7 +113,7 @@
     return-void
 .end method
 
-.method private constructor <init>(IIIJIIIIII)V
+.method private constructor <init>(IIIJIIIIIIZI)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -132,81 +138,104 @@
 
     iput p11, p0, Landroid/bluetooth/le/ScanSettings;->mTrackableScanFilterRssiValue:I
 
+    iput-boolean p12, p0, Landroid/bluetooth/le/ScanSettings;->mLegacy:Z
+
+    iput p13, p0, Landroid/bluetooth/le/ScanSettings;->mPhy:I
+
     return-void
 .end method
 
-.method synthetic constructor <init>(IIIJIIIIIILandroid/bluetooth/le/ScanSettings;)V
+.method synthetic constructor <init>(IIIJIIIIIIZILandroid/bluetooth/le/ScanSettings;)V
     .locals 0
 
-    invoke-direct/range {p0 .. p11}, Landroid/bluetooth/le/ScanSettings;-><init>(IIIJIIIIII)V
+    invoke-direct/range {p0 .. p13}, Landroid/bluetooth/le/ScanSettings;-><init>(IIIJIIIIIIZI)V
 
     return-void
 .end method
 
 .method private constructor <init>(Landroid/os/Parcel;)V
-    .locals 2
+    .locals 4
+
+    const/4 v0, 0x0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
-    move-result v0
+    move-result v1
 
-    iput v0, p0, Landroid/bluetooth/le/ScanSettings;->mScanMode:I
-
-    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
-
-    move-result v0
-
-    iput v0, p0, Landroid/bluetooth/le/ScanSettings;->mCallbackType:I
+    iput v1, p0, Landroid/bluetooth/le/ScanSettings;->mScanMode:I
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
-    move-result v0
+    move-result v1
 
-    iput v0, p0, Landroid/bluetooth/le/ScanSettings;->mScanResultType:I
+    iput v1, p0, Landroid/bluetooth/le/ScanSettings;->mCallbackType:I
+
+    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
+
+    move-result v1
+
+    iput v1, p0, Landroid/bluetooth/le/ScanSettings;->mScanResultType:I
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readLong()J
 
-    move-result-wide v0
+    move-result-wide v2
 
-    iput-wide v0, p0, Landroid/bluetooth/le/ScanSettings;->mReportDelayMillis:J
+    iput-wide v2, p0, Landroid/bluetooth/le/ScanSettings;->mReportDelayMillis:J
+
+    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
+
+    move-result v1
+
+    iput v1, p0, Landroid/bluetooth/le/ScanSettings;->mMatchMode:I
+
+    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
+
+    move-result v1
+
+    iput v1, p0, Landroid/bluetooth/le/ScanSettings;->mNumOfMatchesPerFilter:I
+
+    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
+
+    move-result v1
+
+    iput v1, p0, Landroid/bluetooth/le/ScanSettings;->mCustomScanInterval:I
+
+    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
+
+    move-result v1
+
+    iput v1, p0, Landroid/bluetooth/le/ScanSettings;->mCustomScanWindow:I
+
+    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
+
+    move-result v1
+
+    iput v1, p0, Landroid/bluetooth/le/ScanSettings;->mScanFilterRssiValue:I
+
+    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
+
+    move-result v1
+
+    iput v1, p0, Landroid/bluetooth/le/ScanSettings;->mTrackableScanFilterRssiValue:I
+
+    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    const/4 v0, 0x1
+
+    :cond_0
+    iput-boolean v0, p0, Landroid/bluetooth/le/ScanSettings;->mLegacy:Z
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
-    iput v0, p0, Landroid/bluetooth/le/ScanSettings;->mMatchMode:I
-
-    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
-
-    move-result v0
-
-    iput v0, p0, Landroid/bluetooth/le/ScanSettings;->mNumOfMatchesPerFilter:I
-
-    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
-
-    move-result v0
-
-    iput v0, p0, Landroid/bluetooth/le/ScanSettings;->mCustomScanInterval:I
-
-    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
-
-    move-result v0
-
-    iput v0, p0, Landroid/bluetooth/le/ScanSettings;->mCustomScanWindow:I
-
-    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
-
-    move-result v0
-
-    iput v0, p0, Landroid/bluetooth/le/ScanSettings;->mScanFilterRssiValue:I
-
-    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
-
-    move-result v0
-
-    iput v0, p0, Landroid/bluetooth/le/ScanSettings;->mTrackableScanFilterRssiValue:I
+    iput v0, p0, Landroid/bluetooth/le/ScanSettings;->mPhy:I
 
     return-void
 .end method
@@ -253,6 +282,14 @@
     return v0
 .end method
 
+.method public getLegacy()Z
+    .locals 1
+
+    iget-boolean v0, p0, Landroid/bluetooth/le/ScanSettings;->mLegacy:Z
+
+    return v0
+.end method
+
 .method public getMatchMode()I
     .locals 1
 
@@ -265,6 +302,14 @@
     .locals 1
 
     iget v0, p0, Landroid/bluetooth/le/ScanSettings;->mNumOfMatchesPerFilter:I
+
+    return v0
+.end method
+
+.method public getPhy()I
+    .locals 1
+
+    iget v0, p0, Landroid/bluetooth/le/ScanSettings;->mPhy:I
 
     return v0
 .end method
@@ -352,5 +397,23 @@
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
+    iget-boolean v0, p0, Landroid/bluetooth/le/ScanSettings;->mLegacy:Z
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x1
+
+    :goto_0
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
+
+    iget v0, p0, Landroid/bluetooth/le/ScanSettings;->mPhy:I
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
+
     return-void
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
 .end method

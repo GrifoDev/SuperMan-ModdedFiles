@@ -369,61 +369,35 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    xor-int/lit8 v1, v1, 0x1
 
+    if-eqz v1, :cond_3
+
+    :cond_2
+    return v4
+
+    :cond_3
     iget-object v1, p0, Landroid/content/RestrictionEntry;->mCurrentValues:[Ljava/lang/String;
 
-    if-nez v1, :cond_3
+    if-nez v1, :cond_4
 
     iget-object v1, v0, Landroid/content/RestrictionEntry;->mCurrentValues:[Ljava/lang/String;
 
-    if-nez v1, :cond_3
+    if-nez v1, :cond_4
 
     iget-object v1, p0, Landroid/content/RestrictionEntry;->mRestrictions:[Landroid/content/RestrictionEntry;
 
-    if-nez v1, :cond_3
+    if-nez v1, :cond_4
 
     iget-object v1, v0, Landroid/content/RestrictionEntry;->mRestrictions:[Landroid/content/RestrictionEntry;
 
-    if-nez v1, :cond_3
+    if-nez v1, :cond_4
 
     iget-object v1, p0, Landroid/content/RestrictionEntry;->mCurrentValue:Ljava/lang/String;
 
     iget-object v2, v0, Landroid/content/RestrictionEntry;->mCurrentValue:Ljava/lang/String;
 
     invoke-static {v1, v2}, Ljava/util/Objects;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_3
-
-    return v3
-
-    :cond_2
-    return v4
-
-    :cond_3
-    iget-object v1, p0, Landroid/content/RestrictionEntry;->mCurrentValue:Ljava/lang/String;
-
-    if-nez v1, :cond_4
-
-    iget-object v1, v0, Landroid/content/RestrictionEntry;->mCurrentValue:Ljava/lang/String;
-
-    if-nez v1, :cond_4
-
-    iget-object v1, p0, Landroid/content/RestrictionEntry;->mRestrictions:[Landroid/content/RestrictionEntry;
-
-    if-nez v1, :cond_4
-
-    iget-object v1, v0, Landroid/content/RestrictionEntry;->mRestrictions:[Landroid/content/RestrictionEntry;
-
-    if-nez v1, :cond_4
-
-    iget-object v1, p0, Landroid/content/RestrictionEntry;->mCurrentValues:[Ljava/lang/String;
-
-    iget-object v2, v0, Landroid/content/RestrictionEntry;->mCurrentValues:[Ljava/lang/String;
-
-    invoke-static {v1, v2}, Ljava/util/Arrays;->equals([Ljava/lang/Object;[Ljava/lang/Object;)Z
 
     move-result v1
 
@@ -440,17 +414,17 @@
 
     if-nez v1, :cond_5
 
-    iget-object v1, p0, Landroid/content/RestrictionEntry;->mCurrentValue:Ljava/lang/String;
-
-    if-nez v1, :cond_5
-
-    iget-object v1, v0, Landroid/content/RestrictionEntry;->mCurrentValue:Ljava/lang/String;
-
-    if-nez v1, :cond_5
-
     iget-object v1, p0, Landroid/content/RestrictionEntry;->mRestrictions:[Landroid/content/RestrictionEntry;
 
-    iget-object v2, v0, Landroid/content/RestrictionEntry;->mRestrictions:[Landroid/content/RestrictionEntry;
+    if-nez v1, :cond_5
+
+    iget-object v1, v0, Landroid/content/RestrictionEntry;->mRestrictions:[Landroid/content/RestrictionEntry;
+
+    if-nez v1, :cond_5
+
+    iget-object v1, p0, Landroid/content/RestrictionEntry;->mCurrentValues:[Ljava/lang/String;
+
+    iget-object v2, v0, Landroid/content/RestrictionEntry;->mCurrentValues:[Ljava/lang/String;
 
     invoke-static {v1, v2}, Ljava/util/Arrays;->equals([Ljava/lang/Object;[Ljava/lang/Object;)Z
 
@@ -461,6 +435,35 @@
     return v3
 
     :cond_5
+    iget-object v1, p0, Landroid/content/RestrictionEntry;->mCurrentValue:Ljava/lang/String;
+
+    if-nez v1, :cond_6
+
+    iget-object v1, v0, Landroid/content/RestrictionEntry;->mCurrentValue:Ljava/lang/String;
+
+    if-nez v1, :cond_6
+
+    iget-object v1, p0, Landroid/content/RestrictionEntry;->mCurrentValue:Ljava/lang/String;
+
+    if-nez v1, :cond_6
+
+    iget-object v1, v0, Landroid/content/RestrictionEntry;->mCurrentValue:Ljava/lang/String;
+
+    if-nez v1, :cond_6
+
+    iget-object v1, p0, Landroid/content/RestrictionEntry;->mRestrictions:[Landroid/content/RestrictionEntry;
+
+    iget-object v2, v0, Landroid/content/RestrictionEntry;->mRestrictions:[Landroid/content/RestrictionEntry;
+
+    invoke-static {v1, v2}, Ljava/util/Arrays;->equals([Ljava/lang/Object;[Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_6
+
+    return v3
+
+    :cond_6
     return v4
 .end method
 
@@ -562,6 +565,8 @@
 
 .method public hashCode()I
     .locals 7
+
+    const/16 v0, 0x11
 
     iget-object v2, p0, Landroid/content/RestrictionEntry;->mKey:Ljava/lang/String;
 

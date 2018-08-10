@@ -81,7 +81,19 @@
     :try_start_1
     sget-object v1, Lcom/android/internal/policy/PhoneWindow$WindowManagerHolder;->sWindowManager:Landroid/view/IWindowManager;
 
-    invoke-interface {v1, p0}, Landroid/view/IWindowManager;->watchRotation(Landroid/view/IRotationWatcher;)I
+    invoke-virtual {p1}, Lcom/android/internal/policy/PhoneWindow;->getContext()Landroid/content/Context;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Landroid/content/Context;->getDisplay()Landroid/view/Display;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Landroid/view/Display;->getDisplayId()I
+
+    move-result v3
+
+    invoke-interface {v1, p0, v3}, Landroid/view/IWindowManager;->watchRotation(Landroid/view/IRotationWatcher;I)I
 
     new-instance v1, Landroid/os/Handler;
 

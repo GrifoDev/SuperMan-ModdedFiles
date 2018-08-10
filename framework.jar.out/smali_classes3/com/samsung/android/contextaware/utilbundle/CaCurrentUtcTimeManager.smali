@@ -59,43 +59,68 @@
 
 # virtual methods
 .method public final getUtcTime()[I
-    .locals 4
+    .locals 6
 
-    new-instance v0, Landroid/text/format/Time;
+    const/4 v5, 0x1
 
-    invoke-direct {v0}, Landroid/text/format/Time;-><init>()V
+    new-instance v0, Ljava/util/GregorianCalendar;
 
-    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
+    invoke-direct {v0}, Ljava/util/GregorianCalendar;-><init>()V
 
-    move-result-wide v2
+    const-string/jumbo v3, "GMT+00:00"
 
-    invoke-virtual {v0, v2, v3}, Landroid/text/format/Time;->set(J)V
+    invoke-static {v3}, Ljava/util/TimeZone;->getTimeZone(Ljava/lang/String;)Ljava/util/TimeZone;
 
-    const-string/jumbo v2, "GMT+00:00"
+    move-result-object v3
 
-    invoke-virtual {v0, v2}, Landroid/text/format/Time;->switchTimezone(Ljava/lang/String;)V
+    invoke-virtual {v0, v3}, Ljava/util/GregorianCalendar;->setTimeZone(Ljava/util/TimeZone;)V
 
-    const/4 v2, 0x3
+    const/4 v3, 0x3
 
-    new-array v1, v2, [I
+    new-array v2, v3, [I
 
-    iget v2, v0, Landroid/text/format/Time;->hour:I
+    const/4 v1, 0x0
 
-    const/4 v3, 0x0
+    const/16 v3, 0x9
 
-    aput v2, v1, v3
+    invoke-virtual {v0, v3}, Ljava/util/GregorianCalendar;->get(I)I
 
-    iget v2, v0, Landroid/text/format/Time;->minute:I
+    move-result v3
 
-    const/4 v3, 0x1
+    if-ne v3, v5, :cond_0
 
-    aput v2, v1, v3
+    const/16 v1, 0xc
 
-    iget v2, v0, Landroid/text/format/Time;->second:I
+    :cond_0
+    const/16 v3, 0xa
 
-    const/4 v3, 0x2
+    invoke-virtual {v0, v3}, Ljava/util/GregorianCalendar;->get(I)I
 
-    aput v2, v1, v3
+    move-result v3
 
-    return-object v1
+    add-int/2addr v3, v1
+
+    const/4 v4, 0x0
+
+    aput v3, v2, v4
+
+    const/16 v3, 0xc
+
+    invoke-virtual {v0, v3}, Ljava/util/GregorianCalendar;->get(I)I
+
+    move-result v3
+
+    aput v3, v2, v5
+
+    const/16 v3, 0xd
+
+    invoke-virtual {v0, v3}, Ljava/util/GregorianCalendar;->get(I)I
+
+    move-result v3
+
+    const/4 v4, 0x2
+
+    aput v3, v2, v4
+
+    return-object v2
 .end method

@@ -105,15 +105,15 @@
 .method public static getLinkSecurity(Landroid/net/wifi/WifiConfiguration;)I
     .locals 9
 
-    const/4 v8, 0x4
+    const/4 v8, 0x3
 
-    const/4 v7, 0x3
+    const/4 v7, 0x6
 
     const/4 v6, 0x2
 
-    const/4 v5, 0x1
-
     const/4 v4, 0x0
+
+    const/4 v5, 0x1
 
     if-eqz p0, :cond_1e
 
@@ -127,7 +127,7 @@
 
     iget-object v3, p0, Landroid/net/wifi/WifiConfiguration;->allowedAuthAlgorithms:Ljava/util/BitSet;
 
-    invoke-virtual {v3, v4}, Ljava/util/BitSet;->get(I)Z
+    invoke-virtual {v3, v5}, Ljava/util/BitSet;->get(I)Z
 
     move-result v3
 
@@ -152,9 +152,7 @@
     :cond_2
     iget-object v3, p0, Landroid/net/wifi/WifiConfiguration;->allowedKeyManagement:Ljava/util/BitSet;
 
-    const/16 v4, 0x9
-
-    invoke-virtual {v3, v4}, Ljava/util/BitSet;->get(I)Z
+    invoke-virtual {v3, v7}, Ljava/util/BitSet;->get(I)Z
 
     move-result v3
 
@@ -188,9 +186,7 @@
     :cond_4
     if-ne v0, v6, :cond_5
 
-    const/4 v3, 0x6
-
-    return v3
+    return v7
 
     :cond_5
     if-ne v0, v5, :cond_6
@@ -204,17 +200,19 @@
 
     if-ne v0, v3, :cond_7
 
-    return v7
+    return v8
 
     :cond_7
     const/16 v3, 0x12
 
     if-ne v0, v3, :cond_8
 
-    return v8
+    const/4 v3, 0x4
+
+    return v3
 
     :cond_8
-    if-ne v0, v7, :cond_9
+    if-ne v0, v8, :cond_9
 
     const/16 v3, 0x13
 
@@ -230,16 +228,16 @@
     return v3
 
     :cond_a
-    const/4 v3, 0x6
-
-    if-ne v0, v3, :cond_b
+    if-ne v0, v7, :cond_b
 
     const/16 v3, 0x1c
 
     return v3
 
     :cond_b
-    if-ne v0, v8, :cond_1e
+    const/4 v3, 0x4
+
+    if-ne v0, v3, :cond_1e
 
     const/16 v3, 0x16
 
@@ -248,7 +246,7 @@
     :cond_c
     iget-object v3, p0, Landroid/net/wifi/WifiConfiguration;->allowedKeyManagement:Ljava/util/BitSet;
 
-    const/16 v4, 0xa
+    const/4 v4, 0x7
 
     invoke-virtual {v3, v4}, Ljava/util/BitSet;->get(I)Z
 
@@ -301,7 +299,7 @@
     return v3
 
     :cond_11
-    if-ne v2, v7, :cond_12
+    if-ne v2, v8, :cond_12
 
     const/16 v3, 0x14
 
@@ -317,16 +315,16 @@
     return v3
 
     :cond_13
-    const/4 v3, 0x6
-
-    if-ne v2, v3, :cond_14
+    if-ne v2, v7, :cond_14
 
     const/16 v3, 0x1d
 
     return v3
 
     :cond_14
-    if-ne v2, v8, :cond_1e
+    const/4 v3, 0x4
+
+    if-ne v2, v3, :cond_1e
 
     const/16 v3, 0x17
 
@@ -335,7 +333,7 @@
     :cond_15
     iget-object v3, p0, Landroid/net/wifi/WifiConfiguration;->allowedKeyManagement:Ljava/util/BitSet;
 
-    const/16 v4, 0x8
+    const/16 v4, 0xa
 
     invoke-virtual {v3, v4}, Ljava/util/BitSet;->get(I)Z
 
@@ -388,7 +386,7 @@
     return v3
 
     :cond_1a
-    if-ne v1, v7, :cond_1b
+    if-ne v1, v8, :cond_1b
 
     const/16 v3, 0x15
 
@@ -404,16 +402,16 @@
     return v3
 
     :cond_1c
-    const/4 v3, 0x6
-
-    if-ne v1, v3, :cond_1d
+    if-ne v1, v7, :cond_1d
 
     const/16 v3, 0x1e
 
     return v3
 
     :cond_1d
-    if-ne v1, v8, :cond_1e
+    const/4 v3, 0x4
+
+    if-ne v1, v3, :cond_1e
 
     const/16 v3, 0x18
 
@@ -834,6 +832,39 @@
     invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
 
     return-object v2
+.end method
+
+.method public isWifiAllowed()Z
+    .locals 4
+
+    :try_start_0
+    invoke-static {}, Landroid/sec/enterprise/EnterpriseDeviceManager$EDMProxyServiceHelper;->getService()Landroid/sec/enterprise/IEDMProxy;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_0
+
+    invoke-interface {v1}, Landroid/sec/enterprise/IEDMProxy;->isWifiAllowed()Z
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v2
+
+    return v2
+
+    :catch_0
+    move-exception v0
+
+    sget-object v2, Landroid/sec/enterprise/WifiPolicy;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v3, "PXY-isWifiAllowed returning default value"
+
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_0
+    const/4 v2, 0x1
+
+    return v2
 .end method
 
 .method public isWifiStateChangeAllowed()Z

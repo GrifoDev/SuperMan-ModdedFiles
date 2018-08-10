@@ -65,7 +65,7 @@
     :try_start_0
     iget-object v0, p0, Lcom/samsung/android/graphics/spr/document/SprInputStream;->in:Ljava/io/DataInputStream;
 
-    invoke-virtual {v0, p1}, Ljava/io/FilterInputStream;->mark(I)V
+    invoke-virtual {v0, p1}, Ljava/io/DataInputStream;->mark(I)V
 
     iget-wide v0, p0, Lcom/samsung/android/graphics/spr/document/SprInputStream;->mPosition:J
 
@@ -95,7 +95,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/graphics/spr/document/SprInputStream;->in:Ljava/io/DataInputStream;
 
-    invoke-virtual {v1}, Ljava/io/FilterInputStream;->read()I
+    invoke-virtual {v1}, Ljava/io/DataInputStream;->read()I
 
     move-result v0
 
@@ -254,7 +254,7 @@
     :try_start_0
     iget-object v0, p0, Lcom/samsung/android/graphics/spr/document/SprInputStream;->in:Ljava/io/DataInputStream;
 
-    invoke-virtual {v0}, Ljava/io/FilterInputStream;->markSupported()Z
+    invoke-virtual {v0}, Ljava/io/DataInputStream;->markSupported()Z
 
     move-result v0
 
@@ -281,7 +281,7 @@
     :try_start_1
     iget-object v0, p0, Lcom/samsung/android/graphics/spr/document/SprInputStream;->in:Ljava/io/DataInputStream;
 
-    invoke-virtual {v0}, Ljava/io/FilterInputStream;->reset()V
+    invoke-virtual {v0}, Ljava/io/DataInputStream;->reset()V
 
     iget-wide v0, p0, Lcom/samsung/android/graphics/spr/document/SprInputStream;->mMark:J
 
@@ -304,7 +304,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/graphics/spr/document/SprInputStream;->in:Ljava/io/DataInputStream;
 
-    invoke-virtual {v2, p1, p2}, Ljava/io/FilterInputStream;->skip(J)J
+    invoke-virtual {v2, p1, p2}, Ljava/io/DataInputStream;->skip(J)J
 
     move-result-wide v0
 

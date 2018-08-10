@@ -118,7 +118,7 @@
 
     iget-object v1, p0, Landroid/media/tv/TvInputService$HardwareSession$1;->this$1:Landroid/media/tv/TvInputService$HardwareSession;
 
-    invoke-virtual {v1}, Landroid/media/tv/TvInputService$Session;->onRelease()V
+    invoke-virtual {v1}, Landroid/media/tv/TvInputService$HardwareSession;->onRelease()V
 
     goto :goto_0
 .end method

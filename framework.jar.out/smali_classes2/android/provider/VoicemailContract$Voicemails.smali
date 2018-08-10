@@ -19,6 +19,10 @@
 
 
 # static fields
+.field public static final ARCHIVED:Ljava/lang/String; = "archived"
+
+.field public static final BACKED_UP:Ljava/lang/String; = "backed_up"
+
 .field public static final CONTENT_URI:Landroid/net/Uri;
 
 .field public static final DATE:Ljava/lang/String; = "date"
@@ -32,6 +36,8 @@
 .field public static final DURATION:Ljava/lang/String; = "duration"
 
 .field public static final HAS_CONTENT:Ljava/lang/String; = "has_content"
+
+.field public static final IS_OMTP_VOICEMAIL:Ljava/lang/String; = "is_omtp_voicemail"
 
 .field public static final IS_READ:Ljava/lang/String; = "is_read"
 
@@ -47,6 +53,8 @@
 
 .field public static final PHONE_ACCOUNT_ID:Ljava/lang/String; = "subscription_id"
 
+.field public static final RESTORED:Ljava/lang/String; = "restored"
+
 .field public static final SOURCE_DATA:Ljava/lang/String; = "source_data"
 
 .field public static final SOURCE_PACKAGE:Ljava/lang/String; = "source_package"
@@ -60,6 +68,16 @@
 .field public static STATE_UNDELETED:I = 0x0
 
 .field public static final TRANSCRIPTION:Ljava/lang/String; = "transcription"
+
+.field public static final TRANSCRIPTION_AVAILABLE:I = 0x3
+
+.field public static final TRANSCRIPTION_FAILED:I = 0x2
+
+.field public static final TRANSCRIPTION_IN_PROGRESS:I = 0x1
+
+.field public static final TRANSCRIPTION_NOT_STARTED:I = 0x0
+
+.field public static final TRANSCRIPTION_STATE:Ljava/lang/String; = "transcription_state"
 
 .field public static final _DATA:Ljava/lang/String; = "_data"
 

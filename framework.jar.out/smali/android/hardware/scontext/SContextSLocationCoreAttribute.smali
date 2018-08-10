@@ -433,13 +433,13 @@
 
     iget v6, p0, Landroid/hardware/scontext/SContextSLocationCoreAttribute;->mMode:I
 
-    invoke-virtual {v0, v5, v6}, Landroid/os/BaseBundle;->putInt(Ljava/lang/String;I)V
+    invoke-virtual {v0, v5, v6}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
     const-string/jumbo v5, "Action"
 
     iget v6, p0, Landroid/hardware/scontext/SContextSLocationCoreAttribute;->mAction:I
 
-    invoke-virtual {v0, v5, v6}, Landroid/os/BaseBundle;->putInt(Ljava/lang/String;I)V
+    invoke-virtual {v0, v5, v6}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
     const-string/jumbo v5, "SContextSLocationCoreAttribute"
 
@@ -455,7 +455,7 @@
 
     const-string/jumbo v7, "Mode"
 
-    invoke-virtual {v0, v7}, Landroid/os/BaseBundle;->getInt(Ljava/lang/String;)I
+    invoke-virtual {v0, v7}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
 
     move-result v7
 
@@ -471,7 +471,7 @@
 
     const-string/jumbo v7, "Action"
 
-    invoke-virtual {v0, v7}, Landroid/os/BaseBundle;->getInt(Ljava/lang/String;)I
+    invoke-virtual {v0, v7}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
 
     move-result v7
 
@@ -528,11 +528,11 @@
 
     const-string/jumbo v5, "IntType"
 
-    invoke-virtual {v0, v5, v2}, Landroid/os/BaseBundle;->putIntArray(Ljava/lang/String;[I)V
+    invoke-virtual {v0, v5, v2}, Landroid/os/Bundle;->putIntArray(Ljava/lang/String;[I)V
 
     const-string/jumbo v5, "DoubleType"
 
-    invoke-virtual {v0, v5, v1}, Landroid/os/BaseBundle;->putDoubleArray(Ljava/lang/String;[D)V
+    invoke-virtual {v0, v5, v1}, Landroid/os/Bundle;->putDoubleArray(Ljava/lang/String;[D)V
 
     goto :goto_0
 
@@ -549,7 +549,7 @@
 
     const-string/jumbo v5, "IntType"
 
-    invoke-virtual {v0, v5, v2}, Landroid/os/BaseBundle;->putIntArray(Ljava/lang/String;[I)V
+    invoke-virtual {v0, v5, v2}, Landroid/os/Bundle;->putIntArray(Ljava/lang/String;[I)V
 
     goto/16 :goto_0
 
@@ -576,7 +576,7 @@
 
     const-string/jumbo v5, "IntType"
 
-    invoke-virtual {v0, v5, v2}, Landroid/os/BaseBundle;->putIntArray(Ljava/lang/String;[I)V
+    invoke-virtual {v0, v5, v2}, Landroid/os/Bundle;->putIntArray(Ljava/lang/String;[I)V
 
     goto/16 :goto_0
 
@@ -599,7 +599,7 @@
 
     const-string/jumbo v5, "IntType"
 
-    invoke-virtual {v0, v5, v2}, Landroid/os/BaseBundle;->putIntArray(Ljava/lang/String;[I)V
+    invoke-virtual {v0, v5, v2}, Landroid/os/Bundle;->putIntArray(Ljava/lang/String;[I)V
 
     goto/16 :goto_0
 
@@ -643,15 +643,15 @@
 
     const-string/jumbo v5, "DoubleType"
 
-    invoke-virtual {v0, v5, v1}, Landroid/os/BaseBundle;->putDoubleArray(Ljava/lang/String;[D)V
+    invoke-virtual {v0, v5, v1}, Landroid/os/Bundle;->putDoubleArray(Ljava/lang/String;[D)V
 
     const-string/jumbo v5, "IntType"
 
-    invoke-virtual {v0, v5, v2}, Landroid/os/BaseBundle;->putIntArray(Ljava/lang/String;[I)V
+    invoke-virtual {v0, v5, v2}, Landroid/os/Bundle;->putIntArray(Ljava/lang/String;[I)V
 
     const-string/jumbo v5, "LongType"
 
-    invoke-virtual {v0, v5, v3}, Landroid/os/BaseBundle;->putLongArray(Ljava/lang/String;[J)V
+    invoke-virtual {v0, v5, v3}, Landroid/os/Bundle;->putLongArray(Ljava/lang/String;[J)V
 
     goto/16 :goto_0
 

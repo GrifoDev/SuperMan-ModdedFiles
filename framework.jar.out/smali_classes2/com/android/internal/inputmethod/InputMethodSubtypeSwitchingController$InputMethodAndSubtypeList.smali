@@ -285,23 +285,19 @@
 
     move-result v1
 
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_6
 
-    if-nez p1, :cond_6
+    if-nez p1, :cond_5
 
     invoke-virtual/range {v18 .. v18}, Landroid/view/inputmethod/InputMethodSubtype;->isAuxiliary()Z
 
     move-result v1
 
+    xor-int/lit8 v1, v1, 0x1
+
     if-eqz v1, :cond_6
 
     :cond_5
-    :goto_3
-    add-int/lit8 v5, v5, 0x1
-
-    goto :goto_2
-
-    :cond_6
     invoke-virtual/range {v18 .. v18}, Landroid/view/inputmethod/InputMethodSubtype;->overridesImplicitlyEnabledSubtype()Z
 
     move-result v1
@@ -310,7 +306,7 @@
 
     const/4 v3, 0x0
 
-    :goto_4
+    :goto_3
     new-instance v1, Lcom/android/internal/inputmethod/InputMethodSubtypeSwitchingController$ImeSubtypeListItem;
 
     invoke-virtual/range {v18 .. v18}, Landroid/view/inputmethod/InputMethodSubtype;->getLocale()Ljava/lang/String;
@@ -329,7 +325,10 @@
 
     invoke-virtual {v13, v0}, Ljava/util/HashSet;->remove(Ljava/lang/Object;)Z
 
-    goto :goto_3
+    :cond_6
+    add-int/lit8 v5, v5, 0x1
+
+    goto :goto_2
 
     :cond_7
     move-object/from16 v0, p0
@@ -352,7 +351,7 @@
 
     move-result-object v3
 
-    goto :goto_4
+    goto :goto_3
 
     :cond_8
     new-instance v6, Lcom/android/internal/inputmethod/InputMethodSubtypeSwitchingController$ImeSubtypeListItem;

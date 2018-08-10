@@ -26,21 +26,21 @@
 # static fields
 .field private static final DESCRIPTOR:Ljava/lang/String; = "android.app.ISearchManager"
 
-.field static final TRANSACTION_getGlobalSearchActivities:I = 0x4
+.field static final TRANSACTION_getGlobalSearchActivities:I = 0x3
 
-.field static final TRANSACTION_getGlobalSearchActivity:I = 0x5
+.field static final TRANSACTION_getGlobalSearchActivity:I = 0x4
 
 .field static final TRANSACTION_getSearchableInfo:I = 0x1
 
 .field static final TRANSACTION_getSearchablesInGlobalSearch:I = 0x2
 
-.field static final TRANSACTION_getSearchablesInInsightSearch:I = 0x3
+.field static final TRANSACTION_getSearchablesInInsightSearch:I = 0x8
 
-.field static final TRANSACTION_getWebSearchActivity:I = 0x6
+.field static final TRANSACTION_getWebSearchActivity:I = 0x5
 
-.field static final TRANSACTION_launchAssist:I = 0x7
+.field static final TRANSACTION_launchAssist:I = 0x6
 
-.field static final TRANSACTION_launchLegacyAssist:I = 0x8
+.field static final TRANSACTION_launchLegacyAssist:I = 0x7
 
 
 # direct methods
@@ -198,37 +198,6 @@
 
     invoke-virtual {p2, v11}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v11
-
-    if-eqz v11, :cond_2
-
-    const/4 v3, 0x1
-
-    :goto_2
-    invoke-virtual {p0, v3}, Landroid/app/ISearchManager$Stub;->getSearchablesInInsightSearch(Z)Ljava/util/List;
-
-    move-result-object v8
-
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
-    invoke-virtual {p3, v8}, Landroid/os/Parcel;->writeTypedList(Ljava/util/List;)V
-
-    const/4 v11, 0x1
-
-    return v11
-
-    :cond_2
-    const/4 v3, 0x0
-
-    goto :goto_2
-
-    :sswitch_4
-    const-string/jumbo v11, "android.app.ISearchManager"
-
-    invoke-virtual {p2, v11}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
     invoke-virtual {p0}, Landroid/app/ISearchManager$Stub;->getGlobalSearchActivities()Ljava/util/List;
 
     move-result-object v9
@@ -241,12 +210,45 @@
 
     return v11
 
-    :sswitch_5
+    :sswitch_4
     const-string/jumbo v11, "android.app.ISearchManager"
 
     invoke-virtual {p2, v11}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p0}, Landroid/app/ISearchManager$Stub;->getGlobalSearchActivity()Landroid/content/ComponentName;
+
+    move-result-object v7
+
+    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+
+    if-eqz v7, :cond_2
+
+    const/4 v11, 0x1
+
+    invoke-virtual {p3, v11}, Landroid/os/Parcel;->writeInt(I)V
+
+    const/4 v11, 0x1
+
+    invoke-virtual {v7, p3, v11}, Landroid/content/ComponentName;->writeToParcel(Landroid/os/Parcel;I)V
+
+    :goto_2
+    const/4 v11, 0x1
+
+    return v11
+
+    :cond_2
+    const/4 v11, 0x0
+
+    invoke-virtual {p3, v11}, Landroid/os/Parcel;->writeInt(I)V
+
+    goto :goto_2
+
+    :sswitch_5
+    const-string/jumbo v11, "android.app.ISearchManager"
+
+    invoke-virtual {p2, v11}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual {p0}, Landroid/app/ISearchManager$Stub;->getWebSearchActivity()Landroid/content/ComponentName;
 
     move-result-object v7
 
@@ -279,44 +281,11 @@
 
     invoke-virtual {p2, v11}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    invoke-virtual {p0}, Landroid/app/ISearchManager$Stub;->getWebSearchActivity()Landroid/content/ComponentName;
-
-    move-result-object v7
-
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
-    if-eqz v7, :cond_4
-
-    const/4 v11, 0x1
-
-    invoke-virtual {p3, v11}, Landroid/os/Parcel;->writeInt(I)V
-
-    const/4 v11, 0x1
-
-    invoke-virtual {v7, p3, v11}, Landroid/content/ComponentName;->writeToParcel(Landroid/os/Parcel;I)V
-
-    :goto_4
-    const/4 v11, 0x1
-
-    return v11
-
-    :cond_4
-    const/4 v11, 0x0
-
-    invoke-virtual {p3, v11}, Landroid/os/Parcel;->writeInt(I)V
-
-    goto :goto_4
-
-    :sswitch_7
-    const-string/jumbo v11, "android.app.ISearchManager"
-
-    invoke-virtual {p2, v11}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v11
 
-    if-eqz v11, :cond_5
+    if-eqz v11, :cond_4
 
     sget-object v11, Landroid/os/Bundle;->CREATOR:Landroid/os/Parcelable$Creator;
 
@@ -326,7 +295,7 @@
 
     check-cast v1, Landroid/os/Bundle;
 
-    :goto_5
+    :goto_4
     invoke-virtual {p0, v1}, Landroid/app/ISearchManager$Stub;->launchAssist(Landroid/os/Bundle;)V
 
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
@@ -335,12 +304,12 @@
 
     return v11
 
-    :cond_5
+    :cond_4
     const/4 v1, 0x0
 
-    goto :goto_5
+    goto :goto_4
 
-    :sswitch_8
+    :sswitch_7
     const-string/jumbo v11, "android.app.ISearchManager"
 
     invoke-virtual {p2, v11}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -357,7 +326,7 @@
 
     move-result v11
 
-    if-eqz v11, :cond_6
+    if-eqz v11, :cond_5
 
     sget-object v11, Landroid/os/Bundle;->CREATOR:Landroid/os/Parcelable$Creator;
 
@@ -367,31 +336,62 @@
 
     check-cast v5, Landroid/os/Bundle;
 
-    :goto_6
+    :goto_5
     invoke-virtual {p0, v2, v4, v5}, Landroid/app/ISearchManager$Stub;->launchLegacyAssist(Ljava/lang/String;ILandroid/os/Bundle;)Z
 
     move-result v10
 
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v10, :cond_7
+    if-eqz v10, :cond_6
 
     const/4 v11, 0x1
 
-    :goto_7
+    :goto_6
     invoke-virtual {p3, v11}, Landroid/os/Parcel;->writeInt(I)V
 
     const/4 v11, 0x1
 
     return v11
 
-    :cond_6
+    :cond_5
     const/4 v5, 0x0
+
+    goto :goto_5
+
+    :cond_6
+    const/4 v11, 0x0
 
     goto :goto_6
 
+    :sswitch_8
+    const-string/jumbo v11, "android.app.ISearchManager"
+
+    invoke-virtual {p2, v11}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v11
+
+    if-eqz v11, :cond_7
+
+    const/4 v3, 0x1
+
+    :goto_7
+    invoke-virtual {p0, v3}, Landroid/app/ISearchManager$Stub;->getSearchablesInInsightSearch(Z)Ljava/util/List;
+
+    move-result-object v8
+
+    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+
+    invoke-virtual {p3, v8}, Landroid/os/Parcel;->writeTypedList(Ljava/util/List;)V
+
+    const/4 v11, 0x1
+
+    return v11
+
     :cond_7
-    const/4 v11, 0x0
+    const/4 v3, 0x0
 
     goto :goto_7
 

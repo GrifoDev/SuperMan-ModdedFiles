@@ -84,7 +84,20 @@
 
 .field public cmkFormat:I
 
+.field public containerAttributes:Ljava/util/List;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/List",
+            "<",
+            "Ljava/lang/String;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 .field private creatorUid:I
+
+.field public currentState:Ljava/lang/String;
 
 .field public encryptedId:Ljava/lang/String;
 
@@ -387,6 +400,10 @@
 
     iput-boolean v1, p0, Lcom/samsung/android/knox/SemPersonaInfo;->migratedToM:Z
 
+    iput-object v3, p0, Lcom/samsung/android/knox/SemPersonaInfo;->currentState:Ljava/lang/String;
+
+    iput-object v3, p0, Lcom/samsung/android/knox/SemPersonaInfo;->containerAttributes:Ljava/util/List;
+
     iput-boolean v1, p0, Lcom/samsung/android/knox/SemPersonaInfo;->isUnlockedByCe:Z
 
     iput-boolean v4, p0, Lcom/samsung/android/knox/SemPersonaInfo;->useEncoding:Z
@@ -546,6 +563,10 @@
     iput-object v3, p0, Lcom/samsung/android/knox/SemPersonaInfo;->fingerprintHashList:Ljava/util/List;
 
     iput-boolean v1, p0, Lcom/samsung/android/knox/SemPersonaInfo;->migratedToM:Z
+
+    iput-object v3, p0, Lcom/samsung/android/knox/SemPersonaInfo;->currentState:Ljava/lang/String;
+
+    iput-object v3, p0, Lcom/samsung/android/knox/SemPersonaInfo;->containerAttributes:Ljava/util/List;
 
     iput-boolean v1, p0, Lcom/samsung/android/knox/SemPersonaInfo;->isUnlockedByCe:Z
 
@@ -714,6 +735,10 @@
     iput-object v4, p0, Lcom/samsung/android/knox/SemPersonaInfo;->fingerprintHashList:Ljava/util/List;
 
     iput-boolean v2, p0, Lcom/samsung/android/knox/SemPersonaInfo;->migratedToM:Z
+
+    iput-object v4, p0, Lcom/samsung/android/knox/SemPersonaInfo;->currentState:Ljava/lang/String;
+
+    iput-object v4, p0, Lcom/samsung/android/knox/SemPersonaInfo;->containerAttributes:Ljava/util/List;
 
     iput-boolean v2, p0, Lcom/samsung/android/knox/SemPersonaInfo;->isUnlockedByCe:Z
 
@@ -1240,6 +1265,28 @@
     :goto_20
     iput-boolean v1, p0, Lcom/samsung/android/knox/SemPersonaInfo;->isUnlockedByCe:Z
 
+    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/samsung/android/knox/SemPersonaInfo;->currentState:Ljava/lang/String;
+
+    new-instance v0, Ljava/util/ArrayList;
+
+    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+
+    iput-object v0, p0, Lcom/samsung/android/knox/SemPersonaInfo;->containerAttributes:Ljava/util/List;
+
+    iget-object v0, p0, Lcom/samsung/android/knox/SemPersonaInfo;->containerAttributes:Ljava/util/List;
+
+    const-class v1, Ljava/lang/String;
+
+    invoke-virtual {v1}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+
+    move-result-object v1
+
+    invoke-virtual {p1, v0, v1}, Landroid/os/Parcel;->readList(Ljava/util/List;Ljava/lang/ClassLoader;)V
+
     return-void
 
     :cond_0
@@ -1400,7 +1447,7 @@
     :cond_1f
     move v0, v2
 
-    goto :goto_1f
+    goto/16 :goto_1f
 
     :cond_20
     move v1, v2
@@ -1568,6 +1615,10 @@
     iput-object v3, p0, Lcom/samsung/android/knox/SemPersonaInfo;->fingerprintHashList:Ljava/util/List;
 
     iput-boolean v1, p0, Lcom/samsung/android/knox/SemPersonaInfo;->migratedToM:Z
+
+    iput-object v3, p0, Lcom/samsung/android/knox/SemPersonaInfo;->currentState:Ljava/lang/String;
+
+    iput-object v3, p0, Lcom/samsung/android/knox/SemPersonaInfo;->containerAttributes:Ljava/util/List;
 
     iput-boolean v1, p0, Lcom/samsung/android/knox/SemPersonaInfo;->isUnlockedByCe:Z
 
@@ -1838,6 +1889,14 @@
     iget-boolean v0, p1, Lcom/samsung/android/knox/SemPersonaInfo;->isUnlockedByCe:Z
 
     iput-boolean v0, p0, Lcom/samsung/android/knox/SemPersonaInfo;->isUnlockedByCe:Z
+
+    iget-object v0, p1, Lcom/samsung/android/knox/SemPersonaInfo;->currentState:Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/samsung/android/knox/SemPersonaInfo;->currentState:Ljava/lang/String;
+
+    iget-object v0, p1, Lcom/samsung/android/knox/SemPersonaInfo;->containerAttributes:Ljava/util/List;
+
+    iput-object v0, p0, Lcom/samsung/android/knox/SemPersonaInfo;->containerAttributes:Ljava/util/List;
 
     return-void
 .end method
@@ -2330,18 +2389,6 @@
     return v0
 .end method
 
-.method public getPersonaHandle()Landroid/os/PersonaHandle;
-    .locals 2
-
-    new-instance v0, Landroid/os/PersonaHandle;
-
-    iget v1, p0, Lcom/samsung/android/knox/SemPersonaInfo;->id:I
-
-    invoke-direct {v0, v1}, Landroid/os/PersonaHandle;-><init>(I)V
-
-    return-object v0
-.end method
-
 .method public getSetupWizardApkLocation()Ljava/lang/String;
     .locals 3
 
@@ -2690,15 +2737,10 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    xor-int/lit8 v0, v0, 0x1
 
-    :cond_0
-    iput-object v2, p0, Lcom/samsung/android/knox/SemPersonaInfo;->fingerprintHashList:Ljava/util/List;
+    if-eqz v0, :cond_0
 
-    :goto_0
-    return-void
-
-    :cond_1
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
@@ -2708,6 +2750,12 @@
     iget-object v0, p0, Lcom/samsung/android/knox/SemPersonaInfo;->fingerprintHashList:Ljava/util/List;
 
     invoke-interface {v0, p1}, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
+
+    :goto_0
+    return-void
+
+    :cond_0
+    iput-object v2, p0, Lcom/samsung/android/knox/SemPersonaInfo;->fingerprintHashList:Ljava/util/List;
 
     goto :goto_0
 .end method
@@ -2758,13 +2806,10 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    xor-int/lit8 v0, v0, 0x1
 
-    :cond_0
-    :goto_0
-    return-void
+    if-eqz v0, :cond_0
 
-    :cond_1
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
@@ -2775,7 +2820,8 @@
 
     invoke-interface {v0, p1}, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
 
-    goto :goto_0
+    :cond_0
+    return-void
 .end method
 
 .method public setIsAdminLockedJustBefore(Z)V
@@ -3423,6 +3469,14 @@
     :goto_20
     invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeInt(I)V
 
+    iget-object v0, p0, Lcom/samsung/android/knox/SemPersonaInfo;->currentState:Ljava/lang/String;
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+
+    iget-object v0, p0, Lcom/samsung/android/knox/SemPersonaInfo;->containerAttributes:Ljava/util/List;
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeList(Ljava/util/List;)V
+
     return-void
 
     :cond_0
@@ -3573,7 +3627,7 @@
     :cond_1d
     move v0, v2
 
-    goto :goto_1d
+    goto/16 :goto_1d
 
     :cond_1e
     move v0, v2

@@ -15,11 +15,35 @@
 
 
 # static fields
+.field public static final FLAG_GET_ALL_KINDS:I = 0xb
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
+
 .field public static final FLAG_GET_DYNAMIC:I = 0x1
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
 
 .field public static final FLAG_GET_KEY_FIELDS_ONLY:I = 0x4
 
+.field public static final FLAG_GET_MANIFEST:I = 0x8
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
+
 .field public static final FLAG_GET_PINNED:I = 0x2
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
+
+.field public static final FLAG_MATCH_ALL_KINDS:I = 0xb
+
+.field public static final FLAG_MATCH_DYNAMIC:I = 0x1
+
+.field public static final FLAG_MATCH_MANIFEST:I = 0x8
+
+.field public static final FLAG_MATCH_PINNED:I = 0x2
 
 
 # instance fields
@@ -54,39 +78,39 @@
 
 
 # virtual methods
-.method public setActivity(Landroid/content/ComponentName;)V
+.method public setActivity(Landroid/content/ComponentName;)Landroid/content/pm/LauncherApps$ShortcutQuery;
     .locals 0
 
     iput-object p1, p0, Landroid/content/pm/LauncherApps$ShortcutQuery;->mActivity:Landroid/content/ComponentName;
 
-    return-void
+    return-object p0
 .end method
 
-.method public setChangedSince(J)V
+.method public setChangedSince(J)Landroid/content/pm/LauncherApps$ShortcutQuery;
     .locals 1
 
     iput-wide p1, p0, Landroid/content/pm/LauncherApps$ShortcutQuery;->mChangedSince:J
 
-    return-void
+    return-object p0
 .end method
 
-.method public setPackage(Ljava/lang/String;)V
+.method public setPackage(Ljava/lang/String;)Landroid/content/pm/LauncherApps$ShortcutQuery;
     .locals 0
 
     iput-object p1, p0, Landroid/content/pm/LauncherApps$ShortcutQuery;->mPackage:Ljava/lang/String;
 
-    return-void
+    return-object p0
 .end method
 
-.method public setQueryFlags(I)V
+.method public setQueryFlags(I)Landroid/content/pm/LauncherApps$ShortcutQuery;
     .locals 0
 
     iput p1, p0, Landroid/content/pm/LauncherApps$ShortcutQuery;->mQueryFlags:I
 
-    return-void
+    return-object p0
 .end method
 
-.method public setShortcutIds(Ljava/util/List;)V
+.method public setShortcutIds(Ljava/util/List;)Landroid/content/pm/LauncherApps$ShortcutQuery;
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -94,11 +118,12 @@
             "Ljava/util/List",
             "<",
             "Ljava/lang/String;",
-            ">;)V"
+            ">;)",
+            "Landroid/content/pm/LauncherApps$ShortcutQuery;"
         }
     .end annotation
 
     iput-object p1, p0, Landroid/content/pm/LauncherApps$ShortcutQuery;->mShortcutIds:Ljava/util/List;
 
-    return-void
+    return-object p0
 .end method

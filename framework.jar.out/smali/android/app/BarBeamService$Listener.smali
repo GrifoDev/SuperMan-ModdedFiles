@@ -94,7 +94,7 @@
 
     iget-object v0, v0, Landroid/app/BarBeamService;->mListeners:Ljava/util/ArrayList;
 
-    invoke-virtual {v0}, Ljava/lang/Object;->notify()V
+    invoke-virtual {v0}, Ljava/util/ArrayList;->notify()V
 
     iget-object v0, p0, Landroid/app/BarBeamService$Listener;->this$0:Landroid/app/BarBeamService;
 

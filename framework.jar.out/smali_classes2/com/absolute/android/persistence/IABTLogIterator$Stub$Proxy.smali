@@ -51,7 +51,7 @@
 .end method
 
 .method public getNext(I)[Lcom/absolute/android/persistence/LogEntry;
-    .locals 5
+    .locals 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -67,29 +67,29 @@
     move-result-object v2
 
     :try_start_0
-    const-string/jumbo v0, "com.absolute.android.persistence.IABTLogIterator"
+    const-string/jumbo v4, "com.absolute.android.persistence.IABTLogIterator"
 
-    invoke-virtual {v1, v0}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+    invoke-virtual {v1, v4}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     invoke-virtual {v1, p1}, Landroid/os/Parcel;->writeInt(I)V
 
-    iget-object v0, p0, Lcom/absolute/android/persistence/IABTLogIterator$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+    iget-object v4, p0, Lcom/absolute/android/persistence/IABTLogIterator$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/4 v3, 0x1
+    const/4 v5, 0x1
 
-    const/4 v4, 0x0
+    const/4 v6, 0x0
 
-    invoke-interface {v0, v3, v1, v2, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+    invoke-interface {v4, v5, v1, v2, v6}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
     invoke-virtual {v2}, Landroid/os/Parcel;->readException()V
 
-    sget-object v0, Lcom/absolute/android/persistence/LogEntry;->CREATOR:Landroid/os/Parcelable$Creator;
+    sget-object v4, Lcom/absolute/android/persistence/LogEntry;->CREATOR:Landroid/os/Parcelable$Creator;
 
-    invoke-virtual {v2, v0}, Landroid/os/Parcel;->createTypedArray(Landroid/os/Parcelable$Creator;)[Ljava/lang/Object;
+    invoke-virtual {v2, v4}, Landroid/os/Parcel;->createTypedArray(Landroid/os/Parcelable$Creator;)[Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v3
 
-    check-cast v0, [Lcom/absolute/android/persistence/LogEntry;
+    check-cast v3, [Lcom/absolute/android/persistence/LogEntry;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -97,7 +97,7 @@
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    return-object v0
+    return-object v3
 
     :catchall_0
     move-exception v0

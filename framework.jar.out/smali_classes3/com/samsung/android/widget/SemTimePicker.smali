@@ -107,7 +107,7 @@
         }
     .end annotation
 
-    invoke-virtual {p0, p1}, Landroid/view/ViewGroup;->dispatchThawSelfOnly(Landroid/util/SparseArray;)V
+    invoke-virtual {p0, p1}, Lcom/samsung/android/widget/SemTimePicker;->dispatchThawSelfOnly(Landroid/util/SparseArray;)V
 
     return-void
 .end method
@@ -309,7 +309,7 @@
 
     check-cast v0, Landroid/view/View$BaseSavedState;
 
-    invoke-virtual {v0}, Landroid/view/AbsSavedState;->getSuperState()Landroid/os/Parcelable;
+    invoke-virtual {v0}, Landroid/view/View$BaseSavedState;->getSuperState()Landroid/os/Parcelable;
 
     move-result-object v1
 
@@ -376,12 +376,6 @@
     iget-object v0, p0, Lcom/samsung/android/widget/SemTimePicker;->mDelegate:Lcom/samsung/android/widget/SemTimePicker$SemTimePickerDelegate;
 
     invoke-interface {v0, p1}, Lcom/samsung/android/widget/SemTimePicker$SemTimePickerDelegate;->setIs24HourView(Ljava/lang/Boolean;)V
-
-    return-void
-.end method
-
-.method public setLargeBackground()V
-    .locals 0
 
     return-void
 .end method

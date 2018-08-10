@@ -26,6 +26,8 @@
 .end method
 
 .method public abstract deactivate()V
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 .end method
 
 .method public abstract getBlob(I)[B

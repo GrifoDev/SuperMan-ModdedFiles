@@ -43,7 +43,7 @@
 
     const-string/jumbo v0, "android.content.IRCPInterfaceCallback"
 
-    invoke-virtual {p0, p0, v0}, Landroid/os/Binder;->attachInterface(Landroid/os/IInterface;Ljava/lang/String;)V
+    invoke-virtual {p0, p0, v0}, Landroid/content/IRCPInterfaceCallback$Stub;->attachInterface(Landroid/os/IInterface;Ljava/lang/String;)V
 
     return-void
 .end method

@@ -36,10 +36,15 @@
 # virtual methods
 .method public createService(Landroid/app/ContextImpl;)Landroid/content/RestrictionsManager;
     .locals 3
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/ServiceManager$ServiceNotFoundException;
+        }
+    .end annotation
 
     const-string/jumbo v2, "restrictions"
 
-    invoke-static {v2}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
+    invoke-static {v2}, Landroid/os/ServiceManager;->getServiceOrThrow(Ljava/lang/String;)Landroid/os/IBinder;
 
     move-result-object v0
 
@@ -56,6 +61,11 @@
 
 .method public bridge synthetic createService(Landroid/app/ContextImpl;)Ljava/lang/Object;
     .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/ServiceManager$ServiceNotFoundException;
+        }
+    .end annotation
 
     invoke-virtual {p0, p1}, Landroid/app/SystemServiceRegistry$67;->createService(Landroid/app/ContextImpl;)Landroid/content/RestrictionsManager;
 

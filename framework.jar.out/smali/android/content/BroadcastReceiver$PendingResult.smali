@@ -134,11 +134,13 @@
 .method public final finish()V
     .locals 3
 
+    const/4 v2, 0x0
+
     iget v1, p0, Landroid/content/BroadcastReceiver$PendingResult;->mType:I
 
     if-nez v1, :cond_2
 
-    invoke-static {}, Landroid/app/ActivityManagerNative;->getDefault()Landroid/app/IActivityManager;
+    invoke-static {}, Landroid/app/ActivityManager;->getService()Landroid/app/IActivityManager;
 
     move-result-object v0
 
@@ -148,15 +150,11 @@
 
     if-eqz v1, :cond_1
 
-    invoke-static {}, Landroid/app/QueuedWork;->singleThreadExecutor()Ljava/util/concurrent/ExecutorService;
+    new-instance v1, Landroid/content/BroadcastReceiver$PendingResult$1;
 
-    move-result-object v1
+    invoke-direct {v1, p0, v0}, Landroid/content/BroadcastReceiver$PendingResult$1;-><init>(Landroid/content/BroadcastReceiver$PendingResult;Landroid/app/IActivityManager;)V
 
-    new-instance v2, Landroid/content/BroadcastReceiver$PendingResult$1;
-
-    invoke-direct {v2, p0, v0}, Landroid/content/BroadcastReceiver$PendingResult$1;-><init>(Landroid/content/BroadcastReceiver$PendingResult;Landroid/app/IActivityManager;)V
-
-    invoke-interface {v1, v2}, Ljava/util/concurrent/ExecutorService;->execute(Ljava/lang/Runnable;)V
+    invoke-static {v1, v2}, Landroid/app/QueuedWork;->queue(Ljava/lang/Runnable;Z)V
 
     :cond_0
     :goto_0
@@ -178,7 +176,7 @@
 
     if-eq v1, v2, :cond_0
 
-    invoke-static {}, Landroid/app/ActivityManagerNative;->getDefault()Landroid/app/IActivityManager;
+    invoke-static {}, Landroid/app/ActivityManager;->getService()Landroid/app/IActivityManager;
 
     move-result-object v0
 

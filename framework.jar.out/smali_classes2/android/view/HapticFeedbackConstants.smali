@@ -18,7 +18,7 @@
 
 .field public static final LONG_PRESS:I = 0x0
 
-.field private static final NEW_VIBRATION_MAX_INDEX:I = 0xc379
+.field private static final NEW_VIBRATION_MAX_INDEX:I = 0xc382
 
 .field private static final NEW_VIBRATION_MIN_INDEX:I = 0xc369
 
@@ -62,6 +62,24 @@
 
 .field public static final SEM_VIBRATION_COMMON_Q:I = 0xc379
 
+.field public static final SEM_VIBRATION_COMMON_R:I = 0xc37a
+
+.field public static final SEM_VIBRATION_COMMON_S:I = 0xc37b
+
+.field public static final SEM_VIBRATION_COMMON_T:I = 0xc37c
+
+.field public static final SEM_VIBRATION_COMMON_U:I = 0xc37d
+
+.field public static final SEM_VIBRATION_COMMON_V:I = 0xc37e
+
+.field public static final SEM_VIBRATION_COMMON_W:I = 0xc37f
+
+.field public static final SEM_VIBRATION_COMMON_X:I = 0xc380
+
+.field public static final SEM_VIBRATION_COMMON_Y:I = 0xc381
+
+.field public static final SEM_VIBRATION_COMMON_Z:I = 0xc382
+
 .field public static final VIRTUAL_KEY:I = 0x1
 
 
@@ -81,7 +99,7 @@
 
     if-lt p0, v0, :cond_0
 
-    const v0, 0xc379
+    const v0, 0xc382
 
     if-gt p0, v0, :cond_0
 

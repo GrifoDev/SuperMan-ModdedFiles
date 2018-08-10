@@ -42,7 +42,7 @@
     return-object v0
 .end method
 
-.method public attach(Landroid/os/IBinder;Z)V
+.method public attach(Landroid/os/IBinder;ZLandroid/os/IRemoteCallback;)V
     .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -50,23 +50,34 @@
         }
     .end annotation
 
-    const/4 v1, 0x1
+    const/4 v1, 0x0
+
+    const/4 v2, 0x1
 
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
     :try_start_0
-    const-string/jumbo v2, "android.service.dreams.IDreamService"
+    const-string/jumbo v3, "android.service.dreams.IDreamService"
 
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_1
 
     :goto_0
-    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
+
+    if-eqz p3, :cond_0
+
+    invoke-interface {p3}, Landroid/os/IRemoteCallback;->asBinder()Landroid/os/IBinder;
+
+    move-result-object v1
+
+    :cond_0
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
     iget-object v1, p0, Landroid/service/dreams/IDreamService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
@@ -84,8 +95,8 @@
 
     return-void
 
-    :cond_0
-    const/4 v1, 0x0
+    :cond_1
+    const/4 v2, 0x0
 
     goto :goto_0
 

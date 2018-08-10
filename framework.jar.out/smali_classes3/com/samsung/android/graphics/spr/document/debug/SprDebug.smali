@@ -125,7 +125,7 @@
     :catch_0
     move-exception v1
 
-    invoke-virtual {v1}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v1}, Ljava/lang/Exception;->printStackTrace()V
 
     invoke-static {v5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -188,7 +188,7 @@
 
     move-result-object v0
 
-    invoke-virtual {p1}, Ljava/lang/Object;->hashCode()I
+    invoke-virtual {p1}, Lcom/samsung/android/graphics/spr/document/SprDocument;->hashCode()I
 
     move-result v1
 
@@ -590,7 +590,7 @@
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {p1}, Ljava/lang/Object;->hashCode()I
+    invoke-virtual {p1}, Lcom/samsung/android/graphics/spr/document/SprDocument;->hashCode()I
 
     move-result v3
 
@@ -624,7 +624,7 @@
 
     invoke-virtual {v6, v0, v2, v10}, Landroid/graphics/Bitmap;->compress(Landroid/graphics/Bitmap$CompressFormat;ILjava/io/OutputStream;)Z
 
-    invoke-virtual {v10}, Ljava/io/FileOutputStream;->close()V
+    invoke-virtual {v10}, Ljava/io/OutputStream;->close()V
     :try_end_0
     .catch Ljava/io/FileNotFoundException; {:try_start_0 .. :try_end_0} :catch_1
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
@@ -636,14 +636,14 @@
     :catch_0
     move-exception v9
 
-    invoke-virtual {v9}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v9}, Ljava/io/IOException;->printStackTrace()V
 
     goto :goto_0
 
     :catch_1
     move-exception v8
 
-    invoke-virtual {v8}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v8}, Ljava/io/FileNotFoundException;->printStackTrace()V
 
     goto :goto_0
 .end method

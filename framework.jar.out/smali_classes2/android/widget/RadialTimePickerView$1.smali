@@ -71,7 +71,7 @@
 
     invoke-static {p1, p2}, Landroid/widget/RadialTimePickerView;->-set0(Landroid/widget/RadialTimePickerView;F)F
 
-    invoke-virtual {p1}, Landroid/view/View;->invalidate()V
+    invoke-virtual {p1}, Landroid/widget/RadialTimePickerView;->invalidate()V
 
     return-void
 .end method

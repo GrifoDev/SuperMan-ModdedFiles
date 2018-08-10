@@ -138,6 +138,14 @@
     .end annotation
 .end method
 
+.method public abstract respondToRttRequest(Ljava/lang/String;IZ)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract sendCallEvent(Ljava/lang/String;Ljava/lang/String;Landroid/os/Bundle;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -146,7 +154,23 @@
     .end annotation
 .end method
 
+.method public abstract sendRttRequest(Ljava/lang/String;)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract setAudioRoute(I)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract setRttMode(Ljava/lang/String;I)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -163,6 +187,14 @@
 .end method
 
 .method public abstract stopDtmfTone(Ljava/lang/String;)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract stopRtt(Ljava/lang/String;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

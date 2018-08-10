@@ -17,7 +17,7 @@
     value = {
         "Landroid/app/SystemServiceRegistry$StaticServiceFetcher",
         "<",
-        "Landroid/app/KeyguardManager;",
+        "Landroid/view/inputmethod/InputMethodManager;",
         ">;"
     }
 .end annotation
@@ -34,20 +34,25 @@
 
 
 # virtual methods
-.method public createService()Landroid/app/KeyguardManager;
+.method public createService()Landroid/view/inputmethod/InputMethodManager;
     .locals 1
 
-    new-instance v0, Landroid/app/KeyguardManager;
+    invoke-static {}, Landroid/view/inputmethod/InputMethodManager;->getInstance()Landroid/view/inputmethod/InputMethodManager;
 
-    invoke-direct {v0}, Landroid/app/KeyguardManager;-><init>()V
+    move-result-object v0
 
     return-object v0
 .end method
 
 .method public bridge synthetic createService()Ljava/lang/Object;
     .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/ServiceManager$ServiceNotFoundException;
+        }
+    .end annotation
 
-    invoke-virtual {p0}, Landroid/app/SystemServiceRegistry$24;->createService()Landroid/app/KeyguardManager;
+    invoke-virtual {p0}, Landroid/app/SystemServiceRegistry$24;->createService()Landroid/view/inputmethod/InputMethodManager;
 
     move-result-object v0
 

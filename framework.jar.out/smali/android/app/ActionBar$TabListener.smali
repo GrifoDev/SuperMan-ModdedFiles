@@ -13,6 +13,9 @@
     name = "TabListener"
 .end annotation
 
+.annotation runtime Ljava/lang/Deprecated;
+.end annotation
+
 
 # virtual methods
 .method public abstract onTabReselected(Landroid/app/ActionBar$Tab;Landroid/app/FragmentTransaction;)V

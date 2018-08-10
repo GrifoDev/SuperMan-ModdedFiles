@@ -355,9 +355,7 @@
 
     if-eqz v1, :cond_1
 
-    nop
-
-    nop
+    check-cast v0, Lcom/samsung/android/content/clipboard/data/SemClipData;
 
     invoke-direct {p0, v0}, Landroid/sec/clipboard/data/file/WrapFileClipData;->loadSemClipData(Lcom/samsung/android/content/clipboard/data/SemClipData;)Z
 
@@ -370,9 +368,7 @@
 
     if-eqz v1, :cond_3
 
-    nop
-
-    nop
+    check-cast v0, Landroid/sec/clipboard/data/ClipboardData;
 
     invoke-direct {p0, v0}, Landroid/sec/clipboard/data/file/WrapFileClipData;->loadClipboardData(Landroid/sec/clipboard/data/ClipboardData;)Z
 

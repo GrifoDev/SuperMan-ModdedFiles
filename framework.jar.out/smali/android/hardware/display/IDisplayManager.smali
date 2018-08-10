@@ -15,7 +15,7 @@
 
 
 # virtual methods
-.method public abstract connectDevice(IILandroid/os/Bundle;Ljava/lang/String;)V
+.method public abstract connectDevice(Landroid/hardware/display/SemDeviceInfo;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -31,7 +31,7 @@
     .end annotation
 .end method
 
-.method public abstract connectWifiDisplayWithMode(ILjava/lang/String;)V
+.method public abstract createVirtualDisplay(Landroid/hardware/display/IVirtualDisplayCallback;Landroid/media/projection/IMediaProjection;Ljava/lang/String;Ljava/lang/String;IIILandroid/view/Surface;ILjava/lang/String;)I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -39,31 +39,7 @@
     .end annotation
 .end method
 
-.method public abstract connectWifiDisplayWithModeEx(ILjava/lang/String;Z)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract connectWifiDisplayWithPin(Ljava/lang/String;)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract createVirtualDisplay(Landroid/hardware/display/IVirtualDisplayCallback;Landroid/media/projection/IMediaProjection;Ljava/lang/String;Ljava/lang/String;IIILandroid/view/Surface;I)I
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract disconnectDevice(I)V
+.method public abstract disconnectDevice()V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -87,23 +63,7 @@
     .end annotation
 .end method
 
-.method public abstract enableWifiDisplayEx(Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract enableWifiDisplayEx2(Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract enableWifiDisplayWithParams(Ljava/lang/String;)V
+.method public abstract fitToActiveDisplay(Z)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -119,7 +79,7 @@
     .end annotation
 .end method
 
-.method public abstract getActiveDLNADevice()Landroid/hardware/display/SemDlnaDevice;
+.method public abstract getActiveDevice()Landroid/hardware/display/SemDeviceInfo;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -127,7 +87,7 @@
     .end annotation
 .end method
 
-.method public abstract getActiveDLNAState()I
+.method public abstract getDeviceMaxVolume()I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -135,7 +95,7 @@
     .end annotation
 .end method
 
-.method public abstract getDeviceStatus(I)Landroid/os/Bundle;
+.method public abstract getDeviceMinVolume()I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -159,7 +119,7 @@
     .end annotation
 .end method
 
-.method public abstract getLastConnectedDevice(I)Landroid/os/Bundle;
+.method public abstract getDisplayInfoEx(ILandroid/os/IBinder;)Landroid/view/DisplayInfo;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -167,7 +127,7 @@
     .end annotation
 .end method
 
-.method public abstract getLastConnectedDisplay(Z)Landroid/hardware/display/WifiDisplay;
+.method public abstract getDisplaySizeOverride(Landroid/os/IBinder;[I)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -175,7 +135,7 @@
     .end annotation
 .end method
 
-.method public abstract getLastConnectedDlnaDevice()Landroid/hardware/display/SemDlnaDevice;
+.method public abstract getDisplayToken(I)Landroid/os/IBinder;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -183,7 +143,7 @@
     .end annotation
 .end method
 
-.method public abstract getLastConnectedGCastDevice()Ljava/lang/String;
+.method public abstract getLastConnectedDevice()Landroid/hardware/display/SemDeviceInfo;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -192,22 +152,6 @@
 .end method
 
 .method public abstract getPresentationOwner(I)Ljava/lang/String;
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract getScreenSharingStatus()I
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract getWifiDisplayConfiguration(Ljava/lang/String;)Landroid/os/Bundle;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -231,7 +175,7 @@
     .end annotation
 .end method
 
-.method public abstract isDongleRenameAvailable()Z
+.method public abstract isDeviceVolumeMuted()Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -239,7 +183,7 @@
     .end annotation
 .end method
 
-.method public abstract isKDDIServiceConnected()Z
+.method public abstract isDongleRenameSupported()Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -247,23 +191,7 @@
     .end annotation
 .end method
 
-.method public abstract isSinkAvailable()Z
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract isSourceAvailable()Z
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract isWfdEngineRunning()Z
+.method public abstract isFitToActiveDisplay()Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -295,23 +223,7 @@
     .end annotation
 .end method
 
-.method public abstract removeLastConnectedDevice(I)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract removeLastConnectedDlnaDevice()V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract removeLastConnectedGCastDevice()V
+.method public abstract removeLastConnectedDevice()V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -335,7 +247,7 @@
     .end annotation
 .end method
 
-.method public abstract requestColorTransform(II)V
+.method public abstract requestColorMode(II)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -367,15 +279,17 @@
     .end annotation
 .end method
 
-.method public abstract scanWifiDisplays()V
-    .annotation system Ldalvik/annotation/Throws;
+.method public abstract setAppListSupportingDirectStream(Ljava/util/List;)V
+    .annotation system Ldalvik/annotation/Signature;
         value = {
-            Landroid/os/RemoteException;
+            "(",
+            "Ljava/util/List",
+            "<",
+            "Ljava/lang/String;",
+            ">;)V"
         }
     .end annotation
-.end method
 
-.method public abstract setActiveDlnaState(Landroid/os/IBinder;Landroid/hardware/display/SemDlnaDevice;I)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -391,7 +305,15 @@
     .end annotation
 .end method
 
-.method public abstract setExtendMode(Z)V
+.method public abstract setDeviceVolume(I)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract setDeviceVolumeMuted(Z)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -423,14 +345,6 @@
     .end annotation
 .end method
 
-.method public abstract setScreenSharingStatus(I)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
 .method public abstract setVirtualDisplayFixedOrientation(Landroid/hardware/display/IVirtualDisplayCallback;I)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -447,7 +361,23 @@
     .end annotation
 .end method
 
-.method public abstract setWifiDisplayConfiguration(Landroid/os/Bundle;)I
+.method public abstract setVolumeKeyEvent(I)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract setWifiDisplayRealSize(Ljava/lang/String;)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract startWifiDisplayChannelScan(I)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -463,7 +393,7 @@
     .end annotation
 .end method
 
-.method public abstract stopScanWifiDisplays()V
+.method public abstract stopWifiDisplayScan()V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -471,7 +401,7 @@
     .end annotation
 .end method
 
-.method public abstract stopWifiDisplayScan()V
+.method public abstract updateDeviceState(Landroid/hardware/display/SemDeviceInfo;Landroid/os/IBinder;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

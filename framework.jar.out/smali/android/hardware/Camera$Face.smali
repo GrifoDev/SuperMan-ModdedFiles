@@ -18,10 +18,6 @@
 
 
 # instance fields
-.field public blinkDetected:I
-
-.field public faceRecognised:I
-
 .field public id:I
 
 .field public leftEye:Landroid/graphics/Point;
@@ -34,16 +30,10 @@
 
 .field public score:I
 
-.field public smileDegree:I
-
-.field public smileScore:I
-
 
 # direct methods
 .method public constructor <init>()V
-    .locals 3
-
-    const/4 v2, 0x0
+    .locals 2
 
     const/4 v1, 0x0
 
@@ -53,19 +43,11 @@
 
     iput v0, p0, Landroid/hardware/Camera$Face;->id:I
 
-    iput-object v2, p0, Landroid/hardware/Camera$Face;->leftEye:Landroid/graphics/Point;
+    iput-object v1, p0, Landroid/hardware/Camera$Face;->leftEye:Landroid/graphics/Point;
 
-    iput-object v2, p0, Landroid/hardware/Camera$Face;->rightEye:Landroid/graphics/Point;
+    iput-object v1, p0, Landroid/hardware/Camera$Face;->rightEye:Landroid/graphics/Point;
 
-    iput-object v2, p0, Landroid/hardware/Camera$Face;->mouth:Landroid/graphics/Point;
-
-    iput v1, p0, Landroid/hardware/Camera$Face;->smileDegree:I
-
-    iput v1, p0, Landroid/hardware/Camera$Face;->smileScore:I
-
-    iput v1, p0, Landroid/hardware/Camera$Face;->blinkDetected:I
-
-    iput v1, p0, Landroid/hardware/Camera$Face;->faceRecognised:I
+    iput-object v1, p0, Landroid/hardware/Camera$Face;->mouth:Landroid/graphics/Point;
 
     return-void
 .end method

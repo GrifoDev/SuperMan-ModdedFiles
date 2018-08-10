@@ -15,7 +15,7 @@
 
 
 # static fields
-.field static final DEBUG:Z = true
+.field static final DEBUG:Z = false
 
 .field private static final DO_ATTACH:I = 0xa
 
@@ -45,6 +45,14 @@
 
 .field static final TAG:Ljava/lang/String; = "WallpaperService"
 
+.field public static final WPAPER_SUPPORT_INCONSISTENCY_WALLPAPER:Z = true
+
+.field private static mDeviceHeight:I
+
+.field private static mDeviceRotation:I
+
+.field private static mDeviceWidth:I
+
 
 # instance fields
 .field private final mActiveEngines:Ljava/util/ArrayList;
@@ -58,6 +66,8 @@
     .end annotation
 .end field
 
+.field mIsSupportInconsistencyWallpaper:Z
+
 
 # direct methods
 .method static synthetic -get0(Landroid/service/wallpaper/WallpaperService;)Ljava/util/ArrayList;
@@ -68,10 +78,76 @@
     return-object v0
 .end method
 
+.method static synthetic -get1()I
+    .locals 1
+
+    sget v0, Landroid/service/wallpaper/WallpaperService;->mDeviceHeight:I
+
+    return v0
+.end method
+
+.method static synthetic -get2()I
+    .locals 1
+
+    sget v0, Landroid/service/wallpaper/WallpaperService;->mDeviceRotation:I
+
+    return v0
+.end method
+
+.method static synthetic -get3()I
+    .locals 1
+
+    sget v0, Landroid/service/wallpaper/WallpaperService;->mDeviceWidth:I
+
+    return v0
+.end method
+
+.method static synthetic -set0(I)I
+    .locals 0
+
+    sput p0, Landroid/service/wallpaper/WallpaperService;->mDeviceHeight:I
+
+    return p0
+.end method
+
+.method static synthetic -set1(I)I
+    .locals 0
+
+    sput p0, Landroid/service/wallpaper/WallpaperService;->mDeviceRotation:I
+
+    return p0
+.end method
+
+.method static synthetic -set2(I)I
+    .locals 0
+
+    sput p0, Landroid/service/wallpaper/WallpaperService;->mDeviceWidth:I
+
+    return p0
+.end method
+
+.method static constructor <clinit>()V
+    .locals 1
+
+    const/4 v0, -0x1
+
+    sput v0, Landroid/service/wallpaper/WallpaperService;->mDeviceHeight:I
+
+    sput v0, Landroid/service/wallpaper/WallpaperService;->mDeviceWidth:I
+
+    sput v0, Landroid/service/wallpaper/WallpaperService;->mDeviceRotation:I
+
+    return-void
+.end method
+
 .method public constructor <init>()V
     .locals 1
 
     invoke-direct {p0}, Landroid/app/Service;-><init>()V
+
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Landroid/service/wallpaper/WallpaperService;->mIsSupportInconsistencyWallpaper:Z
 
     new-instance v0, Ljava/util/ArrayList;
 

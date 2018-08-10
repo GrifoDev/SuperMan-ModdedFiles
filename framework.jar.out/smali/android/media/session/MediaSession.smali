@@ -20,10 +20,18 @@
 .field public static final FLAG_EXCLUSIVE_GLOBAL_PRIORITY:I = 0x10000
 
 .field public static final FLAG_HANDLES_MEDIA_BUTTONS:I = 0x1
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
 
 .field public static final FLAG_HANDLES_TRANSPORT_CONTROLS:I = 0x2
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
 
 .field public static final FLAG_USE_A2DP:I = 0x20000000
+
+.field public static final SEM_FLAG_HANDLES_MEDIA_BUTTONS:I = 0x10000000
 
 .field private static final TAG:Ljava/lang/String; = "MediaSession"
 
@@ -308,7 +316,7 @@
 
     move-result-object v2
 
-    const v3, 0x1050014
+    const v3, 0x1050043
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

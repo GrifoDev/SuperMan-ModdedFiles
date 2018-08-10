@@ -81,7 +81,7 @@
 
     iget-object v0, p0, Landroid/widget/SemHorizontalAbsListView$MultiChoiceModeWrapper;->this$0:Landroid/widget/SemHorizontalAbsListView;
 
-    invoke-virtual {v0, v1}, Landroid/view/View;->setLongClickable(Z)V
+    invoke-virtual {v0, v1}, Landroid/widget/SemHorizontalAbsListView;->setLongClickable(Z)V
 
     const/4 v0, 0x1
 
@@ -112,7 +112,7 @@
 
     iget-object v0, p0, Landroid/widget/SemHorizontalAbsListView$MultiChoiceModeWrapper;->this$0:Landroid/widget/SemHorizontalAbsListView;
 
-    iput-boolean v2, v0, Landroid/widget/AdapterView;->mDataChanged:Z
+    iput-boolean v2, v0, Landroid/widget/SemHorizontalAbsListView;->mDataChanged:Z
 
     iget-object v0, p0, Landroid/widget/SemHorizontalAbsListView$MultiChoiceModeWrapper;->this$0:Landroid/widget/SemHorizontalAbsListView;
 
@@ -120,11 +120,11 @@
 
     iget-object v0, p0, Landroid/widget/SemHorizontalAbsListView$MultiChoiceModeWrapper;->this$0:Landroid/widget/SemHorizontalAbsListView;
 
-    invoke-virtual {v0}, Landroid/view/View;->requestLayout()V
+    invoke-virtual {v0}, Landroid/widget/SemHorizontalAbsListView;->requestLayout()V
 
     iget-object v0, p0, Landroid/widget/SemHorizontalAbsListView$MultiChoiceModeWrapper;->this$0:Landroid/widget/SemHorizontalAbsListView;
 
-    invoke-virtual {v0, v2}, Landroid/view/View;->setLongClickable(Z)V
+    invoke-virtual {v0, v2}, Landroid/widget/SemHorizontalAbsListView;->setLongClickable(Z)V
 
     return-void
 .end method
@@ -154,20 +154,18 @@
 
     iget-object v0, p0, Landroid/widget/SemHorizontalAbsListView$MultiChoiceModeWrapper;->this$0:Landroid/widget/SemHorizontalAbsListView;
 
-    invoke-static {v0}, Landroid/widget/SemHorizontalAbsListView;->-get31(Landroid/widget/SemHorizontalAbsListView;)Z
+    invoke-static {v0}, Landroid/widget/SemHorizontalAbsListView;->-get24(Landroid/widget/SemHorizontalAbsListView;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    xor-int/lit8 v0, v0, 0x1
 
-    :cond_0
-    :goto_0
-    return-void
+    if-eqz v0, :cond_0
 
-    :cond_1
     invoke-virtual {p1}, Landroid/view/ActionMode;->finish()V
 
-    goto :goto_0
+    :cond_0
+    return-void
 .end method
 
 .method public onPrepareActionMode(Landroid/view/ActionMode;Landroid/view/Menu;)Z

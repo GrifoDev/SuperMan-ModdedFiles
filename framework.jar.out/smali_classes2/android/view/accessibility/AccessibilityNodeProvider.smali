@@ -18,6 +18,12 @@
 
 
 # virtual methods
+.method public addExtraDataToAccessibilityNodeInfo(ILandroid/view/accessibility/AccessibilityNodeInfo;Ljava/lang/String;Landroid/os/Bundle;)V
+    .locals 0
+
+    return-void
+.end method
+
 .method public createAccessibilityNodeInfo(I)Landroid/view/accessibility/AccessibilityNodeInfo;
     .locals 1
 

@@ -201,6 +201,74 @@
     return v2
 .end method
 
+.method public isAnyApplicationIconChangedAsUser(I)Z
+    .locals 5
+
+    const/4 v2, 0x0
+
+    :try_start_0
+    invoke-static {}, Landroid/sec/enterprise/EnterpriseDeviceManager$EDMProxyServiceHelper;->getService()Landroid/sec/enterprise/IEDMProxy;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_0
+
+    invoke-interface {v1, p1}, Landroid/sec/enterprise/IEDMProxy;->isAnyApplicationIconChangedAsUser(I)Z
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v2
+
+    :cond_0
+    :goto_0
+    return v2
+
+    :catch_0
+    move-exception v0
+
+    sget-object v3, Landroid/sec/enterprise/ApplicationPolicy;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v4, "PXY-isAnyApplicationIconChangedAsUser returning default value"
+
+    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
+.end method
+
+.method public isAnyApplicationNameChangedAsUser(I)Z
+    .locals 5
+
+    const/4 v2, 0x0
+
+    :try_start_0
+    invoke-static {}, Landroid/sec/enterprise/EnterpriseDeviceManager$EDMProxyServiceHelper;->getService()Landroid/sec/enterprise/IEDMProxy;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_0
+
+    invoke-interface {v1, p1}, Landroid/sec/enterprise/IEDMProxy;->isAnyApplicationNameChangedAsUser(I)Z
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v2
+
+    :cond_0
+    :goto_0
+    return v2
+
+    :catch_0
+    move-exception v0
+
+    sget-object v3, Landroid/sec/enterprise/ApplicationPolicy;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v4, "PXY-isAnyApplicationNameChangedAsUser returning default value"
+
+    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
+.end method
+
 .method public isApplicationForceStopDisabled(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)Z
     .locals 8
 
@@ -277,4 +345,38 @@
     const/4 v2, 0x0
 
     return v2
+.end method
+
+.method public isPackageInAvrWhitelist(I)Z
+    .locals 5
+
+    const/4 v2, 0x0
+
+    :try_start_0
+    invoke-static {}, Landroid/sec/enterprise/EnterpriseDeviceManager$EDMProxyServiceHelper;->getService()Landroid/sec/enterprise/IEDMProxy;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_0
+
+    invoke-interface {v1, p1}, Landroid/sec/enterprise/IEDMProxy;->isPackageInAvrWhitelist(I)Z
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v2
+
+    :cond_0
+    :goto_0
+    return v2
+
+    :catch_0
+    move-exception v0
+
+    sget-object v3, Landroid/sec/enterprise/ApplicationPolicy;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v4, "PXY-isPackageInAvrWhitelist returning default value"
+
+    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
 .end method

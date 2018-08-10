@@ -15,7 +15,9 @@
 # static fields
 .field private static final CHROMIUM_WEBVIEW_DEFAULT_VMSIZE_BYTES:J = 0x6400000L
 
-.field private static final CHROMIUM_WEBVIEW_FACTORY:Ljava/lang/String; = "com.android.webview.chromium.WebViewChromiumFactoryProvider"
+.field private static final CHROMIUM_WEBVIEW_FACTORY:Ljava/lang/String; = "com.android.webview.chromium.WebViewChromiumFactoryProviderForO"
+
+.field private static final CHROMIUM_WEBVIEW_FACTORY_METHOD:Ljava/lang/String; = "create"
 
 .field private static final CHROMIUM_WEBVIEW_NATIVE_RELRO_32:Ljava/lang/String; = "/data/misc/shared_relro/libwebviewchromium32.relro"
 
@@ -239,6 +241,92 @@
     throw v0
     :try_end_1
     .catch Ljava/lang/Throwable; {:try_start_1 .. :try_end_1} :catch_0
+.end method
+
+.method private static fixupStubApplicationInfo(Landroid/content/pm/ApplicationInfo;Landroid/content/pm/PackageManager;)V
+    .locals 7
+
+    const/4 v2, 0x0
+
+    iget-object v4, p0, Landroid/content/pm/ApplicationInfo;->metaData:Landroid/os/Bundle;
+
+    if-eqz v4, :cond_0
+
+    iget-object v4, p0, Landroid/content/pm/ApplicationInfo;->metaData:Landroid/os/Bundle;
+
+    const-string/jumbo v5, "com.android.webview.WebViewDonorPackage"
+
+    invoke-virtual {v4, v5}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v2
+
+    :cond_0
+    if-eqz v2, :cond_1
+
+    const v4, 0x10202400
+
+    :try_start_0
+    invoke-virtual {p1, v2, v4}, Landroid/content/pm/PackageManager;->getPackageInfo(Ljava/lang/String;I)Landroid/content/pm/PackageInfo;
+    :try_end_0
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result-object v1
+
+    iget-object v0, v1, Landroid/content/pm/PackageInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
+
+    iget-object v4, v0, Landroid/content/pm/ApplicationInfo;->sourceDir:Ljava/lang/String;
+
+    iput-object v4, p0, Landroid/content/pm/ApplicationInfo;->sourceDir:Ljava/lang/String;
+
+    iget-object v4, v0, Landroid/content/pm/ApplicationInfo;->splitSourceDirs:[Ljava/lang/String;
+
+    iput-object v4, p0, Landroid/content/pm/ApplicationInfo;->splitSourceDirs:[Ljava/lang/String;
+
+    iget-object v4, v0, Landroid/content/pm/ApplicationInfo;->nativeLibraryDir:Ljava/lang/String;
+
+    iput-object v4, p0, Landroid/content/pm/ApplicationInfo;->nativeLibraryDir:Ljava/lang/String;
+
+    iget-object v4, v0, Landroid/content/pm/ApplicationInfo;->secondaryNativeLibraryDir:Ljava/lang/String;
+
+    iput-object v4, p0, Landroid/content/pm/ApplicationInfo;->secondaryNativeLibraryDir:Ljava/lang/String;
+
+    iget-object v4, v0, Landroid/content/pm/ApplicationInfo;->primaryCpuAbi:Ljava/lang/String;
+
+    iput-object v4, p0, Landroid/content/pm/ApplicationInfo;->primaryCpuAbi:Ljava/lang/String;
+
+    iget-object v4, v0, Landroid/content/pm/ApplicationInfo;->secondaryCpuAbi:Ljava/lang/String;
+
+    iput-object v4, p0, Landroid/content/pm/ApplicationInfo;->secondaryCpuAbi:Ljava/lang/String;
+
+    :cond_1
+    return-void
+
+    :catch_0
+    move-exception v3
+
+    new-instance v4, Landroid/webkit/WebViewFactory$MissingWebViewPackageException;
+
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v6, "Failed to find donor package: "
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-direct {v4, v5}, Landroid/webkit/WebViewFactory$MissingWebViewPackageException;-><init>(Ljava/lang/String;)V
+
+    throw v4
 .end method
 
 .method private static getLoadFromApkPath(Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
@@ -482,108 +570,148 @@
 .end method
 
 .method public static getLoadedPackageInfo()Landroid/content/pm/PackageInfo;
-    .locals 1
+    .locals 2
 
-    sget-object v0, Landroid/webkit/WebViewFactory;->sPackageInfo:Landroid/content/pm/PackageInfo;
+    sget-object v0, Landroid/webkit/WebViewFactory;->sProviderLock:Ljava/lang/Object;
 
-    return-object v0
-.end method
-
-.method static getProvider()Landroid/webkit/WebViewFactoryProvider;
-    .locals 9
-
-    sget-object v5, Landroid/webkit/WebViewFactory;->sProviderLock:Ljava/lang/Object;
-
-    monitor-enter v5
+    monitor-enter v0
 
     :try_start_0
-    sget-object v4, Landroid/webkit/WebViewFactory;->sProviderInstance:Landroid/webkit/WebViewFactoryProvider;
-
-    if-eqz v4, :cond_0
-
-    sget-object v4, Landroid/webkit/WebViewFactory;->sProviderInstance:Landroid/webkit/WebViewFactoryProvider;
+    sget-object v1, Landroid/webkit/WebViewFactory;->sPackageInfo:Landroid/content/pm/PackageInfo;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    monitor-exit v5
+    monitor-exit v0
 
-    return-object v4
+    return-object v1
+
+    :catchall_0
+    move-exception v1
+
+    monitor-exit v0
+
+    throw v1
+.end method
+
+.method static getProvider()Landroid/webkit/WebViewFactoryProvider;
+    .locals 10
+
+    sget-object v6, Landroid/webkit/WebViewFactory;->sProviderLock:Ljava/lang/Object;
+
+    monitor-enter v6
+
+    :try_start_0
+    sget-object v5, Landroid/webkit/WebViewFactory;->sProviderInstance:Landroid/webkit/WebViewFactoryProvider;
+
+    if-eqz v5, :cond_0
+
+    sget-object v5, Landroid/webkit/WebViewFactory;->sProviderInstance:Landroid/webkit/WebViewFactoryProvider;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit v6
+
+    return-object v5
 
     :cond_0
     :try_start_1
     invoke-static {}, Landroid/os/Process;->myUid()I
 
-    move-result v3
+    move-result v4
 
-    if-eqz v3, :cond_1
+    if-eqz v4, :cond_1
 
-    const/16 v4, 0x3e8
+    const/16 v5, 0x3e8
 
-    if-ne v3, v4, :cond_2
+    if-ne v4, v5, :cond_2
 
     :cond_1
-    new-instance v4, Ljava/lang/UnsupportedOperationException;
+    new-instance v5, Ljava/lang/UnsupportedOperationException;
 
-    const-string/jumbo v6, "For security reasons, WebView is not allowed in privileged processes"
+    const-string/jumbo v7, "For security reasons, WebView is not allowed in privileged processes"
 
-    invoke-direct {v4, v6}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v5, v7}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
 
-    throw v4
+    throw v5
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     :catchall_0
-    move-exception v4
+    move-exception v5
 
-    monitor-exit v5
+    monitor-exit v6
 
-    throw v4
+    throw v5
 
     :cond_2
+    const/16 v5, 0x3e9
+
+    if-eq v4, v5, :cond_1
+
+    const/16 v5, 0x403
+
+    if-eq v4, v5, :cond_1
+
+    const/16 v5, 0x3ea
+
+    if-eq v4, v5, :cond_1
+
     :try_start_2
     invoke-static {}, Landroid/os/StrictMode;->allowThreadDiskReads()Landroid/os/StrictMode$ThreadPolicy;
 
     move-result-object v1
 
-    const-string/jumbo v4, "WebViewFactory.getProvider()"
+    const-string/jumbo v5, "WebViewFactory.getProvider()"
 
-    const-wide/16 v6, 0x10
+    const-wide/16 v8, 0x10
 
-    invoke-static {v6, v7, v4}, Landroid/os/Trace;->traceBegin(JLjava/lang/String;)V
+    invoke-static {v8, v9, v5}, Landroid/os/Trace;->traceBegin(JLjava/lang/String;)V
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     :try_start_3
     invoke-static {}, Landroid/webkit/WebViewFactory;->getProviderClass()Ljava/lang/Class;
-
-    move-result-object v2
-
-    const-string/jumbo v4, "providerClass.newInstance()"
-
-    const-wide/16 v6, 0x10
-
-    invoke-static {v6, v7, v4}, Landroid/os/Trace;->traceBegin(JLjava/lang/String;)V
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_2
 
-    const/4 v4, 0x1
+    move-result-object v2
+
+    const/4 v3, 0x0
 
     :try_start_4
-    new-array v4, v4, [Ljava/lang/Class;
+    const-string/jumbo v5, "create"
 
-    const-class v6, Landroid/webkit/WebViewDelegate;
+    const/4 v7, 0x1
 
-    const/4 v7, 0x0
+    new-array v7, v7, [Ljava/lang/Class;
 
-    aput-object v6, v4, v7
+    const-class v8, Landroid/webkit/WebViewDelegate;
 
-    invoke-virtual {v2, v4}, Ljava/lang/Class;->getConstructor([Ljava/lang/Class;)Ljava/lang/reflect/Constructor;
+    const/4 v9, 0x0
 
-    move-result-object v4
+    aput-object v8, v7, v9
 
-    const/4 v6, 0x1
+    invoke-virtual {v2, v5, v7}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+    :try_end_4
+    .catch Ljava/lang/Exception; {:try_start_4 .. :try_end_4} :catch_1
+    .catchall {:try_start_4 .. :try_end_4} :catchall_2
 
-    new-array v6, v6, [Ljava/lang/Object;
+    move-result-object v3
+
+    :goto_0
+    :try_start_5
+    const-string/jumbo v5, "WebViewFactoryProvider invocation"
+
+    const-wide/16 v8, 0x10
+
+    invoke-static {v8, v9, v5}, Landroid/os/Trace;->traceBegin(JLjava/lang/String;)V
+    :try_end_5
+    .catchall {:try_start_5 .. :try_end_5} :catchall_2
+
+    const/4 v5, 0x1
+
+    :try_start_6
+    new-array v5, v5, [Ljava/lang/Object;
 
     new-instance v7, Landroid/webkit/WebViewDelegate;
 
@@ -591,84 +719,91 @@
 
     const/4 v8, 0x0
 
-    aput-object v7, v6, v8
+    aput-object v7, v5, v8
 
-    invoke-virtual {v4, v6}, Ljava/lang/reflect/Constructor;->newInstance([Ljava/lang/Object;)Ljava/lang/Object;
+    const/4 v7, 0x0
 
-    move-result-object v4
+    invoke-virtual {v3, v7, v5}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
-    check-cast v4, Landroid/webkit/WebViewFactoryProvider;
+    move-result-object v5
 
-    sput-object v4, Landroid/webkit/WebViewFactory;->sProviderInstance:Landroid/webkit/WebViewFactoryProvider;
+    check-cast v5, Landroid/webkit/WebViewFactoryProvider;
 
-    sget-object v4, Landroid/webkit/WebViewFactory;->sProviderInstance:Landroid/webkit/WebViewFactoryProvider;
-    :try_end_4
-    .catch Ljava/lang/Exception; {:try_start_4 .. :try_end_4} :catch_0
-    .catchall {:try_start_4 .. :try_end_4} :catchall_1
+    sput-object v5, Landroid/webkit/WebViewFactory;->sProviderInstance:Landroid/webkit/WebViewFactoryProvider;
 
-    const-wide/16 v6, 0x10
+    sget-object v5, Landroid/webkit/WebViewFactory;->sProviderInstance:Landroid/webkit/WebViewFactoryProvider;
+    :try_end_6
+    .catch Ljava/lang/Exception; {:try_start_6 .. :try_end_6} :catch_0
+    .catchall {:try_start_6 .. :try_end_6} :catchall_1
 
-    :try_start_5
-    invoke-static {v6, v7}, Landroid/os/Trace;->traceEnd(J)V
-    :try_end_5
-    .catchall {:try_start_5 .. :try_end_5} :catchall_2
+    const-wide/16 v8, 0x10
 
-    const-wide/16 v6, 0x10
+    :try_start_7
+    invoke-static {v8, v9}, Landroid/os/Trace;->traceEnd(J)V
+    :try_end_7
+    .catchall {:try_start_7 .. :try_end_7} :catchall_2
 
-    :try_start_6
-    invoke-static {v6, v7}, Landroid/os/Trace;->traceEnd(J)V
+    const-wide/16 v8, 0x10
+
+    :try_start_8
+    invoke-static {v8, v9}, Landroid/os/Trace;->traceEnd(J)V
 
     invoke-static {v1}, Landroid/os/StrictMode;->setThreadPolicy(Landroid/os/StrictMode$ThreadPolicy;)V
-    :try_end_6
-    .catchall {:try_start_6 .. :try_end_6} :catchall_0
+    :try_end_8
+    .catchall {:try_start_8 .. :try_end_8} :catchall_0
 
-    monitor-exit v5
+    monitor-exit v6
 
-    return-object v4
+    return-object v5
 
     :catch_0
     move-exception v0
 
-    :try_start_7
-    const-string/jumbo v4, "WebViewFactory"
+    :try_start_9
+    const-string/jumbo v5, "WebViewFactory"
 
-    const-string/jumbo v6, "error instantiating provider"
+    const-string/jumbo v7, "error instantiating provider"
 
-    invoke-static {v4, v6, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v5, v7, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    new-instance v4, Landroid/util/AndroidRuntimeException;
+    new-instance v5, Landroid/util/AndroidRuntimeException;
 
-    invoke-direct {v4, v0}, Landroid/util/AndroidRuntimeException;-><init>(Ljava/lang/Exception;)V
+    invoke-direct {v5, v0}, Landroid/util/AndroidRuntimeException;-><init>(Ljava/lang/Exception;)V
 
-    throw v4
-    :try_end_7
-    .catchall {:try_start_7 .. :try_end_7} :catchall_1
+    throw v5
+    :try_end_9
+    .catchall {:try_start_9 .. :try_end_9} :catchall_1
 
     :catchall_1
-    move-exception v4
+    move-exception v5
 
-    const-wide/16 v6, 0x10
+    const-wide/16 v8, 0x10
 
-    :try_start_8
-    invoke-static {v6, v7}, Landroid/os/Trace;->traceEnd(J)V
+    :try_start_a
+    invoke-static {v8, v9}, Landroid/os/Trace;->traceEnd(J)V
 
-    throw v4
-    :try_end_8
-    .catchall {:try_start_8 .. :try_end_8} :catchall_2
+    throw v5
+    :try_end_a
+    .catchall {:try_start_a .. :try_end_a} :catchall_2
 
     :catchall_2
-    move-exception v4
+    move-exception v5
 
-    const-wide/16 v6, 0x10
+    const-wide/16 v8, 0x10
 
-    :try_start_9
-    invoke-static {v6, v7}, Landroid/os/Trace;->traceEnd(J)V
+    :try_start_b
+    invoke-static {v8, v9}, Landroid/os/Trace;->traceEnd(J)V
 
     invoke-static {v1}, Landroid/os/StrictMode;->setThreadPolicy(Landroid/os/StrictMode$ThreadPolicy;)V
 
-    throw v4
-    :try_end_9
-    .catchall {:try_start_9 .. :try_end_9} :catchall_0
+    throw v5
+    :try_end_b
+    .catchall {:try_start_b .. :try_end_b} :catchall_0
+
+    :catch_1
+    move-exception v0
+
+    goto :goto_0
 .end method
 
 .method private static getProviderClass()Ljava/lang/Class;
@@ -801,7 +936,9 @@
 
     invoke-static {v8, v9, v6}, Landroid/os/Trace;->traceBegin(JLjava/lang/String;)V
 
-    invoke-static {v0}, Landroid/webkit/WebViewFactory;->loadNativeLibrary(Ljava/lang/ClassLoader;)I
+    sget-object v6, Landroid/webkit/WebViewFactory;->sPackageInfo:Landroid/content/pm/PackageInfo;
+
+    invoke-static {v0, v6}, Landroid/webkit/WebViewFactory;->loadNativeLibrary(Ljava/lang/ClassLoader;Landroid/content/pm/PackageInfo;)I
 
     const-wide/16 v6, 0x10
 
@@ -817,11 +954,7 @@
     .catchall {:try_start_3 .. :try_end_3} :catchall_2
 
     :try_start_4
-    const-string/jumbo v6, "com.android.webview.chromium.WebViewChromiumFactoryProvider"
-
-    const/4 v7, 0x1
-
-    invoke-static {v6, v7, v0}, Ljava/lang/Class;->forName(Ljava/lang/String;ZLjava/lang/ClassLoader;)Ljava/lang/Class;
+    invoke-static {v0}, Landroid/webkit/WebViewFactory;->getWebViewProviderClass(Ljava/lang/ClassLoader;)Ljava/lang/Class;
     :try_end_4
     .catchall {:try_start_4 .. :try_end_4} :catchall_1
 
@@ -943,22 +1076,22 @@
 .end method
 
 .method private static getWebViewContextAndSetProvider()Landroid/content/Context;
-    .locals 9
+    .locals 11
 
-    const/4 v8, 0x3
+    const/4 v10, 0x3
 
     invoke-static {}, Landroid/app/AppGlobals;->getInitialApplication()Landroid/app/Application;
 
-    move-result-object v1
+    move-result-object v2
 
-    const/4 v3, 0x0
+    const/4 v5, 0x0
 
     :try_start_0
-    const-string/jumbo v5, "WebViewUpdateService.waitForAndGetProvider()"
+    const-string/jumbo v7, "WebViewUpdateService.waitForAndGetProvider()"
 
-    const-wide/16 v6, 0x10
+    const-wide/16 v8, 0x10
 
-    invoke-static {v6, v7, v5}, Landroid/os/Trace;->traceBegin(JLjava/lang/String;)V
+    invoke-static {v8, v9, v7}, Landroid/os/Trace;->traceBegin(JLjava/lang/String;)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
@@ -966,217 +1099,219 @@
     :try_start_1
     invoke-static {}, Landroid/webkit/WebViewFactory;->getUpdateService()Landroid/webkit/IWebViewUpdateService;
 
-    move-result-object v5
+    move-result-object v7
 
-    invoke-interface {v5}, Landroid/webkit/IWebViewUpdateService;->waitForAndGetProvider()Landroid/webkit/WebViewProviderResponse;
+    invoke-interface {v7}, Landroid/webkit/IWebViewUpdateService;->waitForAndGetProvider()Landroid/webkit/WebViewProviderResponse;
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    move-result-object v3
+    move-result-object v5
 
-    const-wide/16 v6, 0x10
+    const-wide/16 v8, 0x10
 
     :try_start_2
-    invoke-static {v6, v7}, Landroid/os/Trace;->traceEnd(J)V
+    invoke-static {v8, v9}, Landroid/os/Trace;->traceEnd(J)V
 
-    iget v5, v3, Landroid/webkit/WebViewProviderResponse;->status:I
+    iget v7, v5, Landroid/webkit/WebViewProviderResponse;->status:I
 
-    if-eqz v5, :cond_0
+    if-eqz v7, :cond_0
 
-    iget v5, v3, Landroid/webkit/WebViewProviderResponse;->status:I
+    iget v7, v5, Landroid/webkit/WebViewProviderResponse;->status:I
 
-    if-eq v5, v8, :cond_0
+    if-eq v7, v10, :cond_0
 
-    new-instance v5, Landroid/webkit/WebViewFactory$MissingWebViewPackageException;
+    new-instance v7, Landroid/webkit/WebViewFactory$MissingWebViewPackageException;
 
-    new-instance v6, Ljava/lang/StringBuilder;
+    new-instance v8, Ljava/lang/StringBuilder;
 
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v7, "Failed to load WebView provider: "
+    const-string/jumbo v9, "Failed to load WebView provider: "
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v8
 
-    iget v7, v3, Landroid/webkit/WebViewProviderResponse;->status:I
+    iget v9, v5, Landroid/webkit/WebViewProviderResponse;->status:I
 
-    invoke-static {v7}, Landroid/webkit/WebViewFactory;->getWebViewPreparationErrorReason(I)Ljava/lang/String;
+    invoke-static {v9}, Landroid/webkit/WebViewFactory;->getWebViewPreparationErrorReason(I)Ljava/lang/String;
 
-    move-result-object v7
+    move-result-object v9
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v8
 
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v8
 
-    invoke-direct {v5, v6}, Landroid/webkit/WebViewFactory$MissingWebViewPackageException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v7, v8}, Landroid/webkit/WebViewFactory$MissingWebViewPackageException;-><init>(Ljava/lang/String;)V
 
-    throw v5
+    throw v7
     :try_end_2
     .catch Landroid/os/RemoteException; {:try_start_2 .. :try_end_2} :catch_0
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_2 .. :try_end_2} :catch_0
 
     :catch_0
-    move-exception v0
+    move-exception v1
 
-    new-instance v5, Landroid/webkit/WebViewFactory$MissingWebViewPackageException;
+    new-instance v7, Landroid/webkit/WebViewFactory$MissingWebViewPackageException;
 
-    new-instance v6, Ljava/lang/StringBuilder;
+    new-instance v8, Ljava/lang/StringBuilder;
 
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v7, "Failed to load WebView provider: "
+    const-string/jumbo v9, "Failed to load WebView provider: "
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v8
 
-    invoke-virtual {v6, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v8, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v8
 
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v8
 
-    invoke-direct {v5, v6}, Landroid/webkit/WebViewFactory$MissingWebViewPackageException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v7, v8}, Landroid/webkit/WebViewFactory$MissingWebViewPackageException;-><init>(Ljava/lang/String;)V
 
-    throw v5
+    throw v7
 
     :catchall_0
-    move-exception v5
+    move-exception v7
 
-    const-wide/16 v6, 0x10
+    const-wide/16 v8, 0x10
 
     :try_start_3
-    invoke-static {v6, v7}, Landroid/os/Trace;->traceEnd(J)V
+    invoke-static {v8, v9}, Landroid/os/Trace;->traceEnd(J)V
 
-    throw v5
+    throw v7
 
     :cond_0
-    const-string/jumbo v5, "ActivityManager.addPackageDependency()"
+    const-string/jumbo v7, "ActivityManager.addPackageDependency()"
 
-    const-wide/16 v6, 0x10
+    const-wide/16 v8, 0x10
 
-    invoke-static {v6, v7, v5}, Landroid/os/Trace;->traceBegin(JLjava/lang/String;)V
+    invoke-static {v8, v9, v7}, Landroid/os/Trace;->traceBegin(JLjava/lang/String;)V
     :try_end_3
     .catch Landroid/os/RemoteException; {:try_start_3 .. :try_end_3} :catch_0
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_3 .. :try_end_3} :catch_0
 
     :try_start_4
-    invoke-static {}, Landroid/app/ActivityManagerNative;->getDefault()Landroid/app/IActivityManager;
+    invoke-static {}, Landroid/app/ActivityManager;->getService()Landroid/app/IActivityManager;
 
-    move-result-object v5
+    move-result-object v7
 
-    iget-object v6, v3, Landroid/webkit/WebViewProviderResponse;->packageInfo:Landroid/content/pm/PackageInfo;
+    iget-object v8, v5, Landroid/webkit/WebViewProviderResponse;->packageInfo:Landroid/content/pm/PackageInfo;
 
-    iget-object v6, v6, Landroid/content/pm/PackageInfo;->packageName:Ljava/lang/String;
+    iget-object v8, v8, Landroid/content/pm/PackageInfo;->packageName:Ljava/lang/String;
 
-    invoke-interface {v5, v6}, Landroid/app/IActivityManager;->addPackageDependency(Ljava/lang/String;)V
+    invoke-interface {v7, v8}, Landroid/app/IActivityManager;->addPackageDependency(Ljava/lang/String;)V
     :try_end_4
     .catchall {:try_start_4 .. :try_end_4} :catchall_1
 
-    const-wide/16 v6, 0x10
+    const-wide/16 v8, 0x10
 
     :try_start_5
-    invoke-static {v6, v7}, Landroid/os/Trace;->traceEnd(J)V
+    invoke-static {v8, v9}, Landroid/os/Trace;->traceEnd(J)V
 
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
-    const-string/jumbo v5, "PackageManager.getPackageInfo()"
+    invoke-virtual {v2}, Landroid/app/Application;->getPackageManager()Landroid/content/pm/PackageManager;
 
-    const-wide/16 v6, 0x10
+    move-result-object v4
 
-    invoke-static {v6, v7, v5}, Landroid/os/Trace;->traceBegin(JLjava/lang/String;)V
+    const-string/jumbo v7, "PackageManager.getPackageInfo()"
+
+    const-wide/16 v8, 0x10
+
+    invoke-static {v8, v9, v7}, Landroid/os/Trace;->traceBegin(JLjava/lang/String;)V
     :try_end_5
     .catch Landroid/os/RemoteException; {:try_start_5 .. :try_end_5} :catch_0
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_5 .. :try_end_5} :catch_0
 
     :try_start_6
-    invoke-virtual {v1}, Landroid/app/Application;->getPackageManager()Landroid/content/pm/PackageManager;
+    iget-object v7, v5, Landroid/webkit/WebViewProviderResponse;->packageInfo:Landroid/content/pm/PackageInfo;
 
-    move-result-object v5
+    iget-object v7, v7, Landroid/content/pm/PackageInfo;->packageName:Ljava/lang/String;
 
-    iget-object v6, v3, Landroid/webkit/WebViewProviderResponse;->packageInfo:Landroid/content/pm/PackageInfo;
+    const v8, 0x100024c0
 
-    iget-object v6, v6, Landroid/content/pm/PackageInfo;->packageName:Ljava/lang/String;
-
-    const v7, 0x100024c0
-
-    invoke-virtual {v5, v6, v7}, Landroid/content/pm/PackageManager;->getPackageInfo(Ljava/lang/String;I)Landroid/content/pm/PackageInfo;
+    invoke-virtual {v4, v7, v8}, Landroid/content/pm/PackageManager;->getPackageInfo(Ljava/lang/String;I)Landroid/content/pm/PackageInfo;
     :try_end_6
     .catchall {:try_start_6 .. :try_end_6} :catchall_2
 
-    move-result-object v2
+    move-result-object v3
 
-    const-wide/16 v6, 0x10
+    const-wide/16 v8, 0x10
 
     :try_start_7
-    invoke-static {v6, v7}, Landroid/os/Trace;->traceEnd(J)V
+    invoke-static {v8, v9}, Landroid/os/Trace;->traceEnd(J)V
 
-    iget-object v5, v3, Landroid/webkit/WebViewProviderResponse;->packageInfo:Landroid/content/pm/PackageInfo;
+    iget-object v7, v5, Landroid/webkit/WebViewProviderResponse;->packageInfo:Landroid/content/pm/PackageInfo;
 
-    invoke-static {v5, v2}, Landroid/webkit/WebViewFactory;->verifyPackageInfo(Landroid/content/pm/PackageInfo;Landroid/content/pm/PackageInfo;)V
+    invoke-static {v7, v3}, Landroid/webkit/WebViewFactory;->verifyPackageInfo(Landroid/content/pm/PackageInfo;Landroid/content/pm/PackageInfo;)V
 
-    const-string/jumbo v5, "initialApplication.createApplicationContext"
+    iget-object v0, v3, Landroid/content/pm/PackageInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
 
-    const-wide/16 v6, 0x10
+    invoke-static {v0, v4}, Landroid/webkit/WebViewFactory;->fixupStubApplicationInfo(Landroid/content/pm/ApplicationInfo;Landroid/content/pm/PackageManager;)V
 
-    invoke-static {v6, v7, v5}, Landroid/os/Trace;->traceBegin(JLjava/lang/String;)V
+    const-string/jumbo v7, "initialApplication.createApplicationContext"
+
+    const-wide/16 v8, 0x10
+
+    invoke-static {v8, v9, v7}, Landroid/os/Trace;->traceBegin(JLjava/lang/String;)V
     :try_end_7
     .catch Landroid/os/RemoteException; {:try_start_7 .. :try_end_7} :catch_0
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_7 .. :try_end_7} :catch_0
 
+    const/4 v7, 0x3
+
     :try_start_8
-    iget-object v5, v2, Landroid/content/pm/PackageInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
+    invoke-virtual {v2, v0, v7}, Landroid/app/Application;->createApplicationContext(Landroid/content/pm/ApplicationInfo;I)Landroid/content/Context;
 
-    const/4 v6, 0x3
+    move-result-object v6
 
-    invoke-virtual {v1, v5, v6}, Landroid/app/Application;->createApplicationContext(Landroid/content/pm/ApplicationInfo;I)Landroid/content/Context;
-
-    move-result-object v4
-
-    sput-object v2, Landroid/webkit/WebViewFactory;->sPackageInfo:Landroid/content/pm/PackageInfo;
+    sput-object v3, Landroid/webkit/WebViewFactory;->sPackageInfo:Landroid/content/pm/PackageInfo;
     :try_end_8
     .catchall {:try_start_8 .. :try_end_8} :catchall_3
 
-    const-wide/16 v6, 0x10
+    const-wide/16 v8, 0x10
 
     :try_start_9
-    invoke-static {v6, v7}, Landroid/os/Trace;->traceEnd(J)V
+    invoke-static {v8, v9}, Landroid/os/Trace;->traceEnd(J)V
 
-    return-object v4
+    return-object v6
 
     :catchall_1
-    move-exception v5
+    move-exception v7
 
-    const-wide/16 v6, 0x10
+    const-wide/16 v8, 0x10
 
-    invoke-static {v6, v7}, Landroid/os/Trace;->traceEnd(J)V
+    invoke-static {v8, v9}, Landroid/os/Trace;->traceEnd(J)V
 
-    throw v5
+    throw v7
 
     :catchall_2
-    move-exception v5
+    move-exception v7
 
-    const-wide/16 v6, 0x10
+    const-wide/16 v8, 0x10
 
-    invoke-static {v6, v7}, Landroid/os/Trace;->traceEnd(J)V
+    invoke-static {v8, v9}, Landroid/os/Trace;->traceEnd(J)V
 
-    throw v5
+    throw v7
 
     :catchall_3
-    move-exception v5
+    move-exception v7
 
-    const-wide/16 v6, 0x10
+    const-wide/16 v8, 0x10
 
-    invoke-static {v6, v7}, Landroid/os/Trace;->traceEnd(J)V
+    invoke-static {v8, v9}, Landroid/os/Trace;->traceEnd(J)V
 
-    throw v5
+    throw v7
     :try_end_9
     .catch Landroid/os/RemoteException; {:try_start_9 .. :try_end_9} :catch_0
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_9 .. :try_end_9} :catch_0
@@ -1405,7 +1540,38 @@
     .end packed-switch
 .end method
 
-.method private static loadNativeLibrary(Ljava/lang/ClassLoader;)I
+.method public static getWebViewProviderClass(Ljava/lang/ClassLoader;)Ljava/lang/Class;
+    .locals 2
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/lang/ClassLoader;",
+            ")",
+            "Ljava/lang/Class",
+            "<",
+            "Landroid/webkit/WebViewFactoryProvider;",
+            ">;"
+        }
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/lang/ClassNotFoundException;
+        }
+    .end annotation
+
+    const-string/jumbo v0, "com.android.webview.chromium.WebViewChromiumFactoryProviderForO"
+
+    const/4 v1, 0x1
+
+    invoke-static {v0, v1, p0}, Ljava/lang/Class;->forName(Ljava/lang/String;ZLjava/lang/ClassLoader;)Ljava/lang/Class;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method private static loadNativeLibrary(Ljava/lang/ClassLoader;Landroid/content/pm/PackageInfo;)I
     .locals 6
 
     const/4 v3, 0x0
@@ -1425,9 +1591,7 @@
     return v2
 
     :cond_0
-    sget-object v2, Landroid/webkit/WebViewFactory;->sPackageInfo:Landroid/content/pm/PackageInfo;
-
-    invoke-static {v2}, Landroid/webkit/WebViewFactory;->getWebViewNativeLibraryPaths(Landroid/content/pm/PackageInfo;)[Ljava/lang/String;
+    invoke-static {p1}, Landroid/webkit/WebViewFactory;->getWebViewNativeLibraryPaths(Landroid/content/pm/PackageInfo;)[Ljava/lang/String;
 
     move-result-object v0
 
@@ -1533,9 +1697,7 @@
 
     move-result-object v3
 
-    sput-object v3, Landroid/webkit/WebViewFactory;->sPackageInfo:Landroid/content/pm/PackageInfo;
-
-    invoke-static {p1}, Landroid/webkit/WebViewFactory;->loadNativeLibrary(Ljava/lang/ClassLoader;)I
+    invoke-static {p1, v3}, Landroid/webkit/WebViewFactory;->loadNativeLibrary(Ljava/lang/ClassLoader;Landroid/content/pm/PackageInfo;)I
 
     move-result v2
 
@@ -1586,11 +1748,31 @@
 .end method
 
 .method public static onWebViewProviderChanged(Landroid/content/pm/PackageInfo;)I
-    .locals 21
+    .locals 23
 
     const/4 v5, 0x0
 
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Landroid/content/pm/PackageInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
+
+    iget-object v8, v14, Landroid/content/pm/ApplicationInfo;->sourceDir:Ljava/lang/String;
+
     :try_start_0
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Landroid/content/pm/PackageInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
+
+    invoke-static {}, Landroid/app/AppGlobals;->getInitialApplication()Landroid/app/Application;
+
+    move-result-object v15
+
+    invoke-virtual {v15}, Landroid/app/Application;->getPackageManager()Landroid/content/pm/PackageManager;
+
+    move-result-object v15
+
+    invoke-static {v14, v15}, Landroid/webkit/WebViewFactory;->fixupStubApplicationInfo(Landroid/content/pm/ApplicationInfo;Landroid/content/pm/PackageManager;)V
+
     invoke-static/range {p0 .. p0}, Landroid/webkit/WebViewFactory;->getWebViewNativeLibraryPaths(Landroid/content/pm/PackageInfo;)[Ljava/lang/String;
 
     move-result-object v5
@@ -1599,49 +1781,49 @@
 
     const-wide/16 v6, 0x0
 
-    const/4 v13, 0x0
+    const/4 v14, 0x0
 
     array-length v0, v5
 
-    move/from16 v17, v0
+    move/from16 v18, v0
 
-    move/from16 v16, v13
+    move/from16 v17, v14
 
     :goto_0
-    move/from16 v0, v16
+    move/from16 v0, v17
 
-    move/from16 v1, v17
+    move/from16 v1, v18
 
     if-ge v0, v1, :cond_b
 
-    aget-object v8, v5, v16
+    aget-object v9, v5, v17
 
-    if-eqz v8, :cond_0
+    if-eqz v9, :cond_0
 
-    invoke-static {v8}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    invoke-static {v9}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    move-result v13
+    move-result v14
 
-    if-eqz v13, :cond_1
+    if-eqz v14, :cond_1
 
     :cond_0
     :goto_1
-    add-int/lit8 v13, v16, 0x1
+    add-int/lit8 v14, v17, 0x1
 
-    move/from16 v16, v13
+    move/from16 v17, v14
 
     goto :goto_0
 
     :cond_1
     new-instance v4, Ljava/io/File;
 
-    invoke-direct {v4, v8}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+    invoke-direct {v4, v9}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {v4}, Ljava/io/File;->exists()Z
 
-    move-result v13
+    move-result v14
 
-    if-eqz v13, :cond_2
+    if-eqz v14, :cond_2
 
     invoke-virtual {v4}, Ljava/io/File;->length()J
 
@@ -1654,50 +1836,50 @@
     goto :goto_1
 
     :cond_2
-    const-string/jumbo v13, "!/"
+    const-string/jumbo v14, "!/"
 
-    invoke-virtual {v8, v13}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+    invoke-virtual {v9, v14}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
 
-    move-result v13
+    move-result v14
 
-    if-eqz v13, :cond_4
+    if-eqz v14, :cond_4
 
-    const-string/jumbo v13, "!/"
+    const-string/jumbo v14, "!/"
 
-    invoke-static {v8, v13}, Landroid/text/TextUtils;->split(Ljava/lang/String;Ljava/lang/String;)[Ljava/lang/String;
+    invoke-static {v9, v14}, Landroid/text/TextUtils;->split(Ljava/lang/String;Ljava/lang/String;)[Ljava/lang/String;
 
-    move-result-object v9
+    move-result-object v10
 
-    array-length v13, v9
+    array-length v14, v10
     :try_end_0
     .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_1
 
-    const/4 v14, 0x2
+    const/4 v15, 0x2
 
-    if-ne v13, v14, :cond_4
+    if-ne v14, v15, :cond_4
+
+    const/4 v15, 0x0
+
+    const/4 v12, 0x0
+
+    :try_start_1
+    new-instance v13, Ljava/util/zip/ZipFile;
 
     const/4 v14, 0x0
 
-    const/4 v11, 0x0
+    aget-object v14, v10, v14
 
-    :try_start_1
-    new-instance v12, Ljava/util/zip/ZipFile;
-
-    const/4 v13, 0x0
-
-    aget-object v13, v9, v13
-
-    invoke-direct {v12, v13}, Ljava/util/zip/ZipFile;-><init>(Ljava/lang/String;)V
+    invoke-direct {v13, v14}, Ljava/util/zip/ZipFile;-><init>(Ljava/lang/String;)V
     :try_end_1
     .catch Ljava/lang/Throwable; {:try_start_1 .. :try_end_1} :catch_4
     .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
-    const/4 v13, 0x1
+    const/4 v14, 0x1
 
     :try_start_2
-    aget-object v13, v9, v13
+    aget-object v14, v10, v14
 
-    invoke-virtual {v12, v13}, Ljava/util/zip/ZipFile;->getEntry(Ljava/lang/String;)Ljava/util/zip/ZipEntry;
+    invoke-virtual {v13, v14}, Ljava/util/zip/ZipFile;->getEntry(Ljava/lang/String;)Ljava/util/zip/ZipEntry;
 
     move-result-object v3
 
@@ -1705,15 +1887,15 @@
 
     invoke-virtual {v3}, Ljava/util/zip/ZipEntry;->getMethod()I
 
-    move-result v13
+    move-result v14
 
-    if-nez v13, :cond_6
+    if-nez v14, :cond_6
 
     invoke-virtual {v3}, Ljava/util/zip/ZipEntry;->getSize()J
 
-    move-result-wide v18
+    move-result-wide v20
 
-    move-wide/from16 v0, v18
+    move-wide/from16 v0, v20
 
     invoke-static {v6, v7, v0, v1}, Ljava/lang/Math;->max(JJ)J
     :try_end_2
@@ -1722,20 +1904,20 @@
 
     move-result-wide v6
 
-    if-eqz v12, :cond_3
+    if-eqz v13, :cond_3
 
     :try_start_3
-    invoke-virtual {v12}, Ljava/util/zip/ZipFile;->close()V
+    invoke-virtual {v13}, Ljava/util/zip/ZipFile;->close()V
     :try_end_3
     .catch Ljava/lang/Throwable; {:try_start_3 .. :try_end_3} :catch_2
     .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_0
 
     :cond_3
     :goto_2
-    if-eqz v14, :cond_0
+    if-eqz v15, :cond_0
 
     :try_start_4
-    throw v14
+    throw v15
     :try_end_4
     .catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_0
     .catch Ljava/lang/Throwable; {:try_start_4 .. :try_end_4} :catch_1
@@ -1743,148 +1925,152 @@
     :catch_0
     move-exception v2
 
-    move-object v11, v12
+    move-object v12, v13
 
     :goto_3
     :try_start_5
-    const-string/jumbo v13, "WebViewFactory"
+    const-string/jumbo v14, "WebViewFactory"
 
-    new-instance v14, Ljava/lang/StringBuilder;
+    new-instance v15, Ljava/lang/StringBuilder;
 
-    invoke-direct {v14}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v15}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v15, "error reading APK file "
+    const-string/jumbo v16, "error reading APK file "
 
-    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v14
+    move-result-object v15
 
-    const/4 v15, 0x0
+    const/16 v16, 0x0
 
-    aget-object v15, v9, v15
+    aget-object v16, v10, v16
 
-    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v14
+    move-result-object v15
 
-    const-string/jumbo v15, ", "
+    const-string/jumbo v16, ", "
 
-    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v14
+    move-result-object v15
 
-    invoke-virtual {v14}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v15}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v14
+    move-result-object v15
 
-    invoke-static {v13, v14, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v14, v15, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     :cond_4
-    const-string/jumbo v13, "WebViewFactory"
+    const-string/jumbo v14, "WebViewFactory"
 
-    new-instance v14, Ljava/lang/StringBuilder;
+    new-instance v15, Ljava/lang/StringBuilder;
 
-    invoke-direct {v14}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v15}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v15, "error sizing load for "
+    const-string/jumbo v16, "error sizing load for "
 
-    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v14
+    move-result-object v15
 
-    invoke-virtual {v14, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v15, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v14
+    move-result-object v15
 
-    invoke-virtual {v14}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v15}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v14
+    move-result-object v15
 
-    invoke-static {v13, v14}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v14, v15}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_5
     .catch Ljava/lang/Throwable; {:try_start_5 .. :try_end_5} :catch_1
 
     goto/16 :goto_1
 
     :catch_1
-    move-exception v10
+    move-exception v11
 
-    const-string/jumbo v13, "WebViewFactory"
+    const-string/jumbo v14, "WebViewFactory"
 
-    const-string/jumbo v14, "error preparing webview native library"
+    const-string/jumbo v15, "error preparing webview native library"
 
-    invoke-static {v13, v14, v10}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v14, v15, v11}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     :cond_5
     :goto_4
+    move-object/from16 v0, p0
+
+    invoke-static {v0, v8}, Landroid/webkit/WebViewZygote;->onWebViewProviderChanged(Landroid/content/pm/PackageInfo;Ljava/lang/String;)V
+
     invoke-static {v5}, Landroid/webkit/WebViewFactory;->prepareWebViewInSystemServer([Ljava/lang/String;)I
 
-    move-result v13
+    move-result v14
 
-    return v13
+    return v14
 
     :catch_2
-    move-exception v14
+    move-exception v15
 
     goto :goto_2
 
     :cond_6
-    if-eqz v12, :cond_7
+    if-eqz v13, :cond_7
 
     :try_start_6
-    invoke-virtual {v12}, Ljava/util/zip/ZipFile;->close()V
+    invoke-virtual {v13}, Ljava/util/zip/ZipFile;->close()V
     :try_end_6
     .catch Ljava/lang/Throwable; {:try_start_6 .. :try_end_6} :catch_3
     .catch Ljava/io/IOException; {:try_start_6 .. :try_end_6} :catch_0
 
     :cond_7
     :goto_5
-    if-eqz v14, :cond_4
+    if-eqz v15, :cond_4
 
     :try_start_7
-    throw v14
+    throw v15
     :try_end_7
     .catch Ljava/io/IOException; {:try_start_7 .. :try_end_7} :catch_0
     .catch Ljava/lang/Throwable; {:try_start_7 .. :try_end_7} :catch_1
 
     :catch_3
-    move-exception v14
+    move-exception v15
 
     goto :goto_5
 
     :catch_4
-    move-exception v13
+    move-exception v14
 
     :goto_6
     :try_start_8
-    throw v13
+    throw v14
     :try_end_8
     .catchall {:try_start_8 .. :try_end_8} :catchall_0
 
     :catchall_0
-    move-exception v14
+    move-exception v15
 
-    move-object/from16 v20, v14
+    move-object/from16 v22, v15
 
-    move-object v14, v13
+    move-object v15, v14
 
-    move-object/from16 v13, v20
+    move-object/from16 v14, v22
 
     :goto_7
-    if-eqz v11, :cond_8
+    if-eqz v12, :cond_8
 
     :try_start_9
-    invoke-virtual {v11}, Ljava/util/zip/ZipFile;->close()V
+    invoke-virtual {v12}, Ljava/util/zip/ZipFile;->close()V
     :try_end_9
     .catch Ljava/lang/Throwable; {:try_start_9 .. :try_end_9} :catch_6
     .catch Ljava/io/IOException; {:try_start_9 .. :try_end_9} :catch_5
 
     :cond_8
     :goto_8
-    if-eqz v14, :cond_a
+    if-eqz v15, :cond_a
 
     :try_start_a
-    throw v14
+    throw v15
 
     :catch_5
     move-exception v2
@@ -1892,23 +2078,25 @@
     goto :goto_3
 
     :catch_6
-    move-exception v15
+    move-exception v16
 
-    if-nez v14, :cond_9
+    if-nez v15, :cond_9
 
-    move-object v14, v15
+    move-object/from16 v15, v16
 
     goto :goto_8
 
     :cond_9
-    if-eq v14, v15, :cond_8
+    move-object/from16 v0, v16
 
-    invoke-virtual {v14, v15}, Ljava/lang/Throwable;->addSuppressed(Ljava/lang/Throwable;)V
+    if-eq v15, v0, :cond_8
+
+    invoke-virtual/range {v15 .. v16}, Ljava/lang/Throwable;->addSuppressed(Ljava/lang/Throwable;)V
 
     goto :goto_8
 
     :cond_a
-    throw v13
+    throw v14
     :try_end_a
     .catch Ljava/io/IOException; {:try_start_a .. :try_end_a} :catch_5
     .catch Ljava/lang/Throwable; {:try_start_a .. :try_end_a} :catch_1
@@ -1925,56 +2113,56 @@
 
     move-result-wide v6
 
-    const-string/jumbo v13, "WebViewFactory"
+    const-string/jumbo v14, "WebViewFactory"
 
-    new-instance v14, Ljava/lang/StringBuilder;
+    new-instance v15, Ljava/lang/StringBuilder;
 
-    invoke-direct {v14}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v15}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v15, "Setting new address space to "
+    const-string/jumbo v16, "Setting new address space to "
 
-    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v14
+    move-result-object v15
 
-    invoke-virtual {v14, v6, v7}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+    invoke-virtual {v15, v6, v7}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
-    move-result-object v14
+    move-result-object v15
 
-    invoke-virtual {v14}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v15}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v14
+    move-result-object v15
 
-    invoke-static {v13, v14}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v14, v15}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const-string/jumbo v13, "persist.sys.webview.vmsize"
+    const-string/jumbo v14, "persist.sys.webview.vmsize"
 
     invoke-static {v6, v7}, Ljava/lang/Long;->toString(J)Ljava/lang/String;
 
-    move-result-object v14
+    move-result-object v15
 
-    invoke-static {v13, v14}, Landroid/os/SystemProperties;->set(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v14, v15}, Landroid/os/SystemProperties;->set(Ljava/lang/String;Ljava/lang/String;)V
     :try_end_b
     .catch Ljava/lang/Throwable; {:try_start_b .. :try_end_b} :catch_1
 
     goto :goto_4
 
     :catchall_1
-    move-exception v13
+    move-exception v14
 
     goto :goto_7
 
     :catchall_2
-    move-exception v13
+    move-exception v14
 
-    move-object v11, v12
+    move-object v12, v13
 
     goto :goto_7
 
     :catch_7
-    move-exception v13
+    move-exception v14
 
-    move-object v11, v12
+    move-object v12, v13
 
     goto :goto_6
 .end method

@@ -48,6 +48,9 @@
     return-void
 .end method
 
+.method public abstract minimizeSoftInput(I)V
+.end method
+
 .method public revokeSession(Landroid/view/inputmethod/InputMethodSession;)V
     .locals 0
 
@@ -66,4 +69,13 @@
     invoke-virtual {p1, p2}, Landroid/inputmethodservice/AbstractInputMethodService$AbstractInputMethodSessionImpl;->setEnabled(Z)V
 
     return-void
+.end method
+
+.method public abstract unMinimizeSoftInput()V
+.end method
+
+.method public abstract updateFloatingState(I)V
+.end method
+
+.method public abstract updateWacomState(I)V
 .end method

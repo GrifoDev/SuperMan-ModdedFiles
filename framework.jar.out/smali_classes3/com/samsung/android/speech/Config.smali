@@ -34,6 +34,8 @@
 
 .field public static final DEFAULT_PATH:Ljava/lang/String; = "/system/voicebargeindata"
 
+.field public static final DEFAULT_PDT_PATH:Ljava/lang/String; = "/system/voicebargeindata/samsung/"
+
 .field public static final DEFAULT_SAMSUNG_PATH:Ljava/lang/String; = "/system/voicebargeindata/sasr/"
 
 .field public static final DEFAULT_SENSORY_PATH:Ljava/lang/String; = "/system/voicebargeindata/sensory/"
@@ -70,6 +72,12 @@
 
 .field private static final MODELS_SAMSUNG:[Ljava/lang/String;
 
+.field public static final PDT_MAIN_SUFFIX:Ljava/lang/String; = "_v01.raw"
+
+.field public static final PDT_SO_FILE_PATH:Ljava/lang/String; = "/system/lib/libBargeInEngine.so"
+
+.field public static final PDT_SO_FILE_PATH_64:Ljava/lang/String; = "/system/lib64/libBargeInEngine.so"
+
 .field public static final SAMSUNG_SO_FILE_PATH:Ljava/lang/String; = "/system/lib/libsasr-jni.so"
 
 .field public static final SENSORY_MAIN_SUFFIX:Ljava/lang/String; = "_v2.raw"
@@ -86,7 +94,7 @@
 
 .field private static final STRING_SENSORY:[Ljava/lang/String;
 
-.field public static final VERSION:Ljava/lang/String; = "15.11.9"
+.field public static final VERSION:Ljava/lang/String; = "16.11.30"
 
 
 # direct methods
@@ -432,6 +440,142 @@
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
+.end method
+
+.method public static GetPDTAM(II)Ljava/lang/String;
+    .locals 4
+
+    const/16 v2, 0xf
+
+    if-lt p0, v2, :cond_0
+
+    const/4 p0, 0x1
+
+    :cond_0
+    const/16 v2, 0xb
+
+    if-ge p1, v2, :cond_1
+
+    sget-object v2, Lcom/samsung/android/speech/Config;->STRING_SENSORY:[Ljava/lang/String;
+
+    aget-object v1, v2, p0
+
+    sget-object v2, Lcom/samsung/android/speech/Config;->STRING_DOMAIN:[Ljava/lang/String;
+
+    aget-object v0, v2, p1
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "/system/voicebargeindata/samsung/"
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string/jumbo v3, "/samsung_bargein_am_"
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string/jumbo v3, "_"
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    return-object v2
+
+    :cond_1
+    const/4 v2, 0x0
+
+    return-object v2
+.end method
+
+.method public static GetPDTGRAMMAR(II)Ljava/lang/String;
+    .locals 4
+
+    const/16 v2, 0xf
+
+    if-lt p0, v2, :cond_0
+
+    const/4 p0, 0x1
+
+    :cond_0
+    const/16 v2, 0xb
+
+    if-ge p1, v2, :cond_1
+
+    sget-object v2, Lcom/samsung/android/speech/Config;->STRING_SENSORY:[Ljava/lang/String;
+
+    aget-object v1, v2, p0
+
+    sget-object v2, Lcom/samsung/android/speech/Config;->STRING_DOMAIN:[Ljava/lang/String;
+
+    aget-object v0, v2, p1
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "/system/voicebargeindata/samsung/"
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string/jumbo v3, "/samsung_bargein_grammar_"
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string/jumbo v3, "_"
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    return-object v2
+
+    :cond_1
+    const/4 v2, 0x0
+
+    return-object v2
 .end method
 
 .method public static GetSamsungModels(I)Ljava/lang/String;

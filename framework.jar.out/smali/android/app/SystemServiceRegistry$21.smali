@@ -17,7 +17,7 @@
     value = {
         "Landroid/app/SystemServiceRegistry$CachedServiceFetcher",
         "<",
-        "Landroid/hardware/display/DisplayManager;",
+        "Landroid/os/DropBoxManager;",
         ">;"
     }
 .end annotation
@@ -34,24 +34,40 @@
 
 
 # virtual methods
-.method public createService(Landroid/app/ContextImpl;)Landroid/hardware/display/DisplayManager;
-    .locals 2
+.method public createService(Landroid/app/ContextImpl;)Landroid/os/DropBoxManager;
+    .locals 3
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/ServiceManager$ServiceNotFoundException;
+        }
+    .end annotation
 
-    new-instance v0, Landroid/hardware/display/DisplayManager;
+    const-string/jumbo v2, "dropbox"
 
-    invoke-virtual {p1}, Landroid/app/ContextImpl;->getOuterContext()Landroid/content/Context;
+    invoke-static {v2}, Landroid/os/ServiceManager;->getServiceOrThrow(Ljava/lang/String;)Landroid/os/IBinder;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lcom/android/internal/os/IDropBoxManagerService$Stub;->asInterface(Landroid/os/IBinder;)Lcom/android/internal/os/IDropBoxManagerService;
 
     move-result-object v1
 
-    invoke-direct {v0, v1}, Landroid/hardware/display/DisplayManager;-><init>(Landroid/content/Context;)V
+    new-instance v2, Landroid/os/DropBoxManager;
 
-    return-object v0
+    invoke-direct {v2, p1, v1}, Landroid/os/DropBoxManager;-><init>(Landroid/content/Context;Lcom/android/internal/os/IDropBoxManagerService;)V
+
+    return-object v2
 .end method
 
 .method public bridge synthetic createService(Landroid/app/ContextImpl;)Ljava/lang/Object;
     .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/ServiceManager$ServiceNotFoundException;
+        }
+    .end annotation
 
-    invoke-virtual {p0, p1}, Landroid/app/SystemServiceRegistry$21;->createService(Landroid/app/ContextImpl;)Landroid/hardware/display/DisplayManager;
+    invoke-virtual {p0, p1}, Landroid/app/SystemServiceRegistry$21;->createService(Landroid/app/ContextImpl;)Landroid/os/DropBoxManager;
 
     move-result-object v0
 

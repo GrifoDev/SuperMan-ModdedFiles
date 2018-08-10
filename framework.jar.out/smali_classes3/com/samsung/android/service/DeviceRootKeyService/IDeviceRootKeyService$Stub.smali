@@ -28,9 +28,15 @@
 
 .field static final TRANSACTION_createServiceKeySession:I = 0x3
 
+.field static final TRANSACTION_doSelfTestProvServiceBlob:I = 0x7
+
+.field static final TRANSACTION_getDeviceRootKeyCertificate:I = 0x6
+
 .field static final TRANSACTION_getDeviceRootKeyUID:I = 0x2
 
 .field static final TRANSACTION_isExistDeviceRootKey:I = 0x1
+
+.field static final TRANSACTION_isServiceReady:I = 0x8
 
 .field static final TRANSACTION_releaseServiceKeySession:I = 0x4
 
@@ -45,7 +51,7 @@
 
     const-string/jumbo v0, "com.samsung.android.service.DeviceRootKeyService.IDeviceRootKeyService"
 
-    invoke-virtual {p0, p0, v0}, Landroid/os/Binder;->attachInterface(Landroid/os/IInterface;Ljava/lang/String;)V
+    invoke-virtual {p0, p0, v0}, Lcom/samsung/android/service/DeviceRootKeyService/IDeviceRootKeyService$Stub;->attachInterface(Landroid/os/IInterface;Ljava/lang/String;)V
 
     return-void
 .end method
@@ -252,7 +258,98 @@
 
     return v9
 
-    nop
+    :sswitch_6
+    const-string/jumbo v9, "com.samsung.android.service.DeviceRootKeyService.IDeviceRootKeyService"
+
+    invoke-virtual {p2, v9}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v0
+
+    invoke-virtual {p0, v0}, Lcom/samsung/android/service/DeviceRootKeyService/IDeviceRootKeyService$Stub;->getDeviceRootKeyCertificate(I)[B
+
+    move-result-object v8
+
+    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+
+    invoke-virtual {p3, v8}, Landroid/os/Parcel;->writeByteArray([B)V
+
+    const/4 v9, 0x1
+
+    return v9
+
+    :sswitch_7
+    const-string/jumbo v9, "com.samsung.android.service.DeviceRootKeyService.IDeviceRootKeyService"
+
+    invoke-virtual {p2, v9}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v3
+
+    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v9
+
+    if-eqz v9, :cond_2
+
+    sget-object v9, Lcom/samsung/android/service/DeviceRootKeyService/Tlv;->CREATOR:Landroid/os/Parcelable$Creator;
+
+    invoke-interface {v9, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+
+    move-result-object v4
+
+    check-cast v4, Lcom/samsung/android/service/DeviceRootKeyService/Tlv;
+
+    :goto_2
+    invoke-virtual {p0, v1, v3, v4}, Lcom/samsung/android/service/DeviceRootKeyService/IDeviceRootKeyService$Stub;->doSelfTestProvServiceBlob(Ljava/lang/String;ILcom/samsung/android/service/DeviceRootKeyService/Tlv;)[B
+
+    move-result-object v8
+
+    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+
+    invoke-virtual {p3, v8}, Landroid/os/Parcel;->writeByteArray([B)V
+
+    const/4 v9, 0x1
+
+    return v9
+
+    :cond_2
+    const/4 v4, 0x0
+
+    goto :goto_2
+
+    :sswitch_8
+    const-string/jumbo v9, "com.samsung.android.service.DeviceRootKeyService.IDeviceRootKeyService"
+
+    invoke-virtual {p2, v9}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual {p0}, Lcom/samsung/android/service/DeviceRootKeyService/IDeviceRootKeyService$Stub;->isServiceReady()Z
+
+    move-result v7
+
+    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+
+    if-eqz v7, :cond_3
+
+    const/4 v9, 0x1
+
+    :goto_3
+    invoke-virtual {p3, v9}, Landroid/os/Parcel;->writeInt(I)V
+
+    const/4 v9, 0x1
+
+    return v9
+
+    :cond_3
+    const/4 v9, 0x0
+
+    goto :goto_3
 
     :sswitch_data_0
     .sparse-switch
@@ -261,6 +358,9 @@
         0x3 -> :sswitch_3
         0x4 -> :sswitch_4
         0x5 -> :sswitch_5
+        0x6 -> :sswitch_6
+        0x7 -> :sswitch_7
+        0x8 -> :sswitch_8
         0x5f4e5446 -> :sswitch_0
     .end sparse-switch
 .end method

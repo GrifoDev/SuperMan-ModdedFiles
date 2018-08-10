@@ -569,7 +569,7 @@
     :catch_0
     move-exception v0
 
-    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/InterruptedException;->printStackTrace()V
 
     return v8
 
@@ -779,7 +779,7 @@
     invoke-virtual {v2}, Landroid/graphics/Bitmap;->recycle()V
 
     :cond_1
-    invoke-virtual {v7}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v7}, Ljava/lang/Exception;->printStackTrace()V
 
     goto :goto_0
 .end method
@@ -849,7 +849,7 @@
     :catch_0
     move-exception v2
 
-    invoke-virtual {v2}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v2}, Ljava/lang/RuntimeException;->printStackTrace()V
 
     goto :goto_0
 .end method
@@ -925,7 +925,7 @@
 
     int-to-long v8, v8
 
-    invoke-virtual {v7, v8, v9}, Ljava/text/NumberFormat;->format(J)Ljava/lang/String;
+    invoke-virtual {v7, v8, v9}, Ljava/text/DecimalFormat;->format(J)Ljava/lang/String;
 
     move-result-object v6
 
@@ -945,7 +945,7 @@
 
     int-to-long v8, v8
 
-    invoke-virtual {v7, v8, v9}, Ljava/text/NumberFormat;->format(J)Ljava/lang/String;
+    invoke-virtual {v7, v8, v9}, Ljava/text/DecimalFormat;->format(J)Ljava/lang/String;
 
     move-result-object v4
 
@@ -963,7 +963,7 @@
 
     int-to-long v8, v8
 
-    invoke-virtual {v7, v8, v9}, Ljava/text/NumberFormat;->format(J)Ljava/lang/String;
+    invoke-virtual {v7, v8, v9}, Ljava/text/DecimalFormat;->format(J)Ljava/lang/String;
 
     move-result-object v1
 
@@ -981,7 +981,7 @@
 
     int-to-long v8, v8
 
-    invoke-virtual {v7, v8, v9}, Ljava/text/NumberFormat;->format(J)Ljava/lang/String;
+    invoke-virtual {v7, v8, v9}, Ljava/text/DecimalFormat;->format(J)Ljava/lang/String;
 
     move-result-object v2
 
@@ -999,7 +999,7 @@
 
     int-to-long v8, v8
 
-    invoke-virtual {v7, v8, v9}, Ljava/text/NumberFormat;->format(J)Ljava/lang/String;
+    invoke-virtual {v7, v8, v9}, Ljava/text/DecimalFormat;->format(J)Ljava/lang/String;
 
     move-result-object v3
 
@@ -1123,7 +1123,7 @@
     :catch_0
     move-exception v6
 
-    invoke-virtual {v6}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v6}, Ljava/lang/RuntimeException;->printStackTrace()V
 
     invoke-virtual {v7}, Landroid/media/MediaMetadataRetriever;->release()V
 
@@ -1311,7 +1311,7 @@
 
     move-result-object v7
 
-    invoke-virtual {p1, v7}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v7}, Landroid/graphics/Bitmap;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
@@ -1330,7 +1330,7 @@
     :catch_0
     move-exception v8
 
-    invoke-virtual {v8}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v8}, Ljava/lang/OutOfMemoryError;->printStackTrace()V
 
     goto :goto_0
 .end method
@@ -1439,7 +1439,7 @@
 
     move-object/from16 v0, p2
 
-    invoke-virtual {v9, v0}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v9, v0}, Landroid/graphics/Bitmap;->equals(Ljava/lang/Object;)Z
 
     move-result v2
 
@@ -3192,7 +3192,7 @@
 
     move-result-object v4
 
-    invoke-virtual/range {v21 .. v21}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
+    invoke-virtual/range {v21 .. v21}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
 
     move-result-object v6
 
@@ -4586,7 +4586,7 @@
 
     const-string/jumbo v2, "MTPJNIInterface"
 
-    invoke-virtual/range {v41 .. v41}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
+    invoke-virtual/range {v41 .. v41}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
 
     move-result-object v3
 
@@ -5060,7 +5060,7 @@
     :catch_0
     move-exception v0
 
-    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
 
     const-string/jumbo v3, "MTPJNIInterface"
 
@@ -5343,7 +5343,7 @@
 
     const-string/jumbo v2, "MTPJNIInterface"
 
-    invoke-virtual {v12}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
+    invoke-virtual {v12}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
 
     move-result-object v4
 
@@ -5477,7 +5477,7 @@
 
     const-string/jumbo v2, "MTPJNIInterface"
 
-    invoke-virtual {v12}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
+    invoke-virtual {v12}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
 
     move-result-object v4
 
@@ -5665,7 +5665,7 @@
 
     const-string/jumbo v0, "MTPJNIInterface"
 
-    invoke-virtual {v10}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
+    invoke-virtual {v10}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
 
     move-result-object v2
 
@@ -6030,7 +6030,7 @@
     :catch_1
     move-exception v12
 
-    invoke-virtual {v12}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v12}, Ljava/lang/Exception;->printStackTrace()V
 
     const/4 v2, 0x0
 
@@ -7484,304 +7484,160 @@
 .end method
 
 .method public sendkiesmessage(IILjava/lang/String;)I
-    .locals 14
+    .locals 7
 
-    const-string/jumbo v11, "MTPJNIInterface"
+    const-string/jumbo v4, "MTPJNIInterface"
 
-    new-instance v12, Ljava/lang/StringBuilder;
+    new-instance v5, Ljava/lang/StringBuilder;
 
-    invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v13, "sendkiesmessage: MsgId=>"
+    const-string/jumbo v6, "sendkiesmessage: MsgId=>"
 
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v12
+    move-result-object v5
 
-    invoke-virtual {v12, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v12
+    move-result-object v5
 
-    const-string/jumbo v13, "MsgVal=>"
+    const-string/jumbo v6, "MsgVal=>"
 
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v12
+    move-result-object v5
 
-    move/from16 v0, p2
+    invoke-virtual {v5, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v12, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-result-object v5
 
-    move-result-object v12
+    const-string/jumbo v6, " MsgStr=>"
 
-    const-string/jumbo v13, " MsgStr=>"
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v5
 
-    move-result-object v12
+    invoke-virtual {v5, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-object/from16 v0, p3
+    move-result-object v5
 
-    invoke-virtual {v12, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v12
+    move-result-object v5
 
-    invoke-virtual {v12}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v12
-
-    invoke-static {v11, v12}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     packed-switch p1, :pswitch_data_0
 
-    :pswitch_0
-    new-instance v7, Landroid/content/Intent;
+    new-instance v0, Landroid/content/Intent;
 
-    const-string/jumbo v11, "com.intent.action.KIES_MTP_MESSAGE"
+    const-string/jumbo v4, "com.intent.action.KIES_MTP_MESSAGE"
 
-    invoke-direct {v7, v11}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v4}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    const-string/jumbo v11, "MsgId"
+    const/high16 v4, 0x1000000
 
-    invoke-virtual {v7, v11, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
+    invoke-virtual {v0, v4}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
-    const-string/jumbo v11, "MsgVal"
+    const-string/jumbo v4, "MsgId"
 
-    move/from16 v0, p2
+    invoke-virtual {v0, v4, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
-    invoke-virtual {v7, v11, v0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
+    const-string/jumbo v4, "MsgVal"
 
-    const-string/jumbo v11, "MsgStr"
+    invoke-virtual {v0, v4, p2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
-    move-object/from16 v0, p3
+    const-string/jumbo v4, "MsgStr"
 
-    invoke-virtual {v7, v11, v0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+    invoke-virtual {v0, v4, p3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    sget-object v11, Landroid/mtp/MTPJNIInterface;->mcontext:Landroid/content/Context;
+    sget-object v4, Landroid/mtp/MTPJNIInterface;->mcontext:Landroid/content/Context;
 
-    invoke-virtual {v11, v7}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
+    invoke-virtual {v4, v0}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
 
-    :cond_0
     :goto_0
-    const/4 v11, 0x1
+    const/4 v4, 0x1
 
-    return v11
+    return v4
 
-    :pswitch_1
-    const-string/jumbo v9, "/storage/emulated/0/DeviceLogFile"
+    :pswitch_0
+    const-string/jumbo v2, "/storage/emulated/0/DeviceLogFile"
 
-    move/from16 v8, p2
+    move v1, p2
 
-    new-instance v10, Ljava/lang/Thread;
+    new-instance v3, Ljava/lang/Thread;
 
-    new-instance v11, Landroid/mtp/MTPJNIInterface$3;
+    new-instance v4, Landroid/mtp/MTPJNIInterface$3;
 
-    move/from16 v0, p2
+    invoke-direct {v4, p0, p2}, Landroid/mtp/MTPJNIInterface$3;-><init>(Landroid/mtp/MTPJNIInterface;I)V
 
-    invoke-direct {v11, p0, v0}, Landroid/mtp/MTPJNIInterface$3;-><init>(Landroid/mtp/MTPJNIInterface;I)V
+    invoke-direct {v3, v4}, Ljava/lang/Thread;-><init>(Ljava/lang/Runnable;)V
 
-    invoke-direct {v10, v11}, Ljava/lang/Thread;-><init>(Ljava/lang/Runnable;)V
-
-    invoke-virtual {v10}, Ljava/lang/Thread;->start()V
+    invoke-virtual {v3}, Ljava/lang/Thread;->start()V
 
     goto :goto_0
-
-    :pswitch_2
-    const-string/jumbo v11, "MTPJNIInterface"
-
-    const-string/jumbo v12, "send Broadcast MTP_MSGID_SIDESYNC_START"
-
-    invoke-static {v11, v12}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    sget-object v11, Landroid/mtp/MTPJNIInterface;->mcontext:Landroid/content/Context;
-
-    invoke-virtual {v11}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v11
-
-    const-string/jumbo v12, "user_setup_complete"
-
-    const/4 v13, 0x1
-
-    invoke-static {v11, v12, v13}, Landroid/provider/Settings$Secure;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
-
-    move-result v11
-
-    if-nez v11, :cond_1
-
-    const-string/jumbo v11, "MTPJNIInterface"
-
-    const-string/jumbo v12, "setup wizard is not finished, so return."
-
-    invoke-static {v11, v12}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    const/4 v11, 0x0
-
-    return v11
-
-    :cond_1
-    const-string/jumbo v1, "http://apps.samsung.com/appquery/appDetail.as?appId="
-
-    const-string/jumbo v2, "samsungapps://ProductDetail/"
-
-    const-string/jumbo v3, "com.sec.android.sidesync30"
-
-    const-string/jumbo v4, "http://apps.samsung.com/appquery/appDetail.as?appId=com.sec.android.sidesync30"
-
-    if-nez p2, :cond_2
-
-    const-string/jumbo v11, "MTPJNIInterface"
-
-    const-string/jumbo v12, "Not Installed sidesync30, so start App Store."
-
-    invoke-static {v11, v12}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    new-instance v5, Landroid/content/Intent;
-
-    invoke-direct {v5}, Landroid/content/Intent;-><init>()V
-
-    const/high16 v11, 0x10800000
-
-    invoke-virtual {v5, v11}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
-
-    const-string/jumbo v11, "android.intent.action.VIEW"
-
-    invoke-virtual {v5, v11}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
-
-    invoke-static {v4}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
-
-    move-result-object v11
-
-    invoke-virtual {v5, v11}, Landroid/content/Intent;->setData(Landroid/net/Uri;)Landroid/content/Intent;
-
-    sget-object v11, Landroid/mtp/MTPJNIInterface;->mcontext:Landroid/content/Context;
-
-    invoke-virtual {v11}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
-
-    move-result-object v11
-
-    invoke-virtual {v5, v11}, Landroid/content/Intent;->resolveActivity(Landroid/content/pm/PackageManager;)Landroid/content/ComponentName;
-
-    move-result-object v11
-
-    if-eqz v11, :cond_0
-
-    :try_start_0
-    sget-object v11, Landroid/mtp/MTPJNIInterface;->mcontext:Landroid/content/Context;
-
-    invoke-virtual {v11, v5}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
-    :try_end_0
-    .catch Landroid/content/ActivityNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
-
-    goto :goto_0
-
-    :catch_0
-    move-exception v6
-
-    const-string/jumbo v11, "MTPJNIInterface"
-
-    const-string/jumbo v12, "Activity not found!"
-
-    invoke-static {v11, v12}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto/16 :goto_0
-
-    :cond_2
-    const/4 v11, 0x1
-
-    move/from16 v0, p2
-
-    if-ne v0, v11, :cond_3
-
-    const-string/jumbo v11, "MTPJNIInterface"
-
-    const-string/jumbo v12, "Installed sidesync30, so start sidesync."
-
-    invoke-static {v11, v12}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    sget-object v11, Landroid/mtp/MTPJNIInterface;->mcontext:Landroid/content/Context;
-
-    new-instance v12, Landroid/content/Intent;
-
-    const-string/jumbo v13, "com.intent.action.MTP_SIDESYNC_START"
-
-    invoke-direct {v12, v13}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
-
-    invoke-virtual {v11, v12}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
-
-    goto/16 :goto_0
-
-    :cond_3
-    const-string/jumbo v11, "MTPJNIInterface"
-
-    const-string/jumbo v12, "Not supported sidesync30 device."
-
-    invoke-static {v11, v12}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto/16 :goto_0
 
     nop
 
     :pswitch_data_0
     .packed-switch 0x5
-        :pswitch_1
         :pswitch_0
-        :pswitch_2
     .end packed-switch
 .end method
 
 .method public sendssmmessage(II[B)[B
-    .locals 12
+    .locals 11
 
-    const-string/jumbo v7, "MTPJNIInterface"
+    const-string/jumbo v6, "MTPJNIInterface"
 
-    new-instance v8, Ljava/lang/StringBuilder;
+    new-instance v7, Ljava/lang/StringBuilder;
 
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v9, "sendssmmessage: commandId=>"
+    const-string/jumbo v8, "sendssmmessage: commandId=>"
 
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v8
+    move-result-object v7
 
-    invoke-virtual {v8, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v8
+    move-result-object v7
 
-    const-string/jumbo v9, "serviceID=>"
+    const-string/jumbo v8, "serviceID=>"
 
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v8
+    move-result-object v7
 
-    invoke-virtual {v8, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v8
+    move-result-object v7
 
-    const-string/jumbo v9, " sendData=>"
+    const-string/jumbo v8, " sendData=>"
 
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v8
+    move-result-object v7
 
-    new-instance v9, Ljava/lang/String;
+    new-instance v8, Ljava/lang/String;
 
-    invoke-direct {v9, p3}, Ljava/lang/String;-><init>([B)V
+    invoke-direct {v8, p3}, Ljava/lang/String;-><init>([B)V
 
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v8
+    move-result-object v7
 
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v8
+    move-result-object v7
 
-    invoke-static {v7, v8}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v6, v7}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-boolean v7, p0, Landroid/mtp/MTPJNIInterface;->isStratCommand:Z
+    iget-boolean v6, p0, Landroid/mtp/MTPJNIInterface;->isStratCommand:Z
 
-    if-eqz v7, :cond_0
+    if-eqz v6, :cond_0
 
     invoke-virtual {p0}, Landroid/mtp/MTPJNIInterface;->initializeSerivce()V
 
@@ -7789,107 +7645,107 @@
     packed-switch p1, :pswitch_data_0
 
     :goto_0
-    sget-object v7, Landroid/mtp/MTPJNIInterface;->resultResponse:[B
+    sget-object v6, Landroid/mtp/MTPJNIInterface;->resultResponse:[B
 
-    return-object v7
+    return-object v6
 
     :pswitch_0
-    const/4 v7, 0x4
+    const/4 v6, 0x4
 
-    new-array v7, v7, [B
+    new-array v6, v6, [B
 
-    sput-object v7, Landroid/mtp/MTPJNIInterface;->resultResponse:[B
+    sput-object v6, Landroid/mtp/MTPJNIInterface;->resultResponse:[B
 
-    iget-object v7, p0, Landroid/mtp/MTPJNIInterface;->mIsBound:[Z
+    iget-object v6, p0, Landroid/mtp/MTPJNIInterface;->mIsBound:[Z
 
-    aget-boolean v7, v7, p2
+    aget-boolean v6, v6, p2
 
-    if-eqz v7, :cond_1
+    if-eqz v6, :cond_1
 
-    const-string/jumbo v7, "MTPJNIInterface"
+    const-string/jumbo v6, "MTPJNIInterface"
 
-    const-string/jumbo v8, "Already bindservice."
+    const-string/jumbo v7, "Already bindservice."
 
-    invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const/4 v7, 0x2
+    const/4 v6, 0x2
 
-    invoke-static {v7}, Landroid/mtp/MTPJNIInterface;->intToByteArray(I)[B
+    invoke-static {v6}, Landroid/mtp/MTPJNIInterface;->intToByteArray(I)[B
 
-    move-result-object v7
+    move-result-object v6
 
-    sput-object v7, Landroid/mtp/MTPJNIInterface;->resultResponse:[B
+    sput-object v6, Landroid/mtp/MTPJNIInterface;->resultResponse:[B
 
     goto :goto_0
 
     :cond_1
     :try_start_0
-    new-instance v4, Landroid/content/Intent;
+    new-instance v3, Landroid/content/Intent;
 
-    invoke-direct {v4}, Landroid/content/Intent;-><init>()V
+    invoke-direct {v3}, Landroid/content/Intent;-><init>()V
 
-    iget-object v7, p0, Landroid/mtp/MTPJNIInterface;->serviceComponent:[Landroid/content/ComponentName;
+    iget-object v6, p0, Landroid/mtp/MTPJNIInterface;->serviceComponent:[Landroid/content/ComponentName;
+
+    aget-object v6, v6, p2
+
+    invoke-virtual {v3, v6}, Landroid/content/Intent;->setComponent(Landroid/content/ComponentName;)Landroid/content/Intent;
+
+    sget-object v6, Landroid/mtp/MTPJNIInterface;->mcontext:Landroid/content/Context;
+
+    iget-object v7, p0, Landroid/mtp/MTPJNIInterface;->conn:[Landroid/content/ServiceConnection;
 
     aget-object v7, v7, p2
 
-    invoke-virtual {v4, v7}, Landroid/content/Intent;->setComponent(Landroid/content/ComponentName;)Landroid/content/Intent;
+    const/4 v8, 0x1
 
-    sget-object v7, Landroid/mtp/MTPJNIInterface;->mcontext:Landroid/content/Context;
-
-    iget-object v8, p0, Landroid/mtp/MTPJNIInterface;->conn:[Landroid/content/ServiceConnection;
-
-    aget-object v8, v8, p2
-
-    const/4 v9, 0x1
-
-    invoke-virtual {v7, v4, v8, v9}, Landroid/content/Context;->bindService(Landroid/content/Intent;Landroid/content/ServiceConnection;I)Z
+    invoke-virtual {v6, v3, v7, v8}, Landroid/content/Context;->bindService(Landroid/content/Intent;Landroid/content/ServiceConnection;I)Z
 
     move-result v0
 
     if-eqz v0, :cond_2
 
-    iget-object v7, p0, Landroid/mtp/MTPJNIInterface;->mIsBound:[Z
-
-    const/4 v8, 0x1
-
-    aput-boolean v8, v7, p2
-
-    :cond_2
-    const-string/jumbo v7, "MTPJNIInterface"
-
-    new-instance v8, Ljava/lang/StringBuilder;
-
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v9, "bind result: "
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget-object v7, p0, Landroid/mtp/MTPJNIInterface;->mIsBound:[Z
-
-    aget-boolean v7, v7, p2
-
-    if-eqz v7, :cond_3
+    iget-object v6, p0, Landroid/mtp/MTPJNIInterface;->mIsBound:[Z
 
     const/4 v7, 0x1
 
-    invoke-static {v7}, Landroid/mtp/MTPJNIInterface;->intToByteArray(I)[B
+    aput-boolean v7, v6, p2
+
+    :cond_2
+    const-string/jumbo v6, "MTPJNIInterface"
+
+    new-instance v7, Ljava/lang/StringBuilder;
+
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v8, "bind result: "
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v7
 
-    sput-object v7, Landroid/mtp/MTPJNIInterface;->resultResponse:[B
+    invoke-virtual {v7, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v6, p0, Landroid/mtp/MTPJNIInterface;->mIsBound:[Z
+
+    aget-boolean v6, v6, p2
+
+    if-eqz v6, :cond_3
+
+    const/4 v6, 0x1
+
+    invoke-static {v6}, Landroid/mtp/MTPJNIInterface;->intToByteArray(I)[B
+
+    move-result-object v6
+
+    sput-object v6, Landroid/mtp/MTPJNIInterface;->resultResponse:[B
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -7898,109 +7754,115 @@
     :catch_0
     move-exception v2
 
-    invoke-virtual {v2}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v2}, Ljava/lang/Exception;->printStackTrace()V
 
-    const-string/jumbo v7, "MTPJNIInterface"
+    const-string/jumbo v6, "MTPJNIInterface"
 
-    const-string/jumbo v8, "bind exception"
+    const-string/jumbo v7, "bind exception"
 
-    invoke-static {v7, v8}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v6, v7}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    const/4 v7, 0x2
+    const/4 v6, 0x2
 
-    invoke-static {v7}, Landroid/mtp/MTPJNIInterface;->intToByteArray(I)[B
+    invoke-static {v6}, Landroid/mtp/MTPJNIInterface;->intToByteArray(I)[B
 
-    move-result-object v7
+    move-result-object v6
 
-    sput-object v7, Landroid/mtp/MTPJNIInterface;->resultResponse:[B
+    sput-object v6, Landroid/mtp/MTPJNIInterface;->resultResponse:[B
 
     goto :goto_0
 
     :cond_3
-    const/4 v7, 0x2
+    const/4 v6, 0x2
 
     :try_start_1
-    invoke-static {v7}, Landroid/mtp/MTPJNIInterface;->intToByteArray(I)[B
+    invoke-static {v6}, Landroid/mtp/MTPJNIInterface;->intToByteArray(I)[B
 
-    move-result-object v7
+    move-result-object v6
 
-    sput-object v7, Landroid/mtp/MTPJNIInterface;->resultResponse:[B
+    sput-object v6, Landroid/mtp/MTPJNIInterface;->resultResponse:[B
     :try_end_1
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
 
     goto/16 :goto_0
 
     :pswitch_1
-    const/4 v7, 0x4
+    const/4 v6, 0x4
 
-    new-array v7, v7, [B
+    new-array v6, v6, [B
 
-    sput-object v7, Landroid/mtp/MTPJNIInterface;->resultResponse:[B
+    sput-object v6, Landroid/mtp/MTPJNIInterface;->resultResponse:[B
 
-    iget-object v7, p0, Landroid/mtp/MTPJNIInterface;->mService:[Landroid/os/Messenger;
+    iget-object v6, p0, Landroid/mtp/MTPJNIInterface;->mService:[Landroid/os/Messenger;
 
-    aget-object v7, v7, p2
+    aget-object v6, v6, p2
 
-    if-nez v7, :cond_4
+    if-nez v6, :cond_4
 
-    const/4 v7, 0x3
+    const/4 v6, 0x3
 
-    invoke-static {v7}, Landroid/mtp/MTPJNIInterface;->intToByteArray(I)[B
+    invoke-static {v6}, Landroid/mtp/MTPJNIInterface;->intToByteArray(I)[B
 
-    move-result-object v7
+    move-result-object v6
 
-    sput-object v7, Landroid/mtp/MTPJNIInterface;->resultResponse:[B
+    sput-object v6, Landroid/mtp/MTPJNIInterface;->resultResponse:[B
 
     goto/16 :goto_0
 
     :cond_4
-    const/4 v7, 0x0
+    const/4 v6, 0x0
 
-    const/4 v8, 0x2
+    const/4 v7, 0x2
 
     :try_start_2
-    invoke-static {v7, v8}, Landroid/os/Message;->obtain(Landroid/os/Handler;I)Landroid/os/Message;
+    invoke-static {v6, v7}, Landroid/os/Message;->obtain(Landroid/os/Handler;I)Landroid/os/Message;
 
-    move-result-object v5
+    move-result-object v4
 
-    iget-object v7, p0, Landroid/mtp/MTPJNIInterface;->mMessenger:Landroid/os/Messenger;
+    iget-object v6, p0, Landroid/mtp/MTPJNIInterface;->mMessenger:Landroid/os/Messenger;
 
-    iput-object v7, v5, Landroid/os/Message;->replyTo:Landroid/os/Messenger;
+    iput-object v6, v4, Landroid/os/Message;->replyTo:Landroid/os/Messenger;
 
-    iget-object v7, p0, Landroid/mtp/MTPJNIInterface;->mService:[Landroid/os/Messenger;
+    iget-object v6, p0, Landroid/mtp/MTPJNIInterface;->mService:[Landroid/os/Messenger;
+
+    aget-object v6, v6, p2
+
+    invoke-virtual {v6, v4}, Landroid/os/Messenger;->send(Landroid/os/Message;)V
+
+    iget-object v6, p0, Landroid/mtp/MTPJNIInterface;->mIsBound:[Z
+
+    aget-boolean v6, v6, p2
+
+    if-eqz v6, :cond_5
+
+    sget-object v6, Landroid/mtp/MTPJNIInterface;->mcontext:Landroid/content/Context;
+
+    iget-object v7, p0, Landroid/mtp/MTPJNIInterface;->conn:[Landroid/content/ServiceConnection;
 
     aget-object v7, v7, p2
 
-    invoke-virtual {v7, v5}, Landroid/os/Messenger;->send(Landroid/os/Message;)V
-
-    iget-object v7, p0, Landroid/mtp/MTPJNIInterface;->mIsBound:[Z
-
-    aget-boolean v7, v7, p2
-
-    if-eqz v7, :cond_5
-
-    sget-object v7, Landroid/mtp/MTPJNIInterface;->mcontext:Landroid/content/Context;
-
-    iget-object v8, p0, Landroid/mtp/MTPJNIInterface;->conn:[Landroid/content/ServiceConnection;
-
-    aget-object v8, v8, p2
-
-    invoke-virtual {v7, v8}, Landroid/content/Context;->unbindService(Landroid/content/ServiceConnection;)V
+    invoke-virtual {v6, v7}, Landroid/content/Context;->unbindService(Landroid/content/ServiceConnection;)V
 
     :cond_5
-    iget-object v7, p0, Landroid/mtp/MTPJNIInterface;->mIsBound:[Z
+    iget-object v6, p0, Landroid/mtp/MTPJNIInterface;->mIsBound:[Z
 
-    const/4 v8, 0x0
+    const/4 v7, 0x0
 
-    aput-boolean v8, v7, p2
+    aput-boolean v7, v6, p2
 
-    const/4 v7, 0x1
+    const/4 v6, 0x1
 
-    invoke-static {v7}, Landroid/mtp/MTPJNIInterface;->intToByteArray(I)[B
+    invoke-static {v6}, Landroid/mtp/MTPJNIInterface;->intToByteArray(I)[B
 
-    move-result-object v7
+    move-result-object v6
 
-    sput-object v7, Landroid/mtp/MTPJNIInterface;->resultResponse:[B
+    sput-object v6, Landroid/mtp/MTPJNIInterface;->resultResponse:[B
+
+    iget-object v6, p0, Landroid/mtp/MTPJNIInterface;->mService:[Landroid/os/Messenger;
+
+    const/4 v7, 0x0
+
+    aput-object v7, v6, p2
     :try_end_2
     .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_1
 
@@ -8009,88 +7871,88 @@
     :catch_1
     move-exception v2
 
-    invoke-virtual {v2}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v2}, Ljava/lang/Exception;->printStackTrace()V
 
-    const-string/jumbo v7, "MTPJNIInterface"
+    const-string/jumbo v6, "MTPJNIInterface"
 
-    const-string/jumbo v8, "byebye exception"
+    const-string/jumbo v7, "byebye exception"
 
-    invoke-static {v7, v8}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v6, v7}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    const/4 v7, 0x2
+    const/4 v6, 0x2
 
-    invoke-static {v7}, Landroid/mtp/MTPJNIInterface;->intToByteArray(I)[B
+    invoke-static {v6}, Landroid/mtp/MTPJNIInterface;->intToByteArray(I)[B
 
-    move-result-object v7
+    move-result-object v6
 
-    sput-object v7, Landroid/mtp/MTPJNIInterface;->resultResponse:[B
+    sput-object v6, Landroid/mtp/MTPJNIInterface;->resultResponse:[B
 
     goto/16 :goto_0
 
     :pswitch_2
-    const/4 v7, 0x4
+    const/4 v6, 0x4
 
-    new-array v7, v7, [B
+    new-array v6, v6, [B
 
-    sput-object v7, Landroid/mtp/MTPJNIInterface;->resultResponse:[B
+    sput-object v6, Landroid/mtp/MTPJNIInterface;->resultResponse:[B
 
-    iget-object v7, p0, Landroid/mtp/MTPJNIInterface;->mService:[Landroid/os/Messenger;
+    iget-object v6, p0, Landroid/mtp/MTPJNIInterface;->mService:[Landroid/os/Messenger;
 
-    aget-object v7, v7, p2
+    aget-object v6, v6, p2
 
-    if-nez v7, :cond_6
+    if-nez v6, :cond_6
 
-    const/4 v7, 0x3
+    const/4 v6, 0x3
 
-    invoke-static {v7}, Landroid/mtp/MTPJNIInterface;->intToByteArray(I)[B
+    invoke-static {v6}, Landroid/mtp/MTPJNIInterface;->intToByteArray(I)[B
 
-    move-result-object v7
+    move-result-object v6
 
-    sput-object v7, Landroid/mtp/MTPJNIInterface;->resultResponse:[B
+    sput-object v6, Landroid/mtp/MTPJNIInterface;->resultResponse:[B
 
     goto/16 :goto_0
 
     :cond_6
-    const/4 v7, 0x0
+    const/4 v6, 0x0
 
-    const/4 v8, 0x3
+    const/4 v7, 0x3
 
     :try_start_3
-    invoke-static {v7, v8}, Landroid/os/Message;->obtain(Landroid/os/Handler;I)Landroid/os/Message;
+    invoke-static {v6, v7}, Landroid/os/Message;->obtain(Landroid/os/Handler;I)Landroid/os/Message;
 
-    move-result-object v5
+    move-result-object v4
 
-    iget-object v7, p0, Landroid/mtp/MTPJNIInterface;->mMessenger:Landroid/os/Messenger;
+    iget-object v6, p0, Landroid/mtp/MTPJNIInterface;->mMessenger:Landroid/os/Messenger;
 
-    iput-object v7, v5, Landroid/os/Message;->replyTo:Landroid/os/Messenger;
+    iput-object v6, v4, Landroid/os/Message;->replyTo:Landroid/os/Messenger;
 
     new-instance v1, Landroid/os/Bundle;
 
     invoke-direct {v1}, Landroid/os/Bundle;-><init>()V
 
-    const-string/jumbo v7, "json"
+    const-string/jumbo v6, "json"
 
-    new-instance v8, Ljava/lang/String;
+    new-instance v7, Ljava/lang/String;
 
-    invoke-direct {v8, p3}, Ljava/lang/String;-><init>([B)V
+    invoke-direct {v7, p3}, Ljava/lang/String;-><init>([B)V
 
-    invoke-virtual {v1, v7, v8}, Landroid/os/BaseBundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v1, v6, v7}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    iput-object v1, v5, Landroid/os/Message;->obj:Ljava/lang/Object;
+    iput-object v1, v4, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    iget-object v7, p0, Landroid/mtp/MTPJNIInterface;->mService:[Landroid/os/Messenger;
+    iget-object v6, p0, Landroid/mtp/MTPJNIInterface;->mService:[Landroid/os/Messenger;
 
-    aget-object v7, v7, p2
+    aget-object v6, v6, p2
 
-    invoke-virtual {v7, v5}, Landroid/os/Messenger;->send(Landroid/os/Message;)V
+    invoke-virtual {v6, v4}, Landroid/os/Messenger;->send(Landroid/os/Message;)V
 
-    const/4 v7, 0x1
+    const/4 v6, 0x1
 
-    invoke-static {v7}, Landroid/mtp/MTPJNIInterface;->intToByteArray(I)[B
+    invoke-static {v6}, Landroid/mtp/MTPJNIInterface;->intToByteArray(I)[B
 
-    move-result-object v7
+    move-result-object v6
 
-    sput-object v7, Landroid/mtp/MTPJNIInterface;->resultResponse:[B
+    sput-object v6, Landroid/mtp/MTPJNIInterface;->resultResponse:[B
     :try_end_3
     .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_2
 
@@ -8099,175 +7961,131 @@
     :catch_2
     move-exception v2
 
-    invoke-virtual {v2}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v2}, Ljava/lang/Exception;->printStackTrace()V
 
-    const-string/jumbo v7, "MTPJNIInterface"
+    const-string/jumbo v6, "MTPJNIInterface"
 
-    const-string/jumbo v8, "send command exception"
+    const-string/jumbo v7, "send command exception"
 
-    invoke-static {v7, v8}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v6, v7}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    const/4 v7, 0x2
+    const/4 v6, 0x2
 
-    invoke-static {v7}, Landroid/mtp/MTPJNIInterface;->intToByteArray(I)[B
+    invoke-static {v6}, Landroid/mtp/MTPJNIInterface;->intToByteArray(I)[B
 
-    move-result-object v7
+    move-result-object v6
 
-    sput-object v7, Landroid/mtp/MTPJNIInterface;->resultResponse:[B
+    sput-object v6, Landroid/mtp/MTPJNIInterface;->resultResponse:[B
 
     goto/16 :goto_0
 
     :pswitch_3
-    iget-object v7, p0, Landroid/mtp/MTPJNIInterface;->mService:[Landroid/os/Messenger;
+    iget-object v6, p0, Landroid/mtp/MTPJNIInterface;->mService:[Landroid/os/Messenger;
 
-    aget-object v7, v7, p2
+    aget-object v6, v6, p2
 
-    if-nez v7, :cond_7
+    if-nez v6, :cond_7
 
-    const/4 v7, 0x4
+    const/4 v6, 0x4
 
-    new-array v7, v7, [B
+    new-array v6, v6, [B
 
-    sput-object v7, Landroid/mtp/MTPJNIInterface;->resultResponse:[B
+    sput-object v6, Landroid/mtp/MTPJNIInterface;->resultResponse:[B
 
-    const/4 v7, 0x2
+    const/4 v6, 0x2
 
-    invoke-static {v7}, Landroid/mtp/MTPJNIInterface;->intToByteArray(I)[B
+    invoke-static {v6}, Landroid/mtp/MTPJNIInterface;->intToByteArray(I)[B
 
-    move-result-object v7
+    move-result-object v6
 
-    sput-object v7, Landroid/mtp/MTPJNIInterface;->resultResponse:[B
+    sput-object v6, Landroid/mtp/MTPJNIInterface;->resultResponse:[B
 
     goto/16 :goto_0
 
     :cond_7
-    sget-object v7, Landroid/mtp/MTPJNIInterface;->jsonData:Ljava/lang/String;
+    sget-object v6, Landroid/mtp/MTPJNIInterface;->jsonData:Ljava/lang/String;
 
-    if-nez v7, :cond_8
+    if-nez v6, :cond_8
 
-    const/4 v7, 0x4
+    const/4 v6, 0x4
 
-    new-array v7, v7, [B
+    new-array v6, v6, [B
 
-    sput-object v7, Landroid/mtp/MTPJNIInterface;->resultResponse:[B
+    sput-object v6, Landroid/mtp/MTPJNIInterface;->resultResponse:[B
 
-    const/4 v7, 0x3
+    const/4 v6, 0x3
 
-    invoke-static {v7}, Landroid/mtp/MTPJNIInterface;->intToByteArray(I)[B
+    invoke-static {v6}, Landroid/mtp/MTPJNIInterface;->intToByteArray(I)[B
 
-    move-result-object v7
+    move-result-object v6
 
-    sput-object v7, Landroid/mtp/MTPJNIInterface;->resultResponse:[B
+    sput-object v6, Landroid/mtp/MTPJNIInterface;->resultResponse:[B
 
     goto/16 :goto_0
 
     :cond_8
     :try_start_4
-    sget-object v7, Landroid/mtp/MTPJNIInterface;->jsonData:Ljava/lang/String;
+    sget-object v6, Landroid/mtp/MTPJNIInterface;->jsonData:Ljava/lang/String;
 
-    const-string/jumbo v8, "UTF-8"
+    const-string/jumbo v7, "UTF-8"
 
-    invoke-virtual {v7, v8}, Ljava/lang/String;->getBytes(Ljava/lang/String;)[B
+    invoke-virtual {v6, v7}, Ljava/lang/String;->getBytes(Ljava/lang/String;)[B
+
+    move-result-object v5
+
+    array-length v6, v5
+
+    add-int/lit8 v6, v6, 0x8
+
+    new-array v6, v6, [B
+
+    sput-object v6, Landroid/mtp/MTPJNIInterface;->resultResponse:[B
+
+    const/4 v6, 0x1
+
+    invoke-static {v6}, Landroid/mtp/MTPJNIInterface;->intToByteArray(I)[B
 
     move-result-object v6
 
-    array-length v7, v6
+    sget-object v7, Landroid/mtp/MTPJNIInterface;->resultResponse:[B
 
-    add-int/lit8 v7, v7, 0x8
-
-    new-array v7, v7, [B
-
-    sput-object v7, Landroid/mtp/MTPJNIInterface;->resultResponse:[B
-
-    const/4 v7, 0x1
-
-    invoke-static {v7}, Landroid/mtp/MTPJNIInterface;->intToByteArray(I)[B
-
-    move-result-object v7
-
-    sget-object v8, Landroid/mtp/MTPJNIInterface;->resultResponse:[B
-
-    const/4 v9, 0x0
-
-    const/4 v10, 0x0
-
-    const/4 v11, 0x4
-
-    invoke-static {v7, v9, v8, v10, v11}, Ljava/lang/System;->arraycopy([BI[BII)V
-
-    array-length v7, v6
-
-    invoke-static {v7}, Landroid/mtp/MTPJNIInterface;->intToByteArray(I)[B
-
-    move-result-object v7
-
-    sget-object v8, Landroid/mtp/MTPJNIInterface;->resultResponse:[B
+    const/4 v8, 0x0
 
     const/4 v9, 0x0
 
     const/4 v10, 0x4
 
-    const/4 v11, 0x4
+    invoke-static {v6, v8, v7, v9, v10}, Ljava/lang/System;->arraycopy([BI[BII)V
 
-    invoke-static {v7, v9, v8, v10, v11}, Ljava/lang/System;->arraycopy([BI[BII)V
+    array-length v6, v5
+
+    invoke-static {v6}, Landroid/mtp/MTPJNIInterface;->intToByteArray(I)[B
+
+    move-result-object v6
 
     sget-object v7, Landroid/mtp/MTPJNIInterface;->resultResponse:[B
 
-    array-length v8, v6
+    const/4 v8, 0x0
 
-    const/4 v9, 0x0
+    const/4 v9, 0x4
 
-    const/16 v10, 0x8
+    const/4 v10, 0x4
 
-    invoke-static {v6, v9, v7, v10, v8}, Ljava/lang/System;->arraycopy([BI[BII)V
+    invoke-static {v6, v8, v7, v9, v10}, Ljava/lang/System;->arraycopy([BI[BII)V
 
-    const/4 v3, 0x0
+    sget-object v6, Landroid/mtp/MTPJNIInterface;->resultResponse:[B
 
-    :goto_1
-    array-length v7, v6
+    array-length v7, v5
 
-    add-int/lit8 v7, v7, 0x8
+    const/4 v8, 0x0
 
-    if-ge v3, v7, :cond_9
+    const/16 v9, 0x8
 
-    const-string/jumbo v7, "MTPJNIInterface"
+    invoke-static {v5, v8, v6, v9, v7}, Ljava/lang/System;->arraycopy([BI[BII)V
 
-    new-instance v8, Ljava/lang/StringBuilder;
+    const/4 v6, 0x0
 
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {v8, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    const-string/jumbo v9, "] "
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    sget-object v9, Landroid/mtp/MTPJNIInterface;->resultResponse:[B
-
-    aget-byte v9, v9, v3
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-static {v7, v8}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    add-int/lit8 v3, v3, 0x1
-
-    goto :goto_1
-
-    :cond_9
-    const/4 v7, 0x0
-
-    sput-object v7, Landroid/mtp/MTPJNIInterface;->jsonData:Ljava/lang/String;
+    sput-object v6, Landroid/mtp/MTPJNIInterface;->jsonData:Ljava/lang/String;
     :try_end_4
     .catch Ljava/lang/Exception; {:try_start_4 .. :try_end_4} :catch_3
 
@@ -8276,27 +8094,27 @@
     :catch_3
     move-exception v2
 
-    invoke-virtual {v2}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v2}, Ljava/lang/Exception;->printStackTrace()V
 
-    const-string/jumbo v7, "MTPJNIInterface"
+    const-string/jumbo v6, "MTPJNIInterface"
 
-    const-string/jumbo v8, "get command exception"
+    const-string/jumbo v7, "get command exception"
 
-    invoke-static {v7, v8}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v6, v7}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    const/4 v7, 0x4
+    const/4 v6, 0x4
 
-    new-array v7, v7, [B
+    new-array v6, v6, [B
 
-    sput-object v7, Landroid/mtp/MTPJNIInterface;->resultResponse:[B
+    sput-object v6, Landroid/mtp/MTPJNIInterface;->resultResponse:[B
 
-    const/4 v7, 0x2
+    const/4 v6, 0x2
 
-    invoke-static {v7}, Landroid/mtp/MTPJNIInterface;->intToByteArray(I)[B
+    invoke-static {v6}, Landroid/mtp/MTPJNIInterface;->intToByteArray(I)[B
 
-    move-result-object v7
+    move-result-object v6
 
-    sput-object v7, Landroid/mtp/MTPJNIInterface;->resultResponse:[B
+    sput-object v6, Landroid/mtp/MTPJNIInterface;->resultResponse:[B
 
     goto/16 :goto_0
 
@@ -8422,7 +8240,7 @@
     :catch_0
     move-exception v0
 
-    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/io/UnsupportedEncodingException;->printStackTrace()V
 
     goto :goto_0
 .end method
@@ -8704,7 +8522,7 @@
     :catch_0
     move-exception v11
 
-    invoke-virtual {v11}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v11}, Ljava/lang/Exception;->printStackTrace()V
 
     invoke-interface {v10}, Landroid/database/Cursor;->close()V
 

@@ -112,7 +112,7 @@
     invoke-virtual {v6, v9}, Lcom/samsung/android/content/clipboard/data/SemTextClipData;->setText(Ljava/lang/CharSequence;)Z
 
     :cond_2
-    invoke-virtual {v6, p0}, Lcom/samsung/android/content/clipboard/data/SemClipData;->setClipData(Landroid/content/ClipData;)V
+    invoke-virtual {v6, p0}, Lcom/samsung/android/content/clipboard/data/SemTextClipData;->setClipData(Landroid/content/ClipData;)V
 
     move-object v2, v6
 
@@ -152,7 +152,7 @@
     invoke-virtual {v1, v9}, Lcom/samsung/android/content/clipboard/data/SemImageClipData;->setImagePath(Ljava/lang/String;)Z
 
     :cond_3
-    invoke-virtual {v1, p0}, Lcom/samsung/android/content/clipboard/data/SemClipData;->setClipData(Landroid/content/ClipData;)V
+    invoke-virtual {v1, p0}, Lcom/samsung/android/content/clipboard/data/SemImageClipData;->setClipData(Landroid/content/ClipData;)V
 
     move-object v2, v1
 
@@ -184,7 +184,7 @@
     invoke-virtual {v0, v9}, Lcom/samsung/android/content/clipboard/data/SemHtmlClipData;->setHtml(Ljava/lang/CharSequence;)Z
 
     :cond_4
-    invoke-virtual {v0, p0}, Lcom/samsung/android/content/clipboard/data/SemClipData;->setClipData(Landroid/content/ClipData;)V
+    invoke-virtual {v0, p0}, Lcom/samsung/android/content/clipboard/data/SemHtmlClipData;->setClipData(Landroid/content/ClipData;)V
 
     move-object v2, v0
 
@@ -216,7 +216,7 @@
     invoke-virtual {v7, v9}, Lcom/samsung/android/content/clipboard/data/SemUriClipData;->setUri(Landroid/net/Uri;)Z
 
     :cond_5
-    invoke-virtual {v7, p0}, Lcom/samsung/android/content/clipboard/data/SemClipData;->setClipData(Landroid/content/ClipData;)V
+    invoke-virtual {v7, p0}, Lcom/samsung/android/content/clipboard/data/SemUriClipData;->setClipData(Landroid/content/ClipData;)V
 
     move-object v2, v7
 
@@ -248,7 +248,7 @@
     invoke-virtual {v4, v9}, Lcom/samsung/android/content/clipboard/data/SemIntentClipData;->setIntent(Landroid/content/Intent;)Z
 
     :cond_6
-    invoke-virtual {v4, p0}, Lcom/samsung/android/content/clipboard/data/SemClipData;->setClipData(Landroid/content/ClipData;)V
+    invoke-virtual {v4, p0}, Lcom/samsung/android/content/clipboard/data/SemIntentClipData;->setClipData(Landroid/content/ClipData;)V
 
     move-object v2, v4
 
@@ -268,7 +268,7 @@
     invoke-virtual {v8, v5}, Lcom/samsung/android/content/clipboard/data/SemUriListClipData;->setUriList(Ljava/util/ArrayList;)Z
 
     :cond_7
-    invoke-virtual {v8, p0}, Lcom/samsung/android/content/clipboard/data/SemClipData;->setClipData(Landroid/content/ClipData;)V
+    invoke-virtual {v8, p0}, Lcom/samsung/android/content/clipboard/data/SemUriListClipData;->setClipData(Landroid/content/ClipData;)V
 
     move-object v2, v8
 

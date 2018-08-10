@@ -67,82 +67,84 @@
 
     move-result v3
 
-    if-eq v2, v3, :cond_9
+    if-eq v2, v3, :cond_7
 
     and-int/lit8 v6, v2, 0x1
 
-    if-eqz v6, :cond_2
+    if-eqz v6, :cond_0
 
     const/4 v0, 0x1
 
     :goto_0
     and-int/lit8 v6, v3, 0x1
 
-    if-eqz v6, :cond_3
+    if-eqz v6, :cond_1
 
     const/4 v1, 0x1
 
     :goto_1
     and-int/lit8 v6, v2, 0x2
 
-    if-eqz v6, :cond_4
+    if-eqz v6, :cond_2
 
     const/4 v4, 0x1
 
     :goto_2
     and-int/lit8 v6, v3, 0x2
 
-    if-eqz v6, :cond_5
+    if-eqz v6, :cond_3
 
     const/4 v5, 0x1
 
     :goto_3
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_4
 
-    if-eqz v4, :cond_6
+    xor-int/lit8 v6, v4, 0x1
 
-    :cond_0
-    if-eqz v1, :cond_1
-
-    if-eqz v5, :cond_7
-
-    :cond_1
-    if-eqz v4, :cond_8
+    if-eqz v6, :cond_4
 
     return v7
 
-    :cond_2
+    :cond_0
     const/4 v0, 0x0
 
     goto :goto_0
 
-    :cond_3
+    :cond_1
     const/4 v1, 0x0
 
     goto :goto_1
 
-    :cond_4
+    :cond_2
     const/4 v4, 0x0
 
     goto :goto_2
 
-    :cond_5
+    :cond_3
     const/4 v5, 0x0
 
     goto :goto_3
 
-    :cond_6
+    :cond_4
+    if-eqz v1, :cond_5
+
+    xor-int/lit8 v6, v5, 0x1
+
+    if-eqz v6, :cond_5
+
+    return v8
+
+    :cond_5
+    if-eqz v4, :cond_6
+
     return v7
 
+    :cond_6
+    if-eqz v5, :cond_7
+
+    return v8
+
     :cond_7
-    return v8
-
-    :cond_8
-    if-eqz v5, :cond_9
-
-    return v8
-
-    :cond_9
     iget-object v6, p0, Landroid/widget/Editor$SuggestionHelper$SuggestionSpanComparator;->this$1:Landroid/widget/Editor$SuggestionHelper;
 
     invoke-static {v6}, Landroid/widget/Editor$SuggestionHelper;->-get0(Landroid/widget/Editor$SuggestionHelper;)Ljava/util/HashMap;

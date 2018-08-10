@@ -53,7 +53,7 @@
 
     invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v0}, Ljava/lang/Throwable;->fillInStackTrace()Ljava/lang/Throwable;
+    invoke-virtual {v0}, Ljava/lang/RuntimeException;->fillInStackTrace()Ljava/lang/Throwable;
 
     const-string/jumbo v1, "SemCursorIndexer"
 
@@ -138,7 +138,7 @@
 
     invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v0}, Ljava/lang/Throwable;->fillInStackTrace()Ljava/lang/Throwable;
+    invoke-virtual {v0}, Ljava/lang/RuntimeException;->fillInStackTrace()Ljava/lang/Throwable;
 
     const-string/jumbo v1, "SemCursorIndexer"
 
@@ -197,7 +197,7 @@
 
     invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v0}, Ljava/lang/Throwable;->fillInStackTrace()Ljava/lang/Throwable;
+    invoke-virtual {v0}, Ljava/lang/RuntimeException;->fillInStackTrace()Ljava/lang/Throwable;
 
     const-string/jumbo v1, "SemCursorIndexer"
 
@@ -282,7 +282,7 @@
 
     invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v0}, Ljava/lang/Throwable;->fillInStackTrace()Ljava/lang/Throwable;
+    invoke-virtual {v0}, Ljava/lang/RuntimeException;->fillInStackTrace()Ljava/lang/Throwable;
 
     const-string/jumbo v1, "SemCursorIndexer"
 
@@ -401,7 +401,7 @@
     :catch_0
     move-exception v0
 
-    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
 
     return-object v4
 .end method
@@ -454,16 +454,14 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    xor-int/lit8 v1, v1, 0x1
 
-    :cond_0
-    :goto_0
-    return v0
+    if-eqz v1, :cond_0
 
-    :cond_1
     const/4 v0, 0x1
 
-    goto :goto_0
+    :cond_0
+    return v0
 .end method
 
 .method protected onBeginTransaction()V
@@ -543,7 +541,15 @@
 .method public setFavoriteItemsCount(I)V
     .locals 0
 
-    invoke-virtual {p0, p1}, Lcom/samsung/android/widget/SemAbstractIndexer;->setFavoriteItem(I)V
+    invoke-virtual {p0, p1}, Lcom/samsung/android/widget/SemCursorIndexer;->setFavoriteItem(I)V
+
+    return-void
+.end method
+
+.method public setGroupItemsCount(I)V
+    .locals 0
+
+    invoke-virtual {p0, p1}, Lcom/samsung/android/widget/SemCursorIndexer;->setGroupItem(I)V
 
     return-void
 .end method
@@ -551,7 +557,7 @@
 .method public setMiscItemsCount(I)V
     .locals 0
 
-    invoke-virtual {p0, p1}, Lcom/samsung/android/widget/SemAbstractIndexer;->setDigitItem(I)V
+    invoke-virtual {p0, p1}, Lcom/samsung/android/widget/SemCursorIndexer;->setDigitItem(I)V
 
     return-void
 .end method
@@ -559,7 +565,7 @@
 .method public setProfileItemsCount(I)V
     .locals 0
 
-    invoke-virtual {p0, p1}, Lcom/samsung/android/widget/SemAbstractIndexer;->setProfileItem(I)V
+    invoke-virtual {p0, p1}, Lcom/samsung/android/widget/SemCursorIndexer;->setProfileItem(I)V
 
     return-void
 .end method

@@ -92,7 +92,7 @@
 .method private readFromParcel(Landroid/os/Parcel;)V
     .locals 1
 
-    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+    invoke-virtual {p0}, Lcom/samsung/android/hardware/context/SemContextActivityLocationLogging;->getClass()Ljava/lang/Class;
 
     move-result-object v0
 
@@ -106,7 +106,7 @@
 
     iput-object v0, p0, Lcom/samsung/android/hardware/context/SemContextActivityLocationLogging;->mContext:Landroid/os/Bundle;
 
-    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+    invoke-virtual {p0}, Lcom/samsung/android/hardware/context/SemContextActivityLocationLogging;->getClass()Ljava/lang/Class;
 
     move-result-object v0
 
@@ -146,7 +146,7 @@
 
     const-string/jumbo v2, "StayingAreaAltitude"
 
-    invoke-virtual {v1, v2}, Landroid/os/BaseBundle;->getDoubleArray(Ljava/lang/String;)[D
+    invoke-virtual {v1, v2}, Landroid/os/Bundle;->getDoubleArray(Ljava/lang/String;)[D
 
     move-result-object v0
 
@@ -165,7 +165,7 @@
 
     const-string/jumbo v2, "TrajectoryAltitude"
 
-    invoke-virtual {v1, v2}, Landroid/os/BaseBundle;->getDoubleArray(Ljava/lang/String;)[D
+    invoke-virtual {v1, v2}, Landroid/os/Bundle;->getDoubleArray(Ljava/lang/String;)[D
 
     move-result-object v0
 
@@ -187,7 +187,7 @@
 
     const-string/jumbo v2, "StayingAreaLatitude"
 
-    invoke-virtual {v1, v2}, Landroid/os/BaseBundle;->getDoubleArray(Ljava/lang/String;)[D
+    invoke-virtual {v1, v2}, Landroid/os/Bundle;->getDoubleArray(Ljava/lang/String;)[D
 
     move-result-object v0
 
@@ -206,7 +206,7 @@
 
     const-string/jumbo v2, "TrajectoryLatitude"
 
-    invoke-virtual {v1, v2}, Landroid/os/BaseBundle;->getDoubleArray(Ljava/lang/String;)[D
+    invoke-virtual {v1, v2}, Landroid/os/Bundle;->getDoubleArray(Ljava/lang/String;)[D
 
     move-result-object v0
 
@@ -228,7 +228,7 @@
 
     const-string/jumbo v2, "StayingAreaCount"
 
-    invoke-virtual {v1, v2}, Landroid/os/BaseBundle;->getInt(Ljava/lang/String;)I
+    invoke-virtual {v1, v2}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
 
     move-result v0
 
@@ -247,7 +247,7 @@
 
     const-string/jumbo v2, "MovingCount"
 
-    invoke-virtual {v1, v2}, Landroid/os/BaseBundle;->getInt(Ljava/lang/String;)I
+    invoke-virtual {v1, v2}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
 
     move-result v0
 
@@ -264,7 +264,7 @@
 
     const-string/jumbo v2, "TrajectoryCount"
 
-    invoke-virtual {v1, v2}, Landroid/os/BaseBundle;->getInt(Ljava/lang/String;)I
+    invoke-virtual {v1, v2}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
 
     move-result v0
 
@@ -286,7 +286,7 @@
 
     const-string/jumbo v2, "StayingAreaLongitude"
 
-    invoke-virtual {v1, v2}, Landroid/os/BaseBundle;->getDoubleArray(Ljava/lang/String;)[D
+    invoke-virtual {v1, v2}, Landroid/os/Bundle;->getDoubleArray(Ljava/lang/String;)[D
 
     move-result-object v0
 
@@ -305,7 +305,7 @@
 
     const-string/jumbo v2, "TrajectoryLongitude"
 
-    invoke-virtual {v1, v2}, Landroid/os/BaseBundle;->getDoubleArray(Ljava/lang/String;)[D
+    invoke-virtual {v1, v2}, Landroid/os/Bundle;->getDoubleArray(Ljava/lang/String;)[D
 
     move-result-object v0
 
@@ -319,7 +319,7 @@
 
     const-string/jumbo v1, "StayingAreaRadius"
 
-    invoke-virtual {v0, v1}, Landroid/os/BaseBundle;->getIntArray(Ljava/lang/String;)[I
+    invoke-virtual {v0, v1}, Landroid/os/Bundle;->getIntArray(Ljava/lang/String;)[I
 
     move-result-object v0
 
@@ -333,7 +333,7 @@
 
     const-string/jumbo v1, "StayingAreaStatus"
 
-    invoke-virtual {v0, v1}, Landroid/os/BaseBundle;->getIntArray(Ljava/lang/String;)[I
+    invoke-virtual {v0, v1}, Landroid/os/Bundle;->getIntArray(Ljava/lang/String;)[I
 
     move-result-object v0
 
@@ -347,7 +347,7 @@
 
     const-string/jumbo v1, "StayingAreaTimeDuration"
 
-    invoke-virtual {v0, v1}, Landroid/os/BaseBundle;->getIntArray(Ljava/lang/String;)[I
+    invoke-virtual {v0, v1}, Landroid/os/Bundle;->getIntArray(Ljava/lang/String;)[I
 
     move-result-object v0
 
@@ -369,7 +369,7 @@
 
     const-string/jumbo v4, "StayingAreaTimeStamp"
 
-    invoke-virtual {v3, v4}, Landroid/os/BaseBundle;->getLongArray(Ljava/lang/String;)[J
+    invoke-virtual {v3, v4}, Landroid/os/Bundle;->getLongArray(Ljava/lang/String;)[J
 
     move-result-object v2
 
@@ -388,7 +388,7 @@
 
     const-string/jumbo v4, "MovingTimeDuration"
 
-    invoke-virtual {v3, v4}, Landroid/os/BaseBundle;->getIntArray(Ljava/lang/String;)[I
+    invoke-virtual {v3, v4}, Landroid/os/Bundle;->getIntArray(Ljava/lang/String;)[I
 
     move-result-object v0
 
@@ -411,7 +411,7 @@
 
     const-string/jumbo v4, "MovingTimeStamp"
 
-    invoke-virtual {v3, v4}, Landroid/os/BaseBundle;->getLong(Ljava/lang/String;)J
+    invoke-virtual {v3, v4}, Landroid/os/Bundle;->getLong(Ljava/lang/String;)J
 
     move-result-wide v4
 
@@ -450,7 +450,7 @@
 
     const-string/jumbo v4, "TrajectoryTimeStamp"
 
-    invoke-virtual {v3, v4}, Landroid/os/BaseBundle;->getLongArray(Ljava/lang/String;)[J
+    invoke-virtual {v3, v4}, Landroid/os/Bundle;->getLongArray(Ljava/lang/String;)[J
 
     move-result-object v2
 
@@ -482,7 +482,7 @@
 
     const-string/jumbo v1, "LoggingType"
 
-    invoke-virtual {v0, v1}, Landroid/os/BaseBundle;->getInt(Ljava/lang/String;)I
+    invoke-virtual {v0, v1}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
 
     move-result v0
 

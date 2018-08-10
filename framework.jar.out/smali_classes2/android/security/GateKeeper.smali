@@ -3,6 +3,10 @@
 .source "GateKeeper.java"
 
 
+# static fields
+.field public static final INVALID_SECURE_USER_ID:J
+
+
 # direct methods
 .method private constructor <init>()V
     .locals 0

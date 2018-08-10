@@ -361,6 +361,64 @@
     goto :goto_0
 .end method
 
+.method public registerUsageStatsWatcher(Landroid/app/usage/IUsageStatsWatcher;Ljava/util/List;)V
+    .locals 2
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Landroid/app/usage/IUsageStatsWatcher;",
+            "Ljava/util/List",
+            "<",
+            "Landroid/content/ComponentName;",
+            ">;)V"
+        }
+    .end annotation
+
+    :try_start_0
+    iget-object v1, p0, Landroid/app/usage/UsageStatsManager;->mService:Landroid/app/usage/IUsageStatsManager;
+
+    invoke-interface {v1, p1, p2}, Landroid/app/usage/IUsageStatsManager;->registerUsageStatsWatcherWithComponent(Landroid/app/usage/IUsageStatsWatcher;Ljava/util/List;)V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    :goto_0
+    return-void
+
+    :catch_0
+    move-exception v0
+
+    goto :goto_0
+.end method
+
+.method public reportChooserSelection(Ljava/lang/String;ILjava/lang/String;[Ljava/lang/String;Ljava/lang/String;)V
+    .locals 7
+
+    :try_start_0
+    iget-object v0, p0, Landroid/app/usage/UsageStatsManager;->mService:Landroid/app/usage/IUsageStatsManager;
+
+    move-object v1, p1
+
+    move v2, p2
+
+    move-object v3, p3
+
+    move-object v4, p4
+
+    move-object v5, p5
+
+    invoke-interface/range {v0 .. v5}, Landroid/app/usage/IUsageStatsManager;->reportChooserSelection(Ljava/lang/String;ILjava/lang/String;[Ljava/lang/String;Ljava/lang/String;)V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    :goto_0
+    return-void
+
+    :catch_0
+    move-exception v6
+
+    goto :goto_0
+.end method
+
 .method public setAppInactive(Ljava/lang/String;Z)V
     .locals 3
 

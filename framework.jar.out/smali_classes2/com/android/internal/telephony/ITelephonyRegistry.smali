@@ -23,14 +23,6 @@
     .end annotation
 .end method
 
-.method public abstract broadcastCallStateChangedWithoutNotify(IIILjava/lang/String;)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
 .method public abstract listen(Ljava/lang/String;Lcom/android/internal/telephony/IPhoneStateListener;IZ)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -243,6 +235,14 @@
     .end annotation
 .end method
 
+.method public abstract notifyPreciseDataConnectionFailedForSubscriber(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract notifyServiceStateForPhoneId(IILandroid/telephony/ServiceState;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -252,6 +252,14 @@
 .end method
 
 .method public abstract notifySignalStrengthForPhoneId(IILandroid/telephony/SignalStrength;)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract notifySimActivationStateChangedForPhoneId(IIII)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -284,14 +292,6 @@
 .end method
 
 .method public abstract removeOnSubscriptionsChangedListener(Ljava/lang/String;Lcom/android/internal/telephony/IOnSubscriptionsChangedListener;)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract updatePhoneStateExtras(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

@@ -336,172 +336,177 @@
 .end method
 
 .method private init(Landroid/content/res/Resources;)V
-    .locals 12
+    .locals 13
 
-    const v9, 0x1110002
+    const v10, 0x1170002
 
-    invoke-virtual {p1, v9}, Landroid/content/res/Resources;->getXml(I)Landroid/content/res/XmlResourceParser;
+    invoke-virtual {p1, v10}, Landroid/content/res/Resources;->getXml(I)Landroid/content/res/XmlResourceParser;
 
-    move-result-object v6
+    move-result-object v7
 
-    new-instance v7, Ljava/lang/StringBuilder;
+    new-instance v8, Ljava/lang/StringBuilder;
 
-    const/16 v9, 0x2454
+    const/16 v10, 0x2454
 
-    invoke-direct {v7, v9}, Ljava/lang/StringBuilder;-><init>(I)V
+    invoke-direct {v8, v10}, Ljava/lang/StringBuilder;-><init>(I)V
 
-    const/16 v9, 0x3801
+    const/16 v10, 0x3801
 
-    new-array v9, v9, [C
+    new-array v10, v10, [C
 
-    iput-object v9, p0, Landroid/text/AutoText;->mTrie:[C
+    iput-object v10, p0, Landroid/text/AutoText;->mTrie:[C
 
-    iget-object v9, p0, Landroid/text/AutoText;->mTrie:[C
+    iget-object v10, p0, Landroid/text/AutoText;->mTrie:[C
 
-    const v10, 0xffff
+    const v11, 0xffff
 
-    const/4 v11, 0x0
+    const/4 v12, 0x0
 
-    aput-char v10, v9, v11
+    aput-char v11, v10, v12
 
-    const/4 v9, 0x1
+    const/4 v10, 0x1
 
-    iput-char v9, p0, Landroid/text/AutoText;->mTrieUsed:C
+    iput-char v10, p0, Landroid/text/AutoText;->mTrieUsed:C
 
     :try_start_0
-    const-string/jumbo v9, "words"
+    const-string/jumbo v10, "words"
 
-    invoke-static {v6, v9}, Lcom/android/internal/util/XmlUtils;->beginDocument(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;)V
+    invoke-static {v7, v10}, Lcom/android/internal/util/XmlUtils;->beginDocument(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;)V
 
     const-string/jumbo v4, ""
 
+    const/4 v6, 0x0
+
     :cond_0
     :goto_0
-    invoke-static {v6}, Lcom/android/internal/util/XmlUtils;->nextElement(Lorg/xmlpull/v1/XmlPullParser;)V
+    invoke-static {v7}, Lcom/android/internal/util/XmlUtils;->nextElement(Lorg/xmlpull/v1/XmlPullParser;)V
 
-    invoke-interface {v6}, Landroid/content/res/XmlResourceParser;->getName()Ljava/lang/String;
+    invoke-interface {v7}, Landroid/content/res/XmlResourceParser;->getName()Ljava/lang/String;
 
     move-result-object v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_1
 
-    const-string/jumbo v9, "word"
+    const-string/jumbo v10, "word"
 
-    invoke-virtual {v3, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v3, v10}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v9
+    move-result v10
 
-    if-eqz v9, :cond_2
+    xor-int/lit8 v10, v10, 0x1
 
-    const-string/jumbo v9, "src"
+    if-eqz v10, :cond_2
 
-    const/4 v10, 0x0
+    :cond_1
+    invoke-virtual {p1}, Landroid/content/res/Resources;->flushLayoutCache()V
+    :try_end_0
+    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_1
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    invoke-interface {v6, v10, v9}, Landroid/content/res/XmlResourceParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-interface {v7}, Landroid/content/res/XmlResourceParser;->close()V
 
-    move-result-object v8
+    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-interface {v6}, Landroid/content/res/XmlResourceParser;->next()I
+    move-result-object v10
 
-    move-result v9
+    iput-object v10, p0, Landroid/text/AutoText;->mText:Ljava/lang/String;
 
-    const/4 v10, 0x4
+    return-void
 
-    if-ne v9, v10, :cond_0
+    :cond_2
+    :try_start_1
+    const-string/jumbo v10, "src"
 
-    invoke-interface {v6}, Landroid/content/res/XmlResourceParser;->getText()Ljava/lang/String;
+    const/4 v11, 0x0
+
+    invoke-interface {v7, v11, v10}, Landroid/content/res/XmlResourceParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-interface {v7}, Landroid/content/res/XmlResourceParser;->next()I
+
+    move-result v10
+
+    const/4 v11, 0x4
+
+    if-ne v10, v11, :cond_0
+
+    invoke-interface {v7}, Landroid/content/res/XmlResourceParser;->getText()Ljava/lang/String;
 
     move-result-object v0
 
     invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v9
+    move-result v10
 
-    if-eqz v9, :cond_1
+    if-eqz v10, :cond_3
 
     const/4 v5, 0x0
 
     :goto_1
-    invoke-direct {p0, v8, v5}, Landroid/text/AutoText;->add(Ljava/lang/String;C)V
-    :try_end_0
-    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_0 .. :try_end_0} :catch_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_1
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    invoke-direct {p0, v9, v5}, Landroid/text/AutoText;->add(Ljava/lang/String;C)V
+    :try_end_1
+    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_1 .. :try_end_1} :catch_0
+    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     goto :goto_0
 
     :catch_0
     move-exception v2
 
-    :try_start_1
-    new-instance v9, Ljava/lang/RuntimeException;
+    :try_start_2
+    new-instance v10, Ljava/lang/RuntimeException;
 
-    invoke-direct {v9, v2}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
+    invoke-direct {v10, v2}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
 
-    throw v9
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    throw v10
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     :catchall_0
-    move-exception v9
+    move-exception v10
 
-    invoke-interface {v6}, Landroid/content/res/XmlResourceParser;->close()V
+    invoke-interface {v7}, Landroid/content/res/XmlResourceParser;->close()V
 
-    throw v9
+    throw v10
 
-    :cond_1
-    :try_start_2
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->length()I
+    :cond_3
+    :try_start_3
+    invoke-virtual {v8}, Ljava/lang/StringBuilder;->length()I
 
-    move-result v9
+    move-result v10
 
-    int-to-char v5, v9
+    int-to-char v5, v10
 
     invoke-virtual {v0}, Ljava/lang/String;->length()I
 
-    move-result v9
+    move-result v10
 
-    int-to-char v9, v9
+    int-to-char v10, v10
 
-    invoke-virtual {v7, v9}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    invoke-virtual {v8, v10}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v7, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-    :try_end_2
-    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_2 .. :try_end_2} :catch_0
-    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_1
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    invoke-virtual {v8, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    :try_end_3
+    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_3 .. :try_end_3} :catch_0
+    .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_1
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
     goto :goto_1
 
     :catch_1
     move-exception v1
 
-    :try_start_3
-    new-instance v9, Ljava/lang/RuntimeException;
-
-    invoke-direct {v9, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
-
-    throw v9
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
-
-    :cond_2
     :try_start_4
-    invoke-virtual {p1}, Landroid/content/res/Resources;->flushLayoutCache()V
+    new-instance v10, Ljava/lang/RuntimeException;
+
+    invoke-direct {v10, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
+
+    throw v10
     :try_end_4
-    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_4 .. :try_end_4} :catch_0
-    .catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_1
     .catchall {:try_start_4 .. :try_end_4} :catchall_0
-
-    invoke-interface {v6}, Landroid/content/res/XmlResourceParser;->close()V
-
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v9
-
-    iput-object v9, p0, Landroid/text/AutoText;->mText:Ljava/lang/String;
-
-    return-void
 .end method
 
 .method private lookup(Ljava/lang/CharSequence;II)Ljava/lang/String;

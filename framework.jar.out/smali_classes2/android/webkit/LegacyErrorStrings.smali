@@ -19,7 +19,7 @@
 .method private static getResource(I)I
     .locals 4
 
-    const v3, 0x10400ff
+    const v3, 0x10403fb
 
     packed-switch p0, :pswitch_data_0
 
@@ -48,7 +48,7 @@
     return v3
 
     :pswitch_0
-    const v0, 0x10400fe
+    const v0, 0x1040403
 
     return v0
 
@@ -56,42 +56,42 @@
     return v3
 
     :pswitch_2
-    const v0, 0x1040100
+    const v0, 0x1040402
 
     return v0
 
     :pswitch_3
-    const v0, 0x1040101
+    const v0, 0x1040408
 
     return v0
 
     :pswitch_4
-    const v0, 0x1040102
+    const v0, 0x10403fc
 
     return v0
 
     :pswitch_5
-    const v0, 0x1040103
+    const v0, 0x1040404
 
     return v0
 
     :pswitch_6
-    const v0, 0x1040104
+    const v0, 0x10403fd
 
     return v0
 
     :pswitch_7
-    const v0, 0x1040105
+    const v0, 0x1040401
 
     return v0
 
     :pswitch_8
-    const v0, 0x1040106
+    const v0, 0x1040406
 
     return v0
 
     :pswitch_9
-    const v0, 0x1040107
+    const v0, 0x1040405
 
     return v0
 
@@ -101,7 +101,7 @@
     return v0
 
     :pswitch_b
-    const v0, 0x1040108
+    const v0, 0x10403fe
 
     return v0
 
@@ -111,17 +111,17 @@
     return v0
 
     :pswitch_d
-    const v0, 0x1040109
+    const v0, 0x10403ff
 
     return v0
 
     :pswitch_e
-    const v0, 0x104010a
+    const v0, 0x1040400
 
     return v0
 
     :pswitch_f
-    const v0, 0x104010b
+    const v0, 0x1040407
 
     return v0
 

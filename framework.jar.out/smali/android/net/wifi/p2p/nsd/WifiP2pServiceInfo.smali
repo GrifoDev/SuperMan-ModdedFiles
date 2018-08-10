@@ -142,7 +142,7 @@
     :catch_0
     move-exception v1
 
-    invoke-virtual {v1}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v1}, Ljava/lang/Exception;->printStackTrace()V
 
     const/4 v4, 0x0
 
@@ -187,9 +187,7 @@
     :cond_1
     move-object v0, p1
 
-    nop
-
-    nop
+    check-cast v0, Landroid/net/wifi/p2p/nsd/WifiP2pServiceInfo;
 
     iget-object v1, p0, Landroid/net/wifi/p2p/nsd/WifiP2pServiceInfo;->mQueryList:Ljava/util/List;
 
@@ -221,6 +219,8 @@
 
 .method public hashCode()I
     .locals 2
+
+    const/16 v0, 0x11
 
     iget-object v1, p0, Landroid/net/wifi/p2p/nsd/WifiP2pServiceInfo;->mQueryList:Ljava/util/List;
 

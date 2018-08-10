@@ -64,11 +64,11 @@
 
     invoke-virtual {p2, v1}, Landroid/graphics/Canvas;->save(I)I
 
-    iget v1, p0, Lcom/samsung/android/graphics/spr/document/shape/SprObjectBase;->alpha:F
+    iget v1, p0, Lcom/samsung/android/graphics/spr/document/shape/SprObjectShapeCircle;->alpha:F
 
     mul-float v0, p5, v1
 
-    iget-object v1, p0, Lcom/samsung/android/graphics/spr/document/shape/SprObjectBase;->mAttributeList:Ljava/util/ArrayList;
+    iget-object v1, p0, Lcom/samsung/android/graphics/spr/document/shape/SprObjectShapeCircle;->mAttributeList:Ljava/util/ArrayList;
 
     invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
 
@@ -76,12 +76,12 @@
 
     if-lez v1, :cond_0
 
-    invoke-virtual {p0, p1, p2, v0}, Lcom/samsung/android/graphics/spr/document/shape/SprObjectBase;->applyAttribute(Lcom/samsung/android/graphics/spr/document/SprDocument;Landroid/graphics/Canvas;F)V
+    invoke-virtual {p0, p1, p2, v0}, Lcom/samsung/android/graphics/spr/document/shape/SprObjectShapeCircle;->applyAttribute(Lcom/samsung/android/graphics/spr/document/SprDocument;Landroid/graphics/Canvas;F)V
 
     :cond_0
-    invoke-virtual {p0}, Lcom/samsung/android/graphics/spr/document/shape/SprObjectBase;->setShadowLayer()V
+    invoke-virtual {p0}, Lcom/samsung/android/graphics/spr/document/shape/SprObjectShapeCircle;->setShadowLayer()V
 
-    iget-boolean v1, p0, Lcom/samsung/android/graphics/spr/document/shape/SprObjectBase;->isVisibleFill:Z
+    iget-boolean v1, p0, Lcom/samsung/android/graphics/spr/document/shape/SprObjectShapeCircle;->isVisibleFill:Z
 
     if-eqz v1, :cond_1
 
@@ -91,12 +91,12 @@
 
     iget v3, p0, Lcom/samsung/android/graphics/spr/document/shape/SprObjectShapeCircle;->cr:F
 
-    iget-object v4, p0, Lcom/samsung/android/graphics/spr/document/shape/SprObjectBase;->fillPaint:Landroid/graphics/Paint;
+    iget-object v4, p0, Lcom/samsung/android/graphics/spr/document/shape/SprObjectShapeCircle;->fillPaint:Landroid/graphics/Paint;
 
     invoke-virtual {p2, v1, v2, v3, v4}, Landroid/graphics/Canvas;->drawCircle(FFFLandroid/graphics/Paint;)V
 
     :cond_1
-    iget-boolean v1, p0, Lcom/samsung/android/graphics/spr/document/shape/SprObjectBase;->isVisibleStroke:Z
+    iget-boolean v1, p0, Lcom/samsung/android/graphics/spr/document/shape/SprObjectShapeCircle;->isVisibleStroke:Z
 
     if-eqz v1, :cond_2
 
@@ -106,12 +106,12 @@
 
     iget v3, p0, Lcom/samsung/android/graphics/spr/document/shape/SprObjectShapeCircle;->cr:F
 
-    iget-object v4, p0, Lcom/samsung/android/graphics/spr/document/shape/SprObjectBase;->strokePaint:Landroid/graphics/Paint;
+    iget-object v4, p0, Lcom/samsung/android/graphics/spr/document/shape/SprObjectShapeCircle;->strokePaint:Landroid/graphics/Paint;
 
     invoke-virtual {p2, v1, v2, v3, v4}, Landroid/graphics/Canvas;->drawCircle(FFFLandroid/graphics/Paint;)V
 
     :cond_2
-    invoke-virtual {p0}, Lcom/samsung/android/graphics/spr/document/shape/SprObjectBase;->clearShadowLayer()V
+    invoke-virtual {p0}, Lcom/samsung/android/graphics/spr/document/shape/SprObjectShapeCircle;->clearShadowLayer()V
 
     invoke-virtual {p2}, Landroid/graphics/Canvas;->restore()V
 

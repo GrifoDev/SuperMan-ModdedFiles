@@ -1,5 +1,5 @@
 .class Landroid/app/ExitTransitionCoordinator$2;
-.super Landroid/transition/Transition$TransitionListenerAdapter;
+.super Landroid/transition/TransitionListenerAdapter;
 .source "ExitTransitionCoordinator.java"
 
 
@@ -24,7 +24,7 @@
 
     iput-object p1, p0, Landroid/app/ExitTransitionCoordinator$2;->this$0:Landroid/app/ExitTransitionCoordinator;
 
-    invoke-direct {p0}, Landroid/transition/Transition$TransitionListenerAdapter;-><init>()V
+    invoke-direct {p0}, Landroid/transition/TransitionListenerAdapter;-><init>()V
 
     return-void
 .end method
@@ -38,7 +38,7 @@
 
     iget-object v0, p0, Landroid/app/ExitTransitionCoordinator$2;->this$0:Landroid/app/ExitTransitionCoordinator;
 
-    invoke-virtual {v0}, Landroid/app/ActivityTransitionCoordinator;->isViewsTransitionComplete()Z
+    invoke-virtual {v0}, Landroid/app/ExitTransitionCoordinator;->isViewsTransitionComplete()Z
 
     move-result v0
 

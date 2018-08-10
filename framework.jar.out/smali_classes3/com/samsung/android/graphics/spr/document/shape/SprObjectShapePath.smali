@@ -2232,6 +2232,21 @@
     return-object v0
 .end method
 
+.method public bridge synthetic clone()Ljava/lang/Object;
+    .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/lang/CloneNotSupportedException;
+        }
+    .end annotation
+
+    invoke-virtual {p0}, Lcom/samsung/android/graphics/spr/document/shape/SprObjectShapePath;->clone()Lcom/samsung/android/graphics/spr/document/shape/SprObjectBase;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
 .method public close()V
     .locals 2
 
@@ -2301,11 +2316,11 @@
 
     invoke-virtual {p2, v1}, Landroid/graphics/Canvas;->save(I)I
 
-    iget v1, p0, Lcom/samsung/android/graphics/spr/document/shape/SprObjectBase;->alpha:F
+    iget v1, p0, Lcom/samsung/android/graphics/spr/document/shape/SprObjectShapePath;->alpha:F
 
     mul-float v0, p5, v1
 
-    iget-object v1, p0, Lcom/samsung/android/graphics/spr/document/shape/SprObjectBase;->mAttributeList:Ljava/util/ArrayList;
+    iget-object v1, p0, Lcom/samsung/android/graphics/spr/document/shape/SprObjectShapePath;->mAttributeList:Ljava/util/ArrayList;
 
     invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
 
@@ -2313,34 +2328,34 @@
 
     if-lez v1, :cond_0
 
-    invoke-virtual {p0, p1, p2, v0}, Lcom/samsung/android/graphics/spr/document/shape/SprObjectBase;->applyAttribute(Lcom/samsung/android/graphics/spr/document/SprDocument;Landroid/graphics/Canvas;F)V
+    invoke-virtual {p0, p1, p2, v0}, Lcom/samsung/android/graphics/spr/document/shape/SprObjectShapePath;->applyAttribute(Lcom/samsung/android/graphics/spr/document/SprDocument;Landroid/graphics/Canvas;F)V
 
     :cond_0
-    invoke-virtual {p0}, Lcom/samsung/android/graphics/spr/document/shape/SprObjectBase;->setShadowLayer()V
+    invoke-virtual {p0}, Lcom/samsung/android/graphics/spr/document/shape/SprObjectShapePath;->setShadowLayer()V
 
-    iget-boolean v1, p0, Lcom/samsung/android/graphics/spr/document/shape/SprObjectBase;->isVisibleFill:Z
+    iget-boolean v1, p0, Lcom/samsung/android/graphics/spr/document/shape/SprObjectShapePath;->isVisibleFill:Z
 
     if-eqz v1, :cond_1
 
     iget-object v1, p0, Lcom/samsung/android/graphics/spr/document/shape/SprObjectShapePath;->path:Landroid/graphics/Path;
 
-    iget-object v2, p0, Lcom/samsung/android/graphics/spr/document/shape/SprObjectBase;->fillPaint:Landroid/graphics/Paint;
+    iget-object v2, p0, Lcom/samsung/android/graphics/spr/document/shape/SprObjectShapePath;->fillPaint:Landroid/graphics/Paint;
 
     invoke-virtual {p2, v1, v2}, Landroid/graphics/Canvas;->drawPath(Landroid/graphics/Path;Landroid/graphics/Paint;)V
 
     :cond_1
-    iget-boolean v1, p0, Lcom/samsung/android/graphics/spr/document/shape/SprObjectBase;->isVisibleStroke:Z
+    iget-boolean v1, p0, Lcom/samsung/android/graphics/spr/document/shape/SprObjectShapePath;->isVisibleStroke:Z
 
     if-eqz v1, :cond_2
 
     iget-object v1, p0, Lcom/samsung/android/graphics/spr/document/shape/SprObjectShapePath;->path:Landroid/graphics/Path;
 
-    iget-object v2, p0, Lcom/samsung/android/graphics/spr/document/shape/SprObjectBase;->strokePaint:Landroid/graphics/Paint;
+    iget-object v2, p0, Lcom/samsung/android/graphics/spr/document/shape/SprObjectShapePath;->strokePaint:Landroid/graphics/Paint;
 
     invoke-virtual {p2, v1, v2}, Landroid/graphics/Canvas;->drawPath(Landroid/graphics/Path;Landroid/graphics/Paint;)V
 
     :cond_2
-    invoke-virtual {p0}, Lcom/samsung/android/graphics/spr/document/shape/SprObjectBase;->clearShadowLayer()V
+    invoke-virtual {p0}, Lcom/samsung/android/graphics/spr/document/shape/SprObjectShapePath;->clearShadowLayer()V
 
     invoke-virtual {p2}, Landroid/graphics/Canvas;->restore()V
 
@@ -2718,7 +2733,7 @@
     :cond_2
     move-object/from16 v0, p0
 
-    iget-object v15, v0, Lcom/samsung/android/graphics/spr/document/shape/SprObjectBase;->mAttributeList:Ljava/util/ArrayList;
+    iget-object v15, v0, Lcom/samsung/android/graphics/spr/document/shape/SprObjectShapePath;->mAttributeList:Ljava/util/ArrayList;
 
     invoke-virtual {v15, v9}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
@@ -2737,7 +2752,7 @@
 
     move-object/from16 v0, p0
 
-    iget-object v15, v0, Lcom/samsung/android/graphics/spr/document/shape/SprObjectBase;->mAttributeList:Ljava/util/ArrayList;
+    iget-object v15, v0, Lcom/samsung/android/graphics/spr/document/shape/SprObjectShapePath;->mAttributeList:Ljava/util/ArrayList;
 
     invoke-interface {v15}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
@@ -2777,7 +2792,7 @@
 
     move-object/from16 v0, p0
 
-    iget-object v15, v0, Lcom/samsung/android/graphics/spr/document/shape/SprObjectBase;->mAttributeList:Ljava/util/ArrayList;
+    iget-object v15, v0, Lcom/samsung/android/graphics/spr/document/shape/SprObjectShapePath;->mAttributeList:Ljava/util/ArrayList;
 
     invoke-virtual {v15, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
@@ -2796,7 +2811,7 @@
 
     float-to-int v13, v15
 
-    iget v15, v5, Lcom/samsung/android/graphics/spr/document/attribute/SprAttributeColor;->color:I
+    iget v15, v5, Lcom/samsung/android/graphics/spr/document/attribute/SprAttributeStroke;->color:I
 
     const v16, 0xffffff
 
@@ -2806,7 +2821,7 @@
 
     or-int v15, v15, v16
 
-    iput v15, v5, Lcom/samsung/android/graphics/spr/document/attribute/SprAttributeColor;->color:I
+    iput v15, v5, Lcom/samsung/android/graphics/spr/document/attribute/SprAttributeStroke;->color:I
 
     goto/16 :goto_1
 
@@ -2823,7 +2838,7 @@
 
     move-object/from16 v0, p0
 
-    iget-object v15, v0, Lcom/samsung/android/graphics/spr/document/shape/SprObjectBase;->mAttributeList:Ljava/util/ArrayList;
+    iget-object v15, v0, Lcom/samsung/android/graphics/spr/document/shape/SprObjectShapePath;->mAttributeList:Ljava/util/ArrayList;
 
     invoke-interface {v15}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
@@ -2863,7 +2878,7 @@
 
     move-object/from16 v0, p0
 
-    iget-object v15, v0, Lcom/samsung/android/graphics/spr/document/shape/SprObjectBase;->mAttributeList:Ljava/util/ArrayList;
+    iget-object v15, v0, Lcom/samsung/android/graphics/spr/document/shape/SprObjectShapePath;->mAttributeList:Ljava/util/ArrayList;
 
     invoke-virtual {v15, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
@@ -2892,16 +2907,16 @@
 
     long-to-int v15, v0
 
-    iput v15, v5, Lcom/samsung/android/graphics/spr/document/attribute/SprAttributeColor;->color:I
+    iput v15, v5, Lcom/samsung/android/graphics/spr/document/attribute/SprAttributeStroke;->color:I
 
     :goto_2
-    iget v15, v5, Lcom/samsung/android/graphics/spr/document/attribute/SprAttributeColor;->color:I
+    iget v15, v5, Lcom/samsung/android/graphics/spr/document/attribute/SprAttributeStroke;->color:I
 
     const/high16 v16, -0x1000000
 
     and-int v15, v15, v16
 
-    iget v0, v5, Lcom/samsung/android/graphics/spr/document/attribute/SprAttributeColor;->color:I
+    iget v0, v5, Lcom/samsung/android/graphics/spr/document/attribute/SprAttributeStroke;->color:I
 
     move/from16 v16, v0
 
@@ -2917,14 +2932,14 @@
 
     or-int v15, v15, v16
 
-    iput v15, v5, Lcom/samsung/android/graphics/spr/document/attribute/SprAttributeColor;->color:I
+    iput v15, v5, Lcom/samsung/android/graphics/spr/document/attribute/SprAttributeStroke;->color:I
 
     goto/16 :goto_1
 
     :cond_b
     const/high16 v15, -0x10000
 
-    iput v15, v5, Lcom/samsung/android/graphics/spr/document/attribute/SprAttributeColor;->color:I
+    iput v15, v5, Lcom/samsung/android/graphics/spr/document/attribute/SprAttributeStroke;->color:I
 
     goto :goto_2
 
@@ -2941,7 +2956,7 @@
 
     move-object/from16 v0, p0
 
-    iget-object v15, v0, Lcom/samsung/android/graphics/spr/document/shape/SprObjectBase;->mAttributeList:Ljava/util/ArrayList;
+    iget-object v15, v0, Lcom/samsung/android/graphics/spr/document/shape/SprObjectShapePath;->mAttributeList:Ljava/util/ArrayList;
 
     invoke-interface {v15}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
@@ -2981,7 +2996,7 @@
 
     move-object/from16 v0, p0
 
-    iget-object v15, v0, Lcom/samsung/android/graphics/spr/document/shape/SprObjectBase;->mAttributeList:Ljava/util/ArrayList;
+    iget-object v15, v0, Lcom/samsung/android/graphics/spr/document/shape/SprObjectShapePath;->mAttributeList:Ljava/util/ArrayList;
 
     invoke-virtual {v15, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
@@ -3010,14 +3025,14 @@
 
     long-to-int v15, v0
 
-    iput v15, v4, Lcom/samsung/android/graphics/spr/document/attribute/SprAttributeColor;->color:I
+    iput v15, v4, Lcom/samsung/android/graphics/spr/document/attribute/SprAttributeFill;->color:I
 
     goto/16 :goto_1
 
     :cond_10
     const/high16 v15, -0x10000
 
-    iput v15, v4, Lcom/samsung/android/graphics/spr/document/attribute/SprAttributeColor;->color:I
+    iput v15, v4, Lcom/samsung/android/graphics/spr/document/attribute/SprAttributeFill;->color:I
 
     goto/16 :goto_1
 
@@ -3034,7 +3049,7 @@
 
     move-object/from16 v0, p0
 
-    iget-object v15, v0, Lcom/samsung/android/graphics/spr/document/shape/SprObjectBase;->mAttributeList:Ljava/util/ArrayList;
+    iget-object v15, v0, Lcom/samsung/android/graphics/spr/document/shape/SprObjectShapePath;->mAttributeList:Ljava/util/ArrayList;
 
     invoke-interface {v15}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
@@ -3074,7 +3089,7 @@
 
     move-object/from16 v0, p0
 
-    iget-object v15, v0, Lcom/samsung/android/graphics/spr/document/shape/SprObjectBase;->mAttributeList:Ljava/util/ArrayList;
+    iget-object v15, v0, Lcom/samsung/android/graphics/spr/document/shape/SprObjectShapePath;->mAttributeList:Ljava/util/ArrayList;
 
     invoke-virtual {v15, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
@@ -3093,7 +3108,7 @@
 
     float-to-int v13, v15
 
-    iget v15, v4, Lcom/samsung/android/graphics/spr/document/attribute/SprAttributeColor;->color:I
+    iget v15, v4, Lcom/samsung/android/graphics/spr/document/attribute/SprAttributeFill;->color:I
 
     const v16, 0xffffff
 
@@ -3103,7 +3118,7 @@
 
     or-int v15, v15, v16
 
-    iput v15, v4, Lcom/samsung/android/graphics/spr/document/attribute/SprAttributeColor;->color:I
+    iput v15, v4, Lcom/samsung/android/graphics/spr/document/attribute/SprAttributeFill;->color:I
 
     goto/16 :goto_1
 
@@ -3175,7 +3190,7 @@
     :goto_3
     move-object/from16 v0, p0
 
-    iget-object v15, v0, Lcom/samsung/android/graphics/spr/document/shape/SprObjectBase;->mAttributeList:Ljava/util/ArrayList;
+    iget-object v15, v0, Lcom/samsung/android/graphics/spr/document/shape/SprObjectShapePath;->mAttributeList:Ljava/util/ArrayList;
 
     invoke-virtual {v15, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
@@ -3240,7 +3255,7 @@
     :goto_4
     move-object/from16 v0, p0
 
-    iget-object v15, v0, Lcom/samsung/android/graphics/spr/document/shape/SprObjectBase;->mAttributeList:Ljava/util/ArrayList;
+    iget-object v15, v0, Lcom/samsung/android/graphics/spr/document/shape/SprObjectShapePath;->mAttributeList:Ljava/util/ArrayList;
 
     invoke-virtual {v15, v7}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
@@ -3301,7 +3316,7 @@
 
     move-object/from16 v0, p0
 
-    iget-object v15, v0, Lcom/samsung/android/graphics/spr/document/shape/SprObjectBase;->mAttributeList:Ljava/util/ArrayList;
+    iget-object v15, v0, Lcom/samsung/android/graphics/spr/document/shape/SprObjectShapePath;->mAttributeList:Ljava/util/ArrayList;
 
     invoke-virtual {v15, v8}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 

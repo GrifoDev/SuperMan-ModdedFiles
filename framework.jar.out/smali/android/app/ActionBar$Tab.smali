@@ -13,6 +13,9 @@
     name = "Tab"
 .end annotation
 
+.annotation runtime Ljava/lang/Deprecated;
+.end annotation
+
 
 # static fields
 .field public static final INVALID_POSITION:I = -0x1

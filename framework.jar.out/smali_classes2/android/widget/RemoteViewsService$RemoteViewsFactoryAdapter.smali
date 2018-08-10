@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public declared-synchronized getCount()I
-    .locals 5
+    .locals 4
 
     monitor-enter p0
 
@@ -46,21 +46,12 @@
     iget-object v3, p0, Landroid/widget/RemoteViewsService$RemoteViewsFactoryAdapter;->mFactory:Landroid/widget/RemoteViewsService$RemoteViewsFactory;
 
     invoke-interface {v3}, Landroid/widget/RemoteViewsService$RemoteViewsFactory;->getCount()I
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    const-string/jumbo v3, "RemoteViewsService"
-
-    const-string/jumbo v4, "getCount = 0"
-
-    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    :cond_0
+    move-result v0
+
     :goto_0
     monitor-exit p0
 
@@ -244,7 +235,7 @@
 .end method
 
 .method public declared-synchronized getViewTypeCount()I
-    .locals 5
+    .locals 4
 
     monitor-enter p0
 
@@ -254,21 +245,12 @@
     iget-object v3, p0, Landroid/widget/RemoteViewsService$RemoteViewsFactoryAdapter;->mFactory:Landroid/widget/RemoteViewsService$RemoteViewsFactory;
 
     invoke-interface {v3}, Landroid/widget/RemoteViewsService$RemoteViewsFactory;->getViewTypeCount()I
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    const-string/jumbo v3, "RemoteViewsService"
-
-    const-string/jumbo v4, "getViewTypeCount = 0"
-
-    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    :cond_0
+    move-result v0
+
     :goto_0
     monitor-exit p0
 

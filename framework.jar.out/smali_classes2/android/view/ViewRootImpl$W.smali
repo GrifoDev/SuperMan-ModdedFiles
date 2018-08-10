@@ -52,7 +52,7 @@
     .locals 4
 
     :try_start_0
-    invoke-static {}, Landroid/app/ActivityManagerNative;->getDefault()Landroid/app/IActivityManager;
+    invoke-static {}, Landroid/app/ActivityManager;->getService()Landroid/app/IActivityManager;
 
     move-result-object v1
 
@@ -120,25 +120,6 @@
     return-void
 .end method
 
-.method public dispatchAttachedDisplayChanged(I)V
-    .locals 2
-
-    iget-object v1, p0, Landroid/view/ViewRootImpl$W;->mViewAncestor:Ljava/lang/ref/WeakReference;
-
-    invoke-virtual {v1}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/view/ViewRootImpl;
-
-    if-eqz v0, :cond_0
-
-    invoke-virtual {v0, p1}, Landroid/view/ViewRootImpl;->dispatchAttachedDisplayChanged(I)V
-
-    :cond_0
-    return-void
-.end method
-
 .method public dispatchCoverStateChanged(Z)V
     .locals 2
 
@@ -177,6 +158,25 @@
     return-void
 .end method
 
+.method public dispatchFinishMovingTask()V
+    .locals 2
+
+    iget-object v1, p0, Landroid/view/ViewRootImpl$W;->mViewAncestor:Ljava/lang/ref/WeakReference;
+
+    invoke-virtual {v1}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/view/ViewRootImpl;
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {v0}, Landroid/view/ViewRootImpl;->dispatchFinishMovingTask()V
+
+    :cond_0
+    return-void
+.end method
+
 .method public dispatchGetNewSurface()V
     .locals 2
 
@@ -191,6 +191,25 @@
     if-eqz v0, :cond_0
 
     invoke-virtual {v0}, Landroid/view/ViewRootImpl;->dispatchGetNewSurface()V
+
+    :cond_0
+    return-void
+.end method
+
+.method public dispatchPointerCaptureChanged(Z)V
+    .locals 2
+
+    iget-object v1, p0, Landroid/view/ViewRootImpl$W;->mViewAncestor:Ljava/lang/ref/WeakReference;
+
+    invoke-virtual {v1}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/view/ViewRootImpl;
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {v0, p1}, Landroid/view/ViewRootImpl;->dispatchPointerCaptureChanged(Z)V
 
     :cond_0
     return-void
@@ -509,8 +528,8 @@
     return-void
 .end method
 
-.method public resized(Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;ZLandroid/content/res/Configuration;Landroid/graphics/Rect;ZZ)V
-    .locals 12
+.method public resized(Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;ZLandroid/util/MergedConfiguration;Landroid/graphics/Rect;ZZI)V
+    .locals 13
 
     iget-object v1, p0, Landroid/view/ViewRootImpl$W;->mViewAncestor:Ljava/lang/ref/WeakReference;
 
@@ -526,7 +545,7 @@
 
     move-object v2, p2
 
-    move-object v3, p3
+    move-object/from16 v3, p3
 
     move-object/from16 v4, p4
 
@@ -544,9 +563,17 @@
 
     move/from16 v11, p11
 
-    invoke-virtual/range {v0 .. v11}, Landroid/view/ViewRootImpl;->dispatchResized(Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;ZLandroid/content/res/Configuration;Landroid/graphics/Rect;ZZ)V
+    move/from16 v12, p12
+
+    invoke-static/range {v0 .. v12}, Landroid/view/ViewRootImpl;->-wrap7(Landroid/view/ViewRootImpl;Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;ZLandroid/util/MergedConfiguration;Landroid/graphics/Rect;ZZI)V
 
     :cond_0
+    return-void
+.end method
+
+.method public touchFocusTransferred()V
+    .locals 0
+
     return-void
 .end method
 

@@ -5,7 +5,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Landroid/os/AsyncTask;-><init>()V
+    value = Landroid/os/AsyncTask;-><init>(Landroid/os/Looper;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;

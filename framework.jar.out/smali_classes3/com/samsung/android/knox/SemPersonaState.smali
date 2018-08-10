@@ -335,7 +335,7 @@
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
 
-    invoke-virtual {p0}, Ljava/lang/Enum;->name()Ljava/lang/String;
+    invoke-virtual {p0}, Lcom/samsung/android/knox/SemPersonaState;->name()Ljava/lang/String;
 
     move-result-object v0
 

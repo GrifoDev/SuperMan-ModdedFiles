@@ -19,6 +19,12 @@
 
 .field private mBackoffPolicySet:Z
 
+.field private mClipData:Landroid/content/ClipData;
+
+.field private mClipGrantFlags:I
+
+.field private mConstraintFlags:I
+
 .field private mExtras:Landroid/os/PersistableBundle;
 
 .field private mFlags:I
@@ -49,9 +55,7 @@
 
 .field private mPriority:I
 
-.field private mRequiresCharging:Z
-
-.field private mRequiresDeviceIdle:Z
+.field private mTransientExtras:Landroid/os/Bundle;
 
 .field private mTriggerContentMaxDelay:J
 
@@ -78,143 +82,15 @@
     return v0
 .end method
 
-.method static synthetic -get1(Landroid/app/job/JobInfo$Builder;)Landroid/os/PersistableBundle;
+.method static synthetic -get1(Landroid/app/job/JobInfo$Builder;)Landroid/content/ClipData;
     .locals 1
 
-    iget-object v0, p0, Landroid/app/job/JobInfo$Builder;->mExtras:Landroid/os/PersistableBundle;
+    iget-object v0, p0, Landroid/app/job/JobInfo$Builder;->mClipData:Landroid/content/ClipData;
 
     return-object v0
 .end method
 
-.method static synthetic -get10(Landroid/app/job/JobInfo$Builder;)I
-    .locals 1
-
-    iget v0, p0, Landroid/app/job/JobInfo$Builder;->mJobId:I
-
-    return v0
-.end method
-
-.method static synthetic -get11(Landroid/app/job/JobInfo$Builder;)Landroid/content/ComponentName;
-    .locals 1
-
-    iget-object v0, p0, Landroid/app/job/JobInfo$Builder;->mJobService:Landroid/content/ComponentName;
-
-    return-object v0
-.end method
-
-.method static synthetic -get12(Landroid/app/job/JobInfo$Builder;)J
-    .locals 2
-
-    iget-wide v0, p0, Landroid/app/job/JobInfo$Builder;->mMaxExecutionDelayMillis:J
-
-    return-wide v0
-.end method
-
-.method static synthetic -get13(Landroid/app/job/JobInfo$Builder;)J
-    .locals 2
-
-    iget-wide v0, p0, Landroid/app/job/JobInfo$Builder;->mMinLatencyMillis:J
-
-    return-wide v0
-.end method
-
-.method static synthetic -get14(Landroid/app/job/JobInfo$Builder;)I
-    .locals 1
-
-    iget v0, p0, Landroid/app/job/JobInfo$Builder;->mNetworkType:I
-
-    return v0
-.end method
-
-.method static synthetic -get15(Landroid/app/job/JobInfo$Builder;)I
-    .locals 1
-
-    iget v0, p0, Landroid/app/job/JobInfo$Builder;->mPriority:I
-
-    return v0
-.end method
-
-.method static synthetic -get16(Landroid/app/job/JobInfo$Builder;)Z
-    .locals 1
-
-    iget-boolean v0, p0, Landroid/app/job/JobInfo$Builder;->mRequiresCharging:Z
-
-    return v0
-.end method
-
-.method static synthetic -get17(Landroid/app/job/JobInfo$Builder;)Z
-    .locals 1
-
-    iget-boolean v0, p0, Landroid/app/job/JobInfo$Builder;->mRequiresDeviceIdle:Z
-
-    return v0
-.end method
-
-.method static synthetic -get18(Landroid/app/job/JobInfo$Builder;)J
-    .locals 2
-
-    iget-wide v0, p0, Landroid/app/job/JobInfo$Builder;->mTriggerContentMaxDelay:J
-
-    return-wide v0
-.end method
-
-.method static synthetic -get19(Landroid/app/job/JobInfo$Builder;)J
-    .locals 2
-
-    iget-wide v0, p0, Landroid/app/job/JobInfo$Builder;->mTriggerContentUpdateDelay:J
-
-    return-wide v0
-.end method
-
-.method static synthetic -get2(Landroid/app/job/JobInfo$Builder;)I
-    .locals 1
-
-    iget v0, p0, Landroid/app/job/JobInfo$Builder;->mFlags:I
-
-    return v0
-.end method
-
-.method static synthetic -get20(Landroid/app/job/JobInfo$Builder;)Ljava/util/ArrayList;
-    .locals 1
-
-    iget-object v0, p0, Landroid/app/job/JobInfo$Builder;->mTriggerContentUris:Ljava/util/ArrayList;
-
-    return-object v0
-.end method
-
-.method static synthetic -get3(Landroid/app/job/JobInfo$Builder;)J
-    .locals 2
-
-    iget-wide v0, p0, Landroid/app/job/JobInfo$Builder;->mFlexMillis:J
-
-    return-wide v0
-.end method
-
-.method static synthetic -get4(Landroid/app/job/JobInfo$Builder;)Z
-    .locals 1
-
-    iget-boolean v0, p0, Landroid/app/job/JobInfo$Builder;->mHasEarlyConstraint:Z
-
-    return v0
-.end method
-
-.method static synthetic -get5(Landroid/app/job/JobInfo$Builder;)Z
-    .locals 1
-
-    iget-boolean v0, p0, Landroid/app/job/JobInfo$Builder;->mHasLateConstraint:Z
-
-    return v0
-.end method
-
-.method static synthetic -get6(Landroid/app/job/JobInfo$Builder;)J
-    .locals 2
-
-    iget-wide v0, p0, Landroid/app/job/JobInfo$Builder;->mInitialBackoffMillis:J
-
-    return-wide v0
-.end method
-
-.method static synthetic -get7(Landroid/app/job/JobInfo$Builder;)J
+.method static synthetic -get10(Landroid/app/job/JobInfo$Builder;)J
     .locals 2
 
     iget-wide v0, p0, Landroid/app/job/JobInfo$Builder;->mIntervalMillis:J
@@ -222,7 +98,7 @@
     return-wide v0
 .end method
 
-.method static synthetic -get8(Landroid/app/job/JobInfo$Builder;)Z
+.method static synthetic -get11(Landroid/app/job/JobInfo$Builder;)Z
     .locals 1
 
     iget-boolean v0, p0, Landroid/app/job/JobInfo$Builder;->mIsPeriodic:Z
@@ -230,12 +106,156 @@
     return v0
 .end method
 
-.method static synthetic -get9(Landroid/app/job/JobInfo$Builder;)Z
+.method static synthetic -get12(Landroid/app/job/JobInfo$Builder;)Z
     .locals 1
 
     iget-boolean v0, p0, Landroid/app/job/JobInfo$Builder;->mIsPersisted:Z
 
     return v0
+.end method
+
+.method static synthetic -get13(Landroid/app/job/JobInfo$Builder;)I
+    .locals 1
+
+    iget v0, p0, Landroid/app/job/JobInfo$Builder;->mJobId:I
+
+    return v0
+.end method
+
+.method static synthetic -get14(Landroid/app/job/JobInfo$Builder;)Landroid/content/ComponentName;
+    .locals 1
+
+    iget-object v0, p0, Landroid/app/job/JobInfo$Builder;->mJobService:Landroid/content/ComponentName;
+
+    return-object v0
+.end method
+
+.method static synthetic -get15(Landroid/app/job/JobInfo$Builder;)J
+    .locals 2
+
+    iget-wide v0, p0, Landroid/app/job/JobInfo$Builder;->mMaxExecutionDelayMillis:J
+
+    return-wide v0
+.end method
+
+.method static synthetic -get16(Landroid/app/job/JobInfo$Builder;)J
+    .locals 2
+
+    iget-wide v0, p0, Landroid/app/job/JobInfo$Builder;->mMinLatencyMillis:J
+
+    return-wide v0
+.end method
+
+.method static synthetic -get17(Landroid/app/job/JobInfo$Builder;)I
+    .locals 1
+
+    iget v0, p0, Landroid/app/job/JobInfo$Builder;->mNetworkType:I
+
+    return v0
+.end method
+
+.method static synthetic -get18(Landroid/app/job/JobInfo$Builder;)I
+    .locals 1
+
+    iget v0, p0, Landroid/app/job/JobInfo$Builder;->mPriority:I
+
+    return v0
+.end method
+
+.method static synthetic -get19(Landroid/app/job/JobInfo$Builder;)Landroid/os/Bundle;
+    .locals 1
+
+    iget-object v0, p0, Landroid/app/job/JobInfo$Builder;->mTransientExtras:Landroid/os/Bundle;
+
+    return-object v0
+.end method
+
+.method static synthetic -get2(Landroid/app/job/JobInfo$Builder;)I
+    .locals 1
+
+    iget v0, p0, Landroid/app/job/JobInfo$Builder;->mClipGrantFlags:I
+
+    return v0
+.end method
+
+.method static synthetic -get20(Landroid/app/job/JobInfo$Builder;)J
+    .locals 2
+
+    iget-wide v0, p0, Landroid/app/job/JobInfo$Builder;->mTriggerContentMaxDelay:J
+
+    return-wide v0
+.end method
+
+.method static synthetic -get21(Landroid/app/job/JobInfo$Builder;)J
+    .locals 2
+
+    iget-wide v0, p0, Landroid/app/job/JobInfo$Builder;->mTriggerContentUpdateDelay:J
+
+    return-wide v0
+.end method
+
+.method static synthetic -get22(Landroid/app/job/JobInfo$Builder;)Ljava/util/ArrayList;
+    .locals 1
+
+    iget-object v0, p0, Landroid/app/job/JobInfo$Builder;->mTriggerContentUris:Ljava/util/ArrayList;
+
+    return-object v0
+.end method
+
+.method static synthetic -get3(Landroid/app/job/JobInfo$Builder;)I
+    .locals 1
+
+    iget v0, p0, Landroid/app/job/JobInfo$Builder;->mConstraintFlags:I
+
+    return v0
+.end method
+
+.method static synthetic -get4(Landroid/app/job/JobInfo$Builder;)Landroid/os/PersistableBundle;
+    .locals 1
+
+    iget-object v0, p0, Landroid/app/job/JobInfo$Builder;->mExtras:Landroid/os/PersistableBundle;
+
+    return-object v0
+.end method
+
+.method static synthetic -get5(Landroid/app/job/JobInfo$Builder;)I
+    .locals 1
+
+    iget v0, p0, Landroid/app/job/JobInfo$Builder;->mFlags:I
+
+    return v0
+.end method
+
+.method static synthetic -get6(Landroid/app/job/JobInfo$Builder;)J
+    .locals 2
+
+    iget-wide v0, p0, Landroid/app/job/JobInfo$Builder;->mFlexMillis:J
+
+    return-wide v0
+.end method
+
+.method static synthetic -get7(Landroid/app/job/JobInfo$Builder;)Z
+    .locals 1
+
+    iget-boolean v0, p0, Landroid/app/job/JobInfo$Builder;->mHasEarlyConstraint:Z
+
+    return v0
+.end method
+
+.method static synthetic -get8(Landroid/app/job/JobInfo$Builder;)Z
+    .locals 1
+
+    iget-boolean v0, p0, Landroid/app/job/JobInfo$Builder;->mHasLateConstraint:Z
+
+    return v0
+.end method
+
+.method static synthetic -get9(Landroid/app/job/JobInfo$Builder;)J
+    .locals 2
+
+    iget-wide v0, p0, Landroid/app/job/JobInfo$Builder;->mInitialBackoffMillis:J
+
+    return-wide v0
 .end method
 
 .method public constructor <init>(ILandroid/content/ComponentName;)V
@@ -250,6 +270,10 @@
     sget-object v0, Landroid/os/PersistableBundle;->EMPTY:Landroid/os/PersistableBundle;
 
     iput-object v0, p0, Landroid/app/job/JobInfo$Builder;->mExtras:Landroid/os/PersistableBundle;
+
+    sget-object v0, Landroid/os/Bundle;->EMPTY:Landroid/os/Bundle;
+
+    iput-object v0, p0, Landroid/app/job/JobInfo$Builder;->mTransientExtras:Landroid/os/Bundle;
 
     iput v2, p0, Landroid/app/job/JobInfo$Builder;->mPriority:I
 
@@ -310,41 +334,11 @@
 
     iget-boolean v2, p0, Landroid/app/job/JobInfo$Builder;->mHasLateConstraint:Z
 
-    if-eqz v2, :cond_1
+    xor-int/lit8 v2, v2, 0x1
 
-    :cond_0
-    new-instance v2, Landroid/os/PersistableBundle;
+    if-eqz v2, :cond_0
 
-    iget-object v3, p0, Landroid/app/job/JobInfo$Builder;->mExtras:Landroid/os/PersistableBundle;
-
-    invoke-direct {v2, v3}, Landroid/os/PersistableBundle;-><init>(Landroid/os/PersistableBundle;)V
-
-    iput-object v2, p0, Landroid/app/job/JobInfo$Builder;->mExtras:Landroid/os/PersistableBundle;
-
-    iget-boolean v2, p0, Landroid/app/job/JobInfo$Builder;->mIsPeriodic:Z
-
-    if-eqz v2, :cond_2
-
-    iget-wide v2, p0, Landroid/app/job/JobInfo$Builder;->mMaxExecutionDelayMillis:J
-
-    cmp-long v2, v2, v6
-
-    if-eqz v2, :cond_2
-
-    new-instance v2, Ljava/lang/IllegalArgumentException;
-
-    const-string/jumbo v3, "Can\'t call setOverrideDeadline() on a periodic job."
-
-    invoke-direct {v2, v3}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
-
-    throw v2
-
-    :cond_1
-    iget-boolean v2, p0, Landroid/app/job/JobInfo$Builder;->mRequiresCharging:Z
-
-    if-nez v2, :cond_0
-
-    iget-boolean v2, p0, Landroid/app/job/JobInfo$Builder;->mRequiresDeviceIdle:Z
+    iget v2, p0, Landroid/app/job/JobInfo$Builder;->mConstraintFlags:I
 
     if-nez v2, :cond_0
 
@@ -364,16 +358,31 @@
 
     throw v2
 
-    :cond_2
+    :cond_0
     iget-boolean v2, p0, Landroid/app/job/JobInfo$Builder;->mIsPeriodic:Z
 
     if-eqz v2, :cond_3
 
+    iget-wide v2, p0, Landroid/app/job/JobInfo$Builder;->mMaxExecutionDelayMillis:J
+
+    cmp-long v2, v2, v6
+
+    if-eqz v2, :cond_1
+
+    new-instance v2, Ljava/lang/IllegalArgumentException;
+
+    const-string/jumbo v3, "Can\'t call setOverrideDeadline() on a periodic job."
+
+    invoke-direct {v2, v3}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v2
+
+    :cond_1
     iget-wide v2, p0, Landroid/app/job/JobInfo$Builder;->mMinLatencyMillis:J
 
     cmp-long v2, v2, v6
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_2
 
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
@@ -383,14 +392,10 @@
 
     throw v2
 
-    :cond_3
-    iget-boolean v2, p0, Landroid/app/job/JobInfo$Builder;->mIsPeriodic:Z
-
-    if-eqz v2, :cond_4
-
+    :cond_2
     iget-object v2, p0, Landroid/app/job/JobInfo$Builder;->mTriggerContentUris:Ljava/util/ArrayList;
 
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_3
 
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
@@ -400,14 +405,14 @@
 
     throw v2
 
-    :cond_4
+    :cond_3
     iget-boolean v2, p0, Landroid/app/job/JobInfo$Builder;->mIsPersisted:Z
 
-    if-eqz v2, :cond_5
+    if-eqz v2, :cond_6
 
     iget-object v2, p0, Landroid/app/job/JobInfo$Builder;->mTriggerContentUris:Ljava/util/ArrayList;
 
-    if-eqz v2, :cond_5
+    if-eqz v2, :cond_4
 
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
@@ -417,14 +422,46 @@
 
     throw v2
 
+    :cond_4
+    iget-object v2, p0, Landroid/app/job/JobInfo$Builder;->mTransientExtras:Landroid/os/Bundle;
+
+    invoke-virtual {v2}, Landroid/os/Bundle;->isEmpty()Z
+
+    move-result v2
+
+    if-nez v2, :cond_5
+
+    new-instance v2, Ljava/lang/IllegalArgumentException;
+
+    const-string/jumbo v3, "Can\'t call setTransientExtras() on a persisted job"
+
+    invoke-direct {v2, v3}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v2
+
     :cond_5
+    iget-object v2, p0, Landroid/app/job/JobInfo$Builder;->mClipData:Landroid/content/ClipData;
+
+    if-eqz v2, :cond_6
+
+    new-instance v2, Ljava/lang/IllegalArgumentException;
+
+    const-string/jumbo v3, "Can\'t call setClipData() on a persisted job"
+
+    invoke-direct {v2, v3}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v2
+
+    :cond_6
     iget-boolean v2, p0, Landroid/app/job/JobInfo$Builder;->mBackoffPolicySet:Z
 
-    if-eqz v2, :cond_6
+    if-eqz v2, :cond_7
 
-    iget-boolean v2, p0, Landroid/app/job/JobInfo$Builder;->mRequiresDeviceIdle:Z
+    iget v2, p0, Landroid/app/job/JobInfo$Builder;->mConstraintFlags:I
 
-    if-eqz v2, :cond_6
+    and-int/lit8 v2, v2, 0x4
+
+    if-eqz v2, :cond_7
 
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
@@ -434,7 +471,7 @@
 
     throw v2
 
-    :cond_6
+    :cond_7
     new-instance v1, Landroid/app/job/JobInfo;
 
     invoke-direct {v1, p0, v4}, Landroid/app/job/JobInfo;-><init>(Landroid/app/job/JobInfo$Builder;Landroid/app/job/JobInfo;)V
@@ -443,7 +480,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_8
+    if-eqz v2, :cond_9
 
     invoke-static {v1}, Landroid/app/job/JobInfo;->-get2(Landroid/app/job/JobInfo;)J
 
@@ -455,7 +492,7 @@
 
     cmp-long v2, v2, v4
 
-    if-eqz v2, :cond_7
+    if-eqz v2, :cond_8
 
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -505,7 +542,7 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_7
+    :cond_8
     invoke-static {v1}, Landroid/app/job/JobInfo;->-get1(Landroid/app/job/JobInfo;)J
 
     move-result-wide v2
@@ -516,7 +553,7 @@
 
     cmp-long v2, v2, v4
 
-    if-eqz v2, :cond_8
+    if-eqz v2, :cond_9
 
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -566,7 +603,7 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_8
+    :cond_9
     return-object v1
 .end method
 
@@ -580,6 +617,16 @@
     iput-wide p1, p0, Landroid/app/job/JobInfo$Builder;->mInitialBackoffMillis:J
 
     iput p3, p0, Landroid/app/job/JobInfo$Builder;->mBackoffPolicy:I
+
+    return-object p0
+.end method
+
+.method public setClipData(Landroid/content/ClipData;I)Landroid/app/job/JobInfo$Builder;
+    .locals 0
+
+    iput-object p1, p0, Landroid/app/job/JobInfo$Builder;->mClipData:Landroid/content/ClipData;
+
+    iput p2, p0, Landroid/app/job/JobInfo$Builder;->mClipGrantFlags:I
 
     return-object p0
 .end method
@@ -676,18 +723,106 @@
     return-object p0
 .end method
 
-.method public setRequiresCharging(Z)Landroid/app/job/JobInfo$Builder;
-    .locals 0
+.method public setRequiresBatteryNotLow(Z)Landroid/app/job/JobInfo$Builder;
+    .locals 2
 
-    iput-boolean p1, p0, Landroid/app/job/JobInfo$Builder;->mRequiresCharging:Z
+    iget v0, p0, Landroid/app/job/JobInfo$Builder;->mConstraintFlags:I
+
+    and-int/lit8 v1, v0, -0x3
+
+    if-eqz p1, :cond_0
+
+    const/4 v0, 0x2
+
+    :goto_0
+    or-int/2addr v0, v1
+
+    iput v0, p0, Landroid/app/job/JobInfo$Builder;->mConstraintFlags:I
 
     return-object p0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
+.method public setRequiresCharging(Z)Landroid/app/job/JobInfo$Builder;
+    .locals 2
+
+    iget v0, p0, Landroid/app/job/JobInfo$Builder;->mConstraintFlags:I
+
+    and-int/lit8 v1, v0, -0x2
+
+    if-eqz p1, :cond_0
+
+    const/4 v0, 0x1
+
+    :goto_0
+    or-int/2addr v0, v1
+
+    iput v0, p0, Landroid/app/job/JobInfo$Builder;->mConstraintFlags:I
+
+    return-object p0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
 .end method
 
 .method public setRequiresDeviceIdle(Z)Landroid/app/job/JobInfo$Builder;
+    .locals 2
+
+    iget v0, p0, Landroid/app/job/JobInfo$Builder;->mConstraintFlags:I
+
+    and-int/lit8 v1, v0, -0x5
+
+    if-eqz p1, :cond_0
+
+    const/4 v0, 0x4
+
+    :goto_0
+    or-int/2addr v0, v1
+
+    iput v0, p0, Landroid/app/job/JobInfo$Builder;->mConstraintFlags:I
+
+    return-object p0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
+.method public setRequiresStorageNotLow(Z)Landroid/app/job/JobInfo$Builder;
+    .locals 2
+
+    iget v0, p0, Landroid/app/job/JobInfo$Builder;->mConstraintFlags:I
+
+    and-int/lit8 v1, v0, -0x9
+
+    if-eqz p1, :cond_0
+
+    const/16 v0, 0x8
+
+    :goto_0
+    or-int/2addr v0, v1
+
+    iput v0, p0, Landroid/app/job/JobInfo$Builder;->mConstraintFlags:I
+
+    return-object p0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
+.method public setTransientExtras(Landroid/os/Bundle;)Landroid/app/job/JobInfo$Builder;
     .locals 0
 
-    iput-boolean p1, p0, Landroid/app/job/JobInfo$Builder;->mRequiresDeviceIdle:Z
+    iput-object p1, p0, Landroid/app/job/JobInfo$Builder;->mTransientExtras:Landroid/os/Bundle;
 
     return-object p0
 .end method

@@ -49,6 +49,8 @@
 
 .field private final mResourceId:I
 
+.field private final mTargetSandboxVesrsion:I
+
 .field private final mTargetSdkVersion:I
 
 
@@ -74,6 +76,26 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;IZI)V
+    .locals 6
+
+    const/4 v5, 0x1
+
+    move-object v0, p0
+
+    move-object v1, p1
+
+    move v2, p2
+
+    move v3, p3
+
+    move v4, p4
+
+    invoke-direct/range {v0 .. v5}, Landroid/security/net/config/XmlConfigSource;-><init>(Landroid/content/Context;IZII)V
+
+    return-void
+.end method
+
+.method public constructor <init>(Landroid/content/Context;IZII)V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -92,6 +114,8 @@
 
     iput p4, p0, Landroid/security/net/config/XmlConfigSource;->mTargetSdkVersion:I
 
+    iput p5, p0, Landroid/security/net/config/XmlConfigSource;->mTargetSandboxVesrsion:I
+
     return-void
 .end method
 
@@ -104,20 +128,23 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    xor-int/lit8 v0, v0, 0x1
 
-    invoke-virtual {p2}, Landroid/security/net/config/NetworkSecurityConfig$Builder;->hasCertificatesEntryRefs()Z
-
-    move-result v0
-
-    if-nez v0, :cond_1
-
-    return-void
+    if-eqz v0, :cond_1
 
     :cond_0
     return-void
 
     :cond_1
+    invoke-virtual {p2}, Landroid/security/net/config/NetworkSecurityConfig$Builder;->hasCertificatesEntryRefs()Z
+
+    move-result v0
+
+    if-nez v0, :cond_2
+
+    return-void
+
+    :cond_2
     invoke-virtual {p1}, Landroid/security/net/config/NetworkSecurityConfig$Builder;->getCertificatesEntryRefs()Ljava/util/List;
 
     move-result-object v0
@@ -1566,7 +1593,13 @@
 
     move/from16 v21, v0
 
-    invoke-static/range {v21 .. v21}, Landroid/security/net/config/NetworkSecurityConfig;->getDefaultBuilder(I)Landroid/security/net/config/NetworkSecurityConfig$Builder;
+    move-object/from16 v0, p0
+
+    iget v0, v0, Landroid/security/net/config/XmlConfigSource;->mTargetSandboxVesrsion:I
+
+    move/from16 v22, v0
+
+    invoke-static/range {v21 .. v22}, Landroid/security/net/config/NetworkSecurityConfig;->getDefaultBuilder(II)Landroid/security/net/config/NetworkSecurityConfig$Builder;
 
     move-result-object v17
 
@@ -1891,9 +1924,9 @@
 
     const/4 v9, 0x0
 
-    invoke-virtual {v7, v9}, Ljava/text/DateFormat;->setLenient(Z)V
+    invoke-virtual {v7, v9}, Ljava/text/SimpleDateFormat;->setLenient(Z)V
 
-    invoke-virtual {v7, v2}, Ljava/text/DateFormat;->parse(Ljava/lang/String;)Ljava/util/Date;
+    invoke-virtual {v7, v2}, Ljava/text/SimpleDateFormat;->parse(Ljava/lang/String;)Ljava/util/Date;
 
     move-result-object v0
 

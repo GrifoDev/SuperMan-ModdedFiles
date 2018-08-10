@@ -53,9 +53,13 @@
 .end method
 
 .method public abstract invalidateChild(Landroid/view/View;Landroid/graphics/Rect;)V
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 .end method
 
 .method public abstract invalidateChildInParent([ILandroid/graphics/Rect;)Landroid/view/ViewParent;
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 .end method
 
 .method public abstract isLayoutDirectionResolved()Z
@@ -70,7 +74,29 @@
 .method public abstract isTextDirectionResolved()Z
 .end method
 
+.method public abstract keyboardNavigationClusterSearch(Landroid/view/View;I)Landroid/view/View;
+.end method
+
 .method public abstract notifySubtreeAccessibilityStateChanged(Landroid/view/View;Landroid/view/View;I)V
+.end method
+
+.method public onDescendantInvalidated(Landroid/view/View;Landroid/view/View;)V
+    .locals 1
+
+    invoke-interface {p0}, Landroid/view/ViewParent;->getParent()Landroid/view/ViewParent;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    invoke-interface {p0}, Landroid/view/ViewParent;->getParent()Landroid/view/ViewParent;
+
+    move-result-object v0
+
+    invoke-interface {v0, p1, p2}, Landroid/view/ViewParent;->onDescendantInvalidated(Landroid/view/View;Landroid/view/View;)V
+
+    :cond_0
+    return-void
 .end method
 
 .method public abstract onNestedFling(Landroid/view/View;FFZ)Z
@@ -113,9 +139,6 @@
 .end method
 
 .method public abstract requestLayout()V
-.end method
-
-.method public abstract requestOnStylusButtonEvent(Landroid/view/MotionEvent;)V
 .end method
 
 .method public abstract requestSendAccessibilityEvent(Landroid/view/View;Landroid/view/accessibility/AccessibilityEvent;)Z

@@ -74,11 +74,11 @@
 
     move-result-object v5
 
-    invoke-virtual {v4, v5}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+    invoke-virtual {v4, v5}, Landroid/widget/DigitalClock;->setText(Ljava/lang/CharSequence;)V
 
     iget-object v4, p0, Landroid/widget/DigitalClock$1;->this$0:Landroid/widget/DigitalClock;
 
-    invoke-virtual {v4}, Landroid/view/View;->invalidate()V
+    invoke-virtual {v4}, Landroid/widget/DigitalClock;->invalidate()V
 
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 

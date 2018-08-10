@@ -17,7 +17,7 @@
 # instance fields
 .field public final client:Landroid/app/ActivityThread$ProviderClientRecord;
 
-.field public final holder:Landroid/app/IActivityManager$ContentProviderHolder;
+.field public final holder:Landroid/app/ContentProviderHolder;
 
 .field public removePending:Z
 
@@ -27,12 +27,12 @@
 
 
 # direct methods
-.method constructor <init>(Landroid/app/IActivityManager$ContentProviderHolder;Landroid/app/ActivityThread$ProviderClientRecord;II)V
+.method constructor <init>(Landroid/app/ContentProviderHolder;Landroid/app/ActivityThread$ProviderClientRecord;II)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Landroid/app/ActivityThread$ProviderRefCount;->holder:Landroid/app/IActivityManager$ContentProviderHolder;
+    iput-object p1, p0, Landroid/app/ActivityThread$ProviderRefCount;->holder:Landroid/app/ContentProviderHolder;
 
     iput-object p2, p0, Landroid/app/ActivityThread$ProviderRefCount;->client:Landroid/app/ActivityThread$ProviderClientRecord;
 

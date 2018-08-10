@@ -241,7 +241,7 @@
 
     move-result-object v1
 
-    invoke-virtual {v1, p3}, Lcom/samsung/android/contextaware/manager/ContextComponent;->registerObserver(Lcom/samsung/android/contextaware/manager/IContextObserver;)V
+    invoke-virtual {v1, p3}, Lcom/samsung/android/contextaware/manager/ContextProvider;->registerObserver(Lcom/samsung/android/contextaware/manager/IContextObserver;)V
 
     invoke-virtual {v0}, Lcom/samsung/android/contextaware/manager/ContextComponent;->getContextProvider()Lcom/samsung/android/contextaware/manager/ContextProvider;
 
@@ -255,7 +255,7 @@
 
     move-result-object v2
 
-    invoke-virtual {v1, v2}, Lcom/samsung/android/contextaware/manager/ContextComponent;->registerCmdProcessResultObserver(Lcom/samsung/android/contextaware/manager/fault/ICmdProcessResultObserver;)V
+    invoke-virtual {v1, v2}, Lcom/samsung/android/contextaware/manager/ContextProvider;->registerCmdProcessResultObserver(Lcom/samsung/android/contextaware/manager/fault/ICmdProcessResultObserver;)V
 
     invoke-virtual {v0}, Lcom/samsung/android/contextaware/manager/ContextComponent;->getContextProvider()Lcom/samsung/android/contextaware/manager/ContextProvider;
 
@@ -337,7 +337,7 @@
 
     move-result-object v1
 
-    invoke-virtual {v1}, Lcom/samsung/android/contextaware/manager/ContextComponent;->notifyInitContext()V
+    invoke-virtual {v1}, Lcom/samsung/android/contextaware/manager/ContextProvider;->notifyInitContext()V
 
     :cond_0
     return-void
@@ -424,7 +424,7 @@
     return-void
 
     :cond_1
-    invoke-virtual {v1}, Lcom/samsung/android/contextaware/manager/ContextComponent;->isRunning()Z
+    invoke-virtual {v1}, Lcom/samsung/android/contextaware/manager/ContextProvider;->isRunning()Z
 
     move-result v2
 
@@ -449,7 +449,7 @@
 
     move-result-object v2
 
-    invoke-virtual {v2}, Lcom/samsung/android/contextaware/manager/ContextComponent;->clearAccordingToRequest()V
+    invoke-virtual {v2}, Lcom/samsung/android/contextaware/manager/ContextProvider;->clearAccordingToRequest()V
 
     return-void
 .end method
@@ -476,7 +476,7 @@
 
     move-result-object v1
 
-    invoke-virtual {v1, p2, p3}, Lcom/samsung/android/contextaware/manager/ContextComponent;->setProperty(ILjava/lang/Object;)Z
+    invoke-virtual {v1, p2, p3}, Lcom/samsung/android/contextaware/manager/ContextProvider;->setProperty(ILjava/lang/Object;)Z
 
     move-result v1
 
@@ -527,7 +527,7 @@
 
     move-result-object v1
 
-    invoke-virtual {v1, p3}, Lcom/samsung/android/contextaware/manager/ContextComponent;->registerObserver(Lcom/samsung/android/contextaware/manager/IContextObserver;)V
+    invoke-virtual {v1, p3}, Lcom/samsung/android/contextaware/manager/ContextProvider;->registerObserver(Lcom/samsung/android/contextaware/manager/IContextObserver;)V
 
     invoke-virtual {v0}, Lcom/samsung/android/contextaware/manager/ContextComponent;->getContextProvider()Lcom/samsung/android/contextaware/manager/ContextProvider;
 
@@ -541,7 +541,7 @@
 
     move-result-object v2
 
-    invoke-virtual {v1, v2}, Lcom/samsung/android/contextaware/manager/ContextComponent;->registerCmdProcessResultObserver(Lcom/samsung/android/contextaware/manager/fault/ICmdProcessResultObserver;)V
+    invoke-virtual {v1, v2}, Lcom/samsung/android/contextaware/manager/ContextProvider;->registerCmdProcessResultObserver(Lcom/samsung/android/contextaware/manager/fault/ICmdProcessResultObserver;)V
 
     invoke-virtual {v0, p1, p4}, Lcom/samsung/android/contextaware/manager/ContextComponent;->start(Lcom/samsung/android/contextaware/manager/ContextAwareService$Listener;I)V
 
@@ -611,7 +611,7 @@
 
     move-result-object v2
 
-    invoke-virtual {v2, p4}, Lcom/samsung/android/contextaware/manager/ContextComponent;->unregisterCmdProcessResultObserver(Lcom/samsung/android/contextaware/manager/fault/ICmdProcessResultObserver;)V
+    invoke-virtual {v2, p4}, Lcom/samsung/android/contextaware/manager/ContextProvider;->unregisterCmdProcessResultObserver(Lcom/samsung/android/contextaware/manager/fault/ICmdProcessResultObserver;)V
 
     :goto_0
     invoke-virtual {p0, p2}, Lcom/samsung/android/contextaware/manager/ContextManager;->removeContextProviderObj(Ljava/lang/String;)V
@@ -632,7 +632,7 @@
 
     move-result-object v3
 
-    invoke-virtual {v2, v3}, Lcom/samsung/android/contextaware/manager/ContextComponent;->unregisterCmdProcessResultObserver(Lcom/samsung/android/contextaware/manager/fault/ICmdProcessResultObserver;)V
+    invoke-virtual {v2, v3}, Lcom/samsung/android/contextaware/manager/ContextProvider;->unregisterCmdProcessResultObserver(Lcom/samsung/android/contextaware/manager/fault/ICmdProcessResultObserver;)V
 
     goto :goto_0
 .end method
@@ -658,7 +658,7 @@
 
     move-result-object v2
 
-    invoke-virtual {v1, v2}, Lcom/samsung/android/contextaware/manager/ContextComponent;->unregisterCmdProcessResultObserver(Lcom/samsung/android/contextaware/manager/fault/ICmdProcessResultObserver;)V
+    invoke-virtual {v1, v2}, Lcom/samsung/android/contextaware/manager/ContextProvider;->unregisterCmdProcessResultObserver(Lcom/samsung/android/contextaware/manager/fault/ICmdProcessResultObserver;)V
 
     :cond_0
     return-void

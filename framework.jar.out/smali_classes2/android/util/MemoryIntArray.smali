@@ -33,6 +33,8 @@
 
 
 # instance fields
+.field private final mCloseGuard:Ldalvik/system/CloseGuard;
+
 .field private mFd:I
 
 .field private final mIsOwner:Z
@@ -62,6 +64,16 @@
     .end annotation
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    invoke-static {}, Ldalvik/system/CloseGuard;->get()Ldalvik/system/CloseGuard;
+
+    move-result-object v1
+
+    iput-object v1, p0, Landroid/util/MemoryIntArray;->mCloseGuard:Ldalvik/system/CloseGuard;
+
+    const/4 v1, -0x1
+
+    iput v1, p0, Landroid/util/MemoryIntArray;->mFd:I
 
     const/16 v1, 0x400
 
@@ -104,6 +116,12 @@
 
     iput-wide v2, p0, Landroid/util/MemoryIntArray;->mMemoryAddr:J
 
+    iget-object v1, p0, Landroid/util/MemoryIntArray;->mCloseGuard:Ldalvik/system/CloseGuard;
+
+    const-string/jumbo v2, "close"
+
+    invoke-virtual {v1, v2}, Ldalvik/system/CloseGuard;->open(Ljava/lang/String;)V
+
     return-void
 .end method
 
@@ -118,6 +136,16 @@
     const/4 v2, 0x0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    invoke-static {}, Ldalvik/system/CloseGuard;->get()Ldalvik/system/CloseGuard;
+
+    move-result-object v1
+
+    iput-object v1, p0, Landroid/util/MemoryIntArray;->mCloseGuard:Ldalvik/system/CloseGuard;
+
+    const/4 v1, -0x1
+
+    iput v1, p0, Landroid/util/MemoryIntArray;->mFd:I
 
     const/4 v1, 0x0
 
@@ -155,6 +183,12 @@
     move-result-wide v2
 
     iput-wide v2, p0, Landroid/util/MemoryIntArray;->mMemoryAddr:J
+
+    iget-object v1, p0, Landroid/util/MemoryIntArray;->mCloseGuard:Ldalvik/system/CloseGuard;
+
+    const-string/jumbo v2, "close"
+
+    invoke-virtual {v1, v2}, Ldalvik/system/CloseGuard;->open(Ljava/lang/String;)V
 
     return-void
 .end method
@@ -316,6 +350,10 @@
 
     iput v0, p0, Landroid/util/MemoryIntArray;->mFd:I
 
+    iget-object v0, p0, Landroid/util/MemoryIntArray;->mCloseGuard:Ldalvik/system/CloseGuard;
+
+    invoke-virtual {v0}, Ldalvik/system/CloseGuard;->close()V
+
     :cond_0
     return-void
 .end method
@@ -378,18 +416,32 @@
 .end method
 
 .method protected finalize()V
-    .locals 0
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Throwable;
         }
     .end annotation
 
+    :try_start_0
+    iget-object v0, p0, Landroid/util/MemoryIntArray;->mCloseGuard:Ldalvik/system/CloseGuard;
+
+    invoke-virtual {v0}, Ldalvik/system/CloseGuard;->warnIfOpen()V
+
     invoke-static {p0}, Llibcore/io/IoUtils;->closeQuietly(Ljava/lang/AutoCloseable;)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     invoke-super {p0}, Ljava/lang/Object;->finalize()V
 
     return-void
+
+    :catchall_0
+    move-exception v0
+
+    invoke-super {p0}, Ljava/lang/Object;->finalize()V
+
+    throw v0
 .end method
 
 .method public get(I)I

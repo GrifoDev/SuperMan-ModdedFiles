@@ -3,7 +3,7 @@
 .source "View.java"
 
 # interfaces
-.implements Lcom/android/internal/util/Predicate;
+.implements Ljava/util/function/Predicate;
 
 
 # annotations
@@ -19,7 +19,7 @@
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Object;",
-        "Lcom/android/internal/util/Predicate",
+        "Ljava/util/function/Predicate",
         "<",
         "Landroid/view/View;",
         ">;"
@@ -48,7 +48,7 @@
 
 
 # virtual methods
-.method public apply(Landroid/view/View;)Z
+.method public test(Landroid/view/View;)Z
     .locals 2
 
     iget v0, p1, Landroid/view/View;->mNextFocusForwardId:I
@@ -68,12 +68,12 @@
     goto :goto_0
 .end method
 
-.method public bridge synthetic apply(Ljava/lang/Object;)Z
+.method public bridge synthetic test(Ljava/lang/Object;)Z
     .locals 1
 
     check-cast p1, Landroid/view/View;
 
-    invoke-virtual {p0, p1}, Landroid/view/View$13;->apply(Landroid/view/View;)Z
+    invoke-virtual {p0, p1}, Landroid/view/View$13;->test(Landroid/view/View;)Z
 
     move-result v0
 

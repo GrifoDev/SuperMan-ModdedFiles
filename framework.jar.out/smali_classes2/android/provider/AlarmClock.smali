@@ -12,6 +12,8 @@
 
 .field public static final ACTION_SHOW_ALARMS:Ljava/lang/String; = "android.intent.action.SHOW_ALARMS"
 
+.field public static final ACTION_SHOW_TIMERS:Ljava/lang/String; = "android.intent.action.SHOW_TIMERS"
+
 .field public static final ACTION_SNOOZE_ALARM:Ljava/lang/String; = "android.intent.action.SNOOZE_ALARM"
 
 .field public static final ALARM_SEARCH_MODE_ALL:Ljava/lang/String; = "android.all"

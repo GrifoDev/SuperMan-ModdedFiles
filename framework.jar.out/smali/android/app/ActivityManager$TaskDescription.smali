@@ -57,6 +57,10 @@
 
 .field private mLabel:Ljava/lang/String;
 
+.field private mNavigationBarColor:I
+
+.field private mStatusBarColor:I
+
 
 # direct methods
 .method static constructor <clinit>()V
@@ -72,11 +76,11 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 6
-
-    const/4 v4, 0x0
+    .locals 8
 
     const/4 v1, 0x0
+
+    const/4 v4, 0x0
 
     move-object v0, p0
 
@@ -86,7 +90,11 @@
 
     move v5, v4
 
-    invoke-direct/range {v0 .. v5}, Landroid/app/ActivityManager$TaskDescription;-><init>(Ljava/lang/String;Landroid/graphics/Bitmap;Ljava/lang/String;II)V
+    move v6, v4
+
+    move v7, v4
+
+    invoke-direct/range {v0 .. v7}, Landroid/app/ActivityManager$TaskDescription;-><init>(Ljava/lang/String;Landroid/graphics/Bitmap;Ljava/lang/String;IIII)V
 
     return-void
 .end method
@@ -120,7 +128,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;)V
-    .locals 6
+    .locals 8
 
     const/4 v2, 0x0
 
@@ -134,13 +142,17 @@
 
     move v5, v4
 
-    invoke-direct/range {v0 .. v5}, Landroid/app/ActivityManager$TaskDescription;-><init>(Ljava/lang/String;Landroid/graphics/Bitmap;Ljava/lang/String;II)V
+    move v6, v4
+
+    move v7, v4
+
+    invoke-direct/range {v0 .. v7}, Landroid/app/ActivityManager$TaskDescription;-><init>(Ljava/lang/String;Landroid/graphics/Bitmap;Ljava/lang/String;IIII)V
 
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Landroid/graphics/Bitmap;)V
-    .locals 6
+    .locals 8
 
     const/4 v4, 0x0
 
@@ -154,13 +166,17 @@
 
     move v5, v4
 
-    invoke-direct/range {v0 .. v5}, Landroid/app/ActivityManager$TaskDescription;-><init>(Ljava/lang/String;Landroid/graphics/Bitmap;Ljava/lang/String;II)V
+    move v6, v4
+
+    move v7, v4
+
+    invoke-direct/range {v0 .. v7}, Landroid/app/ActivityManager$TaskDescription;-><init>(Ljava/lang/String;Landroid/graphics/Bitmap;Ljava/lang/String;IIII)V
 
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Landroid/graphics/Bitmap;I)V
-    .locals 6
+    .locals 8
 
     const/4 v5, 0x0
 
@@ -174,7 +190,11 @@
 
     move v4, p3
 
-    invoke-direct/range {v0 .. v5}, Landroid/app/ActivityManager$TaskDescription;-><init>(Ljava/lang/String;Landroid/graphics/Bitmap;Ljava/lang/String;II)V
+    move v6, v5
+
+    move v7, v5
+
+    invoke-direct/range {v0 .. v7}, Landroid/app/ActivityManager$TaskDescription;-><init>(Ljava/lang/String;Landroid/graphics/Bitmap;Ljava/lang/String;IIII)V
 
     if-eqz p3, :cond_0
 
@@ -198,7 +218,7 @@
     return-void
 .end method
 
-.method public constructor <init>(Ljava/lang/String;Landroid/graphics/Bitmap;Ljava/lang/String;II)V
+.method public constructor <init>(Ljava/lang/String;Landroid/graphics/Bitmap;Ljava/lang/String;IIII)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -213,6 +233,10 @@
 
     iput p5, p0, Landroid/app/ActivityManager$TaskDescription;->mColorBackground:I
 
+    iput p6, p0, Landroid/app/ActivityManager$TaskDescription;->mStatusBarColor:I
+
+    iput p7, p0, Landroid/app/ActivityManager$TaskDescription;->mNavigationBarColor:I
+
     return-void
 .end method
 
@@ -224,7 +248,7 @@
     if-eqz p0, :cond_0
 
     :try_start_0
-    invoke-static {}, Landroid/app/ActivityManagerNative;->getDefault()Landroid/app/IActivityManager;
+    invoke-static {}, Landroid/app/ActivityManager;->getService()Landroid/app/IActivityManager;
 
     move-result-object v1
 
@@ -274,6 +298,63 @@
 
     iput v0, p0, Landroid/app/ActivityManager$TaskDescription;->mColorBackground:I
 
+    iget v0, p1, Landroid/app/ActivityManager$TaskDescription;->mStatusBarColor:I
+
+    iput v0, p0, Landroid/app/ActivityManager$TaskDescription;->mStatusBarColor:I
+
+    iget v0, p1, Landroid/app/ActivityManager$TaskDescription;->mNavigationBarColor:I
+
+    iput v0, p0, Landroid/app/ActivityManager$TaskDescription;->mNavigationBarColor:I
+
+    return-void
+.end method
+
+.method public copyFromPreserveHiddenFields(Landroid/app/ActivityManager$TaskDescription;)V
+    .locals 1
+
+    iget-object v0, p1, Landroid/app/ActivityManager$TaskDescription;->mLabel:Ljava/lang/String;
+
+    iput-object v0, p0, Landroid/app/ActivityManager$TaskDescription;->mLabel:Ljava/lang/String;
+
+    iget-object v0, p1, Landroid/app/ActivityManager$TaskDescription;->mIcon:Landroid/graphics/Bitmap;
+
+    iput-object v0, p0, Landroid/app/ActivityManager$TaskDescription;->mIcon:Landroid/graphics/Bitmap;
+
+    iget-object v0, p1, Landroid/app/ActivityManager$TaskDescription;->mIconFilename:Ljava/lang/String;
+
+    iput-object v0, p0, Landroid/app/ActivityManager$TaskDescription;->mIconFilename:Ljava/lang/String;
+
+    iget v0, p1, Landroid/app/ActivityManager$TaskDescription;->mColorPrimary:I
+
+    iput v0, p0, Landroid/app/ActivityManager$TaskDescription;->mColorPrimary:I
+
+    iget v0, p1, Landroid/app/ActivityManager$TaskDescription;->mColorBackground:I
+
+    if-eqz v0, :cond_0
+
+    iget v0, p1, Landroid/app/ActivityManager$TaskDescription;->mColorBackground:I
+
+    iput v0, p0, Landroid/app/ActivityManager$TaskDescription;->mColorBackground:I
+
+    :cond_0
+    iget v0, p1, Landroid/app/ActivityManager$TaskDescription;->mStatusBarColor:I
+
+    if-eqz v0, :cond_1
+
+    iget v0, p1, Landroid/app/ActivityManager$TaskDescription;->mStatusBarColor:I
+
+    iput v0, p0, Landroid/app/ActivityManager$TaskDescription;->mStatusBarColor:I
+
+    :cond_1
+    iget v0, p1, Landroid/app/ActivityManager$TaskDescription;->mNavigationBarColor:I
+
+    if-eqz v0, :cond_2
+
+    iget v0, p1, Landroid/app/ActivityManager$TaskDescription;->mNavigationBarColor:I
+
+    iput v0, p0, Landroid/app/ActivityManager$TaskDescription;->mNavigationBarColor:I
+
+    :cond_2
     return-void
 .end method
 
@@ -342,10 +423,26 @@
     return-object v0
 .end method
 
+.method public getNavigationBarColor()I
+    .locals 1
+
+    iget v0, p0, Landroid/app/ActivityManager$TaskDescription;->mNavigationBarColor:I
+
+    return v0
+.end method
+
 .method public getPrimaryColor()I
     .locals 1
 
     iget v0, p0, Landroid/app/ActivityManager$TaskDescription;->mColorPrimary:I
+
+    return v0
+.end method
+
+.method public getStatusBarColor()I
+    .locals 1
+
+    iget v0, p0, Landroid/app/ActivityManager$TaskDescription;->mStatusBarColor:I
 
     return v0
 .end method
@@ -396,6 +493,18 @@
     move-result v0
 
     iput v0, p0, Landroid/app/ActivityManager$TaskDescription;->mColorBackground:I
+
+    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
+
+    move-result v0
+
+    iput v0, p0, Landroid/app/ActivityManager$TaskDescription;->mStatusBarColor:I
+
+    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
+
+    move-result v0
+
+    iput v0, p0, Landroid/app/ActivityManager$TaskDescription;->mNavigationBarColor:I
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
@@ -614,6 +723,14 @@
     return-void
 .end method
 
+.method public setNavigationBarColor(I)V
+    .locals 0
+
+    iput p1, p0, Landroid/app/ActivityManager$TaskDescription;->mNavigationBarColor:I
+
+    return-void
+.end method
+
 .method public setPrimaryColor(I)V
     .locals 2
 
@@ -637,6 +754,14 @@
 
     :cond_0
     iput p1, p0, Landroid/app/ActivityManager$TaskDescription;->mColorPrimary:I
+
+    return-void
+.end method
+
+.method public setStatusBarColor(I)V
+    .locals 0
+
+    iput p1, p0, Landroid/app/ActivityManager$TaskDescription;->mStatusBarColor:I
 
     return-void
 .end method
@@ -708,6 +833,30 @@
 
     move-result-object v0
 
+    const-string/jumbo v1, " statusBarColor: "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    iget v1, p0, Landroid/app/ActivityManager$TaskDescription;->mColorBackground:I
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string/jumbo v1, " navigationBarColor: "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    iget v1, p0, Landroid/app/ActivityManager$TaskDescription;->mNavigationBarColor:I
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
@@ -741,6 +890,14 @@
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
     iget v0, p0, Landroid/app/ActivityManager$TaskDescription;->mColorBackground:I
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
+
+    iget v0, p0, Landroid/app/ActivityManager$TaskDescription;->mStatusBarColor:I
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
+
+    iget v0, p0, Landroid/app/ActivityManager$TaskDescription;->mNavigationBarColor:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 

@@ -407,24 +407,10 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    xor-int/lit8 v1, v1, 0x1
 
-    :cond_1
-    iget-object v1, p0, Landroid/speech/tts/TextToSpeech$Connection;->mService:Landroid/speech/tts/ITextToSpeechService;
+    if-eqz v1, :cond_1
 
-    invoke-interface {p1, v1}, Landroid/speech/tts/TextToSpeech$Action;->run(Landroid/speech/tts/ITextToSpeechService;)Ljava/lang/Object;
-    :try_end_1
-    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    move-result-object v1
-
-    monitor-exit v2
-
-    return-object v1
-
-    :cond_2
-    :try_start_2
     const-string/jumbo v1, "TextToSpeech"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -446,13 +432,28 @@
     move-result-object v3
 
     invoke-static {v1, v3}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_2
-    .catch Landroid/os/RemoteException; {:try_start_2 .. :try_end_2} :catch_0
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    :try_end_1
+    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     monitor-exit v2
 
     return-object p2
+
+    :cond_1
+    :try_start_2
+    iget-object v1, p0, Landroid/speech/tts/TextToSpeech$Connection;->mService:Landroid/speech/tts/ITextToSpeechService;
+
+    invoke-interface {p1, v1}, Landroid/speech/tts/TextToSpeech$Action;->run(Landroid/speech/tts/ITextToSpeechService;)Ljava/lang/Object;
+    :try_end_2
+    .catch Landroid/os/RemoteException; {:try_start_2 .. :try_end_2} :catch_0
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+
+    move-result-object v1
+
+    monitor-exit v2
+
+    return-object v1
 
     :catch_0
     move-exception v0
@@ -480,7 +481,7 @@
 
     invoke-static {v1, v3, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    if-eqz p4, :cond_3
+    if-eqz p4, :cond_2
 
     invoke-virtual {p0}, Landroid/speech/tts/TextToSpeech$Connection;->disconnect()V
 
@@ -490,7 +491,7 @@
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
-    :cond_3
+    :cond_2
     monitor-exit v2
 
     return-object p2

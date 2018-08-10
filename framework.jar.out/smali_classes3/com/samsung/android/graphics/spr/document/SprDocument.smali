@@ -1315,8 +1315,6 @@
 
     move-result v9
 
-    if-eqz v9, :cond_3
-
     goto :goto_1
 
     :cond_7
@@ -2428,11 +2426,11 @@
 .end method
 
 .method public preDraw(I)V
-    .locals 7
+    .locals 8
 
     const/4 v6, 0x0
 
-    const/4 v1, 0x1
+    const/4 v7, 0x1
 
     const/4 v4, 0x0
 
@@ -2448,7 +2446,7 @@
 
     invoke-direct {v3, v0}, Landroid/graphics/Paint;-><init>(Landroid/graphics/Paint;)V
 
-    invoke-virtual {v2, v1}, Landroid/graphics/Paint;->setAntiAlias(Z)V
+    invoke-virtual {v2, v7}, Landroid/graphics/Paint;->setAntiAlias(Z)V
 
     sget-object v0, Landroid/graphics/Paint$Style;->STROKE:Landroid/graphics/Paint$Style;
 
@@ -2458,17 +2456,12 @@
 
     invoke-virtual {v2, v0}, Landroid/graphics/Paint;->setStrokeWidth(F)V
 
-    invoke-virtual {v3, v1}, Landroid/graphics/Paint;->setAntiAlias(Z)V
+    invoke-virtual {v3, v7}, Landroid/graphics/Paint;->setAntiAlias(Z)V
 
     sget-object v0, Landroid/graphics/Paint$Style;->FILL:Landroid/graphics/Paint$Style;
 
     invoke-virtual {v3, v0}, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
 
-    if-gtz p1, :cond_0
-
-    iput-boolean v1, p0, Lcom/samsung/android/graphics/spr/document/SprDocument;->isPredraw:Z
-
-    :cond_0
     if-gez p1, :cond_1
 
     invoke-virtual {p0}, Lcom/samsung/android/graphics/spr/document/SprDocument;->getObject()Lcom/samsung/android/graphics/spr/document/shape/SprObjectBase;
@@ -2482,6 +2475,11 @@
     invoke-virtual/range {v0 .. v6}, Lcom/samsung/android/graphics/spr/document/shape/SprObjectBase;->preDraw(Lcom/samsung/android/graphics/spr/document/SprDocument;Landroid/graphics/Paint;Landroid/graphics/Paint;ZZLcom/samsung/android/graphics/spr/document/attribute/SprAttributeShadow;)V
 
     :goto_0
+    if-gtz p1, :cond_0
+
+    iput-boolean v7, p0, Lcom/samsung/android/graphics/spr/document/SprDocument;->isPredraw:Z
+
+    :cond_0
     return-void
 
     :cond_1

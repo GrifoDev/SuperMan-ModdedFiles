@@ -75,7 +75,11 @@
 
 
 # instance fields
+.field private mAccessibilityButtonController:Landroid/accessibilityservice/AccessibilityButtonController;
+
 .field private mConnectionId:I
+
+.field private mFingerprintGestureController:Landroid/accessibilityservice/FingerprintGestureController;
 
 .field private mGestureStatusCallbackInfos:Landroid/util/SparseArray;
     .annotation system Ldalvik/annotation/Signature;
@@ -136,7 +140,39 @@
     return-void
 .end method
 
-.method static synthetic -wrap1(Landroid/accessibilityservice/AccessibilityService;Landroid/graphics/Region;FFF)V
+.method static synthetic -wrap1(Landroid/accessibilityservice/AccessibilityService;Z)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Landroid/accessibilityservice/AccessibilityService;->onAccessibilityButtonAvailabilityChanged(Z)V
+
+    return-void
+.end method
+
+.method static synthetic -wrap2(Landroid/accessibilityservice/AccessibilityService;)V
+    .locals 0
+
+    invoke-direct {p0}, Landroid/accessibilityservice/AccessibilityService;->onAccessibilityButtonClicked()V
+
+    return-void
+.end method
+
+.method static synthetic -wrap3(Landroid/accessibilityservice/AccessibilityService;Z)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Landroid/accessibilityservice/AccessibilityService;->onFingerprintCapturingGesturesChanged(Z)V
+
+    return-void
+.end method
+
+.method static synthetic -wrap4(Landroid/accessibilityservice/AccessibilityService;I)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Landroid/accessibilityservice/AccessibilityService;->onFingerprintGesture(I)V
+
+    return-void
+.end method
+
+.method static synthetic -wrap5(Landroid/accessibilityservice/AccessibilityService;Landroid/graphics/Region;FFF)V
     .locals 0
 
     invoke-direct {p0, p1, p2, p3, p4}, Landroid/accessibilityservice/AccessibilityService;->onMagnificationChanged(Landroid/graphics/Region;FFF)V
@@ -144,7 +180,7 @@
     return-void
 .end method
 
-.method static synthetic -wrap2(Landroid/accessibilityservice/AccessibilityService;I)V
+.method static synthetic -wrap6(Landroid/accessibilityservice/AccessibilityService;I)V
     .locals 0
 
     invoke-direct {p0, p1}, Landroid/accessibilityservice/AccessibilityService;->onSoftKeyboardShowModeChanged(I)V
@@ -178,7 +214,64 @@
     invoke-virtual {v0}, Landroid/accessibilityservice/AccessibilityService$MagnificationController;->onServiceConnected()V
 
     :cond_0
+    iget-object v0, p0, Landroid/accessibilityservice/AccessibilityService;->mSoftKeyboardController:Landroid/accessibilityservice/AccessibilityService$SoftKeyboardController;
+
+    if-eqz v0, :cond_1
+
+    iget-object v0, p0, Landroid/accessibilityservice/AccessibilityService;->mSoftKeyboardController:Landroid/accessibilityservice/AccessibilityService$SoftKeyboardController;
+
+    invoke-virtual {v0}, Landroid/accessibilityservice/AccessibilityService$SoftKeyboardController;->onServiceConnected()V
+
+    :cond_1
     invoke-virtual {p0}, Landroid/accessibilityservice/AccessibilityService;->onServiceConnected()V
+
+    return-void
+.end method
+
+.method private onAccessibilityButtonAvailabilityChanged(Z)V
+    .locals 1
+
+    invoke-virtual {p0}, Landroid/accessibilityservice/AccessibilityService;->getAccessibilityButtonController()Landroid/accessibilityservice/AccessibilityButtonController;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p1}, Landroid/accessibilityservice/AccessibilityButtonController;->dispatchAccessibilityButtonAvailabilityChanged(Z)V
+
+    return-void
+.end method
+
+.method private onAccessibilityButtonClicked()V
+    .locals 1
+
+    invoke-virtual {p0}, Landroid/accessibilityservice/AccessibilityService;->getAccessibilityButtonController()Landroid/accessibilityservice/AccessibilityButtonController;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/accessibilityservice/AccessibilityButtonController;->dispatchAccessibilityButtonClicked()V
+
+    return-void
+.end method
+
+.method private onFingerprintCapturingGesturesChanged(Z)V
+    .locals 1
+
+    invoke-virtual {p0}, Landroid/accessibilityservice/AccessibilityService;->getFingerprintGestureController()Landroid/accessibilityservice/FingerprintGestureController;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p1}, Landroid/accessibilityservice/FingerprintGestureController;->onGestureDetectionActiveChanged(Z)V
+
+    return-void
+.end method
+
+.method private onFingerprintGesture(I)V
+    .locals 1
+
+    invoke-virtual {p0}, Landroid/accessibilityservice/AccessibilityService;->getFingerprintGestureController()Landroid/accessibilityservice/FingerprintGestureController;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p1}, Landroid/accessibilityservice/FingerprintGestureController;->onGesture(I)V
 
     return-void
 .end method
@@ -424,6 +517,80 @@
     return-object v0
 .end method
 
+.method public final getAccessibilityButtonController()Landroid/accessibilityservice/AccessibilityButtonController;
+    .locals 4
+
+    iget-object v1, p0, Landroid/accessibilityservice/AccessibilityService;->mLock:Ljava/lang/Object;
+
+    monitor-enter v1
+
+    :try_start_0
+    iget-object v0, p0, Landroid/accessibilityservice/AccessibilityService;->mAccessibilityButtonController:Landroid/accessibilityservice/AccessibilityButtonController;
+
+    if-nez v0, :cond_0
+
+    new-instance v0, Landroid/accessibilityservice/AccessibilityButtonController;
+
+    invoke-static {}, Landroid/view/accessibility/AccessibilityInteractionClient;->getInstance()Landroid/view/accessibility/AccessibilityInteractionClient;
+
+    move-result-object v2
+
+    iget v3, p0, Landroid/accessibilityservice/AccessibilityService;->mConnectionId:I
+
+    invoke-virtual {v2, v3}, Landroid/view/accessibility/AccessibilityInteractionClient;->getConnection(I)Landroid/accessibilityservice/IAccessibilityServiceConnection;
+
+    move-result-object v2
+
+    invoke-direct {v0, v2}, Landroid/accessibilityservice/AccessibilityButtonController;-><init>(Landroid/accessibilityservice/IAccessibilityServiceConnection;)V
+
+    iput-object v0, p0, Landroid/accessibilityservice/AccessibilityService;->mAccessibilityButtonController:Landroid/accessibilityservice/AccessibilityButtonController;
+
+    :cond_0
+    iget-object v0, p0, Landroid/accessibilityservice/AccessibilityService;->mAccessibilityButtonController:Landroid/accessibilityservice/AccessibilityButtonController;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit v1
+
+    return-object v0
+
+    :catchall_0
+    move-exception v0
+
+    monitor-exit v1
+
+    throw v0
+.end method
+
+.method public final getFingerprintGestureController()Landroid/accessibilityservice/FingerprintGestureController;
+    .locals 3
+
+    iget-object v0, p0, Landroid/accessibilityservice/AccessibilityService;->mFingerprintGestureController:Landroid/accessibilityservice/FingerprintGestureController;
+
+    if-nez v0, :cond_0
+
+    new-instance v0, Landroid/accessibilityservice/FingerprintGestureController;
+
+    invoke-static {}, Landroid/view/accessibility/AccessibilityInteractionClient;->getInstance()Landroid/view/accessibility/AccessibilityInteractionClient;
+
+    move-result-object v1
+
+    iget v2, p0, Landroid/accessibilityservice/AccessibilityService;->mConnectionId:I
+
+    invoke-virtual {v1, v2}, Landroid/view/accessibility/AccessibilityInteractionClient;->getConnection(I)Landroid/accessibilityservice/IAccessibilityServiceConnection;
+
+    move-result-object v1
+
+    invoke-direct {v0, v1}, Landroid/accessibilityservice/FingerprintGestureController;-><init>(Landroid/accessibilityservice/IAccessibilityServiceConnection;)V
+
+    iput-object v0, p0, Landroid/accessibilityservice/AccessibilityService;->mFingerprintGestureController:Landroid/accessibilityservice/FingerprintGestureController;
+
+    :cond_0
+    iget-object v0, p0, Landroid/accessibilityservice/AccessibilityService;->mFingerprintGestureController:Landroid/accessibilityservice/FingerprintGestureController;
+
+    return-object v0
+.end method
+
 .method public final getMagnificationController()Landroid/accessibilityservice/AccessibilityService$MagnificationController;
     .locals 3
 
@@ -558,7 +725,7 @@
 .method public getSystemService(Ljava/lang/String;)Ljava/lang/Object;
     .locals 2
 
-    invoke-virtual {p0}, Landroid/content/ContextWrapper;->getBaseContext()Landroid/content/Context;
+    invoke-virtual {p0}, Landroid/accessibilityservice/AccessibilityService;->getBaseContext()Landroid/content/Context;
 
     move-result-object v0
 
@@ -585,7 +752,7 @@
 
     if-nez v0, :cond_1
 
-    invoke-virtual {p0}, Landroid/content/ContextWrapper;->getBaseContext()Landroid/content/Context;
+    invoke-virtual {p0}, Landroid/accessibilityservice/AccessibilityService;->getBaseContext()Landroid/content/Context;
 
     move-result-object v0
 
@@ -643,7 +810,7 @@
 
     new-instance v0, Landroid/accessibilityservice/AccessibilityService$IAccessibilityServiceClientWrapper;
 
-    invoke-virtual {p0}, Landroid/content/ContextWrapper;->getMainLooper()Landroid/os/Looper;
+    invoke-virtual {p0}, Landroid/accessibilityservice/AccessibilityService;->getMainLooper()Landroid/os/Looper;
 
     move-result-object v1
 

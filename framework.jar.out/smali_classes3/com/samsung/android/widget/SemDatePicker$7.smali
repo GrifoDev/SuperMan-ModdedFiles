@@ -41,7 +41,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/widget/SemDatePicker$7;->this$0:Lcom/samsung/android/widget/SemDatePicker;
 
-    invoke-static {v0}, Lcom/samsung/android/widget/SemDatePicker;->-get9(Lcom/samsung/android/widget/SemDatePicker;)I
+    invoke-static {v0}, Lcom/samsung/android/widget/SemDatePicker;->-get8(Lcom/samsung/android/widget/SemDatePicker;)I
 
     move-result v0
 

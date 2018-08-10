@@ -3,7 +3,7 @@
 .source "TimePickerClockDelegate.java"
 
 # interfaces
-.implements Lcom/android/internal/widget/NumericTextView$OnValueChangedListener;
+.implements Landroid/widget/TextInputTimePickerView$OnValueTypedListener;
 
 
 # annotations
@@ -34,83 +34,43 @@
 
 
 # virtual methods
-.method public onValueChanged(Lcom/android/internal/widget/NumericTextView;IZZ)V
-    .locals 4
+.method public onValueChanged(II)V
+    .locals 3
 
-    iget-object v2, p0, Landroid/widget/TimePickerClockDelegate$2;->this$0:Landroid/widget/TimePickerClockDelegate;
+    const/4 v2, 0x2
 
-    invoke-static {v2}, Landroid/widget/TimePickerClockDelegate;->-get3(Landroid/widget/TimePickerClockDelegate;)Lcom/android/internal/widget/NumericTextView;
-
-    move-result-object v2
-
-    if-ne p1, v2, :cond_2
-
-    iget-object v2, p0, Landroid/widget/TimePickerClockDelegate$2;->this$0:Landroid/widget/TimePickerClockDelegate;
-
-    invoke-static {v2}, Landroid/widget/TimePickerClockDelegate;->-get1(Landroid/widget/TimePickerClockDelegate;)Ljava/lang/Runnable;
-
-    move-result-object v0
-
-    invoke-virtual {p1}, Landroid/view/View;->isFocused()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_1
-
-    iget-object v2, p0, Landroid/widget/TimePickerClockDelegate$2;->this$0:Landroid/widget/TimePickerClockDelegate;
-
-    invoke-static {v2}, Landroid/widget/TimePickerClockDelegate;->-get4(Landroid/widget/TimePickerClockDelegate;)Lcom/android/internal/widget/NumericTextView;
-
-    move-result-object v1
+    packed-switch p1, :pswitch_data_0
 
     :goto_0
-    invoke-virtual {p1, v0}, Landroid/view/View;->removeCallbacks(Ljava/lang/Runnable;)Z
-
-    if-eqz p3, :cond_0
-
-    if-eqz p4, :cond_4
-
-    invoke-interface {v0}, Ljava/lang/Runnable;->run()V
-
-    if-eqz v1, :cond_0
-
-    invoke-virtual {v1}, Landroid/view/View;->requestFocus()Z
-
-    :cond_0
-    :goto_1
     return-void
 
-    :cond_1
-    const/4 v1, 0x0
-
-    goto :goto_0
-
-    :cond_2
-    iget-object v2, p0, Landroid/widget/TimePickerClockDelegate$2;->this$0:Landroid/widget/TimePickerClockDelegate;
-
-    invoke-static {v2}, Landroid/widget/TimePickerClockDelegate;->-get4(Landroid/widget/TimePickerClockDelegate;)Lcom/android/internal/widget/NumericTextView;
-
-    move-result-object v2
-
-    if-ne p1, v2, :cond_3
-
-    iget-object v2, p0, Landroid/widget/TimePickerClockDelegate$2;->this$0:Landroid/widget/TimePickerClockDelegate;
-
-    invoke-static {v2}, Landroid/widget/TimePickerClockDelegate;->-get2(Landroid/widget/TimePickerClockDelegate;)Ljava/lang/Runnable;
-
-    move-result-object v0
+    :pswitch_0
+    iget-object v0, p0, Landroid/widget/TimePickerClockDelegate$2;->this$0:Landroid/widget/TimePickerClockDelegate;
 
     const/4 v1, 0x0
 
+    invoke-static {v0, p2, v2, v1}, Landroid/widget/TimePickerClockDelegate;->-wrap3(Landroid/widget/TimePickerClockDelegate;IIZ)V
+
     goto :goto_0
 
-    :cond_3
-    return-void
+    :pswitch_1
+    iget-object v0, p0, Landroid/widget/TimePickerClockDelegate$2;->this$0:Landroid/widget/TimePickerClockDelegate;
 
-    :cond_4
-    const-wide/16 v2, 0x7d0
+    invoke-static {v0, p2, v2}, Landroid/widget/TimePickerClockDelegate;->-wrap4(Landroid/widget/TimePickerClockDelegate;II)V
 
-    invoke-virtual {p1, v0, v2, v3}, Landroid/view/View;->postDelayed(Ljava/lang/Runnable;J)Z
+    goto :goto_0
 
-    goto :goto_1
+    :pswitch_2
+    iget-object v0, p0, Landroid/widget/TimePickerClockDelegate$2;->this$0:Landroid/widget/TimePickerClockDelegate;
+
+    invoke-static {v0, p2}, Landroid/widget/TimePickerClockDelegate;->-wrap1(Landroid/widget/TimePickerClockDelegate;I)V
+
+    goto :goto_0
+
+    :pswitch_data_0
+    .packed-switch 0x0
+        :pswitch_0
+        :pswitch_1
+        :pswitch_2
+    .end packed-switch
 .end method

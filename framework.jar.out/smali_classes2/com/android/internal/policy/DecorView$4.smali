@@ -1,14 +1,11 @@
 .class Lcom/android/internal/policy/DecorView$4;
-.super Ljava/lang/Object;
+.super Landroid/animation/AnimatorListenerAdapter;
 .source "DecorView.java"
-
-# interfaces
-.implements Landroid/view/ViewTreeObserver$OnPreDrawListener;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/internal/policy/DecorView;->createFloatingActionMode(Landroid/view/View;Landroid/view/ActionMode$Callback2;)Landroid/view/ActionMode;
+    value = Lcom/android/internal/policy/DecorView;->setHandledPrimaryActionMode(Landroid/view/ActionMode;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,32 +17,54 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/internal/policy/DecorView;
 
-.field final synthetic val$mode:Lcom/android/internal/view/FloatingActionMode;
-
 
 # direct methods
-.method constructor <init>(Lcom/android/internal/policy/DecorView;Lcom/android/internal/view/FloatingActionMode;)V
+.method constructor <init>(Lcom/android/internal/policy/DecorView;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/internal/policy/DecorView$4;->this$0:Lcom/android/internal/policy/DecorView;
 
-    iput-object p2, p0, Lcom/android/internal/policy/DecorView$4;->val$mode:Lcom/android/internal/view/FloatingActionMode;
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Landroid/animation/AnimatorListenerAdapter;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onPreDraw()Z
-    .locals 1
+.method public onAnimationEnd(Landroid/animation/Animator;)V
+    .locals 2
 
-    iget-object v0, p0, Lcom/android/internal/policy/DecorView$4;->val$mode:Lcom/android/internal/view/FloatingActionMode;
+    iget-object v0, p0, Lcom/android/internal/policy/DecorView$4;->this$0:Lcom/android/internal/policy/DecorView;
 
-    invoke-virtual {v0}, Lcom/android/internal/view/FloatingActionMode;->updateViewLocationInWindow()V
+    invoke-static {v0}, Lcom/android/internal/policy/DecorView;->-get5(Lcom/android/internal/policy/DecorView;)Lcom/android/internal/widget/ActionBarContextView;
 
-    const/4 v0, 0x1
+    move-result-object v0
 
-    return v0
+    const/high16 v1, 0x3f800000    # 1.0f
+
+    invoke-virtual {v0, v1}, Lcom/android/internal/widget/ActionBarContextView;->setAlpha(F)V
+
+    iget-object v0, p0, Lcom/android/internal/policy/DecorView$4;->this$0:Lcom/android/internal/policy/DecorView;
+
+    const/4 v1, 0x0
+
+    invoke-static {v0, v1}, Lcom/android/internal/policy/DecorView;->-set0(Lcom/android/internal/policy/DecorView;Landroid/animation/ObjectAnimator;)Landroid/animation/ObjectAnimator;
+
+    return-void
+.end method
+
+.method public onAnimationStart(Landroid/animation/Animator;)V
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/internal/policy/DecorView$4;->this$0:Lcom/android/internal/policy/DecorView;
+
+    invoke-static {v0}, Lcom/android/internal/policy/DecorView;->-get5(Lcom/android/internal/policy/DecorView;)Lcom/android/internal/widget/ActionBarContextView;
+
+    move-result-object v0
+
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1}, Lcom/android/internal/widget/ActionBarContextView;->setVisibility(I)V
+
+    return-void
 .end method

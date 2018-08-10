@@ -46,6 +46,10 @@
 
 .field public static final DELETE_ITEM:I = 0x2
 
+.field public static final DUAL_MESSENGER_USERID_END:I = 0x63
+
+.field public static final DUAL_MESSENGER_USERID_START:I = 0x5f
+
 .field public static final FILE_VERSION:I = 0x1
 
 .field public static final FORMAT_BITMAP:Ljava/lang/String; = "Bitmap"
@@ -84,13 +88,17 @@
 
 .field public static final MULTIWINDOW_DRAGNDROP:Ljava/lang/String; = "MultiWindow_DragDrop"
 
+.field public static final MULTI_USERID_END:I = 0x63
+
+.field public static final MULTI_USERID_START:I = 0xa
+
 .field public static final PERSONA_CATEGORY_END:I = 0x4aa
 
-.field public static final PERSONA_CATEGORY_START:I = 0x44c
+.field public static final PERSONA_CATEGORY_START:I = 0x3f2
 
 .field public static final PERSONA_USERID_END:I = 0xc2
 
-.field public static final PERSONA_USERID_START:I = 0x64
+.field public static final PERSONA_USERID_START:I = 0xa
 
 .field public static final POLICY_ENABLED_FALSE:I = 0x0
 
@@ -107,6 +115,8 @@
 .field public static final RCP_URL:Ljava/lang/String; = "content://com.sec.knox.rcppolicyprovider/RCP_DATA"
 
 .field public static final SAFETY_STRING_LENGTH:I = 0x20000
+
+.field public static final SHARED_PREF:Ljava/lang/String; = "pref"
 
 .field public static final SUPPORT_KNOX:Z
 

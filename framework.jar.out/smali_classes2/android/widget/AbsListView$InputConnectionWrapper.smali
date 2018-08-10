@@ -121,6 +121,20 @@
     return v0
 .end method
 
+.method public commitContent(Landroid/view/inputmethod/InputContentInfo;ILandroid/os/Bundle;)Z
+    .locals 1
+
+    invoke-direct {p0}, Landroid/widget/AbsListView$InputConnectionWrapper;->getTarget()Landroid/view/inputmethod/InputConnection;
+
+    move-result-object v0
+
+    invoke-interface {v0, p1, p2, p3}, Landroid/view/inputmethod/InputConnection;->commitContent(Landroid/view/inputmethod/InputContentInfo;ILandroid/os/Bundle;)Z
+
+    move-result v0
+
+    return v0
+.end method
+
 .method public commitCorrection(Landroid/view/inputmethod/CorrectionInfo;)Z
     .locals 1
 

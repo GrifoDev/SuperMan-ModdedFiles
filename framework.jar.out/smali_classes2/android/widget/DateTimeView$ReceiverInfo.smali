@@ -33,6 +33,8 @@
     .end annotation
 .end field
 
+.field private mHandler:Landroid/os/Handler;
+
 .field private final mObserver:Landroid/database/ContentObserver;
 
 .field private final mReceiver:Landroid/content/BroadcastReceiver;
@@ -65,6 +67,12 @@
     invoke-direct {v0, p0, v1}, Landroid/widget/DateTimeView$ReceiverInfo$2;-><init>(Landroid/widget/DateTimeView$ReceiverInfo;Landroid/os/Handler;)V
 
     iput-object v0, p0, Landroid/widget/DateTimeView$ReceiverInfo;->mObserver:Landroid/database/ContentObserver;
+
+    new-instance v0, Landroid/os/Handler;
+
+    invoke-direct {v0}, Landroid/os/Handler;-><init>()V
+
+    iput-object v0, p0, Landroid/widget/DateTimeView$ReceiverInfo;->mHandler:Landroid/os/Handler;
 
     return-void
 .end method
@@ -101,11 +109,24 @@
     goto :goto_0
 .end method
 
+.method static synthetic lambda$-android_widget_DateTimeView$ReceiverInfo_16933(Landroid/widget/DateTimeView;)V
+    .locals 0
+
+    invoke-virtual {p0}, Landroid/widget/DateTimeView;->clearFormatAndUpdate()V
+
+    return-void
+.end method
+
 
 # virtual methods
 .method public addView(Landroid/widget/DateTimeView;)V
-    .locals 2
+    .locals 3
 
+    iget-object v2, p0, Landroid/widget/DateTimeView$ReceiverInfo;->mAttachedViews:Ljava/util/ArrayList;
+
+    monitor-enter v2
+
+    :try_start_0
     iget-object v1, p0, Landroid/widget/DateTimeView$ReceiverInfo;->mAttachedViews:Ljava/util/ArrayList;
 
     invoke-virtual {v1}, Ljava/util/ArrayList;->isEmpty()Z
@@ -127,16 +148,32 @@
     move-result-object v1
 
     invoke-virtual {p0, v1}, Landroid/widget/DateTimeView$ReceiverInfo;->register(Landroid/content/Context;)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     :cond_0
+    monitor-exit v2
+
     return-void
+
+    :catchall_0
+    move-exception v1
+
+    monitor-exit v2
+
+    throw v1
 .end method
 
 .method getSoonestUpdateTime()J
-    .locals 7
+    .locals 8
 
     const-wide v2, 0x7fffffffffffffffL
 
+    iget-object v7, p0, Landroid/widget/DateTimeView$ReceiverInfo;->mAttachedViews:Ljava/util/ArrayList;
+
+    monitor-enter v7
+
+    :try_start_0
     iget-object v6, p0, Landroid/widget/DateTimeView$ReceiverInfo;->mAttachedViews:Ljava/util/ArrayList;
 
     invoke-virtual {v6}, Ljava/util/ArrayList;->size()I
@@ -157,6 +194,8 @@
     check-cast v6, Landroid/widget/DateTimeView;
 
     invoke-static {v6}, Landroid/widget/DateTimeView;->-get0(Landroid/widget/DateTimeView;)J
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result-wide v4
 
@@ -172,11 +211,20 @@
     goto :goto_0
 
     :cond_1
+    monitor-exit v7
+
     return-wide v2
+
+    :catchall_0
+    move-exception v6
+
+    monitor-exit v7
+
+    throw v6
 .end method
 
 .method register(Landroid/content/Context;)V
-    .locals 2
+    .locals 4
 
     new-instance v0, Landroid/content/IntentFilter;
 
@@ -200,14 +248,23 @@
 
     iget-object v1, p0, Landroid/widget/DateTimeView$ReceiverInfo;->mReceiver:Landroid/content/BroadcastReceiver;
 
-    invoke-virtual {p1, v1, v0}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
+    iget-object v2, p0, Landroid/widget/DateTimeView$ReceiverInfo;->mHandler:Landroid/os/Handler;
+
+    const/4 v3, 0x0
+
+    invoke-virtual {p1, v1, v0, v3, v2}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;Ljava/lang/String;Landroid/os/Handler;)Landroid/content/Intent;
 
     return-void
 .end method
 
 .method public removeView(Landroid/widget/DateTimeView;)V
-    .locals 1
+    .locals 2
 
+    iget-object v1, p0, Landroid/widget/DateTimeView$ReceiverInfo;->mAttachedViews:Ljava/util/ArrayList;
+
+    monitor-enter v1
+
+    :try_start_0
     iget-object v0, p0, Landroid/widget/DateTimeView$ReceiverInfo;->mAttachedViews:Ljava/util/ArrayList;
 
     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
@@ -229,9 +286,85 @@
     move-result-object v0
 
     invoke-virtual {p0, v0}, Landroid/widget/DateTimeView$ReceiverInfo;->unregister(Landroid/content/Context;)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     :cond_0
+    monitor-exit v1
+
     return-void
+
+    :catchall_0
+    move-exception v0
+
+    monitor-exit v1
+
+    throw v0
+.end method
+
+.method public setHandler(Landroid/os/Handler;)V
+    .locals 3
+
+    iput-object p1, p0, Landroid/widget/DateTimeView$ReceiverInfo;->mHandler:Landroid/os/Handler;
+
+    iget-object v1, p0, Landroid/widget/DateTimeView$ReceiverInfo;->mAttachedViews:Ljava/util/ArrayList;
+
+    monitor-enter v1
+
+    :try_start_0
+    iget-object v0, p0, Landroid/widget/DateTimeView$ReceiverInfo;->mAttachedViews:Ljava/util/ArrayList;
+
+    invoke-virtual {v0}, Ljava/util/ArrayList;->isEmpty()Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    iget-object v0, p0, Landroid/widget/DateTimeView$ReceiverInfo;->mAttachedViews:Ljava/util/ArrayList;
+
+    const/4 v2, 0x0
+
+    invoke-virtual {v0, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/widget/DateTimeView;
+
+    invoke-virtual {v0}, Landroid/widget/DateTimeView;->getContext()Landroid/content/Context;
+
+    move-result-object v0
+
+    invoke-virtual {p0, v0}, Landroid/widget/DateTimeView$ReceiverInfo;->unregister(Landroid/content/Context;)V
+
+    iget-object v0, p0, Landroid/widget/DateTimeView$ReceiverInfo;->mAttachedViews:Ljava/util/ArrayList;
+
+    const/4 v2, 0x0
+
+    invoke-virtual {v0, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/widget/DateTimeView;
+
+    invoke-virtual {v0}, Landroid/widget/DateTimeView;->getContext()Landroid/content/Context;
+
+    move-result-object v0
+
+    invoke-virtual {p0, v0}, Landroid/widget/DateTimeView$ReceiverInfo;->register(Landroid/content/Context;)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    :cond_0
+    monitor-exit v1
+
+    return-void
+
+    :catchall_0
+    move-exception v0
+
+    monitor-exit v1
+
+    throw v0
 .end method
 
 .method unregister(Landroid/content/Context;)V
@@ -245,11 +378,16 @@
 .end method
 
 .method updateAll()V
-    .locals 3
+    .locals 5
 
-    iget-object v2, p0, Landroid/widget/DateTimeView$ReceiverInfo;->mAttachedViews:Ljava/util/ArrayList;
+    iget-object v4, p0, Landroid/widget/DateTimeView$ReceiverInfo;->mAttachedViews:Ljava/util/ArrayList;
 
-    invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
+    monitor-enter v4
+
+    :try_start_0
+    iget-object v3, p0, Landroid/widget/DateTimeView$ReceiverInfo;->mAttachedViews:Ljava/util/ArrayList;
+
+    invoke-virtual {v3}, Ljava/util/ArrayList;->size()I
 
     move-result v0
 
@@ -258,20 +396,35 @@
     :goto_0
     if-ge v1, v0, :cond_0
 
-    iget-object v2, p0, Landroid/widget/DateTimeView$ReceiverInfo;->mAttachedViews:Ljava/util/ArrayList;
+    iget-object v3, p0, Landroid/widget/DateTimeView$ReceiverInfo;->mAttachedViews:Ljava/util/ArrayList;
 
-    invoke-virtual {v2, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    invoke-virtual {v3, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v2
 
     check-cast v2, Landroid/widget/DateTimeView;
 
-    invoke-virtual {v2}, Landroid/widget/DateTimeView;->clearFormatAndUpdate()V
+    new-instance v3, Landroid/widget/-$Lambda$tfOQKOmkDz_xLYaBQX_cysn8vbE;
+
+    invoke-direct {v3, v2}, Landroid/widget/-$Lambda$tfOQKOmkDz_xLYaBQX_cysn8vbE;-><init>(Ljava/lang/Object;)V
+
+    invoke-virtual {v2, v3}, Landroid/widget/DateTimeView;->post(Ljava/lang/Runnable;)Z
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
     :cond_0
+    monitor-exit v4
+
     return-void
+
+    :catchall_0
+    move-exception v3
+
+    monitor-exit v4
+
+    throw v3
 .end method

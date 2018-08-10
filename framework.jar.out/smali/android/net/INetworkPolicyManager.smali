@@ -15,14 +15,6 @@
 
 
 # virtual methods
-.method public abstract addRestrictBackgroundWhitelistedUid(I)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
 .method public abstract addUidPolicy(II)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -31,7 +23,7 @@
     .end annotation
 .end method
 
-.method public abstract checkFireWallPermission(ZLjava/lang/String;)V
+.method public abstract checkFireWallPermission(ZLjava/lang/String;I)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -103,14 +95,6 @@
     .end annotation
 .end method
 
-.method public abstract getRestrictBackgroundWhitelistedUids()[I
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
 .method public abstract getRoamingReduction(I)I
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -175,23 +159,7 @@
     .end annotation
 .end method
 
-.method public abstract removeRestrictBackgroundWhitelistedUid(I)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
 .method public abstract removeUidPolicy(II)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract setConnectivityListener(Landroid/net/INetworkPolicyListener;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

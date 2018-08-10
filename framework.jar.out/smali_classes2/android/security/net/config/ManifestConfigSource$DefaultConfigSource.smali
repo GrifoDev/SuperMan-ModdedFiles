@@ -22,12 +22,12 @@
 
 
 # direct methods
-.method public constructor <init>(ZI)V
+.method public constructor <init>(ZII)V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    invoke-static {p2}, Landroid/security/net/config/NetworkSecurityConfig;->getDefaultBuilder(I)Landroid/security/net/config/NetworkSecurityConfig$Builder;
+    invoke-static {p2, p3}, Landroid/security/net/config/NetworkSecurityConfig;->getDefaultBuilder(II)Landroid/security/net/config/NetworkSecurityConfig$Builder;
 
     move-result-object v0
 

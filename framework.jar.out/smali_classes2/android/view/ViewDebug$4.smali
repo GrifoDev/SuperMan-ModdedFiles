@@ -81,11 +81,9 @@
 .method public pre()[Ljava/lang/Object;
     .locals 6
 
-    const/4 v0, 0x0
-
     iget-object v3, p0, Landroid/view/ViewDebug$4;->val$view:Landroid/view/View;
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_0
 
     iget-object v3, p0, Landroid/view/ViewDebug$4;->val$view:Landroid/view/View;
 
@@ -93,7 +91,7 @@
 
     move-result-object v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_0
 
     iget-object v3, p0, Landroid/view/ViewDebug$4;->val$view:Landroid/view/View;
 
@@ -106,7 +104,7 @@
     move-result-object v2
 
     :goto_0
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1
 
     iget v3, v2, Landroid/util/DisplayMetrics;->widthPixels:I
 
@@ -118,14 +116,14 @@
 
     move-result-object v0
 
-    :cond_0
+    :goto_1
     if-eqz v0, :cond_2
 
     new-instance v1, Landroid/graphics/Canvas;
 
     invoke-direct {v1, v0}, Landroid/graphics/Canvas;-><init>(Landroid/graphics/Bitmap;)V
 
-    :goto_1
+    :goto_2
     const/4 v3, 0x2
 
     new-array v3, v3, [Ljava/lang/Object;
@@ -140,15 +138,20 @@
 
     return-object v3
 
-    :cond_1
-    move-object v2, v0
+    :cond_0
+    const/4 v2, 0x0
 
     goto :goto_0
+
+    :cond_1
+    const/4 v0, 0x0
+
+    goto :goto_1
 
     :cond_2
     const/4 v1, 0x0
 
-    goto :goto_1
+    goto :goto_2
 .end method
 
 .method public varargs run([Ljava/lang/Object;)V

@@ -17,7 +17,7 @@
     value = {
         "Landroid/app/SystemServiceRegistry$CachedServiceFetcher",
         "<",
-        "Landroid/media/session/MediaSessionManager;",
+        "Landroid/hardware/ConsumerIrManager;",
         ">;"
     }
 .end annotation
@@ -34,20 +34,30 @@
 
 
 # virtual methods
-.method public createService(Landroid/app/ContextImpl;)Landroid/media/session/MediaSessionManager;
+.method public createService(Landroid/app/ContextImpl;)Landroid/hardware/ConsumerIrManager;
     .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/ServiceManager$ServiceNotFoundException;
+        }
+    .end annotation
 
-    new-instance v0, Landroid/media/session/MediaSessionManager;
+    new-instance v0, Landroid/hardware/ConsumerIrManager;
 
-    invoke-direct {v0, p1}, Landroid/media/session/MediaSessionManager;-><init>(Landroid/content/Context;)V
+    invoke-direct {v0, p1}, Landroid/hardware/ConsumerIrManager;-><init>(Landroid/content/Context;)V
 
     return-object v0
 .end method
 
 .method public bridge synthetic createService(Landroid/app/ContextImpl;)Ljava/lang/Object;
     .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/ServiceManager$ServiceNotFoundException;
+        }
+    .end annotation
 
-    invoke-virtual {p0, p1}, Landroid/app/SystemServiceRegistry$70;->createService(Landroid/app/ContextImpl;)Landroid/media/session/MediaSessionManager;
+    invoke-virtual {p0, p1}, Landroid/app/SystemServiceRegistry$70;->createService(Landroid/app/ContextImpl;)Landroid/hardware/ConsumerIrManager;
 
     move-result-object v0
 

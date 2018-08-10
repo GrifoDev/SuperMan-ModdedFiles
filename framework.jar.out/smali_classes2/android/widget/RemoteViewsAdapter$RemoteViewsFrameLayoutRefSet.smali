@@ -124,7 +124,7 @@
 .end method
 
 .method public notifyOnRemoteViewsLoaded(ILandroid/widget/RemoteViews;)V
-    .locals 4
+    .locals 5
 
     if-nez p2, :cond_0
 
@@ -165,7 +165,9 @@
 
     move-result-object v3
 
-    invoke-virtual {v0, p2, v3}, Landroid/widget/RemoteViewsAdapter$RemoteViewsFrameLayout;->onRemoteViewsLoaded(Landroid/widget/RemoteViews;Landroid/widget/RemoteViews$OnClickHandler;)V
+    const/4 v4, 0x1
+
+    invoke-virtual {v0, p2, v3, v4}, Landroid/widget/RemoteViewsAdapter$RemoteViewsFrameLayout;->onRemoteViewsLoaded(Landroid/widget/RemoteViews;Landroid/widget/RemoteViews$OnClickHandler;Z)V
 
     iget-object v3, p0, Landroid/widget/RemoteViewsAdapter$RemoteViewsFrameLayoutRefSet;->mViewToLinkedList:Ljava/util/HashMap;
 

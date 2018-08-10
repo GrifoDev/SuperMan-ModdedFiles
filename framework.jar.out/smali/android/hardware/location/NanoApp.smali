@@ -31,7 +31,7 @@
 
 .field private mAppBinary:[B
 
-.field private mAppId:I
+.field private mAppId:J
 
 .field private mAppIdSet:Z
 
@@ -81,6 +81,30 @@
 
 .method public constructor <init>(I[B)V
     .locals 2
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    const-string/jumbo v0, "NanoApp"
+
+    iput-object v0, p0, Landroid/hardware/location/NanoApp;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v0, "Unknown"
+
+    iput-object v0, p0, Landroid/hardware/location/NanoApp;->UNKNOWN:Ljava/lang/String;
+
+    const-string/jumbo v0, "NanoApp"
+
+    const-string/jumbo v1, "NanoApp(int, byte[]) is deprecated, please use NanoApp(long, byte[]) instead."
+
+    invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
+.end method
+
+.method public constructor <init>(J[B)V
+    .locals 3
 
     const/4 v1, 0x0
 
@@ -102,7 +126,7 @@
 
     iput-object v0, p0, Landroid/hardware/location/NanoApp;->mName:Ljava/lang/String;
 
-    iput p1, p0, Landroid/hardware/location/NanoApp;->mAppId:I
+    iput-wide p1, p0, Landroid/hardware/location/NanoApp;->mAppId:J
 
     const/4 v0, 0x1
 
@@ -124,13 +148,13 @@
 
     iput-object v0, p0, Landroid/hardware/location/NanoApp;->mOutputEvents:[I
 
-    iput-object p2, p0, Landroid/hardware/location/NanoApp;->mAppBinary:[B
+    iput-object p3, p0, Landroid/hardware/location/NanoApp;->mAppBinary:[B
 
     return-void
 .end method
 
 .method private constructor <init>(Landroid/os/Parcel;)V
-    .locals 4
+    .locals 6
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -154,11 +178,11 @@
 
     iput-object v3, p0, Landroid/hardware/location/NanoApp;->mName:Ljava/lang/String;
 
-    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
+    invoke-virtual {p1}, Landroid/os/Parcel;->readLong()J
 
-    move-result v3
+    move-result-wide v4
 
-    iput v3, p0, Landroid/hardware/location/NanoApp;->mAppId:I
+    iput-wide v4, p0, Landroid/hardware/location/NanoApp;->mAppId:J
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
@@ -249,12 +273,12 @@
     return-object v0
 .end method
 
-.method public getAppId()I
-    .locals 1
+.method public getAppId()J
+    .locals 2
 
-    iget v0, p0, Landroid/hardware/location/NanoApp;->mAppId:I
+    iget-wide v0, p0, Landroid/hardware/location/NanoApp;->mAppId:J
 
-    return v0
+    return-wide v0
 .end method
 
 .method public getAppVersion()I
@@ -329,10 +353,10 @@
     return-void
 .end method
 
-.method public setAppId(I)V
+.method public setAppId(J)V
     .locals 1
 
-    iput p1, p0, Landroid/hardware/location/NanoApp;->mAppId:I
+    iput-wide p1, p0, Landroid/hardware/location/NanoApp;->mAppId:J
 
     const/4 v0, 0x1
 
@@ -406,7 +430,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 3
+    .locals 4
 
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -418,9 +442,9 @@
 
     move-result-object v1
 
-    iget v2, p0, Landroid/hardware/location/NanoApp;->mAppId:I
+    iget-wide v2, p0, Landroid/hardware/location/NanoApp;->mAppId:J
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2, v3}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
@@ -576,9 +600,9 @@
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    iget v0, p0, Landroid/hardware/location/NanoApp;->mAppId:I
+    iget-wide v0, p0, Landroid/hardware/location/NanoApp;->mAppId:J
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p1, v0, v1}, Landroid/os/Parcel;->writeLong(J)V
 
     iget v0, p0, Landroid/hardware/location/NanoApp;->mAppVersion:I
 

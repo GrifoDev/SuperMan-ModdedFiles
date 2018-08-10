@@ -84,7 +84,7 @@
     const/4 v4, 0x0
 
     :goto_0
-    if-ge v4, v5, :cond_2
+    if-gt v4, v5, :cond_2
 
     sub-int v2, v3, v4
 

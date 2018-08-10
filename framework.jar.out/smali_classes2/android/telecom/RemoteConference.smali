@@ -276,14 +276,16 @@
 .end method
 
 .method public disconnect()V
-    .locals 3
+    .locals 4
 
     :try_start_0
     iget-object v1, p0, Landroid/telecom/RemoteConference;->mConnectionService:Lcom/android/internal/telecom/IConnectionService;
 
     iget-object v2, p0, Landroid/telecom/RemoteConference;->mId:Ljava/lang/String;
 
-    invoke-interface {v1, v2}, Lcom/android/internal/telecom/IConnectionService;->disconnect(Ljava/lang/String;)V
+    const/4 v3, 0x0
+
+    invoke-interface {v1, v2, v3}, Lcom/android/internal/telecom/IConnectionService;->disconnect(Ljava/lang/String;Landroid/telecom/Logging/Session$Info;)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -379,14 +381,16 @@
 .end method
 
 .method public hold()V
-    .locals 3
+    .locals 4
 
     :try_start_0
     iget-object v1, p0, Landroid/telecom/RemoteConference;->mConnectionService:Lcom/android/internal/telecom/IConnectionService;
 
     iget-object v2, p0, Landroid/telecom/RemoteConference;->mId:Ljava/lang/String;
 
-    invoke-interface {v1, v2}, Lcom/android/internal/telecom/IConnectionService;->hold(Ljava/lang/String;)V
+    const/4 v3, 0x0
+
+    invoke-interface {v1, v2, v3}, Lcom/android/internal/telecom/IConnectionService;->hold(Ljava/lang/String;Landroid/telecom/Logging/Session$Info;)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -400,14 +404,16 @@
 .end method
 
 .method public merge()V
-    .locals 3
+    .locals 4
 
     :try_start_0
     iget-object v1, p0, Landroid/telecom/RemoteConference;->mConnectionService:Lcom/android/internal/telecom/IConnectionService;
 
     iget-object v2, p0, Landroid/telecom/RemoteConference;->mId:Ljava/lang/String;
 
-    invoke-interface {v1, v2}, Lcom/android/internal/telecom/IConnectionService;->mergeConference(Ljava/lang/String;)V
+    const/4 v3, 0x0
+
+    invoke-interface {v1, v2, v3}, Lcom/android/internal/telecom/IConnectionService;->mergeConference(Ljava/lang/String;Landroid/telecom/Logging/Session$Info;)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -421,14 +427,16 @@
 .end method
 
 .method public playDtmfTone(C)V
-    .locals 3
+    .locals 4
 
     :try_start_0
     iget-object v1, p0, Landroid/telecom/RemoteConference;->mConnectionService:Lcom/android/internal/telecom/IConnectionService;
 
     iget-object v2, p0, Landroid/telecom/RemoteConference;->mId:Ljava/lang/String;
 
-    invoke-interface {v1, v2, p1}, Lcom/android/internal/telecom/IConnectionService;->playDtmfTone(Ljava/lang/String;C)V
+    const/4 v3, 0x0
+
+    invoke-interface {v1, v2, p1, v3}, Lcom/android/internal/telecom/IConnectionService;->playDtmfTone(Ljava/lang/String;CLandroid/telecom/Logging/Session$Info;)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -444,9 +452,14 @@
 .method putExtras(Landroid/os/Bundle;)V
     .locals 1
 
+    if-nez p1, :cond_0
+
+    return-void
+
+    :cond_0
     iget-object v0, p0, Landroid/telecom/RemoteConference;->mExtras:Landroid/os/Bundle;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1
 
     new-instance v0, Landroid/os/Bundle;
 
@@ -454,7 +467,7 @@
 
     iput-object v0, p0, Landroid/telecom/RemoteConference;->mExtras:Landroid/os/Bundle;
 
-    :cond_0
+    :cond_1
     iget-object v0, p0, Landroid/telecom/RemoteConference;->mExtras:Landroid/os/Bundle;
 
     invoke-virtual {v0, p1}, Landroid/os/Bundle;->putAll(Landroid/os/Bundle;)V
@@ -617,7 +630,7 @@
 .end method
 
 .method public separate(Landroid/telecom/RemoteConnection;)V
-    .locals 3
+    .locals 4
 
     iget-object v1, p0, Landroid/telecom/RemoteConference;->mChildConnections:Ljava/util/List;
 
@@ -634,7 +647,9 @@
 
     move-result-object v2
 
-    invoke-interface {v1, v2}, Lcom/android/internal/telecom/IConnectionService;->splitFromConference(Ljava/lang/String;)V
+    const/4 v3, 0x0
+
+    invoke-interface {v1, v2, v3}, Lcom/android/internal/telecom/IConnectionService;->splitFromConference(Ljava/lang/String;Landroid/telecom/Logging/Session$Info;)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -663,14 +678,16 @@
 .end method
 
 .method public setCallAudioState(Landroid/telecom/CallAudioState;)V
-    .locals 3
+    .locals 4
 
     :try_start_0
     iget-object v1, p0, Landroid/telecom/RemoteConference;->mConnectionService:Lcom/android/internal/telecom/IConnectionService;
 
     iget-object v2, p0, Landroid/telecom/RemoteConference;->mId:Ljava/lang/String;
 
-    invoke-interface {v1, v2, p1}, Lcom/android/internal/telecom/IConnectionService;->onCallAudioStateChanged(Ljava/lang/String;Landroid/telecom/CallAudioState;)V
+    const/4 v3, 0x0
+
+    invoke-interface {v1, v2, p1, v3}, Lcom/android/internal/telecom/IConnectionService;->onCallAudioStateChanged(Ljava/lang/String;Landroid/telecom/CallAudioState;Landroid/telecom/Logging/Session$Info;)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -1070,14 +1087,16 @@
 .end method
 
 .method public stopDtmfTone()V
-    .locals 3
+    .locals 4
 
     :try_start_0
     iget-object v1, p0, Landroid/telecom/RemoteConference;->mConnectionService:Lcom/android/internal/telecom/IConnectionService;
 
     iget-object v2, p0, Landroid/telecom/RemoteConference;->mId:Ljava/lang/String;
 
-    invoke-interface {v1, v2}, Lcom/android/internal/telecom/IConnectionService;->stopDtmfTone(Ljava/lang/String;)V
+    const/4 v3, 0x0
+
+    invoke-interface {v1, v2, v3}, Lcom/android/internal/telecom/IConnectionService;->stopDtmfTone(Ljava/lang/String;Landroid/telecom/Logging/Session$Info;)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -1091,14 +1110,16 @@
 .end method
 
 .method public swap()V
-    .locals 3
+    .locals 4
 
     :try_start_0
     iget-object v1, p0, Landroid/telecom/RemoteConference;->mConnectionService:Lcom/android/internal/telecom/IConnectionService;
 
     iget-object v2, p0, Landroid/telecom/RemoteConference;->mId:Ljava/lang/String;
 
-    invoke-interface {v1, v2}, Lcom/android/internal/telecom/IConnectionService;->swapConference(Ljava/lang/String;)V
+    const/4 v3, 0x0
+
+    invoke-interface {v1, v2, v3}, Lcom/android/internal/telecom/IConnectionService;->swapConference(Ljava/lang/String;Landroid/telecom/Logging/Session$Info;)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -1112,14 +1133,16 @@
 .end method
 
 .method public unhold()V
-    .locals 3
+    .locals 4
 
     :try_start_0
     iget-object v1, p0, Landroid/telecom/RemoteConference;->mConnectionService:Lcom/android/internal/telecom/IConnectionService;
 
     iget-object v2, p0, Landroid/telecom/RemoteConference;->mId:Ljava/lang/String;
 
-    invoke-interface {v1, v2}, Lcom/android/internal/telecom/IConnectionService;->unhold(Ljava/lang/String;)V
+    const/4 v3, 0x0
+
+    invoke-interface {v1, v2, v3}, Lcom/android/internal/telecom/IConnectionService;->unhold(Ljava/lang/String;Landroid/telecom/Logging/Session$Info;)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 

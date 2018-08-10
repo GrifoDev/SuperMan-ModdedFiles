@@ -53,13 +53,66 @@
 
     iget-object v0, p0, Landroid/widget/CalendarViewMaterialDelegate;->mDayPickerView:Landroid/widget/DayPickerView;
 
-    invoke-virtual {p1, v0}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
+    invoke-virtual {p1, v0}, Landroid/widget/CalendarView;->addView(Landroid/view/View;)V
 
     return-void
 .end method
 
 
 # virtual methods
+.method public getBoundsForDate(JLandroid/graphics/Rect;)Z
+    .locals 7
+
+    const/4 v5, 0x2
+
+    const/4 v6, 0x1
+
+    iget-object v4, p0, Landroid/widget/CalendarViewMaterialDelegate;->mDayPickerView:Landroid/widget/DayPickerView;
+
+    invoke-virtual {v4, p1, p2, p3}, Landroid/widget/DayPickerView;->getBoundsForDate(JLandroid/graphics/Rect;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_0
+
+    new-array v0, v5, [I
+
+    new-array v1, v5, [I
+
+    iget-object v4, p0, Landroid/widget/CalendarViewMaterialDelegate;->mDayPickerView:Landroid/widget/DayPickerView;
+
+    invoke-virtual {v4, v0}, Landroid/widget/DayPickerView;->getLocationOnScreen([I)V
+
+    iget-object v4, p0, Landroid/widget/CalendarViewMaterialDelegate;->mDelegator:Landroid/widget/CalendarView;
+
+    invoke-virtual {v4, v1}, Landroid/widget/CalendarView;->getLocationOnScreen([I)V
+
+    aget v4, v0, v6
+
+    aget v5, v1, v6
+
+    sub-int v2, v4, v5
+
+    iget v4, p3, Landroid/graphics/Rect;->top:I
+
+    add-int/2addr v4, v2
+
+    iput v4, p3, Landroid/graphics/Rect;->top:I
+
+    iget v4, p3, Landroid/graphics/Rect;->bottom:I
+
+    add-int/2addr v4, v2
+
+    iput v4, p3, Landroid/graphics/Rect;->bottom:I
+
+    return v6
+
+    :cond_0
+    const/4 v4, 0x0
+
+    return v4
+.end method
+
 .method public getDate()J
     .locals 2
 

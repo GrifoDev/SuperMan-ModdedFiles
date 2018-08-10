@@ -2249,6 +2249,59 @@
 .method protected abstract cancelTriggerSensorImpl(Landroid/hardware/TriggerEventListener;Landroid/hardware/Sensor;Z)Z
 .end method
 
+.method public configureDirectChannel(Landroid/hardware/SensorDirectChannel;Landroid/hardware/Sensor;I)I
+    .locals 1
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+
+    invoke-virtual {p0, p1, p2, p3}, Landroid/hardware/SensorManager;->configureDirectChannelImpl(Landroid/hardware/SensorDirectChannel;Landroid/hardware/Sensor;I)I
+
+    move-result v0
+
+    return v0
+.end method
+
+.method protected abstract configureDirectChannelImpl(Landroid/hardware/SensorDirectChannel;Landroid/hardware/Sensor;I)I
+.end method
+
+.method public createDirectChannel(Landroid/hardware/HardwareBuffer;)Landroid/hardware/SensorDirectChannel;
+    .locals 1
+
+    const/4 v0, 0x0
+
+    invoke-virtual {p0, v0, p1}, Landroid/hardware/SensorManager;->createDirectChannelImpl(Landroid/os/MemoryFile;Landroid/hardware/HardwareBuffer;)Landroid/hardware/SensorDirectChannel;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public createDirectChannel(Landroid/os/MemoryFile;)Landroid/hardware/SensorDirectChannel;
+    .locals 1
+
+    const/4 v0, 0x0
+
+    invoke-virtual {p0, p1, v0}, Landroid/hardware/SensorManager;->createDirectChannelImpl(Landroid/os/MemoryFile;Landroid/hardware/HardwareBuffer;)Landroid/hardware/SensorDirectChannel;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method protected abstract createDirectChannelImpl(Landroid/os/MemoryFile;Landroid/hardware/HardwareBuffer;)Landroid/hardware/SensorDirectChannel;
+.end method
+
+.method destroyDirectChannel(Landroid/hardware/SensorDirectChannel;)V
+    .locals 0
+
+    invoke-virtual {p0, p1}, Landroid/hardware/SensorManager;->destroyDirectChannelImpl(Landroid/hardware/SensorDirectChannel;)V
+
+    return-void
+.end method
+
+.method protected abstract destroyDirectChannelImpl(Landroid/hardware/SensorDirectChannel;)V
+.end method
+
 .method public flush(Landroid/hardware/SensorEventListener;)Z
     .locals 1
 
@@ -2327,6 +2380,14 @@
     if-eq p1, v4, :cond_0
 
     const/16 v4, 0x1a
+
+    if-eq p1, v4, :cond_0
+
+    const/16 v4, 0x20
+
+    if-eq p1, v4, :cond_0
+
+    const v4, 0x10034
 
     if-ne p1, v4, :cond_1
 
@@ -2915,6 +2976,19 @@
 .end method
 
 .method protected abstract requestTriggerSensorImpl(Landroid/hardware/TriggerEventListener;Landroid/hardware/Sensor;)Z
+.end method
+
+.method public setOperationParameter(Landroid/hardware/SensorAdditionalInfo;)Z
+    .locals 1
+
+    invoke-virtual {p0, p1}, Landroid/hardware/SensorManager;->setOperationParameterImpl(Landroid/hardware/SensorAdditionalInfo;)Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method protected abstract setOperationParameterImpl(Landroid/hardware/SensorAdditionalInfo;)Z
 .end method
 
 .method public unregisterDynamicSensorCallback(Landroid/hardware/SensorManager$DynamicSensorCallback;)V

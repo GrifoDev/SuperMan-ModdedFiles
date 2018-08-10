@@ -121,7 +121,7 @@
 
     if-nez v2, :cond_0
 
-    const v2, 0x108027a
+    const v2, 0x108028a
 
     invoke-virtual {p1, v2}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -142,7 +142,7 @@
 
     if-nez v2, :cond_1
 
-    const v2, 0x108027b
+    const v2, 0x108028b
 
     invoke-virtual {p1, v2}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -163,7 +163,7 @@
 
     if-nez v2, :cond_2
 
-    const v2, 0x108027c
+    const v2, 0x108028c
 
     invoke-virtual {p1, v2}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -254,7 +254,7 @@
 
     const/16 v1, 0x81
 
-    iget-object v2, p0, Landroid/view/View;->mContext:Landroid/content/Context;
+    iget-object v2, p0, Landroid/widget/AnalogClock;->mContext:Landroid/content/Context;
 
     const/4 v3, 0x0
 
@@ -268,7 +268,7 @@
 
     move-result-object v0
 
-    invoke-virtual {p0, v0}, Landroid/view/View;->setContentDescription(Ljava/lang/CharSequence;)V
+    invoke-virtual {p0, v0}, Landroid/widget/AnalogClock;->setContentDescription(Ljava/lang/CharSequence;)V
 
     return-void
 .end method
@@ -304,7 +304,7 @@
 
     invoke-virtual {v3, v0}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
+    invoke-virtual {p0}, Landroid/widget/AnalogClock;->getContext()Landroid/content/Context;
 
     move-result-object v0
 
@@ -314,7 +314,7 @@
 
     move-result-object v2
 
-    invoke-virtual {p0}, Landroid/view/View;->getHandler()Landroid/os/Handler;
+    invoke-virtual {p0}, Landroid/widget/AnalogClock;->getHandler()Landroid/os/Handler;
 
     move-result-object v5
 
@@ -343,7 +343,7 @@
 
     if-eqz v0, :cond_0
 
-    invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
+    invoke-virtual {p0}, Landroid/widget/AnalogClock;->getContext()Landroid/content/Context;
 
     move-result-object v0
 
@@ -379,21 +379,21 @@
     :cond_0
     move-object/from16 v0, p0
 
-    iget v13, v0, Landroid/view/View;->mRight:I
+    iget v13, v0, Landroid/widget/AnalogClock;->mRight:I
 
     move-object/from16 v0, p0
 
-    iget v14, v0, Landroid/view/View;->mLeft:I
+    iget v14, v0, Landroid/widget/AnalogClock;->mLeft:I
 
     sub-int v2, v13, v14
 
     move-object/from16 v0, p0
 
-    iget v13, v0, Landroid/view/View;->mBottom:I
+    iget v13, v0, Landroid/widget/AnalogClock;->mBottom:I
 
     move-object/from16 v0, p0
 
-    iget v14, v0, Landroid/view/View;->mTop:I
+    iget v14, v0, Landroid/widget/AnalogClock;->mTop:I
 
     sub-int v1, v13, v14
 
@@ -693,7 +693,7 @@
 
     move-result v8
 
-    invoke-virtual {p0, v7, v8}, Landroid/view/View;->setMeasuredDimension(II)V
+    invoke-virtual {p0, v7, v8}, Landroid/widget/AnalogClock;->setMeasuredDimension(II)V
 
     return-void
 .end method

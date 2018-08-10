@@ -17,7 +17,7 @@
     value = {
         "Landroid/app/SystemServiceRegistry$CachedServiceFetcher",
         "<",
-        "Landroid/location/LocationManager;",
+        "Landroid/app/KeyguardManager;",
         ">;"
     }
 .end annotation
@@ -34,30 +34,30 @@
 
 
 # virtual methods
-.method public createService(Landroid/app/ContextImpl;)Landroid/location/LocationManager;
-    .locals 3
+.method public createService(Landroid/app/ContextImpl;)Landroid/app/KeyguardManager;
+    .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/ServiceManager$ServiceNotFoundException;
+        }
+    .end annotation
 
-    const-string/jumbo v1, "location"
+    new-instance v0, Landroid/app/KeyguardManager;
 
-    invoke-static {v1}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
+    invoke-direct {v0, p1}, Landroid/app/KeyguardManager;-><init>(Landroid/content/Context;)V
 
-    move-result-object v0
-
-    new-instance v1, Landroid/location/LocationManager;
-
-    invoke-static {v0}, Landroid/location/ILocationManager$Stub;->asInterface(Landroid/os/IBinder;)Landroid/location/ILocationManager;
-
-    move-result-object v2
-
-    invoke-direct {v1, p1, v2}, Landroid/location/LocationManager;-><init>(Landroid/content/Context;Landroid/location/ILocationManager;)V
-
-    return-object v1
+    return-object v0
 .end method
 
 .method public bridge synthetic createService(Landroid/app/ContextImpl;)Ljava/lang/Object;
     .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/ServiceManager$ServiceNotFoundException;
+        }
+    .end annotation
 
-    invoke-virtual {p0, p1}, Landroid/app/SystemServiceRegistry$26;->createService(Landroid/app/ContextImpl;)Landroid/location/LocationManager;
+    invoke-virtual {p0, p1}, Landroid/app/SystemServiceRegistry$26;->createService(Landroid/app/ContextImpl;)Landroid/app/KeyguardManager;
 
     move-result-object v0
 

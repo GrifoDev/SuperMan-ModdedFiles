@@ -208,13 +208,13 @@
 
     iput-object v0, p0, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->mPackageName:Ljava/lang/String;
 
-    if-nez p1, :cond_2
+    if-nez p1, :cond_1
 
-    if-ltz p2, :cond_1
+    if-ltz p2, :cond_0
 
     const/16 v0, 0x3e7
 
-    if-gt p2, v0, :cond_1
+    if-gt p2, v0, :cond_0
 
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -254,7 +254,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->mAlias:Ljava/lang/String;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_3
 
     iget-object v0, p0, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->mAlias:Ljava/lang/String;
 
@@ -262,29 +262,10 @@
 
     move-result v0
 
+    xor-int/lit8 v0, v0, 0x1
+
     if-eqz v0, :cond_3
 
-    :cond_0
-    const/4 v0, -0x1
-
-    iput v0, p0, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->mType:I
-
-    :goto_2
-    iput-boolean p7, p0, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->mIsMigrating:Z
-
-    return-void
-
-    :cond_1
-    const-string/jumbo v0, ""
-
-    goto :goto_0
-
-    :cond_2
-    iput-object p1, p0, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->mAlias:Ljava/lang/String;
-
-    goto :goto_1
-
-    :cond_3
     iget-object v0, p0, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->mAlias:Ljava/lang/String;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -309,17 +290,37 @@
 
     move-result v0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_2
 
     const/4 v0, 0x1
 
-    :goto_3
+    :goto_2
     iput v0, p0, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->mType:I
+
+    :goto_3
+    iput-boolean p7, p0, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->mIsMigrating:Z
+
+    return-void
+
+    :cond_0
+    const-string/jumbo v0, ""
+
+    goto :goto_0
+
+    :cond_1
+    iput-object p1, p0, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->mAlias:Ljava/lang/String;
+
+    goto :goto_1
+
+    :cond_2
+    const/4 v0, 0x2
 
     goto :goto_2
 
-    :cond_4
-    const/4 v0, 0x2
+    :cond_3
+    const/4 v0, -0x1
+
+    iput v0, p0, Lcom/samsung/android/knox/sdp/core/SdpEngineInfo;->mType:I
 
     goto :goto_3
 .end method

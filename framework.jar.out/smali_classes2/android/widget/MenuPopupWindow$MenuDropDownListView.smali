@@ -283,7 +283,9 @@
     return v8
 
     :cond_2
-    move-object v2, v0
+    invoke-virtual {p0}, Landroid/widget/MenuPopupWindow$MenuDropDownListView;->getAdapter()Landroid/widget/ListAdapter;
+
+    move-result-object v2
 
     check-cast v2, Lcom/android/internal/view/menu/MenuAdapter;
 

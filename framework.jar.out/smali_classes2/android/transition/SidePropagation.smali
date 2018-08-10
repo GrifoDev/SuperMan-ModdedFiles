@@ -33,21 +33,21 @@
 .method private distance(Landroid/view/View;IIIIIIII)I
     .locals 6
 
-    const/4 v3, 0x0
+    const/4 v5, 0x1
 
-    const/4 v1, 0x1
+    iget v3, p0, Landroid/transition/SidePropagation;->mSide:I
 
-    iget v4, p0, Landroid/transition/SidePropagation;->mSide:I
+    const v4, 0x800003
 
-    const v5, 0x800003
-
-    if-ne v4, v5, :cond_2
+    if-ne v3, v4, :cond_2
 
     invoke-virtual {p1}, Landroid/view/View;->getLayoutDirection()I
 
-    move-result v4
+    move-result v3
 
-    if-ne v4, v1, :cond_0
+    if-ne v3, v5, :cond_0
+
+    const/4 v1, 0x1
 
     :goto_0
     if-eqz v1, :cond_1
@@ -63,7 +63,7 @@
     return v0
 
     :cond_0
-    move v1, v3
+    const/4 v1, 0x0
 
     goto :goto_0
 
@@ -73,17 +73,19 @@
     goto :goto_1
 
     :cond_2
-    iget v4, p0, Landroid/transition/SidePropagation;->mSide:I
+    iget v3, p0, Landroid/transition/SidePropagation;->mSide:I
 
-    const v5, 0x800005
+    const v4, 0x800005
 
-    if-ne v4, v5, :cond_5
+    if-ne v3, v4, :cond_5
 
     invoke-virtual {p1}, Landroid/view/View;->getLayoutDirection()I
 
-    move-result v4
+    move-result v3
 
-    if-ne v4, v1, :cond_3
+    if-ne v3, v5, :cond_3
+
+    const/4 v1, 0x1
 
     :goto_3
     if-eqz v1, :cond_4
@@ -93,7 +95,7 @@
     goto :goto_1
 
     :cond_3
-    move v1, v3
+    const/4 v1, 0x0
 
     goto :goto_3
 
@@ -158,8 +160,6 @@
     add-int v0, v3, v4
 
     goto :goto_2
-
-    nop
 
     :sswitch_data_0
     .sparse-switch

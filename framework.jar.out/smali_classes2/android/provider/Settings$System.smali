@@ -158,6 +158,8 @@
     .end annotation
 .end field
 
+.field public static final APLIST_DONT_SHOW_AGAIN:Ljava/lang/String; = "aplist_dont_show_again"
+
 .field public static final APPEND_FOR_LAST_AUDIBLE:Ljava/lang/String; = "_last_audible"
 
 .field public static final ASSISTED_DIALING:Ljava/lang/String; = "assisted_dialing"
@@ -236,6 +238,18 @@
 
 .field public static final CHAMELEON_SSID:Ljava/lang/String; = "chameleon_ssid"
 
+.field public static final CLONE_FROM_PARENT_ON_VALUE:Ljava/util/Map;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/Map",
+            "<",
+            "Ljava/lang/String;",
+            "Ljava/lang/String;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 .field private static final CLONE_TO_MANAGED_PROFILE:Ljava/util/Set;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -271,11 +285,6 @@
 .field public static final DATE_FORMAT:Ljava/lang/String; = "date_format"
 
 .field public static final DATE_FORMAT_VALIDATOR:Landroid/provider/Settings$System$Validator;
-
-.field public static final DB_APPLOCK_LOCK_TYPE:Ljava/lang/String; = "applock_lock_type"
-    .annotation runtime Ljava/lang/Deprecated;
-    .end annotation
-.end field
 
 .field public static final DB_KEY_AIRMESSAGE_ON:Ljava/lang/String; = "airmessage_on"
 
@@ -347,6 +356,8 @@
 .field public static final DIRECT_ACCESS_UNIVERSAL_SWITCH:Ljava/lang/String; = "direct_universal_switch"
 
 .field public static final DIRECT_SHARE:Ljava/lang/String; = "direct_share"
+
+.field public static final DIVIDER_APPPAIR_TOOLTIP_SHOWN:Ljava/lang/String; = "db_apppair_tooltip_shown"
 
 .field public static final DMB_ANTENNA_AUTO_START:Ljava/lang/String; = "dmb_antenna_auto_start"
 
@@ -507,6 +518,17 @@
     .end annotation
 .end field
 
+.field public static final INSTANT_APP_SETTINGS:Ljava/util/Set;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/Set",
+            "<",
+            "Ljava/lang/String;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 .field public static final INTELLIGENT_ROTATION_MODE:Ljava/lang/String; = "intelligent_rotation_mode"
 
 .field public static final INTELLIGENT_SLEEP_MODE:Ljava/lang/String; = "intelligent_sleep_mode"
@@ -518,6 +540,8 @@
 .field public static final IS_SIM_1:Ljava/lang/String; = "is_sim_1"
 
 .field public static final KEY_BACKLIGHT_TIMEOUT:Ljava/lang/String; = "key_backlight_timeout"
+
+.field public static final KEY_DOUBLE_TAB_TO_WAKE_UP:Ljava/lang/String; = "double_tab_to_wake_up"
 
 .field public static final KEY_NIGHT_MODE:Ljava/lang/String; = "key_night_mode"
 
@@ -547,6 +571,10 @@
 .field public static final LOCKSCREEN_SOUNDS_ENABLED:Ljava/lang/String; = "lockscreen_sounds_enabled"
 
 .field public static final LOCKSCREEN_SOUNDS_ENABLED_VALIDATOR:Landroid/provider/Settings$System$Validator;
+
+.field public static final LOCK_ADAPTIVE_COLOR:Ljava/lang/String; = "lock_adaptive_color"
+
+.field public static final LOCK_NOTICARD_OPACITY:Ljava/lang/String; = "lock_noticard_opacity"
 
 .field public static final LOCK_PATTERN_ENABLED:Ljava/lang/String; = "lock_pattern_autolock"
     .annotation runtime Ljava/lang/Deprecated;
@@ -604,6 +632,14 @@
 
 .field private static final MEDIA_BUTTON_RECEIVER_VALIDATOR:Landroid/provider/Settings$System$Validator;
 
+.field public static final MMS_DOMAIN:Ljava/lang/String; = "mms_domain"
+
+.field public static final MMS_POST_URL:Ljava/lang/String; = "mms_post_url"
+
+.field public static final MMS_SUBSCRIBER_ID:Ljava/lang/String; = "mms_subscriber_id"
+
+.field public static final MMS_USER_AGENT:Ljava/lang/String; = "mms_user_agent"
+
 .field public static final MMS_X_WAP_PROFILE_URL:Ljava/lang/String; = "mms_x_wap_profile_url"
 
 .field public static final MODE_RINGER:Ljava/lang/String; = "mode_ringer"
@@ -614,10 +650,6 @@
 .field public static final MODE_RINGER_STREAMS_AFFECTED:Ljava/lang/String; = "mode_ringer_streams_affected"
 
 .field private static final MODE_RINGER_STREAMS_AFFECTED_VALIDATOR:Landroid/provider/Settings$System$Validator;
-
-.field public static final MODE_RINGER_TIME:Ljava/lang/String; = "mode_ringer_time"
-
-.field public static final MODE_RINGER_TIME_ON:Ljava/lang/String; = "mode_ringer_time_on"
 
 .field public static final MOTION_DOUBLE_TAP:Ljava/lang/String; = "motion_double_tap"
 
@@ -693,9 +725,11 @@
 
 .field public static final MULTISIM_SELECTIVE_POPUP:Ljava/lang/String; = "multisim_selective_popup"
 
-.field public static final MULTIWINDOW_POPUP_VIEW_GESTURE:Ljava/lang/String; = "db_popup_view_shortcut"
+.field public static final MULTIWINDOW_DIVIDER_BUTTONS_SHOW_COUNT:Ljava/lang/String; = "db_divider_option_buttons_counter"
 
-.field public static final MULTIWINDOW_SPLIT_SCREEN_VIEW_SHORTCUT:Ljava/lang/String; = "db_split_screen_view_shortcut"
+.field public static final MULTIWINDOW_HAS_DOCK_MINIMIZED:Ljava/lang/String; = "db_has_dock_minimized"
+
+.field public static final MULTIWINDOW_POPUP_VIEW_GESTURE:Ljava/lang/String; = "db_popup_view_shortcut"
 
 .field public static final MUTE_STREAMS_AFFECTED:Ljava/lang/String; = "mute_streams_affected"
 
@@ -705,6 +739,8 @@
 
 .field public static final NAVIGATIONBAR_COLOR:Ljava/lang/String; = "navigationbar_color"
 
+.field public static final NAVIGATIONBAR_CURRENT_COLOR:Ljava/lang/String; = "navigationbar_current_color"
+
 .field public static final NAVIGATIONBAR_HEIGHT:Ljava/lang/String; = "navigationbar_height"
 
 .field public static final NAVIGATIONBAR_KEY_ORDER:Ljava/lang/String; = "navigationbar_key_order"
@@ -713,11 +749,17 @@
 
 .field public static final NAVIGATIONBAR_LEFT_ADDITIONAL:Ljava/lang/String; = "navigationbar_left_additional"
 
+.field public static final NAVIGATIONBAR_PRESSURE_USER_LEVEL:Ljava/lang/String; = "navigationbar_pressure_user_level"
+
 .field public static final NAVIGATIONBAR_RECENTLY_USED_COLOR:Ljava/lang/String; = "navigationbar_recently_used_color"
 
 .field public static final NAVIGATIONBAR_RIGHT:Ljava/lang/String; = "navigationbar_right"
 
 .field public static final NAVIGATIONBAR_RIGHT_ADDITIONAL:Ljava/lang/String; = "navigationbar_right_additional"
+
+.field public static final NAVIGATIONBAR_UNLOCK_WITH_HOME_BUTTON:Ljava/lang/String; = "navigationbar_unlock_with_home_button"
+
+.field public static final NAVIGATIONBAR_USE_THEME_DEFAULT:Ljava/lang/String; = "navigationbar_use_theme_default"
 
 .field public static final NETWORK_PREFERENCE:Ljava/lang/String; = "network_preference"
     .annotation runtime Ljava/lang/Deprecated;
@@ -757,6 +799,10 @@
 .field public static final NOTIFICATION_REMINDER_LED_INDICATOR_ENABLED:Ljava/lang/String; = "notification_reminder_led_indicator_enabled"
 
 .field public static final NOTIFICATION_SOUND:Ljava/lang/String; = "notification_sound"
+
+.field public static final NOTIFICATION_SOUND2_CACHE:Ljava/lang/String; = "notification_sound2_cache"
+
+.field public static final NOTIFICATION_SOUND2_CACHE_URI:Landroid/net/Uri;
 
 .field public static final NOTIFICATION_SOUND_2:Ljava/lang/String; = "notification_sound_2"
 
@@ -925,6 +971,10 @@
 
 .field public static final RINGTONE:Ljava/lang/String; = "ringtone"
 
+.field public static final RINGTONE2_CACHE:Ljava/lang/String; = "ringtone2_cache"
+
+.field public static final RINGTONE2_CACHE_URI:Landroid/net/Uri;
+
 .field public static final RINGTONE_2:Ljava/lang/String; = "ringtone_2"
 
 .field public static final RINGTONE_3:Ljava/lang/String; = "ringtone_3"
@@ -974,6 +1024,10 @@
 .field private static final SCREEN_AUTO_BRIGHTNESS_ADJ_VALIDATOR:Landroid/provider/Settings$System$Validator;
 
 .field public static final SCREEN_BRIGHTNESS:Ljava/lang/String; = "screen_brightness"
+
+.field public static final SCREEN_BRIGHTNESS_FOR_VR:Ljava/lang/String; = "screen_brightness_for_vr"
+
+.field private static final SCREEN_BRIGHTNESS_FOR_VR_VALIDATOR:Landroid/provider/Settings$System$Validator;
 
 .field public static final SCREEN_BRIGHTNESS_MODE:Ljava/lang/String; = "screen_brightness_mode"
 
@@ -1069,6 +1123,10 @@
 
 .field public static final SEM_EMERGENCY_MODE_USER_AGREEMENT:Ljava/lang/String; = "safety_care_user_agree"
 
+.field public static final SEM_FINGERPRINT_GESTURE:Ljava/lang/String; = "fingerprint_gesture_quick"
+
+.field public static final SEM_FINGERPRINT_GESTURE_SAMSUNG_PAY:Ljava/lang/String; = "fingerprint_gesture_spay"
+
 .field public static final SEM_FLASH_NOTIFICATION:Ljava/lang/String; = "flash_notification"
 
 .field public static final SEM_FONT_SIZE:Ljava/lang/String; = "font_size"
@@ -1080,6 +1138,8 @@
 .field public static final SEM_GREYSCALE_MODE:Ljava/lang/String; = "greyscale_mode"
 
 .field public static final SEM_HAPTIC_FEEDBACK_EXTRA:Ljava/lang/String; = "haptic_feedback_extra"
+
+.field public static final SEM_HDR_CERTIFICATE_SCREEN_BRIGHTNESS:Ljava/lang/String; = "hdr_certificate_screen_brightness"
 
 .field public static final SEM_HEARING_AID:Ljava/lang/String; = "hearing_aid"
 
@@ -1145,6 +1205,8 @@
 
 .field public static final SEM_SCREEN_CURTAIN:Ljava/lang/String; = "lcd_curtain"
 
+.field public static final SEM_SCREEN_NOTIFICATION:Ljava/lang/String; = "screen_notification"
+
 .field public static final SEM_SCREEN_OFF_MEMO:Ljava/lang/String; = "screen_off_memo"
 
 .field public static final SEM_SELECT_ICON_1:Ljava/lang/String; = "select_icon_1"
@@ -1175,6 +1237,8 @@
 
 .field public static final SEM_TIME_KEY_SELECTABLE:Ljava/lang/String; = "time_key_selectable"
 
+.field public static final SEM_TIME_ZONE_DB_AUTO_UPDATED:Ljava/lang/String; = "time_zone_db_auto_updated"
+
 .field public static final SEM_TORCH_LIGHT:Ljava/lang/String; = "torch_light"
 
 .field public static final SEM_ULTRA_POWERSAVING_MODE:Ljava/lang/String; = "ultra_powersaving_mode"
@@ -1199,6 +1263,10 @@
 .field public static final SETUP_WIZARD_HAS_RUN_VALIDATOR:Landroid/provider/Settings$System$Validator;
 
 .field public static final SET_SHORTCUTS_MODE:Ljava/lang/String; = "set_shortcuts_mode"
+
+.field public static final SHOW_BATTERY_PERCENT:Ljava/lang/String; = "status_bar_show_battery_percent"
+
+.field private static final SHOW_BATTERY_PERCENT_VALIDATOR:Landroid/provider/Settings$System$Validator;
 
 .field public static final SHOW_BUTTON_BACKGROUND:Ljava/lang/String; = "show_button_background"
 
@@ -1414,7 +1482,11 @@
 
 .field public static final VIB_RECVCALL_MAGNITUDE:Ljava/lang/String; = "VIB_RECVCALL_MAGNITUDE"
 
+.field public static final VOLUME_ACCESSIBILITY:Ljava/lang/String; = "volume_a11y"
+
 .field public static final VOLUME_ALARM:Ljava/lang/String; = "volume_alarm"
+
+.field public static final VOLUME_BIXBY:Ljava/lang/String; = "volume_bixby"
 
 .field public static final VOLUME_BLUETOOTH_SCO:Ljava/lang/String; = "volume_bluetooth_sco"
 
@@ -1426,9 +1498,15 @@
 
 .field public static final VOLUME_NOTIFICATION:Ljava/lang/String; = "volume_notification"
 
+.field public static final VOLUME_RESERVED1:Ljava/lang/String; = "volume_reserved1"
+
+.field public static final VOLUME_RESERVED2:Ljava/lang/String; = "volume_reserved2"
+
 .field public static final VOLUME_RING:Ljava/lang/String; = "volume_ring"
 
 .field public static final VOLUME_SETTINGS:[Ljava/lang/String;
+
+.field public static final VOLUME_SETTINGS_INT:[Ljava/lang/String;
 
 .field public static final VOLUME_SYSTEM:Ljava/lang/String; = "volume_system"
 
@@ -1469,21 +1547,6 @@
 .field public static final WIFIAP_SUBNET_MASK:Ljava/lang/String; = "wifiap_subnet_mask"
 
 .field public static final WIFI_ACTIVE_ROAMING:Ljava/lang/String; = "wifi_active_roaming"
-
-.field public static final WIFI_AP_SORT:Ljava/lang/String; = "wifi_ap_sort"
-    .annotation runtime Ljava/lang/Deprecated;
-    .end annotation
-.end field
-
-.field public static final WIFI_AP_SORT_NAME:I = 0x0
-    .annotation runtime Ljava/lang/Deprecated;
-    .end annotation
-.end field
-
-.field public static final WIFI_AP_SORT_RSSI:I = 0x1
-    .annotation runtime Ljava/lang/Deprecated;
-    .end annotation
-.end field
 
 .field public static final WIFI_CONNECTION_MONITOR_ENABLED:Ljava/lang/String; = "wifi_connection_monitor_enable"
     .annotation runtime Ljava/lang/Deprecated;
@@ -1661,22 +1724,24 @@
 
 .field private static final sNonNegativeIntegerValidator:Landroid/provider/Settings$System$Validator;
 
+.field private static final sProviderHolder:Landroid/provider/Settings$ContentProviderHolder;
+
 .field private static final sUriValidator:Landroid/provider/Settings$System$Validator;
 
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 9
+    .locals 10
 
-    const/4 v8, 0x4
+    const/4 v9, 0x4
 
-    const/4 v7, 0x3
+    const/4 v8, 0x3
 
-    const/4 v6, 0x1
+    const/4 v7, 0x1
 
-    const/4 v5, 0x2
+    const/4 v6, 0x2
 
-    const/4 v4, 0x0
+    const/4 v5, 0x0
 
     const-string/jumbo v0, "content://settings/system"
 
@@ -1686,6 +1751,14 @@
 
     sput-object v0, Landroid/provider/Settings$System;->CONTENT_URI:Landroid/net/Uri;
 
+    new-instance v0, Landroid/provider/Settings$ContentProviderHolder;
+
+    sget-object v1, Landroid/provider/Settings$System;->CONTENT_URI:Landroid/net/Uri;
+
+    invoke-direct {v0, v1}, Landroid/provider/Settings$ContentProviderHolder;-><init>(Landroid/net/Uri;)V
+
+    sput-object v0, Landroid/provider/Settings$System;->sProviderHolder:Landroid/provider/Settings$ContentProviderHolder;
+
     new-instance v0, Landroid/provider/Settings$NameValueCache;
 
     sget-object v1, Landroid/provider/Settings$System;->CONTENT_URI:Landroid/net/Uri;
@@ -1694,7 +1767,9 @@
 
     const-string/jumbo v3, "PUT_system"
 
-    invoke-direct {v0, v1, v2, v3}, Landroid/provider/Settings$NameValueCache;-><init>(Landroid/net/Uri;Ljava/lang/String;Ljava/lang/String;)V
+    sget-object v4, Landroid/provider/Settings$System;->sProviderHolder:Landroid/provider/Settings$ContentProviderHolder;
+
+    invoke-direct {v0, v1, v2, v3, v4}, Landroid/provider/Settings$NameValueCache;-><init>(Landroid/net/Uri;Ljava/lang/String;Ljava/lang/String;Landroid/provider/Settings$ContentProviderHolder;)V
 
     sput-object v0, Landroid/provider/Settings$System;->sNameValueCache:Landroid/provider/Settings$NameValueCache;
 
@@ -1877,192 +1952,6 @@
     sget-object v0, Landroid/provider/Settings$System;->MOVED_TO_SECURE:Ljava/util/HashSet;
 
     const-string/jumbo v1, "install_non_market_apps"
-
-    invoke-virtual {v0, v1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$System;->MOVED_TO_SECURE:Ljava/util/HashSet;
-
-    const-string/jumbo v1, "kddi_cpa_on"
-
-    invoke-virtual {v0, v1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$System;->MOVED_TO_SECURE:Ljava/util/HashSet;
-
-    const-string/jumbo v1, "kddi_cpa_state"
-
-    invoke-virtual {v0, v1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$System;->MOVED_TO_SECURE:Ljava/util/HashSet;
-
-    const-string/jumbo v1, "kddi_cpa_apn"
-
-    invoke-virtual {v0, v1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$System;->MOVED_TO_SECURE:Ljava/util/HashSet;
-
-    const-string/jumbo v1, "kddi_cpa_id"
-
-    invoke-virtual {v0, v1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$System;->MOVED_TO_SECURE:Ljava/util/HashSet;
-
-    const-string/jumbo v1, "kddi_cpa_password"
-
-    invoke-virtual {v0, v1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$System;->MOVED_TO_SECURE:Ljava/util/HashSet;
-
-    const-string/jumbo v1, "kddi_cpa_authentication_type"
-
-    invoke-virtual {v0, v1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$System;->MOVED_TO_SECURE:Ljava/util/HashSet;
-
-    const-string/jumbo v1, "kddi_cpa_static_dns1"
-
-    invoke-virtual {v0, v1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$System;->MOVED_TO_SECURE:Ljava/util/HashSet;
-
-    const-string/jumbo v1, "kddi_cpa_static_dns2"
-
-    invoke-virtual {v0, v1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$System;->MOVED_TO_SECURE:Ljava/util/HashSet;
-
-    const-string/jumbo v1, "kddi_cpa_vj_compress"
-
-    invoke-virtual {v0, v1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$System;->MOVED_TO_SECURE:Ljava/util/HashSet;
-
-    const-string/jumbo v1, "kddi_cpa_proxy"
-
-    invoke-virtual {v0, v1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$System;->MOVED_TO_SECURE:Ljava/util/HashSet;
-
-    const-string/jumbo v1, "kddi_cpa_port"
-
-    invoke-virtual {v0, v1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$System;->MOVED_TO_SECURE:Ljava/util/HashSet;
-
-    const-string/jumbo v1, "pppd_exit_port"
-
-    invoke-virtual {v0, v1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$System;->MOVED_TO_SECURE:Ljava/util/HashSet;
-
-    const-string/jumbo v1, "lock_signature_autolock"
-
-    invoke-virtual {v0, v1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$System;->MOVED_TO_SECURE:Ljava/util/HashSet;
-
-    const-string/jumbo v1, "lock_signature_visible_pattern"
-
-    invoke-virtual {v0, v1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$System;->MOVED_TO_SECURE:Ljava/util/HashSet;
-
-    const-string/jumbo v1, "lock_signature_verification_level"
-
-    invoke-virtual {v0, v1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$System;->MOVED_TO_SECURE:Ljava/util/HashSet;
-
-    const-string/jumbo v1, "wifi_internet_service_check_warning"
-
-    invoke-virtual {v0, v1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$System;->MOVED_TO_SECURE:Ljava/util/HashSet;
-
-    const-string/jumbo v1, "wifi_poor_connection_warning"
-
-    invoke-virtual {v0, v1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$System;->MOVED_TO_SECURE:Ljava/util/HashSet;
-
-    const-string/jumbo v1, "wifi_wwsm_patch_key"
-
-    invoke-virtual {v0, v1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$System;->MOVED_TO_SECURE:Ljava/util/HashSet;
-
-    const-string/jumbo v1, "wifi_wwsm_patch_remove_sns_menu_from_settings"
-
-    invoke-virtual {v0, v1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$System;->MOVED_TO_SECURE:Ljava/util/HashSet;
-
-    const-string/jumbo v1, "wifi_wwsm_patch_update_available"
-
-    invoke-virtual {v0, v1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$System;->MOVED_TO_SECURE:Ljava/util/HashSet;
-
-    const-string/jumbo v1, "wifi_wwsm_patch_need_to_check_appstore"
-
-    invoke-virtual {v0, v1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$System;->MOVED_TO_SECURE:Ljava/util/HashSet;
-
-    const-string/jumbo v1, "wifi_wwsm_patch_restore_sns_enabled"
-
-    invoke-virtual {v0, v1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$System;->MOVED_TO_SECURE:Ljava/util/HashSet;
-
-    const-string/jumbo v1, "wifi_wwsm_patch_test_mode_enabled"
-
-    invoke-virtual {v0, v1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$System;->MOVED_TO_SECURE:Ljava/util/HashSet;
-
-    const-string/jumbo v1, "wifi_sns_dialog_for_starting_settings"
-
-    invoke-virtual {v0, v1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$System;->MOVED_TO_SECURE:Ljava/util/HashSet;
-
-    const-string/jumbo v1, "wifi_sns_visited_country_iso"
-
-    invoke-virtual {v0, v1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$System;->MOVED_TO_SECURE:Ljava/util/HashSet;
-
-    const-string/jumbo v1, "wifi_defaultap_profile"
-
-    invoke-virtual {v0, v1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$System;->MOVED_TO_SECURE:Ljava/util/HashSet;
-
-    const-string/jumbo v1, "wifi_generalinfo_nwinfo"
-
-    invoke-virtual {v0, v1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$System;->MOVED_TO_SECURE:Ljava/util/HashSet;
-
-    const-string/jumbo v1, "wifi_hotspot20_enable"
-
-    invoke-virtual {v0, v1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$System;->MOVED_TO_SECURE:Ljava/util/HashSet;
-
-    const-string/jumbo v1, "wifi_scan_for_free_wlans"
-
-    invoke-virtual {v0, v1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$System;->MOVED_TO_SECURE:Ljava/util/HashSet;
-
-    const-string/jumbo v1, "chameleon_tethereddata"
-
-    invoke-virtual {v0, v1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$System;->MOVED_TO_SECURE:Ljava/util/HashSet;
-
-    const-string/jumbo v1, "att_hotspot_test"
 
     invoke-virtual {v0, v1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
@@ -2278,12 +2167,6 @@
 
     sget-object v0, Landroid/provider/Settings$System;->MOVED_TO_GLOBAL:Ljava/util/HashSet;
 
-    const-string/jumbo v1, "show_processes"
-
-    invoke-virtual {v0, v1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$System;->MOVED_TO_GLOBAL:Ljava/util/HashSet;
-
     const-string/jumbo v1, "always_finish_activities"
 
     invoke-virtual {v0, v1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
@@ -2336,24 +2219,6 @@
 
     invoke-virtual {v0, v1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
-    sget-object v0, Landroid/provider/Settings$System;->MOVED_TO_GLOBAL:Ljava/util/HashSet;
-
-    const-string/jumbo v1, "vowifi_mdn"
-
-    invoke-virtual {v0, v1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$System;->MOVED_TO_GLOBAL:Ljava/util/HashSet;
-
-    const-string/jumbo v1, "font_size"
-
-    invoke-virtual {v0, v1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$System;->MOVED_TO_GLOBAL:Ljava/util/HashSet;
-
-    const-string/jumbo v1, "wifi_ap_sort"
-
-    invoke-virtual {v0, v1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
-
     sget-object v0, Landroid/provider/Settings$System;->MOVED_TO_SECURE_PROTECTDB:Ljava/util/HashSet;
 
     const-string/jumbo v1, "personal_mode_lock_type"
@@ -2380,15 +2245,15 @@
 
     new-instance v0, Landroid/provider/Settings$System$DiscreteValueValidator;
 
-    new-array v1, v5, [Ljava/lang/String;
+    new-array v1, v6, [Ljava/lang/String;
 
     const-string/jumbo v2, "0"
 
-    aput-object v2, v1, v4
+    aput-object v2, v1, v5
 
     const-string/jumbo v2, "1"
 
-    aput-object v2, v1, v6
+    aput-object v2, v1, v7
 
     invoke-direct {v0, v1}, Landroid/provider/Settings$System$DiscreteValueValidator;-><init>([Ljava/lang/String;)V
 
@@ -2442,7 +2307,7 @@
 
     new-instance v0, Landroid/provider/Settings$System$InclusiveIntegerRangeValidator;
 
-    invoke-direct {v0, v4, v7}, Landroid/provider/Settings$System$InclusiveIntegerRangeValidator;-><init>(II)V
+    invoke-direct {v0, v5, v8}, Landroid/provider/Settings$System$InclusiveIntegerRangeValidator;-><init>(II)V
 
     sput-object v0, Landroid/provider/Settings$System;->END_BUTTON_BEHAVIOR_VALIDATOR:Landroid/provider/Settings$System$Validator;
 
@@ -2476,7 +2341,7 @@
 
     new-instance v0, Landroid/provider/Settings$System$InclusiveIntegerRangeValidator;
 
-    invoke-direct {v0, v4, v5}, Landroid/provider/Settings$System$InclusiveIntegerRangeValidator;-><init>(II)V
+    invoke-direct {v0, v5, v6}, Landroid/provider/Settings$System$InclusiveIntegerRangeValidator;-><init>(II)V
 
     sput-object v0, Landroid/provider/Settings$System;->BLUETOOTH_DISCOVERABILITY_VALIDATOR:Landroid/provider/Settings$System$Validator;
 
@@ -2508,9 +2373,17 @@
 
     const/16 v1, 0xff
 
-    invoke-direct {v0, v4, v1}, Landroid/provider/Settings$System$InclusiveIntegerRangeValidator;-><init>(II)V
+    invoke-direct {v0, v5, v1}, Landroid/provider/Settings$System$InclusiveIntegerRangeValidator;-><init>(II)V
 
     sput-object v0, Landroid/provider/Settings$System;->SCREEN_BRIGHTNESS_VALIDATOR:Landroid/provider/Settings$System$Validator;
+
+    new-instance v0, Landroid/provider/Settings$System$InclusiveIntegerRangeValidator;
+
+    const/16 v1, 0xff
+
+    invoke-direct {v0, v5, v1}, Landroid/provider/Settings$System$InclusiveIntegerRangeValidator;-><init>(II)V
+
+    sput-object v0, Landroid/provider/Settings$System;->SCREEN_BRIGHTNESS_FOR_VR_VALIDATOR:Landroid/provider/Settings$System$Validator;
 
     sget-object v0, Landroid/provider/Settings$System;->sBooleanValidator:Landroid/provider/Settings$System$Validator;
 
@@ -2554,29 +2427,29 @@
 
     sput-object v0, Landroid/provider/Settings$System;->VIBRATE_IN_SILENT_VALIDATOR:Landroid/provider/Settings$System$Validator;
 
-    const/16 v0, 0xb
+    const/16 v0, 0xf
 
     new-array v0, v0, [Ljava/lang/String;
 
     const-string/jumbo v1, "volume_voice"
 
-    aput-object v1, v0, v4
+    aput-object v1, v0, v5
 
     const-string/jumbo v1, "volume_system"
 
-    aput-object v1, v0, v6
+    aput-object v1, v0, v7
 
     const-string/jumbo v1, "volume_ring"
 
-    aput-object v1, v0, v5
+    aput-object v1, v0, v6
 
     const-string/jumbo v1, "volume_music"
 
-    aput-object v1, v0, v7
+    aput-object v1, v0, v8
 
     const-string/jumbo v1, "volume_alarm"
 
-    aput-object v1, v0, v8
+    aput-object v1, v0, v9
 
     const-string/jumbo v1, "volume_notification"
 
@@ -2608,13 +2481,123 @@
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "volume_waiting_tone"
+    const-string/jumbo v1, "volume_a11y"
 
     const/16 v2, 0xa
 
     aput-object v1, v0, v2
 
+    const-string/jumbo v1, "volume_waiting_tone"
+
+    const/16 v2, 0xb
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "volume_reserved1"
+
+    const/16 v2, 0xc
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "volume_reserved2"
+
+    const/16 v2, 0xd
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "volume_bixby"
+
+    const/16 v2, 0xe
+
+    aput-object v1, v0, v2
+
     sput-object v0, Landroid/provider/Settings$System;->VOLUME_SETTINGS:[Ljava/lang/String;
+
+    const/16 v0, 0xf
+
+    new-array v0, v0, [Ljava/lang/String;
+
+    const-string/jumbo v1, "volume_voice"
+
+    aput-object v1, v0, v5
+
+    const-string/jumbo v1, "volume_system"
+
+    aput-object v1, v0, v7
+
+    const-string/jumbo v1, "volume_ring"
+
+    aput-object v1, v0, v6
+
+    const-string/jumbo v1, "volume_music"
+
+    aput-object v1, v0, v8
+
+    const-string/jumbo v1, "volume_alarm"
+
+    aput-object v1, v0, v9
+
+    const-string/jumbo v1, "volume_notification"
+
+    const/4 v2, 0x5
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "volume_bluetooth_sco"
+
+    const/4 v2, 0x6
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "volume_system_enforced"
+
+    const/4 v2, 0x7
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "volume_DTMF"
+
+    const/16 v2, 0x8
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "volume_tts"
+
+    const/16 v2, 0x9
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "volume_a11y"
+
+    const/16 v2, 0xa
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "volume_waiting_tone"
+
+    const/16 v2, 0xb
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "volume_reserved1"
+
+    const/16 v2, 0xc
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "volume_reserved2"
+
+    const/16 v2, 0xd
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "volume_bixby"
+
+    const/16 v2, 0xe
+
+    aput-object v1, v0, v2
+
+    sput-object v0, Landroid/provider/Settings$System;->VOLUME_SETTINGS_INT:[Ljava/lang/String;
 
     sget-object v0, Landroid/provider/Settings$System;->sUriValidator:Landroid/provider/Settings$System$Validator;
 
@@ -2655,6 +2638,22 @@
     move-result-object v0
 
     sput-object v0, Landroid/provider/Settings$System;->NOTIFICATION_SOUND_CACHE_URI:Landroid/net/Uri;
+
+    const-string/jumbo v0, "ringtone2_cache"
+
+    invoke-static {v0}, Landroid/provider/Settings$System;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v0
+
+    sput-object v0, Landroid/provider/Settings$System;->RINGTONE2_CACHE_URI:Landroid/net/Uri;
+
+    const-string/jumbo v0, "notification_sound2_cache"
+
+    invoke-static {v0}, Landroid/provider/Settings$System;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v0
+
+    sput-object v0, Landroid/provider/Settings$System;->NOTIFICATION_SOUND2_CACHE_URI:Landroid/net/Uri;
 
     sget-object v0, Landroid/provider/Settings$System;->sUriValidator:Landroid/provider/Settings$System$Validator;
 
@@ -2710,15 +2709,15 @@
 
     new-instance v0, Landroid/provider/Settings$System$DiscreteValueValidator;
 
-    new-array v1, v5, [Ljava/lang/String;
+    new-array v1, v6, [Ljava/lang/String;
 
     const-string/jumbo v2, "12"
 
-    aput-object v2, v1, v4
+    aput-object v2, v1, v5
 
     const-string/jumbo v2, "24"
 
-    aput-object v2, v1, v6
+    aput-object v2, v1, v7
 
     invoke-direct {v0, v1}, Landroid/provider/Settings$System$DiscreteValueValidator;-><init>([Ljava/lang/String;)V
 
@@ -2740,7 +2739,7 @@
 
     new-instance v0, Landroid/provider/Settings$System$InclusiveIntegerRangeValidator;
 
-    invoke-direct {v0, v4, v7}, Landroid/provider/Settings$System$InclusiveIntegerRangeValidator;-><init>(II)V
+    invoke-direct {v0, v5, v8}, Landroid/provider/Settings$System$InclusiveIntegerRangeValidator;-><init>(II)V
 
     sput-object v0, Landroid/provider/Settings$System;->USER_ROTATION_VALIDATOR:Landroid/provider/Settings$System$Validator;
 
@@ -2766,7 +2765,7 @@
 
     new-instance v0, Landroid/provider/Settings$System$InclusiveIntegerRangeValidator;
 
-    invoke-direct {v0, v4, v7}, Landroid/provider/Settings$System$InclusiveIntegerRangeValidator;-><init>(II)V
+    invoke-direct {v0, v5, v8}, Landroid/provider/Settings$System$InclusiveIntegerRangeValidator;-><init>(II)V
 
     sput-object v0, Landroid/provider/Settings$System;->TTY_MODE_VALIDATOR:Landroid/provider/Settings$System$Validator;
 
@@ -2812,15 +2811,15 @@
 
     new-instance v0, Landroid/provider/Settings$System$DiscreteValueValidator;
 
-    new-array v1, v5, [Ljava/lang/String;
+    new-array v1, v6, [Ljava/lang/String;
 
     const-string/jumbo v2, "SIP_ALWAYS"
 
-    aput-object v2, v1, v4
+    aput-object v2, v1, v5
 
     const-string/jumbo v2, "SIP_ADDRESS_ONLY"
 
-    aput-object v2, v1, v6
+    aput-object v2, v1, v7
 
     invoke-direct {v0, v1}, Landroid/provider/Settings$System$DiscreteValueValidator;-><init>([Ljava/lang/String;)V
 
@@ -2858,29 +2857,33 @@
 
     sput-object v0, Landroid/provider/Settings$System;->EGG_MODE_VALIDATOR:Landroid/provider/Settings$System$Validator;
 
-    const/16 v0, 0x31
+    sget-object v0, Landroid/provider/Settings$System;->sBooleanValidator:Landroid/provider/Settings$System$Validator;
+
+    sput-object v0, Landroid/provider/Settings$System;->SHOW_BATTERY_PERCENT_VALIDATOR:Landroid/provider/Settings$System$Validator;
+
+    const/16 v0, 0x33
 
     new-array v0, v0, [Ljava/lang/String;
 
     const-string/jumbo v1, "phone_blacklist_enabled"
 
-    aput-object v1, v0, v4
+    aput-object v1, v0, v5
 
     const-string/jumbo v1, "phone_blacklist_notify_enabled"
+
+    aput-object v1, v0, v7
+
+    const-string/jumbo v1, "phone_blacklist_private_number_enabled"
 
     aput-object v1, v0, v6
 
     const-string/jumbo v1, "phone_blacklist_private_number_enabled"
 
-    aput-object v1, v0, v5
-
-    const-string/jumbo v1, "phone_blacklist_private_number_enabled"
-
-    aput-object v1, v0, v7
+    aput-object v1, v0, v8
 
     const-string/jumbo v1, "phone_blacklist_regex_enabled"
 
-    aput-object v1, v0, v8
+    aput-object v1, v0, v9
 
     const-string/jumbo v1, "stay_on_while_plugged_in"
 
@@ -2972,177 +2975,189 @@
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "vibrate_input_devices"
+    const-string/jumbo v1, "screen_brightness_for_vr"
 
     const/16 v2, 0x14
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "mode_ringer_streams_affected"
+    const-string/jumbo v1, "vibrate_input_devices"
 
     const/16 v2, 0x15
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "auto_replace"
+    const-string/jumbo v1, "mode_ringer_streams_affected"
 
     const/16 v2, 0x16
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "auto_caps"
+    const-string/jumbo v1, "auto_replace"
 
     const/16 v2, 0x17
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "auto_punctuate"
+    const-string/jumbo v1, "auto_caps"
 
     const/16 v2, 0x18
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "show_password"
+    const-string/jumbo v1, "auto_punctuate"
 
     const/16 v2, 0x19
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "auto_time"
+    const-string/jumbo v1, "show_password"
 
     const/16 v2, 0x1a
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "auto_time_zone"
+    const-string/jumbo v1, "auto_time"
 
     const/16 v2, 0x1b
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "time_12_24"
+    const-string/jumbo v1, "auto_time_zone"
 
     const/16 v2, 0x1c
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "date_format"
+    const-string/jumbo v1, "time_12_24"
 
     const/16 v2, 0x1d
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "dtmf_tone"
+    const-string/jumbo v1, "date_format"
 
     const/16 v2, 0x1e
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "dtmf_tone_type"
+    const-string/jumbo v1, "dtmf_tone"
 
     const/16 v2, 0x1f
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "hearing_aid"
+    const-string/jumbo v1, "dtmf_tone_type"
 
     const/16 v2, 0x20
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "tty_mode"
+    const-string/jumbo v1, "hearing_aid"
 
     const/16 v2, 0x21
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "master_mono"
+    const-string/jumbo v1, "tty_mode"
 
     const/16 v2, 0x22
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "sound_effects_enabled"
+    const-string/jumbo v1, "master_mono"
 
     const/16 v2, 0x23
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "haptic_feedback_enabled"
+    const-string/jumbo v1, "sound_effects_enabled"
 
     const/16 v2, 0x24
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "power_sounds_enabled"
+    const-string/jumbo v1, "haptic_feedback_enabled"
 
     const/16 v2, 0x25
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "dock_sounds_enabled"
+    const-string/jumbo v1, "power_sounds_enabled"
 
     const/16 v2, 0x26
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "lockscreen_sounds_enabled"
+    const-string/jumbo v1, "dock_sounds_enabled"
 
     const/16 v2, 0x27
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "show_web_suggestions"
+    const-string/jumbo v1, "lockscreen_sounds_enabled"
 
     const/16 v2, 0x28
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "sip_call_options"
+    const-string/jumbo v1, "show_web_suggestions"
 
     const/16 v2, 0x29
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "sip_receive_calls"
+    const-string/jumbo v1, "sip_call_options"
 
     const/16 v2, 0x2a
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "pointer_speed"
+    const-string/jumbo v1, "sip_receive_calls"
 
     const/16 v2, 0x2b
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "vibrate_when_ringing"
+    const-string/jumbo v1, "pointer_speed"
 
     const/16 v2, 0x2c
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "ringtone"
+    const-string/jumbo v1, "vibrate_when_ringing"
 
     const/16 v2, 0x2d
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "lock_to_app_enabled"
+    const-string/jumbo v1, "ringtone"
 
     const/16 v2, 0x2e
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "notification_sound"
+    const-string/jumbo v1, "lock_to_app_enabled"
 
     const/16 v2, 0x2f
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "accelerometer_rotation"
+    const-string/jumbo v1, "notification_sound"
 
     const/16 v2, 0x30
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "accelerometer_rotation"
+
+    const/16 v2, 0x31
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "status_bar_show_battery_percent"
+
+    const/16 v2, 0x32
 
     aput-object v1, v0, v2
 
@@ -3432,18 +3447,6 @@
 
     sget-object v0, Landroid/provider/Settings$System;->SAMSUNG_PUBLIC_SETTINGS:Ljava/util/Set;
 
-    const-string/jumbo v1, "anykey_mode"
-
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$System;->SAMSUNG_PUBLIC_SETTINGS:Ljava/util/Set;
-
-    const-string/jumbo v1, "kids_home_mode"
-
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$System;->SAMSUNG_PUBLIC_SETTINGS:Ljava/util/Set;
-
     const-string/jumbo v1, "sip_key_feedback_sound"
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
@@ -3462,7 +3465,19 @@
 
     sget-object v0, Landroid/provider/Settings$System;->SAMSUNG_PUBLIC_SETTINGS:Ljava/util/Set;
 
+    const-string/jumbo v1, "handwriting_language"
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    sget-object v0, Landroid/provider/Settings$System;->SAMSUNG_PUBLIC_SETTINGS:Ljava/util/Set;
+
     const-string/jumbo v1, "handwriting_language_list"
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    sget-object v0, Landroid/provider/Settings$System;->SAMSUNG_PUBLIC_SETTINGS:Ljava/util/Set;
+
+    const-string/jumbo v1, "handwriting_not_support_language_list"
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
@@ -3481,6 +3496,18 @@
     sget-object v0, Landroid/provider/Settings$System;->SAMSUNG_PUBLIC_SETTINGS:Ljava/util/Set;
 
     const-string/jumbo v1, "com.sec.android.inputmethod.height_landscape"
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    sget-object v0, Landroid/provider/Settings$System;->SAMSUNG_PUBLIC_SETTINGS:Ljava/util/Set;
+
+    const-string/jumbo v1, "com.sec.android.inputmethod.candidate_height"
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    sget-object v0, Landroid/provider/Settings$System;->SAMSUNG_PUBLIC_SETTINGS:Ljava/util/Set;
+
+    const-string/jumbo v1, "com.sec.android.inputmethod.previous_inputmethod_dex"
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
@@ -3534,193 +3561,7 @@
 
     sget-object v0, Landroid/provider/Settings$System;->SAMSUNG_PUBLIC_SETTINGS:Ljava/util/Set;
 
-    const-string/jumbo v1, "galaxy_talkback_keyboard_feedback"
-
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$System;->SAMSUNG_PUBLIC_SETTINGS:Ljava/util/Set;
-
-    const-string/jumbo v1, "rapid_key_input"
-
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$System;->SAMSUNG_PUBLIC_SETTINGS:Ljava/util/Set;
-
-    const-string/jumbo v1, "rapid_key_input_menu_checked"
-
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$System;->SAMSUNG_PUBLIC_SETTINGS:Ljava/util/Set;
-
-    const-string/jumbo v1, "lcd_curtain"
-
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$System;->SAMSUNG_PUBLIC_SETTINGS:Ljava/util/Set;
-
-    const-string/jumbo v1, "high_contrast"
-
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$System;->SAMSUNG_PUBLIC_SETTINGS:Ljava/util/Set;
-
-    const-string/jumbo v1, "color_blind"
-
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$System;->SAMSUNG_PUBLIC_SETTINGS:Ljava/util/Set;
-
-    const-string/jumbo v1, "color_blind_test"
-
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$System;->SAMSUNG_PUBLIC_SETTINGS:Ljava/util/Set;
-
-    const-string/jumbo v1, "finger_magnifier"
-
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$System;->SAMSUNG_PUBLIC_SETTINGS:Ljava/util/Set;
-
-    const-string/jumbo v1, "phone1_on"
-
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$System;->SAMSUNG_PUBLIC_SETTINGS:Ljava/util/Set;
-
-    const-string/jumbo v1, "phone2_on"
-
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$System;->SAMSUNG_PUBLIC_SETTINGS:Ljava/util/Set;
-
-    const-string/jumbo v1, "select_icon_1"
-
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$System;->SAMSUNG_PUBLIC_SETTINGS:Ljava/util/Set;
-
-    const-string/jumbo v1, "select_icon_2"
-
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$System;->SAMSUNG_PUBLIC_SETTINGS:Ljava/util/Set;
-
-    const-string/jumbo v1, "select_name_1"
-
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$System;->SAMSUNG_PUBLIC_SETTINGS:Ljava/util/Set;
-
-    const-string/jumbo v1, "select_name_2"
-
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$System;->SAMSUNG_PUBLIC_SETTINGS:Ljava/util/Set;
-
-    const-string/jumbo v1, "prefered_voice_call"
-
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$System;->SAMSUNG_PUBLIC_SETTINGS:Ljava/util/Set;
-
-    const-string/jumbo v1, "prefered_video_call"
-
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$System;->SAMSUNG_PUBLIC_SETTINGS:Ljava/util/Set;
-
-    const-string/jumbo v1, "multisim_selective_popup"
-
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$System;->SAMSUNG_PUBLIC_SETTINGS:Ljava/util/Set;
-
-    const-string/jumbo v1, "dsa_inter_change"
-
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$System;->SAMSUNG_PUBLIC_SETTINGS:Ljava/util/Set;
-
-    const-string/jumbo v1, "dsa_is_activate"
-
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$System;->SAMSUNG_PUBLIC_SETTINGS:Ljava/util/Set;
-
-    const-string/jumbo v1, "prefer_data_id"
-
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$System;->SAMSUNG_PUBLIC_SETTINGS:Ljava/util/Set;
-
-    const-string/jumbo v1, "sim1_value"
-
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$System;->SAMSUNG_PUBLIC_SETTINGS:Ljava/util/Set;
-
-    const-string/jumbo v1, "sim2_value"
-
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$System;->SAMSUNG_PUBLIC_SETTINGS:Ljava/util/Set;
-
-    const-string/jumbo v1, "dsa_sim1_value"
-
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$System;->SAMSUNG_PUBLIC_SETTINGS:Ljava/util/Set;
-
-    const-string/jumbo v1, "dsa_sim2_value"
-
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$System;->SAMSUNG_PUBLIC_SETTINGS:Ljava/util/Set;
-
-    const-string/jumbo v1, "default_data"
-
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$System;->SAMSUNG_PUBLIC_SETTINGS:Ljava/util/Set;
-
-    const-string/jumbo v1, "default_maincard"
-
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$System;->SAMSUNG_PUBLIC_SETTINGS:Ljava/util/Set;
-
-    const-string/jumbo v1, "default_mainsmscard"
-
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$System;->SAMSUNG_PUBLIC_SETTINGS:Ljava/util/Set;
-
-    const-string/jumbo v1, "game_home_enable"
-
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$System;->SAMSUNG_PUBLIC_SETTINGS:Ljava/util/Set;
-
-    const-string/jumbo v1, "game_no_interruption"
-
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$System;->SAMSUNG_PUBLIC_SETTINGS:Ljava/util/Set;
-
-    const-string/jumbo v1, "game_no_interruption_white_list"
-
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$System;->SAMSUNG_PUBLIC_SETTINGS:Ljava/util/Set;
-
-    const-string/jumbo v1, "recommendation_time"
-
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$System;->SAMSUNG_PUBLIC_SETTINGS:Ljava/util/Set;
-
-    const-string/jumbo v1, "recommendation_time_2"
+    const-string/jumbo v1, "scon_is_running"
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
@@ -3756,109 +3597,19 @@
 
     sget-object v0, Landroid/provider/Settings$System;->SAMSUNG_PUBLIC_SETTINGS:Ljava/util/Set;
 
-    const-string/jumbo v1, "scon_is_running"
+    const-string/jumbo v1, "ringtone_2"
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
     sget-object v0, Landroid/provider/Settings$System;->SAMSUNG_PUBLIC_SETTINGS:Ljava/util/Set;
 
-    const-string/jumbo v1, "sidesync_source_connect"
-
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$System;->SAMSUNG_PUBLIC_SETTINGS:Ljava/util/Set;
-
-    const-string/jumbo v1, "sidesync_sink_connect"
-
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$System;->SAMSUNG_PUBLIC_SETTINGS:Ljava/util/Set;
-
-    const-string/jumbo v1, "sidesync_source_presentation"
-
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$System;->SAMSUNG_PUBLIC_SETTINGS:Ljava/util/Set;
-
-    const-string/jumbo v1, "sidesync_hwkeyboard_connect"
-
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$System;->SAMSUNG_PUBLIC_SETTINGS:Ljava/util/Set;
-
-    const-string/jumbo v1, "sidesync_tablet_connect"
-
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$System;->SAMSUNG_PUBLIC_SETTINGS:Ljava/util/Set;
-
-    const-string/jumbo v1, "samsung_errorlog_agree"
-
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$System;->SAMSUNG_PUBLIC_SETTINGS:Ljava/util/Set;
-
-    const-string/jumbo v1, "samsung_eula_agree"
-
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$System;->SAMSUNG_PUBLIC_SETTINGS:Ljava/util/Set;
-
-    const-string/jumbo v1, "send_security_reports"
-
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$System;->SAMSUNG_PUBLIC_SETTINGS:Ljava/util/Set;
-
-    const-string/jumbo v1, "voicetalk_language"
-
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$System;->SAMSUNG_PUBLIC_SETTINGS:Ljava/util/Set;
-
-    const-string/jumbo v1, "need_dark_font"
-
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$System;->SAMSUNG_PUBLIC_SETTINGS:Ljava/util/Set;
-
-    const-string/jumbo v1, "android.wallpaper.settings_systemui_transparency"
-
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$System;->SAMSUNG_PUBLIC_SETTINGS:Ljava/util/Set;
-
-    const-string/jumbo v1, "homescreenPreview_capturetime"
-
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$System;->SAMSUNG_PUBLIC_SETTINGS:Ljava/util/Set;
-
-    const-string/jumbo v1, "homescreenPreview_capturetime"
-
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$System;->SAMSUNG_PUBLIC_SETTINGS:Ljava/util/Set;
-
-    const-string/jumbo v1, "current_sec_appicon_theme_package"
-
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$System;->SAMSUNG_PUBLIC_SETTINGS:Ljava/util/Set;
-
-    const-string/jumbo v1, "opne_theme_effect_lockscreen_wallpaper"
+    const-string/jumbo v1, "volume_bixby"
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
     sget-object v0, Landroid/provider/Settings$System;->SAMSUNG_PUBLIC_SETTINGS:Ljava/util/Set;
 
     const-string/jumbo v1, "RICH_NOTIFICATION_AVAILABLE"
-
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$System;->SAMSUNG_PUBLIC_SETTINGS:Ljava/util/Set;
-
-    const-string/jumbo v1, "TIME_DIFFERENCE"
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
@@ -3906,72 +3657,6 @@
 
     sget-object v0, Landroid/provider/Settings$System;->SAMSUNG_PUBLIC_SETTINGS:Ljava/util/Set;
 
-    const-string/jumbo v1, "lockscreen_dual_mode"
-
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$System;->SAMSUNG_PUBLIC_SETTINGS:Ljava/util/Set;
-
-    const-string/jumbo v1, "wallpaper_tilt_status"
-
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$System;->SAMSUNG_PUBLIC_SETTINGS:Ljava/util/Set;
-
-    const-string/jumbo v1, "lockscreen_wallpaper_path"
-
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$System;->SAMSUNG_PUBLIC_SETTINGS:Ljava/util/Set;
-
-    const-string/jumbo v1, "lockscreen_wallpaper_path_ripple"
-
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$System;->SAMSUNG_PUBLIC_SETTINGS:Ljava/util/Set;
-
-    const-string/jumbo v1, "lockscreen_wallpaper_path_sub"
-
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$System;->SAMSUNG_PUBLIC_SETTINGS:Ljava/util/Set;
-
-    const-string/jumbo v1, "lockscreen_wallpaper_path_ripple_sub"
-
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$System;->SAMSUNG_PUBLIC_SETTINGS:Ljava/util/Set;
-
-    const-string/jumbo v1, "lockscreen_wallpaper"
-
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$System;->SAMSUNG_PUBLIC_SETTINGS:Ljava/util/Set;
-
-    const-string/jumbo v1, "lockscreen_wallpaper_sub"
-
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$System;->SAMSUNG_PUBLIC_SETTINGS:Ljava/util/Set;
-
-    const-string/jumbo v1, "lockscreen_wallpaper_transparent"
-
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$System;->SAMSUNG_PUBLIC_SETTINGS:Ljava/util/Set;
-
-    const-string/jumbo v1, "sview_bg_wallpaper_path"
-
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$System;->SAMSUNG_PUBLIC_SETTINGS:Ljava/util/Set;
-
-    const-string/jumbo v1, "sview_color_wallpaper"
-
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$System;->SAMSUNG_PUBLIC_SETTINGS:Ljava/util/Set;
-
     const-string/jumbo v1, "connected_wearable"
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
@@ -3990,49 +3675,127 @@
 
     sget-object v0, Landroid/provider/Settings$System;->SAMSUNG_PUBLIC_SETTINGS:Ljava/util/Set;
 
-    const-string/jumbo v1, "send_mms_block_list"
-
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$System;->SAMSUNG_PUBLIC_SETTINGS:Ljava/util/Set;
-
     const-string/jumbo v1, "block_emergency_message"
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
     sget-object v0, Landroid/provider/Settings$System;->SAMSUNG_PUBLIC_SETTINGS:Ljava/util/Set;
 
-    const-string/jumbo v1, "festival_effect_enabled"
+    const-string/jumbo v1, "sidesync_source_connect"
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
     sget-object v0, Landroid/provider/Settings$System;->SAMSUNG_PUBLIC_SETTINGS:Ljava/util/Set;
 
-    const-string/jumbo v1, "air_cmd_apps_and_functions"
+    const-string/jumbo v1, "sidesync_sink_connect"
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
     sget-object v0, Landroid/provider/Settings$System;->SAMSUNG_PUBLIC_SETTINGS:Ljava/util/Set;
 
-    const-string/jumbo v1, "emergency_buzzer"
+    const-string/jumbo v1, "sidesync_source_presentation"
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
     sget-object v0, Landroid/provider/Settings$System;->SAMSUNG_PUBLIC_SETTINGS:Ljava/util/Set;
 
-    const-string/jumbo v1, "emergency_buzzer_sound"
+    const-string/jumbo v1, "sidesync_hwkeyboard_connect"
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
     sget-object v0, Landroid/provider/Settings$System;->SAMSUNG_PUBLIC_SETTINGS:Ljava/util/Set;
 
-    const-string/jumbo v1, "samsung_adid"
+    const-string/jumbo v1, "sidesync_tablet_connect"
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
     sget-object v0, Landroid/provider/Settings$System;->SAMSUNG_PUBLIC_SETTINGS:Ljava/util/Set;
 
-    const-string/jumbo v1, "ringtone_2"
+    const-string/jumbo v1, "samsung_suw_bixby_mode_agree"
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    sget-object v0, Landroid/provider/Settings$System;->SAMSUNG_PUBLIC_SETTINGS:Ljava/util/Set;
+
+    const-string/jumbo v1, "setupwizard_bixby_mode"
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    sget-object v0, Landroid/provider/Settings$System;->SAMSUNG_PUBLIC_SETTINGS:Ljava/util/Set;
+
+    const-string/jumbo v1, "samsung_suw_voice_guide_enabled"
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    sget-object v0, Landroid/provider/Settings$System;->SAMSUNG_PUBLIC_SETTINGS:Ljava/util/Set;
+
+    const-string/jumbo v1, "badge_for_sfolder"
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    sget-object v0, Landroid/provider/Settings$System;->SAMSUNG_PUBLIC_SETTINGS:Ljava/util/Set;
+
+    const-string/jumbo v1, "badge_for_gfriends"
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    sget-object v0, Landroid/provider/Settings$System;->SAMSUNG_PUBLIC_SETTINGS:Ljava/util/Set;
+
+    const-string/jumbo v1, "galaxy_talkback_keyboard_feedback"
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    sget-object v0, Landroid/provider/Settings$System;->SAMSUNG_PUBLIC_SETTINGS:Ljava/util/Set;
+
+    const-string/jumbo v1, "rapid_key_input"
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    sget-object v0, Landroid/provider/Settings$System;->SAMSUNG_PUBLIC_SETTINGS:Ljava/util/Set;
+
+    const-string/jumbo v1, "rapid_key_input_menu_checked"
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    sget-object v0, Landroid/provider/Settings$System;->SAMSUNG_PUBLIC_SETTINGS:Ljava/util/Set;
+
+    const-string/jumbo v1, "lcd_curtain"
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    sget-object v0, Landroid/provider/Settings$System;->SAMSUNG_PUBLIC_SETTINGS:Ljava/util/Set;
+
+    const-string/jumbo v1, "recommendation_time"
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    sget-object v0, Landroid/provider/Settings$System;->SAMSUNG_PUBLIC_SETTINGS:Ljava/util/Set;
+
+    const-string/jumbo v1, "recommendation_time_2"
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    sget-object v0, Landroid/provider/Settings$System;->SAMSUNG_PUBLIC_SETTINGS:Ljava/util/Set;
+
+    const-string/jumbo v1, "TIME_DIFFERENCE"
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    sget-object v0, Landroid/provider/Settings$System;->SAMSUNG_PUBLIC_SETTINGS:Ljava/util/Set;
+
+    const-string/jumbo v1, "iris_used_samsungaccount"
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    sget-object v0, Landroid/provider/Settings$System;->SAMSUNG_PUBLIC_SETTINGS:Ljava/util/Set;
+
+    const-string/jumbo v1, "lockstar_enabled"
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    sget-object v0, Landroid/provider/Settings$System;->SAMSUNG_PUBLIC_SETTINGS:Ljava/util/Set;
+
+    const-string/jumbo v1, "kids_home_mode"
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
@@ -4041,18 +3804,6 @@
     invoke-direct {v0}, Landroid/util/ArraySet;-><init>()V
 
     sput-object v0, Landroid/provider/Settings$System;->SAMSUNG_DEPRECATING_PUBLIC_SETTINGS:Ljava/util/Set;
-
-    sget-object v0, Landroid/provider/Settings$System;->SAMSUNG_DEPRECATING_PUBLIC_SETTINGS:Ljava/util/Set;
-
-    const-string/jumbo v1, "reply_choice_value"
-
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$System;->SAMSUNG_DEPRECATING_PUBLIC_SETTINGS:Ljava/util/Set;
-
-    const-string/jumbo v1, "sms_deliveryReport_lastid"
-
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
     new-instance v0, Landroid/util/ArraySet;
 
@@ -4282,6 +4033,12 @@
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
+    sget-object v0, Landroid/provider/Settings$System;->PRIVATE_SETTINGS:Ljava/util/Set;
+
+    const-string/jumbo v1, "status_bar_show_battery_percent"
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
     new-instance v0, Landroid/util/ArrayMap;
 
     invoke-direct {v0}, Landroid/util/ArrayMap;-><init>()V
@@ -4357,6 +4114,14 @@
     const-string/jumbo v1, "screen_brightness"
 
     sget-object v2, Landroid/provider/Settings$System;->SCREEN_BRIGHTNESS_VALIDATOR:Landroid/provider/Settings$System$Validator;
+
+    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    sget-object v0, Landroid/provider/Settings$System;->VALIDATORS:Ljava/util/Map;
+
+    const-string/jumbo v1, "screen_brightness_for_vr"
+
+    sget-object v2, Landroid/provider/Settings$System;->SCREEN_BRIGHTNESS_FOR_VR_VALIDATOR:Landroid/provider/Settings$System$Validator;
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -4808,6 +4573,14 @@
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    sget-object v0, Landroid/provider/Settings$System;->VALIDATORS:Ljava/util/Map;
+
+    const-string/jumbo v1, "status_bar_show_battery_percent"
+
+    sget-object v2, Landroid/provider/Settings$System;->SHOW_BATTERY_PERCENT_VALIDATOR:Landroid/provider/Settings$System$Validator;
+
+    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
     new-instance v0, Landroid/util/ArraySet;
 
     invoke-direct {v0}, Landroid/util/ArraySet;-><init>()V
@@ -4844,21 +4617,117 @@
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    sget-object v0, Landroid/provider/Settings$System;->CLONE_TO_MANAGED_PROFILE:Ljava/util/Set;
+    new-instance v0, Landroid/util/ArrayMap;
 
-    const-string/jumbo v1, "caller_id_to_show_KNOX"
+    invoke-direct {v0}, Landroid/util/ArrayMap;-><init>()V
+
+    sput-object v0, Landroid/provider/Settings$System;->CLONE_FROM_PARENT_ON_VALUE:Ljava/util/Map;
+
+    sget-object v0, Landroid/provider/Settings$System;->CLONE_FROM_PARENT_ON_VALUE:Ljava/util/Map;
+
+    const-string/jumbo v1, "ringtone"
+
+    const-string/jumbo v2, "sync_parent_sounds"
+
+    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    sget-object v0, Landroid/provider/Settings$System;->CLONE_FROM_PARENT_ON_VALUE:Ljava/util/Map;
+
+    const-string/jumbo v1, "notification_sound"
+
+    const-string/jumbo v2, "sync_parent_sounds"
+
+    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    sget-object v0, Landroid/provider/Settings$System;->CLONE_FROM_PARENT_ON_VALUE:Ljava/util/Map;
+
+    const-string/jumbo v1, "alarm_alert"
+
+    const-string/jumbo v2, "sync_parent_sounds"
+
+    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    new-instance v0, Landroid/util/ArraySet;
+
+    invoke-direct {v0}, Landroid/util/ArraySet;-><init>()V
+
+    sput-object v0, Landroid/provider/Settings$System;->INSTANT_APP_SETTINGS:Ljava/util/Set;
+
+    sget-object v0, Landroid/provider/Settings$System;->INSTANT_APP_SETTINGS:Ljava/util/Set;
+
+    const-string/jumbo v1, "auto_replace"
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    sget-object v0, Landroid/provider/Settings$System;->CLONE_TO_MANAGED_PROFILE:Ljava/util/Set;
+    sget-object v0, Landroid/provider/Settings$System;->INSTANT_APP_SETTINGS:Ljava/util/Set;
 
-    const-string/jumbo v1, "caller_id_to_show_KNOX II"
+    const-string/jumbo v1, "auto_caps"
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    sget-object v0, Landroid/provider/Settings$System;->CLONE_TO_MANAGED_PROFILE:Ljava/util/Set;
+    sget-object v0, Landroid/provider/Settings$System;->INSTANT_APP_SETTINGS:Ljava/util/Set;
 
-    const-string/jumbo v1, "caller_id_to_show_Secure Folder"
+    const-string/jumbo v1, "auto_punctuate"
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    sget-object v0, Landroid/provider/Settings$System;->INSTANT_APP_SETTINGS:Ljava/util/Set;
+
+    const-string/jumbo v1, "show_password"
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    sget-object v0, Landroid/provider/Settings$System;->INSTANT_APP_SETTINGS:Ljava/util/Set;
+
+    const-string/jumbo v1, "date_format"
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    sget-object v0, Landroid/provider/Settings$System;->INSTANT_APP_SETTINGS:Ljava/util/Set;
+
+    const-string/jumbo v1, "font_scale"
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    sget-object v0, Landroid/provider/Settings$System;->INSTANT_APP_SETTINGS:Ljava/util/Set;
+
+    const-string/jumbo v1, "haptic_feedback_enabled"
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    sget-object v0, Landroid/provider/Settings$System;->INSTANT_APP_SETTINGS:Ljava/util/Set;
+
+    const-string/jumbo v1, "time_12_24"
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    sget-object v0, Landroid/provider/Settings$System;->INSTANT_APP_SETTINGS:Ljava/util/Set;
+
+    const-string/jumbo v1, "sound_effects_enabled"
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    sget-object v0, Landroid/provider/Settings$System;->INSTANT_APP_SETTINGS:Ljava/util/Set;
+
+    const-string/jumbo v1, "accelerometer_rotation"
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    sget-object v0, Landroid/provider/Settings$System;->INSTANT_APP_SETTINGS:Ljava/util/Set;
+
+    const-string/jumbo v1, "current_sec_active_themepackage"
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    sget-object v0, Landroid/provider/Settings$System;->INSTANT_APP_SETTINGS:Ljava/util/Set;
+
+    const-string/jumbo v1, "emergency_mode"
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    sget-object v0, Landroid/provider/Settings$System;->INSTANT_APP_SETTINGS:Ljava/util/Set;
+
+    const-string/jumbo v1, "ultra_powersaving_mode"
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
@@ -4972,16 +4841,40 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    xor-int/lit8 v0, v0, 0x1
 
-    :cond_0
-    :goto_0
-    return-void
+    if-eqz v0, :cond_0
 
-    :cond_1
+    iget-boolean v0, p0, Landroid/content/res/Configuration;->rilSetLocale:Z
+
+    xor-int/lit8 v0, v0, 0x1
+
+    if-eqz v0, :cond_0
+
     invoke-virtual {p0}, Landroid/content/res/Configuration;->clearLocales()V
 
-    goto :goto_0
+    :cond_0
+    return-void
+.end method
+
+.method public static getCloneFromParentOnValueSettings(Ljava/util/Map;)V
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/Map",
+            "<",
+            "Ljava/lang/String;",
+            "Ljava/lang/String;",
+            ">;)V"
+        }
+    .end annotation
+
+    sget-object v0, Landroid/provider/Settings$System;->CLONE_FROM_PARENT_ON_VALUE:Ljava/util/Map;
+
+    invoke-interface {p0, v0}, Ljava/util/Map;->putAll(Ljava/util/Map;)V
+
+    return-void
 .end method
 
 .method public static getCloneToManagedProfileSettings(Ljava/util/Set;)V
@@ -5383,6 +5276,8 @@
 
 .method public static getShowGTalkServiceStatusForUser(Landroid/content/ContentResolver;I)Z
     .locals 2
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 
     const/4 v0, 0x0
 
@@ -5565,14 +5460,6 @@
     move-result-object v1
 
     invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    sget-object v0, Landroid/provider/Settings$System;->sNameValueCache:Landroid/provider/Settings$NameValueCache;
-
-    invoke-virtual {v0, p0, p1, p2}, Landroid/provider/Settings$NameValueCache;->getStringForUser(Landroid/content/ContentResolver;Ljava/lang/String;I)Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-static {p0, p1, v0}, Landroid/provider/Settings$Secure;->moveProtectDB(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;)V
 
     invoke-static {p0, p1, p2}, Landroid/provider/Settings$Secure;->getStringForUser(Landroid/content/ContentResolver;Ljava/lang/String;I)Ljava/lang/String;
 
@@ -5940,9 +5827,9 @@
 .end method
 
 .method public static putStringForUser(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;I)Z
-    .locals 4
+    .locals 7
 
-    const/4 v3, 0x0
+    const/4 v5, 0x0
 
     sget-object v0, Landroid/provider/Settings$System;->MOVED_TO_SECURE:Ljava/util/HashSet;
 
@@ -5986,7 +5873,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    return v3
+    return v5
 
     :cond_0
     sget-object v0, Landroid/provider/Settings$System;->MOVED_TO_GLOBAL:Ljava/util/HashSet;
@@ -6040,7 +5927,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    return v3
+    return v5
 
     :cond_2
     sget-object v0, Landroid/provider/Settings$System;->MOVED_TO_SECURE_PROTECTDB:Ljava/util/HashSet;
@@ -6092,7 +5979,17 @@
     :cond_3
     sget-object v0, Landroid/provider/Settings$System;->sNameValueCache:Landroid/provider/Settings$NameValueCache;
 
-    invoke-virtual {v0, p0, p1, p2, p3}, Landroid/provider/Settings$NameValueCache;->putStringForUser(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;I)Z
+    const/4 v4, 0x0
+
+    move-object v1, p0
+
+    move-object v2, p1
+
+    move-object v3, p2
+
+    move v6, p3
+
+    invoke-virtual/range {v0 .. v6}, Landroid/provider/Settings$NameValueCache;->putStringForUser(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZI)Z
 
     move-result v0
 

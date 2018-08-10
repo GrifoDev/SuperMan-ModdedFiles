@@ -52,11 +52,11 @@
 
     invoke-virtual {p2, v1}, Landroid/graphics/Canvas;->save(I)I
 
-    iget v1, p0, Lcom/samsung/android/graphics/spr/document/shape/SprObjectBase;->alpha:F
+    iget v1, p0, Lcom/samsung/android/graphics/spr/document/shape/SprObjectShapeUse;->alpha:F
 
     mul-float v5, p5, v1
 
-    iget-object v1, p0, Lcom/samsung/android/graphics/spr/document/shape/SprObjectBase;->mAttributeList:Ljava/util/ArrayList;
+    iget-object v1, p0, Lcom/samsung/android/graphics/spr/document/shape/SprObjectShapeUse;->mAttributeList:Ljava/util/ArrayList;
 
     invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
 
@@ -64,7 +64,7 @@
 
     if-lez v1, :cond_0
 
-    invoke-virtual {p0, p1, p2, v5}, Lcom/samsung/android/graphics/spr/document/shape/SprObjectBase;->applyAttribute(Lcom/samsung/android/graphics/spr/document/SprDocument;Landroid/graphics/Canvas;F)V
+    invoke-virtual {p0, p1, p2, v5}, Lcom/samsung/android/graphics/spr/document/shape/SprObjectShapeUse;->applyAttribute(Lcom/samsung/android/graphics/spr/document/SprDocument;Landroid/graphics/Canvas;F)V
 
     :cond_0
     iget v1, p0, Lcom/samsung/android/graphics/spr/document/shape/SprObjectShapeUse;->link:I

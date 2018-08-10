@@ -17,7 +17,7 @@
     value = {
         "Landroid/app/SystemServiceRegistry$CachedServiceFetcher",
         "<",
-        "Landroid/content/ClipboardManager;",
+        "Landroid/view/textclassifier/TextClassificationManager;",
         ">;"
     }
 .end annotation
@@ -34,30 +34,25 @@
 
 
 # virtual methods
-.method public createService(Landroid/app/ContextImpl;)Landroid/content/ClipboardManager;
-    .locals 3
+.method public createService(Landroid/app/ContextImpl;)Landroid/view/textclassifier/TextClassificationManager;
+    .locals 1
 
-    new-instance v0, Landroid/content/ClipboardManager;
+    new-instance v0, Landroid/view/textclassifier/TextClassificationManager;
 
-    invoke-virtual {p1}, Landroid/app/ContextImpl;->getOuterContext()Landroid/content/Context;
-
-    move-result-object v1
-
-    iget-object v2, p1, Landroid/app/ContextImpl;->mMainThread:Landroid/app/ActivityThread;
-
-    invoke-virtual {v2}, Landroid/app/ActivityThread;->getHandler()Landroid/os/Handler;
-
-    move-result-object v2
-
-    invoke-direct {v0, v1, v2}, Landroid/content/ClipboardManager;-><init>(Landroid/content/Context;Landroid/os/Handler;)V
+    invoke-direct {v0, p1}, Landroid/view/textclassifier/TextClassificationManager;-><init>(Landroid/content/Context;)V
 
     return-object v0
 .end method
 
 .method public bridge synthetic createService(Landroid/app/ContextImpl;)Ljava/lang/Object;
     .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/ServiceManager$ServiceNotFoundException;
+        }
+    .end annotation
 
-    invoke-virtual {p0, p1}, Landroid/app/SystemServiceRegistry$11;->createService(Landroid/app/ContextImpl;)Landroid/content/ClipboardManager;
+    invoke-virtual {p0, p1}, Landroid/app/SystemServiceRegistry$11;->createService(Landroid/app/ContextImpl;)Landroid/view/textclassifier/TextClassificationManager;
 
     move-result-object v0
 

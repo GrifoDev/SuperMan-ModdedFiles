@@ -33,6 +33,10 @@
 
 .field public static final MIME_TYPE:Ljava/lang/String; = "vnd.android.cursor.dir/indexables_raw"
 
+.field public static final PAYLOAD:Ljava/lang/String; = "payload"
+
+.field public static final PAYLOAD_TYPE:Ljava/lang/String; = "payload_type"
+
 
 # direct methods
 .method private constructor <init>()V

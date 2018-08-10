@@ -58,24 +58,22 @@
 .method private checkEglError(Ljava/lang/String;)V
     .locals 4
 
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
     :goto_0
     invoke-static {}, Landroid/opengl/EGL14;->eglGetError()I
 
-    move-result v1
+    move-result v0
 
     const/16 v2, 0x3000
 
-    if-ne v1, v2, :cond_0
+    if-ne v0, v2, :cond_0
 
-    if-nez v0, :cond_1
+    if-nez v1, :cond_1
 
     return-void
 
     :cond_0
-    const-string/jumbo v0, "TranscodeLib"
-
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -90,40 +88,42 @@
 
     move-result-object v2
 
-    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    const-string/jumbo v3, "TranscodeLib"
 
-    const/4 v0, 0x1
+    invoke-static {v3, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 v1, 0x1
 
     goto :goto_0
 
     :cond_1
-    new-instance v0, Ljava/lang/RuntimeException;
+    new-instance v2, Ljava/lang/RuntimeException;
 
-    const-string/jumbo v1, "EGL error encountered (see log)"
+    const-string/jumbo v3, "EGL error encountered (see log)"
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v2, v3}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw v2
 .end method
 
 .method private eglSetup()V
-    .locals 11
+    .locals 14
 
-    const/16 v10, 0x3038
+    const/16 v13, 0x3038
 
-    const/16 v4, 0x8
+    const/16 v5, 0x8
 
-    const/4 v9, 0x2
+    const/4 v12, 0x2
 
-    const/4 v8, 0x1
+    const/4 v11, 0x1
 
     const/4 v2, 0x0
 
@@ -135,15 +135,15 @@
 
     iget-object v0, p0, Lcom/samsung/android/transcode/surfaces/InputSurface;->mEGLDisplay:Landroid/opengl/EGLDisplay;
 
-    sget-object v1, Landroid/opengl/EGL14;->EGL_NO_DISPLAY:Landroid/opengl/EGLDisplay;
+    sget-object v4, Landroid/opengl/EGL14;->EGL_NO_DISPLAY:Landroid/opengl/EGLDisplay;
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v4, :cond_0
 
-    new-array v0, v9, [I
+    new-array v10, v12, [I
 
-    iget-object v1, p0, Lcom/samsung/android/transcode/surfaces/InputSurface;->mEGLDisplay:Landroid/opengl/EGLDisplay;
+    iget-object v0, p0, Lcom/samsung/android/transcode/surfaces/InputSurface;->mEGLDisplay:Landroid/opengl/EGLDisplay;
 
-    invoke-static {v1, v0, v2, v0, v8}, Landroid/opengl/EGL14;->eglInitialize(Landroid/opengl/EGLDisplay;[II[II)Z
+    invoke-static {v0, v10, v2, v10, v11}, Landroid/opengl/EGL14;->eglInitialize(Landroid/opengl/EGLDisplay;[II[II)Z
 
     move-result v0
 
@@ -157,53 +157,53 @@
 
     aput v0, v1, v2
 
-    aput v4, v1, v8
+    aput v5, v1, v11
 
     const/16 v0, 0x3023
 
-    aput v0, v1, v9
+    aput v0, v1, v12
 
     const/4 v0, 0x3
 
-    aput v4, v1, v0
+    aput v5, v1, v0
 
-    const/4 v0, 0x4
+    const/16 v0, 0x3022
 
-    const/16 v3, 0x3022
-
-    aput v3, v1, v0
-
-    const/4 v0, 0x5
-
-    aput v4, v1, v0
-
-    const/4 v0, 0x6
-
-    const/16 v3, 0x3040
-
-    aput v3, v1, v0
-
-    const/4 v0, 0x7
-
-    const/4 v3, 0x4
-
-    aput v3, v1, v0
-
-    const/16 v0, 0x3142
+    const/4 v4, 0x4
 
     aput v0, v1, v4
 
+    const/4 v0, 0x5
+
+    aput v5, v1, v0
+
+    const/16 v0, 0x3040
+
+    const/4 v4, 0x6
+
+    aput v0, v1, v4
+
+    const/4 v0, 0x4
+
+    const/4 v4, 0x7
+
+    aput v0, v1, v4
+
+    const/16 v0, 0x3142
+
+    aput v0, v1, v5
+
     const/16 v0, 0x9
 
-    aput v8, v1, v0
+    aput v11, v1, v0
 
     const/16 v0, 0xa
 
-    aput v10, v1, v0
+    aput v13, v1, v0
 
-    new-array v3, v8, [Landroid/opengl/EGLConfig;
+    new-array v3, v11, [Landroid/opengl/EGLConfig;
 
-    new-array v6, v8, [I
+    new-array v6, v11, [I
 
     iget-object v0, p0, Lcom/samsung/android/transcode/surfaces/InputSurface;->mEGLDisplay:Landroid/opengl/EGLDisplay;
 
@@ -221,23 +221,23 @@
 
     const/4 v0, 0x3
 
-    new-array v0, v0, [I
+    new-array v8, v0, [I
 
-    const/16 v1, 0x3098
+    const/16 v0, 0x3098
 
-    aput v1, v0, v2
+    aput v0, v8, v2
 
-    aput v9, v0, v8
+    aput v12, v8, v11
 
-    aput v10, v0, v9
+    aput v13, v8, v12
 
-    iget-object v1, p0, Lcom/samsung/android/transcode/surfaces/InputSurface;->mEGLDisplay:Landroid/opengl/EGLDisplay;
+    iget-object v0, p0, Lcom/samsung/android/transcode/surfaces/InputSurface;->mEGLDisplay:Landroid/opengl/EGLDisplay;
 
     aget-object v4, v3, v2
 
     sget-object v5, Landroid/opengl/EGL14;->EGL_NO_CONTEXT:Landroid/opengl/EGLContext;
 
-    invoke-static {v1, v4, v5, v0, v2}, Landroid/opengl/EGL14;->eglCreateContext(Landroid/opengl/EGLDisplay;Landroid/opengl/EGLConfig;Landroid/opengl/EGLContext;[II)Landroid/opengl/EGLContext;
+    invoke-static {v0, v4, v5, v8, v2}, Landroid/opengl/EGL14;->eglCreateContext(Landroid/opengl/EGLDisplay;Landroid/opengl/EGLConfig;Landroid/opengl/EGLContext;[II)Landroid/opengl/EGLContext;
 
     move-result-object v0
 
@@ -251,17 +251,17 @@
 
     if-eqz v0, :cond_3
 
-    new-array v0, v8, [I
+    new-array v9, v11, [I
 
-    aput v10, v0, v2
+    aput v13, v9, v2
 
-    iget-object v1, p0, Lcom/samsung/android/transcode/surfaces/InputSurface;->mEGLDisplay:Landroid/opengl/EGLDisplay;
+    iget-object v0, p0, Lcom/samsung/android/transcode/surfaces/InputSurface;->mEGLDisplay:Landroid/opengl/EGLDisplay;
 
-    aget-object v3, v3, v2
+    aget-object v4, v3, v2
 
-    iget-object v4, p0, Lcom/samsung/android/transcode/surfaces/InputSurface;->mSurface:Landroid/view/Surface;
+    iget-object v5, p0, Lcom/samsung/android/transcode/surfaces/InputSurface;->mSurface:Landroid/view/Surface;
 
-    invoke-static {v1, v3, v4, v0, v2}, Landroid/opengl/EGL14;->eglCreateWindowSurface(Landroid/opengl/EGLDisplay;Landroid/opengl/EGLConfig;Ljava/lang/Object;[II)Landroid/opengl/EGLSurface;
+    invoke-static {v0, v4, v5, v9, v2}, Landroid/opengl/EGL14;->eglCreateWindowSurface(Landroid/opengl/EGLDisplay;Landroid/opengl/EGLConfig;Ljava/lang/Object;[II)Landroid/opengl/EGLSurface;
 
     move-result-object v0
 
@@ -280,9 +280,9 @@
     :cond_0
     new-instance v0, Ljava/lang/RuntimeException;
 
-    const-string/jumbo v1, "unable to get EGL14 display"
+    const-string/jumbo v2, "unable to get EGL14 display"
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v2}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
     throw v0
 
@@ -293,36 +293,36 @@
 
     new-instance v0, Ljava/lang/RuntimeException;
 
-    const-string/jumbo v1, "unable to initialize EGL14"
+    const-string/jumbo v2, "unable to initialize EGL14"
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v2}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
     throw v0
 
     :cond_2
     new-instance v0, Ljava/lang/RuntimeException;
 
-    const-string/jumbo v1, "unable to find RGB888+recordable ES2 EGL config"
+    const-string/jumbo v2, "unable to find RGB888+recordable ES2 EGL config"
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v2}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
     throw v0
 
     :cond_3
     new-instance v0, Ljava/lang/RuntimeException;
 
-    const-string/jumbo v1, "null context"
+    const-string/jumbo v2, "null context"
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v2}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
     throw v0
 
     :cond_4
     new-instance v0, Ljava/lang/RuntimeException;
 
-    const-string/jumbo v1, "surface was null"
+    const-string/jumbo v2, "surface was null"
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v2}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
     throw v0
 .end method

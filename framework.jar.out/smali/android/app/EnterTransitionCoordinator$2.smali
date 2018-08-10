@@ -3,12 +3,12 @@
 .source "EnterTransitionCoordinator.java"
 
 # interfaces
-.implements Landroid/view/ViewTreeObserver$OnPreDrawListener;
+.implements Ljava/lang/Runnable;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Landroid/app/EnterTransitionCoordinator;->triggerViewsReady(Landroid/util/ArrayMap;)V
+    value = Landroid/app/EnterTransitionCoordinator;->startSharedElementTransition(Landroid/os/Bundle;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -18,22 +18,16 @@
 
 
 # instance fields
+.field mAnimations:I
+
 .field final synthetic this$0:Landroid/app/EnterTransitionCoordinator;
-
-.field final synthetic val$decor:Landroid/view/ViewGroup;
-
-.field final synthetic val$sharedElements:Landroid/util/ArrayMap;
 
 
 # direct methods
-.method constructor <init>(Landroid/app/EnterTransitionCoordinator;Landroid/view/ViewGroup;Landroid/util/ArrayMap;)V
+.method constructor <init>(Landroid/app/EnterTransitionCoordinator;)V
     .locals 0
 
     iput-object p1, p0, Landroid/app/EnterTransitionCoordinator$2;->this$0:Landroid/app/EnterTransitionCoordinator;
-
-    iput-object p2, p0, Landroid/app/EnterTransitionCoordinator$2;->val$decor:Landroid/view/ViewGroup;
-
-    iput-object p3, p0, Landroid/app/EnterTransitionCoordinator$2;->val$sharedElements:Landroid/util/ArrayMap;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -42,30 +36,53 @@
 
 
 # virtual methods
-.method public onPreDraw()Z
-    .locals 2
+.method public run()V
+    .locals 4
 
-    iget-object v0, p0, Landroid/app/EnterTransitionCoordinator$2;->this$0:Landroid/app/EnterTransitionCoordinator;
+    const/4 v3, 0x0
 
-    const/4 v1, 0x0
+    iget v1, p0, Landroid/app/EnterTransitionCoordinator$2;->mAnimations:I
 
-    invoke-static {v0, v1}, Landroid/app/EnterTransitionCoordinator;->-set1(Landroid/app/EnterTransitionCoordinator;Landroid/view/ViewTreeObserver$OnPreDrawListener;)Landroid/view/ViewTreeObserver$OnPreDrawListener;
+    add-int/lit8 v2, v1, 0x1
 
-    iget-object v0, p0, Landroid/app/EnterTransitionCoordinator$2;->val$decor:Landroid/view/ViewGroup;
+    iput v2, p0, Landroid/app/EnterTransitionCoordinator$2;->mAnimations:I
 
-    invoke-virtual {v0}, Landroid/view/View;->getViewTreeObserver()Landroid/view/ViewTreeObserver;
+    const/4 v2, 0x2
+
+    if-ge v1, v2, :cond_1
+
+    iget-object v1, p0, Landroid/app/EnterTransitionCoordinator$2;->this$0:Landroid/app/EnterTransitionCoordinator;
+
+    invoke-virtual {v1}, Landroid/app/EnterTransitionCoordinator;->getDecor()Landroid/view/ViewGroup;
 
     move-result-object v0
 
-    invoke-virtual {v0, p0}, Landroid/view/ViewTreeObserver;->removeOnPreDrawListener(Landroid/view/ViewTreeObserver$OnPreDrawListener;)V
+    if-eqz v0, :cond_0
 
-    iget-object v0, p0, Landroid/app/EnterTransitionCoordinator$2;->this$0:Landroid/app/EnterTransitionCoordinator;
+    invoke-virtual {v0, p0}, Landroid/view/View;->postOnAnimation(Ljava/lang/Runnable;)V
 
-    iget-object v1, p0, Landroid/app/EnterTransitionCoordinator$2;->val$sharedElements:Landroid/util/ArrayMap;
+    :cond_0
+    :goto_0
+    return-void
 
-    invoke-virtual {v0, v1}, Landroid/app/EnterTransitionCoordinator;->viewsReady(Landroid/util/ArrayMap;)V
+    :cond_1
+    iget-object v1, p0, Landroid/app/EnterTransitionCoordinator$2;->this$0:Landroid/app/EnterTransitionCoordinator;
 
-    const/4 v0, 0x1
+    iget-object v1, v1, Landroid/app/EnterTransitionCoordinator;->mResultReceiver:Landroid/os/ResultReceiver;
 
-    return v0
+    if-eqz v1, :cond_0
+
+    iget-object v1, p0, Landroid/app/EnterTransitionCoordinator$2;->this$0:Landroid/app/EnterTransitionCoordinator;
+
+    iget-object v1, v1, Landroid/app/EnterTransitionCoordinator;->mResultReceiver:Landroid/os/ResultReceiver;
+
+    const/16 v2, 0x65
+
+    invoke-virtual {v1, v2, v3}, Landroid/os/ResultReceiver;->send(ILandroid/os/Bundle;)V
+
+    iget-object v1, p0, Landroid/app/EnterTransitionCoordinator$2;->this$0:Landroid/app/EnterTransitionCoordinator;
+
+    iput-object v3, v1, Landroid/app/EnterTransitionCoordinator;->mResultReceiver:Landroid/os/ResultReceiver;
+
+    goto :goto_0
 .end method

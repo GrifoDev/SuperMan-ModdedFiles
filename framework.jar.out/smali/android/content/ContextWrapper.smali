@@ -53,12 +53,46 @@
     return v0
 .end method
 
+.method public bindServiceAsUser(Landroid/content/Intent;Landroid/content/ServiceConnection;ILandroid/os/Handler;Landroid/os/UserHandle;)Z
+    .locals 6
+
+    iget-object v0, p0, Landroid/content/ContextWrapper;->mBase:Landroid/content/Context;
+
+    move-object v1, p1
+
+    move-object v2, p2
+
+    move v3, p3
+
+    move-object v4, p4
+
+    move-object v5, p5
+
+    invoke-virtual/range {v0 .. v5}, Landroid/content/Context;->bindServiceAsUser(Landroid/content/Intent;Landroid/content/ServiceConnection;ILandroid/os/Handler;Landroid/os/UserHandle;)Z
+
+    move-result v0
+
+    return v0
+.end method
+
 .method public bindServiceAsUser(Landroid/content/Intent;Landroid/content/ServiceConnection;ILandroid/os/UserHandle;)Z
     .locals 1
 
     iget-object v0, p0, Landroid/content/ContextWrapper;->mBase:Landroid/content/Context;
 
     invoke-virtual {v0, p1, p2, p3, p4}, Landroid/content/Context;->bindServiceAsUser(Landroid/content/Intent;Landroid/content/ServiceConnection;ILandroid/os/UserHandle;)Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public canLoadUnsafeResources()Z
+    .locals 1
+
+    iget-object v0, p0, Landroid/content/ContextWrapper;->mBase:Landroid/content/Context;
+
+    invoke-virtual {v0}, Landroid/content/Context;->canLoadUnsafeResources()Z
 
     move-result v0
 
@@ -266,6 +300,23 @@
     return-object v0
 .end method
 
+.method public createContextForSplit(Ljava/lang/String;)Landroid/content/Context;
+    .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/content/pm/PackageManager$NameNotFoundException;
+        }
+    .end annotation
+
+    iget-object v0, p0, Landroid/content/ContextWrapper;->mBase:Landroid/content/Context;
+
+    invoke-virtual {v0, p1}, Landroid/content/Context;->createContextForSplit(Ljava/lang/String;)Landroid/content/Context;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
 .method public createCredentialProtectedStorageContext()Landroid/content/Context;
     .locals 1
 
@@ -319,23 +370,6 @@
     return-object v0
 .end method
 
-.method public createPackageContext(Ljava/lang/String;Ljava/lang/ClassLoader;I)Landroid/content/Context;
-    .locals 1
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/content/pm/PackageManager$NameNotFoundException;
-        }
-    .end annotation
-
-    iget-object v0, p0, Landroid/content/ContextWrapper;->mBase:Landroid/content/Context;
-
-    invoke-virtual {v0, p1, p2, p3}, Landroid/content/Context;->createPackageContext(Ljava/lang/String;Ljava/lang/ClassLoader;I)Landroid/content/Context;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
 .method public createPackageContextAsUser(Ljava/lang/String;ILandroid/os/UserHandle;)Landroid/content/Context;
     .locals 1
     .annotation system Ldalvik/annotation/Throws;
@@ -347,23 +381,6 @@
     iget-object v0, p0, Landroid/content/ContextWrapper;->mBase:Landroid/content/Context;
 
     invoke-virtual {v0, p1, p2, p3}, Landroid/content/Context;->createPackageContextAsUser(Ljava/lang/String;ILandroid/os/UserHandle;)Landroid/content/Context;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public createPackageContextAsUser(Ljava/lang/String;Ljava/lang/ClassLoader;ILandroid/os/UserHandle;)Landroid/content/Context;
-    .locals 1
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/content/pm/PackageManager$NameNotFoundException;
-        }
-    .end annotation
-
-    iget-object v0, p0, Landroid/content/ContextWrapper;->mBase:Landroid/content/Context;
-
-    invoke-virtual {v0, p1, p2, p3, p4}, Landroid/content/Context;->createPackageContextAsUser(Ljava/lang/String;Ljava/lang/ClassLoader;ILandroid/os/UserHandle;)Landroid/content/Context;
 
     move-result-object v0
 
@@ -518,6 +535,18 @@
     iget-object v0, p0, Landroid/content/ContextWrapper;->mBase:Landroid/content/Context;
 
     invoke-virtual {v0}, Landroid/content/Context;->fileList()[Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public getActivityToken()Landroid/os/IBinder;
+    .locals 1
+
+    iget-object v0, p0, Landroid/content/ContextWrapper;->mBase:Landroid/content/Context;
+
+    invoke-virtual {v0}, Landroid/content/Context;->getActivityToken()Landroid/os/IBinder;
 
     move-result-object v0
 
@@ -772,6 +801,18 @@
     return-object v0
 .end method
 
+.method public getIApplicationThread()Landroid/app/IApplicationThread;
+    .locals 1
+
+    iget-object v0, p0, Landroid/content/ContextWrapper;->mBase:Landroid/content/Context;
+
+    invoke-virtual {v0}, Landroid/content/Context;->getIApplicationThread()Landroid/app/IApplicationThread;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
 .method public getMainLooper()Landroid/os/Looper;
     .locals 1
 
@@ -782,6 +823,30 @@
     move-result-object v0
 
     return-object v0
+.end method
+
+.method public getMainThreadHandler()Landroid/os/Handler;
+    .locals 1
+
+    iget-object v0, p0, Landroid/content/ContextWrapper;->mBase:Landroid/content/Context;
+
+    invoke-virtual {v0}, Landroid/content/Context;->getMainThreadHandler()Landroid/os/Handler;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public getNextAutofillId()I
+    .locals 1
+
+    iget-object v0, p0, Landroid/content/ContextWrapper;->mBase:Landroid/content/Context;
+
+    invoke-virtual {v0}, Landroid/content/Context;->getNextAutofillId()I
+
+    move-result v0
+
+    return v0
 .end method
 
 .method public getNoBackupFilesDir()Ljava/io/File;
@@ -889,12 +954,36 @@
     return-object v0
 .end method
 
+.method public getPreloadsFileCache()Ljava/io/File;
+    .locals 1
+
+    iget-object v0, p0, Landroid/content/ContextWrapper;->mBase:Landroid/content/Context;
+
+    invoke-virtual {v0}, Landroid/content/Context;->getPreloadsFileCache()Ljava/io/File;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
 .method public getResources()Landroid/content/res/Resources;
     .locals 1
 
     iget-object v0, p0, Landroid/content/ContextWrapper;->mBase:Landroid/content/Context;
 
     invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public getServiceDispatcher(Landroid/content/ServiceConnection;Landroid/os/Handler;I)Landroid/app/IServiceConnection;
+    .locals 1
+
+    iget-object v0, p0, Landroid/content/ContextWrapper;->mBase:Landroid/content/Context;
+
+    invoke-virtual {v0, p1, p2, p3}, Landroid/content/Context;->getServiceDispatcher(Landroid/content/ServiceConnection;Landroid/os/Handler;I)Landroid/app/IServiceConnection;
 
     move-result-object v0
 
@@ -1201,12 +1290,46 @@
     return-object v0
 .end method
 
+.method public registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;I)Landroid/content/Intent;
+    .locals 1
+
+    iget-object v0, p0, Landroid/content/ContextWrapper;->mBase:Landroid/content/Context;
+
+    invoke-virtual {v0, p1, p2, p3}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;I)Landroid/content/Intent;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
 .method public registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;Ljava/lang/String;Landroid/os/Handler;)Landroid/content/Intent;
     .locals 1
 
     iget-object v0, p0, Landroid/content/ContextWrapper;->mBase:Landroid/content/Context;
 
     invoke-virtual {v0, p1, p2, p3, p4}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;Ljava/lang/String;Landroid/os/Handler;)Landroid/content/Intent;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;Ljava/lang/String;Landroid/os/Handler;I)Landroid/content/Intent;
+    .locals 6
+
+    iget-object v0, p0, Landroid/content/ContextWrapper;->mBase:Landroid/content/Context;
+
+    move-object v1, p1
+
+    move-object v2, p2
+
+    move-object v3, p3
+
+    move-object v4, p4
+
+    move v5, p5
+
+    invoke-virtual/range {v0 .. v5}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;Ljava/lang/String;Landroid/os/Handler;I)Landroid/content/Intent;
 
     move-result-object v0
 
@@ -1269,16 +1392,14 @@
     return-void
 .end method
 
-.method public semGetSharedPreferencesPath(Ljava/lang/String;)Ljava/io/File;
+.method public revokeUriPermission(Ljava/lang/String;Landroid/net/Uri;I)V
     .locals 1
 
     iget-object v0, p0, Landroid/content/ContextWrapper;->mBase:Landroid/content/Context;
 
-    invoke-virtual {v0, p1}, Landroid/content/Context;->getSharedPreferencesPath(Ljava/lang/String;)Ljava/io/File;
+    invoke-virtual {v0, p1, p2, p3}, Landroid/content/Context;->revokeUriPermission(Ljava/lang/String;Landroid/net/Uri;I)V
 
-    move-result-object v0
-
-    return-object v0
+    return-void
 .end method
 
 .method public semGetSharedPrefsFile(Ljava/lang/String;)Ljava/io/File;
@@ -1360,6 +1481,18 @@
     return-void
 .end method
 
+.method public semStartForegroundServiceAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)Landroid/content/ComponentName;
+    .locals 1
+
+    iget-object v0, p0, Landroid/content/ContextWrapper;->mBase:Landroid/content/Context;
+
+    invoke-virtual {v0, p1, p2}, Landroid/content/Context;->startForegroundServiceAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)Landroid/content/ComponentName;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
 .method public semStartServiceAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)Landroid/content/ComponentName;
     .locals 1
 
@@ -1438,6 +1571,16 @@
     iget-object v0, p0, Landroid/content/ContextWrapper;->mBase:Landroid/content/Context;
 
     invoke-virtual {v0, p1, p2, p3, p4}, Landroid/content/Context;->sendBroadcastAsUser(Landroid/content/Intent;Landroid/os/UserHandle;Ljava/lang/String;I)V
+
+    return-void
+.end method
+
+.method public sendBroadcastAsUser(Landroid/content/Intent;Landroid/os/UserHandle;Ljava/lang/String;Landroid/os/Bundle;)V
+    .locals 1
+
+    iget-object v0, p0, Landroid/content/ContextWrapper;->mBase:Landroid/content/Context;
+
+    invoke-virtual {v0, p1, p2, p3, p4}, Landroid/content/Context;->sendBroadcastAsUser(Landroid/content/Intent;Landroid/os/UserHandle;Ljava/lang/String;Landroid/os/Bundle;)V
 
     return-void
 .end method
@@ -1854,6 +1997,30 @@
     return-void
 .end method
 
+.method public startForegroundService(Landroid/content/Intent;)Landroid/content/ComponentName;
+    .locals 1
+
+    iget-object v0, p0, Landroid/content/ContextWrapper;->mBase:Landroid/content/Context;
+
+    invoke-virtual {v0, p1}, Landroid/content/Context;->startForegroundService(Landroid/content/Intent;)Landroid/content/ComponentName;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public startForegroundServiceAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)Landroid/content/ComponentName;
+    .locals 1
+
+    iget-object v0, p0, Landroid/content/ContextWrapper;->mBase:Landroid/content/Context;
+
+    invoke-virtual {v0, p1, p2}, Landroid/content/Context;->startForegroundServiceAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)Landroid/content/ComponentName;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
 .method public startInstrumentation(Landroid/content/ComponentName;Ljava/lang/String;Landroid/os/Bundle;)Z
     .locals 1
 
@@ -1982,6 +2149,16 @@
     iget-object v0, p0, Landroid/content/ContextWrapper;->mBase:Landroid/content/Context;
 
     invoke-virtual {v0, p1}, Landroid/content/Context;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
+
+    return-void
+.end method
+
+.method public updateDisplay(I)V
+    .locals 1
+
+    iget-object v0, p0, Landroid/content/ContextWrapper;->mBase:Landroid/content/Context;
+
+    invoke-virtual {v0, p1}, Landroid/content/Context;->updateDisplay(I)V
 
     return-void
 .end method

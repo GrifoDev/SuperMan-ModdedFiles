@@ -43,11 +43,11 @@
 
     const v1, 0x800003
 
-    invoke-virtual {p0, v1}, Landroid/widget/LinearLayout;->setGravity(I)V
+    invoke-virtual {p0, v1}, Landroid/media/Cea608CCWidget$CCLayout;->setGravity(I)V
 
     const/4 v1, 0x1
 
-    invoke-virtual {p0, v1}, Landroid/widget/LinearLayout;->setOrientation(I)V
+    invoke-virtual {p0, v1}, Landroid/media/Cea608CCWidget$CCLayout;->setOrientation(I)V
 
     const/4 v0, 0x0
 
@@ -58,7 +58,7 @@
 
     new-instance v2, Landroid/media/Cea608CCWidget$CCLineBox;
 
-    invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
+    invoke-virtual {p0}, Landroid/media/Cea608CCWidget$CCLayout;->getContext()Landroid/content/Context;
 
     move-result-object v3
 
@@ -70,7 +70,7 @@
 
     aget-object v1, v1, v0
 
-    invoke-virtual {p0, v1, v4, v4}, Landroid/view/ViewGroup;->addView(Landroid/view/View;II)V
+    invoke-virtual {p0, v1, v4, v4}, Landroid/media/Cea608CCWidget$CCLayout;->addView(Landroid/view/View;II)V
 
     add-int/lit8 v0, v0, 0x1
 
@@ -153,7 +153,7 @@
 
     add-int/2addr v10, v4
 
-    invoke-virtual {v7, v1, v8, v9, v10}, Landroid/view/View;->layout(IIII)V
+    invoke-virtual {v7, v1, v8, v9, v10}, Landroid/media/Cea608CCWidget$CCLineBox;->layout(IIII)V
 
     add-int/lit8 v0, v0, 0x1
 
@@ -181,11 +181,11 @@
 
     invoke-super {p0, p1, p2}, Landroid/widget/LinearLayout;->onMeasure(II)V
 
-    invoke-virtual {p0}, Landroid/view/View;->getMeasuredWidth()I
+    invoke-virtual {p0}, Landroid/media/Cea608CCWidget$CCLayout;->getMeasuredWidth()I
 
     move-result v5
 
-    invoke-virtual {p0}, Landroid/view/View;->getMeasuredHeight()I
+    invoke-virtual {p0}, Landroid/media/Cea608CCWidget$CCLayout;->getMeasuredHeight()I
 
     move-result v4
 
@@ -233,7 +233,7 @@
 
     aget-object v6, v6, v0
 
-    invoke-virtual {v6, v3, v2}, Landroid/view/View;->measure(II)V
+    invoke-virtual {v6, v3, v2}, Landroid/media/Cea608CCWidget$CCLineBox;->measure(II)V
 
     add-int/lit8 v0, v0, 0x1
 
@@ -302,7 +302,7 @@
 
     sget-object v3, Landroid/widget/TextView$BufferType;->SPANNABLE:Landroid/widget/TextView$BufferType;
 
-    invoke-virtual {v1, v2, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;Landroid/widget/TextView$BufferType;)V
+    invoke-virtual {v1, v2, v3}, Landroid/media/Cea608CCWidget$CCLineBox;->setText(Ljava/lang/CharSequence;Landroid/widget/TextView$BufferType;)V
 
     iget-object v1, p0, Landroid/media/Cea608CCWidget$CCLayout;->mLineBoxes:[Landroid/media/Cea608CCWidget$CCLineBox;
 
@@ -310,7 +310,7 @@
 
     const/4 v2, 0x0
 
-    invoke-virtual {v1, v2}, Landroid/view/View;->setVisibility(I)V
+    invoke-virtual {v1, v2}, Landroid/media/Cea608CCWidget$CCLineBox;->setVisibility(I)V
 
     :goto_1
     add-int/lit8 v0, v0, 0x1
@@ -324,7 +324,7 @@
 
     const/4 v2, 0x4
 
-    invoke-virtual {v1, v2}, Landroid/view/View;->setVisibility(I)V
+    invoke-virtual {v1, v2}, Landroid/media/Cea608CCWidget$CCLineBox;->setVisibility(I)V
 
     goto :goto_1
 

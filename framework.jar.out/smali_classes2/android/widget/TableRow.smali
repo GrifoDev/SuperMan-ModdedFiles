@@ -170,12 +170,42 @@
     return v0
 .end method
 
+.method protected bridge synthetic generateDefaultLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+    .locals 1
+
+    invoke-virtual {p0}, Landroid/widget/TableRow;->generateDefaultLayoutParams()Landroid/widget/LinearLayout$LayoutParams;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
 .method protected generateDefaultLayoutParams()Landroid/widget/LinearLayout$LayoutParams;
     .locals 1
 
     new-instance v0, Landroid/widget/TableRow$LayoutParams;
 
     invoke-direct {v0}, Landroid/widget/TableRow$LayoutParams;-><init>()V
+
+    return-object v0
+.end method
+
+.method public bridge synthetic generateLayoutParams(Landroid/util/AttributeSet;)Landroid/view/ViewGroup$LayoutParams;
+    .locals 1
+
+    invoke-virtual {p0, p1}, Landroid/widget/TableRow;->generateLayoutParams(Landroid/util/AttributeSet;)Landroid/widget/TableRow$LayoutParams;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method protected bridge synthetic generateLayoutParams(Landroid/view/ViewGroup$LayoutParams;)Landroid/view/ViewGroup$LayoutParams;
+    .locals 1
+
+    invoke-virtual {p0, p1}, Landroid/widget/TableRow;->generateLayoutParams(Landroid/view/ViewGroup$LayoutParams;)Landroid/widget/LinearLayout$LayoutParams;
+
+    move-result-object v0
 
     return-object v0
 .end method

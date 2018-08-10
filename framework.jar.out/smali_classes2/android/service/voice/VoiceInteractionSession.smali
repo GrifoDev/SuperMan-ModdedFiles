@@ -128,6 +128,8 @@
 
 .field mToken:Landroid/os/IBinder;
 
+.field mUiEnabled:Z
+
 .field final mWeakRef:Ljava/lang/ref/WeakReference;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -164,6 +166,8 @@
 .method public constructor <init>(Landroid/content/Context;Landroid/os/Handler;)V
     .locals 4
 
+    const/4 v3, 0x1
+
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     new-instance v0, Landroid/view/KeyEvent$DispatcherState;
@@ -175,6 +179,8 @@
     const/4 v0, 0x0
 
     iput v0, p0, Landroid/service/voice/VoiceInteractionSession;->mTheme:I
+
+    iput-boolean v3, p0, Landroid/service/voice/VoiceInteractionSession;->mUiEnabled:Z
 
     new-instance v0, Landroid/util/ArrayMap;
 
@@ -228,8 +234,6 @@
 
     iget-object v2, p0, Landroid/service/voice/VoiceInteractionSession;->mCallbacks:Landroid/service/voice/VoiceInteractionSession$MyCallbacks;
 
-    const/4 v3, 0x1
-
     invoke-direct {v0, p1, v1, v2, v3}, Lcom/android/internal/os/HandlerCaller;-><init>(Landroid/content/Context;Landroid/os/Looper;Lcom/android/internal/os/HandlerCaller$Callback;Z)V
 
     iput-object v0, p0, Landroid/service/voice/VoiceInteractionSession;->mHandlerCaller:Lcom/android/internal/os/HandlerCaller;
@@ -238,9 +242,7 @@
 .end method
 
 .method private doOnCreate()V
-    .locals 11
-
-    const/4 v10, -0x1
+    .locals 1
 
     iget v0, p0, Landroid/service/voice/VoiceInteractionSession;->mTheme:I
 
@@ -251,72 +253,10 @@
     :goto_0
     iput v0, p0, Landroid/service/voice/VoiceInteractionSession;->mTheme:I
 
-    iget-object v0, p0, Landroid/service/voice/VoiceInteractionSession;->mContext:Landroid/content/Context;
-
-    const-string/jumbo v1, "layout_inflater"
-
-    invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/view/LayoutInflater;
-
-    iput-object v0, p0, Landroid/service/voice/VoiceInteractionSession;->mInflater:Landroid/view/LayoutInflater;
-
-    new-instance v0, Landroid/inputmethodservice/SoftInputWindow;
-
-    iget-object v1, p0, Landroid/service/voice/VoiceInteractionSession;->mContext:Landroid/content/Context;
-
-    const-string/jumbo v2, "VoiceInteractionSession"
-
-    iget v3, p0, Landroid/service/voice/VoiceInteractionSession;->mTheme:I
-
-    iget-object v4, p0, Landroid/service/voice/VoiceInteractionSession;->mCallbacks:Landroid/service/voice/VoiceInteractionSession$MyCallbacks;
-
-    iget-object v6, p0, Landroid/service/voice/VoiceInteractionSession;->mDispatcherState:Landroid/view/KeyEvent$DispatcherState;
-
-    const/16 v7, 0x7ef
-
-    const/16 v8, 0x50
-
-    const/4 v9, 0x1
-
-    move-object v5, p0
-
-    invoke-direct/range {v0 .. v9}, Landroid/inputmethodservice/SoftInputWindow;-><init>(Landroid/content/Context;Ljava/lang/String;ILandroid/inputmethodservice/SoftInputWindow$Callback;Landroid/view/KeyEvent$Callback;Landroid/view/KeyEvent$DispatcherState;IIZ)V
-
-    iput-object v0, p0, Landroid/service/voice/VoiceInteractionSession;->mWindow:Landroid/inputmethodservice/SoftInputWindow;
-
-    iget-object v0, p0, Landroid/service/voice/VoiceInteractionSession;->mWindow:Landroid/inputmethodservice/SoftInputWindow;
-
-    invoke-virtual {v0}, Landroid/inputmethodservice/SoftInputWindow;->getWindow()Landroid/view/Window;
-
-    move-result-object v0
-
-    const v1, 0x1010100
-
-    invoke-virtual {v0, v1}, Landroid/view/Window;->addFlags(I)V
-
-    invoke-virtual {p0}, Landroid/service/voice/VoiceInteractionSession;->initViews()V
-
-    iget-object v0, p0, Landroid/service/voice/VoiceInteractionSession;->mWindow:Landroid/inputmethodservice/SoftInputWindow;
-
-    invoke-virtual {v0}, Landroid/inputmethodservice/SoftInputWindow;->getWindow()Landroid/view/Window;
-
-    move-result-object v0
-
-    invoke-virtual {v0, v10, v10}, Landroid/view/Window;->setLayout(II)V
-
-    iget-object v0, p0, Landroid/service/voice/VoiceInteractionSession;->mWindow:Landroid/inputmethodservice/SoftInputWindow;
-
-    iget-object v1, p0, Landroid/service/voice/VoiceInteractionSession;->mToken:Landroid/os/IBinder;
-
-    invoke-virtual {v0, v1}, Landroid/inputmethodservice/SoftInputWindow;->setToken(Landroid/os/IBinder;)V
-
     return-void
 
     :cond_0
-    const v0, 0x103048e
+    const v0, 0x1030405
 
     goto :goto_0
 .end method
@@ -444,9 +384,7 @@
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Landroid/service/voice/VoiceInteractionSession;->mWindow:Landroid/inputmethodservice/SoftInputWindow;
-
-    invoke-virtual {v0}, Landroid/inputmethodservice/SoftInputWindow;->hide()V
+    invoke-virtual {p0}, Landroid/service/voice/VoiceInteractionSession;->ensureWindowHidden()V
 
     const/4 v0, 0x0
 
@@ -521,25 +459,13 @@
     :try_start_0
     iput-boolean v1, p0, Landroid/service/voice/VoiceInteractionSession;->mInShowWindow:Z
 
+    invoke-virtual {p0, p1, p2}, Landroid/service/voice/VoiceInteractionSession;->onPrepareShow(Landroid/os/Bundle;I)V
+
     iget-boolean v1, p0, Landroid/service/voice/VoiceInteractionSession;->mWindowVisible:Z
 
     if-nez v1, :cond_1
 
-    iget-boolean v1, p0, Landroid/service/voice/VoiceInteractionSession;->mWindowAdded:Z
-
-    if-nez v1, :cond_1
-
-    const/4 v1, 0x1
-
-    iput-boolean v1, p0, Landroid/service/voice/VoiceInteractionSession;->mWindowAdded:Z
-
-    invoke-virtual {p0}, Landroid/service/voice/VoiceInteractionSession;->onCreateContentView()Landroid/view/View;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_1
-
-    invoke-virtual {p0, v0}, Landroid/service/voice/VoiceInteractionSession;->setContentView(Landroid/view/View;)V
+    invoke-virtual {p0}, Landroid/service/voice/VoiceInteractionSession;->ensureWindowAdded()V
 
     :cond_1
     invoke-virtual {p0, p1, p2}, Landroid/service/voice/VoiceInteractionSession;->onShow(Landroid/os/Bundle;I)V
@@ -552,12 +478,20 @@
 
     iput-boolean v1, p0, Landroid/service/voice/VoiceInteractionSession;->mWindowVisible:Z
 
+    iget-boolean v1, p0, Landroid/service/voice/VoiceInteractionSession;->mUiEnabled:Z
+
+    if-eqz v1, :cond_2
+
     iget-object v1, p0, Landroid/service/voice/VoiceInteractionSession;->mWindow:Landroid/inputmethodservice/SoftInputWindow;
 
     invoke-virtual {v1}, Landroid/inputmethodservice/SoftInputWindow;->show()V
 
     :cond_2
     if-eqz p3, :cond_3
+
+    iget-boolean v1, p0, Landroid/service/voice/VoiceInteractionSession;->mUiEnabled:Z
+
+    if-eqz v1, :cond_4
 
     iget-object v1, p0, Landroid/service/voice/VoiceInteractionSession;->mRootView:Landroid/view/View;
 
@@ -578,11 +512,35 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     :cond_3
+    :goto_0
     iput-boolean v3, p0, Landroid/service/voice/VoiceInteractionSession;->mWindowWasVisible:Z
 
     iput-boolean v4, p0, Landroid/service/voice/VoiceInteractionSession;->mInShowWindow:Z
 
     return-void
+
+    :cond_4
+    :try_start_1
+    invoke-interface {p3}, Lcom/android/internal/app/IVoiceInteractionSessionShowCallback;->onShown()V
+    :try_end_1
+    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    goto :goto_0
+
+    :catch_0
+    move-exception v0
+
+    :try_start_2
+    const-string/jumbo v1, "VoiceInteractionSession"
+
+    const-string/jumbo v2, "Error calling onShown"
+
+    invoke-static {v1, v2, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+
+    goto :goto_0
 
     :catchall_0
     move-exception v1
@@ -623,7 +581,15 @@
 
     invoke-virtual {p3, p1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    const-string/jumbo v3, "mInitialized="
+    const-string/jumbo v3, "mUiEnabled="
+
+    invoke-virtual {p3, v3}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    iget-boolean v3, p0, Landroid/service/voice/VoiceInteractionSession;->mUiEnabled:Z
+
+    invoke-virtual {p3, v3}, Ljava/io/PrintWriter;->println(Z)V
+
+    const-string/jumbo v3, " mInitialized="
 
     invoke-virtual {p3, v3}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
@@ -742,6 +708,198 @@
     return-void
 .end method
 
+.method ensureWindowAdded()V
+    .locals 2
+
+    iget-boolean v1, p0, Landroid/service/voice/VoiceInteractionSession;->mUiEnabled:Z
+
+    if-eqz v1, :cond_0
+
+    iget-boolean v1, p0, Landroid/service/voice/VoiceInteractionSession;->mWindowAdded:Z
+
+    xor-int/lit8 v1, v1, 0x1
+
+    if-eqz v1, :cond_0
+
+    const/4 v1, 0x1
+
+    iput-boolean v1, p0, Landroid/service/voice/VoiceInteractionSession;->mWindowAdded:Z
+
+    invoke-virtual {p0}, Landroid/service/voice/VoiceInteractionSession;->ensureWindowCreated()V
+
+    invoke-virtual {p0}, Landroid/service/voice/VoiceInteractionSession;->onCreateContentView()Landroid/view/View;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {p0, v0}, Landroid/service/voice/VoiceInteractionSession;->setContentView(Landroid/view/View;)V
+
+    :cond_0
+    return-void
+.end method
+
+.method ensureWindowCreated()V
+    .locals 11
+
+    const/4 v9, 0x1
+
+    const/4 v10, -0x1
+
+    iget-boolean v0, p0, Landroid/service/voice/VoiceInteractionSession;->mInitialized:Z
+
+    if-eqz v0, :cond_0
+
+    return-void
+
+    :cond_0
+    iget-boolean v0, p0, Landroid/service/voice/VoiceInteractionSession;->mUiEnabled:Z
+
+    if-nez v0, :cond_1
+
+    new-instance v0, Ljava/lang/IllegalStateException;
+
+    const-string/jumbo v1, "setUiEnabled is false"
+
+    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+
+    :cond_1
+    iput-boolean v9, p0, Landroid/service/voice/VoiceInteractionSession;->mInitialized:Z
+
+    iget-object v0, p0, Landroid/service/voice/VoiceInteractionSession;->mContext:Landroid/content/Context;
+
+    const-string/jumbo v1, "layout_inflater"
+
+    invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/view/LayoutInflater;
+
+    iput-object v0, p0, Landroid/service/voice/VoiceInteractionSession;->mInflater:Landroid/view/LayoutInflater;
+
+    new-instance v0, Landroid/inputmethodservice/SoftInputWindow;
+
+    iget-object v1, p0, Landroid/service/voice/VoiceInteractionSession;->mContext:Landroid/content/Context;
+
+    const-string/jumbo v2, "VoiceInteractionSession"
+
+    iget v3, p0, Landroid/service/voice/VoiceInteractionSession;->mTheme:I
+
+    iget-object v4, p0, Landroid/service/voice/VoiceInteractionSession;->mCallbacks:Landroid/service/voice/VoiceInteractionSession$MyCallbacks;
+
+    iget-object v6, p0, Landroid/service/voice/VoiceInteractionSession;->mDispatcherState:Landroid/view/KeyEvent$DispatcherState;
+
+    const/16 v7, 0x7ef
+
+    const/16 v8, 0x50
+
+    move-object v5, p0
+
+    invoke-direct/range {v0 .. v9}, Landroid/inputmethodservice/SoftInputWindow;-><init>(Landroid/content/Context;Ljava/lang/String;ILandroid/inputmethodservice/SoftInputWindow$Callback;Landroid/view/KeyEvent$Callback;Landroid/view/KeyEvent$DispatcherState;IIZ)V
+
+    iput-object v0, p0, Landroid/service/voice/VoiceInteractionSession;->mWindow:Landroid/inputmethodservice/SoftInputWindow;
+
+    iget-object v0, p0, Landroid/service/voice/VoiceInteractionSession;->mWindow:Landroid/inputmethodservice/SoftInputWindow;
+
+    invoke-virtual {v0}, Landroid/inputmethodservice/SoftInputWindow;->getWindow()Landroid/view/Window;
+
+    move-result-object v0
+
+    const v1, 0x1010100
+
+    invoke-virtual {v0, v1}, Landroid/view/Window;->addFlags(I)V
+
+    iget-object v0, p0, Landroid/service/voice/VoiceInteractionSession;->mContext:Landroid/content/Context;
+
+    sget-object v1, Landroid/R$styleable;->VoiceInteractionSession:[I
+
+    invoke-virtual {v0, v1}, Landroid/content/Context;->obtainStyledAttributes([I)Landroid/content/res/TypedArray;
+
+    move-result-object v0
+
+    iput-object v0, p0, Landroid/service/voice/VoiceInteractionSession;->mThemeAttrs:Landroid/content/res/TypedArray;
+
+    iget-object v0, p0, Landroid/service/voice/VoiceInteractionSession;->mInflater:Landroid/view/LayoutInflater;
+
+    const v1, 0x1090175
+
+    const/4 v2, 0x0
+
+    invoke-virtual {v0, v1, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
+
+    move-result-object v0
+
+    iput-object v0, p0, Landroid/service/voice/VoiceInteractionSession;->mRootView:Landroid/view/View;
+
+    iget-object v0, p0, Landroid/service/voice/VoiceInteractionSession;->mRootView:Landroid/view/View;
+
+    const/16 v1, 0x700
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->setSystemUiVisibility(I)V
+
+    iget-object v0, p0, Landroid/service/voice/VoiceInteractionSession;->mWindow:Landroid/inputmethodservice/SoftInputWindow;
+
+    iget-object v1, p0, Landroid/service/voice/VoiceInteractionSession;->mRootView:Landroid/view/View;
+
+    invoke-virtual {v0, v1}, Landroid/inputmethodservice/SoftInputWindow;->setContentView(Landroid/view/View;)V
+
+    iget-object v0, p0, Landroid/service/voice/VoiceInteractionSession;->mRootView:Landroid/view/View;
+
+    invoke-virtual {v0}, Landroid/view/View;->getViewTreeObserver()Landroid/view/ViewTreeObserver;
+
+    move-result-object v0
+
+    iget-object v1, p0, Landroid/service/voice/VoiceInteractionSession;->mInsetsComputer:Landroid/view/ViewTreeObserver$OnComputeInternalInsetsListener;
+
+    invoke-virtual {v0, v1}, Landroid/view/ViewTreeObserver;->addOnComputeInternalInsetsListener(Landroid/view/ViewTreeObserver$OnComputeInternalInsetsListener;)V
+
+    iget-object v0, p0, Landroid/service/voice/VoiceInteractionSession;->mRootView:Landroid/view/View;
+
+    const v1, 0x1020002
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/widget/FrameLayout;
+
+    iput-object v0, p0, Landroid/service/voice/VoiceInteractionSession;->mContentFrame:Landroid/widget/FrameLayout;
+
+    iget-object v0, p0, Landroid/service/voice/VoiceInteractionSession;->mWindow:Landroid/inputmethodservice/SoftInputWindow;
+
+    invoke-virtual {v0}, Landroid/inputmethodservice/SoftInputWindow;->getWindow()Landroid/view/Window;
+
+    move-result-object v0
+
+    invoke-virtual {v0, v10, v10}, Landroid/view/Window;->setLayout(II)V
+
+    iget-object v0, p0, Landroid/service/voice/VoiceInteractionSession;->mWindow:Landroid/inputmethodservice/SoftInputWindow;
+
+    iget-object v1, p0, Landroid/service/voice/VoiceInteractionSession;->mToken:Landroid/os/IBinder;
+
+    invoke-virtual {v0, v1}, Landroid/inputmethodservice/SoftInputWindow;->setToken(Landroid/os/IBinder;)V
+
+    return-void
+.end method
+
+.method ensureWindowHidden()V
+    .locals 1
+
+    iget-object v0, p0, Landroid/service/voice/VoiceInteractionSession;->mWindow:Landroid/inputmethodservice/SoftInputWindow;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Landroid/service/voice/VoiceInteractionSession;->mWindow:Landroid/inputmethodservice/SoftInputWindow;
+
+    invoke-virtual {v0}, Landroid/inputmethodservice/SoftInputWindow;->hide()V
+
+    :cond_0
+    return-void
+.end method
+
 .method public finish()V
     .locals 3
 
@@ -809,6 +967,8 @@
 .method public getLayoutInflater()Landroid/view/LayoutInflater;
     .locals 1
 
+    invoke-virtual {p0}, Landroid/service/voice/VoiceInteractionSession;->ensureWindowCreated()V
+
     iget-object v0, p0, Landroid/service/voice/VoiceInteractionSession;->mInflater:Landroid/view/LayoutInflater;
 
     return-object v0
@@ -838,6 +998,8 @@
 
 .method public getWindow()Landroid/app/Dialog;
     .locals 1
+
+    invoke-virtual {p0}, Landroid/service/voice/VoiceInteractionSession;->ensureWindowCreated()V
 
     iget-object v0, p0, Landroid/service/voice/VoiceInteractionSession;->mWindow:Landroid/inputmethodservice/SoftInputWindow;
 
@@ -876,72 +1038,6 @@
     move-exception v0
 
     goto :goto_0
-.end method
-
-.method initViews()V
-    .locals 3
-
-    const/4 v0, 0x1
-
-    iput-boolean v0, p0, Landroid/service/voice/VoiceInteractionSession;->mInitialized:Z
-
-    iget-object v0, p0, Landroid/service/voice/VoiceInteractionSession;->mContext:Landroid/content/Context;
-
-    sget-object v1, Landroid/R$styleable;->VoiceInteractionSession:[I
-
-    invoke-virtual {v0, v1}, Landroid/content/Context;->obtainStyledAttributes([I)Landroid/content/res/TypedArray;
-
-    move-result-object v0
-
-    iput-object v0, p0, Landroid/service/voice/VoiceInteractionSession;->mThemeAttrs:Landroid/content/res/TypedArray;
-
-    iget-object v0, p0, Landroid/service/voice/VoiceInteractionSession;->mInflater:Landroid/view/LayoutInflater;
-
-    const v1, 0x1090177
-
-    const/4 v2, 0x0
-
-    invoke-virtual {v0, v1, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
-
-    move-result-object v0
-
-    iput-object v0, p0, Landroid/service/voice/VoiceInteractionSession;->mRootView:Landroid/view/View;
-
-    iget-object v0, p0, Landroid/service/voice/VoiceInteractionSession;->mRootView:Landroid/view/View;
-
-    const/16 v1, 0x700
-
-    invoke-virtual {v0, v1}, Landroid/view/View;->setSystemUiVisibility(I)V
-
-    iget-object v0, p0, Landroid/service/voice/VoiceInteractionSession;->mWindow:Landroid/inputmethodservice/SoftInputWindow;
-
-    iget-object v1, p0, Landroid/service/voice/VoiceInteractionSession;->mRootView:Landroid/view/View;
-
-    invoke-virtual {v0, v1}, Landroid/inputmethodservice/SoftInputWindow;->setContentView(Landroid/view/View;)V
-
-    iget-object v0, p0, Landroid/service/voice/VoiceInteractionSession;->mRootView:Landroid/view/View;
-
-    invoke-virtual {v0}, Landroid/view/View;->getViewTreeObserver()Landroid/view/ViewTreeObserver;
-
-    move-result-object v0
-
-    iget-object v1, p0, Landroid/service/voice/VoiceInteractionSession;->mInsetsComputer:Landroid/view/ViewTreeObserver$OnComputeInternalInsetsListener;
-
-    invoke-virtual {v0, v1}, Landroid/view/ViewTreeObserver;->addOnComputeInternalInsetsListener(Landroid/view/ViewTreeObserver$OnComputeInternalInsetsListener;)V
-
-    iget-object v0, p0, Landroid/service/voice/VoiceInteractionSession;->mRootView:Landroid/view/View;
-
-    const v1, 0x1020002
-
-    invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/widget/FrameLayout;
-
-    iput-object v0, p0, Landroid/service/voice/VoiceInteractionSession;->mContentFrame:Landroid/widget/FrameLayout;
-
-    return-void
 .end method
 
 .method isRequestActive(Landroid/os/IBinder;)Z
@@ -1152,6 +1248,12 @@
     return-void
 .end method
 
+.method public onPrepareShow(Landroid/os/Bundle;I)V
+    .locals 0
+
+    return-void
+.end method
+
 .method public onRequestAbortVoice(Landroid/service/voice/VoiceInteractionSession$AbortVoiceRequest;)V
     .locals 0
 
@@ -1240,6 +1342,8 @@
     .locals 3
 
     const/4 v2, -0x1
+
+    invoke-virtual {p0}, Landroid/service/voice/VoiceInteractionSession;->ensureWindowCreated()V
 
     iget-object v0, p0, Landroid/service/voice/VoiceInteractionSession;->mContentFrame:Landroid/widget/FrameLayout;
 
@@ -1334,6 +1438,37 @@
     return-void
 .end method
 
+.method public setUiEnabled(Z)V
+    .locals 1
+
+    iget-boolean v0, p0, Landroid/service/voice/VoiceInteractionSession;->mUiEnabled:Z
+
+    if-eq v0, p1, :cond_0
+
+    iput-boolean p1, p0, Landroid/service/voice/VoiceInteractionSession;->mUiEnabled:Z
+
+    iget-boolean v0, p0, Landroid/service/voice/VoiceInteractionSession;->mWindowVisible:Z
+
+    if-eqz v0, :cond_0
+
+    if-eqz p1, :cond_1
+
+    invoke-virtual {p0}, Landroid/service/voice/VoiceInteractionSession;->ensureWindowAdded()V
+
+    iget-object v0, p0, Landroid/service/voice/VoiceInteractionSession;->mWindow:Landroid/inputmethodservice/SoftInputWindow;
+
+    invoke-virtual {v0}, Landroid/inputmethodservice/SoftInputWindow;->show()V
+
+    :cond_0
+    :goto_0
+    return-void
+
+    :cond_1
+    invoke-virtual {p0}, Landroid/service/voice/VoiceInteractionSession;->ensureWindowHidden()V
+
+    goto :goto_0
+.end method
+
 .method public show(Landroid/os/Bundle;I)V
     .locals 3
 
@@ -1356,6 +1491,60 @@
     iget-object v2, p0, Landroid/service/voice/VoiceInteractionSession;->mToken:Landroid/os/IBinder;
 
     invoke-interface {v1, v2, p1, p2}, Lcom/android/internal/app/IVoiceInteractionManagerService;->showSessionFromSession(Landroid/os/IBinder;Landroid/os/Bundle;I)Z
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    :goto_0
+    return-void
+
+    :catch_0
+    move-exception v0
+
+    goto :goto_0
+.end method
+
+.method public startAssistantActivity(Landroid/content/Intent;)V
+    .locals 5
+
+    iget-object v2, p0, Landroid/service/voice/VoiceInteractionSession;->mToken:Landroid/os/IBinder;
+
+    if-nez v2, :cond_0
+
+    new-instance v2, Ljava/lang/IllegalStateException;
+
+    const-string/jumbo v3, "Can\'t call before onCreate()"
+
+    invoke-direct {v2, v3}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+
+    throw v2
+
+    :cond_0
+    :try_start_0
+    invoke-virtual {p1}, Landroid/content/Intent;->migrateExtraStreamToClipData()Z
+
+    iget-object v2, p0, Landroid/service/voice/VoiceInteractionSession;->mContext:Landroid/content/Context;
+
+    invoke-virtual {p1, v2}, Landroid/content/Intent;->prepareToLeaveProcess(Landroid/content/Context;)V
+
+    iget-object v2, p0, Landroid/service/voice/VoiceInteractionSession;->mSystemService:Lcom/android/internal/app/IVoiceInteractionManagerService;
+
+    iget-object v3, p0, Landroid/service/voice/VoiceInteractionSession;->mToken:Landroid/os/IBinder;
+
+    iget-object v4, p0, Landroid/service/voice/VoiceInteractionSession;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v4}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v4
+
+    invoke-virtual {p1, v4}, Landroid/content/Intent;->resolveType(Landroid/content/ContentResolver;)Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-interface {v2, v3, p1, v4}, Lcom/android/internal/app/IVoiceInteractionManagerService;->startAssistantActivity(Landroid/os/IBinder;Landroid/content/Intent;Ljava/lang/String;)I
+
+    move-result v1
+
+    invoke-static {v1, p1}, Landroid/app/Instrumentation;->checkStartActivityResult(ILjava/lang/Object;)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 

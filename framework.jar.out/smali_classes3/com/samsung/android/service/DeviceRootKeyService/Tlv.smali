@@ -28,11 +28,21 @@
 
 .field public static final TLV_ATTRS:I = 0x11
 
+.field public static final TLV_TAG_AUTH_DATA:I = 0x18
+
+.field public static final TLV_TAG_AUTH_TAG:I = 0x17
+
+.field public static final TLV_TAG_CERT:I = 0x1b
+
 .field public static final TLV_TAG_CERT_SD:I = 0xa
 
 .field public static final TLV_TAG_CERT_SM:I = 0x9
 
+.field public static final TLV_TAG_CSR:I = 0x15
+
 .field public static final TLV_TAG_DN_QUALIFIER:I = 0x6
+
+.field public static final TLV_TAG_ENCRYPTED_DATA_BLOB:I = 0x1a
 
 .field public static final TLV_TAG_EXPONENT:I = 0x1
 
@@ -42,15 +52,29 @@
 
 .field public static final TLV_TAG_HASH_ALGO:I = 0x3
 
+.field public static final TLV_TAG_HUID:I = 0x13
+
+.field public static final TLV_TAG_IMEI:I = 0x1c
+
 .field public static final TLV_TAG_ISSUER:I = 0x2
+
+.field public static final TLV_TAG_IV:I = 0x16
 
 .field public static final TLV_TAG_KEYUSAGE:I = 0x5
 
-.field private static final TLV_TAG_MAX:I = 0x12
+.field private static final TLV_TAG_MAX:I = 0x1e
+
+.field public static final TLV_TAG_MODEL_NAME:I = 0x12
+
+.field public static final TLV_TAG_PREGEN_KEYPAIR:I = 0x14
+
+.field public static final TLV_TAG_SIGNATURE:I = 0x19
 
 .field public static final TLV_TAG_SIGN_DATA_BLOB:I = 0x8
 
 .field public static final TLV_TAG_SUBJECT:I = 0x4
+
+.field public static final TLV_TAG_SUBJECT_ALTER_NAME:I = 0x1d
 
 .field public static final TLV_TAG_TID:I = 0xe
 
@@ -120,7 +144,7 @@
 
     if-lt p1, v0, :cond_0
 
-    const/16 v0, 0x12
+    const/16 v0, 0x1e
 
     if-ge p1, v0, :cond_0
 
@@ -184,7 +208,7 @@
 
     if-lt p1, v2, :cond_0
 
-    const/16 v0, 0x12
+    const/16 v0, 0x1e
 
     if-ge p1, v0, :cond_0
 

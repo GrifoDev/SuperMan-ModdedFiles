@@ -61,6 +61,8 @@
 
 .field public installLocation:I
 
+.field public installReason:I
+
 .field public mode:I
 
 .field public originatingUid:I
@@ -102,6 +104,10 @@
 
     iput v0, p0, Landroid/content/pm/PackageInstaller$SessionParams;->installLocation:I
 
+    const/4 v0, 0x0
+
+    iput v0, p0, Landroid/content/pm/PackageInstaller$SessionParams;->installReason:I
+
     iput-wide v2, p0, Landroid/content/pm/PackageInstaller$SessionParams;->sizeBytes:J
 
     iput-wide v2, p0, Landroid/content/pm/PackageInstaller$SessionParams;->appIconLastModified:J
@@ -130,6 +136,10 @@
 
     iput v0, p0, Landroid/content/pm/PackageInstaller$SessionParams;->installLocation:I
 
+    const/4 v0, 0x0
+
+    iput v0, p0, Landroid/content/pm/PackageInstaller$SessionParams;->installReason:I
+
     iput-wide v4, p0, Landroid/content/pm/PackageInstaller$SessionParams;->sizeBytes:J
 
     iput-wide v4, p0, Landroid/content/pm/PackageInstaller$SessionParams;->appIconLastModified:J
@@ -153,6 +163,12 @@
     move-result v0
 
     iput v0, p0, Landroid/content/pm/PackageInstaller$SessionParams;->installLocation:I
+
+    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
+
+    move-result v0
+
+    iput v0, p0, Landroid/content/pm/PackageInstaller$SessionParams;->installReason:I
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readLong()J
 
@@ -363,6 +379,34 @@
     return-void
 .end method
 
+.method public setAllocateAggressive(Z)V
+    .locals 2
+
+    if-eqz p1, :cond_0
+
+    iget v0, p0, Landroid/content/pm/PackageInstaller$SessionParams;->installFlags:I
+
+    const v1, 0x8000
+
+    or-int/2addr v0, v1
+
+    iput v0, p0, Landroid/content/pm/PackageInstaller$SessionParams;->installFlags:I
+
+    :goto_0
+    return-void
+
+    :cond_0
+    iget v0, p0, Landroid/content/pm/PackageInstaller$SessionParams;->installFlags:I
+
+    const v1, -0x8001
+
+    and-int/2addr v0, v1
+
+    iput v0, p0, Landroid/content/pm/PackageInstaller$SessionParams;->installFlags:I
+
+    goto :goto_0
+.end method
+
 .method public setAllowDowngrade(Z)V
     .locals 1
 
@@ -458,6 +502,42 @@
     return-void
 .end method
 
+.method public setInstallAsInstantApp(Z)V
+    .locals 1
+
+    if-eqz p1, :cond_0
+
+    iget v0, p0, Landroid/content/pm/PackageInstaller$SessionParams;->installFlags:I
+
+    or-int/lit16 v0, v0, 0x800
+
+    iput v0, p0, Landroid/content/pm/PackageInstaller$SessionParams;->installFlags:I
+
+    iget v0, p0, Landroid/content/pm/PackageInstaller$SessionParams;->installFlags:I
+
+    and-int/lit16 v0, v0, -0x4001
+
+    iput v0, p0, Landroid/content/pm/PackageInstaller$SessionParams;->installFlags:I
+
+    :goto_0
+    return-void
+
+    :cond_0
+    iget v0, p0, Landroid/content/pm/PackageInstaller$SessionParams;->installFlags:I
+
+    and-int/lit16 v0, v0, -0x801
+
+    iput v0, p0, Landroid/content/pm/PackageInstaller$SessionParams;->installFlags:I
+
+    iget v0, p0, Landroid/content/pm/PackageInstaller$SessionParams;->installFlags:I
+
+    or-int/lit16 v0, v0, 0x4000
+
+    iput v0, p0, Landroid/content/pm/PackageInstaller$SessionParams;->installFlags:I
+
+    goto :goto_0
+.end method
+
 .method public setInstallFlagsExternal()V
     .locals 1
 
@@ -514,6 +594,14 @@
     return-void
 .end method
 
+.method public setInstallReason(I)V
+    .locals 0
+
+    iput p1, p0, Landroid/content/pm/PackageInstaller$SessionParams;->installReason:I
+
+    return-void
+.end method
+
 .method public setOriginatingUid(I)V
     .locals 0
 
@@ -558,6 +646,10 @@
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
     iget v0, p0, Landroid/content/pm/PackageInstaller$SessionParams;->installLocation:I
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
+
+    iget v0, p0, Landroid/content/pm/PackageInstaller$SessionParams;->installReason:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 

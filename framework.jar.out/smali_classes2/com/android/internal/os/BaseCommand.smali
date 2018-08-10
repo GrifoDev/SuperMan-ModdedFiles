@@ -22,6 +22,8 @@
 # instance fields
 .field protected final mArgs:Landroid/os/ShellCommand;
 
+.field private mRawArgs:[Ljava/lang/String;
+
 
 # direct methods
 .method public constructor <init>()V
@@ -40,6 +42,14 @@
 
 
 # virtual methods
+.method public getRawArgs()[Ljava/lang/String;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/internal/os/BaseCommand;->mRawArgs:[Ljava/lang/String;
+
+    return-object v0
+.end method
+
 .method public nextArg()Ljava/lang/String;
     .locals 1
 
@@ -88,15 +98,15 @@
 .end method
 
 .method public run([Ljava/lang/String;)V
-    .locals 10
+    .locals 11
 
-    const/4 v9, 0x1
+    const/4 v10, 0x1
 
     const/4 v1, 0x0
 
     array-length v0, p1
 
-    if-ge v0, v9, :cond_0
+    if-ge v0, v10, :cond_0
 
     sget-object v0, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
@@ -105,9 +115,11 @@
     return-void
 
     :cond_0
+    iput-object p1, p0, Lcom/android/internal/os/BaseCommand;->mRawArgs:[Ljava/lang/String;
+
     iget-object v0, p0, Lcom/android/internal/os/BaseCommand;->mArgs:Landroid/os/ShellCommand;
 
-    const/4 v6, 0x0
+    const/4 v7, 0x0
 
     move-object v2, v1
 
@@ -117,7 +129,9 @@
 
     move-object v5, p1
 
-    invoke-virtual/range {v0 .. v6}, Landroid/os/ShellCommand;->init(Landroid/os/Binder;Ljava/io/FileDescriptor;Ljava/io/FileDescriptor;Ljava/io/FileDescriptor;[Ljava/lang/String;I)V
+    move-object v6, v1
+
+    invoke-virtual/range {v0 .. v7}, Landroid/os/ShellCommand;->init(Landroid/os/Binder;Ljava/io/FileDescriptor;Ljava/io/FileDescriptor;Ljava/io/FileDescriptor;[Ljava/lang/String;Landroid/os/ShellCallback;I)V
 
     :try_start_0
     invoke-virtual {p0}, Lcom/android/internal/os/BaseCommand;->onRun()V
@@ -129,18 +143,18 @@
     return-void
 
     :catch_0
-    move-exception v7
+    move-exception v8
 
     sget-object v0, Ljava/lang/System;->err:Ljava/io/PrintStream;
 
-    invoke-virtual {v7, v0}, Ljava/lang/Throwable;->printStackTrace(Ljava/io/PrintStream;)V
+    invoke-virtual {v8, v0}, Ljava/lang/Exception;->printStackTrace(Ljava/io/PrintStream;)V
 
-    invoke-static {v9}, Ljava/lang/System;->exit(I)V
+    invoke-static {v10}, Ljava/lang/System;->exit(I)V
 
     goto :goto_0
 
     :catch_1
-    move-exception v8
+    move-exception v9
 
     sget-object v0, Ljava/lang/System;->err:Ljava/io/PrintStream;
 
@@ -162,7 +176,7 @@
 
     move-result-object v1
 
-    invoke-virtual {v8}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
+    invoke-virtual {v9}, Ljava/lang/IllegalArgumentException;->getMessage()Ljava/lang/String;
 
     move-result-object v2
 

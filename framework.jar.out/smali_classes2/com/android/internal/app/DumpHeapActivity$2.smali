@@ -55,7 +55,7 @@
 
     iget-object v2, p0, Lcom/android/internal/app/DumpHeapActivity$2;->this$0:Lcom/android/internal/app/DumpHeapActivity;
 
-    invoke-virtual {v2}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v2}, Lcom/android/internal/app/DumpHeapActivity;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v2
 
@@ -93,9 +93,9 @@
 
     iget-object v3, p0, Lcom/android/internal/app/DumpHeapActivity$2;->this$0:Lcom/android/internal/app/DumpHeapActivity;
 
-    const v4, 0x10403cc
+    const v4, 0x10402dd
 
-    invoke-virtual {v3, v4}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
+    invoke-virtual {v3, v4}, Lcom/android/internal/app/DumpHeapActivity;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object v3
 
@@ -103,11 +103,11 @@
 
     move-result-object v3
 
-    invoke-virtual {v2, v3}, Landroid/app/Activity;->startActivity(Landroid/content/Intent;)V
+    invoke-virtual {v2, v3}, Lcom/android/internal/app/DumpHeapActivity;->startActivity(Landroid/content/Intent;)V
 
     iget-object v2, p0, Lcom/android/internal/app/DumpHeapActivity$2;->this$0:Lcom/android/internal/app/DumpHeapActivity;
 
-    invoke-virtual {v2}, Landroid/app/Activity;->finish()V
+    invoke-virtual {v2}, Lcom/android/internal/app/DumpHeapActivity;->finish()V
 
     return-void
 .end method

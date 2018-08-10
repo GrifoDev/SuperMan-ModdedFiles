@@ -67,7 +67,7 @@
 
     new-instance v2, Landroid/filterfw/core/FilterFunction;
 
-    invoke-virtual {p0}, Landroid/filterfw/MffEnvironment;->getContext()Landroid/filterfw/core/FilterContext;
+    invoke-virtual {p0}, Landroid/filterfw/FilterFunctionEnvironment;->getContext()Landroid/filterfw/core/FilterContext;
 
     move-result-object v3
 

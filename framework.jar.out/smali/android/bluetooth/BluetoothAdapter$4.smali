@@ -66,7 +66,7 @@
     :cond_1
     iget-object v4, p0, Landroid/bluetooth/BluetoothAdapter$4;->val$serviceUuids:[Ljava/util/UUID;
 
-    if-eqz v4, :cond_3
+    if-eqz v4, :cond_4
 
     new-instance v3, Ljava/util/ArrayList;
 
@@ -98,15 +98,26 @@
 
     move-result-object v1
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_3
 
     invoke-interface {v1, v3}, Ljava/util/List;->containsAll(Ljava/util/Collection;)Z
 
     move-result v4
 
+    xor-int/lit8 v4, v4, 0x1
+
     if-eqz v4, :cond_4
 
     :cond_3
+    const-string/jumbo v4, "BluetoothAdapter"
+
+    const-string/jumbo v5, "uuids does not match"
+
+    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
+
+    :cond_4
     iget-object v4, p0, Landroid/bluetooth/BluetoothAdapter$4;->val$callback:Landroid/bluetooth/BluetoothAdapter$LeScanCallback;
 
     invoke-virtual {p2}, Landroid/bluetooth/le/ScanResult;->getDevice()Landroid/bluetooth/BluetoothDevice;
@@ -122,15 +133,6 @@
     move-result-object v7
 
     invoke-interface {v4, v5, v6, v7}, Landroid/bluetooth/BluetoothAdapter$LeScanCallback;->onLeScan(Landroid/bluetooth/BluetoothDevice;I[B)V
-
-    return-void
-
-    :cond_4
-    const-string/jumbo v4, "BluetoothAdapter"
-
-    const-string/jumbo v5, "uuids does not match"
-
-    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 .end method

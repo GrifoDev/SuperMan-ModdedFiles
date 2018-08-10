@@ -96,50 +96,50 @@
 .end method
 
 .method private static getexternalStorage(I)Ljava/io/File;
-    .locals 7
+    .locals 6
 
     const-string/jumbo v0, "EMULATED_STORAGE_TARGET"
 
-    const-string/jumbo v4, "EMULATED_STORAGE_TARGET"
+    const-string/jumbo v3, "EMULATED_STORAGE_TARGET"
 
-    invoke-static {v4}, Ljava/lang/System;->getenv(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-static {v3}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v4
-
-    if-nez v4, :cond_0
-
-    new-instance v1, Ljava/io/File;
-
-    invoke-direct {v1, v3}, Ljava/io/File;-><init>(Ljava/lang/String;)V
-
-    const/4 v4, 0x1
-
-    new-array v4, v4, [Ljava/lang/String;
-
-    invoke-static {p0}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
-
-    move-result-object v5
-
-    const/4 v6, 0x0
-
-    aput-object v5, v4, v6
-
-    invoke-static {v1, v4}, Lcom/samsung/android/knox/SemPersonaManager$PathStrategy;->buildPath(Ljava/io/File;[Ljava/lang/String;)Ljava/io/File;
+    invoke-static {v3}, Ljava/lang/System;->getenv(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v2
 
-    return-object v2
+    invoke-static {v2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_0
+
+    new-instance v1, Ljava/io/File;
+
+    invoke-direct {v1, v2}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+
+    const/4 v3, 0x1
+
+    new-array v3, v3, [Ljava/lang/String;
+
+    invoke-static {p0}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+
+    move-result-object v4
+
+    const/4 v5, 0x0
+
+    aput-object v4, v3, v5
+
+    invoke-static {v1, v3}, Lcom/samsung/android/knox/SemPersonaManager$PathStrategy;->buildPath(Ljava/io/File;[Ljava/lang/String;)Ljava/io/File;
+
+    move-result-object v3
+
+    return-object v3
 
     :cond_0
     invoke-static {}, Landroid/os/Environment;->getExternalStorageDirectory()Ljava/io/File;
 
-    move-result-object v4
+    move-result-object v3
 
-    return-object v4
+    return-object v3
 .end method
 
 

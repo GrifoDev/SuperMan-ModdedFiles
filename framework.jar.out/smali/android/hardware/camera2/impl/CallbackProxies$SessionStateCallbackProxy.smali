@@ -83,6 +83,26 @@
     return-void
 .end method
 
+.method public onCaptureQueueEmpty(Landroid/hardware/camera2/CameraCaptureSession;)V
+    .locals 4
+
+    iget-object v0, p0, Landroid/hardware/camera2/impl/CallbackProxies$SessionStateCallbackProxy;->mProxy:Landroid/hardware/camera2/dispatch/MethodNameInvoker;
+
+    const-string/jumbo v1, "onCaptureQueueEmpty"
+
+    const/4 v2, 0x1
+
+    new-array v2, v2, [Ljava/lang/Object;
+
+    const/4 v3, 0x0
+
+    aput-object p1, v2, v3
+
+    invoke-virtual {v0, v1, v2}, Landroid/hardware/camera2/dispatch/MethodNameInvoker;->invoke(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/Object;
+
+    return-void
+.end method
+
 .method public onClosed(Landroid/hardware/camera2/CameraCaptureSession;)V
     .locals 4
 

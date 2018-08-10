@@ -65,7 +65,7 @@
 
     iget-object v1, p2, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
 
-    iget-object v1, v1, Landroid/content/pm/PackageItemInfo;->name:Ljava/lang/String;
+    iget-object v1, v1, Landroid/content/pm/ActivityInfo;->name:Ljava/lang/String;
 
     iput-object v1, p0, Landroid/app/LauncherActivity$ListItem;->label:Ljava/lang/CharSequence;
 
@@ -85,11 +85,11 @@
     :cond_2
     iget-object v1, v0, Landroid/content/pm/ComponentInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
 
-    iget-object v1, v1, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
+    iget-object v1, v1, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
 
     iput-object v1, p0, Landroid/app/LauncherActivity$ListItem;->packageName:Ljava/lang/String;
 
-    iget-object v1, v0, Landroid/content/pm/PackageItemInfo;->name:Ljava/lang/String;
+    iget-object v1, v0, Landroid/content/pm/ComponentInfo;->name:Ljava/lang/String;
 
     iput-object v1, p0, Landroid/app/LauncherActivity$ListItem;->className:Ljava/lang/String;
 

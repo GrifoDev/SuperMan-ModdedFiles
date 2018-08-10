@@ -37,115 +37,116 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/pm/PackageManager;)V
-    .locals 11
+    .locals 12
 
-    const/4 v10, 0x0
+    const/4 v11, 0x0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    new-instance v7, Landroid/content/Intent;
+    new-instance v8, Landroid/content/Intent;
 
-    const-string/jumbo v8, "com.android.intent.action.MANAGE_VOICE_KEYPHRASES"
+    const-string/jumbo v9, "com.android.intent.action.MANAGE_VOICE_KEYPHRASES"
 
-    invoke-direct {v7, v8}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+    invoke-direct {v8, v9}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    const/high16 v8, 0x10000
+    const/high16 v9, 0x10000
 
-    invoke-virtual {p1, v7, v8}, Landroid/content/pm/PackageManager;->queryIntentActivities(Landroid/content/Intent;I)Ljava/util/List;
-
-    move-result-object v6
-
-    if-eqz v6, :cond_0
-
-    invoke-interface {v6}, Ljava/util/List;->isEmpty()Z
-
-    move-result v7
-
-    if-eqz v7, :cond_1
-
-    :cond_0
-    const-string/jumbo v7, "No enrollment applications found"
-
-    iput-object v7, p0, Landroid/hardware/soundtrigger/KeyphraseEnrollmentInfo;->mParseError:Ljava/lang/String;
-
-    invoke-static {}, Ljava/util/Collections;->emptyMap()Ljava/util/Map;
+    invoke-virtual {p1, v8, v9}, Landroid/content/pm/PackageManager;->queryIntentActivities(Landroid/content/Intent;I)Ljava/util/List;
 
     move-result-object v7
 
-    iput-object v7, p0, Landroid/hardware/soundtrigger/KeyphraseEnrollmentInfo;->mKeyphrasePackageMap:Ljava/util/Map;
+    if-eqz v7, :cond_0
 
-    iput-object v10, p0, Landroid/hardware/soundtrigger/KeyphraseEnrollmentInfo;->mKeyphrases:[Landroid/hardware/soundtrigger/KeyphraseMetadata;
+    invoke-interface {v7}, Ljava/util/List;->isEmpty()Z
+
+    move-result v8
+
+    if-eqz v8, :cond_1
+
+    :cond_0
+    const-string/jumbo v8, "No enrollment applications found"
+
+    iput-object v8, p0, Landroid/hardware/soundtrigger/KeyphraseEnrollmentInfo;->mParseError:Ljava/lang/String;
+
+    invoke-static {}, Ljava/util/Collections;->emptyMap()Ljava/util/Map;
+
+    move-result-object v8
+
+    iput-object v8, p0, Landroid/hardware/soundtrigger/KeyphraseEnrollmentInfo;->mKeyphrasePackageMap:Ljava/util/Map;
+
+    iput-object v11, p0, Landroid/hardware/soundtrigger/KeyphraseEnrollmentInfo;->mKeyphrases:[Landroid/hardware/soundtrigger/KeyphraseMetadata;
 
     return-void
 
     :cond_1
-    new-instance v3, Ljava/util/LinkedList;
+    new-instance v4, Ljava/util/LinkedList;
 
-    invoke-direct {v3}, Ljava/util/LinkedList;-><init>()V
+    invoke-direct {v4}, Ljava/util/LinkedList;-><init>()V
 
-    new-instance v7, Ljava/util/HashMap;
+    new-instance v8, Ljava/util/HashMap;
 
-    invoke-direct {v7}, Ljava/util/HashMap;-><init>()V
+    invoke-direct {v8}, Ljava/util/HashMap;-><init>()V
 
-    iput-object v7, p0, Landroid/hardware/soundtrigger/KeyphraseEnrollmentInfo;->mKeyphrasePackageMap:Ljava/util/Map;
+    iput-object v8, p0, Landroid/hardware/soundtrigger/KeyphraseEnrollmentInfo;->mKeyphrasePackageMap:Ljava/util/Map;
 
-    invoke-interface {v6}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+    invoke-interface {v7}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+
+    move-result-object v6
+
+    :cond_2
+    :goto_0
+    invoke-interface {v6}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v8
+
+    if-eqz v8, :cond_5
+
+    invoke-interface {v6}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v5
 
-    :goto_0
-    invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v7
-
-    if-eqz v7, :cond_4
-
-    invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v4
-
-    check-cast v4, Landroid/content/pm/ResolveInfo;
+    check-cast v5, Landroid/content/pm/ResolveInfo;
 
     :try_start_0
-    iget-object v7, v4, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
+    iget-object v8, v5, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
 
-    iget-object v7, v7, Landroid/content/pm/ActivityInfo;->packageName:Ljava/lang/String;
+    iget-object v8, v8, Landroid/content/pm/ActivityInfo;->packageName:Ljava/lang/String;
 
-    const/16 v8, 0x80
+    const/16 v9, 0x80
 
-    invoke-virtual {p1, v7, v8}, Landroid/content/pm/PackageManager;->getApplicationInfo(Ljava/lang/String;I)Landroid/content/pm/ApplicationInfo;
+    invoke-virtual {p1, v8, v9}, Landroid/content/pm/PackageManager;->getApplicationInfo(Ljava/lang/String;I)Landroid/content/pm/ApplicationInfo;
 
     move-result-object v0
 
-    iget v7, v0, Landroid/content/pm/ApplicationInfo;->privateFlags:I
+    iget v8, v0, Landroid/content/pm/ApplicationInfo;->privateFlags:I
 
-    and-int/lit8 v7, v7, 0x8
+    and-int/lit8 v8, v8, 0x8
 
-    if-nez v7, :cond_2
+    if-nez v8, :cond_3
 
-    const-string/jumbo v7, "KeyphraseEnrollmentInfo"
+    const-string/jumbo v8, "KeyphraseEnrollmentInfo"
 
-    new-instance v8, Ljava/lang/StringBuilder;
+    new-instance v9, Ljava/lang/StringBuilder;
 
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
 
-    iget-object v9, v0, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
+    iget-object v10, v0, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
 
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v8
+    move-result-object v9
 
-    const-string/jumbo v9, "is not a privileged system app"
+    const-string/jumbo v10, "is not a privileged system app"
 
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v8
+    move-result-object v9
 
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v8
+    move-result-object v9
 
-    invoke-static {v7, v8}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v8, v9}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_0
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -154,83 +155,19 @@
     :catch_0
     move-exception v1
 
-    new-instance v7, Ljava/lang/StringBuilder;
-
-    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v8, "error parsing voice enrollment meta-data for "
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    iget-object v8, v4, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
-
-    iget-object v8, v8, Landroid/content/pm/ActivityInfo;->packageName:Ljava/lang/String;
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    new-instance v7, Ljava/lang/StringBuilder;
-
-    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {v7, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    const-string/jumbo v8, ": "
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    invoke-virtual {v7, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-interface {v3, v7}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    const-string/jumbo v7, "KeyphraseEnrollmentInfo"
-
-    invoke-static {v7, v2, v1}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    goto :goto_0
-
-    :cond_2
-    :try_start_1
-    const-string/jumbo v7, "android.permission.MANAGE_VOICE_KEYPHRASES"
-
-    iget-object v8, v0, Landroid/content/pm/ApplicationInfo;->permission:Ljava/lang/String;
-
-    invoke-virtual {v7, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v7
-
-    if-nez v7, :cond_3
-
-    const-string/jumbo v7, "KeyphraseEnrollmentInfo"
-
     new-instance v8, Ljava/lang/StringBuilder;
 
     invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
 
-    iget-object v9, v0, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
+    const-string/jumbo v9, "error parsing voice enrollment meta-data for "
 
     invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v8
 
-    const-string/jumbo v9, " does not require MANAGE_VOICE_KEYPHRASES"
+    iget-object v9, v5, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
+
+    iget-object v9, v9, Landroid/content/pm/ActivityInfo;->packageName:Ljava/lang/String;
 
     invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -238,86 +175,152 @@
 
     invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
+    move-result-object v2
+
+    new-instance v8, Ljava/lang/StringBuilder;
+
+    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v8, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
     move-result-object v8
 
-    invoke-static {v7, v8}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+    const-string/jumbo v9, ": "
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-virtual {v8, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-interface {v4, v8}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v8, "KeyphraseEnrollmentInfo"
+
+    invoke-static {v8, v2, v1}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    goto :goto_0
+
+    :cond_3
+    :try_start_1
+    const-string/jumbo v8, "android.permission.MANAGE_VOICE_KEYPHRASES"
+
+    iget-object v9, v0, Landroid/content/pm/ApplicationInfo;->permission:Ljava/lang/String;
+
+    invoke-virtual {v8, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v8
+
+    if-nez v8, :cond_4
+
+    const-string/jumbo v8, "KeyphraseEnrollmentInfo"
+
+    new-instance v9, Ljava/lang/StringBuilder;
+
+    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
+
+    iget-object v10, v0, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
+
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    const-string/jumbo v10, " does not require MANAGE_VOICE_KEYPHRASES"
+
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-static {v8, v9}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     goto/16 :goto_0
 
-    :cond_3
-    iget-object v7, p0, Landroid/hardware/soundtrigger/KeyphraseEnrollmentInfo;->mKeyphrasePackageMap:Ljava/util/Map;
+    :cond_4
+    invoke-direct {p0, p1, v0, v4}, Landroid/hardware/soundtrigger/KeyphraseEnrollmentInfo;->getKeyphraseMetadataFromApplicationInfo(Landroid/content/pm/PackageManager;Landroid/content/pm/ApplicationInfo;Ljava/util/List;)Landroid/hardware/soundtrigger/KeyphraseMetadata;
 
-    invoke-direct {p0, p1, v0, v3}, Landroid/hardware/soundtrigger/KeyphraseEnrollmentInfo;->getKeyphraseMetadataFromApplicationInfo(Landroid/content/pm/PackageManager;Landroid/content/pm/ApplicationInfo;Ljava/util/List;)Landroid/hardware/soundtrigger/KeyphraseMetadata;
+    move-result-object v3
 
-    move-result-object v8
+    if-eqz v3, :cond_2
+
+    iget-object v8, p0, Landroid/hardware/soundtrigger/KeyphraseEnrollmentInfo;->mKeyphrasePackageMap:Ljava/util/Map;
 
     iget-object v9, v0, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
 
-    invoke-interface {v7, v8, v9}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v8, v3, v9}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     :try_end_1
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_1 .. :try_end_1} :catch_0
 
     goto/16 :goto_0
 
-    :cond_4
-    iget-object v7, p0, Landroid/hardware/soundtrigger/KeyphraseEnrollmentInfo;->mKeyphrasePackageMap:Ljava/util/Map;
-
-    invoke-interface {v7}, Ljava/util/Map;->isEmpty()Z
-
-    move-result v7
-
-    if-eqz v7, :cond_6
-
-    const-string/jumbo v2, "No suitable enrollment application found"
-
-    invoke-interface {v3, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    const-string/jumbo v7, "KeyphraseEnrollmentInfo"
-
-    invoke-static {v7, v2}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    iput-object v10, p0, Landroid/hardware/soundtrigger/KeyphraseEnrollmentInfo;->mKeyphrases:[Landroid/hardware/soundtrigger/KeyphraseMetadata;
-
-    :goto_1
-    invoke-interface {v3}, Ljava/util/List;->isEmpty()Z
-
-    move-result v7
-
-    if-nez v7, :cond_5
-
-    const-string/jumbo v7, "\n"
-
-    invoke-static {v7, v3}, Landroid/text/TextUtils;->join(Ljava/lang/CharSequence;Ljava/lang/Iterable;)Ljava/lang/String;
-
-    move-result-object v7
-
-    iput-object v7, p0, Landroid/hardware/soundtrigger/KeyphraseEnrollmentInfo;->mParseError:Ljava/lang/String;
-
     :cond_5
-    return-void
-
-    :cond_6
-    iget-object v7, p0, Landroid/hardware/soundtrigger/KeyphraseEnrollmentInfo;->mKeyphrasePackageMap:Ljava/util/Map;
-
-    invoke-interface {v7}, Ljava/util/Map;->keySet()Ljava/util/Set;
-
-    move-result-object v7
-
     iget-object v8, p0, Landroid/hardware/soundtrigger/KeyphraseEnrollmentInfo;->mKeyphrasePackageMap:Ljava/util/Map;
 
-    invoke-interface {v8}, Ljava/util/Map;->size()I
+    invoke-interface {v8}, Ljava/util/Map;->isEmpty()Z
 
     move-result v8
 
-    new-array v8, v8, [Landroid/hardware/soundtrigger/KeyphraseMetadata;
+    if-eqz v8, :cond_7
 
-    invoke-interface {v7, v8}, Ljava/util/Set;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
+    const-string/jumbo v2, "No suitable enrollment application found"
 
-    move-result-object v7
+    invoke-interface {v4, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    check-cast v7, [Landroid/hardware/soundtrigger/KeyphraseMetadata;
+    const-string/jumbo v8, "KeyphraseEnrollmentInfo"
 
-    iput-object v7, p0, Landroid/hardware/soundtrigger/KeyphraseEnrollmentInfo;->mKeyphrases:[Landroid/hardware/soundtrigger/KeyphraseMetadata;
+    invoke-static {v8, v2}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    iput-object v11, p0, Landroid/hardware/soundtrigger/KeyphraseEnrollmentInfo;->mKeyphrases:[Landroid/hardware/soundtrigger/KeyphraseMetadata;
+
+    :goto_1
+    invoke-interface {v4}, Ljava/util/List;->isEmpty()Z
+
+    move-result v8
+
+    if-nez v8, :cond_6
+
+    const-string/jumbo v8, "\n"
+
+    invoke-static {v8, v4}, Landroid/text/TextUtils;->join(Ljava/lang/CharSequence;Ljava/lang/Iterable;)Ljava/lang/String;
+
+    move-result-object v8
+
+    iput-object v8, p0, Landroid/hardware/soundtrigger/KeyphraseEnrollmentInfo;->mParseError:Ljava/lang/String;
+
+    :cond_6
+    return-void
+
+    :cond_7
+    iget-object v8, p0, Landroid/hardware/soundtrigger/KeyphraseEnrollmentInfo;->mKeyphrasePackageMap:Ljava/util/Map;
+
+    invoke-interface {v8}, Ljava/util/Map;->keySet()Ljava/util/Set;
+
+    move-result-object v8
+
+    iget-object v9, p0, Landroid/hardware/soundtrigger/KeyphraseEnrollmentInfo;->mKeyphrasePackageMap:Ljava/util/Map;
+
+    invoke-interface {v9}, Ljava/util/Map;->size()I
+
+    move-result v9
+
+    new-array v9, v9, [Landroid/hardware/soundtrigger/KeyphraseMetadata;
+
+    invoke-interface {v8, v9}, Ljava/util/Set;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
+
+    move-result-object v8
+
+    check-cast v8, [Landroid/hardware/soundtrigger/KeyphraseMetadata;
+
+    iput-object v8, p0, Landroid/hardware/soundtrigger/KeyphraseEnrollmentInfo;->mKeyphrases:[Landroid/hardware/soundtrigger/KeyphraseMetadata;
 
     goto :goto_1
 .end method

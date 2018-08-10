@@ -184,7 +184,11 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    xor-int/lit8 v1, v1, 0x1
+
+    if-eqz v1, :cond_1
+
+    return-object p2
 
     :cond_1
     invoke-static {p1}, Landroid/provider/ContactsContract$CommonDataKinds$Phone;->getTypeLabelResource(I)I
@@ -196,9 +200,6 @@
     move-result-object v1
 
     return-object v1
-
-    :cond_2
-    return-object p2
 .end method
 
 .method public static final getTypeLabelResource(I)I
@@ -206,112 +207,112 @@
 
     sparse-switch p0, :sswitch_data_0
 
-    const v0, 0x1040248
+    const v0, 0x1040817
 
     return v0
 
     :sswitch_0
-    const v0, 0x1040249
+    const v0, 0x104081a
 
     return v0
 
     :sswitch_1
-    const v0, 0x104024a
+    const v0, 0x104081e
 
     return v0
 
     :sswitch_2
-    const v0, 0x104024b
+    const v0, 0x1040825
 
     return v0
 
     :sswitch_3
-    const v0, 0x104024c
+    const v0, 0x1040819
 
     return v0
 
     :sswitch_4
-    const v0, 0x104024d
+    const v0, 0x1040818
 
     return v0
 
     :sswitch_5
-    const v0, 0x104024e
+    const v0, 0x1040821
 
     return v0
 
     :sswitch_6
-    const v0, 0x104024f
+    const v0, 0x104081f
 
     return v0
 
     :sswitch_7
-    const v0, 0x1040250
+    const v0, 0x1040813
 
     return v0
 
     :sswitch_8
-    const v0, 0x1040251
+    const v0, 0x1040814
 
     return v0
 
     :sswitch_9
-    const v0, 0x1040252
+    const v0, 0x1040815
 
     return v0
 
     :sswitch_a
-    const v0, 0x1040253
+    const v0, 0x104081b
 
     return v0
 
     :sswitch_b
-    const v0, 0x1040254
+    const v0, 0x104081c
 
     return v0
 
     :sswitch_c
-    const v0, 0x1040255
+    const v0, 0x1040820
 
     return v0
 
     :sswitch_d
-    const v0, 0x1040256
+    const v0, 0x1040822
 
     return v0
 
     :sswitch_e
-    const v0, 0x1040257
+    const v0, 0x1040823
 
     return v0
 
     :sswitch_f
-    const v0, 0x1040258
+    const v0, 0x1040824
 
     return v0
 
     :sswitch_10
-    const v0, 0x1040259
+    const v0, 0x1040826
 
     return v0
 
     :sswitch_11
-    const v0, 0x104025a
+    const v0, 0x1040827
 
     return v0
 
     :sswitch_12
-    const v0, 0x104025b
+    const v0, 0x1040812
 
     return v0
 
     :sswitch_13
-    const v0, 0x104025c
+    const v0, 0x104081d
 
     return v0
 
     :sswitch_14
-    const v0, 0x10408c8
+    const v0, 0x1040816
 
     return v0
 

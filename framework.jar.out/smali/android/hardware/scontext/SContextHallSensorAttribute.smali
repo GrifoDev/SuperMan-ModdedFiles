@@ -80,7 +80,7 @@
 
     iget v2, p0, Landroid/hardware/scontext/SContextHallSensorAttribute;->mDisplayStatus:I
 
-    invoke-virtual {v0, v1, v2}, Landroid/os/BaseBundle;->putInt(Ljava/lang/String;I)V
+    invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
     const-string/jumbo v1, "SContextHallSensorAttribute"
 
@@ -96,7 +96,7 @@
 
     const-string/jumbo v3, "display_status"
 
-    invoke-virtual {v0, v3}, Landroid/os/BaseBundle;->getInt(Ljava/lang/String;)I
+    invoke-virtual {v0, v3}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
 
     move-result v3
 

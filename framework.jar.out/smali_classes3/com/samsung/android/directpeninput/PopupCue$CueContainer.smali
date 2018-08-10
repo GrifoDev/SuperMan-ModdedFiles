@@ -52,7 +52,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/directpeninput/PopupCue$CueContainer;->mTouchCue:Landroid/view/View;
 
-    const v1, 0x1080afe
+    const v1, 0x10802d6
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setBackgroundResource(I)V
 
@@ -66,17 +66,17 @@
 
     iget-object v0, p0, Lcom/samsung/android/directpeninput/PopupCue$CueContainer;->mHoverCue:Landroid/view/View;
 
-    const v1, 0x1080afd
+    const v1, 0x10802d5
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setBackgroundResource(I)V
 
     iget-object v0, p0, Lcom/samsung/android/directpeninput/PopupCue$CueContainer;->mTouchCue:Landroid/view/View;
 
-    invoke-virtual {p0, v0}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
+    invoke-virtual {p0, v0}, Lcom/samsung/android/directpeninput/PopupCue$CueContainer;->addView(Landroid/view/View;)V
 
     iget-object v0, p0, Lcom/samsung/android/directpeninput/PopupCue$CueContainer;->mHoverCue:Landroid/view/View;
 
-    invoke-virtual {p0, v0}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
+    invoke-virtual {p0, v0}, Lcom/samsung/android/directpeninput/PopupCue$CueContainer;->addView(Landroid/view/View;)V
 
     iget-object v0, p0, Lcom/samsung/android/directpeninput/PopupCue$CueContainer;->mHoverCue:Landroid/view/View;
 
@@ -117,7 +117,7 @@
 
     move-result-object v1
 
-    const v2, 0x1080afd
+    const v2, 0x10802d5
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 

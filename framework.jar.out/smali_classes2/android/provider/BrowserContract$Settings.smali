@@ -93,43 +93,49 @@
 
     move-result-object v6
 
-    if-eqz v6, :cond_1
+    if-eqz v6, :cond_0
 
     invoke-interface {v6}, Landroid/database/Cursor;->moveToFirst()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    const/4 v0, 0x0
-
-    invoke-interface {v6, v0}, Landroid/database/Cursor;->getInt(I)I
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    xor-int/lit8 v0, v0, 0x1
+
+    if-eqz v0, :cond_2
+
+    :cond_0
+    if-eqz v6, :cond_1
+
+    invoke-interface {v6}, Landroid/database/Cursor;->close()V
+
+    :cond_1
+    return v8
+
+    :cond_2
+    const/4 v0, 0x0
+
+    :try_start_1
+    invoke-interface {v6, v0}, Landroid/database/Cursor;->getInt(I)I
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    move-result v0
+
+    if-eqz v0, :cond_4
 
     move v0, v7
 
     :goto_0
-    if-eqz v6, :cond_0
+    if-eqz v6, :cond_3
 
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
-
-    :cond_0
-    return v0
-
-    :cond_1
-    if-eqz v6, :cond_2
-
-    invoke-interface {v6}, Landroid/database/Cursor;->close()V
-
-    :cond_2
-    return v8
 
     :cond_3
+    return v0
+
+    :cond_4
     move v0, v8
 
     goto :goto_0
@@ -137,11 +143,11 @@
     :catchall_0
     move-exception v0
 
-    if-eqz v6, :cond_4
+    if-eqz v6, :cond_5
 
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
-    :cond_4
+    :cond_5
     throw v0
 .end method
 

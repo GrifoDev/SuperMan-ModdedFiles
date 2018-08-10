@@ -49,7 +49,7 @@
 .end method
 
 .method public varargs doInBackground([Ljava/lang/Void;)Ljava/lang/Void;
-    .locals 4
+    .locals 3
 
     :try_start_0
     const-string/jumbo v2, "SHA-1"
@@ -61,18 +61,7 @@
     move-result-object v1
 
     :goto_0
-    invoke-static {}, Landroid/telecom/Log;->-get0()Ljava/lang/Object;
-
-    move-result-object v2
-
-    monitor-enter v2
-
-    :try_start_1
     invoke-static {v1}, Landroid/telecom/Log;->-set0(Ljava/security/MessageDigest;)Ljava/security/MessageDigest;
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    monitor-exit v2
 
     const/4 v2, 0x0
 
@@ -84,11 +73,4 @@
     const/4 v1, 0x0
 
     goto :goto_0
-
-    :catchall_0
-    move-exception v3
-
-    monitor-exit v2
-
-    throw v3
 .end method

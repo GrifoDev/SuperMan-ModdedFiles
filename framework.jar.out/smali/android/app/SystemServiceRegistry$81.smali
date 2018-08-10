@@ -17,7 +17,7 @@
     value = {
         "Landroid/app/SystemServiceRegistry$CachedServiceFetcher",
         "<",
-        "Landroid/media/midi/MidiManager;",
+        "Landroid/media/projection/MediaProjectionManager;",
         ">;"
     }
 .end annotation
@@ -34,37 +34,25 @@
 
 
 # virtual methods
-.method public createService(Landroid/app/ContextImpl;)Landroid/media/midi/MidiManager;
-    .locals 3
+.method public createService(Landroid/app/ContextImpl;)Landroid/media/projection/MediaProjectionManager;
+    .locals 1
 
-    const/4 v2, 0x0
+    new-instance v0, Landroid/media/projection/MediaProjectionManager;
 
-    const-string/jumbo v1, "midi"
+    invoke-direct {v0, p1}, Landroid/media/projection/MediaProjectionManager;-><init>(Landroid/content/Context;)V
 
-    invoke-static {v1}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
-
-    move-result-object v0
-
-    if-nez v0, :cond_0
-
-    return-object v2
-
-    :cond_0
-    new-instance v1, Landroid/media/midi/MidiManager;
-
-    invoke-static {v0}, Landroid/media/midi/IMidiManager$Stub;->asInterface(Landroid/os/IBinder;)Landroid/media/midi/IMidiManager;
-
-    move-result-object v2
-
-    invoke-direct {v1, v2}, Landroid/media/midi/MidiManager;-><init>(Landroid/media/midi/IMidiManager;)V
-
-    return-object v1
+    return-object v0
 .end method
 
 .method public bridge synthetic createService(Landroid/app/ContextImpl;)Ljava/lang/Object;
     .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/ServiceManager$ServiceNotFoundException;
+        }
+    .end annotation
 
-    invoke-virtual {p0, p1}, Landroid/app/SystemServiceRegistry$81;->createService(Landroid/app/ContextImpl;)Landroid/media/midi/MidiManager;
+    invoke-virtual {p0, p1}, Landroid/app/SystemServiceRegistry$81;->createService(Landroid/app/ContextImpl;)Landroid/media/projection/MediaProjectionManager;
 
     move-result-object v0
 

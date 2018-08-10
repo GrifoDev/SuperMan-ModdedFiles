@@ -71,10 +71,6 @@
     invoke-virtual {v9, p4}, Landroid/app/ActivityOptions;->setLaunchStackId(I)V
 
     :cond_0
-    iget v1, p0, Landroid/widget/RemoteViews$OnClickHandler;->mEnterAnimationId:I
-
-    if-eqz v1, :cond_2
-
     invoke-virtual {p2}, Landroid/app/PendingIntent;->getIntentSender()Landroid/content/IntentSender;
 
     move-result-object v1
@@ -93,62 +89,21 @@
 
     invoke-virtual/range {v0 .. v6}, Landroid/content/Context;->startIntentSender(Landroid/content/IntentSender;Landroid/content/Intent;IIILandroid/os/Bundle;)V
 
-    :goto_1
     const/4 v1, 0x1
 
     return v1
 
     :cond_1
-    invoke-virtual {p1}, Landroid/view/View;->getMeasuredWidth()I
-
-    move-result v1
-
-    invoke-virtual {p1}, Landroid/view/View;->getMeasuredHeight()I
-
-    move-result v2
-
-    const/4 v3, 0x0
-
-    const/4 v4, 0x0
-
-    invoke-static {p1, v3, v4, v1, v2}, Landroid/app/ActivityOptions;->makeScaleUpAnimation(Landroid/view/View;IIII)Landroid/app/ActivityOptions;
+    invoke-static {}, Landroid/app/ActivityOptions;->makeBasic()Landroid/app/ActivityOptions;
+    :try_end_0
+    .catch Landroid/content/IntentSender$SendIntentException; {:try_start_0 .. :try_end_0} :catch_1
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v9
 
     goto :goto_0
 
-    :cond_2
-    invoke-virtual {p2}, Landroid/app/PendingIntent;->getIntentSender()Landroid/content/IntentSender;
-
-    move-result-object v1
-
-    const/high16 v3, 0x10000000
-
-    const/high16 v4, 0x10000000
-
-    const/4 v5, 0x0
-
-    move-object v2, p3
-
-    invoke-virtual/range {v0 .. v5}, Landroid/content/Context;->startIntentSender(Landroid/content/IntentSender;Landroid/content/Intent;III)V
-    :try_end_0
-    .catch Landroid/content/IntentSender$SendIntentException; {:try_start_0 .. :try_end_0} :catch_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_1
-
-    goto :goto_1
-
     :catch_0
-    move-exception v7
-
-    const-string/jumbo v1, "RemoteViews"
-
-    const-string/jumbo v2, "Cannot send pending intent: "
-
-    invoke-static {v1, v2, v7}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    return v10
-
-    :catch_1
     move-exception v8
 
     const-string/jumbo v1, "RemoteViews"
@@ -156,6 +111,17 @@
     const-string/jumbo v2, "Cannot send pending intent due to unknown exception: "
 
     invoke-static {v1, v2, v8}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    return v10
+
+    :catch_1
+    move-exception v7
+
+    const-string/jumbo v1, "RemoteViews"
+
+    const-string/jumbo v2, "Cannot send pending intent: "
+
+    invoke-static {v1, v2, v7}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     return v10
 .end method

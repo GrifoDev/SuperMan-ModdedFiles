@@ -18,10 +18,13 @@
 .method public abstract acquireSuspendBlocker()V
 .end method
 
+.method public abstract onAutoBrightnessAdjutmentApplied(II)V
+.end method
+
 .method public abstract onColorFadeExit(Z)V
 .end method
 
-.method public abstract onDisplayStateChange(II)V
+.method public abstract onDisplayStateChange(I)V
 .end method
 
 .method public abstract onProximityNegative()V
@@ -30,11 +33,14 @@
 .method public abstract onProximityPositive()V
 .end method
 
-.method public abstract onSetInteractiveNeeded(II)V
+.method public abstract onSetInteractiveNeeded(I)V
 .end method
 
 .method public abstract onStateChanged()V
 .end method
 
 .method public abstract releaseSuspendBlocker()V
+.end method
+
+.method public abstract updateDuration([J)V
 .end method

@@ -43,7 +43,7 @@
 
     const-string/jumbo v0, "android.sec.clipboard.IClipboardUIManager"
 
-    invoke-virtual {p0, p0, v0}, Landroid/os/Binder;->attachInterface(Landroid/os/IInterface;Ljava/lang/String;)V
+    invoke-virtual {p0, p0, v0}, Landroid/sec/clipboard/IClipboardUIManager$Stub;->attachInterface(Landroid/os/IInterface;Ljava/lang/String;)V
 
     return-void
 .end method
@@ -91,16 +91,16 @@
 .end method
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    .locals 7
+    .locals 8
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    const/4 v3, 0x0
+    const/4 v5, 0x0
 
-    const/4 v5, 0x1
+    const/4 v6, 0x1
 
     sparse-switch p1, :sswitch_data_0
 
@@ -111,16 +111,16 @@
     return v5
 
     :sswitch_0
-    const-string/jumbo v6, "android.sec.clipboard.IClipboardUIManager"
+    const-string/jumbo v5, "android.sec.clipboard.IClipboardUIManager"
 
-    invoke-virtual {p3, v6}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p3, v5}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    return v5
+    return v6
 
     :sswitch_1
-    const-string/jumbo v6, "android.sec.clipboard.IClipboardUIManager"
+    const-string/jumbo v5, "android.sec.clipboard.IClipboardUIManager"
 
-    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v5}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
@@ -134,12 +134,12 @@
 
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    return v5
+    return v6
 
     :sswitch_2
-    const-string/jumbo v6, "android.sec.clipboard.IClipboardUIManager"
+    const-string/jumbo v5, "android.sec.clipboard.IClipboardUIManager"
 
-    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v5}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
@@ -147,23 +147,28 @@
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v6
+    move-result v5
 
-    if-eqz v6, :cond_0
+    if-eqz v5, :cond_0
 
-    move v3, v5
+    const/4 v3, 0x1
 
-    :cond_0
+    :goto_0
     invoke-virtual {p0, v0, v3}, Landroid/sec/clipboard/IClipboardUIManager$Stub;->dismiss(IZ)V
 
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    return v5
+    return v6
+
+    :cond_0
+    const/4 v3, 0x0
+
+    goto :goto_0
 
     :sswitch_3
-    const-string/jumbo v6, "android.sec.clipboard.IClipboardUIManager"
+    const-string/jumbo v7, "android.sec.clipboard.IClipboardUIManager"
 
-    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v7}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p0}, Landroid/sec/clipboard/IClipboardUIManager$Stub;->isShowing()Z
 
@@ -173,17 +178,17 @@
 
     if-eqz v4, :cond_1
 
-    move v3, v5
+    move v5, v6
 
     :cond_1
-    invoke-virtual {p3, v3}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p3, v5}, Landroid/os/Parcel;->writeInt(I)V
 
-    return v5
+    return v6
 
     :sswitch_4
-    const-string/jumbo v6, "android.sec.clipboard.IClipboardUIManager"
+    const-string/jumbo v5, "android.sec.clipboard.IClipboardUIManager"
 
-    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v5}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
@@ -191,9 +196,9 @@
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
-    move-result-object v6
+    move-result-object v5
 
-    invoke-static {v6}, Landroid/sec/clipboard/IClipboardDataPasteEvent$Stub;->asInterface(Landroid/os/IBinder;)Landroid/sec/clipboard/IClipboardDataPasteEvent;
+    invoke-static {v5}, Landroid/sec/clipboard/IClipboardDataPasteEvent$Stub;->asInterface(Landroid/os/IBinder;)Landroid/sec/clipboard/IClipboardDataPasteEvent;
 
     move-result-object v2
 
@@ -201,7 +206,7 @@
 
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    return v5
+    return v6
 
     nop
 

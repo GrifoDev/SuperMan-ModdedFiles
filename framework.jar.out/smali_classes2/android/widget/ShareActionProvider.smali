@@ -141,7 +141,7 @@
 
     invoke-direct {v0, v4}, Landroid/widget/ActivityChooserView;-><init>(Landroid/content/Context;)V
 
-    invoke-virtual {v0}, Landroid/view/View;->isInEditMode()Z
+    invoke-virtual {v0}, Landroid/widget/ActivityChooserView;->isInEditMode()Z
 
     move-result v4
 
@@ -186,11 +186,11 @@
 
     invoke-virtual {v0, p0}, Landroid/widget/ActivityChooserView;->setProvider(Landroid/view/ActionProvider;)V
 
-    const v4, 0x10404c7
+    const v4, 0x104097c
 
     invoke-virtual {v0, v4}, Landroid/widget/ActivityChooserView;->setDefaultActionButtonContentDescription(I)V
 
-    const v4, 0x10404c6
+    const v4, 0x104097b
 
     invoke-virtual {v0, v4}, Landroid/widget/ActivityChooserView;->setExpandActivityOverflowButtonContentDescription(I)V
 
@@ -266,7 +266,7 @@
 
     iget-object v7, p0, Landroid/widget/ShareActionProvider;->mContext:Landroid/content/Context;
 
-    const v8, 0x10404f4
+    const v8, 0x1040083
 
     invoke-virtual {v7, v8}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

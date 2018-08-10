@@ -71,9 +71,9 @@
         }
     .end annotation
 
-    const v0, 0x109008d
+    const v0, 0x1090090
 
-    const v1, 0x10200dc
+    const v1, 0x102035e
 
     invoke-static {p0, v0, v1}, Lcom/android/internal/app/LocalePicker;->constructAdapter(Landroid/content/Context;II)Landroid/widget/ArrayAdapter;
 
@@ -96,7 +96,7 @@
         }
     .end annotation
 
-    const/4 v8, 0x0
+    const/4 v2, 0x0
 
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
@@ -104,7 +104,7 @@
 
     const-string/jumbo v1, "development_settings_enabled"
 
-    invoke-static {v0, v1, v8}, Landroid/provider/Settings$Global;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+    invoke-static {v0, v1, v2}, Landroid/provider/Settings$Global;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
     move-result v0
 
@@ -112,7 +112,7 @@
 
     const/4 v8, 0x1
 
-    :cond_0
+    :goto_0
     invoke-static {p0, v8}, Lcom/android/internal/app/LocalePicker;->getAllAssetLocales(Landroid/content/Context;Z)Ljava/util/List;
 
     move-result-object v4
@@ -140,6 +140,11 @@
     invoke-direct/range {v0 .. v7}, Lcom/android/internal/app/LocalePicker$1;-><init>(Landroid/content/Context;IILjava/util/List;Landroid/view/LayoutInflater;II)V
 
     return-object v0
+
+    :cond_0
+    const/4 v8, 0x0
+
+    goto :goto_0
 .end method
 
 .method public static getAllAssetLocales(Landroid/content/Context;Z)Ljava/util/List;
@@ -202,94 +207,11 @@
     return-object v2
 .end method
 
-.method private static getLocaleArray([Ljava/lang/String;Landroid/content/res/Resources;)Ljava/util/ArrayList;
-    .locals 5
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "([",
-            "Ljava/lang/String;",
-            "Landroid/content/res/Resources;",
-            ")",
-            "Ljava/util/ArrayList",
-            "<",
-            "Ljava/lang/String;",
-            ">;"
-        }
-    .end annotation
-
-    const v3, 0x104007b
-
-    invoke-virtual {p1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v0
-
-    const/4 v1, 0x0
-
-    if-eqz v0, :cond_0
-
-    invoke-virtual {v0}, Ljava/lang/String;->trim()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-static {v3}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_3
-
-    :cond_0
-    :goto_0
-    new-instance v2, Ljava/util/ArrayList;
-
-    if-eqz v1, :cond_1
-
-    array-length v3, v1
-
-    if-nez v3, :cond_2
-
-    :cond_1
-    move-object v1, p0
-
-    :cond_2
-    invoke-static {v1}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
-
-    move-result-object v3
-
-    invoke-direct {v2, v3}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
-
-    return-object v2
-
-    :cond_3
-    const/16 v3, 0x5f
-
-    const/16 v4, 0x2d
-
-    invoke-virtual {v0, v3, v4}, Ljava/lang/String;->replace(CC)Ljava/lang/String;
-
-    move-result-object v0
-
-    const-string/jumbo v3, "tl-"
-
-    const-string/jumbo v4, "fil-"
-
-    invoke-virtual {v0, v3, v4}, Ljava/lang/String;->replaceAll(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    const-string/jumbo v3, ","
-
-    invoke-virtual {v0, v3}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
-
-    move-result-object v1
-
-    goto :goto_0
-.end method
-
 .method public static getLocales()Landroid/os/LocaleList;
     .locals 2
 
     :try_start_0
-    invoke-static {}, Landroid/app/ActivityManagerNative;->getDefault()Landroid/app/IActivityManager;
+    invoke-static {}, Landroid/app/ActivityManager;->getService()Landroid/app/IActivityManager;
 
     move-result-object v1
 
@@ -330,7 +252,7 @@
 
     move-result-object v0
 
-    const v1, 0x1070092
+    const v1, 0x10700b7
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
@@ -346,7 +268,7 @@
 
     move-result-object v0
 
-    const v1, 0x1070091
+    const v1, 0x10700b8
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
@@ -444,7 +366,7 @@
     .locals 4
 
     :try_start_0
-    invoke-static {}, Landroid/app/ActivityManagerNative;->getDefault()Landroid/app/IActivityManager;
+    invoke-static {}, Landroid/app/ActivityManager;->getService()Landroid/app/IActivityManager;
 
     move-result-object v0
 

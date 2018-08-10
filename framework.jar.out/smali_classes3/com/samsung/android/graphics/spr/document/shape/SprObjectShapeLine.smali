@@ -70,11 +70,11 @@
 
     invoke-virtual {p2, v0}, Landroid/graphics/Canvas;->save(I)I
 
-    iget v0, p0, Lcom/samsung/android/graphics/spr/document/shape/SprObjectBase;->alpha:F
+    iget v0, p0, Lcom/samsung/android/graphics/spr/document/shape/SprObjectShapeLine;->alpha:F
 
     mul-float v6, p5, v0
 
-    iget-object v0, p0, Lcom/samsung/android/graphics/spr/document/shape/SprObjectBase;->mAttributeList:Ljava/util/ArrayList;
+    iget-object v0, p0, Lcom/samsung/android/graphics/spr/document/shape/SprObjectShapeLine;->mAttributeList:Ljava/util/ArrayList;
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
 
@@ -82,12 +82,12 @@
 
     if-lez v0, :cond_0
 
-    invoke-virtual {p0, p1, p2, v6}, Lcom/samsung/android/graphics/spr/document/shape/SprObjectBase;->applyAttribute(Lcom/samsung/android/graphics/spr/document/SprDocument;Landroid/graphics/Canvas;F)V
+    invoke-virtual {p0, p1, p2, v6}, Lcom/samsung/android/graphics/spr/document/shape/SprObjectShapeLine;->applyAttribute(Lcom/samsung/android/graphics/spr/document/SprDocument;Landroid/graphics/Canvas;F)V
 
     :cond_0
-    invoke-virtual {p0}, Lcom/samsung/android/graphics/spr/document/shape/SprObjectBase;->setShadowLayer()V
+    invoke-virtual {p0}, Lcom/samsung/android/graphics/spr/document/shape/SprObjectShapeLine;->setShadowLayer()V
 
-    iget-boolean v0, p0, Lcom/samsung/android/graphics/spr/document/shape/SprObjectBase;->isVisibleStroke:Z
+    iget-boolean v0, p0, Lcom/samsung/android/graphics/spr/document/shape/SprObjectShapeLine;->isVisibleStroke:Z
 
     if-eqz v0, :cond_1
 
@@ -99,14 +99,14 @@
 
     iget v4, p0, Lcom/samsung/android/graphics/spr/document/shape/SprObjectShapeLine;->y2:F
 
-    iget-object v5, p0, Lcom/samsung/android/graphics/spr/document/shape/SprObjectBase;->strokePaint:Landroid/graphics/Paint;
+    iget-object v5, p0, Lcom/samsung/android/graphics/spr/document/shape/SprObjectShapeLine;->strokePaint:Landroid/graphics/Paint;
 
     move-object v0, p2
 
     invoke-virtual/range {v0 .. v5}, Landroid/graphics/Canvas;->drawLine(FFFFLandroid/graphics/Paint;)V
 
     :cond_1
-    invoke-virtual {p0}, Lcom/samsung/android/graphics/spr/document/shape/SprObjectBase;->clearShadowLayer()V
+    invoke-virtual {p0}, Lcom/samsung/android/graphics/spr/document/shape/SprObjectShapeLine;->clearShadowLayer()V
 
     invoke-virtual {p2}, Landroid/graphics/Canvas;->restore()V
 

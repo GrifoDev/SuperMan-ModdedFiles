@@ -18,8 +18,6 @@
 
 
 # instance fields
-.field private filePath:Ljava/lang/String;
-
 .field private final mBlock:Landroid/content/res/XmlBlock;
 
 .field private mDecNextDepth:Z
@@ -773,14 +771,6 @@
     return v0
 .end method
 
-.method public getFilePath()Ljava/lang/String;
-    .locals 1
-
-    iget-object v0, p0, Landroid/content/res/XmlBlock$Parser;->filePath:Ljava/lang/String;
-
-    return-object v0
-.end method
-
 .method public getIdAttribute()Ljava/lang/String;
     .locals 4
 
@@ -1475,7 +1465,7 @@
 
     move-result v0
 
-    if-ne p1, v0, :cond_2
+    if-ne p1, v0, :cond_1
 
     if-eqz p2, :cond_0
 
@@ -1487,10 +1477,12 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    xor-int/lit8 v0, v0, 0x1
+
+    if-nez v0, :cond_1
 
     :cond_0
-    if-eqz p3, :cond_1
+    if-eqz p3, :cond_2
 
     invoke-virtual {p0}, Landroid/content/res/XmlBlock$Parser;->getName()Ljava/lang/String;
 
@@ -1500,12 +1492,11 @@
 
     move-result v0
 
+    xor-int/lit8 v0, v0, 0x1
+
     if-eqz v0, :cond_2
 
     :cond_1
-    return-void
-
-    :cond_2
     new-instance v0, Lorg/xmlpull/v1/XmlPullParserException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -1541,6 +1532,9 @@
     invoke-direct {v0, v1}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
 
     throw v0
+
+    :cond_2
+    return-void
 .end method
 
 .method public setFeature(Ljava/lang/String;Z)V
@@ -1600,19 +1594,6 @@
     invoke-direct {v0, v1}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
 
     throw v0
-.end method
-
-.method public setFilePath(Ljava/lang/String;)V
-    .locals 1
-
-    sget-boolean v0, Landroid/os/Build;->IS_SYSTEM_SECURE:Z
-
-    if-eqz v0, :cond_0
-
-    iput-object p1, p0, Landroid/content/res/XmlBlock$Parser;->filePath:Ljava/lang/String;
-
-    :cond_0
-    return-void
 .end method
 
 .method public setInput(Ljava/io/InputStream;Ljava/lang/String;)V

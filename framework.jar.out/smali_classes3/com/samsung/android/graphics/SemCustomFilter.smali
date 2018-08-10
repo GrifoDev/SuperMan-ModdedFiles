@@ -5,15 +5,13 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;)V
-    .locals 1
+    .locals 0
 
-    const/16 v0, 0xee
+    invoke-direct {p0}, Lcom/samsung/android/graphics/SemImageFilter;-><init>()V
 
-    invoke-direct {p0, v0}, Lcom/samsung/android/graphics/SemImageFilter;-><init>(I)V
+    invoke-virtual {p0, p1}, Lcom/samsung/android/graphics/SemCustomFilter;->setVertexShader(Ljava/lang/String;)V
 
-    invoke-virtual {p0, p1}, Lcom/samsung/android/graphics/SemImageFilter;->setVertexShader(Ljava/lang/String;)V
-
-    invoke-virtual {p0, p2}, Lcom/samsung/android/graphics/SemImageFilter;->setFragmentShader(Ljava/lang/String;)V
+    invoke-virtual {p0, p2}, Lcom/samsung/android/graphics/SemCustomFilter;->setFragmentShader(Ljava/lang/String;)V
 
     return-void
 .end method
@@ -52,14 +50,19 @@
     return-object v0
 .end method
 
-.method public getNativeBitmap(Ljava/lang/String;)J
-    .locals 2
+.method public bridge synthetic clone()Ljava/lang/Object;
+    .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/lang/CloneNotSupportedException;
+        }
+    .end annotation
 
-    invoke-super {p0, p1}, Lcom/samsung/android/graphics/SemImageFilter;->getNativeBitmap(Ljava/lang/String;)J
+    invoke-virtual {p0}, Lcom/samsung/android/graphics/SemCustomFilter;->clone()Lcom/samsung/android/graphics/SemCustomFilter;
 
-    move-result-wide v0
+    move-result-object v0
 
-    return-wide v0
+    return-object v0
 .end method
 
 .method public getUniform1f(Ljava/lang/String;)[F
@@ -218,10 +221,10 @@
     return-object v0
 .end method
 
-.method public getValue(I)F
+.method public getValue(Lcom/samsung/android/graphics/SemImageFilter$ValueIndex;)F
     .locals 1
 
-    invoke-super {p0, p1}, Lcom/samsung/android/graphics/SemImageFilter;->getValue(I)F
+    invoke-super {p0, p1}, Lcom/samsung/android/graphics/SemImageFilter;->getValue(Lcom/samsung/android/graphics/SemImageFilter$ValueIndex;)F
 
     move-result v0
 
@@ -445,9 +448,49 @@
 .end method
 
 .method public setValue(IF)V
+    .locals 2
+
+    sget-object v0, Lcom/samsung/android/graphics/SemImageFilter$ValueIndex;->FILTER_BLEND_USAGE:Lcom/samsung/android/graphics/SemImageFilter$ValueIndex;
+
+    invoke-virtual {v0}, Lcom/samsung/android/graphics/SemImageFilter$ValueIndex;->ordinal()I
+
+    move-result v0
+
+    if-lt p1, v0, :cond_0
+
+    sget-object v0, Lcom/samsung/android/graphics/SemImageFilter$ValueIndex;->FILTER_OUTPUT_TEXTURE_FILTERING_STATE:Lcom/samsung/android/graphics/SemImageFilter$ValueIndex;
+
+    invoke-virtual {v0}, Lcom/samsung/android/graphics/SemImageFilter$ValueIndex;->ordinal()I
+
+    move-result v0
+
+    if-gt p1, v0, :cond_0
+
+    invoke-static {}, Lcom/samsung/android/graphics/SemImageFilter$ValueIndex;->values()[Lcom/samsung/android/graphics/SemImageFilter$ValueIndex;
+
+    move-result-object v0
+
+    aget-object v0, v0, p1
+
+    invoke-virtual {p0, v0, p2}, Lcom/samsung/android/graphics/SemCustomFilter;->setValue(Lcom/samsung/android/graphics/SemImageFilter$ValueIndex;F)V
+
+    :goto_0
+    return-void
+
+    :cond_0
+    const-string/jumbo v0, "HWUI_IMAGE_FILTER"
+
+    const-string/jumbo v1, "Value can\'t be set. Index is invalid!"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
+.end method
+
+.method public setValue(Lcom/samsung/android/graphics/SemImageFilter$ValueIndex;F)V
     .locals 0
 
-    invoke-super {p0, p1, p2}, Lcom/samsung/android/graphics/SemImageFilter;->setValue(IF)V
+    invoke-super {p0, p1, p2}, Lcom/samsung/android/graphics/SemImageFilter;->setValue(Lcom/samsung/android/graphics/SemImageFilter$ValueIndex;F)V
 
     return-void
 .end method

@@ -68,19 +68,11 @@
 
     iput-object p1, p0, Landroid/view/inputmethod/BaseInputConnection;->mTargetView:Landroid/view/View;
 
-    if-eqz p2, :cond_0
+    xor-int/lit8 v0, p2, 0x1
 
-    const/4 v0, 0x0
-
-    :goto_0
     iput-boolean v0, p0, Landroid/view/inputmethod/BaseInputConnection;->mDummyMode:Z
 
     return-void
-
-    :cond_0
-    const/4 v0, 0x1
-
-    goto :goto_0
 .end method
 
 .method constructor <init>(Landroid/view/inputmethod/InputMethodManager;Z)V
@@ -94,19 +86,11 @@
 
     iput-object v0, p0, Landroid/view/inputmethod/BaseInputConnection;->mTargetView:Landroid/view/View;
 
-    if-eqz p2, :cond_0
+    xor-int/lit8 v0, p2, 0x1
 
-    const/4 v0, 0x0
-
-    :goto_0
     iput-boolean v0, p0, Landroid/view/inputmethod/BaseInputConnection;->mDummyMode:Z
 
     return-void
-
-    :cond_0
-    const/4 v0, 0x1
-
-    goto :goto_0
 .end method
 
 .method private convertAllBrackets(Ljava/lang/CharSequence;)Ljava/lang/String;
@@ -1139,57 +1123,68 @@
 .end method
 
 .method private isRtlLanguage()Z
-    .locals 2
+    .locals 5
+
+    const/4 v4, 0x0
 
     invoke-static {}, Ljava/util/Locale;->getDefault()Ljava/util/Locale;
 
     move-result-object v1
 
+    if-eqz v1, :cond_2
+
     invoke-virtual {v1}, Ljava/util/Locale;->getLanguage()Ljava/lang/String;
 
     move-result-object v0
 
-    const-string/jumbo v1, "ar"
+    const-string/jumbo v2, "ar"
 
-    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result v2
 
-    if-nez v1, :cond_0
+    if-nez v2, :cond_0
 
-    const-string/jumbo v1, "fa"
+    const-string/jumbo v2, "fa"
 
-    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result v2
 
-    if-nez v1, :cond_0
+    if-nez v2, :cond_0
 
-    const-string/jumbo v1, "ur"
+    const-string/jumbo v2, "ur"
 
-    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result v2
 
-    if-nez v1, :cond_0
+    if-nez v2, :cond_0
 
-    const-string/jumbo v1, "iw"
+    const-string/jumbo v2, "iw"
 
-    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result v2
 
-    if-eqz v1, :cond_1
+    if-eqz v2, :cond_1
 
     :cond_0
-    const/4 v1, 0x1
+    const/4 v2, 0x1
 
-    return v1
+    return v2
 
     :cond_1
-    const/4 v1, 0x0
+    return v4
 
-    return v1
+    :cond_2
+    const-string/jumbo v2, "BaseInputConnection"
+
+    const-string/jumbo v3, "isRtlLanguage Locale initDefault Fail"
+
+    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    return v4
 .end method
 
 .method public static final removeComposingSpans(Landroid/text/Spannable;)V
@@ -1645,6 +1640,14 @@
 .end method
 
 .method public commitCompletion(Landroid/view/inputmethod/CompletionInfo;)Z
+    .locals 1
+
+    const/4 v0, 0x0
+
+    return v0
+.end method
+
+.method public commitContent(Landroid/view/inputmethod/InputContentInfo;ILandroid/os/Bundle;)Z
     .locals 1
 
     const/4 v0, 0x0

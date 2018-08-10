@@ -31,7 +31,39 @@
     .end annotation
 .end method
 
-.method public abstract onAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)V
+.method public abstract onAccessibilityButtonAvailabilityChanged(Z)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract onAccessibilityButtonClicked()V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract onAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;Z)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract onFingerprintCapturingGesturesChanged(Z)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract onFingerprintGesture(I)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

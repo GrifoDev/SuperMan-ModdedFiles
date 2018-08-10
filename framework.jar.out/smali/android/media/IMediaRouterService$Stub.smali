@@ -97,16 +97,16 @@
 .end method
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    .locals 8
+    .locals 9
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    const/4 v4, 0x0
+    const/4 v8, 0x0
 
-    const/4 v6, 0x1
+    const/4 v7, 0x1
 
     sparse-switch p1, :sswitch_data_0
 
@@ -117,22 +117,22 @@
     return v6
 
     :sswitch_0
-    const-string/jumbo v7, "android.media.IMediaRouterService"
+    const-string/jumbo v6, "android.media.IMediaRouterService"
 
-    invoke-virtual {p3, v7}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p3, v6}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    return v6
+    return v7
 
     :sswitch_1
-    const-string/jumbo v7, "android.media.IMediaRouterService"
+    const-string/jumbo v6, "android.media.IMediaRouterService"
 
-    invoke-virtual {p2, v7}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
-    move-result-object v7
+    move-result-object v6
 
-    invoke-static {v7}, Landroid/media/IMediaRouterClient$Stub;->asInterface(Landroid/os/IBinder;)Landroid/media/IMediaRouterClient;
+    invoke-static {v6}, Landroid/media/IMediaRouterClient$Stub;->asInterface(Landroid/os/IBinder;)Landroid/media/IMediaRouterClient;
 
     move-result-object v0
 
@@ -148,18 +148,18 @@
 
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    return v6
+    return v7
 
     :sswitch_2
-    const-string/jumbo v7, "android.media.IMediaRouterService"
+    const-string/jumbo v6, "android.media.IMediaRouterService"
 
-    invoke-virtual {p2, v7}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
-    move-result-object v7
+    move-result-object v6
 
-    invoke-static {v7}, Landroid/media/IMediaRouterClient$Stub;->asInterface(Landroid/os/IBinder;)Landroid/media/IMediaRouterClient;
+    invoke-static {v6}, Landroid/media/IMediaRouterClient$Stub;->asInterface(Landroid/os/IBinder;)Landroid/media/IMediaRouterClient;
 
     move-result-object v0
 
@@ -167,18 +167,18 @@
 
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    return v6
+    return v7
 
     :sswitch_3
-    const-string/jumbo v7, "android.media.IMediaRouterService"
+    const-string/jumbo v6, "android.media.IMediaRouterService"
 
-    invoke-virtual {p2, v7}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
-    move-result-object v7
+    move-result-object v6
 
-    invoke-static {v7}, Landroid/media/IMediaRouterClient$Stub;->asInterface(Landroid/os/IBinder;)Landroid/media/IMediaRouterClient;
+    invoke-static {v6}, Landroid/media/IMediaRouterClient$Stub;->asInterface(Landroid/os/IBinder;)Landroid/media/IMediaRouterClient;
 
     move-result-object v0
 
@@ -190,28 +190,28 @@
 
     if-eqz v5, :cond_0
 
-    invoke-virtual {p3, v6}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p3, v7}, Landroid/os/Parcel;->writeInt(I)V
 
-    invoke-virtual {v5, p3, v6}, Landroid/media/MediaRouterClientState;->writeToParcel(Landroid/os/Parcel;I)V
+    invoke-virtual {v5, p3, v7}, Landroid/media/MediaRouterClientState;->writeToParcel(Landroid/os/Parcel;I)V
 
     :goto_0
-    return v6
+    return v7
 
     :cond_0
-    invoke-virtual {p3, v4}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p3, v8}, Landroid/os/Parcel;->writeInt(I)V
 
     goto :goto_0
 
     :sswitch_4
-    const-string/jumbo v7, "android.media.IMediaRouterService"
+    const-string/jumbo v6, "android.media.IMediaRouterService"
 
-    invoke-virtual {p2, v7}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
-    move-result-object v7
+    move-result-object v6
 
-    invoke-static {v7}, Landroid/media/IMediaRouterClient$Stub;->asInterface(Landroid/os/IBinder;)Landroid/media/IMediaRouterClient;
+    invoke-static {v6}, Landroid/media/IMediaRouterClient$Stub;->asInterface(Landroid/os/IBinder;)Landroid/media/IMediaRouterClient;
 
     move-result-object v0
 
@@ -221,29 +221,34 @@
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v7
+    move-result v6
 
-    if-eqz v7, :cond_1
+    if-eqz v6, :cond_1
 
-    move v4, v6
+    const/4 v4, 0x1
 
-    :cond_1
+    :goto_1
     invoke-virtual {p0, v0, v1, v4}, Landroid/media/IMediaRouterService$Stub;->setDiscoveryRequest(Landroid/media/IMediaRouterClient;IZ)V
 
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    return v6
+    return v7
+
+    :cond_1
+    const/4 v4, 0x0
+
+    goto :goto_1
 
     :sswitch_5
-    const-string/jumbo v7, "android.media.IMediaRouterService"
+    const-string/jumbo v6, "android.media.IMediaRouterService"
 
-    invoke-virtual {p2, v7}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
-    move-result-object v7
+    move-result-object v6
 
-    invoke-static {v7}, Landroid/media/IMediaRouterClient$Stub;->asInterface(Landroid/os/IBinder;)Landroid/media/IMediaRouterClient;
+    invoke-static {v6}, Landroid/media/IMediaRouterClient$Stub;->asInterface(Landroid/os/IBinder;)Landroid/media/IMediaRouterClient;
 
     move-result-object v0
 
@@ -253,29 +258,34 @@
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v7
+    move-result v6
 
-    if-eqz v7, :cond_2
+    if-eqz v6, :cond_2
 
-    move v4, v6
+    const/4 v4, 0x1
 
-    :cond_2
+    :goto_2
     invoke-virtual {p0, v0, v2, v4}, Landroid/media/IMediaRouterService$Stub;->setSelectedRoute(Landroid/media/IMediaRouterClient;Ljava/lang/String;Z)V
 
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    return v6
+    return v7
+
+    :cond_2
+    const/4 v4, 0x0
+
+    goto :goto_2
 
     :sswitch_6
-    const-string/jumbo v7, "android.media.IMediaRouterService"
+    const-string/jumbo v6, "android.media.IMediaRouterService"
 
-    invoke-virtual {p2, v7}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
-    move-result-object v7
+    move-result-object v6
 
-    invoke-static {v7}, Landroid/media/IMediaRouterClient$Stub;->asInterface(Landroid/os/IBinder;)Landroid/media/IMediaRouterClient;
+    invoke-static {v6}, Landroid/media/IMediaRouterClient$Stub;->asInterface(Landroid/os/IBinder;)Landroid/media/IMediaRouterClient;
 
     move-result-object v0
 
@@ -291,18 +301,18 @@
 
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    return v6
+    return v7
 
     :sswitch_7
-    const-string/jumbo v7, "android.media.IMediaRouterService"
+    const-string/jumbo v6, "android.media.IMediaRouterService"
 
-    invoke-virtual {p2, v7}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
-    move-result-object v7
+    move-result-object v6
 
-    invoke-static {v7}, Landroid/media/IMediaRouterClient$Stub;->asInterface(Landroid/os/IBinder;)Landroid/media/IMediaRouterClient;
+    invoke-static {v6}, Landroid/media/IMediaRouterClient$Stub;->asInterface(Landroid/os/IBinder;)Landroid/media/IMediaRouterClient;
 
     move-result-object v0
 
@@ -318,7 +328,7 @@
 
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    return v6
+    return v7
 
     nop
 

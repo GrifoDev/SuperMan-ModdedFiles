@@ -267,7 +267,7 @@
 
     move-result-object v8
 
-    invoke-virtual {v1, v8}, Ljava/io/Writer;->append(Ljava/lang/CharSequence;)Ljava/io/Writer;
+    invoke-virtual {v1, v8}, Ljava/io/BufferedWriter;->append(Ljava/lang/CharSequence;)Ljava/io/Writer;
     :try_end_2
     .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_8
     .catchall {:try_start_2 .. :try_end_2} :catchall_2
@@ -280,7 +280,7 @@
     :cond_2
     if-eqz v7, :cond_3
 
-    invoke-virtual {v7}, Ljava/io/OutputStreamWriter;->close()V
+    invoke-virtual {v7}, Ljava/io/FileWriter;->close()V
     :try_end_3
     .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_1
     .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_0
@@ -298,14 +298,14 @@
     :catch_0
     move-exception v3
 
-    invoke-virtual {v3}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v3}, Ljava/lang/Exception;->printStackTrace()V
 
     goto :goto_1
 
     :catch_1
     move-exception v2
 
-    invoke-virtual {v2}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v2}, Ljava/io/IOException;->printStackTrace()V
 
     goto :goto_1
 
@@ -314,7 +314,7 @@
 
     :goto_3
     :try_start_4
-    invoke-virtual {v3}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v3}, Ljava/lang/Exception;->printStackTrace()V
     :try_end_4
     .catchall {:try_start_4 .. :try_end_4} :catchall_0
 
@@ -326,7 +326,7 @@
     :cond_5
     if-eqz v6, :cond_4
 
-    invoke-virtual {v6}, Ljava/io/OutputStreamWriter;->close()V
+    invoke-virtual {v6}, Ljava/io/FileWriter;->close()V
     :try_end_5
     .catch Ljava/io/IOException; {:try_start_5 .. :try_end_5} :catch_3
     .catch Ljava/lang/Exception; {:try_start_5 .. :try_end_5} :catch_4
@@ -336,14 +336,14 @@
     :catch_3
     move-exception v2
 
-    invoke-virtual {v2}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v2}, Ljava/io/IOException;->printStackTrace()V
 
     goto :goto_2
 
     :catch_4
     move-exception v3
 
-    invoke-virtual {v3}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v3}, Ljava/lang/Exception;->printStackTrace()V
 
     goto :goto_2
 
@@ -359,7 +359,7 @@
     :cond_6
     if-eqz v6, :cond_7
 
-    invoke-virtual {v6}, Ljava/io/OutputStreamWriter;->close()V
+    invoke-virtual {v6}, Ljava/io/FileWriter;->close()V
     :try_end_6
     .catch Ljava/io/IOException; {:try_start_6 .. :try_end_6} :catch_6
     .catch Ljava/lang/Exception; {:try_start_6 .. :try_end_6} :catch_5
@@ -371,14 +371,14 @@
     :catch_5
     move-exception v3
 
-    invoke-virtual {v3}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v3}, Ljava/lang/Exception;->printStackTrace()V
 
     goto :goto_5
 
     :catch_6
     move-exception v2
 
-    invoke-virtual {v2}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v2}, Ljava/io/IOException;->printStackTrace()V
 
     goto :goto_5
 

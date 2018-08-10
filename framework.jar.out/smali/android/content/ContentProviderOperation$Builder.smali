@@ -167,11 +167,11 @@
 
     iget-object v0, p0, Landroid/content/ContentProviderOperation$Builder;->mValues:Landroid/content/ContentValues;
 
-    invoke-virtual {v0}, Landroid/content/ContentValues;->size()I
+    invoke-virtual {v0}, Landroid/content/ContentValues;->isEmpty()Z
 
     move-result v0
 
-    if-nez v0, :cond_2
+    if-eqz v0, :cond_2
 
     :cond_0
     iget-object v0, p0, Landroid/content/ContentProviderOperation$Builder;->mValuesBackReferences:Landroid/content/ContentValues;
@@ -180,11 +180,11 @@
 
     iget-object v0, p0, Landroid/content/ContentProviderOperation$Builder;->mValuesBackReferences:Landroid/content/ContentValues;
 
-    invoke-virtual {v0}, Landroid/content/ContentValues;->size()I
+    invoke-virtual {v0}, Landroid/content/ContentValues;->isEmpty()Z
 
     move-result v0
 
-    if-nez v0, :cond_2
+    if-eqz v0, :cond_2
 
     :cond_1
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -208,11 +208,11 @@
 
     iget-object v0, p0, Landroid/content/ContentProviderOperation$Builder;->mValues:Landroid/content/ContentValues;
 
-    invoke-virtual {v0}, Landroid/content/ContentValues;->size()I
+    invoke-virtual {v0}, Landroid/content/ContentValues;->isEmpty()Z
 
     move-result v0
 
-    if-nez v0, :cond_5
+    if-eqz v0, :cond_5
 
     :cond_3
     iget-object v0, p0, Landroid/content/ContentProviderOperation$Builder;->mValuesBackReferences:Landroid/content/ContentValues;
@@ -221,11 +221,11 @@
 
     iget-object v0, p0, Landroid/content/ContentProviderOperation$Builder;->mValuesBackReferences:Landroid/content/ContentValues;
 
-    invoke-virtual {v0}, Landroid/content/ContentValues;->size()I
+    invoke-virtual {v0}, Landroid/content/ContentValues;->isEmpty()Z
 
     move-result v0
 
-    if-nez v0, :cond_5
+    if-eqz v0, :cond_5
 
     :cond_4
     iget-object v0, p0, Landroid/content/ContentProviderOperation$Builder;->mExpectedCount:Ljava/lang/Integer;

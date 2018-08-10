@@ -28,9 +28,13 @@
 
 .field static final TRANSACTION_abort:I = 0x1f
 
+.field static final TRANSACTION_addAccessorToPrivilegedList:I = 0x29
+
 .field static final TRANSACTION_addAuthToken:I = 0x21
 
 .field static final TRANSACTION_addRngEntropy:I = 0x17
+
+.field static final TRANSACTION_attestDeviceIds:I = 0x25
 
 .field static final TRANSACTION_attestKey:I = 0x24
 
@@ -58,8 +62,6 @@
 
 .field static final TRANSACTION_getState:I = 0x1
 
-.field static final TRANSACTION_getState_MDFPP:I = 0x26
-
 .field static final TRANSACTION_get_pubkey:I = 0x10
 
 .field static final TRANSACTION_getmtime:I = 0x13
@@ -74,27 +76,35 @@
 
 .field static final TRANSACTION_isEmpty:I = 0xb
 
+.field static final TRANSACTION_isEmptyWithOption:I = 0x27
+
 .field static final TRANSACTION_isOperationAuthorized:I = 0x20
 
 .field static final TRANSACTION_is_hardware_backed:I = 0x15
 
 .field static final TRANSACTION_list:I = 0x6
 
+.field static final TRANSACTION_listAccessorsFromDb:I = 0x2d
+
+.field static final TRANSACTION_listFromDb:I = 0x28
+
+.field static final TRANSACTION_listPrivilegedAccessors:I = 0x2b
+
 .field static final TRANSACTION_lock:I = 0x9
 
-.field static final TRANSACTION_migrate_MDFPP_keystore:I = 0x25
+.field static final TRANSACTION_modifyCcmCsrAccessorsBasedOnUSRPKEY:I = 0x2c
+
+.field static final TRANSACTION_onDeviceOffBody:I = 0x26
 
 .field static final TRANSACTION_onUserAdded:I = 0x22
-
-.field static final TRANSACTION_onUserAdded_MDFPP:I = 0x28
 
 .field static final TRANSACTION_onUserPasswordChanged:I = 0x8
 
 .field static final TRANSACTION_onUserRemoved:I = 0x23
 
-.field static final TRANSACTION_reset:I = 0x7
+.field static final TRANSACTION_removeAccessorFromPrivilegedList:I = 0x2a
 
-.field static final TRANSACTION_reset_MDFPP:I = 0x27
+.field static final TRANSACTION_reset:I = 0x7
 
 .field static final TRANSACTION_sign:I = 0xe
 
@@ -163,7 +173,7 @@
 .end method
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    .locals 60
+    .locals 62
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -206,13 +216,13 @@
 
     invoke-virtual {v0, v1}, Landroid/security/IKeystoreService$Stub;->getState(I)I
 
-    move-result v52
+    move-result v54
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     move-object/from16 v0, p3
 
-    move/from16 v1, v52
+    move/from16 v1, v54
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
 
@@ -239,13 +249,13 @@
 
     invoke-virtual {v0, v5, v6}, Landroid/security/IKeystoreService$Stub;->get(Ljava/lang/String;I)[B
 
-    move-result-object v58
+    move-result-object v60
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     move-object/from16 v0, p3
 
-    move-object/from16 v1, v58
+    move-object/from16 v1, v60
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeByteArray([B)V
 
@@ -266,7 +276,7 @@
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->createByteArray()[B
 
-    move-result-object v49
+    move-result-object v51
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
@@ -278,17 +288,17 @@
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v49
+    move-object/from16 v1, v51
 
     invoke-virtual {v0, v5, v1, v7, v8}, Landroid/security/IKeystoreService$Stub;->insert(Ljava/lang/String;[BII)I
 
-    move-result v52
+    move-result v54
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     move-object/from16 v0, p3
 
-    move/from16 v1, v52
+    move/from16 v1, v54
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
 
@@ -315,13 +325,13 @@
 
     invoke-virtual {v0, v5, v6}, Landroid/security/IKeystoreService$Stub;->del(Ljava/lang/String;I)I
 
-    move-result v52
+    move-result v54
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     move-object/from16 v0, p3
 
-    move/from16 v1, v52
+    move/from16 v1, v54
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
 
@@ -348,13 +358,13 @@
 
     invoke-virtual {v0, v5, v6}, Landroid/security/IKeystoreService$Stub;->exist(Ljava/lang/String;I)I
 
-    move-result v52
+    move-result v54
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     move-object/from16 v0, p3
 
-    move/from16 v1, v52
+    move/from16 v1, v54
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
 
@@ -381,13 +391,13 @@
 
     invoke-virtual {v0, v5, v6}, Landroid/security/IKeystoreService$Stub;->list(Ljava/lang/String;I)[Ljava/lang/String;
 
-    move-result-object v59
+    move-result-object v61
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     move-object/from16 v0, p3
 
-    move-object/from16 v1, v59
+    move-object/from16 v1, v61
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeStringArray([Ljava/lang/String;)V
 
@@ -404,13 +414,13 @@
 
     invoke-virtual/range {p0 .. p0}, Landroid/security/IKeystoreService$Stub;->reset()I
 
-    move-result v52
+    move-result v54
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     move-object/from16 v0, p3
 
-    move/from16 v1, v52
+    move/from16 v1, v54
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
 
@@ -441,13 +451,13 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/security/IKeystoreService$Stub;->onUserPasswordChanged(ILjava/lang/String;)I
 
-    move-result v52
+    move-result v54
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     move-object/from16 v0, p3
 
-    move/from16 v1, v52
+    move/from16 v1, v54
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
 
@@ -472,13 +482,13 @@
 
     invoke-virtual {v0, v1}, Landroid/security/IKeystoreService$Stub;->lock(I)I
 
-    move-result v52
+    move-result v54
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     move-object/from16 v0, p3
 
-    move/from16 v1, v52
+    move/from16 v1, v54
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
 
@@ -509,13 +519,13 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/security/IKeystoreService$Stub;->unlock(ILjava/lang/String;)I
 
-    move-result v52
+    move-result v54
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     move-object/from16 v0, p3
 
-    move/from16 v1, v52
+    move/from16 v1, v54
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
 
@@ -540,13 +550,13 @@
 
     invoke-virtual {v0, v1}, Landroid/security/IKeystoreService$Stub;->isEmpty(I)I
 
-    move-result v52
+    move-result v54
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     move-object/from16 v0, p3
 
-    move/from16 v1, v52
+    move/from16 v1, v54
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
 
@@ -602,13 +612,13 @@
 
     invoke-virtual/range {v4 .. v10}, Landroid/security/IKeystoreService$Stub;->generate(Ljava/lang/String;IIIILandroid/security/KeystoreArguments;)I
 
-    move-result v52
+    move-result v54
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     move-object/from16 v0, p3
 
-    move/from16 v1, v52
+    move/from16 v1, v54
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
 
@@ -634,7 +644,7 @@
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->createByteArray()[B
 
-    move-result-object v49
+    move-result-object v51
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
@@ -646,17 +656,17 @@
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v49
+    move-object/from16 v1, v51
 
     invoke-virtual {v0, v5, v1, v7, v8}, Landroid/security/IKeystoreService$Stub;->import_key(Ljava/lang/String;[BII)I
 
-    move-result v52
+    move-result v54
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     move-object/from16 v0, p3
 
-    move/from16 v1, v52
+    move/from16 v1, v54
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
 
@@ -677,21 +687,21 @@
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->createByteArray()[B
 
-    move-result-object v49
+    move-result-object v51
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v49
+    move-object/from16 v1, v51
 
     invoke-virtual {v0, v5, v1}, Landroid/security/IKeystoreService$Stub;->sign(Ljava/lang/String;[B)[B
 
-    move-result-object v58
+    move-result-object v60
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     move-object/from16 v0, p3
 
-    move-object/from16 v1, v58
+    move-object/from16 v1, v60
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeByteArray([B)V
 
@@ -712,7 +722,7 @@
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->createByteArray()[B
 
-    move-result-object v49
+    move-result-object v51
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->createByteArray()[B
 
@@ -720,17 +730,17 @@
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v49
+    move-object/from16 v1, v51
 
     invoke-virtual {v0, v5, v1, v14}, Landroid/security/IKeystoreService$Stub;->verify(Ljava/lang/String;[B[B)I
 
-    move-result v52
+    move-result v54
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     move-object/from16 v0, p3
 
-    move/from16 v1, v52
+    move/from16 v1, v54
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
 
@@ -753,13 +763,13 @@
 
     invoke-virtual {v0, v5}, Landroid/security/IKeystoreService$Stub;->get_pubkey(Ljava/lang/String;)[B
 
-    move-result-object v58
+    move-result-object v60
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     move-object/from16 v0, p3
 
-    move-object/from16 v1, v58
+    move-object/from16 v1, v60
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeByteArray([B)V
 
@@ -786,13 +796,13 @@
 
     invoke-virtual {v0, v5, v6}, Landroid/security/IKeystoreService$Stub;->grant(Ljava/lang/String;I)I
 
-    move-result v52
+    move-result v54
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     move-object/from16 v0, p3
 
-    move/from16 v1, v52
+    move/from16 v1, v54
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
 
@@ -819,13 +829,13 @@
 
     invoke-virtual {v0, v5, v6}, Landroid/security/IKeystoreService$Stub;->ungrant(Ljava/lang/String;I)I
 
-    move-result v52
+    move-result v54
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     move-object/from16 v0, p3
 
-    move/from16 v1, v52
+    move/from16 v1, v54
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
 
@@ -852,13 +862,13 @@
 
     invoke-virtual {v0, v5, v6}, Landroid/security/IKeystoreService$Stub;->getmtime(Ljava/lang/String;I)J
 
-    move-result-wide v54
+    move-result-wide v56
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     move-object/from16 v0, p3
 
-    move-wide/from16 v1, v54
+    move-wide/from16 v1, v56
 
     invoke-virtual {v0, v1, v2}, Landroid/os/Parcel;->writeLong(J)V
 
@@ -883,7 +893,7 @@
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
-    move-result-object v51
+    move-result-object v53
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
@@ -891,17 +901,17 @@
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v51
+    move-object/from16 v1, v53
 
     invoke-virtual {v0, v5, v6, v1, v8}, Landroid/security/IKeystoreService$Stub;->duplicate(Ljava/lang/String;ILjava/lang/String;I)I
 
-    move-result v52
+    move-result v54
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     move-object/from16 v0, p3
 
-    move/from16 v1, v52
+    move/from16 v1, v54
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
 
@@ -924,13 +934,13 @@
 
     invoke-virtual {v0, v5}, Landroid/security/IKeystoreService$Stub;->is_hardware_backed(Ljava/lang/String;)I
 
-    move-result v52
+    move-result v54
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     move-object/from16 v0, p3
 
-    move/from16 v1, v52
+    move/from16 v1, v54
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
 
@@ -955,13 +965,13 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/security/IKeystoreService$Stub;->clear_uid(J)I
 
-    move-result v52
+    move-result v54
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     move-object/from16 v0, p3
 
-    move/from16 v1, v52
+    move/from16 v1, v54
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
 
@@ -978,21 +988,21 @@
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->createByteArray()[B
 
-    move-result-object v48
+    move-result-object v49
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v48
+    move-object/from16 v1, v49
 
     invoke-virtual {v0, v1}, Landroid/security/IKeystoreService$Stub;->addRngEntropy([B)I
 
-    move-result v52
+    move-result v54
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     move-object/from16 v0, p3
 
-    move/from16 v1, v52
+    move/from16 v1, v54
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
 
@@ -1054,13 +1064,13 @@
 
     invoke-virtual/range {v11 .. v17}, Landroid/security/IKeystoreService$Stub;->generateKey(Ljava/lang/String;Landroid/security/keymaster/KeymasterArguments;[BIILandroid/security/keymaster/KeyCharacteristics;)I
 
-    move-result v52
+    move-result v54
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     move-object/from16 v0, p3
 
-    move/from16 v1, v52
+    move/from16 v1, v54
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
 
@@ -1160,13 +1170,13 @@
 
     invoke-virtual/range {v18 .. v23}, Landroid/security/IKeystoreService$Stub;->getKeyCharacteristics(Ljava/lang/String;Landroid/security/keymaster/KeymasterBlob;Landroid/security/keymaster/KeymasterBlob;ILandroid/security/keymaster/KeyCharacteristics;)I
 
-    move-result v52
+    move-result v54
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     move-object/from16 v0, p3
 
-    move/from16 v1, v52
+    move/from16 v1, v54
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
 
@@ -1270,13 +1280,13 @@
 
     invoke-virtual/range {v24 .. v31}, Landroid/security/IKeystoreService$Stub;->importKey(Ljava/lang/String;Landroid/security/keymaster/KeymasterArguments;I[BIILandroid/security/keymaster/KeyCharacteristics;)I
 
-    move-result v52
+    move-result v54
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     move-object/from16 v0, p3
 
-    move/from16 v1, v52
+    move/from16 v1, v54
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
 
@@ -1380,11 +1390,11 @@
 
     invoke-virtual/range {v32 .. v37}, Landroid/security/IKeystoreService$Stub;->exportKey(Ljava/lang/String;ILandroid/security/keymaster/KeymasterBlob;Landroid/security/keymaster/KeymasterBlob;I)Landroid/security/keymaster/ExportResult;
 
-    move-result-object v53
+    move-result-object v55
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v53, :cond_a
+    if-eqz v55, :cond_a
 
     const/4 v4, 0x1
 
@@ -1394,7 +1404,7 @@
 
     const/4 v4, 0x1
 
-    move-object/from16 v0, v53
+    move-object/from16 v0, v55
 
     move-object/from16 v1, p3
 
@@ -1483,11 +1493,11 @@
 
     invoke-virtual/range {v37 .. v44}, Landroid/security/IKeystoreService$Stub;->begin(Landroid/os/IBinder;Ljava/lang/String;IZLandroid/security/keymaster/KeymasterArguments;[BI)Landroid/security/keymaster/OperationResult;
 
-    move-result-object v56
+    move-result-object v58
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v56, :cond_d
+    if-eqz v58, :cond_d
 
     const/4 v4, 0x1
 
@@ -1497,7 +1507,7 @@
 
     const/4 v4, 0x1
 
-    move-object/from16 v0, v56
+    move-object/from16 v0, v58
 
     move-object/from16 v1, p3
 
@@ -1565,11 +1575,11 @@
 
     invoke-virtual {v0, v1, v13, v14}, Landroid/security/IKeystoreService$Stub;->update(Landroid/os/IBinder;Landroid/security/keymaster/KeymasterArguments;[B)Landroid/security/keymaster/OperationResult;
 
-    move-result-object v56
+    move-result-object v58
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v56, :cond_f
+    if-eqz v58, :cond_f
 
     const/4 v4, 0x1
 
@@ -1579,7 +1589,7 @@
 
     const/4 v4, 0x1
 
-    move-object/from16 v0, v56
+    move-object/from16 v0, v58
 
     move-object/from16 v1, p3
 
@@ -1648,11 +1658,11 @@
 
     invoke-virtual {v0, v1, v13, v14, v2}, Landroid/security/IKeystoreService$Stub;->finish(Landroid/os/IBinder;Landroid/security/keymaster/KeymasterArguments;[B[B)Landroid/security/keymaster/OperationResult;
 
-    move-result-object v56
+    move-result-object v58
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v56, :cond_11
+    if-eqz v58, :cond_11
 
     const/4 v4, 0x1
 
@@ -1662,7 +1672,7 @@
 
     const/4 v4, 0x1
 
-    move-object/from16 v0, v56
+    move-object/from16 v0, v58
 
     move-object/from16 v1, p3
 
@@ -1704,13 +1714,13 @@
 
     invoke-virtual {v0, v1}, Landroid/security/IKeystoreService$Stub;->abort(Landroid/os/IBinder;)I
 
-    move-result v52
+    move-result v54
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     move-object/from16 v0, p3
 
-    move/from16 v1, v52
+    move/from16 v1, v54
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
 
@@ -1735,11 +1745,11 @@
 
     invoke-virtual {v0, v1}, Landroid/security/IKeystoreService$Stub;->isOperationAuthorized(Landroid/os/IBinder;)Z
 
-    move-result v57
+    move-result v59
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v57, :cond_12
+    if-eqz v59, :cond_12
 
     const/4 v4, 0x1
 
@@ -1766,21 +1776,21 @@
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->createByteArray()[B
 
-    move-result-object v48
+    move-result-object v49
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v48
+    move-object/from16 v1, v49
 
     invoke-virtual {v0, v1}, Landroid/security/IKeystoreService$Stub;->addAuthToken([B)I
 
-    move-result v52
+    move-result v54
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     move-object/from16 v0, p3
 
-    move/from16 v1, v52
+    move/from16 v1, v54
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
 
@@ -1809,13 +1819,13 @@
 
     invoke-virtual {v0, v1, v6}, Landroid/security/IKeystoreService$Stub;->onUserAdded(II)I
 
-    move-result v52
+    move-result v54
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     move-object/from16 v0, p3
 
-    move/from16 v1, v52
+    move/from16 v1, v54
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
 
@@ -1840,13 +1850,13 @@
 
     invoke-virtual {v0, v1}, Landroid/security/IKeystoreService$Stub;->onUserRemoved(I)I
 
-    move-result v52
+    move-result v54
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     move-object/from16 v0, p3
 
-    move/from16 v1, v52
+    move/from16 v1, v54
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
 
@@ -1882,27 +1892,27 @@
     check-cast v13, Landroid/security/keymaster/KeymasterArguments;
 
     :goto_13
-    new-instance v50, Landroid/security/keymaster/KeymasterCertificateChain;
+    new-instance v52, Landroid/security/keymaster/KeymasterCertificateChain;
 
-    invoke-direct/range {v50 .. v50}, Landroid/security/keymaster/KeymasterCertificateChain;-><init>()V
+    invoke-direct/range {v52 .. v52}, Landroid/security/keymaster/KeymasterCertificateChain;-><init>()V
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v50
+    move-object/from16 v1, v52
 
     invoke-virtual {v0, v5, v13, v1}, Landroid/security/IKeystoreService$Stub;->attestKey(Ljava/lang/String;Landroid/security/keymaster/KeymasterArguments;Landroid/security/keymaster/KeymasterCertificateChain;)I
 
-    move-result v52
+    move-result v54
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     move-object/from16 v0, p3
 
-    move/from16 v1, v52
+    move/from16 v1, v54
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
 
-    if-eqz v50, :cond_14
+    if-eqz v52, :cond_14
 
     const/4 v4, 0x1
 
@@ -1912,7 +1922,7 @@
 
     const/4 v4, 0x1
 
-    move-object/from16 v0, v50
+    move-object/from16 v0, v52
 
     move-object/from16 v1, p3
 
@@ -1944,35 +1954,79 @@
 
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v5
-
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v6
+    move-result v4
 
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
+    if-eqz v4, :cond_15
 
-    move-result v7
+    sget-object v4, Landroid/security/keymaster/KeymasterArguments;->CREATOR:Landroid/os/Parcelable$Creator;
+
+    move-object/from16 v0, p2
+
+    invoke-interface {v4, v0}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+
+    move-result-object v48
+
+    check-cast v48, Landroid/security/keymaster/KeymasterArguments;
+
+    :goto_15
+    new-instance v50, Landroid/security/keymaster/KeymasterCertificateChain;
+
+    invoke-direct/range {v50 .. v50}, Landroid/security/keymaster/KeymasterCertificateChain;-><init>()V
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v5, v6, v7}, Landroid/security/IKeystoreService$Stub;->migrate_MDFPP_keystore(Ljava/lang/String;II)I
+    move-object/from16 v1, v48
 
-    move-result v52
+    move-object/from16 v2, v50
+
+    invoke-virtual {v0, v1, v2}, Landroid/security/IKeystoreService$Stub;->attestDeviceIds(Landroid/security/keymaster/KeymasterArguments;Landroid/security/keymaster/KeymasterCertificateChain;)I
+
+    move-result v54
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     move-object/from16 v0, p3
 
-    move/from16 v1, v52
+    move/from16 v1, v54
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
 
+    if-eqz v50, :cond_16
+
+    const/4 v4, 0x1
+
+    move-object/from16 v0, p3
+
+    invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInt(I)V
+
+    const/4 v4, 0x1
+
+    move-object/from16 v0, v50
+
+    move-object/from16 v1, p3
+
+    invoke-virtual {v0, v1, v4}, Landroid/security/keymaster/KeymasterCertificateChain;->writeToParcel(Landroid/os/Parcel;I)V
+
+    :goto_16
     const/4 v4, 0x1
 
     return v4
+
+    :cond_15
+    const/16 v48, 0x0
+
+    goto :goto_15
+
+    :cond_16
+    const/4 v4, 0x0
+
+    move-object/from16 v0, p3
+
+    invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInt(I)V
+
+    goto :goto_16
 
     :sswitch_26
     const-string/jumbo v4, "android.security.IKeystoreService"
@@ -1981,23 +2035,15 @@
 
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
+    invoke-virtual/range {p0 .. p0}, Landroid/security/IKeystoreService$Stub;->onDeviceOffBody()I
 
-    move-result v45
-
-    move-object/from16 v0, p0
-
-    move/from16 v1, v45
-
-    invoke-virtual {v0, v1}, Landroid/security/IKeystoreService$Stub;->getState_MDFPP(I)I
-
-    move-result v52
+    move-result v54
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     move-object/from16 v0, p3
 
-    move/from16 v1, v52
+    move/from16 v1, v54
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
 
@@ -2016,19 +2062,23 @@
 
     move-result v45
 
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v6
+
     move-object/from16 v0, p0
 
     move/from16 v1, v45
 
-    invoke-virtual {v0, v1}, Landroid/security/IKeystoreService$Stub;->reset_MDFPP(I)I
+    invoke-virtual {v0, v1, v6}, Landroid/security/IKeystoreService$Stub;->isEmptyWithOption(II)I
 
-    move-result v52
+    move-result v54
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     move-object/from16 v0, p3
 
-    move/from16 v1, v52
+    move/from16 v1, v54
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
 
@@ -2043,27 +2093,159 @@
 
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
-    move-result v45
+    move-result-object v5
 
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
-    move-result v6
+    move-result-object v39
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v45
+    move-object/from16 v1, v39
 
-    invoke-virtual {v0, v1, v6}, Landroid/security/IKeystoreService$Stub;->onUserAdded_MDFPP(II)I
+    invoke-virtual {v0, v5, v1}, Landroid/security/IKeystoreService$Stub;->listFromDb(Ljava/lang/String;Ljava/lang/String;)[Ljava/lang/String;
 
-    move-result v52
+    move-result-object v61
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     move-object/from16 v0, p3
 
-    move/from16 v1, v52
+    move-object/from16 v1, v61
+
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeStringArray([Ljava/lang/String;)V
+
+    const/4 v4, 0x1
+
+    return v4
+
+    :sswitch_29
+    const-string/jumbo v4, "android.security.IKeystoreService"
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v5
+
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v5}, Landroid/security/IKeystoreService$Stub;->addAccessorToPrivilegedList(Ljava/lang/String;)Z
+
+    move-result v59
+
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    if-eqz v59, :cond_17
+
+    const/4 v4, 0x1
+
+    :goto_17
+    move-object/from16 v0, p3
+
+    invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInt(I)V
+
+    const/4 v4, 0x1
+
+    return v4
+
+    :cond_17
+    const/4 v4, 0x0
+
+    goto :goto_17
+
+    :sswitch_2a
+    const-string/jumbo v4, "android.security.IKeystoreService"
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v5
+
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v5}, Landroid/security/IKeystoreService$Stub;->removeAccessorFromPrivilegedList(Ljava/lang/String;)Z
+
+    move-result v59
+
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    if-eqz v59, :cond_18
+
+    const/4 v4, 0x1
+
+    :goto_18
+    move-object/from16 v0, p3
+
+    invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInt(I)V
+
+    const/4 v4, 0x1
+
+    return v4
+
+    :cond_18
+    const/4 v4, 0x0
+
+    goto :goto_18
+
+    :sswitch_2b
+    const-string/jumbo v4, "android.security.IKeystoreService"
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual/range {p0 .. p0}, Landroid/security/IKeystoreService$Stub;->listPrivilegedAccessors()[Ljava/lang/String;
+
+    move-result-object v61
+
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    move-object/from16 v0, p3
+
+    move-object/from16 v1, v61
+
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeStringArray([Ljava/lang/String;)V
+
+    const/4 v4, 0x1
+
+    return v4
+
+    :sswitch_2c
+    const-string/jumbo v4, "android.security.IKeystoreService"
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v39
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v39
+
+    invoke-virtual {v0, v5, v1}, Landroid/security/IKeystoreService$Stub;->modifyCcmCsrAccessorsBasedOnUSRPKEY(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v54
+
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    move-object/from16 v0, p3
+
+    move/from16 v1, v54
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
 
@@ -2071,7 +2253,40 @@
 
     return v4
 
-    nop
+    :sswitch_2d
+    const-string/jumbo v4, "android.security.IKeystoreService"
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v39
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v39
+
+    invoke-virtual {v0, v5, v1}, Landroid/security/IKeystoreService$Stub;->listAccessorsFromDb(Ljava/lang/String;Ljava/lang/String;)[Ljava/lang/String;
+
+    move-result-object v61
+
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    move-object/from16 v0, p3
+
+    move-object/from16 v1, v61
+
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeStringArray([Ljava/lang/String;)V
+
+    const/4 v4, 0x1
+
+    return v4
 
     :sswitch_data_0
     .sparse-switch
@@ -2115,6 +2330,11 @@
         0x26 -> :sswitch_26
         0x27 -> :sswitch_27
         0x28 -> :sswitch_28
+        0x29 -> :sswitch_29
+        0x2a -> :sswitch_2a
+        0x2b -> :sswitch_2b
+        0x2c -> :sswitch_2c
+        0x2d -> :sswitch_2d
         0x5f4e5446 -> :sswitch_0
     .end sparse-switch
 .end method

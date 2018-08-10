@@ -24,6 +24,14 @@
 
 
 # direct methods
+.method static synthetic -set0(Landroid/inputmethodservice/AbstractInputMethodService;Z)Z
+    .locals 0
+
+    iput-boolean p1, p0, Landroid/inputmethodservice/AbstractInputMethodService;->mIsPressBtnSIPOnOff:Z
+
+    return p1
+.end method
+
 .method public constructor <init>()V
     .locals 1
 
@@ -41,6 +49,12 @@
 
 # virtual methods
 .method protected dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
+    .locals 0
+
+    return-void
+.end method
+
+.method public exposeContent(Landroid/view/inputmethod/InputContentInfo;Landroid/view/inputmethod/InputConnection;)V
     .locals 0
 
     return-void
@@ -108,21 +122,9 @@
 .end method
 
 .method public setPressBtnSIPOnOff(Z)V
-    .locals 2
+    .locals 0
 
     iput-boolean p1, p0, Landroid/inputmethodservice/AbstractInputMethodService;->mIsPressBtnSIPOnOff:Z
-
-    const-string/jumbo v1, "input_method"
-
-    invoke-virtual {p0, v1}, Landroid/inputmethodservice/AbstractInputMethodService;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/view/inputmethod/InputMethodManager;
-
-    iget-boolean v1, p0, Landroid/inputmethodservice/AbstractInputMethodService;->mIsPressBtnSIPOnOff:Z
-
-    invoke-virtual {v0, v1}, Landroid/view/inputmethod/InputMethodManager;->setPressBtnSIPOnOff(Z)V
 
     return-void
 .end method

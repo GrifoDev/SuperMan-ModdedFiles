@@ -152,25 +152,25 @@
 .method private loadArgumentTypes()V
     .locals 3
 
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
-    iget-object v0, p0, Lcom/absolute/android/persistence/MethodSpec;->m_argValues:[Ljava/lang/Object;
+    iget-object v1, p0, Lcom/absolute/android/persistence/MethodSpec;->m_argValues:[Ljava/lang/Object;
 
-    if-nez v0, :cond_1
+    if-nez v1, :cond_1
 
-    iput-object v1, p0, Lcom/absolute/android/persistence/MethodSpec;->m_argTypes:[Ljava/lang/Class;
+    iput-object v2, p0, Lcom/absolute/android/persistence/MethodSpec;->m_argTypes:[Ljava/lang/Class;
 
     :cond_0
     return-void
 
     :cond_1
-    iget-object v0, p0, Lcom/absolute/android/persistence/MethodSpec;->m_argValues:[Ljava/lang/Object;
+    iget-object v1, p0, Lcom/absolute/android/persistence/MethodSpec;->m_argValues:[Ljava/lang/Object;
 
-    array-length v0, v0
+    array-length v1, v1
 
-    new-array v0, v0, [Ljava/lang/Class;
+    new-array v1, v1, [Ljava/lang/Class;
 
-    iput-object v0, p0, Lcom/absolute/android/persistence/MethodSpec;->m_argTypes:[Ljava/lang/Class;
+    iput-object v1, p0, Lcom/absolute/android/persistence/MethodSpec;->m_argTypes:[Ljava/lang/Class;
 
     const/4 v0, 0x0
 

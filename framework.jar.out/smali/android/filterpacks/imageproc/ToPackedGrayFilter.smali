@@ -100,8 +100,6 @@
 .method private convertInputFormat(Landroid/filterfw/core/FrameFormat;)Landroid/filterfw/core/FrameFormat;
     .locals 6
 
-    const/4 v4, 0x4
-
     iget v2, p0, Landroid/filterpacks/imageproc/ToPackedGrayFilter;->mOWidth:I
 
     iget v1, p0, Landroid/filterpacks/imageproc/ToPackedGrayFilter;->mOHeight:I
@@ -114,23 +112,23 @@
 
     move-result v0
 
-    iget v5, p0, Landroid/filterpacks/imageproc/ToPackedGrayFilter;->mOWidth:I
+    iget v4, p0, Landroid/filterpacks/imageproc/ToPackedGrayFilter;->mOWidth:I
 
-    if-nez v5, :cond_0
+    if-nez v4, :cond_0
 
     move v2, v3
 
     :cond_0
-    iget v5, p0, Landroid/filterpacks/imageproc/ToPackedGrayFilter;->mOHeight:I
+    iget v4, p0, Landroid/filterpacks/imageproc/ToPackedGrayFilter;->mOHeight:I
 
-    if-nez v5, :cond_1
+    if-nez v4, :cond_1
 
     move v1, v0
 
     :cond_1
-    iget-boolean v5, p0, Landroid/filterpacks/imageproc/ToPackedGrayFilter;->mKeepAspectRatio:Z
+    iget-boolean v4, p0, Landroid/filterpacks/imageproc/ToPackedGrayFilter;->mKeepAspectRatio:Z
 
-    if-eqz v5, :cond_2
+    if-eqz v4, :cond_2
 
     if-le v3, v0, :cond_3
 
@@ -138,17 +136,19 @@
 
     move-result v2
 
-    mul-int v5, v2, v0
+    mul-int v4, v2, v0
 
-    div-int v1, v5, v3
+    div-int v1, v4, v3
 
     :cond_2
     :goto_0
     if-lez v2, :cond_4
 
+    const/4 v4, 0x4
+
     if-ge v2, v4, :cond_4
 
-    move v2, v4
+    const/4 v2, 0x4
 
     :goto_1
     const/4 v4, 0x1
@@ -166,9 +166,9 @@
 
     move-result v1
 
-    mul-int v5, v1, v3
+    mul-int v4, v1, v3
 
-    div-int v2, v5, v0
+    div-int v2, v4, v0
 
     goto :goto_0
 
@@ -211,7 +211,7 @@
 
     const-string/jumbo v8, "image"
 
-    invoke-virtual {p0, v8}, Landroid/filterfw/core/Filter;->pullInput(Ljava/lang/String;)Landroid/filterfw/core/Frame;
+    invoke-virtual {p0, v8}, Landroid/filterpacks/imageproc/ToPackedGrayFilter;->pullInput(Ljava/lang/String;)Landroid/filterfw/core/Frame;
 
     move-result-object v0
 
@@ -283,7 +283,7 @@
 
     const-string/jumbo v8, "image"
 
-    invoke-virtual {p0, v8, v3}, Landroid/filterfw/core/Filter;->pushOutput(Ljava/lang/String;Landroid/filterfw/core/Frame;)V
+    invoke-virtual {p0, v8, v3}, Landroid/filterpacks/imageproc/ToPackedGrayFilter;->pushOutput(Ljava/lang/String;Landroid/filterfw/core/Frame;)V
 
     invoke-virtual {v3}, Landroid/filterfw/core/Frame;->release()Landroid/filterfw/core/Frame;
 
@@ -301,13 +301,13 @@
 
     move-result-object v1
 
-    invoke-virtual {p0, v0, v1}, Landroid/filterfw/core/Filter;->addMaskedInputPort(Ljava/lang/String;Landroid/filterfw/core/FrameFormat;)V
+    invoke-virtual {p0, v0, v1}, Landroid/filterpacks/imageproc/ToPackedGrayFilter;->addMaskedInputPort(Ljava/lang/String;Landroid/filterfw/core/FrameFormat;)V
 
     const-string/jumbo v0, "image"
 
     const-string/jumbo v1, "image"
 
-    invoke-virtual {p0, v0, v1}, Landroid/filterfw/core/Filter;->addOutputBasedOnInput(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {p0, v0, v1}, Landroid/filterpacks/imageproc/ToPackedGrayFilter;->addOutputBasedOnInput(Ljava/lang/String;Ljava/lang/String;)V
 
     return-void
 .end method

@@ -193,7 +193,7 @@
 
     :cond_0
     :try_start_0
-    invoke-virtual {v10, v3}, Ljava/io/FileInputStream;->read([B)I
+    invoke-virtual {v10, v3}, Ljava/io/InputStream;->read([B)I
 
     move-result v11
 
@@ -228,7 +228,7 @@
 
     const/4 v15, 0x0
 
-    invoke-virtual {v10, v3, v15, v5}, Ljava/io/FileInputStream;->read([BII)I
+    invoke-virtual {v10, v3, v15, v5}, Ljava/io/InputStream;->read([BII)I
 
     :cond_2
     :goto_0
@@ -350,9 +350,9 @@
     :goto_1
     invoke-virtual {v2}, Ljava/io/BufferedReader;->close()V
 
-    invoke-virtual {v13}, Ljava/io/FileOutputStream;->close()V
+    invoke-virtual {v13}, Ljava/io/OutputStream;->close()V
 
-    invoke-virtual {v10}, Ljava/io/FileInputStream;->close()V
+    invoke-virtual {v10}, Ljava/io/InputStream;->close()V
 
     return-void
 
@@ -557,7 +557,7 @@
 
     sget-object v1, Landroid/content/pm/AMSLogger;->mFormatterTxt:Landroid/content/pm/AMSLogger$AMSFormatter;
 
-    invoke-virtual {v0, v1}, Ljava/util/logging/Handler;->setFormatter(Ljava/util/logging/Formatter;)V
+    invoke-virtual {v0, v1}, Landroid/content/pm/AMSLogger$AMSHandler;->setFormatter(Ljava/util/logging/Formatter;)V
 
     sget-object v0, Landroid/content/pm/AMSLogger;->mLogger:Ljava/util/logging/Logger;
 
@@ -776,11 +776,11 @@
     return-void
 
     :cond_3
-    iget-object v7, p2, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
+    iget-object v7, p2, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
 
     move-object/from16 v0, p4
 
-    iget-object v3, v0, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
+    iget-object v3, v0, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
 
     const/4 v6, 0x0
 
@@ -946,7 +946,7 @@
 
     move-result-object v5
 
-    iget-object v9, p2, Landroid/content/pm/ApplicationInfo;->allowContainerCategory:Ljava/lang/String;
+    iget-object v9, p2, Landroid/content/pm/ApplicationInfo;->allowContainerSpace:Ljava/lang/String;
 
     if-eqz v9, :cond_8
 
@@ -958,7 +958,7 @@
 
     move-result-object v9
 
-    iget-object v10, p2, Landroid/content/pm/ApplicationInfo;->allowContainerCategory:Ljava/lang/String;
+    iget-object v10, p2, Landroid/content/pm/ApplicationInfo;->allowContainerSpace:Ljava/lang/String;
 
     invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -983,7 +983,7 @@
 
     move-result-object v9
 
-    iget-object v10, p2, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
+    iget-object v10, p2, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
 
     invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1007,7 +1007,7 @@
 
     move-result-object v9
 
-    iget-object v10, p2, Landroid/content/pm/ApplicationInfo;->seinfo:Ljava/lang/String;
+    iget-object v10, p2, Landroid/content/pm/ApplicationInfo;->seInfo:Ljava/lang/String;
 
     invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1019,7 +1019,7 @@
 
     move-result-object v9
 
-    iget v10, p2, Landroid/content/pm/ApplicationInfo;->category:I
+    iget v10, p2, Landroid/content/pm/ApplicationInfo;->space:I
 
     invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
@@ -1031,7 +1031,7 @@
 
     move-result-object v9
 
-    iget-object v10, p2, Landroid/content/pm/ApplicationInfo;->allowCategory:Ljava/lang/String;
+    iget-object v10, p2, Landroid/content/pm/ApplicationInfo;->allowSpace:Ljava/lang/String;
 
     invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1112,7 +1112,7 @@
 
     move-object/from16 v0, p4
 
-    iget-object v9, v0, Landroid/content/pm/ApplicationInfo;->allowContainerCategory:Ljava/lang/String;
+    iget-object v9, v0, Landroid/content/pm/ApplicationInfo;->allowContainerSpace:Ljava/lang/String;
 
     if-eqz v9, :cond_9
 
@@ -1126,7 +1126,7 @@
 
     move-object/from16 v0, p4
 
-    iget-object v10, v0, Landroid/content/pm/ApplicationInfo;->allowContainerCategory:Ljava/lang/String;
+    iget-object v10, v0, Landroid/content/pm/ApplicationInfo;->allowContainerSpace:Ljava/lang/String;
 
     invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1153,7 +1153,7 @@
 
     move-object/from16 v0, p4
 
-    iget-object v10, v0, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
+    iget-object v10, v0, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
 
     invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1181,7 +1181,7 @@
 
     move-object/from16 v0, p4
 
-    iget-object v10, v0, Landroid/content/pm/ApplicationInfo;->seinfo:Ljava/lang/String;
+    iget-object v10, v0, Landroid/content/pm/ApplicationInfo;->seInfo:Ljava/lang/String;
 
     invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1195,7 +1195,7 @@
 
     move-object/from16 v0, p4
 
-    iget v10, v0, Landroid/content/pm/ApplicationInfo;->category:I
+    iget v10, v0, Landroid/content/pm/ApplicationInfo;->space:I
 
     invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
@@ -1209,7 +1209,7 @@
 
     move-object/from16 v0, p4
 
-    iget-object v10, v0, Landroid/content/pm/ApplicationInfo;->allowCategory:Ljava/lang/String;
+    iget-object v10, v0, Landroid/content/pm/ApplicationInfo;->allowSpace:Ljava/lang/String;
 
     invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1485,7 +1485,7 @@
 
     const-wide/16 v10, 0x1f4
 
-    invoke-virtual {v8, v10, v11}, Ljava/lang/Object;->wait(J)V
+    invoke-virtual {v8, v10, v11}, Landroid/os/FileObserver;->wait(J)V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 

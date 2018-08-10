@@ -1,4 +1,4 @@
-.class Landroid/media/MediaScanner$FileParsingTime;
+.class public Landroid/media/MediaScanner$FileParsingTime;
 .super Ljava/lang/Object;
 .source "MediaScanner.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0xc
     name = "FileParsingTime"
 .end annotation
 

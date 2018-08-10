@@ -225,7 +225,7 @@
 
     double-to-long v8, v8
 
-    const/4 v5, 0x2
+    const/4 v5, 0x5
 
     invoke-virtual {p0, v4, v5, v8, v9}, Lcom/android/internal/app/procstats/PssTable;->setValue(IIJ)V
 

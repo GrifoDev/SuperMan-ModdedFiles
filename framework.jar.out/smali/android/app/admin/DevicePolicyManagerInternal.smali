@@ -25,7 +25,10 @@
 .method public abstract addOnCrossProfileWidgetProvidersChangeListener(Landroid/app/admin/DevicePolicyManagerInternal$OnCrossProfileWidgetProvidersChangeListener;)V
 .end method
 
-.method public abstract createPackageSuspendedDialogIntent(Ljava/lang/String;I)Landroid/content/Intent;
+.method public abstract createShowAdminSupportIntent(IZ)Landroid/content/Intent;
+.end method
+
+.method public abstract createUserRestrictionSupportIntent(ILjava/lang/String;)Landroid/content/Intent;
 .end method
 
 .method public abstract getCrossProfileWidgetProviders(I)Ljava/util/List;

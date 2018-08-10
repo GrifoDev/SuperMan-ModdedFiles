@@ -52,7 +52,7 @@
 
 .field private mDesiredFocusableInTouchModeState:Z
 
-.field private mDesiredFocusableState:Z
+.field private mDesiredFocusableState:I
 
 .field private mEmptyView:Landroid/view/View;
 
@@ -207,37 +207,41 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;II)V
-    .locals 4
+    .locals 5
 
-    const/4 v1, -0x1
+    const/16 v4, 0x10
+
+    const/4 v0, -0x1
 
     const-wide/high16 v2, -0x8000000000000000L
 
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
     invoke-direct {p0, p1, p2, p3, p4}, Landroid/view/ViewGroup;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;II)V
 
-    iput v0, p0, Landroid/widget/AdapterView;->mFirstPosition:I
+    iput v1, p0, Landroid/widget/AdapterView;->mFirstPosition:I
 
     iput-wide v2, p0, Landroid/widget/AdapterView;->mSyncRowId:J
 
-    iput-boolean v0, p0, Landroid/widget/AdapterView;->mNeedSync:Z
+    iput-boolean v1, p0, Landroid/widget/AdapterView;->mNeedSync:Z
 
-    iput-boolean v0, p0, Landroid/widget/AdapterView;->mInLayout:Z
+    iput-boolean v1, p0, Landroid/widget/AdapterView;->mInLayout:Z
 
-    iput v1, p0, Landroid/widget/AdapterView;->mNextSelectedPosition:I
+    iput v0, p0, Landroid/widget/AdapterView;->mNextSelectedPosition:I
 
     iput-wide v2, p0, Landroid/widget/AdapterView;->mNextSelectedRowId:J
 
-    iput v1, p0, Landroid/widget/AdapterView;->mSelectedPosition:I
+    iput v0, p0, Landroid/widget/AdapterView;->mSelectedPosition:I
 
     iput-wide v2, p0, Landroid/widget/AdapterView;->mSelectedRowId:J
 
-    iput v1, p0, Landroid/widget/AdapterView;->mOldSelectedPosition:I
+    iput v0, p0, Landroid/widget/AdapterView;->mOldSelectedPosition:I
 
     iput-wide v2, p0, Landroid/widget/AdapterView;->mOldSelectedRowId:J
 
-    iput-boolean v0, p0, Landroid/widget/AdapterView;->mBlockLayoutRequests:Z
+    iput v4, p0, Landroid/widget/AdapterView;->mDesiredFocusableState:I
+
+    iput-boolean v1, p0, Landroid/widget/AdapterView;->mBlockLayoutRequests:Z
 
     invoke-virtual {p0}, Landroid/widget/AdapterView;->getImportantForAccessibility()I
 
@@ -250,6 +254,19 @@
     invoke-virtual {p0, v0}, Landroid/widget/AdapterView;->setImportantForAccessibility(I)V
 
     :cond_0
+    invoke-virtual {p0}, Landroid/widget/AdapterView;->getFocusable()I
+
+    move-result v0
+
+    iput v0, p0, Landroid/widget/AdapterView;->mDesiredFocusableState:I
+
+    iget v0, p0, Landroid/widget/AdapterView;->mDesiredFocusableState:I
+
+    if-ne v0, v4, :cond_1
+
+    invoke-super {p0, v1}, Landroid/view/ViewGroup;->setFocusable(I)V
+
+    :cond_1
     return-void
 .end method
 
@@ -532,9 +549,7 @@
 .end method
 
 .method checkFocus()V
-    .locals 6
-
-    const/4 v5, 0x1
+    .locals 5
 
     const/4 v4, 0x0
 
@@ -551,7 +566,7 @@
     if-nez v3, :cond_3
 
     :cond_0
-    move v1, v5
+    const/4 v1, 0x1
 
     :goto_0
     if-eqz v1, :cond_4
@@ -570,10 +585,10 @@
 
     if-eqz v2, :cond_1
 
-    iget-boolean v4, p0, Landroid/widget/AdapterView;->mDesiredFocusableState:Z
+    iget v4, p0, Landroid/widget/AdapterView;->mDesiredFocusableState:I
 
     :cond_1
-    invoke-super {p0, v4}, Landroid/view/ViewGroup;->setFocusable(Z)V
+    invoke-super {p0, v4}, Landroid/view/ViewGroup;->setFocusable(I)V
 
     iget-object v3, p0, Landroid/widget/AdapterView;->mEmptyView:Landroid/view/View;
 
@@ -592,12 +607,12 @@
     return-void
 
     :cond_3
-    move v1, v4
+    const/4 v1, 0x0
 
     goto :goto_0
 
     :cond_4
-    move v2, v5
+    const/4 v2, 0x1
 
     goto :goto_1
 
@@ -607,7 +622,7 @@
     goto :goto_2
 
     :cond_6
-    move v3, v5
+    const/4 v3, 0x1
 
     goto :goto_3
 .end method
@@ -825,20 +840,29 @@
 
     move-result-object v2
 
-    if-nez v2, :cond_3
+    if-nez v2, :cond_4
 
     const/16 v16, -0x1
 
     return v16
 
     :cond_2
+    if-nez v7, :cond_3
+
+    if-eqz v12, :cond_9
+
+    xor-int/lit8 v16, v8, 0x1
+
+    if-eqz v16, :cond_9
+
+    :cond_3
     add-int/lit8 v9, v9, 0x1
 
     move v13, v9
 
     const/4 v12, 0x0
 
-    :cond_3
+    :cond_4
     :goto_0
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
@@ -846,7 +870,7 @@
 
     cmp-long v16, v16, v4
 
-    if-gtz v16, :cond_5
+    if-gtz v16, :cond_6
 
     invoke-interface {v2, v13}, Landroid/widget/Adapter;->getItemId(I)J
 
@@ -854,57 +878,52 @@
 
     cmp-long v16, v14, v10
 
-    if-nez v16, :cond_4
+    if-nez v16, :cond_5
 
     return v13
 
-    :cond_4
+    :cond_5
     add-int/lit8 v16, v3, -0x1
 
     move/from16 v0, v16
 
-    if-ne v9, v0, :cond_6
+    if-ne v9, v0, :cond_7
 
     const/4 v8, 0x1
 
     :goto_1
-    if-nez v6, :cond_7
+    if-nez v6, :cond_8
 
     const/4 v7, 0x1
 
     :goto_2
-    if-eqz v8, :cond_8
+    if-eqz v8, :cond_2
 
-    if-eqz v7, :cond_8
+    if-eqz v7, :cond_2
 
-    :cond_5
+    :cond_6
     const/16 v16, -0x1
 
     return v16
 
-    :cond_6
+    :cond_7
     const/4 v8, 0x0
 
     goto :goto_1
 
-    :cond_7
+    :cond_8
     const/4 v7, 0x0
 
     goto :goto_2
 
-    :cond_8
-    if-nez v7, :cond_2
-
-    if-eqz v12, :cond_9
-
-    if-eqz v8, :cond_2
-
     :cond_9
     if-nez v8, :cond_a
 
-    if-nez v12, :cond_3
+    if-nez v12, :cond_4
 
-    if-nez v7, :cond_3
+    xor-int/lit8 v16, v7, 0x1
+
+    if-eqz v16, :cond_4
 
     :cond_a
     add-int/lit8 v6, v6, -0x1
@@ -1075,37 +1094,10 @@
 
     move-result v5
 
-    if-eqz v5, :cond_1
+    xor-int/lit8 v5, v5, 0x1
 
-    :cond_0
-    if-eqz v3, :cond_3
+    if-eqz v5, :cond_0
 
-    invoke-virtual {p0}, Landroid/widget/AdapterView;->getChildCount()I
-
-    move-result v0
-
-    const/4 v2, 0x0
-
-    :goto_1
-    if-ge v2, v0, :cond_3
-
-    invoke-virtual {p0, v2}, Landroid/widget/AdapterView;->getChildAt(I)Landroid/view/View;
-
-    move-result-object v5
-
-    invoke-virtual {v5, v3}, Landroid/view/View;->equals(Ljava/lang/Object;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_2
-
-    iget v5, p0, Landroid/widget/AdapterView;->mFirstPosition:I
-
-    add-int/2addr v5, v2
-
-    return v5
-
-    :cond_1
     move-object v3, v4
 
     goto :goto_0
@@ -1115,12 +1107,40 @@
 
     return v6
 
-    :cond_2
+    :cond_0
+    if-eqz v3, :cond_2
+
+    invoke-virtual {p0}, Landroid/widget/AdapterView;->getChildCount()I
+
+    move-result v0
+
+    const/4 v2, 0x0
+
+    :goto_1
+    if-ge v2, v0, :cond_2
+
+    invoke-virtual {p0, v2}, Landroid/widget/AdapterView;->getChildAt(I)Landroid/view/View;
+
+    move-result-object v5
+
+    invoke-virtual {v5, v3}, Landroid/view/View;->equals(Ljava/lang/Object;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_1
+
+    iget v5, p0, Landroid/widget/AdapterView;->mFirstPosition:I
+
+    add-int/2addr v5, v2
+
+    return v5
+
+    :cond_1
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_1
 
-    :cond_3
+    :cond_2
     return v6
 .end method
 
@@ -1392,6 +1412,32 @@
     return-void
 .end method
 
+.method public onProvideAutofillStructure(Landroid/view/ViewStructure;I)V
+    .locals 2
+
+    invoke-super {p0, p1, p2}, Landroid/view/ViewGroup;->onProvideAutofillStructure(Landroid/view/ViewStructure;I)V
+
+    invoke-virtual {p0}, Landroid/widget/AdapterView;->getAdapter()Landroid/widget/Adapter;
+
+    move-result-object v0
+
+    if-nez v0, :cond_0
+
+    return-void
+
+    :cond_0
+    invoke-interface {v0}, Landroid/widget/Adapter;->getAutofillOptions()[Ljava/lang/CharSequence;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_1
+
+    invoke-virtual {p1, v1}, Landroid/view/ViewStructure;->setAutofillOptions([Ljava/lang/CharSequence;)V
+
+    :cond_1
+    return-void
+.end method
+
 .method public onRequestSendAccessibilityEventInternal(Landroid/view/View;Landroid/view/accessibility/AccessibilityEvent;)Z
     .locals 2
 
@@ -1426,7 +1472,7 @@
 
     iget-object v0, p0, Landroid/widget/AdapterView;->mOnItemClickListener:Landroid/widget/AdapterView$OnItemClickListener;
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_2
 
     iget-object v0, p0, Landroid/widget/AdapterView;->mOnItemClickListener:Landroid/widget/AdapterView$OnItemClickListener;
 
@@ -1436,10 +1482,15 @@
 
     iget-boolean v0, p0, Landroid/widget/AdapterView;->mPenPressState:Z
 
-    if-eqz v0, :cond_2
+    xor-int/lit8 v0, v0, 0x1
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x0
+
+    invoke-virtual {p0, v0}, Landroid/widget/AdapterView;->playSoundEffect(I)V
 
     :cond_0
-    :goto_0
     iget-object v0, p0, Landroid/widget/AdapterView;->mOnItemClickListener:Landroid/widget/AdapterView$OnItemClickListener;
 
     move-object v1, p0
@@ -1454,7 +1505,7 @@
 
     const/4 v6, 0x1
 
-    :goto_1
+    :goto_0
     if-eqz p1, :cond_1
 
     const/4 v0, 0x1
@@ -1465,16 +1516,9 @@
     return v6
 
     :cond_2
-    const/4 v0, 0x0
-
-    invoke-virtual {p0, v0}, Landroid/widget/AdapterView;->playSoundEffect(I)V
-
-    goto :goto_0
-
-    :cond_3
     const/4 v6, 0x0
 
-    goto :goto_1
+    goto :goto_0
 .end method
 
 .method rememberSyncState()V
@@ -1772,65 +1816,80 @@
 .end method
 
 .method selectionChanged()V
-    .locals 2
+    .locals 3
 
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
-    iput-object v1, p0, Landroid/widget/AdapterView;->mPendingSelectionNotifier:Landroid/widget/AdapterView$SelectionNotifier;
+    iput-object v2, p0, Landroid/widget/AdapterView;->mPendingSelectionNotifier:Landroid/widget/AdapterView$SelectionNotifier;
 
-    iget-object v0, p0, Landroid/widget/AdapterView;->mOnItemSelectedListener:Landroid/widget/AdapterView$OnItemSelectedListener;
+    iget-object v1, p0, Landroid/widget/AdapterView;->mOnItemSelectedListener:Landroid/widget/AdapterView$OnItemSelectedListener;
 
-    if-nez v0, :cond_0
+    if-nez v1, :cond_0
 
-    iget-object v0, p0, Landroid/widget/AdapterView;->mContext:Landroid/content/Context;
+    iget-object v1, p0, Landroid/widget/AdapterView;->mContext:Landroid/content/Context;
 
-    invoke-static {v0}, Landroid/view/accessibility/AccessibilityManager;->getInstance(Landroid/content/Context;)Landroid/view/accessibility/AccessibilityManager;
+    invoke-static {v1}, Landroid/view/accessibility/AccessibilityManager;->getInstance(Landroid/content/Context;)Landroid/view/accessibility/AccessibilityManager;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-virtual {v0}, Landroid/view/accessibility/AccessibilityManager;->isEnabled()Z
+    invoke-virtual {v1}, Landroid/view/accessibility/AccessibilityManager;->isEnabled()Z
 
-    move-result v0
+    move-result v1
 
-    if-eqz v0, :cond_2
+    if-eqz v1, :cond_2
 
     :cond_0
-    iget-boolean v0, p0, Landroid/widget/AdapterView;->mInLayout:Z
+    iget-boolean v1, p0, Landroid/widget/AdapterView;->mInLayout:Z
 
-    if-nez v0, :cond_1
+    if-nez v1, :cond_1
 
-    iget-boolean v0, p0, Landroid/widget/AdapterView;->mBlockLayoutRequests:Z
+    iget-boolean v1, p0, Landroid/widget/AdapterView;->mBlockLayoutRequests:Z
 
-    if-eqz v0, :cond_4
+    if-eqz v1, :cond_5
 
     :cond_1
-    iget-object v0, p0, Landroid/widget/AdapterView;->mSelectionNotifier:Landroid/widget/AdapterView$SelectionNotifier;
+    iget-object v1, p0, Landroid/widget/AdapterView;->mSelectionNotifier:Landroid/widget/AdapterView$SelectionNotifier;
 
-    if-nez v0, :cond_3
+    if-nez v1, :cond_4
 
-    new-instance v0, Landroid/widget/AdapterView$SelectionNotifier;
+    new-instance v1, Landroid/widget/AdapterView$SelectionNotifier;
 
-    invoke-direct {v0, p0, v1}, Landroid/widget/AdapterView$SelectionNotifier;-><init>(Landroid/widget/AdapterView;Landroid/widget/AdapterView$SelectionNotifier;)V
+    invoke-direct {v1, p0, v2}, Landroid/widget/AdapterView$SelectionNotifier;-><init>(Landroid/widget/AdapterView;Landroid/widget/AdapterView$SelectionNotifier;)V
 
-    iput-object v0, p0, Landroid/widget/AdapterView;->mSelectionNotifier:Landroid/widget/AdapterView$SelectionNotifier;
+    iput-object v1, p0, Landroid/widget/AdapterView;->mSelectionNotifier:Landroid/widget/AdapterView$SelectionNotifier;
 
     :goto_0
-    iget-object v0, p0, Landroid/widget/AdapterView;->mSelectionNotifier:Landroid/widget/AdapterView$SelectionNotifier;
+    iget-object v1, p0, Landroid/widget/AdapterView;->mSelectionNotifier:Landroid/widget/AdapterView$SelectionNotifier;
 
-    invoke-virtual {p0, v0}, Landroid/widget/AdapterView;->post(Ljava/lang/Runnable;)Z
+    invoke-virtual {p0, v1}, Landroid/widget/AdapterView;->post(Ljava/lang/Runnable;)Z
 
     :cond_2
     :goto_1
-    return-void
+    iget-object v1, p0, Landroid/widget/AdapterView;->mContext:Landroid/content/Context;
+
+    const-class v2, Landroid/view/autofill/AutofillManager;
+
+    invoke-virtual {v1, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/view/autofill/AutofillManager;
+
+    if-eqz v0, :cond_3
+
+    invoke-virtual {v0, p0}, Landroid/view/autofill/AutofillManager;->notifyValueChanged(Landroid/view/View;)V
 
     :cond_3
-    iget-object v0, p0, Landroid/widget/AdapterView;->mSelectionNotifier:Landroid/widget/AdapterView$SelectionNotifier;
+    return-void
 
-    invoke-virtual {p0, v0}, Landroid/widget/AdapterView;->removeCallbacks(Ljava/lang/Runnable;)Z
+    :cond_4
+    iget-object v1, p0, Landroid/widget/AdapterView;->mSelectionNotifier:Landroid/widget/AdapterView$SelectionNotifier;
+
+    invoke-virtual {p0, v1}, Landroid/widget/AdapterView;->removeCallbacks(Ljava/lang/Runnable;)Z
 
     goto :goto_0
 
-    :cond_4
+    :cond_5
     invoke-direct {p0}, Landroid/widget/AdapterView;->dispatchOnItemSelected()V
 
     goto :goto_1
@@ -2115,8 +2174,6 @@
     .annotation runtime Landroid/view/RemotableViewMethod;
     .end annotation
 
-    const/4 v1, 0x1
-
     iput-object p1, p0, Landroid/widget/AdapterView;->mEmptyView:Landroid/view/View;
 
     if-eqz p1, :cond_0
@@ -2127,7 +2184,9 @@
 
     if-nez v2, :cond_0
 
-    invoke-virtual {p1, v1}, Landroid/view/View;->setImportantForAccessibility(I)V
+    const/4 v2, 0x1
+
+    invoke-virtual {p1, v2}, Landroid/view/View;->setImportantForAccessibility(I)V
 
     :cond_0
     invoke-virtual {p0}, Landroid/widget/AdapterView;->getAdapter()Landroid/widget/Adapter;
@@ -2140,13 +2199,18 @@
 
     move-result v1
 
-    :cond_1
+    :goto_0
     invoke-direct {p0, v1}, Landroid/widget/AdapterView;->updateEmptyStatus(Z)V
 
     return-void
+
+    :cond_1
+    const/4 v1, 0x1
+
+    goto :goto_0
 .end method
 
-.method public setFocusable(Z)V
+.method public setFocusable(I)V
     .locals 4
 
     const/4 v2, 0x0
@@ -2167,24 +2231,26 @@
     const/4 v1, 0x1
 
     :goto_0
-    iput-boolean p1, p0, Landroid/widget/AdapterView;->mDesiredFocusableState:Z
+    iput p1, p0, Landroid/widget/AdapterView;->mDesiredFocusableState:I
 
-    if-nez p1, :cond_1
+    and-int/lit8 v3, p1, 0x11
+
+    if-nez v3, :cond_1
 
     iput-boolean v2, p0, Landroid/widget/AdapterView;->mDesiredFocusableInTouchModeState:Z
 
     :cond_1
-    if-eqz p1, :cond_2
-
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_2
 
     invoke-virtual {p0}, Landroid/widget/AdapterView;->isInFilterMode()Z
 
-    move-result v2
+    move-result v3
+
+    if-eqz v3, :cond_4
 
     :cond_2
     :goto_1
-    invoke-super {p0, v2}, Landroid/view/ViewGroup;->setFocusable(Z)V
+    invoke-super {p0, p1}, Landroid/view/ViewGroup;->setFocusable(I)V
 
     return-void
 
@@ -2194,7 +2260,7 @@
     goto :goto_0
 
     :cond_4
-    const/4 v2, 0x1
+    move p1, v2
 
     goto :goto_1
 .end method
@@ -2226,7 +2292,7 @@
 
     if-eqz p1, :cond_1
 
-    iput-boolean v2, p0, Landroid/widget/AdapterView;->mDesiredFocusableState:Z
+    iput v2, p0, Landroid/widget/AdapterView;->mDesiredFocusableState:I
 
     :cond_1
     if-eqz p1, :cond_4

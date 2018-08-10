@@ -44,7 +44,7 @@
 
     iput-object v0, p0, Landroid/widget/RemoteViews$AddStrokeAction;->methodName:Ljava/lang/String;
 
-    iput p2, p0, Landroid/widget/RemoteViews$Action;->viewId:I
+    iput p2, p0, Landroid/widget/RemoteViews$AddStrokeAction;->viewId:I
 
     iput p3, p0, Landroid/widget/RemoteViews$AddStrokeAction;->size:F
 
@@ -72,7 +72,7 @@
 
     move-result v0
 
-    iput v0, p0, Landroid/widget/RemoteViews$Action;->viewId:I
+    iput v0, p0, Landroid/widget/RemoteViews$AddStrokeAction;->viewId:I
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readFloat()F
 
@@ -100,7 +100,7 @@
 .method public apply(Landroid/view/View;Landroid/view/ViewGroup;Landroid/widget/RemoteViews$OnClickHandler;)V
     .locals 4
 
-    iget v1, p0, Landroid/widget/RemoteViews$Action;->viewId:I
+    iget v1, p0, Landroid/widget/RemoteViews$AddStrokeAction;->viewId:I
 
     invoke-virtual {p1, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -127,7 +127,7 @@
 
     const/4 v2, 0x1
 
-    invoke-virtual {v1, v2}, Landroid/graphics/Paint;->setFilterBitmap(Z)V
+    invoke-virtual {v1, v2}, Landroid/text/TextPaint;->setFilterBitmap(Z)V
 
     return-void
 .end method
@@ -147,7 +147,7 @@
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    iget v0, p0, Landroid/widget/RemoteViews$Action;->viewId:I
+    iget v0, p0, Landroid/widget/RemoteViews$AddStrokeAction;->viewId:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 

@@ -180,6 +180,21 @@
     return-object v0
 .end method
 
+.method public bridge synthetic clone()Ljava/lang/Object;
+    .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/lang/CloneNotSupportedException;
+        }
+    .end annotation
+
+    invoke-virtual {p0}, Landroid/animation/PropertyValuesHolder$IntPropertyValuesHolder;->clone()Landroid/animation/PropertyValuesHolder$IntPropertyValuesHolder;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
 .method getAnimatedValue()Ljava/lang/Object;
     .locals 1
 
@@ -311,6 +326,26 @@
     iput-object v0, p0, Landroid/animation/PropertyValuesHolder$IntPropertyValuesHolder;->mIntKeyframes:Landroid/animation/Keyframes$IntKeyframes;
 
     return-void
+.end method
+
+.method public setProperty(Landroid/util/Property;)V
+    .locals 1
+
+    instance-of v0, p1, Landroid/util/IntProperty;
+
+    if-eqz v0, :cond_0
+
+    check-cast p1, Landroid/util/IntProperty;
+
+    iput-object p1, p0, Landroid/animation/PropertyValuesHolder$IntPropertyValuesHolder;->mIntProperty:Landroid/util/IntProperty;
+
+    :goto_0
+    return-void
+
+    :cond_0
+    invoke-super {p0, p1}, Landroid/animation/PropertyValuesHolder;->setProperty(Landroid/util/Property;)V
+
+    goto :goto_0
 .end method
 
 .method setupSetter(Ljava/lang/Class;)V

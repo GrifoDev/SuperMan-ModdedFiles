@@ -364,7 +364,17 @@
 
     if-nez v0, :cond_0
 
-    if-eqz p1, :cond_1
+    xor-int/lit8 v0, p1, 0x1
+
+    if-eqz v0, :cond_0
+
+    new-instance v0, Ljava/lang/IllegalStateException;
+
+    const-string/jumbo v1, "JSON must start with an array or an object."
+
+    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+
+    throw v0
 
     :cond_0
     sget-object v0, Landroid/util/JsonScope;->NONEMPTY_DOCUMENT:Landroid/util/JsonScope;
@@ -373,15 +383,6 @@
 
     :goto_0
     return-void
-
-    :cond_1
-    new-instance v0, Ljava/lang/IllegalStateException;
-
-    const-string/jumbo v1, "JSON must start with an array or an object."
-
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
-
-    throw v0
 
     :pswitch_1
     sget-object v0, Landroid/util/JsonScope;->NONEMPTY_ARRAY:Landroid/util/JsonScope;

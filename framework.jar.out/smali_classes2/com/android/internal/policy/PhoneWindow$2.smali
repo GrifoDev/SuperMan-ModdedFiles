@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/internal/policy/PhoneWindow;->registerSwipeCallbacks()V
+    value = Lcom/android/internal/policy/PhoneWindow;->registerSwipeCallbacks(Landroid/view/ViewGroup;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -35,13 +35,19 @@
 
 # virtual methods
 .method public onDismissed(Lcom/android/internal/widget/SwipeDismissLayout;)V
-    .locals 2
+    .locals 3
+
+    iget-object v0, p0, Lcom/android/internal/policy/PhoneWindow$2;->this$0:Lcom/android/internal/policy/PhoneWindow;
+
+    invoke-virtual {v0}, Lcom/android/internal/policy/PhoneWindow;->dispatchOnWindowSwipeDismissed()V
 
     iget-object v0, p0, Lcom/android/internal/policy/PhoneWindow$2;->this$0:Lcom/android/internal/policy/PhoneWindow;
 
     const/4 v1, 0x0
 
-    invoke-virtual {v0, v1}, Landroid/view/Window;->dispatchOnWindowDismissed(Z)V
+    const/4 v2, 0x1
+
+    invoke-virtual {v0, v1, v2}, Lcom/android/internal/policy/PhoneWindow;->dispatchOnWindowDismissed(ZZ)V
 
     return-void
 .end method

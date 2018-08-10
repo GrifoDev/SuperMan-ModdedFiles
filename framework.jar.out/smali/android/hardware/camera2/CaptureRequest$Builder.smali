@@ -42,11 +42,11 @@
 
     iget-object v0, p0, Landroid/hardware/camera2/CaptureRequest$Builder;->mRequest:Landroid/hardware/camera2/CaptureRequest;
 
-    invoke-static {v0}, Landroid/hardware/camera2/CaptureRequest;->-get1(Landroid/hardware/camera2/CaptureRequest;)Ljava/util/HashSet;
+    invoke-static {v0}, Landroid/hardware/camera2/CaptureRequest;->-get1(Landroid/hardware/camera2/CaptureRequest;)Landroid/util/ArraySet;
 
     move-result-object v0
 
-    invoke-virtual {v0, p1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v0, p1}, Landroid/util/ArraySet;->add(Ljava/lang/Object;)Z
 
     return-void
 .end method
@@ -111,11 +111,11 @@
 
     iget-object v0, p0, Landroid/hardware/camera2/CaptureRequest$Builder;->mRequest:Landroid/hardware/camera2/CaptureRequest;
 
-    invoke-static {v0}, Landroid/hardware/camera2/CaptureRequest;->-get1(Landroid/hardware/camera2/CaptureRequest;)Ljava/util/HashSet;
+    invoke-static {v0}, Landroid/hardware/camera2/CaptureRequest;->-get1(Landroid/hardware/camera2/CaptureRequest;)Landroid/util/ArraySet;
 
     move-result-object v0
 
-    invoke-virtual {v0, p1}, Ljava/util/HashSet;->remove(Ljava/lang/Object;)Z
+    invoke-virtual {v0, p1}, Landroid/util/ArraySet;->remove(Ljava/lang/Object;)Z
 
     return-void
 .end method

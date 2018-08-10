@@ -51,49 +51,51 @@
 .end method
 
 .method private updateParameters()V
-    .locals 8
+    .locals 9
 
-    const v7, 0x3f333333    # 0.7f
+    const v8, 0x3f333333    # 0.7f
 
-    const v6, 0x3e99999a    # 0.3f
+    const v7, 0x3e99999a    # 0.3f
 
-    const/high16 v5, 0x3f800000    # 1.0f
+    const/high16 v6, 0x3f800000    # 1.0f
 
-    iget v4, p0, Landroid/filterpacks/imageproc/FillLightFilter;->mBacklight:F
+    const v1, 0x3e99999a    # 0.3f
 
-    sub-float v0, v5, v4
+    iget v5, p0, Landroid/filterpacks/imageproc/FillLightFilter;->mBacklight:F
 
-    mul-float v4, v0, v7
+    sub-float v0, v6, v5
 
-    add-float/2addr v4, v6
+    mul-float v5, v0, v8
 
-    div-float v3, v5, v4
+    add-float/2addr v5, v7
 
-    mul-float v4, v7, v3
+    div-float v4, v6, v5
 
-    add-float v1, v6, v4
+    mul-float v5, v8, v4
 
-    div-float v2, v5, v1
+    add-float v2, v7, v5
 
-    iget-object v4, p0, Landroid/filterpacks/imageproc/FillLightFilter;->mProgram:Landroid/filterfw/core/Program;
+    div-float v3, v6, v2
 
-    const-string/jumbo v5, "mult"
+    iget-object v5, p0, Landroid/filterpacks/imageproc/FillLightFilter;->mProgram:Landroid/filterfw/core/Program;
+
+    const-string/jumbo v6, "mult"
+
+    invoke-static {v4}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
+
+    move-result-object v7
+
+    invoke-virtual {v5, v6, v7}, Landroid/filterfw/core/Program;->setHostValue(Ljava/lang/String;Ljava/lang/Object;)V
+
+    iget-object v5, p0, Landroid/filterpacks/imageproc/FillLightFilter;->mProgram:Landroid/filterfw/core/Program;
+
+    const-string/jumbo v6, "igamma"
 
     invoke-static {v3}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
 
-    move-result-object v6
+    move-result-object v7
 
-    invoke-virtual {v4, v5, v6}, Landroid/filterfw/core/Program;->setHostValue(Ljava/lang/String;Ljava/lang/Object;)V
-
-    iget-object v4, p0, Landroid/filterpacks/imageproc/FillLightFilter;->mProgram:Landroid/filterfw/core/Program;
-
-    const-string/jumbo v5, "igamma"
-
-    invoke-static {v2}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
-
-    move-result-object v6
-
-    invoke-virtual {v4, v5, v6}, Landroid/filterfw/core/Program;->setHostValue(Ljava/lang/String;Ljava/lang/Object;)V
+    invoke-virtual {v5, v6, v7}, Landroid/filterfw/core/Program;->setHostValue(Ljava/lang/String;Ljava/lang/Object;)V
 
     return-void
 .end method
@@ -206,7 +208,7 @@
 
     const-string/jumbo v3, "image"
 
-    invoke-virtual {p0, v3}, Landroid/filterfw/core/Filter;->pullInput(Ljava/lang/String;)Landroid/filterfw/core/Frame;
+    invoke-virtual {p0, v3}, Landroid/filterpacks/imageproc/FillLightFilter;->pullInput(Ljava/lang/String;)Landroid/filterfw/core/Frame;
 
     move-result-object v0
 
@@ -250,7 +252,7 @@
 
     const-string/jumbo v3, "image"
 
-    invoke-virtual {p0, v3, v2}, Landroid/filterfw/core/Filter;->pushOutput(Ljava/lang/String;Landroid/filterfw/core/Frame;)V
+    invoke-virtual {p0, v3, v2}, Landroid/filterpacks/imageproc/FillLightFilter;->pushOutput(Ljava/lang/String;Landroid/filterfw/core/Frame;)V
 
     invoke-virtual {v2}, Landroid/filterfw/core/Frame;->release()Landroid/filterfw/core/Frame;
 
@@ -268,13 +270,13 @@
 
     move-result-object v1
 
-    invoke-virtual {p0, v0, v1}, Landroid/filterfw/core/Filter;->addMaskedInputPort(Ljava/lang/String;Landroid/filterfw/core/FrameFormat;)V
+    invoke-virtual {p0, v0, v1}, Landroid/filterpacks/imageproc/FillLightFilter;->addMaskedInputPort(Ljava/lang/String;Landroid/filterfw/core/FrameFormat;)V
 
     const-string/jumbo v0, "image"
 
     const-string/jumbo v1, "image"
 
-    invoke-virtual {p0, v0, v1}, Landroid/filterfw/core/Filter;->addOutputBasedOnInput(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {p0, v0, v1}, Landroid/filterpacks/imageproc/FillLightFilter;->addOutputBasedOnInput(Ljava/lang/String;Ljava/lang/String;)V
 
     return-void
 .end method

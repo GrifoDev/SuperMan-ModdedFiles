@@ -445,26 +445,10 @@
 
     move-result v3
 
-    if-eqz v3, :cond_3
+    xor-int/lit8 v3, v3, 0x1
 
-    :cond_1
-    invoke-virtual {v1}, Ljava/io/File;->exists()Z
+    if-eqz v3, :cond_1
 
-    move-result v3
-
-    if-nez v3, :cond_2
-
-    invoke-virtual {v1}, Ljava/io/File;->mkdir()Z
-
-    move-result v3
-
-    if-eqz v3, :cond_4
-
-    :cond_2
-    :goto_0
-    return-object v1
-
-    :cond_3
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
@@ -491,7 +475,21 @@
 
     return-object v5
 
-    :cond_4
+    :cond_1
+    invoke-virtual {v1}, Ljava/io/File;->exists()Z
+
+    move-result v3
+
+    if-nez v3, :cond_2
+
+    invoke-virtual {v1}, Ljava/io/File;->mkdir()Z
+
+    move-result v3
+
+    xor-int/lit8 v3, v3, 0x1
+
+    if-eqz v3, :cond_2
+
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
@@ -523,13 +521,14 @@
     :catch_0
     move-exception v0
 
-    invoke-virtual {v0}, Ljava/lang/Throwable;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/Exception;->toString()Ljava/lang/String;
 
     move-result-object v3
 
     invoke-static {v3}, Lcom/samsung/android/contextaware/utilbundle/logger/CaLogger;->error(Ljava/lang/String;)V
 
-    goto :goto_0
+    :cond_2
+    return-object v1
 .end method
 
 
@@ -551,8 +550,18 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    xor-int/lit8 v1, v1, 0x1
 
+    if-eqz v1, :cond_1
+
+    :cond_0
+    const-string/jumbo v1, "This file dose not exist."
+
+    invoke-static {v1}, Lcom/samsung/android/contextaware/utilbundle/logger/CaLogger;->error(Ljava/lang/String;)V
+
+    return-void
+
+    :cond_1
     :try_start_0
     iget-object v1, p0, Lcom/samsung/android/contextaware/utilbundle/logger/CaFileLogger;->mDataOutputStream:Ljava/util/Map;
 
@@ -591,13 +600,6 @@
     :goto_0
     return-void
 
-    :cond_0
-    const-string/jumbo v1, "This file dose not exist."
-
-    invoke-static {v1}, Lcom/samsung/android/contextaware/utilbundle/logger/CaLogger;->error(Ljava/lang/String;)V
-
-    return-void
-
     :catch_0
     move-exception v0
 
@@ -617,7 +619,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_0
 
     iget-object v1, p0, Lcom/samsung/android/contextaware/utilbundle/logger/CaFileLogger;->mDataOutputStream:Ljava/util/Map;
 
@@ -625,30 +627,33 @@
 
     move-result v1
 
+    xor-int/lit8 v1, v1, 0x1
+
     if-eqz v1, :cond_1
 
-    if-eqz p4, :cond_0
-
-    array-length v1, p4
-
-    if-gt v1, v2, :cond_2
-
     :cond_0
-    return-void
-
-    :cond_1
     const-string/jumbo v1, "This file dose not exist."
 
     invoke-static {v1}, Lcom/samsung/android/contextaware/utilbundle/logger/CaLogger;->error(Ljava/lang/String;)V
 
     return-void
 
+    :cond_1
+    if-eqz p4, :cond_2
+
+    array-length v1, p4
+
+    if-gt v1, v2, :cond_3
+
     :cond_2
-    if-eqz p5, :cond_0
+    return-void
+
+    :cond_3
+    if-eqz p5, :cond_2
 
     array-length v1, p5
 
-    if-le v1, v2, :cond_0
+    if-le v1, v2, :cond_2
 
     :try_start_0
     iget-object v1, p0, Lcom/samsung/android/contextaware/utilbundle/logger/CaFileLogger;->mDataOutputStream:Ljava/util/Map;
@@ -905,8 +910,14 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    xor-int/lit8 v1, v1, 0x1
 
+    if-eqz v1, :cond_1
+
+    :cond_0
+    return v2
+
+    :cond_1
     :try_start_0
     iget-object v1, p0, Lcom/samsung/android/contextaware/utilbundle/logger/CaFileLogger;->mDataOutputStream:Ljava/util/Map;
 
@@ -916,7 +927,7 @@
 
     check-cast v1, Ljava/io/DataOutputStream;
 
-    invoke-virtual {v1}, Ljava/io/FilterOutputStream;->close()V
+    invoke-virtual {v1}, Ljava/io/DataOutputStream;->close()V
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -931,9 +942,6 @@
     const/4 v1, 0x1
 
     return v1
-
-    :cond_0
-    return v2
 
     :catch_0
     move-exception v0

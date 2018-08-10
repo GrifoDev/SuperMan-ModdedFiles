@@ -17,7 +17,7 @@
     value = {
         "Landroid/app/SystemServiceRegistry$CachedServiceFetcher",
         "<",
-        "Landroid/telecom/TelecomManager;",
+        "Landroid/os/storage/StorageManager;",
         ">;"
     }
 .end annotation
@@ -34,24 +34,40 @@
 
 
 # virtual methods
-.method public createService(Landroid/app/ContextImpl;)Landroid/telecom/TelecomManager;
+.method public createService(Landroid/app/ContextImpl;)Landroid/os/storage/StorageManager;
     .locals 2
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/ServiceManager$ServiceNotFoundException;
+        }
+    .end annotation
 
-    new-instance v0, Landroid/telecom/TelecomManager;
+    new-instance v0, Landroid/os/storage/StorageManager;
 
-    invoke-virtual {p1}, Landroid/app/ContextImpl;->getOuterContext()Landroid/content/Context;
+    iget-object v1, p1, Landroid/app/ContextImpl;->mMainThread:Landroid/app/ActivityThread;
+
+    invoke-virtual {v1}, Landroid/app/ActivityThread;->getHandler()Landroid/os/Handler;
 
     move-result-object v1
 
-    invoke-direct {v0, v1}, Landroid/telecom/TelecomManager;-><init>(Landroid/content/Context;)V
+    invoke-virtual {v1}, Landroid/os/Handler;->getLooper()Landroid/os/Looper;
+
+    move-result-object v1
+
+    invoke-direct {v0, p1, v1}, Landroid/os/storage/StorageManager;-><init>(Landroid/content/Context;Landroid/os/Looper;)V
 
     return-object v0
 .end method
 
 .method public bridge synthetic createService(Landroid/app/ContextImpl;)Ljava/lang/Object;
     .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/ServiceManager$ServiceNotFoundException;
+        }
+    .end annotation
 
-    invoke-virtual {p0, p1}, Landroid/app/SystemServiceRegistry$43;->createService(Landroid/app/ContextImpl;)Landroid/telecom/TelecomManager;
+    invoke-virtual {p0, p1}, Landroid/app/SystemServiceRegistry$43;->createService(Landroid/app/ContextImpl;)Landroid/os/storage/StorageManager;
 
     move-result-object v0
 

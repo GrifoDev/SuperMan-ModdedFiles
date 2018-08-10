@@ -23,8 +23,6 @@
     .end annotation
 .end field
 
-.field private static final TAG:Ljava/lang/String; = "SemContextApproachAttribute"
-
 
 # instance fields
 .field private mUserID:I
@@ -96,7 +94,7 @@
 
     iget v2, p0, Lcom/samsung/android/hardware/context/SemContextApproachAttribute;->mUserID:I
 
-    invoke-virtual {v0, v1, v2}, Landroid/os/BaseBundle;->putInt(Ljava/lang/String;I)V
+    invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
     const/4 v1, 0x1
 

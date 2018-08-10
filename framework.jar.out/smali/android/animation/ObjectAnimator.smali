@@ -89,7 +89,7 @@
 
     instance-of v4, p1, Landroid/animation/ObjectAnimator;
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_3
 
     move-object v4, p1
 
@@ -109,7 +109,7 @@
 
     move-result-object v5
 
-    if-ne v4, v5, :cond_2
+    if-ne v4, v5, :cond_3
 
     iget-object v4, p0, Landroid/animation/ObjectAnimator;->mValues:[Landroid/animation/PropertyValuesHolder;
 
@@ -117,7 +117,7 @@
 
     array-length v5, v3
 
-    if-ne v4, v5, :cond_2
+    if-ne v4, v5, :cond_3
 
     const/4 v0, 0x0
 
@@ -126,7 +126,7 @@
 
     array-length v4, v4
 
-    if-ge v0, v4, :cond_1
+    if-ge v0, v4, :cond_2
 
     iget-object v4, p0, Landroid/animation/ObjectAnimator;->mValues:[Landroid/animation/PropertyValuesHolder;
 
@@ -152,21 +152,24 @@
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    xor-int/lit8 v4, v4, 0x1
 
-    add-int/lit8 v0, v0, 0x1
-
-    goto :goto_0
+    if-eqz v4, :cond_1
 
     :cond_0
     return v6
 
     :cond_1
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_0
+
+    :cond_2
     const/4 v4, 0x1
 
     return v4
 
-    :cond_2
+    :cond_3
     return v6
 .end method
 
@@ -879,6 +882,16 @@
     return-void
 .end method
 
+.method public bridge synthetic clone()Landroid/animation/Animator;
+    .locals 1
+
+    invoke-virtual {p0}, Landroid/animation/ObjectAnimator;->clone()Landroid/animation/ObjectAnimator;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
 .method public clone()Landroid/animation/ObjectAnimator;
     .locals 1
 
@@ -893,6 +906,21 @@
 
 .method public bridge synthetic clone()Landroid/animation/ValueAnimator;
     .locals 1
+
+    invoke-virtual {p0}, Landroid/animation/ObjectAnimator;->clone()Landroid/animation/ObjectAnimator;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public bridge synthetic clone()Ljava/lang/Object;
+    .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/lang/CloneNotSupportedException;
+        }
+    .end annotation
 
     invoke-virtual {p0}, Landroid/animation/ObjectAnimator;->clone()Landroid/animation/ObjectAnimator;
 
@@ -1093,12 +1121,30 @@
     return-void
 .end method
 
+.method isInitialized()Z
+    .locals 1
+
+    iget-boolean v0, p0, Landroid/animation/ObjectAnimator;->mInitialized:Z
+
+    return v0
+.end method
+
 .method public setAutoCancel(Z)V
     .locals 0
 
     iput-boolean p1, p0, Landroid/animation/ObjectAnimator;->mAutoCancel:Z
 
     return-void
+.end method
+
+.method public bridge synthetic setDuration(J)Landroid/animation/Animator;
+    .locals 1
+
+    invoke-virtual {p0, p1, p2}, Landroid/animation/ObjectAnimator;->setDuration(J)Landroid/animation/ObjectAnimator;
+
+    move-result-object v0
+
+    return-object v0
 .end method
 
 .method public setDuration(J)Landroid/animation/ObjectAnimator;

@@ -128,7 +128,7 @@
 
     iget v2, p0, Landroid/hardware/scontext/SContextAutoBrightnessAttribute;->mMode:I
 
-    invoke-virtual {v0, v1, v2}, Landroid/os/BaseBundle;->putInt(Ljava/lang/String;I)V
+    invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
     iget v1, p0, Landroid/hardware/scontext/SContextAutoBrightnessAttribute;->mMode:I
 
@@ -161,7 +161,7 @@
 
     iget v2, p0, Landroid/hardware/scontext/SContextAutoBrightnessAttribute;->mDeviceMode:I
 
-    invoke-virtual {v0, v1, v2}, Landroid/os/BaseBundle;->putInt(Ljava/lang/String;I)V
+    invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
     goto :goto_0
 .end method

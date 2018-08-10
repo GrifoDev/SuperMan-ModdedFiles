@@ -13,7 +13,9 @@
 
 
 # static fields
-.field public static final CONNECT_TIME_NOT_SPECIFIED:J
+.field public static final CONNECT_TIME_NOT_SPECIFIED:J = 0x0L
+
+.field static final LOG_TAG:Ljava/lang/String; = "Telecom-Conference"
 
 
 # instance fields
@@ -277,19 +279,40 @@
 .end method
 
 .method private setState(I)V
+    .locals 1
+
+    const/4 v0, 0x0
+
+    invoke-direct {p0, p1, v0}, Landroid/telecom/Conference;->setState(IZ)V
+
+    return-void
+.end method
+
+.method private setState(IZ)V
     .locals 7
 
+    const/4 v6, 0x0
+
+    if-eqz p2, :cond_0
+
+    const-string/jumbo v3, "setState(forced)"
+
+    new-array v4, v6, [Ljava/lang/Object;
+
+    invoke-static {p0, v3, v4}, Landroid/telecom/Log;->d(Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Object;)V
+
+    :cond_0
     const/4 v3, 0x4
 
-    if-eq p1, v3, :cond_0
+    if-eq p1, v3, :cond_1
 
     const/4 v3, 0x5
 
-    if-eq p1, v3, :cond_0
+    if-eq p1, v3, :cond_1
 
     const/4 v3, 0x6
 
-    if-eq p1, v3, :cond_0
+    if-eq p1, v3, :cond_1
 
     const-string/jumbo v3, "Unsupported state transition for Conference call."
 
@@ -301,19 +324,20 @@
 
     move-result-object v5
 
-    const/4 v6, 0x0
-
     aput-object v5, v4, v6
 
     invoke-static {p0, v3, v4}, Landroid/telecom/Log;->w(Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Object;)V
 
     return-void
 
-    :cond_0
+    :cond_1
     iget v3, p0, Landroid/telecom/Conference;->mState:I
 
-    if-eq v3, p1, :cond_1
+    if-ne v3, p1, :cond_2
 
+    if-eqz p2, :cond_3
+
+    :cond_2
     iget v2, p0, Landroid/telecom/Conference;->mState:I
 
     iput p1, p0, Landroid/telecom/Conference;->mState:I
@@ -329,7 +353,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_3
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -341,7 +365,7 @@
 
     goto :goto_0
 
-    :cond_1
+    :cond_3
     return-void
 .end method
 
@@ -374,7 +398,7 @@
 
     invoke-static {p0, v2, v3}, Landroid/telecom/Log;->d(Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Object;)V
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_1
 
     iget-object v2, p0, Landroid/telecom/Conference;->mChildConnections:Ljava/util/List;
 
@@ -382,17 +406,15 @@
 
     move-result v2
 
+    xor-int/lit8 v2, v2, 0x1
+
     if-eqz v2, :cond_1
 
-    :cond_0
-    return v4
-
-    :cond_1
     invoke-virtual {p1, p0}, Landroid/telecom/Connection;->setConference(Landroid/telecom/Conference;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1
 
     iget-object v2, p0, Landroid/telecom/Conference;->mChildConnections:Ljava/util/List;
 
@@ -411,7 +433,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_0
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -423,12 +445,37 @@
 
     goto :goto_0
 
-    :cond_2
+    :cond_0
     return v5
+
+    :cond_1
+    return v4
 .end method
 
 .method public final addListener(Landroid/telecom/Conference$Listener;)Landroid/telecom/Conference;
-    .locals 1
+    .locals 3
+
+    const-string/jumbo v0, "Telecom-Conference"
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "addListener - listener: "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     iget-object v0, p0, Landroid/telecom/Conference;->mListeners:Ljava/util/Set;
 
@@ -1144,8 +1191,42 @@
     return-void
 .end method
 
-.method public final removeListener(Landroid/telecom/Conference$Listener;)Landroid/telecom/Conference;
+.method public final varargs removeExtras([Ljava/lang/String;)V
     .locals 1
+
+    invoke-static {p1}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
+
+    move-result-object v0
+
+    invoke-virtual {p0, v0}, Landroid/telecom/Conference;->removeExtras(Ljava/util/List;)V
+
+    return-void
+.end method
+
+.method public final removeListener(Landroid/telecom/Conference$Listener;)Landroid/telecom/Conference;
+    .locals 3
+
+    const-string/jumbo v0, "Telecom-Conference"
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "removeListener - listener: "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     iget-object v0, p0, Landroid/telecom/Conference;->mListeners:Ljava/util/Set;
 
@@ -1160,6 +1241,18 @@
     const/4 v0, 0x4
 
     invoke-direct {p0, v0}, Landroid/telecom/Conference;->setState(I)V
+
+    return-void
+.end method
+
+.method public final setActiveForcedUpdate()V
+    .locals 2
+
+    const/4 v0, 0x4
+
+    const/4 v1, 0x1
+
+    invoke-direct {p0, v0, v1}, Landroid/telecom/Conference;->setState(IZ)V
 
     return-void
 .end method
@@ -1193,7 +1286,7 @@
 .end method
 
 .method public final setConferenceableConnections(Ljava/util/List;)V
-    .locals 3
+    .locals 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1203,6 +1296,28 @@
             ">;)V"
         }
     .end annotation
+
+    const-string/jumbo v2, "Telecom-Conference"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "setConferenceableConnections - conferenceableConnections: "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     invoke-direct {p0}, Landroid/telecom/Conference;->clearConferenceableList()V
 
@@ -1434,7 +1549,9 @@
 
     move-result v3
 
-    if-nez v3, :cond_0
+    xor-int/lit8 v3, v3, 0x1
+
+    if-eqz v3, :cond_0
 
     :cond_1
     invoke-interface {v2, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z

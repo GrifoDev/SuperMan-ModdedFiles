@@ -225,7 +225,7 @@
 
     check-cast v2, Lcom/samsung/android/graphics/spr/document/attribute/SprAttributeFill;
 
-    iget-byte v4, v2, Lcom/samsung/android/graphics/spr/document/attribute/SprAttributeColor;->colorType:B
+    iget-byte v4, v2, Lcom/samsung/android/graphics/spr/document/attribute/SprAttributeFill;->colorType:B
 
     packed-switch v4, :pswitch_data_0
 
@@ -241,7 +241,7 @@
 
     invoke-virtual {p2, v9}, Landroid/graphics/Paint;->setShader(Landroid/graphics/Shader;)Landroid/graphics/Shader;
 
-    iget v4, v2, Lcom/samsung/android/graphics/spr/document/attribute/SprAttributeColor;->color:I
+    iget v4, v2, Lcom/samsung/android/graphics/spr/document/attribute/SprAttributeFill;->color:I
 
     invoke-virtual {p2, v4}, Landroid/graphics/Paint;->setColor(I)V
 
@@ -250,7 +250,7 @@
     :pswitch_3
     iput-boolean v7, p0, Lcom/samsung/android/graphics/spr/document/shape/SprObjectBase;->isVisibleFill:Z
 
-    iget-object v4, v2, Lcom/samsung/android/graphics/spr/document/attribute/SprAttributeColor;->gradient:Lcom/samsung/android/graphics/spr/document/attribute/impl/SprGradientBase;
+    iget-object v4, v2, Lcom/samsung/android/graphics/spr/document/attribute/SprAttributeFill;->gradient:Lcom/samsung/android/graphics/spr/document/attribute/impl/SprGradientBase;
 
     iget-object v4, v4, Lcom/samsung/android/graphics/spr/document/attribute/impl/SprGradientBase;->shader:Landroid/graphics/Shader;
 
@@ -263,7 +263,7 @@
 
     check-cast v3, Lcom/samsung/android/graphics/spr/document/attribute/SprAttributeStroke;
 
-    iget-byte v4, v3, Lcom/samsung/android/graphics/spr/document/attribute/SprAttributeColor;->colorType:B
+    iget-byte v4, v3, Lcom/samsung/android/graphics/spr/document/attribute/SprAttributeStroke;->colorType:B
 
     packed-switch v4, :pswitch_data_1
 
@@ -279,7 +279,7 @@
 
     invoke-virtual {p1, v9}, Landroid/graphics/Paint;->setShader(Landroid/graphics/Shader;)Landroid/graphics/Shader;
 
-    iget v4, v3, Lcom/samsung/android/graphics/spr/document/attribute/SprAttributeColor;->color:I
+    iget v4, v3, Lcom/samsung/android/graphics/spr/document/attribute/SprAttributeStroke;->color:I
 
     invoke-virtual {p1, v4}, Landroid/graphics/Paint;->setColor(I)V
 
@@ -288,7 +288,7 @@
     :pswitch_6
     iput-boolean v7, p0, Lcom/samsung/android/graphics/spr/document/shape/SprObjectBase;->isVisibleStroke:Z
 
-    iget-object v4, v3, Lcom/samsung/android/graphics/spr/document/attribute/SprAttributeColor;->gradient:Lcom/samsung/android/graphics/spr/document/attribute/impl/SprGradientBase;
+    iget-object v4, v3, Lcom/samsung/android/graphics/spr/document/attribute/SprAttributeStroke;->gradient:Lcom/samsung/android/graphics/spr/document/attribute/impl/SprGradientBase;
 
     iget-object v4, v4, Lcom/samsung/android/graphics/spr/document/attribute/impl/SprGradientBase;->shader:Landroid/graphics/Shader;
 

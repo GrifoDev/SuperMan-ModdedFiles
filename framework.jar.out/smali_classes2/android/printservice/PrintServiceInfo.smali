@@ -155,7 +155,7 @@
     return-void
 .end method
 
-.method public static create(Landroid/content/pm/ResolveInfo;Landroid/content/Context;)Landroid/printservice/PrintServiceInfo;
+.method public static create(Landroid/content/Context;Landroid/content/pm/ResolveInfo;)Landroid/printservice/PrintServiceInfo;
     .locals 17
 
     const/4 v11, 0x0
@@ -166,11 +166,11 @@
 
     const/4 v9, 0x0
 
-    invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+    invoke-virtual/range {p0 .. p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v8
 
-    move-object/from16 v0, p0
+    move-object/from16 v0, p1
 
     iget-object v14, v0, Landroid/content/pm/ResolveInfo;->serviceInfo:Landroid/content/pm/ServiceInfo;
 
@@ -233,7 +233,7 @@
     :goto_2
     new-instance v14, Landroid/printservice/PrintServiceInfo;
 
-    move-object/from16 v0, p0
+    move-object/from16 v0, p1
 
     invoke-direct {v14, v0, v11, v1, v2}, Landroid/printservice/PrintServiceInfo;-><init>(Landroid/content/pm/ResolveInfo;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
@@ -241,7 +241,7 @@
 
     :cond_2
     :try_start_1
-    move-object/from16 v0, p0
+    move-object/from16 v0, p1
 
     iget-object v14, v0, Landroid/content/pm/ResolveInfo;->serviceInfo:Landroid/content/pm/ServiceInfo;
 
@@ -338,7 +338,7 @@
 
     move-result-object v15
 
-    move-object/from16 v0, p0
+    move-object/from16 v0, p1
 
     iget-object v0, v0, Landroid/content/pm/ResolveInfo;->serviceInfo:Landroid/content/pm/ServiceInfo;
 

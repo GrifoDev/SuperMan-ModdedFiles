@@ -14,7 +14,7 @@
 
 
 # static fields
-.field public static final LAYER_RECORDER_ENABLED:Z = true
+.field public static final LAYER_RECORDER_ENABLED:Z = false
 
 .field private static final TAG:Ljava/lang/String; = "MediaProjection"
 
@@ -99,7 +99,7 @@
 .end method
 
 .method public createVirtualDisplay(Ljava/lang/String;IIIILandroid/view/Surface;Landroid/hardware/display/VirtualDisplay$Callback;Landroid/os/Handler;)Landroid/hardware/display/VirtualDisplay;
-    .locals 10
+    .locals 11
 
     iget-object v1, p0, Landroid/media/projection/MediaProjection;->mContext:Landroid/content/Context;
 
@@ -110,6 +110,8 @@
     move-result-object v0
 
     check-cast v0, Landroid/hardware/display/DisplayManager;
+
+    const/4 v10, 0x0
 
     move-object v1, p0
 
@@ -123,13 +125,13 @@
 
     move-object/from16 v6, p6
 
-    move v7, p5
+    move/from16 v7, p5
 
     move-object/from16 v8, p7
 
     move-object/from16 v9, p8
 
-    invoke-virtual/range {v0 .. v9}, Landroid/hardware/display/DisplayManager;->createVirtualDisplay(Landroid/media/projection/MediaProjection;Ljava/lang/String;IIILandroid/view/Surface;ILandroid/hardware/display/VirtualDisplay$Callback;Landroid/os/Handler;)Landroid/hardware/display/VirtualDisplay;
+    invoke-virtual/range {v0 .. v10}, Landroid/hardware/display/DisplayManager;->createVirtualDisplay(Landroid/media/projection/MediaProjection;Ljava/lang/String;IIILandroid/view/Surface;ILandroid/hardware/display/VirtualDisplay$Callback;Landroid/os/Handler;Ljava/lang/String;)Landroid/hardware/display/VirtualDisplay;
 
     move-result-object v1
 
@@ -137,7 +139,7 @@
 .end method
 
 .method public createVirtualDisplay(Ljava/lang/String;IIIZLandroid/view/Surface;Landroid/hardware/display/VirtualDisplay$Callback;Landroid/os/Handler;)Landroid/hardware/display/VirtualDisplay;
-    .locals 11
+    .locals 12
 
     iget-object v1, p0, Landroid/media/projection/MediaProjection;->mContext:Landroid/content/Context;
 
@@ -151,12 +153,14 @@
 
     if-eqz p5, :cond_0
 
-    const/4 v10, 0x4
+    const/4 v11, 0x4
 
     :goto_0
-    or-int/lit8 v1, v10, 0x10
+    or-int/lit8 v1, v11, 0x10
 
     or-int/lit8 v7, v1, 0x2
+
+    const/4 v10, 0x0
 
     move-object v1, p0
 
@@ -166,7 +170,7 @@
 
     move v4, p3
 
-    move v5, p4
+    move/from16 v5, p4
 
     move-object/from16 v6, p6
 
@@ -174,14 +178,14 @@
 
     move-object/from16 v9, p8
 
-    invoke-virtual/range {v0 .. v9}, Landroid/hardware/display/DisplayManager;->createVirtualDisplay(Landroid/media/projection/MediaProjection;Ljava/lang/String;IIILandroid/view/Surface;ILandroid/hardware/display/VirtualDisplay$Callback;Landroid/os/Handler;)Landroid/hardware/display/VirtualDisplay;
+    invoke-virtual/range {v0 .. v10}, Landroid/hardware/display/DisplayManager;->createVirtualDisplay(Landroid/media/projection/MediaProjection;Ljava/lang/String;IIILandroid/view/Surface;ILandroid/hardware/display/VirtualDisplay$Callback;Landroid/os/Handler;Ljava/lang/String;)Landroid/hardware/display/VirtualDisplay;
 
     move-result-object v1
 
     return-object v1
 
     :cond_0
-    const/4 v10, 0x0
+    const/4 v11, 0x0
 
     goto :goto_0
 .end method
@@ -226,10 +230,14 @@
     return-void
 .end method
 
-.method public setUserIdToRecord(Ljava/lang/String;I)V
-    .locals 0
+.method public semSetUserId(Ljava/lang/String;I)V
+    .locals 2
 
-    invoke-static {p1, p2}, Landroid/view/SurfaceControl;->setUserIdToRecord(Ljava/lang/String;I)V
+    const-string/jumbo v0, "MediaProjection"
+
+    const-string/jumbo v1, "fail to set userId"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 .end method

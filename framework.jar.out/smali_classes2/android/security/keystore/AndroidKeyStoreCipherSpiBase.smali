@@ -177,9 +177,7 @@
 
     if-eqz v0, :cond_6
 
-    nop
-
-    nop
+    check-cast v7, Ljava/security/InvalidKeyException;
 
     throw v7
 
@@ -188,9 +186,7 @@
 
     if-eqz v0, :cond_7
 
-    nop
-
-    nop
+    check-cast v7, Ljava/security/InvalidAlgorithmParameterException;
 
     throw v7
 
@@ -281,12 +277,10 @@
 
     iget-boolean v0, p0, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->mAdditionalAuthenticationDataStreamerClosed:Z
 
-    if-eqz v0, :cond_1
+    xor-int/lit8 v0, v0, 0x1
 
-    :cond_0
-    return-void
+    if-eqz v0, :cond_0
 
-    :cond_1
     :try_start_0
     iget-object v0, p0, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->mAdditionalAuthenticationDataStreamer:Landroid/security/keystore/KeyStoreCryptoOperationStreamer;
 
@@ -352,6 +346,9 @@
     iput-boolean v7, p0, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->mAdditionalAuthenticationDataStreamerClosed:Z
 
     throw v0
+
+    :cond_0
+    return-void
 .end method
 
 .method private init(ILjava/security/Key;Ljava/security/SecureRandom;)V
@@ -508,7 +505,7 @@
         }
     .end annotation
 
-    const/4 v5, 0x0
+    const/4 v7, 0x0
 
     if-nez p1, :cond_0
 
@@ -532,7 +529,7 @@
     throw v6
 
     :cond_1
-    invoke-virtual {p1}, Ljava/nio/Buffer;->remaining()I
+    invoke-virtual {p1}, Ljava/nio/ByteBuffer;->remaining()I
 
     move-result v2
 
@@ -540,7 +537,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_4
+    if-eqz v6, :cond_3
 
     invoke-virtual {p1}, Ljava/nio/ByteBuffer;->array()[B
 
@@ -550,7 +547,7 @@
 
     move-result v7
 
-    invoke-virtual {p1}, Ljava/nio/Buffer;->position()I
+    invoke-virtual {p1}, Ljava/nio/ByteBuffer;->position()I
 
     move-result v8
 
@@ -560,23 +557,23 @@
 
     move-result-object v3
 
-    invoke-virtual {p1}, Ljava/nio/Buffer;->position()I
+    invoke-virtual {p1}, Ljava/nio/ByteBuffer;->position()I
 
     move-result v6
 
     add-int/2addr v6, v2
 
-    invoke-virtual {p1, v6}, Ljava/nio/Buffer;->position(I)Ljava/nio/Buffer;
+    invoke-virtual {p1, v6}, Ljava/nio/ByteBuffer;->position(I)Ljava/nio/Buffer;
 
     :goto_0
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_4
 
     array-length v5, v3
 
-    :cond_2
-    if-lez v5, :cond_3
+    :goto_1
+    if-lez v5, :cond_2
 
-    invoke-virtual {p2}, Ljava/nio/Buffer;->remaining()I
+    invoke-virtual {p2}, Ljava/nio/ByteBuffer;->remaining()I
 
     move-result v4
 
@@ -585,19 +582,24 @@
     :try_end_0
     .catch Ljava/nio/BufferOverflowException; {:try_start_0 .. :try_end_0} :catch_0
 
-    :cond_3
+    :cond_2
     return v5
 
-    :cond_4
+    :cond_3
     new-array v1, v2, [B
 
     invoke-virtual {p1, v1}, Ljava/nio/ByteBuffer;->get([B)Ljava/nio/ByteBuffer;
 
-    invoke-virtual {p0, v1, v5, v2}, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->engineDoFinal([BII)[B
+    invoke-virtual {p0, v1, v7, v2}, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->engineDoFinal([BII)[B
 
     move-result-object v3
 
     goto :goto_0
+
+    :cond_4
+    const/4 v5, 0x0
+
+    goto :goto_1
 
     :catch_0
     move-exception v0
@@ -731,7 +733,7 @@
 
     iget-object v1, p0, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->mCachedException:Ljava/lang/Exception;
 
-    invoke-virtual {v0, v1}, Ljava/lang/Throwable;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+    invoke-virtual {v0, v1}, Ljavax/crypto/IllegalBlockSizeException;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
 
     move-result-object v0
 
@@ -786,7 +788,7 @@
 
     invoke-direct {v0}, Ljavax/crypto/IllegalBlockSizeException;-><init>()V
 
-    invoke-virtual {v0, v7}, Ljava/lang/Throwable;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+    invoke-virtual {v0, v7}, Ljavax/crypto/IllegalBlockSizeException;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
 
     move-result-object v0
 
@@ -807,7 +809,7 @@
 
     invoke-direct {v0}, Ljavax/crypto/IllegalBlockSizeException;-><init>()V
 
-    invoke-virtual {v0, v6}, Ljava/lang/Throwable;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+    invoke-virtual {v0, v6}, Ljavax/crypto/IllegalBlockSizeException;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
 
     move-result-object v0
 
@@ -820,7 +822,7 @@
 
     invoke-direct {v0}, Ljavax/crypto/IllegalBlockSizeException;-><init>()V
 
-    invoke-virtual {v0, v6}, Ljava/lang/Throwable;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+    invoke-virtual {v0, v6}, Ljavax/crypto/IllegalBlockSizeException;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
 
     move-result-object v0
 
@@ -833,7 +835,7 @@
 
     invoke-direct {v0}, Ljavax/crypto/BadPaddingException;-><init>()V
 
-    invoke-virtual {v0, v6}, Ljava/lang/Throwable;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+    invoke-virtual {v0, v6}, Ljavax/crypto/BadPaddingException;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
 
     move-result-object v0
 
@@ -846,7 +848,7 @@
 
     invoke-direct {v0}, Ljavax/crypto/AEADBadTagException;-><init>()V
 
-    invoke-virtual {v0, v6}, Ljava/lang/Throwable;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+    invoke-virtual {v0, v6}, Ljavax/crypto/AEADBadTagException;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
 
     move-result-object v0
 
@@ -1231,7 +1233,7 @@
         }
     .end annotation
 
-    const/4 v5, 0x0
+    const/4 v7, 0x0
 
     if-nez p1, :cond_0
 
@@ -1255,7 +1257,7 @@
     throw v6
 
     :cond_1
-    invoke-virtual {p1}, Ljava/nio/Buffer;->remaining()I
+    invoke-virtual {p1}, Ljava/nio/ByteBuffer;->remaining()I
 
     move-result v2
 
@@ -1263,7 +1265,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_4
+    if-eqz v6, :cond_3
 
     invoke-virtual {p1}, Ljava/nio/ByteBuffer;->array()[B
 
@@ -1273,7 +1275,7 @@
 
     move-result v7
 
-    invoke-virtual {p1}, Ljava/nio/Buffer;->position()I
+    invoke-virtual {p1}, Ljava/nio/ByteBuffer;->position()I
 
     move-result v8
 
@@ -1283,23 +1285,23 @@
 
     move-result-object v3
 
-    invoke-virtual {p1}, Ljava/nio/Buffer;->position()I
+    invoke-virtual {p1}, Ljava/nio/ByteBuffer;->position()I
 
     move-result v6
 
     add-int/2addr v6, v2
 
-    invoke-virtual {p1, v6}, Ljava/nio/Buffer;->position(I)Ljava/nio/Buffer;
+    invoke-virtual {p1, v6}, Ljava/nio/ByteBuffer;->position(I)Ljava/nio/Buffer;
 
     :goto_0
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_4
 
     array-length v5, v3
 
-    :cond_2
-    if-lez v5, :cond_3
+    :goto_1
+    if-lez v5, :cond_2
 
-    invoke-virtual {p2}, Ljava/nio/Buffer;->remaining()I
+    invoke-virtual {p2}, Ljava/nio/ByteBuffer;->remaining()I
 
     move-result v4
 
@@ -1308,19 +1310,24 @@
     :try_end_0
     .catch Ljava/nio/BufferOverflowException; {:try_start_0 .. :try_end_0} :catch_0
 
-    :cond_3
+    :cond_2
     return v5
 
-    :cond_4
+    :cond_3
     new-array v1, v2, [B
 
     invoke-virtual {p1, v1}, Ljava/nio/ByteBuffer;->get([B)Ljava/nio/ByteBuffer;
 
-    invoke-virtual {p0, v1, v5, v2}, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->engineUpdate([BII)[B
+    invoke-virtual {p0, v1, v7, v2}, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->engineUpdate([BII)[B
 
     move-result-object v3
 
     goto :goto_0
+
+    :cond_4
+    const/4 v5, 0x0
+
+    goto :goto_1
 
     :catch_0
     move-exception v0
@@ -1505,7 +1512,7 @@
     throw v3
 
     :cond_0
-    invoke-virtual {p1}, Ljava/nio/Buffer;->hasRemaining()Z
+    invoke-virtual {p1}, Ljava/nio/ByteBuffer;->hasRemaining()Z
 
     move-result v3
 
@@ -1528,21 +1535,21 @@
 
     move-result v3
 
-    invoke-virtual {p1}, Ljava/nio/Buffer;->position()I
+    invoke-virtual {p1}, Ljava/nio/ByteBuffer;->position()I
 
     move-result v4
 
     add-int v2, v3, v4
 
-    invoke-virtual {p1}, Ljava/nio/Buffer;->remaining()I
+    invoke-virtual {p1}, Ljava/nio/ByteBuffer;->remaining()I
 
     move-result v1
 
-    invoke-virtual {p1}, Ljava/nio/Buffer;->limit()I
+    invoke-virtual {p1}, Ljava/nio/ByteBuffer;->limit()I
 
     move-result v3
 
-    invoke-virtual {p1, v3}, Ljava/nio/Buffer;->position(I)Ljava/nio/Buffer;
+    invoke-virtual {p1, v3}, Ljava/nio/ByteBuffer;->position(I)Ljava/nio/Buffer;
 
     :goto_0
     invoke-virtual {p0, v0, v2, v1}, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->engineUpdateAAD([BII)V
@@ -1550,7 +1557,7 @@
     return-void
 
     :cond_2
-    invoke-virtual {p1}, Ljava/nio/Buffer;->remaining()I
+    invoke-virtual {p1}, Ljava/nio/ByteBuffer;->remaining()I
 
     move-result v3
 
@@ -1970,7 +1977,7 @@
 
     invoke-direct {v8}, Ljavax/crypto/IllegalBlockSizeException;-><init>()V
 
-    invoke-virtual {v8, v1}, Ljava/lang/Throwable;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+    invoke-virtual {v8, v1}, Ljavax/crypto/IllegalBlockSizeException;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
 
     move-result-object v8
 

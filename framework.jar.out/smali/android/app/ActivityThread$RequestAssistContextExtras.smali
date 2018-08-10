@@ -17,6 +17,8 @@
 # instance fields
 .field activityToken:Landroid/os/IBinder;
 
+.field flags:I
+
 .field requestToken:Landroid/os/IBinder;
 
 .field requestType:I

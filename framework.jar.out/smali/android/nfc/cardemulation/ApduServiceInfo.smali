@@ -39,6 +39,8 @@
 
 .field public static final SECURE_ELEMENT_ROUTE_UICC:I = 0x2
 
+.field static final SECURE_ELEMENT_SIM:Ljava/lang/String; = "SIM"
+
 .field static final SECURE_ELEMENT_UICC:Ljava/lang/String; = "UICC"
 
 .field static final TAG:Ljava/lang/String; = "ApduServiceInfo"
@@ -272,7 +274,7 @@
     throw v21
 
     :cond_2
-    const-string/jumbo v21, "com.gsma.nfc.services"
+    const-string/jumbo v21, "com.gsma.services.nfc.extensions"
 
     move-object/from16 v0, v19
 
@@ -288,7 +290,7 @@
 
     const-string/jumbo v21, "ApduServiceInfo"
 
-    const-string/jumbo v22, "No com.gsma.nfc.services meta-data"
+    const-string/jumbo v22, "No com.gsma.services.nfc.extensions meta-data"
 
     invoke-static/range {v21 .. v22}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -353,7 +355,17 @@
 
     move-result v21
 
-    if-eqz v21, :cond_b
+    xor-int/lit8 v21, v21, 0x1
+
+    if-eqz v21, :cond_5
+
+    new-instance v21, Lorg/xmlpull/v1/XmlPullParserException;
+
+    const-string/jumbo v22, "Meta-data does not start with <host-apdu-service> tag"
+
+    invoke-direct/range {v21 .. v22}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
+
+    throw v21
 
     :cond_5
     if-nez p3, :cond_6
@@ -368,7 +380,17 @@
 
     move-result v21
 
-    if-eqz v21, :cond_c
+    xor-int/lit8 v21, v21, 0x1
+
+    if-eqz v21, :cond_6
+
+    new-instance v21, Lorg/xmlpull/v1/XmlPullParserException;
+
+    const-string/jumbo v22, "Meta-data does not start with <offhost-apdu-service> tag"
+
+    invoke-direct/range {v21 .. v22}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
+
+    throw v21
 
     :cond_6
     move-object/from16 v0, v19
@@ -389,7 +411,7 @@
 
     move-result-object v5
 
-    if-eqz p3, :cond_d
+    if-eqz p3, :cond_b
 
     sget-object v21, Lcom/android/internal/R$styleable;->HostApduService:[I
 
@@ -538,14 +560,14 @@
 
     move/from16 v0, v21
 
-    if-le v0, v7, :cond_18
+    if-le v0, v7, :cond_14
 
     :cond_8
     const/16 v21, 0x1
 
     move/from16 v0, v21
 
-    if-eq v9, v0, :cond_18
+    if-eq v9, v0, :cond_14
 
     invoke-interface {v14}, Landroid/content/res/XmlResourceParser;->getName()Ljava/lang/String;
 
@@ -555,7 +577,7 @@
 
     move/from16 v0, v21
 
-    if-ne v9, v0, :cond_f
+    if-ne v9, v0, :cond_d
 
     const-string/jumbo v21, "aid-group"
 
@@ -567,9 +589,9 @@
 
     move-result v21
 
-    if-eqz v21, :cond_f
+    if-eqz v21, :cond_d
 
-    if-nez v6, :cond_f
+    if-nez v6, :cond_d
 
     sget-object v21, Lcom/android/internal/R$styleable;->AidGroup:[I
 
@@ -622,7 +644,7 @@
 
     check-cast v6, Landroid/nfc/cardemulation/AidGroup;
 
-    if-eqz v6, :cond_e
+    if-eqz v6, :cond_c
 
     const-string/jumbo v21, "other"
 
@@ -673,24 +695,6 @@
     goto/16 :goto_2
 
     :cond_b
-    new-instance v21, Lorg/xmlpull/v1/XmlPullParserException;
-
-    const-string/jumbo v22, "Meta-data does not start with <host-apdu-service> tag"
-
-    invoke-direct/range {v21 .. v22}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
-
-    throw v21
-
-    :cond_c
-    new-instance v21, Lorg/xmlpull/v1/XmlPullParserException;
-
-    const-string/jumbo v22, "Meta-data does not start with <offhost-apdu-service> tag"
-
-    invoke-direct/range {v21 .. v22}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
-
-    throw v21
-
-    :cond_d
     sget-object v21, Lcom/android/internal/R$styleable;->OffHostApduService:[I
 
     move-object/from16 v0, v21
@@ -769,19 +773,19 @@
 
     goto/16 :goto_1
 
-    :cond_e
+    :cond_c
     new-instance v6, Landroid/nfc/cardemulation/AidGroup;
 
     invoke-direct {v6, v12, v13}, Landroid/nfc/cardemulation/AidGroup;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
     goto :goto_3
 
-    :cond_f
+    :cond_d
     const/16 v21, 0x3
 
     move/from16 v0, v21
 
-    if-ne v9, v0, :cond_12
+    if-ne v9, v0, :cond_10
 
     const-string/jumbo v21, "aid-group"
 
@@ -793,9 +797,9 @@
 
     move-result v21
 
-    if-eqz v21, :cond_12
+    if-eqz v21, :cond_10
 
-    if-eqz v6, :cond_12
+    if-eqz v6, :cond_10
 
     iget-object v0, v6, Landroid/nfc/cardemulation/AidGroup;->aids:Ljava/util/List;
 
@@ -805,7 +809,7 @@
 
     move-result v21
 
-    if-lez v21, :cond_11
+    if-lez v21, :cond_f
 
     move-object/from16 v0, p0
 
@@ -821,7 +825,7 @@
 
     move-result v21
 
-    if-nez v21, :cond_10
+    if-nez v21, :cond_e
 
     move-object/from16 v0, p0
 
@@ -839,13 +843,13 @@
 
     invoke-virtual {v0, v1, v6}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    :cond_10
+    :cond_e
     :goto_4
     const/4 v6, 0x0
 
     goto/16 :goto_2
 
-    :cond_11
+    :cond_f
     const-string/jumbo v21, "ApduServiceInfo"
 
     const-string/jumbo v22, "Not adding <aid-group> with empty or invalid AIDs"
@@ -854,12 +858,12 @@
 
     goto :goto_4
 
-    :cond_12
+    :cond_10
     const/16 v21, 0x2
 
     move/from16 v0, v21
 
-    if-ne v9, v0, :cond_15
+    if-ne v9, v0, :cond_12
 
     const-string/jumbo v21, "aid-filter"
 
@@ -871,9 +875,9 @@
 
     move-result v21
 
-    if-eqz v21, :cond_15
+    if-eqz v21, :cond_12
 
-    if-eqz v6, :cond_15
+    if-eqz v6, :cond_12
 
     sget-object v21, Lcom/android/internal/R$styleable;->AidFilter:[I
 
@@ -899,7 +903,7 @@
 
     move-result v21
 
-    if-eqz v21, :cond_13
+    if-eqz v21, :cond_11
 
     iget-object v0, v6, Landroid/nfc/cardemulation/AidGroup;->aids:Ljava/util/List;
 
@@ -911,9 +915,24 @@
 
     move-result v21
 
-    if-eqz v21, :cond_14
+    xor-int/lit8 v21, v21, 0x1
 
-    :cond_13
+    if-eqz v21, :cond_11
+
+    iget-object v0, v6, Landroid/nfc/cardemulation/AidGroup;->aids:Ljava/util/List;
+
+    move-object/from16 v21, v0
+
+    move-object/from16 v0, v21
+
+    invoke-interface {v0, v4}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    :goto_5
+    invoke-virtual {v3}, Landroid/content/res/TypedArray;->recycle()V
+
+    goto/16 :goto_2
+
+    :cond_11
     const-string/jumbo v21, "ApduServiceInfo"
 
     new-instance v22, Ljava/lang/StringBuilder;
@@ -938,23 +957,9 @@
 
     invoke-static/range {v21 .. v22}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    :goto_5
-    invoke-virtual {v3}, Landroid/content/res/TypedArray;->recycle()V
-
-    goto/16 :goto_2
-
-    :cond_14
-    iget-object v0, v6, Landroid/nfc/cardemulation/AidGroup;->aids:Ljava/util/List;
-
-    move-object/from16 v21, v0
-
-    move-object/from16 v0, v21
-
-    invoke-interface {v0, v4}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
     goto :goto_5
 
-    :cond_15
+    :cond_12
     const/16 v21, 0x2
 
     move/from16 v0, v21
@@ -1007,7 +1012,7 @@
 
     move-result v21
 
-    if-eqz v21, :cond_16
+    if-eqz v21, :cond_13
 
     iget-object v0, v6, Landroid/nfc/cardemulation/AidGroup;->aids:Ljava/util/List;
 
@@ -1019,9 +1024,24 @@
 
     move-result v21
 
-    if-eqz v21, :cond_17
+    xor-int/lit8 v21, v21, 0x1
 
-    :cond_16
+    if-eqz v21, :cond_13
+
+    iget-object v0, v6, Landroid/nfc/cardemulation/AidGroup;->aids:Ljava/util/List;
+
+    move-object/from16 v21, v0
+
+    move-object/from16 v0, v21
+
+    invoke-interface {v0, v4}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    :goto_6
+    invoke-virtual {v3}, Landroid/content/res/TypedArray;->recycle()V
+
+    goto/16 :goto_2
+
+    :cond_13
     const-string/jumbo v21, "ApduServiceInfo"
 
     new-instance v22, Ljava/lang/StringBuilder;
@@ -1045,32 +1065,18 @@
     move-result-object v22
 
     invoke-static/range {v21 .. v22}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    :goto_6
-    invoke-virtual {v3}, Landroid/content/res/TypedArray;->recycle()V
-
-    goto/16 :goto_2
-
-    :cond_17
-    iget-object v0, v6, Landroid/nfc/cardemulation/AidGroup;->aids:Ljava/util/List;
-
-    move-object/from16 v21, v0
-
-    move-object/from16 v0, v21
-
-    invoke-interface {v0, v4}, Ljava/util/List;->add(Ljava/lang/Object;)Z
     :try_end_2
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_2 .. :try_end_2} :catch_0
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     goto :goto_6
 
-    :cond_18
-    if-eqz v14, :cond_19
+    :cond_14
+    if-eqz v14, :cond_15
 
     invoke-interface {v14}, Landroid/content/res/XmlResourceParser;->close()V
 
-    :cond_19
+    :cond_15
     move-object/from16 v0, v19
 
     iget-object v0, v0, Landroid/content/pm/ServiceInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
@@ -1101,7 +1107,7 @@
 
     const/16 v17, 0x0
 
-    if-eqz v10, :cond_1f
+    if-eqz v10, :cond_1c
 
     :try_start_3
     invoke-interface {v10}, Landroid/content/res/XmlResourceParser;->getEventType()I
@@ -1117,13 +1123,13 @@
 
     move/from16 v0, v21
 
-    if-eq v9, v0, :cond_1a
+    if-eq v9, v0, :cond_16
 
     const/16 v21, 0x1
 
     move/from16 v0, v21
 
-    if-eq v9, v0, :cond_1a
+    if-eq v9, v0, :cond_16
 
     invoke-interface {v10}, Landroid/content/res/XmlResourceParser;->next()I
 
@@ -1131,7 +1137,7 @@
 
     goto :goto_7
 
-    :cond_1a
+    :cond_16
     invoke-interface {v10}, Landroid/content/res/XmlResourceParser;->getName()Ljava/lang/String;
 
     move-result-object v20
@@ -1146,7 +1152,7 @@
 
     move-result v21
 
-    if-nez v21, :cond_1b
+    if-nez v21, :cond_17
 
     new-instance v21, Lorg/xmlpull/v1/XmlPullParserException;
 
@@ -1185,7 +1191,7 @@
 
     throw v21
 
-    :cond_1b
+    :cond_17
     :try_start_4
     invoke-interface {v10}, Landroid/content/res/XmlResourceParser;->next()I
 
@@ -1195,7 +1201,7 @@
 
     move/from16 v0, v21
 
-    if-ne v9, v0, :cond_1c
+    if-ne v9, v0, :cond_18
 
     invoke-interface {v10}, Landroid/content/res/XmlResourceParser;->getDepth()I
 
@@ -1203,14 +1209,14 @@
 
     move/from16 v0, v21
 
-    if-le v0, v7, :cond_1e
+    if-le v0, v7, :cond_1b
 
-    :cond_1c
+    :cond_18
     const/16 v21, 0x1
 
     move/from16 v0, v21
 
-    if-eq v9, v0, :cond_1e
+    if-eq v9, v0, :cond_1b
 
     invoke-interface {v10}, Landroid/content/res/XmlResourceParser;->getName()Ljava/lang/String;
 
@@ -1220,7 +1226,7 @@
 
     move/from16 v0, v21
 
-    if-ne v9, v0, :cond_1b
+    if-ne v9, v0, :cond_17
 
     const-string/jumbo v21, "se-id"
 
@@ -1232,7 +1238,7 @@
 
     move-result v21
 
-    if-eqz v21, :cond_1b
+    if-eqz v21, :cond_17
 
     const-string/jumbo v21, "name"
 
@@ -1246,7 +1252,7 @@
 
     move-result-object v18
 
-    if-eqz v18, :cond_1d
+    if-eqz v18, :cond_19
 
     const-string/jumbo v21, "eSE"
 
@@ -1254,11 +1260,11 @@
 
     move-object/from16 v1, v21
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    invoke-virtual {v0, v1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
     move-result v21
 
-    if-nez v21, :cond_1b
+    if-nez v21, :cond_1a
 
     const-string/jumbo v21, "UICC"
 
@@ -1266,13 +1272,28 @@
 
     move-object/from16 v1, v21
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    invoke-virtual {v0, v1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
     move-result v21
 
-    if-nez v21, :cond_1b
+    if-nez v21, :cond_1a
 
-    :cond_1d
+    const-string/jumbo v21, "SIM"
+
+    move-object/from16 v0, v18
+
+    move-object/from16 v1, v21
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v21
+
+    :goto_8
+    xor-int/lit8 v21, v21, 0x1
+
+    if-eqz v21, :cond_17
+
+    :cond_19
     new-instance v21, Lorg/xmlpull/v1/XmlPullParserException;
 
     new-instance v22, Ljava/lang/StringBuilder;
@@ -1303,15 +1324,20 @@
     :try_end_4
     .catchall {:try_start_4 .. :try_end_4} :catchall_1
 
-    :cond_1e
+    :cond_1a
+    const/16 v21, 0x1
+
+    goto :goto_8
+
+    :cond_1b
     invoke-interface {v10}, Landroid/content/res/XmlResourceParser;->close()V
 
-    :cond_1f
-    if-eqz p3, :cond_20
+    :cond_1c
+    if-eqz p3, :cond_1d
 
     const/16 v17, 0x0
 
-    :goto_8
+    :goto_9
     new-instance v21, Landroid/nfc/cardemulation/ApduServiceInfo$SecureElementInfo;
 
     move-object/from16 v0, v21
@@ -1342,15 +1368,15 @@
 
     return-void
 
-    :cond_20
-    if-eqz p4, :cond_21
+    :cond_1d
+    if-eqz p4, :cond_1e
 
     move/from16 v17, p4
 
-    goto :goto_8
+    goto :goto_9
 
-    :cond_21
-    if-eqz v18, :cond_23
+    :cond_1e
+    if-eqz v18, :cond_20
 
     const-string/jumbo v21, "eSE"
 
@@ -1358,25 +1384,25 @@
 
     move-object/from16 v1, v21
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    invoke-virtual {v0, v1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
     move-result v21
 
-    if-eqz v21, :cond_22
+    if-eqz v21, :cond_1f
 
     const/16 v17, 0x1
 
-    goto :goto_8
+    goto :goto_9
 
-    :cond_22
+    :cond_1f
     const/16 v17, 0x2
 
-    goto :goto_8
+    goto :goto_9
 
-    :cond_23
+    :cond_20
     const/16 v17, 0x2
 
-    goto :goto_8
+    goto :goto_9
 .end method
 
 .method public constructor <init>(Landroid/content/pm/ResolveInfo;ZLjava/lang/String;Ljava/util/ArrayList;Ljava/util/ArrayList;ZIILjava/lang/String;Z)V

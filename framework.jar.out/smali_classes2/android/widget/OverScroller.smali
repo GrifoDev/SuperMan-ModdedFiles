@@ -82,6 +82,8 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/view/animation/Interpolator;FF)V
     .locals 1
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 
     const/4 v0, 0x1
 
@@ -92,6 +94,8 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/view/animation/Interpolator;FFZ)V
     .locals 0
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 
     invoke-direct {p0, p1, p2, p5}, Landroid/widget/OverScroller;-><init>(Landroid/content/Context;Landroid/view/animation/Interpolator;Z)V
 
@@ -352,45 +356,10 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    xor-int/lit8 v0, v0, 0x1
 
-    :cond_0
-    :goto_0
-    const/4 v0, 0x1
+    if-eqz v0, :cond_0
 
-    iput v0, p0, Landroid/widget/OverScroller;->mMode:I
-
-    iget-object v0, p0, Landroid/widget/OverScroller;->mScrollerX:Landroid/widget/OverScroller$SplineOverScroller;
-
-    move v1, p1
-
-    move v2, p3
-
-    move v3, p5
-
-    move v4, p6
-
-    move/from16 v5, p9
-
-    invoke-virtual/range {v0 .. v5}, Landroid/widget/OverScroller$SplineOverScroller;->fling(IIIII)V
-
-    iget-object v0, p0, Landroid/widget/OverScroller;->mScrollerY:Landroid/widget/OverScroller$SplineOverScroller;
-
-    move v1, p2
-
-    move v2, p4
-
-    move v3, p7
-
-    move/from16 v4, p8
-
-    move/from16 v5, p10
-
-    invoke-virtual/range {v0 .. v5}, Landroid/widget/OverScroller$SplineOverScroller;->fling(IIIII)V
-
-    return-void
-
-    :cond_1
     iget-object v0, p0, Landroid/widget/OverScroller;->mScrollerX:Landroid/widget/OverScroller$SplineOverScroller;
 
     invoke-static {v0}, Landroid/widget/OverScroller$SplineOverScroller;->-get0(Landroid/widget/OverScroller$SplineOverScroller;)F
@@ -443,7 +412,40 @@
 
     float-to-int p4, v0
 
-    goto :goto_0
+    :cond_0
+    const/4 v0, 0x1
+
+    iput v0, p0, Landroid/widget/OverScroller;->mMode:I
+
+    iget-object v0, p0, Landroid/widget/OverScroller;->mScrollerX:Landroid/widget/OverScroller$SplineOverScroller;
+
+    move v1, p1
+
+    move v2, p3
+
+    move v3, p5
+
+    move v4, p6
+
+    move/from16 v5, p9
+
+    invoke-virtual/range {v0 .. v5}, Landroid/widget/OverScroller$SplineOverScroller;->fling(IIIII)V
+
+    iget-object v0, p0, Landroid/widget/OverScroller;->mScrollerY:Landroid/widget/OverScroller$SplineOverScroller;
+
+    move v1, p2
+
+    move v2, p4
+
+    move v3, p7
+
+    move/from16 v4, p8
+
+    move/from16 v5, p10
+
+    invoke-virtual/range {v0 .. v5}, Landroid/widget/OverScroller$SplineOverScroller;->fling(IIIII)V
+
+    return-void
 .end method
 
 .method public fling(IIIIIIIIIIZ)V
@@ -457,46 +459,13 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    xor-int/lit8 v0, v0, 0x1
 
-    :cond_0
-    :goto_0
-    const/4 v0, 0x1
+    if-eqz v0, :cond_0
 
-    iput v0, p0, Landroid/widget/OverScroller;->mMode:I
+    xor-int/lit8 v0, p11, 0x1
 
-    iget-object v0, p0, Landroid/widget/OverScroller;->mScrollerX:Landroid/widget/OverScroller$SplineOverScroller;
-
-    move v1, p1
-
-    move v2, p3
-
-    move v3, p5
-
-    move v4, p6
-
-    move/from16 v5, p9
-
-    invoke-virtual/range {v0 .. v5}, Landroid/widget/OverScroller$SplineOverScroller;->fling(IIIII)V
-
-    iget-object v0, p0, Landroid/widget/OverScroller;->mScrollerY:Landroid/widget/OverScroller$SplineOverScroller;
-
-    move v1, p2
-
-    move v2, p4
-
-    move v3, p7
-
-    move/from16 v4, p8
-
-    move/from16 v5, p10
-
-    invoke-virtual/range {v0 .. v5}, Landroid/widget/OverScroller$SplineOverScroller;->fling(IIIII)V
-
-    return-void
-
-    :cond_1
-    if-nez p11, :cond_0
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Landroid/widget/OverScroller;->mScrollerX:Landroid/widget/OverScroller$SplineOverScroller;
 
@@ -550,7 +519,40 @@
 
     float-to-int p4, v0
 
-    goto :goto_0
+    :cond_0
+    const/4 v0, 0x1
+
+    iput v0, p0, Landroid/widget/OverScroller;->mMode:I
+
+    iget-object v0, p0, Landroid/widget/OverScroller;->mScrollerX:Landroid/widget/OverScroller$SplineOverScroller;
+
+    move v1, p1
+
+    move v2, p3
+
+    move v3, p5
+
+    move v4, p6
+
+    move/from16 v5, p9
+
+    invoke-virtual/range {v0 .. v5}, Landroid/widget/OverScroller$SplineOverScroller;->fling(IIIII)V
+
+    iget-object v0, p0, Landroid/widget/OverScroller;->mScrollerY:Landroid/widget/OverScroller$SplineOverScroller;
+
+    move v1, p2
+
+    move v2, p4
+
+    move v3, p7
+
+    move/from16 v4, p8
+
+    move/from16 v5, p10
+
+    invoke-virtual/range {v0 .. v5}, Landroid/widget/OverScroller$SplineOverScroller;->fling(IIIII)V
+
+    return-void
 .end method
 
 .method protected fling(IIIIIIIIZ)V

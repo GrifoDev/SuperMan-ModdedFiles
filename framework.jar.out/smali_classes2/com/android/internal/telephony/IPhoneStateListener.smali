@@ -65,6 +65,14 @@
     .end annotation
 .end method
 
+.method public abstract onDataActivationStateChanged(I)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract onDataActivity(I)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -82,22 +90,6 @@
 .end method
 
 .method public abstract onDataConnectionStateChanged(II)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract onDunDataActivity(I)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract onDunDataConnectionStateChanged(II)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -178,6 +170,14 @@
 .end method
 
 .method public abstract onVoLteServiceStateChanged(Landroid/telephony/VoLteServiceState;)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract onVoiceActivationStateChanged(I)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

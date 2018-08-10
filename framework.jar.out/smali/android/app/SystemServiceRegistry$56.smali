@@ -36,10 +36,15 @@
 # virtual methods
 .method public createService()Landroid/net/wifi/p2p/WifiP2pManager;
     .locals 3
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/ServiceManager$ServiceNotFoundException;
+        }
+    .end annotation
 
     const-string/jumbo v2, "wifip2p"
 
-    invoke-static {v2}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
+    invoke-static {v2}, Landroid/os/ServiceManager;->getServiceOrThrow(Ljava/lang/String;)Landroid/os/IBinder;
 
     move-result-object v0
 
@@ -56,6 +61,11 @@
 
 .method public bridge synthetic createService()Ljava/lang/Object;
     .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/ServiceManager$ServiceNotFoundException;
+        }
+    .end annotation
 
     invoke-virtual {p0}, Landroid/app/SystemServiceRegistry$56;->createService()Landroid/net/wifi/p2p/WifiP2pManager;
 

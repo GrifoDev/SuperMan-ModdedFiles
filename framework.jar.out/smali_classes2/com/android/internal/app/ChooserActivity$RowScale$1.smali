@@ -65,7 +65,7 @@
 
     iget-object v0, p1, Lcom/android/internal/app/ChooserActivity$RowScale;->mAdapter:Lcom/android/internal/app/ChooserActivity$ChooserRowAdapter;
 
-    invoke-virtual {v0}, Landroid/widget/BaseAdapter;->notifyDataSetChanged()V
+    invoke-virtual {v0}, Lcom/android/internal/app/ChooserActivity$ChooserRowAdapter;->notifyDataSetChanged()V
 
     return-void
 .end method

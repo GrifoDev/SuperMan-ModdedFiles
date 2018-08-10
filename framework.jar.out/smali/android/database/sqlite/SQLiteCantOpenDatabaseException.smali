@@ -139,7 +139,7 @@
 
     aput-object v2, v1, v3
 
-    const-string/jumbo v2, "Application has opened two many files. Maximum of available file descriptors in one process is 1024 in default."
+    const-string/jumbo v2, "Application has opened too many files. Maximum of available file descriptors in one process is 1024 in default."
 
     aput-object v2, v1, v4
 

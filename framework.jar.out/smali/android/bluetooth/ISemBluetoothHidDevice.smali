@@ -15,15 +15,7 @@
 
 
 # virtual methods
-.method public abstract connect()Z
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract connect_to(Landroid/bluetooth/BluetoothDevice;)Z
+.method public abstract connect(Landroid/bluetooth/BluetoothDevice;)Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

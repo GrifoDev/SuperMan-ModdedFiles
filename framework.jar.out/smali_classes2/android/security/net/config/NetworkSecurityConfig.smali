@@ -108,53 +108,61 @@
     return-void
 .end method
 
-.method public static final getDefaultBuilder(I)Landroid/security/net/config/NetworkSecurityConfig$Builder;
-    .locals 5
+.method public static final getDefaultBuilder(II)Landroid/security/net/config/NetworkSecurityConfig$Builder;
+    .locals 6
 
-    const/4 v4, 0x0
+    const/4 v5, 0x0
 
-    new-instance v1, Landroid/security/net/config/NetworkSecurityConfig$Builder;
+    new-instance v2, Landroid/security/net/config/NetworkSecurityConfig$Builder;
 
-    invoke-direct {v1}, Landroid/security/net/config/NetworkSecurityConfig$Builder;-><init>()V
+    invoke-direct {v2}, Landroid/security/net/config/NetworkSecurityConfig$Builder;-><init>()V
 
-    const/4 v2, 0x1
-
-    invoke-virtual {v1, v2}, Landroid/security/net/config/NetworkSecurityConfig$Builder;->setCleartextTrafficPermitted(Z)Landroid/security/net/config/NetworkSecurityConfig$Builder;
-
-    move-result-object v1
-
-    invoke-virtual {v1, v4}, Landroid/security/net/config/NetworkSecurityConfig$Builder;->setHstsEnforced(Z)Landroid/security/net/config/NetworkSecurityConfig$Builder;
-
-    move-result-object v1
-
-    new-instance v2, Landroid/security/net/config/CertificatesEntryRef;
-
-    invoke-static {}, Landroid/security/net/config/SystemCertificateSource;->getInstance()Landroid/security/net/config/SystemCertificateSource;
-
-    move-result-object v3
-
-    invoke-direct {v2, v3, v4}, Landroid/security/net/config/CertificatesEntryRef;-><init>(Landroid/security/net/config/CertificateSource;Z)V
-
-    invoke-virtual {v1, v2}, Landroid/security/net/config/NetworkSecurityConfig$Builder;->addCertificatesEntryRef(Landroid/security/net/config/CertificatesEntryRef;)Landroid/security/net/config/NetworkSecurityConfig$Builder;
-
-    move-result-object v0
-
-    const/16 v1, 0x17
-
-    if-gt p0, v1, :cond_0
-
-    new-instance v1, Landroid/security/net/config/CertificatesEntryRef;
-
-    invoke-static {}, Landroid/security/net/config/UserCertificateSource;->getInstance()Landroid/security/net/config/UserCertificateSource;
+    invoke-virtual {v2, v5}, Landroid/security/net/config/NetworkSecurityConfig$Builder;->setHstsEnforced(Z)Landroid/security/net/config/NetworkSecurityConfig$Builder;
 
     move-result-object v2
 
-    invoke-direct {v1, v2, v4}, Landroid/security/net/config/CertificatesEntryRef;-><init>(Landroid/security/net/config/CertificateSource;Z)V
+    new-instance v3, Landroid/security/net/config/CertificatesEntryRef;
 
-    invoke-virtual {v0, v1}, Landroid/security/net/config/NetworkSecurityConfig$Builder;->addCertificatesEntryRef(Landroid/security/net/config/CertificatesEntryRef;)Landroid/security/net/config/NetworkSecurityConfig$Builder;
+    invoke-static {}, Landroid/security/net/config/SystemCertificateSource;->getInstance()Landroid/security/net/config/SystemCertificateSource;
+
+    move-result-object v4
+
+    invoke-direct {v3, v4, v5}, Landroid/security/net/config/CertificatesEntryRef;-><init>(Landroid/security/net/config/CertificateSource;Z)V
+
+    invoke-virtual {v2, v3}, Landroid/security/net/config/NetworkSecurityConfig$Builder;->addCertificatesEntryRef(Landroid/security/net/config/CertificatesEntryRef;)Landroid/security/net/config/NetworkSecurityConfig$Builder;
+
+    move-result-object v0
+
+    const/4 v2, 0x2
+
+    if-ge p1, v2, :cond_1
+
+    const/4 v1, 0x1
+
+    :goto_0
+    invoke-virtual {v0, v1}, Landroid/security/net/config/NetworkSecurityConfig$Builder;->setCleartextTrafficPermitted(Z)Landroid/security/net/config/NetworkSecurityConfig$Builder;
+
+    const/16 v2, 0x17
+
+    if-gt p0, v2, :cond_0
+
+    new-instance v2, Landroid/security/net/config/CertificatesEntryRef;
+
+    invoke-static {}, Landroid/security/net/config/UserCertificateSource;->getInstance()Landroid/security/net/config/UserCertificateSource;
+
+    move-result-object v3
+
+    invoke-direct {v2, v3, v5}, Landroid/security/net/config/CertificatesEntryRef;-><init>(Landroid/security/net/config/CertificateSource;Z)V
+
+    invoke-virtual {v0, v2}, Landroid/security/net/config/NetworkSecurityConfig$Builder;->addCertificatesEntryRef(Landroid/security/net/config/CertificatesEntryRef;)Landroid/security/net/config/NetworkSecurityConfig$Builder;
 
     :cond_0
     return-object v0
+
+    :cond_1
+    const/4 v1, 0x0
+
+    goto :goto_0
 .end method
 
 

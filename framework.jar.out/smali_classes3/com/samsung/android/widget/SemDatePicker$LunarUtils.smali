@@ -50,8 +50,6 @@
 
     move-result-object v1
 
-    const/4 v2, 0x0
-
     :try_start_0
     invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 

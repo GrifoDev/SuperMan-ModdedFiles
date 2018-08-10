@@ -164,7 +164,7 @@
 
     invoke-static {v2}, Lcom/samsung/android/contextaware/utilbundle/logger/CaLogger;->error(Ljava/lang/String;)V
 
-    invoke-virtual {v1}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v1}, Landroid/provider/Settings$SettingNotFoundException;->printStackTrace()V
 
     goto :goto_1
 

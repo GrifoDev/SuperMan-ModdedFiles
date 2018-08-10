@@ -99,6 +99,8 @@
 
 .method public constructor <init>(IILjava/lang/String;Ljava/lang/String;Ljava/lang/String;ZZ)V
     .locals 9
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 
     const/4 v8, 0x0
 
@@ -125,6 +127,8 @@
 
 .method public constructor <init>(IILjava/lang/String;Ljava/lang/String;Ljava/lang/String;ZZI)V
     .locals 9
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 
     const/4 v8, 0x0
 
@@ -426,7 +430,7 @@
 .end method
 
 .method private getExtraValueHashMap()Ljava/util/HashMap;
-    .locals 8
+    .locals 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -438,24 +442,26 @@
         }
     .end annotation
 
-    const/4 v7, 0x1
-
-    iget-object v4, p0, Landroid/view/inputmethod/InputMethodSubtype;->mExtraValueHashMapCache:Ljava/util/HashMap;
-
-    if-nez v4, :cond_4
+    const/4 v6, 0x1
 
     monitor-enter p0
 
     :try_start_0
-    iget-object v4, p0, Landroid/view/inputmethod/InputMethodSubtype;->mExtraValueHashMapCache:Ljava/util/HashMap;
+    iget-object v0, p0, Landroid/view/inputmethod/InputMethodSubtype;->mExtraValueHashMapCache:Ljava/util/HashMap;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    if-nez v4, :cond_3
+    if-eqz v0, :cond_0
 
-    new-instance v4, Ljava/util/HashMap;
+    monitor-exit p0
 
-    invoke-direct {v4}, Ljava/util/HashMap;-><init>()V
+    return-object v0
 
-    iput-object v4, p0, Landroid/view/inputmethod/InputMethodSubtype;->mExtraValueHashMapCache:Ljava/util/HashMap;
+    :cond_0
+    :try_start_1
+    new-instance v0, Ljava/util/HashMap;
+
+    invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
 
     iget-object v4, p0, Landroid/view/inputmethod/InputMethodSubtype;->mSubtypeExtraValue:Ljava/lang/String;
 
@@ -465,12 +471,12 @@
 
     move-result-object v3
 
-    array-length v0, v3
-
     const/4 v1, 0x0
 
     :goto_0
-    if-ge v1, v0, :cond_3
+    array-length v4, v3
+
+    if-ge v1, v4, :cond_4
 
     aget-object v4, v3, v1
 
@@ -482,34 +488,32 @@
 
     array-length v4, v2
 
-    if-ne v4, v7, :cond_1
+    if-ne v4, v6, :cond_2
 
-    iget-object v4, p0, Landroid/view/inputmethod/InputMethodSubtype;->mExtraValueHashMapCache:Ljava/util/HashMap;
+    const/4 v4, 0x0
+
+    aget-object v4, v2, v4
 
     const/4 v5, 0x0
 
-    aget-object v5, v2, v5
+    invoke-virtual {v0, v4, v5}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    const/4 v6, 0x0
-
-    invoke-virtual {v4, v5, v6}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    :cond_0
+    :cond_1
     :goto_1
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    :cond_1
+    :cond_2
     array-length v4, v2
 
-    if-le v4, v7, :cond_0
+    if-le v4, v6, :cond_1
 
     array-length v4, v2
 
     const/4 v5, 0x2
 
-    if-le v4, v5, :cond_2
+    if-le v4, v5, :cond_3
 
     sget-object v4, Landroid/view/inputmethod/InputMethodSubtype;->TAG:Ljava/lang/String;
 
@@ -517,20 +521,18 @@
 
     invoke-static {v4, v5}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_2
-    iget-object v4, p0, Landroid/view/inputmethod/InputMethodSubtype;->mExtraValueHashMapCache:Ljava/util/HashMap;
+    :cond_3
+    const/4 v4, 0x0
 
-    const/4 v5, 0x0
+    aget-object v4, v2, v4
+
+    const/4 v5, 0x1
 
     aget-object v5, v2, v5
 
-    const/4 v6, 0x1
-
-    aget-object v6, v2, v6
-
-    invoke-virtual {v4, v5, v6}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    invoke-virtual {v0, v4, v5}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     goto :goto_1
 
@@ -541,13 +543,15 @@
 
     throw v4
 
-    :cond_3
+    :cond_4
+    :try_start_2
+    iput-object v0, p0, Landroid/view/inputmethod/InputMethodSubtype;->mExtraValueHashMapCache:Ljava/util/HashMap;
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+
     monitor-exit p0
 
-    :cond_4
-    iget-object v4, p0, Landroid/view/inputmethod/InputMethodSubtype;->mExtraValueHashMapCache:Ljava/util/HashMap;
-
-    return-object v4
+    return-object v0
 .end method
 
 .method private static getLocaleDisplayName(Ljava/util/Locale;Ljava/util/Locale;Landroid/icu/text/DisplayContext;)Ljava/lang/String;
@@ -645,82 +649,74 @@
 
     const/4 v4, 0x2
 
-    const/4 v2, 0x1
+    const/4 v3, 0x1
 
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
-    if-eqz p5, :cond_0
+    xor-int/lit8 v0, p5, 0x1
 
-    move v0, v1
+    if-eqz v0, :cond_0
 
-    :goto_0
-    if-eqz v0, :cond_1
+    const/4 v1, 0x5
 
-    const/4 v3, 0x5
+    new-array v1, v1, [Ljava/lang/Object;
 
-    new-array v3, v3, [Ljava/lang/Object;
+    aput-object p0, v1, v2
 
-    aput-object p0, v3, v1
+    aput-object p1, v1, v3
 
-    aput-object p1, v3, v2
-
-    aput-object p2, v3, v4
+    aput-object p2, v1, v4
 
     invoke-static {p3}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    move-result-object v1
+    move-result-object v2
 
-    aput-object v1, v3, v5
+    aput-object v2, v1, v5
 
     invoke-static {p4}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    move-result-object v1
+    move-result-object v2
 
-    aput-object v1, v3, v6
+    aput-object v2, v1, v6
 
-    invoke-static {v3}, Ljava/util/Arrays;->hashCode([Ljava/lang/Object;)I
+    invoke-static {v1}, Ljava/util/Arrays;->hashCode([Ljava/lang/Object;)I
 
     move-result v1
 
     return v1
 
     :cond_0
-    move v0, v2
+    const/4 v1, 0x6
 
-    goto :goto_0
+    new-array v1, v1, [Ljava/lang/Object;
 
-    :cond_1
-    const/4 v3, 0x6
+    aput-object p0, v1, v2
 
-    new-array v3, v3, [Ljava/lang/Object;
+    aput-object p1, v1, v3
 
-    aput-object p0, v3, v1
-
-    aput-object p1, v3, v2
-
-    aput-object p2, v3, v4
+    aput-object p2, v1, v4
 
     invoke-static {p3}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    move-result-object v1
+    move-result-object v2
 
-    aput-object v1, v3, v5
+    aput-object v2, v1, v5
 
     invoke-static {p4}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    move-result-object v1
+    move-result-object v2
 
-    aput-object v1, v3, v6
+    aput-object v2, v1, v6
 
     invoke-static {p5}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    move-result-object v1
+    move-result-object v2
 
-    const/4 v2, 0x5
+    const/4 v3, 0x5
 
-    aput-object v1, v3, v2
+    aput-object v2, v1, v3
 
-    invoke-static {v3}, Ljava/util/Arrays;->hashCode([Ljava/lang/Object;)I
+    invoke-static {v1}, Ljava/util/Arrays;->hashCode([Ljava/lang/Object;)I
 
     move-result v1
 

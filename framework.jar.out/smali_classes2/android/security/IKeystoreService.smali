@@ -23,6 +23,14 @@
     .end annotation
 .end method
 
+.method public abstract addAccessorToPrivilegedList(Ljava/lang/String;)Z
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract addAuthToken([B)I
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -32,6 +40,14 @@
 .end method
 
 .method public abstract addRngEntropy([B)I
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract attestDeviceIds(Landroid/security/keymaster/KeymasterArguments;Landroid/security/keymaster/KeymasterCertificateChain;)I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -143,14 +159,6 @@
     .end annotation
 .end method
 
-.method public abstract getState_MDFPP(I)I
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
 .method public abstract get_pubkey(Ljava/lang/String;)[B
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -207,6 +215,14 @@
     .end annotation
 .end method
 
+.method public abstract isEmptyWithOption(II)I
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract isOperationAuthorized(Landroid/os/IBinder;)Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -231,6 +247,30 @@
     .end annotation
 .end method
 
+.method public abstract listAccessorsFromDb(Ljava/lang/String;Ljava/lang/String;)[Ljava/lang/String;
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract listFromDb(Ljava/lang/String;Ljava/lang/String;)[Ljava/lang/String;
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract listPrivilegedAccessors()[Ljava/lang/String;
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract lock(I)I
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -239,7 +279,15 @@
     .end annotation
 .end method
 
-.method public abstract migrate_MDFPP_keystore(Ljava/lang/String;II)I
+.method public abstract modifyCcmCsrAccessorsBasedOnUSRPKEY(Ljava/lang/String;Ljava/lang/String;)I
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract onDeviceOffBody()I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -248,14 +296,6 @@
 .end method
 
 .method public abstract onUserAdded(II)I
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract onUserAdded_MDFPP(II)I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -279,7 +319,7 @@
     .end annotation
 .end method
 
-.method public abstract reset()I
+.method public abstract removeAccessorFromPrivilegedList(Ljava/lang/String;)Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -287,7 +327,7 @@
     .end annotation
 .end method
 
-.method public abstract reset_MDFPP(I)I
+.method public abstract reset()I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

@@ -27,7 +27,7 @@
 .method public bindConstants(Landroid/renderscript/ProgramVertexFixedFunction$Constants;)V
     .locals 2
 
-    iget-object v0, p0, Landroid/renderscript/BaseObj;->mRS:Landroid/renderscript/RenderScript;
+    iget-object v0, p0, Landroid/renderscript/ProgramVertexFixedFunction;->mRS:Landroid/renderscript/RenderScript;
 
     invoke-virtual {v0}, Landroid/renderscript/RenderScript;->validate()V
 
@@ -37,7 +37,7 @@
 
     const/4 v1, 0x0
 
-    invoke-virtual {p0, v0, v1}, Landroid/renderscript/Program;->bindConstants(Landroid/renderscript/Allocation;I)V
+    invoke-virtual {p0, v0, v1}, Landroid/renderscript/ProgramVertexFixedFunction;->bindConstants(Landroid/renderscript/Allocation;I)V
 
     return-void
 .end method

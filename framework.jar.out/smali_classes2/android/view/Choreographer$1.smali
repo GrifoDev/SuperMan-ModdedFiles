@@ -35,9 +35,9 @@
 
 # virtual methods
 .method protected initialValue()Landroid/view/Choreographer;
-    .locals 3
+    .locals 4
 
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
     invoke-static {}, Landroid/os/Looper;->myLooper()Landroid/os/Looper;
 
@@ -56,7 +56,9 @@
     :cond_0
     new-instance v1, Landroid/view/Choreographer;
 
-    invoke-direct {v1, v0, v2}, Landroid/view/Choreographer;-><init>(Landroid/os/Looper;Landroid/view/Choreographer;)V
+    const/4 v2, 0x0
+
+    invoke-direct {v1, v0, v2, v3}, Landroid/view/Choreographer;-><init>(Landroid/os/Looper;ILandroid/view/Choreographer;)V
 
     return-object v1
 .end method

@@ -26,6 +26,8 @@
 # static fields
 .field private static final DESCRIPTOR:Ljava/lang/String; = "com.samsung.android.service.sats.ISatsService"
 
+.field static final TRANSACTION_executePseudoDrkAtCommnd:I = 0x1
+
 
 # direct methods
 .method public constructor <init>()V
@@ -35,7 +37,7 @@
 
     const-string/jumbo v0, "com.samsung.android.service.sats.ISatsService"
 
-    invoke-virtual {p0, p0, v0}, Landroid/os/Binder;->attachInterface(Landroid/os/IInterface;Ljava/lang/String;)V
+    invoke-virtual {p0, p0, v0}, Lcom/samsung/android/service/sats/ISatsService$Stub;->attachInterface(Landroid/os/IInterface;Ljava/lang/String;)V
 
     return-void
 .end method
@@ -83,32 +85,54 @@
 .end method
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    .locals 1
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    packed-switch p1, :pswitch_data_0
+    const/4 v3, 0x1
+
+    sparse-switch p1, :sswitch_data_0
 
     invoke-super {p0, p1, p2, p3, p4}, Landroid/os/Binder;->onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    move-result v0
+    move-result v2
 
-    return v0
+    return v2
 
-    :pswitch_0
-    const-string/jumbo v0, "com.samsung.android.service.sats.ISatsService"
+    :sswitch_0
+    const-string/jumbo v2, "com.samsung.android.service.sats.ISatsService"
 
-    invoke-virtual {p3, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p3, v2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    const/4 v0, 0x1
+    return v3
 
-    return v0
+    :sswitch_1
+    const-string/jumbo v2, "com.samsung.android.service.sats.ISatsService"
 
-    :pswitch_data_0
-    .packed-switch 0x5f4e5446
-        :pswitch_0
-    .end packed-switch
+    invoke-virtual {p2, v2}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {p0, v0}, Lcom/samsung/android/service/sats/ISatsService$Stub;->executePseudoDrkAtCommnd(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+
+    invoke-virtual {p3, v1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+
+    return v3
+
+    nop
+
+    :sswitch_data_0
+    .sparse-switch
+        0x1 -> :sswitch_1
+        0x5f4e5446 -> :sswitch_0
+    .end sparse-switch
 .end method

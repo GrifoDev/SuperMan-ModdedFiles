@@ -55,17 +55,17 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-static {}, Lcom/samsung/android/fingerprint/FingerprintManager;->-get0()Landroid/app/Activity;
+    invoke-static {}, Lcom/samsung/android/fingerprint/FingerprintManager;->-get1()Landroid/app/Activity;
 
     move-result-object v0
 
     if-eqz v0, :cond_0
 
-    invoke-static {}, Lcom/samsung/android/fingerprint/FingerprintManager;->-get0()Landroid/app/Activity;
+    invoke-static {}, Lcom/samsung/android/fingerprint/FingerprintManager;->-get1()Landroid/app/Activity;
 
     move-result-object v0
 
-    invoke-virtual {v0, p1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, p1}, Landroid/app/Activity;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
@@ -73,7 +73,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/fingerprint/FingerprintManager$1;->this$0:Lcom/samsung/android/fingerprint/FingerprintManager;
 
-    invoke-static {v0}, Lcom/samsung/android/fingerprint/FingerprintManager;->-wrap1(Lcom/samsung/android/fingerprint/FingerprintManager;)V
+    invoke-static {v0}, Lcom/samsung/android/fingerprint/FingerprintManager;->-wrap2(Lcom/samsung/android/fingerprint/FingerprintManager;)V
 
     :cond_0
     return-void
@@ -90,17 +90,17 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-static {}, Lcom/samsung/android/fingerprint/FingerprintManager;->-get0()Landroid/app/Activity;
+    invoke-static {}, Lcom/samsung/android/fingerprint/FingerprintManager;->-get1()Landroid/app/Activity;
 
     move-result-object v0
 
     if-eqz v0, :cond_0
 
-    invoke-static {}, Lcom/samsung/android/fingerprint/FingerprintManager;->-get0()Landroid/app/Activity;
+    invoke-static {}, Lcom/samsung/android/fingerprint/FingerprintManager;->-get1()Landroid/app/Activity;
 
     move-result-object v0
 
-    invoke-virtual {v0, p1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, p1}, Landroid/app/Activity;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
@@ -114,7 +114,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/fingerprint/FingerprintManager$1;->this$0:Lcom/samsung/android/fingerprint/FingerprintManager;
 
-    invoke-static {v0}, Lcom/samsung/android/fingerprint/FingerprintManager;->-wrap1(Lcom/samsung/android/fingerprint/FingerprintManager;)V
+    invoke-static {v0}, Lcom/samsung/android/fingerprint/FingerprintManager;->-wrap2(Lcom/samsung/android/fingerprint/FingerprintManager;)V
 
     :cond_0
     return-void
@@ -167,17 +167,17 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-static {}, Lcom/samsung/android/fingerprint/FingerprintManager;->-get0()Landroid/app/Activity;
+    invoke-static {}, Lcom/samsung/android/fingerprint/FingerprintManager;->-get1()Landroid/app/Activity;
 
     move-result-object v0
 
     if-eqz v0, :cond_0
 
-    invoke-static {}, Lcom/samsung/android/fingerprint/FingerprintManager;->-get0()Landroid/app/Activity;
+    invoke-static {}, Lcom/samsung/android/fingerprint/FingerprintManager;->-get1()Landroid/app/Activity;
 
     move-result-object v0
 
-    invoke-virtual {v0, p1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, p1}, Landroid/app/Activity;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
@@ -191,7 +191,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/fingerprint/FingerprintManager$1;->this$0:Lcom/samsung/android/fingerprint/FingerprintManager;
 
-    invoke-static {v0}, Lcom/samsung/android/fingerprint/FingerprintManager;->-wrap1(Lcom/samsung/android/fingerprint/FingerprintManager;)V
+    invoke-static {v0}, Lcom/samsung/android/fingerprint/FingerprintManager;->-wrap2(Lcom/samsung/android/fingerprint/FingerprintManager;)V
 
     :cond_0
     return-void

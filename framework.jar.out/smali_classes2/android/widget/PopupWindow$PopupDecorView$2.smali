@@ -56,7 +56,7 @@
 
     iget-object v2, v2, Landroid/widget/PopupWindow$PopupDecorView;->this$0:Landroid/widget/PopupWindow;
 
-    invoke-static {v2}, Landroid/widget/PopupWindow;->-wrap0(Landroid/widget/PopupWindow;)Landroid/graphics/Rect;
+    invoke-virtual {v2}, Landroid/widget/PopupWindow;->getTransitionEpicenter()Landroid/graphics/Rect;
 
     move-result-object v0
 

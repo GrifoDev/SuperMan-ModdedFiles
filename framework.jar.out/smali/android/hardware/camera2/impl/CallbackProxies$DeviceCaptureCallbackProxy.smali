@@ -1,6 +1,9 @@
 .class public Landroid/hardware/camera2/impl/CallbackProxies$DeviceCaptureCallbackProxy;
-.super Landroid/hardware/camera2/impl/CameraDeviceImpl$CaptureCallback;
+.super Ljava/lang/Object;
 .source "CallbackProxies.java"
+
+# interfaces
+.implements Landroid/hardware/camera2/impl/CameraDeviceImpl$CaptureCallback;
 
 
 # annotations
@@ -40,7 +43,7 @@
         }
     .end annotation
 
-    invoke-direct {p0}, Landroid/hardware/camera2/impl/CameraDeviceImpl$CaptureCallback;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     const-string/jumbo v0, "dispatchTarget must not be null"
 
@@ -63,6 +66,42 @@
 
 
 # virtual methods
+.method public onCaptureBufferLost(Landroid/hardware/camera2/CameraDevice;Landroid/hardware/camera2/CaptureRequest;Landroid/view/Surface;J)V
+    .locals 6
+
+    iget-object v0, p0, Landroid/hardware/camera2/impl/CallbackProxies$DeviceCaptureCallbackProxy;->mProxy:Landroid/hardware/camera2/dispatch/MethodNameInvoker;
+
+    const-string/jumbo v1, "onCaptureBufferLost"
+
+    const/4 v2, 0x4
+
+    new-array v2, v2, [Ljava/lang/Object;
+
+    const/4 v3, 0x0
+
+    aput-object p1, v2, v3
+
+    const/4 v3, 0x1
+
+    aput-object p2, v2, v3
+
+    const/4 v3, 0x2
+
+    aput-object p3, v2, v3
+
+    invoke-static {p4, p5}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+
+    move-result-object v3
+
+    const/4 v4, 0x3
+
+    aput-object v3, v2, v4
+
+    invoke-virtual {v0, v1, v2}, Landroid/hardware/camera2/dispatch/MethodNameInvoker;->invoke(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/Object;
+
+    return-void
+.end method
+
 .method public onCaptureCompleted(Landroid/hardware/camera2/CameraDevice;Landroid/hardware/camera2/CaptureRequest;Landroid/hardware/camera2/TotalCaptureResult;)V
     .locals 4
 

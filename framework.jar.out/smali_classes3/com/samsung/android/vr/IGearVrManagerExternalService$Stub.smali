@@ -52,6 +52,8 @@
 
 .field static final TRANSACTION_startVrHome:I = 0xc
 
+.field static final TRANSACTION_startVrRecents:I = 0xf
+
 .field static final TRANSACTION_startWaitActivity:I = 0xd
 
 
@@ -63,7 +65,7 @@
 
     const-string/jumbo v0, "com.samsung.android.vr.IGearVrManagerExternalService"
 
-    invoke-virtual {p0, p0, v0}, Landroid/os/Binder;->attachInterface(Landroid/os/IInterface;Ljava/lang/String;)V
+    invoke-virtual {p0, p0, v0}, Lcom/samsung/android/vr/IGearVrManagerExternalService$Stub;->attachInterface(Landroid/os/IInterface;Ljava/lang/String;)V
 
     return-void
 .end method
@@ -549,6 +551,21 @@
 
     return v2
 
+    :sswitch_f
+    const-string/jumbo v2, "com.samsung.android.vr.IGearVrManagerExternalService"
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v2}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual/range {p0 .. p0}, Lcom/samsung/android/vr/IGearVrManagerExternalService$Stub;->startVrRecents()V
+
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    const/4 v2, 0x1
+
+    return v2
+
     nop
 
     :sswitch_data_0
@@ -567,6 +584,7 @@
         0xc -> :sswitch_c
         0xd -> :sswitch_d
         0xe -> :sswitch_e
+        0xf -> :sswitch_f
         0x5f4e5446 -> :sswitch_0
     .end sparse-switch
 .end method

@@ -38,7 +38,7 @@
     .locals 5
 
     :try_start_0
-    invoke-static {}, Landroid/app/ActivityManagerNative;->getDefault()Landroid/app/IActivityManager;
+    invoke-static {}, Landroid/app/ActivityManager;->getService()Landroid/app/IActivityManager;
 
     move-result-object v1
 
@@ -57,7 +57,7 @@
     :goto_0
     iget-object v1, p0, Lcom/android/internal/app/HeavyWeightSwitcherActivity$1;->this$0:Lcom/android/internal/app/HeavyWeightSwitcherActivity;
 
-    invoke-virtual {v1}, Landroid/app/Activity;->finish()V
+    invoke-virtual {v1}, Lcom/android/internal/app/HeavyWeightSwitcherActivity;->finish()V
 
     return-void
 

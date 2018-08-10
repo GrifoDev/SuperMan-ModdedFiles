@@ -98,51 +98,43 @@
 .end method
 
 .method public onBindMethod(Lcom/android/internal/view/InputBindResult;)V
-    .locals 3
+    .locals 2
 
     iget-object v0, p0, Landroid/view/inputmethod/InputMethodManager$1;->this$0:Landroid/view/inputmethod/InputMethodManager;
 
     iget-object v0, v0, Landroid/view/inputmethod/InputMethodManager;->mH:Landroid/view/inputmethod/InputMethodManager$H;
 
-    iget-object v1, p0, Landroid/view/inputmethod/InputMethodManager$1;->this$0:Landroid/view/inputmethod/InputMethodManager;
+    const/4 v1, 0x2
 
-    iget-object v1, v1, Landroid/view/inputmethod/InputMethodManager;->mH:Landroid/view/inputmethod/InputMethodManager$H;
+    invoke-virtual {v0, v1, p1}, Landroid/view/inputmethod/InputMethodManager$H;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
 
-    const/4 v2, 0x2
+    move-result-object v0
 
-    invoke-virtual {v1, v2, p1}, Landroid/view/inputmethod/InputMethodManager$H;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Landroid/view/inputmethod/InputMethodManager$H;->sendMessage(Landroid/os/Message;)Z
+    invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
 
     return-void
 .end method
 
 .method public onUnbindMethod(II)V
-    .locals 3
+    .locals 2
 
     iget-object v0, p0, Landroid/view/inputmethod/InputMethodManager$1;->this$0:Landroid/view/inputmethod/InputMethodManager;
 
     iget-object v0, v0, Landroid/view/inputmethod/InputMethodManager;->mH:Landroid/view/inputmethod/InputMethodManager$H;
 
-    iget-object v1, p0, Landroid/view/inputmethod/InputMethodManager$1;->this$0:Landroid/view/inputmethod/InputMethodManager;
+    const/4 v1, 0x3
 
-    iget-object v1, v1, Landroid/view/inputmethod/InputMethodManager;->mH:Landroid/view/inputmethod/InputMethodManager$H;
+    invoke-virtual {v0, v1, p1, p2}, Landroid/view/inputmethod/InputMethodManager$H;->obtainMessage(III)Landroid/os/Message;
 
-    const/4 v2, 0x3
+    move-result-object v0
 
-    invoke-virtual {v1, v2, p1, p2}, Landroid/view/inputmethod/InputMethodManager$H;->obtainMessage(III)Landroid/os/Message;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Landroid/view/inputmethod/InputMethodManager$H;->sendMessage(Landroid/os/Message;)Z
+    invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
 
     return-void
 .end method
 
-.method public setActive(Z)V
-    .locals 5
+.method public reportFullscreenMode(Z)V
+    .locals 4
 
     const/4 v1, 0x0
 
@@ -150,22 +142,18 @@
 
     iget-object v2, v0, Landroid/view/inputmethod/InputMethodManager;->mH:Landroid/view/inputmethod/InputMethodManager$H;
 
-    iget-object v0, p0, Landroid/view/inputmethod/InputMethodManager$1;->this$0:Landroid/view/inputmethod/InputMethodManager;
-
-    iget-object v3, v0, Landroid/view/inputmethod/InputMethodManager;->mH:Landroid/view/inputmethod/InputMethodManager$H;
-
     if-eqz p1, :cond_0
 
     const/4 v0, 0x1
 
     :goto_0
-    const/4 v4, 0x4
+    const/16 v3, 0xa
 
-    invoke-virtual {v3, v4, v0, v1}, Landroid/view/inputmethod/InputMethodManager$H;->obtainMessage(III)Landroid/os/Message;
+    invoke-virtual {v2, v3, v0, v1}, Landroid/view/inputmethod/InputMethodManager$H;->obtainMessage(III)Landroid/os/Message;
 
     move-result-object v0
 
-    invoke-virtual {v2, v0}, Landroid/view/inputmethod/InputMethodManager$H;->sendMessage(Landroid/os/Message;)Z
+    invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
 
     return-void
 
@@ -175,26 +163,62 @@
     goto :goto_0
 .end method
 
-.method public setUserActionNotificationSequenceNumber(I)V
+.method public setActive(ZZ)V
     .locals 4
+
+    const/4 v0, 0x1
+
+    const/4 v1, 0x0
+
+    iget-object v2, p0, Landroid/view/inputmethod/InputMethodManager$1;->this$0:Landroid/view/inputmethod/InputMethodManager;
+
+    iget-object v3, v2, Landroid/view/inputmethod/InputMethodManager;->mH:Landroid/view/inputmethod/InputMethodManager$H;
+
+    if-eqz p1, :cond_0
+
+    move v2, v0
+
+    :goto_0
+    if-eqz p2, :cond_1
+
+    :goto_1
+    const/4 v1, 0x4
+
+    invoke-virtual {v3, v1, v2, v0}, Landroid/view/inputmethod/InputMethodManager$H;->obtainMessage(III)Landroid/os/Message;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
+
+    return-void
+
+    :cond_0
+    move v2, v1
+
+    goto :goto_0
+
+    :cond_1
+    move v0, v1
+
+    goto :goto_1
+.end method
+
+.method public setUserActionNotificationSequenceNumber(I)V
+    .locals 3
 
     iget-object v0, p0, Landroid/view/inputmethod/InputMethodManager$1;->this$0:Landroid/view/inputmethod/InputMethodManager;
 
     iget-object v0, v0, Landroid/view/inputmethod/InputMethodManager;->mH:Landroid/view/inputmethod/InputMethodManager$H;
 
-    iget-object v1, p0, Landroid/view/inputmethod/InputMethodManager$1;->this$0:Landroid/view/inputmethod/InputMethodManager;
+    const/16 v1, 0x9
 
-    iget-object v1, v1, Landroid/view/inputmethod/InputMethodManager;->mH:Landroid/view/inputmethod/InputMethodManager$H;
+    const/4 v2, 0x0
 
-    const/16 v2, 0x9
+    invoke-virtual {v0, v1, p1, v2}, Landroid/view/inputmethod/InputMethodManager$H;->obtainMessage(III)Landroid/os/Message;
 
-    const/4 v3, 0x0
+    move-result-object v0
 
-    invoke-virtual {v1, v2, p1, v3}, Landroid/view/inputmethod/InputMethodManager$H;->obtainMessage(III)Landroid/os/Message;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Landroid/view/inputmethod/InputMethodManager$H;->sendMessage(Landroid/os/Message;)Z
+    invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
 
     return-void
 .end method

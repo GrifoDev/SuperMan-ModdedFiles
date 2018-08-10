@@ -6,6 +6,8 @@
 # static fields
 .field public static final CA_CERTIFICATE:Ljava/lang/String; = "CACERT_"
 
+.field public static final DELETE_ALL:Ljava/lang/String; = "DELETEALL_"
+
 .field public static final EXTENSION_CER:Ljava/lang/String; = ".cer"
 
 .field public static final EXTENSION_CRT:Ljava/lang/String; = ".crt"
@@ -51,6 +53,8 @@
 .field public static final UNLOCK_ACTION:Ljava/lang/String; = "com.android.credentials.UNLOCK"
 
 .field public static final USER_CERTIFICATE:Ljava/lang/String; = "USRCERT_"
+
+.field public static final USER_CSR:Ljava/lang/String; = "USRCSR_"
 
 .field public static final USER_PRIVATE_KEY:Ljava/lang/String; = "USRPKEY_"
 
@@ -281,21 +285,67 @@
 .method public static deleteAllTypesForAlias(Landroid/security/KeyStore;Ljava/lang/String;I)Z
     .locals 2
 
-    invoke-static {p0, p1, p2}, Landroid/security/Credentials;->deletePrivateKeyTypeForAlias(Landroid/security/KeyStore;Ljava/lang/String;I)Z
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v1, "DELETEALL_"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {p0, v0, p2}, Landroid/security/KeyStore;->delete(Ljava/lang/String;I)Z
 
     move-result v0
 
-    invoke-static {p0, p1, p2}, Landroid/security/Credentials;->deleteSecretKeyTypeForAlias(Landroid/security/KeyStore;Ljava/lang/String;I)Z
+    return v0
+.end method
 
-    move-result v1
+.method public static deleteCSRTypeForAlias(Landroid/security/KeyStore;Ljava/lang/String;)Z
+    .locals 1
 
-    and-int/2addr v0, v1
+    const/4 v0, -0x1
 
-    invoke-static {p0, p1, p2}, Landroid/security/Credentials;->deleteCertificateTypesForAlias(Landroid/security/KeyStore;Ljava/lang/String;I)Z
+    invoke-static {p0, p1, v0}, Landroid/security/Credentials;->deleteCSRTypeForAlias(Landroid/security/KeyStore;Ljava/lang/String;I)Z
 
-    move-result v1
+    move-result v0
 
-    and-int/2addr v0, v1
+    return v0
+.end method
+
+.method public static deleteCSRTypeForAlias(Landroid/security/KeyStore;Ljava/lang/String;I)Z
+    .locals 2
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v1, "USRCSR_"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {p0, v0, p2}, Landroid/security/KeyStore;->delete(Ljava/lang/String;I)Z
+
+    move-result v0
 
     return v0
 .end method
@@ -461,6 +511,313 @@
     sget-object v0, Landroid/security/Credentials;->singleton:Landroid/security/Credentials;
 
     return-object v0
+.end method
+
+.method public static retrievePrivateKeyEntryFromPem([B)Ljava/security/KeyStore$PrivateKeyEntry;
+    .locals 15
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;,
+            Ljava/security/NoSuchAlgorithmException;,
+            Ljava/security/cert/CertificateException;
+        }
+    .end annotation
+
+    new-instance v0, Ljava/io/ByteArrayInputStream;
+
+    invoke-direct {v0, p0}, Ljava/io/ByteArrayInputStream;-><init>([B)V
+
+    new-instance v11, Ljava/io/InputStreamReader;
+
+    sget-object v12, Ljava/nio/charset/StandardCharsets;->US_ASCII:Ljava/nio/charset/Charset;
+
+    invoke-direct {v11, v0, v12}, Ljava/io/InputStreamReader;-><init>(Ljava/io/InputStream;Ljava/nio/charset/Charset;)V
+
+    new-instance v8, Lcom/android/org/bouncycastle/util/io/pem/PemReader;
+
+    invoke-direct {v8, v11}, Lcom/android/org/bouncycastle/util/io/pem/PemReader;-><init>(Ljava/io/Reader;)V
+
+    const/4 v9, 0x0
+
+    const/4 v5, 0x0
+
+    :try_start_0
+    const-string/jumbo v12, "X509"
+
+    invoke-static {v12}, Ljava/security/cert/CertificateFactory;->getInstance(Ljava/lang/String;)Ljava/security/cert/CertificateFactory;
+
+    move-result-object v3
+
+    new-instance v2, Ljava/util/ArrayList;
+
+    invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
+
+    :cond_0
+    :goto_0
+    invoke-virtual {v8}, Lcom/android/org/bouncycastle/util/io/pem/PemReader;->readPemObject()Lcom/android/org/bouncycastle/util/io/pem/PemObject;
+
+    move-result-object v7
+
+    if-eqz v7, :cond_5
+
+    invoke-virtual {v7}, Lcom/android/org/bouncycastle/util/io/pem/PemObject;->getType()Ljava/lang/String;
+
+    move-result-object v12
+
+    const-string/jumbo v13, "RSA PRIVATE KEY"
+
+    invoke-virtual {v12, v13}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v12
+
+    if-eqz v12, :cond_1
+
+    const-string/jumbo v12, "Credentials"
+
+    const-string/jumbo v13, "RSA private key"
+
+    invoke-static {v12, v13}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    const-string/jumbo v12, "RSA"
+
+    invoke-static {v12}, Ljava/security/KeyFactory;->getInstance(Ljava/lang/String;)Ljava/security/KeyFactory;
+
+    move-result-object v6
+
+    new-instance v12, Ljava/security/spec/PKCS8EncodedKeySpec;
+
+    invoke-virtual {v7}, Lcom/android/org/bouncycastle/util/io/pem/PemObject;->getContent()[B
+
+    move-result-object v13
+
+    invoke-direct {v12, v13}, Ljava/security/spec/PKCS8EncodedKeySpec;-><init>([B)V
+
+    invoke-virtual {v6, v12}, Ljava/security/KeyFactory;->generatePrivate(Ljava/security/spec/KeySpec;)Ljava/security/PrivateKey;
+
+    move-result-object v5
+
+    goto :goto_0
+
+    :cond_1
+    invoke-virtual {v7}, Lcom/android/org/bouncycastle/util/io/pem/PemObject;->getType()Ljava/lang/String;
+
+    move-result-object v12
+
+    const-string/jumbo v13, "EC PRIVATE KEY"
+
+    invoke-virtual {v12, v13}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v12
+
+    if-eqz v12, :cond_2
+
+    const-string/jumbo v12, "Credentials"
+
+    const-string/jumbo v13, "EC private key"
+
+    invoke-static {v12, v13}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    const-string/jumbo v12, "EC"
+
+    invoke-static {v12}, Ljava/security/KeyFactory;->getInstance(Ljava/lang/String;)Ljava/security/KeyFactory;
+
+    move-result-object v6
+
+    new-instance v12, Ljava/security/spec/PKCS8EncodedKeySpec;
+
+    invoke-virtual {v7}, Lcom/android/org/bouncycastle/util/io/pem/PemObject;->getContent()[B
+
+    move-result-object v13
+
+    invoke-direct {v12, v13}, Ljava/security/spec/PKCS8EncodedKeySpec;-><init>([B)V
+
+    invoke-virtual {v6, v12}, Ljava/security/KeyFactory;->generatePrivate(Ljava/security/spec/KeySpec;)Ljava/security/PrivateKey;
+
+    move-result-object v5
+
+    goto :goto_0
+
+    :cond_2
+    invoke-virtual {v7}, Lcom/android/org/bouncycastle/util/io/pem/PemObject;->getType()Ljava/lang/String;
+
+    move-result-object v12
+
+    const-string/jumbo v13, "PRIVATE KEY"
+
+    invoke-virtual {v12, v13}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v12
+
+    if-eqz v12, :cond_3
+
+    const-string/jumbo v12, "Credentials"
+
+    const-string/jumbo v13, " private key attempting EC:"
+
+    invoke-static {v12, v13}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    :try_start_1
+    const-string/jumbo v12, "EC"
+
+    invoke-static {v12}, Ljava/security/KeyFactory;->getInstance(Ljava/lang/String;)Ljava/security/KeyFactory;
+
+    move-result-object v6
+
+    new-instance v12, Ljava/security/spec/PKCS8EncodedKeySpec;
+
+    invoke-virtual {v7}, Lcom/android/org/bouncycastle/util/io/pem/PemObject;->getContent()[B
+
+    move-result-object v13
+
+    invoke-direct {v12, v13}, Ljava/security/spec/PKCS8EncodedKeySpec;-><init>([B)V
+
+    invoke-virtual {v6, v12}, Ljava/security/KeyFactory;->generatePrivate(Ljava/security/spec/KeySpec;)Ljava/security/PrivateKey;
+    :try_end_1
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    move-result-object v5
+
+    :goto_1
+    if-nez v5, :cond_0
+
+    :try_start_2
+    const-string/jumbo v12, "Credentials"
+
+    const-string/jumbo v13, " private key attempting RSA:"
+
+    invoke-static {v12, v13}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    const-string/jumbo v12, "RSA"
+
+    invoke-static {v12}, Ljava/security/KeyFactory;->getInstance(Ljava/lang/String;)Ljava/security/KeyFactory;
+
+    move-result-object v6
+
+    new-instance v12, Ljava/security/spec/PKCS8EncodedKeySpec;
+
+    invoke-virtual {v7}, Lcom/android/org/bouncycastle/util/io/pem/PemObject;->getContent()[B
+
+    move-result-object v13
+
+    invoke-direct {v12, v13}, Ljava/security/spec/PKCS8EncodedKeySpec;-><init>([B)V
+
+    invoke-virtual {v6, v12}, Ljava/security/KeyFactory;->generatePrivate(Ljava/security/spec/KeySpec;)Ljava/security/PrivateKey;
+
+    move-result-object v5
+
+    goto/16 :goto_0
+
+    :catch_0
+    move-exception v4
+
+    invoke-virtual {v4}, Ljava/lang/Exception;->printStackTrace()V
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+
+    goto :goto_1
+
+    :catchall_0
+    move-exception v12
+
+    invoke-virtual {v8}, Lcom/android/org/bouncycastle/util/io/pem/PemReader;->close()V
+
+    return-object v9
+
+    :cond_3
+    :try_start_3
+    invoke-virtual {v7}, Lcom/android/org/bouncycastle/util/io/pem/PemObject;->getType()Ljava/lang/String;
+
+    move-result-object v12
+
+    const-string/jumbo v13, "CERTIFICATE"
+
+    invoke-virtual {v12, v13}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v12
+
+    if-eqz v12, :cond_4
+
+    const-string/jumbo v12, "Credentials"
+
+    const-string/jumbo v13, "certificate"
+
+    invoke-static {v12, v13}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    new-instance v12, Ljava/io/ByteArrayInputStream;
+
+    invoke-virtual {v7}, Lcom/android/org/bouncycastle/util/io/pem/PemObject;->getContent()[B
+
+    move-result-object v13
+
+    invoke-direct {v12, v13}, Ljava/io/ByteArrayInputStream;-><init>([B)V
+
+    invoke-virtual {v3, v12}, Ljava/security/cert/CertificateFactory;->generateCertificate(Ljava/io/InputStream;)Ljava/security/cert/Certificate;
+
+    move-result-object v1
+
+    check-cast v1, Ljava/security/cert/X509Certificate;
+
+    invoke-interface {v2, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    goto/16 :goto_0
+
+    :cond_4
+    new-instance v12, Ljava/lang/IllegalArgumentException;
+
+    new-instance v13, Ljava/lang/StringBuilder;
+
+    invoke-direct {v13}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v14, "Unknown type "
+
+    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v13
+
+    invoke-virtual {v7}, Lcom/android/org/bouncycastle/util/io/pem/PemObject;->getType()Ljava/lang/String;
+
+    move-result-object v14
+
+    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v13
+
+    invoke-virtual {v13}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v13
+
+    invoke-direct {v12, v13}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v12
+
+    :cond_5
+    if-eqz v5, :cond_6
+
+    new-instance v10, Ljava/security/KeyStore$PrivateKeyEntry;
+
+    const/4 v12, 0x0
+
+    new-array v12, v12, [Ljava/security/cert/Certificate;
+
+    invoke-interface {v2, v12}, Ljava/util/List;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
+
+    move-result-object v12
+
+    check-cast v12, [Ljava/security/cert/Certificate;
+
+    invoke-direct {v10, v5, v12}, Ljava/security/KeyStore$PrivateKeyEntry;-><init>(Ljava/security/PrivateKey;[Ljava/security/cert/Certificate;)V
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+
+    move-object v9, v10
+
+    :cond_6
+    invoke-virtual {v8}, Lcom/android/org/bouncycastle/util/io/pem/PemReader;->close()V
+
+    return-object v9
 .end method
 
 

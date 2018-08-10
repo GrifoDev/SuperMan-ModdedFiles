@@ -17,7 +17,7 @@
     value = {
         "Landroid/app/SystemServiceRegistry$CachedServiceFetcher",
         "<",
-        "Landroid/net/NetworkPolicyManager;",
+        "Landroid/location/LocationManager;",
         ">;"
     }
 .end annotation
@@ -34,30 +34,40 @@
 
 
 # virtual methods
-.method public createService(Landroid/app/ContextImpl;)Landroid/net/NetworkPolicyManager;
-    .locals 2
+.method public createService(Landroid/app/ContextImpl;)Landroid/location/LocationManager;
+    .locals 3
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/ServiceManager$ServiceNotFoundException;
+        }
+    .end annotation
 
-    new-instance v0, Landroid/net/NetworkPolicyManager;
+    const-string/jumbo v1, "location"
 
-    const-string/jumbo v1, "netpolicy"
+    invoke-static {v1}, Landroid/os/ServiceManager;->getServiceOrThrow(Ljava/lang/String;)Landroid/os/IBinder;
 
-    invoke-static {v1}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
+    move-result-object v0
 
-    move-result-object v1
+    new-instance v1, Landroid/location/LocationManager;
 
-    invoke-static {v1}, Landroid/net/INetworkPolicyManager$Stub;->asInterface(Landroid/os/IBinder;)Landroid/net/INetworkPolicyManager;
+    invoke-static {v0}, Landroid/location/ILocationManager$Stub;->asInterface(Landroid/os/IBinder;)Landroid/location/ILocationManager;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-direct {v0, p1, v1}, Landroid/net/NetworkPolicyManager;-><init>(Landroid/content/Context;Landroid/net/INetworkPolicyManager;)V
+    invoke-direct {v1, p1, v2}, Landroid/location/LocationManager;-><init>(Landroid/content/Context;Landroid/location/ILocationManager;)V
 
-    return-object v0
+    return-object v1
 .end method
 
 .method public bridge synthetic createService(Landroid/app/ContextImpl;)Ljava/lang/Object;
     .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/ServiceManager$ServiceNotFoundException;
+        }
+    .end annotation
 
-    invoke-virtual {p0, p1}, Landroid/app/SystemServiceRegistry$28;->createService(Landroid/app/ContextImpl;)Landroid/net/NetworkPolicyManager;
+    invoke-virtual {p0, p1}, Landroid/app/SystemServiceRegistry$28;->createService(Landroid/app/ContextImpl;)Landroid/location/LocationManager;
 
     move-result-object v0
 

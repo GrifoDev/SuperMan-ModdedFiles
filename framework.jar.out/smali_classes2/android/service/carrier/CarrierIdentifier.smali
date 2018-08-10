@@ -9,7 +9,8 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Landroid/service/carrier/CarrierIdentifier$1;
+        Landroid/service/carrier/CarrierIdentifier$1;,
+        Landroid/service/carrier/CarrierIdentifier$MatchType;
     }
 .end annotation
 

@@ -6,12 +6,6 @@
 .implements Landroid/graphics/drawable/Drawable$Callback;
 
 
-# static fields
-.field private static isDeviceDefault:Ljava/lang/Boolean;
-
-.field private static isThemeHoloDark:Ljava/lang/Boolean;
-
-
 # instance fields
 .field private mAlpha:I
 
@@ -20,8 +14,6 @@
 .field private mAlwaysDrawVerticalTrack:Z
 
 .field private mBoundsChanged:Z
-
-.field private mClickableScrollbarTouchArea:I
 
 .field private final mClickableThumbRect:Landroid/graphics/Rect;
 
@@ -45,8 +37,6 @@
 
 .field private mRangeChanged:Z
 
-.field private mSemCMCF:Landroid/graphics/ColorMatrixColorFilter;
-
 .field private mSemParent:Landroid/view/View;
 
 .field private mVertical:Z
@@ -58,17 +48,13 @@
 
 # direct methods
 .method public constructor <init>(Landroid/view/View;)V
-    .locals 4
-
-    const/4 v3, 0x0
+    .locals 3
 
     invoke-direct {p0}, Landroid/graphics/drawable/Drawable;-><init>()V
 
     const/16 v1, 0xff
 
     iput v1, p0, Landroid/widget/ScrollBarDrawable;->mAlpha:I
-
-    iput v3, p0, Landroid/widget/ScrollBarDrawable;->mClickableScrollbarTouchArea:I
 
     new-instance v1, Landroid/graphics/Rect;
 
@@ -77,8 +63,6 @@
     iput-object v1, p0, Landroid/widget/ScrollBarDrawable;->mClickableThumbRect:Landroid/graphics/Rect;
 
     iput-object p1, p0, Landroid/widget/ScrollBarDrawable;->mSemParent:Landroid/view/View;
-
-    iput v3, p0, Landroid/widget/ScrollBarDrawable;->mClickableScrollbarTouchArea:I
 
     iget-object v1, p0, Landroid/widget/ScrollBarDrawable;->mSemParent:Landroid/view/View;
 
@@ -91,30 +75,6 @@
     invoke-virtual {v1, v2}, Landroid/content/Context;->obtainStyledAttributes([I)Landroid/content/res/TypedArray;
 
     move-result-object v0
-
-    const/16 v1, 0x148
-
-    invoke-virtual {v0, v1, v3}, Landroid/content/res/TypedArray;->getBoolean(IZ)Z
-
-    move-result v1
-
-    invoke-static {v1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
-
-    move-result-object v1
-
-    sput-object v1, Landroid/widget/ScrollBarDrawable;->isDeviceDefault:Ljava/lang/Boolean;
-
-    const/16 v1, 0x149
-
-    invoke-virtual {v0, v1, v3}, Landroid/content/res/TypedArray;->getBoolean(IZ)Z
-
-    move-result v1
-
-    invoke-static {v1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
-
-    move-result-object v1
-
-    sput-object v1, Landroid/widget/ScrollBarDrawable;->isThemeHoloDark:Ljava/lang/Boolean;
 
     invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
 
@@ -164,16 +124,6 @@
     move-result-object v3
 
     invoke-virtual {v1, v3}, Landroid/graphics/Rect;->set(Landroid/graphics/Rect;)V
-
-    iget v3, p0, Landroid/widget/ScrollBarDrawable;->mClickableScrollbarTouchArea:I
-
-    neg-int v3, v3
-
-    iget v4, p0, Landroid/widget/ScrollBarDrawable;->mClickableScrollbarTouchArea:I
-
-    neg-int v4, v4
-
-    invoke-virtual {v1, v3, v4}, Landroid/graphics/Rect;->inset(II)V
 
     iget-object v3, p0, Landroid/widget/ScrollBarDrawable;->mSemParent:Landroid/view/View;
 
@@ -227,16 +177,6 @@
     move-result-object v3
 
     invoke-virtual {v1, v3}, Landroid/graphics/Rect;->set(Landroid/graphics/Rect;)V
-
-    iget v3, p0, Landroid/widget/ScrollBarDrawable;->mClickableScrollbarTouchArea:I
-
-    neg-int v3, v3
-
-    iget v4, p0, Landroid/widget/ScrollBarDrawable;->mClickableScrollbarTouchArea:I
-
-    neg-int v4, v4
-
-    invoke-virtual {v1, v3, v4}, Landroid/graphics/Rect;->inset(II)V
 
     iget-object v3, p0, Landroid/widget/ScrollBarDrawable;->mSemParent:Landroid/view/View;
 
@@ -321,56 +261,6 @@
 
     :cond_2
     return-void
-.end method
-
-.method private semMakeColorFilter()V
-    .locals 3
-
-    new-instance v0, Landroid/graphics/ColorMatrix;
-
-    invoke-direct {v0}, Landroid/graphics/ColorMatrix;-><init>()V
-
-    const/4 v1, 0x0
-
-    const/16 v2, 0x14
-
-    new-array v1, v2, [F
-
-    fill-array-data v1, :array_0
-
-    invoke-virtual {v0, v1}, Landroid/graphics/ColorMatrix;->set([F)V
-
-    new-instance v2, Landroid/graphics/ColorMatrixColorFilter;
-
-    invoke-direct {v2, v0}, Landroid/graphics/ColorMatrixColorFilter;-><init>(Landroid/graphics/ColorMatrix;)V
-
-    iput-object v2, p0, Landroid/widget/ScrollBarDrawable;->mSemCMCF:Landroid/graphics/ColorMatrixColorFilter;
-
-    return-void
-
-    :array_0
-    .array-data 4
-        0x0
-        0x0
-        0x0
-        0x0
-        0x0
-        0x0
-        0x0
-        0x0
-        0x0
-        0x432e0000    # 174.0f
-        0x0
-        0x0
-        0x0
-        0x0
-        0x437f0000    # 255.0f
-        0x0
-        0x0
-        0x0
-        0x3f800000    # 1.0f
-        0x3f800000    # 1.0f
-    .end array-data
 .end method
 
 

@@ -23,7 +23,7 @@
     .end annotation
 .end method
 
-.method public abstract getAvailableRestoreSets(Landroid/app/backup/IRestoreObserver;)I
+.method public abstract getAvailableRestoreSets(Landroid/app/backup/IRestoreObserver;Landroid/app/backup/IBackupManagerMonitor;)I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -31,7 +31,7 @@
     .end annotation
 .end method
 
-.method public abstract restoreAll(JLandroid/app/backup/IRestoreObserver;)I
+.method public abstract restoreAll(JLandroid/app/backup/IRestoreObserver;Landroid/app/backup/IBackupManagerMonitor;)I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -39,7 +39,7 @@
     .end annotation
 .end method
 
-.method public abstract restorePackage(Ljava/lang/String;Landroid/app/backup/IRestoreObserver;)I
+.method public abstract restorePackage(Ljava/lang/String;Landroid/app/backup/IRestoreObserver;Landroid/app/backup/IBackupManagerMonitor;)I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -47,7 +47,7 @@
     .end annotation
 .end method
 
-.method public abstract restoreSome(JLandroid/app/backup/IRestoreObserver;[Ljava/lang/String;)I
+.method public abstract restoreSome(JLandroid/app/backup/IRestoreObserver;Landroid/app/backup/IBackupManagerMonitor;[Ljava/lang/String;)I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

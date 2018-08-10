@@ -12,6 +12,8 @@
 
 .field public static final TAG_CSCFEATURE_CALCULATOR_CONFIGCONVERTER:Ljava/lang/String; = "CscFeature_Calculator_ConfigConverter"
 
+.field public static final TAG_CSCFEATURE_CALCULATOR_CONFIGMORTGAGE:Ljava/lang/String; = "CscFeature_Calculator_ConfigMortgage"
+
 
 # direct methods
 .method public constructor <init>()V

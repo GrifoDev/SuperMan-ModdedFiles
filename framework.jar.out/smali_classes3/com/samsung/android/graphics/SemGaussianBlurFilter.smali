@@ -1,5 +1,5 @@
 .class public Lcom/samsung/android/graphics/SemGaussianBlurFilter;
-.super Lcom/samsung/android/graphics/SemGenericImageFilter;
+.super Lcom/samsung/android/graphics/SemGenericImageFilterLegacy;
 .source "SemGaussianBlurFilter.java"
 
 
@@ -22,22 +22,6 @@
 
 
 # direct methods
-.method static synthetic -get0(Lcom/samsung/android/graphics/SemGaussianBlurFilter;)F
-    .locals 1
-
-    iget v0, p0, Lcom/samsung/android/graphics/SemGaussianBlurFilter;->mRadius:F
-
-    return v0
-.end method
-
-.method static synthetic -set0(Lcom/samsung/android/graphics/SemGaussianBlurFilter;F)F
-    .locals 0
-
-    iput p1, p0, Lcom/samsung/android/graphics/SemGaussianBlurFilter;->mRadius:F
-
-    return p1
-.end method
-
 .method static constructor <clinit>()V
     .locals 3
 
@@ -79,7 +63,7 @@
 
     const/4 v2, 0x2
 
-    invoke-direct {p0, v2, v0, v1}, Lcom/samsung/android/graphics/SemGenericImageFilter;-><init>(I[Ljava/lang/String;[Ljava/lang/String;)V
+    invoke-direct {p0, v2, v0, v1}, Lcom/samsung/android/graphics/SemGenericImageFilterLegacy;-><init>(I[Ljava/lang/String;[Ljava/lang/String;)V
 
     const/4 v0, 0x0
 
@@ -89,39 +73,17 @@
 
     iput v0, p0, Lcom/samsung/android/graphics/SemGaussianBlurFilter;->mQuality:F
 
-    invoke-virtual {p0}, Lcom/samsung/android/graphics/SemGenericImageFilter;->useFilterParams()V
+    invoke-virtual {p0}, Lcom/samsung/android/graphics/SemGaussianBlurFilter;->useFilterParams()V
 
-    invoke-virtual {p0}, Lcom/samsung/android/graphics/SemGenericImageFilter;->useFilterData01()V
+    invoke-virtual {p0}, Lcom/samsung/android/graphics/SemGaussianBlurFilter;->useFilterData01()V
 
-    invoke-virtual {p0}, Lcom/samsung/android/graphics/SemGenericImageFilter;->useFilterData02()V
+    invoke-virtual {p0}, Lcom/samsung/android/graphics/SemGaussianBlurFilter;->useFilterData02()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public animateRadius(FFJJLandroid/animation/TimeInterpolator;)[I
-    .locals 7
-
-    new-instance v1, Lcom/samsung/android/graphics/SemGaussianBlurFilter$1;
-
-    invoke-direct {v1, p0, p2, p1}, Lcom/samsung/android/graphics/SemGaussianBlurFilter$1;-><init>(Lcom/samsung/android/graphics/SemGaussianBlurFilter;FF)V
-
-    move-object v0, p0
-
-    move-wide v2, p3
-
-    move-wide v4, p5
-
-    move-object v6, p7
-
-    invoke-virtual/range {v0 .. v6}, Lcom/samsung/android/graphics/SemImageFilterSet;->addAnimationForAllPasses(Lcom/samsung/android/graphics/SemImageFilter$IAnimationListener;JJLandroid/animation/TimeInterpolator;)[I
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
 .method public clone()Lcom/samsung/android/graphics/SemGaussianBlurFilter;
     .locals 2
     .annotation system Ldalvik/annotation/Throws;
@@ -130,7 +92,7 @@
         }
     .end annotation
 
-    invoke-super {p0}, Lcom/samsung/android/graphics/SemGenericImageFilter;->clone()Lcom/samsung/android/graphics/SemGenericImageFilter;
+    invoke-super {p0}, Lcom/samsung/android/graphics/SemGenericImageFilterLegacy;->clone()Lcom/samsung/android/graphics/SemGenericImageFilterLegacy;
 
     move-result-object v0
 
@@ -143,7 +105,52 @@
     return-object v0
 .end method
 
-.method public bridge synthetic clone()Lcom/samsung/android/graphics/SemGenericImageFilter;
+.method public bridge synthetic clone()Lcom/samsung/android/graphics/SemGenericImageFilterLegacy;
+    .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/lang/CloneNotSupportedException;
+        }
+    .end annotation
+
+    invoke-virtual {p0}, Lcom/samsung/android/graphics/SemGaussianBlurFilter;->clone()Lcom/samsung/android/graphics/SemGaussianBlurFilter;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public bridge synthetic clone()Lcom/samsung/android/graphics/SemImageFilter;
+    .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/lang/CloneNotSupportedException;
+        }
+    .end annotation
+
+    invoke-virtual {p0}, Lcom/samsung/android/graphics/SemGaussianBlurFilter;->clone()Lcom/samsung/android/graphics/SemGaussianBlurFilter;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public bridge synthetic clone()Lcom/samsung/android/graphics/SemImageFilterSet;
+    .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/lang/CloneNotSupportedException;
+        }
+    .end annotation
+
+    invoke-virtual {p0}, Lcom/samsung/android/graphics/SemGaussianBlurFilter;->clone()Lcom/samsung/android/graphics/SemGaussianBlurFilter;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public bridge synthetic clone()Ljava/lang/Object;
     .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -159,273 +166,281 @@
 .end method
 
 .method protected computeGaussCoefs()V
-    .locals 18
+    .locals 20
 
     move-object/from16 v0, p0
 
-    iget v12, v0, Lcom/samsung/android/graphics/SemGaussianBlurFilter;->mRadius:F
+    iget v14, v0, Lcom/samsung/android/graphics/SemGaussianBlurFilter;->mRadius:F
 
-    const v13, 0x3f19999a    # 0.6f
+    const v15, 0x3f19999a    # 0.6f
 
-    mul-float/2addr v12, v13
+    mul-float/2addr v14, v15
 
-    float-to-int v6, v12
+    float-to-int v7, v14
 
-    const/4 v9, 0x0
+    const/4 v11, 0x0
 
-    const/16 v12, 0x40
+    const/16 v14, 0x40
 
-    if-le v6, v12, :cond_0
+    if-le v7, v14, :cond_0
 
     move-object/from16 v0, p0
 
-    iget v12, v0, Lcom/samsung/android/graphics/SemGaussianBlurFilter;->mRadius:F
+    iget v14, v0, Lcom/samsung/android/graphics/SemGaussianBlurFilter;->mRadius:F
 
-    int-to-float v13, v6
+    int-to-float v15, v7
 
-    div-float v9, v12, v13
+    div-float v11, v14, v15
 
-    const/16 v6, 0x40
+    const/16 v7, 0x40
 
     :goto_0
     move-object/from16 v0, p0
 
-    iget v12, v0, Lcom/samsung/android/graphics/SemGaussianBlurFilter;->mRadius:F
+    iget v14, v0, Lcom/samsung/android/graphics/SemGaussianBlurFilter;->mRadius:F
 
-    const/4 v13, 0x0
+    const/4 v15, 0x0
 
-    cmpg-float v12, v12, v13
+    cmpg-float v14, v14, v15
 
-    if-gtz v12, :cond_2
-
-    move-object/from16 v0, p0
-
-    iget-object v12, v0, Lcom/samsung/android/graphics/SemGenericImageFilter;->mData1:[F
-
-    const/high16 v13, 0x3f800000    # 1.0f
-
-    const/4 v14, 0x0
-
-    aput v13, v12, v14
+    if-gtz v14, :cond_2
 
     move-object/from16 v0, p0
 
-    iget-object v12, v0, Lcom/samsung/android/graphics/SemGenericImageFilter;->mData2:[F
+    iget-object v14, v0, Lcom/samsung/android/graphics/SemGaussianBlurFilter;->mData1:[F
 
-    const/4 v13, 0x0
+    const/high16 v15, 0x3f800000    # 1.0f
 
-    const/4 v14, 0x0
+    const/16 v16, 0x0
 
-    aput v13, v12, v14
+    aput v15, v14, v16
+
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/samsung/android/graphics/SemGaussianBlurFilter;->mData2:[F
+
+    const/4 v15, 0x0
+
+    const/16 v16, 0x0
+
+    aput v15, v14, v16
 
     return-void
 
     :cond_0
-    const/4 v12, 0x1
+    const/4 v14, 0x1
 
-    if-ge v6, v12, :cond_1
+    if-ge v7, v14, :cond_1
 
-    const/high16 v9, 0x3f800000    # 1.0f
+    const/high16 v11, 0x3f800000    # 1.0f
 
-    const/4 v6, 0x1
+    const/4 v7, 0x1
 
     goto :goto_0
 
     :cond_1
-    const v9, 0x3fd6c12b
+    const v11, 0x3fd6c12b
 
     goto :goto_0
 
     :cond_2
-    move-object/from16 v0, p0
+    const v5, 0x402df854    # (float)Math.E
 
-    iget v12, v0, Lcom/samsung/android/graphics/SemGaussianBlurFilter;->mRadius:F
-
-    const v13, 0x3e99999a    # 0.3f
-
-    mul-float/2addr v12, v13
-
-    const v13, 0x3f19999a    # 0.6f
-
-    add-float v11, v12, v13
-
-    const v12, 0x40c90fdb
-
-    float-to-double v12, v12
-
-    invoke-static {v12, v13}, Ljava/lang/Math;->sqrt(D)D
-
-    move-result-wide v12
-
-    float-to-double v14, v11
-
-    mul-double/2addr v12, v14
-
-    const-wide/high16 v14, 0x3ff0000000000000L    # 1.0
-
-    div-double v12, v14, v12
-
-    double-to-float v2, v12
-
-    const/high16 v12, 0x40000000    # 2.0f
-
-    mul-float/2addr v12, v11
-
-    mul-float/2addr v12, v11
-
-    const/high16 v13, -0x40800000    # -1.0f
-
-    div-float v3, v13, v12
-
-    const/4 v8, 0x0
-
-    const/16 v12, 0x80
-
-    new-array v4, v12, [F
+    const v10, 0x40490fdb    # (float)Math.PI
 
     move-object/from16 v0, p0
 
-    iget v12, v0, Lcom/samsung/android/graphics/SemGaussianBlurFilter;->mRadius:F
+    iget v14, v0, Lcom/samsung/android/graphics/SemGaussianBlurFilter;->mRadius:F
 
-    int-to-float v13, v6
+    const v15, 0x3e99999a    # 0.3f
 
-    div-float v7, v12, v13
+    mul-float/2addr v14, v15
 
-    const/4 v10, 0x0
+    const v15, 0x3f19999a    # 0.6f
 
-    const/4 v5, 0x1
+    add-float v13, v14, v15
 
-    :goto_1
-    if-ge v5, v6, :cond_3
+    const v14, 0x40c90fdb
 
-    float-to-double v12, v2
+    float-to-double v14, v14
 
-    const-wide v14, 0x4005bf0a80000000L    # 2.7182817459106445
-
-    mul-float v16, v10, v10
-
-    mul-float v16, v16, v3
-
-    move/from16 v0, v16
-
-    float-to-double v0, v0
-
-    move-wide/from16 v16, v0
-
-    invoke-static/range {v14 .. v17}, Ljava/lang/Math;->pow(DD)D
+    invoke-static {v14, v15}, Ljava/lang/Math;->sqrt(D)D
 
     move-result-wide v14
 
-    mul-double/2addr v12, v14
+    float-to-double v0, v13
 
-    float-to-double v14, v9
+    move-wide/from16 v16, v0
 
-    mul-double/2addr v12, v14
+    mul-double v14, v14, v16
 
-    double-to-float v12, v12
+    const-wide/high16 v16, 0x3ff0000000000000L    # 1.0
 
-    aput v12, v4, v5
+    div-double v14, v16, v14
 
-    aget v12, v4, v5
+    double-to-float v2, v14
 
-    add-float/2addr v8, v12
+    const/high16 v14, 0x40000000    # 2.0f
 
-    add-float/2addr v10, v7
+    mul-float/2addr v14, v13
 
-    add-int/lit8 v5, v5, 0x1
+    mul-float/2addr v14, v13
+
+    const/high16 v15, -0x40800000    # -1.0f
+
+    div-float v3, v15, v14
+
+    const/4 v9, 0x0
+
+    const/16 v14, 0x80
+
+    new-array v4, v14, [F
+
+    move-object/from16 v0, p0
+
+    iget v14, v0, Lcom/samsung/android/graphics/SemGaussianBlurFilter;->mRadius:F
+
+    int-to-float v15, v7
+
+    div-float v8, v14, v15
+
+    const/4 v12, 0x0
+
+    const/4 v6, 0x1
+
+    :goto_1
+    if-ge v6, v7, :cond_3
+
+    float-to-double v14, v2
+
+    const-wide v16, 0x4005bf0a80000000L    # 2.7182817459106445
+
+    mul-float v18, v12, v12
+
+    mul-float v18, v18, v3
+
+    move/from16 v0, v18
+
+    float-to-double v0, v0
+
+    move-wide/from16 v18, v0
+
+    invoke-static/range {v16 .. v19}, Ljava/lang/Math;->pow(DD)D
+
+    move-result-wide v16
+
+    mul-double v14, v14, v16
+
+    float-to-double v0, v11
+
+    move-wide/from16 v16, v0
+
+    mul-double v14, v14, v16
+
+    double-to-float v14, v14
+
+    aput v14, v4, v6
+
+    aget v14, v4, v6
+
+    add-float/2addr v9, v14
+
+    add-float/2addr v12, v8
+
+    add-int/lit8 v6, v6, 0x1
 
     goto :goto_1
 
     :cond_3
-    mul-float v12, v2, v9
+    mul-float v14, v2, v11
 
-    const/4 v13, 0x0
+    const/4 v15, 0x0
 
-    aput v12, v4, v13
+    aput v14, v4, v15
 
-    const/high16 v12, 0x40000000    # 2.0f
+    const/high16 v14, 0x40000000    # 2.0f
 
-    mul-float/2addr v8, v12
+    mul-float/2addr v9, v14
 
-    const/4 v12, 0x0
+    const/4 v14, 0x0
 
-    aget v12, v4, v12
+    aget v14, v4, v14
 
-    add-float/2addr v8, v12
+    add-float/2addr v9, v14
 
-    const/4 v5, 0x0
+    const/4 v6, 0x0
 
     :goto_2
-    if-ge v5, v6, :cond_4
+    if-ge v6, v7, :cond_4
 
-    aget v12, v4, v5
+    aget v14, v4, v6
 
-    div-float/2addr v12, v8
+    div-float/2addr v14, v9
 
-    aput v12, v4, v5
+    aput v14, v4, v6
 
-    add-int/lit8 v5, v5, 0x1
+    add-int/lit8 v6, v6, 0x1
 
     goto :goto_2
 
     :cond_4
-    const/4 v10, 0x0
+    const/4 v12, 0x0
 
-    const/4 v5, 0x0
+    const/4 v6, 0x0
 
     :goto_3
-    if-ge v5, v6, :cond_5
+    if-ge v6, v7, :cond_5
 
     move-object/from16 v0, p0
 
-    iget-object v12, v0, Lcom/samsung/android/graphics/SemGenericImageFilter;->mData1:[F
+    iget-object v14, v0, Lcom/samsung/android/graphics/SemGaussianBlurFilter;->mData1:[F
 
-    aget v13, v4, v5
+    aget v15, v4, v6
 
-    aput v13, v12, v5
+    aput v15, v14, v6
 
     move-object/from16 v0, p0
 
-    iget-object v12, v0, Lcom/samsung/android/graphics/SemGenericImageFilter;->mData2:[F
+    iget-object v14, v0, Lcom/samsung/android/graphics/SemGaussianBlurFilter;->mData2:[F
 
-    aput v10, v12, v5
+    aput v12, v14, v6
 
-    add-float/2addr v10, v7
+    add-float/2addr v12, v8
 
-    add-int/lit8 v5, v5, 0x1
+    add-int/lit8 v6, v6, 0x1
 
     goto :goto_3
 
     :cond_5
     move-object/from16 v0, p0
 
-    iget v12, v0, Lcom/samsung/android/graphics/SemGaussianBlurFilter;->mRadius:F
+    iget v14, v0, Lcom/samsung/android/graphics/SemGaussianBlurFilter;->mRadius:F
 
-    const/4 v13, 0x0
-
-    move-object/from16 v0, p0
-
-    invoke-virtual {v0, v13, v12}, Lcom/samsung/android/graphics/SemGenericImageFilter;->setParam(IF)V
-
-    const/4 v12, 0x1
-
-    const/high16 v13, 0x3f800000    # 1.0f
+    const/4 v15, 0x0
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v12, v13}, Lcom/samsung/android/graphics/SemGenericImageFilter;->setParam(IF)V
+    invoke-virtual {v0, v15, v14}, Lcom/samsung/android/graphics/SemGaussianBlurFilter;->setParam(IF)V
 
-    int-to-float v12, v6
+    const/4 v14, 0x1
 
-    const/4 v13, 0x2
+    const/high16 v15, 0x3f800000    # 1.0f
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v13, v12}, Lcom/samsung/android/graphics/SemGenericImageFilter;->setParam(IF)V
+    invoke-virtual {v0, v14, v15}, Lcom/samsung/android/graphics/SemGaussianBlurFilter;->setParam(IF)V
 
-    invoke-virtual/range {p0 .. p0}, Lcom/samsung/android/graphics/SemGenericImageFilter;->setFilterData01Changed()V
+    int-to-float v14, v7
 
-    invoke-virtual/range {p0 .. p0}, Lcom/samsung/android/graphics/SemGenericImageFilter;->setFilterData02Changed()V
+    const/4 v15, 0x2
+
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v15, v14}, Lcom/samsung/android/graphics/SemGaussianBlurFilter;->setParam(IF)V
+
+    invoke-virtual/range {p0 .. p0}, Lcom/samsung/android/graphics/SemGaussianBlurFilter;->setFilterData01Changed()V
+
+    invoke-virtual/range {p0 .. p0}, Lcom/samsung/android/graphics/SemGaussianBlurFilter;->setFilterData02Changed()V
 
     return-void
 .end method
@@ -435,9 +450,11 @@
 
     iget v0, p0, Lcom/samsung/android/graphics/SemGaussianBlurFilter;->mRadius:F
 
-    cmpl-float v0, v0, p1
+    invoke-static {v0, p1}, Lcom/samsung/android/graphics/SemMathUtils;->compare(FF)Z
 
-    if-eqz v0, :cond_0
+    move-result v0
+
+    if-nez v0, :cond_0
 
     const/high16 v0, 0x437a0000    # 250.0f
 
@@ -457,7 +474,7 @@
 
     invoke-virtual {p0}, Lcom/samsung/android/graphics/SemGaussianBlurFilter;->computeGaussCoefs()V
 
-    invoke-virtual {p0}, Lcom/samsung/android/graphics/SemGenericImageFilter;->notifyWorkerFilters()V
+    invoke-virtual {p0}, Lcom/samsung/android/graphics/SemGaussianBlurFilter;->notifyWorkerFilters()V
 
     :cond_0
     return-void
@@ -487,11 +504,11 @@
     :cond_0
     const/4 v1, 0x0
 
-    invoke-virtual {p0, v1, v0, v4}, Lcom/samsung/android/graphics/SemGenericImageFilter;->setSamplingRate(IFF)V
+    invoke-virtual {p0, v1, v0, v4}, Lcom/samsung/android/graphics/SemGaussianBlurFilter;->setSamplingRate(IFF)V
 
     const/4 v1, 0x1
 
-    invoke-virtual {p0, v1, v0, v0}, Lcom/samsung/android/graphics/SemGenericImageFilter;->setSamplingRate(IFF)V
+    invoke-virtual {p0, v1, v0, v0}, Lcom/samsung/android/graphics/SemGaussianBlurFilter;->setSamplingRate(IFF)V
 
     return-void
 .end method

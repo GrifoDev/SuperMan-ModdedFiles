@@ -156,12 +156,18 @@
     return v1
 
     :cond_0
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_1
 
     instance-of v2, p1, Landroid/media/AudioRecordingConfiguration;
 
+    xor-int/lit8 v2, v2, 0x1
+
     if-eqz v2, :cond_2
 
+    :cond_1
+    return v1
+
+    :cond_2
     move-object v0, p1
 
     check-cast v0, Landroid/media/AudioRecordingConfiguration;
@@ -170,19 +176,19 @@
 
     iget v3, v0, Landroid/media/AudioRecordingConfiguration;->mSessionId:I
 
-    if-ne v2, v3, :cond_1
+    if-ne v2, v3, :cond_3
 
     iget v2, p0, Landroid/media/AudioRecordingConfiguration;->mClientSource:I
 
     iget v3, v0, Landroid/media/AudioRecordingConfiguration;->mClientSource:I
 
-    if-ne v2, v3, :cond_1
+    if-ne v2, v3, :cond_3
 
     iget v2, p0, Landroid/media/AudioRecordingConfiguration;->mPatchHandle:I
 
     iget v3, v0, Landroid/media/AudioRecordingConfiguration;->mPatchHandle:I
 
-    if-ne v2, v3, :cond_1
+    if-ne v2, v3, :cond_3
 
     iget-object v2, p0, Landroid/media/AudioRecordingConfiguration;->mClientFormat:Landroid/media/AudioFormat;
 
@@ -192,7 +198,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_3
 
     iget-object v1, p0, Landroid/media/AudioRecordingConfiguration;->mDeviceFormat:Landroid/media/AudioFormat;
 
@@ -202,10 +208,7 @@
 
     move-result v1
 
-    :cond_1
-    return v1
-
-    :cond_2
+    :cond_3
     return v1
 .end method
 

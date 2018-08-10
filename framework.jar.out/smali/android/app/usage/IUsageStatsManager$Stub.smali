@@ -26,7 +26,7 @@
 # static fields
 .field private static final DESCRIPTOR:Ljava/lang/String; = "android.app.usage.IUsageStatsManager"
 
-.field static final TRANSACTION_deleteUsageStats:I = 0xa
+.field static final TRANSACTION_deleteUsageStats:I = 0xc
 
 .field static final TRANSACTION_isAppInactive:I = 0x5
 
@@ -38,11 +38,15 @@
 
 .field static final TRANSACTION_queryUsageStats:I = 0x1
 
-.field static final TRANSACTION_registerUsageStatsWatcher:I = 0x8
+.field static final TRANSACTION_registerUsageStatsWatcher:I = 0x9
+
+.field static final TRANSACTION_registerUsageStatsWatcherWithComponent:I = 0xa
+
+.field static final TRANSACTION_reportChooserSelection:I = 0x8
 
 .field static final TRANSACTION_setAppInactive:I = 0x4
 
-.field static final TRANSACTION_unregisterUsageStatsWatcher:I = 0x9
+.field static final TRANSACTION_unregisterUsageStatsWatcher:I = 0xb
 
 .field static final TRANSACTION_whitelistAppTemporarily:I = 0x6
 
@@ -103,7 +107,7 @@
 .end method
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    .locals 25
+    .locals 30
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -156,11 +160,11 @@
 
     invoke-virtual/range {v4 .. v10}, Landroid/app/usage/IUsageStatsManager$Stub;->queryUsageStats(IJJLjava/lang/String;)Landroid/content/pm/ParceledListSlice;
 
-    move-result-object v23
+    move-result-object v28
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v23, :cond_0
+    if-eqz v28, :cond_0
 
     const/4 v4, 0x1
 
@@ -170,7 +174,7 @@
 
     const/4 v4, 0x1
 
-    move-object/from16 v0, v23
+    move-object/from16 v0, v28
 
     move-object/from16 v1, p3
 
@@ -217,11 +221,11 @@
 
     invoke-virtual/range {v4 .. v10}, Landroid/app/usage/IUsageStatsManager$Stub;->queryConfigurationStats(IJJLjava/lang/String;)Landroid/content/pm/ParceledListSlice;
 
-    move-result-object v23
+    move-result-object v28
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v23, :cond_1
+    if-eqz v28, :cond_1
 
     const/4 v4, 0x1
 
@@ -231,7 +235,7 @@
 
     const/4 v4, 0x1
 
-    move-object/from16 v0, v23
+    move-object/from16 v0, v28
 
     move-object/from16 v1, p3
 
@@ -276,11 +280,11 @@
 
     invoke-virtual/range {v11 .. v16}, Landroid/app/usage/IUsageStatsManager$Stub;->queryEvents(JJLjava/lang/String;)Landroid/app/usage/UsageEvents;
 
-    move-result-object v22
+    move-result-object v27
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v22, :cond_2
+    if-eqz v27, :cond_2
 
     const/4 v4, 0x1
 
@@ -290,7 +294,7 @@
 
     const/4 v4, 0x1
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v27
 
     move-object/from16 v1, p3
 
@@ -327,20 +331,20 @@
 
     if-eqz v4, :cond_3
 
-    const/16 v20, 0x1
+    const/16 v25, 0x1
 
     :goto_3
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v21
+    move-result v26
 
     move-object/from16 v0, p0
 
     move-object/from16 v1, v18
 
-    move/from16 v2, v20
+    move/from16 v2, v25
 
-    move/from16 v3, v21
+    move/from16 v3, v26
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/app/usage/IUsageStatsManager$Stub;->setAppInactive(Ljava/lang/String;ZI)V
 
@@ -351,7 +355,7 @@
     return v4
 
     :cond_3
-    const/16 v20, 0x0
+    const/16 v25, 0x0
 
     goto :goto_3
 
@@ -378,11 +382,11 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/app/usage/IUsageStatsManager$Stub;->isAppInactive(Ljava/lang/String;I)Z
 
-    move-result v24
+    move-result v29
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v24, :cond_4
+    if-eqz v29, :cond_4
 
     const/4 v4, 0x1
 
@@ -417,13 +421,13 @@
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v21
+    move-result v26
 
     move-object/from16 v0, p0
 
     move-object/from16 v1, v18
 
-    move/from16 v2, v21
+    move/from16 v2, v26
 
     invoke-virtual {v0, v1, v6, v7, v2}, Landroid/app/usage/IUsageStatsManager$Stub;->whitelistAppTemporarily(Ljava/lang/String;JI)V
 
@@ -455,19 +459,31 @@
 
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v18
 
-    invoke-static {v4}, Landroid/app/usage/IUsageStatsWatcher$Stub;->asInterface(Landroid/os/IBinder;)Landroid/app/usage/IUsageStatsWatcher;
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result-object v17
+    move-result v19
 
-    move-object/from16 v0, p0
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
-    move-object/from16 v1, v17
+    move-result-object v16
 
-    invoke-virtual {v0, v1}, Landroid/app/usage/IUsageStatsManager$Stub;->registerUsageStatsWatcher(Landroid/app/usage/IUsageStatsWatcher;)V
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->createStringArray()[Ljava/lang/String;
+
+    move-result-object v21
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v22
+
+    move-object/from16 v17, p0
+
+    move-object/from16 v20, v16
+
+    invoke-virtual/range {v17 .. v22}, Landroid/app/usage/IUsageStatsManager$Stub;->reportChooserSelection(Ljava/lang/String;ILjava/lang/String;[Ljava/lang/String;Ljava/lang/String;)V
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
@@ -488,11 +504,75 @@
 
     invoke-static {v4}, Landroid/app/usage/IUsageStatsWatcher$Stub;->asInterface(Landroid/os/IBinder;)Landroid/app/usage/IUsageStatsWatcher;
 
-    move-result-object v17
+    move-result-object v23
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v17
+    move-object/from16 v1, v23
+
+    invoke-virtual {v0, v1}, Landroid/app/usage/IUsageStatsManager$Stub;->registerUsageStatsWatcher(Landroid/app/usage/IUsageStatsWatcher;)V
+
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    const/4 v4, 0x1
+
+    return v4
+
+    :sswitch_a
+    const-string/jumbo v4, "android.app.usage.IUsageStatsManager"
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
+
+    move-result-object v4
+
+    invoke-static {v4}, Landroid/app/usage/IUsageStatsWatcher$Stub;->asInterface(Landroid/os/IBinder;)Landroid/app/usage/IUsageStatsWatcher;
+
+    move-result-object v23
+
+    sget-object v4, Landroid/content/ComponentName;->CREATOR:Landroid/os/Parcelable$Creator;
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v4}, Landroid/os/Parcel;->createTypedArrayList(Landroid/os/Parcelable$Creator;)Ljava/util/ArrayList;
+
+    move-result-object v24
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v23
+
+    move-object/from16 v2, v24
+
+    invoke-virtual {v0, v1, v2}, Landroid/app/usage/IUsageStatsManager$Stub;->registerUsageStatsWatcherWithComponent(Landroid/app/usage/IUsageStatsWatcher;Ljava/util/List;)V
+
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    const/4 v4, 0x1
+
+    return v4
+
+    :sswitch_b
+    const-string/jumbo v4, "android.app.usage.IUsageStatsManager"
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
+
+    move-result-object v4
+
+    invoke-static {v4}, Landroid/app/usage/IUsageStatsWatcher$Stub;->asInterface(Landroid/os/IBinder;)Landroid/app/usage/IUsageStatsWatcher;
+
+    move-result-object v23
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v23
 
     invoke-virtual {v0, v1}, Landroid/app/usage/IUsageStatsManager$Stub;->unregisterUsageStatsWatcher(Landroid/app/usage/IUsageStatsWatcher;)V
 
@@ -502,7 +582,7 @@
 
     return v4
 
-    :sswitch_a
+    :sswitch_c
     const-string/jumbo v4, "android.app.usage.IUsageStatsManager"
 
     move-object/from16 v0, p2
@@ -531,6 +611,8 @@
         0x8 -> :sswitch_8
         0x9 -> :sswitch_9
         0xa -> :sswitch_a
+        0xb -> :sswitch_b
+        0xc -> :sswitch_c
         0x5f4e5446 -> :sswitch_0
     .end sparse-switch
 .end method

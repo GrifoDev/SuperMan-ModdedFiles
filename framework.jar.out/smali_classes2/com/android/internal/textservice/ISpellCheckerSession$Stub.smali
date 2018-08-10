@@ -98,9 +98,7 @@
         }
     .end annotation
 
-    const/4 v2, 0x0
-
-    const/4 v3, 0x1
+    const/4 v4, 0x1
 
     sparse-switch p1, :sswitch_data_0
 
@@ -111,20 +109,20 @@
     return v3
 
     :sswitch_0
-    const-string/jumbo v4, "com.android.internal.textservice.ISpellCheckerSession"
+    const-string/jumbo v3, "com.android.internal.textservice.ISpellCheckerSession"
 
-    invoke-virtual {p3, v4}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p3, v3}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    return v3
+    return v4
 
     :sswitch_1
-    const-string/jumbo v4, "com.android.internal.textservice.ISpellCheckerSession"
+    const-string/jumbo v3, "com.android.internal.textservice.ISpellCheckerSession"
 
-    invoke-virtual {p2, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    sget-object v4, Landroid/view/textservice/TextInfo;->CREATOR:Landroid/os/Parcelable$Creator;
+    sget-object v3, Landroid/view/textservice/TextInfo;->CREATOR:Landroid/os/Parcelable$Creator;
 
-    invoke-virtual {p2, v4}, Landroid/os/Parcel;->createTypedArray(Landroid/os/Parcelable$Creator;)[Ljava/lang/Object;
+    invoke-virtual {p2, v3}, Landroid/os/Parcel;->createTypedArray(Landroid/os/Parcelable$Creator;)[Ljava/lang/Object;
 
     move-result-object v0
 
@@ -136,25 +134,30 @@
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v4
+    move-result v3
 
-    if-eqz v4, :cond_0
+    if-eqz v3, :cond_0
 
-    move v2, v3
+    const/4 v2, 0x1
 
-    :cond_0
+    :goto_0
     invoke-virtual {p0, v0, v1, v2}, Lcom/android/internal/textservice/ISpellCheckerSession$Stub;->onGetSuggestionsMultiple([Landroid/view/textservice/TextInfo;IZ)V
 
-    return v3
+    return v4
+
+    :cond_0
+    const/4 v2, 0x0
+
+    goto :goto_0
 
     :sswitch_2
-    const-string/jumbo v4, "com.android.internal.textservice.ISpellCheckerSession"
+    const-string/jumbo v3, "com.android.internal.textservice.ISpellCheckerSession"
 
-    invoke-virtual {p2, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    sget-object v4, Landroid/view/textservice/TextInfo;->CREATOR:Landroid/os/Parcelable$Creator;
+    sget-object v3, Landroid/view/textservice/TextInfo;->CREATOR:Landroid/os/Parcelable$Creator;
 
-    invoke-virtual {p2, v4}, Landroid/os/Parcel;->createTypedArray(Landroid/os/Parcelable$Creator;)[Ljava/lang/Object;
+    invoke-virtual {p2, v3}, Landroid/os/Parcel;->createTypedArray(Landroid/os/Parcelable$Creator;)[Ljava/lang/Object;
 
     move-result-object v0
 
@@ -166,25 +169,27 @@
 
     invoke-virtual {p0, v0, v1}, Lcom/android/internal/textservice/ISpellCheckerSession$Stub;->onGetSentenceSuggestionsMultiple([Landroid/view/textservice/TextInfo;I)V
 
-    return v3
+    return v4
 
     :sswitch_3
-    const-string/jumbo v4, "com.android.internal.textservice.ISpellCheckerSession"
+    const-string/jumbo v3, "com.android.internal.textservice.ISpellCheckerSession"
 
-    invoke-virtual {p2, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p0}, Lcom/android/internal/textservice/ISpellCheckerSession$Stub;->onCancel()V
 
-    return v3
+    return v4
 
     :sswitch_4
-    const-string/jumbo v4, "com.android.internal.textservice.ISpellCheckerSession"
+    const-string/jumbo v3, "com.android.internal.textservice.ISpellCheckerSession"
 
-    invoke-virtual {p2, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p0}, Lcom/android/internal/textservice/ISpellCheckerSession$Stub;->onClose()V
 
-    return v3
+    return v4
+
+    nop
 
     :sswitch_data_0
     .sparse-switch

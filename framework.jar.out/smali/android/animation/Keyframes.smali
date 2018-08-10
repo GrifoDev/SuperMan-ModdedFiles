@@ -52,8 +52,5 @@
 .method public abstract getValue(F)Ljava/lang/Object;
 .end method
 
-.method public abstract invalidateCache()V
-.end method
-
 .method public abstract setEvaluator(Landroid/animation/TypeEvaluator;)V
 .end method

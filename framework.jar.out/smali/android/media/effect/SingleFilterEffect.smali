@@ -37,7 +37,7 @@
 
     new-instance v3, Landroid/filterfw/core/FilterFunction;
 
-    invoke-virtual {p0}, Landroid/media/effect/FilterEffect;->getFilterContext()Landroid/filterfw/core/FilterContext;
+    invoke-virtual {p0}, Landroid/media/effect/SingleFilterEffect;->getFilterContext()Landroid/filterfw/core/FilterContext;
 
     move-result-object v4
 
@@ -53,13 +53,13 @@
 .method public apply(IIII)V
     .locals 7
 
-    invoke-virtual {p0}, Landroid/media/effect/FilterEffect;->beginGLEffect()V
+    invoke-virtual {p0}, Landroid/media/effect/SingleFilterEffect;->beginGLEffect()V
 
-    invoke-virtual {p0, p1, p2, p3}, Landroid/media/effect/FilterEffect;->frameFromTexture(III)Landroid/filterfw/core/Frame;
+    invoke-virtual {p0, p1, p2, p3}, Landroid/media/effect/SingleFilterEffect;->frameFromTexture(III)Landroid/filterfw/core/Frame;
 
     move-result-object v0
 
-    invoke-virtual {p0, p4, p2, p3}, Landroid/media/effect/FilterEffect;->frameFromTexture(III)Landroid/filterfw/core/Frame;
+    invoke-virtual {p0, p4, p2, p3}, Landroid/media/effect/SingleFilterEffect;->frameFromTexture(III)Landroid/filterfw/core/Frame;
 
     move-result-object v1
 
@@ -91,7 +91,7 @@
 
     invoke-virtual {v2}, Landroid/filterfw/core/Frame;->release()Landroid/filterfw/core/Frame;
 
-    invoke-virtual {p0}, Landroid/media/effect/FilterEffect;->endGLEffect()V
+    invoke-virtual {p0}, Landroid/media/effect/SingleFilterEffect;->endGLEffect()V
 
     return-void
 .end method

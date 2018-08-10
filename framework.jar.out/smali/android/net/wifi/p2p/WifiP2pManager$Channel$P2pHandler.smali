@@ -253,7 +253,7 @@
 
     const-string/jumbo v11, "wpsPin"
 
-    invoke-virtual {v0, v11}, Landroid/os/BaseBundle;->getString(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v0, v11}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v11
 
@@ -329,7 +329,7 @@
 
     const-string/jumbo v10, "android.net.wifi.p2p.EXTRA_HANDOVER_MESSAGE"
 
-    invoke-virtual {v4, v10}, Landroid/os/BaseBundle;->getString(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v4, v10}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v5
 

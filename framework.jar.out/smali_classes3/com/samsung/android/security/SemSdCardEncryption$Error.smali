@@ -15,8 +15,6 @@
 
 
 # static fields
-.field public static final CHANGE_ECRYPTFS_PASSWORD:I = 0x9
-
 .field public static final DECRYPT:I = 0x6
 
 .field public static final ENCRYPT:I = 0x5
@@ -24,8 +22,6 @@
 .field public static final FILE_OPEN:I = 0xb
 
 .field public static final MOUNT:I = 0x7
-
-.field public static final MOUNT_PATH_STATUS:I = 0xa
 
 .field public static final NO:I = 0x0
 

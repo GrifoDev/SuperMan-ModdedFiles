@@ -15,13 +15,13 @@
 
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Landroid/os/CustomFrequencyManager$CPUDVFSControlRequest$1;
+        Landroid/os/CustomFrequencyManager$CPUDVFSControlRequest$CpuDvfsReleaser;
     }
 .end annotation
 
 
 # instance fields
-.field mCPUDVFSReleaser:Ljava/lang/Runnable;
+.field mCPUDVFSReleaser:Landroid/os/CustomFrequencyManager$CPUDVFSControlRequest$CpuDvfsReleaser;
 
 .field mCallingID:I
 
@@ -42,12 +42,6 @@
 
     iput v3, p0, Landroid/os/CustomFrequencyManager$CPUDVFSControlRequest;->mCallingID:I
 
-    new-instance v3, Landroid/os/CustomFrequencyManager$CPUDVFSControlRequest$1;
-
-    invoke-direct {v3, p0}, Landroid/os/CustomFrequencyManager$CPUDVFSControlRequest$1;-><init>(Landroid/os/CustomFrequencyManager$CPUDVFSControlRequest;)V
-
-    iput-object v3, p0, Landroid/os/CustomFrequencyManager$CPUDVFSControlRequest;->mCPUDVFSReleaser:Ljava/lang/Runnable;
-
     packed-switch p2, :pswitch_data_0
 
     const-string/jumbo v3, "CustomFrequencyManager"
@@ -56,7 +50,7 @@
 
     invoke-static {v3, v4}, Landroid/os/CustomFrequencyManager;->-wrap1(Ljava/lang/String;Ljava/lang/String;)V
 
-    iput-boolean v5, p0, Landroid/os/CustomFrequencyManager$FrequencyRequest;->mInvalidParam:Z
+    iput-boolean v5, p0, Landroid/os/CustomFrequencyManager$CPUDVFSControlRequest;->mInvalidParam:Z
 
     return-void
 
@@ -73,7 +67,7 @@
 
     invoke-static {v3, v4}, Landroid/os/CustomFrequencyManager;->-wrap1(Ljava/lang/String;Ljava/lang/String;)V
 
-    iput-boolean v5, p0, Landroid/os/CustomFrequencyManager$FrequencyRequest;->mInvalidParam:Z
+    iput-boolean v5, p0, Landroid/os/CustomFrequencyManager$CPUDVFSControlRequest;->mInvalidParam:Z
 
     return-void
 
@@ -107,14 +101,12 @@
 
     invoke-static {v3, v4}, Landroid/os/CustomFrequencyManager;->-wrap1(Ljava/lang/String;Ljava/lang/String;)V
 
-    iput-boolean v5, p0, Landroid/os/CustomFrequencyManager$FrequencyRequest;->mInvalidParam:Z
+    iput-boolean v5, p0, Landroid/os/CustomFrequencyManager$CPUDVFSControlRequest;->mInvalidParam:Z
 
     return-void
 
     :cond_3
     return-void
-
-    nop
 
     :pswitch_data_0
     .packed-switch 0x6
@@ -131,19 +123,22 @@
     monitor-enter p0
 
     :try_start_0
-    iget-object v1, p0, Landroid/os/CustomFrequencyManager$CPUDVFSControlRequest;->this$0:Landroid/os/CustomFrequencyManager;
+    iget-object v1, p0, Landroid/os/CustomFrequencyManager$CPUDVFSControlRequest;->mCPUDVFSReleaser:Landroid/os/CustomFrequencyManager$CPUDVFSControlRequest$CpuDvfsReleaser;
 
-    iget-object v1, v1, Landroid/os/CustomFrequencyManager;->mHandler:Landroid/os/Handler;
+    if-eqz v1, :cond_0
 
-    iget-object v2, p0, Landroid/os/CustomFrequencyManager$CPUDVFSControlRequest;->mCPUDVFSReleaser:Ljava/lang/Runnable;
+    iget-object v1, p0, Landroid/os/CustomFrequencyManager$CPUDVFSControlRequest;->mCPUDVFSReleaser:Landroid/os/CustomFrequencyManager$CPUDVFSControlRequest$CpuDvfsReleaser;
 
-    invoke-virtual {v1, v2}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
+    const/4 v2, 0x1
 
+    iput-boolean v2, v1, Landroid/os/CustomFrequencyManager$CPUDVFSControlRequest$CpuDvfsReleaser;->stop:Z
+
+    :cond_0
     iget-object v1, p0, Landroid/os/CustomFrequencyManager$CPUDVFSControlRequest;->this$0:Landroid/os/CustomFrequencyManager;
 
     iget-object v1, v1, Landroid/os/CustomFrequencyManager;->mService:Landroid/os/ICustomFrequencyManager;
 
-    iget-object v2, p0, Landroid/os/CustomFrequencyManager$FrequencyRequest;->mPkgName:Ljava/lang/String;
+    iget-object v2, p0, Landroid/os/CustomFrequencyManager$CPUDVFSControlRequest;->mPkgName:Ljava/lang/String;
 
     invoke-interface {v1, p1, v2}, Landroid/os/ICustomFrequencyManager;->releasePersistentDVFSLock(ILjava/lang/String;)V
     :try_end_0
@@ -176,26 +171,29 @@
 .method public cancelFrequencyRequestImpl()V
     .locals 5
 
-    iget-object v2, p0, Landroid/os/CustomFrequencyManager$FrequencyRequest;->mToken:Landroid/os/IBinder;
+    iget-object v2, p0, Landroid/os/CustomFrequencyManager$CPUDVFSControlRequest;->mToken:Landroid/os/IBinder;
 
     monitor-enter v2
 
     :try_start_0
-    iget-object v1, p0, Landroid/os/CustomFrequencyManager$CPUDVFSControlRequest;->this$0:Landroid/os/CustomFrequencyManager;
+    iget-object v1, p0, Landroid/os/CustomFrequencyManager$CPUDVFSControlRequest;->mCPUDVFSReleaser:Landroid/os/CustomFrequencyManager$CPUDVFSControlRequest$CpuDvfsReleaser;
 
-    iget-object v1, v1, Landroid/os/CustomFrequencyManager;->mHandler:Landroid/os/Handler;
+    if-eqz v1, :cond_0
 
-    iget-object v3, p0, Landroid/os/CustomFrequencyManager$CPUDVFSControlRequest;->mCPUDVFSReleaser:Ljava/lang/Runnable;
+    iget-object v1, p0, Landroid/os/CustomFrequencyManager$CPUDVFSControlRequest;->mCPUDVFSReleaser:Landroid/os/CustomFrequencyManager$CPUDVFSControlRequest$CpuDvfsReleaser;
 
-    invoke-virtual {v1, v3}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
+    const/4 v3, 0x1
 
+    iput-boolean v3, v1, Landroid/os/CustomFrequencyManager$CPUDVFSControlRequest$CpuDvfsReleaser;->stop:Z
+
+    :cond_0
     iget-object v1, p0, Landroid/os/CustomFrequencyManager$CPUDVFSControlRequest;->this$0:Landroid/os/CustomFrequencyManager;
 
     iget-object v1, v1, Landroid/os/CustomFrequencyManager;->mService:Landroid/os/ICustomFrequencyManager;
 
-    iget-object v3, p0, Landroid/os/CustomFrequencyManager$FrequencyRequest;->mToken:Landroid/os/IBinder;
+    iget-object v3, p0, Landroid/os/CustomFrequencyManager$CPUDVFSControlRequest;->mToken:Landroid/os/IBinder;
 
-    iget-object v4, p0, Landroid/os/CustomFrequencyManager$FrequencyRequest;->mPkgName:Ljava/lang/String;
+    iget-object v4, p0, Landroid/os/CustomFrequencyManager$CPUDVFSControlRequest;->mPkgName:Ljava/lang/String;
 
     invoke-interface {v1, v3, v4}, Landroid/os/ICustomFrequencyManager;->releaseDVFSLock(Landroid/os/IBinder;Ljava/lang/String;)V
     :try_end_0
@@ -235,11 +233,11 @@
 
     iget-object v1, v1, Landroid/os/CustomFrequencyManager;->mService:Landroid/os/ICustomFrequencyManager;
 
-    iget v2, p0, Landroid/os/CustomFrequencyManager$FrequencyRequest;->mType:I
+    iget v2, p0, Landroid/os/CustomFrequencyManager$CPUDVFSControlRequest;->mType:I
 
-    iget v3, p0, Landroid/os/CustomFrequencyManager$FrequencyRequest;->mFrequency:I
+    iget v3, p0, Landroid/os/CustomFrequencyManager$CPUDVFSControlRequest;->mFrequency:I
 
-    iget-object v4, p0, Landroid/os/CustomFrequencyManager$FrequencyRequest;->mPkgName:Ljava/lang/String;
+    iget-object v4, p0, Landroid/os/CustomFrequencyManager$CPUDVFSControlRequest;->mPkgName:Ljava/lang/String;
 
     invoke-interface {v1, v2, v3, p1, v4}, Landroid/os/ICustomFrequencyManager;->acquirePersistentDVFSLock(IIILjava/lang/String;)V
     :try_end_0
@@ -284,7 +282,7 @@
 
     move-result-object v2
 
-    iget v3, p0, Landroid/os/CustomFrequencyManager$FrequencyRequest;->mFrequency:I
+    iget v3, p0, Landroid/os/CustomFrequencyManager$CPUDVFSControlRequest;->mFrequency:I
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
@@ -296,7 +294,7 @@
 
     move-result-object v2
 
-    iget-wide v4, p0, Landroid/os/CustomFrequencyManager$FrequencyRequest;->mTimeoutMs:J
+    iget-wide v4, p0, Landroid/os/CustomFrequencyManager$CPUDVFSControlRequest;->mTimeoutMs:J
 
     invoke-virtual {v2, v4, v5}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
@@ -308,7 +306,7 @@
 
     invoke-static {v1, v2}, Landroid/os/CustomFrequencyManager;->-wrap1(Ljava/lang/String;Ljava/lang/String;)V
 
-    iget-object v2, p0, Landroid/os/CustomFrequencyManager$FrequencyRequest;->mToken:Landroid/os/IBinder;
+    iget-object v2, p0, Landroid/os/CustomFrequencyManager$CPUDVFSControlRequest;->mToken:Landroid/os/IBinder;
 
     monitor-enter v2
 
@@ -317,23 +315,23 @@
 
     const/4 v3, -0x1
 
-    if-ne v1, v3, :cond_1
+    if-ne v1, v3, :cond_2
 
     iget-object v1, p0, Landroid/os/CustomFrequencyManager$CPUDVFSControlRequest;->this$0:Landroid/os/CustomFrequencyManager;
 
     iget-object v1, v1, Landroid/os/CustomFrequencyManager;->mService:Landroid/os/ICustomFrequencyManager;
 
-    iget v3, p0, Landroid/os/CustomFrequencyManager$FrequencyRequest;->mType:I
+    iget v3, p0, Landroid/os/CustomFrequencyManager$CPUDVFSControlRequest;->mType:I
 
-    iget v4, p0, Landroid/os/CustomFrequencyManager$FrequencyRequest;->mFrequency:I
+    iget v4, p0, Landroid/os/CustomFrequencyManager$CPUDVFSControlRequest;->mFrequency:I
 
-    iget-object v5, p0, Landroid/os/CustomFrequencyManager$FrequencyRequest;->mToken:Landroid/os/IBinder;
+    iget-object v5, p0, Landroid/os/CustomFrequencyManager$CPUDVFSControlRequest;->mToken:Landroid/os/IBinder;
 
-    iget-object v6, p0, Landroid/os/CustomFrequencyManager$FrequencyRequest;->mPkgName:Ljava/lang/String;
+    iget-object v6, p0, Landroid/os/CustomFrequencyManager$CPUDVFSControlRequest;->mPkgName:Ljava/lang/String;
 
     invoke-interface {v1, v3, v4, v5, v6}, Landroid/os/ICustomFrequencyManager;->acquireDVFSLock(IILandroid/os/IBinder;Ljava/lang/String;)V
 
-    iget-wide v4, p0, Landroid/os/CustomFrequencyManager$FrequencyRequest;->mTimeoutMs:J
+    iget-wide v4, p0, Landroid/os/CustomFrequencyManager$CPUDVFSControlRequest;->mTimeoutMs:J
 
     const-wide/16 v6, -0x1
 
@@ -357,13 +355,68 @@
 
     :cond_0
     :try_start_1
+    iget-object v1, p0, Landroid/os/CustomFrequencyManager$CPUDVFSControlRequest;->mCPUDVFSReleaser:Landroid/os/CustomFrequencyManager$CPUDVFSControlRequest$CpuDvfsReleaser;
+
+    if-eqz v1, :cond_1
+
+    const-string/jumbo v1, "CustomFrequencyManager"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "doFrequencyRequestImpl CPUDVFSReleaser.stop before : "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    iget-object v4, p0, Landroid/os/CustomFrequencyManager$CPUDVFSControlRequest;->mCPUDVFSReleaser:Landroid/os/CustomFrequencyManager$CPUDVFSControlRequest$CpuDvfsReleaser;
+
+    iget-boolean v4, v4, Landroid/os/CustomFrequencyManager$CPUDVFSControlRequest$CpuDvfsReleaser;->stop:Z
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    const-string/jumbo v4, ", pkgName : "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    iget-object v4, p0, Landroid/os/CustomFrequencyManager$CPUDVFSControlRequest;->mPkgName:Ljava/lang/String;
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v1, v3}, Landroid/os/CustomFrequencyManager;->-wrap1(Ljava/lang/String;Ljava/lang/String;)V
+
+    iget-object v1, p0, Landroid/os/CustomFrequencyManager$CPUDVFSControlRequest;->mCPUDVFSReleaser:Landroid/os/CustomFrequencyManager$CPUDVFSControlRequest$CpuDvfsReleaser;
+
+    const/4 v3, 0x1
+
+    iput-boolean v3, v1, Landroid/os/CustomFrequencyManager$CPUDVFSControlRequest$CpuDvfsReleaser;->stop:Z
+
+    :cond_1
+    new-instance v1, Landroid/os/CustomFrequencyManager$CPUDVFSControlRequest$CpuDvfsReleaser;
+
+    invoke-direct {v1, p0}, Landroid/os/CustomFrequencyManager$CPUDVFSControlRequest$CpuDvfsReleaser;-><init>(Landroid/os/CustomFrequencyManager$CPUDVFSControlRequest;)V
+
+    iput-object v1, p0, Landroid/os/CustomFrequencyManager$CPUDVFSControlRequest;->mCPUDVFSReleaser:Landroid/os/CustomFrequencyManager$CPUDVFSControlRequest$CpuDvfsReleaser;
+
     iget-object v1, p0, Landroid/os/CustomFrequencyManager$CPUDVFSControlRequest;->this$0:Landroid/os/CustomFrequencyManager;
 
     iget-object v1, v1, Landroid/os/CustomFrequencyManager;->mHandler:Landroid/os/Handler;
 
-    iget-object v3, p0, Landroid/os/CustomFrequencyManager$CPUDVFSControlRequest;->mCPUDVFSReleaser:Ljava/lang/Runnable;
+    iget-object v3, p0, Landroid/os/CustomFrequencyManager$CPUDVFSControlRequest;->mCPUDVFSReleaser:Landroid/os/CustomFrequencyManager$CPUDVFSControlRequest$CpuDvfsReleaser;
 
-    iget-wide v4, p0, Landroid/os/CustomFrequencyManager$FrequencyRequest;->mTimeoutMs:J
+    iget-wide v4, p0, Landroid/os/CustomFrequencyManager$CPUDVFSControlRequest;->mTimeoutMs:J
 
     invoke-virtual {v1, v3, v4, v5}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
     :try_end_1
@@ -389,7 +442,7 @@
 
     throw v1
 
-    :cond_1
+    :cond_2
     :try_start_3
     iget v1, p0, Landroid/os/CustomFrequencyManager$CPUDVFSControlRequest;->mCallingID:I
 

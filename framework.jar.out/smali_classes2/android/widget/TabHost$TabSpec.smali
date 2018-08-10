@@ -19,7 +19,7 @@
 
 .field private mIndicatorStrategy:Landroid/widget/TabHost$IndicatorStrategy;
 
-.field private mTag:Ljava/lang/String;
+.field private final mTag:Ljava/lang/String;
 
 .field final synthetic this$0:Landroid/widget/TabHost;
 

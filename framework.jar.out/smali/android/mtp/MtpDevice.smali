@@ -8,7 +8,21 @@
 
 
 # instance fields
+.field private mCloseGuard:Ldalvik/system/CloseGuard;
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = "mLock"
+    .end annotation
+.end field
+
+.field private mConnection:Landroid/hardware/usb/UsbDeviceConnection;
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = "mLock"
+    .end annotation
+.end field
+
 .field private final mDevice:Landroid/hardware/usb/UsbDevice;
+
+.field private final mLock:Ljava/lang/Object;
 
 .field private mNativeContext:J
 
@@ -33,9 +47,23 @@
 .end method
 
 .method public constructor <init>(Landroid/hardware/usb/UsbDevice;)V
-    .locals 0
+    .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    invoke-static {}, Ldalvik/system/CloseGuard;->get()Ldalvik/system/CloseGuard;
+
+    move-result-object v0
+
+    iput-object v0, p0, Landroid/mtp/MtpDevice;->mCloseGuard:Ldalvik/system/CloseGuard;
+
+    new-instance v0, Ljava/lang/Object;
+
+    invoke-direct {v0}, Ljava/lang/Object;-><init>()V
+
+    iput-object v0, p0, Landroid/mtp/MtpDevice;->mLock:Ljava/lang/Object;
+
+    invoke-static {p1}, Lcom/android/internal/util/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     iput-object p1, p0, Landroid/mtp/MtpDevice;->mDevice:Landroid/hardware/usb/UsbDevice;
 
@@ -136,11 +164,44 @@
 
 # virtual methods
 .method public close()V
-    .locals 0
+    .locals 2
+
+    iget-object v1, p0, Landroid/mtp/MtpDevice;->mLock:Ljava/lang/Object;
+
+    monitor-enter v1
+
+    :try_start_0
+    iget-object v0, p0, Landroid/mtp/MtpDevice;->mConnection:Landroid/hardware/usb/UsbDeviceConnection;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Landroid/mtp/MtpDevice;->mCloseGuard:Ldalvik/system/CloseGuard;
+
+    invoke-virtual {v0}, Ldalvik/system/CloseGuard;->close()V
 
     invoke-direct {p0}, Landroid/mtp/MtpDevice;->native_close()V
 
+    iget-object v0, p0, Landroid/mtp/MtpDevice;->mConnection:Landroid/hardware/usb/UsbDeviceConnection;
+
+    invoke-virtual {v0}, Landroid/hardware/usb/UsbDeviceConnection;->close()V
+
+    const/4 v0, 0x0
+
+    iput-object v0, p0, Landroid/mtp/MtpDevice;->mConnection:Landroid/hardware/usb/UsbDeviceConnection;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    :cond_0
+    monitor-exit v1
+
     return-void
+
+    :catchall_0
+    move-exception v0
+
+    monitor-exit v1
+
+    throw v0
 .end method
 
 .method public deleteObject(I)Z
@@ -162,7 +223,11 @@
     .end annotation
 
     :try_start_0
-    invoke-direct {p0}, Landroid/mtp/MtpDevice;->native_close()V
+    iget-object v0, p0, Landroid/mtp/MtpDevice;->mCloseGuard:Ldalvik/system/CloseGuard;
+
+    invoke-virtual {v0}, Ldalvik/system/CloseGuard;->warnIfOpen()V
+
+    invoke-virtual {p0}, Landroid/mtp/MtpDevice;->close()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -374,28 +439,83 @@
 .end method
 
 .method public open(Landroid/hardware/usb/UsbDeviceConnection;)Z
-    .locals 3
+    .locals 6
 
-    iget-object v1, p0, Landroid/mtp/MtpDevice;->mDevice:Landroid/hardware/usb/UsbDevice;
+    const/4 v1, 0x0
 
-    invoke-virtual {v1}, Landroid/hardware/usb/UsbDevice;->getDeviceName()Ljava/lang/String;
+    invoke-virtual {p1}, Landroid/hardware/usb/UsbDeviceConnection;->getContext()Landroid/content/Context;
 
-    move-result-object v1
+    move-result-object v0
+
+    iget-object v4, p0, Landroid/mtp/MtpDevice;->mLock:Ljava/lang/Object;
+
+    monitor-enter v4
+
+    if-eqz v0, :cond_0
+
+    :try_start_0
+    const-string/jumbo v3, "user"
+
+    invoke-virtual {v0, v3}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Landroid/os/UserManager;
+
+    const-string/jumbo v3, "no_usb_file_transfer"
+
+    invoke-virtual {v2, v3}, Landroid/os/UserManager;->hasUserRestriction(Ljava/lang/String;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_0
+
+    iget-object v3, p0, Landroid/mtp/MtpDevice;->mDevice:Landroid/hardware/usb/UsbDevice;
+
+    invoke-virtual {v3}, Landroid/hardware/usb/UsbDevice;->getDeviceName()Ljava/lang/String;
+
+    move-result-object v3
 
     invoke-virtual {p1}, Landroid/hardware/usb/UsbDeviceConnection;->getFileDescriptor()I
 
-    move-result v2
+    move-result v5
 
-    invoke-direct {p0, v1, v2}, Landroid/mtp/MtpDevice;->native_open(Ljava/lang/String;I)Z
+    invoke-direct {p0, v3, v5}, Landroid/mtp/MtpDevice;->native_open(Ljava/lang/String;I)Z
 
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    invoke-virtual {p1}, Landroid/hardware/usb/UsbDeviceConnection;->close()V
+    move-result v1
 
     :cond_0
-    return v0
+    if-nez v1, :cond_1
+
+    invoke-virtual {p1}, Landroid/hardware/usb/UsbDeviceConnection;->close()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    :goto_0
+    monitor-exit v4
+
+    return v1
+
+    :cond_1
+    :try_start_1
+    iput-object p1, p0, Landroid/mtp/MtpDevice;->mConnection:Landroid/hardware/usb/UsbDeviceConnection;
+
+    iget-object v3, p0, Landroid/mtp/MtpDevice;->mCloseGuard:Ldalvik/system/CloseGuard;
+
+    const-string/jumbo v5, "close"
+
+    invoke-virtual {v3, v5}, Ldalvik/system/CloseGuard;->open(Ljava/lang/String;)V
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    goto :goto_0
+
+    :catchall_0
+    move-exception v3
+
+    monitor-exit v4
+
+    throw v3
 .end method
 
 .method public readEvent(Landroid/os/CancellationSignal;)Landroid/mtp/MtpEvent;

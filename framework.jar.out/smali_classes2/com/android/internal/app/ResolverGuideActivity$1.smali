@@ -71,7 +71,7 @@
     :cond_1
     iget-object v1, p0, Lcom/android/internal/app/ResolverGuideActivity$1;->this$0:Lcom/android/internal/app/ResolverGuideActivity;
 
-    invoke-virtual {v1}, Lcom/android/internal/app/AlertActivity;->dismiss()V
+    invoke-virtual {v1}, Lcom/android/internal/app/ResolverGuideActivity;->dismiss()V
 
     return-void
 .end method

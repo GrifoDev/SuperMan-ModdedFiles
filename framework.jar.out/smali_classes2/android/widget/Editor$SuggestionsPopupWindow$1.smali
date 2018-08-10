@@ -45,11 +45,11 @@
 
     iget-object v7, p0, Landroid/widget/Editor$SuggestionsPopupWindow$1;->this$1:Landroid/widget/Editor$SuggestionsPopupWindow;
 
-    invoke-static {v7}, Landroid/widget/Editor$SuggestionsPopupWindow;->-get1(Landroid/widget/Editor$SuggestionsPopupWindow;)Landroid/widget/Editor$SuggestionSpanInfo;
+    invoke-static {v7}, Landroid/widget/Editor$SuggestionsPopupWindow;->-get4(Landroid/widget/Editor$SuggestionsPopupWindow;)Landroid/widget/Editor$SuggestionSpanInfo;
 
     move-result-object v7
 
-    invoke-static {v6, v7}, Landroid/widget/Editor;->-wrap2(Landroid/widget/Editor;Landroid/widget/Editor$SuggestionSpanInfo;)Landroid/text/style/SuggestionSpan;
+    invoke-static {v6, v7}, Landroid/widget/Editor;->-wrap1(Landroid/widget/Editor;Landroid/widget/Editor$SuggestionSpanInfo;)Landroid/text/style/SuggestionSpan;
 
     move-result-object v2
 
@@ -62,7 +62,7 @@
 
     iget-object v6, v6, Landroid/widget/Editor$SuggestionsPopupWindow;->this$0:Landroid/widget/Editor;
 
-    invoke-static {v6}, Landroid/widget/Editor;->-get13(Landroid/widget/Editor;)Landroid/widget/TextView;
+    invoke-static {v6}, Landroid/widget/Editor;->-get14(Landroid/widget/Editor;)Landroid/widget/TextView;
 
     move-result-object v6
 
@@ -108,7 +108,7 @@
 
     iget-object v7, v7, Landroid/widget/Editor$SuggestionsPopupWindow;->this$0:Landroid/widget/Editor;
 
-    invoke-static {v7}, Landroid/widget/Editor;->-get13(Landroid/widget/Editor;)Landroid/widget/TextView;
+    invoke-static {v7}, Landroid/widget/Editor;->-get14(Landroid/widget/Editor;)Landroid/widget/TextView;
 
     move-result-object v7
 
@@ -136,11 +136,11 @@
 
     iget-object v6, v6, Landroid/widget/Editor$SuggestionsPopupWindow;->this$0:Landroid/widget/Editor;
 
-    invoke-static {v6}, Landroid/widget/Editor;->-get13(Landroid/widget/Editor;)Landroid/widget/TextView;
+    invoke-static {v6}, Landroid/widget/Editor;->-get14(Landroid/widget/Editor;)Landroid/widget/TextView;
 
     move-result-object v6
 
-    invoke-virtual {v6}, Landroid/view/View;->getContext()Landroid/content/Context;
+    invoke-virtual {v6}, Landroid/widget/TextView;->getContext()Landroid/content/Context;
 
     move-result-object v6
 
@@ -148,7 +148,7 @@
 
     iget-object v6, p0, Landroid/widget/Editor$SuggestionsPopupWindow$1;->this$1:Landroid/widget/Editor$SuggestionsPopupWindow;
 
-    invoke-static {v6}, Landroid/widget/Editor$SuggestionsPopupWindow;->-get1(Landroid/widget/Editor$SuggestionsPopupWindow;)Landroid/widget/Editor$SuggestionSpanInfo;
+    invoke-static {v6}, Landroid/widget/Editor$SuggestionsPopupWindow;->-get4(Landroid/widget/Editor$SuggestionsPopupWindow;)Landroid/widget/Editor$SuggestionSpanInfo;
 
     move-result-object v6
 
@@ -162,7 +162,7 @@
 
     iget-object v6, v6, Landroid/widget/Editor$SuggestionsPopupWindow;->this$0:Landroid/widget/Editor;
 
-    invoke-static {v6, v5, v4, v8}, Landroid/widget/Editor;->-wrap27(Landroid/widget/Editor;IIZ)V
+    invoke-static {v6, v5, v4, v8}, Landroid/widget/Editor;->-wrap26(Landroid/widget/Editor;IIZ)V
 
     iget-object v6, p0, Landroid/widget/Editor$SuggestionsPopupWindow$1;->this$1:Landroid/widget/Editor$SuggestionsPopupWindow;
 

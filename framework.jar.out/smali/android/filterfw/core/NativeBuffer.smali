@@ -126,7 +126,9 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    xor-int/lit8 v0, v0, 0x1
+
+    if-nez v0, :cond_0
 
     :cond_2
     return-void
@@ -225,7 +227,7 @@
     const/4 v2, 0x0
 
     :try_start_0
-    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+    invoke-virtual {p0}, Landroid/filterfw/core/NativeBuffer;->getClass()Ljava/lang/Class;
 
     move-result-object v1
 
@@ -245,10 +247,17 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    xor-int/lit8 v3, v3, 0x1
 
-    :cond_0
-    return-object v2
+    if-eqz v3, :cond_0
+
+    new-instance v3, Ljava/lang/RuntimeException;
+
+    const-string/jumbo v4, "Failed to copy NativeBuffer to mutable instance!"
+
+    invoke-direct {v3, v4}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+
+    throw v3
 
     :catch_0
     move-exception v0
@@ -265,7 +274,7 @@
 
     move-result-object v4
 
-    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+    invoke-virtual {p0}, Landroid/filterfw/core/NativeBuffer;->getClass()Ljava/lang/Class;
 
     move-result-object v5
 
@@ -293,14 +302,8 @@
 
     throw v3
 
-    :cond_1
-    new-instance v3, Ljava/lang/RuntimeException;
-
-    const-string/jumbo v4, "Failed to copy NativeBuffer to mutable instance!"
-
-    invoke-direct {v3, v4}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
-
-    throw v3
+    :cond_0
+    return-object v2
 .end method
 
 .method public release()Landroid/filterfw/core/NativeBuffer;

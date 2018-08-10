@@ -325,9 +325,11 @@
     :sswitch_9
     iget-object v0, p0, Landroid/inputmethodservice/IInputMethodSessionWrapper;->mInputMethodSession:Landroid/view/inputmethod/InputMethodSession;
 
+    check-cast v0, Landroid/inputmethodservice/AbstractInputMethodService$AbstractInputMethodSessionImpl;
+
     iget v1, p1, Landroid/os/Message;->arg1:I
 
-    invoke-interface {v0, v1}, Landroid/view/inputmethod/InputMethodSession;->showSideSyncSoftInput(I)V
+    invoke-virtual {v0, v1}, Landroid/inputmethodservice/AbstractInputMethodService$AbstractInputMethodSessionImpl;->showSideSyncSoftInput(I)V
 
     return-void
 

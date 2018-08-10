@@ -16,6 +16,10 @@
 # static fields
 .field public static final MEDIA_MUXER_INFO_CHANGE_BITRATE:I = 0x44c
 
+.field public static final MEDIA_MUXER_INFO_NO_NETWORK:I = 0x38e
+
+.field public static final MEDIA_MUXER_INFO_POOR_NETWORK:I = 0x38f
+
 .field private static final MUXER_STATE_INITIALIZED:I = 0x0
 
 .field private static final MUXER_STATE_STARTED:I = 0x1
@@ -60,172 +64,110 @@
     return-void
 .end method
 
-.method public constructor <init>(Ljava/lang/String;I)V
-    .locals 7
+.method public constructor <init>(Ljava/io/FileDescriptor;I)V
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    const/16 v6, 0x64
-
-    const/4 v5, -0x1
+    const/4 v1, -0x1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput v5, p0, Landroid/media/MediaMuxer;->mState:I
+    iput v1, p0, Landroid/media/MediaMuxer;->mState:I
 
     invoke-static {}, Ldalvik/system/CloseGuard;->get()Ldalvik/system/CloseGuard;
 
-    move-result-object v4
+    move-result-object v0
 
-    iput-object v4, p0, Landroid/media/MediaMuxer;->mCloseGuard:Ldalvik/system/CloseGuard;
+    iput-object v0, p0, Landroid/media/MediaMuxer;->mCloseGuard:Ldalvik/system/CloseGuard;
 
-    iput v5, p0, Landroid/media/MediaMuxer;->mLastTrackIndex:I
+    iput v1, p0, Landroid/media/MediaMuxer;->mLastTrackIndex:I
+
+    invoke-direct {p0, p1, p2}, Landroid/media/MediaMuxer;->setUpMediaMuxer(Ljava/io/FileDescriptor;I)V
+
+    return-void
+.end method
+
+.method public constructor <init>(Ljava/lang/String;I)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    const/4 v4, -0x1
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput v4, p0, Landroid/media/MediaMuxer;->mState:I
+
+    invoke-static {}, Ldalvik/system/CloseGuard;->get()Ldalvik/system/CloseGuard;
+
+    move-result-object v3
+
+    iput-object v3, p0, Landroid/media/MediaMuxer;->mCloseGuard:Ldalvik/system/CloseGuard;
+
+    iput v4, p0, Landroid/media/MediaMuxer;->mLastTrackIndex:I
 
     if-nez p1, :cond_0
 
-    new-instance v4, Ljava/lang/IllegalArgumentException;
+    new-instance v3, Ljava/lang/IllegalArgumentException;
 
-    const-string/jumbo v5, "path must not be null"
+    const-string/jumbo v4, "path must not be null"
 
-    invoke-direct {v4, v5}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v3, v4}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v4
+    throw v3
 
     :cond_0
-    if-eqz p2, :cond_1
-
-    const/4 v4, 0x1
-
-    if-eq p2, v4, :cond_1
-
-    if-eq p2, v6, :cond_1
-
-    new-instance v4, Ljava/lang/IllegalArgumentException;
-
-    const-string/jumbo v5, "format is invalid"
-
-    invoke-direct {v4, v5}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
-
-    throw v4
-
-    :cond_1
     const/4 v1, 0x0
 
     :try_start_0
     new-instance v2, Ljava/io/RandomAccessFile;
 
-    const-string/jumbo v4, "rws"
+    const-string/jumbo v3, "rws"
 
-    invoke-direct {v2, p1, v4}, Ljava/io/RandomAccessFile;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-direct {v2, p1, v3}, Ljava/io/RandomAccessFile;-><init>(Ljava/lang/String;Ljava/lang/String;)V
     :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_1
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     :try_start_1
     invoke-virtual {v2}, Ljava/io/RandomAccessFile;->getFD()Ljava/io/FileDescriptor;
 
     move-result-object v0
 
-    if-ne p2, v6, :cond_6
-
-    new-instance v4, Ljava/lang/ref/WeakReference;
-
-    invoke-direct {v4, p0}, Ljava/lang/ref/WeakReference;-><init>(Ljava/lang/Object;)V
-
-    invoke-static {v0, v4, p2}, Landroid/media/MediaMuxer;->nativeSetupRTMP(Ljava/io/FileDescriptor;Ljava/lang/Object;I)J
-
-    move-result-wide v4
-
-    iput-wide v4, p0, Landroid/media/MediaMuxer;->mNativeObject:J
-
-    invoke-static {}, Landroid/os/Looper;->myLooper()Landroid/os/Looper;
-
-    move-result-object v3
-
-    if-eqz v3, :cond_3
-
-    new-instance v4, Landroid/media/MediaMuxer$EventHandler;
-
-    invoke-direct {v4, p0, p0, v3}, Landroid/media/MediaMuxer$EventHandler;-><init>(Landroid/media/MediaMuxer;Landroid/media/MediaMuxer;Landroid/os/Looper;)V
-
-    iput-object v4, p0, Landroid/media/MediaMuxer;->mEventHandler:Landroid/media/MediaMuxer$EventHandler;
-
-    :goto_0
-    const/4 v4, 0x0
-
-    iput v4, p0, Landroid/media/MediaMuxer;->mState:I
-
-    iget-object v4, p0, Landroid/media/MediaMuxer;->mCloseGuard:Ldalvik/system/CloseGuard;
-
-    const-string/jumbo v5, "release"
-
-    invoke-virtual {v4, v5}, Ldalvik/system/CloseGuard;->open(Ljava/lang/String;)V
+    invoke-direct {p0, v0, p2}, Landroid/media/MediaMuxer;->setUpMediaMuxer(Ljava/io/FileDescriptor;I)V
     :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_1
 
     invoke-virtual {v2}, Ljava/io/RandomAccessFile;->close()V
 
-    :cond_2
+    :cond_1
     return-void
 
-    :cond_3
-    :try_start_2
-    invoke-static {}, Landroid/os/Looper;->getMainLooper()Landroid/os/Looper;
-
-    move-result-object v3
-
-    if-eqz v3, :cond_5
-
-    new-instance v4, Landroid/media/MediaMuxer$EventHandler;
-
-    invoke-direct {v4, p0, p0, v3}, Landroid/media/MediaMuxer$EventHandler;-><init>(Landroid/media/MediaMuxer;Landroid/media/MediaMuxer;Landroid/os/Looper;)V
-
-    iput-object v4, p0, Landroid/media/MediaMuxer;->mEventHandler:Landroid/media/MediaMuxer$EventHandler;
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
-
-    goto :goto_0
-
     :catchall_0
-    move-exception v4
+    move-exception v3
 
-    move-object v1, v2
-
-    :goto_1
-    if-eqz v1, :cond_4
+    :goto_0
+    if-eqz v1, :cond_2
 
     invoke-virtual {v1}, Ljava/io/RandomAccessFile;->close()V
 
-    :cond_4
-    throw v4
-
-    :cond_5
-    const/4 v4, 0x0
-
-    :try_start_3
-    iput-object v4, p0, Landroid/media/MediaMuxer;->mEventHandler:Landroid/media/MediaMuxer$EventHandler;
-
-    goto :goto_0
-
-    :cond_6
-    invoke-static {v0, p2}, Landroid/media/MediaMuxer;->nativeSetup(Ljava/io/FileDescriptor;I)J
-
-    move-result-wide v4
-
-    iput-wide v4, p0, Landroid/media/MediaMuxer;->mNativeObject:J
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
-
-    goto :goto_0
+    :cond_2
+    throw v3
 
     :catchall_1
-    move-exception v4
+    move-exception v3
 
-    goto :goto_1
+    move-object v1, v2
+
+    goto :goto_0
 .end method
 
 .method private static native nativeAddTrack(J[Ljava/lang/String;[Ljava/lang/Object;)I
@@ -244,6 +186,12 @@
 .end method
 
 .method private static native nativeSetup(Ljava/io/FileDescriptor;I)J
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/lang/IllegalArgumentException;,
+            Ljava/io/IOException;
+        }
+    .end annotation
 .end method
 
 .method private static native nativeSetupRTMP(Ljava/io/FileDescriptor;Ljava/lang/Object;I)J
@@ -290,6 +238,128 @@
 
     :cond_1
     return-void
+.end method
+
+.method private setUpMediaMuxer(Ljava/io/FileDescriptor;I)V
+    .locals 6
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    const/16 v2, 0x64
+
+    const/4 v5, 0x0
+
+    const/4 v4, 0x0
+
+    if-eqz p2, :cond_0
+
+    const/4 v1, 0x1
+
+    if-eq p2, v1, :cond_0
+
+    const/4 v1, 0x2
+
+    if-eq p2, v1, :cond_0
+
+    if-eq p2, v2, :cond_0
+
+    new-instance v1, Ljava/lang/IllegalArgumentException;
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "format: "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string/jumbo v3, " is invalid"
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-direct {v1, v2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v1
+
+    :cond_0
+    if-ne p2, v2, :cond_3
+
+    new-instance v1, Ljava/lang/ref/WeakReference;
+
+    invoke-direct {v1, p0}, Ljava/lang/ref/WeakReference;-><init>(Ljava/lang/Object;)V
+
+    invoke-static {p1, v1, p2}, Landroid/media/MediaMuxer;->nativeSetupRTMP(Ljava/io/FileDescriptor;Ljava/lang/Object;I)J
+
+    move-result-wide v2
+
+    iput-wide v2, p0, Landroid/media/MediaMuxer;->mNativeObject:J
+
+    invoke-static {}, Landroid/os/Looper;->myLooper()Landroid/os/Looper;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_1
+
+    new-instance v1, Landroid/media/MediaMuxer$EventHandler;
+
+    invoke-direct {v1, p0, p0, v0}, Landroid/media/MediaMuxer$EventHandler;-><init>(Landroid/media/MediaMuxer;Landroid/media/MediaMuxer;Landroid/os/Looper;)V
+
+    iput-object v1, p0, Landroid/media/MediaMuxer;->mEventHandler:Landroid/media/MediaMuxer$EventHandler;
+
+    :goto_0
+    iput v5, p0, Landroid/media/MediaMuxer;->mState:I
+
+    iget-object v1, p0, Landroid/media/MediaMuxer;->mCloseGuard:Ldalvik/system/CloseGuard;
+
+    const-string/jumbo v2, "release"
+
+    invoke-virtual {v1, v2}, Ldalvik/system/CloseGuard;->open(Ljava/lang/String;)V
+
+    return-void
+
+    :cond_1
+    invoke-static {}, Landroid/os/Looper;->getMainLooper()Landroid/os/Looper;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_2
+
+    new-instance v1, Landroid/media/MediaMuxer$EventHandler;
+
+    invoke-direct {v1, p0, p0, v0}, Landroid/media/MediaMuxer$EventHandler;-><init>(Landroid/media/MediaMuxer;Landroid/media/MediaMuxer;Landroid/os/Looper;)V
+
+    iput-object v1, p0, Landroid/media/MediaMuxer;->mEventHandler:Landroid/media/MediaMuxer$EventHandler;
+
+    goto :goto_0
+
+    :cond_2
+    iput-object v4, p0, Landroid/media/MediaMuxer;->mEventHandler:Landroid/media/MediaMuxer$EventHandler;
+
+    goto :goto_0
+
+    :cond_3
+    invoke-static {p1, p2}, Landroid/media/MediaMuxer;->nativeSetup(Ljava/io/FileDescriptor;I)J
+
+    move-result-wide v2
+
+    iput-wide v2, p0, Landroid/media/MediaMuxer;->mNativeObject:J
+
+    goto :goto_0
 .end method
 
 

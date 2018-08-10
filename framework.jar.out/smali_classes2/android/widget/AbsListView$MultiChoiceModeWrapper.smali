@@ -67,27 +67,10 @@
 .end method
 
 .method public onCreateActionMode(Landroid/view/ActionMode;Landroid/view/Menu;)Z
-    .locals 3
+    .locals 2
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    const/4 v1, 0x1
-
-    iget-object v0, p0, Landroid/widget/AbsListView$MultiChoiceModeWrapper;->this$0:Landroid/widget/AbsListView;
-
-    invoke-static {v0}, Landroid/widget/AbsListView;->-get19(Landroid/widget/AbsListView;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Landroid/widget/AbsListView$MultiChoiceModeWrapper;->this$0:Landroid/widget/AbsListView;
-
-    invoke-virtual {v0, v1}, Landroid/widget/AbsListView;->setLongClickable(Z)V
-
-    return v1
-
-    :cond_0
     iget-object v0, p0, Landroid/widget/AbsListView$MultiChoiceModeWrapper;->mWrapped:Landroid/widget/AbsListView$MultiChoiceModeListener;
 
     invoke-interface {v0, p1, p2}, Landroid/widget/AbsListView$MultiChoiceModeListener;->onCreateActionMode(Landroid/view/ActionMode;Landroid/view/Menu;)Z
@@ -98,12 +81,23 @@
 
     iget-object v0, p0, Landroid/widget/AbsListView$MultiChoiceModeWrapper;->this$0:Landroid/widget/AbsListView;
 
-    invoke-virtual {v0, v2}, Landroid/widget/AbsListView;->setLongClickable(Z)V
+    invoke-static {v0}, Landroid/widget/AbsListView;->-get19(Landroid/widget/AbsListView;)Z
 
-    return v1
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    iget-object v0, p0, Landroid/widget/AbsListView$MultiChoiceModeWrapper;->this$0:Landroid/widget/AbsListView;
+
+    invoke-virtual {v0, v1}, Landroid/widget/AbsListView;->setLongClickable(Z)V
+
+    :cond_0
+    const/4 v0, 0x1
+
+    return v0
 
     :cond_1
-    return v2
+    return v1
 .end method
 
 .method public onDestroyActionMode(Landroid/view/ActionMode;)V
@@ -169,20 +163,18 @@
 
     iget-object v0, p0, Landroid/widget/AbsListView$MultiChoiceModeWrapper;->this$0:Landroid/widget/AbsListView;
 
-    invoke-static {v0}, Landroid/widget/AbsListView;->-get36(Landroid/widget/AbsListView;)Z
+    invoke-static {v0}, Landroid/widget/AbsListView;->-get28(Landroid/widget/AbsListView;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    xor-int/lit8 v0, v0, 0x1
 
-    :cond_0
-    :goto_0
-    return-void
+    if-eqz v0, :cond_0
 
-    :cond_1
     invoke-virtual {p1}, Landroid/view/ActionMode;->finish()V
 
-    goto :goto_0
+    :cond_0
+    return-void
 .end method
 
 .method public onPrepareActionMode(Landroid/view/ActionMode;Landroid/view/Menu;)Z

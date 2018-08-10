@@ -33,6 +33,8 @@
 # instance fields
 .field private final mTarget:Landroid/content/IIntentSender;
 
+.field mWhitelistToken:Landroid/os/IBinder;
+
 
 # direct methods
 .method static constructor <clinit>()V
@@ -53,6 +55,18 @@
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Landroid/content/IntentSender;->mTarget:Landroid/content/IIntentSender;
+
+    return-void
+.end method
+
+.method public constructor <init>(Landroid/content/IIntentSender;Landroid/os/IBinder;)V
+    .locals 0
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Landroid/content/IntentSender;->mTarget:Landroid/content/IIntentSender;
+
+    iput-object p2, p0, Landroid/content/IntentSender;->mWhitelistToken:Landroid/os/IBinder;
 
     return-void
 .end method
@@ -156,7 +170,7 @@
     .locals 3
 
     :try_start_0
-    invoke-static {}, Landroid/app/ActivityManagerNative;->getDefault()Landroid/app/IActivityManager;
+    invoke-static {}, Landroid/app/ActivityManager;->getService()Landroid/app/IActivityManager;
 
     move-result-object v1
 
@@ -182,7 +196,7 @@
     .locals 3
 
     :try_start_0
-    invoke-static {}, Landroid/app/ActivityManagerNative;->getDefault()Landroid/app/IActivityManager;
+    invoke-static {}, Landroid/app/ActivityManager;->getService()Landroid/app/IActivityManager;
 
     move-result-object v1
 
@@ -210,7 +224,7 @@
     const/4 v3, 0x0
 
     :try_start_0
-    invoke-static {}, Landroid/app/ActivityManagerNative;->getDefault()Landroid/app/IActivityManager;
+    invoke-static {}, Landroid/app/ActivityManager;->getService()Landroid/app/IActivityManager;
 
     move-result-object v2
 
@@ -260,7 +274,7 @@
     .end annotation
 
     :try_start_0
-    invoke-static {}, Landroid/app/ActivityManagerNative;->getDefault()Landroid/app/IActivityManager;
+    invoke-static {}, Landroid/app/ActivityManager;->getService()Landroid/app/IActivityManager;
 
     move-result-object v1
 
@@ -280,6 +294,14 @@
     const/4 v1, 0x0
 
     return-object v1
+.end method
+
+.method public getWhitelistToken()Landroid/os/IBinder;
+    .locals 1
+
+    iget-object v0, p0, Landroid/content/IntentSender;->mWhitelistToken:Landroid/os/IBinder;
+
+    return-object v0
 .end method
 
 .method public hashCode()I
@@ -326,7 +348,7 @@
 .end method
 
 .method public sendIntent(Landroid/content/Context;ILandroid/content/Intent;Landroid/content/IntentSender$OnFinished;Landroid/os/Handler;Ljava/lang/String;)V
-    .locals 10
+    .locals 13
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/content/IntentSender$SendIntentException;
@@ -338,64 +360,72 @@
     :try_start_0
     invoke-virtual {p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v0
+    move-result-object v2
 
-    invoke-virtual {p3, v0}, Landroid/content/Intent;->resolveTypeIfNeeded(Landroid/content/ContentResolver;)Ljava/lang/String;
+    move-object/from16 v0, p3
 
-    move-result-object v4
+    invoke-virtual {v0, v2}, Landroid/content/Intent;->resolveTypeIfNeeded(Landroid/content/ContentResolver;)Ljava/lang/String;
+
+    move-result-object v7
 
     :goto_0
-    invoke-static {}, Landroid/app/ActivityManagerNative;->getDefault()Landroid/app/IActivityManager;
+    invoke-static {}, Landroid/app/ActivityManager;->getService()Landroid/app/IActivityManager;
 
-    move-result-object v0
+    move-result-object v2
 
-    iget-object v1, p0, Landroid/content/IntentSender;->mTarget:Landroid/content/IIntentSender;
+    iget-object v3, p0, Landroid/content/IntentSender;->mTarget:Landroid/content/IIntentSender;
+
+    iget-object v4, p0, Landroid/content/IntentSender;->mWhitelistToken:Landroid/os/IBinder;
 
     if-eqz p4, :cond_1
 
-    new-instance v5, Landroid/content/IntentSender$FinishedDispatcher;
+    new-instance v8, Landroid/content/IntentSender$FinishedDispatcher;
 
-    invoke-direct {v5, p0, p4, p5}, Landroid/content/IntentSender$FinishedDispatcher;-><init>(Landroid/content/IntentSender;Landroid/content/IntentSender$OnFinished;Landroid/os/Handler;)V
+    move-object/from16 v0, p4
+
+    move-object/from16 v1, p5
+
+    invoke-direct {v8, p0, v0, v1}, Landroid/content/IntentSender$FinishedDispatcher;-><init>(Landroid/content/IntentSender;Landroid/content/IntentSender$OnFinished;Landroid/os/Handler;)V
 
     :goto_1
-    const/4 v7, 0x0
+    const/4 v10, 0x0
 
-    move v2, p2
+    move v5, p2
 
-    move-object v3, p3
+    move-object/from16 v6, p3
 
-    move-object/from16 v6, p6
+    move-object/from16 v9, p6
 
-    invoke-interface/range {v0 .. v7}, Landroid/app/IActivityManager;->sendIntentSender(Landroid/content/IIntentSender;ILandroid/content/Intent;Ljava/lang/String;Landroid/content/IIntentReceiver;Ljava/lang/String;Landroid/os/Bundle;)I
+    invoke-interface/range {v2 .. v10}, Landroid/app/IActivityManager;->sendIntentSender(Landroid/content/IIntentSender;Landroid/os/IBinder;ILandroid/content/Intent;Ljava/lang/String;Landroid/content/IIntentReceiver;Ljava/lang/String;Landroid/os/Bundle;)I
 
-    move-result v9
+    move-result v12
 
-    if-gez v9, :cond_2
+    if-gez v12, :cond_2
 
-    new-instance v0, Landroid/content/IntentSender$SendIntentException;
+    new-instance v2, Landroid/content/IntentSender$SendIntentException;
 
-    invoke-direct {v0}, Landroid/content/IntentSender$SendIntentException;-><init>()V
+    invoke-direct {v2}, Landroid/content/IntentSender$SendIntentException;-><init>()V
 
-    throw v0
+    throw v2
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     :catch_0
-    move-exception v8
+    move-exception v11
 
-    new-instance v0, Landroid/content/IntentSender$SendIntentException;
+    new-instance v2, Landroid/content/IntentSender$SendIntentException;
 
-    invoke-direct {v0}, Landroid/content/IntentSender$SendIntentException;-><init>()V
+    invoke-direct {v2}, Landroid/content/IntentSender$SendIntentException;-><init>()V
 
-    throw v0
+    throw v2
 
     :cond_0
-    const/4 v4, 0x0
+    const/4 v7, 0x0
 
     goto :goto_0
 
     :cond_1
-    const/4 v5, 0x0
+    const/4 v8, 0x0
 
     goto :goto_1
 

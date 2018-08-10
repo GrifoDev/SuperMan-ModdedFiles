@@ -246,19 +246,11 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    xor-int/lit8 v0, v0, 0x1
 
-    const/4 v0, 0x0
-
-    :goto_0
     sput-boolean v0, Lcom/android/internal/app/WindowDecorActionBar;->-assertionsDisabled:Z
 
     return-void
-
-    :cond_0
-    const/4 v0, 0x1
-
-    goto :goto_0
 .end method
 
 .method public constructor <init>(Landroid/app/Activity;)V
@@ -750,13 +742,13 @@
 .method private init(Landroid/view/View;)V
     .locals 11
 
-    const/4 v10, 0x0
-
     const/4 v6, 0x1
+
+    const/4 v10, 0x0
 
     const/4 v7, 0x0
 
-    const v5, 0x1020476
+    const v5, 0x102026b
 
     invoke-virtual {p1, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -775,7 +767,7 @@
     invoke-virtual {v5, p0}, Lcom/android/internal/widget/ActionBarOverlayLayout;->setActionBarVisibilityCallback(Lcom/android/internal/widget/ActionBarOverlayLayout$ActionBarVisibilityCallback;)V
 
     :cond_0
-    const v5, 0x1020478
+    const v5, 0x10201b9
 
     invoke-virtual {p1, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -787,7 +779,7 @@
 
     iput-object v5, p0, Lcom/android/internal/app/WindowDecorActionBar;->mDecorToolbar:Lcom/android/internal/widget/DecorToolbar;
 
-    const v5, 0x1020479
+    const v5, 0x10201be
 
     invoke-virtual {p1, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -797,7 +789,7 @@
 
     iput-object v5, p0, Lcom/android/internal/app/WindowDecorActionBar;->mContextView:Lcom/android/internal/widget/ActionBarContextView;
 
-    const v5, 0x1020477
+    const v5, 0x10201ba
 
     invoke-virtual {p1, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -807,7 +799,7 @@
 
     iput-object v5, p0, Lcom/android/internal/app/WindowDecorActionBar;->mContainerView:Lcom/android/internal/widget/ActionBarContainer;
 
-    const v5, 0x102047a
+    const v5, 0x10204e3
 
     invoke-virtual {p1, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -900,7 +892,7 @@
 
     if-eqz v5, :cond_7
 
-    move v4, v6
+    const/4 v4, 0x1
 
     :goto_1
     if-eqz v4, :cond_3
@@ -973,7 +965,7 @@
     goto :goto_0
 
     :cond_7
-    move v4, v7
+    const/4 v4, 0x0
 
     goto :goto_1
 
@@ -2511,22 +2503,6 @@
     goto :goto_2
 .end method
 
-.method public requestFocus()Z
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/internal/app/WindowDecorActionBar;->mDecorToolbar:Lcom/android/internal/widget/DecorToolbar;
-
-    invoke-interface {v0}, Lcom/android/internal/widget/DecorToolbar;->getViewGroup()Landroid/view/ViewGroup;
-
-    move-result-object v0
-
-    invoke-virtual {p0, v0}, Lcom/android/internal/app/WindowDecorActionBar;->requestFocus(Landroid/view/ViewGroup;)Z
-
-    move-result v0
-
-    return v0
-.end method
-
 .method public selectTab(Landroid/app/ActionBar$Tab;)V
     .locals 4
 
@@ -2601,10 +2577,13 @@
 
     move-result v1
 
-    if-eqz v1, :cond_8
+    xor-int/lit8 v1, v1, 0x1
+
+    if-eqz v1, :cond_3
+
+    invoke-virtual {v0}, Landroid/app/FragmentTransaction;->commit()I
 
     :cond_3
-    :goto_2
     return-void
 
     :cond_4
@@ -2670,17 +2649,6 @@
     invoke-interface {v1, v2, v0}, Landroid/app/ActionBar$TabListener;->onTabSelected(Landroid/app/ActionBar$Tab;Landroid/app/FragmentTransaction;)V
 
     goto :goto_1
-
-    :cond_8
-    invoke-virtual {v0}, Landroid/app/FragmentTransaction;->commit()I
-
-    goto :goto_2
-.end method
-
-.method public semInvalidateOverflowButtonBadge(I)V
-    .locals 0
-
-    return-void
 .end method
 
 .method public setBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V
@@ -2938,16 +2906,10 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    xor-int/lit8 v0, v0, 0x1
 
-    :cond_0
-    iget-object v0, p0, Lcom/android/internal/app/WindowDecorActionBar;->mOverlayLayout:Lcom/android/internal/widget/ActionBarOverlayLayout;
+    if-eqz v0, :cond_0
 
-    invoke-virtual {v0, p1}, Lcom/android/internal/widget/ActionBarOverlayLayout;->setActionBarHideOffset(I)V
-
-    return-void
-
-    :cond_1
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string/jumbo v1, "Action bar must be in overlay mode (Window.FEATURE_OVERLAY_ACTION_BAR) to set a non-zero hide offset"
@@ -2955,6 +2917,13 @@
     invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
     throw v0
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/internal/app/WindowDecorActionBar;->mOverlayLayout:Lcom/android/internal/widget/ActionBarOverlayLayout;
+
+    invoke-virtual {v0, p1}, Lcom/android/internal/widget/ActionBarOverlayLayout;->setActionBarHideOffset(I)V
+
+    return-void
 .end method
 
 .method public setHideOnContentScrollEnabled(Z)V
@@ -2968,7 +2937,17 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    xor-int/lit8 v0, v0, 0x1
+
+    if-eqz v0, :cond_0
+
+    new-instance v0, Ljava/lang/IllegalStateException;
+
+    const-string/jumbo v1, "Action bar must be in overlay mode (Window.FEATURE_OVERLAY_ACTION_BAR) to enable hide on content scroll"
+
+    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+
+    throw v0
 
     :cond_0
     iput-boolean p1, p0, Lcom/android/internal/app/WindowDecorActionBar;->mHideOnContentScroll:Z
@@ -2978,15 +2957,6 @@
     invoke-virtual {v0, p1}, Lcom/android/internal/widget/ActionBarOverlayLayout;->setHideOnContentScrollEnabled(Z)V
 
     return-void
-
-    :cond_1
-    new-instance v0, Ljava/lang/IllegalStateException;
-
-    const-string/jumbo v1, "Action bar must be in overlay mode (Window.FEATURE_OVERLAY_ACTION_BAR) to enable hide on content scroll"
-
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
-
-    throw v0
 .end method
 
 .method public setHomeActionContentDescription(I)V
@@ -3094,15 +3064,13 @@
 .end method
 
 .method public setNavigationMode(I)V
-    .locals 7
+    .locals 6
 
-    const/4 v4, 0x0
+    const/4 v3, 0x0
 
-    const/4 v6, 0x2
+    const/4 v5, 0x2
 
-    const/4 v3, 0x1
-
-    const/4 v5, -0x1
+    const/4 v4, -0x1
 
     const/4 v2, 0x0
 
@@ -3119,10 +3087,19 @@
 
     iget-boolean v1, p0, Lcom/android/internal/app/WindowDecorActionBar;->mHasEmbeddedTabs:Z
 
-    if-eqz v1, :cond_4
+    xor-int/lit8 v1, v1, 0x1
+
+    if-eqz v1, :cond_0
+
+    iget-object v1, p0, Lcom/android/internal/app/WindowDecorActionBar;->mOverlayLayout:Lcom/android/internal/widget/ActionBarOverlayLayout;
+
+    if-eqz v1, :cond_0
+
+    iget-object v1, p0, Lcom/android/internal/app/WindowDecorActionBar;->mOverlayLayout:Lcom/android/internal/widget/ActionBarOverlayLayout;
+
+    invoke-virtual {v1}, Lcom/android/internal/widget/ActionBarOverlayLayout;->requestFitSystemWindows()V
 
     :cond_0
-    :goto_1
     iget-object v1, p0, Lcom/android/internal/app/WindowDecorActionBar;->mDecorToolbar:Lcom/android/internal/widget/DecorToolbar;
 
     invoke-interface {v1, p1}, Lcom/android/internal/widget/DecorToolbar;->setNavigationMode(I)V
@@ -3130,31 +3107,27 @@
     packed-switch p1, :pswitch_data_1
 
     :cond_1
-    :goto_2
-    iget-object v4, p0, Lcom/android/internal/app/WindowDecorActionBar;->mDecorToolbar:Lcom/android/internal/widget/DecorToolbar;
+    :goto_1
+    iget-object v3, p0, Lcom/android/internal/app/WindowDecorActionBar;->mDecorToolbar:Lcom/android/internal/widget/DecorToolbar;
 
-    if-ne p1, v6, :cond_2
+    if-ne p1, v5, :cond_3
 
     iget-boolean v1, p0, Lcom/android/internal/app/WindowDecorActionBar;->mHasEmbeddedTabs:Z
 
-    if-eqz v1, :cond_5
+    xor-int/lit8 v1, v1, 0x1
 
-    :cond_2
-    move v1, v2
-
-    :goto_3
-    invoke-interface {v4, v1}, Lcom/android/internal/widget/DecorToolbar;->setCollapsible(Z)V
+    :goto_2
+    invoke-interface {v3, v1}, Lcom/android/internal/widget/DecorToolbar;->setCollapsible(Z)V
 
     iget-object v1, p0, Lcom/android/internal/app/WindowDecorActionBar;->mOverlayLayout:Lcom/android/internal/widget/ActionBarOverlayLayout;
 
-    if-ne p1, v6, :cond_3
+    if-ne p1, v5, :cond_2
 
-    iget-boolean v4, p0, Lcom/android/internal/app/WindowDecorActionBar;->mHasEmbeddedTabs:Z
+    iget-boolean v2, p0, Lcom/android/internal/app/WindowDecorActionBar;->mHasEmbeddedTabs:Z
 
-    if-eqz v4, :cond_6
+    xor-int/lit8 v2, v2, 0x1
 
-    :cond_3
-    :goto_4
+    :cond_2
     invoke-virtual {v1, v2}, Lcom/android/internal/widget/ActionBarOverlayLayout;->setHasNonEmbeddedTabs(Z)V
 
     return-void
@@ -3166,26 +3139,15 @@
 
     iput v1, p0, Lcom/android/internal/app/WindowDecorActionBar;->mSavedTabPosition:I
 
-    invoke-virtual {p0, v4}, Lcom/android/internal/app/WindowDecorActionBar;->selectTab(Landroid/app/ActionBar$Tab;)V
+    invoke-virtual {p0, v3}, Lcom/android/internal/app/WindowDecorActionBar;->selectTab(Landroid/app/ActionBar$Tab;)V
 
     iget-object v1, p0, Lcom/android/internal/app/WindowDecorActionBar;->mTabScrollView:Lcom/android/internal/widget/ScrollingTabContainerView;
 
-    const/16 v4, 0x8
+    const/16 v3, 0x8
 
-    invoke-virtual {v1, v4}, Lcom/android/internal/widget/ScrollingTabContainerView;->setVisibility(I)V
+    invoke-virtual {v1, v3}, Lcom/android/internal/widget/ScrollingTabContainerView;->setVisibility(I)V
 
     goto :goto_0
-
-    :cond_4
-    iget-object v1, p0, Lcom/android/internal/app/WindowDecorActionBar;->mOverlayLayout:Lcom/android/internal/widget/ActionBarOverlayLayout;
-
-    if-eqz v1, :cond_0
-
-    iget-object v1, p0, Lcom/android/internal/app/WindowDecorActionBar;->mOverlayLayout:Lcom/android/internal/widget/ActionBarOverlayLayout;
-
-    invoke-virtual {v1}, Lcom/android/internal/widget/ActionBarOverlayLayout;->requestFitSystemWindows()V
-
-    goto :goto_1
 
     :pswitch_1
     invoke-direct {p0}, Lcom/android/internal/app/WindowDecorActionBar;->ensureTabsExist()V
@@ -3196,27 +3158,20 @@
 
     iget v1, p0, Lcom/android/internal/app/WindowDecorActionBar;->mSavedTabPosition:I
 
-    if-eq v1, v5, :cond_1
+    if-eq v1, v4, :cond_1
 
     iget v1, p0, Lcom/android/internal/app/WindowDecorActionBar;->mSavedTabPosition:I
 
     invoke-virtual {p0, v1}, Lcom/android/internal/app/WindowDecorActionBar;->setSelectedNavigationItem(I)V
 
-    iput v5, p0, Lcom/android/internal/app/WindowDecorActionBar;->mSavedTabPosition:I
+    iput v4, p0, Lcom/android/internal/app/WindowDecorActionBar;->mSavedTabPosition:I
+
+    goto :goto_1
+
+    :cond_3
+    move v1, v2
 
     goto :goto_2
-
-    :cond_5
-    move v1, v3
-
-    goto :goto_3
-
-    :cond_6
-    move v2, v3
-
-    goto :goto_4
-
-    nop
 
     :pswitch_data_0
     .packed-switch 0x2

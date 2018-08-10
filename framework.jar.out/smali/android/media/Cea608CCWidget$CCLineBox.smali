@@ -60,21 +60,21 @@
 
     const/16 v1, 0x11
 
-    invoke-virtual {p0, v1}, Landroid/widget/TextView;->setGravity(I)V
+    invoke-virtual {p0, v1}, Landroid/media/Cea608CCWidget$CCLineBox;->setGravity(I)V
 
-    invoke-virtual {p0, v2}, Landroid/view/View;->setBackgroundColor(I)V
+    invoke-virtual {p0, v2}, Landroid/media/Cea608CCWidget$CCLineBox;->setBackgroundColor(I)V
 
-    invoke-virtual {p0, v3}, Landroid/widget/TextView;->setTextColor(I)V
+    invoke-virtual {p0, v3}, Landroid/media/Cea608CCWidget$CCLineBox;->setTextColor(I)V
 
     sget-object v1, Landroid/graphics/Typeface;->MONOSPACE:Landroid/graphics/Typeface;
 
-    invoke-virtual {p0, v1}, Landroid/widget/TextView;->setTypeface(Landroid/graphics/Typeface;)V
+    invoke-virtual {p0, v1}, Landroid/media/Cea608CCWidget$CCLineBox;->setTypeface(Landroid/graphics/Typeface;)V
 
     const/4 v1, 0x4
 
-    invoke-virtual {p0, v1}, Landroid/view/View;->setVisibility(I)V
+    invoke-virtual {p0, v1}, Landroid/media/Cea608CCWidget$CCLineBox;->setVisibility(I)V
 
-    invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
+    invoke-virtual {p0}, Landroid/media/Cea608CCWidget$CCLineBox;->getContext()Landroid/content/Context;
 
     move-result-object v1
 
@@ -82,7 +82,7 @@
 
     move-result-object v0
 
-    const v1, 0x105009e
+    const v1, 0x10502bd
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -92,7 +92,7 @@
 
     iput v1, p0, Landroid/media/Cea608CCWidget$CCLineBox;->mOutlineWidth:F
 
-    const v1, 0x105009c
+    const v1, 0x10502bf
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -102,7 +102,7 @@
 
     iput v1, p0, Landroid/media/Cea608CCWidget$CCLineBox;->mShadowRadius:F
 
-    const v1, 0x105009d
+    const v1, 0x10502be
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -118,49 +118,49 @@
 .method private drawEdgeOutline(Landroid/graphics/Canvas;)V
     .locals 5
 
-    invoke-virtual {p0}, Landroid/widget/TextView;->getPaint()Landroid/text/TextPaint;
+    invoke-virtual {p0}, Landroid/media/Cea608CCWidget$CCLineBox;->getPaint()Landroid/text/TextPaint;
 
     move-result-object v3
 
-    invoke-virtual {v3}, Landroid/graphics/Paint;->getStyle()Landroid/graphics/Paint$Style;
+    invoke-virtual {v3}, Landroid/text/TextPaint;->getStyle()Landroid/graphics/Paint$Style;
 
     move-result-object v1
 
-    invoke-virtual {v3}, Landroid/graphics/Paint;->getStrokeJoin()Landroid/graphics/Paint$Join;
+    invoke-virtual {v3}, Landroid/text/TextPaint;->getStrokeJoin()Landroid/graphics/Paint$Join;
 
     move-result-object v0
 
-    invoke-virtual {v3}, Landroid/graphics/Paint;->getStrokeWidth()F
+    invoke-virtual {v3}, Landroid/text/TextPaint;->getStrokeWidth()F
 
     move-result v2
 
     iget v4, p0, Landroid/media/Cea608CCWidget$CCLineBox;->mEdgeColor:I
 
-    invoke-virtual {p0, v4}, Landroid/widget/TextView;->setTextColor(I)V
+    invoke-virtual {p0, v4}, Landroid/media/Cea608CCWidget$CCLineBox;->setTextColor(I)V
 
     sget-object v4, Landroid/graphics/Paint$Style;->FILL_AND_STROKE:Landroid/graphics/Paint$Style;
 
-    invoke-virtual {v3, v4}, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
+    invoke-virtual {v3, v4}, Landroid/text/TextPaint;->setStyle(Landroid/graphics/Paint$Style;)V
 
     sget-object v4, Landroid/graphics/Paint$Join;->ROUND:Landroid/graphics/Paint$Join;
 
-    invoke-virtual {v3, v4}, Landroid/graphics/Paint;->setStrokeJoin(Landroid/graphics/Paint$Join;)V
+    invoke-virtual {v3, v4}, Landroid/text/TextPaint;->setStrokeJoin(Landroid/graphics/Paint$Join;)V
 
     iget v4, p0, Landroid/media/Cea608CCWidget$CCLineBox;->mOutlineWidth:F
 
-    invoke-virtual {v3, v4}, Landroid/graphics/Paint;->setStrokeWidth(F)V
+    invoke-virtual {v3, v4}, Landroid/text/TextPaint;->setStrokeWidth(F)V
 
     invoke-super {p0, p1}, Landroid/widget/TextView;->onDraw(Landroid/graphics/Canvas;)V
 
     iget v4, p0, Landroid/media/Cea608CCWidget$CCLineBox;->mTextColor:I
 
-    invoke-virtual {p0, v4}, Landroid/widget/TextView;->setTextColor(I)V
+    invoke-virtual {p0, v4}, Landroid/media/Cea608CCWidget$CCLineBox;->setTextColor(I)V
 
-    invoke-virtual {v3, v1}, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
+    invoke-virtual {v3, v1}, Landroid/text/TextPaint;->setStyle(Landroid/graphics/Paint$Style;)V
 
-    invoke-virtual {v3, v0}, Landroid/graphics/Paint;->setStrokeJoin(Landroid/graphics/Paint$Join;)V
+    invoke-virtual {v3, v0}, Landroid/text/TextPaint;->setStrokeJoin(Landroid/graphics/Paint$Join;)V
 
-    invoke-virtual {v3, v2}, Landroid/graphics/Paint;->setStrokeWidth(F)V
+    invoke-virtual {v3, v2}, Landroid/text/TextPaint;->setStrokeWidth(F)V
 
     const/4 v4, 0x0
 
@@ -176,27 +176,25 @@
 .end method
 
 .method private drawEdgeRaisedOrDepressed(Landroid/graphics/Canvas;)V
-    .locals 10
+    .locals 9
 
-    const/4 v6, 0x0
-
-    invoke-virtual {p0}, Landroid/widget/TextView;->getPaint()Landroid/text/TextPaint;
+    invoke-virtual {p0}, Landroid/media/Cea608CCWidget$CCLineBox;->getPaint()Landroid/text/TextPaint;
 
     move-result-object v5
 
-    invoke-virtual {v5}, Landroid/graphics/Paint;->getStyle()Landroid/graphics/Paint$Style;
+    invoke-virtual {v5}, Landroid/text/TextPaint;->getStyle()Landroid/graphics/Paint$Style;
 
     move-result-object v3
 
-    sget-object v7, Landroid/graphics/Paint$Style;->FILL:Landroid/graphics/Paint$Style;
+    sget-object v6, Landroid/graphics/Paint$Style;->FILL:Landroid/graphics/Paint$Style;
 
-    invoke-virtual {v5, v7}, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
+    invoke-virtual {v5, v6}, Landroid/text/TextPaint;->setStyle(Landroid/graphics/Paint$Style;)V
 
-    iget v7, p0, Landroid/media/Cea608CCWidget$CCLineBox;->mEdgeType:I
+    iget v6, p0, Landroid/media/Cea608CCWidget$CCLineBox;->mEdgeType:I
 
-    const/4 v8, 0x3
+    const/4 v7, 0x3
 
-    if-ne v7, v8, :cond_0
+    if-ne v6, v7, :cond_0
 
     const/4 v4, 0x1
 
@@ -211,31 +209,33 @@
     iget v0, p0, Landroid/media/Cea608CCWidget$CCLineBox;->mEdgeColor:I
 
     :goto_2
-    iget v7, p0, Landroid/media/Cea608CCWidget$CCLineBox;->mShadowRadius:F
+    iget v6, p0, Landroid/media/Cea608CCWidget$CCLineBox;->mShadowRadius:F
 
-    const/high16 v8, 0x40000000    # 2.0f
+    const/high16 v7, 0x40000000    # 2.0f
 
-    div-float v2, v7, v8
+    div-float v2, v6, v7
 
-    iget v7, p0, Landroid/media/Cea608CCWidget$CCLineBox;->mShadowRadius:F
+    iget v6, p0, Landroid/media/Cea608CCWidget$CCLineBox;->mShadowRadius:F
+
+    neg-float v7, v2
 
     neg-float v8, v2
 
-    neg-float v9, v2
-
-    invoke-virtual {p0, v7, v8, v9, v1}, Landroid/widget/TextView;->setShadowLayer(FFFI)V
+    invoke-virtual {p0, v6, v7, v8, v1}, Landroid/media/Cea608CCWidget$CCLineBox;->setShadowLayer(FFFI)V
 
     invoke-super {p0, p1}, Landroid/widget/TextView;->onDraw(Landroid/graphics/Canvas;)V
+
+    const/4 v6, 0x0
 
     invoke-direct {p0, v6}, Landroid/media/Cea608CCWidget$CCLineBox;->setBackgroundSpans(I)V
 
     iget v6, p0, Landroid/media/Cea608CCWidget$CCLineBox;->mShadowRadius:F
 
-    invoke-virtual {p0, v6, v2, v2, v0}, Landroid/widget/TextView;->setShadowLayer(FFFI)V
+    invoke-virtual {p0, v6, v2, v2, v0}, Landroid/media/Cea608CCWidget$CCLineBox;->setShadowLayer(FFFI)V
 
     invoke-super {p0, p1}, Landroid/widget/TextView;->onDraw(Landroid/graphics/Canvas;)V
 
-    invoke-virtual {v5, v3}, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
+    invoke-virtual {v5, v3}, Landroid/text/TextPaint;->setStyle(Landroid/graphics/Paint$Style;)V
 
     iget v6, p0, Landroid/media/Cea608CCWidget$CCLineBox;->mBgColor:I
 
@@ -244,7 +244,7 @@
     return-void
 
     :cond_0
-    move v4, v6
+    const/4 v4, 0x0
 
     goto :goto_0
 
@@ -262,7 +262,7 @@
 .method private setBackgroundSpans(I)V
     .locals 7
 
-    invoke-virtual {p0}, Landroid/widget/TextView;->getText()Ljava/lang/CharSequence;
+    invoke-virtual {p0}, Landroid/media/Cea608CCWidget$CCLineBox;->getText()Ljava/lang/CharSequence;
 
     move-result-object v3
 
@@ -368,7 +368,7 @@
 
     mul-float v1, v3, v4
 
-    invoke-virtual {p0, v7, v1}, Landroid/widget/TextView;->setTextSize(IF)V
+    invoke-virtual {p0, v7, v1}, Landroid/media/Cea608CCWidget$CCLineBox;->setTextSize(IF)V
 
     const v3, 0x3dcccccd    # 0.1f
 
@@ -390,9 +390,9 @@
 
     iput v3, p0, Landroid/media/Cea608CCWidget$CCLineBox;->mShadowOffset:F
 
-    invoke-virtual {p0, v5}, Landroid/view/View;->setScaleX(F)V
+    invoke-virtual {p0, v5}, Landroid/media/Cea608CCWidget$CCLineBox;->setScaleX(F)V
 
-    invoke-virtual {p0}, Landroid/widget/TextView;->getPaint()Landroid/text/TextPaint;
+    invoke-virtual {p0}, Landroid/media/Cea608CCWidget$CCLineBox;->getPaint()Landroid/text/TextPaint;
 
     move-result-object v3
 
@@ -408,7 +408,7 @@
 
     move-result-object v6
 
-    invoke-virtual {v3, v4, v7, v5, v6}, Landroid/graphics/Paint;->getTextBounds(Ljava/lang/String;IILandroid/graphics/Rect;)V
+    invoke-virtual {v3, v4, v7, v5, v6}, Landroid/text/TextPaint;->getTextBounds(Ljava/lang/String;IILandroid/graphics/Rect;)V
 
     invoke-static {}, Landroid/media/Cea608CCWidget;->-get0()Landroid/graphics/Rect;
 
@@ -428,7 +428,7 @@
 
     div-float v3, v2, v0
 
-    invoke-virtual {p0, v3}, Landroid/view/View;->setScaleX(F)V
+    invoke-virtual {p0, v3}, Landroid/media/Cea608CCWidget$CCLineBox;->setScaleX(F)V
 
     invoke-super {p0, p1, p2}, Landroid/widget/TextView;->onMeasure(II)V
 
@@ -458,7 +458,7 @@
 
     iget v0, p0, Landroid/media/Cea608CCWidget$CCLineBox;->mTextColor:I
 
-    invoke-virtual {p0, v0}, Landroid/widget/TextView;->setTextColor(I)V
+    invoke-virtual {p0, v0}, Landroid/media/Cea608CCWidget$CCLineBox;->setTextColor(I)V
 
     iget v0, p0, Landroid/media/Cea608CCWidget$CCLineBox;->mEdgeType:I
 
@@ -474,17 +474,17 @@
 
     iget v3, p0, Landroid/media/Cea608CCWidget$CCLineBox;->mEdgeColor:I
 
-    invoke-virtual {p0, v0, v1, v2, v3}, Landroid/widget/TextView;->setShadowLayer(FFFI)V
+    invoke-virtual {p0, v0, v1, v2, v3}, Landroid/media/Cea608CCWidget$CCLineBox;->setShadowLayer(FFFI)V
 
     :goto_0
-    invoke-virtual {p0}, Landroid/view/View;->invalidate()V
+    invoke-virtual {p0}, Landroid/media/Cea608CCWidget$CCLineBox;->invalidate()V
 
     return-void
 
     :cond_0
     const/4 v0, 0x0
 
-    invoke-virtual {p0, v2, v2, v2, v0}, Landroid/widget/TextView;->setShadowLayer(FFFI)V
+    invoke-virtual {p0, v2, v2, v2, v0}, Landroid/media/Cea608CCWidget$CCLineBox;->setShadowLayer(FFFI)V
 
     goto :goto_0
 .end method

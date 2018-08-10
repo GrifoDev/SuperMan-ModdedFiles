@@ -146,7 +146,7 @@
 
     new-instance v0, Landroid/os/Handler;
 
-    invoke-virtual {p0}, Landroid/os/HandlerThread;->getLooper()Landroid/os/Looper;
+    invoke-virtual {p0}, Landroid/hardware/camera2/legacy/RequestHandlerThread;->getLooper()Landroid/os/Looper;
 
     move-result-object v1
 

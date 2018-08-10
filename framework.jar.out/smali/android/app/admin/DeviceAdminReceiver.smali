@@ -22,6 +22,8 @@
 
 .field public static final ACTION_LOCK_TASK_EXITING:Ljava/lang/String; = "android.app.action.LOCK_TASK_EXITING"
 
+.field public static final ACTION_NETWORK_LOGS_AVAILABLE:Ljava/lang/String; = "android.app.action.NETWORK_LOGS_AVAILABLE"
+
 .field public static final ACTION_NOTIFY_PENDING_SYSTEM_UPDATE:Ljava/lang/String; = "android.app.action.NOTIFY_PENDING_SYSTEM_UPDATE"
 
 .field public static final ACTION_PASSWORD_CHANGED:Ljava/lang/String; = "android.app.action.ACTION_PASSWORD_CHANGED"
@@ -37,6 +39,10 @@
 .field public static final ACTION_RECOVERY_PASSWORD_REQUESTED:Ljava/lang/String; = "android.app.action.ACTION_RECOVERY_PASSWORD_REQUESTED"
 
 .field public static final ACTION_SECURITY_LOGS_AVAILABLE:Ljava/lang/String; = "android.app.action.SECURITY_LOGS_AVAILABLE"
+
+.field public static final ACTION_USER_ADDED:Ljava/lang/String; = "android.app.action.USER_ADDED"
+
+.field public static final ACTION_USER_REMOVED:Ljava/lang/String; = "android.app.action.USER_REMOVED"
 
 .field public static final BUGREPORT_FAILURE_FAILED_COMPLETING:I = 0x0
 
@@ -59,6 +65,10 @@
 .field public static final EXTRA_DISABLE_WARNING:Ljava/lang/String; = "android.app.extra.DISABLE_WARNING"
 
 .field public static final EXTRA_LOCK_TASK_PACKAGE:Ljava/lang/String; = "android.app.extra.LOCK_TASK_PACKAGE"
+
+.field public static final EXTRA_NETWORK_LOGS_COUNT:Ljava/lang/String; = "android.app.extra.EXTRA_NETWORK_LOGS_COUNT"
+
+.field public static final EXTRA_NETWORK_LOGS_TOKEN:Ljava/lang/String; = "android.app.extra.EXTRA_NETWORK_LOGS_TOKEN"
 
 .field public static final EXTRA_SYSTEM_UPDATE_RECEIVED_TIME:Ljava/lang/String; = "android.app.extra.SYSTEM_UPDATE_RECEIVED_TIME"
 
@@ -139,7 +149,7 @@
     :cond_0
     new-instance v0, Landroid/content/ComponentName;
 
-    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+    invoke-virtual {p0}, Landroid/app/admin/DeviceAdminReceiver;->getClass()Ljava/lang/Class;
 
     move-result-object v1
 
@@ -210,26 +220,72 @@
     return-void
 .end method
 
+.method public onNetworkLogsAvailable(Landroid/content/Context;Landroid/content/Intent;JI)V
+    .locals 0
+
+    return-void
+.end method
+
 .method public onPasswordChanged(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 0
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+
+    return-void
+.end method
+
+.method public onPasswordChanged(Landroid/content/Context;Landroid/content/Intent;Landroid/os/UserHandle;)V
+    .locals 0
+
+    invoke-virtual {p0, p1, p2}, Landroid/app/admin/DeviceAdminReceiver;->onPasswordChanged(Landroid/content/Context;Landroid/content/Intent;)V
 
     return-void
 .end method
 
 .method public onPasswordExpiring(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 0
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+
+    return-void
+.end method
+
+.method public onPasswordExpiring(Landroid/content/Context;Landroid/content/Intent;Landroid/os/UserHandle;)V
+    .locals 0
+
+    invoke-virtual {p0, p1, p2}, Landroid/app/admin/DeviceAdminReceiver;->onPasswordExpiring(Landroid/content/Context;Landroid/content/Intent;)V
 
     return-void
 .end method
 
 .method public onPasswordFailed(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 0
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+
+    return-void
+.end method
+
+.method public onPasswordFailed(Landroid/content/Context;Landroid/content/Intent;Landroid/os/UserHandle;)V
+    .locals 0
+
+    invoke-virtual {p0, p1, p2}, Landroid/app/admin/DeviceAdminReceiver;->onPasswordFailed(Landroid/content/Context;Landroid/content/Intent;)V
 
     return-void
 .end method
 
 .method public onPasswordSucceeded(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 0
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+
+    return-void
+.end method
+
+.method public onPasswordSucceeded(Landroid/content/Context;Landroid/content/Intent;Landroid/os/UserHandle;)V
+    .locals 0
+
+    invoke-virtual {p0, p1, p2}, Landroid/app/admin/DeviceAdminReceiver;->onPasswordSucceeded(Landroid/content/Context;Landroid/content/Intent;)V
 
     return-void
 .end method
@@ -249,7 +305,7 @@
 .end method
 
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 24
+    .locals 27
 
     invoke-virtual/range {p2 .. p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
@@ -263,7 +319,23 @@
 
     if-eqz v6, :cond_1
 
-    invoke-virtual/range {p0 .. p2}, Landroid/app/admin/DeviceAdminReceiver;->onPasswordChanged(Landroid/content/Context;Landroid/content/Intent;)V
+    const-string/jumbo v6, "android.intent.extra.USER"
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v6}, Landroid/content/Intent;->getParcelableExtra(Ljava/lang/String;)Landroid/os/Parcelable;
+
+    move-result-object v6
+
+    check-cast v6, Landroid/os/UserHandle;
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, p1
+
+    move-object/from16 v2, p2
+
+    invoke-virtual {v0, v1, v2, v6}, Landroid/app/admin/DeviceAdminReceiver;->onPasswordChanged(Landroid/content/Context;Landroid/content/Intent;Landroid/os/UserHandle;)V
 
     :cond_0
     :goto_0
@@ -278,7 +350,23 @@
 
     if-eqz v6, :cond_2
 
-    invoke-virtual/range {p0 .. p2}, Landroid/app/admin/DeviceAdminReceiver;->onPasswordFailed(Landroid/content/Context;Landroid/content/Intent;)V
+    const-string/jumbo v6, "android.intent.extra.USER"
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v6}, Landroid/content/Intent;->getParcelableExtra(Ljava/lang/String;)Landroid/os/Parcelable;
+
+    move-result-object v6
+
+    check-cast v6, Landroid/os/UserHandle;
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, p1
+
+    move-object/from16 v2, p2
+
+    invoke-virtual {v0, v1, v2, v6}, Landroid/app/admin/DeviceAdminReceiver;->onPasswordFailed(Landroid/content/Context;Landroid/content/Intent;Landroid/os/UserHandle;)V
 
     goto :goto_0
 
@@ -291,7 +379,23 @@
 
     if-eqz v6, :cond_3
 
-    invoke-virtual/range {p0 .. p2}, Landroid/app/admin/DeviceAdminReceiver;->onPasswordSucceeded(Landroid/content/Context;Landroid/content/Intent;)V
+    const-string/jumbo v6, "android.intent.extra.USER"
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v6}, Landroid/content/Intent;->getParcelableExtra(Ljava/lang/String;)Landroid/os/Parcelable;
+
+    move-result-object v6
+
+    check-cast v6, Landroid/os/UserHandle;
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, p1
+
+    move-object/from16 v2, p2
+
+    invoke-virtual {v0, v1, v2, v6}, Landroid/app/admin/DeviceAdminReceiver;->onPasswordSucceeded(Landroid/content/Context;Landroid/content/Intent;Landroid/os/UserHandle;)V
 
     goto :goto_0
 
@@ -319,23 +423,25 @@
 
     invoke-virtual/range {p0 .. p2}, Landroid/app/admin/DeviceAdminReceiver;->onDisableRequested(Landroid/content/Context;Landroid/content/Intent;)Ljava/lang/CharSequence;
 
-    move-result-object v20
+    move-result-object v26
 
-    if-eqz v20, :cond_0
+    if-eqz v26, :cond_0
 
     const/4 v6, 0x1
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v6}, Landroid/content/BroadcastReceiver;->getResultExtras(Z)Landroid/os/Bundle;
+    invoke-virtual {v0, v6}, Landroid/app/admin/DeviceAdminReceiver;->getResultExtras(Z)Landroid/os/Bundle;
 
-    move-result-object v15
+    move-result-object v21
 
     const-string/jumbo v6, "android.app.extra.DISABLE_WARNING"
 
-    move-object/from16 v0, v20
+    move-object/from16 v0, v21
 
-    invoke-virtual {v15, v6, v0}, Landroid/os/Bundle;->putCharSequence(Ljava/lang/String;Ljava/lang/CharSequence;)V
+    move-object/from16 v1, v26
+
+    invoke-virtual {v0, v6, v1}, Landroid/os/Bundle;->putCharSequence(Ljava/lang/String;Ljava/lang/CharSequence;)V
 
     goto :goto_0
 
@@ -361,9 +467,25 @@
 
     if-eqz v6, :cond_7
 
-    invoke-virtual/range {p0 .. p2}, Landroid/app/admin/DeviceAdminReceiver;->onPasswordExpiring(Landroid/content/Context;Landroid/content/Intent;)V
+    const-string/jumbo v6, "android.intent.extra.USER"
 
-    goto :goto_0
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v6}, Landroid/content/Intent;->getParcelableExtra(Ljava/lang/String;)Landroid/os/Parcelable;
+
+    move-result-object v6
+
+    check-cast v6, Landroid/os/UserHandle;
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, p1
+
+    move-object/from16 v2, p2
+
+    invoke-virtual {v0, v1, v2, v6}, Landroid/app/admin/DeviceAdminReceiver;->onPasswordExpiring(Landroid/content/Context;Landroid/content/Intent;Landroid/os/UserHandle;)V
+
+    goto/16 :goto_0
 
     :cond_7
     const-string/jumbo v6, "android.app.action.ACTION_RECOVERY_PASSWORD_REQUESTED"
@@ -376,7 +498,7 @@
 
     invoke-virtual/range {p0 .. p2}, Landroid/app/admin/DeviceAdminReceiver;->onRecoveryPasswordRequested(Landroid/content/Context;Landroid/content/Intent;)V
 
-    goto :goto_0
+    goto/16 :goto_0
 
     :cond_8
     const-string/jumbo v6, "android.app.action.PROFILE_PROVISIONING_COMPLETE"
@@ -389,7 +511,7 @@
 
     invoke-virtual/range {p0 .. p2}, Landroid/app/admin/DeviceAdminReceiver;->onProfileProvisioningComplete(Landroid/content/Context;Landroid/content/Intent;)V
 
-    goto :goto_0
+    goto/16 :goto_0
 
     :cond_9
     const-string/jumbo v6, "android.app.action.CHOOSE_PRIVATE_KEY_ALIAS"
@@ -436,11 +558,13 @@
 
     invoke-virtual/range {v6 .. v11}, Landroid/app/admin/DeviceAdminReceiver;->onChoosePrivateKeyAlias(Landroid/content/Context;Landroid/content/Intent;ILandroid/net/Uri;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v14
+    move-result-object v20
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v14}, Landroid/content/BroadcastReceiver;->setResultData(Ljava/lang/String;)V
+    move-object/from16 v1, v20
+
+    invoke-virtual {v0, v1}, Landroid/app/admin/DeviceAdminReceiver;->setResultData(Ljava/lang/String;)V
 
     goto/16 :goto_0
 
@@ -459,7 +583,7 @@
 
     invoke-virtual {v0, v6}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v17
+    move-result-object v23
 
     move-object/from16 v0, p0
 
@@ -467,7 +591,7 @@
 
     move-object/from16 v2, p2
 
-    move-object/from16 v3, v17
+    move-object/from16 v3, v23
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/app/admin/DeviceAdminReceiver;->onLockTaskModeEntering(Landroid/content/Context;Landroid/content/Intent;Ljava/lang/String;)V
 
@@ -497,15 +621,13 @@
 
     const-string/jumbo v6, "android.app.extra.SYSTEM_UPDATE_RECEIVED_TIME"
 
-    const-wide/16 v22, -0x1
+    const-wide/16 v14, -0x1
 
     move-object/from16 v0, p2
 
-    move-wide/from16 v1, v22
+    invoke-virtual {v0, v6, v14, v15}, Landroid/content/Intent;->getLongExtra(Ljava/lang/String;J)J
 
-    invoke-virtual {v0, v6, v1, v2}, Landroid/content/Intent;->getLongExtra(Ljava/lang/String;J)J
-
-    move-result-wide v18
+    move-result-wide v24
 
     move-object/from16 v0, p0
 
@@ -513,7 +635,7 @@
 
     move-object/from16 v2, p2
 
-    move-wide/from16 v3, v18
+    move-wide/from16 v3, v24
 
     invoke-virtual {v0, v1, v2, v3, v4}, Landroid/app/admin/DeviceAdminReceiver;->onSystemUpdatePending(Landroid/content/Context;Landroid/content/Intent;J)V
 
@@ -547,7 +669,7 @@
 
     invoke-virtual {v0, v6}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v13
+    move-result-object v19
 
     move-object/from16 v0, p0
 
@@ -555,7 +677,9 @@
 
     move-object/from16 v2, p2
 
-    invoke-virtual {v0, v1, v2, v13}, Landroid/app/admin/DeviceAdminReceiver;->onBugreportShared(Landroid/content/Context;Landroid/content/Intent;Ljava/lang/String;)V
+    move-object/from16 v3, v19
+
+    invoke-virtual {v0, v1, v2, v3}, Landroid/app/admin/DeviceAdminReceiver;->onBugreportShared(Landroid/content/Context;Landroid/content/Intent;Ljava/lang/String;)V
 
     goto/16 :goto_0
 
@@ -576,7 +700,7 @@
 
     invoke-virtual {v0, v6, v7}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
-    move-result v16
+    move-result v22
 
     move-object/from16 v0, p0
 
@@ -584,7 +708,7 @@
 
     move-object/from16 v2, p2
 
-    move/from16 v3, v16
+    move/from16 v3, v22
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/app/admin/DeviceAdminReceiver;->onBugreportFailed(Landroid/content/Context;Landroid/content/Intent;I)V
 
@@ -597,9 +721,106 @@
 
     move-result v6
 
-    if-eqz v6, :cond_0
+    if-eqz v6, :cond_11
 
     invoke-virtual/range {p0 .. p2}, Landroid/app/admin/DeviceAdminReceiver;->onSecurityLogsAvailable(Landroid/content/Context;Landroid/content/Intent;)V
+
+    goto/16 :goto_0
+
+    :cond_11
+    const-string/jumbo v6, "android.app.action.NETWORK_LOGS_AVAILABLE"
+
+    invoke-virtual {v6, v12}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_12
+
+    const-string/jumbo v6, "android.app.extra.EXTRA_NETWORK_LOGS_TOKEN"
+
+    const-wide/16 v14, -0x1
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v6, v14, v15}, Landroid/content/Intent;->getLongExtra(Ljava/lang/String;J)J
+
+    move-result-wide v16
+
+    const-string/jumbo v6, "android.app.extra.EXTRA_NETWORK_LOGS_COUNT"
+
+    const/4 v7, 0x0
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v6, v7}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+
+    move-result v18
+
+    move-object/from16 v13, p0
+
+    move-object/from16 v14, p1
+
+    move-object/from16 v15, p2
+
+    invoke-virtual/range {v13 .. v18}, Landroid/app/admin/DeviceAdminReceiver;->onNetworkLogsAvailable(Landroid/content/Context;Landroid/content/Intent;JI)V
+
+    goto/16 :goto_0
+
+    :cond_12
+    const-string/jumbo v6, "android.app.action.USER_ADDED"
+
+    invoke-virtual {v6, v12}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_13
+
+    const-string/jumbo v6, "android.intent.extra.USER"
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v6}, Landroid/content/Intent;->getParcelableExtra(Ljava/lang/String;)Landroid/os/Parcelable;
+
+    move-result-object v6
+
+    check-cast v6, Landroid/os/UserHandle;
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, p1
+
+    move-object/from16 v2, p2
+
+    invoke-virtual {v0, v1, v2, v6}, Landroid/app/admin/DeviceAdminReceiver;->onUserAdded(Landroid/content/Context;Landroid/content/Intent;Landroid/os/UserHandle;)V
+
+    goto/16 :goto_0
+
+    :cond_13
+    const-string/jumbo v6, "android.app.action.USER_REMOVED"
+
+    invoke-virtual {v6, v12}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_0
+
+    const-string/jumbo v6, "android.intent.extra.USER"
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v6}, Landroid/content/Intent;->getParcelableExtra(Ljava/lang/String;)Landroid/os/Parcelable;
+
+    move-result-object v6
+
+    check-cast v6, Landroid/os/UserHandle;
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, p1
+
+    move-object/from16 v2, p2
+
+    invoke-virtual {v0, v1, v2, v6}, Landroid/app/admin/DeviceAdminReceiver;->onUserRemoved(Landroid/content/Context;Landroid/content/Intent;Landroid/os/UserHandle;)V
 
     goto/16 :goto_0
 .end method
@@ -617,6 +838,18 @@
 .end method
 
 .method public onSystemUpdatePending(Landroid/content/Context;Landroid/content/Intent;J)V
+    .locals 0
+
+    return-void
+.end method
+
+.method public onUserAdded(Landroid/content/Context;Landroid/content/Intent;Landroid/os/UserHandle;)V
+    .locals 0
+
+    return-void
+.end method
+
+.method public onUserRemoved(Landroid/content/Context;Landroid/content/Intent;Landroid/os/UserHandle;)V
     .locals 0
 
     return-void

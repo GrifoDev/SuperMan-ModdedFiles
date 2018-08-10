@@ -23,6 +23,8 @@
 
 .field private mExtras:Landroid/os/Bundle;
 
+.field private mGroupId:Ljava/lang/String;
+
 .field private mHighlightColor:I
 
 .field private mIcon:Landroid/graphics/drawable/Icon;
@@ -34,6 +36,8 @@
 .field private mShortDescription:Ljava/lang/CharSequence;
 
 .field private mSubscriptionAddress:Landroid/net/Uri;
+
+.field private mSupportedAudioRoutes:I
 
 .field private mSupportedUriSchemes:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
@@ -55,6 +59,10 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    const/16 v0, 0xf
+
+    iput v0, p0, Landroid/telecom/PhoneAccount$Builder;->mSupportedAudioRoutes:I
+
     iput v1, p0, Landroid/telecom/PhoneAccount$Builder;->mHighlightColor:I
 
     new-instance v0, Ljava/util/ArrayList;
@@ -64,6 +72,10 @@
     iput-object v0, p0, Landroid/telecom/PhoneAccount$Builder;->mSupportedUriSchemes:Ljava/util/List;
 
     iput-boolean v1, p0, Landroid/telecom/PhoneAccount$Builder;->mIsEnabled:Z
+
+    const-string/jumbo v0, ""
+
+    iput-object v0, p0, Landroid/telecom/PhoneAccount$Builder;->mGroupId:Ljava/lang/String;
 
     invoke-virtual {p1}, Landroid/telecom/PhoneAccount;->getAccountHandle()Landroid/telecom/PhoneAccountHandle;
 
@@ -133,6 +145,18 @@
 
     iput-object v0, p0, Landroid/telecom/PhoneAccount$Builder;->mExtras:Landroid/os/Bundle;
 
+    invoke-virtual {p1}, Landroid/telecom/PhoneAccount;->getGroupId()Ljava/lang/String;
+
+    move-result-object v0
+
+    iput-object v0, p0, Landroid/telecom/PhoneAccount$Builder;->mGroupId:Ljava/lang/String;
+
+    invoke-virtual {p1}, Landroid/telecom/PhoneAccount;->getSupportedAudioRoutes()I
+
+    move-result v0
+
+    iput v0, p0, Landroid/telecom/PhoneAccount$Builder;->mSupportedAudioRoutes:I
+
     return-void
 .end method
 
@@ -143,6 +167,10 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    const/16 v0, 0xf
+
+    iput v0, p0, Landroid/telecom/PhoneAccount$Builder;->mSupportedAudioRoutes:I
+
     iput v1, p0, Landroid/telecom/PhoneAccount$Builder;->mHighlightColor:I
 
     new-instance v0, Ljava/util/ArrayList;
@@ -152,6 +180,10 @@
     iput-object v0, p0, Landroid/telecom/PhoneAccount$Builder;->mSupportedUriSchemes:Ljava/util/List;
 
     iput-boolean v1, p0, Landroid/telecom/PhoneAccount$Builder;->mIsEnabled:Z
+
+    const-string/jumbo v0, ""
+
+    iput-object v0, p0, Landroid/telecom/PhoneAccount$Builder;->mGroupId:Ljava/lang/String;
 
     iput-object p1, p0, Landroid/telecom/PhoneAccount$Builder;->mAccountHandle:Landroid/telecom/PhoneAccountHandle;
 
@@ -177,22 +209,20 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    xor-int/lit8 v0, v0, 0x1
 
-    :cond_0
-    :goto_0
-    return-object p0
+    if-eqz v0, :cond_0
 
-    :cond_1
     iget-object v0, p0, Landroid/telecom/PhoneAccount$Builder;->mSupportedUriSchemes:Ljava/util/List;
 
     invoke-interface {v0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    :cond_0
+    return-object p0
 .end method
 
 .method public build()Landroid/telecom/PhoneAccount;
-    .locals 13
+    .locals 15
 
     iget-object v0, p0, Landroid/telecom/PhoneAccount$Builder;->mSupportedUriSchemes:Ljava/util/List;
 
@@ -229,11 +259,15 @@
 
     iget-object v10, p0, Landroid/telecom/PhoneAccount$Builder;->mExtras:Landroid/os/Bundle;
 
-    iget-boolean v11, p0, Landroid/telecom/PhoneAccount$Builder;->mIsEnabled:Z
+    iget v11, p0, Landroid/telecom/PhoneAccount$Builder;->mSupportedAudioRoutes:I
 
-    const/4 v12, 0x0
+    iget-boolean v12, p0, Landroid/telecom/PhoneAccount$Builder;->mIsEnabled:Z
 
-    invoke-direct/range {v0 .. v12}, Landroid/telecom/PhoneAccount;-><init>(Landroid/telecom/PhoneAccountHandle;Landroid/net/Uri;Landroid/net/Uri;ILandroid/graphics/drawable/Icon;ILjava/lang/CharSequence;Ljava/lang/CharSequence;Ljava/util/List;Landroid/os/Bundle;ZLandroid/telecom/PhoneAccount;)V
+    iget-object v13, p0, Landroid/telecom/PhoneAccount$Builder;->mGroupId:Ljava/lang/String;
+
+    const/4 v14, 0x0
+
+    invoke-direct/range {v0 .. v14}, Landroid/telecom/PhoneAccount;-><init>(Landroid/telecom/PhoneAccountHandle;Landroid/net/Uri;Landroid/net/Uri;ILandroid/graphics/drawable/Icon;ILjava/lang/CharSequence;Ljava/lang/CharSequence;Ljava/util/List;Landroid/os/Bundle;IZLjava/lang/String;Landroid/telecom/PhoneAccount;)V
 
     return-object v0
 .end method
@@ -262,6 +296,24 @@
     return-object p0
 .end method
 
+.method public setGroupId(Ljava/lang/String;)Landroid/telecom/PhoneAccount$Builder;
+    .locals 1
+
+    if-eqz p1, :cond_0
+
+    iput-object p1, p0, Landroid/telecom/PhoneAccount$Builder;->mGroupId:Ljava/lang/String;
+
+    :goto_0
+    return-object p0
+
+    :cond_0
+    const-string/jumbo v0, ""
+
+    iput-object v0, p0, Landroid/telecom/PhoneAccount$Builder;->mGroupId:Ljava/lang/String;
+
+    goto :goto_0
+.end method
+
 .method public setHighlightColor(I)Landroid/telecom/PhoneAccount$Builder;
     .locals 0
 
@@ -286,6 +338,14 @@
     return-object p0
 .end method
 
+.method public setLabel(Ljava/lang/CharSequence;)Landroid/telecom/PhoneAccount$Builder;
+    .locals 0
+
+    iput-object p1, p0, Landroid/telecom/PhoneAccount$Builder;->mLabel:Ljava/lang/CharSequence;
+
+    return-object p0
+.end method
+
 .method public setShortDescription(Ljava/lang/CharSequence;)Landroid/telecom/PhoneAccount$Builder;
     .locals 0
 
@@ -298,6 +358,14 @@
     .locals 0
 
     iput-object p1, p0, Landroid/telecom/PhoneAccount$Builder;->mSubscriptionAddress:Landroid/net/Uri;
+
+    return-object p0
+.end method
+
+.method public setSupportedAudioRoutes(I)Landroid/telecom/PhoneAccount$Builder;
+    .locals 0
+
+    iput p1, p0, Landroid/telecom/PhoneAccount$Builder;->mSupportedAudioRoutes:I
 
     return-object p0
 .end method
@@ -325,12 +393,10 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    xor-int/lit8 v2, v2, 0x1
 
-    :cond_0
-    return-object p0
+    if-eqz v2, :cond_0
 
-    :cond_1
     invoke-interface {p1}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
@@ -351,4 +417,7 @@
     invoke-virtual {p0, v0}, Landroid/telecom/PhoneAccount$Builder;->addSupportedUriScheme(Ljava/lang/String;)Landroid/telecom/PhoneAccount$Builder;
 
     goto :goto_0
+
+    :cond_0
+    return-object p0
 .end method

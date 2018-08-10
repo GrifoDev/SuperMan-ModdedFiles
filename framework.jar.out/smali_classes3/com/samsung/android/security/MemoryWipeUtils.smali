@@ -39,7 +39,7 @@
 .method public static clear(Landroid/os/IBinder;Ljava/lang/String;II)V
     .locals 19
 
-    invoke-static {}, Lcom/samsung/android/security/CCManager;->isMdfEnforced()Z
+    invoke-static {}, Lcom/samsung/android/security/mdf/MdfUtils;->isMdfEnforced()Z
 
     move-result v13
 
@@ -59,7 +59,11 @@
 
     move-result v13
 
-    if-eqz v13, :cond_2
+    xor-int/lit8 v13, v13, 0x1
+
+    if-eqz v13, :cond_0
+
+    return-void
 
     :cond_0
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
@@ -77,7 +81,7 @@
 
     add-int/lit8 p3, v13, 0x1
 
-    if-eqz p0, :cond_4
+    if-eqz p0, :cond_3
 
     const/4 v4, 0x0
 
@@ -86,7 +90,7 @@
     :goto_0
     const/16 v13, 0x40
 
-    if-ge v9, v13, :cond_4
+    if-ge v9, v13, :cond_3
 
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
@@ -106,7 +110,7 @@
     :goto_1
     move/from16 v0, p3
 
-    if-ge v12, v0, :cond_3
+    if-ge v12, v0, :cond_2
 
     invoke-virtual {v2, v5}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
@@ -115,9 +119,6 @@
     goto :goto_1
 
     :cond_2
-    return-void
-
-    :cond_3
     const/4 v13, 0x0
 
     move-object/from16 v0, p0
@@ -162,14 +163,14 @@
 
     throw v13
 
-    :cond_4
+    :cond_3
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v10
 
     sub-long v6, v10, v14
 
-    const-string/jumbo v13, "MDPP"
+    const-string/jumbo v13, "MDF"
 
     new-instance v16, Ljava/lang/StringBuilder;
 
@@ -179,7 +180,7 @@
 
     invoke-direct/range {v17 .. v17}, Ljava/lang/Exception;-><init>()V
 
-    invoke-virtual/range {v17 .. v17}, Ljava/lang/Throwable;->getStackTrace()[Ljava/lang/StackTraceElement;
+    invoke-virtual/range {v17 .. v17}, Ljava/lang/Exception;->getStackTrace()[Ljava/lang/StackTraceElement;
 
     move-result-object v17
 
@@ -261,12 +262,19 @@
 .method public static getChars(Landroid/widget/TextView;)[C
     .locals 4
 
+    const/4 v3, 0x0
+
     invoke-virtual {p0}, Landroid/widget/TextView;->getEditableText()Landroid/text/Editable;
 
     move-result-object v2
 
     check-cast v2, Landroid/text/SpannableStringBuilder;
 
+    if-nez v2, :cond_0
+
+    return-object v3
+
+    :cond_0
     invoke-virtual {v2}, Landroid/text/SpannableStringBuilder;->length()I
 
     move-result v3
@@ -280,7 +288,7 @@
 
     move-result v3
 
-    if-ge v1, v3, :cond_0
+    if-ge v1, v3, :cond_1
 
     invoke-virtual {v2, v1}, Landroid/text/SpannableStringBuilder;->charAt(I)C
 
@@ -292,7 +300,7 @@
 
     goto :goto_0
 
-    :cond_0
+    :cond_1
     invoke-virtual {v2}, Landroid/text/SpannableStringBuilder;->clear()V
 
     return-object v0

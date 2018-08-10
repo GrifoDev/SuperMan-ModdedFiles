@@ -41,7 +41,7 @@
 .method private applyFractionInt(II)I
     .locals 1
 
-    invoke-virtual {p0}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/inputmethodservice/CompactExtractEditLayout;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
@@ -61,7 +61,7 @@
 
     const/4 v2, 0x0
 
-    invoke-virtual {p0}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/inputmethodservice/CompactExtractEditLayout;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
@@ -77,7 +77,7 @@
 
     const/16 v0, 0x50
 
-    invoke-virtual {p0, v0}, Landroid/widget/LinearLayout;->setGravity(I)V
+    invoke-virtual {p0, v0}, Landroid/inputmethodservice/CompactExtractEditLayout;->setGravity(I)V
 
     :cond_0
     const v0, 0x1130006
@@ -100,7 +100,7 @@
 
     move-result v1
 
-    invoke-virtual {p0, v0, v2, v1, v2}, Landroid/view/View;->setPadding(IIII)V
+    invoke-virtual {p0, v0, v2, v1, v2}, Landroid/inputmethodservice/CompactExtractEditLayout;->setPadding(IIII)V
 
     iget-object v0, p0, Landroid/inputmethodservice/CompactExtractEditLayout;->mInputExtractEditText:Landroid/view/View;
 
@@ -114,7 +114,7 @@
 
     iget-object v0, p0, Landroid/inputmethodservice/CompactExtractEditLayout;->mInputExtractAccessories:Landroid/view/View;
 
-    const v1, 0x113000b
+    const v1, 0x1130005
 
     invoke-direct {p0, v1, p2}, Landroid/inputmethodservice/CompactExtractEditLayout;->applyFractionInt(II)I
 
@@ -158,29 +158,44 @@
 
 # virtual methods
 .method protected onAttachedToWindow()V
-    .locals 5
+    .locals 6
 
     invoke-super {p0}, Landroid/widget/LinearLayout;->onAttachedToWindow()V
 
-    iget-boolean v4, p0, Landroid/inputmethodservice/CompactExtractEditLayout;->mPerformLayoutChanges:Z
+    iget-boolean v5, p0, Landroid/inputmethodservice/CompactExtractEditLayout;->mPerformLayoutChanges:Z
 
-    if-eqz v4, :cond_0
+    if-eqz v5, :cond_1
 
-    invoke-virtual {p0}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/inputmethodservice/CompactExtractEditLayout;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v2
+    move-result-object v3
 
-    invoke-virtual {v2}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
+    invoke-virtual {v3}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
 
     move-result-object v0
 
-    iget v1, v0, Landroid/util/DisplayMetrics;->heightPixels:I
+    invoke-virtual {v3}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
 
-    iget v3, v0, Landroid/util/DisplayMetrics;->widthPixels:I
+    move-result-object v1
 
-    invoke-direct {p0, v3, v1}, Landroid/inputmethodservice/CompactExtractEditLayout;->applyProportionalLayout(II)V
+    iget v4, v1, Landroid/util/DisplayMetrics;->widthPixels:I
+
+    iget v2, v1, Landroid/util/DisplayMetrics;->heightPixels:I
+
+    invoke-virtual {v0}, Landroid/content/res/Configuration;->isScreenRound()Z
+
+    move-result v5
+
+    if-eqz v5, :cond_0
+
+    if-ge v2, v4, :cond_0
+
+    move v2, v4
 
     :cond_0
+    invoke-direct {p0, v4, v2}, Landroid/inputmethodservice/CompactExtractEditLayout;->applyProportionalLayout(II)V
+
+    :cond_1
     return-void
 .end method
 
@@ -191,23 +206,23 @@
 
     const v0, 0x1020025
 
-    invoke-virtual {p0, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v0}, Landroid/inputmethodservice/CompactExtractEditLayout;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
     iput-object v0, p0, Landroid/inputmethodservice/CompactExtractEditLayout;->mInputExtractEditText:Landroid/view/View;
 
-    const v0, 0x10203fb
+    const v0, 0x102031d
 
-    invoke-virtual {p0, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v0}, Landroid/inputmethodservice/CompactExtractEditLayout;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
     iput-object v0, p0, Landroid/inputmethodservice/CompactExtractEditLayout;->mInputExtractAccessories:Landroid/view/View;
 
-    const v0, 0x10203fc
+    const v0, 0x102031e
 
-    invoke-virtual {p0, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v0}, Landroid/inputmethodservice/CompactExtractEditLayout;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 

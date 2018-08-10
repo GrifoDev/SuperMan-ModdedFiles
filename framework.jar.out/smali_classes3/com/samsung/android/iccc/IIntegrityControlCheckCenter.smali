@@ -15,6 +15,14 @@
 
 
 # virtual methods
+.method public abstract getDeviceStatus(I[B)[B
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract getSecureData(I)I
     .annotation system Ldalvik/annotation/Throws;
         value = {

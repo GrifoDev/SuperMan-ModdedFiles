@@ -37,7 +37,7 @@
 
     const/4 v8, 0x0
 
-    invoke-virtual {p0}, Landroid/filterfw/core/Scheduler;->getGraph()Landroid/filterfw/core/FilterGraph;
+    invoke-virtual {p0}, Landroid/filterfw/core/RoundRobinScheduler;->getGraph()Landroid/filterfw/core/FilterGraph;
 
     move-result-object v6
 

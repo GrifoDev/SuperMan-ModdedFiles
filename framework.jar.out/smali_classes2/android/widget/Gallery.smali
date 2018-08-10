@@ -91,7 +91,7 @@
 .method static synthetic -get2(Landroid/widget/Gallery;)I
     .locals 1
 
-    iget v0, p0, Landroid/view/View;->mPaddingLeft:I
+    iget v0, p0, Landroid/widget/Gallery;->mPaddingLeft:I
 
     return v0
 .end method
@@ -99,7 +99,7 @@
 .method static synthetic -get3(Landroid/widget/Gallery;)I
     .locals 1
 
-    iget v0, p0, Landroid/view/View;->mPaddingRight:I
+    iget v0, p0, Landroid/widget/Gallery;->mPaddingRight:I
 
     return v0
 .end method
@@ -261,17 +261,17 @@
 
     invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
 
-    iget v5, p0, Landroid/view/ViewGroup;->mGroupFlags:I
+    iget v5, p0, Landroid/widget/Gallery;->mGroupFlags:I
 
     or-int/lit16 v5, v5, 0x400
 
-    iput v5, p0, Landroid/view/ViewGroup;->mGroupFlags:I
+    iput v5, p0, Landroid/widget/Gallery;->mGroupFlags:I
 
-    iget v5, p0, Landroid/view/ViewGroup;->mGroupFlags:I
+    iget v5, p0, Landroid/widget/Gallery;->mGroupFlags:I
 
     or-int/lit16 v5, v5, 0x800
 
-    iput v5, p0, Landroid/view/ViewGroup;->mGroupFlags:I
+    iput v5, p0, Landroid/widget/Gallery;->mGroupFlags:I
 
     return-void
 .end method
@@ -281,7 +281,7 @@
 
     if-eqz p2, :cond_0
 
-    invoke-virtual {p0}, Landroid/view/View;->getMeasuredHeight()I
+    invoke-virtual {p0}, Landroid/widget/Gallery;->getMeasuredHeight()I
 
     move-result v3
 
@@ -303,7 +303,7 @@
     return v2
 
     :cond_0
-    invoke-virtual {p0}, Landroid/view/View;->getHeight()I
+    invoke-virtual {p0}, Landroid/widget/Gallery;->getHeight()I
 
     move-result v3
 
@@ -317,20 +317,20 @@
     goto :goto_1
 
     :sswitch_0
-    iget-object v4, p0, Landroid/widget/AbsSpinner;->mSpinnerPadding:Landroid/graphics/Rect;
+    iget-object v4, p0, Landroid/widget/Gallery;->mSpinnerPadding:Landroid/graphics/Rect;
 
     iget v2, v4, Landroid/graphics/Rect;->top:I
 
     goto :goto_2
 
     :sswitch_1
-    iget-object v4, p0, Landroid/widget/AbsSpinner;->mSpinnerPadding:Landroid/graphics/Rect;
+    iget-object v4, p0, Landroid/widget/Gallery;->mSpinnerPadding:Landroid/graphics/Rect;
 
     iget v4, v4, Landroid/graphics/Rect;->bottom:I
 
     sub-int v4, v3, v4
 
-    iget-object v5, p0, Landroid/widget/AbsSpinner;->mSpinnerPadding:Landroid/graphics/Rect;
+    iget-object v5, p0, Landroid/widget/Gallery;->mSpinnerPadding:Landroid/graphics/Rect;
 
     iget v5, v5, Landroid/graphics/Rect;->top:I
 
@@ -338,7 +338,7 @@
 
     sub-int v0, v4, v1
 
-    iget-object v4, p0, Landroid/widget/AbsSpinner;->mSpinnerPadding:Landroid/graphics/Rect;
+    iget-object v4, p0, Landroid/widget/Gallery;->mSpinnerPadding:Landroid/graphics/Rect;
 
     iget v4, v4, Landroid/graphics/Rect;->top:I
 
@@ -349,7 +349,7 @@
     goto :goto_2
 
     :sswitch_2
-    iget-object v4, p0, Landroid/widget/AbsSpinner;->mSpinnerPadding:Landroid/graphics/Rect;
+    iget-object v4, p0, Landroid/widget/Gallery;->mSpinnerPadding:Landroid/graphics/Rect;
 
     iget v4, v4, Landroid/graphics/Rect;->bottom:I
 
@@ -372,11 +372,11 @@
 .method private detachOffScreenChildren(Z)V
     .locals 11
 
-    invoke-virtual {p0}, Landroid/view/ViewGroup;->getChildCount()I
+    invoke-virtual {p0}, Landroid/widget/Gallery;->getChildCount()I
 
     move-result v7
 
-    iget v2, p0, Landroid/widget/AdapterView;->mFirstPosition:I
+    iget v2, p0, Landroid/widget/Gallery;->mFirstPosition:I
 
     const/4 v8, 0x0
 
@@ -384,7 +384,7 @@
 
     if-eqz p1, :cond_5
 
-    iget v3, p0, Landroid/view/View;->mPaddingLeft:I
+    iget v3, p0, Landroid/widget/Gallery;->mPaddingLeft:I
 
     const/4 v5, 0x0
 
@@ -400,7 +400,7 @@
     sub-int v6, v9, v5
 
     :goto_1
-    invoke-virtual {p0, v6}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {p0, v6}, Landroid/widget/Gallery;->getChildAt(I)Landroid/view/View;
 
     move-result-object v0
 
@@ -419,17 +419,17 @@
 
     :cond_1
     :goto_2
-    invoke-virtual {p0, v8, v1}, Landroid/view/ViewGroup;->detachViewsFromParent(II)V
+    invoke-virtual {p0, v8, v1}, Landroid/widget/Gallery;->detachViewsFromParent(II)V
 
     iget-boolean v9, p0, Landroid/widget/Gallery;->mIsRtl:Z
 
     if-eq p1, v9, :cond_2
 
-    iget v9, p0, Landroid/widget/AdapterView;->mFirstPosition:I
+    iget v9, p0, Landroid/widget/Gallery;->mFirstPosition:I
 
     add-int/2addr v9, v1
 
-    iput v9, p0, Landroid/widget/AdapterView;->mFirstPosition:I
+    iput v9, p0, Landroid/widget/Gallery;->mFirstPosition:I
 
     :cond_2
     return-void
@@ -444,7 +444,7 @@
 
     add-int/lit8 v1, v1, 0x1
 
-    iget-object v9, p0, Landroid/widget/AbsSpinner;->mRecycler:Landroid/widget/AbsSpinner$RecycleBin;
+    iget-object v9, p0, Landroid/widget/Gallery;->mRecycler:Landroid/widget/AbsSpinner$RecycleBin;
 
     add-int v10, v2, v6
 
@@ -455,11 +455,11 @@
     goto :goto_0
 
     :cond_5
-    invoke-virtual {p0}, Landroid/view/View;->getWidth()I
+    invoke-virtual {p0}, Landroid/widget/Gallery;->getWidth()I
 
     move-result v9
 
-    iget v10, p0, Landroid/view/View;->mPaddingRight:I
+    iget v10, p0, Landroid/widget/Gallery;->mPaddingRight:I
 
     sub-int v4, v9, v10
 
@@ -477,7 +477,7 @@
     sub-int v6, v9, v5
 
     :goto_4
-    invoke-virtual {p0, v6}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {p0, v6}, Landroid/widget/Gallery;->getChildAt(I)Landroid/view/View;
 
     move-result-object v0
 
@@ -506,7 +506,7 @@
 
     add-int/lit8 v1, v1, 0x1
 
-    iget-object v9, p0, Landroid/widget/AbsSpinner;->mRecycler:Landroid/widget/AbsSpinner$RecycleBin;
+    iget-object v9, p0, Landroid/widget/Gallery;->mRecycler:Landroid/widget/AbsSpinner$RecycleBin;
 
     add-int v10, v2, v6
 
@@ -522,11 +522,11 @@
 
     const/4 v6, 0x0
 
-    iget-object v0, p0, Landroid/widget/AdapterView;->mOnItemLongClickListener:Landroid/widget/AdapterView$OnItemLongClickListener;
+    iget-object v0, p0, Landroid/widget/Gallery;->mOnItemLongClickListener:Landroid/widget/AdapterView$OnItemLongClickListener;
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Landroid/widget/AdapterView;->mOnItemLongClickListener:Landroid/widget/AdapterView$OnItemLongClickListener;
+    iget-object v0, p0, Landroid/widget/Gallery;->mOnItemLongClickListener:Landroid/widget/AdapterView$OnItemLongClickListener;
 
     iget-object v2, p0, Landroid/widget/Gallery;->mDownTouchView:Landroid/view/View;
 
@@ -561,7 +561,7 @@
 
     const/4 v0, 0x0
 
-    invoke-virtual {p0, v0}, Landroid/view/View;->performHapticFeedback(I)Z
+    invoke-virtual {p0, v0}, Landroid/widget/Gallery;->performHapticFeedback(I)Z
 
     :cond_2
     return v6
@@ -584,7 +584,7 @@
     invoke-virtual {p1, v0}, Landroid/view/View;->setPressed(Z)V
 
     :cond_0
-    invoke-virtual {p0, v0}, Landroid/view/View;->setPressed(Z)V
+    invoke-virtual {p0, v0}, Landroid/widget/Gallery;->setPressed(Z)V
 
     return-void
 .end method
@@ -594,7 +594,7 @@
 
     const/4 v2, 0x0
 
-    invoke-virtual {p0}, Landroid/view/ViewGroup;->getChildCount()I
+    invoke-virtual {p0}, Landroid/widget/Gallery;->getChildCount()I
 
     move-result v1
 
@@ -603,7 +603,7 @@
     :goto_0
     if-ltz v0, :cond_0
 
-    invoke-virtual {p0, v0}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {p0, v0}, Landroid/widget/Gallery;->getChildAt(I)Landroid/view/View;
 
     move-result-object v1
 
@@ -614,7 +614,7 @@
     goto :goto_0
 
     :cond_0
-    invoke-virtual {p0, v2}, Landroid/view/View;->setPressed(Z)V
+    invoke-virtual {p0, v2}, Landroid/widget/Gallery;->setPressed(Z)V
 
     return-void
 .end method
@@ -644,15 +644,15 @@
 
     iget v3, p0, Landroid/widget/Gallery;->mSpacing:I
 
-    iget v2, p0, Landroid/view/View;->mPaddingLeft:I
+    iget v2, p0, Landroid/widget/Gallery;->mPaddingLeft:I
 
-    invoke-virtual {p0, v7}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {p0, v7}, Landroid/widget/Gallery;->getChildAt(I)Landroid/view/View;
 
     move-result-object v4
 
     if-eqz v4, :cond_0
 
-    iget v5, p0, Landroid/widget/AdapterView;->mFirstPosition:I
+    iget v5, p0, Landroid/widget/Gallery;->mFirstPosition:I
 
     add-int/lit8 v0, v5, -0x1
 
@@ -667,7 +667,7 @@
 
     if-ltz v0, :cond_1
 
-    iget v5, p0, Landroid/widget/AdapterView;->mSelectedPosition:I
+    iget v5, p0, Landroid/widget/Gallery;->mSelectedPosition:I
 
     sub-int v5, v0, v5
 
@@ -675,7 +675,7 @@
 
     move-result-object v4
 
-    iput v0, p0, Landroid/widget/AdapterView;->mFirstPosition:I
+    iput v0, p0, Landroid/widget/Gallery;->mFirstPosition:I
 
     invoke-virtual {v4}, Landroid/view/View;->getLeft()I
 
@@ -690,13 +690,13 @@
     :cond_0
     const/4 v0, 0x0
 
-    iget v5, p0, Landroid/view/View;->mRight:I
+    iget v5, p0, Landroid/widget/Gallery;->mRight:I
 
-    iget v6, p0, Landroid/view/View;->mLeft:I
+    iget v6, p0, Landroid/widget/Gallery;->mLeft:I
 
     sub-int/2addr v5, v6
 
-    iget v6, p0, Landroid/view/View;->mPaddingRight:I
+    iget v6, p0, Landroid/widget/Gallery;->mPaddingRight:I
 
     sub-int v1, v5, v6
 
@@ -715,23 +715,23 @@
 
     iget v3, p0, Landroid/widget/Gallery;->mSpacing:I
 
-    iget v2, p0, Landroid/view/View;->mPaddingLeft:I
+    iget v2, p0, Landroid/widget/Gallery;->mPaddingLeft:I
 
-    invoke-virtual {p0}, Landroid/view/ViewGroup;->getChildCount()I
+    invoke-virtual {p0}, Landroid/widget/Gallery;->getChildCount()I
 
     move-result v4
 
-    iget v5, p0, Landroid/widget/AdapterView;->mItemCount:I
+    iget v5, p0, Landroid/widget/Gallery;->mItemCount:I
 
     add-int/lit8 v7, v4, -0x1
 
-    invoke-virtual {p0, v7}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {p0, v7}, Landroid/widget/Gallery;->getChildAt(I)Landroid/view/View;
 
     move-result-object v6
 
     if-eqz v6, :cond_0
 
-    iget v7, p0, Landroid/widget/AdapterView;->mFirstPosition:I
+    iget v7, p0, Landroid/widget/Gallery;->mFirstPosition:I
 
     add-int v0, v7, v4
 
@@ -744,11 +744,11 @@
     :goto_0
     if-le v1, v2, :cond_1
 
-    iget v7, p0, Landroid/widget/AdapterView;->mItemCount:I
+    iget v7, p0, Landroid/widget/Gallery;->mItemCount:I
 
     if-ge v0, v7, :cond_1
 
-    iget v7, p0, Landroid/widget/AdapterView;->mSelectedPosition:I
+    iget v7, p0, Landroid/widget/Gallery;->mSelectedPosition:I
 
     sub-int v7, v0, v7
 
@@ -769,19 +769,19 @@
     goto :goto_0
 
     :cond_0
-    iget v7, p0, Landroid/widget/AdapterView;->mItemCount:I
+    iget v7, p0, Landroid/widget/Gallery;->mItemCount:I
 
     add-int/lit8 v0, v7, -0x1
 
-    iput v0, p0, Landroid/widget/AdapterView;->mFirstPosition:I
+    iput v0, p0, Landroid/widget/Gallery;->mFirstPosition:I
 
-    iget v7, p0, Landroid/view/View;->mRight:I
+    iget v7, p0, Landroid/widget/Gallery;->mRight:I
 
-    iget v8, p0, Landroid/view/View;->mLeft:I
+    iget v8, p0, Landroid/widget/Gallery;->mLeft:I
 
     sub-int/2addr v7, v8
 
-    iget v8, p0, Landroid/view/View;->mPaddingRight:I
+    iget v8, p0, Landroid/widget/Gallery;->mPaddingRight:I
 
     sub-int v1, v7, v8
 
@@ -820,31 +820,31 @@
 
     iget v3, p0, Landroid/widget/Gallery;->mSpacing:I
 
-    iget v7, p0, Landroid/view/View;->mRight:I
+    iget v7, p0, Landroid/widget/Gallery;->mRight:I
 
-    iget v8, p0, Landroid/view/View;->mLeft:I
+    iget v8, p0, Landroid/widget/Gallery;->mLeft:I
 
     sub-int/2addr v7, v8
 
-    iget v8, p0, Landroid/view/View;->mPaddingRight:I
+    iget v8, p0, Landroid/widget/Gallery;->mPaddingRight:I
 
     sub-int v2, v7, v8
 
-    invoke-virtual {p0}, Landroid/view/ViewGroup;->getChildCount()I
+    invoke-virtual {p0}, Landroid/widget/Gallery;->getChildCount()I
 
     move-result v4
 
-    iget v5, p0, Landroid/widget/AdapterView;->mItemCount:I
+    iget v5, p0, Landroid/widget/Gallery;->mItemCount:I
 
     add-int/lit8 v7, v4, -0x1
 
-    invoke-virtual {p0, v7}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {p0, v7}, Landroid/widget/Gallery;->getChildAt(I)Landroid/view/View;
 
     move-result-object v6
 
     if-eqz v6, :cond_0
 
-    iget v7, p0, Landroid/widget/AdapterView;->mFirstPosition:I
+    iget v7, p0, Landroid/widget/Gallery;->mFirstPosition:I
 
     add-int v1, v7, v4
 
@@ -859,7 +859,7 @@
 
     if-ge v1, v5, :cond_1
 
-    iget v7, p0, Landroid/widget/AdapterView;->mSelectedPosition:I
+    iget v7, p0, Landroid/widget/Gallery;->mSelectedPosition:I
 
     sub-int v7, v1, v7
 
@@ -878,13 +878,13 @@
     goto :goto_0
 
     :cond_0
-    iget v7, p0, Landroid/widget/AdapterView;->mItemCount:I
+    iget v7, p0, Landroid/widget/Gallery;->mItemCount:I
 
     add-int/lit8 v1, v7, -0x1
 
-    iput v1, p0, Landroid/widget/AdapterView;->mFirstPosition:I
+    iput v1, p0, Landroid/widget/Gallery;->mFirstPosition:I
 
-    iget v0, p0, Landroid/view/View;->mPaddingLeft:I
+    iget v0, p0, Landroid/widget/Gallery;->mPaddingLeft:I
 
     iput-boolean v9, p0, Landroid/widget/Gallery;->mShouldStopFling:Z
 
@@ -903,23 +903,23 @@
 
     iget v3, p0, Landroid/widget/Gallery;->mSpacing:I
 
-    iget v5, p0, Landroid/view/View;->mRight:I
+    iget v5, p0, Landroid/widget/Gallery;->mRight:I
 
-    iget v6, p0, Landroid/view/View;->mLeft:I
+    iget v6, p0, Landroid/widget/Gallery;->mLeft:I
 
     sub-int/2addr v5, v6
 
-    iget v6, p0, Landroid/view/View;->mPaddingRight:I
+    iget v6, p0, Landroid/widget/Gallery;->mPaddingRight:I
 
     sub-int v2, v5, v6
 
-    invoke-virtual {p0, v7}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {p0, v7}, Landroid/widget/Gallery;->getChildAt(I)Landroid/view/View;
 
     move-result-object v4
 
     if-eqz v4, :cond_0
 
-    iget v5, p0, Landroid/widget/AdapterView;->mFirstPosition:I
+    iget v5, p0, Landroid/widget/Gallery;->mFirstPosition:I
 
     add-int/lit8 v1, v5, -0x1
 
@@ -934,7 +934,7 @@
 
     if-ltz v1, :cond_1
 
-    iget v5, p0, Landroid/widget/AdapterView;->mSelectedPosition:I
+    iget v5, p0, Landroid/widget/Gallery;->mSelectedPosition:I
 
     sub-int v5, v1, v5
 
@@ -942,7 +942,7 @@
 
     move-result-object v4
 
-    iput v1, p0, Landroid/widget/AdapterView;->mFirstPosition:I
+    iput v1, p0, Landroid/widget/Gallery;->mFirstPosition:I
 
     invoke-virtual {v4}, Landroid/view/View;->getRight()I
 
@@ -957,7 +957,7 @@
     :cond_0
     const/4 v1, 0x0
 
-    iget v0, p0, Landroid/view/View;->mPaddingLeft:I
+    iget v0, p0, Landroid/widget/Gallery;->mPaddingLeft:I
 
     iput-boolean v8, p0, Landroid/widget/Gallery;->mShouldStopFling:Z
 
@@ -970,21 +970,21 @@
 .method private getCenterOfGallery()I
     .locals 2
 
-    invoke-virtual {p0}, Landroid/view/View;->getWidth()I
+    invoke-virtual {p0}, Landroid/widget/Gallery;->getWidth()I
 
     move-result v0
 
-    iget v1, p0, Landroid/view/View;->mPaddingLeft:I
+    iget v1, p0, Landroid/widget/Gallery;->mPaddingLeft:I
 
     sub-int/2addr v0, v1
 
-    iget v1, p0, Landroid/view/View;->mPaddingRight:I
+    iget v1, p0, Landroid/widget/Gallery;->mPaddingRight:I
 
     sub-int/2addr v0, v1
 
     div-int/lit8 v0, v0, 0x2
 
-    iget v1, p0, Landroid/view/View;->mPaddingLeft:I
+    iget v1, p0, Landroid/widget/Gallery;->mPaddingLeft:I
 
     add-int/2addr v0, v1
 
@@ -1014,11 +1014,11 @@
 
     const/4 v3, 0x0
 
-    iget-boolean v2, p0, Landroid/widget/AdapterView;->mDataChanged:Z
+    iget-boolean v2, p0, Landroid/widget/Gallery;->mDataChanged:Z
 
     if-nez v2, :cond_0
 
-    iget-object v2, p0, Landroid/widget/AbsSpinner;->mRecycler:Landroid/widget/AbsSpinner$RecycleBin;
+    iget-object v2, p0, Landroid/widget/Gallery;->mRecycler:Landroid/widget/AbsSpinner$RecycleBin;
 
     invoke-virtual {v2, p1}, Landroid/widget/AbsSpinner$RecycleBin;->get(I)Landroid/view/View;
 
@@ -1057,7 +1057,7 @@
     return-object v0
 
     :cond_0
-    iget-object v2, p0, Landroid/widget/AbsSpinner;->mAdapter:Landroid/widget/SpinnerAdapter;
+    iget-object v2, p0, Landroid/widget/Gallery;->mAdapter:Landroid/widget/SpinnerAdapter;
 
     invoke-interface {v2, p1, v3, p0}, Landroid/widget/SpinnerAdapter;->getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
 
@@ -1071,7 +1071,7 @@
 .method private offsetChildrenLeftAndRight(I)V
     .locals 2
 
-    invoke-virtual {p0}, Landroid/view/ViewGroup;->getChildCount()I
+    invoke-virtual {p0}, Landroid/widget/Gallery;->getChildCount()I
 
     move-result v1
 
@@ -1080,7 +1080,7 @@
     :goto_0
     if-ltz v0, :cond_0
 
-    invoke-virtual {p0, v0}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {p0, v0}, Landroid/widget/Gallery;->getChildAt(I)Landroid/view/View;
 
     move-result-object v1
 
@@ -1110,7 +1110,7 @@
     :cond_0
     iput v1, p0, Landroid/widget/Gallery;->mSelectedCenterOffset:I
 
-    invoke-virtual {p0}, Landroid/view/View;->invalidate()V
+    invoke-virtual {p0}, Landroid/widget/Gallery;->invalidate()V
 
     return-void
 .end method
@@ -1118,7 +1118,7 @@
 .method private scrollIntoSlots()V
     .locals 4
 
-    invoke-virtual {p0}, Landroid/view/ViewGroup;->getChildCount()I
+    invoke-virtual {p0}, Landroid/widget/Gallery;->getChildCount()I
 
     move-result v3
 
@@ -1162,7 +1162,7 @@
 .method private scrollToChild(I)Z
     .locals 4
 
-    invoke-virtual {p0, p1}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {p0, p1}, Landroid/widget/Gallery;->getChildAt(I)Landroid/view/View;
 
     move-result-object v0
 
@@ -1227,7 +1227,7 @@
 
     const/4 v6, 0x0
 
-    invoke-virtual {p0}, Landroid/view/ViewGroup;->getChildCount()I
+    invoke-virtual {p0}, Landroid/widget/Gallery;->getChildCount()I
 
     move-result v8
 
@@ -1236,7 +1236,7 @@
     :goto_0
     if-ltz v4, :cond_2
 
-    invoke-virtual {p0, v4}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {p0, v4}, Landroid/widget/Gallery;->getChildAt(I)Landroid/view/View;
 
     move-result-object v0
 
@@ -1255,19 +1255,19 @@
     move v6, v4
 
     :cond_2
-    iget v8, p0, Landroid/widget/AdapterView;->mFirstPosition:I
+    iget v8, p0, Landroid/widget/Gallery;->mFirstPosition:I
 
     add-int v5, v8, v6
 
-    iget v8, p0, Landroid/widget/AdapterView;->mSelectedPosition:I
+    iget v8, p0, Landroid/widget/Gallery;->mSelectedPosition:I
 
     if-eq v5, v8, :cond_3
 
     invoke-virtual {p0, v5}, Landroid/widget/Gallery;->setSelectedPositionInt(I)V
 
-    invoke-virtual {p0, v5}, Landroid/widget/AdapterView;->setNextSelectedPositionInt(I)V
+    invoke-virtual {p0, v5}, Landroid/widget/Gallery;->setNextSelectedPositionInt(I)V
 
-    invoke-virtual {p0}, Landroid/widget/AdapterView;->checkSelectionChanged()V
+    invoke-virtual {p0}, Landroid/widget/Gallery;->checkSelectionChanged()V
 
     :cond_3
     return-void
@@ -1336,7 +1336,7 @@
     :goto_0
     const/4 v9, 0x1
 
-    invoke-virtual {p0, p1, v8, v6, v9}, Landroid/view/ViewGroup;->addViewInLayout(Landroid/view/View;ILandroid/view/ViewGroup$LayoutParams;Z)Z
+    invoke-virtual {p0, p1, v8, v6, v9}, Landroid/widget/Gallery;->addViewInLayout(Landroid/view/View;ILandroid/view/ViewGroup$LayoutParams;Z)Z
 
     if-nez p2, :cond_2
 
@@ -1345,37 +1345,37 @@
     :goto_1
     invoke-virtual {p1, v8}, Landroid/view/View;->setSelected(Z)V
 
-    iget v8, p0, Landroid/widget/AbsSpinner;->mHeightMeasureSpec:I
+    iget v8, p0, Landroid/widget/Gallery;->mHeightMeasureSpec:I
 
-    iget-object v9, p0, Landroid/widget/AbsSpinner;->mSpinnerPadding:Landroid/graphics/Rect;
+    iget-object v9, p0, Landroid/widget/Gallery;->mSpinnerPadding:Landroid/graphics/Rect;
 
     iget v9, v9, Landroid/graphics/Rect;->top:I
 
-    iget-object v10, p0, Landroid/widget/AbsSpinner;->mSpinnerPadding:Landroid/graphics/Rect;
+    iget-object v10, p0, Landroid/widget/Gallery;->mSpinnerPadding:Landroid/graphics/Rect;
 
     iget v10, v10, Landroid/graphics/Rect;->bottom:I
 
     add-int/2addr v9, v10
 
-    iget v10, v6, Landroid/view/ViewGroup$LayoutParams;->height:I
+    iget v10, v6, Landroid/widget/Gallery$LayoutParams;->height:I
 
     invoke-static {v8, v9, v10}, Landroid/view/ViewGroup;->getChildMeasureSpec(III)I
 
     move-result v1
 
-    iget v8, p0, Landroid/widget/AbsSpinner;->mWidthMeasureSpec:I
+    iget v8, p0, Landroid/widget/Gallery;->mWidthMeasureSpec:I
 
-    iget-object v9, p0, Landroid/widget/AbsSpinner;->mSpinnerPadding:Landroid/graphics/Rect;
+    iget-object v9, p0, Landroid/widget/Gallery;->mSpinnerPadding:Landroid/graphics/Rect;
 
     iget v9, v9, Landroid/graphics/Rect;->left:I
 
-    iget-object v10, p0, Landroid/widget/AbsSpinner;->mSpinnerPadding:Landroid/graphics/Rect;
+    iget-object v10, p0, Landroid/widget/Gallery;->mSpinnerPadding:Landroid/graphics/Rect;
 
     iget v10, v10, Landroid/graphics/Rect;->right:I
 
     add-int/2addr v9, v10
 
-    iget v10, v6, Landroid/view/ViewGroup$LayoutParams;->width:I
+    iget v10, v6, Landroid/widget/Gallery$LayoutParams;->width:I
 
     invoke-static {v8, v9, v10}, Landroid/view/ViewGroup;->getChildMeasureSpec(III)I
 
@@ -1433,7 +1433,7 @@
 
     const/4 v0, 0x0
 
-    invoke-virtual {p0, p1}, Landroid/widget/AdapterView;->getPositionForView(Landroid/view/View;)I
+    invoke-virtual {p0, p1}, Landroid/widget/Gallery;->getPositionForView(Landroid/view/View;)I
 
     move-result v3
 
@@ -1442,7 +1442,7 @@
     return v0
 
     :cond_0
-    iget-object v0, p0, Landroid/widget/AbsSpinner;->mAdapter:Landroid/widget/SpinnerAdapter;
+    iget-object v0, p0, Landroid/widget/Gallery;->mAdapter:Landroid/widget/SpinnerAdapter;
 
     invoke-interface {v0, v3}, Landroid/widget/SpinnerAdapter;->getItemId(I)J
 
@@ -1470,29 +1470,29 @@
 
     const/4 v3, 0x0
 
-    invoke-virtual {p0}, Landroid/view/View;->isPressed()Z
+    invoke-virtual {p0}, Landroid/widget/Gallery;->isPressed()Z
 
     move-result v1
 
     if-eqz v1, :cond_0
 
-    iget v1, p0, Landroid/widget/AdapterView;->mSelectedPosition:I
+    iget v1, p0, Landroid/widget/Gallery;->mSelectedPosition:I
 
     if-ltz v1, :cond_0
 
-    iget v1, p0, Landroid/widget/AdapterView;->mSelectedPosition:I
+    iget v1, p0, Landroid/widget/Gallery;->mSelectedPosition:I
 
-    iget v3, p0, Landroid/widget/AdapterView;->mFirstPosition:I
+    iget v3, p0, Landroid/widget/Gallery;->mFirstPosition:I
 
     sub-int v0, v1, v3
 
-    invoke-virtual {p0, v0}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {p0, v0}, Landroid/widget/Gallery;->getChildAt(I)Landroid/view/View;
 
     move-result-object v2
 
-    iget v3, p0, Landroid/widget/AdapterView;->mSelectedPosition:I
+    iget v3, p0, Landroid/widget/Gallery;->mSelectedPosition:I
 
-    iget-wide v4, p0, Landroid/widget/AdapterView;->mSelectedRowId:J
+    iget-wide v4, p0, Landroid/widget/Gallery;->mSelectedRowId:J
 
     move-object v1, p0
 
@@ -1521,13 +1521,13 @@
 
     iget-object v1, p0, Landroid/widget/Gallery;->mSelectedChild:Landroid/view/View;
 
-    iget v2, p0, Landroid/widget/AdapterView;->mSelectedPosition:I
+    iget v2, p0, Landroid/widget/Gallery;->mSelectedPosition:I
 
-    iget v3, p0, Landroid/widget/AdapterView;->mFirstPosition:I
+    iget v3, p0, Landroid/widget/Gallery;->mFirstPosition:I
 
     sub-int/2addr v2, v3
 
-    invoke-virtual {p0, v2}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {p0, v2}, Landroid/widget/Gallery;->getChildAt(I)Landroid/view/View;
 
     move-result-object v0
 
@@ -1542,7 +1542,7 @@
 
     invoke-virtual {v0, v5}, Landroid/view/View;->setFocusable(Z)V
 
-    invoke-virtual {p0}, Landroid/view/ViewGroup;->hasFocus()Z
+    invoke-virtual {p0}, Landroid/widget/Gallery;->hasFocus()Z
 
     move-result v2
 
@@ -1584,7 +1584,7 @@
 .method protected computeHorizontalScrollOffset()I
     .locals 1
 
-    iget v0, p0, Landroid/widget/AdapterView;->mSelectedPosition:I
+    iget v0, p0, Landroid/widget/Gallery;->mSelectedPosition:I
 
     return v0
 .end method
@@ -1592,7 +1592,7 @@
 .method protected computeHorizontalScrollRange()I
     .locals 1
 
-    iget v0, p0, Landroid/widget/AdapterView;->mItemCount:I
+    iget v0, p0, Landroid/widget/Gallery;->mItemCount:I
 
     return v0
 .end method
@@ -1647,7 +1647,7 @@
 
     new-instance v0, Landroid/widget/Gallery$LayoutParams;
 
-    invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
+    invoke-virtual {p0}, Landroid/widget/Gallery;->getContext()Landroid/content/Context;
 
     move-result-object v1
 
@@ -1681,9 +1681,9 @@
 .method protected getChildDrawingOrder(II)I
     .locals 3
 
-    iget v1, p0, Landroid/widget/AdapterView;->mSelectedPosition:I
+    iget v1, p0, Landroid/widget/Gallery;->mSelectedPosition:I
 
-    iget v2, p0, Landroid/widget/AdapterView;->mFirstPosition:I
+    iget v2, p0, Landroid/widget/Gallery;->mFirstPosition:I
 
     sub-int v0, v1, v2
 
@@ -1760,16 +1760,16 @@
 
     if-eq p1, v5, :cond_0
 
-    iget v5, p0, Landroid/widget/AdapterView;->mItemCount:I
+    iget v5, p0, Landroid/widget/Gallery;->mItemCount:I
 
     add-int/lit8 v3, v5, -0x1
 
     :goto_0
-    iget v5, p0, Landroid/widget/AdapterView;->mFirstPosition:I
+    iget v5, p0, Landroid/widget/Gallery;->mFirstPosition:I
 
     sub-int v5, v3, v5
 
-    invoke-virtual {p0, v5}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {p0, v5}, Landroid/widget/Gallery;->getChildAt(I)Landroid/view/View;
 
     move-result-object v1
 
@@ -1827,72 +1827,72 @@
 
     const/4 v6, 0x0
 
-    invoke-virtual {p0}, Landroid/view/View;->isLayoutRtl()Z
+    invoke-virtual {p0}, Landroid/widget/Gallery;->isLayoutRtl()Z
 
     move-result v4
 
     iput-boolean v4, p0, Landroid/widget/Gallery;->mIsRtl:Z
 
-    iget-object v4, p0, Landroid/widget/AbsSpinner;->mSpinnerPadding:Landroid/graphics/Rect;
+    iget-object v4, p0, Landroid/widget/Gallery;->mSpinnerPadding:Landroid/graphics/Rect;
 
     iget v0, v4, Landroid/graphics/Rect;->left:I
 
-    iget v4, p0, Landroid/view/View;->mRight:I
+    iget v4, p0, Landroid/widget/Gallery;->mRight:I
 
-    iget v5, p0, Landroid/view/View;->mLeft:I
+    iget v5, p0, Landroid/widget/Gallery;->mLeft:I
 
     sub-int/2addr v4, v5
 
-    iget-object v5, p0, Landroid/widget/AbsSpinner;->mSpinnerPadding:Landroid/graphics/Rect;
+    iget-object v5, p0, Landroid/widget/Gallery;->mSpinnerPadding:Landroid/graphics/Rect;
 
     iget v5, v5, Landroid/graphics/Rect;->left:I
 
     sub-int/2addr v4, v5
 
-    iget-object v5, p0, Landroid/widget/AbsSpinner;->mSpinnerPadding:Landroid/graphics/Rect;
+    iget-object v5, p0, Landroid/widget/Gallery;->mSpinnerPadding:Landroid/graphics/Rect;
 
     iget v5, v5, Landroid/graphics/Rect;->right:I
 
     sub-int v1, v4, v5
 
-    iget-boolean v4, p0, Landroid/widget/AdapterView;->mDataChanged:Z
+    iget-boolean v4, p0, Landroid/widget/Gallery;->mDataChanged:Z
 
     if-eqz v4, :cond_0
 
-    invoke-virtual {p0}, Landroid/widget/AdapterView;->handleDataChanged()V
+    invoke-virtual {p0}, Landroid/widget/Gallery;->handleDataChanged()V
 
     :cond_0
-    iget v4, p0, Landroid/widget/AdapterView;->mItemCount:I
+    iget v4, p0, Landroid/widget/Gallery;->mItemCount:I
 
     if-nez v4, :cond_1
 
-    invoke-virtual {p0}, Landroid/widget/AbsSpinner;->resetList()V
+    invoke-virtual {p0}, Landroid/widget/Gallery;->resetList()V
 
     return-void
 
     :cond_1
-    iget v4, p0, Landroid/widget/AdapterView;->mNextSelectedPosition:I
+    iget v4, p0, Landroid/widget/Gallery;->mNextSelectedPosition:I
 
     if-ltz v4, :cond_2
 
-    iget v4, p0, Landroid/widget/AdapterView;->mNextSelectedPosition:I
+    iget v4, p0, Landroid/widget/Gallery;->mNextSelectedPosition:I
 
     invoke-virtual {p0, v4}, Landroid/widget/Gallery;->setSelectedPositionInt(I)V
 
     :cond_2
-    invoke-virtual {p0}, Landroid/widget/AbsSpinner;->recycleAllViews()V
+    invoke-virtual {p0}, Landroid/widget/Gallery;->recycleAllViews()V
 
-    invoke-virtual {p0}, Landroid/view/ViewGroup;->detachAllViewsFromParent()V
+    invoke-virtual {p0}, Landroid/widget/Gallery;->detachAllViewsFromParent()V
 
     iput v6, p0, Landroid/widget/Gallery;->mRightMost:I
 
     iput v6, p0, Landroid/widget/Gallery;->mLeftMost:I
 
-    iget v4, p0, Landroid/widget/AdapterView;->mSelectedPosition:I
+    iget v4, p0, Landroid/widget/Gallery;->mSelectedPosition:I
 
-    iput v4, p0, Landroid/widget/AdapterView;->mFirstPosition:I
+    iput v4, p0, Landroid/widget/Gallery;->mFirstPosition:I
 
-    iget v4, p0, Landroid/widget/AdapterView;->mSelectedPosition:I
+    iget v4, p0, Landroid/widget/Gallery;->mSelectedPosition:I
 
     const/4 v5, 0x1
 
@@ -1922,21 +1922,21 @@
 
     invoke-direct {p0}, Landroid/widget/Gallery;->fillToGalleryLeft()V
 
-    iget-object v4, p0, Landroid/widget/AbsSpinner;->mRecycler:Landroid/widget/AbsSpinner$RecycleBin;
+    iget-object v4, p0, Landroid/widget/Gallery;->mRecycler:Landroid/widget/AbsSpinner$RecycleBin;
 
     invoke-virtual {v4}, Landroid/widget/AbsSpinner$RecycleBin;->clear()V
 
-    invoke-virtual {p0}, Landroid/view/View;->invalidate()V
+    invoke-virtual {p0}, Landroid/widget/Gallery;->invalidate()V
 
-    invoke-virtual {p0}, Landroid/widget/AdapterView;->checkSelectionChanged()V
+    invoke-virtual {p0}, Landroid/widget/Gallery;->checkSelectionChanged()V
 
-    iput-boolean v6, p0, Landroid/widget/AdapterView;->mDataChanged:Z
+    iput-boolean v6, p0, Landroid/widget/Gallery;->mDataChanged:Z
 
-    iput-boolean v6, p0, Landroid/widget/AdapterView;->mNeedSync:Z
+    iput-boolean v6, p0, Landroid/widget/Gallery;->mNeedSync:Z
 
-    iget v4, p0, Landroid/widget/AdapterView;->mSelectedPosition:I
+    iget v4, p0, Landroid/widget/Gallery;->mSelectedPosition:I
 
-    invoke-virtual {p0, v4}, Landroid/widget/AdapterView;->setNextSelectedPositionInt(I)V
+    invoke-virtual {p0, v4}, Landroid/widget/Gallery;->setNextSelectedPositionInt(I)V
 
     invoke-direct {p0}, Landroid/widget/Gallery;->updateSelectedItemMetadata()V
 
@@ -1948,7 +1948,7 @@
 
     const/4 v2, 0x0
 
-    invoke-virtual {p0}, Landroid/view/View;->isLayoutRtl()Z
+    invoke-virtual {p0}, Landroid/widget/Gallery;->isLayoutRtl()Z
 
     move-result v1
 
@@ -1957,21 +1957,21 @@
     neg-int p1, p1
 
     :cond_0
-    iget v1, p0, Landroid/widget/AdapterView;->mSelectedPosition:I
+    iget v1, p0, Landroid/widget/Gallery;->mSelectedPosition:I
 
     add-int v0, v1, p1
 
-    iget v1, p0, Landroid/widget/AdapterView;->mItemCount:I
+    iget v1, p0, Landroid/widget/Gallery;->mItemCount:I
 
     if-lez v1, :cond_1
 
     if-ltz v0, :cond_1
 
-    iget v1, p0, Landroid/widget/AdapterView;->mItemCount:I
+    iget v1, p0, Landroid/widget/Gallery;->mItemCount:I
 
     if-ge v0, v1, :cond_1
 
-    iget v1, p0, Landroid/widget/AdapterView;->mFirstPosition:I
+    iget v1, p0, Landroid/widget/Gallery;->mFirstPosition:I
 
     sub-int v1, v0, v1
 
@@ -1996,7 +1996,7 @@
 
     new-instance v0, Landroid/view/GestureDetector;
 
-    invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
+    invoke-virtual {p0}, Landroid/widget/Gallery;->getContext()Landroid/content/Context;
 
     move-result-object v1
 
@@ -2045,7 +2045,7 @@
 
     float-to-int v1, v1
 
-    invoke-virtual {p0, v0, v1}, Landroid/widget/AbsSpinner;->pointToPosition(II)I
+    invoke-virtual {p0, v0, v1}, Landroid/widget/Gallery;->pointToPosition(II)I
 
     move-result v0
 
@@ -2057,11 +2057,11 @@
 
     iget v0, p0, Landroid/widget/Gallery;->mDownTouchPosition:I
 
-    iget v1, p0, Landroid/widget/AdapterView;->mFirstPosition:I
+    iget v1, p0, Landroid/widget/Gallery;->mFirstPosition:I
 
     sub-int/2addr v0, v1
 
-    invoke-virtual {p0, v0}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {p0, v0}, Landroid/widget/Gallery;->getChildAt(I)Landroid/view/View;
 
     move-result-object v0
 
@@ -2088,7 +2088,7 @@
 
     iget-object v0, p0, Landroid/widget/Gallery;->mDisableSuppressSelectionChangedRunnable:Ljava/lang/Runnable;
 
-    invoke-virtual {p0, v0}, Landroid/view/View;->removeCallbacks(Ljava/lang/Runnable;)Z
+    invoke-virtual {p0, v0}, Landroid/widget/Gallery;->removeCallbacks(Ljava/lang/Runnable;)Z
 
     iget-boolean v0, p0, Landroid/widget/Gallery;->mSuppressSelectionChanged:Z
 
@@ -2142,26 +2142,26 @@
 
     invoke-super {p0, p1}, Landroid/widget/AbsSpinner;->onInitializeAccessibilityNodeInfoInternal(Landroid/view/accessibility/AccessibilityNodeInfo;)V
 
-    iget v2, p0, Landroid/widget/AdapterView;->mItemCount:I
+    iget v2, p0, Landroid/widget/Gallery;->mItemCount:I
 
     if-le v2, v0, :cond_2
 
     :goto_0
     invoke-virtual {p1, v0}, Landroid/view/accessibility/AccessibilityNodeInfo;->setScrollable(Z)V
 
-    invoke-virtual {p0}, Landroid/view/View;->isEnabled()Z
+    invoke-virtual {p0}, Landroid/widget/Gallery;->isEnabled()Z
 
     move-result v0
 
     if-eqz v0, :cond_1
 
-    iget v0, p0, Landroid/widget/AdapterView;->mItemCount:I
+    iget v0, p0, Landroid/widget/Gallery;->mItemCount:I
 
     if-lez v0, :cond_0
 
-    iget v0, p0, Landroid/widget/AdapterView;->mSelectedPosition:I
+    iget v0, p0, Landroid/widget/Gallery;->mSelectedPosition:I
 
-    iget v1, p0, Landroid/widget/AdapterView;->mItemCount:I
+    iget v1, p0, Landroid/widget/Gallery;->mItemCount:I
 
     add-int/lit8 v1, v1, -0x1
 
@@ -2172,17 +2172,17 @@
     invoke-virtual {p1, v0}, Landroid/view/accessibility/AccessibilityNodeInfo;->addAction(I)V
 
     :cond_0
-    invoke-virtual {p0}, Landroid/view/View;->isEnabled()Z
+    invoke-virtual {p0}, Landroid/widget/Gallery;->isEnabled()Z
 
     move-result v0
 
     if-eqz v0, :cond_1
 
-    iget v0, p0, Landroid/widget/AdapterView;->mItemCount:I
+    iget v0, p0, Landroid/widget/Gallery;->mItemCount:I
 
     if-lez v0, :cond_1
 
-    iget v0, p0, Landroid/widget/AdapterView;->mSelectedPosition:I
+    iget v0, p0, Landroid/widget/Gallery;->mSelectedPosition:I
 
     if-lez v0, :cond_1
 
@@ -2223,7 +2223,7 @@
 
     if-eqz v0, :cond_0
 
-    invoke-virtual {p0, v1}, Landroid/view/View;->playSoundEffect(I)V
+    invoke-virtual {p0, v1}, Landroid/widget/Gallery;->playSoundEffect(I)V
 
     return v1
 
@@ -2236,7 +2236,7 @@
 
     const/4 v0, 0x3
 
-    invoke-virtual {p0, v0}, Landroid/view/View;->playSoundEffect(I)V
+    invoke-virtual {p0, v0}, Landroid/widget/Gallery;->playSoundEffect(I)V
 
     return v1
 
@@ -2269,7 +2269,7 @@
 
     if-eqz v1, :cond_0
 
-    iget v1, p0, Landroid/widget/AdapterView;->mItemCount:I
+    iget v1, p0, Landroid/widget/Gallery;->mItemCount:I
 
     if-lez v1, :cond_0
 
@@ -2287,29 +2287,29 @@
 
     int-to-long v2, v2
 
-    invoke-virtual {p0, v1, v2, v3}, Landroid/view/View;->postDelayed(Ljava/lang/Runnable;J)Z
+    invoke-virtual {p0, v1, v2, v3}, Landroid/widget/Gallery;->postDelayed(Ljava/lang/Runnable;J)Z
 
-    iget v1, p0, Landroid/widget/AdapterView;->mSelectedPosition:I
+    iget v1, p0, Landroid/widget/Gallery;->mSelectedPosition:I
 
-    iget v2, p0, Landroid/widget/AdapterView;->mFirstPosition:I
+    iget v2, p0, Landroid/widget/Gallery;->mFirstPosition:I
 
     sub-int v0, v1, v2
 
-    invoke-virtual {p0, v0}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {p0, v0}, Landroid/widget/Gallery;->getChildAt(I)Landroid/view/View;
 
     move-result-object v1
 
-    iget v2, p0, Landroid/widget/AdapterView;->mSelectedPosition:I
+    iget v2, p0, Landroid/widget/Gallery;->mSelectedPosition:I
 
-    iget-object v3, p0, Landroid/widget/AbsSpinner;->mAdapter:Landroid/widget/SpinnerAdapter;
+    iget-object v3, p0, Landroid/widget/Gallery;->mAdapter:Landroid/widget/SpinnerAdapter;
 
-    iget v4, p0, Landroid/widget/AdapterView;->mSelectedPosition:I
+    iget v4, p0, Landroid/widget/Gallery;->mSelectedPosition:I
 
     invoke-interface {v3, v4}, Landroid/widget/SpinnerAdapter;->getItemId(I)J
 
     move-result-wide v4
 
-    invoke-virtual {p0, v1, v2, v4, v5}, Landroid/widget/AdapterView;->performItemClick(Landroid/view/View;IJ)Z
+    invoke-virtual {p0, v1, v2, v4, v5}, Landroid/widget/Gallery;->performItemClick(Landroid/view/View;IJ)Z
 
     :cond_0
     iput-boolean v6, p0, Landroid/widget/Gallery;->mReceivedInvokeKeyDown:Z
@@ -2335,11 +2335,11 @@
 
     const/4 v0, 0x1
 
-    iput-boolean v0, p0, Landroid/widget/AdapterView;->mInLayout:Z
+    iput-boolean v0, p0, Landroid/widget/Gallery;->mInLayout:Z
 
     invoke-virtual {p0, v1, v1}, Landroid/widget/Gallery;->layout(IZ)V
 
-    iput-boolean v1, p0, Landroid/widget/AdapterView;->mInLayout:Z
+    iput-boolean v1, p0, Landroid/widget/Gallery;->mInLayout:Z
 
     return-void
 .end method
@@ -2356,11 +2356,11 @@
     return-void
 
     :cond_0
-    invoke-virtual {p0, v1}, Landroid/view/View;->performHapticFeedback(I)Z
+    invoke-virtual {p0, v1}, Landroid/widget/Gallery;->performHapticFeedback(I)Z
 
     iget v0, p0, Landroid/widget/Gallery;->mDownTouchPosition:I
 
-    invoke-virtual {p0, v0}, Landroid/widget/AdapterView;->getItemIdAtPosition(I)J
+    invoke-virtual {p0, v0}, Landroid/widget/Gallery;->getItemIdAtPosition(I)J
 
     move-result-wide v4
 
@@ -2392,7 +2392,7 @@
 
     const/4 v1, 0x1
 
-    iget-object v0, p0, Landroid/view/View;->mParent:Landroid/view/ViewParent;
+    iget-object v0, p0, Landroid/widget/Gallery;->mParent:Landroid/view/ViewParent;
 
     invoke-interface {v0, v1}, Landroid/view/ViewParent;->requestDisallowInterceptTouchEvent(Z)V
 
@@ -2415,7 +2415,7 @@
 
     const-wide/16 v2, 0xfa
 
-    invoke-virtual {p0, v0, v2, v3}, Landroid/view/View;->postDelayed(Ljava/lang/Runnable;J)Z
+    invoke-virtual {p0, v0, v2, v3}, Landroid/widget/Gallery;->postDelayed(Ljava/lang/Runnable;J)Z
 
     :cond_1
     :goto_0
@@ -2456,7 +2456,7 @@
 
     iget v0, p0, Landroid/widget/Gallery;->mDownTouchPosition:I
 
-    iget v1, p0, Landroid/widget/AdapterView;->mFirstPosition:I
+    iget v1, p0, Landroid/widget/Gallery;->mFirstPosition:I
 
     sub-int/2addr v0, v1
 
@@ -2468,7 +2468,7 @@
 
     iget v0, p0, Landroid/widget/Gallery;->mDownTouchPosition:I
 
-    iget v1, p0, Landroid/widget/AdapterView;->mSelectedPosition:I
+    iget v1, p0, Landroid/widget/Gallery;->mSelectedPosition:I
 
     if-ne v0, v1, :cond_1
 
@@ -2477,7 +2477,7 @@
 
     iget v1, p0, Landroid/widget/Gallery;->mDownTouchPosition:I
 
-    iget-object v2, p0, Landroid/widget/AbsSpinner;->mAdapter:Landroid/widget/SpinnerAdapter;
+    iget-object v2, p0, Landroid/widget/Gallery;->mAdapter:Landroid/widget/SpinnerAdapter;
 
     iget v3, p0, Landroid/widget/Gallery;->mDownTouchPosition:I
 
@@ -2485,7 +2485,7 @@
 
     move-result-wide v2
 
-    invoke-virtual {p0, v0, v1, v2, v3}, Landroid/widget/AdapterView;->performItemClick(Landroid/view/View;IJ)Z
+    invoke-virtual {p0, v0, v1, v2, v3}, Landroid/widget/Gallery;->performItemClick(Landroid/view/View;IJ)Z
 
     :cond_1
     const/4 v0, 0x1
@@ -2573,27 +2573,27 @@
     return v3
 
     :sswitch_0
-    invoke-virtual {p0}, Landroid/view/View;->isEnabled()Z
+    invoke-virtual {p0}, Landroid/widget/Gallery;->isEnabled()Z
 
     move-result v1
 
     if-eqz v1, :cond_1
 
-    iget v1, p0, Landroid/widget/AdapterView;->mItemCount:I
+    iget v1, p0, Landroid/widget/Gallery;->mItemCount:I
 
     if-lez v1, :cond_1
 
-    iget v1, p0, Landroid/widget/AdapterView;->mSelectedPosition:I
+    iget v1, p0, Landroid/widget/Gallery;->mSelectedPosition:I
 
-    iget v2, p0, Landroid/widget/AdapterView;->mItemCount:I
+    iget v2, p0, Landroid/widget/Gallery;->mItemCount:I
 
     add-int/lit8 v2, v2, -0x1
 
     if-ge v1, v2, :cond_1
 
-    iget v1, p0, Landroid/widget/AdapterView;->mSelectedPosition:I
+    iget v1, p0, Landroid/widget/Gallery;->mSelectedPosition:I
 
-    iget v2, p0, Landroid/widget/AdapterView;->mFirstPosition:I
+    iget v2, p0, Landroid/widget/Gallery;->mFirstPosition:I
 
     sub-int v0, v1, v2
 
@@ -2609,23 +2609,23 @@
     return v3
 
     :sswitch_1
-    invoke-virtual {p0}, Landroid/view/View;->isEnabled()Z
+    invoke-virtual {p0}, Landroid/widget/Gallery;->isEnabled()Z
 
     move-result v1
 
     if-eqz v1, :cond_2
 
-    iget v1, p0, Landroid/widget/AdapterView;->mItemCount:I
+    iget v1, p0, Landroid/widget/Gallery;->mItemCount:I
 
     if-lez v1, :cond_2
 
-    iget v1, p0, Landroid/widget/AdapterView;->mSelectedPosition:I
+    iget v1, p0, Landroid/widget/Gallery;->mSelectedPosition:I
 
     if-lez v1, :cond_2
 
-    iget v1, p0, Landroid/widget/AdapterView;->mSelectedPosition:I
+    iget v1, p0, Landroid/widget/Gallery;->mSelectedPosition:I
 
-    iget v2, p0, Landroid/widget/AdapterView;->mFirstPosition:I
+    iget v2, p0, Landroid/widget/Gallery;->mFirstPosition:I
 
     sub-int v0, v1, v2
 
@@ -2695,7 +2695,7 @@
 
     iput p1, p0, Landroid/widget/Gallery;->mGravity:I
 
-    invoke-virtual {p0}, Landroid/widget/AbsSpinner;->requestLayout()V
+    invoke-virtual {p0}, Landroid/widget/Gallery;->requestLayout()V
 
     :cond_0
     return-void
@@ -2760,7 +2760,7 @@
 
     const/4 v1, 0x0
 
-    invoke-virtual {p0}, Landroid/view/ViewGroup;->isShowingContextMenuWithCoords()Z
+    invoke-virtual {p0}, Landroid/widget/Gallery;->isShowingContextMenuWithCoords()Z
 
     move-result v0
 
@@ -2791,13 +2791,13 @@
 .method trackMotionScroll(I)V
     .locals 8
 
-    const/4 v6, 0x0
+    const/4 v7, 0x0
 
-    invoke-virtual {p0}, Landroid/view/ViewGroup;->getChildCount()I
+    invoke-virtual {p0}, Landroid/widget/Gallery;->getChildCount()I
 
-    move-result v7
+    move-result v6
 
-    if-nez v7, :cond_0
+    if-nez v6, :cond_0
 
     return-void
 
@@ -2813,9 +2813,9 @@
 
     if-eq v3, p1, :cond_1
 
-    iget-object v7, p0, Landroid/widget/Gallery;->mFlingRunnable:Landroid/widget/Gallery$FlingRunnable;
+    iget-object v6, p0, Landroid/widget/Gallery;->mFlingRunnable:Landroid/widget/Gallery$FlingRunnable;
 
-    invoke-static {v7, v6}, Landroid/widget/Gallery$FlingRunnable;->-wrap0(Landroid/widget/Gallery$FlingRunnable;Z)V
+    invoke-static {v6, v7}, Landroid/widget/Gallery$FlingRunnable;->-wrap0(Landroid/widget/Gallery$FlingRunnable;Z)V
 
     invoke-direct {p0}, Landroid/widget/Gallery;->onFinishedMovement()V
 
@@ -2829,9 +2829,9 @@
     invoke-direct {p0}, Landroid/widget/Gallery;->fillToGalleryRight()V
 
     :goto_1
-    iget-object v7, p0, Landroid/widget/AbsSpinner;->mRecycler:Landroid/widget/AbsSpinner$RecycleBin;
+    iget-object v6, p0, Landroid/widget/Gallery;->mRecycler:Landroid/widget/AbsSpinner$RecycleBin;
 
-    invoke-virtual {v7}, Landroid/widget/AbsSpinner$RecycleBin;->clear()V
+    invoke-virtual {v6}, Landroid/widget/AbsSpinner$RecycleBin;->clear()V
 
     invoke-direct {p0}, Landroid/widget/Gallery;->setSelectionToCenterChild()V
 
@@ -2845,31 +2845,31 @@
 
     invoke-virtual {v4}, Landroid/view/View;->getWidth()I
 
-    move-result v7
+    move-result v6
 
-    div-int/lit8 v0, v7, 0x2
+    div-int/lit8 v0, v6, 0x2
 
-    invoke-virtual {p0}, Landroid/view/View;->getWidth()I
+    invoke-virtual {p0}, Landroid/widget/Gallery;->getWidth()I
 
-    move-result v7
+    move-result v6
 
-    div-int/lit8 v2, v7, 0x2
+    div-int/lit8 v2, v6, 0x2
 
-    add-int v7, v1, v0
+    add-int v6, v1, v0
 
-    sub-int/2addr v7, v2
+    sub-int/2addr v6, v2
 
-    iput v7, p0, Landroid/widget/Gallery;->mSelectedCenterOffset:I
+    iput v6, p0, Landroid/widget/Gallery;->mSelectedCenterOffset:I
 
     :cond_2
-    invoke-virtual {p0, v6, v6, v6, v6}, Landroid/view/View;->onScrollChanged(IIII)V
+    invoke-virtual {p0, v7, v7, v7, v7}, Landroid/widget/Gallery;->onScrollChanged(IIII)V
 
-    invoke-virtual {p0}, Landroid/view/View;->invalidate()V
+    invoke-virtual {p0}, Landroid/widget/Gallery;->invalidate()V
 
     return-void
 
     :cond_3
-    move v5, v6
+    const/4 v5, 0x0
 
     goto :goto_0
 

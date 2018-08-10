@@ -34,7 +34,7 @@
 
     invoke-direct {p0, v0}, Landroid/widget/RemoteViews$Action;-><init>(Landroid/widget/RemoteViews$Action;)V
 
-    iput p2, p0, Landroid/widget/RemoteViews$Action;->viewId:I
+    iput p2, p0, Landroid/widget/RemoteViews$SetOnClickFillInIntent;->viewId:I
 
     iput-object p3, p0, Landroid/widget/RemoteViews$SetOnClickFillInIntent;->fillInIntent:Landroid/content/Intent;
 
@@ -54,7 +54,7 @@
 
     move-result v0
 
-    iput v0, p0, Landroid/widget/RemoteViews$Action;->viewId:I
+    iput v0, p0, Landroid/widget/RemoteViews$SetOnClickFillInIntent;->viewId:I
 
     sget-object v0, Landroid/content/Intent;->CREATOR:Landroid/os/Parcelable$Creator;
 
@@ -74,7 +74,7 @@
 .method public apply(Landroid/view/View;Landroid/view/ViewGroup;Landroid/widget/RemoteViews$OnClickHandler;)V
     .locals 4
 
-    iget v2, p0, Landroid/widget/RemoteViews$Action;->viewId:I
+    iget v2, p0, Landroid/widget/RemoteViews$SetOnClickFillInIntent;->viewId:I
 
     invoke-virtual {p1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -87,7 +87,7 @@
     :cond_0
     iget-object v2, p0, Landroid/widget/RemoteViews$SetOnClickFillInIntent;->this$0:Landroid/widget/RemoteViews;
 
-    invoke-static {v2}, Landroid/widget/RemoteViews;->-get4(Landroid/widget/RemoteViews;)Z
+    invoke-static {v2}, Landroid/widget/RemoteViews;->-get5(Landroid/widget/RemoteViews;)Z
 
     move-result v2
 
@@ -106,7 +106,7 @@
 
     iget-object v2, p0, Landroid/widget/RemoteViews$SetOnClickFillInIntent;->fillInIntent:Landroid/content/Intent;
 
-    const v3, 0x1020049
+    const v3, 0x102029b
 
     invoke-virtual {v1, v3, v2}, Landroid/view/View;->setTagInternal(ILjava/lang/Object;)V
 
@@ -143,7 +143,7 @@
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    iget v0, p0, Landroid/widget/RemoteViews$Action;->viewId:I
+    iget v0, p0, Landroid/widget/RemoteViews$SetOnClickFillInIntent;->viewId:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 

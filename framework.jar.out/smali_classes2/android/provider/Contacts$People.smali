@@ -138,6 +138,8 @@
 
 .method private constructor <init>()V
     .locals 0
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -331,11 +333,11 @@
 .end method
 
 .method public static loadContactPhoto(Landroid/content/Context;Landroid/net/Uri;ILandroid/graphics/BitmapFactory$Options;)Landroid/graphics/Bitmap;
-    .locals 3
+    .locals 4
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
-    const/4 v0, 0x0
+    const/4 v3, 0x0
 
     if-nez p1, :cond_0
 
@@ -354,21 +356,26 @@
 
     move-result-object v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_2
 
-    invoke-static {v1, v0, p3}, Landroid/graphics/BitmapFactory;->decodeStream(Ljava/io/InputStream;Landroid/graphics/Rect;Landroid/graphics/BitmapFactory$Options;)Landroid/graphics/Bitmap;
+    invoke-static {v1, v3, p3}, Landroid/graphics/BitmapFactory;->decodeStream(Ljava/io/InputStream;Landroid/graphics/Rect;Landroid/graphics/BitmapFactory$Options;)Landroid/graphics/Bitmap;
 
     move-result-object v0
 
-    :cond_1
-    if-nez v0, :cond_2
+    :goto_0
+    if-nez v0, :cond_1
 
     invoke-static {p2, p0, p3}, Landroid/provider/Contacts$People;->loadPlaceholderPhoto(ILandroid/content/Context;Landroid/graphics/BitmapFactory$Options;)Landroid/graphics/Bitmap;
 
     move-result-object v0
 
-    :cond_2
+    :cond_1
     return-object v0
+
+    :cond_2
+    const/4 v0, 0x0
+
+    goto :goto_0
 .end method
 
 .method private static loadPlaceholderPhoto(ILandroid/content/Context;Landroid/graphics/BitmapFactory$Options;)Landroid/graphics/Bitmap;
@@ -393,41 +400,9 @@
 .end method
 
 .method public static markAsContacted(Landroid/content/ContentResolver;J)V
-    .locals 7
+    .locals 0
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
-
-    const/4 v6, 0x0
-
-    sget-object v2, Landroid/provider/Contacts$People;->CONTENT_URI:Landroid/net/Uri;
-
-    invoke-static {v2, p1, p2}, Landroid/content/ContentUris;->withAppendedId(Landroid/net/Uri;J)Landroid/net/Uri;
-
-    move-result-object v0
-
-    const-string/jumbo v2, "update_contact_time"
-
-    invoke-static {v0, v2}, Landroid/net/Uri;->withAppendedPath(Landroid/net/Uri;Ljava/lang/String;)Landroid/net/Uri;
-
-    move-result-object v0
-
-    new-instance v1, Landroid/content/ContentValues;
-
-    invoke-direct {v1}, Landroid/content/ContentValues;-><init>()V
-
-    const-string/jumbo v2, "last_time_contacted"
-
-    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
-
-    move-result-wide v4
-
-    invoke-static {v4, v5}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
-
-    move-result-object v3
-
-    invoke-virtual {v1, v2, v3}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Long;)V
-
-    invoke-virtual {p0, v0, v1, v6, v6}, Landroid/content/ContentResolver;->update(Landroid/net/Uri;Landroid/content/ContentValues;Ljava/lang/String;[Ljava/lang/String;)I
 
     return-void
 .end method
@@ -465,63 +440,69 @@
 
     move-result-object v6
 
-    if-eqz v6, :cond_1
+    if-eqz v6, :cond_0
 
     :try_start_0
     invoke-interface {v6}, Landroid/database/Cursor;->moveToNext()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    const/4 v0, 0x0
-
-    invoke-interface {v6, v0}, Landroid/database/Cursor;->getBlob(I)[B
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    move-result-object v7
+    move-result v0
 
-    if-nez v7, :cond_3
+    xor-int/lit8 v0, v0, 0x1
 
-    if-eqz v6, :cond_0
-
-    invoke-interface {v6}, Landroid/database/Cursor;->close()V
+    if-eqz v0, :cond_2
 
     :cond_0
-    return-object v3
-
-    :cond_1
-    if-eqz v6, :cond_2
+    if-eqz v6, :cond_1
 
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
-    :cond_2
+    :cond_1
     return-object v3
 
-    :cond_3
-    :try_start_1
-    new-instance v0, Ljava/io/ByteArrayInputStream;
+    :cond_2
+    const/4 v0, 0x0
 
-    invoke-direct {v0, v7}, Ljava/io/ByteArrayInputStream;-><init>([B)V
+    :try_start_1
+    invoke-interface {v6, v0}, Landroid/database/Cursor;->getBlob(I)[B
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    if-eqz v6, :cond_4
+    move-result-object v7
+
+    if-nez v7, :cond_4
+
+    if-eqz v6, :cond_3
 
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
-    :cond_4
-    return-object v0
+    :cond_3
+    return-object v3
 
-    :catchall_0
-    move-exception v0
+    :cond_4
+    :try_start_2
+    new-instance v0, Ljava/io/ByteArrayInputStream;
+
+    invoke-direct {v0, v7}, Ljava/io/ByteArrayInputStream;-><init>([B)V
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     if-eqz v6, :cond_5
 
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
     :cond_5
+    return-object v0
+
+    :catchall_0
+    move-exception v0
+
+    if-eqz v6, :cond_6
+
+    invoke-interface {v6}, Landroid/database/Cursor;->close()V
+
+    :cond_6
     throw v0
 .end method
 

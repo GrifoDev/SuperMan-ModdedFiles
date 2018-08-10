@@ -67,7 +67,7 @@
 
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
-    invoke-virtual {p0}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
+    invoke-virtual {p0}, Lcom/android/internal/app/DumpHeapActivity;->getIntent()Landroid/content/Intent;
 
     move-result-object v5
 
@@ -79,7 +79,7 @@
 
     iput-object v5, p0, Lcom/android/internal/app/DumpHeapActivity;->mProcess:Ljava/lang/String;
 
-    invoke-virtual {p0}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
+    invoke-virtual {p0}, Lcom/android/internal/app/DumpHeapActivity;->getIntent()Landroid/content/Intent;
 
     move-result-object v5
 
@@ -93,7 +93,7 @@
 
     iput-wide v6, p0, Lcom/android/internal/app/DumpHeapActivity;->mSize:J
 
-    invoke-virtual {p0}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
+    invoke-virtual {p0}, Lcom/android/internal/app/DumpHeapActivity;->getIntent()Landroid/content/Intent;
 
     move-result-object v5
 
@@ -113,7 +113,7 @@
 
     invoke-virtual {v4, v2}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/Intent;
 
-    invoke-virtual {p0}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/internal/app/DumpHeapActivity;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v5
 
@@ -146,7 +146,7 @@
     invoke-virtual {v4, v5, v6}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
 
     :try_start_0
-    invoke-virtual {p0, v4}, Landroid/app/Activity;->startActivity(Landroid/content/Intent;)V
+    invoke-virtual {p0, v4}, Lcom/android/internal/app/DumpHeapActivity;->startActivity(Landroid/content/Intent;)V
 
     invoke-virtual {p0}, Lcom/android/internal/app/DumpHeapActivity;->scheduleDelete()V
 
@@ -154,7 +154,7 @@
 
     iput-boolean v5, p0, Lcom/android/internal/app/DumpHeapActivity;->mHandled:Z
 
-    invoke-virtual {p0}, Landroid/app/Activity;->finish()V
+    invoke-virtual {p0}, Lcom/android/internal/app/DumpHeapActivity;->finish()V
     :try_end_0
     .catch Landroid/content/ActivityNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -185,7 +185,7 @@
 
     move-result-object v6
 
-    invoke-virtual {v3}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
+    invoke-virtual {v3}, Landroid/content/ActivityNotFoundException;->getMessage()Ljava/lang/String;
 
     move-result-object v7
 
@@ -206,7 +206,7 @@
 
     invoke-direct {v0, p0, v5}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;I)V
 
-    const v5, 0x10403cc
+    const v5, 0x10402dd
 
     invoke-virtual {v0, v5}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -226,9 +226,9 @@
 
     aput-object v6, v5, v10
 
-    const v6, 0x10403cd
+    const v6, 0x10402dc
 
-    invoke-virtual {p0, v6, v5}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-virtual {p0, v6, v5}, Lcom/android/internal/app/DumpHeapActivity;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v5
 
@@ -266,7 +266,7 @@
 
     iget-object v0, p0, Lcom/android/internal/app/DumpHeapActivity;->mDialog:Landroid/app/AlertDialog;
 
-    invoke-virtual {v0}, Landroid/app/Dialog;->dismiss()V
+    invoke-virtual {v0}, Landroid/app/AlertDialog;->dismiss()V
 
     return-void
 .end method
@@ -276,7 +276,7 @@
 
     invoke-super {p0}, Landroid/app/Activity;->onStop()V
 
-    invoke-virtual {p0}, Landroid/app/Activity;->isChangingConfigurations()Z
+    invoke-virtual {p0}, Lcom/android/internal/app/DumpHeapActivity;->isChangingConfigurations()Z
 
     move-result v0
 
@@ -292,7 +292,7 @@
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {p0, v0}, Landroid/content/ContextWrapper;->sendBroadcast(Landroid/content/Intent;)V
+    invoke-virtual {p0, v0}, Lcom/android/internal/app/DumpHeapActivity;->sendBroadcast(Landroid/content/Intent;)V
 
     :cond_0
     return-void
@@ -313,7 +313,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
-    invoke-virtual {p0, v0}, Landroid/content/ContextWrapper;->sendBroadcast(Landroid/content/Intent;)V
+    invoke-virtual {p0, v0}, Lcom/android/internal/app/DumpHeapActivity;->sendBroadcast(Landroid/content/Intent;)V
 
     return-void
 .end method

@@ -207,15 +207,31 @@
     return v0
 .end method
 
+.method public ignoreInterfaceUpDownStatus()V
+    .locals 2
+
+    iget-object v0, p0, Landroid/net/InterfaceConfiguration;->mFlags:Ljava/util/HashSet;
+
+    const-string/jumbo v1, "up"
+
+    invoke-virtual {v0, v1}, Ljava/util/HashSet;->remove(Ljava/lang/Object;)Z
+
+    iget-object v0, p0, Landroid/net/InterfaceConfiguration;->mFlags:Ljava/util/HashSet;
+
+    const-string/jumbo v1, "down"
+
+    invoke-virtual {v0, v1}, Ljava/util/HashSet;->remove(Ljava/lang/Object;)Z
+
+    return-void
+.end method
+
 .method public isActive()Z
     .locals 6
 
     const/4 v3, 0x0
 
     :try_start_0
-    const-string/jumbo v2, "up"
-
-    invoke-virtual {p0, v2}, Landroid/net/InterfaceConfiguration;->hasFlag(Ljava/lang/String;)Z
+    invoke-virtual {p0}, Landroid/net/InterfaceConfiguration;->isUp()Z
 
     move-result v2
 
@@ -260,6 +276,18 @@
 
     :cond_1
     return v3
+.end method
+
+.method public isUp()Z
+    .locals 1
+
+    const-string/jumbo v0, "up"
+
+    invoke-virtual {p0, v0}, Landroid/net/InterfaceConfiguration;->hasFlag(Ljava/lang/String;)Z
+
+    move-result v0
+
+    return v0
 .end method
 
 .method public setFlag(Ljava/lang/String;)V

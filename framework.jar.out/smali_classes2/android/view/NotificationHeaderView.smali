@@ -10,17 +10,18 @@
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Landroid/view/NotificationHeaderView$1;,
-        Landroid/view/NotificationHeaderView$2;,
         Landroid/view/NotificationHeaderView$HeaderTouchListener;
     }
 .end annotation
 
 
 # static fields
-.field public static final NO_COLOR:I = -0x1
+.field public static final NO_COLOR:I = 0x1
 
 
 # instance fields
+.field private mAcceptAllTouches:Z
+
 .field private mAppName:Landroid/view/View;
 
 .field private mBackground:Landroid/graphics/drawable/Drawable;
@@ -33,15 +34,13 @@
 
 .field private mExpandClickListener:Landroid/view/View$OnClickListener;
 
-.field final mExpandDelegate:Landroid/view/View$AccessibilityDelegate;
-
 .field private mExpanded:Z
 
 .field private mHeaderBackgroundHeight:I
 
 .field private mHeaderText:Landroid/view/View;
 
-.field private mIcon:Landroid/view/View;
+.field private mIcon:Lcom/android/internal/widget/CachingIconView;
 
 .field private mIconColor:I
 
@@ -59,7 +58,15 @@
 
 
 # direct methods
-.method static synthetic -get0(Landroid/view/NotificationHeaderView;)Landroid/graphics/drawable/Drawable;
+.method static synthetic -get0(Landroid/view/NotificationHeaderView;)Z
+    .locals 1
+
+    iget-boolean v0, p0, Landroid/view/NotificationHeaderView;->mAcceptAllTouches:Z
+
+    return v0
+.end method
+
+.method static synthetic -get1(Landroid/view/NotificationHeaderView;)Landroid/graphics/drawable/Drawable;
     .locals 1
 
     iget-object v0, p0, Landroid/view/NotificationHeaderView;->mBackground:Landroid/graphics/drawable/Drawable;
@@ -67,7 +74,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get1(Landroid/view/NotificationHeaderView;)Landroid/widget/ImageView;
+.method static synthetic -get2(Landroid/view/NotificationHeaderView;)Landroid/widget/ImageView;
     .locals 1
 
     iget-object v0, p0, Landroid/view/NotificationHeaderView;->mExpandButton:Landroid/widget/ImageView;
@@ -75,23 +82,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get2(Landroid/view/NotificationHeaderView;)Landroid/view/View$OnClickListener;
-    .locals 1
-
-    iget-object v0, p0, Landroid/view/NotificationHeaderView;->mExpandClickListener:Landroid/view/View$OnClickListener;
-
-    return-object v0
-.end method
-
-.method static synthetic -get3(Landroid/view/NotificationHeaderView;)Z
-    .locals 1
-
-    iget-boolean v0, p0, Landroid/view/NotificationHeaderView;->mExpanded:Z
-
-    return v0
-.end method
-
-.method static synthetic -get4(Landroid/view/NotificationHeaderView;)I
+.method static synthetic -get3(Landroid/view/NotificationHeaderView;)I
     .locals 1
 
     iget v0, p0, Landroid/view/NotificationHeaderView;->mHeaderBackgroundHeight:I
@@ -99,10 +90,10 @@
     return v0
 .end method
 
-.method static synthetic -get5(Landroid/view/NotificationHeaderView;)Landroid/view/View;
+.method static synthetic -get4(Landroid/view/NotificationHeaderView;)Lcom/android/internal/widget/CachingIconView;
     .locals 1
 
-    iget-object v0, p0, Landroid/view/NotificationHeaderView;->mIcon:Landroid/view/View;
+    iget-object v0, p0, Landroid/view/NotificationHeaderView;->mIcon:Lcom/android/internal/widget/CachingIconView;
 
     return-object v0
 .end method
@@ -164,17 +155,11 @@
 
     iput-object v0, p0, Landroid/view/NotificationHeaderView;->mProvider:Landroid/view/ViewOutlineProvider;
 
-    new-instance v0, Landroid/view/NotificationHeaderView$2;
-
-    invoke-direct {v0, p0}, Landroid/view/NotificationHeaderView$2;-><init>(Landroid/view/NotificationHeaderView;)V
-
-    iput-object v0, p0, Landroid/view/NotificationHeaderView;->mExpandDelegate:Landroid/view/View$AccessibilityDelegate;
-
     invoke-virtual {p0}, Landroid/view/NotificationHeaderView;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    const v1, 0x1050049
+    const v1, 0x1050171
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -186,7 +171,7 @@
 
     move-result-object v0
 
-    const v1, 0x1050040
+    const v1, 0x1050165
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -198,7 +183,7 @@
 
     move-result-object v0
 
-    const v1, 0x1050047
+    const v1, 0x105016b
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -247,63 +232,49 @@
 .method private updateExpandButton()V
     .locals 4
 
-    iget-boolean v1, p0, Landroid/view/NotificationHeaderView;->mExpanded:Z
+    iget-boolean v2, p0, Landroid/view/NotificationHeaderView;->mExpanded:Z
 
-    if-eqz v1, :cond_0
+    if-eqz v2, :cond_0
 
-    const v0, 0x10803ac
+    const v1, 0x10803bc
 
-    iget-object v1, p0, Landroid/view/NotificationHeaderView;->mExpandButton:Landroid/widget/ImageView;
-
-    invoke-virtual {p0}, Landroid/view/NotificationHeaderView;->getContext()Landroid/content/Context;
-
-    move-result-object v2
-
-    const v3, 0x1040a29
-
-    invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setContentDescription(Ljava/lang/CharSequence;)V
+    const v0, 0x1040316
 
     :goto_0
-    iget-object v1, p0, Landroid/view/NotificationHeaderView;->mExpandButton:Landroid/widget/ImageView;
+    iget-object v2, p0, Landroid/view/NotificationHeaderView;->mExpandButton:Landroid/widget/ImageView;
 
     invoke-virtual {p0}, Landroid/view/NotificationHeaderView;->getContext()Landroid/content/Context;
 
-    move-result-object v2
+    move-result-object v3
 
-    invoke-virtual {v2, v0}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
+    invoke-virtual {v3, v1}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
-    move-result-object v2
+    move-result-object v3
 
-    invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
+    invoke-virtual {v2, v3}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    iget-object v1, p0, Landroid/view/NotificationHeaderView;->mExpandButton:Landroid/widget/ImageView;
+    iget-object v2, p0, Landroid/view/NotificationHeaderView;->mExpandButton:Landroid/widget/ImageView;
 
-    iget v2, p0, Landroid/view/NotificationHeaderView;->mOriginalNotificationColor:I
+    iget v3, p0, Landroid/view/NotificationHeaderView;->mOriginalNotificationColor:I
 
-    invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setColorFilter(I)V
+    invoke-virtual {v2, v3}, Landroid/widget/ImageView;->setColorFilter(I)V
+
+    iget-object v2, p0, Landroid/view/NotificationHeaderView;->mExpandButton:Landroid/widget/ImageView;
+
+    iget-object v3, p0, Landroid/view/NotificationHeaderView;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v3, v0}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
+
+    move-result-object v3
+
+    invoke-virtual {v2, v3}, Landroid/widget/ImageView;->setContentDescription(Ljava/lang/CharSequence;)V
 
     return-void
 
     :cond_0
-    const v0, 0x10803cc
+    const v1, 0x10803f5
 
-    iget-object v1, p0, Landroid/view/NotificationHeaderView;->mExpandButton:Landroid/widget/ImageView;
-
-    invoke-virtual {p0}, Landroid/view/NotificationHeaderView;->getContext()Landroid/content/Context;
-
-    move-result-object v2
-
-    const v3, 0x1040a28
-
-    invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setContentDescription(Ljava/lang/CharSequence;)V
+    const v0, 0x1040315
 
     goto :goto_0
 .end method
@@ -370,6 +341,14 @@
     .locals 1
 
     iget-object v0, p0, Landroid/view/NotificationHeaderView;->mExpandButton:Landroid/widget/ImageView;
+
+    return-object v0
+.end method
+
+.method public getIcon()Lcom/android/internal/widget/CachingIconView;
+    .locals 1
+
+    iget-object v0, p0, Landroid/view/NotificationHeaderView;->mIcon:Lcom/android/internal/widget/CachingIconView;
 
     return-object v0
 .end method
@@ -459,7 +438,7 @@
 
     invoke-super {p0}, Landroid/view/ViewGroup;->onFinishInflate()V
 
-    const v0, 0x102042e
+    const v0, 0x10201ea
 
     invoke-virtual {p0, v0}, Landroid/view/NotificationHeaderView;->findViewById(I)Landroid/view/View;
 
@@ -467,7 +446,7 @@
 
     iput-object v0, p0, Landroid/view/NotificationHeaderView;->mAppName:Landroid/view/View;
 
-    const v0, 0x1020430
+    const v0, 0x10202ec
 
     invoke-virtual {p0, v0}, Landroid/view/NotificationHeaderView;->findViewById(I)Landroid/view/View;
 
@@ -475,7 +454,7 @@
 
     iput-object v0, p0, Landroid/view/NotificationHeaderView;->mHeaderText:Landroid/view/View;
 
-    const v0, 0x1020433
+    const v0, 0x102028b
 
     invoke-virtual {p0, v0}, Landroid/view/NotificationHeaderView;->findViewById(I)Landroid/view/View;
 
@@ -485,32 +464,29 @@
 
     iput-object v0, p0, Landroid/view/NotificationHeaderView;->mExpandButton:Landroid/widget/ImageView;
 
-    iget-object v0, p0, Landroid/view/NotificationHeaderView;->mExpandButton:Landroid/widget/ImageView;
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Landroid/view/NotificationHeaderView;->mExpandButton:Landroid/widget/ImageView;
-
-    iget-object v1, p0, Landroid/view/NotificationHeaderView;->mExpandDelegate:Landroid/view/View$AccessibilityDelegate;
-
-    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setAccessibilityDelegate(Landroid/view/View$AccessibilityDelegate;)V
-
-    :cond_0
     const v0, 0x1020006
 
     invoke-virtual {p0, v0}, Landroid/view/NotificationHeaderView;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
-    iput-object v0, p0, Landroid/view/NotificationHeaderView;->mIcon:Landroid/view/View;
+    check-cast v0, Lcom/android/internal/widget/CachingIconView;
 
-    const v0, 0x1020434
+    iput-object v0, p0, Landroid/view/NotificationHeaderView;->mIcon:Lcom/android/internal/widget/CachingIconView;
+
+    const v0, 0x102041b
 
     invoke-virtual {p0, v0}, Landroid/view/NotificationHeaderView;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
     iput-object v0, p0, Landroid/view/NotificationHeaderView;->mProfileBadge:Landroid/view/View;
+
+    iget-object v0, p0, Landroid/view/NotificationHeaderView;->mExpandButton:Landroid/widget/ImageView;
+
+    const/4 v1, 0x1
+
+    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->semSetHoverPopupType(I)V
 
     return-void
 .end method
@@ -936,6 +912,16 @@
     return-void
 .end method
 
+.method public setAcceptAllTouches(Z)V
+    .locals 0
+    .annotation runtime Landroid/view/RemotableViewMethod;
+    .end annotation
+
+    iput-boolean p1, p0, Landroid/view/NotificationHeaderView;->mAcceptAllTouches:Z
+
+    return-void
+.end method
+
 .method public setExpanded(Z)V
     .locals 0
     .annotation runtime Landroid/view/RemotableViewMethod;
@@ -1040,22 +1026,14 @@
 
     if-eq p1, v0, :cond_0
 
-    if-eqz p1, :cond_1
+    xor-int/lit8 v0, p1, 0x1
 
-    const/4 v0, 0x0
-
-    :goto_0
     invoke-virtual {p0, v0}, Landroid/view/NotificationHeaderView;->setClipToPadding(Z)V
 
     iput-boolean p1, p0, Landroid/view/NotificationHeaderView;->mShowWorkBadgeAtEnd:Z
 
     :cond_0
     return-void
-
-    :cond_1
-    const/4 v0, 0x1
-
-    goto :goto_0
 .end method
 
 .method protected verifyDrawable(Landroid/graphics/drawable/Drawable;)Z

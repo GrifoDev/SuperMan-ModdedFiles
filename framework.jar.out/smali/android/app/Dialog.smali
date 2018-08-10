@@ -13,7 +13,6 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Landroid/app/Dialog$-void__init__android_content_Context_context_int_themeResId_boolean_createContextThemeWrapper_LambdaImpl0;,
         Landroid/app/Dialog$ListenersHandler;
     }
 .end annotation
@@ -60,15 +59,11 @@
 
 .field private mDismissMessage:Landroid/os/Message;
 
-.field private mDisplayId:I
-
 .field private final mHandler:Landroid/os/Handler;
 
 .field private mHasFocus:Z
 
-.field private mIsDeviceDefaultLight:Z
-
-.field private mIsParentFullView:Z
+.field private mIsDeviceDefault:Z
 
 .field private final mListenersHandler:Landroid/os/Handler;
 
@@ -137,21 +132,21 @@
 
     iput v5, p0, Landroid/app/Dialog;->mActionModeTypeStarting:I
 
-    iput-boolean v5, p0, Landroid/app/Dialog;->mHasFocus:Z
+    new-instance v3, Landroid/app/-$Lambda$c44uHH2WE4sJvw5tZZB6gRzEaHI$1;
 
-    new-instance v3, Landroid/app/Dialog$-void__init__android_content_Context_context_int_themeResId_boolean_createContextThemeWrapper_LambdaImpl0;
-
-    invoke-direct {v3, p0}, Landroid/app/Dialog$-void__init__android_content_Context_context_int_themeResId_boolean_createContextThemeWrapper_LambdaImpl0;-><init>(Landroid/app/Dialog;)V
+    invoke-direct {v3, p0}, Landroid/app/-$Lambda$c44uHH2WE4sJvw5tZZB6gRzEaHI$1;-><init>(Ljava/lang/Object;)V
 
     iput-object v3, p0, Landroid/app/Dialog;->mDismissAction:Ljava/lang/Runnable;
+
+    iput-boolean v5, p0, Landroid/app/Dialog;->mHasFocus:Z
 
     if-eqz p3, :cond_2
 
     if-nez p2, :cond_0
 
-    new-instance v1, Landroid/util/TypedValue;
+    new-instance v0, Landroid/util/TypedValue;
 
-    invoke-direct {v1}, Landroid/util/TypedValue;-><init>()V
+    invoke-direct {v0}, Landroid/util/TypedValue;-><init>()V
 
     invoke-virtual {p1}, Landroid/content/Context;->getTheme()Landroid/content/res/Resources$Theme;
 
@@ -159,9 +154,9 @@
 
     const v4, 0x1010308
 
-    invoke-virtual {v3, v4, v1, v6}, Landroid/content/res/Resources$Theme;->resolveAttribute(ILandroid/util/TypedValue;Z)Z
+    invoke-virtual {v3, v4, v0, v6}, Landroid/content/res/Resources$Theme;->resolveAttribute(ILandroid/util/TypedValue;Z)Z
 
-    iget p2, v1, Landroid/util/TypedValue;->resourceId:I
+    iget p2, v0, Landroid/util/TypedValue;->resourceId:I
 
     :cond_0
     new-instance v3, Landroid/view/ContextThemeWrapper;
@@ -193,6 +188,12 @@
 
     invoke-virtual {v2, p0}, Landroid/view/Window;->setOnWindowDismissedCallback(Landroid/view/Window$OnWindowDismissedCallback;)V
 
+    new-instance v3, Landroid/app/-$Lambda$c44uHH2WE4sJvw5tZZB6gRzEaHI;
+
+    invoke-direct {v3, p0}, Landroid/app/-$Lambda$c44uHH2WE4sJvw5tZZB6gRzEaHI;-><init>(Ljava/lang/Object;)V
+
+    invoke-virtual {v2, v3}, Landroid/view/Window;->setOnWindowSwipeDismissedCallback(Landroid/view/Window$OnWindowSwipeDismissedCallback;)V
+
     iget-object v3, p0, Landroid/app/Dialog;->mWindowManager:Landroid/view/WindowManager;
 
     invoke-virtual {v2, v3, v7, v7}, Landroid/view/Window;->setWindowManager(Landroid/view/WindowManager;Landroid/os/IBinder;Ljava/lang/String;)V
@@ -211,35 +212,19 @@
 
     invoke-direct {v1}, Landroid/util/TypedValue;-><init>()V
 
-    new-instance v0, Landroid/util/TypedValue;
-
-    invoke-direct {v0}, Landroid/util/TypedValue;-><init>()V
-
     invoke-virtual {p1}, Landroid/content/Context;->getTheme()Landroid/content/res/Resources$Theme;
 
     move-result-object v3
 
-    const v4, 0x11600cb
+    const v4, 0x1110082
 
     invoke-virtual {v3, v4, v1, v5}, Landroid/content/res/Resources$Theme;->resolveAttribute(ILandroid/util/TypedValue;Z)Z
-
-    invoke-virtual {p1}, Landroid/content/Context;->getTheme()Landroid/content/res/Resources$Theme;
-
-    move-result-object v3
-
-    const v4, 0x11600cd
-
-    invoke-virtual {v3, v4, v0, v6}, Landroid/content/res/Resources$Theme;->resolveAttribute(ILandroid/util/TypedValue;Z)Z
 
     iget v3, v1, Landroid/util/TypedValue;->data:I
 
     if-eqz v3, :cond_1
 
-    iget v3, v0, Landroid/util/TypedValue;->data:I
-
-    if-nez v3, :cond_1
-
-    iput-boolean v6, p0, Landroid/app/Dialog;->mIsDeviceDefaultLight:Z
+    iput-boolean v6, p0, Landroid/app/Dialog;->mIsDeviceDefault:Z
 
     :cond_1
     return-void
@@ -257,6 +242,8 @@
 
     iput-boolean p2, p0, Landroid/app/Dialog;->mCancelable:Z
 
+    invoke-direct {p0}, Landroid/app/Dialog;->updateWindowForCancelable()V
+
     invoke-virtual {p0, p3}, Landroid/app/Dialog;->setOnCancelListener(Landroid/content/DialogInterface$OnCancelListener;)V
 
     return-void
@@ -271,6 +258,8 @@
 
     iput-boolean p2, p0, Landroid/app/Dialog;->mCancelable:Z
 
+    invoke-direct {p0}, Landroid/app/Dialog;->updateWindowForCancelable()V
+
     iput-object p3, p0, Landroid/app/Dialog;->mCancelMessage:Landroid/os/Message;
 
     return-void
@@ -280,8 +269,6 @@
     .locals 4
 
     const/4 v1, 0x0
-
-    const/4 v0, 0x0
 
     invoke-virtual {p0}, Landroid/app/Dialog;->getWindow()Landroid/view/Window;
 
@@ -308,8 +295,6 @@
 
     goto :goto_0
 
-    nop
-
     :pswitch_data_0
     .packed-switch 0x7db
         :pswitch_0
@@ -319,8 +304,6 @@
 
 .method private checkMirrorLinkEnabled()Z
     .locals 3
-
-    const/4 v0, 0x0
 
     const-string/jumbo v1, "net.mirrorlink.on"
 
@@ -332,13 +315,8 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_0
-
-    const/4 v0, 0x1
-
-    :cond_0
     return v0
 .end method
 
@@ -371,57 +349,21 @@
 .end method
 
 .method private checkWhiteList()Z
-    .locals 15
+    .locals 13
 
     const/4 v5, 0x0
 
-    const/4 v14, 0x1
+    const/4 v4, 0x1
 
-    const/4 v13, 0x0
-
-    const-string/jumbo v7, "com.samsung.mirrorlink.acms.pkgnames"
-
-    const-string/jumbo v6, "pkgname"
-
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v2, "content://"
-
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    invoke-virtual {v0, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    const-string/jumbo v2, "/"
-
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    invoke-virtual {v0, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-static {v0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
-
-    move-result-object v1
-
-    const-string/jumbo v10, "com.mirrorlink.android.service.ACCESS_PERMISSION"
+    const/4 v12, 0x0
 
     iget-object v0, p0, Landroid/app/Dialog;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v0, v10}, Landroid/content/Context;->checkCallingOrSelfPermission(Ljava/lang/String;)I
+    const-string/jumbo v2, "com.mirrorlink.android.service.ACCESS_PERMISSION"
 
-    move-result v11
+    invoke-virtual {v0, v2}, Landroid/content/Context;->checkCallingOrSelfPermission(Ljava/lang/String;)I
+
+    move-result v10
 
     const-string/jumbo v0, "Dialog"
 
@@ -429,13 +371,13 @@
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v3, "Check Access Permission  : res = "
+    const-string/jumbo v3, "Check Access Permission : res = "
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v2
 
-    invoke-virtual {v2, v11}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v10}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     move-result-object v2
 
@@ -445,11 +387,21 @@
 
     invoke-static {v0, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    if-eqz v11, :cond_0
+    if-eqz v10, :cond_0
 
-    return v13
+    return v12
 
     :cond_0
+    const-string/jumbo v7, "com.samsung.mirrorlink.acms.pkgnames"
+
+    const-string/jumbo v6, "pkgname"
+
+    const-string/jumbo v0, "content://com.samsung.mirrorlink.acms.pkgnames/pkgname"
+
+    invoke-static {v0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v1
+
     iget-object v0, p0, Landroid/app/Dialog;->mContext:Landroid/content/Context;
 
     invoke-virtual {v0}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
@@ -462,31 +414,17 @@
 
     move-result-object v0
 
-    new-array v2, v14, [Ljava/lang/String;
+    new-array v2, v4, [Ljava/lang/String;
 
-    aput-object v6, v2, v13
+    const-string/jumbo v3, "pkgname"
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    aput-object v3, v2, v12
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    const-string/jumbo v3, "pkgname=?"
 
-    invoke-virtual {v3, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    new-array v4, v4, [Ljava/lang/String;
 
-    move-result-object v3
-
-    const-string/jumbo v4, "=?"
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    new-array v4, v14, [Ljava/lang/String;
-
-    aput-object v8, v4, v13
+    aput-object v8, v4, v12
 
     invoke-virtual/range {v0 .. v5}, Landroid/content/ContentResolver;->query(Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;
 
@@ -500,10 +438,10 @@
 
     invoke-static {v0, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const/4 v12, 0x0
+    const/4 v11, 0x0
 
     :goto_0
-    return v12
+    return v11
 
     :cond_1
     invoke-interface {v9}, Landroid/database/Cursor;->getCount()I
@@ -542,13 +480,15 @@
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v3, "db column packagename ="
+    const-string/jumbo v3, "db column packagename = "
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v2
 
-    invoke-interface {v9, v6}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
+    const-string/jumbo v3, "pkgname"
+
+    invoke-interface {v9, v3}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
 
     move-result v3
 
@@ -566,7 +506,7 @@
 
     invoke-static {v0, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const/4 v12, 0x1
+    const/4 v11, 0x1
 
     :goto_1
     invoke-interface {v9}, Landroid/database/Cursor;->close()V
@@ -574,7 +514,7 @@
     goto :goto_0
 
     :cond_2
-    const/4 v12, 0x0
+    const/4 v11, 0x0
 
     goto :goto_1
 .end method
@@ -638,9 +578,7 @@
 .end method
 
 .method private getAssociatedActivityOfContext()Landroid/app/Activity;
-    .locals 4
-
-    const/4 v2, 0x0
+    .locals 3
 
     iget-object v0, p0, Landroid/app/Dialog;->mOwnerActivity:Landroid/app/Activity;
 
@@ -653,9 +591,9 @@
 
     if-eqz v1, :cond_2
 
-    instance-of v3, v1, Landroid/app/Activity;
+    instance-of v2, v1, Landroid/app/Activity;
 
-    if-eqz v3, :cond_0
+    if-eqz v2, :cond_0
 
     move-object v0, v1
 
@@ -664,9 +602,9 @@
     goto :goto_0
 
     :cond_0
-    instance-of v3, v1, Landroid/content/ContextWrapper;
+    instance-of v2, v1, Landroid/content/ContextWrapper;
 
-    if-eqz v3, :cond_1
+    if-eqz v2, :cond_1
 
     check-cast v1, Landroid/content/ContextWrapper;
 
@@ -682,11 +620,6 @@
     goto :goto_0
 
     :cond_2
-    if-nez v0, :cond_3
-
-    move-object v0, v2
-
-    :cond_3
     return-object v0
 .end method
 
@@ -728,6 +661,18 @@
     return-void
 .end method
 
+.method private updateWindowForCancelable()V
+    .locals 2
+
+    iget-object v0, p0, Landroid/app/Dialog;->mWindow:Landroid/view/Window;
+
+    iget-boolean v1, p0, Landroid/app/Dialog;->mCancelable:Z
+
+    invoke-virtual {v0, v1}, Landroid/view/Window;->setCloseOnSwipeEnabled(Z)V
+
+    return-void
+.end method
+
 
 # virtual methods
 .method synthetic -android_app_Dialog-mthref-0()V
@@ -736,321 +681,6 @@
     invoke-virtual {p0}, Landroid/app/Dialog;->dismissDialog()V
 
     return-void
-.end method
-
-.method public ExpandedShow(Z)V
-    .locals 10
-
-    const/4 v9, 0x0
-
-    const/16 v8, 0x8
-
-    const/4 v7, 0x0
-
-    const-string/jumbo v4, "Dialog"
-
-    const-string/jumbo v5, "call ExpandedShow"
-
-    invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    const-string/jumbo v4, "Dialog"
-
-    new-instance v5, Ljava/lang/StringBuilder;
-
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v6, "isMainScreen : "
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5, p1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    new-instance v3, Landroid/graphics/Point;
-
-    invoke-direct {v3}, Landroid/graphics/Point;-><init>()V
-
-    invoke-virtual {p0}, Landroid/app/Dialog;->getWindow()Landroid/view/Window;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Landroid/view/Window;->getWindowManager()Landroid/view/WindowManager;
-
-    move-result-object v4
-
-    invoke-interface {v4}, Landroid/view/WindowManager;->getDefaultDisplay()Landroid/view/Display;
-
-    move-result-object v4
-
-    invoke-virtual {v4, v3}, Landroid/view/Display;->getSize(Landroid/graphics/Point;)V
-
-    invoke-direct {p0}, Landroid/app/Dialog;->checkShowingCondition()Z
-
-    move-result v4
-
-    if-nez v4, :cond_0
-
-    return-void
-
-    :cond_0
-    iget-boolean v4, p0, Landroid/app/Dialog;->mShowing:Z
-
-    if-eqz v4, :cond_4
-
-    iget-object v4, p0, Landroid/app/Dialog;->mDecor:Landroid/view/View;
-
-    if-eqz v4, :cond_2
-
-    iget-object v4, p0, Landroid/app/Dialog;->mWindow:Landroid/view/Window;
-
-    invoke-virtual {v4, v8}, Landroid/view/Window;->hasFeature(I)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_1
-
-    iget-object v4, p0, Landroid/app/Dialog;->mWindow:Landroid/view/Window;
-
-    invoke-virtual {v4, v8}, Landroid/view/Window;->invalidatePanelMenu(I)V
-
-    :cond_1
-    iget-object v4, p0, Landroid/app/Dialog;->mDecor:Landroid/view/View;
-
-    invoke-virtual {v4, v7}, Landroid/view/View;->setVisibility(I)V
-
-    :cond_2
-    iget-object v4, p0, Landroid/app/Dialog;->mWindow:Landroid/view/Window;
-
-    invoke-virtual {v4}, Landroid/view/Window;->getAttributes()Landroid/view/WindowManager$LayoutParams;
-
-    move-result-object v1
-
-    const-string/jumbo v4, "Dialog"
-
-    const-string/jumbo v5, "mShowing is true"
-
-    invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    const-string/jumbo v4, "Dialog"
-
-    new-instance v5, Ljava/lang/StringBuilder;
-
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v6, "l.x  is "
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    iget v6, v1, Landroid/view/WindowManager$LayoutParams;->x:I
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    if-eqz p1, :cond_3
-
-    iget v4, v3, Landroid/graphics/Point;->x:I
-
-    div-int/lit8 v4, v4, 0x2
-
-    :goto_0
-    iput v4, v1, Landroid/view/WindowManager$LayoutParams;->x:I
-
-    iget-object v4, p0, Landroid/app/Dialog;->mWindow:Landroid/view/Window;
-
-    invoke-virtual {v4, v1}, Landroid/view/Window;->setAttributes(Landroid/view/WindowManager$LayoutParams;)V
-
-    const-string/jumbo v4, "Dialog"
-
-    new-instance v5, Ljava/lang/StringBuilder;
-
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v6, "setAttributes "
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    iget v6, v1, Landroid/view/WindowManager$LayoutParams;->x:I
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    return-void
-
-    :cond_3
-    iget v4, v3, Landroid/graphics/Point;->x:I
-
-    neg-int v4, v4
-
-    div-int/lit8 v4, v4, 0x2
-
-    goto :goto_0
-
-    :cond_4
-    iput-boolean v7, p0, Landroid/app/Dialog;->mCanceled:Z
-
-    iget-boolean v4, p0, Landroid/app/Dialog;->mCreated:Z
-
-    if-nez v4, :cond_5
-
-    invoke-virtual {p0, v9}, Landroid/app/Dialog;->dispatchOnCreate(Landroid/os/Bundle;)V
-
-    :cond_5
-    invoke-virtual {p0}, Landroid/app/Dialog;->onStart()V
-
-    iget-object v4, p0, Landroid/app/Dialog;->mWindow:Landroid/view/Window;
-
-    invoke-virtual {v4}, Landroid/view/Window;->getDecorView()Landroid/view/View;
-
-    move-result-object v4
-
-    iput-object v4, p0, Landroid/app/Dialog;->mDecor:Landroid/view/View;
-
-    iget-object v4, p0, Landroid/app/Dialog;->mActionBar:Landroid/app/ActionBar;
-
-    if-nez v4, :cond_6
-
-    iget-object v4, p0, Landroid/app/Dialog;->mWindow:Landroid/view/Window;
-
-    invoke-virtual {v4, v8}, Landroid/view/Window;->hasFeature(I)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_6
-
-    iget-object v4, p0, Landroid/app/Dialog;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v4}, Landroid/content/Context;->getApplicationInfo()Landroid/content/pm/ApplicationInfo;
-
-    move-result-object v0
-
-    iget-object v4, p0, Landroid/app/Dialog;->mWindow:Landroid/view/Window;
-
-    iget v5, v0, Landroid/content/pm/ApplicationInfo;->icon:I
-
-    invoke-virtual {v4, v5}, Landroid/view/Window;->setDefaultIcon(I)V
-
-    iget-object v4, p0, Landroid/app/Dialog;->mWindow:Landroid/view/Window;
-
-    iget v5, v0, Landroid/content/pm/ApplicationInfo;->logo:I
-
-    invoke-virtual {v4, v5}, Landroid/view/Window;->setDefaultLogo(I)V
-
-    new-instance v4, Lcom/android/internal/app/WindowDecorActionBar;
-
-    invoke-direct {v4, p0}, Lcom/android/internal/app/WindowDecorActionBar;-><init>(Landroid/app/Dialog;)V
-
-    iput-object v4, p0, Landroid/app/Dialog;->mActionBar:Landroid/app/ActionBar;
-
-    :cond_6
-    iget-object v4, p0, Landroid/app/Dialog;->mWindow:Landroid/view/Window;
-
-    invoke-virtual {v4}, Landroid/view/Window;->getAttributes()Landroid/view/WindowManager$LayoutParams;
-
-    move-result-object v1
-
-    iget v4, v1, Landroid/view/WindowManager$LayoutParams;->softInputMode:I
-
-    and-int/lit16 v4, v4, 0x100
-
-    if-nez v4, :cond_7
-
-    new-instance v2, Landroid/view/WindowManager$LayoutParams;
-
-    invoke-direct {v2}, Landroid/view/WindowManager$LayoutParams;-><init>()V
-
-    invoke-virtual {v2, v1}, Landroid/view/WindowManager$LayoutParams;->copyFrom(Landroid/view/WindowManager$LayoutParams;)I
-
-    iget v4, v2, Landroid/view/WindowManager$LayoutParams;->softInputMode:I
-
-    or-int/lit16 v4, v4, 0x100
-
-    iput v4, v2, Landroid/view/WindowManager$LayoutParams;->softInputMode:I
-
-    move-object v1, v2
-
-    :cond_7
-    if-eqz p1, :cond_8
-
-    iget v4, v3, Landroid/graphics/Point;->x:I
-
-    div-int/lit8 v4, v4, 0x2
-
-    :goto_1
-    iput v4, v1, Landroid/view/WindowManager$LayoutParams;->x:I
-
-    const-string/jumbo v4, "Dialog"
-
-    new-instance v5, Ljava/lang/StringBuilder;
-
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v6, "l.x is "
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    iget v6, v1, Landroid/view/WindowManager$LayoutParams;->x:I
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget-object v4, p0, Landroid/app/Dialog;->mWindowManager:Landroid/view/WindowManager;
-
-    iget-object v5, p0, Landroid/app/Dialog;->mDecor:Landroid/view/View;
-
-    invoke-interface {v4, v5, v1}, Landroid/view/WindowManager;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
-
-    const/4 v4, 0x1
-
-    iput-boolean v4, p0, Landroid/app/Dialog;->mShowing:Z
-
-    invoke-direct {p0}, Landroid/app/Dialog;->sendShowMessage()V
-
-    return-void
-
-    :cond_8
-    iget v4, v3, Landroid/graphics/Point;->x:I
-
-    neg-int v4, v4
-
-    div-int/lit8 v4, v4, 0x2
-
-    goto :goto_1
 .end method
 
 .method public addContentView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
@@ -1171,15 +801,21 @@
 
     iget-boolean v0, p0, Landroid/app/Dialog;->mShowing:Z
 
-    if-eqz v0, :cond_0
+    xor-int/lit8 v0, v0, 0x1
 
+    if-eqz v0, :cond_1
+
+    :cond_0
+    return-void
+
+    :cond_1
     iget-object v0, p0, Landroid/app/Dialog;->mWindow:Landroid/view/Window;
 
     invoke-virtual {v0}, Landroid/view/Window;->isDestroyed()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2
 
     const-string/jumbo v0, "Dialog"
 
@@ -1189,10 +825,7 @@
 
     return-void
 
-    :cond_0
-    return-void
-
-    :cond_1
+    :cond_2
     :try_start_0
     iget-object v0, p0, Landroid/app/Dialog;->mWindowManager:Landroid/view/WindowManager;
 
@@ -1204,13 +837,13 @@
 
     iget-object v0, p0, Landroid/app/Dialog;->mActionMode:Landroid/view/ActionMode;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_3
 
     iget-object v0, p0, Landroid/app/Dialog;->mActionMode:Landroid/view/ActionMode;
 
     invoke-virtual {v0}, Landroid/view/ActionMode;->finish()V
 
-    :cond_2
+    :cond_3
     iput-object v2, p0, Landroid/app/Dialog;->mDecor:Landroid/view/View;
 
     iget-object v0, p0, Landroid/app/Dialog;->mWindow:Landroid/view/Window;
@@ -1230,13 +863,13 @@
 
     iget-object v1, p0, Landroid/app/Dialog;->mActionMode:Landroid/view/ActionMode;
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_4
 
     iget-object v1, p0, Landroid/app/Dialog;->mActionMode:Landroid/view/ActionMode;
 
     invoke-virtual {v1}, Landroid/view/ActionMode;->finish()V
 
-    :cond_3
+    :cond_4
     iput-object v2, p0, Landroid/app/Dialog;->mDecor:Landroid/view/View;
 
     iget-object v1, p0, Landroid/app/Dialog;->mWindow:Landroid/view/Window;
@@ -1375,60 +1008,60 @@
 .end method
 
 .method public dispatchPopulateAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)Z
-    .locals 5
+    .locals 4
 
-    const/4 v4, -0x1
-
-    const/4 v2, 0x0
+    const/4 v3, -0x1
 
     invoke-virtual {p0}, Landroid/app/Dialog;->getClass()Ljava/lang/Class;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-virtual {v3}, Ljava/lang/Class;->getName()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-virtual {p1, v3}, Landroid/view/accessibility/AccessibilityEvent;->setClassName(Ljava/lang/CharSequence;)V
+    invoke-virtual {p1, v2}, Landroid/view/accessibility/AccessibilityEvent;->setClassName(Ljava/lang/CharSequence;)V
 
-    iget-object v3, p0, Landroid/app/Dialog;->mContext:Landroid/content/Context;
+    iget-object v2, p0, Landroid/app/Dialog;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v3}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
+    invoke-virtual {v2}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-virtual {p1, v3}, Landroid/view/accessibility/AccessibilityEvent;->setPackageName(Ljava/lang/CharSequence;)V
+    invoke-virtual {p1, v2}, Landroid/view/accessibility/AccessibilityEvent;->setPackageName(Ljava/lang/CharSequence;)V
 
     invoke-virtual {p0}, Landroid/app/Dialog;->getWindow()Landroid/view/Window;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-virtual {v3}, Landroid/view/Window;->getAttributes()Landroid/view/WindowManager$LayoutParams;
+    invoke-virtual {v2}, Landroid/view/Window;->getAttributes()Landroid/view/WindowManager$LayoutParams;
 
     move-result-object v1
 
-    iget v3, v1, Landroid/view/ViewGroup$LayoutParams;->width:I
+    iget v2, v1, Landroid/view/ViewGroup$LayoutParams;->width:I
 
-    if-ne v3, v4, :cond_1
+    if-ne v2, v3, :cond_1
 
-    iget v3, v1, Landroid/view/ViewGroup$LayoutParams;->height:I
+    iget v2, v1, Landroid/view/ViewGroup$LayoutParams;->height:I
 
-    if-ne v3, v4, :cond_0
+    if-ne v2, v3, :cond_0
 
     const/4 v0, 0x1
 
     :goto_0
     invoke-virtual {p1, v0}, Landroid/view/accessibility/AccessibilityEvent;->setFullScreen(Z)V
 
+    const/4 v2, 0x0
+
     return v2
 
     :cond_0
-    move v0, v2
+    const/4 v0, 0x0
 
     goto :goto_0
 
     :cond_1
-    move v0, v2
+    const/4 v0, 0x0
 
     goto :goto_0
 .end method
@@ -1481,15 +1114,15 @@
 
     invoke-virtual {v2}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
 
-    move-result-object v1
+    move-result-object v2
+
+    iget v1, v2, Landroid/util/DisplayMetrics;->heightPixels:I
 
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getRawY()F
 
     move-result v2
 
-    iget v3, v1, Landroid/util/DisplayMetrics;->heightPixels:I
-
-    int-to-float v3, v3
+    int-to-float v3, v1
 
     cmpl-float v2, v2, v3
 
@@ -1530,6 +1163,13 @@
 
 .method public findViewById(I)Landroid/view/View;
     .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "<T:",
+            "Landroid/view/View;",
+            ">(I)TT;"
+        }
+    .end annotation
 
     iget-object v0, p0, Landroid/app/Dialog;->mWindow:Landroid/view/Window;
 
@@ -1679,6 +1319,19 @@
     iget-boolean v0, p0, Landroid/app/Dialog;->mShowing:Z
 
     return v0
+.end method
+
+.method synthetic lambda$-android_app_Dialog_7536()V
+    .locals 1
+
+    iget-boolean v0, p0, Landroid/app/Dialog;->mCancelable:Z
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {p0}, Landroid/app/Dialog;->cancel()V
+
+    :cond_0
+    return-void
 .end method
 
 .method public onActionModeFinished(Landroid/view/ActionMode;)V
@@ -1862,17 +1515,18 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    xor-int/lit8 v0, v0, 0x1
 
-    :cond_0
-    const/4 v0, 0x0
+    if-eqz v0, :cond_0
 
-    return v0
-
-    :cond_1
     invoke-virtual {p0}, Landroid/app/Dialog;->onBackPressed()V
 
     const/4 v0, 0x1
+
+    return v0
+
+    :cond_0
+    const/4 v0, 0x0
 
     return v0
 .end method
@@ -2183,7 +1837,7 @@
     return-void
 .end method
 
-.method public onWindowDismissed(Z)V
+.method public onWindowDismissed(ZZ)V
     .locals 0
 
     invoke-virtual {p0}, Landroid/app/Dialog;->dismiss()V
@@ -2316,6 +1970,8 @@
 
     iput-boolean p1, p0, Landroid/app/Dialog;->mCancelable:Z
 
+    invoke-direct {p0}, Landroid/app/Dialog;->updateWindowForCancelable()V
+
     return-void
 .end method
 
@@ -2326,22 +1982,22 @@
 
     iget-boolean v0, p0, Landroid/app/Dialog;->mCancelable:Z
 
-    if-eqz v0, :cond_1
+    xor-int/lit8 v0, v0, 0x1
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x1
+
+    iput-boolean v0, p0, Landroid/app/Dialog;->mCancelable:Z
+
+    invoke-direct {p0}, Landroid/app/Dialog;->updateWindowForCancelable()V
 
     :cond_0
-    :goto_0
     iget-object v0, p0, Landroid/app/Dialog;->mWindow:Landroid/view/Window;
 
     invoke-virtual {v0, p1}, Landroid/view/Window;->setCloseOnTouchOutside(Z)V
 
     return-void
-
-    :cond_1
-    const/4 v0, 0x1
-
-    iput-boolean v0, p0, Landroid/app/Dialog;->mCancelable:Z
-
-    goto :goto_0
 .end method
 
 .method public setContentView(I)V
@@ -2655,243 +2311,295 @@
 .end method
 
 .method public show()V
-    .locals 12
+    .locals 15
 
-    const/16 v11, 0x8
+    const/16 v14, 0x8
 
-    const/4 v10, 0x0
+    const/4 v13, 0x0
 
-    const/4 v9, 0x0
+    const/4 v12, 0x0
 
     invoke-direct {p0}, Landroid/app/Dialog;->checkShowingCondition()Z
 
-    move-result v8
+    move-result v11
 
-    if-nez v8, :cond_0
+    if-nez v11, :cond_0
 
     return-void
 
     :cond_0
-    iget-boolean v8, p0, Landroid/app/Dialog;->mShowing:Z
+    iget-boolean v11, p0, Landroid/app/Dialog;->mShowing:Z
 
-    if-eqz v8, :cond_3
+    if-eqz v11, :cond_3
 
-    iget-object v8, p0, Landroid/app/Dialog;->mDecor:Landroid/view/View;
+    iget-object v11, p0, Landroid/app/Dialog;->mDecor:Landroid/view/View;
 
-    if-eqz v8, :cond_2
+    if-eqz v11, :cond_2
 
-    iget-object v8, p0, Landroid/app/Dialog;->mWindow:Landroid/view/Window;
+    iget-object v11, p0, Landroid/app/Dialog;->mWindow:Landroid/view/Window;
 
-    invoke-virtual {v8, v11}, Landroid/view/Window;->hasFeature(I)Z
+    invoke-virtual {v11, v14}, Landroid/view/Window;->hasFeature(I)Z
 
-    move-result v8
+    move-result v11
 
-    if-eqz v8, :cond_1
+    if-eqz v11, :cond_1
 
-    iget-object v8, p0, Landroid/app/Dialog;->mWindow:Landroid/view/Window;
+    iget-object v11, p0, Landroid/app/Dialog;->mWindow:Landroid/view/Window;
 
-    invoke-virtual {v8, v11}, Landroid/view/Window;->invalidatePanelMenu(I)V
+    invoke-virtual {v11, v14}, Landroid/view/Window;->invalidatePanelMenu(I)V
 
     :cond_1
-    iget-object v8, p0, Landroid/app/Dialog;->mDecor:Landroid/view/View;
+    iget-object v11, p0, Landroid/app/Dialog;->mDecor:Landroid/view/View;
 
-    invoke-virtual {v8, v9}, Landroid/view/View;->setVisibility(I)V
+    invoke-virtual {v11, v12}, Landroid/view/View;->setVisibility(I)V
 
     :cond_2
     return-void
 
     :cond_3
-    iput-boolean v9, p0, Landroid/app/Dialog;->mCanceled:Z
+    iput-boolean v12, p0, Landroid/app/Dialog;->mCanceled:Z
 
-    iget-boolean v8, p0, Landroid/app/Dialog;->mCreated:Z
+    iget-boolean v11, p0, Landroid/app/Dialog;->mCreated:Z
 
-    if-nez v8, :cond_4
+    if-nez v11, :cond_b
 
-    invoke-virtual {p0, v10}, Landroid/app/Dialog;->dispatchOnCreate(Landroid/os/Bundle;)V
+    invoke-virtual {p0, v13}, Landroid/app/Dialog;->dispatchOnCreate(Landroid/os/Bundle;)V
 
-    :cond_4
+    :goto_0
     invoke-virtual {p0}, Landroid/app/Dialog;->onStart()V
 
-    instance-of v8, p0, Landroid/app/ProgressDialog;
+    iget-object v11, p0, Landroid/app/Dialog;->mWindow:Landroid/view/Window;
 
-    if-eqz v8, :cond_5
+    invoke-virtual {v11}, Landroid/view/Window;->getDecorView()Landroid/view/View;
 
-    move-object v8, p0
+    move-result-object v11
 
-    check-cast v8, Landroid/app/ProgressDialog;
+    iput-object v11, p0, Landroid/app/Dialog;->mDecor:Landroid/view/View;
 
-    invoke-virtual {v8}, Landroid/app/ProgressDialog;->getCurrentProgressStyle()I
+    iget-object v11, p0, Landroid/app/Dialog;->mActionBar:Landroid/app/ActionBar;
 
-    move-result v8
+    if-nez v11, :cond_4
 
-    const/16 v9, 0x3e8
+    iget-object v11, p0, Landroid/app/Dialog;->mWindow:Landroid/view/Window;
 
-    if-ne v8, v9, :cond_5
+    invoke-virtual {v11, v14}, Landroid/view/Window;->hasFeature(I)Z
 
-    iget-object v8, p0, Landroid/app/Dialog;->mWindow:Landroid/view/Window;
+    move-result v11
 
-    invoke-virtual {v8}, Landroid/view/Window;->getAttributes()Landroid/view/WindowManager$LayoutParams;
+    if-eqz v11, :cond_4
 
-    move-result-object v5
+    iget-object v11, p0, Landroid/app/Dialog;->mContext:Landroid/content/Context;
 
-    iget-object v8, p0, Landroid/app/Dialog;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v8}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v8
-
-    const v9, 0x10501a7
-
-    invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
-
-    move-result v1
-
-    iput v1, v5, Landroid/view/WindowManager$LayoutParams;->height:I
-
-    iput v1, v5, Landroid/view/WindowManager$LayoutParams;->width:I
-
-    iget-object v8, p0, Landroid/app/Dialog;->mWindow:Landroid/view/Window;
-
-    invoke-virtual {v8, v5}, Landroid/view/Window;->setAttributes(Landroid/view/WindowManager$LayoutParams;)V
-
-    :cond_5
-    iget-object v8, p0, Landroid/app/Dialog;->mWindow:Landroid/view/Window;
-
-    invoke-virtual {v8}, Landroid/view/Window;->getDecorView()Landroid/view/View;
-
-    move-result-object v8
-
-    iput-object v8, p0, Landroid/app/Dialog;->mDecor:Landroid/view/View;
-
-    iget-object v8, p0, Landroid/app/Dialog;->mActionBar:Landroid/app/ActionBar;
-
-    if-nez v8, :cond_6
-
-    iget-object v8, p0, Landroid/app/Dialog;->mWindow:Landroid/view/Window;
-
-    invoke-virtual {v8, v11}, Landroid/view/Window;->hasFeature(I)Z
-
-    move-result v8
-
-    if-eqz v8, :cond_6
-
-    iget-object v8, p0, Landroid/app/Dialog;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v8}, Landroid/content/Context;->getApplicationInfo()Landroid/content/pm/ApplicationInfo;
-
-    move-result-object v2
-
-    iget-object v8, p0, Landroid/app/Dialog;->mWindow:Landroid/view/Window;
-
-    iget v9, v2, Landroid/content/pm/ApplicationInfo;->icon:I
-
-    invoke-virtual {v8, v9}, Landroid/view/Window;->setDefaultIcon(I)V
-
-    iget-object v8, p0, Landroid/app/Dialog;->mWindow:Landroid/view/Window;
-
-    iget v9, v2, Landroid/content/pm/ApplicationInfo;->logo:I
-
-    invoke-virtual {v8, v9}, Landroid/view/Window;->setDefaultLogo(I)V
-
-    new-instance v8, Lcom/android/internal/app/WindowDecorActionBar;
-
-    invoke-direct {v8, p0}, Lcom/android/internal/app/WindowDecorActionBar;-><init>(Landroid/app/Dialog;)V
-
-    iput-object v8, p0, Landroid/app/Dialog;->mActionBar:Landroid/app/ActionBar;
-
-    :cond_6
-    iget-object v8, p0, Landroid/app/Dialog;->mWindow:Landroid/view/Window;
-
-    invoke-virtual {v8}, Landroid/view/Window;->getAttributes()Landroid/view/WindowManager$LayoutParams;
+    invoke-virtual {v11}, Landroid/content/Context;->getApplicationInfo()Landroid/content/pm/ApplicationInfo;
 
     move-result-object v4
 
-    iget v8, v4, Landroid/view/WindowManager$LayoutParams;->softInputMode:I
+    iget-object v11, p0, Landroid/app/Dialog;->mWindow:Landroid/view/Window;
 
-    and-int/lit16 v8, v8, 0x100
+    iget v12, v4, Landroid/content/pm/ApplicationInfo;->icon:I
 
-    if-nez v8, :cond_7
+    invoke-virtual {v11, v12}, Landroid/view/Window;->setDefaultIcon(I)V
 
-    new-instance v7, Landroid/view/WindowManager$LayoutParams;
+    iget-object v11, p0, Landroid/app/Dialog;->mWindow:Landroid/view/Window;
 
-    invoke-direct {v7}, Landroid/view/WindowManager$LayoutParams;-><init>()V
+    iget v12, v4, Landroid/content/pm/ApplicationInfo;->logo:I
 
-    invoke-virtual {v7, v4}, Landroid/view/WindowManager$LayoutParams;->copyFrom(Landroid/view/WindowManager$LayoutParams;)I
+    invoke-virtual {v11, v12}, Landroid/view/Window;->setDefaultLogo(I)V
 
-    iget v8, v7, Landroid/view/WindowManager$LayoutParams;->softInputMode:I
+    new-instance v11, Lcom/android/internal/app/WindowDecorActionBar;
 
-    or-int/lit16 v8, v8, 0x100
+    invoke-direct {v11, p0}, Lcom/android/internal/app/WindowDecorActionBar;-><init>(Landroid/app/Dialog;)V
 
-    iput v8, v7, Landroid/view/WindowManager$LayoutParams;->softInputMode:I
+    iput-object v11, p0, Landroid/app/Dialog;->mActionBar:Landroid/app/ActionBar;
 
-    move-object v4, v7
+    :cond_4
+    iget-object v11, p0, Landroid/app/Dialog;->mWindow:Landroid/view/Window;
 
-    :cond_7
-    const/4 v3, 0x0
+    invoke-virtual {v11}, Landroid/view/Window;->getAttributes()Landroid/view/WindowManager$LayoutParams;
 
-    iget-boolean v8, p0, Landroid/app/Dialog;->mIsDeviceDefaultLight:Z
+    move-result-object v7
 
-    if-eqz v8, :cond_8
+    iget v11, v7, Landroid/view/WindowManager$LayoutParams;->softInputMode:I
 
-    iget v8, v4, Landroid/view/WindowManager$LayoutParams;->flags:I
+    and-int/lit16 v11, v11, 0x100
 
-    const/high16 v9, 0x20000
+    if-nez v11, :cond_5
 
-    and-int/2addr v8, v9
+    new-instance v8, Landroid/view/WindowManager$LayoutParams;
 
-    if-eqz v8, :cond_8
+    invoke-direct {v8}, Landroid/view/WindowManager$LayoutParams;-><init>()V
+
+    invoke-virtual {v8, v7}, Landroid/view/WindowManager$LayoutParams;->copyFrom(Landroid/view/WindowManager$LayoutParams;)I
+
+    iget v11, v8, Landroid/view/WindowManager$LayoutParams;->softInputMode:I
+
+    or-int/lit16 v11, v11, 0x100
+
+    iput v11, v8, Landroid/view/WindowManager$LayoutParams;->softInputMode:I
+
+    move-object v7, v8
+
+    :cond_5
+    const/4 v5, 0x0
+
+    iget-boolean v11, p0, Landroid/app/Dialog;->mIsDeviceDefault:Z
+
+    if-eqz v11, :cond_9
+
+    iget v11, v7, Landroid/view/WindowManager$LayoutParams;->flags:I
+
+    const/high16 v12, 0x20000
+
+    and-int/2addr v11, v12
+
+    if-eqz v11, :cond_7
 
     invoke-direct {p0}, Landroid/app/Dialog;->getAssociatedActivityOfContext()Landroid/app/Activity;
 
     move-result-object v0
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_7
 
+    const/4 v9, 0x0
+
+    :try_start_0
     invoke-virtual {v0}, Landroid/app/Activity;->isInMultiWindowMode()Z
 
-    move-result v8
+    move-result v11
 
-    if-eqz v8, :cond_8
+    if-eqz v11, :cond_6
 
-    new-instance v6, Landroid/view/WindowManager$LayoutParams;
+    invoke-virtual {v0}, Landroid/app/Activity;->getWindowStackId()I
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    invoke-direct {v6}, Landroid/view/WindowManager$LayoutParams;-><init>()V
+    move-result v10
 
-    invoke-virtual {v6, v4}, Landroid/view/WindowManager$LayoutParams;->copyFrom(Landroid/view/WindowManager$LayoutParams;)I
+    const/4 v11, 0x2
 
-    iget v8, v6, Landroid/view/WindowManager$LayoutParams;->flags:I
+    if-eq v10, v11, :cond_6
 
-    const v9, -0x20001
+    const/4 v9, 0x1
 
-    and-int/2addr v8, v9
+    :cond_6
+    :goto_1
+    const/4 v6, 0x0
 
-    iput v8, v6, Landroid/view/WindowManager$LayoutParams;->flags:I
+    if-nez v9, :cond_c
 
-    iget-object v8, p0, Landroid/app/Dialog;->mWindowManager:Landroid/view/WindowManager;
+    :cond_7
+    :goto_2
+    instance-of v11, p0, Landroid/app/ProgressDialog;
 
-    iget-object v9, p0, Landroid/app/Dialog;->mDecor:Landroid/view/View;
+    if-eqz v11, :cond_8
 
-    invoke-interface {v8, v9, v6}, Landroid/view/WindowManager;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
+    move-object v11, p0
 
-    const/4 v3, 0x1
+    check-cast v11, Landroid/app/ProgressDialog;
+
+    invoke-virtual {v11}, Landroid/app/ProgressDialog;->getCurrentProgressStyle()I
+
+    move-result v11
+
+    const/16 v12, 0x3e8
+
+    if-ne v11, v12, :cond_8
+
+    iget-object v11, p0, Landroid/app/Dialog;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v11}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v11
+
+    const v12, 0x10503b8
+
+    invoke-virtual {v11, v12}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v2
+
+    iput v2, v7, Landroid/view/WindowManager$LayoutParams;->height:I
+
+    iput v2, v7, Landroid/view/WindowManager$LayoutParams;->width:I
 
     :cond_8
-    if-nez v3, :cond_9
+    iget-object v11, p0, Landroid/app/Dialog;->mContext:Landroid/content/Context;
 
-    iget-object v8, p0, Landroid/app/Dialog;->mWindowManager:Landroid/view/WindowManager;
+    invoke-virtual {v11}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    iget-object v9, p0, Landroid/app/Dialog;->mDecor:Landroid/view/View;
+    move-result-object v11
 
-    invoke-interface {v8, v9, v4}, Landroid/view/WindowManager;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
+    const v12, 0x10e011a
+
+    invoke-virtual {v11, v12}, Landroid/content/res/Resources;->getInteger(I)I
+
+    move-result v11
+
+    int-to-long v12, v11
+
+    iput-wide v12, v7, Landroid/view/WindowManager$LayoutParams;->dimDuration:J
 
     :cond_9
-    const/4 v8, 0x1
+    if-nez v5, :cond_a
 
-    iput-boolean v8, p0, Landroid/app/Dialog;->mShowing:Z
+    iget-object v11, p0, Landroid/app/Dialog;->mWindowManager:Landroid/view/WindowManager;
+
+    iget-object v12, p0, Landroid/app/Dialog;->mDecor:Landroid/view/View;
+
+    invoke-interface {v11, v12, v7}, Landroid/view/WindowManager;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
+
+    :cond_a
+    const/4 v11, 0x1
+
+    iput-boolean v11, p0, Landroid/app/Dialog;->mShowing:Z
 
     invoke-direct {p0}, Landroid/app/Dialog;->sendShowMessage()V
 
     return-void
+
+    :cond_b
+    iget-object v11, p0, Landroid/app/Dialog;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v11}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v11
+
+    invoke-virtual {v11}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
+
+    move-result-object v1
+
+    iget-object v11, p0, Landroid/app/Dialog;->mWindow:Landroid/view/Window;
+
+    invoke-virtual {v11}, Landroid/view/Window;->getDecorView()Landroid/view/View;
+
+    move-result-object v11
+
+    invoke-virtual {v11, v1}, Landroid/view/View;->dispatchConfigurationChanged(Landroid/content/res/Configuration;)V
+
+    goto/16 :goto_0
+
+    :cond_c
+    iget v11, v7, Landroid/view/WindowManager$LayoutParams;->flags:I
+
+    const v12, -0x20001
+
+    and-int/2addr v11, v12
+
+    iput v11, v7, Landroid/view/WindowManager$LayoutParams;->flags:I
+
+    iget-object v11, p0, Landroid/app/Dialog;->mWindowManager:Landroid/view/WindowManager;
+
+    iget-object v12, p0, Landroid/app/Dialog;->mDecor:Landroid/view/View;
+
+    invoke-interface {v11, v12, v7}, Landroid/view/WindowManager;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
+
+    const/4 v5, 0x1
+
+    goto :goto_2
+
+    :catch_0
+    move-exception v3
+
+    goto :goto_1
 .end method
 
 .method public takeCancelAndDismissListeners(Ljava/lang/String;Landroid/content/DialogInterface$OnCancelListener;Landroid/content/DialogInterface$OnDismissListener;)Z

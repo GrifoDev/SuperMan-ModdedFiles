@@ -10,6 +10,7 @@
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Landroid/media/midi/MidiDeviceServer$1;,
+        Landroid/media/midi/MidiDeviceServer$2;,
         Landroid/media/midi/MidiDeviceServer$Callback;,
         Landroid/media/midi/MidiDeviceServer$InputPortClient;,
         Landroid/media/midi/MidiDeviceServer$OutputPortClient;,
@@ -29,7 +30,21 @@
 
 .field private final mGuard:Ldalvik/system/CloseGuard;
 
+.field private final mInputPortClients:Ljava/util/HashMap;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/HashMap",
+            "<",
+            "Landroid/media/midi/MidiInputPort;",
+            "Landroid/media/midi/MidiDeviceServer$PortClient;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 .field private final mInputPortCount:I
+
+.field private final mInputPortFailureHandler:Lcom/android/internal/midi/MidiDispatcher$MidiReceiverFailureHandler;
 
 .field private final mInputPortOpen:[Z
 
@@ -90,7 +105,15 @@
     return-object v0
 .end method
 
-.method static synthetic -get10(Landroid/media/midi/MidiDeviceServer;)Ljava/util/HashMap;
+.method static synthetic -get10(Landroid/media/midi/MidiDeviceServer;)[I
+    .locals 1
+
+    iget-object v0, p0, Landroid/media/midi/MidiDeviceServer;->mOutputPortOpenCount:[I
+
+    return-object v0
+.end method
+
+.method static synthetic -get11(Landroid/media/midi/MidiDeviceServer;)Ljava/util/HashMap;
     .locals 1
 
     iget-object v0, p0, Landroid/media/midi/MidiDeviceServer;->mPortClients:Ljava/util/HashMap;
@@ -98,7 +121,15 @@
     return-object v0
 .end method
 
-.method static synthetic -get2(Landroid/media/midi/MidiDeviceServer;)I
+.method static synthetic -get2(Landroid/media/midi/MidiDeviceServer;)Ljava/util/HashMap;
+    .locals 1
+
+    iget-object v0, p0, Landroid/media/midi/MidiDeviceServer;->mInputPortClients:Ljava/util/HashMap;
+
+    return-object v0
+.end method
+
+.method static synthetic -get3(Landroid/media/midi/MidiDeviceServer;)I
     .locals 1
 
     iget v0, p0, Landroid/media/midi/MidiDeviceServer;->mInputPortCount:I
@@ -106,7 +137,7 @@
     return v0
 .end method
 
-.method static synthetic -get3(Landroid/media/midi/MidiDeviceServer;)[Z
+.method static synthetic -get4(Landroid/media/midi/MidiDeviceServer;)[Z
     .locals 1
 
     iget-object v0, p0, Landroid/media/midi/MidiDeviceServer;->mInputPortOpen:[Z
@@ -114,7 +145,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get4(Landroid/media/midi/MidiDeviceServer;)[Landroid/media/midi/MidiOutputPort;
+.method static synthetic -get5(Landroid/media/midi/MidiDeviceServer;)[Landroid/media/midi/MidiOutputPort;
     .locals 1
 
     iget-object v0, p0, Landroid/media/midi/MidiDeviceServer;->mInputPortOutputPorts:[Landroid/media/midi/MidiOutputPort;
@@ -122,7 +153,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get5(Landroid/media/midi/MidiDeviceServer;)[Landroid/media/midi/MidiReceiver;
+.method static synthetic -get6(Landroid/media/midi/MidiDeviceServer;)[Landroid/media/midi/MidiReceiver;
     .locals 1
 
     iget-object v0, p0, Landroid/media/midi/MidiDeviceServer;->mInputPortReceivers:[Landroid/media/midi/MidiReceiver;
@@ -130,7 +161,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get6(Landroid/media/midi/MidiDeviceServer;)Ljava/util/concurrent/CopyOnWriteArrayList;
+.method static synthetic -get7(Landroid/media/midi/MidiDeviceServer;)Ljava/util/concurrent/CopyOnWriteArrayList;
     .locals 1
 
     iget-object v0, p0, Landroid/media/midi/MidiDeviceServer;->mInputPorts:Ljava/util/concurrent/CopyOnWriteArrayList;
@@ -138,7 +169,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get7(Landroid/media/midi/MidiDeviceServer;)I
+.method static synthetic -get8(Landroid/media/midi/MidiDeviceServer;)I
     .locals 1
 
     iget v0, p0, Landroid/media/midi/MidiDeviceServer;->mOutputPortCount:I
@@ -146,18 +177,10 @@
     return v0
 .end method
 
-.method static synthetic -get8(Landroid/media/midi/MidiDeviceServer;)[Lcom/android/internal/midi/MidiDispatcher;
+.method static synthetic -get9(Landroid/media/midi/MidiDeviceServer;)[Lcom/android/internal/midi/MidiDispatcher;
     .locals 1
 
     iget-object v0, p0, Landroid/media/midi/MidiDeviceServer;->mOutputPortDispatchers:[Lcom/android/internal/midi/MidiDispatcher;
-
-    return-object v0
-.end method
-
-.method static synthetic -get9(Landroid/media/midi/MidiDeviceServer;)[I
-    .locals 1
-
-    iget-object v0, p0, Landroid/media/midi/MidiDeviceServer;->mOutputPortOpenCount:[I
 
     return-object v0
 .end method
@@ -170,7 +193,17 @@
     return-object p1
 .end method
 
-.method static synthetic -wrap0(Landroid/media/midi/MidiDeviceServer;)V
+.method static synthetic -wrap0()[Ljava/io/FileDescriptor;
+    .locals 1
+
+    invoke-static {}, Landroid/media/midi/MidiDeviceServer;->createSeqPacketSocketPair()[Ljava/io/FileDescriptor;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method static synthetic -wrap1(Landroid/media/midi/MidiDeviceServer;)V
     .locals 0
 
     invoke-direct {p0}, Landroid/media/midi/MidiDeviceServer;->updateDeviceStatus()V
@@ -179,7 +212,7 @@
 .end method
 
 .method constructor <init>(Landroid/media/midi/IMidiManager;[Landroid/media/midi/MidiReceiver;ILandroid/media/midi/MidiDeviceServer$Callback;)V
-    .locals 3
+    .locals 4
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -201,11 +234,23 @@
 
     iput-object v1, p0, Landroid/media/midi/MidiDeviceServer;->mPortClients:Ljava/util/HashMap;
 
+    new-instance v1, Ljava/util/HashMap;
+
+    invoke-direct {v1}, Ljava/util/HashMap;-><init>()V
+
+    iput-object v1, p0, Landroid/media/midi/MidiDeviceServer;->mInputPortClients:Ljava/util/HashMap;
+
     new-instance v1, Landroid/media/midi/MidiDeviceServer$1;
 
     invoke-direct {v1, p0}, Landroid/media/midi/MidiDeviceServer$1;-><init>(Landroid/media/midi/MidiDeviceServer;)V
 
     iput-object v1, p0, Landroid/media/midi/MidiDeviceServer;->mServer:Landroid/media/midi/IMidiDeviceServer;
+
+    new-instance v1, Landroid/media/midi/MidiDeviceServer$2;
+
+    invoke-direct {v1, p0}, Landroid/media/midi/MidiDeviceServer$2;-><init>(Landroid/media/midi/MidiDeviceServer;)V
+
+    iput-object v1, p0, Landroid/media/midi/MidiDeviceServer;->mInputPortFailureHandler:Lcom/android/internal/midi/MidiDispatcher$MidiReceiverFailureHandler;
 
     iput-object p1, p0, Landroid/media/midi/MidiDeviceServer;->mMidiManager:Landroid/media/midi/IMidiManager;
 
@@ -238,7 +283,9 @@
 
     new-instance v2, Lcom/android/internal/midi/MidiDispatcher;
 
-    invoke-direct {v2}, Lcom/android/internal/midi/MidiDispatcher;-><init>()V
+    iget-object v3, p0, Landroid/media/midi/MidiDeviceServer;->mInputPortFailureHandler:Lcom/android/internal/midi/MidiDispatcher$MidiReceiverFailureHandler;
+
+    invoke-direct {v2, v3}, Lcom/android/internal/midi/MidiDispatcher;-><init>(Lcom/android/internal/midi/MidiDispatcher$MidiReceiverFailureHandler;)V
 
     aput-object v2, v1, v0
 
@@ -278,6 +325,57 @@
     iput-object p3, p0, Landroid/media/midi/MidiDeviceServer;->mDeviceInfo:Landroid/media/midi/MidiDeviceInfo;
 
     return-void
+.end method
+
+.method private static createSeqPacketSocketPair()[Ljava/io/FileDescriptor;
+    .locals 6
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    :try_start_0
+    new-instance v1, Ljava/io/FileDescriptor;
+
+    invoke-direct {v1}, Ljava/io/FileDescriptor;-><init>()V
+
+    new-instance v2, Ljava/io/FileDescriptor;
+
+    invoke-direct {v2}, Ljava/io/FileDescriptor;-><init>()V
+
+    sget v3, Landroid/system/OsConstants;->AF_UNIX:I
+
+    sget v4, Landroid/system/OsConstants;->SOCK_SEQPACKET:I
+
+    const/4 v5, 0x0
+
+    invoke-static {v3, v4, v5, v1, v2}, Landroid/system/Os;->socketpair(IIILjava/io/FileDescriptor;Ljava/io/FileDescriptor;)V
+
+    const/4 v3, 0x2
+
+    new-array v3, v3, [Ljava/io/FileDescriptor;
+
+    const/4 v4, 0x0
+
+    aput-object v1, v3, v4
+
+    const/4 v4, 0x1
+
+    aput-object v2, v3, v4
+    :try_end_0
+    .catch Landroid/system/ErrnoException; {:try_start_0 .. :try_end_0} :catch_0
+
+    return-object v3
+
+    :catch_0
+    move-exception v0
+
+    invoke-virtual {v0}, Landroid/system/ErrnoException;->rethrowAsIOException()Ljava/io/IOException;
+
+    move-result-object v3
+
+    throw v3
 .end method
 
 .method private updateDeviceStatus()V

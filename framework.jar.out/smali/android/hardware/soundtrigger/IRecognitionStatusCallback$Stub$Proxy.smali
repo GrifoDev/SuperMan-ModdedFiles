@@ -118,7 +118,7 @@
 
     const/4 v1, 0x0
 
-    invoke-virtual {p1, v0, v1}, Landroid/hardware/soundtrigger/SoundTrigger$RecognitionEvent;->writeToParcel(Landroid/os/Parcel;I)V
+    invoke-virtual {p1, v0, v1}, Landroid/hardware/soundtrigger/SoundTrigger$GenericRecognitionEvent;->writeToParcel(Landroid/os/Parcel;I)V
 
     :goto_0
     iget-object v1, p0, Landroid/hardware/soundtrigger/IRecognitionStatusCallback$Stub$Proxy;->mRemote:Landroid/os/IBinder;

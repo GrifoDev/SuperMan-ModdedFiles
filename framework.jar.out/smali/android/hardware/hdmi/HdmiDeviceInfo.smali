@@ -366,9 +366,7 @@
     :cond_0
     move-object v0, p1
 
-    nop
-
-    nop
+    check-cast v0, Landroid/hardware/hdmi/HdmiDeviceInfo;
 
     iget v2, p0, Landroid/hardware/hdmi/HdmiDeviceInfo;->mHdmiDeviceType:I
 

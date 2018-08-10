@@ -68,7 +68,7 @@
     :goto_0
     iget-object v2, p0, Lcom/samsung/android/cover/ICoverManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x10
+    const/16 v3, 0x11
 
     const/4 v4, 0x0
 
@@ -148,7 +148,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/cover/ICoverManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x9
+    const/16 v3, 0xa
 
     const/4 v4, 0x0
 
@@ -210,7 +210,7 @@
     :goto_0
     iget-object v3, p0, Lcom/samsung/android/cover/ICoverManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x13
+    const/16 v4, 0x14
 
     const/4 v5, 0x0
 
@@ -296,7 +296,7 @@
     :goto_0
     iget-object v3, p0, Lcom/samsung/android/cover/ICoverManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x14
+    const/16 v4, 0x15
 
     const/4 v5, 0x0
 
@@ -438,7 +438,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/cover/ICoverManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x18
+    const/16 v4, 0x1b
 
     const/4 v5, 0x0
 
@@ -468,6 +468,69 @@
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
     return-object v2
+
+    :cond_0
+    const/4 v2, 0x0
+
+    goto :goto_0
+
+    :catchall_0
+    move-exception v3
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    throw v3
+.end method
+
+.method public getCoverSwitchState()Z
+    .locals 6
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v1
+
+    :try_start_0
+    const-string/jumbo v3, "com.samsung.android.cover.ICoverManager"
+
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    iget-object v3, p0, Lcom/samsung/android/cover/ICoverManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+
+    const/16 v4, 0x8
+
+    const/4 v5, 0x0
+
+    invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result v3
+
+    if-eqz v3, :cond_0
+
+    const/4 v2, 0x1
+
+    :goto_0
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    return v2
 
     :cond_0
     const/4 v2, 0x0
@@ -515,7 +578,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/cover/ICoverManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0xa
+    const/16 v4, 0xb
 
     const/4 v5, 0x0
 
@@ -568,7 +631,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/cover/ICoverManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x8
+    const/16 v4, 0x9
 
     const/4 v5, 0x0
 
@@ -846,7 +909,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/cover/ICoverManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x15
+    const/16 v4, 0x18
 
     const/4 v5, 0x0
 
@@ -899,7 +962,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/cover/ICoverManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x19
+    const/16 v4, 0x1c
 
     const/4 v5, 0x0
 
@@ -1129,7 +1192,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/cover/ICoverManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x16
+    const/16 v3, 0x19
 
     const/4 v4, 0x0
 
@@ -1203,7 +1266,7 @@
     :goto_0
     iget-object v2, p0, Lcom/samsung/android/cover/ICoverManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0xd
+    const/16 v3, 0xe
 
     const/4 v4, 0x0
 
@@ -1273,7 +1336,7 @@
     :goto_0
     iget-object v2, p0, Lcom/samsung/android/cover/ICoverManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x11
+    const/16 v3, 0x12
 
     const/4 v4, 0x0
 
@@ -1309,6 +1372,92 @@
     throw v2
 .end method
 
+.method public requestCoverAuthentication(Landroid/os/IBinder;Landroid/content/ComponentName;)Z
+    .locals 6
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v1
+
+    :try_start_0
+    const-string/jumbo v3, "com.samsung.android.cover.ICoverManager"
+
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
+
+    if-eqz p2, :cond_0
+
+    const/4 v3, 0x1
+
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
+
+    const/4 v3, 0x0
+
+    invoke-virtual {p2, v0, v3}, Landroid/content/ComponentName;->writeToParcel(Landroid/os/Parcel;I)V
+
+    :goto_0
+    iget-object v3, p0, Lcom/samsung/android/cover/ICoverManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+
+    const/16 v4, 0x16
+
+    const/4 v5, 0x0
+
+    invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result v3
+
+    if-eqz v3, :cond_1
+
+    const/4 v2, 0x1
+
+    :goto_1
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    return v2
+
+    :cond_0
+    const/4 v3, 0x0
+
+    :try_start_1
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    goto :goto_0
+
+    :catchall_0
+    move-exception v3
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    throw v3
+
+    :cond_1
+    const/4 v2, 0x0
+
+    goto :goto_1
+.end method
+
 .method public sendDataToCover(I[B)V
     .locals 5
     .annotation system Ldalvik/annotation/Throws;
@@ -1336,7 +1485,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/cover/ICoverManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0xb
+    const/16 v3, 0xc
 
     const/4 v4, 0x0
 
@@ -1389,7 +1538,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/cover/ICoverManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0xf
+    const/16 v3, 0x10
 
     const/4 v4, 0x0
 
@@ -1438,7 +1587,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/cover/ICoverManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0xc
+    const/16 v3, 0xd
 
     const/4 v4, 0x0
 
@@ -1498,7 +1647,7 @@
     :goto_0
     iget-object v2, p0, Lcom/samsung/android/cover/ICoverManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x12
+    const/16 v3, 0x13
 
     const/4 v4, 0x0
 
@@ -1563,7 +1712,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/cover/ICoverManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x1a
+    const/16 v3, 0x1d
 
     const/4 v4, 0x0
 
@@ -1614,7 +1763,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/cover/ICoverManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x1b
+    const/16 v3, 0x1e
 
     const/4 v4, 0x0
 
@@ -1638,6 +1787,106 @@
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
     throw v2
+.end method
+
+.method public setFotaInProgress(ZLandroid/os/IBinder;Landroid/content/ComponentName;)Z
+    .locals 6
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    const/4 v3, 0x1
+
+    const/4 v4, 0x0
+
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v1
+
+    :try_start_0
+    const-string/jumbo v5, "com.samsung.android.cover.ICoverManager"
+
+    invoke-virtual {v0, v5}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    if-eqz p1, :cond_0
+
+    :goto_0
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
+
+    invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
+
+    if-eqz p3, :cond_1
+
+    const/4 v3, 0x1
+
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
+
+    const/4 v3, 0x0
+
+    invoke-virtual {p3, v0, v3}, Landroid/content/ComponentName;->writeToParcel(Landroid/os/Parcel;I)V
+
+    :goto_1
+    iget-object v3, p0, Lcom/samsung/android/cover/ICoverManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+
+    const/16 v4, 0x17
+
+    const/4 v5, 0x0
+
+    invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result v3
+
+    if-eqz v3, :cond_2
+
+    const/4 v2, 0x1
+
+    :goto_2
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    return v2
+
+    :cond_0
+    move v3, v4
+
+    goto :goto_0
+
+    :cond_1
+    const/4 v3, 0x0
+
+    :try_start_1
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    goto :goto_1
+
+    :catchall_0
+    move-exception v3
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    throw v3
+
+    :cond_2
+    const/4 v2, 0x0
+
+    goto :goto_2
 .end method
 
 .method public unregisterCallback(Landroid/os/IBinder;)Z
@@ -1730,7 +1979,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/cover/ICoverManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x17
+    const/16 v4, 0x1a
 
     const/4 v5, 0x0
 
@@ -1795,7 +2044,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/cover/ICoverManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0xe
+    const/16 v4, 0xf
 
     const/4 v5, 0x0
 

@@ -55,7 +55,7 @@
 
 
 # virtual methods
-.method public abstract addListener(Landroid/hardware/ICameraServiceListener;)V
+.method public abstract addListener(Landroid/hardware/ICameraServiceListener;)[Landroid/hardware/CameraStatus;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -71,7 +71,7 @@
     .end annotation
 .end method
 
-.method public abstract connectDevice(Landroid/hardware/camera2/ICameraDeviceCallbacks;ILjava/lang/String;I)Landroid/hardware/camera2/ICameraDeviceUser;
+.method public abstract connectDevice(Landroid/hardware/camera2/ICameraDeviceCallbacks;Ljava/lang/String;Ljava/lang/String;I)Landroid/hardware/camera2/ICameraDeviceUser;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -87,7 +87,7 @@
     .end annotation
 .end method
 
-.method public abstract getCameraCharacteristics(I)Landroid/hardware/camera2/impl/CameraMetadataNative;
+.method public abstract getCameraCharacteristics(Ljava/lang/String;)Landroid/hardware/camera2/impl/CameraMetadataNative;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -96,6 +96,14 @@
 .end method
 
 .method public abstract getCameraInfo(I)Landroid/hardware/CameraInfo;
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract getCameraVendorTagCache()Landroid/hardware/camera2/params/VendorTagDescriptorCache;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -151,7 +159,7 @@
     .end annotation
 .end method
 
-.method public abstract supportsCameraApi(II)Z
+.method public abstract supportsCameraApi(Ljava/lang/String;I)Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

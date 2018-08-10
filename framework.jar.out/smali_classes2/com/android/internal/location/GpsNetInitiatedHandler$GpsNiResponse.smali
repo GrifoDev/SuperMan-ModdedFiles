@@ -15,8 +15,6 @@
 
 
 # instance fields
-.field extras:Landroid/os/Bundle;
-
 .field userResponse:I
 
 

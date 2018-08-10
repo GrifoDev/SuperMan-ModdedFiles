@@ -230,7 +230,7 @@
 .method private log_warning(Ljava/lang/String;Ljava/lang/String;)V
     .locals 3
 
-    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+    invoke-virtual {p0}, Landroid/media/WebVttParser;->getClass()Ljava/lang/Class;
 
     move-result-object v0
 
@@ -274,7 +274,7 @@
 .method private log_warning(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
     .locals 3
 
-    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+    invoke-virtual {p0}, Landroid/media/WebVttParser;->getClass()Ljava/lang/Class;
 
     move-result-object v0
 
@@ -338,7 +338,7 @@
 .method private log_warning(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
     .locals 3
 
-    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+    invoke-virtual {p0}, Landroid/media/WebVttParser;->getClass()Ljava/lang/Class;
 
     move-result-object v0
 

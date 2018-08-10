@@ -22,7 +22,7 @@
 
     new-instance v0, Ljava/lang/String;
 
-    const-string/jumbo v1, "1.6.0"
+    const-string/jumbo v1, "1.7.0"
 
     invoke-direct {v0, v1}, Ljava/lang/String;-><init>(Ljava/lang/String;)V
 

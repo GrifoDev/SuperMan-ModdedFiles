@@ -4,8 +4,6 @@
 
 
 # static fields
-.field private static final DEBUG:Z
-
 .field private static final TAG:Ljava/lang/String; = "KernelCpuSpeedReader"
 
 
@@ -20,36 +18,6 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 2
-
-    const-string/jumbo v0, "0x4f4c"
-
-    const-string/jumbo v1, "ro.debug_level"
-
-    invoke-static {v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    const/4 v0, 0x0
-
-    :goto_0
-    sput-boolean v0, Lcom/android/internal/os/KernelCpuSpeedReader;->DEBUG:Z
-
-    return-void
-
-    :cond_0
-    const/4 v0, 0x1
-
-    goto :goto_0
-.end method
-
 .method public constructor <init>(II)V
     .locals 6
 
@@ -105,7 +73,9 @@
 .method public readDelta()[J
     .locals 19
 
-    const-string/jumbo v4, ""
+    invoke-static {}, Landroid/os/StrictMode;->allowThreadDiskReads()Landroid/os/StrictMode$ThreadPolicy;
+
+    move-result-object v4
 
     const/4 v12, 0x0
 
@@ -124,8 +94,8 @@
 
     invoke-direct {v6, v9}, Ljava/io/BufferedReader;-><init>(Ljava/io/Reader;)V
     :try_end_0
-    .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_7
-    .catchall {:try_start_0 .. :try_end_0} :catchall_1
+    .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_5
+    .catchall {:try_start_0 .. :try_end_0} :catchall_3
 
     :try_start_1
     new-instance v8, Landroid/text/TextUtils$SimpleStringSplitter;
@@ -143,15 +113,15 @@
 
     array-length v9, v9
 
-    if-ge v7, v9, :cond_3
+    if-ge v7, v9, :cond_2
 
     invoke-virtual {v6}, Ljava/io/BufferedReader;->readLine()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v3
 
-    if-eqz v4, :cond_3
+    if-eqz v3, :cond_2
 
-    invoke-virtual {v8, v4}, Landroid/text/TextUtils$SimpleStringSplitter;->setString(Ljava/lang/String;)V
+    invoke-virtual {v8, v3}, Landroid/text/TextUtils$SimpleStringSplitter;->setString(Ljava/lang/String;)V
 
     invoke-virtual {v8}, Landroid/text/TextUtils$SimpleStringSplitter;->next()Ljava/lang/String;
 
@@ -218,7 +188,7 @@
     aput-wide v14, v9, v7
     :try_end_1
     .catch Ljava/lang/Throwable; {:try_start_1 .. :try_end_1} :catch_0
-    .catchall {:try_start_1 .. :try_end_1} :catchall_2
+    .catchall {:try_start_1 .. :try_end_1} :catchall_4
 
     goto :goto_1
 
@@ -250,22 +220,23 @@
     :try_end_3
     .catch Ljava/lang/Throwable; {:try_start_3 .. :try_end_3} :catch_4
     .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_1
-    .catch Ljava/lang/NumberFormatException; {:try_start_3 .. :try_end_3} :catch_5
+    .catchall {:try_start_3 .. :try_end_3} :catchall_1
 
     :cond_1
     :goto_4
-    if-eqz v12, :cond_7
+    if-eqz v12, :cond_5
 
     :try_start_4
     throw v12
     :try_end_4
     .catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_1
-    .catch Ljava/lang/NumberFormatException; {:try_start_4 .. :try_end_4} :catch_5
+    .catchall {:try_start_4 .. :try_end_4} :catchall_1
 
     :catch_1
     move-exception v2
 
     :goto_5
+    :try_start_5
     const-string/jumbo v9, "KernelCpuSpeedReader"
 
     new-instance v12, Ljava/lang/StringBuilder;
@@ -299,8 +270,11 @@
     const-wide/16 v12, 0x0
 
     invoke-static {v9, v12, v13}, Ljava/util/Arrays;->fill([JJ)V
+    :try_end_5
+    .catchall {:try_start_5 .. :try_end_5} :catchall_1
 
-    :cond_2
+    invoke-static {v4}, Landroid/os/StrictMode;->setThreadPolicy(Landroid/os/StrictMode$ThreadPolicy;)V
+
     :goto_6
     move-object/from16 v0, p0
 
@@ -308,25 +282,25 @@
 
     return-object v9
 
-    :cond_3
-    if-eqz v6, :cond_4
-
-    :try_start_5
-    invoke-virtual {v6}, Ljava/io/BufferedReader;->close()V
-    :try_end_5
-    .catch Ljava/lang/Throwable; {:try_start_5 .. :try_end_5} :catch_3
-    .catch Ljava/io/IOException; {:try_start_5 .. :try_end_5} :catch_2
-    .catch Ljava/lang/NumberFormatException; {:try_start_5 .. :try_end_5} :catch_6
-
-    :cond_4
-    :goto_7
-    if-eqz v12, :cond_5
+    :cond_2
+    if-eqz v6, :cond_3
 
     :try_start_6
-    throw v12
+    invoke-virtual {v6}, Ljava/io/BufferedReader;->close()V
     :try_end_6
+    .catch Ljava/lang/Throwable; {:try_start_6 .. :try_end_6} :catch_3
     .catch Ljava/io/IOException; {:try_start_6 .. :try_end_6} :catch_2
-    .catch Ljava/lang/NumberFormatException; {:try_start_6 .. :try_end_6} :catch_6
+    .catchall {:try_start_6 .. :try_end_6} :catchall_2
+
+    :cond_3
+    :goto_7
+    if-eqz v12, :cond_6
+
+    :try_start_7
+    throw v12
+    :try_end_7
+    .catch Ljava/io/IOException; {:try_start_7 .. :try_end_7} :catch_2
+    .catchall {:try_start_7 .. :try_end_7} :catchall_2
 
     :catch_2
     move-exception v2
@@ -340,131 +314,69 @@
 
     goto :goto_7
 
-    :cond_5
-    move-object v5, v6
-
-    goto :goto_6
-
     :catch_4
     move-exception v13
 
-    if-nez v12, :cond_6
+    if-nez v12, :cond_4
 
     move-object v12, v13
 
     goto :goto_4
 
-    :cond_6
+    :cond_4
     if-eq v12, v13, :cond_1
 
-    :try_start_7
-    invoke-virtual {v12, v13}, Ljava/lang/Throwable;->addSuppressed(Ljava/lang/Throwable;)V
-    :try_end_7
-    .catch Ljava/io/IOException; {:try_start_7 .. :try_end_7} :catch_1
-    .catch Ljava/lang/NumberFormatException; {:try_start_7 .. :try_end_7} :catch_5
-
-    goto :goto_4
-
-    :catch_5
-    move-exception v3
-
-    :goto_8
-    const-string/jumbo v9, "KernelCpuSpeedReader"
-
-    new-instance v12, Ljava/lang/StringBuilder;
-
-    invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v13, "Failed to read cpu-freq: "
-
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v12
-
-    invoke-virtual {v3}, Ljava/lang/NumberFormatException;->getMessage()Ljava/lang/String;
-
-    move-result-object v13
-
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v12
-
-    invoke-virtual {v12}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v12
-
-    invoke-static {v9, v12}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    move-object/from16 v0, p0
-
-    iget-object v9, v0, Lcom/android/internal/os/KernelCpuSpeedReader;->mDeltaSpeedTimes:[J
-
-    const-wide/16 v12, 0x0
-
-    invoke-static {v9, v12, v13}, Ljava/util/Arrays;->fill([JJ)V
-
-    sget-boolean v9, Lcom/android/internal/os/KernelCpuSpeedReader;->DEBUG:Z
-
-    if-eqz v9, :cond_2
-
-    const-string/jumbo v9, "KernelCpuSpeedReader"
-
-    new-instance v12, Ljava/lang/StringBuilder;
-
-    invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v13, "line: "
-
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v12
-
-    invoke-virtual {v12, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v12
-
-    invoke-virtual {v12}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v12
-
-    invoke-static {v9, v12}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    new-instance v9, Ljava/lang/RuntimeException;
-
-    const-string/jumbo v12, "KernelCpuSpeedReader Exception"
-
-    invoke-direct {v9, v12}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
-
-    throw v9
-
-    :cond_7
     :try_start_8
-    throw v9
+    invoke-virtual {v12, v13}, Ljava/lang/Throwable;->addSuppressed(Ljava/lang/Throwable;)V
     :try_end_8
     .catch Ljava/io/IOException; {:try_start_8 .. :try_end_8} :catch_1
-    .catch Ljava/lang/NumberFormatException; {:try_start_8 .. :try_end_8} :catch_5
+    .catchall {:try_start_8 .. :try_end_8} :catchall_1
 
-    :catch_6
-    move-exception v3
-
-    move-object v5, v6
-
-    goto :goto_8
+    goto :goto_4
 
     :catchall_1
     move-exception v9
 
-    goto/16 :goto_3
+    :goto_8
+    invoke-static {v4}, Landroid/os/StrictMode;->setThreadPolicy(Landroid/os/StrictMode$ThreadPolicy;)V
+
+    throw v9
+
+    :cond_5
+    :try_start_9
+    throw v9
+    :try_end_9
+    .catch Ljava/io/IOException; {:try_start_9 .. :try_end_9} :catch_1
+    .catchall {:try_start_9 .. :try_end_9} :catchall_1
+
+    :cond_6
+    invoke-static {v4}, Landroid/os/StrictMode;->setThreadPolicy(Landroid/os/StrictMode$ThreadPolicy;)V
+
+    move-object v5, v6
+
+    goto :goto_6
 
     :catchall_2
     move-exception v9
 
     move-object v5, v6
 
-    goto/16 :goto_3
+    goto :goto_8
 
-    :catch_7
+    :catchall_3
     move-exception v9
 
-    goto/16 :goto_2
+    goto :goto_3
+
+    :catchall_4
+    move-exception v9
+
+    move-object v5, v6
+
+    goto :goto_3
+
+    :catch_5
+    move-exception v9
+
+    goto :goto_2
 .end method

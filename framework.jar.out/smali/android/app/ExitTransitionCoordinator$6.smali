@@ -3,7 +3,7 @@
 .source "ExitTransitionCoordinator.java"
 
 # interfaces
-.implements Landroid/app/Activity$TranslucentConversionListener;
+.implements Ljava/lang/Runnable;
 
 
 # annotations
@@ -34,21 +34,12 @@
 
 
 # virtual methods
-.method public onTranslucentConversionComplete(Z)V
+.method public run()V
     .locals 1
 
     iget-object v0, p0, Landroid/app/ExitTransitionCoordinator$6;->this$0:Landroid/app/ExitTransitionCoordinator;
 
-    invoke-static {v0}, Landroid/app/ExitTransitionCoordinator;->-get1(Landroid/app/ExitTransitionCoordinator;)Z
+    invoke-static {v0}, Landroid/app/ExitTransitionCoordinator;->-wrap5(Landroid/app/ExitTransitionCoordinator;)V
 
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    iget-object v0, p0, Landroid/app/ExitTransitionCoordinator$6;->this$0:Landroid/app/ExitTransitionCoordinator;
-
-    invoke-static {v0}, Landroid/app/ExitTransitionCoordinator;->-wrap2(Landroid/app/ExitTransitionCoordinator;)V
-
-    :cond_0
     return-void
 .end method

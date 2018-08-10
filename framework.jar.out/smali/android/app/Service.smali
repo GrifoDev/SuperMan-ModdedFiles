@@ -111,6 +111,16 @@
     goto :goto_0
 .end method
 
+.method public final detachAndCleanUp()V
+    .locals 1
+
+    const/4 v0, 0x0
+
+    iput-object v0, p0, Landroid/app/Service;->mToken:Landroid/os/IBinder;
+
+    return-void
+.end method
+
 .method protected dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
     .locals 1
 

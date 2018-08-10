@@ -94,7 +94,7 @@
 
     long-to-float v3, v0
 
-    const v11, 0x1040095
+    const v11, 0x104017a
 
     const-wide/16 v4, 0x1
 
@@ -104,11 +104,11 @@
 
     if-lez v13, :cond_1
 
-    const v11, 0x1040096
+    const v11, 0x1040485
 
-    const-wide/16 v4, 0x400
+    const-wide/16 v4, 0x3e8
 
-    const/high16 v13, 0x44800000    # 1024.0f
+    const/high16 v13, 0x447a0000    # 1000.0f
 
     div-float/2addr v3, v13
 
@@ -119,11 +119,13 @@
 
     if-lez v13, :cond_2
 
-    const v11, 0x1040097
+    const v11, 0x104056a
 
-    const-wide/32 v4, 0x100000
+    const-wide/16 v14, 0x3e8
 
-    const/high16 v13, 0x44800000    # 1024.0f
+    mul-long/2addr v4, v14
+
+    const/high16 v13, 0x447a0000    # 1000.0f
 
     div-float/2addr v3, v13
 
@@ -134,11 +136,13 @@
 
     if-lez v13, :cond_3
 
-    const v11, 0x1040098
+    const v11, 0x104038b
 
-    const-wide/32 v4, 0x40000000
+    const-wide/16 v14, 0x3e8
 
-    const/high16 v13, 0x44800000    # 1024.0f
+    mul-long/2addr v4, v14
+
+    const/high16 v13, 0x447a0000    # 1000.0f
 
     div-float/2addr v3, v13
 
@@ -149,11 +153,13 @@
 
     if-lez v13, :cond_4
 
-    const v11, 0x1040099
+    const v11, 0x1040a19
 
-    const-wide v4, 0x10000000000L
+    const-wide/16 v14, 0x3e8
 
-    const/high16 v13, 0x44800000    # 1024.0f
+    mul-long/2addr v4, v14
+
+    const/high16 v13, 0x447a0000    # 1000.0f
 
     div-float/2addr v3, v13
 
@@ -164,11 +170,13 @@
 
     if-lez v13, :cond_5
 
-    const v11, 0x104009a
+    const v11, 0x1040811
 
-    const-wide/high16 v4, 0x4000000000000L
+    const-wide/16 v14, 0x3e8
 
-    const/high16 v13, 0x44800000    # 1024.0f
+    mul-long/2addr v4, v14
+
+    const/high16 v13, 0x447a0000    # 1000.0f
 
     div-float/2addr v3, v13
 
@@ -347,7 +355,7 @@
 
     aput-object v2, v1, v3
 
-    const v2, 0x104009b
+    const v2, 0x1040358
 
     invoke-virtual {p0, v2, v1}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -472,7 +480,7 @@
 
     aput-object v7, v6, v8
 
-    const v7, 0x104009c
+    const v7, 0x10402e0
 
     invoke-virtual {p0, v7, v6}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -507,7 +515,7 @@
 
     aput-object v7, v6, v8
 
-    const v7, 0x104009e
+    const v7, 0x10402de
 
     invoke-virtual {p0, v7, v6}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -536,7 +544,7 @@
 
     aput-object v7, v6, v8
 
-    const v7, 0x104009d
+    const v7, 0x10402df
 
     invoke-virtual {p0, v7, v6}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -567,7 +575,7 @@
 
     aput-object v7, v6, v8
 
-    const v7, 0x104009f
+    const v7, 0x10402e3
 
     invoke-virtual {p0, v7, v6}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -602,7 +610,7 @@
 
     aput-object v7, v6, v8
 
-    const v7, 0x10400a1
+    const v7, 0x10402e1
 
     invoke-virtual {p0, v7, v6}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -631,7 +639,7 @@
 
     aput-object v7, v6, v8
 
-    const v7, 0x10400a0
+    const v7, 0x10402e2
 
     invoke-virtual {p0, v7, v6}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -662,7 +670,7 @@
 
     aput-object v7, v6, v8
 
-    const v7, 0x10400a2
+    const v7, 0x10402e7
 
     invoke-virtual {p0, v7, v6}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -697,7 +705,7 @@
 
     aput-object v7, v6, v8
 
-    const v7, 0x10400a5
+    const v7, 0x10402e5
 
     invoke-virtual {p0, v7, v6}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -726,7 +734,7 @@
 
     aput-object v7, v6, v8
 
-    const v7, 0x10400a4
+    const v7, 0x10402e6
 
     invoke-virtual {p0, v7, v6}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -751,7 +759,7 @@
 
     aput-object v7, v6, v8
 
-    const v7, 0x10400a7
+    const v7, 0x10402e8
 
     invoke-virtual {p0, v7, v6}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -772,7 +780,7 @@
 
     aput-object v7, v6, v8
 
-    const v7, 0x10400a6
+    const v7, 0x10402e9
 
     invoke-virtual {p0, v7, v6}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -812,7 +820,7 @@
 
     aput-object v3, v2, v4
 
-    const v3, 0x10400a2
+    const v3, 0x10402e7
 
     invoke-virtual {p0, v3, v2}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -833,7 +841,7 @@
 
     aput-object v3, v2, v4
 
-    const v3, 0x10400a3
+    const v3, 0x10402e4
 
     invoke-virtual {p0, v3, v2}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -885,7 +893,7 @@
 
     aput-object v2, v1, v4
 
-    const v2, 0x104009b
+    const v2, 0x1040358
 
     invoke-virtual {p0, v2, v1}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 

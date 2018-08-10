@@ -156,6 +156,54 @@
     return-object v0
 .end method
 
+.method public getLine(Ljava/lang/String;)Z
+    .locals 4
+
+    const/4 v3, 0x0
+
+    iget-object v2, p0, Landroid/service/notification/ZenModeConfig$Diff;->lines:Ljava/util/ArrayList;
+
+    invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    return v3
+
+    :cond_0
+    const/4 v1, 0x0
+
+    :goto_0
+    if-ge v1, v0, :cond_2
+
+    iget-object v2, p0, Landroid/service/notification/ZenModeConfig$Diff;->lines:Ljava/util/ArrayList;
+
+    invoke-virtual {v2, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Ljava/lang/String;
+
+    invoke-virtual {v2, p1}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    const/4 v2, 0x1
+
+    return v2
+
+    :cond_1
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_0
+
+    :cond_2
+    return v3
+.end method
+
 .method public toString()Ljava/lang/String;
     .locals 4
 

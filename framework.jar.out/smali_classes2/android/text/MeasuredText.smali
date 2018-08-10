@@ -4,11 +4,11 @@
 
 
 # static fields
+.field private static final arithmetic:Ljava/util/regex/Pattern;
+
 .field private static final localLOGV:Z
 
-.field private static final phoneNum1:Ljava/util/regex/Pattern;
-
-.field private static final phoneNum2:Ljava/util/regex/Pattern;
+.field private static final phoneNum:Ljava/util/regex/Pattern;
 
 .field private static final sCached:[Landroid/text/MeasuredText;
 
@@ -61,7 +61,7 @@
 
     move-result-object v0
 
-    sput-object v0, Landroid/text/MeasuredText;->phoneNum1:Ljava/util/regex/Pattern;
+    sput-object v0, Landroid/text/MeasuredText;->phoneNum:Ljava/util/regex/Pattern;
 
     const-string/jumbo v0, "[0-9]+([-/*+=. ]+([0-9]+))+"
 
@@ -69,7 +69,7 @@
 
     move-result-object v0
 
-    sput-object v0, Landroid/text/MeasuredText;->phoneNum2:Ljava/util/regex/Pattern;
+    sput-object v0, Landroid/text/MeasuredText;->arithmetic:Ljava/util/regex/Pattern;
 
     return-void
 .end method
@@ -314,7 +314,7 @@
 
     aget-char v2, v2, v3
 
-    invoke-static {v2}, Landroid/text/TextUtils;->isRegionalCharHandling(C)Z
+    invoke-static {v2}, Landroid/text/TextUtils;->semNeedMoreWidth(C)Z
 
     move-result v2
 
@@ -480,7 +480,7 @@
 
     aget-char v2, v2, v3
 
-    invoke-static {v2}, Landroid/text/TextUtils;->isRegionalCharHandling(C)Z
+    invoke-static {v2}, Landroid/text/TextUtils;->semNeedMoreWidth(C)Z
 
     move-result v2
 
@@ -1278,7 +1278,7 @@
 
     invoke-direct {v13, v0, v1, v11}, Ljava/lang/String;-><init>([CII)V
 
-    sget-object v18, Landroid/text/MeasuredText;->phoneNum1:Ljava/util/regex/Pattern;
+    sget-object v18, Landroid/text/MeasuredText;->phoneNum:Ljava/util/regex/Pattern;
 
     move-object/from16 v0, v18
 
@@ -1394,7 +1394,7 @@
     goto/16 :goto_2
 
     :cond_14
-    sget-object v18, Landroid/text/MeasuredText;->phoneNum2:Ljava/util/regex/Pattern;
+    sget-object v18, Landroid/text/MeasuredText;->arithmetic:Ljava/util/regex/Pattern;
 
     move-object/from16 v0, v18
 

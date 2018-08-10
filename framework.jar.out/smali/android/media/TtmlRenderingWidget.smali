@@ -83,7 +83,7 @@
 
     const/4 v2, 0x0
 
-    invoke-virtual {p0, v1, v2}, Landroid/view/View;->setLayerType(ILandroid/graphics/Paint;)V
+    invoke-virtual {p0, v1, v2}, Landroid/media/TtmlRenderingWidget;->setLayerType(ILandroid/graphics/Paint;)V
 
     const-string/jumbo v1, "captioning"
 
@@ -109,7 +109,7 @@
 
     const/16 v1, 0x51
 
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setGravity(I)V
+    invoke-virtual {v0, v1}, Landroid/media/TtmlRenderingWidget$CustomTextView;->setGravity(I)V
 
     iget-object v1, p0, Landroid/media/TtmlRenderingWidget;->mTextViewSet:Ljava/util/LinkedList;
 
@@ -194,7 +194,7 @@
         }
     .end annotation
 
-    invoke-virtual {p0}, Landroid/view/ViewGroup;->removeAllViews()V
+    invoke-virtual {p0}, Landroid/media/TtmlRenderingWidget;->removeAllViews()V
 
     iget-object v10, p0, Landroid/media/TtmlRenderingWidget;->mTextViewSet:Ljava/util/LinkedList;
 
@@ -312,7 +312,7 @@
 
     move-result v10
 
-    invoke-virtual {p0}, Landroid/view/View;->getHeight()I
+    invoke-virtual {p0}, Landroid/media/TtmlRenderingWidget;->getHeight()I
 
     move-result v11
 
@@ -350,7 +350,7 @@
 
     const/16 v11, 0x51
 
-    invoke-virtual {v10, v11}, Landroid/widget/TextView;->setGravity(I)V
+    invoke-virtual {v10, v11}, Landroid/media/TtmlRenderingWidget$CustomTextView;->setGravity(I)V
 
     iget-object v10, p0, Landroid/media/TtmlRenderingWidget;->mTextViewSet:Ljava/util/LinkedList;
 
@@ -362,7 +362,7 @@
 
     check-cast v10, Landroid/media/TtmlRenderingWidget$CustomTextView;
 
-    invoke-virtual {v10, v7}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+    invoke-virtual {v10, v7}, Landroid/media/TtmlRenderingWidget$CustomTextView;->setText(Ljava/lang/CharSequence;)V
 
     iget-object v10, p0, Landroid/media/TtmlRenderingWidget;->mTextViewSet:Ljava/util/LinkedList;
 
@@ -374,7 +374,7 @@
 
     check-cast v10, Landroid/media/TtmlRenderingWidget$CustomTextView;
 
-    invoke-virtual {v10, v3}, Landroid/widget/TextView;->setTextSize(F)V
+    invoke-virtual {v10, v3}, Landroid/media/TtmlRenderingWidget$CustomTextView;->setTextSize(F)V
 
     iget-object v10, p0, Landroid/media/TtmlRenderingWidget;->mTextViewSet:Ljava/util/LinkedList;
 
@@ -386,7 +386,7 @@
 
     check-cast v10, Landroid/media/TtmlRenderingWidget$CustomTextView;
 
-    invoke-virtual {v10}, Landroid/widget/TextView;->getTextSize()F
+    invoke-virtual {v10}, Landroid/media/TtmlRenderingWidget$CustomTextView;->getTextSize()F
 
     move-result v8
 
@@ -404,7 +404,7 @@
 
     div-float/2addr v11, v8
 
-    invoke-virtual {v10, v11}, Landroid/widget/TextView;->setTextSize(F)V
+    invoke-virtual {v10, v11}, Landroid/media/TtmlRenderingWidget$CustomTextView;->setTextSize(F)V
 
     iget-object v10, p0, Landroid/media/TtmlRenderingWidget;->mTextViewSet:Ljava/util/LinkedList;
 
@@ -420,7 +420,7 @@
 
     iget v11, v11, Landroid/view/accessibility/CaptioningManager$CaptionStyle;->foregroundColor:I
 
-    invoke-virtual {v10, v11}, Landroid/widget/TextView;->setTextColor(I)V
+    invoke-virtual {v10, v11}, Landroid/media/TtmlRenderingWidget$CustomTextView;->setTextColor(I)V
 
     iget-object v10, p0, Landroid/media/TtmlRenderingWidget;->mTextViewSet:Ljava/util/LinkedList;
 
@@ -436,18 +436,18 @@
 
     const/4 v12, -0x1
 
-    invoke-virtual {p0, v10, v11, v12}, Landroid/view/ViewGroup;->addView(Landroid/view/View;II)V
+    invoke-virtual {p0, v10, v11, v12}, Landroid/media/TtmlRenderingWidget;->addView(Landroid/view/View;II)V
 
     add-int/lit8 v4, v4, 0x1
 
     goto/16 :goto_1
 
     :cond_2
-    invoke-virtual {p0}, Landroid/view/View;->getWidth()I
+    invoke-virtual {p0}, Landroid/media/TtmlRenderingWidget;->getWidth()I
 
     move-result v10
 
-    invoke-virtual {p0}, Landroid/view/View;->getHeight()I
+    invoke-virtual {p0}, Landroid/media/TtmlRenderingWidget;->getHeight()I
 
     move-result v11
 
@@ -488,9 +488,9 @@
 
     move-result v0
 
-    invoke-virtual {p0, v1, v0}, Landroid/view/View;->measure(II)V
+    invoke-virtual {p0, v1, v0}, Landroid/media/TtmlRenderingWidget;->measure(II)V
 
-    invoke-virtual {p0, v2, v2, p1, p2}, Landroid/view/ViewGroup;->layout(IIII)V
+    invoke-virtual {p0, v2, v2, p1, p2}, Landroid/media/TtmlRenderingWidget;->layout(IIII)V
 
     return-void
 .end method
@@ -502,7 +502,7 @@
 
     const/4 v0, 0x0
 
-    invoke-virtual {p0, v0}, Landroid/view/View;->setVisibility(I)V
+    invoke-virtual {p0, v0}, Landroid/media/TtmlRenderingWidget;->setVisibility(I)V
 
     :goto_0
     return-void
@@ -510,7 +510,7 @@
     :cond_0
     const/16 v0, 0x8
 
-    invoke-virtual {p0, v0}, Landroid/view/View;->setVisibility(I)V
+    invoke-virtual {p0, v0}, Landroid/media/TtmlRenderingWidget;->setVisibility(I)V
 
     goto :goto_0
 .end method

@@ -22,6 +22,8 @@
 
 .field public static final ACCOUNT_TYPE:Ljava/lang/String; = "accountType"
 
+.field public static final CALLER_PACKAGE_PARAM_KEY:Ljava/lang/String; = "callerPackage"
+
 .field public static final CONTENT_ITEM_TYPE:Ljava/lang/String; = "vnd.android.cursor.item/contact_directory"
 
 .field public static final CONTENT_TYPE:Ljava/lang/String; = "vnd.android.cursor.dir/contact_directories"

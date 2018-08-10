@@ -52,8 +52,28 @@
 .end method
 
 .method public sendAutoBrightnessTableToSensorHub()Z
-    .locals 4
+    .locals 5
 
+    const/4 v4, 0x0
+
+    iget-object v1, p0, Lcom/samsung/android/contextaware/utilbundle/CaAutoBrightnessTableManager;->mOffsetTable:[B
+
+    if-eqz v1, :cond_0
+
+    iget-object v1, p0, Lcom/samsung/android/contextaware/utilbundle/CaAutoBrightnessTableManager;->mOffsetTable:[B
+
+    array-length v1, v1
+
+    if-gtz v1, :cond_1
+
+    :cond_0
+    const-string/jumbo v1, "Auto Brightness in sensorhub isn\'t supported so skip to send config data to sensorhub!!"
+
+    invoke-static {v1}, Lcom/samsung/android/contextaware/utilbundle/logger/CaLogger;->error(Ljava/lang/String;)V
+
+    return v4
+
+    :cond_1
     invoke-static {}, Lcom/samsung/android/contextaware/utilbundle/SensorHubCommManager;->getInstance()Lcom/samsung/android/contextaware/utilbundle/SensorHubCommManager;
 
     move-result-object v1
@@ -76,7 +96,7 @@
 
     move-result v1
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_2
 
     invoke-static {v0}, Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/SensorHubErrors;->getMessage(I)Ljava/lang/String;
 
@@ -84,11 +104,9 @@
 
     invoke-static {v1}, Lcom/samsung/android/contextaware/utilbundle/logger/CaLogger;->error(Ljava/lang/String;)V
 
-    const/4 v1, 0x0
+    return v4
 
-    return v1
-
-    :cond_0
+    :cond_2
     const/4 v1, 0x1
 
     return v1

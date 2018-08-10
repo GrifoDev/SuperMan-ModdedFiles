@@ -46,12 +46,6 @@
 
     if-eqz v1, :cond_0
 
-    const-string/jumbo v1, "DateTimeView"
-
-    const-string/jumbo v2, "DateTimeView received ACTION_TIME_TICK : start"
-
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v2
@@ -66,12 +60,6 @@
 
     if-gez v1, :cond_0
 
-    const-string/jumbo v1, "DateTimeView"
-
-    const-string/jumbo v2, "DateTimeView received ACTION_TIME_TICK : end early"
-
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
     return-void
 
     :cond_0
@@ -79,20 +67,5 @@
 
     invoke-virtual {v1}, Landroid/widget/DateTimeView$ReceiverInfo;->updateAll()V
 
-    const-string/jumbo v1, "android.intent.action.TIME_TICK"
-
-    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_1
-
-    const-string/jumbo v1, "DateTimeView"
-
-    const-string/jumbo v2, "DateTimeView received ACTION_TIME_TICK : end"
-
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_1
     return-void
 .end method

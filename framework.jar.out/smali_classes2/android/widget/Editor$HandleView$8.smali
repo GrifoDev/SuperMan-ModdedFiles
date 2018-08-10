@@ -1,11 +1,14 @@
 .class Landroid/widget/Editor$HandleView$8;
-.super Landroid/animation/AnimatorListenerAdapter;
+.super Ljava/lang/Object;
 .source "Editor.java"
+
+# interfaces
+.implements Landroid/animation/ValueAnimator$AnimatorUpdateListener;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Landroid/widget/Editor$HandleView;->getHideAnimator()Landroid/animation/ValueAnimator;
+    value = Landroid/widget/Editor$HandleView;->getHideAnimator()Landroid/animation/ObjectAnimator;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -24,66 +27,30 @@
 
     iput-object p1, p0, Landroid/widget/Editor$HandleView$8;->this$1:Landroid/widget/Editor$HandleView;
 
-    invoke-direct {p0}, Landroid/animation/AnimatorListenerAdapter;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onAnimationEnd(Landroid/animation/Animator;)V
-    .locals 2
+.method public onAnimationUpdate(Landroid/animation/ValueAnimator;)V
+    .locals 1
 
     iget-object v0, p0, Landroid/widget/Editor$HandleView$8;->this$1:Landroid/widget/Editor$HandleView;
 
-    const/4 v1, 0x0
-
-    invoke-static {v0, v1}, Landroid/widget/Editor$HandleView;->-set1(Landroid/widget/Editor$HandleView;Z)Z
-
-    iget-object v0, p0, Landroid/widget/Editor$HandleView$8;->this$1:Landroid/widget/Editor$HandleView;
-
-    invoke-virtual {v0}, Landroid/widget/Editor$HandleView;->hide()V
-
-    return-void
-.end method
-
-.method public onAnimationStart(Landroid/animation/Animator;)V
-    .locals 2
-
-    iget-object v0, p0, Landroid/widget/Editor$HandleView$8;->this$1:Landroid/widget/Editor$HandleView;
-
-    const/4 v1, 0x1
-
-    invoke-static {v0, v1}, Landroid/widget/Editor$HandleView;->-set1(Landroid/widget/Editor$HandleView;Z)Z
-
-    iget-object v0, p0, Landroid/widget/Editor$HandleView$8;->this$1:Landroid/widget/Editor$HandleView;
-
-    invoke-static {v0}, Landroid/widget/Editor$HandleView;->-get3(Landroid/widget/Editor$HandleView;)Landroid/animation/ValueAnimator;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Landroid/widget/Editor$HandleView$8;->this$1:Landroid/widget/Editor$HandleView;
-
-    invoke-static {v0}, Landroid/widget/Editor$HandleView;->-get3(Landroid/widget/Editor$HandleView;)Landroid/animation/ValueAnimator;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/animation/ValueAnimator;->isStarted()Z
+    invoke-static {v0}, Landroid/widget/Editor$HandleView;->-get2(Landroid/widget/Editor$HandleView;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-nez v0, :cond_0
 
-    iget-object v0, p0, Landroid/widget/Editor$HandleView$8;->this$1:Landroid/widget/Editor$HandleView;
-
-    invoke-static {v0}, Landroid/widget/Editor$HandleView;->-get3(Landroid/widget/Editor$HandleView;)Landroid/animation/ValueAnimator;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/animation/ValueAnimator;->pause()V
+    return-void
 
     :cond_0
+    iget-object v0, p0, Landroid/widget/Editor$HandleView$8;->this$1:Landroid/widget/Editor$HandleView;
+
+    invoke-virtual {v0}, Landroid/widget/Editor$HandleView;->invalidate()V
+
     return-void
 .end method

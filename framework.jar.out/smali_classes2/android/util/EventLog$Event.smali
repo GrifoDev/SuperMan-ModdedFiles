@@ -39,11 +39,15 @@
 
 .field private static final THREAD_OFFSET:I = 0x8
 
+.field private static final UID_OFFSET:I = 0x18
+
 .field private static final V1_PAYLOAD_START:I = 0x14
 
 
 # instance fields
 .field private final mBuffer:Ljava/nio/ByteBuffer;
+
+.field private mLastWtf:Ljava/lang/Exception;
 
 
 # direct methods
@@ -188,6 +192,8 @@
 
     invoke-static {v6, v7, v1}, Landroid/util/Log;->wtf(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
+    iput-object v1, p0, Landroid/util/EventLog$Event;->mLastWtf:Ljava/lang/Exception;
+
     const/4 v6, 0x0
 
     return-object v6
@@ -248,6 +254,67 @@
 
 
 # virtual methods
+.method public clearError()V
+    .locals 1
+
+    const/4 v0, 0x0
+
+    iput-object v0, p0, Landroid/util/EventLog$Event;->mLastWtf:Ljava/lang/Exception;
+
+    return-void
+.end method
+
+.method public equals(Ljava/lang/Object;)Z
+    .locals 3
+
+    if-ne p0, p1, :cond_0
+
+    const/4 v1, 0x1
+
+    return v1
+
+    :cond_0
+    if-eqz p1, :cond_1
+
+    invoke-virtual {p0}, Landroid/util/EventLog$Event;->getClass()Ljava/lang/Class;
+
+    move-result-object v1
+
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    move-result-object v2
+
+    if-eq v1, v2, :cond_2
+
+    :cond_1
+    const/4 v1, 0x0
+
+    return v1
+
+    :cond_2
+    move-object v0, p1
+
+    check-cast v0, Landroid/util/EventLog$Event;
+
+    iget-object v1, p0, Landroid/util/EventLog$Event;->mBuffer:Ljava/nio/ByteBuffer;
+
+    invoke-virtual {v1}, Ljava/nio/ByteBuffer;->array()[B
+
+    move-result-object v1
+
+    iget-object v2, v0, Landroid/util/EventLog$Event;->mBuffer:Ljava/nio/ByteBuffer;
+
+    invoke-virtual {v2}, Ljava/nio/ByteBuffer;->array()[B
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Ljava/util/Arrays;->equals([B[B)Z
+
+    move-result v1
+
+    return v1
+.end method
+
 .method public getBytes()[B
     .locals 2
 
@@ -301,6 +368,26 @@
 
     invoke-virtual {v3, v4}, Ljava/nio/ByteBuffer;->limit(I)Ljava/nio/Buffer;
 
+    add-int/lit8 v3, v2, 0x4
+
+    iget-object v4, p0, Landroid/util/EventLog$Event;->mBuffer:Ljava/nio/ByteBuffer;
+
+    invoke-virtual {v4}, Ljava/nio/ByteBuffer;->limit()I
+    :try_end_0
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_1
+    .catch Ljava/nio/BufferUnderflowException; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result v4
+
+    if-lt v3, v4, :cond_1
+
+    monitor-exit p0
+
+    return-object v6
+
+    :cond_1
+    :try_start_1
     iget-object v3, p0, Landroid/util/EventLog$Event;->mBuffer:Ljava/nio/ByteBuffer;
 
     add-int/lit8 v4, v2, 0x4
@@ -308,10 +395,10 @@
     invoke-virtual {v3, v4}, Ljava/nio/ByteBuffer;->position(I)Ljava/nio/Buffer;
 
     invoke-direct {p0}, Landroid/util/EventLog$Event;->decodeObject()Ljava/lang/Object;
-    :try_end_0
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/nio/BufferUnderflowException; {:try_start_0 .. :try_end_0} :catch_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_1 .. :try_end_1} :catch_1
+    .catch Ljava/nio/BufferUnderflowException; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     move-result-object v3
 
@@ -322,7 +409,7 @@
     :catch_0
     move-exception v1
 
-    :try_start_1
+    :try_start_2
     const-string/jumbo v3, "EventLog"
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -348,8 +435,10 @@
     move-result-object v4
 
     invoke-static {v3, v4, v1}, Landroid/util/Log;->wtf(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    iput-object v1, p0, Landroid/util/EventLog$Event;->mLastWtf:Ljava/lang/Exception;
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     monitor-exit p0
 
@@ -358,7 +447,7 @@
     :catch_1
     move-exception v0
 
-    :try_start_2
+    :try_start_3
     const-string/jumbo v3, "EventLog"
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -384,8 +473,10 @@
     move-result-object v4
 
     invoke-static {v3, v4, v0}, Landroid/util/Log;->wtf(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+
+    iput-object v0, p0, Landroid/util/EventLog$Event;->mLastWtf:Ljava/lang/Exception;
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
     monitor-exit p0
 
@@ -397,6 +488,14 @@
     monitor-exit p0
 
     throw v3
+.end method
+
+.method public getLastError()Ljava/lang/Exception;
+    .locals 1
+
+    iget-object v0, p0, Landroid/util/EventLog$Event;->mLastWtf:Ljava/lang/Exception;
+
+    return-object v0
 .end method
 
 .method public getProcessId()I
@@ -482,4 +581,44 @@
     add-long/2addr v0, v2
 
     return-wide v0
+.end method
+
+.method public getUid()I
+    .locals 3
+
+    :try_start_0
+    iget-object v1, p0, Landroid/util/EventLog$Event;->mBuffer:Ljava/nio/ByteBuffer;
+
+    const/16 v2, 0x18
+
+    invoke-virtual {v1, v2}, Ljava/nio/ByteBuffer;->getInt(I)I
+    :try_end_0
+    .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v1
+
+    return v1
+
+    :catch_0
+    move-exception v0
+
+    const/4 v1, -0x1
+
+    return v1
+.end method
+
+.method public hashCode()I
+    .locals 1
+
+    iget-object v0, p0, Landroid/util/EventLog$Event;->mBuffer:Ljava/nio/ByteBuffer;
+
+    invoke-virtual {v0}, Ljava/nio/ByteBuffer;->array()[B
+
+    move-result-object v0
+
+    invoke-static {v0}, Ljava/util/Arrays;->hashCode([B)I
+
+    move-result v0
+
+    return v0
 .end method

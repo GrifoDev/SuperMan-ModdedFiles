@@ -45,7 +45,7 @@
 
     iget-object v1, p0, Landroid/widget/Editor$4;->val$info:Landroid/widget/Editor$SuggestionInfo;
 
-    invoke-static {v0, v1}, Landroid/widget/Editor;->-wrap23(Landroid/widget/Editor;Landroid/widget/Editor$SuggestionInfo;)V
+    invoke-static {v0, v1}, Landroid/widget/Editor;->-wrap22(Landroid/widget/Editor;Landroid/widget/Editor$SuggestionInfo;)V
 
     const/4 v0, 0x1
 

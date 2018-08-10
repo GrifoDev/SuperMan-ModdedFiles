@@ -39,6 +39,14 @@
     .end annotation
 .end method
 
+.method public abstract onRangeStart(Ljava/lang/String;III)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract onStart(Ljava/lang/String;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {

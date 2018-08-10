@@ -74,13 +74,23 @@
     :cond_1
     if-eqz p1, :cond_2
 
-    invoke-virtual {p1, p2}, Landroid/os/BaseBundle;->containsKey(Ljava/lang/String;)Z
+    invoke-virtual {p1, p2}, Landroid/os/Bundle;->containsKey(Ljava/lang/String;)Z
 
     move-result v6
 
-    if-eqz v6, :cond_2
+    xor-int/lit8 v6, v6, 0x1
 
-    invoke-virtual {p0}, Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/SensorHubProvider;->getContextValueNames()[Ljava/lang/String;
+    if-eqz v6, :cond_3
+
+    :cond_2
+    const-string/jumbo v5, "bundle is null"
+
+    invoke-static {v5}, Lcom/samsung/android/contextaware/utilbundle/logger/CaLogger;->error(Ljava/lang/String;)V
+
+    return-object v7
+
+    :cond_3
+    invoke-virtual {p0}, Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/environmentsensorprovider/EnvironmentSensorProvider;->getContextValueNames()[Ljava/lang/String;
 
     move-result-object v6
 
@@ -94,33 +104,23 @@
 
     move-result v6
 
-    if-eqz v6, :cond_5
+    if-eqz v6, :cond_6
 
     :try_start_0
-    invoke-virtual {p1, p2}, Landroid/os/BaseBundle;->getString(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {p1, p2}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v5
 
-    if-nez v5, :cond_3
+    if-nez v5, :cond_4
 
     const-string/jumbo v5, "bundle.getString(key) is null"
 
     invoke-static {v5}, Lcom/samsung/android/contextaware/utilbundle/logger/CaLogger;->error(Ljava/lang/String;)V
-    :try_end_0
-    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
 
     return-object v7
 
-    :cond_2
-    const-string/jumbo v5, "bundle is null"
-
-    invoke-static {v5}, Lcom/samsung/android/contextaware/utilbundle/logger/CaLogger;->error(Ljava/lang/String;)V
-
-    return-object v7
-
-    :cond_3
-    :try_start_1
-    invoke-virtual {p1, p2}, Landroid/os/BaseBundle;->getString(Ljava/lang/String;)Ljava/lang/String;
+    :cond_4
+    invoke-virtual {p1, p2}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v5
 
@@ -137,10 +137,10 @@
     move-result-object v5
 
     invoke-virtual {v3, v5}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
-    :try_end_1
-    .catch Ljava/lang/NumberFormatException; {:try_start_1 .. :try_end_1} :catch_0
+    :try_end_0
+    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
 
-    :cond_4
+    :cond_5
     :goto_0
     invoke-virtual {v3}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
@@ -155,29 +155,29 @@
 
     return-object v7
 
-    :cond_5
-    invoke-virtual {p1, p2}, Landroid/os/BaseBundle;->getStringArray(Ljava/lang/String;)[Ljava/lang/String;
+    :cond_6
+    invoke-virtual {p1, p2}, Landroid/os/Bundle;->getStringArray(Ljava/lang/String;)[Ljava/lang/String;
 
     move-result-object v4
 
-    if-eqz v4, :cond_6
+    if-eqz v4, :cond_7
 
     array-length v6, v4
 
-    if-gtz v6, :cond_7
+    if-gtz v6, :cond_8
 
-    :cond_6
+    :cond_7
     const-string/jumbo v5, "bundle.getStringArray(key) is null"
 
     invoke-static {v5}, Lcom/samsung/android/contextaware/utilbundle/logger/CaLogger;->error(Ljava/lang/String;)V
 
     return-object v7
 
-    :cond_7
+    :cond_8
     array-length v6, v4
 
     :goto_1
-    if-ge v5, v6, :cond_8
+    if-ge v5, v6, :cond_9
 
     aget-object v1, v4, v5
 
@@ -205,14 +205,14 @@
 
     goto :goto_1
 
-    :cond_8
+    :cond_9
     const-string/jumbo v5, ","
 
     invoke-virtual {v3, v5}, Ljava/lang/StringBuffer;->lastIndexOf(Ljava/lang/String;)I
 
     move-result v5
 
-    if-lez v5, :cond_4
+    if-lez v5, :cond_5
 
     const-string/jumbo v5, ","
 

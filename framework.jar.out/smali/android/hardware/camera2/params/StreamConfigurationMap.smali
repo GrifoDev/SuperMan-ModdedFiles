@@ -1541,12 +1541,10 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    xor-int/lit8 v0, v0, 0x1
 
-    :cond_0
-    return p0
+    if-eqz v0, :cond_0
 
-    :cond_1
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v1, "format 0x%x was not defined in either ImageFormat or PixelFormat"
@@ -1570,6 +1568,9 @@
     invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v0
+
+    :cond_0
+    return p0
 .end method
 
 .method static checkArgumentFormatInternal(I)I
@@ -3519,9 +3520,9 @@
 .method public isOutputSupportedFor(Landroid/view/Surface;)Z
     .locals 12
 
-    const/4 v7, 0x0
-
     const/4 v11, 0x1
+
+    const/4 v7, 0x0
 
     const-string/jumbo v6, "surface must not be null"
 
@@ -3543,18 +3544,9 @@
 
     move-result v2
 
-    if-lt v4, v11, :cond_0
-
-    const/4 v6, 0x5
-
-    if-gt v4, v6, :cond_0
-
-    const/16 v4, 0x22
-
-    :cond_0
     const/16 v6, 0x1000
 
-    if-eq v3, v6, :cond_1
+    if-eq v3, v6, :cond_0
 
     iget-object v1, p0, Landroid/hardware/camera2/params/StreamConfigurationMap;->mConfigurations:[Landroid/hardware/camera2/params/StreamConfiguration;
 
@@ -3564,7 +3556,7 @@
     move v6, v7
 
     :goto_1
-    if-ge v6, v8, :cond_4
+    if-ge v6, v8, :cond_3
 
     aget-object v0, v1, v6
 
@@ -3572,13 +3564,13 @@
 
     move-result v9
 
-    if-ne v9, v4, :cond_3
+    if-ne v9, v4, :cond_2
 
     invoke-virtual {v0}, Landroid/hardware/camera2/params/StreamConfiguration;->isOutput()Z
 
     move-result v9
 
-    if-eqz v9, :cond_3
+    if-eqz v9, :cond_2
 
     invoke-virtual {v0}, Landroid/hardware/camera2/params/StreamConfiguration;->getSize()Landroid/util/Size;
 
@@ -3588,17 +3580,17 @@
 
     move-result v9
 
-    if-eqz v9, :cond_2
+    if-eqz v9, :cond_1
 
     return v11
 
-    :cond_1
+    :cond_0
     iget-object v1, p0, Landroid/hardware/camera2/params/StreamConfigurationMap;->mDepthConfigurations:[Landroid/hardware/camera2/params/StreamConfiguration;
 
     goto :goto_0
 
-    :cond_2
-    if-eqz v2, :cond_3
+    :cond_1
+    if-eqz v2, :cond_2
 
     invoke-virtual {v0}, Landroid/hardware/camera2/params/StreamConfiguration;->getSize()Landroid/util/Size;
 
@@ -3610,16 +3602,16 @@
 
     const/16 v10, 0x780
 
-    if-gt v9, v10, :cond_3
+    if-gt v9, v10, :cond_2
 
     return v11
 
-    :cond_3
+    :cond_2
     add-int/lit8 v6, v6, 0x1
 
     goto :goto_1
 
-    :cond_4
+    :cond_3
     return v7
 .end method
 

@@ -62,7 +62,7 @@
 
     iget v3, p0, Landroid/hardware/scontext/SContextStepCountAlertAttribute;->mStepCount:I
 
-    invoke-virtual {v0, v2, v3}, Landroid/os/BaseBundle;->putInt(Ljava/lang/String;I)V
+    invoke-virtual {v0, v2, v3}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
     const/4 v2, 0x3
 
@@ -72,7 +72,7 @@
 
     iget v3, p0, Landroid/hardware/scontext/SContextStepCountAlertAttribute;->mStepCount:I
 
-    invoke-virtual {v1, v2, v3}, Landroid/os/BaseBundle;->putInt(Ljava/lang/String;I)V
+    invoke-virtual {v1, v2, v3}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
     const/16 v2, 0x30
 

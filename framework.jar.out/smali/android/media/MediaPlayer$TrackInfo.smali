@@ -53,6 +53,8 @@
 # instance fields
 .field final mFormat:Landroid/media/MediaFormat;
 
+.field mTrackName:Ljava/lang/String;
+
 .field final mTrackType:I
 
 
@@ -70,9 +72,13 @@
 .end method
 
 .method constructor <init>(ILandroid/media/MediaFormat;)V
-    .locals 0
+    .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    const-string/jumbo v0, ""
+
+    iput-object v0, p0, Landroid/media/MediaPlayer$TrackInfo;->mTrackName:Ljava/lang/String;
 
     iput p1, p0, Landroid/media/MediaPlayer$TrackInfo;->mTrackType:I
 
@@ -82,15 +88,19 @@
 .end method
 
 .method constructor <init>(Landroid/os/Parcel;)V
-    .locals 5
+    .locals 7
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    const-string/jumbo v4, ""
+
+    iput-object v4, p0, Landroid/media/MediaPlayer$TrackInfo;->mTrackName:Ljava/lang/String;
+
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
-    move-result v2
+    move-result v4
 
-    iput v2, p0, Landroid/media/MediaPlayer$TrackInfo;->mTrackType:I
+    iput v4, p0, Landroid/media/MediaPlayer$TrackInfo;->mTrackType:I
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
@@ -102,47 +112,70 @@
 
     invoke-static {v1, v0}, Landroid/media/MediaFormat;->createSubtitleFormat(Ljava/lang/String;Ljava/lang/String;)Landroid/media/MediaFormat;
 
-    move-result-object v2
+    move-result-object v4
 
-    iput-object v2, p0, Landroid/media/MediaPlayer$TrackInfo;->mFormat:Landroid/media/MediaFormat;
+    iput-object v4, p0, Landroid/media/MediaPlayer$TrackInfo;->mFormat:Landroid/media/MediaFormat;
 
-    iget v2, p0, Landroid/media/MediaPlayer$TrackInfo;->mTrackType:I
+    iget v4, p0, Landroid/media/MediaPlayer$TrackInfo;->mTrackType:I
 
-    const/4 v3, 0x4
+    const/4 v5, 0x4
 
-    if-ne v2, v3, :cond_0
+    if-ne v4, v5, :cond_0
 
-    iget-object v2, p0, Landroid/media/MediaPlayer$TrackInfo;->mFormat:Landroid/media/MediaFormat;
+    iget-object v4, p0, Landroid/media/MediaPlayer$TrackInfo;->mFormat:Landroid/media/MediaFormat;
 
-    const-string/jumbo v3, "is-autoselect"
-
-    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
-
-    move-result v4
-
-    invoke-virtual {v2, v3, v4}, Landroid/media/MediaFormat;->setInteger(Ljava/lang/String;I)V
-
-    iget-object v2, p0, Landroid/media/MediaPlayer$TrackInfo;->mFormat:Landroid/media/MediaFormat;
-
-    const-string/jumbo v3, "is-default"
+    const-string/jumbo v5, "is-autoselect"
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
-    move-result v4
+    move-result v6
 
-    invoke-virtual {v2, v3, v4}, Landroid/media/MediaFormat;->setInteger(Ljava/lang/String;I)V
+    invoke-virtual {v4, v5, v6}, Landroid/media/MediaFormat;->setInteger(Ljava/lang/String;I)V
 
-    iget-object v2, p0, Landroid/media/MediaPlayer$TrackInfo;->mFormat:Landroid/media/MediaFormat;
+    iget-object v4, p0, Landroid/media/MediaPlayer$TrackInfo;->mFormat:Landroid/media/MediaFormat;
 
-    const-string/jumbo v3, "is-forced-subtitle"
+    const-string/jumbo v5, "is-default"
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
-    move-result v4
+    move-result v6
 
-    invoke-virtual {v2, v3, v4}, Landroid/media/MediaFormat;->setInteger(Ljava/lang/String;I)V
+    invoke-virtual {v4, v5, v6}, Landroid/media/MediaFormat;->setInteger(Ljava/lang/String;I)V
+
+    iget-object v4, p0, Landroid/media/MediaPlayer$TrackInfo;->mFormat:Landroid/media/MediaFormat;
+
+    const-string/jumbo v5, "is-forced-subtitle"
+
+    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
+
+    move-result v6
+
+    invoke-virtual {v4, v5, v6}, Landroid/media/MediaFormat;->setInteger(Ljava/lang/String;I)V
 
     :cond_0
+    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
+
+    move-result v3
+
+    if-lez v3, :cond_1
+
+    invoke-virtual {p1}, Landroid/os/Parcel;->createByteArray()[B
+
+    move-result-object v2
+
+    if-eqz v2, :cond_1
+
+    array-length v4, v2
+
+    if-lez v4, :cond_1
+
+    new-instance v4, Ljava/lang/String;
+
+    invoke-direct {v4, v2}, Ljava/lang/String;-><init>([B)V
+
+    iput-object v4, p0, Landroid/media/MediaPlayer$TrackInfo;->mTrackName:Ljava/lang/String;
+
+    :cond_1
     return-void
 .end method
 
@@ -207,6 +240,14 @@
     iget v0, p0, Landroid/media/MediaPlayer$TrackInfo;->mTrackType:I
 
     return v0
+.end method
+
+.method public semGetName()Ljava/lang/String;
+    .locals 1
+
+    iget-object v0, p0, Landroid/media/MediaPlayer$TrackInfo;->mTrackName:Ljava/lang/String;
+
+    return-object v0
 .end method
 
 .method public toString()Ljava/lang/String;
@@ -364,5 +405,11 @@
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
     :cond_0
+    invoke-virtual {p0}, Landroid/media/MediaPlayer$TrackInfo;->semGetName()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+
     return-void
 .end method

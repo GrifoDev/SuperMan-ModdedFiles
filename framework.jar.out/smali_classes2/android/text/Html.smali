@@ -331,43 +331,26 @@
 .end method
 
 .method private static getTextDirection(Landroid/text/Spanned;II)Ljava/lang/String;
-    .locals 6
+    .locals 2
 
-    const/4 v5, 0x0
+    sget-object v0, Landroid/text/TextDirectionHeuristics;->FIRSTSTRONG_LTR:Landroid/text/TextDirectionHeuristic;
 
     sub-int v1, p2, p1
 
-    invoke-static {v1}, Lcom/android/internal/util/ArrayUtils;->newUnpaddedByteArray(I)[B
+    invoke-interface {v0, p0, p1, v1}, Landroid/text/TextDirectionHeuristic;->isRtl(Ljava/lang/CharSequence;II)Z
 
-    move-result-object v2
+    move-result v0
 
-    invoke-static {v1}, Landroid/text/TextUtils;->obtain(I)[C
+    if-eqz v0, :cond_0
 
-    move-result-object v0
+    const-string/jumbo v0, " dir=\"rtl\""
 
-    invoke-static {p0, p1, p2, v0, v5}, Landroid/text/TextUtils;->getChars(Ljava/lang/CharSequence;II[CI)V
+    return-object v0
 
-    const/4 v4, 0x2
+    :cond_0
+    const-string/jumbo v0, " dir=\"ltr\""
 
-    invoke-static {v4, v0, v2, v1, v5}, Landroid/text/AndroidBidi;->bidi(I[C[BIZ)I
-
-    move-result v3
-
-    packed-switch v3, :pswitch_data_0
-
-    const-string/jumbo v4, " dir=\"ltr\""
-
-    return-object v4
-
-    :pswitch_0
-    const-string/jumbo v4, " dir=\"rtl\""
-
-    return-object v4
-
-    :pswitch_data_0
-    .packed-switch -0x1
-        :pswitch_0
-    .end packed-switch
+    return-object v0
 .end method
 
 .method private static getTextStyles(Landroid/text/Spanned;IIZZ)Ljava/lang/String;
@@ -684,7 +667,7 @@
     move v0, p2
 
     :goto_0
-    if-gt v0, p3, :cond_c
+    if-gt v0, p3, :cond_9
 
     const/16 v8, 0xa
 
@@ -759,21 +742,53 @@
     :cond_4
     if-eqz v2, :cond_5
 
-    if-eqz v1, :cond_8
+    xor-int/lit8 v8, v1, 0x1
+
+    if-eqz v8, :cond_5
+
+    const/4 v1, 0x1
+
+    const-string/jumbo v8, "<ul"
+
+    invoke-virtual {p0, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    const/4 v9, 0x1
+
+    const/4 v10, 0x0
+
+    invoke-static {p1, v0, v3, v9, v10}, Landroid/text/Html;->getTextStyles(Landroid/text/Spanned;IIZZ)Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    const-string/jumbo v9, ">\n"
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     :cond_5
-    :goto_3
     if-eqz v1, :cond_6
 
-    if-eqz v2, :cond_9
+    xor-int/lit8 v8, v2, 0x1
+
+    if-eqz v8, :cond_6
+
+    const/4 v1, 0x0
+
+    const-string/jumbo v8, "</ul>\n"
+
+    invoke-virtual {p0, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     :cond_6
-    :goto_4
-    if-eqz v2, :cond_a
+    if-eqz v2, :cond_8
 
     const-string/jumbo v7, "li"
 
-    :goto_5
+    :goto_3
     const-string/jumbo v8, "<"
 
     invoke-virtual {p0, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -790,20 +805,17 @@
 
     invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v9
-
-    if-eqz v2, :cond_b
-
-    const/4 v8, 0x0
-
-    :goto_6
-    const/4 v10, 0x1
-
-    invoke-static {p1, v0, v3, v8, v10}, Landroid/text/Html;->getTextStyles(Landroid/text/Spanned;IIZZ)Ljava/lang/String;
-
     move-result-object v8
 
-    invoke-virtual {v9, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    xor-int/lit8 v9, v2, 0x1
+
+    const/4 v10, 0x1
+
+    invoke-static {p1, v0, v3, v9, v10}, Landroid/text/Html;->getTextStyles(Landroid/text/Spanned;IIZZ)Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v8
 
@@ -833,60 +845,19 @@
 
     invoke-virtual {p0, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_1
+    goto/16 :goto_1
 
     :cond_7
     add-int/lit8 v8, v8, 0x1
 
-    goto :goto_2
+    goto/16 :goto_2
 
     :cond_8
-    const/4 v1, 0x1
-
-    const-string/jumbo v8, "<ul"
-
-    invoke-virtual {p0, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    const/4 v9, 0x1
-
-    const/4 v10, 0x0
-
-    invoke-static {p1, v0, v3, v9, v10}, Landroid/text/Html;->getTextStyles(Landroid/text/Spanned;IIZZ)Ljava/lang/String;
-
-    move-result-object v9
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    const-string/jumbo v9, ">\n"
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string/jumbo v7, "p"
 
     goto :goto_3
 
     :cond_9
-    const/4 v1, 0x0
-
-    const-string/jumbo v8, "</ul>\n"
-
-    invoke-virtual {p0, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    goto :goto_4
-
-    :cond_a
-    const-string/jumbo v7, "p"
-
-    goto :goto_5
-
-    :cond_b
-    const/4 v8, 0x1
-
-    goto :goto_6
-
-    :cond_c
     return-void
 .end method
 

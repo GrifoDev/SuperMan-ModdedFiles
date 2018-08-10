@@ -23,3 +23,6 @@
 
 .method public abstract onRemoteAdapterDisconnected()V
 .end method
+
+.method public abstract setRemoteViewsAdapter(Landroid/content/Intent;Z)V
+.end method

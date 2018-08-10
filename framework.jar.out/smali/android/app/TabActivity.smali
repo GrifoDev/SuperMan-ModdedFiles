@@ -40,9 +40,9 @@
 
     if-nez v0, :cond_0
 
-    const v0, 0x1090125
+    const v0, 0x1090123
 
-    invoke-virtual {p0, v0}, Landroid/app/Activity;->setContentView(I)V
+    invoke-virtual {p0, v0}, Landroid/app/TabActivity;->setContentView(I)V
 
     :cond_0
     return-void
@@ -75,7 +75,7 @@
 .method protected onChildTitleChanged(Landroid/app/Activity;Ljava/lang/CharSequence;)V
     .locals 2
 
-    invoke-virtual {p0}, Landroid/app/ActivityGroup;->getLocalActivityManager()Landroid/app/LocalActivityManager;
+    invoke-virtual {p0}, Landroid/app/TabActivity;->getLocalActivityManager()Landroid/app/LocalActivityManager;
 
     move-result-object v1
 
@@ -97,9 +97,7 @@
 
     if-eqz v1, :cond_0
 
-    nop
-
-    nop
+    check-cast v0, Landroid/widget/TextView;
 
     invoke-virtual {v0, p2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
@@ -114,7 +112,7 @@
 
     const v0, 0x1020012
 
-    invoke-virtual {p0, v0}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v0}, Landroid/app/TabActivity;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
@@ -137,7 +135,7 @@
     :cond_0
     iget-object v0, p0, Landroid/app/TabActivity;->mTabHost:Landroid/widget/TabHost;
 
-    invoke-virtual {p0}, Landroid/app/ActivityGroup;->getLocalActivityManager()Landroid/app/LocalActivityManager;
+    invoke-virtual {p0}, Landroid/app/TabActivity;->getLocalActivityManager()Landroid/app/LocalActivityManager;
 
     move-result-object v1
 
@@ -182,7 +180,7 @@
 
     const-string/jumbo v1, "currentTab"
 
-    invoke-virtual {p1, v1}, Landroid/os/BaseBundle;->getString(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {p1, v1}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -244,7 +242,7 @@
 
     const-string/jumbo v1, "currentTab"
 
-    invoke-virtual {p1, v1, v0}, Landroid/os/BaseBundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {p1, v1, v0}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
     :cond_0
     return-void

@@ -35,17 +35,37 @@
 
 # virtual methods
 .method public createService(Landroid/app/ContextImpl;)Landroid/os/health/SystemHealthManager;
-    .locals 1
+    .locals 3
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/ServiceManager$ServiceNotFoundException;
+        }
+    .end annotation
 
-    new-instance v0, Landroid/os/health/SystemHealthManager;
+    const-string/jumbo v1, "batterystats"
 
-    invoke-direct {v0}, Landroid/os/health/SystemHealthManager;-><init>()V
+    invoke-static {v1}, Landroid/os/ServiceManager;->getServiceOrThrow(Ljava/lang/String;)Landroid/os/IBinder;
 
-    return-object v0
+    move-result-object v0
+
+    new-instance v1, Landroid/os/health/SystemHealthManager;
+
+    invoke-static {v0}, Lcom/android/internal/app/IBatteryStats$Stub;->asInterface(Landroid/os/IBinder;)Lcom/android/internal/app/IBatteryStats;
+
+    move-result-object v2
+
+    invoke-direct {v1, v2}, Landroid/os/health/SystemHealthManager;-><init>(Lcom/android/internal/app/IBatteryStats;)V
+
+    return-object v1
 .end method
 
 .method public bridge synthetic createService(Landroid/app/ContextImpl;)Ljava/lang/Object;
     .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/ServiceManager$ServiceNotFoundException;
+        }
+    .end annotation
 
     invoke-virtual {p0, p1}, Landroid/app/SystemServiceRegistry$88;->createService(Landroid/app/ContextImpl;)Landroid/os/health/SystemHealthManager;
 

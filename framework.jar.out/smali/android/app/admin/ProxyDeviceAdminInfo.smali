@@ -264,7 +264,7 @@
     :try_start_0
     const-string/jumbo v13, "android.app.device_admin"
 
-    invoke-virtual {v1, v8, v13}, Landroid/content/pm/PackageItemInfo;->loadXmlMetaData(Landroid/content/pm/PackageManager;Ljava/lang/String;)Landroid/content/res/XmlResourceParser;
+    invoke-virtual {v1, v8, v13}, Landroid/content/pm/ActivityInfo;->loadXmlMetaData(Landroid/content/pm/PackageManager;Ljava/lang/String;)Landroid/content/res/XmlResourceParser;
 
     move-result-object v7
 
@@ -297,7 +297,7 @@
 
     move-result-object v14
 
-    iget-object v15, v1, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
+    iget-object v15, v1, Landroid/content/pm/ActivityInfo;->packageName:Ljava/lang/String;
 
     invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -325,7 +325,7 @@
 
     :cond_1
     :try_start_2
-    iget-object v13, v1, Landroid/content/pm/ComponentInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
+    iget-object v13, v1, Landroid/content/pm/ActivityInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
 
     invoke-virtual {v8, v13}, Landroid/content/pm/PackageManager;->getResourcesForApplication(Landroid/content/pm/ApplicationInfo;)Landroid/content/res/Resources;
 
@@ -490,13 +490,13 @@
 
     iget-object v1, v1, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
 
-    iget-object v1, v1, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
+    iget-object v1, v1, Landroid/content/pm/ActivityInfo;->packageName:Ljava/lang/String;
 
     iget-object v2, p0, Landroid/app/admin/ProxyDeviceAdminInfo;->mReceiver:Landroid/content/pm/ResolveInfo;
 
     iget-object v2, v2, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
 
-    iget-object v2, v2, Landroid/content/pm/PackageItemInfo;->name:Ljava/lang/String;
+    iget-object v2, v2, Landroid/content/pm/ActivityInfo;->name:Ljava/lang/String;
 
     invoke-direct {v0, v1, v2}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
@@ -524,13 +524,13 @@
 
     iget-object v2, v2, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
 
-    iget-object v1, v2, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
+    iget-object v1, v2, Landroid/content/pm/ActivityInfo;->packageName:Ljava/lang/String;
 
     iget-object v2, p0, Landroid/app/admin/ProxyDeviceAdminInfo;->mReceiver:Landroid/content/pm/ResolveInfo;
 
     iget-object v2, v2, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
 
-    iget-object v0, v2, Landroid/content/pm/ComponentInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
+    iget-object v0, v2, Landroid/content/pm/ActivityInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
 
     :cond_0
     if-eqz p1, :cond_1
@@ -539,7 +539,7 @@
 
     iget-object v2, v2, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
 
-    iget v2, v2, Landroid/content/pm/ComponentInfo;->descriptionRes:I
+    iget v2, v2, Landroid/content/pm/ActivityInfo;->descriptionRes:I
 
     invoke-virtual {p1, v1, v2, v0}, Landroid/content/pm/PackageManager;->getText(Ljava/lang/String;ILandroid/content/pm/ApplicationInfo;)Ljava/lang/CharSequence;
 
@@ -678,7 +678,7 @@
 
     move-object/from16 v0, v19
 
-    iget-object v0, v0, Landroid/content/pm/ComponentInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
+    iget-object v0, v0, Landroid/content/pm/ActivityInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
 
     move-object/from16 v19, v0
 
@@ -943,7 +943,7 @@
     :catch_1
     move-exception v6
 
-    invoke-virtual {v6}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v6}, Ljava/lang/Exception;->printStackTrace()V
 
     :cond_7
     :goto_4
@@ -973,7 +973,7 @@
 
     move-object/from16 v0, v20
 
-    iget-object v0, v0, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
+    iget-object v0, v0, Landroid/content/pm/ActivityInfo;->packageName:Ljava/lang/String;
 
     move-object/from16 v20, v0
 
@@ -1007,7 +1007,7 @@
 
     move-object/from16 v0, v21
 
-    iget-object v0, v0, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
+    iget-object v0, v0, Landroid/content/pm/ActivityInfo;->packageName:Ljava/lang/String;
 
     move-object/from16 v21, v0
 
@@ -1078,7 +1078,7 @@
 
     invoke-static/range {v19 .. v20}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-virtual {v6}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v6}, Ljava/lang/Exception;->printStackTrace()V
 
     :cond_a
     return-void

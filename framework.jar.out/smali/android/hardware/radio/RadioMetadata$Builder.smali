@@ -58,7 +58,7 @@
 
     iget-object v4, p0, Landroid/hardware/radio/RadioMetadata$Builder;->mBundle:Landroid/os/Bundle;
 
-    invoke-virtual {v4}, Landroid/os/BaseBundle;->keySet()Ljava/util/Set;
+    invoke-virtual {v4}, Landroid/os/Bundle;->keySet()Ljava/util/Set;
 
     move-result-object v4
 
@@ -82,7 +82,7 @@
 
     iget-object v4, p0, Landroid/hardware/radio/RadioMetadata$Builder;->mBundle:Landroid/os/Bundle;
 
-    invoke-virtual {v4, v1}, Landroid/os/BaseBundle;->get(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {v4, v1}, Landroid/os/Bundle;->get(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v3
 
@@ -94,9 +94,7 @@
 
     move-object v0, v3
 
-    nop
-
-    nop
+    check-cast v0, Landroid/graphics/Bitmap;
 
     invoke-virtual {v0}, Landroid/graphics/Bitmap;->getHeight()I
 
@@ -400,7 +398,7 @@
     :cond_1
     iget-object v0, p0, Landroid/hardware/radio/RadioMetadata$Builder;->mBundle:Landroid/os/Bundle;
 
-    invoke-virtual {v0, p1, p2}, Landroid/os/BaseBundle;->putInt(Ljava/lang/String;I)V
+    invoke-virtual {v0, p1, p2}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
     return-object p0
 .end method
@@ -470,7 +468,7 @@
     :cond_1
     iget-object v0, p0, Landroid/hardware/radio/RadioMetadata$Builder;->mBundle:Landroid/os/Bundle;
 
-    invoke-virtual {v0, p1, p2}, Landroid/os/BaseBundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v0, p1, p2}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
     return-object p0
 .end method

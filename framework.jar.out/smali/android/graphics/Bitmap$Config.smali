@@ -35,6 +35,10 @@
 
 .field public static final enum ARGB_8888:Landroid/graphics/Bitmap$Config;
 
+.field public static final enum HARDWARE:Landroid/graphics/Bitmap$Config;
+
+.field public static final enum RGBA_F16:Landroid/graphics/Bitmap$Config;
+
 .field public static final enum RGB_565:Landroid/graphics/Bitmap$Config;
 
 .field private static sConfigs:[Landroid/graphics/Bitmap$Config;
@@ -48,11 +52,11 @@
 .method static constructor <clinit>()V
     .locals 8
 
-    const/4 v7, 0x4
+    const/4 v7, 0x0
 
-    const/4 v6, 0x2
+    const/4 v6, 0x5
 
-    const/4 v5, 0x0
+    const/4 v5, 0x4
 
     const/4 v4, 0x3
 
@@ -62,7 +66,7 @@
 
     const-string/jumbo v1, "ALPHA_8"
 
-    invoke-direct {v0, v1, v5, v3}, Landroid/graphics/Bitmap$Config;-><init>(Ljava/lang/String;II)V
+    invoke-direct {v0, v1, v7, v3}, Landroid/graphics/Bitmap$Config;-><init>(Ljava/lang/String;II)V
 
     sput-object v0, Landroid/graphics/Bitmap$Config;->ALPHA_8:Landroid/graphics/Bitmap$Config;
 
@@ -78,7 +82,9 @@
 
     const-string/jumbo v1, "ARGB_4444"
 
-    invoke-direct {v0, v1, v6, v7}, Landroid/graphics/Bitmap$Config;-><init>(Ljava/lang/String;II)V
+    const/4 v2, 0x2
+
+    invoke-direct {v0, v1, v2, v5}, Landroid/graphics/Bitmap$Config;-><init>(Ljava/lang/String;II)V
 
     sput-object v0, Landroid/graphics/Bitmap$Config;->ARGB_4444:Landroid/graphics/Bitmap$Config;
 
@@ -86,39 +92,69 @@
 
     const-string/jumbo v1, "ARGB_8888"
 
-    const/4 v2, 0x5
-
-    invoke-direct {v0, v1, v4, v2}, Landroid/graphics/Bitmap$Config;-><init>(Ljava/lang/String;II)V
+    invoke-direct {v0, v1, v4, v6}, Landroid/graphics/Bitmap$Config;-><init>(Ljava/lang/String;II)V
 
     sput-object v0, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
 
-    new-array v0, v7, [Landroid/graphics/Bitmap$Config;
+    new-instance v0, Landroid/graphics/Bitmap$Config;
 
-    sget-object v1, Landroid/graphics/Bitmap$Config;->ALPHA_8:Landroid/graphics/Bitmap$Config;
+    const-string/jumbo v1, "RGBA_F16"
 
-    aput-object v1, v0, v5
+    const/4 v2, 0x6
 
-    sget-object v1, Landroid/graphics/Bitmap$Config;->RGB_565:Landroid/graphics/Bitmap$Config;
+    invoke-direct {v0, v1, v5, v2}, Landroid/graphics/Bitmap$Config;-><init>(Ljava/lang/String;II)V
 
-    aput-object v1, v0, v3
+    sput-object v0, Landroid/graphics/Bitmap$Config;->RGBA_F16:Landroid/graphics/Bitmap$Config;
 
-    sget-object v1, Landroid/graphics/Bitmap$Config;->ARGB_4444:Landroid/graphics/Bitmap$Config;
+    new-instance v0, Landroid/graphics/Bitmap$Config;
 
-    aput-object v1, v0, v6
+    const-string/jumbo v1, "HARDWARE"
 
-    sget-object v1, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
+    const/4 v2, 0x7
 
-    aput-object v1, v0, v4
+    invoke-direct {v0, v1, v6, v2}, Landroid/graphics/Bitmap$Config;-><init>(Ljava/lang/String;II)V
 
-    sput-object v0, Landroid/graphics/Bitmap$Config;->$VALUES:[Landroid/graphics/Bitmap$Config;
+    sput-object v0, Landroid/graphics/Bitmap$Config;->HARDWARE:Landroid/graphics/Bitmap$Config;
 
     const/4 v0, 0x6
 
     new-array v0, v0, [Landroid/graphics/Bitmap$Config;
 
-    const/4 v1, 0x0
+    sget-object v1, Landroid/graphics/Bitmap$Config;->ALPHA_8:Landroid/graphics/Bitmap$Config;
+
+    aput-object v1, v0, v7
+
+    sget-object v1, Landroid/graphics/Bitmap$Config;->RGB_565:Landroid/graphics/Bitmap$Config;
+
+    aput-object v1, v0, v3
+
+    sget-object v1, Landroid/graphics/Bitmap$Config;->ARGB_4444:Landroid/graphics/Bitmap$Config;
+
+    const/4 v2, 0x2
+
+    aput-object v1, v0, v2
+
+    sget-object v1, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
+
+    aput-object v1, v0, v4
+
+    sget-object v1, Landroid/graphics/Bitmap$Config;->RGBA_F16:Landroid/graphics/Bitmap$Config;
 
     aput-object v1, v0, v5
+
+    sget-object v1, Landroid/graphics/Bitmap$Config;->HARDWARE:Landroid/graphics/Bitmap$Config;
+
+    aput-object v1, v0, v6
+
+    sput-object v0, Landroid/graphics/Bitmap$Config;->$VALUES:[Landroid/graphics/Bitmap$Config;
+
+    const/16 v0, 0x8
+
+    new-array v0, v0, [Landroid/graphics/Bitmap$Config;
+
+    const/4 v1, 0x0
+
+    aput-object v1, v0, v7
 
     sget-object v1, Landroid/graphics/Bitmap$Config;->ALPHA_8:Landroid/graphics/Bitmap$Config;
 
@@ -126,7 +162,9 @@
 
     const/4 v1, 0x0
 
-    aput-object v1, v0, v6
+    const/4 v2, 0x2
+
+    aput-object v1, v0, v2
 
     sget-object v1, Landroid/graphics/Bitmap$Config;->RGB_565:Landroid/graphics/Bitmap$Config;
 
@@ -134,11 +172,21 @@
 
     sget-object v1, Landroid/graphics/Bitmap$Config;->ARGB_4444:Landroid/graphics/Bitmap$Config;
 
-    aput-object v1, v0, v7
+    aput-object v1, v0, v5
 
     sget-object v1, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
 
-    const/4 v2, 0x5
+    aput-object v1, v0, v6
+
+    sget-object v1, Landroid/graphics/Bitmap$Config;->RGBA_F16:Landroid/graphics/Bitmap$Config;
+
+    const/4 v2, 0x6
+
+    aput-object v1, v0, v2
+
+    sget-object v1, Landroid/graphics/Bitmap$Config;->HARDWARE:Landroid/graphics/Bitmap$Config;
+
+    const/4 v2, 0x7
 
     aput-object v1, v0, v2
 
@@ -160,7 +208,7 @@
 .method static nativeToConfig(I)Landroid/graphics/Bitmap$Config;
     .locals 1
 
-    sget-object v0, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
+    sget-object v0, Landroid/graphics/Bitmap$Config;->HARDWARE:Landroid/graphics/Bitmap$Config;
 
     iget v0, v0, Landroid/graphics/Bitmap$Config;->nativeInt:I
 

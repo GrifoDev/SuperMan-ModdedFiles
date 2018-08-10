@@ -179,11 +179,14 @@
     goto :goto_0
 .end method
 
-.method writeToParcel(Landroid/os/Parcel;Z)V
+.method writeToParcel(Landroid/os/Parcel;ZZ)V
     .locals 2
+
+    if-eqz p3, :cond_1
 
     iget-object v0, p0, Landroid/app/assist/AssistStructure$ViewNodeText;->mText:Ljava/lang/CharSequence;
 
+    :goto_0
     const/4 v1, 0x0
 
     invoke-static {v0, p1, v1}, Landroid/text/TextUtils;->writeToParcel(Ljava/lang/CharSequence;Landroid/os/Parcel;I)V
@@ -228,4 +231,9 @@
 
     :cond_0
     return-void
+
+    :cond_1
+    const-string/jumbo v0, ""
+
+    goto :goto_0
 .end method

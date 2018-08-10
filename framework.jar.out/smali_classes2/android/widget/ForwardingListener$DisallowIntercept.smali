@@ -55,9 +55,12 @@
 
     move-result-object v0
 
+    if-eqz v0, :cond_0
+
     const/4 v1, 0x1
 
     invoke-interface {v0, v1}, Landroid/view/ViewParent;->requestDisallowInterceptTouchEvent(Z)V
 
+    :cond_0
     return-void
 .end method

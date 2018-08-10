@@ -15,5 +15,5 @@
 
 
 # virtual methods
-.method public abstract onColorChanged(FF)V
+.method public abstract onWheelColorChanged(FF)V
 .end method

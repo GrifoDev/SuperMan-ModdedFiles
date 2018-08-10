@@ -363,7 +363,7 @@
     throw v1
 .end method
 
-.method public setCamera(Ljava/lang/String;)V
+.method public setCamera(Ljava/lang/String;Ljava/lang/String;I)V
     .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -381,6 +381,10 @@
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+
+    invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+
+    invoke-virtual {v0, p3}, Landroid/os/Parcel;->writeInt(I)V
 
     iget-object v1, p0, Lcom/android/internal/telecom/IVideoProvider$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 

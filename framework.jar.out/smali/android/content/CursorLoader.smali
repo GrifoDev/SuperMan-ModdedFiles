@@ -152,16 +152,14 @@
 
     move-result v1
 
-    if-eqz v1, :cond_4
+    xor-int/lit8 v1, v1, 0x1
 
-    :cond_3
-    :goto_0
-    return-void
+    if-eqz v1, :cond_3
 
-    :cond_4
     invoke-interface {v0}, Landroid/database/Cursor;->close()V
 
-    goto :goto_0
+    :cond_3
+    return-void
 .end method
 
 .method public bridge synthetic deliverResult(Ljava/lang/Object;)V
@@ -452,16 +450,14 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    xor-int/lit8 v0, v0, 0x1
 
-    :cond_0
-    :goto_0
-    return-void
+    if-eqz v0, :cond_0
 
-    :cond_1
     invoke-interface {p1}, Landroid/database/Cursor;->close()V
 
-    goto :goto_0
+    :cond_0
+    return-void
 .end method
 
 .method public bridge synthetic onCanceled(Ljava/lang/Object;)V
@@ -493,20 +489,18 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    xor-int/lit8 v0, v0, 0x1
 
-    :cond_0
-    :goto_0
-    iput-object v1, p0, Landroid/content/CursorLoader;->mCursor:Landroid/database/Cursor;
+    if-eqz v0, :cond_0
 
-    return-void
-
-    :cond_1
     iget-object v0, p0, Landroid/content/CursorLoader;->mCursor:Landroid/database/Cursor;
 
     invoke-interface {v0}, Landroid/database/Cursor;->close()V
 
-    goto :goto_0
+    :cond_0
+    iput-object v1, p0, Landroid/content/CursorLoader;->mCursor:Landroid/database/Cursor;
+
+    return-void
 .end method
 
 .method protected onStartLoading()V

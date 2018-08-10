@@ -3,7 +3,7 @@
 .source "SemMotionRecognitionManager.java"
 
 # interfaces
-.implements Landroid/hardware/scontext/SContextListener;
+.implements Lcom/samsung/android/hardware/context/SemContextListener;
 
 
 # annotations
@@ -34,18 +34,18 @@
 
 
 # virtual methods
-.method public onSContextChanged(Landroid/hardware/scontext/SContextEvent;)V
+.method public onSemContextChanged(Lcom/samsung/android/hardware/context/SemContextEvent;)V
     .locals 11
 
-    iget-object v6, p1, Landroid/hardware/scontext/SContextEvent;->scontext:Landroid/hardware/scontext/SContext;
+    iget-object v5, p1, Lcom/samsung/android/hardware/context/SemContextEvent;->semContext:Lcom/samsung/android/hardware/context/SemContext;
 
-    new-instance v5, Lcom/samsung/android/gesture/SemMotionRecognitionEvent;
+    new-instance v4, Lcom/samsung/android/gesture/SemMotionRecognitionEvent;
 
-    invoke-direct {v5}, Lcom/samsung/android/gesture/SemMotionRecognitionEvent;-><init>()V
+    invoke-direct {v4}, Lcom/samsung/android/gesture/SemMotionRecognitionEvent;-><init>()V
 
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
-    invoke-virtual {v6}, Landroid/hardware/scontext/SContext;->getType()I
+    invoke-virtual {v5}, Lcom/samsung/android/hardware/context/SemContext;->getType()I
 
     move-result v8
 
@@ -56,11 +56,11 @@
     return-void
 
     :pswitch_0
-    invoke-virtual {p1}, Landroid/hardware/scontext/SContextEvent;->getMovementContext()Landroid/hardware/scontext/SContextMovement;
+    invoke-virtual {p1}, Lcom/samsung/android/hardware/context/SemContextEvent;->getMovementContext()Lcom/samsung/android/hardware/context/SemContextMovement;
 
-    move-result-object v0
+    move-result-object v6
 
-    invoke-virtual {v0}, Landroid/hardware/scontext/SContextMovement;->getAction()I
+    invoke-virtual {v6}, Lcom/samsung/android/hardware/context/SemContextMovement;->getAction()I
 
     move-result v8
 
@@ -77,7 +77,7 @@
 
     invoke-interface {v8}, Lcom/samsung/android/gesture/IMotionRecognitionService;->getPickUpMotionStatus()Z
 
-    move-result v3
+    move-result v2
 
     const-string/jumbo v8, "MotionRecognitionManager"
 
@@ -91,7 +91,7 @@
 
     move-result-object v9
 
-    invoke-virtual {v9, v3}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-virtual {v9, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
     move-result-object v9
 
@@ -104,15 +104,15 @@
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     :goto_1
-    if-eqz v3, :cond_0
+    if-eqz v2, :cond_0
 
     const/16 v8, 0x43
 
-    invoke-virtual {v5, v8}, Lcom/samsung/android/gesture/SemMotionRecognitionEvent;->setMotion(I)V
+    invoke-virtual {v4, v8}, Lcom/samsung/android/gesture/SemMotionRecognitionEvent;->setMotion(I)V
 
     const-string/jumbo v8, "MotionRecognitionManager"
 
-    const-string/jumbo v9, "mySContextMotionListener : Send Smart alert event"
+    const-string/jumbo v9, "mySemContextMotionListener : Send Smart alert event"
 
     invoke-static {v8, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -135,10 +135,10 @@
 
     move-result v7
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
     :goto_2
-    if-ge v2, v7, :cond_1
+    if-ge v1, v7, :cond_1
 
     iget-object v8, p0, Lcom/samsung/android/gesture/SemMotionRecognitionManager$1;->this$0:Lcom/samsung/android/gesture/SemMotionRecognitionManager;
 
@@ -146,28 +146,28 @@
 
     move-result-object v8
 
-    invoke-virtual {v8, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    invoke-virtual {v8, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    move-result-object v4
+    move-result-object v3
 
-    check-cast v4, Lcom/samsung/android/gesture/SemMotionRecognitionManager$MRListenerDelegate;
+    check-cast v3, Lcom/samsung/android/gesture/SemMotionRecognitionManager$MRListenerDelegate;
 
-    invoke-virtual {v4, v5}, Lcom/samsung/android/gesture/SemMotionRecognitionManager$MRListenerDelegate;->motionCallback(Lcom/samsung/android/gesture/SemMotionRecognitionEvent;)V
+    invoke-virtual {v3, v4}, Lcom/samsung/android/gesture/SemMotionRecognitionManager$MRListenerDelegate;->motionCallback(Lcom/samsung/android/gesture/SemMotionRecognitionEvent;)V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_2
 
     :catch_0
-    move-exception v1
+    move-exception v0
 
     const-string/jumbo v8, "MotionRecognitionManager"
 
     const-string/jumbo v9, "RemoteException in getPickUpMotionStatus: "
 
-    invoke-static {v8, v9, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v8, v9, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     goto :goto_1
 

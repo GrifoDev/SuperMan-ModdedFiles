@@ -93,7 +93,7 @@
 
 # virtual methods
 .method public accept()Landroid/net/LocalSocket;
-    .locals 3
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -108,11 +108,9 @@
 
     invoke-virtual {v1, v0}, Landroid/net/LocalSocketImpl;->accept(Landroid/net/LocalSocketImpl;)V
 
-    new-instance v1, Landroid/net/LocalSocket;
+    invoke-static {v0}, Landroid/net/LocalSocket;->createLocalSocketForAccept(Landroid/net/LocalSocketImpl;)Landroid/net/LocalSocket;
 
-    const/4 v2, 0x0
-
-    invoke-direct {v1, v0, v2}, Landroid/net/LocalSocket;-><init>(Landroid/net/LocalSocketImpl;I)V
+    move-result-object v1
 
     return-object v1
 .end method

@@ -4,9 +4,13 @@
 
 
 # static fields
+.field private static final A11Y_SHORTCUT_KEY_TIMEOUT:I = 0xbb8
+
 .field private static final ACTION_MODE_HIDE_DURATION_DEFAULT:J = 0x7d0L
 
 .field private static final DEFAULT_LONG_PRESS_TIMEOUT:I = 0x1f4
+
+.field private static final DEFAULT_MULTI_PRESS_TIMEOUT:I = 0x12c
 
 .field private static final DOUBLE_TAP_MIN_TIME:I = 0x28
 
@@ -34,13 +38,23 @@
 
 .field private static final HAS_PERMANENT_MENU_KEY_TRUE:I = 0x1
 
+.field private static final HORIZONTAL_SCROLL_FACTOR:F = 64.0f
+
 .field private static final HOVER_TAP_SLOP:I = 0x14
 
 .field private static final HOVER_TAP_TIMEOUT:I = 0x96
 
+.field private static final HOVER_TOOLTIP_HIDE_SHORT_TIMEOUT:I = 0xbb8
+
+.field private static final HOVER_TOOLTIP_HIDE_TIMEOUT:I = 0x1388
+
+.field private static final HOVER_TOOLTIP_SHOW_TIMEOUT:I = 0x1f4
+
 .field private static final JUMP_TAP_TIMEOUT:I = 0x1f4
 
 .field private static final KEY_REPEAT_DELAY:I = 0x32
+
+.field private static final LONG_PRESS_TOOLTIP_HIDE_TIMEOUT:I = 0x5dc
 
 .field private static final MAXIMUM_DRAWING_CACHE_SIZE:I = 0x177000
     .annotation runtime Ljava/lang/Deprecated;
@@ -50,6 +64,8 @@
 .field private static final MAXIMUM_FLING_VELOCITY:I = 0x1f40
 
 .field private static final MINIMUM_FLING_VELOCITY:I = 0x32
+
+.field private static final MIN_SCROLLBAR_TOUCH_TARGET:I = 0x30
 
 .field private static final OVERFLING_DISTANCE:I = 0x6
 
@@ -72,6 +88,8 @@
 .field private static final TAP_TIMEOUT:I = 0x64
 
 .field private static final TOUCH_SLOP:I = 0x8
+
+.field private static final VERTICAL_SCROLL_FACTOR:F = 64.0f
 
 .field private static final WINDOW_TOUCH_SLOP:I = 0x10
 
@@ -106,9 +124,13 @@
 
 .field private final mGlobalActionsKeyTimeout:J
 
+.field private final mHorizontalScrollFactor:F
+
 .field private final mMaximumDrawingCacheSize:I
 
 .field private final mMaximumFlingVelocity:I
+
+.field private final mMinScrollbarTouchTarget:I
 
 .field private final mMinimumFlingVelocity:I
 
@@ -121,6 +143,8 @@
 .field private final mScrollbarSize:I
 
 .field private final mTouchSlop:I
+
+.field private final mVerticalScrollFactor:F
 
 .field private final mWindowTouchSlop:I
 
@@ -145,15 +169,17 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 3
+    .locals 4
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
-    const/16 v2, 0x10
+    const/16 v3, 0x10
 
     const/16 v0, 0xc
 
     const/16 v1, 0x8
+
+    const/high16 v2, 0x42800000    # 64.0f
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -175,15 +201,19 @@
 
     iput v1, p0, Landroid/view/ViewConfiguration;->mTouchSlop:I
 
+    const/16 v0, 0x30
+
+    iput v0, p0, Landroid/view/ViewConfiguration;->mMinScrollbarTouchTarget:I
+
     iput v1, p0, Landroid/view/ViewConfiguration;->mDoubleTapTouchSlop:I
 
-    iput v2, p0, Landroid/view/ViewConfiguration;->mPagingTouchSlop:I
+    iput v3, p0, Landroid/view/ViewConfiguration;->mPagingTouchSlop:I
 
     const/16 v0, 0x64
 
     iput v0, p0, Landroid/view/ViewConfiguration;->mDoubleTapSlop:I
 
-    iput v2, p0, Landroid/view/ViewConfiguration;->mWindowTouchSlop:I
+    iput v3, p0, Landroid/view/ViewConfiguration;->mWindowTouchSlop:I
 
     const v0, 0x177000
 
@@ -204,6 +234,10 @@
     const-wide/16 v0, 0x1f4
 
     iput-wide v0, p0, Landroid/view/ViewConfiguration;->mGlobalActionsKeyTimeout:J
+
+    iput v2, p0, Landroid/view/ViewConfiguration;->mHorizontalScrollFactor:F
+
+    iput v2, p0, Landroid/view/ViewConfiguration;->mVerticalScrollFactor:F
 
     return-void
 .end method
@@ -356,7 +390,7 @@
 
     if-nez v12, :cond_0
 
-    const v12, 0x10e008e
+    const v12, 0x10e0099
 
     invoke-virtual {v7, v12}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -374,11 +408,8 @@
 
     move-result v12
 
-    if-eqz v12, :cond_3
+    xor-int/lit8 v12, v12, 0x1
 
-    const/4 v12, 0x0
-
-    :goto_1
     iput-boolean v12, p0, Landroid/view/ViewConfiguration;->sHasPermanentMenuKey:Z
 
     const/4 v12, 0x1
@@ -388,8 +419,8 @@
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     :cond_0
-    :goto_2
-    const v12, 0x1120010
+    :goto_1
+    const v12, 0x11200b2
 
     invoke-virtual {v7, v12}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -401,11 +432,17 @@
 
     invoke-static {v12}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
-    move-result v0
+    move-result v12
+
+    int-to-float v12, v12
+
+    mul-float/2addr v12, v3
+
+    float-to-int v0, v12
 
     if-nez v0, :cond_1
 
-    const v12, 0x105000f
+    const v12, 0x1050052
 
     invoke-virtual {v7, v12}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -413,6 +450,14 @@
 
     :cond_1
     iput v0, p0, Landroid/view/ViewConfiguration;->mTouchSlop:I
+
+    const v12, 0x1050046
+
+    invoke-virtual {v7, v12}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v12
+
+    iput v12, p0, Landroid/view/ViewConfiguration;->mMinScrollbarTouchTarget:I
 
     iget v12, p0, Landroid/view/ViewConfiguration;->mTouchSlop:I
 
@@ -424,7 +469,7 @@
 
     iput v12, p0, Landroid/view/ViewConfiguration;->mDoubleTapTouchSlop:I
 
-    const v12, 0x1050010
+    const v12, 0x1050054
 
     invoke-virtual {v7, v12}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -432,7 +477,7 @@
 
     iput v12, p0, Landroid/view/ViewConfiguration;->mMinimumFlingVelocity:I
 
-    const v12, 0x1050011
+    const v12, 0x1050053
 
     invoke-virtual {v7, v12}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -440,7 +485,7 @@
 
     iput v12, p0, Landroid/view/ViewConfiguration;->mMaximumFlingVelocity:I
 
-    const v12, 0x10e0086
+    const v12, 0x10e0063
 
     invoke-virtual {v7, v12}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -450,11 +495,31 @@
 
     iput-wide v12, p0, Landroid/view/ViewConfiguration;->mGlobalActionsKeyTimeout:J
 
+    const v12, 0x1050042
+
+    invoke-virtual {v7, v12}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v12
+
+    int-to-float v12, v12
+
+    iput v12, p0, Landroid/view/ViewConfiguration;->mHorizontalScrollFactor:F
+
+    const v12, 0x1050051
+
+    invoke-virtual {v7, v12}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v12
+
+    int-to-float v12, v12
+
+    iput v12, p0, Landroid/view/ViewConfiguration;->mVerticalScrollFactor:F
+
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v12
 
-    const v13, 0x11200d6
+    const v13, 0x1120004
 
     invoke-virtual {v12, v13}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -466,7 +531,7 @@
 
     move-result-object v12
 
-    const v13, 0x11200d7
+    const v13, 0x1120005
 
     invoke-virtual {v12, v13}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -481,11 +546,6 @@
 
     goto/16 :goto_0
 
-    :cond_3
-    const/4 v12, 0x1
-
-    goto :goto_1
-
     :catch_0
     move-exception v5
 
@@ -493,7 +553,7 @@
 
     iput-boolean v12, p0, Landroid/view/ViewConfiguration;->sHasPermanentMenuKey:Z
 
-    goto :goto_2
+    goto/16 :goto_1
 
     :pswitch_1
     const/4 v12, 0x1
@@ -504,7 +564,7 @@
 
     iput-boolean v12, p0, Landroid/view/ViewConfiguration;->sHasPermanentMenuKeySet:Z
 
-    goto :goto_2
+    goto/16 :goto_1
 
     :pswitch_2
     const/4 v12, 0x0
@@ -515,7 +575,7 @@
 
     iput-boolean v12, p0, Landroid/view/ViewConfiguration;->sHasPermanentMenuKeySet:Z
 
-    goto :goto_2
+    goto/16 :goto_1
 
     :pswitch_data_0
     .packed-switch 0x0
@@ -646,6 +706,30 @@
     return v0
 .end method
 
+.method public static getHoverTooltipHideShortTimeout()I
+    .locals 1
+
+    const/16 v0, 0xbb8
+
+    return v0
+.end method
+
+.method public static getHoverTooltipHideTimeout()I
+    .locals 1
+
+    const/16 v0, 0x1388
+
+    return v0
+.end method
+
+.method public static getHoverTooltipShowTimeout()I
+    .locals 1
+
+    const/16 v0, 0x1f4
+
+    return v0
+.end method
+
 .method public static getJumpTapTimeout()I
     .locals 1
 
@@ -686,6 +770,14 @@
     return v0
 .end method
 
+.method public static getLongPressTooltipHideTimeout()I
+    .locals 1
+
+    const/16 v0, 0x5dc
+
+    return v0
+.end method
+
 .method public static getMaximumDrawingCacheSize()I
     .locals 1
     .annotation runtime Ljava/lang/Deprecated;
@@ -712,6 +804,20 @@
     .end annotation
 
     const/16 v0, 0x32
+
+    return v0
+.end method
+
+.method public static getMultiPressTimeout()I
+    .locals 2
+
+    const-string/jumbo v0, "multi_press_timeout"
+
+    const/16 v1, 0x12c
+
+    invoke-static {v0, v1}, Landroid/app/AppGlobals;->getIntCoreSetting(Ljava/lang/String;I)I
+
+    move-result v0
 
     return v0
 .end method
@@ -804,6 +910,14 @@
 
 
 # virtual methods
+.method public getAccessibilityShortcutKeyTimeout()J
+    .locals 2
+
+    const-wide/16 v0, 0xbb8
+
+    return-wide v0
+.end method
+
 .method public getDeviceGlobalActionKeyTimeout()J
     .locals 2
 
@@ -844,6 +958,14 @@
     return v0
 .end method
 
+.method public getScaledHorizontalScrollFactor()F
+    .locals 1
+
+    iget v0, p0, Landroid/view/ViewConfiguration;->mHorizontalScrollFactor:F
+
+    return v0
+.end method
+
 .method public getScaledMaximumDrawingCacheSize()I
     .locals 1
 
@@ -856,6 +978,14 @@
     .locals 1
 
     iget v0, p0, Landroid/view/ViewConfiguration;->mMaximumFlingVelocity:I
+
+    return v0
+.end method
+
+.method public getScaledMinScrollbarTouchTarget()I
+    .locals 1
+
+    const/4 v0, 0x0
 
     return v0
 .end method
@@ -900,10 +1030,28 @@
     return v0
 .end method
 
+.method public getScaledScrollFactor()I
+    .locals 1
+
+    iget v0, p0, Landroid/view/ViewConfiguration;->mVerticalScrollFactor:F
+
+    float-to-int v0, v0
+
+    return v0
+.end method
+
 .method public getScaledTouchSlop()I
     .locals 1
 
     iget v0, p0, Landroid/view/ViewConfiguration;->mTouchSlop:I
+
+    return v0
+.end method
+
+.method public getScaledVerticalScrollFactor()F
+    .locals 1
+
+    iget v0, p0, Landroid/view/ViewConfiguration;->mVerticalScrollFactor:F
 
     return v0
 .end method
@@ -929,47 +1077,30 @@
 .end method
 
 .method public hasFakeMenuKey(I)Z
-    .locals 3
-
-    const/4 v2, 0x1
+    .locals 2
 
     const/4 v1, 0x0
 
+    iget-boolean v0, p0, Landroid/view/ViewConfiguration;->sHasPermanentMenuKey:Z
+
+    if-eqz v0, :cond_1
+
     iget-boolean v0, p0, Landroid/view/ViewConfiguration;->mCheckDisabledHWMenuKey:Z
 
-    if-nez v0, :cond_0
+    if-eqz v0, :cond_1
 
-    return v1
-
-    :cond_0
-    if-ne p1, v2, :cond_1
-
-    return v1
-
-    :cond_1
     const/4 v0, 0x2
 
-    if-ne p1, v0, :cond_2
+    if-eq p1, v0, :cond_0
 
+    if-nez p1, :cond_1
+
+    :cond_0
     iget-boolean v0, p0, Landroid/view/ViewConfiguration;->mCheckEnableFakeMenuKeyByBackLong:Z
 
-    if-eqz v0, :cond_4
+    return v0
 
-    return v2
-
-    :cond_2
-    if-nez p1, :cond_4
-
-    iget-boolean v0, p0, Landroid/view/ViewConfiguration;->mCheckEnableFakeMenuKeyByBackLong:Z
-
-    if-nez v0, :cond_3
-
-    return v1
-
-    :cond_3
-    return v2
-
-    :cond_4
+    :cond_1
     return v1
 .end method
 

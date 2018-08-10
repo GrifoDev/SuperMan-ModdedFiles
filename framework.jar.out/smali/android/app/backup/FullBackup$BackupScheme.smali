@@ -72,6 +72,10 @@
 
 .field final mPackageName:Ljava/lang/String;
 
+.field final mStorageManager:Landroid/os/storage/StorageManager;
+
+.field private mVolumes:[Landroid/os/storage/StorageVolume;
+
 
 # direct methods
 .method constructor <init>(Landroid/content/Context;)V
@@ -81,6 +85,8 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    iput-object v4, p0, Landroid/app/backup/FullBackup$BackupScheme;->mVolumes:[Landroid/os/storage/StorageVolume;
+
     invoke-virtual {p1}, Landroid/content/Context;->getApplicationInfo()Landroid/content/pm/ApplicationInfo;
 
     move-result-object v2
@@ -88,6 +94,16 @@
     iget v2, v2, Landroid/content/pm/ApplicationInfo;->fullBackupContent:I
 
     iput v2, p0, Landroid/app/backup/FullBackup$BackupScheme;->mFullBackupContent:I
+
+    const-string/jumbo v2, "storage"
+
+    invoke-virtual {p1, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Landroid/os/storage/StorageManager;
+
+    iput-object v2, p0, Landroid/app/backup/FullBackup$BackupScheme;->mStorageManager:Landroid/os/storage/StorageManager;
 
     invoke-virtual {p1}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
@@ -630,6 +646,41 @@
     return-object v0
 .end method
 
+.method private getVolumeList()[Landroid/os/storage/StorageVolume;
+    .locals 2
+
+    iget-object v0, p0, Landroid/app/backup/FullBackup$BackupScheme;->mStorageManager:Landroid/os/storage/StorageManager;
+
+    if-eqz v0, :cond_1
+
+    iget-object v0, p0, Landroid/app/backup/FullBackup$BackupScheme;->mVolumes:[Landroid/os/storage/StorageVolume;
+
+    if-nez v0, :cond_0
+
+    iget-object v0, p0, Landroid/app/backup/FullBackup$BackupScheme;->mStorageManager:Landroid/os/storage/StorageManager;
+
+    invoke-virtual {v0}, Landroid/os/storage/StorageManager;->getVolumeList()[Landroid/os/storage/StorageVolume;
+
+    move-result-object v0
+
+    iput-object v0, p0, Landroid/app/backup/FullBackup$BackupScheme;->mVolumes:[Landroid/os/storage/StorageVolume;
+
+    :cond_0
+    :goto_0
+    iget-object v0, p0, Landroid/app/backup/FullBackup$BackupScheme;->mVolumes:[Landroid/os/storage/StorageVolume;
+
+    return-object v0
+
+    :cond_1
+    const-string/jumbo v0, "FullBackup"
+
+    const-string/jumbo v1, "Unable to access Storage Manager"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
+.end method
+
 .method private maybeParseBackupSchemeLocked()V
     .locals 4
     .annotation system Ldalvik/annotation/Throws;
@@ -905,6 +956,56 @@
     throw v2
 .end method
 
+.method private sharedDomainToPath(Ljava/lang/String;)Ljava/lang/String;
+    .locals 4
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    const-string/jumbo v3, "shared/"
+
+    invoke-virtual {v3}, Ljava/lang/String;->length()I
+
+    move-result v3
+
+    invoke-virtual {p1, v3}, Ljava/lang/String;->substring(I)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-direct {p0}, Landroid/app/backup/FullBackup$BackupScheme;->getVolumeList()[Landroid/os/storage/StorageVolume;
+
+    move-result-object v2
+
+    invoke-static {v1}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+
+    move-result v0
+
+    iget-object v3, p0, Landroid/app/backup/FullBackup$BackupScheme;->mVolumes:[Landroid/os/storage/StorageVolume;
+
+    array-length v3, v3
+
+    if-ge v0, v3, :cond_0
+
+    aget-object v3, v2, v0
+
+    invoke-virtual {v3}, Landroid/os/storage/StorageVolume;->getPathFile()Ljava/io/File;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/io/File;->getCanonicalPath()Ljava/lang/String;
+
+    move-result-object v3
+
+    return-object v3
+
+    :cond_0
+    const/4 v3, 0x0
+
+    return-object v3
+.end method
+
 .method private validateInnerTagContents(Lorg/xmlpull/v1/XmlPullParser;)V
     .locals 3
     .annotation system Ldalvik/annotation/Throws;
@@ -978,12 +1079,10 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    xor-int/lit8 v0, v0, 0x1
 
-    :cond_1
-    return-void
+    if-eqz v0, :cond_1
 
-    :cond_2
     new-instance v0, Lorg/xmlpull/v1/XmlPullParserException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -1017,6 +1116,9 @@
     invoke-direct {v0, v1}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
 
     throw v0
+
+    :cond_1
+    return-void
 .end method
 
 
@@ -1290,7 +1392,7 @@
 
     move/from16 v0, v18
 
-    if-eq v13, v0, :cond_8
+    if-eq v13, v0, :cond_7
 
     packed-switch v13, :pswitch_data_0
 
@@ -1491,16 +1593,146 @@
 
     move-result v18
 
-    if-eqz v18, :cond_5
+    if-eqz v18, :cond_6
 
     invoke-virtual {v5}, Ljava/io/File;->isDirectory()Z
 
     move-result v18
 
+    xor-int/lit8 v18, v18, 0x1
+
     if-eqz v18, :cond_6
 
+    new-instance v18, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v5}, Ljava/io/File;->getCanonicalPath()Ljava/lang/String;
+
+    move-result-object v19
+
+    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v18
+
+    const-string/jumbo v19, "-journal"
+
+    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v18
+
+    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-interface {v4, v6}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v18, "BackupXmlParserLogging"
+
+    const/16 v19, 0x2
+
+    invoke-static/range {v18 .. v19}, Landroid/util/Log;->isLoggable(Ljava/lang/String;I)Z
+
+    move-result v18
+
+    if-eqz v18, :cond_5
+
+    const-string/jumbo v18, "BackupXmlParserLogging"
+
+    new-instance v19, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v19 .. v19}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v20, "...automatically generated "
+
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
+    move-object/from16 v0, v19
+
+    invoke-virtual {v0, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
+    const-string/jumbo v20, ". Ignore if nonexistent."
+
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
+    invoke-virtual/range {v19 .. v19}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v19
+
+    invoke-static/range {v18 .. v19}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
+
     :cond_5
-    :goto_2
+    new-instance v18, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v5}, Ljava/io/File;->getCanonicalPath()Ljava/lang/String;
+
+    move-result-object v19
+
+    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v18
+
+    const-string/jumbo v19, "-wal"
+
+    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v18
+
+    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-interface {v4, v7}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    const-string/jumbo v18, "BackupXmlParserLogging"
+
+    const/16 v19, 0x2
+
+    invoke-static/range {v18 .. v19}, Landroid/util/Log;->isLoggable(Ljava/lang/String;I)Z
+
+    move-result v18
+
+    if-eqz v18, :cond_6
+
+    const-string/jumbo v18, "BackupXmlParserLogging"
+
+    new-instance v19, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v19 .. v19}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v20, "...automatically generated "
+
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
+    move-object/from16 v0, v19
+
+    invoke-virtual {v0, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
+    const-string/jumbo v20, ". Ignore if nonexistent."
+
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
+    invoke-virtual/range {v19 .. v19}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v19
+
+    invoke-static/range {v18 .. v19}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_6
     const-string/jumbo v18, "sharedpref"
 
     move-object/from16 v0, v18
@@ -1515,7 +1747,9 @@
 
     move-result v18
 
-    if-nez v18, :cond_2
+    xor-int/lit8 v18, v18, 0x1
+
+    if-eqz v18, :cond_2
 
     invoke-virtual {v5}, Ljava/io/File;->getCanonicalPath()Ljava/lang/String;
 
@@ -1527,7 +1761,9 @@
 
     move-result v18
 
-    if-nez v18, :cond_2
+    xor-int/lit8 v18, v18, 0x1
+
+    if-eqz v18, :cond_2
 
     new-instance v18, Ljava/lang/StringBuilder;
 
@@ -1595,96 +1831,7 @@
 
     goto/16 :goto_1
 
-    :cond_6
-    new-instance v18, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {v5}, Ljava/io/File;->getCanonicalPath()Ljava/lang/String;
-
-    move-result-object v19
-
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    const-string/jumbo v19, "-journal"
-
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-interface {v4, v6}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    const-string/jumbo v18, "BackupXmlParserLogging"
-
-    const/16 v19, 0x2
-
-    invoke-static/range {v18 .. v19}, Landroid/util/Log;->isLoggable(Ljava/lang/String;I)Z
-
-    move-result v18
-
-    if-eqz v18, :cond_7
-
-    const-string/jumbo v18, "BackupXmlParserLogging"
-
-    new-instance v19, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v19 .. v19}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v20, "...automatically generated "
-
-    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v19
-
-    move-object/from16 v0, v19
-
-    invoke-virtual {v0, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v19
-
-    const-string/jumbo v20, ". Ignore if nonexistent."
-
-    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v19
-
-    invoke-virtual/range {v19 .. v19}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v19
-
-    invoke-static/range {v18 .. v19}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
-
     :cond_7
-    new-instance v18, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {v5}, Ljava/io/File;->getCanonicalPath()Ljava/lang/String;
-
-    move-result-object v19
-
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    const-string/jumbo v19, "-wal"
-
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-interface {v4, v7}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
     const-string/jumbo v18, "BackupXmlParserLogging"
 
     const/16 v19, 0x2
@@ -1693,50 +1840,7 @@
 
     move-result v18
 
-    if-eqz v18, :cond_5
-
-    const-string/jumbo v18, "BackupXmlParserLogging"
-
-    new-instance v19, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v19 .. v19}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v20, "...automatically generated "
-
-    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v19
-
-    move-object/from16 v0, v19
-
-    invoke-virtual {v0, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v19
-
-    const-string/jumbo v20, ". Ignore if nonexistent."
-
-    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v19
-
-    invoke-virtual/range {v19 .. v19}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v19
-
-    invoke-static/range {v18 .. v19}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto/16 :goto_2
-
-    :cond_8
-    const-string/jumbo v18, "BackupXmlParserLogging"
-
-    const/16 v19, 0x2
-
-    invoke-static/range {v18 .. v19}, Landroid/util/Log;->isLoggable(Ljava/lang/String;I)Z
-
-    move-result v18
-
-    if-eqz v18, :cond_b
+    if-eqz v18, :cond_a
 
     const-string/jumbo v18, "BackupXmlParserLogging"
 
@@ -1766,7 +1870,7 @@
 
     move-result v18
 
-    if-eqz v18, :cond_c
+    if-eqz v18, :cond_b
 
     const-string/jumbo v18, "BackupXmlParserLogging"
 
@@ -1774,7 +1878,7 @@
 
     invoke-static/range {v18 .. v19}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_9
+    :cond_8
     const-string/jumbo v18, "BackupXmlParserLogging"
 
     const-string/jumbo v19, "Excludes:"
@@ -1785,7 +1889,7 @@
 
     move-result v18
 
-    if-eqz v18, :cond_e
+    if-eqz v18, :cond_d
 
     const-string/jumbo v18, "BackupXmlParserLogging"
 
@@ -1793,7 +1897,7 @@
 
     invoke-static/range {v18 .. v19}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_a
+    :cond_9
     const-string/jumbo v18, "BackupXmlParserLogging"
 
     const-string/jumbo v19, "  "
@@ -1812,10 +1916,10 @@
 
     invoke-static/range {v18 .. v19}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_b
+    :cond_a
     return-void
 
-    :cond_c
+    :cond_b
     invoke-interface/range {p3 .. p3}, Ljava/util/Map;->entrySet()Ljava/util/Set;
 
     move-result-object v18
@@ -1824,12 +1928,12 @@
 
     move-result-object v12
 
-    :cond_d
+    :cond_c
     invoke-interface {v12}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v18
 
-    if-eqz v18, :cond_9
+    if-eqz v18, :cond_8
 
     invoke-interface {v12}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1887,12 +1991,12 @@
 
     move-result-object v17
 
-    :goto_3
+    :goto_2
     invoke-interface/range {v17 .. v17}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v18
 
-    if-eqz v18, :cond_d
+    if-eqz v18, :cond_c
 
     invoke-interface/range {v17 .. v17}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1926,19 +2030,19 @@
 
     invoke-static/range {v18 .. v19}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_3
+    goto :goto_2
 
-    :cond_e
+    :cond_d
     invoke-interface/range {p2 .. p2}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v15
 
-    :goto_4
+    :goto_3
     invoke-interface {v15}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v18
 
-    if-eqz v18, :cond_a
+    if-eqz v18, :cond_9
 
     invoke-interface {v15}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1970,7 +2074,7 @@
 
     invoke-static/range {v18 .. v19}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_4
+    goto :goto_3
 
     nop
 
@@ -2214,6 +2318,21 @@
     return-object v4
 
     :cond_d
+    const-string/jumbo v1, "shared/"
+
+    invoke-virtual {p1, v1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_e
+
+    invoke-direct {p0, p1}, Landroid/app/backup/FullBackup$BackupScheme;->sharedDomainToPath(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    return-object v1
+
+    :cond_e
     const-string/jumbo v1, "FullBackup"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -2236,7 +2355,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     return-object v4
 

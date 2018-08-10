@@ -69,7 +69,7 @@
 
     const/4 v3, 0x1
 
-    invoke-virtual {v2, p1, v3}, Landroid/widget/AbsListView;->setItemChecked(IZ)V
+    invoke-virtual {v2, p1, v3}, Lcom/android/internal/app/AlertController$RecycleListView;->setItemChecked(IZ)V
 
     invoke-virtual {v1}, Landroid/view/View;->jumpDrawablesToCurrentState()V
 

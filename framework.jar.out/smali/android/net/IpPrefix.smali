@@ -186,9 +186,9 @@
 .method public contains(Ljava/net/InetAddress;)Z
     .locals 3
 
-    const/4 v0, 0x0
-
     if-nez p1, :cond_1
+
+    const/4 v0, 0x0
 
     :goto_0
     if-eqz v0, :cond_0

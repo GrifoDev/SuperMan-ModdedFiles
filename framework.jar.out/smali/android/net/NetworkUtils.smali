@@ -48,6 +48,14 @@
     goto :goto_0
 .end method
 
+.method public static native attachControlPacketFilter(Ljava/io/FileDescriptor;I)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/net/SocketException;
+        }
+    .end annotation
+.end method
+
 .method public static native attachDhcpFilter(Ljava/io/FileDescriptor;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -68,6 +76,8 @@
 .end method
 
 .method public static native bindProcessToNetworkForHostResolution(I)Z
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 .end method
 
 .method public static native bindSocketToNetwork(II)I
@@ -685,18 +695,21 @@
 .method protected static parcelInetAddress(Landroid/os/Parcel;Ljava/net/InetAddress;I)V
     .locals 1
 
-    const/4 v0, 0x0
-
     if-eqz p1, :cond_0
 
     invoke-virtual {p1}, Ljava/net/InetAddress;->getAddress()[B
 
     move-result-object v0
 
-    :cond_0
+    :goto_0
     invoke-virtual {p0, v0}, Landroid/os/Parcel;->writeByteArray([B)V
 
     return-void
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
 .end method
 
 .method public static parseIpAndMask(Ljava/lang/String;)Landroid/util/Pair;
@@ -869,10 +882,12 @@
 .method public static native queryUserAccess(II)Z
 .end method
 
-.method public static native startPppoe(Landroid/net/wifi/PPPOEConfig;)I
-.end method
-
-.method public static native stopPppoe()I
+.method public static native setupRaSocket(Ljava/io/FileDescriptor;I)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/net/SocketException;
+        }
+    .end annotation
 .end method
 
 .method public static trimV4AddrZeros(Ljava/lang/String;)Ljava/lang/String;

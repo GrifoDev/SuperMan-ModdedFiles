@@ -295,55 +295,56 @@
 
     and-int/lit8 v2, p0, 0x1
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_0
 
     const/4 v1, 0x1
 
     :goto_0
     and-int/lit8 v2, p0, 0x2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_1
 
     const/4 v0, 0x1
 
     :goto_1
-    if-nez v1, :cond_0
+    if-nez v1, :cond_2
 
-    if-eqz v0, :cond_3
+    xor-int/lit8 v2, v0, 0x1
+
+    if-eqz v2, :cond_2
+
+    const-string/jumbo v2, "NONE"
+
+    return-object v2
 
     :cond_0
-    if-eqz v1, :cond_4
+    const/4 v1, 0x0
 
-    if-eqz v0, :cond_4
+    goto :goto_0
+
+    :cond_1
+    const/4 v0, 0x0
+
+    goto :goto_1
+
+    :cond_2
+    if-eqz v1, :cond_3
+
+    if-eqz v0, :cond_3
 
     const-string/jumbo v2, "NOW, ALWAYS"
 
     return-object v2
 
-    :cond_1
-    const/4 v1, 0x0
-
-    goto :goto_0
-
-    :cond_2
-    const/4 v0, 0x0
-
-    goto :goto_1
-
     :cond_3
-    const-string/jumbo v2, "NONE"
-
-    return-object v2
-
-    :cond_4
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_4
 
     const-string/jumbo v2, "NOW"
 
     :goto_2
     return-object v2
 
-    :cond_5
+    :cond_4
     const-string/jumbo v2, "ALWAYS"
 
     goto :goto_2

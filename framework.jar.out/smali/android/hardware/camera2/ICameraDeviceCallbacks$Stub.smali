@@ -36,6 +36,8 @@
 
 .field static final TRANSACTION_onRepeatingRequestError:I = 0x6
 
+.field static final TRANSACTION_onRequestQueueEmpty:I = 0x7
+
 .field static final TRANSACTION_onResultReceived:I = 0x4
 
 
@@ -269,6 +271,15 @@
 
     return v9
 
+    :sswitch_7
+    const-string/jumbo v8, "android.hardware.camera2.ICameraDeviceCallbacks"
+
+    invoke-virtual {p2, v8}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual {p0}, Landroid/hardware/camera2/ICameraDeviceCallbacks$Stub;->onRequestQueueEmpty()V
+
+    return v9
+
     :sswitch_data_0
     .sparse-switch
         0x1 -> :sswitch_1
@@ -277,6 +288,7 @@
         0x4 -> :sswitch_4
         0x5 -> :sswitch_5
         0x6 -> :sswitch_6
+        0x7 -> :sswitch_7
         0x5f4e5446 -> :sswitch_0
     .end sparse-switch
 .end method

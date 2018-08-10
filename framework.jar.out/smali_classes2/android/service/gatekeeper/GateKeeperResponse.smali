@@ -34,8 +34,6 @@
 
 
 # instance fields
-.field private mFailureCount:I
-
 .field private mPayload:[B
 
 .field private final mResponseCode:I
@@ -46,36 +44,14 @@
 
 
 # direct methods
-.method static synthetic -wrap0(Landroid/service/gatekeeper/GateKeeperResponse;I)V
-    .locals 0
+.method static synthetic -wrap0(I)Landroid/service/gatekeeper/GateKeeperResponse;
+    .locals 1
 
-    invoke-direct {p0, p1}, Landroid/service/gatekeeper/GateKeeperResponse;->setFailureCount(I)V
+    invoke-static {p0}, Landroid/service/gatekeeper/GateKeeperResponse;->createRetryResponse(I)Landroid/service/gatekeeper/GateKeeperResponse;
 
-    return-void
-.end method
+    move-result-object v0
 
-.method static synthetic -wrap1(Landroid/service/gatekeeper/GateKeeperResponse;[B)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Landroid/service/gatekeeper/GateKeeperResponse;->setPayload([B)V
-
-    return-void
-.end method
-
-.method static synthetic -wrap2(Landroid/service/gatekeeper/GateKeeperResponse;Z)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Landroid/service/gatekeeper/GateKeeperResponse;->setShouldReEnroll(Z)V
-
-    return-void
-.end method
-
-.method static synthetic -wrap3(Landroid/service/gatekeeper/GateKeeperResponse;I)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Landroid/service/gatekeeper/GateKeeperResponse;->setTimeout(I)V
-
-    return-void
+    return-object v0
 .end method
 
 .method static constructor <clinit>()V
@@ -100,54 +76,44 @@
     return-void
 .end method
 
-.method private constructor <init>(II)V
-    .locals 0
+.method public static createGenericResponse(I)Landroid/service/gatekeeper/GateKeeperResponse;
+    .locals 1
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    new-instance v0, Landroid/service/gatekeeper/GateKeeperResponse;
 
-    iput p1, p0, Landroid/service/gatekeeper/GateKeeperResponse;->mResponseCode:I
+    invoke-direct {v0, p0}, Landroid/service/gatekeeper/GateKeeperResponse;-><init>(I)V
 
-    return-void
+    return-object v0
 .end method
 
-.method synthetic constructor <init>(ILandroid/service/gatekeeper/GateKeeperResponse;)V
-    .locals 0
+.method public static createOkResponse([BZ)Landroid/service/gatekeeper/GateKeeperResponse;
+    .locals 2
 
-    invoke-direct {p0, p1}, Landroid/service/gatekeeper/GateKeeperResponse;-><init>(I)V
+    new-instance v0, Landroid/service/gatekeeper/GateKeeperResponse;
 
-    return-void
+    const/4 v1, 0x0
+
+    invoke-direct {v0, v1}, Landroid/service/gatekeeper/GateKeeperResponse;-><init>(I)V
+
+    iput-object p0, v0, Landroid/service/gatekeeper/GateKeeperResponse;->mPayload:[B
+
+    iput-boolean p1, v0, Landroid/service/gatekeeper/GateKeeperResponse;->mShouldReEnroll:Z
+
+    return-object v0
 .end method
 
-.method private setFailureCount(I)V
-    .locals 0
+.method private static createRetryResponse(I)Landroid/service/gatekeeper/GateKeeperResponse;
+    .locals 2
 
-    iput p1, p0, Landroid/service/gatekeeper/GateKeeperResponse;->mFailureCount:I
+    new-instance v0, Landroid/service/gatekeeper/GateKeeperResponse;
 
-    return-void
-.end method
+    const/4 v1, 0x1
 
-.method private setPayload([B)V
-    .locals 0
+    invoke-direct {v0, v1}, Landroid/service/gatekeeper/GateKeeperResponse;-><init>(I)V
 
-    iput-object p1, p0, Landroid/service/gatekeeper/GateKeeperResponse;->mPayload:[B
+    iput p0, v0, Landroid/service/gatekeeper/GateKeeperResponse;->mTimeout:I
 
-    return-void
-.end method
-
-.method private setShouldReEnroll(Z)V
-    .locals 0
-
-    iput-boolean p1, p0, Landroid/service/gatekeeper/GateKeeperResponse;->mShouldReEnroll:Z
-
-    return-void
-.end method
-
-.method private setTimeout(I)V
-    .locals 0
-
-    iput p1, p0, Landroid/service/gatekeeper/GateKeeperResponse;->mTimeout:I
-
-    return-void
+    return-object v0
 .end method
 
 
@@ -156,14 +122,6 @@
     .locals 1
 
     const/4 v0, 0x0
-
-    return v0
-.end method
-
-.method public getFailureCount()I
-    .locals 1
-
-    iget v0, p0, Landroid/service/gatekeeper/GateKeeperResponse;->mFailureCount:I
 
     return v0
 .end method
@@ -221,10 +179,6 @@
 
     :cond_0
     :goto_0
-    iget v0, p0, Landroid/service/gatekeeper/GateKeeperResponse;->mFailureCount:I
-
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
-
     return-void
 
     :cond_1

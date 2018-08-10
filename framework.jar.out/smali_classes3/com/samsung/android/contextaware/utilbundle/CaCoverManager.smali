@@ -7,14 +7,6 @@
 .implements Lcom/samsung/android/contextaware/utilbundle/IBootStatusObserver;
 
 
-# annotations
-.annotation system Ldalvik/annotation/MemberClasses;
-    value = {
-        Lcom/samsung/android/contextaware/utilbundle/CaCoverManager$1;
-    }
-.end annotation
-
-
 # static fields
 .field private static final COVER_TYPE_FLIP:I = 0x1
 
@@ -27,10 +19,6 @@
 
 # instance fields
 .field private mContext:Landroid/content/Context;
-
-.field private mCoverManager:Lcom/samsung/android/cover/CoverManager;
-
-.field private final mCoverStateListener:Lcom/samsung/android/cover/CoverManager$StateListener;
 
 .field private mCurrentCoverState:Z
 
@@ -51,54 +39,10 @@
 
 
 # direct methods
-.method static synthetic -get0(Lcom/samsung/android/contextaware/utilbundle/CaCoverManager;)Lcom/samsung/android/cover/CoverManager;
-    .locals 1
-
-    iget-object v0, p0, Lcom/samsung/android/contextaware/utilbundle/CaCoverManager;->mCoverManager:Lcom/samsung/android/cover/CoverManager;
-
-    return-object v0
-.end method
-
-.method static synthetic -get1(Lcom/samsung/android/contextaware/utilbundle/CaCoverManager;)Lcom/samsung/android/cover/CoverManager$StateListener;
-    .locals 1
-
-    iget-object v0, p0, Lcom/samsung/android/contextaware/utilbundle/CaCoverManager;->mCoverStateListener:Lcom/samsung/android/cover/CoverManager$StateListener;
-
-    return-object v0
-.end method
-
-.method static synthetic -set0(Lcom/samsung/android/contextaware/utilbundle/CaCoverManager;Z)Z
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/samsung/android/contextaware/utilbundle/CaCoverManager;->mCurrentCoverState:Z
-
-    return p1
-.end method
-
-.method static synthetic -set1(Lcom/samsung/android/contextaware/utilbundle/CaCoverManager;I)I
-    .locals 0
-
-    iput p1, p0, Lcom/samsung/android/contextaware/utilbundle/CaCoverManager;->mCurrentCoverType:I
-
-    return p1
-.end method
-
-.method static synthetic -wrap0(Lcom/samsung/android/contextaware/utilbundle/CaCoverManager;Lcom/samsung/android/cover/CoverState;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/samsung/android/contextaware/utilbundle/CaCoverManager;->notifyObservers(Lcom/samsung/android/cover/CoverState;)V
-
-    return-void
-.end method
-
 .method public constructor <init>(Landroid/os/Looper;)V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    const/4 v0, 0x0
-
-    iput-object v0, p0, Lcom/samsung/android/contextaware/utilbundle/CaCoverManager;->mCoverManager:Lcom/samsung/android/cover/CoverManager;
 
     const/4 v0, 0x1
 
@@ -113,12 +57,6 @@
     invoke-direct {v0}, Ljava/util/concurrent/CopyOnWriteArrayList;-><init>()V
 
     iput-object v0, p0, Lcom/samsung/android/contextaware/utilbundle/CaCoverManager;->mListeners:Ljava/util/concurrent/CopyOnWriteArrayList;
-
-    new-instance v0, Lcom/samsung/android/contextaware/utilbundle/CaCoverManager$1;
-
-    invoke-direct {v0, p0}, Lcom/samsung/android/contextaware/utilbundle/CaCoverManager$1;-><init>(Lcom/samsung/android/contextaware/utilbundle/CaCoverManager;)V
-
-    iput-object v0, p0, Lcom/samsung/android/contextaware/utilbundle/CaCoverManager;->mCoverStateListener:Lcom/samsung/android/cover/CoverManager$StateListener;
 
     iput-object p1, p0, Lcom/samsung/android/contextaware/utilbundle/CaCoverManager;->mLooper:Landroid/os/Looper;
 
@@ -165,79 +103,12 @@
     throw v0
 .end method
 
-.method private notifyObservers(Lcom/samsung/android/cover/CoverState;)V
-    .locals 3
-
-    iget-object v2, p0, Lcom/samsung/android/contextaware/utilbundle/CaCoverManager;->mListeners:Ljava/util/concurrent/CopyOnWriteArrayList;
-
-    invoke-virtual {v2}, Ljava/util/concurrent/CopyOnWriteArrayList;->iterator()Ljava/util/Iterator;
-
-    move-result-object v0
-
-    :cond_0
-    :goto_0
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_1
-
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Lcom/samsung/android/contextaware/utilbundle/ICoverStatusChangeObserver;
-
-    if-eqz v1, :cond_0
-
-    invoke-interface {v1, p1}, Lcom/samsung/android/contextaware/utilbundle/ICoverStatusChangeObserver;->onCoverStatusChanged(Lcom/samsung/android/cover/CoverState;)V
-
-    goto :goto_0
-
-    :cond_1
-    return-void
-.end method
-
 
 # virtual methods
 .method public bootCompleted()V
-    .locals 4
+    .locals 0
 
-    new-instance v0, Lcom/samsung/android/cover/CoverManager;
-
-    iget-object v1, p0, Lcom/samsung/android/contextaware/utilbundle/CaCoverManager;->mContext:Landroid/content/Context;
-
-    invoke-direct {v0, v1}, Lcom/samsung/android/cover/CoverManager;-><init>(Landroid/content/Context;)V
-
-    iput-object v0, p0, Lcom/samsung/android/contextaware/utilbundle/CaCoverManager;->mCoverManager:Lcom/samsung/android/cover/CoverManager;
-
-    iget-object v0, p0, Lcom/samsung/android/contextaware/utilbundle/CaCoverManager;->mLooper:Landroid/os/Looper;
-
-    if-eqz v0, :cond_0
-
-    new-instance v0, Landroid/os/Handler;
-
-    iget-object v1, p0, Lcom/samsung/android/contextaware/utilbundle/CaCoverManager;->mLooper:Landroid/os/Looper;
-
-    invoke-direct {v0, v1}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
-
-    new-instance v1, Lcom/samsung/android/contextaware/utilbundle/CaCoverManager$3;
-
-    invoke-direct {v1, p0}, Lcom/samsung/android/contextaware/utilbundle/CaCoverManager$3;-><init>(Lcom/samsung/android/contextaware/utilbundle/CaCoverManager;)V
-
-    const-wide/16 v2, 0x0
-
-    invoke-virtual {v0, v1, v2, v3}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
-
-    :goto_0
     return-void
-
-    :cond_0
-    const-string/jumbo v0, "looper null"
-
-    invoke-static {v0}, Lcom/samsung/android/contextaware/utilbundle/logger/CaLogger;->error(Ljava/lang/String;)V
-
-    goto :goto_0
 .end method
 
 .method public getCoverState()Z
@@ -271,9 +142,7 @@
 .end method
 
 .method public getCoverType()I
-    .locals 3
-
-    const/4 v2, 0x0
+    .locals 2
 
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -297,39 +166,9 @@
 
     invoke-static {v0}, Lcom/samsung/android/contextaware/utilbundle/logger/CaLogger;->info(Ljava/lang/String;)V
 
-    iget v0, p0, Lcom/samsung/android/contextaware/utilbundle/CaCoverManager;->mCurrentCoverType:I
-
-    sparse-switch v0, :sswitch_data_0
-
-    return v2
-
-    :sswitch_0
-    return v2
-
-    :sswitch_1
-    const/4 v0, 0x1
+    const/4 v0, 0x0
 
     return v0
-
-    :sswitch_2
-    const/4 v0, 0x2
-
-    return v0
-
-    nop
-
-    :sswitch_data_0
-    .sparse-switch
-        0x0 -> :sswitch_1
-        0x1 -> :sswitch_2
-        0x2 -> :sswitch_0
-        0x3 -> :sswitch_2
-        0x4 -> :sswitch_1
-        0x5 -> :sswitch_1
-        0x6 -> :sswitch_2
-        0x7 -> :sswitch_1
-        0x64 -> :sswitch_1
-    .end sparse-switch
 .end method
 
 .method public initializeManager(Landroid/content/Context;)V
@@ -374,9 +213,9 @@
 
     invoke-direct {v0, v1}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
 
-    new-instance v1, Lcom/samsung/android/contextaware/utilbundle/CaCoverManager$2;
+    new-instance v1, Lcom/samsung/android/contextaware/utilbundle/CaCoverManager$1;
 
-    invoke-direct {v1, p0}, Lcom/samsung/android/contextaware/utilbundle/CaCoverManager$2;-><init>(Lcom/samsung/android/contextaware/utilbundle/CaCoverManager;)V
+    invoke-direct {v1, p0}, Lcom/samsung/android/contextaware/utilbundle/CaCoverManager$1;-><init>(Lcom/samsung/android/contextaware/utilbundle/CaCoverManager;)V
 
     const-wide/16 v2, 0x0
 

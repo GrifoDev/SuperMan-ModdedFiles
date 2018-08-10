@@ -36,8 +36,6 @@
 
 .field public static final TAG_CSCFEATURE_WEB_DISABLEALLSEARCHENGINEEXCEPTGOOGLE:Ljava/lang/String; = "CscFeature_Web_DisableAllSearchEngineExceptGoogle"
 
-.field public static final TAG_CSCFEATURE_WEB_DISABLEBOOKMARKSYNC:Ljava/lang/String; = "CscFeature_Web_DisableBookmarkSync"
-
 .field public static final TAG_CSCFEATURE_WEB_DISABLECHOOSER4:Ljava/lang/String; = "CscFeature_Web_DisableChooser4"
 
 .field public static final TAG_CSCFEATURE_WEB_DISABLEGOOGLEINBROWSERSEARCHENGINE:Ljava/lang/String; = "CscFeature_Web_DisableGoogleInBrowserSearchEngine"
@@ -89,6 +87,8 @@
 .field public static final TAG_CSCFEATURE_WEB_SUPPORTDOWNLOADSAVEAS:Ljava/lang/String; = "CscFeature_Web_SupportDownloadSaveAs"
 
 .field public static final TAG_CSCFEATURE_WEB_SUPPORTFULLSCREEN:Ljava/lang/String; = "CscFeature_Web_SupportFullScreen"
+
+.field public static final TAG_CSCFEATURE_WEB_SUPPORTMCAFEEANSHINSCAN:Ljava/lang/String; = "CscFeature_Web_SupportMcafeeAnshinScan"
 
 .field public static final TAG_CSCFEATURE_WEB_SUPPORTOFFLINESTARTUPPAGE:Ljava/lang/String; = "CscFeature_Web_SupportOfflineStartupPage"
 

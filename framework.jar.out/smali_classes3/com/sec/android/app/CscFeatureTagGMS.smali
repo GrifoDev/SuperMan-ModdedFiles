@@ -14,9 +14,13 @@
 
 .field public static final TAG_CSCFEATURE_GMS_SETCLIENTIDBASEAM:Ljava/lang/String; = "CscFeature_GMS_SetClientIDBaseAm"
 
+.field public static final TAG_CSCFEATURE_GMS_SETCLIENTIDBASECR:Ljava/lang/String; = "CscFeature_GMS_SetClientIDBaseCr"
+
 .field public static final TAG_CSCFEATURE_GMS_SETCLIENTIDBASEGMM:Ljava/lang/String; = "CscFeature_GMS_SetClientIDBaseGmm"
 
 .field public static final TAG_CSCFEATURE_GMS_SETCLIENTIDBASEMS:Ljava/lang/String; = "CscFeature_GMS_SetClientIDBaseMs"
+
+.field public static final TAG_CSCFEATURE_GMS_SETCLIENTIDBASEWAL:Ljava/lang/String; = "CscFeature_GMS_SetClientIDBaseWal"
 
 .field public static final TAG_CSCFEATURE_GMS_SETCLIENTIDBASEYT:Ljava/lang/String; = "CscFeature_GMS_SetClientIDBaseYt"
 

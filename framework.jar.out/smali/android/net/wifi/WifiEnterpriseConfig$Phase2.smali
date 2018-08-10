@@ -15,6 +15,10 @@
 
 
 # static fields
+.field public static final AKA:I = 0x6
+
+.field public static final AKA_PRIME:I = 0x7
+
 .field private static final AUTHEAP_PREFIX:Ljava/lang/String; = "autheap="
 
 .field private static final AUTH_PREFIX:Ljava/lang/String; = "auth="
@@ -29,6 +33,8 @@
 
 .field public static final PAP:I = 0x1
 
+.field public static final SIM:I = 0x5
+
 .field public static final strings:[Ljava/lang/String;
 
 
@@ -36,7 +42,7 @@
 .method static constructor <clinit>()V
     .locals 3
 
-    const/4 v0, 0x5
+    const/16 v0, 0x8
 
     new-array v0, v0, [Ljava/lang/String;
 
@@ -67,6 +73,24 @@
     const-string/jumbo v1, "GTC"
 
     const/4 v2, 0x4
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "SIM"
+
+    const/4 v2, 0x5
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "AKA"
+
+    const/4 v2, 0x6
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "AKA\'"
+
+    const/4 v2, 0x7
 
     aput-object v1, v0, v2
 

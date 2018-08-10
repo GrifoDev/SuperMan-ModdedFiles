@@ -49,7 +49,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/directpeninput/SemDirectPenInput$DPIHandler;->mDirectPenInput:Ljava/lang/ref/WeakReference;
 
-    invoke-virtual {v1}, Ljava/lang/ref/Reference;->get()Ljava/lang/Object;
+    invoke-virtual {v1}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
 
     move-result-object v0
 
@@ -57,7 +57,7 @@
 
     if-eqz v0, :cond_0
 
-    invoke-static {v0, p1}, Lcom/samsung/android/directpeninput/SemDirectPenInput;->-wrap6(Lcom/samsung/android/directpeninput/SemDirectPenInput;Landroid/os/Message;)V
+    invoke-static {v0, p1}, Lcom/samsung/android/directpeninput/SemDirectPenInput;->-wrap5(Lcom/samsung/android/directpeninput/SemDirectPenInput;Landroid/os/Message;)V
 
     :cond_0
     return-void

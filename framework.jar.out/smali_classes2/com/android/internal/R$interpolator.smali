@@ -37,15 +37,15 @@
 
 .field public static final decelerate_quint:I = 0x10c0005
 
-.field public static final elastic_10:I = 0x10c0026
+.field public static final elastic_10:I = 0x10c001a
 
-.field public static final elastic_40:I = 0x10c0027
+.field public static final elastic_40:I = 0x10c001b
 
-.field public static final elastic_5:I = 0x10c0028
+.field public static final elastic_5:I = 0x10c001c
 
-.field public static final elastic_50:I = 0x10c0029
+.field public static final elastic_50:I = 0x10c001d
 
-.field public static final elastic_60:I = 0x10c002b
+.field public static final elastic_60:I = 0x10c001f
 
 .field public static final fast_out_linear_in:I = 0x10c000f
 
@@ -56,6 +56,10 @@
 .field public static final linear_out_slow_in:I = 0x10c000e
 
 .field public static final overshoot:I = 0x10c0008
+
+.field public static final sine_in_out_33:I = 0x10c0032
+
+.field public static final sine_in_out_70:I = 0x10c0034
 
 
 # direct methods

@@ -274,14 +274,16 @@
 .method public hashCode()I
     .locals 6
 
-    iget-boolean v0, p0, Landroid/telephony/CellInfo;->mRegistered:Z
+    const/16 v0, 0x1f
 
-    if-eqz v0, :cond_0
+    iget-boolean v1, p0, Landroid/telephony/CellInfo;->mRegistered:Z
 
-    const/4 v0, 0x0
+    if-eqz v1, :cond_0
+
+    const/4 v1, 0x0
 
     :goto_0
-    mul-int/lit8 v0, v0, 0x1f
+    mul-int/lit8 v1, v1, 0x1f
 
     iget-wide v2, p0, Landroid/telephony/CellInfo;->mTimeStamp:J
 
@@ -289,22 +291,22 @@
 
     div-long/2addr v2, v4
 
-    long-to-int v1, v2
+    long-to-int v2, v2
 
-    mul-int/lit8 v1, v1, 0x1f
+    mul-int/lit8 v2, v2, 0x1f
 
-    add-int/2addr v0, v1
+    add-int/2addr v1, v2
 
-    iget v1, p0, Landroid/telephony/CellInfo;->mTimeStampType:I
+    iget v2, p0, Landroid/telephony/CellInfo;->mTimeStampType:I
 
-    mul-int/lit8 v1, v1, 0x1f
+    mul-int/lit8 v2, v2, 0x1f
 
-    add-int/2addr v0, v1
+    add-int/2addr v1, v2
 
-    return v0
+    return v1
 
     :cond_0
-    const/4 v0, 0x1
+    const/4 v1, 0x1
 
     goto :goto_0
 .end method

@@ -89,7 +89,7 @@
     :cond_0
     iget-object v1, p0, Landroid/widget/RemoteViews$SetRemoteInputsAction;->remoteInputs:[Landroid/os/Parcelable;
 
-    const v2, 0x1020061
+    const v2, 0x1020430
 
     invoke-virtual {v0, v2, v1}, Landroid/widget/TextView;->setTagInternal(ILjava/lang/Object;)V
 

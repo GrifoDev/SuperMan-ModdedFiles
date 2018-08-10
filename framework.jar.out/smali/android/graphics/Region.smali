@@ -287,8 +287,16 @@
 
     instance-of v1, p1, Landroid/graphics/Region;
 
-    if-eqz v1, :cond_0
+    xor-int/lit8 v1, v1, 0x1
 
+    if-eqz v1, :cond_1
+
+    :cond_0
+    const/4 v1, 0x0
+
+    return v1
+
+    :cond_1
     move-object v0, p1
 
     check-cast v0, Landroid/graphics/Region;
@@ -300,11 +308,6 @@
     invoke-static {v2, v3, v4, v5}, Landroid/graphics/Region;->nativeEquals(JJ)Z
 
     move-result v1
-
-    return v1
-
-    :cond_0
-    const/4 v1, 0x0
 
     return v1
 .end method
@@ -349,7 +352,7 @@
 
     iget-wide v2, p0, Landroid/graphics/Region;->mNativeRegion:J
 
-    invoke-virtual {v0}, Landroid/graphics/Path;->ni()J
+    invoke-virtual {v0}, Landroid/graphics/Path;->mutateNI()J
 
     move-result-wide v4
 
@@ -363,7 +366,7 @@
 
     iget-wide v0, p0, Landroid/graphics/Region;->mNativeRegion:J
 
-    invoke-virtual {p1}, Landroid/graphics/Path;->ni()J
+    invoke-virtual {p1}, Landroid/graphics/Path;->mutateNI()J
 
     move-result-wide v2
 
@@ -663,7 +666,7 @@
 
     iget-wide v0, p0, Landroid/graphics/Region;->mNativeRegion:J
 
-    invoke-virtual {p1}, Landroid/graphics/Path;->ni()J
+    invoke-virtual {p1}, Landroid/graphics/Path;->readOnlyNI()J
 
     move-result-wide v2
 

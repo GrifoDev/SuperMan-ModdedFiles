@@ -42,7 +42,7 @@
 
     iget v0, p0, Landroid/widget/Editor$ErrorPopup;->mPopupInlineErrorBackgroundId:I
 
-    const/16 v1, 0x119
+    const/16 v1, 0x123
 
     invoke-direct {p0, v0, v1}, Landroid/widget/Editor$ErrorPopup;->getResourceId(II)I
 
@@ -54,7 +54,7 @@
 
     iget v1, p0, Landroid/widget/Editor$ErrorPopup;->mPopupInlineErrorBackgroundId:I
 
-    invoke-virtual {v0, v1}, Landroid/view/View;->setBackgroundResource(I)V
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setBackgroundResource(I)V
 
     return-void
 .end method
@@ -68,7 +68,7 @@
 
     iget-object v1, p0, Landroid/widget/Editor$ErrorPopup;->mView:Landroid/widget/TextView;
 
-    invoke-virtual {v1}, Landroid/view/View;->getContext()Landroid/content/Context;
+    invoke-virtual {v1}, Landroid/widget/TextView;->getContext()Landroid/content/Context;
 
     move-result-object v1
 
@@ -99,7 +99,7 @@
 
     iget v0, p0, Landroid/widget/Editor$ErrorPopup;->mPopupInlineErrorAboveBackgroundId:I
 
-    const/16 v1, 0x11a
+    const/16 v1, 0x122
 
     invoke-direct {p0, v0, v1}, Landroid/widget/Editor$ErrorPopup;->getResourceId(II)I
 
@@ -115,14 +115,14 @@
     iget v0, p0, Landroid/widget/Editor$ErrorPopup;->mPopupInlineErrorAboveBackgroundId:I
 
     :goto_1
-    invoke-virtual {v1, v0}, Landroid/view/View;->setBackgroundResource(I)V
+    invoke-virtual {v1, v0}, Landroid/widget/TextView;->setBackgroundResource(I)V
 
     return-void
 
     :cond_0
     iget v0, p0, Landroid/widget/Editor$ErrorPopup;->mPopupInlineErrorBackgroundId:I
 
-    const/16 v1, 0x119
+    const/16 v1, 0x123
 
     invoke-direct {p0, v0, v1}, Landroid/widget/Editor$ErrorPopup;->getResourceId(II)I
 
@@ -143,7 +143,7 @@
 
     invoke-super/range {p0 .. p5}, Landroid/widget/PopupWindow;->update(IIIIZ)V
 
-    invoke-virtual {p0}, Landroid/widget/PopupWindow;->isAboveAnchor()Z
+    invoke-virtual {p0}, Landroid/widget/Editor$ErrorPopup;->isAboveAnchor()Z
 
     move-result v0
 

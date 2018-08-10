@@ -35,17 +35,37 @@
 
 # virtual methods
 .method public run()V
-    .locals 1
+    .locals 2
 
     iget-object v0, p0, Landroid/view/ViewRootImpl$2;->this$0:Landroid/view/ViewRootImpl;
 
-    iget-boolean v0, v0, Landroid/view/ViewRootImpl;->mLayoutRequested:Z
+    invoke-static {v0}, Landroid/view/ViewRootImpl;->-get1(Landroid/view/ViewRootImpl;)I
 
-    if-nez v0, :cond_0
+    move-result v1
+
+    add-int/lit8 v1, v1, 0x1
+
+    invoke-static {v0, v1}, Landroid/view/ViewRootImpl;->-set0(Landroid/view/ViewRootImpl;I)I
 
     iget-object v0, p0, Landroid/view/ViewRootImpl$2;->this$0:Landroid/view/ViewRootImpl;
 
-    invoke-virtual {v0}, Landroid/view/ViewRootImpl;->requestLayout()V
+    invoke-static {v0}, Landroid/view/ViewRootImpl;->-get1(Landroid/view/ViewRootImpl;)I
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Landroid/view/ViewRootImpl$2;->this$0:Landroid/view/ViewRootImpl;
+
+    invoke-static {v0}, Landroid/view/ViewRootImpl;->-get8(Landroid/view/ViewRootImpl;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Landroid/view/ViewRootImpl$2;->this$0:Landroid/view/ViewRootImpl;
+
+    invoke-static {v0}, Landroid/view/ViewRootImpl;->-wrap21(Landroid/view/ViewRootImpl;)V
 
     :cond_0
     return-void

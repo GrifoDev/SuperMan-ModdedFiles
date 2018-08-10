@@ -26,6 +26,10 @@
     .end annotation
 .end field
 
+.field public static final FLAG_OVERLAY_STATIC:I = 0x2
+
+.field public static final FLAG_OVERLAY_TRUSTED:I = 0x4
+
 .field public static final INSTALL_LOCATION_AUTO:I = 0x0
 
 .field public static final INSTALL_LOCATION_INTERNAL_ONLY:I = 0x1
@@ -64,7 +68,13 @@
 
 .field public instrumentation:[Landroid/content/pm/InstrumentationInfo;
 
+.field public isOpenThemeOverlay:Z
+
 .field public lastUpdateTime:J
+
+.field public overlayFlags:I
+
+.field public overlayPriority:I
 
 .field public overlayTarget:Ljava/lang/String;
 
@@ -369,8 +379,10 @@
 
     if-eqz v1, :cond_3
 
+    move v1, v2
+
     :goto_1
-    iput-boolean v2, p0, Landroid/content/pm/PackageInfo;->requiredForAllUsers:Z
+    iput-boolean v1, p0, Landroid/content/pm/PackageInfo;->requiredForAllUsers:Z
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
@@ -389,6 +401,27 @@
     move-result-object v1
 
     iput-object v1, p0, Landroid/content/pm/PackageInfo;->overlayTarget:Ljava/lang/String;
+
+    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
+
+    move-result v1
+
+    iput v1, p0, Landroid/content/pm/PackageInfo;->overlayPriority:I
+
+    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
+
+    move-result v1
+
+    iput v1, p0, Landroid/content/pm/PackageInfo;->overlayFlags:I
+
+    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
+
+    move-result v1
+
+    if-eqz v1, :cond_4
+
+    :goto_2
+    iput-boolean v2, p0, Landroid/content/pm/PackageInfo;->isOpenThemeOverlay:Z
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readDouble()D
 
@@ -433,9 +466,14 @@
     goto :goto_0
 
     :cond_3
-    move v2, v3
+    move v1, v3
 
     goto :goto_1
+
+    :cond_4
+    move v2, v3
+
+    goto :goto_2
 .end method
 
 .method synthetic constructor <init>(Landroid/os/Parcel;Landroid/content/pm/PackageInfo;)V
@@ -665,8 +703,10 @@
 
     if-eqz v0, :cond_2
 
+    move v0, v1
+
     :goto_2
-    invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
     iget-object v0, p0, Landroid/content/pm/PackageInfo;->restrictedAccountType:Ljava/lang/String;
 
@@ -680,6 +720,21 @@
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
+    iget v0, p0, Landroid/content/pm/PackageInfo;->overlayPriority:I
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
+
+    iget v0, p0, Landroid/content/pm/PackageInfo;->overlayFlags:I
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
+
+    iget-boolean v0, p0, Landroid/content/pm/PackageInfo;->isOpenThemeOverlay:Z
+
+    if-eqz v0, :cond_3
+
+    :goto_3
+    invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeInt(I)V
+
     iget-wide v0, p0, Landroid/content/pm/PackageInfo;->stsOption:D
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Parcel;->writeDouble(D)V
@@ -689,7 +744,7 @@
     :cond_0
     invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto :goto_0
+    goto/16 :goto_0
 
     :cond_1
     move v0, v2
@@ -697,7 +752,12 @@
     goto :goto_1
 
     :cond_2
-    move v1, v2
+    move v0, v2
 
     goto :goto_2
+
+    :cond_3
+    move v1, v2
+
+    goto :goto_3
 .end method

@@ -4,6 +4,8 @@
 
 
 # static fields
+.field private static EPEN_SAVINGMODE_PATH:Ljava/lang/String; = null
+
 .field private static final TAG:Ljava/lang/String; = "SemHardwareInterface"
 
 .field public static final TORCH_BRIGHTNESS_MAX:I = 0x3
@@ -35,6 +37,10 @@
 
     sput-object v0, Lcom/samsung/android/hardware/SemHardwareInterface;->mLevelTable:[I
 
+    const-string/jumbo v0, "/sys/class/sec/sec_epen/epen_saving_mode"
+
+    sput-object v0, Lcom/samsung/android/hardware/SemHardwareInterface;->EPEN_SAVINGMODE_PATH:Ljava/lang/String;
+
     return-void
 .end method
 
@@ -44,6 +50,18 @@
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
+.end method
+
+.method public static setEPenSavingmode(I)Z
+    .locals 1
+
+    sget-object v0, Lcom/samsung/android/hardware/SemHardwareInterface;->EPEN_SAVINGMODE_PATH:Ljava/lang/String;
+
+    invoke-static {v0, p0}, Lcom/samsung/android/hardware/SemHardwareInterface;->sysfsWrite(Ljava/lang/String;I)Z
+
+    move-result v0
+
+    return v0
 .end method
 
 .method public static setTorchLight(I)V
@@ -90,7 +108,7 @@
 
     move-result-object v5
 
-    invoke-virtual {v4, v5}, Ljava/io/Writer;->write(Ljava/lang/String;)V
+    invoke-virtual {v4, v5}, Ljava/io/FileWriter;->write(Ljava/lang/String;)V
     :try_end_1
     .catch Ljava/io/FileNotFoundException; {:try_start_1 .. :try_end_1} :catch_0
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_7
@@ -100,7 +118,7 @@
     if-eqz v4, :cond_1
 
     :try_start_2
-    invoke-virtual {v4}, Ljava/io/OutputStreamWriter;->close()V
+    invoke-virtual {v4}, Ljava/io/FileWriter;->close()V
     :try_end_2
     .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_2
 
@@ -116,7 +134,7 @@
     :try_start_3
     const-string/jumbo v7, "0"
 
-    invoke-virtual {v4, v7}, Ljava/io/Writer;->write(Ljava/lang/String;)V
+    invoke-virtual {v4, v7}, Ljava/io/FileWriter;->write(Ljava/lang/String;)V
     :try_end_3
     .catch Ljava/io/FileNotFoundException; {:try_start_3 .. :try_end_3} :catch_0
     .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_7
@@ -131,14 +149,14 @@
 
     :goto_3
     :try_start_4
-    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/io/FileNotFoundException;->printStackTrace()V
     :try_end_4
     .catchall {:try_start_4 .. :try_end_4} :catchall_0
 
     if-eqz v3, :cond_2
 
     :try_start_5
-    invoke-virtual {v3}, Ljava/io/OutputStreamWriter;->close()V
+    invoke-virtual {v3}, Ljava/io/FileWriter;->close()V
     :try_end_5
     .catch Ljava/io/IOException; {:try_start_5 .. :try_end_5} :catch_1
 
@@ -147,14 +165,14 @@
     :catch_1
     move-exception v1
 
-    invoke-virtual {v1}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v1}, Ljava/io/IOException;->printStackTrace()V
 
     goto :goto_2
 
     :catch_2
     move-exception v1
 
-    invoke-virtual {v1}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v1}, Ljava/io/IOException;->printStackTrace()V
 
     goto :goto_1
 
@@ -163,14 +181,14 @@
 
     :goto_4
     :try_start_6
-    invoke-virtual {v1}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v1}, Ljava/io/IOException;->printStackTrace()V
     :try_end_6
     .catchall {:try_start_6 .. :try_end_6} :catchall_0
 
     if-eqz v3, :cond_2
 
     :try_start_7
-    invoke-virtual {v3}, Ljava/io/OutputStreamWriter;->close()V
+    invoke-virtual {v3}, Ljava/io/FileWriter;->close()V
     :try_end_7
     .catch Ljava/io/IOException; {:try_start_7 .. :try_end_7} :catch_4
 
@@ -179,7 +197,7 @@
     :catch_4
     move-exception v1
 
-    invoke-virtual {v1}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v1}, Ljava/io/IOException;->printStackTrace()V
 
     goto :goto_2
 
@@ -190,7 +208,7 @@
     if-eqz v3, :cond_4
 
     :try_start_8
-    invoke-virtual {v3}, Ljava/io/OutputStreamWriter;->close()V
+    invoke-virtual {v3}, Ljava/io/FileWriter;->close()V
     :try_end_8
     .catch Ljava/io/IOException; {:try_start_8 .. :try_end_8} :catch_5
 
@@ -201,7 +219,7 @@
     :catch_5
     move-exception v1
 
-    invoke-virtual {v1}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v1}, Ljava/io/IOException;->printStackTrace()V
 
     goto :goto_6
 
@@ -287,7 +305,7 @@
     move-exception v0
 
     :try_start_2
-    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/io/FileNotFoundException;->printStackTrace()V
     :try_end_2
     .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_1
 
@@ -297,7 +315,7 @@
     move-exception v1
 
     :goto_0
-    invoke-virtual {v1}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v1}, Ljava/io/IOException;->printStackTrace()V
 
     :try_start_3
     invoke-virtual {v3}, Ljava/io/FileOutputStream;->close()V
@@ -310,7 +328,7 @@
     :catch_2
     move-exception v2
 
-    invoke-virtual {v2}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v2}, Ljava/lang/Exception;->printStackTrace()V
 
     goto :goto_1
 

@@ -61,7 +61,7 @@
 .end method
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    .locals 51
+    .locals 52
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -131,45 +131,9 @@
     goto :goto_0
 
     :cond_0
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readBundle()Landroid/os/Bundle;
 
     move-result-object v8
-
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v40
-
-    const/4 v9, 0x0
-
-    if-lez v40, :cond_1
-
-    move/from16 v0, v40
-
-    new-array v9, v0, [Ljava/lang/String;
-
-    const/16 v37, 0x0
-
-    :goto_1
-    move/from16 v0, v37
-
-    move/from16 v1, v40
-
-    if-ge v0, v1, :cond_1
-
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v4
-
-    aput-object v4, v9, v37
-
-    add-int/lit8 v37, v37, 0x1
-
-    goto :goto_1
-
-    :cond_1
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v10
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
@@ -185,17 +149,17 @@
 
     invoke-static {v4}, Landroid/os/ICancellationSignal$Stub;->asInterface(Landroid/os/IBinder;)Landroid/os/ICancellationSignal;
 
-    move-result-object v11
+    move-result-object v9
 
     move-object/from16 v4, p0
 
-    invoke-virtual/range {v4 .. v11}, Landroid/content/ContentProviderNative;->query(Ljava/lang/String;Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;Landroid/os/ICancellationSignal;)Landroid/database/Cursor;
+    invoke-virtual/range {v4 .. v9}, Landroid/content/ContentProviderNative;->query(Ljava/lang/String;Landroid/net/Uri;[Ljava/lang/String;Landroid/os/Bundle;Landroid/os/ICancellationSignal;)Landroid/database/Cursor;
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v32
 
-    if-eqz v32, :cond_4
+    if-eqz v32, :cond_3
 
     const/16 v28, 0x0
 
@@ -246,7 +210,7 @@
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
-    :goto_2
+    :goto_1
     const/4 v4, 0x1
 
     return v4
@@ -254,18 +218,18 @@
     :catchall_0
     move-exception v4
 
-    :goto_3
-    if-eqz v28, :cond_2
+    :goto_2
+    if-eqz v28, :cond_1
 
     :try_start_4
     invoke-virtual/range {v28 .. v28}, Landroid/database/CursorToBulkCursorAdaptor;->close()V
 
-    :cond_2
-    if-eqz v32, :cond_3
+    :cond_1
+    if-eqz v32, :cond_2
 
     invoke-interface/range {v32 .. v32}, Landroid/database/Cursor;->close()V
 
-    :cond_3
+    :cond_2
     throw v4
     :try_end_4
     .catch Ljava/lang/Exception; {:try_start_4 .. :try_end_4} :catch_0
@@ -283,7 +247,7 @@
 
     return v4
 
-    :cond_4
+    :cond_3
     :try_start_5
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
@@ -293,7 +257,7 @@
 
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto :goto_2
+    goto :goto_1
 
     :pswitch_2
     const-string/jumbo v4, "android.content.IContentProvider"
@@ -316,13 +280,13 @@
 
     invoke-virtual {v0, v6}, Landroid/content/ContentProviderNative;->getType(Landroid/net/Uri;)Ljava/lang/String;
 
-    move-result-object v48
+    move-result-object v49
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     move-object/from16 v0, p3
 
-    move-object/from16 v1, v48
+    move-object/from16 v1, v49
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
@@ -357,13 +321,13 @@
 
     invoke-interface {v4, v0}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
 
-    move-result-object v15
+    move-result-object v13
 
-    check-cast v15, Landroid/content/ContentValues;
+    check-cast v13, Landroid/content/ContentValues;
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v5, v6, v15}, Landroid/content/ContentProviderNative;->insert(Ljava/lang/String;Landroid/net/Uri;Landroid/content/ContentValues;)Landroid/net/Uri;
+    invoke-virtual {v0, v5, v6, v13}, Landroid/content/ContentProviderNative;->insert(Ljava/lang/String;Landroid/net/Uri;Landroid/content/ContentValues;)Landroid/net/Uri;
 
     move-result-object v44
 
@@ -406,13 +370,13 @@
 
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->createTypedArray(Landroid/os/Parcelable$Creator;)[Ljava/lang/Object;
 
-    move-result-object v50
+    move-result-object v51
 
-    check-cast v50, [Landroid/content/ContentValues;
+    check-cast v51, [Landroid/content/ContentValues;
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v50
+    move-object/from16 v1, v51
 
     invoke-virtual {v0, v5, v6, v1}, Landroid/content/ContentProviderNative;->bulkInsert(Ljava/lang/String;Landroid/net/Uri;[Landroid/content/ContentValues;)I
 
@@ -455,12 +419,12 @@
 
     const/16 v37, 0x0
 
-    :goto_4
+    :goto_3
     move/from16 v0, v37
 
     move/from16 v1, v41
 
-    if-ge v0, v1, :cond_5
+    if-ge v0, v1, :cond_4
 
     sget-object v4, Landroid/content/ContentProviderOperation;->CREATOR:Landroid/os/Parcelable$Creator;
 
@@ -480,16 +444,16 @@
 
     add-int/lit8 v37, v37, 0x1
 
-    goto :goto_4
+    goto :goto_3
 
-    :cond_5
+    :cond_4
     move-object/from16 v0, p0
 
     move-object/from16 v1, v43
 
     invoke-virtual {v0, v5, v1}, Landroid/content/ContentProviderNative;->applyBatch(Ljava/lang/String;Ljava/util/ArrayList;)[Landroid/content/ContentProviderResult;
 
-    move-result-object v46
+    move-result-object v47
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
@@ -497,7 +461,7 @@
 
     move-object/from16 v0, p3
 
-    move-object/from16 v1, v46
+    move-object/from16 v1, v47
 
     invoke-virtual {v0, v1, v4}, Landroid/os/Parcel;->writeTypedArray([Landroid/os/Parcelable;I)V
 
@@ -528,15 +492,15 @@
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
-    move-result-object v8
+    move-result-object v14
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readStringArray()[Ljava/lang/String;
 
-    move-result-object v9
+    move-result-object v15
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v5, v6, v8, v9}, Landroid/content/ContentProviderNative;->delete(Ljava/lang/String;Landroid/net/Uri;Ljava/lang/String;[Ljava/lang/String;)I
+    invoke-virtual {v0, v5, v6, v14, v15}, Landroid/content/ContentProviderNative;->delete(Ljava/lang/String;Landroid/net/Uri;Ljava/lang/String;[Ljava/lang/String;)I
 
     move-result v31
 
@@ -579,29 +543,25 @@
 
     invoke-interface {v4, v0}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
 
-    move-result-object v15
+    move-result-object v13
 
-    check-cast v15, Landroid/content/ContentValues;
+    check-cast v13, Landroid/content/ContentValues;
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
-    move-result-object v8
+    move-result-object v14
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readStringArray()[Ljava/lang/String;
 
-    move-result-object v9
+    move-result-object v15
 
-    move-object/from16 v12, p0
+    move-object/from16 v10, p0
 
-    move-object v13, v5
+    move-object v11, v5
 
-    move-object v14, v6
+    move-object v12, v6
 
-    move-object/from16 v16, v8
-
-    move-object/from16 v17, v9
-
-    invoke-virtual/range {v12 .. v17}, Landroid/content/ContentProviderNative;->update(Ljava/lang/String;Landroid/net/Uri;Landroid/content/ContentValues;Ljava/lang/String;[Ljava/lang/String;)I
+    invoke-virtual/range {v10 .. v15}, Landroid/content/ContentProviderNative;->update(Ljava/lang/String;Landroid/net/Uri;Landroid/content/ContentValues;Ljava/lang/String;[Ljava/lang/String;)I
 
     move-result v31
 
@@ -666,7 +626,7 @@
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v36, :cond_6
+    if-eqz v36, :cond_5
 
     const/4 v4, 0x1
 
@@ -682,19 +642,19 @@
 
     invoke-virtual {v0, v1, v4}, Landroid/os/ParcelFileDescriptor;->writeToParcel(Landroid/os/Parcel;I)V
 
-    :goto_5
+    :goto_4
     const/4 v4, 0x1
 
     return v4
 
-    :cond_6
+    :cond_5
     const/4 v4, 0x0
 
     move-object/from16 v0, p3
 
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto :goto_5
+    goto :goto_4
 
     :pswitch_9
     const-string/jumbo v4, "android.content.IContentProvider"
@@ -741,7 +701,7 @@
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v35, :cond_7
+    if-eqz v35, :cond_6
 
     const/4 v4, 0x1
 
@@ -757,19 +717,19 @@
 
     invoke-virtual {v0, v1, v4}, Landroid/content/res/AssetFileDescriptor;->writeToParcel(Landroid/os/Parcel;I)V
 
-    :goto_6
+    :goto_5
     const/4 v4, 0x1
 
     return v4
 
-    :cond_7
+    :cond_6
     const/4 v4, 0x0
 
     move-object/from16 v0, p3
 
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto :goto_6
+    goto :goto_5
 
     :pswitch_a
     const-string/jumbo v4, "android.content.IContentProvider"
@@ -788,7 +748,7 @@
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
-    move-result-object v47
+    move-result-object v48
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readBundle()Landroid/os/Bundle;
 
@@ -798,19 +758,19 @@
 
     move-object/from16 v1, v38
 
-    move-object/from16 v2, v47
+    move-object/from16 v2, v48
 
     move-object/from16 v3, v30
 
     invoke-virtual {v0, v5, v1, v2, v3}, Landroid/content/ContentProviderNative;->call(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Landroid/os/Bundle;)Landroid/os/Bundle;
 
-    move-result-object v45
+    move-result-object v46
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     move-object/from16 v0, p3
 
-    move-object/from16 v1, v45
+    move-object/from16 v1, v46
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeBundle(Landroid/os/Bundle;)V
 
@@ -845,13 +805,13 @@
 
     invoke-virtual {v0, v6, v1}, Landroid/content/ContentProviderNative;->getStreamTypes(Landroid/net/Uri;Ljava/lang/String;)[Ljava/lang/String;
 
-    move-result-object v49
+    move-result-object v50
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     move-object/from16 v0, p3
 
-    move-object/from16 v1, v49
+    move-object/from16 v1, v50
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeStringArray([Ljava/lang/String;)V
 
@@ -910,7 +870,7 @@
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v35, :cond_8
+    if-eqz v35, :cond_7
 
     const/4 v4, 0x1
 
@@ -926,19 +886,19 @@
 
     invoke-virtual {v0, v1, v4}, Landroid/content/res/AssetFileDescriptor;->writeToParcel(Landroid/os/Parcel;I)V
 
-    :goto_7
+    :goto_6
     const/4 v4, 0x1
 
     return v4
 
-    :cond_8
+    :cond_7
     const/4 v4, 0x0
 
     move-object/from16 v0, p3
 
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto :goto_7
+    goto :goto_6
 
     :pswitch_d
     const-string/jumbo v4, "android.content.IContentProvider"
@@ -949,11 +909,11 @@
 
     invoke-virtual/range {p0 .. p0}, Landroid/content/ContentProviderNative;->createCancellationSignal()Landroid/os/ICancellationSignal;
 
-    move-result-object v11
+    move-result-object v9
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    invoke-interface {v11}, Landroid/os/ICancellationSignal;->asBinder()Landroid/os/IBinder;
+    invoke-interface {v9}, Landroid/os/ICancellationSignal;->asBinder()Landroid/os/IBinder;
 
     move-result-object v4
 
@@ -1038,6 +998,64 @@
     move-object/from16 v1, v44
 
     invoke-static {v0, v1}, Landroid/net/Uri;->writeToParcel(Landroid/os/Parcel;Landroid/net/Uri;)V
+
+    const/4 v4, 0x1
+
+    return v4
+
+    :pswitch_10
+    const-string/jumbo v4, "android.content.IContentProvider"
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v5
+
+    sget-object v4, Landroid/net/Uri;->CREATOR:Landroid/os/Parcelable$Creator;
+
+    move-object/from16 v0, p2
+
+    invoke-interface {v4, v0}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+
+    move-result-object v6
+
+    check-cast v6, Landroid/net/Uri;
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readBundle()Landroid/os/Bundle;
+
+    move-result-object v30
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
+
+    move-result-object v4
+
+    invoke-static {v4}, Landroid/os/ICancellationSignal$Stub;->asInterface(Landroid/os/IBinder;)Landroid/os/ICancellationSignal;
+
+    move-result-object v20
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v30
+
+    move-object/from16 v2, v20
+
+    invoke-virtual {v0, v5, v6, v1, v2}, Landroid/content/ContentProviderNative;->refresh(Ljava/lang/String;Landroid/net/Uri;Landroid/os/Bundle;Landroid/os/ICancellationSignal;)Z
+
+    move-result v45
+
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    if-eqz v45, :cond_8
+
+    const/4 v4, 0x0
+
+    :goto_7
+    move-object/from16 v0, p3
+
+    invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInt(I)V
     :try_end_5
     .catch Ljava/lang/Exception; {:try_start_5 .. :try_end_5} :catch_0
 
@@ -1045,14 +1063,17 @@
 
     return v4
 
+    :cond_8
+    const/4 v4, -0x1
+
+    goto :goto_7
+
     :catchall_1
     move-exception v4
 
     move-object/from16 v28, v29
 
-    goto/16 :goto_3
-
-    nop
+    goto/16 :goto_2
 
     :pswitch_data_0
     .packed-switch 0x1
@@ -1082,5 +1103,6 @@
         :pswitch_d
         :pswitch_e
         :pswitch_f
+        :pswitch_10
     .end packed-switch
 .end method

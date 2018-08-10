@@ -189,8 +189,6 @@
 
     invoke-virtual/range {v1 .. v6}, Landroid/media/IRingtonePlayer$Stub;->play(Landroid/os/IBinder;Landroid/net/Uri;Landroid/media/AudioAttributes;FZ)V
 
-    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
-
     const/4 v1, 0x1
 
     return v1
@@ -224,8 +222,6 @@
     move-object/from16 v0, p0
 
     invoke-virtual {v0, v2}, Landroid/media/IRingtonePlayer$Stub;->stop(Landroid/os/IBinder;)V
-
-    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     const/4 v1, 0x1
 
@@ -295,8 +291,6 @@
     move-object/from16 v0, p0
 
     invoke-virtual {v0, v2, v9, v11}, Landroid/media/IRingtonePlayer$Stub;->setPlaybackProperties(Landroid/os/IBinder;FZ)V
-
-    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     const/4 v1, 0x1
 
@@ -378,8 +372,6 @@
 
     invoke-virtual {v0, v8, v10, v11, v12}, Landroid/media/IRingtonePlayer$Stub;->playAsync(Landroid/net/Uri;Landroid/os/UserHandle;ZLandroid/media/AudioAttributes;)V
 
-    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
-
     const/4 v1, 0x1
 
     return v1
@@ -412,8 +404,6 @@
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual/range {p0 .. p0}, Landroid/media/IRingtonePlayer$Stub;->stopAsync()V
-
-    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     const/4 v1, 0x1
 
@@ -559,6 +549,8 @@
     const/4 v1, 0x1
 
     return v1
+
+    nop
 
     :sswitch_data_0
     .sparse-switch

@@ -219,8 +219,6 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
-
     :cond_0
     add-int/lit8 v1, v1, 0x1
 

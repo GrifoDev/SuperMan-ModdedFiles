@@ -24,11 +24,7 @@
 
 # direct methods
 .method public constructor <init>([F[F)V
-    .locals 13
-
-    const/4 v10, 0x0
-
-    const/4 v12, 0x0
+    .locals 12
 
     invoke-direct {p0}, Landroid/util/Spline;-><init>()V
 
@@ -81,7 +77,9 @@
 
     sub-float v3, v8, v9
 
-    cmpg-float v8, v3, v12
+    const/4 v8, 0x0
+
+    cmpg-float v8, v3, v8
 
     if-gtz v8, :cond_2
 
@@ -111,9 +109,13 @@
     goto :goto_0
 
     :cond_3
-    aget v8, v2, v10
+    const/4 v8, 0x0
 
-    aput v8, v5, v10
+    aget v8, v2, v8
+
+    const/4 v9, 0x0
+
+    aput v8, v5, v9
 
     const/4 v4, 0x1
 
@@ -158,15 +160,21 @@
 
     aget v8, v2, v4
 
-    cmpl-float v8, v8, v12
+    const/4 v9, 0x0
+
+    cmpl-float v8, v8, v9
 
     if-nez v8, :cond_6
 
-    aput v12, v5, v4
+    const/4 v8, 0x0
+
+    aput v8, v5, v4
 
     add-int/lit8 v8, v4, 0x1
 
-    aput v12, v5, v8
+    const/4 v9, 0x0
+
+    aput v9, v5, v8
 
     :cond_5
     :goto_3
@@ -189,11 +197,15 @@
 
     div-float v1, v8, v9
 
-    cmpg-float v8, v0, v12
+    const/4 v8, 0x0
+
+    cmpg-float v8, v0, v8
 
     if-ltz v8, :cond_7
 
-    cmpg-float v8, v1, v12
+    const/4 v8, 0x0
+
+    cmpg-float v8, v1, v8
 
     if-gez v8, :cond_8
 
@@ -217,7 +229,7 @@
 
     double-to-float v3, v8
 
-    const/high16 v8, 0x41100000    # 9.0f
+    const/high16 v8, 0x40400000    # 3.0f
 
     cmpl-float v8, v3, v8
 
@@ -227,21 +239,17 @@
 
     div-float v7, v8, v3
 
-    mul-float v8, v7, v0
+    aget v8, v5, v4
 
-    aget v9, v2, v4
-
-    mul-float/2addr v8, v9
+    mul-float/2addr v8, v7
 
     aput v8, v5, v4
 
     add-int/lit8 v8, v4, 0x1
 
-    mul-float v9, v7, v1
+    aget v9, v5, v8
 
-    aget v10, v2, v4
-
-    mul-float/2addr v9, v10
+    mul-float/2addr v9, v7
 
     aput v9, v5, v8
 

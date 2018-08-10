@@ -9,13 +9,7 @@
 # static fields
 .field public static final EXTRAS_ACCOUNT:Ljava/lang/String; = "account"
 
-.field public static final EXTRAS_ACCOUNT_TYPE_LABEL:Ljava/lang/String; = "accountTypeLabel"
-
-.field public static final EXTRAS_AUTH_TOKEN_LABEL:Ljava/lang/String; = "authTokenLabel"
-
 .field public static final EXTRAS_AUTH_TOKEN_TYPE:Ljava/lang/String; = "authTokenType"
-
-.field public static final EXTRAS_PACKAGES:Ljava/lang/String; = "application"
 
 .field public static final EXTRAS_REQUESTING_UID:Ljava/lang/String; = "uid"
 
@@ -82,7 +76,7 @@
 
     const/4 v7, 0x0
 
-    invoke-virtual {p0, v6, v7}, Landroid/content/ContextWrapper;->createPackageContext(Ljava/lang/String;I)Landroid/content/Context;
+    invoke-virtual {p0, v6, v7}, Landroid/accounts/GrantCredentialsPermissionActivity;->createPackageContext(Ljava/lang/String;I)Landroid/content/Context;
 
     move-result-object v6
 
@@ -127,7 +121,7 @@
 
     iget-object v1, p0, Landroid/accounts/GrantCredentialsPermissionActivity;->mInflater:Landroid/view/LayoutInflater;
 
-    const v2, 0x10900b2
+    const v2, 0x10900b5
 
     const/4 v3, 0x0
 
@@ -135,7 +129,7 @@
 
     move-result-object v0
 
-    const v1, 0x1020450
+    const v1, 0x10203e3
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -153,7 +147,7 @@
 .method public finish()V
     .locals 4
 
-    invoke-virtual {p0}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
+    invoke-virtual {p0}, Landroid/accounts/GrantCredentialsPermissionActivity;->getIntent()Landroid/content/Intent;
 
     move-result-object v0
 
@@ -202,14 +196,14 @@
 
     move-result v1
 
-    packed-switch v1, :pswitch_data_0
+    sparse-switch v1, :sswitch_data_0
 
     :goto_0
     invoke-virtual {p0}, Landroid/accounts/GrantCredentialsPermissionActivity;->finish()V
 
     return-void
 
-    :pswitch_0
+    :sswitch_0
     invoke-static {p0}, Landroid/accounts/AccountManager;->get(Landroid/content/Context;)Landroid/accounts/AccountManager;
 
     move-result-object v1
@@ -232,7 +226,7 @@
 
     const/4 v1, -0x1
 
-    invoke-virtual {p0, v1, v0}, Landroid/app/Activity;->setResult(ILandroid/content/Intent;)V
+    invoke-virtual {p0, v1, v0}, Landroid/accounts/GrantCredentialsPermissionActivity;->setResult(ILandroid/content/Intent;)V
 
     invoke-virtual {v0}, Landroid/content/Intent;->getExtras()Landroid/os/Bundle;
 
@@ -242,7 +236,7 @@
 
     goto :goto_0
 
-    :pswitch_1
+    :sswitch_1
     invoke-static {p0}, Landroid/accounts/AccountManager;->get(Landroid/content/Context;)Landroid/accounts/AccountManager;
 
     move-result-object v1
@@ -255,15 +249,15 @@
 
     invoke-virtual {v1, v2, v3, v4, v5}, Landroid/accounts/AccountManager;->updateAppPermission(Landroid/accounts/Account;Ljava/lang/String;IZ)V
 
-    invoke-virtual {p0, v5}, Landroid/app/Activity;->setResult(I)V
+    invoke-virtual {p0, v5}, Landroid/accounts/GrantCredentialsPermissionActivity;->setResult(I)V
 
     goto :goto_0
 
-    :pswitch_data_0
-    .packed-switch 0x10203e8
-        :pswitch_1
-        :pswitch_0
-    .end packed-switch
+    :sswitch_data_0
+    .sparse-switch
+        0x10201dd -> :sswitch_0
+        0x1020274 -> :sswitch_1
+    .end sparse-switch
 .end method
 
 .method protected onCreate(Landroid/os/Bundle;)V
@@ -271,17 +265,17 @@
 
     invoke-super/range {p0 .. p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
-    const v11, 0x1090073
+    const v11, 0x1090075
 
-    invoke-virtual {p0, v11}, Landroid/app/Activity;->setContentView(I)V
+    invoke-virtual {p0, v11}, Landroid/accounts/GrantCredentialsPermissionActivity;->setContentView(I)V
 
-    const v11, 0x1040472
+    const v11, 0x10403df
 
-    invoke-virtual {p0, v11}, Landroid/app/Activity;->setTitle(I)V
+    invoke-virtual {p0, v11}, Landroid/accounts/GrantCredentialsPermissionActivity;->setTitle(I)V
 
     const-string/jumbo v11, "layout_inflater"
 
-    invoke-virtual {p0, v11}, Landroid/app/Activity;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {p0, v11}, Landroid/accounts/GrantCredentialsPermissionActivity;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v11
 
@@ -289,7 +283,7 @@
 
     iput-object v11, p0, Landroid/accounts/GrantCredentialsPermissionActivity;->mInflater:Landroid/view/LayoutInflater;
 
-    invoke-virtual {p0}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
+    invoke-virtual {p0}, Landroid/accounts/GrantCredentialsPermissionActivity;->getIntent()Landroid/content/Intent;
 
     move-result-object v11
 
@@ -301,7 +295,7 @@
 
     const/4 v11, 0x0
 
-    invoke-virtual {p0, v11}, Landroid/app/Activity;->setResult(I)V
+    invoke-virtual {p0, v11}, Landroid/accounts/GrantCredentialsPermissionActivity;->setResult(I)V
 
     invoke-virtual {p0}, Landroid/accounts/GrantCredentialsPermissionActivity;->finish()V
 
@@ -320,7 +314,7 @@
 
     const-string/jumbo v11, "authTokenType"
 
-    invoke-virtual {v5, v11}, Landroid/os/BaseBundle;->getString(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v5, v11}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v11
 
@@ -328,13 +322,13 @@
 
     const-string/jumbo v11, "uid"
 
-    invoke-virtual {v5, v11}, Landroid/os/BaseBundle;->getInt(Ljava/lang/String;)I
+    invoke-virtual {v5, v11}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
 
     move-result v11
 
     iput v11, p0, Landroid/accounts/GrantCredentialsPermissionActivity;->mUid:I
 
-    invoke-virtual {p0}, Landroid/content/ContextWrapper;->getPackageManager()Landroid/content/pm/PackageManager;
+    invoke-virtual {p0}, Landroid/accounts/GrantCredentialsPermissionActivity;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v10
 
@@ -355,7 +349,7 @@
     :cond_1
     const/4 v11, 0x0
 
-    invoke-virtual {p0, v11}, Landroid/app/Activity;->setResult(I)V
+    invoke-virtual {p0, v11}, Landroid/accounts/GrantCredentialsPermissionActivity;->setResult(I)V
 
     invoke-virtual {p0}, Landroid/accounts/GrantCredentialsPermissionActivity;->finish()V
 
@@ -373,9 +367,9 @@
 
     move-result-object v0
 
-    const v11, 0x10203e5
+    const v11, 0x10201f1
 
-    invoke-virtual {p0, v11}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v11}, Landroid/accounts/GrantCredentialsPermissionActivity;->findViewById(I)Landroid/view/View;
 
     move-result-object v1
 
@@ -383,11 +377,21 @@
 
     const/16 v11, 0x8
 
-    invoke-virtual {v1, v11}, Landroid/view/View;->setVisibility(I)V
+    invoke-virtual {v1, v11}, Landroid/widget/TextView;->setVisibility(I)V
 
     new-instance v2, Landroid/accounts/GrantCredentialsPermissionActivity$1;
 
     invoke-direct {v2, p0, v1}, Landroid/accounts/GrantCredentialsPermissionActivity$1;-><init>(Landroid/accounts/GrantCredentialsPermissionActivity;Landroid/widget/TextView;)V
+
+    const-string/jumbo v11, "com.android.AccountManager.ACCOUNT_ACCESS_TOKEN_TYPE"
+
+    iget-object v12, p0, Landroid/accounts/GrantCredentialsPermissionActivity;->mAuthTokenType:Ljava/lang/String;
+
+    invoke-virtual {v11, v12}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v11
+
+    if-nez v11, :cond_3
 
     invoke-static {p0}, Landroid/accounts/AccountManager;->get(Landroid/content/Context;)Landroid/accounts/AccountManager;
 
@@ -403,25 +407,26 @@
 
     invoke-virtual {v11, v12, v13, v2, v14}, Landroid/accounts/AccountManager;->getAuthTokenLabel(Ljava/lang/String;Ljava/lang/String;Landroid/accounts/AccountManagerCallback;Landroid/os/Handler;)Landroid/accounts/AccountManagerFuture;
 
-    const v11, 0x10203e9
+    :cond_3
+    const v11, 0x10201dd
 
-    invoke-virtual {p0, v11}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
-
-    move-result-object v11
-
-    invoke-virtual {v11, p0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
-
-    const v11, 0x10203e8
-
-    invoke-virtual {p0, v11}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v11}, Landroid/accounts/GrantCredentialsPermissionActivity;->findViewById(I)Landroid/view/View;
 
     move-result-object v11
 
     invoke-virtual {v11, p0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    const v11, 0x10203e1
+    const v11, 0x1020274
 
-    invoke-virtual {p0, v11}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v11}, Landroid/accounts/GrantCredentialsPermissionActivity;->findViewById(I)Landroid/view/View;
+
+    move-result-object v11
+
+    invoke-virtual {v11, p0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    const v11, 0x10203e4
+
+    invoke-virtual {p0, v11}, Landroid/accounts/GrantCredentialsPermissionActivity;->findViewById(I)Landroid/view/View;
 
     move-result-object v8
 
@@ -432,7 +437,7 @@
     array-length v12, v7
 
     :goto_0
-    if-ge v11, v12, :cond_3
+    if-ge v11, v12, :cond_4
 
     aget-object v9, v7, v11
 
@@ -458,7 +463,7 @@
 
     move-result-object v13
 
-    invoke-virtual {v8, v13}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
+    invoke-virtual {v8, v13}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
 
     add-int/lit8 v11, v11, 0x1
 
@@ -469,7 +474,7 @@
 
     const/4 v11, 0x0
 
-    invoke-virtual {p0, v11}, Landroid/app/Activity;->setResult(I)V
+    invoke-virtual {p0, v11}, Landroid/accounts/GrantCredentialsPermissionActivity;->setResult(I)V
 
     invoke-virtual {p0}, Landroid/accounts/GrantCredentialsPermissionActivity;->finish()V
 
@@ -482,10 +487,10 @@
 
     goto :goto_1
 
-    :cond_3
-    const v11, 0x10203e4
+    :cond_4
+    const v11, 0x10201aa
 
-    invoke-virtual {p0, v11}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v11}, Landroid/accounts/GrantCredentialsPermissionActivity;->findViewById(I)Landroid/view/View;
 
     move-result-object v11
 
@@ -497,9 +502,9 @@
 
     invoke-virtual {v11, v12}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    const v11, 0x10203e3
+    const v11, 0x10201ad
 
-    invoke-virtual {p0, v11}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v11}, Landroid/accounts/GrantCredentialsPermissionActivity;->findViewById(I)Landroid/view/View;
 
     move-result-object v11
 

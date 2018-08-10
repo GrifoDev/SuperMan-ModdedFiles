@@ -39,13 +39,17 @@
 
     iget-object v0, p0, Landroid/widget/Editor$1;->this$0:Landroid/widget/Editor;
 
-    iget-object v0, v0, Landroid/widget/Editor;->mTextActionMode:Landroid/view/ActionMode;
+    invoke-static {v0}, Landroid/widget/Editor;->-get13(Landroid/widget/Editor;)Landroid/view/ActionMode;
+
+    move-result-object v0
 
     if-eqz v0, :cond_0
 
     iget-object v0, p0, Landroid/widget/Editor$1;->this$0:Landroid/widget/Editor;
 
-    iget-object v0, v0, Landroid/widget/Editor;->mTextActionMode:Landroid/view/ActionMode;
+    invoke-static {v0}, Landroid/widget/Editor;->-get13(Landroid/widget/Editor;)Landroid/view/ActionMode;
+
+    move-result-object v0
 
     const-wide/16 v2, 0x0
 

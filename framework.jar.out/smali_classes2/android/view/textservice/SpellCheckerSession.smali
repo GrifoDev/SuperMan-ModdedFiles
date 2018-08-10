@@ -39,8 +39,6 @@
 
 .field private final mSpellCheckerSessionListenerImpl:Landroid/view/textservice/SpellCheckerSession$SpellCheckerSessionListenerImpl;
 
-.field private final mSubtype:Landroid/view/textservice/SpellCheckerSubtype;
-
 .field private final mTextServicesManager:Lcom/android/internal/textservice/ITextServicesManager;
 
 
@@ -83,7 +81,7 @@
     return-void
 .end method
 
-.method public constructor <init>(Landroid/view/textservice/SpellCheckerInfo;Lcom/android/internal/textservice/ITextServicesManager;Landroid/view/textservice/SpellCheckerSession$SpellCheckerSessionListener;Landroid/view/textservice/SpellCheckerSubtype;)V
+.method public constructor <init>(Landroid/view/textservice/SpellCheckerInfo;Lcom/android/internal/textservice/ITextServicesManager;Landroid/view/textservice/SpellCheckerSession$SpellCheckerSessionListener;)V
     .locals 2
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -133,8 +131,6 @@
     iput-boolean v0, p0, Landroid/view/textservice/SpellCheckerSession;->mIsUsed:Z
 
     iput-object p3, p0, Landroid/view/textservice/SpellCheckerSession;->mSpellCheckerSessionListener:Landroid/view/textservice/SpellCheckerSession$SpellCheckerSessionListener;
-
-    iput-object p4, p0, Landroid/view/textservice/SpellCheckerSession;->mSubtype:Landroid/view/textservice/SpellCheckerSubtype;
 
     return-void
 .end method
@@ -216,7 +212,7 @@
 
     sget-object v0, Landroid/view/textservice/SpellCheckerSession;->TAG:Ljava/lang/String;
 
-    const-string/jumbo v1, "SpellCheckerSession was not finished properly.You should call finishShession() when you finished to use a spell checker."
+    const-string/jumbo v1, "SpellCheckerSession was not finished properly.You should call finishSession() when you finished to use a spell checker."
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 

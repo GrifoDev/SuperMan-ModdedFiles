@@ -29,8 +29,6 @@
 
 .field private static final TIFF_DATETIME_FORMAT:Ljava/lang/String; = "yyyy:MM:dd HH:mm:ss"
 
-.field private static final sDateTimeStampFormat:Ljava/text/DateFormat;
-
 .field private static final sExifGPSDateStamp:Ljava/text/DateFormat;
 
 
@@ -52,22 +50,6 @@
 
     sput-object v0, Landroid/hardware/camera2/DngCreator;->sExifGPSDateStamp:Ljava/text/DateFormat;
 
-    new-instance v0, Ljava/text/SimpleDateFormat;
-
-    const-string/jumbo v1, "yyyy:MM:dd HH:mm:ss"
-
-    invoke-direct {v0, v1}, Ljava/text/SimpleDateFormat;-><init>(Ljava/lang/String;)V
-
-    sput-object v0, Landroid/hardware/camera2/DngCreator;->sDateTimeStampFormat:Ljava/text/DateFormat;
-
-    sget-object v0, Landroid/hardware/camera2/DngCreator;->sDateTimeStampFormat:Ljava/text/DateFormat;
-
-    invoke-static {}, Ljava/util/TimeZone;->getDefault()Ljava/util/TimeZone;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Ljava/text/DateFormat;->setTimeZone(Ljava/util/TimeZone;)V
-
     sget-object v0, Landroid/hardware/camera2/DngCreator;->sExifGPSDateStamp:Ljava/text/DateFormat;
 
     const-string/jumbo v1, "UTC"
@@ -84,90 +66,169 @@
 .end method
 
 .method public constructor <init>(Landroid/hardware/camera2/CameraCharacteristics;Landroid/hardware/camera2/CaptureResult;)V
-    .locals 12
+    .locals 16
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    const-string/jumbo v8, "UTC"
+    const-string/jumbo v12, "UTC"
 
-    invoke-static {v8}, Ljava/util/TimeZone;->getTimeZone(Ljava/lang/String;)Ljava/util/TimeZone;
+    invoke-static {v12}, Ljava/util/TimeZone;->getTimeZone(Ljava/lang/String;)Ljava/util/TimeZone;
 
-    move-result-object v8
+    move-result-object v12
 
-    invoke-static {v8}, Ljava/util/Calendar;->getInstance(Ljava/util/TimeZone;)Ljava/util/Calendar;
+    invoke-static {v12}, Ljava/util/Calendar;->getInstance(Ljava/util/TimeZone;)Ljava/util/Calendar;
 
-    move-result-object v8
+    move-result-object v12
 
-    iput-object v8, p0, Landroid/hardware/camera2/DngCreator;->mGPSTimeStampCalendar:Ljava/util/Calendar;
+    move-object/from16 v0, p0
+
+    iput-object v12, v0, Landroid/hardware/camera2/DngCreator;->mGPSTimeStampCalendar:Ljava/util/Calendar;
 
     if-eqz p1, :cond_0
 
     if-nez p2, :cond_1
 
     :cond_0
-    new-instance v8, Ljava/lang/IllegalArgumentException;
+    new-instance v12, Ljava/lang/IllegalArgumentException;
 
-    const-string/jumbo v9, "Null argument to DngCreator constructor"
+    const-string/jumbo v13, "Null argument to DngCreator constructor"
 
-    invoke-direct {v8, v9}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v12, v13}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v8
+    throw v12
 
     :cond_1
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v4
 
+    const-wide/16 v8, 0x0
+
+    sget-object v12, Landroid/hardware/camera2/CameraCharacteristics;->SENSOR_INFO_TIMESTAMP_SOURCE:Landroid/hardware/camera2/CameraCharacteristics$Key;
+
+    move-object/from16 v0, p1
+
+    invoke-virtual {v0, v12}, Landroid/hardware/camera2/CameraCharacteristics;->get(Landroid/hardware/camera2/CameraCharacteristics$Key;)Ljava/lang/Object;
+
+    move-result-object v12
+
+    check-cast v12, Ljava/lang/Integer;
+
+    invoke-virtual {v12}, Ljava/lang/Integer;->intValue()I
+
+    move-result v11
+
+    const/4 v12, 0x1
+
+    if-ne v11, v12, :cond_3
+
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
-    move-result-wide v8
+    move-result-wide v12
 
-    sub-long v0, v4, v8
+    sub-long v8, v4, v12
 
-    sget-object v8, Landroid/hardware/camera2/CaptureResult;->SENSOR_TIMESTAMP:Landroid/hardware/camera2/CaptureResult$Key;
+    :goto_0
+    sget-object v12, Landroid/hardware/camera2/CaptureResult;->SENSOR_TIMESTAMP:Landroid/hardware/camera2/CaptureResult$Key;
 
-    invoke-virtual {p2, v8}, Landroid/hardware/camera2/CaptureResult;->get(Landroid/hardware/camera2/CaptureResult$Key;)Ljava/lang/Object;
+    move-object/from16 v0, p2
 
-    move-result-object v7
+    invoke-virtual {v0, v12}, Landroid/hardware/camera2/CaptureResult;->get(Landroid/hardware/camera2/CaptureResult$Key;)Ljava/lang/Object;
 
-    check-cast v7, Ljava/lang/Long;
+    move-result-object v10
+
+    check-cast v10, Ljava/lang/Long;
 
     move-wide v2, v4
 
-    if-eqz v7, :cond_2
+    if-eqz v10, :cond_2
 
-    invoke-virtual {v7}, Ljava/lang/Long;->longValue()J
+    invoke-virtual {v10}, Ljava/lang/Long;->longValue()J
 
-    move-result-wide v8
+    move-result-wide v12
 
-    const-wide/32 v10, 0xf4240
+    const-wide/32 v14, 0xf4240
 
-    div-long/2addr v8, v10
+    div-long/2addr v12, v14
 
-    add-long v2, v8, v0
+    add-long v2, v12, v8
 
     :cond_2
-    sget-object v8, Landroid/hardware/camera2/DngCreator;->sDateTimeStampFormat:Ljava/text/DateFormat;
+    new-instance v6, Ljava/text/SimpleDateFormat;
+
+    const-string/jumbo v12, "yyyy:MM:dd HH:mm:ss"
+
+    invoke-direct {v6, v12}, Ljava/text/SimpleDateFormat;-><init>(Ljava/lang/String;)V
+
+    invoke-static {}, Ljava/util/TimeZone;->getDefault()Ljava/util/TimeZone;
+
+    move-result-object v12
+
+    invoke-virtual {v6, v12}, Ljava/text/DateFormat;->setTimeZone(Ljava/util/TimeZone;)V
 
     invoke-static {v2, v3}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    move-result-object v9
+    move-result-object v12
 
-    invoke-virtual {v8, v9}, Ljava/text/DateFormat;->format(Ljava/lang/Object;)Ljava/lang/String;
+    invoke-virtual {v6, v12}, Ljava/text/DateFormat;->format(Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v7
 
-    invoke-virtual {p1}, Landroid/hardware/camera2/CameraCharacteristics;->getNativeCopy()Landroid/hardware/camera2/impl/CameraMetadataNative;
+    invoke-virtual/range {p1 .. p1}, Landroid/hardware/camera2/CameraCharacteristics;->getNativeCopy()Landroid/hardware/camera2/impl/CameraMetadataNative;
 
-    move-result-object v8
+    move-result-object v12
 
-    invoke-virtual {p2}, Landroid/hardware/camera2/CaptureResult;->getNativeCopy()Landroid/hardware/camera2/impl/CameraMetadataNative;
+    invoke-virtual/range {p2 .. p2}, Landroid/hardware/camera2/CaptureResult;->getNativeCopy()Landroid/hardware/camera2/impl/CameraMetadataNative;
 
-    move-result-object v9
+    move-result-object v13
 
-    invoke-direct {p0, v8, v9, v6}, Landroid/hardware/camera2/DngCreator;->nativeInit(Landroid/hardware/camera2/impl/CameraMetadataNative;Landroid/hardware/camera2/impl/CameraMetadataNative;Ljava/lang/String;)V
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v12, v13, v7}, Landroid/hardware/camera2/DngCreator;->nativeInit(Landroid/hardware/camera2/impl/CameraMetadataNative;Landroid/hardware/camera2/impl/CameraMetadataNative;Ljava/lang/String;)V
 
     return-void
+
+    :cond_3
+    if-nez v11, :cond_4
+
+    invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
+
+    move-result-wide v12
+
+    sub-long v8, v4, v12
+
+    goto :goto_0
+
+    :cond_4
+    const-string/jumbo v12, "DngCreator"
+
+    new-instance v13, Ljava/lang/StringBuilder;
+
+    invoke-direct {v13}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v14, "Sensor timestamp source is unexpected: "
+
+    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v13
+
+    invoke-virtual {v13, v11}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v13
+
+    invoke-virtual {v13}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v13
+
+    invoke-static {v12, v13}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
+
+    move-result-wide v12
+
+    sub-long v8, v4, v12
+
+    goto :goto_0
 .end method
 
 .method private static colorToRgb(II[B)V

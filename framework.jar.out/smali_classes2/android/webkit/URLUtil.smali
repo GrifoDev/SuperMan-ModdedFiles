@@ -408,24 +408,10 @@
 
     move-result v8
 
-    if-eqz v8, :cond_b
+    xor-int/lit8 v8, v8, 0x1
 
-    :cond_9
-    :goto_1
-    if-nez v2, :cond_a
+    if-eqz v8, :cond_9
 
-    invoke-virtual {v3, v1}, Ljava/lang/String;->substring(I)Ljava/lang/String;
-
-    move-result-object v2
-
-    :cond_a
-    invoke-virtual {v3, v10, v1}, Ljava/lang/String;->substring(II)Ljava/lang/String;
-
-    move-result-object v3
-
-    goto :goto_0
-
-    :cond_b
     invoke-static {}, Landroid/webkit/MimeTypeMap;->getSingleton()Landroid/webkit/MimeTypeMap;
 
     move-result-object v8
@@ -454,7 +440,19 @@
 
     move-result-object v2
 
-    goto :goto_1
+    :cond_9
+    if-nez v2, :cond_a
+
+    invoke-virtual {v3, v1}, Ljava/lang/String;->substring(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    :cond_a
+    invoke-virtual {v3, v10, v1}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+
+    move-result-object v3
+
+    goto :goto_0
 .end method
 
 .method public static guessUrl(Ljava/lang/String;)Ljava/lang/String;
@@ -723,24 +721,20 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    xor-int/lit8 v1, v1, 0x1
+
+    if-eqz v1, :cond_0
+
+    const-string/jumbo v0, "file:///cookieless_proxy/"
+
+    invoke-virtual {p0, v0}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v0
+
+    xor-int/lit8 v0, v0, 0x1
 
     :cond_0
-    :goto_0
     return v0
-
-    :cond_1
-    const-string/jumbo v1, "file:///cookieless_proxy/"
-
-    invoke-virtual {p0, v1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
-
-    move-result v1
-
-    if-nez v1, :cond_0
-
-    const/4 v0, 0x1
-
-    goto :goto_0
 .end method
 
 .method public static isHttpUrl(Ljava/lang/String;)Z

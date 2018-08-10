@@ -39,7 +39,7 @@
 
     const-string/jumbo v0, "android.app.IActivityContainerCallback"
 
-    invoke-virtual {p0, p0, v0}, Landroid/os/Binder;->attachInterface(Landroid/os/IInterface;Ljava/lang/String;)V
+    invoke-virtual {p0, p0, v0}, Landroid/app/IActivityContainerCallback$Stub;->attachInterface(Landroid/os/IInterface;Ljava/lang/String;)V
 
     return-void
 .end method
@@ -94,9 +94,7 @@
         }
     .end annotation
 
-    const/4 v1, 0x0
-
-    const/4 v2, 0x1
+    const/4 v3, 0x1
 
     sparse-switch p1, :sswitch_data_0
 
@@ -107,16 +105,16 @@
     return v2
 
     :sswitch_0
-    const-string/jumbo v3, "android.app.IActivityContainerCallback"
+    const-string/jumbo v2, "android.app.IActivityContainerCallback"
 
-    invoke-virtual {p3, v3}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p3, v2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    return v2
+    return v3
 
     :sswitch_1
-    const-string/jumbo v3, "android.app.IActivityContainerCallback"
+    const-string/jumbo v2, "android.app.IActivityContainerCallback"
 
-    invoke-virtual {p2, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v2}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
@@ -124,21 +122,26 @@
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v3
+    move-result v2
 
-    if-eqz v3, :cond_0
+    if-eqz v2, :cond_0
 
-    move v1, v2
+    const/4 v1, 0x1
 
-    :cond_0
+    :goto_0
     invoke-virtual {p0, v0, v1}, Landroid/app/IActivityContainerCallback$Stub;->setVisible(Landroid/os/IBinder;Z)V
 
-    return v2
+    return v3
+
+    :cond_0
+    const/4 v1, 0x0
+
+    goto :goto_0
 
     :sswitch_2
-    const-string/jumbo v3, "android.app.IActivityContainerCallback"
+    const-string/jumbo v2, "android.app.IActivityContainerCallback"
 
-    invoke-virtual {p2, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v2}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
@@ -146,7 +149,9 @@
 
     invoke-virtual {p0, v0}, Landroid/app/IActivityContainerCallback$Stub;->onAllActivitiesComplete(Landroid/os/IBinder;)V
 
-    return v2
+    return v3
+
+    nop
 
     :sswitch_data_0
     .sparse-switch

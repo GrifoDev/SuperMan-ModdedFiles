@@ -1,4 +1,4 @@
-.class Landroid/media/MediaScanner$FileEntry;
+.class public Landroid/media/MediaScanner$FileEntry;
 .super Ljava/lang/Object;
 .source "MediaScanner.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0xc
     name = "FileEntry"
 .end annotation
 

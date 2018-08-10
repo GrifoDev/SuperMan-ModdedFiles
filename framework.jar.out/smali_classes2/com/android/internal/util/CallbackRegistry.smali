@@ -663,7 +663,7 @@
     move-exception v3
 
     :try_start_1
-    invoke-virtual {v3}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v3}, Ljava/lang/CloneNotSupportedException;->printStackTrace()V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 

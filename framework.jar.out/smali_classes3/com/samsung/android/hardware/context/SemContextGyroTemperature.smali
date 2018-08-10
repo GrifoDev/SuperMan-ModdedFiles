@@ -68,7 +68,7 @@
 .method private readFromParcel(Landroid/os/Parcel;)V
     .locals 1
 
-    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+    invoke-virtual {p0}, Lcom/samsung/android/hardware/context/SemContextGyroTemperature;->getClass()Ljava/lang/Class;
 
     move-result-object v0
 
@@ -94,7 +94,7 @@
 
     const-string/jumbo v1, "GyroTemperature"
 
-    invoke-virtual {v0, v1}, Landroid/os/BaseBundle;->getDouble(Ljava/lang/String;)D
+    invoke-virtual {v0, v1}, Landroid/os/Bundle;->getDouble(Ljava/lang/String;)D
 
     move-result-wide v0
 

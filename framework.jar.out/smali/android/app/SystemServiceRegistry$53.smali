@@ -17,7 +17,7 @@
     value = {
         "Landroid/app/SystemServiceRegistry$CachedServiceFetcher",
         "<",
-        "Landroid/net/wifi/WifiManager;",
+        "Landroid/app/WallpaperManager;",
         ">;"
     }
 .end annotation
@@ -34,38 +34,35 @@
 
 
 # virtual methods
-.method public createService(Landroid/app/ContextImpl;)Landroid/net/wifi/WifiManager;
-    .locals 5
+.method public createService(Landroid/app/ContextImpl;)Landroid/app/WallpaperManager;
+    .locals 3
 
-    const-string/jumbo v2, "wifi"
-
-    invoke-static {v2}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
-
-    move-result-object v0
-
-    invoke-static {v0}, Landroid/net/wifi/IWifiManager$Stub;->asInterface(Landroid/os/IBinder;)Landroid/net/wifi/IWifiManager;
-
-    move-result-object v1
-
-    new-instance v2, Landroid/net/wifi/WifiManager;
+    new-instance v0, Landroid/app/WallpaperManager;
 
     invoke-virtual {p1}, Landroid/app/ContextImpl;->getOuterContext()Landroid/content/Context;
 
-    move-result-object v3
+    move-result-object v1
 
-    invoke-static {}, Landroid/net/ConnectivityThread;->getInstanceLooper()Landroid/os/Looper;
+    iget-object v2, p1, Landroid/app/ContextImpl;->mMainThread:Landroid/app/ActivityThread;
 
-    move-result-object v4
+    invoke-virtual {v2}, Landroid/app/ActivityThread;->getHandler()Landroid/os/Handler;
 
-    invoke-direct {v2, v3, v1, v4}, Landroid/net/wifi/WifiManager;-><init>(Landroid/content/Context;Landroid/net/wifi/IWifiManager;Landroid/os/Looper;)V
+    move-result-object v2
 
-    return-object v2
+    invoke-direct {v0, v1, v2}, Landroid/app/WallpaperManager;-><init>(Landroid/content/Context;Landroid/os/Handler;)V
+
+    return-object v0
 .end method
 
 .method public bridge synthetic createService(Landroid/app/ContextImpl;)Ljava/lang/Object;
     .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/ServiceManager$ServiceNotFoundException;
+        }
+    .end annotation
 
-    invoke-virtual {p0, p1}, Landroid/app/SystemServiceRegistry$53;->createService(Landroid/app/ContextImpl;)Landroid/net/wifi/WifiManager;
+    invoke-virtual {p0, p1}, Landroid/app/SystemServiceRegistry$53;->createService(Landroid/app/ContextImpl;)Landroid/app/WallpaperManager;
 
     move-result-object v0
 

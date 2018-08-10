@@ -29,6 +29,8 @@
 
 .field private final mOwnerPackageName:Ljava/lang/String;
 
+.field private final mToken:Landroid/os/IBinder;
+
 
 # direct methods
 .method static synthetic -get0(Landroid/app/Presentation;)Landroid/view/Display;
@@ -66,59 +68,79 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/view/Display;I)V
-    .locals 3
+    .locals 5
 
-    const/4 v2, 0x0
+    const/4 v4, 0x0
 
     invoke-static {p1, p2, p3}, Landroid/app/Presentation;->createPresentationContext(Landroid/content/Context;Landroid/view/Display;I)Landroid/content/Context;
 
-    move-result-object v0
+    move-result-object v2
 
-    invoke-direct {p0, v0, p3, v2}, Landroid/app/Dialog;-><init>(Landroid/content/Context;IZ)V
+    invoke-direct {p0, v2, p3, v4}, Landroid/app/Dialog;-><init>(Landroid/content/Context;IZ)V
 
-    new-instance v0, Landroid/app/Presentation$1;
+    new-instance v2, Landroid/os/Binder;
 
-    invoke-direct {v0, p0}, Landroid/app/Presentation$1;-><init>(Landroid/app/Presentation;)V
+    invoke-direct {v2}, Landroid/os/Binder;-><init>()V
 
-    iput-object v0, p0, Landroid/app/Presentation;->mDisplayListener:Landroid/hardware/display/DisplayManager$DisplayListener;
+    iput-object v2, p0, Landroid/app/Presentation;->mToken:Landroid/os/IBinder;
 
-    new-instance v0, Landroid/app/Presentation$2;
+    new-instance v2, Landroid/app/Presentation$1;
 
-    invoke-direct {v0, p0}, Landroid/app/Presentation$2;-><init>(Landroid/app/Presentation;)V
+    invoke-direct {v2, p0}, Landroid/app/Presentation$1;-><init>(Landroid/app/Presentation;)V
 
-    iput-object v0, p0, Landroid/app/Presentation;->mHandler:Landroid/os/Handler;
+    iput-object v2, p0, Landroid/app/Presentation;->mDisplayListener:Landroid/hardware/display/DisplayManager$DisplayListener;
+
+    new-instance v2, Landroid/app/Presentation$2;
+
+    invoke-direct {v2, p0}, Landroid/app/Presentation$2;-><init>(Landroid/app/Presentation;)V
+
+    iput-object v2, p0, Landroid/app/Presentation;->mHandler:Landroid/os/Handler;
 
     iput-object p2, p0, Landroid/app/Presentation;->mDisplay:Landroid/view/Display;
 
     invoke-virtual {p0}, Landroid/app/Presentation;->getContext()Landroid/content/Context;
 
-    move-result-object v0
+    move-result-object v2
 
-    const-string/jumbo v1, "display"
+    const-string/jumbo v3, "display"
 
-    invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {v2, v3}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v2
 
-    check-cast v0, Landroid/hardware/display/DisplayManager;
+    check-cast v2, Landroid/hardware/display/DisplayManager;
 
-    iput-object v0, p0, Landroid/app/Presentation;->mDisplayManager:Landroid/hardware/display/DisplayManager;
+    iput-object v2, p0, Landroid/app/Presentation;->mDisplayManager:Landroid/hardware/display/DisplayManager;
 
     invoke-virtual {p1}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v2
 
-    iput-object v0, p0, Landroid/app/Presentation;->mOwnerPackageName:Ljava/lang/String;
+    iput-object v2, p0, Landroid/app/Presentation;->mOwnerPackageName:Ljava/lang/String;
 
     invoke-virtual {p0}, Landroid/app/Presentation;->getWindow()Landroid/view/Window;
 
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/view/Window;->getAttributes()Landroid/view/WindowManager$LayoutParams;
+
     move-result-object v0
 
-    const/16 v1, 0x77
+    iget-object v2, p0, Landroid/app/Presentation;->mToken:Landroid/os/IBinder;
 
-    invoke-virtual {v0, v1}, Landroid/view/Window;->setGravity(I)V
+    iput-object v2, v0, Landroid/view/WindowManager$LayoutParams;->token:Landroid/os/IBinder;
 
-    invoke-virtual {p0, v2}, Landroid/app/Presentation;->setCanceledOnTouchOutside(Z)V
+    invoke-virtual {v1, v0}, Landroid/view/Window;->setAttributes(Landroid/view/WindowManager$LayoutParams;)V
+
+    const/16 v2, 0x77
+
+    invoke-virtual {v1, v2}, Landroid/view/Window;->setGravity(I)V
+
+    const/16 v2, 0x7f5
+
+    invoke-virtual {v1, v2}, Landroid/view/Window;->setType(I)V
+
+    invoke-virtual {p0, v4}, Landroid/app/Presentation;->setCanceledOnTouchOutside(Z)V
 
     return-void
 .end method

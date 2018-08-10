@@ -101,6 +101,8 @@
 
 .field public static final AXIS_DISTANCE:I = 0x18
 
+.field public static final AXIS_FORCE_PRESSURE:I = 0x35
+
 .field public static final AXIS_GAS:I = 0x16
 
 .field public static final AXIS_GENERIC_1:I = 0x20
@@ -243,7 +245,13 @@
 
 .field public static final EDGE_TOP:I = 0x1
 
-.field public static final FLAG_BOTH_DISPLAY_TOUCH_HOLD:I = 0x10000000
+.field public static final FLAG_EVENT_BY_TWO_FINGER_GESTURE:I = 0x10000000
+
+.field public static final FLAG_FROM_WFD:I = 0x8000000
+
+.field public static final FLAG_HOVER_EXIT_PENDING:I = 0x4
+
+.field public static final FLAG_IS_GENERATED_GESTURE:I = 0x8
 
 .field public static final FLAG_TAINTED:I = -0x80000000
 
@@ -310,15 +318,15 @@
 # instance fields
 .field private mDssScale:F
 
-.field mHorizontalWindowOffsetX:I
-
-.field mHorizontalWindowOffsetY:I
-
 .field private mNativePtr:J
 
-.field mNeedHorizontalWindowOffset:Z
+.field mNeedWindowOffset:Z
 
 .field private mNext:Landroid/view/MotionEvent;
+
+.field mWindowOffsetX:I
+
+.field mWindowOffsetY:I
 
 
 # direct methods
@@ -847,21 +855,21 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 2
+    .locals 1
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
     invoke-direct {p0}, Landroid/view/InputEvent;-><init>()V
+
+    iput v0, p0, Landroid/view/MotionEvent;->mWindowOffsetX:I
+
+    iput v0, p0, Landroid/view/MotionEvent;->mWindowOffsetY:I
+
+    iput-boolean v0, p0, Landroid/view/MotionEvent;->mNeedWindowOffset:Z
 
     const/high16 v0, 0x3f800000    # 1.0f
 
     iput v0, p0, Landroid/view/MotionEvent;->mDssScale:F
-
-    iput v1, p0, Landroid/view/MotionEvent;->mHorizontalWindowOffsetX:I
-
-    iput v1, p0, Landroid/view/MotionEvent;->mHorizontalWindowOffsetY:I
-
-    iput-boolean v1, p0, Landroid/view/MotionEvent;->mNeedHorizontalWindowOffset:Z
 
     return-void
 .end method
@@ -1111,9 +1119,7 @@
 .end method
 
 .method public static buttonStateToString(I)Ljava/lang/String;
-    .locals 6
-
-    const/4 v4, 0x0
+    .locals 5
 
     if-nez p0, :cond_0
 
@@ -1129,9 +1135,9 @@
     :goto_0
     if-eqz p0, :cond_5
 
-    and-int/lit8 v5, p0, 0x1
+    and-int/lit8 v4, p0, 0x1
 
-    if-eqz v5, :cond_1
+    if-eqz v4, :cond_1
 
     const/4 v1, 0x1
 
@@ -1140,9 +1146,9 @@
 
     if-eqz v1, :cond_3
 
-    sget-object v5, Landroid/view/MotionEvent;->BUTTON_SYMBOLIC_NAMES:[Ljava/lang/String;
+    sget-object v4, Landroid/view/MotionEvent;->BUTTON_SYMBOLIC_NAMES:[Ljava/lang/String;
 
-    aget-object v2, v5, v0
+    aget-object v2, v4, v0
 
     if-nez v3, :cond_4
 
@@ -1151,7 +1157,7 @@
     return-object v2
 
     :cond_1
-    move v1, v4
+    const/4 v1, 0x0
 
     goto :goto_1
 
@@ -1167,9 +1173,9 @@
     goto :goto_0
 
     :cond_4
-    const/16 v5, 0x7c
+    const/16 v4, 0x7c
 
-    invoke-virtual {v3, v5}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1286,123 +1292,193 @@
 .end method
 
 .method private static native nativeCopy(JJZ)J
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
 .end method
 
 .method private static native nativeDispose(J)V
 .end method
 
 .method private static native nativeFindPointerIndex(JI)I
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
 .end method
 
 .method private static native nativeGetAction(J)I
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
 .end method
 
 .method private static native nativeGetActionButton(J)I
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
 .end method
 
 .method private static native nativeGetAxisValue(JIII)F
+    .annotation build Ldalvik/annotation/optimization/FastNative;
+    .end annotation
 .end method
 
 .method private static native nativeGetButtonState(J)I
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
 .end method
 
 .method private static native nativeGetDeviceId(J)I
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
 .end method
 
 .method private static native nativeGetDisplayId(J)I
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
 .end method
 
 .method private static native nativeGetDownTimeNanos(J)J
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
 .end method
 
 .method private static native nativeGetEdgeFlags(J)I
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
 .end method
 
 .method private static native nativeGetEventTimeNanos(JI)J
+    .annotation build Ldalvik/annotation/optimization/FastNative;
+    .end annotation
 .end method
 
 .method private static native nativeGetFlags(J)I
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
 .end method
 
 .method private static native nativeGetHistorySize(J)I
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
 .end method
 
 .method private static native nativeGetMetaState(J)I
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
 .end method
 
 .method private static native nativeGetPointerCoords(JIILandroid/view/MotionEvent$PointerCoords;)V
 .end method
 
 .method private static native nativeGetPointerCount(J)I
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
 .end method
 
 .method private static native nativeGetPointerId(JI)I
+    .annotation build Ldalvik/annotation/optimization/FastNative;
+    .end annotation
 .end method
 
 .method private static native nativeGetPointerProperties(JILandroid/view/MotionEvent$PointerProperties;)V
 .end method
 
 .method private static native nativeGetRawAxisValue(JIII)F
+    .annotation build Ldalvik/annotation/optimization/FastNative;
+    .end annotation
 .end method
 
 .method private static native nativeGetSource(J)I
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
 .end method
 
 .method private static native nativeGetToolType(JI)I
+    .annotation build Ldalvik/annotation/optimization/FastNative;
+    .end annotation
 .end method
 
 .method private static native nativeGetXOffset(J)F
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
 .end method
 
 .method private static native nativeGetXPrecision(J)F
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
 .end method
 
 .method private static native nativeGetYOffset(J)F
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
 .end method
 
 .method private static native nativeGetYPrecision(J)F
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
 .end method
 
 .method private static native nativeInitialize(JIIIIIIIIFFFFJJI[Landroid/view/MotionEvent$PointerProperties;[Landroid/view/MotionEvent$PointerCoords;)J
 .end method
 
 .method private static native nativeIsTouchEvent(J)Z
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
 .end method
 
 .method private static native nativeOffsetLocation(JFF)V
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
 .end method
 
 .method private static native nativeReadFromParcel(JLandroid/os/Parcel;)J
 .end method
 
 .method private static native nativeScale(JF)V
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
 .end method
 
 .method private static native nativeSetAction(JI)V
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
 .end method
 
 .method private static native nativeSetActionButton(JI)V
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
 .end method
 
 .method private static native nativeSetButtonState(JI)V
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
 .end method
 
 .method private static native nativeSetDisplayId(JI)V
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
 .end method
 
 .method private static native nativeSetDownTimeNanos(JJ)V
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
 .end method
 
 .method private static native nativeSetEdgeFlags(JI)V
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
 .end method
 
 .method private static native nativeSetFlags(JI)V
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
 .end method
 
 .method private static native nativeSetSource(JI)I
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
 .end method
 
-.method private static native nativeTransform(JLandroid/graphics/Matrix;)V
+.method private static native nativeTransform(JJ)V
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
 .end method
 
 .method private static native nativeWriteToParcel(JLandroid/os/Parcel;)V
@@ -1979,6 +2055,144 @@
     iput-wide v2, v0, Landroid/view/MotionEvent;->mNativePtr:J
 
     return-object v0
+.end method
+
+.method public static obtain(Landroid/view/MotionEvent;FF)Landroid/view/MotionEvent;
+    .locals 26
+
+    sget-object v25, Landroid/view/MotionEvent;->gSharedTempLock:Ljava/lang/Object;
+
+    monitor-enter v25
+
+    :try_start_0
+    invoke-static {}, Landroid/view/MotionEvent;->obtain()Landroid/view/MotionEvent;
+
+    move-result-object v23
+
+    invoke-virtual/range {p0 .. p0}, Landroid/view/MotionEvent;->getPointerCount()I
+
+    move-result v20
+
+    invoke-static/range {v20 .. v20}, Landroid/view/MotionEvent;->ensureSharedTempPointerCapacity(I)V
+
+    sget-object v21, Landroid/view/MotionEvent;->gSharedTempPointerProperties:[Landroid/view/MotionEvent$PointerProperties;
+
+    sget-object v22, Landroid/view/MotionEvent;->gSharedTempPointerCoords:[Landroid/view/MotionEvent$PointerCoords;
+
+    const/16 v24, 0x0
+
+    :goto_0
+    move/from16 v0, v24
+
+    move/from16 v1, v20
+
+    if-ge v0, v1, :cond_0
+
+    aget-object v2, v21, v24
+
+    move-object/from16 v0, p0
+
+    move/from16 v1, v24
+
+    invoke-virtual {v0, v1, v2}, Landroid/view/MotionEvent;->getPointerProperties(ILandroid/view/MotionEvent$PointerProperties;)V
+
+    aget-object v2, v22, v24
+
+    move-object/from16 v0, p0
+
+    move/from16 v1, v24
+
+    invoke-virtual {v0, v1, v2}, Landroid/view/MotionEvent;->getPointerCoords(ILandroid/view/MotionEvent$PointerCoords;)V
+
+    add-int/lit8 v24, v24, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    move-object/from16 v0, v23
+
+    iget-wide v2, v0, Landroid/view/MotionEvent;->mNativePtr:J
+
+    invoke-virtual/range {p0 .. p0}, Landroid/view/MotionEvent;->getDeviceId()I
+
+    move-result v4
+
+    invoke-virtual/range {p0 .. p0}, Landroid/view/MotionEvent;->getSource()I
+
+    move-result v5
+
+    invoke-virtual/range {p0 .. p0}, Landroid/view/MotionEvent;->getAction()I
+
+    move-result v6
+
+    invoke-virtual/range {p0 .. p0}, Landroid/view/MotionEvent;->getFlags()I
+
+    move-result v7
+
+    invoke-virtual/range {p0 .. p0}, Landroid/view/MotionEvent;->getEdgeFlags()I
+
+    move-result v8
+
+    invoke-virtual/range {p0 .. p0}, Landroid/view/MotionEvent;->getMetaState()I
+
+    move-result v9
+
+    invoke-virtual/range {p0 .. p0}, Landroid/view/MotionEvent;->getButtonState()I
+
+    move-result v10
+
+    invoke-virtual/range {p0 .. p0}, Landroid/view/MotionEvent;->getDisplayId()I
+
+    move-result v11
+
+    invoke-virtual/range {p0 .. p0}, Landroid/view/MotionEvent;->getXPrecision()F
+
+    move-result v14
+
+    invoke-virtual/range {p0 .. p0}, Landroid/view/MotionEvent;->getYPrecision()F
+
+    move-result v15
+
+    invoke-virtual/range {p0 .. p0}, Landroid/view/MotionEvent;->getDownTime()J
+
+    move-result-wide v12
+
+    const-wide/32 v16, 0xf4240
+
+    mul-long v16, v16, v12
+
+    invoke-virtual/range {p0 .. p0}, Landroid/view/MotionEvent;->getEventTime()J
+
+    move-result-wide v12
+
+    const-wide/32 v18, 0xf4240
+
+    mul-long v18, v18, v12
+
+    move/from16 v12, p1
+
+    move/from16 v13, p2
+
+    invoke-static/range {v2 .. v22}, Landroid/view/MotionEvent;->nativeInitialize(JIIIIIIIIFFFFJJI[Landroid/view/MotionEvent$PointerProperties;[Landroid/view/MotionEvent$PointerCoords;)J
+
+    move-result-wide v2
+
+    move-object/from16 v0, v23
+
+    iput-wide v2, v0, Landroid/view/MotionEvent;->mNativePtr:J
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit v25
+
+    return-object v23
+
+    :catchall_0
+    move-exception v2
+
+    monitor-exit v25
+
+    throw v2
 .end method
 
 .method public static obtainNoHistory(Landroid/view/MotionEvent;)Landroid/view/MotionEvent;
@@ -2861,7 +3075,7 @@
     return v0
 .end method
 
-.method public final getAdjustedHorizontalRawX()F
+.method public final getAdjustedRawX()F
     .locals 5
 
     const/4 v4, 0x0
@@ -2874,7 +3088,7 @@
 
     move-result v0
 
-    iget v1, p0, Landroid/view/MotionEvent;->mHorizontalWindowOffsetX:I
+    iget v1, p0, Landroid/view/MotionEvent;->mWindowOffsetX:I
 
     int-to-float v1, v1
 
@@ -2883,7 +3097,7 @@
     return v0
 .end method
 
-.method public final getAdjustedHorizontalRawY()F
+.method public final getAdjustedRawY()F
     .locals 6
 
     iget-wide v2, p0, Landroid/view/MotionEvent;->mNativePtr:J
@@ -2898,7 +3112,7 @@
 
     move-result v0
 
-    iget v1, p0, Landroid/view/MotionEvent;->mHorizontalWindowOffsetY:I
+    iget v1, p0, Landroid/view/MotionEvent;->mWindowOffsetY:I
 
     int-to-float v1, v1
 
@@ -3588,6 +3802,17 @@
 
     const/4 v3, 0x0
 
+    iget-boolean v0, p0, Landroid/view/MotionEvent;->mNeedWindowOffset:Z
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {p0}, Landroid/view/MotionEvent;->getAdjustedRawX()F
+
+    move-result v0
+
+    return v0
+
+    :cond_0
     iget-wide v0, p0, Landroid/view/MotionEvent;->mNativePtr:J
 
     const/high16 v2, -0x80000000
@@ -3616,6 +3841,17 @@
 .method public final getRawY()F
     .locals 5
 
+    iget-boolean v0, p0, Landroid/view/MotionEvent;->mNeedWindowOffset:Z
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {p0}, Landroid/view/MotionEvent;->getAdjustedRawY()F
+
+    move-result v0
+
+    return v0
+
+    :cond_0
     iget-wide v0, p0, Landroid/view/MotionEvent;->mNativePtr:J
 
     const/4 v2, 0x1
@@ -3953,6 +4189,25 @@
     return v0
 .end method
 
+.method public final isHoverExitPending()Z
+    .locals 3
+
+    const/4 v1, 0x0
+
+    invoke-virtual {p0}, Landroid/view/MotionEvent;->getFlags()I
+
+    move-result v0
+
+    and-int/lit8 v2, v0, 0x4
+
+    if-eqz v2, :cond_0
+
+    const/4 v1, 0x1
+
+    :cond_0
+    return v1
+.end method
+
 .method public final isTainted()Z
     .locals 3
 
@@ -4161,6 +4416,24 @@
     return v0
 .end method
 
+.method public final semGetForcePressure()F
+    .locals 5
+
+    iget-wide v0, p0, Landroid/view/MotionEvent;->mNativePtr:J
+
+    const/16 v2, 0x35
+
+    const/4 v3, 0x0
+
+    const/high16 v4, -0x80000000
+
+    invoke-static {v0, v1, v2, v3, v4}, Landroid/view/MotionEvent;->nativeGetAxisValue(JIII)F
+
+    move-result v0
+
+    return v0
+.end method
+
 .method public final semGetPredictedX(I)F
     .locals 5
 
@@ -4285,18 +4558,28 @@
     return-void
 .end method
 
-.method public setHorizontalWindowOffset(II)V
-    .locals 1
+.method public setHoverExitPending(Z)V
+    .locals 4
 
-    const/4 v0, 0x1
+    invoke-virtual {p0}, Landroid/view/MotionEvent;->getFlags()I
 
-    iput-boolean v0, p0, Landroid/view/MotionEvent;->mNeedHorizontalWindowOffset:Z
+    move-result v0
 
-    iput p1, p0, Landroid/view/MotionEvent;->mHorizontalWindowOffsetX:I
+    iget-wide v2, p0, Landroid/view/MotionEvent;->mNativePtr:J
 
-    iput p2, p0, Landroid/view/MotionEvent;->mHorizontalWindowOffsetY:I
+    if-eqz p1, :cond_0
+
+    or-int/lit8 v1, v0, 0x4
+
+    :goto_0
+    invoke-static {v2, v3, v1}, Landroid/view/MotionEvent;->nativeSetFlags(JI)V
 
     return-void
+
+    :cond_0
+    and-int/lit8 v1, v0, -0x5
+
+    goto :goto_0
 .end method
 
 .method public final setLocation(FF)V
@@ -4383,6 +4666,20 @@
     and-int/2addr v1, v0
 
     goto :goto_0
+.end method
+
+.method public setWindowOffset(II)V
+    .locals 1
+
+    const/4 v0, 0x1
+
+    iput-boolean v0, p0, Landroid/view/MotionEvent;->mNeedWindowOffset:Z
+
+    iput p1, p0, Landroid/view/MotionEvent;->mWindowOffsetX:I
+
+    iput p2, p0, Landroid/view/MotionEvent;->mWindowOffsetY:I
+
+    return-void
 .end method
 
 .method public final split(I)Landroid/view/MotionEvent;
@@ -5066,7 +5363,7 @@
 .end method
 
 .method public final transform(Landroid/graphics/Matrix;)V
-    .locals 2
+    .locals 4
 
     if-nez p1, :cond_0
 
@@ -5081,7 +5378,9 @@
     :cond_0
     iget-wide v0, p0, Landroid/view/MotionEvent;->mNativePtr:J
 
-    invoke-static {v0, v1, p1}, Landroid/view/MotionEvent;->nativeTransform(JLandroid/graphics/Matrix;)V
+    iget-wide v2, p1, Landroid/graphics/Matrix;->native_instance:J
+
+    invoke-static {v0, v1, v2, v3}, Landroid/view/MotionEvent;->nativeTransform(JJ)V
 
     return-void
 .end method

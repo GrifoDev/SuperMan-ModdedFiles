@@ -15,6 +15,14 @@
 
 
 # virtual methods
+.method public abstract addGnssBatchingCallback(Landroid/location/IBatchedLocationCallback;Ljava/lang/String;)Z
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract addGnssMeasurementsListener(Landroid/location/IGnssMeasurementsListener;Ljava/lang/String;)Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -63,6 +71,14 @@
     .end annotation
 .end method
 
+.method public abstract flushGnssBatch(Ljava/lang/String;)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract geocoderIsPresent()Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -82,6 +98,14 @@
         }
     .end annotation
 
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract getBackgroundThrottlingWhitelist()[Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -139,6 +163,14 @@
     .end annotation
 .end method
 
+.method public abstract getGnssBatchSize(Ljava/lang/String;)I
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract getGnssYearOfHardware()I
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -156,6 +188,14 @@
 .end method
 
 .method public abstract getLocBlacklist()Ljava/util/Map;
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract getLocWhitelist()Ljava/util/Map;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -263,6 +303,14 @@
     .end annotation
 .end method
 
+.method public abstract removeGnssBatchingCallback()V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract removeGnssMeasurementsListener(Landroid/location/IGnssMeasurementsListener;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -296,6 +344,24 @@
 .end method
 
 .method public abstract reportLocation(Landroid/location/Location;Z)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract reportLocationBatch(Ljava/util/List;)V
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/List",
+            "<",
+            "Landroid/location/Location;",
+            ">;)V"
+        }
+    .end annotation
+
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -368,6 +434,22 @@
 .end method
 
 .method public abstract setTestProviderStatus(Ljava/lang/String;ILandroid/os/Bundle;JLjava/lang/String;)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract startGnssBatch(JZLjava/lang/String;)Z
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract stopGnssBatch()Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

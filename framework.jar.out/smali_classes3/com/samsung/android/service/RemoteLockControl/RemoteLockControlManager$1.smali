@@ -116,7 +116,7 @@
     :catch_0
     move-exception v0
 
-    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v0}, Lcom/samsung/android/service/RemoteLockControl/RemoteLockControlException;->printStackTrace()V
 
     invoke-static {}, Lcom/samsung/android/service/RemoteLockControl/RemoteLockControlManager;->-get0()Z
 

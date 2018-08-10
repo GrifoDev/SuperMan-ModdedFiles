@@ -15,6 +15,14 @@
 
 
 # virtual methods
+.method public abstract checkConfigureWifiDisplayPermission()V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract getMessenger()Landroid/os/Messenger;
     .annotation system Ldalvik/annotation/Throws;
         value = {

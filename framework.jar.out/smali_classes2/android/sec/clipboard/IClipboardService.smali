@@ -31,6 +31,14 @@
     .end annotation
 .end method
 
+.method public abstract addUserChangedListener(Lcom/samsung/android/content/clipboard/IOnUserChangedListener;Ljava/lang/String;)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract dismissDialog()V
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -99,6 +107,14 @@
     .end annotation
 .end method
 
+.method public abstract getFilter()I
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract isClipboardAllowed(I)Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -116,6 +132,14 @@
 .end method
 
 .method public abstract isEnabled()Z
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract isKnoxKeyguardShowing()Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -147,7 +171,7 @@
     .end annotation
 .end method
 
-.method public abstract pasteClip(Ljava/lang/String;)V
+.method public abstract pasteClip(Ljava/lang/String;)Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -180,6 +204,14 @@
 .end method
 
 .method public abstract removeClipboardEventListener(Lcom/samsung/android/content/clipboard/IOnClipboardEventListener;)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract removeUserChangedListener(Lcom/samsung/android/content/clipboard/IOnUserChangedListener;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -251,7 +283,23 @@
     .end annotation
 .end method
 
+.method public abstract updateDialogShowingState(Z)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract updateFilter(ILandroid/sec/clipboard/IClipboardDataPasteEvent;)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract updateFilterWithInputType(IILandroid/sec/clipboard/IClipboardDataPasteEvent;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

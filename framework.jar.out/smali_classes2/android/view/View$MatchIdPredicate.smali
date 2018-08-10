@@ -3,7 +3,7 @@
 .source "View.java"
 
 # interfaces
-.implements Lcom/android/internal/util/Predicate;
+.implements Ljava/util/function/Predicate;
 
 
 # annotations
@@ -12,14 +12,14 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0xa
     name = "MatchIdPredicate"
 .end annotation
 
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Object;",
-        "Lcom/android/internal/util/Predicate",
+        "Ljava/util/function/Predicate",
         "<",
         "Landroid/view/View;",
         ">;"
@@ -30,31 +30,27 @@
 # instance fields
 .field public mId:I
 
-.field final synthetic this$0:Landroid/view/View;
-
 
 # direct methods
-.method private constructor <init>(Landroid/view/View;)V
+.method private constructor <init>()V
     .locals 0
-
-    iput-object p1, p0, Landroid/view/View$MatchIdPredicate;->this$0:Landroid/view/View;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
-.method synthetic constructor <init>(Landroid/view/View;Landroid/view/View$MatchIdPredicate;)V
+.method synthetic constructor <init>(Landroid/view/View$MatchIdPredicate;)V
     .locals 0
 
-    invoke-direct {p0, p1}, Landroid/view/View$MatchIdPredicate;-><init>(Landroid/view/View;)V
+    invoke-direct {p0}, Landroid/view/View$MatchIdPredicate;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public apply(Landroid/view/View;)Z
+.method public test(Landroid/view/View;)Z
     .locals 2
 
     iget v0, p1, Landroid/view/View;->mID:I
@@ -74,12 +70,12 @@
     goto :goto_0
 .end method
 
-.method public bridge synthetic apply(Ljava/lang/Object;)Z
+.method public bridge synthetic test(Ljava/lang/Object;)Z
     .locals 1
 
     check-cast p1, Landroid/view/View;
 
-    invoke-virtual {p0, p1}, Landroid/view/View$MatchIdPredicate;->apply(Landroid/view/View;)Z
+    invoke-virtual {p0, p1}, Landroid/view/View$MatchIdPredicate;->test(Landroid/view/View;)Z
 
     move-result v0
 

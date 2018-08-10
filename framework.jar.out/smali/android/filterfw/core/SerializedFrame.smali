@@ -30,7 +30,7 @@
 
     const/4 v1, 0x0
 
-    invoke-virtual {p0, v1}, Landroid/filterfw/core/Frame;->setReusable(Z)V
+    invoke-virtual {p0, v1}, Landroid/filterfw/core/SerializedFrame;->setReusable(Z)V
 
     :try_start_0
     new-instance v1, Landroid/filterfw/core/SerializedFrame$DirectByteOutputStream;
@@ -240,7 +240,7 @@
 
     invoke-direct {v1, v0, p1}, Landroid/filterfw/core/SerializedFrame;-><init>(Landroid/filterfw/core/FrameFormat;Landroid/filterfw/core/FrameManager;)V
 
-    invoke-virtual {v1, p0}, Landroid/filterfw/core/Frame;->setObjectValue(Ljava/lang/Object;)V
+    invoke-virtual {v1, p0}, Landroid/filterfw/core/SerializedFrame;->setObjectValue(Ljava/lang/Object;)V
 
     return-object v1
 .end method
@@ -258,9 +258,7 @@
 
     if-eqz v1, :cond_0
 
-    nop
-
-    nop
+    check-cast v0, Landroid/graphics/Bitmap;
 
     :goto_0
     return-object v0
@@ -282,9 +280,7 @@
 
     if-eqz v1, :cond_0
 
-    nop
-
-    nop
+    check-cast v0, Ljava/nio/ByteBuffer;
 
     :goto_0
     return-object v0
@@ -306,9 +302,7 @@
 
     if-eqz v1, :cond_0
 
-    nop
-
-    nop
+    check-cast v0, [F
 
     :goto_0
     return-object v0
@@ -330,9 +324,7 @@
 
     if-eqz v1, :cond_0
 
-    nop
-
-    nop
+    check-cast v0, [I
 
     :goto_0
     return-object v0
@@ -370,7 +362,7 @@
 .method public setBitmap(Landroid/graphics/Bitmap;)V
     .locals 0
 
-    invoke-virtual {p0}, Landroid/filterfw/core/Frame;->assertFrameMutable()V
+    invoke-virtual {p0}, Landroid/filterfw/core/SerializedFrame;->assertFrameMutable()V
 
     invoke-virtual {p0, p1}, Landroid/filterfw/core/SerializedFrame;->setGenericObjectValue(Ljava/lang/Object;)V
 
@@ -380,7 +372,7 @@
 .method public setData(Ljava/nio/ByteBuffer;II)V
     .locals 1
 
-    invoke-virtual {p0}, Landroid/filterfw/core/Frame;->assertFrameMutable()V
+    invoke-virtual {p0}, Landroid/filterfw/core/SerializedFrame;->assertFrameMutable()V
 
     invoke-virtual {p1}, Ljava/nio/ByteBuffer;->array()[B
 
@@ -398,7 +390,7 @@
 .method public setFloats([F)V
     .locals 0
 
-    invoke-virtual {p0}, Landroid/filterfw/core/Frame;->assertFrameMutable()V
+    invoke-virtual {p0}, Landroid/filterfw/core/SerializedFrame;->assertFrameMutable()V
 
     invoke-virtual {p0, p1}, Landroid/filterfw/core/SerializedFrame;->setGenericObjectValue(Ljava/lang/Object;)V
 
@@ -416,7 +408,7 @@
 .method public setInts([I)V
     .locals 0
 
-    invoke-virtual {p0}, Landroid/filterfw/core/Frame;->assertFrameMutable()V
+    invoke-virtual {p0}, Landroid/filterfw/core/SerializedFrame;->assertFrameMutable()V
 
     invoke-virtual {p0, p1}, Landroid/filterfw/core/SerializedFrame;->setGenericObjectValue(Ljava/lang/Object;)V
 
@@ -436,7 +428,7 @@
 
     move-result-object v0
 
-    invoke-virtual {p0}, Landroid/filterfw/core/Frame;->getFormat()Landroid/filterfw/core/FrameFormat;
+    invoke-virtual {p0}, Landroid/filterfw/core/SerializedFrame;->getFormat()Landroid/filterfw/core/FrameFormat;
 
     move-result-object v1
 

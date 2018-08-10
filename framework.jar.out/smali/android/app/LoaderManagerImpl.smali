@@ -277,20 +277,18 @@
 
     move-result v2
 
-    if-eqz v2, :cond_5
+    xor-int/lit8 v2, v2, 0x1
 
-    :cond_4
-    :goto_0
-    return-void
+    if-eqz v2, :cond_4
 
-    :cond_5
     iget-object v2, p0, Landroid/app/LoaderManagerImpl;->mHost:Landroid/app/FragmentHostCallback;
 
     iget-object v2, v2, Landroid/app/FragmentHostCallback;->mFragmentManager:Landroid/app/FragmentManagerImpl;
 
     invoke-virtual {v2}, Landroid/app/FragmentManagerImpl;->startPendingDeferredFragments()V
 
-    goto :goto_0
+    :cond_4
+    return-void
 .end method
 
 .method doDestroy()V
@@ -414,6 +412,10 @@
     iget-object v1, p0, Landroid/app/LoaderManagerImpl;->mInactiveLoaders:Landroid/util/SparseArray;
 
     invoke-virtual {v1}, Landroid/util/SparseArray;->clear()V
+
+    const/4 v1, 0x0
+
+    iput-object v1, p0, Landroid/app/LoaderManagerImpl;->mHost:Landroid/app/FragmentHostCallback;
 
     return-void
 .end method
@@ -1025,6 +1027,14 @@
     return-void
 .end method
 
+.method public getFragmentHostCallback()Landroid/app/FragmentHostCallback;
+    .locals 1
+
+    iget-object v0, p0, Landroid/app/LoaderManagerImpl;->mHost:Landroid/app/FragmentHostCallback;
+
+    return-object v0
+.end method
+
 .method public getLoader(I)Landroid/content/Loader;
     .locals 3
     .annotation system Ldalvik/annotation/Signature;
@@ -1082,9 +1092,7 @@
 .end method
 
 .method public hasRunningLoaders()Z
-    .locals 6
-
-    const/4 v5, 0x0
+    .locals 5
 
     const/4 v3, 0x0
 
@@ -1097,7 +1105,7 @@
     const/4 v1, 0x0
 
     :goto_0
-    if-ge v1, v0, :cond_2
+    if-ge v1, v0, :cond_1
 
     iget-object v4, p0, Landroid/app/LoaderManagerImpl;->mLoaders:Landroid/util/SparseArray;
 
@@ -1113,10 +1121,7 @@
 
     iget-boolean v4, v2, Landroid/app/LoaderManagerImpl$LoaderInfo;->mDeliveredData:Z
 
-    if-eqz v4, :cond_1
-
-    :cond_0
-    move v4, v5
+    xor-int/lit8 v4, v4, 0x1
 
     :goto_1
     or-int/2addr v3, v4
@@ -1125,12 +1130,12 @@
 
     goto :goto_0
 
-    :cond_1
-    const/4 v4, 0x1
+    :cond_0
+    const/4 v4, 0x0
 
     goto :goto_1
 
-    :cond_2
+    :cond_1
     return v3
 .end method
 

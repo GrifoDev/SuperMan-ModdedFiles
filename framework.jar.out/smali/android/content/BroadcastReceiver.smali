@@ -286,7 +286,7 @@
 .method public peekService(Landroid/content/Context;Landroid/content/Intent;)Landroid/os/IBinder;
     .locals 5
 
-    invoke-static {}, Landroid/app/ActivityManagerNative;->getDefault()Landroid/app/IActivityManager;
+    invoke-static {}, Landroid/app/ActivityManager;->getService()Landroid/app/IActivityManager;
 
     move-result-object v0
 

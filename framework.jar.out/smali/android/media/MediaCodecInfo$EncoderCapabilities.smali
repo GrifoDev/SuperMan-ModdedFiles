@@ -761,7 +761,13 @@
 
     move-result v8
 
-    if-eqz v8, :cond_3
+    xor-int/lit8 v8, v8, 0x1
+
+    if-eqz v8, :cond_0
+
+    const/4 v8, 0x0
+
+    return v8
 
     :cond_0
     const-string/jumbo v8, "complexity"
@@ -788,7 +794,7 @@
 
     check-cast v2, Ljava/lang/Integer;
 
-    if-nez v1, :cond_4
+    if-nez v1, :cond_3
 
     move-object v1, v2
 
@@ -817,7 +823,7 @@
 
     check-cast v0, Ljava/lang/Integer;
 
-    if-nez v6, :cond_5
+    if-nez v6, :cond_4
 
     move-object v6, v0
 
@@ -837,18 +843,15 @@
     return v8
 
     :cond_3
-    const/4 v8, 0x0
-
-    return v8
-
-    :cond_4
     if-eqz v2, :cond_1
 
     invoke-virtual {v1, v2}, Ljava/lang/Integer;->equals(Ljava/lang/Object;)Z
 
     move-result v8
 
-    if-nez v8, :cond_1
+    xor-int/lit8 v8, v8, 0x1
+
+    if-eqz v8, :cond_1
 
     new-instance v8, Ljava/lang/IllegalArgumentException;
 
@@ -858,14 +861,16 @@
 
     throw v8
 
-    :cond_5
+    :cond_4
     if-eqz v0, :cond_2
 
     invoke-virtual {v0, v6}, Ljava/lang/Integer;->equals(Ljava/lang/Object;)Z
 
     move-result v8
 
-    if-nez v8, :cond_2
+    xor-int/lit8 v8, v8, 0x1
+
+    if-eqz v8, :cond_2
 
     new-instance v8, Ljava/lang/IllegalArgumentException;
 

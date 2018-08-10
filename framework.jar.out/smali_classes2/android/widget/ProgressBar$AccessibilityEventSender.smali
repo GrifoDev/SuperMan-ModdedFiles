@@ -49,7 +49,7 @@
 
     const/4 v1, 0x4
 
-    invoke-virtual {v0, v1}, Landroid/view/View;->sendAccessibilityEvent(I)V
+    invoke-virtual {v0, v1}, Landroid/widget/ProgressBar;->sendAccessibilityEvent(I)V
 
     return-void
 .end method

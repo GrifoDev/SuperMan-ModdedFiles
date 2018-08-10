@@ -15,6 +15,8 @@
 
 
 # static fields
+.field public static final ACTIVITY_MANAGER_CONSTANTS:Ljava/lang/String; = "activity_manager_constants"
+
 .field public static final ADB_BLOCKED:Ljava/lang/String; = "adb_blocked"
 
 .field public static final ADB_ENABLED:Ljava/lang/String; = "adb_enabled"
@@ -71,11 +73,21 @@
 
 .field public static final BATTERY_DISCHARGE_THRESHOLD:Ljava/lang/String; = "battery_discharge_threshold"
 
+.field public static final BATTERY_SAVER_CONSTANTS:Ljava/lang/String; = "battery_saver_constants"
+
 .field public static final BLE_SCAN_ALWAYS_AVAILABLE:Ljava/lang/String; = "ble_scan_always_enabled"
+
+.field public static final BLUETOOTH_A2DP_ENABLED_LDAC_PREFIX:Ljava/lang/String; = "bluetooth_a2dp_enabled_ldac"
+
+.field public static final BLUETOOTH_A2DP_OPTIONAL_CODECS_ENABLED_PREFIX:Ljava/lang/String; = "bluetooth_a2dp_optional_codecs_enabled_"
 
 .field public static final BLUETOOTH_A2DP_SINK_PRIORITY_PREFIX:Ljava/lang/String; = "bluetooth_a2dp_sink_priority_"
 
 .field public static final BLUETOOTH_A2DP_SRC_PRIORITY_PREFIX:Ljava/lang/String; = "bluetooth_a2dp_src_priority_"
+
+.field public static final BLUETOOTH_A2DP_SUPPORTS_LDAC_PREFIX:Ljava/lang/String; = "bluetooth_a2dp_supports_ldac"
+
+.field public static final BLUETOOTH_A2DP_SUPPORTS_OPTIONAL_CODECS_PREFIX:Ljava/lang/String; = "bluetooth_a2dp_supports_optional_codecs_"
 
 .field public static final BLUETOOTH_DISABLED_PROFILES:Ljava/lang/String; = "bluetooth_disabled_profiles"
 
@@ -85,9 +97,13 @@
 
 .field public static final BLUETOOTH_INTEROPERABILITY_LIST:Ljava/lang/String; = "bluetooth_interoperability_list"
 
+.field public static final BLUETOOTH_MAP_CLIENT_PRIORITY_PREFIX:Ljava/lang/String; = "bluetooth_map_client_priority_"
+
 .field public static final BLUETOOTH_MAP_PRIORITY_PREFIX:Ljava/lang/String; = "bluetooth_map_priority_"
 
 .field public static final BLUETOOTH_ON:Ljava/lang/String; = "bluetooth_on"
+
+.field public static final BLUETOOTH_PAN_PRIORITY_PREFIX:Ljava/lang/String; = "bluetooth_pan_priority_"
 
 .field public static final BLUETOOTH_PBAP_CLIENT_PRIORITY_PREFIX:Ljava/lang/String; = "bluetooth_pbap_client_priority_"
 
@@ -104,8 +120,29 @@
 .field public static final CALL_AUTO_RETRY:Ljava/lang/String; = "call_auto_retry"
 
 .field public static final CAPTIVE_PORTAL_DETECTION_ENABLED:Ljava/lang/String; = "captive_portal_detection_enabled"
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
+
+.field public static final CAPTIVE_PORTAL_FALLBACK_URL:Ljava/lang/String; = "captive_portal_fallback_url"
+
+.field public static final CAPTIVE_PORTAL_HTTPS_URL:Ljava/lang/String; = "captive_portal_https_url"
+
+.field public static final CAPTIVE_PORTAL_HTTP_URL:Ljava/lang/String; = "captive_portal_http_url"
+
+.field public static final CAPTIVE_PORTAL_MODE:Ljava/lang/String; = "captive_portal_mode"
+
+.field public static final CAPTIVE_PORTAL_MODE_AVOID:I = 0x2
+
+.field public static final CAPTIVE_PORTAL_MODE_IGNORE:I = 0x0
+
+.field public static final CAPTIVE_PORTAL_MODE_PROMPT:I = 0x1
+
+.field public static final CAPTIVE_PORTAL_OTHER_FALLBACK_URLS:Ljava/lang/String; = "captive_portal_other_fallback_urls"
 
 .field public static final CAPTIVE_PORTAL_SERVER:Ljava/lang/String; = "captive_portal_server"
+
+.field public static final CAPTIVE_PORTAL_USER_AGENT:Ljava/lang/String; = "captive_portal_user_agent"
 
 .field public static final CAPTIVE_PORTAL_USE_HTTPS:Ljava/lang/String; = "captive_portal_use_https"
 
@@ -121,6 +158,8 @@
 
 .field public static final CDMA_SUBSCRIPTION_MODE:Ljava/lang/String; = "subscription_mode"
 
+.field public static final CELL_ON:Ljava/lang/String; = "cell_on"
+
 .field public static final CERT_PIN_UPDATE_CONTENT_URL:Ljava/lang/String; = "cert_pin_content_url"
 
 .field public static final CERT_PIN_UPDATE_METADATA_URL:Ljava/lang/String; = "cert_pin_metadata_url"
@@ -131,7 +170,11 @@
 
 .field public static final CONNECTIVITY_CHANGE_DELAY:Ljava/lang/String; = "connectivity_change_delay"
 
+.field public static final CONNECTIVITY_METRICS_BUFFER_SIZE:Ljava/lang/String; = "connectivity_metrics_buffer_size"
+
 .field public static final CONNECTIVITY_SAMPLING_INTERVAL_IN_SECONDS:Ljava/lang/String; = "connectivity_sampling_interval_in_seconds"
+
+.field public static final CONTACTS_DATABASE_WAL_ENABLED:Ljava/lang/String; = "contacts_database_wal_enabled"
 
 .field public static final CONTACT_METADATA_SYNC:Ljava/lang/String; = "contact_metadata_sync"
     .annotation runtime Ljava/lang/Deprecated;
@@ -141,6 +184,10 @@
 .field public static final CONTACT_METADATA_SYNC_ENABLED:Ljava/lang/String; = "contact_metadata_sync_enabled"
 
 .field public static final CONTENT_URI:Landroid/net/Uri;
+
+.field public static final DATABASE_CREATION_BUILDID:Ljava/lang/String; = "database_creation_buildid"
+
+.field public static final DATABASE_DOWNGRADE_REASON:Ljava/lang/String; = "database_downgrade_reason"
 
 .field public static final DATA_ACTIVITY_TIMEOUT_MOBILE:Ljava/lang/String; = "data_activity_timeout_mobile"
 
@@ -174,11 +221,15 @@
 
 .field public static final DEVELOPMENT_SETTINGS_ENABLED:Ljava/lang/String; = "development_settings_enabled"
 
+.field public static final DEVICE_DEMO_MODE:Ljava/lang/String; = "device_demo_mode"
+
 .field public static final DEVICE_IDLE_CONSTANTS:Ljava/lang/String; = "device_idle_constants"
 
 .field public static final DEVICE_IDLE_CONSTANTS_WATCH:Ljava/lang/String; = "device_idle_constants_watch"
 
 .field public static final DEVICE_NAME:Ljava/lang/String; = "device_name"
+
+.field public static final DEVICE_POLICY_CONSTANTS:Ljava/lang/String; = "device_policy_constants"
 
 .field public static final DEVICE_PROVISIONED:Ljava/lang/String; = "device_provisioned"
 
@@ -187,10 +238,6 @@
 .field public static final DISK_FREE_CHANGE_REPORTING_THRESHOLD:Ljava/lang/String; = "disk_free_change_reporting_threshold"
 
 .field public static final DISPLAY_SCALING_FORCE:Ljava/lang/String; = "display_scaling_force"
-
-.field public static final DISPLAY_SCREEN_DENSITY:Ljava/lang/String; = "display_screen_density"
-
-.field public static final DISPLAY_SCREEN_RESOLUTION:Ljava/lang/String; = "display_screen_resolution"
 
 .field public static final DISPLAY_SIZE_FORCED:Ljava/lang/String; = "display_size_forced"
 
@@ -205,6 +252,8 @@
 .field public static final DOCK_AUDIO_MEDIA_ENABLED:Ljava/lang/String; = "dock_audio_media_enabled"
 
 .field public static final DOCK_SOUNDS_ENABLED:Ljava/lang/String; = "dock_sounds_enabled"
+
+.field public static final DOCK_SOUNDS_ENABLED_WHEN_ACCESSIBILITY:Ljava/lang/String; = "dock_sounds_enabled_when_accessbility"
 
 .field public static final DOWNLOAD_MAX_BYTES_OVER_MOBILE:Ljava/lang/String; = "download_manager_max_bytes_over_mobile"
 
@@ -224,6 +273,8 @@
 
 .field public static final EDGE_ENABLE:Ljava/lang/String; = "edge_enable"
 
+.field public static final EMERGENCY_AFFORDANCE_NEEDED:Ljava/lang/String; = "emergency_affordance_needed"
+
 .field public static final EMERGENCY_LOCK_CALL_STATE:Ljava/lang/String; = "emergency_lock_call_state"
 
 .field public static final EMERGENCY_LOCK_TEXT:Ljava/lang/String; = "emergency_lock"
@@ -234,7 +285,13 @@
 
 .field public static final ENABLE_ACCESSIBILITY_GLOBAL_GESTURE_ENABLED:Ljava/lang/String; = "enable_accessibility_global_gesture_enabled"
 
+.field public static final ENABLE_CACHE_QUOTA_CALCULATION:Ljava/lang/String; = "enable_cache_quota_calculation"
+
 .field public static final ENABLE_CELLULAR_ON_BOOT:Ljava/lang/String; = "enable_cellular_on_boot"
+
+.field public static final ENABLE_DISKSTATS_LOGGING:Ljava/lang/String; = "enable_diskstats_logging"
+
+.field public static final ENABLE_EPHEMERAL_FEATURE:Ljava/lang/String; = "enable_ephemeral_feature"
 
 .field public static final ENCODED_SURROUND_OUTPUT:Ljava/lang/String; = "encoded_surround_output"
 
@@ -278,7 +335,7 @@
 
 .field public static final HDMI_CONTROL_ENABLED:Ljava/lang/String; = "hdmi_control_enabled"
 
-.field public static final HDMI_SYSTEM_AUDIO_ENABLED:Ljava/lang/String; = "hdmi_system_audio_enabled"
+.field public static final HDMI_SYSTEM_AUDIO_CONTROL_ENABLED:Ljava/lang/String; = "hdmi_system_audio_control_enabled"
 
 .field public static final HEADS_UP_NOTIFICATIONS_ENABLED:Ljava/lang/String; = "heads_up_notifications_enabled"
 
@@ -292,8 +349,25 @@
 
 .field public static final INET_CONDITION_DEBOUNCE_UP_DELAY:Ljava/lang/String; = "inet_condition_debounce_up_delay"
 
+.field public static final INSTALLED_INSTANT_APP_MAX_CACHE_PERIOD:Ljava/lang/String; = "installed_instant_app_max_cache_period"
+
+.field public static final INSTALLED_INSTANT_APP_MIN_CACHE_PERIOD:Ljava/lang/String; = "installed_instant_app_min_cache_period"
+
 .field public static final INSTALL_NON_MARKET_APPS:Ljava/lang/String; = "install_non_market_apps"
     .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
+
+.field public static final INSTANT_APP_DEXOPT_ENABLED:Ljava/lang/String; = "instant_app_dexopt_enabled"
+
+.field public static final INSTANT_APP_SETTINGS:Ljava/util/Set;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/Set",
+            "<",
+            "Ljava/lang/String;",
+            ">;"
+        }
     .end annotation
 .end field
 
@@ -303,7 +377,17 @@
 
 .field public static final JOB_SCHEDULER_CONSTANTS:Ljava/lang/String; = "job_scheduler_constants"
 
-.field public static final LENIENT_BACKGROUND_CHECK:Ljava/lang/String; = "lenient_background_check"
+.field public static final LANG_ID_UPDATE_CONTENT_URL:Ljava/lang/String; = "lang_id_content_url"
+
+.field public static final LANG_ID_UPDATE_METADATA_URL:Ljava/lang/String; = "lang_id_metadata_url"
+
+.field public static final LOCATION_BACKGROUND_THROTTLE_INTERVAL_MS:Ljava/lang/String; = "location_background_throttle_interval_ms"
+
+.field public static final LOCATION_BACKGROUND_THROTTLE_PACKAGE_WHITELIST:Ljava/lang/String; = "location_background_throttle_package_whitelist"
+
+.field public static final LOCATION_BACKGROUND_THROTTLE_PROXIMITY_ALERT_INTERVAL_MS:Ljava/lang/String; = "location_background_throttle_proximity_alert_interval_ms"
+
+.field public static final LOCATION_SETTINGS_LINK_TO_PERMISSIONS_ENABLED:Ljava/lang/String; = "location_settings_link_to_permissions_enabled"
 
 .field public static final LOCKED_ADMINS_LIST:Ljava/lang/String; = "locked_admins_list"
 
@@ -356,6 +440,8 @@
 
 .field public static final MULTI_SIM_SMS_PROMPT:Ljava/lang/String; = "multi_sim_sms_prompt"
 
+.field public static final MULTI_SIM_SMS_SLOT:Ljava/lang/String; = "multi_sim_sms_slot"
+
 .field public static final MULTI_SIM_SMS_SUBSCRIPTION:Ljava/lang/String; = "multi_sim_sms"
 
 .field public static final MULTI_SIM_USER_PREFERRED_SUBS:[Ljava/lang/String;
@@ -365,6 +451,30 @@
 .field public static final MULTI_SIM_VOICE_CALL_SUBSCRIPTION:Ljava/lang/String; = "multi_sim_voice_call"
 
 .field public static final MULTI_SIM_VOICE_PROMPT:Ljava/lang/String; = "multi_sim_voice_prompt"
+
+.field public static final NAVIGATIONBAR_COLOR:Ljava/lang/String; = "navigationbar_color"
+
+.field public static final NAVIGATIONBAR_CURRENT_COLOR:Ljava/lang/String; = "navigationbar_current_color"
+
+.field public static final NAVIGATIONBAR_FORCE_TOUCH_ENABLE:Ljava/lang/String; = "navigationbar_force_touch_enable"
+
+.field public static final NAVIGATIONBAR_HIDE_BAR:Ljava/lang/String; = "navigationbar_hide_bar"
+
+.field public static final NAVIGATIONBAR_HIDE_BAR_ENABLED:Ljava/lang/String; = "navigationbar_hide_bar_enabled"
+
+.field public static final NAVIGATIONBAR_HIDE_BAR_HELP_CONFIRMATIONS:Ljava/lang/String; = "force_immersive_mode_confirmations"
+
+.field public static final NAVIGATIONBAR_KEY_ORDER:Ljava/lang/String; = "navigationbar_key_order"
+
+.field public static final NAVIGATIONBAR_PRESSURE_USER_LEVEL:Ljava/lang/String; = "navigationbar_pressure_user_level"
+
+.field public static final NAVIGATIONBAR_RECENTLY_USED_COLOR:Ljava/lang/String; = "navigationbar_recently_used_color"
+
+.field public static final NAVIGATIONBAR_THEME_COLOR:Ljava/lang/String; = "navigationbar_theme_color"
+
+.field public static final NAVIGATIONBAR_UNLOCK_WITH_HOME_BUTTON:Ljava/lang/String; = "navigationbar_unlock_with_home_button"
+
+.field public static final NAVIGATIONBAR_USE_THEME_DEFAULT:Ljava/lang/String; = "navigationbar_use_theme_default"
 
 .field public static final NETSTATS_DEV_BUCKET_DURATION:Ljava/lang/String; = "netstats_dev_bucket_duration"
 
@@ -400,11 +510,29 @@
 
 .field public static final NETSTATS_UID_TAG_ROTATE_AGE:Ljava/lang/String; = "netstats_uid_tag_rotate_age"
 
+.field public static final NETWORK_ACCESS_TIMEOUT_MS:Ljava/lang/String; = "network_access_timeout_ms"
+
+.field public static final NETWORK_AVOID_BAD_WIFI:Ljava/lang/String; = "network_avoid_bad_wifi"
+
+.field public static final NETWORK_METERED_MULTIPATH_PREFERENCE:Ljava/lang/String; = "network_metered_multipath_preference"
+
 .field public static final NETWORK_PREFERENCE:Ljava/lang/String; = "network_preference"
+
+.field public static final NETWORK_RECOMMENDATIONS_ENABLED:Ljava/lang/String; = "network_recommendations_enabled"
+
+.field public static final NETWORK_RECOMMENDATIONS_PACKAGE:Ljava/lang/String; = "network_recommendations_package"
+
+.field public static final NETWORK_RECOMMENDATION_REQUEST_TIMEOUT_MS:Ljava/lang/String; = "network_recommendation_request_timeout_ms"
 
 .field public static final NETWORK_SCORER_APP:Ljava/lang/String; = "network_scorer_app"
 
 .field public static final NETWORK_SCORING_PROVISIONED:Ljava/lang/String; = "network_scoring_provisioned"
+
+.field public static final NETWORK_SCORING_UI_ENABLED:Ljava/lang/String; = "network_scoring_ui_enabled"
+
+.field public static final NETWORK_SWITCH_NOTIFICATION_DAILY_LIMIT:Ljava/lang/String; = "network_switch_notification_daily_limit"
+
+.field public static final NETWORK_SWITCH_NOTIFICATION_RATE_LIMIT_MILLIS:Ljava/lang/String; = "network_switch_notification_rate_limit_millis"
 
 .field public static final NEW_CONTACT_AGGREGATOR:Ljava/lang/String; = "new_contact_aggregator"
 
@@ -450,6 +578,8 @@
 
 .field public static final POLICY_CONTROL:Ljava/lang/String; = "policy_control"
 
+.field public static final POWER_MANAGER_CONSTANTS:Ljava/lang/String; = "power_manager_constants"
+
 .field public static final POWER_SOUNDS_ENABLED:Ljava/lang/String; = "power_sounds_enabled"
 
 .field public static final PREFERRED_NETWORK_MODE:Ljava/lang/String; = "preferred_network_mode"
@@ -468,7 +598,11 @@
 
 .field public static final READ_EXTERNAL_STORAGE_ENFORCED_DEFAULT:Ljava/lang/String; = "read_external_storage_enforced_default"
 
+.field public static final RECOMMENDED_NETWORK_EVALUATOR_CACHE_EXPIRY_MS:Ljava/lang/String; = "recommended_network_evaluator_cache_expiry_ms"
+
 .field public static final REQUIRE_PASSWORD_TO_DECRYPT:Ljava/lang/String; = "require_password_to_decrypt"
+
+.field public static final RETAIL_DEMO_MODE_CONSTANTS:Ljava/lang/String; = "retail_demo_mode_constants"
 
 .field public static final SAFE_BOOT_DISALLOWED:Ljava/lang/String; = "safe_boot_disallowed"
 
@@ -488,15 +622,25 @@
 
 .field public static final SELINUX_UPDATE_METADATA_URL:Ljava/lang/String; = "selinux_metadata_url"
 
-.field public static final SEM_AUTO_WIFI_SUGGESTED:Ljava/lang/String; = "sem_auto_wifi_suggested"
+.field public static final SEM_AUTO_BRIGHTNESS_LIMIT:Ljava/lang/String; = "auto_brightness_limit"
+
+.field public static final SEM_AUTO_WIFI_FAVORITE_AP_COUNT:Ljava/lang/String; = "sem_auto_wifi_favorite_ap_count"
+
+.field public static final SEM_AUTO_WIFI_LAST_USER_STATE:Ljava/lang/String; = "sem_auto_wifi_last_user_state"
+
+.field public static final SEM_AUTO_WIFI_SAVED_SCORE:Ljava/lang/String; = "sem_auto_wifi_saved_score"
 
 .field public static final SEM_ENABLE_ACCESSIBILITY_GLOBAL_GESTURE_ENABLED:Ljava/lang/String; = "enable_accessibility_global_gesture_enabled"
 
 .field public static final SEM_FONT_SIZE:Ljava/lang/String; = "font_size"
 
-.field public static final SEM_IS_AUTO_WIFI_ENABLED:Ljava/lang/String; = "sem_is_auto_wifi_enabled"
-
 .field public static final SEM_MOBILE_DATA:Ljava/lang/String; = "mobile_data"
+
+.field public static final SEM_NAVIGATIONBAR_CURRENT_COLOR:Ljava/lang/String; = "navigationbar_current_color"
+
+.field public static final SEM_NAVIGATIONBAR_THEME_COLOR:Ljava/lang/String; = "navigationbar_theme_color"
+
+.field public static final SEM_NAVIGATIONBAR_USE_THEME_DEFAULT:Ljava/lang/String; = "navigationbar_use_theme_default"
 
 .field public static final SEM_ONLY_CONTACT_WITH_PHONE:Ljava/lang/String; = "only_contact_with_phone"
 
@@ -528,9 +672,20 @@
 
 .field public static final SHORTCUT_MANAGER_CONSTANTS:Ljava/lang/String; = "shortcut_manager_constants"
 
+.field public static final SHOW_NOTIFICATION_CHANNEL_WARNINGS:Ljava/lang/String; = "show_notification_channel_warnings"
+
 .field public static final SHOW_PROCESSES:Ljava/lang/String; = "show_processes"
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
+
+.field public static final SHOW_TEMPERATURE_WARNING:Ljava/lang/String; = "show_temperature_warning"
 
 .field public static final SMART_CALL_SHARE_NAME_NUMBER:Ljava/lang/String; = "smart_call_share_name_number"
+
+.field public static final SMART_SELECTION_UPDATE_CONTENT_URL:Ljava/lang/String; = "smart_selection_content_url"
+
+.field public static final SMART_SELECTION_UPDATE_METADATA_URL:Ljava/lang/String; = "smart_selection_metadata_url"
 
 .field public static final SMS_OUTGOING_CHECK_INTERVAL_MS:Ljava/lang/String; = "sms_outgoing_check_interval_ms"
 
@@ -560,6 +715,10 @@
 
 .field public static final SYS_FREE_STORAGE_LOG_INTERVAL:Ljava/lang/String; = "sys_free_storage_log_interval"
 
+.field public static final SYS_STORAGE_CACHE_MAX_BYTES:Ljava/lang/String; = "sys_storage_cache_max_bytes"
+
+.field public static final SYS_STORAGE_CACHE_PERCENTAGE:Ljava/lang/String; = "sys_storage_cache_percentage"
+
 .field public static final SYS_STORAGE_FULL_THRESHOLD_BYTES:Ljava/lang/String; = "sys_storage_full_threshold_bytes"
 
 .field public static final SYS_STORAGE_THRESHOLD_MAX_BYTES:Ljava/lang/String; = "sys_storage_threshold_max_bytes"
@@ -576,6 +735,8 @@
 
 .field public static final TETHER_DUN_REQUIRED:Ljava/lang/String; = "tether_dun_required"
 
+.field public static final TETHER_OFFLOAD_DISABLED:Ljava/lang/String; = "tether_offload_disabled"
+
 .field public static final TETHER_SUPPORTED:Ljava/lang/String; = "tether_supported"
 
 .field public static final THEATER_MODE_ON:Ljava/lang/String; = "theater_mode_on"
@@ -588,9 +749,13 @@
 
 .field public static final TZINFO_UPDATE_METADATA_URL:Ljava/lang/String; = "tzinfo_metadata_url"
 
-.field public static final UNINSTALLED_EPHEMERAL_APP_CACHE_DURATION_MILLIS:Ljava/lang/String; = "uninstalled_ephemeral_app_cache_duration_millis"
+.field public static final UNINSTALLED_INSTANT_APP_MAX_CACHE_PERIOD:Ljava/lang/String; = "uninstalled_instant_app_max_cache_period"
+
+.field public static final UNINSTALLED_INSTANT_APP_MIN_CACHE_PERIOD:Ljava/lang/String; = "uninstalled_instant_app_min_cache_period"
 
 .field public static final UNLOCK_SOUND:Ljava/lang/String; = "unlock_sound"
+
+.field public static final UNUSED_STATIC_SHARED_LIB_MIN_CACHE_PERIOD:Ljava/lang/String; = "unused_static_shared_lib_min_cache_period"
 
 .field public static final USB_BLOCKED:Ljava/lang/String; = "usb_blocked"
 
@@ -598,11 +763,13 @@
 
 .field public static final USE_GOOGLE_MAIL:Ljava/lang/String; = "use_google_mail"
 
-.field public static final VOLTE_PREFERRED_ON:Ljava/lang/String; = "volte_preferred_on"
+.field public static final USE_OPEN_WIFI_PACKAGE:Ljava/lang/String; = "use_open_wifi_package"
 
 .field public static final VT_IMS_ENABLED:Ljava/lang/String; = "vt_ims_enabled"
 
 .field public static final WAIT_FOR_DEBUGGER:Ljava/lang/String; = "wait_for_debugger"
+
+.field public static final WARNING_TEMPERATURE:Ljava/lang/String; = "warning_temperature"
 
 .field public static final WEBVIEW_DATA_REDUCTION_PROXY_KEY:Ljava/lang/String; = "webview_data_reduction_proxy_key"
 
@@ -618,13 +785,17 @@
 
 .field public static final WFC_IMS_ROAMING_ENABLED:Ljava/lang/String; = "wfc_ims_roaming_enabled"
 
+.field public static final WFC_IMS_ROAMING_MODE:Ljava/lang/String; = "wfc_ims_roaming_mode"
+
+.field public static final WIFI_ADAPTIVE_WIFI_CONTROL_ENABLED:Ljava/lang/String; = "sem_auto_wifi_control_enabled"
+
 .field public static final WIFI_AP_SORT:Ljava/lang/String; = "wifi_ap_sort"
 
 .field public static final WIFI_AP_SORT_NAME:I = 0x0
 
 .field public static final WIFI_AP_SORT_RSSI:I = 0x1
 
-.field public static final WIFI_AUTO_CONNECT_TYPE:Ljava/lang/String; = "wifi_auto_connect_type"
+.field public static final WIFI_BADGING_THRESHOLDS:Ljava/lang/String; = "wifi_badging_thresholds"
 
 .field public static final WIFI_BOUNCE_DELAY_OVERRIDE_MS:Ljava/lang/String; = "wifi_bounce_delay_override_ms"
 
@@ -633,8 +804,6 @@
 .field public static final WIFI_DEVICE_OWNER_CONFIGS_LOCKDOWN:Ljava/lang/String; = "wifi_device_owner_configs_lockdown"
 
 .field public static final WIFI_DISPLAY_CERTIFICATION_ON:Ljava/lang/String; = "wifi_display_certification_on"
-
-.field public static final WIFI_DISPLAY_LIMITEDCONTENS_PLAYING:Ljava/lang/String; = "wifi_display_limited_contents_playing"
 
 .field public static final WIFI_DISPLAY_ON:Ljava/lang/String; = "wifi_display_on"
 
@@ -650,8 +819,6 @@
 
 .field public static final WIFI_FREQUENCY_BAND:Ljava/lang/String; = "wifi_frequency_band"
 
-.field public static final WIFI_HOTSPOT2_ENABLED:Ljava/lang/String; = "wifi_hotspot2_enabled"
-
 .field public static final WIFI_IBSS_ON:Ljava/lang/String; = "wifi_ibss_on"
 
 .field public static final WIFI_IDLE_MS:Ljava/lang/String; = "wifi_idle_ms"
@@ -661,6 +828,9 @@
 .field public static final WIFI_MOBILE_DATA_TRANSITION_WAKELOCK_TIMEOUT_MS:Ljava/lang/String; = "wifi_mobile_data_transition_wakelock_timeout_ms"
 
 .field public static final WIFI_NETWORKS_AVAILABLE_NOTIFICATION_ON:Ljava/lang/String; = "wifi_networks_available_notification_on"
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
 
 .field public static final WIFI_NETWORKS_AVAILABLE_REPEAT_DELAY:Ljava/lang/String; = "wifi_networks_available_repeat_delay"
 
@@ -679,6 +849,10 @@
 .field public static final WIFI_SAVED_STATE:Ljava/lang/String; = "wifi_saved_state"
 
 .field public static final WIFI_SCAN_ALWAYS_AVAILABLE:Ljava/lang/String; = "wifi_scan_always_enabled"
+
+.field public static final WIFI_SCAN_BACKGROUND_THROTTLE_INTERVAL_MS:Ljava/lang/String; = "wifi_scan_background_throttle_interval_ms"
+
+.field public static final WIFI_SCAN_BACKGROUND_THROTTLE_PACKAGE_WHITELIST:Ljava/lang/String; = "wifi_scan_background_throttle_package_whitelist"
 
 .field public static final WIFI_SCAN_INTERVAL_WHEN_P2P_CONNECTED_MS:Ljava/lang/String; = "wifi_scan_interval_p2p_connected_ms"
 
@@ -701,6 +875,10 @@
 .field public static final WIFI_SUSPEND_OPTIMIZATIONS_ENABLED:Ljava/lang/String; = "wifi_suspend_optimizations_enabled"
 
 .field public static final WIFI_VERBOSE_LOGGING_ENABLED:Ljava/lang/String; = "wifi_verbose_logging_enabled"
+
+.field public static final WIFI_WAKEUP_AVAILABLE:Ljava/lang/String; = "wifi_wakeup_available"
+
+.field public static final WIFI_WAKEUP_ENABLED:Ljava/lang/String; = "wifi_wakeup_enabled"
 
 .field public static final WIFI_WATCHDOG_ON:Ljava/lang/String; = "wifi_watchdog_on"
 
@@ -736,20 +914,22 @@
 
 .field public static final ZEN_MODE_RINGER_LEVEL:Ljava/lang/String; = "zen_mode_ringer_level"
 
-.field private static sNameValueCache:Landroid/provider/Settings$NameValueCache;
+.field private static final sNameValueCache:Landroid/provider/Settings$NameValueCache;
+
+.field private static final sProviderHolder:Landroid/provider/Settings$ContentProviderHolder;
 
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 8
+    .locals 9
 
-    const/4 v7, 0x3
+    const/4 v8, 0x3
 
-    const/4 v6, 0x2
+    const/4 v7, 0x2
 
-    const/4 v5, 0x0
+    const/4 v6, 0x0
 
-    const/4 v4, 0x1
+    const/4 v5, 0x1
 
     const-string/jumbo v0, "content://settings/global"
 
@@ -759,123 +939,125 @@
 
     sput-object v0, Landroid/provider/Settings$Global;->CONTENT_URI:Landroid/net/Uri;
 
-    const/16 v0, 0x14
+    const/16 v0, 0x13
 
     new-array v0, v0, [Ljava/lang/String;
 
-    const-string/jumbo v1, "enable_accessibility_auto_haptic_enabled"
-
-    aput-object v1, v0, v5
-
-    const-string/jumbo v1, "wifi_settings_run_foreground"
-
-    aput-object v1, v0, v4
-
-    const-string/jumbo v1, "wifi_free_wifi_scan_auto_connection_mode"
+    const-string/jumbo v1, "bugreport_in_power_menu"
 
     aput-object v1, v0, v6
 
-    const-string/jumbo v1, "bugreport_in_power_menu"
+    const-string/jumbo v1, "stay_on_while_plugged_in"
+
+    aput-object v1, v0, v5
+
+    const-string/jumbo v1, "auto_time"
 
     aput-object v1, v0, v7
 
-    const-string/jumbo v1, "stay_on_while_plugged_in"
+    const-string/jumbo v1, "auto_time_zone"
+
+    aput-object v1, v0, v8
+
+    const-string/jumbo v1, "power_sounds_enabled"
 
     const/4 v2, 0x4
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "auto_time"
+    const-string/jumbo v1, "dock_sounds_enabled"
 
     const/4 v2, 0x5
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "auto_time_zone"
+    const-string/jumbo v1, "charging_sounds_enabled"
 
     const/4 v2, 0x6
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "power_sounds_enabled"
+    const-string/jumbo v1, "usb_mass_storage_enabled"
 
     const/4 v2, 0x7
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "dock_sounds_enabled"
+    const-string/jumbo v1, "network_recommendations_enabled"
 
     const/16 v2, 0x8
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "charging_sounds_enabled"
+    const-string/jumbo v1, "wifi_wakeup_enabled"
 
     const/16 v2, 0x9
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "usb_mass_storage_enabled"
+    const-string/jumbo v1, "wifi_networks_available_notification_on"
 
     const/16 v2, 0xa
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "enable_accessibility_global_gesture_enabled"
+    const-string/jumbo v1, "use_open_wifi_package"
 
     const/16 v2, 0xb
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "wifi_networks_available_notification_on"
+    const-string/jumbo v1, "wifi_watchdog_poor_network_test_enabled"
 
     const/16 v2, 0xc
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "wifi_networks_available_repeat_delay"
+    const-string/jumbo v1, "emergency_tone"
 
     const/16 v2, 0xd
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "wifi_num_open_networks_kept"
+    const-string/jumbo v1, "call_auto_retry"
 
     const/16 v2, 0xe
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "emergency_tone"
+    const-string/jumbo v1, "dock_audio_media_enabled"
 
     const/16 v2, 0xf
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "call_auto_retry"
+    const-string/jumbo v1, "encoded_surround_output"
 
     const/16 v2, 0x10
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "dock_audio_media_enabled"
+    const-string/jumbo v1, "low_power_trigger_level"
 
     const/16 v2, 0x11
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "encoded_surround_output"
+    const-string/jumbo v1, "bluetooth_on"
 
     const/16 v2, 0x12
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "low_power_trigger_level"
-
-    const/16 v2, 0x13
-
-    aput-object v1, v0, v2
-
     sput-object v0, Landroid/provider/Settings$Global;->SETTINGS_TO_BACKUP:[Ljava/lang/String;
+
+    new-instance v0, Landroid/provider/Settings$ContentProviderHolder;
+
+    sget-object v1, Landroid/provider/Settings$Global;->CONTENT_URI:Landroid/net/Uri;
+
+    invoke-direct {v0, v1}, Landroid/provider/Settings$ContentProviderHolder;-><init>(Landroid/net/Uri;)V
+
+    sput-object v0, Landroid/provider/Settings$Global;->sProviderHolder:Landroid/provider/Settings$ContentProviderHolder;
 
     new-instance v0, Landroid/provider/Settings$NameValueCache;
 
@@ -885,13 +1067,15 @@
 
     const-string/jumbo v3, "PUT_global"
 
-    invoke-direct {v0, v1, v2, v3}, Landroid/provider/Settings$NameValueCache;-><init>(Landroid/net/Uri;Ljava/lang/String;Ljava/lang/String;)V
+    sget-object v4, Landroid/provider/Settings$Global;->sProviderHolder:Landroid/provider/Settings$ContentProviderHolder;
+
+    invoke-direct {v0, v1, v2, v3, v4}, Landroid/provider/Settings$NameValueCache;-><init>(Landroid/net/Uri;Ljava/lang/String;Ljava/lang/String;Landroid/provider/Settings$ContentProviderHolder;)V
 
     sput-object v0, Landroid/provider/Settings$Global;->sNameValueCache:Landroid/provider/Settings$NameValueCache;
 
     new-instance v0, Ljava/util/HashSet;
 
-    invoke-direct {v0, v4}, Ljava/util/HashSet;-><init>(I)V
+    invoke-direct {v0, v5}, Ljava/util/HashSet;-><init>(I)V
 
     sput-object v0, Landroid/provider/Settings$Global;->MOVED_TO_SECURE:Ljava/util/HashSet;
 
@@ -901,21 +1085,99 @@
 
     invoke-virtual {v0, v1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
-    new-array v0, v7, [Ljava/lang/String;
+    new-array v0, v8, [Ljava/lang/String;
 
     const-string/jumbo v1, "user_preferred_sub1"
 
-    aput-object v1, v0, v5
+    aput-object v1, v0, v6
 
     const-string/jumbo v1, "user_preferred_sub2"
 
-    aput-object v1, v0, v4
+    aput-object v1, v0, v5
 
     const-string/jumbo v1, "user_preferred_sub3"
 
-    aput-object v1, v0, v6
+    aput-object v1, v0, v7
 
     sput-object v0, Landroid/provider/Settings$Global;->MULTI_SIM_USER_PREFERRED_SUBS:[Ljava/lang/String;
+
+    new-instance v0, Landroid/util/ArraySet;
+
+    invoke-direct {v0}, Landroid/util/ArraySet;-><init>()V
+
+    sput-object v0, Landroid/provider/Settings$Global;->INSTANT_APP_SETTINGS:Ljava/util/Set;
+
+    sget-object v0, Landroid/provider/Settings$Global;->INSTANT_APP_SETTINGS:Ljava/util/Set;
+
+    const-string/jumbo v1, "wait_for_debugger"
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    sget-object v0, Landroid/provider/Settings$Global;->INSTANT_APP_SETTINGS:Ljava/util/Set;
+
+    const-string/jumbo v1, "device_provisioned"
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    sget-object v0, Landroid/provider/Settings$Global;->INSTANT_APP_SETTINGS:Ljava/util/Set;
+
+    const-string/jumbo v1, "force_resizable_activities"
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    sget-object v0, Landroid/provider/Settings$Global;->INSTANT_APP_SETTINGS:Ljava/util/Set;
+
+    const-string/jumbo v1, "debug.force_rtl"
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    sget-object v0, Landroid/provider/Settings$Global;->INSTANT_APP_SETTINGS:Ljava/util/Set;
+
+    const-string/jumbo v1, "ephemeral_cookie_max_size_bytes"
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    sget-object v0, Landroid/provider/Settings$Global;->INSTANT_APP_SETTINGS:Ljava/util/Set;
+
+    const-string/jumbo v1, "airplane_mode_on"
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    sget-object v0, Landroid/provider/Settings$Global;->INSTANT_APP_SETTINGS:Ljava/util/Set;
+
+    const-string/jumbo v1, "window_animation_scale"
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    sget-object v0, Landroid/provider/Settings$Global;->INSTANT_APP_SETTINGS:Ljava/util/Set;
+
+    const-string/jumbo v1, "transition_animation_scale"
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    sget-object v0, Landroid/provider/Settings$Global;->INSTANT_APP_SETTINGS:Ljava/util/Set;
+
+    const-string/jumbo v1, "animator_duration_scale"
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    sget-object v0, Landroid/provider/Settings$Global;->INSTANT_APP_SETTINGS:Ljava/util/Set;
+
+    const-string/jumbo v1, "debug_view_attributes"
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    sget-object v0, Landroid/provider/Settings$Global;->INSTANT_APP_SETTINGS:Ljava/util/Set;
+
+    const-string/jumbo v1, "wtf_is_fatal"
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    sget-object v0, Landroid/provider/Settings$Global;->INSTANT_APP_SETTINGS:Ljava/util/Set;
+
+    const-string/jumbo v1, "navigationbar_current_color"
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
     return-void
 .end method
@@ -926,6 +1188,66 @@
     invoke-direct {p0}, Landroid/provider/Settings$NameValueTable;-><init>()V
 
     return-void
+.end method
+
+.method public static final getBluetoothA2dpEnabledLdacKey(Ljava/lang/String;)Ljava/lang/String;
+    .locals 2
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v1, "bluetooth_a2dp_enabled_ldac"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    sget-object v1, Ljava/util/Locale;->ROOT:Ljava/util/Locale;
+
+    invoke-virtual {p0, v1}, Ljava/lang/String;->toUpperCase(Ljava/util/Locale;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public static final getBluetoothA2dpOptionalCodecsEnabledKey(Ljava/lang/String;)Ljava/lang/String;
+    .locals 2
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v1, "bluetooth_a2dp_optional_codecs_enabled_"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    sget-object v1, Ljava/util/Locale;->ROOT:Ljava/util/Locale;
+
+    invoke-virtual {p0, v1}, Ljava/lang/String;->toUpperCase(Ljava/util/Locale;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
 .end method
 
 .method public static final getBluetoothA2dpSinkPriorityKey(Ljava/lang/String;)Ljava/lang/String;
@@ -966,6 +1288,66 @@
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
     const-string/jumbo v1, "bluetooth_a2dp_src_priority_"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    sget-object v1, Ljava/util/Locale;->ROOT:Ljava/util/Locale;
+
+    invoke-virtual {p0, v1}, Ljava/lang/String;->toUpperCase(Ljava/util/Locale;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public static final getBluetoothA2dpSupportsLdacKey(Ljava/lang/String;)Ljava/lang/String;
+    .locals 2
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v1, "bluetooth_a2dp_supports_ldac"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    sget-object v1, Ljava/util/Locale;->ROOT:Ljava/util/Locale;
+
+    invoke-virtual {p0, v1}, Ljava/lang/String;->toUpperCase(Ljava/util/Locale;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public static final getBluetoothA2dpSupportsOptionalCodecsKey(Ljava/lang/String;)Ljava/lang/String;
+    .locals 2
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v1, "bluetooth_a2dp_supports_optional_codecs_"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1048,6 +1430,36 @@
     return-object v0
 .end method
 
+.method public static final getBluetoothMapClientPriorityKey(Ljava/lang/String;)Ljava/lang/String;
+    .locals 2
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v1, "bluetooth_map_client_priority_"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    sget-object v1, Ljava/util/Locale;->ROOT:Ljava/util/Locale;
+
+    invoke-virtual {p0, v1}, Ljava/lang/String;->toUpperCase(Ljava/util/Locale;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
 .method public static final getBluetoothMapPriorityKey(Ljava/lang/String;)Ljava/lang/String;
     .locals 2
 
@@ -1056,6 +1468,36 @@
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
     const-string/jumbo v1, "bluetooth_map_priority_"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    sget-object v1, Ljava/util/Locale;->ROOT:Ljava/util/Locale;
+
+    invoke-virtual {p0, v1}, Ljava/lang/String;->toUpperCase(Ljava/util/Locale;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public static final getBluetoothPanPriorityKey(Ljava/lang/String;)Ljava/lang/String;
+    .locals 2
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v1, "bluetooth_pan_priority_"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1468,57 +1910,8 @@
 .end method
 
 .method public static putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
-    .locals 3
+    .locals 1
 
-    const-string/jumbo v0, "wifi_display_on"
-
-    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    const-string/jumbo v0, "Settings"
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v2, "set WIFI_DISPLAY_ON to "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    const-string/jumbo v2, ", "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    new-instance v2, Ljava/lang/Throwable;
-
-    invoke-direct {v2}, Ljava/lang/Throwable;-><init>()V
-
-    invoke-static {v2}, Landroid/util/Log;->getStackTraceString(Ljava/lang/Throwable;)Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_0
     invoke-static {p2}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
 
     move-result-object v0
@@ -1545,13 +1938,47 @@
 .end method
 
 .method public static putString(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;)Z
-    .locals 1
+    .locals 6
 
     invoke-static {}, Landroid/os/UserHandle;->myUserId()I
 
+    move-result v5
+
+    const/4 v3, 0x0
+
+    const/4 v4, 0x0
+
+    move-object v0, p0
+
+    move-object v1, p1
+
+    move-object v2, p2
+
+    invoke-static/range {v0 .. v5}, Landroid/provider/Settings$Global;->putStringForUser(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZI)Z
+
     move-result v0
 
-    invoke-static {p0, p1, p2, v0}, Landroid/provider/Settings$Global;->putStringForUser(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;I)Z
+    return v0
+.end method
+
+.method public static putString(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)Z
+    .locals 6
+
+    invoke-static {}, Landroid/os/UserHandle;->myUserId()I
+
+    move-result v5
+
+    move-object v0, p0
+
+    move-object v1, p1
+
+    move-object v2, p2
+
+    move-object v3, p3
+
+    move v4, p4
+
+    invoke-static/range {v0 .. v5}, Landroid/provider/Settings$Global;->putStringForUser(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZI)Z
 
     move-result v0
 
@@ -1559,7 +1986,29 @@
 .end method
 
 .method public static putStringForUser(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;I)Z
-    .locals 3
+    .locals 6
+
+    const/4 v3, 0x0
+
+    const/4 v4, 0x0
+
+    move-object v0, p0
+
+    move-object v1, p1
+
+    move-object v2, p2
+
+    move v5, p3
+
+    invoke-static/range {v0 .. v5}, Landroid/provider/Settings$Global;->putStringForUser(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZI)Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public static putStringForUser(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZI)Z
+    .locals 7
 
     sget-object v0, Landroid/provider/Settings$Global;->MOVED_TO_SECURE:Ljava/util/HashSet;
 
@@ -1603,7 +2052,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-static {p0, p1, p2, p3}, Landroid/provider/Settings$Secure;->putStringForUser(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;I)Z
+    invoke-static/range {p0 .. p5}, Landroid/provider/Settings$Secure;->putStringForUser(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZI)Z
 
     move-result v0
 
@@ -1612,11 +2061,111 @@
     :cond_0
     sget-object v0, Landroid/provider/Settings$Global;->sNameValueCache:Landroid/provider/Settings$NameValueCache;
 
-    invoke-virtual {v0, p0, p1, p2, p3}, Landroid/provider/Settings$NameValueCache;->putStringForUser(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;I)Z
+    move-object v1, p0
+
+    move-object v2, p1
+
+    move-object v3, p2
+
+    move-object v4, p3
+
+    move v5, p4
+
+    move v6, p5
+
+    invoke-virtual/range {v0 .. v6}, Landroid/provider/Settings$NameValueCache;->putStringForUser(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZI)Z
 
     move-result v0
 
     return v0
+.end method
+
+.method public static resetToDefaults(Landroid/content/ContentResolver;Ljava/lang/String;)V
+    .locals 2
+
+    invoke-static {}, Landroid/os/UserHandle;->myUserId()I
+
+    move-result v0
+
+    const/4 v1, 0x1
+
+    invoke-static {p0, p1, v1, v0}, Landroid/provider/Settings$Global;->resetToDefaultsAsUser(Landroid/content/ContentResolver;Ljava/lang/String;II)V
+
+    return-void
+.end method
+
+.method public static resetToDefaultsAsUser(Landroid/content/ContentResolver;Ljava/lang/String;II)V
+    .locals 6
+
+    :try_start_0
+    new-instance v0, Landroid/os/Bundle;
+
+    invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
+
+    const-string/jumbo v3, "_user"
+
+    invoke-virtual {v0, v3, p3}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
+
+    if-eqz p1, :cond_0
+
+    const-string/jumbo v3, "_tag"
+
+    invoke-virtual {v0, v3, p1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+
+    :cond_0
+    const-string/jumbo v3, "_reset_mode"
+
+    invoke-virtual {v0, v3, p2}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
+
+    sget-object v3, Landroid/provider/Settings$Global;->sProviderHolder:Landroid/provider/Settings$ContentProviderHolder;
+
+    invoke-virtual {v3, p0}, Landroid/provider/Settings$ContentProviderHolder;->getProvider(Landroid/content/ContentResolver;)Landroid/content/IContentProvider;
+
+    move-result-object v1
+
+    invoke-virtual {p0}, Landroid/content/ContentResolver;->getPackageName()Ljava/lang/String;
+
+    move-result-object v3
+
+    const-string/jumbo v4, "RESET_global"
+
+    const/4 v5, 0x0
+
+    invoke-interface {v1, v3, v4, v5, v0}, Landroid/content/IContentProvider;->call(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Landroid/os/Bundle;)Landroid/os/Bundle;
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    :goto_0
+    return-void
+
+    :catch_0
+    move-exception v2
+
+    const-string/jumbo v3, "Settings"
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v5, "Can\'t reset do defaults for "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    sget-object v5, Landroid/provider/Settings$Global;->CONTENT_URI:Landroid/net/Uri;
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v3, v4, v2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    goto :goto_0
 .end method
 
 .method public static zenModeToString(I)Ljava/lang/String;

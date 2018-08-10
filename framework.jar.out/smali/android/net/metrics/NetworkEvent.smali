@@ -1,5 +1,5 @@
 .class public final Landroid/net/metrics/NetworkEvent;
-.super Landroid/net/metrics/IpConnectivityEvent;
+.super Ljava/lang/Object;
 .source "NetworkEvent.java"
 
 # interfaces
@@ -33,7 +33,15 @@
 
 .field public static final NETWORK_DISCONNECTED:I = 0x7
 
+.field public static final NETWORK_FIRST_VALIDATION_PORTAL_FOUND:I = 0xa
+
+.field public static final NETWORK_FIRST_VALIDATION_SUCCESS:I = 0x8
+
 .field public static final NETWORK_LINGER:I = 0x5
+
+.field public static final NETWORK_REVALIDATION_PORTAL_FOUND:I = 0xb
+
+.field public static final NETWORK_REVALIDATION_SUCCESS:I = 0x9
 
 .field public static final NETWORK_UNLINGER:I = 0x6
 
@@ -63,10 +71,20 @@
     return-void
 .end method
 
-.method private constructor <init>(IIJ)V
+.method public constructor <init>(II)V
+    .locals 2
+
+    const-wide/16 v0, 0x0
+
+    invoke-direct {p0, p1, p2, v0, v1}, Landroid/net/metrics/NetworkEvent;-><init>(IIJ)V
+
+    return-void
+.end method
+
+.method public constructor <init>(IIJ)V
     .locals 1
 
-    invoke-direct {p0}, Landroid/net/metrics/IpConnectivityEvent;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput p1, p0, Landroid/net/metrics/NetworkEvent;->netId:I
 
@@ -80,7 +98,7 @@
 .method private constructor <init>(Landroid/os/Parcel;)V
     .locals 2
 
-    invoke-direct {p0}, Landroid/net/metrics/IpConnectivityEvent;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
@@ -107,48 +125,6 @@
     .locals 0
 
     invoke-direct {p0, p1}, Landroid/net/metrics/NetworkEvent;-><init>(Landroid/os/Parcel;)V
-
-    return-void
-.end method
-
-.method public static logCaptivePortalFound(IJ)V
-    .locals 3
-
-    new-instance v0, Landroid/net/metrics/NetworkEvent;
-
-    const/4 v1, 0x4
-
-    invoke-direct {v0, p0, v1, p1, p2}, Landroid/net/metrics/NetworkEvent;-><init>(IIJ)V
-
-    invoke-static {v0}, Landroid/net/metrics/NetworkEvent;->logEvent(Landroid/net/metrics/IpConnectivityEvent;)V
-
-    return-void
-.end method
-
-.method public static logEvent(II)V
-    .locals 4
-
-    new-instance v0, Landroid/net/metrics/NetworkEvent;
-
-    const-wide/16 v2, 0x0
-
-    invoke-direct {v0, p0, p1, v2, v3}, Landroid/net/metrics/NetworkEvent;-><init>(IIJ)V
-
-    invoke-static {v0}, Landroid/net/metrics/NetworkEvent;->logEvent(Landroid/net/metrics/IpConnectivityEvent;)V
-
-    return-void
-.end method
-
-.method public static logValidated(IJ)V
-    .locals 3
-
-    new-instance v0, Landroid/net/metrics/NetworkEvent;
-
-    const/4 v1, 0x2
-
-    invoke-direct {v0, p0, v1, p1, p2}, Landroid/net/metrics/NetworkEvent;-><init>(IIJ)V
-
-    invoke-static {v0}, Landroid/net/metrics/NetworkEvent;->logEvent(Landroid/net/metrics/IpConnectivityEvent;)V
 
     return-void
 .end method

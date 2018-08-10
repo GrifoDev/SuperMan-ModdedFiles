@@ -200,40 +200,6 @@
     return-void
 .end method
 
-.method public startSurfaceAnimation(Landroid/os/IBinder;[I)V
-    .locals 1
-
-    iget-object v0, p0, Landroid/view/WindowManagerImpl;->mGlobal:Landroid/view/WindowManagerGlobal;
-
-    invoke-virtual {v0, p1, p2}, Landroid/view/WindowManagerGlobal;->startSurfaceAnimation(Landroid/os/IBinder;[I)V
-
-    return-void
-.end method
-
-.method public startSurfaceAnimation(Landroid/os/IBinder;[I[F)V
-    .locals 2
-
-    invoke-static {p2, p3}, Landroid/view/SurfaceEffects;->convertDeprecatedArguments([I[F)[I
-
-    move-result-object v0
-
-    iget-object v1, p0, Landroid/view/WindowManagerImpl;->mGlobal:Landroid/view/WindowManagerGlobal;
-
-    invoke-virtual {v1, p1, v0}, Landroid/view/WindowManagerGlobal;->startSurfaceAnimation(Landroid/os/IBinder;[I)V
-
-    return-void
-.end method
-
-.method public toString()Ljava/lang/String;
-    .locals 1
-
-    invoke-super {p0}, Ljava/lang/Object;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
 .method public updateViewLayout(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
     .locals 1
 

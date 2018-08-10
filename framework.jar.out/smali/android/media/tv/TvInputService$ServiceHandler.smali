@@ -380,7 +380,7 @@
 
     move/from16 v19, v0
 
-    if-eqz v19, :cond_3
+    if-eqz v19, :cond_4
 
     move-object/from16 v14, v16
 
@@ -408,8 +408,85 @@
 
     move-result v19
 
-    if-eqz v19, :cond_1
+    xor-int/lit8 v19, v19, 0x1
 
+    if-eqz v19, :cond_3
+
+    :cond_1
+    invoke-static {v9}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v19
+
+    if-eqz v19, :cond_2
+
+    const-string/jumbo v19, "TvInputService"
+
+    const-string/jumbo v20, "Hardware input id is not setup yet."
+
+    invoke-static/range {v19 .. v20}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    :goto_1
+    invoke-virtual/range {v16 .. v16}, Landroid/media/tv/TvInputService$Session;->onRelease()V
+
+    const/16 v19, 0x0
+
+    const/16 v20, 0x0
+
+    :try_start_1
+    move-object/from16 v0, v19
+
+    move-object/from16 v1, v20
+
+    invoke-interface {v4, v0, v1}, Landroid/media/tv/ITvInputSessionCallback;->onSessionCreated(Landroid/media/tv/ITvInputSession;Landroid/os/IBinder;)V
+    :try_end_1
+    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_1
+
+    :goto_2
+    return-void
+
+    :cond_2
+    const-string/jumbo v19, "TvInputService"
+
+    new-instance v20, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v20 .. v20}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v21, "Invalid hardware input id : "
+
+    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v20
+
+    move-object/from16 v0, v20
+
+    invoke-virtual {v0, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v20
+
+    invoke-virtual/range {v20 .. v20}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v20
+
+    invoke-static/range {v19 .. v20}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_1
+
+    :catch_1
+    move-exception v7
+
+    const-string/jumbo v19, "TvInputService"
+
+    const-string/jumbo v20, "error in onSessionCreated"
+
+    move-object/from16 v0, v19
+
+    move-object/from16 v1, v20
+
+    invoke-static {v0, v1, v7}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    goto :goto_2
+
+    :cond_3
     move-object/from16 v0, v18
 
     invoke-static {v14, v0}, Landroid/media/tv/TvInputService$HardwareSession;->-set1(Landroid/media/tv/TvInputService$HardwareSession;Landroid/media/tv/ITvInputSession;)Landroid/media/tv/ITvInputSession;
@@ -438,7 +515,7 @@
 
     const-string/jumbo v20, "tv_input"
 
-    invoke-virtual/range {v19 .. v20}, Landroid/content/ContextWrapper;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual/range {v19 .. v20}, Landroid/media/tv/TvInputService;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v13
 
@@ -464,84 +541,10 @@
 
     invoke-virtual {v13, v9, v0, v1}, Landroid/media/tv/TvInputManager;->createSession(Ljava/lang/String;Landroid/media/tv/TvInputManager$SessionCallback;Landroid/os/Handler;)V
 
-    :goto_1
-    return-void
-
-    :cond_1
-    invoke-static {v9}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v19
-
-    if-eqz v19, :cond_2
-
-    const-string/jumbo v19, "TvInputService"
-
-    const-string/jumbo v20, "Hardware input id is not setup yet."
-
-    invoke-static/range {v19 .. v20}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    :goto_2
-    invoke-virtual/range {v16 .. v16}, Landroid/media/tv/TvInputService$Session;->onRelease()V
-
-    const/16 v19, 0x0
-
-    const/16 v20, 0x0
-
-    :try_start_1
-    move-object/from16 v0, v19
-
-    move-object/from16 v1, v20
-
-    invoke-interface {v4, v0, v1}, Landroid/media/tv/ITvInputSessionCallback;->onSessionCreated(Landroid/media/tv/ITvInputSession;Landroid/os/IBinder;)V
-    :try_end_1
-    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_1
-
     :goto_3
     return-void
 
-    :cond_2
-    const-string/jumbo v19, "TvInputService"
-
-    new-instance v20, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v20 .. v20}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v21, "Invalid hardware input id : "
-
-    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v20
-
-    move-object/from16 v0, v20
-
-    invoke-virtual {v0, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v20
-
-    invoke-virtual/range {v20 .. v20}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v20
-
-    invoke-static/range {v19 .. v20}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_2
-
-    :catch_1
-    move-exception v7
-
-    const-string/jumbo v19, "TvInputService"
-
-    const-string/jumbo v20, "error in onSessionCreated"
-
-    move-object/from16 v0, v19
-
-    move-object/from16 v1, v20
-
-    invoke-static {v0, v1, v7}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    goto :goto_3
-
-    :cond_3
+    :cond_4
     invoke-static {}, Lcom/android/internal/os/SomeArgs;->obtain()Lcom/android/internal/os/SomeArgs;
 
     move-result-object v17
@@ -594,7 +597,7 @@
 
     invoke-virtual/range {v19 .. v19}, Landroid/os/Message;->sendToTarget()V
 
-    goto :goto_1
+    goto :goto_3
 
     :pswitch_1
     move-object/from16 v0, p1
@@ -631,13 +634,13 @@
     .catch Landroid/os/RemoteException; {:try_start_2 .. :try_end_2} :catch_2
 
     :goto_4
-    if-eqz v16, :cond_4
+    if-eqz v16, :cond_5
 
     move-object/from16 v0, v16
 
     invoke-static {v0, v4}, Landroid/media/tv/TvInputService$Session;->-wrap0(Landroid/media/tv/TvInputService$Session;Landroid/media/tv/ITvInputSessionCallback;)V
 
-    :cond_4
+    :cond_5
     invoke-virtual {v3}, Lcom/android/internal/os/SomeArgs;->recycle()V
 
     return-void
@@ -686,7 +689,7 @@
 
     move-result-object v15
 
-    if-nez v15, :cond_5
+    if-nez v15, :cond_6
 
     const/16 v19, 0x0
 
@@ -719,7 +722,7 @@
 
     goto :goto_5
 
-    :cond_5
+    :cond_6
     new-instance v18, Landroid/media/tv/ITvInputSessionWrapper;
 
     move-object/from16 v0, p0
@@ -784,7 +787,7 @@
 
     move-result-object v12
 
-    if-eqz v12, :cond_6
+    if-eqz v12, :cond_7
 
     invoke-virtual {v8}, Landroid/media/tv/TvInputHardwareInfo;->getDeviceId()I
 
@@ -796,7 +799,7 @@
 
     invoke-direct {v0, v1, v12}, Landroid/media/tv/TvInputService$ServiceHandler;->broadcastAddHardwareInput(ILandroid/media/tv/TvInputInfo;)V
 
-    :cond_6
+    :cond_7
     return-void
 
     :pswitch_4
@@ -818,13 +821,13 @@
 
     move-result-object v11
 
-    if-eqz v11, :cond_7
+    if-eqz v11, :cond_8
 
     move-object/from16 v0, p0
 
     invoke-direct {v0, v11}, Landroid/media/tv/TvInputService$ServiceHandler;->broadcastRemoveHardwareInput(Ljava/lang/String;)V
 
-    :cond_7
+    :cond_8
     return-void
 
     :pswitch_5
@@ -846,7 +849,7 @@
 
     move-result-object v12
 
-    if-eqz v12, :cond_8
+    if-eqz v12, :cond_9
 
     invoke-virtual {v6}, Landroid/hardware/hdmi/HdmiDeviceInfo;->getId()I
 
@@ -858,7 +861,7 @@
 
     invoke-direct {v0, v1, v12}, Landroid/media/tv/TvInputService$ServiceHandler;->broadcastAddHdmiInput(ILandroid/media/tv/TvInputInfo;)V
 
-    :cond_8
+    :cond_9
     return-void
 
     :pswitch_6
@@ -880,13 +883,13 @@
 
     move-result-object v11
 
-    if-eqz v11, :cond_9
+    if-eqz v11, :cond_a
 
     move-object/from16 v0, p0
 
     invoke-direct {v0, v11}, Landroid/media/tv/TvInputService$ServiceHandler;->broadcastRemoveHardwareInput(Ljava/lang/String;)V
 
-    :cond_9
+    :cond_a
     return-void
 
     nop

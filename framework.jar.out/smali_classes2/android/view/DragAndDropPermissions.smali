@@ -30,7 +30,7 @@
 # instance fields
 .field private final mDragAndDropPermissions:Lcom/android/internal/view/IDragAndDropPermissions;
 
-.field private mPermissionOwnerToken:Landroid/os/IBinder;
+.field private mTransientToken:Landroid/os/IBinder;
 
 
 # direct methods
@@ -65,7 +65,7 @@
 
     move-result-object v0
 
-    iput-object v0, p0, Landroid/view/DragAndDropPermissions;->mPermissionOwnerToken:Landroid/os/IBinder;
+    iput-object v0, p0, Landroid/view/DragAndDropPermissions;->mTransientToken:Landroid/os/IBinder;
 
     return-void
 .end method
@@ -133,7 +133,7 @@
 
     const/4 v1, 0x0
 
-    iput-object v1, p0, Landroid/view/DragAndDropPermissions;->mPermissionOwnerToken:Landroid/os/IBinder;
+    iput-object v1, p0, Landroid/view/DragAndDropPermissions;->mTransientToken:Landroid/os/IBinder;
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -172,21 +172,15 @@
     .locals 3
 
     :try_start_0
-    invoke-static {}, Landroid/app/ActivityManagerNative;->getDefault()Landroid/app/IActivityManager;
+    new-instance v1, Landroid/os/Binder;
 
-    move-result-object v1
+    invoke-direct {v1}, Landroid/os/Binder;-><init>()V
 
-    const-string/jumbo v2, "drop"
-
-    invoke-interface {v1, v2}, Landroid/app/IActivityManager;->newUriPermissionOwner(Ljava/lang/String;)Landroid/os/IBinder;
-
-    move-result-object v1
-
-    iput-object v1, p0, Landroid/view/DragAndDropPermissions;->mPermissionOwnerToken:Landroid/os/IBinder;
+    iput-object v1, p0, Landroid/view/DragAndDropPermissions;->mTransientToken:Landroid/os/IBinder;
 
     iget-object v1, p0, Landroid/view/DragAndDropPermissions;->mDragAndDropPermissions:Lcom/android/internal/view/IDragAndDropPermissions;
 
-    iget-object v2, p0, Landroid/view/DragAndDropPermissions;->mPermissionOwnerToken:Landroid/os/IBinder;
+    iget-object v2, p0, Landroid/view/DragAndDropPermissions;->mTransientToken:Landroid/os/IBinder;
 
     invoke-interface {v1, v2}, Lcom/android/internal/view/IDragAndDropPermissions;->takeTransient(Landroid/os/IBinder;)V
     :try_end_0
@@ -211,7 +205,7 @@
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeStrongInterface(Landroid/os/IInterface;)V
 
-    iget-object v0, p0, Landroid/view/DragAndDropPermissions;->mPermissionOwnerToken:Landroid/os/IBinder;
+    iget-object v0, p0, Landroid/view/DragAndDropPermissions;->mTransientToken:Landroid/os/IBinder;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 

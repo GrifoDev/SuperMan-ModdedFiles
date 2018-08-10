@@ -134,7 +134,7 @@
     goto :goto_0
 
     :cond_1
-    invoke-static {}, Landroid/app/ActivityManagerNative;->getDefault()Landroid/app/IActivityManager;
+    invoke-static {}, Landroid/app/ActivityManager;->getService()Landroid/app/IActivityManager;
 
     move-result-object v1
 
@@ -146,7 +146,7 @@
     invoke-virtual {p4, v2}, Landroid/os/Bundle;->setAllowFds(Z)Z
 
     :cond_2
-    invoke-virtual {p1}, Landroid/content/Intent;->getBroadcastQueueHint()I
+    invoke-virtual {p1}, Landroid/content/Intent;->getFlags()I
 
     move-result v7
 

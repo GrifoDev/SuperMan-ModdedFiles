@@ -133,7 +133,7 @@
 
     iget-object v3, v3, Landroid/app/BarBeamService;->mListeners:Ljava/util/ArrayList;
 
-    invoke-virtual {v3}, Ljava/lang/Object;->notify()V
+    invoke-virtual {v3}, Ljava/util/ArrayList;->notify()V
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 

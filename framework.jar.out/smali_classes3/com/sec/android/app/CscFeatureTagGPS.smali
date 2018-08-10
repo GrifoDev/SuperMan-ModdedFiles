@@ -16,6 +16,8 @@
 
 .field public static final TAG_CSCFEATURE_GPS_CONFIGAGPSSETTING:Ljava/lang/String; = "CscFeature_GPS_ConfigAgpsSetting"
 
+.field public static final TAG_CSCFEATURE_GPS_CONFIGGPFD:Ljava/lang/String; = "CscFeature_GPS_ConfigGPFD"
+
 .field public static final TAG_CSCFEATURE_GPS_CONFIGLPPPROFILE:Ljava/lang/String; = "CscFeature_GPS_ConfigLppProfile"
 
 .field public static final TAG_CSCFEATURE_GPS_CONFIGOPERATIONMODE:Ljava/lang/String; = "CscFeature_GPS_ConfigOperationMode"
@@ -43,6 +45,8 @@
 .field public static final TAG_CSCFEATURE_GPS_SUPPORTPRIVACYLOCK:Ljava/lang/String; = "CscFeature_GPS_SupportPrivacyLock"
 
 .field public static final TAG_CSCFEATURE_GPS_SUPPORTSUPL:Ljava/lang/String; = "CscFeature_GPS_SupportSupl"
+
+.field public static final TAG_CSCFEATURE_GPS_SUPPORTTENCENTNLP:Ljava/lang/String; = "CscFeature_GPS_SupportTencentNLP"
 
 
 # direct methods

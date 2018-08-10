@@ -1,5 +1,5 @@
 .class public Lcom/samsung/android/graphics/SemVignetteFilter;
-.super Lcom/samsung/android/graphics/SemGenericImageFilter;
+.super Lcom/samsung/android/graphics/SemGenericImageFilterLegacy;
 .source "SemVignetteFilter.java"
 
 
@@ -16,22 +16,6 @@
 
 
 # direct methods
-.method static synthetic -get0(Lcom/samsung/android/graphics/SemVignetteFilter;)F
-    .locals 1
-
-    iget v0, p0, Lcom/samsung/android/graphics/SemVignetteFilter;->mRadius:F
-
-    return v0
-.end method
-
-.method static synthetic -set0(Lcom/samsung/android/graphics/SemVignetteFilter;F)F
-    .locals 0
-
-    iput p1, p0, Lcom/samsung/android/graphics/SemVignetteFilter;->mRadius:F
-
-    return p1
-.end method
-
 .method static constructor <clinit>()V
     .locals 1
 
@@ -49,42 +33,50 @@
 
     sget-object v1, Lcom/samsung/android/graphics/SemVignetteFilter;->mFragmentShaderCode:Ljava/lang/String;
 
-    invoke-direct {p0, v0, v1}, Lcom/samsung/android/graphics/SemGenericImageFilter;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-direct {p0, v0, v1}, Lcom/samsung/android/graphics/SemGenericImageFilterLegacy;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
     const/4 v0, 0x0
 
     iput v0, p0, Lcom/samsung/android/graphics/SemVignetteFilter;->mRadius:F
 
-    invoke-virtual {p0}, Lcom/samsung/android/graphics/SemGenericImageFilter;->useFilterParams()V
+    invoke-virtual {p0}, Lcom/samsung/android/graphics/SemVignetteFilter;->useFilterParams()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public animateRadius(FFJJLandroid/animation/TimeInterpolator;)[I
-    .locals 7
+.method public bridge synthetic clone()Lcom/samsung/android/graphics/SemGenericImageFilterLegacy;
+    .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/lang/CloneNotSupportedException;
+        }
+    .end annotation
 
-    new-instance v1, Lcom/samsung/android/graphics/SemVignetteFilter$1;
-
-    invoke-direct {v1, p0, p2, p1}, Lcom/samsung/android/graphics/SemVignetteFilter$1;-><init>(Lcom/samsung/android/graphics/SemVignetteFilter;FF)V
-
-    move-object v0, p0
-
-    move-wide v2, p3
-
-    move-wide v4, p5
-
-    move-object v6, p7
-
-    invoke-virtual/range {v0 .. v6}, Lcom/samsung/android/graphics/SemImageFilterSet;->addAnimationForAllPasses(Lcom/samsung/android/graphics/SemImageFilter$IAnimationListener;JJLandroid/animation/TimeInterpolator;)[I
+    invoke-virtual {p0}, Lcom/samsung/android/graphics/SemVignetteFilter;->clone()Lcom/samsung/android/graphics/SemVignetteFilter;
 
     move-result-object v0
 
     return-object v0
 .end method
 
-.method public bridge synthetic clone()Lcom/samsung/android/graphics/SemGenericImageFilter;
+.method public bridge synthetic clone()Lcom/samsung/android/graphics/SemImageFilter;
+    .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/lang/CloneNotSupportedException;
+        }
+    .end annotation
+
+    invoke-virtual {p0}, Lcom/samsung/android/graphics/SemVignetteFilter;->clone()Lcom/samsung/android/graphics/SemVignetteFilter;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public bridge synthetic clone()Lcom/samsung/android/graphics/SemImageFilterSet;
     .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -107,7 +99,7 @@
         }
     .end annotation
 
-    invoke-super {p0}, Lcom/samsung/android/graphics/SemGenericImageFilter;->clone()Lcom/samsung/android/graphics/SemGenericImageFilter;
+    invoke-super {p0}, Lcom/samsung/android/graphics/SemGenericImageFilterLegacy;->clone()Lcom/samsung/android/graphics/SemGenericImageFilterLegacy;
 
     move-result-object v0
 
@@ -116,6 +108,21 @@
     iget v1, p0, Lcom/samsung/android/graphics/SemVignetteFilter;->mRadius:F
 
     iput v1, v0, Lcom/samsung/android/graphics/SemVignetteFilter;->mRadius:F
+
+    return-object v0
+.end method
+
+.method public bridge synthetic clone()Ljava/lang/Object;
+    .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/lang/CloneNotSupportedException;
+        }
+    .end annotation
+
+    invoke-virtual {p0}, Lcom/samsung/android/graphics/SemVignetteFilter;->clone()Lcom/samsung/android/graphics/SemVignetteFilter;
+
+    move-result-object v0
 
     return-object v0
 .end method
@@ -137,9 +144,11 @@
 
     iget v0, p0, Lcom/samsung/android/graphics/SemVignetteFilter;->mRadius:F
 
-    cmpl-float v0, v0, p1
+    invoke-static {v0, p1}, Lcom/samsung/android/graphics/SemMathUtils;->compare(FF)Z
 
-    if-eqz v0, :cond_1
+    move-result v0
+
+    if-nez v0, :cond_1
 
     iput p1, p0, Lcom/samsung/android/graphics/SemVignetteFilter;->mRadius:F
 
@@ -157,9 +166,9 @@
 
     const/4 v1, 0x0
 
-    invoke-virtual {p0, v1, v0}, Lcom/samsung/android/graphics/SemGenericImageFilter;->setParam(IF)V
+    invoke-virtual {p0, v1, v0}, Lcom/samsung/android/graphics/SemVignetteFilter;->setParam(IF)V
 
-    invoke-virtual {p0}, Lcom/samsung/android/graphics/SemGenericImageFilter;->notifyWorkerFilters()V
+    invoke-virtual {p0}, Lcom/samsung/android/graphics/SemVignetteFilter;->notifyWorkerFilters()V
 
     :cond_1
     return-void

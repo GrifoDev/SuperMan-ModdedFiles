@@ -45,7 +45,7 @@
 
     const-string/jumbo v0, "com.samsung.android.knox.util.ISemKeyStoreService"
 
-    invoke-virtual {p0, p0, v0}, Landroid/os/Binder;->attachInterface(Landroid/os/IInterface;Ljava/lang/String;)V
+    invoke-virtual {p0, p0, v0}, Lcom/samsung/android/knox/util/ISemKeyStoreService$Stub;->attachInterface(Landroid/os/IInterface;Ljava/lang/String;)V
 
     return-void
 .end method

@@ -3,12 +3,12 @@
 .source "ScrollView.java"
 
 # interfaces
-.implements Landroid/animation/ValueAnimator$AnimatorUpdateListener;
+.implements Landroid/animation/Animator$AnimatorListener;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Landroid/widget/ScrollView;->setupQuickController(I)V
+    value = Landroid/widget/ScrollView;->semSetGoToTopEnabled(Z)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -34,35 +34,38 @@
 
 
 # virtual methods
-.method public onAnimationUpdate(Landroid/animation/ValueAnimator;)V
-    .locals 3
+.method public onAnimationCancel(Landroid/animation/Animator;)V
+    .locals 0
 
-    :try_start_0
-    invoke-virtual {p1}, Landroid/animation/ValueAnimator;->getAnimatedValue()Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Ljava/lang/Integer;
-
-    invoke-virtual {v2}, Ljava/lang/Integer;->intValue()I
-
-    move-result v1
-
-    iget-object v2, p0, Landroid/widget/ScrollView$7;->this$0:Landroid/widget/ScrollView;
-
-    invoke-static {v2}, Landroid/widget/ScrollView;->-get0(Landroid/widget/ScrollView;)Landroid/graphics/drawable/Drawable;
-
-    move-result-object v2
-
-    invoke-virtual {v2, v1}, Landroid/graphics/drawable/Drawable;->setAlpha(I)V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
-
-    :goto_0
     return-void
+.end method
 
-    :catch_0
-    move-exception v0
+.method public onAnimationEnd(Landroid/animation/Animator;)V
+    .locals 2
 
-    goto :goto_0
+    iget-object v0, p0, Landroid/widget/ScrollView$7;->this$0:Landroid/widget/ScrollView;
+
+    const/4 v1, 0x1
+
+    invoke-static {v0, v1}, Landroid/widget/ScrollView;->-set0(Landroid/widget/ScrollView;Z)Z
+
+    iget-object v0, p0, Landroid/widget/ScrollView$7;->this$0:Landroid/widget/ScrollView;
+
+    const/4 v1, 0x0
+
+    invoke-static {v0, v1}, Landroid/widget/ScrollView;->-wrap3(Landroid/widget/ScrollView;I)V
+
+    return-void
+.end method
+
+.method public onAnimationRepeat(Landroid/animation/Animator;)V
+    .locals 0
+
+    return-void
+.end method
+
+.method public onAnimationStart(Landroid/animation/Animator;)V
+    .locals 0
+
+    return-void
 .end method

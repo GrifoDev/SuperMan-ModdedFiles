@@ -26,6 +26,10 @@
 # static fields
 .field private static final DESCRIPTOR:Ljava/lang/String; = "android.view.accessibility.IAccessibilityManagerClient"
 
+.field static final TRANSACTION_notifyServicesStateChanged:I = 0x2
+
+.field static final TRANSACTION_setRelevantEventTypes:I = 0x3
+
 .field static final TRANSACTION_setState:I = 0x1
 
 
@@ -122,9 +126,33 @@
 
     return v2
 
+    :sswitch_2
+    const-string/jumbo v1, "android.view.accessibility.IAccessibilityManagerClient"
+
+    invoke-virtual {p2, v1}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual {p0}, Landroid/view/accessibility/IAccessibilityManagerClient$Stub;->notifyServicesStateChanged()V
+
+    return v2
+
+    :sswitch_3
+    const-string/jumbo v1, "android.view.accessibility.IAccessibilityManagerClient"
+
+    invoke-virtual {p2, v1}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v0
+
+    invoke-virtual {p0, v0}, Landroid/view/accessibility/IAccessibilityManagerClient$Stub;->setRelevantEventTypes(I)V
+
+    return v2
+
     :sswitch_data_0
     .sparse-switch
         0x1 -> :sswitch_1
+        0x2 -> :sswitch_2
+        0x3 -> :sswitch_3
         0x5f4e5446 -> :sswitch_0
     .end sparse-switch
 .end method

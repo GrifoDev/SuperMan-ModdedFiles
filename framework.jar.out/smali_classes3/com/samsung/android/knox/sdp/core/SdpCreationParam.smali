@@ -215,7 +215,9 @@
 
     move-result v3
 
-    if-nez v3, :cond_0
+    xor-int/lit8 v3, v3, 0x1
+
+    if-eqz v3, :cond_0
 
     invoke-virtual {v2, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 

@@ -15,9 +15,11 @@
 
 
 # static fields
-.field public static final CLEAR_ALL:I = 0x4
+.field public static final CLEAR_ALL:I = 0x5
 
 .field public static final SEC_INTRANET_AP:I = 0x3
+
+.field public static final SEC_MDM:I = 0x4
 
 .field public static final SEC_MOBILE_AP:I = 0x1
 
@@ -34,7 +36,7 @@
 .method static constructor <clinit>()V
     .locals 3
 
-    const/4 v0, 0x5
+    const/4 v0, 0x6
 
     new-array v0, v0, [Ljava/lang/String;
 
@@ -62,9 +64,15 @@
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "CLR"
+    const-string/jumbo v1, "MDM"
 
     const/4 v2, 0x4
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "CLR"
+
+    const/4 v2, 0x5
 
     aput-object v1, v0, v2
 

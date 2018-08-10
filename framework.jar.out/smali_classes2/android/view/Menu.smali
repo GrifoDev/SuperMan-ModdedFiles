@@ -26,6 +26,8 @@
 
 .field public static final NONE:I = 0x0
 
+.field public static final SUPPORTED_MODIFIERS_MASK:I = 0x1100f
+
 .field public static final USER_MASK:I = 0xffff
 
 .field public static final USER_SHIFT:I

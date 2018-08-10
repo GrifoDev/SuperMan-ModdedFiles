@@ -26,8 +26,6 @@
 
 .field private static final TAG:Ljava/lang/String; = "NativeHelper"
 
-.field private static final mRestoreconSync:Ljava/lang/Object;
-
 
 # direct methods
 .method static synthetic -wrap0(Ljava/lang/String;)J
@@ -51,12 +49,6 @@
 .method static constructor <clinit>()V
     .locals 3
 
-    new-instance v0, Ljava/lang/Object;
-
-    invoke-direct {v0}, Ljava/lang/Object;-><init>()V
-
-    sput-object v0, Lcom/android/internal/content/NativeLibraryHelper;->mRestoreconSync:Ljava/lang/Object;
-
     const-string/jumbo v0, "0"
 
     const-string/jumbo v1, "ro.dalvik.vm.native.bridge"
@@ -71,19 +63,11 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    xor-int/lit8 v0, v0, 0x1
 
-    const/4 v0, 0x0
-
-    :goto_0
     sput-boolean v0, Lcom/android/internal/content/NativeLibraryHelper;->HAS_NATIVE_BRIDGE:Z
 
     return-void
-
-    :cond_0
-    const/4 v0, 0x1
-
-    goto :goto_0
 .end method
 
 .method public constructor <init>()V
@@ -95,22 +79,22 @@
 .end method
 
 .method public static copyNativeBinaries(Lcom/android/internal/content/NativeLibraryHelper$Handle;Ljava/io/File;Ljava/lang/String;)I
-    .locals 11
+    .locals 12
 
-    const/4 v10, 0x1
+    const/4 v11, 0x1
 
-    iget-object v8, p0, Lcom/android/internal/content/NativeLibraryHelper$Handle;->apkHandles:[J
+    iget-object v9, p0, Lcom/android/internal/content/NativeLibraryHelper$Handle;->apkHandles:[J
 
     const/4 v2, 0x0
 
-    array-length v9, v8
+    array-length v10, v9
 
-    move v7, v2
+    move v8, v2
 
     :goto_0
-    if-ge v7, v9, :cond_1
+    if-ge v8, v10, :cond_1
 
-    aget-wide v0, v8, v7
+    aget-wide v0, v9, v8
 
     invoke-virtual {p1}, Ljava/io/File;->getPath()Ljava/lang/String;
 
@@ -120,25 +104,27 @@
 
     sget-boolean v5, Lcom/android/internal/content/NativeLibraryHelper;->HAS_NATIVE_BRIDGE:Z
 
+    iget-boolean v6, p0, Lcom/android/internal/content/NativeLibraryHelper$Handle;->debuggable:Z
+
     move-object v3, p2
 
-    invoke-static/range {v0 .. v5}, Lcom/android/internal/content/NativeLibraryHelper;->nativeCopyNativeBinaries(JLjava/lang/String;Ljava/lang/String;ZZ)I
+    invoke-static/range {v0 .. v6}, Lcom/android/internal/content/NativeLibraryHelper;->nativeCopyNativeBinaries(JLjava/lang/String;Ljava/lang/String;ZZZ)I
 
-    move-result v6
+    move-result v7
 
-    if-eq v6, v10, :cond_0
+    if-eq v7, v11, :cond_0
 
-    return v6
+    return v7
 
     :cond_0
-    add-int/lit8 v2, v7, 0x1
+    add-int/lit8 v2, v8, 0x1
 
-    move v7, v2
+    move v8, v2
 
     goto :goto_0
 
     :cond_1
-    return v10
+    return v11
 .end method
 
 .method public static copyNativeBinariesForSupportedAbi(Lcom/android/internal/content/NativeLibraryHelper$Handle;Ljava/io/File;[Ljava/lang/String;Z)I
@@ -207,7 +193,7 @@
     :try_start_0
     iget-boolean v4, p0, Lcom/android/internal/content/NativeLibraryHelper$Handle;->multiArch:Z
 
-    if-eqz v4, :cond_3
+    if-eqz v4, :cond_2
 
     if-eqz p2, :cond_0
 
@@ -217,17 +203,24 @@
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    xor-int/lit8 v4, v4, 0x1
+
+    if-eqz v4, :cond_0
+
+    const-string/jumbo v4, "NativeHelper"
+
+    const-string/jumbo v5, "Ignoring abiOverride for multi arch application."
+
+    invoke-static {v4, v5}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
-    :goto_0
     const/16 v1, -0x72
 
     sget-object v4, Landroid/os/Build;->SUPPORTED_32_BIT_ABIS:[Ljava/lang/String;
 
     array-length v4, v4
 
-    if-lez v4, :cond_2
+    if-lez v4, :cond_1
 
     sget-object v4, Landroid/os/Build;->SUPPORTED_32_BIT_ABIS:[Ljava/lang/String;
 
@@ -237,11 +230,11 @@
 
     move-result v1
 
-    if-gez v1, :cond_2
+    if-gez v1, :cond_1
 
-    if-eq v1, v7, :cond_2
+    if-eq v1, v7, :cond_1
 
-    if-eq v1, v8, :cond_2
+    if-eq v1, v8, :cond_1
 
     const-string/jumbo v4, "NativeHelper"
 
@@ -268,36 +261,11 @@
     return v1
 
     :cond_1
-    const-string/jumbo v4, "NativeHelper"
-
-    const-string/jumbo v5, "Ignoring abiOverride for multi arch application."
-
-    invoke-static {v4, v5}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
-
-    goto :goto_0
-
-    :catch_0
-    move-exception v3
-
-    const-string/jumbo v4, "NativeHelper"
-
-    const-string/jumbo v5, "Copying native libraries failed"
-
-    invoke-static {v4, v5, v3}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    const/16 v4, -0x6e
-
-    return v4
-
-    :cond_2
-    :try_start_1
     sget-object v4, Landroid/os/Build;->SUPPORTED_64_BIT_ABIS:[Ljava/lang/String;
 
     array-length v4, v4
 
-    if-lez v4, :cond_8
+    if-lez v4, :cond_7
 
     sget-object v4, Landroid/os/Build;->SUPPORTED_64_BIT_ABIS:[Ljava/lang/String;
 
@@ -307,11 +275,11 @@
 
     move-result v1
 
-    if-gez v1, :cond_8
+    if-gez v1, :cond_7
 
-    if-eq v1, v7, :cond_8
+    if-eq v1, v7, :cond_7
 
-    if-eq v1, v8, :cond_8
+    if-eq v1, v8, :cond_7
 
     const-string/jumbo v4, "NativeHelper"
 
@@ -337,7 +305,7 @@
 
     return v1
 
-    :cond_3
+    :cond_2
     const/4 v2, 0x0
 
     const-string/jumbo v4, "-"
@@ -346,13 +314,13 @@
 
     move-result v4
 
-    if-eqz v4, :cond_6
+    if-eqz v4, :cond_5
 
     const/4 v2, 0x0
 
-    :cond_4
-    :goto_1
-    if-eqz v2, :cond_7
+    :cond_3
+    :goto_0
+    if-eqz v2, :cond_6
 
     const/4 v4, 0x1
 
@@ -362,33 +330,33 @@
 
     aput-object v2, v0, v4
 
-    :goto_2
+    :goto_1
     sget-object v4, Landroid/os/Build;->SUPPORTED_64_BIT_ABIS:[Ljava/lang/String;
 
     array-length v4, v4
 
-    if-lez v4, :cond_5
+    if-lez v4, :cond_4
 
-    if-nez v2, :cond_5
+    if-nez v2, :cond_4
 
     invoke-static {p0}, Lcom/android/internal/content/NativeLibraryHelper;->hasRenderscriptBitcode(Lcom/android/internal/content/NativeLibraryHelper$Handle;)Z
 
     move-result v4
 
-    if-eqz v4, :cond_5
+    if-eqz v4, :cond_4
 
     sget-object v0, Landroid/os/Build;->SUPPORTED_32_BIT_ABIS:[Ljava/lang/String;
 
-    :cond_5
+    :cond_4
     const/4 v4, 0x1
 
     invoke-static {p0, p1, v0, v4}, Lcom/android/internal/content/NativeLibraryHelper;->copyNativeBinariesForSupportedAbi(Lcom/android/internal/content/NativeLibraryHelper$Handle;Ljava/io/File;[Ljava/lang/String;Z)I
 
     move-result v1
 
-    if-gez v1, :cond_8
+    if-gez v1, :cond_7
 
-    if-eq v1, v7, :cond_8
+    if-eq v1, v7, :cond_7
 
     const-string/jumbo v4, "NativeHelper"
 
@@ -420,26 +388,39 @@
 
     return v1
 
-    :cond_6
-    if-eqz p2, :cond_4
+    :cond_5
+    if-eqz p2, :cond_3
 
     move-object v2, p2
+
+    goto :goto_0
+
+    :cond_6
+    sget-object v0, Landroid/os/Build;->SUPPORTED_ABIS:[Ljava/lang/String;
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
     goto :goto_1
 
     :cond_7
-    sget-object v0, Landroid/os/Build;->SUPPORTED_ABIS:[Ljava/lang/String;
-    :try_end_1
-    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
-
-    goto :goto_2
-
-    :cond_8
     return v6
+
+    :catch_0
+    move-exception v3
+
+    const-string/jumbo v4, "NativeHelper"
+
+    const-string/jumbo v5, "Copying native libraries failed"
+
+    invoke-static {v4, v5, v3}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    const/16 v4, -0x6e
+
+    return v4
 .end method
 
 .method private static createNativeLibrarySubdir(Ljava/io/File;)V
-    .locals 5
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -450,7 +431,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_2
 
     invoke-virtual {p0}, Ljava/io/File;->delete()Z
 
@@ -516,7 +497,7 @@
     :try_end_0
     .catch Landroid/system/ErrnoException; {:try_start_0 .. :try_end_0} :catch_0
 
-    :goto_0
+    :cond_1
     return-void
 
     :catch_0
@@ -550,59 +531,40 @@
 
     throw v1
 
-    :cond_1
-    sget-object v2, Lcom/android/internal/content/NativeLibraryHelper;->mRestoreconSync:Ljava/lang/Object;
-
-    monitor-enter v2
-
-    :try_start_1
+    :cond_2
     invoke-static {p0}, Landroid/os/SELinux;->restorecon(Ljava/io/File;)Z
 
     move-result v1
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_1
 
     new-instance v1, Ljava/io/IOException;
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v4, "Cannot set SELinux context for "
+    const-string/jumbo v3, "Cannot set SELinux context for "
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    move-result-object v2
 
     invoke-virtual {p0}, Ljava/io/File;->getPath()Ljava/lang/String;
 
-    move-result-object v4
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
     move-result-object v3
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-direct {v1, v3}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    throw v1
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    move-result-object v2
 
-    :catchall_0
-    move-exception v1
-
-    monitor-exit v2
+    invoke-direct {v1, v2}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
 
     throw v1
-
-    :cond_2
-    monitor-exit v2
-
-    goto :goto_0
 .end method
 
 .method public static findSupportedAbi(Lcom/android/internal/content/NativeLibraryHelper$Handle;[Ljava/lang/String;)I
@@ -621,7 +583,9 @@
 
     aget-wide v0, v5, v4
 
-    invoke-static {v0, v1, p1}, Lcom/android/internal/content/NativeLibraryHelper;->nativeFindSupportedAbi(J[Ljava/lang/String;)I
+    iget-boolean v7, p0, Lcom/android/internal/content/NativeLibraryHelper$Handle;->debuggable:Z
+
+    invoke-static {v0, v1, p1, v7}, Lcom/android/internal/content/NativeLibraryHelper;->nativeFindSupportedAbi(J[Ljava/lang/String;Z)I
 
     move-result v3
 
@@ -738,16 +702,16 @@
 .method private static native nativeClose(J)V
 .end method
 
-.method private static native nativeCopyNativeBinaries(JLjava/lang/String;Ljava/lang/String;ZZ)I
+.method private static native nativeCopyNativeBinaries(JLjava/lang/String;Ljava/lang/String;ZZZ)I
 .end method
 
-.method private static native nativeFindSupportedAbi(J[Ljava/lang/String;)I
+.method private static native nativeFindSupportedAbi(J[Ljava/lang/String;Z)I
 .end method
 
 .method private static native nativeOpenApk(Ljava/lang/String;)J
 .end method
 
-.method private static native nativeSumNativeBinaries(JLjava/lang/String;)J
+.method private static native nativeSumNativeBinaries(JLjava/lang/String;Z)J
 .end method
 
 .method public static removeNativeBinariesFromDirLI(Ljava/io/File;Z)V
@@ -905,7 +869,9 @@
 
     aget-wide v0, v5, v4
 
-    invoke-static {v0, v1, p1}, Lcom/android/internal/content/NativeLibraryHelper;->nativeSumNativeBinaries(JLjava/lang/String;)J
+    iget-boolean v7, p0, Lcom/android/internal/content/NativeLibraryHelper$Handle;->debuggable:Z
+
+    invoke-static {v0, v1, p1, v7}, Lcom/android/internal/content/NativeLibraryHelper;->nativeSumNativeBinaries(JLjava/lang/String;Z)J
 
     move-result-wide v8
 
@@ -958,7 +924,7 @@
 
     iget-boolean v4, p0, Lcom/android/internal/content/NativeLibraryHelper$Handle;->multiArch:Z
 
-    if-eqz v4, :cond_4
+    if-eqz v4, :cond_3
 
     if-eqz p1, :cond_0
 
@@ -968,10 +934,17 @@
 
     move-result v4
 
-    if-eqz v4, :cond_3
+    xor-int/lit8 v4, v4, 0x1
+
+    if-eqz v4, :cond_0
+
+    const-string/jumbo v4, "NativeHelper"
+
+    const-string/jumbo v5, "Ignoring abiOverride for multi arch application."
+
+    invoke-static {v4, v5}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
-    :goto_0
     sget-object v4, Landroid/os/Build;->SUPPORTED_32_BIT_ABIS:[Ljava/lang/String;
 
     array-length v4, v4
@@ -1002,19 +975,10 @@
     add-long/2addr v2, v4
 
     :cond_2
-    :goto_1
+    :goto_0
     return-wide v2
 
     :cond_3
-    const-string/jumbo v4, "NativeHelper"
-
-    const-string/jumbo v5, "Ignoring abiOverride for multi arch application."
-
-    invoke-static {v4, v5}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_0
-
-    :cond_4
     const/4 v1, 0x0
 
     const-string/jumbo v4, "-"
@@ -1023,13 +987,13 @@
 
     move-result v4
 
-    if-eqz v4, :cond_7
+    if-eqz v4, :cond_6
 
     const/4 v1, 0x0
 
-    :cond_5
-    :goto_2
-    if-eqz v1, :cond_8
+    :cond_4
+    :goto_1
+    if-eqz v1, :cond_7
 
     const/4 v4, 0x1
 
@@ -1037,41 +1001,41 @@
 
     aput-object v1, v0, v5
 
-    :goto_3
+    :goto_2
     sget-object v4, Landroid/os/Build;->SUPPORTED_64_BIT_ABIS:[Ljava/lang/String;
 
     array-length v4, v4
 
-    if-lez v4, :cond_6
+    if-lez v4, :cond_5
 
-    if-nez v1, :cond_6
+    if-nez v1, :cond_5
 
     invoke-static {p0}, Lcom/android/internal/content/NativeLibraryHelper;->hasRenderscriptBitcode(Lcom/android/internal/content/NativeLibraryHelper$Handle;)Z
 
     move-result v4
 
-    if-eqz v4, :cond_6
+    if-eqz v4, :cond_5
 
     sget-object v0, Landroid/os/Build;->SUPPORTED_32_BIT_ABIS:[Ljava/lang/String;
 
-    :cond_6
+    :cond_5
     invoke-static {p0, v0}, Lcom/android/internal/content/NativeLibraryHelper;->sumNativeBinariesForSupportedAbi(Lcom/android/internal/content/NativeLibraryHelper$Handle;[Ljava/lang/String;)J
 
     move-result-wide v4
 
     add-long v2, v6, v4
 
-    goto :goto_1
+    goto :goto_0
 
-    :cond_7
-    if-eqz p1, :cond_5
+    :cond_6
+    if-eqz p1, :cond_4
 
     move-object v1, p1
 
-    goto :goto_2
+    goto :goto_1
 
-    :cond_8
+    :cond_7
     sget-object v0, Landroid/os/Build;->SUPPORTED_ABIS:[Ljava/lang/String;
 
-    goto :goto_3
+    goto :goto_2
 .end method

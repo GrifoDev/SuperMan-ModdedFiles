@@ -128,7 +128,11 @@
 
     iget-boolean v0, p1, Lcom/android/internal/location/ProviderProperties;->mSupportsAltitude:Z
 
-    if-eqz v0, :cond_7
+    xor-int/lit8 v0, v0, 0x1
+
+    if-eqz v0, :cond_4
+
+    return v2
 
     :cond_4
     invoke-virtual {p2}, Landroid/location/Criteria;->isSpeedRequired()Z
@@ -139,7 +143,11 @@
 
     iget-boolean v0, p1, Lcom/android/internal/location/ProviderProperties;->mSupportsSpeed:Z
 
-    if-eqz v0, :cond_8
+    xor-int/lit8 v0, v0, 0x1
+
+    if-eqz v0, :cond_5
+
+    return v2
 
     :cond_5
     invoke-virtual {p2}, Landroid/location/Criteria;->isBearingRequired()Z
@@ -150,31 +158,26 @@
 
     iget-boolean v0, p1, Lcom/android/internal/location/ProviderProperties;->mSupportsBearing:Z
 
-    if-eqz v0, :cond_9
+    xor-int/lit8 v0, v0, 0x1
+
+    if-eqz v0, :cond_6
+
+    return v2
 
     :cond_6
     invoke-virtual {p2}, Landroid/location/Criteria;->isCostAllowed()Z
 
     move-result v0
 
-    if-nez v0, :cond_a
+    if-nez v0, :cond_7
 
     iget-boolean v0, p1, Lcom/android/internal/location/ProviderProperties;->mHasMonetaryCost:Z
 
-    if-eqz v0, :cond_a
+    if-eqz v0, :cond_7
 
     return v2
 
     :cond_7
-    return v2
-
-    :cond_8
-    return v2
-
-    :cond_9
-    return v2
-
-    :cond_a
     const/4 v0, 0x1
 
     return v0

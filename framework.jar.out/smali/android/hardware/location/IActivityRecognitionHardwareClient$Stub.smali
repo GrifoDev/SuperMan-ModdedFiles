@@ -133,14 +133,14 @@
 
     invoke-virtual {p0, v0, v1}, Landroid/hardware/location/IActivityRecognitionHardwareClient$Stub;->onAvailabilityChanged(ZLandroid/hardware/location/IActivityRecognitionHardware;)V
 
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
     return v3
 
     :cond_0
     const/4 v0, 0x0
 
     goto :goto_0
+
+    nop
 
     :sswitch_data_0
     .sparse-switch

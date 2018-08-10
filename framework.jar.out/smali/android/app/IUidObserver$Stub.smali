@@ -91,34 +91,34 @@
 .end method
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    .locals 4
+    .locals 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    const/4 v3, 0x1
+    const/4 v6, 0x1
 
     sparse-switch p1, :sswitch_data_0
 
     invoke-super {p0, p1, p2, p3, p4}, Landroid/os/Binder;->onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    move-result v2
-
-    return v2
-
-    :sswitch_0
-    const-string/jumbo v2, "android.app.IUidObserver"
-
-    invoke-virtual {p3, v2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    move-result v3
 
     return v3
 
-    :sswitch_1
-    const-string/jumbo v2, "android.app.IUidObserver"
+    :sswitch_0
+    const-string/jumbo v3, "android.app.IUidObserver"
 
-    invoke-virtual {p2, v2}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p3, v3}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+
+    return v6
+
+    :sswitch_1
+    const-string/jumbo v3, "android.app.IUidObserver"
+
+    invoke-virtual {p2, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
@@ -128,27 +128,45 @@
 
     move-result v1
 
-    invoke-virtual {p0, v0, v1}, Landroid/app/IUidObserver$Stub;->onUidStateChanged(II)V
+    invoke-virtual {p2}, Landroid/os/Parcel;->readLong()J
 
-    return v3
+    move-result-wide v4
+
+    invoke-virtual {p0, v0, v1, v4, v5}, Landroid/app/IUidObserver$Stub;->onUidStateChanged(IIJ)V
+
+    return v6
 
     :sswitch_2
-    const-string/jumbo v2, "android.app.IUidObserver"
+    const-string/jumbo v3, "android.app.IUidObserver"
 
-    invoke-virtual {p2, v2}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
-    invoke-virtual {p0, v0}, Landroid/app/IUidObserver$Stub;->onUidGone(I)V
+    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
-    return v3
+    move-result v3
+
+    if-eqz v3, :cond_0
+
+    const/4 v2, 0x1
+
+    :goto_0
+    invoke-virtual {p0, v0, v2}, Landroid/app/IUidObserver$Stub;->onUidGone(IZ)V
+
+    return v6
+
+    :cond_0
+    const/4 v2, 0x0
+
+    goto :goto_0
 
     :sswitch_3
-    const-string/jumbo v2, "android.app.IUidObserver"
+    const-string/jumbo v3, "android.app.IUidObserver"
 
-    invoke-virtual {p2, v2}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
@@ -156,20 +174,34 @@
 
     invoke-virtual {p0, v0}, Landroid/app/IUidObserver$Stub;->onUidActive(I)V
 
-    return v3
+    return v6
 
     :sswitch_4
-    const-string/jumbo v2, "android.app.IUidObserver"
+    const-string/jumbo v3, "android.app.IUidObserver"
 
-    invoke-virtual {p2, v2}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
-    invoke-virtual {p0, v0}, Landroid/app/IUidObserver$Stub;->onUidIdle(I)V
+    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
-    return v3
+    move-result v3
+
+    if-eqz v3, :cond_1
+
+    const/4 v2, 0x1
+
+    :goto_1
+    invoke-virtual {p0, v0, v2}, Landroid/app/IUidObserver$Stub;->onUidIdle(IZ)V
+
+    return v6
+
+    :cond_1
+    const/4 v2, 0x0
+
+    goto :goto_1
 
     :sswitch_data_0
     .sparse-switch

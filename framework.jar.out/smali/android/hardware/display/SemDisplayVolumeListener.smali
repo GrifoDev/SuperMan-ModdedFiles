@@ -6,9 +6,3 @@
 # virtual methods
 .method public abstract onVolumeChanged(IIIZ)V
 .end method
-
-.method public abstract onVolumeKeyDown()V
-.end method
-
-.method public abstract onVolumeKeyUp()V
-.end method

@@ -65,24 +65,25 @@
 
 
 # virtual methods
-.method protected findViewByPredicateTraversal(Lcom/android/internal/util/Predicate;Landroid/view/View;)Landroid/view/View;
+.method protected findViewByPredicateTraversal(Ljava/util/function/Predicate;Landroid/view/View;)Landroid/view/View;
     .locals 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "(",
-            "Lcom/android/internal/util/Predicate",
+            "<T:",
+            "Landroid/view/View;",
+            ">(",
+            "Ljava/util/function/Predicate",
             "<",
             "Landroid/view/View;",
             ">;",
             "Landroid/view/View;",
-            ")",
-            "Landroid/view/View;"
+            ")TT;"
         }
     .end annotation
 
     const/4 v7, 0x0
 
-    invoke-interface {p1, p0}, Lcom/android/internal/util/Predicate;->apply(Ljava/lang/Object;)Z
+    invoke-interface {p1, p0}, Ljava/util/function/Predicate;->test(Ljava/lang/Object;)Z
 
     move-result v6
 
@@ -91,13 +92,13 @@
     return-object p0
 
     :cond_0
-    invoke-virtual {p0}, Lcom/android/internal/widget/ViewPager;->getAdapter()Lcom/android/internal/widget/PagerAdapter;
+    invoke-virtual {p0}, Landroid/widget/DayPickerViewPager;->getAdapter()Lcom/android/internal/widget/PagerAdapter;
 
     move-result-object v0
 
     check-cast v0, Landroid/widget/DayPickerPagerAdapter;
 
-    invoke-virtual {p0}, Lcom/android/internal/widget/ViewPager;->getCurrent()Ljava/lang/Object;
+    invoke-virtual {p0}, Landroid/widget/DayPickerViewPager;->getCurrent()Ljava/lang/Object;
 
     move-result-object v6
 
@@ -109,7 +110,7 @@
 
     if-eqz v2, :cond_1
 
-    invoke-virtual {v2, p1}, Landroid/view/View;->findViewByPredicate(Lcom/android/internal/util/Predicate;)Landroid/view/View;
+    invoke-virtual {v2, p1}, Landroid/widget/SimpleMonthView;->findViewByPredicate(Ljava/util/function/Predicate;)Landroid/view/View;
 
     move-result-object v5
 
@@ -118,7 +119,7 @@
     return-object v5
 
     :cond_1
-    invoke-virtual {p0}, Landroid/view/ViewGroup;->getChildCount()I
+    invoke-virtual {p0}, Landroid/widget/DayPickerViewPager;->getChildCount()I
 
     move-result v4
 
@@ -127,7 +128,7 @@
     :goto_0
     if-ge v3, v4, :cond_3
 
-    invoke-virtual {p0, v3}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {p0, v3}, Landroid/widget/DayPickerViewPager;->getChildAt(I)Landroid/view/View;
 
     move-result-object v1
 
@@ -135,7 +136,7 @@
 
     if-eq v1, v2, :cond_2
 
-    invoke-virtual {v1, p1}, Landroid/view/View;->findViewByPredicate(Lcom/android/internal/util/Predicate;)Landroid/view/View;
+    invoke-virtual {v1, p1}, Landroid/view/View;->findViewByPredicate(Ljava/util/function/Predicate;)Landroid/view/View;
 
     move-result-object v5
 
@@ -155,9 +156,9 @@
 .method protected onMeasure(II)V
     .locals 13
 
-    invoke-virtual {p0}, Lcom/android/internal/widget/ViewPager;->populate()V
+    invoke-virtual {p0}, Landroid/widget/DayPickerViewPager;->populate()V
 
-    invoke-virtual {p0}, Landroid/view/ViewGroup;->getChildCount()I
+    invoke-virtual {p0}, Landroid/widget/DayPickerViewPager;->getChildCount()I
 
     move-result v4
 
@@ -191,7 +192,7 @@
     :goto_1
     if-ge v6, v4, :cond_4
 
-    invoke-virtual {p0, v6}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {p0, v6}, Landroid/widget/DayPickerViewPager;->getChildAt(I)Landroid/view/View;
 
     move-result-object v0
 
@@ -203,7 +204,7 @@
 
     if-eq v11, v12, :cond_1
 
-    invoke-virtual {p0, v0, p1, p2}, Landroid/view/ViewGroup;->measureChild(Landroid/view/View;II)V
+    invoke-virtual {p0, v0, p1, p2}, Landroid/widget/DayPickerViewPager;->measureChild(Landroid/view/View;II)V
 
     invoke-virtual {v0}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
@@ -237,13 +238,13 @@
 
     if-eqz v10, :cond_1
 
-    iget v11, v7, Landroid/view/ViewGroup$LayoutParams;->width:I
+    iget v11, v7, Lcom/android/internal/widget/ViewPager$LayoutParams;->width:I
 
     const/4 v12, -0x1
 
     if-eq v11, v12, :cond_0
 
-    iget v11, v7, Landroid/view/ViewGroup$LayoutParams;->height:I
+    iget v11, v7, Lcom/android/internal/widget/ViewPager$LayoutParams;->height:I
 
     const/4 v12, -0x1
 
@@ -270,11 +271,11 @@
     goto :goto_0
 
     :cond_4
-    invoke-virtual {p0}, Landroid/view/View;->getPaddingLeft()I
+    invoke-virtual {p0}, Landroid/widget/DayPickerViewPager;->getPaddingLeft()I
 
     move-result v11
 
-    invoke-virtual {p0}, Landroid/view/View;->getPaddingRight()I
+    invoke-virtual {p0}, Landroid/widget/DayPickerViewPager;->getPaddingRight()I
 
     move-result v12
 
@@ -282,11 +283,11 @@
 
     add-int/2addr v9, v11
 
-    invoke-virtual {p0}, Landroid/view/View;->getPaddingTop()I
+    invoke-virtual {p0}, Landroid/widget/DayPickerViewPager;->getPaddingTop()I
 
     move-result v11
 
-    invoke-virtual {p0}, Landroid/view/View;->getPaddingBottom()I
+    invoke-virtual {p0}, Landroid/widget/DayPickerViewPager;->getPaddingBottom()I
 
     move-result v12
 
@@ -294,7 +295,7 @@
 
     add-int/2addr v8, v11
 
-    invoke-virtual {p0}, Landroid/view/View;->getSuggestedMinimumHeight()I
+    invoke-virtual {p0}, Landroid/widget/DayPickerViewPager;->getSuggestedMinimumHeight()I
 
     move-result v11
 
@@ -302,7 +303,7 @@
 
     move-result v8
 
-    invoke-virtual {p0}, Landroid/view/View;->getSuggestedMinimumWidth()I
+    invoke-virtual {p0}, Landroid/widget/DayPickerViewPager;->getSuggestedMinimumWidth()I
 
     move-result v11
 
@@ -310,7 +311,7 @@
 
     move-result v9
 
-    invoke-virtual {p0}, Landroid/view/View;->getForeground()Landroid/graphics/drawable/Drawable;
+    invoke-virtual {p0}, Landroid/widget/DayPickerViewPager;->getForeground()Landroid/graphics/drawable/Drawable;
 
     move-result-object v5
 
@@ -343,7 +344,7 @@
 
     move-result v12
 
-    invoke-virtual {p0, v11, v12}, Landroid/view/View;->setMeasuredDimension(II)V
+    invoke-virtual {p0, v11, v12}, Landroid/widget/DayPickerViewPager;->setMeasuredDimension(II)V
 
     iget-object v11, p0, Landroid/widget/DayPickerViewPager;->mMatchParentChildren:Ljava/util/ArrayList;
 
@@ -374,23 +375,23 @@
 
     check-cast v7, Lcom/android/internal/widget/ViewPager$LayoutParams;
 
-    iget v11, v7, Landroid/view/ViewGroup$LayoutParams;->width:I
+    iget v11, v7, Lcom/android/internal/widget/ViewPager$LayoutParams;->width:I
 
     const/4 v12, -0x1
 
     if-ne v11, v12, :cond_6
 
-    invoke-virtual {p0}, Landroid/view/View;->getMeasuredWidth()I
+    invoke-virtual {p0}, Landroid/widget/DayPickerViewPager;->getMeasuredWidth()I
 
     move-result v11
 
-    invoke-virtual {p0}, Landroid/view/View;->getPaddingLeft()I
+    invoke-virtual {p0}, Landroid/widget/DayPickerViewPager;->getPaddingLeft()I
 
     move-result v12
 
     sub-int/2addr v11, v12
 
-    invoke-virtual {p0}, Landroid/view/View;->getPaddingRight()I
+    invoke-virtual {p0}, Landroid/widget/DayPickerViewPager;->getPaddingRight()I
 
     move-result v12
 
@@ -403,23 +404,23 @@
     move-result v3
 
     :goto_3
-    iget v11, v7, Landroid/view/ViewGroup$LayoutParams;->height:I
+    iget v11, v7, Lcom/android/internal/widget/ViewPager$LayoutParams;->height:I
 
     const/4 v12, -0x1
 
     if-ne v11, v12, :cond_7
 
-    invoke-virtual {p0}, Landroid/view/View;->getMeasuredHeight()I
+    invoke-virtual {p0}, Landroid/widget/DayPickerViewPager;->getMeasuredHeight()I
 
     move-result v11
 
-    invoke-virtual {p0}, Landroid/view/View;->getPaddingTop()I
+    invoke-virtual {p0}, Landroid/widget/DayPickerViewPager;->getPaddingTop()I
 
     move-result v12
 
     sub-int/2addr v11, v12
 
-    invoke-virtual {p0}, Landroid/view/View;->getPaddingBottom()I
+    invoke-virtual {p0}, Landroid/widget/DayPickerViewPager;->getPaddingBottom()I
 
     move-result v12
 
@@ -439,17 +440,17 @@
     goto :goto_2
 
     :cond_6
-    invoke-virtual {p0}, Landroid/view/View;->getPaddingLeft()I
+    invoke-virtual {p0}, Landroid/widget/DayPickerViewPager;->getPaddingLeft()I
 
     move-result v11
 
-    invoke-virtual {p0}, Landroid/view/View;->getPaddingRight()I
+    invoke-virtual {p0}, Landroid/widget/DayPickerViewPager;->getPaddingRight()I
 
     move-result v12
 
     add-int/2addr v11, v12
 
-    iget v12, v7, Landroid/view/ViewGroup$LayoutParams;->width:I
+    iget v12, v7, Lcom/android/internal/widget/ViewPager$LayoutParams;->width:I
 
     invoke-static {p1, v11, v12}, Landroid/widget/DayPickerViewPager;->getChildMeasureSpec(III)I
 
@@ -458,17 +459,17 @@
     goto :goto_3
 
     :cond_7
-    invoke-virtual {p0}, Landroid/view/View;->getPaddingTop()I
+    invoke-virtual {p0}, Landroid/widget/DayPickerViewPager;->getPaddingTop()I
 
     move-result v11
 
-    invoke-virtual {p0}, Landroid/view/View;->getPaddingBottom()I
+    invoke-virtual {p0}, Landroid/widget/DayPickerViewPager;->getPaddingBottom()I
 
     move-result v12
 
     add-int/2addr v11, v12
 
-    iget v12, v7, Landroid/view/ViewGroup$LayoutParams;->height:I
+    iget v12, v7, Lcom/android/internal/widget/ViewPager$LayoutParams;->height:I
 
     invoke-static {p2, v11, v12}, Landroid/widget/DayPickerViewPager;->getChildMeasureSpec(III)I
 

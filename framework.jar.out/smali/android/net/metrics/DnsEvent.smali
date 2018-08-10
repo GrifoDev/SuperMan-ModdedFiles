@@ -1,95 +1,135 @@
 .class public final Landroid/net/metrics/DnsEvent;
-.super Landroid/net/metrics/IpConnectivityEvent;
+.super Ljava/lang/Object;
 .source "DnsEvent.java"
-
-# interfaces
-.implements Landroid/os/Parcelable;
-
-
-# annotations
-.annotation system Ldalvik/annotation/MemberClasses;
-    value = {
-        Landroid/net/metrics/DnsEvent$1;
-    }
-.end annotation
 
 
 # static fields
-.field public static final CREATOR:Landroid/os/Parcelable$Creator;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Landroid/os/Parcelable$Creator",
-            "<",
-            "Landroid/net/metrics/DnsEvent;",
-            ">;"
-        }
-    .end annotation
-.end field
+.field private static final SIZE_LIMIT:I = 0x4e20
 
 
 # instance fields
-.field public final eventTypes:[B
+.field public eventCount:I
 
-.field public final latenciesMs:[I
+.field public eventTypes:[B
+
+.field public latenciesMs:[I
 
 .field public final netId:I
 
-.field public final returnCodes:[B
+.field public returnCodes:[B
+
+.field public final transports:J
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
+.method public constructor <init>(IJI)V
+    .locals 2
 
-    new-instance v0, Landroid/net/metrics/DnsEvent$1;
-
-    invoke-direct {v0}, Landroid/net/metrics/DnsEvent$1;-><init>()V
-
-    sput-object v0, Landroid/net/metrics/DnsEvent;->CREATOR:Landroid/os/Parcelable$Creator;
-
-    return-void
-.end method
-
-.method private constructor <init>(I[B[B[I)V
-    .locals 0
-
-    invoke-direct {p0}, Landroid/net/metrics/IpConnectivityEvent;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput p1, p0, Landroid/net/metrics/DnsEvent;->netId:I
 
-    iput-object p2, p0, Landroid/net/metrics/DnsEvent;->eventTypes:[B
+    iput-wide p2, p0, Landroid/net/metrics/DnsEvent;->transports:J
 
-    iput-object p3, p0, Landroid/net/metrics/DnsEvent;->returnCodes:[B
+    new-array v0, p4, [B
 
-    iput-object p4, p0, Landroid/net/metrics/DnsEvent;->latenciesMs:[I
+    iput-object v0, p0, Landroid/net/metrics/DnsEvent;->eventTypes:[B
+
+    new-array v0, p4, [B
+
+    iput-object v0, p0, Landroid/net/metrics/DnsEvent;->returnCodes:[B
+
+    new-array v0, p4, [I
+
+    iput-object v0, p0, Landroid/net/metrics/DnsEvent;->latenciesMs:[I
 
     return-void
 .end method
 
-.method private constructor <init>(Landroid/os/Parcel;)V
+
+# virtual methods
+.method public addResult(BBI)V
+    .locals 4
+
+    iget v0, p0, Landroid/net/metrics/DnsEvent;->eventCount:I
+
+    const/16 v1, 0x4e20
+
+    if-lt v0, v1, :cond_0
+
+    return-void
+
+    :cond_0
+    iget v0, p0, Landroid/net/metrics/DnsEvent;->eventCount:I
+
+    iget-object v1, p0, Landroid/net/metrics/DnsEvent;->eventTypes:[B
+
+    array-length v1, v1
+
+    if-ne v0, v1, :cond_1
+
+    iget v0, p0, Landroid/net/metrics/DnsEvent;->eventCount:I
+
+    int-to-double v0, v0
+
+    const-wide v2, 0x3ff6666666666666L    # 1.4
+
+    mul-double/2addr v0, v2
+
+    double-to-int v0, v0
+
+    invoke-virtual {p0, v0}, Landroid/net/metrics/DnsEvent;->resize(I)V
+
+    :cond_1
+    iget-object v0, p0, Landroid/net/metrics/DnsEvent;->eventTypes:[B
+
+    iget v1, p0, Landroid/net/metrics/DnsEvent;->eventCount:I
+
+    aput-byte p1, v0, v1
+
+    iget-object v0, p0, Landroid/net/metrics/DnsEvent;->returnCodes:[B
+
+    iget v1, p0, Landroid/net/metrics/DnsEvent;->eventCount:I
+
+    aput-byte p2, v0, v1
+
+    iget-object v0, p0, Landroid/net/metrics/DnsEvent;->latenciesMs:[I
+
+    iget v1, p0, Landroid/net/metrics/DnsEvent;->eventCount:I
+
+    aput p3, v0, v1
+
+    iget v0, p0, Landroid/net/metrics/DnsEvent;->eventCount:I
+
+    add-int/lit8 v0, v0, 0x1
+
+    iput v0, p0, Landroid/net/metrics/DnsEvent;->eventCount:I
+
+    return-void
+.end method
+
+.method public resize(I)V
     .locals 1
 
-    invoke-direct {p0}, Landroid/net/metrics/IpConnectivityEvent;-><init>()V
+    iget-object v0, p0, Landroid/net/metrics/DnsEvent;->eventTypes:[B
 
-    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
-
-    move-result v0
-
-    iput v0, p0, Landroid/net/metrics/DnsEvent;->netId:I
-
-    invoke-virtual {p1}, Landroid/os/Parcel;->createByteArray()[B
+    invoke-static {v0, p1}, Ljava/util/Arrays;->copyOf([BI)[B
 
     move-result-object v0
 
     iput-object v0, p0, Landroid/net/metrics/DnsEvent;->eventTypes:[B
 
-    invoke-virtual {p1}, Landroid/os/Parcel;->createByteArray()[B
+    iget-object v0, p0, Landroid/net/metrics/DnsEvent;->returnCodes:[B
+
+    invoke-static {v0, p1}, Ljava/util/Arrays;->copyOf([BI)[B
 
     move-result-object v0
 
     iput-object v0, p0, Landroid/net/metrics/DnsEvent;->returnCodes:[B
 
-    invoke-virtual {p1}, Landroid/os/Parcel;->createIntArray()[I
+    iget-object v0, p0, Landroid/net/metrics/DnsEvent;->latenciesMs:[I
+
+    invoke-static {v0, p1}, Ljava/util/Arrays;->copyOf([II)[I
 
     move-result-object v0
 
@@ -98,92 +138,74 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Landroid/os/Parcel;Landroid/net/metrics/DnsEvent;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Landroid/net/metrics/DnsEvent;-><init>(Landroid/os/Parcel;)V
-
-    return-void
-.end method
-
-.method public static logEvent(I[B[B[I)V
-    .locals 1
-
-    new-instance v0, Landroid/net/metrics/DnsEvent;
-
-    invoke-direct {v0, p0, p1, p2, p3}, Landroid/net/metrics/DnsEvent;-><init>(I[B[B[I)V
-
-    invoke-static {v0}, Landroid/net/metrics/DnsEvent;->logEvent(Landroid/net/metrics/IpConnectivityEvent;)V
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public describeContents()I
-    .locals 1
-
-    const/4 v0, 0x0
-
-    return v0
-.end method
-
 .method public toString()Ljava/lang/String;
-    .locals 4
+    .locals 7
 
-    const-string/jumbo v0, "DnsEvent(%d, %d events)"
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    const/4 v1, 0x2
+    const-string/jumbo v3, "DnsEvent("
 
-    new-array v1, v1, [Ljava/lang/Object;
+    invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    iget v2, p0, Landroid/net/metrics/DnsEvent;->netId:I
+    iget v3, p0, Landroid/net/metrics/DnsEvent;->netId:I
 
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v2
-
-    const/4 v3, 0x0
-
-    aput-object v2, v1, v3
-
-    iget-object v2, p0, Landroid/net/metrics/DnsEvent;->eventTypes:[B
-
-    array-length v2, v2
-
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     move-result-object v2
 
-    const/4 v3, 0x1
+    const-string/jumbo v3, ", "
 
-    aput-object v2, v1, v3
-
-    invoke-static {v0, v1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
-    return-object v0
-.end method
+    iget-wide v2, p0, Landroid/net/metrics/DnsEvent;->transports:J
 
-.method public writeToParcel(Landroid/os/Parcel;I)V
-    .locals 1
+    invoke-static {v2, v3}, Lcom/android/internal/util/BitUtils;->unpackBits(J)[I
 
-    iget v0, p0, Landroid/net/metrics/DnsEvent;->netId:I
+    move-result-object v3
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
+    const/4 v2, 0x0
 
-    iget-object v0, p0, Landroid/net/metrics/DnsEvent;->eventTypes:[B
+    array-length v4, v3
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeByteArray([B)V
+    :goto_0
+    if-ge v2, v4, :cond_0
 
-    iget-object v0, p0, Landroid/net/metrics/DnsEvent;->returnCodes:[B
+    aget v1, v3, v2
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeByteArray([B)V
+    invoke-static {v1}, Landroid/net/NetworkCapabilities;->transportNameOf(I)Ljava/lang/String;
 
-    iget-object v0, p0, Landroid/net/metrics/DnsEvent;->latenciesMs:[I
+    move-result-object v5
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeIntArray([I)V
+    invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    return-void
+    move-result-object v5
+
+    const-string/jumbo v6, ", "
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    add-int/lit8 v2, v2, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    iget v2, p0, Landroid/net/metrics/DnsEvent;->eventCount:I
+
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string/jumbo v3, " events)"
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    return-object v2
 .end method

@@ -43,7 +43,7 @@
     .end annotation
 .end field
 
-.field private static final FLAG_ALL:I = 0x1ff
+.field private static final FLAG_ALL:I = 0x3ff
 
 .field private static final FLAG_ALL_PUBLIC:I = 0x111
 
@@ -54,6 +54,8 @@
 .field public static final FLAG_BYPASS_INTERRUPTION_POLICY:I = 0x40
 
 .field public static final FLAG_BYPASS_MUTE:I = 0x80
+
+.field public static final FLAG_DEEP_BUFFER:I = 0x200
 
 .field public static final FLAG_HW_AV_SYNC:I = 0x10
 
@@ -67,6 +69,20 @@
 
 .field public static final FLATTEN_TAGS:I = 0x1
 
+.field public static final SDK_USAGES:[I
+
+.field public static final SEM_TAG_BIXBY:Ljava/lang/String; = "BIXBY"
+
+.field public static final SEM_TAG_VR360:Ljava/lang/String; = "AUDIO_STREAM_VR"
+
+.field public static final SUPPRESSIBLE_CALL:I = 0x2
+
+.field public static final SUPPRESSIBLE_NEVER:I = 0x3
+
+.field public static final SUPPRESSIBLE_NOTIFICATION:I = 0x1
+
+.field public static final SUPPRESSIBLE_USAGES:Landroid/util/SparseIntArray;
+
 .field private static final TAG:Ljava/lang/String; = "AudioAttributes"
 
 .field public static final USAGE_ALARM:I = 0x4
@@ -76,6 +92,8 @@
 .field public static final USAGE_ASSISTANCE_NAVIGATION_GUIDANCE:I = 0xc
 
 .field public static final USAGE_ASSISTANCE_SONIFICATION:I = 0xd
+
+.field public static final USAGE_ASSISTANT:I = 0x10
 
 .field public static final USAGE_GAME:I = 0xe
 
@@ -216,8 +234,80 @@
     return p1
 .end method
 
-.method static constructor <clinit>()V
+.method static synthetic -wrap0(I)I
     .locals 1
+
+    invoke-static {p0}, Landroid/media/AudioAttributes;->usageForStreamType(I)I
+
+    move-result v0
+
+    return v0
+.end method
+
+.method static constructor <clinit>()V
+    .locals 4
+
+    const/4 v3, 0x2
+
+    const/4 v2, 0x1
+
+    new-instance v0, Landroid/util/SparseIntArray;
+
+    invoke-direct {v0}, Landroid/util/SparseIntArray;-><init>()V
+
+    sput-object v0, Landroid/media/AudioAttributes;->SUPPRESSIBLE_USAGES:Landroid/util/SparseIntArray;
+
+    sget-object v0, Landroid/media/AudioAttributes;->SUPPRESSIBLE_USAGES:Landroid/util/SparseIntArray;
+
+    const/4 v1, 0x5
+
+    invoke-virtual {v0, v1, v2}, Landroid/util/SparseIntArray;->put(II)V
+
+    sget-object v0, Landroid/media/AudioAttributes;->SUPPRESSIBLE_USAGES:Landroid/util/SparseIntArray;
+
+    const/4 v1, 0x6
+
+    invoke-virtual {v0, v1, v3}, Landroid/util/SparseIntArray;->put(II)V
+
+    sget-object v0, Landroid/media/AudioAttributes;->SUPPRESSIBLE_USAGES:Landroid/util/SparseIntArray;
+
+    const/4 v1, 0x7
+
+    invoke-virtual {v0, v1, v3}, Landroid/util/SparseIntArray;->put(II)V
+
+    sget-object v0, Landroid/media/AudioAttributes;->SUPPRESSIBLE_USAGES:Landroid/util/SparseIntArray;
+
+    const/16 v1, 0x8
+
+    invoke-virtual {v0, v1, v2}, Landroid/util/SparseIntArray;->put(II)V
+
+    sget-object v0, Landroid/media/AudioAttributes;->SUPPRESSIBLE_USAGES:Landroid/util/SparseIntArray;
+
+    const/16 v1, 0x9
+
+    invoke-virtual {v0, v1, v2}, Landroid/util/SparseIntArray;->put(II)V
+
+    sget-object v0, Landroid/media/AudioAttributes;->SUPPRESSIBLE_USAGES:Landroid/util/SparseIntArray;
+
+    const/16 v1, 0xa
+
+    invoke-virtual {v0, v1, v2}, Landroid/util/SparseIntArray;->put(II)V
+
+    sget-object v0, Landroid/media/AudioAttributes;->SUPPRESSIBLE_USAGES:Landroid/util/SparseIntArray;
+
+    const/16 v1, 0xb
+
+    const/4 v2, 0x3
+
+    invoke-virtual {v0, v1, v2}, Landroid/util/SparseIntArray;->put(II)V
+
+    const/16 v0, 0x10
+
+    new-array v0, v0, [I
+
+    fill-array-data v0, :array_0
+
+    sput-object v0, Landroid/media/AudioAttributes;->SDK_USAGES:[I
 
     new-instance v0, Landroid/media/AudioAttributes$1;
 
@@ -226,6 +316,28 @@
     sput-object v0, Landroid/media/AudioAttributes;->CREATOR:Landroid/os/Parcelable$Creator;
 
     return-void
+
+    nop
+
+    :array_0
+    .array-data 4
+        0x0
+        0x1
+        0x2
+        0x3
+        0x4
+        0x5
+        0x6
+        0x7
+        0x8
+        0x9
+        0xa
+        0xb
+        0xc
+        0xd
+        0xe
+        0x10
+    .end array-data
 .end method
 
 .method private constructor <init>()V
@@ -425,29 +537,6 @@
     return-void
 .end method
 
-.method public static getVolumeControlStream(Landroid/media/AudioAttributes;)I
-    .locals 2
-
-    if-nez p0, :cond_0
-
-    new-instance v0, Ljava/lang/IllegalArgumentException;
-
-    const-string/jumbo v1, "Invalid null audio attributes"
-
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
-
-    throw v0
-
-    :cond_0
-    const/4 v0, 0x1
-
-    invoke-static {v0, p0}, Landroid/media/AudioAttributes;->toVolumeStreamType(ZLandroid/media/AudioAttributes;)I
-
-    move-result v0
-
-    return v0
-.end method
-
 .method public static toLegacyStreamType(Landroid/media/AudioAttributes;)I
     .locals 1
 
@@ -517,6 +606,7 @@
 
     packed-switch v3, :pswitch_data_0
 
+    :pswitch_0
     if-eqz p0, :cond_6
 
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -553,16 +643,16 @@
 
     throw v0
 
-    :pswitch_0
+    :pswitch_1
     return v2
 
-    :pswitch_1
+    :pswitch_2
     return v0
 
-    :pswitch_2
+    :pswitch_3
     return v1
 
-    :pswitch_3
+    :pswitch_4
     if-eqz p0, :cond_4
 
     :goto_2
@@ -573,20 +663,25 @@
 
     goto :goto_2
 
-    :pswitch_4
+    :pswitch_5
     return v4
 
-    :pswitch_5
+    :pswitch_6
     const/4 v0, 0x2
 
     return v0
 
-    :pswitch_6
+    :pswitch_7
     const/4 v0, 0x5
 
     return v0
 
-    :pswitch_7
+    :pswitch_8
+    const/16 v0, 0xa
+
+    return v0
+
+    :pswitch_9
     if-eqz p0, :cond_5
 
     const/high16 v0, -0x80000000
@@ -602,29 +697,29 @@
     :cond_6
     return v2
 
-    nop
-
     :pswitch_data_0
     .packed-switch 0x0
-        :pswitch_7
-        :pswitch_0
-        :pswitch_2
+        :pswitch_9
+        :pswitch_1
         :pswitch_3
         :pswitch_4
-        :pswitch_6
         :pswitch_5
+        :pswitch_7
         :pswitch_6
-        :pswitch_6
-        :pswitch_6
-        :pswitch_6
-        :pswitch_0
-        :pswitch_0
+        :pswitch_7
+        :pswitch_7
+        :pswitch_7
+        :pswitch_7
+        :pswitch_8
+        :pswitch_1
+        :pswitch_2
         :pswitch_1
         :pswitch_0
+        :pswitch_1
     .end packed-switch
 .end method
 
-.method public static usageForLegacyStreamType(I)I
+.method private static usageForStreamType(I)I
     .locals 2
 
     const/4 v1, 0x1
@@ -633,77 +728,79 @@
 
     packed-switch p0, :pswitch_data_0
 
+    :pswitch_0
     const/4 v0, 0x0
 
     return v0
 
-    :pswitch_0
+    :pswitch_1
     return v0
 
-    :pswitch_1
+    :pswitch_2
     const/16 v0, 0xd
 
     return v0
 
-    :pswitch_2
+    :pswitch_3
     const/4 v0, 0x6
 
     return v0
 
-    :pswitch_3
+    :pswitch_4
     return v1
 
-    :pswitch_4
+    :pswitch_5
     const/4 v0, 0x4
 
     return v0
 
-    :pswitch_5
+    :pswitch_6
     const/4 v0, 0x5
 
     return v0
 
-    :pswitch_6
+    :pswitch_7
     return v0
 
-    :pswitch_7
+    :pswitch_8
     const/4 v0, 0x3
 
     return v0
 
-    :pswitch_8
+    :pswitch_9
     const/16 v0, 0xb
 
     return v0
 
-    :pswitch_9
-    return v1
-
     :pswitch_a
-    return v0
+    return v1
 
     :pswitch_b
     return v0
 
     :pswitch_c
+    return v0
+
+    :pswitch_d
     return v1
 
     :pswitch_data_0
     .packed-switch 0x0
-        :pswitch_0
         :pswitch_1
         :pswitch_2
         :pswitch_3
         :pswitch_4
         :pswitch_5
         :pswitch_6
-        :pswitch_1
         :pswitch_7
+        :pswitch_2
         :pswitch_8
+        :pswitch_0
         :pswitch_9
         :pswitch_a
         :pswitch_b
         :pswitch_c
+        :pswitch_d
     .end packed-switch
 .end method
 
@@ -712,6 +809,7 @@
 
     packed-switch p0, :pswitch_data_0
 
+    :pswitch_0
     new-instance v0, Ljava/lang/String;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -736,7 +834,7 @@
 
     return-object v0
 
-    :pswitch_0
+    :pswitch_1
     new-instance v0, Ljava/lang/String;
 
     const-string/jumbo v1, "USAGE_UNKNOWN"
@@ -745,7 +843,7 @@
 
     return-object v0
 
-    :pswitch_1
+    :pswitch_2
     new-instance v0, Ljava/lang/String;
 
     const-string/jumbo v1, "USAGE_MEDIA"
@@ -754,7 +852,7 @@
 
     return-object v0
 
-    :pswitch_2
+    :pswitch_3
     new-instance v0, Ljava/lang/String;
 
     const-string/jumbo v1, "USAGE_VOICE_COMMUNICATION"
@@ -763,7 +861,7 @@
 
     return-object v0
 
-    :pswitch_3
+    :pswitch_4
     new-instance v0, Ljava/lang/String;
 
     const-string/jumbo v1, "USAGE_VOICE_COMMUNICATION_SIGNALLING"
@@ -772,7 +870,7 @@
 
     return-object v0
 
-    :pswitch_4
+    :pswitch_5
     new-instance v0, Ljava/lang/String;
 
     const-string/jumbo v1, "USAGE_ALARM"
@@ -781,7 +879,7 @@
 
     return-object v0
 
-    :pswitch_5
+    :pswitch_6
     new-instance v0, Ljava/lang/String;
 
     const-string/jumbo v1, "USAGE_NOTIFICATION"
@@ -790,7 +888,7 @@
 
     return-object v0
 
-    :pswitch_6
+    :pswitch_7
     new-instance v0, Ljava/lang/String;
 
     const-string/jumbo v1, "USAGE_NOTIFICATION_RINGTONE"
@@ -799,7 +897,7 @@
 
     return-object v0
 
-    :pswitch_7
+    :pswitch_8
     new-instance v0, Ljava/lang/String;
 
     const-string/jumbo v1, "USAGE_NOTIFICATION_COMMUNICATION_REQUEST"
@@ -808,7 +906,7 @@
 
     return-object v0
 
-    :pswitch_8
+    :pswitch_9
     new-instance v0, Ljava/lang/String;
 
     const-string/jumbo v1, "USAGE_NOTIFICATION_COMMUNICATION_INSTANT"
@@ -817,7 +915,7 @@
 
     return-object v0
 
-    :pswitch_9
+    :pswitch_a
     new-instance v0, Ljava/lang/String;
 
     const-string/jumbo v1, "USAGE_NOTIFICATION_COMMUNICATION_DELAYED"
@@ -826,7 +924,7 @@
 
     return-object v0
 
-    :pswitch_a
+    :pswitch_b
     new-instance v0, Ljava/lang/String;
 
     const-string/jumbo v1, "USAGE_NOTIFICATION_EVENT"
@@ -835,7 +933,7 @@
 
     return-object v0
 
-    :pswitch_b
+    :pswitch_c
     new-instance v0, Ljava/lang/String;
 
     const-string/jumbo v1, "USAGE_ASSISTANCE_ACCESSIBILITY"
@@ -844,7 +942,7 @@
 
     return-object v0
 
-    :pswitch_c
+    :pswitch_d
     new-instance v0, Ljava/lang/String;
 
     const-string/jumbo v1, "USAGE_ASSISTANCE_NAVIGATION_GUIDANCE"
@@ -853,7 +951,7 @@
 
     return-object v0
 
-    :pswitch_d
+    :pswitch_e
     new-instance v0, Ljava/lang/String;
 
     const-string/jumbo v1, "USAGE_ASSISTANCE_SONIFICATION"
@@ -862,7 +960,7 @@
 
     return-object v0
 
-    :pswitch_e
+    :pswitch_f
     new-instance v0, Ljava/lang/String;
 
     const-string/jumbo v1, "USAGE_GAME"
@@ -871,9 +969,19 @@
 
     return-object v0
 
+    :pswitch_10
+    new-instance v0, Ljava/lang/String;
+
+    const-string/jumbo v1, "USAGE_ASSISTANT"
+
+    invoke-direct {v0, v1}, Ljava/lang/String;-><init>(Ljava/lang/String;)V
+
+    return-object v0
+
+    nop
+
     :pswitch_data_0
     .packed-switch 0x0
-        :pswitch_0
         :pswitch_1
         :pswitch_2
         :pswitch_3
@@ -888,6 +996,9 @@
         :pswitch_c
         :pswitch_d
         :pswitch_e
+        :pswitch_f
+        :pswitch_0
+        :pswitch_10
     .end packed-switch
 .end method
 
@@ -974,7 +1085,7 @@
 
     iget v0, p0, Landroid/media/AudioAttributes;->mFlags:I
 
-    and-int/lit16 v0, v0, 0x1ff
+    and-int/lit16 v0, v0, 0x3ff
 
     return v0
 .end method
@@ -1051,6 +1162,18 @@
     .locals 1
 
     iget v0, p0, Landroid/media/AudioAttributes;->mUsage:I
+
+    return v0
+.end method
+
+.method public getVolumeControlStream()I
+    .locals 1
+
+    const/4 v0, 0x1
+
+    invoke-static {v0, p0}, Landroid/media/AudioAttributes;->toVolumeStreamType(ZLandroid/media/AudioAttributes;)I
+
+    move-result v0
 
     return v0
 .end method

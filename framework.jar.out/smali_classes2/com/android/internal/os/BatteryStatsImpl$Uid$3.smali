@@ -17,7 +17,7 @@
     value = {
         "Lcom/android/internal/os/BatteryStatsImpl$OverflowArrayMap",
         "<",
-        "Lcom/android/internal/os/BatteryStatsImpl$StopwatchTimer;",
+        "Lcom/android/internal/os/BatteryStatsImpl$DualTimer;",
         ">;"
     }
 .end annotation
@@ -28,22 +28,22 @@
 
 
 # direct methods
-.method constructor <init>(Lcom/android/internal/os/BatteryStatsImpl$Uid;Lcom/android/internal/os/BatteryStatsImpl;)V
+.method constructor <init>(Lcom/android/internal/os/BatteryStatsImpl$Uid;Lcom/android/internal/os/BatteryStatsImpl;I)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$3;->this$1:Lcom/android/internal/os/BatteryStatsImpl$Uid;
 
-    invoke-direct {p0, p2}, Lcom/android/internal/os/BatteryStatsImpl$OverflowArrayMap;-><init>(Lcom/android/internal/os/BatteryStatsImpl;)V
+    invoke-direct {p0, p2, p3}, Lcom/android/internal/os/BatteryStatsImpl$OverflowArrayMap;-><init>(Lcom/android/internal/os/BatteryStatsImpl;I)V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public instantiateObject()Lcom/android/internal/os/BatteryStatsImpl$StopwatchTimer;
-    .locals 6
+.method public instantiateObject()Lcom/android/internal/os/BatteryStatsImpl$DualTimer;
+    .locals 7
 
-    new-instance v0, Lcom/android/internal/os/BatteryStatsImpl$StopwatchTimer;
+    new-instance v0, Lcom/android/internal/os/BatteryStatsImpl$DualTimer;
 
     iget-object v1, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$3;->this$1:Lcom/android/internal/os/BatteryStatsImpl$Uid;
 
@@ -59,11 +59,15 @@
 
     iget-object v5, v3, Lcom/android/internal/os/BatteryStatsImpl;->mOnBatteryTimeBase:Lcom/android/internal/os/BatteryStatsImpl$TimeBase;
 
+    iget-object v3, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$3;->this$1:Lcom/android/internal/os/BatteryStatsImpl$Uid;
+
+    iget-object v6, v3, Lcom/android/internal/os/BatteryStatsImpl$Uid;->mOnBatteryBackgroundTimeBase:Lcom/android/internal/os/BatteryStatsImpl$TimeBase;
+
     const/16 v3, 0xe
 
     const/4 v4, 0x0
 
-    invoke-direct/range {v0 .. v5}, Lcom/android/internal/os/BatteryStatsImpl$StopwatchTimer;-><init>(Lcom/android/internal/os/BatteryStatsImpl$Clocks;Lcom/android/internal/os/BatteryStatsImpl$Uid;ILjava/util/ArrayList;Lcom/android/internal/os/BatteryStatsImpl$TimeBase;)V
+    invoke-direct/range {v0 .. v6}, Lcom/android/internal/os/BatteryStatsImpl$DualTimer;-><init>(Lcom/android/internal/os/BatteryStatsImpl$Clocks;Lcom/android/internal/os/BatteryStatsImpl$Uid;ILjava/util/ArrayList;Lcom/android/internal/os/BatteryStatsImpl$TimeBase;Lcom/android/internal/os/BatteryStatsImpl$TimeBase;)V
 
     return-object v0
 .end method
@@ -71,7 +75,7 @@
 .method public bridge synthetic instantiateObject()Ljava/lang/Object;
     .locals 1
 
-    invoke-virtual {p0}, Lcom/android/internal/os/BatteryStatsImpl$Uid$3;->instantiateObject()Lcom/android/internal/os/BatteryStatsImpl$StopwatchTimer;
+    invoke-virtual {p0}, Lcom/android/internal/os/BatteryStatsImpl$Uid$3;->instantiateObject()Lcom/android/internal/os/BatteryStatsImpl$DualTimer;
 
     move-result-object v0
 

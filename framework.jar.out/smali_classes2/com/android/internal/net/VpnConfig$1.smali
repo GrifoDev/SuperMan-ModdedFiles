@@ -109,6 +109,18 @@
 
     iput-object v1, v0, Lcom/android/internal/net/VpnConfig;->disallowedApplications:Ljava/util/List;
 
+    invoke-virtual {p1}, Landroid/os/Parcel;->createStringArrayList()Ljava/util/ArrayList;
+
+    move-result-object v1
+
+    iput-object v1, v0, Lcom/android/internal/net/VpnConfig;->allowedSecureFolderApps:Ljava/util/List;
+
+    invoke-virtual {p1}, Landroid/os/Parcel;->createStringArrayList()Ljava/util/ArrayList;
+
+    move-result-object v1
+
+    iput-object v1, v0, Lcom/android/internal/net/VpnConfig;->disallowedSecureFolderApps:Ljava/util/List;
+
     const/4 v1, 0x0
 
     invoke-virtual {p1, v1}, Landroid/os/Parcel;->readParcelable(Ljava/lang/ClassLoader;)Landroid/os/Parcelable;

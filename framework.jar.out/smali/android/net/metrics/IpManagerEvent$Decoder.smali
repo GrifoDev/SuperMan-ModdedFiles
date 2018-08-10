@@ -41,7 +41,7 @@
 
     aput-object v1, v0, v3
 
-    const/4 v1, 0x2
+    const/4 v1, 0x3
 
     new-array v1, v1, [Ljava/lang/String;
 
@@ -52,6 +52,12 @@
     const-string/jumbo v2, "COMPLETE_"
 
     aput-object v2, v1, v4
+
+    const-string/jumbo v2, "ERROR_"
+
+    const/4 v3, 0x2
+
+    aput-object v2, v1, v3
 
     invoke-static {v0, v1}, Lcom/android/internal/util/MessageUtils;->findMessageNames([Ljava/lang/Class;[Ljava/lang/String;)Landroid/util/SparseArray;
 

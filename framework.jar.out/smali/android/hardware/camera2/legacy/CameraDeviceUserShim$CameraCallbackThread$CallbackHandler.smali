@@ -269,12 +269,23 @@
     move-result-object v12
 
     invoke-interface {v12, v4, v5}, Landroid/hardware/camera2/ICameraDeviceCallbacks;->onRepeatingRequestError(J)V
+
+    goto/16 :goto_0
+
+    :pswitch_6
+    move-object/from16 v0, p0
+
+    iget-object v12, v0, Landroid/hardware/camera2/legacy/CameraDeviceUserShim$CameraCallbackThread$CallbackHandler;->this$1:Landroid/hardware/camera2/legacy/CameraDeviceUserShim$CameraCallbackThread;
+
+    invoke-static {v12}, Landroid/hardware/camera2/legacy/CameraDeviceUserShim$CameraCallbackThread;->-get0(Landroid/hardware/camera2/legacy/CameraDeviceUserShim$CameraCallbackThread;)Landroid/hardware/camera2/ICameraDeviceCallbacks;
+
+    move-result-object v12
+
+    invoke-interface {v12}, Landroid/hardware/camera2/ICameraDeviceCallbacks;->onRequestQueueEmpty()V
     :try_end_1
     .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
 
     goto/16 :goto_0
-
-    nop
 
     :pswitch_data_0
     .packed-switch 0x0
@@ -284,5 +295,6 @@
         :pswitch_3
         :pswitch_4
         :pswitch_5
+        :pswitch_6
     .end packed-switch
 .end method

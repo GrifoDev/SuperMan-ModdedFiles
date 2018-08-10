@@ -118,12 +118,18 @@
     return v1
 
     :cond_0
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_1
 
     instance-of v2, p1, Landroid/hardware/input/InputDeviceIdentifier;
 
+    xor-int/lit8 v2, v2, 0x1
+
     if-eqz v2, :cond_2
 
+    :cond_1
+    return v1
+
+    :cond_2
     move-object v0, p1
 
     check-cast v0, Landroid/hardware/input/InputDeviceIdentifier;
@@ -132,13 +138,13 @@
 
     iget v3, v0, Landroid/hardware/input/InputDeviceIdentifier;->mVendorId:I
 
-    if-ne v2, v3, :cond_1
+    if-ne v2, v3, :cond_3
 
     iget v2, p0, Landroid/hardware/input/InputDeviceIdentifier;->mProductId:I
 
     iget v3, v0, Landroid/hardware/input/InputDeviceIdentifier;->mProductId:I
 
-    if-ne v2, v3, :cond_1
+    if-ne v2, v3, :cond_3
 
     iget-object v1, p0, Landroid/hardware/input/InputDeviceIdentifier;->mDescriptor:Ljava/lang/String;
 
@@ -148,10 +154,7 @@
 
     move-result v1
 
-    :cond_1
-    return v1
-
-    :cond_2
+    :cond_3
     return v1
 .end method
 

@@ -806,13 +806,31 @@
 .end method
 
 .method public setBeforeText(Ljava/lang/CharSequence;)V
-    .locals 0
+    .locals 2
+
+    const/4 v0, 0x0
 
     invoke-virtual {p0}, Landroid/view/accessibility/AccessibilityRecord;->enforceNotSealed()V
 
-    iput-object p1, p0, Landroid/view/accessibility/AccessibilityRecord;->mBeforeText:Ljava/lang/CharSequence;
+    if-nez p1, :cond_0
+
+    :goto_0
+    iput-object v0, p0, Landroid/view/accessibility/AccessibilityRecord;->mBeforeText:Ljava/lang/CharSequence;
 
     return-void
+
+    :cond_0
+    invoke-interface {p1}, Ljava/lang/CharSequence;->length()I
+
+    move-result v0
+
+    const/4 v1, 0x0
+
+    invoke-interface {p1, v1, v0}, Ljava/lang/CharSequence;->subSequence(II)Ljava/lang/CharSequence;
+
+    move-result-object v0
+
+    goto :goto_0
 .end method
 
 .method public setChecked(Z)V
@@ -859,13 +877,31 @@
 .end method
 
 .method public setContentDescription(Ljava/lang/CharSequence;)V
-    .locals 0
+    .locals 2
+
+    const/4 v0, 0x0
 
     invoke-virtual {p0}, Landroid/view/accessibility/AccessibilityRecord;->enforceNotSealed()V
 
-    iput-object p1, p0, Landroid/view/accessibility/AccessibilityRecord;->mContentDescription:Ljava/lang/CharSequence;
+    if-nez p1, :cond_0
+
+    :goto_0
+    iput-object v0, p0, Landroid/view/accessibility/AccessibilityRecord;->mContentDescription:Ljava/lang/CharSequence;
 
     return-void
+
+    :cond_0
+    invoke-interface {p1}, Ljava/lang/CharSequence;->length()I
+
+    move-result v0
+
+    const/4 v1, 0x0
+
+    invoke-interface {p1, v1, v0}, Ljava/lang/CharSequence;->subSequence(II)Ljava/lang/CharSequence;
+
+    move-result-object v0
+
+    goto :goto_0
 .end method
 
 .method public setCurrentItemIndex(I)V
@@ -1034,21 +1070,21 @@
 .end method
 
 .method public setSource(Landroid/view/View;I)V
-    .locals 3
+    .locals 4
 
-    const/4 v2, -0x1
+    const/4 v3, -0x1
 
     invoke-virtual {p0}, Landroid/view/accessibility/AccessibilityRecord;->enforceNotSealed()V
 
     const/4 v0, 0x1
 
-    iput v2, p0, Landroid/view/accessibility/AccessibilityRecord;->mSourceWindowId:I
+    iput v3, p0, Landroid/view/accessibility/AccessibilityRecord;->mSourceWindowId:I
 
     invoke-direct {p0}, Landroid/view/accessibility/AccessibilityRecord;->clearSourceNode()V
 
     if-eqz p1, :cond_2
 
-    if-eq p2, v2, :cond_0
+    if-eq p2, v3, :cond_0
 
     const v2, 0x7fffffff
 
@@ -1081,6 +1117,8 @@
     return-void
 
     :cond_3
+    if-eq p2, v3, :cond_0
+
     invoke-virtual {p1}, Landroid/view/View;->getAccessibilityNodeProvider()Landroid/view/accessibility/AccessibilityNodeProvider;
 
     move-result-object v1
@@ -1094,6 +1132,45 @@
     iput-object v2, p0, Landroid/view/accessibility/AccessibilityRecord;->mSourceNode:Landroid/view/accessibility/AccessibilityNodeInfo;
 
     goto :goto_0
+.end method
+
+.method public setSource(Landroid/view/accessibility/AccessibilityNodeInfo;)V
+    .locals 2
+
+    invoke-virtual {p0}, Landroid/view/accessibility/AccessibilityRecord;->enforceNotSealed()V
+
+    invoke-direct {p0}, Landroid/view/accessibility/AccessibilityRecord;->clearSourceNode()V
+
+    const/4 v0, -0x1
+
+    iput v0, p0, Landroid/view/accessibility/AccessibilityRecord;->mSourceWindowId:I
+
+    if-eqz p1, :cond_0
+
+    invoke-static {p1}, Landroid/view/accessibility/AccessibilityNodeInfo;->obtain(Landroid/view/accessibility/AccessibilityNodeInfo;)Landroid/view/accessibility/AccessibilityNodeInfo;
+
+    move-result-object v0
+
+    iput-object v0, p0, Landroid/view/accessibility/AccessibilityRecord;->mSourceNode:Landroid/view/accessibility/AccessibilityNodeInfo;
+
+    iget-object v0, p0, Landroid/view/accessibility/AccessibilityRecord;->mSourceNode:Landroid/view/accessibility/AccessibilityNodeInfo;
+
+    invoke-virtual {v0}, Landroid/view/accessibility/AccessibilityNodeInfo;->isImportantForAccessibility()Z
+
+    move-result v0
+
+    const/16 v1, 0x200
+
+    invoke-direct {p0, v1, v0}, Landroid/view/accessibility/AccessibilityRecord;->setBooleanProperty(IZ)V
+
+    invoke-virtual {p1}, Landroid/view/accessibility/AccessibilityNodeInfo;->getWindowId()I
+
+    move-result v0
+
+    iput v0, p0, Landroid/view/accessibility/AccessibilityRecord;->mSourceWindowId:I
+
+    :cond_0
+    return-void
 .end method
 
 .method public setToIndex(I)V

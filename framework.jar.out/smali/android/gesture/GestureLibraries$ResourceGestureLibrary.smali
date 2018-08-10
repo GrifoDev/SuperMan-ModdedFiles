@@ -63,7 +63,7 @@
 
     iget-object v4, p0, Landroid/gesture/GestureLibraries$ResourceGestureLibrary;->mContext:Ljava/lang/ref/WeakReference;
 
-    invoke-virtual {v4}, Ljava/lang/ref/Reference;->get()Ljava/lang/Object;
+    invoke-virtual {v4}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
 
     move-result-object v0
 
@@ -82,7 +82,7 @@
     move-result-object v2
 
     :try_start_0
-    iget-object v4, p0, Landroid/gesture/GestureLibrary;->mStore:Landroid/gesture/GestureStore;
+    iget-object v4, p0, Landroid/gesture/GestureLibraries$ResourceGestureLibrary;->mStore:Landroid/gesture/GestureStore;
 
     const/4 v5, 0x1
 

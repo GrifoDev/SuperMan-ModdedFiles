@@ -418,7 +418,9 @@
 
     move-result v2
 
-    if-eqz v2, :cond_6
+    xor-int/lit8 v2, v2, 0x1
+
+    if-nez v2, :cond_6
 
     iget v2, p0, Landroid/view/inputmethod/CursorAnchorInfo;->mInsertionMarkerTop:F
 
@@ -428,7 +430,9 @@
 
     move-result v2
 
-    if-eqz v2, :cond_6
+    xor-int/lit8 v2, v2, 0x1
+
+    if-nez v2, :cond_6
 
     iget v2, p0, Landroid/view/inputmethod/CursorAnchorInfo;->mInsertionMarkerBaseline:F
 
@@ -438,7 +442,9 @@
 
     move-result v2
 
-    if-eqz v2, :cond_6
+    xor-int/lit8 v2, v2, 0x1
+
+    if-nez v2, :cond_6
 
     iget v2, p0, Landroid/view/inputmethod/CursorAnchorInfo;->mInsertionMarkerBottom:F
 
@@ -448,8 +454,14 @@
 
     move-result v2
 
-    if-eqz v2, :cond_6
+    xor-int/lit8 v2, v2, 0x1
 
+    if-eqz v2, :cond_7
+
+    :cond_6
+    return v4
+
+    :cond_7
     iget-object v2, p0, Landroid/view/inputmethod/CursorAnchorInfo;->mCharacterBoundsArray:Landroid/view/inputmethod/SparseRectFArray;
 
     iget-object v3, v1, Landroid/view/inputmethod/CursorAnchorInfo;->mCharacterBoundsArray:Landroid/view/inputmethod/SparseRectFArray;
@@ -458,19 +470,16 @@
 
     move-result v2
 
-    if-nez v2, :cond_7
+    if-nez v2, :cond_8
 
     return v4
 
-    :cond_6
-    return v4
-
-    :cond_7
+    :cond_8
     iget v2, p0, Landroid/view/inputmethod/CursorAnchorInfo;->mComposingTextStart:I
 
     iget v3, v1, Landroid/view/inputmethod/CursorAnchorInfo;->mComposingTextStart:I
 
-    if-ne v2, v3, :cond_8
+    if-ne v2, v3, :cond_9
 
     iget-object v2, p0, Landroid/view/inputmethod/CursorAnchorInfo;->mComposingText:Ljava/lang/CharSequence;
 
@@ -480,8 +489,14 @@
 
     move-result v2
 
-    if-eqz v2, :cond_8
+    xor-int/lit8 v2, v2, 0x1
 
+    if-eqz v2, :cond_a
+
+    :cond_9
+    return v4
+
+    :cond_a
     iget-object v2, p0, Landroid/view/inputmethod/CursorAnchorInfo;->mMatrixValues:[F
 
     array-length v2, v2
@@ -490,14 +505,11 @@
 
     array-length v3, v3
 
-    if-eq v2, v3, :cond_9
+    if-eq v2, v3, :cond_b
 
     return v4
 
-    :cond_8
-    return v4
-
-    :cond_9
+    :cond_b
     const/4 v0, 0x0
 
     :goto_0
@@ -505,7 +517,7 @@
 
     array-length v2, v2
 
-    if-ge v0, v2, :cond_b
+    if-ge v0, v2, :cond_d
 
     iget-object v2, p0, Landroid/view/inputmethod/CursorAnchorInfo;->mMatrixValues:[F
 
@@ -517,16 +529,16 @@
 
     cmpl-float v2, v2, v3
 
-    if-eqz v2, :cond_a
+    if-eqz v2, :cond_c
 
     return v4
 
-    :cond_a
+    :cond_c
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    :cond_b
+    :cond_d
     return v5
 .end method
 

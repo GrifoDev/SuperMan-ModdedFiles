@@ -86,17 +86,11 @@
 
     if-nez v1, :cond_0
 
-    const-string/jumbo v1, "AbstractIMS"
-
-    const-string/jumbo v2, "dispatchKeyEvent - SEM_KEYCODE_SIP_ON_OFF set true"
-
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
     iget-object v1, p0, Landroid/inputmethodservice/AbstractInputMethodService$AbstractInputMethodSessionImpl;->this$0:Landroid/inputmethodservice/AbstractInputMethodService;
 
     const/4 v2, 0x1
 
-    invoke-virtual {v1, v2}, Landroid/inputmethodservice/AbstractInputMethodService;->setPressBtnSIPOnOff(Z)V
+    invoke-static {v1, v2}, Landroid/inputmethodservice/AbstractInputMethodService;->-set0(Landroid/inputmethodservice/AbstractInputMethodService;Z)Z
 
     :cond_0
     if-eqz p3, :cond_1
@@ -165,4 +159,7 @@
 
     :cond_0
     return-void
+.end method
+
+.method public abstract showSideSyncSoftInput(I)V
 .end method

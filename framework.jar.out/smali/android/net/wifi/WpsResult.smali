@@ -121,7 +121,7 @@
 
     iget-object v2, p0, Landroid/net/wifi/WpsResult;->status:Landroid/net/wifi/WpsResult$Status;
 
-    invoke-virtual {v2}, Ljava/lang/Enum;->toString()Ljava/lang/String;
+    invoke-virtual {v2}, Landroid/net/wifi/WpsResult$Status;->toString()Ljava/lang/String;
 
     move-result-object v2
 
@@ -157,7 +157,7 @@
 
     iget-object v0, p0, Landroid/net/wifi/WpsResult;->status:Landroid/net/wifi/WpsResult$Status;
 
-    invoke-virtual {v0}, Ljava/lang/Enum;->name()Ljava/lang/String;
+    invoke-virtual {v0}, Landroid/net/wifi/WpsResult$Status;->name()Ljava/lang/String;
 
     move-result-object v0
 

@@ -36,7 +36,7 @@
 
     iget-object v0, p0, Landroid/widget/SemHorizontalAbsListView$ListItemAccessibilityDelegate;->this$0:Landroid/widget/SemHorizontalAbsListView;
 
-    iget-boolean v0, v0, Landroid/widget/AdapterView;->mDataChanged:Z
+    iget-boolean v0, v0, Landroid/widget/SemHorizontalAbsListView;->mDataChanged:Z
 
     if-eqz v0, :cond_0
 
@@ -59,7 +59,7 @@
 
     iget-object v1, p0, Landroid/widget/SemHorizontalAbsListView$ListItemAccessibilityDelegate;->this$0:Landroid/widget/SemHorizontalAbsListView;
 
-    invoke-virtual {v1, p1}, Landroid/widget/AdapterView;->getPositionForView(Landroid/view/View;)I
+    invoke-virtual {v1, p1}, Landroid/widget/SemHorizontalAbsListView;->getPositionForView(Landroid/view/View;)I
 
     move-result v0
 
@@ -90,13 +90,13 @@
     :cond_0
     iget-object v4, p0, Landroid/widget/SemHorizontalAbsListView$ListItemAccessibilityDelegate;->this$0:Landroid/widget/SemHorizontalAbsListView;
 
-    invoke-virtual {v4, p1}, Landroid/widget/AdapterView;->getPositionForView(Landroid/view/View;)I
+    invoke-virtual {v4, p1}, Landroid/widget/SemHorizontalAbsListView;->getPositionForView(Landroid/view/View;)I
 
     move-result v1
 
     iget-object v4, p0, Landroid/widget/SemHorizontalAbsListView$ListItemAccessibilityDelegate;->this$0:Landroid/widget/SemHorizontalAbsListView;
 
-    invoke-virtual {v4}, Landroid/widget/AdapterView;->getAdapter()Landroid/widget/Adapter;
+    invoke-virtual {v4}, Landroid/widget/SemHorizontalAbsListView;->getAdapter()Landroid/widget/Adapter;
 
     move-result-object v0
 
@@ -112,7 +112,7 @@
     :cond_2
     iget-object v4, p0, Landroid/widget/SemHorizontalAbsListView$ListItemAccessibilityDelegate;->this$0:Landroid/widget/SemHorizontalAbsListView;
 
-    invoke-virtual {v4}, Landroid/view/View;->isEnabled()Z
+    invoke-virtual {v4}, Landroid/widget/SemHorizontalAbsListView;->isEnabled()Z
 
     move-result v4
 
@@ -122,11 +122,17 @@
 
     move-result v4
 
-    if-eqz v4, :cond_3
+    xor-int/lit8 v4, v4, 0x1
 
+    if-eqz v4, :cond_4
+
+    :cond_3
+    return v5
+
+    :cond_4
     iget-object v4, p0, Landroid/widget/SemHorizontalAbsListView$ListItemAccessibilityDelegate;->this$0:Landroid/widget/SemHorizontalAbsListView;
 
-    invoke-virtual {v4, v1}, Landroid/widget/AdapterView;->getItemIdAtPosition(I)J
+    invoke-virtual {v4, v1}, Landroid/widget/SemHorizontalAbsListView;->getItemIdAtPosition(I)J
 
     move-result-wide v2
 
@@ -134,53 +140,50 @@
 
     return v5
 
-    :cond_3
-    return v5
-
     :sswitch_0
     iget-object v4, p0, Landroid/widget/SemHorizontalAbsListView$ListItemAccessibilityDelegate;->this$0:Landroid/widget/SemHorizontalAbsListView;
 
-    invoke-virtual {v4}, Landroid/widget/AdapterView;->getSelectedItemPosition()I
+    invoke-virtual {v4}, Landroid/widget/SemHorizontalAbsListView;->getSelectedItemPosition()I
 
     move-result v4
 
-    if-ne v4, v1, :cond_4
+    if-ne v4, v1, :cond_5
 
     iget-object v4, p0, Landroid/widget/SemHorizontalAbsListView$ListItemAccessibilityDelegate;->this$0:Landroid/widget/SemHorizontalAbsListView;
 
-    invoke-virtual {v4, v7}, Landroid/widget/AdapterView;->setSelection(I)V
-
-    return v6
-
-    :cond_4
-    return v5
-
-    :sswitch_1
-    iget-object v4, p0, Landroid/widget/SemHorizontalAbsListView$ListItemAccessibilityDelegate;->this$0:Landroid/widget/SemHorizontalAbsListView;
-
-    invoke-virtual {v4}, Landroid/widget/AdapterView;->getSelectedItemPosition()I
-
-    move-result v4
-
-    if-eq v4, v1, :cond_5
-
-    iget-object v4, p0, Landroid/widget/SemHorizontalAbsListView$ListItemAccessibilityDelegate;->this$0:Landroid/widget/SemHorizontalAbsListView;
-
-    invoke-virtual {v4, v1}, Landroid/widget/AdapterView;->setSelection(I)V
+    invoke-virtual {v4, v7}, Landroid/widget/SemHorizontalAbsListView;->setSelection(I)V
 
     return v6
 
     :cond_5
     return v5
 
-    :sswitch_2
+    :sswitch_1
     iget-object v4, p0, Landroid/widget/SemHorizontalAbsListView$ListItemAccessibilityDelegate;->this$0:Landroid/widget/SemHorizontalAbsListView;
 
-    invoke-virtual {v4}, Landroid/view/View;->isClickable()Z
+    invoke-virtual {v4}, Landroid/widget/SemHorizontalAbsListView;->getSelectedItemPosition()I
 
     move-result v4
 
-    if-eqz v4, :cond_6
+    if-eq v4, v1, :cond_6
+
+    iget-object v4, p0, Landroid/widget/SemHorizontalAbsListView$ListItemAccessibilityDelegate;->this$0:Landroid/widget/SemHorizontalAbsListView;
+
+    invoke-virtual {v4, v1}, Landroid/widget/SemHorizontalAbsListView;->setSelection(I)V
+
+    return v6
+
+    :cond_6
+    return v5
+
+    :sswitch_2
+    iget-object v4, p0, Landroid/widget/SemHorizontalAbsListView$ListItemAccessibilityDelegate;->this$0:Landroid/widget/SemHorizontalAbsListView;
+
+    invoke-virtual {v4}, Landroid/widget/SemHorizontalAbsListView;->isClickable()Z
+
+    move-result v4
+
+    if-eqz v4, :cond_7
 
     iget-object v4, p0, Landroid/widget/SemHorizontalAbsListView$ListItemAccessibilityDelegate;->this$0:Landroid/widget/SemHorizontalAbsListView;
 
@@ -190,17 +193,17 @@
 
     return v4
 
-    :cond_6
+    :cond_7
     return v5
 
     :sswitch_3
     iget-object v4, p0, Landroid/widget/SemHorizontalAbsListView$ListItemAccessibilityDelegate;->this$0:Landroid/widget/SemHorizontalAbsListView;
 
-    invoke-virtual {v4}, Landroid/view/View;->isLongClickable()Z
+    invoke-virtual {v4}, Landroid/widget/SemHorizontalAbsListView;->isLongClickable()Z
 
     move-result v4
 
-    if-eqz v4, :cond_7
+    if-eqz v4, :cond_8
 
     iget-object v4, p0, Landroid/widget/SemHorizontalAbsListView$ListItemAccessibilityDelegate;->this$0:Landroid/widget/SemHorizontalAbsListView;
 
@@ -210,7 +213,7 @@
 
     return v4
 
-    :cond_7
+    :cond_8
     return v5
 
     :sswitch_data_0

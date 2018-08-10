@@ -68,7 +68,7 @@
     return v6
 
     :cond_1
-    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+    invoke-virtual {p0}, Landroid/widget/ActivityChooserModel$HistoricalRecord;->getClass()Ljava/lang/Class;
 
     move-result-object v1
 
@@ -144,6 +144,8 @@
     .locals 8
 
     const/16 v0, 0x1f
+
+    const/4 v1, 0x1
 
     iget-object v2, p0, Landroid/widget/ActivityChooserModel$HistoricalRecord;->activity:Landroid/content/ComponentName;
 

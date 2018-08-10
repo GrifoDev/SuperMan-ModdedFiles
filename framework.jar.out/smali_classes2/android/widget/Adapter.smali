@@ -10,6 +10,14 @@
 
 
 # virtual methods
+.method public getAutofillOptions()[Ljava/lang/CharSequence;
+    .locals 1
+
+    const/4 v0, 0x0
+
+    return-object v0
+.end method
+
 .method public abstract getCount()I
 .end method
 

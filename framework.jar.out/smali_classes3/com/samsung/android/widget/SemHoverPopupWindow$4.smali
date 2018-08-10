@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/samsung/android/widget/SemHoverPopupWindow;->show()V
+    value = Lcom/samsung/android/widget/SemHoverPopupWindow;->postDismiss(I)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -39,7 +39,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/widget/SemHoverPopupWindow$4;->this$0:Lcom/samsung/android/widget/SemHoverPopupWindow;
 
-    invoke-static {v0}, Lcom/samsung/android/widget/SemHoverPopupWindow;->-wrap0(Lcom/samsung/android/widget/SemHoverPopupWindow;)V
+    invoke-virtual {v0}, Lcom/samsung/android/widget/SemHoverPopupWindow;->dismiss()V
 
     return-void
 .end method

@@ -19,7 +19,7 @@
 
     invoke-static {}, Lcom/samsung/android/contextaware/utilbundle/logger/CaLogger;->trace()V
 
-    iget-object v0, p0, Lcom/samsung/android/contextaware/manager/ContextProviderDecorator;->mProvider:Lcom/samsung/android/contextaware/manager/ContextComponent;
+    iget-object v0, p0, Lcom/samsung/android/contextaware/manager/BatchContextProvider;->mProvider:Lcom/samsung/android/contextaware/manager/ContextComponent;
 
     invoke-virtual {v0, p1, p2}, Lcom/samsung/android/contextaware/manager/ContextComponent;->start(Lcom/samsung/android/contextaware/manager/ContextAwareService$Listener;I)V
 
@@ -31,7 +31,7 @@
 
     invoke-static {}, Lcom/samsung/android/contextaware/utilbundle/logger/CaLogger;->trace()V
 
-    iget-object v0, p0, Lcom/samsung/android/contextaware/manager/ContextProviderDecorator;->mProvider:Lcom/samsung/android/contextaware/manager/ContextComponent;
+    iget-object v0, p0, Lcom/samsung/android/contextaware/manager/BatchContextProvider;->mProvider:Lcom/samsung/android/contextaware/manager/ContextComponent;
 
     invoke-virtual {v0, p1, p2}, Lcom/samsung/android/contextaware/manager/ContextComponent;->stop(Lcom/samsung/android/contextaware/manager/ContextAwareService$Listener;I)V
 

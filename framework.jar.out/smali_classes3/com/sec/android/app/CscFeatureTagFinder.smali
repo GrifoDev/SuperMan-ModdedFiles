@@ -10,7 +10,11 @@
 
 .field public static final Str_NoTag:Ljava/lang/String; = ""
 
+.field public static final TAG_CSCFEATURE_FINDER_CONFIGAPPLISTFORHIDING:Ljava/lang/String; = "CscFeature_Finder_ConfigAppListForHiding"
+
 .field public static final TAG_CSCFEATURE_FINDER_CONFIGDEFSTATUSSEARCHCATEGORY:Ljava/lang/String; = "CscFeature_Finder_ConfigDefStatusSearchCategory"
+
+.field public static final TAG_CSCFEATURE_FINDER_CONFIGORDERRESULTCARD:Ljava/lang/String; = "CscFeature_Finder_ConfigOrderResultCard"
 
 .field public static final TAG_CSCFEATURE_FINDER_CONFIGQUERYHINTTEXT:Ljava/lang/String; = "CscFeature_Finder_ConfigQueryHintText"
 

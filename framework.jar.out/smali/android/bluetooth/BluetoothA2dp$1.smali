@@ -63,22 +63,26 @@
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
-    if-nez p1, :cond_2
-
-    iget-object v1, p0, Landroid/bluetooth/BluetoothA2dp$1;->this$0:Landroid/bluetooth/BluetoothA2dp;
-
-    invoke-static {v1}, Landroid/bluetooth/BluetoothA2dp;->-get1(Landroid/bluetooth/BluetoothA2dp;)Landroid/content/ServiceConnection;
-
-    move-result-object v2
-
-    monitor-enter v2
+    if-nez p1, :cond_1
 
     :try_start_0
     iget-object v1, p0, Landroid/bluetooth/BluetoothA2dp$1;->this$0:Landroid/bluetooth/BluetoothA2dp;
 
-    const/4 v3, 0x0
+    invoke-static {v1}, Landroid/bluetooth/BluetoothA2dp;->-get5(Landroid/bluetooth/BluetoothA2dp;)Ljava/util/concurrent/locks/ReentrantReadWriteLock;
 
-    invoke-static {v1, v3}, Landroid/bluetooth/BluetoothA2dp;->-set0(Landroid/bluetooth/BluetoothA2dp;Landroid/bluetooth/IBluetoothA2dp;)Landroid/bluetooth/IBluetoothA2dp;
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/util/concurrent/locks/ReentrantReadWriteLock;->writeLock()Ljava/util/concurrent/locks/ReentrantReadWriteLock$WriteLock;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/util/concurrent/locks/ReentrantReadWriteLock$WriteLock;->lock()V
+
+    iget-object v1, p0, Landroid/bluetooth/BluetoothA2dp$1;->this$0:Landroid/bluetooth/BluetoothA2dp;
+
+    const/4 v2, 0x0
+
+    invoke-static {v1, v2}, Landroid/bluetooth/BluetoothA2dp;->-set0(Landroid/bluetooth/BluetoothA2dp;Landroid/bluetooth/IBluetoothA2dp;)Landroid/bluetooth/IBluetoothA2dp;
 
     iget-object v1, p0, Landroid/bluetooth/BluetoothA2dp$1;->this$0:Landroid/bluetooth/BluetoothA2dp;
 
@@ -86,21 +90,30 @@
 
     move-result-object v1
 
-    iget-object v3, p0, Landroid/bluetooth/BluetoothA2dp$1;->this$0:Landroid/bluetooth/BluetoothA2dp;
+    iget-object v2, p0, Landroid/bluetooth/BluetoothA2dp$1;->this$0:Landroid/bluetooth/BluetoothA2dp;
 
-    invoke-static {v3}, Landroid/bluetooth/BluetoothA2dp;->-get1(Landroid/bluetooth/BluetoothA2dp;)Landroid/content/ServiceConnection;
+    invoke-static {v2}, Landroid/bluetooth/BluetoothA2dp;->-get1(Landroid/bluetooth/BluetoothA2dp;)Landroid/content/ServiceConnection;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-virtual {v1, v3}, Landroid/content/Context;->unbindService(Landroid/content/ServiceConnection;)V
+    invoke-virtual {v1, v2}, Landroid/content/Context;->unbindService(Landroid/content/ServiceConnection;)V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    :cond_1
-    :goto_0
-    monitor-exit v2
+    iget-object v1, p0, Landroid/bluetooth/BluetoothA2dp$1;->this$0:Landroid/bluetooth/BluetoothA2dp;
 
+    invoke-static {v1}, Landroid/bluetooth/BluetoothA2dp;->-get5(Landroid/bluetooth/BluetoothA2dp;)Ljava/util/concurrent/locks/ReentrantReadWriteLock;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/util/concurrent/locks/ReentrantReadWriteLock;->writeLock()Ljava/util/concurrent/locks/ReentrantReadWriteLock$WriteLock;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/util/concurrent/locks/ReentrantReadWriteLock$WriteLock;->unlock()V
+
+    :goto_0
     return-void
 
     :catch_0
@@ -109,58 +122,84 @@
     :try_start_1
     const-string/jumbo v1, "BluetoothA2dp"
 
-    const-string/jumbo v3, ""
+    const-string/jumbo v2, ""
 
-    invoke-static {v1, v3, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    iget-object v1, p0, Landroid/bluetooth/BluetoothA2dp$1;->this$0:Landroid/bluetooth/BluetoothA2dp;
+
+    invoke-static {v1}, Landroid/bluetooth/BluetoothA2dp;->-get5(Landroid/bluetooth/BluetoothA2dp;)Ljava/util/concurrent/locks/ReentrantReadWriteLock;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/util/concurrent/locks/ReentrantReadWriteLock;->writeLock()Ljava/util/concurrent/locks/ReentrantReadWriteLock$WriteLock;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/util/concurrent/locks/ReentrantReadWriteLock$WriteLock;->unlock()V
 
     goto :goto_0
 
     :catchall_0
     move-exception v1
 
-    monitor-exit v2
+    iget-object v2, p0, Landroid/bluetooth/BluetoothA2dp$1;->this$0:Landroid/bluetooth/BluetoothA2dp;
 
-    throw v1
-
-    :cond_2
-    iget-object v1, p0, Landroid/bluetooth/BluetoothA2dp$1;->this$0:Landroid/bluetooth/BluetoothA2dp;
-
-    invoke-static {v1}, Landroid/bluetooth/BluetoothA2dp;->-get1(Landroid/bluetooth/BluetoothA2dp;)Landroid/content/ServiceConnection;
+    invoke-static {v2}, Landroid/bluetooth/BluetoothA2dp;->-get5(Landroid/bluetooth/BluetoothA2dp;)Ljava/util/concurrent/locks/ReentrantReadWriteLock;
 
     move-result-object v2
 
-    monitor-enter v2
+    invoke-virtual {v2}, Ljava/util/concurrent/locks/ReentrantReadWriteLock;->writeLock()Ljava/util/concurrent/locks/ReentrantReadWriteLock$WriteLock;
 
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/util/concurrent/locks/ReentrantReadWriteLock$WriteLock;->unlock()V
+
+    throw v1
+
+    :cond_1
     :try_start_2
+    iget-object v1, p0, Landroid/bluetooth/BluetoothA2dp$1;->this$0:Landroid/bluetooth/BluetoothA2dp;
+
+    invoke-static {v1}, Landroid/bluetooth/BluetoothA2dp;->-get5(Landroid/bluetooth/BluetoothA2dp;)Ljava/util/concurrent/locks/ReentrantReadWriteLock;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/util/concurrent/locks/ReentrantReadWriteLock;->readLock()Ljava/util/concurrent/locks/ReentrantReadWriteLock$ReadLock;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/util/concurrent/locks/ReentrantReadWriteLock$ReadLock;->lock()V
+
     iget-object v1, p0, Landroid/bluetooth/BluetoothA2dp$1;->this$0:Landroid/bluetooth/BluetoothA2dp;
 
     invoke-static {v1}, Landroid/bluetooth/BluetoothA2dp;->-get3(Landroid/bluetooth/BluetoothA2dp;)Landroid/bluetooth/IBluetoothA2dp;
 
     move-result-object v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_2
 
-    invoke-static {}, Landroid/bluetooth/BluetoothA2dp;->-get0()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_3
-
-    const-string/jumbo v1, "BluetoothA2dp"
-
-    const-string/jumbo v3, "Binding service..."
-
-    invoke-static {v1, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_3
     iget-object v1, p0, Landroid/bluetooth/BluetoothA2dp$1;->this$0:Landroid/bluetooth/BluetoothA2dp;
 
     invoke-virtual {v1}, Landroid/bluetooth/BluetoothA2dp;->doBind()Z
     :try_end_2
     .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_1
     .catchall {:try_start_2 .. :try_end_2} :catchall_1
+
+    :cond_2
+    iget-object v1, p0, Landroid/bluetooth/BluetoothA2dp$1;->this$0:Landroid/bluetooth/BluetoothA2dp;
+
+    invoke-static {v1}, Landroid/bluetooth/BluetoothA2dp;->-get5(Landroid/bluetooth/BluetoothA2dp;)Ljava/util/concurrent/locks/ReentrantReadWriteLock;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/util/concurrent/locks/ReentrantReadWriteLock;->readLock()Ljava/util/concurrent/locks/ReentrantReadWriteLock$ReadLock;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/util/concurrent/locks/ReentrantReadWriteLock$ReadLock;->unlock()V
 
     goto :goto_0
 
@@ -170,18 +209,40 @@
     :try_start_3
     const-string/jumbo v1, "BluetoothA2dp"
 
-    const-string/jumbo v3, ""
+    const-string/jumbo v2, ""
 
-    invoke-static {v1, v3, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_1
+
+    iget-object v1, p0, Landroid/bluetooth/BluetoothA2dp$1;->this$0:Landroid/bluetooth/BluetoothA2dp;
+
+    invoke-static {v1}, Landroid/bluetooth/BluetoothA2dp;->-get5(Landroid/bluetooth/BluetoothA2dp;)Ljava/util/concurrent/locks/ReentrantReadWriteLock;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/util/concurrent/locks/ReentrantReadWriteLock;->readLock()Ljava/util/concurrent/locks/ReentrantReadWriteLock$ReadLock;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/util/concurrent/locks/ReentrantReadWriteLock$ReadLock;->unlock()V
 
     goto :goto_0
 
     :catchall_1
     move-exception v1
 
-    monitor-exit v2
+    iget-object v2, p0, Landroid/bluetooth/BluetoothA2dp$1;->this$0:Landroid/bluetooth/BluetoothA2dp;
+
+    invoke-static {v2}, Landroid/bluetooth/BluetoothA2dp;->-get5(Landroid/bluetooth/BluetoothA2dp;)Ljava/util/concurrent/locks/ReentrantReadWriteLock;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/util/concurrent/locks/ReentrantReadWriteLock;->readLock()Ljava/util/concurrent/locks/ReentrantReadWriteLock$ReadLock;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/util/concurrent/locks/ReentrantReadWriteLock$ReadLock;->unlock()V
 
     throw v1
 .end method

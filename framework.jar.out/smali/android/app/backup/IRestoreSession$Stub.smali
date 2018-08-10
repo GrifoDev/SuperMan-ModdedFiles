@@ -45,7 +45,7 @@
 
     const-string/jumbo v0, "android.app.backup.IRestoreSession"
 
-    invoke-virtual {p0, p0, v0}, Landroid/os/Binder;->attachInterface(Landroid/os/IInterface;Ljava/lang/String;)V
+    invoke-virtual {p0, p0, v0}, Landroid/app/backup/IRestoreSession$Stub;->attachInterface(Landroid/os/IInterface;Ljava/lang/String;)V
 
     return-void
 .end method
@@ -93,150 +93,182 @@
 .end method
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    .locals 9
+    .locals 11
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    const/4 v8, 0x1
+    const/4 v10, 0x1
 
     sparse-switch p1, :sswitch_data_0
 
     invoke-super {p0, p1, p2, p3, p4}, Landroid/os/Binder;->onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    move-result v7
+    move-result v1
 
-    return v7
+    return v1
 
     :sswitch_0
-    const-string/jumbo v7, "android.app.backup.IRestoreSession"
+    const-string/jumbo v1, "android.app.backup.IRestoreSession"
 
-    invoke-virtual {p3, v7}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p3, v1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    return v8
+    return v10
 
     :sswitch_1
-    const-string/jumbo v7, "android.app.backup.IRestoreSession"
+    const-string/jumbo v1, "android.app.backup.IRestoreSession"
 
-    invoke-virtual {p2, v7}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v1}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
-    move-result-object v7
+    move-result-object v1
 
-    invoke-static {v7}, Landroid/app/backup/IRestoreObserver$Stub;->asInterface(Landroid/os/IBinder;)Landroid/app/backup/IRestoreObserver;
+    invoke-static {v1}, Landroid/app/backup/IRestoreObserver$Stub;->asInterface(Landroid/os/IBinder;)Landroid/app/backup/IRestoreObserver;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-virtual {p0, v2}, Landroid/app/backup/IRestoreSession$Stub;->getAvailableRestoreSets(Landroid/app/backup/IRestoreObserver;)I
+    invoke-virtual {p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
-    move-result v6
+    move-result-object v1
+
+    invoke-static {v1}, Landroid/app/backup/IBackupManagerMonitor$Stub;->asInterface(Landroid/os/IBinder;)Landroid/app/backup/IBackupManagerMonitor;
+
+    move-result-object v8
+
+    invoke-virtual {p0, v0, v8}, Landroid/app/backup/IRestoreSession$Stub;->getAvailableRestoreSets(Landroid/app/backup/IRestoreObserver;Landroid/app/backup/IBackupManagerMonitor;)I
+
+    move-result v9
 
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    invoke-virtual {p3, v6}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p3, v9}, Landroid/os/Parcel;->writeInt(I)V
 
-    return v8
+    return v10
 
     :sswitch_2
-    const-string/jumbo v7, "android.app.backup.IRestoreSession"
+    const-string/jumbo v1, "android.app.backup.IRestoreSession"
 
-    invoke-virtual {p2, v7}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    invoke-virtual {p2}, Landroid/os/Parcel;->readLong()J
-
-    move-result-wide v0
-
-    invoke-virtual {p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
-
-    move-result-object v7
-
-    invoke-static {v7}, Landroid/app/backup/IRestoreObserver$Stub;->asInterface(Landroid/os/IBinder;)Landroid/app/backup/IRestoreObserver;
-
-    move-result-object v4
-
-    invoke-virtual {p0, v0, v1, v4}, Landroid/app/backup/IRestoreSession$Stub;->restoreAll(JLandroid/app/backup/IRestoreObserver;)I
-
-    move-result v6
-
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
-    invoke-virtual {p3, v6}, Landroid/os/Parcel;->writeInt(I)V
-
-    return v8
-
-    :sswitch_3
-    const-string/jumbo v7, "android.app.backup.IRestoreSession"
-
-    invoke-virtual {p2, v7}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v1}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readLong()J
 
-    move-result-wide v0
+    move-result-wide v2
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
-    move-result-object v7
+    move-result-object v1
 
-    invoke-static {v7}, Landroid/app/backup/IRestoreObserver$Stub;->asInterface(Landroid/os/IBinder;)Landroid/app/backup/IRestoreObserver;
+    invoke-static {v1}, Landroid/app/backup/IRestoreObserver$Stub;->asInterface(Landroid/os/IBinder;)Landroid/app/backup/IRestoreObserver;
 
     move-result-object v4
 
-    invoke-virtual {p2}, Landroid/os/Parcel;->createStringArray()[Ljava/lang/String;
+    invoke-virtual {p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
+
+    move-result-object v1
+
+    invoke-static {v1}, Landroid/app/backup/IBackupManagerMonitor$Stub;->asInterface(Landroid/os/IBinder;)Landroid/app/backup/IBackupManagerMonitor;
 
     move-result-object v5
 
-    invoke-virtual {p0, v0, v1, v4, v5}, Landroid/app/backup/IRestoreSession$Stub;->restoreSome(JLandroid/app/backup/IRestoreObserver;[Ljava/lang/String;)I
+    invoke-virtual {p0, v2, v3, v4, v5}, Landroid/app/backup/IRestoreSession$Stub;->restoreAll(JLandroid/app/backup/IRestoreObserver;Landroid/app/backup/IBackupManagerMonitor;)I
 
-    move-result v6
+    move-result v9
 
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    invoke-virtual {p3, v6}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p3, v9}, Landroid/os/Parcel;->writeInt(I)V
 
-    return v8
+    return v10
 
-    :sswitch_4
-    const-string/jumbo v7, "android.app.backup.IRestoreSession"
+    :sswitch_3
+    const-string/jumbo v1, "android.app.backup.IRestoreSession"
 
-    invoke-virtual {p2, v7}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v1}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+    invoke-virtual {p2}, Landroid/os/Parcel;->readLong()J
 
-    move-result-object v3
+    move-result-wide v2
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
-    move-result-object v7
+    move-result-object v1
 
-    invoke-static {v7}, Landroid/app/backup/IRestoreObserver$Stub;->asInterface(Landroid/os/IBinder;)Landroid/app/backup/IRestoreObserver;
+    invoke-static {v1}, Landroid/app/backup/IRestoreObserver$Stub;->asInterface(Landroid/os/IBinder;)Landroid/app/backup/IRestoreObserver;
 
     move-result-object v4
 
-    invoke-virtual {p0, v3, v4}, Landroid/app/backup/IRestoreSession$Stub;->restorePackage(Ljava/lang/String;Landroid/app/backup/IRestoreObserver;)I
+    invoke-virtual {p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
-    move-result v6
+    move-result-object v1
+
+    invoke-static {v1}, Landroid/app/backup/IBackupManagerMonitor$Stub;->asInterface(Landroid/os/IBinder;)Landroid/app/backup/IBackupManagerMonitor;
+
+    move-result-object v5
+
+    invoke-virtual {p2}, Landroid/os/Parcel;->createStringArray()[Ljava/lang/String;
+
+    move-result-object v6
+
+    move-object v1, p0
+
+    invoke-virtual/range {v1 .. v6}, Landroid/app/backup/IRestoreSession$Stub;->restoreSome(JLandroid/app/backup/IRestoreObserver;Landroid/app/backup/IBackupManagerMonitor;[Ljava/lang/String;)I
+
+    move-result v9
 
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    invoke-virtual {p3, v6}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p3, v9}, Landroid/os/Parcel;->writeInt(I)V
 
-    return v8
+    return v10
+
+    :sswitch_4
+    const-string/jumbo v1, "android.app.backup.IRestoreSession"
+
+    invoke-virtual {p2, v1}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-virtual {p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
+
+    move-result-object v1
+
+    invoke-static {v1}, Landroid/app/backup/IRestoreObserver$Stub;->asInterface(Landroid/os/IBinder;)Landroid/app/backup/IRestoreObserver;
+
+    move-result-object v4
+
+    invoke-virtual {p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
+
+    move-result-object v1
+
+    invoke-static {v1}, Landroid/app/backup/IBackupManagerMonitor$Stub;->asInterface(Landroid/os/IBinder;)Landroid/app/backup/IBackupManagerMonitor;
+
+    move-result-object v5
+
+    invoke-virtual {p0, v7, v4, v5}, Landroid/app/backup/IRestoreSession$Stub;->restorePackage(Ljava/lang/String;Landroid/app/backup/IRestoreObserver;Landroid/app/backup/IBackupManagerMonitor;)I
+
+    move-result v9
+
+    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+
+    invoke-virtual {p3, v9}, Landroid/os/Parcel;->writeInt(I)V
+
+    return v10
 
     :sswitch_5
-    const-string/jumbo v7, "android.app.backup.IRestoreSession"
+    const-string/jumbo v1, "android.app.backup.IRestoreSession"
 
-    invoke-virtual {p2, v7}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v1}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p0}, Landroid/app/backup/IRestoreSession$Stub;->endRestoreSession()V
 
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    return v8
-
-    nop
+    return v10
 
     :sswitch_data_0
     .sparse-switch

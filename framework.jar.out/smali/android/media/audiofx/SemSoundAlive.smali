@@ -220,11 +220,11 @@
 
     aput v1, v3, v5
 
-    invoke-virtual {p0, v3, v4}, Landroid/media/audiofx/AudioEffect;->getParameter([I[B)I
+    invoke-virtual {p0, v3, v4}, Landroid/media/audiofx/SemSoundAlive;->getParameter([I[B)I
 
     move-result v5
 
-    invoke-virtual {p0, v5}, Landroid/media/audiofx/AudioEffect;->checkStatus(I)V
+    invoke-virtual {p0, v5}, Landroid/media/audiofx/SemSoundAlive;->checkStatus(I)V
 
     const/4 v2, 0x0
 
@@ -299,11 +299,11 @@
 
     aput p1, v0, v4
 
-    invoke-virtual {p0, v0, v1}, Landroid/media/audiofx/AudioEffect;->getParameter([I[S)I
+    invoke-virtual {p0, v0, v1}, Landroid/media/audiofx/SemSoundAlive;->getParameter([I[S)I
 
     move-result v2
 
-    invoke-virtual {p0, v2}, Landroid/media/audiofx/AudioEffect;->checkStatus(I)V
+    invoke-virtual {p0, v2}, Landroid/media/audiofx/SemSoundAlive;->checkStatus(I)V
 
     aget-short v2, v1, v3
 
@@ -334,11 +334,11 @@
 
     aput p1, v0, v2
 
-    invoke-virtual {p0, v0, v1}, Landroid/media/audiofx/AudioEffect;->getParameter([I[I)I
+    invoke-virtual {p0, v0, v1}, Landroid/media/audiofx/SemSoundAlive;->getParameter([I[I)I
 
     move-result v2
 
-    invoke-virtual {p0, v2}, Landroid/media/audiofx/AudioEffect;->checkStatus(I)V
+    invoke-virtual {p0, v2}, Landroid/media/audiofx/SemSoundAlive;->checkStatus(I)V
 
     return-object v1
 .end method
@@ -365,11 +365,11 @@
 
     aput p1, v0, v2
 
-    invoke-virtual {p0, v0, v1}, Landroid/media/audiofx/AudioEffect;->getParameter([I[S)I
+    invoke-virtual {p0, v0, v1}, Landroid/media/audiofx/SemSoundAlive;->getParameter([I[S)I
 
     move-result v2
 
-    invoke-virtual {p0, v2}, Landroid/media/audiofx/AudioEffect;->checkStatus(I)V
+    invoke-virtual {p0, v2}, Landroid/media/audiofx/SemSoundAlive;->checkStatus(I)V
 
     aget-short v2, v1, v3
 
@@ -385,11 +385,11 @@
 
     const/4 v1, 0x1
 
-    invoke-virtual {p0, v1, v0}, Landroid/media/audiofx/AudioEffect;->getParameter(I[S)I
+    invoke-virtual {p0, v1, v0}, Landroid/media/audiofx/SemSoundAlive;->getParameter(I[S)I
 
     move-result v1
 
-    invoke-virtual {p0, v1}, Landroid/media/audiofx/AudioEffect;->checkStatus(I)V
+    invoke-virtual {p0, v1}, Landroid/media/audiofx/SemSoundAlive;->checkStatus(I)V
 
     return-object v0
 .end method
@@ -418,11 +418,11 @@
 
     aput p1, v0, v4
 
-    invoke-virtual {p0, v0, v1}, Landroid/media/audiofx/AudioEffect;->getParameter([I[I)I
+    invoke-virtual {p0, v0, v1}, Landroid/media/audiofx/SemSoundAlive;->getParameter([I[I)I
 
     move-result v2
 
-    invoke-virtual {p0, v2}, Landroid/media/audiofx/AudioEffect;->checkStatus(I)V
+    invoke-virtual {p0, v2}, Landroid/media/audiofx/SemSoundAlive;->checkStatus(I)V
 
     aget v2, v1, v3
 
@@ -443,11 +443,11 @@
 
     const/4 v1, 0x6
 
-    invoke-virtual {p0, v1, v0}, Landroid/media/audiofx/AudioEffect;->getParameter(I[S)I
+    invoke-virtual {p0, v1, v0}, Landroid/media/audiofx/SemSoundAlive;->getParameter(I[S)I
 
     move-result v1
 
-    invoke-virtual {p0, v1}, Landroid/media/audiofx/AudioEffect;->checkStatus(I)V
+    invoke-virtual {p0, v1}, Landroid/media/audiofx/SemSoundAlive;->checkStatus(I)V
 
     const/4 v1, 0x0
 
@@ -483,11 +483,11 @@
 
     new-array v1, v4, [S
 
-    invoke-virtual {p0, v0, v1}, Landroid/media/audiofx/AudioEffect;->getParameter([I[S)I
+    invoke-virtual {p0, v0, v1}, Landroid/media/audiofx/SemSoundAlive;->getParameter([I[S)I
 
     move-result v2
 
-    invoke-virtual {p0, v2}, Landroid/media/audiofx/AudioEffect;->checkStatus(I)V
+    invoke-virtual {p0, v2}, Landroid/media/audiofx/SemSoundAlive;->checkStatus(I)V
 
     aget-short v2, v1, v3
 
@@ -512,11 +512,11 @@
 
     const/4 v1, 0x7
 
-    invoke-virtual {p0, v1, v0}, Landroid/media/audiofx/AudioEffect;->getParameter(I[S)I
+    invoke-virtual {p0, v1, v0}, Landroid/media/audiofx/SemSoundAlive;->getParameter(I[S)I
 
     move-result v1
 
-    invoke-virtual {p0, v1}, Landroid/media/audiofx/AudioEffect;->checkStatus(I)V
+    invoke-virtual {p0, v1}, Landroid/media/audiofx/SemSoundAlive;->checkStatus(I)V
 
     const/4 v1, 0x0
 
@@ -589,7 +589,7 @@
 
     move-result v3
 
-    invoke-virtual {p0, v3}, Landroid/media/audiofx/AudioEffect;->checkStatus(I)V
+    invoke-virtual {p0, v3}, Landroid/media/audiofx/SemSoundAlive;->checkStatus(I)V
 
     new-instance v2, Landroid/media/audiofx/SemSoundAlive$Settings;
 
@@ -666,11 +666,11 @@
 
     aput p1, v0, v4
 
-    invoke-virtual {p0, v0, v1}, Landroid/media/audiofx/AudioEffect;->getParameter([I[S)I
+    invoke-virtual {p0, v0, v1}, Landroid/media/audiofx/SemSoundAlive;->getParameter([I[S)I
 
     move-result v2
 
-    invoke-virtual {p0, v2}, Landroid/media/audiofx/AudioEffect;->checkStatus(I)V
+    invoke-virtual {p0, v2}, Landroid/media/audiofx/SemSoundAlive;->checkStatus(I)V
 
     aget-short v2, v1, v3
 
@@ -742,13 +742,13 @@
 
     aput v2, v1, v6
 
-    invoke-virtual {p0, v3}, Landroid/media/audiofx/AudioEffect;->setEnabled(Z)I
+    invoke-virtual {p0, v3}, Landroid/media/audiofx/SemSoundAlive;->setEnabled(Z)I
 
-    invoke-virtual {p0, v0, v1}, Landroid/media/audiofx/AudioEffect;->setParameter([I[I)I
+    invoke-virtual {p0, v0, v1}, Landroid/media/audiofx/SemSoundAlive;->setParameter([I[I)I
 
     move-result v2
 
-    invoke-virtual {p0, v2}, Landroid/media/audiofx/AudioEffect;->checkStatus(I)V
+    invoke-virtual {p0, v2}, Landroid/media/audiofx/SemSoundAlive;->checkStatus(I)V
 
     :cond_0
     return-void
@@ -783,11 +783,11 @@
 
     aput-short p2, v1, v2
 
-    invoke-virtual {p0, v0, v1}, Landroid/media/audiofx/AudioEffect;->setParameter([I[S)I
+    invoke-virtual {p0, v0, v1}, Landroid/media/audiofx/SemSoundAlive;->setParameter([I[S)I
 
     move-result v2
 
-    invoke-virtual {p0, v2}, Landroid/media/audiofx/AudioEffect;->checkStatus(I)V
+    invoke-virtual {p0, v2}, Landroid/media/audiofx/SemSoundAlive;->checkStatus(I)V
 
     return-void
 .end method
@@ -818,11 +818,11 @@
 
     aput p2, v1, v4
 
-    invoke-virtual {p0, v0, v1}, Landroid/media/audiofx/AudioEffect;->setParameter([I[I)I
+    invoke-virtual {p0, v0, v1}, Landroid/media/audiofx/SemSoundAlive;->setParameter([I[I)I
 
     move-result v2
 
-    invoke-virtual {p0, v2}, Landroid/media/audiofx/AudioEffect;->checkStatus(I)V
+    invoke-virtual {p0, v2}, Landroid/media/audiofx/SemSoundAlive;->checkStatus(I)V
 
     return-void
 .end method
@@ -1048,11 +1048,11 @@
     :cond_2
     const/16 v2, 0x9
 
-    invoke-virtual {p0, v2, v1}, Landroid/media/audiofx/AudioEffect;->setParameter(I[B)I
+    invoke-virtual {p0, v2, v1}, Landroid/media/audiofx/SemSoundAlive;->setParameter(I[B)I
 
     move-result v2
 
-    invoke-virtual {p0, v2}, Landroid/media/audiofx/AudioEffect;->checkStatus(I)V
+    invoke-virtual {p0, v2}, Landroid/media/audiofx/SemSoundAlive;->checkStatus(I)V
 
     return-void
 .end method
@@ -1083,11 +1083,11 @@
 
     aput-short p2, v1, v3
 
-    invoke-virtual {p0, v0, v1}, Landroid/media/audiofx/AudioEffect;->setParameter([I[S)I
+    invoke-virtual {p0, v0, v1}, Landroid/media/audiofx/SemSoundAlive;->setParameter([I[S)I
 
     move-result v2
 
-    invoke-virtual {p0, v2}, Landroid/media/audiofx/AudioEffect;->checkStatus(I)V
+    invoke-virtual {p0, v2}, Landroid/media/audiofx/SemSoundAlive;->checkStatus(I)V
 
     return-void
 .end method
@@ -1102,11 +1102,11 @@
 
     const/4 v0, 0x6
 
-    invoke-virtual {p0, v0, p1}, Landroid/media/audiofx/AudioEffect;->setParameter(IS)I
+    invoke-virtual {p0, v0, p1}, Landroid/media/audiofx/SemSoundAlive;->setParameter(IS)I
 
     move-result v0
 
-    invoke-virtual {p0, v0}, Landroid/media/audiofx/AudioEffect;->checkStatus(I)V
+    invoke-virtual {p0, v0}, Landroid/media/audiofx/SemSoundAlive;->checkStatus(I)V
 
     return-void
 .end method

@@ -565,9 +565,11 @@
 .end method
 
 .method public static complexToDimensionPixelSize(ILandroid/util/DisplayMetrics;)I
-    .locals 6
+    .locals 7
 
-    const/4 v5, 0x0
+    const/4 v6, 0x0
+
+    const/high16 v5, 0x3f000000    # 0.5f
 
     const/4 v4, 0x0
 
@@ -583,33 +585,41 @@
 
     move-result v0
 
-    const/high16 v3, 0x3f000000    # 0.5f
+    cmpl-float v3, v0, v4
 
-    add-float/2addr v3, v0
+    if-ltz v3, :cond_0
 
+    add-float v3, v0, v5
+
+    :goto_0
     float-to-int v1, v3
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1
 
     return v1
 
     :cond_0
-    cmpl-float v3, v2, v4
+    sub-float v3, v0, v5
 
-    if-nez v3, :cond_1
-
-    return v5
+    goto :goto_0
 
     :cond_1
     cmpl-float v3, v2, v4
 
-    if-lez v3, :cond_2
+    if-nez v3, :cond_2
+
+    return v6
+
+    :cond_2
+    cmpl-float v3, v2, v4
+
+    if-lez v3, :cond_3
 
     const/4 v3, 0x1
 
     return v3
 
-    :cond_2
+    :cond_3
     const/4 v3, -0x1
 
     return v3

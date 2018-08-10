@@ -148,6 +148,19 @@
 .method public stop()V
     .locals 4
 
+    iget-object v1, p0, Landroid/net/ConnectivityManager$PacketKeepalive;->mSlot:Ljava/lang/Integer;
+
+    if-nez v1, :cond_0
+
+    const-string/jumbo v1, "PacketKeepalive"
+
+    const-string/jumbo v2, "Error stopping packet keepalive because mSlot is null"
+
+    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
+
+    :cond_0
     :try_start_0
     iget-object v1, p0, Landroid/net/ConnectivityManager$PacketKeepalive;->this$0:Landroid/net/ConnectivityManager;
 

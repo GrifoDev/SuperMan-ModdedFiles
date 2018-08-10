@@ -71,6 +71,14 @@
     .end annotation
 .end method
 
+.method public abstract onRequestQueueEmpty()V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract onResultReceived(Landroid/hardware/camera2/impl/CameraMetadataNative;Landroid/hardware/camera2/impl/CaptureResultExtras;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {

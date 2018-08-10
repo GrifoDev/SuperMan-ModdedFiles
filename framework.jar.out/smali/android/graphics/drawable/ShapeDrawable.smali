@@ -24,11 +24,11 @@
 .method public constructor <init>()V
     .locals 2
 
-    const/4 v1, 0x0
-
     new-instance v0, Landroid/graphics/drawable/ShapeDrawable$ShapeState;
 
-    invoke-direct {v0, v1}, Landroid/graphics/drawable/ShapeDrawable$ShapeState;-><init>(Landroid/graphics/drawable/ShapeDrawable$ShapeState;)V
+    invoke-direct {v0}, Landroid/graphics/drawable/ShapeDrawable$ShapeState;-><init>()V
+
+    const/4 v1, 0x0
 
     invoke-direct {p0, v0, v1}, Landroid/graphics/drawable/ShapeDrawable;-><init>(Landroid/graphics/drawable/ShapeDrawable$ShapeState;Landroid/content/res/Resources;)V
 
@@ -42,7 +42,7 @@
 
     iput-object p1, p0, Landroid/graphics/drawable/ShapeDrawable;->mShapeState:Landroid/graphics/drawable/ShapeDrawable$ShapeState;
 
-    invoke-direct {p0, p2}, Landroid/graphics/drawable/ShapeDrawable;->updateLocalState(Landroid/content/res/Resources;)V
+    invoke-direct {p0}, Landroid/graphics/drawable/ShapeDrawable;->updateLocalState()V
 
     return-void
 .end method
@@ -58,11 +58,11 @@
 .method public constructor <init>(Landroid/graphics/drawable/shapes/Shape;)V
     .locals 2
 
-    const/4 v1, 0x0
-
     new-instance v0, Landroid/graphics/drawable/ShapeDrawable$ShapeState;
 
-    invoke-direct {v0, v1}, Landroid/graphics/drawable/ShapeDrawable$ShapeState;-><init>(Landroid/graphics/drawable/ShapeDrawable$ShapeState;)V
+    invoke-direct {v0}, Landroid/graphics/drawable/ShapeDrawable$ShapeState;-><init>()V
+
+    const/4 v1, 0x0
 
     invoke-direct {p0, v0, v1}, Landroid/graphics/drawable/ShapeDrawable;-><init>(Landroid/graphics/drawable/ShapeDrawable$ShapeState;Landroid/content/res/Resources;)V
 
@@ -87,7 +87,7 @@
     return v1
 .end method
 
-.method private updateLocalState(Landroid/content/res/Resources;)V
+.method private updateLocalState()V
     .locals 3
 
     iget-object v0, p0, Landroid/graphics/drawable/ShapeDrawable;->mTintFilter:Landroid/graphics/PorterDuffColorFilter;
@@ -227,7 +227,7 @@
 
     float-to-int v6, v6
 
-    invoke-virtual {p0, v6}, Landroid/graphics/drawable/ShapeDrawable;->setIntrinsicWidth(I)V
+    iput v6, v3, Landroid/graphics/drawable/ShapeDrawable$ShapeState;->mIntrinsicWidth:I
 
     iget v6, v3, Landroid/graphics/drawable/ShapeDrawable$ShapeState;->mIntrinsicHeight:I
 
@@ -241,7 +241,7 @@
 
     float-to-int v6, v6
 
-    invoke-virtual {p0, v6}, Landroid/graphics/drawable/ShapeDrawable;->setIntrinsicHeight(I)V
+    iput v6, v3, Landroid/graphics/drawable/ShapeDrawable$ShapeState;->mIntrinsicHeight:I
 
     const/4 v6, 0x5
 
@@ -326,11 +326,7 @@
     iput-object v2, v1, Landroid/graphics/drawable/ShapeDrawable$ShapeState;->mTint:Landroid/content/res/ColorStateList;
 
     :cond_2
-    invoke-virtual {p1}, Landroid/content/res/Resources$Theme;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v2
-
-    invoke-direct {p0, v2}, Landroid/graphics/drawable/ShapeDrawable;->updateLocalState(Landroid/content/res/Resources;)V
+    invoke-direct {p0}, Landroid/graphics/drawable/ShapeDrawable;->updateLocalState()V
 
     return-void
 .end method
@@ -653,6 +649,32 @@
     return-object v0
 .end method
 
+.method public hasFocusStateSpecified()Z
+    .locals 1
+
+    iget-object v0, p0, Landroid/graphics/drawable/ShapeDrawable;->mShapeState:Landroid/graphics/drawable/ShapeDrawable$ShapeState;
+
+    iget-object v0, v0, Landroid/graphics/drawable/ShapeDrawable$ShapeState;->mTint:Landroid/content/res/ColorStateList;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Landroid/graphics/drawable/ShapeDrawable;->mShapeState:Landroid/graphics/drawable/ShapeDrawable$ShapeState;
+
+    iget-object v0, v0, Landroid/graphics/drawable/ShapeDrawable$ShapeState;->mTint:Landroid/content/res/ColorStateList;
+
+    invoke-virtual {v0}, Landroid/content/res/ColorStateList;->hasFocusStateSpecified()Z
+
+    move-result v0
+
+    :goto_0
+    return v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
 .method public inflate(Landroid/content/res/Resources;Lorg/xmlpull/v1/XmlPullParser;Landroid/util/AttributeSet;Landroid/content/res/Resources$Theme;)V
     .locals 7
     .annotation system Ldalvik/annotation/Throws;
@@ -748,7 +770,7 @@
     goto :goto_0
 
     :cond_2
-    invoke-direct {p0, p1}, Landroid/graphics/drawable/ShapeDrawable;->updateLocalState(Landroid/content/res/Resources;)V
+    invoke-direct {p0}, Landroid/graphics/drawable/ShapeDrawable;->updateLocalState()V
 
     return-void
 .end method
@@ -840,106 +862,34 @@
 .end method
 
 .method public mutate()Landroid/graphics/drawable/Drawable;
-    .locals 6
+    .locals 2
 
-    const/4 v5, 0x1
+    iget-boolean v0, p0, Landroid/graphics/drawable/ShapeDrawable;->mMutated:Z
 
-    const/4 v4, 0x0
-
-    iget-boolean v1, p0, Landroid/graphics/drawable/ShapeDrawable;->mMutated:Z
-
-    if-nez v1, :cond_0
+    if-nez v0, :cond_0
 
     invoke-super {p0}, Landroid/graphics/drawable/Drawable;->mutate()Landroid/graphics/drawable/Drawable;
 
-    move-result-object v1
+    move-result-object v0
 
-    if-ne v1, p0, :cond_0
+    if-ne v0, p0, :cond_0
 
-    iget-object v1, p0, Landroid/graphics/drawable/ShapeDrawable;->mShapeState:Landroid/graphics/drawable/ShapeDrawable$ShapeState;
-
-    iget-object v1, v1, Landroid/graphics/drawable/ShapeDrawable$ShapeState;->mPaint:Landroid/graphics/Paint;
-
-    if-eqz v1, :cond_1
+    new-instance v0, Landroid/graphics/drawable/ShapeDrawable$ShapeState;
 
     iget-object v1, p0, Landroid/graphics/drawable/ShapeDrawable;->mShapeState:Landroid/graphics/drawable/ShapeDrawable$ShapeState;
 
-    new-instance v2, Landroid/graphics/Paint;
+    invoke-direct {v0, v1}, Landroid/graphics/drawable/ShapeDrawable$ShapeState;-><init>(Landroid/graphics/drawable/ShapeDrawable$ShapeState;)V
 
-    iget-object v3, p0, Landroid/graphics/drawable/ShapeDrawable;->mShapeState:Landroid/graphics/drawable/ShapeDrawable$ShapeState;
+    iput-object v0, p0, Landroid/graphics/drawable/ShapeDrawable;->mShapeState:Landroid/graphics/drawable/ShapeDrawable$ShapeState;
 
-    iget-object v3, v3, Landroid/graphics/drawable/ShapeDrawable$ShapeState;->mPaint:Landroid/graphics/Paint;
+    invoke-direct {p0}, Landroid/graphics/drawable/ShapeDrawable;->updateLocalState()V
 
-    invoke-direct {v2, v3}, Landroid/graphics/Paint;-><init>(Landroid/graphics/Paint;)V
+    const/4 v0, 0x1
 
-    iput-object v2, v1, Landroid/graphics/drawable/ShapeDrawable$ShapeState;->mPaint:Landroid/graphics/Paint;
-
-    :goto_0
-    iget-object v1, p0, Landroid/graphics/drawable/ShapeDrawable;->mShapeState:Landroid/graphics/drawable/ShapeDrawable$ShapeState;
-
-    iget-object v1, v1, Landroid/graphics/drawable/ShapeDrawable$ShapeState;->mPadding:Landroid/graphics/Rect;
-
-    if-eqz v1, :cond_2
-
-    iget-object v1, p0, Landroid/graphics/drawable/ShapeDrawable;->mShapeState:Landroid/graphics/drawable/ShapeDrawable$ShapeState;
-
-    new-instance v2, Landroid/graphics/Rect;
-
-    iget-object v3, p0, Landroid/graphics/drawable/ShapeDrawable;->mShapeState:Landroid/graphics/drawable/ShapeDrawable$ShapeState;
-
-    iget-object v3, v3, Landroid/graphics/drawable/ShapeDrawable$ShapeState;->mPadding:Landroid/graphics/Rect;
-
-    invoke-direct {v2, v3}, Landroid/graphics/Rect;-><init>(Landroid/graphics/Rect;)V
-
-    iput-object v2, v1, Landroid/graphics/drawable/ShapeDrawable$ShapeState;->mPadding:Landroid/graphics/Rect;
-
-    :goto_1
-    :try_start_0
-    iget-object v1, p0, Landroid/graphics/drawable/ShapeDrawable;->mShapeState:Landroid/graphics/drawable/ShapeDrawable$ShapeState;
-
-    iget-object v2, p0, Landroid/graphics/drawable/ShapeDrawable;->mShapeState:Landroid/graphics/drawable/ShapeDrawable$ShapeState;
-
-    iget-object v2, v2, Landroid/graphics/drawable/ShapeDrawable$ShapeState;->mShape:Landroid/graphics/drawable/shapes/Shape;
-
-    invoke-virtual {v2}, Landroid/graphics/drawable/shapes/Shape;->clone()Landroid/graphics/drawable/shapes/Shape;
-
-    move-result-object v2
-
-    iput-object v2, v1, Landroid/graphics/drawable/ShapeDrawable$ShapeState;->mShape:Landroid/graphics/drawable/shapes/Shape;
-    :try_end_0
-    .catch Ljava/lang/CloneNotSupportedException; {:try_start_0 .. :try_end_0} :catch_0
-
-    iput-boolean v5, p0, Landroid/graphics/drawable/ShapeDrawable;->mMutated:Z
+    iput-boolean v0, p0, Landroid/graphics/drawable/ShapeDrawable;->mMutated:Z
 
     :cond_0
     return-object p0
-
-    :cond_1
-    iget-object v1, p0, Landroid/graphics/drawable/ShapeDrawable;->mShapeState:Landroid/graphics/drawable/ShapeDrawable$ShapeState;
-
-    new-instance v2, Landroid/graphics/Paint;
-
-    invoke-direct {v2, v5}, Landroid/graphics/Paint;-><init>(I)V
-
-    iput-object v2, v1, Landroid/graphics/drawable/ShapeDrawable$ShapeState;->mPaint:Landroid/graphics/Paint;
-
-    goto :goto_0
-
-    :cond_2
-    iget-object v1, p0, Landroid/graphics/drawable/ShapeDrawable;->mShapeState:Landroid/graphics/drawable/ShapeDrawable$ShapeState;
-
-    new-instance v2, Landroid/graphics/Rect;
-
-    invoke-direct {v2}, Landroid/graphics/Rect;-><init>()V
-
-    iput-object v2, v1, Landroid/graphics/drawable/ShapeDrawable$ShapeState;->mPadding:Landroid/graphics/Rect;
-
-    goto :goto_1
-
-    :catch_0
-    move-exception v0
-
-    return-object v4
 .end method
 
 .method protected onBoundsChange(Landroid/graphics/Rect;)V
@@ -1211,6 +1161,20 @@
     move-result-object v0
 
     iput-object v0, p0, Landroid/graphics/drawable/ShapeDrawable;->mTintFilter:Landroid/graphics/PorterDuffColorFilter;
+
+    invoke-virtual {p0}, Landroid/graphics/drawable/ShapeDrawable;->invalidateSelf()V
+
+    return-void
+.end method
+
+.method public setXfermode(Landroid/graphics/Xfermode;)V
+    .locals 1
+
+    iget-object v0, p0, Landroid/graphics/drawable/ShapeDrawable;->mShapeState:Landroid/graphics/drawable/ShapeDrawable$ShapeState;
+
+    iget-object v0, v0, Landroid/graphics/drawable/ShapeDrawable$ShapeState;->mPaint:Landroid/graphics/Paint;
+
+    invoke-virtual {v0, p1}, Landroid/graphics/Paint;->setXfermode(Landroid/graphics/Xfermode;)Landroid/graphics/Xfermode;
 
     invoke-virtual {p0}, Landroid/graphics/drawable/ShapeDrawable;->invalidateSelf()V
 

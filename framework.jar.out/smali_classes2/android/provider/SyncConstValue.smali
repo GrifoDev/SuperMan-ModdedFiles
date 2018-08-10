@@ -3,6 +3,11 @@
 .source "SyncConstValue.java"
 
 
+# annotations
+.annotation runtime Ljava/lang/Deprecated;
+.end annotation
+
+
 # static fields
 .field public static final NON_SYNCABLE_ACCOUNT:Ljava/lang/String; = "non_syncable"
 

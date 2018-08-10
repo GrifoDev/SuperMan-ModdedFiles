@@ -215,15 +215,20 @@
 
     move-result v3
 
-    if-nez v3, :cond_2
+    if-nez v3, :cond_0
 
+    if-nez p1, :cond_1
+
+    invoke-virtual {p0}, Landroid/transition/Scene;->enter()V
+
+    :cond_0
+    :goto_0
+    return-void
+
+    :cond_1
     sget-object v3, Landroid/transition/TransitionManager;->sPendingTransitions:Ljava/util/ArrayList;
 
     invoke-virtual {v3, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    const/4 v2, 0x0
-
-    if-eqz p1, :cond_0
 
     invoke-virtual {p1}, Landroid/transition/Transition;->clone()Landroid/transition/Transition;
 
@@ -231,34 +236,30 @@
 
     invoke-virtual {v2, v1}, Landroid/transition/Transition;->setSceneRoot(Landroid/view/ViewGroup;)Landroid/transition/Transition;
 
-    :cond_0
     invoke-static {v1}, Landroid/transition/Scene;->getCurrentScene(Landroid/view/View;)Landroid/transition/Scene;
 
     move-result-object v0
 
-    if-eqz v0, :cond_1
-
-    if-eqz v2, :cond_1
+    if-eqz v0, :cond_2
 
     invoke-virtual {v0}, Landroid/transition/Scene;->isCreatedFromLayoutResource()Z
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_2
 
     const/4 v3, 0x1
 
     invoke-virtual {v2, v3}, Landroid/transition/Transition;->setCanRemoveViews(Z)V
 
-    :cond_1
+    :cond_2
     invoke-static {v1, v2}, Landroid/transition/TransitionManager;->sceneChangeSetup(Landroid/view/ViewGroup;Landroid/transition/Transition;)V
 
     invoke-virtual {p0}, Landroid/transition/Scene;->enter()V
 
     invoke-static {v1, v2}, Landroid/transition/TransitionManager;->sceneChangeRunTransition(Landroid/view/ViewGroup;Landroid/transition/Transition;)V
 
-    :cond_2
-    return-void
+    goto :goto_0
 .end method
 
 .method public static endTransitions(Landroid/view/ViewGroup;)V
@@ -286,12 +287,10 @@
 
     move-result v5
 
-    if-eqz v5, :cond_1
+    xor-int/lit8 v5, v5, 0x1
 
-    :cond_0
-    return-void
+    if-eqz v5, :cond_0
 
-    :cond_1
     new-instance v1, Ljava/util/ArrayList;
 
     invoke-direct {v1, v3}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
@@ -311,11 +310,14 @@
 
     check-cast v4, Landroid/transition/Transition;
 
-    invoke-virtual {v4}, Landroid/transition/Transition;->end()V
+    invoke-virtual {v4, p0}, Landroid/transition/Transition;->forceToEnd(Landroid/view/ViewGroup;)V
 
     add-int/lit8 v2, v2, -0x1
 
     goto :goto_0
+
+    :cond_0
+    return-void
 .end method
 
 .method public static getDefaultTransition()Landroid/transition/Transition;
@@ -378,63 +380,6 @@
     check-cast v2, Landroid/util/ArrayMap;
 
     return-object v2
-.end method
-
-.method private getTransition(Landroid/transition/Scene;)Landroid/transition/Transition;
-    .locals 5
-
-    const/4 v3, 0x0
-
-    invoke-virtual {p1}, Landroid/transition/Scene;->getSceneRoot()Landroid/view/ViewGroup;
-
-    move-result-object v1
-
-    if-eqz v1, :cond_0
-
-    invoke-static {v1}, Landroid/transition/Scene;->getCurrentScene(Landroid/view/View;)Landroid/transition/Scene;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_0
-
-    iget-object v4, p0, Landroid/transition/TransitionManager;->mScenePairTransitions:Landroid/util/ArrayMap;
-
-    invoke-virtual {v4, p1}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Landroid/util/ArrayMap;
-
-    if-eqz v2, :cond_0
-
-    invoke-virtual {v2, v0}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v3
-
-    check-cast v3, Landroid/transition/Transition;
-
-    if-eqz v3, :cond_0
-
-    return-object v3
-
-    :cond_0
-    iget-object v4, p0, Landroid/transition/TransitionManager;->mSceneTransitions:Landroid/util/ArrayMap;
-
-    invoke-virtual {v4, p1}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v3
-
-    check-cast v3, Landroid/transition/Transition;
-
-    if-eqz v3, :cond_1
-
-    :goto_0
-    return-object v3
-
-    :cond_1
-    sget-object v3, Landroid/transition/TransitionManager;->sDefaultTransition:Landroid/transition/Transition;
-
-    goto :goto_0
 .end method
 
 .method public static go(Landroid/transition/Scene;)V
@@ -542,6 +487,63 @@
 
 
 # virtual methods
+.method public getTransition(Landroid/transition/Scene;)Landroid/transition/Transition;
+    .locals 5
+
+    const/4 v3, 0x0
+
+    invoke-virtual {p1}, Landroid/transition/Scene;->getSceneRoot()Landroid/view/ViewGroup;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_0
+
+    invoke-static {v1}, Landroid/transition/Scene;->getCurrentScene(Landroid/view/View;)Landroid/transition/Scene;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    iget-object v4, p0, Landroid/transition/TransitionManager;->mScenePairTransitions:Landroid/util/ArrayMap;
+
+    invoke-virtual {v4, p1}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Landroid/util/ArrayMap;
+
+    if-eqz v2, :cond_0
+
+    invoke-virtual {v2, v0}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Landroid/transition/Transition;
+
+    if-eqz v3, :cond_0
+
+    return-object v3
+
+    :cond_0
+    iget-object v4, p0, Landroid/transition/TransitionManager;->mSceneTransitions:Landroid/util/ArrayMap;
+
+    invoke-virtual {v4, p1}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Landroid/transition/Transition;
+
+    if-eqz v3, :cond_1
+
+    :goto_0
+    return-object v3
+
+    :cond_1
+    sget-object v3, Landroid/transition/TransitionManager;->sDefaultTransition:Landroid/transition/Transition;
+
+    goto :goto_0
+.end method
+
 .method public setDefaultTransition(Landroid/transition/Transition;)V
     .locals 0
 
@@ -590,7 +592,7 @@
 .method public transitionTo(Landroid/transition/Scene;)V
     .locals 1
 
-    invoke-direct {p0, p1}, Landroid/transition/TransitionManager;->getTransition(Landroid/transition/Scene;)Landroid/transition/Transition;
+    invoke-virtual {p0, p1}, Landroid/transition/TransitionManager;->getTransition(Landroid/transition/Scene;)Landroid/transition/Transition;
 
     move-result-object v0
 

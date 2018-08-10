@@ -19,6 +19,8 @@
 
 .field private final mHandler:Landroid/os/Handler;
 
+.field private final mHasBatchedOutputs:Z
+
 .field private final mRepeating:Z
 
 .field private final mRequestList:Ljava/util/List;
@@ -37,7 +39,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/hardware/camera2/impl/CameraDeviceImpl$CaptureCallback;Ljava/util/List;Landroid/os/Handler;ZI)V
-    .locals 2
+    .locals 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -58,30 +60,83 @@
     if-nez p3, :cond_1
 
     :cond_0
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance v4, Ljava/lang/UnsupportedOperationException;
 
-    const-string/jumbo v1, "Must have a valid handler and a valid callback"
+    const-string/jumbo v5, "Must have a valid handler and a valid callback"
 
-    invoke-direct {v0, v1}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v4, v5}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw v4
 
     :cond_1
     iput-boolean p4, p0, Landroid/hardware/camera2/impl/CameraDeviceImpl$CaptureCallbackHolder;->mRepeating:Z
 
     iput-object p3, p0, Landroid/hardware/camera2/impl/CameraDeviceImpl$CaptureCallbackHolder;->mHandler:Landroid/os/Handler;
 
-    new-instance v0, Ljava/util/ArrayList;
+    new-instance v4, Ljava/util/ArrayList;
 
-    invoke-direct {v0, p2}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
+    invoke-direct {v4, p2}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
 
-    iput-object v0, p0, Landroid/hardware/camera2/impl/CameraDeviceImpl$CaptureCallbackHolder;->mRequestList:Ljava/util/List;
+    iput-object v4, p0, Landroid/hardware/camera2/impl/CameraDeviceImpl$CaptureCallbackHolder;->mRequestList:Ljava/util/List;
 
     iput-object p1, p0, Landroid/hardware/camera2/impl/CameraDeviceImpl$CaptureCallbackHolder;->mCallback:Landroid/hardware/camera2/impl/CameraDeviceImpl$CaptureCallback;
 
     iput p5, p0, Landroid/hardware/camera2/impl/CameraDeviceImpl$CaptureCallbackHolder;->mSessionId:I
 
+    const/4 v0, 0x1
+
+    const/4 v1, 0x0
+
+    :goto_0
+    invoke-interface {p2}, Ljava/util/List;->size()I
+
+    move-result v4
+
+    if-ge v1, v4, :cond_2
+
+    invoke-interface {p2, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Landroid/hardware/camera2/CaptureRequest;
+
+    invoke-virtual {v2}, Landroid/hardware/camera2/CaptureRequest;->isPartOfCRequestList()Z
+
+    move-result v4
+
+    if-nez v4, :cond_3
+
+    const/4 v0, 0x0
+
+    :cond_2
+    :goto_1
+    iput-boolean v0, p0, Landroid/hardware/camera2/impl/CameraDeviceImpl$CaptureCallbackHolder;->mHasBatchedOutputs:Z
+
     return-void
+
+    :cond_3
+    if-nez v1, :cond_4
+
+    invoke-virtual {v2}, Landroid/hardware/camera2/CaptureRequest;->getTargets()Ljava/util/Collection;
+
+    move-result-object v3
+
+    invoke-interface {v3}, Ljava/util/Collection;->size()I
+
+    move-result v4
+
+    const/4 v5, 0x2
+
+    if-eq v4, v5, :cond_4
+
+    const/4 v0, 0x0
+
+    goto :goto_1
+
+    :cond_4
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_0
 .end method
 
 
@@ -198,10 +253,30 @@
     return-object v0
 .end method
 
+.method public getRequestCount()I
+    .locals 1
+
+    iget-object v0, p0, Landroid/hardware/camera2/impl/CameraDeviceImpl$CaptureCallbackHolder;->mRequestList:Ljava/util/List;
+
+    invoke-interface {v0}, Ljava/util/List;->size()I
+
+    move-result v0
+
+    return v0
+.end method
+
 .method public getSessionId()I
     .locals 1
 
     iget v0, p0, Landroid/hardware/camera2/impl/CameraDeviceImpl$CaptureCallbackHolder;->mSessionId:I
+
+    return v0
+.end method
+
+.method public hasBatchedOutputs()Z
+    .locals 1
+
+    iget-boolean v0, p0, Landroid/hardware/camera2/impl/CameraDeviceImpl$CaptureCallbackHolder;->mHasBatchedOutputs:Z
 
     return v0
 .end method

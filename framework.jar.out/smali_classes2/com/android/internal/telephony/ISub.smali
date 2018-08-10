@@ -191,7 +191,7 @@
     .end annotation
 .end method
 
-.method public abstract getSimStateForSlotIdx(I)I
+.method public abstract getSimStateForSlotIndex(I)I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -199,7 +199,7 @@
     .end annotation
 .end method
 
-.method public abstract getSlotId(I)I
+.method public abstract getSlotIndex(I)I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -208,14 +208,6 @@
 .end method
 
 .method public abstract getSubId(I)[I
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract getSubState(I)I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -248,14 +240,6 @@
 .end method
 
 .method public abstract setDefaultDataSubId(I)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract setDefaultDataSubIdForMMS(I)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -304,22 +288,6 @@
 .end method
 
 .method public abstract setIconTint(II)I
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract setSimProvisioningStatus(II)I
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract setSubState(II)I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

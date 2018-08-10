@@ -27,6 +27,8 @@
 
 .field mNumWrittenWindows:I
 
+.field final mSanitizeOnWrite:Z
+
 .field final mTmpMatrix:[F
 
 .field final mViewStack:Ljava/util/ArrayList;
@@ -45,9 +47,9 @@
 
 # direct methods
 .method constructor <init>(Landroid/app/assist/AssistStructure;Landroid/os/Parcel;)V
-    .locals 2
+    .locals 3
 
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
     invoke-direct {p0}, Landroid/os/Binder;-><init>()V
 
@@ -63,6 +65,10 @@
 
     iput-object v0, p0, Landroid/app/assist/AssistStructure$ParcelTransferWriter;->mTmpMatrix:[F
 
+    iget-boolean v0, p1, Landroid/app/assist/AssistStructure;->mSanitizeOnWrite:Z
+
+    iput-boolean v0, p0, Landroid/app/assist/AssistStructure$ParcelTransferWriter;->mSanitizeOnWrite:Z
+
     invoke-virtual {p1}, Landroid/app/assist/AssistStructure;->waitForReady()Z
 
     move-result v0
@@ -72,6 +78,24 @@
     iget-object v0, p1, Landroid/app/assist/AssistStructure;->mActivityComponent:Landroid/content/ComponentName;
 
     invoke-static {v0, p2}, Landroid/content/ComponentName;->writeToParcel(Landroid/content/ComponentName;Landroid/os/Parcel;)V
+
+    invoke-static {p1}, Landroid/app/assist/AssistStructure;->-get2(Landroid/app/assist/AssistStructure;)I
+
+    move-result v0
+
+    invoke-virtual {p2, v0}, Landroid/os/Parcel;->writeInt(I)V
+
+    invoke-static {p1}, Landroid/app/assist/AssistStructure;->-get1(Landroid/app/assist/AssistStructure;)J
+
+    move-result-wide v0
+
+    invoke-virtual {p2, v0, v1}, Landroid/os/Parcel;->writeLong(J)V
+
+    invoke-static {p1}, Landroid/app/assist/AssistStructure;->-get0(Landroid/app/assist/AssistStructure;)J
+
+    move-result-wide v0
+
+    invoke-virtual {p2, v0, v1}, Landroid/os/Parcel;->writeLong(J)V
 
     iget-object v0, p1, Landroid/app/assist/AssistStructure;->mWindowNodes:Ljava/util/ArrayList;
 
@@ -97,7 +121,7 @@
     return-void
 
     :cond_0
-    invoke-virtual {p2, v1}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p2, v2}, Landroid/os/Parcel;->writeInt(I)V
 
     goto :goto_0
 .end method
@@ -431,15 +455,17 @@
 .end method
 
 .method writeView(Landroid/app/assist/AssistStructure$ViewNode;Landroid/os/Parcel;Landroid/os/PooledStringWriter;I)V
-    .locals 3
+    .locals 4
 
     const v2, 0x22222222
 
     invoke-virtual {p2, v2}, Landroid/os/Parcel;->writeInt(I)V
 
-    iget-object v2, p0, Landroid/app/assist/AssistStructure$ParcelTransferWriter;->mTmpMatrix:[F
+    iget-boolean v2, p0, Landroid/app/assist/AssistStructure$ParcelTransferWriter;->mSanitizeOnWrite:Z
 
-    invoke-virtual {p1, p2, p3, v2}, Landroid/app/assist/AssistStructure$ViewNode;->writeSelfToParcel(Landroid/os/Parcel;Landroid/os/PooledStringWriter;[F)I
+    iget-object v3, p0, Landroid/app/assist/AssistStructure$ParcelTransferWriter;->mTmpMatrix:[F
+
+    invoke-virtual {p1, p2, p3, v2, v3}, Landroid/app/assist/AssistStructure$ViewNode;->writeSelfToParcel(Landroid/os/Parcel;Landroid/os/PooledStringWriter;Z[F)I
 
     move-result v0
 

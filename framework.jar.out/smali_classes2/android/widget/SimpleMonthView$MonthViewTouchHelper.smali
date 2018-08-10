@@ -54,7 +54,7 @@
 
     iget-object v0, p0, Landroid/widget/SimpleMonthView$MonthViewTouchHelper;->this$0:Landroid/widget/SimpleMonthView;
 
-    invoke-static {v0, p1}, Landroid/widget/SimpleMonthView;->-wrap2(Landroid/widget/SimpleMonthView;I)Z
+    invoke-static {v0, p1}, Landroid/widget/SimpleMonthView;->-wrap1(Landroid/widget/SimpleMonthView;I)Z
 
     move-result v0
 
@@ -101,7 +101,7 @@
 
     iget-object v0, p0, Landroid/widget/SimpleMonthView$MonthViewTouchHelper;->this$0:Landroid/widget/SimpleMonthView;
 
-    invoke-static {v0, p1}, Landroid/widget/SimpleMonthView;->-wrap2(Landroid/widget/SimpleMonthView;I)Z
+    invoke-static {v0, p1}, Landroid/widget/SimpleMonthView;->-wrap1(Landroid/widget/SimpleMonthView;I)Z
 
     move-result v0
 
@@ -144,7 +144,7 @@
 
     float-to-int v3, v3
 
-    invoke-static {v1, v2, v3}, Landroid/widget/SimpleMonthView;->-wrap4(Landroid/widget/SimpleMonthView;II)I
+    invoke-static {v1, v2, v3}, Landroid/widget/SimpleMonthView;->-wrap3(Landroid/widget/SimpleMonthView;II)I
 
     move-result v0
 
@@ -196,7 +196,7 @@
     :pswitch_0
     iget-object v0, p0, Landroid/widget/SimpleMonthView$MonthViewTouchHelper;->this$0:Landroid/widget/SimpleMonthView;
 
-    invoke-static {v0, p1}, Landroid/widget/SimpleMonthView;->-wrap3(Landroid/widget/SimpleMonthView;I)Z
+    invoke-static {v0, p1}, Landroid/widget/SimpleMonthView;->-wrap2(Landroid/widget/SimpleMonthView;I)Z
 
     move-result v0
 
@@ -215,7 +215,7 @@
 
     move-result-object v0
 
-    invoke-virtual {p2, v0}, Landroid/view/accessibility/AccessibilityRecord;->setContentDescription(Ljava/lang/CharSequence;)V
+    invoke-virtual {p2, v0}, Landroid/view/accessibility/AccessibilityEvent;->setContentDescription(Ljava/lang/CharSequence;)V
 
     return-void
 .end method
@@ -227,7 +227,7 @@
 
     iget-object v3, p0, Landroid/widget/SimpleMonthView$MonthViewTouchHelper;->mTempRect:Landroid/graphics/Rect;
 
-    invoke-static {v2, p1, v3}, Landroid/widget/SimpleMonthView;->-wrap0(Landroid/widget/SimpleMonthView;ILandroid/graphics/Rect;)Z
+    invoke-virtual {v2, p1, v3}, Landroid/widget/SimpleMonthView;->getBoundsForDay(ILandroid/graphics/Rect;)Z
 
     move-result v0
 
@@ -270,7 +270,7 @@
 
     iget-object v2, p0, Landroid/widget/SimpleMonthView$MonthViewTouchHelper;->this$0:Landroid/widget/SimpleMonthView;
 
-    invoke-static {v2, p1}, Landroid/widget/SimpleMonthView;->-wrap1(Landroid/widget/SimpleMonthView;I)Z
+    invoke-static {v2, p1}, Landroid/widget/SimpleMonthView;->-wrap0(Landroid/widget/SimpleMonthView;I)Z
 
     move-result v1
 

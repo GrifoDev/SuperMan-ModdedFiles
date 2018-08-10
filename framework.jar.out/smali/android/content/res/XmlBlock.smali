@@ -354,54 +354,86 @@
 .end method
 
 .method private static final native nativeGetAttributeCount(J)I
+    .annotation build Ldalvik/annotation/optimization/FastNative;
+    .end annotation
 .end method
 
 .method private static final native nativeGetAttributeData(JI)I
+    .annotation build Ldalvik/annotation/optimization/FastNative;
+    .end annotation
 .end method
 
 .method private static final native nativeGetAttributeDataType(JI)I
+    .annotation build Ldalvik/annotation/optimization/FastNative;
+    .end annotation
 .end method
 
 .method private static final native nativeGetAttributeIndex(JLjava/lang/String;Ljava/lang/String;)I
+    .annotation build Ldalvik/annotation/optimization/FastNative;
+    .end annotation
 .end method
 
 .method private static final native nativeGetAttributeName(JI)I
+    .annotation build Ldalvik/annotation/optimization/FastNative;
+    .end annotation
 .end method
 
 .method private static final native nativeGetAttributeNamespace(JI)I
+    .annotation build Ldalvik/annotation/optimization/FastNative;
+    .end annotation
 .end method
 
 .method private static final native nativeGetAttributeResource(JI)I
+    .annotation build Ldalvik/annotation/optimization/FastNative;
+    .end annotation
 .end method
 
 .method private static final native nativeGetAttributeStringValue(JI)I
+    .annotation build Ldalvik/annotation/optimization/FastNative;
+    .end annotation
 .end method
 
 .method private static final native nativeGetClassAttribute(J)I
+    .annotation build Ldalvik/annotation/optimization/FastNative;
+    .end annotation
 .end method
 
 .method private static final native nativeGetIdAttribute(J)I
+    .annotation build Ldalvik/annotation/optimization/FastNative;
+    .end annotation
 .end method
 
 .method private static final native nativeGetLineNumber(J)I
+    .annotation build Ldalvik/annotation/optimization/FastNative;
+    .end annotation
 .end method
 
 .method static final native nativeGetName(J)I
+    .annotation build Ldalvik/annotation/optimization/FastNative;
+    .end annotation
 .end method
 
 .method private static final native nativeGetNamespace(J)I
+    .annotation build Ldalvik/annotation/optimization/FastNative;
+    .end annotation
 .end method
 
 .method private static final native nativeGetStringBlock(J)J
 .end method
 
 .method private static final native nativeGetStyleAttribute(J)I
+    .annotation build Ldalvik/annotation/optimization/FastNative;
+    .end annotation
 .end method
 
 .method private static final native nativeGetText(J)I
+    .annotation build Ldalvik/annotation/optimization/FastNative;
+    .end annotation
 .end method
 
 .method static final native nativeNext(J)I
+    .annotation build Ldalvik/annotation/optimization/FastNative;
+    .end annotation
 .end method
 
 

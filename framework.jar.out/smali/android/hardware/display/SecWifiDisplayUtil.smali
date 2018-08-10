@@ -4,19 +4,15 @@
 
 
 # static fields
-.field private static final synthetic -android-hardware-display-DisplayManager$SemWifiDisplayAppStateSwitchesValues:[I
+.field private static final synthetic -android-hardware-display-DisplayManager$SemWifiDisplayAppStateSwitchesValues:[I = null
 
+.field private static final GP_PACKAGE_NAME:Ljava/lang/String; = "com.samsung.groupcast"
 
-# instance fields
-.field private final GP_PACKAGE_NAME:Ljava/lang/String;
+.field private static final GP_RUNNING_STATE_CHECK_FILE:Ljava/lang/String; = ".gp_running_check"
 
-.field private final GP_RUNNING_STATE_CHECK_FILE:Ljava/lang/String;
+.field private static final TAG:Ljava/lang/String; = "SecWifiDisplayUtil"
 
-.field private final TAG:Ljava/lang/String;
-
-.field private mContext:Landroid/content/Context;
-
-.field private mScanInProgress:Z
+.field private static mScanInProgress:Z
 
 
 # direct methods
@@ -43,7 +39,7 @@
     :try_start_0
     sget-object v1, Landroid/hardware/display/DisplayManager$SemWifiDisplayAppState;->PAUSE:Landroid/hardware/display/DisplayManager$SemWifiDisplayAppState;
 
-    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
+    invoke-virtual {v1}, Landroid/hardware/display/DisplayManager$SemWifiDisplayAppState;->ordinal()I
 
     move-result v1
 
@@ -57,7 +53,7 @@
     :try_start_1
     sget-object v1, Landroid/hardware/display/DisplayManager$SemWifiDisplayAppState;->RESUME:Landroid/hardware/display/DisplayManager$SemWifiDisplayAppState;
 
-    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
+    invoke-virtual {v1}, Landroid/hardware/display/DisplayManager$SemWifiDisplayAppState;->ordinal()I
 
     move-result v1
 
@@ -71,7 +67,7 @@
     :try_start_2
     sget-object v1, Landroid/hardware/display/DisplayManager$SemWifiDisplayAppState;->SETUP:Landroid/hardware/display/DisplayManager$SemWifiDisplayAppState;
 
-    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
+    invoke-virtual {v1}, Landroid/hardware/display/DisplayManager$SemWifiDisplayAppState;->ordinal()I
 
     move-result v1
 
@@ -85,7 +81,7 @@
     :try_start_3
     sget-object v1, Landroid/hardware/display/DisplayManager$SemWifiDisplayAppState;->TEARDOWN:Landroid/hardware/display/DisplayManager$SemWifiDisplayAppState;
 
-    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
+    invoke-virtual {v1}, Landroid/hardware/display/DisplayManager$SemWifiDisplayAppState;->ordinal()I
 
     move-result v1
 
@@ -121,29 +117,190 @@
     goto :goto_0
 .end method
 
-.method public constructor <init>(Landroid/content/Context;)V
-    .locals 1
+.method public constructor <init>()V
+    .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    const-string/jumbo v0, "SecWifiDisplayUtil"
-
-    iput-object v0, p0, Landroid/hardware/display/SecWifiDisplayUtil;->TAG:Ljava/lang/String;
-
-    const-string/jumbo v0, "com.samsung.groupcast"
-
-    iput-object v0, p0, Landroid/hardware/display/SecWifiDisplayUtil;->GP_PACKAGE_NAME:Ljava/lang/String;
-
-    const-string/jumbo v0, ".gp_running_check"
-
-    iput-object v0, p0, Landroid/hardware/display/SecWifiDisplayUtil;->GP_RUNNING_STATE_CHECK_FILE:Ljava/lang/String;
-
-    iput-object p1, p0, Landroid/hardware/display/SecWifiDisplayUtil;->mContext:Landroid/content/Context;
 
     return-void
 .end method
 
-.method private getCPUPowerSavingMode()I
+.method public static checkExceptionalCase(Landroid/content/Context;)I
+    .locals 5
+
+    const/4 v3, 0x1
+
+    const/4 v1, 0x0
+
+    :try_start_0
+    invoke-static {p0}, Landroid/hardware/display/SecWifiDisplayUtil;->isGroupPlayRunning(Landroid/content/Context;)Z
+    :try_end_0
+    .catch Ljava/lang/NullPointerException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    const/4 v1, 0x7
+
+    :goto_0
+    const-string/jumbo v2, "SecWifiDisplayUtil"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "checkExceptionalCase ret value : "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    return v1
+
+    :cond_0
+    :try_start_1
+    invoke-static {p0}, Landroid/hardware/display/SecWifiDisplayUtil;->isHotspotOn(Landroid/content/Context;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    const/4 v1, 0x1
+
+    goto :goto_0
+
+    :cond_1
+    invoke-static {p0}, Landroid/hardware/display/SecWifiDisplayUtil;->isWfdConnected(Landroid/content/Context;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_2
+
+    const/16 v1, 0xa
+
+    goto :goto_0
+
+    :cond_2
+    invoke-static {p0}, Landroid/hardware/display/SecWifiDisplayUtil;->isP2pConnected(Landroid/content/Context;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_3
+
+    const/4 v1, 0x2
+
+    goto :goto_0
+
+    :cond_3
+    invoke-static {p0}, Landroid/hardware/display/SecWifiDisplayUtil;->isHDMIConnected(Landroid/content/Context;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_4
+
+    const/4 v1, 0x3
+
+    goto :goto_0
+
+    :cond_4
+    invoke-static {p0}, Landroid/hardware/display/SecWifiDisplayUtil;->isSideSyncConnected(Landroid/content/Context;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_5
+
+    invoke-static {p0}, Landroid/hardware/display/SecWifiDisplayUtil;->isSideSyncAppRunning(Landroid/content/Context;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_6
+
+    :cond_5
+    const/4 v1, 0x4
+
+    goto :goto_0
+
+    :cond_6
+    invoke-static {}, Landroid/hardware/display/SecWifiDisplayUtil;->getCPUPowerSavingMode()I
+
+    move-result v2
+
+    if-ne v2, v3, :cond_8
+
+    invoke-static {p0}, Landroid/hardware/display/SecWifiDisplayUtil;->getPowerSavingMode(Landroid/content/Context;)I
+
+    move-result v2
+
+    if-ne v2, v3, :cond_8
+
+    :cond_7
+    const/4 v1, 0x5
+
+    goto :goto_0
+
+    :cond_8
+    invoke-static {p0}, Landroid/hardware/display/SecWifiDisplayUtil;->getPowerSavingMode(Landroid/content/Context;)I
+
+    move-result v2
+
+    if-eq v2, v3, :cond_7
+
+    invoke-static {p0}, Landroid/hardware/display/SecWifiDisplayUtil;->isWifiIbssEnabled(Landroid/content/Context;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_9
+
+    const/16 v1, 0x8
+
+    goto :goto_0
+
+    :cond_9
+    invoke-static {}, Landroid/hardware/display/SecWifiDisplayUtil;->isLiveBroadcastRunning()Z
+    :try_end_1
+    .catch Ljava/lang/NullPointerException; {:try_start_1 .. :try_end_1} :catch_0
+
+    move-result v2
+
+    if-eqz v2, :cond_a
+
+    const/16 v1, 0x9
+
+    goto :goto_0
+
+    :cond_a
+    const/4 v1, 0x0
+
+    goto :goto_0
+
+    :catch_0
+    move-exception v0
+
+    const-string/jumbo v2, "SecWifiDisplayUtil"
+
+    const-string/jumbo v3, "exception occured while using isScreenMirroringAvailable"
+
+    invoke-static {v2, v3}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-virtual {v0}, Ljava/lang/NullPointerException;->printStackTrace()V
+
+    const/4 v2, 0x0
+
+    return v2
+.end method
+
+.method private static getCPUPowerSavingMode()I
     .locals 1
 
     const/4 v0, 0x0
@@ -151,12 +308,10 @@
     return v0
 .end method
 
-.method private getPowerSavingMode()I
+.method private static getPowerSavingMode(Landroid/content/Context;)I
     .locals 4
 
-    iget-object v1, p0, Landroid/hardware/display/SecWifiDisplayUtil;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v1
 
@@ -193,7 +348,183 @@
     return v0
 .end method
 
-.method private isHDMIConnected()Z
+.method public static isAuSLServiceRunning(Landroid/content/Context;)Z
+    .locals 6
+
+    const-string/jumbo v4, "activity"
+
+    invoke-virtual {p0, v4}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/app/ActivityManager;
+
+    const v4, 0x7fffffff
+
+    invoke-virtual {v1, v4}, Landroid/app/ActivityManager;->getRunningServices(I)Ljava/util/List;
+
+    move-result-object v0
+
+    const/4 v3, 0x0
+
+    :goto_0
+    invoke-interface {v0}, Ljava/util/List;->size()I
+
+    move-result v4
+
+    if-ge v3, v4, :cond_1
+
+    invoke-interface {v0, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v4
+
+    check-cast v4, Landroid/app/ActivityManager$RunningServiceInfo;
+
+    iget-object v4, v4, Landroid/app/ActivityManager$RunningServiceInfo;->service:Landroid/content/ComponentName;
+
+    invoke-virtual {v4}, Landroid/content/ComponentName;->getClassName()Ljava/lang/String;
+
+    move-result-object v2
+
+    const-string/jumbo v4, "com.sec.kddi.ausharelink.service"
+
+    invoke-virtual {v2, v4}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_0
+
+    const-string/jumbo v4, "SecWifiDisplayUtil"
+
+    const-string/jumbo v5, "isAuSLServiceRunning"
+
+    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 v4, 0x1
+
+    return v4
+
+    :cond_0
+    add-int/lit8 v3, v3, 0x1
+
+    goto :goto_0
+
+    :cond_1
+    const/4 v4, 0x0
+
+    return v4
+.end method
+
+.method public static isGroupPlayRunning(Landroid/content/Context;)Z
+    .locals 12
+
+    const/4 v11, 0x0
+
+    const-string/jumbo v9, "activity"
+
+    invoke-virtual {p0, v9}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/app/ActivityManager;
+
+    const v9, 0x7fffffff
+
+    invoke-virtual {v0, v9}, Landroid/app/ActivityManager;->getRunningTasks(I)Ljava/util/List;
+
+    move-result-object v8
+
+    invoke-interface {v8}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+
+    move-result-object v5
+
+    :cond_0
+    invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v9
+
+    if-eqz v9, :cond_1
+
+    invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v7
+
+    check-cast v7, Landroid/app/ActivityManager$RunningTaskInfo;
+
+    iget-object v9, v7, Landroid/app/ActivityManager$RunningTaskInfo;->baseActivity:Landroid/content/ComponentName;
+
+    invoke-virtual {v9}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
+
+    move-result-object v9
+
+    const-string/jumbo v10, "com.samsung.groupcast"
+
+    invoke-virtual {v9, v10}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v9
+
+    if-eqz v9, :cond_0
+
+    :try_start_0
+    const-string/jumbo v9, "com.samsung.groupcast"
+
+    const/4 v10, 0x2
+
+    invoke-virtual {p0, v9, v10}, Landroid/content/Context;->createPackageContext(Ljava/lang/String;I)Landroid/content/Context;
+
+    move-result-object v3
+
+    const-string/jumbo v9, ".gp_running_check"
+
+    invoke-virtual {v3, v9}, Landroid/content/Context;->openFileInput(Ljava/lang/String;)Ljava/io/FileInputStream;
+    :try_end_0
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_1
+    .catch Ljava/io/FileNotFoundException; {:try_start_0 .. :try_end_0} :catch_2
+
+    move-result-object v2
+
+    :try_start_1
+    invoke-virtual {v2}, Ljava/io/FileInputStream;->close()V
+    :try_end_1
+    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_1 .. :try_end_1} :catch_1
+    .catch Ljava/io/FileNotFoundException; {:try_start_1 .. :try_end_1} :catch_2
+
+    :goto_0
+    const/4 v9, 0x1
+
+    return v9
+
+    :catch_0
+    move-exception v4
+
+    :try_start_2
+    invoke-virtual {v4}, Ljava/io/IOException;->printStackTrace()V
+    :try_end_2
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_2 .. :try_end_2} :catch_1
+    .catch Ljava/io/FileNotFoundException; {:try_start_2 .. :try_end_2} :catch_2
+
+    goto :goto_0
+
+    :catch_1
+    move-exception v6
+
+    invoke-virtual {v6}, Landroid/content/pm/PackageManager$NameNotFoundException;->printStackTrace()V
+
+    return v11
+
+    :catch_2
+    move-exception v1
+
+    invoke-virtual {v1}, Ljava/io/FileNotFoundException;->printStackTrace()V
+
+    return v11
+
+    :cond_1
+    return v11
+.end method
+
+.method private static isHDMIConnected(Landroid/content/Context;)Z
     .locals 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -203,11 +534,9 @@
 
     const/4 v3, 0x0
 
-    iget-object v4, p0, Landroid/hardware/display/SecWifiDisplayUtil;->mContext:Landroid/content/Context;
+    const-string/jumbo v4, "display"
 
-    const-string/jumbo v5, "display"
-
-    invoke-virtual {v4, v5}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {p0, v4}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v1
 
@@ -271,7 +600,7 @@
     return v3
 .end method
 
-.method private isHotspotOn()Z
+.method private static isHotspotOn(Landroid/content/Context;)Z
     .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -281,11 +610,9 @@
 
     const/4 v0, 0x0
 
-    iget-object v2, p0, Landroid/hardware/display/SecWifiDisplayUtil;->mContext:Landroid/content/Context;
+    const-string/jumbo v2, "wifi"
 
-    const-string/jumbo v3, "wifi"
-
-    invoke-virtual {v2, v3}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {p0, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v1
 
@@ -334,36 +661,31 @@
     .end packed-switch
 .end method
 
-.method private isLiveBroadcastRunning()Z
+.method private static isLiveBroadcastRunning()Z
     .locals 3
-
-    const-string/jumbo v1, "SecWifiDisplayUtil"
-
-    const-string/jumbo v2, "checkExceptionalCase isLiveBroadcastRunning"
-
-    invoke-static {v1, v2}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    const/4 v0, 0x0
-
-    const-string/jumbo v1, "service.camera.recording.plb"
-
-    const/4 v2, 0x0
-
-    invoke-static {v1, v2}, Landroid/os/SystemProperties;->getInt(Ljava/lang/String;I)I
-
-    move-result v1
-
-    const/4 v2, 0x1
-
-    if-ne v1, v2, :cond_0
 
     const/4 v0, 0x1
 
-    :cond_0
+    const/4 v1, 0x0
+
+    const-string/jumbo v2, "service.camera.recording.plb"
+
+    invoke-static {v2, v1}, Landroid/os/SystemProperties;->getInt(Ljava/lang/String;I)I
+
+    move-result v2
+
+    if-ne v2, v0, :cond_0
+
+    :goto_0
     return v0
+
+    :cond_0
+    move v0, v1
+
+    goto :goto_0
 .end method
 
-.method private isP2pConnected()Z
+.method private static isP2pConnected(Landroid/content/Context;)Z
     .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -373,11 +695,9 @@
 
     const/4 v1, 0x0
 
-    iget-object v3, p0, Landroid/hardware/display/SecWifiDisplayUtil;->mContext:Landroid/content/Context;
+    const-string/jumbo v3, "connectivity"
 
-    const-string/jumbo v4, "connectivity"
-
-    invoke-virtual {v3, v4}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {p0, v3}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -432,14 +752,12 @@
     goto :goto_0
 .end method
 
-.method private isSideSyncAppRunning()Z
+.method private static isSideSyncAppRunning(Landroid/content/Context;)Z
     .locals 8
 
-    iget-object v5, p0, Landroid/hardware/display/SecWifiDisplayUtil;->mContext:Landroid/content/Context;
+    const-string/jumbo v5, "activity"
 
-    const-string/jumbo v6, "activity"
-
-    invoke-virtual {v5, v6}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {p0, v5}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v1
 
@@ -451,9 +769,7 @@
 
     move-result-object v0
 
-    iget-object v5, p0, Landroid/hardware/display/SecWifiDisplayUtil;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v5}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+    invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v4
 
@@ -523,16 +839,14 @@
     return v5
 .end method
 
-.method private isSideSyncConnected()Z
+.method private static isSideSyncConnected(Landroid/content/Context;)Z
     .locals 4
 
     const/4 v3, 0x0
 
     const/4 v0, 0x0
 
-    iget-object v1, p0, Landroid/hardware/display/SecWifiDisplayUtil;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v1
 
@@ -574,14 +888,12 @@
     return v1
 .end method
 
-.method private isWfdConnected()Z
+.method private static isWfdConnected(Landroid/content/Context;)Z
     .locals 3
 
-    iget-object v1, p0, Landroid/hardware/display/SecWifiDisplayUtil;->mContext:Landroid/content/Context;
+    const-string/jumbo v1, "display"
 
-    const-string/jumbo v2, "display"
-
-    invoke-virtual {v1, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {p0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -609,16 +921,14 @@
     return v1
 .end method
 
-.method private isWfdScanning()Z
-    .locals 4
+.method private static isWfdScanning(Landroid/content/Context;)Z
+    .locals 3
 
-    const/4 v3, 0x1
+    const/4 v2, 0x1
 
-    iget-object v1, p0, Landroid/hardware/display/SecWifiDisplayUtil;->mContext:Landroid/content/Context;
+    const-string/jumbo v1, "display"
 
-    const-string/jumbo v2, "display"
-
-    invoke-virtual {v1, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {p0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -632,9 +942,9 @@
 
     move-result v1
 
-    if-ne v1, v3, :cond_0
+    if-ne v1, v2, :cond_0
 
-    return v3
+    return v2
 
     :cond_0
     const/4 v1, 0x0
@@ -642,14 +952,12 @@
     return v1
 .end method
 
-.method private isWfdStatusOn()Z
+.method private static isWfdStatusOn(Landroid/content/Context;)Z
     .locals 3
 
-    iget-object v1, p0, Landroid/hardware/display/SecWifiDisplayUtil;->mContext:Landroid/content/Context;
+    const-string/jumbo v1, "display"
 
-    const-string/jumbo v2, "display"
-
-    invoke-virtual {v1, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {p0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -677,7 +985,7 @@
     return v1
 .end method
 
-.method private isWifiIbssEnabled()Z
+.method private static isWifiIbssEnabled(Landroid/content/Context;)Z
     .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -690,14 +998,12 @@
     return v0
 .end method
 
-.method private scanWifiDisplays()V
-    .locals 3
+.method private static scanWifiDisplays(Landroid/content/Context;)V
+    .locals 2
 
-    iget-object v1, p0, Landroid/hardware/display/SecWifiDisplayUtil;->mContext:Landroid/content/Context;
+    const-string/jumbo v1, "display"
 
-    const-string/jumbo v2, "display"
-
-    invoke-virtual {v1, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {p0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -708,14 +1014,126 @@
     return-void
 .end method
 
-.method private stopPeriodicScanning(Z)V
-    .locals 5
+.method public static setActivityState(Landroid/hardware/display/DisplayManager$SemWifiDisplayAppState;Landroid/content/Context;)V
+    .locals 4
 
-    iget-object v3, p0, Landroid/hardware/display/SecWifiDisplayUtil;->mContext:Landroid/content/Context;
+    const/4 v3, 0x1
 
-    const-string/jumbo v4, "wifi"
+    const/4 v2, 0x0
 
-    invoke-virtual {v3, v4}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-static {p1}, Landroid/hardware/display/SecWifiDisplayUtil;->isWfdConnected(Landroid/content/Context;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    return-void
+
+    :cond_0
+    invoke-static {}, Landroid/hardware/display/SecWifiDisplayUtil;->-getandroid-hardware-display-DisplayManager$SemWifiDisplayAppStateSwitchesValues()[I
+
+    move-result-object v0
+
+    invoke-virtual {p0}, Landroid/hardware/display/DisplayManager$SemWifiDisplayAppState;->ordinal()I
+
+    move-result v1
+
+    aget v0, v0, v1
+
+    packed-switch v0, :pswitch_data_0
+
+    :cond_1
+    :goto_0
+    return-void
+
+    :pswitch_0
+    invoke-virtual {p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    const-string/jumbo v1, "wifi_display_on"
+
+    invoke-static {v0, v1, v3}, Landroid/provider/Settings$Global;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+
+    goto :goto_0
+
+    :pswitch_1
+    invoke-static {p1}, Landroid/hardware/display/SecWifiDisplayUtil;->isWfdScanning(Landroid/content/Context;)Z
+
+    move-result v0
+
+    sput-boolean v0, Landroid/hardware/display/SecWifiDisplayUtil;->mScanInProgress:Z
+
+    sget-boolean v0, Landroid/hardware/display/SecWifiDisplayUtil;->mScanInProgress:Z
+
+    if-eqz v0, :cond_2
+
+    invoke-static {p1}, Landroid/hardware/display/SecWifiDisplayUtil;->stopScanWifiDisplays(Landroid/content/Context;)V
+
+    :cond_2
+    invoke-static {v2, p1}, Landroid/hardware/display/SecWifiDisplayUtil;->stopPeriodicScanning(ZLandroid/content/Context;)V
+
+    goto :goto_0
+
+    :pswitch_2
+    invoke-static {p1}, Landroid/hardware/display/SecWifiDisplayUtil;->isWfdConnected(Landroid/content/Context;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_1
+
+    invoke-static {v3, p1}, Landroid/hardware/display/SecWifiDisplayUtil;->stopPeriodicScanning(ZLandroid/content/Context;)V
+
+    sget-boolean v0, Landroid/hardware/display/SecWifiDisplayUtil;->mScanInProgress:Z
+
+    if-eqz v0, :cond_1
+
+    sput-boolean v2, Landroid/hardware/display/SecWifiDisplayUtil;->mScanInProgress:Z
+
+    invoke-static {p1}, Landroid/hardware/display/SecWifiDisplayUtil;->scanWifiDisplays(Landroid/content/Context;)V
+
+    goto :goto_0
+
+    :pswitch_3
+    invoke-static {p1}, Landroid/hardware/display/SecWifiDisplayUtil;->isWfdConnected(Landroid/content/Context;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_1
+
+    invoke-static {p1}, Landroid/hardware/display/SecWifiDisplayUtil;->isWfdStatusOn(Landroid/content/Context;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    invoke-virtual {p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    const-string/jumbo v1, "wifi_display_on"
+
+    invoke-static {v0, v1, v2}, Landroid/provider/Settings$Global;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+
+    goto :goto_0
+
+    nop
+
+    :pswitch_data_0
+    .packed-switch 0x1
+        :pswitch_1
+        :pswitch_2
+        :pswitch_0
+        :pswitch_3
+    .end packed-switch
+.end method
+
+.method private static stopPeriodicScanning(ZLandroid/content/Context;)V
+    .locals 4
+
+    const-string/jumbo v3, "wifi"
+
+    invoke-virtual {p1, v3}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v2
 
@@ -743,7 +1161,7 @@
 
     const-string/jumbo v3, "stop"
 
-    invoke-virtual {v0, v3, p1}, Landroid/os/BaseBundle;->putBoolean(Ljava/lang/String;Z)V
+    invoke-virtual {v0, v3, p0}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
 
     iput-object v0, v1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
@@ -753,14 +1171,12 @@
     return-void
 .end method
 
-.method private stopScanWifiDisplays()V
-    .locals 3
+.method private static stopScanWifiDisplays(Landroid/content/Context;)V
+    .locals 2
 
-    iget-object v1, p0, Landroid/hardware/display/SecWifiDisplayUtil;->mContext:Landroid/content/Context;
+    const-string/jumbo v1, "display"
 
-    const-string/jumbo v2, "display"
-
-    invoke-virtual {v1, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {p0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -769,412 +1185,4 @@
     invoke-virtual {v0}, Landroid/hardware/display/DisplayManager;->semStopScanWifiDisplays()V
 
     return-void
-.end method
-
-
-# virtual methods
-.method public checkExceptionalCase()I
-    .locals 5
-
-    const/4 v3, 0x1
-
-    const/4 v1, 0x0
-
-    :try_start_0
-    invoke-virtual {p0}, Landroid/hardware/display/SecWifiDisplayUtil;->isGroupPlayRunning()Z
-    :try_end_0
-    .catch Ljava/lang/NullPointerException; {:try_start_0 .. :try_end_0} :catch_0
-
-    move-result v2
-
-    if-eqz v2, :cond_0
-
-    const/4 v1, 0x7
-
-    :goto_0
-    const-string/jumbo v2, "SecWifiDisplayUtil"
-
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v4, "checkExceptionalCase ret value : "
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-static {v2, v3}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    return v1
-
-    :cond_0
-    :try_start_1
-    invoke-direct {p0}, Landroid/hardware/display/SecWifiDisplayUtil;->isHotspotOn()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_1
-
-    const/4 v1, 0x1
-
-    goto :goto_0
-
-    :cond_1
-    invoke-direct {p0}, Landroid/hardware/display/SecWifiDisplayUtil;->isWfdConnected()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_2
-
-    const/16 v1, 0xa
-
-    goto :goto_0
-
-    :cond_2
-    invoke-direct {p0}, Landroid/hardware/display/SecWifiDisplayUtil;->isP2pConnected()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_3
-
-    const/4 v1, 0x2
-
-    goto :goto_0
-
-    :cond_3
-    invoke-direct {p0}, Landroid/hardware/display/SecWifiDisplayUtil;->isHDMIConnected()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_4
-
-    const/4 v1, 0x3
-
-    goto :goto_0
-
-    :cond_4
-    invoke-direct {p0}, Landroid/hardware/display/SecWifiDisplayUtil;->isSideSyncConnected()Z
-
-    move-result v2
-
-    if-nez v2, :cond_5
-
-    invoke-direct {p0}, Landroid/hardware/display/SecWifiDisplayUtil;->isSideSyncAppRunning()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_6
-
-    :cond_5
-    const/4 v1, 0x4
-
-    goto :goto_0
-
-    :cond_6
-    invoke-direct {p0}, Landroid/hardware/display/SecWifiDisplayUtil;->getCPUPowerSavingMode()I
-
-    move-result v2
-
-    if-ne v2, v3, :cond_8
-
-    invoke-direct {p0}, Landroid/hardware/display/SecWifiDisplayUtil;->getPowerSavingMode()I
-
-    move-result v2
-
-    if-ne v2, v3, :cond_8
-
-    :cond_7
-    const/4 v1, 0x5
-
-    goto :goto_0
-
-    :cond_8
-    invoke-direct {p0}, Landroid/hardware/display/SecWifiDisplayUtil;->getPowerSavingMode()I
-
-    move-result v2
-
-    if-eq v2, v3, :cond_7
-
-    invoke-direct {p0}, Landroid/hardware/display/SecWifiDisplayUtil;->isWifiIbssEnabled()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_9
-
-    const/16 v1, 0x8
-
-    goto :goto_0
-
-    :cond_9
-    invoke-direct {p0}, Landroid/hardware/display/SecWifiDisplayUtil;->isLiveBroadcastRunning()Z
-    :try_end_1
-    .catch Ljava/lang/NullPointerException; {:try_start_1 .. :try_end_1} :catch_0
-
-    move-result v2
-
-    if-eqz v2, :cond_a
-
-    const/16 v1, 0x9
-
-    goto :goto_0
-
-    :cond_a
-    const/4 v1, 0x0
-
-    goto :goto_0
-
-    :catch_0
-    move-exception v0
-
-    const-string/jumbo v2, "SecWifiDisplayUtil"
-
-    const-string/jumbo v3, "exception occured while using isScreenMirroringAvailable"
-
-    invoke-static {v2, v3}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
-
-    const/4 v2, 0x0
-
-    return v2
-.end method
-
-.method public isGroupPlayRunning()Z
-    .locals 13
-
-    const/4 v12, 0x0
-
-    iget-object v9, p0, Landroid/hardware/display/SecWifiDisplayUtil;->mContext:Landroid/content/Context;
-
-    const-string/jumbo v10, "activity"
-
-    invoke-virtual {v9, v10}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/app/ActivityManager;
-
-    const v9, 0x7fffffff
-
-    invoke-virtual {v0, v9}, Landroid/app/ActivityManager;->getRunningTasks(I)Ljava/util/List;
-
-    move-result-object v8
-
-    invoke-interface {v8}, Ljava/util/List;->iterator()Ljava/util/Iterator;
-
-    move-result-object v5
-
-    :cond_0
-    invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v9
-
-    if-eqz v9, :cond_1
-
-    invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v7
-
-    check-cast v7, Landroid/app/ActivityManager$RunningTaskInfo;
-
-    iget-object v9, v7, Landroid/app/ActivityManager$RunningTaskInfo;->baseActivity:Landroid/content/ComponentName;
-
-    invoke-virtual {v9}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
-
-    move-result-object v9
-
-    const-string/jumbo v10, "com.samsung.groupcast"
-
-    invoke-virtual {v9, v10}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v9
-
-    if-eqz v9, :cond_0
-
-    :try_start_0
-    iget-object v9, p0, Landroid/hardware/display/SecWifiDisplayUtil;->mContext:Landroid/content/Context;
-
-    const-string/jumbo v10, "com.samsung.groupcast"
-
-    const/4 v11, 0x2
-
-    invoke-virtual {v9, v10, v11}, Landroid/content/Context;->createPackageContext(Ljava/lang/String;I)Landroid/content/Context;
-
-    move-result-object v3
-
-    const-string/jumbo v9, ".gp_running_check"
-
-    invoke-virtual {v3, v9}, Landroid/content/Context;->openFileInput(Ljava/lang/String;)Ljava/io/FileInputStream;
-    :try_end_0
-    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/io/FileNotFoundException; {:try_start_0 .. :try_end_0} :catch_2
-
-    move-result-object v2
-
-    :try_start_1
-    invoke-virtual {v2}, Ljava/io/FileInputStream;->close()V
-    :try_end_1
-    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
-    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_1 .. :try_end_1} :catch_1
-    .catch Ljava/io/FileNotFoundException; {:try_start_1 .. :try_end_1} :catch_2
-
-    :goto_0
-    const/4 v9, 0x1
-
-    return v9
-
-    :catch_0
-    move-exception v4
-
-    :try_start_2
-    invoke-virtual {v4}, Ljava/lang/Throwable;->printStackTrace()V
-    :try_end_2
-    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_2 .. :try_end_2} :catch_1
-    .catch Ljava/io/FileNotFoundException; {:try_start_2 .. :try_end_2} :catch_2
-
-    goto :goto_0
-
-    :catch_1
-    move-exception v6
-
-    invoke-virtual {v6}, Ljava/lang/Throwable;->printStackTrace()V
-
-    return v12
-
-    :catch_2
-    move-exception v1
-
-    invoke-virtual {v1}, Ljava/lang/Throwable;->printStackTrace()V
-
-    return v12
-
-    :cond_1
-    return v12
-.end method
-
-.method public setActivityState(Landroid/hardware/display/DisplayManager$SemWifiDisplayAppState;)V
-    .locals 4
-
-    const/4 v3, 0x1
-
-    const/4 v2, 0x0
-
-    invoke-direct {p0}, Landroid/hardware/display/SecWifiDisplayUtil;->isWfdConnected()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    return-void
-
-    :cond_0
-    invoke-static {}, Landroid/hardware/display/SecWifiDisplayUtil;->-getandroid-hardware-display-DisplayManager$SemWifiDisplayAppStateSwitchesValues()[I
-
-    move-result-object v0
-
-    invoke-virtual {p1}, Ljava/lang/Enum;->ordinal()I
-
-    move-result v1
-
-    aget v0, v0, v1
-
-    packed-switch v0, :pswitch_data_0
-
-    :cond_1
-    :goto_0
-    return-void
-
-    :pswitch_0
-    iget-object v0, p0, Landroid/hardware/display/SecWifiDisplayUtil;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v0
-
-    const-string/jumbo v1, "wifi_display_on"
-
-    invoke-static {v0, v1, v3}, Landroid/provider/Settings$Global;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
-
-    goto :goto_0
-
-    :pswitch_1
-    invoke-direct {p0}, Landroid/hardware/display/SecWifiDisplayUtil;->isWfdScanning()Z
-
-    move-result v0
-
-    iput-boolean v0, p0, Landroid/hardware/display/SecWifiDisplayUtil;->mScanInProgress:Z
-
-    iget-boolean v0, p0, Landroid/hardware/display/SecWifiDisplayUtil;->mScanInProgress:Z
-
-    if-eqz v0, :cond_2
-
-    invoke-direct {p0}, Landroid/hardware/display/SecWifiDisplayUtil;->stopScanWifiDisplays()V
-
-    :cond_2
-    invoke-direct {p0, v2}, Landroid/hardware/display/SecWifiDisplayUtil;->stopPeriodicScanning(Z)V
-
-    goto :goto_0
-
-    :pswitch_2
-    invoke-direct {p0}, Landroid/hardware/display/SecWifiDisplayUtil;->isWfdConnected()Z
-
-    move-result v0
-
-    if-nez v0, :cond_1
-
-    invoke-direct {p0, v3}, Landroid/hardware/display/SecWifiDisplayUtil;->stopPeriodicScanning(Z)V
-
-    iget-boolean v0, p0, Landroid/hardware/display/SecWifiDisplayUtil;->mScanInProgress:Z
-
-    if-eqz v0, :cond_1
-
-    iput-boolean v2, p0, Landroid/hardware/display/SecWifiDisplayUtil;->mScanInProgress:Z
-
-    invoke-direct {p0}, Landroid/hardware/display/SecWifiDisplayUtil;->scanWifiDisplays()V
-
-    goto :goto_0
-
-    :pswitch_3
-    invoke-direct {p0}, Landroid/hardware/display/SecWifiDisplayUtil;->isWfdConnected()Z
-
-    move-result v0
-
-    if-nez v0, :cond_1
-
-    invoke-direct {p0}, Landroid/hardware/display/SecWifiDisplayUtil;->isWfdStatusOn()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    iget-object v0, p0, Landroid/hardware/display/SecWifiDisplayUtil;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v0
-
-    const-string/jumbo v1, "wifi_display_on"
-
-    invoke-static {v0, v1, v2}, Landroid/provider/Settings$Global;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
-
-    goto :goto_0
-
-    nop
-
-    :pswitch_data_0
-    .packed-switch 0x1
-        :pswitch_1
-        :pswitch_2
-        :pswitch_0
-        :pswitch_3
-    .end packed-switch
 .end method

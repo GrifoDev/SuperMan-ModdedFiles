@@ -103,7 +103,7 @@
 
     invoke-static {v3, v5}, Landroid/net/wifi/WifiManager;->-set1(Landroid/net/wifi/WifiManager;Lcom/android/internal/util/AsyncChannel;)Lcom/android/internal/util/AsyncChannel;
 
-    invoke-virtual {p0}, Landroid/os/Handler;->getLooper()Landroid/os/Looper;
+    invoke-virtual {p0}, Landroid/net/wifi/WifiManager$ServiceHandler;->getLooper()Landroid/os/Looper;
 
     move-result-object v3
 
@@ -257,26 +257,6 @@
 
     goto/16 :goto_0
 
-    :sswitch_c
-    if-eqz v1, :cond_0
-
-    check-cast v1, Landroid/net/wifi/WifiManager$ActionListener;
-
-    iget v3, p1, Landroid/os/Message;->arg1:I
-
-    invoke-interface {v1, v3}, Landroid/net/wifi/WifiManager$ActionListener;->onFailure(I)V
-
-    goto/16 :goto_0
-
-    :sswitch_d
-    if-eqz v1, :cond_0
-
-    check-cast v1, Landroid/net/wifi/WifiManager$ActionListener;
-
-    invoke-interface {v1}, Landroid/net/wifi/WifiManager$ActionListener;->onSuccess()V
-
-    goto/16 :goto_0
-
     nop
 
     :sswitch_data_0
@@ -299,10 +279,6 @@
         0x25013 -> :sswitch_4
         0x25015 -> :sswitch_a
         0x25016 -> :sswitch_b
-        0x70002 -> :sswitch_c
-        0x70003 -> :sswitch_d
-        0x70005 -> :sswitch_c
-        0x70006 -> :sswitch_d
     .end sparse-switch
 .end method
 

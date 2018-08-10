@@ -17,6 +17,17 @@
 # static fields
 .field private static final TAG:Ljava/lang/String; = "MidiDevice"
 
+.field private static mMirroredDevices:Ljava/util/HashSet;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/HashSet",
+            "<",
+            "Landroid/media/midi/MidiDevice;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 
 # instance fields
 .field private final mClientToken:Landroid/os/IBinder;
@@ -33,6 +44,8 @@
 
 .field private final mMidiManager:Landroid/media/midi/IMidiManager;
 
+.field private mNativeHandle:J
+
 
 # direct methods
 .method static synthetic -get0(Landroid/media/midi/MidiDevice;)Landroid/media/midi/IMidiDeviceServer;
@@ -41,6 +54,22 @@
     iget-object v0, p0, Landroid/media/midi/MidiDevice;->mDeviceServer:Landroid/media/midi/IMidiDeviceServer;
 
     return-object v0
+.end method
+
+.method static constructor <clinit>()V
+    .locals 1
+
+    const-string/jumbo v0, "media_jni"
+
+    invoke-static {v0}, Ljava/lang/System;->loadLibrary(Ljava/lang/String;)V
+
+    new-instance v0, Ljava/util/HashSet;
+
+    invoke-direct {v0}, Ljava/util/HashSet;-><init>()V
+
+    sput-object v0, Landroid/media/midi/MidiDevice;->mMirroredDevices:Ljava/util/HashSet;
+
+    return-void
 .end method
 
 .method constructor <init>(Landroid/media/midi/MidiDeviceInfo;Landroid/media/midi/IMidiDeviceServer;Landroid/media/midi/IMidiManager;Landroid/os/IBinder;Landroid/os/IBinder;)V
@@ -73,6 +102,12 @@
     return-void
 .end method
 
+.method private native native_mirrorToNative(Landroid/os/IBinder;I)J
+.end method
+
+.method private native native_removeFromNative(J)V
+.end method
+
 
 # virtual methods
 .method public close()V
@@ -91,6 +126,8 @@
     iget-boolean v1, p0, Landroid/media/midi/MidiDevice;->mIsDeviceClosed:Z
 
     if-nez v1, :cond_0
+
+    invoke-virtual {p0}, Landroid/media/midi/MidiDevice;->removeFromNative()V
 
     iget-object v1, p0, Landroid/media/midi/MidiDevice;->mGuard:Ldalvik/system/CloseGuard;
 
@@ -174,7 +211,7 @@
     return-object v6
 
     :cond_2
-    invoke-virtual {p1}, Landroid/media/midi/MidiInputPort;->claimFileDescriptor()Landroid/os/ParcelFileDescriptor;
+    invoke-virtual {p1}, Landroid/media/midi/MidiInputPort;->claimFileDescriptor()Ljava/io/FileDescriptor;
 
     move-result-object v2
 
@@ -190,7 +227,7 @@
 
     iget-object v4, p0, Landroid/media/midi/MidiDevice;->mDeviceServer:Landroid/media/midi/IMidiDeviceServer;
 
-    invoke-interface {v4, v3, v2, p2}, Landroid/media/midi/IMidiDeviceServer;->connectPorts(Landroid/os/IBinder;Landroid/os/ParcelFileDescriptor;I)I
+    invoke-interface {v4, v3, v2, p2}, Landroid/media/midi/IMidiDeviceServer;->connectPorts(Landroid/os/IBinder;Ljava/io/FileDescriptor;I)I
 
     move-result v0
 
@@ -200,7 +237,7 @@
 
     if-eq v0, v4, :cond_4
 
-    invoke-static {v2}, Llibcore/io/IoUtils;->closeQuietly(Ljava/lang/AutoCloseable;)V
+    invoke-static {v2}, Llibcore/io/IoUtils;->closeQuietly(Ljava/io/FileDescriptor;)V
 
     :cond_4
     new-instance v4, Landroid/media/midi/MidiDevice$MidiConnection;
@@ -260,6 +297,88 @@
     return-object v0
 .end method
 
+.method public mirrorToNative()J
+    .locals 4
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    const-wide/16 v2, 0x0
+
+    iget-boolean v0, p0, Landroid/media/midi/MidiDevice;->mIsDeviceClosed:Z
+
+    if-nez v0, :cond_0
+
+    iget-wide v0, p0, Landroid/media/midi/MidiDevice;->mNativeHandle:J
+
+    cmp-long v0, v0, v2
+
+    if-eqz v0, :cond_1
+
+    :cond_0
+    return-wide v2
+
+    :cond_1
+    iget-object v0, p0, Landroid/media/midi/MidiDevice;->mDeviceServer:Landroid/media/midi/IMidiDeviceServer;
+
+    invoke-interface {v0}, Landroid/media/midi/IMidiDeviceServer;->asBinder()Landroid/os/IBinder;
+
+    move-result-object v0
+
+    iget-object v1, p0, Landroid/media/midi/MidiDevice;->mDeviceInfo:Landroid/media/midi/MidiDeviceInfo;
+
+    invoke-virtual {v1}, Landroid/media/midi/MidiDeviceInfo;->getId()I
+
+    move-result v1
+
+    invoke-direct {p0, v0, v1}, Landroid/media/midi/MidiDevice;->native_mirrorToNative(Landroid/os/IBinder;I)J
+
+    move-result-wide v0
+
+    iput-wide v0, p0, Landroid/media/midi/MidiDevice;->mNativeHandle:J
+
+    iget-wide v0, p0, Landroid/media/midi/MidiDevice;->mNativeHandle:J
+
+    cmp-long v0, v0, v2
+
+    if-nez v0, :cond_2
+
+    new-instance v0, Ljava/io/IOException;
+
+    const-string/jumbo v1, "Failed mirroring to native"
+
+    invoke-direct {v0, v1}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+
+    :cond_2
+    sget-object v1, Landroid/media/midi/MidiDevice;->mMirroredDevices:Ljava/util/HashSet;
+
+    monitor-enter v1
+
+    :try_start_0
+    sget-object v0, Landroid/media/midi/MidiDevice;->mMirroredDevices:Ljava/util/HashSet;
+
+    invoke-virtual {v0, p0}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit v1
+
+    iget-wide v0, p0, Landroid/media/midi/MidiDevice;->mNativeHandle:J
+
+    return-wide v0
+
+    :catchall_0
+    move-exception v0
+
+    monitor-exit v1
+
+    throw v0
+.end method
+
 .method public openInputPort(I)Landroid/media/midi/MidiInputPort;
     .locals 6
 
@@ -279,7 +398,7 @@
 
     iget-object v3, p0, Landroid/media/midi/MidiDevice;->mDeviceServer:Landroid/media/midi/IMidiDeviceServer;
 
-    invoke-interface {v3, v2, p1}, Landroid/media/midi/IMidiDeviceServer;->openInputPort(Landroid/os/IBinder;I)Landroid/os/ParcelFileDescriptor;
+    invoke-interface {v3, v2, p1}, Landroid/media/midi/IMidiDeviceServer;->openInputPort(Landroid/os/IBinder;I)Ljava/io/FileDescriptor;
 
     move-result-object v1
 
@@ -292,7 +411,7 @@
 
     iget-object v4, p0, Landroid/media/midi/MidiDevice;->mDeviceServer:Landroid/media/midi/IMidiDeviceServer;
 
-    invoke-direct {v3, v4, v2, v1, p1}, Landroid/media/midi/MidiInputPort;-><init>(Landroid/media/midi/IMidiDeviceServer;Landroid/os/IBinder;Landroid/os/ParcelFileDescriptor;I)V
+    invoke-direct {v3, v4, v2, v1, p1}, Landroid/media/midi/MidiInputPort;-><init>(Landroid/media/midi/IMidiDeviceServer;Landroid/os/IBinder;Ljava/io/FileDescriptor;I)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -329,7 +448,7 @@
 
     iget-object v3, p0, Landroid/media/midi/MidiDevice;->mDeviceServer:Landroid/media/midi/IMidiDeviceServer;
 
-    invoke-interface {v3, v2, p1}, Landroid/media/midi/IMidiDeviceServer;->openOutputPort(Landroid/os/IBinder;I)Landroid/os/ParcelFileDescriptor;
+    invoke-interface {v3, v2, p1}, Landroid/media/midi/IMidiDeviceServer;->openOutputPort(Landroid/os/IBinder;I)Ljava/io/FileDescriptor;
 
     move-result-object v1
 
@@ -342,7 +461,7 @@
 
     iget-object v4, p0, Landroid/media/midi/MidiDevice;->mDeviceServer:Landroid/media/midi/IMidiDeviceServer;
 
-    invoke-direct {v3, v4, v2, v1, p1}, Landroid/media/midi/MidiOutputPort;-><init>(Landroid/media/midi/IMidiDeviceServer;Landroid/os/IBinder;Landroid/os/ParcelFileDescriptor;I)V
+    invoke-direct {v3, v4, v2, v1, p1}, Landroid/media/midi/MidiOutputPort;-><init>(Landroid/media/midi/IMidiDeviceServer;Landroid/os/IBinder;Ljava/io/FileDescriptor;I)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -358,6 +477,67 @@
     invoke-static {v3, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     return-object v5
+.end method
+
+.method public removeFromNative()V
+    .locals 4
+
+    const-wide/16 v2, 0x0
+
+    iget-wide v0, p0, Landroid/media/midi/MidiDevice;->mNativeHandle:J
+
+    cmp-long v0, v0, v2
+
+    if-nez v0, :cond_0
+
+    return-void
+
+    :cond_0
+    iget-object v1, p0, Landroid/media/midi/MidiDevice;->mGuard:Ldalvik/system/CloseGuard;
+
+    monitor-enter v1
+
+    :try_start_0
+    iget-wide v2, p0, Landroid/media/midi/MidiDevice;->mNativeHandle:J
+
+    invoke-direct {p0, v2, v3}, Landroid/media/midi/MidiDevice;->native_removeFromNative(J)V
+
+    const-wide/16 v2, 0x0
+
+    iput-wide v2, p0, Landroid/media/midi/MidiDevice;->mNativeHandle:J
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit v1
+
+    sget-object v1, Landroid/media/midi/MidiDevice;->mMirroredDevices:Ljava/util/HashSet;
+
+    monitor-enter v1
+
+    :try_start_1
+    sget-object v0, Landroid/media/midi/MidiDevice;->mMirroredDevices:Ljava/util/HashSet;
+
+    invoke-virtual {v0, p0}, Ljava/util/HashSet;->remove(Ljava/lang/Object;)Z
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+
+    monitor-exit v1
+
+    return-void
+
+    :catchall_0
+    move-exception v0
+
+    monitor-exit v1
+
+    throw v0
+
+    :catchall_1
+    move-exception v0
+
+    monitor-exit v1
+
+    throw v0
 .end method
 
 .method public toString()Ljava/lang/String;

@@ -68,7 +68,7 @@
 .method private readFromParcel(Landroid/os/Parcel;)V
     .locals 1
 
-    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+    invoke-virtual {p0}, Lcom/samsung/android/hardware/context/SemContextActiveTimeMonitor;->getClass()Ljava/lang/Class;
 
     move-result-object v0
 
@@ -96,7 +96,7 @@
 
     const-string/jumbo v1, "ActiveTimeDuration"
 
-    invoke-virtual {v0, v1}, Landroid/os/BaseBundle;->getInt(Ljava/lang/String;)I
+    invoke-virtual {v0, v1}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
 
     move-result v0
 

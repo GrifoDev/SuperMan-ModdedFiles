@@ -48,7 +48,7 @@
     return v3
 
     :cond_1
-    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+    invoke-virtual {p0}, Landroid/security/keystore/AndroidKeyStorePublicKey;->getClass()Ljava/lang/Class;
 
     move-result-object v1
 

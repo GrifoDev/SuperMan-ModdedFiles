@@ -244,7 +244,7 @@
     goto :goto_0
 .end method
 
-.method public endConfigure(Z)V
+.method public endConfigure(I)V
     .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -255,7 +255,38 @@
     :try_start_0
     iget-object v1, p0, Landroid/hardware/camera2/impl/ICameraDeviceUserWrapper;->mRemoteDevice:Landroid/hardware/camera2/ICameraDeviceUser;
 
-    invoke-interface {v1, p1}, Landroid/hardware/camera2/ICameraDeviceUser;->endConfigure(Z)V
+    invoke-interface {v1, p1}, Landroid/hardware/camera2/ICameraDeviceUser;->endConfigure(I)V
+    :try_end_0
+    .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
+
+    return-void
+
+    :catch_0
+    move-exception v0
+
+    invoke-static {v0}, Landroid/hardware/camera2/CameraManager;->throwAsPublicException(Ljava/lang/Throwable;)V
+
+    new-instance v1, Ljava/lang/UnsupportedOperationException;
+
+    const-string/jumbo v2, "Unexpected exception"
+
+    invoke-direct {v1, v2, v0}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+
+    throw v1
+.end method
+
+.method public finalizeOutputConfigurations(ILandroid/hardware/camera2/params/OutputConfiguration;)V
+    .locals 3
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/hardware/camera2/CameraAccessException;
+        }
+    .end annotation
+
+    :try_start_0
+    iget-object v1, p0, Landroid/hardware/camera2/impl/ICameraDeviceUserWrapper;->mRemoteDevice:Landroid/hardware/camera2/ICameraDeviceUser;
+
+    invoke-interface {v1, p1, p2}, Landroid/hardware/camera2/ICameraDeviceUser;->finalizeOutputConfigurations(ILandroid/hardware/camera2/params/OutputConfiguration;)V
     :try_end_0
     .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -417,6 +448,37 @@
     iget-object v1, p0, Landroid/hardware/camera2/impl/ICameraDeviceUserWrapper;->mRemoteDevice:Landroid/hardware/camera2/ICameraDeviceUser;
 
     invoke-interface {v1, p1, p2}, Landroid/hardware/camera2/ICameraDeviceUser;->prepare2(II)V
+    :try_end_0
+    .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
+
+    return-void
+
+    :catch_0
+    move-exception v0
+
+    invoke-static {v0}, Landroid/hardware/camera2/CameraManager;->throwAsPublicException(Ljava/lang/Throwable;)V
+
+    new-instance v1, Ljava/lang/UnsupportedOperationException;
+
+    const-string/jumbo v2, "Unexpected exception"
+
+    invoke-direct {v1, v2, v0}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+
+    throw v1
+.end method
+
+.method public setParameters(Ljava/lang/String;)V
+    .locals 3
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/hardware/camera2/CameraAccessException;
+        }
+    .end annotation
+
+    :try_start_0
+    iget-object v1, p0, Landroid/hardware/camera2/impl/ICameraDeviceUserWrapper;->mRemoteDevice:Landroid/hardware/camera2/ICameraDeviceUser;
+
+    invoke-interface {v1, p1}, Landroid/hardware/camera2/ICameraDeviceUser;->setParameters(Ljava/lang/String;)V
     :try_end_0
     .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
 

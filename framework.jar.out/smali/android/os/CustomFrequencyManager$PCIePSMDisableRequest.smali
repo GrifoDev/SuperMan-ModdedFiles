@@ -15,30 +15,24 @@
 
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Landroid/os/CustomFrequencyManager$PCIePSMDisableRequest$1;
+        Landroid/os/CustomFrequencyManager$PCIePSMDisableRequest$PCIePSMDisableReleaser;
     }
 .end annotation
 
 
 # instance fields
-.field mPCIePSMDisableReleaser:Ljava/lang/Runnable;
+.field mPCIePSMDisableReleaser:Landroid/os/CustomFrequencyManager$PCIePSMDisableRequest$PCIePSMDisableReleaser;
 
 .field final synthetic this$0:Landroid/os/CustomFrequencyManager;
 
 
 # direct methods
 .method constructor <init>(Landroid/os/CustomFrequencyManager;IIJLjava/lang/String;)V
-    .locals 2
+    .locals 0
 
     iput-object p1, p0, Landroid/os/CustomFrequencyManager$PCIePSMDisableRequest;->this$0:Landroid/os/CustomFrequencyManager;
 
     invoke-direct/range {p0 .. p6}, Landroid/os/CustomFrequencyManager$FrequencyRequest;-><init>(Landroid/os/CustomFrequencyManager;IIJLjava/lang/String;)V
-
-    new-instance v0, Landroid/os/CustomFrequencyManager$PCIePSMDisableRequest$1;
-
-    invoke-direct {v0, p0}, Landroid/os/CustomFrequencyManager$PCIePSMDisableRequest$1;-><init>(Landroid/os/CustomFrequencyManager$PCIePSMDisableRequest;)V
-
-    iput-object v0, p0, Landroid/os/CustomFrequencyManager$PCIePSMDisableRequest;->mPCIePSMDisableReleaser:Ljava/lang/Runnable;
 
     return-void
 .end method
@@ -48,26 +42,29 @@
 .method public cancelFrequencyRequestImpl()V
     .locals 5
 
-    iget-object v2, p0, Landroid/os/CustomFrequencyManager$FrequencyRequest;->mToken:Landroid/os/IBinder;
+    iget-object v2, p0, Landroid/os/CustomFrequencyManager$PCIePSMDisableRequest;->mToken:Landroid/os/IBinder;
 
     monitor-enter v2
 
     :try_start_0
-    iget-object v1, p0, Landroid/os/CustomFrequencyManager$PCIePSMDisableRequest;->this$0:Landroid/os/CustomFrequencyManager;
+    iget-object v1, p0, Landroid/os/CustomFrequencyManager$PCIePSMDisableRequest;->mPCIePSMDisableReleaser:Landroid/os/CustomFrequencyManager$PCIePSMDisableRequest$PCIePSMDisableReleaser;
 
-    iget-object v1, v1, Landroid/os/CustomFrequencyManager;->mHandler:Landroid/os/Handler;
+    if-eqz v1, :cond_0
 
-    iget-object v3, p0, Landroid/os/CustomFrequencyManager$PCIePSMDisableRequest;->mPCIePSMDisableReleaser:Ljava/lang/Runnable;
+    iget-object v1, p0, Landroid/os/CustomFrequencyManager$PCIePSMDisableRequest;->mPCIePSMDisableReleaser:Landroid/os/CustomFrequencyManager$PCIePSMDisableRequest$PCIePSMDisableReleaser;
 
-    invoke-virtual {v1, v3}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
+    const/4 v3, 0x1
 
+    iput-boolean v3, v1, Landroid/os/CustomFrequencyManager$PCIePSMDisableRequest$PCIePSMDisableReleaser;->stop:Z
+
+    :cond_0
     iget-object v1, p0, Landroid/os/CustomFrequencyManager$PCIePSMDisableRequest;->this$0:Landroid/os/CustomFrequencyManager;
 
     iget-object v1, v1, Landroid/os/CustomFrequencyManager;->mService:Landroid/os/ICustomFrequencyManager;
 
-    iget-object v3, p0, Landroid/os/CustomFrequencyManager$FrequencyRequest;->mToken:Landroid/os/IBinder;
+    iget-object v3, p0, Landroid/os/CustomFrequencyManager$PCIePSMDisableRequest;->mToken:Landroid/os/IBinder;
 
-    iget-object v4, p0, Landroid/os/CustomFrequencyManager$FrequencyRequest;->mPkgName:Ljava/lang/String;
+    iget-object v4, p0, Landroid/os/CustomFrequencyManager$PCIePSMDisableRequest;->mPkgName:Ljava/lang/String;
 
     invoke-interface {v1, v3, v4}, Landroid/os/ICustomFrequencyManager;->disablePCIePSMDisable(Landroid/os/IBinder;Ljava/lang/String;)V
     :try_end_0
@@ -112,7 +109,7 @@
 
     move-result-object v2
 
-    iget v3, p0, Landroid/os/CustomFrequencyManager$FrequencyRequest;->mFrequency:I
+    iget v3, p0, Landroid/os/CustomFrequencyManager$PCIePSMDisableRequest;->mFrequency:I
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
@@ -124,7 +121,7 @@
 
     move-result-object v2
 
-    iget-wide v4, p0, Landroid/os/CustomFrequencyManager$FrequencyRequest;->mTimeoutMs:J
+    iget-wide v4, p0, Landroid/os/CustomFrequencyManager$PCIePSMDisableRequest;->mTimeoutMs:J
 
     invoke-virtual {v2, v4, v5}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
@@ -136,7 +133,7 @@
 
     invoke-static {v1, v2}, Landroid/os/CustomFrequencyManager;->-wrap1(Ljava/lang/String;Ljava/lang/String;)V
 
-    iget-object v2, p0, Landroid/os/CustomFrequencyManager$FrequencyRequest;->mToken:Landroid/os/IBinder;
+    iget-object v2, p0, Landroid/os/CustomFrequencyManager$PCIePSMDisableRequest;->mToken:Landroid/os/IBinder;
 
     monitor-enter v2
 
@@ -145,34 +142,51 @@
 
     iget-object v1, v1, Landroid/os/CustomFrequencyManager;->mService:Landroid/os/ICustomFrequencyManager;
 
-    iget-object v3, p0, Landroid/os/CustomFrequencyManager$FrequencyRequest;->mToken:Landroid/os/IBinder;
+    iget-object v3, p0, Landroid/os/CustomFrequencyManager$PCIePSMDisableRequest;->mToken:Landroid/os/IBinder;
 
-    iget-object v4, p0, Landroid/os/CustomFrequencyManager$FrequencyRequest;->mPkgName:Ljava/lang/String;
+    iget-object v4, p0, Landroid/os/CustomFrequencyManager$PCIePSMDisableRequest;->mPkgName:Ljava/lang/String;
 
     invoke-interface {v1, v3, v4}, Landroid/os/ICustomFrequencyManager;->enablePCIePSMDisable(Landroid/os/IBinder;Ljava/lang/String;)V
 
-    iget-wide v4, p0, Landroid/os/CustomFrequencyManager$FrequencyRequest;->mTimeoutMs:J
+    iget-wide v4, p0, Landroid/os/CustomFrequencyManager$PCIePSMDisableRequest;->mTimeoutMs:J
 
     const-wide/16 v6, -0x1
 
     cmp-long v1, v4, v6
 
+    if-eqz v1, :cond_1
+
+    iget-object v1, p0, Landroid/os/CustomFrequencyManager$PCIePSMDisableRequest;->mPCIePSMDisableReleaser:Landroid/os/CustomFrequencyManager$PCIePSMDisableRequest$PCIePSMDisableReleaser;
+
     if-eqz v1, :cond_0
+
+    iget-object v1, p0, Landroid/os/CustomFrequencyManager$PCIePSMDisableRequest;->mPCIePSMDisableReleaser:Landroid/os/CustomFrequencyManager$PCIePSMDisableRequest$PCIePSMDisableReleaser;
+
+    const/4 v3, 0x1
+
+    iput-boolean v3, v1, Landroid/os/CustomFrequencyManager$PCIePSMDisableRequest$PCIePSMDisableReleaser;->stop:Z
+
+    :cond_0
+    new-instance v1, Landroid/os/CustomFrequencyManager$PCIePSMDisableRequest$PCIePSMDisableReleaser;
+
+    invoke-direct {v1, p0}, Landroid/os/CustomFrequencyManager$PCIePSMDisableRequest$PCIePSMDisableReleaser;-><init>(Landroid/os/CustomFrequencyManager$PCIePSMDisableRequest;)V
+
+    iput-object v1, p0, Landroid/os/CustomFrequencyManager$PCIePSMDisableRequest;->mPCIePSMDisableReleaser:Landroid/os/CustomFrequencyManager$PCIePSMDisableRequest$PCIePSMDisableReleaser;
 
     iget-object v1, p0, Landroid/os/CustomFrequencyManager$PCIePSMDisableRequest;->this$0:Landroid/os/CustomFrequencyManager;
 
     iget-object v1, v1, Landroid/os/CustomFrequencyManager;->mHandler:Landroid/os/Handler;
 
-    iget-object v3, p0, Landroid/os/CustomFrequencyManager$PCIePSMDisableRequest;->mPCIePSMDisableReleaser:Ljava/lang/Runnable;
+    iget-object v3, p0, Landroid/os/CustomFrequencyManager$PCIePSMDisableRequest;->mPCIePSMDisableReleaser:Landroid/os/CustomFrequencyManager$PCIePSMDisableRequest$PCIePSMDisableReleaser;
 
-    iget-wide v4, p0, Landroid/os/CustomFrequencyManager$FrequencyRequest;->mTimeoutMs:J
+    iget-wide v4, p0, Landroid/os/CustomFrequencyManager$PCIePSMDisableRequest;->mTimeoutMs:J
 
     invoke-virtual {v1, v3, v4, v5}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    :cond_0
+    :cond_1
     :goto_0
     monitor-exit v2
 

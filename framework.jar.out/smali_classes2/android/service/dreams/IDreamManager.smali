@@ -63,6 +63,14 @@
     .end annotation
 .end method
 
+.method public abstract semStartDozing(Landroid/os/IBinder;III)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract setDreamComponents([Landroid/content/ComponentName;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {

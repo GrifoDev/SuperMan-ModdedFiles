@@ -1,5 +1,5 @@
 .class public final Landroid/net/metrics/ValidationProbeEvent;
-.super Landroid/net/metrics/IpConnectivityEvent;
+.super Ljava/lang/Object;
 .source "ValidationProbeEvent.java"
 
 # interfaces
@@ -31,7 +31,11 @@
 
 .field public static final DNS_SUCCESS:I = 0x1
 
+.field private static final FIRST_VALIDATION:I = 0x100
+
 .field public static final PROBE_DNS:I = 0x0
+
+.field public static final PROBE_FALLBACK:I = 0x4
 
 .field public static final PROBE_HTTP:I = 0x1
 
@@ -39,15 +43,15 @@
 
 .field public static final PROBE_PAC:I = 0x3
 
+.field private static final REVALIDATION:I = 0x200
+
 
 # instance fields
-.field public final durationMs:J
+.field public durationMs:J
 
-.field public final netId:I
+.field public probeType:I
 
-.field public final probeType:I
-
-.field public final returnCode:I
+.field public returnCode:I
 
 
 # direct methods
@@ -63,18 +67,10 @@
     return-void
 .end method
 
-.method private constructor <init>(IJII)V
+.method public constructor <init>()V
     .locals 0
 
-    invoke-direct {p0}, Landroid/net/metrics/IpConnectivityEvent;-><init>()V
-
-    iput p1, p0, Landroid/net/metrics/ValidationProbeEvent;->netId:I
-
-    iput-wide p2, p0, Landroid/net/metrics/ValidationProbeEvent;->durationMs:J
-
-    iput p4, p0, Landroid/net/metrics/ValidationProbeEvent;->probeType:I
-
-    iput p5, p0, Landroid/net/metrics/ValidationProbeEvent;->returnCode:I
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -82,13 +78,7 @@
 .method private constructor <init>(Landroid/os/Parcel;)V
     .locals 2
 
-    invoke-direct {p0}, Landroid/net/metrics/IpConnectivityEvent;-><init>()V
-
-    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
-
-    move-result v0
-
-    iput v0, p0, Landroid/net/metrics/ValidationProbeEvent;->netId:I
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readLong()J
 
@@ -120,13 +110,15 @@
 .end method
 
 .method public static getProbeName(I)Ljava/lang/String;
-    .locals 2
+    .locals 3
 
     sget-object v0, Landroid/net/metrics/ValidationProbeEvent$Decoder;->constants:Landroid/util/SparseArray;
 
-    const-string/jumbo v1, "PROBE_???"
+    and-int/lit16 v1, p0, 0xff
 
-    invoke-virtual {v0, p0, v1}, Landroid/util/SparseArray;->get(ILjava/lang/Object;)Ljava/lang/Object;
+    const-string/jumbo v2, "PROBE_???"
+
+    invoke-virtual {v0, v1, v2}, Landroid/util/SparseArray;->get(ILjava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -135,24 +127,44 @@
     return-object v0
 .end method
 
-.method public static logEvent(IJII)V
-    .locals 7
+.method public static getValidationStage(I)Ljava/lang/String;
+    .locals 3
 
-    new-instance v0, Landroid/net/metrics/ValidationProbeEvent;
+    sget-object v0, Landroid/net/metrics/ValidationProbeEvent$Decoder;->constants:Landroid/util/SparseArray;
 
-    move v1, p0
+    const v1, 0xff00
 
-    move-wide v2, p1
+    and-int/2addr v1, p0
 
-    move v4, p3
+    const-string/jumbo v2, "UNKNOWN"
 
-    move v5, p4
+    invoke-virtual {v0, v1, v2}, Landroid/util/SparseArray;->get(ILjava/lang/Object;)Ljava/lang/Object;
 
-    invoke-direct/range {v0 .. v5}, Landroid/net/metrics/ValidationProbeEvent;-><init>(IJII)V
+    move-result-object v0
 
-    invoke-static {v0}, Landroid/net/metrics/ValidationProbeEvent;->logEvent(Landroid/net/metrics/IpConnectivityEvent;)V
+    check-cast v0, Ljava/lang/String;
 
-    return-void
+    return-object v0
+.end method
+
+.method public static makeProbeType(IZ)I
+    .locals 2
+
+    and-int/lit16 v1, p0, 0xff
+
+    if-eqz p1, :cond_0
+
+    const/16 v0, 0x100
+
+    :goto_0
+    or-int/2addr v0, v1
+
+    return v0
+
+    :cond_0
+    const/16 v0, 0x200
+
+    goto :goto_0
 .end method
 
 
@@ -168,21 +180,11 @@
 .method public toString()Ljava/lang/String;
     .locals 4
 
-    const-string/jumbo v0, "ValidationProbeEvent(%d, %s:%d, %dms)"
+    const-string/jumbo v0, "ValidationProbeEvent(%s:%d %s, %dms)"
 
     const/4 v1, 0x4
 
     new-array v1, v1, [Ljava/lang/Object;
-
-    iget v2, p0, Landroid/net/metrics/ValidationProbeEvent;->netId:I
-
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v2
-
-    const/4 v3, 0x0
-
-    aput-object v2, v1, v3
 
     iget v2, p0, Landroid/net/metrics/ValidationProbeEvent;->probeType:I
 
@@ -190,13 +192,23 @@
 
     move-result-object v2
 
-    const/4 v3, 0x1
+    const/4 v3, 0x0
 
     aput-object v2, v1, v3
 
     iget v2, p0, Landroid/net/metrics/ValidationProbeEvent;->returnCode:I
 
     invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v2
+
+    const/4 v3, 0x1
+
+    aput-object v2, v1, v3
+
+    iget v2, p0, Landroid/net/metrics/ValidationProbeEvent;->probeType:I
+
+    invoke-static {v2}, Landroid/net/metrics/ValidationProbeEvent;->getValidationStage(I)Ljava/lang/String;
 
     move-result-object v2
 
@@ -223,10 +235,6 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 2
-
-    iget v0, p0, Landroid/net/metrics/ValidationProbeEvent;->netId:I
-
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
     iget-wide v0, p0, Landroid/net/metrics/ValidationProbeEvent;->durationMs:J
 

@@ -52,15 +52,23 @@
 
 .field static final TRANSACTION_removeExtras:I = 0x15
 
-.field static final TRANSACTION_requestRcsObserver:I = 0x16
+.field static final TRANSACTION_requestRcsObserver:I = 0x1a
+
+.field static final TRANSACTION_respondToRttRequest:I = 0x17
 
 .field static final TRANSACTION_sendCallEvent:I = 0x13
 
+.field static final TRANSACTION_sendRttRequest:I = 0x16
+
 .field static final TRANSACTION_setAudioRoute:I = 0x7
+
+.field static final TRANSACTION_setRttMode:I = 0x19
 
 .field static final TRANSACTION_splitFromConference:I = 0xd
 
 .field static final TRANSACTION_stopDtmfTone:I = 0x9
+
+.field static final TRANSACTION_stopRtt:I = 0x18
 
 .field static final TRANSACTION_swapConference:I = 0xf
 
@@ -667,6 +675,96 @@
 
     invoke-virtual {v0, v14}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {p0, v2}, Lcom/android/internal/telecom/IInCallAdapter$Stub;->sendRttRequest(Ljava/lang/String;)V
+
+    const/4 v14, 0x1
+
+    return v14
+
+    :sswitch_17
+    const-string/jumbo v14, "com.android.internal.telecom.IInCallAdapter"
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v14}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v5
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v14
+
+    if-eqz v14, :cond_8
+
+    const/4 v13, 0x1
+
+    :goto_8
+    invoke-virtual {p0, v2, v5, v13}, Lcom/android/internal/telecom/IInCallAdapter$Stub;->respondToRttRequest(Ljava/lang/String;IZ)V
+
+    const/4 v14, 0x1
+
+    return v14
+
+    :cond_8
+    const/4 v13, 0x0
+
+    goto :goto_8
+
+    :sswitch_18
+    const-string/jumbo v14, "com.android.internal.telecom.IInCallAdapter"
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v14}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {p0, v2}, Lcom/android/internal/telecom/IInCallAdapter$Stub;->stopRtt(Ljava/lang/String;)V
+
+    const/4 v14, 0x1
+
+    return v14
+
+    :sswitch_19
+    const-string/jumbo v14, "com.android.internal.telecom.IInCallAdapter"
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v14}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v5
+
+    invoke-virtual {p0, v2, v5}, Lcom/android/internal/telecom/IInCallAdapter$Stub;->setRttMode(Ljava/lang/String;I)V
+
+    const/4 v14, 0x1
+
+    return v14
+
+    :sswitch_1a
+    const-string/jumbo v14, "com.android.internal.telecom.IInCallAdapter"
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v14}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
@@ -680,6 +778,8 @@
     const/4 v14, 0x1
 
     return v14
+
+    nop
 
     :sswitch_data_0
     .sparse-switch
@@ -705,6 +805,10 @@
         0x14 -> :sswitch_14
         0x15 -> :sswitch_15
         0x16 -> :sswitch_16
+        0x17 -> :sswitch_17
+        0x18 -> :sswitch_18
+        0x19 -> :sswitch_19
+        0x1a -> :sswitch_1a
         0x5f4e5446 -> :sswitch_0
     .end sparse-switch
 .end method

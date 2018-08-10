@@ -21,7 +21,7 @@
 
 
 # static fields
-.field private static final DURATION:I = 0x190
+.field private static final DURATION:I
 
 .field public static final PROPERTY:Landroid/util/FloatProperty;
     .annotation system Ldalvik/annotation/Signature;
@@ -96,13 +96,21 @@
 
     move-result-object v0
 
-    const-wide/16 v2, 0x190
+    const-wide/16 v2, 0x0
 
     invoke-virtual {v0, v2, v3}, Landroid/animation/ObjectAnimator;->setDuration(J)Landroid/animation/ObjectAnimator;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/internal/app/ChooserActivity$RowScale;->mAnimator:Landroid/animation/ObjectAnimator;
+
+    iget-object v0, p0, Lcom/android/internal/app/ChooserActivity$RowScale;->mAnimator:Landroid/animation/ObjectAnimator;
+
+    new-instance v1, Lcom/android/internal/app/ChooserActivity$RowScale$2;
+
+    invoke-direct {v1, p0}, Lcom/android/internal/app/ChooserActivity$RowScale$2;-><init>(Lcom/android/internal/app/ChooserActivity$RowScale;)V
+
+    invoke-virtual {v0, v1}, Landroid/animation/ObjectAnimator;->addListener(Landroid/animation/Animator$AnimatorListener;)V
 
     return-void
 .end method

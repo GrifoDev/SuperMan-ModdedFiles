@@ -55,6 +55,22 @@
     .end annotation
 .end method
 
+.method public abstract getDCMLauncherEnabled()Z
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract getDefaultInfinityWallpaper()Landroid/content/ComponentName;
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract getDeviceColor()Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -64,6 +80,22 @@
 .end method
 
 .method public abstract getHeightHint()I
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract getLastWallpaper()Landroid/content/ComponentName;
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract getLockWallpaperIndexOf(Landroid/app/IWallpaperManagerCallback;Landroid/os/Bundle;I)Landroid/os/ParcelFileDescriptor;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -103,6 +135,30 @@
     .end annotation
 .end method
 
+.method public abstract getVideoFilePath()Ljava/lang/String;
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract getVideoPackage()Ljava/lang/String;
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract getVideoThumbnailFileDescriptor(I)Landroid/os/ParcelFileDescriptor;
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract getWallpaper(Landroid/app/IWallpaperManagerCallback;ILandroid/os/Bundle;I)Landroid/os/ParcelFileDescriptor;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -127,7 +183,7 @@
     .end annotation
 .end method
 
-.method public abstract getWallpaperInfo()Landroid/app/WallpaperInfo;
+.method public abstract getWallpaperInfo(I)Landroid/app/WallpaperInfo;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -159,6 +215,14 @@
     .end annotation
 .end method
 
+.method public abstract initializeKnoxWallpaper(I)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract isDesktopMode()Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -167,7 +231,23 @@
     .end annotation
 .end method
 
-.method public abstract isMotionWallpaperSupported()Z
+.method public abstract isEnabledMultiLockWallpaper()Z
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract isInfinityComponent(Ljava/lang/String;)Z
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract isInfinityWallpaperEnabled()Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -191,7 +271,15 @@
     .end annotation
 .end method
 
-.method public abstract isWallpaperBackupEligible(I)Z
+.method public abstract isVideoWallpaper()Z
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract isWallpaperBackupEligible(II)Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -215,7 +303,23 @@
     .end annotation
 .end method
 
-.method public abstract setAnimatedWallpaper(Ljava/lang/String;)V
+.method public abstract sendWindowWallpaperCommand(Ljava/lang/String;Landroid/os/Bundle;)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract setAnimatedWallpaper(Ljava/lang/String;Ljava/lang/String;)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract setDCMLauncherEnabled(Z)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -239,6 +343,22 @@
     .end annotation
 .end method
 
+.method public abstract setInfinityWallpaperComponentChecked(Landroid/content/ComponentName;Ljava/lang/String;I)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract setKWPTypeLiveWallpaper(I)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract setLockWallpaperCallback(Landroid/app/IWallpaperManagerCallback;)Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -247,7 +367,7 @@
     .end annotation
 .end method
 
-.method public abstract setMotionWallpaper(Ljava/lang/String;)V
+.method public abstract setMotionWallpaper(Ljava/lang/String;Ljava/lang/String;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -255,7 +375,7 @@
     .end annotation
 .end method
 
-.method public abstract setPreloadWallpaper(ILjava/lang/String;)V
+.method public abstract setPreloadWallpaper(ILjava/lang/String;Ljava/lang/String;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -271,7 +391,15 @@
     .end annotation
 .end method
 
-.method public abstract setWallpaper(Ljava/lang/String;Ljava/lang/String;Landroid/graphics/Rect;ZLandroid/os/Bundle;ILandroid/app/IWallpaperManagerCallback;I)Landroid/os/ParcelFileDescriptor;
+.method public abstract setVideoLockscreenWallpaper(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;I)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract setWallpaper(Ljava/lang/String;Ljava/lang/String;Landroid/graphics/Rect;ZLandroid/os/Bundle;ILandroid/app/IWallpaperManagerCallback;II)Landroid/os/ParcelFileDescriptor;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -287,7 +415,7 @@
     .end annotation
 .end method
 
-.method public abstract setWallpaperComponentChecked(Landroid/content/ComponentName;Ljava/lang/String;)V
+.method public abstract setWallpaperComponentChecked(Landroid/content/ComponentName;Ljava/lang/String;I)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -295,7 +423,7 @@
     .end annotation
 .end method
 
-.method public abstract setWallpaperIndexOf(Ljava/lang/String;Ljava/lang/String;Landroid/graphics/Rect;ZLandroid/os/Bundle;ILandroid/app/IWallpaperManagerCallback;III)Landroid/os/ParcelFileDescriptor;
+.method public abstract setWallpaperIndexOf(Ljava/lang/String;Ljava/lang/String;Landroid/graphics/Rect;ZLandroid/os/Bundle;ILandroid/app/IWallpaperManagerCallback;IIII)Landroid/os/ParcelFileDescriptor;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

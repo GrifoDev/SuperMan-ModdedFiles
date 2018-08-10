@@ -513,13 +513,10 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    xor-int/lit8 v1, v1, 0x1
 
-    :cond_0
-    :goto_0
-    return-void
+    if-eqz v1, :cond_0
 
-    :cond_1
     invoke-interface {p0, v0}, Landroid/database/Cursor;->getDouble(I)D
 
     move-result-wide v2
@@ -530,7 +527,8 @@
 
     invoke-virtual {p1, p2, v1}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Double;)V
 
-    goto :goto_0
+    :cond_0
+    return-void
 .end method
 
 .method public static cursorDoubleToCursorValues(Landroid/database/Cursor;Ljava/lang/String;Landroid/content/ContentValues;)V
@@ -716,13 +714,10 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    xor-int/lit8 v1, v1, 0x1
 
-    :cond_0
-    :goto_0
-    return-void
+    if-eqz v1, :cond_0
 
-    :cond_1
     invoke-interface {p0, v0}, Landroid/database/Cursor;->getFloat(I)F
 
     move-result v1
@@ -733,7 +728,8 @@
 
     invoke-virtual {p1, p2, v1}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Float;)V
 
-    goto :goto_0
+    :cond_0
+    return-void
 .end method
 
 .method public static cursorIntToContentValues(Landroid/database/Cursor;Ljava/lang/String;Landroid/content/ContentValues;)V
@@ -795,13 +791,10 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    xor-int/lit8 v1, v1, 0x1
 
-    :cond_0
-    :goto_0
-    return-void
+    if-eqz v1, :cond_0
 
-    :cond_1
     invoke-interface {p0, v0}, Landroid/database/Cursor;->getInt(I)I
 
     move-result v1
@@ -812,7 +805,8 @@
 
     invoke-virtual {p1, p2, v1}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
 
-    goto :goto_0
+    :cond_0
+    return-void
 .end method
 
 .method public static cursorLongToContentValues(Landroid/database/Cursor;Ljava/lang/String;Landroid/content/ContentValues;)V
@@ -874,13 +868,10 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    xor-int/lit8 v1, v1, 0x1
 
-    :cond_0
-    :goto_0
-    return-void
+    if-eqz v1, :cond_0
 
-    :cond_1
     invoke-interface {p0, v0}, Landroid/database/Cursor;->getLong(I)J
 
     move-result-wide v2
@@ -891,7 +882,8 @@
 
     invoke-virtual {p1, p2, v1}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Long;)V
 
-    goto :goto_0
+    :cond_0
+    return-void
 .end method
 
 .method public static cursorPickFillWindowStartPosition(II)I
@@ -911,66 +903,52 @@
 .end method
 
 .method public static cursorRowToContentValues(Landroid/database/Cursor;Landroid/content/ContentValues;)V
-    .locals 6
+    .locals 5
 
-    instance-of v4, p0, Landroid/database/AbstractWindowedCursor;
-
-    if-eqz v4, :cond_0
-
-    move-object v0, p0
-
-    check-cast v0, Landroid/database/AbstractWindowedCursor;
-
-    :goto_0
     invoke-interface {p0}, Landroid/database/Cursor;->getColumnNames()[Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
-    array-length v3, v1
+    array-length v2, v0
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
+
+    :goto_0
+    if-ge v1, v2, :cond_1
+
+    invoke-interface {p0, v1}, Landroid/database/Cursor;->getType(I)I
+
+    move-result v3
+
+    const/4 v4, 0x4
+
+    if-ne v3, v4, :cond_0
+
+    aget-object v3, v0, v1
+
+    invoke-interface {p0, v1}, Landroid/database/Cursor;->getBlob(I)[B
+
+    move-result-object v4
+
+    invoke-virtual {p1, v3, v4}, Landroid/content/ContentValues;->put(Ljava/lang/String;[B)V
 
     :goto_1
-    if-ge v2, v3, :cond_2
-
-    if-eqz v0, :cond_1
-
-    invoke-virtual {v0, v2}, Landroid/database/AbstractWindowedCursor;->isBlob(I)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_1
-
-    aget-object v4, v1, v2
-
-    invoke-interface {p0, v2}, Landroid/database/Cursor;->getBlob(I)[B
-
-    move-result-object v5
-
-    invoke-virtual {p1, v4, v5}, Landroid/content/ContentValues;->put(Ljava/lang/String;[B)V
-
-    :goto_2
-    add-int/lit8 v2, v2, 0x1
-
-    goto :goto_1
-
-    :cond_0
-    const/4 v0, 0x0
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
+    :cond_0
+    aget-object v3, v0, v1
+
+    invoke-interface {p0, v1}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {p1, v3, v4}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
+
+    goto :goto_1
+
     :cond_1
-    aget-object v4, v1, v2
-
-    invoke-interface {p0, v2}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-virtual {p1, v4, v5}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
-
-    goto :goto_2
-
-    :cond_2
     return-void
 .end method
 
@@ -989,13 +967,10 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    xor-int/lit8 v1, v1, 0x1
 
-    :cond_0
-    :goto_0
-    return-void
+    if-eqz v1, :cond_0
 
-    :cond_1
     invoke-interface {p0, v0}, Landroid/database/Cursor;->getShort(I)S
 
     move-result v1
@@ -1006,7 +981,8 @@
 
     invoke-virtual {p1, p2, v1}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Short;)V
 
-    goto :goto_0
+    :cond_0
+    return-void
 .end method
 
 .method public static cursorStringToContentValues(Landroid/database/Cursor;Ljava/lang/String;Landroid/content/ContentValues;)V
@@ -1048,20 +1024,18 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    xor-int/lit8 v1, v1, 0x1
 
-    :cond_0
-    :goto_0
-    return-void
+    if-eqz v1, :cond_0
 
-    :cond_1
     invoke-interface {p0, v0}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
 
     move-result-object v1
 
     invoke-virtual {p1, p2, v1}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
-    goto :goto_0
+    :cond_0
+    return-void
 .end method
 
 .method public static cursorStringToInsertHelper(Landroid/database/Cursor;Ljava/lang/String;Landroid/database/DatabaseUtils$InsertHelper;I)V

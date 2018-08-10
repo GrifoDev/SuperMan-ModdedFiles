@@ -36,7 +36,7 @@
 
 .field private static final REQUEST_COMPLETE_TIMEOUT:I = 0xfa0
 
-.field private static final USE_BLOB_FORMAT_OVERRIDE:Z
+.field private static final USE_BLOB_FORMAT_OVERRIDE:Z = true
 
 .field private static final VERBOSE:Z
 
@@ -1242,7 +1242,15 @@
     goto :goto_2
 
     :pswitch_0
+    const/16 v36, 0x1
+
     :try_start_4
+    move-object/from16 v0, v31
+
+    move/from16 v1, v36
+
+    invoke-static {v0, v1}, Landroid/hardware/camera2/legacy/LegacyCameraDevice;->setSurfaceFormat(Landroid/view/Surface;I)V
+
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mJpegSurfaceIds:Ljava/util/List;
@@ -1279,7 +1287,7 @@
     :try_end_4
     .catch Landroid/hardware/camera2/legacy/LegacyExceptionUtils$BufferQueueAbandonedException; {:try_start_4 .. :try_end_4} :catch_4
 
-    goto :goto_2
+    goto/16 :goto_2
 
     :cond_2
     :try_start_5
@@ -2077,7 +2085,7 @@
 .end method
 
 .method private resetJpegSurfaceFormats(Ljava/util/Collection;)V
-    .locals 0
+    .locals 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -2088,6 +2096,69 @@
         }
     .end annotation
 
+    if-nez p1, :cond_0
+
+    return-void
+
+    :cond_0
+    invoke-interface {p1}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+
+    move-result-object v2
+
+    :goto_0
+    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_3
+
+    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/view/Surface;
+
+    if-eqz v1, :cond_1
+
+    invoke-virtual {v1}, Landroid/view/Surface;->isValid()Z
+
+    move-result v3
+
+    xor-int/lit8 v3, v3, 0x1
+
+    if-eqz v3, :cond_2
+
+    :cond_1
+    iget-object v3, p0, Landroid/hardware/camera2/legacy/RequestThreadManager;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v4, "Jpeg surface is invalid, skipping..."
+
+    invoke-static {v3, v4}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
+
+    :cond_2
+    const/16 v3, 0x21
+
+    :try_start_0
+    invoke-static {v1, v3}, Landroid/hardware/camera2/legacy/LegacyCameraDevice;->setSurfaceFormat(Landroid/view/Surface;I)V
+    :try_end_0
+    .catch Landroid/hardware/camera2/legacy/LegacyExceptionUtils$BufferQueueAbandonedException; {:try_start_0 .. :try_end_0} :catch_0
+
+    goto :goto_0
+
+    :catch_0
+    move-exception v0
+
+    iget-object v3, p0, Landroid/hardware/camera2/legacy/RequestThreadManager;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v4, "Surface abandoned, skipping..."
+
+    invoke-static {v3, v4, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    goto :goto_0
+
+    :cond_3
     return-void
 .end method
 
@@ -2238,12 +2309,12 @@
 
     iget-object v2, p0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mRequestThread:Landroid/hardware/camera2/legacy/RequestHandlerThread;
 
-    invoke-virtual {v2}, Landroid/os/HandlerThread;->quitSafely()Z
+    invoke-virtual {v2}, Landroid/hardware/camera2/legacy/RequestHandlerThread;->quitSafely()Z
 
     :try_start_0
     iget-object v2, p0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mRequestThread:Landroid/hardware/camera2/legacy/RequestHandlerThread;
 
-    invoke-virtual {v2}, Ljava/lang/Thread;->join()V
+    invoke-virtual {v2}, Landroid/hardware/camera2/legacy/RequestHandlerThread;->join()V
     :try_end_0
     .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -2264,7 +2335,7 @@
 
     iget-object v5, p0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mRequestThread:Landroid/hardware/camera2/legacy/RequestHandlerThread;
 
-    invoke-virtual {v5}, Ljava/lang/Thread;->getName()Ljava/lang/String;
+    invoke-virtual {v5}, Landroid/hardware/camera2/legacy/RequestHandlerThread;->getName()Ljava/lang/String;
 
     move-result-object v5
 
@@ -2274,7 +2345,7 @@
 
     iget-object v5, p0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mRequestThread:Landroid/hardware/camera2/legacy/RequestHandlerThread;
 
-    invoke-virtual {v5}, Ljava/lang/Thread;->getId()J
+    invoke-virtual {v5}, Landroid/hardware/camera2/legacy/RequestHandlerThread;->getId()J
 
     move-result-wide v6
 
@@ -2298,7 +2369,7 @@
 
     iget-object v0, p0, Landroid/hardware/camera2/legacy/RequestThreadManager;->mRequestThread:Landroid/hardware/camera2/legacy/RequestHandlerThread;
 
-    invoke-virtual {v0}, Ljava/lang/Thread;->start()V
+    invoke-virtual {v0}, Landroid/hardware/camera2/legacy/RequestHandlerThread;->start()V
 
     return-void
 .end method

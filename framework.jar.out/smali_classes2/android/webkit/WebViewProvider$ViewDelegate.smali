@@ -15,6 +15,21 @@
 
 
 # virtual methods
+.method public autofill(Landroid/util/SparseArray;)V
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Landroid/util/SparseArray",
+            "<",
+            "Landroid/view/autofill/AutofillValue;",
+            ">;)V"
+        }
+    .end annotation
+
+    return-void
+.end method
+
 .method public abstract dispatchKeyEvent(Landroid/view/KeyEvent;)Z
 .end method
 
@@ -81,7 +96,19 @@
 .method public abstract onMeasure(II)V
 .end method
 
+.method public onMovedToDisplay(ILandroid/content/res/Configuration;)V
+    .locals 0
+
+    return-void
+.end method
+
 .method public abstract onOverScrolled(IIZZ)V
+.end method
+
+.method public onProvideAutofillVirtualStructure(Landroid/view/ViewStructure;I)V
+    .locals 0
+
+    return-void
 .end method
 
 .method public abstract onProvideVirtualStructure(Landroid/view/ViewStructure;)V

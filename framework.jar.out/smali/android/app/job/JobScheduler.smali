@@ -26,6 +26,9 @@
 .method public abstract cancelAll()V
 .end method
 
+.method public abstract enqueue(Landroid/app/job/JobInfo;Landroid/app/job/JobWorkItem;)I
+.end method
+
 .method public abstract getAllPendingJobs()Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {

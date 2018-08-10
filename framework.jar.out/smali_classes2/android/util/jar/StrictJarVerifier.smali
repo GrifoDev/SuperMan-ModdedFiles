@@ -78,7 +78,17 @@
 
 
 # direct methods
-.method static synthetic -wrap0(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/SecurityException;
+.method static synthetic -wrap0([B[B)Z
+    .locals 1
+
+    invoke-static {p0, p1}, Landroid/util/jar/StrictJarVerifier;->verifyMessageDigest([B[B)Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method static synthetic -wrap1(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/SecurityException;
     .locals 1
 
     invoke-static {p0, p1, p2}, Landroid/util/jar/StrictJarVerifier;->invalidDigest(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/SecurityException;
@@ -317,9 +327,9 @@
 
     invoke-virtual {p1, v7}, Ljava/util/jar/Attributes;->getValue(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v4
 
-    if-nez v3, :cond_0
+    if-nez v4, :cond_0
 
     :goto_1
     add-int/lit8 v5, v5, 0x1
@@ -365,15 +375,11 @@
 
     sget-object v7, Ljava/nio/charset/StandardCharsets;->ISO_8859_1:Ljava/nio/charset/Charset;
 
-    invoke-virtual {v3, v7}, Ljava/lang/String;->getBytes(Ljava/nio/charset/Charset;)[B
+    invoke-virtual {v4, v7}, Ljava/lang/String;->getBytes(Ljava/nio/charset/Charset;)[B
 
-    move-result-object v4
+    move-result-object v3
 
-    invoke-static {v4}, Llibcore/io/Base64;->decode([B)[B
-
-    move-result-object v7
-
-    invoke-static {v1, v7}, Ljava/security/MessageDigest;->isEqual([B[B)Z
+    invoke-static {v1, v3}, Landroid/util/jar/StrictJarVerifier;->verifyMessageDigest([B[B)Z
 
     move-result v7
 
@@ -812,7 +818,7 @@
 
     const/4 v6, -0x1
 
-    if-eq v2, v6, :cond_a
+    if-eq v2, v6, :cond_8
 
     const/4 v12, 0x1
 
@@ -822,12 +828,51 @@
 
     iget v2, v0, Landroid/util/jar/StrictJarVerifier;->mainAttributesEnd:I
 
-    if-lez v2, :cond_8
+    if-lez v2, :cond_9
 
-    if-eqz v12, :cond_b
+    xor-int/lit8 v2, v12, 0x1
+
+    if-eqz v2, :cond_9
+
+    const-string/jumbo v4, "-Digest-Manifest-Main-Attributes"
+
+    move-object/from16 v0, p0
+
+    iget v7, v0, Landroid/util/jar/StrictJarVerifier;->mainAttributesEnd:I
+
+    const/4 v6, 0x0
+
+    const/4 v8, 0x0
+
+    const/4 v9, 0x1
+
+    move-object/from16 v2, p0
+
+    invoke-direct/range {v2 .. v9}, Landroid/util/jar/StrictJarVerifier;->verify(Ljava/util/jar/Attributes;Ljava/lang/String;[BIIZZ)Z
+
+    move-result v2
+
+    if-nez v2, :cond_9
+
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Landroid/util/jar/StrictJarVerifier;->jarName:Ljava/lang/String;
+
+    move-object/from16 v0, v28
+
+    invoke-static {v2, v0}, Landroid/util/jar/StrictJarVerifier;->failedVerification(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/SecurityException;
+
+    move-result-object v2
+
+    throw v2
 
     :cond_8
-    if-eqz v12, :cond_c
+    const/4 v12, 0x0
+
+    goto :goto_1
+
+    :cond_9
+    if-eqz v12, :cond_b
 
     const-string/jumbo v4, "-Digest"
 
@@ -846,7 +891,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_e
+    if-nez v2, :cond_d
 
     invoke-virtual/range {v19 .. v19}, Ljava/util/HashMap;->entrySet()Ljava/util/Set;
 
@@ -856,12 +901,12 @@
 
     move-result-object v25
 
-    :cond_9
+    :cond_a
     invoke-interface/range {v25 .. v25}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_e
+    if-eqz v2, :cond_d
 
     invoke-interface/range {v25 .. v25}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -883,54 +928,16 @@
 
     move-result-object v15
 
-    if-nez v15, :cond_d
+    if-nez v15, :cond_c
 
     return-void
 
-    :cond_a
-    const/4 v12, 0x0
-
-    goto :goto_1
-
     :cond_b
-    const-string/jumbo v4, "-Digest-Manifest-Main-Attributes"
-
-    move-object/from16 v0, p0
-
-    iget v7, v0, Landroid/util/jar/StrictJarVerifier;->mainAttributesEnd:I
-
-    const/4 v6, 0x0
-
-    const/4 v8, 0x0
-
-    const/4 v9, 0x1
-
-    move-object/from16 v2, p0
-
-    invoke-direct/range {v2 .. v9}, Landroid/util/jar/StrictJarVerifier;->verify(Ljava/util/jar/Attributes;Ljava/lang/String;[BIIZZ)Z
-
-    move-result v2
-
-    if-nez v2, :cond_8
-
-    move-object/from16 v0, p0
-
-    iget-object v2, v0, Landroid/util/jar/StrictJarVerifier;->jarName:Ljava/lang/String;
-
-    move-object/from16 v0, v28
-
-    invoke-static {v2, v0}, Landroid/util/jar/StrictJarVerifier;->failedVerification(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/SecurityException;
-
-    move-result-object v2
-
-    throw v2
-
-    :cond_c
     const-string/jumbo v4, "-Digest-Manifest"
 
     goto :goto_2
 
-    :cond_d
+    :cond_c
     invoke-interface/range {v20 .. v20}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
     move-result-object v7
@@ -953,7 +960,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_9
+    if-nez v2, :cond_a
 
     invoke-interface/range {v20 .. v20}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
@@ -973,7 +980,7 @@
 
     throw v2
 
-    :cond_e
+    :cond_d
     move-object/from16 v0, p0
 
     iget-object v2, v0, Landroid/util/jar/StrictJarVerifier;->metaEntries:Ljava/util/HashMap;
@@ -995,6 +1002,34 @@
     invoke-virtual {v2, v0, v1}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     return-void
+.end method
+
+.method private static verifyMessageDigest([B[B)Z
+    .locals 3
+
+    :try_start_0
+    invoke-static {}, Ljava/util/Base64;->getDecoder()Ljava/util/Base64$Decoder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, p1}, Ljava/util/Base64$Decoder;->decode([B)[B
+    :try_end_0
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result-object v0
+
+    invoke-static {p0, v0}, Ljava/security/MessageDigest;->isEqual([B[B)Z
+
+    move-result v2
+
+    return v2
+
+    :catch_0
+    move-exception v1
+
+    const/4 v2, 0x0
+
+    return v2
 .end method
 
 

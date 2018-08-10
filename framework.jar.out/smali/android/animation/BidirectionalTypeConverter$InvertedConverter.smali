@@ -48,11 +48,11 @@
         }
     .end annotation
 
-    invoke-virtual {p1}, Landroid/animation/TypeConverter;->getTargetType()Ljava/lang/Class;
+    invoke-virtual {p1}, Landroid/animation/BidirectionalTypeConverter;->getTargetType()Ljava/lang/Class;
 
     move-result-object v0
 
-    invoke-virtual {p1}, Landroid/animation/TypeConverter;->getSourceType()Ljava/lang/Class;
+    invoke-virtual {p1}, Landroid/animation/BidirectionalTypeConverter;->getSourceType()Ljava/lang/Class;
 
     move-result-object v1
 
@@ -92,7 +92,7 @@
 
     iget-object v0, p0, Landroid/animation/BidirectionalTypeConverter$InvertedConverter;->mConverter:Landroid/animation/BidirectionalTypeConverter;
 
-    invoke-virtual {v0, p1}, Landroid/animation/TypeConverter;->convert(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v0, p1}, Landroid/animation/BidirectionalTypeConverter;->convert(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 

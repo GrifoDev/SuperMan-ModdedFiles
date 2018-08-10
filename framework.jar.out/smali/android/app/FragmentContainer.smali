@@ -14,7 +14,24 @@
 
 
 # virtual methods
+.method public instantiate(Landroid/content/Context;Ljava/lang/String;Landroid/os/Bundle;)Landroid/app/Fragment;
+    .locals 1
+
+    invoke-static {p1, p2, p3}, Landroid/app/Fragment;->instantiate(Landroid/content/Context;Ljava/lang/String;Landroid/os/Bundle;)Landroid/app/Fragment;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
 .method public abstract onFindViewById(I)Landroid/view/View;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "<T:",
+            "Landroid/view/View;",
+            ">(I)TT;"
+        }
+    .end annotation
 .end method
 
 .method public abstract onHasView()Z

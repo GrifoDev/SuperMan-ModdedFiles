@@ -11,9 +11,3 @@
 # virtual methods
 .method public abstract close()V
 .end method
-
-.method public abstract getFilePath()Ljava/lang/String;
-.end method
-
-.method public abstract setFilePath(Ljava/lang/String;)V
-.end method

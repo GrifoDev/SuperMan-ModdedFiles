@@ -16,6 +16,9 @@
     name = "BssidListener"
 .end annotation
 
+.annotation runtime Ljava/lang/Deprecated;
+.end annotation
+
 
 # virtual methods
 .method public abstract onFound([Landroid/net/wifi/ScanResult;)V

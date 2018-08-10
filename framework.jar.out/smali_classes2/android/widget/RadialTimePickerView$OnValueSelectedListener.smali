@@ -1,4 +1,4 @@
-.class public interface abstract Landroid/widget/RadialTimePickerView$OnValueSelectedListener;
+.class interface abstract Landroid/widget/RadialTimePickerView$OnValueSelectedListener;
 .super Ljava/lang/Object;
 .source "RadialTimePickerView.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x609
+    accessFlags = 0x608
     name = "OnValueSelectedListener"
 .end annotation
 

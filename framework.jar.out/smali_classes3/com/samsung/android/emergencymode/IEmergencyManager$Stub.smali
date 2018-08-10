@@ -63,7 +63,7 @@
 
     const-string/jumbo v0, "com.samsung.android.emergencymode.IEmergencyManager"
 
-    invoke-virtual {p0, p0, v0}, Landroid/os/Binder;->attachInterface(Landroid/os/IInterface;Ljava/lang/String;)V
+    invoke-virtual {p0, p0, v0}, Lcom/samsung/android/emergencymode/IEmergencyManager$Stub;->attachInterface(Landroid/os/IInterface;Ljava/lang/String;)V
 
     return-void
 .end method
@@ -325,17 +325,17 @@
     return v9
 
     :sswitch_9
-    const-string/jumbo v10, "com.samsung.android.emergencymode.IEmergencyManager"
+    const-string/jumbo v8, "com.samsung.android.emergencymode.IEmergencyManager"
 
-    invoke-virtual {p2, v10}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v8}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v10
+    move-result v8
 
-    if-eqz v10, :cond_7
+    if-eqz v8, :cond_7
 
-    move v2, v9
+    const/4 v2, 0x1
 
     :goto_0
     invoke-virtual {p0, v2}, Lcom/samsung/android/emergencymode/IEmergencyManager$Stub;->setUserPackageBlocked(Z)V
@@ -345,7 +345,7 @@
     return v9
 
     :cond_7
-    move v2, v8
+    const/4 v2, 0x0
 
     goto :goto_0
 
@@ -390,17 +390,17 @@
     return v9
 
     :sswitch_c
-    const-string/jumbo v10, "com.samsung.android.emergencymode.IEmergencyManager"
+    const-string/jumbo v8, "com.samsung.android.emergencymode.IEmergencyManager"
 
-    invoke-virtual {p2, v10}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v8}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v10
+    move-result v8
 
-    if-eqz v10, :cond_a
+    if-eqz v8, :cond_a
 
-    move v2, v9
+    const/4 v2, 0x1
 
     :goto_1
     invoke-virtual {p0, v2}, Lcom/samsung/android/emergencymode/IEmergencyManager$Stub;->setLocationProviderEnabled(Z)V
@@ -410,7 +410,7 @@
     return v9
 
     :cond_a
-    move v2, v8
+    const/4 v2, 0x0
 
     goto :goto_1
 
@@ -429,7 +429,7 @@
 
     if-eqz v10, :cond_c
 
-    move v4, v9
+    const/4 v4, 0x1
 
     :goto_2
     invoke-virtual {p0, v1, v4}, Lcom/samsung/android/emergencymode/IEmergencyManager$Stub;->addAppToLauncher(Ljava/lang/String;Z)Z
@@ -448,7 +448,7 @@
     return v9
 
     :cond_c
-    move v4, v8
+    const/4 v4, 0x0
 
     goto :goto_2
 

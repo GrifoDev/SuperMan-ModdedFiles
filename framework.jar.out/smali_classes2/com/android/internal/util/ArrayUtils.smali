@@ -83,7 +83,7 @@
 .end method
 
 .method public static appendElement(Ljava/lang/Class;[Ljava/lang/Object;Ljava/lang/Object;)[Ljava/lang/Object;
-    .locals 4
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -94,9 +94,32 @@
         }
     .end annotation
 
+    const/4 v0, 0x0
+
+    invoke-static {p0, p1, p2, v0}, Lcom/android/internal/util/ArrayUtils;->appendElement(Ljava/lang/Class;[Ljava/lang/Object;Ljava/lang/Object;Z)[Ljava/lang/Object;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public static appendElement(Ljava/lang/Class;[Ljava/lang/Object;Ljava/lang/Object;Z)[Ljava/lang/Object;
+    .locals 4
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "<T:",
+            "Ljava/lang/Object;",
+            ">(",
+            "Ljava/lang/Class",
+            "<TT;>;[TT;TT;Z)[TT;"
+        }
+    .end annotation
+
     const/4 v3, 0x0
 
     if-eqz p1, :cond_1
+
+    if-nez p3, :cond_0
 
     invoke-static {p1, p2}, Lcom/android/internal/util/ArrayUtils;->contains([Ljava/lang/Object;Ljava/lang/Object;)Z
 
@@ -139,6 +162,18 @@
 .end method
 
 .method public static appendInt([II)[I
+    .locals 1
+
+    const/4 v0, 0x0
+
+    invoke-static {p0, p1, v0}, Lcom/android/internal/util/ArrayUtils;->appendInt([IIZ)[I
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public static appendInt([IIZ)[I
     .locals 5
 
     const/4 v4, 0x0
@@ -155,6 +190,8 @@
 
     :cond_0
     array-length v0, p0
+
+    if-nez p2, :cond_2
 
     const/4 v1, 0x0
 
@@ -275,33 +312,6 @@
     return-object v0
 .end method
 
-.method public static contains(Landroid/util/ArraySet;Ljava/lang/Object;)Z
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "<T:",
-            "Ljava/lang/Object;",
-            ">(",
-            "Landroid/util/ArraySet",
-            "<TT;>;TT;)Z"
-        }
-    .end annotation
-
-    if-eqz p0, :cond_0
-
-    invoke-virtual {p0, p1}, Landroid/util/ArraySet;->contains(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    :goto_0
-    return v0
-
-    :cond_0
-    const/4 v0, 0x0
-
-    goto :goto_0
-.end method
-
 .method public static contains(Ljava/util/Collection;Ljava/lang/Object;)Z
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
@@ -327,6 +337,40 @@
     const/4 v0, 0x0
 
     goto :goto_0
+.end method
+
+.method public static contains([CC)Z
+    .locals 4
+
+    const/4 v2, 0x0
+
+    if-nez p0, :cond_0
+
+    return v2
+
+    :cond_0
+    array-length v3, p0
+
+    move v1, v2
+
+    :goto_0
+    if-ge v1, v3, :cond_2
+
+    aget-char v0, p0, v1
+
+    if-ne v0, p1, :cond_1
+
+    const/4 v1, 0x1
+
+    return v1
+
+    :cond_1
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_0
+
+    :cond_2
+    return v2
 .end method
 
 .method public static contains([II)Z
@@ -426,6 +470,51 @@
     const/4 v0, 0x0
 
     goto :goto_0
+.end method
+
+.method public static containsAll([C[C)Z
+    .locals 6
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "<T:",
+            "Ljava/lang/Object;",
+            ">([C[C)Z"
+        }
+    .end annotation
+
+    const/4 v5, 0x1
+
+    const/4 v2, 0x0
+
+    if-nez p1, :cond_0
+
+    return v5
+
+    :cond_0
+    array-length v3, p1
+
+    move v1, v2
+
+    :goto_0
+    if-ge v1, v3, :cond_2
+
+    aget-char v0, p1, v1
+
+    invoke-static {p0, v0}, Lcom/android/internal/util/ArrayUtils;->contains([CC)Z
+
+    move-result v4
+
+    if-nez v4, :cond_1
+
+    return v2
+
+    :cond_1
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_0
+
+    :cond_2
+    return v5
 .end method
 
 .method public static containsAll([Ljava/lang/Object;[Ljava/lang/Object;)Z
@@ -563,6 +652,20 @@
 
     :cond_0
     return-object v0
+.end method
+
+.method public static defeatNullable([Ljava/lang/String;)[Ljava/lang/String;
+    .locals 0
+
+    if-eqz p0, :cond_0
+
+    :goto_0
+    return-object p0
+
+    :cond_0
+    sget-object p0, Llibcore/util/EmptyArray;->STRING:[Ljava/lang/String;
+
+    goto :goto_0
 .end method
 
 .method public static emptyArray(Ljava/lang/Class;)[Ljava/lang/Object;
@@ -1075,17 +1178,12 @@
     const/4 v1, 0x0
 
     :goto_0
-    if-ge v1, v2, :cond_3
+    if-ge v1, v2, :cond_4
 
-    if-eqz v0, :cond_4
+    xor-int/lit8 v4, v0, 0x1
 
-    :cond_3
-    if-eqz v0, :cond_6
+    if-eqz v4, :cond_4
 
-    :goto_1
-    return v6
-
-    :cond_4
     invoke-virtual {p0, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v4
@@ -1094,26 +1192,26 @@
 
     move-result-object v7
 
-    if-eq v4, v7, :cond_5
+    if-eq v4, v7, :cond_3
 
     move v4, v5
 
-    :goto_2
+    :goto_1
     or-int/2addr v0, v4
 
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    :cond_5
+    :cond_3
     move v4, v6
 
-    goto :goto_2
-
-    :cond_6
-    move v6, v5
-
     goto :goto_1
+
+    :cond_4
+    xor-int/lit8 v4, v0, 0x1
+
+    return v4
 .end method
 
 .method public static remove(Landroid/util/ArraySet;Ljava/lang/Object;)Landroid/util/ArraySet;
@@ -1438,6 +1536,22 @@
     return-object p0
 .end method
 
+.method public static size([Ljava/lang/Object;)I
+    .locals 1
+
+    if-nez p0, :cond_0
+
+    const/4 v0, 0x0
+
+    :goto_0
+    return v0
+
+    :cond_0
+    array-length v0, p0
+
+    goto :goto_0
+.end method
+
 .method public static total([J)J
     .locals 6
 
@@ -1528,7 +1642,7 @@
     add-int/lit8 v2, v3, -0x1
 
     :goto_0
-    if-gt v1, v2, :cond_4
+    if-gt v1, v2, :cond_3
 
     :goto_1
     if-ge v1, v3, :cond_1
@@ -1541,11 +1655,17 @@
 
     move-result v4
 
-    if-eqz v4, :cond_2
+    xor-int/lit8 v4, v4, 0x1
+
+    if-eqz v4, :cond_1
+
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_1
 
     :cond_1
     :goto_2
-    if-le v2, v1, :cond_3
+    if-le v2, v1, :cond_2
 
     invoke-virtual {p0, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
@@ -1555,25 +1675,20 @@
 
     move-result v4
 
-    if-eqz v4, :cond_3
+    if-eqz v4, :cond_2
 
     add-int/lit8 v2, v2, -0x1
 
     goto :goto_2
 
     :cond_2
-    add-int/lit8 v1, v1, 0x1
-
-    goto :goto_1
+    if-lt v1, v2, :cond_4
 
     :cond_3
-    if-lt v1, v2, :cond_5
-
-    :cond_4
     add-int/lit8 v0, v3, -0x1
 
     :goto_3
-    if-lt v0, v1, :cond_6
+    if-lt v0, v1, :cond_5
 
     invoke-virtual {p0, v0}, Ljava/util/ArrayList;->remove(I)Ljava/lang/Object;
 
@@ -1581,7 +1696,7 @@
 
     goto :goto_3
 
-    :cond_5
+    :cond_4
     invoke-static {p0, v1, v2}, Ljava/util/Collections;->swap(Ljava/util/List;II)V
 
     add-int/lit8 v1, v1, 0x1
@@ -1590,7 +1705,7 @@
 
     goto :goto_0
 
-    :cond_6
+    :cond_5
     sub-int v4, v3, v1
 
     return v4

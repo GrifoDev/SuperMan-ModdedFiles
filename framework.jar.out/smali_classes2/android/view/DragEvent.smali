@@ -60,6 +60,8 @@
 
 .field mDragResult:Z
 
+.field mEventHandlerWasCalled:Z
+
 .field mLocalState:Ljava/lang/Object;
 
 .field private mNext:Landroid/view/DragEvent;
@@ -401,6 +403,10 @@
     iput-object v1, p0, Landroid/view/DragEvent;->mClipDescription:Landroid/content/ClipDescription;
 
     iput-object v1, p0, Landroid/view/DragEvent;->mLocalState:Ljava/lang/Object;
+
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Landroid/view/DragEvent;->mEventHandlerWasCalled:Z
 
     sget-object v1, Landroid/view/DragEvent;->gRecyclerLock:Ljava/lang/Object;
 

@@ -12,8 +12,6 @@
 
 
 # static fields
-.field public static final ACTION_KNOXFRAMEWORK_SYSTEMUI_REGISTCALLBACK_INTENT_INTERNAL:Ljava/lang/String; = "com.samsung.android.knox.intent.action.KNOXFRAMEWORK_SYSTEMUI_REGISTCALLBACK_INTENT_INTERNAL"
-
 .field public static final ACTION_KNOXFRAMEWORK_SYSTEMUI_UPDATE_INTENT_INTERNAL:Ljava/lang/String; = "com.samsung.android.knox.intent.action.KNOXFRAMEWORK_SYSTEMUI_UPDATE_INTENT_INTERNAL"
 
 .field private static final EDM_CLASS_NAME:Ljava/lang/String; = "android.app.enterprise.EnterpriseDeviceManager"
@@ -25,6 +23,8 @@
 .field public static final ENTERPRISE_POLICY_SERVICE_NEW:Ljava/lang/String; = "enterprise_policy_new"
 
 .field public static final ENTERPRISE_PROXY_SERVICE:Ljava/lang/String; = "edm_proxy"
+
+.field public static final EXTRA_USER_ID_INTERNAL:Ljava/lang/String; = "com.samsung.android.knox.intent.extra.USER_ID_INTERNAL"
 
 .field private static final KNOX_CLASS_NAME:Ljava/lang/String; = "com.sec.enterprise.knox.EnterpriseKnoxManager"
 
@@ -131,7 +131,7 @@
     :catch_0
     move-exception v2
 
-    invoke-virtual {v2}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v2}, Ljava/lang/Exception;->printStackTrace()V
 
     const/4 v3, 0x0
 
@@ -162,9 +162,7 @@
 
     const/4 v3, 0x0
 
-    nop
-
-    nop
+    check-cast v3, [Ljava/lang/Object;
 
     const/4 v4, 0x0
 
@@ -179,7 +177,7 @@
     :catch_0
     move-exception v1
 
-    invoke-virtual {v1}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v1}, Ljava/lang/Exception;->printStackTrace()V
 
     return-object v5
 .end method
@@ -227,7 +225,7 @@
     :catch_0
     move-exception v2
 
-    invoke-virtual {v2}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v2}, Ljava/lang/Exception;->printStackTrace()V
 
     const/4 v3, 0x0
 
@@ -732,7 +730,7 @@
 .end method
 
 .method public getELMPermissions(Ljava/lang/String;)Ljava/util/List;
-    .locals 2
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -745,25 +743,30 @@
         }
     .end annotation
 
+    const/4 v2, 0x0
+
     :try_start_0
     invoke-static {}, Landroid/sec/enterprise/EnterpriseDeviceManager;->getService()Landroid/sec/enterprise/IEDMProxy;
 
     move-result-object v1
 
+    if-eqz v1, :cond_0
+
     invoke-interface {v1, p1}, Landroid/sec/enterprise/IEDMProxy;->getELMPermissions(Ljava/lang/String;)Ljava/util/List;
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    move-result-object v1
+    move-result-object v2
 
-    return-object v1
+    return-object v2
 
     :catch_0
     move-exception v0
 
-    const/4 v1, 0x0
+    return-object v2
 
-    return-object v1
+    :cond_0
+    return-object v2
 .end method
 
 .method public getFirewallPolicy()Landroid/sec/enterprise/FirewallPolicy;

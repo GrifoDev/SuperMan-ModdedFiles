@@ -62,9 +62,7 @@
     :cond_1
     move-object v0, p1
 
-    nop
-
-    nop
+    check-cast v0, Landroid/security/net/config/Domain;
 
     iget-boolean v2, v0, Landroid/security/net/config/Domain;->subdomainsIncluded:Z
 

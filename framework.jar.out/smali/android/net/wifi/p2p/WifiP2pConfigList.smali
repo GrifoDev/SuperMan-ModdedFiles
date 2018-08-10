@@ -369,7 +369,7 @@
 
     check-cast v0, Landroid/net/wifi/p2p/WifiP2pConfig;
 
-    invoke-virtual {v0, p1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, p1}, Landroid/net/wifi/p2p/WifiP2pConfig;->equals(Ljava/lang/Object;)Z
 
     move-result v2
 

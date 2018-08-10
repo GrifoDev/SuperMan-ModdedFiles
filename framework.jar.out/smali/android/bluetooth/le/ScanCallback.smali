@@ -4,6 +4,8 @@
 
 
 # static fields
+.field static final NO_ERROR:I = 0x0
+
 .field public static final SCAN_FAILED_ALREADY_STARTED:I = 0x1
 
 .field public static final SCAN_FAILED_APPLICATION_REGISTRATION_FAILED:I = 0x2

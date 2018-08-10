@@ -608,118 +608,141 @@
 .end method
 
 .method public initActionAsync(Landroid/widget/RemoteViews$ViewTree;Landroid/view/ViewGroup;Landroid/widget/RemoteViews$OnClickHandler;)Landroid/widget/RemoteViews$Action;
-    .locals 10
+    .locals 11
 
-    iget v7, p0, Landroid/widget/RemoteViews$ReflectionAction;->viewId:I
+    iget v8, p0, Landroid/widget/RemoteViews$ReflectionAction;->viewId:I
 
-    invoke-virtual {p1, v7}, Landroid/widget/RemoteViews$ViewTree;->findViewById(I)Landroid/view/View;
-
-    move-result-object v6
-
-    if-nez v6, :cond_0
-
-    invoke-static {}, Landroid/widget/RemoteViews;->-get0()Landroid/widget/RemoteViews$Action;
+    invoke-virtual {p1, v8}, Landroid/widget/RemoteViews$ViewTree;->findViewById(I)Landroid/view/View;
 
     move-result-object v7
 
-    return-object v7
+    if-nez v7, :cond_0
+
+    invoke-static {}, Landroid/widget/RemoteViews;->-get0()Landroid/widget/RemoteViews$Action;
+
+    move-result-object v8
+
+    return-object v8
 
     :cond_0
     invoke-direct {p0}, Landroid/widget/RemoteViews$ReflectionAction;->getParameterType()Ljava/lang/Class;
 
-    move-result-object v5
+    move-result-object v6
 
-    if-nez v5, :cond_1
+    if-nez v6, :cond_1
 
-    new-instance v7, Landroid/widget/RemoteViews$ActionException;
+    new-instance v8, Landroid/widget/RemoteViews$ActionException;
 
-    new-instance v8, Ljava/lang/StringBuilder;
+    new-instance v9, Ljava/lang/StringBuilder;
 
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v9, "bad type: "
+    const-string/jumbo v10, "bad type: "
 
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v8
+    move-result-object v9
 
-    iget v9, p0, Landroid/widget/RemoteViews$ReflectionAction;->type:I
+    iget v10, p0, Landroid/widget/RemoteViews$ReflectionAction;->type:I
 
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v8
+    move-result-object v9
 
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v8
+    move-result-object v9
 
-    invoke-direct {v7, v8}, Landroid/widget/RemoteViews$ActionException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v8, v9}, Landroid/widget/RemoteViews$ActionException;-><init>(Ljava/lang/String;)V
 
-    throw v7
+    throw v8
 
     :cond_1
     :try_start_0
-    iget-object v7, p0, Landroid/widget/RemoteViews$ReflectionAction;->this$0:Landroid/widget/RemoteViews;
+    iget-object v8, p0, Landroid/widget/RemoteViews$ReflectionAction;->this$0:Landroid/widget/RemoteViews;
 
-    iget-object v8, p0, Landroid/widget/RemoteViews$ReflectionAction;->methodName:Ljava/lang/String;
+    iget-object v9, p0, Landroid/widget/RemoteViews$ReflectionAction;->methodName:Ljava/lang/String;
 
-    invoke-static {v7, v6, v8, v5}, Landroid/widget/RemoteViews;->-wrap5(Landroid/widget/RemoteViews;Landroid/view/View;Ljava/lang/String;Ljava/lang/Class;)Ljava/lang/reflect/Method;
+    invoke-static {v8, v7, v9, v6}, Landroid/widget/RemoteViews;->-wrap5(Landroid/widget/RemoteViews;Landroid/view/View;Ljava/lang/String;Ljava/lang/Class;)Ljava/lang/reflect/Method;
 
-    move-result-object v4
+    move-result-object v5
 
-    iget-object v7, p0, Landroid/widget/RemoteViews$ReflectionAction;->this$0:Landroid/widget/RemoteViews;
+    iget-object v8, p0, Landroid/widget/RemoteViews$ReflectionAction;->this$0:Landroid/widget/RemoteViews;
 
-    invoke-static {v7, v4}, Landroid/widget/RemoteViews;->-wrap4(Landroid/widget/RemoteViews;Ljava/lang/reflect/Method;)Ljava/lang/reflect/Method;
+    invoke-static {v8, v5}, Landroid/widget/RemoteViews;->-wrap4(Landroid/widget/RemoteViews;Ljava/lang/reflect/Method;)Ljava/lang/reflect/Method;
 
-    move-result-object v0
+    move-result-object v1
 
-    if-eqz v0, :cond_3
+    if-eqz v1, :cond_4
 
-    iget-object v7, p0, Landroid/widget/RemoteViews$ReflectionAction;->value:Ljava/lang/Object;
+    iget-object v8, p0, Landroid/widget/RemoteViews$ReflectionAction;->value:Ljava/lang/Object;
 
-    invoke-static {v7}, Landroid/widget/RemoteViews;->-wrap3(Ljava/lang/Object;)[Ljava/lang/Object;
+    invoke-static {v8}, Landroid/widget/RemoteViews;->-wrap3(Ljava/lang/Object;)[Ljava/lang/Object;
 
-    move-result-object v7
+    move-result-object v8
 
-    invoke-virtual {v0, v6, v7}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v1, v7, v8}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v3
 
-    check-cast v2, Ljava/lang/Runnable;
+    check-cast v3, Ljava/lang/Runnable;
 
-    if-nez v2, :cond_2
+    if-nez v3, :cond_2
 
     invoke-static {}, Landroid/widget/RemoteViews;->-get0()Landroid/widget/RemoteViews$Action;
 
-    move-result-object v7
+    move-result-object v8
 
-    return-object v7
+    return-object v8
 
     :cond_2
-    new-instance v7, Landroid/widget/RemoteViews$RunnableAction;
+    instance-of v8, v3, Landroid/view/ViewStub$ViewReplaceRunnable;
 
-    invoke-direct {v7, v2}, Landroid/widget/RemoteViews$RunnableAction;-><init>(Ljava/lang/Runnable;)V
+    if-eqz v8, :cond_3
+
+    invoke-virtual {p1}, Landroid/widget/RemoteViews$ViewTree;->createTree()V
+
+    iget v8, p0, Landroid/widget/RemoteViews$ReflectionAction;->viewId:I
+
+    invoke-virtual {p1, v8}, Landroid/widget/RemoteViews$ViewTree;->findViewTreeById(I)Landroid/widget/RemoteViews$ViewTree;
+
+    move-result-object v9
+
+    move-object v0, v3
+
+    check-cast v0, Landroid/view/ViewStub$ViewReplaceRunnable;
+
+    move-object v8, v0
+
+    iget-object v8, v8, Landroid/view/ViewStub$ViewReplaceRunnable;->view:Landroid/view/View;
+
+    invoke-virtual {v9, v8}, Landroid/widget/RemoteViews$ViewTree;->replaceView(Landroid/view/View;)V
+
+    :cond_3
+    new-instance v8, Landroid/widget/RemoteViews$RunnableAction;
+
+    invoke-direct {v8, v3}, Landroid/widget/RemoteViews$RunnableAction;-><init>(Ljava/lang/Runnable;)V
     :try_end_0
     .catch Landroid/widget/RemoteViews$ActionException; {:try_start_0 .. :try_end_0} :catch_1
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-object v7
+    return-object v8
 
     :catch_0
-    move-exception v3
+    move-exception v4
 
-    new-instance v7, Landroid/widget/RemoteViews$ActionException;
+    new-instance v8, Landroid/widget/RemoteViews$ActionException;
 
-    invoke-direct {v7, v3}, Landroid/widget/RemoteViews$ActionException;-><init>(Ljava/lang/Exception;)V
+    invoke-direct {v8, v4}, Landroid/widget/RemoteViews$ActionException;-><init>(Ljava/lang/Exception;)V
 
-    throw v7
+    throw v8
 
     :catch_1
-    move-exception v1
+    move-exception v2
 
-    throw v1
+    throw v2
 
-    :cond_3
+    :cond_4
     return-object p0
 .end method
 
@@ -744,6 +767,33 @@
     const/4 v0, 0x0
 
     return v0
+.end method
+
+.method public prefersAsyncApply()Z
+    .locals 3
+
+    const/4 v0, 0x1
+
+    iget v1, p0, Landroid/widget/RemoteViews$ReflectionAction;->type:I
+
+    const/16 v2, 0xb
+
+    if-eq v1, v2, :cond_0
+
+    iget v1, p0, Landroid/widget/RemoteViews$ReflectionAction;->type:I
+
+    const/16 v2, 0x10
+
+    if-ne v1, v2, :cond_1
+
+    :cond_0
+    :goto_0
+    return v0
+
+    :cond_1
+    const/4 v0, 0x0
+
+    goto :goto_0
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V

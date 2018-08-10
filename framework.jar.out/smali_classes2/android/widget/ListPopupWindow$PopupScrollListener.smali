@@ -61,13 +61,10 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    xor-int/lit8 v0, v0, 0x1
 
-    :cond_0
-    :goto_0
-    return-void
+    if-eqz v0, :cond_0
 
-    :cond_1
     iget-object v0, p0, Landroid/widget/ListPopupWindow$PopupScrollListener;->this$0:Landroid/widget/ListPopupWindow;
 
     iget-object v0, v0, Landroid/widget/ListPopupWindow;->mPopup:Landroid/widget/PopupWindow;
@@ -100,5 +97,6 @@
 
     invoke-virtual {v0}, Landroid/widget/ListPopupWindow$ResizePopupRunnable;->run()V
 
-    goto :goto_0
+    :cond_0
+    return-void
 .end method

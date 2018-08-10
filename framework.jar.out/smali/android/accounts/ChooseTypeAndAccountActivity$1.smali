@@ -58,7 +58,7 @@
 
     const/4 v1, 0x1
 
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setEnabled(Z)V
+    invoke-virtual {v0, v1}, Landroid/widget/Button;->setEnabled(Z)V
 
     return-void
 .end method

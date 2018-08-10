@@ -459,30 +459,30 @@
 .end method
 
 .method public initActionAsync(Landroid/widget/RemoteViews$ViewTree;Landroid/view/ViewGroup;Landroid/widget/RemoteViews$OnClickHandler;)Landroid/widget/RemoteViews$Action;
-    .locals 12
+    .locals 11
 
-    const/4 v11, 0x0
+    const/4 v10, 0x0
 
-    iget v0, p0, Landroid/widget/RemoteViews$TextViewDrawableAction;->viewId:I
+    iget v1, p0, Landroid/widget/RemoteViews$TextViewDrawableAction;->viewId:I
 
-    invoke-virtual {p1, v0}, Landroid/widget/RemoteViews$ViewTree;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p1, v1}, Landroid/widget/RemoteViews$ViewTree;->findViewById(I)Landroid/view/View;
 
-    move-result-object v10
+    move-result-object v9
 
-    check-cast v10, Landroid/widget/TextView;
+    check-cast v9, Landroid/widget/TextView;
 
-    if-nez v10, :cond_0
+    if-nez v9, :cond_0
 
     invoke-static {}, Landroid/widget/RemoteViews;->-get0()Landroid/widget/RemoteViews$Action;
 
-    move-result-object v0
+    move-result-object v1
 
-    return-object v0
+    return-object v1
 
     :cond_0
-    iget-boolean v0, p0, Landroid/widget/RemoteViews$TextViewDrawableAction;->useIcons:Z
+    iget-boolean v1, p0, Landroid/widget/RemoteViews$TextViewDrawableAction;->useIcons:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v1, :cond_1
 
     new-instance v0, Landroid/widget/RemoteViews$TextViewDrawableAction;
 
@@ -502,57 +502,55 @@
 
     invoke-direct/range {v0 .. v7}, Landroid/widget/RemoteViews$TextViewDrawableAction;-><init>(Landroid/widget/RemoteViews;IZLandroid/graphics/drawable/Icon;Landroid/graphics/drawable/Icon;Landroid/graphics/drawable/Icon;Landroid/graphics/drawable/Icon;)V
 
-    move-object v8, v0
-
     :goto_0
-    const/4 v0, 0x1
+    const/4 v1, 0x1
 
-    iput-boolean v0, v8, Landroid/widget/RemoteViews$TextViewDrawableAction;->drawablesLoaded:Z
+    iput-boolean v1, v0, Landroid/widget/RemoteViews$TextViewDrawableAction;->drawablesLoaded:Z
 
-    invoke-virtual {v10}, Landroid/widget/TextView;->getContext()Landroid/content/Context;
+    invoke-virtual {v9}, Landroid/widget/TextView;->getContext()Landroid/content/Context;
 
-    move-result-object v9
+    move-result-object v8
 
-    iget-boolean v0, p0, Landroid/widget/RemoteViews$TextViewDrawableAction;->useIcons:Z
+    iget-boolean v1, p0, Landroid/widget/RemoteViews$TextViewDrawableAction;->useIcons:Z
 
-    if-eqz v0, :cond_6
+    if-eqz v1, :cond_6
 
-    iget-object v0, p0, Landroid/widget/RemoteViews$TextViewDrawableAction;->i1:Landroid/graphics/drawable/Icon;
+    iget-object v1, p0, Landroid/widget/RemoteViews$TextViewDrawableAction;->i1:Landroid/graphics/drawable/Icon;
 
-    if-nez v0, :cond_2
+    if-nez v1, :cond_2
 
-    move-object v0, v11
+    move-object v1, v10
 
     :goto_1
-    iput-object v0, v8, Landroid/widget/RemoteViews$TextViewDrawableAction;->id1:Landroid/graphics/drawable/Drawable;
+    iput-object v1, v0, Landroid/widget/RemoteViews$TextViewDrawableAction;->id1:Landroid/graphics/drawable/Drawable;
 
-    iget-object v0, p0, Landroid/widget/RemoteViews$TextViewDrawableAction;->i2:Landroid/graphics/drawable/Icon;
+    iget-object v1, p0, Landroid/widget/RemoteViews$TextViewDrawableAction;->i2:Landroid/graphics/drawable/Icon;
 
-    if-nez v0, :cond_3
+    if-nez v1, :cond_3
 
-    move-object v0, v11
+    move-object v1, v10
 
     :goto_2
-    iput-object v0, v8, Landroid/widget/RemoteViews$TextViewDrawableAction;->id2:Landroid/graphics/drawable/Drawable;
+    iput-object v1, v0, Landroid/widget/RemoteViews$TextViewDrawableAction;->id2:Landroid/graphics/drawable/Drawable;
 
-    iget-object v0, p0, Landroid/widget/RemoteViews$TextViewDrawableAction;->i3:Landroid/graphics/drawable/Icon;
+    iget-object v1, p0, Landroid/widget/RemoteViews$TextViewDrawableAction;->i3:Landroid/graphics/drawable/Icon;
 
-    if-nez v0, :cond_4
+    if-nez v1, :cond_4
 
-    move-object v0, v11
+    move-object v1, v10
 
     :goto_3
-    iput-object v0, v8, Landroid/widget/RemoteViews$TextViewDrawableAction;->id3:Landroid/graphics/drawable/Drawable;
+    iput-object v1, v0, Landroid/widget/RemoteViews$TextViewDrawableAction;->id3:Landroid/graphics/drawable/Drawable;
 
-    iget-object v0, p0, Landroid/widget/RemoteViews$TextViewDrawableAction;->i4:Landroid/graphics/drawable/Icon;
+    iget-object v1, p0, Landroid/widget/RemoteViews$TextViewDrawableAction;->i4:Landroid/graphics/drawable/Icon;
 
-    if-nez v0, :cond_5
+    if-nez v1, :cond_5
 
     :goto_4
-    iput-object v11, v8, Landroid/widget/RemoteViews$TextViewDrawableAction;->id4:Landroid/graphics/drawable/Drawable;
+    iput-object v10, v0, Landroid/widget/RemoteViews$TextViewDrawableAction;->id4:Landroid/graphics/drawable/Drawable;
 
     :goto_5
-    return-object v8
+    return-object v0
 
     :cond_1
     new-instance v0, Landroid/widget/RemoteViews$TextViewDrawableAction;
@@ -573,118 +571,124 @@
 
     invoke-direct/range {v0 .. v7}, Landroid/widget/RemoteViews$TextViewDrawableAction;-><init>(Landroid/widget/RemoteViews;IZIIII)V
 
-    move-object v8, v0
-
     goto :goto_0
 
     :cond_2
-    iget-object v0, p0, Landroid/widget/RemoteViews$TextViewDrawableAction;->i1:Landroid/graphics/drawable/Icon;
+    iget-object v1, p0, Landroid/widget/RemoteViews$TextViewDrawableAction;->i1:Landroid/graphics/drawable/Icon;
 
-    invoke-virtual {v0, v9}, Landroid/graphics/drawable/Icon;->loadDrawable(Landroid/content/Context;)Landroid/graphics/drawable/Drawable;
+    invoke-virtual {v1, v8}, Landroid/graphics/drawable/Icon;->loadDrawable(Landroid/content/Context;)Landroid/graphics/drawable/Drawable;
 
-    move-result-object v0
+    move-result-object v1
 
     goto :goto_1
 
     :cond_3
-    iget-object v0, p0, Landroid/widget/RemoteViews$TextViewDrawableAction;->i2:Landroid/graphics/drawable/Icon;
+    iget-object v1, p0, Landroid/widget/RemoteViews$TextViewDrawableAction;->i2:Landroid/graphics/drawable/Icon;
 
-    invoke-virtual {v0, v9}, Landroid/graphics/drawable/Icon;->loadDrawable(Landroid/content/Context;)Landroid/graphics/drawable/Drawable;
+    invoke-virtual {v1, v8}, Landroid/graphics/drawable/Icon;->loadDrawable(Landroid/content/Context;)Landroid/graphics/drawable/Drawable;
 
-    move-result-object v0
+    move-result-object v1
 
     goto :goto_2
 
     :cond_4
-    iget-object v0, p0, Landroid/widget/RemoteViews$TextViewDrawableAction;->i3:Landroid/graphics/drawable/Icon;
+    iget-object v1, p0, Landroid/widget/RemoteViews$TextViewDrawableAction;->i3:Landroid/graphics/drawable/Icon;
 
-    invoke-virtual {v0, v9}, Landroid/graphics/drawable/Icon;->loadDrawable(Landroid/content/Context;)Landroid/graphics/drawable/Drawable;
+    invoke-virtual {v1, v8}, Landroid/graphics/drawable/Icon;->loadDrawable(Landroid/content/Context;)Landroid/graphics/drawable/Drawable;
 
-    move-result-object v0
+    move-result-object v1
 
     goto :goto_3
 
     :cond_5
-    iget-object v0, p0, Landroid/widget/RemoteViews$TextViewDrawableAction;->i4:Landroid/graphics/drawable/Icon;
+    iget-object v1, p0, Landroid/widget/RemoteViews$TextViewDrawableAction;->i4:Landroid/graphics/drawable/Icon;
 
-    invoke-virtual {v0, v9}, Landroid/graphics/drawable/Icon;->loadDrawable(Landroid/content/Context;)Landroid/graphics/drawable/Drawable;
+    invoke-virtual {v1, v8}, Landroid/graphics/drawable/Icon;->loadDrawable(Landroid/content/Context;)Landroid/graphics/drawable/Drawable;
 
-    move-result-object v11
+    move-result-object v10
 
     goto :goto_4
 
     :cond_6
-    iget v0, p0, Landroid/widget/RemoteViews$TextViewDrawableAction;->d1:I
+    iget v1, p0, Landroid/widget/RemoteViews$TextViewDrawableAction;->d1:I
 
-    if-nez v0, :cond_7
+    if-nez v1, :cond_7
 
-    move-object v0, v11
+    move-object v1, v10
 
     :goto_6
-    iput-object v0, v8, Landroid/widget/RemoteViews$TextViewDrawableAction;->id1:Landroid/graphics/drawable/Drawable;
+    iput-object v1, v0, Landroid/widget/RemoteViews$TextViewDrawableAction;->id1:Landroid/graphics/drawable/Drawable;
 
-    iget v0, p0, Landroid/widget/RemoteViews$TextViewDrawableAction;->d2:I
+    iget v1, p0, Landroid/widget/RemoteViews$TextViewDrawableAction;->d2:I
 
-    if-nez v0, :cond_8
+    if-nez v1, :cond_8
 
-    move-object v0, v11
+    move-object v1, v10
 
     :goto_7
-    iput-object v0, v8, Landroid/widget/RemoteViews$TextViewDrawableAction;->id2:Landroid/graphics/drawable/Drawable;
+    iput-object v1, v0, Landroid/widget/RemoteViews$TextViewDrawableAction;->id2:Landroid/graphics/drawable/Drawable;
 
-    iget v0, p0, Landroid/widget/RemoteViews$TextViewDrawableAction;->d3:I
+    iget v1, p0, Landroid/widget/RemoteViews$TextViewDrawableAction;->d3:I
 
-    if-nez v0, :cond_9
+    if-nez v1, :cond_9
 
-    move-object v0, v11
+    move-object v1, v10
 
     :goto_8
-    iput-object v0, v8, Landroid/widget/RemoteViews$TextViewDrawableAction;->id3:Landroid/graphics/drawable/Drawable;
+    iput-object v1, v0, Landroid/widget/RemoteViews$TextViewDrawableAction;->id3:Landroid/graphics/drawable/Drawable;
 
-    iget v0, p0, Landroid/widget/RemoteViews$TextViewDrawableAction;->d4:I
+    iget v1, p0, Landroid/widget/RemoteViews$TextViewDrawableAction;->d4:I
 
-    if-nez v0, :cond_a
+    if-nez v1, :cond_a
 
     :goto_9
-    iput-object v11, v8, Landroid/widget/RemoteViews$TextViewDrawableAction;->id4:Landroid/graphics/drawable/Drawable;
+    iput-object v10, v0, Landroid/widget/RemoteViews$TextViewDrawableAction;->id4:Landroid/graphics/drawable/Drawable;
 
     goto :goto_5
 
     :cond_7
-    iget v0, p0, Landroid/widget/RemoteViews$TextViewDrawableAction;->d1:I
+    iget v1, p0, Landroid/widget/RemoteViews$TextViewDrawableAction;->d1:I
 
-    invoke-virtual {v9, v0}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
+    invoke-virtual {v8, v1}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
-    move-result-object v0
+    move-result-object v1
 
     goto :goto_6
 
     :cond_8
-    iget v0, p0, Landroid/widget/RemoteViews$TextViewDrawableAction;->d2:I
+    iget v1, p0, Landroid/widget/RemoteViews$TextViewDrawableAction;->d2:I
 
-    invoke-virtual {v9, v0}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
+    invoke-virtual {v8, v1}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
-    move-result-object v0
+    move-result-object v1
 
     goto :goto_7
 
     :cond_9
-    iget v0, p0, Landroid/widget/RemoteViews$TextViewDrawableAction;->d3:I
+    iget v1, p0, Landroid/widget/RemoteViews$TextViewDrawableAction;->d3:I
 
-    invoke-virtual {v9, v0}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
+    invoke-virtual {v8, v1}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
-    move-result-object v0
+    move-result-object v1
 
     goto :goto_8
 
     :cond_a
-    iget v0, p0, Landroid/widget/RemoteViews$TextViewDrawableAction;->d4:I
+    iget v1, p0, Landroid/widget/RemoteViews$TextViewDrawableAction;->d4:I
 
-    invoke-virtual {v9, v0}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
+    invoke-virtual {v8, v1}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
-    move-result-object v11
+    move-result-object v10
 
     goto :goto_9
+.end method
+
+.method public prefersAsyncApply()Z
+    .locals 1
+
+    iget-boolean v0, p0, Landroid/widget/RemoteViews$TextViewDrawableAction;->useIcons:Z
+
+    return v0
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V

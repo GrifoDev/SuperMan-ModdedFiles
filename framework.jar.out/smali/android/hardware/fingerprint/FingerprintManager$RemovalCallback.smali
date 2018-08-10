@@ -31,7 +31,7 @@
     return-void
 .end method
 
-.method public onRemovalSucceeded(Landroid/hardware/fingerprint/Fingerprint;)V
+.method public onRemovalSucceeded(Landroid/hardware/fingerprint/Fingerprint;I)V
     .locals 0
 
     return-void

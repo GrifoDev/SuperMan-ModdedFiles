@@ -63,7 +63,7 @@
 .method public getNativeSize()I
     .locals 1
 
-    iget v0, p0, Landroid/hardware/camera2/marshal/Marshaler;->mNativeType:I
+    iget v0, p0, Landroid/hardware/camera2/marshal/impl/MarshalQueryableEnum$MarshalerEnum;->mNativeType:I
 
     invoke-static {v0}, Landroid/hardware/camera2/marshal/MarshalHelpers;->getPrimitiveTypeSize(I)I
 
@@ -90,7 +90,7 @@
 
     move-result v0
 
-    iget v1, p0, Landroid/hardware/camera2/marshal/Marshaler;->mNativeType:I
+    iget v1, p0, Landroid/hardware/camera2/marshal/impl/MarshalQueryableEnum$MarshalerEnum;->mNativeType:I
 
     if-ne v1, v3, :cond_0
 
@@ -100,7 +100,7 @@
     return-void
 
     :cond_0
-    iget v1, p0, Landroid/hardware/camera2/marshal/Marshaler;->mNativeType:I
+    iget v1, p0, Landroid/hardware/camera2/marshal/impl/MarshalQueryableEnum$MarshalerEnum;->mNativeType:I
 
     if-nez v1, :cond_3
 
@@ -166,7 +166,7 @@
         }
     .end annotation
 
-    iget v1, p0, Landroid/hardware/camera2/marshal/Marshaler;->mNativeType:I
+    iget v1, p0, Landroid/hardware/camera2/marshal/impl/MarshalQueryableEnum$MarshalerEnum;->mNativeType:I
 
     packed-switch v1, :pswitch_data_0
 

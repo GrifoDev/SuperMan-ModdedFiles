@@ -26,7 +26,7 @@
 .method private buildIntoRemoteViewContent(Landroid/widget/RemoteViews;Landroid/widget/RemoteViews;)V
     .locals 3
 
-    const v2, 0x1020436
+    const v2, 0x10203be
 
     if-eqz p2, :cond_0
 
@@ -39,7 +39,7 @@
     invoke-virtual {p1, v2, p2}, Landroid/widget/RemoteViews;->addView(ILandroid/widget/RemoteViews;)V
 
     :cond_0
-    const v0, 0x1050040
+    const v0, 0x1050165
 
     iget-object v1, p0, Landroid/app/Notification$DecoratedCustomViewStyle;->mBuilder:Landroid/app/Notification$Builder;
 
@@ -53,7 +53,7 @@
 
     if-eqz v1, :cond_1
 
-    const v0, 0x1050042
+    const v0, 0x1050169
 
     :cond_1
     invoke-virtual {p1, v2, v0}, Landroid/widget/RemoteViews;->setViewLayoutMarginEndDimen(II)V
@@ -117,7 +117,7 @@
 
     iget-object v3, p0, Landroid/app/Notification$DecoratedCustomViewStyle;->mBuilder:Landroid/app/Notification$Builder;
 
-    invoke-static {v3}, Landroid/app/Notification$Builder;->-wrap7(Landroid/app/Notification$Builder;)I
+    invoke-static {v3}, Landroid/app/Notification$Builder;->-wrap8(Landroid/app/Notification$Builder;)I
 
     move-result v3
 
@@ -186,7 +186,7 @@
 
     iget-object v3, p0, Landroid/app/Notification$DecoratedCustomViewStyle;->mBuilder:Landroid/app/Notification$Builder;
 
-    invoke-static {v3}, Landroid/app/Notification$Builder;->-wrap7(Landroid/app/Notification$Builder;)I
+    invoke-static {v3}, Landroid/app/Notification$Builder;->-wrap8(Landroid/app/Notification$Builder;)I
 
     move-result v3
 
@@ -206,7 +206,7 @@
 
     iget-object v2, p0, Landroid/app/Notification$DecoratedCustomViewStyle;->mBuilder:Landroid/app/Notification$Builder;
 
-    invoke-static {v2}, Landroid/app/Notification$Builder;->-wrap6(Landroid/app/Notification$Builder;)I
+    invoke-static {v2}, Landroid/app/Notification$Builder;->-wrap7(Landroid/app/Notification$Builder;)I
 
     move-result v2
 
@@ -239,7 +239,7 @@
     return-object v0
 .end method
 
-.method public makeContentView()Landroid/widget/RemoteViews;
+.method public makeContentView(Z)Landroid/widget/RemoteViews;
     .locals 1
 
     iget-object v0, p0, Landroid/app/Notification$DecoratedCustomViewStyle;->mBuilder:Landroid/app/Notification$Builder;
@@ -257,7 +257,7 @@
     return-object v0
 .end method
 
-.method public makeHeadsUpContentView()Landroid/widget/RemoteViews;
+.method public makeHeadsUpContentView(Z)Landroid/widget/RemoteViews;
     .locals 1
 
     invoke-direct {p0}, Landroid/app/Notification$DecoratedCustomViewStyle;->makeDecoratedHeadsUpContentView()Landroid/widget/RemoteViews;

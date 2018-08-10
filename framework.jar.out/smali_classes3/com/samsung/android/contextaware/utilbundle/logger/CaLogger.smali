@@ -89,7 +89,7 @@
 
     sget-object v0, Lcom/samsung/android/contextaware/utilbundle/logger/CaLogger$Level;->TRACE:Lcom/samsung/android/contextaware/utilbundle/logger/CaLogger$Level;
 
-    invoke-virtual {v0}, Ljava/lang/Enum;->ordinal()I
+    invoke-virtual {v0}, Lcom/samsung/android/contextaware/utilbundle/logger/CaLogger$Level;->ordinal()I
 
     move-result v0
 

@@ -87,14 +87,6 @@
     .end annotation
 .end method
 
-.method public abstract buzzBeepBlinked()V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
 .method public abstract cancelPreloadRecentApps()V
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -127,7 +119,7 @@
     .end annotation
 .end method
 
-.method public abstract hideNaviBarRemoteView(Ljava/lang/String;I)V
+.method public abstract handleSystemNavigationKey(I)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -143,22 +135,6 @@
     .end annotation
 .end method
 
-.method public abstract notificationLightOff()V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract notificationLightPulse(III)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
 .method public abstract onCameraLaunchGestureDetected(I)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -167,7 +143,7 @@
     .end annotation
 .end method
 
-.method public abstract onNavigationBarForceClicked(III)V
+.method public abstract preloadRecentApps()V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -175,7 +151,7 @@
     .end annotation
 .end method
 
-.method public abstract preloadRecentApps()V
+.method public abstract prepareKnoxDesktopTaskBar(Z)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -200,6 +176,14 @@
 .end method
 
 .method public abstract sendKeyEventToKnoxDesktopTaskbar(Landroid/view/KeyEvent;)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract setForceImmersiveBtnVisibility(Z)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -239,7 +223,7 @@
     .end annotation
 .end method
 
-.method public abstract setNavigationBarIconColor(I)V
+.method public abstract setNavigationBarShortcut(Ljava/lang/String;Landroid/widget/RemoteViews;I)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -271,7 +255,7 @@
     .end annotation
 .end method
 
-.method public abstract showNaviBarRemoteView(Ljava/lang/String;Landroid/widget/RemoteViews;I)V
+.method public abstract showGlobalActionsMenu()V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -279,7 +263,7 @@
     .end annotation
 .end method
 
-.method public abstract showNavigationBarInFullscreen()V
+.method public abstract showPictureInPictureMenu()V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -311,7 +295,7 @@
     .end annotation
 .end method
 
-.method public abstract showTvPictureInPictureMenu()V
+.method public abstract showSnapWindowGuideView(ILjava/lang/String;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -359,23 +343,7 @@
     .end annotation
 .end method
 
-.method public abstract toggleSplitScreenByKey()V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
 .method public abstract topAppWindowChanged(Z)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract updateKnoxDesktopTaskBar(IIIILandroid/content/ComponentName;Ljava/lang/String;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

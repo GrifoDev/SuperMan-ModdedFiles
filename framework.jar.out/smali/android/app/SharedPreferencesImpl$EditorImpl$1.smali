@@ -22,14 +22,18 @@
 
 .field final synthetic val$mcr:Landroid/app/SharedPreferencesImpl$MemoryCommitResult;
 
+.field final synthetic val$startTime:J
+
 
 # direct methods
-.method constructor <init>(Landroid/app/SharedPreferencesImpl$EditorImpl;Landroid/app/SharedPreferencesImpl$MemoryCommitResult;)V
-    .locals 0
+.method constructor <init>(Landroid/app/SharedPreferencesImpl$EditorImpl;Landroid/app/SharedPreferencesImpl$MemoryCommitResult;J)V
+    .locals 1
 
     iput-object p1, p0, Landroid/app/SharedPreferencesImpl$EditorImpl$1;->this$1:Landroid/app/SharedPreferencesImpl$EditorImpl;
 
     iput-object p2, p0, Landroid/app/SharedPreferencesImpl$EditorImpl$1;->val$mcr:Landroid/app/SharedPreferencesImpl$MemoryCommitResult;
+
+    iput-wide p3, p0, Landroid/app/SharedPreferencesImpl$EditorImpl$1;->val$startTime:J
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 

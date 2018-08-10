@@ -176,7 +176,7 @@
 
     move-result-object v0
 
-    const/16 v1, 0x12b
+    const/16 v1, 0x143
 
     invoke-virtual {v0, v1}, Landroid/content/res/TypedArray;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -687,7 +687,7 @@
 
     iget-object v0, p0, Landroid/widget/QuickContactBadge;->mContext:Landroid/content/Context;
 
-    const v1, 0x10803b2
+    const v1, 0x10803c2
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 

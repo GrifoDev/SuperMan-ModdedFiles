@@ -115,9 +115,9 @@
     .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_1
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    iput-object p1, p0, Landroid/filterfw/core/GraphRunner;->mFilterContext:Landroid/filterfw/core/FilterContext;
+    iput-object p1, p0, Landroid/filterfw/core/SyncRunner;->mFilterContext:Landroid/filterfw/core/FilterContext;
 
-    iget-object v6, p0, Landroid/filterfw/core/GraphRunner;->mFilterContext:Landroid/filterfw/core/FilterContext;
+    iget-object v6, p0, Landroid/filterfw/core/SyncRunner;->mFilterContext:Landroid/filterfw/core/FilterContext;
 
     invoke-virtual {v6, p2}, Landroid/filterfw/core/FilterContext;->addGraph(Landroid/filterfw/core/FilterGraph;)V
 
@@ -277,7 +277,7 @@
 
     move-result-object v0
 
-    iget-object v1, p0, Landroid/filterfw/core/GraphRunner;->mFilterContext:Landroid/filterfw/core/FilterContext;
+    iget-object v1, p0, Landroid/filterfw/core/SyncRunner;->mFilterContext:Landroid/filterfw/core/FilterContext;
 
     invoke-virtual {v0, v1}, Landroid/filterfw/core/FilterGraph;->closeFilters(Landroid/filterfw/core/FilterContext;)V
 
@@ -450,7 +450,7 @@
     invoke-static {v0, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
-    iget-object v0, p0, Landroid/filterfw/core/GraphRunner;->mFilterContext:Landroid/filterfw/core/FilterContext;
+    iget-object v0, p0, Landroid/filterfw/core/SyncRunner;->mFilterContext:Landroid/filterfw/core/FilterContext;
 
     invoke-virtual {p1, v0}, Landroid/filterfw/core/Filter;->performProcess(Landroid/filterfw/core/FilterContext;)V
 
@@ -540,7 +540,7 @@
 
     invoke-virtual {p0}, Landroid/filterfw/core/SyncRunner;->beginProcessing()V
 
-    invoke-virtual {p0}, Landroid/filterfw/core/GraphRunner;->activateGlContext()Z
+    invoke-virtual {p0}, Landroid/filterfw/core/SyncRunner;->activateGlContext()Z
 
     move-result v0
 
@@ -558,7 +558,7 @@
     :cond_1
     if-eqz v0, :cond_2
 
-    invoke-virtual {p0}, Landroid/filterfw/core/GraphRunner;->deactivateGlContext()V
+    invoke-virtual {p0}, Landroid/filterfw/core/SyncRunner;->deactivateGlContext()V
 
     :cond_2
     iget-object v2, p0, Landroid/filterfw/core/SyncRunner;->mDoneListener:Landroid/filterfw/core/GraphRunner$OnRunnerDoneListener;

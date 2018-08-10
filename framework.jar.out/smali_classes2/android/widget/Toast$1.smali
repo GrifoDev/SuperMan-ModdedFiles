@@ -35,111 +35,58 @@
 
 # virtual methods
 .method public onTouch(Landroid/view/View;Landroid/view/MotionEvent;)Z
-    .locals 4
+    .locals 3
 
     invoke-virtual {p2}, Landroid/view/MotionEvent;->getAction()I
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
     invoke-virtual {p2}, Landroid/view/MotionEvent;->getAction()I
 
-    move-result v1
+    move-result v0
 
-    const/4 v2, 0x4
+    const/4 v1, 0x4
 
-    if-ne v1, v2, :cond_2
+    if-ne v0, v1, :cond_2
 
     :cond_0
-    iget-object v1, p0, Landroid/widget/Toast$1;->this$0:Landroid/widget/Toast;
+    sget-boolean v0, Landroid/widget/Toast;->localLOGV:Z
 
-    iget-object v1, v1, Landroid/widget/Toast;->mTN:Landroid/widget/Toast$TN;
+    if-eqz v0, :cond_1
 
-    invoke-virtual {v1}, Landroid/widget/Toast$TN;->hide()V
+    const-string/jumbo v0, "Toast"
 
-    :try_start_0
-    sget-boolean v1, Landroid/widget/Toast;->localLOGV:Z
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    if-eqz v1, :cond_1
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v1, "Toast"
+    const-string/jumbo v2, "cancelToast: "
 
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v3, "cancelToast: "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_1
-    invoke-static {}, Landroid/widget/Toast;->-wrap0()Landroid/app/INotificationManager;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
-    iget-object v2, p0, Landroid/widget/Toast$1;->this$0:Landroid/widget/Toast;
+    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    iget-object v2, v2, Landroid/widget/Toast;->mContext:Landroid/content/Context;
+    move-result-object v1
 
-    invoke-virtual {v2}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v1
 
-    iget-object v3, p0, Landroid/widget/Toast$1;->this$0:Landroid/widget/Toast;
+    invoke-static {v0, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-object v3, v3, Landroid/widget/Toast;->mTN:Landroid/widget/Toast$TN;
+    :cond_1
+    iget-object v0, p0, Landroid/widget/Toast$1;->this$0:Landroid/widget/Toast;
 
-    invoke-interface {v1, v2, v3}, Landroid/app/INotificationManager;->cancelToast(Ljava/lang/String;Landroid/app/ITransientNotification;)V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+    iget-object v0, v0, Landroid/widget/Toast;->mTN:Landroid/widget/Toast$TN;
+
+    invoke-virtual {v0}, Landroid/widget/Toast$TN;->cancel()V
 
     :cond_2
-    :goto_0
-    const/4 v1, 0x1
+    const/4 v0, 0x1
 
-    return v1
-
-    :catch_0
-    move-exception v0
-
-    sget-boolean v1, Landroid/widget/Toast;->localLOGV:Z
-
-    if-eqz v1, :cond_2
-
-    const-string/jumbo v1, "Toast"
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v3, "RemoteException: "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_0
+    return v0
 .end method

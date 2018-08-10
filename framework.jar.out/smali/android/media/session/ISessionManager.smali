@@ -47,6 +47,14 @@
     .end annotation
 .end method
 
+.method public abstract dispatchVolumeKeyEvent(Landroid/view/KeyEvent;IZ)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract getSessions(Landroid/content/ComponentName;I)Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -83,7 +91,7 @@
     .end annotation
 .end method
 
-.method public abstract setRemoteVolumeController(Landroid/media/IRemoteVolumeController;)V
+.method public abstract setCallback(Landroid/media/session/ICallback;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -91,7 +99,23 @@
     .end annotation
 .end method
 
-.method public abstract updateSoundKitchenInfo(II)V
+.method public abstract setOnMediaKeyListener(Landroid/media/session/IOnMediaKeyListener;)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract setOnVolumeKeyLongPressListener(Landroid/media/session/IOnVolumeKeyLongPressListener;)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract setRemoteVolumeController(Landroid/media/IRemoteVolumeController;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

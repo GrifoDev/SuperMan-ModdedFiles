@@ -73,6 +73,14 @@
     throw v1
 .end method
 
+.method public hasAmplitudeControl()Z
+    .locals 1
+
+    const/4 v0, 0x0
+
+    return v0
+.end method
+
 .method public hasVibrator()Z
     .locals 1
 
@@ -81,58 +89,80 @@
     return v0
 .end method
 
-.method public vibrate(ILjava/lang/String;JLandroid/media/AudioAttributes;)V
-    .locals 5
+.method public vibrate(ILjava/lang/String;Landroid/os/VibrationEffect;Landroid/media/AudioAttributes;)V
+    .locals 8
 
-    const/4 v0, 0x2
+    instance-of v5, p3, Landroid/os/VibrationEffect$OneShot;
 
-    new-array v0, v0, [J
+    if-eqz v5, :cond_0
 
-    const-wide/16 v2, 0x0
+    move-object v1, p3
 
-    const/4 v1, 0x0
+    check-cast v1, Landroid/os/VibrationEffect$OneShot;
 
-    aput-wide v2, v0, v1
+    const/4 v5, 0x2
 
-    const/4 v1, 0x1
+    new-array v2, v5, [J
 
-    aput-wide p3, v0, v1
+    const-wide/16 v6, 0x0
 
-    const/4 v1, -0x1
+    const/4 v5, 0x0
 
-    invoke-virtual {p0, v0, v1}, Landroid/os/Vibrator;->vibrate([JI)V
+    aput-wide v6, v2, v5
 
-    return-void
-.end method
+    invoke-virtual {v1}, Landroid/os/VibrationEffect$OneShot;->getTiming()J
 
-.method public vibrate(ILjava/lang/String;[JILandroid/media/AudioAttributes;)V
-    .locals 4
+    move-result-wide v6
 
-    array-length v1, p3
+    const/4 v5, 0x1
 
-    if-lt p4, v1, :cond_0
+    aput-wide v6, v2, v5
 
-    new-instance v1, Ljava/lang/ArrayIndexOutOfBoundsException;
+    const/4 v3, -0x1
 
-    invoke-direct {v1}, Ljava/lang/ArrayIndexOutOfBoundsException;-><init>()V
-
-    throw v1
-
-    :cond_0
+    :goto_0
     :try_start_0
-    iget-object v1, p0, Landroid/hardware/input/InputManager$InputDeviceVibrator;->this$0:Landroid/hardware/input/InputManager;
+    iget-object v5, p0, Landroid/hardware/input/InputManager$InputDeviceVibrator;->this$0:Landroid/hardware/input/InputManager;
 
-    invoke-static {v1}, Landroid/hardware/input/InputManager;->-get0(Landroid/hardware/input/InputManager;)Landroid/hardware/input/IInputManager;
+    invoke-static {v5}, Landroid/hardware/input/InputManager;->-get0(Landroid/hardware/input/InputManager;)Landroid/hardware/input/IInputManager;
 
-    move-result-object v1
+    move-result-object v5
 
-    iget v2, p0, Landroid/hardware/input/InputManager$InputDeviceVibrator;->mDeviceId:I
+    iget v6, p0, Landroid/hardware/input/InputManager$InputDeviceVibrator;->mDeviceId:I
 
-    iget-object v3, p0, Landroid/hardware/input/InputManager$InputDeviceVibrator;->mToken:Landroid/os/Binder;
+    iget-object v7, p0, Landroid/hardware/input/InputManager$InputDeviceVibrator;->mToken:Landroid/os/Binder;
 
-    invoke-interface {v1, v2, p3, p4, v3}, Landroid/hardware/input/IInputManager;->vibrate(I[JILandroid/os/IBinder;)V
+    invoke-interface {v5, v6, v2, v3, v7}, Landroid/hardware/input/IInputManager;->vibrate(I[JILandroid/os/IBinder;)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    return-void
+
+    :cond_0
+    instance-of v5, p3, Landroid/os/VibrationEffect$Waveform;
+
+    if-eqz v5, :cond_1
+
+    move-object v4, p3
+
+    check-cast v4, Landroid/os/VibrationEffect$Waveform;
+
+    invoke-virtual {v4}, Landroid/os/VibrationEffect$Waveform;->getTimings()[J
+
+    move-result-object v2
+
+    invoke-virtual {v4}, Landroid/os/VibrationEffect$Waveform;->getRepeatIndex()I
+
+    move-result v3
+
+    goto :goto_0
+
+    :cond_1
+    const-string/jumbo v5, "InputManager"
+
+    const-string/jumbo v6, "Pre-baked effects aren\'t supported on input devices"
+
+    invoke-static {v5, v6}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 
@@ -141,7 +171,7 @@
 
     invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
 
-    move-result-object v1
+    move-result-object v5
 
-    throw v1
+    throw v5
 .end method

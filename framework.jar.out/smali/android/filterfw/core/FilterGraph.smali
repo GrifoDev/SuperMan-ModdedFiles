@@ -318,19 +318,19 @@
 
     aput-object v12, v11, v13
 
-    invoke-virtual {v0, v11}, Landroid/filterfw/core/Filter;->initWithAssignmentList([Ljava/lang/Object;)V
+    invoke-virtual {v0, v11}, Landroid/filterpacks/base/FrameBranch;->initWithAssignmentList([Ljava/lang/Object;)V
 
     invoke-virtual {p0, v0}, Landroid/filterfw/core/FilterGraph;->addFilter(Landroid/filterfw/core/Filter;)Z
 
     const-string/jumbo v11, "in"
 
-    invoke-virtual {v0, v11}, Landroid/filterfw/core/Filter;->getInputPort(Ljava/lang/String;)Landroid/filterfw/core/InputPort;
+    invoke-virtual {v0, v11}, Landroid/filterpacks/base/FrameBranch;->getInputPort(Ljava/lang/String;)Landroid/filterfw/core/InputPort;
 
     move-result-object v11
 
     invoke-virtual {v10, v11}, Landroid/filterfw/core/OutputPort;->connectTo(Landroid/filterfw/core/InputPort;)V
 
-    invoke-virtual {v9}, Ljava/util/AbstractSequentialList;->iterator()Ljava/util/Iterator;
+    invoke-virtual {v9}, Ljava/util/LinkedList;->iterator()Ljava/util/Iterator;
 
     move-result-object v8
 
@@ -506,13 +506,13 @@
 
     invoke-direct {v4, v7}, Landroid/filterpacks/base/NullFilter;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v4}, Landroid/filterfw/core/Filter;->init()V
+    invoke-virtual {v4}, Landroid/filterpacks/base/NullFilter;->init()V
 
     invoke-virtual {v0, v4}, Ljava/util/LinkedList;->add(Ljava/lang/Object;)Z
 
     const-string/jumbo v7, "frame"
 
-    invoke-virtual {v4, v7}, Landroid/filterfw/core/Filter;->getInputPort(Ljava/lang/String;)Landroid/filterfw/core/InputPort;
+    invoke-virtual {v4, v7}, Landroid/filterpacks/base/NullFilter;->getInputPort(Ljava/lang/String;)Landroid/filterfw/core/InputPort;
 
     move-result-object v7
 
@@ -709,7 +709,9 @@
 
     move-result v3
 
-    if-nez v3, :cond_1
+    xor-int/lit8 v3, v3, 0x1
+
+    if-eqz v3, :cond_1
 
     return v4
 
@@ -752,7 +754,7 @@
 
     move-result-object v6
 
-    invoke-virtual {v1, v6}, Ljava/util/Vector;->addAll(Ljava/util/Collection;)Z
+    invoke-virtual {v1, v6}, Ljava/util/Stack;->addAll(Ljava/util/Collection;)Z
 
     :cond_0
     invoke-virtual {v1}, Ljava/util/Stack;->empty()Z
@@ -928,7 +930,7 @@
 
     move-result-object v3
 
-    invoke-virtual {v1}, Landroid/filterfw/core/FilterPort;->getPortFormat()Landroid/filterfw/core/FrameFormat;
+    invoke-virtual {v1}, Landroid/filterfw/core/InputPort;->getPortFormat()Landroid/filterfw/core/FrameFormat;
 
     move-result-object v4
 
@@ -1045,7 +1047,7 @@
     throw v5
 
     :pswitch_0
-    invoke-virtual {v1, v8}, Landroid/filterfw/core/FilterPort;->setChecksType(Z)V
+    invoke-virtual {v1, v8}, Landroid/filterfw/core/InputPort;->setChecksType(Z)V
 
     goto :goto_0
 
@@ -1056,7 +1058,7 @@
 
     const/4 v5, 0x1
 
-    invoke-virtual {v1, v5}, Landroid/filterfw/core/FilterPort;->setChecksType(Z)V
+    invoke-virtual {v1, v5}, Landroid/filterfw/core/InputPort;->setChecksType(Z)V
 
     goto :goto_0
 
@@ -1065,7 +1067,7 @@
 
     move-result v0
 
-    invoke-virtual {v1, v8}, Landroid/filterfw/core/FilterPort;->setChecksType(Z)V
+    invoke-virtual {v1, v8}, Landroid/filterfw/core/InputPort;->setChecksType(Z)V
 
     goto :goto_0
 
@@ -1117,7 +1119,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v3}, Landroid/filterfw/core/FilterPort;->getName()Ljava/lang/String;
+    invoke-virtual {v3}, Landroid/filterfw/core/OutputPort;->getName()Ljava/lang/String;
 
     move-result-object v5
 
@@ -1158,7 +1160,7 @@
     throw v5
 
     :cond_1
-    invoke-virtual {v3, v2}, Landroid/filterfw/core/FilterPort;->setPortFormat(Landroid/filterfw/core/FrameFormat;)V
+    invoke-virtual {v3, v2}, Landroid/filterfw/core/OutputPort;->setPortFormat(Landroid/filterfw/core/FrameFormat;)V
 
     goto :goto_0
 
@@ -1316,8 +1318,20 @@
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    xor-int/lit8 v2, v2, 0x1
 
+    if-eqz v2, :cond_3
+
+    :cond_2
+    new-instance v2, Ljava/lang/RuntimeException;
+
+    const-string/jumbo v3, "Attempting to connect filter not in graph!"
+
+    invoke-direct {v2, v3}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+
+    throw v2
+
+    :cond_3
     invoke-virtual {p1, p2}, Landroid/filterfw/core/Filter;->getOutputPort(Ljava/lang/String;)Landroid/filterfw/core/OutputPort;
 
     move-result-object v1
@@ -1326,7 +1340,7 @@
 
     move-result-object v0
 
-    if-nez v1, :cond_3
+    if-nez v1, :cond_4
 
     new-instance v2, Ljava/lang/RuntimeException;
 
@@ -1368,17 +1382,8 @@
 
     throw v2
 
-    :cond_2
-    new-instance v2, Ljava/lang/RuntimeException;
-
-    const-string/jumbo v3, "Attempting to connect filter not in graph!"
-
-    invoke-direct {v2, v3}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
-
-    throw v2
-
-    :cond_3
-    if-nez v0, :cond_4
+    :cond_4
+    if-nez v0, :cond_5
 
     new-instance v2, Ljava/lang/RuntimeException;
 
@@ -1420,7 +1425,7 @@
 
     throw v2
 
-    :cond_4
+    :cond_5
     invoke-direct {p0, v1, v0}, Landroid/filterfw/core/FilterGraph;->preconnect(Landroid/filterfw/core/OutputPort;Landroid/filterfw/core/InputPort;)V
 
     return-void

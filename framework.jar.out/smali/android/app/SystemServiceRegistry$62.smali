@@ -56,6 +56,11 @@
 
 .method public bridge synthetic createService()Ljava/lang/Object;
     .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/ServiceManager$ServiceNotFoundException;
+        }
+    .end annotation
 
     invoke-virtual {p0}, Landroid/app/SystemServiceRegistry$62;->createService()Landroid/ktuca/KtUcaManager;
 

@@ -48,19 +48,11 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    xor-int/lit8 v0, v0, 0x1
 
-    const/4 v0, 0x0
-
-    :goto_0
     sput-boolean v0, Landroid/net/http/SslError;->-assertionsDisabled:Z
 
     return-void
-
-    :cond_0
-    const/4 v0, 0x1
-
-    goto :goto_0
 .end method
 
 .method public constructor <init>(ILandroid/net/http/SslCertificate;)V
@@ -76,24 +68,15 @@
 .end method
 
 .method public constructor <init>(ILandroid/net/http/SslCertificate;Ljava/lang/String;)V
-    .locals 3
-
-    const/4 v0, 0x1
-
-    const/4 v1, 0x0
+    .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    sget-boolean v2, Landroid/net/http/SslError;->-assertionsDisabled:Z
+    sget-boolean v0, Landroid/net/http/SslError;->-assertionsDisabled:Z
 
-    if-nez v2, :cond_1
+    if-nez v0, :cond_0
 
-    if-eqz p2, :cond_0
-
-    move v2, v0
-
-    :goto_0
-    if-nez v2, :cond_1
+    if-nez p2, :cond_0
 
     new-instance v0, Ljava/lang/AssertionError;
 
@@ -102,19 +85,11 @@
     throw v0
 
     :cond_0
-    move v2, v1
+    sget-boolean v0, Landroid/net/http/SslError;->-assertionsDisabled:Z
 
-    goto :goto_0
+    if-nez v0, :cond_1
 
-    :cond_1
-    sget-boolean v2, Landroid/net/http/SslError;->-assertionsDisabled:Z
-
-    if-nez v2, :cond_3
-
-    if-eqz p3, :cond_2
-
-    :goto_1
-    if-nez v0, :cond_3
+    if-nez p3, :cond_1
 
     new-instance v0, Ljava/lang/AssertionError;
 
@@ -122,12 +97,7 @@
 
     throw v0
 
-    :cond_2
-    move v0, v1
-
-    goto :goto_1
-
-    :cond_3
+    :cond_1
     invoke-virtual {p0, p1}, Landroid/net/http/SslError;->addError(I)Z
 
     iput-object p2, p0, Landroid/net/http/SslError;->mCertificate:Landroid/net/http/SslCertificate;
@@ -162,27 +132,21 @@
 .end method
 
 .method public static SslErrorFromChromiumErrorCode(ILandroid/net/http/SslCertificate;Ljava/lang/String;)Landroid/net/http/SslError;
-    .locals 3
+    .locals 2
 
-    const/4 v0, 0x0
+    const/16 v1, -0xc8
 
-    const/16 v2, -0xc8
+    sget-boolean v0, Landroid/net/http/SslError;->-assertionsDisabled:Z
 
-    sget-boolean v1, Landroid/net/http/SslError;->-assertionsDisabled:Z
-
-    if-nez v1, :cond_1
-
-    const/16 v1, -0x12b
-
-    if-lt p0, v1, :cond_0
-
-    if-gt p0, v2, :cond_0
-
-    const/4 v0, 0x1
-
-    :cond_0
     if-nez v0, :cond_1
 
+    const/16 v0, -0x12b
+
+    if-lt p0, v0, :cond_0
+
+    if-le p0, v1, :cond_1
+
+    :cond_0
     new-instance v0, Ljava/lang/AssertionError;
 
     invoke-direct {v0}, Ljava/lang/AssertionError;-><init>()V
@@ -190,7 +154,7 @@
     throw v0
 
     :cond_1
-    if-ne p0, v2, :cond_2
+    if-ne p0, v1, :cond_2
 
     new-instance v0, Landroid/net/http/SslError;
 
@@ -272,31 +236,34 @@
 .method public addError(I)Z
     .locals 3
 
-    const/4 v1, 0x1
+    if-ltz p1, :cond_1
 
-    const/4 v0, 0x0
+    const/16 v1, 0x8
 
-    if-ltz p1, :cond_0
+    if-ge p1, v1, :cond_1
 
-    const/16 v2, 0x8
+    const/4 v0, 0x1
 
-    if-ge p1, v2, :cond_0
+    :goto_0
+    if-eqz v0, :cond_0
 
-    move v0, v1
+    iget v1, p0, Landroid/net/http/SslError;->mErrors:I
 
-    :cond_0
-    if-eqz v0, :cond_1
+    const/4 v2, 0x1
 
-    iget v2, p0, Landroid/net/http/SslError;->mErrors:I
-
-    shl-int/2addr v1, p1
+    shl-int/2addr v2, p1
 
     or-int/2addr v1, v2
 
     iput v1, p0, Landroid/net/http/SslError;->mErrors:I
 
-    :cond_1
+    :cond_0
     return v0
+
+    :cond_1
+    const/4 v0, 0x0
+
+    goto :goto_0
 .end method
 
 .method public getCertificate()Landroid/net/http/SslCertificate;
@@ -364,24 +331,22 @@
 .method public hasError(I)Z
     .locals 3
 
-    const/4 v1, 0x1
+    if-ltz p1, :cond_1
 
-    const/4 v0, 0x0
+    const/16 v1, 0x8
 
-    if-ltz p1, :cond_0
+    if-ge p1, v1, :cond_1
 
-    const/16 v2, 0x8
+    const/4 v0, 0x1
 
-    if-ge p1, v2, :cond_0
+    :goto_0
+    if-eqz v0, :cond_0
 
-    move v0, v1
+    iget v1, p0, Landroid/net/http/SslError;->mErrors:I
 
-    :cond_0
-    if-eqz v0, :cond_1
+    const/4 v2, 0x1
 
-    iget v2, p0, Landroid/net/http/SslError;->mErrors:I
-
-    shl-int/2addr v1, p1
+    shl-int/2addr v2, p1
 
     and-int/2addr v1, v2
 
@@ -389,14 +354,19 @@
 
     const/4 v0, 0x1
 
-    :cond_1
-    :goto_0
+    :cond_0
+    :goto_1
     return v0
+
+    :cond_1
+    const/4 v0, 0x0
+
+    goto :goto_0
 
     :cond_2
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_1
 .end method
 
 .method public toString()Ljava/lang/String;

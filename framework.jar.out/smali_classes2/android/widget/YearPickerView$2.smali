@@ -57,7 +57,7 @@
 
     iget-object v1, p0, Landroid/widget/YearPickerView$2;->this$0:Landroid/widget/YearPickerView;
 
-    invoke-virtual {v1}, Landroid/widget/AdapterView;->getCount()I
+    invoke-virtual {v1}, Landroid/widget/YearPickerView;->getCount()I
 
     move-result v1
 

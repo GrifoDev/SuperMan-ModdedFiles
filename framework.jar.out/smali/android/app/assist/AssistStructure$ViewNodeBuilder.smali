@@ -205,7 +205,7 @@
     :cond_1
     iget-object v0, p0, Landroid/app/assist/AssistStructure$ViewNodeBuilder;->mAssist:Landroid/app/assist/AssistStructure;
 
-    invoke-virtual {v0}, Ljava/lang/Object;->notifyAll()V
+    invoke-virtual {v0}, Landroid/app/assist/AssistStructure;->notifyAll()V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
@@ -258,6 +258,16 @@
     monitor-exit v3
 
     throw v2
+.end method
+
+.method public getAutofillId()Landroid/view/autofill/AutofillId;
+    .locals 1
+
+    iget-object v0, p0, Landroid/app/assist/AssistStructure$ViewNodeBuilder;->mNode:Landroid/app/assist/AssistStructure$ViewNode;
+
+    iget-object v0, v0, Landroid/app/assist/AssistStructure$ViewNode;->mAutofillId:Landroid/view/autofill/AutofillId;
+
+    return-object v0
 .end method
 
 .method public getChildCount()I
@@ -459,6 +469,16 @@
     return-object v1
 .end method
 
+.method public newHtmlInfoBuilder(Ljava/lang/String;)Landroid/view/ViewStructure$HtmlInfo$Builder;
+    .locals 1
+
+    new-instance v0, Landroid/app/assist/AssistStructure$HtmlInfoNodeBuilder;
+
+    invoke-direct {v0, p1}, Landroid/app/assist/AssistStructure$HtmlInfoNodeBuilder;-><init>(Ljava/lang/String;)V
+
+    return-object v0
+.end method
+
 .method public setAccessibilityFocused(Z)V
     .locals 3
 
@@ -551,6 +571,70 @@
     const/4 v0, 0x0
 
     goto :goto_0
+.end method
+
+.method public setAutofillHints([Ljava/lang/String;)V
+    .locals 1
+
+    iget-object v0, p0, Landroid/app/assist/AssistStructure$ViewNodeBuilder;->mNode:Landroid/app/assist/AssistStructure$ViewNode;
+
+    iput-object p1, v0, Landroid/app/assist/AssistStructure$ViewNode;->mAutofillHints:[Ljava/lang/String;
+
+    return-void
+.end method
+
+.method public setAutofillId(Landroid/view/autofill/AutofillId;)V
+    .locals 1
+
+    iget-object v0, p0, Landroid/app/assist/AssistStructure$ViewNodeBuilder;->mNode:Landroid/app/assist/AssistStructure$ViewNode;
+
+    iput-object p1, v0, Landroid/app/assist/AssistStructure$ViewNode;->mAutofillId:Landroid/view/autofill/AutofillId;
+
+    return-void
+.end method
+
+.method public setAutofillId(Landroid/view/autofill/AutofillId;I)V
+    .locals 2
+
+    iget-object v0, p0, Landroid/app/assist/AssistStructure$ViewNodeBuilder;->mNode:Landroid/app/assist/AssistStructure$ViewNode;
+
+    new-instance v1, Landroid/view/autofill/AutofillId;
+
+    invoke-direct {v1, p1, p2}, Landroid/view/autofill/AutofillId;-><init>(Landroid/view/autofill/AutofillId;I)V
+
+    iput-object v1, v0, Landroid/app/assist/AssistStructure$ViewNode;->mAutofillId:Landroid/view/autofill/AutofillId;
+
+    return-void
+.end method
+
+.method public setAutofillOptions([Ljava/lang/CharSequence;)V
+    .locals 1
+
+    iget-object v0, p0, Landroid/app/assist/AssistStructure$ViewNodeBuilder;->mNode:Landroid/app/assist/AssistStructure$ViewNode;
+
+    iput-object p1, v0, Landroid/app/assist/AssistStructure$ViewNode;->mAutofillOptions:[Ljava/lang/CharSequence;
+
+    return-void
+.end method
+
+.method public setAutofillType(I)V
+    .locals 1
+
+    iget-object v0, p0, Landroid/app/assist/AssistStructure$ViewNodeBuilder;->mNode:Landroid/app/assist/AssistStructure$ViewNode;
+
+    iput p1, v0, Landroid/app/assist/AssistStructure$ViewNode;->mAutofillType:I
+
+    return-void
+.end method
+
+.method public setAutofillValue(Landroid/view/autofill/AutofillValue;)V
+    .locals 1
+
+    iget-object v0, p0, Landroid/app/assist/AssistStructure$ViewNodeBuilder;->mNode:Landroid/app/assist/AssistStructure$ViewNode;
+
+    iput-object p1, v0, Landroid/app/assist/AssistStructure$ViewNode;->mAutofillValue:Landroid/view/autofill/AutofillValue;
+
+    return-void
 .end method
 
 .method public setCheckable(Z)V
@@ -695,6 +779,18 @@
     const/4 v0, 0x0
 
     goto :goto_0
+.end method
+
+.method public setDataIsSensitive(Z)V
+    .locals 2
+
+    iget-object v0, p0, Landroid/app/assist/AssistStructure$ViewNodeBuilder;->mNode:Landroid/app/assist/AssistStructure$ViewNode;
+
+    xor-int/lit8 v1, p1, 0x1
+
+    iput-boolean v1, v0, Landroid/app/assist/AssistStructure$ViewNode;->mSanitized:Z
+
+    return-void
 .end method
 
 .method public setDimens(IIIIII)V
@@ -842,6 +938,16 @@
     return-void
 .end method
 
+.method public setHtmlInfo(Landroid/view/ViewStructure$HtmlInfo;)V
+    .locals 1
+
+    iget-object v0, p0, Landroid/app/assist/AssistStructure$ViewNodeBuilder;->mNode:Landroid/app/assist/AssistStructure$ViewNode;
+
+    iput-object p1, v0, Landroid/app/assist/AssistStructure$ViewNode;->mHtmlInfo:Landroid/view/ViewStructure$HtmlInfo;
+
+    return-void
+.end method
+
 .method public setId(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
     .locals 1
 
@@ -864,6 +970,26 @@
     return-void
 .end method
 
+.method public setInputType(I)V
+    .locals 1
+
+    iget-object v0, p0, Landroid/app/assist/AssistStructure$ViewNodeBuilder;->mNode:Landroid/app/assist/AssistStructure$ViewNode;
+
+    iput p1, v0, Landroid/app/assist/AssistStructure$ViewNode;->mInputType:I
+
+    return-void
+.end method
+
+.method public setLocaleList(Landroid/os/LocaleList;)V
+    .locals 1
+
+    iget-object v0, p0, Landroid/app/assist/AssistStructure$ViewNodeBuilder;->mNode:Landroid/app/assist/AssistStructure$ViewNode;
+
+    iput-object p1, v0, Landroid/app/assist/AssistStructure$ViewNode;->mLocaleList:Landroid/os/LocaleList;
+
+    return-void
+.end method
+
 .method public setLongClickable(Z)V
     .locals 3
 
@@ -878,6 +1004,36 @@
     if-eqz p1, :cond_0
 
     const/16 v0, 0x800
+
+    :goto_0
+    or-int/2addr v0, v2
+
+    iput v0, v1, Landroid/app/assist/AssistStructure$ViewNode;->mFlags:I
+
+    return-void
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
+.method public setOpaque(Z)V
+    .locals 3
+
+    iget-object v1, p0, Landroid/app/assist/AssistStructure$ViewNodeBuilder;->mNode:Landroid/app/assist/AssistStructure$ViewNode;
+
+    iget-object v0, p0, Landroid/app/assist/AssistStructure$ViewNodeBuilder;->mNode:Landroid/app/assist/AssistStructure$ViewNode;
+
+    iget v0, v0, Landroid/app/assist/AssistStructure$ViewNode;->mFlags:I
+
+    const v2, -0x8001
+
+    and-int/2addr v2, v0
+
+    if-eqz p1, :cond_0
+
+    const v0, 0x8000
 
     :goto_0
     or-int/2addr v0, v2
@@ -921,31 +1077,39 @@
 .end method
 
 .method public setText(Ljava/lang/CharSequence;)V
-    .locals 2
+    .locals 3
 
-    const/4 v1, -0x1
+    const/4 v2, -0x1
 
     invoke-direct {p0}, Landroid/app/assist/AssistStructure$ViewNodeBuilder;->getNodeText()Landroid/app/assist/AssistStructure$ViewNodeText;
 
     move-result-object v0
 
-    iput-object p1, v0, Landroid/app/assist/AssistStructure$ViewNodeText;->mText:Ljava/lang/CharSequence;
+    invoke-static {p1}, Landroid/text/TextUtils;->trimNoCopySpans(Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
 
-    iput v1, v0, Landroid/app/assist/AssistStructure$ViewNodeText;->mTextSelectionEnd:I
+    move-result-object v1
 
-    iput v1, v0, Landroid/app/assist/AssistStructure$ViewNodeText;->mTextSelectionStart:I
+    iput-object v1, v0, Landroid/app/assist/AssistStructure$ViewNodeText;->mText:Ljava/lang/CharSequence;
+
+    iput v2, v0, Landroid/app/assist/AssistStructure$ViewNodeText;->mTextSelectionEnd:I
+
+    iput v2, v0, Landroid/app/assist/AssistStructure$ViewNodeText;->mTextSelectionStart:I
 
     return-void
 .end method
 
 .method public setText(Ljava/lang/CharSequence;II)V
-    .locals 1
+    .locals 2
 
     invoke-direct {p0}, Landroid/app/assist/AssistStructure$ViewNodeBuilder;->getNodeText()Landroid/app/assist/AssistStructure$ViewNodeText;
 
     move-result-object v0
 
-    iput-object p1, v0, Landroid/app/assist/AssistStructure$ViewNodeText;->mText:Ljava/lang/CharSequence;
+    invoke-static {p1}, Landroid/text/TextUtils;->trimNoCopySpans(Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
+
+    move-result-object v1
+
+    iput-object v1, v0, Landroid/app/assist/AssistStructure$ViewNodeText;->mText:Ljava/lang/CharSequence;
 
     iput p2, v0, Landroid/app/assist/AssistStructure$ViewNodeText;->mTextSelectionStart:I
 
@@ -1026,6 +1190,35 @@
     or-int/2addr v1, p1
 
     iput v1, v0, Landroid/app/assist/AssistStructure$ViewNode;->mFlags:I
+
+    return-void
+.end method
+
+.method public setWebDomain(Ljava/lang/String;)V
+    .locals 2
+
+    const/4 v1, 0x0
+
+    if-nez p1, :cond_0
+
+    iget-object v0, p0, Landroid/app/assist/AssistStructure$ViewNodeBuilder;->mNode:Landroid/app/assist/AssistStructure$ViewNode;
+
+    iput-object v1, v0, Landroid/app/assist/AssistStructure$ViewNode;->mWebDomain:Ljava/lang/String;
+
+    return-void
+
+    :cond_0
+    iget-object v0, p0, Landroid/app/assist/AssistStructure$ViewNodeBuilder;->mNode:Landroid/app/assist/AssistStructure$ViewNode;
+
+    invoke-static {p1}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/net/Uri;->getHost()Ljava/lang/String;
+
+    move-result-object v1
+
+    iput-object v1, v0, Landroid/app/assist/AssistStructure$ViewNode;->mWebDomain:Ljava/lang/String;
 
     return-void
 .end method

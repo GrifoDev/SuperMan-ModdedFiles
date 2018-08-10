@@ -323,7 +323,7 @@
 
     invoke-virtual {v0, v3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    invoke-virtual {p0}, Ljava/util/HashMap;->entrySet()Ljava/util/Set;
+    invoke-virtual {p0}, Landroid/filterfw/core/KeyValueMap;->entrySet()Ljava/util/Set;
 
     move-result-object v3
 
@@ -628,9 +628,7 @@
     :cond_1
     move-object v0, p1
 
-    nop
-
-    nop
+    check-cast v0, Landroid/filterfw/core/FrameFormat;
 
     iget v2, v0, Landroid/filterfw/core/FrameFormat;->mBaseType:I
 
@@ -664,7 +662,7 @@
 
     iget-object v2, p0, Landroid/filterfw/core/FrameFormat;->mMetaData:Landroid/filterfw/core/KeyValueMap;
 
-    invoke-virtual {v1, v2}, Ljava/util/AbstractMap;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v2}, Landroid/filterfw/core/KeyValueMap;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
@@ -827,7 +825,7 @@
 
     iget-object v0, p0, Landroid/filterfw/core/FrameFormat;->mMetaData:Landroid/filterfw/core/KeyValueMap;
 
-    invoke-virtual {v0, p1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v0, p1}, Landroid/filterfw/core/KeyValueMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -929,7 +927,7 @@
 
     iget-object v0, p0, Landroid/filterfw/core/FrameFormat;->mMetaData:Landroid/filterfw/core/KeyValueMap;
 
-    invoke-virtual {v0, p1}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z
+    invoke-virtual {v0, p1}, Landroid/filterfw/core/KeyValueMap;->containsKey(Ljava/lang/Object;)Z
 
     move-result v0
 
@@ -951,7 +949,7 @@
 
     iget-object v0, p0, Landroid/filterfw/core/FrameFormat;->mMetaData:Landroid/filterfw/core/KeyValueMap;
 
-    invoke-virtual {v0, p1}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z
+    invoke-virtual {v0, p1}, Landroid/filterfw/core/KeyValueMap;->containsKey(Ljava/lang/Object;)Z
 
     move-result v0
 
@@ -959,7 +957,7 @@
 
     iget-object v0, p0, Landroid/filterfw/core/FrameFormat;->mMetaData:Landroid/filterfw/core/KeyValueMap;
 
-    invoke-virtual {v0, p1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v0, p1}, Landroid/filterfw/core/KeyValueMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -997,7 +995,7 @@
 
     iget-object v2, p0, Landroid/filterfw/core/FrameFormat;->mMetaData:Landroid/filterfw/core/KeyValueMap;
 
-    invoke-virtual {v2, p1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, p1}, Landroid/filterfw/core/KeyValueMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v2
 
@@ -1206,13 +1204,13 @@
 
     move-result-object v4
 
-    if-eqz v4, :cond_6
+    if-eqz v4, :cond_7
 
     invoke-virtual {p0}, Landroid/filterfw/core/FrameFormat;->getObjectClass()Ljava/lang/Class;
 
     move-result-object v4
 
-    if-eqz v4, :cond_9
+    if-eqz v4, :cond_6
 
     invoke-virtual {p1}, Landroid/filterfw/core/FrameFormat;->getObjectClass()Ljava/lang/Class;
 
@@ -1226,16 +1224,21 @@
 
     move-result v4
 
-    if-eqz v4, :cond_9
+    xor-int/lit8 v4, v4, 0x1
+
+    if-eqz v4, :cond_7
 
     :cond_6
+    return v6
+
+    :cond_7
     iget-object v4, p1, Landroid/filterfw/core/FrameFormat;->mMetaData:Landroid/filterfw/core/KeyValueMap;
 
     if-eqz v4, :cond_a
 
     iget-object v4, p1, Landroid/filterfw/core/FrameFormat;->mMetaData:Landroid/filterfw/core/KeyValueMap;
 
-    invoke-virtual {v4}, Ljava/util/HashMap;->keySet()Ljava/util/Set;
+    invoke-virtual {v4}, Landroid/filterfw/core/KeyValueMap;->keySet()Ljava/util/Set;
 
     move-result-object v4
 
@@ -1243,7 +1246,7 @@
 
     move-result-object v3
 
-    :cond_7
+    :cond_8
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
@@ -1258,25 +1261,27 @@
 
     iget-object v4, p0, Landroid/filterfw/core/FrameFormat;->mMetaData:Landroid/filterfw/core/KeyValueMap;
 
-    if-eqz v4, :cond_8
+    if-eqz v4, :cond_9
 
     iget-object v4, p0, Landroid/filterfw/core/FrameFormat;->mMetaData:Landroid/filterfw/core/KeyValueMap;
 
-    invoke-virtual {v4, v2}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z
+    invoke-virtual {v4, v2}, Landroid/filterfw/core/KeyValueMap;->containsKey(Ljava/lang/Object;)Z
 
     move-result v4
 
-    if-eqz v4, :cond_8
+    xor-int/lit8 v4, v4, 0x1
+
+    if-nez v4, :cond_9
 
     iget-object v4, p0, Landroid/filterfw/core/FrameFormat;->mMetaData:Landroid/filterfw/core/KeyValueMap;
 
-    invoke-virtual {v4, v2}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v4, v2}, Landroid/filterfw/core/KeyValueMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v4
 
     iget-object v5, p1, Landroid/filterfw/core/FrameFormat;->mMetaData:Landroid/filterfw/core/KeyValueMap;
 
-    invoke-virtual {v5, v2}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v5, v2}, Landroid/filterfw/core/KeyValueMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v5
 
@@ -1284,10 +1289,9 @@
 
     move-result v4
 
-    if-nez v4, :cond_7
+    xor-int/lit8 v4, v4, 0x1
 
-    :cond_8
-    return v6
+    if-eqz v4, :cond_8
 
     :cond_9
     return v6
@@ -1513,7 +1517,7 @@
 
     iget-object v4, p1, Landroid/filterfw/core/FrameFormat;->mMetaData:Landroid/filterfw/core/KeyValueMap;
 
-    invoke-virtual {v4}, Ljava/util/HashMap;->keySet()Ljava/util/Set;
+    invoke-virtual {v4}, Landroid/filterfw/core/KeyValueMap;->keySet()Ljava/util/Set;
 
     move-result-object v4
 
@@ -1536,7 +1540,7 @@
 
     iget-object v4, p0, Landroid/filterfw/core/FrameFormat;->mMetaData:Landroid/filterfw/core/KeyValueMap;
 
-    invoke-virtual {v4, v2}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z
+    invoke-virtual {v4, v2}, Landroid/filterfw/core/KeyValueMap;->containsKey(Ljava/lang/Object;)Z
 
     move-result v4
 
@@ -1544,13 +1548,13 @@
 
     iget-object v4, p0, Landroid/filterfw/core/FrameFormat;->mMetaData:Landroid/filterfw/core/KeyValueMap;
 
-    invoke-virtual {v4, v2}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v4, v2}, Landroid/filterfw/core/KeyValueMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v4
 
     iget-object v5, p1, Landroid/filterfw/core/FrameFormat;->mMetaData:Landroid/filterfw/core/KeyValueMap;
 
-    invoke-virtual {v5, v2}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v5, v2}, Landroid/filterfw/core/KeyValueMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v5
 
@@ -1558,7 +1562,9 @@
 
     move-result v4
 
-    if-nez v4, :cond_7
+    xor-int/lit8 v4, v4, 0x1
+
+    if-eqz v4, :cond_7
 
     return v6
 
@@ -1610,14 +1616,14 @@
     if-nez v2, :cond_0
 
     :goto_0
-    iput-object v1, v0, Landroid/filterfw/core/FrameFormat;->mMetaData:Landroid/filterfw/core/KeyValueMap;
+    iput-object v1, v0, Landroid/filterfw/core/MutableFrameFormat;->mMetaData:Landroid/filterfw/core/KeyValueMap;
 
     return-object v0
 
     :cond_0
     iget-object v1, p0, Landroid/filterfw/core/FrameFormat;->mMetaData:Landroid/filterfw/core/KeyValueMap;
 
-    invoke-virtual {v1}, Ljava/util/HashMap;->clone()Ljava/lang/Object;
+    invoke-virtual {v1}, Landroid/filterfw/core/KeyValueMap;->clone()Ljava/lang/Object;
 
     move-result-object v1
 

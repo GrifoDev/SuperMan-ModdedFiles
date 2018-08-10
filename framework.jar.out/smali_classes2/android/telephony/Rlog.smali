@@ -3,7 +3,27 @@
 .source "Rlog.java"
 
 
+# static fields
+.field private static final USER_BUILD:Z
+
+
 # direct methods
+.method static constructor <clinit>()V
+    .locals 2
+
+    sget-object v0, Landroid/os/Build;->TYPE:Ljava/lang/String;
+
+    const-string/jumbo v1, "user"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    sput-boolean v0, Landroid/telephony/Rlog;->USER_BUILD:Z
+
+    return-void
+.end method
+
 .method private constructor <init>()V
     .locals 0
 
@@ -296,6 +316,124 @@
     return v0
 .end method
 
+.method public static pii(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/String;
+    .locals 3
+
+    invoke-static {p1}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v0
+
+    if-eqz p1, :cond_0
+
+    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    const/4 v1, 0x2
+
+    invoke-static {p0, v1}, Landroid/telephony/Rlog;->isLoggable(Ljava/lang/String;I)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    :cond_0
+    return-object v0
+
+    :cond_1
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "["
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v0}, Ljava/lang/String;->getBytes()[B
+
+    move-result-object v2
+
+    invoke-static {v2}, Landroid/telephony/Rlog;->secureHash([B)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "]"
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    return-object v1
+.end method
+
+.method public static pii(ZLjava/lang/Object;)Ljava/lang/String;
+    .locals 3
+
+    invoke-static {p1}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v0
+
+    if-eqz p1, :cond_0
+
+    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    if-eqz p0, :cond_1
+
+    :cond_0
+    return-object v0
+
+    :cond_1
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "["
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v0}, Ljava/lang/String;->getBytes()[B
+
+    move-result-object v2
+
+    invoke-static {v2}, Landroid/telephony/Rlog;->secureHash([B)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "]"
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    return-object v1
+.end method
+
 .method public static println(ILjava/lang/String;Ljava/lang/String;)I
     .locals 1
 
@@ -306,6 +444,47 @@
     move-result v0
 
     return v0
+.end method
+
+.method private static secureHash([B)Ljava/lang/String;
+    .locals 4
+
+    sget-boolean v3, Landroid/telephony/Rlog;->USER_BUILD:Z
+
+    if-eqz v3, :cond_0
+
+    const-string/jumbo v3, "****"
+
+    return-object v3
+
+    :cond_0
+    :try_start_0
+    const-string/jumbo v3, "SHA-1"
+
+    invoke-static {v3}, Ljava/security/MessageDigest;->getInstance(Ljava/lang/String;)Ljava/security/MessageDigest;
+    :try_end_0
+    .catch Ljava/security/NoSuchAlgorithmException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result-object v1
+
+    invoke-virtual {v1, p0}, Ljava/security/MessageDigest;->digest([B)[B
+
+    move-result-object v2
+
+    const/16 v3, 0xb
+
+    invoke-static {v2, v3}, Landroid/util/Base64;->encodeToString([BI)Ljava/lang/String;
+
+    move-result-object v3
+
+    return-object v3
+
+    :catch_0
+    move-exception v0
+
+    const-string/jumbo v3, "####"
+
+    return-object v3
 .end method
 
 .method public static v(Ljava/lang/String;Ljava/lang/String;)I

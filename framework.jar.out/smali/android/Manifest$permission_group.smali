@@ -22,6 +22,9 @@
 .field public static final CONTACTS:Ljava/lang/String; = "android.permission-group.CONTACTS"
 
 .field public static final LGT_CONTENT:Ljava/lang/String; = "android.permission-group.LGT_CONTENT"
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
 
 .field public static final LOCATION:Ljava/lang/String; = "android.permission-group.LOCATION"
 
@@ -32,8 +35,6 @@
 .field public static final SEM_PASS_AUTHENTICATE:Ljava/lang/String; = "com.samsung.android.authfw.pass.permission-group.SEM_PASS_AUTHENTICATE"
 
 .field public static final SENSORS:Ljava/lang/String; = "android.permission-group.SENSORS"
-
-.field public static final SKT:Ljava/lang/String; = "com.samsung.permission-group.SKT"
 
 .field public static final SMS:Ljava/lang/String; = "android.permission-group.SMS"
 

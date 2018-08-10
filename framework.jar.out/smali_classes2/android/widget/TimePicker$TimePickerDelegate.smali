@@ -18,13 +18,28 @@
 .method public abstract dispatchPopulateAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)Z
 .end method
 
+.method public abstract getAmView()Landroid/view/View;
+.end method
+
 .method public abstract getBaseline()I
+.end method
+
+.method public abstract getDate()J
 .end method
 
 .method public abstract getHour()I
 .end method
 
+.method public abstract getHourView()Landroid/view/View;
+.end method
+
 .method public abstract getMinute()I
+.end method
+
+.method public abstract getMinuteView()Landroid/view/View;
+.end method
+
+.method public abstract getPmView()Landroid/view/View;
 .end method
 
 .method public abstract is24Hour()Z
@@ -42,6 +57,12 @@
 .method public abstract onSaveInstanceState(Landroid/os/Parcelable;)Landroid/os/Parcelable;
 .end method
 
+.method public abstract setAutoFillChangeListener(Landroid/widget/TimePicker$OnTimeChangedListener;)V
+.end method
+
+.method public abstract setDate(J)V
+.end method
+
 .method public abstract setEnabled(Z)V
 .end method
 
@@ -55,4 +76,7 @@
 .end method
 
 .method public abstract setOnTimeChangedListener(Landroid/widget/TimePicker$OnTimeChangedListener;)V
+.end method
+
+.method public abstract validateInput()Z
 .end method

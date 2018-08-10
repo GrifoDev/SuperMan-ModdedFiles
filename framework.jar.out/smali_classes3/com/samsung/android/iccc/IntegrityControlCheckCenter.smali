@@ -4,6 +4,10 @@
 
 
 # static fields
+.field public static final COMPONENT_TYPE_HARD_INTEGRITY:I = 0x1
+
+.field public static final COMPONENT_TYPE_SOFT_INTEGRITY:I = 0x2
+
 .field public static final FLAG_ABOOT_RP_VER:I = -0x100000
 
 .field public static final FLAG_AFW_STATUS:I = -0xffff5
@@ -76,6 +80,72 @@
 
 
 # virtual methods
+.method public declared-synchronized getDeviceStatus(ILjava/lang/String;)Ljava/lang/String;
+    .locals 4
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    const/4 v3, 0x0
+
+    monitor-enter p0
+
+    :try_start_0
+    const-string/jumbo v1, "ICCC"
+
+    const-string/jumbo v2, "Method getDeviceStatus in IntegrityControlCheckCenter Class"
+
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v1, p0, Lcom/samsung/android/iccc/IntegrityControlCheckCenter;->mService:Lcom/samsung/android/iccc/IIntegrityControlCheckCenter;
+
+    if-eqz v1, :cond_0
+
+    if-eqz p2, :cond_0
+
+    iget-object v1, p0, Lcom/samsung/android/iccc/IntegrityControlCheckCenter;->mService:Lcom/samsung/android/iccc/IIntegrityControlCheckCenter;
+
+    invoke-virtual {p2}, Ljava/lang/String;->getBytes()[B
+
+    move-result-object v2
+
+    invoke-interface {v1, p1, v2}, Lcom/samsung/android/iccc/IIntegrityControlCheckCenter;->getDeviceStatus(I[B)[B
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    array-length v1, v0
+
+    const/4 v2, 0x1
+
+    if-le v1, v2, :cond_0
+
+    new-instance v1, Ljava/lang/String;
+
+    invoke-direct {v1, v0}, Ljava/lang/String;-><init>([B)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit p0
+
+    return-object v1
+
+    :cond_0
+    monitor-exit p0
+
+    return-object v3
+
+    :catchall_0
+    move-exception v1
+
+    monitor-exit p0
+
+    throw v1
+.end method
+
 .method public declared-synchronized getSecureData(I)I
     .locals 2
     .annotation system Ldalvik/annotation/Throws;

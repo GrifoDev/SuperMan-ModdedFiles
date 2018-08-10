@@ -89,52 +89,52 @@
 .end method
 
 .method private static addRestrictionToBundle(Landroid/os/Bundle;Landroid/content/RestrictionEntry;)Landroid/os/Bundle;
-    .locals 7
-
-    invoke-virtual {p1}, Landroid/content/RestrictionEntry;->getType()I
-
-    move-result v4
-
-    packed-switch v4, :pswitch_data_0
-
-    new-instance v4, Ljava/lang/IllegalArgumentException;
-
-    new-instance v5, Ljava/lang/StringBuilder;
-
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v6, "Unsupported restrictionEntry type: "
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
+    .locals 9
 
     invoke-virtual {p1}, Landroid/content/RestrictionEntry;->getType()I
 
     move-result v6
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    packed-switch v6, :pswitch_data_0
 
-    move-result-object v5
+    new-instance v6, Ljava/lang/IllegalArgumentException;
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    new-instance v7, Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v4, v5}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    const-string/jumbo v8, "Unsupported restrictionEntry type: "
 
-    throw v4
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {p1}, Landroid/content/RestrictionEntry;->getType()I
+
+    move-result v8
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-direct {v6, v7}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v6
 
     :pswitch_0
     invoke-virtual {p1}, Landroid/content/RestrictionEntry;->getKey()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v6
 
     invoke-virtual {p1}, Landroid/content/RestrictionEntry;->getSelectedState()Z
 
-    move-result v5
+    move-result v7
 
-    invoke-virtual {p0, v4, v5}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
+    invoke-virtual {p0, v6, v7}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
 
     :goto_0
     return-object p0
@@ -142,101 +142,123 @@
     :pswitch_1
     invoke-virtual {p1}, Landroid/content/RestrictionEntry;->getKey()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v6
 
     invoke-virtual {p1}, Landroid/content/RestrictionEntry;->getAllSelectedStrings()[Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v7
 
-    invoke-virtual {p0, v4, v5}, Landroid/os/Bundle;->putStringArray(Ljava/lang/String;[Ljava/lang/String;)V
+    invoke-virtual {p0, v6, v7}, Landroid/os/Bundle;->putStringArray(Ljava/lang/String;[Ljava/lang/String;)V
 
     goto :goto_0
 
     :pswitch_2
     invoke-virtual {p1}, Landroid/content/RestrictionEntry;->getKey()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v6
 
     invoke-virtual {p1}, Landroid/content/RestrictionEntry;->getIntValue()I
 
-    move-result v5
+    move-result v7
 
-    invoke-virtual {p0, v4, v5}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
+    invoke-virtual {p0, v6, v7}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
     goto :goto_0
 
     :pswitch_3
     invoke-virtual {p1}, Landroid/content/RestrictionEntry;->getKey()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v6
 
     invoke-virtual {p1}, Landroid/content/RestrictionEntry;->getSelectedString()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v7
 
-    invoke-virtual {p0, v4, v5}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {p0, v6, v7}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
     goto :goto_0
 
     :pswitch_4
     invoke-virtual {p1}, Landroid/content/RestrictionEntry;->getRestrictions()[Landroid/content/RestrictionEntry;
 
+    move-result-object v5
+
+    invoke-static {v5}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
+
+    move-result-object v6
+
+    invoke-static {v6}, Landroid/content/RestrictionsManager;->convertRestrictionsToBundle(Ljava/util/List;)Landroid/os/Bundle;
+
     move-result-object v3
-
-    invoke-static {v3}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
-
-    move-result-object v4
-
-    invoke-static {v4}, Landroid/content/RestrictionsManager;->convertRestrictionsToBundle(Ljava/util/List;)Landroid/os/Bundle;
-
-    move-result-object v1
 
     invoke-virtual {p1}, Landroid/content/RestrictionEntry;->getKey()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v6
 
-    invoke-virtual {p0, v4, v1}, Landroid/os/Bundle;->putBundle(Ljava/lang/String;Landroid/os/Bundle;)V
+    invoke-virtual {p0, v6, v3}, Landroid/os/Bundle;->putBundle(Ljava/lang/String;Landroid/os/Bundle;)V
 
     goto :goto_0
 
     :pswitch_5
     invoke-virtual {p1}, Landroid/content/RestrictionEntry;->getRestrictions()[Landroid/content/RestrictionEntry;
 
-    move-result-object v3
+    move-result-object v1
 
-    array-length v4, v3
+    array-length v6, v1
 
-    new-array v0, v4, [Landroid/os/Bundle;
+    new-array v0, v6, [Landroid/os/Bundle;
 
-    const/4 v2, 0x0
+    const/4 v4, 0x0
 
     :goto_1
-    array-length v4, v3
+    array-length v6, v1
 
-    if-ge v2, v4, :cond_0
+    if-ge v4, v6, :cond_1
 
-    new-instance v4, Landroid/os/Bundle;
+    aget-object v6, v1, v4
 
-    invoke-direct {v4}, Landroid/os/Bundle;-><init>()V
+    invoke-virtual {v6}, Landroid/content/RestrictionEntry;->getRestrictions()[Landroid/content/RestrictionEntry;
 
-    aget-object v5, v3, v2
+    move-result-object v2
 
-    invoke-static {v4, v5}, Landroid/content/RestrictionsManager;->addRestrictionToBundle(Landroid/os/Bundle;Landroid/content/RestrictionEntry;)Landroid/os/Bundle;
+    if-nez v2, :cond_0
 
-    move-result-object v4
+    const-string/jumbo v6, "RestrictionsManager"
 
-    aput-object v4, v0, v2
+    const-string/jumbo v7, "addRestrictionToBundle: Non-bundle entry found in bundle array"
 
-    add-int/lit8 v2, v2, 0x1
+    invoke-static {v6, v7}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    new-instance v6, Landroid/os/Bundle;
+
+    invoke-direct {v6}, Landroid/os/Bundle;-><init>()V
+
+    aput-object v6, v0, v4
+
+    :goto_2
+    add-int/lit8 v4, v4, 0x1
 
     goto :goto_1
 
     :cond_0
+    invoke-static {v2}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
+
+    move-result-object v6
+
+    invoke-static {v6}, Landroid/content/RestrictionsManager;->convertRestrictionsToBundle(Ljava/util/List;)Landroid/os/Bundle;
+
+    move-result-object v6
+
+    aput-object v6, v0, v4
+
+    goto :goto_2
+
+    :cond_1
     invoke-virtual {p1}, Landroid/content/RestrictionEntry;->getKey()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v6
 
-    invoke-virtual {p0, v4, v0}, Landroid/os/Bundle;->putParcelableArray(Ljava/lang/String;[Landroid/os/Parcelable;)V
+    invoke-virtual {p0, v6, v0}, Landroid/os/Bundle;->putParcelableArray(Ljava/lang/String;[Landroid/os/Parcelable;)V
 
     goto :goto_0
 
@@ -928,25 +950,12 @@
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    xor-int/lit8 v3, v3, 0x1
 
-    iget-object v3, p0, Landroid/content/RestrictionsManager;->mContext:Landroid/content/Context;
+    if-eqz v3, :cond_1
 
-    invoke-virtual {v3}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
-
-    move-result-object v3
-
-    const-string/jumbo v4, "android.content.APP_RESTRICTIONS"
-
-    invoke-virtual {v0, v3, v4}, Landroid/content/pm/ApplicationInfo;->loadXmlMetaData(Landroid/content/pm/PackageManager;Ljava/lang/String;)Landroid/content/res/XmlResourceParser;
-
-    move-result-object v2
-
-    invoke-direct {p0, p1, v2}, Landroid/content/RestrictionsManager;->loadManifestRestrictions(Ljava/lang/String;Landroid/content/res/XmlResourceParser;)Ljava/util/List;
-
-    move-result-object v3
-
-    return-object v3
+    :cond_0
+    return-object v5
 
     :catch_0
     move-exception v1
@@ -975,8 +984,24 @@
 
     throw v3
 
-    :cond_0
-    return-object v5
+    :cond_1
+    iget-object v3, p0, Landroid/content/RestrictionsManager;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v3}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+
+    move-result-object v3
+
+    const-string/jumbo v4, "android.content.APP_RESTRICTIONS"
+
+    invoke-virtual {v0, v3, v4}, Landroid/content/pm/ApplicationInfo;->loadXmlMetaData(Landroid/content/pm/PackageManager;Ljava/lang/String;)Landroid/content/res/XmlResourceParser;
+
+    move-result-object v2
+
+    invoke-direct {p0, p1, v2}, Landroid/content/RestrictionsManager;->loadManifestRestrictions(Ljava/lang/String;Landroid/content/res/XmlResourceParser;)Ljava/util/List;
+
+    move-result-object v3
+
+    return-object v3
 .end method
 
 .method public hasRestrictionsProvider()Z

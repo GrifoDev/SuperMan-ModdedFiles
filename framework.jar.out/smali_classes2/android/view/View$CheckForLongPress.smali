@@ -18,6 +18,8 @@
 
 
 # instance fields
+.field private mOriginalPressedState:Z
+
 .field private mOriginalWindowAttachCount:I
 
 .field private mX:F
@@ -48,6 +50,20 @@
 
 
 # virtual methods
+.method public rememberPressedState()V
+    .locals 1
+
+    iget-object v0, p0, Landroid/view/View$CheckForLongPress;->this$0:Landroid/view/View;
+
+    invoke-virtual {v0}, Landroid/view/View;->isPressed()Z
+
+    move-result v0
+
+    iput-boolean v0, p0, Landroid/view/View$CheckForLongPress;->mOriginalPressedState:Z
+
+    return-void
+.end method
+
 .method public rememberWindowAttachCount()V
     .locals 1
 
@@ -63,13 +79,15 @@
 .method public run()V
     .locals 3
 
-    iget-object v0, p0, Landroid/view/View$CheckForLongPress;->this$0:Landroid/view/View;
+    iget-boolean v0, p0, Landroid/view/View$CheckForLongPress;->mOriginalPressedState:Z
 
-    invoke-virtual {v0}, Landroid/view/View;->isPressed()Z
+    iget-object v1, p0, Landroid/view/View$CheckForLongPress;->this$0:Landroid/view/View;
 
-    move-result v0
+    invoke-virtual {v1}, Landroid/view/View;->isPressed()Z
 
-    if-eqz v0, :cond_0
+    move-result v1
+
+    if-ne v0, v1, :cond_0
 
     iget-object v0, p0, Landroid/view/View$CheckForLongPress;->this$0:Landroid/view/View;
 

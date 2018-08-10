@@ -8,6 +8,8 @@
 
 .field public static final CALL:[[Ljava/lang/String;
 
+.field public static final CALL_PDT:[[Ljava/lang/String;
+
 .field public static final CAMERA:[[Ljava/lang/String;
 
 .field public static final CANCEL:[[Ljava/lang/String;
@@ -234,6 +236,212 @@
     aput-object v1, v0, v2
 
     sput-object v0, Lcom/samsung/android/speech/CommandLanguage;->CALL:[[Ljava/lang/String;
+
+    const/16 v0, 0xf
+
+    new-array v0, v0, [[Ljava/lang/String;
+
+    new-array v1, v6, [Ljava/lang/String;
+
+    const-string/jumbo v2, "\uc218\uc2e0"
+
+    aput-object v2, v1, v4
+
+    const-string/jumbo v2, "\uac70\uc808"
+
+    aput-object v2, v1, v5
+
+    aput-object v1, v0, v4
+
+    new-array v1, v6, [Ljava/lang/String;
+
+    const-string/jumbo v2, "Answer"
+
+    aput-object v2, v1, v4
+
+    const-string/jumbo v2, "Decline"
+
+    aput-object v2, v1, v5
+
+    aput-object v1, v0, v5
+
+    new-array v1, v6, [Ljava/lang/String;
+
+    const-string/jumbo v2, "\u63a5\u542c"
+
+    aput-object v2, v1, v4
+
+    const-string/jumbo v2, "\u62d2\u7edd"
+
+    aput-object v2, v1, v5
+
+    aput-object v1, v0, v6
+
+    new-array v1, v6, [Ljava/lang/String;
+
+    const-string/jumbo v2, "Responder"
+
+    aput-object v2, v1, v4
+
+    const-string/jumbo v2, "Rechazar"
+
+    aput-object v2, v1, v5
+
+    aput-object v1, v0, v7
+
+    new-array v1, v6, [Ljava/lang/String;
+
+    const-string/jumbo v2, "R\u00e9pondre"
+
+    aput-object v2, v1, v4
+
+    const-string/jumbo v2, "Refuser"
+
+    aput-object v2, v1, v5
+
+    aput-object v1, v0, v8
+
+    new-array v1, v6, [Ljava/lang/String;
+
+    const-string/jumbo v2, "Antworten"
+
+    aput-object v2, v1, v4
+
+    const-string/jumbo v2, "Abweisen"
+
+    aput-object v2, v1, v5
+
+    const/4 v2, 0x5
+
+    aput-object v1, v0, v2
+
+    new-array v1, v6, [Ljava/lang/String;
+
+    const-string/jumbo v2, "Rispondi"
+
+    aput-object v2, v1, v4
+
+    const-string/jumbo v2, "Rifiuta"
+
+    aput-object v2, v1, v5
+
+    const/4 v2, 0x6
+
+    aput-object v1, v0, v2
+
+    new-array v1, v6, [Ljava/lang/String;
+
+    const-string/jumbo v2, "\u5fdc\u7b54"
+
+    aput-object v2, v1, v4
+
+    const-string/jumbo v2, "\u62d2\u5426"
+
+    aput-object v2, v1, v5
+
+    const/4 v2, 0x7
+
+    aput-object v1, v0, v2
+
+    new-array v1, v6, [Ljava/lang/String;
+
+    const-string/jumbo v2, "\u041e\u0442\u0432\u0435\u0442\u0438\u0442\u044c"
+
+    aput-object v2, v1, v4
+
+    const-string/jumbo v2, "\u041e\u0442\u043a\u043b\u043e\u043d\u0438\u0442\u044c"
+
+    aput-object v2, v1, v5
+
+    const/16 v2, 0x8
+
+    aput-object v1, v0, v2
+
+    new-array v1, v6, [Ljava/lang/String;
+
+    const-string/jumbo v2, "Atender"
+
+    aput-object v2, v1, v4
+
+    const-string/jumbo v2, "Recusar"
+
+    aput-object v2, v1, v5
+
+    const/16 v2, 0x9
+
+    aput-object v1, v0, v2
+
+    new-array v1, v6, [Ljava/lang/String;
+
+    const-string/jumbo v2, "Answer"
+
+    aput-object v2, v1, v4
+
+    const-string/jumbo v2, "Decline"
+
+    aput-object v2, v1, v5
+
+    const/16 v2, 0xa
+
+    aput-object v1, v0, v2
+
+    new-array v1, v6, [Ljava/lang/String;
+
+    const-string/jumbo v2, "Responder"
+
+    aput-object v2, v1, v4
+
+    const-string/jumbo v2, "Rechazar"
+
+    aput-object v2, v1, v5
+
+    const/16 v2, 0xb
+
+    aput-object v1, v0, v2
+
+    new-array v1, v6, [Ljava/lang/String;
+
+    const-string/jumbo v2, "\u63a5\u901a"
+
+    aput-object v2, v1, v4
+
+    const-string/jumbo v2, "\u639b\u65b7"
+
+    aput-object v2, v1, v5
+
+    const/16 v2, 0xc
+
+    aput-object v1, v0, v2
+
+    new-array v1, v6, [Ljava/lang/String;
+
+    const-string/jumbo v2, "\u807d\u96fb\u8a71"
+
+    aput-object v2, v1, v4
+
+    const-string/jumbo v2, "\u5514\u807d"
+
+    aput-object v2, v1, v5
+
+    const/16 v2, 0xd
+
+    aput-object v1, v0, v2
+
+    new-array v1, v6, [Ljava/lang/String;
+
+    const-string/jumbo v2, "\u542c\u7535\u8bdd"
+
+    aput-object v2, v1, v4
+
+    const-string/jumbo v2, "\u5514\u542c"
+
+    aput-object v2, v1, v5
+
+    const/16 v2, 0xe
+
+    aput-object v1, v0, v2
+
+    sput-object v0, Lcom/samsung/android/speech/CommandLanguage;->CALL_PDT:[[Ljava/lang/String;
 
     const/16 v0, 0xf
 
@@ -1181,7 +1389,7 @@
 
     aput-object v2, v1, v6
 
-    const-string/jumbo v2, "\u0441\u043d\u0438\u043c\u0430\u044e"
+    const-string/jumbo v2, "\u0421\u043d\u0438\u043c\u0430\u044e"
 
     aput-object v2, v1, v7
 

@@ -422,7 +422,9 @@
 
     iget-boolean v1, p0, Landroid/content/SyncResult;->tooManyDeletions:Z
 
-    if-eqz v1, :cond_1
+    xor-int/lit8 v1, v1, 0x1
+
+    if-nez v1, :cond_1
 
     :cond_0
     iget-object v1, p0, Landroid/content/SyncResult;->stats:Landroid/content/SyncStats;

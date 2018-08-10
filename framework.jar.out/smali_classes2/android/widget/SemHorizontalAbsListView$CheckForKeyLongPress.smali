@@ -51,7 +51,7 @@
 
     iget-object v3, p0, Landroid/widget/SemHorizontalAbsListView$CheckForKeyLongPress;->this$0:Landroid/widget/SemHorizontalAbsListView;
 
-    invoke-virtual {v3}, Landroid/view/View;->isPressed()Z
+    invoke-virtual {v3}, Landroid/widget/SemHorizontalAbsListView;->isPressed()Z
 
     move-result v3
 
@@ -59,23 +59,23 @@
 
     iget-object v3, p0, Landroid/widget/SemHorizontalAbsListView$CheckForKeyLongPress;->this$0:Landroid/widget/SemHorizontalAbsListView;
 
-    iget v3, v3, Landroid/widget/AdapterView;->mSelectedPosition:I
+    iget v3, v3, Landroid/widget/SemHorizontalAbsListView;->mSelectedPosition:I
 
     if-ltz v3, :cond_2
 
     iget-object v3, p0, Landroid/widget/SemHorizontalAbsListView$CheckForKeyLongPress;->this$0:Landroid/widget/SemHorizontalAbsListView;
 
-    iget v3, v3, Landroid/widget/AdapterView;->mSelectedPosition:I
+    iget v3, v3, Landroid/widget/SemHorizontalAbsListView;->mSelectedPosition:I
 
     iget-object v4, p0, Landroid/widget/SemHorizontalAbsListView$CheckForKeyLongPress;->this$0:Landroid/widget/SemHorizontalAbsListView;
 
-    iget v4, v4, Landroid/widget/AdapterView;->mFirstPosition:I
+    iget v4, v4, Landroid/widget/SemHorizontalAbsListView;->mFirstPosition:I
 
     sub-int v1, v3, v4
 
     iget-object v3, p0, Landroid/widget/SemHorizontalAbsListView$CheckForKeyLongPress;->this$0:Landroid/widget/SemHorizontalAbsListView;
 
-    invoke-virtual {v3, v1}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {v3, v1}, Landroid/widget/SemHorizontalAbsListView;->getChildAt(I)Landroid/view/View;
 
     move-result-object v2
 
@@ -86,13 +86,13 @@
     :cond_0
     iget-object v3, p0, Landroid/widget/SemHorizontalAbsListView$CheckForKeyLongPress;->this$0:Landroid/widget/SemHorizontalAbsListView;
 
-    iget-boolean v3, v3, Landroid/widget/AdapterView;->mDataChanged:Z
+    iget-boolean v3, v3, Landroid/widget/SemHorizontalAbsListView;->mDataChanged:Z
 
     if-nez v3, :cond_3
 
     const/4 v0, 0x0
 
-    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView$WindowRunnnable;->sameWindow()Z
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView$CheckForKeyLongPress;->sameWindow()Z
 
     move-result v3
 
@@ -102,11 +102,11 @@
 
     iget-object v4, p0, Landroid/widget/SemHorizontalAbsListView$CheckForKeyLongPress;->this$0:Landroid/widget/SemHorizontalAbsListView;
 
-    iget v4, v4, Landroid/widget/AdapterView;->mSelectedPosition:I
+    iget v4, v4, Landroid/widget/SemHorizontalAbsListView;->mSelectedPosition:I
 
     iget-object v5, p0, Landroid/widget/SemHorizontalAbsListView$CheckForKeyLongPress;->this$0:Landroid/widget/SemHorizontalAbsListView;
 
-    iget-wide v6, v5, Landroid/widget/AdapterView;->mSelectedRowId:J
+    iget-wide v6, v5, Landroid/widget/SemHorizontalAbsListView;->mSelectedRowId:J
 
     invoke-virtual {v3, v2, v4, v6, v7}, Landroid/widget/SemHorizontalAbsListView;->performLongPress(Landroid/view/View;IJ)Z
 
@@ -117,7 +117,7 @@
 
     iget-object v3, p0, Landroid/widget/SemHorizontalAbsListView$CheckForKeyLongPress;->this$0:Landroid/widget/SemHorizontalAbsListView;
 
-    invoke-virtual {v3, v8}, Landroid/view/View;->setPressed(Z)V
+    invoke-virtual {v3, v8}, Landroid/widget/SemHorizontalAbsListView;->setPressed(Z)V
 
     invoke-virtual {v2, v8}, Landroid/view/View;->setPressed(Z)V
 
@@ -128,7 +128,7 @@
     :cond_3
     iget-object v3, p0, Landroid/widget/SemHorizontalAbsListView$CheckForKeyLongPress;->this$0:Landroid/widget/SemHorizontalAbsListView;
 
-    invoke-virtual {v3, v8}, Landroid/view/View;->setPressed(Z)V
+    invoke-virtual {v3, v8}, Landroid/widget/SemHorizontalAbsListView;->setPressed(Z)V
 
     if-eqz v2, :cond_2
 

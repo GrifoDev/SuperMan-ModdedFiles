@@ -401,6 +401,8 @@
 
     const/16 v0, 0x1f
 
+    const/4 v1, 0x1
+
     iget-boolean v2, p0, Landroid/hardware/soundtrigger/SoundTrigger$RecognitionEvent;->captureAvailable:Z
 
     if-eqz v2, :cond_1

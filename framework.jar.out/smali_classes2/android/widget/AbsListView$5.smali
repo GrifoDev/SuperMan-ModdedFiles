@@ -3,12 +3,12 @@
 .source "AbsListView.java"
 
 # interfaces
-.implements Ljava/lang/Runnable;
+.implements Landroid/animation/ValueAnimator$AnimatorUpdateListener;
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroid/widget/AbsListView;
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Landroid/widget/AbsListView;->semSetGoToTopEnabled(Z)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -34,14 +34,30 @@
 
 
 # virtual methods
-.method public run()V
+.method public onAnimationUpdate(Landroid/animation/ValueAnimator;)V
     .locals 2
 
-    iget-object v0, p0, Landroid/widget/AbsListView$5;->this$0:Landroid/widget/AbsListView;
+    invoke-virtual {p1}, Landroid/animation/ValueAnimator;->getAnimatedValue()Ljava/lang/Object;
 
-    const/4 v1, 0x0
+    move-result-object v1
 
-    invoke-virtual {v0, v1}, Landroid/widget/AbsListView;->semSetupGoToTop(I)V
+    check-cast v1, Ljava/lang/Integer;
+
+    invoke-virtual {v1}, Ljava/lang/Integer;->intValue()I
+
+    move-result v0
+
+    iget-object v1, p0, Landroid/widget/AbsListView$5;->this$0:Landroid/widget/AbsListView;
+
+    invoke-static {v1}, Landroid/widget/AbsListView;->-get32(Landroid/widget/AbsListView;)Landroid/graphics/drawable/Drawable;
+
+    move-result-object v1
+
+    invoke-virtual {v1, v0}, Landroid/graphics/drawable/Drawable;->setAlpha(I)V
+
+    iget-object v1, p0, Landroid/widget/AbsListView$5;->this$0:Landroid/widget/AbsListView;
+
+    invoke-virtual {v1}, Landroid/widget/AbsListView;->invalidate()V
 
     return-void
 .end method

@@ -44,6 +44,8 @@
 
 .field public static final MDNIE_SUPPORT_HMT:I = 0x2000
 
+.field public static final MDNIE_SUPPORT_LIGHT_NOTIFICATION:I = 0x8000
+
 .field public static final MDNIE_SUPPORT_NEGATIVE:I = 0x100
 
 .field public static final MDNIE_SUPPORT_READING_MODE:I = 0x20
@@ -119,6 +121,68 @@
     iget-object v1, p0, Lcom/samsung/android/hardware/display/SemMdnieManager;->mService:Lcom/samsung/android/hardware/display/ISemMdnieManager;
 
     invoke-interface {v1}, Lcom/samsung/android/hardware/display/ISemMdnieManager;->getContentMode()I
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v1
+
+    return v1
+
+    :catch_0
+    move-exception v0
+
+    sget v1, Lcom/samsung/android/hardware/display/SemMdnieManager;->RETURN_ERROR:I
+
+    return v1
+.end method
+
+.method public getCurrentPocIndex()I
+    .locals 2
+
+    iget-object v1, p0, Lcom/samsung/android/hardware/display/SemMdnieManager;->mService:Lcom/samsung/android/hardware/display/ISemMdnieManager;
+
+    if-nez v1, :cond_0
+
+    sget v1, Lcom/samsung/android/hardware/display/SemMdnieManager;->RETURN_ERROR:I
+
+    return v1
+
+    :cond_0
+    :try_start_0
+    iget-object v1, p0, Lcom/samsung/android/hardware/display/SemMdnieManager;->mService:Lcom/samsung/android/hardware/display/ISemMdnieManager;
+
+    invoke-interface {v1}, Lcom/samsung/android/hardware/display/ISemMdnieManager;->getCurrentPocIndex()I
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v1
+
+    return v1
+
+    :catch_0
+    move-exception v0
+
+    sget v1, Lcom/samsung/android/hardware/display/SemMdnieManager;->RETURN_ERROR:I
+
+    return v1
+.end method
+
+.method public getPocSettingValue()I
+    .locals 2
+
+    iget-object v1, p0, Lcom/samsung/android/hardware/display/SemMdnieManager;->mService:Lcom/samsung/android/hardware/display/ISemMdnieManager;
+
+    if-nez v1, :cond_0
+
+    sget v1, Lcom/samsung/android/hardware/display/SemMdnieManager;->RETURN_ERROR:I
+
+    return v1
+
+    :cond_0
+    :try_start_0
+    iget-object v1, p0, Lcom/samsung/android/hardware/display/SemMdnieManager;->mService:Lcom/samsung/android/hardware/display/ISemMdnieManager;
+
+    invoke-interface {v1}, Lcom/samsung/android/hardware/display/ISemMdnieManager;->getPocSettingValue()I
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -256,6 +320,93 @@
     return v2
 .end method
 
+.method public isMdnieFisrtUsed()Z
+    .locals 3
+
+    const/4 v2, 0x0
+
+    iget-object v1, p0, Lcom/samsung/android/hardware/display/SemMdnieManager;->mService:Lcom/samsung/android/hardware/display/ISemMdnieManager;
+
+    if-nez v1, :cond_0
+
+    return v2
+
+    :cond_0
+    :try_start_0
+    iget-object v1, p0, Lcom/samsung/android/hardware/display/SemMdnieManager;->mService:Lcom/samsung/android/hardware/display/ISemMdnieManager;
+
+    invoke-interface {v1}, Lcom/samsung/android/hardware/display/ISemMdnieManager;->isMdnieFisrtUsed()Z
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v1
+
+    return v1
+
+    :catch_0
+    move-exception v0
+
+    return v2
+.end method
+
+.method public isMdniePocFused()Z
+    .locals 3
+
+    const/4 v2, 0x0
+
+    iget-object v1, p0, Lcom/samsung/android/hardware/display/SemMdnieManager;->mService:Lcom/samsung/android/hardware/display/ISemMdnieManager;
+
+    if-nez v1, :cond_0
+
+    return v2
+
+    :cond_0
+    :try_start_0
+    iget-object v1, p0, Lcom/samsung/android/hardware/display/SemMdnieManager;->mService:Lcom/samsung/android/hardware/display/ISemMdnieManager;
+
+    invoke-interface {v1}, Lcom/samsung/android/hardware/display/ISemMdnieManager;->isMdniePocFused()Z
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v1
+
+    return v1
+
+    :catch_0
+    move-exception v0
+
+    return v2
+.end method
+
+.method public isMdniePocSupported()Z
+    .locals 3
+
+    const/4 v2, 0x0
+
+    iget-object v1, p0, Lcom/samsung/android/hardware/display/SemMdnieManager;->mService:Lcom/samsung/android/hardware/display/ISemMdnieManager;
+
+    if-nez v1, :cond_0
+
+    return v2
+
+    :cond_0
+    :try_start_0
+    iget-object v1, p0, Lcom/samsung/android/hardware/display/SemMdnieManager;->mService:Lcom/samsung/android/hardware/display/ISemMdnieManager;
+
+    invoke-interface {v1}, Lcom/samsung/android/hardware/display/ISemMdnieManager;->isMdniePocSupported()Z
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v1
+
+    return v1
+
+    :catch_0
+    move-exception v0
+
+    return v2
+.end method
+
 .method public isScreenModeSupported()Z
     .locals 3
 
@@ -314,6 +465,35 @@
     return v2
 .end method
 
+.method public setColorVision(ZII)Z
+    .locals 3
+
+    const/4 v2, 0x0
+
+    iget-object v1, p0, Lcom/samsung/android/hardware/display/SemMdnieManager;->mService:Lcom/samsung/android/hardware/display/ISemMdnieManager;
+
+    if-nez v1, :cond_0
+
+    return v2
+
+    :cond_0
+    :try_start_0
+    iget-object v1, p0, Lcom/samsung/android/hardware/display/SemMdnieManager;->mService:Lcom/samsung/android/hardware/display/ISemMdnieManager;
+
+    invoke-interface {v1, p1, p2, p3}, Lcom/samsung/android/hardware/display/ISemMdnieManager;->setColorVision(ZII)Z
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v1
+
+    return v1
+
+    :catch_0
+    move-exception v0
+
+    return v2
+.end method
+
 .method public setContentMode(I)Z
     .locals 3
 
@@ -343,6 +523,35 @@
     return v2
 .end method
 
+.method public setLightNotificationMode(Z)Z
+    .locals 3
+
+    const/4 v2, 0x0
+
+    iget-object v1, p0, Lcom/samsung/android/hardware/display/SemMdnieManager;->mService:Lcom/samsung/android/hardware/display/ISemMdnieManager;
+
+    if-nez v1, :cond_0
+
+    return v2
+
+    :cond_0
+    :try_start_0
+    iget-object v1, p0, Lcom/samsung/android/hardware/display/SemMdnieManager;->mService:Lcom/samsung/android/hardware/display/ISemMdnieManager;
+
+    invoke-interface {v1, p1}, Lcom/samsung/android/hardware/display/ISemMdnieManager;->setLightNotificationMode(Z)Z
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v1
+
+    return v1
+
+    :catch_0
+    move-exception v0
+
+    return v2
+.end method
+
 .method public setNightMode(ZI)Z
     .locals 3
 
@@ -359,6 +568,64 @@
     iget-object v1, p0, Lcom/samsung/android/hardware/display/SemMdnieManager;->mService:Lcom/samsung/android/hardware/display/ISemMdnieManager;
 
     invoke-interface {v1, p1, p2}, Lcom/samsung/android/hardware/display/ISemMdnieManager;->setNightMode(ZI)Z
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v1
+
+    return v1
+
+    :catch_0
+    move-exception v0
+
+    return v2
+.end method
+
+.method public setPocCancel()Z
+    .locals 3
+
+    const/4 v2, 0x0
+
+    iget-object v1, p0, Lcom/samsung/android/hardware/display/SemMdnieManager;->mService:Lcom/samsung/android/hardware/display/ISemMdnieManager;
+
+    if-nez v1, :cond_0
+
+    return v2
+
+    :cond_0
+    :try_start_0
+    iget-object v1, p0, Lcom/samsung/android/hardware/display/SemMdnieManager;->mService:Lcom/samsung/android/hardware/display/ISemMdnieManager;
+
+    invoke-interface {v1}, Lcom/samsung/android/hardware/display/ISemMdnieManager;->setPocCancel()Z
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v1
+
+    return v1
+
+    :catch_0
+    move-exception v0
+
+    return v2
+.end method
+
+.method public setPocSetting(I)Z
+    .locals 3
+
+    const/4 v2, 0x0
+
+    iget-object v1, p0, Lcom/samsung/android/hardware/display/SemMdnieManager;->mService:Lcom/samsung/android/hardware/display/ISemMdnieManager;
+
+    if-nez v1, :cond_0
+
+    return v2
+
+    :cond_0
+    :try_start_0
+    iget-object v1, p0, Lcom/samsung/android/hardware/display/SemMdnieManager;->mService:Lcom/samsung/android/hardware/display/ISemMdnieManager;
+
+    invoke-interface {v1, p1}, Lcom/samsung/android/hardware/display/ISemMdnieManager;->setPocSetting(I)Z
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 

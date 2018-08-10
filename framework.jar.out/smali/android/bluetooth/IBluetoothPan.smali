@@ -89,7 +89,7 @@
             "()",
             "Ljava/util/List",
             "<",
-            "Ljava/lang/String;",
+            "Landroid/bluetooth/BluetoothDevice;",
             ">;"
         }
     .end annotation

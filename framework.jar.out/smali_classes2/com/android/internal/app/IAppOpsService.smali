@@ -93,6 +93,24 @@
     .end annotation
 .end method
 
+.method public abstract getUidOps(I[I)Ljava/util/List;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(I[I)",
+            "Ljava/util/List",
+            "<",
+            "Landroid/app/AppOpsManager$PackageOps;",
+            ">;"
+        }
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract noteOperation(IILjava/lang/String;)I
     .annotation system Ldalvik/annotation/Throws;
         value = {

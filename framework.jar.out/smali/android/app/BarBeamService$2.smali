@@ -48,17 +48,9 @@
 
     iget-boolean v0, p0, Landroid/app/BarBeamService$2;->bSwitch:Z
 
-    if-eqz v0, :cond_0
+    xor-int/lit8 v0, v0, 0x1
 
-    const/4 v0, 0x0
-
-    :goto_0
     iput-boolean v0, p0, Landroid/app/BarBeamService$2;->bSwitch:Z
 
     return-void
-
-    :cond_0
-    const/4 v0, 0x1
-
-    goto :goto_0
 .end method

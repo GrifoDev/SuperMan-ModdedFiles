@@ -28,12 +28,12 @@
 
 
 # direct methods
-.method public constructor <init>(Landroid/view/Choreographer;Landroid/os/Looper;)V
+.method public constructor <init>(Landroid/view/Choreographer;Landroid/os/Looper;I)V
     .locals 0
 
     iput-object p1, p0, Landroid/view/Choreographer$FrameDisplayEventReceiver;->this$0:Landroid/view/Choreographer;
 
-    invoke-direct {p0, p2}, Landroid/view/DisplayEventReceiver;-><init>(Landroid/os/Looper;)V
+    invoke-direct {p0, p2, p3}, Landroid/view/DisplayEventReceiver;-><init>(Landroid/os/Looper;I)V
 
     return-void
 .end method

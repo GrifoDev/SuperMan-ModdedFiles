@@ -291,9 +291,7 @@
 
     move-result v7
 
-    if-eqz v7, :cond_1
-
-    const/4 v7, 0x0
+    xor-int/lit8 v7, v7, 0x1
 
     :goto_0
     iput-boolean v7, p0, Landroid/widget/RelativeLayout$LayoutParams;->mIsRtlCompatibilityMode:Z
@@ -309,7 +307,7 @@
     const/4 v3, 0x0
 
     :goto_1
-    if-ge v3, v0, :cond_b
+    if-ge v3, v0, :cond_a
 
     invoke-virtual {v1, v3}, Landroid/content/res/TypedArray;->getIndex(I)I
 
@@ -323,11 +321,6 @@
     goto :goto_1
 
     :cond_0
-    const/4 v7, 0x1
-
-    goto :goto_0
-
-    :cond_1
     const/4 v7, 0x1
 
     goto :goto_0
@@ -467,7 +460,7 @@
 
     move-result v7
 
-    if-eqz v7, :cond_2
+    if-eqz v7, :cond_1
 
     const/4 v7, -0x1
 
@@ -478,7 +471,7 @@
 
     goto :goto_2
 
-    :cond_2
+    :cond_1
     const/4 v7, 0x0
 
     goto :goto_3
@@ -490,7 +483,7 @@
 
     move-result v7
 
-    if-eqz v7, :cond_3
+    if-eqz v7, :cond_2
 
     const/4 v7, -0x1
 
@@ -501,7 +494,7 @@
 
     goto :goto_2
 
-    :cond_3
+    :cond_2
     const/4 v7, 0x0
 
     goto :goto_4
@@ -513,7 +506,7 @@
 
     move-result v7
 
-    if-eqz v7, :cond_4
+    if-eqz v7, :cond_3
 
     const/4 v7, -0x1
 
@@ -524,7 +517,7 @@
 
     goto/16 :goto_2
 
-    :cond_4
+    :cond_3
     const/4 v7, 0x0
 
     goto :goto_5
@@ -536,7 +529,7 @@
 
     move-result v7
 
-    if-eqz v7, :cond_5
+    if-eqz v7, :cond_4
 
     const/4 v7, -0x1
 
@@ -547,7 +540,7 @@
 
     goto/16 :goto_2
 
-    :cond_5
+    :cond_4
     const/4 v7, 0x0
 
     goto :goto_6
@@ -559,7 +552,7 @@
 
     move-result v7
 
-    if-eqz v7, :cond_6
+    if-eqz v7, :cond_5
 
     const/4 v7, -0x1
 
@@ -570,7 +563,7 @@
 
     goto/16 :goto_2
 
-    :cond_6
+    :cond_5
     const/4 v7, 0x0
 
     goto :goto_7
@@ -582,7 +575,7 @@
 
     move-result v7
 
-    if-eqz v7, :cond_7
+    if-eqz v7, :cond_6
 
     const/4 v7, -0x1
 
@@ -593,7 +586,7 @@
 
     goto/16 :goto_2
 
-    :cond_7
+    :cond_6
     const/4 v7, 0x0
 
     goto :goto_8
@@ -605,7 +598,7 @@
 
     move-result v7
 
-    if-eqz v7, :cond_8
+    if-eqz v7, :cond_7
 
     const/4 v7, -0x1
 
@@ -616,7 +609,7 @@
 
     goto/16 :goto_2
 
-    :cond_8
+    :cond_7
     const/4 v7, 0x0
 
     goto :goto_9
@@ -680,7 +673,7 @@
 
     move-result v7
 
-    if-eqz v7, :cond_9
+    if-eqz v7, :cond_8
 
     const/4 v7, -0x1
 
@@ -691,7 +684,7 @@
 
     goto/16 :goto_2
 
-    :cond_9
+    :cond_8
     const/4 v7, 0x0
 
     goto :goto_a
@@ -703,7 +696,7 @@
 
     move-result v7
 
-    if-eqz v7, :cond_a
+    if-eqz v7, :cond_9
 
     const/4 v7, -0x1
 
@@ -714,12 +707,12 @@
 
     goto/16 :goto_2
 
-    :cond_a
+    :cond_9
     const/4 v7, 0x0
 
     goto :goto_b
 
-    :cond_b
+    :cond_a
     const/4 v7, 0x1
 
     iput-boolean v7, p0, Landroid/widget/RelativeLayout$LayoutParams;->mRulesChanged:Z
@@ -735,8 +728,6 @@
     invoke-virtual {v1}, Landroid/content/res/TypedArray;->recycle()V
 
     return-void
-
-    nop
 
     :pswitch_data_0
     .packed-switch 0x0

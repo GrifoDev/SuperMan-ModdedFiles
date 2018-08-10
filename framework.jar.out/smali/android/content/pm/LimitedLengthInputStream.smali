@@ -80,7 +80,7 @@
 
     iput-wide v0, p0, Landroid/content/pm/LimitedLengthInputStream;->mEnd:J
 
-    invoke-virtual {p0, p2, p3}, Ljava/io/FilterInputStream;->skip(J)J
+    invoke-virtual {p0, p2, p3}, Landroid/content/pm/LimitedLengthInputStream;->skip(J)J
 
     iput-wide p2, p0, Landroid/content/pm/LimitedLengthInputStream;->mOffset:J
 

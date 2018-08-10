@@ -39,7 +39,7 @@
 
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Lcom/android/internal/telephony/cat/CatEventDownload;
-    .locals 5
+    .locals 7
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
@@ -47,54 +47,68 @@
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v3
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
-    packed-switch v1, :pswitch_data_0
+    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
-    :pswitch_0
-    new-instance v3, Lcom/android/internal/telephony/cat/CatEventDownload;
+    move-result v4
 
-    const/16 v4, 0xfe
+    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
-    invoke-direct {v3, v4}, Lcom/android/internal/telephony/cat/CatEventDownload;-><init>(I)V
+    move-result-object v2
 
-    return-object v3
+    sparse-switch v1, :sswitch_data_0
 
-    :pswitch_1
-    new-instance v3, Lcom/android/internal/telephony/cat/CatEventDownload;
+    new-instance v5, Lcom/android/internal/telephony/cat/CatEventDownload;
 
-    invoke-direct {v3, v1}, Lcom/android/internal/telephony/cat/CatEventDownload;-><init>(I)V
+    const/16 v6, 0xfe
 
-    return-object v3
+    invoke-direct {v5, v6}, Lcom/android/internal/telephony/cat/CatEventDownload;-><init>(I)V
 
-    :pswitch_2
-    new-instance v3, Lcom/android/internal/telephony/cat/CatEventDownload;
+    return-object v5
 
-    invoke-direct {v3, v1, v2}, Lcom/android/internal/telephony/cat/CatEventDownload;-><init>(ILjava/lang/String;)V
+    :sswitch_0
+    new-instance v5, Lcom/android/internal/telephony/cat/CatEventDownload;
 
-    return-object v3
+    invoke-direct {v5, v1}, Lcom/android/internal/telephony/cat/CatEventDownload;-><init>(I)V
 
-    :pswitch_3
-    new-instance v3, Lcom/android/internal/telephony/cat/CatEventDownload;
+    return-object v5
 
-    invoke-direct {v3, v1, v0}, Lcom/android/internal/telephony/cat/CatEventDownload;-><init>(II)V
+    :sswitch_1
+    new-instance v5, Lcom/android/internal/telephony/cat/CatEventDownload;
 
-    return-object v3
+    invoke-direct {v5, v1, v3}, Lcom/android/internal/telephony/cat/CatEventDownload;-><init>(ILjava/lang/String;)V
+
+    return-object v5
+
+    :sswitch_2
+    new-instance v5, Lcom/android/internal/telephony/cat/CatEventDownload;
+
+    invoke-direct {v5, v1, v0}, Lcom/android/internal/telephony/cat/CatEventDownload;-><init>(II)V
+
+    return-object v5
+
+    :sswitch_3
+    new-instance v5, Lcom/android/internal/telephony/cat/CatEventDownload;
+
+    invoke-direct {v5, v1, v4, v2}, Lcom/android/internal/telephony/cat/CatEventDownload;-><init>(IILjava/lang/String;)V
+
+    return-object v5
 
     nop
 
-    :pswitch_data_0
-    .packed-switch 0x4
-        :pswitch_1
-        :pswitch_1
-        :pswitch_0
-        :pswitch_2
-        :pswitch_3
-    .end packed-switch
+    :sswitch_data_0
+    .sparse-switch
+        0x4 -> :sswitch_0
+        0x5 -> :sswitch_0
+        0x7 -> :sswitch_1
+        0x8 -> :sswitch_2
+        0x17 -> :sswitch_3
+    .end sparse-switch
 .end method
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;

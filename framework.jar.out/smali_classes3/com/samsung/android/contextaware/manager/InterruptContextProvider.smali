@@ -19,19 +19,19 @@
 
     invoke-static {}, Lcom/samsung/android/contextaware/utilbundle/logger/CaLogger;->trace()V
 
-    iget-object v0, p0, Lcom/samsung/android/contextaware/manager/ContextProviderDecorator;->mProvider:Lcom/samsung/android/contextaware/manager/ContextComponent;
+    iget-object v0, p0, Lcom/samsung/android/contextaware/manager/InterruptContextProvider;->mProvider:Lcom/samsung/android/contextaware/manager/ContextComponent;
 
     invoke-virtual {v0}, Lcom/samsung/android/contextaware/manager/ContextComponent;->initialize()V
 
-    iget-object v0, p0, Lcom/samsung/android/contextaware/manager/ContextProviderDecorator;->mProvider:Lcom/samsung/android/contextaware/manager/ContextComponent;
+    iget-object v0, p0, Lcom/samsung/android/contextaware/manager/InterruptContextProvider;->mProvider:Lcom/samsung/android/contextaware/manager/ContextComponent;
 
     invoke-virtual {v0}, Lcom/samsung/android/contextaware/manager/ContextComponent;->clear()V
 
-    iget-object v0, p0, Lcom/samsung/android/contextaware/manager/ContextProviderDecorator;->mProvider:Lcom/samsung/android/contextaware/manager/ContextComponent;
+    iget-object v0, p0, Lcom/samsung/android/contextaware/manager/InterruptContextProvider;->mProvider:Lcom/samsung/android/contextaware/manager/ContextComponent;
 
     invoke-virtual {v0, p2}, Lcom/samsung/android/contextaware/manager/ContextComponent;->enableForStart(I)V
 
-    iget-object v0, p0, Lcom/samsung/android/contextaware/manager/ContextProviderDecorator;->mProvider:Lcom/samsung/android/contextaware/manager/ContextComponent;
+    iget-object v0, p0, Lcom/samsung/android/contextaware/manager/InterruptContextProvider;->mProvider:Lcom/samsung/android/contextaware/manager/ContextComponent;
 
     invoke-virtual {v0}, Lcom/samsung/android/contextaware/manager/ContextComponent;->registerApPowerObserver()V
 
@@ -39,7 +39,7 @@
 
     if-ne p2, v0, :cond_0
 
-    iget-object v0, p0, Lcom/samsung/android/contextaware/manager/ContextProviderDecorator;->mProvider:Lcom/samsung/android/contextaware/manager/ContextComponent;
+    iget-object v0, p0, Lcom/samsung/android/contextaware/manager/InterruptContextProvider;->mProvider:Lcom/samsung/android/contextaware/manager/ContextComponent;
 
     invoke-virtual {v0}, Lcom/samsung/android/contextaware/manager/ContextComponent;->notifyFaultDetectionResult()V
 
@@ -52,15 +52,15 @@
 
     invoke-static {}, Lcom/samsung/android/contextaware/utilbundle/logger/CaLogger;->trace()V
 
-    iget-object v0, p0, Lcom/samsung/android/contextaware/manager/ContextProviderDecorator;->mProvider:Lcom/samsung/android/contextaware/manager/ContextComponent;
+    iget-object v0, p0, Lcom/samsung/android/contextaware/manager/InterruptContextProvider;->mProvider:Lcom/samsung/android/contextaware/manager/ContextComponent;
 
     invoke-virtual {v0}, Lcom/samsung/android/contextaware/manager/ContextComponent;->clear()V
 
-    iget-object v0, p0, Lcom/samsung/android/contextaware/manager/ContextProviderDecorator;->mProvider:Lcom/samsung/android/contextaware/manager/ContextComponent;
+    iget-object v0, p0, Lcom/samsung/android/contextaware/manager/InterruptContextProvider;->mProvider:Lcom/samsung/android/contextaware/manager/ContextComponent;
 
     invoke-virtual {v0}, Lcom/samsung/android/contextaware/manager/ContextComponent;->unregisterApPowerObserver()V
 
-    iget-object v0, p0, Lcom/samsung/android/contextaware/manager/ContextProviderDecorator;->mProvider:Lcom/samsung/android/contextaware/manager/ContextComponent;
+    iget-object v0, p0, Lcom/samsung/android/contextaware/manager/InterruptContextProvider;->mProvider:Lcom/samsung/android/contextaware/manager/ContextComponent;
 
     invoke-virtual {v0, p2}, Lcom/samsung/android/contextaware/manager/ContextComponent;->disableForStop(I)V
 
@@ -68,12 +68,12 @@
 
     if-ne p2, v0, :cond_0
 
-    iget-object v0, p0, Lcom/samsung/android/contextaware/manager/ContextProviderDecorator;->mProvider:Lcom/samsung/android/contextaware/manager/ContextComponent;
+    iget-object v0, p0, Lcom/samsung/android/contextaware/manager/InterruptContextProvider;->mProvider:Lcom/samsung/android/contextaware/manager/ContextComponent;
 
     invoke-virtual {v0}, Lcom/samsung/android/contextaware/manager/ContextComponent;->notifyFaultDetectionResult()V
 
     :cond_0
-    iget-object v0, p0, Lcom/samsung/android/contextaware/manager/ContextProviderDecorator;->mProvider:Lcom/samsung/android/contextaware/manager/ContextComponent;
+    iget-object v0, p0, Lcom/samsung/android/contextaware/manager/InterruptContextProvider;->mProvider:Lcom/samsung/android/contextaware/manager/ContextComponent;
 
     invoke-virtual {v0}, Lcom/samsung/android/contextaware/manager/ContextComponent;->terminate()V
 

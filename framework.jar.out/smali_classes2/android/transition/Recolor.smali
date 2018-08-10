@@ -140,15 +140,11 @@
 
     move-object v7, v6
 
-    nop
-
-    nop
+    check-cast v7, Landroid/graphics/drawable/ColorDrawable;
 
     move-object v4, v3
 
-    nop
-
-    nop
+    check-cast v4, Landroid/graphics/drawable/ColorDrawable;
 
     invoke-virtual {v7}, Landroid/graphics/drawable/ColorDrawable;->getColor()I
 
@@ -203,9 +199,7 @@
 
     move-object v8, v9
 
-    nop
-
-    nop
+    check-cast v8, Landroid/widget/TextView;
 
     move-object/from16 v0, p2
 

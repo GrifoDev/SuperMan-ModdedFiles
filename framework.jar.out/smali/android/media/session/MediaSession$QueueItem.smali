@@ -137,6 +137,56 @@
     return v0
 .end method
 
+.method public equals(Ljava/lang/Object;)Z
+    .locals 7
+
+    const/4 v6, 0x0
+
+    if-nez p1, :cond_0
+
+    return v6
+
+    :cond_0
+    instance-of v1, p1, Landroid/media/session/MediaSession$QueueItem;
+
+    if-nez v1, :cond_1
+
+    return v6
+
+    :cond_1
+    move-object v0, p1
+
+    check-cast v0, Landroid/media/session/MediaSession$QueueItem;
+
+    iget-wide v2, p0, Landroid/media/session/MediaSession$QueueItem;->mId:J
+
+    iget-wide v4, v0, Landroid/media/session/MediaSession$QueueItem;->mId:J
+
+    cmp-long v1, v2, v4
+
+    if-eqz v1, :cond_2
+
+    return v6
+
+    :cond_2
+    iget-object v1, p0, Landroid/media/session/MediaSession$QueueItem;->mDescription:Landroid/media/MediaDescription;
+
+    iget-object v2, v0, Landroid/media/session/MediaSession$QueueItem;->mDescription:Landroid/media/MediaDescription;
+
+    invoke-static {v1, v2}, Ljava/util/Objects;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_3
+
+    return v6
+
+    :cond_3
+    const/4 v1, 0x1
+
+    return v1
+.end method
+
 .method public getDescription()Landroid/media/MediaDescription;
     .locals 1
 

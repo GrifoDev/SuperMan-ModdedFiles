@@ -83,6 +83,8 @@
 
     const/4 v4, 0x0
 
+    const/4 v0, 0x0
+
     const/4 v0, 0x4
 
     add-int/lit8 v0, v0, 0x4
@@ -293,8 +295,6 @@
 .method private handleTHEN(Lorg/apache/harmony/dalvik/ddmc/Chunk;)Lorg/apache/harmony/dalvik/ddmc/Chunk;
     .locals 3
 
-    const/4 v0, 0x0
-
     invoke-static {p1}, Landroid/ddm/DdmHandleThread;->wrapChunk(Lorg/apache/harmony/dalvik/ddmc/Chunk;)Ljava/nio/ByteBuffer;
 
     move-result-object v1
@@ -307,12 +307,17 @@
 
     const/4 v0, 0x1
 
-    :cond_0
+    :goto_0
     invoke-static {v0}, Lorg/apache/harmony/dalvik/ddmc/DdmVmInternal;->threadNotify(Z)V
 
     const/4 v2, 0x0
 
     return-object v2
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
 .end method
 
 .method private handleTHST(Lorg/apache/harmony/dalvik/ddmc/Chunk;)Lorg/apache/harmony/dalvik/ddmc/Chunk;

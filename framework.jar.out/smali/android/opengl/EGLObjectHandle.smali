@@ -76,6 +76,8 @@
 .method public hashCode()I
     .locals 6
 
+    const/16 v0, 0x11
+
     iget-wide v2, p0, Landroid/opengl/EGLObjectHandle;->mHandle:J
 
     iget-wide v4, p0, Landroid/opengl/EGLObjectHandle;->mHandle:J

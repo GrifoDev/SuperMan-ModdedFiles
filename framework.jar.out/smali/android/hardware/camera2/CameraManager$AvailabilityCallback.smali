@@ -14,7 +14,27 @@
 .end annotation
 
 
+# instance fields
+.field private mIsVendorCallback:Z
+
+
 # direct methods
+.method static synthetic -get0(Landroid/hardware/camera2/CameraManager$AvailabilityCallback;)Z
+    .locals 1
+
+    iget-boolean v0, p0, Landroid/hardware/camera2/CameraManager$AvailabilityCallback;->mIsVendorCallback:Z
+
+    return v0
+.end method
+
+.method static synthetic -set0(Landroid/hardware/camera2/CameraManager$AvailabilityCallback;Z)Z
+    .locals 0
+
+    iput-boolean p1, p0, Landroid/hardware/camera2/CameraManager$AvailabilityCallback;->mIsVendorCallback:Z
+
+    return p1
+.end method
+
 .method public constructor <init>()V
     .locals 0
 

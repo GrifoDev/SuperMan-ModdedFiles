@@ -57,7 +57,7 @@
 
     const-string/jumbo v0, "com.samsung.android.service.vaultkeeper.IVaultKeeperService"
 
-    invoke-virtual {p0, p0, v0}, Landroid/os/Binder;->attachInterface(Landroid/os/IInterface;Ljava/lang/String;)V
+    invoke-virtual {p0, p0, v0}, Lcom/samsung/android/service/vaultkeeper/IVaultKeeperService$Stub;->attachInterface(Landroid/os/IInterface;Ljava/lang/String;)V
 
     return-void
 .end method
@@ -105,7 +105,7 @@
 .end method
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    .locals 21
+    .locals 28
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -146,13 +146,13 @@
 
     invoke-virtual {v0, v3}, Lcom/samsung/android/service/vaultkeeper/IVaultKeeperService$Stub;->getPackageName(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v18
+    move-result-object v25
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     move-object/from16 v0, p3
 
-    move-object/from16 v1, v18
+    move-object/from16 v1, v25
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
@@ -179,11 +179,11 @@
 
     invoke-virtual {v0, v3, v4}, Lcom/samsung/android/service/vaultkeeper/IVaultKeeperService$Stub;->isInitialized(Ljava/lang/String;Ljava/lang/String;)Z
 
-    move-result v19
+    move-result v26
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v19, :cond_0
+    if-eqz v26, :cond_0
 
     const/4 v2, 0x1
 
@@ -240,13 +240,13 @@
 
     invoke-virtual/range {v2 .. v9}, Lcom/samsung/android/service/vaultkeeper/IVaultKeeperService$Stub;->initialize(Ljava/lang/String;Ljava/lang/String;[BLjava/lang/String;[B[B[B)I
 
-    move-result v17
+    move-result v24
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     move-object/from16 v0, p3
 
-    move/from16 v1, v17
+    move/from16 v1, v24
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
 
@@ -273,17 +273,37 @@
 
     move-result-object v5
 
-    move-object/from16 v0, p0
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->createByteArray()[B
 
-    invoke-virtual {v0, v3, v4, v5}, Lcom/samsung/android/service/vaultkeeper/IVaultKeeperService$Stub;->destroy(Ljava/lang/String;Ljava/lang/String;[B)I
+    move-result-object v14
 
-    move-result v17
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->createByteArray()[B
+
+    move-result-object v7
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v16
+
+    move-object/from16 v10, p0
+
+    move-object v11, v3
+
+    move-object v12, v4
+
+    move-object v13, v5
+
+    move-object v15, v7
+
+    invoke-virtual/range {v10 .. v16}, Lcom/samsung/android/service/vaultkeeper/IVaultKeeperService$Stub;->destroy(Ljava/lang/String;Ljava/lang/String;[B[B[BLjava/lang/String;)I
+
+    move-result v24
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     move-object/from16 v0, p3
 
-    move/from16 v1, v17
+    move/from16 v1, v24
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
 
@@ -310,13 +330,13 @@
 
     invoke-virtual {v0, v3, v4}, Lcom/samsung/android/service/vaultkeeper/IVaultKeeperService$Stub;->readState(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v18
+    move-result-object v25
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     move-object/from16 v0, p3
 
-    move-object/from16 v1, v18
+    move-object/from16 v1, v25
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
@@ -343,13 +363,13 @@
 
     invoke-virtual {v0, v3, v4}, Lcom/samsung/android/service/vaultkeeper/IVaultKeeperService$Stub;->readData(Ljava/lang/String;Ljava/lang/String;)[B
 
-    move-result-object v20
+    move-result-object v27
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     move-object/from16 v0, p3
 
-    move-object/from16 v1, v20
+    move-object/from16 v1, v27
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeByteArray([B)V
 
@@ -374,7 +394,7 @@
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
-    move-result-object v13
+    move-result-object v20
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->createByteArray()[B
 
@@ -388,25 +408,27 @@
 
     move-result-object v8
 
-    move-object/from16 v10, p0
+    move-object/from16 v17, p0
 
-    move-object v11, v3
+    move-object/from16 v18, v3
 
-    move-object v12, v4
+    move-object/from16 v19, v4
 
-    move-object v15, v7
+    move-object/from16 v21, v14
 
-    move-object/from16 v16, v8
+    move-object/from16 v22, v7
 
-    invoke-virtual/range {v10 .. v16}, Lcom/samsung/android/service/vaultkeeper/IVaultKeeperService$Stub;->write(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[B[B[B)I
+    move-object/from16 v23, v8
 
-    move-result v17
+    invoke-virtual/range {v17 .. v23}, Lcom/samsung/android/service/vaultkeeper/IVaultKeeperService$Stub;->write(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[B[B[B)I
+
+    move-result v24
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     move-object/from16 v0, p3
 
-    move/from16 v1, v17
+    move/from16 v1, v24
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
 
@@ -433,13 +455,13 @@
 
     invoke-virtual {v0, v3, v4}, Lcom/samsung/android/service/vaultkeeper/IVaultKeeperService$Stub;->getNonce(Ljava/lang/String;Ljava/lang/String;)[B
 
-    move-result-object v20
+    move-result-object v27
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     move-object/from16 v0, p3
 
-    move-object/from16 v1, v20
+    move-object/from16 v1, v27
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeByteArray([B)V
 
@@ -470,11 +492,11 @@
 
     invoke-virtual {v0, v3, v4, v5}, Lcom/samsung/android/service/vaultkeeper/IVaultKeeperService$Stub;->verifyCertificate(Ljava/lang/String;Ljava/lang/String;[B)Z
 
-    move-result v19
+    move-result v26
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v19, :cond_1
+    if-eqz v26, :cond_1
 
     const/4 v2, 0x1
 
@@ -515,13 +537,13 @@
 
     invoke-virtual {v0, v3, v4, v5}, Lcom/samsung/android/service/vaultkeeper/IVaultKeeperService$Stub;->verifyRequest(Ljava/lang/String;Ljava/lang/String;[B)[B
 
-    move-result-object v20
+    move-result-object v27
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     move-object/from16 v0, p3
 
-    move-object/from16 v1, v20
+    move-object/from16 v1, v27
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeByteArray([B)V
 
@@ -560,21 +582,19 @@
 
     invoke-virtual/range {v2 .. v7}, Lcom/samsung/android/service/vaultkeeper/IVaultKeeperService$Stub;->verifyComplete(Ljava/lang/String;Ljava/lang/String;[BLjava/lang/String;[B)I
 
-    move-result v17
+    move-result v24
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     move-object/from16 v0, p3
 
-    move/from16 v1, v17
+    move/from16 v1, v24
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
 
     const/4 v2, 0x1
 
     return v2
-
-    nop
 
     :sswitch_data_0
     .sparse-switch

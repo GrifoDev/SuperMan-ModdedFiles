@@ -24,7 +24,6 @@
         Landroid/widget/RemoteViews$BitmapCache;,
         Landroid/widget/RemoteViews$BitmapReflectionAction;,
         Landroid/widget/RemoteViews$ClearAllTextEffectAction;,
-        Landroid/widget/RemoteViews$ImageFilterAction;,
         Landroid/widget/RemoteViews$LayoutParamAction;,
         Landroid/widget/RemoteViews$MemoryUsageCounter;,
         Landroid/widget/RemoteViews$MutablePair;,
@@ -33,6 +32,7 @@
         Landroid/widget/RemoteViews$ReflectionAction;,
         Landroid/widget/RemoteViews$ReflectionActionWithoutParams;,
         Landroid/widget/RemoteViews$RemoteView;,
+        Landroid/widget/RemoteViews$RemoteViewsContextWrapper;,
         Landroid/widget/RemoteViews$RunnableAction;,
         Landroid/widget/RemoteViews$RuntimeAction;,
         Landroid/widget/RemoteViews$SemSetLongClickPendingIntentTemplate;,
@@ -80,6 +80,8 @@
 
 .field private static final LOG_TAG:Ljava/lang/String; = "RemoteViews"
 
+.field private static final MAX_NESTED_VIEWS:I = 0xa
+
 .field private static final MODE_HAS_LANDSCAPE_AND_PORTRAIT:I = 0x1
 
 .field private static final MODE_NORMAL:I = 0x0
@@ -87,6 +89,8 @@
 .field public static final SEM_EXTRA_IS_CHECKED:Ljava/lang/String; = "isChecked"
 
 .field private static final SFE_STARTING_TAG:I = 0x29
+
+.field private static final mActionsLock:Ljava/lang/Object;
 
 .field private static final sAsyncMethods:Landroid/util/ArrayMap;
     .annotation system Ldalvik/annotation/Signature;
@@ -137,8 +141,6 @@
 
 
 # instance fields
-.field private isNotification:Z
-
 .field private mActions:Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -150,15 +152,11 @@
     .end annotation
 .end field
 
-.field private final mActionsLock:Ljava/lang/Object;
-
 .field private mAddedViewCount:I
 
 .field private mApplication:Landroid/content/pm/ApplicationInfo;
 
 .field private mBitmapCache:Landroid/widget/RemoteViews$BitmapCache;
-
-.field private mHas12key:Z
 
 .field private mIsRoot:Z
 
@@ -210,7 +208,15 @@
     return-object v0
 .end method
 
-.method static synthetic -get3(Landroid/widget/RemoteViews;)Landroid/widget/RemoteViews$BitmapCache;
+.method static synthetic -get3(Landroid/widget/RemoteViews;)Landroid/content/pm/ApplicationInfo;
+    .locals 1
+
+    iget-object v0, p0, Landroid/widget/RemoteViews;->mApplication:Landroid/content/pm/ApplicationInfo;
+
+    return-object v0
+.end method
+
+.method static synthetic -get4(Landroid/widget/RemoteViews;)Landroid/widget/RemoteViews$BitmapCache;
     .locals 1
 
     iget-object v0, p0, Landroid/widget/RemoteViews;->mBitmapCache:Landroid/widget/RemoteViews$BitmapCache;
@@ -218,7 +224,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get4(Landroid/widget/RemoteViews;)Z
+.method static synthetic -get5(Landroid/widget/RemoteViews;)Z
     .locals 1
 
     iget-boolean v0, p0, Landroid/widget/RemoteViews;->mIsWidgetCollectionChild:Z
@@ -343,6 +349,12 @@
 
     sput-object v0, Landroid/widget/RemoteViews;->sInvokeArgsTls:Ljava/lang/ThreadLocal;
 
+    new-instance v0, Ljava/lang/Object;
+
+    invoke-direct {v0}, Ljava/lang/Object;-><init>()V
+
+    sput-object v0, Landroid/widget/RemoteViews;->mActionsLock:Ljava/lang/Object;
+
     new-instance v0, Landroid/widget/RemoteViews$2;
 
     invoke-direct {v0}, Landroid/widget/RemoteViews$2;-><init>()V
@@ -377,17 +389,7 @@
 
     iput-boolean v2, p0, Landroid/widget/RemoteViews;->mIsWidgetCollectionChild:Z
 
-    new-instance v0, Ljava/lang/Object;
-
-    invoke-direct {v0}, Ljava/lang/Object;-><init>()V
-
-    iput-object v0, p0, Landroid/widget/RemoteViews;->mActionsLock:Ljava/lang/Object;
-
     iput v2, p0, Landroid/widget/RemoteViews;->mAddedViewCount:I
-
-    iput-boolean v2, p0, Landroid/widget/RemoteViews;->mHas12key:Z
-
-    iput-boolean v2, p0, Landroid/widget/RemoteViews;->isNotification:Z
 
     new-instance v0, Landroid/widget/RemoteViews$MutablePair;
 
@@ -417,519 +419,554 @@
 .end method
 
 .method public constructor <init>(Landroid/os/Parcel;)V
-    .locals 1
+    .locals 2
+
+    const/4 v1, 0x0
 
     const/4 v0, 0x0
 
-    invoke-direct {p0, p1, v0}, Landroid/widget/RemoteViews;-><init>(Landroid/os/Parcel;Landroid/widget/RemoteViews$BitmapCache;)V
+    invoke-direct {p0, p1, v1, v1, v0}, Landroid/widget/RemoteViews;-><init>(Landroid/os/Parcel;Landroid/widget/RemoteViews$BitmapCache;Landroid/content/pm/ApplicationInfo;I)V
 
     return-void
 .end method
 
-.method private constructor <init>(Landroid/os/Parcel;Landroid/widget/RemoteViews$BitmapCache;)V
-    .locals 8
-
-    const/4 v5, 0x1
-
-    const/4 v7, 0x0
-
-    const/4 v6, 0x0
+.method private constructor <init>(Landroid/os/Parcel;Landroid/widget/RemoteViews$BitmapCache;Landroid/content/pm/ApplicationInfo;I)V
+    .locals 11
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-boolean v5, p0, Landroid/widget/RemoteViews;->mIsRoot:Z
+    const/4 v0, 0x1
 
-    iput-object v7, p0, Landroid/widget/RemoteViews;->mLandscape:Landroid/widget/RemoteViews;
+    iput-boolean v0, p0, Landroid/widget/RemoteViews;->mIsRoot:Z
 
-    iput-object v7, p0, Landroid/widget/RemoteViews;->mPortrait:Landroid/widget/RemoteViews;
+    const/4 v0, 0x0
 
-    iput-boolean v6, p0, Landroid/widget/RemoteViews;->mIsWidgetCollectionChild:Z
+    iput-object v0, p0, Landroid/widget/RemoteViews;->mLandscape:Landroid/widget/RemoteViews;
 
-    new-instance v4, Ljava/lang/Object;
+    const/4 v0, 0x0
 
-    invoke-direct {v4}, Ljava/lang/Object;-><init>()V
+    iput-object v0, p0, Landroid/widget/RemoteViews;->mPortrait:Landroid/widget/RemoteViews;
 
-    iput-object v4, p0, Landroid/widget/RemoteViews;->mActionsLock:Ljava/lang/Object;
+    const/4 v0, 0x0
 
-    iput v6, p0, Landroid/widget/RemoteViews;->mAddedViewCount:I
+    iput-boolean v0, p0, Landroid/widget/RemoteViews;->mIsWidgetCollectionChild:Z
 
-    iput-boolean v6, p0, Landroid/widget/RemoteViews;->mHas12key:Z
+    const/4 v0, 0x0
 
-    iput-boolean v6, p0, Landroid/widget/RemoteViews;->isNotification:Z
+    iput v0, p0, Landroid/widget/RemoteViews;->mAddedViewCount:I
 
-    new-instance v4, Landroid/widget/RemoteViews$MutablePair;
+    new-instance v0, Landroid/widget/RemoteViews$MutablePair;
 
-    invoke-direct {v4, v7, v7}, Landroid/widget/RemoteViews$MutablePair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
+    const/4 v1, 0x0
 
-    iput-object v4, p0, Landroid/widget/RemoteViews;->mPair:Landroid/widget/RemoteViews$MutablePair;
+    const/4 v2, 0x0
+
+    invoke-direct {v0, v1, v2}, Landroid/widget/RemoteViews$MutablePair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
+
+    iput-object v0, p0, Landroid/widget/RemoteViews;->mPair:Landroid/widget/RemoteViews$MutablePair;
+
+    const/16 v0, 0xa
+
+    if-le p4, v0, :cond_0
+
+    invoke-static {}, Landroid/os/Binder;->getCallingUid()I
+
+    move-result v0
+
+    invoke-static {v0}, Landroid/os/UserHandle;->getAppId(I)I
+
+    move-result v0
+
+    const/16 v1, 0x3e8
+
+    if-eq v0, v1, :cond_0
+
+    new-instance v0, Ljava/lang/IllegalArgumentException;
+
+    const-string/jumbo v1, "Too many nested views."
+
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+
+    :cond_0
+    add-int/lit8 p4, p4, 0x1
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
-    move-result v2
+    move-result v8
 
-    if-nez p2, :cond_0
+    if-nez p2, :cond_1
 
-    new-instance v4, Landroid/widget/RemoteViews$BitmapCache;
+    new-instance v0, Landroid/widget/RemoteViews$BitmapCache;
 
-    invoke-direct {v4, p1}, Landroid/widget/RemoteViews$BitmapCache;-><init>(Landroid/os/Parcel;)V
+    invoke-direct {v0, p1}, Landroid/widget/RemoteViews$BitmapCache;-><init>(Landroid/os/Parcel;)V
 
-    iput-object v4, p0, Landroid/widget/RemoteViews;->mBitmapCache:Landroid/widget/RemoteViews$BitmapCache;
+    iput-object v0, p0, Landroid/widget/RemoteViews;->mBitmapCache:Landroid/widget/RemoteViews$BitmapCache;
 
     :goto_0
-    if-nez v2, :cond_2
-
-    invoke-virtual {p1, v7}, Landroid/os/Parcel;->readParcelable(Ljava/lang/ClassLoader;)Landroid/os/Parcelable;
-
-    move-result-object v4
-
-    check-cast v4, Landroid/content/pm/ApplicationInfo;
-
-    iput-object v4, p0, Landroid/widget/RemoteViews;->mApplication:Landroid/content/pm/ApplicationInfo;
-
-    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
-
-    move-result v4
-
-    iput v4, p0, Landroid/widget/RemoteViews;->mLayoutId:I
-
-    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
-
-    move-result v4
-
-    if-ne v4, v5, :cond_1
-
-    move v4, v5
-
-    :goto_1
-    iput-boolean v4, p0, Landroid/widget/RemoteViews;->mIsWidgetCollectionChild:Z
+    if-nez v8, :cond_4
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
-    if-lez v0, :cond_3
+    if-nez v0, :cond_2
 
-    new-instance v4, Ljava/util/ArrayList;
-
-    invoke-direct {v4, v0}, Ljava/util/ArrayList;-><init>(I)V
-
-    iput-object v4, p0, Landroid/widget/RemoteViews;->mActions:Ljava/util/ArrayList;
-
-    const/4 v1, 0x0
-
-    :goto_2
-    if-ge v1, v0, :cond_3
+    :goto_1
+    iput-object p3, p0, Landroid/widget/RemoteViews;->mApplication:Landroid/content/pm/ApplicationInfo;
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
-    move-result v3
+    move-result v0
 
-    packed-switch v3, :pswitch_data_0
+    iput v0, p0, Landroid/widget/RemoteViews;->mLayoutId:I
+
+    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
+
+    move-result v0
+
+    const/4 v1, 0x1
+
+    if-ne v0, v1, :cond_3
+
+    const/4 v0, 0x1
+
+    :goto_2
+    iput-boolean v0, p0, Landroid/widget/RemoteViews;->mIsWidgetCollectionChild:Z
+
+    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
+
+    move-result v6
+
+    if-lez v6, :cond_5
+
+    new-instance v0, Ljava/util/ArrayList;
+
+    invoke-direct {v0, v6}, Ljava/util/ArrayList;-><init>(I)V
+
+    iput-object v0, p0, Landroid/widget/RemoteViews;->mActions:Ljava/util/ArrayList;
+
+    const/4 v7, 0x0
+
+    :goto_3
+    if-ge v7, v6, :cond_5
+
+    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
+
+    move-result v9
+
+    packed-switch v9, :pswitch_data_0
 
     :pswitch_0
-    new-instance v4, Landroid/widget/RemoteViews$ActionException;
+    new-instance v0, Landroid/widget/RemoteViews$ActionException;
 
-    new-instance v5, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v6, "Tag "
+    const-string/jumbo v2, "Tag "
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    move-result-object v1
 
-    invoke-virtual {v5, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v9}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    move-result-object v1
 
-    const-string/jumbo v6, " not found"
+    const-string/jumbo v2, " not found"
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    move-result-object v1
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v1
 
-    invoke-direct {v4, v5}, Landroid/widget/RemoteViews$ActionException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Landroid/widget/RemoteViews$ActionException;-><init>(Ljava/lang/String;)V
 
-    throw v4
+    throw v0
 
-    :cond_0
+    :cond_1
     invoke-direct {p0, p2}, Landroid/widget/RemoteViews;->setBitmapCache(Landroid/widget/RemoteViews$BitmapCache;)V
 
     invoke-virtual {p0}, Landroid/widget/RemoteViews;->setNotRoot()V
 
     goto :goto_0
 
-    :cond_1
-    move v4, v6
+    :cond_2
+    sget-object v0, Landroid/content/pm/ApplicationInfo;->CREATOR:Landroid/os/Parcelable$Creator;
+
+    invoke-interface {v0, p1}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/content/pm/ApplicationInfo;
+
+    move-object p3, v0
 
     goto :goto_1
 
-    :pswitch_1
-    iget-object v4, p0, Landroid/widget/RemoteViews;->mActions:Ljava/util/ArrayList;
-
-    new-instance v5, Landroid/widget/RemoteViews$SetOnClickPendingIntent;
-
-    invoke-direct {v5, p0, p1}, Landroid/widget/RemoteViews$SetOnClickPendingIntent;-><init>(Landroid/widget/RemoteViews;Landroid/os/Parcel;)V
-
-    invoke-virtual {v4, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    :goto_3
-    add-int/lit8 v1, v1, 0x1
+    :cond_3
+    const/4 v0, 0x0
 
     goto :goto_2
 
-    :pswitch_2
-    iget-object v4, p0, Landroid/widget/RemoteViews;->mActions:Ljava/util/ArrayList;
+    :pswitch_1
+    iget-object v0, p0, Landroid/widget/RemoteViews;->mActions:Ljava/util/ArrayList;
 
-    new-instance v5, Landroid/widget/RemoteViews$SetDrawableParameters;
+    new-instance v1, Landroid/widget/RemoteViews$SetOnClickPendingIntent;
 
-    invoke-direct {v5, p0, p1}, Landroid/widget/RemoteViews$SetDrawableParameters;-><init>(Landroid/widget/RemoteViews;Landroid/os/Parcel;)V
+    invoke-direct {v1, p0, p1}, Landroid/widget/RemoteViews$SetOnClickPendingIntent;-><init>(Landroid/widget/RemoteViews;Landroid/os/Parcel;)V
 
-    invoke-virtual {v4, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    :goto_4
+    add-int/lit8 v7, v7, 0x1
 
     goto :goto_3
+
+    :pswitch_2
+    iget-object v0, p0, Landroid/widget/RemoteViews;->mActions:Ljava/util/ArrayList;
+
+    new-instance v1, Landroid/widget/RemoteViews$SetDrawableParameters;
+
+    invoke-direct {v1, p0, p1}, Landroid/widget/RemoteViews$SetDrawableParameters;-><init>(Landroid/widget/RemoteViews;Landroid/os/Parcel;)V
+
+    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto :goto_4
 
     :pswitch_3
-    iget-object v4, p0, Landroid/widget/RemoteViews;->mActions:Ljava/util/ArrayList;
+    iget-object v0, p0, Landroid/widget/RemoteViews;->mActions:Ljava/util/ArrayList;
 
-    new-instance v5, Landroid/widget/RemoteViews$ReflectionAction;
+    new-instance v1, Landroid/widget/RemoteViews$ReflectionAction;
 
-    invoke-direct {v5, p0, p1}, Landroid/widget/RemoteViews$ReflectionAction;-><init>(Landroid/widget/RemoteViews;Landroid/os/Parcel;)V
+    invoke-direct {v1, p0, p1}, Landroid/widget/RemoteViews$ReflectionAction;-><init>(Landroid/widget/RemoteViews;Landroid/os/Parcel;)V
 
-    invoke-virtual {v4, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto :goto_3
+    goto :goto_4
 
     :pswitch_4
-    iget-object v4, p0, Landroid/widget/RemoteViews;->mActions:Ljava/util/ArrayList;
+    iget-object v10, p0, Landroid/widget/RemoteViews;->mActions:Ljava/util/ArrayList;
 
-    new-instance v5, Landroid/widget/RemoteViews$ViewGroupAction;
+    new-instance v0, Landroid/widget/RemoteViews$ViewGroupAction;
 
-    iget-object v6, p0, Landroid/widget/RemoteViews;->mBitmapCache:Landroid/widget/RemoteViews$BitmapCache;
+    iget-object v3, p0, Landroid/widget/RemoteViews;->mBitmapCache:Landroid/widget/RemoteViews$BitmapCache;
 
-    invoke-direct {v5, p0, p1, v6}, Landroid/widget/RemoteViews$ViewGroupAction;-><init>(Landroid/widget/RemoteViews;Landroid/os/Parcel;Landroid/widget/RemoteViews$BitmapCache;)V
+    iget-object v4, p0, Landroid/widget/RemoteViews;->mApplication:Landroid/content/pm/ApplicationInfo;
 
-    invoke-virtual {v4, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    move-object v1, p0
 
-    goto :goto_3
+    move-object v2, p1
+
+    move v5, p4
+
+    invoke-direct/range {v0 .. v5}, Landroid/widget/RemoteViews$ViewGroupAction;-><init>(Landroid/widget/RemoteViews;Landroid/os/Parcel;Landroid/widget/RemoteViews$BitmapCache;Landroid/content/pm/ApplicationInfo;I)V
+
+    invoke-virtual {v10, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto :goto_4
 
     :pswitch_5
-    iget-object v4, p0, Landroid/widget/RemoteViews;->mActions:Ljava/util/ArrayList;
+    iget-object v0, p0, Landroid/widget/RemoteViews;->mActions:Ljava/util/ArrayList;
 
-    new-instance v5, Landroid/widget/RemoteViews$ReflectionActionWithoutParams;
+    new-instance v1, Landroid/widget/RemoteViews$ReflectionActionWithoutParams;
 
-    invoke-direct {v5, p0, p1}, Landroid/widget/RemoteViews$ReflectionActionWithoutParams;-><init>(Landroid/widget/RemoteViews;Landroid/os/Parcel;)V
+    invoke-direct {v1, p0, p1}, Landroid/widget/RemoteViews$ReflectionActionWithoutParams;-><init>(Landroid/widget/RemoteViews;Landroid/os/Parcel;)V
 
-    invoke-virtual {v4, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto :goto_3
+    goto :goto_4
 
     :pswitch_6
-    iget-object v4, p0, Landroid/widget/RemoteViews;->mActions:Ljava/util/ArrayList;
+    iget-object v0, p0, Landroid/widget/RemoteViews;->mActions:Ljava/util/ArrayList;
 
-    new-instance v5, Landroid/widget/RemoteViews$SetEmptyView;
+    new-instance v1, Landroid/widget/RemoteViews$SetEmptyView;
 
-    invoke-direct {v5, p0, p1}, Landroid/widget/RemoteViews$SetEmptyView;-><init>(Landroid/widget/RemoteViews;Landroid/os/Parcel;)V
+    invoke-direct {v1, p0, p1}, Landroid/widget/RemoteViews$SetEmptyView;-><init>(Landroid/widget/RemoteViews;Landroid/os/Parcel;)V
 
-    invoke-virtual {v4, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto :goto_3
+    goto :goto_4
 
     :pswitch_7
-    iget-object v4, p0, Landroid/widget/RemoteViews;->mActions:Ljava/util/ArrayList;
+    iget-object v0, p0, Landroid/widget/RemoteViews;->mActions:Ljava/util/ArrayList;
 
-    new-instance v5, Landroid/widget/RemoteViews$SetPendingIntentTemplate;
+    new-instance v1, Landroid/widget/RemoteViews$SetPendingIntentTemplate;
 
-    invoke-direct {v5, p0, p1}, Landroid/widget/RemoteViews$SetPendingIntentTemplate;-><init>(Landroid/widget/RemoteViews;Landroid/os/Parcel;)V
+    invoke-direct {v1, p0, p1}, Landroid/widget/RemoteViews$SetPendingIntentTemplate;-><init>(Landroid/widget/RemoteViews;Landroid/os/Parcel;)V
 
-    invoke-virtual {v4, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto :goto_3
+    goto :goto_4
 
     :pswitch_8
-    iget-object v4, p0, Landroid/widget/RemoteViews;->mActions:Ljava/util/ArrayList;
+    iget-object v0, p0, Landroid/widget/RemoteViews;->mActions:Ljava/util/ArrayList;
 
-    new-instance v5, Landroid/widget/RemoteViews$SetOnClickFillInIntent;
+    new-instance v1, Landroid/widget/RemoteViews$SetOnClickFillInIntent;
 
-    invoke-direct {v5, p0, p1}, Landroid/widget/RemoteViews$SetOnClickFillInIntent;-><init>(Landroid/widget/RemoteViews;Landroid/os/Parcel;)V
+    invoke-direct {v1, p0, p1}, Landroid/widget/RemoteViews$SetOnClickFillInIntent;-><init>(Landroid/widget/RemoteViews;Landroid/os/Parcel;)V
 
-    invoke-virtual {v4, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto :goto_3
+    goto :goto_4
 
     :pswitch_9
-    iget-object v4, p0, Landroid/widget/RemoteViews;->mActions:Ljava/util/ArrayList;
+    iget-object v0, p0, Landroid/widget/RemoteViews;->mActions:Ljava/util/ArrayList;
 
-    new-instance v5, Landroid/widget/RemoteViews$SetRemoteViewsAdapterIntent;
+    new-instance v1, Landroid/widget/RemoteViews$SetRemoteViewsAdapterIntent;
 
-    invoke-direct {v5, p0, p1}, Landroid/widget/RemoteViews$SetRemoteViewsAdapterIntent;-><init>(Landroid/widget/RemoteViews;Landroid/os/Parcel;)V
+    invoke-direct {v1, p0, p1}, Landroid/widget/RemoteViews$SetRemoteViewsAdapterIntent;-><init>(Landroid/widget/RemoteViews;Landroid/os/Parcel;)V
 
-    invoke-virtual {v4, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto :goto_3
+    goto :goto_4
 
     :pswitch_a
-    iget-object v4, p0, Landroid/widget/RemoteViews;->mActions:Ljava/util/ArrayList;
+    iget-object v0, p0, Landroid/widget/RemoteViews;->mActions:Ljava/util/ArrayList;
 
-    new-instance v5, Landroid/widget/RemoteViews$TextViewDrawableAction;
+    new-instance v1, Landroid/widget/RemoteViews$TextViewDrawableAction;
 
-    invoke-direct {v5, p0, p1}, Landroid/widget/RemoteViews$TextViewDrawableAction;-><init>(Landroid/widget/RemoteViews;Landroid/os/Parcel;)V
+    invoke-direct {v1, p0, p1}, Landroid/widget/RemoteViews$TextViewDrawableAction;-><init>(Landroid/widget/RemoteViews;Landroid/os/Parcel;)V
 
-    invoke-virtual {v4, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto :goto_3
+    goto :goto_4
 
     :pswitch_b
-    iget-object v4, p0, Landroid/widget/RemoteViews;->mActions:Ljava/util/ArrayList;
+    iget-object v0, p0, Landroid/widget/RemoteViews;->mActions:Ljava/util/ArrayList;
 
-    new-instance v5, Landroid/widget/RemoteViews$TextViewSizeAction;
+    new-instance v1, Landroid/widget/RemoteViews$TextViewSizeAction;
 
-    invoke-direct {v5, p0, p1}, Landroid/widget/RemoteViews$TextViewSizeAction;-><init>(Landroid/widget/RemoteViews;Landroid/os/Parcel;)V
+    invoke-direct {v1, p0, p1}, Landroid/widget/RemoteViews$TextViewSizeAction;-><init>(Landroid/widget/RemoteViews;Landroid/os/Parcel;)V
 
-    invoke-virtual {v4, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto :goto_3
+    goto :goto_4
 
     :pswitch_c
-    iget-object v4, p0, Landroid/widget/RemoteViews;->mActions:Ljava/util/ArrayList;
+    iget-object v0, p0, Landroid/widget/RemoteViews;->mActions:Ljava/util/ArrayList;
 
-    new-instance v5, Landroid/widget/RemoteViews$ViewPaddingAction;
+    new-instance v1, Landroid/widget/RemoteViews$ViewPaddingAction;
 
-    invoke-direct {v5, p0, p1}, Landroid/widget/RemoteViews$ViewPaddingAction;-><init>(Landroid/widget/RemoteViews;Landroid/os/Parcel;)V
+    invoke-direct {v1, p0, p1}, Landroid/widget/RemoteViews$ViewPaddingAction;-><init>(Landroid/widget/RemoteViews;Landroid/os/Parcel;)V
 
-    invoke-virtual {v4, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto :goto_3
+    goto/16 :goto_4
 
     :pswitch_d
-    iget-object v4, p0, Landroid/widget/RemoteViews;->mActions:Ljava/util/ArrayList;
+    iget-object v0, p0, Landroid/widget/RemoteViews;->mActions:Ljava/util/ArrayList;
 
-    new-instance v5, Landroid/widget/RemoteViews$BitmapReflectionAction;
+    new-instance v1, Landroid/widget/RemoteViews$BitmapReflectionAction;
 
-    invoke-direct {v5, p0, p1}, Landroid/widget/RemoteViews$BitmapReflectionAction;-><init>(Landroid/widget/RemoteViews;Landroid/os/Parcel;)V
+    invoke-direct {v1, p0, p1}, Landroid/widget/RemoteViews$BitmapReflectionAction;-><init>(Landroid/widget/RemoteViews;Landroid/os/Parcel;)V
 
-    invoke-virtual {v4, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto/16 :goto_3
+    goto/16 :goto_4
 
     :pswitch_e
-    iget-object v4, p0, Landroid/widget/RemoteViews;->mActions:Ljava/util/ArrayList;
+    iget-object v0, p0, Landroid/widget/RemoteViews;->mActions:Ljava/util/ArrayList;
 
-    new-instance v5, Landroid/widget/RemoteViews$SetRemoteViewsAdapterList;
+    new-instance v1, Landroid/widget/RemoteViews$SetRemoteViewsAdapterList;
 
-    invoke-direct {v5, p0, p1}, Landroid/widget/RemoteViews$SetRemoteViewsAdapterList;-><init>(Landroid/widget/RemoteViews;Landroid/os/Parcel;)V
+    invoke-direct {v1, p0, p1}, Landroid/widget/RemoteViews$SetRemoteViewsAdapterList;-><init>(Landroid/widget/RemoteViews;Landroid/os/Parcel;)V
 
-    invoke-virtual {v4, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto/16 :goto_3
+    goto/16 :goto_4
 
     :pswitch_f
-    iget-object v4, p0, Landroid/widget/RemoteViews;->mActions:Ljava/util/ArrayList;
+    iget-object v0, p0, Landroid/widget/RemoteViews;->mActions:Ljava/util/ArrayList;
 
-    new-instance v5, Landroid/widget/RemoteViews$SemSetOnLongClickPendingIntent;
+    new-instance v1, Landroid/widget/RemoteViews$ClearAllTextEffectAction;
 
-    invoke-direct {v5, p0, p1}, Landroid/widget/RemoteViews$SemSetOnLongClickPendingIntent;-><init>(Landroid/widget/RemoteViews;Landroid/os/Parcel;)V
+    invoke-direct {v1, p0, p1}, Landroid/widget/RemoteViews$ClearAllTextEffectAction;-><init>(Landroid/widget/RemoteViews;Landroid/os/Parcel;)V
 
-    invoke-virtual {v4, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto/16 :goto_3
+    goto/16 :goto_4
 
     :pswitch_10
-    iget-object v4, p0, Landroid/widget/RemoteViews;->mActions:Ljava/util/ArrayList;
+    iget-object v0, p0, Landroid/widget/RemoteViews;->mActions:Ljava/util/ArrayList;
 
-    new-instance v5, Landroid/widget/RemoteViews$SemSetLongClickPendingIntentTemplate;
+    new-instance v1, Landroid/widget/RemoteViews$AddOuterShadowAction;
 
-    invoke-direct {v5, p0, p1}, Landroid/widget/RemoteViews$SemSetLongClickPendingIntentTemplate;-><init>(Landroid/widget/RemoteViews;Landroid/os/Parcel;)V
+    invoke-direct {v1, p0, p1}, Landroid/widget/RemoteViews$AddOuterShadowAction;-><init>(Landroid/widget/RemoteViews;Landroid/os/Parcel;)V
 
-    invoke-virtual {v4, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto/16 :goto_3
+    goto/16 :goto_4
 
     :pswitch_11
-    iget-object v4, p0, Landroid/widget/RemoteViews;->mActions:Ljava/util/ArrayList;
+    iget-object v0, p0, Landroid/widget/RemoteViews;->mActions:Ljava/util/ArrayList;
 
-    new-instance v5, Landroid/widget/RemoteViews$ClearAllTextEffectAction;
+    new-instance v1, Landroid/widget/RemoteViews$AddInnerShadowAction;
 
-    invoke-direct {v5, p0, p1}, Landroid/widget/RemoteViews$ClearAllTextEffectAction;-><init>(Landroid/widget/RemoteViews;Landroid/os/Parcel;)V
+    invoke-direct {v1, p0, p1}, Landroid/widget/RemoteViews$AddInnerShadowAction;-><init>(Landroid/widget/RemoteViews;Landroid/os/Parcel;)V
 
-    invoke-virtual {v4, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto/16 :goto_3
+    goto/16 :goto_4
 
     :pswitch_12
-    iget-object v4, p0, Landroid/widget/RemoteViews;->mActions:Ljava/util/ArrayList;
+    iget-object v0, p0, Landroid/widget/RemoteViews;->mActions:Ljava/util/ArrayList;
 
-    new-instance v5, Landroid/widget/RemoteViews$AddOuterShadowAction;
+    new-instance v1, Landroid/widget/RemoteViews$AddStrokeAction;
 
-    invoke-direct {v5, p0, p1}, Landroid/widget/RemoteViews$AddOuterShadowAction;-><init>(Landroid/widget/RemoteViews;Landroid/os/Parcel;)V
+    invoke-direct {v1, p0, p1}, Landroid/widget/RemoteViews$AddStrokeAction;-><init>(Landroid/widget/RemoteViews;Landroid/os/Parcel;)V
 
-    invoke-virtual {v4, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto/16 :goto_3
+    goto/16 :goto_4
 
     :pswitch_13
-    iget-object v4, p0, Landroid/widget/RemoteViews;->mActions:Ljava/util/ArrayList;
+    iget-object v0, p0, Landroid/widget/RemoteViews;->mActions:Ljava/util/ArrayList;
 
-    new-instance v5, Landroid/widget/RemoteViews$AddInnerShadowAction;
+    new-instance v1, Landroid/widget/RemoteViews$AddOuterGlowAction;
 
-    invoke-direct {v5, p0, p1}, Landroid/widget/RemoteViews$AddInnerShadowAction;-><init>(Landroid/widget/RemoteViews;Landroid/os/Parcel;)V
+    invoke-direct {v1, p0, p1}, Landroid/widget/RemoteViews$AddOuterGlowAction;-><init>(Landroid/widget/RemoteViews;Landroid/os/Parcel;)V
 
-    invoke-virtual {v4, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto/16 :goto_3
+    goto/16 :goto_4
 
     :pswitch_14
-    iget-object v4, p0, Landroid/widget/RemoteViews;->mActions:Ljava/util/ArrayList;
+    iget-object v0, p0, Landroid/widget/RemoteViews;->mActions:Ljava/util/ArrayList;
 
-    new-instance v5, Landroid/widget/RemoteViews$AddStrokeAction;
+    new-instance v1, Landroid/widget/RemoteViews$AddLinearGradientAction;
 
-    invoke-direct {v5, p0, p1}, Landroid/widget/RemoteViews$AddStrokeAction;-><init>(Landroid/widget/RemoteViews;Landroid/os/Parcel;)V
+    invoke-direct {v1, p0, p1}, Landroid/widget/RemoteViews$AddLinearGradientAction;-><init>(Landroid/widget/RemoteViews;Landroid/os/Parcel;)V
 
-    invoke-virtual {v4, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto/16 :goto_3
+    goto/16 :goto_4
 
     :pswitch_15
-    iget-object v4, p0, Landroid/widget/RemoteViews;->mActions:Ljava/util/ArrayList;
+    iget-object v0, p0, Landroid/widget/RemoteViews;->mActions:Ljava/util/ArrayList;
 
-    new-instance v5, Landroid/widget/RemoteViews$AddOuterGlowAction;
+    new-instance v1, Landroid/widget/RemoteViews$TextViewDrawableColorFilterAction;
 
-    invoke-direct {v5, p0, p1}, Landroid/widget/RemoteViews$AddOuterGlowAction;-><init>(Landroid/widget/RemoteViews;Landroid/os/Parcel;)V
+    invoke-direct {v1, p0, p1}, Landroid/widget/RemoteViews$TextViewDrawableColorFilterAction;-><init>(Landroid/widget/RemoteViews;Landroid/os/Parcel;)V
 
-    invoke-virtual {v4, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto/16 :goto_3
+    goto/16 :goto_4
 
     :pswitch_16
-    iget-object v4, p0, Landroid/widget/RemoteViews;->mActions:Ljava/util/ArrayList;
+    iget-object v0, p0, Landroid/widget/RemoteViews;->mActions:Ljava/util/ArrayList;
 
-    new-instance v5, Landroid/widget/RemoteViews$AddLinearGradientAction;
+    new-instance v1, Landroid/widget/RemoteViews$SetRemoteInputsAction;
 
-    invoke-direct {v5, p0, p1}, Landroid/widget/RemoteViews$AddLinearGradientAction;-><init>(Landroid/widget/RemoteViews;Landroid/os/Parcel;)V
+    invoke-direct {v1, p0, p1}, Landroid/widget/RemoteViews$SetRemoteInputsAction;-><init>(Landroid/widget/RemoteViews;Landroid/os/Parcel;)V
 
-    invoke-virtual {v4, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto/16 :goto_3
+    goto/16 :goto_4
 
     :pswitch_17
-    iget-object v4, p0, Landroid/widget/RemoteViews;->mActions:Ljava/util/ArrayList;
+    iget-object v0, p0, Landroid/widget/RemoteViews;->mActions:Ljava/util/ArrayList;
 
-    new-instance v5, Landroid/widget/RemoteViews$SemSetOnLongClickDragable;
+    new-instance v1, Landroid/widget/RemoteViews$LayoutParamAction;
 
-    invoke-direct {v5, p0, p1}, Landroid/widget/RemoteViews$SemSetOnLongClickDragable;-><init>(Landroid/widget/RemoteViews;Landroid/os/Parcel;)V
+    invoke-direct {v1, p1}, Landroid/widget/RemoteViews$LayoutParamAction;-><init>(Landroid/os/Parcel;)V
 
-    invoke-virtual {v4, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto/16 :goto_3
+    goto/16 :goto_4
 
     :pswitch_18
-    iget-object v4, p0, Landroid/widget/RemoteViews;->mActions:Ljava/util/ArrayList;
+    iget-object v0, p0, Landroid/widget/RemoteViews;->mActions:Ljava/util/ArrayList;
 
-    new-instance v5, Landroid/widget/RemoteViews$TextViewDrawableColorFilterAction;
+    new-instance v1, Landroid/widget/RemoteViews$SemSetOnTouchPendingIntent;
 
-    invoke-direct {v5, p0, p1}, Landroid/widget/RemoteViews$TextViewDrawableColorFilterAction;-><init>(Landroid/widget/RemoteViews;Landroid/os/Parcel;)V
+    invoke-direct {v1, p0, p1}, Landroid/widget/RemoteViews$SemSetOnTouchPendingIntent;-><init>(Landroid/widget/RemoteViews;Landroid/os/Parcel;)V
 
-    invoke-virtual {v4, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto/16 :goto_3
+    goto/16 :goto_4
 
     :pswitch_19
-    iget-object v4, p0, Landroid/widget/RemoteViews;->mActions:Ljava/util/ArrayList;
+    iget-object v0, p0, Landroid/widget/RemoteViews;->mActions:Ljava/util/ArrayList;
 
-    new-instance v5, Landroid/widget/RemoteViews$ImageFilterAction;
+    new-instance v1, Landroid/widget/RemoteViews$SemSetOnLongClickPendingIntent;
 
-    invoke-direct {v5, p0, p1}, Landroid/widget/RemoteViews$ImageFilterAction;-><init>(Landroid/widget/RemoteViews;Landroid/os/Parcel;)V
+    invoke-direct {v1, p0, p1}, Landroid/widget/RemoteViews$SemSetOnLongClickPendingIntent;-><init>(Landroid/widget/RemoteViews;Landroid/os/Parcel;)V
 
-    invoke-virtual {v4, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto/16 :goto_3
+    goto/16 :goto_4
 
     :pswitch_1a
-    iget-object v4, p0, Landroid/widget/RemoteViews;->mActions:Ljava/util/ArrayList;
+    iget-object v0, p0, Landroid/widget/RemoteViews;->mActions:Ljava/util/ArrayList;
 
-    new-instance v5, Landroid/widget/RemoteViews$SemSetOnTouchPendingIntent;
+    new-instance v1, Landroid/widget/RemoteViews$SemSetLongClickPendingIntentTemplate;
 
-    invoke-direct {v5, p0, p1}, Landroid/widget/RemoteViews$SemSetOnTouchPendingIntent;-><init>(Landroid/widget/RemoteViews;Landroid/os/Parcel;)V
+    invoke-direct {v1, p0, p1}, Landroid/widget/RemoteViews$SemSetLongClickPendingIntentTemplate;-><init>(Landroid/widget/RemoteViews;Landroid/os/Parcel;)V
 
-    invoke-virtual {v4, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto/16 :goto_3
+    goto/16 :goto_4
 
     :pswitch_1b
-    iget-object v4, p0, Landroid/widget/RemoteViews;->mActions:Ljava/util/ArrayList;
+    iget-object v0, p0, Landroid/widget/RemoteViews;->mActions:Ljava/util/ArrayList;
 
-    new-instance v5, Landroid/widget/RemoteViews$SetRemoteInputsAction;
+    new-instance v1, Landroid/widget/RemoteViews$semSetOnCheckedChangedPendingIntent;
 
-    invoke-direct {v5, p0, p1}, Landroid/widget/RemoteViews$SetRemoteInputsAction;-><init>(Landroid/widget/RemoteViews;Landroid/os/Parcel;)V
+    invoke-direct {v1, p0, p1}, Landroid/widget/RemoteViews$semSetOnCheckedChangedPendingIntent;-><init>(Landroid/widget/RemoteViews;Landroid/os/Parcel;)V
 
-    invoke-virtual {v4, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto/16 :goto_3
+    goto/16 :goto_4
 
-    :pswitch_1c
-    iget-object v4, p0, Landroid/widget/RemoteViews;->mActions:Ljava/util/ArrayList;
+    :cond_4
+    new-instance v0, Landroid/widget/RemoteViews;
 
-    new-instance v5, Landroid/widget/RemoteViews$LayoutParamAction;
+    iget-object v1, p0, Landroid/widget/RemoteViews;->mBitmapCache:Landroid/widget/RemoteViews$BitmapCache;
 
-    invoke-direct {v5, p1}, Landroid/widget/RemoteViews$LayoutParamAction;-><init>(Landroid/os/Parcel;)V
+    invoke-direct {v0, p1, v1, p3, p4}, Landroid/widget/RemoteViews;-><init>(Landroid/os/Parcel;Landroid/widget/RemoteViews$BitmapCache;Landroid/content/pm/ApplicationInfo;I)V
 
-    invoke-virtual {v4, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    iput-object v0, p0, Landroid/widget/RemoteViews;->mLandscape:Landroid/widget/RemoteViews;
 
-    goto/16 :goto_3
+    new-instance v0, Landroid/widget/RemoteViews;
 
-    :pswitch_1d
-    iget-object v4, p0, Landroid/widget/RemoteViews;->mActions:Ljava/util/ArrayList;
+    iget-object v1, p0, Landroid/widget/RemoteViews;->mBitmapCache:Landroid/widget/RemoteViews$BitmapCache;
 
-    new-instance v5, Landroid/widget/RemoteViews$semSetOnCheckedChangedPendingIntent;
+    iget-object v2, p0, Landroid/widget/RemoteViews;->mLandscape:Landroid/widget/RemoteViews;
 
-    invoke-direct {v5, p0, p1}, Landroid/widget/RemoteViews$semSetOnCheckedChangedPendingIntent;-><init>(Landroid/widget/RemoteViews;Landroid/os/Parcel;)V
+    iget-object v2, v2, Landroid/widget/RemoteViews;->mApplication:Landroid/content/pm/ApplicationInfo;
 
-    invoke-virtual {v4, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-direct {v0, p1, v1, v2, p4}, Landroid/widget/RemoteViews;-><init>(Landroid/os/Parcel;Landroid/widget/RemoteViews$BitmapCache;Landroid/content/pm/ApplicationInfo;I)V
 
-    goto/16 :goto_3
+    iput-object v0, p0, Landroid/widget/RemoteViews;->mPortrait:Landroid/widget/RemoteViews;
 
-    :cond_2
-    new-instance v4, Landroid/widget/RemoteViews;
+    iget-object v0, p0, Landroid/widget/RemoteViews;->mPortrait:Landroid/widget/RemoteViews;
 
-    iget-object v5, p0, Landroid/widget/RemoteViews;->mBitmapCache:Landroid/widget/RemoteViews$BitmapCache;
+    iget-object v0, v0, Landroid/widget/RemoteViews;->mApplication:Landroid/content/pm/ApplicationInfo;
 
-    invoke-direct {v4, p1, v5}, Landroid/widget/RemoteViews;-><init>(Landroid/os/Parcel;Landroid/widget/RemoteViews$BitmapCache;)V
+    iput-object v0, p0, Landroid/widget/RemoteViews;->mApplication:Landroid/content/pm/ApplicationInfo;
 
-    iput-object v4, p0, Landroid/widget/RemoteViews;->mLandscape:Landroid/widget/RemoteViews;
+    iget-object v0, p0, Landroid/widget/RemoteViews;->mPortrait:Landroid/widget/RemoteViews;
 
-    new-instance v4, Landroid/widget/RemoteViews;
+    invoke-virtual {v0}, Landroid/widget/RemoteViews;->getLayoutId()I
 
-    iget-object v5, p0, Landroid/widget/RemoteViews;->mBitmapCache:Landroid/widget/RemoteViews$BitmapCache;
+    move-result v0
 
-    invoke-direct {v4, p1, v5}, Landroid/widget/RemoteViews;-><init>(Landroid/os/Parcel;Landroid/widget/RemoteViews$BitmapCache;)V
+    iput v0, p0, Landroid/widget/RemoteViews;->mLayoutId:I
 
-    iput-object v4, p0, Landroid/widget/RemoteViews;->mPortrait:Landroid/widget/RemoteViews;
+    :cond_5
+    new-instance v0, Landroid/widget/RemoteViews$MemoryUsageCounter;
 
-    iget-object v4, p0, Landroid/widget/RemoteViews;->mPortrait:Landroid/widget/RemoteViews;
+    const/4 v1, 0x0
 
-    iget-object v4, v4, Landroid/widget/RemoteViews;->mApplication:Landroid/content/pm/ApplicationInfo;
+    invoke-direct {v0, p0, v1}, Landroid/widget/RemoteViews$MemoryUsageCounter;-><init>(Landroid/widget/RemoteViews;Landroid/widget/RemoteViews$MemoryUsageCounter;)V
 
-    iput-object v4, p0, Landroid/widget/RemoteViews;->mApplication:Landroid/content/pm/ApplicationInfo;
-
-    iget-object v4, p0, Landroid/widget/RemoteViews;->mPortrait:Landroid/widget/RemoteViews;
-
-    invoke-virtual {v4}, Landroid/widget/RemoteViews;->getLayoutId()I
-
-    move-result v4
-
-    iput v4, p0, Landroid/widget/RemoteViews;->mLayoutId:I
-
-    :cond_3
-    new-instance v4, Landroid/widget/RemoteViews$MemoryUsageCounter;
-
-    invoke-direct {v4, p0, v7}, Landroid/widget/RemoteViews$MemoryUsageCounter;-><init>(Landroid/widget/RemoteViews;Landroid/widget/RemoteViews$MemoryUsageCounter;)V
-
-    iput-object v4, p0, Landroid/widget/RemoteViews;->mMemoryUsageCounter:Landroid/widget/RemoteViews$MemoryUsageCounter;
+    iput-object v0, p0, Landroid/widget/RemoteViews;->mMemoryUsageCounter:Landroid/widget/RemoteViews$MemoryUsageCounter;
 
     invoke-direct {p0}, Landroid/widget/RemoteViews;->recalculateMemoryUsage()V
 
@@ -952,44 +989,44 @@
         :pswitch_b
         :pswitch_c
         :pswitch_e
-        :pswitch_f
+        :pswitch_19
+        :pswitch_15
+        :pswitch_16
+        :pswitch_17
+        :pswitch_1a
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
         :pswitch_18
         :pswitch_1b
-        :pswitch_1c
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_f
         :pswitch_10
-        :pswitch_17
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_19
-        :pswitch_1a
-        :pswitch_1d
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
         :pswitch_11
         :pswitch_12
-        :pswitch_13
         :pswitch_14
-        :pswitch_16
-        :pswitch_15
+        :pswitch_13
     .end packed-switch
 .end method
 
-.method synthetic constructor <init>(Landroid/os/Parcel;Landroid/widget/RemoteViews$BitmapCache;Landroid/widget/RemoteViews;)V
+.method synthetic constructor <init>(Landroid/os/Parcel;Landroid/widget/RemoteViews$BitmapCache;Landroid/content/pm/ApplicationInfo;ILandroid/widget/RemoteViews;)V
     .locals 0
 
-    invoke-direct {p0, p1, p2}, Landroid/widget/RemoteViews;-><init>(Landroid/os/Parcel;Landroid/widget/RemoteViews$BitmapCache;)V
+    invoke-direct {p0, p1, p2, p3, p4}, Landroid/widget/RemoteViews;-><init>(Landroid/os/Parcel;Landroid/widget/RemoteViews$BitmapCache;Landroid/content/pm/ApplicationInfo;I)V
 
     return-void
 .end method
@@ -1013,17 +1050,7 @@
 
     iput-boolean v1, p0, Landroid/widget/RemoteViews;->mIsWidgetCollectionChild:Z
 
-    new-instance v0, Ljava/lang/Object;
-
-    invoke-direct {v0}, Ljava/lang/Object;-><init>()V
-
-    iput-object v0, p0, Landroid/widget/RemoteViews;->mActionsLock:Ljava/lang/Object;
-
     iput v1, p0, Landroid/widget/RemoteViews;->mAddedViewCount:I
-
-    iput-boolean v1, p0, Landroid/widget/RemoteViews;->mHas12key:Z
-
-    iput-boolean v1, p0, Landroid/widget/RemoteViews;->isNotification:Z
 
     new-instance v0, Landroid/widget/RemoteViews$MutablePair;
 
@@ -1067,8 +1094,20 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    xor-int/lit8 v0, v0, 0x1
 
+    if-eqz v0, :cond_3
+
+    :cond_2
+    new-instance v0, Ljava/lang/RuntimeException;
+
+    const-string/jumbo v1, "Both RemoteViews must share the same package and user"
+
+    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+
+    :cond_3
     iget-object v0, p2, Landroid/widget/RemoteViews;->mApplication:Landroid/content/pm/ApplicationInfo;
 
     iput-object v0, p0, Landroid/widget/RemoteViews;->mApplication:Landroid/content/pm/ApplicationInfo;
@@ -1102,15 +1141,6 @@
     invoke-direct {p0}, Landroid/widget/RemoteViews;->recalculateMemoryUsage()V
 
     return-void
-
-    :cond_2
-    new-instance v0, Ljava/lang/RuntimeException;
-
-    const-string/jumbo v1, "Both RemoteViews must share the same package and user"
-
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
-
-    throw v0
 .end method
 
 .method public constructor <init>(Ljava/lang/String;I)V
@@ -1170,31 +1200,15 @@
     iput-object v0, p0, Landroid/widget/RemoteViews;->mActions:Ljava/util/ArrayList;
 
     :cond_1
-    iget-object v1, p0, Landroid/widget/RemoteViews;->mActionsLock:Ljava/lang/Object;
-
-    monitor-enter v1
-
-    :try_start_0
     iget-object v0, p0, Landroid/widget/RemoteViews;->mActions:Ljava/util/ArrayList;
 
     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    monitor-exit v1
 
     iget-object v0, p0, Landroid/widget/RemoteViews;->mMemoryUsageCounter:Landroid/widget/RemoteViews$MemoryUsageCounter;
 
     invoke-virtual {p1, v0}, Landroid/widget/RemoteViews$Action;->updateMemoryUsageEstimate(Landroid/widget/RemoteViews$MemoryUsageCounter;)V
 
     return-void
-
-    :catchall_0
-    move-exception v0
-
-    monitor-exit v1
-
-    throw v0
 .end method
 
 .method private configureRemoteViewsAsChild(Landroid/widget/RemoteViews;)V
@@ -1258,10 +1272,9 @@
 
     move-result v4
 
-    if-eqz v4, :cond_2
+    xor-int/lit8 v4, v4, 0x1
 
-    :goto_0
-    return-object v1
+    if-eqz v4, :cond_3
 
     :cond_2
     :try_start_0
@@ -1285,7 +1298,8 @@
 
     move-result-object v1
 
-    goto :goto_0
+    :cond_3
+    return-object v1
 
     :catch_0
     move-exception v3
@@ -2028,19 +2042,19 @@
 .end method
 
 .method private inflateView(Landroid/content/Context;Landroid/widget/RemoteViews;Landroid/view/ViewGroup;)Landroid/view/View;
-    .locals 5
+    .locals 6
 
     invoke-direct {p0, p1}, Landroid/widget/RemoteViews;->getContextForResources(Landroid/content/Context;)Landroid/content/Context;
 
     move-result-object v0
 
-    new-instance v2, Landroid/widget/RemoteViews$4;
+    new-instance v2, Landroid/widget/RemoteViews$RemoteViewsContextWrapper;
 
-    invoke-direct {v2, p0, p1, v0}, Landroid/widget/RemoteViews$4;-><init>(Landroid/widget/RemoteViews;Landroid/content/Context;Landroid/content/Context;)V
+    invoke-direct {v2, p1, v0}, Landroid/widget/RemoteViews$RemoteViewsContextWrapper;-><init>(Landroid/content/Context;Landroid/content/Context;)V
 
-    const-string/jumbo v3, "layout_inflater"
+    const-string/jumbo v4, "layout_inflater"
 
-    invoke-virtual {p1, v3}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {p1, v4}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v1
 
@@ -2054,13 +2068,25 @@
 
     invoke-virtual {p2}, Landroid/widget/RemoteViews;->getLayoutId()I
 
-    move-result v3
+    move-result v4
 
-    const/4 v4, 0x0
+    const/4 v5, 0x0
 
-    invoke-virtual {v1, v3, p3, v4}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
+    invoke-virtual {v1, v4, p3, v5}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
     move-result-object v3
+
+    invoke-virtual {p2}, Landroid/widget/RemoteViews;->getLayoutId()I
+
+    move-result v4
+
+    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v4
+
+    const v5, 0x1020018
+
+    invoke-virtual {v3, v5, v4}, Landroid/view/View;->setTagInternal(ILjava/lang/Object;)V
 
     return-object v3
 .end method
@@ -2076,7 +2102,7 @@
 
     move-result-object v3
 
-    const v4, 0x112009f
+    const v4, 0x1120083
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -2328,12 +2354,6 @@
     return-object v0
 .end method
 
-.method private updateResourceMap(Landroid/content/Context;)V
-    .locals 0
-
-    return-void
-.end method
-
 .method private static wrapArg(Ljava/lang/Object;)[Ljava/lang/Object;
     .locals 2
 
@@ -2439,12 +2459,11 @@
 .end method
 
 .method public clone()Landroid/widget/RemoteViews;
-    .locals 6
+    .locals 5
 
-    const/4 v5, 0x1
+    monitor-enter p0
 
-    const/4 v4, 0x0
-
+    :try_start_0
     iget-boolean v2, p0, Landroid/widget/RemoteViews;->mIsRoot:Z
 
     const-string/jumbo v3, "RemoteView has been attached to another RemoteView. May only clone the root of a RemoteView hierarchy."
@@ -2455,13 +2474,21 @@
 
     move-result-object v0
 
-    iput-boolean v4, p0, Landroid/widget/RemoteViews;->mIsRoot:Z
+    const/4 v2, 0x0
 
-    invoke-virtual {p0, v0, v4}, Landroid/widget/RemoteViews;->writeToParcel(Landroid/os/Parcel;I)V
+    iput-boolean v2, p0, Landroid/widget/RemoteViews;->mIsRoot:Z
 
-    invoke-virtual {v0, v4}, Landroid/os/Parcel;->setDataPosition(I)V
+    const/4 v2, 0x2
 
-    iput-boolean v5, p0, Landroid/widget/RemoteViews;->mIsRoot:Z
+    invoke-virtual {p0, v0, v2}, Landroid/widget/RemoteViews;->writeToParcel(Landroid/os/Parcel;I)V
+
+    const/4 v2, 0x0
+
+    invoke-virtual {v0, v2}, Landroid/os/Parcel;->setDataPosition(I)V
+
+    const/4 v2, 0x1
+
+    iput-boolean v2, p0, Landroid/widget/RemoteViews;->mIsRoot:Z
 
     new-instance v1, Landroid/widget/RemoteViews;
 
@@ -2471,13 +2498,30 @@
 
     move-result-object v2
 
-    invoke-direct {v1, v0, v2}, Landroid/widget/RemoteViews;-><init>(Landroid/os/Parcel;Landroid/widget/RemoteViews$BitmapCache;)V
+    iget-object v3, p0, Landroid/widget/RemoteViews;->mApplication:Landroid/content/pm/ApplicationInfo;
 
-    iput-boolean v5, v1, Landroid/widget/RemoteViews;->mIsRoot:Z
+    const/4 v4, 0x0
+
+    invoke-direct {v1, v0, v2, v3, v4}, Landroid/widget/RemoteViews;-><init>(Landroid/os/Parcel;Landroid/widget/RemoteViews$BitmapCache;Landroid/content/pm/ApplicationInfo;I)V
+
+    const/4 v2, 0x1
+
+    iput-boolean v2, v1, Landroid/widget/RemoteViews;->mIsRoot:Z
 
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit p0
 
     return-object v1
+
+    :catchall_0
+    move-exception v2
+
+    monitor-exit p0
+
+    throw v2
 .end method
 
 .method public bridge synthetic clone()Ljava/lang/Object;
@@ -2518,7 +2562,7 @@
 .method public getActionsCount()I
     .locals 2
 
-    iget-object v1, p0, Landroid/widget/RemoteViews;->mActionsLock:Ljava/lang/Object;
+    sget-object v1, Landroid/widget/RemoteViews;->mActionsLock:Ljava/lang/Object;
 
     monitor-enter v1
 
@@ -2625,7 +2669,7 @@
     iput-object v8, p0, Landroid/widget/RemoteViews;->mActions:Ljava/util/ArrayList;
 
     :cond_1
-    iget-object v9, p0, Landroid/widget/RemoteViews;->mActionsLock:Ljava/lang/Object;
+    sget-object v9, Landroid/widget/RemoteViews;->mActionsLock:Ljava/lang/Object;
 
     monitor-enter v9
 
@@ -2781,6 +2825,53 @@
     return v0
 .end method
 
+.method public prefersAsyncApply()Z
+    .locals 3
+
+    iget-object v2, p0, Landroid/widget/RemoteViews;->mActions:Ljava/util/ArrayList;
+
+    if-eqz v2, :cond_1
+
+    iget-object v2, p0, Landroid/widget/RemoteViews;->mActions:Ljava/util/ArrayList;
+
+    invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
+
+    move-result v0
+
+    const/4 v1, 0x0
+
+    :goto_0
+    if-ge v1, v0, :cond_1
+
+    iget-object v2, p0, Landroid/widget/RemoteViews;->mActions:Ljava/util/ArrayList;
+
+    invoke-virtual {v2, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Landroid/widget/RemoteViews$Action;
+
+    invoke-virtual {v2}, Landroid/widget/RemoteViews$Action;->prefersAsyncApply()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    const/4 v2, 0x1
+
+    return v2
+
+    :cond_0
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_0
+
+    :cond_1
+    const/4 v2, 0x0
+
+    return v2
+.end method
+
 .method public reapply(Landroid/content/Context;Landroid/view/View;)V
     .locals 1
 
@@ -2804,7 +2895,15 @@
 
     if-eqz v1, :cond_0
 
-    invoke-virtual {p2}, Landroid/view/View;->getId()I
+    const v1, 0x1020018
+
+    invoke-virtual {p2, v1}, Landroid/view/View;->getTag(I)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Ljava/lang/Integer;
+
+    invoke-virtual {v1}, Ljava/lang/Integer;->intValue()I
 
     move-result v1
 
@@ -2869,7 +2968,15 @@
 
     if-eqz v0, :cond_0
 
-    invoke-virtual {p2}, Landroid/view/View;->getId()I
+    const v0, 0x1020018
+
+    invoke-virtual {p2, v0}, Landroid/view/View;->getTag(I)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/Integer;
+
+    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
     move-result v0
 
@@ -3477,36 +3584,6 @@
     return-void
 .end method
 
-.method public setImageFilter(IIFFFFFF)V
-    .locals 10
-
-    new-instance v0, Landroid/widget/RemoteViews$ImageFilterAction;
-
-    move-object v1, p0
-
-    move v2, p1
-
-    move v3, p2
-
-    move v4, p3
-
-    move v5, p4
-
-    move v6, p5
-
-    move/from16 v7, p6
-
-    move/from16 v8, p7
-
-    move/from16 v9, p8
-
-    invoke-direct/range {v0 .. v9}, Landroid/widget/RemoteViews$ImageFilterAction;-><init>(Landroid/widget/RemoteViews;IIFFFFFF)V
-
-    invoke-direct {p0, v0}, Landroid/widget/RemoteViews;->addAction(Landroid/widget/RemoteViews$Action;)V
-
-    return-void
-.end method
-
 .method public setImageViewBitmap(ILandroid/graphics/Bitmap;)V
     .locals 1
 
@@ -3891,28 +3968,34 @@
     return-void
 .end method
 
-.method public setStringMap(Ljava/util/Map;)V
-    .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/Map",
-            "<",
-            "Ljava/lang/CharSequence;",
-            "Ljava/lang/CharSequence;",
-            ">;)V"
-        }
-    .end annotation
-
-    return-void
-.end method
-
 .method public setTextColor(II)V
     .locals 1
 
     const-string/jumbo v0, "setTextColor"
 
     invoke-virtual {p0, p1, v0, p2}, Landroid/widget/RemoteViews;->setInt(ILjava/lang/String;I)V
+
+    return-void
+.end method
+
+.method public setTextColor(ILandroid/content/res/ColorStateList;)V
+    .locals 6
+
+    new-instance v0, Landroid/widget/RemoteViews$ReflectionAction;
+
+    const-string/jumbo v3, "setTextColor"
+
+    const/16 v4, 0xf
+
+    move-object v1, p0
+
+    move v2, p1
+
+    move-object v5, p2
+
+    invoke-direct/range {v0 .. v5}, Landroid/widget/RemoteViews$ReflectionAction;-><init>(Landroid/widget/RemoteViews;ILjava/lang/String;ILjava/lang/Object;)V
+
+    invoke-direct {p0, v0}, Landroid/widget/RemoteViews;->addAction(Landroid/widget/RemoteViews$Action;)V
 
     return-void
 .end method
@@ -4122,16 +4205,6 @@
     return-void
 .end method
 
-.method public setViewFingerHovered(IZ)V
-    .locals 1
-
-    const-string/jumbo v0, "setFingerHoveredInAppWidget"
-
-    invoke-virtual {p0, p1, v0, p2}, Landroid/widget/RemoteViews;->setBoolean(ILjava/lang/String;Z)V
-
-    return-void
-.end method
-
 .method public setViewLayoutMarginBottomDimen(II)V
     .locals 2
 
@@ -4268,7 +4341,7 @@
 
     move-result v5
 
-    if-nez v5, :cond_3
+    if-nez v5, :cond_5
 
     invoke-virtual {p1, v4}, Landroid/os/Parcel;->writeInt(I)V
 
@@ -4281,24 +4354,31 @@
     invoke-virtual {v5, p1, p2}, Landroid/widget/RemoteViews$BitmapCache;->writeBitmapsToParcel(Landroid/os/Parcel;I)V
 
     :cond_0
-    iget-object v5, p0, Landroid/widget/RemoteViews;->mApplication:Landroid/content/pm/ApplicationInfo;
+    iget-boolean v5, p0, Landroid/widget/RemoteViews;->mIsRoot:Z
 
-    invoke-virtual {p1, v5, p2}, Landroid/os/Parcel;->writeParcelable(Landroid/os/Parcelable;I)V
+    if-nez v5, :cond_1
 
+    and-int/lit8 v5, p2, 0x2
+
+    if-eqz v5, :cond_1
+
+    invoke-virtual {p1, v4}, Landroid/os/Parcel;->writeInt(I)V
+
+    :goto_0
     iget v5, p0, Landroid/widget/RemoteViews;->mLayoutId:I
 
     invoke-virtual {p1, v5}, Landroid/os/Parcel;->writeInt(I)V
 
     iget-boolean v5, p0, Landroid/widget/RemoteViews;->mIsWidgetCollectionChild:Z
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_2
 
-    :goto_0
+    :goto_1
     invoke-virtual {p1, v3}, Landroid/os/Parcel;->writeInt(I)V
 
     iget-object v3, p0, Landroid/widget/RemoteViews;->mActions:Ljava/util/ArrayList;
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_3
 
     iget-object v3, p0, Landroid/widget/RemoteViews;->mActions:Ljava/util/ArrayList;
 
@@ -4306,13 +4386,13 @@
 
     move-result v1
 
-    :goto_1
+    :goto_2
     invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeInt(I)V
 
     const/4 v2, 0x0
 
-    :goto_2
-    if-ge v2, v1, :cond_5
+    :goto_3
+    if-ge v2, v1, :cond_7
 
     iget-object v3, p0, Landroid/widget/RemoteViews;->mActions:Ljava/util/ArrayList;
 
@@ -4322,42 +4402,69 @@
 
     check-cast v0, Landroid/widget/RemoteViews$Action;
 
-    invoke-virtual {v0, p1, v4}, Landroid/widget/RemoteViews$Action;->writeToParcel(Landroid/os/Parcel;I)V
+    iget-object v3, p0, Landroid/widget/RemoteViews;->mApplication:Landroid/content/pm/ApplicationInfo;
+
+    invoke-virtual {v0, v3}, Landroid/widget/RemoteViews$Action;->hasSameAppInfo(Landroid/content/pm/ApplicationInfo;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_4
+
+    const/4 v3, 0x2
+
+    :goto_4
+    invoke-virtual {v0, p1, v3}, Landroid/widget/RemoteViews$Action;->writeToParcel(Landroid/os/Parcel;I)V
 
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_2
+    goto :goto_3
 
     :cond_1
-    move v3, v4
+    invoke-virtual {p1, v3}, Landroid/os/Parcel;->writeInt(I)V
+
+    iget-object v5, p0, Landroid/widget/RemoteViews;->mApplication:Landroid/content/pm/ApplicationInfo;
+
+    invoke-virtual {v5, p1, p2}, Landroid/content/pm/ApplicationInfo;->writeToParcel(Landroid/os/Parcel;I)V
 
     goto :goto_0
 
     :cond_2
-    const/4 v1, 0x0
+    move v3, v4
 
     goto :goto_1
 
     :cond_3
+    const/4 v1, 0x0
+
+    goto :goto_2
+
+    :cond_4
+    move v3, v4
+
+    goto :goto_4
+
+    :cond_5
     invoke-virtual {p1, v3}, Landroid/os/Parcel;->writeInt(I)V
 
     iget-boolean v3, p0, Landroid/widget/RemoteViews;->mIsRoot:Z
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_6
 
     iget-object v3, p0, Landroid/widget/RemoteViews;->mBitmapCache:Landroid/widget/RemoteViews$BitmapCache;
 
     invoke-virtual {v3, p1, p2}, Landroid/widget/RemoteViews$BitmapCache;->writeBitmapsToParcel(Landroid/os/Parcel;I)V
 
-    :cond_4
+    :cond_6
     iget-object v3, p0, Landroid/widget/RemoteViews;->mLandscape:Landroid/widget/RemoteViews;
 
     invoke-virtual {v3, p1, p2}, Landroid/widget/RemoteViews;->writeToParcel(Landroid/os/Parcel;I)V
 
     iget-object v3, p0, Landroid/widget/RemoteViews;->mPortrait:Landroid/widget/RemoteViews;
 
-    invoke-virtual {v3, p1, p2}, Landroid/widget/RemoteViews;->writeToParcel(Landroid/os/Parcel;I)V
+    or-int/lit8 v4, p2, 0x2
 
-    :cond_5
+    invoke-virtual {v3, p1, v4}, Landroid/widget/RemoteViews;->writeToParcel(Landroid/os/Parcel;I)V
+
+    :cond_7
     return-void
 .end method

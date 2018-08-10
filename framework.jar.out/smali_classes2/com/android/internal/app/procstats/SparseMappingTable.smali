@@ -518,7 +518,9 @@
 .end method
 
 .method public readFromParcel(Landroid/os/Parcel;)V
-    .locals 5
+    .locals 8
+
+    const/4 v6, 0x0
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
@@ -562,6 +564,101 @@
     goto :goto_0
 
     :cond_0
+    if-lez v0, :cond_1
+
+    iget-object v4, p0, Lcom/android/internal/app/procstats/SparseMappingTable;->mLongs:Ljava/util/ArrayList;
+
+    add-int/lit8 v5, v0, -0x1
+
+    invoke-virtual {v4, v5}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v4
+
+    check-cast v4, [J
+
+    array-length v4, v4
+
+    iget v5, p0, Lcom/android/internal/app/procstats/SparseMappingTable;->mNextIndex:I
+
+    if-eq v4, v5, :cond_1
+
+    const/4 v4, 0x3
+
+    new-array v4, v4, [Ljava/lang/Object;
+
+    const-string/jumbo v5, "73252178"
+
+    aput-object v5, v4, v6
+
+    const/4 v5, -0x1
+
+    invoke-static {v5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v5
+
+    const/4 v6, 0x1
+
+    aput-object v5, v4, v6
+
+    const-string/jumbo v5, ""
+
+    const/4 v6, 0x2
+
+    aput-object v5, v4, v6
+
+    const v5, 0x534e4554
+
+    invoke-static {v5, v4}, Landroid/util/EventLog;->writeEvent(I[Ljava/lang/Object;)I
+
+    new-instance v5, Ljava/lang/IllegalStateException;
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v6, "Expected array of length "
+
+    invoke-virtual {v4, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    iget v6, p0, Lcom/android/internal/app/procstats/SparseMappingTable;->mNextIndex:I
+
+    invoke-virtual {v4, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    const-string/jumbo v6, " but was "
+
+    invoke-virtual {v4, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    iget-object v4, p0, Lcom/android/internal/app/procstats/SparseMappingTable;->mLongs:Ljava/util/ArrayList;
+
+    add-int/lit8 v7, v0, -0x1
+
+    invoke-virtual {v4, v7}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v4
+
+    check-cast v4, [J
+
+    array-length v4, v4
+
+    invoke-virtual {v6, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-direct {v5, v4}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+
+    throw v5
+
+    :cond_1
     return-void
 .end method
 

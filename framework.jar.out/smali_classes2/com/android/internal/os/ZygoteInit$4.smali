@@ -137,7 +137,15 @@
     goto :goto_1
 
     :cond_3
+    const-wide/16 v14, 0x4000
+
+    invoke-static {v14, v15, v5}, Landroid/os/Trace;->traceBegin(JLjava/lang/String;)V
+
     invoke-static {v5}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
+
+    const-wide/16 v14, 0x4000
+
+    invoke-static {v14, v15}, Landroid/os/Trace;->traceEnd(J)V
 
     invoke-static {}, Landroid/os/Debug;->getGlobalAllocSize()I
 
@@ -268,9 +276,7 @@
 
     if-eqz v9, :cond_4
 
-    nop
-
-    nop
+    check-cast v8, Ljava/lang/Error;
 
     throw v8
 
@@ -279,9 +285,7 @@
 
     if-eqz v9, :cond_5
 
-    nop
-
-    nop
+    check-cast v8, Ljava/lang/RuntimeException;
 
     throw v8
 

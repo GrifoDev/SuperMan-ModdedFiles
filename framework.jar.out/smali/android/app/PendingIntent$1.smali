@@ -39,7 +39,7 @@
 
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroid/app/PendingIntent;
-    .locals 2
+    .locals 3
 
     const/4 v1, 0x0
 
@@ -51,7 +51,13 @@
 
     new-instance v1, Landroid/app/PendingIntent;
 
-    invoke-direct {v1, v0}, Landroid/app/PendingIntent;-><init>(Landroid/os/IBinder;)V
+    const-class v2, Landroid/app/PendingIntent;
+
+    invoke-virtual {p1, v2}, Landroid/os/Parcel;->getClassCookie(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v2
+
+    invoke-direct {v1, v0, v2}, Landroid/app/PendingIntent;-><init>(Landroid/os/IBinder;Ljava/lang/Object;)V
 
     :cond_0
     return-object v1

@@ -772,80 +772,26 @@
 
     const/4 v1, 0x0
 
-    if-gez p8, :cond_4
+    if-gez p8, :cond_0
 
     const/4 v2, 0x1
 
     :goto_0
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_3
 
     iget-boolean v6, p0, Landroid/widget/RelativeLayout;->mAllowBrokenMeasureSpecs:Z
 
-    if-eqz v6, :cond_5
+    xor-int/lit8 v6, v6, 0x1
 
-    :cond_0
-    move v5, p1
-
-    move v4, p2
+    if-eqz v6, :cond_3
 
     const/high16 v6, -0x80000000
 
-    if-ne p1, v6, :cond_1
-
-    add-int v5, p6, p4
-
-    :cond_1
-    const/high16 v6, -0x80000000
-
-    if-ne p2, v6, :cond_2
-
-    sub-int v6, p8, p7
-
-    sub-int v4, v6, p5
-
-    :cond_2
-    sub-int v3, v4, v5
+    if-eq p1, v6, :cond_1
 
     const/high16 v6, -0x80000000
 
-    if-eq p1, v6, :cond_9
-
-    const/high16 v6, -0x80000000
-
-    if-eq p2, v6, :cond_9
-
-    if-eqz v2, :cond_8
-
-    const/4 v0, 0x0
-
-    :goto_1
-    const/4 v6, 0x0
-
-    invoke-static {v6, v3}, Ljava/lang/Math;->max(II)I
-
-    move-result v1
-
-    :cond_3
-    :goto_2
-    invoke-static {v1, v0}, Landroid/view/View$MeasureSpec;->makeMeasureSpec(II)I
-
-    move-result v6
-
-    return v6
-
-    :cond_4
-    const/4 v2, 0x0
-
-    goto :goto_0
-
-    :cond_5
-    const/high16 v6, -0x80000000
-
-    if-eq p1, v6, :cond_6
-
-    const/high16 v6, -0x80000000
-
-    if-eq p2, v6, :cond_6
+    if-eq p2, v6, :cond_1
 
     sub-int v6, p2, p1
 
@@ -857,6 +803,77 @@
 
     const/high16 v0, 0x40000000    # 2.0f
 
+    :goto_1
+    invoke-static {v1, v0}, Landroid/view/View$MeasureSpec;->makeMeasureSpec(II)I
+
+    move-result v6
+
+    return v6
+
+    :cond_0
+    const/4 v2, 0x0
+
+    goto :goto_0
+
+    :cond_1
+    if-ltz p3, :cond_2
+
+    move v1, p3
+
+    const/high16 v0, 0x40000000    # 2.0f
+
+    goto :goto_1
+
+    :cond_2
+    const/4 v1, 0x0
+
+    const/4 v0, 0x0
+
+    goto :goto_1
+
+    :cond_3
+    move v5, p1
+
+    move v4, p2
+
+    const/high16 v6, -0x80000000
+
+    if-ne p1, v6, :cond_4
+
+    add-int v5, p6, p4
+
+    :cond_4
+    const/high16 v6, -0x80000000
+
+    if-ne p2, v6, :cond_5
+
+    sub-int v6, p8, p7
+
+    sub-int v4, v6, p5
+
+    :cond_5
+    sub-int v3, v4, v5
+
+    const/high16 v6, -0x80000000
+
+    if-eq p1, v6, :cond_8
+
+    const/high16 v6, -0x80000000
+
+    if-eq p2, v6, :cond_8
+
+    if-eqz v2, :cond_7
+
+    const/4 v0, 0x0
+
+    :goto_2
+    const/4 v6, 0x0
+
+    invoke-static {v6, v3}, Ljava/lang/Math;->max(II)I
+
+    move-result v1
+
+    :cond_6
     :goto_3
     invoke-static {v1, v0}, Landroid/view/View$MeasureSpec;->makeMeasureSpec(II)I
 
@@ -864,51 +881,35 @@
 
     return v6
 
-    :cond_6
-    if-ltz p3, :cond_7
-
-    move v1, p3
-
+    :cond_7
     const/high16 v0, 0x40000000    # 2.0f
 
-    goto :goto_3
-
-    :cond_7
-    const/4 v1, 0x0
-
-    const/4 v0, 0x0
-
-    goto :goto_3
+    goto :goto_2
 
     :cond_8
-    const/high16 v0, 0x40000000    # 2.0f
-
-    goto :goto_1
-
-    :cond_9
-    if-ltz p3, :cond_b
+    if-ltz p3, :cond_a
 
     const/high16 v0, 0x40000000    # 2.0f
 
-    if-ltz v3, :cond_a
+    if-ltz v3, :cond_9
 
     invoke-static {v3, p3}, Ljava/lang/Math;->min(II)I
 
     move-result v1
 
-    goto :goto_2
+    goto :goto_3
 
-    :cond_a
+    :cond_9
     move v1, p3
 
-    goto :goto_2
+    goto :goto_3
 
-    :cond_b
+    :cond_a
     const/4 v6, -0x1
 
-    if-ne p3, v6, :cond_d
+    if-ne p3, v6, :cond_c
 
-    if-eqz v2, :cond_c
+    if-eqz v2, :cond_b
 
     const/4 v0, 0x0
 
@@ -919,32 +920,32 @@
 
     move-result v1
 
-    goto :goto_2
+    goto :goto_3
 
-    :cond_c
+    :cond_b
     const/high16 v0, 0x40000000    # 2.0f
 
     goto :goto_4
 
-    :cond_d
+    :cond_c
     const/4 v6, -0x2
 
-    if-ne p3, v6, :cond_3
+    if-ne p3, v6, :cond_6
 
-    if-ltz v3, :cond_e
+    if-ltz v3, :cond_d
 
     const/high16 v0, -0x80000000
 
     move v1, v3
 
-    goto :goto_2
+    goto :goto_3
 
-    :cond_e
+    :cond_d
     const/4 v0, 0x0
 
     const/4 v1, 0x0
 
-    goto :goto_2
+    goto :goto_3
 .end method
 
 .method private getRelatedView([II)Landroid/view/View;
@@ -954,7 +955,7 @@
 
     aget v0, p1, p2
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_4
 
     iget-object v3, p0, Landroid/widget/RelativeLayout;->mGraph:Landroid/widget/RelativeLayout$DependencyGraph;
 
@@ -982,7 +983,7 @@
 
     const/16 v4, 0x8
 
-    if-ne v3, v4, :cond_2
+    if-ne v3, v4, :cond_3
 
     invoke-virtual {v2}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
@@ -1012,19 +1013,24 @@
 
     check-cast v1, Landroid/widget/RelativeLayout$DependencyGraph$Node;
 
-    if-nez v1, :cond_1
+    if-eqz v1, :cond_1
 
-    return-object v5
+    iget-object v3, v1, Landroid/widget/RelativeLayout$DependencyGraph$Node;->view:Landroid/view/View;
+
+    if-ne v2, v3, :cond_2
 
     :cond_1
+    return-object v5
+
+    :cond_2
     iget-object v2, v1, Landroid/widget/RelativeLayout$DependencyGraph$Node;->view:Landroid/view/View;
 
     goto :goto_0
 
-    :cond_2
+    :cond_3
     return-object v2
 
-    :cond_3
+    :cond_4
     return-object v5
 .end method
 
@@ -1233,16 +1239,50 @@
 
     move-result v11
 
-    if-gez p4, :cond_0
+    if-gez p4, :cond_1
 
     iget-boolean v1, p0, Landroid/widget/RelativeLayout;->mAllowBrokenMeasureSpecs:Z
 
+    xor-int/lit8 v1, v1, 0x1
+
     if-eqz v1, :cond_1
 
+    move-object/from16 v0, p2
+
+    iget v1, v0, Landroid/widget/RelativeLayout$LayoutParams;->height:I
+
+    if-ltz v1, :cond_0
+
+    move-object/from16 v0, p2
+
+    iget v1, v0, Landroid/widget/RelativeLayout$LayoutParams;->height:I
+
+    const/high16 v2, 0x40000000    # 2.0f
+
+    invoke-static {v1, v2}, Landroid/view/View$MeasureSpec;->makeMeasureSpec(II)I
+
+    move-result v10
+
+    :goto_0
+    invoke-virtual {p1, v11, v10}, Landroid/view/View;->measure(II)V
+
+    return-void
+
     :cond_0
+    const/4 v1, 0x0
+
+    const/4 v2, 0x0
+
+    invoke-static {v1, v2}, Landroid/view/View$MeasureSpec;->makeMeasureSpec(II)I
+
+    move-result v10
+
+    goto :goto_0
+
+    :cond_1
     iget-boolean v1, p0, Landroid/widget/RelativeLayout;->mMeasureVerticalWithPaddingMargin:Z
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_2
 
     iget v1, p0, Landroid/widget/RelativeLayout;->mPaddingTop:I
 
@@ -1270,58 +1310,25 @@
 
     move-result v13
 
-    :goto_0
+    :goto_1
     move-object/from16 v0, p2
 
     iget v1, v0, Landroid/widget/RelativeLayout$LayoutParams;->height:I
 
     const/4 v2, -0x1
 
-    if-ne v1, v2, :cond_4
+    if-ne v1, v2, :cond_3
 
     const/high16 v12, 0x40000000    # 2.0f
 
-    :goto_1
+    :goto_2
     invoke-static {v13, v12}, Landroid/view/View$MeasureSpec;->makeMeasureSpec(II)I
 
     move-result v10
 
-    :goto_2
-    invoke-virtual {p1, v11, v10}, Landroid/view/View;->measure(II)V
-
-    return-void
-
-    :cond_1
-    move-object/from16 v0, p2
-
-    iget v1, v0, Landroid/widget/RelativeLayout$LayoutParams;->height:I
-
-    if-ltz v1, :cond_2
-
-    move-object/from16 v0, p2
-
-    iget v1, v0, Landroid/widget/RelativeLayout$LayoutParams;->height:I
-
-    const/high16 v2, 0x40000000    # 2.0f
-
-    invoke-static {v1, v2}, Landroid/view/View$MeasureSpec;->makeMeasureSpec(II)I
-
-    move-result v10
-
-    goto :goto_2
+    goto :goto_0
 
     :cond_2
-    const/4 v1, 0x0
-
-    const/4 v2, 0x0
-
-    invoke-static {v1, v2}, Landroid/view/View$MeasureSpec;->makeMeasureSpec(II)I
-
-    move-result v10
-
-    goto :goto_2
-
-    :cond_3
     const/4 v1, 0x0
 
     move/from16 v0, p4
@@ -1330,12 +1337,12 @@
 
     move-result v13
 
-    goto :goto_0
+    goto :goto_1
 
-    :cond_4
+    :cond_3
     const/high16 v12, -0x80000000
 
-    goto :goto_1
+    goto :goto_2
 .end method
 
 .method private positionChildHorizontal(Landroid/view/View;Landroid/widget/RelativeLayout$LayoutParams;IZ)Z
@@ -1934,6 +1941,10 @@
 
 .method protected generateLayoutParams(Landroid/view/ViewGroup$LayoutParams;)Landroid/view/ViewGroup$LayoutParams;
     .locals 1
+
+    sget-boolean v0, Landroid/widget/RelativeLayout;->sPreserveMarginParamsInLayoutParamConversion:Z
+
+    if-eqz v0, :cond_1
 
     instance-of v0, p1, Landroid/widget/RelativeLayout$LayoutParams;
 

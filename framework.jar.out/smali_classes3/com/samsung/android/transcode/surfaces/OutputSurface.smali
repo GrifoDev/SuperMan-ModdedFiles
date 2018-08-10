@@ -11,6 +11,8 @@
 
 .field public static final EXCEPTION_FRAME_NOT_AVAILABLE:Ljava/lang/String; = "Surface frame wait timed out"
 
+.field private static final HD_SIZE:I = 0xe1000
+
 
 # instance fields
 .field private mEGL:Ljavax/microedition/khronos/egl/EGL10;
@@ -49,29 +51,43 @@
     return-void
 .end method
 
+.method public constructor <init>(IIIIIIIZ)V
+    .locals 1
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    new-instance v0, Ljava/lang/Object;
+
+    invoke-direct {v0}, Ljava/lang/Object;-><init>()V
+
+    iput-object v0, p0, Lcom/samsung/android/transcode/surfaces/OutputSurface;->mFrameSyncObject:Ljava/lang/Object;
+
+    invoke-direct/range {p0 .. p8}, Lcom/samsung/android/transcode/surfaces/OutputSurface;->setup(IIIIIIIZ)V
+
+    return-void
+.end method
+
 .method private checkEglError(Ljava/lang/String;)V
     .locals 4
 
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
     :goto_0
-    iget-object v1, p0, Lcom/samsung/android/transcode/surfaces/OutputSurface;->mEGL:Ljavax/microedition/khronos/egl/EGL10;
+    iget-object v2, p0, Lcom/samsung/android/transcode/surfaces/OutputSurface;->mEGL:Ljavax/microedition/khronos/egl/EGL10;
 
-    invoke-interface {v1}, Ljavax/microedition/khronos/egl/EGL10;->eglGetError()I
+    invoke-interface {v2}, Ljavax/microedition/khronos/egl/EGL10;->eglGetError()I
 
-    move-result v1
+    move-result v0
 
     const/16 v2, 0x3000
 
-    if-ne v1, v2, :cond_0
+    if-ne v0, v2, :cond_0
 
-    if-nez v0, :cond_1
+    if-nez v1, :cond_1
 
     return-void
 
     :cond_0
-    const-string/jumbo v0, "TranscodeLib"
-
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -86,46 +102,48 @@
 
     move-result-object v2
 
-    invoke-static {v1}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
+    invoke-static {v0}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v3
 
-    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    const-string/jumbo v3, "TranscodeLib"
 
-    const/4 v0, 0x1
+    invoke-static {v3, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 v1, 0x1
 
     goto :goto_0
 
     :cond_1
-    new-instance v0, Ljava/lang/RuntimeException;
+    new-instance v2, Ljava/lang/RuntimeException;
 
-    const-string/jumbo v1, "EGL error encountered (see log)"
+    const-string/jumbo v3, "EGL error encountered (see log)"
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v2, v3}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw v2
 .end method
 
 .method private eglSetup(II)V
-    .locals 10
+    .locals 13
 
-    const/4 v9, 0x3
+    const/4 v12, 0x3
 
-    const/16 v3, 0x8
+    const/16 v9, 0x8
 
-    const/4 v8, 0x2
+    const/4 v11, 0x2
 
     const/4 v4, 0x1
 
-    const/4 v7, 0x0
+    const/4 v10, 0x0
 
     invoke-static {}, Ljavax/microedition/khronos/egl/EGLContext;->getEGL()Ljavax/microedition/khronos/egl/EGL;
 
@@ -149,9 +167,9 @@
 
     iget-object v1, p0, Lcom/samsung/android/transcode/surfaces/OutputSurface;->mEGLDisplay:Ljavax/microedition/khronos/egl/EGLDisplay;
 
-    const/4 v2, 0x0
+    const/4 v8, 0x0
 
-    invoke-interface {v0, v1, v2}, Ljavax/microedition/khronos/egl/EGL10;->eglInitialize(Ljavax/microedition/khronos/egl/EGLDisplay;[I)Z
+    invoke-interface {v0, v1, v8}, Ljavax/microedition/khronos/egl/EGL10;->eglInitialize(Ljavax/microedition/khronos/egl/EGLDisplay;[I)Z
 
     move-result v0
 
@@ -163,31 +181,31 @@
 
     const/16 v0, 0x3024
 
-    aput v0, v2, v7
+    aput v0, v2, v10
 
-    aput v3, v2, v4
+    aput v9, v2, v4
 
     const/16 v0, 0x3023
 
-    aput v0, v2, v8
+    aput v0, v2, v11
 
-    aput v3, v2, v9
+    aput v9, v2, v12
 
-    const/4 v0, 0x4
+    const/16 v0, 0x3022
 
-    const/16 v1, 0x3022
+    const/4 v1, 0x4
 
-    aput v1, v2, v0
+    aput v0, v2, v1
 
     const/4 v0, 0x5
 
-    aput v3, v2, v0
+    aput v9, v2, v0
 
-    const/4 v0, 0x6
+    const/16 v0, 0x3033
 
-    const/16 v1, 0x3033
+    const/4 v1, 0x6
 
-    aput v1, v2, v0
+    aput v0, v2, v1
 
     const/4 v0, 0x7
 
@@ -195,19 +213,19 @@
 
     const/16 v0, 0x3040
 
-    aput v0, v2, v3
+    aput v0, v2, v9
 
-    const/16 v0, 0x9
+    const/4 v0, 0x4
 
-    const/4 v1, 0x4
+    const/16 v1, 0x9
 
-    aput v1, v2, v0
+    aput v0, v2, v1
 
-    const/16 v0, 0xa
+    const/16 v0, 0x3038
 
-    const/16 v1, 0x3038
+    const/16 v1, 0xa
 
-    aput v1, v2, v0
+    aput v0, v2, v1
 
     new-array v3, v4, [Ljavax/microedition/khronos/egl/EGLConfig;
 
@@ -223,27 +241,27 @@
 
     if-eqz v0, :cond_1
 
-    new-array v0, v9, [I
+    new-array v6, v12, [I
 
-    const/16 v1, 0x3098
+    const/16 v0, 0x3098
 
-    aput v1, v0, v7
+    aput v0, v6, v10
 
-    aput v8, v0, v4
+    aput v11, v6, v4
 
-    const/16 v1, 0x3038
+    const/16 v0, 0x3038
 
-    aput v1, v0, v8
+    aput v0, v6, v11
 
-    iget-object v1, p0, Lcom/samsung/android/transcode/surfaces/OutputSurface;->mEGL:Ljavax/microedition/khronos/egl/EGL10;
+    iget-object v0, p0, Lcom/samsung/android/transcode/surfaces/OutputSurface;->mEGL:Ljavax/microedition/khronos/egl/EGL10;
 
-    iget-object v2, p0, Lcom/samsung/android/transcode/surfaces/OutputSurface;->mEGLDisplay:Ljavax/microedition/khronos/egl/EGLDisplay;
+    iget-object v1, p0, Lcom/samsung/android/transcode/surfaces/OutputSurface;->mEGLDisplay:Ljavax/microedition/khronos/egl/EGLDisplay;
 
-    aget-object v5, v3, v7
+    aget-object v8, v3, v10
 
-    sget-object v6, Ljavax/microedition/khronos/egl/EGL10;->EGL_NO_CONTEXT:Ljavax/microedition/khronos/egl/EGLContext;
+    sget-object v9, Ljavax/microedition/khronos/egl/EGL10;->EGL_NO_CONTEXT:Ljavax/microedition/khronos/egl/EGLContext;
 
-    invoke-interface {v1, v2, v5, v6, v0}, Ljavax/microedition/khronos/egl/EGL10;->eglCreateContext(Ljavax/microedition/khronos/egl/EGLDisplay;Ljavax/microedition/khronos/egl/EGLConfig;Ljavax/microedition/khronos/egl/EGLContext;[I)Ljavax/microedition/khronos/egl/EGLContext;
+    invoke-interface {v0, v1, v8, v9, v6}, Ljavax/microedition/khronos/egl/EGL10;->eglCreateContext(Ljavax/microedition/khronos/egl/EGLDisplay;Ljavax/microedition/khronos/egl/EGLConfig;Ljavax/microedition/khronos/egl/EGLContext;[I)Ljavax/microedition/khronos/egl/EGLContext;
 
     move-result-object v0
 
@@ -259,33 +277,33 @@
 
     const/4 v0, 0x5
 
-    new-array v0, v0, [I
+    new-array v7, v0, [I
 
-    const/16 v1, 0x3057
+    const/16 v0, 0x3057
 
-    aput v1, v0, v7
+    aput v0, v7, v10
 
-    aput p1, v0, v4
+    aput p1, v7, v4
 
-    const/16 v1, 0x3056
+    const/16 v0, 0x3056
 
-    aput v1, v0, v8
+    aput v0, v7, v11
 
-    aput p2, v0, v9
+    aput p2, v7, v12
+
+    const/16 v0, 0x3038
 
     const/4 v1, 0x4
 
-    const/16 v2, 0x3038
+    aput v0, v7, v1
 
-    aput v2, v0, v1
+    iget-object v0, p0, Lcom/samsung/android/transcode/surfaces/OutputSurface;->mEGL:Ljavax/microedition/khronos/egl/EGL10;
 
-    iget-object v1, p0, Lcom/samsung/android/transcode/surfaces/OutputSurface;->mEGL:Ljavax/microedition/khronos/egl/EGL10;
+    iget-object v1, p0, Lcom/samsung/android/transcode/surfaces/OutputSurface;->mEGLDisplay:Ljavax/microedition/khronos/egl/EGLDisplay;
 
-    iget-object v2, p0, Lcom/samsung/android/transcode/surfaces/OutputSurface;->mEGLDisplay:Ljavax/microedition/khronos/egl/EGLDisplay;
+    aget-object v4, v3, v10
 
-    aget-object v3, v3, v7
-
-    invoke-interface {v1, v2, v3, v0}, Ljavax/microedition/khronos/egl/EGL10;->eglCreatePbufferSurface(Ljavax/microedition/khronos/egl/EGLDisplay;Ljavax/microedition/khronos/egl/EGLConfig;[I)Ljavax/microedition/khronos/egl/EGLSurface;
+    invoke-interface {v0, v1, v4, v7}, Ljavax/microedition/khronos/egl/EGL10;->eglCreatePbufferSurface(Ljavax/microedition/khronos/egl/EGLDisplay;Ljavax/microedition/khronos/egl/EGLConfig;[I)Ljavax/microedition/khronos/egl/EGLSurface;
 
     move-result-object v0
 
@@ -339,7 +357,7 @@
 .end method
 
 .method private setup(I)V
-    .locals 3
+    .locals 2
 
     new-instance v0, Lcom/samsung/android/transcode/renderer/RenderTexture_GL_OES;
 
@@ -351,33 +369,33 @@
 
     invoke-virtual {v0, p1}, Lcom/samsung/android/transcode/renderer/RenderTexture_GL_OES;->prepare(I)I
 
-    const-string/jumbo v0, "TranscodeLib"
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    const-string/jumbo v1, "textureID="
 
-    const-string/jumbo v2, "textureID="
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
-    move-result-object v1
+    iget-object v1, p0, Lcom/samsung/android/transcode/surfaces/OutputSurface;->mTextureRenderer:Lcom/samsung/android/transcode/renderer/RenderTexture_GL_OES;
 
-    iget-object v2, p0, Lcom/samsung/android/transcode/surfaces/OutputSurface;->mTextureRenderer:Lcom/samsung/android/transcode/renderer/RenderTexture_GL_OES;
+    invoke-virtual {v1}, Lcom/samsung/android/transcode/renderer/RenderTexture_GL_OES;->getTextureId()I
 
-    invoke-virtual {v2}, Lcom/samsung/android/transcode/renderer/RenderTexture_GL_OES;->getTextureId()I
+    move-result v1
 
-    move-result v2
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-result-object v0
 
-    move-result-object v1
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v0
 
-    move-result-object v1
+    const-string/jumbo v1, "TranscodeLib"
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     new-instance v0, Landroid/graphics/SurfaceTexture;
 
@@ -406,152 +424,309 @@
     return-void
 .end method
 
+.method private setup(IIIIIIIZ)V
+    .locals 13
+
+    new-instance v2, Lcom/samsung/android/transcode/renderer/RenderTexture_GL_OES;
+
+    invoke-direct {v2}, Lcom/samsung/android/transcode/renderer/RenderTexture_GL_OES;-><init>()V
+
+    iput-object v2, p0, Lcom/samsung/android/transcode/surfaces/OutputSurface;->mTextureRenderer:Lcom/samsung/android/transcode/renderer/RenderTexture_GL_OES;
+
+    const/4 v11, 0x0
+
+    const/4 v12, 0x0
+
+    if-nez p8, :cond_2
+
+    :cond_0
+    :goto_0
+    iget-object v2, p0, Lcom/samsung/android/transcode/surfaces/OutputSurface;->mTextureRenderer:Lcom/samsung/android/transcode/renderer/RenderTexture_GL_OES;
+
+    move v3, p1
+
+    move v4, p2
+
+    move/from16 v5, p3
+
+    move/from16 v6, p4
+
+    move/from16 v7, p5
+
+    move/from16 v8, p6
+
+    move/from16 v9, p7
+
+    move/from16 v10, p8
+
+    invoke-virtual/range {v2 .. v12}, Lcom/samsung/android/transcode/renderer/RenderTexture_GL_OES;->prepare(IIIIIIIZII)I
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "textureID="
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    iget-object v3, p0, Lcom/samsung/android/transcode/surfaces/OutputSurface;->mTextureRenderer:Lcom/samsung/android/transcode/renderer/RenderTexture_GL_OES;
+
+    invoke-virtual {v3}, Lcom/samsung/android/transcode/renderer/RenderTexture_GL_OES;->getTextureId()I
+
+    move-result v3
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    const-string/jumbo v3, "TranscodeLib"
+
+    invoke-static {v3, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    new-instance v2, Landroid/graphics/SurfaceTexture;
+
+    iget-object v3, p0, Lcom/samsung/android/transcode/surfaces/OutputSurface;->mTextureRenderer:Lcom/samsung/android/transcode/renderer/RenderTexture_GL_OES;
+
+    invoke-virtual {v3}, Lcom/samsung/android/transcode/renderer/RenderTexture_GL_OES;->getTextureId()I
+
+    move-result v3
+
+    invoke-direct {v2, v3}, Landroid/graphics/SurfaceTexture;-><init>(I)V
+
+    iput-object v2, p0, Lcom/samsung/android/transcode/surfaces/OutputSurface;->mSurfaceTexture:Landroid/graphics/SurfaceTexture;
+
+    iget-object v2, p0, Lcom/samsung/android/transcode/surfaces/OutputSurface;->mSurfaceTexture:Landroid/graphics/SurfaceTexture;
+
+    invoke-virtual {v2, p0}, Landroid/graphics/SurfaceTexture;->setOnFrameAvailableListener(Landroid/graphics/SurfaceTexture$OnFrameAvailableListener;)V
+
+    new-instance v2, Landroid/view/Surface;
+
+    iget-object v3, p0, Lcom/samsung/android/transcode/surfaces/OutputSurface;->mSurfaceTexture:Landroid/graphics/SurfaceTexture;
+
+    invoke-direct {v2, v3}, Landroid/view/Surface;-><init>(Landroid/graphics/SurfaceTexture;)V
+
+    iput-object v2, p0, Lcom/samsung/android/transcode/surfaces/OutputSurface;->mSurface:Landroid/view/Surface;
+
+    if-nez v11, :cond_4
+
+    :cond_1
+    :goto_1
+    return-void
+
+    :cond_2
+    mul-int v2, p6, p7
+
+    const v3, 0xe1000
+
+    if-lt v2, v3, :cond_0
+
+    move/from16 v0, p6
+
+    move/from16 v1, p7
+
+    if-gt v0, v1, :cond_3
+
+    const/16 v12, 0x280
+
+    move/from16 v0, p6
+
+    mul-int/lit16 v2, v0, 0x280
+
+    div-int v11, v2, p7
+
+    rem-int/lit8 v2, v11, 0x20
+
+    if-eqz v2, :cond_0
+
+    div-int/lit8 v2, v11, 0x20
+
+    add-int/lit8 v2, v2, 0x1
+
+    mul-int/lit8 v11, v2, 0x20
+
+    goto :goto_0
+
+    :cond_3
+    const/16 v11, 0x280
+
+    move/from16 v0, p7
+
+    mul-int/lit16 v2, v0, 0x280
+
+    div-int v12, v2, p6
+
+    rem-int/lit8 v2, v12, 0x20
+
+    if-eqz v2, :cond_0
+
+    div-int/lit8 v2, v12, 0x20
+
+    add-int/lit8 v2, v2, 0x1
+
+    mul-int/lit8 v12, v2, 0x20
+
+    goto/16 :goto_0
+
+    :cond_4
+    if-eqz v12, :cond_1
+
+    invoke-direct {p0, v11, v12}, Lcom/samsung/android/transcode/surfaces/OutputSurface;->eglSetup(II)V
+
+    goto :goto_1
+.end method
+
 
 # virtual methods
 .method public awaitNewImage()V
-    .locals 3
+    .locals 5
 
-    iget-object v1, p0, Lcom/samsung/android/transcode/surfaces/OutputSurface;->mFrameSyncObject:Ljava/lang/Object;
+    iget-object v0, p0, Lcom/samsung/android/transcode/surfaces/OutputSurface;->mFrameSyncObject:Ljava/lang/Object;
 
-    monitor-enter v1
+    monitor-enter v0
 
     :cond_0
     :try_start_0
-    iget-boolean v0, p0, Lcom/samsung/android/transcode/surfaces/OutputSurface;->mFrameAvailable:Z
+    iget-boolean v3, p0, Lcom/samsung/android/transcode/surfaces/OutputSurface;->mFrameAvailable:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v3, :cond_1
 
-    const/4 v0, 0x0
+    const/4 v3, 0x0
 
-    iput-boolean v0, p0, Lcom/samsung/android/transcode/surfaces/OutputSurface;->mFrameAvailable:Z
+    iput-boolean v3, p0, Lcom/samsung/android/transcode/surfaces/OutputSurface;->mFrameAvailable:Z
 
-    monitor-exit v1
+    monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    const-string/jumbo v0, "before updateTexImage"
+    const-string/jumbo v3, "before updateTexImage"
 
-    invoke-static {v0}, Lcom/samsung/android/transcode/util/OpenGlHelper;->checkGLError(Ljava/lang/String;)I
+    invoke-static {v3}, Lcom/samsung/android/transcode/util/OpenGlHelper;->checkGLError(Ljava/lang/String;)I
 
-    iget-object v0, p0, Lcom/samsung/android/transcode/surfaces/OutputSurface;->mSurfaceTexture:Landroid/graphics/SurfaceTexture;
+    iget-object v3, p0, Lcom/samsung/android/transcode/surfaces/OutputSurface;->mSurfaceTexture:Landroid/graphics/SurfaceTexture;
 
-    invoke-virtual {v0}, Landroid/graphics/SurfaceTexture;->updateTexImage()V
+    invoke-virtual {v3}, Landroid/graphics/SurfaceTexture;->updateTexImage()V
 
     return-void
 
     :cond_1
     :try_start_1
-    iget-object v0, p0, Lcom/samsung/android/transcode/surfaces/OutputSurface;->mFrameSyncObject:Ljava/lang/Object;
+    iget-object v3, p0, Lcom/samsung/android/transcode/surfaces/OutputSurface;->mFrameSyncObject:Ljava/lang/Object;
 
-    invoke-virtual {v0}, Ljava/lang/Object;->wait()V
+    invoke-virtual {v3}, Ljava/lang/Object;->wait()V
 
-    iget-boolean v0, p0, Lcom/samsung/android/transcode/surfaces/OutputSurface;->mFrameAvailable:Z
+    iget-boolean v3, p0, Lcom/samsung/android/transcode/surfaces/OutputSurface;->mFrameAvailable:Z
 
-    if-nez v0, :cond_0
+    if-nez v3, :cond_0
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    new-instance v3, Ljava/lang/RuntimeException;
 
-    const-string/jumbo v2, "Surface frame wait timed out"
+    const-string/jumbo v4, "Surface frame wait timed out"
 
-    invoke-direct {v0, v2}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v3, v4}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw v3
     :try_end_1
     .catch Ljava/lang/InterruptedException; {:try_start_1 .. :try_end_1} :catch_0
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     :catch_0
-    move-exception v0
+    move-exception v2
 
     :try_start_2
-    new-instance v2, Ljava/lang/RuntimeException;
+    new-instance v3, Ljava/lang/RuntimeException;
 
-    invoke-direct {v2, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
+    invoke-direct {v3, v2}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
 
-    throw v2
+    throw v3
 
     :catchall_0
-    move-exception v0
+    move-exception v1
 
-    monitor-exit v1
+    monitor-exit v0
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    throw v0
+    throw v1
 .end method
 
 .method public checkForNewImage(I)Z
-    .locals 5
+    .locals 7
 
-    const/4 v4, 0x0
+    const/4 v6, 0x0
 
-    iget-object v1, p0, Lcom/samsung/android/transcode/surfaces/OutputSurface;->mFrameSyncObject:Ljava/lang/Object;
+    iget-object v0, p0, Lcom/samsung/android/transcode/surfaces/OutputSurface;->mFrameSyncObject:Ljava/lang/Object;
 
-    monitor-enter v1
+    monitor-enter v0
 
     :cond_0
     :try_start_0
-    iget-boolean v0, p0, Lcom/samsung/android/transcode/surfaces/OutputSurface;->mFrameAvailable:Z
+    iget-boolean v3, p0, Lcom/samsung/android/transcode/surfaces/OutputSurface;->mFrameAvailable:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v3, :cond_1
 
-    const/4 v0, 0x0
+    const/4 v3, 0x0
 
-    iput-boolean v0, p0, Lcom/samsung/android/transcode/surfaces/OutputSurface;->mFrameAvailable:Z
+    iput-boolean v3, p0, Lcom/samsung/android/transcode/surfaces/OutputSurface;->mFrameAvailable:Z
 
-    monitor-exit v1
+    monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    const-string/jumbo v0, "before updateTexImage"
+    const-string/jumbo v3, "before updateTexImage"
 
-    invoke-static {v0}, Lcom/samsung/android/transcode/util/OpenGlHelper;->checkGLError(Ljava/lang/String;)I
+    invoke-static {v3}, Lcom/samsung/android/transcode/util/OpenGlHelper;->checkGLError(Ljava/lang/String;)I
 
-    iget-object v0, p0, Lcom/samsung/android/transcode/surfaces/OutputSurface;->mSurfaceTexture:Landroid/graphics/SurfaceTexture;
+    iget-object v3, p0, Lcom/samsung/android/transcode/surfaces/OutputSurface;->mSurfaceTexture:Landroid/graphics/SurfaceTexture;
 
-    invoke-virtual {v0}, Landroid/graphics/SurfaceTexture;->updateTexImage()V
+    invoke-virtual {v3}, Landroid/graphics/SurfaceTexture;->updateTexImage()V
 
-    const/4 v0, 0x1
+    const/4 v3, 0x1
 
-    return v0
+    return v3
 
     :cond_1
     :try_start_1
-    iget-object v0, p0, Lcom/samsung/android/transcode/surfaces/OutputSurface;->mFrameSyncObject:Ljava/lang/Object;
+    iget-object v3, p0, Lcom/samsung/android/transcode/surfaces/OutputSurface;->mFrameSyncObject:Ljava/lang/Object;
 
-    int-to-long v2, p1
+    int-to-long v4, p1
 
-    invoke-virtual {v0, v2, v3}, Ljava/lang/Object;->wait(J)V
+    invoke-virtual {v3, v4, v5}, Ljava/lang/Object;->wait(J)V
 
-    iget-boolean v0, p0, Lcom/samsung/android/transcode/surfaces/OutputSurface;->mFrameAvailable:Z
+    iget-boolean v3, p0, Lcom/samsung/android/transcode/surfaces/OutputSurface;->mFrameAvailable:Z
     :try_end_1
     .catch Ljava/lang/InterruptedException; {:try_start_1 .. :try_end_1} :catch_0
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    if-nez v0, :cond_0
+    if-nez v3, :cond_0
 
     :try_start_2
-    monitor-exit v1
+    monitor-exit v0
 
-    return v4
+    return v6
 
     :catch_0
-    move-exception v0
+    move-exception v2
 
-    new-instance v2, Ljava/lang/RuntimeException;
+    new-instance v3, Ljava/lang/RuntimeException;
 
-    invoke-direct {v2, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
+    invoke-direct {v3, v2}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
 
-    throw v2
+    throw v3
 
     :catchall_0
-    move-exception v0
+    move-exception v1
 
-    monitor-exit v1
+    monitor-exit v0
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    throw v0
+    throw v1
 .end method
 
 .method public drawImage()V
@@ -623,78 +798,78 @@
 .end method
 
 .method public notifyFrameSyncObject()V
-    .locals 2
+    .locals 3
 
-    iget-object v1, p0, Lcom/samsung/android/transcode/surfaces/OutputSurface;->mFrameSyncObject:Ljava/lang/Object;
-
-    monitor-enter v1
-
-    :try_start_0
     iget-object v0, p0, Lcom/samsung/android/transcode/surfaces/OutputSurface;->mFrameSyncObject:Ljava/lang/Object;
 
-    invoke-virtual {v0}, Ljava/lang/Object;->notifyAll()V
+    monitor-enter v0
 
-    monitor-exit v1
+    :try_start_0
+    iget-object v2, p0, Lcom/samsung/android/transcode/surfaces/OutputSurface;->mFrameSyncObject:Ljava/lang/Object;
+
+    invoke-virtual {v2}, Ljava/lang/Object;->notifyAll()V
+
+    monitor-exit v0
 
     return-void
 
     :catchall_0
-    move-exception v0
+    move-exception v1
 
-    monitor-exit v1
+    monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v0
+    throw v1
 .end method
 
 .method public onFrameAvailable(Landroid/graphics/SurfaceTexture;)V
-    .locals 3
+    .locals 4
 
-    const-string/jumbo v0, "TranscodeLib"
+    const-string/jumbo v2, "TranscodeLib"
 
-    const-string/jumbo v1, "new frame available"
+    const-string/jumbo v3, "new frame available"
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget-object v1, p0, Lcom/samsung/android/transcode/surfaces/OutputSurface;->mFrameSyncObject:Ljava/lang/Object;
-
-    monitor-enter v1
-
-    :try_start_0
-    iget-boolean v0, p0, Lcom/samsung/android/transcode/surfaces/OutputSurface;->mFrameAvailable:Z
-
-    if-nez v0, :cond_0
-
-    const/4 v0, 0x1
-
-    iput-boolean v0, p0, Lcom/samsung/android/transcode/surfaces/OutputSurface;->mFrameAvailable:Z
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     iget-object v0, p0, Lcom/samsung/android/transcode/surfaces/OutputSurface;->mFrameSyncObject:Ljava/lang/Object;
 
-    invoke-virtual {v0}, Ljava/lang/Object;->notifyAll()V
+    monitor-enter v0
 
-    monitor-exit v1
+    :try_start_0
+    iget-boolean v2, p0, Lcom/samsung/android/transcode/surfaces/OutputSurface;->mFrameAvailable:Z
+
+    if-nez v2, :cond_0
+
+    const/4 v2, 0x1
+
+    iput-boolean v2, p0, Lcom/samsung/android/transcode/surfaces/OutputSurface;->mFrameAvailable:Z
+
+    iget-object v2, p0, Lcom/samsung/android/transcode/surfaces/OutputSurface;->mFrameSyncObject:Ljava/lang/Object;
+
+    invoke-virtual {v2}, Ljava/lang/Object;->notifyAll()V
+
+    monitor-exit v0
 
     return-void
 
     :cond_0
-    new-instance v0, Ljava/lang/RuntimeException;
+    new-instance v2, Ljava/lang/RuntimeException;
 
-    const-string/jumbo v2, "mFrameAvailable already set, frame could be dropped"
+    const-string/jumbo v3, "mFrameAvailable already set, frame could be dropped"
 
-    invoke-direct {v0, v2}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v2, v3}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw v2
 
     :catchall_0
-    move-exception v0
+    move-exception v1
 
-    monitor-exit v1
+    monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v0
+    throw v1
 .end method
 
 .method public release()V

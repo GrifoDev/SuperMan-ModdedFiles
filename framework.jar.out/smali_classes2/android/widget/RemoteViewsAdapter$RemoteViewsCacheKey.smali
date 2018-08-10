@@ -49,9 +49,7 @@
     :cond_0
     move-object v0, p1
 
-    nop
-
-    nop
+    check-cast v0, Landroid/widget/RemoteViewsAdapter$RemoteViewsCacheKey;
 
     iget-object v2, v0, Landroid/widget/RemoteViewsAdapter$RemoteViewsCacheKey;->filter:Landroid/content/Intent$FilterComparison;
 

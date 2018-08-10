@@ -25,23 +25,6 @@
 
 
 # virtual methods
-.method public addAtlasableBitmaps(Ljava/util/Collection;)I
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/Collection",
-            "<",
-            "Landroid/graphics/Bitmap;",
-            ">;)I"
-        }
-    .end annotation
-
-    const/4 v0, 0x0
-
-    return v0
-.end method
-
 .method public canApplyTheme()Z
     .locals 1
 
@@ -51,27 +34,6 @@
 .end method
 
 .method public abstract getChangingConfigurations()I
-.end method
-
-.method protected final isAtlasable(Landroid/graphics/Bitmap;)Z
-    .locals 3
-
-    const/4 v0, 0x0
-
-    if-eqz p1, :cond_0
-
-    invoke-virtual {p1}, Landroid/graphics/Bitmap;->getConfig()Landroid/graphics/Bitmap$Config;
-
-    move-result-object v1
-
-    sget-object v2, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
-
-    if-ne v1, v2, :cond_0
-
-    const/4 v0, 0x1
-
-    :cond_0
-    return v0
 .end method
 
 .method public abstract newDrawable()Landroid/graphics/drawable/Drawable;

@@ -120,31 +120,53 @@
 .end method
 
 .method public constructor <init>([B)V
-    .locals 1
+    .locals 3
+
+    const/4 v0, 0x0
+
+    const/4 v2, 0x0
 
     invoke-direct {p0}, Lcom/samsung/android/hardware/context/SemContextAttribute;-><init>()V
 
-    const/4 v0, 0x0
-
     iput-object v0, p0, Lcom/samsung/android/hardware/context/SemContextAutoBrightnessAttribute;->mLuminanceTable:[B
 
-    const/4 v0, 0x0
-
-    iput v0, p0, Lcom/samsung/android/hardware/context/SemContextAutoBrightnessAttribute;->mDeviceMode:I
+    iput v2, p0, Lcom/samsung/android/hardware/context/SemContextAutoBrightnessAttribute;->mDeviceMode:I
 
     const/4 v0, -0x1
 
     iput v0, p0, Lcom/samsung/android/hardware/context/SemContextAutoBrightnessAttribute;->mMode:I
 
-    iput-object p1, p0, Lcom/samsung/android/hardware/context/SemContextAutoBrightnessAttribute;->mLuminanceTable:[B
-
     const/4 v0, 0x1
 
     iput v0, p0, Lcom/samsung/android/hardware/context/SemContextAutoBrightnessAttribute;->mMode:I
 
+    if-eqz p1, :cond_0
+
+    array-length v0, p1
+
+    new-array v0, v0, [B
+
+    iput-object v0, p0, Lcom/samsung/android/hardware/context/SemContextAutoBrightnessAttribute;->mLuminanceTable:[B
+
+    iget-object v0, p0, Lcom/samsung/android/hardware/context/SemContextAutoBrightnessAttribute;->mLuminanceTable:[B
+
+    array-length v1, p1
+
+    invoke-static {p1, v2, v0, v2, v1}, Ljava/lang/System;->arraycopy([BI[BII)V
+
     invoke-direct {p0}, Lcom/samsung/android/hardware/context/SemContextAutoBrightnessAttribute;->setAttribute()V
 
+    :goto_0
     return-void
+
+    :cond_0
+    const-string/jumbo v0, "SemContextAutoBrightnessAttribute"
+
+    const-string/jumbo v1, "The luminanceTable is wrong."
+
+    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
 .end method
 
 .method private setAttribute()V
@@ -158,7 +180,7 @@
 
     iget v2, p0, Lcom/samsung/android/hardware/context/SemContextAutoBrightnessAttribute;->mMode:I
 
-    invoke-virtual {v0, v1, v2}, Landroid/os/BaseBundle;->putInt(Ljava/lang/String;I)V
+    invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
     iget v1, p0, Lcom/samsung/android/hardware/context/SemContextAutoBrightnessAttribute;->mMode:I
 
@@ -189,7 +211,7 @@
 
     iget v2, p0, Lcom/samsung/android/hardware/context/SemContextAutoBrightnessAttribute;->mDeviceMode:I
 
-    invoke-virtual {v0, v1, v2}, Landroid/os/BaseBundle;->putInt(Ljava/lang/String;I)V
+    invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
     goto :goto_0
 .end method

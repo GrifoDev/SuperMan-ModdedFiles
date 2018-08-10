@@ -141,6 +141,14 @@
     return v0
 .end method
 
+.method public hasFocusStateSpecified()Z
+    .locals 1
+
+    const/4 v0, 0x0
+
+    return v0
+.end method
+
 .method public inflate(Landroid/content/res/Resources;Landroid/util/AttributeSet;Landroid/content/res/Resources$Theme;)V
     .locals 2
 

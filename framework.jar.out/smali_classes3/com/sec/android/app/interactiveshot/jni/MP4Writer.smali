@@ -71,7 +71,11 @@
 .end method
 
 .method public InitMp4EngineJava(IILjava/lang/String;IIII)I
-    .locals 9
+    .locals 11
+
+    const/4 v10, 0x1
+
+    const/16 v9, 0xf
 
     const/16 v6, 0xf
 
@@ -85,15 +89,15 @@
 
     move v4, p4
 
-    move v5, p5
+    move/from16 v5, p5
 
-    move v7, p6
+    move/from16 v7, p6
 
     move/from16 v8, p7
 
     invoke-virtual/range {v0 .. v8}, Lcom/sec/android/app/interactiveshot/jni/MP4Writer;->InitMP4Engine(IILjava/lang/String;IIIII)I
 
-    move-result v0
+    move-result v10
 
-    return v0
+    return v10
 .end method

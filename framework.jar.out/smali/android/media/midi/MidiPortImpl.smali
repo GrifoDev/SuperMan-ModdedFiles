@@ -100,6 +100,8 @@
     const/16 p2, 0x3f7
 
     :cond_0
+    const/4 v1, 0x0
+
     const/4 v3, 0x0
 
     const/4 v1, 0x1

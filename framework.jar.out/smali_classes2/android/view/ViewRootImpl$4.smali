@@ -3,12 +3,12 @@
 .source "ViewRootImpl.java"
 
 # interfaces
-.implements Landroid/view/Choreographer$FrameCallback;
+.implements Ljava/lang/Runnable;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Landroid/view/ViewRootImpl;->profileRendering(Z)V
+    value = Landroid/view/ViewRootImpl;->performLayout(Landroid/view/WindowManager$LayoutParams;II)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,12 +20,16 @@
 # instance fields
 .field final synthetic this$0:Landroid/view/ViewRootImpl;
 
+.field final synthetic val$finalRequesters:Ljava/util/ArrayList;
+
 
 # direct methods
-.method constructor <init>(Landroid/view/ViewRootImpl;)V
+.method constructor <init>(Landroid/view/ViewRootImpl;Ljava/util/ArrayList;)V
     .locals 0
 
     iput-object p1, p0, Landroid/view/ViewRootImpl$4;->this$0:Landroid/view/ViewRootImpl;
+
+    iput-object p2, p0, Landroid/view/ViewRootImpl$4;->val$finalRequesters:Ljava/util/ArrayList;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -34,48 +38,61 @@
 
 
 # virtual methods
-.method public doFrame(J)V
-    .locals 4
+.method public run()V
+    .locals 6
 
-    const/4 v3, 0x0
+    iget-object v3, p0, Landroid/view/ViewRootImpl$4;->val$finalRequesters:Ljava/util/ArrayList;
 
-    iget-object v0, p0, Landroid/view/ViewRootImpl$4;->this$0:Landroid/view/ViewRootImpl;
+    invoke-virtual {v3}, Ljava/util/ArrayList;->size()I
 
-    iget-object v0, v0, Landroid/view/ViewRootImpl;->mDirty:Landroid/graphics/Rect;
+    move-result v1
 
-    iget-object v1, p0, Landroid/view/ViewRootImpl$4;->this$0:Landroid/view/ViewRootImpl;
+    const/4 v0, 0x0
 
-    iget v1, v1, Landroid/view/ViewRootImpl;->mWidth:I
+    :goto_0
+    if-ge v0, v1, :cond_0
 
-    iget-object v2, p0, Landroid/view/ViewRootImpl$4;->this$0:Landroid/view/ViewRootImpl;
+    iget-object v3, p0, Landroid/view/ViewRootImpl$4;->val$finalRequesters:Ljava/util/ArrayList;
 
-    iget v2, v2, Landroid/view/ViewRootImpl;->mHeight:I
+    invoke-virtual {v3, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    invoke-virtual {v0, v3, v3, v1, v2}, Landroid/graphics/Rect;->set(IIII)V
+    move-result-object v2
 
-    iget-object v0, p0, Landroid/view/ViewRootImpl$4;->this$0:Landroid/view/ViewRootImpl;
+    check-cast v2, Landroid/view/View;
 
-    invoke-virtual {v0}, Landroid/view/ViewRootImpl;->scheduleTraversals()V
+    const-string/jumbo v3, "View"
 
-    iget-object v0, p0, Landroid/view/ViewRootImpl$4;->this$0:Landroid/view/ViewRootImpl;
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    invoke-static {v0}, Landroid/view/ViewRootImpl;->-get4(Landroid/view/ViewRootImpl;)Z
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    move-result v0
+    const-string/jumbo v5, "requestLayout() improperly called by "
 
-    if-eqz v0, :cond_0
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v0, p0, Landroid/view/ViewRootImpl$4;->this$0:Landroid/view/ViewRootImpl;
+    move-result-object v4
 
-    iget-object v0, v0, Landroid/view/ViewRootImpl;->mChoreographer:Landroid/view/Choreographer;
+    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    iget-object v1, p0, Landroid/view/ViewRootImpl$4;->this$0:Landroid/view/ViewRootImpl;
+    move-result-object v4
 
-    invoke-static {v1}, Landroid/view/ViewRootImpl;->-get3(Landroid/view/ViewRootImpl;)Landroid/view/Choreographer$FrameCallback;
+    const-string/jumbo v5, " during second layout pass: posting in next frame"
 
-    move-result-object v1
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, v1}, Landroid/view/Choreographer;->postFrameCallback(Landroid/view/Choreographer$FrameCallback;)V
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v3, v4}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-virtual {v2}, Landroid/view/View;->requestLayout()V
+
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_0
 
     :cond_0
     return-void

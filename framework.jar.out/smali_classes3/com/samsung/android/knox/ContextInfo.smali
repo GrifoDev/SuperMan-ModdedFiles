@@ -26,8 +26,6 @@
     .end annotation
 .end field
 
-.field private static final MIN_PERSONA_ID:I = 0x64
-
 
 # instance fields
 .field public final mCallerUid:I
@@ -65,9 +63,11 @@
 
     move-result v0
 
-    const/16 v1, 0x64
+    invoke-static {v0}, Lcom/samsung/android/knox/SemPersonaManager;->isKnoxId(I)Z
 
-    if-ge v0, v1, :cond_0
+    move-result v1
+
+    if-nez v1, :cond_0
 
     const/4 v1, 0x0
 
@@ -95,9 +95,11 @@
 
     move-result v0
 
-    const/16 v1, 0x64
+    invoke-static {v0}, Lcom/samsung/android/knox/SemPersonaManager;->isKnoxId(I)Z
 
-    if-ge v0, v1, :cond_0
+    move-result v1
+
+    if-nez v1, :cond_0
 
     const/4 v1, 0x0
 

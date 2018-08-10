@@ -57,10 +57,9 @@
 
     iget-boolean v0, v0, Landroid/widget/Editor;->mErrorWasChanged:Z
 
-    if-eqz v0, :cond_0
+    xor-int/lit8 v0, v0, 0x1
 
-    :goto_0
-    return-void
+    if-eqz v0, :cond_1
 
     :cond_0
     iget-object v0, p0, Landroid/widget/TextView$1;->this$0:Landroid/widget/TextView;
@@ -69,5 +68,6 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setError(Ljava/lang/CharSequence;)V
 
-    goto :goto_0
+    :cond_1
+    return-void
 .end method

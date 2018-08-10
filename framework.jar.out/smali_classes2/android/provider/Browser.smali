@@ -538,7 +538,7 @@
 .method public static final sendString(Landroid/content/Context;Ljava/lang/String;)V
     .locals 1
 
-    const v0, 0x10403ce
+    const v0, 0x1040956
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

@@ -39,69 +39,13 @@
 
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroid/net/wifi/WifiScanner$HotlistSettings;
-    .locals 5
+    .locals 1
 
-    new-instance v3, Landroid/net/wifi/WifiScanner$HotlistSettings;
+    new-instance v0, Landroid/net/wifi/WifiScanner$HotlistSettings;
 
-    invoke-direct {v3}, Landroid/net/wifi/WifiScanner$HotlistSettings;-><init>()V
+    invoke-direct {v0}, Landroid/net/wifi/WifiScanner$HotlistSettings;-><init>()V
 
-    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
-
-    move-result v4
-
-    iput v4, v3, Landroid/net/wifi/WifiScanner$HotlistSettings;->apLostThreshold:I
-
-    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
-
-    move-result v2
-
-    new-array v4, v2, [Landroid/net/wifi/WifiScanner$BssidInfo;
-
-    iput-object v4, v3, Landroid/net/wifi/WifiScanner$HotlistSettings;->bssidInfos:[Landroid/net/wifi/WifiScanner$BssidInfo;
-
-    const/4 v0, 0x0
-
-    :goto_0
-    if-ge v0, v2, :cond_0
-
-    new-instance v1, Landroid/net/wifi/WifiScanner$BssidInfo;
-
-    invoke-direct {v1}, Landroid/net/wifi/WifiScanner$BssidInfo;-><init>()V
-
-    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v4
-
-    iput-object v4, v1, Landroid/net/wifi/WifiScanner$BssidInfo;->bssid:Ljava/lang/String;
-
-    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
-
-    move-result v4
-
-    iput v4, v1, Landroid/net/wifi/WifiScanner$BssidInfo;->low:I
-
-    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
-
-    move-result v4
-
-    iput v4, v1, Landroid/net/wifi/WifiScanner$BssidInfo;->high:I
-
-    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
-
-    move-result v4
-
-    iput v4, v1, Landroid/net/wifi/WifiScanner$BssidInfo;->frequencyHint:I
-
-    iget-object v4, v3, Landroid/net/wifi/WifiScanner$HotlistSettings;->bssidInfos:[Landroid/net/wifi/WifiScanner$BssidInfo;
-
-    aput-object v1, v4, v0
-
-    add-int/lit8 v0, v0, 0x1
-
-    goto :goto_0
-
-    :cond_0
-    return-object v3
+    return-object v0
 .end method
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;

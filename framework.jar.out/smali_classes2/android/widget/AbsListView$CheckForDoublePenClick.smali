@@ -73,7 +73,7 @@
 
     iget-object v3, p0, Landroid/widget/AbsListView$CheckForDoublePenClick;->this$0:Landroid/widget/AbsListView;
 
-    invoke-static {v3}, Landroid/widget/AbsListView;->-get38(Landroid/widget/AbsListView;)I
+    invoke-static {v3}, Landroid/widget/AbsListView;->-get30(Landroid/widget/AbsListView;)I
 
     move-result v3
 
@@ -102,7 +102,7 @@
     :cond_0
     iget-object v3, p0, Landroid/widget/AbsListView$CheckForDoublePenClick;->this$0:Landroid/widget/AbsListView;
 
-    invoke-static {v3}, Landroid/widget/AbsListView;->-get37(Landroid/widget/AbsListView;)Ljava/util/ArrayList;
+    invoke-static {v3}, Landroid/widget/AbsListView;->-get29(Landroid/widget/AbsListView;)Ljava/util/ArrayList;
 
     move-result-object v3
 
@@ -162,7 +162,7 @@
 
     iget-object v5, v5, Landroid/widget/AbsListView;->mMultiChoiceModeCallback:Landroid/widget/AbsListView$MultiChoiceModeWrapper;
 
-    invoke-virtual {v4, v5}, Landroid/view/View;->startActionMode(Landroid/view/ActionMode$Callback;)Landroid/view/ActionMode;
+    invoke-virtual {v4, v5}, Landroid/widget/AbsListView;->startActionMode(Landroid/view/ActionMode$Callback;)Landroid/view/ActionMode;
 
     move-result-object v4
 
@@ -179,13 +179,13 @@
 
     iget-object v3, p0, Landroid/widget/AbsListView$CheckForDoublePenClick;->this$0:Landroid/widget/AbsListView;
 
-    iget-object v3, v3, Landroid/widget/AdapterView;->mSemMultiSelectionListener:Landroid/widget/AdapterView$SemMultiSelectionListener;
+    iget-object v3, v3, Landroid/widget/AbsListView;->mSemMultiSelectionListener:Landroid/widget/AdapterView$SemMultiSelectionListener;
 
     if-nez v3, :cond_5
 
     iget-object v3, p0, Landroid/widget/AbsListView$CheckForDoublePenClick;->this$0:Landroid/widget/AbsListView;
 
-    invoke-static {v3}, Landroid/widget/AbsListView;->-get37(Landroid/widget/AbsListView;)Ljava/util/ArrayList;
+    invoke-static {v3}, Landroid/widget/AbsListView;->-get29(Landroid/widget/AbsListView;)Ljava/util/ArrayList;
 
     move-result-object v3
 
@@ -233,7 +233,7 @@
 
     move-result v6
 
-    invoke-virtual {v5, v6}, Landroid/widget/AdapterView;->getItemIdAtPosition(I)J
+    invoke-virtual {v5, v6}, Landroid/widget/AbsListView;->getItemIdAtPosition(I)J
 
     move-result-wide v6
 
@@ -248,12 +248,12 @@
 
     iget v5, p0, Landroid/widget/AbsListView$CheckForDoublePenClick;->y:I
 
-    invoke-static {v3, v4, v5}, Landroid/widget/AbsListView;->-wrap17(Landroid/widget/AbsListView;II)V
+    invoke-static {v3, v4, v5}, Landroid/widget/AbsListView;->-wrap15(Landroid/widget/AbsListView;II)V
 
     :cond_6
     iget-object v3, p0, Landroid/widget/AbsListView$CheckForDoublePenClick;->this$0:Landroid/widget/AbsListView;
 
-    invoke-static {v3}, Landroid/widget/AbsListView;->-get37(Landroid/widget/AbsListView;)Ljava/util/ArrayList;
+    invoke-static {v3}, Landroid/widget/AbsListView;->-get29(Landroid/widget/AbsListView;)Ljava/util/ArrayList;
 
     move-result-object v3
 
@@ -261,7 +261,7 @@
 
     iget-object v3, p0, Landroid/widget/AbsListView$CheckForDoublePenClick;->this$0:Landroid/widget/AbsListView;
 
-    invoke-static {v3, v9}, Landroid/widget/AbsListView;->-set11(Landroid/widget/AbsListView;I)I
+    invoke-static {v3, v9}, Landroid/widget/AbsListView;->-set9(Landroid/widget/AbsListView;I)I
 
     :cond_7
     iget-object v3, p0, Landroid/widget/AbsListView$CheckForDoublePenClick;->this$0:Landroid/widget/AbsListView;

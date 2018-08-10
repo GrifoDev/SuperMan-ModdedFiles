@@ -19,12 +19,12 @@
 
 
 # direct methods
-.method constructor <init>(Lcom/samsung/android/widget/SemHoverPopupWindow$TouchablePopupContainer;)V
+.method constructor <init>(Lcom/samsung/android/widget/SemHoverPopupWindow$TouchablePopupContainer;Landroid/os/Looper;)V
     .locals 0
 
     iput-object p1, p0, Lcom/samsung/android/widget/SemHoverPopupWindow$TouchablePopupContainer$1;->this$1:Lcom/samsung/android/widget/SemHoverPopupWindow$TouchablePopupContainer;
 
-    invoke-direct {p0}, Landroid/os/Handler;-><init>()V
+    invoke-direct {p0, p2}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
 
     return-void
 .end method
@@ -44,7 +44,7 @@
 
     iget-object v0, v0, Lcom/samsung/android/widget/SemHoverPopupWindow$TouchablePopupContainer;->this$0:Lcom/samsung/android/widget/SemHoverPopupWindow;
 
-    invoke-static {v0}, Lcom/samsung/android/widget/SemHoverPopupWindow;->-get27(Lcom/samsung/android/widget/SemHoverPopupWindow;)Landroid/widget/PopupWindow;
+    invoke-static {v0}, Lcom/samsung/android/widget/SemHoverPopupWindow;->-get2(Lcom/samsung/android/widget/SemHoverPopupWindow;)Landroid/widget/PopupWindow;
 
     move-result-object v0
 
@@ -54,7 +54,7 @@
 
     iget-object v0, v0, Lcom/samsung/android/widget/SemHoverPopupWindow$TouchablePopupContainer;->this$0:Lcom/samsung/android/widget/SemHoverPopupWindow;
 
-    invoke-static {v0}, Lcom/samsung/android/widget/SemHoverPopupWindow;->-get27(Lcom/samsung/android/widget/SemHoverPopupWindow;)Landroid/widget/PopupWindow;
+    invoke-static {v0}, Lcom/samsung/android/widget/SemHoverPopupWindow;->-get2(Lcom/samsung/android/widget/SemHoverPopupWindow;)Landroid/widget/PopupWindow;
 
     move-result-object v0
 

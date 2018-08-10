@@ -201,6 +201,28 @@
     throw v1
 .end method
 
+.method public reportUnlockLockout(II)V
+    .locals 2
+
+    :try_start_0
+    iget-object v1, p0, Landroid/app/trust/TrustManager;->mService:Landroid/app/trust/ITrustManager;
+
+    invoke-interface {v1, p1, p2}, Landroid/app/trust/ITrustManager;->reportUnlockLockout(II)V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    return-void
+
+    :catch_0
+    move-exception v0
+
+    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+
+    move-result-object v1
+
+    throw v1
+.end method
+
 .method public setDeviceLockedForUser(IZ)V
     .locals 2
 

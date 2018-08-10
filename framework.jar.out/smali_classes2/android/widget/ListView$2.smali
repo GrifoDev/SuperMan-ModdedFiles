@@ -43,7 +43,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/samsung/android/animation/SemAbsDragAndDropAnimator;->speakDescriptionForAccessibility()V
+    invoke-virtual {v0}, Lcom/samsung/android/animation/SemDragAndDropListAnimator;->speakDescriptionForAccessibility()V
 
     return-void
 .end method

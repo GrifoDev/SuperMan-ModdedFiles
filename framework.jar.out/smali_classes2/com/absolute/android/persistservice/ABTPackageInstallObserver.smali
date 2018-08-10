@@ -80,7 +80,7 @@
 
     iput p2, p0, Lcom/absolute/android/persistservice/ABTPackageInstallObserver;->result:I
 
-    invoke-virtual {p0}, Ljava/lang/Object;->notifyAll()V
+    invoke-virtual {p0}, Lcom/absolute/android/persistservice/ABTPackageInstallObserver;->notifyAll()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 

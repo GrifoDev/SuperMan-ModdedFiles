@@ -55,14 +55,6 @@
     return-object v0
 .end method
 
-.method static synthetic -wrap0(Lcom/samsung/android/contextaware/utilbundle/CaTelephonyManager$CallStateMachine;Lcom/android/internal/util/IState;)V
-    .locals 0
-
-    invoke-virtual {p0, p1}, Lcom/android/internal/util/StateMachine;->transitionTo(Lcom/android/internal/util/IState;)V
-
-    return-void
-.end method
-
 .method constructor <init>(Ljava/lang/String;)V
     .locals 1
 
@@ -88,19 +80,19 @@
 
     iget-object v0, p0, Lcom/samsung/android/contextaware/utilbundle/CaTelephonyManager$CallStateMachine;->mIdleState:Lcom/samsung/android/contextaware/utilbundle/CaTelephonyManager$CallStateMachine$IdleState;
 
-    invoke-virtual {p0, v0}, Lcom/android/internal/util/StateMachine;->addState(Lcom/android/internal/util/State;)V
+    invoke-virtual {p0, v0}, Lcom/samsung/android/contextaware/utilbundle/CaTelephonyManager$CallStateMachine;->addState(Lcom/android/internal/util/State;)V
 
     iget-object v0, p0, Lcom/samsung/android/contextaware/utilbundle/CaTelephonyManager$CallStateMachine;->mIncomingState:Lcom/samsung/android/contextaware/utilbundle/CaTelephonyManager$CallStateMachine$IncomingState;
 
-    invoke-virtual {p0, v0}, Lcom/android/internal/util/StateMachine;->addState(Lcom/android/internal/util/State;)V
+    invoke-virtual {p0, v0}, Lcom/samsung/android/contextaware/utilbundle/CaTelephonyManager$CallStateMachine;->addState(Lcom/android/internal/util/State;)V
 
     iget-object v0, p0, Lcom/samsung/android/contextaware/utilbundle/CaTelephonyManager$CallStateMachine;->mIncomingAnsweredState:Lcom/samsung/android/contextaware/utilbundle/CaTelephonyManager$CallStateMachine$IncomingAnsweredState;
 
-    invoke-virtual {p0, v0}, Lcom/android/internal/util/StateMachine;->addState(Lcom/android/internal/util/State;)V
+    invoke-virtual {p0, v0}, Lcom/samsung/android/contextaware/utilbundle/CaTelephonyManager$CallStateMachine;->addState(Lcom/android/internal/util/State;)V
 
     iget-object v0, p0, Lcom/samsung/android/contextaware/utilbundle/CaTelephonyManager$CallStateMachine;->mIdleState:Lcom/samsung/android/contextaware/utilbundle/CaTelephonyManager$CallStateMachine$IdleState;
 
-    invoke-virtual {p0, v0}, Lcom/android/internal/util/StateMachine;->setInitialState(Lcom/android/internal/util/State;)V
+    invoke-virtual {p0, v0}, Lcom/samsung/android/contextaware/utilbundle/CaTelephonyManager$CallStateMachine;->setInitialState(Lcom/android/internal/util/State;)V
 
     return-void
 .end method
@@ -110,7 +102,7 @@
 .method public exit()V
     .locals 0
 
-    invoke-virtual {p0}, Lcom/android/internal/util/StateMachine;->quit()V
+    invoke-virtual {p0}, Lcom/samsung/android/contextaware/utilbundle/CaTelephonyManager$CallStateMachine;->quit()V
 
     return-void
 .end method

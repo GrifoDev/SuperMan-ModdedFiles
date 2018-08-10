@@ -41,7 +41,7 @@
 
     aput-object v1, v0, v3
 
-    const/4 v1, 0x7
+    const/16 v1, 0x8
 
     new-array v1, v1, [Ljava/lang/String;
 
@@ -80,6 +80,12 @@
     const-string/jumbo v2, "RECEIVE_"
 
     const/4 v3, 0x6
+
+    aput-object v2, v1, v3
+
+    const-string/jumbo v2, "PARSING_"
+
+    const/4 v3, 0x7
 
     aput-object v2, v1, v3
 

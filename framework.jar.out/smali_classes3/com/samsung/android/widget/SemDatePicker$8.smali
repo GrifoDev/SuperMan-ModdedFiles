@@ -41,7 +41,7 @@
 
     const/4 v1, 0x0
 
-    invoke-static {v0, v1}, Lcom/samsung/android/widget/SemDatePicker;->-wrap7(Lcom/samsung/android/widget/SemDatePicker;Z)V
+    invoke-static {v0, v1}, Lcom/samsung/android/widget/SemDatePicker;->-wrap6(Lcom/samsung/android/widget/SemDatePicker;Z)V
 
     return-void
 .end method

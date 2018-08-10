@@ -342,6 +342,14 @@
     goto :goto_0
 .end method
 
+.method public getCqi()I
+    .locals 1
+
+    iget v0, p0, Landroid/telephony/CellSignalStrengthLte;->mCqi:I
+
+    return v0
+.end method
+
 .method public getDbm()I
     .locals 1
 
@@ -480,6 +488,14 @@
     goto :goto_2
 .end method
 
+.method public getRsrp()I
+    .locals 1
+
+    iget v0, p0, Landroid/telephony/CellSignalStrengthLte;->mRsrp:I
+
+    return v0
+.end method
+
 .method public getRsrq()I
     .locals 1
 
@@ -505,43 +521,45 @@
 .end method
 
 .method public hashCode()I
-    .locals 2
+    .locals 3
 
-    iget v0, p0, Landroid/telephony/CellSignalStrengthLte;->mSignalStrength:I
+    const/16 v0, 0x1f
 
-    mul-int/lit8 v0, v0, 0x1f
-
-    iget v1, p0, Landroid/telephony/CellSignalStrengthLte;->mRsrp:I
+    iget v1, p0, Landroid/telephony/CellSignalStrengthLte;->mSignalStrength:I
 
     mul-int/lit8 v1, v1, 0x1f
 
-    add-int/2addr v0, v1
+    iget v2, p0, Landroid/telephony/CellSignalStrengthLte;->mRsrp:I
 
-    iget v1, p0, Landroid/telephony/CellSignalStrengthLte;->mRsrq:I
+    mul-int/lit8 v2, v2, 0x1f
 
-    mul-int/lit8 v1, v1, 0x1f
+    add-int/2addr v1, v2
 
-    add-int/2addr v0, v1
+    iget v2, p0, Landroid/telephony/CellSignalStrengthLte;->mRsrq:I
 
-    iget v1, p0, Landroid/telephony/CellSignalStrengthLte;->mRssnr:I
+    mul-int/lit8 v2, v2, 0x1f
 
-    mul-int/lit8 v1, v1, 0x1f
+    add-int/2addr v1, v2
 
-    add-int/2addr v0, v1
+    iget v2, p0, Landroid/telephony/CellSignalStrengthLte;->mRssnr:I
 
-    iget v1, p0, Landroid/telephony/CellSignalStrengthLte;->mCqi:I
+    mul-int/lit8 v2, v2, 0x1f
 
-    mul-int/lit8 v1, v1, 0x1f
+    add-int/2addr v1, v2
 
-    add-int/2addr v0, v1
+    iget v2, p0, Landroid/telephony/CellSignalStrengthLte;->mCqi:I
 
-    iget v1, p0, Landroid/telephony/CellSignalStrengthLte;->mTimingAdvance:I
+    mul-int/lit8 v2, v2, 0x1f
 
-    mul-int/lit8 v1, v1, 0x1f
+    add-int/2addr v1, v2
 
-    add-int/2addr v0, v1
+    iget v2, p0, Landroid/telephony/CellSignalStrengthLte;->mTimingAdvance:I
 
-    return v0
+    mul-int/lit8 v2, v2, 0x1f
+
+    add-int/2addr v1, v2
+
+    return v1
 .end method
 
 .method public initialize(IIIIII)V

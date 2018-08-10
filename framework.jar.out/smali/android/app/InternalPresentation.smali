@@ -45,11 +45,11 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-object v1, p0, Landroid/app/Dialog;->mWindow:Landroid/view/Window;
+    iget-object v1, p0, Landroid/app/InternalPresentation;->mWindow:Landroid/view/Window;
 
     if-eqz v1, :cond_0
 
-    iget-object v1, p0, Landroid/app/Dialog;->mWindow:Landroid/view/Window;
+    iget-object v1, p0, Landroid/app/InternalPresentation;->mWindow:Landroid/view/Window;
 
     invoke-virtual {v1}, Landroid/view/Window;->getAttributes()Landroid/view/WindowManager$LayoutParams;
 
@@ -63,7 +63,7 @@
 
     iput v1, v0, Landroid/view/WindowManager$LayoutParams;->samsungFlags:I
 
-    iget-object v1, p0, Landroid/app/Dialog;->mWindow:Landroid/view/Window;
+    iget-object v1, p0, Landroid/app/InternalPresentation;->mWindow:Landroid/view/Window;
 
     invoke-virtual {v1, v0}, Landroid/view/Window;->setAttributes(Landroid/view/WindowManager$LayoutParams;)V
 

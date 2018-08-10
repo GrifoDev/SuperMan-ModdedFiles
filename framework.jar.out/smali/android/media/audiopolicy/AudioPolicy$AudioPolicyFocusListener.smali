@@ -25,6 +25,12 @@
 
 
 # virtual methods
+.method public onAudioFocusAbandon(Landroid/media/AudioFocusInfo;)V
+    .locals 0
+
+    return-void
+.end method
+
 .method public onAudioFocusGrant(Landroid/media/AudioFocusInfo;I)V
     .locals 0
 
@@ -32,6 +38,12 @@
 .end method
 
 .method public onAudioFocusLoss(Landroid/media/AudioFocusInfo;Z)V
+    .locals 0
+
+    return-void
+.end method
+
+.method public onAudioFocusRequest(Landroid/media/AudioFocusInfo;I)V
     .locals 0
 
     return-void

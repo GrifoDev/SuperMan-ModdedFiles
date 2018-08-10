@@ -313,6 +313,8 @@
 
     const/16 v0, 0x1f
 
+    const/4 v1, 0x1
+
     iget v2, p0, Landroid/telephony/PreciseCallState;->mRingingCallState:I
 
     add-int/lit8 v1, v2, 0x1f

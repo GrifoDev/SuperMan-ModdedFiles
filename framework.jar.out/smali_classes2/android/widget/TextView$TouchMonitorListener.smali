@@ -160,13 +160,13 @@
 
     iget-object v9, p0, Landroid/widget/TextView$TouchMonitorListener;->this$0:Landroid/widget/TextView;
 
-    invoke-virtual {v9}, Landroid/view/View;->getContext()Landroid/content/Context;
+    invoke-virtual {v9}, Landroid/widget/TextView;->getContext()Landroid/content/Context;
 
     move-result-object v9
 
     iget-object v10, p0, Landroid/widget/TextView$TouchMonitorListener;->this$0:Landroid/widget/TextView;
 
-    invoke-virtual {v10}, Landroid/view/View;->getRootView()Landroid/view/View;
+    invoke-virtual {v10}, Landroid/widget/TextView;->getRootView()Landroid/view/View;
 
     move-result-object v10
 

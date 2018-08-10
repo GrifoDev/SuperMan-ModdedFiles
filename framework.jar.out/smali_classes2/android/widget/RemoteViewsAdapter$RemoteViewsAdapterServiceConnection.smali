@@ -97,7 +97,7 @@
 
     iget-object v5, p0, Landroid/widget/RemoteViewsAdapter$RemoteViewsAdapterServiceConnection;->mAdapter:Ljava/lang/ref/WeakReference;
 
-    invoke-virtual {v5}, Ljava/lang/ref/Reference;->get()Ljava/lang/Object;
+    invoke-virtual {v5}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
 
     move-result-object v0
 
@@ -109,7 +109,7 @@
 
     move-result-object v5
 
-    invoke-virtual {p0}, Lcom/android/internal/widget/IRemoteViewsAdapterConnection$Stub;->asBinder()Landroid/os/IBinder;
+    invoke-virtual {p0}, Landroid/widget/RemoteViewsAdapter$RemoteViewsAdapterServiceConnection;->asBinder()Landroid/os/IBinder;
 
     move-result-object v6
 
@@ -146,7 +146,7 @@
     move-exception v2
 
     :try_start_3
-    const-string/jumbo v5, "RemoteViewsAdapterServiceConnection"
+    const-string/jumbo v5, "RVAServiceConnection"
 
     new-instance v6, Ljava/lang/StringBuilder;
 
@@ -158,7 +158,7 @@
 
     move-result-object v6
 
-    invoke-virtual {v2}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
 
     move-result-object v7
 
@@ -199,7 +199,7 @@
 
     iget-object v5, p0, Landroid/widget/RemoteViewsAdapter$RemoteViewsAdapterServiceConnection;->mAdapter:Ljava/lang/ref/WeakReference;
 
-    invoke-virtual {v5}, Ljava/lang/ref/Reference;->get()Ljava/lang/Object;
+    invoke-virtual {v5}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
 
     move-result-object v0
 
@@ -211,7 +211,7 @@
 
     move-result-object v5
 
-    invoke-virtual {p0}, Lcom/android/internal/widget/IRemoteViewsAdapterConnection$Stub;->asBinder()Landroid/os/IBinder;
+    invoke-virtual {p0}, Landroid/widget/RemoteViewsAdapter$RemoteViewsAdapterServiceConnection;->asBinder()Landroid/os/IBinder;
 
     move-result-object v6
 
@@ -290,7 +290,7 @@
 
     iget-object v1, p0, Landroid/widget/RemoteViewsAdapter$RemoteViewsAdapterServiceConnection;->mAdapter:Ljava/lang/ref/WeakReference;
 
-    invoke-virtual {v1}, Ljava/lang/ref/Reference;->get()Ljava/lang/Object;
+    invoke-virtual {v1}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
 
     move-result-object v0
 
@@ -350,7 +350,7 @@
 
     iget-object v1, p0, Landroid/widget/RemoteViewsAdapter$RemoteViewsAdapterServiceConnection;->mAdapter:Ljava/lang/ref/WeakReference;
 
-    invoke-virtual {v1}, Ljava/lang/ref/Reference;->get()Ljava/lang/Object;
+    invoke-virtual {v1}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
 
     move-result-object v0
 
@@ -414,7 +414,7 @@
 
     iget-object v5, p0, Landroid/widget/RemoteViewsAdapter$RemoteViewsAdapterServiceConnection;->mAdapter:Ljava/lang/ref/WeakReference;
 
-    invoke-virtual {v5}, Ljava/lang/ref/Reference;->get()Ljava/lang/Object;
+    invoke-virtual {v5}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
 
     move-result-object v0
 
@@ -458,7 +458,7 @@
     move-exception v2
 
     :try_start_2
-    const-string/jumbo v5, "RemoteViewsAdapterServiceConnection"
+    const-string/jumbo v5, "RVAServiceConnection"
 
     new-instance v6, Ljava/lang/StringBuilder;
 
@@ -470,7 +470,7 @@
 
     move-result-object v6
 
-    invoke-virtual {v2}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
 
     move-result-object v7
 
@@ -511,7 +511,7 @@
 
     iget-object v5, p0, Landroid/widget/RemoteViewsAdapter$RemoteViewsAdapterServiceConnection;->mAdapter:Ljava/lang/ref/WeakReference;
 
-    invoke-virtual {v5}, Ljava/lang/ref/Reference;->get()Ljava/lang/Object;
+    invoke-virtual {v5}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
 
     move-result-object v0
 

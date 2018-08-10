@@ -608,6 +608,21 @@
     return-object v0
 .end method
 
+.method public bridge synthetic clone()Ljava/lang/Object;
+    .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/lang/CloneNotSupportedException;
+        }
+    .end annotation
+
+    invoke-virtual {p0}, Landroid/transition/TransitionSet;->clone()Landroid/transition/TransitionSet;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
 .method protected createAnimators(Landroid/view/ViewGroup;Landroid/transition/TransitionValuesMaps;Landroid/transition/TransitionValuesMaps;Ljava/util/ArrayList;Ljava/util/ArrayList;)V
     .locals 12
     .annotation system Ldalvik/annotation/Signature;
@@ -846,6 +861,40 @@
     move-result-object v1
 
     return-object v1
+.end method
+
+.method forceToEnd(Landroid/view/ViewGroup;)V
+    .locals 3
+
+    invoke-super {p0, p1}, Landroid/transition/Transition;->forceToEnd(Landroid/view/ViewGroup;)V
+
+    iget-object v2, p0, Landroid/transition/TransitionSet;->mTransitions:Ljava/util/ArrayList;
+
+    invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
+
+    move-result v1
+
+    const/4 v0, 0x0
+
+    :goto_0
+    if-ge v0, v1, :cond_0
+
+    iget-object v2, p0, Landroid/transition/TransitionSet;->mTransitions:Ljava/util/ArrayList;
+
+    invoke-virtual {v2, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Landroid/transition/Transition;
+
+    invoke-virtual {v2, p1}, Landroid/transition/Transition;->forceToEnd(Landroid/view/ViewGroup;)V
+
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    return-void
 .end method
 
 .method public getOrdering()I
@@ -1304,14 +1353,6 @@
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_1
-.end method
-
-.method public semCancel()V
-    .locals 0
-
-    invoke-virtual {p0}, Landroid/transition/TransitionSet;->cancel()V
-
-    return-void
 .end method
 
 .method setCanRemoveViews(Z)V

@@ -237,6 +237,22 @@
     throw v0
 .end method
 
+.method public onRequestQueueEmpty()V
+    .locals 2
+
+    iget-object v0, p0, Landroid/hardware/camera2/impl/CameraCaptureSessionImpl$2;->this$0:Landroid/hardware/camera2/impl/CameraCaptureSessionImpl;
+
+    invoke-static {v0}, Landroid/hardware/camera2/impl/CameraCaptureSessionImpl;->-get6(Landroid/hardware/camera2/impl/CameraCaptureSessionImpl;)Landroid/hardware/camera2/CameraCaptureSession$StateCallback;
+
+    move-result-object v0
+
+    iget-object v1, p0, Landroid/hardware/camera2/impl/CameraCaptureSessionImpl$2;->val$session:Landroid/hardware/camera2/CameraCaptureSession;
+
+    invoke-virtual {v0, v1}, Landroid/hardware/camera2/CameraCaptureSession$StateCallback;->onCaptureQueueEmpty(Landroid/hardware/camera2/CameraCaptureSession;)V
+
+    return-void
+.end method
+
 .method public onSurfacePrepared(Landroid/view/Surface;)V
     .locals 2
 

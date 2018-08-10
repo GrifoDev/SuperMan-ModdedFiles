@@ -52,11 +52,27 @@
     return-void
 .end method
 
+.method public onRangeStart(Ljava/lang/String;III)V
+    .locals 0
+
+    invoke-virtual {p0, p1, p2, p3}, Landroid/speech/tts/UtteranceProgressListener;->onUtteranceRangeStart(Ljava/lang/String;II)V
+
+    return-void
+.end method
+
 .method public abstract onStart(Ljava/lang/String;)V
 .end method
 
 .method public onStop(Ljava/lang/String;Z)V
     .locals 0
+
+    return-void
+.end method
+
+.method public onUtteranceRangeStart(Ljava/lang/String;II)V
+    .locals 0
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 
     return-void
 .end method

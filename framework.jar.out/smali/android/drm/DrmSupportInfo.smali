@@ -262,7 +262,7 @@
 .method isSupportedMimeType(Ljava/lang/String;)Z
     .locals 3
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_1
 
     const-string/jumbo v2, ""
 
@@ -270,14 +270,10 @@
 
     move-result v2
 
+    xor-int/lit8 v2, v2, 0x1
+
     if-eqz v2, :cond_1
 
-    :cond_0
-    const/4 v2, 0x0
-
-    return v2
-
-    :cond_1
     const/4 v1, 0x0
 
     :goto_0
@@ -287,7 +283,7 @@
 
     move-result v2
 
-    if-ge v1, v2, :cond_0
+    if-ge v1, v2, :cond_1
 
     iget-object v2, p0, Landroid/drm/DrmSupportInfo;->mMimeTypeList:Ljava/util/ArrayList;
 
@@ -301,16 +297,21 @@
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_0
 
     const/4 v2, 0x1
 
     return v2
 
-    :cond_2
+    :cond_0
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
+
+    :cond_1
+    const/4 v2, 0x0
+
+    return v2
 .end method
 
 .method public setDescription(Ljava/lang/String;)V

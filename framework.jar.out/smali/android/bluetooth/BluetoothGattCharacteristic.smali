@@ -974,7 +974,7 @@
     .end sparse-switch
 .end method
 
-.method getKeySize()I
+.method public getKeySize()I
     .locals 1
 
     iget v0, p0, Landroid/bluetooth/BluetoothGattCharacteristic;->mKeySize:I
@@ -1086,6 +1086,14 @@
     iget v0, p0, Landroid/bluetooth/BluetoothGattCharacteristic;->mWriteType:I
 
     return v0
+.end method
+
+.method public setInstanceId(I)V
+    .locals 0
+
+    iput p1, p0, Landroid/bluetooth/BluetoothGattCharacteristic;->mInstance:I
+
+    return-void
 .end method
 
 .method public setKeySize(I)V

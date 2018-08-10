@@ -30,13 +30,15 @@
 .method public getGoneX(Landroid/view/ViewGroup;Landroid/view/View;F)F
     .locals 4
 
-    const/4 v0, 0x1
-
     invoke-virtual {p1}, Landroid/view/ViewGroup;->getLayoutDirection()I
 
     move-result v2
 
-    if-ne v2, v0, :cond_0
+    const/4 v3, 0x1
+
+    if-ne v2, v3, :cond_0
+
+    const/4 v0, 0x1
 
     :goto_0
     if-eqz v0, :cond_1

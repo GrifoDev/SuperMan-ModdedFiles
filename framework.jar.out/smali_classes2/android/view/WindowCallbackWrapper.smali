@@ -214,6 +214,16 @@
     return-void
 .end method
 
+.method public onPointerCaptureChanged(Z)V
+    .locals 1
+
+    iget-object v0, p0, Landroid/view/WindowCallbackWrapper;->mWrapped:Landroid/view/Window$Callback;
+
+    invoke-interface {v0, p1}, Landroid/view/Window$Callback;->onPointerCaptureChanged(Z)V
+
+    return-void
+.end method
+
 .method public onPreparePanel(ILandroid/view/View;Landroid/view/Menu;)Z
     .locals 1
 

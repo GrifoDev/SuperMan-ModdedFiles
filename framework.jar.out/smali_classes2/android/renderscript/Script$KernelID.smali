@@ -34,7 +34,7 @@
 
     iput p6, p0, Landroid/renderscript/Script$KernelID;->mSig:I
 
-    iget-object v0, p0, Landroid/renderscript/BaseObj;->guard:Ldalvik/system/CloseGuard;
+    iget-object v0, p0, Landroid/renderscript/Script$KernelID;->guard:Ldalvik/system/CloseGuard;
 
     const-string/jumbo v1, "destroy"
 

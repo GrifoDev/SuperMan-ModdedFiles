@@ -90,15 +90,17 @@
 .end method
 
 .method private c()V
-    .locals 3
+    .locals 5
+
+    move-object v0, p0
 
     monitor-enter p0
 
     :goto_0
     :try_start_0
-    iget-object v0, p0, Lcom/absolute/android/persistservice/ae;->g:Lcom/absolute/android/persistservice/ag;
+    iget-object v3, p0, Lcom/absolute/android/persistservice/ae;->g:Lcom/absolute/android/persistservice/ag;
 
-    if-eqz v0, :cond_0
+    if-eqz v3, :cond_0
 
     monitor-exit p0
     :try_end_0
@@ -116,25 +118,25 @@
     goto :goto_0
 
     :catch_0
-    move-exception v0
+    move-exception v1
 
     :try_start_2
-    iget-object v1, p0, Lcom/absolute/android/persistservice/ae;->b:Lcom/absolute/android/persistservice/v;
+    iget-object v3, p0, Lcom/absolute/android/persistservice/ae;->b:Lcom/absolute/android/persistservice/v;
 
-    const-string/jumbo v2, "Ping Thread Interrupted while waiting on handler."
+    const-string/jumbo v4, "Ping Thread Interrupted while waiting on handler."
 
-    invoke-virtual {v1, v2, v0}, Lcom/absolute/android/persistservice/v;->a(Ljava/lang/String;Ljava/lang/Throwable;)V
+    invoke-virtual {v3, v4, v1}, Lcom/absolute/android/persistservice/v;->a(Ljava/lang/String;Ljava/lang/Throwable;)V
 
     goto :goto_0
 
     :catchall_0
-    move-exception v0
+    move-exception v2
 
     monitor-exit p0
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    throw v0
+    throw v2
 .end method
 
 .method static synthetic d(Lcom/absolute/android/persistservice/ae;)Lcom/absolute/android/persistservice/l;
@@ -156,106 +158,108 @@
 
 # virtual methods
 .method protected a()V
-    .locals 4
+    .locals 7
 
     invoke-direct {p0}, Lcom/absolute/android/persistservice/ae;->c()V
+
+    move-object v0, p0
 
     monitor-enter p0
 
     :try_start_0
-    iget-object v0, p0, Lcom/absolute/android/persistservice/ae;->f:Lcom/absolute/android/persistence/IABTPing;
+    iget-object v3, p0, Lcom/absolute/android/persistservice/ae;->f:Lcom/absolute/android/persistence/IABTPing;
 
-    invoke-interface {v0}, Lcom/absolute/android/persistence/IABTPing;->asBinder()Landroid/os/IBinder;
+    invoke-interface {v3}, Lcom/absolute/android/persistence/IABTPing;->asBinder()Landroid/os/IBinder;
 
-    move-result-object v0
+    move-result-object v3
 
-    const/4 v1, 0x0
+    const/4 v4, 0x0
 
-    invoke-interface {v0, p0, v1}, Landroid/os/IBinder;->linkToDeath(Landroid/os/IBinder$DeathRecipient;I)V
+    invoke-interface {v3, p0, v4}, Landroid/os/IBinder;->linkToDeath(Landroid/os/IBinder$DeathRecipient;I)V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     :goto_0
     :try_start_1
-    iget-object v0, p0, Lcom/absolute/android/persistservice/ae;->g:Lcom/absolute/android/persistservice/ag;
+    iget-object v3, p0, Lcom/absolute/android/persistservice/ae;->g:Lcom/absolute/android/persistservice/ag;
 
-    if-nez v0, :cond_0
+    if-nez v3, :cond_0
 
     :goto_1
-    const/4 v0, 0x1
+    const/4 v3, 0x1
 
-    iput-boolean v0, p0, Lcom/absolute/android/persistservice/ae;->e:Z
+    iput-boolean v3, p0, Lcom/absolute/android/persistservice/ae;->e:Z
 
     monitor-exit p0
 
     return-void
 
     :catch_0
-    move-exception v0
+    move-exception v1
 
-    iget-object v1, p0, Lcom/absolute/android/persistservice/ae;->b:Lcom/absolute/android/persistservice/v;
+    iget-object v3, p0, Lcom/absolute/android/persistservice/ae;->b:Lcom/absolute/android/persistservice/v;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v3, "Unable to bind to IABTPing interface of application "
+    const-string/jumbo v5, "Unable to bind to IABTPing interface of application "
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object v4
 
-    iget-object v3, p0, Lcom/absolute/android/persistservice/ae;->c:Ljava/lang/String;
+    iget-object v5, p0, Lcom/absolute/android/persistservice/ae;->c:Ljava/lang/String;
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object v4
 
-    const-string/jumbo v3, " to register for death of recipient. Already dead?"
+    const-string/jumbo v5, " to register for death of recipient. Already dead?"
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object v4
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v4
 
-    invoke-virtual {v1, v2, v0}, Lcom/absolute/android/persistservice/v;->a(Ljava/lang/String;Ljava/lang/Throwable;)V
+    invoke-virtual {v3, v4, v1}, Lcom/absolute/android/persistservice/v;->a(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    iget-object v0, p0, Lcom/absolute/android/persistservice/ae;->a:Lcom/absolute/android/persistservice/l;
+    iget-object v3, p0, Lcom/absolute/android/persistservice/ae;->a:Lcom/absolute/android/persistservice/l;
 
-    iget-object v1, p0, Lcom/absolute/android/persistservice/ae;->c:Ljava/lang/String;
+    iget-object v4, p0, Lcom/absolute/android/persistservice/ae;->c:Ljava/lang/String;
 
-    const/4 v2, 0x1
+    const/4 v5, 0x1
 
-    invoke-virtual {v0, v1, v2}, Lcom/absolute/android/persistservice/l;->a(Ljava/lang/String;Z)V
+    invoke-virtual {v3, v4, v5}, Lcom/absolute/android/persistservice/l;->a(Ljava/lang/String;Z)V
 
     goto :goto_0
 
     :catchall_0
-    move-exception v0
+    move-exception v2
 
     monitor-exit p0
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    throw v0
+    throw v2
 
     :cond_0
     :try_start_2
-    iget-object v0, p0, Lcom/absolute/android/persistservice/ae;->g:Lcom/absolute/android/persistservice/ag;
+    iget-object v3, p0, Lcom/absolute/android/persistservice/ae;->g:Lcom/absolute/android/persistservice/ag;
 
-    const/4 v1, 0x3
+    iget v4, p0, Lcom/absolute/android/persistservice/ae;->d:I
 
-    iget v2, p0, Lcom/absolute/android/persistservice/ae;->d:I
+    mul-int/lit16 v4, v4, 0x3e8
 
-    mul-int/lit16 v2, v2, 0x3e8
+    int-to-long v4, v4
 
-    int-to-long v2, v2
+    const/4 v6, 0x3
 
-    invoke-virtual {v0, v1, v2, v3}, Landroid/os/Handler;->sendEmptyMessageDelayed(IJ)Z
+    invoke-virtual {v3, v6, v4, v5}, Lcom/absolute/android/persistservice/ag;->sendEmptyMessageDelayed(IJ)Z
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
@@ -299,11 +303,11 @@
 
     const/4 v1, 0x3
 
-    invoke-virtual {v0, v1}, Landroid/os/Handler;->removeMessages(I)V
+    invoke-virtual {v0, v1}, Lcom/absolute/android/persistservice/ag;->removeMessages(I)V
 
     iget-object v0, p0, Lcom/absolute/android/persistservice/ae;->g:Lcom/absolute/android/persistservice/ag;
 
-    invoke-virtual {v0}, Landroid/os/Handler;->getLooper()Landroid/os/Looper;
+    invoke-virtual {v0}, Lcom/absolute/android/persistservice/ag;->getLooper()Landroid/os/Looper;
 
     move-result-object v0
 
@@ -360,20 +364,22 @@
 .end method
 
 .method public run()V
-    .locals 2
+    .locals 4
 
     invoke-static {}, Landroid/os/Looper;->prepare()V
+
+    move-object v0, p0
 
     monitor-enter p0
 
     :try_start_0
-    new-instance v0, Lcom/absolute/android/persistservice/ag;
+    new-instance v2, Lcom/absolute/android/persistservice/ag;
 
-    const/4 v1, 0x0
+    const/4 v3, 0x0
 
-    invoke-direct {v0, p0, v1}, Lcom/absolute/android/persistservice/ag;-><init>(Lcom/absolute/android/persistservice/ae;Lcom/absolute/android/persistservice/af;)V
+    invoke-direct {v2, p0, v3}, Lcom/absolute/android/persistservice/ag;-><init>(Lcom/absolute/android/persistservice/ae;Lcom/absolute/android/persistservice/af;)V
 
-    iput-object v0, p0, Lcom/absolute/android/persistservice/ae;->g:Lcom/absolute/android/persistservice/ag;
+    iput-object v2, p0, Lcom/absolute/android/persistservice/ae;->g:Lcom/absolute/android/persistservice/ag;
 
     invoke-virtual {p0}, Ljava/lang/Object;->notify()V
 
@@ -386,28 +392,28 @@
     return-void
 
     :catchall_0
-    move-exception v0
+    move-exception v1
 
     :try_start_1
     monitor-exit p0
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    throw v0
+    throw v1
 .end method
 
 .method public toString()Ljava/lang/String;
     .locals 4
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    iget-boolean v0, p0, Lcom/absolute/android/persistservice/ae;->e:Z
+    iget-boolean v2, p0, Lcom/absolute/android/persistservice/ae;->e:Z
 
-    if-nez v0, :cond_0
+    if-nez v2, :cond_0
 
-    const-string/jumbo v0, "false"
+    const-string/jumbo v1, "false"
 
     :goto_0
     new-instance v2, Ljava/lang/StringBuilder;
@@ -420,58 +426,58 @@
 
     move-result-object v2
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v0
+    move-result-object v2
 
-    const-string/jumbo v2, " : "
+    const-string/jumbo v3, " : "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v0
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "Ping interval = "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    iget v3, p0, Lcom/absolute/android/persistservice/ae;->d:I
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string/jumbo v3, " secs"
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v2
 
-    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v2, "Ping interval = "
-
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    iget v2, p0, Lcom/absolute/android/persistservice/ae;->d:I
-
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    const-string/jumbo v2, " secs"
-
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
+    return-object v2
 
     :cond_0
-    const-string/jumbo v0, "true"
+    const-string/jumbo v1, "true"
 
     goto :goto_0
 .end method

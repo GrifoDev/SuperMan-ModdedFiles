@@ -39,7 +39,7 @@
 
     iget-object v0, p0, Landroid/widget/ScrollView$2;->this$0:Landroid/widget/ScrollView;
 
-    invoke-static {v0}, Landroid/widget/ScrollView;->-wrap3(Landroid/widget/ScrollView;)V
+    invoke-static {v0}, Landroid/widget/ScrollView;->-wrap1(Landroid/widget/ScrollView;)V
 
     return-void
 .end method

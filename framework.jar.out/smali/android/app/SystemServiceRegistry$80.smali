@@ -1,5 +1,5 @@
 .class final Landroid/app/SystemServiceRegistry$80;
-.super Landroid/app/SystemServiceRegistry$CachedServiceFetcher;
+.super Landroid/app/SystemServiceRegistry$StaticServiceFetcher;
 .source "SystemServiceRegistry.java"
 
 
@@ -15,9 +15,9 @@
 
 .annotation system Ldalvik/annotation/Signature;
     value = {
-        "Landroid/app/SystemServiceRegistry$CachedServiceFetcher",
+        "Landroid/app/SystemServiceRegistry$StaticServiceFetcher",
         "<",
-        "Landroid/appwidget/AppWidgetManager;",
+        "Landroid/service/oemlock/OemLockManager;",
         ">;"
     }
 .end annotation
@@ -27,37 +27,54 @@
 .method constructor <init>()V
     .locals 0
 
-    invoke-direct {p0}, Landroid/app/SystemServiceRegistry$CachedServiceFetcher;-><init>()V
+    invoke-direct {p0}, Landroid/app/SystemServiceRegistry$StaticServiceFetcher;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public createService(Landroid/app/ContextImpl;)Landroid/appwidget/AppWidgetManager;
-    .locals 3
+.method public createService()Landroid/service/oemlock/OemLockManager;
+    .locals 4
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/ServiceManager$ServiceNotFoundException;
+        }
+    .end annotation
 
-    const-string/jumbo v1, "appwidget"
+    const/4 v3, 0x0
 
-    invoke-static {v1}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
+    const-string/jumbo v2, "oem_lock"
+
+    invoke-static {v2}, Landroid/os/ServiceManager;->getServiceOrThrow(Ljava/lang/String;)Landroid/os/IBinder;
 
     move-result-object v0
 
-    new-instance v1, Landroid/appwidget/AppWidgetManager;
+    invoke-static {v0}, Landroid/service/oemlock/IOemLockService$Stub;->asInterface(Landroid/os/IBinder;)Landroid/service/oemlock/IOemLockService;
 
-    invoke-static {v0}, Lcom/android/internal/appwidget/IAppWidgetService$Stub;->asInterface(Landroid/os/IBinder;)Lcom/android/internal/appwidget/IAppWidgetService;
+    move-result-object v1
 
-    move-result-object v2
+    if-eqz v1, :cond_0
 
-    invoke-direct {v1, p1, v2}, Landroid/appwidget/AppWidgetManager;-><init>(Landroid/content/Context;Lcom/android/internal/appwidget/IAppWidgetService;)V
+    new-instance v2, Landroid/service/oemlock/OemLockManager;
 
-    return-object v1
+    invoke-direct {v2, v1}, Landroid/service/oemlock/OemLockManager;-><init>(Landroid/service/oemlock/IOemLockService;)V
+
+    return-object v2
+
+    :cond_0
+    return-object v3
 .end method
 
-.method public bridge synthetic createService(Landroid/app/ContextImpl;)Ljava/lang/Object;
+.method public bridge synthetic createService()Ljava/lang/Object;
     .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/ServiceManager$ServiceNotFoundException;
+        }
+    .end annotation
 
-    invoke-virtual {p0, p1}, Landroid/app/SystemServiceRegistry$80;->createService(Landroid/app/ContextImpl;)Landroid/appwidget/AppWidgetManager;
+    invoke-virtual {p0}, Landroid/app/SystemServiceRegistry$80;->createService()Landroid/service/oemlock/OemLockManager;
 
     move-result-object v0
 

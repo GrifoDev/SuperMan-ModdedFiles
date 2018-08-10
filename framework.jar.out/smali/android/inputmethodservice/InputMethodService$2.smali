@@ -80,14 +80,6 @@
     invoke-virtual {p1, v1}, Landroid/view/ViewTreeObserver$InternalInsetsInfo;->setTouchableInsets(I)V
 
     :goto_0
-    iget-object v1, p0, Landroid/inputmethodservice/InputMethodService$2;->this$0:Landroid/inputmethodservice/InputMethodService;
-
-    iget-object v2, p1, Landroid/view/ViewTreeObserver$InternalInsetsInfo;->visibleInsets:Landroid/graphics/Rect;
-
-    iget v2, v2, Landroid/graphics/Rect;->top:I
-
-    iput v2, v1, Landroid/inputmethodservice/InputMethodService;->visibleTop:I
-
     return-void
 
     :cond_0
@@ -136,6 +128,14 @@
     iget v1, v1, Landroid/inputmethodservice/InputMethodService$Insets;->touchableInsets:I
 
     invoke-virtual {p1, v1}, Landroid/view/ViewTreeObserver$InternalInsetsInfo;->setTouchableInsets(I)V
+
+    iget-object v1, p0, Landroid/inputmethodservice/InputMethodService$2;->this$0:Landroid/inputmethodservice/InputMethodService;
+
+    iget-object v2, p1, Landroid/view/ViewTreeObserver$InternalInsetsInfo;->visibleInsets:Landroid/graphics/Rect;
+
+    iget v2, v2, Landroid/graphics/Rect;->top:I
+
+    iput v2, v1, Landroid/inputmethodservice/InputMethodService;->visibleTop:I
 
     goto :goto_0
 .end method

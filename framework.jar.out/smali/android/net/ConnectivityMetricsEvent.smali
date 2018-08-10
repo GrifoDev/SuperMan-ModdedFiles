@@ -9,8 +9,7 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Landroid/net/ConnectivityMetricsEvent$1;,
-        Landroid/net/ConnectivityMetricsEvent$Reference;
+        Landroid/net/ConnectivityMetricsEvent$1;
     }
 .end annotation
 
@@ -29,13 +28,15 @@
 
 
 # instance fields
-.field public final componentTag:I
+.field public data:Landroid/os/Parcelable;
 
-.field public final data:Landroid/os/Parcelable;
+.field public ifname:Ljava/lang/String;
 
-.field public final eventTag:I
+.field public netId:I
 
-.field public final timestamp:J
+.field public timestamp:J
+
+.field public transports:J
 
 
 # direct methods
@@ -51,18 +52,58 @@
     return-void
 .end method
 
-.method public constructor <init>(JIILandroid/os/Parcelable;)V
-    .locals 1
+.method public constructor <init>()V
+    .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-wide p1, p0, Landroid/net/ConnectivityMetricsEvent;->timestamp:J
+    return-void
+.end method
 
-    iput p3, p0, Landroid/net/ConnectivityMetricsEvent;->componentTag:I
+.method private constructor <init>(Landroid/os/Parcel;)V
+    .locals 2
 
-    iput p4, p0, Landroid/net/ConnectivityMetricsEvent;->eventTag:I
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p5, p0, Landroid/net/ConnectivityMetricsEvent;->data:Landroid/os/Parcelable;
+    invoke-virtual {p1}, Landroid/os/Parcel;->readLong()J
+
+    move-result-wide v0
+
+    iput-wide v0, p0, Landroid/net/ConnectivityMetricsEvent;->timestamp:J
+
+    invoke-virtual {p1}, Landroid/os/Parcel;->readLong()J
+
+    move-result-wide v0
+
+    iput-wide v0, p0, Landroid/net/ConnectivityMetricsEvent;->transports:J
+
+    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
+
+    move-result v0
+
+    iput v0, p0, Landroid/net/ConnectivityMetricsEvent;->netId:I
+
+    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v0
+
+    iput-object v0, p0, Landroid/net/ConnectivityMetricsEvent;->ifname:Ljava/lang/String;
+
+    const/4 v0, 0x0
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->readParcelable(Ljava/lang/ClassLoader;)Landroid/os/Parcelable;
+
+    move-result-object v0
+
+    iput-object v0, p0, Landroid/net/ConnectivityMetricsEvent;->data:Landroid/os/Parcelable;
+
+    return-void
+.end method
+
+.method synthetic constructor <init>(Landroid/os/Parcel;Landroid/net/ConnectivityMetricsEvent;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Landroid/net/ConnectivityMetricsEvent;-><init>(Landroid/os/Parcel;)V
 
     return-void
 .end method
@@ -78,65 +119,125 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 4
+    .locals 8
 
-    const-string/jumbo v0, "ConnectivityMetricsEvent(%tT.%tL, %d, %d): %s"
+    const/4 v2, 0x0
 
-    const/4 v1, 0x5
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    new-array v1, v1, [Ljava/lang/Object;
+    const-string/jumbo v3, "ConnectivityMetricsEvent("
 
-    iget-wide v2, p0, Landroid/net/ConnectivityMetricsEvent;->timestamp:J
+    invoke-direct {v0, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-static {v2, v3}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+    const-string/jumbo v3, "%tT.%tL"
+
+    const/4 v4, 0x2
+
+    new-array v4, v4, [Ljava/lang/Object;
+
+    iget-wide v6, p0, Landroid/net/ConnectivityMetricsEvent;->timestamp:J
+
+    invoke-static {v6, v7}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+
+    move-result-object v5
+
+    aput-object v5, v4, v2
+
+    iget-wide v6, p0, Landroid/net/ConnectivityMetricsEvent;->timestamp:J
+
+    invoke-static {v6, v7}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+
+    move-result-object v5
+
+    const/4 v6, 0x1
+
+    aput-object v5, v4, v6
+
+    invoke-static {v3, v4}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget v3, p0, Landroid/net/ConnectivityMetricsEvent;->netId:I
+
+    if-eqz v3, :cond_0
+
+    const-string/jumbo v3, ", "
+
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    iget v4, p0, Landroid/net/ConnectivityMetricsEvent;->netId:I
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    :cond_0
+    iget-object v3, p0, Landroid/net/ConnectivityMetricsEvent;->ifname:Ljava/lang/String;
+
+    if-eqz v3, :cond_1
+
+    const-string/jumbo v3, ", "
+
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    iget-object v4, p0, Landroid/net/ConnectivityMetricsEvent;->ifname:Ljava/lang/String;
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    :cond_1
+    iget-wide v4, p0, Landroid/net/ConnectivityMetricsEvent;->transports:J
+
+    invoke-static {v4, v5}, Lcom/android/internal/util/BitUtils;->unpackBits(J)[I
+
+    move-result-object v3
+
+    array-length v4, v3
+
+    :goto_0
+    if-ge v2, v4, :cond_2
+
+    aget v1, v3, v2
+
+    const-string/jumbo v5, ", "
+
+    invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-static {v1}, Landroid/net/NetworkCapabilities;->transportNameOf(I)Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    add-int/lit8 v2, v2, 0x1
+
+    goto :goto_0
+
+    :cond_2
+    const-string/jumbo v2, "): "
+
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v2
 
-    const/4 v3, 0x0
+    iget-object v3, p0, Landroid/net/ConnectivityMetricsEvent;->data:Landroid/os/Parcelable;
 
-    aput-object v2, v1, v3
+    invoke-virtual {v3}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
-    iget-wide v2, p0, Landroid/net/ConnectivityMetricsEvent;->timestamp:J
+    move-result-object v3
 
-    invoke-static {v2, v3}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v2
-
-    const/4 v3, 0x1
-
-    aput-object v2, v1, v3
-
-    iget v2, p0, Landroid/net/ConnectivityMetricsEvent;->componentTag:I
-
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v2
 
-    const/4 v3, 0x2
-
-    aput-object v2, v1, v3
-
-    iget v2, p0, Landroid/net/ConnectivityMetricsEvent;->eventTag:I
-
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v2
-
-    const/4 v3, 0x3
-
-    aput-object v2, v1, v3
-
-    iget-object v2, p0, Landroid/net/ConnectivityMetricsEvent;->data:Landroid/os/Parcelable;
-
-    const/4 v3, 0x4
-
-    aput-object v2, v1, v3
-
-    invoke-static {v0, v1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
+    return-object v2
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
@@ -146,13 +247,17 @@
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Parcel;->writeLong(J)V
 
-    iget v0, p0, Landroid/net/ConnectivityMetricsEvent;->componentTag:I
+    iget-wide v0, p0, Landroid/net/ConnectivityMetricsEvent;->transports:J
+
+    invoke-virtual {p1, v0, v1}, Landroid/os/Parcel;->writeLong(J)V
+
+    iget v0, p0, Landroid/net/ConnectivityMetricsEvent;->netId:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    iget v0, p0, Landroid/net/ConnectivityMetricsEvent;->eventTag:I
+    iget-object v0, p0, Landroid/net/ConnectivityMetricsEvent;->ifname:Ljava/lang/String;
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
     iget-object v0, p0, Landroid/net/ConnectivityMetricsEvent;->data:Landroid/os/Parcelable;
 

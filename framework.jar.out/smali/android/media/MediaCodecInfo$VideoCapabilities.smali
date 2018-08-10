@@ -5915,31 +5915,29 @@
 .method private supports(Ljava/lang/Integer;Ljava/lang/Integer;Ljava/lang/Number;)Z
     .locals 10
 
-    const/4 v6, 0x0
-
     const/4 v4, 0x1
 
     if-eqz v4, :cond_0
 
     if-eqz p1, :cond_0
 
-    iget-object v7, p0, Landroid/media/MediaCodecInfo$VideoCapabilities;->mWidthRange:Landroid/util/Range;
+    iget-object v6, p0, Landroid/media/MediaCodecInfo$VideoCapabilities;->mWidthRange:Landroid/util/Range;
 
-    invoke-virtual {v7, p1}, Landroid/util/Range;->contains(Ljava/lang/Comparable;)Z
+    invoke-virtual {v6, p1}, Landroid/util/Range;->contains(Ljava/lang/Comparable;)Z
 
-    move-result v7
+    move-result v6
 
-    if-eqz v7, :cond_5
+    if-eqz v6, :cond_5
 
     invoke-virtual {p1}, Ljava/lang/Integer;->intValue()I
 
-    move-result v7
+    move-result v6
 
-    iget v8, p0, Landroid/media/MediaCodecInfo$VideoCapabilities;->mWidthAlignment:I
+    iget v7, p0, Landroid/media/MediaCodecInfo$VideoCapabilities;->mWidthAlignment:I
 
-    rem-int/2addr v7, v8
+    rem-int/2addr v6, v7
 
-    if-nez v7, :cond_4
+    if-nez v6, :cond_4
 
     const/4 v4, 0x1
 
@@ -5949,23 +5947,23 @@
 
     if-eqz p2, :cond_1
 
-    iget-object v7, p0, Landroid/media/MediaCodecInfo$VideoCapabilities;->mHeightRange:Landroid/util/Range;
+    iget-object v6, p0, Landroid/media/MediaCodecInfo$VideoCapabilities;->mHeightRange:Landroid/util/Range;
 
-    invoke-virtual {v7, p2}, Landroid/util/Range;->contains(Ljava/lang/Comparable;)Z
+    invoke-virtual {v6, p2}, Landroid/util/Range;->contains(Ljava/lang/Comparable;)Z
 
-    move-result v7
+    move-result v6
 
-    if-eqz v7, :cond_7
+    if-eqz v6, :cond_7
 
     invoke-virtual {p2}, Ljava/lang/Integer;->intValue()I
 
-    move-result v7
+    move-result v6
 
-    iget v8, p0, Landroid/media/MediaCodecInfo$VideoCapabilities;->mHeightAlignment:I
+    iget v7, p0, Landroid/media/MediaCodecInfo$VideoCapabilities;->mHeightAlignment:I
 
-    rem-int/2addr v7, v8
+    rem-int/2addr v6, v7
 
-    if-nez v7, :cond_6
+    if-nez v6, :cond_6
 
     const/4 v4, 0x1
 
@@ -5975,7 +5973,7 @@
 
     if-eqz p3, :cond_2
 
-    iget-object v7, p0, Landroid/media/MediaCodecInfo$VideoCapabilities;->mFrameRateRange:Landroid/util/Range;
+    iget-object v6, p0, Landroid/media/MediaCodecInfo$VideoCapabilities;->mFrameRateRange:Landroid/util/Range;
 
     invoke-virtual {p3}, Ljava/lang/Number;->doubleValue()D
 
@@ -5983,9 +5981,9 @@
 
     invoke-static {v8, v9}, Landroid/media/Utils;->intRangeFor(D)Landroid/util/Range;
 
-    move-result-object v8
+    move-result-object v7
 
-    invoke-virtual {v7, v8}, Landroid/util/Range;->contains(Landroid/util/Range;)Z
+    invoke-virtual {v6, v7}, Landroid/util/Range;->contains(Landroid/util/Range;)Z
 
     move-result v4
 
@@ -5998,40 +5996,40 @@
 
     invoke-virtual {p2}, Ljava/lang/Integer;->intValue()I
 
-    move-result v7
+    move-result v6
 
     invoke-virtual {p1}, Ljava/lang/Integer;->intValue()I
 
-    move-result v8
-
-    invoke-static {v7, v8}, Ljava/lang/Math;->min(II)I
-
     move-result v7
 
-    iget v8, p0, Landroid/media/MediaCodecInfo$VideoCapabilities;->mSmallerDimensionUpperLimit:I
+    invoke-static {v6, v7}, Ljava/lang/Math;->min(II)I
 
-    if-gt v7, v8, :cond_8
+    move-result v6
+
+    iget v7, p0, Landroid/media/MediaCodecInfo$VideoCapabilities;->mSmallerDimensionUpperLimit:I
+
+    if-gt v6, v7, :cond_8
 
     const/4 v4, 0x1
 
     :goto_2
     invoke-virtual {p1}, Ljava/lang/Integer;->intValue()I
 
-    move-result v7
+    move-result v6
 
-    iget v8, p0, Landroid/media/MediaCodecInfo$VideoCapabilities;->mBlockWidth:I
+    iget v7, p0, Landroid/media/MediaCodecInfo$VideoCapabilities;->mBlockWidth:I
 
-    invoke-static {v7, v8}, Landroid/media/Utils;->divUp(II)I
+    invoke-static {v6, v7}, Landroid/media/Utils;->divUp(II)I
 
     move-result v5
 
     invoke-virtual {p2}, Ljava/lang/Integer;->intValue()I
 
-    move-result v7
+    move-result v6
 
-    iget v8, p0, Landroid/media/MediaCodecInfo$VideoCapabilities;->mBlockHeight:I
+    iget v7, p0, Landroid/media/MediaCodecInfo$VideoCapabilities;->mBlockHeight:I
 
-    invoke-static {v7, v8}, Landroid/media/Utils;->divUp(II)I
+    invoke-static {v6, v7}, Landroid/media/Utils;->divUp(II)I
 
     move-result v1
 
@@ -6039,29 +6037,29 @@
 
     if-eqz v4, :cond_9
 
-    iget-object v7, p0, Landroid/media/MediaCodecInfo$VideoCapabilities;->mBlockCountRange:Landroid/util/Range;
+    iget-object v6, p0, Landroid/media/MediaCodecInfo$VideoCapabilities;->mBlockCountRange:Landroid/util/Range;
 
     invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v8
+    move-result-object v7
 
-    invoke-virtual {v7, v8}, Landroid/util/Range;->contains(Ljava/lang/Comparable;)Z
+    invoke-virtual {v6, v7}, Landroid/util/Range;->contains(Ljava/lang/Comparable;)Z
 
-    move-result v7
+    move-result v6
 
-    if-eqz v7, :cond_9
+    if-eqz v6, :cond_9
 
-    iget-object v7, p0, Landroid/media/MediaCodecInfo$VideoCapabilities;->mBlockAspectRatioRange:Landroid/util/Range;
+    iget-object v6, p0, Landroid/media/MediaCodecInfo$VideoCapabilities;->mBlockAspectRatioRange:Landroid/util/Range;
 
-    new-instance v8, Landroid/util/Rational;
+    new-instance v7, Landroid/util/Rational;
 
-    invoke-direct {v8, v5, v1}, Landroid/util/Rational;-><init>(II)V
+    invoke-direct {v7, v5, v1}, Landroid/util/Rational;-><init>(II)V
 
-    invoke-virtual {v7, v8}, Landroid/util/Range;->contains(Ljava/lang/Comparable;)Z
+    invoke-virtual {v6, v7}, Landroid/util/Range;->contains(Ljava/lang/Comparable;)Z
 
-    move-result v7
+    move-result v6
 
-    if-eqz v7, :cond_9
+    if-eqz v6, :cond_9
 
     iget-object v6, p0, Landroid/media/MediaCodecInfo$VideoCapabilities;->mAspectRatioRange:Landroid/util/Range;
 
@@ -6133,7 +6131,7 @@
     goto :goto_2
 
     :cond_9
-    move v4, v6
+    const/4 v4, 0x0
 
     goto :goto_3
 .end method

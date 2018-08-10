@@ -43,7 +43,7 @@
 
     move-result-object v2
 
-    const v3, 0x112006f
+    const v3, 0x1120049
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -88,7 +88,7 @@
 
     move-result-object v2
 
-    const v3, 0x112006e
+    const v3, 0x112004b
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -125,34 +125,31 @@
 .end method
 
 .method public static shouldStartDockApp(Landroid/content/Context;Landroid/content/Intent;)Z
-    .locals 3
-
-    const/4 v1, 0x0
+    .locals 2
 
     invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-virtual {p1, v2}, Landroid/content/Intent;->resolveActivity(Landroid/content/pm/PackageManager;)Landroid/content/ComponentName;
+    invoke-virtual {p1, v1}, Landroid/content/Intent;->resolveActivity(Landroid/content/pm/PackageManager;)Landroid/content/ComponentName;
 
     move-result-object v0
 
     if-eqz v0, :cond_0
 
-    sget-object v2, Landroid/service/dreams/Sandman;->SOMNAMBULATOR_COMPONENT:Landroid/content/ComponentName;
+    sget-object v1, Landroid/service/dreams/Sandman;->SOMNAMBULATOR_COMPONENT:Landroid/content/ComponentName;
 
-    invoke-virtual {v0, v2}, Landroid/content/ComponentName;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v1}, Landroid/content/ComponentName;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result v1
 
-    if-eqz v2, :cond_1
+    xor-int/lit8 v1, v1, 0x1
 
-    :cond_0
     :goto_0
     return v1
 
-    :cond_1
-    const/4 v1, 0x1
+    :cond_0
+    const/4 v1, 0x0
 
     goto :goto_0
 .end method
@@ -177,14 +174,11 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    xor-int/lit8 v3, v3, 0x1
 
-    :cond_0
-    :goto_0
-    return-void
+    if-eqz v3, :cond_0
 
-    :cond_1
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_1
 
     const-string/jumbo v3, "Sandman"
 
@@ -208,8 +202,19 @@
 
     invoke-virtual {v2, v4, v5, v3}, Landroid/os/PowerManager;->wakeUp(JLjava/lang/String;)V
 
-    :goto_1
+    :goto_0
     invoke-interface {v0}, Landroid/service/dreams/IDreamManager;->dream()V
+
+    :cond_0
+    :goto_1
+    return-void
+
+    :cond_1
+    const-string/jumbo v3, "Sandman"
+
+    const-string/jumbo v4, "Activating dream by user request."
+
+    invoke-static {v3, v4}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -223,18 +228,6 @@
     const-string/jumbo v4, "Could not start dream when docked."
 
     invoke-static {v3, v4, v1}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    goto :goto_0
-
-    :cond_2
-    :try_start_1
-    const-string/jumbo v3, "Sandman"
-
-    const-string/jumbo v4, "Activating dream by user request."
-
-    invoke-static {v3, v4}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_1
-    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
 
     goto :goto_1
 .end method
@@ -262,13 +255,9 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    xor-int/lit8 v0, v0, 0x1
 
-    const/4 v0, 0x1
-
-    invoke-static {p0, v0}, Landroid/service/dreams/Sandman;->startDream(Landroid/content/Context;Z)V
-
-    return-void
+    if-eqz v0, :cond_1
 
     :cond_0
     const-string/jumbo v0, "Sandman"
@@ -276,6 +265,13 @@
     const-string/jumbo v1, "Dreams currently disabled for docks."
 
     invoke-static {v0, v1}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
+
+    :cond_1
+    const/4 v0, 0x1
+
+    invoke-static {p0, v0}, Landroid/service/dreams/Sandman;->startDream(Landroid/content/Context;Z)V
 
     return-void
 .end method

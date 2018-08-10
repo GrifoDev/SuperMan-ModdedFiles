@@ -517,11 +517,9 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    xor-int/lit8 v2, v2, 0x1
 
-    const/4 v2, 0x1
-
-    return v2
+    if-eqz v2, :cond_1
 
     :cond_0
     const-string/jumbo v2, "BluetoothSap"
@@ -547,6 +545,11 @@
     invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     return v5
+
+    :cond_1
+    const/4 v2, 0x1
+
+    return v2
 .end method
 
 .method protected finalize()V
@@ -599,7 +602,7 @@
 
     const-string/jumbo v1, "BluetoothSap"
 
-    invoke-virtual {v0}, Ljava/lang/Throwable;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Landroid/os/RemoteException;->toString()Ljava/lang/String;
 
     move-result-object v2
 
@@ -959,7 +962,7 @@
 
     const-string/jumbo v1, "BluetoothSap"
 
-    invoke-virtual {v0}, Ljava/lang/Throwable;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Landroid/os/RemoteException;->toString()Ljava/lang/String;
 
     move-result-object v2
 
@@ -1013,7 +1016,7 @@
 
     const-string/jumbo v1, "BluetoothSap"
 
-    invoke-virtual {v0}, Ljava/lang/Throwable;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Landroid/os/RemoteException;->toString()Ljava/lang/String;
 
     move-result-object v2
 

@@ -348,6 +348,20 @@
     .end annotation
 .end field
 
+.field public static final CONTROL_ENABLE_ZSL:Landroid/hardware/camera2/CaptureResult$Key;
+    .annotation runtime Landroid/hardware/camera2/impl/PublicKey;
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Landroid/hardware/camera2/CaptureResult$Key",
+            "<",
+            "Ljava/lang/Boolean;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 .field public static final CONTROL_MODE:Landroid/hardware/camera2/CaptureResult$Key;
     .annotation runtime Landroid/hardware/camera2/impl/PublicKey;
     .end annotation
@@ -1554,6 +1568,16 @@
 
     new-instance v0, Landroid/hardware/camera2/CaptureResult$Key;
 
+    const-string/jumbo v1, "android.control.enableZsl"
+
+    sget-object v2, Ljava/lang/Boolean;->TYPE:Ljava/lang/Class;
+
+    invoke-direct {v0, v1, v2}, Landroid/hardware/camera2/CaptureResult$Key;-><init>(Ljava/lang/String;Ljava/lang/Class;)V
+
+    sput-object v0, Landroid/hardware/camera2/CaptureResult;->CONTROL_ENABLE_ZSL:Landroid/hardware/camera2/CaptureResult$Key;
+
+    new-instance v0, Landroid/hardware/camera2/CaptureResult$Key;
+
     const-string/jumbo v1, "android.edge.mode"
 
     sget-object v2, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
@@ -2270,6 +2294,10 @@
     throw v0
 
     :cond_1
+    iget-object v0, p0, Landroid/hardware/camera2/CaptureResult;->mResults:Landroid/hardware/camera2/impl/CameraMetadataNative;
+
+    invoke-virtual {p0, v0}, Landroid/hardware/camera2/CaptureResult;->setNativeInstance(Landroid/hardware/camera2/impl/CameraMetadataNative;)V
+
     iput-object v1, p0, Landroid/hardware/camera2/CaptureResult;->mRequest:Landroid/hardware/camera2/CaptureRequest;
 
     iput p2, p0, Landroid/hardware/camera2/CaptureResult;->mSequenceId:I
@@ -2342,6 +2370,10 @@
     throw v0
 
     :cond_3
+    iget-object v0, p0, Landroid/hardware/camera2/CaptureResult;->mResults:Landroid/hardware/camera2/impl/CameraMetadataNative;
+
+    invoke-virtual {p0, v0}, Landroid/hardware/camera2/CaptureResult;->setNativeInstance(Landroid/hardware/camera2/impl/CameraMetadataNative;)V
+
     iput-object p2, p0, Landroid/hardware/camera2/CaptureResult;->mRequest:Landroid/hardware/camera2/CaptureRequest;
 
     invoke-virtual {p3}, Landroid/hardware/camera2/impl/CaptureResultExtras;->getRequestId()I

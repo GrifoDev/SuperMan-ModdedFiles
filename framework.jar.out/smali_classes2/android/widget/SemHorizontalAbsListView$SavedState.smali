@@ -325,19 +325,17 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .locals 6
-
-    const/4 v3, 0x0
+    .locals 4
 
     invoke-super {p0, p1, p2}, Landroid/view/View$BaseSavedState;->writeToParcel(Landroid/os/Parcel;I)V
 
-    iget-wide v4, p0, Landroid/widget/SemHorizontalAbsListView$SavedState;->selectedId:J
+    iget-wide v2, p0, Landroid/widget/SemHorizontalAbsListView$SavedState;->selectedId:J
 
-    invoke-virtual {p1, v4, v5}, Landroid/os/Parcel;->writeLong(J)V
+    invoke-virtual {p1, v2, v3}, Landroid/os/Parcel;->writeLong(J)V
 
-    iget-wide v4, p0, Landroid/widget/SemHorizontalAbsListView$SavedState;->firstId:J
+    iget-wide v2, p0, Landroid/widget/SemHorizontalAbsListView$SavedState;->firstId:J
 
-    invoke-virtual {p1, v4, v5}, Landroid/os/Parcel;->writeLong(J)V
+    invoke-virtual {p1, v2, v3}, Landroid/os/Parcel;->writeLong(J)V
 
     iget v2, p0, Landroid/widget/SemHorizontalAbsListView$SavedState;->viewLeft:I
 
@@ -419,12 +417,12 @@
     goto :goto_2
 
     :cond_0
-    move v2, v3
+    const/4 v2, 0x0
 
     goto :goto_0
 
     :cond_1
-    move v0, v3
+    const/4 v0, 0x0
 
     goto :goto_1
 

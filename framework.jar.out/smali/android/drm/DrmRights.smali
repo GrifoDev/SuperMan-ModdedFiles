@@ -226,7 +226,7 @@
     :catch_0
     move-exception v0
 
-    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/io/IOException;->printStackTrace()V
 
     goto :goto_0
 
@@ -285,13 +285,10 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    xor-int/lit8 v1, v1, 0x1
 
-    :cond_0
-    :goto_0
-    return v0
+    if-eqz v1, :cond_0
 
-    :cond_1
     iget-object v1, p0, Landroid/drm/DrmRights;->mData:[B
 
     if-eqz v1, :cond_0
@@ -304,5 +301,6 @@
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    :cond_0
+    return v0
 .end method

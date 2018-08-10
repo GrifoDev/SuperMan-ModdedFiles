@@ -41,9 +41,7 @@
 
     iget-object v0, p0, Landroid/widget/DatePickerCalendarDelegate$1;->this$0:Landroid/widget/DatePickerCalendarDelegate;
 
-    invoke-static {v0}, Landroid/widget/DatePickerCalendarDelegate;->-get0(Landroid/widget/DatePickerCalendarDelegate;)Landroid/icu/util/Calendar;
-
-    move-result-object v0
+    iget-object v0, v0, Landroid/widget/DatePickerCalendarDelegate;->mCurrentDate:Landroid/icu/util/Calendar;
 
     invoke-virtual {p2}, Landroid/icu/util/Calendar;->getTimeInMillis()J
 

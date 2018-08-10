@@ -46,7 +46,7 @@
 
 .field public static final MASK_METERED_NETWORKS:I = 0xf
 
-.field public static final POLICY_ALLOW_BACKGROUND_BATTERY_SAVE:I = 0x2
+.field public static final POLICY_ALLOW_METERED_BACKGROUND:I = 0x4
 
 .field public static final POLICY_ALLOW_METERED_IN_ROAMING:I = 0x1001
 
@@ -100,171 +100,131 @@
 .end method
 
 .method public static computeLastCycleBoundary(JLandroid/net/NetworkPolicy;)J
-    .locals 8
-
-    const/4 v6, 0x1
-
-    const/4 v5, 0x0
-
-    iget v3, p2, Landroid/net/NetworkPolicy;->cycleDay:I
+    .locals 6
 
     const/4 v4, -0x1
 
-    if-ne v3, v4, :cond_0
+    iget v1, p2, Landroid/net/NetworkPolicy;->cycleDay:I
 
-    new-instance v3, Ljava/lang/IllegalArgumentException;
+    if-ne v1, v4, :cond_0
 
-    const-string/jumbo v4, "Unable to compute boundary without cycleDay"
+    new-instance v1, Ljava/lang/IllegalArgumentException;
 
-    invoke-direct {v3, v4}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    const-string/jumbo v2, "Unable to compute boundary without cycleDay"
 
-    throw v3
+    invoke-direct {v1, v2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v1
 
     :cond_0
-    new-instance v2, Landroid/text/format/Time;
+    iget-object v1, p2, Landroid/net/NetworkPolicy;->cycleTimezone:Ljava/lang/String;
 
-    iget-object v3, p2, Landroid/net/NetworkPolicy;->cycleTimezone:Ljava/lang/String;
+    invoke-static {v1}, Ljava/util/TimeZone;->getTimeZone(Ljava/lang/String;)Ljava/util/TimeZone;
 
-    invoke-direct {v2, v3}, Landroid/text/format/Time;-><init>(Ljava/lang/String;)V
+    move-result-object v1
 
-    invoke-virtual {v2, p0, p1}, Landroid/text/format/Time;->set(J)V
+    invoke-static {v1}, Ljava/util/Calendar;->getInstance(Ljava/util/TimeZone;)Ljava/util/Calendar;
 
-    new-instance v0, Landroid/text/format/Time;
+    move-result-object v0
 
-    invoke-direct {v0, v2}, Landroid/text/format/Time;-><init>(Landroid/text/format/Time;)V
+    invoke-virtual {v0, p0, p1}, Ljava/util/Calendar;->setTimeInMillis(J)V
 
-    iput v5, v0, Landroid/text/format/Time;->second:I
+    iget v1, p2, Landroid/net/NetworkPolicy;->cycleDay:I
 
-    iput v5, v0, Landroid/text/format/Time;->minute:I
+    invoke-static {v0, v1}, Landroid/net/NetworkPolicyManager;->snapToCycleDay(Ljava/util/Calendar;I)V
 
-    iput v5, v0, Landroid/text/format/Time;->hour:I
+    invoke-virtual {v0}, Ljava/util/Calendar;->getTimeInMillis()J
 
-    iget v3, p2, Landroid/net/NetworkPolicy;->cycleDay:I
+    move-result-wide v2
 
-    invoke-static {v0, v3}, Landroid/net/NetworkPolicyManager;->snapToCycleDay(Landroid/text/format/Time;I)V
+    cmp-long v1, v2, p0
 
-    invoke-static {v0, v2}, Landroid/text/format/Time;->compare(Landroid/text/format/Time;Landroid/text/format/Time;)I
+    if-ltz v1, :cond_1
 
-    move-result v3
+    const/4 v1, 0x5
 
-    if-ltz v3, :cond_1
+    const/4 v2, 0x1
 
-    new-instance v1, Landroid/text/format/Time;
+    invoke-virtual {v0, v1, v2}, Ljava/util/Calendar;->set(II)V
 
-    invoke-direct {v1, v2}, Landroid/text/format/Time;-><init>(Landroid/text/format/Time;)V
+    const/4 v1, 0x2
 
-    iput v5, v1, Landroid/text/format/Time;->second:I
+    invoke-virtual {v0, v1, v4}, Ljava/util/Calendar;->add(II)V
 
-    iput v5, v1, Landroid/text/format/Time;->minute:I
+    iget v1, p2, Landroid/net/NetworkPolicy;->cycleDay:I
 
-    iput v5, v1, Landroid/text/format/Time;->hour:I
-
-    iput v6, v1, Landroid/text/format/Time;->monthDay:I
-
-    iget v3, v1, Landroid/text/format/Time;->month:I
-
-    add-int/lit8 v3, v3, -0x1
-
-    iput v3, v1, Landroid/text/format/Time;->month:I
-
-    invoke-virtual {v1, v6}, Landroid/text/format/Time;->normalize(Z)J
-
-    invoke-virtual {v0, v1}, Landroid/text/format/Time;->set(Landroid/text/format/Time;)V
-
-    iget v3, p2, Landroid/net/NetworkPolicy;->cycleDay:I
-
-    invoke-static {v0, v3}, Landroid/net/NetworkPolicyManager;->snapToCycleDay(Landroid/text/format/Time;I)V
+    invoke-static {v0, v1}, Landroid/net/NetworkPolicyManager;->snapToCycleDay(Ljava/util/Calendar;I)V
 
     :cond_1
-    invoke-virtual {v0, v6}, Landroid/text/format/Time;->toMillis(Z)J
+    invoke-virtual {v0}, Ljava/util/Calendar;->getTimeInMillis()J
 
-    move-result-wide v4
+    move-result-wide v2
 
-    return-wide v4
+    return-wide v2
 .end method
 
 .method public static computeNextCycleBoundary(JLandroid/net/NetworkPolicy;)J
-    .locals 8
+    .locals 6
 
-    const/4 v6, 0x1
+    const/4 v4, 0x1
 
-    const/4 v5, 0x0
+    iget v1, p2, Landroid/net/NetworkPolicy;->cycleDay:I
 
-    iget v3, p2, Landroid/net/NetworkPolicy;->cycleDay:I
+    const/4 v2, -0x1
 
-    const/4 v4, -0x1
+    if-ne v1, v2, :cond_0
 
-    if-ne v3, v4, :cond_0
+    new-instance v1, Ljava/lang/IllegalArgumentException;
 
-    new-instance v3, Ljava/lang/IllegalArgumentException;
+    const-string/jumbo v2, "Unable to compute boundary without cycleDay"
 
-    const-string/jumbo v4, "Unable to compute boundary without cycleDay"
+    invoke-direct {v1, v2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    invoke-direct {v3, v4}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
-
-    throw v3
+    throw v1
 
     :cond_0
-    new-instance v2, Landroid/text/format/Time;
+    iget-object v1, p2, Landroid/net/NetworkPolicy;->cycleTimezone:Ljava/lang/String;
 
-    iget-object v3, p2, Landroid/net/NetworkPolicy;->cycleTimezone:Ljava/lang/String;
+    invoke-static {v1}, Ljava/util/TimeZone;->getTimeZone(Ljava/lang/String;)Ljava/util/TimeZone;
 
-    invoke-direct {v2, v3}, Landroid/text/format/Time;-><init>(Ljava/lang/String;)V
+    move-result-object v1
 
-    invoke-virtual {v2, p0, p1}, Landroid/text/format/Time;->set(J)V
+    invoke-static {v1}, Ljava/util/Calendar;->getInstance(Ljava/util/TimeZone;)Ljava/util/Calendar;
 
-    new-instance v0, Landroid/text/format/Time;
+    move-result-object v0
 
-    invoke-direct {v0, v2}, Landroid/text/format/Time;-><init>(Landroid/text/format/Time;)V
+    invoke-virtual {v0, p0, p1}, Ljava/util/Calendar;->setTimeInMillis(J)V
 
-    iput v5, v0, Landroid/text/format/Time;->second:I
+    iget v1, p2, Landroid/net/NetworkPolicy;->cycleDay:I
 
-    iput v5, v0, Landroid/text/format/Time;->minute:I
+    invoke-static {v0, v1}, Landroid/net/NetworkPolicyManager;->snapToCycleDay(Ljava/util/Calendar;I)V
 
-    iput v5, v0, Landroid/text/format/Time;->hour:I
+    invoke-virtual {v0}, Ljava/util/Calendar;->getTimeInMillis()J
 
-    iget v3, p2, Landroid/net/NetworkPolicy;->cycleDay:I
+    move-result-wide v2
 
-    invoke-static {v0, v3}, Landroid/net/NetworkPolicyManager;->snapToCycleDay(Landroid/text/format/Time;I)V
+    cmp-long v1, v2, p0
 
-    invoke-static {v0, v2}, Landroid/text/format/Time;->compare(Landroid/text/format/Time;Landroid/text/format/Time;)I
+    if-gtz v1, :cond_1
 
-    move-result v3
+    const/4 v1, 0x5
 
-    if-gtz v3, :cond_1
+    invoke-virtual {v0, v1, v4}, Ljava/util/Calendar;->set(II)V
 
-    new-instance v1, Landroid/text/format/Time;
+    const/4 v1, 0x2
 
-    invoke-direct {v1, v2}, Landroid/text/format/Time;-><init>(Landroid/text/format/Time;)V
+    invoke-virtual {v0, v1, v4}, Ljava/util/Calendar;->add(II)V
 
-    iput v5, v1, Landroid/text/format/Time;->second:I
+    iget v1, p2, Landroid/net/NetworkPolicy;->cycleDay:I
 
-    iput v5, v1, Landroid/text/format/Time;->minute:I
-
-    iput v5, v1, Landroid/text/format/Time;->hour:I
-
-    iput v6, v1, Landroid/text/format/Time;->monthDay:I
-
-    iget v3, v1, Landroid/text/format/Time;->month:I
-
-    add-int/lit8 v3, v3, 0x1
-
-    iput v3, v1, Landroid/text/format/Time;->month:I
-
-    invoke-virtual {v1, v6}, Landroid/text/format/Time;->normalize(Z)J
-
-    invoke-virtual {v0, v1}, Landroid/text/format/Time;->set(Landroid/text/format/Time;)V
-
-    iget v3, p2, Landroid/net/NetworkPolicy;->cycleDay:I
-
-    invoke-static {v0, v3}, Landroid/net/NetworkPolicyManager;->snapToCycleDay(Landroid/text/format/Time;I)V
+    invoke-static {v0, v1}, Landroid/net/NetworkPolicyManager;->snapToCycleDay(Ljava/util/Calendar;I)V
 
     :cond_1
-    invoke-virtual {v0, v6}, Landroid/text/format/Time;->toMillis(Z)J
+    invoke-virtual {v0}, Ljava/util/Calendar;->getTimeInMillis()J
 
-    move-result-wide v4
+    move-result-wide v2
 
-    return-wide v4
+    return-wide v2
 .end method
 
 .method public static from(Landroid/content/Context;)Landroid/net/NetworkPolicyManager;
@@ -279,6 +239,42 @@
     check-cast v0, Landroid/net/NetworkPolicyManager;
 
     return-object v0
+.end method
+
+.method public static isProcStateAllowedWhileIdleOrPowerSaveMode(I)Z
+    .locals 1
+
+    const/4 v0, 0x4
+
+    if-gt p0, v0, :cond_0
+
+    const/4 v0, 0x1
+
+    :goto_0
+    return v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
+.method public static isProcStateAllowedWhileOnRestrictBackground(I)Z
+    .locals 1
+
+    const/4 v0, 0x4
+
+    if-gt p0, v0, :cond_0
+
+    const/4 v0, 0x1
+
+    :goto_0
+    return v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
 .end method
 
 .method public static isUidValidForPolicy(Landroid/content/Context;I)Z
@@ -302,38 +298,104 @@
     return v0
 .end method
 
-.method public static snapToCycleDay(Landroid/text/format/Time;I)V
-    .locals 2
+.method public static snapToCycleDay(Ljava/util/Calendar;I)V
+    .locals 6
 
-    const/4 v1, 0x1
+    const/16 v5, 0xb
 
-    const/4 v0, 0x4
+    const/4 v4, 0x1
 
-    invoke-virtual {p0, v0}, Landroid/text/format/Time;->getActualMaximum(I)I
+    const/16 v3, 0xd
+
+    const/4 v2, 0x5
+
+    const/4 v1, 0x0
+
+    invoke-virtual {p0, v5, v1}, Ljava/util/Calendar;->set(II)V
+
+    const/16 v0, 0xc
+
+    invoke-virtual {p0, v0, v1}, Ljava/util/Calendar;->set(II)V
+
+    invoke-virtual {p0, v3, v1}, Ljava/util/Calendar;->set(II)V
+
+    invoke-virtual {p0, v2}, Ljava/util/Calendar;->getActualMaximum(I)I
 
     move-result v0
 
     if-le p1, v0, :cond_0
 
-    iget v0, p0, Landroid/text/format/Time;->month:I
+    const/4 v0, 0x2
 
-    add-int/lit8 v0, v0, 0x1
+    invoke-virtual {p0, v0, v4}, Ljava/util/Calendar;->add(II)V
 
-    iput v0, p0, Landroid/text/format/Time;->month:I
+    invoke-virtual {p0, v2, v4}, Ljava/util/Calendar;->set(II)V
 
-    iput v1, p0, Landroid/text/format/Time;->monthDay:I
+    invoke-virtual {p0, v5, v1}, Ljava/util/Calendar;->set(II)V
+
+    const/16 v0, 0xc
+
+    invoke-virtual {p0, v0, v1}, Ljava/util/Calendar;->set(II)V
+
+    invoke-virtual {p0, v3, v1}, Ljava/util/Calendar;->set(II)V
 
     const/4 v0, -0x1
 
-    iput v0, p0, Landroid/text/format/Time;->second:I
+    invoke-virtual {p0, v3, v0}, Ljava/util/Calendar;->add(II)V
 
     :goto_0
-    invoke-virtual {p0, v1}, Landroid/text/format/Time;->normalize(Z)J
-
     return-void
 
     :cond_0
-    iput p1, p0, Landroid/text/format/Time;->monthDay:I
+    invoke-virtual {p0, v2, p1}, Ljava/util/Calendar;->set(II)V
+
+    goto :goto_0
+.end method
+
+.method public static uidPoliciesToString(I)Ljava/lang/String;
+    .locals 3
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string/jumbo v2, " ("
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    if-nez p0, :cond_0
+
+    const-string/jumbo v1, "NONE"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    :goto_0
+    const-string/jumbo v1, ")"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    return-object v1
+
+    :cond_0
+    const-class v1, Landroid/net/NetworkPolicyManager;
+
+    const-string/jumbo v2, "POLICY_"
+
+    invoke-static {v1, v2, p0}, Landroid/util/DebugUtils;->flagsToString(Ljava/lang/Class;Ljava/lang/String;I)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     goto :goto_0
 .end method
@@ -410,13 +472,13 @@
     throw v1
 .end method
 
-.method public checkFireWallPermission(ZLjava/lang/String;)V
+.method public checkFireWallPermission(ZLjava/lang/String;I)V
     .locals 2
 
     :try_start_0
     iget-object v1, p0, Landroid/net/NetworkPolicyManager;->mService:Landroid/net/INetworkPolicyManager;
 
-    invoke-interface {v1, p1, p2}, Landroid/net/INetworkPolicyManager;->checkFireWallPermission(ZLjava/lang/String;)V
+    invoke-interface {v1, p1, p2, p3}, Landroid/net/INetworkPolicyManager;->checkFireWallPermission(ZLjava/lang/String;I)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 

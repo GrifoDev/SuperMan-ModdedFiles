@@ -47,6 +47,8 @@
 
 .field public static final FLAG_SUPPORTS_CREATE:I = 0x1
 
+.field public static final FLAG_SUPPORTS_EJECT:I = 0x20
+
 .field public static final FLAG_SUPPORTS_IS_CHILD:I = 0x10
 
 .field public static final FLAG_SUPPORTS_RECENTS:I = 0x4

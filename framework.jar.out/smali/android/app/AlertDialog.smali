@@ -79,7 +79,7 @@
 .end method
 
 .method constructor <init>(Landroid/content/Context;IZ)V
-    .locals 3
+    .locals 2
 
     if-eqz p3, :cond_0
 
@@ -94,17 +94,17 @@
 
     invoke-virtual {v0}, Landroid/view/Window;->alwaysReadCloseOnTouchAttr()V
 
-    new-instance v0, Lcom/android/internal/app/AlertController;
-
     invoke-virtual {p0}, Landroid/app/AlertDialog;->getContext()Landroid/content/Context;
 
-    move-result-object v1
+    move-result-object v0
 
     invoke-virtual {p0}, Landroid/app/AlertDialog;->getWindow()Landroid/view/Window;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-direct {v0, v1, p0, v2}, Lcom/android/internal/app/AlertController;-><init>(Landroid/content/Context;Landroid/content/DialogInterface;Landroid/view/Window;)V
+    invoke-static {v0, p0, v1}, Lcom/android/internal/app/AlertController;->create(Landroid/content/Context;Landroid/content/DialogInterface;Landroid/view/Window;)Lcom/android/internal/app/AlertController;
+
+    move-result-object v0
 
     iput-object v0, p0, Landroid/app/AlertDialog;->mAlert:Lcom/android/internal/app/AlertController;
 
@@ -137,7 +137,7 @@
 
     if-ne p1, v3, :cond_0
 
-    const v1, 0x103047e
+    const v1, 0x1030407
 
     return v1
 
@@ -146,7 +146,7 @@
 
     if-ne p1, v1, :cond_1
 
-    const v1, 0x1030487
+    const v1, 0x103040e
 
     return v1
 
@@ -155,7 +155,7 @@
 
     if-ne p1, v1, :cond_2
 
-    const v1, 0x1030488
+    const v1, 0x1030415
 
     return v1
 
@@ -178,9 +178,11 @@
     return v1
 
     :cond_4
-    const/high16 v1, 0x1000000
+    invoke-static {p1}, Landroid/content/res/ResourceId;->isValid(I)Z
 
-    if-lt p1, v1, :cond_5
+    move-result v1
+
+    if-eqz v1, :cond_5
 
     return p1
 

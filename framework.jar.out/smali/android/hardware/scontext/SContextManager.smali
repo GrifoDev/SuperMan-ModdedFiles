@@ -655,32 +655,35 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    xor-int/lit8 v1, v1, 0x1
 
-    invoke-direct {p0, p1, p2}, Landroid/hardware/scontext/SContextManager;->checkListenerAndService(Landroid/hardware/scontext/SContextListener;I)Z
-
-    move-result v1
-
-    if-nez v1, :cond_1
-
-    return v3
+    if-eqz v1, :cond_1
 
     :cond_0
     return v3
 
     :cond_1
-    if-eq p2, v2, :cond_2
+    invoke-direct {p0, p1, p2}, Landroid/hardware/scontext/SContextManager;->checkListenerAndService(Landroid/hardware/scontext/SContextListener;I)Z
+
+    move-result v1
+
+    if-nez v1, :cond_2
+
+    return v3
+
+    :cond_2
+    if-eq p2, v2, :cond_3
 
     const/4 v1, 0x2
 
-    if-ne p2, v1, :cond_3
+    if-ne p2, v1, :cond_4
 
-    :cond_2
+    :cond_3
     invoke-direct {p0, p1}, Landroid/hardware/scontext/SContextManager;->getListenerDelegate(Landroid/hardware/scontext/SContextListener;)Landroid/hardware/scontext/SContextManager$SContextListenerDelegate;
 
     move-result-object v0
 
-    if-nez v0, :cond_4
+    if-nez v0, :cond_5
 
     const-string/jumbo v1, "SContextManager"
 
@@ -690,43 +693,43 @@
 
     return v3
 
-    :cond_3
+    :cond_4
     const/16 v1, 0x21
 
-    if-eq p2, v1, :cond_2
+    if-eq p2, v1, :cond_3
 
     const/16 v1, 0x23
 
-    if-eq p2, v1, :cond_2
+    if-eq p2, v1, :cond_3
 
     const/16 v1, 0x27
 
-    if-eq p2, v1, :cond_2
+    if-eq p2, v1, :cond_3
 
     const/16 v1, 0x2f
 
-    if-eq p2, v1, :cond_2
+    if-eq p2, v1, :cond_3
 
     const/16 v1, 0x33
 
-    if-eq p2, v1, :cond_2
+    if-eq p2, v1, :cond_3
 
     const/16 v1, 0x35
 
-    if-eq p2, v1, :cond_2
+    if-eq p2, v1, :cond_3
 
     return v3
 
-    :cond_4
+    :cond_5
     invoke-super {p0, v0, p2, p3}, Lcom/samsung/android/hardware/context/SemContextManager;->changeParameters(Lcom/samsung/android/hardware/context/SemContextListener;ILcom/samsung/android/hardware/context/SemContextAttribute;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_6
 
     return v2
 
-    :cond_5
+    :cond_6
     return v3
 .end method
 

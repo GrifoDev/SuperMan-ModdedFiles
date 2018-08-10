@@ -74,13 +74,13 @@
 .method public equals(Ljava/lang/Object;)Z
     .locals 5
 
-    const/4 v2, 0x1
+    const/4 v1, 0x1
 
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
     if-ne p0, p1, :cond_0
 
-    return v2
+    return v1
 
     :cond_0
     if-eqz p1, :cond_1
@@ -96,7 +96,7 @@
     if-eq v3, v4, :cond_2
 
     :cond_1
-    return v1
+    return v2
 
     :cond_2
     move-object v0, p1
@@ -109,34 +109,35 @@
 
     if-eq v3, v4, :cond_3
 
-    return v1
+    return v2
 
     :cond_3
     iget-object v3, p0, Landroid/app/ApplicationPackageManager$ResourceName;->packageName:Ljava/lang/String;
 
-    if-eqz v3, :cond_6
-
-    iget-object v3, p0, Landroid/app/ApplicationPackageManager$ResourceName;->packageName:Ljava/lang/String;
-
-    iget-object v4, v0, Landroid/app/ApplicationPackageManager$ResourceName;->packageName:Ljava/lang/String;
-
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
     if-eqz v3, :cond_5
 
-    :cond_4
-    move v1, v2
+    iget-object v1, p0, Landroid/app/ApplicationPackageManager$ResourceName;->packageName:Ljava/lang/String;
 
-    :cond_5
+    iget-object v2, v0, Landroid/app/ApplicationPackageManager$ResourceName;->packageName:Ljava/lang/String;
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    xor-int/lit8 v1, v1, 0x1
+
+    :cond_4
     :goto_0
+    xor-int/lit8 v1, v1, 0x1
+
     return v1
 
-    :cond_6
+    :cond_5
     iget-object v3, v0, Landroid/app/ApplicationPackageManager$ResourceName;->packageName:Ljava/lang/String;
 
-    if-eqz v3, :cond_4
+    if-nez v3, :cond_4
+
+    move v1, v2
 
     goto :goto_0
 .end method

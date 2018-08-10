@@ -63,54 +63,34 @@
 
 .field mStartTime:J
 
-.field private mTmpClone:Landroid/animation/AnimatorSet$Node;
-
 .field mTotalDuration:J
 
 
 # direct methods
-.method static synthetic -get0(Landroid/animation/AnimatorSet$Node;)Landroid/animation/AnimatorSet$Node;
-    .locals 1
-
-    iget-object v0, p0, Landroid/animation/AnimatorSet$Node;->mTmpClone:Landroid/animation/AnimatorSet$Node;
-
-    return-object v0
-.end method
-
-.method static synthetic -set0(Landroid/animation/AnimatorSet$Node;Landroid/animation/AnimatorSet$Node;)Landroid/animation/AnimatorSet$Node;
-    .locals 0
-
-    iput-object p1, p0, Landroid/animation/AnimatorSet$Node;->mTmpClone:Landroid/animation/AnimatorSet$Node;
-
-    return-object p1
-.end method
-
 .method public constructor <init>(Landroid/animation/Animator;)V
     .locals 4
 
-    const/4 v1, 0x0
+    const/4 v3, 0x0
 
-    const-wide/16 v2, 0x0
+    const/4 v2, 0x0
 
-    const/4 v0, 0x0
+    const-wide/16 v0, 0x0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object v0, p0, Landroid/animation/AnimatorSet$Node;->mChildNodes:Ljava/util/ArrayList;
+    iput-object v3, p0, Landroid/animation/AnimatorSet$Node;->mChildNodes:Ljava/util/ArrayList;
 
-    iput-object v0, p0, Landroid/animation/AnimatorSet$Node;->mTmpClone:Landroid/animation/AnimatorSet$Node;
+    iput-boolean v2, p0, Landroid/animation/AnimatorSet$Node;->mEnded:Z
 
-    iput-boolean v1, p0, Landroid/animation/AnimatorSet$Node;->mEnded:Z
+    iput-object v3, p0, Landroid/animation/AnimatorSet$Node;->mLatestParent:Landroid/animation/AnimatorSet$Node;
 
-    iput-object v0, p0, Landroid/animation/AnimatorSet$Node;->mLatestParent:Landroid/animation/AnimatorSet$Node;
+    iput-boolean v2, p0, Landroid/animation/AnimatorSet$Node;->mParentsAdded:Z
 
-    iput-boolean v1, p0, Landroid/animation/AnimatorSet$Node;->mParentsAdded:Z
+    iput-wide v0, p0, Landroid/animation/AnimatorSet$Node;->mStartTime:J
 
-    iput-wide v2, p0, Landroid/animation/AnimatorSet$Node;->mStartTime:J
+    iput-wide v0, p0, Landroid/animation/AnimatorSet$Node;->mEndTime:J
 
-    iput-wide v2, p0, Landroid/animation/AnimatorSet$Node;->mEndTime:J
-
-    iput-wide v2, p0, Landroid/animation/AnimatorSet$Node;->mTotalDuration:J
+    iput-wide v0, p0, Landroid/animation/AnimatorSet$Node;->mTotalDuration:J
 
     iput-object p1, p0, Landroid/animation/AnimatorSet$Node;->mAnimation:Landroid/animation/Animator;
 

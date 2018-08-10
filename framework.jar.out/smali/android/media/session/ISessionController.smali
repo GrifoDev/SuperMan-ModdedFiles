@@ -55,6 +55,14 @@
     .end annotation
 .end method
 
+.method public abstract getMediaButtonReceiver()Landroid/app/PendingIntent;
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract getMetadata()Landroid/media/MediaMetadata;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -224,22 +232,6 @@
 .end method
 
 .method public abstract registerCallbackListener(Landroid/media/session/ISessionControllerCallback;)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract releaseLock()V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract requestLock()V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

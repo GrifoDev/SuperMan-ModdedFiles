@@ -84,6 +84,9 @@
 .method public abstract replace(ILandroid/app/Fragment;Ljava/lang/String;)Landroid/app/FragmentTransaction;
 .end method
 
+.method public abstract runOnCommit(Ljava/lang/Runnable;)Landroid/app/FragmentTransaction;
+.end method
+
 .method public abstract setBreadCrumbShortTitle(I)Landroid/app/FragmentTransaction;
 .end method
 
@@ -100,6 +103,12 @@
 .end method
 
 .method public abstract setCustomAnimations(IIII)Landroid/app/FragmentTransaction;
+.end method
+
+.method public abstract setPrimaryNavigationFragment(Landroid/app/Fragment;)Landroid/app/FragmentTransaction;
+.end method
+
+.method public abstract setReorderingAllowed(Z)Landroid/app/FragmentTransaction;
 .end method
 
 .method public abstract setTransition(I)Landroid/app/FragmentTransaction;

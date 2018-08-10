@@ -32,6 +32,8 @@
 
 .field public static final TAG_CSCFEATURE_VIDEO_SUPPORTALLSHARE:Ljava/lang/String; = "CscFeature_Video_SupportAllShare"
 
+.field public static final TAG_CSCFEATURE_VIDEO_SUPPORTDATAPROMPTPOPUP:Ljava/lang/String; = "CscFeature_Video_SupportDataPromptPopup"
+
 .field public static final TAG_CSCFEATURE_VIDEO_SUPPORTDLNACERTIFICATION:Ljava/lang/String; = "CscFeature_Video_SupportDlnaCertification"
 
 .field public static final TAG_CSCFEATURE_VIDEO_SUPPORTMANUALBRIGHTNESS:Ljava/lang/String; = "CscFeature_Video_SupportManualBrightness"

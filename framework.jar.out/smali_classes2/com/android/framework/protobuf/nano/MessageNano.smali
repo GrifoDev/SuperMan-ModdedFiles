@@ -116,11 +116,11 @@
     return v5
 
     :cond_2
-    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+    invoke-virtual {p0}, Lcom/android/framework/protobuf/nano/MessageNano;->getClass()Ljava/lang/Class;
 
     move-result-object v3
 
-    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+    invoke-virtual {p1}, Lcom/android/framework/protobuf/nano/MessageNano;->getClass()Ljava/lang/Class;
 
     move-result-object v4
 

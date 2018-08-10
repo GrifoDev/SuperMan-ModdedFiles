@@ -377,9 +377,17 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    const-string/jumbo v0, ""
+
+    iput-object v0, p0, Landroid/mtp/MtpObjectInfo;->mName:Ljava/lang/String;
+
+    const-string/jumbo v0, ""
+
+    iput-object v0, p0, Landroid/mtp/MtpObjectInfo;->mKeywords:Ljava/lang/String;
 
     return-void
 .end method

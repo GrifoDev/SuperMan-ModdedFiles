@@ -459,51 +459,51 @@
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 5
 
-    const/4 v4, 0x1
+    const/4 v3, 0x1
 
-    const/4 v2, 0x0
+    const/4 v4, 0x0
 
-    iget v3, p0, Landroid/app/ActivityManager$StackInfo;->stackId:I
+    iget v2, p0, Landroid/app/ActivityManager$StackInfo;->stackId:I
 
-    invoke-virtual {p1, v3}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeInt(I)V
 
-    iget-object v3, p0, Landroid/app/ActivityManager$StackInfo;->bounds:Landroid/graphics/Rect;
+    iget-object v2, p0, Landroid/app/ActivityManager$StackInfo;->bounds:Landroid/graphics/Rect;
 
-    iget v3, v3, Landroid/graphics/Rect;->left:I
+    iget v2, v2, Landroid/graphics/Rect;->left:I
 
-    invoke-virtual {p1, v3}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeInt(I)V
 
-    iget-object v3, p0, Landroid/app/ActivityManager$StackInfo;->bounds:Landroid/graphics/Rect;
+    iget-object v2, p0, Landroid/app/ActivityManager$StackInfo;->bounds:Landroid/graphics/Rect;
 
-    iget v3, v3, Landroid/graphics/Rect;->top:I
+    iget v2, v2, Landroid/graphics/Rect;->top:I
 
-    invoke-virtual {p1, v3}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeInt(I)V
 
-    iget-object v3, p0, Landroid/app/ActivityManager$StackInfo;->bounds:Landroid/graphics/Rect;
+    iget-object v2, p0, Landroid/app/ActivityManager$StackInfo;->bounds:Landroid/graphics/Rect;
 
-    iget v3, v3, Landroid/graphics/Rect;->right:I
+    iget v2, v2, Landroid/graphics/Rect;->right:I
 
-    invoke-virtual {p1, v3}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeInt(I)V
 
-    iget-object v3, p0, Landroid/app/ActivityManager$StackInfo;->bounds:Landroid/graphics/Rect;
+    iget-object v2, p0, Landroid/app/ActivityManager$StackInfo;->bounds:Landroid/graphics/Rect;
 
-    iget v3, v3, Landroid/graphics/Rect;->bottom:I
+    iget v2, v2, Landroid/graphics/Rect;->bottom:I
 
-    invoke-virtual {p1, v3}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeInt(I)V
 
-    iget-object v3, p0, Landroid/app/ActivityManager$StackInfo;->taskIds:[I
+    iget-object v2, p0, Landroid/app/ActivityManager$StackInfo;->taskIds:[I
 
-    invoke-virtual {p1, v3}, Landroid/os/Parcel;->writeIntArray([I)V
+    invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeIntArray([I)V
 
-    iget-object v3, p0, Landroid/app/ActivityManager$StackInfo;->taskNames:[Ljava/lang/String;
+    iget-object v2, p0, Landroid/app/ActivityManager$StackInfo;->taskNames:[Ljava/lang/String;
 
-    invoke-virtual {p1, v3}, Landroid/os/Parcel;->writeStringArray([Ljava/lang/String;)V
+    invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeStringArray([Ljava/lang/String;)V
 
-    iget-object v3, p0, Landroid/app/ActivityManager$StackInfo;->taskBounds:[Landroid/graphics/Rect;
+    iget-object v2, p0, Landroid/app/ActivityManager$StackInfo;->taskBounds:[Landroid/graphics/Rect;
 
-    if-nez v3, :cond_0
+    if-nez v2, :cond_0
 
-    move v0, v2
+    const/4 v0, 0x0
 
     :goto_0
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
@@ -513,95 +513,95 @@
     :goto_1
     if-ge v1, v0, :cond_1
 
-    iget-object v3, p0, Landroid/app/ActivityManager$StackInfo;->taskBounds:[Landroid/graphics/Rect;
+    iget-object v2, p0, Landroid/app/ActivityManager$StackInfo;->taskBounds:[Landroid/graphics/Rect;
 
-    aget-object v3, v3, v1
+    aget-object v2, v2, v1
 
-    iget v3, v3, Landroid/graphics/Rect;->left:I
+    iget v2, v2, Landroid/graphics/Rect;->left:I
 
-    invoke-virtual {p1, v3}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeInt(I)V
 
-    iget-object v3, p0, Landroid/app/ActivityManager$StackInfo;->taskBounds:[Landroid/graphics/Rect;
+    iget-object v2, p0, Landroid/app/ActivityManager$StackInfo;->taskBounds:[Landroid/graphics/Rect;
 
-    aget-object v3, v3, v1
+    aget-object v2, v2, v1
 
-    iget v3, v3, Landroid/graphics/Rect;->top:I
+    iget v2, v2, Landroid/graphics/Rect;->top:I
 
-    invoke-virtual {p1, v3}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeInt(I)V
 
-    iget-object v3, p0, Landroid/app/ActivityManager$StackInfo;->taskBounds:[Landroid/graphics/Rect;
+    iget-object v2, p0, Landroid/app/ActivityManager$StackInfo;->taskBounds:[Landroid/graphics/Rect;
 
-    aget-object v3, v3, v1
+    aget-object v2, v2, v1
 
-    iget v3, v3, Landroid/graphics/Rect;->right:I
+    iget v2, v2, Landroid/graphics/Rect;->right:I
 
-    invoke-virtual {p1, v3}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeInt(I)V
 
-    iget-object v3, p0, Landroid/app/ActivityManager$StackInfo;->taskBounds:[Landroid/graphics/Rect;
+    iget-object v2, p0, Landroid/app/ActivityManager$StackInfo;->taskBounds:[Landroid/graphics/Rect;
 
-    aget-object v3, v3, v1
+    aget-object v2, v2, v1
 
-    iget v3, v3, Landroid/graphics/Rect;->bottom:I
+    iget v2, v2, Landroid/graphics/Rect;->bottom:I
 
-    invoke-virtual {p1, v3}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeInt(I)V
 
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_1
 
     :cond_0
-    iget-object v3, p0, Landroid/app/ActivityManager$StackInfo;->taskBounds:[Landroid/graphics/Rect;
+    iget-object v2, p0, Landroid/app/ActivityManager$StackInfo;->taskBounds:[Landroid/graphics/Rect;
 
-    array-length v0, v3
+    array-length v0, v2
 
     goto :goto_0
 
     :cond_1
-    iget-object v3, p0, Landroid/app/ActivityManager$StackInfo;->taskUserIds:[I
+    iget-object v2, p0, Landroid/app/ActivityManager$StackInfo;->taskUserIds:[I
 
-    invoke-virtual {p1, v3}, Landroid/os/Parcel;->writeIntArray([I)V
+    invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeIntArray([I)V
 
-    iget v3, p0, Landroid/app/ActivityManager$StackInfo;->displayId:I
+    iget v2, p0, Landroid/app/ActivityManager$StackInfo;->displayId:I
 
-    invoke-virtual {p1, v3}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeInt(I)V
 
-    iget v3, p0, Landroid/app/ActivityManager$StackInfo;->userId:I
+    iget v2, p0, Landroid/app/ActivityManager$StackInfo;->userId:I
 
-    invoke-virtual {p1, v3}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeInt(I)V
 
-    iget-boolean v3, p0, Landroid/app/ActivityManager$StackInfo;->visible:Z
+    iget-boolean v2, p0, Landroid/app/ActivityManager$StackInfo;->visible:Z
 
-    if-eqz v3, :cond_2
+    if-eqz v2, :cond_2
 
-    move v3, v4
+    move v2, v3
 
     :goto_2
+    invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeInt(I)V
+
+    iget v2, p0, Landroid/app/ActivityManager$StackInfo;->position:I
+
+    invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeInt(I)V
+
+    iget-object v2, p0, Landroid/app/ActivityManager$StackInfo;->topActivity:Landroid/content/ComponentName;
+
+    if-eqz v2, :cond_3
+
     invoke-virtual {p1, v3}, Landroid/os/Parcel;->writeInt(I)V
 
-    iget v3, p0, Landroid/app/ActivityManager$StackInfo;->position:I
+    iget-object v2, p0, Landroid/app/ActivityManager$StackInfo;->topActivity:Landroid/content/ComponentName;
 
-    invoke-virtual {p1, v3}, Landroid/os/Parcel;->writeInt(I)V
-
-    iget-object v3, p0, Landroid/app/ActivityManager$StackInfo;->topActivity:Landroid/content/ComponentName;
-
-    if-eqz v3, :cond_3
-
-    invoke-virtual {p1, v4}, Landroid/os/Parcel;->writeInt(I)V
-
-    iget-object v3, p0, Landroid/app/ActivityManager$StackInfo;->topActivity:Landroid/content/ComponentName;
-
-    invoke-virtual {v3, p1, v2}, Landroid/content/ComponentName;->writeToParcel(Landroid/os/Parcel;I)V
+    invoke-virtual {v2, p1, v4}, Landroid/content/ComponentName;->writeToParcel(Landroid/os/Parcel;I)V
 
     :goto_3
     return-void
 
     :cond_2
-    move v3, v2
+    move v2, v4
 
     goto :goto_2
 
     :cond_3
-    invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p1, v4}, Landroid/os/Parcel;->writeInt(I)V
 
     goto :goto_3
 .end method

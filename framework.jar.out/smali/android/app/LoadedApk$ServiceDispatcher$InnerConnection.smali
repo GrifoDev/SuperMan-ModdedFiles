@@ -44,7 +44,7 @@
 
 
 # virtual methods
-.method public connected(Landroid/content/ComponentName;Landroid/os/IBinder;)V
+.method public connected(Landroid/content/ComponentName;Landroid/os/IBinder;Z)V
     .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -62,7 +62,7 @@
 
     if-eqz v0, :cond_0
 
-    invoke-virtual {v0, p1, p2}, Landroid/app/LoadedApk$ServiceDispatcher;->connected(Landroid/content/ComponentName;Landroid/os/IBinder;)V
+    invoke-virtual {v0, p1, p2, p3}, Landroid/app/LoadedApk$ServiceDispatcher;->connected(Landroid/content/ComponentName;Landroid/os/IBinder;Z)V
 
     :cond_0
     return-void

@@ -83,11 +83,11 @@
     :cond_0
     iget-object v0, p0, Lcom/samsung/android/contextaware/utilbundle/autotest/CaAutoTestScenarioManager;->mCaOperationDebugging:Lcom/samsung/android/contextaware/utilbundle/autotest/CaOperationDebugging;
 
-    invoke-virtual {v0}, Lcom/samsung/android/contextaware/utilbundle/autotest/OperationDebugging;->clearPacket()V
+    invoke-virtual {v0}, Lcom/samsung/android/contextaware/utilbundle/autotest/CaOperationDebugging;->clearPacket()V
 
     iget-object v0, p0, Lcom/samsung/android/contextaware/utilbundle/autotest/CaAutoTestScenarioManager;->mSensorHubOperationDebugging:Lcom/samsung/android/contextaware/utilbundle/autotest/SensorHubOperationDebugging;
 
-    invoke-virtual {v0}, Lcom/samsung/android/contextaware/utilbundle/autotest/OperationDebugging;->clearPacket()V
+    invoke-virtual {v0}, Lcom/samsung/android/contextaware/utilbundle/autotest/SensorHubOperationDebugging;->clearPacket()V
 
     return-void
 .end method
@@ -113,11 +113,11 @@
     :pswitch_0
     iget-object v0, p0, Lcom/samsung/android/contextaware/utilbundle/autotest/CaAutoTestScenarioManager;->mCaOperationDebugging:Lcom/samsung/android/contextaware/utilbundle/autotest/CaOperationDebugging;
 
-    invoke-virtual {v0, p2}, Lcom/samsung/android/contextaware/utilbundle/autotest/CaAutoTest;->setDelayTime(I)V
+    invoke-virtual {v0, p2}, Lcom/samsung/android/contextaware/utilbundle/autotest/CaOperationDebugging;->setDelayTime(I)V
 
     iget-object v0, p0, Lcom/samsung/android/contextaware/utilbundle/autotest/CaAutoTestScenarioManager;->mCaOperationDebugging:Lcom/samsung/android/contextaware/utilbundle/autotest/CaOperationDebugging;
 
-    invoke-virtual {v0, p3}, Lcom/samsung/android/contextaware/utilbundle/autotest/OperationDebugging;->addPacket([B)V
+    invoke-virtual {v0, p3}, Lcom/samsung/android/contextaware/utilbundle/autotest/CaOperationDebugging;->addPacket([B)V
 
     iget-object v0, p0, Lcom/samsung/android/contextaware/utilbundle/autotest/CaAutoTestScenarioManager;->mScenarioListForTest:Ljava/util/ArrayList;
 
@@ -140,11 +140,11 @@
     :pswitch_1
     iget-object v0, p0, Lcom/samsung/android/contextaware/utilbundle/autotest/CaAutoTestScenarioManager;->mSensorHubOperationDebugging:Lcom/samsung/android/contextaware/utilbundle/autotest/SensorHubOperationDebugging;
 
-    invoke-virtual {v0, p2}, Lcom/samsung/android/contextaware/utilbundle/autotest/CaAutoTest;->setDelayTime(I)V
+    invoke-virtual {v0, p2}, Lcom/samsung/android/contextaware/utilbundle/autotest/SensorHubOperationDebugging;->setDelayTime(I)V
 
     iget-object v0, p0, Lcom/samsung/android/contextaware/utilbundle/autotest/CaAutoTestScenarioManager;->mSensorHubOperationDebugging:Lcom/samsung/android/contextaware/utilbundle/autotest/SensorHubOperationDebugging;
 
-    invoke-virtual {v0, p3}, Lcom/samsung/android/contextaware/utilbundle/autotest/OperationDebugging;->addPacket([B)V
+    invoke-virtual {v0, p3}, Lcom/samsung/android/contextaware/utilbundle/autotest/SensorHubOperationDebugging;->addPacket([B)V
 
     iget-object v0, p0, Lcom/samsung/android/contextaware/utilbundle/autotest/CaAutoTestScenarioManager;->mScenarioListForTest:Ljava/util/ArrayList;
 

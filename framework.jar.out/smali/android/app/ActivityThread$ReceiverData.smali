@@ -26,7 +26,7 @@
 .method public constructor <init>(Landroid/content/Intent;ILjava/lang/String;Landroid/os/Bundle;ZZLandroid/os/IBinder;I)V
     .locals 10
 
-    invoke-virtual {p1}, Landroid/content/Intent;->getBroadcastQueueHint()I
+    invoke-virtual {p1}, Landroid/content/Intent;->getFlags()I
 
     move-result v9
 

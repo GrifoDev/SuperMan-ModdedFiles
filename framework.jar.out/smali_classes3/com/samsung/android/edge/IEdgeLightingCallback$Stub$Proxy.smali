@@ -50,7 +50,142 @@
     return-object v0
 .end method
 
-.method public onEdgeLighting(Ljava/lang/String;Lcom/samsung/android/edge/SemEdgeLightingInfo;Landroid/os/IBinder;)V
+.method public onEdgeLightingStarted()V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    :try_start_0
+    const-string/jumbo v1, "com.samsung.android.edge.IEdgeLightingCallback"
+
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    iget-object v1, p0, Lcom/samsung/android/edge/IEdgeLightingCallback$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+
+    const/4 v2, 0x4
+
+    const/4 v3, 0x0
+
+    const/4 v4, 0x1
+
+    invoke-interface {v1, v2, v0, v3, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    return-void
+
+    :catchall_0
+    move-exception v1
+
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    throw v1
+.end method
+
+.method public onEdgeLightingStopped()V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    :try_start_0
+    const-string/jumbo v1, "com.samsung.android.edge.IEdgeLightingCallback"
+
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    iget-object v1, p0, Lcom/samsung/android/edge/IEdgeLightingCallback$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+
+    const/4 v2, 0x5
+
+    const/4 v3, 0x0
+
+    const/4 v4, 0x1
+
+    invoke-interface {v1, v2, v0, v3, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    return-void
+
+    :catchall_0
+    move-exception v1
+
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    throw v1
+.end method
+
+.method public onScreenChanged(Z)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    const/4 v1, 0x1
+
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    :try_start_0
+    const-string/jumbo v2, "com.samsung.android.edge.IEdgeLightingCallback"
+
+    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    if-eqz p1, :cond_0
+
+    :goto_0
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
+
+    iget-object v1, p0, Lcom/samsung/android/edge/IEdgeLightingCallback$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+
+    const/4 v2, 0x3
+
+    const/4 v3, 0x0
+
+    const/4 v4, 0x1
+
+    invoke-interface {v1, v2, v0, v3, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    return-void
+
+    :cond_0
+    const/4 v1, 0x0
+
+    goto :goto_0
+
+    :catchall_0
+    move-exception v1
+
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    throw v1
+.end method
+
+.method public onStartEdgeLighting(Ljava/lang/String;Lcom/samsung/android/edge/SemEdgeLightingInfo;I)V
     .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -80,7 +215,7 @@
     invoke-virtual {p2, v0, v1}, Lcom/samsung/android/edge/SemEdgeLightingInfo;->writeToParcel(Landroid/os/Parcel;I)V
 
     :goto_0
-    invoke-virtual {v0, p3}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
+    invoke-virtual {v0, p3}, Landroid/os/Parcel;->writeInt(I)V
 
     iget-object v1, p0, Lcom/samsung/android/edge/IEdgeLightingCallback$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
@@ -116,7 +251,7 @@
     throw v1
 .end method
 
-.method public onEdgeLightingCanceled(Ljava/lang/String;)V
+.method public onStopEdgeLighting(Ljava/lang/String;I)V
     .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -134,6 +269,8 @@
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+
+    invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeInt(I)V
 
     iget-object v1, p0, Lcom/samsung/android/edge/IEdgeLightingCallback$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 

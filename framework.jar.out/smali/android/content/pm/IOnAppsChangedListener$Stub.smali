@@ -106,9 +106,7 @@
         }
     .end annotation
 
-    const/4 v5, 0x1
-
-    const/4 v4, 0x0
+    const/4 v6, 0x1
 
     sparse-switch p1, :sswitch_data_0
 
@@ -119,26 +117,26 @@
     return v5
 
     :sswitch_0
-    const-string/jumbo v6, "android.content.pm.IOnAppsChangedListener"
+    const-string/jumbo v5, "android.content.pm.IOnAppsChangedListener"
 
-    invoke-virtual {p3, v6}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p3, v5}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    return v5
+    return v6
 
     :sswitch_1
-    const-string/jumbo v6, "android.content.pm.IOnAppsChangedListener"
+    const-string/jumbo v5, "android.content.pm.IOnAppsChangedListener"
 
-    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v5}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v6
+    move-result v5
 
-    if-eqz v6, :cond_0
+    if-eqz v5, :cond_0
 
-    sget-object v6, Landroid/os/UserHandle;->CREATOR:Landroid/os/Parcelable$Creator;
+    sget-object v5, Landroid/os/UserHandle;->CREATOR:Landroid/os/Parcelable$Creator;
 
-    invoke-interface {v6, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+    invoke-interface {v5, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -151,7 +149,7 @@
 
     invoke-virtual {p0, v0, v1}, Landroid/content/pm/IOnAppsChangedListener$Stub;->onPackageRemoved(Landroid/os/UserHandle;Ljava/lang/String;)V
 
-    return v5
+    return v6
 
     :cond_0
     const/4 v0, 0x0
@@ -159,19 +157,19 @@
     goto :goto_0
 
     :sswitch_2
-    const-string/jumbo v6, "android.content.pm.IOnAppsChangedListener"
+    const-string/jumbo v5, "android.content.pm.IOnAppsChangedListener"
 
-    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v5}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v6
+    move-result v5
 
-    if-eqz v6, :cond_1
+    if-eqz v5, :cond_1
 
-    sget-object v6, Landroid/os/UserHandle;->CREATOR:Landroid/os/Parcelable$Creator;
+    sget-object v5, Landroid/os/UserHandle;->CREATOR:Landroid/os/Parcelable$Creator;
 
-    invoke-interface {v6, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+    invoke-interface {v5, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -184,7 +182,7 @@
 
     invoke-virtual {p0, v0, v1}, Landroid/content/pm/IOnAppsChangedListener$Stub;->onPackageAdded(Landroid/os/UserHandle;Ljava/lang/String;)V
 
-    return v5
+    return v6
 
     :cond_1
     const/4 v0, 0x0
@@ -192,19 +190,19 @@
     goto :goto_1
 
     :sswitch_3
-    const-string/jumbo v6, "android.content.pm.IOnAppsChangedListener"
+    const-string/jumbo v5, "android.content.pm.IOnAppsChangedListener"
 
-    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v5}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v6
+    move-result v5
 
-    if-eqz v6, :cond_2
+    if-eqz v5, :cond_2
 
-    sget-object v6, Landroid/os/UserHandle;->CREATOR:Landroid/os/Parcelable$Creator;
+    sget-object v5, Landroid/os/UserHandle;->CREATOR:Landroid/os/Parcelable$Creator;
 
-    invoke-interface {v6, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+    invoke-interface {v5, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -217,7 +215,7 @@
 
     invoke-virtual {p0, v0, v1}, Landroid/content/pm/IOnAppsChangedListener$Stub;->onPackageChanged(Landroid/os/UserHandle;Ljava/lang/String;)V
 
-    return v5
+    return v6
 
     :cond_2
     const/4 v0, 0x0
@@ -225,19 +223,19 @@
     goto :goto_2
 
     :sswitch_4
-    const-string/jumbo v6, "android.content.pm.IOnAppsChangedListener"
+    const-string/jumbo v5, "android.content.pm.IOnAppsChangedListener"
 
-    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v5}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v6
+    move-result v5
 
-    if-eqz v6, :cond_4
+    if-eqz v5, :cond_3
 
-    sget-object v6, Landroid/os/UserHandle;->CREATOR:Landroid/os/Parcelable$Creator;
+    sget-object v5, Landroid/os/UserHandle;->CREATOR:Landroid/os/Parcelable$Creator;
 
-    invoke-interface {v6, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+    invoke-interface {v5, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -250,78 +248,41 @@
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v6
+    move-result v5
 
-    if-eqz v6, :cond_3
+    if-eqz v5, :cond_4
 
-    move v4, v5
+    const/4 v4, 0x1
 
-    :cond_3
+    :goto_4
     invoke-virtual {p0, v0, v2, v4}, Landroid/content/pm/IOnAppsChangedListener$Stub;->onPackagesAvailable(Landroid/os/UserHandle;[Ljava/lang/String;Z)V
 
-    return v5
+    return v6
 
-    :cond_4
+    :cond_3
     const/4 v0, 0x0
 
     goto :goto_3
 
-    :sswitch_5
-    const-string/jumbo v6, "android.content.pm.IOnAppsChangedListener"
-
-    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v6
-
-    if-eqz v6, :cond_6
-
-    sget-object v6, Landroid/os/UserHandle;->CREATOR:Landroid/os/Parcelable$Creator;
-
-    invoke-interface {v6, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/os/UserHandle;
-
-    :goto_4
-    invoke-virtual {p2}, Landroid/os/Parcel;->createStringArray()[Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v6
-
-    if-eqz v6, :cond_5
-
-    move v4, v5
-
-    :cond_5
-    invoke-virtual {p0, v0, v2, v4}, Landroid/content/pm/IOnAppsChangedListener$Stub;->onPackagesUnavailable(Landroid/os/UserHandle;[Ljava/lang/String;Z)V
-
-    return v5
-
-    :cond_6
-    const/4 v0, 0x0
+    :cond_4
+    const/4 v4, 0x0
 
     goto :goto_4
 
-    :sswitch_6
-    const-string/jumbo v6, "android.content.pm.IOnAppsChangedListener"
+    :sswitch_5
+    const-string/jumbo v5, "android.content.pm.IOnAppsChangedListener"
 
-    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v5}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v6
+    move-result v5
 
-    if-eqz v6, :cond_7
+    if-eqz v5, :cond_5
 
-    sget-object v6, Landroid/os/UserHandle;->CREATOR:Landroid/os/Parcelable$Creator;
+    sget-object v5, Landroid/os/UserHandle;->CREATOR:Landroid/os/Parcelable$Creator;
 
-    invoke-interface {v6, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+    invoke-interface {v5, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -332,102 +293,147 @@
 
     move-result-object v2
 
-    invoke-virtual {p0, v0, v2}, Landroid/content/pm/IOnAppsChangedListener$Stub;->onPackagesSuspended(Landroid/os/UserHandle;[Ljava/lang/String;)V
+    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
-    return v5
+    move-result v5
 
-    :cond_7
+    if-eqz v5, :cond_6
+
+    const/4 v4, 0x1
+
+    :goto_6
+    invoke-virtual {p0, v0, v2, v4}, Landroid/content/pm/IOnAppsChangedListener$Stub;->onPackagesUnavailable(Landroid/os/UserHandle;[Ljava/lang/String;Z)V
+
+    return v6
+
+    :cond_5
     const/4 v0, 0x0
 
     goto :goto_5
 
-    :sswitch_7
-    const-string/jumbo v6, "android.content.pm.IOnAppsChangedListener"
-
-    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v6
-
-    if-eqz v6, :cond_8
-
-    sget-object v6, Landroid/os/UserHandle;->CREATOR:Landroid/os/Parcelable$Creator;
-
-    invoke-interface {v6, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/os/UserHandle;
-
-    :goto_6
-    invoke-virtual {p2}, Landroid/os/Parcel;->createStringArray()[Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {p0, v0, v2}, Landroid/content/pm/IOnAppsChangedListener$Stub;->onPackagesUnsuspended(Landroid/os/UserHandle;[Ljava/lang/String;)V
-
-    return v5
-
-    :cond_8
-    const/4 v0, 0x0
+    :cond_6
+    const/4 v4, 0x0
 
     goto :goto_6
 
-    :sswitch_8
-    const-string/jumbo v6, "android.content.pm.IOnAppsChangedListener"
+    :sswitch_6
+    const-string/jumbo v5, "android.content.pm.IOnAppsChangedListener"
 
-    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v5}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v6
+    move-result v5
 
-    if-eqz v6, :cond_9
+    if-eqz v5, :cond_7
 
-    sget-object v6, Landroid/os/UserHandle;->CREATOR:Landroid/os/Parcelable$Creator;
+    sget-object v5, Landroid/os/UserHandle;->CREATOR:Landroid/os/Parcelable$Creator;
 
-    invoke-interface {v6, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+    invoke-interface {v5, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Landroid/os/UserHandle;
 
     :goto_7
+    invoke-virtual {p2}, Landroid/os/Parcel;->createStringArray()[Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {p0, v0, v2}, Landroid/content/pm/IOnAppsChangedListener$Stub;->onPackagesSuspended(Landroid/os/UserHandle;[Ljava/lang/String;)V
+
+    return v6
+
+    :cond_7
+    const/4 v0, 0x0
+
+    goto :goto_7
+
+    :sswitch_7
+    const-string/jumbo v5, "android.content.pm.IOnAppsChangedListener"
+
+    invoke-virtual {p2, v5}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v5
+
+    if-eqz v5, :cond_8
+
+    sget-object v5, Landroid/os/UserHandle;->CREATOR:Landroid/os/Parcelable$Creator;
+
+    invoke-interface {v5, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/os/UserHandle;
+
+    :goto_8
+    invoke-virtual {p2}, Landroid/os/Parcel;->createStringArray()[Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {p0, v0, v2}, Landroid/content/pm/IOnAppsChangedListener$Stub;->onPackagesUnsuspended(Landroid/os/UserHandle;[Ljava/lang/String;)V
+
+    return v6
+
+    :cond_8
+    const/4 v0, 0x0
+
+    goto :goto_8
+
+    :sswitch_8
+    const-string/jumbo v5, "android.content.pm.IOnAppsChangedListener"
+
+    invoke-virtual {p2, v5}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v5
+
+    if-eqz v5, :cond_9
+
+    sget-object v5, Landroid/os/UserHandle;->CREATOR:Landroid/os/Parcelable$Creator;
+
+    invoke-interface {v5, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/os/UserHandle;
+
+    :goto_9
     invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v1
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v6
+    move-result v5
 
-    if-eqz v6, :cond_a
+    if-eqz v5, :cond_a
 
-    sget-object v6, Landroid/content/pm/ParceledListSlice;->CREATOR:Landroid/os/Parcelable$ClassLoaderCreator;
+    sget-object v5, Landroid/content/pm/ParceledListSlice;->CREATOR:Landroid/os/Parcelable$ClassLoaderCreator;
 
-    invoke-interface {v6, p2}, Landroid/os/Parcelable$ClassLoaderCreator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+    invoke-interface {v5, p2}, Landroid/os/Parcelable$ClassLoaderCreator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
 
     move-result-object v3
 
     check-cast v3, Landroid/content/pm/ParceledListSlice;
 
-    :goto_8
+    :goto_a
     invoke-virtual {p0, v0, v1, v3}, Landroid/content/pm/IOnAppsChangedListener$Stub;->onShortcutChanged(Landroid/os/UserHandle;Ljava/lang/String;Landroid/content/pm/ParceledListSlice;)V
 
-    return v5
+    return v6
 
     :cond_9
     const/4 v0, 0x0
 
-    goto :goto_7
+    goto :goto_9
 
     :cond_a
     const/4 v3, 0x0
 
-    goto :goto_8
-
-    nop
+    goto :goto_a
 
     :sswitch_data_0
     .sparse-switch

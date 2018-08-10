@@ -28,6 +28,12 @@
 
 
 # instance fields
+.field public IsDex:I
+
+.field private cached_count:J
+
+.field private empty_count:J
+
 .field private free_size:J
 
 .field public hasExtra:Z
@@ -37,6 +43,8 @@
 .field private lost_size:J
 
 .field public procName:Ljava/lang/String;
+
+.field public procNum:I
 
 .field public pss:J
 
@@ -136,6 +144,22 @@
 
 
 # virtual methods
+.method public GetCachedcount()J
+    .locals 2
+
+    iget-wide v0, p0, Lcom/android/internal/app/MemDumpInfo;->cached_count:J
+
+    return-wide v0
+.end method
+
+.method public GetEmptycount()J
+    .locals 2
+
+    iget-wide v0, p0, Lcom/android/internal/app/MemDumpInfo;->empty_count:J
+
+    return-wide v0
+.end method
+
 .method public GetFreeSize()J
     .locals 2
 
@@ -166,6 +190,22 @@
     iget-wide v0, p0, Lcom/android/internal/app/MemDumpInfo;->used_size:J
 
     return-wide v0
+.end method
+
+.method public SetCachedcount(J)V
+    .locals 1
+
+    iput-wide p1, p0, Lcom/android/internal/app/MemDumpInfo;->cached_count:J
+
+    return-void
+.end method
+
+.method public SetEmptycount(J)V
+    .locals 1
+
+    iput-wide p1, p0, Lcom/android/internal/app/MemDumpInfo;->empty_count:J
+
+    return-void
 .end method
 
 .method public SetFreeSize(J)V

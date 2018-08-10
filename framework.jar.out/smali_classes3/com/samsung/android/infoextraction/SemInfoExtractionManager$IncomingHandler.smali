@@ -50,7 +50,7 @@
 
     const-string/jumbo v4, "req_time"
 
-    invoke-virtual {v3, v4}, Landroid/os/BaseBundle;->getLong(Ljava/lang/String;)J
+    invoke-virtual {v3, v4}, Landroid/os/Bundle;->getLong(Ljava/lang/String;)J
 
     move-result-wide v0
 

@@ -1,4 +1,4 @@
-.class final Lcom/android/internal/app/ResolverActivity$ResolvedComponentInfo;
+.class public final Lcom/android/internal/app/ResolverActivity$ResolvedComponentInfo;
 .super Ljava/lang/Object;
 .source "ResolverActivity.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
+    accessFlags = 0x19
     name = "ResolvedComponentInfo"
 .end annotation
 

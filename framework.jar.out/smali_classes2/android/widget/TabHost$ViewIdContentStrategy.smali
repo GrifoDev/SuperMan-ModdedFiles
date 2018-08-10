@@ -35,7 +35,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0, p2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v0, p2}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 

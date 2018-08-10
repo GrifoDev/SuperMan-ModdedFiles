@@ -309,18 +309,14 @@
 
     const/4 v14, 0x0
 
-    const/4 v15, 0x0
-
-    new-instance v19, Landroid/media/MiniThumbFile;
-
     if-eqz p8, :cond_5
 
     sget-object v4, Landroid/provider/MediaStore$Video$Media;->EXTERNAL_CONTENT_URI:Landroid/net/Uri;
 
     :goto_0
-    move-object/from16 v0, v19
+    invoke-static {v4}, Landroid/media/MiniThumbFile;->instance(Landroid/net/Uri;)Landroid/media/MiniThumbFile;
 
-    invoke-direct {v0, v4}, Landroid/media/MiniThumbFile;-><init>(Landroid/net/Uri;)V
+    move-result-object v19
 
     invoke-virtual/range {p7 .. p7}, Landroid/net/Uri;->buildUpon()Landroid/net/Uri$Builder;
 
@@ -349,6 +345,8 @@
     invoke-static {v4}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
 
     move-result-object v5
+
+    const/4 v15, 0x0
 
     :try_start_0
     move-object/from16 v0, v19
@@ -831,7 +829,7 @@
 
     :cond_13
     :goto_3
-    if-nez v14, :cond_15
+    if-nez v14, :cond_1b
 
     const-string/jumbo v4, "MediaStore"
 
@@ -881,6 +879,34 @@
 
     invoke-static {v4, v6}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
+    invoke-virtual/range {p7 .. p7}, Landroid/net/Uri;->buildUpon()Landroid/net/Uri$Builder;
+
+    move-result-object v4
+
+    invoke-static/range {p1 .. p2}, Ljava/lang/String;->valueOf(J)Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v4, v6}, Landroid/net/Uri$Builder;->appendPath(Ljava/lang/String;)Landroid/net/Uri$Builder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Landroid/net/Uri$Builder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    const-string/jumbo v6, "thumbnails"
+
+    const-string/jumbo v8, "media"
+
+    invoke-virtual {v4, v6, v8}, Ljava/lang/String;->replaceFirst(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v4}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v5
+
     if-eqz v15, :cond_14
 
     invoke-interface {v15}, Landroid/database/Cursor;->close()V
@@ -902,37 +928,22 @@
 
     move-result-object v15
 
-    if-eqz v15, :cond_1a
+    if-eqz v15, :cond_15
 
     invoke-interface {v15}, Landroid/database/Cursor;->moveToFirst()Z
-
-    move-result v4
-
-    if-eqz v4, :cond_1a
-
-    const/4 v4, 0x1
-
-    invoke-interface {v15, v4}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
-
-    move-result-object v18
-
-    if-eqz v18, :cond_15
-
-    if-eqz p8, :cond_1c
-
-    move-object/from16 v0, v18
-
-    move/from16 v1, p5
-
-    invoke-static {v0, v1}, Landroid/media/ThumbnailUtils;->createVideoThumbnail(Ljava/lang/String;I)Landroid/graphics/Bitmap;
     :try_end_9
     .catch Landroid/database/sqlite/SQLiteException; {:try_start_9 .. :try_end_9} :catch_0
     .catchall {:try_start_9 .. :try_end_9} :catchall_2
 
-    move-result-object v14
+    move-result v4
+
+    xor-int/lit8 v4, v4, 0x1
+
+    if-eqz v4, :cond_1a
 
     :cond_15
-    :goto_4
+    const/4 v4, 0x0
+
     if-eqz v15, :cond_16
 
     invoke-interface {v15}, Landroid/database/Cursor;->close()V
@@ -940,7 +951,9 @@
     :cond_16
     invoke-virtual/range {v19 .. v19}, Landroid/media/MiniThumbFile;->deactivate()V
 
-    goto/16 :goto_1
+    const/16 v19, 0x0
+
+    return-object v4
 
     :catchall_1
     move-exception v4
@@ -1023,25 +1036,41 @@
     invoke-direct {v4, v6}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v4
+
+    :cond_1a
+    const/4 v4, 0x1
+
+    invoke-interface {v15, v4}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
+
+    move-result-object v18
+
+    if-eqz v18, :cond_1b
+
+    if-eqz p8, :cond_1d
+
+    move-object/from16 v0, v18
+
+    move/from16 v1, p5
+
+    invoke-static {v0, v1}, Landroid/media/ThumbnailUtils;->createVideoThumbnail(Ljava/lang/String;I)Landroid/graphics/Bitmap;
     :try_end_b
     .catch Landroid/database/sqlite/SQLiteException; {:try_start_b .. :try_end_b} :catch_0
     .catchall {:try_start_b .. :try_end_b} :catchall_2
 
-    :cond_1a
-    const/4 v4, 0x0
+    move-result-object v14
 
-    if-eqz v15, :cond_1b
+    :cond_1b
+    :goto_4
+    if-eqz v15, :cond_1c
 
     invoke-interface {v15}, Landroid/database/Cursor;->close()V
 
-    :cond_1b
+    :cond_1c
     invoke-virtual/range {v19 .. v19}, Landroid/media/MiniThumbFile;->deactivate()V
 
-    const/16 v19, 0x0
+    goto/16 :goto_1
 
-    return-object v4
-
-    :cond_1c
+    :cond_1d
     :try_start_c
     move-object/from16 v0, v18
 

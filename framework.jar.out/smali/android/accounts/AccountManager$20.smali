@@ -5,7 +5,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Landroid/accounts/AccountManager;->startAddAccountSession(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Landroid/os/Bundle;Landroid/app/Activity;Landroid/accounts/AccountManagerCallback;Landroid/os/Handler;)Landroid/accounts/AccountManagerFuture;
+    value = Landroid/accounts/AccountManager;->getAccountByTypeAndFeatures(Ljava/lang/String;[Ljava/lang/String;Landroid/accounts/AccountManagerCallback;Landroid/os/Handler;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -19,30 +19,18 @@
 
 .field final synthetic val$accountType:Ljava/lang/String;
 
-.field final synthetic val$activity:Landroid/app/Activity;
-
-.field final synthetic val$authTokenType:Ljava/lang/String;
-
-.field final synthetic val$optionsIn:Landroid/os/Bundle;
-
-.field final synthetic val$requiredFeatures:[Ljava/lang/String;
+.field final synthetic val$features:[Ljava/lang/String;
 
 
 # direct methods
-.method constructor <init>(Landroid/accounts/AccountManager;Landroid/accounts/AccountManager;Landroid/app/Activity;Landroid/os/Handler;Landroid/accounts/AccountManagerCallback;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Landroid/app/Activity;Landroid/os/Bundle;)V
+.method constructor <init>(Landroid/accounts/AccountManager;Landroid/accounts/AccountManager;Landroid/app/Activity;Landroid/os/Handler;Landroid/accounts/AccountManagerCallback;Ljava/lang/String;[Ljava/lang/String;)V
     .locals 0
 
     iput-object p2, p0, Landroid/accounts/AccountManager$20;->this$0:Landroid/accounts/AccountManager;
 
     iput-object p6, p0, Landroid/accounts/AccountManager$20;->val$accountType:Ljava/lang/String;
 
-    iput-object p7, p0, Landroid/accounts/AccountManager$20;->val$authTokenType:Ljava/lang/String;
-
-    iput-object p8, p0, Landroid/accounts/AccountManager$20;->val$requiredFeatures:[Ljava/lang/String;
-
-    iput-object p9, p0, Landroid/accounts/AccountManager$20;->val$activity:Landroid/app/Activity;
-
-    iput-object p10, p0, Landroid/accounts/AccountManager$20;->val$optionsIn:Landroid/os/Bundle;
+    iput-object p7, p0, Landroid/accounts/AccountManager$20;->val$features:[Ljava/lang/String;
 
     invoke-direct {p0, p1, p3, p4, p5}, Landroid/accounts/AccountManager$AmsTask;-><init>(Landroid/accounts/AccountManager;Landroid/app/Activity;Landroid/os/Handler;Landroid/accounts/AccountManagerCallback;)V
 
@@ -52,7 +40,7 @@
 
 # virtual methods
 .method public doWork()V
-    .locals 7
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -61,33 +49,27 @@
 
     iget-object v0, p0, Landroid/accounts/AccountManager$20;->this$0:Landroid/accounts/AccountManager;
 
-    invoke-static {v0}, Landroid/accounts/AccountManager;->-get3(Landroid/accounts/AccountManager;)Landroid/accounts/IAccountManager;
+    invoke-static {v0}, Landroid/accounts/AccountManager;->-get4(Landroid/accounts/AccountManager;)Landroid/accounts/IAccountManager;
 
     move-result-object v0
 
-    iget-object v1, p0, Landroid/accounts/AccountManager$AmsTask;->mResponse:Landroid/accounts/IAccountManagerResponse;
+    iget-object v1, p0, Landroid/accounts/AccountManager$20;->mResponse:Landroid/accounts/IAccountManagerResponse;
 
     iget-object v2, p0, Landroid/accounts/AccountManager$20;->val$accountType:Ljava/lang/String;
 
-    iget-object v3, p0, Landroid/accounts/AccountManager$20;->val$authTokenType:Ljava/lang/String;
+    iget-object v3, p0, Landroid/accounts/AccountManager$20;->val$features:[Ljava/lang/String;
 
-    iget-object v4, p0, Landroid/accounts/AccountManager$20;->val$requiredFeatures:[Ljava/lang/String;
+    iget-object v4, p0, Landroid/accounts/AccountManager$20;->this$0:Landroid/accounts/AccountManager;
 
-    iget-object v5, p0, Landroid/accounts/AccountManager$20;->val$activity:Landroid/app/Activity;
+    invoke-static {v4}, Landroid/accounts/AccountManager;->-get2(Landroid/accounts/AccountManager;)Landroid/content/Context;
 
-    if-eqz v5, :cond_0
+    move-result-object v4
 
-    const/4 v5, 0x1
+    invoke-virtual {v4}, Landroid/content/Context;->getOpPackageName()Ljava/lang/String;
 
-    :goto_0
-    iget-object v6, p0, Landroid/accounts/AccountManager$20;->val$optionsIn:Landroid/os/Bundle;
+    move-result-object v4
 
-    invoke-interface/range {v0 .. v6}, Landroid/accounts/IAccountManager;->startAddAccountSession(Landroid/accounts/IAccountManagerResponse;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;ZLandroid/os/Bundle;)V
+    invoke-interface {v0, v1, v2, v3, v4}, Landroid/accounts/IAccountManager;->getAccountByTypeAndFeatures(Landroid/accounts/IAccountManagerResponse;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)V
 
     return-void
-
-    :cond_0
-    const/4 v5, 0x0
-
-    goto :goto_0
 .end method

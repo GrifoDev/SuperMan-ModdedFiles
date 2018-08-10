@@ -34,24 +34,26 @@
 
 
 # virtual methods
-.method public addConferenceCall(Ljava/lang/String;Landroid/telecom/ParcelableConference;)V
-    .locals 5
+.method public addConferenceCall(Ljava/lang/String;Landroid/telecom/ParcelableConference;Landroid/telecom/Logging/Session$Info;)V
+    .locals 7
+
+    const/4 v6, 0x0
 
     new-instance v1, Landroid/telecom/RemoteConference;
 
-    iget-object v4, p0, Landroid/telecom/RemoteConnectionService$1;->this$0:Landroid/telecom/RemoteConnectionService;
+    iget-object v5, p0, Landroid/telecom/RemoteConnectionService$1;->this$0:Landroid/telecom/RemoteConnectionService;
 
-    invoke-static {v4}, Landroid/telecom/RemoteConnectionService;->-get6(Landroid/telecom/RemoteConnectionService;)Lcom/android/internal/telecom/IConnectionService;
+    invoke-static {v5}, Landroid/telecom/RemoteConnectionService;->-get6(Landroid/telecom/RemoteConnectionService;)Lcom/android/internal/telecom/IConnectionService;
 
-    move-result-object v4
+    move-result-object v5
 
-    invoke-direct {v1, p1, v4}, Landroid/telecom/RemoteConference;-><init>(Ljava/lang/String;Lcom/android/internal/telecom/IConnectionService;)V
+    invoke-direct {v1, p1, v5}, Landroid/telecom/RemoteConference;-><init>(Ljava/lang/String;Lcom/android/internal/telecom/IConnectionService;)V
 
     invoke-virtual {p2}, Landroid/telecom/ParcelableConference;->getConnectionIds()Ljava/util/List;
 
-    move-result-object v4
+    move-result-object v5
 
-    invoke-interface {v4}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+    invoke-interface {v5}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v3
 
@@ -59,9 +61,9 @@
     :goto_0
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v4
+    move-result v5
 
-    if-eqz v4, :cond_1
+    if-eqz v5, :cond_1
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -69,13 +71,13 @@
 
     check-cast v2, Ljava/lang/String;
 
-    iget-object v4, p0, Landroid/telecom/RemoteConnectionService$1;->this$0:Landroid/telecom/RemoteConnectionService;
+    iget-object v5, p0, Landroid/telecom/RemoteConnectionService$1;->this$0:Landroid/telecom/RemoteConnectionService;
 
-    invoke-static {v4}, Landroid/telecom/RemoteConnectionService;->-get3(Landroid/telecom/RemoteConnectionService;)Ljava/util/Map;
+    invoke-static {v5}, Landroid/telecom/RemoteConnectionService;->-get3(Landroid/telecom/RemoteConnectionService;)Ljava/util/Map;
 
-    move-result-object v4
+    move-result-object v5
 
-    invoke-interface {v4, v2}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v5, v2}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -90,56 +92,110 @@
     :cond_1
     invoke-virtual {v1}, Landroid/telecom/RemoteConference;->getConnections()Ljava/util/List;
 
-    move-result-object v4
+    move-result-object v5
 
-    invoke-interface {v4}, Ljava/util/List;->size()I
+    invoke-interface {v5}, Ljava/util/List;->size()I
 
-    move-result v4
+    move-result v5
 
-    if-nez v4, :cond_2
+    if-nez v5, :cond_2
+
+    const-string/jumbo v5, "addConferenceCall - skipping"
+
+    new-array v6, v6, [Ljava/lang/Object;
+
+    invoke-static {p0, v5, v6}, Landroid/telecom/Log;->d(Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Object;)V
 
     return-void
 
     :cond_2
     invoke-virtual {p2}, Landroid/telecom/ParcelableConference;->getState()I
 
-    move-result v4
+    move-result v5
 
-    invoke-virtual {v1, v4}, Landroid/telecom/RemoteConference;->setState(I)V
+    invoke-virtual {v1, v5}, Landroid/telecom/RemoteConference;->setState(I)V
 
     invoke-virtual {p2}, Landroid/telecom/ParcelableConference;->getConnectionCapabilities()I
 
-    move-result v4
+    move-result v5
 
-    invoke-virtual {v1, v4}, Landroid/telecom/RemoteConference;->setConnectionCapabilities(I)V
+    invoke-virtual {v1, v5}, Landroid/telecom/RemoteConference;->setConnectionCapabilities(I)V
 
-    iget-object v4, p0, Landroid/telecom/RemoteConnectionService$1;->this$0:Landroid/telecom/RemoteConnectionService;
+    invoke-virtual {p2}, Landroid/telecom/ParcelableConference;->getConnectionProperties()I
 
-    invoke-static {v4}, Landroid/telecom/RemoteConnectionService;->-get2(Landroid/telecom/RemoteConnectionService;)Ljava/util/Map;
+    move-result v5
 
-    move-result-object v4
+    invoke-virtual {v1, v5}, Landroid/telecom/RemoteConference;->setConnectionProperties(I)V
 
-    invoke-interface {v4, p1, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p2}, Landroid/telecom/ParcelableConference;->getExtras()Landroid/os/Bundle;
 
-    new-instance v4, Landroid/telecom/RemoteConnectionService$1$1;
+    move-result-object v5
 
-    invoke-direct {v4, p0, p1}, Landroid/telecom/RemoteConnectionService$1$1;-><init>(Landroid/telecom/RemoteConnectionService$1;Ljava/lang/String;)V
+    invoke-virtual {v1, v5}, Landroid/telecom/RemoteConference;->putExtras(Landroid/os/Bundle;)V
 
-    invoke-virtual {v1, v4}, Landroid/telecom/RemoteConference;->registerCallback(Landroid/telecom/RemoteConference$Callback;)V
+    iget-object v5, p0, Landroid/telecom/RemoteConnectionService$1;->this$0:Landroid/telecom/RemoteConnectionService;
 
-    iget-object v4, p0, Landroid/telecom/RemoteConnectionService$1;->this$0:Landroid/telecom/RemoteConnectionService;
+    invoke-static {v5}, Landroid/telecom/RemoteConnectionService;->-get2(Landroid/telecom/RemoteConnectionService;)Ljava/util/Map;
 
-    invoke-static {v4}, Landroid/telecom/RemoteConnectionService;->-get5(Landroid/telecom/RemoteConnectionService;)Landroid/telecom/ConnectionService;
+    move-result-object v5
 
-    move-result-object v4
+    invoke-interface {v5, p1, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-virtual {v4, v1}, Landroid/telecom/ConnectionService;->addRemoteConference(Landroid/telecom/RemoteConference;)V
+    new-instance v4, Landroid/os/Bundle;
+
+    invoke-direct {v4}, Landroid/os/Bundle;-><init>()V
+
+    const-string/jumbo v5, "android.telecom.extra.ORIGINAL_CONNECTION_ID"
+
+    invoke-virtual {v4, v5, p1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+
+    invoke-virtual {v1, v4}, Landroid/telecom/RemoteConference;->putExtras(Landroid/os/Bundle;)V
+
+    new-instance v5, Landroid/telecom/RemoteConnectionService$1$1;
+
+    invoke-direct {v5, p0, p1}, Landroid/telecom/RemoteConnectionService$1$1;-><init>(Landroid/telecom/RemoteConnectionService$1;Ljava/lang/String;)V
+
+    invoke-virtual {v1, v5}, Landroid/telecom/RemoteConference;->registerCallback(Landroid/telecom/RemoteConference$Callback;)V
+
+    iget-object v5, p0, Landroid/telecom/RemoteConnectionService$1;->this$0:Landroid/telecom/RemoteConnectionService;
+
+    invoke-static {v5}, Landroid/telecom/RemoteConnectionService;->-get5(Landroid/telecom/RemoteConnectionService;)Landroid/telecom/ConnectionService;
+
+    move-result-object v5
+
+    invoke-virtual {v5, v1}, Landroid/telecom/ConnectionService;->addRemoteConference(Landroid/telecom/RemoteConference;)V
 
     return-void
 .end method
 
-.method public addExistingConnection(Ljava/lang/String;Landroid/telecom/ParcelableConnection;)V
-    .locals 2
+.method public addExistingConnection(Ljava/lang/String;Landroid/telecom/ParcelableConnection;Landroid/telecom/Logging/Session$Info;)V
+    .locals 6
+
+    iget-object v1, p0, Landroid/telecom/RemoteConnectionService$1;->this$0:Landroid/telecom/RemoteConnectionService;
+
+    invoke-static {v1}, Landroid/telecom/RemoteConnectionService;->-get5(Landroid/telecom/RemoteConnectionService;)Landroid/telecom/ConnectionService;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/telecom/ConnectionService;->getApplicationContext()Landroid/content/Context;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/content/Context;->getOpPackageName()Ljava/lang/String;
+
+    move-result-object v4
+
+    iget-object v1, p0, Landroid/telecom/RemoteConnectionService$1;->this$0:Landroid/telecom/RemoteConnectionService;
+
+    invoke-static {v1}, Landroid/telecom/RemoteConnectionService;->-get5(Landroid/telecom/RemoteConnectionService;)Landroid/telecom/ConnectionService;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/telecom/ConnectionService;->getApplicationInfo()Landroid/content/pm/ApplicationInfo;
+
+    move-result-object v1
+
+    iget v5, v1, Landroid/content/pm/ApplicationInfo;->targetSdkVersion:I
 
     new-instance v0, Landroid/telecom/RemoteConnection;
 
@@ -147,9 +203,27 @@
 
     invoke-static {v1}, Landroid/telecom/RemoteConnectionService;->-get6(Landroid/telecom/RemoteConnectionService;)Lcom/android/internal/telecom/IConnectionService;
 
+    move-result-object v2
+
+    move-object v1, p1
+
+    move-object v3, p2
+
+    invoke-direct/range {v0 .. v5}, Landroid/telecom/RemoteConnection;-><init>(Ljava/lang/String;Lcom/android/internal/telecom/IConnectionService;Landroid/telecom/ParcelableConnection;Ljava/lang/String;I)V
+
+    iget-object v1, p0, Landroid/telecom/RemoteConnectionService$1;->this$0:Landroid/telecom/RemoteConnectionService;
+
+    invoke-static {v1}, Landroid/telecom/RemoteConnectionService;->-get3(Landroid/telecom/RemoteConnectionService;)Ljava/util/Map;
+
     move-result-object v1
 
-    invoke-direct {v0, p1, v1, p2}, Landroid/telecom/RemoteConnection;-><init>(Ljava/lang/String;Lcom/android/internal/telecom/IConnectionService;Landroid/telecom/ParcelableConnection;)V
+    invoke-interface {v1, p1, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    new-instance v1, Landroid/telecom/RemoteConnectionService$1$2;
+
+    invoke-direct {v1, p0, p1}, Landroid/telecom/RemoteConnectionService$1$2;-><init>(Landroid/telecom/RemoteConnectionService$1;Ljava/lang/String;)V
+
+    invoke-virtual {v0, v1}, Landroid/telecom/RemoteConnection;->registerCallback(Landroid/telecom/RemoteConnection$Callback;)V
 
     iget-object v1, p0, Landroid/telecom/RemoteConnectionService$1;->this$0:Landroid/telecom/RemoteConnectionService;
 
@@ -172,7 +246,7 @@
     throw v0
 .end method
 
-.method public handleCreateConnectionComplete(Ljava/lang/String;Landroid/telecom/ConnectionRequest;Landroid/telecom/ParcelableConnection;)V
+.method public handleCreateConnectionComplete(Ljava/lang/String;Landroid/telecom/ConnectionRequest;Landroid/telecom/ParcelableConnection;Landroid/telecom/Logging/Session$Info;)V
     .locals 7
 
     const/4 v6, 0x6
@@ -368,7 +442,7 @@
     return-void
 .end method
 
-.method public onConnectionEvent(Ljava/lang/String;Ljava/lang/String;Landroid/os/Bundle;)V
+.method public onConnectionEvent(Ljava/lang/String;Ljava/lang/String;Landroid/os/Bundle;Landroid/telecom/Logging/Session$Info;)V
     .locals 2
 
     iget-object v0, p0, Landroid/telecom/RemoteConnectionService$1;->this$0:Landroid/telecom/RemoteConnectionService;
@@ -397,7 +471,7 @@
     return-void
 .end method
 
-.method public onPostDialChar(Ljava/lang/String;C)V
+.method public onPostDialChar(Ljava/lang/String;CLandroid/telecom/Logging/Session$Info;)V
     .locals 2
 
     iget-object v0, p0, Landroid/telecom/RemoteConnectionService$1;->this$0:Landroid/telecom/RemoteConnectionService;
@@ -413,7 +487,7 @@
     return-void
 .end method
 
-.method public onPostDialWait(Ljava/lang/String;Ljava/lang/String;)V
+.method public onPostDialWait(Ljava/lang/String;Ljava/lang/String;Landroid/telecom/Logging/Session$Info;)V
     .locals 2
 
     iget-object v0, p0, Landroid/telecom/RemoteConnectionService$1;->this$0:Landroid/telecom/RemoteConnectionService;
@@ -429,7 +503,171 @@
     return-void
 .end method
 
-.method public putExtras(Ljava/lang/String;Landroid/os/Bundle;)V
+.method public onRemoteRttRequest(Ljava/lang/String;Landroid/telecom/Logging/Session$Info;)V
+    .locals 2
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    iget-object v0, p0, Landroid/telecom/RemoteConnectionService$1;->this$0:Landroid/telecom/RemoteConnectionService;
+
+    invoke-static {v0, p1}, Landroid/telecom/RemoteConnectionService;->-wrap2(Landroid/telecom/RemoteConnectionService;Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Landroid/telecom/RemoteConnectionService$1;->this$0:Landroid/telecom/RemoteConnectionService;
+
+    const-string/jumbo v1, "onRemoteRttRequest"
+
+    invoke-static {v0, p1, v1}, Landroid/telecom/RemoteConnectionService;->-wrap1(Landroid/telecom/RemoteConnectionService;Ljava/lang/String;Ljava/lang/String;)Landroid/telecom/RemoteConnection;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/telecom/RemoteConnection;->onRemoteRttRequest()V
+
+    :goto_0
+    return-void
+
+    :cond_0
+    const-string/jumbo v0, "onRemoteRttRequest called on a remote conference"
+
+    const/4 v1, 0x0
+
+    new-array v1, v1, [Ljava/lang/Object;
+
+    invoke-static {p0, v0, v1}, Landroid/telecom/Log;->w(Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Object;)V
+
+    goto :goto_0
+.end method
+
+.method public onRttInitiationFailure(Ljava/lang/String;ILandroid/telecom/Logging/Session$Info;)V
+    .locals 2
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    iget-object v0, p0, Landroid/telecom/RemoteConnectionService$1;->this$0:Landroid/telecom/RemoteConnectionService;
+
+    invoke-static {v0, p1}, Landroid/telecom/RemoteConnectionService;->-wrap2(Landroid/telecom/RemoteConnectionService;Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Landroid/telecom/RemoteConnectionService$1;->this$0:Landroid/telecom/RemoteConnectionService;
+
+    const-string/jumbo v1, "onRttInitiationFailure"
+
+    invoke-static {v0, p1, v1}, Landroid/telecom/RemoteConnectionService;->-wrap1(Landroid/telecom/RemoteConnectionService;Ljava/lang/String;Ljava/lang/String;)Landroid/telecom/RemoteConnection;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p2}, Landroid/telecom/RemoteConnection;->onRttInitiationFailure(I)V
+
+    :goto_0
+    return-void
+
+    :cond_0
+    const-string/jumbo v0, "onRttInitiationFailure called on a remote conference"
+
+    const/4 v1, 0x0
+
+    new-array v1, v1, [Ljava/lang/Object;
+
+    invoke-static {p0, v0, v1}, Landroid/telecom/Log;->w(Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Object;)V
+
+    goto :goto_0
+.end method
+
+.method public onRttInitiationSuccess(Ljava/lang/String;Landroid/telecom/Logging/Session$Info;)V
+    .locals 2
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    iget-object v0, p0, Landroid/telecom/RemoteConnectionService$1;->this$0:Landroid/telecom/RemoteConnectionService;
+
+    invoke-static {v0, p1}, Landroid/telecom/RemoteConnectionService;->-wrap2(Landroid/telecom/RemoteConnectionService;Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Landroid/telecom/RemoteConnectionService$1;->this$0:Landroid/telecom/RemoteConnectionService;
+
+    const-string/jumbo v1, "onRttInitiationSuccess"
+
+    invoke-static {v0, p1, v1}, Landroid/telecom/RemoteConnectionService;->-wrap1(Landroid/telecom/RemoteConnectionService;Ljava/lang/String;Ljava/lang/String;)Landroid/telecom/RemoteConnection;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/telecom/RemoteConnection;->onRttInitiationSuccess()V
+
+    :goto_0
+    return-void
+
+    :cond_0
+    const-string/jumbo v0, "onRttInitiationSuccess called on a remote conference"
+
+    const/4 v1, 0x0
+
+    new-array v1, v1, [Ljava/lang/Object;
+
+    invoke-static {p0, v0, v1}, Landroid/telecom/Log;->w(Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Object;)V
+
+    goto :goto_0
+.end method
+
+.method public onRttSessionRemotelyTerminated(Ljava/lang/String;Landroid/telecom/Logging/Session$Info;)V
+    .locals 2
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    iget-object v0, p0, Landroid/telecom/RemoteConnectionService$1;->this$0:Landroid/telecom/RemoteConnectionService;
+
+    invoke-static {v0, p1}, Landroid/telecom/RemoteConnectionService;->-wrap2(Landroid/telecom/RemoteConnectionService;Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Landroid/telecom/RemoteConnectionService$1;->this$0:Landroid/telecom/RemoteConnectionService;
+
+    const-string/jumbo v1, "onRttSessionRemotelyTerminated"
+
+    invoke-static {v0, p1, v1}, Landroid/telecom/RemoteConnectionService;->-wrap1(Landroid/telecom/RemoteConnectionService;Ljava/lang/String;Ljava/lang/String;)Landroid/telecom/RemoteConnection;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/telecom/RemoteConnection;->onRttSessionRemotelyTerminated()V
+
+    :goto_0
+    return-void
+
+    :cond_0
+    const-string/jumbo v0, "onRttSessionRemotelyTerminated called on a remote conference"
+
+    const/4 v1, 0x0
+
+    new-array v1, v1, [Ljava/lang/Object;
+
+    invoke-static {p0, v0, v1}, Landroid/telecom/Log;->w(Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Object;)V
+
+    goto :goto_0
+.end method
+
+.method public putExtras(Ljava/lang/String;Landroid/os/Bundle;Landroid/telecom/Logging/Session$Info;)V
     .locals 2
 
     iget-object v0, p0, Landroid/telecom/RemoteConnectionService$1;->this$0:Landroid/telecom/RemoteConnectionService;
@@ -467,13 +705,13 @@
     goto :goto_0
 .end method
 
-.method public queryRemoteConnectionServices(Lcom/android/internal/telecom/RemoteServiceCallback;)V
+.method public queryRemoteConnectionServices(Lcom/android/internal/telecom/RemoteServiceCallback;Landroid/telecom/Logging/Session$Info;)V
     .locals 0
 
     return-void
 .end method
 
-.method public removeCall(Ljava/lang/String;)V
+.method public removeCall(Ljava/lang/String;Landroid/telecom/Logging/Session$Info;)V
     .locals 2
 
     iget-object v0, p0, Landroid/telecom/RemoteConnectionService$1;->this$0:Landroid/telecom/RemoteConnectionService;
@@ -515,7 +753,7 @@
     goto :goto_0
 .end method
 
-.method public removeExtras(Ljava/lang/String;Ljava/util/List;)V
+.method public removeExtras(Ljava/lang/String;Ljava/util/List;Landroid/telecom/Logging/Session$Info;)V
     .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -524,7 +762,9 @@
             "Ljava/util/List",
             "<",
             "Ljava/lang/String;",
-            ">;)V"
+            ">;",
+            "Landroid/telecom/Logging/Session$Info;",
+            ")V"
         }
     .end annotation
 
@@ -563,7 +803,7 @@
     goto :goto_0
 .end method
 
-.method public setActive(Ljava/lang/String;)V
+.method public setActive(Ljava/lang/String;Landroid/telecom/Logging/Session$Info;)V
     .locals 3
 
     const/4 v2, 0x4
@@ -607,7 +847,7 @@
     goto :goto_0
 .end method
 
-.method public setAddress(Ljava/lang/String;Landroid/net/Uri;I)V
+.method public setAddress(Ljava/lang/String;Landroid/net/Uri;ILandroid/telecom/Logging/Session$Info;)V
     .locals 2
 
     iget-object v0, p0, Landroid/telecom/RemoteConnectionService$1;->this$0:Landroid/telecom/RemoteConnectionService;
@@ -623,7 +863,19 @@
     return-void
 .end method
 
-.method public setCallerDisplayName(Ljava/lang/String;Ljava/lang/String;I)V
+.method public setAudioRoute(Ljava/lang/String;ILandroid/telecom/Logging/Session$Info;)V
+    .locals 1
+
+    iget-object v0, p0, Landroid/telecom/RemoteConnectionService$1;->this$0:Landroid/telecom/RemoteConnectionService;
+
+    invoke-static {v0, p1}, Landroid/telecom/RemoteConnectionService;->-wrap2(Landroid/telecom/RemoteConnectionService;Ljava/lang/String;)Z
+
+    move-result v0
+
+    return-void
+.end method
+
+.method public setCallerDisplayName(Ljava/lang/String;Ljava/lang/String;ILandroid/telecom/Logging/Session$Info;)V
     .locals 2
 
     iget-object v0, p0, Landroid/telecom/RemoteConnectionService$1;->this$0:Landroid/telecom/RemoteConnectionService;
@@ -639,13 +891,13 @@
     return-void
 .end method
 
-.method public setConferenceMergeFailed(Ljava/lang/String;)V
+.method public setConferenceMergeFailed(Ljava/lang/String;Landroid/telecom/Logging/Session$Info;)V
     .locals 0
 
     return-void
 .end method
 
-.method public final setConferenceableConnections(Ljava/lang/String;Ljava/util/List;)V
+.method public final setConferenceableConnections(Ljava/lang/String;Ljava/util/List;Landroid/telecom/Logging/Session$Info;)V
     .locals 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -654,7 +906,9 @@
             "Ljava/util/List",
             "<",
             "Ljava/lang/String;",
-            ">;)V"
+            ">;",
+            "Landroid/telecom/Logging/Session$Info;",
+            ")V"
         }
     .end annotation
 
@@ -744,7 +998,7 @@
     goto :goto_1
 .end method
 
-.method public setConnectionCapabilities(Ljava/lang/String;I)V
+.method public setConnectionCapabilities(Ljava/lang/String;ILandroid/telecom/Logging/Session$Info;)V
     .locals 2
 
     iget-object v0, p0, Landroid/telecom/RemoteConnectionService$1;->this$0:Landroid/telecom/RemoteConnectionService;
@@ -786,7 +1040,7 @@
     goto :goto_0
 .end method
 
-.method public setConnectionProperties(Ljava/lang/String;I)V
+.method public setConnectionProperties(Ljava/lang/String;ILandroid/telecom/Logging/Session$Info;)V
     .locals 2
 
     iget-object v0, p0, Landroid/telecom/RemoteConnectionService$1;->this$0:Landroid/telecom/RemoteConnectionService;
@@ -828,7 +1082,7 @@
     goto :goto_0
 .end method
 
-.method public setDialing(Ljava/lang/String;)V
+.method public setDialing(Ljava/lang/String;Landroid/telecom/Logging/Session$Info;)V
     .locals 2
 
     iget-object v0, p0, Landroid/telecom/RemoteConnectionService$1;->this$0:Landroid/telecom/RemoteConnectionService;
@@ -846,7 +1100,7 @@
     return-void
 .end method
 
-.method public setDisconnected(Ljava/lang/String;Landroid/telecom/DisconnectCause;)V
+.method public setDisconnected(Ljava/lang/String;Landroid/telecom/DisconnectCause;Landroid/telecom/Logging/Session$Info;)V
     .locals 2
 
     iget-object v0, p0, Landroid/telecom/RemoteConnectionService$1;->this$0:Landroid/telecom/RemoteConnectionService;
@@ -888,7 +1142,7 @@
     goto :goto_0
 .end method
 
-.method public setIsConferenced(Ljava/lang/String;Ljava/lang/String;)V
+.method public setIsConferenced(Ljava/lang/String;Ljava/lang/String;Landroid/telecom/Logging/Session$Info;)V
     .locals 4
 
     iget-object v2, p0, Landroid/telecom/RemoteConnectionService$1;->this$0:Landroid/telecom/RemoteConnectionService;
@@ -943,7 +1197,7 @@
     goto :goto_0
 .end method
 
-.method public setIsVoipAudioMode(Ljava/lang/String;Z)V
+.method public setIsVoipAudioMode(Ljava/lang/String;ZLandroid/telecom/Logging/Session$Info;)V
     .locals 2
 
     iget-object v0, p0, Landroid/telecom/RemoteConnectionService$1;->this$0:Landroid/telecom/RemoteConnectionService;
@@ -959,7 +1213,7 @@
     return-void
 .end method
 
-.method public setOnHold(Ljava/lang/String;)V
+.method public setOnHold(Ljava/lang/String;Landroid/telecom/Logging/Session$Info;)V
     .locals 3
 
     const/4 v2, 0x5
@@ -1003,7 +1257,25 @@
     goto :goto_0
 .end method
 
-.method public setRingbackRequested(Ljava/lang/String;Z)V
+.method public setPulling(Ljava/lang/String;Landroid/telecom/Logging/Session$Info;)V
+    .locals 2
+
+    iget-object v0, p0, Landroid/telecom/RemoteConnectionService$1;->this$0:Landroid/telecom/RemoteConnectionService;
+
+    const-string/jumbo v1, "setPulling"
+
+    invoke-static {v0, p1, v1}, Landroid/telecom/RemoteConnectionService;->-wrap1(Landroid/telecom/RemoteConnectionService;Ljava/lang/String;Ljava/lang/String;)Landroid/telecom/RemoteConnection;
+
+    move-result-object v0
+
+    const/4 v1, 0x7
+
+    invoke-virtual {v0, v1}, Landroid/telecom/RemoteConnection;->setState(I)V
+
+    return-void
+.end method
+
+.method public setRingbackRequested(Ljava/lang/String;ZLandroid/telecom/Logging/Session$Info;)V
     .locals 2
 
     iget-object v0, p0, Landroid/telecom/RemoteConnectionService$1;->this$0:Landroid/telecom/RemoteConnectionService;
@@ -1019,7 +1291,7 @@
     return-void
 .end method
 
-.method public setRinging(Ljava/lang/String;)V
+.method public setRinging(Ljava/lang/String;Landroid/telecom/Logging/Session$Info;)V
     .locals 2
 
     iget-object v0, p0, Landroid/telecom/RemoteConnectionService$1;->this$0:Landroid/telecom/RemoteConnectionService;
@@ -1037,7 +1309,7 @@
     return-void
 .end method
 
-.method public setStatusHints(Ljava/lang/String;Landroid/telecom/StatusHints;)V
+.method public setStatusHints(Ljava/lang/String;Landroid/telecom/StatusHints;Landroid/telecom/Logging/Session$Info;)V
     .locals 2
 
     iget-object v0, p0, Landroid/telecom/RemoteConnectionService$1;->this$0:Landroid/telecom/RemoteConnectionService;
@@ -1053,32 +1325,58 @@
     return-void
 .end method
 
-.method public setVideoProvider(Ljava/lang/String;Lcom/android/internal/telecom/IVideoProvider;)V
-    .locals 3
+.method public setVideoProvider(Ljava/lang/String;Lcom/android/internal/telecom/IVideoProvider;Landroid/telecom/Logging/Session$Info;)V
+    .locals 5
 
-    const/4 v0, 0x0
+    iget-object v3, p0, Landroid/telecom/RemoteConnectionService$1;->this$0:Landroid/telecom/RemoteConnectionService;
+
+    invoke-static {v3}, Landroid/telecom/RemoteConnectionService;->-get5(Landroid/telecom/RemoteConnectionService;)Landroid/telecom/ConnectionService;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Landroid/telecom/ConnectionService;->getApplicationContext()Landroid/content/Context;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Landroid/content/Context;->getOpPackageName()Ljava/lang/String;
+
+    move-result-object v0
+
+    iget-object v3, p0, Landroid/telecom/RemoteConnectionService$1;->this$0:Landroid/telecom/RemoteConnectionService;
+
+    invoke-static {v3}, Landroid/telecom/RemoteConnectionService;->-get5(Landroid/telecom/RemoteConnectionService;)Landroid/telecom/ConnectionService;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Landroid/telecom/ConnectionService;->getApplicationInfo()Landroid/content/pm/ApplicationInfo;
+
+    move-result-object v3
+
+    iget v2, v3, Landroid/content/pm/ApplicationInfo;->targetSdkVersion:I
+
+    const/4 v1, 0x0
 
     if-eqz p2, :cond_0
 
-    new-instance v0, Landroid/telecom/RemoteConnection$VideoProvider;
+    new-instance v1, Landroid/telecom/RemoteConnection$VideoProvider;
 
-    invoke-direct {v0, p2}, Landroid/telecom/RemoteConnection$VideoProvider;-><init>(Lcom/android/internal/telecom/IVideoProvider;)V
+    invoke-direct {v1, p2, v0, v2}, Landroid/telecom/RemoteConnection$VideoProvider;-><init>(Lcom/android/internal/telecom/IVideoProvider;Ljava/lang/String;I)V
 
     :cond_0
-    iget-object v1, p0, Landroid/telecom/RemoteConnectionService$1;->this$0:Landroid/telecom/RemoteConnectionService;
+    iget-object v3, p0, Landroid/telecom/RemoteConnectionService$1;->this$0:Landroid/telecom/RemoteConnectionService;
 
-    const-string/jumbo v2, "setVideoProvider"
+    const-string/jumbo v4, "setVideoProvider"
 
-    invoke-static {v1, p1, v2}, Landroid/telecom/RemoteConnectionService;->-wrap1(Landroid/telecom/RemoteConnectionService;Ljava/lang/String;Ljava/lang/String;)Landroid/telecom/RemoteConnection;
+    invoke-static {v3, p1, v4}, Landroid/telecom/RemoteConnectionService;->-wrap1(Landroid/telecom/RemoteConnectionService;Ljava/lang/String;Ljava/lang/String;)Landroid/telecom/RemoteConnection;
 
-    move-result-object v1
+    move-result-object v3
 
-    invoke-virtual {v1, v0}, Landroid/telecom/RemoteConnection;->setVideoProvider(Landroid/telecom/RemoteConnection$VideoProvider;)V
+    invoke-virtual {v3, v1}, Landroid/telecom/RemoteConnection;->setVideoProvider(Landroid/telecom/RemoteConnection$VideoProvider;)V
 
     return-void
 .end method
 
-.method public setVideoState(Ljava/lang/String;I)V
+.method public setVideoState(Ljava/lang/String;ILandroid/telecom/Logging/Session$Info;)V
     .locals 2
 
     iget-object v0, p0, Landroid/telecom/RemoteConnectionService$1;->this$0:Landroid/telecom/RemoteConnectionService;

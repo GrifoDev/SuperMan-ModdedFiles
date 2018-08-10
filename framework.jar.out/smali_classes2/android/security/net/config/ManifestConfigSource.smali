@@ -31,6 +31,8 @@
 
 .field private final mLock:Ljava/lang/Object;
 
+.field private final mTargetSandboxVesrsion:I
+
 .field private final mTargetSdkVersion:I
 
 
@@ -64,154 +66,173 @@
 
     iput v1, p0, Landroid/security/net/config/ManifestConfigSource;->mConfigResourceId:I
 
+    iget v1, v0, Landroid/content/pm/ApplicationInfo;->targetSandboxVersion:I
+
+    iput v1, p0, Landroid/security/net/config/ManifestConfigSource;->mTargetSandboxVesrsion:I
+
     return-void
 .end method
 
 .method private getConfigSource()Landroid/security/net/config/ConfigSource;
     .locals 8
 
-    iget-object v4, p0, Landroid/security/net/config/ManifestConfigSource;->mLock:Ljava/lang/Object;
+    iget-object v7, p0, Landroid/security/net/config/ManifestConfigSource;->mLock:Ljava/lang/Object;
 
-    monitor-enter v4
+    monitor-enter v7
 
     :try_start_0
-    iget-object v3, p0, Landroid/security/net/config/ManifestConfigSource;->mConfigSource:Landroid/security/net/config/ConfigSource;
+    iget-object v1, p0, Landroid/security/net/config/ManifestConfigSource;->mConfigSource:Landroid/security/net/config/ConfigSource;
 
-    if-eqz v3, :cond_0
+    if-eqz v1, :cond_0
 
-    iget-object v3, p0, Landroid/security/net/config/ManifestConfigSource;->mConfigSource:Landroid/security/net/config/ConfigSource;
+    iget-object v1, p0, Landroid/security/net/config/ManifestConfigSource;->mConfigSource:Landroid/security/net/config/ConfigSource;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    monitor-exit v4
+    monitor-exit v7
 
-    return-object v3
+    return-object v1
 
     :cond_0
     :try_start_1
-    iget v3, p0, Landroid/security/net/config/ManifestConfigSource;->mConfigResourceId:I
+    iget v1, p0, Landroid/security/net/config/ManifestConfigSource;->mConfigResourceId:I
 
-    if-eqz v3, :cond_2
+    if-eqz v1, :cond_2
 
-    iget v3, p0, Landroid/security/net/config/ManifestConfigSource;->mApplicationInfoFlags:I
+    iget v1, p0, Landroid/security/net/config/ManifestConfigSource;->mApplicationInfoFlags:I
 
-    and-int/lit8 v3, v3, 0x2
+    and-int/lit8 v1, v1, 0x2
 
-    if-eqz v3, :cond_1
+    if-eqz v1, :cond_1
 
-    const/4 v0, 0x1
+    const/4 v3, 0x1
 
     :goto_0
-    const-string/jumbo v3, "NetworkSecurityConfig"
+    const-string/jumbo v1, "NetworkSecurityConfig"
 
-    new-instance v5, Ljava/lang/StringBuilder;
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v6, "Using Network Security Config from resource "
+    const-string/jumbo v4, "Using Network Security Config from resource "
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    move-result-object v2
 
-    iget-object v6, p0, Landroid/security/net/config/ManifestConfigSource;->mContext:Landroid/content/Context;
+    iget-object v4, p0, Landroid/security/net/config/ManifestConfigSource;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v6}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {v4}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v6
-
-    iget v7, p0, Landroid/security/net/config/ManifestConfigSource;->mConfigResourceId:I
-
-    invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getResourceEntryName(I)Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    const-string/jumbo v6, " debugBuild: "
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-static {v3, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    new-instance v1, Landroid/security/net/config/XmlConfigSource;
-
-    iget-object v3, p0, Landroid/security/net/config/ManifestConfigSource;->mContext:Landroid/content/Context;
+    move-result-object v4
 
     iget v5, p0, Landroid/security/net/config/ManifestConfigSource;->mConfigResourceId:I
 
-    iget v6, p0, Landroid/security/net/config/ManifestConfigSource;->mTargetSdkVersion:I
+    invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getResourceEntryName(I)Ljava/lang/String;
 
-    invoke-direct {v1, v3, v5, v0, v6}, Landroid/security/net/config/XmlConfigSource;-><init>(Landroid/content/Context;IZI)V
+    move-result-object v4
+
+    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string/jumbo v4, " debugBuild: "
+
+    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    new-instance v0, Landroid/security/net/config/XmlConfigSource;
+
+    iget-object v1, p0, Landroid/security/net/config/ManifestConfigSource;->mContext:Landroid/content/Context;
+
+    iget v2, p0, Landroid/security/net/config/ManifestConfigSource;->mConfigResourceId:I
+
+    iget v4, p0, Landroid/security/net/config/ManifestConfigSource;->mTargetSdkVersion:I
+
+    iget v5, p0, Landroid/security/net/config/ManifestConfigSource;->mTargetSandboxVesrsion:I
+
+    invoke-direct/range {v0 .. v5}, Landroid/security/net/config/XmlConfigSource;-><init>(Landroid/content/Context;IZII)V
 
     :goto_1
-    iput-object v1, p0, Landroid/security/net/config/ManifestConfigSource;->mConfigSource:Landroid/security/net/config/ConfigSource;
+    iput-object v0, p0, Landroid/security/net/config/ManifestConfigSource;->mConfigSource:Landroid/security/net/config/ConfigSource;
 
-    iget-object v3, p0, Landroid/security/net/config/ManifestConfigSource;->mConfigSource:Landroid/security/net/config/ConfigSource;
+    iget-object v1, p0, Landroid/security/net/config/ManifestConfigSource;->mConfigSource:Landroid/security/net/config/ConfigSource;
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    monitor-exit v4
+    monitor-exit v7
 
-    return-object v3
+    return-object v1
 
     :cond_1
-    const/4 v0, 0x0
+    const/4 v3, 0x0
 
     goto :goto_0
 
     :cond_2
     :try_start_2
-    const-string/jumbo v3, "NetworkSecurityConfig"
+    const-string/jumbo v1, "NetworkSecurityConfig"
 
-    const-string/jumbo v5, "No Network Security Config specified, using platform default"
+    const-string/jumbo v2, "No Network Security Config specified, using platform default"
 
-    invoke-static {v3, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget v3, p0, Landroid/security/net/config/ManifestConfigSource;->mApplicationInfoFlags:I
+    iget v1, p0, Landroid/security/net/config/ManifestConfigSource;->mApplicationInfoFlags:I
 
-    const/high16 v5, 0x8000000
+    const/high16 v2, 0x8000000
 
-    and-int/2addr v3, v5
+    and-int/2addr v1, v2
 
-    if-eqz v3, :cond_3
+    if-eqz v1, :cond_4
 
-    const/4 v2, 0x1
+    iget v1, p0, Landroid/security/net/config/ManifestConfigSource;->mTargetSandboxVesrsion:I
+
+    const/4 v2, 0x2
+
+    if-ge v1, v2, :cond_3
+
+    const/4 v6, 0x1
 
     :goto_2
-    new-instance v1, Landroid/security/net/config/ManifestConfigSource$DefaultConfigSource;
+    new-instance v0, Landroid/security/net/config/ManifestConfigSource$DefaultConfigSource;
 
-    iget v3, p0, Landroid/security/net/config/ManifestConfigSource;->mTargetSdkVersion:I
+    iget v1, p0, Landroid/security/net/config/ManifestConfigSource;->mTargetSdkVersion:I
 
-    invoke-direct {v1, v2, v3}, Landroid/security/net/config/ManifestConfigSource$DefaultConfigSource;-><init>(ZI)V
+    iget v2, p0, Landroid/security/net/config/ManifestConfigSource;->mTargetSandboxVesrsion:I
+
+    invoke-direct {v0, v6, v1, v2}, Landroid/security/net/config/ManifestConfigSource$DefaultConfigSource;-><init>(ZII)V
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     goto :goto_1
 
     :cond_3
-    const/4 v2, 0x0
+    const/4 v6, 0x0
+
+    goto :goto_2
+
+    :cond_4
+    const/4 v6, 0x0
 
     goto :goto_2
 
     :catchall_0
-    move-exception v3
+    move-exception v1
 
-    monitor-exit v4
+    monitor-exit v7
 
-    throw v3
+    throw v1
 .end method
 
 

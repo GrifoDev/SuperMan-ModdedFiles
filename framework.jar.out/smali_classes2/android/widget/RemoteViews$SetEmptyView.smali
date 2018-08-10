@@ -87,9 +87,7 @@
     :cond_0
     move-object v0, v2
 
-    nop
-
-    nop
+    check-cast v0, Landroid/widget/AdapterView;
 
     iget v3, p0, Landroid/widget/RemoteViews$SetEmptyView;->emptyViewId:I
 

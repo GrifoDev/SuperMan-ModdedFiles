@@ -177,7 +177,7 @@
 
     array-length v4, v3
 
-    if-lt v4, v6, :cond_1
+    if-lt v4, v6, :cond_0
 
     aget-object v4, v3, v7
 
@@ -187,8 +187,20 @@
 
     move-result v4
 
+    xor-int/lit8 v4, v4, 0x1
+
     if-eqz v4, :cond_1
 
+    :cond_0
+    new-instance v4, Ljava/lang/IllegalArgumentException;
+
+    const-string/jumbo v5, "Malformed supplicant event"
+
+    invoke-direct {v4, v5}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v4
+
+    :cond_1
     aget-object v4, v3, v8
 
     iput-object v4, p0, Landroid/net/wifi/p2p/WifiP2pConfig;->deviceAddress:Ljava/lang/String;
@@ -201,7 +213,7 @@
 
     array-length v4, v3
 
-    if-le v4, v6, :cond_0
+    if-le v4, v6, :cond_2
 
     aget-object v4, v3, v6
 
@@ -230,18 +242,9 @@
 
     iput v7, v4, Landroid/net/wifi/WpsInfo;->setup:I
 
-    :cond_0
+    :cond_2
     :goto_1
     return-void
-
-    :cond_1
-    new-instance v4, Ljava/lang/IllegalArgumentException;
-
-    const-string/jumbo v5, "Malformed supplicant event"
-
-    invoke-direct {v4, v5}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
-
-    throw v4
 
     :catch_0
     move-exception v1

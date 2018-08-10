@@ -38,8 +38,6 @@
 
 .field static final TRANSACTION_interfaceLinkStateChanged:I = 0x2
 
-.field static final TRANSACTION_interfaceMessageRecevied:I = 0xc
-
 .field static final TRANSACTION_interfaceRemoved:I = 0x4
 
 .field static final TRANSACTION_interfaceStatusChanged:I = 0x1
@@ -448,23 +446,6 @@
 
     goto :goto_6
 
-    :sswitch_c
-    const-string/jumbo v10, "android.net.INetworkManagementEventObserver"
-
-    invoke-virtual {p2, v10}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {p0, v1}, Landroid/net/INetworkManagementEventObserver$Stub;->interfaceMessageRecevied(Ljava/lang/String;)V
-
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
-    const/4 v10, 0x1
-
-    return v10
-
     nop
 
     :sswitch_data_0
@@ -480,7 +461,6 @@
         0x9 -> :sswitch_9
         0xa -> :sswitch_a
         0xb -> :sswitch_b
-        0xc -> :sswitch_c
         0x5f4e5446 -> :sswitch_0
     .end sparse-switch
 .end method

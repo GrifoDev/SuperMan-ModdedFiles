@@ -229,13 +229,18 @@
 
     move-result-object v3
 
+    if-nez v3, :cond_0
+
+    return v6
+
+    :cond_0
     const/4 v4, 0x0
 
     :goto_0
     :try_start_0
     array-length v5, v3
 
-    if-ge v4, v5, :cond_2
+    if-ge v4, v5, :cond_3
 
     aget-object v2, v3, v4
 
@@ -243,7 +248,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_1
 
     invoke-virtual {v2}, Ljava/io/File;->getName()Ljava/lang/String;
 
@@ -253,11 +258,11 @@
 
     move-result v5
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_2
 
     return v7
 
-    :cond_0
+    :cond_1
     invoke-virtual {v2}, Ljava/io/File;->getCanonicalPath()Ljava/lang/String;
 
     move-result-object v5
@@ -272,11 +277,11 @@
 
     move-result v5
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_2
 
     return v7
 
-    :cond_1
+    :cond_2
     add-int/lit8 v4, v4, 0x1
 
     goto :goto_0
@@ -286,7 +291,7 @@
 
     return v6
 
-    :cond_2
+    :cond_3
     return v6
 .end method
 

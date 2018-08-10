@@ -12,7 +12,13 @@
 
 
 # static fields
+.field private static final FULLNAME_SERBIAN:Ljava/lang/String; = "Srpski"
+
+.field private static final LANGUAGE_NAME_SERBIAN:Ljava/lang/String; = "sr"
+
 .field private static final LANGUAGE_XML:Ljava/lang/String; = "/system/csc/language.xml"
+
+.field private static final LANGUAGE_XML_OMC_V1_DIR:Ljava/lang/String; = "/data/omc/etc"
 
 .field private static final TAG:Ljava/lang/String; = "LocaleStore"
 
@@ -20,11 +26,23 @@
 
 .field private static final TAG_LANGUAGE:Ljava/lang/String; = "LanguageSet"
 
+.field private static final TAG_NONSUGGESTED:Ljava/lang/String; = "NonSuggested"
+
 .field private static final TAG_NOT_DISPLAY:Ljava/lang/String; = "NonDisplay"
 
-.field private static sCountryMode:Z
+.field private static final TAG_SUGGESTED:Ljava/lang/String; = "Suggested"
 
-.field private static sFullyInitialized:Z
+.field private static final XML_LOCALES_INDEX_NO_SUGGESTED:I = 0x3
+
+.field private static final XML_LOCALES_INDEX_SUGGESTED:I = 0x2
+
+.field private static final XML_LOCALES_INDEX_SUPPORTED:I = 0x0
+
+.field private static final XML_LOCALES_INDEX_UNSUPPORTED:I = 0x1
+
+.field private static final XML_LOCALES_SIZE:I = 0x4
+
+.field private static sCountryMode:Z
 
 .field private static final sLocaleCache:Ljava/util/concurrent/ConcurrentHashMap;
     .annotation system Ldalvik/annotation/Signature;
@@ -38,7 +56,9 @@
     .end annotation
 .end field
 
-.field private static sPrevDefaultLocaleString:Ljava/lang/String;
+.field private static volatile sPrevDefaultLocaleList:Landroid/os/LocaleList;
+
+.field private static final sPriorityLocale:Ljava/lang/String;
 
 
 # direct methods
@@ -50,10 +70,16 @@
     return v0
 .end method
 
-.method static constructor <clinit>()V
-    .locals 2
+.method static synthetic -get1()Ljava/lang/String;
+    .locals 1
 
-    const/4 v1, 0x0
+    sget-object v0, Lcom/android/internal/app/LocaleStore;->sPriorityLocale:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method static constructor <clinit>()V
+    .locals 1
 
     new-instance v0, Ljava/util/concurrent/ConcurrentHashMap;
 
@@ -61,15 +87,31 @@
 
     sput-object v0, Lcom/android/internal/app/LocaleStore;->sLocaleCache:Ljava/util/concurrent/ConcurrentHashMap;
 
-    sput-boolean v1, Lcom/android/internal/app/LocaleStore;->sFullyInitialized:Z
+    invoke-static {}, Lcom/android/internal/app/LocaleStore;->isChina()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    const-string/jumbo v0, "zh"
+
+    :goto_0
+    sput-object v0, Lcom/android/internal/app/LocaleStore;->sPriorityLocale:Ljava/lang/String;
 
     const/4 v0, 0x0
 
-    sput-object v0, Lcom/android/internal/app/LocaleStore;->sPrevDefaultLocaleString:Ljava/lang/String;
+    sput-object v0, Lcom/android/internal/app/LocaleStore;->sPrevDefaultLocaleList:Landroid/os/LocaleList;
 
-    sput-boolean v1, Lcom/android/internal/app/LocaleStore;->sCountryMode:Z
+    const/4 v0, 0x0
+
+    sput-boolean v0, Lcom/android/internal/app/LocaleStore;->sCountryMode:Z
 
     return-void
+
+    :cond_0
+    const-string/jumbo v0, ""
+
+    goto :goto_0
 .end method
 
 .method public constructor <init>()V
@@ -153,6 +195,204 @@
     return-void
 .end method
 
+.method private static buildLocaleCache(Landroid/content/Context;[Ljava/lang/String;Z)V
+    .locals 15
+
+    const-string/jumbo v8, ""
+
+    const-string/jumbo v9, ""
+
+    const-string/jumbo v7, ""
+
+    if-eqz p2, :cond_1
+
+    invoke-static {p0}, Lcom/android/internal/app/LocalePicker;->getSpecificCustomerSupportedLocales(Landroid/content/Context;)[Ljava/lang/String;
+
+    move-result-object v0
+
+    :goto_0
+    if-eqz p1, :cond_0
+
+    const/4 v10, 0x0
+
+    aget-object v8, p1, v10
+
+    const/4 v10, 0x1
+
+    aget-object v9, p1, v10
+
+    const/4 v10, 0x2
+
+    aget-object v7, p1, v10
+
+    :cond_0
+    invoke-static {p0}, Lcom/android/internal/app/LocaleStore;->getSimCountries(Landroid/content/Context;)Ljava/util/Set;
+
+    move-result-object v6
+
+    const/4 v10, 0x0
+
+    array-length v11, v0
+
+    :goto_1
+    if-ge v10, v11, :cond_a
+
+    aget-object v3, v0, v10
+
+    invoke-virtual {v3}, Ljava/lang/String;->isEmpty()Z
+
+    move-result v12
+
+    if-eqz v12, :cond_2
+
+    new-instance v10, Ljava/util/IllformedLocaleException;
+
+    const-string/jumbo v11, "Bad locale entry in locale_config.xml"
+
+    invoke-direct {v10, v11}, Ljava/util/IllformedLocaleException;-><init>(Ljava/lang/String;)V
+
+    throw v10
+
+    :cond_1
+    invoke-static {p0}, Lcom/android/internal/app/LocalePicker;->getSupportedLocales(Landroid/content/Context;)[Ljava/lang/String;
+
+    move-result-object v0
+
+    goto :goto_0
+
+    :cond_2
+    new-instance v2, Lcom/android/internal/app/LocaleStore$LocaleInfo;
+
+    const/4 v12, 0x0
+
+    invoke-direct {v2, v3, v12}, Lcom/android/internal/app/LocaleStore$LocaleInfo;-><init>(Ljava/lang/String;Lcom/android/internal/app/LocaleStore$LocaleInfo;)V
+
+    invoke-virtual {v2}, Lcom/android/internal/app/LocaleStore$LocaleInfo;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    if-nez v1, :cond_4
+
+    :cond_3
+    :goto_2
+    add-int/lit8 v10, v10, 0x1
+
+    goto :goto_1
+
+    :cond_4
+    if-eqz p2, :cond_7
+
+    invoke-virtual {v8, v1}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v12
+
+    if-eqz v12, :cond_3
+
+    :cond_5
+    invoke-virtual {v2}, Lcom/android/internal/app/LocaleStore$LocaleInfo;->getLocale()Ljava/util/Locale;
+
+    move-result-object v12
+
+    invoke-virtual {v12}, Ljava/util/Locale;->getCountry()Ljava/lang/String;
+
+    move-result-object v12
+
+    invoke-interface {v6, v12}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
+
+    move-result v12
+
+    if-eqz v12, :cond_6
+
+    invoke-static {v2}, Lcom/android/internal/app/LocaleStore$LocaleInfo;->-get1(Lcom/android/internal/app/LocaleStore$LocaleInfo;)I
+
+    move-result v12
+
+    or-int/lit8 v12, v12, 0x1
+
+    invoke-static {v2, v12}, Lcom/android/internal/app/LocaleStore$LocaleInfo;->-set0(Lcom/android/internal/app/LocaleStore$LocaleInfo;I)I
+
+    :cond_6
+    sget-object v12, Lcom/android/internal/app/LocaleStore;->sLocaleCache:Ljava/util/concurrent/ConcurrentHashMap;
+
+    invoke-virtual {v12, v1, v2}, Ljava/util/concurrent/ConcurrentHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    invoke-virtual {v2}, Lcom/android/internal/app/LocaleStore$LocaleInfo;->getParent()Ljava/util/Locale;
+
+    move-result-object v4
+
+    if-eqz v4, :cond_3
+
+    invoke-virtual {v4}, Ljava/util/Locale;->toLanguageTag()Ljava/lang/String;
+
+    move-result-object v5
+
+    if-eqz v5, :cond_9
+
+    sget-object v12, Lcom/android/internal/app/LocaleStore;->sLocaleCache:Ljava/util/concurrent/ConcurrentHashMap;
+
+    invoke-virtual {v12, v5}, Ljava/util/concurrent/ConcurrentHashMap;->containsKey(Ljava/lang/Object;)Z
+
+    move-result v12
+
+    if-nez v12, :cond_3
+
+    sget-object v12, Lcom/android/internal/app/LocaleStore;->sLocaleCache:Ljava/util/concurrent/ConcurrentHashMap;
+
+    new-instance v13, Lcom/android/internal/app/LocaleStore$LocaleInfo;
+
+    const/4 v14, 0x0
+
+    invoke-direct {v13, v4, v14}, Lcom/android/internal/app/LocaleStore$LocaleInfo;-><init>(Ljava/util/Locale;Lcom/android/internal/app/LocaleStore$LocaleInfo;)V
+
+    invoke-virtual {v12, v5, v13}, Ljava/util/concurrent/ConcurrentHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    goto :goto_2
+
+    :cond_7
+    invoke-virtual {v7, v1}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v12
+
+    if-eqz v12, :cond_8
+
+    invoke-static {v2}, Lcom/android/internal/app/LocaleStore$LocaleInfo;->-get1(Lcom/android/internal/app/LocaleStore$LocaleInfo;)I
+
+    move-result v12
+
+    or-int/lit8 v12, v12, 0x1
+
+    invoke-static {v2, v12}, Lcom/android/internal/app/LocaleStore$LocaleInfo;->-set0(Lcom/android/internal/app/LocaleStore$LocaleInfo;I)I
+
+    invoke-static {v2}, Lcom/android/internal/app/LocaleStore$LocaleInfo;->-get1(Lcom/android/internal/app/LocaleStore$LocaleInfo;)I
+
+    move-result v12
+
+    or-int/lit8 v12, v12, 0x8
+
+    invoke-static {v2, v12}, Lcom/android/internal/app/LocaleStore$LocaleInfo;->-set0(Lcom/android/internal/app/LocaleStore$LocaleInfo;I)I
+
+    :cond_8
+    invoke-virtual {v9, v1}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v12
+
+    if-eqz v12, :cond_5
+
+    goto :goto_2
+
+    :cond_9
+    const-string/jumbo v12, "LocaleStore"
+
+    const-string/jumbo v13, "put null key to sLocaleCache #2"
+
+    invoke-static {v12, v13}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_2
+
+    :cond_a
+    return-void
+.end method
+
 .method public static fillCache(Landroid/content/Context;)V
     .locals 1
 
@@ -164,701 +404,466 @@
 .end method
 
 .method public static fillCacheManaged(Landroid/content/Context;Z)V
-    .locals 25
+    .locals 18
 
-    sget-object v19, Lcom/android/internal/app/LocaleStore;->sPrevDefaultLocaleString:Ljava/lang/String;
+    sget-object v14, Lcom/android/internal/app/LocaleStore;->sPrevDefaultLocaleList:Landroid/os/LocaleList;
 
-    if-eqz v19, :cond_0
+    if-eqz v14, :cond_0
 
-    sget-object v19, Lcom/android/internal/app/LocaleStore;->sPrevDefaultLocaleString:Ljava/lang/String;
+    sget-object v14, Lcom/android/internal/app/LocaleStore;->sPrevDefaultLocaleList:Landroid/os/LocaleList;
 
-    invoke-static {}, Ljava/util/Locale;->getDefault()Ljava/util/Locale;
+    invoke-static {}, Landroid/os/LocaleList;->getDefault()Landroid/os/LocaleList;
 
-    move-result-object v20
+    move-result-object v15
 
-    invoke-virtual/range {v20 .. v20}, Ljava/util/Locale;->toString()Ljava/lang/String;
+    invoke-virtual {v14, v15}, Landroid/os/LocaleList;->equals(Ljava/lang/Object;)Z
 
-    move-result-object v20
+    move-result v14
 
-    invoke-virtual/range {v19 .. v20}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v19
-
-    if-eqz v19, :cond_0
+    if-eqz v14, :cond_0
 
     return-void
 
     :cond_0
-    const/16 v19, 0x3
+    const/4 v14, 0x4
 
-    move/from16 v0, v19
+    new-array v13, v14, [Ljava/lang/String;
 
-    new-array v11, v0, [Ljava/lang/String;
+    const-string/jumbo v4, "/system/csc/language.xml"
 
-    const-string/jumbo v7, "/system/csc/language.xml"
+    const-string/jumbo v10, ""
 
-    invoke-static {v7}, Lcom/android/internal/app/LocaleStore;->getLocaleListFromXML(Ljava/lang/String;)[Ljava/lang/String;
+    const-string/jumbo v11, "/data/omc/etc/language.xml"
 
-    move-result-object v11
+    new-instance v14, Ljava/lang/StringBuilder;
 
-    const/16 v17, 0x0
+    invoke-direct {v14}, Ljava/lang/StringBuilder;-><init>()V
 
-    const/16 v18, 0x0
+    const-string/jumbo v15, "persist.sys.omc_path"
 
-    if-eqz v11, :cond_2
+    const-string/jumbo v16, "/data/omc/etc"
 
-    const/16 v19, 0x0
-
-    aget-object v17, v11, v19
-
-    const/16 v19, 0x1
-
-    aget-object v18, v11, v19
-
-    if-eqz v17, :cond_1
-
-    const-string/jumbo v19, "\\s"
-
-    const-string/jumbo v20, ""
-
-    move-object/from16 v0, v17
-
-    move-object/from16 v1, v19
-
-    move-object/from16 v2, v20
-
-    invoke-virtual {v0, v1, v2}, Ljava/lang/String;->replaceAll(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v17
-
-    const-string/jumbo v19, "_"
-
-    const-string/jumbo v20, "-"
-
-    move-object/from16 v0, v17
-
-    move-object/from16 v1, v19
-
-    move-object/from16 v2, v20
-
-    invoke-virtual {v0, v1, v2}, Ljava/lang/String;->replaceAll(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v17
-
-    :cond_1
-    if-eqz v18, :cond_2
-
-    const-string/jumbo v19, "\\s"
-
-    const-string/jumbo v20, ""
-
-    invoke-virtual/range {v18 .. v20}, Ljava/lang/String;->replaceAll(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v18
-
-    const-string/jumbo v19, "_"
-
-    const-string/jumbo v20, "-"
-
-    invoke-virtual/range {v18 .. v20}, Ljava/lang/String;->replaceAll(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v18
-
-    :cond_2
-    invoke-static/range {p0 .. p0}, Lcom/android/internal/app/LocaleStore;->getSimCountries(Landroid/content/Context;)Ljava/util/Set;
-
-    move-result-object v16
-
-    invoke-static/range {p0 .. p0}, Lcom/android/internal/app/LocalePicker;->getSupportedLocales(Landroid/content/Context;)[Ljava/lang/String;
-
-    move-result-object v20
-
-    const/16 v19, 0x0
-
-    move-object/from16 v0, v20
-
-    array-length v0, v0
-
-    move/from16 v21, v0
-
-    :goto_0
-    move/from16 v0, v19
-
-    move/from16 v1, v21
-
-    if-ge v0, v1, :cond_9
-
-    aget-object v10, v20, v19
-
-    invoke-virtual {v10}, Ljava/lang/String;->isEmpty()Z
-
-    move-result v22
-
-    if-eqz v22, :cond_3
-
-    new-instance v19, Ljava/util/IllformedLocaleException;
-
-    const-string/jumbo v20, "Bad locale entry in locale_config.xml"
-
-    invoke-direct/range {v19 .. v20}, Ljava/util/IllformedLocaleException;-><init>(Ljava/lang/String;)V
-
-    throw v19
-
-    :cond_3
-    new-instance v8, Lcom/android/internal/app/LocaleStore$LocaleInfo;
-
-    const/16 v22, 0x0
-
-    move-object/from16 v0, v22
-
-    invoke-direct {v8, v10, v0}, Lcom/android/internal/app/LocaleStore$LocaleInfo;-><init>(Ljava/lang/String;Lcom/android/internal/app/LocaleStore$LocaleInfo;)V
-
-    if-eqz v18, :cond_5
-
-    invoke-virtual {v8}, Lcom/android/internal/app/LocaleStore$LocaleInfo;->toString()Ljava/lang/String;
-
-    move-result-object v22
-
-    move-object/from16 v0, v18
-
-    move-object/from16 v1, v22
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
-
-    move-result v22
-
-    if-eqz v22, :cond_5
-
-    :cond_4
-    :goto_1
-    add-int/lit8 v19, v19, 0x1
-
-    goto :goto_0
-
-    :cond_5
-    invoke-virtual {v8}, Lcom/android/internal/app/LocaleStore$LocaleInfo;->getLocale()Ljava/util/Locale;
-
-    move-result-object v22
-
-    invoke-virtual/range {v22 .. v22}, Ljava/util/Locale;->getCountry()Ljava/lang/String;
-
-    move-result-object v22
-
-    move-object/from16 v0, v16
-
-    move-object/from16 v1, v22
-
-    invoke-interface {v0, v1}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
-
-    move-result v22
-
-    if-eqz v22, :cond_6
-
-    invoke-static {v8}, Lcom/android/internal/app/LocaleStore$LocaleInfo;->-get1(Lcom/android/internal/app/LocaleStore$LocaleInfo;)I
-
-    move-result v22
-
-    or-int/lit8 v22, v22, 0x1
-
-    move/from16 v0, v22
-
-    invoke-static {v8, v0}, Lcom/android/internal/app/LocaleStore$LocaleInfo;->-set0(Lcom/android/internal/app/LocaleStore$LocaleInfo;I)I
-
-    :cond_6
-    invoke-virtual {v8}, Lcom/android/internal/app/LocaleStore$LocaleInfo;->getId()Ljava/lang/String;
-
-    move-result-object v5
-
-    if-eqz v5, :cond_7
-
-    sget-object v22, Lcom/android/internal/app/LocaleStore;->sLocaleCache:Ljava/util/concurrent/ConcurrentHashMap;
-
-    move-object/from16 v0, v22
-
-    invoke-virtual {v0, v5, v8}, Ljava/util/concurrent/ConcurrentHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    :goto_2
-    invoke-virtual {v8}, Lcom/android/internal/app/LocaleStore$LocaleInfo;->getParent()Ljava/util/Locale;
-
-    move-result-object v14
-
-    if-eqz v14, :cond_4
-
-    invoke-virtual {v14}, Ljava/util/Locale;->toLanguageTag()Ljava/lang/String;
+    invoke-static/range {v15 .. v16}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v15
 
-    if-eqz v15, :cond_8
+    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    sget-object v22, Lcom/android/internal/app/LocaleStore;->sLocaleCache:Ljava/util/concurrent/ConcurrentHashMap;
+    move-result-object v14
 
-    move-object/from16 v0, v22
+    const-string/jumbo v15, "/language.xml"
 
-    invoke-virtual {v0, v15}, Ljava/util/concurrent/ConcurrentHashMap;->containsKey(Ljava/lang/Object;)Z
+    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result v22
+    move-result-object v14
 
-    if-nez v22, :cond_4
+    invoke-virtual {v14}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    sget-object v22, Lcom/android/internal/app/LocaleStore;->sLocaleCache:Ljava/util/concurrent/ConcurrentHashMap;
+    move-result-object v12
 
-    new-instance v23, Lcom/android/internal/app/LocaleStore$LocaleInfo;
+    new-instance v14, Ljava/io/File;
 
-    const/16 v24, 0x0
+    invoke-direct {v14, v12}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    move-object/from16 v0, v23
+    invoke-virtual {v14}, Ljava/io/File;->exists()Z
 
-    move-object/from16 v1, v24
+    move-result v14
 
-    invoke-direct {v0, v14, v1}, Lcom/android/internal/app/LocaleStore$LocaleInfo;-><init>(Ljava/util/Locale;Lcom/android/internal/app/LocaleStore$LocaleInfo;)V
+    if-eqz v14, :cond_6
 
-    move-object/from16 v0, v22
+    move-object v4, v12
 
-    move-object/from16 v1, v23
+    :cond_1
+    :goto_0
+    invoke-static {v4}, Lcom/android/internal/app/LocaleStore;->getLocaleListFromXML(Ljava/lang/String;)[Ljava/lang/String;
 
-    invoke-virtual {v0, v15, v1}, Ljava/util/concurrent/ConcurrentHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    move-result-object v13
+
+    if-eqz v13, :cond_2
+
+    const/4 v14, 0x3
+
+    aget-object v10, v13, v14
+
+    :cond_2
+    const/4 v14, 0x0
+
+    move-object/from16 v0, p0
+
+    invoke-static {v0, v13, v14}, Lcom/android/internal/app/LocaleStore;->buildLocaleCache(Landroid/content/Context;[Ljava/lang/String;Z)V
+
+    const/4 v14, 0x1
+
+    move-object/from16 v0, p0
+
+    invoke-static {v0, v13, v14}, Lcom/android/internal/app/LocaleStore;->buildLocaleCache(Landroid/content/Context;[Ljava/lang/String;Z)V
+
+    new-instance v9, Ljava/util/HashSet;
+
+    invoke-direct {v9}, Ljava/util/HashSet;-><init>()V
+
+    invoke-static {}, Lcom/android/internal/app/LocalePicker;->getSystemAssetLocales()[Ljava/lang/String;
+
+    move-result-object v8
+
+    const/4 v14, 0x0
+
+    array-length v15, v8
+
+    :goto_1
+    if-ge v14, v15, :cond_9
+
+    aget-object v7, v8, v14
+
+    new-instance v5, Lcom/android/internal/app/LocaleStore$LocaleInfo;
+
+    const/16 v16, 0x0
+
+    move-object/from16 v0, v16
+
+    invoke-direct {v5, v7, v0}, Lcom/android/internal/app/LocaleStore$LocaleInfo;-><init>(Ljava/lang/String;Lcom/android/internal/app/LocaleStore$LocaleInfo;)V
+
+    invoke-virtual {v5}, Lcom/android/internal/app/LocaleStore$LocaleInfo;->getLocale()Ljava/util/Locale;
+
+    move-result-object v16
+
+    invoke-virtual/range {v16 .. v16}, Ljava/util/Locale;->getCountry()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/String;->isEmpty()Z
+
+    move-result v16
+
+    if-nez v16, :cond_4
+
+    const/4 v1, 0x0
+
+    sget-object v16, Lcom/android/internal/app/LocaleStore;->sLocaleCache:Ljava/util/concurrent/ConcurrentHashMap;
+
+    invoke-virtual {v5}, Lcom/android/internal/app/LocaleStore$LocaleInfo;->getId()Ljava/lang/String;
+
+    move-result-object v17
+
+    invoke-virtual/range {v16 .. v17}, Ljava/util/concurrent/ConcurrentHashMap;->containsKey(Ljava/lang/Object;)Z
+
+    move-result v16
+
+    if-eqz v16, :cond_7
+
+    sget-object v16, Lcom/android/internal/app/LocaleStore;->sLocaleCache:Ljava/util/concurrent/ConcurrentHashMap;
+
+    invoke-virtual {v5}, Lcom/android/internal/app/LocaleStore$LocaleInfo;->getId()Ljava/lang/String;
+
+    move-result-object v17
+
+    invoke-virtual/range {v16 .. v17}, Ljava/util/concurrent/ConcurrentHashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/android/internal/app/LocaleStore$LocaleInfo;
+
+    :cond_3
+    :goto_2
+    if-eqz v1, :cond_4
+
+    invoke-virtual {v5}, Lcom/android/internal/app/LocaleStore$LocaleInfo;->toString()Ljava/lang/String;
+
+    move-result-object v16
+
+    move-object/from16 v0, v16
+
+    invoke-virtual {v10, v0}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v16
+
+    if-eqz v16, :cond_8
+
+    const/16 v16, 0x0
+
+    move/from16 v0, v16
+
+    invoke-static {v1, v0}, Lcom/android/internal/app/LocaleStore$LocaleInfo;->-set0(Lcom/android/internal/app/LocaleStore$LocaleInfo;I)I
+
+    :cond_4
+    :goto_3
+    if-eqz p1, :cond_5
+
+    invoke-static {v5}, Lcom/android/internal/app/LocaleStore$LocaleInfo;->-wrap1(Lcom/android/internal/app/LocaleStore$LocaleInfo;)Ljava/lang/String;
+
+    move-result-object v16
+
+    move-object/from16 v0, v16
+
+    invoke-virtual {v9, v0}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
+
+    :cond_5
+    add-int/lit8 v14, v14, 0x1
 
     goto :goto_1
 
+    :cond_6
+    new-instance v14, Ljava/io/File;
+
+    const-string/jumbo v15, "/data/omc/etc/language.xml"
+
+    invoke-direct {v14, v15}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v14}, Ljava/io/File;->exists()Z
+
+    move-result v14
+
+    if-eqz v14, :cond_1
+
+    const-string/jumbo v4, "/data/omc/etc/language.xml"
+
+    goto/16 :goto_0
+
     :cond_7
-    const-string/jumbo v22, "LocaleStore"
+    new-instance v16, Ljava/lang/StringBuilder;
 
-    const-string/jumbo v23, "put null key to sLocaleCache #1"
+    invoke-direct/range {v16 .. v16}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-static/range {v22 .. v23}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v5}, Lcom/android/internal/app/LocaleStore$LocaleInfo;->-wrap1(Lcom/android/internal/app/LocaleStore$LocaleInfo;)Ljava/lang/String;
+
+    move-result-object v17
+
+    invoke-virtual/range {v16 .. v17}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v16
+
+    const-string/jumbo v17, "-"
+
+    invoke-virtual/range {v16 .. v17}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v16
+
+    move-object/from16 v0, v16
+
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v16
+
+    invoke-virtual/range {v16 .. v16}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    sget-object v16, Lcom/android/internal/app/LocaleStore;->sLocaleCache:Ljava/util/concurrent/ConcurrentHashMap;
+
+    move-object/from16 v0, v16
+
+    invoke-virtual {v0, v3}, Ljava/util/concurrent/ConcurrentHashMap;->containsKey(Ljava/lang/Object;)Z
+
+    move-result v16
+
+    if-eqz v16, :cond_3
+
+    sget-object v16, Lcom/android/internal/app/LocaleStore;->sLocaleCache:Ljava/util/concurrent/ConcurrentHashMap;
+
+    move-object/from16 v0, v16
+
+    invoke-virtual {v0, v3}, Ljava/util/concurrent/ConcurrentHashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/android/internal/app/LocaleStore$LocaleInfo;
 
     goto :goto_2
 
     :cond_8
-    const-string/jumbo v22, "LocaleStore"
+    invoke-static {v1}, Lcom/android/internal/app/LocaleStore$LocaleInfo;->-get1(Lcom/android/internal/app/LocaleStore$LocaleInfo;)I
 
-    const-string/jumbo v23, "put null key to sLocaleCache #2"
+    move-result v16
 
-    invoke-static/range {v22 .. v23}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    or-int/lit8 v16, v16, 0x2
 
-    goto :goto_1
+    move/from16 v0, v16
+
+    invoke-static {v1, v0}, Lcom/android/internal/app/LocaleStore$LocaleInfo;->-set0(Lcom/android/internal/app/LocaleStore$LocaleInfo;I)I
+
+    invoke-static {v1}, Lcom/android/internal/app/LocaleStore$LocaleInfo;->-get1(Lcom/android/internal/app/LocaleStore$LocaleInfo;)I
+
+    move-result v16
+
+    or-int/lit8 v16, v16, 0x4
+
+    move/from16 v0, v16
+
+    invoke-static {v1, v0}, Lcom/android/internal/app/LocaleStore$LocaleInfo;->-set0(Lcom/android/internal/app/LocaleStore$LocaleInfo;I)I
+
+    goto :goto_3
 
     :cond_9
-    invoke-static/range {p0 .. p0}, Lcom/android/internal/app/LocalePicker;->getSpecificCustomerSupportedLocales(Landroid/content/Context;)[Ljava/lang/String;
+    if-eqz p1, :cond_b
 
-    move-result-object v20
+    sget-object v14, Lcom/android/internal/app/LocaleStore;->sLocaleCache:Ljava/util/concurrent/ConcurrentHashMap;
 
-    const/16 v19, 0x0
-
-    move-object/from16 v0, v20
-
-    array-length v0, v0
-
-    move/from16 v21, v0
-
-    :goto_3
-    move/from16 v0, v19
-
-    move/from16 v1, v21
-
-    if-ge v0, v1, :cond_10
-
-    aget-object v10, v20, v19
-
-    invoke-virtual {v10}, Ljava/lang/String;->isEmpty()Z
-
-    move-result v22
-
-    if-eqz v22, :cond_a
-
-    new-instance v19, Ljava/util/IllformedLocaleException;
-
-    const-string/jumbo v20, "Bad locale entry in locale_config.xml"
-
-    invoke-direct/range {v19 .. v20}, Ljava/util/IllformedLocaleException;-><init>(Ljava/lang/String;)V
-
-    throw v19
-
-    :cond_a
-    new-instance v8, Lcom/android/internal/app/LocaleStore$LocaleInfo;
-
-    const/16 v22, 0x0
-
-    move-object/from16 v0, v22
-
-    invoke-direct {v8, v10, v0}, Lcom/android/internal/app/LocaleStore$LocaleInfo;-><init>(Ljava/lang/String;Lcom/android/internal/app/LocaleStore$LocaleInfo;)V
-
-    if-eqz v17, :cond_d
-
-    invoke-virtual {v8}, Lcom/android/internal/app/LocaleStore$LocaleInfo;->toString()Ljava/lang/String;
-
-    move-result-object v22
-
-    if-eqz v22, :cond_b
-
-    invoke-virtual {v8}, Lcom/android/internal/app/LocaleStore$LocaleInfo;->toString()Ljava/lang/String;
-
-    move-result-object v22
-
-    move-object/from16 v0, v17
-
-    move-object/from16 v1, v22
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
-
-    move-result v22
-
-    if-eqz v22, :cond_d
-
-    :cond_b
-    invoke-virtual {v8}, Lcom/android/internal/app/LocaleStore$LocaleInfo;->getLocale()Ljava/util/Locale;
-
-    move-result-object v22
-
-    invoke-virtual/range {v22 .. v22}, Ljava/util/Locale;->getCountry()Ljava/lang/String;
-
-    move-result-object v22
-
-    move-object/from16 v0, v16
-
-    move-object/from16 v1, v22
-
-    invoke-interface {v0, v1}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
-
-    move-result v22
-
-    if-eqz v22, :cond_c
-
-    invoke-static {v8}, Lcom/android/internal/app/LocaleStore$LocaleInfo;->-get1(Lcom/android/internal/app/LocaleStore$LocaleInfo;)I
-
-    move-result v22
-
-    or-int/lit8 v22, v22, 0x1
-
-    move/from16 v0, v22
-
-    invoke-static {v8, v0}, Lcom/android/internal/app/LocaleStore$LocaleInfo;->-set0(Lcom/android/internal/app/LocaleStore$LocaleInfo;I)I
-
-    :cond_c
-    invoke-virtual {v8}, Lcom/android/internal/app/LocaleStore$LocaleInfo;->getId()Ljava/lang/String;
-
-    move-result-object v5
-
-    if-eqz v5, :cond_e
-
-    sget-object v22, Lcom/android/internal/app/LocaleStore;->sLocaleCache:Ljava/util/concurrent/ConcurrentHashMap;
-
-    move-object/from16 v0, v22
-
-    invoke-virtual {v0, v5, v8}, Ljava/util/concurrent/ConcurrentHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    :goto_4
-    invoke-virtual {v8}, Lcom/android/internal/app/LocaleStore$LocaleInfo;->getParent()Ljava/util/Locale;
+    invoke-virtual {v14}, Ljava/util/concurrent/ConcurrentHashMap;->values()Ljava/util/Collection;
 
     move-result-object v14
 
-    if-eqz v14, :cond_d
-
-    invoke-virtual {v14}, Ljava/util/Locale;->toLanguageTag()Ljava/lang/String;
-
-    move-result-object v15
-
-    if-eqz v15, :cond_f
-
-    sget-object v22, Lcom/android/internal/app/LocaleStore;->sLocaleCache:Ljava/util/concurrent/ConcurrentHashMap;
-
-    move-object/from16 v0, v22
-
-    invoke-virtual {v0, v15}, Ljava/util/concurrent/ConcurrentHashMap;->containsKey(Ljava/lang/Object;)Z
-
-    move-result v22
-
-    if-nez v22, :cond_d
-
-    sget-object v22, Lcom/android/internal/app/LocaleStore;->sLocaleCache:Ljava/util/concurrent/ConcurrentHashMap;
-
-    new-instance v23, Lcom/android/internal/app/LocaleStore$LocaleInfo;
-
-    const/16 v24, 0x0
-
-    move-object/from16 v0, v23
-
-    move-object/from16 v1, v24
-
-    invoke-direct {v0, v14, v1}, Lcom/android/internal/app/LocaleStore$LocaleInfo;-><init>(Ljava/util/Locale;Lcom/android/internal/app/LocaleStore$LocaleInfo;)V
-
-    move-object/from16 v0, v22
-
-    move-object/from16 v1, v23
-
-    invoke-virtual {v0, v15, v1}, Ljava/util/concurrent/ConcurrentHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    :cond_d
-    :goto_5
-    add-int/lit8 v19, v19, 0x1
-
-    goto/16 :goto_3
-
-    :cond_e
-    const-string/jumbo v22, "LocaleStore"
-
-    const-string/jumbo v23, "put null key to sLocaleCache #4"
-
-    invoke-static/range {v22 .. v23}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_4
-
-    :cond_f
-    const-string/jumbo v22, "LocaleStore"
-
-    const-string/jumbo v23, "put null key to sLocaleCache #5"
-
-    invoke-static/range {v22 .. v23}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_5
-
-    :cond_10
-    new-instance v13, Ljava/util/HashSet;
-
-    invoke-direct {v13}, Ljava/util/HashSet;-><init>()V
-
-    invoke-static {}, Lcom/android/internal/app/LocalePicker;->getSystemAssetLocales()[Ljava/lang/String;
-
-    move-result-object v12
-
-    const/16 v19, 0x0
-
-    array-length v0, v12
-
-    move/from16 v20, v0
-
-    :goto_6
-    move/from16 v0, v19
-
-    move/from16 v1, v20
-
-    if-ge v0, v1, :cond_15
-
-    aget-object v10, v12, v19
-
-    new-instance v8, Lcom/android/internal/app/LocaleStore$LocaleInfo;
-
-    const/16 v21, 0x0
-
-    move-object/from16 v0, v21
-
-    invoke-direct {v8, v10, v0}, Lcom/android/internal/app/LocaleStore$LocaleInfo;-><init>(Ljava/lang/String;Lcom/android/internal/app/LocaleStore$LocaleInfo;)V
-
-    invoke-virtual {v8}, Lcom/android/internal/app/LocaleStore$LocaleInfo;->getLocale()Ljava/util/Locale;
-
-    move-result-object v21
-
-    invoke-virtual/range {v21 .. v21}, Ljava/util/Locale;->getCountry()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Ljava/lang/String;->isEmpty()Z
-
-    move-result v21
-
-    if-nez v21, :cond_12
-
-    const/4 v3, 0x0
-
-    sget-object v21, Lcom/android/internal/app/LocaleStore;->sLocaleCache:Ljava/util/concurrent/ConcurrentHashMap;
-
-    invoke-virtual {v8}, Lcom/android/internal/app/LocaleStore$LocaleInfo;->getId()Ljava/lang/String;
-
-    move-result-object v22
-
-    invoke-virtual/range {v21 .. v22}, Ljava/util/concurrent/ConcurrentHashMap;->containsKey(Ljava/lang/Object;)Z
-
-    move-result v21
-
-    if-eqz v21, :cond_14
-
-    sget-object v21, Lcom/android/internal/app/LocaleStore;->sLocaleCache:Ljava/util/concurrent/ConcurrentHashMap;
-
-    invoke-virtual {v8}, Lcom/android/internal/app/LocaleStore$LocaleInfo;->getId()Ljava/lang/String;
-
-    move-result-object v22
-
-    invoke-virtual/range {v21 .. v22}, Ljava/util/concurrent/ConcurrentHashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v3
-
-    check-cast v3, Lcom/android/internal/app/LocaleStore$LocaleInfo;
-
-    :cond_11
-    :goto_7
-    if-eqz v3, :cond_12
-
-    invoke-static {v3}, Lcom/android/internal/app/LocaleStore$LocaleInfo;->-get1(Lcom/android/internal/app/LocaleStore$LocaleInfo;)I
-
-    move-result v21
-
-    or-int/lit8 v21, v21, 0x2
-
-    move/from16 v0, v21
-
-    invoke-static {v3, v0}, Lcom/android/internal/app/LocaleStore$LocaleInfo;->-set0(Lcom/android/internal/app/LocaleStore$LocaleInfo;I)I
-
-    invoke-static {v3}, Lcom/android/internal/app/LocaleStore$LocaleInfo;->-get1(Lcom/android/internal/app/LocaleStore$LocaleInfo;)I
-
-    move-result v21
-
-    or-int/lit8 v21, v21, 0x4
-
-    move/from16 v0, v21
-
-    invoke-static {v3, v0}, Lcom/android/internal/app/LocaleStore$LocaleInfo;->-set0(Lcom/android/internal/app/LocaleStore$LocaleInfo;I)I
-
-    :cond_12
-    if-eqz p1, :cond_13
-
-    invoke-static {v8}, Lcom/android/internal/app/LocaleStore$LocaleInfo;->-wrap1(Lcom/android/internal/app/LocaleStore$LocaleInfo;)Ljava/lang/String;
-
-    move-result-object v21
-
-    move-object/from16 v0, v21
-
-    invoke-virtual {v13, v0}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
-
-    :cond_13
-    add-int/lit8 v19, v19, 0x1
-
-    goto :goto_6
-
-    :cond_14
-    new-instance v21, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v21 .. v21}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-static {v8}, Lcom/android/internal/app/LocaleStore$LocaleInfo;->-wrap1(Lcom/android/internal/app/LocaleStore$LocaleInfo;)Ljava/lang/String;
-
-    move-result-object v22
-
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v21
-
-    const-string/jumbo v22, "-"
-
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v21
-
-    move-object/from16 v0, v21
-
-    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v21
-
-    invoke-virtual/range {v21 .. v21}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-interface {v14}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v6
 
-    sget-object v21, Lcom/android/internal/app/LocaleStore;->sLocaleCache:Ljava/util/concurrent/ConcurrentHashMap;
+    :goto_4
+    invoke-interface {v6}, Ljava/util/Iterator;->hasNext()Z
 
-    move-object/from16 v0, v21
+    move-result v14
 
-    invoke-virtual {v0, v6}, Ljava/util/concurrent/ConcurrentHashMap;->containsKey(Ljava/lang/Object;)Z
+    if-eqz v14, :cond_a
 
-    move-result v21
+    invoke-interface {v6}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    if-eqz v21, :cond_11
+    move-result-object v5
 
-    sget-object v21, Lcom/android/internal/app/LocaleStore;->sLocaleCache:Ljava/util/concurrent/ConcurrentHashMap;
+    check-cast v5, Lcom/android/internal/app/LocaleStore$LocaleInfo;
 
-    move-object/from16 v0, v21
+    invoke-static {v5}, Lcom/android/internal/app/LocaleStore$LocaleInfo;->-wrap1(Lcom/android/internal/app/LocaleStore$LocaleInfo;)Ljava/lang/String;
 
-    invoke-virtual {v0, v6}, Ljava/util/concurrent/ConcurrentHashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    move-result-object v14
 
-    move-result-object v3
+    invoke-virtual {v9, v14}, Ljava/util/HashSet;->contains(Ljava/lang/Object;)Z
 
-    check-cast v3, Lcom/android/internal/app/LocaleStore$LocaleInfo;
+    move-result v14
 
-    goto :goto_7
+    invoke-virtual {v5, v14}, Lcom/android/internal/app/LocaleStore$LocaleInfo;->setTranslated(Z)V
 
-    :cond_15
-    if-eqz p1, :cond_18
+    goto :goto_4
 
-    sget-object v19, Lcom/android/internal/app/LocaleStore;->sLocaleCache:Ljava/util/concurrent/ConcurrentHashMap;
-
-    invoke-virtual/range {v19 .. v19}, Ljava/util/concurrent/ConcurrentHashMap;->values()Ljava/util/Collection;
-
-    move-result-object v19
-
-    invoke-interface/range {v19 .. v19}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
-
-    move-result-object v9
-
-    :cond_16
-    :goto_8
-    invoke-interface {v9}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v19
-
-    if-eqz v19, :cond_17
-
-    invoke-interface {v9}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v8
-
-    check-cast v8, Lcom/android/internal/app/LocaleStore$LocaleInfo;
-
-    invoke-static {v8}, Lcom/android/internal/app/LocaleStore$LocaleInfo;->-wrap1(Lcom/android/internal/app/LocaleStore$LocaleInfo;)Ljava/lang/String;
-
-    move-result-object v19
-
-    move-object/from16 v0, v19
-
-    invoke-virtual {v13, v0}, Ljava/util/HashSet;->contains(Ljava/lang/Object;)Z
-
-    move-result v19
-
-    move/from16 v0, v19
-
-    invoke-virtual {v8, v0}, Lcom/android/internal/app/LocaleStore$LocaleInfo;->setTranslated(Z)V
-
-    invoke-virtual {v8}, Lcom/android/internal/app/LocaleStore$LocaleInfo;->getParent()Ljava/util/Locale;
-
-    move-result-object v19
-
-    if-eqz v19, :cond_16
-
-    invoke-virtual {v8}, Lcom/android/internal/app/LocaleStore$LocaleInfo;->getParent()Ljava/util/Locale;
-
-    move-result-object v19
-
-    invoke-static/range {v19 .. v19}, Lcom/android/internal/app/LocaleStore;->getLocaleInfo(Ljava/util/Locale;)Lcom/android/internal/app/LocaleStore$LocaleInfo;
-
-    move-result-object v19
-
-    const/16 v20, 0x0
-
-    invoke-virtual/range {v19 .. v20}, Lcom/android/internal/app/LocaleStore$LocaleInfo;->setParentSecSuggested(Z)V
-
-    goto :goto_8
-
-    :cond_17
+    :cond_a
     invoke-static {}, Ljava/util/Locale;->getDefault()Ljava/util/Locale;
 
-    move-result-object v19
+    move-result-object v14
 
-    invoke-static/range {v19 .. v19}, Lcom/android/internal/app/LocaleStore;->addSuggestedLocalesForRegion(Ljava/util/Locale;)V
+    invoke-static {v14}, Lcom/android/internal/app/LocaleStore;->addSuggestedLocalesForRegion(Ljava/util/Locale;)V
 
-    invoke-static {}, Ljava/util/Locale;->getDefault()Ljava/util/Locale;
+    invoke-static {}, Landroid/os/LocaleList;->getDefault()Landroid/os/LocaleList;
 
-    move-result-object v19
+    move-result-object v14
 
-    invoke-virtual/range {v19 .. v19}, Ljava/util/Locale;->toString()Ljava/lang/String;
+    sput-object v14, Lcom/android/internal/app/LocaleStore;->sPrevDefaultLocaleList:Landroid/os/LocaleList;
 
-    move-result-object v19
-
-    sput-object v19, Lcom/android/internal/app/LocaleStore;->sPrevDefaultLocaleString:Ljava/lang/String;
-
-    :cond_18
+    :cond_b
     return-void
 .end method
 
+.method private static findTagValue([Ljava/lang/String;Lorg/w3c/dom/Node;)Ljava/lang/String;
+    .locals 10
+
+    const-string/jumbo v5, ""
+
+    const/4 v7, 0x0
+
+    array-length v8, p0
+
+    :goto_0
+    if-ge v7, v8, :cond_2
+
+    aget-object v6, p0, v7
+
+    if-eqz p1, :cond_1
+
+    invoke-interface {p1}, Lorg/w3c/dom/Node;->getChildNodes()Lorg/w3c/dom/NodeList;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_1
+
+    invoke-interface {v1}, Lorg/w3c/dom/NodeList;->getLength()I
+
+    move-result v4
+
+    const/4 v3, 0x0
+
+    :goto_1
+    if-ge v3, v4, :cond_1
+
+    invoke-interface {v1, v3}, Lorg/w3c/dom/NodeList;->item(I)Lorg/w3c/dom/Node;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    invoke-interface {v0}, Lorg/w3c/dom/Node;->getNodeName()Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-virtual {v6, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v9
+
+    if-eqz v9, :cond_0
+
+    move-object p1, v0
+
+    :cond_0
+    add-int/lit8 v3, v3, 0x1
+
+    goto :goto_1
+
+    :cond_1
+    add-int/lit8 v7, v7, 0x1
+
+    goto :goto_0
+
+    :cond_2
+    if-eqz p1, :cond_3
+
+    array-length v7, p0
+
+    add-int/lit8 v7, v7, -0x1
+
+    aget-object v7, p0, v7
+
+    invoke-interface {p1}, Lorg/w3c/dom/Node;->getNodeName()Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-virtual {v7, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v7
+
+    xor-int/lit8 v7, v7, 0x1
+
+    if-eqz v7, :cond_4
+
+    :cond_3
+    return-object v5
+
+    :cond_4
+    invoke-interface {p1}, Lorg/w3c/dom/Node;->getFirstChild()Lorg/w3c/dom/Node;
+
+    move-result-object v2
+
+    if-eqz v2, :cond_5
+
+    invoke-interface {v2}, Lorg/w3c/dom/Node;->getNodeValue()Ljava/lang/String;
+
+    move-result-object v5
+
+    :cond_5
+    const-string/jumbo v7, "\\s"
+
+    const-string/jumbo v8, ""
+
+    invoke-virtual {v5, v7, v8}, Ljava/lang/String;->replaceAll(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v5
+
+    const-string/jumbo v7, "_"
+
+    const-string/jumbo v8, "-"
+
+    invoke-virtual {v5, v7, v8}, Ljava/lang/String;->replaceAll(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v5
+
+    return-object v5
+.end method
+
 .method public static getAllLocaleInfos(Landroid/content/Context;)Ljava/util/List;
-    .locals 8
+    .locals 10
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -871,21 +876,27 @@
         }
     .end annotation
 
-    const/4 v7, 0x4
+    const/4 v8, 0x0
 
-    const/4 v0, 0x0
+    invoke-static {p0, v8}, Lcom/android/internal/app/LocaleStore;->fillCacheManaged(Landroid/content/Context;Z)V
 
-    const/4 v5, 0x0
+    new-instance v6, Ljava/util/ArrayList;
 
-    invoke-static {p0, v5}, Lcom/android/internal/app/LocaleStore;->fillCacheManaged(Landroid/content/Context;Z)V
+    sget-object v8, Lcom/android/internal/app/LocaleStore;->sLocaleCache:Ljava/util/concurrent/ConcurrentHashMap;
 
-    sget-object v5, Lcom/android/internal/app/LocaleStore;->sLocaleCache:Ljava/util/concurrent/ConcurrentHashMap;
+    invoke-virtual {v8}, Ljava/util/concurrent/ConcurrentHashMap;->size()I
 
-    invoke-virtual {v5}, Ljava/util/concurrent/ConcurrentHashMap;->values()Ljava/util/Collection;
+    move-result v8
 
-    move-result-object v5
+    invoke-direct {v6, v8}, Ljava/util/ArrayList;-><init>(I)V
 
-    invoke-interface {v5}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+    sget-object v8, Lcom/android/internal/app/LocaleStore;->sLocaleCache:Ljava/util/concurrent/ConcurrentHashMap;
+
+    invoke-virtual {v8}, Ljava/util/concurrent/ConcurrentHashMap;->values()Ljava/util/Collection;
+
+    move-result-object v8
+
+    invoke-interface {v8}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v3
 
@@ -893,9 +904,9 @@
     :goto_0
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v5
+    move-result v8
 
-    if-eqz v5, :cond_1
+    if-eqz v8, :cond_1
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -905,93 +916,114 @@
 
     invoke-static {v2}, Lcom/android/internal/app/LocaleStore$LocaleInfo;->-get1(Lcom/android/internal/app/LocaleStore$LocaleInfo;)I
 
-    move-result v5
+    move-result v8
 
-    and-int/lit8 v5, v5, 0x4
+    and-int/lit8 v8, v8, 0x4
 
-    if-ne v5, v7, :cond_0
+    if-eqz v8, :cond_0
 
     invoke-virtual {v2}, Lcom/android/internal/app/LocaleStore$LocaleInfo;->getParent()Ljava/util/Locale;
 
-    move-result-object v5
+    move-result-object v8
 
-    if-eqz v5, :cond_0
+    if-eqz v8, :cond_0
 
-    add-int/lit8 v0, v0, 0x1
+    invoke-virtual {v2}, Lcom/android/internal/app/LocaleStore$LocaleInfo;->toString()Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-static {v8}, Ljava/util/Locale;->forLanguageTag(Ljava/lang/String;)Ljava/util/Locale;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_0
+
+    new-instance v8, Lcom/android/internal/app/LocalePicker$LocaleInfo;
+
+    invoke-virtual {v1, v1}, Ljava/util/Locale;->getDisplayName(Ljava/util/Locale;)Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-static {v9}, Lcom/android/internal/app/LocaleStore;->toTitleCase(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-direct {v8, v9, v1}, Lcom/android/internal/app/LocalePicker$LocaleInfo;-><init>(Ljava/lang/String;Ljava/util/Locale;)V
+
+    invoke-virtual {v6, v8}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     goto :goto_0
 
     :cond_1
-    new-instance v4, Ljava/util/ArrayList;
+    invoke-virtual {v6}, Ljava/util/ArrayList;->trimToSize()V
 
-    invoke-direct {v4, v0}, Ljava/util/ArrayList;-><init>(I)V
+    sget-object v8, Lcom/android/internal/app/LocaleStore;->sPriorityLocale:Ljava/lang/String;
 
-    sget-object v5, Lcom/android/internal/app/LocaleStore;->sLocaleCache:Ljava/util/concurrent/ConcurrentHashMap;
+    invoke-virtual {v8}, Ljava/lang/String;->isEmpty()Z
 
-    invoke-virtual {v5}, Ljava/util/concurrent/ConcurrentHashMap;->values()Ljava/util/Collection;
+    move-result v8
+
+    if-nez v8, :cond_4
+
+    new-instance v0, Ljava/util/ArrayList;
+
+    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+
+    new-instance v7, Ljava/util/ArrayList;
+
+    invoke-direct {v7}, Ljava/util/ArrayList;-><init>()V
+
+    invoke-interface {v6}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v5
 
-    invoke-interface {v5}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+    :goto_1
+    invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result-object v3
+    move-result v8
+
+    if-eqz v8, :cond_3
+
+    invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v4
+
+    check-cast v4, Lcom/android/internal/app/LocalePicker$LocaleInfo;
+
+    sget-object v8, Lcom/android/internal/app/LocaleStore;->sPriorityLocale:Ljava/lang/String;
+
+    invoke-virtual {v4}, Lcom/android/internal/app/LocalePicker$LocaleInfo;->getLocale()Ljava/util/Locale;
+
+    move-result-object v9
+
+    invoke-static {v8, v9}, Lcom/android/internal/app/LocaleStore;->isConfigLocale(Ljava/lang/String;Ljava/util/Locale;)Z
+
+    move-result v8
+
+    if-eqz v8, :cond_2
+
+    invoke-virtual {v0, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto :goto_1
 
     :cond_2
-    :goto_1
-    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v5
-
-    if-eqz v5, :cond_3
-
-    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Lcom/android/internal/app/LocaleStore$LocaleInfo;
-
-    invoke-static {v2}, Lcom/android/internal/app/LocaleStore$LocaleInfo;->-get1(Lcom/android/internal/app/LocaleStore$LocaleInfo;)I
-
-    move-result v5
-
-    and-int/lit8 v5, v5, 0x4
-
-    if-ne v5, v7, :cond_2
-
-    invoke-virtual {v2}, Lcom/android/internal/app/LocaleStore$LocaleInfo;->getParent()Ljava/util/Locale;
-
-    move-result-object v5
-
-    if-eqz v5, :cond_2
-
-    invoke-virtual {v2}, Lcom/android/internal/app/LocaleStore$LocaleInfo;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-static {v5}, Ljava/util/Locale;->forLanguageTag(Ljava/lang/String;)Ljava/util/Locale;
-
-    move-result-object v1
-
-    new-instance v5, Lcom/android/internal/app/LocalePicker$LocaleInfo;
-
-    invoke-virtual {v1, v1}, Ljava/util/Locale;->getDisplayName(Ljava/util/Locale;)Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-static {v6}, Lcom/android/internal/app/LocaleStore;->toTitleCase(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-direct {v5, v6, v1}, Lcom/android/internal/app/LocalePicker$LocaleInfo;-><init>(Ljava/lang/String;Ljava/util/Locale;)V
-
-    invoke-virtual {v4, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v7, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     goto :goto_1
 
     :cond_3
-    invoke-static {v4}, Ljava/util/Collections;->sort(Ljava/util/List;)V
+    invoke-static {v0}, Ljava/util/Collections;->sort(Ljava/util/List;)V
 
-    return-object v4
+    invoke-static {v7}, Ljava/util/Collections;->sort(Ljava/util/List;)V
+
+    invoke-virtual {v0, v7}, Ljava/util/ArrayList;->addAll(Ljava/util/Collection;)Z
+
+    return-object v0
+
+    :cond_4
+    invoke-static {v6}, Ljava/util/Collections;->sort(Ljava/util/List;)V
+
+    return-object v6
 .end method
 
 .method private static getLevel(Ljava/util/Set;Lcom/android/internal/app/LocaleStore$LocaleInfo;Z)I
@@ -1040,21 +1072,22 @@
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    xor-int/lit8 v0, v0, 0x1
+
+    if-eqz v0, :cond_2
+
+    return v1
 
     :cond_2
     invoke-virtual {p1}, Lcom/android/internal/app/LocaleStore$LocaleInfo;->getParent()Ljava/util/Locale;
 
     move-result-object v0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_3
 
     return v2
 
     :cond_3
-    return v1
-
-    :cond_4
     return v1
 .end method
 
@@ -1093,9 +1126,9 @@
     const/4 v3, 0x0
 
     :goto_1
-    new-instance v4, Ljava/util/HashSet;
+    new-instance v5, Ljava/util/HashSet;
 
-    invoke-direct {v4}, Ljava/util/HashSet;-><init>()V
+    invoke-direct {v5}, Ljava/util/HashSet;-><init>()V
 
     sget-object v6, Lcom/android/internal/app/LocaleStore;->sLocaleCache:Ljava/util/concurrent/ConcurrentHashMap;
 
@@ -1145,7 +1178,7 @@
 
     if-eqz v6, :cond_0
 
-    invoke-virtual {v4, v1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v5, v1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
     goto :goto_2
 
@@ -1168,7 +1201,7 @@
 
     if-eqz v6, :cond_4
 
-    invoke-virtual {v4, v1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v5, v1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
     goto :goto_2
 
@@ -1179,7 +1212,9 @@
 
     invoke-static {v6}, Lcom/android/internal/app/LocaleStore;->getLocaleInfo(Ljava/util/Locale;)Lcom/android/internal/app/LocaleStore$LocaleInfo;
 
-    move-result-object v5
+    move-result-object v4
+
+    if-eqz v4, :cond_0
 
     const/4 v6, 0x4
 
@@ -1189,21 +1224,21 @@
 
     if-eqz v6, :cond_5
 
-    invoke-virtual {v5}, Lcom/android/internal/app/LocaleStore$LocaleInfo;->getParentSecSuggested()Z
+    invoke-static {v4}, Lcom/android/internal/app/LocaleStore$LocaleInfo;->-get1(Lcom/android/internal/app/LocaleStore$LocaleInfo;)I
 
     move-result v6
 
-    if-nez v6, :cond_5
+    or-int/lit8 v6, v6, 0x4
 
-    invoke-virtual {v5, v7}, Lcom/android/internal/app/LocaleStore$LocaleInfo;->setParentSecSuggested(Z)V
+    invoke-static {v4, v6}, Lcom/android/internal/app/LocaleStore$LocaleInfo;->-set0(Lcom/android/internal/app/LocaleStore$LocaleInfo;I)I
 
     :cond_5
-    invoke-virtual {v4, v5}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v5, v4}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
     goto :goto_2
 
     :cond_6
-    return-object v4
+    return-object v5
 .end method
 
 .method public static getLocaleInfo(Ljava/util/Locale;)Lcom/android/internal/app/LocaleStore$LocaleInfo;
@@ -1260,382 +1295,186 @@
 .end method
 
 .method private static getLocaleListFromXML(Ljava/lang/String;)[Ljava/lang/String;
-    .locals 24
+    .locals 14
 
-    const/16 v21, 0x2
+    const/4 v12, 0x4
 
-    move/from16 v0, v21
+    new-array v9, v12, [Ljava/lang/String;
 
-    new-array v0, v0, [Ljava/lang/String;
-
-    move-object/from16 v16, v0
-
-    const/16 v17, 0x0
+    const/4 v10, 0x0
 
     :try_start_0
     invoke-static {}, Ljavax/xml/parsers/DocumentBuilderFactory;->newInstance()Ljavax/xml/parsers/DocumentBuilderFactory;
 
-    move-result-object v9
+    move-result-object v6
 
-    invoke-virtual {v9}, Ljavax/xml/parsers/DocumentBuilderFactory;->newDocumentBuilder()Ljavax/xml/parsers/DocumentBuilder;
+    invoke-virtual {v6}, Ljavax/xml/parsers/DocumentBuilderFactory;->newDocumentBuilder()Ljavax/xml/parsers/DocumentBuilder;
+
+    move-result-object v0
+
+    new-instance v12, Ljava/io/File;
+
+    invoke-direct {v12, p0}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v0, v12}, Ljavax/xml/parsers/DocumentBuilder;->parse(Ljava/io/File;)Lorg/w3c/dom/Document;
 
     move-result-object v2
 
-    new-instance v21, Ljava/io/File;
+    if-eqz v2, :cond_0
 
-    move-object/from16 v0, v21
-
-    move-object/from16 v1, p0
-
-    invoke-direct {v0, v1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
-
-    move-object/from16 v0, v21
-
-    invoke-virtual {v2, v0}, Ljavax/xml/parsers/DocumentBuilder;->parse(Ljava/io/File;)Lorg/w3c/dom/Document;
-
-    move-result-object v5
-
-    if-eqz v5, :cond_0
-
-    invoke-interface {v5}, Lorg/w3c/dom/Document;->getDocumentElement()Lorg/w3c/dom/Element;
+    invoke-interface {v2}, Lorg/w3c/dom/Document;->getDocumentElement()Lorg/w3c/dom/Element;
     :try_end_0
     .catch Ljavax/xml/parsers/ParserConfigurationException; {:try_start_0 .. :try_end_0} :catch_2
     .catch Lorg/xml/sax/SAXException; {:try_start_0 .. :try_end_0} :catch_1
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    move-result-object v17
+    move-result-object v10
 
     :cond_0
     :goto_0
-    if-nez v17, :cond_1
+    if-nez v10, :cond_1
 
-    const/16 v21, 0x0
+    const/4 v12, 0x0
 
-    return-object v21
+    return-object v12
 
     :catch_0
-    move-exception v6
+    move-exception v3
 
-    const-string/jumbo v21, "LocaleStore"
+    const-string/jumbo v12, "LocaleStore"
 
-    invoke-virtual {v6}, Ljava/lang/Throwable;->toString()Ljava/lang/String;
+    invoke-virtual {v3}, Ljava/io/IOException;->toString()Ljava/lang/String;
 
-    move-result-object v22
+    move-result-object v13
 
-    invoke-static/range {v21 .. v22}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v12, v13}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 
     :catch_1
-    move-exception v8
+    move-exception v5
 
-    const-string/jumbo v21, "LocaleStore"
+    const-string/jumbo v12, "LocaleStore"
 
-    invoke-virtual {v8}, Lorg/xml/sax/SAXException;->toString()Ljava/lang/String;
+    invoke-virtual {v5}, Lorg/xml/sax/SAXException;->toString()Ljava/lang/String;
 
-    move-result-object v22
+    move-result-object v13
 
-    invoke-static/range {v21 .. v22}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v12, v13}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 
     :catch_2
-    move-exception v7
+    move-exception v4
 
-    const-string/jumbo v21, "LocaleStore"
+    const-string/jumbo v12, "LocaleStore"
 
-    invoke-virtual {v7}, Ljava/lang/Throwable;->toString()Ljava/lang/String;
+    invoke-virtual {v4}, Ljavax/xml/parsers/ParserConfigurationException;->toString()Ljava/lang/String;
 
-    move-result-object v22
+    move-result-object v13
 
-    invoke-static/range {v21 .. v22}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v12, v13}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 
     :cond_1
-    const/16 v21, 0x2
+    const/4 v12, 0x2
 
-    move/from16 v0, v21
+    new-array v1, v12, [Ljava/lang/String;
 
-    new-array v0, v0, [Ljava/lang/String;
+    const-string/jumbo v12, "LanguageSet"
 
-    move-object/from16 v18, v0
+    const/4 v13, 0x0
 
-    const-string/jumbo v21, "LanguageSet"
+    aput-object v12, v1, v13
 
-    const/16 v22, 0x0
+    const-string/jumbo v12, "Display"
 
-    aput-object v21, v18, v22
+    const/4 v13, 0x1
 
-    const-string/jumbo v21, "Display"
+    aput-object v12, v1, v13
 
-    const/16 v22, 0x1
+    const/4 v12, 0x2
 
-    aput-object v21, v18, v22
+    new-array v7, v12, [Ljava/lang/String;
 
-    const/16 v21, 0x2
+    const-string/jumbo v12, "LanguageSet"
 
-    move/from16 v0, v21
+    const/4 v13, 0x0
 
-    new-array v0, v0, [Ljava/lang/String;
+    aput-object v12, v7, v13
 
-    move-object/from16 v19, v0
+    const-string/jumbo v12, "NonDisplay"
 
-    const-string/jumbo v21, "LanguageSet"
+    const/4 v13, 0x1
 
-    const/16 v22, 0x0
+    aput-object v12, v7, v13
 
-    aput-object v21, v19, v22
+    const/4 v12, 0x2
 
-    const-string/jumbo v21, "NonDisplay"
+    new-array v11, v12, [Ljava/lang/String;
 
-    const/16 v22, 0x1
+    const-string/jumbo v12, "LanguageSet"
 
-    aput-object v21, v19, v22
+    const/4 v13, 0x0
 
-    move-object/from16 v14, v17
+    aput-object v12, v11, v13
 
-    move-object/from16 v15, v17
+    const-string/jumbo v12, "Suggested"
 
-    const/16 v21, 0x0
+    const/4 v13, 0x1
 
-    move-object/from16 v0, v18
+    aput-object v12, v11, v13
 
-    array-length v0, v0
+    const/4 v12, 0x2
 
-    move/from16 v22, v0
+    new-array v8, v12, [Ljava/lang/String;
 
-    :goto_1
-    move/from16 v0, v21
+    const-string/jumbo v12, "LanguageSet"
 
-    move/from16 v1, v22
+    const/4 v13, 0x0
 
-    if-ge v0, v1, :cond_4
+    aput-object v12, v8, v13
 
-    aget-object v20, v18, v21
+    const-string/jumbo v12, "NonSuggested"
 
-    if-eqz v14, :cond_3
+    const/4 v13, 0x1
 
-    invoke-interface {v14}, Lorg/w3c/dom/Node;->getChildNodes()Lorg/w3c/dom/NodeList;
+    aput-object v12, v8, v13
 
-    move-result-object v4
+    invoke-static {v1, v10}, Lcom/android/internal/app/LocaleStore;->findTagValue([Ljava/lang/String;Lorg/w3c/dom/Node;)Ljava/lang/String;
 
-    if-eqz v4, :cond_3
+    move-result-object v12
 
-    invoke-interface {v4}, Lorg/w3c/dom/NodeList;->getLength()I
+    const/4 v13, 0x0
 
-    move-result v13
+    aput-object v12, v9, v13
 
-    const/4 v12, 0x0
+    invoke-static {v7, v10}, Lcom/android/internal/app/LocaleStore;->findTagValue([Ljava/lang/String;Lorg/w3c/dom/Node;)Ljava/lang/String;
 
-    :goto_2
-    if-ge v12, v13, :cond_3
+    move-result-object v12
 
-    invoke-interface {v4, v12}, Lorg/w3c/dom/NodeList;->item(I)Lorg/w3c/dom/Node;
+    const/4 v13, 0x1
 
-    move-result-object v3
+    aput-object v12, v9, v13
 
-    if-eqz v3, :cond_2
+    invoke-static {v11, v10}, Lcom/android/internal/app/LocaleStore;->findTagValue([Ljava/lang/String;Lorg/w3c/dom/Node;)Ljava/lang/String;
 
-    invoke-interface {v3}, Lorg/w3c/dom/Node;->getNodeName()Ljava/lang/String;
+    move-result-object v12
 
-    move-result-object v23
+    const/4 v13, 0x2
 
-    move-object/from16 v0, v20
+    aput-object v12, v9, v13
 
-    move-object/from16 v1, v23
+    invoke-static {v8, v10}, Lcom/android/internal/app/LocaleStore;->findTagValue([Ljava/lang/String;Lorg/w3c/dom/Node;)Ljava/lang/String;
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    move-result-object v12
 
-    move-result v23
+    const/4 v13, 0x3
 
-    if-eqz v23, :cond_2
+    aput-object v12, v9, v13
 
-    move-object v14, v3
-
-    :cond_2
-    add-int/lit8 v12, v12, 0x1
-
-    goto :goto_2
-
-    :cond_3
-    add-int/lit8 v21, v21, 0x1
-
-    goto :goto_1
-
-    :cond_4
-    if-eqz v14, :cond_6
-
-    move-object/from16 v0, v18
-
-    array-length v0, v0
-
-    move/from16 v21, v0
-
-    add-int/lit8 v21, v21, -0x1
-
-    aget-object v21, v18, v21
-
-    invoke-interface {v14}, Lorg/w3c/dom/Node;->getNodeName()Ljava/lang/String;
-
-    move-result-object v22
-
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v21
-
-    if-eqz v21, :cond_6
-
-    :goto_3
-    const/16 v21, 0x0
-
-    move-object/from16 v0, v19
-
-    array-length v0, v0
-
-    move/from16 v22, v0
-
-    :goto_4
-    move/from16 v0, v21
-
-    move/from16 v1, v22
-
-    if-ge v0, v1, :cond_8
-
-    aget-object v20, v19, v21
-
-    if-eqz v15, :cond_7
-
-    invoke-interface {v15}, Lorg/w3c/dom/Node;->getChildNodes()Lorg/w3c/dom/NodeList;
-
-    move-result-object v4
-
-    if-eqz v4, :cond_7
-
-    invoke-interface {v4}, Lorg/w3c/dom/NodeList;->getLength()I
-
-    move-result v13
-
-    const/4 v12, 0x0
-
-    :goto_5
-    if-ge v12, v13, :cond_7
-
-    invoke-interface {v4, v12}, Lorg/w3c/dom/NodeList;->item(I)Lorg/w3c/dom/Node;
-
-    move-result-object v3
-
-    if-eqz v3, :cond_5
-
-    invoke-interface {v3}, Lorg/w3c/dom/Node;->getNodeName()Ljava/lang/String;
-
-    move-result-object v23
-
-    move-object/from16 v0, v20
-
-    move-object/from16 v1, v23
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v23
-
-    if-eqz v23, :cond_5
-
-    move-object v15, v3
-
-    :cond_5
-    add-int/lit8 v12, v12, 0x1
-
-    goto :goto_5
-
-    :cond_6
-    const/16 v21, 0x0
-
-    const/16 v22, 0x0
-
-    aput-object v21, v16, v22
-
-    goto :goto_3
-
-    :cond_7
-    add-int/lit8 v21, v21, 0x1
-
-    goto :goto_4
-
-    :cond_8
-    if-eqz v15, :cond_c
-
-    move-object/from16 v0, v18
-
-    array-length v0, v0
-
-    move/from16 v21, v0
-
-    add-int/lit8 v21, v21, -0x1
-
-    aget-object v21, v18, v21
-
-    invoke-interface {v14}, Lorg/w3c/dom/Node;->getNodeName()Ljava/lang/String;
-
-    move-result-object v22
-
-    invoke-virtual/range {v21 .. v22}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v21
-
-    if-eqz v21, :cond_c
-
-    :goto_6
-    invoke-interface {v14}, Lorg/w3c/dom/Node;->getFirstChild()Lorg/w3c/dom/Node;
-
-    move-result-object v10
-
-    invoke-interface {v15}, Lorg/w3c/dom/Node;->getFirstChild()Lorg/w3c/dom/Node;
-
-    move-result-object v11
-
-    if-nez v10, :cond_9
-
-    if-eqz v11, :cond_d
-
-    :cond_9
-    if-eqz v10, :cond_a
-
-    invoke-interface {v10}, Lorg/w3c/dom/Node;->getNodeValue()Ljava/lang/String;
-
-    move-result-object v21
-
-    const/16 v22, 0x0
-
-    aput-object v21, v16, v22
-
-    :cond_a
-    if-eqz v11, :cond_b
-
-    invoke-interface {v11}, Lorg/w3c/dom/Node;->getNodeValue()Ljava/lang/String;
-
-    move-result-object v21
-
-    const/16 v22, 0x1
-
-    aput-object v21, v16, v22
-
-    :cond_b
-    return-object v16
-
-    :cond_c
-    const/16 v21, 0x0
-
-    const/16 v22, 0x1
-
-    aput-object v21, v16, v22
-
-    goto :goto_6
-
-    :cond_d
-    const/16 v21, 0x0
-
-    return-object v21
+    return-object v9
 .end method
 
 .method private static getSimCountries(Landroid/content/Context;)Ljava/util/Set;
@@ -1703,16 +1542,46 @@
     return-object v1
 .end method
 
-.method private static toTitleCase(Ljava/lang/String;)Ljava/lang/String;
+.method private static isChina()Z
     .locals 2
 
-    const/4 v1, 0x0
+    const-string/jumbo v0, "CHINA"
 
-    invoke-virtual {p0}, Ljava/lang/String;->length()I
+    const-string/jumbo v1, "ro.csc.country_code"
+
+    invoke-static {v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v0
 
-    if-nez v0, :cond_0
+    return v0
+.end method
+
+.method private static isConfigLocale(Ljava/lang/String;Ljava/util/Locale;)Z
+    .locals 1
+
+    invoke-virtual {p1}, Ljava/util/Locale;->getLanguage()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method private static toTitleCase(Ljava/lang/String;)Ljava/lang/String;
+    .locals 2
+
+    invoke-virtual {p0}, Ljava/lang/String;->isEmpty()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
 
     return-object p0
 
@@ -1720,6 +1589,8 @@
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const/4 v1, 0x0
 
     invoke-virtual {p0, v1}, Ljava/lang/String;->charAt(I)C
 

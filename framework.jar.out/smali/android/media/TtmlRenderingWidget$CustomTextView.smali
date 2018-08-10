@@ -50,9 +50,9 @@
 
     move-result v0
 
-    invoke-virtual {p0, v1, v0}, Landroid/view/View;->measure(II)V
+    invoke-virtual {p0, v1, v0}, Landroid/media/TtmlRenderingWidget$CustomTextView;->measure(II)V
 
-    invoke-virtual {p0, v2, v2, p1, p2}, Landroid/view/View;->layout(IIII)V
+    invoke-virtual {p0, v2, v2, p1, p2}, Landroid/media/TtmlRenderingWidget$CustomTextView;->layout(IIII)V
 
     return-void
 .end method

@@ -44,7 +44,7 @@
 
     const/4 v4, 0x1
 
-    invoke-virtual {v1, v4}, Ljava/lang/reflect/AccessibleObject;->setAccessible(Z)V
+    invoke-virtual {v1, v4}, Ljava/lang/reflect/Method;->setAccessible(Z)V
 
     const-class v4, Landroid/view/View;
 
@@ -56,7 +56,7 @@
 
     const/4 v4, 0x1
 
-    invoke-virtual {v3, v4}, Ljava/lang/reflect/AccessibleObject;->setAccessible(Z)V
+    invoke-virtual {v3, v4}, Ljava/lang/reflect/Field;->setAccessible(Z)V
 
     const-class v4, Landroid/view/RenderNode;
 
@@ -68,7 +68,7 @@
 
     const/4 v4, 0x1
 
-    invoke-virtual {v2, v4}, Ljava/lang/reflect/AccessibleObject;->setAccessible(Z)V
+    invoke-virtual {v2, v4}, Ljava/lang/reflect/Field;->setAccessible(Z)V
     :try_end_0
     .catch Ljava/lang/ReflectiveOperationException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -84,7 +84,7 @@
     :catch_0
     move-exception v0
 
-    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/ReflectiveOperationException;->printStackTrace()V
 
     goto :goto_0
 .end method
@@ -150,7 +150,7 @@
     :catch_0
     move-exception v0
 
-    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/IllegalAccessException;->printStackTrace()V
 
     goto :goto_0
 .end method
@@ -216,7 +216,7 @@
     :catch_0
     move-exception v1
 
-    invoke-virtual {v1}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v1}, Ljava/lang/ReflectiveOperationException;->printStackTrace()V
 
     return-wide v6
 .end method
@@ -247,13 +247,13 @@
 .method public draw(Landroid/graphics/Canvas;)V
     .locals 2
 
-    instance-of v0, p1, Landroid/view/DisplayListCanvas;
+    invoke-virtual {p1}, Landroid/graphics/Canvas;->isHardwareAccelerated()Z
+
+    move-result v0
 
     if-eqz v0, :cond_0
 
-    nop
-
-    nop
+    check-cast p1, Landroid/view/DisplayListCanvas;
 
     iget-wide v0, p0, Landroid/view/HwuiBridge;->mFunctor:J
 
@@ -262,11 +262,11 @@
     return-void
 
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance v0, Ljava/lang/IllegalStateException;
 
-    const-string/jumbo v1, "Canvas must be instance of DisplayListCanvas"
+    const-string/jumbo v1, "Can\'t run on non-hardware accelerated canvas. Canvas must be instance of DisplayListCanvas!"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
     throw v0
 .end method
@@ -334,7 +334,7 @@
     :catch_0
     move-exception v0
 
-    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/IllegalAccessException;->printStackTrace()V
 
     goto :goto_0
 .end method

@@ -26,13 +26,15 @@
 
 .field public static final BATTERY_HEALTH_UNSPECIFIED_FAILURE:I = 0x6
 
-.field public static final BATTERY_MISC_EVENT_CISD:I = 0x10
+.field public static final BATTERY_MISC_EVENT_HICCUP_ENABLED:I = 0x20
 
 .field public static final BATTERY_MISC_EVENT_RECHARGE:I = 0x8
 
 .field public static final BATTERY_MISC_EVENT_TIMEOUT_OPEN_TYPE:I = 0x4
 
 .field public static final BATTERY_MISC_EVENT_WATER_IN_CONNECTOR:I = 0x1
+
+.field public static final BATTERY_MISC_EVENT_WATER_IN_POGO:I = 0x10
 
 .field public static final BATTERY_MISC_EVENT_WIRELESS_BACKPACK:I = 0x2
 
@@ -71,6 +73,8 @@
 .field public static final BATTERY_PROPERTY_CURRENT_NOW:I = 0x2
 
 .field public static final BATTERY_PROPERTY_ENERGY_COUNTER:I = 0x5
+
+.field public static final BATTERY_PROPERTY_STATUS:I = 0x6
 
 .field public static final BATTERY_STATUS_CHARGING:I = 0x2
 
@@ -128,6 +132,8 @@
 
 .field public static final EXTRA_SELF_DISCHARGING:Ljava/lang/String; = "self_discharging"
 
+.field public static final EXTRA_SEQUENCE:Ljava/lang/String; = "seq"
+
 .field public static final EXTRA_STATUS:Ljava/lang/String; = "status"
 
 .field public static final EXTRA_TECHNOLOGY:Ljava/lang/String; = "technology"
@@ -174,6 +180,18 @@
     move-result-object v0
 
     iput-object v0, p0, Landroid/os/BatteryManager;->mBatteryPropertiesRegistrar:Landroid/os/IBatteryPropertiesRegistrar;
+
+    return-void
+.end method
+
+.method public constructor <init>(Lcom/android/internal/app/IBatteryStats;Landroid/os/IBatteryPropertiesRegistrar;)V
+    .locals 0
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Landroid/os/BatteryManager;->mBatteryStats:Lcom/android/internal/app/IBatteryStats;
+
+    iput-object p2, p0, Landroid/os/BatteryManager;->mBatteryPropertiesRegistrar:Landroid/os/IBatteryPropertiesRegistrar;
 
     return-void
 .end method

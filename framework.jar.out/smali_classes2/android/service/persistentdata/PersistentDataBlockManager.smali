@@ -164,6 +164,11 @@
 
 .method public read()[B
     .locals 2
+    .annotation build Landroid/annotation/SuppressLint;
+        value = {
+            "Doclava125"
+        }
+    .end annotation
 
     :try_start_0
     iget-object v1, p0, Landroid/service/persistentdata/PersistentDataBlockManager;->sService:Landroid/service/persistentdata/IPersistentDataBlockService;
@@ -232,6 +237,11 @@
 
 .method public write([B)I
     .locals 2
+    .annotation build Landroid/annotation/SuppressLint;
+        value = {
+            "Doclava125"
+        }
+    .end annotation
 
     :try_start_0
     iget-object v1, p0, Landroid/service/persistentdata/PersistentDataBlockManager;->sService:Landroid/service/persistentdata/IPersistentDataBlockService;

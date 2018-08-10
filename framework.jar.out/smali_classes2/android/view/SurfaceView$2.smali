@@ -3,7 +3,7 @@
 .source "SurfaceView.java"
 
 # interfaces
-.implements Landroid/view/ViewTreeObserver$OnScrollChangedListener;
+.implements Landroid/view/ViewTreeObserver$OnPreDrawListener;
 
 
 # annotations
@@ -34,14 +34,39 @@
 
 
 # virtual methods
-.method public onScrollChanged()V
-    .locals 2
+.method public onPreDraw()Z
+    .locals 4
 
-    const/4 v1, 0x0
+    const/4 v1, 0x1
+
+    const/4 v0, 0x0
+
+    iget-object v2, p0, Landroid/view/SurfaceView$2;->this$0:Landroid/view/SurfaceView;
+
+    iget-object v3, p0, Landroid/view/SurfaceView$2;->this$0:Landroid/view/SurfaceView;
+
+    invoke-virtual {v3}, Landroid/view/SurfaceView;->getWidth()I
+
+    move-result v3
+
+    if-lez v3, :cond_0
+
+    iget-object v3, p0, Landroid/view/SurfaceView$2;->this$0:Landroid/view/SurfaceView;
+
+    invoke-virtual {v3}, Landroid/view/SurfaceView;->getHeight()I
+
+    move-result v3
+
+    if-lez v3, :cond_0
+
+    move v0, v1
+
+    :cond_0
+    iput-boolean v0, v2, Landroid/view/SurfaceView;->mHaveFrame:Z
 
     iget-object v0, p0, Landroid/view/SurfaceView$2;->this$0:Landroid/view/SurfaceView;
 
-    invoke-virtual {v0, v1, v1}, Landroid/view/SurfaceView;->updateWindow(ZZ)V
+    invoke-virtual {v0}, Landroid/view/SurfaceView;->updateSurface()V
 
-    return-void
+    return v1
 .end method

@@ -3,12 +3,12 @@
 .source "SearchView.java"
 
 # interfaces
-.implements Landroid/text/TextWatcher;
+.implements Landroid/view/View$OnFocusChangeListener;
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroid/widget/SearchView;
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Landroid/widget/SearchView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;II)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -34,24 +34,27 @@
 
 
 # virtual methods
-.method public afterTextChanged(Landroid/text/Editable;)V
-    .locals 0
-
-    return-void
-.end method
-
-.method public beforeTextChanged(Ljava/lang/CharSequence;III)V
-    .locals 0
-
-    return-void
-.end method
-
-.method public onTextChanged(Ljava/lang/CharSequence;III)V
-    .locals 1
+.method public onFocusChange(Landroid/view/View;Z)V
+    .locals 2
 
     iget-object v0, p0, Landroid/widget/SearchView$9;->this$0:Landroid/widget/SearchView;
 
-    invoke-static {v0, p1}, Landroid/widget/SearchView;->-wrap9(Landroid/widget/SearchView;Ljava/lang/CharSequence;)V
+    invoke-static {v0}, Landroid/widget/SearchView;->-get2(Landroid/widget/SearchView;)Landroid/view/View$OnFocusChangeListener;
 
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Landroid/widget/SearchView$9;->this$0:Landroid/widget/SearchView;
+
+    invoke-static {v0}, Landroid/widget/SearchView;->-get2(Landroid/widget/SearchView;)Landroid/view/View$OnFocusChangeListener;
+
+    move-result-object v0
+
+    iget-object v1, p0, Landroid/widget/SearchView$9;->this$0:Landroid/widget/SearchView;
+
+    invoke-interface {v0, v1, p2}, Landroid/view/View$OnFocusChangeListener;->onFocusChange(Landroid/view/View;Z)V
+
+    :cond_0
     return-void
 .end method

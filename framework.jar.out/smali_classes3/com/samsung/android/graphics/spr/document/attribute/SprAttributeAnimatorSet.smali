@@ -146,6 +146,21 @@
     return-object v0
 .end method
 
+.method public bridge synthetic clone()Ljava/lang/Object;
+    .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/lang/CloneNotSupportedException;
+        }
+    .end annotation
+
+    invoke-virtual {p0}, Lcom/samsung/android/graphics/spr/document/attribute/SprAttributeAnimatorSet;->clone()Lcom/samsung/android/graphics/spr/document/attribute/SprAttributeAnimatorSet;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
 .method public fromSPR(Lcom/samsung/android/graphics/spr/document/SprInputStream;)V
     .locals 6
     .annotation system Ldalvik/annotation/Throws;

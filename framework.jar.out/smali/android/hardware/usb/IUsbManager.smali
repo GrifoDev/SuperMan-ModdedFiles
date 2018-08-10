@@ -151,6 +151,14 @@
     .end annotation
 .end method
 
+.method public abstract isSupportDexRestrict()Z
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract isUsb30Available()Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -207,6 +215,14 @@
     .end annotation
 .end method
 
+.method public abstract restrictUsbHostInterface(ZLjava/lang/String;)I
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract semSetMode(I)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -223,7 +239,7 @@
     .end annotation
 .end method
 
-.method public abstract setCurrentFunction(Ljava/lang/String;)V
+.method public abstract setCurrentFunction(Ljava/lang/String;Z)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -255,7 +271,7 @@
     .end annotation
 .end method
 
-.method public abstract setUsbDataUnlocked(Z)V
+.method public abstract setUsbDeviceConnectionHandler(Landroid/content/ComponentName;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

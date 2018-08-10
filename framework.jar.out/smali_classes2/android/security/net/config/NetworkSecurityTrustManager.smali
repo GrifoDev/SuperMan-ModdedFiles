@@ -128,7 +128,9 @@
 
     move-result v10
 
-    if-eqz v10, :cond_0
+    xor-int/lit8 v10, v10, 0x1
+
+    if-nez v10, :cond_0
 
     invoke-virtual {v9}, Landroid/security/net/config/PinSet;->getPinAlgorithms()Ljava/util/Set;
 
@@ -260,32 +262,32 @@
         }
     .end annotation
 
-    const/4 v2, 0x0
-
     invoke-interface {p1}, Ljava/util/List;->isEmpty()Z
 
-    move-result v3
+    move-result v2
 
-    if-eqz v3, :cond_0
+    if-eqz v2, :cond_0
+
+    const/4 v2, 0x0
 
     return v2
 
     :cond_0
     invoke-interface {p1}, Ljava/util/List;->size()I
 
-    move-result v3
+    move-result v2
 
-    add-int/lit8 v3, v3, -0x1
+    add-int/lit8 v2, v2, -0x1
 
-    invoke-interface {p1, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {p1, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Ljava/security/cert/X509Certificate;
 
-    iget-object v3, p0, Landroid/security/net/config/NetworkSecurityTrustManager;->mNetworkSecurityConfig:Landroid/security/net/config/NetworkSecurityConfig;
+    iget-object v2, p0, Landroid/security/net/config/NetworkSecurityTrustManager;->mNetworkSecurityConfig:Landroid/security/net/config/NetworkSecurityConfig;
 
-    invoke-virtual {v3, v0}, Landroid/security/net/config/NetworkSecurityConfig;->findTrustAnchorBySubjectAndPublicKey(Ljava/security/cert/X509Certificate;)Landroid/security/net/config/TrustAnchor;
+    invoke-virtual {v2, v0}, Landroid/security/net/config/NetworkSecurityConfig;->findTrustAnchorBySubjectAndPublicKey(Ljava/security/cert/X509Certificate;)Landroid/security/net/config/TrustAnchor;
 
     move-result-object v1
 
@@ -300,17 +302,11 @@
     throw v2
 
     :cond_1
-    iget-boolean v3, v1, Landroid/security/net/config/TrustAnchor;->overridesPins:Z
+    iget-boolean v2, v1, Landroid/security/net/config/TrustAnchor;->overridesPins:Z
 
-    if-eqz v3, :cond_2
+    xor-int/lit8 v2, v2, 0x1
 
-    :goto_0
     return v2
-
-    :cond_2
-    const/4 v2, 0x1
-
-    goto :goto_0
 .end method
 
 

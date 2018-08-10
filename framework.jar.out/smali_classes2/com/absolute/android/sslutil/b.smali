@@ -22,11 +22,11 @@
 
     move-result-object v0
 
-    const/4 v1, 0x3
+    const-string/jumbo v1, "EmptyTrustManager created..."
 
-    const-string/jumbo v2, "EmptyTrustManager created..."
+    const/4 v2, 0x3
 
-    invoke-virtual {v0, v1, v2}, Lcom/absolute/android/logutil/LogUtil;->logMessage(ILjava/lang/String;)V
+    invoke-virtual {v0, v2, v1}, Lcom/absolute/android/logutil/LogUtil;->logMessage(ILjava/lang/String;)V
 
     return-void
 .end method

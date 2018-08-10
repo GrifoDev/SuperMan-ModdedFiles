@@ -53,7 +53,7 @@
 
     move-result-wide v2
 
-    invoke-static {v0, v2, v3}, Landroid/location/Location;->-set9(Landroid/location/Location;J)J
+    invoke-static {v0, v2, v3}, Landroid/location/Location;->-set11(Landroid/location/Location;J)J
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readLong()J
 
@@ -71,37 +71,55 @@
 
     move-result-wide v2
 
-    invoke-static {v0, v2, v3}, Landroid/location/Location;->-set6(Landroid/location/Location;D)D
-
-    invoke-virtual {p1}, Landroid/os/Parcel;->readDouble()D
-
-    move-result-wide v2
-
     invoke-static {v0, v2, v3}, Landroid/location/Location;->-set7(Landroid/location/Location;D)D
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readDouble()D
 
     move-result-wide v2
 
-    invoke-static {v0, v2, v3}, Landroid/location/Location;->-set1(Landroid/location/Location;D)D
+    invoke-static {v0, v2, v3}, Landroid/location/Location;->-set8(Landroid/location/Location;D)D
+
+    invoke-virtual {p1}, Landroid/os/Parcel;->readDouble()D
+
+    move-result-wide v2
+
+    invoke-static {v0, v2, v3}, Landroid/location/Location;->-set0(Landroid/location/Location;D)D
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readFloat()F
 
     move-result v2
 
-    invoke-static {v0, v2}, Landroid/location/Location;->-set8(Landroid/location/Location;F)F
+    invoke-static {v0, v2}, Landroid/location/Location;->-set9(Landroid/location/Location;F)F
+
+    invoke-virtual {p1}, Landroid/os/Parcel;->readFloat()F
+
+    move-result v2
+
+    invoke-static {v0, v2}, Landroid/location/Location;->-set1(Landroid/location/Location;F)F
+
+    invoke-virtual {p1}, Landroid/os/Parcel;->readFloat()F
+
+    move-result v2
+
+    invoke-static {v0, v2}, Landroid/location/Location;->-set6(Landroid/location/Location;F)F
+
+    invoke-virtual {p1}, Landroid/os/Parcel;->readFloat()F
+
+    move-result v2
+
+    invoke-static {v0, v2}, Landroid/location/Location;->-set12(Landroid/location/Location;F)F
+
+    invoke-virtual {p1}, Landroid/os/Parcel;->readFloat()F
+
+    move-result v2
+
+    invoke-static {v0, v2}, Landroid/location/Location;->-set10(Landroid/location/Location;F)F
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readFloat()F
 
     move-result v2
 
     invoke-static {v0, v2}, Landroid/location/Location;->-set2(Landroid/location/Location;F)F
-
-    invoke-virtual {p1}, Landroid/os/Parcel;->readFloat()F
-
-    move-result v2
-
-    invoke-static {v0, v2}, Landroid/location/Location;->-set0(Landroid/location/Location;F)F
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readBundle()Landroid/os/Bundle;
 

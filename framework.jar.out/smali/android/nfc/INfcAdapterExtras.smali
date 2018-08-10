@@ -31,6 +31,14 @@
     .end annotation
 .end method
 
+.method public abstract closeWithPackageName(Ljava/lang/String;Landroid/os/IBinder;Ljava/lang/String;)Landroid/os/Bundle;
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract getCardEmulationRoute(Ljava/lang/String;)I
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -55,6 +63,14 @@
     .end annotation
 .end method
 
+.method public abstract openWithPackageName(Ljava/lang/String;Landroid/os/IBinder;Ljava/lang/String;)Landroid/os/Bundle;
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract setCardEmulationRoute(Ljava/lang/String;I)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -64,6 +80,14 @@
 .end method
 
 .method public abstract transceive(Ljava/lang/String;[B)Landroid/os/Bundle;
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract transceiveWithPackageName(Ljava/lang/String;[BLjava/lang/String;)Landroid/os/Bundle;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

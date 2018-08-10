@@ -26,7 +26,7 @@
 # static fields
 .field private static final DESCRIPTOR:Ljava/lang/String; = "android.app.IActivityContainer"
 
-.field static final TRANSACTION_attachToDisplay:I = 0x1
+.field static final TRANSACTION_addToDisplay:I = 0x1
 
 .field static final TRANSACTION_getDisplayId:I = 0x5
 
@@ -132,7 +132,7 @@
 
     move-result v0
 
-    invoke-virtual {p0, v0}, Landroid/app/IActivityContainer$Stub;->attachToDisplay(I)V
+    invoke-virtual {p0, v0}, Landroid/app/IActivityContainer$Stub;->addToDisplay(I)V
 
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 

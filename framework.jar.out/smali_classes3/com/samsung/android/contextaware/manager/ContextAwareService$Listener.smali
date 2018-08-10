@@ -124,7 +124,7 @@
 
     :cond_0
     :try_start_1
-    invoke-virtual {p0}, Ljava/lang/Object;->notifyAll()V
+    invoke-virtual {p0}, Lcom/samsung/android/contextaware/manager/ContextAwareService$Listener;->notifyAll()V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
@@ -142,7 +142,7 @@
     .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
     :try_start_3
-    invoke-virtual {p0}, Ljava/lang/Object;->notifyAll()V
+    invoke-virtual {p0}, Lcom/samsung/android/contextaware/manager/ContextAwareService$Listener;->notifyAll()V
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
@@ -164,14 +164,14 @@
     .catchall {:try_start_4 .. :try_end_4} :catchall_1
 
     :try_start_5
-    invoke-virtual {p0}, Ljava/lang/Object;->notifyAll()V
+    invoke-virtual {p0}, Lcom/samsung/android/contextaware/manager/ContextAwareService$Listener;->notifyAll()V
 
     goto :goto_0
 
     :catchall_1
     move-exception v3
 
-    invoke-virtual {p0}, Ljava/lang/Object;->notifyAll()V
+    invoke-virtual {p0}, Lcom/samsung/android/contextaware/manager/ContextAwareService$Listener;->notifyAll()V
 
     throw v3
     :try_end_5

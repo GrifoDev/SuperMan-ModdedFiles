@@ -132,7 +132,7 @@
 
     aput v2, v0, v1
     :try_end_0
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_0 .. :try_end_0} :catch_3
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_0 .. :try_end_0} :catch_5
 
     :goto_0
     :try_start_1
@@ -146,7 +146,7 @@
 
     aput v2, v0, v1
     :try_end_1
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_1 .. :try_end_1} :catch_2
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_1 .. :try_end_1} :catch_4
 
     :goto_1
     :try_start_2
@@ -160,10 +160,38 @@
 
     aput v2, v0, v1
     :try_end_2
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_2 .. :try_end_2} :catch_1
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_2 .. :try_end_2} :catch_3
 
     :goto_2
     :try_start_3
+    sget-object v1, Landroid/graphics/Bitmap$Config;->HARDWARE:Landroid/graphics/Bitmap$Config;
+
+    invoke-virtual {v1}, Landroid/graphics/Bitmap$Config;->ordinal()I
+
+    move-result v1
+
+    const/4 v2, 0x5
+
+    aput v2, v0, v1
+    :try_end_3
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_3 .. :try_end_3} :catch_2
+
+    :goto_3
+    :try_start_4
+    sget-object v1, Landroid/graphics/Bitmap$Config;->RGBA_F16:Landroid/graphics/Bitmap$Config;
+
+    invoke-virtual {v1}, Landroid/graphics/Bitmap$Config;->ordinal()I
+
+    move-result v1
+
+    const/4 v2, 0x6
+
+    aput v2, v0, v1
+    :try_end_4
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_4 .. :try_end_4} :catch_1
+
+    :goto_4
+    :try_start_5
     sget-object v1, Landroid/graphics/Bitmap$Config;->RGB_565:Landroid/graphics/Bitmap$Config;
 
     invoke-virtual {v1}, Landroid/graphics/Bitmap$Config;->ordinal()I
@@ -173,10 +201,10 @@
     const/4 v2, 0x4
 
     aput v2, v0, v1
-    :try_end_3
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_3 .. :try_end_3} :catch_0
+    :try_end_5
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_5 .. :try_end_5} :catch_0
 
-    :goto_3
+    :goto_5
     sput-object v0, Landroid/renderscript/Allocation;->-android-graphics-Bitmap$ConfigSwitchesValues:[I
 
     return-object v0
@@ -184,19 +212,29 @@
     :catch_0
     move-exception v1
 
-    goto :goto_3
+    goto :goto_5
 
     :catch_1
     move-exception v1
 
-    goto :goto_2
+    goto :goto_4
 
     :catch_2
     move-exception v1
 
-    goto :goto_1
+    goto :goto_3
 
     :catch_3
+    move-exception v1
+
+    goto :goto_2
+
+    :catch_4
+    move-exception v1
+
+    goto :goto_1
+
+    :catch_5
     move-exception v1
 
     goto :goto_0
@@ -1266,6 +1304,12 @@
     const/16 v2, 0x10
 
     if-le p3, v2, :cond_1
+
+    const/4 v2, 0x0
+
+    aget-object v2, v1, v2
+
+    invoke-virtual {v2}, Landroid/renderscript/Allocation;->destroy()V
 
     new-instance v2, Landroid/renderscript/RSIllegalArgumentException;
 

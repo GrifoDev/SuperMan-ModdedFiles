@@ -31,6 +31,20 @@
 
 
 # virtual methods
+.method public notifyAudioFocusAbandon(Landroid/media/AudioFocusInfo;)V
+    .locals 3
+
+    iget-object v0, p0, Landroid/media/audiopolicy/AudioPolicy$1;->this$0:Landroid/media/audiopolicy/AudioPolicy;
+
+    const/4 v1, 0x5
+
+    const/4 v2, 0x0
+
+    invoke-static {v0, v1, p1, v2}, Landroid/media/audiopolicy/AudioPolicy;->-wrap1(Landroid/media/audiopolicy/AudioPolicy;ILjava/lang/Object;I)V
+
+    return-void
+.end method
+
 .method public notifyAudioFocusGrant(Landroid/media/AudioFocusInfo;I)V
     .locals 2
 
@@ -63,6 +77,18 @@
     const/4 v0, 0x0
 
     goto :goto_0
+.end method
+
+.method public notifyAudioFocusRequest(Landroid/media/AudioFocusInfo;I)V
+    .locals 2
+
+    iget-object v0, p0, Landroid/media/audiopolicy/AudioPolicy$1;->this$0:Landroid/media/audiopolicy/AudioPolicy;
+
+    const/4 v1, 0x4
+
+    invoke-static {v0, v1, p1, p2}, Landroid/media/audiopolicy/AudioPolicy;->-wrap1(Landroid/media/audiopolicy/AudioPolicy;ILjava/lang/Object;I)V
+
+    return-void
 .end method
 
 .method public notifyMixStateUpdate(Ljava/lang/String;I)V

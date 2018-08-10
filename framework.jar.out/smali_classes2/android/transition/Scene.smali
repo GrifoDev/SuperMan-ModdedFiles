@@ -87,7 +87,7 @@
 .method static getCurrentScene(Landroid/view/View;)Landroid/transition/Scene;
     .locals 1
 
-    const v0, 0x1020053
+    const v0, 0x102025b
 
     invoke-virtual {p0, v0}, Landroid/view/View;->getTag(I)Ljava/lang/Object;
 
@@ -101,7 +101,7 @@
 .method public static getSceneForLayout(Landroid/view/ViewGroup;ILandroid/content/Context;)Landroid/transition/Scene;
     .locals 3
 
-    const v2, 0x1020054
+    const v2, 0x102044c
 
     invoke-virtual {p0, v2}, Landroid/view/ViewGroup;->getTag(I)Ljava/lang/Object;
 
@@ -141,7 +141,7 @@
 .method static setCurrentScene(Landroid/view/View;Landroid/transition/Scene;)V
     .locals 1
 
-    const v0, 0x1020053
+    const v0, 0x102025b
 
     invoke-virtual {p0, v0, p1}, Landroid/view/View;->setTagInternal(ILjava/lang/Object;)V
 

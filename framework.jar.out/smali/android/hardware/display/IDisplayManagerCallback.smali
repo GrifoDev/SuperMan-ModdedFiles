@@ -31,7 +31,15 @@
     .end annotation
 .end method
 
-.method public abstract onDisplayVolumeEvent(Landroid/os/Bundle;I)V
+.method public abstract onDisplayVolumeEvent(ILandroid/os/Bundle;)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract onDisplayVolumeKeyEvent(I)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

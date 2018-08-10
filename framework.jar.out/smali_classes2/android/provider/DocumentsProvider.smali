@@ -39,7 +39,7 @@
 .end method
 
 .method private callUnchecked(Ljava/lang/String;Ljava/lang/String;Landroid/os/Bundle;)Landroid/os/Bundle;
-    .locals 24
+    .locals 34
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/FileNotFoundException;
@@ -50,122 +50,175 @@
 
     move-result-object v8
 
-    const-string/jumbo v21, "uri"
+    new-instance v20, Landroid/os/Bundle;
 
-    move-object/from16 v0, p3
+    invoke-direct/range {v20 .. v20}, Landroid/os/Bundle;-><init>()V
 
-    move-object/from16 v1, v21
+    const-string/jumbo v30, "android:ejectRoot"
 
-    invoke-virtual {v0, v1}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
-
-    move-result-object v11
-
-    check-cast v11, Landroid/net/Uri;
-
-    invoke-virtual {v11}, Landroid/net/Uri;->getAuthority()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-static {v11}, Landroid/provider/DocumentsContract;->getDocumentId(Landroid/net/Uri;)Ljava/lang/String;
-
-    move-result-object v10
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/provider/DocumentsProvider;->mAuthority:Ljava/lang/String;
-
-    move-object/from16 v21, v0
-
-    move-object/from16 v0, v21
-
-    invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v21
-
-    if-nez v21, :cond_0
-
-    new-instance v21, Ljava/lang/SecurityException;
-
-    new-instance v22, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v22 .. v22}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v23, "Requested authority "
-
-    invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v22
-
-    move-object/from16 v0, v22
-
-    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v22
-
-    const-string/jumbo v23, " doesn\'t match provider "
-
-    invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v22
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/provider/DocumentsProvider;->mAuthority:Ljava/lang/String;
-
-    move-object/from16 v23, v0
-
-    invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v22
-
-    invoke-virtual/range {v22 .. v22}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v22
-
-    invoke-direct/range {v21 .. v22}, Ljava/lang/SecurityException;-><init>(Ljava/lang/String;)V
-
-    throw v21
-
-    :cond_0
-    new-instance v16, Landroid/os/Bundle;
-
-    invoke-direct/range {v16 .. v16}, Landroid/os/Bundle;-><init>()V
-
-    move-object/from16 v0, p0
-
-    invoke-direct {v0, v11}, Landroid/provider/DocumentsProvider;->enforceTree(Landroid/net/Uri;)V
-
-    const-string/jumbo v21, "android:isChildDocument"
-
-    move-object/from16 v0, v21
+    move-object/from16 v0, v30
 
     move-object/from16 v1, p1
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v21
+    move-result v30
 
-    if-eqz v21, :cond_3
+    if-eqz v30, :cond_0
 
-    invoke-virtual/range {p0 .. p0}, Landroid/provider/DocumentsProvider;->getCallingPackage()Ljava/lang/String;
-
-    move-result-object v21
-
-    const/16 v22, 0x0
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v21
-
-    move-object/from16 v2, v22
-
-    invoke-virtual {v0, v11, v1, v2}, Landroid/provider/DocumentsProvider;->enforceReadPermissionInner(Landroid/net/Uri;Ljava/lang/String;Landroid/os/IBinder;)I
-
-    const-string/jumbo v21, "android.content.extra.TARGET_URI"
+    const-string/jumbo v30, "uri"
 
     move-object/from16 v0, p3
 
-    move-object/from16 v1, v21
+    move-object/from16 v1, v30
+
+    invoke-virtual {v0, v1}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
+
+    move-result-object v27
+
+    check-cast v27, Landroid/net/Uri;
+
+    invoke-virtual/range {p0 .. p0}, Landroid/provider/DocumentsProvider;->getCallingPackage()Ljava/lang/String;
+
+    move-result-object v30
+
+    const/16 v31, 0x0
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v27
+
+    move-object/from16 v2, v30
+
+    move-object/from16 v3, v31
+
+    invoke-virtual {v0, v1, v2, v3}, Landroid/provider/DocumentsProvider;->enforceWritePermissionInner(Landroid/net/Uri;Ljava/lang/String;Landroid/os/IBinder;)I
+
+    invoke-static/range {v27 .. v27}, Landroid/provider/DocumentsContract;->getRootId(Landroid/net/Uri;)Ljava/lang/String;
+
+    move-result-object v26
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v26
+
+    invoke-virtual {v0, v1}, Landroid/provider/DocumentsProvider;->ejectRoot(Ljava/lang/String;)V
+
+    return-object v20
+
+    :cond_0
+    const-string/jumbo v30, "uri"
+
+    move-object/from16 v0, p3
+
+    move-object/from16 v1, v30
+
+    invoke-virtual {v0, v1}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
+
+    move-result-object v12
+
+    check-cast v12, Landroid/net/Uri;
+
+    invoke-virtual {v12}, Landroid/net/Uri;->getAuthority()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v12}, Landroid/provider/DocumentsContract;->getDocumentId(Landroid/net/Uri;)Ljava/lang/String;
+
+    move-result-object v11
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Landroid/provider/DocumentsProvider;->mAuthority:Ljava/lang/String;
+
+    move-object/from16 v30, v0
+
+    move-object/from16 v0, v30
+
+    invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v30
+
+    if-nez v30, :cond_1
+
+    new-instance v30, Ljava/lang/SecurityException;
+
+    new-instance v31, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v31 .. v31}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v32, "Requested authority "
+
+    invoke-virtual/range {v31 .. v32}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v31
+
+    move-object/from16 v0, v31
+
+    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v31
+
+    const-string/jumbo v32, " doesn\'t match provider "
+
+    invoke-virtual/range {v31 .. v32}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v31
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Landroid/provider/DocumentsProvider;->mAuthority:Ljava/lang/String;
+
+    move-object/from16 v32, v0
+
+    invoke-virtual/range {v31 .. v32}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v31
+
+    invoke-virtual/range {v31 .. v31}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v31
+
+    invoke-direct/range {v30 .. v31}, Ljava/lang/SecurityException;-><init>(Ljava/lang/String;)V
+
+    throw v30
+
+    :cond_1
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v12}, Landroid/provider/DocumentsProvider;->enforceTree(Landroid/net/Uri;)V
+
+    const-string/jumbo v30, "android:isChildDocument"
+
+    move-object/from16 v0, v30
+
+    move-object/from16 v1, p1
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v30
+
+    if-eqz v30, :cond_4
+
+    invoke-virtual/range {p0 .. p0}, Landroid/provider/DocumentsProvider;->getCallingPackage()Ljava/lang/String;
+
+    move-result-object v30
+
+    const/16 v31, 0x0
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v30
+
+    move-object/from16 v2, v31
+
+    invoke-virtual {v0, v12, v1, v2}, Landroid/provider/DocumentsProvider;->enforceReadPermissionInner(Landroid/net/Uri;Ljava/lang/String;Landroid/os/IBinder;)I
+
+    const-string/jumbo v30, "android.content.extra.TARGET_URI"
+
+    move-object/from16 v0, p3
+
+    move-object/from16 v1, v30
 
     invoke-virtual {v0, v1}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
 
@@ -181,88 +234,88 @@
 
     move-result-object v6
 
-    const-string/jumbo v22, "result"
+    const-string/jumbo v31, "result"
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/provider/DocumentsProvider;->mAuthority:Ljava/lang/String;
 
-    move-object/from16 v21, v0
+    move-object/from16 v30, v0
 
-    move-object/from16 v0, v21
+    move-object/from16 v0, v30
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v21
+    move-result v30
 
-    if-eqz v21, :cond_2
+    if-eqz v30, :cond_3
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v10, v6}, Landroid/provider/DocumentsProvider;->isChildDocument(Ljava/lang/String;Ljava/lang/String;)Z
+    invoke-virtual {v0, v11, v6}, Landroid/provider/DocumentsProvider;->isChildDocument(Ljava/lang/String;Ljava/lang/String;)Z
 
-    move-result v21
+    move-result v30
 
     :goto_0
-    move-object/from16 v0, v16
+    move-object/from16 v0, v20
 
-    move-object/from16 v1, v22
+    move-object/from16 v1, v31
 
-    move/from16 v2, v21
+    move/from16 v2, v30
 
     invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
 
-    :cond_1
-    :goto_1
-    return-object v16
-
     :cond_2
-    const/16 v21, 0x0
+    :goto_1
+    return-object v20
+
+    :cond_3
+    const/16 v30, 0x0
 
     goto :goto_0
 
-    :cond_3
-    const-string/jumbo v21, "android:createDocument"
+    :cond_4
+    const-string/jumbo v30, "android:createDocument"
 
-    move-object/from16 v0, v21
+    move-object/from16 v0, v30
 
     move-object/from16 v1, p1
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v21
+    move-result v30
 
-    if-eqz v21, :cond_4
+    if-eqz v30, :cond_5
 
     invoke-virtual/range {p0 .. p0}, Landroid/provider/DocumentsProvider;->getCallingPackage()Ljava/lang/String;
 
-    move-result-object v21
+    move-result-object v30
 
-    const/16 v22, 0x0
+    const/16 v31, 0x0
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v21
+    move-object/from16 v1, v30
 
-    move-object/from16 v2, v22
+    move-object/from16 v2, v31
 
-    invoke-virtual {v0, v11, v1, v2}, Landroid/provider/DocumentsProvider;->enforceWritePermissionInner(Landroid/net/Uri;Ljava/lang/String;Landroid/os/IBinder;)I
+    invoke-virtual {v0, v12, v1, v2}, Landroid/provider/DocumentsProvider;->enforceWritePermissionInner(Landroid/net/Uri;Ljava/lang/String;Landroid/os/IBinder;)I
 
-    const-string/jumbo v21, "mime_type"
+    const-string/jumbo v30, "mime_type"
 
     move-object/from16 v0, p3
 
-    move-object/from16 v1, v21
+    move-object/from16 v1, v30
 
     invoke-virtual {v0, v1}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v12
+    move-result-object v15
 
-    const-string/jumbo v21, "_display_name"
+    const-string/jumbo v30, "_display_name"
 
     move-object/from16 v0, p3
 
-    move-object/from16 v1, v21
+    move-object/from16 v1, v30
 
     invoke-virtual {v0, v1}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
@@ -270,476 +323,840 @@
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v10, v12, v9}, Landroid/provider/DocumentsProvider;->createDocument(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v0, v11, v15, v9}, Landroid/provider/DocumentsProvider;->createDocument(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v14
+    move-result-object v17
 
-    invoke-static {v11, v14}, Landroid/provider/DocumentsContract;->buildDocumentUriMaybeUsingTree(Landroid/net/Uri;Ljava/lang/String;)Landroid/net/Uri;
+    move-object/from16 v0, v17
 
-    move-result-object v15
+    invoke-static {v12, v0}, Landroid/provider/DocumentsContract;->buildDocumentUriMaybeUsingTree(Landroid/net/Uri;Ljava/lang/String;)Landroid/net/Uri;
 
-    const-string/jumbo v21, "uri"
+    move-result-object v18
 
-    move-object/from16 v0, v16
+    const-string/jumbo v30, "uri"
 
-    move-object/from16 v1, v21
+    move-object/from16 v0, v20
 
-    invoke-virtual {v0, v1, v15}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
+    move-object/from16 v1, v30
+
+    move-object/from16 v2, v18
+
+    invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
 
     goto :goto_1
 
-    :cond_4
-    const-string/jumbo v21, "android:renameDocument"
-
-    move-object/from16 v0, v21
-
-    move-object/from16 v1, p1
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v21
-
-    if-eqz v21, :cond_6
-
-    invoke-virtual/range {p0 .. p0}, Landroid/provider/DocumentsProvider;->getCallingPackage()Ljava/lang/String;
-
-    move-result-object v21
-
-    const/16 v22, 0x0
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v21
-
-    move-object/from16 v2, v22
-
-    invoke-virtual {v0, v11, v1, v2}, Landroid/provider/DocumentsProvider;->enforceWritePermissionInner(Landroid/net/Uri;Ljava/lang/String;Landroid/os/IBinder;)I
-
-    const-string/jumbo v21, "_display_name"
-
-    move-object/from16 v0, p3
-
-    move-object/from16 v1, v21
-
-    invoke-virtual {v0, v1}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v9
-
-    move-object/from16 v0, p0
-
-    invoke-virtual {v0, v10, v9}, Landroid/provider/DocumentsProvider;->renameDocument(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v14
-
-    if-eqz v14, :cond_1
-
-    invoke-static {v11, v14}, Landroid/provider/DocumentsContract;->buildDocumentUriMaybeUsingTree(Landroid/net/Uri;Ljava/lang/String;)Landroid/net/Uri;
-
-    move-result-object v15
-
-    invoke-static {v15}, Landroid/provider/DocumentsContract;->isTreeUri(Landroid/net/Uri;)Z
-
-    move-result v21
-
-    if-nez v21, :cond_5
-
-    invoke-static {v8, v11}, Landroid/provider/DocumentsProvider;->getCallingOrSelfUriPermissionModeFlags(Landroid/content/Context;Landroid/net/Uri;)I
-
-    move-result v13
-
-    invoke-virtual/range {p0 .. p0}, Landroid/provider/DocumentsProvider;->getCallingPackage()Ljava/lang/String;
-
-    move-result-object v21
-
-    move-object/from16 v0, v21
-
-    invoke-virtual {v8, v0, v15, v13}, Landroid/content/Context;->grantUriPermission(Ljava/lang/String;Landroid/net/Uri;I)V
-
     :cond_5
-    const-string/jumbo v21, "uri"
+    const-string/jumbo v30, "android:createWebLinkIntent"
 
-    move-object/from16 v0, v16
-
-    move-object/from16 v1, v21
-
-    invoke-virtual {v0, v1, v15}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
-
-    move-object/from16 v0, p0
-
-    invoke-virtual {v0, v10}, Landroid/provider/DocumentsProvider;->revokeDocumentPermission(Ljava/lang/String;)V
-
-    goto/16 :goto_1
-
-    :cond_6
-    const-string/jumbo v21, "android:deleteDocument"
-
-    move-object/from16 v0, v21
+    move-object/from16 v0, v30
 
     move-object/from16 v1, p1
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v21
+    move-result v30
 
-    if-eqz v21, :cond_7
+    if-eqz v30, :cond_6
 
     invoke-virtual/range {p0 .. p0}, Landroid/provider/DocumentsProvider;->getCallingPackage()Ljava/lang/String;
 
-    move-result-object v21
+    move-result-object v30
 
-    const/16 v22, 0x0
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v21
-
-    move-object/from16 v2, v22
-
-    invoke-virtual {v0, v11, v1, v2}, Landroid/provider/DocumentsProvider;->enforceWritePermissionInner(Landroid/net/Uri;Ljava/lang/String;Landroid/os/IBinder;)I
+    const/16 v31, 0x0
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v10}, Landroid/provider/DocumentsProvider;->deleteDocument(Ljava/lang/String;)V
+    move-object/from16 v1, v30
 
-    move-object/from16 v0, p0
+    move-object/from16 v2, v31
 
-    invoke-virtual {v0, v10}, Landroid/provider/DocumentsProvider;->revokeDocumentPermission(Ljava/lang/String;)V
+    invoke-virtual {v0, v12, v1, v2}, Landroid/provider/DocumentsProvider;->enforceWritePermissionInner(Landroid/net/Uri;Ljava/lang/String;Landroid/os/IBinder;)I
 
-    goto/16 :goto_1
-
-    :cond_7
-    const-string/jumbo v21, "android:copyDocument"
-
-    move-object/from16 v0, v21
-
-    move-object/from16 v1, p1
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v21
-
-    if-eqz v21, :cond_9
-
-    const-string/jumbo v21, "android.content.extra.TARGET_URI"
+    const-string/jumbo v30, "options"
 
     move-object/from16 v0, p3
 
-    move-object/from16 v1, v21
+    move-object/from16 v1, v30
 
-    invoke-virtual {v0, v1}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
-
-    move-result-object v20
-
-    check-cast v20, Landroid/net/Uri;
-
-    invoke-static/range {v20 .. v20}, Landroid/provider/DocumentsContract;->getDocumentId(Landroid/net/Uri;)Ljava/lang/String;
+    invoke-virtual {v0, v1}, Landroid/os/Bundle;->getBundle(Ljava/lang/String;)Landroid/os/Bundle;
 
     move-result-object v19
-
-    invoke-virtual/range {p0 .. p0}, Landroid/provider/DocumentsProvider;->getCallingPackage()Ljava/lang/String;
-
-    move-result-object v21
-
-    const/16 v22, 0x0
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v21
-
-    move-object/from16 v2, v22
-
-    invoke-virtual {v0, v11, v1, v2}, Landroid/provider/DocumentsProvider;->enforceReadPermissionInner(Landroid/net/Uri;Ljava/lang/String;Landroid/os/IBinder;)I
-
-    invoke-virtual/range {p0 .. p0}, Landroid/provider/DocumentsProvider;->getCallingPackage()Ljava/lang/String;
-
-    move-result-object v21
-
-    const/16 v22, 0x0
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v20
-
-    move-object/from16 v2, v21
-
-    move-object/from16 v3, v22
-
-    invoke-virtual {v0, v1, v2, v3}, Landroid/provider/DocumentsProvider;->enforceWritePermissionInner(Landroid/net/Uri;Ljava/lang/String;Landroid/os/IBinder;)I
 
     move-object/from16 v0, p0
 
     move-object/from16 v1, v19
 
-    invoke-virtual {v0, v10, v1}, Landroid/provider/DocumentsProvider;->copyDocument(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v0, v11, v1}, Landroid/provider/DocumentsProvider;->createWebLinkIntent(Ljava/lang/String;Landroid/os/Bundle;)Landroid/content/IntentSender;
 
-    move-result-object v14
+    move-result-object v13
 
-    if-eqz v14, :cond_1
+    const-string/jumbo v30, "result"
 
-    invoke-static {v11, v14}, Landroid/provider/DocumentsContract;->buildDocumentUriMaybeUsingTree(Landroid/net/Uri;Ljava/lang/String;)Landroid/net/Uri;
+    move-object/from16 v0, v20
 
-    move-result-object v15
+    move-object/from16 v1, v30
 
-    invoke-static {v15}, Landroid/provider/DocumentsContract;->isTreeUri(Landroid/net/Uri;)Z
-
-    move-result v21
-
-    if-nez v21, :cond_8
-
-    invoke-static {v8, v11}, Landroid/provider/DocumentsProvider;->getCallingOrSelfUriPermissionModeFlags(Landroid/content/Context;Landroid/net/Uri;)I
-
-    move-result v13
-
-    invoke-virtual/range {p0 .. p0}, Landroid/provider/DocumentsProvider;->getCallingPackage()Ljava/lang/String;
-
-    move-result-object v21
-
-    move-object/from16 v0, v21
-
-    invoke-virtual {v8, v0, v15, v13}, Landroid/content/Context;->grantUriPermission(Ljava/lang/String;Landroid/net/Uri;I)V
-
-    :cond_8
-    const-string/jumbo v21, "uri"
-
-    move-object/from16 v0, v16
-
-    move-object/from16 v1, v21
-
-    invoke-virtual {v0, v1, v15}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
+    invoke-virtual {v0, v1, v13}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
 
     goto/16 :goto_1
 
-    :cond_9
-    const-string/jumbo v21, "android:moveDocument"
+    :cond_6
+    const-string/jumbo v30, "android:renameDocument"
 
-    move-object/from16 v0, v21
+    move-object/from16 v0, v30
 
     move-object/from16 v1, p1
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v21
+    move-result v30
 
-    if-eqz v21, :cond_b
+    if-eqz v30, :cond_8
 
-    const-string/jumbo v21, "parentUri"
+    invoke-virtual/range {p0 .. p0}, Landroid/provider/DocumentsProvider;->getCallingPackage()Ljava/lang/String;
+
+    move-result-object v30
+
+    const/16 v31, 0x0
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v30
+
+    move-object/from16 v2, v31
+
+    invoke-virtual {v0, v12, v1, v2}, Landroid/provider/DocumentsProvider;->enforceWritePermissionInner(Landroid/net/Uri;Ljava/lang/String;Landroid/os/IBinder;)I
+
+    const-string/jumbo v30, "_display_name"
 
     move-object/from16 v0, p3
 
-    move-object/from16 v1, v21
+    move-object/from16 v1, v30
 
-    invoke-virtual {v0, v1}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
+    invoke-virtual {v0, v1}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v18
+    move-result-object v9
 
-    check-cast v18, Landroid/net/Uri;
+    move-object/from16 v0, p0
 
-    invoke-static/range {v18 .. v18}, Landroid/provider/DocumentsContract;->getDocumentId(Landroid/net/Uri;)Ljava/lang/String;
+    invoke-virtual {v0, v11, v9}, Landroid/provider/DocumentsProvider;->renameDocument(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v17
 
-    const-string/jumbo v21, "android.content.extra.TARGET_URI"
+    if-eqz v17, :cond_2
 
-    move-object/from16 v0, p3
+    move-object/from16 v0, v17
 
-    move-object/from16 v1, v21
+    invoke-static {v12, v0}, Landroid/provider/DocumentsContract;->buildDocumentUriMaybeUsingTree(Landroid/net/Uri;Ljava/lang/String;)Landroid/net/Uri;
 
-    invoke-virtual {v0, v1}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
+    move-result-object v18
 
-    move-result-object v20
+    invoke-static/range {v18 .. v18}, Landroid/provider/DocumentsContract;->isTreeUri(Landroid/net/Uri;)Z
 
-    check-cast v20, Landroid/net/Uri;
+    move-result v30
 
-    invoke-static/range {v20 .. v20}, Landroid/provider/DocumentsContract;->getDocumentId(Landroid/net/Uri;)Ljava/lang/String;
+    if-nez v30, :cond_7
 
-    move-result-object v19
+    invoke-static {v8, v12}, Landroid/provider/DocumentsProvider;->getCallingOrSelfUriPermissionModeFlags(Landroid/content/Context;Landroid/net/Uri;)I
 
-    invoke-virtual/range {p0 .. p0}, Landroid/provider/DocumentsProvider;->getCallingPackage()Ljava/lang/String;
-
-    move-result-object v21
-
-    const/16 v22, 0x0
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v21
-
-    move-object/from16 v2, v22
-
-    invoke-virtual {v0, v11, v1, v2}, Landroid/provider/DocumentsProvider;->enforceWritePermissionInner(Landroid/net/Uri;Ljava/lang/String;Landroid/os/IBinder;)I
+    move-result v16
 
     invoke-virtual/range {p0 .. p0}, Landroid/provider/DocumentsProvider;->getCallingPackage()Ljava/lang/String;
 
-    move-result-object v21
+    move-result-object v30
 
-    const/16 v22, 0x0
-
-    move-object/from16 v0, p0
+    move-object/from16 v0, v30
 
     move-object/from16 v1, v18
 
-    move-object/from16 v2, v21
+    move/from16 v2, v16
 
-    move-object/from16 v3, v22
+    invoke-virtual {v8, v0, v1, v2}, Landroid/content/Context;->grantUriPermission(Ljava/lang/String;Landroid/net/Uri;I)V
 
-    invoke-virtual {v0, v1, v2, v3}, Landroid/provider/DocumentsProvider;->enforceReadPermissionInner(Landroid/net/Uri;Ljava/lang/String;Landroid/os/IBinder;)I
+    :cond_7
+    const-string/jumbo v30, "uri"
 
-    invoke-virtual/range {p0 .. p0}, Landroid/provider/DocumentsProvider;->getCallingPackage()Ljava/lang/String;
+    move-object/from16 v0, v20
 
-    move-result-object v21
+    move-object/from16 v1, v30
 
-    const/16 v22, 0x0
+    move-object/from16 v2, v18
+
+    invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v20
+    invoke-virtual {v0, v11}, Landroid/provider/DocumentsProvider;->revokeDocumentPermission(Ljava/lang/String;)V
 
-    move-object/from16 v2, v21
+    goto/16 :goto_1
 
-    move-object/from16 v3, v22
+    :cond_8
+    const-string/jumbo v30, "android:deleteDocument"
+
+    move-object/from16 v0, v30
+
+    move-object/from16 v1, p1
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v30
+
+    if-eqz v30, :cond_9
+
+    invoke-virtual/range {p0 .. p0}, Landroid/provider/DocumentsProvider;->getCallingPackage()Ljava/lang/String;
+
+    move-result-object v30
+
+    const/16 v31, 0x0
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v30
+
+    move-object/from16 v2, v31
+
+    invoke-virtual {v0, v12, v1, v2}, Landroid/provider/DocumentsProvider;->enforceWritePermissionInner(Landroid/net/Uri;Ljava/lang/String;Landroid/os/IBinder;)I
+
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v11}, Landroid/provider/DocumentsProvider;->deleteDocument(Ljava/lang/String;)V
+
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v11}, Landroid/provider/DocumentsProvider;->revokeDocumentPermission(Ljava/lang/String;)V
+
+    goto/16 :goto_1
+
+    :cond_9
+    const-string/jumbo v30, "android:copyDocument"
+
+    move-object/from16 v0, v30
+
+    move-object/from16 v1, p1
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v30
+
+    if-eqz v30, :cond_b
+
+    const-string/jumbo v30, "android.content.extra.TARGET_URI"
+
+    move-object/from16 v0, p3
+
+    move-object/from16 v1, v30
+
+    invoke-virtual {v0, v1}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
+
+    move-result-object v29
+
+    check-cast v29, Landroid/net/Uri;
+
+    invoke-static/range {v29 .. v29}, Landroid/provider/DocumentsContract;->getDocumentId(Landroid/net/Uri;)Ljava/lang/String;
+
+    move-result-object v28
+
+    invoke-virtual/range {p0 .. p0}, Landroid/provider/DocumentsProvider;->getCallingPackage()Ljava/lang/String;
+
+    move-result-object v30
+
+    const/16 v31, 0x0
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v30
+
+    move-object/from16 v2, v31
+
+    invoke-virtual {v0, v12, v1, v2}, Landroid/provider/DocumentsProvider;->enforceReadPermissionInner(Landroid/net/Uri;Ljava/lang/String;Landroid/os/IBinder;)I
+
+    invoke-virtual/range {p0 .. p0}, Landroid/provider/DocumentsProvider;->getCallingPackage()Ljava/lang/String;
+
+    move-result-object v30
+
+    const/16 v31, 0x0
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v29
+
+    move-object/from16 v2, v30
+
+    move-object/from16 v3, v31
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/provider/DocumentsProvider;->enforceWritePermissionInner(Landroid/net/Uri;Ljava/lang/String;Landroid/os/IBinder;)I
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v17
+    move-object/from16 v1, v28
 
-    move-object/from16 v2, v19
+    invoke-virtual {v0, v11, v1}, Landroid/provider/DocumentsProvider;->copyDocument(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    invoke-virtual {v0, v10, v1, v2}, Landroid/provider/DocumentsProvider;->moveDocument(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    move-result-object v17
 
-    move-result-object v14
+    if-eqz v17, :cond_2
 
-    if-eqz v14, :cond_1
+    move-object/from16 v0, v17
 
-    invoke-static {v11, v14}, Landroid/provider/DocumentsContract;->buildDocumentUriMaybeUsingTree(Landroid/net/Uri;Ljava/lang/String;)Landroid/net/Uri;
+    invoke-static {v12, v0}, Landroid/provider/DocumentsContract;->buildDocumentUriMaybeUsingTree(Landroid/net/Uri;Ljava/lang/String;)Landroid/net/Uri;
 
-    move-result-object v15
+    move-result-object v18
 
-    invoke-static {v15}, Landroid/provider/DocumentsContract;->isTreeUri(Landroid/net/Uri;)Z
+    invoke-static/range {v18 .. v18}, Landroid/provider/DocumentsContract;->isTreeUri(Landroid/net/Uri;)Z
 
-    move-result v21
+    move-result v30
 
-    if-nez v21, :cond_a
+    if-nez v30, :cond_a
 
-    invoke-static {v8, v11}, Landroid/provider/DocumentsProvider;->getCallingOrSelfUriPermissionModeFlags(Landroid/content/Context;Landroid/net/Uri;)I
+    invoke-static {v8, v12}, Landroid/provider/DocumentsProvider;->getCallingOrSelfUriPermissionModeFlags(Landroid/content/Context;Landroid/net/Uri;)I
 
-    move-result v13
+    move-result v16
 
     invoke-virtual/range {p0 .. p0}, Landroid/provider/DocumentsProvider;->getCallingPackage()Ljava/lang/String;
 
-    move-result-object v21
+    move-result-object v30
 
-    move-object/from16 v0, v21
+    move-object/from16 v0, v30
 
-    invoke-virtual {v8, v0, v15, v13}, Landroid/content/Context;->grantUriPermission(Ljava/lang/String;Landroid/net/Uri;I)V
+    move-object/from16 v1, v18
+
+    move/from16 v2, v16
+
+    invoke-virtual {v8, v0, v1, v2}, Landroid/content/Context;->grantUriPermission(Ljava/lang/String;Landroid/net/Uri;I)V
 
     :cond_a
-    const-string/jumbo v21, "uri"
+    const-string/jumbo v30, "uri"
 
-    move-object/from16 v0, v16
+    move-object/from16 v0, v20
 
-    move-object/from16 v1, v21
+    move-object/from16 v1, v30
 
-    invoke-virtual {v0, v1, v15}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
+    move-object/from16 v2, v18
+
+    invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
 
     goto/16 :goto_1
 
     :cond_b
-    const-string/jumbo v21, "android:removeDocument"
+    const-string/jumbo v30, "android:moveDocument"
 
-    move-object/from16 v0, v21
+    move-object/from16 v0, v30
 
     move-object/from16 v1, p1
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v21
+    move-result v30
 
-    if-eqz v21, :cond_c
+    if-eqz v30, :cond_d
 
-    const-string/jumbo v21, "parentUri"
+    const-string/jumbo v30, "parentUri"
 
     move-object/from16 v0, p3
 
-    move-object/from16 v1, v21
+    move-object/from16 v1, v30
 
     invoke-virtual {v0, v1}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
 
-    move-result-object v18
+    move-result-object v23
 
-    check-cast v18, Landroid/net/Uri;
+    check-cast v23, Landroid/net/Uri;
 
-    invoke-static/range {v18 .. v18}, Landroid/provider/DocumentsContract;->getDocumentId(Landroid/net/Uri;)Ljava/lang/String;
+    invoke-static/range {v23 .. v23}, Landroid/provider/DocumentsContract;->getDocumentId(Landroid/net/Uri;)Ljava/lang/String;
 
-    move-result-object v17
+    move-result-object v22
+
+    const-string/jumbo v30, "android.content.extra.TARGET_URI"
+
+    move-object/from16 v0, p3
+
+    move-object/from16 v1, v30
+
+    invoke-virtual {v0, v1}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
+
+    move-result-object v29
+
+    check-cast v29, Landroid/net/Uri;
+
+    invoke-static/range {v29 .. v29}, Landroid/provider/DocumentsContract;->getDocumentId(Landroid/net/Uri;)Ljava/lang/String;
+
+    move-result-object v28
 
     invoke-virtual/range {p0 .. p0}, Landroid/provider/DocumentsProvider;->getCallingPackage()Ljava/lang/String;
 
-    move-result-object v21
+    move-result-object v30
 
-    const/16 v22, 0x0
+    const/16 v31, 0x0
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v18
+    move-object/from16 v1, v30
 
-    move-object/from16 v2, v21
+    move-object/from16 v2, v31
 
-    move-object/from16 v3, v22
+    invoke-virtual {v0, v12, v1, v2}, Landroid/provider/DocumentsProvider;->enforceWritePermissionInner(Landroid/net/Uri;Ljava/lang/String;Landroid/os/IBinder;)I
+
+    invoke-virtual/range {p0 .. p0}, Landroid/provider/DocumentsProvider;->getCallingPackage()Ljava/lang/String;
+
+    move-result-object v30
+
+    const/16 v31, 0x0
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v23
+
+    move-object/from16 v2, v30
+
+    move-object/from16 v3, v31
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/provider/DocumentsProvider;->enforceReadPermissionInner(Landroid/net/Uri;Ljava/lang/String;Landroid/os/IBinder;)I
 
     invoke-virtual/range {p0 .. p0}, Landroid/provider/DocumentsProvider;->getCallingPackage()Ljava/lang/String;
 
+    move-result-object v30
+
+    const/16 v31, 0x0
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v29
+
+    move-object/from16 v2, v30
+
+    move-object/from16 v3, v31
+
+    invoke-virtual {v0, v1, v2, v3}, Landroid/provider/DocumentsProvider;->enforceWritePermissionInner(Landroid/net/Uri;Ljava/lang/String;Landroid/os/IBinder;)I
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v22
+
+    move-object/from16 v2, v28
+
+    invoke-virtual {v0, v11, v1, v2}, Landroid/provider/DocumentsProvider;->moveDocument(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v17
+
+    if-eqz v17, :cond_2
+
+    move-object/from16 v0, v17
+
+    invoke-static {v12, v0}, Landroid/provider/DocumentsContract;->buildDocumentUriMaybeUsingTree(Landroid/net/Uri;Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v18
+
+    invoke-static/range {v18 .. v18}, Landroid/provider/DocumentsContract;->isTreeUri(Landroid/net/Uri;)Z
+
+    move-result v30
+
+    if-nez v30, :cond_c
+
+    invoke-static {v8, v12}, Landroid/provider/DocumentsProvider;->getCallingOrSelfUriPermissionModeFlags(Landroid/content/Context;Landroid/net/Uri;)I
+
+    move-result v16
+
+    invoke-virtual/range {p0 .. p0}, Landroid/provider/DocumentsProvider;->getCallingPackage()Ljava/lang/String;
+
+    move-result-object v30
+
+    move-object/from16 v0, v30
+
+    move-object/from16 v1, v18
+
+    move/from16 v2, v16
+
+    invoke-virtual {v8, v0, v1, v2}, Landroid/content/Context;->grantUriPermission(Ljava/lang/String;Landroid/net/Uri;I)V
+
+    :cond_c
+    const-string/jumbo v30, "uri"
+
+    move-object/from16 v0, v20
+
+    move-object/from16 v1, v30
+
+    move-object/from16 v2, v18
+
+    invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
+
+    goto/16 :goto_1
+
+    :cond_d
+    const-string/jumbo v30, "android:removeDocument"
+
+    move-object/from16 v0, v30
+
+    move-object/from16 v1, p1
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v30
+
+    if-eqz v30, :cond_e
+
+    const-string/jumbo v30, "parentUri"
+
+    move-object/from16 v0, p3
+
+    move-object/from16 v1, v30
+
+    invoke-virtual {v0, v1}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
+
+    move-result-object v23
+
+    check-cast v23, Landroid/net/Uri;
+
+    invoke-static/range {v23 .. v23}, Landroid/provider/DocumentsContract;->getDocumentId(Landroid/net/Uri;)Ljava/lang/String;
+
+    move-result-object v22
+
+    invoke-virtual/range {p0 .. p0}, Landroid/provider/DocumentsProvider;->getCallingPackage()Ljava/lang/String;
+
+    move-result-object v30
+
+    const/16 v31, 0x0
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v23
+
+    move-object/from16 v2, v30
+
+    move-object/from16 v3, v31
+
+    invoke-virtual {v0, v1, v2, v3}, Landroid/provider/DocumentsProvider;->enforceReadPermissionInner(Landroid/net/Uri;Ljava/lang/String;Landroid/os/IBinder;)I
+
+    invoke-virtual/range {p0 .. p0}, Landroid/provider/DocumentsProvider;->getCallingPackage()Ljava/lang/String;
+
+    move-result-object v30
+
+    const/16 v31, 0x0
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v30
+
+    move-object/from16 v2, v31
+
+    invoke-virtual {v0, v12, v1, v2}, Landroid/provider/DocumentsProvider;->enforceWritePermissionInner(Landroid/net/Uri;Ljava/lang/String;Landroid/os/IBinder;)I
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v22
+
+    invoke-virtual {v0, v11, v1}, Landroid/provider/DocumentsProvider;->removeDocument(Ljava/lang/String;Ljava/lang/String;)V
+
+    goto/16 :goto_1
+
+    :cond_e
+    const-string/jumbo v30, "android:findDocumentPath"
+
+    move-object/from16 v0, v30
+
+    move-object/from16 v1, p1
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v30
+
+    if-eqz v30, :cond_14
+
+    invoke-static {v12}, Landroid/provider/DocumentsContract;->isTreeUri(Landroid/net/Uri;)Z
+
+    move-result v14
+
+    if-eqz v14, :cond_f
+
+    invoke-virtual/range {p0 .. p0}, Landroid/provider/DocumentsProvider;->getCallingPackage()Ljava/lang/String;
+
+    move-result-object v30
+
+    const/16 v31, 0x0
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v30
+
+    move-object/from16 v2, v31
+
+    invoke-virtual {v0, v12, v1, v2}, Landroid/provider/DocumentsProvider;->enforceReadPermissionInner(Landroid/net/Uri;Ljava/lang/String;Landroid/os/IBinder;)I
+
+    :goto_2
+    if-eqz v14, :cond_10
+
+    invoke-static {v12}, Landroid/provider/DocumentsContract;->getTreeDocumentId(Landroid/net/Uri;)Ljava/lang/String;
+
     move-result-object v21
 
-    const/16 v22, 0x0
-
+    :goto_3
     move-object/from16 v0, p0
 
     move-object/from16 v1, v21
 
-    move-object/from16 v2, v22
+    invoke-virtual {v0, v1, v11}, Landroid/provider/DocumentsProvider;->findDocumentPath(Ljava/lang/String;Ljava/lang/String;)Landroid/provider/DocumentsContract$Path;
 
-    invoke-virtual {v0, v11, v1, v2}, Landroid/provider/DocumentsProvider;->enforceWritePermissionInner(Landroid/net/Uri;Ljava/lang/String;Landroid/os/IBinder;)I
+    move-result-object v24
 
-    move-object/from16 v0, p0
+    if-eqz v14, :cond_13
 
-    move-object/from16 v1, v17
+    invoke-virtual/range {v24 .. v24}, Landroid/provider/DocumentsContract$Path;->getPath()Ljava/util/List;
 
-    invoke-virtual {v0, v10, v1}, Landroid/provider/DocumentsProvider;->removeDocument(Ljava/lang/String;Ljava/lang/String;)V
+    move-result-object v30
+
+    const/16 v31, 0x0
+
+    invoke-interface/range {v30 .. v31}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v30
+
+    move-object/from16 v0, v30
+
+    move-object/from16 v1, v21
+
+    invoke-static {v0, v1}, Ljava/util/Objects;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
+
+    move-result v30
+
+    if-nez v30, :cond_12
+
+    const-string/jumbo v31, "DocumentsProvider"
+
+    new-instance v30, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v30 .. v30}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v32, "Provider doesn\'t return path from the tree root. Expected: "
+
+    move-object/from16 v0, v30
+
+    move-object/from16 v1, v32
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v30
+
+    move-object/from16 v0, v30
+
+    move-object/from16 v1, v21
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v30
+
+    const-string/jumbo v32, " found: "
+
+    move-object/from16 v0, v30
+
+    move-object/from16 v1, v32
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v32
+
+    invoke-virtual/range {v24 .. v24}, Landroid/provider/DocumentsContract$Path;->getPath()Ljava/util/List;
+
+    move-result-object v30
+
+    const/16 v33, 0x0
+
+    move-object/from16 v0, v30
+
+    move/from16 v1, v33
+
+    invoke-interface {v0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v30
+
+    check-cast v30, Ljava/lang/String;
+
+    move-object/from16 v0, v32
+
+    move-object/from16 v1, v30
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v30
+
+    invoke-virtual/range {v30 .. v30}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v30
+
+    move-object/from16 v0, v31
+
+    move-object/from16 v1, v30
+
+    invoke-static {v0, v1}, Landroid/util/Log;->wtf(Ljava/lang/String;Ljava/lang/String;)I
+
+    new-instance v10, Ljava/util/LinkedList;
+
+    invoke-virtual/range {v24 .. v24}, Landroid/provider/DocumentsContract$Path;->getPath()Ljava/util/List;
+
+    move-result-object v30
+
+    move-object/from16 v0, v30
+
+    invoke-direct {v10, v0}, Ljava/util/LinkedList;-><init>(Ljava/util/Collection;)V
+
+    :goto_4
+    invoke-virtual {v10}, Ljava/util/LinkedList;->size()I
+
+    move-result v30
+
+    const/16 v31, 0x1
+
+    move/from16 v0, v30
+
+    move/from16 v1, v31
+
+    if-le v0, v1, :cond_11
+
+    invoke-virtual {v10}, Ljava/util/LinkedList;->getFirst()Ljava/lang/Object;
+
+    move-result-object v30
+
+    move-object/from16 v0, v30
+
+    move-object/from16 v1, v21
+
+    invoke-static {v0, v1}, Ljava/util/Objects;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
+
+    move-result v30
+
+    xor-int/lit8 v30, v30, 0x1
+
+    if-eqz v30, :cond_11
+
+    invoke-virtual {v10}, Ljava/util/LinkedList;->removeFirst()Ljava/lang/Object;
+
+    goto :goto_4
+
+    :cond_f
+    invoke-virtual/range {p0 .. p0}, Landroid/provider/DocumentsProvider;->getContext()Landroid/content/Context;
+
+    move-result-object v30
+
+    const-string/jumbo v31, "android.permission.MANAGE_DOCUMENTS"
+
+    const/16 v32, 0x0
+
+    invoke-virtual/range {v30 .. v32}, Landroid/content/Context;->enforceCallingPermission(Ljava/lang/String;Ljava/lang/String;)V
+
+    goto/16 :goto_2
+
+    :cond_10
+    const/16 v21, 0x0
+
+    goto/16 :goto_3
+
+    :cond_11
+    new-instance v24, Landroid/provider/DocumentsContract$Path;
+
+    const/16 v30, 0x0
+
+    move-object/from16 v0, v24
+
+    move-object/from16 v1, v30
+
+    invoke-direct {v0, v1, v10}, Landroid/provider/DocumentsContract$Path;-><init>(Ljava/lang/String;Ljava/util/List;)V
+
+    :cond_12
+    invoke-virtual/range {v24 .. v24}, Landroid/provider/DocumentsContract$Path;->getRootId()Ljava/lang/String;
+
+    move-result-object v30
+
+    if-eqz v30, :cond_13
+
+    const-string/jumbo v30, "DocumentsProvider"
+
+    new-instance v31, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v31 .. v31}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v32, "Provider returns root id :"
+
+    invoke-virtual/range {v31 .. v32}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v31
+
+    invoke-virtual/range {v24 .. v24}, Landroid/provider/DocumentsContract$Path;->getRootId()Ljava/lang/String;
+
+    move-result-object v32
+
+    invoke-virtual/range {v31 .. v32}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v31
+
+    const-string/jumbo v32, " unexpectedly. Erase root id."
+
+    invoke-virtual/range {v31 .. v32}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v31
+
+    invoke-virtual/range {v31 .. v31}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v31
+
+    invoke-static/range {v30 .. v31}, Landroid/util/Log;->wtf(Ljava/lang/String;Ljava/lang/String;)I
+
+    new-instance v25, Landroid/provider/DocumentsContract$Path;
+
+    invoke-virtual/range {v24 .. v24}, Landroid/provider/DocumentsContract$Path;->getPath()Ljava/util/List;
+
+    move-result-object v30
+
+    const/16 v31, 0x0
+
+    move-object/from16 v0, v25
+
+    move-object/from16 v1, v31
+
+    move-object/from16 v2, v30
+
+    invoke-direct {v0, v1, v2}, Landroid/provider/DocumentsContract$Path;-><init>(Ljava/lang/String;Ljava/util/List;)V
+
+    move-object/from16 v24, v25
+
+    :cond_13
+    const-string/jumbo v30, "result"
+
+    move-object/from16 v0, v20
+
+    move-object/from16 v1, v30
+
+    move-object/from16 v2, v24
+
+    invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
 
     goto/16 :goto_1
 
-    :cond_c
-    new-instance v21, Ljava/lang/UnsupportedOperationException;
+    :cond_14
+    new-instance v30, Ljava/lang/UnsupportedOperationException;
 
-    new-instance v22, Ljava/lang/StringBuilder;
+    new-instance v31, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v22 .. v22}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v31 .. v31}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v23, "Method not supported "
+    const-string/jumbo v32, "Method not supported "
 
-    invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v31 .. v32}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v22
+    move-result-object v31
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v31
 
     move-object/from16 v1, p1
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v22
+    move-result-object v31
 
-    invoke-virtual/range {v22 .. v22}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v31 .. v31}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v22
+    move-result-object v31
 
-    invoke-direct/range {v21 .. v22}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
+    invoke-direct/range {v30 .. v31}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
 
-    throw v21
+    throw v30
 .end method
 
 .method private enforceTree(Landroid/net/Uri;)V
@@ -851,6 +1268,41 @@
 
     :cond_2
     return v0
+.end method
+
+.method private static getSortClause(Landroid/os/Bundle;)Ljava/lang/String;
+    .locals 2
+
+    if-eqz p0, :cond_1
+
+    :goto_0
+    const-string/jumbo v1, "android:query-arg-sql-sort-order"
+
+    invoke-virtual {p0, v1}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    if-nez v0, :cond_0
+
+    const-string/jumbo v1, "android:query-arg-sort-columns"
+
+    invoke-virtual {p0, v1}, Landroid/os/Bundle;->containsKey(Ljava/lang/String;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    invoke-static {p0}, Landroid/content/ContentResolver;->createSqlSortClause(Landroid/os/Bundle;)Ljava/lang/String;
+
+    move-result-object v0
+
+    :cond_0
+    return-object v0
+
+    :cond_1
+    sget-object p0, Landroid/os/Bundle;->EMPTY:Landroid/os/Bundle;
+
+    goto :goto_0
 .end method
 
 .method public static mimeTypeMatches(Ljava/lang/String;Ljava/lang/String;)Z
@@ -996,14 +1448,10 @@
     return-object v3
 .end method
 
-
-# virtual methods
-.method public attachInfo(Landroid/content/Context;Landroid/content/pm/ProviderInfo;)V
+.method private registerAuthority(Ljava/lang/String;)V
     .locals 4
 
-    iget-object v0, p2, Landroid/content/pm/ProviderInfo;->authority:Ljava/lang/String;
-
-    iput-object v0, p0, Landroid/provider/DocumentsProvider;->mAuthority:Ljava/lang/String;
+    iput-object p1, p0, Landroid/provider/DocumentsProvider;->mAuthority:Ljava/lang/String;
 
     new-instance v0, Landroid/content/UriMatcher;
 
@@ -1093,6 +1541,18 @@
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/content/UriMatcher;->addURI(Ljava/lang/String;Ljava/lang/String;I)V
 
+    return-void
+.end method
+
+
+# virtual methods
+.method public attachInfo(Landroid/content/Context;Landroid/content/pm/ProviderInfo;)V
+    .locals 2
+
+    iget-object v0, p2, Landroid/content/pm/ProviderInfo;->authority:Ljava/lang/String;
+
+    invoke-direct {p0, v0}, Landroid/provider/DocumentsProvider;->registerAuthority(Ljava/lang/String;)V
+
     iget-boolean v0, p2, Landroid/content/pm/ProviderInfo;->exported:Z
 
     if-nez v0, :cond_0
@@ -1137,11 +1597,9 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    xor-int/lit8 v0, v0, 0x1
 
-    invoke-super {p0, p1, p2}, Landroid/content/ContentProvider;->attachInfo(Landroid/content/Context;Landroid/content/pm/ProviderInfo;)V
-
-    return-void
+    if-eqz v0, :cond_3
 
     :cond_2
     new-instance v0, Ljava/lang/SecurityException;
@@ -1151,10 +1609,27 @@
     invoke-direct {v0, v1}, Ljava/lang/SecurityException;-><init>(Ljava/lang/String;)V
 
     throw v0
+
+    :cond_3
+    invoke-super {p0, p1, p2}, Landroid/content/ContentProvider;->attachInfo(Landroid/content/Context;Landroid/content/pm/ProviderInfo;)V
+
+    return-void
+.end method
+
+.method public attachInfoForTesting(Landroid/content/Context;Landroid/content/pm/ProviderInfo;)V
+    .locals 1
+
+    iget-object v0, p2, Landroid/content/pm/ProviderInfo;->authority:Ljava/lang/String;
+
+    invoke-direct {p0, v0}, Landroid/provider/DocumentsProvider;->registerAuthority(Ljava/lang/String;)V
+
+    invoke-super {p0, p1, p2}, Landroid/content/ContentProvider;->attachInfoForTesting(Landroid/content/Context;Landroid/content/pm/ProviderInfo;)V
+
+    return-void
 .end method
 
 .method public call(Ljava/lang/String;Ljava/lang/String;Landroid/os/Bundle;)Landroid/os/Bundle;
-    .locals 4
+    .locals 2
 
     const-string/jumbo v1, "android:"
 
@@ -1183,27 +1658,9 @@
     :catch_0
     move-exception v0
 
-    new-instance v1, Ljava/lang/IllegalStateException;
+    new-instance v1, Landroid/os/ParcelableException;
 
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v3, "Failed call "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-direct {v1, v2, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+    invoke-direct {v1, v0}, Landroid/os/ParcelableException;-><init>(Ljava/lang/Throwable;)V
 
     throw v1
 .end method
@@ -1294,6 +1751,23 @@
     throw v0
 .end method
 
+.method public createWebLinkIntent(Ljava/lang/String;Landroid/os/Bundle;)Landroid/content/IntentSender;
+    .locals 2
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/FileNotFoundException;
+        }
+    .end annotation
+
+    new-instance v0, Ljava/lang/UnsupportedOperationException;
+
+    const-string/jumbo v1, "createWebLink is not supported."
+
+    invoke-direct {v0, v1}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+.end method
+
 .method public final delete(Landroid/net/Uri;Ljava/lang/String;[Ljava/lang/String;)I
     .locals 2
 
@@ -1317,6 +1791,35 @@
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     const-string/jumbo v1, "Delete not supported"
+
+    invoke-direct {v0, v1}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+.end method
+
+.method public ejectRoot(Ljava/lang/String;)V
+    .locals 2
+
+    new-instance v0, Ljava/lang/UnsupportedOperationException;
+
+    const-string/jumbo v1, "Eject not supported"
+
+    invoke-direct {v0, v1}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+.end method
+
+.method public findDocumentPath(Ljava/lang/String;Ljava/lang/String;)Landroid/provider/DocumentsContract$Path;
+    .locals 2
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/FileNotFoundException;
+        }
+    .end annotation
+
+    new-instance v0, Ljava/lang/UnsupportedOperationException;
+
+    const-string/jumbo v1, "findDocumentPath not supported."
 
     invoke-direct {v0, v1}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
 
@@ -1764,7 +2267,7 @@
     throw v0
 .end method
 
-.method public final query(Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;
+.method public final query(Landroid/net/Uri;[Ljava/lang/String;Landroid/os/Bundle;Landroid/os/CancellationSignal;)Landroid/database/Cursor;
     .locals 4
 
     :try_start_0
@@ -1876,7 +2379,11 @@
 
     move-result-object v1
 
-    invoke-virtual {p0, v1, p2, p5}, Landroid/provider/DocumentsProvider;->queryChildDocumentsForManage(Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;
+    invoke-static {p3}, Landroid/provider/DocumentsProvider;->getSortClause(Landroid/os/Bundle;)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {p0, v1, p2, v2}, Landroid/provider/DocumentsProvider;->queryChildDocumentsForManage(Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;
 
     move-result-object v1
 
@@ -1887,7 +2394,7 @@
 
     move-result-object v1
 
-    invoke-virtual {p0, v1, p2, p5}, Landroid/provider/DocumentsProvider;->queryChildDocuments(Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;
+    invoke-virtual {p0, v1, p2, p3}, Landroid/provider/DocumentsProvider;->queryChildDocuments(Ljava/lang/String;[Ljava/lang/String;Landroid/os/Bundle;)Landroid/database/Cursor;
     :try_end_1
     .catch Ljava/io/FileNotFoundException; {:try_start_1 .. :try_end_1} :catch_0
 
@@ -1908,6 +2415,49 @@
         :pswitch_4
         :pswitch_5
     .end packed-switch
+.end method
+
+.method public final query(Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;
+    .locals 2
+
+    new-instance v0, Ljava/lang/UnsupportedOperationException;
+
+    const-string/jumbo v1, "Pre-Android-O query format not supported."
+
+    invoke-direct {v0, v1}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+.end method
+
+.method public query(Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;Landroid/os/CancellationSignal;)Landroid/database/Cursor;
+    .locals 2
+
+    new-instance v0, Ljava/lang/UnsupportedOperationException;
+
+    const-string/jumbo v1, "Pre-Android-O query format not supported."
+
+    invoke-direct {v0, v1}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+.end method
+
+.method public queryChildDocuments(Ljava/lang/String;[Ljava/lang/String;Landroid/os/Bundle;)Landroid/database/Cursor;
+    .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/FileNotFoundException;
+        }
+    .end annotation
+
+    invoke-static {p3}, Landroid/provider/DocumentsProvider;->getSortClause(Landroid/os/Bundle;)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {p0, p1, p2, v0}, Landroid/provider/DocumentsProvider;->queryChildDocuments(Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;
+
+    move-result-object v0
+
+    return-object v0
 .end method
 
 .method public abstract queryChildDocuments(Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;

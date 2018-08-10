@@ -75,7 +75,7 @@
 
     int-to-long v2, v1
 
-    invoke-virtual {v0, p0, v2, v3}, Landroid/view/View;->postDelayed(Ljava/lang/Runnable;J)Z
+    invoke-virtual {v0, p0, v2, v3}, Landroid/widget/NumberPicker;->postDelayed(Ljava/lang/Runnable;J)Z
 
     return-void
 .end method
@@ -93,7 +93,7 @@
 
     iget-object v0, p0, Landroid/widget/NumberPicker$PressedStateHelper;->this$0:Landroid/widget/NumberPicker;
 
-    invoke-virtual {v0, p0}, Landroid/view/View;->post(Ljava/lang/Runnable;)Z
+    invoke-virtual {v0, p0}, Landroid/widget/NumberPicker;->post(Ljava/lang/Runnable;)Z
 
     return-void
 .end method
@@ -109,7 +109,7 @@
 
     iget-object v0, p0, Landroid/widget/NumberPicker$PressedStateHelper;->this$0:Landroid/widget/NumberPicker;
 
-    invoke-virtual {v0, p0}, Landroid/view/View;->removeCallbacks(Ljava/lang/Runnable;)Z
+    invoke-virtual {v0, p0}, Landroid/widget/NumberPicker;->removeCallbacks(Ljava/lang/Runnable;)Z
 
     iget-object v0, p0, Landroid/widget/NumberPicker$PressedStateHelper;->this$0:Landroid/widget/NumberPicker;
 
@@ -143,7 +143,7 @@
 
     move-result v3
 
-    invoke-virtual {v0, v4, v1, v2, v3}, Landroid/view/View;->invalidate(IIII)V
+    invoke-virtual {v0, v4, v1, v2, v3}, Landroid/widget/NumberPicker;->invalidate(IIII)V
 
     :cond_0
     iget-object v0, p0, Landroid/widget/NumberPicker$PressedStateHelper;->this$0:Landroid/widget/NumberPicker;
@@ -168,11 +168,11 @@
 
     iget-object v2, p0, Landroid/widget/NumberPicker$PressedStateHelper;->this$0:Landroid/widget/NumberPicker;
 
-    invoke-static {v2}, Landroid/widget/NumberPicker;->-get17(Landroid/widget/NumberPicker;)I
+    invoke-static {v2}, Landroid/widget/NumberPicker;->-get18(Landroid/widget/NumberPicker;)I
 
     move-result v2
 
-    invoke-virtual {v0, v4, v4, v1, v2}, Landroid/view/View;->invalidate(IIII)V
+    invoke-virtual {v0, v4, v4, v1, v2}, Landroid/widget/NumberPicker;->invalidate(IIII)V
 
     :cond_1
     return-void
@@ -224,7 +224,7 @@
 
     move-result v3
 
-    invoke-virtual {v0, v4, v1, v2, v3}, Landroid/view/View;->invalidate(IIII)V
+    invoke-virtual {v0, v4, v1, v2, v3}, Landroid/widget/NumberPicker;->invalidate(IIII)V
 
     goto :goto_0
 
@@ -243,11 +243,11 @@
 
     iget-object v2, p0, Landroid/widget/NumberPicker$PressedStateHelper;->this$0:Landroid/widget/NumberPicker;
 
-    invoke-static {v2}, Landroid/widget/NumberPicker;->-get17(Landroid/widget/NumberPicker;)I
+    invoke-static {v2}, Landroid/widget/NumberPicker;->-get18(Landroid/widget/NumberPicker;)I
 
     move-result v2
 
-    invoke-virtual {v0, v4, v4, v1, v2}, Landroid/view/View;->invalidate(IIII)V
+    invoke-virtual {v0, v4, v4, v1, v2}, Landroid/widget/NumberPicker;->invalidate(IIII)V
 
     goto :goto_0
 
@@ -275,7 +275,7 @@
 
     int-to-long v2, v1
 
-    invoke-virtual {v0, p0, v2, v3}, Landroid/view/View;->postDelayed(Ljava/lang/Runnable;J)Z
+    invoke-virtual {v0, p0, v2, v3}, Landroid/widget/NumberPicker;->postDelayed(Ljava/lang/Runnable;J)Z
 
     :cond_0
     iget-object v0, p0, Landroid/widget/NumberPicker$PressedStateHelper;->this$0:Landroid/widget/NumberPicker;
@@ -308,7 +308,7 @@
 
     move-result v3
 
-    invoke-virtual {v0, v4, v1, v2, v3}, Landroid/view/View;->invalidate(IIII)V
+    invoke-virtual {v0, v4, v1, v2, v3}, Landroid/widget/NumberPicker;->invalidate(IIII)V
 
     goto :goto_0
 
@@ -329,7 +329,7 @@
 
     int-to-long v2, v1
 
-    invoke-virtual {v0, p0, v2, v3}, Landroid/view/View;->postDelayed(Ljava/lang/Runnable;J)Z
+    invoke-virtual {v0, p0, v2, v3}, Landroid/widget/NumberPicker;->postDelayed(Ljava/lang/Runnable;J)Z
 
     :cond_1
     iget-object v0, p0, Landroid/widget/NumberPicker$PressedStateHelper;->this$0:Landroid/widget/NumberPicker;
@@ -352,11 +352,11 @@
 
     iget-object v2, p0, Landroid/widget/NumberPicker$PressedStateHelper;->this$0:Landroid/widget/NumberPicker;
 
-    invoke-static {v2}, Landroid/widget/NumberPicker;->-get17(Landroid/widget/NumberPicker;)I
+    invoke-static {v2}, Landroid/widget/NumberPicker;->-get18(Landroid/widget/NumberPicker;)I
 
     move-result v2
 
-    invoke-virtual {v0, v4, v4, v1, v2}, Landroid/view/View;->invalidate(IIII)V
+    invoke-virtual {v0, v4, v4, v1, v2}, Landroid/widget/NumberPicker;->invalidate(IIII)V
 
     goto/16 :goto_0
 

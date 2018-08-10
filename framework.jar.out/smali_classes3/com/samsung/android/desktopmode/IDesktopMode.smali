@@ -15,6 +15,54 @@
 
 
 # virtual methods
+.method public abstract commandDesktopModeService(II)Z
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract getDesktopModeKillPolicy()Landroid/os/Bundle;
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract getDesktopModeState()Lcom/samsung/android/desktopmode/SemDesktopModeState;
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract getLaunchPolicyForPackage(Landroid/content/pm/ApplicationInfo;Landroid/content/pm/ActivityInfo;)I
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract getLaunchPolicyRunnable(Landroid/content/pm/ApplicationInfo;)Z
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract isAllowed(ZZ)Z
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract isDefaultDisplayBlocked()Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -31,7 +79,55 @@
     .end annotation
 .end method
 
+.method public abstract isDesktopDockConnectedOrForced()Z
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract isDesktopMode()Z
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract isDesktopModeAvailable()Z
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract isDesktopModeAvailableEx(ZZ)Z
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract isDesktopModeEnablingOrEnabled()Z
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract isDesktopModeForPreparing()Z
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract isDesktopModeLoadingScreenShowing()Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -47,6 +143,14 @@
     .end annotation
 .end method
 
+.method public abstract isForcedInternalScreenModeEnabled()Z
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract isModeChangePending()Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -55,7 +159,7 @@
     .end annotation
 .end method
 
-.method public abstract onConfigurationChanged(Landroid/content/res/Configuration;)V
+.method public abstract registerBlocker(Lcom/samsung/android/desktopmode/IDesktopModeBlocker;Ljava/lang/String;)Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -63,7 +167,7 @@
     .end annotation
 .end method
 
-.method public abstract readDataFromDock()B
+.method public abstract registerDesktopLauncher(Lcom/samsung/android/desktopmode/IDesktopModeLauncher;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -71,7 +175,7 @@
     .end annotation
 .end method
 
-.method public abstract registerStateCallback(Lcom/samsung/android/desktopmode/IDesktopModeCallback;)Z
+.method public abstract registerDesktopModeListener(Lcom/samsung/android/desktopmode/IDesktopModeListener;Ljava/lang/String;)Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -79,7 +183,7 @@
     .end annotation
 .end method
 
-.method public abstract setDefaultDisplayOn(ZLjava/lang/String;)V
+.method public abstract registerEventListener(Lcom/samsung/android/desktopmode/IEventListener;Ljava/lang/String;)Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -87,7 +191,7 @@
     .end annotation
 .end method
 
-.method public abstract setDefaultDisplayPowerMode(I)V
+.method public abstract setHdmiSettings(Z)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -95,7 +199,7 @@
     .end annotation
 .end method
 
-.method public abstract setTouchScreenOn(ZLjava/lang/String;)V
+.method public abstract unregisterBlocker(Lcom/samsung/android/desktopmode/IDesktopModeBlocker;)Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -103,7 +207,7 @@
     .end annotation
 .end method
 
-.method public abstract unregisterStateCallback(Lcom/samsung/android/desktopmode/IDesktopModeCallback;)Z
+.method public abstract unregisterDesktopModeListener(Lcom/samsung/android/desktopmode/IDesktopModeListener;)Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -111,7 +215,7 @@
     .end annotation
 .end method
 
-.method public abstract writeDataToDock(I)Z
+.method public abstract unregisterEventListener(Lcom/samsung/android/desktopmode/IEventListener;)Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

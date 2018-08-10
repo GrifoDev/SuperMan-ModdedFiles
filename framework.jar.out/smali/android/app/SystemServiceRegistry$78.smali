@@ -17,7 +17,7 @@
     value = {
         "Landroid/app/SystemServiceRegistry$StaticServiceFetcher",
         "<",
-        "Landroid/service/persistentdata/PersistentDataBlockManager;",
+        "Landroid/app/job/JobScheduler;",
         ">;"
     }
 .end annotation
@@ -34,37 +34,40 @@
 
 
 # virtual methods
-.method public createService()Landroid/service/persistentdata/PersistentDataBlockManager;
-    .locals 4
+.method public createService()Landroid/app/job/JobScheduler;
+    .locals 3
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/ServiceManager$ServiceNotFoundException;
+        }
+    .end annotation
 
-    const/4 v3, 0x0
+    const-string/jumbo v1, "jobscheduler"
 
-    const-string/jumbo v2, "persistent_data_block"
-
-    invoke-static {v2}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
+    invoke-static {v1}, Landroid/os/ServiceManager;->getServiceOrThrow(Ljava/lang/String;)Landroid/os/IBinder;
 
     move-result-object v0
 
-    invoke-static {v0}, Landroid/service/persistentdata/IPersistentDataBlockService$Stub;->asInterface(Landroid/os/IBinder;)Landroid/service/persistentdata/IPersistentDataBlockService;
+    new-instance v1, Landroid/app/JobSchedulerImpl;
 
-    move-result-object v1
+    invoke-static {v0}, Landroid/app/job/IJobScheduler$Stub;->asInterface(Landroid/os/IBinder;)Landroid/app/job/IJobScheduler;
 
-    if-eqz v1, :cond_0
+    move-result-object v2
 
-    new-instance v2, Landroid/service/persistentdata/PersistentDataBlockManager;
+    invoke-direct {v1, v2}, Landroid/app/JobSchedulerImpl;-><init>(Landroid/app/job/IJobScheduler;)V
 
-    invoke-direct {v2, v1}, Landroid/service/persistentdata/PersistentDataBlockManager;-><init>(Landroid/service/persistentdata/IPersistentDataBlockService;)V
-
-    return-object v2
-
-    :cond_0
-    return-object v3
+    return-object v1
 .end method
 
 .method public bridge synthetic createService()Ljava/lang/Object;
     .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/ServiceManager$ServiceNotFoundException;
+        }
+    .end annotation
 
-    invoke-virtual {p0}, Landroid/app/SystemServiceRegistry$78;->createService()Landroid/service/persistentdata/PersistentDataBlockManager;
+    invoke-virtual {p0}, Landroid/app/SystemServiceRegistry$78;->createService()Landroid/app/job/JobScheduler;
 
     move-result-object v0
 

@@ -3,6 +3,14 @@
 .source "ViewStructure.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Landroid/view/ViewStructure$HtmlInfo;
+    }
+.end annotation
+
+
 # direct methods
 .method public constructor <init>()V
     .locals 0
@@ -21,6 +29,9 @@
 .end method
 
 .method public abstract asyncNewChild(I)Landroid/view/ViewStructure;
+.end method
+
+.method public abstract getAutofillId()Landroid/view/autofill/AutofillId;
 .end method
 
 .method public abstract getChildCount()I
@@ -50,6 +61,9 @@
 .method public abstract newChild(I)Landroid/view/ViewStructure;
 .end method
 
+.method public abstract newHtmlInfoBuilder(Ljava/lang/String;)Landroid/view/ViewStructure$HtmlInfo$Builder;
+.end method
+
 .method public abstract setAccessibilityFocused(Z)V
 .end method
 
@@ -60,6 +74,24 @@
 .end method
 
 .method public abstract setAssistBlocked(Z)V
+.end method
+
+.method public abstract setAutofillHints([Ljava/lang/String;)V
+.end method
+
+.method public abstract setAutofillId(Landroid/view/autofill/AutofillId;)V
+.end method
+
+.method public abstract setAutofillId(Landroid/view/autofill/AutofillId;I)V
+.end method
+
+.method public abstract setAutofillOptions([Ljava/lang/CharSequence;)V
+.end method
+
+.method public abstract setAutofillType(I)V
+.end method
+
+.method public abstract setAutofillValue(Landroid/view/autofill/AutofillValue;)V
 .end method
 
 .method public abstract setCheckable(Z)V
@@ -83,6 +115,9 @@
 .method public abstract setContextClickable(Z)V
 .end method
 
+.method public abstract setDataIsSensitive(Z)V
+.end method
+
 .method public abstract setDimens(IIIIII)V
 .end method
 
@@ -101,10 +136,22 @@
 .method public abstract setHint(Ljava/lang/CharSequence;)V
 .end method
 
+.method public abstract setHtmlInfo(Landroid/view/ViewStructure$HtmlInfo;)V
+.end method
+
 .method public abstract setId(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 .end method
 
+.method public abstract setInputType(I)V
+.end method
+
+.method public abstract setLocaleList(Landroid/os/LocaleList;)V
+.end method
+
 .method public abstract setLongClickable(Z)V
+.end method
+
+.method public abstract setOpaque(Z)V
 .end method
 
 .method public abstract setSelected(Z)V
@@ -126,4 +173,7 @@
 .end method
 
 .method public abstract setVisibility(I)V
+.end method
+
+.method public abstract setWebDomain(Ljava/lang/String;)V
 .end method

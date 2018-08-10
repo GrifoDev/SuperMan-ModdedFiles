@@ -30,13 +30,21 @@
 
 .field public static final DATA_ROLE_HOST:I = 0x1
 
-.field public static final MODE_DFP:I = 0x1
+.field public static final DATA_ROLE_NONE:I = 0x0
+
+.field public static final MODE_DFP:I = 0x2
 
 .field public static final MODE_DUAL:I = 0x3
 
-.field public static final MODE_UFP:I = 0x2
+.field public static final MODE_NONE:I = 0x0
+
+.field public static final MODE_UFP:I = 0x1
 
 .field private static final NUM_DATA_ROLES:I = 0x3
+
+.field public static final POWER_ROLE_NONE:I = 0x0
+
+.field private static final POWER_ROLE_OFFSET:I = 0x0
 
 .field public static final POWER_ROLE_SINK:I = 0x2
 
@@ -74,6 +82,48 @@
     return-void
 .end method
 
+.method public static checkDataRole(I)V
+    .locals 3
+
+    const-string/jumbo v0, "powerRole"
+
+    const/4 v1, 0x0
+
+    const/4 v2, 0x2
+
+    invoke-static {p0, v1, v2, v0}, Lcom/android/internal/util/Preconditions;->checkArgumentInRange(IIILjava/lang/String;)I
+
+    return-void
+.end method
+
+.method public static checkMode(I)V
+    .locals 3
+
+    const-string/jumbo v0, "portMode"
+
+    const/4 v1, 0x0
+
+    const/4 v2, 0x3
+
+    invoke-static {p0, v1, v2, v0}, Lcom/android/internal/util/Preconditions;->checkArgumentInRange(IIILjava/lang/String;)I
+
+    return-void
+.end method
+
+.method public static checkPowerRole(I)V
+    .locals 3
+
+    const-string/jumbo v0, "powerRole"
+
+    const/4 v1, 0x0
+
+    const/4 v2, 0x2
+
+    invoke-static {p0, v1, v2, v0}, Lcom/android/internal/util/Preconditions;->checkArgumentInRange(IIILjava/lang/String;)I
+
+    return-void
+.end method
+
 .method public static checkRoles(II)V
     .locals 3
 
@@ -97,7 +147,9 @@
 
     invoke-static {p0, p1}, Landroid/hardware/usb/UsbPort;->checkRoles(II)V
 
-    mul-int/lit8 v1, p0, 0x3
+    add-int/lit8 v1, p0, 0x0
+
+    mul-int/lit8 v1, v1, 0x3
 
     add-int v0, v1, p1
 
@@ -176,8 +228,8 @@
     :pswitch_data_0
     .packed-switch 0x0
         :pswitch_0
-        :pswitch_1
         :pswitch_2
+        :pswitch_1
         :pswitch_3
     .end packed-switch
 .end method
@@ -244,7 +296,9 @@
 
     and-int/2addr p0, v5
 
-    div-int/lit8 v3, v2, 0x3
+    div-int/lit8 v5, v2, 0x3
+
+    add-int/lit8 v3, v5, 0x0
 
     rem-int/lit8 v0, v2, 0x3
 

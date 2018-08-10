@@ -34,12 +34,18 @@
 
 
 # virtual methods
-.method public onColorChanged(FF)V
-    .locals 1
+.method public onWheelColorChanged(FF)V
+    .locals 2
 
     iget-object v0, p0, Lcom/samsung/android/widget/SemColorPicker$2;->this$0:Lcom/samsung/android/widget/SemColorPicker;
 
-    invoke-static {v0}, Lcom/samsung/android/widget/SemColorPicker;->-get1(Lcom/samsung/android/widget/SemColorPicker;)Lcom/samsung/android/widget/SemColorPicker$PickedColor;
+    const/4 v1, 0x1
+
+    invoke-static {v0, v1}, Lcom/samsung/android/widget/SemColorPicker;->-set0(Lcom/samsung/android/widget/SemColorPicker;Z)Z
+
+    iget-object v0, p0, Lcom/samsung/android/widget/SemColorPicker$2;->this$0:Lcom/samsung/android/widget/SemColorPicker;
+
+    invoke-static {v0}, Lcom/samsung/android/widget/SemColorPicker;->-get3(Lcom/samsung/android/widget/SemColorPicker;)Lcom/samsung/android/widget/SemColorPicker$PickedColor;
 
     move-result-object v0
 

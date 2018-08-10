@@ -78,7 +78,7 @@
 
     move-result v8
 
-    if-eqz v8, :cond_8
+    if-eqz v8, :cond_7
 
     invoke-interface {v6}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -235,7 +235,17 @@
 
     move-result v8
 
-    if-eqz v8, :cond_7
+    xor-int/lit8 v8, v8, 0x1
+
+    if-eqz v8, :cond_6
+
+    new-instance v8, Ljava/lang/IllegalArgumentException;
+
+    const-string/jumbo v9, "This output surface is neither preview nor hardware video encoding surface"
+
+    invoke-direct {v8, v9}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v8
 
     :cond_6
     invoke-static {v5}, Landroid/hardware/camera2/utils/SurfaceUtils;->isSurfaceForPreview(Landroid/view/Surface;)Z
@@ -259,20 +269,11 @@
     throw v8
 
     :cond_7
-    new-instance v8, Ljava/lang/IllegalArgumentException;
-
-    const-string/jumbo v9, "This output surface is neither preview nor hardware video encoding surface"
-
-    invoke-direct {v8, v9}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
-
-    throw v8
-
-    :cond_8
     invoke-interface {p0}, Ljava/util/Collection;->size()I
 
     move-result v8
 
-    if-ne v8, v9, :cond_9
+    if-ne v8, v9, :cond_8
 
     invoke-interface {p0}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
 
@@ -298,7 +299,7 @@
 
     move-result v3
 
-    if-ne v2, v3, :cond_9
+    if-ne v2, v3, :cond_8
 
     new-instance v8, Ljava/lang/IllegalArgumentException;
 
@@ -308,73 +309,58 @@
 
     throw v8
 
-    :cond_9
+    :cond_8
     return-void
 .end method
 
 .method private static checkHighSpeedSurfaceFormat(Landroid/view/Surface;)V
-    .locals 6
-
-    const/4 v1, 0x1
-
-    const/4 v0, 0x5
+    .locals 4
 
     invoke-static {p0}, Landroid/hardware/camera2/utils/SurfaceUtils;->getSurfaceFormat(Landroid/view/Surface;)I
 
-    move-result v2
+    move-result v0
 
-    const/4 v3, 0x1
+    const/16 v1, 0x22
 
-    if-lt v2, v3, :cond_0
+    if-eq v0, v1, :cond_0
 
-    const/4 v3, 0x5
+    new-instance v1, Ljava/lang/IllegalArgumentException;
 
-    if-gt v2, v3, :cond_0
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    const/16 v2, 0x22
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "Surface format("
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string/jumbo v3, ") is not"
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string/jumbo v3, " for preview or hardware video encoding!"
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-direct {v1, v2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v1
 
     :cond_0
-    const/16 v3, 0x22
-
-    if-eq v2, v3, :cond_1
-
-    new-instance v3, Ljava/lang/IllegalArgumentException;
-
-    new-instance v4, Ljava/lang/StringBuilder;
-
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v5, "Surface format("
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    const-string/jumbo v5, ") is not"
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    const-string/jumbo v5, " for preview or hardware video encoding!"
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-direct {v3, v4}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
-
-    throw v3
-
-    :cond_1
     return-void
 .end method
 

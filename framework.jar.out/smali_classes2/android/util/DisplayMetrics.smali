@@ -4,7 +4,13 @@
 
 
 # static fields
+.field public static final DENSITY_260:I = 0x104
+
 .field public static final DENSITY_280:I = 0x118
+
+.field public static final DENSITY_300:I = 0x12c
+
+.field public static final DENSITY_340:I = 0x154
 
 .field public static final DENSITY_360:I = 0x168
 
@@ -41,6 +47,10 @@
 
 
 # instance fields
+.field public appHeight:I
+
+.field public appWidth:I
+
 .field public density:F
 
 .field public densityDpi:I
@@ -290,6 +300,11 @@
 .method public setTo(Landroid/util/DisplayMetrics;)V
     .locals 1
 
+    if-ne p0, p1, :cond_0
+
+    return-void
+
+    :cond_0
     iget v0, p1, Landroid/util/DisplayMetrics;->widthPixels:I
 
     iput v0, p0, Landroid/util/DisplayMetrics;->widthPixels:I
@@ -346,17 +361,25 @@
 
     iput v0, p0, Landroid/util/DisplayMetrics;->noncompatYdpi:F
 
+    iget v0, p1, Landroid/util/DisplayMetrics;->appWidth:I
+
+    iput v0, p0, Landroid/util/DisplayMetrics;->appWidth:I
+
+    iget v0, p1, Landroid/util/DisplayMetrics;->appHeight:I
+
+    iput v0, p0, Landroid/util/DisplayMetrics;->appHeight:I
+
     return-void
 .end method
 
 .method public setToDefaults()V
-    .locals 2
+    .locals 3
 
-    const/4 v0, 0x0
+    const/4 v2, 0x0
 
-    iput v0, p0, Landroid/util/DisplayMetrics;->widthPixels:I
+    iput v2, p0, Landroid/util/DisplayMetrics;->widthPixels:I
 
-    iput v0, p0, Landroid/util/DisplayMetrics;->heightPixels:I
+    iput v2, p0, Landroid/util/DisplayMetrics;->heightPixels:I
 
     sget v0, Landroid/util/DisplayMetrics;->DENSITY_DEVICE:I
 
@@ -415,6 +438,10 @@
     iget v0, p0, Landroid/util/DisplayMetrics;->ydpi:F
 
     iput v0, p0, Landroid/util/DisplayMetrics;->noncompatYdpi:F
+
+    iput v2, p0, Landroid/util/DisplayMetrics;->appWidth:I
+
+    iput v2, p0, Landroid/util/DisplayMetrics;->appHeight:I
 
     return-void
 .end method

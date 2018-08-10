@@ -109,7 +109,7 @@
 
     iput-boolean v0, p0, Landroid/view/BatchedInputEventReceiver;->mBatchedInputScheduled:Z
 
-    invoke-virtual {p0, p1, p2}, Landroid/view/InputEventReceiver;->consumeBatchedInputEvents(J)Z
+    invoke-virtual {p0, p1, p2}, Landroid/view/BatchedInputEventReceiver;->consumeBatchedInputEvents(J)Z
 
     move-result v0
 

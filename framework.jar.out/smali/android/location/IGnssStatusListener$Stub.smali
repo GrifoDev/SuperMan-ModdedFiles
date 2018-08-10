@@ -93,14 +93,14 @@
 .end method
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    .locals 10
+    .locals 11
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    const/4 v9, 0x1
+    const/4 v10, 0x1
 
     sparse-switch p1, :sswitch_data_0
 
@@ -115,7 +115,7 @@
 
     invoke-virtual {p3, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    return v9
+    return v10
 
     :sswitch_1
     const-string/jumbo v0, "android.location.IGnssStatusListener"
@@ -124,7 +124,7 @@
 
     invoke-virtual {p0}, Landroid/location/IGnssStatusListener$Stub;->onGnssStarted()V
 
-    return v9
+    return v10
 
     :sswitch_2
     const-string/jumbo v0, "android.location.IGnssStatusListener"
@@ -133,7 +133,7 @@
 
     invoke-virtual {p0}, Landroid/location/IGnssStatusListener$Stub;->onGnssStopped()V
 
-    return v9
+    return v10
 
     :sswitch_3
     const-string/jumbo v0, "android.location.IGnssStatusListener"
@@ -146,7 +146,7 @@
 
     invoke-virtual {p0, v1}, Landroid/location/IGnssStatusListener$Stub;->onFirstFix(I)V
 
-    return v9
+    return v10
 
     :sswitch_4
     const-string/jumbo v0, "android.location.IGnssStatusListener"
@@ -173,11 +173,15 @@
 
     move-result-object v5
 
+    invoke-virtual {p2}, Landroid/os/Parcel;->createFloatArray()[F
+
+    move-result-object v6
+
     move-object v0, p0
 
-    invoke-virtual/range {v0 .. v5}, Landroid/location/IGnssStatusListener$Stub;->onSvStatusChanged(I[I[F[F[F)V
+    invoke-virtual/range {v0 .. v6}, Landroid/location/IGnssStatusListener$Stub;->onSvStatusChanged(I[I[F[F[F[F)V
 
-    return v9
+    return v10
 
     :sswitch_5
     const-string/jumbo v0, "android.location.IGnssStatusListener"
@@ -186,15 +190,15 @@
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readLong()J
 
-    move-result-wide v6
+    move-result-wide v8
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
-    move-result-object v8
+    move-result-object v7
 
-    invoke-virtual {p0, v6, v7, v8}, Landroid/location/IGnssStatusListener$Stub;->onNmeaReceived(JLjava/lang/String;)V
+    invoke-virtual {p0, v8, v9, v7}, Landroid/location/IGnssStatusListener$Stub;->onNmeaReceived(JLjava/lang/String;)V
 
-    return v9
+    return v10
 
     nop
 

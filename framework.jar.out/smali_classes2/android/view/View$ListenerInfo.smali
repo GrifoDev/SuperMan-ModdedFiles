@@ -28,6 +28,8 @@
     .end annotation
 .end field
 
+.field mOnCapturedPointerListener:Landroid/view/View$OnCapturedPointerListener;
+
 .field public mOnClickListener:Landroid/view/View$OnClickListener;
 
 .field protected mOnContextClickListener:Landroid/view/View$OnContextClickListener;

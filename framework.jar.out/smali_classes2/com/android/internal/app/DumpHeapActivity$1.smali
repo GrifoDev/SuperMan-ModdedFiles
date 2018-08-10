@@ -51,11 +51,11 @@
 
     invoke-direct {v1, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v0, v1}, Landroid/content/ContextWrapper;->sendBroadcast(Landroid/content/Intent;)V
+    invoke-virtual {v0, v1}, Lcom/android/internal/app/DumpHeapActivity;->sendBroadcast(Landroid/content/Intent;)V
 
     iget-object v0, p0, Lcom/android/internal/app/DumpHeapActivity$1;->this$0:Lcom/android/internal/app/DumpHeapActivity;
 
-    invoke-virtual {v0}, Landroid/app/Activity;->finish()V
+    invoke-virtual {v0}, Lcom/android/internal/app/DumpHeapActivity;->finish()V
 
     return-void
 .end method

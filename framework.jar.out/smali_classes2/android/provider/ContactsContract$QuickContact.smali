@@ -58,12 +58,22 @@
 
     instance-of v3, v0, Landroid/app/Activity;
 
-    if-eqz v3, :cond_1
+    xor-int/lit8 v3, v3, 0x1
+
+    if-eqz v3, :cond_0
+
+    check-cast v0, Landroid/content/ContextWrapper;
+
+    invoke-virtual {v0}, Landroid/content/ContextWrapper;->getBaseContext()Landroid/content/Context;
+
+    move-result-object v0
+
+    goto :goto_0
 
     :cond_0
     instance-of v3, v0, Landroid/app/Activity;
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_1
 
     const/4 v3, 0x0
 
@@ -97,15 +107,6 @@
     return-object v1
 
     :cond_1
-    check-cast v0, Landroid/content/ContextWrapper;
-
-    invoke-virtual {v0}, Landroid/content/ContextWrapper;->getBaseContext()Landroid/content/Context;
-
-    move-result-object v0
-
-    goto :goto_0
-
-    :cond_2
     const v3, 0x10008000
 
     goto :goto_1

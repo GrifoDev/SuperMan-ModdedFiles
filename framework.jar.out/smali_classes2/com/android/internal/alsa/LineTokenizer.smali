@@ -8,18 +8,14 @@
 
 
 # instance fields
-.field private mDelimiters:Ljava/lang/String;
+.field private final mDelimiters:Ljava/lang/String;
 
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
-    .locals 1
+    .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    const-string/jumbo v0, ""
-
-    iput-object v0, p0, Lcom/android/internal/alsa/LineTokenizer;->mDelimiters:Ljava/lang/String;
 
     iput-object p1, p0, Lcom/android/internal/alsa/LineTokenizer;->mDelimiters:Ljava/lang/String;
 

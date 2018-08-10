@@ -3,12 +3,12 @@
 .source "SemDatePicker.java"
 
 # interfaces
-.implements Landroid/view/View$OnClickListener;
+.implements Ljava/lang/Runnable;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/samsung/android/widget/SemDatePicker;->onMeasure(II)V
+    value = Lcom/samsung/android/widget/SemDatePicker;->removeAllCallbacks()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -34,22 +34,24 @@
 
 
 # virtual methods
-.method public onClick(Landroid/view/View;)V
-    .locals 2
+.method public run()V
+    .locals 3
 
     iget-object v0, p0, Lcom/samsung/android/widget/SemDatePicker$10;->this$0:Lcom/samsung/android/widget/SemDatePicker;
 
+    invoke-static {v0}, Lcom/samsung/android/widget/SemDatePicker;->-get4(Lcom/samsung/android/widget/SemDatePicker;)Lcom/android/internal/widget/ViewPager;
+
+    move-result-object v0
+
     iget-object v1, p0, Lcom/samsung/android/widget/SemDatePicker$10;->this$0:Lcom/samsung/android/widget/SemDatePicker;
 
-    invoke-static {v1}, Lcom/samsung/android/widget/SemDatePicker;->-get9(Lcom/samsung/android/widget/SemDatePicker;)I
+    invoke-static {v1}, Lcom/samsung/android/widget/SemDatePicker;->-get7(Lcom/samsung/android/widget/SemDatePicker;)I
 
     move-result v1
 
-    add-int/lit8 v1, v1, 0x1
+    const/4 v2, 0x0
 
-    rem-int/lit8 v1, v1, 0x2
-
-    invoke-static {v0, v1}, Lcom/samsung/android/widget/SemDatePicker;->-wrap6(Lcom/samsung/android/widget/SemDatePicker;I)V
+    invoke-virtual {v0, v1, v2}, Lcom/android/internal/widget/ViewPager;->setCurrentItem(IZ)V
 
     return-void
 .end method

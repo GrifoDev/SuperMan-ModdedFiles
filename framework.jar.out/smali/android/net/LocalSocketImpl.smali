@@ -113,11 +113,6 @@
 
 .method constructor <init>(Ljava/io/FileDescriptor;)V
     .locals 1
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;
-        }
-    .end annotation
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -476,8 +471,17 @@
 
     iget-object v2, p0, Landroid/net/LocalSocketImpl;->fd:Ljava/io/FileDescriptor;
 
-    if-nez v2, :cond_0
+    if-eqz v2, :cond_0
 
+    new-instance v2, Ljava/io/IOException;
+
+    const-string/jumbo v3, "LocalSocketImpl already has an fd"
+
+    invoke-direct {v2, v3}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+
+    throw v2
+
+    :cond_0
     packed-switch p1, :pswitch_data_0
 
     new-instance v2, Ljava/lang/IllegalStateException;
@@ -509,7 +513,6 @@
     :try_end_0
     .catch Landroid/system/ErrnoException; {:try_start_0 .. :try_end_0} :catch_0
 
-    :cond_0
     :goto_1
     return-void
 
@@ -529,6 +532,8 @@
     invoke-virtual {v0}, Landroid/system/ErrnoException;->rethrowAsIOException()Ljava/io/IOException;
 
     goto :goto_1
+
+    nop
 
     :pswitch_data_0
     .packed-switch 0x1
@@ -1123,6 +1128,14 @@
 
     sget v7, Landroid/system/OsConstants;->SOL_SOCKET:I
 
+    sget v8, Landroid/system/OsConstants;->SO_RCVTIMEO:I
+
+    invoke-static {v6, v7, v8, v5}, Landroid/system/Os;->setsockoptTimeval(Ljava/io/FileDescriptor;IILandroid/system/StructTimeval;)V
+
+    iget-object v6, p0, Landroid/net/LocalSocketImpl;->fd:Ljava/io/FileDescriptor;
+
+    sget v7, Landroid/system/OsConstants;->SOL_SOCKET:I
+
     sget v8, Landroid/system/OsConstants;->SO_SNDTIMEO:I
 
     invoke-static {v6, v7, v8, v5}, Landroid/system/Os;->setsockoptTimeval(Ljava/io/FileDescriptor;IILandroid/system/StructTimeval;)V
@@ -1154,6 +1167,8 @@
     .catch Landroid/system/ErrnoException; {:try_start_1 .. :try_end_1} :catch_0
 
     goto :goto_1
+
+    nop
 
     :sswitch_data_0
     .sparse-switch

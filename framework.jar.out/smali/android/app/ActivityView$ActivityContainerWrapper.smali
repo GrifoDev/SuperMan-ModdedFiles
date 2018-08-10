@@ -51,25 +51,6 @@
 
 
 # virtual methods
-.method attachToDisplay(I)V
-    .locals 2
-
-    :try_start_0
-    iget-object v1, p0, Landroid/app/ActivityView$ActivityContainerWrapper;->mIActivityContainer:Landroid/app/IActivityContainer;
-
-    invoke-interface {v1, p1}, Landroid/app/IActivityContainer;->attachToDisplay(I)V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    :goto_0
-    return-void
-
-    :catch_0
-    move-exception v0
-
-    goto :goto_0
-.end method
-
 .method protected finalize()V
     .locals 1
     .annotation system Ldalvik/annotation/Throws;

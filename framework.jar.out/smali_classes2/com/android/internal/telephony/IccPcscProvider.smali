@@ -263,7 +263,7 @@
 
     move-result v7
 
-    invoke-virtual {v1}, Ljava/io/FilterOutputStream;->close()V
+    invoke-virtual {v1}, Ljava/io/DataOutputStream;->close()V
 
     invoke-virtual {v0}, Ljava/io/ByteArrayOutputStream;->close()V
 
@@ -333,7 +333,7 @@
     if-eqz v1, :cond_2
 
     :try_start_3
-    invoke-virtual {v1}, Ljava/io/FilterOutputStream;->close()V
+    invoke-virtual {v1}, Ljava/io/DataOutputStream;->close()V
 
     :cond_2
     if-eqz v0, :cond_3
@@ -421,7 +421,7 @@
 
     move-result v7
 
-    invoke-virtual {v1}, Ljava/io/FilterOutputStream;->close()V
+    invoke-virtual {v1}, Ljava/io/DataOutputStream;->close()V
 
     invoke-virtual {v0}, Ljava/io/ByteArrayOutputStream;->close()V
     :try_end_1
@@ -450,7 +450,7 @@
     if-eqz v1, :cond_0
 
     :try_start_2
-    invoke-virtual {v1}, Ljava/io/FilterOutputStream;->close()V
+    invoke-virtual {v1}, Ljava/io/DataOutputStream;->close()V
 
     :cond_0
     if-eqz v0, :cond_1
@@ -461,7 +461,7 @@
 
     :cond_1
     :goto_0
-    invoke-virtual {v3}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v3}, Ljava/lang/Exception;->printStackTrace()V
 
     return v11
 
@@ -635,7 +635,7 @@
     if-eqz v2, :cond_0
 
     :try_start_2
-    invoke-virtual {v2}, Ljava/io/FilterOutputStream;->close()V
+    invoke-virtual {v2}, Ljava/io/DataOutputStream;->close()V
 
     :cond_0
     if-eqz v1, :cond_1
@@ -662,7 +662,7 @@
     :catch_1
     move-exception v4
 
-    invoke-virtual {v4}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v4}, Ljava/lang/Exception;->printStackTrace()V
 
     iput-boolean v11, p0, Lcom/android/internal/telephony/IccPcscProvider;->isInitiated:Z
 
@@ -760,7 +760,7 @@
 
     move-result v7
 
-    invoke-virtual {v1}, Ljava/io/FilterOutputStream;->close()V
+    invoke-virtual {v1}, Ljava/io/DataOutputStream;->close()V
 
     invoke-virtual {v0}, Ljava/io/ByteArrayOutputStream;->close()V
     :try_end_1
@@ -778,7 +778,7 @@
     if-eqz v1, :cond_1
 
     :try_start_2
-    invoke-virtual {v1}, Ljava/io/FilterOutputStream;->close()V
+    invoke-virtual {v1}, Ljava/io/DataOutputStream;->close()V
 
     :cond_1
     if-eqz v0, :cond_2
@@ -789,7 +789,7 @@
 
     :cond_2
     :goto_1
-    invoke-virtual {v3}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v3}, Ljava/lang/Exception;->printStackTrace()V
 
     return v11
 

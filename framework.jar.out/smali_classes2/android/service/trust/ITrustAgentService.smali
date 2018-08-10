@@ -51,6 +51,30 @@
     .end annotation
 .end method
 
+.method public abstract onEscrowTokenAdded([BJLandroid/os/UserHandle;)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract onEscrowTokenRemoved(JZ)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract onTokenStateReceived(JI)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract onTrustTimeout()V
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -60,6 +84,14 @@
 .end method
 
 .method public abstract onUnlockAttempt(Z)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract onUnlockLockout(I)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

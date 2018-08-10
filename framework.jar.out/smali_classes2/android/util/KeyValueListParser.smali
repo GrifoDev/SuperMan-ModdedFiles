@@ -42,6 +42,35 @@
 
 
 # virtual methods
+.method public getBoolean(Ljava/lang/String;Z)Z
+    .locals 3
+
+    iget-object v2, p0, Landroid/util/KeyValueListParser;->mValues:Landroid/util/ArrayMap;
+
+    invoke-virtual {v2, p1}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Ljava/lang/String;
+
+    if-eqz v1, :cond_0
+
+    :try_start_0
+    invoke-static {v1}, Ljava/lang/Boolean;->parseBoolean(Ljava/lang/String;)Z
+    :try_end_0
+    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v2
+
+    return v2
+
+    :catch_0
+    move-exception v0
+
+    :cond_0
+    return p2
+.end method
+
 .method public getFloat(Ljava/lang/String;F)F
     .locals 3
 

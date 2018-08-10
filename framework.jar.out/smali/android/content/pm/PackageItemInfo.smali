@@ -22,8 +22,6 @@
 
 
 # instance fields
-.field private final IS_ELASTIC_ENABLED:Z
-
 .field public banner:I
 
 .field public icon:I
@@ -40,8 +38,6 @@
 
 .field public packageName:Ljava/lang/String;
 
-.field public resIdOffset:I
-
 .field public showUserIcon:I
 
 
@@ -50,10 +46,6 @@
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    const/4 v0, 0x0
-
-    iput-boolean v0, p0, Landroid/content/pm/PackageItemInfo;->IS_ELASTIC_ENABLED:Z
 
     const/16 v0, -0x2710
 
@@ -66,10 +58,6 @@
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    const/4 v0, 0x0
-
-    iput-boolean v0, p0, Landroid/content/pm/PackageItemInfo;->IS_ELASTIC_ENABLED:Z
 
     iget-object v0, p1, Landroid/content/pm/PackageItemInfo;->name:Ljava/lang/String;
 
@@ -144,10 +132,6 @@
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    const/4 v0, 0x0
-
-    iput-boolean v0, p0, Landroid/content/pm/PackageItemInfo;->IS_ELASTIC_ENABLED:Z
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 

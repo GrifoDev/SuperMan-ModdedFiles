@@ -3,12 +3,12 @@
 .source "ResolverActivity.java"
 
 # interfaces
-.implements Landroid/view/View$OnTouchListener;
+.implements Landroid/view/View$OnClickListener;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/internal/app/ResolverActivity;->initViewPagerNavi()V
+    value = Lcom/android/internal/app/ResolverActivity;->addShareLinkView(Landroid/view/View;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -34,28 +34,44 @@
 
 
 # virtual methods
-.method public onTouch(Landroid/view/View;Landroid/view/MotionEvent;)Z
+.method public onClick(Landroid/view/View;)V
     .locals 3
-
-    const/4 v2, 0x1
-
-    iget-object v0, p0, Lcom/android/internal/app/ResolverActivity$7;->this$0:Lcom/android/internal/app/ResolverActivity;
-
-    invoke-static {v0}, Lcom/android/internal/app/ResolverActivity;->-get27(Lcom/android/internal/app/ResolverActivity;)Lcom/android/internal/widget/ViewPager;
-
-    move-result-object v0
 
     iget-object v1, p0, Lcom/android/internal/app/ResolverActivity$7;->this$0:Lcom/android/internal/app/ResolverActivity;
 
-    invoke-static {v1}, Lcom/android/internal/app/ResolverActivity;->-get28(Lcom/android/internal/app/ResolverActivity;)Landroid/widget/LinearLayout;
+    iget-object v1, v1, Lcom/android/internal/app/ResolverActivity;->mAdapter:Lcom/android/internal/app/ResolverActivity$ResolveListAdapter;
 
-    move-result-object v1
+    invoke-virtual {v1}, Lcom/android/internal/app/ResolverActivity$ResolveListAdapter;->getOtherProfile()Lcom/android/internal/app/ResolverActivity$DisplayResolveInfo;
 
-    invoke-virtual {v1, p1}, Landroid/view/ViewGroup;->indexOfChild(Landroid/view/View;)I
+    move-result-object v0
 
-    move-result v1
+    if-nez v0, :cond_0
 
-    invoke-virtual {v0, v1, v2}, Lcom/android/internal/widget/ViewPager;->setCurrentItem(IZ)V
+    return-void
 
-    return v2
+    :cond_0
+    iget-object v1, p0, Lcom/android/internal/app/ResolverActivity$7;->this$0:Lcom/android/internal/app/ResolverActivity;
+
+    iget-object v1, v1, Lcom/android/internal/app/ResolverActivity;->mBixby:Lcom/samsung/android/share/SShareBixby;
+
+    if-eqz v1, :cond_1
+
+    iget-object v1, p0, Lcom/android/internal/app/ResolverActivity$7;->this$0:Lcom/android/internal/app/ResolverActivity;
+
+    iget-object v1, v1, Lcom/android/internal/app/ResolverActivity;->mBixby:Lcom/samsung/android/share/SShareBixby;
+
+    invoke-virtual {v1}, Lcom/samsung/android/share/SShareBixby;->sendCancelForBixby()V
+
+    :cond_1
+    iget-object v1, p0, Lcom/android/internal/app/ResolverActivity$7;->this$0:Lcom/android/internal/app/ResolverActivity;
+
+    const/4 v2, 0x0
+
+    invoke-virtual {v1, v0, v2}, Lcom/android/internal/app/ResolverActivity;->onTargetSelected(Lcom/android/internal/app/ResolverActivity$TargetInfo;Z)Z
+
+    iget-object v1, p0, Lcom/android/internal/app/ResolverActivity$7;->this$0:Lcom/android/internal/app/ResolverActivity;
+
+    invoke-virtual {v1}, Lcom/android/internal/app/ResolverActivity;->finish()V
+
+    return-void
 .end method

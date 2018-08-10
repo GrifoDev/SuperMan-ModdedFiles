@@ -59,7 +59,7 @@
 
     iput-object v0, p0, Landroid/media/effect/effects/BackDropperEffect;->mLearningListener:Landroid/filterpacks/videoproc/BackDropperFilter$LearningDoneListener;
 
-    iget-object v0, p0, Landroid/media/effect/FilterGraphEffect;->mGraph:Landroid/filterfw/core/FilterGraph;
+    iget-object v0, p0, Landroid/media/effect/effects/BackDropperEffect;->mGraph:Landroid/filterfw/core/FilterGraph;
 
     const-string/jumbo v1, "replacer"
 
@@ -89,7 +89,7 @@
 
     if-eqz v1, :cond_1
 
-    iget-object v1, p0, Landroid/media/effect/FilterGraphEffect;->mGraph:Landroid/filterfw/core/FilterGraph;
+    iget-object v1, p0, Landroid/media/effect/effects/BackDropperEffect;->mGraph:Landroid/filterfw/core/FilterGraph;
 
     const-string/jumbo v2, "background"
 
@@ -114,7 +114,7 @@
 
     if-eqz v1, :cond_0
 
-    iget-object v1, p0, Landroid/media/effect/FilterGraphEffect;->mGraph:Landroid/filterfw/core/FilterGraph;
+    iget-object v1, p0, Landroid/media/effect/effects/BackDropperEffect;->mGraph:Landroid/filterfw/core/FilterGraph;
 
     const-string/jumbo v2, "background"
 

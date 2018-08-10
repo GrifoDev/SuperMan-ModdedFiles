@@ -19,7 +19,13 @@
 
 .field private static final ACTION_INSTALL:Ljava/lang/String; = "android.credentials.INSTALL"
 
+.field public static final ACTION_KEYCHAIN_CHANGED:Ljava/lang/String; = "android.security.action.KEYCHAIN_CHANGED"
+
+.field public static final ACTION_KEY_ACCESS_CHANGED:Ljava/lang/String; = "android.security.action.KEY_ACCESS_CHANGED"
+
 .field public static final ACTION_STORAGE_CHANGED:Ljava/lang/String; = "android.security.STORAGE_CHANGED"
+
+.field public static final ACTION_TRUST_STORE_CHANGED:Ljava/lang/String; = "android.security.action.TRUST_STORE_CHANGED"
 
 .field private static final ANDROID_SOURCE:Ljava/lang/String; = "android"
 
@@ -28,6 +34,10 @@
 .field public static final EXTRA_ALIAS:Ljava/lang/String; = "alias"
 
 .field public static final EXTRA_CERTIFICATE:Ljava/lang/String; = "CERT"
+
+.field public static final EXTRA_KEY_ACCESSIBLE:Ljava/lang/String; = "android.security.extra.KEY_ACCESSIBLE"
+
+.field public static final EXTRA_KEY_ALIAS:Ljava/lang/String; = "android.security.extra.KEY_ALIAS"
 
 .field public static final EXTRA_NAME:Ljava/lang/String; = "name"
 
@@ -46,8 +56,6 @@
 .field private static final TAG:Ljava/lang/String; = "KeyChain"
 
 .field private static final UCM_KEYCHAIN_SCHEME:Ljava/lang/String; = "ucmkeychain"
-
-.field private static final UCS_SSL_ENGINE:Ljava/lang/String; = "ucsengine"
 
 
 # direct methods
@@ -79,16 +87,14 @@
 .end method
 
 .method public static bindAsUser(Landroid/content/Context;Landroid/os/UserHandle;)Landroid/security/KeyChain$KeyChainConnection;
-    .locals 8
+    .locals 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/InterruptedException;
         }
     .end annotation
 
-    const/4 v7, 0x1
-
-    const/4 v6, 0x0
+    const/4 v6, 0x1
 
     if-nez p0, :cond_0
 
@@ -105,7 +111,7 @@
 
     new-instance v3, Ljava/util/concurrent/LinkedBlockingQueue;
 
-    invoke-direct {v3, v7}, Ljava/util/concurrent/LinkedBlockingQueue;-><init>(I)V
+    invoke-direct {v3, v6}, Ljava/util/concurrent/LinkedBlockingQueue;-><init>(I)V
 
     new-instance v2, Landroid/security/KeyChain$1;
 
@@ -135,23 +141,13 @@
 
     if-eqz v0, :cond_1
 
-    invoke-virtual {p0, v1, v2, v7, p1}, Landroid/content/Context;->bindServiceAsUser(Landroid/content/Intent;Landroid/content/ServiceConnection;ILandroid/os/UserHandle;)Z
+    invoke-virtual {p0, v1, v2, v6, p1}, Landroid/content/Context;->bindServiceAsUser(Landroid/content/Intent;Landroid/content/ServiceConnection;ILandroid/os/UserHandle;)Z
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    xor-int/lit8 v4, v4, 0x1
 
-    new-instance v5, Landroid/security/KeyChain$KeyChainConnection;
-
-    invoke-interface {v3}, Ljava/util/concurrent/BlockingQueue;->take()Ljava/lang/Object;
-
-    move-result-object v4
-
-    check-cast v4, Landroid/security/IKeyChainService;
-
-    invoke-direct {v5, p0, v2, v4, v6}, Landroid/security/KeyChain$KeyChainConnection;-><init>(Landroid/content/Context;Landroid/content/ServiceConnection;Landroid/security/IKeyChainService;Landroid/security/KeyChain$KeyChainConnection;)V
-
-    return-object v5
+    if-eqz v4, :cond_2
 
     :cond_1
     new-instance v4, Ljava/lang/AssertionError;
@@ -161,6 +157,19 @@
     invoke-direct {v4, v5}, Ljava/lang/AssertionError;-><init>(Ljava/lang/Object;)V
 
     throw v4
+
+    :cond_2
+    new-instance v5, Landroid/security/KeyChain$KeyChainConnection;
+
+    invoke-interface {v3}, Ljava/util/concurrent/BlockingQueue;->take()Ljava/lang/Object;
+
+    move-result-object v4
+
+    check-cast v4, Landroid/security/IKeyChainService;
+
+    invoke-direct {v5, p0, v2, v4}, Landroid/security/KeyChain$KeyChainConnection;-><init>(Landroid/content/Context;Landroid/content/ServiceConnection;Landroid/security/IKeyChainService;)V
+
+    return-object v5
 .end method
 
 .method public static choosePrivateKeyAlias(Landroid/app/Activity;Landroid/security/KeyChainAliasCallback;[Ljava/lang/String;[Ljava/security/Principal;Landroid/net/Uri;Ljava/lang/String;)V
@@ -429,7 +438,7 @@
 .end method
 
 .method public static getCertificateChain(Landroid/content/Context;Ljava/lang/String;)[Ljava/security/cert/X509Certificate;
-    .locals 24
+    .locals 26
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/security/KeyChainException;,
@@ -437,136 +446,136 @@
         }
     .end annotation
 
-    const/4 v3, 0x0
-
     if-nez p1, :cond_0
 
-    new-instance v21, Ljava/lang/NullPointerException;
+    new-instance v22, Ljava/lang/NullPointerException;
 
-    const-string/jumbo v22, "alias == null"
+    const-string/jumbo v23, "alias == null"
 
-    invoke-direct/range {v21 .. v22}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct/range {v22 .. v23}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw v21
+    throw v22
 
     :cond_0
-    move-object/from16 v17, p1
+    move-object/from16 v18, p1
 
     invoke-static/range {p1 .. p1}, Landroid/security/KeyChain;->isKeyChainUri(Ljava/lang/String;)Z
 
-    move-result v21
+    move-result v22
 
-    if-eqz v21, :cond_1
+    if-eqz v22, :cond_1
 
     invoke-static/range {p1 .. p1}, Landroid/security/KeyChain;->getSource(Ljava/lang/String;)Ljava/lang/String;
 
+    move-result-object v19
+
+    const-string/jumbo v22, "KeyChain"
+
+    new-instance v23, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v23 .. v23}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v24, "Provider : "
+
+    invoke-virtual/range {v23 .. v24}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v23
+
+    move-object/from16 v0, v23
+
+    move-object/from16 v1, v19
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v23
+
+    invoke-virtual/range {v23 .. v23}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v23
+
+    invoke-static/range {v22 .. v23}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    if-eqz v19, :cond_1
+
+    invoke-static/range {p1 .. p1}, Landroid/security/KeyChain;->getRawAlias(Ljava/lang/String;)Ljava/lang/String;
+
     move-result-object v18
 
-    const-string/jumbo v21, "KeyChain"
+    const-string/jumbo v22, "KeyChain"
 
-    new-instance v22, Ljava/lang/StringBuilder;
+    new-instance v23, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v22 .. v22}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v23 .. v23}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v23, "Provider : "
+    const-string/jumbo v24, "originalAlias : "
 
-    invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v23 .. v24}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v22
+    move-result-object v23
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v23
 
     move-object/from16 v1, v18
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v22
+    move-result-object v23
 
-    invoke-virtual/range {v22 .. v22}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v23 .. v23}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v22
+    move-result-object v23
 
-    invoke-static/range {v21 .. v22}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v22 .. v23}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    if-eqz v18, :cond_1
+    const-string/jumbo v22, "android"
 
-    invoke-static/range {p1 .. p1}, Landroid/security/KeyChain;->getRawAlias(Ljava/lang/String;)Ljava/lang/String;
+    move-object/from16 v0, v19
 
-    move-result-object v17
-
-    const-string/jumbo v21, "KeyChain"
-
-    new-instance v22, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v22 .. v22}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v23, "originalAlias : "
-
-    invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v22
-
-    move-object/from16 v0, v22
-
-    move-object/from16 v1, v17
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v22
-
-    invoke-virtual/range {v22 .. v22}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v22
-
-    invoke-static/range {v21 .. v22}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    const-string/jumbo v21, "android"
-
-    move-object/from16 v0, v18
-
-    move-object/from16 v1, v21
+    move-object/from16 v1, v22
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v21
+    move-result v22
 
-    if-eqz v21, :cond_2
+    if-eqz v22, :cond_2
 
-    const-string/jumbo v21, "KeyChain"
+    const-string/jumbo v22, "KeyChain"
 
-    new-instance v22, Ljava/lang/StringBuilder;
+    new-instance v23, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v22 .. v22}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v23 .. v23}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v23, "Provider is ANDROID_SOURCE, flow default sequence with alias : "
+    const-string/jumbo v24, "Provider is ANDROID_SOURCE, flow default sequence with alias : "
 
-    invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v23 .. v24}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v22
+    move-result-object v23
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v23
 
-    move-object/from16 v1, v17
+    move-object/from16 v1, v18
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v22
+    move-result-object v23
 
-    invoke-virtual/range {v22 .. v22}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v23 .. v23}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v22
+    move-result-object v23
 
-    invoke-static/range {v21 .. v22}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v22 .. v23}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    move-object/from16 p1, v17
+    move-object/from16 p1, v18
 
     :cond_1
     :goto_0
+    const/4 v3, 0x0
+
     invoke-static {}, Lcom/sec/tima_keychain/TimaKeychain;->isTimaKeystoreAndCCMEnabledForCaller()Z
 
-    move-result v21
+    move-result v22
 
-    if-eqz v21, :cond_5
+    if-eqz v22, :cond_5
 
     const/4 v2, 0x0
 
@@ -575,173 +584,175 @@
 
     move-result-object v2
 
-    new-instance v20, Lcom/android/org/conscrypt/TrustedCertificateStore;
+    new-instance v21, Lcom/android/org/conscrypt/TrustedCertificateStore;
 
-    invoke-direct/range {v20 .. v20}, Lcom/android/org/conscrypt/TrustedCertificateStore;-><init>()V
+    invoke-direct/range {v21 .. v21}, Lcom/android/org/conscrypt/TrustedCertificateStore;-><init>()V
 
     if-eqz v2, :cond_5
 
     array-length v0, v2
 
-    move/from16 v21, v0
+    move/from16 v22, v0
 
-    if-lez v21, :cond_5
+    if-lez v22, :cond_5
 
     array-length v0, v2
 
-    move/from16 v21, v0
+    move/from16 v22, v0
 
-    add-int/lit8 v21, v21, -0x1
+    add-int/lit8 v22, v22, -0x1
 
-    aget-object v21, v2, v21
+    aget-object v22, v2, v22
 
-    invoke-virtual/range {v20 .. v21}, Lcom/android/org/conscrypt/TrustedCertificateStore;->getCertificateChain(Ljava/security/cert/X509Certificate;)Ljava/util/List;
+    invoke-virtual/range {v21 .. v22}, Lcom/android/org/conscrypt/TrustedCertificateStore;->getCertificateChain(Ljava/security/cert/X509Certificate;)Ljava/util/List;
 
     move-result-object v7
 
     array-length v0, v2
 
-    move/from16 v21, v0
+    move/from16 v22, v0
 
-    add-int/lit8 v12, v21, -0x2
+    add-int/lit8 v13, v22, -0x2
 
     :goto_1
-    if-ltz v12, :cond_4
+    if-ltz v13, :cond_4
 
-    aget-object v21, v2, v12
+    aget-object v22, v2, v13
 
-    const/16 v22, 0x0
+    const/16 v23, 0x0
 
-    move/from16 v0, v22
+    move/from16 v0, v23
 
-    move-object/from16 v1, v21
+    move-object/from16 v1, v22
 
     invoke-interface {v7, v0, v1}, Ljava/util/List;->add(ILjava/lang/Object;)V
     :try_end_0
     .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_3
     .catch Ljava/security/cert/CertificateException; {:try_start_0 .. :try_end_0} :catch_2
 
-    add-int/lit8 v12, v12, -0x1
+    add-int/lit8 v13, v13, -0x1
 
     goto :goto_1
 
     :cond_2
     invoke-static {}, Landroid/sec/enterprise/EnterpriseDeviceManager$EDMProxyServiceHelper;->getService()Landroid/sec/enterprise/IEDMProxy;
 
-    move-result-object v15
+    move-result-object v16
 
-    if-eqz v15, :cond_1
+    if-eqz v16, :cond_1
 
     :try_start_1
-    move-object/from16 v0, p1
+    move-object/from16 v0, v16
 
-    invoke-interface {v15, v0}, Landroid/sec/enterprise/IEDMProxy;->getCertificateChain(Ljava/lang/String;)[B
+    move-object/from16 v1, p1
+
+    invoke-interface {v0, v1}, Landroid/sec/enterprise/IEDMProxy;->getCertificateChain(Ljava/lang/String;)[B
 
     move-result-object v5
 
     if-nez v5, :cond_3
 
-    const/16 v21, 0x0
+    const/16 v22, 0x0
 
-    return-object v21
+    return-object v22
 
     :cond_3
-    new-instance v20, Lcom/android/org/conscrypt/TrustedCertificateStore;
+    new-instance v21, Lcom/android/org/conscrypt/TrustedCertificateStore;
 
-    invoke-direct/range {v20 .. v20}, Lcom/android/org/conscrypt/TrustedCertificateStore;-><init>()V
+    invoke-direct/range {v21 .. v21}, Lcom/android/org/conscrypt/TrustedCertificateStore;-><init>()V
 
     invoke-static {v5}, Landroid/security/KeyChain;->toCertificate([B)Ljava/security/cert/X509Certificate;
 
-    move-result-object v21
+    move-result-object v22
 
-    invoke-virtual/range {v20 .. v21}, Lcom/android/org/conscrypt/TrustedCertificateStore;->getCertificateChain(Ljava/security/cert/X509Certificate;)Ljava/util/List;
+    invoke-virtual/range {v21 .. v22}, Lcom/android/org/conscrypt/TrustedCertificateStore;->getCertificateChain(Ljava/security/cert/X509Certificate;)Ljava/util/List;
 
     move-result-object v7
 
     invoke-interface {v7}, Ljava/util/List;->size()I
 
-    move-result v21
+    move-result v22
 
-    move/from16 v0, v21
+    move/from16 v0, v22
 
     new-array v0, v0, [Ljava/security/cert/X509Certificate;
 
-    move-object/from16 v21, v0
+    move-object/from16 v22, v0
 
-    move-object/from16 v0, v21
+    move-object/from16 v0, v22
 
     invoke-interface {v7, v0}, Ljava/util/List;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
 
-    move-result-object v21
+    move-result-object v22
 
-    check-cast v21, [Ljava/security/cert/X509Certificate;
+    check-cast v22, [Ljava/security/cert/X509Certificate;
     :try_end_1
     .catch Ljava/security/cert/CertificateException; {:try_start_1 .. :try_end_1} :catch_1
     .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
 
-    return-object v21
+    return-object v22
 
     :catch_0
-    move-exception v19
+    move-exception v20
 
-    const-string/jumbo v21, "KeyChain"
+    const-string/jumbo v22, "KeyChain"
 
-    new-instance v22, Ljava/lang/StringBuilder;
+    new-instance v23, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v22 .. v22}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v23 .. v23}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v23, "Remote Exception "
+    const-string/jumbo v24, "Remote Exception "
 
-    invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v23 .. v24}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v22
+    move-result-object v23
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v23
 
-    move-object/from16 v1, v19
+    move-object/from16 v1, v20
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    move-result-object v22
+    move-result-object v23
 
-    invoke-virtual/range {v22 .. v22}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v23 .. v23}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v22
+    move-result-object v23
 
-    invoke-static/range {v21 .. v22}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v22 .. v23}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     goto/16 :goto_0
 
     :catch_1
-    move-exception v10
+    move-exception v11
 
-    new-instance v21, Landroid/security/KeyChainException;
+    new-instance v22, Landroid/security/KeyChainException;
 
-    move-object/from16 v0, v21
+    move-object/from16 v0, v22
 
-    invoke-direct {v0, v10}, Landroid/security/KeyChainException;-><init>(Ljava/lang/Throwable;)V
+    invoke-direct {v0, v11}, Landroid/security/KeyChainException;-><init>(Ljava/lang/Throwable;)V
 
-    throw v21
+    throw v22
 
     :cond_4
     :try_start_2
     invoke-interface {v7}, Ljava/util/List;->size()I
 
-    move-result v21
+    move-result v22
 
-    move/from16 v0, v21
+    move/from16 v0, v22
 
     new-array v0, v0, [Ljava/security/cert/X509Certificate;
 
-    move-object/from16 v21, v0
+    move-object/from16 v22, v0
 
-    move-object/from16 v0, v21
+    move-object/from16 v0, v22
 
     invoke-interface {v7, v0}, Ljava/util/List;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
 
-    move-result-object v21
+    move-result-object v22
 
-    move-object/from16 v0, v21
+    move-object/from16 v0, v22
 
     check-cast v0, [Ljava/security/cert/X509Certificate;
 
@@ -750,160 +761,291 @@
     .catch Ljava/lang/RuntimeException; {:try_start_2 .. :try_end_2} :catch_3
     .catch Ljava/security/cert/CertificateException; {:try_start_2 .. :try_end_2} :catch_2
 
-    :cond_5
-    :goto_2
-    if-nez v3, :cond_8
+    if-eqz v3, :cond_5
 
-    invoke-static/range {p0 .. p0}, Landroid/security/KeyChain;->bind(Landroid/content/Context;)Landroid/security/KeyChain$KeyChainConnection;
-
-    move-result-object v13
-
-    :try_start_3
-    invoke-virtual {v13}, Landroid/security/KeyChain$KeyChainConnection;->getService()Landroid/security/IKeyChainService;
-
-    move-result-object v14
-
-    move-object/from16 v0, p1
-
-    invoke-interface {v14, v0}, Landroid/security/IKeyChainService;->getCertificate(Ljava/lang/String;)[B
-    :try_end_3
-    .catch Ljava/security/cert/CertificateException; {:try_start_3 .. :try_end_3} :catch_6
-    .catch Landroid/os/RemoteException; {:try_start_3 .. :try_end_3} :catch_5
-    .catch Ljava/lang/RuntimeException; {:try_start_3 .. :try_end_3} :catch_4
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
-
-    move-result-object v5
-
-    if-nez v5, :cond_6
-
-    const/16 v21, 0x0
-
-    invoke-virtual {v13}, Landroid/security/KeyChain$KeyChainConnection;->close()V
-
-    return-object v21
+    return-object v3
 
     :catch_2
-    move-exception v10
+    move-exception v11
 
-    new-instance v21, Landroid/security/KeyChainException;
-
-    move-object/from16 v0, v21
-
-    invoke-direct {v0, v10}, Landroid/security/KeyChainException;-><init>(Ljava/lang/Throwable;)V
-
-    throw v21
-
-    :catch_3
-    move-exception v9
-
-    const-string/jumbo v21, "KeyChain"
-
-    new-instance v22, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v22 .. v22}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v23, "Error retrieving certificate from CCM for alias: "
-
-    invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v22
+    new-instance v22, Landroid/security/KeyChainException;
 
     move-object/from16 v0, v22
+
+    invoke-direct {v0, v11}, Landroid/security/KeyChainException;-><init>(Ljava/lang/Throwable;)V
+
+    throw v22
+
+    :catch_3
+    move-exception v10
+
+    const-string/jumbo v22, "KeyChain"
+
+    new-instance v23, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v23 .. v23}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v24, "Error retrieving certificate from CCM for alias: "
+
+    invoke-virtual/range {v23 .. v24}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v23
+
+    move-object/from16 v0, v23
 
     move-object/from16 v1, p1
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v23
+
+    invoke-virtual/range {v23 .. v23}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v23
+
+    invoke-static/range {v22 .. v23}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-virtual {v10}, Ljava/lang/RuntimeException;->printStackTrace()V
+
+    :cond_5
+    const/16 v23, 0x0
+
+    const/4 v14, 0x0
+
+    :try_start_3
+    invoke-virtual/range {p0 .. p0}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
+
     move-result-object v22
 
-    invoke-virtual/range {v22 .. v22}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-static/range {v22 .. v22}, Landroid/security/KeyChain;->bind(Landroid/content/Context;)Landroid/security/KeyChain$KeyChainConnection;
 
-    move-result-object v22
+    move-result-object v14
 
-    invoke-static/range {v21 .. v22}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v14}, Landroid/security/KeyChain$KeyChainConnection;->getService()Landroid/security/IKeyChainService;
 
-    invoke-virtual {v9}, Ljava/lang/RuntimeException;->printStackTrace()V
-
-    goto :goto_2
-
-    :cond_6
-    :try_start_4
-    invoke-static {v5}, Landroid/security/KeyChain;->toCertificate([B)Ljava/security/cert/X509Certificate;
-
-    move-result-object v16
+    move-result-object v15
 
     move-object/from16 v0, p1
 
-    invoke-interface {v14, v0}, Landroid/security/IKeyChainService;->getCaCertificates(Ljava/lang/String;)[B
+    invoke-interface {v15, v0}, Landroid/security/IKeyChainService;->getCertificate(Ljava/lang/String;)[B
+    :try_end_3
+    .catch Ljava/lang/Throwable; {:try_start_3 .. :try_end_3} :catch_8
+    .catchall {:try_start_3 .. :try_end_3} :catchall_1
+
+    move-result-object v5
+
+    if-nez v5, :cond_8
+
+    const/16 v22, 0x0
+
+    if-eqz v14, :cond_6
+
+    :try_start_4
+    invoke-virtual {v14}, Landroid/security/KeyChain$KeyChainConnection;->close()V
+    :try_end_4
+    .catch Ljava/lang/Throwable; {:try_start_4 .. :try_end_4} :catch_5
+    .catch Landroid/os/RemoteException; {:try_start_4 .. :try_end_4} :catch_4
+    .catch Ljava/lang/RuntimeException; {:try_start_4 .. :try_end_4} :catch_6
+
+    :cond_6
+    :goto_2
+    if-eqz v23, :cond_7
+
+    :try_start_5
+    throw v23
+    :try_end_5
+    .catch Landroid/os/RemoteException; {:try_start_5 .. :try_end_5} :catch_4
+    .catch Ljava/lang/RuntimeException; {:try_start_5 .. :try_end_5} :catch_6
+
+    :catch_4
+    move-exception v8
+
+    new-instance v22, Landroid/security/KeyChainException;
+
+    move-object/from16 v0, v22
+
+    invoke-direct {v0, v8}, Landroid/security/KeyChainException;-><init>(Ljava/lang/Throwable;)V
+
+    throw v22
+
+    :catch_5
+    move-exception v23
+
+    goto :goto_2
+
+    :cond_7
+    return-object v22
+
+    :cond_8
+    :try_start_6
+    move-object/from16 v0, p1
+
+    invoke-interface {v15, v0}, Landroid/security/IKeyChainService;->getCaCertificates(Ljava/lang/String;)[B
+    :try_end_6
+    .catch Ljava/lang/Throwable; {:try_start_6 .. :try_end_6} :catch_8
+    .catchall {:try_start_6 .. :try_end_6} :catchall_1
 
     move-result-object v4
 
-    if-eqz v4, :cond_7
+    if-eqz v14, :cond_9
+
+    :try_start_7
+    invoke-virtual {v14}, Landroid/security/KeyChain$KeyChainConnection;->close()V
+    :try_end_7
+    .catch Ljava/lang/Throwable; {:try_start_7 .. :try_end_7} :catch_7
+    .catch Landroid/os/RemoteException; {:try_start_7 .. :try_end_7} :catch_4
+    .catch Ljava/lang/RuntimeException; {:try_start_7 .. :try_end_7} :catch_6
+
+    :cond_9
+    :goto_3
+    if-eqz v23, :cond_d
+
+    :try_start_8
+    throw v23
+    :try_end_8
+    .catch Landroid/os/RemoteException; {:try_start_8 .. :try_end_8} :catch_4
+    .catch Ljava/lang/RuntimeException; {:try_start_8 .. :try_end_8} :catch_6
+
+    :catch_6
+    move-exception v10
+
+    new-instance v22, Landroid/security/KeyChainException;
+
+    move-object/from16 v0, v22
+
+    invoke-direct {v0, v10}, Landroid/security/KeyChainException;-><init>(Ljava/lang/Throwable;)V
+
+    throw v22
+
+    :catch_7
+    move-exception v23
+
+    goto :goto_3
+
+    :catch_8
+    move-exception v22
+
+    :try_start_9
+    throw v22
+    :try_end_9
+    .catchall {:try_start_9 .. :try_end_9} :catchall_0
+
+    :catchall_0
+    move-exception v23
+
+    move-object/from16 v25, v23
+
+    move-object/from16 v23, v22
+
+    move-object/from16 v22, v25
+
+    :goto_4
+    if-eqz v14, :cond_a
+
+    :try_start_a
+    invoke-virtual {v14}, Landroid/security/KeyChain$KeyChainConnection;->close()V
+    :try_end_a
+    .catch Ljava/lang/Throwable; {:try_start_a .. :try_end_a} :catch_9
+    .catch Landroid/os/RemoteException; {:try_start_a .. :try_end_a} :catch_4
+    .catch Ljava/lang/RuntimeException; {:try_start_a .. :try_end_a} :catch_6
+
+    :cond_a
+    :goto_5
+    if-eqz v23, :cond_c
+
+    :try_start_b
+    throw v23
+
+    :catch_9
+    move-exception v24
+
+    if-nez v23, :cond_b
+
+    move-object/from16 v23, v24
+
+    goto :goto_5
+
+    :cond_b
+    move-object/from16 v0, v23
+
+    move-object/from16 v1, v24
+
+    if-eq v0, v1, :cond_a
+
+    invoke-virtual/range {v23 .. v24}, Ljava/lang/Throwable;->addSuppressed(Ljava/lang/Throwable;)V
+
+    goto :goto_5
+
+    :cond_c
+    throw v22
+    :try_end_b
+    .catch Landroid/os/RemoteException; {:try_start_b .. :try_end_b} :catch_4
+    .catch Ljava/lang/RuntimeException; {:try_start_b .. :try_end_b} :catch_6
+
+    :cond_d
+    :try_start_c
+    invoke-static {v5}, Landroid/security/KeyChain;->toCertificate([B)Ljava/security/cert/X509Certificate;
+
+    move-result-object v17
+
+    if-eqz v4, :cond_e
 
     array-length v0, v4
 
-    move/from16 v21, v0
+    move/from16 v22, v0
 
-    if-eqz v21, :cond_7
+    if-eqz v22, :cond_e
 
     invoke-static {v4}, Landroid/security/KeyChain;->toCertificates([B)Ljava/util/Collection;
 
     move-result-object v6
 
-    new-instance v11, Ljava/util/ArrayList;
+    new-instance v12, Ljava/util/ArrayList;
 
     invoke-interface {v6}, Ljava/util/Collection;->size()I
 
-    move-result v21
+    move-result v22
 
-    add-int/lit8 v21, v21, 0x1
+    add-int/lit8 v22, v22, 0x1
 
-    move/from16 v0, v21
+    move/from16 v0, v22
 
-    invoke-direct {v11, v0}, Ljava/util/ArrayList;-><init>(I)V
+    invoke-direct {v12, v0}, Ljava/util/ArrayList;-><init>(I)V
 
-    move-object/from16 v0, v16
+    move-object/from16 v0, v17
 
-    invoke-virtual {v11, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v12, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    invoke-virtual {v11, v6}, Ljava/util/ArrayList;->addAll(Ljava/util/Collection;)Z
+    invoke-virtual {v12, v6}, Ljava/util/ArrayList;->addAll(Ljava/util/Collection;)Z
 
-    invoke-virtual {v11}, Ljava/util/ArrayList;->size()I
+    invoke-virtual {v12}, Ljava/util/ArrayList;->size()I
 
-    move-result v21
+    move-result v22
 
-    move/from16 v0, v21
+    move/from16 v0, v22
 
     new-array v0, v0, [Ljava/security/cert/X509Certificate;
 
-    move-object/from16 v21, v0
+    move-object/from16 v22, v0
+
+    move-object/from16 v0, v22
+
+    invoke-virtual {v12, v0}, Ljava/util/ArrayList;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
+
+    move-result-object v22
+
+    check-cast v22, [Ljava/security/cert/X509Certificate;
+
+    return-object v22
+
+    :cond_e
+    new-instance v21, Lcom/android/org/conscrypt/TrustedCertificateStore;
+
+    invoke-direct/range {v21 .. v21}, Lcom/android/org/conscrypt/TrustedCertificateStore;-><init>()V
 
     move-object/from16 v0, v21
 
-    invoke-virtual {v11, v0}, Ljava/util/ArrayList;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
-
-    move-result-object v21
-
-    check-cast v21, [Ljava/security/cert/X509Certificate;
-    :try_end_4
-    .catch Ljava/security/cert/CertificateException; {:try_start_4 .. :try_end_4} :catch_6
-    .catch Landroid/os/RemoteException; {:try_start_4 .. :try_end_4} :catch_5
-    .catch Ljava/lang/RuntimeException; {:try_start_4 .. :try_end_4} :catch_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_0
-
-    invoke-virtual {v13}, Landroid/security/KeyChain$KeyChainConnection;->close()V
-
-    return-object v21
-
-    :cond_7
-    :try_start_5
-    new-instance v20, Lcom/android/org/conscrypt/TrustedCertificateStore;
-
-    invoke-direct/range {v20 .. v20}, Lcom/android/org/conscrypt/TrustedCertificateStore;-><init>()V
-
-    move-object/from16 v0, v20
-
-    move-object/from16 v1, v16
+    move-object/from16 v1, v17
 
     invoke-virtual {v0, v1}, Lcom/android/org/conscrypt/TrustedCertificateStore;->getCertificateChain(Ljava/security/cert/X509Certificate;)Ljava/util/List;
 
@@ -911,79 +1053,42 @@
 
     invoke-interface {v7}, Ljava/util/List;->size()I
 
-    move-result v21
+    move-result v22
 
-    move/from16 v0, v21
+    move/from16 v0, v22
 
     new-array v0, v0, [Ljava/security/cert/X509Certificate;
 
-    move-object/from16 v21, v0
+    move-object/from16 v22, v0
 
-    move-object/from16 v0, v21
+    move-object/from16 v0, v22
 
     invoke-interface {v7, v0}, Ljava/util/List;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
 
-    move-result-object v21
+    move-result-object v22
 
-    check-cast v21, [Ljava/security/cert/X509Certificate;
-    :try_end_5
-    .catch Ljava/security/cert/CertificateException; {:try_start_5 .. :try_end_5} :catch_6
-    .catch Landroid/os/RemoteException; {:try_start_5 .. :try_end_5} :catch_5
-    .catch Ljava/lang/RuntimeException; {:try_start_5 .. :try_end_5} :catch_4
-    .catchall {:try_start_5 .. :try_end_5} :catchall_0
+    check-cast v22, [Ljava/security/cert/X509Certificate;
+    :try_end_c
+    .catch Ljava/security/cert/CertificateException; {:try_start_c .. :try_end_c} :catch_a
+    .catch Ljava/lang/RuntimeException; {:try_start_c .. :try_end_c} :catch_a
 
-    invoke-virtual {v13}, Landroid/security/KeyChain$KeyChainConnection;->close()V
+    return-object v22
 
-    return-object v21
-
-    :catch_4
+    :catch_a
     move-exception v9
 
-    :try_start_6
-    new-instance v21, Landroid/security/KeyChainException;
+    new-instance v22, Landroid/security/KeyChainException;
 
-    move-object/from16 v0, v21
+    move-object/from16 v0, v22
 
     invoke-direct {v0, v9}, Landroid/security/KeyChainException;-><init>(Ljava/lang/Throwable;)V
 
-    throw v21
-    :try_end_6
-    .catchall {:try_start_6 .. :try_end_6} :catchall_0
+    throw v22
 
-    :catchall_0
-    move-exception v21
+    :catchall_1
+    move-exception v22
 
-    invoke-virtual {v13}, Landroid/security/KeyChain$KeyChainConnection;->close()V
-
-    throw v21
-
-    :catch_5
-    move-exception v8
-
-    :try_start_7
-    new-instance v21, Landroid/security/KeyChainException;
-
-    move-object/from16 v0, v21
-
-    invoke-direct {v0, v8}, Landroid/security/KeyChainException;-><init>(Ljava/lang/Throwable;)V
-
-    throw v21
-
-    :catch_6
-    move-exception v10
-
-    new-instance v21, Landroid/security/KeyChainException;
-
-    move-object/from16 v0, v21
-
-    invoke-direct {v0, v10}, Landroid/security/KeyChainException;-><init>(Ljava/lang/Throwable;)V
-
-    throw v21
-    :try_end_7
-    .catchall {:try_start_7 .. :try_end_7} :catchall_0
-
-    :cond_8
-    return-object v3
+    goto :goto_4
 .end method
 
 .method public static getPrivateKey(Landroid/content/Context;Ljava/lang/String;)Ljava/security/PrivateKey;
@@ -995,34 +1100,45 @@
         }
     .end annotation
 
-    const/4 v12, 0x0
+    const/4 v9, 0x0
 
-    const/4 v7, 0x0
+    const/4 v6, 0x0
 
     if-nez p1, :cond_0
 
-    new-instance v9, Ljava/lang/NullPointerException;
+    new-instance v8, Ljava/lang/NullPointerException;
 
-    const-string/jumbo v10, "alias == null"
+    const-string/jumbo v9, "alias == null"
 
-    invoke-direct {v9, v10}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v8, v9}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw v9
+    throw v8
 
     :cond_0
-    move-object v6, p1
+    if-nez p0, :cond_1
+
+    new-instance v8, Ljava/lang/NullPointerException;
+
+    const-string/jumbo v9, "context == null"
+
+    invoke-direct {v8, v9}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+
+    throw v8
+
+    :cond_1
+    move-object v5, p1
 
     invoke-static {p1}, Landroid/security/KeyChain;->isKeyChainUri(Ljava/lang/String;)Z
 
-    move-result v9
+    move-result v8
 
-    if-eqz v9, :cond_4
+    if-eqz v8, :cond_4
 
     invoke-static {p1}, Landroid/security/KeyChain;->getSource(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v8
+    move-result-object v7
 
-    const-string/jumbo v9, "KeyChain"
+    const-string/jumbo v8, "KeyChain"
 
     new-instance v10, Ljava/lang/StringBuilder;
 
@@ -1034,7 +1150,7 @@
 
     move-result-object v10
 
-    invoke-virtual {v10, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v10, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v10
 
@@ -1042,15 +1158,15 @@
 
     move-result-object v10
 
-    invoke-static {v9, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v8, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    if-eqz v8, :cond_1
+    if-eqz v7, :cond_2
 
     invoke-static {p1}, Landroid/security/KeyChain;->getRawAlias(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v5
 
-    const-string/jumbo v9, "KeyChain"
+    const-string/jumbo v8, "KeyChain"
 
     new-instance v10, Ljava/lang/StringBuilder;
 
@@ -1062,7 +1178,7 @@
 
     move-result-object v10
 
-    invoke-virtual {v10, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v10, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v10
 
@@ -1070,17 +1186,17 @@
 
     move-result-object v10
 
-    invoke-static {v9, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v8, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const-string/jumbo v9, "android"
+    const-string/jumbo v8, "android"
 
-    invoke-virtual {v8, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v7, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v9
+    move-result v8
 
-    if-eqz v9, :cond_3
+    if-eqz v8, :cond_3
 
-    const-string/jumbo v9, "KeyChain"
+    const-string/jumbo v8, "KeyChain"
 
     new-instance v10, Ljava/lang/StringBuilder;
 
@@ -1092,7 +1208,7 @@
 
     move-result-object v10
 
-    invoke-virtual {v10, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v10, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v10
 
@@ -1100,73 +1216,49 @@
 
     move-result-object v10
 
-    invoke-static {v9, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v8, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    move-object p1, v6
+    move-object p1, v5
 
-    :cond_1
+    :cond_2
     :goto_0
     invoke-static {}, Lcom/sec/tima_keychain/TimaKeychain;->isTimaKeystoreAndCCMEnabledForCaller()Z
 
-    move-result v9
+    move-result v8
 
-    if-eqz v9, :cond_2
+    if-eqz v8, :cond_5
 
     :try_start_0
     invoke-static {p1}, Lcom/sec/tima_keychain/TimaKeychain;->getPrivateKeyFromOpenSSL(Ljava/lang/String;)Ljava/security/PrivateKey;
     :try_end_0
     .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
 
-    move-result-object v7
+    move-result-object v6
 
-    :cond_2
-    :goto_1
-    if-nez v7, :cond_6
+    if-eqz v6, :cond_5
 
-    invoke-static {p0}, Landroid/security/KeyChain;->bind(Landroid/content/Context;)Landroid/security/KeyChain$KeyChainConnection;
-
-    move-result-object v3
-
-    :try_start_1
-    invoke-virtual {v3}, Landroid/security/KeyChain$KeyChainConnection;->getService()Landroid/security/IKeyChainService;
-
-    move-result-object v4
-
-    invoke-interface {v4, p1}, Landroid/security/IKeyChainService;->requestPrivateKey(Ljava/lang/String;)Ljava/lang/String;
-    :try_end_1
-    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_3
-    .catch Ljava/lang/RuntimeException; {:try_start_1 .. :try_end_1} :catch_2
-    .catch Ljava/security/UnrecoverableKeyException; {:try_start_1 .. :try_end_1} :catch_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    move-result-object v5
-
-    if-nez v5, :cond_5
-
-    invoke-virtual {v3}, Landroid/security/KeyChain$KeyChainConnection;->close()V
-
-    return-object v12
+    return-object v6
 
     :cond_3
     invoke-static {p1}, Landroid/security/KeyChain;->getUCMPrivateKey(Ljava/lang/String;)Ljava/security/PrivateKey;
 
-    move-result-object v9
+    move-result-object v8
 
-    return-object v9
+    return-object v8
 
     :cond_4
-    const-string/jumbo v9, "KeyChain"
+    const-string/jumbo v8, "KeyChain"
 
     const-string/jumbo v10, "it is not UCM uri type"
 
-    invoke-static {v9, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v8, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 
     :catch_0
-    move-exception v1
+    move-exception v2
 
-    const-string/jumbo v9, "KeyChain"
+    const-string/jumbo v8, "KeyChain"
 
     new-instance v10, Ljava/lang/StringBuilder;
 
@@ -1186,75 +1278,172 @@
 
     move-result-object v10
 
-    invoke-static {v9, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v8, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-virtual {v1}, Ljava/lang/RuntimeException;->printStackTrace()V
+    invoke-virtual {v2}, Ljava/lang/RuntimeException;->printStackTrace()V
+
+    :cond_5
+    const/4 v3, 0x0
+
+    :try_start_1
+    invoke-virtual {p0}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
+
+    move-result-object v8
+
+    invoke-static {v8}, Landroid/security/KeyChain;->bind(Landroid/content/Context;)Landroid/security/KeyChain$KeyChainConnection;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Landroid/security/KeyChain$KeyChainConnection;->getService()Landroid/security/IKeyChainService;
+
+    move-result-object v8
+
+    invoke-interface {v8, p1}, Landroid/security/IKeyChainService;->requestPrivateKey(Ljava/lang/String;)Ljava/lang/String;
+    :try_end_1
+    .catch Ljava/lang/Throwable; {:try_start_1 .. :try_end_1} :catch_3
+    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+
+    move-result-object v4
+
+    if-eqz v3, :cond_6
+
+    :try_start_2
+    invoke-virtual {v3}, Landroid/security/KeyChain$KeyChainConnection;->close()V
+    :try_end_2
+    .catch Ljava/lang/Throwable; {:try_start_2 .. :try_end_2} :catch_2
+    .catch Landroid/os/RemoteException; {:try_start_2 .. :try_end_2} :catch_1
+    .catch Ljava/lang/RuntimeException; {:try_start_2 .. :try_end_2} :catch_4
+
+    :cond_6
+    move-object v8, v9
+
+    :goto_1
+    if-eqz v8, :cond_a
+
+    :try_start_3
+    throw v8
+    :try_end_3
+    .catch Landroid/os/RemoteException; {:try_start_3 .. :try_end_3} :catch_1
+    .catch Ljava/lang/RuntimeException; {:try_start_3 .. :try_end_3} :catch_4
+
+    :catch_1
+    move-exception v0
+
+    new-instance v8, Landroid/security/KeyChainException;
+
+    invoke-direct {v8, v0}, Landroid/security/KeyChainException;-><init>(Ljava/lang/Throwable;)V
+
+    throw v8
+
+    :catch_2
+    move-exception v8
 
     goto :goto_1
 
-    :cond_5
-    :try_start_2
-    invoke-static {}, Landroid/security/KeyStore;->getInstance()Landroid/security/KeyStore;
+    :catch_3
+    move-exception v8
 
-    move-result-object v9
-
-    const/4 v10, -0x1
-
-    invoke-static {v9, v5, v10}, Landroid/security/keystore/AndroidKeyStoreProvider;->loadAndroidKeyStorePrivateKeyFromKeystore(Landroid/security/KeyStore;Ljava/lang/String;I)Landroid/security/keystore/AndroidKeyStorePrivateKey;
-    :try_end_2
-    .catch Landroid/os/RemoteException; {:try_start_2 .. :try_end_2} :catch_3
-    .catch Ljava/lang/RuntimeException; {:try_start_2 .. :try_end_2} :catch_2
-    .catch Ljava/security/UnrecoverableKeyException; {:try_start_2 .. :try_end_2} :catch_1
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
-
-    move-result-object v9
-
-    invoke-virtual {v3}, Landroid/security/KeyChain$KeyChainConnection;->close()V
-
-    return-object v9
-
-    :catch_1
-    move-exception v2
-
-    :try_start_3
-    new-instance v9, Landroid/security/KeyChainException;
-
-    invoke-direct {v9, v2}, Landroid/security/KeyChainException;-><init>(Ljava/lang/Throwable;)V
-
-    throw v9
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+    :try_start_4
+    throw v8
+    :try_end_4
+    .catchall {:try_start_4 .. :try_end_4} :catchall_0
 
     :catchall_0
     move-exception v9
 
+    move-object v12, v9
+
+    move-object v9, v8
+
+    move-object v8, v12
+
+    :goto_2
+    if-eqz v3, :cond_7
+
+    :try_start_5
     invoke-virtual {v3}, Landroid/security/KeyChain$KeyChainConnection;->close()V
+    :try_end_5
+    .catch Ljava/lang/Throwable; {:try_start_5 .. :try_end_5} :catch_5
+    .catch Landroid/os/RemoteException; {:try_start_5 .. :try_end_5} :catch_1
+    .catch Ljava/lang/RuntimeException; {:try_start_5 .. :try_end_5} :catch_4
 
+    :cond_7
+    :goto_3
+    if-eqz v9, :cond_9
+
+    :try_start_6
     throw v9
+    :try_end_6
+    .catch Landroid/os/RemoteException; {:try_start_6 .. :try_end_6} :catch_1
+    .catch Ljava/lang/RuntimeException; {:try_start_6 .. :try_end_6} :catch_4
 
-    :catch_2
+    :catch_4
+    move-exception v2
+
+    new-instance v8, Landroid/security/KeyChainException;
+
+    invoke-direct {v8, v2}, Landroid/security/KeyChainException;-><init>(Ljava/lang/Throwable;)V
+
+    throw v8
+
+    :catch_5
+    move-exception v10
+
+    if-nez v9, :cond_8
+
+    move-object v9, v10
+
+    goto :goto_3
+
+    :cond_8
+    if-eq v9, v10, :cond_7
+
+    :try_start_7
+    invoke-virtual {v9, v10}, Ljava/lang/Throwable;->addSuppressed(Ljava/lang/Throwable;)V
+
+    goto :goto_3
+
+    :cond_9
+    throw v8
+    :try_end_7
+    .catch Landroid/os/RemoteException; {:try_start_7 .. :try_end_7} :catch_1
+    .catch Ljava/lang/RuntimeException; {:try_start_7 .. :try_end_7} :catch_4
+
+    :cond_a
+    if-nez v4, :cond_b
+
+    return-object v9
+
+    :cond_b
+    :try_start_8
+    invoke-static {}, Landroid/security/KeyStore;->getInstance()Landroid/security/KeyStore;
+
+    move-result-object v8
+
+    const/4 v9, -0x1
+
+    invoke-static {v8, v4, v9}, Landroid/security/keystore/AndroidKeyStoreProvider;->loadAndroidKeyStorePrivateKeyFromKeystore(Landroid/security/KeyStore;Ljava/lang/String;I)Landroid/security/keystore/AndroidKeyStorePrivateKey;
+    :try_end_8
+    .catch Ljava/lang/RuntimeException; {:try_start_8 .. :try_end_8} :catch_6
+    .catch Ljava/security/UnrecoverableKeyException; {:try_start_8 .. :try_end_8} :catch_6
+
+    move-result-object v8
+
+    return-object v8
+
+    :catch_6
     move-exception v1
 
-    :try_start_4
-    new-instance v9, Landroid/security/KeyChainException;
+    new-instance v8, Landroid/security/KeyChainException;
 
-    invoke-direct {v9, v1}, Landroid/security/KeyChainException;-><init>(Ljava/lang/Throwable;)V
+    invoke-direct {v8, v1}, Landroid/security/KeyChainException;-><init>(Ljava/lang/Throwable;)V
 
-    throw v9
+    throw v8
 
-    :catch_3
-    move-exception v0
+    :catchall_1
+    move-exception v8
 
-    new-instance v9, Landroid/security/KeyChainException;
-
-    invoke-direct {v9, v0}, Landroid/security/KeyChainException;-><init>(Ljava/lang/Throwable;)V
-
-    throw v9
-    :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_0
-
-    :cond_6
-    return-object v7
+    goto :goto_2
 .end method
 
 .method private static getRawAlias(Ljava/lang/String;)Ljava/lang/String;
@@ -1286,13 +1475,7 @@
 
     if-nez v1, :cond_0
 
-    new-instance v5, Ljava/lang/IllegalArgumentException;
-
-    const-string/jumbo v6, "Source is not known. Invalid URI."
-
-    invoke-direct {v5, v6}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
-
-    throw v5
+    return-object v8
 
     :cond_0
     const/4 v5, 0x0
@@ -1377,14 +1560,12 @@
 .method private static getUCMPrivateKey(Ljava/lang/String;)Ljava/security/PrivateKey;
     .locals 4
 
+    new-instance v1, Lcom/samsung/ucm/crypto/UCMOpenSSLEngineHelper;
+
+    invoke-direct {v1}, Lcom/samsung/ucm/crypto/UCMOpenSSLEngineHelper;-><init>()V
+
     :try_start_0
-    const-string/jumbo v2, "ucsengine"
-
-    invoke-static {v2}, Lcom/android/org/conscrypt/OpenSSLEngine;->getInstance(Ljava/lang/String;)Lcom/android/org/conscrypt/OpenSSLEngine;
-
-    move-result-object v1
-
-    invoke-virtual {v1, p0}, Lcom/android/org/conscrypt/OpenSSLEngine;->getPrivateKeyById(Ljava/lang/String;)Ljava/security/PrivateKey;
+    invoke-virtual {v1, p0}, Lcom/samsung/ucm/crypto/UCMOpenSSLEngineHelper;->getPrivateKey(Ljava/lang/String;)Ljava/security/PrivateKey;
     :try_end_0
     .catch Ljava/security/InvalidKeyException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -1397,9 +1578,9 @@
 
     const-string/jumbo v2, "KeyChain"
 
-    const-string/jumbo v3, "InvalidKeyException"
+    const-string/jumbo v3, "InvalidKeyException in getUCMPrivateKey"
 
-    invoke-static {v2, v3, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v2, v3, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     const/4 v2, 0x0
 
@@ -1407,46 +1588,21 @@
 .end method
 
 .method public static isBoundKeyAlgorithm(Ljava/lang/String;)Z
-    .locals 2
+    .locals 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
-    invoke-static {}, Lcom/sec/tima_keychain/TimaKeychain;->isTimaKeystoreAndCCMEnabledForCaller()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    const-string/jumbo v0, "RSA"
-
-    sget-object v1, Ljava/util/Locale;->US:Ljava/util/Locale;
-
-    invoke-virtual {p0, v1}, Ljava/lang/String;->toUpperCase(Ljava/util/Locale;)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    const/4 v0, 0x1
-
-    return v0
-
-    :cond_0
     invoke-static {p0}, Landroid/security/KeyChain;->isKeyAlgorithmSupported(Ljava/lang/String;)Z
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_0
 
     const/4 v0, 0x0
 
     return v0
 
-    :cond_1
+    :cond_0
     invoke-static {}, Landroid/security/KeyStore;->getInstance()Landroid/security/KeyStore;
 
     move-result-object v0

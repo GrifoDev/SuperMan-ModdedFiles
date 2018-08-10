@@ -496,7 +496,7 @@
 .method protected getCode()I
     .locals 1
 
-    invoke-virtual {p0}, Ljava/lang/Enum;->ordinal()I
+    invoke-virtual {p0}, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->ordinal()I
 
     move-result v0
 

@@ -19,8 +19,18 @@
 
 # instance fields
 .field private mClear:Z
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = "mLock"
+    .end annotation
+.end field
+
+.field private final mLock:Ljava/lang/Object;
 
 .field private final mModified:Ljava/util/Map;
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = "mLock"
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/Map",
@@ -51,6 +61,12 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    new-instance v0, Ljava/lang/Object;
+
+    invoke-direct {v0}, Ljava/lang/Object;-><init>()V
+
+    iput-object v0, p0, Landroid/app/SharedPreferencesImpl$EditorImpl;->mLock:Ljava/lang/Object;
+
     invoke-static {}, Lcom/google/android/collect/Maps;->newHashMap()Ljava/util/HashMap;
 
     move-result-object v0
@@ -65,295 +81,396 @@
 .end method
 
 .method private commitToMemory()Landroid/app/SharedPreferencesImpl$MemoryCommitResult;
-    .locals 12
+    .locals 24
 
-    const/4 v8, 0x0
-
-    const/4 v3, 0x1
+    const/4 v6, 0x0
 
     const/4 v7, 0x0
 
-    new-instance v5, Landroid/app/SharedPreferencesImpl$MemoryCommitResult;
+    move-object/from16 v0, p0
 
-    invoke-direct {v5, v8}, Landroid/app/SharedPreferencesImpl$MemoryCommitResult;-><init>(Landroid/app/SharedPreferencesImpl$MemoryCommitResult;)V
+    iget-object v3, v0, Landroid/app/SharedPreferencesImpl$EditorImpl;->this$0:Landroid/app/SharedPreferencesImpl;
 
-    iget-object v8, p0, Landroid/app/SharedPreferencesImpl$EditorImpl;->this$0:Landroid/app/SharedPreferencesImpl;
+    invoke-static {v3}, Landroid/app/SharedPreferencesImpl;->-get3(Landroid/app/SharedPreferencesImpl;)Ljava/lang/Object;
 
-    monitor-enter v8
+    move-result-object v9
+
+    monitor-enter v9
 
     :try_start_0
-    iget-object v9, p0, Landroid/app/SharedPreferencesImpl$EditorImpl;->this$0:Landroid/app/SharedPreferencesImpl;
+    move-object/from16 v0, p0
 
-    invoke-static {v9}, Landroid/app/SharedPreferencesImpl;->-get0(Landroid/app/SharedPreferencesImpl;)I
+    iget-object v3, v0, Landroid/app/SharedPreferencesImpl$EditorImpl;->this$0:Landroid/app/SharedPreferencesImpl;
 
-    move-result v9
+    invoke-static {v3}, Landroid/app/SharedPreferencesImpl;->-get1(Landroid/app/SharedPreferencesImpl;)I
 
-    if-lez v9, :cond_0
+    move-result v3
 
-    iget-object v9, p0, Landroid/app/SharedPreferencesImpl$EditorImpl;->this$0:Landroid/app/SharedPreferencesImpl;
+    if-lez v3, :cond_0
 
-    new-instance v10, Ljava/util/HashMap;
+    move-object/from16 v0, p0
 
-    iget-object v11, p0, Landroid/app/SharedPreferencesImpl$EditorImpl;->this$0:Landroid/app/SharedPreferencesImpl;
+    iget-object v3, v0, Landroid/app/SharedPreferencesImpl$EditorImpl;->this$0:Landroid/app/SharedPreferencesImpl;
 
-    invoke-static {v11}, Landroid/app/SharedPreferencesImpl;->-get2(Landroid/app/SharedPreferencesImpl;)Ljava/util/Map;
+    new-instance v18, Ljava/util/HashMap;
 
-    move-result-object v11
+    move-object/from16 v0, p0
 
-    invoke-direct {v10, v11}, Ljava/util/HashMap;-><init>(Ljava/util/Map;)V
+    iget-object v0, v0, Landroid/app/SharedPreferencesImpl$EditorImpl;->this$0:Landroid/app/SharedPreferencesImpl;
 
-    invoke-static {v9, v10}, Landroid/app/SharedPreferencesImpl;->-set1(Landroid/app/SharedPreferencesImpl;Ljava/util/Map;)Ljava/util/Map;
+    move-object/from16 v19, v0
+
+    invoke-static/range {v19 .. v19}, Landroid/app/SharedPreferencesImpl;->-get4(Landroid/app/SharedPreferencesImpl;)Ljava/util/Map;
+
+    move-result-object v19
+
+    invoke-direct/range {v18 .. v19}, Ljava/util/HashMap;-><init>(Ljava/util/Map;)V
+
+    move-object/from16 v0, v18
+
+    invoke-static {v3, v0}, Landroid/app/SharedPreferencesImpl;->-set2(Landroid/app/SharedPreferencesImpl;Ljava/util/Map;)Ljava/util/Map;
 
     :cond_0
-    iget-object v9, p0, Landroid/app/SharedPreferencesImpl$EditorImpl;->this$0:Landroid/app/SharedPreferencesImpl;
+    move-object/from16 v0, p0
 
-    invoke-static {v9}, Landroid/app/SharedPreferencesImpl;->-get2(Landroid/app/SharedPreferencesImpl;)Ljava/util/Map;
+    iget-object v3, v0, Landroid/app/SharedPreferencesImpl$EditorImpl;->this$0:Landroid/app/SharedPreferencesImpl;
 
-    move-result-object v9
+    invoke-static {v3}, Landroid/app/SharedPreferencesImpl;->-get4(Landroid/app/SharedPreferencesImpl;)Ljava/util/Map;
 
-    iput-object v9, v5, Landroid/app/SharedPreferencesImpl$MemoryCommitResult;->mapToWriteToDisk:Ljava/util/Map;
+    move-result-object v8
 
-    iget-object v9, p0, Landroid/app/SharedPreferencesImpl$EditorImpl;->this$0:Landroid/app/SharedPreferencesImpl;
+    move-object/from16 v0, p0
 
-    invoke-static {v9}, Landroid/app/SharedPreferencesImpl;->-get0(Landroid/app/SharedPreferencesImpl;)I
+    iget-object v3, v0, Landroid/app/SharedPreferencesImpl$EditorImpl;->this$0:Landroid/app/SharedPreferencesImpl;
 
-    move-result v10
+    invoke-static {v3}, Landroid/app/SharedPreferencesImpl;->-get1(Landroid/app/SharedPreferencesImpl;)I
 
-    add-int/lit8 v10, v10, 0x1
+    move-result v18
 
-    invoke-static {v9, v10}, Landroid/app/SharedPreferencesImpl;->-set0(Landroid/app/SharedPreferencesImpl;I)I
+    add-int/lit8 v18, v18, 0x1
 
-    iget-object v9, p0, Landroid/app/SharedPreferencesImpl$EditorImpl;->this$0:Landroid/app/SharedPreferencesImpl;
+    move/from16 v0, v18
 
-    invoke-static {v9}, Landroid/app/SharedPreferencesImpl;->-get1(Landroid/app/SharedPreferencesImpl;)Ljava/util/WeakHashMap;
+    invoke-static {v3, v0}, Landroid/app/SharedPreferencesImpl;->-set1(Landroid/app/SharedPreferencesImpl;I)I
 
-    move-result-object v9
+    move-object/from16 v0, p0
 
-    invoke-virtual {v9}, Ljava/util/WeakHashMap;->size()I
+    iget-object v3, v0, Landroid/app/SharedPreferencesImpl$EditorImpl;->this$0:Landroid/app/SharedPreferencesImpl;
 
-    move-result v9
+    invoke-static {v3}, Landroid/app/SharedPreferencesImpl;->-get2(Landroid/app/SharedPreferencesImpl;)Ljava/util/WeakHashMap;
 
-    if-lez v9, :cond_6
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/util/WeakHashMap;->size()I
+
+    move-result v3
+
+    if-lez v3, :cond_6
+
+    const/4 v13, 0x1
 
     :goto_0
-    if-eqz v3, :cond_1
+    if-eqz v13, :cond_1
 
-    new-instance v7, Ljava/util/ArrayList;
+    new-instance v15, Ljava/util/ArrayList;
 
-    invoke-direct {v7}, Ljava/util/ArrayList;-><init>()V
-
-    iput-object v7, v5, Landroid/app/SharedPreferencesImpl$MemoryCommitResult;->keysModified:Ljava/util/List;
-
-    new-instance v7, Ljava/util/HashSet;
-
-    iget-object v9, p0, Landroid/app/SharedPreferencesImpl$EditorImpl;->this$0:Landroid/app/SharedPreferencesImpl;
-
-    invoke-static {v9}, Landroid/app/SharedPreferencesImpl;->-get1(Landroid/app/SharedPreferencesImpl;)Ljava/util/WeakHashMap;
-
-    move-result-object v9
-
-    invoke-virtual {v9}, Ljava/util/WeakHashMap;->keySet()Ljava/util/Set;
-
-    move-result-object v9
-
-    invoke-direct {v7, v9}, Ljava/util/HashSet;-><init>(Ljava/util/Collection;)V
-
-    iput-object v7, v5, Landroid/app/SharedPreferencesImpl$MemoryCommitResult;->listeners:Ljava/util/Set;
-
-    :cond_1
-    monitor-enter p0
+    invoke-direct {v15}, Ljava/util/ArrayList;-><init>()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_1
 
     :try_start_1
-    iget-boolean v7, p0, Landroid/app/SharedPreferencesImpl$EditorImpl;->mClear:Z
+    new-instance v16, Ljava/util/HashSet;
 
-    if-eqz v7, :cond_3
+    move-object/from16 v0, p0
 
-    iget-object v7, p0, Landroid/app/SharedPreferencesImpl$EditorImpl;->this$0:Landroid/app/SharedPreferencesImpl;
+    iget-object v3, v0, Landroid/app/SharedPreferencesImpl$EditorImpl;->this$0:Landroid/app/SharedPreferencesImpl;
 
-    invoke-static {v7}, Landroid/app/SharedPreferencesImpl;->-get2(Landroid/app/SharedPreferencesImpl;)Ljava/util/Map;
+    invoke-static {v3}, Landroid/app/SharedPreferencesImpl;->-get2(Landroid/app/SharedPreferencesImpl;)Ljava/util/WeakHashMap;
 
-    move-result-object v7
+    move-result-object v3
 
-    invoke-interface {v7}, Ljava/util/Map;->isEmpty()Z
+    invoke-virtual {v3}, Ljava/util/WeakHashMap;->keySet()Ljava/util/Set;
 
-    move-result v7
+    move-result-object v3
 
-    if-nez v7, :cond_2
+    move-object/from16 v0, v16
 
-    const/4 v7, 0x1
+    invoke-direct {v0, v3}, Ljava/util/HashSet;-><init>(Ljava/util/Collection;)V
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_2
 
-    iput-boolean v7, v5, Landroid/app/SharedPreferencesImpl$MemoryCommitResult;->changesMade:Z
+    move-object/from16 v7, v16
 
-    iget-object v7, p0, Landroid/app/SharedPreferencesImpl$EditorImpl;->this$0:Landroid/app/SharedPreferencesImpl;
+    move-object v6, v15
 
-    invoke-static {v7}, Landroid/app/SharedPreferencesImpl;->-get2(Landroid/app/SharedPreferencesImpl;)Ljava/util/Map;
+    :cond_1
+    :try_start_2
+    move-object/from16 v0, p0
 
-    move-result-object v7
+    iget-object v0, v0, Landroid/app/SharedPreferencesImpl$EditorImpl;->mLock:Ljava/lang/Object;
 
-    invoke-interface {v7}, Ljava/util/Map;->clear()V
+    move-object/from16 v18, v0
+
+    monitor-enter v18
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_1
+
+    const/4 v2, 0x0
+
+    :try_start_3
+    move-object/from16 v0, p0
+
+    iget-boolean v3, v0, Landroid/app/SharedPreferencesImpl$EditorImpl;->mClear:Z
+
+    if-eqz v3, :cond_3
+
+    move-object/from16 v0, p0
+
+    iget-object v3, v0, Landroid/app/SharedPreferencesImpl$EditorImpl;->this$0:Landroid/app/SharedPreferencesImpl;
+
+    invoke-static {v3}, Landroid/app/SharedPreferencesImpl;->-get4(Landroid/app/SharedPreferencesImpl;)Ljava/util/Map;
+
+    move-result-object v3
+
+    invoke-interface {v3}, Ljava/util/Map;->isEmpty()Z
+
+    move-result v3
+
+    if-nez v3, :cond_2
+
+    const/4 v2, 0x1
+
+    move-object/from16 v0, p0
+
+    iget-object v3, v0, Landroid/app/SharedPreferencesImpl$EditorImpl;->this$0:Landroid/app/SharedPreferencesImpl;
+
+    invoke-static {v3}, Landroid/app/SharedPreferencesImpl;->-get4(Landroid/app/SharedPreferencesImpl;)Ljava/util/Map;
+
+    move-result-object v3
+
+    invoke-interface {v3}, Ljava/util/Map;->clear()V
 
     :cond_2
-    const/4 v7, 0x0
+    const/4 v3, 0x0
 
-    iput-boolean v7, p0, Landroid/app/SharedPreferencesImpl$EditorImpl;->mClear:Z
+    move-object/from16 v0, p0
+
+    iput-boolean v3, v0, Landroid/app/SharedPreferencesImpl$EditorImpl;->mClear:Z
 
     :cond_3
-    iget-object v7, p0, Landroid/app/SharedPreferencesImpl$EditorImpl;->mModified:Ljava/util/Map;
+    move-object/from16 v0, p0
 
-    invoke-interface {v7}, Ljava/util/Map;->entrySet()Ljava/util/Set;
+    iget-object v3, v0, Landroid/app/SharedPreferencesImpl$EditorImpl;->mModified:Ljava/util/Map;
 
-    move-result-object v7
+    invoke-interface {v3}, Ljava/util/Map;->entrySet()Ljava/util/Set;
 
-    invoke-interface {v7}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+    move-result-object v3
 
-    move-result-object v1
+    invoke-interface {v3}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+
+    move-result-object v11
 
     :cond_4
     :goto_1
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v11}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v7
+    move-result v3
 
-    if-eqz v7, :cond_9
+    if-eqz v3, :cond_9
 
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v11}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v10
 
-    check-cast v0, Ljava/util/Map$Entry;
+    check-cast v10, Ljava/util/Map$Entry;
 
-    invoke-interface {v0}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
+    invoke-interface {v10}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
-    move-result-object v4
+    move-result-object v14
 
-    check-cast v4, Ljava/lang/String;
+    check-cast v14, Ljava/lang/String;
 
-    invoke-interface {v0}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
+    invoke-interface {v10}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
-    move-result-object v6
+    move-result-object v17
 
-    if-eq v6, p0, :cond_5
+    move-object/from16 v0, v17
 
-    if-nez v6, :cond_7
+    move-object/from16 v1, p0
+
+    if-eq v0, v1, :cond_5
+
+    if-nez v17, :cond_7
 
     :cond_5
-    iget-object v7, p0, Landroid/app/SharedPreferencesImpl$EditorImpl;->this$0:Landroid/app/SharedPreferencesImpl;
+    move-object/from16 v0, p0
 
-    invoke-static {v7}, Landroid/app/SharedPreferencesImpl;->-get2(Landroid/app/SharedPreferencesImpl;)Ljava/util/Map;
+    iget-object v3, v0, Landroid/app/SharedPreferencesImpl$EditorImpl;->this$0:Landroid/app/SharedPreferencesImpl;
 
-    move-result-object v7
+    invoke-static {v3}, Landroid/app/SharedPreferencesImpl;->-get4(Landroid/app/SharedPreferencesImpl;)Ljava/util/Map;
 
-    invoke-interface {v7, v4}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
+    move-result-object v3
 
-    move-result v7
+    invoke-interface {v3, v14}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
 
-    if-eqz v7, :cond_4
-
-    iget-object v7, p0, Landroid/app/SharedPreferencesImpl$EditorImpl;->this$0:Landroid/app/SharedPreferencesImpl;
-
-    invoke-static {v7}, Landroid/app/SharedPreferencesImpl;->-get2(Landroid/app/SharedPreferencesImpl;)Ljava/util/Map;
-
-    move-result-object v7
-
-    invoke-interface {v7, v4}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
-
-    :goto_2
-    const/4 v7, 0x1
-
-    iput-boolean v7, v5, Landroid/app/SharedPreferencesImpl$MemoryCommitResult;->changesMade:Z
+    move-result v3
 
     if-eqz v3, :cond_4
 
-    iget-object v7, v5, Landroid/app/SharedPreferencesImpl$MemoryCommitResult;->keysModified:Ljava/util/List;
+    move-object/from16 v0, p0
 
-    invoke-interface {v7, v4}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    iget-object v3, v0, Landroid/app/SharedPreferencesImpl$EditorImpl;->this$0:Landroid/app/SharedPreferencesImpl;
+
+    invoke-static {v3}, Landroid/app/SharedPreferencesImpl;->-get4(Landroid/app/SharedPreferencesImpl;)Ljava/util/Map;
+
+    move-result-object v3
+
+    invoke-interface {v3, v14}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+
+    :goto_2
+    const/4 v2, 0x1
+
+    if-eqz v13, :cond_4
+
+    invoke-interface {v6, v14}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
     goto :goto_1
 
     :catchall_0
-    move-exception v7
+    move-exception v3
 
-    :try_start_2
-    monitor-exit p0
+    :try_start_4
+    monitor-exit v18
 
-    throw v7
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_1
+    throw v3
+    :try_end_4
+    .catchall {:try_start_4 .. :try_end_4} :catchall_1
 
     :catchall_1
-    move-exception v7
+    move-exception v3
 
-    monitor-exit v8
+    :goto_3
+    monitor-exit v9
 
-    throw v7
+    throw v3
 
     :cond_6
-    move v3, v7
+    const/4 v13, 0x0
 
     goto/16 :goto_0
 
     :cond_7
-    :try_start_3
-    iget-object v7, p0, Landroid/app/SharedPreferencesImpl$EditorImpl;->this$0:Landroid/app/SharedPreferencesImpl;
+    :try_start_5
+    move-object/from16 v0, p0
 
-    invoke-static {v7}, Landroid/app/SharedPreferencesImpl;->-get2(Landroid/app/SharedPreferencesImpl;)Ljava/util/Map;
+    iget-object v3, v0, Landroid/app/SharedPreferencesImpl$EditorImpl;->this$0:Landroid/app/SharedPreferencesImpl;
 
-    move-result-object v7
+    invoke-static {v3}, Landroid/app/SharedPreferencesImpl;->-get4(Landroid/app/SharedPreferencesImpl;)Ljava/util/Map;
 
-    invoke-interface {v7, v4}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
+    move-result-object v3
 
-    move-result v7
+    invoke-interface {v3, v14}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
 
-    if-eqz v7, :cond_8
+    move-result v3
 
-    iget-object v7, p0, Landroid/app/SharedPreferencesImpl$EditorImpl;->this$0:Landroid/app/SharedPreferencesImpl;
+    if-eqz v3, :cond_8
 
-    invoke-static {v7}, Landroid/app/SharedPreferencesImpl;->-get2(Landroid/app/SharedPreferencesImpl;)Ljava/util/Map;
+    move-object/from16 v0, p0
 
-    move-result-object v7
+    iget-object v3, v0, Landroid/app/SharedPreferencesImpl$EditorImpl;->this$0:Landroid/app/SharedPreferencesImpl;
 
-    invoke-interface {v7, v4}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {v3}, Landroid/app/SharedPreferencesImpl;->-get4(Landroid/app/SharedPreferencesImpl;)Ljava/util/Map;
 
-    move-result-object v2
+    move-result-object v3
 
-    if-eqz v2, :cond_8
+    invoke-interface {v3, v14}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-virtual {v2, v6}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+    move-result-object v12
 
-    move-result v7
+    if-eqz v12, :cond_8
 
-    if-nez v7, :cond_4
+    move-object/from16 v0, v17
+
+    invoke-virtual {v12, v0}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_4
 
     :cond_8
-    iget-object v7, p0, Landroid/app/SharedPreferencesImpl$EditorImpl;->this$0:Landroid/app/SharedPreferencesImpl;
+    move-object/from16 v0, p0
 
-    invoke-static {v7}, Landroid/app/SharedPreferencesImpl;->-get2(Landroid/app/SharedPreferencesImpl;)Ljava/util/Map;
+    iget-object v3, v0, Landroid/app/SharedPreferencesImpl$EditorImpl;->this$0:Landroid/app/SharedPreferencesImpl;
 
-    move-result-object v7
+    invoke-static {v3}, Landroid/app/SharedPreferencesImpl;->-get4(Landroid/app/SharedPreferencesImpl;)Ljava/util/Map;
 
-    invoke-interface {v7, v4, v6}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    move-result-object v3
+
+    move-object/from16 v0, v17
+
+    invoke-interface {v3, v14, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     goto :goto_2
 
     :cond_9
-    iget-object v7, p0, Landroid/app/SharedPreferencesImpl$EditorImpl;->mModified:Ljava/util/Map;
+    move-object/from16 v0, p0
 
-    invoke-interface {v7}, Ljava/util/Map;->clear()V
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+    iget-object v3, v0, Landroid/app/SharedPreferencesImpl$EditorImpl;->mModified:Ljava/util/Map;
 
-    :try_start_4
-    monitor-exit p0
-    :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_1
+    invoke-interface {v3}, Ljava/util/Map;->clear()V
 
-    monitor-exit v8
+    if-eqz v2, :cond_a
 
-    return-object v5
+    move-object/from16 v0, p0
+
+    iget-object v3, v0, Landroid/app/SharedPreferencesImpl$EditorImpl;->this$0:Landroid/app/SharedPreferencesImpl;
+
+    invoke-static {v3}, Landroid/app/SharedPreferencesImpl;->-get0(Landroid/app/SharedPreferencesImpl;)J
+
+    move-result-wide v20
+
+    const-wide/16 v22, 0x1
+
+    add-long v20, v20, v22
+
+    move-wide/from16 v0, v20
+
+    invoke-static {v3, v0, v1}, Landroid/app/SharedPreferencesImpl;->-set0(Landroid/app/SharedPreferencesImpl;J)J
+
+    :cond_a
+    move-object/from16 v0, p0
+
+    iget-object v3, v0, Landroid/app/SharedPreferencesImpl$EditorImpl;->this$0:Landroid/app/SharedPreferencesImpl;
+
+    invoke-static {v3}, Landroid/app/SharedPreferencesImpl;->-get0(Landroid/app/SharedPreferencesImpl;)J
+    :try_end_5
+    .catchall {:try_start_5 .. :try_end_5} :catchall_0
+
+    move-result-wide v4
+
+    :try_start_6
+    monitor-exit v18
+    :try_end_6
+    .catchall {:try_start_6 .. :try_end_6} :catchall_1
+
+    monitor-exit v9
+
+    new-instance v3, Landroid/app/SharedPreferencesImpl$MemoryCommitResult;
+
+    const/4 v9, 0x0
+
+    invoke-direct/range {v3 .. v9}, Landroid/app/SharedPreferencesImpl$MemoryCommitResult;-><init>(JLjava/util/List;Ljava/util/Set;Ljava/util/Map;Landroid/app/SharedPreferencesImpl$MemoryCommitResult;)V
+
+    return-object v3
+
+    :catchall_2
+    move-exception v3
+
+    move-object v6, v15
+
+    goto :goto_3
 .end method
 
 .method private notifyListeners(Landroid/app/SharedPreferencesImpl$MemoryCommitResult;)V
@@ -457,7 +574,11 @@
 
 # virtual methods
 .method public apply()V
-    .locals 4
+    .locals 6
+
+    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
+
+    move-result-wide v4
 
     invoke-direct {p0}, Landroid/app/SharedPreferencesImpl$EditorImpl;->commitToMemory()Landroid/app/SharedPreferencesImpl$MemoryCommitResult;
 
@@ -465,9 +586,9 @@
 
     new-instance v0, Landroid/app/SharedPreferencesImpl$EditorImpl$1;
 
-    invoke-direct {v0, p0, v1}, Landroid/app/SharedPreferencesImpl$EditorImpl$1;-><init>(Landroid/app/SharedPreferencesImpl$EditorImpl;Landroid/app/SharedPreferencesImpl$MemoryCommitResult;)V
+    invoke-direct {v0, p0, v1, v4, v5}, Landroid/app/SharedPreferencesImpl$EditorImpl$1;-><init>(Landroid/app/SharedPreferencesImpl$EditorImpl;Landroid/app/SharedPreferencesImpl$MemoryCommitResult;J)V
 
-    invoke-static {v0}, Landroid/app/QueuedWork;->add(Ljava/lang/Runnable;)V
+    invoke-static {v0}, Landroid/app/QueuedWork;->addFinisher(Ljava/lang/Runnable;)V
 
     new-instance v2, Landroid/app/SharedPreferencesImpl$EditorImpl$2;
 
@@ -483,179 +604,199 @@
 .end method
 
 .method public clear()Landroid/content/SharedPreferences$Editor;
-    .locals 1
+    .locals 2
 
-    monitor-enter p0
+    iget-object v0, p0, Landroid/app/SharedPreferencesImpl$EditorImpl;->mLock:Ljava/lang/Object;
 
-    const/4 v0, 0x1
+    monitor-enter v0
+
+    const/4 v1, 0x1
 
     :try_start_0
-    iput-boolean v0, p0, Landroid/app/SharedPreferencesImpl$EditorImpl;->mClear:Z
+    iput-boolean v1, p0, Landroid/app/SharedPreferencesImpl$EditorImpl;->mClear:Z
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    monitor-exit p0
+    monitor-exit v0
 
     return-object p0
 
     :catchall_0
-    move-exception v0
+    move-exception v1
 
-    monitor-exit p0
+    monitor-exit v0
 
-    throw v0
+    throw v1
 .end method
 
 .method public commit()Z
-    .locals 4
+    .locals 6
+
+    const-wide/16 v2, 0x0
 
     invoke-direct {p0}, Landroid/app/SharedPreferencesImpl$EditorImpl;->commitToMemory()Landroid/app/SharedPreferencesImpl$MemoryCommitResult;
 
     move-result-object v1
 
-    iget-object v2, p0, Landroid/app/SharedPreferencesImpl$EditorImpl;->this$0:Landroid/app/SharedPreferencesImpl;
+    iget-object v4, p0, Landroid/app/SharedPreferencesImpl$EditorImpl;->this$0:Landroid/app/SharedPreferencesImpl;
 
-    const/4 v3, 0x0
+    const/4 v5, 0x0
 
-    invoke-static {v2, v1, v3}, Landroid/app/SharedPreferencesImpl;->-wrap0(Landroid/app/SharedPreferencesImpl;Landroid/app/SharedPreferencesImpl$MemoryCommitResult;Ljava/lang/Runnable;)V
+    invoke-static {v4, v1, v5}, Landroid/app/SharedPreferencesImpl;->-wrap0(Landroid/app/SharedPreferencesImpl;Landroid/app/SharedPreferencesImpl$MemoryCommitResult;Ljava/lang/Runnable;)V
 
     :try_start_0
-    iget-object v2, v1, Landroid/app/SharedPreferencesImpl$MemoryCommitResult;->writtenToDiskLatch:Ljava/util/concurrent/CountDownLatch;
+    iget-object v4, v1, Landroid/app/SharedPreferencesImpl$MemoryCommitResult;->writtenToDiskLatch:Ljava/util/concurrent/CountDownLatch;
 
-    invoke-virtual {v2}, Ljava/util/concurrent/CountDownLatch;->await()V
+    invoke-virtual {v4}, Ljava/util/concurrent/CountDownLatch;->await()V
     :try_end_0
     .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     invoke-direct {p0, v1}, Landroid/app/SharedPreferencesImpl$EditorImpl;->notifyListeners(Landroid/app/SharedPreferencesImpl$MemoryCommitResult;)V
 
-    iget-boolean v2, v1, Landroid/app/SharedPreferencesImpl$MemoryCommitResult;->writeToDiskResult:Z
+    iget-boolean v4, v1, Landroid/app/SharedPreferencesImpl$MemoryCommitResult;->writeToDiskResult:Z
 
-    return v2
+    return v4
 
     :catch_0
     move-exception v0
 
-    const/4 v2, 0x0
+    const/4 v4, 0x0
 
-    return v2
+    return v4
+
+    :catchall_0
+    move-exception v4
+
+    throw v4
 .end method
 
 .method public putBoolean(Ljava/lang/String;Z)Landroid/content/SharedPreferences$Editor;
-    .locals 2
+    .locals 3
 
-    monitor-enter p0
+    iget-object v1, p0, Landroid/app/SharedPreferencesImpl$EditorImpl;->mLock:Ljava/lang/Object;
+
+    monitor-enter v1
 
     :try_start_0
     iget-object v0, p0, Landroid/app/SharedPreferencesImpl$EditorImpl;->mModified:Ljava/util/Map;
 
     invoke-static {p2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-interface {v0, p1, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, p1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    monitor-exit p0
+    monitor-exit v1
 
     return-object p0
 
     :catchall_0
     move-exception v0
 
-    monitor-exit p0
+    monitor-exit v1
 
     throw v0
 .end method
 
 .method public putFloat(Ljava/lang/String;F)Landroid/content/SharedPreferences$Editor;
-    .locals 2
+    .locals 3
 
-    monitor-enter p0
+    iget-object v1, p0, Landroid/app/SharedPreferencesImpl$EditorImpl;->mLock:Ljava/lang/Object;
+
+    monitor-enter v1
 
     :try_start_0
     iget-object v0, p0, Landroid/app/SharedPreferencesImpl$EditorImpl;->mModified:Ljava/util/Map;
 
     invoke-static {p2}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-interface {v0, p1, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, p1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    monitor-exit p0
+    monitor-exit v1
 
     return-object p0
 
     :catchall_0
     move-exception v0
 
-    monitor-exit p0
+    monitor-exit v1
 
     throw v0
 .end method
 
 .method public putInt(Ljava/lang/String;I)Landroid/content/SharedPreferences$Editor;
-    .locals 2
+    .locals 3
 
-    monitor-enter p0
+    iget-object v1, p0, Landroid/app/SharedPreferencesImpl$EditorImpl;->mLock:Ljava/lang/Object;
+
+    monitor-enter v1
 
     :try_start_0
     iget-object v0, p0, Landroid/app/SharedPreferencesImpl$EditorImpl;->mModified:Ljava/util/Map;
 
     invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-interface {v0, p1, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, p1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    monitor-exit p0
+    monitor-exit v1
 
     return-object p0
 
     :catchall_0
     move-exception v0
 
-    monitor-exit p0
+    monitor-exit v1
 
     throw v0
 .end method
 
 .method public putLong(Ljava/lang/String;J)Landroid/content/SharedPreferences$Editor;
-    .locals 2
+    .locals 4
 
-    monitor-enter p0
+    iget-object v1, p0, Landroid/app/SharedPreferencesImpl$EditorImpl;->mLock:Ljava/lang/Object;
+
+    monitor-enter v1
 
     :try_start_0
     iget-object v0, p0, Landroid/app/SharedPreferencesImpl$EditorImpl;->mModified:Ljava/util/Map;
 
     invoke-static {p2, p3}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-interface {v0, p1, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, p1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    monitor-exit p0
+    monitor-exit v1
 
     return-object p0
 
     :catchall_0
     move-exception v0
 
-    monitor-exit p0
+    monitor-exit v1
 
     throw v0
 .end method
 
 .method public putString(Ljava/lang/String;Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;
-    .locals 1
+    .locals 2
 
-    monitor-enter p0
+    iget-object v1, p0, Landroid/app/SharedPreferencesImpl$EditorImpl;->mLock:Ljava/lang/Object;
+
+    monitor-enter v1
 
     :try_start_0
     iget-object v0, p0, Landroid/app/SharedPreferencesImpl$EditorImpl;->mModified:Ljava/util/Map;
@@ -664,20 +805,20 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    monitor-exit p0
+    monitor-exit v1
 
     return-object p0
 
     :catchall_0
     move-exception v0
 
-    monitor-exit p0
+    monitor-exit v1
 
     throw v0
 .end method
 
 .method public putStringSet(Ljava/lang/String;Ljava/util/Set;)Landroid/content/SharedPreferences$Editor;
-    .locals 2
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -692,19 +833,21 @@
 
     const/4 v0, 0x0
 
-    monitor-enter p0
+    iget-object v1, p0, Landroid/app/SharedPreferencesImpl$EditorImpl;->mLock:Ljava/lang/Object;
+
+    monitor-enter v1
 
     :try_start_0
-    iget-object v1, p0, Landroid/app/SharedPreferencesImpl$EditorImpl;->mModified:Ljava/util/Map;
+    iget-object v2, p0, Landroid/app/SharedPreferencesImpl$EditorImpl;->mModified:Ljava/util/Map;
 
     if-nez p2, :cond_0
 
     :goto_0
-    invoke-interface {v1, p1, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v2, p1, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    monitor-exit p0
+    monitor-exit v1
 
     return-object p0
 
@@ -721,15 +864,17 @@
     :catchall_0
     move-exception v0
 
-    monitor-exit p0
+    monitor-exit v1
 
     throw v0
 .end method
 
 .method public remove(Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;
-    .locals 1
+    .locals 2
 
-    monitor-enter p0
+    iget-object v1, p0, Landroid/app/SharedPreferencesImpl$EditorImpl;->mLock:Ljava/lang/Object;
+
+    monitor-enter v1
 
     :try_start_0
     iget-object v0, p0, Landroid/app/SharedPreferencesImpl$EditorImpl;->mModified:Ljava/util/Map;
@@ -738,14 +883,14 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    monitor-exit p0
+    monitor-exit v1
 
     return-object p0
 
     :catchall_0
     move-exception v0
 
-    monitor-exit p0
+    monitor-exit v1
 
     throw v0
 .end method

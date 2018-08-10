@@ -34,25 +34,17 @@
 .method public onAnimationEnd(Landroid/animation/Animator;)V
     .locals 2
 
-    iget-object v1, p0, Landroid/widget/SemFastScroller$2;->this$0:Landroid/widget/SemFastScroller;
-
     iget-object v0, p0, Landroid/widget/SemFastScroller$2;->this$0:Landroid/widget/SemFastScroller;
 
-    invoke-static {v0}, Landroid/widget/SemFastScroller;->-get0(Landroid/widget/SemFastScroller;)Z
+    iget-object v1, p0, Landroid/widget/SemFastScroller$2;->this$0:Landroid/widget/SemFastScroller;
 
-    move-result v0
+    invoke-static {v1}, Landroid/widget/SemFastScroller;->-get0(Landroid/widget/SemFastScroller;)Z
 
-    if-eqz v0, :cond_0
+    move-result v1
 
-    const/4 v0, 0x0
+    xor-int/lit8 v1, v1, 0x1
 
-    :goto_0
-    invoke-static {v1, v0}, Landroid/widget/SemFastScroller;->-set0(Landroid/widget/SemFastScroller;Z)Z
+    invoke-static {v0, v1}, Landroid/widget/SemFastScroller;->-set0(Landroid/widget/SemFastScroller;Z)Z
 
     return-void
-
-    :cond_0
-    const/4 v0, 0x1
-
-    goto :goto_0
 .end method

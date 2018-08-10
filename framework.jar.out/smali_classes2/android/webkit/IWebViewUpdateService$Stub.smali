@@ -28,15 +28,21 @@
 
 .field static final TRANSACTION_changeProviderAndSetting:I = 0x3
 
-.field static final TRANSACTION_enableFallbackLogic:I = 0x8
+.field static final TRANSACTION_enableFallbackLogic:I = 0x9
+
+.field static final TRANSACTION_enableMultiProcess:I = 0xb
 
 .field static final TRANSACTION_getAllWebViewPackages:I = 0x5
+
+.field static final TRANSACTION_getCurrentWebViewPackage:I = 0x7
 
 .field static final TRANSACTION_getCurrentWebViewPackageName:I = 0x6
 
 .field static final TRANSACTION_getValidWebViewPackages:I = 0x4
 
-.field static final TRANSACTION_isFallbackPackage:I = 0x7
+.field static final TRANSACTION_isFallbackPackage:I = 0x8
+
+.field static final TRANSACTION_isMultiProcessEnabled:I = 0xa
 
 .field static final TRANSACTION_notifyRelroCreationCompleted:I = 0x1
 
@@ -99,72 +105,72 @@
 .end method
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    .locals 9
+    .locals 10
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    const/4 v6, 0x0
+    const/4 v7, 0x0
 
-    const/4 v7, 0x1
+    const/4 v8, 0x1
 
     sparse-switch p1, :sswitch_data_0
 
     invoke-super {p0, p1, p2, p3, p4}, Landroid/os/Binder;->onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    move-result v6
-
-    return v6
-
-    :sswitch_0
-    const-string/jumbo v6, "android.webkit.IWebViewUpdateService"
-
-    invoke-virtual {p3, v6}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    move-result v7
 
     return v7
 
-    :sswitch_1
-    const-string/jumbo v6, "android.webkit.IWebViewUpdateService"
+    :sswitch_0
+    const-string/jumbo v7, "android.webkit.IWebViewUpdateService"
 
-    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p3, v7}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+
+    return v8
+
+    :sswitch_1
+    const-string/jumbo v7, "android.webkit.IWebViewUpdateService"
+
+    invoke-virtual {p2, v7}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p0}, Landroid/webkit/IWebViewUpdateService$Stub;->notifyRelroCreationCompleted()V
 
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    return v7
+    return v8
 
     :sswitch_2
-    const-string/jumbo v8, "android.webkit.IWebViewUpdateService"
+    const-string/jumbo v9, "android.webkit.IWebViewUpdateService"
 
-    invoke-virtual {p2, v8}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v9}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p0}, Landroid/webkit/IWebViewUpdateService$Stub;->waitForAndGetProvider()Landroid/webkit/WebViewProviderResponse;
 
-    move-result-object v2
+    move-result-object v3
 
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v2, :cond_0
+    if-eqz v3, :cond_0
 
-    invoke-virtual {p3, v7}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p3, v8}, Landroid/os/Parcel;->writeInt(I)V
 
-    invoke-virtual {v2, p3, v7}, Landroid/webkit/WebViewProviderResponse;->writeToParcel(Landroid/os/Parcel;I)V
+    invoke-virtual {v3, p3, v8}, Landroid/webkit/WebViewProviderResponse;->writeToParcel(Landroid/os/Parcel;I)V
 
     :goto_0
-    return v7
+    return v8
 
     :cond_0
-    invoke-virtual {p3, v6}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p3, v7}, Landroid/os/Parcel;->writeInt(I)V
 
     goto :goto_0
 
     :sswitch_3
-    const-string/jumbo v6, "android.webkit.IWebViewUpdateService"
+    const-string/jumbo v7, "android.webkit.IWebViewUpdateService"
 
-    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v7}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
@@ -172,63 +178,88 @@
 
     invoke-virtual {p0, v0}, Landroid/webkit/IWebViewUpdateService$Stub;->changeProviderAndSetting(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v4
 
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    invoke-virtual {p3, v3}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p3, v4}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    return v7
+    return v8
 
     :sswitch_4
-    const-string/jumbo v6, "android.webkit.IWebViewUpdateService"
+    const-string/jumbo v7, "android.webkit.IWebViewUpdateService"
 
-    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v7}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p0}, Landroid/webkit/IWebViewUpdateService$Stub;->getValidWebViewPackages()[Landroid/webkit/WebViewProviderInfo;
 
-    move-result-object v5
+    move-result-object v6
 
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    invoke-virtual {p3, v5, v7}, Landroid/os/Parcel;->writeTypedArray([Landroid/os/Parcelable;I)V
+    invoke-virtual {p3, v6, v8}, Landroid/os/Parcel;->writeTypedArray([Landroid/os/Parcelable;I)V
 
-    return v7
+    return v8
 
     :sswitch_5
-    const-string/jumbo v6, "android.webkit.IWebViewUpdateService"
+    const-string/jumbo v7, "android.webkit.IWebViewUpdateService"
 
-    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v7}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p0}, Landroid/webkit/IWebViewUpdateService$Stub;->getAllWebViewPackages()[Landroid/webkit/WebViewProviderInfo;
 
-    move-result-object v5
+    move-result-object v6
 
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    invoke-virtual {p3, v5, v7}, Landroid/os/Parcel;->writeTypedArray([Landroid/os/Parcelable;I)V
+    invoke-virtual {p3, v6, v8}, Landroid/os/Parcel;->writeTypedArray([Landroid/os/Parcelable;I)V
 
-    return v7
+    return v8
 
     :sswitch_6
-    const-string/jumbo v6, "android.webkit.IWebViewUpdateService"
+    const-string/jumbo v7, "android.webkit.IWebViewUpdateService"
 
-    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v7}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p0}, Landroid/webkit/IWebViewUpdateService$Stub;->getCurrentWebViewPackageName()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v4
 
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    invoke-virtual {p3, v3}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p3, v4}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    return v7
+    return v8
 
     :sswitch_7
-    const-string/jumbo v8, "android.webkit.IWebViewUpdateService"
+    const-string/jumbo v9, "android.webkit.IWebViewUpdateService"
 
-    invoke-virtual {p2, v8}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v9}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual {p0}, Landroid/webkit/IWebViewUpdateService$Stub;->getCurrentWebViewPackage()Landroid/content/pm/PackageInfo;
+
+    move-result-object v2
+
+    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+
+    if-eqz v2, :cond_1
+
+    invoke-virtual {p3, v8}, Landroid/os/Parcel;->writeInt(I)V
+
+    invoke-virtual {v2, p3, v8}, Landroid/content/pm/PackageInfo;->writeToParcel(Landroid/os/Parcel;I)V
+
+    :goto_1
+    return v8
+
+    :cond_1
+    invoke-virtual {p3, v7}, Landroid/os/Parcel;->writeInt(I)V
+
+    goto :goto_1
+
+    :sswitch_8
+    const-string/jumbo v9, "android.webkit.IWebViewUpdateService"
+
+    invoke-virtual {p2, v9}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
@@ -236,43 +267,88 @@
 
     invoke-virtual {p0, v0}, Landroid/webkit/IWebViewUpdateService$Stub;->isFallbackPackage(Ljava/lang/String;)Z
 
-    move-result v4
+    move-result v5
 
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v4, :cond_1
+    if-eqz v5, :cond_2
 
-    move v6, v7
+    move v7, v8
 
-    :cond_1
-    invoke-virtual {p3, v6}, Landroid/os/Parcel;->writeInt(I)V
+    :cond_2
+    invoke-virtual {p3, v7}, Landroid/os/Parcel;->writeInt(I)V
 
-    return v7
+    return v8
 
-    :sswitch_8
-    const-string/jumbo v8, "android.webkit.IWebViewUpdateService"
+    :sswitch_9
+    const-string/jumbo v7, "android.webkit.IWebViewUpdateService"
 
-    invoke-virtual {p2, v8}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v7}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v8
+    move-result v7
 
-    if-eqz v8, :cond_2
+    if-eqz v7, :cond_3
 
-    move v1, v7
+    const/4 v1, 0x1
 
-    :goto_1
+    :goto_2
     invoke-virtual {p0, v1}, Landroid/webkit/IWebViewUpdateService$Stub;->enableFallbackLogic(Z)V
 
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    return v7
+    return v8
 
-    :cond_2
-    move v1, v6
+    :cond_3
+    const/4 v1, 0x0
 
-    goto :goto_1
+    goto :goto_2
+
+    :sswitch_a
+    const-string/jumbo v9, "android.webkit.IWebViewUpdateService"
+
+    invoke-virtual {p2, v9}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual {p0}, Landroid/webkit/IWebViewUpdateService$Stub;->isMultiProcessEnabled()Z
+
+    move-result v5
+
+    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+
+    if-eqz v5, :cond_4
+
+    move v7, v8
+
+    :cond_4
+    invoke-virtual {p3, v7}, Landroid/os/Parcel;->writeInt(I)V
+
+    return v8
+
+    :sswitch_b
+    const-string/jumbo v7, "android.webkit.IWebViewUpdateService"
+
+    invoke-virtual {p2, v7}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v7
+
+    if-eqz v7, :cond_5
+
+    const/4 v1, 0x1
+
+    :goto_3
+    invoke-virtual {p0, v1}, Landroid/webkit/IWebViewUpdateService$Stub;->enableMultiProcess(Z)V
+
+    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+
+    return v8
+
+    :cond_5
+    const/4 v1, 0x0
+
+    goto :goto_3
 
     :sswitch_data_0
     .sparse-switch
@@ -284,6 +360,9 @@
         0x6 -> :sswitch_6
         0x7 -> :sswitch_7
         0x8 -> :sswitch_8
+        0x9 -> :sswitch_9
+        0xa -> :sswitch_a
+        0xb -> :sswitch_b
         0x5f4e5446 -> :sswitch_0
     .end sparse-switch
 .end method

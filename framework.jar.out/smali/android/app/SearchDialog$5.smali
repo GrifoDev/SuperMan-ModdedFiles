@@ -39,7 +39,7 @@
 
     iget-object v0, p0, Landroid/app/SearchDialog$5;->this$0:Landroid/app/SearchDialog;
 
-    invoke-virtual {v0}, Landroid/app/Dialog;->dismiss()V
+    invoke-virtual {v0}, Landroid/app/SearchDialog;->dismiss()V
 
     return-void
 .end method

@@ -38,8 +38,6 @@
 
 .field public static final TAG_CSCFEATURE_LOCKSCREEN_DISPLAYPLMN:Ljava/lang/String; = "CscFeature_LockScreen_DisplayPlmn"
 
-.field public static final TAG_CSCFEATURE_LOCKSCREEN_ENABLEECCKEYPADWHENHWKEYPRESS:Ljava/lang/String; = "CscFeature_LockScreen_EnableEccKeypadWhenHwKeyPress"
-
 .field public static final TAG_CSCFEATURE_LOCKSCREEN_ENABLEOPERATORWALLPAPER:Ljava/lang/String; = "CscFeature_LockScreen_EnableOperatorWallpaper"
 
 .field public static final TAG_CSCFEATURE_LOCKSCREEN_HIDEROAMINGTEXTONDUALCLOCK:Ljava/lang/String; = "CscFeature_LockScreen_HideRoamingTextOnDualClock"

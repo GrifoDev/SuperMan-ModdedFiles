@@ -110,7 +110,7 @@
 
     iget-object v5, p0, Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate$InputTextFilter;->this$0:Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate;
 
-    invoke-static {v5}, Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate;->-get16(Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate;)I
+    invoke-static {v5}, Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate;->-get18(Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate;)I
 
     move-result v5
 
@@ -124,7 +124,7 @@
 
     iget-object v7, p0, Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate$InputTextFilter;->this$0:Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate;
 
-    invoke-static {v7}, Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate;->-get16(Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate;)I
+    invoke-static {v7}, Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate;->-get18(Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate;)I
 
     move-result v7
 
@@ -149,7 +149,7 @@
 
     iget-object v5, p0, Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate$InputTextFilter;->this$0:Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate;
 
-    invoke-static {v5}, Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate;->-get22(Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate;)Landroid/widget/Toast;
+    invoke-static {v5}, Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate;->-get24(Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate;)Landroid/widget/Toast;
 
     move-result-object v5
 
@@ -159,11 +159,11 @@
 
     iget-object v6, p0, Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate$InputTextFilter;->this$0:Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate;
 
-    iget-object v6, v6, Lcom/samsung/android/widget/SemNumberPicker$AbstractSemNumberPickerDelegate;->mContext:Landroid/content/Context;
+    iget-object v6, v6, Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate;->mContext:Landroid/content/Context;
 
     iget-object v7, p0, Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate$InputTextFilter;->this$0:Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate;
 
-    invoke-static {v7}, Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate;->-get23(Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate;)Ljava/lang/String;
+    invoke-static {v7}, Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate;->-get25(Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate;)Ljava/lang/String;
 
     move-result-object v7
 
@@ -178,7 +178,7 @@
     :cond_3
     iget-object v5, p0, Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate$InputTextFilter;->this$0:Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate;
 
-    invoke-static {v5}, Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate;->-get22(Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate;)Landroid/widget/Toast;
+    invoke-static {v5}, Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate;->-get24(Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate;)Landroid/widget/Toast;
 
     move-result-object v5
 
@@ -303,38 +303,33 @@
 
     move-result v5
 
-    if-eqz v5, :cond_a
+    if-eqz v5, :cond_b
 
     invoke-static {v2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v5
 
+    xor-int/lit8 v5, v5, 0x1
+
     if-eqz v5, :cond_b
 
-    :cond_a
-    :goto_1
-    const-string/jumbo v5, ""
-
-    return-object v5
-
-    :cond_b
     iget-object v5, p0, Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate$InputTextFilter;->this$0:Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate;
 
-    invoke-static {v5}, Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate;->-get22(Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate;)Landroid/widget/Toast;
+    invoke-static {v5}, Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate;->-get24(Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate;)Landroid/widget/Toast;
 
     move-result-object v5
 
-    if-nez v5, :cond_c
+    if-nez v5, :cond_a
 
     iget-object v5, p0, Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate$InputTextFilter;->this$0:Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate;
 
     iget-object v6, p0, Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate$InputTextFilter;->this$0:Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate;
 
-    iget-object v6, v6, Lcom/samsung/android/widget/SemNumberPicker$AbstractSemNumberPickerDelegate;->mContext:Landroid/content/Context;
+    iget-object v6, v6, Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate;->mContext:Landroid/content/Context;
 
     iget-object v7, p0, Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate$InputTextFilter;->this$0:Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate;
 
-    invoke-static {v7}, Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate;->-get23(Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate;)Ljava/lang/String;
+    invoke-static {v7}, Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate;->-get25(Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate;)Ljava/lang/String;
 
     move-result-object v7
 
@@ -346,16 +341,19 @@
 
     invoke-static {v5, v6}, Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate;->-set6(Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate;Landroid/widget/Toast;)Landroid/widget/Toast;
 
-    :cond_c
+    :cond_a
     iget-object v5, p0, Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate$InputTextFilter;->this$0:Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate;
 
-    invoke-static {v5}, Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate;->-get22(Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate;)Landroid/widget/Toast;
+    invoke-static {v5}, Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate;->-get24(Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate;)Landroid/widget/Toast;
 
     move-result-object v5
 
     invoke-virtual {v5}, Landroid/widget/Toast;->show()V
 
-    goto :goto_1
+    :cond_b
+    const-string/jumbo v5, ""
+
+    return-object v5
 .end method
 
 .method protected getAcceptedChars()[C

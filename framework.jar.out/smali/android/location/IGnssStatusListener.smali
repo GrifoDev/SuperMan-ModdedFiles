@@ -47,7 +47,7 @@
     .end annotation
 .end method
 
-.method public abstract onSvStatusChanged(I[I[F[F[F)V
+.method public abstract onSvStatusChanged(I[I[F[F[F[F)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

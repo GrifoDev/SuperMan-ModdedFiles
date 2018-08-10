@@ -129,10 +129,19 @@
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    xor-int/lit8 v0, v0, 0x1
+
+    if-eqz v0, :cond_1
+
+    iget-object v0, p0, Landroid/media/RemoteControlClient$MetadataEditor;->this$0:Landroid/media/RemoteControlClient;
+
+    invoke-static {v0}, Landroid/media/RemoteControlClient;->-get4(Landroid/media/RemoteControlClient;)Landroid/graphics/Bitmap;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/graphics/Bitmap;->recycle()V
 
     :cond_1
-    :goto_0
     iget-object v0, p0, Landroid/media/RemoteControlClient$MetadataEditor;->this$0:Landroid/media/RemoteControlClient;
 
     iget-object v2, p0, Landroid/media/RemoteControlClient$MetadataEditor;->mEditorArtwork:Landroid/graphics/Bitmap;
@@ -195,29 +204,15 @@
 
     return-void
 
-    :cond_3
-    :try_start_4
-    iget-object v0, p0, Landroid/media/RemoteControlClient$MetadataEditor;->this$0:Landroid/media/RemoteControlClient;
-
-    invoke-static {v0}, Landroid/media/RemoteControlClient;->-get4(Landroid/media/RemoteControlClient;)Landroid/graphics/Bitmap;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/graphics/Bitmap;->recycle()V
-    :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_0
-
-    goto :goto_0
-
     :catchall_0
     move-exception v0
 
-    :try_start_5
+    :try_start_4
     monitor-exit v1
 
     throw v0
-    :try_end_5
-    .catchall {:try_start_5 .. :try_end_5} :catchall_1
+    :try_end_4
+    .catchall {:try_start_4 .. :try_end_4} :catchall_1
 
     :catchall_1
     move-exception v0

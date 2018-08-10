@@ -15,6 +15,14 @@
 
 
 # virtual methods
+.method public abstract addClientActiveCallback(Landroid/hardware/fingerprint/IFingerprintClientActiveCallback;)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract addLockoutResetCallback(Landroid/hardware/fingerprint/IFingerprintServiceLockoutResetCallback;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -48,6 +56,14 @@
 .end method
 
 .method public abstract enroll(Landroid/os/IBinder;[BILandroid/hardware/fingerprint/IFingerprintServiceReceiver;ILjava/lang/String;Landroid/os/Bundle;)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract enumerate(Landroid/os/IBinder;ILandroid/hardware/fingerprint/IFingerprintServiceReceiver;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -91,6 +107,14 @@
     .end annotation
 .end method
 
+.method public abstract isClientActive()Z
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract isHardwareDetected(JLjava/lang/String;)Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -116,6 +140,14 @@
 .end method
 
 .method public abstract remove(Landroid/os/IBinder;IIILandroid/hardware/fingerprint/IFingerprintServiceReceiver;)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract removeClientActiveCallback(Landroid/hardware/fingerprint/IFingerprintClientActiveCallback;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

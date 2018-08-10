@@ -31,20 +31,12 @@
 
 
 # direct methods
-.method static synthetic -wrap0(Landroid/widget/Editor$InsertionHandleView;)V
-    .locals 0
-
-    invoke-direct {p0}, Landroid/widget/Editor$InsertionHandleView;->hideAfterDelay()V
-
-    return-void
-.end method
-
 .method public constructor <init>(Landroid/widget/Editor;Landroid/graphics/drawable/Drawable;)V
     .locals 6
 
     iput-object p1, p0, Landroid/widget/Editor$InsertionHandleView;->this$0:Landroid/widget/Editor;
 
-    const v4, 0x102005a
+    const v4, 0x1020327
 
     const/4 v5, 0x0
 
@@ -58,65 +50,6 @@
 
     invoke-direct/range {v0 .. v5}, Landroid/widget/Editor$HandleView;-><init>(Landroid/widget/Editor;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;ILandroid/widget/Editor$HandleView;)V
 
-    const/4 v0, 0x3
-
-    iput v0, p0, Landroid/widget/Editor$InsertionHandleView;->mHandleType:I
-
-    return-void
-.end method
-
-.method private hideAfterDelay()V
-    .locals 4
-
-    iget-object v0, p0, Landroid/widget/Editor$InsertionHandleView;->mHider:Ljava/lang/Runnable;
-
-    if-nez v0, :cond_0
-
-    new-instance v0, Landroid/widget/Editor$InsertionHandleView$2;
-
-    invoke-direct {v0, p0}, Landroid/widget/Editor$InsertionHandleView$2;-><init>(Landroid/widget/Editor$InsertionHandleView;)V
-
-    iput-object v0, p0, Landroid/widget/Editor$InsertionHandleView;->mHider:Ljava/lang/Runnable;
-
-    :goto_0
-    iget-object v0, p0, Landroid/widget/Editor$InsertionHandleView;->this$0:Landroid/widget/Editor;
-
-    invoke-static {v0}, Landroid/widget/Editor;->-get13(Landroid/widget/Editor;)Landroid/widget/TextView;
-
-    move-result-object v0
-
-    iget-object v1, p0, Landroid/widget/Editor$InsertionHandleView;->mHider:Ljava/lang/Runnable;
-
-    const-wide/16 v2, 0xfa0
-
-    invoke-virtual {v0, v1, v2, v3}, Landroid/widget/TextView;->postDelayed(Ljava/lang/Runnable;J)Z
-
-    return-void
-
-    :cond_0
-    invoke-direct {p0}, Landroid/widget/Editor$InsertionHandleView;->removeHiderCallback()V
-
-    goto :goto_0
-.end method
-
-.method private removeHiderCallback()V
-    .locals 2
-
-    iget-object v0, p0, Landroid/widget/Editor$InsertionHandleView;->mHider:Ljava/lang/Runnable;
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Landroid/widget/Editor$InsertionHandleView;->this$0:Landroid/widget/Editor;
-
-    invoke-static {v0}, Landroid/widget/Editor;->-get13(Landroid/widget/Editor;)Landroid/widget/TextView;
-
-    move-result-object v0
-
-    iget-object v1, p0, Landroid/widget/Editor$InsertionHandleView;->mHider:Ljava/lang/Runnable;
-
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->removeCallbacks(Ljava/lang/Runnable;)Z
-
-    :cond_0
     return-void
 .end method
 
@@ -127,7 +60,7 @@
 
     iget-object v0, p0, Landroid/widget/Editor$InsertionHandleView;->this$0:Landroid/widget/Editor;
 
-    invoke-static {v0}, Landroid/widget/Editor;->-get13(Landroid/widget/Editor;)Landroid/widget/TextView;
+    invoke-static {v0}, Landroid/widget/Editor;->-get14(Landroid/widget/Editor;)Landroid/widget/TextView;
 
     move-result-object v0
 
@@ -140,8 +73,6 @@
 
 .method getCursorHorizontalPosition(Landroid/text/Layout;I)I
     .locals 4
-
-    const/4 v0, 0x0
 
     const/4 v3, 0x0
 
@@ -157,7 +88,7 @@
 
     aget-object v0, v2, v3
 
-    :cond_0
+    :goto_0
     if-eqz v0, :cond_1
 
     invoke-virtual {p0, p1, p2}, Landroid/widget/Editor$InsertionHandleView;->getHorizontal(Landroid/text/Layout;I)F
@@ -182,6 +113,11 @@
 
     return v2
 
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
+
     :cond_1
     invoke-super {p0, p1, p2}, Landroid/widget/Editor$HandleView;->getCursorHorizontalPosition(Landroid/text/Layout;I)I
 
@@ -193,8 +129,6 @@
 .method protected getCursorOffset()I
     .locals 4
 
-    const/4 v0, 0x0
-
     const/4 v3, 0x0
 
     invoke-super {p0}, Landroid/widget/Editor$HandleView;->getCursorOffset()I
@@ -205,7 +139,7 @@
 
     iget v2, v2, Landroid/widget/Editor;->mCursorCount:I
 
-    if-lez v2, :cond_0
+    if-lez v2, :cond_1
 
     iget-object v2, p0, Landroid/widget/Editor$InsertionHandleView;->this$0:Landroid/widget/Editor;
 
@@ -213,8 +147,8 @@
 
     aget-object v0, v2, v3
 
-    :cond_0
-    if-eqz v0, :cond_1
+    :goto_0
+    if-eqz v0, :cond_0
 
     iget-object v2, p0, Landroid/widget/Editor$InsertionHandleView;->this$0:Landroid/widget/Editor;
 
@@ -252,8 +186,13 @@
 
     add-int/2addr v1, v2
 
-    :cond_1
+    :cond_0
     return v1
+
+    :cond_1
+    const/4 v0, 0x0
+
+    goto :goto_0
 .end method
 
 .method protected getHorizontalGravity(Z)I
@@ -276,12 +215,38 @@
     return v0
 .end method
 
-.method protected isHandleViewScreenOut()Z
-    .locals 1
+.method protected hideAfterDelay()V
+    .locals 4
 
-    const/4 v0, 0x0
+    iget-object v0, p0, Landroid/widget/Editor$InsertionHandleView;->mHider:Ljava/lang/Runnable;
 
-    return v0
+    if-nez v0, :cond_0
+
+    new-instance v0, Landroid/widget/Editor$InsertionHandleView$2;
+
+    invoke-direct {v0, p0}, Landroid/widget/Editor$InsertionHandleView$2;-><init>(Landroid/widget/Editor$InsertionHandleView;)V
+
+    iput-object v0, p0, Landroid/widget/Editor$InsertionHandleView;->mHider:Ljava/lang/Runnable;
+
+    :goto_0
+    iget-object v0, p0, Landroid/widget/Editor$InsertionHandleView;->this$0:Landroid/widget/Editor;
+
+    invoke-static {v0}, Landroid/widget/Editor;->-get14(Landroid/widget/Editor;)Landroid/widget/TextView;
+
+    move-result-object v0
+
+    iget-object v1, p0, Landroid/widget/Editor$InsertionHandleView;->mHider:Ljava/lang/Runnable;
+
+    const-wide/16 v2, 0xfa0
+
+    invoke-virtual {v0, v1, v2, v3}, Landroid/widget/TextView;->postDelayed(Ljava/lang/Runnable;J)Z
+
+    return-void
+
+    :cond_0
+    invoke-virtual {p0}, Landroid/widget/Editor$InsertionHandleView;->removeHiderCallback()V
+
+    goto :goto_0
 .end method
 
 .method public onDetached()V
@@ -289,7 +254,7 @@
 
     invoke-super {p0}, Landroid/widget/Editor$HandleView;->onDetached()V
 
-    invoke-direct {p0}, Landroid/widget/Editor$InsertionHandleView;->removeHiderCallback()V
+    invoke-virtual {p0}, Landroid/widget/Editor$InsertionHandleView;->removeHiderCallback()V
 
     return-void
 .end method
@@ -299,7 +264,7 @@
 
     invoke-super {p0}, Landroid/widget/Editor$HandleView;->onHandleMoved()V
 
-    invoke-direct {p0}, Landroid/widget/Editor$InsertionHandleView;->removeHiderCallback()V
+    invoke-virtual {p0}, Landroid/widget/Editor$InsertionHandleView;->removeHiderCallback()V
 
     return-void
 .end method
@@ -317,6 +282,7 @@
 
     packed-switch v6, :pswitch_data_0
 
+    :cond_0
     :goto_0
     :pswitch_0
     return v3
@@ -334,6 +300,16 @@
 
     iput v6, p0, Landroid/widget/Editor$InsertionHandleView;->mDownPositionY:F
 
+    iget-object v6, p0, Landroid/widget/Editor$InsertionHandleView;->this$0:Landroid/widget/Editor;
+
+    invoke-static {v6}, Landroid/widget/Editor;->-get2(Landroid/widget/Editor;)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_0
+
+    invoke-virtual {p0}, Landroid/widget/Editor$InsertionHandleView;->removeHiderCallback()V
+
     goto :goto_0
 
     :pswitch_2
@@ -341,7 +317,7 @@
 
     move-result v6
 
-    if-nez v6, :cond_2
+    if-nez v6, :cond_3
 
     iget v6, p0, Landroid/widget/Editor$InsertionHandleView;->mDownPositionX:F
 
@@ -367,7 +343,7 @@
 
     iget-object v6, p0, Landroid/widget/Editor$InsertionHandleView;->this$0:Landroid/widget/Editor;
 
-    invoke-static {v6}, Landroid/widget/Editor;->-get13(Landroid/widget/Editor;)Landroid/widget/TextView;
+    invoke-static {v6}, Landroid/widget/Editor;->-get14(Landroid/widget/Editor;)Landroid/widget/TextView;
 
     move-result-object v6
 
@@ -389,71 +365,77 @@
 
     cmpg-float v6, v2, v6
 
-    if-gez v6, :cond_0
+    if-gez v6, :cond_1
 
     iget-object v6, p0, Landroid/widget/Editor$InsertionHandleView;->this$0:Landroid/widget/Editor;
 
-    iget-object v6, v6, Landroid/widget/Editor;->mTextActionMode:Landroid/view/ActionMode;
+    invoke-static {v6}, Landroid/widget/Editor;->-get13(Landroid/widget/Editor;)Landroid/view/ActionMode;
 
-    if-eqz v6, :cond_1
+    move-result-object v6
+
+    if-eqz v6, :cond_2
 
     iget-object v6, p0, Landroid/widget/Editor$InsertionHandleView;->this$0:Landroid/widget/Editor;
 
     invoke-virtual {v6}, Landroid/widget/Editor;->stopTextActionMode()V
 
-    :cond_0
+    :cond_1
     :goto_1
     iget-object v6, p0, Landroid/widget/Editor$InsertionHandleView;->this$0:Landroid/widget/Editor;
 
-    invoke-static {v6}, Landroid/widget/Editor;->-get5(Landroid/widget/Editor;)Z
+    invoke-static {v6}, Landroid/widget/Editor;->-get2(Landroid/widget/Editor;)Z
 
     move-result v6
 
-    if-eqz v6, :cond_3
+    if-eqz v6, :cond_4
 
     iget-object v6, p0, Landroid/widget/Editor$InsertionHandleView;->this$0:Landroid/widget/Editor;
 
-    iget-object v6, v6, Landroid/widget/Editor;->mTextActionMode:Landroid/view/ActionMode;
+    invoke-static {v6}, Landroid/widget/Editor;->-get13(Landroid/widget/Editor;)Landroid/view/ActionMode;
 
-    if-eqz v6, :cond_3
+    move-result-object v6
 
-    invoke-direct {p0}, Landroid/widget/Editor$InsertionHandleView;->removeHiderCallback()V
+    if-eqz v6, :cond_4
+
+    invoke-virtual {p0}, Landroid/widget/Editor$InsertionHandleView;->removeHiderCallback()V
 
     goto :goto_0
 
-    :cond_1
+    :cond_2
     iget-object v6, p0, Landroid/widget/Editor$InsertionHandleView;->this$0:Landroid/widget/Editor;
 
     invoke-virtual {v6}, Landroid/widget/Editor;->startInsertionActionMode()V
 
     goto :goto_1
 
-    :cond_2
+    :cond_3
     iget-object v6, p0, Landroid/widget/Editor$InsertionHandleView;->this$0:Landroid/widget/Editor;
 
-    iget-object v6, v6, Landroid/widget/Editor;->mTextActionMode:Landroid/view/ActionMode;
+    invoke-static {v6}, Landroid/widget/Editor;->-get13(Landroid/widget/Editor;)Landroid/view/ActionMode;
 
-    if-eqz v6, :cond_0
+    move-result-object v6
+
+    if-eqz v6, :cond_1
 
     iget-object v6, p0, Landroid/widget/Editor$InsertionHandleView;->this$0:Landroid/widget/Editor;
 
-    iget-object v6, v6, Landroid/widget/Editor;->mTextActionMode:Landroid/view/ActionMode;
+    invoke-static {v6}, Landroid/widget/Editor;->-get13(Landroid/widget/Editor;)Landroid/view/ActionMode;
+
+    move-result-object v6
 
     invoke-virtual {v6}, Landroid/view/ActionMode;->invalidateContentRect()V
 
     goto :goto_1
 
-    :cond_3
-    invoke-direct {p0}, Landroid/widget/Editor$InsertionHandleView;->hideAfterDelay()V
+    :cond_4
+    invoke-virtual {p0}, Landroid/widget/Editor$InsertionHandleView;->hideAfterDelay()V
 
-    goto :goto_0
+    goto/16 :goto_0
 
     :pswitch_3
-    invoke-direct {p0}, Landroid/widget/Editor$InsertionHandleView;->hideAfterDelay()V
+    invoke-virtual {p0}, Landroid/widget/Editor$InsertionHandleView;->hideAfterDelay()V
 
-    goto :goto_0
-
-    nop
+    goto/16 :goto_0
 
     :pswitch_data_0
     .packed-switch 0x0
@@ -462,6 +444,27 @@
         :pswitch_0
         :pswitch_3
     .end packed-switch
+.end method
+
+.method protected removeHiderCallback()V
+    .locals 2
+
+    iget-object v0, p0, Landroid/widget/Editor$InsertionHandleView;->mHider:Ljava/lang/Runnable;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Landroid/widget/Editor$InsertionHandleView;->this$0:Landroid/widget/Editor;
+
+    invoke-static {v0}, Landroid/widget/Editor;->-get14(Landroid/widget/Editor;)Landroid/widget/TextView;
+
+    move-result-object v0
+
+    iget-object v1, p0, Landroid/widget/Editor$InsertionHandleView;->mHider:Ljava/lang/Runnable;
+
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->removeCallbacks(Ljava/lang/Runnable;)Z
+
+    :cond_0
+    return-void
 .end method
 
 .method public show()V
@@ -483,7 +486,7 @@
 
     iget-object v2, p0, Landroid/widget/Editor$InsertionHandleView;->this$0:Landroid/widget/Editor;
 
-    invoke-static {v2}, Landroid/widget/Editor;->-get2(Landroid/widget/Editor;)Ljava/lang/Runnable;
+    invoke-static {v2}, Landroid/widget/Editor;->-get1(Landroid/widget/Editor;)Ljava/lang/Runnable;
 
     move-result-object v2
 
@@ -503,19 +506,19 @@
 
     move-result v2
 
-    if-ne v2, v7, :cond_3
+    if-ne v2, v7, :cond_4
 
     :cond_0
     :goto_0
     iget-object v2, p0, Landroid/widget/Editor$InsertionHandleView;->this$0:Landroid/widget/Editor;
 
-    invoke-static {v2}, Landroid/widget/Editor;->-get13(Landroid/widget/Editor;)Landroid/widget/TextView;
+    invoke-static {v2}, Landroid/widget/Editor;->-get14(Landroid/widget/Editor;)Landroid/widget/TextView;
 
     move-result-object v2
 
     iget-object v3, p0, Landroid/widget/Editor$InsertionHandleView;->this$0:Landroid/widget/Editor;
 
-    invoke-static {v3}, Landroid/widget/Editor;->-get2(Landroid/widget/Editor;)Ljava/lang/Runnable;
+    invoke-static {v3}, Landroid/widget/Editor;->-get1(Landroid/widget/Editor;)Ljava/lang/Runnable;
 
     move-result-object v3
 
@@ -528,7 +531,7 @@
 
     move-result v2
 
-    if-eq v2, v6, :cond_2
+    if-eq v2, v6, :cond_3
 
     iget-object v2, p0, Landroid/widget/Editor$InsertionHandleView;->this$0:Landroid/widget/Editor;
 
@@ -536,7 +539,7 @@
 
     move-result v2
 
-    if-eq v2, v7, :cond_2
+    if-eq v2, v7, :cond_3
 
     iget-object v2, p0, Landroid/widget/Editor$InsertionHandleView;->this$0:Landroid/widget/Editor;
 
@@ -544,60 +547,31 @@
 
     move-result v2
 
-    if-eqz v2, :cond_4
+    xor-int/lit8 v2, v2, 0x1
 
-    :cond_2
-    :goto_1
-    iget-object v2, p0, Landroid/widget/Editor$InsertionHandleView;->this$0:Landroid/widget/Editor;
+    if-eqz v2, :cond_3
 
-    invoke-static {v2}, Landroid/widget/Editor;->-get5(Landroid/widget/Editor;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_6
-
-    iget-object v2, p0, Landroid/widget/Editor$InsertionHandleView;->this$0:Landroid/widget/Editor;
-
-    iget-object v2, v2, Landroid/widget/Editor;->mTextActionMode:Landroid/view/ActionMode;
-
-    if-eqz v2, :cond_6
-
-    invoke-direct {p0}, Landroid/widget/Editor$InsertionHandleView;->removeHiderCallback()V
-
-    :goto_2
-    return-void
-
-    :cond_3
-    iget-object v2, p0, Landroid/widget/Editor$InsertionHandleView;->this$0:Landroid/widget/Editor;
-
-    invoke-static {v2}, Landroid/widget/Editor;->-wrap6(Landroid/widget/Editor;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_1
-
-    goto :goto_0
-
-    :cond_4
     const-wide/16 v2, 0x3a98
 
     cmp-long v2, v0, v2
 
-    if-gez v2, :cond_2
+    if-gez v2, :cond_3
 
     iget-object v2, p0, Landroid/widget/Editor$InsertionHandleView;->this$0:Landroid/widget/Editor;
 
-    iget-object v2, v2, Landroid/widget/Editor;->mTextActionMode:Landroid/view/ActionMode;
-
-    if-nez v2, :cond_2
-
-    iget-object v2, p0, Landroid/widget/Editor$InsertionHandleView;->this$0:Landroid/widget/Editor;
-
-    invoke-static {v2}, Landroid/widget/Editor;->-get2(Landroid/widget/Editor;)Ljava/lang/Runnable;
+    invoke-static {v2}, Landroid/widget/Editor;->-get13(Landroid/widget/Editor;)Landroid/view/ActionMode;
 
     move-result-object v2
 
-    if-nez v2, :cond_5
+    if-nez v2, :cond_3
+
+    iget-object v2, p0, Landroid/widget/Editor$InsertionHandleView;->this$0:Landroid/widget/Editor;
+
+    invoke-static {v2}, Landroid/widget/Editor;->-get1(Landroid/widget/Editor;)Ljava/lang/Runnable;
+
+    move-result-object v2
+
+    if-nez v2, :cond_2
 
     iget-object v2, p0, Landroid/widget/Editor$InsertionHandleView;->this$0:Landroid/widget/Editor;
 
@@ -605,18 +579,18 @@
 
     invoke-direct {v3, p0}, Landroid/widget/Editor$InsertionHandleView$1;-><init>(Landroid/widget/Editor$InsertionHandleView;)V
 
-    invoke-static {v2, v3}, Landroid/widget/Editor;->-set0(Landroid/widget/Editor;Ljava/lang/Runnable;)Ljava/lang/Runnable;
+    invoke-static {v2, v3}, Landroid/widget/Editor;->-set1(Landroid/widget/Editor;Ljava/lang/Runnable;)Ljava/lang/Runnable;
 
-    :cond_5
+    :cond_2
     iget-object v2, p0, Landroid/widget/Editor$InsertionHandleView;->this$0:Landroid/widget/Editor;
 
-    invoke-static {v2}, Landroid/widget/Editor;->-get13(Landroid/widget/Editor;)Landroid/widget/TextView;
+    invoke-static {v2}, Landroid/widget/Editor;->-get14(Landroid/widget/Editor;)Landroid/widget/TextView;
 
     move-result-object v2
 
     iget-object v3, p0, Landroid/widget/Editor$InsertionHandleView;->this$0:Landroid/widget/Editor;
 
-    invoke-static {v3}, Landroid/widget/Editor;->-get2(Landroid/widget/Editor;)Ljava/lang/Runnable;
+    invoke-static {v3}, Landroid/widget/Editor;->-get1(Landroid/widget/Editor;)Ljava/lang/Runnable;
 
     move-result-object v3
 
@@ -630,86 +604,211 @@
 
     invoke-virtual {v2, v3, v4, v5}, Landroid/widget/TextView;->postDelayed(Ljava/lang/Runnable;J)Z
 
-    goto :goto_1
+    :cond_3
+    return-void
 
-    :cond_6
-    invoke-direct {p0}, Landroid/widget/Editor$InsertionHandleView;->hideAfterDelay()V
+    :cond_4
+    iget-object v2, p0, Landroid/widget/Editor$InsertionHandleView;->this$0:Landroid/widget/Editor;
 
-    goto :goto_2
-.end method
-
-.method public updatePosition(FF)V
-    .locals 5
-
-    iget-object v3, p0, Landroid/widget/Editor$InsertionHandleView;->this$0:Landroid/widget/Editor;
-
-    invoke-static {v3}, Landroid/widget/Editor;->-get13(Landroid/widget/Editor;)Landroid/widget/TextView;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Landroid/widget/TextView;->getLayout()Landroid/text/Layout;
-
-    move-result-object v1
-
-    if-eqz v1, :cond_2
-
-    iget v3, p0, Landroid/widget/Editor$InsertionHandleView;->mPreviousLineTouched:I
-
-    const/4 v4, -0x1
-
-    if-ne v3, v4, :cond_0
-
-    iget-object v3, p0, Landroid/widget/Editor$InsertionHandleView;->this$0:Landroid/widget/Editor;
-
-    invoke-static {v3}, Landroid/widget/Editor;->-get13(Landroid/widget/Editor;)Landroid/widget/TextView;
-
-    move-result-object v3
-
-    invoke-virtual {v3, p2}, Landroid/widget/TextView;->getLineAtCoordinate(F)I
-
-    move-result v3
-
-    iput v3, p0, Landroid/widget/Editor$InsertionHandleView;->mPreviousLineTouched:I
-
-    :cond_0
-    iget-object v3, p0, Landroid/widget/Editor$InsertionHandleView;->this$0:Landroid/widget/Editor;
-
-    iget v4, p0, Landroid/widget/Editor$InsertionHandleView;->mPreviousLineTouched:I
-
-    invoke-static {v3, v1, v4, p2}, Landroid/widget/Editor;->-wrap16(Landroid/widget/Editor;Landroid/text/Layout;IF)I
-
-    move-result v0
-
-    invoke-virtual {p0, v1, v0, p1}, Landroid/widget/Editor$InsertionHandleView;->getOffsetAtCoordinate(Landroid/text/Layout;IF)I
+    invoke-static {v2}, Landroid/widget/Editor;->-wrap6(Landroid/widget/Editor;)Z
 
     move-result v2
 
+    if-eqz v2, :cond_1
+
+    goto :goto_0
+.end method
+
+.method public updatePosition(FF)V
+    .locals 12
+
+    iget v10, p0, Landroid/widget/Editor$InsertionHandleView;->mLastParentYOnScreen:I
+
+    int-to-float v10, v10
+
+    sub-float v10, p2, v10
+
+    iget v11, p0, Landroid/widget/Editor$InsertionHandleView;->mFirstParentY:I
+
+    int-to-float v11, v11
+
+    add-float v3, v10, v11
+
+    iget-object v10, p0, Landroid/widget/Editor$InsertionHandleView;->this$0:Landroid/widget/Editor;
+
+    invoke-static {v10}, Landroid/widget/Editor;->-get14(Landroid/widget/Editor;)Landroid/widget/TextView;
+
+    move-result-object v10
+
+    invoke-virtual {v10}, Landroid/widget/TextView;->getLayout()Landroid/text/Layout;
+
+    move-result-object v4
+
+    if-eqz v4, :cond_3
+
+    iget v10, p0, Landroid/widget/Editor$InsertionHandleView;->mPreviousLineTouched:I
+
+    const/4 v11, -0x1
+
+    if-ne v10, v11, :cond_0
+
+    iget-object v10, p0, Landroid/widget/Editor$InsertionHandleView;->this$0:Landroid/widget/Editor;
+
+    invoke-static {v10}, Landroid/widget/Editor;->-get14(Landroid/widget/Editor;)Landroid/widget/TextView;
+
+    move-result-object v10
+
+    invoke-virtual {v10, v3}, Landroid/widget/TextView;->getLineAtCoordinate(F)I
+
+    move-result v10
+
+    iput v10, p0, Landroid/widget/Editor$InsertionHandleView;->mPreviousLineTouched:I
+
+    :cond_0
+    iget-object v10, p0, Landroid/widget/Editor$InsertionHandleView;->this$0:Landroid/widget/Editor;
+
+    iget v11, p0, Landroid/widget/Editor$InsertionHandleView;->mPreviousLineTouched:I
+
+    invoke-static {v10, v4, v11, v3}, Landroid/widget/Editor;->-wrap16(Landroid/widget/Editor;Landroid/text/Layout;IF)I
+
+    move-result v0
+
+    invoke-virtual {p0, v4, v0, p1}, Landroid/widget/Editor$InsertionHandleView;->getOffsetAtCoordinate(Landroid/text/Layout;IF)I
+
+    move-result v5
+
+    invoke-virtual {v4, v0}, Landroid/text/Layout;->getLineBottom(I)I
+
+    move-result v1
+
+    iget v10, p0, Landroid/widget/Editor$InsertionHandleView;->mPreviousLineTouched:I
+
+    invoke-virtual {v4, v10}, Landroid/text/Layout;->getLineBottom(I)I
+
+    move-result v6
+
+    iget-object v10, p0, Landroid/widget/Editor$InsertionHandleView;->this$0:Landroid/widget/Editor;
+
+    invoke-static {v10}, Landroid/widget/Editor;->-get14(Landroid/widget/Editor;)Landroid/widget/TextView;
+
+    move-result-object v10
+
+    const/4 v11, 0x1
+
+    invoke-virtual {v10, v11}, Landroid/widget/TextView;->getVerticalOffset(Z)I
+
+    move-result v10
+
+    iget-object v11, p0, Landroid/widget/Editor$InsertionHandleView;->this$0:Landroid/widget/Editor;
+
+    invoke-static {v11}, Landroid/widget/Editor;->-get14(Landroid/widget/Editor;)Landroid/widget/TextView;
+
+    move-result-object v11
+
+    invoke-virtual {v11}, Landroid/widget/TextView;->getCompoundPaddingTop()I
+
+    move-result v11
+
+    add-int v7, v10, v11
+
+    sub-int v10, v1, v6
+
+    sub-int v2, v10, v7
+
     iput v0, p0, Landroid/widget/Editor$InsertionHandleView;->mPreviousLineTouched:I
 
+    iget v10, p0, Landroid/widget/Editor$InsertionHandleView;->mTouchToWindowOffsetX:F
+
+    add-float/2addr v10, p1
+
+    iget v11, p0, Landroid/widget/Editor$InsertionHandleView;->mHotspotX:I
+
+    int-to-float v11, v11
+
+    sub-float/2addr v10, v11
+
+    invoke-virtual {p0}, Landroid/widget/Editor$InsertionHandleView;->getHorizontalOffset()I
+
+    move-result v11
+
+    int-to-float v11, v11
+
+    sub-float/2addr v10, v11
+
+    iget v11, p0, Landroid/widget/Editor$InsertionHandleView;->mHorizontalOffset:F
+
+    sub-float/2addr v10, v11
+
+    iget v11, p0, Landroid/widget/Editor$InsertionHandleView;->mLastParentXOnScreen:I
+
+    int-to-float v11, v11
+
+    add-float/2addr v10, v11
+
+    iget v11, p0, Landroid/widget/Editor$InsertionHandleView;->mLastParentX:I
+
+    int-to-float v11, v11
+
+    sub-float/2addr v10, v11
+
+    float-to-int v8, v10
+
+    iget-boolean v10, p0, Landroid/widget/Editor$InsertionHandleView;->mIsVerticalScrolled:Z
+
+    if-eqz v10, :cond_2
+
+    sub-int v9, v1, v2
+
     :goto_0
-    const/4 v3, 0x0
+    invoke-virtual {p0, v8, v9}, Landroid/widget/Editor$InsertionHandleView;->updatePositionDuringDragging(II)V
 
-    invoke-virtual {p0, v2, v3}, Landroid/widget/Editor$InsertionHandleView;->positionAtCursorOffset(IZ)V
+    :goto_1
+    const/4 v10, 0x0
 
-    iget-object v3, p0, Landroid/widget/Editor$InsertionHandleView;->this$0:Landroid/widget/Editor;
+    invoke-virtual {p0, v5, v10}, Landroid/widget/Editor$InsertionHandleView;->positionAtCursorOffset(IZ)V
 
-    iget-object v3, v3, Landroid/widget/Editor;->mTextActionMode:Landroid/view/ActionMode;
+    iget-object v10, p0, Landroid/widget/Editor$InsertionHandleView;->this$0:Landroid/widget/Editor;
 
-    if-eqz v3, :cond_1
+    invoke-static {v10}, Landroid/widget/Editor;->-get13(Landroid/widget/Editor;)Landroid/view/ActionMode;
 
-    iget-object v3, p0, Landroid/widget/Editor$InsertionHandleView;->this$0:Landroid/widget/Editor;
+    move-result-object v10
 
-    iget-object v3, v3, Landroid/widget/Editor;->mTextActionMode:Landroid/view/ActionMode;
+    if-eqz v10, :cond_1
 
-    invoke-virtual {v3}, Landroid/view/ActionMode;->invalidate()V
+    iget-object v10, p0, Landroid/widget/Editor$InsertionHandleView;->this$0:Landroid/widget/Editor;
+
+    invoke-static {v10}, Landroid/widget/Editor;->-wrap21(Landroid/widget/Editor;)V
 
     :cond_1
     return-void
 
     :cond_2
-    const/4 v2, -0x1
+    iget v10, p0, Landroid/widget/Editor$InsertionHandleView;->mTouchToWindowOffsetY:F
+
+    add-float/2addr v10, p2
+
+    iget v11, p0, Landroid/widget/Editor$InsertionHandleView;->mTouchOffsetY:F
+
+    sub-float/2addr v10, v11
+
+    iget v11, p0, Landroid/widget/Editor$InsertionHandleView;->mVerticalScrolledYOffset:I
+
+    int-to-float v11, v11
+
+    sub-float/2addr v10, v11
+
+    iget v11, p0, Landroid/widget/Editor$InsertionHandleView;->mVerticalOffset:F
+
+    sub-float/2addr v10, v11
+
+    float-to-int v9, v10
 
     goto :goto_0
+
+    :cond_3
+    const/4 v5, -0x1
+
+    goto :goto_1
 .end method
 
 .method public updateSelection(I)V
@@ -717,7 +816,7 @@
 
     iget-object v0, p0, Landroid/widget/Editor$InsertionHandleView;->this$0:Landroid/widget/Editor;
 
-    invoke-static {v0}, Landroid/widget/Editor;->-get13(Landroid/widget/Editor;)Landroid/widget/TextView;
+    invoke-static {v0}, Landroid/widget/Editor;->-get14(Landroid/widget/Editor;)Landroid/widget/TextView;
 
     move-result-object v0
 

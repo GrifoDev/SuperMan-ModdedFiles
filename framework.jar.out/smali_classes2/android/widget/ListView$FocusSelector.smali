@@ -88,7 +88,7 @@
 
     iget v4, p0, Landroid/widget/ListView$FocusSelector;->mPositionTop:I
 
-    invoke-virtual {v2, v3, v4}, Landroid/widget/AbsListView;->setSelectionFromTop(II)V
+    invoke-virtual {v2, v3, v4}, Landroid/widget/ListView;->setSelectionFromTop(II)V
 
     const/4 v2, 0x2
 
@@ -109,13 +109,13 @@
 
     iget-object v3, p0, Landroid/widget/ListView$FocusSelector;->this$0:Landroid/widget/ListView;
 
-    iget v3, v3, Landroid/widget/AdapterView;->mFirstPosition:I
+    iget v3, v3, Landroid/widget/ListView;->mFirstPosition:I
 
     sub-int v1, v2, v3
 
     iget-object v2, p0, Landroid/widget/ListView$FocusSelector;->this$0:Landroid/widget/ListView;
 
-    invoke-virtual {v2, v1}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {v2, v1}, Landroid/widget/ListView;->getChildAt(I)Landroid/view/View;
 
     move-result-object v0
 

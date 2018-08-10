@@ -12,6 +12,8 @@
 
 .field public static final GET_TEXT_WITH_STYLES:I = 0x1
 
+.field public static final INPUT_CONTENT_GRANT_READ_URI_PERMISSION:I = 0x1
+
 
 # virtual methods
 .method public abstract beginBatchEdit()Z
@@ -24,6 +26,9 @@
 .end method
 
 .method public abstract commitCompletion(Landroid/view/inputmethod/CompletionInfo;)Z
+.end method
+
+.method public abstract commitContent(Landroid/view/inputmethod/InputContentInfo;ILandroid/os/Bundle;)Z
 .end method
 
 .method public abstract commitCorrection(Landroid/view/inputmethod/CorrectionInfo;)Z

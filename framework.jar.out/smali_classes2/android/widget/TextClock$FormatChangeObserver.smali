@@ -32,29 +32,83 @@
 
 # virtual methods
 .method public onChange(Z)V
-    .locals 1
+    .locals 2
+
+    iget-object v0, p0, Landroid/widget/TextClock$FormatChangeObserver;->this$0:Landroid/widget/TextClock;
+
+    invoke-static {v0}, Landroid/widget/TextClock;->-get1(Landroid/widget/TextClock;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
 
     iget-object v0, p0, Landroid/widget/TextClock$FormatChangeObserver;->this$0:Landroid/widget/TextClock;
 
     invoke-static {v0}, Landroid/widget/TextClock;->-wrap0(Landroid/widget/TextClock;)V
 
+    :cond_0
+    :goto_0
     iget-object v0, p0, Landroid/widget/TextClock$FormatChangeObserver;->this$0:Landroid/widget/TextClock;
 
     invoke-static {v0}, Landroid/widget/TextClock;->-wrap2(Landroid/widget/TextClock;)V
 
     return-void
+
+    :cond_1
+    iget-object v0, p0, Landroid/widget/TextClock$FormatChangeObserver;->this$0:Landroid/widget/TextClock;
+
+    invoke-static {v0}, Landroid/widget/TextClock;->-get0(Landroid/widget/TextClock;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    iget-object v0, p0, Landroid/widget/TextClock$FormatChangeObserver;->this$0:Landroid/widget/TextClock;
+
+    const/4 v1, 0x1
+
+    invoke-static {v0, v1}, Landroid/widget/TextClock;->-set0(Landroid/widget/TextClock;Z)Z
+
+    goto :goto_0
 .end method
 
 .method public onChange(ZLandroid/net/Uri;)V
-    .locals 1
+    .locals 2
+
+    iget-object v0, p0, Landroid/widget/TextClock$FormatChangeObserver;->this$0:Landroid/widget/TextClock;
+
+    invoke-static {v0}, Landroid/widget/TextClock;->-get1(Landroid/widget/TextClock;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
 
     iget-object v0, p0, Landroid/widget/TextClock$FormatChangeObserver;->this$0:Landroid/widget/TextClock;
 
     invoke-static {v0}, Landroid/widget/TextClock;->-wrap0(Landroid/widget/TextClock;)V
 
+    :cond_0
+    :goto_0
     iget-object v0, p0, Landroid/widget/TextClock$FormatChangeObserver;->this$0:Landroid/widget/TextClock;
 
     invoke-static {v0}, Landroid/widget/TextClock;->-wrap2(Landroid/widget/TextClock;)V
 
     return-void
+
+    :cond_1
+    iget-object v0, p0, Landroid/widget/TextClock$FormatChangeObserver;->this$0:Landroid/widget/TextClock;
+
+    invoke-static {v0}, Landroid/widget/TextClock;->-get0(Landroid/widget/TextClock;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    iget-object v0, p0, Landroid/widget/TextClock$FormatChangeObserver;->this$0:Landroid/widget/TextClock;
+
+    const/4 v1, 0x1
+
+    invoke-static {v0, v1}, Landroid/widget/TextClock;->-set0(Landroid/widget/TextClock;Z)Z
+
+    goto :goto_0
 .end method

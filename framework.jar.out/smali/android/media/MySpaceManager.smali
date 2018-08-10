@@ -199,13 +199,10 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    xor-int/lit8 v2, v2, 0x1
 
-    :cond_0
-    :goto_0
-    return v0
+    if-eqz v2, :cond_0
 
-    :cond_1
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(Ljava/lang/String;)Ljava/lang/Integer;
 
     move-result-object v2
@@ -216,13 +213,15 @@
 
     and-int/lit8 v2, v2, 0xc
 
-    if-nez v2, :cond_2
+    if-nez v2, :cond_1
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    :cond_0
+    :goto_0
+    return v0
 
-    :cond_2
+    :cond_1
     const/4 v0, 0x0
 
     goto :goto_0

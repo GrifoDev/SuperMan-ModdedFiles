@@ -28,6 +28,8 @@
 
 .field public static final DEFAULT_MAC_ADDRESS:Ljava/lang/String; = "02:00:00:00:00:00"
 
+.field private static final FILTER_TIME_CONSTANT:J = 0xbb8L
+
 .field public static final FREQUENCY_UNITS:Ljava/lang/String; = "MHz"
 
 .field public static final INVALID_RSSI:I = -0x7f
@@ -37,6 +39,10 @@
 .field public static final MAX_RSSI:I = 0xc8
 
 .field public static final MIN_RSSI:I = -0x7e
+
+.field private static final OUTPUT_SCALE_FACTOR:J = 0x1388L
+
+.field private static final RESET_TIME_STAMP:J = -0x8000000000000000L
 
 .field private static final TAG:Ljava/lang/String; = "WifiInfo"
 
@@ -58,10 +64,6 @@
 # instance fields
 .field public badRssiCount:I
 
-.field public isGigaAp:Z
-
-.field public isVendorAp:Z
-
 .field public linkStuckCount:I
 
 .field public lowRssiCount:I
@@ -74,19 +76,25 @@
 
 .field private mCheckVsieForSns:Z
 
-.field private mDefaultAp:Z
+.field private mChnKeepConnection:Z
 
 .field private mEphemeral:Z
 
-.field private mExpiration:Ljava/lang/String;
-
 .field private mFrequency:I
 
+.field private mGigaAp:Z
+
 .field private mIpAddress:Ljava/net/InetAddress;
+
+.field private mLastPacketCountUpdateTimeStamp:J
 
 .field private mLinkSpeed:I
 
 .field private mLoginUrl:Ljava/lang/String;
+
+.field private mLqcmRx:I
+
+.field private mLqcmTx:I
 
 .field private mMacAddress:Ljava/lang/String;
 
@@ -98,15 +106,13 @@
 
 .field private mRssi:I
 
-.field private mSharedAp:Z
-
 .field private mSkipInternetCheck:Z
 
-.field private mSkipInternetCheckConfirmedOnThisConnection:Z
+.field private mSnr:I
 
 .field private mSupplicantState:Landroid/net/wifi/SupplicantState;
 
-.field private mVerifiedPassword:Z
+.field private mVenueName:Ljava/lang/String;
 
 .field private mWifiSsid:Landroid/net/wifi/WifiSsid;
 
@@ -149,7 +155,7 @@
 .method static synthetic -set2(Landroid/net/wifi/WifiInfo;Ljava/lang/String;)Ljava/lang/String;
     .locals 0
 
-    iput-object p1, p0, Landroid/net/wifi/WifiInfo;->mExpiration:Ljava/lang/String;
+    iput-object p1, p0, Landroid/net/wifi/WifiInfo;->mLoginUrl:Ljava/lang/String;
 
     return-object p1
 .end method
@@ -157,20 +163,12 @@
 .method static synthetic -set3(Landroid/net/wifi/WifiInfo;Ljava/lang/String;)Ljava/lang/String;
     .locals 0
 
-    iput-object p1, p0, Landroid/net/wifi/WifiInfo;->mLoginUrl:Ljava/lang/String;
-
-    return-object p1
-.end method
-
-.method static synthetic -set4(Landroid/net/wifi/WifiInfo;Ljava/lang/String;)Ljava/lang/String;
-    .locals 0
-
     iput-object p1, p0, Landroid/net/wifi/WifiInfo;->mMacAddress:Ljava/lang/String;
 
     return-object p1
 .end method
 
-.method static synthetic -set5(Landroid/net/wifi/WifiInfo;Z)Z
+.method static synthetic -set4(Landroid/net/wifi/WifiInfo;Z)Z
     .locals 0
 
     iput-boolean p1, p0, Landroid/net/wifi/WifiInfo;->mMeteredHint:Z
@@ -178,10 +176,18 @@
     return p1
 .end method
 
-.method static synthetic -set6(Landroid/net/wifi/WifiInfo;Landroid/net/wifi/SupplicantState;)Landroid/net/wifi/SupplicantState;
+.method static synthetic -set5(Landroid/net/wifi/WifiInfo;Landroid/net/wifi/SupplicantState;)Landroid/net/wifi/SupplicantState;
     .locals 0
 
     iput-object p1, p0, Landroid/net/wifi/WifiInfo;->mSupplicantState:Landroid/net/wifi/SupplicantState;
+
+    return-object p1
+.end method
+
+.method static synthetic -set6(Landroid/net/wifi/WifiInfo;Ljava/lang/String;)Ljava/lang/String;
+    .locals 0
+
+    iput-object p1, p0, Landroid/net/wifi/WifiInfo;->mVenueName:Ljava/lang/String;
 
     return-object p1
 .end method
@@ -319,13 +325,15 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 4
+    .locals 5
 
-    const/4 v3, -0x1
+    const/16 v4, 0xff
+
+    const/4 v1, -0x1
+
+    const/4 v3, 0x0
 
     const/4 v2, 0x0
-
-    const/4 v1, 0x0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -333,11 +341,11 @@
 
     iput-object v0, p0, Landroid/net/wifi/WifiInfo;->mMacAddress:Ljava/lang/String;
 
-    iput-object v2, p0, Landroid/net/wifi/WifiInfo;->mWifiSsid:Landroid/net/wifi/WifiSsid;
+    iput-object v3, p0, Landroid/net/wifi/WifiInfo;->mWifiSsid:Landroid/net/wifi/WifiSsid;
 
-    iput-object v2, p0, Landroid/net/wifi/WifiInfo;->mBSSID:Ljava/lang/String;
+    iput-object v3, p0, Landroid/net/wifi/WifiInfo;->mBSSID:Ljava/lang/String;
 
-    iput v3, p0, Landroid/net/wifi/WifiInfo;->mNetworkId:I
+    iput v1, p0, Landroid/net/wifi/WifiInfo;->mNetworkId:I
 
     sget-object v0, Landroid/net/wifi/SupplicantState;->UNINITIALIZED:Landroid/net/wifi/SupplicantState;
 
@@ -347,35 +355,37 @@
 
     iput v0, p0, Landroid/net/wifi/WifiInfo;->mRssi:I
 
-    iput v3, p0, Landroid/net/wifi/WifiInfo;->mLinkSpeed:I
+    iput v1, p0, Landroid/net/wifi/WifiInfo;->mLinkSpeed:I
 
-    iput v3, p0, Landroid/net/wifi/WifiInfo;->mFrequency:I
+    iput v1, p0, Landroid/net/wifi/WifiInfo;->mFrequency:I
 
-    iput-boolean v1, p0, Landroid/net/wifi/WifiInfo;->mSkipInternetCheck:Z
+    const-wide/high16 v0, -0x8000000000000000L
 
-    iput-boolean v1, p0, Landroid/net/wifi/WifiInfo;->mSkipInternetCheckConfirmedOnThisConnection:Z
+    iput-wide v0, p0, Landroid/net/wifi/WifiInfo;->mLastPacketCountUpdateTimeStamp:J
 
-    iput-boolean v1, p0, Landroid/net/wifi/WifiInfo;->mCaptivePortal:Z
+    iput-boolean v2, p0, Landroid/net/wifi/WifiInfo;->mSkipInternetCheck:Z
 
-    iput-boolean v1, p0, Landroid/net/wifi/WifiInfo;->mAuthenticated:Z
+    iput-boolean v2, p0, Landroid/net/wifi/WifiInfo;->mChnKeepConnection:Z
 
-    iput-boolean v1, p0, Landroid/net/wifi/WifiInfo;->mManualConnection:Z
+    iput-boolean v2, p0, Landroid/net/wifi/WifiInfo;->mCaptivePortal:Z
 
-    iput-object v2, p0, Landroid/net/wifi/WifiInfo;->mLoginUrl:Ljava/lang/String;
+    iput-boolean v2, p0, Landroid/net/wifi/WifiInfo;->mAuthenticated:Z
 
-    iput-boolean v1, p0, Landroid/net/wifi/WifiInfo;->mDefaultAp:Z
+    iput-boolean v2, p0, Landroid/net/wifi/WifiInfo;->mManualConnection:Z
 
-    iput-boolean v1, p0, Landroid/net/wifi/WifiInfo;->mSharedAp:Z
+    iput-object v3, p0, Landroid/net/wifi/WifiInfo;->mLoginUrl:Ljava/lang/String;
 
-    iput-object v2, p0, Landroid/net/wifi/WifiInfo;->mExpiration:Ljava/lang/String;
+    iput-boolean v2, p0, Landroid/net/wifi/WifiInfo;->mCheckVsieForSns:Z
 
-    iput-boolean v1, p0, Landroid/net/wifi/WifiInfo;->mVerifiedPassword:Z
+    iput-boolean v2, p0, Landroid/net/wifi/WifiInfo;->mGigaAp:Z
 
-    iput-boolean v1, p0, Landroid/net/wifi/WifiInfo;->mCheckVsieForSns:Z
+    iput-object v3, p0, Landroid/net/wifi/WifiInfo;->mVenueName:Ljava/lang/String;
 
-    iput-boolean v1, p0, Landroid/net/wifi/WifiInfo;->isGigaAp:Z
+    iput v2, p0, Landroid/net/wifi/WifiInfo;->mSnr:I
 
-    iput-boolean v1, p0, Landroid/net/wifi/WifiInfo;->isVendorAp:Z
+    iput v4, p0, Landroid/net/wifi/WifiInfo;->mLqcmTx:I
+
+    iput v4, p0, Landroid/net/wifi/WifiInfo;->mLqcmRx:I
 
     return-void
 .end method
@@ -467,6 +477,10 @@
 
     iput-wide v0, p0, Landroid/net/wifi/WifiInfo;->rxSuccessRate:D
 
+    iget-wide v0, p1, Landroid/net/wifi/WifiInfo;->mLastPacketCountUpdateTimeStamp:J
+
+    iput-wide v0, p0, Landroid/net/wifi/WifiInfo;->mLastPacketCountUpdateTimeStamp:J
+
     iget v0, p1, Landroid/net/wifi/WifiInfo;->score:I
 
     iput v0, p0, Landroid/net/wifi/WifiInfo;->score:I
@@ -487,9 +501,9 @@
 
     iput-boolean v0, p0, Landroid/net/wifi/WifiInfo;->mSkipInternetCheck:Z
 
-    iget-boolean v0, p1, Landroid/net/wifi/WifiInfo;->mSkipInternetCheckConfirmedOnThisConnection:Z
+    iget-boolean v0, p1, Landroid/net/wifi/WifiInfo;->mChnKeepConnection:Z
 
-    iput-boolean v0, p0, Landroid/net/wifi/WifiInfo;->mSkipInternetCheckConfirmedOnThisConnection:Z
+    iput-boolean v0, p0, Landroid/net/wifi/WifiInfo;->mChnKeepConnection:Z
 
     iget-boolean v0, p1, Landroid/net/wifi/WifiInfo;->mCaptivePortal:Z
 
@@ -507,33 +521,29 @@
 
     iput-object v0, p0, Landroid/net/wifi/WifiInfo;->mLoginUrl:Ljava/lang/String;
 
-    iget-boolean v0, p1, Landroid/net/wifi/WifiInfo;->mDefaultAp:Z
-
-    iput-boolean v0, p0, Landroid/net/wifi/WifiInfo;->mDefaultAp:Z
-
-    iget-boolean v0, p1, Landroid/net/wifi/WifiInfo;->mSharedAp:Z
-
-    iput-boolean v0, p0, Landroid/net/wifi/WifiInfo;->mSharedAp:Z
-
-    iget-object v0, p1, Landroid/net/wifi/WifiInfo;->mExpiration:Ljava/lang/String;
-
-    iput-object v0, p0, Landroid/net/wifi/WifiInfo;->mExpiration:Ljava/lang/String;
-
-    iget-boolean v0, p1, Landroid/net/wifi/WifiInfo;->mVerifiedPassword:Z
-
-    iput-boolean v0, p0, Landroid/net/wifi/WifiInfo;->mVerifiedPassword:Z
-
     iget-boolean v0, p1, Landroid/net/wifi/WifiInfo;->mCheckVsieForSns:Z
 
     iput-boolean v0, p0, Landroid/net/wifi/WifiInfo;->mCheckVsieForSns:Z
 
-    iget-boolean v0, p1, Landroid/net/wifi/WifiInfo;->isGigaAp:Z
+    iget-boolean v0, p1, Landroid/net/wifi/WifiInfo;->mGigaAp:Z
 
-    iput-boolean v0, p0, Landroid/net/wifi/WifiInfo;->isGigaAp:Z
+    iput-boolean v0, p0, Landroid/net/wifi/WifiInfo;->mGigaAp:Z
 
-    iget-boolean v0, p1, Landroid/net/wifi/WifiInfo;->isVendorAp:Z
+    iget-object v0, p1, Landroid/net/wifi/WifiInfo;->mVenueName:Ljava/lang/String;
 
-    iput-boolean v0, p0, Landroid/net/wifi/WifiInfo;->isVendorAp:Z
+    iput-object v0, p0, Landroid/net/wifi/WifiInfo;->mVenueName:Ljava/lang/String;
+
+    iget v0, p1, Landroid/net/wifi/WifiInfo;->mSnr:I
+
+    iput v0, p0, Landroid/net/wifi/WifiInfo;->mSnr:I
+
+    iget v0, p1, Landroid/net/wifi/WifiInfo;->mLqcmTx:I
+
+    iput v0, p0, Landroid/net/wifi/WifiInfo;->mLqcmTx:I
+
+    iget v0, p1, Landroid/net/wifi/WifiInfo;->mLqcmRx:I
+
+    iput v0, p0, Landroid/net/wifi/WifiInfo;->mLqcmRx:I
 
     :cond_0
     return-void
@@ -844,20 +854,12 @@
     return v0
 .end method
 
-.method public getDefaultAp()Z
+.method public getChnKeepConnection()Z
     .locals 1
 
-    iget-boolean v0, p0, Landroid/net/wifi/WifiInfo;->mDefaultAp:Z
+    iget-boolean v0, p0, Landroid/net/wifi/WifiInfo;->mChnKeepConnection:Z
 
     return v0
-.end method
-
-.method public getExpiration()Ljava/lang/String;
-    .locals 1
-
-    iget-object v0, p0, Landroid/net/wifi/WifiInfo;->mExpiration:Ljava/lang/String;
-
-    return-object v0
 .end method
 
 .method public getFrequency()I
@@ -926,6 +928,22 @@
     iget-object v0, p0, Landroid/net/wifi/WifiInfo;->mLoginUrl:Ljava/lang/String;
 
     return-object v0
+.end method
+
+.method public getLqcmRx()I
+    .locals 1
+
+    iget v0, p0, Landroid/net/wifi/WifiInfo;->mLqcmRx:I
+
+    return v0
+.end method
+
+.method public getLqcmTx()I
+    .locals 1
+
+    iget v0, p0, Landroid/net/wifi/WifiInfo;->mLqcmTx:I
+
+    return v0
 .end method
 
 .method public getMacAddress()Ljava/lang/String;
@@ -1049,10 +1067,10 @@
     return v0
 .end method
 
-.method public getSkipInternetCheckConfirmedOnThisConnection()Z
+.method public getSnr()I
     .locals 1
 
-    iget-boolean v0, p0, Landroid/net/wifi/WifiInfo;->mSkipInternetCheckConfirmedOnThisConnection:Z
+    iget v0, p0, Landroid/net/wifi/WifiInfo;->mSnr:I
 
     return v0
 .end method
@@ -1061,6 +1079,14 @@
     .locals 1
 
     iget-object v0, p0, Landroid/net/wifi/WifiInfo;->mSupplicantState:Landroid/net/wifi/SupplicantState;
+
+    return-object v0
+.end method
+
+.method public getVenueName()Ljava/lang/String;
+    .locals 1
+
+    iget-object v0, p0, Landroid/net/wifi/WifiInfo;->mVenueName:Ljava/lang/String;
 
     return-object v0
 .end method
@@ -1074,30 +1100,27 @@
 .end method
 
 .method public hasRealMacAddress()Z
-    .locals 3
+    .locals 2
 
-    const/4 v0, 0x0
+    iget-object v0, p0, Landroid/net/wifi/WifiInfo;->mMacAddress:Ljava/lang/String;
+
+    if-eqz v0, :cond_0
+
+    const-string/jumbo v0, "02:00:00:00:00:00"
 
     iget-object v1, p0, Landroid/net/wifi/WifiInfo;->mMacAddress:Ljava/lang/String;
 
-    if-eqz v1, :cond_0
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    const-string/jumbo v1, "02:00:00:00:00:00"
+    move-result v0
 
-    iget-object v2, p0, Landroid/net/wifi/WifiInfo;->mMacAddress:Ljava/lang/String;
+    xor-int/lit8 v0, v0, 0x1
 
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_1
-
-    :cond_0
     :goto_0
     return v0
 
-    :cond_1
-    const/4 v0, 0x1
+    :cond_0
+    const/4 v0, 0x0
 
     goto :goto_0
 .end method
@@ -1150,6 +1173,14 @@
     return v0
 .end method
 
+.method public isGigaAp()Z
+    .locals 1
+
+    iget-boolean v0, p0, Landroid/net/wifi/WifiInfo;->mGigaAp:Z
+
+    return v0
+.end method
+
 .method public isManualConnection()Z
     .locals 1
 
@@ -1158,66 +1189,54 @@
     return v0
 .end method
 
-.method public isSharedAp()Z
-    .locals 1
-
-    iget-boolean v0, p0, Landroid/net/wifi/WifiInfo;->mSharedAp:Z
-
-    return v0
-.end method
-
-.method public isVerifiedPassword()Z
-    .locals 1
-
-    iget-boolean v0, p0, Landroid/net/wifi/WifiInfo;->mVerifiedPassword:Z
-
-    return v0
-.end method
-
 .method public reset()V
     .locals 8
 
-    const/4 v5, -0x1
+    const/4 v3, -0x1
 
     const-wide/16 v6, 0x0
 
-    const/4 v4, 0x0
-
-    const-wide/16 v2, 0x0
+    const-wide/16 v4, 0x0
 
     const/4 v1, 0x0
 
-    invoke-virtual {p0, v4}, Landroid/net/wifi/WifiInfo;->setInetAddress(Ljava/net/InetAddress;)V
+    const/4 v2, 0x0
 
-    invoke-virtual {p0, v4}, Landroid/net/wifi/WifiInfo;->setBSSID(Ljava/lang/String;)V
+    invoke-virtual {p0, v1}, Landroid/net/wifi/WifiInfo;->setInetAddress(Ljava/net/InetAddress;)V
 
-    invoke-virtual {p0, v4}, Landroid/net/wifi/WifiInfo;->setSSID(Landroid/net/wifi/WifiSsid;)V
+    invoke-virtual {p0, v1}, Landroid/net/wifi/WifiInfo;->setBSSID(Ljava/lang/String;)V
 
-    invoke-virtual {p0, v5}, Landroid/net/wifi/WifiInfo;->setNetworkId(I)V
+    invoke-virtual {p0, v1}, Landroid/net/wifi/WifiInfo;->setSSID(Landroid/net/wifi/WifiSsid;)V
+
+    invoke-virtual {p0, v3}, Landroid/net/wifi/WifiInfo;->setNetworkId(I)V
 
     const/16 v0, -0x7f
 
     invoke-virtual {p0, v0}, Landroid/net/wifi/WifiInfo;->setRssi(I)V
 
-    invoke-virtual {p0, v5}, Landroid/net/wifi/WifiInfo;->setLinkSpeed(I)V
+    invoke-virtual {p0, v3}, Landroid/net/wifi/WifiInfo;->setLinkSpeed(I)V
 
-    invoke-virtual {p0, v5}, Landroid/net/wifi/WifiInfo;->setFrequency(I)V
+    invoke-virtual {p0, v3}, Landroid/net/wifi/WifiInfo;->setFrequency(I)V
 
-    invoke-virtual {p0, v1}, Landroid/net/wifi/WifiInfo;->setMeteredHint(Z)V
+    invoke-virtual {p0, v2}, Landroid/net/wifi/WifiInfo;->setMeteredHint(Z)V
 
-    invoke-virtual {p0, v1}, Landroid/net/wifi/WifiInfo;->setEphemeral(Z)V
+    invoke-virtual {p0, v2}, Landroid/net/wifi/WifiInfo;->setEphemeral(Z)V
 
-    invoke-virtual {p0, v1}, Landroid/net/wifi/WifiInfo;->setSkipInternetCheck(Z)V
+    invoke-virtual {p0, v2}, Landroid/net/wifi/WifiInfo;->setSkipInternetCheck(Z)V
 
-    invoke-virtual {p0, v1}, Landroid/net/wifi/WifiInfo;->setSkipInternetCheckConfirmedOnThisConnection(Z)V
+    invoke-virtual {p0, v2}, Landroid/net/wifi/WifiInfo;->setChnKeepConnection(Z)V
 
-    invoke-virtual {p0, v1}, Landroid/net/wifi/WifiInfo;->setCaptivePortal(Z)V
+    invoke-virtual {p0, v2}, Landroid/net/wifi/WifiInfo;->setCaptivePortal(Z)V
 
-    invoke-virtual {p0, v1}, Landroid/net/wifi/WifiInfo;->setAuthenticated(Z)V
+    invoke-virtual {p0, v2}, Landroid/net/wifi/WifiInfo;->setAuthenticated(Z)V
 
-    invoke-virtual {p0, v1}, Landroid/net/wifi/WifiInfo;->setManualConnection(Z)V
+    invoke-virtual {p0, v2}, Landroid/net/wifi/WifiInfo;->setManualConnection(Z)V
 
-    invoke-virtual {p0, v4}, Landroid/net/wifi/WifiInfo;->setLoginUrl(Ljava/lang/String;)V
+    invoke-virtual {p0, v1}, Landroid/net/wifi/WifiInfo;->setLoginUrl(Ljava/lang/String;)V
+
+    invoke-virtual {p0, v2}, Landroid/net/wifi/WifiInfo;->setGigaAp(Z)V
+
+    invoke-virtual {p0, v1}, Landroid/net/wifi/WifiInfo;->setVenueName(Ljava/lang/String;)V
 
     iput-wide v6, p0, Landroid/net/wifi/WifiInfo;->txBad:J
 
@@ -1227,25 +1246,35 @@
 
     iput-wide v6, p0, Landroid/net/wifi/WifiInfo;->txRetries:J
 
-    iput-wide v2, p0, Landroid/net/wifi/WifiInfo;->txBadRate:D
+    iput-wide v4, p0, Landroid/net/wifi/WifiInfo;->txBadRate:D
 
-    iput-wide v2, p0, Landroid/net/wifi/WifiInfo;->txSuccessRate:D
+    iput-wide v4, p0, Landroid/net/wifi/WifiInfo;->txSuccessRate:D
 
-    iput-wide v2, p0, Landroid/net/wifi/WifiInfo;->rxSuccessRate:D
+    iput-wide v4, p0, Landroid/net/wifi/WifiInfo;->rxSuccessRate:D
 
-    iput-wide v2, p0, Landroid/net/wifi/WifiInfo;->txRetriesRate:D
+    iput-wide v4, p0, Landroid/net/wifi/WifiInfo;->txRetriesRate:D
 
-    iput v1, p0, Landroid/net/wifi/WifiInfo;->lowRssiCount:I
+    iput v2, p0, Landroid/net/wifi/WifiInfo;->lowRssiCount:I
 
-    iput v1, p0, Landroid/net/wifi/WifiInfo;->badRssiCount:I
+    iput v2, p0, Landroid/net/wifi/WifiInfo;->badRssiCount:I
 
-    iput v1, p0, Landroid/net/wifi/WifiInfo;->linkStuckCount:I
+    iput v2, p0, Landroid/net/wifi/WifiInfo;->linkStuckCount:I
 
-    iput v1, p0, Landroid/net/wifi/WifiInfo;->score:I
+    iput v2, p0, Landroid/net/wifi/WifiInfo;->score:I
 
-    iput-boolean v1, p0, Landroid/net/wifi/WifiInfo;->isGigaAp:Z
+    const-wide/high16 v0, -0x8000000000000000L
 
-    iput-boolean v1, p0, Landroid/net/wifi/WifiInfo;->isVendorAp:Z
+    iput-wide v0, p0, Landroid/net/wifi/WifiInfo;->mLastPacketCountUpdateTimeStamp:J
+
+    invoke-virtual {p0, v2}, Landroid/net/wifi/WifiInfo;->setSnr(I)V
+
+    const/16 v0, 0xff
+
+    invoke-virtual {p0, v0}, Landroid/net/wifi/WifiInfo;->setLqcmRx(I)V
+
+    const/16 v0, 0xff
+
+    invoke-virtual {p0, v0}, Landroid/net/wifi/WifiInfo;->setLqcmTx(I)V
 
     return-void
 .end method
@@ -1282,10 +1311,10 @@
     return-void
 .end method
 
-.method public setDefaultAp(Z)V
+.method public setChnKeepConnection(Z)V
     .locals 0
 
-    iput-boolean p1, p0, Landroid/net/wifi/WifiInfo;->mDefaultAp:Z
+    iput-boolean p1, p0, Landroid/net/wifi/WifiInfo;->mChnKeepConnection:Z
 
     return-void
 .end method
@@ -1298,18 +1327,18 @@
     return-void
 .end method
 
-.method public setExpiration(Ljava/lang/String;)V
-    .locals 0
-
-    iput-object p1, p0, Landroid/net/wifi/WifiInfo;->mExpiration:Ljava/lang/String;
-
-    return-void
-.end method
-
 .method public setFrequency(I)V
     .locals 0
 
     iput p1, p0, Landroid/net/wifi/WifiInfo;->mFrequency:I
+
+    return-void
+.end method
+
+.method public setGigaAp(Z)V
+    .locals 0
+
+    iput-boolean p1, p0, Landroid/net/wifi/WifiInfo;->mGigaAp:Z
 
     return-void
 .end method
@@ -1334,6 +1363,22 @@
     .locals 0
 
     iput-object p1, p0, Landroid/net/wifi/WifiInfo;->mLoginUrl:Ljava/lang/String;
+
+    return-void
+.end method
+
+.method public setLqcmRx(I)V
+    .locals 0
+
+    iput p1, p0, Landroid/net/wifi/WifiInfo;->mLqcmRx:I
+
+    return-void
+.end method
+
+.method public setLqcmTx(I)V
+    .locals 0
+
+    iput p1, p0, Landroid/net/wifi/WifiInfo;->mLqcmTx:I
 
     return-void
 .end method
@@ -1400,14 +1445,6 @@
     return-void
 .end method
 
-.method public setSharedAp(Z)V
-    .locals 0
-
-    iput-boolean p1, p0, Landroid/net/wifi/WifiInfo;->mSharedAp:Z
-
-    return-void
-.end method
-
 .method public setSkipInternetCheck(Z)V
     .locals 0
 
@@ -1416,10 +1453,10 @@
     return-void
 .end method
 
-.method public setSkipInternetCheckConfirmedOnThisConnection(Z)V
+.method public setSnr(I)V
     .locals 0
 
-    iput-boolean p1, p0, Landroid/net/wifi/WifiInfo;->mSkipInternetCheckConfirmedOnThisConnection:Z
+    iput p1, p0, Landroid/net/wifi/WifiInfo;->mSnr:I
 
     return-void
 .end method
@@ -1444,10 +1481,10 @@
     return-void
 .end method
 
-.method public setVerifiedPassword(Z)V
+.method public setVenueName(Ljava/lang/String;)V
     .locals 0
 
-    iput-boolean p1, p0, Landroid/net/wifi/WifiInfo;->mVerifiedPassword:Z
+    iput-object p1, p0, Landroid/net/wifi/WifiInfo;->mVenueName:Ljava/lang/String;
 
     return-void
 .end method
@@ -1599,6 +1636,30 @@
 
     move-result-object v2
 
+    const-string/jumbo v3, ", GigaAp: "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
+    move-result-object v2
+
+    iget-boolean v3, p0, Landroid/net/wifi/WifiInfo;->mGigaAp:Z
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuffer;->append(Z)Ljava/lang/StringBuffer;
+
+    move-result-object v2
+
+    const-string/jumbo v3, ", VenueName: "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
+    move-result-object v2
+
+    iget-object v3, p0, Landroid/net/wifi/WifiInfo;->mVenueName:Ljava/lang/String;
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
+    move-result-object v2
+
     const-string/jumbo v3, ", score: "
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
@@ -1637,7 +1698,7 @@
     :cond_3
     iget-object v0, p0, Landroid/net/wifi/WifiInfo;->mSupplicantState:Landroid/net/wifi/SupplicantState;
 
-    goto :goto_3
+    goto/16 :goto_3
 .end method
 
 .method public updatePacketRates(JJ)V
@@ -1716,234 +1777,508 @@
     goto :goto_0
 .end method
 
-.method public updatePacketRates(Landroid/net/wifi/WifiLinkLayerStats;)V
-    .locals 14
+.method public updatePacketRates(Landroid/net/wifi/WifiLinkLayerStats;J)V
+    .locals 24
 
     if-eqz p1, :cond_1
 
-    iget-wide v8, p1, Landroid/net/wifi/WifiLinkLayerStats;->txmpdu_be:J
+    move-object/from16 v0, p1
 
-    iget-wide v10, p1, Landroid/net/wifi/WifiLinkLayerStats;->txmpdu_bk:J
+    iget-wide v0, v0, Landroid/net/wifi/WifiLinkLayerStats;->txmpdu_be:J
 
-    add-long/2addr v8, v10
+    move-wide/from16 v18, v0
 
-    iget-wide v10, p1, Landroid/net/wifi/WifiLinkLayerStats;->txmpdu_vi:J
+    move-object/from16 v0, p1
 
-    add-long/2addr v8, v10
+    iget-wide v0, v0, Landroid/net/wifi/WifiLinkLayerStats;->txmpdu_bk:J
 
-    iget-wide v10, p1, Landroid/net/wifi/WifiLinkLayerStats;->txmpdu_vo:J
+    move-wide/from16 v20, v0
 
-    add-long v4, v8, v10
+    add-long v18, v18, v20
 
-    iget-wide v8, p1, Landroid/net/wifi/WifiLinkLayerStats;->retries_be:J
+    move-object/from16 v0, p1
 
-    iget-wide v10, p1, Landroid/net/wifi/WifiLinkLayerStats;->retries_bk:J
+    iget-wide v0, v0, Landroid/net/wifi/WifiLinkLayerStats;->txmpdu_vi:J
 
-    add-long/2addr v8, v10
+    move-wide/from16 v20, v0
 
-    iget-wide v10, p1, Landroid/net/wifi/WifiLinkLayerStats;->retries_vi:J
+    add-long v18, v18, v20
 
-    add-long/2addr v8, v10
+    move-object/from16 v0, p1
 
-    iget-wide v10, p1, Landroid/net/wifi/WifiLinkLayerStats;->retries_vo:J
+    iget-wide v0, v0, Landroid/net/wifi/WifiLinkLayerStats;->txmpdu_vo:J
 
-    add-long v6, v8, v10
+    move-wide/from16 v20, v0
 
-    iget-wide v8, p1, Landroid/net/wifi/WifiLinkLayerStats;->rxmpdu_be:J
+    add-long v14, v18, v20
 
-    iget-wide v10, p1, Landroid/net/wifi/WifiLinkLayerStats;->rxmpdu_bk:J
+    move-object/from16 v0, p1
 
-    add-long/2addr v8, v10
+    iget-wide v0, v0, Landroid/net/wifi/WifiLinkLayerStats;->retries_be:J
 
-    iget-wide v10, p1, Landroid/net/wifi/WifiLinkLayerStats;->rxmpdu_vi:J
+    move-wide/from16 v18, v0
 
-    add-long/2addr v8, v10
+    move-object/from16 v0, p1
 
-    iget-wide v10, p1, Landroid/net/wifi/WifiLinkLayerStats;->rxmpdu_vo:J
+    iget-wide v0, v0, Landroid/net/wifi/WifiLinkLayerStats;->retries_bk:J
 
-    add-long v0, v8, v10
+    move-wide/from16 v20, v0
 
-    iget-wide v8, p1, Landroid/net/wifi/WifiLinkLayerStats;->lostmpdu_be:J
+    add-long v18, v18, v20
 
-    iget-wide v10, p1, Landroid/net/wifi/WifiLinkLayerStats;->lostmpdu_bk:J
+    move-object/from16 v0, p1
 
-    add-long/2addr v8, v10
+    iget-wide v0, v0, Landroid/net/wifi/WifiLinkLayerStats;->retries_vi:J
 
-    iget-wide v10, p1, Landroid/net/wifi/WifiLinkLayerStats;->lostmpdu_vi:J
+    move-wide/from16 v20, v0
 
-    add-long/2addr v8, v10
+    add-long v18, v18, v20
 
-    iget-wide v10, p1, Landroid/net/wifi/WifiLinkLayerStats;->lostmpdu_vo:J
+    move-object/from16 v0, p1
 
-    add-long v2, v8, v10
+    iget-wide v0, v0, Landroid/net/wifi/WifiLinkLayerStats;->retries_vo:J
 
-    iget-wide v8, p0, Landroid/net/wifi/WifiInfo;->txBad:J
+    move-wide/from16 v20, v0
 
-    cmp-long v8, v8, v2
+    add-long v16, v18, v20
 
-    if-gtz v8, :cond_0
+    move-object/from16 v0, p1
 
-    iget-wide v8, p0, Landroid/net/wifi/WifiInfo;->txSuccess:J
+    iget-wide v0, v0, Landroid/net/wifi/WifiLinkLayerStats;->rxmpdu_be:J
 
-    cmp-long v8, v8, v4
+    move-wide/from16 v18, v0
 
-    if-gtz v8, :cond_0
+    move-object/from16 v0, p1
 
-    iget-wide v8, p0, Landroid/net/wifi/WifiInfo;->rxSuccess:J
+    iget-wide v0, v0, Landroid/net/wifi/WifiLinkLayerStats;->rxmpdu_bk:J
 
-    cmp-long v8, v8, v0
+    move-wide/from16 v20, v0
 
-    if-gtz v8, :cond_0
+    add-long v18, v18, v20
 
-    iget-wide v8, p0, Landroid/net/wifi/WifiInfo;->txRetries:J
+    move-object/from16 v0, p1
 
-    cmp-long v8, v8, v6
+    iget-wide v0, v0, Landroid/net/wifi/WifiLinkLayerStats;->rxmpdu_vi:J
 
-    if-gtz v8, :cond_0
+    move-wide/from16 v20, v0
 
-    iget-wide v8, p0, Landroid/net/wifi/WifiInfo;->txBadRate:D
+    add-long v18, v18, v20
 
-    const-wide/high16 v10, 0x3fe0000000000000L    # 0.5
+    move-object/from16 v0, p1
 
-    mul-double/2addr v8, v10
+    iget-wide v0, v0, Landroid/net/wifi/WifiLinkLayerStats;->rxmpdu_vo:J
 
-    iget-wide v10, p0, Landroid/net/wifi/WifiInfo;->txBad:J
+    move-wide/from16 v20, v0
 
-    sub-long v10, v2, v10
+    add-long v8, v18, v20
 
-    long-to-double v10, v10
+    move-object/from16 v0, p1
 
-    const-wide/high16 v12, 0x3fe0000000000000L    # 0.5
+    iget-wide v0, v0, Landroid/net/wifi/WifiLinkLayerStats;->lostmpdu_be:J
 
-    mul-double/2addr v10, v12
+    move-wide/from16 v18, v0
 
-    add-double/2addr v8, v10
+    move-object/from16 v0, p1
 
-    iput-wide v8, p0, Landroid/net/wifi/WifiInfo;->txBadRate:D
+    iget-wide v0, v0, Landroid/net/wifi/WifiLinkLayerStats;->lostmpdu_bk:J
 
-    iget-wide v8, p0, Landroid/net/wifi/WifiInfo;->txSuccessRate:D
+    move-wide/from16 v20, v0
 
-    const-wide/high16 v10, 0x3fe0000000000000L    # 0.5
+    add-long v18, v18, v20
 
-    mul-double/2addr v8, v10
+    move-object/from16 v0, p1
 
-    iget-wide v10, p0, Landroid/net/wifi/WifiInfo;->txSuccess:J
+    iget-wide v0, v0, Landroid/net/wifi/WifiLinkLayerStats;->lostmpdu_vi:J
 
-    sub-long v10, v4, v10
+    move-wide/from16 v20, v0
 
-    long-to-double v10, v10
+    add-long v18, v18, v20
 
-    const-wide/high16 v12, 0x3fe0000000000000L    # 0.5
+    move-object/from16 v0, p1
 
-    mul-double/2addr v10, v12
+    iget-wide v0, v0, Landroid/net/wifi/WifiLinkLayerStats;->lostmpdu_vo:J
 
-    add-double/2addr v8, v10
+    move-wide/from16 v20, v0
 
-    iput-wide v8, p0, Landroid/net/wifi/WifiInfo;->txSuccessRate:D
+    add-long v12, v18, v20
 
-    iget-wide v8, p0, Landroid/net/wifi/WifiInfo;->rxSuccessRate:D
+    move-object/from16 v0, p0
 
-    const-wide/high16 v10, 0x3fe0000000000000L    # 0.5
+    iget-wide v0, v0, Landroid/net/wifi/WifiInfo;->mLastPacketCountUpdateTimeStamp:J
 
-    mul-double/2addr v8, v10
+    move-wide/from16 v18, v0
 
-    iget-wide v10, p0, Landroid/net/wifi/WifiInfo;->rxSuccess:J
+    const-wide/high16 v20, -0x8000000000000000L
 
-    sub-long v10, v0, v10
+    cmp-long v18, v18, v20
 
-    long-to-double v10, v10
+    if-eqz v18, :cond_0
 
-    const-wide/high16 v12, 0x3fe0000000000000L    # 0.5
+    move-object/from16 v0, p0
 
-    mul-double/2addr v10, v12
+    iget-wide v0, v0, Landroid/net/wifi/WifiInfo;->mLastPacketCountUpdateTimeStamp:J
 
-    add-double/2addr v8, v10
+    move-wide/from16 v18, v0
 
-    iput-wide v8, p0, Landroid/net/wifi/WifiInfo;->rxSuccessRate:D
+    cmp-long v18, v18, p2
 
-    iget-wide v8, p0, Landroid/net/wifi/WifiInfo;->txRetriesRate:D
+    if-gez v18, :cond_0
 
-    const-wide/high16 v10, 0x3fe0000000000000L    # 0.5
+    move-object/from16 v0, p0
 
-    mul-double/2addr v8, v10
+    iget-wide v0, v0, Landroid/net/wifi/WifiInfo;->txBad:J
 
-    iget-wide v10, p0, Landroid/net/wifi/WifiInfo;->txRetries:J
+    move-wide/from16 v18, v0
 
-    sub-long v10, v6, v10
+    cmp-long v18, v18, v12
 
-    long-to-double v10, v10
+    if-gtz v18, :cond_0
 
-    const-wide/high16 v12, 0x3fe0000000000000L    # 0.5
+    move-object/from16 v0, p0
 
-    mul-double/2addr v10, v12
+    iget-wide v0, v0, Landroid/net/wifi/WifiInfo;->txSuccess:J
 
-    add-double/2addr v8, v10
+    move-wide/from16 v18, v0
 
-    iput-wide v8, p0, Landroid/net/wifi/WifiInfo;->txRetriesRate:D
+    cmp-long v18, v18, v14
+
+    if-gtz v18, :cond_0
+
+    move-object/from16 v0, p0
+
+    iget-wide v0, v0, Landroid/net/wifi/WifiInfo;->rxSuccess:J
+
+    move-wide/from16 v18, v0
+
+    cmp-long v18, v18, v8
+
+    if-gtz v18, :cond_0
+
+    move-object/from16 v0, p0
+
+    iget-wide v0, v0, Landroid/net/wifi/WifiInfo;->txRetries:J
+
+    move-wide/from16 v18, v0
+
+    cmp-long v18, v18, v16
+
+    if-gtz v18, :cond_0
+
+    move-object/from16 v0, p0
+
+    iget-wide v0, v0, Landroid/net/wifi/WifiInfo;->mLastPacketCountUpdateTimeStamp:J
+
+    move-wide/from16 v18, v0
+
+    sub-long v10, p2, v18
+
+    long-to-double v0, v10
+
+    move-wide/from16 v18, v0
+
+    const-wide/high16 v20, -0x4010000000000000L    # -1.0
+
+    mul-double v18, v18, v20
+
+    const-wide v20, 0x40a7700000000000L    # 3000.0
+
+    div-double v18, v18, v20
+
+    invoke-static/range {v18 .. v19}, Ljava/lang/Math;->exp(D)D
+
+    move-result-wide v6
+
+    const-wide/high16 v18, 0x3ff0000000000000L    # 1.0
+
+    sub-double v4, v18, v6
+
+    move-object/from16 v0, p0
+
+    iget-wide v0, v0, Landroid/net/wifi/WifiInfo;->txBadRate:D
+
+    move-wide/from16 v18, v0
+
+    mul-double v18, v18, v6
+
+    move-object/from16 v0, p0
+
+    iget-wide v0, v0, Landroid/net/wifi/WifiInfo;->txBad:J
+
+    move-wide/from16 v20, v0
+
+    sub-long v20, v12, v20
+
+    const-wide/16 v22, 0x1388
+
+    mul-long v20, v20, v22
+
+    div-long v20, v20, v10
+
+    move-wide/from16 v0, v20
+
+    long-to-double v0, v0
+
+    move-wide/from16 v20, v0
+
+    mul-double v20, v20, v4
+
+    add-double v18, v18, v20
+
+    move-wide/from16 v0, v18
+
+    move-object/from16 v2, p0
+
+    iput-wide v0, v2, Landroid/net/wifi/WifiInfo;->txBadRate:D
+
+    move-object/from16 v0, p0
+
+    iget-wide v0, v0, Landroid/net/wifi/WifiInfo;->txSuccessRate:D
+
+    move-wide/from16 v18, v0
+
+    mul-double v18, v18, v6
+
+    move-object/from16 v0, p0
+
+    iget-wide v0, v0, Landroid/net/wifi/WifiInfo;->txSuccess:J
+
+    move-wide/from16 v20, v0
+
+    sub-long v20, v14, v20
+
+    const-wide/16 v22, 0x1388
+
+    mul-long v20, v20, v22
+
+    div-long v20, v20, v10
+
+    move-wide/from16 v0, v20
+
+    long-to-double v0, v0
+
+    move-wide/from16 v20, v0
+
+    mul-double v20, v20, v4
+
+    add-double v18, v18, v20
+
+    move-wide/from16 v0, v18
+
+    move-object/from16 v2, p0
+
+    iput-wide v0, v2, Landroid/net/wifi/WifiInfo;->txSuccessRate:D
+
+    move-object/from16 v0, p0
+
+    iget-wide v0, v0, Landroid/net/wifi/WifiInfo;->rxSuccessRate:D
+
+    move-wide/from16 v18, v0
+
+    mul-double v18, v18, v6
+
+    move-object/from16 v0, p0
+
+    iget-wide v0, v0, Landroid/net/wifi/WifiInfo;->rxSuccess:J
+
+    move-wide/from16 v20, v0
+
+    sub-long v20, v8, v20
+
+    const-wide/16 v22, 0x1388
+
+    mul-long v20, v20, v22
+
+    div-long v20, v20, v10
+
+    move-wide/from16 v0, v20
+
+    long-to-double v0, v0
+
+    move-wide/from16 v20, v0
+
+    mul-double v20, v20, v4
+
+    add-double v18, v18, v20
+
+    move-wide/from16 v0, v18
+
+    move-object/from16 v2, p0
+
+    iput-wide v0, v2, Landroid/net/wifi/WifiInfo;->rxSuccessRate:D
+
+    move-object/from16 v0, p0
+
+    iget-wide v0, v0, Landroid/net/wifi/WifiInfo;->txRetriesRate:D
+
+    move-wide/from16 v18, v0
+
+    mul-double v18, v18, v6
+
+    move-object/from16 v0, p0
+
+    iget-wide v0, v0, Landroid/net/wifi/WifiInfo;->txRetries:J
+
+    move-wide/from16 v20, v0
+
+    sub-long v20, v16, v20
+
+    const-wide/16 v22, 0x1388
+
+    mul-long v20, v20, v22
+
+    div-long v20, v20, v10
+
+    move-wide/from16 v0, v20
+
+    long-to-double v0, v0
+
+    move-wide/from16 v20, v0
+
+    mul-double v20, v20, v4
+
+    add-double v18, v18, v20
+
+    move-wide/from16 v0, v18
+
+    move-object/from16 v2, p0
+
+    iput-wide v0, v2, Landroid/net/wifi/WifiInfo;->txRetriesRate:D
 
     :goto_0
-    iput-wide v2, p0, Landroid/net/wifi/WifiInfo;->txBad:J
+    move-object/from16 v0, p0
 
-    iput-wide v4, p0, Landroid/net/wifi/WifiInfo;->txSuccess:J
+    iput-wide v12, v0, Landroid/net/wifi/WifiInfo;->txBad:J
 
-    iput-wide v0, p0, Landroid/net/wifi/WifiInfo;->rxSuccess:J
+    move-object/from16 v0, p0
 
-    iput-wide v6, p0, Landroid/net/wifi/WifiInfo;->txRetries:J
+    iput-wide v14, v0, Landroid/net/wifi/WifiInfo;->txSuccess:J
+
+    move-object/from16 v0, p0
+
+    iput-wide v8, v0, Landroid/net/wifi/WifiInfo;->rxSuccess:J
+
+    move-wide/from16 v0, v16
+
+    move-object/from16 v2, p0
+
+    iput-wide v0, v2, Landroid/net/wifi/WifiInfo;->txRetries:J
+
+    move-wide/from16 v0, p2
+
+    move-object/from16 v2, p0
+
+    iput-wide v0, v2, Landroid/net/wifi/WifiInfo;->mLastPacketCountUpdateTimeStamp:J
 
     :goto_1
     return-void
 
     :cond_0
-    const-wide/16 v8, 0x0
+    const-wide/16 v18, 0x0
 
-    iput-wide v8, p0, Landroid/net/wifi/WifiInfo;->txBadRate:D
+    move-wide/from16 v0, v18
 
-    const-wide/16 v8, 0x0
+    move-object/from16 v2, p0
 
-    iput-wide v8, p0, Landroid/net/wifi/WifiInfo;->txSuccessRate:D
+    iput-wide v0, v2, Landroid/net/wifi/WifiInfo;->txBadRate:D
 
-    const-wide/16 v8, 0x0
+    const-wide/16 v18, 0x0
 
-    iput-wide v8, p0, Landroid/net/wifi/WifiInfo;->rxSuccessRate:D
+    move-wide/from16 v0, v18
 
-    const-wide/16 v8, 0x0
+    move-object/from16 v2, p0
 
-    iput-wide v8, p0, Landroid/net/wifi/WifiInfo;->txRetriesRate:D
+    iput-wide v0, v2, Landroid/net/wifi/WifiInfo;->txSuccessRate:D
+
+    const-wide/16 v18, 0x0
+
+    move-wide/from16 v0, v18
+
+    move-object/from16 v2, p0
+
+    iput-wide v0, v2, Landroid/net/wifi/WifiInfo;->rxSuccessRate:D
+
+    const-wide/16 v18, 0x0
+
+    move-wide/from16 v0, v18
+
+    move-object/from16 v2, p0
+
+    iput-wide v0, v2, Landroid/net/wifi/WifiInfo;->txRetriesRate:D
 
     goto :goto_0
 
     :cond_1
-    const-wide/16 v8, 0x0
+    const-wide/16 v18, 0x0
 
-    iput-wide v8, p0, Landroid/net/wifi/WifiInfo;->txBad:J
+    move-wide/from16 v0, v18
 
-    const-wide/16 v8, 0x0
+    move-object/from16 v2, p0
 
-    iput-wide v8, p0, Landroid/net/wifi/WifiInfo;->txSuccess:J
+    iput-wide v0, v2, Landroid/net/wifi/WifiInfo;->txBad:J
 
-    const-wide/16 v8, 0x0
+    const-wide/16 v18, 0x0
 
-    iput-wide v8, p0, Landroid/net/wifi/WifiInfo;->rxSuccess:J
+    move-wide/from16 v0, v18
 
-    const-wide/16 v8, 0x0
+    move-object/from16 v2, p0
 
-    iput-wide v8, p0, Landroid/net/wifi/WifiInfo;->txRetries:J
+    iput-wide v0, v2, Landroid/net/wifi/WifiInfo;->txSuccess:J
 
-    const-wide/16 v8, 0x0
+    const-wide/16 v18, 0x0
 
-    iput-wide v8, p0, Landroid/net/wifi/WifiInfo;->txBadRate:D
+    move-wide/from16 v0, v18
 
-    const-wide/16 v8, 0x0
+    move-object/from16 v2, p0
 
-    iput-wide v8, p0, Landroid/net/wifi/WifiInfo;->txSuccessRate:D
+    iput-wide v0, v2, Landroid/net/wifi/WifiInfo;->rxSuccess:J
 
-    const-wide/16 v8, 0x0
+    const-wide/16 v18, 0x0
 
-    iput-wide v8, p0, Landroid/net/wifi/WifiInfo;->rxSuccessRate:D
+    move-wide/from16 v0, v18
 
-    const-wide/16 v8, 0x0
+    move-object/from16 v2, p0
 
-    iput-wide v8, p0, Landroid/net/wifi/WifiInfo;->txRetriesRate:D
+    iput-wide v0, v2, Landroid/net/wifi/WifiInfo;->txRetries:J
+
+    const-wide/16 v18, 0x0
+
+    move-wide/from16 v0, v18
+
+    move-object/from16 v2, p0
+
+    iput-wide v0, v2, Landroid/net/wifi/WifiInfo;->txBadRate:D
+
+    const-wide/16 v18, 0x0
+
+    move-wide/from16 v0, v18
+
+    move-object/from16 v2, p0
+
+    iput-wide v0, v2, Landroid/net/wifi/WifiInfo;->txSuccessRate:D
+
+    const-wide/16 v18, 0x0
+
+    move-wide/from16 v0, v18
+
+    move-object/from16 v2, p0
+
+    iput-wide v0, v2, Landroid/net/wifi/WifiInfo;->rxSuccessRate:D
+
+    const-wide/16 v18, 0x0
+
+    move-wide/from16 v0, v18
+
+    move-object/from16 v2, p0
+
+    iput-wide v0, v2, Landroid/net/wifi/WifiInfo;->txRetriesRate:D
+
+    const-wide/high16 v18, -0x8000000000000000L
+
+    move-wide/from16 v0, v18
+
+    move-object/from16 v2, p0
+
+    iput-wide v0, v2, Landroid/net/wifi/WifiInfo;->mLastPacketCountUpdateTimeStamp:J
 
     goto :goto_1
 .end method
@@ -2064,7 +2399,7 @@
     :goto_4
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    iget-boolean v0, p0, Landroid/net/wifi/WifiInfo;->mSkipInternetCheckConfirmedOnThisConnection:Z
+    iget-boolean v0, p0, Landroid/net/wifi/WifiInfo;->mChnKeepConnection:Z
 
     if-eqz v0, :cond_5
 
@@ -2104,7 +2439,7 @@
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    iget-boolean v0, p0, Landroid/net/wifi/WifiInfo;->mDefaultAp:Z
+    iget-boolean v0, p0, Landroid/net/wifi/WifiInfo;->mCheckVsieForSns:Z
 
     if-eqz v0, :cond_9
 
@@ -2113,52 +2448,28 @@
     :goto_9
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    iget-boolean v0, p0, Landroid/net/wifi/WifiInfo;->mSharedAp:Z
+    iget-boolean v0, p0, Landroid/net/wifi/WifiInfo;->mGigaAp:Z
 
     if-eqz v0, :cond_a
 
-    move v0, v1
-
     :goto_a
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeInt(I)V
 
-    iget-object v0, p0, Landroid/net/wifi/WifiInfo;->mExpiration:Ljava/lang/String;
+    iget-object v0, p0, Landroid/net/wifi/WifiInfo;->mVenueName:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    iget-boolean v0, p0, Landroid/net/wifi/WifiInfo;->mVerifiedPassword:Z
+    iget v0, p0, Landroid/net/wifi/WifiInfo;->mSnr:I
 
-    if-eqz v0, :cond_b
-
-    move v0, v1
-
-    :goto_b
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    iget-boolean v0, p0, Landroid/net/wifi/WifiInfo;->mCheckVsieForSns:Z
+    iget v0, p0, Landroid/net/wifi/WifiInfo;->mLqcmTx:I
 
-    if-eqz v0, :cond_c
-
-    move v0, v1
-
-    :goto_c
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    iget-boolean v0, p0, Landroid/net/wifi/WifiInfo;->isGigaAp:Z
+    iget v0, p0, Landroid/net/wifi/WifiInfo;->mLqcmRx:I
 
-    if-eqz v0, :cond_d
-
-    move v0, v1
-
-    :goto_d
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
-
-    iget-boolean v0, p0, Landroid/net/wifi/WifiInfo;->isVendorAp:Z
-
-    if-eqz v0, :cond_e
-
-    :goto_e
-    invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeInt(I)V
 
     return-void
 
@@ -2213,27 +2524,7 @@
     goto :goto_9
 
     :cond_a
-    move v0, v2
-
-    goto :goto_a
-
-    :cond_b
-    move v0, v2
-
-    goto :goto_b
-
-    :cond_c
-    move v0, v2
-
-    goto :goto_c
-
-    :cond_d
-    move v0, v2
-
-    goto :goto_d
-
-    :cond_e
     move v1, v2
 
-    goto :goto_e
+    goto :goto_a
 .end method

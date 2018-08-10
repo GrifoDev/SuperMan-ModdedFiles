@@ -809,7 +809,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v4}, Ljava/io/FileInputStream;->close()V
+    invoke-virtual {v4}, Ljava/io/InputStream;->close()V
 
     new-instance v5, Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable;
 
@@ -826,13 +826,13 @@
     if-eqz v3, :cond_0
 
     :try_start_2
-    invoke-virtual {v3}, Ljava/io/FileInputStream;->close()V
+    invoke-virtual {v3}, Ljava/io/InputStream;->close()V
     :try_end_2
     .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_1
 
     :cond_0
     :goto_1
-    invoke-virtual {v1}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v1}, Ljava/lang/Exception;->printStackTrace()V
 
     invoke-static {p0}, Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable;->getErrorDrawable(Ljava/lang/String;)Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable;
 
@@ -843,7 +843,7 @@
     :catch_1
     move-exception v2
 
-    invoke-virtual {v2}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v2}, Ljava/io/IOException;->printStackTrace()V
 
     goto :goto_1
 
@@ -897,7 +897,7 @@
 
     :cond_0
     :goto_0
-    invoke-virtual {v2}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v2}, Ljava/lang/Exception;->printStackTrace()V
 
     invoke-virtual {p0, p1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -912,46 +912,49 @@
     :catch_1
     move-exception v3
 
-    invoke-virtual {v3}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v3}, Ljava/io/IOException;->printStackTrace()V
 
     goto :goto_0
 .end method
 
 .method public static createFromStream(Ljava/io/InputStream;)Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable;
-    .locals 3
+    .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
-    :try_start_0
-    new-instance v1, Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable;
+    const-string/jumbo v0, "n/a"
 
-    const-string/jumbo v2, "n/a"
+    invoke-static {v0, p0}, Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable;->createFromStream(Ljava/lang/String;Ljava/io/InputStream;)Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable;
 
-    invoke-static {v2, p0}, Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable;->createFromStreamInternal(Ljava/lang/String;Ljava/io/InputStream;)Lcom/samsung/android/graphics/spr/document/SprDocument;
+    move-result-object v0
 
-    move-result-object v2
-
-    invoke-direct {v1, v2}, Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable;-><init>(Lcom/samsung/android/graphics/spr/document/SprDocument;)V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
-
-    return-object v1
-
-    :catch_0
-    move-exception v0
-
-    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
-
-    const-string/jumbo v1, "n/a"
-
-    invoke-static {v1}, Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable;->getErrorDrawable(Ljava/lang/String;)Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable;
-
-    move-result-object v1
-
-    return-object v1
+    return-object v0
 .end method
 
 .method public static createFromStream(Ljava/lang/String;Ljava/io/InputStream;)Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable;
+    .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    const/4 v0, 0x0
+
+    invoke-static {p0, p1, v0}, Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable;->createFromStream(Ljava/lang/String;Ljava/io/InputStream;Landroid/content/res/Resources;)Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public static createFromStream(Ljava/lang/String;Ljava/io/InputStream;Landroid/content/res/Resources;)Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable;
     .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -960,28 +963,33 @@
     .end annotation
 
     :try_start_0
-    new-instance v1, Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable;
+    new-instance v0, Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable;
 
     invoke-static {p0, p1}, Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable;->createFromStreamInternal(Ljava/lang/String;Ljava/io/InputStream;)Lcom/samsung/android/graphics/spr/document/SprDocument;
 
     move-result-object v2
 
-    invoke-direct {v1, v2}, Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable;-><init>(Lcom/samsung/android/graphics/spr/document/SprDocument;)V
+    invoke-direct {v0, v2}, Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable;-><init>(Lcom/samsung/android/graphics/spr/document/SprDocument;)V
+
+    if-eqz p2, :cond_0
+
+    invoke-direct {v0, p2}, Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable;->updateLocalState(Landroid/content/res/Resources;)V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-object v1
+    :cond_0
+    return-object v0
 
     :catch_0
-    move-exception v0
+    move-exception v1
 
-    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v1}, Ljava/lang/Exception;->printStackTrace()V
 
     invoke-static {p0}, Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable;->getErrorDrawable(Ljava/lang/String;)Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable;
 
-    move-result-object v1
+    move-result-object v2
 
-    return-object v1
+    return-object v2
 .end method
 
 .method private static createFromStreamInternal(Ljava/lang/String;Ljava/io/InputStream;)Lcom/samsung/android/graphics/spr/document/SprDocument;
@@ -1015,7 +1023,7 @@
     :cond_0
     invoke-virtual {v0, v7}, Ljava/io/BufferedInputStream;->mark(I)V
 
-    invoke-virtual {v0, v4}, Ljava/io/FilterInputStream;->read([B)I
+    invoke-virtual {v0, v4}, Ljava/io/BufferedInputStream;->read([B)I
 
     move-result v6
 
@@ -1106,7 +1114,7 @@
 
     new-instance v6, Ljava/io/IOException;
 
-    invoke-virtual {v2}, Ljava/lang/Throwable;->getCause()Ljava/lang/Throwable;
+    invoke-virtual {v2}, Lorg/xmlpull/v1/XmlPullParserException;->getCause()Ljava/lang/Throwable;
 
     move-result-object v7
 
@@ -1143,17 +1151,19 @@
 .end method
 
 .method private static getErrorDrawable(Ljava/lang/String;)Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable;
-    .locals 13
+    .locals 14
 
     const/4 v2, 0x0
 
-    const/4 v12, 0x1
+    const/4 v13, 0x1
 
-    const/4 v11, 0x0
+    const/4 v12, 0x0
 
-    const/16 v10, 0xc8
+    const/16 v11, 0xc8
 
-    const/16 v9, 0xff
+    const/16 v10, 0xff
+
+    const/4 v9, 0x5
 
     new-instance v0, Lcom/samsung/android/graphics/spr/document/SprDocument;
 
@@ -1177,19 +1187,19 @@
 
     int-to-float v1, v1
 
-    int-to-float v3, v10
+    int-to-float v3, v11
 
     invoke-direct {v8, v2, v2, v1, v3}, Lcom/samsung/android/graphics/spr/document/shape/SprObjectShapeRectangle;-><init>(FFFF)V
 
     new-instance v1, Lcom/samsung/android/graphics/spr/document/attribute/SprAttributeFill;
 
-    invoke-static {v9, v10, v10, v10}, Landroid/graphics/Color;->argb(IIII)I
+    invoke-static {v10, v11, v11, v11}, Landroid/graphics/Color;->argb(IIII)I
 
     move-result v3
 
-    invoke-direct {v1, v12, v3}, Lcom/samsung/android/graphics/spr/document/attribute/SprAttributeFill;-><init>(BI)V
+    invoke-direct {v1, v13, v3}, Lcom/samsung/android/graphics/spr/document/attribute/SprAttributeFill;-><init>(BI)V
 
-    invoke-virtual {v8, v1}, Lcom/samsung/android/graphics/spr/document/shape/SprObjectBase;->appendAttribute(Lcom/samsung/android/graphics/spr/document/attribute/SprAttributeBase;)V
+    invoke-virtual {v8, v1}, Lcom/samsung/android/graphics/spr/document/shape/SprObjectShapeRectangle;->appendAttribute(Lcom/samsung/android/graphics/spr/document/attribute/SprAttributeBase;)V
 
     invoke-virtual {v0, v8}, Lcom/samsung/android/graphics/spr/document/SprDocument;->appendObject(Lcom/samsung/android/graphics/spr/document/shape/SprObjectBase;)V
 
@@ -1203,7 +1213,7 @@
 
     int-to-float v3, v3
 
-    int-to-float v4, v10
+    int-to-float v4, v11
 
     invoke-direct {v8, v1, v2, v3, v4}, Lcom/samsung/android/graphics/spr/document/shape/SprObjectShapeRectangle;-><init>(FFFF)V
 
@@ -1211,9 +1221,9 @@
 
     const/16 v3, -0x100
 
-    invoke-direct {v1, v12, v3}, Lcom/samsung/android/graphics/spr/document/attribute/SprAttributeFill;-><init>(BI)V
+    invoke-direct {v1, v13, v3}, Lcom/samsung/android/graphics/spr/document/attribute/SprAttributeFill;-><init>(BI)V
 
-    invoke-virtual {v8, v1}, Lcom/samsung/android/graphics/spr/document/shape/SprObjectBase;->appendAttribute(Lcom/samsung/android/graphics/spr/document/attribute/SprAttributeBase;)V
+    invoke-virtual {v8, v1}, Lcom/samsung/android/graphics/spr/document/shape/SprObjectShapeRectangle;->appendAttribute(Lcom/samsung/android/graphics/spr/document/attribute/SprAttributeBase;)V
 
     invoke-virtual {v0, v8}, Lcom/samsung/android/graphics/spr/document/SprDocument;->appendObject(Lcom/samsung/android/graphics/spr/document/shape/SprObjectBase;)V
 
@@ -1227,19 +1237,19 @@
 
     int-to-float v3, v3
 
-    int-to-float v4, v10
+    int-to-float v4, v11
 
     invoke-direct {v8, v1, v2, v3, v4}, Lcom/samsung/android/graphics/spr/document/shape/SprObjectShapeRectangle;-><init>(FFFF)V
 
     new-instance v1, Lcom/samsung/android/graphics/spr/document/attribute/SprAttributeFill;
 
-    invoke-static {v9, v11, v9, v9}, Landroid/graphics/Color;->argb(IIII)I
+    invoke-static {v10, v12, v10, v10}, Landroid/graphics/Color;->argb(IIII)I
 
     move-result v3
 
-    invoke-direct {v1, v12, v3}, Lcom/samsung/android/graphics/spr/document/attribute/SprAttributeFill;-><init>(BI)V
+    invoke-direct {v1, v13, v3}, Lcom/samsung/android/graphics/spr/document/attribute/SprAttributeFill;-><init>(BI)V
 
-    invoke-virtual {v8, v1}, Lcom/samsung/android/graphics/spr/document/shape/SprObjectBase;->appendAttribute(Lcom/samsung/android/graphics/spr/document/attribute/SprAttributeBase;)V
+    invoke-virtual {v8, v1}, Lcom/samsung/android/graphics/spr/document/shape/SprObjectShapeRectangle;->appendAttribute(Lcom/samsung/android/graphics/spr/document/attribute/SprAttributeBase;)V
 
     invoke-virtual {v0, v8}, Lcom/samsung/android/graphics/spr/document/SprDocument;->appendObject(Lcom/samsung/android/graphics/spr/document/shape/SprObjectBase;)V
 
@@ -1249,45 +1259,45 @@
 
     int-to-float v1, v1
 
-    int-to-float v3, v10
+    int-to-float v3, v11
 
-    int-to-float v4, v10
+    int-to-float v4, v11
 
     invoke-direct {v8, v1, v2, v3, v4}, Lcom/samsung/android/graphics/spr/document/shape/SprObjectShapeRectangle;-><init>(FFFF)V
 
     new-instance v1, Lcom/samsung/android/graphics/spr/document/attribute/SprAttributeFill;
 
-    invoke-static {v9, v11, v9, v11}, Landroid/graphics/Color;->argb(IIII)I
+    invoke-static {v10, v12, v10, v12}, Landroid/graphics/Color;->argb(IIII)I
 
     move-result v3
 
-    invoke-direct {v1, v12, v3}, Lcom/samsung/android/graphics/spr/document/attribute/SprAttributeFill;-><init>(BI)V
+    invoke-direct {v1, v13, v3}, Lcom/samsung/android/graphics/spr/document/attribute/SprAttributeFill;-><init>(BI)V
 
-    invoke-virtual {v8, v1}, Lcom/samsung/android/graphics/spr/document/shape/SprObjectBase;->appendAttribute(Lcom/samsung/android/graphics/spr/document/attribute/SprAttributeBase;)V
+    invoke-virtual {v8, v1}, Lcom/samsung/android/graphics/spr/document/shape/SprObjectShapeRectangle;->appendAttribute(Lcom/samsung/android/graphics/spr/document/attribute/SprAttributeBase;)V
 
     invoke-virtual {v0, v8}, Lcom/samsung/android/graphics/spr/document/SprDocument;->appendObject(Lcom/samsung/android/graphics/spr/document/shape/SprObjectBase;)V
 
     new-instance v8, Lcom/samsung/android/graphics/spr/document/shape/SprObjectShapeRectangle;
 
-    int-to-float v1, v10
+    int-to-float v1, v11
 
     const/16 v3, 0xfa
 
     int-to-float v3, v3
 
-    int-to-float v4, v10
+    int-to-float v4, v11
 
     invoke-direct {v8, v1, v2, v3, v4}, Lcom/samsung/android/graphics/spr/document/shape/SprObjectShapeRectangle;-><init>(FFFF)V
 
     new-instance v1, Lcom/samsung/android/graphics/spr/document/attribute/SprAttributeFill;
 
-    invoke-static {v9, v9, v11, v9}, Landroid/graphics/Color;->argb(IIII)I
+    invoke-static {v10, v10, v12, v10}, Landroid/graphics/Color;->argb(IIII)I
 
     move-result v3
 
-    invoke-direct {v1, v12, v3}, Lcom/samsung/android/graphics/spr/document/attribute/SprAttributeFill;-><init>(BI)V
+    invoke-direct {v1, v13, v3}, Lcom/samsung/android/graphics/spr/document/attribute/SprAttributeFill;-><init>(BI)V
 
-    invoke-virtual {v8, v1}, Lcom/samsung/android/graphics/spr/document/shape/SprObjectBase;->appendAttribute(Lcom/samsung/android/graphics/spr/document/attribute/SprAttributeBase;)V
+    invoke-virtual {v8, v1}, Lcom/samsung/android/graphics/spr/document/shape/SprObjectShapeRectangle;->appendAttribute(Lcom/samsung/android/graphics/spr/document/attribute/SprAttributeBase;)V
 
     invoke-virtual {v0, v8}, Lcom/samsung/android/graphics/spr/document/SprDocument;->appendObject(Lcom/samsung/android/graphics/spr/document/shape/SprObjectBase;)V
 
@@ -1301,19 +1311,19 @@
 
     int-to-float v3, v3
 
-    int-to-float v4, v10
+    int-to-float v4, v11
 
     invoke-direct {v8, v1, v2, v3, v4}, Lcom/samsung/android/graphics/spr/document/shape/SprObjectShapeRectangle;-><init>(FFFF)V
 
     new-instance v1, Lcom/samsung/android/graphics/spr/document/attribute/SprAttributeFill;
 
-    invoke-static {v9, v9, v11, v11}, Landroid/graphics/Color;->argb(IIII)I
+    invoke-static {v10, v10, v12, v12}, Landroid/graphics/Color;->argb(IIII)I
 
     move-result v3
 
-    invoke-direct {v1, v12, v3}, Lcom/samsung/android/graphics/spr/document/attribute/SprAttributeFill;-><init>(BI)V
+    invoke-direct {v1, v13, v3}, Lcom/samsung/android/graphics/spr/document/attribute/SprAttributeFill;-><init>(BI)V
 
-    invoke-virtual {v8, v1}, Lcom/samsung/android/graphics/spr/document/shape/SprObjectBase;->appendAttribute(Lcom/samsung/android/graphics/spr/document/attribute/SprAttributeBase;)V
+    invoke-virtual {v8, v1}, Lcom/samsung/android/graphics/spr/document/shape/SprObjectShapeRectangle;->appendAttribute(Lcom/samsung/android/graphics/spr/document/attribute/SprAttributeBase;)V
 
     invoke-virtual {v0, v8}, Lcom/samsung/android/graphics/spr/document/SprDocument;->appendObject(Lcom/samsung/android/graphics/spr/document/shape/SprObjectBase;)V
 
@@ -1327,25 +1337,25 @@
 
     int-to-float v3, v3
 
-    int-to-float v4, v10
+    int-to-float v4, v11
 
     invoke-direct {v8, v1, v2, v3, v4}, Lcom/samsung/android/graphics/spr/document/shape/SprObjectShapeRectangle;-><init>(FFFF)V
 
     new-instance v1, Lcom/samsung/android/graphics/spr/document/attribute/SprAttributeFill;
 
-    invoke-static {v9, v11, v11, v9}, Landroid/graphics/Color;->argb(IIII)I
+    invoke-static {v10, v12, v12, v10}, Landroid/graphics/Color;->argb(IIII)I
 
     move-result v3
 
-    invoke-direct {v1, v12, v3}, Lcom/samsung/android/graphics/spr/document/attribute/SprAttributeFill;-><init>(BI)V
+    invoke-direct {v1, v13, v3}, Lcom/samsung/android/graphics/spr/document/attribute/SprAttributeFill;-><init>(BI)V
 
-    invoke-virtual {v8, v1}, Lcom/samsung/android/graphics/spr/document/shape/SprObjectBase;->appendAttribute(Lcom/samsung/android/graphics/spr/document/attribute/SprAttributeBase;)V
+    invoke-virtual {v8, v1}, Lcom/samsung/android/graphics/spr/document/shape/SprObjectShapeRectangle;->appendAttribute(Lcom/samsung/android/graphics/spr/document/attribute/SprAttributeBase;)V
 
     invoke-virtual {v0, v8}, Lcom/samsung/android/graphics/spr/document/SprDocument;->appendObject(Lcom/samsung/android/graphics/spr/document/shape/SprObjectBase;)V
 
     new-instance v8, Lcom/samsung/android/graphics/spr/document/shape/SprObjectShapeRectangle;
 
-    int-to-float v1, v10
+    int-to-float v1, v11
 
     const/16 v3, 0x32
 
@@ -1359,13 +1369,13 @@
 
     new-instance v1, Lcom/samsung/android/graphics/spr/document/attribute/SprAttributeFill;
 
-    invoke-static {v9, v11, v11, v9}, Landroid/graphics/Color;->argb(IIII)I
+    invoke-static {v10, v12, v12, v10}, Landroid/graphics/Color;->argb(IIII)I
 
     move-result v3
 
-    invoke-direct {v1, v12, v3}, Lcom/samsung/android/graphics/spr/document/attribute/SprAttributeFill;-><init>(BI)V
+    invoke-direct {v1, v13, v3}, Lcom/samsung/android/graphics/spr/document/attribute/SprAttributeFill;-><init>(BI)V
 
-    invoke-virtual {v8, v1}, Lcom/samsung/android/graphics/spr/document/shape/SprObjectBase;->appendAttribute(Lcom/samsung/android/graphics/spr/document/attribute/SprAttributeBase;)V
+    invoke-virtual {v8, v1}, Lcom/samsung/android/graphics/spr/document/shape/SprObjectShapeRectangle;->appendAttribute(Lcom/samsung/android/graphics/spr/document/attribute/SprAttributeBase;)V
 
     invoke-virtual {v0, v8}, Lcom/samsung/android/graphics/spr/document/SprDocument;->appendObject(Lcom/samsung/android/graphics/spr/document/shape/SprObjectBase;)V
 
@@ -1375,7 +1385,7 @@
 
     int-to-float v1, v1
 
-    int-to-float v3, v10
+    int-to-float v3, v11
 
     const/16 v4, 0x64
 
@@ -1389,13 +1399,13 @@
 
     new-instance v1, Lcom/samsung/android/graphics/spr/document/attribute/SprAttributeFill;
 
-    invoke-static {v9, v11, v11, v11}, Landroid/graphics/Color;->argb(IIII)I
+    invoke-static {v10, v12, v12, v12}, Landroid/graphics/Color;->argb(IIII)I
 
     move-result v3
 
-    invoke-direct {v1, v12, v3}, Lcom/samsung/android/graphics/spr/document/attribute/SprAttributeFill;-><init>(BI)V
+    invoke-direct {v1, v13, v3}, Lcom/samsung/android/graphics/spr/document/attribute/SprAttributeFill;-><init>(BI)V
 
-    invoke-virtual {v8, v1}, Lcom/samsung/android/graphics/spr/document/shape/SprObjectBase;->appendAttribute(Lcom/samsung/android/graphics/spr/document/attribute/SprAttributeBase;)V
+    invoke-virtual {v8, v1}, Lcom/samsung/android/graphics/spr/document/shape/SprObjectShapeRectangle;->appendAttribute(Lcom/samsung/android/graphics/spr/document/attribute/SprAttributeBase;)V
 
     invoke-virtual {v0, v8}, Lcom/samsung/android/graphics/spr/document/SprDocument;->appendObject(Lcom/samsung/android/graphics/spr/document/shape/SprObjectBase;)V
 
@@ -1405,7 +1415,7 @@
 
     int-to-float v1, v1
 
-    int-to-float v3, v10
+    int-to-float v3, v11
 
     const/16 v4, 0x96
 
@@ -1419,13 +1429,13 @@
 
     new-instance v1, Lcom/samsung/android/graphics/spr/document/attribute/SprAttributeFill;
 
-    invoke-static {v9, v9, v11, v9}, Landroid/graphics/Color;->argb(IIII)I
+    invoke-static {v10, v10, v12, v10}, Landroid/graphics/Color;->argb(IIII)I
 
     move-result v3
 
-    invoke-direct {v1, v12, v3}, Lcom/samsung/android/graphics/spr/document/attribute/SprAttributeFill;-><init>(BI)V
+    invoke-direct {v1, v13, v3}, Lcom/samsung/android/graphics/spr/document/attribute/SprAttributeFill;-><init>(BI)V
 
-    invoke-virtual {v8, v1}, Lcom/samsung/android/graphics/spr/document/shape/SprObjectBase;->appendAttribute(Lcom/samsung/android/graphics/spr/document/attribute/SprAttributeBase;)V
+    invoke-virtual {v8, v1}, Lcom/samsung/android/graphics/spr/document/shape/SprObjectShapeRectangle;->appendAttribute(Lcom/samsung/android/graphics/spr/document/attribute/SprAttributeBase;)V
 
     invoke-virtual {v0, v8}, Lcom/samsung/android/graphics/spr/document/SprDocument;->appendObject(Lcom/samsung/android/graphics/spr/document/shape/SprObjectBase;)V
 
@@ -1435,9 +1445,9 @@
 
     int-to-float v1, v1
 
-    int-to-float v3, v10
+    int-to-float v3, v11
 
-    int-to-float v4, v10
+    int-to-float v4, v11
 
     const/16 v5, 0xe1
 
@@ -1447,21 +1457,21 @@
 
     new-instance v1, Lcom/samsung/android/graphics/spr/document/attribute/SprAttributeFill;
 
-    invoke-static {v9, v11, v11, v11}, Landroid/graphics/Color;->argb(IIII)I
+    invoke-static {v10, v12, v12, v12}, Landroid/graphics/Color;->argb(IIII)I
 
     move-result v3
 
-    invoke-direct {v1, v12, v3}, Lcom/samsung/android/graphics/spr/document/attribute/SprAttributeFill;-><init>(BI)V
+    invoke-direct {v1, v13, v3}, Lcom/samsung/android/graphics/spr/document/attribute/SprAttributeFill;-><init>(BI)V
 
-    invoke-virtual {v8, v1}, Lcom/samsung/android/graphics/spr/document/shape/SprObjectBase;->appendAttribute(Lcom/samsung/android/graphics/spr/document/attribute/SprAttributeBase;)V
+    invoke-virtual {v8, v1}, Lcom/samsung/android/graphics/spr/document/shape/SprObjectShapeRectangle;->appendAttribute(Lcom/samsung/android/graphics/spr/document/attribute/SprAttributeBase;)V
 
     invoke-virtual {v0, v8}, Lcom/samsung/android/graphics/spr/document/SprDocument;->appendObject(Lcom/samsung/android/graphics/spr/document/shape/SprObjectBase;)V
 
     new-instance v8, Lcom/samsung/android/graphics/spr/document/shape/SprObjectShapeRectangle;
 
-    int-to-float v1, v10
+    int-to-float v1, v11
 
-    int-to-float v3, v10
+    int-to-float v3, v11
 
     const/16 v4, 0xfa
 
@@ -1475,13 +1485,13 @@
 
     new-instance v1, Lcom/samsung/android/graphics/spr/document/attribute/SprAttributeFill;
 
-    invoke-static {v9, v11, v9, v9}, Landroid/graphics/Color;->argb(IIII)I
+    invoke-static {v10, v12, v10, v10}, Landroid/graphics/Color;->argb(IIII)I
 
     move-result v3
 
-    invoke-direct {v1, v12, v3}, Lcom/samsung/android/graphics/spr/document/attribute/SprAttributeFill;-><init>(BI)V
+    invoke-direct {v1, v13, v3}, Lcom/samsung/android/graphics/spr/document/attribute/SprAttributeFill;-><init>(BI)V
 
-    invoke-virtual {v8, v1}, Lcom/samsung/android/graphics/spr/document/shape/SprObjectBase;->appendAttribute(Lcom/samsung/android/graphics/spr/document/attribute/SprAttributeBase;)V
+    invoke-virtual {v8, v1}, Lcom/samsung/android/graphics/spr/document/shape/SprObjectShapeRectangle;->appendAttribute(Lcom/samsung/android/graphics/spr/document/attribute/SprAttributeBase;)V
 
     invoke-virtual {v0, v8}, Lcom/samsung/android/graphics/spr/document/SprDocument;->appendObject(Lcom/samsung/android/graphics/spr/document/shape/SprObjectBase;)V
 
@@ -1491,7 +1501,7 @@
 
     int-to-float v1, v1
 
-    int-to-float v3, v10
+    int-to-float v3, v11
 
     const/16 v4, 0x12c
 
@@ -1505,13 +1515,13 @@
 
     new-instance v1, Lcom/samsung/android/graphics/spr/document/attribute/SprAttributeFill;
 
-    invoke-static {v9, v11, v11, v11}, Landroid/graphics/Color;->argb(IIII)I
+    invoke-static {v10, v12, v12, v12}, Landroid/graphics/Color;->argb(IIII)I
 
     move-result v3
 
-    invoke-direct {v1, v12, v3}, Lcom/samsung/android/graphics/spr/document/attribute/SprAttributeFill;-><init>(BI)V
+    invoke-direct {v1, v13, v3}, Lcom/samsung/android/graphics/spr/document/attribute/SprAttributeFill;-><init>(BI)V
 
-    invoke-virtual {v8, v1}, Lcom/samsung/android/graphics/spr/document/shape/SprObjectBase;->appendAttribute(Lcom/samsung/android/graphics/spr/document/attribute/SprAttributeBase;)V
+    invoke-virtual {v8, v1}, Lcom/samsung/android/graphics/spr/document/shape/SprObjectShapeRectangle;->appendAttribute(Lcom/samsung/android/graphics/spr/document/attribute/SprAttributeBase;)V
 
     invoke-virtual {v0, v8}, Lcom/samsung/android/graphics/spr/document/SprDocument;->appendObject(Lcom/samsung/android/graphics/spr/document/shape/SprObjectBase;)V
 
@@ -1521,7 +1531,7 @@
 
     int-to-float v1, v1
 
-    int-to-float v3, v10
+    int-to-float v3, v11
 
     const/16 v4, 0x15e
 
@@ -1535,13 +1545,13 @@
 
     new-instance v1, Lcom/samsung/android/graphics/spr/document/attribute/SprAttributeFill;
 
-    invoke-static {v9, v10, v10, v10}, Landroid/graphics/Color;->argb(IIII)I
+    invoke-static {v10, v11, v11, v11}, Landroid/graphics/Color;->argb(IIII)I
 
     move-result v3
 
-    invoke-direct {v1, v12, v3}, Lcom/samsung/android/graphics/spr/document/attribute/SprAttributeFill;-><init>(BI)V
+    invoke-direct {v1, v13, v3}, Lcom/samsung/android/graphics/spr/document/attribute/SprAttributeFill;-><init>(BI)V
 
-    invoke-virtual {v8, v1}, Lcom/samsung/android/graphics/spr/document/shape/SprObjectBase;->appendAttribute(Lcom/samsung/android/graphics/spr/document/attribute/SprAttributeBase;)V
+    invoke-virtual {v8, v1}, Lcom/samsung/android/graphics/spr/document/shape/SprObjectShapeRectangle;->appendAttribute(Lcom/samsung/android/graphics/spr/document/attribute/SprAttributeBase;)V
 
     invoke-virtual {v0, v8}, Lcom/samsung/android/graphics/spr/document/SprDocument;->appendObject(Lcom/samsung/android/graphics/spr/document/shape/SprObjectBase;)V
 
@@ -1565,7 +1575,7 @@
 
     invoke-direct {v7}, Lcom/samsung/android/graphics/spr/document/attribute/impl/SprLinearGradient;-><init>()V
 
-    iput-byte v12, v7, Lcom/samsung/android/graphics/spr/document/attribute/impl/SprGradientBase;->spreadMode:B
+    iput-byte v13, v7, Lcom/samsung/android/graphics/spr/document/attribute/impl/SprLinearGradient;->spreadMode:B
 
     iput v2, v7, Lcom/samsung/android/graphics/spr/document/attribute/impl/SprLinearGradient;->x1:F
 
@@ -1595,7 +1605,7 @@
 
     move-result-object v1
 
-    iput-object v1, v7, Lcom/samsung/android/graphics/spr/document/attribute/impl/SprGradientBase;->colors:[I
+    iput-object v1, v7, Lcom/samsung/android/graphics/spr/document/attribute/impl/SprLinearGradient;->colors:[I
 
     const/4 v1, 0x2
 
@@ -1603,7 +1613,7 @@
 
     fill-array-data v1, :array_0
 
-    iput-object v1, v7, Lcom/samsung/android/graphics/spr/document/attribute/impl/SprGradientBase;->positions:[F
+    iput-object v1, v7, Lcom/samsung/android/graphics/spr/document/attribute/impl/SprLinearGradient;->positions:[F
 
     invoke-virtual {v7}, Lcom/samsung/android/graphics/spr/document/attribute/impl/SprLinearGradient;->updateGradient()V
 
@@ -1613,7 +1623,7 @@
 
     invoke-direct {v6, v1, v7}, Lcom/samsung/android/graphics/spr/document/attribute/SprAttributeFill;-><init>(BLcom/samsung/android/graphics/spr/document/attribute/impl/SprGradientBase;)V
 
-    invoke-virtual {v8, v6}, Lcom/samsung/android/graphics/spr/document/shape/SprObjectBase;->appendAttribute(Lcom/samsung/android/graphics/spr/document/attribute/SprAttributeBase;)V
+    invoke-virtual {v8, v6}, Lcom/samsung/android/graphics/spr/document/shape/SprObjectShapeRectangle;->appendAttribute(Lcom/samsung/android/graphics/spr/document/attribute/SprAttributeBase;)V
 
     invoke-virtual {v0, v8}, Lcom/samsung/android/graphics/spr/document/SprDocument;->appendObject(Lcom/samsung/android/graphics/spr/document/shape/SprObjectBase;)V
 
@@ -1622,8 +1632,6 @@
     invoke-direct {v1, v0}, Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable$1;-><init>(Lcom/samsung/android/graphics/spr/document/SprDocument;)V
 
     return-object v1
-
-    nop
 
     :array_0
     .array-data 4
@@ -1690,27 +1698,6 @@
     goto :goto_0
 .end method
 
-.method static obtainAttributes(Landroid/content/res/Resources;Landroid/content/res/Resources$Theme;Landroid/util/AttributeSet;[I)Landroid/content/res/TypedArray;
-    .locals 1
-
-    const/4 v0, 0x0
-
-    if-nez p1, :cond_0
-
-    invoke-virtual {p0, p2, p3}, Landroid/content/res/Resources;->obtainAttributes(Landroid/util/AttributeSet;[I)Landroid/content/res/TypedArray;
-
-    move-result-object v0
-
-    return-object v0
-
-    :cond_0
-    invoke-virtual {p1, p2, p3, v0, v0}, Landroid/content/res/Resources$Theme;->obtainStyledAttributes(Landroid/util/AttributeSet;[III)Landroid/content/res/TypedArray;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
 .method private static parseTileMode(I)Landroid/graphics/Shader$TileMode;
     .locals 1
 
@@ -1743,8 +1730,29 @@
     .end packed-switch
 .end method
 
+.method protected static sprObtainAttributes(Landroid/content/res/Resources;Landroid/content/res/Resources$Theme;Landroid/util/AttributeSet;[I)Landroid/content/res/TypedArray;
+    .locals 1
+
+    const/4 v0, 0x0
+
+    if-nez p1, :cond_0
+
+    invoke-virtual {p0, p2, p3}, Landroid/content/res/Resources;->obtainAttributes(Landroid/util/AttributeSet;[I)Landroid/content/res/TypedArray;
+
+    move-result-object v0
+
+    return-object v0
+
+    :cond_0
+    invoke-virtual {p1, p2, p3, v0, v0}, Landroid/content/res/Resources$Theme;->obtainStyledAttributes(Landroid/util/AttributeSet;[III)Landroid/content/res/TypedArray;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
 .method private updateCachedBitmap(III)V
-    .locals 6
+    .locals 7
 
     const/4 v4, 0x0
 
@@ -1817,8 +1825,13 @@
 
     iget-object v0, p0, Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable;->mCacheBitmap:Landroid/graphics/Bitmap;
 
-    if-nez v0, :cond_4
+    if-nez v0, :cond_5
 
+    iget-object v6, p0, Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable;->mDocument:Lcom/samsung/android/graphics/spr/document/SprDocument;
+
+    monitor-enter v6
+
+    :try_start_0
     iget-object v0, p0, Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable;->mDocument:Lcom/samsung/android/graphics/spr/document/SprDocument;
 
     invoke-virtual {v0}, Lcom/samsung/android/graphics/spr/document/SprDocument;->isPredraw()Z
@@ -1829,7 +1842,9 @@
 
     iget-object v0, p0, Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable;->mDocument:Lcom/samsung/android/graphics/spr/document/SprDocument;
 
-    invoke-virtual {v0, v4}, Lcom/samsung/android/graphics/spr/document/SprDocument;->preDraw(I)V
+    const/4 v2, 0x0
+
+    invoke-virtual {v0, v2}, Lcom/samsung/android/graphics/spr/document/SprDocument;->preDraw(I)V
 
     :cond_3
     sget-object v0, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
@@ -1858,6 +1873,8 @@
 
     move-result v5
 
+    const/4 v4, 0x0
+
     move v2, p1
 
     move v3, p2
@@ -1875,8 +1892,13 @@
     iget v3, p0, Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable;->mCacheDensityDpi:I
 
     invoke-virtual {v0, v2, v3}, Lcom/samsung/android/graphics/spr/cache/SprCacheManager;->addCache(Landroid/graphics/Bitmap;I)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     :cond_4
+    monitor-exit v6
+
+    :cond_5
     iget-object v0, p0, Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable;->mState:Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable$SprState;
 
     invoke-static {v0}, Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable$SprState;->-get2(Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable$SprState;)Lcom/samsung/android/graphics/spr/cache/SprCacheManager;
@@ -1888,6 +1910,13 @@
     invoke-virtual {v0, v2}, Lcom/samsung/android/graphics/spr/cache/SprCacheManager;->lock(Landroid/graphics/Bitmap;)V
 
     return-void
+
+    :catchall_0
+    move-exception v0
+
+    monitor-exit v6
+
+    throw v0
 .end method
 
 .method private updateDensity(Landroid/content/res/Resources;)V
@@ -1964,7 +1993,7 @@
     if-nez v0, :cond_0
 
     :try_start_0
-    invoke-virtual {p0}, Landroid/graphics/drawable/Drawable;->getBounds()Landroid/graphics/Rect;
+    invoke-virtual {p0}, Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable;->getBounds()Landroid/graphics/Rect;
 
     move-result-object v3
 
@@ -2010,7 +2039,7 @@
     :cond_0
     iget-object v0, p0, Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable;->mDstRect:Landroid/graphics/Rect;
 
-    invoke-virtual {p0, v0}, Landroid/graphics/drawable/Drawable;->copyBounds(Landroid/graphics/Rect;)V
+    invoke-virtual {p0, v0}, Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable;->copyBounds(Landroid/graphics/Rect;)V
 
     goto :goto_0
 
@@ -2182,6 +2211,8 @@
     move-object/from16 v0, p0
 
     iput-object v13, v0, Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable;->mDocument:Lcom/samsung/android/graphics/spr/document/SprDocument;
+
+    invoke-virtual {v3}, Ljava/io/InputStream;->close()V
     :try_end_1
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
 
@@ -2427,7 +2458,7 @@
     :catch_2
     move-exception v2
 
-    invoke-virtual {v2}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v2}, Ljava/io/IOException;->printStackTrace()V
 
     goto :goto_2
 
@@ -2458,7 +2489,7 @@
     return-object v1
 
     :cond_1
-    invoke-virtual {p0}, Landroid/graphics/drawable/Drawable;->getState()[I
+    invoke-virtual {p0}, Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable;->getState()[I
 
     move-result-object v1
 
@@ -2674,7 +2705,7 @@
 .end method
 
 .method public draw(Landroid/graphics/Canvas;)V
-    .locals 18
+    .locals 20
 
     move-object/from16 v0, p0
 
@@ -2920,9 +2951,9 @@
 
     iget-object v0, v0, Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable;->mState:Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable$SprState;
 
-    move-object/from16 v17, v0
+    move-object/from16 v18, v0
 
-    monitor-enter v17
+    monitor-enter v18
 
     :try_start_0
     move-object/from16 v0, p0
@@ -3002,7 +3033,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     :cond_9
-    monitor-exit v17
+    monitor-exit v18
 
     move-object/from16 v0, p0
 
@@ -3098,6 +3129,17 @@
 
     move-object/from16 v0, p0
 
+    iget-object v0, v0, Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable;->mDocument:Lcom/samsung/android/graphics/spr/document/SprDocument;
+
+    move-object/from16 v19, v0
+
+    monitor-enter v19
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    :try_start_2
+    move-object/from16 v0, p0
+
     iget-object v2, v0, Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable;->mDocument:Lcom/samsung/android/graphics/spr/document/SprDocument;
 
     invoke-virtual {v2, v6}, Lcom/samsung/android/graphics/spr/document/SprDocument;->preDraw(I)V
@@ -3129,13 +3171,15 @@
 
     iput-object v2, v0, Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable;->mAnimationBitmap:Landroid/graphics/Bitmap;
 
-    new-instance v3, Landroid/graphics/Canvas;
+    new-instance v15, Landroid/graphics/Canvas;
 
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable;->mAnimationBitmap:Landroid/graphics/Bitmap;
 
-    invoke-direct {v3, v2}, Landroid/graphics/Canvas;-><init>(Landroid/graphics/Bitmap;)V
+    invoke-direct {v15, v2}, Landroid/graphics/Canvas;-><init>(Landroid/graphics/Bitmap;)V
+
+    move-object v3, v15
 
     :goto_5
     move-object/from16 v0, p0
@@ -3151,20 +3195,25 @@
     move-result v7
 
     invoke-virtual/range {v2 .. v7}, Lcom/samsung/android/graphics/spr/document/SprDocument;->draw(Landroid/graphics/Canvas;IIII)V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_1
+
+    :try_start_3
+    monitor-exit v19
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
     goto/16 :goto_1
 
     :catchall_0
     move-exception v2
 
-    monitor-exit v17
+    monitor-exit v18
 
     throw v2
 
     :cond_e
-    :try_start_2
+    :try_start_4
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable;->mAnimationBitmap:Landroid/graphics/Bitmap;
@@ -3175,21 +3224,37 @@
 
     if-ne v2, v5, :cond_d
 
-    new-instance v3, Landroid/graphics/Canvas;
+    new-instance v15, Landroid/graphics/Canvas;
 
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable;->mAnimationBitmap:Landroid/graphics/Bitmap;
 
-    invoke-direct {v3, v2}, Landroid/graphics/Canvas;-><init>(Landroid/graphics/Bitmap;)V
+    invoke-direct {v15, v2}, Landroid/graphics/Canvas;-><init>(Landroid/graphics/Bitmap;)V
+    :try_end_4
+    .catchall {:try_start_4 .. :try_end_4} :catchall_1
 
+    :try_start_5
     sget-object v2, Landroid/graphics/PorterDuff$Mode;->CLEAR:Landroid/graphics/PorterDuff$Mode;
 
     const/4 v7, 0x0
 
-    invoke-virtual {v3, v7, v2}, Landroid/graphics/Canvas;->drawColor(ILandroid/graphics/PorterDuff$Mode;)V
+    invoke-virtual {v15, v7, v2}, Landroid/graphics/Canvas;->drawColor(ILandroid/graphics/PorterDuff$Mode;)V
+    :try_end_5
+    .catchall {:try_start_5 .. :try_end_5} :catchall_2
+
+    move-object v3, v15
 
     goto :goto_5
+
+    :catchall_1
+    move-exception v2
+
+    :goto_6
+    :try_start_6
+    monitor-exit v19
+
+    throw v2
 
     :cond_f
     move-object/from16 v0, p0
@@ -3213,7 +3278,7 @@
 
     invoke-static {v2}, Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable$SprState;->-get11(Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable$SprState;)Landroid/graphics/Shader$TileMode;
 
-    move-result-object v15
+    move-result-object v16
 
     move-object/from16 v0, p0
 
@@ -3221,7 +3286,7 @@
 
     invoke-static {v2}, Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable$SprState;->-get12(Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable$SprState;)Landroid/graphics/Shader$TileMode;
 
-    move-result-object v16
+    move-result-object v17
 
     new-instance v7, Landroid/graphics/BitmapShader;
 
@@ -3235,20 +3300,22 @@
 
     iget-object v2, v0, Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable;->mAnimationBitmap:Landroid/graphics/Bitmap;
 
-    :goto_6
-    if-nez v15, :cond_11
-
-    sget-object v15, Landroid/graphics/Shader$TileMode;->CLAMP:Landroid/graphics/Shader$TileMode;
-
-    :cond_11
-    if-nez v16, :cond_12
+    :goto_7
+    if-nez v16, :cond_11
 
     sget-object v16, Landroid/graphics/Shader$TileMode;->CLAMP:Landroid/graphics/Shader$TileMode;
+
+    :cond_11
+    if-nez v17, :cond_12
+
+    sget-object v17, Landroid/graphics/Shader$TileMode;->CLAMP:Landroid/graphics/Shader$TileMode;
 
     :cond_12
     move-object/from16 v0, v16
 
-    invoke-direct {v7, v2, v15, v0}, Landroid/graphics/BitmapShader;-><init>(Landroid/graphics/Bitmap;Landroid/graphics/Shader$TileMode;Landroid/graphics/Shader$TileMode;)V
+    move-object/from16 v1, v17
+
+    invoke-direct {v7, v2, v0, v1}, Landroid/graphics/BitmapShader;-><init>(Landroid/graphics/Bitmap;Landroid/graphics/Shader$TileMode;Landroid/graphics/Shader$TileMode;)V
 
     invoke-virtual {v13, v7}, Landroid/graphics/Paint;->setShader(Landroid/graphics/Shader;)Landroid/graphics/Shader;
 
@@ -3258,10 +3325,10 @@
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable;->mCacheBitmap:Landroid/graphics/Bitmap;
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    :try_end_6
+    .catchall {:try_start_6 .. :try_end_6} :catchall_0
 
-    goto :goto_6
+    goto :goto_7
 
     :cond_14
     const/4 v10, 0x0
@@ -3314,16 +3381,16 @@
 
     iget-object v2, v0, Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable;->mAnimationBitmap:Landroid/graphics/Bitmap;
 
-    :goto_7
+    :goto_8
     move-object/from16 v0, p0
 
     iget-object v7, v0, Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable;->mDstRect:Landroid/graphics/Rect;
 
-    const/16 v17, 0x0
+    const/16 v18, 0x0
 
     move-object/from16 v0, p1
 
-    move-object/from16 v1, v17
+    move-object/from16 v1, v18
 
     invoke-virtual {v0, v2, v1, v7, v13}, Landroid/graphics/Canvas;->drawBitmap(Landroid/graphics/Bitmap;Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Paint;)V
 
@@ -3347,7 +3414,7 @@
 
     iget-object v2, v0, Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable;->mCacheBitmap:Landroid/graphics/Bitmap;
 
-    goto :goto_7
+    goto :goto_8
 
     :cond_19
     if-eqz v12, :cond_1c
@@ -3381,21 +3448,21 @@
 
     iget-object v0, v0, Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable;->mDstRect:Landroid/graphics/Rect;
 
-    move-object/from16 v17, v0
+    move-object/from16 v18, v0
 
-    move-object/from16 v0, v17
+    move-object/from16 v0, v18
 
     iget v0, v0, Landroid/graphics/Rect;->left:I
 
-    move/from16 v17, v0
+    move/from16 v18, v0
 
-    sub-int v7, v7, v17
+    sub-int v7, v7, v18
 
     int-to-float v7, v7
 
-    const/16 v17, 0x0
+    const/16 v18, 0x0
 
-    move/from16 v0, v17
+    move/from16 v0, v18
 
     invoke-virtual {v2, v7, v0}, Landroid/graphics/Matrix;->setTranslate(FF)V
 
@@ -3405,9 +3472,9 @@
 
     const/high16 v7, -0x40800000    # -1.0f
 
-    const/high16 v17, 0x3f800000    # 1.0f
+    const/high16 v18, 0x3f800000    # 1.0f
 
-    move/from16 v0, v17
+    move/from16 v0, v18
 
     invoke-virtual {v2, v7, v0}, Landroid/graphics/Matrix;->preScale(FF)Z
 
@@ -3420,7 +3487,7 @@
     invoke-virtual {v13, v14}, Landroid/graphics/Paint;->setShader(Landroid/graphics/Shader;)Landroid/graphics/Shader;
 
     :cond_1b
-    :goto_8
+    :goto_9
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable;->mDstRect:Landroid/graphics/Rect;
@@ -3467,7 +3534,14 @@
 
     invoke-virtual {v13, v14}, Landroid/graphics/Paint;->setShader(Landroid/graphics/Shader;)Landroid/graphics/Shader;
 
-    goto :goto_8
+    goto :goto_9
+
+    :catchall_2
+    move-exception v2
+
+    move-object v3, v15
+
+    goto/16 :goto_6
 .end method
 
 .method protected finalize()V
@@ -3576,6 +3650,22 @@
     or-int/2addr v0, v1
 
     return v0
+.end method
+
+.method public getColorFilter()Landroid/graphics/ColorFilter;
+    .locals 1
+
+    iget-object v0, p0, Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable;->mState:Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable$SprState;
+
+    invoke-static {v0}, Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable$SprState;->-get1(Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable$SprState;)Landroid/graphics/Paint;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/graphics/Paint;->getColorFilter()Landroid/graphics/ColorFilter;
+
+    move-result-object v0
+
+    return-object v0
 .end method
 
 .method public getConstantState()Landroid/graphics/drawable/Drawable$ConstantState;
@@ -3857,7 +3947,7 @@
 
     sget-object v1, Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable;->mStyleableBitmapDrawable:[I
 
-    invoke-static {p1, p4, p3, v1}, Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable;->obtainAttributes(Landroid/content/res/Resources;Landroid/content/res/Resources$Theme;Landroid/util/AttributeSet;[I)Landroid/content/res/TypedArray;
+    invoke-static {p1, p4, p3, v1}, Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable;->sprObtainAttributes(Landroid/content/res/Resources;Landroid/content/res/Resources$Theme;Landroid/util/AttributeSet;[I)Landroid/content/res/TypedArray;
 
     move-result-object v0
 
@@ -4024,7 +4114,7 @@
 
     iput-object v1, p0, Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable;->mTintFilter:Landroid/graphics/PorterDuffColorFilter;
 
-    invoke-virtual {p0}, Landroid/graphics/drawable/Drawable;->invalidateSelf()V
+    invoke-virtual {p0}, Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable;->invalidateSelf()V
 
     const/4 v1, 0x1
 
@@ -4078,7 +4168,7 @@
 
     invoke-static {v0, p1}, Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable$SprState;->-set0(Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable$SprState;Z)Z
 
-    invoke-virtual {p0}, Landroid/graphics/drawable/Drawable;->invalidateSelf()V
+    invoke-virtual {p0}, Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable;->invalidateSelf()V
 
     :cond_0
     return-void
@@ -4095,7 +4185,7 @@
 
     invoke-virtual {v0, p1}, Landroid/graphics/Paint;->setColorFilter(Landroid/graphics/ColorFilter;)Landroid/graphics/ColorFilter;
 
-    invoke-virtual {p0}, Landroid/graphics/drawable/Drawable;->invalidateSelf()V
+    invoke-virtual {p0}, Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable;->invalidateSelf()V
 
     return-void
 .end method
@@ -4117,7 +4207,7 @@
 
     invoke-direct {p0}, Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable;->updateDstRectAndInsetsIfDirty()V
 
-    invoke-virtual {p0}, Landroid/graphics/drawable/Drawable;->invalidateSelf()V
+    invoke-virtual {p0}, Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable;->invalidateSelf()V
 
     :cond_0
     return-void
@@ -4165,7 +4255,7 @@
 
     invoke-direct {p0}, Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable;->updateDstRectAndInsetsIfDirty()V
 
-    invoke-virtual {p0}, Landroid/graphics/drawable/Drawable;->invalidateSelf()V
+    invoke-virtual {p0}, Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable;->invalidateSelf()V
 
     :cond_1
     return-void
@@ -4186,7 +4276,7 @@
 .end method
 
 .method public setTintList(Landroid/content/res/ColorStateList;)V
-    .locals 3
+    .locals 4
 
     iget-object v0, p0, Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable;->mState:Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable$SprState;
 
@@ -4194,23 +4284,27 @@
 
     iget-object v1, p0, Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable;->mTintFilter:Landroid/graphics/PorterDuffColorFilter;
 
-    invoke-static {v0}, Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable$SprState;->-get14(Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable$SprState;)Landroid/graphics/PorterDuff$Mode;
+    invoke-static {v0}, Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable$SprState;->-get13(Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable$SprState;)Landroid/content/res/ColorStateList;
 
     move-result-object v2
 
-    invoke-virtual {p0, v1, p1, v2}, Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable;->updateTintFilterInternal(Landroid/graphics/PorterDuffColorFilter;Landroid/content/res/ColorStateList;Landroid/graphics/PorterDuff$Mode;)Landroid/graphics/PorterDuffColorFilter;
+    invoke-static {v0}, Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable$SprState;->-get14(Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable$SprState;)Landroid/graphics/PorterDuff$Mode;
+
+    move-result-object v3
+
+    invoke-virtual {p0, v1, v2, v3}, Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable;->updateTintFilterInternal(Landroid/graphics/PorterDuffColorFilter;Landroid/content/res/ColorStateList;Landroid/graphics/PorterDuff$Mode;)Landroid/graphics/PorterDuffColorFilter;
 
     move-result-object v1
 
     iput-object v1, p0, Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable;->mTintFilter:Landroid/graphics/PorterDuffColorFilter;
 
-    invoke-virtual {p0}, Landroid/graphics/drawable/Drawable;->invalidateSelf()V
+    invoke-virtual {p0}, Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable;->invalidateSelf()V
 
     return-void
 .end method
 
 .method public setTintMode(Landroid/graphics/PorterDuff$Mode;)V
-    .locals 3
+    .locals 4
 
     iget-object v0, p0, Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable;->mState:Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable$SprState;
 
@@ -4222,13 +4316,17 @@
 
     move-result-object v2
 
-    invoke-virtual {p0, v1, v2, p1}, Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable;->updateTintFilterInternal(Landroid/graphics/PorterDuffColorFilter;Landroid/content/res/ColorStateList;Landroid/graphics/PorterDuff$Mode;)Landroid/graphics/PorterDuffColorFilter;
+    invoke-static {v0}, Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable$SprState;->-get14(Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable$SprState;)Landroid/graphics/PorterDuff$Mode;
+
+    move-result-object v3
+
+    invoke-virtual {p0, v1, v2, v3}, Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable;->updateTintFilterInternal(Landroid/graphics/PorterDuffColorFilter;Landroid/content/res/ColorStateList;Landroid/graphics/PorterDuff$Mode;)Landroid/graphics/PorterDuffColorFilter;
 
     move-result-object v1
 
     iput-object v1, p0, Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable;->mTintFilter:Landroid/graphics/PorterDuffColorFilter;
 
-    invoke-virtual {p0}, Landroid/graphics/drawable/Drawable;->invalidateSelf()V
+    invoke-virtual {p0}, Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable;->invalidateSelf()V
 
     return-void
 .end method
@@ -4527,7 +4625,7 @@
 
     sget-object v3, Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable;->mUpdateTintFilter:Ljava/lang/reflect/Method;
 
-    invoke-virtual {v3, v4}, Ljava/lang/reflect/AccessibleObject;->setAccessible(Z)V
+    invoke-virtual {v3, v4}, Ljava/lang/reflect/Method;->setAccessible(Z)V
 
     :try_start_0
     sget-object v3, Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable;->mUpdateTintFilter:Ljava/lang/reflect/Method;
@@ -4563,7 +4661,7 @@
     :goto_0
     sget-object v3, Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable;->mUpdateTintFilter:Ljava/lang/reflect/Method;
 
-    invoke-virtual {v3, v6}, Ljava/lang/reflect/AccessibleObject;->setAccessible(Z)V
+    invoke-virtual {v3, v6}, Ljava/lang/reflect/Method;->setAccessible(Z)V
 
     return-object v2
 

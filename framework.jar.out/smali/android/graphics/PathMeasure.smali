@@ -47,7 +47,7 @@
 
     if-eqz p1, :cond_0
 
-    invoke-virtual {p1}, Landroid/graphics/Path;->ni()J
+    invoke-virtual {p1}, Landroid/graphics/Path;->readOnlyNI()J
 
     move-result-wide v0
 
@@ -182,8 +182,6 @@
 .method public getSegment(FFLandroid/graphics/Path;Z)Z
     .locals 8
 
-    const/4 v1, 0x0
-
     invoke-virtual {p0}, Landroid/graphics/PathMeasure;->getLength()F
 
     move-result v7
@@ -208,14 +206,14 @@
 
     if-ltz v0, :cond_2
 
-    return v1
+    const/4 v0, 0x0
+
+    return v0
 
     :cond_2
-    iput-boolean v1, p3, Landroid/graphics/Path;->isSimplePath:Z
-
     iget-wide v0, p0, Landroid/graphics/PathMeasure;->native_instance:J
 
-    invoke-virtual {p3}, Landroid/graphics/Path;->ni()J
+    invoke-virtual {p3}, Landroid/graphics/Path;->mutateNI()J
 
     move-result-wide v4
 
@@ -265,7 +263,7 @@
 
     if-eqz p1, :cond_0
 
-    invoke-virtual {p1}, Landroid/graphics/Path;->ni()J
+    invoke-virtual {p1}, Landroid/graphics/Path;->readOnlyNI()J
 
     move-result-wide v0
 

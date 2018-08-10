@@ -17,7 +17,7 @@
     value = {
         "Landroid/app/SystemServiceRegistry$CachedServiceFetcher",
         "<",
-        "Landroid/telephony/CarrierConfigManager;",
+        "Landroid/app/StatusBarManager;",
         ">;"
     }
 .end annotation
@@ -34,20 +34,29 @@
 
 
 # virtual methods
-.method public createService(Landroid/app/ContextImpl;)Landroid/telephony/CarrierConfigManager;
-    .locals 1
+.method public createService(Landroid/app/ContextImpl;)Landroid/app/StatusBarManager;
+    .locals 2
 
-    new-instance v0, Landroid/telephony/CarrierConfigManager;
+    new-instance v0, Landroid/app/StatusBarManager;
 
-    invoke-direct {v0}, Landroid/telephony/CarrierConfigManager;-><init>()V
+    invoke-virtual {p1}, Landroid/app/ContextImpl;->getOuterContext()Landroid/content/Context;
+
+    move-result-object v1
+
+    invoke-direct {v0, v1}, Landroid/app/StatusBarManager;-><init>(Landroid/content/Context;)V
 
     return-object v0
 .end method
 
 .method public bridge synthetic createService(Landroid/app/ContextImpl;)Ljava/lang/Object;
     .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/ServiceManager$ServiceNotFoundException;
+        }
+    .end annotation
 
-    invoke-virtual {p0, p1}, Landroid/app/SystemServiceRegistry$42;->createService(Landroid/app/ContextImpl;)Landroid/telephony/CarrierConfigManager;
+    invoke-virtual {p0, p1}, Landroid/app/SystemServiceRegistry$42;->createService(Landroid/app/ContextImpl;)Landroid/app/StatusBarManager;
 
     move-result-object v0
 

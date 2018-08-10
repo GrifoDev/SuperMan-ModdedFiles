@@ -320,7 +320,7 @@
 
     move-result-object v1
 
-    iput-object v1, p0, Lcom/samsung/android/os/SemDvfsManager;->LOG_TAG:Ljava/lang/String;
+    iput-object v1, p0, Lcom/samsung/android/os/SemDvfsHintManager;->LOG_TAG:Ljava/lang/String;
 
     new-instance v1, Ljava/util/ArrayList;
 
@@ -1005,7 +1005,7 @@
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/samsung/android/os/SemDvfsManager;->LOG_TAG:Ljava/lang/String;
+    iput-object v0, p0, Lcom/samsung/android/os/SemDvfsHintManager;->LOG_TAG:Ljava/lang/String;
 
     new-instance v0, Ljava/util/ArrayList;
 
@@ -1456,13 +1456,13 @@
     :try_start_1
     move-object/from16 v0, p0
 
-    iget-boolean v12, v0, Lcom/samsung/android/os/SemDvfsManager;->sIsDebugLevelHigh:Z
+    iget-boolean v12, v0, Lcom/samsung/android/os/SemDvfsHintManager;->sIsDebugLevelHigh:Z
 
     if-eqz v12, :cond_0
 
     move-object/from16 v0, p0
 
-    iget-object v12, v0, Lcom/samsung/android/os/SemDvfsManager;->LOG_TAG:Ljava/lang/String;
+    iget-object v12, v0, Lcom/samsung/android/os/SemDvfsHintManager;->LOG_TAG:Ljava/lang/String;
 
     const-string/jumbo v13, "createHintNotifier:: failed to get cfms service."
 
@@ -1516,13 +1516,13 @@
     move-result-object v10
 
     :goto_0
-    if-eqz v10, :cond_11
+    if-eqz v10, :cond_13
 
     invoke-virtual {v10}, Landroid/content/Intent;->getExtras()Landroid/os/Bundle;
 
     move-result-object v3
 
-    invoke-virtual {v3}, Landroid/os/BaseBundle;->keySet()Ljava/util/Set;
+    invoke-virtual {v3}, Landroid/os/Bundle;->keySet()Ljava/util/Set;
 
     move-result-object v12
 
@@ -1536,7 +1536,7 @@
 
     move-result v12
 
-    if-eqz v12, :cond_11
+    if-eqz v12, :cond_13
 
     invoke-interface {v7}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1544,7 +1544,7 @@
 
     check-cast v6, Ljava/lang/String;
 
-    invoke-virtual {v3, v6}, Landroid/os/BaseBundle;->getString(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v3, v6}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v11
 
@@ -1622,7 +1622,7 @@
 
     move-result v12
 
-    if-eqz v12, :cond_d
+    if-eqz v12, :cond_f
 
     :cond_5
     if-eqz v5, :cond_6
@@ -1636,7 +1636,7 @@
     :cond_6
     move-object/from16 v0, p0
 
-    iget-boolean v12, v0, Lcom/samsung/android/os/SemDvfsManager;->sIsDebugLevelHigh:Z
+    iget-boolean v12, v0, Lcom/samsung/android/os/SemDvfsHintManager;->sIsDebugLevelHigh:Z
 
     if-eqz v12, :cond_7
 
@@ -1644,7 +1644,7 @@
 
     move-object/from16 v0, p0
 
-    iget-object v12, v0, Lcom/samsung/android/os/SemDvfsManager;->LOG_TAG:Ljava/lang/String;
+    iget-object v12, v0, Lcom/samsung/android/os/SemDvfsHintManager;->LOG_TAG:Ljava/lang/String;
 
     new-instance v13, Ljava/lang/StringBuilder;
 
@@ -1721,7 +1721,7 @@
 
     move-object/from16 v0, p0
 
-    iget-object v12, v0, Lcom/samsung/android/os/SemDvfsManager;->LOG_TAG:Ljava/lang/String;
+    iget-object v12, v0, Lcom/samsung/android/os/SemDvfsHintManager;->LOG_TAG:Ljava/lang/String;
 
     const-string/jumbo v13, "createHintNotifier:: failed to call getDvfsPolicyByHint."
 
@@ -1813,7 +1813,7 @@
 
     invoke-direct {v9, v0, v12, v13}, Lcom/samsung/android/os/SemDvfsBusManager;-><init>(Landroid/content/Context;Ljava/lang/String;I)V
 
-    invoke-virtual {v9}, Lcom/samsung/android/os/SemDvfsManager;->getSupportedFrequency()[I
+    invoke-virtual {v9}, Lcom/samsung/android/os/SemDvfsManager;->getSupportedFrequencyForSsrm()[I
 
     move-result-object v5
 
@@ -1858,7 +1858,7 @@
 
     const-string/jumbo v8, "CORE_NUM"
 
-    invoke-virtual {v9}, Lcom/samsung/android/os/SemDvfsManager;->getSupportedFrequency()[I
+    invoke-virtual {v9}, Lcom/samsung/android/os/SemDvfsManager;->getSupportedFrequencyForSsrm()[I
 
     move-result-object v5
 
@@ -1906,6 +1906,88 @@
     goto/16 :goto_2
 
     :cond_c
+    const-string/jumbo v12, "SCHEDTUNE_POLICY"
+
+    invoke-virtual {v12, v6}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v12
+
+    if-eqz v12, :cond_d
+
+    new-instance v9, Lcom/samsung/android/os/SemDvfsSchedTunePolicyManager;
+
+    new-instance v12, Ljava/lang/StringBuilder;
+
+    invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v12, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v12
+
+    const-string/jumbo v13, "@SCHEDTUNE_POLICY"
+
+    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v12
+
+    invoke-virtual {v12}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v12
+
+    const/16 v13, 0x1d
+
+    move-object/from16 v0, p1
+
+    invoke-direct {v9, v0, v12, v13}, Lcom/samsung/android/os/SemDvfsSchedTunePolicyManager;-><init>(Landroid/content/Context;Ljava/lang/String;I)V
+
+    const-string/jumbo v8, "SCHEDTUNE_POLICY"
+
+    goto/16 :goto_2
+
+    :cond_d
+    const-string/jumbo v12, "LPM_BIAS"
+
+    invoke-virtual {v12, v6}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v12
+
+    if-eqz v12, :cond_e
+
+    new-instance v9, Lcom/samsung/android/os/SemDvfsLpmBiasManager;
+
+    new-instance v12, Ljava/lang/StringBuilder;
+
+    invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v12, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v12
+
+    const-string/jumbo v13, "@LPM_BIAS"
+
+    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v12
+
+    invoke-virtual {v12}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v12
+
+    const/16 v13, 0x1e
+
+    move-object/from16 v0, p1
+
+    invoke-direct {v9, v0, v12, v13}, Lcom/samsung/android/os/SemDvfsLpmBiasManager;-><init>(Landroid/content/Context;Ljava/lang/String;I)V
+
+    const-string/jumbo v8, "LPM_BIAS"
+
+    goto/16 :goto_2
+
+    :cond_e
     const-string/jumbo v12, "timeout"
 
     invoke-virtual {v12, v6}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
@@ -1924,14 +2006,14 @@
 
     goto/16 :goto_2
 
-    :cond_d
+    :cond_f
     const-string/jumbo v12, "%"
 
     invoke-virtual {v11, v12}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
 
     move-result v12
 
-    if-eqz v12, :cond_10
+    if-eqz v12, :cond_12
 
     const-string/jumbo v12, "CPU"
 
@@ -1939,7 +2021,7 @@
 
     move-result v12
 
-    if-eqz v12, :cond_e
+    if-eqz v12, :cond_10
 
     const-string/jumbo v12, "%"
 
@@ -1961,7 +2043,7 @@
 
     div-double/2addr v12, v14
 
-    invoke-virtual {v9, v12, v13}, Lcom/samsung/android/os/SemDvfsManager;->getApproximateFrequencyByPercent(D)I
+    invoke-virtual {v9, v12, v13}, Lcom/samsung/android/os/SemDvfsManager;->getApproximateFrequencyByPercentForSsrm(D)I
 
     move-result v12
 
@@ -1969,13 +2051,13 @@
 
     move-object/from16 v0, p0
 
-    iget-boolean v12, v0, Lcom/samsung/android/os/SemDvfsManager;->sIsDebugLevelHigh:Z
+    iget-boolean v12, v0, Lcom/samsung/android/os/SemDvfsHintManager;->sIsDebugLevelHigh:Z
 
     if-eqz v12, :cond_7
 
     move-object/from16 v0, p0
 
-    iget-object v12, v0, Lcom/samsung/android/os/SemDvfsManager;->LOG_TAG:Ljava/lang/String;
+    iget-object v12, v0, Lcom/samsung/android/os/SemDvfsHintManager;->LOG_TAG:Ljava/lang/String;
 
     new-instance v13, Ljava/lang/StringBuilder;
 
@@ -2029,261 +2111,7 @@
 
     div-double v14, v14, v16
 
-    invoke-virtual {v9, v14, v15}, Lcom/samsung/android/os/SemDvfsManager;->getApproximateFrequencyByPercent(D)I
-
-    move-result v14
-
-    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v13
-
-    const-string/jumbo v14, ", timeOut = "
-
-    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v13
-
-    move-object/from16 v0, p0
-
-    iget v14, v0, Lcom/samsung/android/os/SemDvfsHintManager;->mHintTimeout:I
-
-    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v13
-
-    invoke-static {v12, v13}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto/16 :goto_3
-
-    :cond_e
-    const-string/jumbo v12, "GPU"
-
-    invoke-virtual {v12, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v12
-
-    if-eqz v12, :cond_f
-
-    const-string/jumbo v12, "%"
-
-    invoke-virtual {v11, v12}, Ljava/lang/String;->indexOf(Ljava/lang/String;)I
-
-    move-result v12
-
-    const/4 v13, 0x0
-
-    invoke-virtual {v11, v13, v12}, Ljava/lang/String;->substring(II)Ljava/lang/String;
-
-    move-result-object v12
-
-    invoke-static {v12}, Ljava/lang/Double;->parseDouble(Ljava/lang/String;)D
-
-    move-result-wide v12
-
-    const-wide/high16 v14, 0x4059000000000000L    # 100.0
-
-    div-double/2addr v12, v14
-
-    invoke-virtual {v9, v12, v13}, Lcom/samsung/android/os/SemDvfsManager;->getApproximateFrequencyByPercent(D)I
-
-    move-result v12
-
-    invoke-virtual {v9, v12}, Lcom/samsung/android/os/SemDvfsManager;->setDvfsValue(I)V
-
-    move-object/from16 v0, p0
-
-    iget-boolean v12, v0, Lcom/samsung/android/os/SemDvfsManager;->sIsDebugLevelHigh:Z
-
-    if-eqz v12, :cond_7
-
-    move-object/from16 v0, p0
-
-    iget-object v12, v0, Lcom/samsung/android/os/SemDvfsManager;->LOG_TAG:Ljava/lang/String;
-
-    new-instance v13, Ljava/lang/StringBuilder;
-
-    invoke-direct {v13}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v14, "hint(%) : "
-
-    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v13
-
-    move-object/from16 v0, p2
-
-    invoke-virtual {v13, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v13
-
-    const-string/jumbo v14, ", moduleName = "
-
-    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v13
-
-    invoke-virtual {v13, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v13
-
-    const-string/jumbo v14, ", freq = "
-
-    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v13
-
-    const-string/jumbo v14, "%"
-
-    invoke-virtual {v11, v14}, Ljava/lang/String;->indexOf(Ljava/lang/String;)I
-
-    move-result v14
-
-    const/4 v15, 0x0
-
-    invoke-virtual {v11, v15, v14}, Ljava/lang/String;->substring(II)Ljava/lang/String;
-
-    move-result-object v14
-
-    invoke-static {v14}, Ljava/lang/Double;->parseDouble(Ljava/lang/String;)D
-
-    move-result-wide v14
-
-    const-wide/high16 v16, 0x4059000000000000L    # 100.0
-
-    div-double v14, v14, v16
-
-    invoke-virtual {v9, v14, v15}, Lcom/samsung/android/os/SemDvfsManager;->getApproximateFrequencyByPercent(D)I
-
-    move-result v14
-
-    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v13
-
-    const-string/jumbo v14, ", timeOut = "
-
-    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v13
-
-    move-object/from16 v0, p0
-
-    iget v14, v0, Lcom/samsung/android/os/SemDvfsHintManager;->mHintTimeout:I
-
-    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v13
-
-    invoke-static {v12, v13}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto/16 :goto_3
-
-    :cond_f
-    const-string/jumbo v12, "BUS"
-
-    invoke-virtual {v12, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v12
-
-    if-eqz v12, :cond_7
-
-    const-string/jumbo v12, "%"
-
-    invoke-virtual {v11, v12}, Ljava/lang/String;->indexOf(Ljava/lang/String;)I
-
-    move-result v12
-
-    const/4 v13, 0x0
-
-    invoke-virtual {v11, v13, v12}, Ljava/lang/String;->substring(II)Ljava/lang/String;
-
-    move-result-object v12
-
-    invoke-static {v12}, Ljava/lang/Double;->parseDouble(Ljava/lang/String;)D
-
-    move-result-wide v12
-
-    const-wide/high16 v14, 0x4059000000000000L    # 100.0
-
-    div-double/2addr v12, v14
-
-    invoke-virtual {v9, v12, v13}, Lcom/samsung/android/os/SemDvfsManager;->getApproximateFrequencyByPercent(D)I
-
-    move-result v12
-
-    invoke-virtual {v9, v12}, Lcom/samsung/android/os/SemDvfsManager;->setDvfsValue(I)V
-
-    move-object/from16 v0, p0
-
-    iget-boolean v12, v0, Lcom/samsung/android/os/SemDvfsManager;->sIsDebugLevelHigh:Z
-
-    if-eqz v12, :cond_7
-
-    move-object/from16 v0, p0
-
-    iget-object v12, v0, Lcom/samsung/android/os/SemDvfsManager;->LOG_TAG:Ljava/lang/String;
-
-    new-instance v13, Ljava/lang/StringBuilder;
-
-    invoke-direct {v13}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v14, "hint(%) : "
-
-    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v13
-
-    move-object/from16 v0, p2
-
-    invoke-virtual {v13, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v13
-
-    const-string/jumbo v14, ", moduleName = "
-
-    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v13
-
-    invoke-virtual {v13, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v13
-
-    const-string/jumbo v14, ", freq = "
-
-    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v13
-
-    const-string/jumbo v14, "%"
-
-    invoke-virtual {v11, v14}, Ljava/lang/String;->indexOf(Ljava/lang/String;)I
-
-    move-result v14
-
-    const/4 v15, 0x0
-
-    invoke-virtual {v11, v15, v14}, Ljava/lang/String;->substring(II)Ljava/lang/String;
-
-    move-result-object v14
-
-    invoke-static {v14}, Ljava/lang/Double;->parseDouble(Ljava/lang/String;)D
-
-    move-result-wide v14
-
-    const-wide/high16 v16, 0x4059000000000000L    # 100.0
-
-    div-double v14, v14, v16
-
-    invoke-virtual {v9, v14, v15}, Lcom/samsung/android/os/SemDvfsManager;->getApproximateFrequencyByPercent(D)I
+    invoke-virtual {v9, v14, v15}, Lcom/samsung/android/os/SemDvfsManager;->getApproximateFrequencyByPercentForSsrm(D)I
 
     move-result v14
 
@@ -2314,6 +2142,260 @@
     goto/16 :goto_3
 
     :cond_10
+    const-string/jumbo v12, "GPU"
+
+    invoke-virtual {v12, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v12
+
+    if-eqz v12, :cond_11
+
+    const-string/jumbo v12, "%"
+
+    invoke-virtual {v11, v12}, Ljava/lang/String;->indexOf(Ljava/lang/String;)I
+
+    move-result v12
+
+    const/4 v13, 0x0
+
+    invoke-virtual {v11, v13, v12}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+
+    move-result-object v12
+
+    invoke-static {v12}, Ljava/lang/Double;->parseDouble(Ljava/lang/String;)D
+
+    move-result-wide v12
+
+    const-wide/high16 v14, 0x4059000000000000L    # 100.0
+
+    div-double/2addr v12, v14
+
+    invoke-virtual {v9, v12, v13}, Lcom/samsung/android/os/SemDvfsManager;->getApproximateFrequencyByPercentForSsrm(D)I
+
+    move-result v12
+
+    invoke-virtual {v9, v12}, Lcom/samsung/android/os/SemDvfsManager;->setDvfsValue(I)V
+
+    move-object/from16 v0, p0
+
+    iget-boolean v12, v0, Lcom/samsung/android/os/SemDvfsHintManager;->sIsDebugLevelHigh:Z
+
+    if-eqz v12, :cond_7
+
+    move-object/from16 v0, p0
+
+    iget-object v12, v0, Lcom/samsung/android/os/SemDvfsHintManager;->LOG_TAG:Ljava/lang/String;
+
+    new-instance v13, Ljava/lang/StringBuilder;
+
+    invoke-direct {v13}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v14, "hint(%) : "
+
+    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v13
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v13, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v13
+
+    const-string/jumbo v14, ", moduleName = "
+
+    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v13
+
+    invoke-virtual {v13, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v13
+
+    const-string/jumbo v14, ", freq = "
+
+    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v13
+
+    const-string/jumbo v14, "%"
+
+    invoke-virtual {v11, v14}, Ljava/lang/String;->indexOf(Ljava/lang/String;)I
+
+    move-result v14
+
+    const/4 v15, 0x0
+
+    invoke-virtual {v11, v15, v14}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+
+    move-result-object v14
+
+    invoke-static {v14}, Ljava/lang/Double;->parseDouble(Ljava/lang/String;)D
+
+    move-result-wide v14
+
+    const-wide/high16 v16, 0x4059000000000000L    # 100.0
+
+    div-double v14, v14, v16
+
+    invoke-virtual {v9, v14, v15}, Lcom/samsung/android/os/SemDvfsManager;->getApproximateFrequencyByPercentForSsrm(D)I
+
+    move-result v14
+
+    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v13
+
+    const-string/jumbo v14, ", timeOut = "
+
+    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v13
+
+    move-object/from16 v0, p0
+
+    iget v14, v0, Lcom/samsung/android/os/SemDvfsHintManager;->mHintTimeout:I
+
+    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v13
+
+    invoke-virtual {v13}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v13
+
+    invoke-static {v12, v13}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto/16 :goto_3
+
+    :cond_11
+    const-string/jumbo v12, "BUS"
+
+    invoke-virtual {v12, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v12
+
+    if-eqz v12, :cond_7
+
+    const-string/jumbo v12, "%"
+
+    invoke-virtual {v11, v12}, Ljava/lang/String;->indexOf(Ljava/lang/String;)I
+
+    move-result v12
+
+    const/4 v13, 0x0
+
+    invoke-virtual {v11, v13, v12}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+
+    move-result-object v12
+
+    invoke-static {v12}, Ljava/lang/Double;->parseDouble(Ljava/lang/String;)D
+
+    move-result-wide v12
+
+    const-wide/high16 v14, 0x4059000000000000L    # 100.0
+
+    div-double/2addr v12, v14
+
+    invoke-virtual {v9, v12, v13}, Lcom/samsung/android/os/SemDvfsManager;->getApproximateFrequencyByPercentForSsrm(D)I
+
+    move-result v12
+
+    invoke-virtual {v9, v12}, Lcom/samsung/android/os/SemDvfsManager;->setDvfsValue(I)V
+
+    move-object/from16 v0, p0
+
+    iget-boolean v12, v0, Lcom/samsung/android/os/SemDvfsHintManager;->sIsDebugLevelHigh:Z
+
+    if-eqz v12, :cond_7
+
+    move-object/from16 v0, p0
+
+    iget-object v12, v0, Lcom/samsung/android/os/SemDvfsHintManager;->LOG_TAG:Ljava/lang/String;
+
+    new-instance v13, Ljava/lang/StringBuilder;
+
+    invoke-direct {v13}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v14, "hint(%) : "
+
+    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v13
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v13, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v13
+
+    const-string/jumbo v14, ", moduleName = "
+
+    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v13
+
+    invoke-virtual {v13, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v13
+
+    const-string/jumbo v14, ", freq = "
+
+    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v13
+
+    const-string/jumbo v14, "%"
+
+    invoke-virtual {v11, v14}, Ljava/lang/String;->indexOf(Ljava/lang/String;)I
+
+    move-result v14
+
+    const/4 v15, 0x0
+
+    invoke-virtual {v11, v15, v14}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+
+    move-result-object v14
+
+    invoke-static {v14}, Ljava/lang/Double;->parseDouble(Ljava/lang/String;)D
+
+    move-result-wide v14
+
+    const-wide/high16 v16, 0x4059000000000000L    # 100.0
+
+    div-double v14, v14, v16
+
+    invoke-virtual {v9, v14, v15}, Lcom/samsung/android/os/SemDvfsManager;->getApproximateFrequencyByPercentForSsrm(D)I
+
+    move-result v14
+
+    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v13
+
+    const-string/jumbo v14, ", timeOut = "
+
+    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v13
+
+    move-object/from16 v0, p0
+
+    iget v14, v0, Lcom/samsung/android/os/SemDvfsHintManager;->mHintTimeout:I
+
+    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v13
+
+    invoke-virtual {v13}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v13
+
+    invoke-static {v12, v13}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto/16 :goto_3
+
+    :cond_12
     invoke-static {v11}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
     move-result v12
@@ -2326,13 +2408,13 @@
 
     move-object/from16 v0, p0
 
-    iget-boolean v12, v0, Lcom/samsung/android/os/SemDvfsManager;->sIsDebugLevelHigh:Z
+    iget-boolean v12, v0, Lcom/samsung/android/os/SemDvfsHintManager;->sIsDebugLevelHigh:Z
 
     if-eqz v12, :cond_7
 
     move-object/from16 v0, p0
 
-    iget-object v12, v0, Lcom/samsung/android/os/SemDvfsManager;->LOG_TAG:Ljava/lang/String;
+    iget-object v12, v0, Lcom/samsung/android/os/SemDvfsHintManager;->LOG_TAG:Ljava/lang/String;
 
     new-instance v13, Ljava/lang/StringBuilder;
 
@@ -2396,7 +2478,7 @@
 
     goto/16 :goto_3
 
-    :cond_11
+    :cond_13
     return-void
 .end method
 
@@ -2554,6 +2636,18 @@
 
     if-nez v2, :cond_1
 
+    const-string/jumbo v2, "SCHEDTUNE_POLICY"
+
+    invoke-virtual {v0}, Lcom/samsung/android/os/SemDvfsManager;->getName()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_1
+
     const-string/jumbo v2, "POWER_COLLAPSE"
 
     invoke-virtual {v0}, Lcom/samsung/android/os/SemDvfsManager;->getName()Ljava/lang/String;
@@ -2561,6 +2655,18 @@
     move-result-object v3
 
     invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_1
+
+    const-string/jumbo v2, "LPM_BIAS"
+
+    invoke-virtual {v0}, Lcom/samsung/android/os/SemDvfsManager;->getName()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {v2, v3}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v2
 
@@ -2679,6 +2785,18 @@
 
     if-nez v2, :cond_2
 
+    const-string/jumbo v2, "SCHEDTUNE_POLICY"
+
+    invoke-virtual {v0}, Lcom/samsung/android/os/SemDvfsManager;->getName()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_2
+
     const-string/jumbo v2, "POWER_COLLAPSE"
 
     invoke-virtual {v0}, Lcom/samsung/android/os/SemDvfsManager;->getName()Ljava/lang/String;
@@ -2686,6 +2804,18 @@
     move-result-object v3
 
     invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_2
+
+    const-string/jumbo v2, "LPM_BIAS"
+
+    invoke-virtual {v0}, Lcom/samsung/android/os/SemDvfsManager;->getName()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {v2, v3}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v2
 
@@ -2713,7 +2843,7 @@
 
     iput v2, p0, Lcom/samsung/android/os/SemDvfsHintManager;->mAppLaunchBoostTime:I
 
-    goto :goto_0
+    goto/16 :goto_0
 
     :cond_4
     return-void
@@ -2724,7 +2854,7 @@
 
     const/16 v0, -0x3e7
 
-    iput v0, p0, Lcom/samsung/android/os/SemDvfsManager;->mDvfsValue:I
+    iput v0, p0, Lcom/samsung/android/os/SemDvfsHintManager;->mDvfsValue:I
 
     return-void
 .end method
@@ -2812,6 +2942,18 @@
 
     if-nez v2, :cond_1
 
+    const-string/jumbo v2, "SCHEDTUNE_POLICY"
+
+    invoke-virtual {v0}, Lcom/samsung/android/os/SemDvfsManager;->getName()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_1
+
     const-string/jumbo v2, "POWER_COLLAPSE"
 
     invoke-virtual {v0}, Lcom/samsung/android/os/SemDvfsManager;->getName()Ljava/lang/String;
@@ -2819,6 +2961,18 @@
     move-result-object v3
 
     invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_1
+
+    const-string/jumbo v2, "LPM_BIAS"
+
+    invoke-virtual {v0}, Lcom/samsung/android/os/SemDvfsManager;->getName()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {v2, v3}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v2
 
@@ -2836,7 +2990,7 @@
 .method public setDvfsValue(I)V
     .locals 0
 
-    iput p1, p0, Lcom/samsung/android/os/SemDvfsManager;->mDvfsValue:I
+    iput p1, p0, Lcom/samsung/android/os/SemDvfsHintManager;->mDvfsValue:I
 
     return-void
 .end method
@@ -2904,7 +3058,31 @@
 
     if-nez v0, :cond_0
 
+    const-string/jumbo v0, "SCHEDTUNE_POLICY"
+
+    invoke-virtual {p1}, Lcom/samsung/android/os/SemDvfsManager;->getName()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
     const-string/jumbo v0, "POWER_COLLAPSE"
+
+    invoke-virtual {p1}, Lcom/samsung/android/os/SemDvfsManager;->getName()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    const-string/jumbo v0, "LPM_BIAS"
 
     invoke-virtual {p1}, Lcom/samsung/android/os/SemDvfsManager;->getName()Ljava/lang/String;
 
@@ -2948,13 +3126,13 @@
     invoke-virtual {p1, v0}, Lcom/samsung/android/os/SemDvfsManager;->setDvfsValue(I)V
 
     :cond_3
-    iget-boolean v0, p0, Lcom/samsung/android/os/SemDvfsManager;->sIsDebugLevelHigh:Z
+    iget-boolean v0, p0, Lcom/samsung/android/os/SemDvfsHintManager;->sIsDebugLevelHigh:Z
 
     if-eqz v0, :cond_4
 
     if-eqz p2, :cond_4
 
-    iget-object v0, p0, Lcom/samsung/android/os/SemDvfsManager;->LOG_TAG:Ljava/lang/String;
+    iget-object v0, p0, Lcom/samsung/android/os/SemDvfsHintManager;->LOG_TAG:Ljava/lang/String;
 
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -3055,17 +3233,17 @@
 
     div-double/2addr v0, v4
 
-    invoke-virtual {p1, v0, v1}, Lcom/samsung/android/os/SemDvfsManager;->getApproximateFrequencyByPercent(D)I
+    invoke-virtual {p1, v0, v1}, Lcom/samsung/android/os/SemDvfsManager;->getApproximateFrequencyByPercentForSsrm(D)I
 
     move-result v0
 
     invoke-virtual {p1, v0}, Lcom/samsung/android/os/SemDvfsManager;->setDvfsValue(I)V
 
-    iget-boolean v0, p0, Lcom/samsung/android/os/SemDvfsManager;->sIsDebugLevelHigh:Z
+    iget-boolean v0, p0, Lcom/samsung/android/os/SemDvfsHintManager;->sIsDebugLevelHigh:Z
 
     if-eqz v0, :cond_4
 
-    iget-object v0, p0, Lcom/samsung/android/os/SemDvfsManager;->LOG_TAG:Ljava/lang/String;
+    iget-object v0, p0, Lcom/samsung/android/os/SemDvfsHintManager;->LOG_TAG:Ljava/lang/String;
 
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -3117,7 +3295,7 @@
 
     div-double/2addr v2, v4
 
-    invoke-virtual {p1, v2, v3}, Lcom/samsung/android/os/SemDvfsManager;->getApproximateFrequencyByPercent(D)I
+    invoke-virtual {p1, v2, v3}, Lcom/samsung/android/os/SemDvfsManager;->getApproximateFrequencyByPercentForSsrm(D)I
 
     move-result v2
 
@@ -3174,17 +3352,17 @@
 
     div-double/2addr v0, v4
 
-    invoke-virtual {p1, v0, v1}, Lcom/samsung/android/os/SemDvfsManager;->getApproximateFrequencyByPercent(D)I
+    invoke-virtual {p1, v0, v1}, Lcom/samsung/android/os/SemDvfsManager;->getApproximateFrequencyByPercentForSsrm(D)I
 
     move-result v0
 
     invoke-virtual {p1, v0}, Lcom/samsung/android/os/SemDvfsManager;->setDvfsValue(I)V
 
-    iget-boolean v0, p0, Lcom/samsung/android/os/SemDvfsManager;->sIsDebugLevelHigh:Z
+    iget-boolean v0, p0, Lcom/samsung/android/os/SemDvfsHintManager;->sIsDebugLevelHigh:Z
 
     if-eqz v0, :cond_4
 
-    iget-object v0, p0, Lcom/samsung/android/os/SemDvfsManager;->LOG_TAG:Ljava/lang/String;
+    iget-object v0, p0, Lcom/samsung/android/os/SemDvfsHintManager;->LOG_TAG:Ljava/lang/String;
 
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -3236,7 +3414,7 @@
 
     div-double/2addr v2, v4
 
-    invoke-virtual {p1, v2, v3}, Lcom/samsung/android/os/SemDvfsManager;->getApproximateFrequencyByPercent(D)I
+    invoke-virtual {p1, v2, v3}, Lcom/samsung/android/os/SemDvfsManager;->getApproximateFrequencyByPercentForSsrm(D)I
 
     move-result v2
 
@@ -3293,17 +3471,17 @@
 
     div-double/2addr v0, v4
 
-    invoke-virtual {p1, v0, v1}, Lcom/samsung/android/os/SemDvfsManager;->getApproximateFrequencyByPercent(D)I
+    invoke-virtual {p1, v0, v1}, Lcom/samsung/android/os/SemDvfsManager;->getApproximateFrequencyByPercentForSsrm(D)I
 
     move-result v0
 
     invoke-virtual {p1, v0}, Lcom/samsung/android/os/SemDvfsManager;->setDvfsValue(I)V
 
-    iget-boolean v0, p0, Lcom/samsung/android/os/SemDvfsManager;->sIsDebugLevelHigh:Z
+    iget-boolean v0, p0, Lcom/samsung/android/os/SemDvfsHintManager;->sIsDebugLevelHigh:Z
 
     if-eqz v0, :cond_4
 
-    iget-object v0, p0, Lcom/samsung/android/os/SemDvfsManager;->LOG_TAG:Ljava/lang/String;
+    iget-object v0, p0, Lcom/samsung/android/os/SemDvfsHintManager;->LOG_TAG:Ljava/lang/String;
 
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -3355,7 +3533,7 @@
 
     div-double/2addr v2, v4
 
-    invoke-virtual {p1, v2, v3}, Lcom/samsung/android/os/SemDvfsManager;->getApproximateFrequencyByPercent(D)I
+    invoke-virtual {p1, v2, v3}, Lcom/samsung/android/os/SemDvfsManager;->getApproximateFrequencyByPercentForSsrm(D)I
 
     move-result v2
 
@@ -3394,11 +3572,11 @@
 
     invoke-virtual {p1, v0}, Lcom/samsung/android/os/SemDvfsManager;->setDvfsValue(I)V
 
-    iget-boolean v0, p0, Lcom/samsung/android/os/SemDvfsManager;->sIsDebugLevelHigh:Z
+    iget-boolean v0, p0, Lcom/samsung/android/os/SemDvfsHintManager;->sIsDebugLevelHigh:Z
 
     if-eqz v0, :cond_4
 
-    iget-object v0, p0, Lcom/samsung/android/os/SemDvfsManager;->LOG_TAG:Ljava/lang/String;
+    iget-object v0, p0, Lcom/samsung/android/os/SemDvfsHintManager;->LOG_TAG:Ljava/lang/String;
 
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -3504,13 +3682,13 @@
     :try_start_1
     move-object/from16 v0, p0
 
-    iget-boolean v14, v0, Lcom/samsung/android/os/SemDvfsManager;->sIsDebugLevelHigh:Z
+    iget-boolean v14, v0, Lcom/samsung/android/os/SemDvfsHintManager;->sIsDebugLevelHigh:Z
 
     if-eqz v14, :cond_0
 
     move-object/from16 v0, p0
 
-    iget-object v14, v0, Lcom/samsung/android/os/SemDvfsManager;->LOG_TAG:Ljava/lang/String;
+    iget-object v14, v0, Lcom/samsung/android/os/SemDvfsHintManager;->LOG_TAG:Ljava/lang/String;
 
     const-string/jumbo v15, "createHintNotifier:: failed to get cfms service."
 
@@ -3564,7 +3742,7 @@
 
     move-result-object v3
 
-    invoke-virtual {v3}, Landroid/os/BaseBundle;->keySet()Ljava/util/Set;
+    invoke-virtual {v3}, Landroid/os/Bundle;->keySet()Ljava/util/Set;
 
     move-result-object v14
 
@@ -3586,7 +3764,7 @@
 
     check-cast v6, Ljava/lang/String;
 
-    invoke-virtual {v3, v6}, Landroid/os/BaseBundle;->getString(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v3, v6}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v13
 
@@ -3594,13 +3772,13 @@
 
     move-object/from16 v0, p0
 
-    iget-boolean v14, v0, Lcom/samsung/android/os/SemDvfsManager;->sIsDebugLevelHigh:Z
+    iget-boolean v14, v0, Lcom/samsung/android/os/SemDvfsHintManager;->sIsDebugLevelHigh:Z
 
     if-eqz v14, :cond_4
 
     move-object/from16 v0, p0
 
-    iget-object v14, v0, Lcom/samsung/android/os/SemDvfsManager;->LOG_TAG:Ljava/lang/String;
+    iget-object v14, v0, Lcom/samsung/android/os/SemDvfsHintManager;->LOG_TAG:Ljava/lang/String;
 
     new-instance v15, Ljava/lang/StringBuilder;
 
@@ -3697,13 +3875,13 @@
 
     move-object/from16 v0, p0
 
-    iget-boolean v14, v0, Lcom/samsung/android/os/SemDvfsManager;->sIsDebugLevelHigh:Z
+    iget-boolean v14, v0, Lcom/samsung/android/os/SemDvfsHintManager;->sIsDebugLevelHigh:Z
 
     if-eqz v14, :cond_3
 
     move-object/from16 v0, p0
 
-    iget-object v14, v0, Lcom/samsung/android/os/SemDvfsManager;->LOG_TAG:Ljava/lang/String;
+    iget-object v14, v0, Lcom/samsung/android/os/SemDvfsHintManager;->LOG_TAG:Ljava/lang/String;
 
     new-instance v15, Ljava/lang/StringBuilder;
 
@@ -3746,7 +3924,7 @@
 
     move-object/from16 v0, p0
 
-    iget-object v14, v0, Lcom/samsung/android/os/SemDvfsManager;->LOG_TAG:Ljava/lang/String;
+    iget-object v14, v0, Lcom/samsung/android/os/SemDvfsHintManager;->LOG_TAG:Ljava/lang/String;
 
     const-string/jumbo v15, "createHintNotifier:: failed to call getDvfsPolicyByHint."
 

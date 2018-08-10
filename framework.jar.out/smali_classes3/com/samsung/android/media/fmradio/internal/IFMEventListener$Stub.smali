@@ -71,7 +71,7 @@
 
     const-string/jumbo v0, "com.samsung.android.media.fmradio.internal.IFMEventListener"
 
-    invoke-virtual {p0, p0, v0}, Landroid/os/Binder;->attachInterface(Landroid/os/IInterface;Ljava/lang/String;)V
+    invoke-virtual {p0, p0, v0}, Lcom/samsung/android/media/fmradio/internal/IFMEventListener$Stub;->attachInterface(Landroid/os/IInterface;Ljava/lang/String;)V
 
     return-void
 .end method
@@ -154,8 +154,6 @@
 
     invoke-virtual {p0}, Lcom/samsung/android/media/fmradio/internal/IFMEventListener$Stub;->onRadioEnabled()V
 
-    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
-
     const/4 v2, 0x1
 
     return v2
@@ -172,8 +170,6 @@
     move-result v3
 
     invoke-virtual {p0, v3}, Lcom/samsung/android/media/fmradio/internal/IFMEventListener$Stub;->onRadioDisabled(I)V
-
-    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     const/4 v2, 0x1
 
@@ -192,8 +188,6 @@
 
     invoke-virtual {p0, v10, v11}, Lcom/samsung/android/media/fmradio/internal/IFMEventListener$Stub;->onChannelFound(J)V
 
-    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
-
     const/4 v2, 0x1
 
     return v2
@@ -206,8 +200,6 @@
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p0}, Lcom/samsung/android/media/fmradio/internal/IFMEventListener$Stub;->onScanStarted()V
-
-    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     const/4 v2, 0x1
 
@@ -292,8 +284,6 @@
 
     invoke-virtual {p0, v10, v11}, Lcom/samsung/android/media/fmradio/internal/IFMEventListener$Stub;->onTuned(J)V
 
-    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
-
     const/4 v2, 0x1
 
     return v2
@@ -307,8 +297,6 @@
 
     invoke-virtual {p0}, Lcom/samsung/android/media/fmradio/internal/IFMEventListener$Stub;->onHeadsetConnected()V
 
-    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
-
     const/4 v2, 0x1
 
     return v2
@@ -321,8 +309,6 @@
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p0}, Lcom/samsung/android/media/fmradio/internal/IFMEventListener$Stub;->onHeadsetDisconnected()V
-
-    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     const/4 v2, 0x1
 
@@ -348,8 +334,6 @@
     move-result-object v14
 
     invoke-virtual {p0, v10, v11, v13, v14}, Lcom/samsung/android/media/fmradio/internal/IFMEventListener$Stub;->onRadioDataSystemReceived(JLjava/lang/String;Ljava/lang/String;)V
-
-    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     const/4 v2, 0x1
 
@@ -390,8 +374,6 @@
 
     invoke-virtual/range {v2 .. v8}, Lcom/samsung/android/media/fmradio/internal/IFMEventListener$Stub;->onRadioTextPlusReceived(IIIIII)V
 
-    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
-
     const/4 v2, 0x1
 
     return v2
@@ -404,8 +386,6 @@
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p0}, Lcom/samsung/android/media/fmradio/internal/IFMEventListener$Stub;->onRadioDataSystemEnabled()V
-
-    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     const/4 v2, 0x1
 
@@ -420,8 +400,6 @@
 
     invoke-virtual {p0}, Lcom/samsung/android/media/fmradio/internal/IFMEventListener$Stub;->onRadioDataSystemDisabled()V
 
-    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
-
     const/4 v2, 0x1
 
     return v2
@@ -434,8 +412,6 @@
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p0}, Lcom/samsung/android/media/fmradio/internal/IFMEventListener$Stub;->onAlternateFrequencyStarted()V
-
-    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     const/4 v2, 0x1
 
@@ -454,8 +430,6 @@
 
     invoke-virtual {p0, v10, v11}, Lcom/samsung/android/media/fmradio/internal/IFMEventListener$Stub;->onAlternateFrequencyReceived(J)V
 
-    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
-
     const/4 v2, 0x1
 
     return v2
@@ -469,8 +443,6 @@
 
     invoke-virtual {p0}, Lcom/samsung/android/media/fmradio/internal/IFMEventListener$Stub;->onVolumeLocked()V
 
-    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
-
     const/4 v2, 0x1
 
     return v2
@@ -483,8 +455,6 @@
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p0}, Lcom/samsung/android/media/fmradio/internal/IFMEventListener$Stub;->onRecordingFinished()V
-
-    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     const/4 v2, 0x1
 
@@ -506,8 +476,6 @@
     move-result v4
 
     invoke-virtual {p0, v3, v4}, Lcom/samsung/android/media/fmradio/internal/IFMEventListener$Stub;->onProgrammeIdentificationExtendedCountryCodesReceived(II)V
-
-    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     const/4 v2, 0x1
 

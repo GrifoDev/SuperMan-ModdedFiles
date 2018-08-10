@@ -132,6 +132,24 @@
     .end annotation
 .end method
 
+.method public static native readEventsOnWrapping([IJLjava/util/Collection;)V
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "([IJ",
+            "Ljava/util/Collection",
+            "<",
+            "Landroid/util/EventLog$Event;",
+            ">;)V"
+        }
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+.end method
+
 .method private static declared-synchronized readTagsFile()V
     .locals 14
 

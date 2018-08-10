@@ -4,7 +4,7 @@
 
 
 # static fields
-.field public static final SERVICE_EXTRA_META_DATA:Ljava/lang/String; = "com.gsma.nfc.services"
+.field public static final SERVICE_EXTRA_META_DATA:Ljava/lang/String; = "com.gsma.services.nfc.extensions"
 
 .field public static final SERVICE_INTERFACE:Ljava/lang/String; = "android.nfc.cardemulation.action.OFF_HOST_APDU_SERVICE"
 

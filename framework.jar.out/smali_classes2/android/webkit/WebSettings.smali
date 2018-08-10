@@ -126,6 +126,8 @@
 .end method
 
 .method public abstract getDefaultZoom()Landroid/webkit/WebSettings$ZoomDensity;
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 .end method
 
 .method public abstract getDisabledActionModeMenuItems()I
@@ -203,10 +205,15 @@
     return-object v0
 .end method
 
+.method public abstract getSafeBrowsingEnabled()Z
+.end method
+
 .method public abstract getSansSerifFontFamily()Ljava/lang/String;
 .end method
 
 .method public abstract getSaveFormData()Z
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 .end method
 
 .method public abstract getSavePassword()Z
@@ -222,6 +229,8 @@
 
 .method public declared-synchronized getTextSize()Landroid/webkit/WebSettings$TextSize;
     .locals 9
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 
     const/4 v5, 0x0
 
@@ -488,10 +497,15 @@
     .end annotation
 .end method
 
+.method public abstract setSafeBrowsingEnabled(Z)V
+.end method
+
 .method public abstract setSansSerifFontFamily(Ljava/lang/String;)V
 .end method
 
 .method public abstract setSaveFormData(Z)V
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 .end method
 
 .method public abstract setSavePassword(Z)V
@@ -513,6 +527,8 @@
 
 .method public declared-synchronized setTextSize(Landroid/webkit/WebSettings$TextSize;)V
     .locals 1
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 
     monitor-enter p0
 

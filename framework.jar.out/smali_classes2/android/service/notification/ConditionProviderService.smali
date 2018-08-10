@@ -51,6 +51,16 @@
     return-object v0
 .end method
 
+.method static synthetic -wrap0(Landroid/service/notification/ConditionProviderService;)Z
+    .locals 1
+
+    invoke-direct {p0}, Landroid/service/notification/ConditionProviderService;->isBound()Z
+
+    move-result v0
+
+    return v0
+.end method
+
 .method public constructor <init>()V
     .locals 2
 
@@ -159,6 +169,36 @@
     return v0
 .end method
 
+.method public static final requestRebind(Landroid/content/ComponentName;)V
+    .locals 3
+
+    const-string/jumbo v2, "notification"
+
+    invoke-static {v2}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
+
+    move-result-object v2
+
+    invoke-static {v2}, Landroid/app/INotificationManager$Stub;->asInterface(Landroid/os/IBinder;)Landroid/app/INotificationManager;
+
+    move-result-object v1
+
+    :try_start_0
+    invoke-interface {v1, p0}, Landroid/app/INotificationManager;->requestBindProvider(Landroid/content/ComponentName;)V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    return-void
+
+    :catch_0
+    move-exception v0
+
+    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+
+    move-result-object v2
+
+    throw v2
+.end method
+
 
 # virtual methods
 .method public final notifyCondition(Landroid/service/notification/Condition;)V
@@ -261,4 +301,34 @@
 .end method
 
 .method public abstract onUnsubscribe(Landroid/net/Uri;)V
+.end method
+
+.method public final requestUnbind()V
+    .locals 3
+
+    invoke-direct {p0}, Landroid/service/notification/ConditionProviderService;->getNotificationInterface()Landroid/app/INotificationManager;
+
+    move-result-object v1
+
+    :try_start_0
+    iget-object v2, p0, Landroid/service/notification/ConditionProviderService;->mProvider:Landroid/service/notification/ConditionProviderService$Provider;
+
+    invoke-interface {v1, v2}, Landroid/app/INotificationManager;->requestUnbindProvider(Landroid/service/notification/IConditionProvider;)V
+
+    const/4 v2, 0x0
+
+    iput-object v2, p0, Landroid/service/notification/ConditionProviderService;->mProvider:Landroid/service/notification/ConditionProviderService$Provider;
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    return-void
+
+    :catch_0
+    move-exception v0
+
+    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+
+    move-result-object v2
+
+    throw v2
 .end method

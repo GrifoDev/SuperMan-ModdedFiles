@@ -39,8 +39,6 @@
     .end annotation
 .end field
 
-.field public static final PRIORITY_CATEGORY_ALARMS:I = 0x20
-
 .field public static final PRIORITY_CATEGORY_CALLS:I = 0x8
 
 .field public static final PRIORITY_CATEGORY_EVENTS:I = 0x2
@@ -76,21 +74,25 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .locals 5
 
-    const/4 v0, 0x6
+    const/4 v4, 0x2
 
-    new-array v0, v0, [I
+    const/4 v3, 0x1
 
-    fill-array-data v0, :array_0
+    const/4 v0, 0x4
+
+    const/16 v1, 0x8
+
+    const/16 v2, 0x10
+
+    filled-new-array {v3, v4, v0, v1, v2}, [I
+
+    move-result-object v0
 
     sput-object v0, Landroid/app/NotificationManager$Policy;->ALL_PRIORITY_CATEGORIES:[I
 
-    const/4 v0, 0x1
-
-    const/4 v1, 0x2
-
-    filled-new-array {v0, v1}, [I
+    filled-new-array {v3, v4}, [I
 
     move-result-object v0
 
@@ -103,16 +105,6 @@
     sput-object v0, Landroid/app/NotificationManager$Policy;->CREATOR:Landroid/os/Parcelable$Creator;
 
     return-void
-
-    :array_0
-    .array-data 4
-        0x1
-        0x2
-        0x4
-        0x8
-        0x10
-        0x20
-    .end array-data
 .end method
 
 .method public constructor <init>(III)V
@@ -350,11 +342,6 @@
 
     return-object v0
 
-    :sswitch_5
-    const-string/jumbo v0, "PRIORITY_CATEGORY_ALARMS"
-
-    return-object v0
-
     :sswitch_data_0
     .sparse-switch
         0x1 -> :sswitch_0
@@ -362,7 +349,6 @@
         0x4 -> :sswitch_2
         0x8 -> :sswitch_3
         0x10 -> :sswitch_4
-        0x20 -> :sswitch_5
     .end sparse-switch
 .end method
 

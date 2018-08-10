@@ -39,7 +39,7 @@
 
     const/4 v1, 0x0
 
-    invoke-static {}, Landroid/view/ViewRootImpl;->-get7()Z
+    invoke-static {}, Landroid/view/ViewRootImpl;->-get10()Z
 
     move-result v2
 
@@ -90,9 +90,9 @@
 .end method
 
 .method public onDisplayChanged(I)V
-    .locals 6
+    .locals 7
 
-    const/4 v5, 0x1
+    const/4 v6, 0x1
 
     iget-object v4, p0, Landroid/view/ViewRootImpl$1;->this$0:Landroid/view/ViewRootImpl;
 
@@ -155,22 +155,141 @@
     invoke-virtual {v4, v1}, Landroid/view/View;->dispatchScreenStateChanged(I)V
 
     :cond_0
-    if-ne v2, v5, :cond_1
+    packed-switch v2, :pswitch_data_0
 
+    :cond_1
+    :goto_0
+    :pswitch_0
+    return-void
+
+    :pswitch_1
     iget-object v4, p0, Landroid/view/ViewRootImpl$1;->this$0:Landroid/view/ViewRootImpl;
 
-    iput-boolean v5, v4, Landroid/view/ViewRootImpl;->mFullRedrawNeeded:Z
+    iput-boolean v6, v4, Landroid/view/ViewRootImpl;->mFullRedrawNeeded:Z
 
     iget-object v4, p0, Landroid/view/ViewRootImpl$1;->this$0:Landroid/view/ViewRootImpl;
 
     invoke-virtual {v4}, Landroid/view/ViewRootImpl;->scheduleTraversals()V
 
-    :cond_1
-    return-void
+    goto :goto_0
+
+    :pswitch_2
+    const/4 v4, 0x2
+
+    if-ne v0, v4, :cond_1
+
+    invoke-static {}, Landroid/view/ViewRootImpl;->-get10()Z
+
+    move-result v4
+
+    if-eqz v4, :cond_1
+
+    iget-object v4, p0, Landroid/view/ViewRootImpl$1;->this$0:Landroid/view/ViewRootImpl;
+
+    iget-object v4, v4, Landroid/view/ViewRootImpl;->mWindowAttributes:Landroid/view/WindowManager$LayoutParams;
+
+    iget v4, v4, Landroid/view/WindowManager$LayoutParams;->samsungFlags:I
+
+    const/high16 v5, 0x40000
+
+    and-int/2addr v4, v5
+
+    if-nez v4, :cond_1
+
+    if-nez p1, :cond_1
+
+    iget-object v4, p0, Landroid/view/ViewRootImpl$1;->this$0:Landroid/view/ViewRootImpl;
+
+    iput-boolean v6, v4, Landroid/view/ViewRootImpl;->mFullRedrawNeeded:Z
+
+    iget-object v4, p0, Landroid/view/ViewRootImpl$1;->this$0:Landroid/view/ViewRootImpl;
+
+    invoke-virtual {v4}, Landroid/view/ViewRootImpl;->scheduleTraversals()V
+
+    goto :goto_0
+
+    nop
+
+    :pswitch_data_0
+    .packed-switch 0x1
+        :pswitch_1
+        :pswitch_0
+        :pswitch_2
+        :pswitch_2
+    .end packed-switch
 .end method
 
 .method public onDisplayRemoved(I)V
-    .locals 0
+    .locals 3
 
+    iget-object v0, p0, Landroid/view/ViewRootImpl$1;->this$0:Landroid/view/ViewRootImpl;
+
+    iget-object v0, v0, Landroid/view/ViewRootImpl;->mView:Landroid/view/View;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Landroid/view/ViewRootImpl$1;->this$0:Landroid/view/ViewRootImpl;
+
+    iget-object v0, v0, Landroid/view/ViewRootImpl;->mDisplay:Landroid/view/Display;
+
+    invoke-virtual {v0}, Landroid/view/Display;->getDisplayId()I
+
+    move-result v0
+
+    if-ne v0, p1, :cond_0
+
+    iget-object v0, p0, Landroid/view/ViewRootImpl$1;->this$0:Landroid/view/ViewRootImpl;
+
+    iget-object v0, v0, Landroid/view/ViewRootImpl;->mSurface:Landroid/view/Surface;
+
+    invoke-virtual {v0}, Landroid/view/Surface;->isValid()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Landroid/view/ViewRootImpl$1;->this$0:Landroid/view/ViewRootImpl;
+
+    iget-object v0, v0, Landroid/view/ViewRootImpl;->mSurface:Landroid/view/Surface;
+
+    invoke-virtual {v0}, Landroid/view/Surface;->release()V
+
+    iget-object v0, p0, Landroid/view/ViewRootImpl$1;->this$0:Landroid/view/ViewRootImpl;
+
+    invoke-static {v0}, Landroid/view/ViewRootImpl;->-get9(Landroid/view/ViewRootImpl;)Ljava/lang/String;
+
+    move-result-object v0
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "Surface release in onDisplayRemoved displayId="
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string/jumbo v2, " this="
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_0
     return-void
 .end method

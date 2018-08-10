@@ -42,8 +42,6 @@
 
 
 # instance fields
-.field private mAltitudeRequired:Z
-
 .field private mExpireAt:J
 
 .field private mExplicitFastestInterval:Z
@@ -53,8 +51,6 @@
 .field private mHideFromAppOps:Z
 
 .field private mInterval:J
-
-.field private mIsBlacklist:Z
 
 .field private mNumUpdates:I
 
@@ -131,10 +127,6 @@
 
     iput-object v0, p0, Landroid/location/LocationRequest;->mProvider:Ljava/lang/String;
 
-    iput-boolean v4, p0, Landroid/location/LocationRequest;->mAltitudeRequired:Z
-
-    iput-boolean v4, p0, Landroid/location/LocationRequest;->mIsBlacklist:Z
-
     return-void
 .end method
 
@@ -189,10 +181,6 @@
 
     iput-object v0, p0, Landroid/location/LocationRequest;->mProvider:Ljava/lang/String;
 
-    iput-boolean v4, p0, Landroid/location/LocationRequest;->mAltitudeRequired:Z
-
-    iput-boolean v4, p0, Landroid/location/LocationRequest;->mIsBlacklist:Z
-
     iget v0, p1, Landroid/location/LocationRequest;->mQuality:I
 
     iput v0, p0, Landroid/location/LocationRequest;->mQuality:I
@@ -232,14 +220,6 @@
     iget-boolean v0, p1, Landroid/location/LocationRequest;->mHideFromAppOps:Z
 
     iput-boolean v0, p0, Landroid/location/LocationRequest;->mHideFromAppOps:Z
-
-    iget-boolean v0, p1, Landroid/location/LocationRequest;->mAltitudeRequired:Z
-
-    iput-boolean v0, p0, Landroid/location/LocationRequest;->mAltitudeRequired:Z
-
-    iget-boolean v0, p1, Landroid/location/LocationRequest;->mIsBlacklist:Z
-
-    iput-boolean v0, p0, Landroid/location/LocationRequest;->mIsBlacklist:Z
 
     return-void
 .end method
@@ -405,98 +385,86 @@
 .end method
 
 .method public static createFromDeprecatedCriteria(Landroid/location/Criteria;JFZ)Landroid/location/LocationRequest;
-    .locals 7
+    .locals 5
 
-    const-wide/16 v4, 0x0
+    const-wide/16 v2, 0x0
 
-    cmp-long v3, p1, v4
+    cmp-long v2, p1, v2
 
-    if-gez v3, :cond_0
+    if-gez v2, :cond_0
 
     const-wide/16 p1, 0x0
 
     :cond_0
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
-    cmpg-float v3, p3, v3
+    cmpg-float v2, p3, v2
 
-    if-gez v3, :cond_1
+    if-gez v2, :cond_1
 
     const/4 p3, 0x0
 
     :cond_1
     invoke-virtual {p0}, Landroid/location/Criteria;->getAccuracy()I
 
-    move-result v3
+    move-result v2
 
-    packed-switch v3, :pswitch_data_0
+    packed-switch v2, :pswitch_data_0
 
     invoke-virtual {p0}, Landroid/location/Criteria;->getPowerRequirement()I
 
-    move-result v3
+    move-result v2
 
-    packed-switch v3, :pswitch_data_1
+    packed-switch v2, :pswitch_data_1
 
-    const/16 v1, 0xc9
+    const/16 v0, 0xc9
 
     :goto_0
-    invoke-virtual {p0}, Landroid/location/Criteria;->isAltitudeRequired()Z
+    new-instance v2, Landroid/location/LocationRequest;
 
-    move-result v0
+    invoke-direct {v2}, Landroid/location/LocationRequest;-><init>()V
 
-    new-instance v3, Landroid/location/LocationRequest;
-
-    invoke-direct {v3}, Landroid/location/LocationRequest;-><init>()V
-
-    invoke-virtual {v3, v1}, Landroid/location/LocationRequest;->setQuality(I)Landroid/location/LocationRequest;
-
-    move-result-object v3
-
-    invoke-virtual {v3, p1, p2}, Landroid/location/LocationRequest;->setInterval(J)Landroid/location/LocationRequest;
-
-    move-result-object v3
-
-    invoke-virtual {v3, p1, p2}, Landroid/location/LocationRequest;->setFastestInterval(J)Landroid/location/LocationRequest;
-
-    move-result-object v3
-
-    invoke-virtual {v3, p3}, Landroid/location/LocationRequest;->setSmallestDisplacement(F)Landroid/location/LocationRequest;
-
-    move-result-object v3
-
-    invoke-virtual {v3, v0}, Landroid/location/LocationRequest;->setAltitudeRequired(Z)Landroid/location/LocationRequest;
-
-    move-result-object v3
-
-    const/4 v4, 0x0
-
-    invoke-virtual {v3, v4}, Landroid/location/LocationRequest;->setIsBlacklist(Z)Landroid/location/LocationRequest;
+    invoke-virtual {v2, v0}, Landroid/location/LocationRequest;->setQuality(I)Landroid/location/LocationRequest;
 
     move-result-object v2
 
+    invoke-virtual {v2, p1, p2}, Landroid/location/LocationRequest;->setInterval(J)Landroid/location/LocationRequest;
+
+    move-result-object v2
+
+    invoke-virtual {v2, p1, p2}, Landroid/location/LocationRequest;->setFastestInterval(J)Landroid/location/LocationRequest;
+
+    move-result-object v2
+
+    invoke-virtual {v2, p3}, Landroid/location/LocationRequest;->setSmallestDisplacement(F)Landroid/location/LocationRequest;
+
+    move-result-object v1
+
     if-eqz p4, :cond_2
 
-    const/4 v3, 0x1
+    const/4 v2, 0x1
 
-    invoke-virtual {v2, v3}, Landroid/location/LocationRequest;->setNumUpdates(I)Landroid/location/LocationRequest;
+    invoke-virtual {v1, v2}, Landroid/location/LocationRequest;->setNumUpdates(I)Landroid/location/LocationRequest;
 
     :cond_2
-    return-object v2
+    return-object v1
 
     :pswitch_0
-    const/16 v1, 0x66
+    const/16 v0, 0x66
 
     goto :goto_0
 
     :pswitch_1
-    const/16 v1, 0x64
+    const/16 v0, 0x64
 
     goto :goto_0
 
     :pswitch_2
-    const/16 v1, 0xcb
+    const/16 v0, 0xcb
 
     goto :goto_0
+
+    nop
 
     :pswitch_data_0
     .packed-switch 0x1
@@ -684,14 +652,6 @@
     return v0
 .end method
 
-.method public getAltitudeRequired()Z
-    .locals 1
-
-    iget-boolean v0, p0, Landroid/location/LocationRequest;->mAltitudeRequired:Z
-
-    return v0
-.end method
-
 .method public getExpireAt()J
     .locals 2
 
@@ -722,14 +682,6 @@
     iget-wide v0, p0, Landroid/location/LocationRequest;->mInterval:J
 
     return-wide v0
-.end method
-
-.method public getIsBlacklist()Z
-    .locals 1
-
-    iget-boolean v0, p0, Landroid/location/LocationRequest;->mIsBlacklist:Z
-
-    return v0
 .end method
 
 .method public getNumUpdates()I
@@ -770,14 +722,6 @@
     iget-object v0, p0, Landroid/location/LocationRequest;->mWorkSource:Landroid/os/WorkSource;
 
     return-object v0
-.end method
-
-.method public setAltitudeRequired(Z)Landroid/location/LocationRequest;
-    .locals 0
-
-    iput-boolean p1, p0, Landroid/location/LocationRequest;->mAltitudeRequired:Z
-
-    return-object p0
 .end method
 
 .method public setExpireAt(J)Landroid/location/LocationRequest;
@@ -884,14 +828,6 @@
     iput-wide v0, p0, Landroid/location/LocationRequest;->mFastestInterval:J
 
     :cond_0
-    return-object p0
-.end method
-
-.method public setIsBlacklist(Z)Landroid/location/LocationRequest;
-    .locals 0
-
-    iput-boolean p1, p0, Landroid/location/LocationRequest;->mIsBlacklist:Z
-
     return-object p0
 .end method
 
@@ -1079,27 +1015,25 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .locals 6
+    .locals 4
 
-    const/4 v1, 0x1
-
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
     iget v0, p0, Landroid/location/LocationRequest;->mQuality:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    iget-wide v4, p0, Landroid/location/LocationRequest;->mFastestInterval:J
+    iget-wide v2, p0, Landroid/location/LocationRequest;->mFastestInterval:J
 
-    invoke-virtual {p1, v4, v5}, Landroid/os/Parcel;->writeLong(J)V
+    invoke-virtual {p1, v2, v3}, Landroid/os/Parcel;->writeLong(J)V
 
-    iget-wide v4, p0, Landroid/location/LocationRequest;->mInterval:J
+    iget-wide v2, p0, Landroid/location/LocationRequest;->mInterval:J
 
-    invoke-virtual {p1, v4, v5}, Landroid/os/Parcel;->writeLong(J)V
+    invoke-virtual {p1, v2, v3}, Landroid/os/Parcel;->writeLong(J)V
 
-    iget-wide v4, p0, Landroid/location/LocationRequest;->mExpireAt:J
+    iget-wide v2, p0, Landroid/location/LocationRequest;->mExpireAt:J
 
-    invoke-virtual {p1, v4, v5}, Landroid/os/Parcel;->writeLong(J)V
+    invoke-virtual {p1, v2, v3}, Landroid/os/Parcel;->writeLong(J)V
 
     iget v0, p0, Landroid/location/LocationRequest;->mNumUpdates:I
 
@@ -1113,26 +1047,10 @@
 
     if-eqz v0, :cond_0
 
-    move v0, v1
+    const/4 v0, 0x1
 
     :goto_0
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
-
-    iget-boolean v0, p0, Landroid/location/LocationRequest;->mAltitudeRequired:Z
-
-    if-eqz v0, :cond_1
-
-    move v0, v1
-
-    :goto_1
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
-
-    iget-boolean v0, p0, Landroid/location/LocationRequest;->mIsBlacklist:Z
-
-    if-eqz v0, :cond_2
-
-    :goto_2
-    invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeInt(I)V
 
     iget-object v0, p0, Landroid/location/LocationRequest;->mProvider:Ljava/lang/String;
 
@@ -1140,22 +1058,12 @@
 
     iget-object v0, p0, Landroid/location/LocationRequest;->mWorkSource:Landroid/os/WorkSource;
 
-    invoke-virtual {p1, v0, v2}, Landroid/os/Parcel;->writeParcelable(Landroid/os/Parcelable;I)V
+    invoke-virtual {p1, v0, v1}, Landroid/os/Parcel;->writeParcelable(Landroid/os/Parcelable;I)V
 
     return-void
 
     :cond_0
-    move v0, v2
+    move v0, v1
 
     goto :goto_0
-
-    :cond_1
-    move v0, v2
-
-    goto :goto_1
-
-    :cond_2
-    move v1, v2
-
-    goto :goto_2
 .end method

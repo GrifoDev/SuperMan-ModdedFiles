@@ -30,7 +30,11 @@
 
 .field static final TRANSACTION_acknowledgeStopMessage:I = 0x2
 
-.field static final TRANSACTION_jobFinished:I = 0x3
+.field static final TRANSACTION_completeWork:I = 0x4
+
+.field static final TRANSACTION_dequeueWork:I = 0x3
+
+.field static final TRANSACTION_jobFinished:I = 0x5
 
 
 # direct methods
@@ -89,36 +93,36 @@
 .end method
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    .locals 4
+    .locals 8
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    const/4 v1, 0x0
+    const/4 v5, 0x0
 
-    const/4 v2, 0x1
+    const/4 v6, 0x1
 
     sparse-switch p1, :sswitch_data_0
 
     invoke-super {p0, p1, p2, p3, p4}, Landroid/os/Binder;->onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    move-result v2
+    move-result v5
 
-    return v2
+    return v5
 
     :sswitch_0
-    const-string/jumbo v3, "android.app.job.IJobCallback"
+    const-string/jumbo v5, "android.app.job.IJobCallback"
 
-    invoke-virtual {p3, v3}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p3, v5}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    return v2
+    return v6
 
     :sswitch_1
-    const-string/jumbo v3, "android.app.job.IJobCallback"
+    const-string/jumbo v5, "android.app.job.IJobCallback"
 
-    invoke-virtual {p2, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v5}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
@@ -126,23 +130,28 @@
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v3
+    move-result v5
 
-    if-eqz v3, :cond_0
+    if-eqz v5, :cond_0
 
-    move v1, v2
+    const/4 v2, 0x1
+
+    :goto_0
+    invoke-virtual {p0, v0, v2}, Landroid/app/job/IJobCallback$Stub;->acknowledgeStartMessage(IZ)V
+
+    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+
+    return v6
 
     :cond_0
-    invoke-virtual {p0, v0, v1}, Landroid/app/job/IJobCallback$Stub;->acknowledgeStartMessage(IZ)V
+    const/4 v2, 0x0
 
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
-    return v2
+    goto :goto_0
 
     :sswitch_2
-    const-string/jumbo v3, "android.app.job.IJobCallback"
+    const-string/jumbo v5, "android.app.job.IJobCallback"
 
-    invoke-virtual {p2, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v5}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
@@ -150,42 +159,109 @@
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v3
+    move-result v5
 
-    if-eqz v3, :cond_1
+    if-eqz v5, :cond_1
 
-    move v1, v2
+    const/4 v2, 0x1
 
-    :cond_1
-    invoke-virtual {p0, v0, v1}, Landroid/app/job/IJobCallback$Stub;->acknowledgeStopMessage(IZ)V
+    :goto_1
+    invoke-virtual {p0, v0, v2}, Landroid/app/job/IJobCallback$Stub;->acknowledgeStopMessage(IZ)V
 
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    return v2
+    return v6
+
+    :cond_1
+    const/4 v2, 0x0
+
+    goto :goto_1
 
     :sswitch_3
-    const-string/jumbo v3, "android.app.job.IJobCallback"
+    const-string/jumbo v7, "android.app.job.IJobCallback"
 
-    invoke-virtual {p2, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v7}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+    invoke-virtual {p0, v0}, Landroid/app/job/IJobCallback$Stub;->dequeueWork(I)Landroid/app/job/JobWorkItem;
 
-    move-result v3
+    move-result-object v3
+
+    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     if-eqz v3, :cond_2
 
-    move v1, v2
+    invoke-virtual {p3, v6}, Landroid/os/Parcel;->writeInt(I)V
+
+    invoke-virtual {v3, p3, v6}, Landroid/app/job/JobWorkItem;->writeToParcel(Landroid/os/Parcel;I)V
+
+    :goto_2
+    return v6
 
     :cond_2
-    invoke-virtual {p0, v0, v1}, Landroid/app/job/IJobCallback$Stub;->jobFinished(IZ)V
+    invoke-virtual {p3, v5}, Landroid/os/Parcel;->writeInt(I)V
+
+    goto :goto_2
+
+    :sswitch_4
+    const-string/jumbo v7, "android.app.job.IJobCallback"
+
+    invoke-virtual {p2, v7}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v0
+
+    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v1
+
+    invoke-virtual {p0, v0, v1}, Landroid/app/job/IJobCallback$Stub;->completeWork(II)Z
+
+    move-result v4
 
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    return v2
+    if-eqz v4, :cond_3
+
+    move v5, v6
+
+    :cond_3
+    invoke-virtual {p3, v5}, Landroid/os/Parcel;->writeInt(I)V
+
+    return v6
+
+    :sswitch_5
+    const-string/jumbo v5, "android.app.job.IJobCallback"
+
+    invoke-virtual {p2, v5}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v0
+
+    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v5
+
+    if-eqz v5, :cond_4
+
+    const/4 v2, 0x1
+
+    :goto_3
+    invoke-virtual {p0, v0, v2}, Landroid/app/job/IJobCallback$Stub;->jobFinished(IZ)V
+
+    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+
+    return v6
+
+    :cond_4
+    const/4 v2, 0x0
+
+    goto :goto_3
 
     nop
 
@@ -194,6 +270,8 @@
         0x1 -> :sswitch_1
         0x2 -> :sswitch_2
         0x3 -> :sswitch_3
+        0x4 -> :sswitch_4
+        0x5 -> :sswitch_5
         0x5f4e5446 -> :sswitch_0
     .end sparse-switch
 .end method

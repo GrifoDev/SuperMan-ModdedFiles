@@ -72,7 +72,7 @@
     :try_end_0
     .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
 
-    invoke-virtual {p0}, Landroid/os/AsyncTask;->isCancelled()Z
+    invoke-virtual {p0}, Landroid/media/tv/TvInputService$OverlayViewCleanUpTask;->isCancelled()Z
 
     move-result v2
 

@@ -53,7 +53,7 @@
 
     const-string/jumbo v0, "com.samsung.android.hardware.context.ISemContextService"
 
-    invoke-virtual {p0, p0, v0}, Landroid/os/Binder;->attachInterface(Landroid/os/IInterface;Ljava/lang/String;)V
+    invoke-virtual {p0, p0, v0}, Lcom/samsung/android/hardware/context/ISemContextService$Stub;->attachInterface(Landroid/os/IInterface;Ljava/lang/String;)V
 
     return-void
 .end method
@@ -150,19 +150,19 @@
 
     invoke-interface {v8, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
 
-    move-result-object v4
+    move-result-object v3
 
-    check-cast v4, Lcom/samsung/android/hardware/context/SemContextAttribute;
+    check-cast v3, Lcom/samsung/android/hardware/context/SemContextAttribute;
 
     :goto_0
-    invoke-virtual {p0, v1, v2, v4}, Lcom/samsung/android/hardware/context/ISemContextService$Stub;->registerCallback(Landroid/os/IBinder;ILcom/samsung/android/hardware/context/SemContextAttribute;)V
+    invoke-virtual {p0, v1, v2, v3}, Lcom/samsung/android/hardware/context/ISemContextService$Stub;->registerCallback(Landroid/os/IBinder;ILcom/samsung/android/hardware/context/SemContextAttribute;)V
 
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     return v9
 
     :cond_0
-    const/4 v4, 0x0
+    const/4 v3, 0x0
 
     goto :goto_0
 
@@ -236,12 +236,12 @@
 
     invoke-interface {v10, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
 
-    move-result-object v4
+    move-result-object v3
 
-    check-cast v4, Lcom/samsung/android/hardware/context/SemContextAttribute;
+    check-cast v3, Lcom/samsung/android/hardware/context/SemContextAttribute;
 
     :goto_1
-    invoke-virtual {p0, v1, v2, v4}, Lcom/samsung/android/hardware/context/ISemContextService$Stub;->changeParameters(Landroid/os/IBinder;ILcom/samsung/android/hardware/context/SemContextAttribute;)Z
+    invoke-virtual {p0, v1, v2, v3}, Lcom/samsung/android/hardware/context/ISemContextService$Stub;->changeParameters(Landroid/os/IBinder;ILcom/samsung/android/hardware/context/SemContextAttribute;)Z
 
     move-result v7
 
@@ -257,7 +257,7 @@
     return v9
 
     :cond_3
-    const/4 v4, 0x0
+    const/4 v3, 0x0
 
     goto :goto_1
 
@@ -285,11 +285,15 @@
 
     move-result v0
 
+    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v2
+
     invoke-virtual {p2}, Landroid/os/Parcel;->createByteArray()[B
 
-    move-result-object v3
+    move-result-object v4
 
-    invoke-virtual {p0, v0, v3}, Lcom/samsung/android/hardware/context/ISemContextService$Stub;->setReferenceData(I[B)Z
+    invoke-virtual {p0, v0, v2, v4}, Lcom/samsung/android/hardware/context/ISemContextService$Stub;->setReferenceData(II[B)Z
 
     move-result v7
 

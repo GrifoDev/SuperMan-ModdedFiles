@@ -6,7 +6,8 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Landroid/media/RemoteDisplay$Listener;
+        Landroid/media/RemoteDisplay$Listener;,
+        Landroid/media/RemoteDisplay$NativeListener;
     }
 .end annotation
 
@@ -22,11 +23,11 @@
 
 .field public static final DISPLAY_FLAG_PORTRAIT:I = 0x4
 
+.field public static final DISPLAY_FLAG_PRESENTATION:I = 0x10
+
 .field public static final DISPLAY_FLAG_SECURE:I = 0x1
 
 .field private static final TAG:Ljava/lang/String; = "RemoteDisplay_Java"
-
-.field private static mRemoteDisplayCallback:Landroid/media/RemoteDisplayCallback;
 
 
 # instance fields
@@ -35,6 +36,8 @@
 .field private final mHandler:Landroid/os/Handler;
 
 .field private final mListener:Landroid/media/RemoteDisplay$Listener;
+
+.field private final mNativeListener:Landroid/media/RemoteDisplay$NativeListener;
 
 .field private final mOpPackageName:Ljava/lang/String;
 
@@ -50,22 +53,12 @@
     return-object v0
 .end method
 
-.method static synthetic -get1()Landroid/media/RemoteDisplayCallback;
+.method static synthetic -get1(Landroid/media/RemoteDisplay;)Landroid/media/RemoteDisplay$NativeListener;
     .locals 1
 
-    sget-object v0, Landroid/media/RemoteDisplay;->mRemoteDisplayCallback:Landroid/media/RemoteDisplayCallback;
+    iget-object v0, p0, Landroid/media/RemoteDisplay;->mNativeListener:Landroid/media/RemoteDisplay$NativeListener;
 
     return-object v0
-.end method
-
-.method static constructor <clinit>()V
-    .locals 1
-
-    const/4 v0, 0x0
-
-    sput-object v0, Landroid/media/RemoteDisplay;->mRemoteDisplayCallback:Landroid/media/RemoteDisplayCallback;
-
-    return-void
 .end method
 
 .method private constructor <init>(Landroid/media/RemoteDisplay$Listener;Landroid/os/Handler;Ljava/lang/String;)V
@@ -85,17 +78,32 @@
 
     iput-object p3, p0, Landroid/media/RemoteDisplay;->mOpPackageName:Ljava/lang/String;
 
-    sget-object v0, Landroid/media/RemoteDisplay;->mRemoteDisplayCallback:Landroid/media/RemoteDisplayCallback;
+    const/4 v0, 0x0
 
-    if-nez v0, :cond_0
+    iput-object v0, p0, Landroid/media/RemoteDisplay;->mNativeListener:Landroid/media/RemoteDisplay$NativeListener;
 
-    new-instance v0, Landroid/media/RemoteDisplayCallback;
+    return-void
+.end method
 
-    invoke-direct {v0}, Landroid/media/RemoteDisplayCallback;-><init>()V
+.method private constructor <init>(Landroid/media/RemoteDisplay$Listener;Landroid/os/Handler;Ljava/lang/String;Landroid/media/RemoteDisplay$NativeListener;)V
+    .locals 1
 
-    sput-object v0, Landroid/media/RemoteDisplay;->mRemoteDisplayCallback:Landroid/media/RemoteDisplayCallback;
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    :cond_0
+    invoke-static {}, Ldalvik/system/CloseGuard;->get()Ldalvik/system/CloseGuard;
+
+    move-result-object v0
+
+    iput-object v0, p0, Landroid/media/RemoteDisplay;->mGuard:Ldalvik/system/CloseGuard;
+
+    iput-object p1, p0, Landroid/media/RemoteDisplay;->mListener:Landroid/media/RemoteDisplay$Listener;
+
+    iput-object p2, p0, Landroid/media/RemoteDisplay;->mHandler:Landroid/os/Handler;
+
+    iput-object p3, p0, Landroid/media/RemoteDisplay;->mOpPackageName:Ljava/lang/String;
+
+    iput-object p4, p0, Landroid/media/RemoteDisplay;->mNativeListener:Landroid/media/RemoteDisplay$NativeListener;
+
     return-void
 .end method
 
@@ -198,7 +206,7 @@
     return-object v0
 .end method
 
-.method public static listen(Ljava/lang/String;Landroid/media/RemoteDisplay$Listener;Landroid/os/Handler;Ljava/lang/String;Ljava/lang/String;)Landroid/media/RemoteDisplay;
+.method public static listen(Ljava/lang/String;Landroid/media/RemoteDisplay$Listener;Landroid/os/Handler;Ljava/lang/String;Ljava/lang/String;Landroid/media/RemoteDisplay$NativeListener;)Landroid/media/RemoteDisplay;
     .locals 3
 
     if-nez p0, :cond_0
@@ -236,7 +244,7 @@
     :cond_2
     new-instance v0, Landroid/media/RemoteDisplay;
 
-    invoke-direct {v0, p1, p2, p3}, Landroid/media/RemoteDisplay;-><init>(Landroid/media/RemoteDisplay$Listener;Landroid/os/Handler;Ljava/lang/String;)V
+    invoke-direct {v0, p1, p2, p3, p5}, Landroid/media/RemoteDisplay;-><init>(Landroid/media/RemoteDisplay$Listener;Landroid/os/Handler;Ljava/lang/String;Landroid/media/RemoteDisplay$NativeListener;)V
 
     invoke-direct {v0, p0, p4}, Landroid/media/RemoteDisplay;->startListening(Ljava/lang/String;Ljava/lang/String;)V
 
@@ -319,69 +327,6 @@
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
     return-void
-.end method
-
-.method public static setParam(Ljava/lang/String;Ljava/lang/Object;)I
-    .locals 6
-
-    new-instance v2, Lorg/json/JSONObject;
-
-    invoke-direct {v2}, Lorg/json/JSONObject;-><init>()V
-
-    :try_start_0
-    invoke-virtual {v2, p0, p1}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
-    :try_end_0
-    .catch Lorg/json/JSONException; {:try_start_0 .. :try_end_0} :catch_0
-
-    :goto_0
-    invoke-virtual {v2}, Lorg/json/JSONObject;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-static {v3}, Landroid/media/RemoteDisplay;->nativeSetParam(Ljava/lang/String;)I
-
-    move-result v1
-
-    const-string/jumbo v3, "RemoteDisplay_Java"
-
-    new-instance v4, Ljava/lang/StringBuilder;
-
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v5, "setParam >> ret is "
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    invoke-virtual {v2, p0}, Lorg/json/JSONObject;->remove(Ljava/lang/String;)Ljava/lang/Object;
-
-    const/4 v2, 0x0
-
-    return v1
-
-    :catch_0
-    move-exception v0
-
-    const-string/jumbo v3, "RemoteDisplay_Java"
-
-    invoke-virtual {v0}, Lorg/json/JSONException;->toString()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-static {v3, v4}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_0
 .end method
 
 .method private startListening(Ljava/lang/String;)V
@@ -541,30 +486,6 @@
     throw v0
 .end method
 
-.method public getParam(Ljava/lang/String;)Ljava/lang/Object;
-    .locals 1
-
-    sget-object v0, Landroid/media/RemoteDisplay;->mRemoteDisplayCallback:Landroid/media/RemoteDisplayCallback;
-
-    invoke-virtual {v0, p1}, Landroid/media/RemoteDisplayCallback;->getParam(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public isDongleRenameAvailable()Z
-    .locals 1
-
-    sget-object v0, Landroid/media/RemoteDisplay;->mRemoteDisplayCallback:Landroid/media/RemoteDisplayCallback;
-
-    invoke-virtual {v0}, Landroid/media/RemoteDisplayCallback;->isDongleRenameAvailable()Z
-
-    move-result v0
-
-    return v0
-.end method
-
 .method public pause()V
     .locals 2
 
@@ -583,4 +504,67 @@
     invoke-direct {p0, v0, v1}, Landroid/media/RemoteDisplay;->nativeResume(J)V
 
     return-void
+.end method
+
+.method public setParam(Ljava/lang/String;Ljava/lang/Object;)I
+    .locals 6
+
+    new-instance v2, Lorg/json/JSONObject;
+
+    invoke-direct {v2}, Lorg/json/JSONObject;-><init>()V
+
+    :try_start_0
+    invoke-virtual {v2, p1, p2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+    :try_end_0
+    .catch Lorg/json/JSONException; {:try_start_0 .. :try_end_0} :catch_0
+
+    :goto_0
+    invoke-virtual {v2}, Lorg/json/JSONObject;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v3}, Landroid/media/RemoteDisplay;->nativeSetParam(Ljava/lang/String;)I
+
+    move-result v1
+
+    const-string/jumbo v3, "RemoteDisplay_Java"
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v5, "setParam >> ret is "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-virtual {v2, p1}, Lorg/json/JSONObject;->remove(Ljava/lang/String;)Ljava/lang/Object;
+
+    const/4 v2, 0x0
+
+    return v1
+
+    :catch_0
+    move-exception v0
+
+    const-string/jumbo v3, "RemoteDisplay_Java"
+
+    invoke-virtual {v0}, Lorg/json/JSONException;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v3, v4}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
 .end method

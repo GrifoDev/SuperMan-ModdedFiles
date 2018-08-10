@@ -180,9 +180,7 @@
     :cond_1
     move-object v0, p1
 
-    nop
-
-    nop
+    check-cast v0, Landroid/content/pm/VerificationParams;
 
     iget-object v1, p0, Landroid/content/pm/VerificationParams;->mVerificationURI:Landroid/net/Uri;
 
@@ -321,6 +319,8 @@
     .locals 3
 
     const/4 v2, 0x1
+
+    const/4 v0, 0x3
 
     iget-object v1, p0, Landroid/content/pm/VerificationParams;->mVerificationURI:Landroid/net/Uri;
 

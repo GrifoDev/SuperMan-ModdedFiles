@@ -306,25 +306,30 @@
 
     iget v7, p0, Landroid/filterpacks/videosink/MediaEncoderFilter;->mWidth:I
 
-    if-lez v7, :cond_3
+    if-lez v7, :cond_2
 
     iget v7, p0, Landroid/filterpacks/videosink/MediaEncoderFilter;->mHeight:I
 
-    if-lez v7, :cond_3
+    if-lez v7, :cond_2
 
     const/4 v6, 0x1
 
     :goto_0
     iget-object v7, p0, Landroid/filterpacks/videosink/MediaEncoderFilter;->mProfile:Landroid/media/CamcorderProfile;
 
-    if-eqz v7, :cond_1
+    if-eqz v7, :cond_3
 
-    if-eqz v6, :cond_4
+    xor-int/lit8 v7, v6, 0x1
 
-    :cond_1
-    iget v5, p0, Landroid/filterpacks/videosink/MediaEncoderFilter;->mWidth:I
+    if-eqz v7, :cond_3
 
-    iget v3, p0, Landroid/filterpacks/videosink/MediaEncoderFilter;->mHeight:I
+    iget-object v7, p0, Landroid/filterpacks/videosink/MediaEncoderFilter;->mProfile:Landroid/media/CamcorderProfile;
+
+    iget v5, v7, Landroid/media/CamcorderProfile;->videoFrameWidth:I
+
+    iget-object v7, p0, Landroid/filterpacks/videosink/MediaEncoderFilter;->mProfile:Landroid/media/CamcorderProfile;
+
+    iget v3, v7, Landroid/media/CamcorderProfile;->videoFrameHeight:I
 
     :goto_1
     invoke-virtual {v4, v5, v3}, Landroid/filterfw/core/MutableFrameFormat;->setDimensions(II)V
@@ -368,7 +373,7 @@
 
     iget-boolean v7, p0, Landroid/filterpacks/videosink/MediaEncoderFilter;->mLogVerbose:Z
 
-    if-eqz v7, :cond_2
+    if-eqz v7, :cond_1
 
     const-string/jumbo v7, "MediaEncoderFilter"
 
@@ -376,7 +381,7 @@
 
     invoke-static {v7, v8}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_2
+    :cond_1
     invoke-virtual {p1}, Landroid/filterfw/core/FilterContext;->getGLEnvironment()Landroid/filterfw/core/GLEnvironment;
 
     move-result-object v7
@@ -397,19 +402,15 @@
 
     return-void
 
-    :cond_3
+    :cond_2
     const/4 v6, 0x0
 
     goto :goto_0
 
-    :cond_4
-    iget-object v7, p0, Landroid/filterpacks/videosink/MediaEncoderFilter;->mProfile:Landroid/media/CamcorderProfile;
+    :cond_3
+    iget v5, p0, Landroid/filterpacks/videosink/MediaEncoderFilter;->mWidth:I
 
-    iget v5, v7, Landroid/media/CamcorderProfile;->videoFrameWidth:I
-
-    iget-object v7, p0, Landroid/filterpacks/videosink/MediaEncoderFilter;->mProfile:Landroid/media/CamcorderProfile;
-
-    iget v3, v7, Landroid/media/CamcorderProfile;->videoFrameHeight:I
+    iget v3, p0, Landroid/filterpacks/videosink/MediaEncoderFilter;->mHeight:I
 
     goto :goto_1
 
@@ -513,7 +514,7 @@
 
     iget-object v2, p0, Landroid/filterpacks/videosink/MediaEncoderFilter;->mScreen:Landroid/filterfw/core/GLFrame;
 
-    invoke-virtual {v2}, Landroid/filterfw/core/Frame;->release()Landroid/filterfw/core/Frame;
+    invoke-virtual {v2}, Landroid/filterfw/core/GLFrame;->release()Landroid/filterfw/core/Frame;
 
     iput-object v7, p0, Landroid/filterpacks/videosink/MediaEncoderFilter;->mScreen:Landroid/filterfw/core/GLFrame;
 
@@ -717,7 +718,7 @@
 
     move-result-object v3
 
-    invoke-virtual {v1}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
 
     move-result-object v4
 
@@ -853,7 +854,7 @@
 
     if-eqz v0, :cond_3
 
-    invoke-virtual {p0}, Landroid/filterfw/core/Filter;->isOpen()Z
+    invoke-virtual {p0}, Landroid/filterpacks/videosink/MediaEncoderFilter;->isOpen()Z
 
     move-result v0
 
@@ -865,7 +866,7 @@
     return-void
 
     :cond_3
-    invoke-virtual {p0}, Landroid/filterfw/core/Filter;->isOpen()Z
+    invoke-virtual {p0}, Landroid/filterpacks/videosink/MediaEncoderFilter;->isOpen()Z
 
     move-result v0
 
@@ -949,7 +950,7 @@
 
     const-string/jumbo v2, "videoframe"
 
-    invoke-virtual {p0, v2}, Landroid/filterfw/core/Filter;->pullInput(Ljava/lang/String;)Landroid/filterfw/core/Frame;
+    invoke-virtual {p0, v2}, Landroid/filterpacks/videosink/MediaEncoderFilter;->pullInput(Ljava/lang/String;)Landroid/filterfw/core/Frame;
 
     move-result-object v1
 
@@ -970,25 +971,23 @@
 
     iget-boolean v2, p0, Landroid/filterpacks/videosink/MediaEncoderFilter;->mRecording:Z
 
-    if-eqz v2, :cond_2
+    xor-int/lit8 v2, v2, 0x1
+
+    if-eqz v2, :cond_1
+
+    invoke-direct {p0, p1}, Landroid/filterpacks/videosink/MediaEncoderFilter;->stopRecording(Landroid/filterfw/core/FilterContext;)V
 
     :cond_1
-    :goto_0
     iget-boolean v2, p0, Landroid/filterpacks/videosink/MediaEncoderFilter;->mRecordingActive:Z
 
-    if-nez v2, :cond_3
+    if-nez v2, :cond_2
 
     return-void
 
     :cond_2
-    invoke-direct {p0, p1}, Landroid/filterpacks/videosink/MediaEncoderFilter;->stopRecording(Landroid/filterfw/core/FilterContext;)V
-
-    goto :goto_0
-
-    :cond_3
     iget-boolean v2, p0, Landroid/filterpacks/videosink/MediaEncoderFilter;->mCaptureTimeLapse:Z
 
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_3
 
     invoke-virtual {v1}, Landroid/filterfw/core/Frame;->getTimestamp()J
 
@@ -998,18 +997,18 @@
 
     move-result v2
 
-    if-eqz v2, :cond_5
+    if-eqz v2, :cond_4
 
     return-void
 
-    :cond_4
+    :cond_3
     invoke-virtual {v1}, Landroid/filterfw/core/Frame;->getTimestamp()J
 
     move-result-wide v2
 
     iput-wide v2, p0, Landroid/filterpacks/videosink/MediaEncoderFilter;->mTimestampNs:J
 
-    :cond_5
+    :cond_4
     iget v2, p0, Landroid/filterpacks/videosink/MediaEncoderFilter;->mSurfaceId:I
 
     invoke-virtual {v0, v2}, Landroid/filterfw/core/GLEnvironment;->activateSurfaceWithId(I)V
@@ -1018,7 +1017,7 @@
 
     iget-object v3, p0, Landroid/filterpacks/videosink/MediaEncoderFilter;->mScreen:Landroid/filterfw/core/GLFrame;
 
-    invoke-virtual {v2, v1, v3}, Landroid/filterfw/core/Program;->process(Landroid/filterfw/core/Frame;Landroid/filterfw/core/Frame;)V
+    invoke-virtual {v2, v1, v3}, Landroid/filterfw/core/ShaderProgram;->process(Landroid/filterfw/core/Frame;Landroid/filterfw/core/Frame;)V
 
     iget-wide v2, p0, Landroid/filterpacks/videosink/MediaEncoderFilter;->mTimestampNs:J
 
@@ -1046,7 +1045,7 @@
 
     move-result-object v1
 
-    invoke-virtual {p0, v0, v1}, Landroid/filterfw/core/Filter;->addMaskedInputPort(Ljava/lang/String;Landroid/filterfw/core/FrameFormat;)V
+    invoke-virtual {p0, v0, v1}, Landroid/filterpacks/videosink/MediaEncoderFilter;->addMaskedInputPort(Ljava/lang/String;Landroid/filterfw/core/FrameFormat;)V
 
     return-void
 .end method
@@ -1289,7 +1288,7 @@
 
     iget-object v0, p0, Landroid/filterpacks/videosink/MediaEncoderFilter;->mScreen:Landroid/filterfw/core/GLFrame;
 
-    invoke-virtual {v0}, Landroid/filterfw/core/Frame;->release()Landroid/filterfw/core/Frame;
+    invoke-virtual {v0}, Landroid/filterfw/core/GLFrame;->release()Landroid/filterfw/core/Frame;
 
     :cond_1
     return-void

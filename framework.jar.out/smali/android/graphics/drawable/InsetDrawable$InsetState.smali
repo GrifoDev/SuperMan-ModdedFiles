@@ -15,13 +15,13 @@
 
 
 # instance fields
-.field mInsetBottom:I
+.field mInsetBottom:Landroid/graphics/drawable/InsetDrawable$InsetValue;
 
-.field mInsetLeft:I
+.field mInsetLeft:Landroid/graphics/drawable/InsetDrawable$InsetValue;
 
-.field mInsetRight:I
+.field mInsetRight:Landroid/graphics/drawable/InsetDrawable$InsetValue;
 
-.field mInsetTop:I
+.field mInsetTop:Landroid/graphics/drawable/InsetDrawable$InsetValue;
 
 .field private mThemeAttrs:[I
 
@@ -46,35 +46,41 @@
 .method constructor <init>(Landroid/graphics/drawable/InsetDrawable$InsetState;Landroid/content/res/Resources;)V
     .locals 2
 
-    const/4 v0, 0x0
-
     invoke-direct {p0, p1, p2}, Landroid/graphics/drawable/DrawableWrapper$DrawableWrapperState;-><init>(Landroid/graphics/drawable/DrawableWrapper$DrawableWrapperState;Landroid/content/res/Resources;)V
 
-    iput v0, p0, Landroid/graphics/drawable/InsetDrawable$InsetState;->mInsetLeft:I
+    if-eqz p1, :cond_1
 
-    iput v0, p0, Landroid/graphics/drawable/InsetDrawable$InsetState;->mInsetTop:I
+    iget-object v0, p1, Landroid/graphics/drawable/InsetDrawable$InsetState;->mInsetLeft:Landroid/graphics/drawable/InsetDrawable$InsetValue;
 
-    iput v0, p0, Landroid/graphics/drawable/InsetDrawable$InsetState;->mInsetRight:I
+    invoke-virtual {v0}, Landroid/graphics/drawable/InsetDrawable$InsetValue;->clone()Landroid/graphics/drawable/InsetDrawable$InsetValue;
 
-    iput v0, p0, Landroid/graphics/drawable/InsetDrawable$InsetState;->mInsetBottom:I
+    move-result-object v0
 
-    if-eqz p1, :cond_0
+    iput-object v0, p0, Landroid/graphics/drawable/InsetDrawable$InsetState;->mInsetLeft:Landroid/graphics/drawable/InsetDrawable$InsetValue;
 
-    iget v0, p1, Landroid/graphics/drawable/InsetDrawable$InsetState;->mInsetLeft:I
+    iget-object v0, p1, Landroid/graphics/drawable/InsetDrawable$InsetState;->mInsetTop:Landroid/graphics/drawable/InsetDrawable$InsetValue;
 
-    iput v0, p0, Landroid/graphics/drawable/InsetDrawable$InsetState;->mInsetLeft:I
+    invoke-virtual {v0}, Landroid/graphics/drawable/InsetDrawable$InsetValue;->clone()Landroid/graphics/drawable/InsetDrawable$InsetValue;
 
-    iget v0, p1, Landroid/graphics/drawable/InsetDrawable$InsetState;->mInsetTop:I
+    move-result-object v0
 
-    iput v0, p0, Landroid/graphics/drawable/InsetDrawable$InsetState;->mInsetTop:I
+    iput-object v0, p0, Landroid/graphics/drawable/InsetDrawable$InsetState;->mInsetTop:Landroid/graphics/drawable/InsetDrawable$InsetValue;
 
-    iget v0, p1, Landroid/graphics/drawable/InsetDrawable$InsetState;->mInsetRight:I
+    iget-object v0, p1, Landroid/graphics/drawable/InsetDrawable$InsetState;->mInsetRight:Landroid/graphics/drawable/InsetDrawable$InsetValue;
 
-    iput v0, p0, Landroid/graphics/drawable/InsetDrawable$InsetState;->mInsetRight:I
+    invoke-virtual {v0}, Landroid/graphics/drawable/InsetDrawable$InsetValue;->clone()Landroid/graphics/drawable/InsetDrawable$InsetValue;
 
-    iget v0, p1, Landroid/graphics/drawable/InsetDrawable$InsetState;->mInsetBottom:I
+    move-result-object v0
 
-    iput v0, p0, Landroid/graphics/drawable/InsetDrawable$InsetState;->mInsetBottom:I
+    iput-object v0, p0, Landroid/graphics/drawable/InsetDrawable$InsetState;->mInsetRight:Landroid/graphics/drawable/InsetDrawable$InsetValue;
+
+    iget-object v0, p1, Landroid/graphics/drawable/InsetDrawable$InsetState;->mInsetBottom:Landroid/graphics/drawable/InsetDrawable$InsetValue;
+
+    invoke-virtual {v0}, Landroid/graphics/drawable/InsetDrawable$InsetValue;->clone()Landroid/graphics/drawable/InsetDrawable$InsetValue;
+
+    move-result-object v0
+
+    iput-object v0, p0, Landroid/graphics/drawable/InsetDrawable$InsetState;->mInsetBottom:Landroid/graphics/drawable/InsetDrawable$InsetValue;
 
     iget v0, p1, Landroid/graphics/drawable/InsetDrawable$InsetState;->mDensity:I
 
@@ -89,43 +95,55 @@
     invoke-direct {p0, v0, v1}, Landroid/graphics/drawable/InsetDrawable$InsetState;->applyDensityScaling(II)V
 
     :cond_0
+    :goto_0
     return-void
+
+    :cond_1
+    new-instance v0, Landroid/graphics/drawable/InsetDrawable$InsetValue;
+
+    invoke-direct {v0}, Landroid/graphics/drawable/InsetDrawable$InsetValue;-><init>()V
+
+    iput-object v0, p0, Landroid/graphics/drawable/InsetDrawable$InsetState;->mInsetLeft:Landroid/graphics/drawable/InsetDrawable$InsetValue;
+
+    new-instance v0, Landroid/graphics/drawable/InsetDrawable$InsetValue;
+
+    invoke-direct {v0}, Landroid/graphics/drawable/InsetDrawable$InsetValue;-><init>()V
+
+    iput-object v0, p0, Landroid/graphics/drawable/InsetDrawable$InsetState;->mInsetTop:Landroid/graphics/drawable/InsetDrawable$InsetValue;
+
+    new-instance v0, Landroid/graphics/drawable/InsetDrawable$InsetValue;
+
+    invoke-direct {v0}, Landroid/graphics/drawable/InsetDrawable$InsetValue;-><init>()V
+
+    iput-object v0, p0, Landroid/graphics/drawable/InsetDrawable$InsetState;->mInsetRight:Landroid/graphics/drawable/InsetDrawable$InsetValue;
+
+    new-instance v0, Landroid/graphics/drawable/InsetDrawable$InsetValue;
+
+    invoke-direct {v0}, Landroid/graphics/drawable/InsetDrawable$InsetValue;-><init>()V
+
+    iput-object v0, p0, Landroid/graphics/drawable/InsetDrawable$InsetState;->mInsetBottom:Landroid/graphics/drawable/InsetDrawable$InsetValue;
+
+    goto :goto_0
 .end method
 
 .method private applyDensityScaling(II)V
     .locals 1
 
-    iget v0, p0, Landroid/graphics/drawable/InsetDrawable$InsetState;->mInsetLeft:I
+    iget-object v0, p0, Landroid/graphics/drawable/InsetDrawable$InsetState;->mInsetLeft:Landroid/graphics/drawable/InsetDrawable$InsetValue;
 
-    invoke-static {v0, p1, p2}, Landroid/graphics/Bitmap;->scaleFromDensity(III)I
+    invoke-virtual {v0, p1, p2}, Landroid/graphics/drawable/InsetDrawable$InsetValue;->scaleFromDensity(II)V
 
-    move-result v0
+    iget-object v0, p0, Landroid/graphics/drawable/InsetDrawable$InsetState;->mInsetTop:Landroid/graphics/drawable/InsetDrawable$InsetValue;
 
-    iput v0, p0, Landroid/graphics/drawable/InsetDrawable$InsetState;->mInsetLeft:I
+    invoke-virtual {v0, p1, p2}, Landroid/graphics/drawable/InsetDrawable$InsetValue;->scaleFromDensity(II)V
 
-    iget v0, p0, Landroid/graphics/drawable/InsetDrawable$InsetState;->mInsetTop:I
+    iget-object v0, p0, Landroid/graphics/drawable/InsetDrawable$InsetState;->mInsetRight:Landroid/graphics/drawable/InsetDrawable$InsetValue;
 
-    invoke-static {v0, p1, p2}, Landroid/graphics/Bitmap;->scaleFromDensity(III)I
+    invoke-virtual {v0, p1, p2}, Landroid/graphics/drawable/InsetDrawable$InsetValue;->scaleFromDensity(II)V
 
-    move-result v0
+    iget-object v0, p0, Landroid/graphics/drawable/InsetDrawable$InsetState;->mInsetBottom:Landroid/graphics/drawable/InsetDrawable$InsetValue;
 
-    iput v0, p0, Landroid/graphics/drawable/InsetDrawable$InsetState;->mInsetTop:I
-
-    iget v0, p0, Landroid/graphics/drawable/InsetDrawable$InsetState;->mInsetRight:I
-
-    invoke-static {v0, p1, p2}, Landroid/graphics/Bitmap;->scaleFromDensity(III)I
-
-    move-result v0
-
-    iput v0, p0, Landroid/graphics/drawable/InsetDrawable$InsetState;->mInsetRight:I
-
-    iget v0, p0, Landroid/graphics/drawable/InsetDrawable$InsetState;->mInsetBottom:I
-
-    invoke-static {v0, p1, p2}, Landroid/graphics/Bitmap;->scaleFromDensity(III)I
-
-    move-result v0
-
-    iput v0, p0, Landroid/graphics/drawable/InsetDrawable$InsetState;->mInsetBottom:I
+    invoke-virtual {v0, p1, p2}, Landroid/graphics/drawable/InsetDrawable$InsetValue;->scaleFromDensity(II)V
 
     return-void
 .end method

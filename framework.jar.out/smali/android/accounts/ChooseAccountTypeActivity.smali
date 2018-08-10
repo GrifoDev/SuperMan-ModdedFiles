@@ -104,7 +104,7 @@
 
     const/4 v12, 0x0
 
-    invoke-virtual {p0, v11, v12}, Landroid/content/ContextWrapper;->createPackageContext(Ljava/lang/String;I)Landroid/content/Context;
+    invoke-virtual {p0, v11, v12}, Landroid/accounts/ChooseAccountTypeActivity;->createPackageContext(Ljava/lang/String;I)Landroid/content/Context;
 
     move-result-object v0
 
@@ -241,7 +241,7 @@
 
     const-string/jumbo v1, "accountType"
 
-    invoke-virtual {v0, v1, p1}, Landroid/os/BaseBundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v0, v1, p1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
     new-instance v1, Landroid/content/Intent;
 
@@ -253,7 +253,7 @@
 
     const/4 v2, -0x1
 
-    invoke-virtual {p0, v2, v1}, Landroid/app/Activity;->setResult(ILandroid/content/Intent;)V
+    invoke-virtual {p0, v2, v1}, Landroid/accounts/ChooseAccountTypeActivity;->setResult(ILandroid/content/Intent;)V
 
     const-string/jumbo v1, "AccountChooser"
 
@@ -288,7 +288,7 @@
     invoke-static {v1, v2}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
-    invoke-virtual {p0}, Landroid/app/Activity;->finish()V
+    invoke-virtual {p0}, Landroid/accounts/ChooseAccountTypeActivity;->finish()V
 
     return-void
 .end method
@@ -343,7 +343,7 @@
     :cond_0
     const/4 v5, 0x0
 
-    invoke-virtual {p0}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
+    invoke-virtual {p0}, Landroid/accounts/ChooseAccountTypeActivity;->getIntent()Landroid/content/Intent;
 
     move-result-object v8
 
@@ -433,7 +433,9 @@
 
     move-result v8
 
-    if-eqz v8, :cond_2
+    xor-int/lit8 v8, v8, 0x1
+
+    if-nez v8, :cond_2
 
     :cond_3
     iget-object v8, p0, Landroid/accounts/ChooseAccountTypeActivity;->mAuthenticatorInfosToDisplay:Ljava/util/ArrayList;
@@ -459,7 +461,7 @@
 
     const-string/jumbo v9, "no allowable account types"
 
-    invoke-virtual {v0, v8, v9}, Landroid/os/BaseBundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v0, v8, v9}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
     new-instance v8, Landroid/content/Intent;
 
@@ -471,9 +473,9 @@
 
     const/4 v9, -0x1
 
-    invoke-virtual {p0, v9, v8}, Landroid/app/Activity;->setResult(ILandroid/content/Intent;)V
+    invoke-virtual {p0, v9, v8}, Landroid/accounts/ChooseAccountTypeActivity;->setResult(ILandroid/content/Intent;)V
 
-    invoke-virtual {p0}, Landroid/app/Activity;->finish()V
+    invoke-virtual {p0}, Landroid/accounts/ChooseAccountTypeActivity;->finish()V
 
     return-void
 
@@ -505,13 +507,13 @@
     return-void
 
     :cond_6
-    const v8, 0x1090042
+    const v8, 0x1090045
 
-    invoke-virtual {p0, v8}, Landroid/app/Activity;->setContentView(I)V
+    invoke-virtual {p0, v8}, Landroid/accounts/ChooseAccountTypeActivity;->setContentView(I)V
 
     const v8, 0x102000a
 
-    invoke-virtual {p0, v8}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v8}, Landroid/accounts/ChooseAccountTypeActivity;->findViewById(I)Landroid/view/View;
 
     move-result-object v4
 
@@ -527,15 +529,15 @@
 
     invoke-virtual {v4, v8}, Landroid/widget/ListView;->setAdapter(Landroid/widget/ListAdapter;)V
 
-    invoke-virtual {v4, v9}, Landroid/widget/AbsListView;->setChoiceMode(I)V
+    invoke-virtual {v4, v9}, Landroid/widget/ListView;->setChoiceMode(I)V
 
-    invoke-virtual {v4, v9}, Landroid/widget/AbsListView;->setTextFilterEnabled(Z)V
+    invoke-virtual {v4, v9}, Landroid/widget/ListView;->setTextFilterEnabled(Z)V
 
     new-instance v8, Landroid/accounts/ChooseAccountTypeActivity$1;
 
     invoke-direct {v8, p0}, Landroid/accounts/ChooseAccountTypeActivity$1;-><init>(Landroid/accounts/ChooseAccountTypeActivity;)V
 
-    invoke-virtual {v4, v8}, Landroid/widget/AdapterView;->setOnItemClickListener(Landroid/widget/AdapterView$OnItemClickListener;)V
+    invoke-virtual {v4, v8}, Landroid/widget/ListView;->setOnItemClickListener(Landroid/widget/AdapterView$OnItemClickListener;)V
 
     return-void
 .end method

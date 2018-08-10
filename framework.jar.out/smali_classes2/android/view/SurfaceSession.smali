@@ -22,7 +22,26 @@
     return-void
 .end method
 
+.method public constructor <init>(Landroid/view/Surface;)V
+    .locals 2
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iget-wide v0, p1, Landroid/view/Surface;->mNativeObject:J
+
+    invoke-static {v0, v1}, Landroid/view/SurfaceSession;->nativeCreateScoped(J)J
+
+    move-result-wide v0
+
+    iput-wide v0, p0, Landroid/view/SurfaceSession;->mNativeClient:J
+
+    return-void
+.end method
+
 .method private static native nativeCreate()J
+.end method
+
+.method private static native nativeCreateScoped(J)J
 .end method
 
 .method private static native nativeDestroy(J)V

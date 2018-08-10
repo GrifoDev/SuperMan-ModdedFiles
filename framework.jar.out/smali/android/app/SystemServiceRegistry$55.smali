@@ -17,7 +17,7 @@
     value = {
         "Landroid/app/SystemServiceRegistry$CachedServiceFetcher",
         "<",
-        "Landroid/net/wifi/hs20/WifiHs20Manager;",
+        "Landroid/app/SemStatusBarManager;",
         ">;"
     }
 .end annotation
@@ -34,34 +34,29 @@
 
 
 # virtual methods
-.method public createService(Landroid/app/ContextImpl;)Landroid/net/wifi/hs20/WifiHs20Manager;
-    .locals 4
+.method public createService(Landroid/app/ContextImpl;)Landroid/app/SemStatusBarManager;
+    .locals 2
 
-    const-string/jumbo v2, "wifihs20"
-
-    invoke-static {v2}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
-
-    move-result-object v0
-
-    invoke-static {v0}, Landroid/net/wifi/hs20/IWifiHs20Manager$Stub;->asInterface(Landroid/os/IBinder;)Landroid/net/wifi/hs20/IWifiHs20Manager;
-
-    move-result-object v1
-
-    new-instance v2, Landroid/net/wifi/hs20/WifiHs20Manager;
+    new-instance v0, Landroid/app/SemStatusBarManager;
 
     invoke-virtual {p1}, Landroid/app/ContextImpl;->getOuterContext()Landroid/content/Context;
 
-    move-result-object v3
+    move-result-object v1
 
-    invoke-direct {v2, v3, v1}, Landroid/net/wifi/hs20/WifiHs20Manager;-><init>(Landroid/content/Context;Landroid/net/wifi/hs20/IWifiHs20Manager;)V
+    invoke-direct {v0, v1}, Landroid/app/SemStatusBarManager;-><init>(Landroid/content/Context;)V
 
-    return-object v2
+    return-object v0
 .end method
 
 .method public bridge synthetic createService(Landroid/app/ContextImpl;)Ljava/lang/Object;
     .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/ServiceManager$ServiceNotFoundException;
+        }
+    .end annotation
 
-    invoke-virtual {p0, p1}, Landroid/app/SystemServiceRegistry$55;->createService(Landroid/app/ContextImpl;)Landroid/net/wifi/hs20/WifiHs20Manager;
+    invoke-virtual {p0, p1}, Landroid/app/SystemServiceRegistry$55;->createService(Landroid/app/ContextImpl;)Landroid/app/SemStatusBarManager;
 
     move-result-object v0
 

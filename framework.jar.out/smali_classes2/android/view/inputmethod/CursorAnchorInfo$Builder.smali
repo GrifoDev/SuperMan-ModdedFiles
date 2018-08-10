@@ -228,15 +228,13 @@
 
     const/4 v2, 0x0
 
-    const/4 v0, 0x0
-
     iget-boolean v1, p0, Landroid/view/inputmethod/CursorAnchorInfo$Builder;->mMatrixInitialized:Z
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_2
 
     iget-object v1, p0, Landroid/view/inputmethod/CursorAnchorInfo$Builder;->mCharacterBoundsArrayBuilder:Landroid/view/inputmethod/SparseRectFArray$SparseRectFArrayBuilder;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1
 
     iget-object v1, p0, Landroid/view/inputmethod/CursorAnchorInfo$Builder;->mCharacterBoundsArrayBuilder:Landroid/view/inputmethod/SparseRectFArray$SparseRectFArrayBuilder;
 
@@ -244,11 +242,10 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    xor-int/lit8 v0, v1, 0x1
 
-    :cond_0
     :goto_0
-    if-nez v0, :cond_3
+    if-nez v0, :cond_0
 
     iget v1, p0, Landroid/view/inputmethod/CursorAnchorInfo$Builder;->mInsertionMarkerHorizontal:F
 
@@ -256,7 +253,9 @@
 
     move-result v1
 
-    if-eqz v1, :cond_3
+    xor-int/lit8 v1, v1, 0x1
+
+    if-nez v1, :cond_0
 
     iget v1, p0, Landroid/view/inputmethod/CursorAnchorInfo$Builder;->mInsertionMarkerTop:F
 
@@ -264,7 +263,9 @@
 
     move-result v1
 
-    if-eqz v1, :cond_3
+    xor-int/lit8 v1, v1, 0x1
+
+    if-nez v1, :cond_0
 
     iget v1, p0, Landroid/view/inputmethod/CursorAnchorInfo$Builder;->mInsertionMarkerBaseline:F
 
@@ -272,7 +273,9 @@
 
     move-result v1
 
-    if-eqz v1, :cond_3
+    xor-int/lit8 v1, v1, 0x1
+
+    if-nez v1, :cond_0
 
     iget v1, p0, Landroid/view/inputmethod/CursorAnchorInfo$Builder;->mInsertionMarkerBottom:F
 
@@ -280,21 +283,11 @@
 
     move-result v1
 
-    if-eqz v1, :cond_3
+    xor-int/lit8 v1, v1, 0x1
 
-    :cond_1
-    new-instance v1, Landroid/view/inputmethod/CursorAnchorInfo;
+    if-eqz v1, :cond_2
 
-    invoke-direct {v1, p0, v2}, Landroid/view/inputmethod/CursorAnchorInfo;-><init>(Landroid/view/inputmethod/CursorAnchorInfo$Builder;Landroid/view/inputmethod/CursorAnchorInfo;)V
-
-    return-object v1
-
-    :cond_2
-    const/4 v0, 0x1
-
-    goto :goto_0
-
-    :cond_3
+    :cond_0
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v2, "Coordinate transformation matrix is required when positional parameters are specified."
@@ -302,6 +295,18 @@
     invoke-direct {v1, v2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v1
+
+    :cond_1
+    const/4 v0, 0x0
+
+    goto :goto_0
+
+    :cond_2
+    new-instance v1, Landroid/view/inputmethod/CursorAnchorInfo;
+
+    invoke-direct {v1, p0, v2}, Landroid/view/inputmethod/CursorAnchorInfo;-><init>(Landroid/view/inputmethod/CursorAnchorInfo$Builder;Landroid/view/inputmethod/CursorAnchorInfo;)V
+
+    return-object v1
 .end method
 
 .method public reset()V

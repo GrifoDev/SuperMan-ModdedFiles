@@ -189,19 +189,21 @@
 .end method
 
 .method public setSourceTechnologies(I)V
-    .locals 3
+    .locals 4
+
+    const/16 v1, 0x1f
 
     and-int/lit8 v0, p1, 0x1f
 
     if-nez v0, :cond_0
 
-    new-instance v1, Ljava/lang/IllegalArgumentException;
+    new-instance v2, Ljava/lang/IllegalArgumentException;
 
-    const-string/jumbo v2, "At least one valid source technology must be set."
+    const-string/jumbo v3, "At least one valid source technology must be set."
 
-    invoke-direct {v1, v2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v2, v3}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v1
+    throw v2
 
     :cond_0
     iput v0, p0, Landroid/hardware/location/GeofenceHardwareRequest;->mSourceTechnologies:I

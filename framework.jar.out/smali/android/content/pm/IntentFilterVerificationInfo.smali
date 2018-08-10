@@ -113,13 +113,13 @@
     return-void
 .end method
 
-.method public constructor <init>(Ljava/lang/String;Ljava/util/ArrayList;)V
+.method public constructor <init>(Ljava/lang/String;Landroid/util/ArraySet;)V
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Ljava/lang/String;",
-            "Ljava/util/ArrayList",
+            "Landroid/util/ArraySet",
             "<",
             "Ljava/lang/String;",
             ">;)V"
@@ -136,9 +136,7 @@
 
     iput-object p1, p0, Landroid/content/pm/IntentFilterVerificationInfo;->mPackageName:Ljava/lang/String;
 
-    iget-object v0, p0, Landroid/content/pm/IntentFilterVerificationInfo;->mDomains:Landroid/util/ArraySet;
-
-    invoke-virtual {v0, p2}, Landroid/util/ArraySet;->addAll(Ljava/util/Collection;)Z
+    iput-object p2, p0, Landroid/content/pm/IntentFilterVerificationInfo;->mDomains:Landroid/util/ArraySet;
 
     const/4 v0, 0x0
 
@@ -280,12 +278,12 @@
     return v0
 .end method
 
-.method public getDomains()Landroid/util/ArraySet;
+.method public getDomains()Ljava/util/Set;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Landroid/util/ArraySet",
+            "Ljava/util/Set",
             "<",
             "Ljava/lang/String;",
             ">;"
@@ -436,11 +434,15 @@
 .end method
 
 .method public getStatusString()Ljava/lang/String;
-    .locals 2
+    .locals 3
 
     iget v0, p0, Landroid/content/pm/IntentFilterVerificationInfo;->mMainStatus:I
 
     int-to-long v0, v0
+
+    const/16 v2, 0x20
+
+    shl-long/2addr v0, v2
 
     invoke-static {v0, v1}, Landroid/content/pm/IntentFilterVerificationInfo;->getStatusStringFromValue(J)Ljava/lang/String;
 
@@ -673,23 +675,19 @@
     return-void
 .end method
 
-.method public setDomains(Ljava/util/ArrayList;)V
-    .locals 1
+.method public setDomains(Landroid/util/ArraySet;)V
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Ljava/util/ArrayList",
+            "Landroid/util/ArraySet",
             "<",
             "Ljava/lang/String;",
             ">;)V"
         }
     .end annotation
 
-    new-instance v0, Landroid/util/ArraySet;
-
-    invoke-direct {v0, p1}, Landroid/util/ArraySet;-><init>(Ljava/util/Collection;)V
-
-    iput-object v0, p0, Landroid/content/pm/IntentFilterVerificationInfo;->mDomains:Landroid/util/ArraySet;
+    iput-object p1, p0, Landroid/content/pm/IntentFilterVerificationInfo;->mDomains:Landroid/util/ArraySet;
 
     return-void
 .end method

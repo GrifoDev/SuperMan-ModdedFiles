@@ -74,6 +74,10 @@
 
 .field public static final HINTING_ON:I = 0x1
 
+.field public static final HYPHENEDIT_MASK_END_OF_LINE:I = 0x7
+
+.field public static final HYPHENEDIT_MASK_START_OF_LINE:I = 0x18
+
 .field public static final LCD_RENDER_TEXT_FLAG:I = 0x200
 
 .field public static final LINEAR_TEXT_FLAG:I = 0x40
@@ -126,6 +130,8 @@
 
 .field private mFontFeatureSettings:Ljava/lang/String;
 
+.field private mFontVariationSettings:Ljava/lang/String;
+
 .field private mHasCompatScaling:Z
 
 .field private mInvCompatScaling:F
@@ -136,6 +142,8 @@
 
 .field private mMyanmarEncoding:Landroid/graphics/Paint$MyanmarEncoding;
 
+.field private mNativeColorFilter:J
+
 .field private mNativePaint:J
 
 .field private mNativeShader:J
@@ -143,8 +151,6 @@
 .field public mNativeTypeface:J
 
 .field private mPathEffect:Landroid/graphics/PathEffect;
-
-.field private mRasterizer:Landroid/graphics/Rasterizer;
 
 .field private mShader:Landroid/graphics/Shader;
 
@@ -273,10 +279,6 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    const-wide/16 v0, 0x0
-
-    iput-wide v0, p0, Landroid/graphics/Paint;->mNativeShader:J
-
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Landroid/graphics/Paint;->mUseCustomMyanmarEncoding:Z
@@ -319,10 +321,6 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    const-wide/16 v0, 0x0
-
-    iput-wide v0, p0, Landroid/graphics/Paint;->mNativeShader:J
-
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Landroid/graphics/Paint;->mUseCustomMyanmarEncoding:Z
@@ -352,7 +350,9 @@
     return-void
 .end method
 
-.method private native nAscent(JJ)F
+.method private static native nAscent(JJ)F
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
 .end method
 
 .method private static native nBreakText(JJLjava/lang/String;ZFI[F)I
@@ -361,37 +361,57 @@
 .method private static native nBreakText(JJ[CIIFI[F)I
 .end method
 
-.method private native nDescent(JJ)F
+.method private static native nDescent(JJ)F
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
 .end method
 
-.method private native nGetAlpha(J)I
+.method private static native nGetAlpha(J)I
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
 .end method
 
 .method private static native nGetCharArrayBounds(JJ[CIIILandroid/graphics/Rect;)V
 .end method
 
-.method private native nGetColor(J)I
+.method private static native nGetColor(J)I
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
 .end method
 
 .method private static native nGetFillPath(JJJ)Z
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
 .end method
 
-.method private native nGetFlags(J)I
+.method private static native nGetFlags(J)I
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
 .end method
 
-.method private native nGetFontMetrics(JJLandroid/graphics/Paint$FontMetrics;)F
+.method private static native nGetFontMetrics(JJLandroid/graphics/Paint$FontMetrics;)F
+    .annotation build Ldalvik/annotation/optimization/FastNative;
+    .end annotation
 .end method
 
-.method private native nGetFontMetricsInt(JJLandroid/graphics/Paint$FontMetricsInt;)I
+.method private static native nGetFontMetricsInt(JJLandroid/graphics/Paint$FontMetricsInt;)I
+    .annotation build Ldalvik/annotation/optimization/FastNative;
+    .end annotation
 .end method
 
-.method private native nGetHinting(J)I
+.method private static native nGetHinting(J)I
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
 .end method
 
 .method private static native nGetHyphenEdit(J)I
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
 .end method
 
 .method private static native nGetLetterSpacing(J)F
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
 .end method
 
 .method private static native nGetNativeFinalizer()J
@@ -407,18 +427,28 @@
 .end method
 
 .method private static native nGetStrokeCap(J)I
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
 .end method
 
 .method private static native nGetStrokeJoin(J)I
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
 .end method
 
-.method private native nGetStrokeMiter(J)F
+.method private static native nGetStrokeMiter(J)F
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
 .end method
 
-.method private native nGetStrokeWidth(J)F
+.method private static native nGetStrokeWidth(J)F
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
 .end method
 
 .method private static native nGetStyle(J)I
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
 .end method
 
 .method private static native nGetTextAdvances(JJLjava/lang/String;IIIII[FI)F
@@ -428,6 +458,8 @@
 .end method
 
 .method private static native nGetTextAlign(J)I
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
 .end method
 
 .method private static native nGetTextPath(JJILjava/lang/String;IIFFJ)V
@@ -436,25 +468,38 @@
 .method private static native nGetTextPath(JJI[CIIFFJ)V
 .end method
 
-.method private native nGetTextRunCursor(JLjava/lang/String;IIIII)I
+.method private native nGetTextRunCursor(JJLjava/lang/String;IIIII)I
 .end method
 
-.method private native nGetTextRunCursor(J[CIIIII)I
+.method private native nGetTextRunCursor(JJ[CIIIII)I
 .end method
 
-.method private native nGetTextScaleX(J)F
+.method private static native nGetTextScaleX(J)F
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
 .end method
 
-.method private native nGetTextSize(J)F
+.method private static native nGetTextSize(J)F
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
 .end method
 
-.method private native nGetTextSkewX(J)F
+.method private static native nGetTextSkewX(J)F
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
+.end method
+
+.method private static native nGetWordSpacing(J)F
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
 .end method
 
 .method private static native nHasGlyph(JJILjava/lang/String;)Z
 .end method
 
 .method private static native nHasShadowLayer(J)Z
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
 .end method
 
 .method private static native nInit()J
@@ -463,121 +508,197 @@
 .method private static native nInitWithPaint(J)J
 .end method
 
-.method private native nIsElegantTextHeight(J)Z
+.method private static native nIsElegantTextHeight(J)Z
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
 .end method
 
 .method private static native nReset(J)V
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
 .end method
 
 .method private static native nSet(JJ)V
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
 .end method
 
-.method private native nSetAlpha(JI)V
+.method private static native nSetAlpha(JI)V
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
 .end method
 
-.method private native nSetAntiAlias(JZ)V
+.method private static native nSetAntiAlias(JZ)V
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
 .end method
 
-.method private native nSetColor(JI)V
+.method private static native nSetColor(JI)V
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
 .end method
 
 .method private static native nSetColorFilter(JJ)J
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
 .end method
 
-.method private native nSetDither(JZ)V
+.method private static native nSetDither(JZ)V
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
 .end method
 
-.method private native nSetElegantTextHeight(JZ)V
+.method private static native nSetElegantTextHeight(JZ)V
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
 .end method
 
-.method private native nSetFakeBoldText(JZ)V
+.method private static native nSetFakeBoldText(JZ)V
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
 .end method
 
-.method private native nSetFilterBitmap(JZ)V
+.method private static native nSetFilterBitmap(JZ)V
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
 .end method
 
-.method private native nSetFlags(JI)V
+.method private static native nSetFlags(JI)V
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
 .end method
 
 .method private static native nSetFontFeatureSettings(JLjava/lang/String;)V
+    .annotation build Ldalvik/annotation/optimization/FastNative;
+    .end annotation
 .end method
 
-.method private native nSetHinting(JI)V
+.method private static native nSetHinting(JI)V
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
 .end method
 
 .method private static native nSetHyphenEdit(JI)V
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
 .end method
 
 .method private static native nSetLetterSpacing(JF)V
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
 .end method
 
-.method private native nSetLinearText(JZ)V
+.method private static native nSetLinearText(JZ)V
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
 .end method
 
 .method private static native nSetMaskFilter(JJ)J
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
 .end method
 
 .method private static native nSetMyanmarEncoding(JI)V
 .end method
 
 .method private static native nSetPathEffect(JJ)J
-.end method
-
-.method private static native nSetRasterizer(JJ)J
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
 .end method
 
 .method private static native nSetShader(JJ)J
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
 .end method
 
 .method private static native nSetShadowLayer(JFFFI)V
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
 .end method
 
-.method private native nSetStrikeThruText(JZ)V
+.method private static native nSetStrikeThruText(JZ)V
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
 .end method
 
 .method private static native nSetStrokeCap(JI)V
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
 .end method
 
 .method private static native nSetStrokeJoin(JI)V
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
 .end method
 
-.method private native nSetStrokeMiter(JF)V
+.method private static native nSetStrokeMiter(JF)V
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
 .end method
 
-.method private native nSetStrokeWidth(JF)V
+.method private static native nSetStrokeWidth(JF)V
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
 .end method
 
 .method private static native nSetStyle(JI)V
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
 .end method
 
-.method private native nSetSubpixelText(JZ)V
+.method private static native nSetSubpixelText(JZ)V
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
 .end method
 
 .method private static native nSetTextAlign(JI)V
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
 .end method
 
 .method private static native nSetTextLocales(JLjava/lang/String;)I
+    .annotation build Ldalvik/annotation/optimization/FastNative;
+    .end annotation
 .end method
 
 .method private static native nSetTextLocalesByMinikinLangListId(JI)V
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
 .end method
 
-.method private native nSetTextScaleX(JF)V
+.method private static native nSetTextScaleX(JF)V
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
 .end method
 
-.method private native nSetTextSize(JF)V
+.method private static native nSetTextSize(JF)V
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
 .end method
 
-.method private native nSetTextSkewX(JF)V
+.method private static native nSetTextSkewX(JF)V
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
 .end method
 
 .method private static native nSetTypeface(JJ)J
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
 .end method
 
-.method private native nSetUnderlineText(JZ)V
+.method private static native nSetUnderlineText(JZ)V
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
 .end method
 
-.method private static native nSetXfermode(JJ)J
+.method private static native nSetWordSpacing(JF)V
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
+.end method
+
+.method private static native nSetXfermode(JI)V
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
 .end method
 
 .method private native native_addInnerShadowTextEffect(JFFFIF)I
@@ -636,10 +757,6 @@
     iget-object v0, p1, Landroid/graphics/Paint;->mPathEffect:Landroid/graphics/PathEffect;
 
     iput-object v0, p0, Landroid/graphics/Paint;->mPathEffect:Landroid/graphics/PathEffect;
-
-    iget-object v0, p1, Landroid/graphics/Paint;->mRasterizer:Landroid/graphics/Rasterizer;
-
-    iput-object v0, p0, Landroid/graphics/Paint;->mRasterizer:Landroid/graphics/Rasterizer;
 
     iget-object v0, p1, Landroid/graphics/Paint;->mShader:Landroid/graphics/Shader;
 
@@ -791,7 +908,7 @@
 
     iget-wide v2, p0, Landroid/graphics/Paint;->mNativeTypeface:J
 
-    invoke-direct {p0, v0, v1, v2, v3}, Landroid/graphics/Paint;->nAscent(JJ)F
+    invoke-static {v0, v1, v2, v3}, Landroid/graphics/Paint;->nAscent(JJ)F
 
     move-result v0
 
@@ -1155,7 +1272,7 @@
 
     iget-wide v2, p0, Landroid/graphics/Paint;->mNativeTypeface:J
 
-    invoke-direct {p0, v0, v1, v2, v3}, Landroid/graphics/Paint;->nDescent(JJ)F
+    invoke-static {v0, v1, v2, v3}, Landroid/graphics/Paint;->nDescent(JJ)F
 
     move-result v0
 
@@ -1167,7 +1284,7 @@
 
     iget-wide v0, p0, Landroid/graphics/Paint;->mNativePaint:J
 
-    invoke-direct {p0, v0, v1}, Landroid/graphics/Paint;->nGetAlpha(J)I
+    invoke-static {v0, v1}, Landroid/graphics/Paint;->nGetAlpha(J)I
 
     move-result v0
 
@@ -1187,7 +1304,7 @@
 
     iget-wide v0, p0, Landroid/graphics/Paint;->mNativePaint:J
 
-    invoke-direct {p0, v0, v1}, Landroid/graphics/Paint;->nGetColor(J)I
+    invoke-static {v0, v1}, Landroid/graphics/Paint;->nGetColor(J)I
 
     move-result v0
 
@@ -1207,11 +1324,11 @@
 
     iget-wide v0, p0, Landroid/graphics/Paint;->mNativePaint:J
 
-    invoke-virtual {p1}, Landroid/graphics/Path;->ni()J
+    invoke-virtual {p1}, Landroid/graphics/Path;->readOnlyNI()J
 
     move-result-wide v2
 
-    invoke-virtual {p2}, Landroid/graphics/Path;->ni()J
+    invoke-virtual {p2}, Landroid/graphics/Path;->mutateNI()J
 
     move-result-wide v4
 
@@ -1227,7 +1344,7 @@
 
     iget-wide v0, p0, Landroid/graphics/Paint;->mNativePaint:J
 
-    invoke-direct {p0, v0, v1}, Landroid/graphics/Paint;->nGetFlags(J)I
+    invoke-static {v0, v1}, Landroid/graphics/Paint;->nGetFlags(J)I
 
     move-result v0
 
@@ -1243,17 +1360,13 @@
 .end method
 
 .method public getFontMetrics(Landroid/graphics/Paint$FontMetrics;)F
-    .locals 7
+    .locals 4
 
-    iget-wide v2, p0, Landroid/graphics/Paint;->mNativePaint:J
+    iget-wide v0, p0, Landroid/graphics/Paint;->mNativePaint:J
 
-    iget-wide v4, p0, Landroid/graphics/Paint;->mNativeTypeface:J
+    iget-wide v2, p0, Landroid/graphics/Paint;->mNativeTypeface:J
 
-    move-object v1, p0
-
-    move-object v6, p1
-
-    invoke-direct/range {v1 .. v6}, Landroid/graphics/Paint;->nGetFontMetrics(JJLandroid/graphics/Paint$FontMetrics;)F
+    invoke-static {v0, v1, v2, v3, p1}, Landroid/graphics/Paint;->nGetFontMetrics(JJLandroid/graphics/Paint$FontMetrics;)F
 
     move-result v0
 
@@ -1273,17 +1386,13 @@
 .end method
 
 .method public getFontMetricsInt(Landroid/graphics/Paint$FontMetricsInt;)I
-    .locals 7
+    .locals 4
 
-    iget-wide v2, p0, Landroid/graphics/Paint;->mNativePaint:J
+    iget-wide v0, p0, Landroid/graphics/Paint;->mNativePaint:J
 
-    iget-wide v4, p0, Landroid/graphics/Paint;->mNativeTypeface:J
+    iget-wide v2, p0, Landroid/graphics/Paint;->mNativeTypeface:J
 
-    move-object v1, p0
-
-    move-object v6, p1
-
-    invoke-direct/range {v1 .. v6}, Landroid/graphics/Paint;->nGetFontMetricsInt(JJLandroid/graphics/Paint$FontMetricsInt;)I
+    invoke-static {v0, v1, v2, v3, p1}, Landroid/graphics/Paint;->nGetFontMetricsInt(JJLandroid/graphics/Paint$FontMetricsInt;)I
 
     move-result v0
 
@@ -1312,6 +1421,14 @@
     move-result v0
 
     return v0
+.end method
+
+.method public getFontVariationSettings()Ljava/lang/String;
+    .locals 1
+
+    iget-object v0, p0, Landroid/graphics/Paint;->mFontVariationSettings:Ljava/lang/String;
+
+    return-object v0
 .end method
 
 .method public getHCTStrokeWidth()F
@@ -1355,7 +1472,7 @@
 
     iget-wide v0, p0, Landroid/graphics/Paint;->mNativePaint:J
 
-    invoke-direct {p0, v0, v1}, Landroid/graphics/Paint;->nGetHinting(J)I
+    invoke-static {v0, v1}, Landroid/graphics/Paint;->nGetHinting(J)I
 
     move-result v0
 
@@ -1403,42 +1520,73 @@
 .end method
 
 .method public getNativeInstance()J
-    .locals 6
+    .locals 8
 
-    iget-object v2, p0, Landroid/graphics/Paint;->mShader:Landroid/graphics/Shader;
+    iget-object v4, p0, Landroid/graphics/Paint;->mShader:Landroid/graphics/Shader;
 
-    if-nez v2, :cond_1
+    if-nez v4, :cond_2
+
+    const-wide/16 v2, 0x0
+
+    :goto_0
+    iget-wide v4, p0, Landroid/graphics/Paint;->mNativeShader:J
+
+    cmp-long v4, v2, v4
+
+    if-eqz v4, :cond_0
+
+    iput-wide v2, p0, Landroid/graphics/Paint;->mNativeShader:J
+
+    iget-wide v4, p0, Landroid/graphics/Paint;->mNativePaint:J
+
+    iget-wide v6, p0, Landroid/graphics/Paint;->mNativeShader:J
+
+    invoke-static {v4, v5, v6, v7}, Landroid/graphics/Paint;->nSetShader(JJ)J
+
+    :cond_0
+    iget-object v4, p0, Landroid/graphics/Paint;->mColorFilter:Landroid/graphics/ColorFilter;
+
+    if-nez v4, :cond_3
 
     const-wide/16 v0, 0x0
 
-    :goto_0
-    iget-wide v2, p0, Landroid/graphics/Paint;->mNativeShader:J
+    :goto_1
+    iget-wide v4, p0, Landroid/graphics/Paint;->mNativeColorFilter:J
 
-    cmp-long v2, v0, v2
+    cmp-long v4, v0, v4
 
-    if-eqz v2, :cond_0
+    if-eqz v4, :cond_1
 
-    iput-wide v0, p0, Landroid/graphics/Paint;->mNativeShader:J
+    iput-wide v0, p0, Landroid/graphics/Paint;->mNativeColorFilter:J
 
-    iget-wide v2, p0, Landroid/graphics/Paint;->mNativePaint:J
+    iget-wide v4, p0, Landroid/graphics/Paint;->mNativePaint:J
 
-    iget-wide v4, p0, Landroid/graphics/Paint;->mNativeShader:J
+    iget-wide v6, p0, Landroid/graphics/Paint;->mNativeColorFilter:J
 
-    invoke-static {v2, v3, v4, v5}, Landroid/graphics/Paint;->nSetShader(JJ)J
-
-    :cond_0
-    iget-wide v2, p0, Landroid/graphics/Paint;->mNativePaint:J
-
-    return-wide v2
+    invoke-static {v4, v5, v6, v7}, Landroid/graphics/Paint;->nSetColorFilter(JJ)J
 
     :cond_1
-    iget-object v2, p0, Landroid/graphics/Paint;->mShader:Landroid/graphics/Shader;
+    iget-wide v4, p0, Landroid/graphics/Paint;->mNativePaint:J
 
-    invoke-virtual {v2}, Landroid/graphics/Shader;->getNativeInstance()J
+    return-wide v4
+
+    :cond_2
+    iget-object v4, p0, Landroid/graphics/Paint;->mShader:Landroid/graphics/Shader;
+
+    invoke-virtual {v4}, Landroid/graphics/Shader;->getNativeInstance()J
+
+    move-result-wide v2
+
+    goto :goto_0
+
+    :cond_3
+    iget-object v4, p0, Landroid/graphics/Paint;->mColorFilter:Landroid/graphics/ColorFilter;
+
+    invoke-virtual {v4}, Landroid/graphics/ColorFilter;->getNativeInstance()J
 
     move-result-wide v0
 
-    goto :goto_0
+    goto :goto_1
 .end method
 
 .method public getOffsetForAdvance(Ljava/lang/CharSequence;IIIIZF)I
@@ -1610,7 +1758,7 @@
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
-    iget-object v0, p0, Landroid/graphics/Paint;->mRasterizer:Landroid/graphics/Rasterizer;
+    const/4 v0, 0x0
 
     return-object v0
 .end method
@@ -1840,7 +1988,7 @@
 
     iget-wide v0, p0, Landroid/graphics/Paint;->mNativePaint:J
 
-    invoke-direct {p0, v0, v1}, Landroid/graphics/Paint;->nGetStrokeMiter(J)F
+    invoke-static {v0, v1}, Landroid/graphics/Paint;->nGetStrokeMiter(J)F
 
     move-result v0
 
@@ -1852,7 +2000,7 @@
 
     iget-wide v0, p0, Landroid/graphics/Paint;->mNativePaint:J
 
-    invoke-direct {p0, v0, v1}, Landroid/graphics/Paint;->nGetStrokeWidth(J)F
+    invoke-static {v0, v1}, Landroid/graphics/Paint;->nGetStrokeWidth(J)F
 
     move-result v0
 
@@ -1889,6 +2037,62 @@
     aget-object v0, v0, v1
 
     return-object v0
+.end method
+
+.method public getTextBounds(Ljava/lang/CharSequence;IILandroid/graphics/Rect;)V
+    .locals 4
+
+    const/4 v3, 0x0
+
+    or-int v1, p2, p3
+
+    sub-int v2, p3, p2
+
+    or-int/2addr v1, v2
+
+    invoke-interface {p1}, Ljava/lang/CharSequence;->length()I
+
+    move-result v2
+
+    sub-int/2addr v2, p3
+
+    or-int/2addr v1, v2
+
+    if-gez v1, :cond_0
+
+    new-instance v1, Ljava/lang/IndexOutOfBoundsException;
+
+    invoke-direct {v1}, Ljava/lang/IndexOutOfBoundsException;-><init>()V
+
+    throw v1
+
+    :cond_0
+    if-nez p4, :cond_1
+
+    new-instance v1, Ljava/lang/NullPointerException;
+
+    const-string/jumbo v2, "need bounds Rect"
+
+    invoke-direct {v1, v2}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+
+    throw v1
+
+    :cond_1
+    sub-int v1, p3, p2
+
+    invoke-static {v1}, Landroid/graphics/TemporaryBuffer;->obtain(I)[C
+
+    move-result-object v0
+
+    invoke-static {p1, p2, p3, v0, v3}, Landroid/text/TextUtils;->getChars(Ljava/lang/CharSequence;II[CI)V
+
+    sub-int v1, p3, p2
+
+    invoke-virtual {p0, v0, v3, v1, p4}, Landroid/graphics/Paint;->getTextBounds([CIILandroid/graphics/Rect;)V
+
+    invoke-static {v0}, Landroid/graphics/TemporaryBuffer;->recycle([C)V
+
+    return-void
 .end method
 
 .method public getTextBounds(Ljava/lang/String;IILandroid/graphics/Rect;)V
@@ -2052,7 +2256,7 @@
 
     iget v4, p0, Landroid/graphics/Paint;->mBidiFlags:I
 
-    invoke-virtual/range {p6 .. p6}, Landroid/graphics/Path;->ni()J
+    invoke-virtual/range {p6 .. p6}, Landroid/graphics/Path;->mutateNI()J
 
     move-result-wide v10
 
@@ -2098,7 +2302,7 @@
 
     iget v4, p0, Landroid/graphics/Paint;->mBidiFlags:I
 
-    invoke-virtual/range {p6 .. p6}, Landroid/graphics/Path;->ni()J
+    invoke-virtual/range {p6 .. p6}, Landroid/graphics/Path;->mutateNI()J
 
     move-result-wide v10
 
@@ -2889,7 +3093,7 @@
 .end method
 
 .method public getTextRunCursor(Ljava/lang/String;IIIII)I
-    .locals 12
+    .locals 14
 
     or-int v2, p2, p3
 
@@ -2911,7 +3115,7 @@
 
     move-result v3
 
-    sub-int/2addr v3, p3
+    sub-int v3, v3, p3
 
     or-int/2addr v2, v3
 
@@ -2935,21 +3139,23 @@
     :cond_1
     iget-wide v4, p0, Landroid/graphics/Paint;->mNativePaint:J
 
+    iget-wide v6, p0, Landroid/graphics/Paint;->mNativeTypeface:J
+
     move-object v3, p0
 
-    move-object v6, p1
+    move-object v8, p1
 
-    move v7, p2
+    move/from16 v9, p2
 
-    move v8, p3
+    move/from16 v10, p3
 
-    move/from16 v9, p4
+    move/from16 v11, p4
 
-    move/from16 v10, p5
+    move/from16 v12, p5
 
-    move/from16 v11, p6
+    move/from16 v13, p6
 
-    invoke-direct/range {v3 .. v11}, Landroid/graphics/Paint;->nGetTextRunCursor(JLjava/lang/String;IIIII)I
+    invoke-direct/range {v3 .. v13}, Landroid/graphics/Paint;->nGetTextRunCursor(JJLjava/lang/String;IIIII)I
 
     move-result v2
 
@@ -2957,7 +3163,7 @@
 .end method
 
 .method public getTextRunCursor([CIIIII)I
-    .locals 12
+    .locals 14
 
     add-int v2, p2, p3
 
@@ -3003,21 +3209,23 @@
     :cond_1
     iget-wide v4, p0, Landroid/graphics/Paint;->mNativePaint:J
 
+    iget-wide v6, p0, Landroid/graphics/Paint;->mNativeTypeface:J
+
     move-object v3, p0
 
-    move-object v6, p1
+    move-object v8, p1
 
-    move v7, p2
+    move/from16 v9, p2
 
-    move v8, p3
+    move/from16 v10, p3
 
-    move/from16 v9, p4
+    move/from16 v11, p4
 
-    move/from16 v10, p5
+    move/from16 v12, p5
 
-    move/from16 v11, p6
+    move/from16 v13, p6
 
-    invoke-direct/range {v3 .. v11}, Landroid/graphics/Paint;->nGetTextRunCursor(J[CIIIII)I
+    invoke-direct/range {v3 .. v13}, Landroid/graphics/Paint;->nGetTextRunCursor(JJ[CIIIII)I
 
     move-result v3
 
@@ -3029,7 +3237,7 @@
 
     iget-wide v0, p0, Landroid/graphics/Paint;->mNativePaint:J
 
-    invoke-direct {p0, v0, v1}, Landroid/graphics/Paint;->nGetTextScaleX(J)F
+    invoke-static {v0, v1}, Landroid/graphics/Paint;->nGetTextScaleX(J)F
 
     move-result v0
 
@@ -3041,7 +3249,7 @@
 
     iget-wide v0, p0, Landroid/graphics/Paint;->mNativePaint:J
 
-    invoke-direct {p0, v0, v1}, Landroid/graphics/Paint;->nGetTextSize(J)F
+    invoke-static {v0, v1}, Landroid/graphics/Paint;->nGetTextSize(J)F
 
     move-result v0
 
@@ -3053,7 +3261,7 @@
 
     iget-wide v0, p0, Landroid/graphics/Paint;->mNativePaint:J
 
-    invoke-direct {p0, v0, v1}, Landroid/graphics/Paint;->nGetTextSkewX(J)F
+    invoke-static {v0, v1}, Landroid/graphics/Paint;->nGetTextSkewX(J)F
 
     move-result v0
 
@@ -3559,6 +3767,18 @@
     return-object v0
 .end method
 
+.method public getWordSpacing()F
+    .locals 2
+
+    iget-wide v0, p0, Landroid/graphics/Paint;->mNativePaint:J
+
+    invoke-static {v0, v1}, Landroid/graphics/Paint;->nGetWordSpacing(J)F
+
+    move-result v0
+
+    return v0
+.end method
+
 .method public getXfermode()Landroid/graphics/Xfermode;
     .locals 1
 
@@ -3640,7 +3860,7 @@
 
     iget-wide v0, p0, Landroid/graphics/Paint;->mNativePaint:J
 
-    invoke-direct {p0, v0, v1}, Landroid/graphics/Paint;->nIsElegantTextHeight(J)Z
+    invoke-static {v0, v1}, Landroid/graphics/Paint;->nIsElegantTextHeight(J)Z
 
     move-result v0
 
@@ -4240,8 +4460,6 @@
 
     iput-object v2, p0, Landroid/graphics/Paint;->mPathEffect:Landroid/graphics/PathEffect;
 
-    iput-object v2, p0, Landroid/graphics/Paint;->mRasterizer:Landroid/graphics/Rasterizer;
-
     iput-object v2, p0, Landroid/graphics/Paint;->mShader:Landroid/graphics/Shader;
 
     iput-wide v6, p0, Landroid/graphics/Paint;->mNativeShader:J
@@ -4271,6 +4489,8 @@
     invoke-virtual {p0, v4}, Landroid/graphics/Paint;->setElegantTextHeight(Z)V
 
     iput-object v2, p0, Landroid/graphics/Paint;->mFontFeatureSettings:Ljava/lang/String;
+
+    iput-object v2, p0, Landroid/graphics/Paint;->mFontVariationSettings:Ljava/lang/String;
 
     sget-object v0, Landroid/graphics/Paint$MyanmarEncoding;->ME_UNICODE:Landroid/graphics/Paint$MyanmarEncoding;
 
@@ -4555,6 +4775,16 @@
     return-void
 .end method
 
+.method public semGetHighContrastTextStrokeWidth()F
+    .locals 1
+
+    invoke-virtual {p0}, Landroid/graphics/Paint;->getHCTStrokeWidth()F
+
+    move-result v0
+
+    return v0
+.end method
+
 .method public semGetTextEffectOffsetBottom()I
     .locals 2
 
@@ -4744,7 +4974,7 @@
 
     iget-wide v0, p0, Landroid/graphics/Paint;->mNativePaint:J
 
-    invoke-direct {p0, v0, v1, p1}, Landroid/graphics/Paint;->nSetAlpha(JI)V
+    invoke-static {v0, v1, p1}, Landroid/graphics/Paint;->nSetAlpha(JI)V
 
     return-void
 .end method
@@ -4754,7 +4984,7 @@
 
     iget-wide v0, p0, Landroid/graphics/Paint;->mNativePaint:J
 
-    invoke-direct {p0, v0, v1, p1}, Landroid/graphics/Paint;->nSetAntiAlias(JZ)V
+    invoke-static {v0, v1, p1}, Landroid/graphics/Paint;->nSetAntiAlias(JZ)V
 
     return-void
 .end method
@@ -4803,25 +5033,23 @@
 
     iget-wide v0, p0, Landroid/graphics/Paint;->mNativePaint:J
 
-    invoke-direct {p0, v0, v1, p1}, Landroid/graphics/Paint;->nSetColor(JI)V
+    invoke-static {v0, v1, p1}, Landroid/graphics/Paint;->nSetColor(JI)V
 
     return-void
 .end method
 
 .method public setColorFilter(Landroid/graphics/ColorFilter;)Landroid/graphics/ColorFilter;
-    .locals 4
+    .locals 2
 
-    const-wide/16 v0, 0x0
+    iget-object v0, p0, Landroid/graphics/Paint;->mColorFilter:Landroid/graphics/ColorFilter;
 
-    if-eqz p1, :cond_0
+    if-eq v0, p1, :cond_0
 
-    iget-wide v0, p1, Landroid/graphics/ColorFilter;->native_instance:J
+    const-wide/16 v0, -0x1
+
+    iput-wide v0, p0, Landroid/graphics/Paint;->mNativeColorFilter:J
 
     :cond_0
-    iget-wide v2, p0, Landroid/graphics/Paint;->mNativePaint:J
-
-    invoke-static {v2, v3, v0, v1}, Landroid/graphics/Paint;->nSetColorFilter(JJ)J
-
     iput-object p1, p0, Landroid/graphics/Paint;->mColorFilter:Landroid/graphics/ColorFilter;
 
     return-object p1
@@ -4870,7 +5098,7 @@
 
     iget-wide v0, p0, Landroid/graphics/Paint;->mNativePaint:J
 
-    invoke-direct {p0, v0, v1, p1}, Landroid/graphics/Paint;->nSetDither(JZ)V
+    invoke-static {v0, v1, p1}, Landroid/graphics/Paint;->nSetDither(JZ)V
 
     return-void
 .end method
@@ -4880,7 +5108,7 @@
 
     iget-wide v0, p0, Landroid/graphics/Paint;->mNativePaint:J
 
-    invoke-direct {p0, v0, v1, p1}, Landroid/graphics/Paint;->nSetElegantTextHeight(JZ)V
+    invoke-static {v0, v1, p1}, Landroid/graphics/Paint;->nSetElegantTextHeight(JZ)V
 
     return-void
 .end method
@@ -4890,7 +5118,7 @@
 
     iget-wide v0, p0, Landroid/graphics/Paint;->mNativePaint:J
 
-    invoke-direct {p0, v0, v1, p1}, Landroid/graphics/Paint;->nSetFakeBoldText(JZ)V
+    invoke-static {v0, v1, p1}, Landroid/graphics/Paint;->nSetFakeBoldText(JZ)V
 
     return-void
 .end method
@@ -4900,7 +5128,7 @@
 
     iget-wide v0, p0, Landroid/graphics/Paint;->mNativePaint:J
 
-    invoke-direct {p0, v0, v1, p1}, Landroid/graphics/Paint;->nSetFilterBitmap(JZ)V
+    invoke-static {v0, v1, p1}, Landroid/graphics/Paint;->nSetFilterBitmap(JZ)V
 
     return-void
 .end method
@@ -4910,7 +5138,7 @@
 
     iget-wide v0, p0, Landroid/graphics/Paint;->mNativePaint:J
 
-    invoke-direct {p0, v0, v1, p1}, Landroid/graphics/Paint;->nSetFlags(JI)V
+    invoke-static {v0, v1, p1}, Landroid/graphics/Paint;->nSetFlags(JI)V
 
     return-void
 .end method
@@ -4961,12 +5189,136 @@
     return-void
 .end method
 
+.method public setFontVariationSettings(Ljava/lang/String;)Z
+    .locals 10
+
+    const/4 v9, 0x1
+
+    const/4 v6, 0x0
+
+    const/4 v7, 0x0
+
+    invoke-static {p1}, Landroid/text/TextUtils;->nullIfEmpty(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v3
+
+    iget-object v5, p0, Landroid/graphics/Paint;->mFontVariationSettings:Ljava/lang/String;
+
+    if-eq v3, v5, :cond_0
+
+    if-eqz v3, :cond_1
+
+    iget-object v5, p0, Landroid/graphics/Paint;->mFontVariationSettings:Ljava/lang/String;
+
+    invoke-virtual {v3, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_1
+
+    :cond_0
+    return v9
+
+    :cond_1
+    if-eqz v3, :cond_2
+
+    invoke-virtual {v3}, Ljava/lang/String;->length()I
+
+    move-result v5
+
+    if-nez v5, :cond_3
+
+    :cond_2
+    iput-object v7, p0, Landroid/graphics/Paint;->mFontVariationSettings:Ljava/lang/String;
+
+    iget-object v5, p0, Landroid/graphics/Paint;->mTypeface:Landroid/graphics/Typeface;
+
+    invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
+
+    move-result-object v6
+
+    invoke-static {v5, v6}, Landroid/graphics/Typeface;->createFromTypefaceWithVariation(Landroid/graphics/Typeface;Ljava/util/List;)Landroid/graphics/Typeface;
+
+    move-result-object v5
+
+    invoke-virtual {p0, v5}, Landroid/graphics/Paint;->setTypeface(Landroid/graphics/Typeface;)Landroid/graphics/Typeface;
+
+    return v9
+
+    :cond_3
+    iget-object v5, p0, Landroid/graphics/Paint;->mTypeface:Landroid/graphics/Typeface;
+
+    if-nez v5, :cond_5
+
+    sget-object v4, Landroid/graphics/Typeface;->DEFAULT:Landroid/graphics/Typeface;
+
+    :goto_0
+    invoke-static {v3}, Landroid/graphics/fonts/FontVariationAxis;->fromFontVariationSettings(Ljava/lang/String;)[Landroid/graphics/fonts/FontVariationAxis;
+
+    move-result-object v0
+
+    new-instance v2, Ljava/util/ArrayList;
+
+    invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
+
+    array-length v7, v0
+
+    move v5, v6
+
+    :goto_1
+    if-ge v5, v7, :cond_6
+
+    aget-object v1, v0, v5
+
+    invoke-virtual {v1}, Landroid/graphics/fonts/FontVariationAxis;->getOpenTypeTagValue()I
+
+    move-result v8
+
+    invoke-virtual {v4, v8}, Landroid/graphics/Typeface;->isSupportedAxes(I)Z
+
+    move-result v8
+
+    if-eqz v8, :cond_4
+
+    invoke-virtual {v2, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    :cond_4
+    add-int/lit8 v5, v5, 0x1
+
+    goto :goto_1
+
+    :cond_5
+    iget-object v4, p0, Landroid/graphics/Paint;->mTypeface:Landroid/graphics/Typeface;
+
+    goto :goto_0
+
+    :cond_6
+    invoke-virtual {v2}, Ljava/util/ArrayList;->isEmpty()Z
+
+    move-result v5
+
+    if-eqz v5, :cond_7
+
+    return v6
+
+    :cond_7
+    iput-object v3, p0, Landroid/graphics/Paint;->mFontVariationSettings:Ljava/lang/String;
+
+    invoke-static {v4, v2}, Landroid/graphics/Typeface;->createFromTypefaceWithVariation(Landroid/graphics/Typeface;Ljava/util/List;)Landroid/graphics/Typeface;
+
+    move-result-object v5
+
+    invoke-virtual {p0, v5}, Landroid/graphics/Paint;->setTypeface(Landroid/graphics/Typeface;)Landroid/graphics/Typeface;
+
+    return v9
+.end method
+
 .method public setHinting(I)V
     .locals 2
 
     iget-wide v0, p0, Landroid/graphics/Paint;->mNativePaint:J
 
-    invoke-direct {p0, v0, v1, p1}, Landroid/graphics/Paint;->nSetHinting(JI)V
+    invoke-static {v0, v1, p1}, Landroid/graphics/Paint;->nSetHinting(JI)V
 
     return-void
 .end method
@@ -4996,7 +5348,7 @@
 
     iget-wide v0, p0, Landroid/graphics/Paint;->mNativePaint:J
 
-    invoke-direct {p0, v0, v1, p1}, Landroid/graphics/Paint;->nSetLinearText(JZ)V
+    invoke-static {v0, v1, p1}, Landroid/graphics/Paint;->nSetLinearText(JZ)V
 
     return-void
 .end method
@@ -5044,44 +5396,82 @@
 .end method
 
 .method public setMyanmarEncoding(Ljava/util/Locale;)V
-    .locals 4
+    .locals 6
 
-    iget-boolean v1, p0, Landroid/graphics/Paint;->mUseCustomMyanmarEncoding:Z
+    const/4 v4, 0x1
 
-    if-nez v1, :cond_1
+    iget-boolean v3, p0, Landroid/graphics/Paint;->mUseCustomMyanmarEncoding:Z
 
-    if-eqz p1, :cond_1
+    if-nez v3, :cond_3
 
-    sget-object v0, Landroid/graphics/Paint$MyanmarEncoding;->ME_UNICODE:Landroid/graphics/Paint$MyanmarEncoding;
+    if-eqz p1, :cond_3
 
-    const-string/jumbo v1, "ZG"
+    sget-object v2, Landroid/graphics/Paint$MyanmarEncoding;->ME_UNICODE:Landroid/graphics/Paint$MyanmarEncoding;
 
     invoke-virtual {p1}, Ljava/util/Locale;->getCountry()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-static {}, Landroid/os/LocaleList;->getDefault()Landroid/os/LocaleList;
 
-    move-result v1
+    move-result-object v3
 
-    if-eqz v1, :cond_0
+    invoke-virtual {v3}, Landroid/os/LocaleList;->size()I
 
-    sget-object v0, Landroid/graphics/Paint$MyanmarEncoding;->ME_ZAWGYI:Landroid/graphics/Paint$MyanmarEncoding;
+    move-result v3
+
+    if-le v3, v4, :cond_1
+
+    if-eqz v0, :cond_0
+
+    const-string/jumbo v3, ""
+
+    invoke-virtual {v3, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_1
 
     :cond_0
-    iget-object v1, p0, Landroid/graphics/Paint;->mMyanmarEncoding:Landroid/graphics/Paint$MyanmarEncoding;
+    invoke-static {}, Landroid/os/LocaleList;->getDefault()Landroid/os/LocaleList;
 
-    if-eq v1, v0, :cond_1
+    move-result-object v3
 
-    iput-object v0, p0, Landroid/graphics/Paint;->mMyanmarEncoding:Landroid/graphics/Paint$MyanmarEncoding;
+    invoke-virtual {v3, v4}, Landroid/os/LocaleList;->get(I)Ljava/util/Locale;
 
-    iget-wide v2, p0, Landroid/graphics/Paint;->mNativePaint:J
+    move-result-object v1
 
-    iget v1, v0, Landroid/graphics/Paint$MyanmarEncoding;->nativeInt:I
+    if-eqz v1, :cond_1
 
-    invoke-static {v2, v3, v1}, Landroid/graphics/Paint;->nSetMyanmarEncoding(JI)V
+    invoke-virtual {v1}, Ljava/util/Locale;->getCountry()Ljava/lang/String;
+
+    move-result-object v0
 
     :cond_1
+    const-string/jumbo v3, "ZG"
+
+    invoke-virtual {v3, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_2
+
+    sget-object v2, Landroid/graphics/Paint$MyanmarEncoding;->ME_ZAWGYI:Landroid/graphics/Paint$MyanmarEncoding;
+
+    :cond_2
+    iget-object v3, p0, Landroid/graphics/Paint;->mMyanmarEncoding:Landroid/graphics/Paint$MyanmarEncoding;
+
+    if-eq v3, v2, :cond_3
+
+    iput-object v2, p0, Landroid/graphics/Paint;->mMyanmarEncoding:Landroid/graphics/Paint$MyanmarEncoding;
+
+    iget-wide v4, p0, Landroid/graphics/Paint;->mNativePaint:J
+
+    iget v3, v2, Landroid/graphics/Paint$MyanmarEncoding;->nativeInt:I
+
+    invoke-static {v4, v5, v3}, Landroid/graphics/Paint;->nSetMyanmarEncoding(JI)V
+
+    :cond_3
     return-void
 .end method
 
@@ -5105,28 +5495,15 @@
 .end method
 
 .method public setRasterizer(Landroid/graphics/Rasterizer;)Landroid/graphics/Rasterizer;
-    .locals 4
+    .locals 0
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
-
-    const-wide/16 v0, 0x0
-
-    if-eqz p1, :cond_0
-
-    iget-wide v0, p1, Landroid/graphics/Rasterizer;->native_instance:J
-
-    :cond_0
-    iget-wide v2, p0, Landroid/graphics/Paint;->mNativePaint:J
-
-    invoke-static {v2, v3, v0, v1}, Landroid/graphics/Paint;->nSetRasterizer(JJ)J
-
-    iput-object p1, p0, Landroid/graphics/Paint;->mRasterizer:Landroid/graphics/Rasterizer;
 
     return-object p1
 .end method
 
 .method public setShader(Landroid/graphics/Shader;)Landroid/graphics/Shader;
-    .locals 2
+    .locals 4
 
     iget-object v0, p0, Landroid/graphics/Paint;->mShader:Landroid/graphics/Shader;
 
@@ -5135,6 +5512,12 @@
     const-wide/16 v0, -0x1
 
     iput-wide v0, p0, Landroid/graphics/Paint;->mNativeShader:J
+
+    iget-wide v0, p0, Landroid/graphics/Paint;->mNativePaint:J
+
+    const-wide/16 v2, 0x0
+
+    invoke-static {v0, v1, v2, v3}, Landroid/graphics/Paint;->nSetShader(JJ)J
 
     :cond_0
     iput-object p1, p0, Landroid/graphics/Paint;->mShader:Landroid/graphics/Shader;
@@ -5165,7 +5548,7 @@
 
     iget-wide v0, p0, Landroid/graphics/Paint;->mNativePaint:J
 
-    invoke-direct {p0, v0, v1, p1}, Landroid/graphics/Paint;->nSetStrikeThruText(JZ)V
+    invoke-static {v0, v1, p1}, Landroid/graphics/Paint;->nSetStrikeThruText(JZ)V
 
     return-void
 .end method
@@ -5199,7 +5582,7 @@
 
     iget-wide v0, p0, Landroid/graphics/Paint;->mNativePaint:J
 
-    invoke-direct {p0, v0, v1, p1}, Landroid/graphics/Paint;->nSetStrokeMiter(JF)V
+    invoke-static {v0, v1, p1}, Landroid/graphics/Paint;->nSetStrokeMiter(JF)V
 
     return-void
 .end method
@@ -5209,7 +5592,7 @@
 
     iget-wide v0, p0, Landroid/graphics/Paint;->mNativePaint:J
 
-    invoke-direct {p0, v0, v1, p1}, Landroid/graphics/Paint;->nSetStrokeWidth(JF)V
+    invoke-static {v0, v1, p1}, Landroid/graphics/Paint;->nSetStrokeWidth(JF)V
 
     return-void
 .end method
@@ -5231,7 +5614,7 @@
 
     iget-wide v0, p0, Landroid/graphics/Paint;->mNativePaint:J
 
-    invoke-direct {p0, v0, v1, p1}, Landroid/graphics/Paint;->nSetSubpixelText(JZ)V
+    invoke-static {v0, v1, p1}, Landroid/graphics/Paint;->nSetSubpixelText(JZ)V
 
     return-void
 .end method
@@ -5368,6 +5751,8 @@
 .method public setTextLocales(Landroid/os/LocaleList;)V
     .locals 4
 
+    const/4 v2, 0x1
+
     if-eqz p1, :cond_0
 
     invoke-virtual {p1}, Landroid/os/LocaleList;->isEmpty()Z
@@ -5388,7 +5773,7 @@
     :cond_1
     iget-boolean v1, p0, Landroid/graphics/Paint;->mUseCustomMyanmarEncoding:Z
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_4
 
     const/4 v1, 0x0
 
@@ -5400,7 +5785,15 @@
 
     move-result-object v0
 
-    const-string/jumbo v1, "ZG"
+    invoke-virtual {p1}, Landroid/os/LocaleList;->size()I
+
+    move-result v1
+
+    if-le v1, v2, :cond_3
+
+    if-eqz v0, :cond_2
+
+    const-string/jumbo v1, ""
 
     invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -5408,11 +5801,29 @@
 
     if-eqz v1, :cond_3
 
+    :cond_2
+    invoke-virtual {p1, v2}, Landroid/os/LocaleList;->get(I)Ljava/util/Locale;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/util/Locale;->getCountry()Ljava/lang/String;
+
+    move-result-object v0
+
+    :cond_3
+    const-string/jumbo v1, "ZG"
+
+    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_5
+
     iget-object v1, p0, Landroid/graphics/Paint;->mMyanmarEncoding:Landroid/graphics/Paint$MyanmarEncoding;
 
     sget-object v2, Landroid/graphics/Paint$MyanmarEncoding;->ME_ZAWGYI:Landroid/graphics/Paint$MyanmarEncoding;
 
-    if-eq v1, v2, :cond_2
+    if-eq v1, v2, :cond_4
 
     sget-object v1, Landroid/graphics/Paint$MyanmarEncoding;->ME_ZAWGYI:Landroid/graphics/Paint$MyanmarEncoding;
 
@@ -5426,7 +5837,7 @@
 
     invoke-static {v2, v3, v1}, Landroid/graphics/Paint;->nSetMyanmarEncoding(JI)V
 
-    :cond_2
+    :cond_4
     :goto_0
     iget-object v1, p0, Landroid/graphics/Paint;->mLocales:Landroid/os/LocaleList;
 
@@ -5434,16 +5845,16 @@
 
     move-result v1
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_6
 
     return-void
 
-    :cond_3
+    :cond_5
     iget-object v1, p0, Landroid/graphics/Paint;->mMyanmarEncoding:Landroid/graphics/Paint$MyanmarEncoding;
 
     sget-object v2, Landroid/graphics/Paint$MyanmarEncoding;->ME_UNICODE:Landroid/graphics/Paint$MyanmarEncoding;
 
-    if-eq v1, v2, :cond_2
+    if-eq v1, v2, :cond_4
 
     sget-object v1, Landroid/graphics/Paint$MyanmarEncoding;->ME_UNICODE:Landroid/graphics/Paint$MyanmarEncoding;
 
@@ -5459,7 +5870,7 @@
 
     goto :goto_0
 
-    :cond_4
+    :cond_6
     iput-object p1, p0, Landroid/graphics/Paint;->mLocales:Landroid/os/LocaleList;
 
     invoke-direct {p0}, Landroid/graphics/Paint;->syncTextLocalesWithMinikin()V
@@ -5472,7 +5883,7 @@
 
     iget-wide v0, p0, Landroid/graphics/Paint;->mNativePaint:J
 
-    invoke-direct {p0, v0, v1, p1}, Landroid/graphics/Paint;->nSetTextScaleX(JF)V
+    invoke-static {v0, v1, p1}, Landroid/graphics/Paint;->nSetTextScaleX(JF)V
 
     return-void
 .end method
@@ -5482,7 +5893,7 @@
 
     iget-wide v0, p0, Landroid/graphics/Paint;->mNativePaint:J
 
-    invoke-direct {p0, v0, v1, p1}, Landroid/graphics/Paint;->nSetTextSize(JF)V
+    invoke-static {v0, v1, p1}, Landroid/graphics/Paint;->nSetTextSize(JF)V
 
     return-void
 .end method
@@ -5492,7 +5903,7 @@
 
     iget-wide v0, p0, Landroid/graphics/Paint;->mNativePaint:J
 
-    invoke-direct {p0, v0, v1, p1}, Landroid/graphics/Paint;->nSetTextSkewX(JF)V
+    invoke-static {v0, v1, p1}, Landroid/graphics/Paint;->nSetTextSkewX(JF)V
 
     return-void
 .end method
@@ -5554,7 +5965,17 @@
 
     iget-wide v0, p0, Landroid/graphics/Paint;->mNativePaint:J
 
-    invoke-direct {p0, v0, v1, p1}, Landroid/graphics/Paint;->nSetUnderlineText(JZ)V
+    invoke-static {v0, v1, p1}, Landroid/graphics/Paint;->nSetUnderlineText(JZ)V
+
+    return-void
+.end method
+
+.method public setWordSpacing(F)V
+    .locals 2
+
+    iget-wide v0, p0, Landroid/graphics/Paint;->mNativePaint:J
+
+    invoke-static {v0, v1, p1}, Landroid/graphics/Paint;->nSetWordSpacing(JF)V
 
     return-void
 .end method
@@ -5562,18 +5983,38 @@
 .method public setXfermode(Landroid/graphics/Xfermode;)Landroid/graphics/Xfermode;
     .locals 4
 
-    const-wide/16 v0, 0x0
+    if-eqz p1, :cond_1
 
-    if-eqz p1, :cond_0
+    iget v1, p1, Landroid/graphics/Xfermode;->porterDuffMode:I
 
-    iget-wide v0, p1, Landroid/graphics/Xfermode;->native_instance:J
+    :goto_0
+    iget-object v2, p0, Landroid/graphics/Paint;->mXfermode:Landroid/graphics/Xfermode;
 
-    :cond_0
+    if-eqz v2, :cond_2
+
+    iget-object v2, p0, Landroid/graphics/Paint;->mXfermode:Landroid/graphics/Xfermode;
+
+    iget v0, v2, Landroid/graphics/Xfermode;->porterDuffMode:I
+
+    :goto_1
+    if-eq v1, v0, :cond_0
+
     iget-wide v2, p0, Landroid/graphics/Paint;->mNativePaint:J
 
-    invoke-static {v2, v3, v0, v1}, Landroid/graphics/Paint;->nSetXfermode(JJ)J
+    invoke-static {v2, v3, v1}, Landroid/graphics/Paint;->nSetXfermode(JI)V
 
+    :cond_0
     iput-object p1, p0, Landroid/graphics/Paint;->mXfermode:Landroid/graphics/Xfermode;
 
     return-object p1
+
+    :cond_1
+    sget v1, Landroid/graphics/Xfermode;->DEFAULT:I
+
+    goto :goto_0
+
+    :cond_2
+    sget v0, Landroid/graphics/Xfermode;->DEFAULT:I
+
+    goto :goto_1
 .end method

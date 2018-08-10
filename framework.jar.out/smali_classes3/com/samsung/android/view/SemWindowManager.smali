@@ -12,6 +12,22 @@
 
 
 # static fields
+.field public static final MAX_ASPECT_RATIO_FIXED_ON:I = 0x2
+
+.field public static final MAX_ASPECT_RATIO_OFF:I = 0x0
+
+.field public static final MAX_ASPECT_RATIO_ON:I = 0x1
+
+.field public static final NAVIBAR_HIDE_POLICY_FIXED_OFF:I = 0x2
+
+.field public static final NAVIBAR_HIDE_POLICY_OFF:I = 0x0
+
+.field public static final NAVIBAR_HIDE_POLICY_ON:I = 0x1
+
+.field public static final REQUEST_TRANSIENT_NAVIGATIONBAR:I = 0x10
+
+.field public static final REQUEST_TRANSIENT_STATUSBAR:I = 0x1
+
 .field private static final TAG:Ljava/lang/String; = "SemWindowManager"
 
 .field private static sInstance:Lcom/samsung/android/view/SemWindowManager;
@@ -106,7 +122,7 @@
     goto :goto_0
 .end method
 
-.method public getUserDensity()I
+.method public getInitialDensity()I
     .locals 3
 
     :try_start_0
@@ -114,7 +130,7 @@
 
     const/4 v2, 0x0
 
-    invoke-interface {v1, v2}, Landroid/view/IWindowManager;->getDefaultDisplayDensity(I)I
+    invoke-interface {v1, v2}, Landroid/view/IWindowManager;->getInitialDisplayDensity(I)I
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -127,7 +143,7 @@
 
     const-string/jumbo v1, "SemWindowManager"
 
-    const-string/jumbo v2, "Failed to getDefaultDisplayDensity"
+    const-string/jumbo v2, "Failed to getInitialDisplayDensity"
 
     invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
@@ -136,7 +152,115 @@
     return v1
 .end method
 
-.method getVisibleWindowInfo()Ljava/util/List;
+.method public getInitialDisplaySize(Landroid/graphics/Point;)V
+    .locals 3
+
+    :try_start_0
+    iget-object v1, p0, Lcom/samsung/android/view/SemWindowManager;->mWindowManager:Landroid/view/IWindowManager;
+
+    const/4 v2, 0x0
+
+    invoke-interface {v1, v2, p1}, Landroid/view/IWindowManager;->getInitialDisplaySize(ILandroid/graphics/Point;)V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    :goto_0
+    return-void
+
+    :catch_0
+    move-exception v0
+
+    const-string/jumbo v1, "SemWindowManager"
+
+    const-string/jumbo v2, "Failed to getInitialDisplaySize"
+
+    invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    goto :goto_0
+.end method
+
+.method public getNaviBarHidePolicy(Ljava/lang/String;I)I
+    .locals 3
+
+    :try_start_0
+    iget-object v1, p0, Lcom/samsung/android/view/SemWindowManager;->mWindowManager:Landroid/view/IWindowManager;
+
+    invoke-interface {v1, p1, p2}, Landroid/view/IWindowManager;->getNaviBarHidePolicy(Ljava/lang/String;I)I
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v1
+
+    return v1
+
+    :catch_0
+    move-exception v0
+
+    const-string/jumbo v1, "SemWindowManager"
+
+    const-string/jumbo v2, "Failed to getNaviBarHidePolicy"
+
+    invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    const/4 v1, 0x1
+
+    return v1
+.end method
+
+.method public getUserDensity()I
+    .locals 3
+
+    :try_start_0
+    iget-object v1, p0, Lcom/samsung/android/view/SemWindowManager;->mWindowManager:Landroid/view/IWindowManager;
+
+    invoke-interface {v1}, Landroid/view/IWindowManager;->getUserDisplayDensity()I
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v1
+
+    return v1
+
+    :catch_0
+    move-exception v0
+
+    const-string/jumbo v1, "SemWindowManager"
+
+    const-string/jumbo v2, "Failed to getUserDisplayDensity"
+
+    invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    const/4 v1, -0x1
+
+    return v1
+.end method
+
+.method public getUserDisplaySize(Landroid/graphics/Point;)V
+    .locals 3
+
+    :try_start_0
+    iget-object v1, p0, Lcom/samsung/android/view/SemWindowManager;->mWindowManager:Landroid/view/IWindowManager;
+
+    invoke-interface {v1, p1}, Landroid/view/IWindowManager;->getUserDisplaySize(Landroid/graphics/Point;)V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    :goto_0
+    return-void
+
+    :catch_0
+    move-exception v0
+
+    const-string/jumbo v1, "SemWindowManager"
+
+    const-string/jumbo v2, "Failed to getUserDisplaySize"
+
+    invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    goto :goto_0
+.end method
+
+.method public getVisibleWindowInfo()Ljava/util/List;
     .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -171,6 +295,101 @@
     const/4 v1, 0x0
 
     return-object v1
+.end method
+
+.method public isMaxAspectComponentEx(Landroid/content/ComponentName;I)I
+    .locals 3
+
+    :try_start_0
+    iget-object v1, p0, Lcom/samsung/android/view/SemWindowManager;->mWindowManager:Landroid/view/IWindowManager;
+
+    invoke-interface {v1, p1, p2}, Landroid/view/IWindowManager;->isMaxAspectComponentEx(Landroid/content/ComponentName;I)I
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v1
+
+    return v1
+
+    :catch_0
+    move-exception v0
+
+    const-string/jumbo v1, "SemWindowManager"
+
+    const-string/jumbo v2, "Failed to isMaxAspectComponentEx"
+
+    invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    const/4 v1, 0x0
+
+    return v1
+.end method
+
+.method public isMaxAspectPackageEx(Ljava/lang/String;I)I
+    .locals 3
+
+    :try_start_0
+    iget-object v1, p0, Lcom/samsung/android/view/SemWindowManager;->mWindowManager:Landroid/view/IWindowManager;
+
+    invoke-interface {v1, p1, p2}, Landroid/view/IWindowManager;->isMaxAspectPackageEx(Ljava/lang/String;I)I
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v1
+
+    return v1
+
+    :catch_0
+    move-exception v0
+
+    const-string/jumbo v1, "SemWindowManager"
+
+    const-string/jumbo v2, "Failed to isMaxAspectPackageEx"
+
+    invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    const/4 v1, 0x0
+
+    return v1
+.end method
+
+.method public isNavigationBarHidable(Landroid/content/Context;)Z
+    .locals 4
+
+    if-eqz p1, :cond_0
+
+    :try_start_0
+    iget-object v1, p0, Lcom/samsung/android/view/SemWindowManager;->mWindowManager:Landroid/view/IWindowManager;
+
+    invoke-virtual {p1}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {p1}, Landroid/content/Context;->getUserId()I
+
+    move-result v3
+
+    invoke-interface {v1, v2, v3}, Landroid/view/IWindowManager;->isNavigationBarHidable(Ljava/lang/String;I)Z
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v1
+
+    return v1
+
+    :catch_0
+    move-exception v0
+
+    const-string/jumbo v1, "SemWindowManager"
+
+    const-string/jumbo v2, "Failed to isNavigationBarHidable"
+
+    invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    :cond_0
+    const/4 v1, 0x0
+
+    return v1
 .end method
 
 .method public isSystemKeyEventRequested(ILandroid/content/ComponentName;)Z
@@ -254,8 +473,65 @@
     return v1
 .end method
 
+.method public requestTransientBars(I)V
+    .locals 6
+
+    const/4 v1, 0x1
+
+    const/4 v2, 0x0
+
+    :try_start_0
+    iget-object v4, p0, Lcom/samsung/android/view/SemWindowManager;->mWindowManager:Landroid/view/IWindowManager;
+
+    and-int/lit8 v3, p1, 0x1
+
+    if-eqz v3, :cond_0
+
+    move v3, v1
+
+    :goto_0
+    and-int/lit8 v5, p1, 0x10
+
+    if-eqz v5, :cond_1
+
+    :goto_1
+    invoke-interface {v4, v3, v1}, Landroid/view/IWindowManager;->requestTransientBars(ZZ)V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    :goto_2
+    return-void
+
+    :cond_0
+    move v3, v2
+
+    goto :goto_0
+
+    :cond_1
+    move v1, v2
+
+    goto :goto_1
+
+    :catch_0
+    move-exception v0
+
+    const-string/jumbo v1, "SemWindowManager"
+
+    const-string/jumbo v2, "Failed to requestTransientBars"
+
+    invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    goto :goto_2
+.end method
+
+.method public setForcedDisplayRotation(II)V
+    .locals 0
+
+    return-void
+.end method
+
 .method public setForcedDisplaySizeDensity(III)V
-    .locals 7
+    .locals 8
 
     :try_start_0
     iget-object v0, p0, Lcom/samsung/android/view/SemWindowManager;->mWindowManager:Landroid/view/IWindowManager;
@@ -264,13 +540,75 @@
 
     const/4 v5, 0x0
 
+    const/4 v6, 0x0
+
     move v2, p1
 
     move v3, p2
 
     move v4, p3
 
-    invoke-interface/range {v0 .. v5}, Landroid/view/IWindowManager;->setForcedDisplaySizeDensityEx(IIIIZ)V
+    invoke-interface/range {v0 .. v6}, Landroid/view/IWindowManager;->setForcedDisplaySizeDensity(IIIIZZ)V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    :goto_0
+    return-void
+
+    :catch_0
+    move-exception v7
+
+    const-string/jumbo v0, "SemWindowManager"
+
+    const-string/jumbo v1, "Failed to setForcedDisplaySizeDensity"
+
+    invoke-static {v0, v1, v7}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    goto :goto_0
+.end method
+
+.method public setMaxAspectPackage(Ljava/lang/String;IZZ)V
+    .locals 3
+
+    :try_start_0
+    iget-object v1, p0, Lcom/samsung/android/view/SemWindowManager;->mWindowManager:Landroid/view/IWindowManager;
+
+    invoke-interface {v1, p1, p2, p3, p4}, Landroid/view/IWindowManager;->setMaxAspectPackageEx(Ljava/lang/String;IZZ)V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    :goto_0
+    return-void
+
+    :catch_0
+    move-exception v0
+
+    const-string/jumbo v1, "SemWindowManager"
+
+    const-string/jumbo v2, "Failed to setMaxAspectPackage"
+
+    invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    goto :goto_0
+.end method
+
+.method public setMaxAspectPackageExAndPopup(Ljava/lang/String;IZZZ)V
+    .locals 7
+
+    :try_start_0
+    iget-object v0, p0, Lcom/samsung/android/view/SemWindowManager;->mWindowManager:Landroid/view/IWindowManager;
+
+    move-object v1, p1
+
+    move v2, p2
+
+    move v3, p3
+
+    move v4, p4
+
+    move v5, p5
+
+    invoke-interface/range {v0 .. v5}, Landroid/view/IWindowManager;->setMaxAspectPackageExAndPopup(Ljava/lang/String;IZZZ)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -282,9 +620,34 @@
 
     const-string/jumbo v0, "SemWindowManager"
 
-    const-string/jumbo v1, "Failed to setForcedDisplaySizeDensity"
+    const-string/jumbo v1, "Failed to setMaxAspectPackageExAndPopup"
 
     invoke-static {v0, v1, v6}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    goto :goto_0
+.end method
+
+.method public setNaviBarHidePolicy(Ljava/lang/String;IZ)V
+    .locals 3
+
+    :try_start_0
+    iget-object v1, p0, Lcom/samsung/android/view/SemWindowManager;->mWindowManager:Landroid/view/IWindowManager;
+
+    invoke-interface {v1, p1, p2, p3}, Landroid/view/IWindowManager;->setNaviBarHidePolicy(Ljava/lang/String;IZ)V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    :goto_0
+    return-void
+
+    :catch_0
+    move-exception v0
+
+    const-string/jumbo v1, "SemWindowManager"
+
+    const-string/jumbo v2, "Failed to setNaviBarHidePolicy"
+
+    invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     goto :goto_0
 .end method
@@ -365,7 +728,7 @@
 
     move-result-object v4
 
-    invoke-virtual {v1}, Ljava/lang/Throwable;->fillInStackTrace()Ljava/lang/Throwable;
+    invoke-virtual {v1}, Ljava/lang/Exception;->fillInStackTrace()Ljava/lang/Throwable;
 
     move-result-object v5
 

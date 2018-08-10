@@ -95,6 +95,14 @@
     return-object v0
 .end method
 
+.method public hasSameAppInfo(Landroid/content/pm/ApplicationInfo;)Z
+    .locals 1
+
+    const/4 v0, 0x1
+
+    return v0
+.end method
+
 .method public initActionAsync(Landroid/widget/RemoteViews$ViewTree;Landroid/view/ViewGroup;Landroid/widget/RemoteViews$OnClickHandler;)Landroid/widget/RemoteViews$Action;
     .locals 0
 
@@ -102,6 +110,14 @@
 .end method
 
 .method public mergeBehavior()I
+    .locals 1
+
+    const/4 v0, 0x0
+
+    return v0
+.end method
+
+.method public prefersAsyncApply()Z
     .locals 1
 
     const/4 v0, 0x0

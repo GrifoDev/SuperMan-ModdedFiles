@@ -561,13 +561,10 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    xor-int/lit8 v0, v0, 0x1
 
-    :cond_0
-    :goto_0
-    return-void
+    if-eqz v0, :cond_0
 
-    :cond_1
     iget-object v0, p0, Landroid/widget/CursorAdapter;->mCursor:Landroid/database/Cursor;
 
     invoke-interface {v0}, Landroid/database/Cursor;->requery()Z
@@ -576,7 +573,8 @@
 
     iput-boolean v0, p0, Landroid/widget/CursorAdapter;->mDataValid:Z
 
-    goto :goto_0
+    :cond_0
+    return-void
 .end method
 
 .method public runQueryOnBackgroundThread(Ljava/lang/CharSequence;)Landroid/database/Cursor;

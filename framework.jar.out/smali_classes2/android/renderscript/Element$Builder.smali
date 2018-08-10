@@ -252,7 +252,7 @@
 
     iget-object v4, p0, Landroid/renderscript/Element$Builder;->mRS:Landroid/renderscript/RenderScript;
 
-    invoke-virtual {v1, v4}, Landroid/renderscript/BaseObj;->getID(Landroid/renderscript/RenderScript;)J
+    invoke-virtual {v1, v4}, Landroid/renderscript/Element;->getID(Landroid/renderscript/RenderScript;)J
 
     move-result-wide v10
 

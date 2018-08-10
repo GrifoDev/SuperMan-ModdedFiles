@@ -39,39 +39,7 @@
     .end annotation
 .end method
 
-.method public abstract addPasspointManagementObject(Ljava/lang/String;)I
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract addToBlacklist(Ljava/lang/String;)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract addToSBlacklist(Ljava/lang/String;)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract buildHS20WifiConfigFromXml(Ljava/lang/String;Ljava/lang/String;)Landroid/net/wifi/WifiConfiguration;
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract buildWifiConfig(Ljava/lang/String;Ljava/lang/String;[B)Landroid/net/wifi/WifiConfiguration;
+.method public abstract addOrUpdatePasspointConfiguration(Landroid/net/wifi/hotspot2/PasspointConfiguration;)Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -88,30 +56,6 @@
 .end method
 
 .method public abstract callSECStringApi(Landroid/os/Message;)Ljava/lang/String;
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract checkWarningPopup()Z
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract clearBlacklist()V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract clearSBlacklist()V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -199,23 +143,7 @@
     .end annotation
 .end method
 
-.method public abstract enableWifiSharing(Z)Z
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
 .method public abstract factoryReset()V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract fetchHs20OsuProviders()Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -239,43 +167,7 @@
     .end annotation
 .end method
 
-.method public abstract getChannelList()Ljava/util/List;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/util/List",
-            "<",
-            "Landroid/net/wifi/WifiChannel;",
-            ">;"
-        }
-    .end annotation
-
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract getConfigFile()Ljava/lang/String;
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract getConfiguredNetworks()Ljava/util/List;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/util/List",
-            "<",
-            "Landroid/net/wifi/WifiConfiguration;",
-            ">;"
-        }
-    .end annotation
-
+.method public abstract getConfiguredNetworks()Landroid/content/pm/ParceledListSlice;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -315,7 +207,23 @@
     .end annotation
 .end method
 
+.method public abstract getCurrentCountryCode()Ljava/lang/String;
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract getCurrentNetwork()Landroid/net/Network;
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract getCurrentNetworkWpsNfcConfigurationToken()Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -339,41 +247,7 @@
     .end annotation
 .end method
 
-.method public abstract getFrequencyBand()I
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract getFullRoamScanPeriod()I
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract getHs20OsuProviders()Ljava/util/List;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/util/List",
-            "<",
-            "Landroid/net/wifi/hs20/WifiHs20OsuProvider;",
-            ">;"
-        }
-    .end annotation
-
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract getLinkStatus()I
+.method public abstract getExtenderMode()I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -397,7 +271,17 @@
     .end annotation
 .end method
 
-.method public abstract getPPPOEInfo()Landroid/net/wifi/PPPOEInfo;
+.method public abstract getPasspointConfigurations()Ljava/util/List;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/List",
+            "<",
+            "Landroid/net/wifi/hotspot2/PasspointConfiguration;",
+            ">;"
+        }
+    .end annotation
+
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -405,17 +289,7 @@
     .end annotation
 .end method
 
-.method public abstract getPrivilegedConfiguredNetworks()Ljava/util/List;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/util/List",
-            "<",
-            "Landroid/net/wifi/WifiConfiguration;",
-            ">;"
-        }
-    .end annotation
-
+.method public abstract getPrivilegedConfiguredNetworks()Landroid/content/pm/ParceledListSlice;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -471,14 +345,6 @@
     .end annotation
 .end method
 
-.method public abstract getSBlacklist()Ljava/lang/String;
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
 .method public abstract getScanResults(Ljava/lang/String;)Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -507,14 +373,6 @@
     .end annotation
 .end method
 
-.method public abstract getSpecificPasspointNetwork(Ljava/lang/String;)Landroid/net/wifi/WifiConfiguration;
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
 .method public abstract getSupportedFeatures()I
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -524,6 +382,38 @@
 .end method
 
 .method public abstract getVerboseLoggingLevel()I
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract getWcmMessenger()Landroid/os/Messenger;
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract getWifiApChipMaxClient()Ljava/lang/String;
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract getWifiApChipSupport5G()Ljava/lang/String;
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract getWifiApChipSupport5GCountry()Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -555,6 +445,14 @@
     .end annotation
 .end method
 
+.method public abstract getWifiApMaxClient()I
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract getWifiApStaList()Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -579,31 +477,7 @@
     .end annotation
 .end method
 
-.method public abstract getWifiIBSSEnabledState()I
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
 .method public abstract getWifiServiceMessenger()Landroid/os/Messenger;
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract getWifiWatchdogMessenger()Landroid/os/Messenger;
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract getWpsNfcConfigurationToken(I)Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -627,14 +501,6 @@
     .end annotation
 .end method
 
-.method public abstract isDetectedAsMaliciousHotspot(Ljava/lang/String;)Z
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
 .method public abstract isDualBandSupported()Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -643,7 +509,7 @@
     .end annotation
 .end method
 
-.method public abstract isHs20OsuProviderAvailable()Z
+.method public abstract isExtenderEnabled()Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -659,31 +525,7 @@
     .end annotation
 .end method
 
-.method public abstract isPasspointDefaultOn()Z
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract isPasspointMenuVisible()Z
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
 .method public abstract isScanAlwaysAvailable()Z
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract isSupportBackupAndRestore()Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -700,33 +542,6 @@
 .end method
 
 .method public abstract matchProviderWithCurrentNetwork(Ljava/lang/String;)I
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract modifyPasspointManagementObject(Ljava/lang/String;Ljava/util/List;)I
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/lang/String;",
-            "Ljava/util/List",
-            "<",
-            "Landroid/net/wifi/PasspointManagementObjectDefinition;",
-            ">;)I"
-        }
-    .end annotation
-
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract pingSupplicant()Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -782,7 +597,7 @@
     .end annotation
 .end method
 
-.method public abstract removeNetworkByMDM(I)Z
+.method public abstract removePasspointConfiguration(Ljava/lang/String;)Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -806,7 +621,23 @@
     .end annotation
 .end method
 
-.method public abstract resetPeriodicScanTime()V
+.method public abstract restoreBackupData([B)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract restoreSupplicantBackupData([B[B)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract retrieveBackupData()[B
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -822,7 +653,7 @@
     .end annotation
 .end method
 
-.method public abstract saveNetworkByMDM(Landroid/net/wifi/WifiConfiguration;)I
+.method public abstract semAddOrUpdateNetwork(ILandroid/net/wifi/WifiConfiguration;)I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -841,6 +672,38 @@
         }
     .end annotation
 
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract semGetStationInfo(Ljava/lang/String;)Ljava/lang/String;
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract semGetWifiApChannel()I
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract semRemoveNetwork(II)Z
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract semStartPartialChannelScan([ILjava/lang/String;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -880,15 +743,7 @@
     .end annotation
 .end method
 
-.method public abstract setFrequencyBand(IZ)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract setFullRoamScanPeriod(I)Z
+.method public abstract setExtenderMode(I)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1000,7 +855,7 @@
     .end annotation
 .end method
 
-.method public abstract setWifiEnabled(Z)Z
+.method public abstract setWifiEnabled(Ljava/lang/String;Z)Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1008,7 +863,7 @@
     .end annotation
 .end method
 
-.method public abstract setWifiIBSSEnabled(Z)Z
+.method public abstract setWifiSharingEnabled(Z)Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1016,7 +871,7 @@
     .end annotation
 .end method
 
-.method public abstract startPPPOE(Landroid/net/wifi/PPPOEConfig;)V
+.method public abstract startLocalOnlyHotspot(Landroid/os/Messenger;Landroid/os/IBinder;Ljava/lang/String;)I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1024,7 +879,7 @@
     .end annotation
 .end method
 
-.method public abstract startPartialChannelScan([I)V
+.method public abstract startScan(Landroid/net/wifi/ScanSettings;Landroid/os/WorkSource;Ljava/lang/String;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1032,7 +887,7 @@
     .end annotation
 .end method
 
-.method public abstract startScan(Landroid/net/wifi/ScanSettings;Landroid/os/WorkSource;)V
+.method public abstract startSoftAp(Landroid/net/wifi/WifiConfiguration;)Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1040,7 +895,55 @@
     .end annotation
 .end method
 
-.method public abstract stopPPPOE()V
+.method public abstract startWatchLocalOnlyHotspot(Landroid/os/Messenger;Landroid/os/IBinder;)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract stopLocalOnlyHotspot()V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract stopSoftAp()Z
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract stopWatchLocalOnlyHotspot()V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract supportWifiAp5G()Z
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract supportWifiAp5GBasedOnCountry()Z
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract updateInterfaceIpState(Ljava/lang/String;I)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

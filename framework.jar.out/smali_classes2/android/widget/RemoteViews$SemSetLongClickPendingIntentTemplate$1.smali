@@ -58,9 +58,7 @@
 
     move-object v6, p2
 
-    nop
-
-    nop
+    check-cast v6, Landroid/view/ViewGroup;
 
     instance-of v7, p1, Landroid/widget/AdapterViewAnimator;
 
@@ -95,7 +93,7 @@
 
     move-result-object v7
 
-    const v8, 0x1020049
+    const v8, 0x102029b
 
     invoke-virtual {v7, v8}, Landroid/view/View;->getTag(I)Ljava/lang/Object;
 
@@ -107,9 +105,7 @@
 
     move-object v1, v5
 
-    nop
-
-    nop
+    check-cast v1, Landroid/content/Intent;
 
     :cond_2
     if-nez v1, :cond_4

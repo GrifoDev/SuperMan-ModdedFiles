@@ -47,7 +47,7 @@
     .end annotation
 .end method
 
-.method public abstract onDockedStackMinimizedChanged(ZJ)V
+.method public abstract onDockedStackMinimizedChanged(ZJZ)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

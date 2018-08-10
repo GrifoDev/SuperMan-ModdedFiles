@@ -71,7 +71,7 @@
 .method static synthetic -get1(Landroid/widget/ActivityChooserView;)Landroid/content/Context;
     .locals 1
 
-    iget-object v0, p0, Landroid/view/View;->mContext:Landroid/content/Context;
+    iget-object v0, p0, Landroid/widget/ActivityChooserView;->mContext:Landroid/content/Context;
 
     return-object v0
 .end method
@@ -193,7 +193,7 @@
 
     const/4 v9, 0x0
 
-    const v8, 0x102037b
+    const v8, 0x1020302
 
     const/4 v7, 0x4
 
@@ -221,27 +221,27 @@
 
     move-result-object v0
 
-    const/4 v5, 0x0
-
-    invoke-virtual {v0, v5, v7}, Landroid/content/res/TypedArray;->getInt(II)I
+    invoke-virtual {v0, v6, v7}, Landroid/content/res/TypedArray;->getInt(II)I
 
     move-result v5
 
     iput v5, p0, Landroid/widget/ActivityChooserView;->mInitialActivityCount:I
 
-    invoke-virtual {v0, v6}, Landroid/content/res/TypedArray;->getDrawable(I)Landroid/graphics/drawable/Drawable;
+    const/4 v5, 0x0
+
+    invoke-virtual {v0, v5}, Landroid/content/res/TypedArray;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
     move-result-object v1
 
     invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
 
-    iget-object v5, p0, Landroid/view/View;->mContext:Landroid/content/Context;
+    iget-object v5, p0, Landroid/widget/ActivityChooserView;->mContext:Landroid/content/Context;
 
     invoke-static {v5}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
 
     move-result-object v3
 
-    const v5, 0x1090021
+    const v5, 0x1090023
 
     invoke-virtual {v3, v5, p0, v6}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -251,9 +251,9 @@
 
     iput-object v5, p0, Landroid/widget/ActivityChooserView;->mCallbacks:Landroid/widget/ActivityChooserView$Callbacks;
 
-    const v5, 0x1020379
+    const v5, 0x10201c8
 
-    invoke-virtual {p0, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v5}, Landroid/widget/ActivityChooserView;->findViewById(I)Landroid/view/View;
 
     move-result-object v5
 
@@ -263,15 +263,15 @@
 
     iget-object v5, p0, Landroid/widget/ActivityChooserView;->mActivityChooserContent:Landroid/widget/LinearLayout;
 
-    invoke-virtual {v5}, Landroid/view/View;->getBackground()Landroid/graphics/drawable/Drawable;
+    invoke-virtual {v5}, Landroid/widget/LinearLayout;->getBackground()Landroid/graphics/drawable/Drawable;
 
     move-result-object v5
 
     iput-object v5, p0, Landroid/widget/ActivityChooserView;->mActivityChooserContentBackground:Landroid/graphics/drawable/Drawable;
 
-    const v5, 0x102037c
+    const v5, 0x102026f
 
-    invoke-virtual {p0, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v5}, Landroid/widget/ActivityChooserView;->findViewById(I)Landroid/view/View;
 
     move-result-object v5
 
@@ -283,17 +283,17 @@
 
     iget-object v6, p0, Landroid/widget/ActivityChooserView;->mCallbacks:Landroid/widget/ActivityChooserView$Callbacks;
 
-    invoke-virtual {v5, v6}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v5, v6}, Landroid/widget/FrameLayout;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     iget-object v5, p0, Landroid/widget/ActivityChooserView;->mDefaultActivityButton:Landroid/widget/FrameLayout;
 
     iget-object v6, p0, Landroid/widget/ActivityChooserView;->mCallbacks:Landroid/widget/ActivityChooserView$Callbacks;
 
-    invoke-virtual {v5, v6}, Landroid/view/View;->setOnLongClickListener(Landroid/view/View$OnLongClickListener;)V
+    invoke-virtual {v5, v6}, Landroid/widget/FrameLayout;->setOnLongClickListener(Landroid/view/View$OnLongClickListener;)V
 
     iget-object v5, p0, Landroid/widget/ActivityChooserView;->mDefaultActivityButton:Landroid/widget/FrameLayout;
 
-    invoke-virtual {v5, v8}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v5, v8}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
 
     move-result-object v5
 
@@ -301,9 +301,9 @@
 
     iput-object v5, p0, Landroid/widget/ActivityChooserView;->mDefaultActivityButtonImage:Landroid/widget/ImageView;
 
-    const v5, 0x102037a
+    const v5, 0x102028a
 
-    invoke-virtual {p0, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v5}, Landroid/widget/ActivityChooserView;->findViewById(I)Landroid/view/View;
 
     move-result-object v2
 
@@ -311,23 +311,23 @@
 
     iget-object v5, p0, Landroid/widget/ActivityChooserView;->mCallbacks:Landroid/widget/ActivityChooserView$Callbacks;
 
-    invoke-virtual {v2, v5}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v2, v5}, Landroid/widget/FrameLayout;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     new-instance v5, Landroid/widget/ActivityChooserView$3;
 
     invoke-direct {v5, p0}, Landroid/widget/ActivityChooserView$3;-><init>(Landroid/widget/ActivityChooserView;)V
 
-    invoke-virtual {v2, v5}, Landroid/view/View;->setAccessibilityDelegate(Landroid/view/View$AccessibilityDelegate;)V
+    invoke-virtual {v2, v5}, Landroid/widget/FrameLayout;->setAccessibilityDelegate(Landroid/view/View$AccessibilityDelegate;)V
 
     new-instance v5, Landroid/widget/ActivityChooserView$4;
 
     invoke-direct {v5, p0, v2}, Landroid/widget/ActivityChooserView$4;-><init>(Landroid/widget/ActivityChooserView;Landroid/view/View;)V
 
-    invoke-virtual {v2, v5}, Landroid/view/View;->setOnTouchListener(Landroid/view/View$OnTouchListener;)V
+    invoke-virtual {v2, v5}, Landroid/widget/FrameLayout;->setOnTouchListener(Landroid/view/View$OnTouchListener;)V
 
     iput-object v2, p0, Landroid/widget/ActivityChooserView;->mExpandActivityOverflowButton:Landroid/widget/FrameLayout;
 
-    invoke-virtual {v2, v8}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v2, v8}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
 
     move-result-object v5
 
@@ -351,7 +351,7 @@
 
     invoke-direct {v6, p0}, Landroid/widget/ActivityChooserView$5;-><init>(Landroid/widget/ActivityChooserView;)V
 
-    invoke-virtual {v5, v6}, Landroid/widget/BaseAdapter;->registerDataSetObserver(Landroid/database/DataSetObserver;)V
+    invoke-virtual {v5, v6}, Landroid/widget/ActivityChooserView$ActivityChooserViewAdapter;->registerDataSetObserver(Landroid/database/DataSetObserver;)V
 
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
@@ -365,7 +365,7 @@
 
     div-int/lit8 v5, v5, 0x2
 
-    const v6, 0x105000e
+    const v6, 0x105004c
 
     invoke-virtual {v4, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -389,7 +389,7 @@
 
     new-instance v0, Landroid/widget/ListPopupWindow;
 
-    invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
+    invoke-virtual {p0}, Landroid/widget/ActivityChooserView;->getContext()Landroid/content/Context;
 
     move-result-object v1
 
@@ -434,9 +434,9 @@
 .method private showPopupUnchecked(I)V
     .locals 9
 
-    const/4 v8, 0x1
+    const/4 v7, 0x1
 
-    const/4 v7, 0x0
+    const/4 v8, 0x0
 
     iget-object v5, p0, Landroid/widget/ActivityChooserView;->mAdapter:Landroid/widget/ActivityChooserView$ActivityChooserViewAdapter;
 
@@ -455,7 +455,7 @@
     throw v5
 
     :cond_0
-    invoke-virtual {p0}, Landroid/view/View;->getViewTreeObserver()Landroid/view/ViewTreeObserver;
+    invoke-virtual {p0}, Landroid/widget/ActivityChooserView;->getViewTreeObserver()Landroid/view/ViewTreeObserver;
 
     move-result-object v5
 
@@ -465,11 +465,11 @@
 
     iget-object v5, p0, Landroid/widget/ActivityChooserView;->mDefaultActivityButton:Landroid/widget/FrameLayout;
 
-    invoke-virtual {v5}, Landroid/view/View;->getVisibility()I
+    invoke-virtual {v5}, Landroid/widget/FrameLayout;->getVisibility()I
 
     move-result v5
 
-    if-nez v5, :cond_3
+    if-nez v5, :cond_4
 
     const/4 v2, 0x1
 
@@ -480,22 +480,22 @@
 
     move-result v0
 
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_5
 
     const/4 v3, 0x1
 
     :goto_1
     const v5, 0x7fffffff
 
-    if-eq p1, v5, :cond_5
+    if-eq p1, v5, :cond_6
 
     add-int v5, p1, v3
 
-    if-le v0, v5, :cond_5
+    if-le v0, v5, :cond_6
 
     iget-object v5, p0, Landroid/widget/ActivityChooserView;->mAdapter:Landroid/widget/ActivityChooserView$ActivityChooserViewAdapter;
 
-    invoke-virtual {v5, v8}, Landroid/widget/ActivityChooserView$ActivityChooserViewAdapter;->setShowFooterView(Z)V
+    invoke-virtual {v5, v7}, Landroid/widget/ActivityChooserView$ActivityChooserViewAdapter;->setShowFooterView(Z)V
 
     iget-object v5, p0, Landroid/widget/ActivityChooserView;->mAdapter:Landroid/widget/ActivityChooserView$ActivityChooserViewAdapter;
 
@@ -512,17 +512,20 @@
 
     move-result v5
 
-    if-nez v5, :cond_2
+    if-nez v5, :cond_3
 
     iget-boolean v5, p0, Landroid/widget/ActivityChooserView;->mIsSelectingDefaultActivity:Z
 
-    if-nez v5, :cond_6
+    if-nez v5, :cond_1
 
-    if-eqz v2, :cond_6
+    xor-int/lit8 v5, v2, 0x1
 
+    if-eqz v5, :cond_7
+
+    :cond_1
     iget-object v5, p0, Landroid/widget/ActivityChooserView;->mAdapter:Landroid/widget/ActivityChooserView$ActivityChooserViewAdapter;
 
-    invoke-virtual {v5, v7, v7}, Landroid/widget/ActivityChooserView$ActivityChooserViewAdapter;->setShowDefaultActivity(ZZ)V
+    invoke-virtual {v5, v7, v2}, Landroid/widget/ActivityChooserView$ActivityChooserViewAdapter;->setShowDefaultActivity(ZZ)V
 
     :goto_3
     iget-object v5, p0, Landroid/widget/ActivityChooserView;->mAdapter:Landroid/widget/ActivityChooserView$ActivityChooserViewAdapter;
@@ -543,44 +546,54 @@
 
     iget-object v5, p0, Landroid/widget/ActivityChooserView;->mProvider:Landroid/view/ActionProvider;
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_2
 
     iget-object v5, p0, Landroid/widget/ActivityChooserView;->mProvider:Landroid/view/ActionProvider;
 
-    invoke-virtual {v5, v8}, Landroid/view/ActionProvider;->subUiVisibilityChanged(Z)V
+    invoke-virtual {v5, v7}, Landroid/view/ActionProvider;->subUiVisibilityChanged(Z)V
 
-    :cond_1
+    :cond_2
     invoke-virtual {v4}, Landroid/widget/ListPopupWindow;->getListView()Landroid/widget/ListView;
 
     move-result-object v5
 
-    iget-object v6, p0, Landroid/view/View;->mContext:Landroid/content/Context;
+    iget-object v6, p0, Landroid/widget/ActivityChooserView;->mContext:Landroid/content/Context;
 
-    const v7, 0x10404c4
+    const v7, 0x1040088
 
     invoke-virtual {v6, v7}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v6
 
-    invoke-virtual {v5, v6}, Landroid/view/View;->setContentDescription(Ljava/lang/CharSequence;)V
+    invoke-virtual {v5, v6}, Landroid/widget/ListView;->setContentDescription(Ljava/lang/CharSequence;)V
 
-    :cond_2
-    return-void
+    invoke-virtual {v4}, Landroid/widget/ListPopupWindow;->getListView()Landroid/widget/ListView;
+
+    move-result-object v5
+
+    new-instance v6, Landroid/graphics/drawable/ColorDrawable;
+
+    invoke-direct {v6, v8}, Landroid/graphics/drawable/ColorDrawable;-><init>(I)V
+
+    invoke-virtual {v5, v6}, Landroid/widget/ListView;->setSelector(Landroid/graphics/drawable/Drawable;)V
 
     :cond_3
+    return-void
+
+    :cond_4
     const/4 v2, 0x0
 
     goto :goto_0
 
-    :cond_4
+    :cond_5
     const/4 v3, 0x0
 
     goto :goto_1
 
-    :cond_5
+    :cond_6
     iget-object v5, p0, Landroid/widget/ActivityChooserView;->mAdapter:Landroid/widget/ActivityChooserView$ActivityChooserViewAdapter;
 
-    invoke-virtual {v5, v7}, Landroid/widget/ActivityChooserView$ActivityChooserViewAdapter;->setShowFooterView(Z)V
+    invoke-virtual {v5, v8}, Landroid/widget/ActivityChooserView$ActivityChooserViewAdapter;->setShowFooterView(Z)V
 
     iget-object v5, p0, Landroid/widget/ActivityChooserView;->mAdapter:Landroid/widget/ActivityChooserView$ActivityChooserViewAdapter;
 
@@ -588,10 +601,10 @@
 
     goto :goto_2
 
-    :cond_6
+    :cond_7
     iget-object v5, p0, Landroid/widget/ActivityChooserView;->mAdapter:Landroid/widget/ActivityChooserView$ActivityChooserViewAdapter;
 
-    invoke-virtual {v5, v8, v2}, Landroid/widget/ActivityChooserView$ActivityChooserViewAdapter;->setShowDefaultActivity(ZZ)V
+    invoke-virtual {v5, v8, v8}, Landroid/widget/ActivityChooserView$ActivityChooserViewAdapter;->setShowDefaultActivity(ZZ)V
 
     goto :goto_3
 .end method
@@ -613,7 +626,7 @@
 
     iget-object v6, p0, Landroid/widget/ActivityChooserView;->mExpandActivityOverflowButton:Landroid/widget/FrameLayout;
 
-    invoke-virtual {v6, v8}, Landroid/view/View;->setEnabled(Z)V
+    invoke-virtual {v6, v8}, Landroid/widget/FrameLayout;->setEnabled(Z)V
 
     :goto_0
     iget-object v6, p0, Landroid/widget/ActivityChooserView;->mAdapter:Landroid/widget/ActivityChooserView$ActivityChooserViewAdapter;
@@ -637,7 +650,7 @@
     :cond_0
     iget-object v6, p0, Landroid/widget/ActivityChooserView;->mDefaultActivityButton:Landroid/widget/FrameLayout;
 
-    invoke-virtual {v6, v9}, Landroid/view/View;->setVisibility(I)V
+    invoke-virtual {v6, v9}, Landroid/widget/FrameLayout;->setVisibility(I)V
 
     iget-object v6, p0, Landroid/widget/ActivityChooserView;->mAdapter:Landroid/widget/ActivityChooserView$ActivityChooserViewAdapter;
 
@@ -645,7 +658,7 @@
 
     move-result-object v0
 
-    iget-object v6, p0, Landroid/view/View;->mContext:Landroid/content/Context;
+    iget-object v6, p0, Landroid/widget/ActivityChooserView;->mContext:Landroid/content/Context;
 
     invoke-virtual {v6}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
@@ -667,7 +680,7 @@
 
     move-result-object v4
 
-    iget-object v6, p0, Landroid/view/View;->mContext:Landroid/content/Context;
+    iget-object v6, p0, Landroid/widget/ActivityChooserView;->mContext:Landroid/content/Context;
 
     iget v7, p0, Landroid/widget/ActivityChooserView;->mDefaultActionButtonContentDescription:I
 
@@ -681,13 +694,13 @@
 
     iget-object v6, p0, Landroid/widget/ActivityChooserView;->mDefaultActivityButton:Landroid/widget/FrameLayout;
 
-    invoke-virtual {v6, v2}, Landroid/view/View;->setContentDescription(Ljava/lang/CharSequence;)V
+    invoke-virtual {v6, v2}, Landroid/widget/FrameLayout;->setContentDescription(Ljava/lang/CharSequence;)V
 
     :cond_1
     :goto_1
     iget-object v6, p0, Landroid/widget/ActivityChooserView;->mDefaultActivityButton:Landroid/widget/FrameLayout;
 
-    invoke-virtual {v6}, Landroid/view/View;->getVisibility()I
+    invoke-virtual {v6}, Landroid/widget/FrameLayout;->getVisibility()I
 
     move-result v6
 
@@ -697,7 +710,7 @@
 
     iget-object v7, p0, Landroid/widget/ActivityChooserView;->mActivityChooserContentBackground:Landroid/graphics/drawable/Drawable;
 
-    invoke-virtual {v6, v7}, Landroid/view/View;->setBackground(Landroid/graphics/drawable/Drawable;)V
+    invoke-virtual {v6, v7}, Landroid/widget/LinearLayout;->setBackground(Landroid/graphics/drawable/Drawable;)V
 
     :goto_2
     return-void
@@ -705,7 +718,7 @@
     :cond_2
     iget-object v6, p0, Landroid/widget/ActivityChooserView;->mExpandActivityOverflowButton:Landroid/widget/FrameLayout;
 
-    invoke-virtual {v6, v9}, Landroid/view/View;->setEnabled(Z)V
+    invoke-virtual {v6, v9}, Landroid/widget/FrameLayout;->setEnabled(Z)V
 
     goto :goto_0
 
@@ -714,7 +727,7 @@
 
     const/16 v7, 0x8
 
-    invoke-virtual {v6, v7}, Landroid/view/View;->setVisibility(I)V
+    invoke-virtual {v6, v7}, Landroid/widget/FrameLayout;->setVisibility(I)V
 
     goto :goto_1
 
@@ -723,7 +736,7 @@
 
     const/4 v7, 0x0
 
-    invoke-virtual {v6, v7}, Landroid/view/View;->setBackground(Landroid/graphics/drawable/Drawable;)V
+    invoke-virtual {v6, v7}, Landroid/widget/LinearLayout;->setBackground(Landroid/graphics/drawable/Drawable;)V
 
     goto :goto_2
 .end method
@@ -745,7 +758,7 @@
 
     invoke-virtual {v1}, Landroid/widget/ListPopupWindow;->dismiss()V
 
-    invoke-virtual {p0}, Landroid/view/View;->getViewTreeObserver()Landroid/view/ViewTreeObserver;
+    invoke-virtual {p0}, Landroid/widget/ActivityChooserView;->getViewTreeObserver()Landroid/view/ViewTreeObserver;
 
     move-result-object v0
 
@@ -806,7 +819,7 @@
 
     iget-object v1, p0, Landroid/widget/ActivityChooserView;->mModelDataSetOberver:Landroid/database/DataSetObserver;
 
-    invoke-virtual {v0, v1}, Landroid/database/Observable;->registerObserver(Ljava/lang/Object;)V
+    invoke-virtual {v0, v1}, Landroid/widget/ActivityChooserModel;->registerObserver(Ljava/lang/Object;)V
 
     :cond_0
     const/4 v1, 0x1
@@ -831,10 +844,10 @@
 
     iget-object v2, p0, Landroid/widget/ActivityChooserView;->mModelDataSetOberver:Landroid/database/DataSetObserver;
 
-    invoke-virtual {v0, v2}, Landroid/database/Observable;->unregisterObserver(Ljava/lang/Object;)V
+    invoke-virtual {v0, v2}, Landroid/widget/ActivityChooserModel;->unregisterObserver(Ljava/lang/Object;)V
 
     :cond_0
-    invoke-virtual {p0}, Landroid/view/View;->getViewTreeObserver()Landroid/view/ViewTreeObserver;
+    invoke-virtual {p0}, Landroid/widget/ActivityChooserView;->getViewTreeObserver()Landroid/view/ViewTreeObserver;
 
     move-result-object v1
 
@@ -876,7 +889,7 @@
 
     sub-int v2, p5, p3
 
-    invoke-virtual {v0, v3, v3, v1, v2}, Landroid/view/ViewGroup;->layout(IIII)V
+    invoke-virtual {v0, v3, v3, v1, v2}, Landroid/widget/LinearLayout;->layout(IIII)V
 
     invoke-virtual {p0}, Landroid/widget/ActivityChooserView;->isShowingPopup()Z
 
@@ -897,7 +910,7 @@
 
     iget-object v1, p0, Landroid/widget/ActivityChooserView;->mDefaultActivityButton:Landroid/widget/FrameLayout;
 
-    invoke-virtual {v1}, Landroid/view/View;->getVisibility()I
+    invoke-virtual {v1}, Landroid/widget/FrameLayout;->getVisibility()I
 
     move-result v1
 
@@ -914,7 +927,7 @@
     move-result p2
 
     :cond_0
-    invoke-virtual {p0, v0, p1, p2}, Landroid/view/ViewGroup;->measureChild(Landroid/view/View;II)V
+    invoke-virtual {p0, v0, p1, p2}, Landroid/widget/ActivityChooserView;->measureChild(Landroid/view/View;II)V
 
     invoke-virtual {v0}, Landroid/view/View;->getMeasuredWidth()I
 
@@ -924,7 +937,7 @@
 
     move-result v2
 
-    invoke-virtual {p0, v1, v2}, Landroid/view/View;->setMeasuredDimension(II)V
+    invoke-virtual {p0, v1, v2}, Landroid/widget/ActivityChooserView;->setMeasuredDimension(II)V
 
     return-void
 .end method
@@ -961,7 +974,7 @@
 .method public setExpandActivityOverflowButtonContentDescription(I)V
     .locals 2
 
-    iget-object v1, p0, Landroid/view/View;->mContext:Landroid/content/Context;
+    iget-object v1, p0, Landroid/widget/ActivityChooserView;->mContext:Landroid/content/Context;
 
     invoke-virtual {v1, p1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -969,7 +982,7 @@
 
     iget-object v1, p0, Landroid/widget/ActivityChooserView;->mExpandActivityOverflowButtonImage:Landroid/widget/ImageView;
 
-    invoke-virtual {v1, v0}, Landroid/view/View;->setContentDescription(Ljava/lang/CharSequence;)V
+    invoke-virtual {v1, v0}, Landroid/widget/ImageView;->setContentDescription(Ljava/lang/CharSequence;)V
 
     return-void
 .end method
@@ -1021,8 +1034,14 @@
 
     iget-boolean v0, p0, Landroid/widget/ActivityChooserView;->mIsAttachedToWindow:Z
 
-    if-eqz v0, :cond_0
+    xor-int/lit8 v0, v0, 0x1
 
+    if-eqz v0, :cond_1
+
+    :cond_0
+    return v1
+
+    :cond_1
     iput-boolean v1, p0, Landroid/widget/ActivityChooserView;->mIsSelectingDefaultActivity:Z
 
     iget v0, p0, Landroid/widget/ActivityChooserView;->mInitialActivityCount:I
@@ -1032,7 +1051,4 @@
     const/4 v0, 0x1
 
     return v0
-
-    :cond_0
-    return v1
 .end method

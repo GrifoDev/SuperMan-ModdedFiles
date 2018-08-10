@@ -26,13 +26,13 @@
     return-void
 .end method
 
-.method public onConnParamsChanged(Landroid/bluetooth/BluetoothDevice;II)V
+.method public onConnectionStateChange(Landroid/bluetooth/BluetoothDevice;II)V
     .locals 0
 
     return-void
 .end method
 
-.method public onConnectionStateChange(Landroid/bluetooth/BluetoothDevice;II)V
+.method public onConnectionUpdated(Landroid/bluetooth/BluetoothDevice;IIII)V
     .locals 0
 
     return-void
@@ -63,6 +63,18 @@
 .end method
 
 .method public onNotificationSent(Landroid/bluetooth/BluetoothDevice;I)V
+    .locals 0
+
+    return-void
+.end method
+
+.method public onPhyRead(Landroid/bluetooth/BluetoothDevice;III)V
+    .locals 0
+
+    return-void
+.end method
+
+.method public onPhyUpdate(Landroid/bluetooth/BluetoothDevice;III)V
     .locals 0
 
     return-void

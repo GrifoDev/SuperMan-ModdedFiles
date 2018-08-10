@@ -63,7 +63,7 @@
     .end annotation
 .end method
 
-.method public abstract setCamera(Ljava/lang/String;)V
+.method public abstract setCamera(Ljava/lang/String;Ljava/lang/String;I)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

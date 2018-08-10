@@ -26,6 +26,8 @@
     .end annotation
 .end field
 
+.field private static final TAG:Ljava/lang/String; = "NetworkKey"
+
 .field public static final TYPE_WIFI:I = 0x1
 
 
@@ -130,6 +132,158 @@
     invoke-direct {p0, p1}, Landroid/net/NetworkKey;-><init>(Landroid/os/Parcel;)V
 
     return-void
+.end method
+
+.method public static createFromScanResult(Landroid/net/wifi/ScanResult;)Landroid/net/NetworkKey;
+    .locals 8
+
+    const/4 v7, 0x0
+
+    if-eqz p0, :cond_0
+
+    iget-object v4, p0, Landroid/net/wifi/ScanResult;->wifiSsid:Landroid/net/wifi/WifiSsid;
+
+    if-eqz v4, :cond_0
+
+    iget-object v4, p0, Landroid/net/wifi/ScanResult;->wifiSsid:Landroid/net/wifi/WifiSsid;
+
+    invoke-virtual {v4}, Landroid/net/wifi/WifiSsid;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    iget-object v0, p0, Landroid/net/wifi/ScanResult;->BSSID:Ljava/lang/String;
+
+    invoke-static {v2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v4
+
+    if-nez v4, :cond_0
+
+    const-string/jumbo v4, "<unknown ssid>"
+
+    invoke-virtual {v2, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    xor-int/lit8 v4, v4, 0x1
+
+    if-eqz v4, :cond_0
+
+    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v4
+
+    xor-int/lit8 v4, v4, 0x1
+
+    if-eqz v4, :cond_0
+
+    :try_start_0
+    new-instance v3, Landroid/net/WifiKey;
+
+    const-string/jumbo v4, "\"%s\""
+
+    const/4 v5, 0x1
+
+    new-array v5, v5, [Ljava/lang/Object;
+
+    const/4 v6, 0x0
+
+    aput-object v2, v5, v6
+
+    invoke-static {v4, v5}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-direct {v3, v4, v0}, Landroid/net/WifiKey;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+    :try_end_0
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
+
+    new-instance v4, Landroid/net/NetworkKey;
+
+    invoke-direct {v4, v3}, Landroid/net/NetworkKey;-><init>(Landroid/net/WifiKey;)V
+
+    return-object v4
+
+    :catch_0
+    move-exception v1
+
+    const-string/jumbo v4, "NetworkKey"
+
+    const-string/jumbo v5, "Unable to create WifiKey."
+
+    invoke-static {v4, v5, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    return-object v7
+
+    :cond_0
+    return-object v7
+.end method
+
+.method public static createFromWifiInfo(Landroid/net/wifi/WifiInfo;)Landroid/net/NetworkKey;
+    .locals 7
+
+    const/4 v6, 0x0
+
+    if-eqz p0, :cond_0
+
+    invoke-virtual {p0}, Landroid/net/wifi/WifiInfo;->getSSID()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {p0}, Landroid/net/wifi/WifiInfo;->getBSSID()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v4
+
+    if-nez v4, :cond_0
+
+    const-string/jumbo v4, "<unknown ssid>"
+
+    invoke-virtual {v2, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    xor-int/lit8 v4, v4, 0x1
+
+    if-eqz v4, :cond_0
+
+    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v4
+
+    xor-int/lit8 v4, v4, 0x1
+
+    if-eqz v4, :cond_0
+
+    :try_start_0
+    new-instance v3, Landroid/net/WifiKey;
+
+    invoke-direct {v3, v2, v0}, Landroid/net/WifiKey;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+    :try_end_0
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
+
+    new-instance v4, Landroid/net/NetworkKey;
+
+    invoke-direct {v4, v3}, Landroid/net/NetworkKey;-><init>(Landroid/net/WifiKey;)V
+
+    return-object v4
+
+    :catch_0
+    move-exception v1
+
+    const-string/jumbo v4, "NetworkKey"
+
+    const-string/jumbo v5, "Unable to create WifiKey."
+
+    invoke-static {v4, v5, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    return-object v6
+
+    :cond_0
+    return-object v6
 .end method
 
 

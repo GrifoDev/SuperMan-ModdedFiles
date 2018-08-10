@@ -43,7 +43,7 @@
 
     iget-object v4, p0, Landroid/media/MediaPlayer$1;->this$0:Landroid/media/MediaPlayer;
 
-    invoke-static {v4}, Landroid/media/MediaPlayer;->-get6(Landroid/media/MediaPlayer;)Ljava/util/Vector;
+    invoke-static {v4}, Landroid/media/MediaPlayer;->-get9(Landroid/media/MediaPlayer;)Ljava/util/Vector;
 
     move-result-object v5
 
@@ -52,7 +52,7 @@
     :try_start_0
     iget-object v4, p0, Landroid/media/MediaPlayer$1;->this$0:Landroid/media/MediaPlayer;
 
-    invoke-static {v4}, Landroid/media/MediaPlayer;->-get6(Landroid/media/MediaPlayer;)Ljava/util/Vector;
+    invoke-static {v4}, Landroid/media/MediaPlayer;->-get9(Landroid/media/MediaPlayer;)Ljava/util/Vector;
 
     move-result-object v4
 

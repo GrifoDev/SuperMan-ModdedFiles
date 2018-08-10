@@ -31,8 +31,6 @@
 
 .field public static final COLUMN_SUMMARY:Ljava/lang/String; = "summary"
 
-.field public static final FLAG_ARCHIVE:I = 0x8000
-
 .field public static final FLAG_DIR_PREFERS_GRID:I = 0x10
 
 .field public static final FLAG_DIR_PREFERS_LAST_MODIFIED:I = 0x20
@@ -51,11 +49,15 @@
 
 .field public static final FLAG_SUPPORTS_RENAME:I = 0x40
 
+.field public static final FLAG_SUPPORTS_SETTINGS:I = 0x800
+
 .field public static final FLAG_SUPPORTS_THUMBNAIL:I = 0x1
 
 .field public static final FLAG_SUPPORTS_WRITE:I = 0x2
 
 .field public static final FLAG_VIRTUAL_DOCUMENT:I = 0x200
+
+.field public static final FLAG_WEB_LINKABLE:I = 0x1000
 
 .field public static final MIME_TYPE_DIR:Ljava/lang/String; = "vnd.android.document/directory"
 

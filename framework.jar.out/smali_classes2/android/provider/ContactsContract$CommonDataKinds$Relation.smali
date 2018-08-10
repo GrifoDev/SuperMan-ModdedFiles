@@ -71,7 +71,11 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    xor-int/lit8 v1, v1, 0x1
+
+    if-eqz v1, :cond_0
+
+    return-object p2
 
     :cond_0
     invoke-static {p1}, Landroid/provider/ContactsContract$CommonDataKinds$Relation;->getTypeLabelResource(I)I
@@ -83,9 +87,6 @@
     move-result-object v1
 
     return-object v1
-
-    :cond_1
-    return-object p2
 .end method
 
 .method public static final getTypeLabelResource(I)I
@@ -93,77 +94,77 @@
 
     packed-switch p0, :pswitch_data_0
 
-    const v0, 0x104027a
+    const v0, 0x1040618
 
     return v0
 
     :pswitch_0
-    const v0, 0x104027c
+    const v0, 0x1040888
 
     return v0
 
     :pswitch_1
-    const v0, 0x104027d
+    const v0, 0x1040889
 
     return v0
 
     :pswitch_2
-    const v0, 0x104027e
+    const v0, 0x104088a
 
     return v0
 
     :pswitch_3
-    const v0, 0x104027f
+    const v0, 0x104088c
 
     return v0
 
     :pswitch_4
-    const v0, 0x1040280
+    const v0, 0x104088d
 
     return v0
 
     :pswitch_5
-    const v0, 0x1040281
+    const v0, 0x104088e
 
     return v0
 
     :pswitch_6
-    const v0, 0x1040282
+    const v0, 0x104088f
 
     return v0
 
     :pswitch_7
-    const v0, 0x1040283
+    const v0, 0x1040890
 
     return v0
 
     :pswitch_8
-    const v0, 0x1040284
+    const v0, 0x1040891
 
     return v0
 
     :pswitch_9
-    const v0, 0x1040285
+    const v0, 0x1040892
 
     return v0
 
     :pswitch_a
-    const v0, 0x1040286
+    const v0, 0x1040893
 
     return v0
 
     :pswitch_b
-    const v0, 0x1040287
+    const v0, 0x1040894
 
     return v0
 
     :pswitch_c
-    const v0, 0x1040288
+    const v0, 0x1040895
 
     return v0
 
     :pswitch_d
-    const v0, 0x1040289
+    const v0, 0x1040896
 
     return v0
 

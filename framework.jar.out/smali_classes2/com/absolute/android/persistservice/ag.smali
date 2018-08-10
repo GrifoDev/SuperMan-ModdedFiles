@@ -31,16 +31,16 @@
 .method public declared-synchronized handleMessage(Landroid/os/Message;)V
     .locals 4
 
-    const/4 v1, 0x3
+    const/4 v2, 0x3
 
     monitor-enter p0
 
     :try_start_0
-    iget v0, p1, Landroid/os/Message;->what:I
+    iget v1, p1, Landroid/os/Message;->what:I
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    if-eq v0, v1, :cond_1
+    if-eq v1, v2, :cond_1
 
     :cond_0
     :goto_0
@@ -50,49 +50,47 @@
 
     :cond_1
     :try_start_1
-    iget-object v0, p0, Lcom/absolute/android/persistservice/ag;->a:Lcom/absolute/android/persistservice/ae;
+    iget-object v1, p0, Lcom/absolute/android/persistservice/ag;->a:Lcom/absolute/android/persistservice/ae;
 
-    invoke-static {v0}, Lcom/absolute/android/persistservice/ae;->a(Lcom/absolute/android/persistservice/ae;)Z
+    invoke-static {v1}, Lcom/absolute/android/persistservice/ae;->a(Lcom/absolute/android/persistservice/ae;)Z
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    move-result v0
+    move-result v1
 
-    if-eqz v0, :cond_0
+    if-eqz v1, :cond_0
 
     :try_start_2
-    iget-object v0, p0, Lcom/absolute/android/persistservice/ag;->a:Lcom/absolute/android/persistservice/ae;
-
-    invoke-static {v0}, Lcom/absolute/android/persistservice/ae;->b(Lcom/absolute/android/persistservice/ae;)Lcom/absolute/android/persistence/IABTPing;
-
-    move-result-object v0
-
-    invoke-interface {v0}, Lcom/absolute/android/persistence/IABTPing;->ping()Z
-
-    iget-object v0, p0, Lcom/absolute/android/persistservice/ag;->a:Lcom/absolute/android/persistservice/ae;
-
-    invoke-static {v0}, Lcom/absolute/android/persistservice/ae;->d(Lcom/absolute/android/persistservice/ae;)Lcom/absolute/android/persistservice/l;
-
-    move-result-object v0
-
     iget-object v1, p0, Lcom/absolute/android/persistservice/ag;->a:Lcom/absolute/android/persistservice/ae;
 
-    invoke-static {v1}, Lcom/absolute/android/persistservice/ae;->c(Lcom/absolute/android/persistservice/ae;)Ljava/lang/String;
+    invoke-static {v1}, Lcom/absolute/android/persistservice/ae;->b(Lcom/absolute/android/persistservice/ae;)Lcom/absolute/android/persistence/IABTPing;
 
     move-result-object v1
 
-    invoke-virtual {v0, v1}, Lcom/absolute/android/persistservice/l;->c(Ljava/lang/String;)V
+    invoke-interface {v1}, Lcom/absolute/android/persistence/IABTPing;->ping()Z
+
+    iget-object v1, p0, Lcom/absolute/android/persistservice/ag;->a:Lcom/absolute/android/persistservice/ae;
+
+    invoke-static {v1}, Lcom/absolute/android/persistservice/ae;->d(Lcom/absolute/android/persistservice/ae;)Lcom/absolute/android/persistservice/l;
+
+    move-result-object v1
+
+    iget-object v2, p0, Lcom/absolute/android/persistservice/ag;->a:Lcom/absolute/android/persistservice/ae;
+
+    invoke-static {v2}, Lcom/absolute/android/persistservice/ae;->c(Lcom/absolute/android/persistservice/ae;)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Lcom/absolute/android/persistservice/l;->c(Ljava/lang/String;)V
     :try_end_2
     .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_0
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     :goto_1
-    const/4 v0, 0x3
+    const/4 v1, 0x3
 
     :try_start_3
-    invoke-virtual {p0, v0}, Landroid/os/Handler;->removeMessages(I)V
-
-    const/4 v0, 0x3
+    invoke-virtual {p0, v1}, Lcom/absolute/android/persistservice/ag;->removeMessages(I)V
 
     iget-object v1, p0, Lcom/absolute/android/persistservice/ag;->a:Lcom/absolute/android/persistservice/ae;
 
@@ -104,38 +102,40 @@
 
     int-to-long v2, v1
 
-    invoke-virtual {p0, v0, v2, v3}, Landroid/os/Handler;->sendEmptyMessageDelayed(IJ)Z
+    const/4 v1, 0x3
+
+    invoke-virtual {p0, v1, v2, v3}, Lcom/absolute/android/persistservice/ag;->sendEmptyMessageDelayed(IJ)Z
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
     goto :goto_0
 
     :catchall_0
-    move-exception v0
+    move-exception v1
 
     monitor-exit p0
 
-    throw v0
+    throw v1
 
     :catch_0
     move-exception v0
 
     :try_start_4
-    iget-object v0, p0, Lcom/absolute/android/persistservice/ag;->a:Lcom/absolute/android/persistservice/ae;
-
-    invoke-static {v0}, Lcom/absolute/android/persistservice/ae;->d(Lcom/absolute/android/persistservice/ae;)Lcom/absolute/android/persistservice/l;
-
-    move-result-object v0
-
     iget-object v1, p0, Lcom/absolute/android/persistservice/ag;->a:Lcom/absolute/android/persistservice/ae;
 
-    invoke-static {v1}, Lcom/absolute/android/persistservice/ae;->c(Lcom/absolute/android/persistservice/ae;)Ljava/lang/String;
+    invoke-static {v1}, Lcom/absolute/android/persistservice/ae;->d(Lcom/absolute/android/persistservice/ae;)Lcom/absolute/android/persistservice/l;
 
     move-result-object v1
 
-    const/4 v2, 0x1
+    iget-object v2, p0, Lcom/absolute/android/persistservice/ag;->a:Lcom/absolute/android/persistservice/ae;
 
-    invoke-virtual {v0, v1, v2}, Lcom/absolute/android/persistservice/l;->a(Ljava/lang/String;Z)V
+    invoke-static {v2}, Lcom/absolute/android/persistservice/ae;->c(Lcom/absolute/android/persistservice/ae;)Ljava/lang/String;
+
+    move-result-object v2
+
+    const/4 v3, 0x1
+
+    invoke-virtual {v1, v2, v3}, Lcom/absolute/android/persistservice/l;->a(Ljava/lang/String;Z)V
     :try_end_4
     .catchall {:try_start_4 .. :try_end_4} :catchall_0
 

@@ -59,282 +59,405 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 8
-
-    const/4 v5, 0x0
-
-    const/4 v4, 0x1
-
-    const/4 v1, 0x0
-
-    const-string/jumbo v0, "android.intent.action.BOOT_COMPLETED"
+    .locals 12
 
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v9
 
-    invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    const-string/jumbo v10, "android.intent.action.BOOT_COMPLETED"
 
-    move-result v0
+    invoke-virtual {v10, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    if-nez v0, :cond_1
+    move-result v9
+
+    if-nez v9, :cond_1
 
     :cond_0
     :goto_0
     return-void
 
     :cond_1
-    new-instance v0, Ljava/io/File;
+    new-instance v1, Ljava/io/File;
 
     invoke-static {}, Lcom/absolute/android/persistservice/ABTPersistenceService;->a()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v9
 
-    invoke-direct {v0, v2}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v9}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v0}, Ljava/io/File;->exists()Z
+    invoke-virtual {v1}, Ljava/io/File;->exists()Z
 
-    move-result v2
+    move-result v9
 
-    if-nez v2, :cond_3
+    if-nez v9, :cond_3
 
     :cond_2
-    iget-object v0, p0, Lcom/absolute/android/persistservice/c;->a:Lcom/absolute/android/persistservice/ABTPersistenceService;
+    iget-object v9, p0, Lcom/absolute/android/persistservice/c;->a:Lcom/absolute/android/persistservice/ABTPersistenceService;
 
-    invoke-static {v0}, Lcom/absolute/android/persistservice/ABTPersistenceService;->a(Lcom/absolute/android/persistservice/ABTPersistenceService;)Lcom/absolute/android/persistservice/v;
+    invoke-static {v9}, Lcom/absolute/android/persistservice/ABTPersistenceService;->a(Lcom/absolute/android/persistservice/ABTPersistenceService;)Lcom/absolute/android/persistservice/v;
 
-    move-result-object v0
+    move-result-object v9
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance v10, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v3, "Directory "
+    const-string/jumbo v11, "Directory "
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object v10
 
     invoke-static {}, Lcom/absolute/android/persistservice/ABTPersistenceService;->a()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v11
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object v10
 
-    const-string/jumbo v3, " is not mounted or not accessible."
+    const-string/jumbo v11, " is not mounted or not accessible."
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object v10
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v10
 
-    invoke-virtual {v0, v2, v5}, Lcom/absolute/android/persistservice/v;->a(Ljava/lang/String;Ljava/lang/Throwable;)V
+    const/4 v11, 0x0
+
+    invoke-virtual {v9, v10, v11}, Lcom/absolute/android/persistservice/v;->a(Ljava/lang/String;Ljava/lang/Throwable;)V
+
+    invoke-static {}, Lcom/absolute/android/utils/DeviceUtil;->getManufacturer()Ljava/lang/String;
+
+    move-result-object v9
+
+    const-string/jumbo v10, "samsung"
+
+    invoke-virtual {v9, v10}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v9
+
+    if-eqz v9, :cond_4
+
+    const/4 v9, 0x0
 
     :goto_1
-    iget-object v0, p0, Lcom/absolute/android/persistservice/c;->a:Lcom/absolute/android/persistservice/ABTPersistenceService;
+    invoke-static {v9}, Lcom/absolute/android/persistservice/ABTPersistenceService;->a(Z)Z
 
-    invoke-static {v0, v4}, Lcom/absolute/android/persistservice/ABTPersistenceService;->a(Lcom/absolute/android/persistservice/ABTPersistenceService;Z)V
+    invoke-static {}, Lcom/absolute/android/persistservice/ABTPersistenceService;->b()Z
 
-    iget-object v0, p0, Lcom/absolute/android/persistservice/c;->a:Lcom/absolute/android/persistservice/ABTPersistenceService;
+    move-result v9
 
-    iget-boolean v0, v0, Lcom/absolute/android/persistservice/ABTPersistenceService;->a:Z
-
-    if-nez v0, :cond_4
+    if-nez v9, :cond_5
 
     :goto_2
-    iget-object v0, p0, Lcom/absolute/android/persistservice/c;->a:Lcom/absolute/android/persistservice/ABTPersistenceService;
+    iget-object v9, p0, Lcom/absolute/android/persistservice/c;->a:Lcom/absolute/android/persistservice/ABTPersistenceService;
 
-    invoke-static {v0}, Lcom/absolute/android/persistservice/ABTPersistenceService;->b(Lcom/absolute/android/persistservice/ABTPersistenceService;)Lcom/absolute/android/persistservice/k;
+    const/4 v10, 0x1
 
-    move-result-object v0
+    invoke-static {v9, v10}, Lcom/absolute/android/persistservice/ABTPersistenceService;->a(Lcom/absolute/android/persistservice/ABTPersistenceService;Z)V
 
-    invoke-virtual {v0}, Lcom/absolute/android/persistservice/k;->b()I
+    iget-object v9, p0, Lcom/absolute/android/persistservice/c;->a:Lcom/absolute/android/persistservice/ABTPersistenceService;
 
-    move-result v0
+    iget-boolean v9, v9, Lcom/absolute/android/persistservice/ABTPersistenceService;->a:Z
 
-    if-nez v0, :cond_0
-
-    const/16 v0, 0x258
-
-    :try_start_0
-    new-instance v2, Ljava/io/File;
-
-    invoke-static {}, Lcom/absolute/android/persistservice/ABTPersistenceService;->b()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-direct {v2, v3}, Ljava/io/File;-><init>(Ljava/lang/String;)V
-
-    invoke-virtual {v2}, Ljava/io/File;->exists()Z
-    :try_end_0
-    .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
-
-    move-result v3
-
-    if-nez v3, :cond_5
+    if-nez v9, :cond_6
 
     :goto_3
-    iget-object v1, p0, Lcom/absolute/android/persistservice/c;->a:Lcom/absolute/android/persistservice/ABTPersistenceService;
+    iget-object v9, p0, Lcom/absolute/android/persistservice/c;->a:Lcom/absolute/android/persistservice/ABTPersistenceService;
 
-    invoke-static {v1}, Lcom/absolute/android/persistservice/ABTPersistenceService;->a(Lcom/absolute/android/persistservice/ABTPersistenceService;)Lcom/absolute/android/persistservice/v;
+    invoke-static {v9}, Lcom/absolute/android/persistservice/ABTPersistenceService;->b(Lcom/absolute/android/persistservice/ABTPersistenceService;)Lcom/absolute/android/persistservice/k;
 
-    move-result-object v1
+    move-result-object v9
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    invoke-virtual {v9}, Lcom/absolute/android/persistservice/k;->b()I
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    move-result v9
 
-    const-string/jumbo v3, "Total duration for sending PS_READY set to : "
+    if-nez v9, :cond_0
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const/16 v2, 0x258
 
-    move-result-object v2
+    :try_start_0
+    new-instance v4, Ljava/io/File;
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-static {}, Lcom/absolute/android/persistservice/ABTPersistenceService;->c()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v9
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-direct {v4, v9}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    move-result-object v2
+    invoke-virtual {v4}, Ljava/io/File;->exists()Z
+    :try_end_0
+    .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_1
 
-    invoke-virtual {v1, v2}, Lcom/absolute/android/persistservice/v;->c(Ljava/lang/String;)V
+    move-result v9
 
-    if-lez v0, :cond_0
+    if-nez v9, :cond_7
 
-    iget-object v1, p0, Lcom/absolute/android/persistservice/c;->a:Lcom/absolute/android/persistservice/ABTPersistenceService;
+    :goto_4
+    iget-object v9, p0, Lcom/absolute/android/persistservice/c;->a:Lcom/absolute/android/persistservice/ABTPersistenceService;
 
-    invoke-static {v1, v0}, Lcom/absolute/android/persistservice/ABTPersistenceService;->a(Lcom/absolute/android/persistservice/ABTPersistenceService;I)V
+    invoke-static {v9}, Lcom/absolute/android/persistservice/ABTPersistenceService;->a(Lcom/absolute/android/persistservice/ABTPersistenceService;)Lcom/absolute/android/persistservice/v;
+
+    move-result-object v9
+
+    new-instance v10, Ljava/lang/StringBuilder;
+
+    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v11, "Total duration for sending PS_READY set to : "
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-virtual {v9, v10}, Lcom/absolute/android/persistservice/v;->c(Ljava/lang/String;)V
+
+    if-lez v2, :cond_0
+
+    iget-object v9, p0, Lcom/absolute/android/persistservice/c;->a:Lcom/absolute/android/persistservice/ABTPersistenceService;
+
+    invoke-static {v9, v2}, Lcom/absolute/android/persistservice/ABTPersistenceService;->a(Lcom/absolute/android/persistservice/ABTPersistenceService;I)V
 
     goto/16 :goto_0
 
     :cond_3
-    invoke-virtual {v0}, Ljava/io/File;->canRead()Z
+    invoke-virtual {v1}, Ljava/io/File;->canRead()Z
 
-    move-result v2
+    move-result v9
 
-    if-eqz v2, :cond_2
+    if-eqz v9, :cond_2
 
-    invoke-virtual {v0}, Ljava/io/File;->canWrite()Z
+    invoke-virtual {v1}, Ljava/io/File;->canWrite()Z
 
-    move-result v0
+    move-result v9
 
-    if-eqz v0, :cond_2
-
-    goto :goto_1
-
-    :cond_4
-    iget-object v0, p0, Lcom/absolute/android/persistservice/c;->a:Lcom/absolute/android/persistservice/ABTPersistenceService;
-
-    invoke-static {v0, v4}, Lcom/absolute/android/persistservice/ABTPersistenceService;->b(Lcom/absolute/android/persistservice/ABTPersistenceService;Z)V
+    if-eqz v9, :cond_2
 
     goto :goto_2
 
+    :cond_4
+    const/4 v9, 0x1
+
+    goto :goto_1
+
     :cond_5
     :try_start_1
-    new-instance v3, Lcom/absolute/android/persistservice/b;
+    iget-object v9, p0, Lcom/absolute/android/persistservice/c;->a:Lcom/absolute/android/persistservice/ABTPersistenceService;
 
-    iget-object v4, p0, Lcom/absolute/android/persistservice/c;->a:Lcom/absolute/android/persistservice/ABTPersistenceService;
+    invoke-static {v9}, Lcom/absolute/android/persistservice/ABTPersistenceService;->c(Lcom/absolute/android/persistservice/ABTPersistenceService;)Landroid/content/Context;
 
-    invoke-direct {v3, v4}, Lcom/absolute/android/persistservice/b;-><init>(Lcom/absolute/android/persistservice/ABTPersistenceService;)V
+    move-result-object v9
 
-    invoke-virtual {v2, v3}, Ljava/io/File;->list(Ljava/io/FilenameFilter;)[Ljava/lang/String;
+    const-string/jumbo v10, "power"
 
-    move-result-object v2
-
-    if-nez v2, :cond_7
-
-    :cond_6
-    move v0, v1
-
-    goto :goto_3
-
-    :cond_7
-    array-length v3, v2
-
-    if-lez v3, :cond_6
-
-    array-length v3, v2
-
-    :goto_4
-    if-lt v1, v3, :cond_8
-
-    const v0, 0x15180
-
-    goto :goto_3
-
-    :cond_8
-    aget-object v4, v2, v1
-
-    iget-object v5, p0, Lcom/absolute/android/persistservice/c;->a:Lcom/absolute/android/persistservice/ABTPersistenceService;
-
-    invoke-static {v5}, Lcom/absolute/android/persistservice/ABTPersistenceService;->a(Lcom/absolute/android/persistservice/ABTPersistenceService;)Lcom/absolute/android/persistservice/v;
-
-    move-result-object v5
-
-    new-instance v6, Ljava/lang/StringBuilder;
-
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v7, "Absolute pre-install App: "
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-virtual {v5, v4}, Lcom/absolute/android/persistservice/v;->c(Ljava/lang/String;)V
-    :try_end_1
-    .catch Ljava/lang/Throwable; {:try_start_1 .. :try_end_1} :catch_0
-
-    add-int/lit8 v1, v1, 0x1
-
-    goto :goto_4
-
-    :catch_0
-    move-exception v1
-
-    iget-object v2, p0, Lcom/absolute/android/persistservice/c;->a:Lcom/absolute/android/persistservice/ABTPersistenceService;
-
-    invoke-static {v2}, Lcom/absolute/android/persistservice/ABTPersistenceService;->a(Lcom/absolute/android/persistservice/ABTPersistenceService;)Lcom/absolute/android/persistservice/v;
-
-    move-result-object v2
-
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v4, "Exception checking for pre-install apps: "
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v9, v10}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v3
 
-    invoke-virtual {v1}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
+    check-cast v3, Landroid/os/PowerManager;
 
-    move-result-object v1
+    new-instance v9, Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
 
-    move-result-object v1
+    const-string/jumbo v10, "Directory "
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object v9
 
-    invoke-virtual {v2, v1}, Lcom/absolute/android/persistservice/v;->b(Ljava/lang/String;)V
+    invoke-static {}, Lcom/absolute/android/persistservice/ABTPersistenceService;->a()Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    const-string/jumbo v10, " is not mounted or not accessible."
+
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-virtual {v3, v9}, Landroid/os/PowerManager;->reboot(Ljava/lang/String;)V
+    :try_end_1
+    .catch Ljava/lang/Throwable; {:try_start_1 .. :try_end_1} :catch_0
+
+    goto/16 :goto_2
+
+    :catch_0
+    move-exception v3
+
+    iget-object v9, p0, Lcom/absolute/android/persistservice/c;->a:Lcom/absolute/android/persistservice/ABTPersistenceService;
+
+    invoke-static {v9}, Lcom/absolute/android/persistservice/ABTPersistenceService;->a(Lcom/absolute/android/persistservice/ABTPersistenceService;)Lcom/absolute/android/persistservice/v;
+
+    move-result-object v9
+
+    new-instance v10, Ljava/lang/StringBuilder;
+
+    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v11, "Failed to reboot due to no access to "
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-static {}, Lcom/absolute/android/persistservice/ABTPersistenceService;->a()Ljava/lang/String;
+
+    move-result-object v11
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    const-string/jumbo v11, ". Got exception: "
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-virtual {v9, v10, v3}, Lcom/absolute/android/persistservice/v;->a(Ljava/lang/String;Ljava/lang/Throwable;)V
+
+    goto/16 :goto_2
+
+    :cond_6
+    iget-object v9, p0, Lcom/absolute/android/persistservice/c;->a:Lcom/absolute/android/persistservice/ABTPersistenceService;
+
+    const/4 v10, 0x1
+
+    invoke-static {v9, v10}, Lcom/absolute/android/persistservice/ABTPersistenceService;->b(Lcom/absolute/android/persistservice/ABTPersistenceService;Z)V
 
     goto/16 :goto_3
+
+    :cond_7
+    :try_start_2
+    new-instance v9, Lcom/absolute/android/persistservice/b;
+
+    iget-object v10, p0, Lcom/absolute/android/persistservice/c;->a:Lcom/absolute/android/persistservice/ABTPersistenceService;
+
+    invoke-direct {v9, v10}, Lcom/absolute/android/persistservice/b;-><init>(Lcom/absolute/android/persistservice/ABTPersistenceService;)V
+
+    invoke-virtual {v4, v9}, Ljava/io/File;->list(Ljava/io/FilenameFilter;)[Ljava/lang/String;
+
+    move-result-object v5
+
+    if-nez v5, :cond_9
+
+    :cond_8
+    const/4 v2, 0x0
+
+    goto/16 :goto_4
+
+    :cond_9
+    array-length v9, v5
+
+    if-lez v9, :cond_8
+
+    move-object v6, v5
+
+    array-length v7, v5
+
+    const/4 v8, 0x0
+
+    :goto_5
+    if-lt v8, v7, :cond_a
+
+    const v2, 0x15180
+
+    goto/16 :goto_4
+
+    :cond_a
+    aget-object v0, v5, v8
+
+    iget-object v9, p0, Lcom/absolute/android/persistservice/c;->a:Lcom/absolute/android/persistservice/ABTPersistenceService;
+
+    invoke-static {v9}, Lcom/absolute/android/persistservice/ABTPersistenceService;->a(Lcom/absolute/android/persistservice/ABTPersistenceService;)Lcom/absolute/android/persistservice/v;
+
+    move-result-object v9
+
+    new-instance v10, Ljava/lang/StringBuilder;
+
+    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v11, "Absolute pre-install App: "
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-virtual {v9, v10}, Lcom/absolute/android/persistservice/v;->c(Ljava/lang/String;)V
+    :try_end_2
+    .catch Ljava/lang/Throwable; {:try_start_2 .. :try_end_2} :catch_1
+
+    add-int/lit8 v8, v8, 0x1
+
+    goto :goto_5
+
+    :catch_1
+    move-exception v4
+
+    iget-object v9, p0, Lcom/absolute/android/persistservice/c;->a:Lcom/absolute/android/persistservice/ABTPersistenceService;
+
+    invoke-static {v9}, Lcom/absolute/android/persistservice/ABTPersistenceService;->a(Lcom/absolute/android/persistservice/ABTPersistenceService;)Lcom/absolute/android/persistservice/v;
+
+    move-result-object v9
+
+    new-instance v10, Ljava/lang/StringBuilder;
+
+    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v11, "Exception checking for pre-install apps: "
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v4}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
+
+    move-result-object v11
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-virtual {v9, v10}, Lcom/absolute/android/persistservice/v;->b(Ljava/lang/String;)V
+
+    goto/16 :goto_4
 .end method

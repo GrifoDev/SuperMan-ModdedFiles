@@ -64,7 +64,7 @@
 
     invoke-virtual {v1, v2}, Landroid/graphics/Canvas;->setDrawFilter(Landroid/graphics/DrawFilter;)V
 
-    invoke-virtual {p1}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p1}, Landroid/app/LauncherActivity;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
@@ -108,13 +108,11 @@
 
     move-object v5, p1
 
-    nop
+    check-cast v5, Landroid/graphics/drawable/PaintDrawable;
 
-    nop
+    invoke-virtual {v5, v8}, Landroid/graphics/drawable/PaintDrawable;->setIntrinsicWidth(I)V
 
-    invoke-virtual {v5, v8}, Landroid/graphics/drawable/ShapeDrawable;->setIntrinsicWidth(I)V
-
-    invoke-virtual {v5, v2}, Landroid/graphics/drawable/ShapeDrawable;->setIntrinsicHeight(I)V
+    invoke-virtual {v5, v2}, Landroid/graphics/drawable/PaintDrawable;->setIntrinsicHeight(I)V
 
     :cond_0
     if-lez v8, :cond_3
@@ -201,7 +199,7 @@
 
     iget-object v11, p0, Landroid/app/LauncherActivity$IconResizer;->this$0:Landroid/app/LauncherActivity;
 
-    invoke-virtual {v11}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {v11}, Landroid/app/LauncherActivity;->getResources()Landroid/content/res/Resources;
 
     move-result-object v11
 
@@ -280,7 +278,7 @@
 
     iget-object v11, p0, Landroid/app/LauncherActivity$IconResizer;->this$0:Landroid/app/LauncherActivity;
 
-    invoke-virtual {v11}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {v11}, Landroid/app/LauncherActivity;->getResources()Landroid/content/res/Resources;
 
     move-result-object v11
 

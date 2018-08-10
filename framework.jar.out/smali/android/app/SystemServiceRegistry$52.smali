@@ -17,7 +17,7 @@
     value = {
         "Landroid/app/SystemServiceRegistry$CachedServiceFetcher",
         "<",
-        "Landroid/app/BarBeamCommandImpl;",
+        "Landroid/os/Vibrator;",
         ">;"
     }
 .end annotation
@@ -34,30 +34,25 @@
 
 
 # virtual methods
-.method public createService(Landroid/app/ContextImpl;)Landroid/app/BarBeamCommandImpl;
-    .locals 3
+.method public createService(Landroid/app/ContextImpl;)Landroid/os/Vibrator;
+    .locals 1
 
-    const-string/jumbo v2, "barbeam"
+    new-instance v0, Landroid/os/SystemVibrator;
 
-    invoke-static {v2}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
+    invoke-direct {v0, p1}, Landroid/os/SystemVibrator;-><init>(Landroid/content/Context;)V
 
-    move-result-object v0
-
-    invoke-static {v0}, Landroid/app/IBarBeamService$Stub;->asInterface(Landroid/os/IBinder;)Landroid/app/IBarBeamService;
-
-    move-result-object v1
-
-    new-instance v2, Landroid/app/BarBeamCommandImpl;
-
-    invoke-direct {v2, v1}, Landroid/app/BarBeamCommandImpl;-><init>(Landroid/app/IBarBeamService;)V
-
-    return-object v2
+    return-object v0
 .end method
 
 .method public bridge synthetic createService(Landroid/app/ContextImpl;)Ljava/lang/Object;
     .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/ServiceManager$ServiceNotFoundException;
+        }
+    .end annotation
 
-    invoke-virtual {p0, p1}, Landroid/app/SystemServiceRegistry$52;->createService(Landroid/app/ContextImpl;)Landroid/app/BarBeamCommandImpl;
+    invoke-virtual {p0, p1}, Landroid/app/SystemServiceRegistry$52;->createService(Landroid/app/ContextImpl;)Landroid/os/Vibrator;
 
     move-result-object v0
 

@@ -112,7 +112,7 @@
 
     iget-object v1, p0, Landroid/accounts/AccountManager$BaseFutureTask;->this$0:Landroid/accounts/AccountManager;
 
-    invoke-static {v1}, Landroid/accounts/AccountManager;->-get2(Landroid/accounts/AccountManager;)Landroid/os/Handler;
+    invoke-static {v1}, Landroid/accounts/AccountManager;->-get3(Landroid/accounts/AccountManager;)Landroid/os/Handler;
 
     move-result-object v0
 

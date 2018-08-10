@@ -57,10 +57,6 @@
 .method protected varargs doInBackground([Ljava/lang/Void;)Landroid/graphics/drawable/Drawable;
     .locals 2
 
-    const/4 v0, -0x4
-
-    invoke-static {v0}, Landroid/os/Process;->setThreadPriority(I)V
-
     iget-object v0, p0, Lcom/android/internal/app/ResolverActivity$LoadIconTask;->this$0:Lcom/android/internal/app/ResolverActivity;
 
     iget-object v1, p0, Lcom/android/internal/app/ResolverActivity$LoadIconTask;->mResolveInfo:Landroid/content/pm/ResolveInfo;

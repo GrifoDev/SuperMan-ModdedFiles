@@ -70,8 +70,6 @@
 
 .field private final mWpsListener:Landroid/location/LocationListener;
 
-.field private sLm:Lcom/samsung/android/location/SemLocationManager;
-
 
 # direct methods
 .method static synthetic -get0(Lcom/samsung/android/contextaware/utilbundle/CaCurrentPositionManager;)I
@@ -1006,16 +1004,6 @@
 
     iput-boolean v0, p0, Lcom/samsung/android/contextaware/utilbundle/CaCurrentPositionManager;->mEnable:Z
 
-    const-string/jumbo v0, "sec_location"
-
-    invoke-virtual {p1, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/samsung/android/location/SemLocationManager;
-
-    iput-object v0, p0, Lcom/samsung/android/contextaware/utilbundle/CaCurrentPositionManager;->sLm:Lcom/samsung/android/location/SemLocationManager;
-
     new-instance v0, Landroid/content/IntentFilter;
 
     invoke-direct {v0}, Landroid/content/IntentFilter;-><init>()V
@@ -1136,136 +1124,15 @@
 .end method
 
 .method protected removeCurrentLoc()V
-    .locals 5
+    .locals 0
 
-    const/4 v4, 0x0
-
-    iget-object v0, p0, Lcom/samsung/android/contextaware/utilbundle/CaCurrentPositionManager;->sLm:Lcom/samsung/android/location/SemLocationManager;
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/samsung/android/contextaware/utilbundle/CaCurrentPositionManager;->sLm:Lcom/samsung/android/location/SemLocationManager;
-
-    sget-object v1, Lcom/samsung/android/contextaware/utilbundle/CaCurrentPositionManager;->mContext:Landroid/content/Context;
-
-    new-instance v2, Landroid/content/Intent;
-
-    const-string/jumbo v3, "com.samsung.android.contextaware.SLOCATION"
-
-    invoke-direct {v2, v3}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
-
-    invoke-static {v1, v4, v2, v4}, Landroid/app/PendingIntent;->getBroadcast(Landroid/content/Context;ILandroid/content/Intent;I)Landroid/app/PendingIntent;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Lcom/samsung/android/location/SemLocationManager;->removeSingleLocation(Landroid/app/PendingIntent;)I
-
-    const-string/jumbo v0, "Remove CurL"
-
-    invoke-static {v0}, Lcom/samsung/android/contextaware/utilbundle/logger/CaLogger;->debug(Ljava/lang/String;)V
-
-    :cond_0
     return-void
 .end method
 
 .method protected requestCurrentLoc(I)V
-    .locals 8
+    .locals 0
 
-    const/4 v7, 0x0
-
-    const/4 v0, 0x0
-
-    iget-object v2, p0, Lcom/samsung/android/contextaware/utilbundle/CaCurrentPositionManager;->sLm:Lcom/samsung/android/location/SemLocationManager;
-
-    if-eqz v2, :cond_2
-
-    iget-object v2, p0, Lcom/samsung/android/contextaware/utilbundle/CaCurrentPositionManager;->sLm:Lcom/samsung/android/location/SemLocationManager;
-
-    iget v3, p0, Lcom/samsung/android/contextaware/utilbundle/CaCurrentPositionManager;->ACCURACY_CurrentLoc:I
-
-    sget-object v4, Lcom/samsung/android/contextaware/utilbundle/CaCurrentPositionManager;->mContext:Landroid/content/Context;
-
-    new-instance v5, Landroid/content/Intent;
-
-    const-string/jumbo v6, "com.samsung.android.contextaware.SLOCATION"
-
-    invoke-direct {v5, v6}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
-
-    invoke-static {v4, v7, v5, v7}, Landroid/app/PendingIntent;->getBroadcast(Landroid/content/Context;ILandroid/content/Intent;I)Landroid/app/PendingIntent;
-
-    move-result-object v4
-
-    invoke-virtual {v2, v3, p1, v7, v4}, Lcom/samsung/android/location/SemLocationManager;->requestSingleLocation(IIZLandroid/app/PendingIntent;)I
-
-    move-result v1
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v3, "result of SLM req : "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v2}, Lcom/samsung/android/contextaware/utilbundle/logger/CaLogger;->debug(Ljava/lang/String;)V
-
-    const/4 v2, -0x1
-
-    if-le v1, v2, :cond_0
-
-    const/4 v0, 0x1
-
-    iget v2, p0, Lcom/samsung/android/contextaware/utilbundle/CaCurrentPositionManager;->LocRequestSource:I
-
-    or-int/lit8 v2, v2, 0x2
-
-    iput v2, p0, Lcom/samsung/android/contextaware/utilbundle/CaCurrentPositionManager;->LocRequestSource:I
-
-    sget-object v2, Lcom/samsung/android/contextaware/utilbundle/CaCurrentPositionManager;->mContext:Landroid/content/Context;
-
-    iget-object v3, p0, Lcom/samsung/android/contextaware/utilbundle/CaCurrentPositionManager;->mBrReceiver:Landroid/content/BroadcastReceiver;
-
-    iget-object v4, p0, Lcom/samsung/android/contextaware/utilbundle/CaCurrentPositionManager;->filter:Landroid/content/IntentFilter;
-
-    invoke-virtual {v2, v3, v4}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
-
-    const-string/jumbo v2, "Request CurL"
-
-    invoke-static {v2}, Lcom/samsung/android/contextaware/utilbundle/logger/CaLogger;->debug(Ljava/lang/String;)V
-
-    :cond_0
-    :goto_0
-    if-nez v0, :cond_1
-
-    invoke-direct {p0}, Lcom/samsung/android/contextaware/utilbundle/CaCurrentPositionManager;->registerGpsListener()V
-
-    invoke-direct {p0}, Lcom/samsung/android/contextaware/utilbundle/CaCurrentPositionManager;->registerWpsListener()V
-
-    iget v2, p0, Lcom/samsung/android/contextaware/utilbundle/CaCurrentPositionManager;->LocRequestSource:I
-
-    or-int/lit8 v2, v2, 0x1
-
-    iput v2, p0, Lcom/samsung/android/contextaware/utilbundle/CaCurrentPositionManager;->LocRequestSource:I
-
-    :cond_1
     return-void
-
-    :cond_2
-    const-string/jumbo v2, "requestSingleL err - sLm is null "
-
-    invoke-static {v2}, Lcom/samsung/android/contextaware/utilbundle/logger/CaLogger;->error(Ljava/lang/String;)V
-
-    goto :goto_0
 .end method
 
 .method public final terminateManager()V

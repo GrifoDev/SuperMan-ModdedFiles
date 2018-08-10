@@ -45,49 +45,49 @@
 
     move-result v1
 
-    invoke-virtual {v0, v1}, Lcom/samsung/android/gesture/SemMotionRecognitionEvent;->setMotion(I)V
+    invoke-virtual {v0, v1}, Landroid/hardware/motion/MREvent;->setMotion(I)V
 
     invoke-virtual {p1}, Lcom/samsung/android/gesture/SemMotionRecognitionEvent;->getTilt()I
 
     move-result v1
 
-    invoke-virtual {v0, v1}, Lcom/samsung/android/gesture/SemMotionRecognitionEvent;->setTilt(I)V
+    invoke-virtual {v0, v1}, Landroid/hardware/motion/MREvent;->setTilt(I)V
 
     invoke-virtual {p1}, Lcom/samsung/android/gesture/SemMotionRecognitionEvent;->getPanningDx()I
 
     move-result v1
 
-    invoke-virtual {v0, v1}, Lcom/samsung/android/gesture/SemMotionRecognitionEvent;->setPanningDx(I)V
+    invoke-virtual {v0, v1}, Landroid/hardware/motion/MREvent;->setPanningDx(I)V
 
     invoke-virtual {p1}, Lcom/samsung/android/gesture/SemMotionRecognitionEvent;->getPanningDy()I
 
     move-result v1
 
-    invoke-virtual {v0, v1}, Lcom/samsung/android/gesture/SemMotionRecognitionEvent;->setPanningDy(I)V
+    invoke-virtual {v0, v1}, Landroid/hardware/motion/MREvent;->setPanningDy(I)V
 
     invoke-virtual {p1}, Lcom/samsung/android/gesture/SemMotionRecognitionEvent;->getPanningDz()I
 
     move-result v1
 
-    invoke-virtual {v0, v1}, Lcom/samsung/android/gesture/SemMotionRecognitionEvent;->setPanningDz(I)V
+    invoke-virtual {v0, v1}, Landroid/hardware/motion/MREvent;->setPanningDz(I)V
 
     invoke-virtual {p1}, Lcom/samsung/android/gesture/SemMotionRecognitionEvent;->getPanningDxImage()I
 
     move-result v1
 
-    invoke-virtual {v0, v1}, Lcom/samsung/android/gesture/SemMotionRecognitionEvent;->setPanningDxImage(I)V
+    invoke-virtual {v0, v1}, Landroid/hardware/motion/MREvent;->setPanningDxImage(I)V
 
     invoke-virtual {p1}, Lcom/samsung/android/gesture/SemMotionRecognitionEvent;->getPanningDyImage()I
 
     move-result v1
 
-    invoke-virtual {v0, v1}, Lcom/samsung/android/gesture/SemMotionRecognitionEvent;->setPanningDyImage(I)V
+    invoke-virtual {v0, v1}, Landroid/hardware/motion/MREvent;->setPanningDyImage(I)V
 
     invoke-virtual {p1}, Lcom/samsung/android/gesture/SemMotionRecognitionEvent;->getPanningDzImage()I
 
     move-result v1
 
-    invoke-virtual {v0, v1}, Lcom/samsung/android/gesture/SemMotionRecognitionEvent;->setPanningDzImage(I)V
+    invoke-virtual {v0, v1}, Landroid/hardware/motion/MREvent;->setPanningDzImage(I)V
 
     iget-object v1, p0, Landroid/hardware/motion/MotionRecognitionManager$ListenerDelegate$1;->this$1:Landroid/hardware/motion/MotionRecognitionManager$ListenerDelegate;
 

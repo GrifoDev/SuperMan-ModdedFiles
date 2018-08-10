@@ -68,9 +68,7 @@
 
     move-object v2, v1
 
-    nop
-
-    nop
+    check-cast v2, Landroid/app/assist/AssistStructure$ParcelTransferWriter;
 
     invoke-virtual {v2, v0, p3}, Landroid/app/assist/AssistStructure$ParcelTransferWriter;->writeToParcel(Landroid/app/assist/AssistStructure;Landroid/os/Parcel;)V
 

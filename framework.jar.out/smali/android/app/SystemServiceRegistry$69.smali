@@ -17,7 +17,7 @@
     value = {
         "Landroid/app/SystemServiceRegistry$CachedServiceFetcher",
         "<",
-        "Landroid/hardware/ConsumerIrManager;",
+        "Landroid/companion/CompanionDeviceManager;",
         ">;"
     }
 .end annotation
@@ -34,20 +34,44 @@
 
 
 # virtual methods
-.method public createService(Landroid/app/ContextImpl;)Landroid/hardware/ConsumerIrManager;
-    .locals 1
+.method public createService(Landroid/app/ContextImpl;)Landroid/companion/CompanionDeviceManager;
+    .locals 4
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/ServiceManager$ServiceNotFoundException;
+        }
+    .end annotation
 
-    new-instance v0, Landroid/hardware/ConsumerIrManager;
+    const-string/jumbo v2, "companiondevice"
 
-    invoke-direct {v0, p1}, Landroid/hardware/ConsumerIrManager;-><init>(Landroid/content/Context;)V
+    invoke-static {v2}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
 
-    return-object v0
+    move-result-object v0
+
+    invoke-static {v0}, Landroid/companion/ICompanionDeviceManager$Stub;->asInterface(Landroid/os/IBinder;)Landroid/companion/ICompanionDeviceManager;
+
+    move-result-object v1
+
+    new-instance v2, Landroid/companion/CompanionDeviceManager;
+
+    invoke-virtual {p1}, Landroid/app/ContextImpl;->getOuterContext()Landroid/content/Context;
+
+    move-result-object v3
+
+    invoke-direct {v2, v1, v3}, Landroid/companion/CompanionDeviceManager;-><init>(Landroid/companion/ICompanionDeviceManager;Landroid/content/Context;)V
+
+    return-object v2
 .end method
 
 .method public bridge synthetic createService(Landroid/app/ContextImpl;)Ljava/lang/Object;
     .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/ServiceManager$ServiceNotFoundException;
+        }
+    .end annotation
 
-    invoke-virtual {p0, p1}, Landroid/app/SystemServiceRegistry$69;->createService(Landroid/app/ContextImpl;)Landroid/hardware/ConsumerIrManager;
+    invoke-virtual {p0, p1}, Landroid/app/SystemServiceRegistry$69;->createService(Landroid/app/ContextImpl;)Landroid/companion/CompanionDeviceManager;
 
     move-result-object v0
 

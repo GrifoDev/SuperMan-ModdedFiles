@@ -322,7 +322,7 @@
 
     iget-object v2, p0, Landroid/renderscript/ProgramVertexFixedFunction$Builder;->mShader:Ljava/lang/String;
 
-    invoke-virtual {v1, v2}, Landroid/renderscript/Program$BaseProgramBuilder;->setShader(Ljava/lang/String;)Landroid/renderscript/Program$BaseProgramBuilder;
+    invoke-virtual {v1, v2}, Landroid/renderscript/ProgramVertexFixedFunction$InternalBuilder;->setShader(Ljava/lang/String;)Landroid/renderscript/Program$BaseProgramBuilder;
 
     iget-object v2, p0, Landroid/renderscript/ProgramVertexFixedFunction$Builder;->mRS:Landroid/renderscript/RenderScript;
 
@@ -330,7 +330,7 @@
 
     move-result-object v2
 
-    invoke-virtual {v1, v2}, Landroid/renderscript/Program$BaseProgramBuilder;->addConstant(Landroid/renderscript/Type;)Landroid/renderscript/Program$BaseProgramBuilder;
+    invoke-virtual {v1, v2}, Landroid/renderscript/ProgramVertexFixedFunction$InternalBuilder;->addConstant(Landroid/renderscript/Type;)Landroid/renderscript/Program$BaseProgramBuilder;
 
     new-instance v0, Landroid/renderscript/Element$Builder;
 

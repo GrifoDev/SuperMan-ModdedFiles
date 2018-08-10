@@ -33,3 +33,23 @@
         }
     .end annotation
 .end method
+
+.method public abstract createHighSpeedRequestList(Landroid/hardware/camera2/CaptureRequest;I)Ljava/util/List;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Landroid/hardware/camera2/CaptureRequest;",
+            "I)",
+            "Ljava/util/List",
+            "<",
+            "Landroid/hardware/camera2/CaptureRequest;",
+            ">;"
+        }
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/hardware/camera2/CameraAccessException;
+        }
+    .end annotation
+.end method

@@ -23,22 +23,6 @@
     .end annotation
 .end method
 
-.method public abstract checkHistory(II)Ljava/lang/String;
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract dumpLog()[B
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
 .method public abstract getEventList(I)Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {

@@ -12,7 +12,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x2
     name = "SpanController"
 .end annotation
 
@@ -38,12 +38,20 @@
     return-void
 .end method
 
-.method constructor <init>(Landroid/widget/Editor;)V
+.method private constructor <init>(Landroid/widget/Editor;)V
     .locals 0
 
     iput-object p1, p0, Landroid/widget/Editor$SpanController;->this$0:Landroid/widget/Editor;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    return-void
+.end method
+
+.method synthetic constructor <init>(Landroid/widget/Editor;Landroid/widget/Editor$SpanController;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Landroid/widget/Editor$SpanController;-><init>(Landroid/widget/Editor;)V
 
     return-void
 .end method
@@ -96,7 +104,7 @@
 
     iget-object v3, p0, Landroid/widget/Editor$SpanController;->this$0:Landroid/widget/Editor;
 
-    invoke-static {v3}, Landroid/widget/Editor;->-get13(Landroid/widget/Editor;)Landroid/widget/TextView;
+    invoke-static {v3}, Landroid/widget/Editor;->-get14(Landroid/widget/Editor;)Landroid/widget/TextView;
 
     move-result-object v3
 
@@ -141,7 +149,7 @@
 
     iget-object v0, p0, Landroid/widget/Editor$SpanController;->this$0:Landroid/widget/Editor;
 
-    invoke-static {v0}, Landroid/widget/Editor;->-get13(Landroid/widget/Editor;)Landroid/widget/TextView;
+    invoke-static {v0}, Landroid/widget/Editor;->-get14(Landroid/widget/Editor;)Landroid/widget/TextView;
 
     move-result-object v0
 
@@ -168,7 +176,7 @@
 
     iget-object v0, p0, Landroid/widget/Editor$SpanController;->this$0:Landroid/widget/Editor;
 
-    invoke-static {v0}, Landroid/widget/Editor;->-wrap24(Landroid/widget/Editor;)V
+    invoke-static {v0}, Landroid/widget/Editor;->-wrap23(Landroid/widget/Editor;)V
 
     :cond_0
     :goto_0
@@ -231,7 +239,7 @@
 
     iget-object v0, p0, Landroid/widget/Editor$SpanController;->this$0:Landroid/widget/Editor;
 
-    invoke-static {v0}, Landroid/widget/Editor;->-get13(Landroid/widget/Editor;)Landroid/widget/TextView;
+    invoke-static {v0}, Landroid/widget/Editor;->-get14(Landroid/widget/Editor;)Landroid/widget/TextView;
 
     move-result-object v0
 
@@ -246,7 +254,7 @@
     :cond_4
     iget-object v0, p0, Landroid/widget/Editor$SpanController;->this$0:Landroid/widget/Editor;
 
-    invoke-static {v0}, Landroid/widget/Editor;->-get13(Landroid/widget/Editor;)Landroid/widget/TextView;
+    invoke-static {v0}, Landroid/widget/Editor;->-get14(Landroid/widget/Editor;)Landroid/widget/TextView;
 
     move-result-object v0
 
@@ -261,7 +269,7 @@
     :cond_5
     iget-object v0, p0, Landroid/widget/Editor$SpanController;->this$0:Landroid/widget/Editor;
 
-    invoke-virtual {v0}, Landroid/widget/Editor;->extractedTextModeWillBeStarted()Z
+    invoke-static {v0}, Landroid/widget/Editor;->-wrap5(Landroid/widget/Editor;)Z
 
     move-result v0
 
@@ -276,7 +284,7 @@
 
     iget-object v0, p0, Landroid/widget/Editor$SpanController;->this$0:Landroid/widget/Editor;
 
-    invoke-static {v0}, Landroid/widget/Editor;->-get13(Landroid/widget/Editor;)Landroid/widget/TextView;
+    invoke-static {v0}, Landroid/widget/Editor;->-get14(Landroid/widget/Editor;)Landroid/widget/TextView;
 
     move-result-object v0
 
@@ -286,7 +294,7 @@
 
     iget-object v0, p0, Landroid/widget/Editor$SpanController;->this$0:Landroid/widget/Editor;
 
-    invoke-static {v0}, Landroid/widget/Editor;->-get13(Landroid/widget/Editor;)Landroid/widget/TextView;
+    invoke-static {v0}, Landroid/widget/Editor;->-get14(Landroid/widget/Editor;)Landroid/widget/TextView;
 
     move-result-object v0
 
@@ -310,7 +318,7 @@
 
     iget-object v1, p0, Landroid/widget/Editor$SpanController;->this$0:Landroid/widget/Editor;
 
-    invoke-static {v1}, Landroid/widget/Editor;->-wrap24(Landroid/widget/Editor;)V
+    invoke-static {v1}, Landroid/widget/Editor;->-wrap23(Landroid/widget/Editor;)V
 
     :cond_0
     :goto_0
@@ -349,7 +357,7 @@
 
     iget-object v0, p0, Landroid/widget/Editor$SpanController;->this$0:Landroid/widget/Editor;
 
-    invoke-static {v0}, Landroid/widget/Editor;->-wrap24(Landroid/widget/Editor;)V
+    invoke-static {v0}, Landroid/widget/Editor;->-wrap23(Landroid/widget/Editor;)V
 
     :cond_0
     :goto_0

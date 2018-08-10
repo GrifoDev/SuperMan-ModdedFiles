@@ -13,6 +13,8 @@
 
 
 # static fields
+.field public static final DEBUG_ENABLE:Z
+
 .field public static final DEBUG_LOG_SLOW_QUERIES:Z
 
 .field public static final DEBUG_SQL_LOG:Z
@@ -53,6 +55,10 @@
     sput-boolean v0, Landroid/database/sqlite/SQLiteDebug;->DEBUG_SQL_TIME:Z
 
     sget-boolean v0, Landroid/os/Build;->IS_DEBUGGABLE:Z
+
+    sput-boolean v0, Landroid/database/sqlite/SQLiteDebug;->DEBUG_ENABLE:Z
+
+    sget-boolean v0, Landroid/database/sqlite/SQLiteDebug;->DEBUG_ENABLE:Z
 
     sput-boolean v0, Landroid/database/sqlite/SQLiteDebug;->DEBUG_LOG_SLOW_QUERIES:Z
 

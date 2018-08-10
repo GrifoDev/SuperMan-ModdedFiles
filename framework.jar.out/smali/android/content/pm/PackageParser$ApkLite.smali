@@ -19,11 +19,19 @@
 
 .field public final codePath:Ljava/lang/String;
 
+.field public final configForSplit:Ljava/lang/String;
+
 .field public final coreApp:Z
+
+.field public final debuggable:Z
 
 .field public final extractNativeLibs:Z
 
 .field public final installLocation:I
+
+.field public isFeatureSplit:Z
+
+.field public final isolatedSplits:Z
 
 .field public final multiArch:Z
 
@@ -37,18 +45,23 @@
 
 .field public final use32bitAbi:Z
 
+.field public final usesSplitName:Ljava/lang/String;
+
 .field public final verifiers:[Landroid/content/pm/VerifierInfo;
 
 .field public final versionCode:I
 
 
 # direct methods
-.method public constructor <init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;IIILjava/util/List;[Landroid/content/pm/Signature;[[Ljava/security/cert/Certificate;ZZZZ)V
-    .locals 1
+.method public constructor <init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZLjava/lang/String;Ljava/lang/String;IIILjava/util/List;[Landroid/content/pm/Signature;[[Ljava/security/cert/Certificate;ZZZZZZ)V
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Ljava/lang/String;",
+            "Ljava/lang/String;",
+            "Ljava/lang/String;",
+            "Z",
             "Ljava/lang/String;",
             "Ljava/lang/String;",
             "III",
@@ -59,7 +72,7 @@
             "Landroid/content/pm/Signature;",
             "[[",
             "Ljava/security/cert/Certificate;",
-            "ZZZZ)V"
+            "ZZZZZZ)V"
         }
     .end annotation
 
@@ -71,37 +84,57 @@
 
     iput-object p3, p0, Landroid/content/pm/PackageParser$ApkLite;->splitName:Ljava/lang/String;
 
-    iput p4, p0, Landroid/content/pm/PackageParser$ApkLite;->versionCode:I
+    iput-boolean p4, p0, Landroid/content/pm/PackageParser$ApkLite;->isFeatureSplit:Z
 
-    iput p5, p0, Landroid/content/pm/PackageParser$ApkLite;->revisionCode:I
+    iput-object p5, p0, Landroid/content/pm/PackageParser$ApkLite;->configForSplit:Ljava/lang/String;
 
-    iput p6, p0, Landroid/content/pm/PackageParser$ApkLite;->installLocation:I
+    iput-object p6, p0, Landroid/content/pm/PackageParser$ApkLite;->usesSplitName:Ljava/lang/String;
 
-    invoke-interface {p7}, Ljava/util/List;->size()I
+    iput p7, p0, Landroid/content/pm/PackageParser$ApkLite;->versionCode:I
 
-    move-result v0
+    iput p8, p0, Landroid/content/pm/PackageParser$ApkLite;->revisionCode:I
 
-    new-array v0, v0, [Landroid/content/pm/VerifierInfo;
+    iput p9, p0, Landroid/content/pm/PackageParser$ApkLite;->installLocation:I
 
-    invoke-interface {p7, v0}, Ljava/util/List;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
+    invoke-interface {p10}, Ljava/util/List;->size()I
 
-    move-result-object v0
+    move-result v1
 
-    check-cast v0, [Landroid/content/pm/VerifierInfo;
+    new-array v1, v1, [Landroid/content/pm/VerifierInfo;
 
-    iput-object v0, p0, Landroid/content/pm/PackageParser$ApkLite;->verifiers:[Landroid/content/pm/VerifierInfo;
+    invoke-interface {p10, v1}, Ljava/util/List;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
 
-    iput-object p8, p0, Landroid/content/pm/PackageParser$ApkLite;->signatures:[Landroid/content/pm/Signature;
+    move-result-object v1
 
-    iput-object p9, p0, Landroid/content/pm/PackageParser$ApkLite;->certificates:[[Ljava/security/cert/Certificate;
+    check-cast v1, [Landroid/content/pm/VerifierInfo;
 
-    iput-boolean p10, p0, Landroid/content/pm/PackageParser$ApkLite;->coreApp:Z
+    iput-object v1, p0, Landroid/content/pm/PackageParser$ApkLite;->verifiers:[Landroid/content/pm/VerifierInfo;
 
-    iput-boolean p11, p0, Landroid/content/pm/PackageParser$ApkLite;->multiArch:Z
+    iput-object p11, p0, Landroid/content/pm/PackageParser$ApkLite;->signatures:[Landroid/content/pm/Signature;
 
-    iput-boolean p12, p0, Landroid/content/pm/PackageParser$ApkLite;->use32bitAbi:Z
+    iput-object p12, p0, Landroid/content/pm/PackageParser$ApkLite;->certificates:[[Ljava/security/cert/Certificate;
 
-    iput-boolean p13, p0, Landroid/content/pm/PackageParser$ApkLite;->extractNativeLibs:Z
+    iput-boolean p13, p0, Landroid/content/pm/PackageParser$ApkLite;->coreApp:Z
+
+    move/from16 v0, p14
+
+    iput-boolean v0, p0, Landroid/content/pm/PackageParser$ApkLite;->debuggable:Z
+
+    move/from16 v0, p15
+
+    iput-boolean v0, p0, Landroid/content/pm/PackageParser$ApkLite;->multiArch:Z
+
+    move/from16 v0, p16
+
+    iput-boolean v0, p0, Landroid/content/pm/PackageParser$ApkLite;->use32bitAbi:Z
+
+    move/from16 v0, p17
+
+    iput-boolean v0, p0, Landroid/content/pm/PackageParser$ApkLite;->extractNativeLibs:Z
+
+    move/from16 v0, p18
+
+    iput-boolean v0, p0, Landroid/content/pm/PackageParser$ApkLite;->isolatedSplits:Z
 
     return-void
 .end method

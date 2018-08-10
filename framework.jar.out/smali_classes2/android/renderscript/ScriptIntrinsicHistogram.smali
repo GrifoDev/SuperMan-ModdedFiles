@@ -37,10 +37,44 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    xor-int/lit8 v3, v3, 0x1
+
+    if-eqz v3, :cond_0
+
+    invoke-static {p0}, Landroid/renderscript/Element;->U8_2(Landroid/renderscript/RenderScript;)Landroid/renderscript/Element;
+
+    move-result-object v3
+
+    invoke-virtual {p1, v3}, Landroid/renderscript/Element;->isCompatible(Landroid/renderscript/Element;)Z
+
+    move-result v3
+
+    xor-int/lit8 v3, v3, 0x1
+
+    if-eqz v3, :cond_0
+
+    invoke-static {p0}, Landroid/renderscript/Element;->U8(Landroid/renderscript/RenderScript;)Landroid/renderscript/Element;
+
+    move-result-object v3
+
+    invoke-virtual {p1, v3}, Landroid/renderscript/Element;->isCompatible(Landroid/renderscript/Element;)Z
+
+    move-result v3
+
+    xor-int/lit8 v3, v3, 0x1
+
+    if-eqz v3, :cond_0
+
+    new-instance v3, Landroid/renderscript/RSIllegalArgumentException;
+
+    const-string/jumbo v4, "Unsupported element type."
+
+    invoke-direct {v3, v4}, Landroid/renderscript/RSIllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v3
 
     :cond_0
-    invoke-virtual {p1, p0}, Landroid/renderscript/BaseObj;->getID(Landroid/renderscript/RenderScript;)J
+    invoke-virtual {p1, p0}, Landroid/renderscript/Element;->getID(Landroid/renderscript/RenderScript;)J
 
     move-result-wide v4
 
@@ -55,35 +89,6 @@
     invoke-direct {v2, v0, v1, p0}, Landroid/renderscript/ScriptIntrinsicHistogram;-><init>(JLandroid/renderscript/RenderScript;)V
 
     return-object v2
-
-    :cond_1
-    invoke-static {p0}, Landroid/renderscript/Element;->U8_2(Landroid/renderscript/RenderScript;)Landroid/renderscript/Element;
-
-    move-result-object v3
-
-    invoke-virtual {p1, v3}, Landroid/renderscript/Element;->isCompatible(Landroid/renderscript/Element;)Z
-
-    move-result v3
-
-    if-nez v3, :cond_0
-
-    invoke-static {p0}, Landroid/renderscript/Element;->U8(Landroid/renderscript/RenderScript;)Landroid/renderscript/Element;
-
-    move-result-object v3
-
-    invoke-virtual {p1, v3}, Landroid/renderscript/Element;->isCompatible(Landroid/renderscript/Element;)Z
-
-    move-result v3
-
-    if-nez v3, :cond_0
-
-    new-instance v3, Landroid/renderscript/RSIllegalArgumentException;
-
-    const-string/jumbo v4, "Unsuported element type."
-
-    invoke-direct {v3, v4}, Landroid/renderscript/RSIllegalArgumentException;-><init>(Ljava/lang/String;)V
-
-    throw v3
 .end method
 
 
@@ -148,7 +153,7 @@
 
     move-result-object v0
 
-    iget-object v1, p0, Landroid/renderscript/BaseObj;->mRS:Landroid/renderscript/RenderScript;
+    iget-object v1, p0, Landroid/renderscript/ScriptIntrinsicHistogram;->mRS:Landroid/renderscript/RenderScript;
 
     invoke-static {v1}, Landroid/renderscript/Element;->U8(Landroid/renderscript/RenderScript;)Landroid/renderscript/Element;
 
@@ -168,7 +173,7 @@
 
     move-result-object v0
 
-    iget-object v1, p0, Landroid/renderscript/BaseObj;->mRS:Landroid/renderscript/RenderScript;
+    iget-object v1, p0, Landroid/renderscript/ScriptIntrinsicHistogram;->mRS:Landroid/renderscript/RenderScript;
 
     invoke-static {v1}, Landroid/renderscript/Element;->U8_2(Landroid/renderscript/RenderScript;)Landroid/renderscript/Element;
 
@@ -178,7 +183,61 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    xor-int/lit8 v0, v0, 0x1
+
+    if-eqz v0, :cond_1
+
+    invoke-virtual {p1}, Landroid/renderscript/Allocation;->getType()Landroid/renderscript/Type;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/renderscript/Type;->getElement()Landroid/renderscript/Element;
+
+    move-result-object v0
+
+    iget-object v1, p0, Landroid/renderscript/ScriptIntrinsicHistogram;->mRS:Landroid/renderscript/RenderScript;
+
+    invoke-static {v1}, Landroid/renderscript/Element;->U8_3(Landroid/renderscript/RenderScript;)Landroid/renderscript/Element;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Landroid/renderscript/Element;->isCompatible(Landroid/renderscript/Element;)Z
+
+    move-result v0
+
+    xor-int/lit8 v0, v0, 0x1
+
+    if-eqz v0, :cond_1
+
+    invoke-virtual {p1}, Landroid/renderscript/Allocation;->getType()Landroid/renderscript/Type;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/renderscript/Type;->getElement()Landroid/renderscript/Element;
+
+    move-result-object v0
+
+    iget-object v1, p0, Landroid/renderscript/ScriptIntrinsicHistogram;->mRS:Landroid/renderscript/RenderScript;
+
+    invoke-static {v1}, Landroid/renderscript/Element;->U8_4(Landroid/renderscript/RenderScript;)Landroid/renderscript/Element;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Landroid/renderscript/Element;->isCompatible(Landroid/renderscript/Element;)Z
+
+    move-result v0
+
+    xor-int/lit8 v0, v0, 0x1
+
+    if-eqz v0, :cond_1
+
+    new-instance v0, Landroid/renderscript/RSIllegalArgumentException;
+
+    const-string/jumbo v1, "Input type must be U8, U8_1, U8_2 or U8_4."
+
+    invoke-direct {v0, v1}, Landroid/renderscript/RSIllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v0
 
     :cond_1
     const/4 v1, 0x0
@@ -191,58 +250,9 @@
 
     move-object v5, p2
 
-    invoke-virtual/range {v0 .. v5}, Landroid/renderscript/Script;->forEach(ILandroid/renderscript/Allocation;Landroid/renderscript/Allocation;Landroid/renderscript/FieldPacker;Landroid/renderscript/Script$LaunchOptions;)V
+    invoke-virtual/range {v0 .. v5}, Landroid/renderscript/ScriptIntrinsicHistogram;->forEach(ILandroid/renderscript/Allocation;Landroid/renderscript/Allocation;Landroid/renderscript/FieldPacker;Landroid/renderscript/Script$LaunchOptions;)V
 
     return-void
-
-    :cond_2
-    invoke-virtual {p1}, Landroid/renderscript/Allocation;->getType()Landroid/renderscript/Type;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/renderscript/Type;->getElement()Landroid/renderscript/Element;
-
-    move-result-object v0
-
-    iget-object v1, p0, Landroid/renderscript/BaseObj;->mRS:Landroid/renderscript/RenderScript;
-
-    invoke-static {v1}, Landroid/renderscript/Element;->U8_3(Landroid/renderscript/RenderScript;)Landroid/renderscript/Element;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Landroid/renderscript/Element;->isCompatible(Landroid/renderscript/Element;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_1
-
-    invoke-virtual {p1}, Landroid/renderscript/Allocation;->getType()Landroid/renderscript/Type;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/renderscript/Type;->getElement()Landroid/renderscript/Element;
-
-    move-result-object v0
-
-    iget-object v1, p0, Landroid/renderscript/BaseObj;->mRS:Landroid/renderscript/RenderScript;
-
-    invoke-static {v1}, Landroid/renderscript/Element;->U8_4(Landroid/renderscript/RenderScript;)Landroid/renderscript/Element;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Landroid/renderscript/Element;->isCompatible(Landroid/renderscript/Element;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_1
-
-    new-instance v0, Landroid/renderscript/RSIllegalArgumentException;
-
-    const-string/jumbo v1, "Input type must be U8, U8_1, U8_2 or U8_4."
-
-    invoke-direct {v0, v1}, Landroid/renderscript/RSIllegalArgumentException;-><init>(Ljava/lang/String;)V
-
-    throw v0
 .end method
 
 .method public forEach_Dot(Landroid/renderscript/Allocation;)V
@@ -295,7 +305,7 @@
 
     move-result-object v0
 
-    iget-object v2, p0, Landroid/renderscript/BaseObj;->mRS:Landroid/renderscript/RenderScript;
+    iget-object v2, p0, Landroid/renderscript/ScriptIntrinsicHistogram;->mRS:Landroid/renderscript/RenderScript;
 
     invoke-static {v2}, Landroid/renderscript/Element;->U8(Landroid/renderscript/RenderScript;)Landroid/renderscript/Element;
 
@@ -315,7 +325,7 @@
 
     move-result-object v0
 
-    iget-object v2, p0, Landroid/renderscript/BaseObj;->mRS:Landroid/renderscript/RenderScript;
+    iget-object v2, p0, Landroid/renderscript/ScriptIntrinsicHistogram;->mRS:Landroid/renderscript/RenderScript;
 
     invoke-static {v2}, Landroid/renderscript/Element;->U8_2(Landroid/renderscript/RenderScript;)Landroid/renderscript/Element;
 
@@ -325,7 +335,61 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    xor-int/lit8 v0, v0, 0x1
+
+    if-eqz v0, :cond_1
+
+    invoke-virtual {p1}, Landroid/renderscript/Allocation;->getType()Landroid/renderscript/Type;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/renderscript/Type;->getElement()Landroid/renderscript/Element;
+
+    move-result-object v0
+
+    iget-object v2, p0, Landroid/renderscript/ScriptIntrinsicHistogram;->mRS:Landroid/renderscript/RenderScript;
+
+    invoke-static {v2}, Landroid/renderscript/Element;->U8_3(Landroid/renderscript/RenderScript;)Landroid/renderscript/Element;
+
+    move-result-object v2
+
+    invoke-virtual {v0, v2}, Landroid/renderscript/Element;->isCompatible(Landroid/renderscript/Element;)Z
+
+    move-result v0
+
+    xor-int/lit8 v0, v0, 0x1
+
+    if-eqz v0, :cond_1
+
+    invoke-virtual {p1}, Landroid/renderscript/Allocation;->getType()Landroid/renderscript/Type;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/renderscript/Type;->getElement()Landroid/renderscript/Element;
+
+    move-result-object v0
+
+    iget-object v2, p0, Landroid/renderscript/ScriptIntrinsicHistogram;->mRS:Landroid/renderscript/RenderScript;
+
+    invoke-static {v2}, Landroid/renderscript/Element;->U8_4(Landroid/renderscript/RenderScript;)Landroid/renderscript/Element;
+
+    move-result-object v2
+
+    invoke-virtual {v0, v2}, Landroid/renderscript/Element;->isCompatible(Landroid/renderscript/Element;)Z
+
+    move-result v0
+
+    xor-int/lit8 v0, v0, 0x1
+
+    if-eqz v0, :cond_1
+
+    new-instance v0, Landroid/renderscript/RSIllegalArgumentException;
+
+    const-string/jumbo v1, "Input type must be U8, U8_1, U8_2 or U8_4."
+
+    invoke-direct {v0, v1}, Landroid/renderscript/RSIllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v0
 
     :cond_1
     move-object v0, p0
@@ -336,58 +400,9 @@
 
     move-object v5, p2
 
-    invoke-virtual/range {v0 .. v5}, Landroid/renderscript/Script;->forEach(ILandroid/renderscript/Allocation;Landroid/renderscript/Allocation;Landroid/renderscript/FieldPacker;Landroid/renderscript/Script$LaunchOptions;)V
+    invoke-virtual/range {v0 .. v5}, Landroid/renderscript/ScriptIntrinsicHistogram;->forEach(ILandroid/renderscript/Allocation;Landroid/renderscript/Allocation;Landroid/renderscript/FieldPacker;Landroid/renderscript/Script$LaunchOptions;)V
 
     return-void
-
-    :cond_2
-    invoke-virtual {p1}, Landroid/renderscript/Allocation;->getType()Landroid/renderscript/Type;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/renderscript/Type;->getElement()Landroid/renderscript/Element;
-
-    move-result-object v0
-
-    iget-object v2, p0, Landroid/renderscript/BaseObj;->mRS:Landroid/renderscript/RenderScript;
-
-    invoke-static {v2}, Landroid/renderscript/Element;->U8_3(Landroid/renderscript/RenderScript;)Landroid/renderscript/Element;
-
-    move-result-object v2
-
-    invoke-virtual {v0, v2}, Landroid/renderscript/Element;->isCompatible(Landroid/renderscript/Element;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_1
-
-    invoke-virtual {p1}, Landroid/renderscript/Allocation;->getType()Landroid/renderscript/Type;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/renderscript/Type;->getElement()Landroid/renderscript/Element;
-
-    move-result-object v0
-
-    iget-object v2, p0, Landroid/renderscript/BaseObj;->mRS:Landroid/renderscript/RenderScript;
-
-    invoke-static {v2}, Landroid/renderscript/Element;->U8_4(Landroid/renderscript/RenderScript;)Landroid/renderscript/Element;
-
-    move-result-object v2
-
-    invoke-virtual {v0, v2}, Landroid/renderscript/Element;->isCompatible(Landroid/renderscript/Element;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_1
-
-    new-instance v0, Landroid/renderscript/RSIllegalArgumentException;
-
-    const-string/jumbo v1, "Input type must be U8, U8_1, U8_2 or U8_4."
-
-    invoke-direct {v0, v1}, Landroid/renderscript/RSIllegalArgumentException;-><init>(Ljava/lang/String;)V
-
-    throw v0
 .end method
 
 .method public getFieldID_Input()Landroid/renderscript/Script$FieldID;
@@ -397,7 +412,7 @@
 
     const/4 v1, 0x0
 
-    invoke-virtual {p0, v0, v1}, Landroid/renderscript/Script;->createFieldID(ILandroid/renderscript/Element;)Landroid/renderscript/Script$FieldID;
+    invoke-virtual {p0, v0, v1}, Landroid/renderscript/ScriptIntrinsicHistogram;->createFieldID(ILandroid/renderscript/Element;)Landroid/renderscript/Script$FieldID;
 
     move-result-object v0
 
@@ -413,7 +428,7 @@
 
     const/4 v1, 0x3
 
-    invoke-virtual {p0, v0, v1, v2, v2}, Landroid/renderscript/Script;->createKernelID(IILandroid/renderscript/Element;Landroid/renderscript/Element;)Landroid/renderscript/Script$KernelID;
+    invoke-virtual {p0, v0, v1, v2, v2}, Landroid/renderscript/ScriptIntrinsicHistogram;->createKernelID(IILandroid/renderscript/Element;Landroid/renderscript/Element;)Landroid/renderscript/Script$KernelID;
 
     move-result-object v0
 
@@ -488,7 +503,7 @@
 
     const/4 v1, 0x0
 
-    invoke-virtual {p0, v1, v0}, Landroid/renderscript/Script;->setVar(ILandroid/renderscript/FieldPacker;)V
+    invoke-virtual {p0, v1, v0}, Landroid/renderscript/ScriptIntrinsicHistogram;->setVar(ILandroid/renderscript/FieldPacker;)V
 
     return-void
 .end method
@@ -508,7 +523,7 @@
 
     move-result-object v0
 
-    iget-object v1, p0, Landroid/renderscript/BaseObj;->mRS:Landroid/renderscript/RenderScript;
+    iget-object v1, p0, Landroid/renderscript/ScriptIntrinsicHistogram;->mRS:Landroid/renderscript/RenderScript;
 
     invoke-static {v1}, Landroid/renderscript/Element;->U32(Landroid/renderscript/RenderScript;)Landroid/renderscript/Element;
 
@@ -526,7 +541,7 @@
 
     move-result-object v0
 
-    iget-object v1, p0, Landroid/renderscript/BaseObj;->mRS:Landroid/renderscript/RenderScript;
+    iget-object v1, p0, Landroid/renderscript/ScriptIntrinsicHistogram;->mRS:Landroid/renderscript/RenderScript;
 
     invoke-static {v1}, Landroid/renderscript/Element;->U32_2(Landroid/renderscript/RenderScript;)Landroid/renderscript/Element;
 
@@ -544,7 +559,7 @@
 
     move-result-object v0
 
-    iget-object v1, p0, Landroid/renderscript/BaseObj;->mRS:Landroid/renderscript/RenderScript;
+    iget-object v1, p0, Landroid/renderscript/ScriptIntrinsicHistogram;->mRS:Landroid/renderscript/RenderScript;
 
     invoke-static {v1}, Landroid/renderscript/Element;->U32_3(Landroid/renderscript/RenderScript;)Landroid/renderscript/Element;
 
@@ -562,7 +577,7 @@
 
     move-result-object v0
 
-    iget-object v1, p0, Landroid/renderscript/BaseObj;->mRS:Landroid/renderscript/RenderScript;
+    iget-object v1, p0, Landroid/renderscript/ScriptIntrinsicHistogram;->mRS:Landroid/renderscript/RenderScript;
 
     invoke-static {v1}, Landroid/renderscript/Element;->U32_4(Landroid/renderscript/RenderScript;)Landroid/renderscript/Element;
 
@@ -580,7 +595,7 @@
 
     move-result-object v0
 
-    iget-object v1, p0, Landroid/renderscript/BaseObj;->mRS:Landroid/renderscript/RenderScript;
+    iget-object v1, p0, Landroid/renderscript/ScriptIntrinsicHistogram;->mRS:Landroid/renderscript/RenderScript;
 
     invoke-static {v1}, Landroid/renderscript/Element;->I32(Landroid/renderscript/RenderScript;)Landroid/renderscript/Element;
 
@@ -598,7 +613,7 @@
 
     move-result-object v0
 
-    iget-object v1, p0, Landroid/renderscript/BaseObj;->mRS:Landroid/renderscript/RenderScript;
+    iget-object v1, p0, Landroid/renderscript/ScriptIntrinsicHistogram;->mRS:Landroid/renderscript/RenderScript;
 
     invoke-static {v1}, Landroid/renderscript/Element;->I32_2(Landroid/renderscript/RenderScript;)Landroid/renderscript/Element;
 
@@ -616,7 +631,7 @@
 
     move-result-object v0
 
-    iget-object v1, p0, Landroid/renderscript/BaseObj;->mRS:Landroid/renderscript/RenderScript;
+    iget-object v1, p0, Landroid/renderscript/ScriptIntrinsicHistogram;->mRS:Landroid/renderscript/RenderScript;
 
     invoke-static {v1}, Landroid/renderscript/Element;->I32_3(Landroid/renderscript/RenderScript;)Landroid/renderscript/Element;
 
@@ -634,7 +649,7 @@
 
     move-result-object v0
 
-    iget-object v1, p0, Landroid/renderscript/BaseObj;->mRS:Landroid/renderscript/RenderScript;
+    iget-object v1, p0, Landroid/renderscript/ScriptIntrinsicHistogram;->mRS:Landroid/renderscript/RenderScript;
 
     invoke-static {v1}, Landroid/renderscript/Element;->I32_4(Landroid/renderscript/RenderScript;)Landroid/renderscript/Element;
 
@@ -713,7 +728,7 @@
 
     const/4 v0, 0x1
 
-    invoke-virtual {p0, v0, p1}, Landroid/renderscript/Script;->setVar(ILandroid/renderscript/BaseObj;)V
+    invoke-virtual {p0, v0, p1}, Landroid/renderscript/ScriptIntrinsicHistogram;->setVar(ILandroid/renderscript/BaseObj;)V
 
     return-void
 .end method

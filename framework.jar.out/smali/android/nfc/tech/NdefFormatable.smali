@@ -97,16 +97,16 @@
         }
     .end annotation
 
-    invoke-virtual {p0}, Landroid/nfc/tech/BasicTagTechnology;->checkConnected()V
+    invoke-virtual {p0}, Landroid/nfc/tech/NdefFormatable;->checkConnected()V
 
     :try_start_0
-    iget-object v4, p0, Landroid/nfc/tech/BasicTagTechnology;->mTag:Landroid/nfc/Tag;
+    iget-object v4, p0, Landroid/nfc/tech/NdefFormatable;->mTag:Landroid/nfc/Tag;
 
     invoke-virtual {v4}, Landroid/nfc/Tag;->getServiceHandle()I
 
     move-result v2
 
-    iget-object v4, p0, Landroid/nfc/tech/BasicTagTechnology;->mTag:Landroid/nfc/Tag;
+    iget-object v4, p0, Landroid/nfc/tech/NdefFormatable;->mTag:Landroid/nfc/Tag;
 
     invoke-virtual {v4}, Landroid/nfc/Tag;->getTagService()Landroid/nfc/INfcTag;
 
@@ -172,10 +172,14 @@
     :cond_1
     if-nez p1, :cond_2
 
-    if-eqz p2, :cond_3
+    xor-int/lit8 v4, p2, 0x1
+
+    if-eqz v4, :cond_2
+
+    return-void
 
     :cond_2
-    if-eqz p1, :cond_4
+    if-eqz p1, :cond_3
 
     invoke-interface {v3, v2, p1}, Landroid/nfc/INfcTag;->ndefWrite(ILandroid/nfc/NdefMessage;)I
 
@@ -188,9 +192,6 @@
     invoke-direct {v4}, Ljava/io/IOException;-><init>()V
 
     throw v4
-
-    :cond_3
-    return-void
 
     :sswitch_4
     new-instance v4, Ljava/io/IOException;
@@ -206,7 +207,7 @@
 
     throw v4
 
-    :cond_4
+    :cond_3
     :sswitch_6
     if-eqz p2, :cond_0
 

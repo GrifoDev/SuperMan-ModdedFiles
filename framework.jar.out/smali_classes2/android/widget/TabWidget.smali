@@ -20,8 +20,6 @@
 
 .field private final mBounds:Landroid/graphics/Rect;
 
-.field private mChangedTheme:Z
-
 .field private mDefaultTextSize:F
 
 .field private mDrawBottomStrips:Z
@@ -87,49 +85,49 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;II)V
-    .locals 18
+    .locals 17
 
     invoke-direct/range {p0 .. p4}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;II)V
 
-    new-instance v13, Landroid/graphics/Rect;
+    new-instance v12, Landroid/graphics/Rect;
 
-    invoke-direct {v13}, Landroid/graphics/Rect;-><init>()V
-
-    move-object/from16 v0, p0
-
-    iput-object v13, v0, Landroid/widget/TabWidget;->mBounds:Landroid/graphics/Rect;
-
-    const/4 v13, -0x1
+    invoke-direct {v12}, Landroid/graphics/Rect;-><init>()V
 
     move-object/from16 v0, p0
 
-    iput v13, v0, Landroid/widget/TabWidget;->mSelectedTab:I
+    iput-object v12, v0, Landroid/widget/TabWidget;->mBounds:Landroid/graphics/Rect;
 
-    const/4 v13, 0x1
-
-    move-object/from16 v0, p0
-
-    iput-boolean v13, v0, Landroid/widget/TabWidget;->mDrawBottomStrips:Z
-
-    const/4 v13, -0x1
+    const/4 v12, -0x1
 
     move-object/from16 v0, p0
 
-    iput v13, v0, Landroid/widget/TabWidget;->mImposedTabsHeight:I
+    iput v12, v0, Landroid/widget/TabWidget;->mSelectedTab:I
 
-    const/high16 v13, 0x41600000    # 14.0f
-
-    move-object/from16 v0, p0
-
-    iput v13, v0, Landroid/widget/TabWidget;->mDefaultTextSize:F
-
-    const v13, 0x3f99999a    # 1.2f
+    const/4 v12, 0x1
 
     move-object/from16 v0, p0
 
-    iput v13, v0, Landroid/widget/TabWidget;->mMaxFontScale:F
+    iput-boolean v12, v0, Landroid/widget/TabWidget;->mDrawBottomStrips:Z
 
-    sget-object v13, Lcom/android/internal/R$styleable;->TabWidget:[I
+    const/4 v12, -0x1
+
+    move-object/from16 v0, p0
+
+    iput v12, v0, Landroid/widget/TabWidget;->mImposedTabsHeight:I
+
+    const/high16 v12, 0x41600000    # 14.0f
+
+    move-object/from16 v0, p0
+
+    iput v12, v0, Landroid/widget/TabWidget;->mDefaultTextSize:F
+
+    const v12, 0x3fa66666    # 1.3f
+
+    move-object/from16 v0, p0
+
+    iput v12, v0, Landroid/widget/TabWidget;->mMaxFontScale:F
+
+    sget-object v12, Lcom/android/internal/R$styleable;->TabWidget:[I
 
     move-object/from16 v0, p1
 
@@ -139,186 +137,158 @@
 
     move/from16 v3, p4
 
-    invoke-virtual {v0, v1, v13, v2, v3}, Landroid/content/Context;->obtainStyledAttributes(Landroid/util/AttributeSet;[III)Landroid/content/res/TypedArray;
+    invoke-virtual {v0, v1, v12, v2, v3}, Landroid/content/Context;->obtainStyledAttributes(Landroid/util/AttributeSet;[III)Landroid/content/res/TypedArray;
 
     move-result-object v4
 
     move-object/from16 v0, p0
 
-    iget-boolean v13, v0, Landroid/widget/TabWidget;->mDrawBottomStrips:Z
+    iget-boolean v12, v0, Landroid/widget/TabWidget;->mDrawBottomStrips:Z
 
-    const/4 v14, 0x3
+    const/4 v13, 0x3
 
-    invoke-virtual {v4, v14, v13}, Landroid/content/res/TypedArray;->getBoolean(IZ)Z
+    invoke-virtual {v4, v13, v12}, Landroid/content/res/TypedArray;->getBoolean(IZ)Z
 
-    move-result v13
+    move-result v12
 
     move-object/from16 v0, p0
 
-    iput-boolean v13, v0, Landroid/widget/TabWidget;->mDrawBottomStrips:Z
+    iput-boolean v12, v0, Landroid/widget/TabWidget;->mDrawBottomStrips:Z
 
     invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getApplicationInfo()Landroid/content/pm/ApplicationInfo;
 
-    move-result-object v13
+    move-result-object v12
 
-    iget v13, v13, Landroid/content/pm/ApplicationInfo;->targetSdkVersion:I
+    iget v12, v12, Landroid/content/pm/ApplicationInfo;->targetSdkVersion:I
 
-    const/4 v14, 0x4
+    const/4 v13, 0x4
 
-    if-gt v13, v14, :cond_4
+    if-gt v12, v13, :cond_3
 
-    const/4 v8, 0x1
+    const/4 v7, 0x1
 
     :goto_0
-    const/4 v13, 0x1
+    const/4 v12, 0x1
 
-    invoke-virtual {v4, v13}, Landroid/content/res/TypedArray;->hasValueOrEmpty(I)Z
+    invoke-virtual {v4, v12}, Landroid/content/res/TypedArray;->hasValueOrEmpty(I)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_4
+
+    const/4 v12, 0x1
+
+    invoke-virtual {v4, v12}, Landroid/content/res/TypedArray;->getDrawable(I)Landroid/graphics/drawable/Drawable;
+
+    move-result-object v12
+
+    move-object/from16 v0, p0
+
+    iput-object v12, v0, Landroid/widget/TabWidget;->mLeftStrip:Landroid/graphics/drawable/Drawable;
+
+    :goto_1
+    const/4 v12, 0x2
+
+    invoke-virtual {v4, v12}, Landroid/content/res/TypedArray;->hasValueOrEmpty(I)Z
 
     move-result v6
 
-    if-eqz v6, :cond_5
+    if-eqz v6, :cond_6
 
-    const/4 v13, 0x1
+    const/4 v12, 0x2
 
-    invoke-virtual {v4, v13}, Landroid/content/res/TypedArray;->getDrawable(I)Landroid/graphics/drawable/Drawable;
+    invoke-virtual {v4, v12}, Landroid/content/res/TypedArray;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
-    move-result-object v13
-
-    move-object/from16 v0, p0
-
-    iput-object v13, v0, Landroid/widget/TabWidget;->mLeftStrip:Landroid/graphics/drawable/Drawable;
-
-    :goto_1
-    const/4 v13, 0x2
-
-    invoke-virtual {v4, v13}, Landroid/content/res/TypedArray;->hasValueOrEmpty(I)Z
-
-    move-result v7
-
-    if-eqz v7, :cond_7
-
-    const/4 v13, 0x2
-
-    invoke-virtual {v4, v13}, Landroid/content/res/TypedArray;->getDrawable(I)Landroid/graphics/drawable/Drawable;
-
-    move-result-object v13
+    move-result-object v12
 
     move-object/from16 v0, p0
 
-    iput-object v13, v0, Landroid/widget/TabWidget;->mRightStrip:Landroid/graphics/drawable/Drawable;
+    iput-object v12, v0, Landroid/widget/TabWidget;->mRightStrip:Landroid/graphics/drawable/Drawable;
 
     :goto_2
     invoke-virtual {v4}, Landroid/content/res/TypedArray;->recycle()V
 
-    const/4 v13, 0x1
+    const/4 v12, 0x1
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v13}, Landroid/widget/TabWidget;->setChildrenDrawingOrderEnabled(Z)V
+    invoke-virtual {v0, v12}, Landroid/widget/TabWidget;->setChildrenDrawingOrderEnabled(Z)V
 
-    new-instance v9, Landroid/util/TypedValue;
+    new-instance v8, Landroid/util/TypedValue;
 
-    invoke-direct {v9}, Landroid/util/TypedValue;-><init>()V
+    invoke-direct {v8}, Landroid/util/TypedValue;-><init>()V
 
     invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getTheme()Landroid/content/res/Resources$Theme;
 
-    move-result-object v13
+    move-result-object v12
 
-    const v14, 0x11600cb
+    const v13, 0x1110082
 
-    const/4 v15, 0x1
+    const/4 v14, 0x1
 
-    invoke-virtual {v13, v14, v9, v15}, Landroid/content/res/Resources$Theme;->resolveAttribute(ILandroid/util/TypedValue;Z)Z
+    invoke-virtual {v12, v13, v8, v14}, Landroid/content/res/Resources$Theme;->resolveAttribute(ILandroid/util/TypedValue;Z)Z
 
-    iget v13, v9, Landroid/util/TypedValue;->data:I
+    iget v12, v8, Landroid/util/TypedValue;->data:I
 
-    if-eqz v13, :cond_9
+    if-eqz v12, :cond_8
 
-    const/4 v13, 0x1
+    const/4 v12, 0x1
 
     :goto_3
     move-object/from16 v0, p0
 
-    iput-boolean v13, v0, Landroid/widget/TabWidget;->mIsThemeDeviceDefaultFamily:Z
+    iput-boolean v12, v0, Landroid/widget/TabWidget;->mIsThemeDeviceDefaultFamily:Z
 
     invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v13
+    move-result-object v12
 
-    const-string/jumbo v14, "current_sec_active_themepackage"
+    const-string/jumbo v13, "current_sec_active_themepackage"
 
-    invoke-static {v13, v14}, Landroid/provider/Settings$System;->getString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v12, v13}, Landroid/provider/Settings$System;->getString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v11
-
-    invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v13
-
-    const-string/jumbo v14, "current_sec_theme_package_festival"
-
-    invoke-static {v13, v14}, Landroid/provider/Settings$System;->getString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v5
+    move-result-object v10
 
     move-object/from16 v0, p0
 
-    iget-boolean v13, v0, Landroid/widget/TabWidget;->mIsThemeDeviceDefaultFamily:Z
+    iget-boolean v12, v0, Landroid/widget/TabWidget;->mIsThemeDeviceDefaultFamily:Z
 
-    if-eqz v13, :cond_a
+    if-eqz v12, :cond_a
 
-    if-eqz v11, :cond_a
+    if-eqz v10, :cond_a
 
     invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v13
+    move-result-object v12
 
-    invoke-virtual {v13}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
+    invoke-virtual {v12}, Landroid/content/res/Resources;->getAssets()Landroid/content/res/AssetManager;
 
-    move-result-object v13
+    move-result-object v12
 
-    iget v13, v13, Landroid/util/DisplayMetrics;->densityDpi:I
+    invoke-virtual {v12}, Landroid/content/res/AssetManager;->getOpenThemeOverlays()Ljava/util/ArrayList;
 
-    const/16 v14, 0x230
+    move-result-object v12
 
-    if-ne v13, v14, :cond_a
+    invoke-virtual {v12}, Ljava/util/ArrayList;->size()I
 
-    const/4 v13, 0x1
+    move-result v12
+
+    if-lez v12, :cond_9
+
+    const/4 v12, 0x1
 
     :goto_4
     move-object/from16 v0, p0
 
-    iput-boolean v13, v0, Landroid/widget/TabWidget;->mChangedTheme:Z
+    iput-boolean v12, v0, Landroid/widget/TabWidget;->mIsSetOpenTheme:Z
 
     move-object/from16 v0, p0
 
-    iget-boolean v13, v0, Landroid/widget/TabWidget;->mIsThemeDeviceDefaultFamily:Z
+    iget-boolean v12, v0, Landroid/widget/TabWidget;->mIsSetOpenTheme:Z
 
-    if-eqz v13, :cond_0
+    if-eqz v12, :cond_1
 
-    if-eqz v11, :cond_0
-
-    invoke-virtual {v11, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v13
-
-    if-eqz v13, :cond_b
-
-    :cond_0
-    const/4 v13, 0x0
-
-    :goto_5
-    move-object/from16 v0, p0
-
-    iput-boolean v13, v0, Landroid/widget/TabWidget;->mIsSetOpenTheme:Z
-
-    move-object/from16 v0, p0
-
-    iget-boolean v13, v0, Landroid/widget/TabWidget;->mIsSetOpenTheme:Z
-
-    if-eqz v13, :cond_2
-
-    sget-object v13, Lcom/android/internal/R$styleable;->View:[I
+    sget-object v12, Lcom/android/internal/R$styleable;->View:[I
 
     move-object/from16 v0, p1
 
@@ -328,218 +298,230 @@
 
     move/from16 v3, p4
 
-    invoke-virtual {v0, v1, v13, v2, v3}, Landroid/content/Context;->obtainStyledAttributes(Landroid/util/AttributeSet;[III)Landroid/content/res/TypedArray;
+    invoke-virtual {v0, v1, v12, v2, v3}, Landroid/content/Context;->obtainStyledAttributes(Landroid/util/AttributeSet;[III)Landroid/content/res/TypedArray;
 
-    move-result-object v12
+    move-result-object v11
 
-    const/16 v13, 0xd
+    const/16 v12, 0xd
 
-    const/4 v14, 0x0
+    const/4 v13, 0x0
 
-    invoke-virtual {v12, v13, v14}, Landroid/content/res/TypedArray;->getResourceId(II)I
+    invoke-virtual {v11, v12, v13}, Landroid/content/res/TypedArray;->getResourceId(II)I
 
-    move-result v13
-
-    move-object/from16 v0, p0
-
-    iput v13, v0, Landroid/widget/TabWidget;->mBackgroundResourceId:I
+    move-result v12
 
     move-object/from16 v0, p0
 
-    iget v13, v0, Landroid/widget/TabWidget;->mBackgroundResourceId:I
+    iput v12, v0, Landroid/widget/TabWidget;->mBackgroundResourceId:I
 
-    const v14, 0x108075a
+    move-object/from16 v0, p0
 
-    if-ne v13, v14, :cond_1
+    iget v12, v0, Landroid/widget/TabWidget;->mBackgroundResourceId:I
 
-    const v13, 0x108097c
+    const v13, 0x10807a1
+
+    if-ne v12, v13, :cond_b
+
+    const v12, 0x1080a2c
 
     move-object/from16 v0, p1
 
-    invoke-virtual {v0, v13}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
+    invoke-virtual {v0, v12}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
-    move-result-object v13
-
-    move-object/from16 v0, p0
-
-    invoke-virtual {v0, v13}, Landroid/widget/TabWidget;->setBackground(Landroid/graphics/drawable/Drawable;)V
-
-    const v13, 0x108097c
+    move-result-object v12
 
     move-object/from16 v0, p0
 
-    iput v13, v0, Landroid/widget/TabWidget;->mBackgroundResourceId:I
+    invoke-virtual {v0, v12}, Landroid/widget/TabWidget;->setBackground(Landroid/graphics/drawable/Drawable;)V
+
+    const v12, 0x1080a2c
+
+    move-object/from16 v0, p0
+
+    iput v12, v0, Landroid/widget/TabWidget;->mBackgroundResourceId:I
+
+    :cond_0
+    :goto_5
+    invoke-virtual {v11}, Landroid/content/res/TypedArray;->recycle()V
 
     :cond_1
-    invoke-virtual {v12}, Landroid/content/res/TypedArray;->recycle()V
-
-    :cond_2
     move-object/from16 v0, p0
 
-    iget-boolean v13, v0, Landroid/widget/TabWidget;->mIsThemeDeviceDefaultFamily:Z
+    iget-boolean v12, v0, Landroid/widget/TabWidget;->mIsThemeDeviceDefaultFamily:Z
 
-    if-eqz v13, :cond_3
+    if-eqz v12, :cond_2
 
     invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getTheme()Landroid/content/res/Resources$Theme;
 
-    move-result-object v13
+    move-result-object v12
 
-    sget-object v14, Lcom/android/internal/R$styleable;->Theme:[I
+    sget-object v13, Lcom/android/internal/R$styleable;->Theme:[I
+
+    const/4 v14, 0x0
 
     const/4 v15, 0x0
 
     const/16 v16, 0x0
 
-    const/16 v17, 0x0
-
     move/from16 v0, v16
 
-    move/from16 v1, v17
+    invoke-virtual {v12, v14, v13, v15, v0}, Landroid/content/res/Resources$Theme;->obtainStyledAttributes(Landroid/util/AttributeSet;[III)Landroid/content/res/TypedArray;
 
-    invoke-virtual {v13, v15, v14, v0, v1}, Landroid/content/res/Resources$Theme;->obtainStyledAttributes(Landroid/util/AttributeSet;[III)Landroid/content/res/TypedArray;
+    move-result-object v11
 
-    move-result-object v4
-
-    const/16 v13, 0x8f
-
-    const/4 v14, 0x0
-
-    invoke-virtual {v4, v13, v14}, Landroid/content/res/TypedArray;->getResourceId(II)I
-
-    move-result v10
-
-    invoke-virtual {v4}, Landroid/content/res/TypedArray;->recycle()V
-
-    invoke-virtual/range {p0 .. p0}, Landroid/widget/TabWidget;->getContext()Landroid/content/Context;
-
-    move-result-object v13
-
-    sget-object v14, Lcom/android/internal/R$styleable;->TextAppearance:[I
-
-    invoke-virtual {v13, v10, v14}, Landroid/content/Context;->obtainStyledAttributes(I[I)Landroid/content/res/TypedArray;
-
-    move-result-object v4
+    const/16 v12, 0x8f
 
     const/4 v13, 0x0
 
-    invoke-virtual {v4, v13}, Landroid/content/res/TypedArray;->peekValue(I)Landroid/util/TypedValue;
+    invoke-virtual {v11, v12, v13}, Landroid/content/res/TypedArray;->getResourceId(II)I
 
-    move-result-object v9
+    move-result v9
 
-    invoke-virtual {v4}, Landroid/content/res/TypedArray;->recycle()V
+    invoke-virtual {v11}, Landroid/content/res/TypedArray;->recycle()V
 
-    iget v13, v9, Landroid/util/TypedValue;->data:I
+    invoke-virtual/range {p0 .. p0}, Landroid/widget/TabWidget;->getContext()Landroid/content/Context;
 
-    invoke-static {v13}, Landroid/util/TypedValue;->complexToFloat(I)F
+    move-result-object v12
 
-    move-result v13
+    sget-object v13, Lcom/android/internal/R$styleable;->TextAppearance:[I
+
+    invoke-virtual {v12, v9, v13}, Landroid/content/Context;->obtainStyledAttributes(I[I)Landroid/content/res/TypedArray;
+
+    move-result-object v11
+
+    const/4 v12, 0x0
+
+    invoke-virtual {v11, v12}, Landroid/content/res/TypedArray;->peekValue(I)Landroid/util/TypedValue;
+
+    move-result-object v8
+
+    invoke-virtual {v11}, Landroid/content/res/TypedArray;->recycle()V
+
+    if-eqz v8, :cond_2
+
+    iget v12, v8, Landroid/util/TypedValue;->data:I
+
+    invoke-static {v12}, Landroid/util/TypedValue;->complexToFloat(I)F
+
+    move-result v12
 
     move-object/from16 v0, p0
 
-    iput v13, v0, Landroid/widget/TabWidget;->mDefaultTextSize:F
+    iput v12, v0, Landroid/widget/TabWidget;->mDefaultTextSize:F
 
-    :cond_3
+    :cond_2
     return-void
 
-    :cond_4
-    const/4 v8, 0x0
+    :cond_3
+    const/4 v7, 0x0
 
     goto/16 :goto_0
 
-    :cond_5
-    if-eqz v8, :cond_6
+    :cond_4
+    if-eqz v7, :cond_5
 
-    const v13, 0x108090f
+    const v12, 0x10809bc
 
     move-object/from16 v0, p1
 
-    invoke-virtual {v0, v13}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
+    invoke-virtual {v0, v12}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
-    move-result-object v13
+    move-result-object v12
 
     move-object/from16 v0, p0
 
-    iput-object v13, v0, Landroid/widget/TabWidget;->mLeftStrip:Landroid/graphics/drawable/Drawable;
+    iput-object v12, v0, Landroid/widget/TabWidget;->mLeftStrip:Landroid/graphics/drawable/Drawable;
+
+    goto/16 :goto_1
+
+    :cond_5
+    const v12, 0x10809bb
+
+    move-object/from16 v0, p1
+
+    invoke-virtual {v0, v12}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
+
+    move-result-object v12
+
+    move-object/from16 v0, p0
+
+    iput-object v12, v0, Landroid/widget/TabWidget;->mLeftStrip:Landroid/graphics/drawable/Drawable;
 
     goto/16 :goto_1
 
     :cond_6
-    const v13, 0x108090e
+    if-eqz v7, :cond_7
+
+    const v12, 0x10809be
 
     move-object/from16 v0, p1
 
-    invoke-virtual {v0, v13}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
+    invoke-virtual {v0, v12}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
-    move-result-object v13
+    move-result-object v12
 
     move-object/from16 v0, p0
 
-    iput-object v13, v0, Landroid/widget/TabWidget;->mLeftStrip:Landroid/graphics/drawable/Drawable;
+    iput-object v12, v0, Landroid/widget/TabWidget;->mRightStrip:Landroid/graphics/drawable/Drawable;
 
-    goto/16 :goto_1
+    goto/16 :goto_2
 
     :cond_7
-    if-eqz v8, :cond_8
-
-    const v13, 0x1080911
+    const v12, 0x10809bd
 
     move-object/from16 v0, p1
 
-    invoke-virtual {v0, v13}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
+    invoke-virtual {v0, v12}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
-    move-result-object v13
+    move-result-object v12
 
     move-object/from16 v0, p0
 
-    iput-object v13, v0, Landroid/widget/TabWidget;->mRightStrip:Landroid/graphics/drawable/Drawable;
+    iput-object v12, v0, Landroid/widget/TabWidget;->mRightStrip:Landroid/graphics/drawable/Drawable;
 
     goto/16 :goto_2
 
     :cond_8
-    const v13, 0x1080910
-
-    move-object/from16 v0, p1
-
-    invoke-virtual {v0, v13}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
-
-    move-result-object v13
-
-    move-object/from16 v0, p0
-
-    iput-object v13, v0, Landroid/widget/TabWidget;->mRightStrip:Landroid/graphics/drawable/Drawable;
-
-    goto/16 :goto_2
-
-    :cond_9
-    const/4 v13, 0x0
+    const/4 v12, 0x0
 
     goto/16 :goto_3
 
+    :cond_9
+    const/4 v12, 0x0
+
+    goto/16 :goto_4
+
     :cond_a
-    const/4 v13, 0x0
+    const/4 v12, 0x0
 
     goto/16 :goto_4
 
     :cond_b
-    invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    move-object/from16 v0, p0
 
-    move-result-object v13
+    iget v12, v0, Landroid/widget/TabWidget;->mBackgroundResourceId:I
 
-    invoke-virtual {v13}, Landroid/content/res/Resources;->getAssets()Landroid/content/res/AssetManager;
+    const v13, 0x10807a2
 
-    move-result-object v13
+    if-ne v12, v13, :cond_0
 
-    invoke-virtual {v13}, Landroid/content/res/AssetManager;->getOverlays()Ljava/util/ArrayList;
+    const v12, 0x1080a2d
 
-    move-result-object v13
+    move-object/from16 v0, p1
 
-    invoke-virtual {v13}, Ljava/util/ArrayList;->size()I
+    invoke-virtual {v0, v12}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
-    move-result v13
+    move-result-object v12
 
-    if-lez v13, :cond_0
+    move-object/from16 v0, p0
 
-    const/4 v13, 0x1
+    invoke-virtual {v0, v12}, Landroid/widget/TabWidget;->setBackground(Landroid/graphics/drawable/Drawable;)V
+
+    const v12, 0x1080a2d
+
+    move-object/from16 v0, p0
+
+    iput v12, v0, Landroid/widget/TabWidget;->mBackgroundResourceId:I
 
     goto/16 :goto_5
 .end method
@@ -549,9 +531,9 @@
 .method public addView(Landroid/view/View;)V
     .locals 6
 
-    const/4 v5, 0x0
+    const/4 v5, 0x1
 
-    const/4 v4, 0x1
+    const/4 v4, 0x0
 
     const/4 v3, 0x0
 
@@ -574,10 +556,35 @@
     invoke-virtual {p1, v0}, Landroid/view/View;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
     :cond_0
-    invoke-virtual {p1, v4}, Landroid/view/View;->setFocusable(Z)V
+    invoke-virtual {p1, v5}, Landroid/view/View;->setFocusable(Z)V
 
-    invoke-virtual {p1, v4}, Landroid/view/View;->setClickable(Z)V
+    invoke-virtual {p1, v5}, Landroid/view/View;->setClickable(Z)V
 
+    invoke-virtual {p1}, Landroid/view/View;->getPointerIcon()Landroid/view/PointerIcon;
+
+    move-result-object v1
+
+    if-nez v1, :cond_1
+
+    iget-boolean v1, p0, Landroid/widget/TabWidget;->mIsThemeDeviceDefaultFamily:Z
+
+    xor-int/lit8 v1, v1, 0x1
+
+    if-eqz v1, :cond_1
+
+    invoke-virtual {p0}, Landroid/widget/TabWidget;->getContext()Landroid/content/Context;
+
+    move-result-object v1
+
+    const/16 v2, 0x3ea
+
+    invoke-static {v1, v2}, Landroid/view/PointerIcon;->getSystemIcon(Landroid/content/Context;I)Landroid/view/PointerIcon;
+
+    move-result-object v1
+
+    invoke-virtual {p1, v1}, Landroid/view/View;->setPointerIcon(Landroid/view/PointerIcon;)V
+
+    :cond_1
     invoke-super {p0, p1}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
 
     new-instance v1, Landroid/widget/TabWidget$TabClickListener;
@@ -588,7 +595,7 @@
 
     add-int/lit8 v2, v2, -0x1
 
-    invoke-direct {v1, p0, v2, v5}, Landroid/widget/TabWidget$TabClickListener;-><init>(Landroid/widget/TabWidget;ILandroid/widget/TabWidget$TabClickListener;)V
+    invoke-direct {v1, p0, v2, v4}, Landroid/widget/TabWidget$TabClickListener;-><init>(Landroid/widget/TabWidget;ILandroid/widget/TabWidget$TabClickListener;)V
 
     invoke-virtual {p1, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
@@ -596,13 +603,7 @@
 .end method
 
 .method public childDrawableStateChanged(Landroid/view/View;)V
-    .locals 2
-
-    iget v0, p0, Landroid/widget/TabWidget;->mSelectedTab:I
-
-    const/4 v1, -0x1
-
-    if-eq v0, v1, :cond_0
+    .locals 1
 
     invoke-virtual {p0}, Landroid/widget/TabWidget;->getTabCount()I
 
@@ -1181,14 +1182,28 @@
     :cond_2
     invoke-super {p0, p1, p2}, Landroid/widget/LinearLayout;->onMeasure(II)V
 
-    iget-boolean v6, p0, Landroid/widget/TabWidget;->mChangedTheme:Z
-
-    if-eqz v6, :cond_3
-
-    invoke-virtual {p0}, Landroid/widget/TabWidget;->twUpdateBackgroundBounds()V
-
-    :cond_3
     return-void
+.end method
+
+.method public onResolvePointerIcon(Landroid/view/MotionEvent;I)Landroid/view/PointerIcon;
+    .locals 1
+
+    invoke-virtual {p0}, Landroid/widget/TabWidget;->isEnabled()Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    const/4 v0, 0x0
+
+    return-object v0
+
+    :cond_0
+    invoke-super {p0, p1, p2}, Landroid/widget/LinearLayout;->onResolvePointerIcon(Landroid/view/MotionEvent;I)Landroid/view/PointerIcon;
+
+    move-result-object v0
+
+    return-object v0
 .end method
 
 .method protected onSizeChanged(IIII)V
@@ -1242,7 +1257,7 @@
 
     const/4 v3, -0x1
 
-    if-eq v2, v3, :cond_3
+    if-eq v2, v3, :cond_2
 
     iget v2, p0, Landroid/widget/TabWidget;->mSelectedTab:I
 
@@ -1254,37 +1269,65 @@
 
     iget-boolean v2, p0, Landroid/widget/TabWidget;->mIsThemeDeviceDefaultFamily:Z
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_2
 
-    const-string/jumbo v2, "2016B"
+    iget v2, p0, Landroid/widget/TabWidget;->mSelectedTab:I
 
-    const-string/jumbo v3, "ro.build.scafe.version"
+    invoke-virtual {p0, v2}, Landroid/widget/TabWidget;->getChildTabViewAt(I)Landroid/view/View;
 
-    invoke-static {v3}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+    move-result-object v0
 
-    move-result-object v3
+    instance-of v2, v0, Landroid/widget/LinearLayout;
 
-    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    if-eqz v2, :cond_2
 
-    move-result v2
+    move-object v2, v0
 
-    if-nez v2, :cond_2
+    check-cast v2, Landroid/widget/LinearLayout;
 
-    const-string/jumbo v2, "2017A"
-
-    const-string/jumbo v3, "ro.build.scafe.version"
-
-    invoke-static {v3}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v2}, Landroid/widget/LinearLayout;->getChildCount()I
 
     move-result v2
 
-    if-eqz v2, :cond_3
+    if-le v2, v4, :cond_2
+
+    check-cast v0, Landroid/widget/LinearLayout;
+
+    invoke-virtual {v0, v4}, Landroid/widget/LinearLayout;->getChildAt(I)Landroid/view/View;
+
+    move-result-object v1
+
+    instance-of v2, v1, Landroid/widget/TextView;
+
+    if-eqz v2, :cond_2
+
+    check-cast v1, Landroid/widget/TextView;
+
+    const-string/jumbo v2, "sec-roboto-condensed"
+
+    invoke-static {v2, v5}, Landroid/graphics/Typeface;->create(Ljava/lang/String;I)Landroid/graphics/Typeface;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Landroid/widget/TextView;->setTypeface(Landroid/graphics/Typeface;)V
 
     :cond_2
+    iput p1, p0, Landroid/widget/TabWidget;->mSelectedTab:I
+
+    iget v2, p0, Landroid/widget/TabWidget;->mSelectedTab:I
+
+    invoke-virtual {p0, v2}, Landroid/widget/TabWidget;->getChildTabViewAt(I)Landroid/view/View;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v4}, Landroid/view/View;->setSelected(Z)V
+
+    iput-boolean v4, p0, Landroid/widget/TabWidget;->mStripMoved:Z
+
+    iget-boolean v2, p0, Landroid/widget/TabWidget;->mIsThemeDeviceDefaultFamily:Z
+
+    if-eqz v2, :cond_3
+
     iget v2, p0, Landroid/widget/TabWidget;->mSelectedTab:I
 
     invoke-virtual {p0, v2}, Landroid/widget/TabWidget;->getChildTabViewAt(I)Landroid/view/View;
@@ -1315,160 +1358,18 @@
 
     if-eqz v2, :cond_3
 
-    const-string/jumbo v2, "2016B"
-
-    const-string/jumbo v3, "ro.build.scafe.version"
-
-    invoke-static {v3}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_6
-
     check-cast v1, Landroid/widget/TextView;
 
-    const-string/jumbo v2, "sec-roboto-light"
+    const-string/jumbo v2, "sec-roboto-condensed"
 
-    invoke-static {v2, v5}, Landroid/graphics/Typeface;->create(Ljava/lang/String;I)Landroid/graphics/Typeface;
+    invoke-static {v2, v4}, Landroid/graphics/Typeface;->create(Ljava/lang/String;I)Landroid/graphics/Typeface;
 
     move-result-object v2
 
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setTypeface(Landroid/graphics/Typeface;)V
 
     :cond_3
-    :goto_0
-    iput p1, p0, Landroid/widget/TabWidget;->mSelectedTab:I
-
-    iget v2, p0, Landroid/widget/TabWidget;->mSelectedTab:I
-
-    invoke-virtual {p0, v2}, Landroid/widget/TabWidget;->getChildTabViewAt(I)Landroid/view/View;
-
-    move-result-object v2
-
-    invoke-virtual {v2, v4}, Landroid/view/View;->setSelected(Z)V
-
-    iput-boolean v4, p0, Landroid/widget/TabWidget;->mStripMoved:Z
-
-    iget-boolean v2, p0, Landroid/widget/TabWidget;->mIsThemeDeviceDefaultFamily:Z
-
-    if-eqz v2, :cond_5
-
-    const-string/jumbo v2, "2016B"
-
-    const-string/jumbo v3, "ro.build.scafe.version"
-
-    invoke-static {v3}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-nez v2, :cond_4
-
-    const-string/jumbo v2, "2017A"
-
-    const-string/jumbo v3, "ro.build.scafe.version"
-
-    invoke-static {v3}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_5
-
-    :cond_4
-    iget v2, p0, Landroid/widget/TabWidget;->mSelectedTab:I
-
-    invoke-virtual {p0, v2}, Landroid/widget/TabWidget;->getChildTabViewAt(I)Landroid/view/View;
-
-    move-result-object v0
-
-    instance-of v2, v0, Landroid/widget/LinearLayout;
-
-    if-eqz v2, :cond_5
-
-    move-object v2, v0
-
-    check-cast v2, Landroid/widget/LinearLayout;
-
-    invoke-virtual {v2}, Landroid/widget/LinearLayout;->getChildCount()I
-
-    move-result v2
-
-    if-le v2, v4, :cond_5
-
-    check-cast v0, Landroid/widget/LinearLayout;
-
-    invoke-virtual {v0, v4}, Landroid/widget/LinearLayout;->getChildAt(I)Landroid/view/View;
-
-    move-result-object v1
-
-    instance-of v2, v1, Landroid/widget/TextView;
-
-    if-eqz v2, :cond_5
-
-    const-string/jumbo v2, "2016B"
-
-    const-string/jumbo v3, "ro.build.scafe.version"
-
-    invoke-static {v3}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_7
-
-    check-cast v1, Landroid/widget/TextView;
-
-    const-string/jumbo v2, "sec-roboto-light"
-
-    invoke-static {v2, v4}, Landroid/graphics/Typeface;->create(Ljava/lang/String;I)Landroid/graphics/Typeface;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Landroid/widget/TextView;->setTypeface(Landroid/graphics/Typeface;)V
-
-    :cond_5
-    :goto_1
     return-void
-
-    :cond_6
-    check-cast v1, Landroid/widget/TextView;
-
-    const-string/jumbo v2, "sec-roboto-condensed"
-
-    invoke-static {v2, v5}, Landroid/graphics/Typeface;->create(Ljava/lang/String;I)Landroid/graphics/Typeface;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Landroid/widget/TextView;->setTypeface(Landroid/graphics/Typeface;)V
-
-    goto :goto_0
-
-    :cond_7
-    check-cast v1, Landroid/widget/TextView;
-
-    const-string/jumbo v2, "sec-roboto-condensed"
-
-    invoke-static {v2, v4}, Landroid/graphics/Typeface;->create(Ljava/lang/String;I)Landroid/graphics/Typeface;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Landroid/widget/TextView;->setTypeface(Landroid/graphics/Typeface;)V
-
-    goto :goto_1
 .end method
 
 .method public setDividerDrawable(I)V
@@ -1589,83 +1490,4 @@
     iput-object p1, p0, Landroid/widget/TabWidget;->mSelectionChangedListener:Landroid/widget/TabWidget$OnTabSelectionChanged;
 
     return-void
-.end method
-
-.method protected twUpdateBackgroundBounds()V
-    .locals 6
-
-    const/4 v5, 0x0
-
-    invoke-virtual {p0}, Landroid/widget/TabWidget;->getBackground()Landroid/graphics/drawable/Drawable;
-
-    move-result-object v0
-
-    if-nez v0, :cond_0
-
-    return-void
-
-    :cond_0
-    invoke-virtual {p0}, Landroid/widget/TabWidget;->getParent()Landroid/view/ViewParent;
-
-    move-result-object v2
-
-    check-cast v2, Landroid/view/View;
-
-    iget-boolean v3, p0, Landroid/widget/TabWidget;->mChangedTheme:Z
-
-    if-eqz v3, :cond_1
-
-    if-eqz v2, :cond_1
-
-    instance-of v3, v0, Landroid/graphics/drawable/BitmapDrawable;
-
-    if-eqz v3, :cond_1
-
-    invoke-virtual {v0}, Landroid/graphics/drawable/Drawable;->getIntrinsicWidth()I
-
-    move-result v3
-
-    invoke-virtual {v2}, Landroid/view/View;->getWidth()I
-
-    move-result v4
-
-    if-ge v3, v4, :cond_1
-
-    invoke-virtual {v2}, Landroid/view/View;->getWidth()I
-
-    move-result v3
-
-    int-to-float v3, v3
-
-    invoke-virtual {v0}, Landroid/graphics/drawable/Drawable;->getIntrinsicWidth()I
-
-    move-result v4
-
-    int-to-float v4, v4
-
-    div-float/2addr v3, v4
-
-    invoke-virtual {v0}, Landroid/graphics/drawable/Drawable;->getIntrinsicHeight()I
-
-    move-result v4
-
-    int-to-float v4, v4
-
-    mul-float/2addr v3, v4
-
-    float-to-int v1, v3
-
-    invoke-virtual {v2}, Landroid/view/View;->getRight()I
-
-    move-result v3
-
-    invoke-virtual {v0, v5, v5, v3, v1}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
-
-    :goto_0
-    return-void
-
-    :cond_1
-    invoke-super {p0}, Landroid/widget/LinearLayout;->twUpdateBackgroundBounds()V
-
-    goto :goto_0
 .end method

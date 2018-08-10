@@ -25,21 +25,6 @@
 
 
 # virtual methods
-.method public getAppsUsingPermissions(ZLjava/util/List;)V
-    .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(Z",
-            "Ljava/util/List",
-            "<",
-            "Landroid/content/pm/ApplicationInfo;",
-            ">;)V"
-        }
-    .end annotation
-
-    return-void
-.end method
-
 .method public onGetAppPermissions(Ljava/util/List;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;

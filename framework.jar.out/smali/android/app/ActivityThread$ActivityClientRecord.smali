@@ -19,13 +19,11 @@
 
 .field activityInfo:Landroid/content/pm/ActivityInfo;
 
-.field activityRelaunching:Z
-
 .field compatInfo:Landroid/content/res/CompatibilityInfo;
 
-.field createdConfig:Landroid/content/res/Configuration;
+.field configCallback:Landroid/view/ViewRootImpl$ActivityConfigCallback;
 
-.field displayId:I
+.field createdConfig:Landroid/content/res/Configuration;
 
 .field embeddedID:Ljava/lang/String;
 
@@ -136,10 +134,6 @@
 
     iput v1, p0, Landroid/app/ActivityThread$ActivityClientRecord;->lastProcessedSeq:I
 
-    iput v1, p0, Landroid/app/ActivityThread$ActivityClientRecord;->displayId:I
-
-    iput-boolean v1, p0, Landroid/app/ActivityThread$ActivityClientRecord;->activityRelaunching:Z
-
     iput-object v2, p0, Landroid/app/ActivityThread$ActivityClientRecord;->parent:Landroid/app/Activity;
 
     iput-object v2, p0, Landroid/app/ActivityThread$ActivityClientRecord;->embeddedID:Ljava/lang/String;
@@ -151,6 +145,12 @@
     iput-boolean v1, p0, Landroid/app/ActivityThread$ActivityClientRecord;->hideForNow:Z
 
     iput-object v2, p0, Landroid/app/ActivityThread$ActivityClientRecord;->nextIdle:Landroid/app/ActivityThread$ActivityClientRecord;
+
+    new-instance v0, Landroid/app/-$Lambda$9I5WEMsoBc7l4QrNqZ4wx59yuHU;
+
+    invoke-direct {v0, p0}, Landroid/app/-$Lambda$9I5WEMsoBc7l4QrNqZ4wx59yuHU;-><init>(Ljava/lang/Object;)V
+
+    iput-object v0, p0, Landroid/app/ActivityThread$ActivityClientRecord;->configCallback:Landroid/view/ViewRootImpl$ActivityConfigCallback;
 
     return-void
 .end method
@@ -424,6 +424,37 @@
     return v0
 .end method
 
+.method synthetic lambda$-android_app_ActivityThread$ActivityClientRecord_17552(Landroid/content/res/Configuration;I)V
+    .locals 3
+
+    iget-object v0, p0, Landroid/app/ActivityThread$ActivityClientRecord;->activity:Landroid/app/Activity;
+
+    if-nez v0, :cond_0
+
+    new-instance v0, Ljava/lang/IllegalStateException;
+
+    const-string/jumbo v1, "Received config update for non-existing activity"
+
+    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+
+    :cond_0
+    iget-object v0, p0, Landroid/app/ActivityThread$ActivityClientRecord;->activity:Landroid/app/Activity;
+
+    iget-object v0, v0, Landroid/app/Activity;->mMainThread:Landroid/app/ActivityThread;
+
+    new-instance v1, Landroid/app/ActivityThread$ActivityConfigChangeData;
+
+    iget-object v2, p0, Landroid/app/ActivityThread$ActivityClientRecord;->token:Landroid/os/IBinder;
+
+    invoke-direct {v1, v2, p1}, Landroid/app/ActivityThread$ActivityConfigChangeData;-><init>(Landroid/os/IBinder;Landroid/content/res/Configuration;)V
+
+    invoke-virtual {v0, v1, p2}, Landroid/app/ActivityThread;->handleActivityConfigurationChanged(Landroid/app/ActivityThread$ActivityConfigChangeData;I)V
+
+    return-void
+.end method
+
 .method public toString()Ljava/lang/String;
     .locals 3
 
@@ -484,18 +515,6 @@
 
     :goto_1
     invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    const-string/jumbo v2, " d"
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    iget v2, p0, Landroid/app/ActivityThread$ActivityClientRecord;->displayId:I
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     move-result-object v1
 

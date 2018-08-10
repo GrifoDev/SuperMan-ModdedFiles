@@ -1489,7 +1489,7 @@
 
     cmp-long v4, v0, p1
 
-    if-ltz v4, :cond_0
+    if-lez v4, :cond_0
 
     new-instance v4, Landroid/util/apk/ApkSignatureSchemeV2Verifier$SignatureNotFoundException;
 
@@ -3623,7 +3623,37 @@
 
     move-result v37
 
-    if-eqz v37, :cond_d
+    xor-int/lit8 v37, v37, 0x1
+
+    if-eqz v37, :cond_c
+
+    new-instance v37, Ljava/lang/SecurityException;
+
+    new-instance v38, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v38 .. v38}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-static {v13}, Landroid/util/apk/ApkSignatureSchemeV2Verifier;->getContentDigestAlgorithmJcaDigestAlgorithm(I)Ljava/lang/String;
+
+    move-result-object v39
+
+    invoke-virtual/range {v38 .. v39}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v38
+
+    const-string/jumbo v39, " contents digest does not match the digest specified by a preceding signer"
+
+    invoke-virtual/range {v38 .. v39}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v38
+
+    invoke-virtual/range {v38 .. v38}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v38
+
+    invoke-direct/range {v37 .. v38}, Ljava/lang/SecurityException;-><init>(Ljava/lang/String;)V
+
+    throw v37
 
     :cond_c
     invoke-static/range {v36 .. v36}, Landroid/util/apk/ApkSignatureSchemeV2Verifier;->getLengthPrefixedSlice(Ljava/nio/ByteBuffer;)Ljava/nio/ByteBuffer;
@@ -3641,7 +3671,7 @@
 
     move-result v37
 
-    if-eqz v37, :cond_e
+    if-eqz v37, :cond_d
 
     add-int/lit8 v7, v7, 0x1
 
@@ -3680,35 +3710,6 @@
 
     goto :goto_2
 
-    :cond_d
-    new-instance v37, Ljava/lang/SecurityException;
-
-    new-instance v38, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v38 .. v38}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-static {v13}, Landroid/util/apk/ApkSignatureSchemeV2Verifier;->getContentDigestAlgorithmJcaDigestAlgorithm(I)Ljava/lang/String;
-
-    move-result-object v39
-
-    invoke-virtual/range {v38 .. v39}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v38
-
-    const-string/jumbo v39, " contents digest does not match the digest specified by a preceding signer"
-
-    invoke-virtual/range {v38 .. v39}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v38
-
-    invoke-virtual/range {v38 .. v38}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v38
-
-    invoke-direct/range {v37 .. v38}, Ljava/lang/SecurityException;-><init>(Ljava/lang/String;)V
-
-    throw v37
-
     :catch_3
     move-exception v19
 
@@ -3744,12 +3745,12 @@
 
     throw v37
 
-    :cond_e
+    :cond_d
     invoke-interface {v10}, Ljava/util/List;->isEmpty()Z
 
     move-result v37
 
-    if-eqz v37, :cond_f
+    if-eqz v37, :cond_e
 
     new-instance v37, Ljava/lang/SecurityException;
 
@@ -3759,7 +3760,7 @@
 
     throw v37
 
-    :cond_f
+    :cond_e
     const/16 v37, 0x0
 
     move/from16 v0, v37
@@ -3784,7 +3785,7 @@
 
     move-result v37
 
-    if-nez v37, :cond_10
+    if-nez v37, :cond_f
 
     new-instance v37, Ljava/lang/SecurityException;
 
@@ -3794,7 +3795,7 @@
 
     throw v37
 
-    :cond_10
+    :cond_f
     invoke-interface {v10}, Ljava/util/List;->size()I
 
     move-result v37

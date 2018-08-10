@@ -439,6 +439,44 @@
     return-void
 .end method
 
+.method public getXfermode()Landroid/graphics/Xfermode;
+    .locals 1
+
+    iget-object v0, p0, Landroid/graphics/drawable/ColorDrawable;->mPaint:Landroid/graphics/Paint;
+
+    invoke-virtual {v0}, Landroid/graphics/Paint;->getXfermode()Landroid/graphics/Xfermode;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public hasFocusStateSpecified()Z
+    .locals 1
+
+    iget-object v0, p0, Landroid/graphics/drawable/ColorDrawable;->mColorState:Landroid/graphics/drawable/ColorDrawable$ColorState;
+
+    iget-object v0, v0, Landroid/graphics/drawable/ColorDrawable$ColorState;->mTint:Landroid/content/res/ColorStateList;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Landroid/graphics/drawable/ColorDrawable;->mColorState:Landroid/graphics/drawable/ColorDrawable$ColorState;
+
+    iget-object v0, v0, Landroid/graphics/drawable/ColorDrawable$ColorState;->mTint:Landroid/content/res/ColorStateList;
+
+    invoke-virtual {v0}, Landroid/content/res/ColorStateList;->hasFocusStateSpecified()Z
+
+    move-result v0
+
+    :goto_0
+    return v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
 .method public inflate(Landroid/content/res/Resources;Lorg/xmlpull/v1/XmlPullParser;Landroid/util/AttributeSet;Landroid/content/res/Resources$Theme;)V
     .locals 2
     .annotation system Ldalvik/annotation/Throws;
@@ -682,6 +720,18 @@
     move-result-object v0
 
     iput-object v0, p0, Landroid/graphics/drawable/ColorDrawable;->mTintFilter:Landroid/graphics/PorterDuffColorFilter;
+
+    invoke-virtual {p0}, Landroid/graphics/drawable/ColorDrawable;->invalidateSelf()V
+
+    return-void
+.end method
+
+.method public setXfermode(Landroid/graphics/Xfermode;)V
+    .locals 1
+
+    iget-object v0, p0, Landroid/graphics/drawable/ColorDrawable;->mPaint:Landroid/graphics/Paint;
+
+    invoke-virtual {v0, p1}, Landroid/graphics/Paint;->setXfermode(Landroid/graphics/Xfermode;)Landroid/graphics/Xfermode;
 
     invoke-virtual {p0}, Landroid/graphics/drawable/ColorDrawable;->invalidateSelf()V
 

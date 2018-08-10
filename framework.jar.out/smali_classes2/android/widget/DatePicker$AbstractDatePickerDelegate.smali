@@ -24,7 +24,11 @@
 
 
 # instance fields
+.field protected mAutoFillChangeListener:Landroid/widget/DatePicker$OnDateChangedListener;
+
 .field protected mContext:Landroid/content/Context;
+
+.field protected mCurrentDate:Landroid/icu/util/Calendar;
 
 .field protected mCurrentLocale:Ljava/util/Locale;
 
@@ -56,8 +60,56 @@
 
 
 # virtual methods
+.method public getDate()J
+    .locals 2
+
+    iget-object v0, p0, Landroid/widget/DatePicker$AbstractDatePickerDelegate;->mCurrentDate:Landroid/icu/util/Calendar;
+
+    invoke-virtual {v0}, Landroid/icu/util/Calendar;->getTimeInMillis()J
+
+    move-result-wide v0
+
+    return-wide v0
+.end method
+
+.method protected getFormattedCurrentDate()Ljava/lang/String;
+    .locals 4
+
+    iget-object v0, p0, Landroid/widget/DatePicker$AbstractDatePickerDelegate;->mContext:Landroid/content/Context;
+
+    iget-object v1, p0, Landroid/widget/DatePicker$AbstractDatePickerDelegate;->mCurrentDate:Landroid/icu/util/Calendar;
+
+    invoke-virtual {v1}, Landroid/icu/util/Calendar;->getTimeInMillis()J
+
+    move-result-wide v2
+
+    const/16 v1, 0x16
+
+    invoke-static {v0, v2, v3, v1}, Landroid/text/format/DateUtils;->formatDateTime(Landroid/content/Context;JI)Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
 .method protected onLocaleChanged(Ljava/util/Locale;)V
     .locals 0
+
+    return-void
+.end method
+
+.method public onPopulateAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)V
+    .locals 2
+
+    invoke-virtual {p1}, Landroid/view/accessibility/AccessibilityEvent;->getText()Ljava/util/List;
+
+    move-result-object v0
+
+    invoke-virtual {p0}, Landroid/widget/DatePicker$AbstractDatePickerDelegate;->getFormattedCurrentDate()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     return-void
 .end method
@@ -74,6 +126,14 @@
     invoke-interface {v0, p1}, Landroid/widget/DatePicker$ValidationCallback;->onValidationChanged(Z)V
 
     :cond_0
+    return-void
+.end method
+
+.method public setAutoFillChangeListener(Landroid/widget/DatePicker$OnDateChangedListener;)V
+    .locals 0
+
+    iput-object p1, p0, Landroid/widget/DatePicker$AbstractDatePickerDelegate;->mAutoFillChangeListener:Landroid/widget/DatePicker$OnDateChangedListener;
+
     return-void
 .end method
 
@@ -96,10 +156,52 @@
     return-void
 .end method
 
+.method public setOnDateChangedListener(Landroid/widget/DatePicker$OnDateChangedListener;)V
+    .locals 0
+
+    iput-object p1, p0, Landroid/widget/DatePicker$AbstractDatePickerDelegate;->mOnDateChangedListener:Landroid/widget/DatePicker$OnDateChangedListener;
+
+    return-void
+.end method
+
 .method public setValidationCallback(Landroid/widget/DatePicker$ValidationCallback;)V
     .locals 0
 
     iput-object p1, p0, Landroid/widget/DatePicker$AbstractDatePickerDelegate;->mValidationCallback:Landroid/widget/DatePicker$ValidationCallback;
+
+    return-void
+.end method
+
+.method public updateDate(J)V
+    .locals 5
+
+    iget-object v1, p0, Landroid/widget/DatePicker$AbstractDatePickerDelegate;->mCurrentLocale:Ljava/util/Locale;
+
+    invoke-static {v1}, Landroid/icu/util/Calendar;->getInstance(Ljava/util/Locale;)Landroid/icu/util/Calendar;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p1, p2}, Landroid/icu/util/Calendar;->setTimeInMillis(J)V
+
+    const/4 v1, 0x1
+
+    invoke-virtual {v0, v1}, Landroid/icu/util/Calendar;->get(I)I
+
+    move-result v1
+
+    const/4 v2, 0x2
+
+    invoke-virtual {v0, v2}, Landroid/icu/util/Calendar;->get(I)I
+
+    move-result v2
+
+    const/4 v3, 0x5
+
+    invoke-virtual {v0, v3}, Landroid/icu/util/Calendar;->get(I)I
+
+    move-result v3
+
+    invoke-virtual {p0, v1, v2, v3}, Landroid/widget/DatePicker$AbstractDatePickerDelegate;->updateDate(III)V
 
     return-void
 .end method

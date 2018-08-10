@@ -36,13 +36,13 @@
 
     iget-object v0, p0, Lcom/samsung/android/os/SemDvfsHintManager$1;->this$0:Lcom/samsung/android/os/SemDvfsHintManager;
 
-    iget-boolean v0, v0, Lcom/samsung/android/os/SemDvfsManager;->sIsDebugLevelHigh:Z
+    iget-boolean v0, v0, Lcom/samsung/android/os/SemDvfsHintManager;->sIsDebugLevelHigh:Z
 
     if-eqz v0, :cond_0
 
     iget-object v0, p0, Lcom/samsung/android/os/SemDvfsHintManager$1;->this$0:Lcom/samsung/android/os/SemDvfsHintManager;
 
-    iget-object v0, v0, Lcom/samsung/android/os/SemDvfsManager;->LOG_TAG:Ljava/lang/String;
+    iget-object v0, v0, Lcom/samsung/android/os/SemDvfsHintManager;->LOG_TAG:Ljava/lang/String;
 
     new-instance v1, Ljava/lang/StringBuilder;
 

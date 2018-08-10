@@ -38,7 +38,7 @@
 
     iput-object v0, p0, Landroid/widget/RemoteViews$ClearAllTextEffectAction;->methodName:Ljava/lang/String;
 
-    iput p2, p0, Landroid/widget/RemoteViews$Action;->viewId:I
+    iput p2, p0, Landroid/widget/RemoteViews$ClearAllTextEffectAction;->viewId:I
 
     return-void
 .end method
@@ -60,7 +60,7 @@
 
     move-result v0
 
-    iput v0, p0, Landroid/widget/RemoteViews$Action;->viewId:I
+    iput v0, p0, Landroid/widget/RemoteViews$ClearAllTextEffectAction;->viewId:I
 
     return-void
 .end method
@@ -70,7 +70,7 @@
 .method public apply(Landroid/view/View;Landroid/view/ViewGroup;Landroid/widget/RemoteViews$OnClickHandler;)V
     .locals 2
 
-    iget v1, p0, Landroid/widget/RemoteViews$Action;->viewId:I
+    iget v1, p0, Landroid/widget/RemoteViews$ClearAllTextEffectAction;->viewId:I
 
     invoke-virtual {p1, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -103,7 +103,7 @@
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    iget v0, p0, Landroid/widget/RemoteViews$Action;->viewId:I
+    iget v0, p0, Landroid/widget/RemoteViews$ClearAllTextEffectAction;->viewId:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 

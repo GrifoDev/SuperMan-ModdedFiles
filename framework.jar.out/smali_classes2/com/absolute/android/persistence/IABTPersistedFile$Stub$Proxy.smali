@@ -43,7 +43,7 @@
 .end method
 
 .method public close()V
-    .locals 5
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -59,17 +59,17 @@
     move-result-object v2
 
     :try_start_0
-    const-string/jumbo v0, "com.absolute.android.persistence.IABTPersistedFile"
+    const-string/jumbo v3, "com.absolute.android.persistence.IABTPersistedFile"
 
-    invoke-virtual {v1, v0}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+    invoke-virtual {v1, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    iget-object v0, p0, Lcom/absolute/android/persistence/IABTPersistedFile$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+    iget-object v3, p0, Lcom/absolute/android/persistence/IABTPersistedFile$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/4 v3, 0x6
+    const/4 v4, 0x6
 
-    const/4 v4, 0x0
+    const/4 v5, 0x0
 
-    invoke-interface {v0, v3, v1, v2, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+    invoke-interface {v3, v4, v1, v2, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
     invoke-virtual {v2}, Landroid/os/Parcel;->readException()V
     :try_end_0
@@ -92,14 +92,14 @@
 .end method
 
 .method public delete()Z
-    .locals 6
+    .locals 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    const/4 v0, 0x0
+    const/4 v3, 0x0
 
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
@@ -110,17 +110,17 @@
     move-result-object v2
 
     :try_start_0
-    const-string/jumbo v3, "com.absolute.android.persistence.IABTPersistedFile"
+    const-string/jumbo v4, "com.absolute.android.persistence.IABTPersistedFile"
 
-    invoke-virtual {v1, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+    invoke-virtual {v1, v4}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    iget-object v3, p0, Lcom/absolute/android/persistence/IABTPersistedFile$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+    iget-object v4, p0, Lcom/absolute/android/persistence/IABTPersistedFile$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/4 v4, 0x7
+    const/4 v5, 0x7
 
-    const/4 v5, 0x0
+    const/4 v6, 0x0
 
-    invoke-interface {v3, v4, v1, v2, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+    invoke-interface {v4, v5, v1, v2, v6}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
     invoke-virtual {v2}, Landroid/os/Parcel;->readException()V
 
@@ -128,19 +128,19 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    move-result v3
+    move-result v4
 
-    if-nez v3, :cond_0
+    if-nez v4, :cond_0
 
     :goto_0
     invoke-virtual {v2}, Landroid/os/Parcel;->recycle()V
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    return v0
+    return v3
 
     :cond_0
-    const/4 v0, 0x1
+    const/4 v3, 0x1
 
     goto :goto_0
 
@@ -155,66 +155,66 @@
 .end method
 
 .method public exists()Z
-    .locals 7
+    .locals 8
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    const/4 v1, 0x1
+    const/4 v4, 0x1
 
-    const/4 v0, 0x0
+    const/4 v3, 0x0
+
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v1
 
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v2
 
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v3
-
     :try_start_0
-    const-string/jumbo v4, "com.absolute.android.persistence.IABTPersistedFile"
+    const-string/jumbo v5, "com.absolute.android.persistence.IABTPersistedFile"
 
-    invoke-virtual {v2, v4}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+    invoke-virtual {v1, v5}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    iget-object v4, p0, Lcom/absolute/android/persistence/IABTPersistedFile$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+    iget-object v5, p0, Lcom/absolute/android/persistence/IABTPersistedFile$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/4 v5, 0x1
+    const/4 v6, 0x1
 
-    const/4 v6, 0x0
+    const/4 v7, 0x0
 
-    invoke-interface {v4, v5, v2, v3, v6}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+    invoke-interface {v5, v6, v1, v2, v7}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    invoke-virtual {v3}, Landroid/os/Parcel;->readException()V
+    invoke-virtual {v2}, Landroid/os/Parcel;->readException()V
 
-    invoke-virtual {v3}, Landroid/os/Parcel;->readInt()I
+    invoke-virtual {v2}, Landroid/os/Parcel;->readInt()I
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    move-result v4
+    move-result v5
 
-    if-nez v4, :cond_0
+    if-nez v5, :cond_0
 
     :goto_0
-    invoke-virtual {v3}, Landroid/os/Parcel;->recycle()V
-
     invoke-virtual {v2}, Landroid/os/Parcel;->recycle()V
 
-    return v0
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    return v3
 
     :cond_0
-    move v0, v1
+    move v3, v4
 
     goto :goto_0
 
     :catchall_0
     move-exception v0
 
-    invoke-virtual {v3}, Landroid/os/Parcel;->recycle()V
-
     invoke-virtual {v2}, Landroid/os/Parcel;->recycle()V
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     throw v0
 .end method
@@ -228,63 +228,6 @@
 .end method
 
 .method public read([B)I
-    .locals 5
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v2
-
-    :try_start_0
-    const-string/jumbo v0, "com.absolute.android.persistence.IABTPersistedFile"
-
-    invoke-virtual {v1, v0}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    invoke-virtual {v1, p1}, Landroid/os/Parcel;->writeByteArray([B)V
-
-    iget-object v0, p0, Lcom/absolute/android/persistence/IABTPersistedFile$Stub$Proxy;->mRemote:Landroid/os/IBinder;
-
-    const/4 v3, 0x4
-
-    const/4 v4, 0x0
-
-    invoke-interface {v0, v3, v1, v2, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    invoke-virtual {v2}, Landroid/os/Parcel;->readException()V
-
-    invoke-virtual {v2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v0
-
-    invoke-virtual {v2, p1}, Landroid/os/Parcel;->readByteArray([B)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    invoke-virtual {v2}, Landroid/os/Parcel;->recycle()V
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    return v0
-
-    :catchall_0
-    move-exception v0
-
-    invoke-virtual {v2}, Landroid/os/Parcel;->recycle()V
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    throw v0
-.end method
-
-.method public skip(J)J
     .locals 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -301,19 +244,76 @@
     move-result-object v2
 
     :try_start_0
-    const-string/jumbo v0, "com.absolute.android.persistence.IABTPersistedFile"
+    const-string/jumbo v4, "com.absolute.android.persistence.IABTPersistedFile"
 
-    invoke-virtual {v1, v0}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+    invoke-virtual {v1, v4}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Landroid/os/Parcel;->writeByteArray([B)V
+
+    iget-object v4, p0, Lcom/absolute/android/persistence/IABTPersistedFile$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+
+    const/4 v5, 0x4
+
+    const/4 v6, 0x0
+
+    invoke-interface {v4, v5, v1, v2, v6}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+
+    invoke-virtual {v2}, Landroid/os/Parcel;->readException()V
+
+    invoke-virtual {v2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v3
+
+    invoke-virtual {v2, p1}, Landroid/os/Parcel;->readByteArray([B)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v2}, Landroid/os/Parcel;->recycle()V
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    return v3
+
+    :catchall_0
+    move-exception v0
+
+    invoke-virtual {v2}, Landroid/os/Parcel;->recycle()V
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    throw v0
+.end method
+
+.method public skip(J)J
+    .locals 9
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v1
+
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v2
+
+    :try_start_0
+    const-string/jumbo v3, "com.absolute.android.persistence.IABTPersistedFile"
+
+    invoke-virtual {v1, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     invoke-virtual {v1, p1, p2}, Landroid/os/Parcel;->writeLong(J)V
 
-    iget-object v0, p0, Lcom/absolute/android/persistence/IABTPersistedFile$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+    iget-object v3, p0, Lcom/absolute/android/persistence/IABTPersistedFile$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/4 v3, 0x5
+    const/4 v6, 0x5
 
-    const/4 v4, 0x0
+    const/4 v7, 0x0
 
-    invoke-interface {v0, v3, v1, v2, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+    invoke-interface {v3, v6, v1, v2, v7}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
     invoke-virtual {v2}, Landroid/os/Parcel;->readException()V
 
@@ -340,7 +340,7 @@
 .end method
 
 .method public write([B)I
-    .locals 5
+    .locals 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -356,19 +356,19 @@
     move-result-object v2
 
     :try_start_0
-    const-string/jumbo v0, "com.absolute.android.persistence.IABTPersistedFile"
+    const-string/jumbo v4, "com.absolute.android.persistence.IABTPersistedFile"
 
-    invoke-virtual {v1, v0}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+    invoke-virtual {v1, v4}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     invoke-virtual {v1, p1}, Landroid/os/Parcel;->writeByteArray([B)V
 
-    iget-object v0, p0, Lcom/absolute/android/persistence/IABTPersistedFile$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+    iget-object v4, p0, Lcom/absolute/android/persistence/IABTPersistedFile$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/4 v3, 0x2
+    const/4 v5, 0x2
 
-    const/4 v4, 0x0
+    const/4 v6, 0x0
 
-    invoke-interface {v0, v3, v1, v2, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+    invoke-interface {v4, v5, v1, v2, v6}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
     invoke-virtual {v2}, Landroid/os/Parcel;->readException()V
 
@@ -376,13 +376,13 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    move-result v0
+    move-result v3
 
     invoke-virtual {v2}, Landroid/os/Parcel;->recycle()V
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    return v0
+    return v3
 
     :catchall_0
     move-exception v0
@@ -395,7 +395,7 @@
 .end method
 
 .method public writeWithCount([BII)I
-    .locals 5
+    .locals 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -411,9 +411,9 @@
     move-result-object v2
 
     :try_start_0
-    const-string/jumbo v0, "com.absolute.android.persistence.IABTPersistedFile"
+    const-string/jumbo v4, "com.absolute.android.persistence.IABTPersistedFile"
 
-    invoke-virtual {v1, v0}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+    invoke-virtual {v1, v4}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     invoke-virtual {v1, p1}, Landroid/os/Parcel;->writeByteArray([B)V
 
@@ -421,13 +421,13 @@
 
     invoke-virtual {v1, p3}, Landroid/os/Parcel;->writeInt(I)V
 
-    iget-object v0, p0, Lcom/absolute/android/persistence/IABTPersistedFile$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+    iget-object v4, p0, Lcom/absolute/android/persistence/IABTPersistedFile$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/4 v3, 0x3
+    const/4 v5, 0x3
 
-    const/4 v4, 0x0
+    const/4 v6, 0x0
 
-    invoke-interface {v0, v3, v1, v2, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+    invoke-interface {v4, v5, v1, v2, v6}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
     invoke-virtual {v2}, Landroid/os/Parcel;->readException()V
 
@@ -435,13 +435,13 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    move-result v0
+    move-result v3
 
     invoke-virtual {v2}, Landroid/os/Parcel;->recycle()V
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    return v0
+    return v3
 
     :catchall_0
     move-exception v0

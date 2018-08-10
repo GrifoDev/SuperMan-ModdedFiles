@@ -47,7 +47,7 @@
 
     const/4 v1, 0x5
 
-    invoke-virtual {v0, v1, p1}, Landroid/os/Handler;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
+    invoke-virtual {v0, v1, p1}, Landroid/service/quicksettings/TileService$H;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
 
     move-result-object v0
 
@@ -72,7 +72,7 @@
 
     const/4 v1, 0x1
 
-    invoke-virtual {v0, v1}, Landroid/os/Handler;->sendEmptyMessage(I)Z
+    invoke-virtual {v0, v1}, Landroid/service/quicksettings/TileService$H;->sendEmptyMessage(I)Z
 
     return-void
 .end method
@@ -93,7 +93,7 @@
 
     const/4 v1, 0x2
 
-    invoke-virtual {v0, v1}, Landroid/os/Handler;->sendEmptyMessage(I)Z
+    invoke-virtual {v0, v1}, Landroid/service/quicksettings/TileService$H;->sendEmptyMessage(I)Z
 
     return-void
 .end method
@@ -114,7 +114,7 @@
 
     const/4 v1, 0x3
 
-    invoke-virtual {v0, v1}, Landroid/os/Handler;->sendEmptyMessage(I)Z
+    invoke-virtual {v0, v1}, Landroid/service/quicksettings/TileService$H;->sendEmptyMessage(I)Z
 
     return-void
 .end method
@@ -135,7 +135,7 @@
 
     const/4 v1, 0x4
 
-    invoke-virtual {v0, v1}, Landroid/os/Handler;->sendEmptyMessage(I)Z
+    invoke-virtual {v0, v1}, Landroid/service/quicksettings/TileService$H;->sendEmptyMessage(I)Z
 
     return-void
 .end method
@@ -156,7 +156,7 @@
 
     const/4 v1, 0x6
 
-    invoke-virtual {v0, v1}, Landroid/os/Handler;->sendEmptyMessage(I)Z
+    invoke-virtual {v0, v1}, Landroid/service/quicksettings/TileService$H;->sendEmptyMessage(I)Z
 
     return-void
 .end method
@@ -172,6 +172,23 @@
     iget-object v0, p0, Landroid/service/quicksettings/TileService$2;->this$0:Landroid/service/quicksettings/TileService;
 
     invoke-virtual {v0}, Landroid/service/quicksettings/TileService;->semGetDetailView()Landroid/widget/RemoteViews;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public semGetDetailViewSettingButtonName()Ljava/lang/CharSequence;
+    .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    iget-object v0, p0, Landroid/service/quicksettings/TileService$2;->this$0:Landroid/service/quicksettings/TileService;
+
+    invoke-virtual {v0}, Landroid/service/quicksettings/TileService;->semGetDetailViewSettingButtonName()Ljava/lang/CharSequence;
 
     move-result-object v0
 
@@ -246,21 +263,6 @@
     return v0
 .end method
 
-.method public semRefreshConnection(Landroid/content/Intent;)V
-    .locals 1
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    iget-object v0, p0, Landroid/service/quicksettings/TileService$2;->this$0:Landroid/service/quicksettings/TileService;
-
-    invoke-virtual {v0, p1}, Landroid/service/quicksettings/TileService;->semRefreshConnection(Landroid/content/Intent;)V
-
-    return-void
-.end method
-
 .method public semSetToggleButtonChecked(Z)V
     .locals 3
     .annotation system Ldalvik/annotation/Throws;
@@ -281,7 +283,7 @@
 
     const/16 v2, 0x8
 
-    invoke-virtual {v0, v2, v1}, Landroid/os/Handler;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
+    invoke-virtual {v0, v2, v1}, Landroid/service/quicksettings/TileService$H;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
 
     move-result-object v0
 

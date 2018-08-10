@@ -55,6 +55,14 @@
     .end annotation
 .end method
 
+.method public abstract handleVoipCallStateChange()V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract hangupCall()Z
     .annotation system Ldalvik/annotation/Throws;
         value = {

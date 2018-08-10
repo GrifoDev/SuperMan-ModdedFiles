@@ -24,9 +24,13 @@
 
 .field public static final FOCUS_POLICY_DUCKING_IN_POLICY:I = 0x1
 
+.field private static final MSG_FOCUS_ABANDON:I = 0x5
+
 .field private static final MSG_FOCUS_GRANT:I = 0x1
 
 .field private static final MSG_FOCUS_LOSS:I = 0x2
+
+.field private static final MSG_FOCUS_REQUEST:I = 0x4
 
 .field private static final MSG_MIX_STATE_UPDATE:I = 0x3
 
@@ -49,6 +53,8 @@
 .field private final mEventHandler:Landroid/media/audiopolicy/AudioPolicy$EventHandler;
 
 .field private mFocusListener:Landroid/media/audiopolicy/AudioPolicy$AudioPolicyFocusListener;
+
+.field private mIsFocusPolicy:Z
 
 .field private final mLock:Ljava/lang/Object;
 
@@ -102,7 +108,7 @@
     return-void
 .end method
 
-.method private constructor <init>(Landroid/media/audiopolicy/AudioPolicyConfig;Landroid/content/Context;Landroid/os/Looper;Landroid/media/audiopolicy/AudioPolicy$AudioPolicyFocusListener;Landroid/media/audiopolicy/AudioPolicy$AudioPolicyStatusListener;)V
+.method private constructor <init>(Landroid/media/audiopolicy/AudioPolicyConfig;Landroid/content/Context;Landroid/os/Looper;Landroid/media/audiopolicy/AudioPolicy$AudioPolicyFocusListener;Landroid/media/audiopolicy/AudioPolicy$AudioPolicyStatusListener;Z)V
     .locals 2
 
     const/4 v1, 0x0
@@ -149,6 +155,8 @@
 
     iput-object p5, p0, Landroid/media/audiopolicy/AudioPolicy;->mStatusListener:Landroid/media/audiopolicy/AudioPolicy$AudioPolicyStatusListener;
 
+    iput-boolean p6, p0, Landroid/media/audiopolicy/AudioPolicy;->mIsFocusPolicy:Z
+
     return-void
 
     :cond_1
@@ -163,10 +171,10 @@
     goto :goto_0
 .end method
 
-.method synthetic constructor <init>(Landroid/media/audiopolicy/AudioPolicyConfig;Landroid/content/Context;Landroid/os/Looper;Landroid/media/audiopolicy/AudioPolicy$AudioPolicyFocusListener;Landroid/media/audiopolicy/AudioPolicy$AudioPolicyStatusListener;Landroid/media/audiopolicy/AudioPolicy;)V
+.method synthetic constructor <init>(Landroid/media/audiopolicy/AudioPolicyConfig;Landroid/content/Context;Landroid/os/Looper;Landroid/media/audiopolicy/AudioPolicy$AudioPolicyFocusListener;Landroid/media/audiopolicy/AudioPolicy$AudioPolicyStatusListener;ZLandroid/media/audiopolicy/AudioPolicy;)V
     .locals 0
 
-    invoke-direct/range {p0 .. p5}, Landroid/media/audiopolicy/AudioPolicy;-><init>(Landroid/media/audiopolicy/AudioPolicyConfig;Landroid/content/Context;Landroid/os/Looper;Landroid/media/audiopolicy/AudioPolicy$AudioPolicyFocusListener;Landroid/media/audiopolicy/AudioPolicy$AudioPolicyStatusListener;)V
+    invoke-direct/range {p0 .. p6}, Landroid/media/audiopolicy/AudioPolicy;-><init>(Landroid/media/audiopolicy/AudioPolicyConfig;Landroid/content/Context;Landroid/os/Looper;Landroid/media/audiopolicy/AudioPolicy$AudioPolicyFocusListener;Landroid/media/audiopolicy/AudioPolicy$AudioPolicyStatusListener;Z)V
 
     return-void
 .end method
@@ -517,7 +525,7 @@
 
     iget-object v0, p0, Landroid/media/audiopolicy/AudioPolicy;->mEventHandler:Landroid/media/audiopolicy/AudioPolicy$EventHandler;
 
-    invoke-virtual {v0, p1}, Landroid/os/Handler;->sendEmptyMessage(I)Z
+    invoke-virtual {v0, p1}, Landroid/media/audiopolicy/AudioPolicy$EventHandler;->sendEmptyMessage(I)Z
 
     :cond_0
     return-void
@@ -536,11 +544,11 @@
 
     const/4 v2, 0x0
 
-    invoke-virtual {v1, p1, p3, v2, p2}, Landroid/os/Handler;->obtainMessage(IIILjava/lang/Object;)Landroid/os/Message;
+    invoke-virtual {v1, p1, p3, v2, p2}, Landroid/media/audiopolicy/AudioPolicy$EventHandler;->obtainMessage(IIILjava/lang/Object;)Landroid/os/Message;
 
     move-result-object v1
 
-    invoke-virtual {v0, v1}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
+    invoke-virtual {v0, v1}, Landroid/media/audiopolicy/AudioPolicy$EventHandler;->sendMessage(Landroid/os/Message;)Z
 
     :cond_0
     return-void
@@ -798,6 +806,14 @@
     const/4 v0, 0x0
 
     goto :goto_0
+.end method
+
+.method public isFocusPolicy()Z
+    .locals 1
+
+    iget-boolean v0, p0, Landroid/media/audiopolicy/AudioPolicy;->mIsFocusPolicy:Z
+
+    return v0
 .end method
 
 .method public setFocusDuckingBehavior(I)I

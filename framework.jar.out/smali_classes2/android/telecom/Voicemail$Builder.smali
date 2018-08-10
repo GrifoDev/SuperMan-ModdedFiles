@@ -27,6 +27,8 @@
 
 .field private mBuilderPhoneAccount:Landroid/telecom/PhoneAccountHandle;
 
+.field private mBuilderSimId:I
+
 .field private mBuilderSourceData:Ljava/lang/String;
 
 .field private mBuilderSourcePackage:Ljava/lang/String;
@@ -58,11 +60,11 @@
 
 # virtual methods
 .method public build()Landroid/telecom/Voicemail;
-    .locals 13
+    .locals 14
 
     const-wide/16 v2, 0x0
 
-    const/4 v12, 0x0
+    const/4 v13, 0x0
 
     iget-object v0, p0, Landroid/telecom/Voicemail$Builder;->mBuilderId:Ljava/lang/Long;
 
@@ -142,7 +144,9 @@
 
     iget-object v11, p0, Landroid/telecom/Voicemail$Builder;->mBuilderTranscription:Ljava/lang/String;
 
-    invoke-direct/range {v0 .. v12}, Landroid/telecom/Voicemail;-><init>(Ljava/lang/Long;Ljava/lang/String;Landroid/telecom/PhoneAccountHandle;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/String;Ljava/lang/String;Landroid/net/Uri;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/String;Landroid/telecom/Voicemail;)V
+    iget v12, p0, Landroid/telecom/Voicemail$Builder;->mBuilderSimId:I
+
+    invoke-direct/range {v0 .. v13}, Landroid/telecom/Voicemail;-><init>(Ljava/lang/Long;Ljava/lang/String;Landroid/telecom/PhoneAccountHandle;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/String;Ljava/lang/String;Landroid/net/Uri;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/String;ILandroid/telecom/Voicemail;)V
 
     return-object v0
 
@@ -239,6 +243,14 @@
     .locals 0
 
     iput-object p1, p0, Landroid/telecom/Voicemail$Builder;->mBuilderPhoneAccount:Landroid/telecom/PhoneAccountHandle;
+
+    return-object p0
+.end method
+
+.method public setSimId(I)Landroid/telecom/Voicemail$Builder;
+    .locals 0
+
+    iput p1, p0, Landroid/telecom/Voicemail$Builder;->mBuilderSimId:I
 
     return-object p0
 .end method

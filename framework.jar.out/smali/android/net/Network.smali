@@ -37,9 +37,9 @@
 # instance fields
 .field private volatile mConnectionPool:Lcom/android/okhttp/ConnectionPool;
 
-.field private final mLock:Ljava/lang/Object;
+.field private volatile mDns:Lcom/android/okhttp/Dns;
 
-.field private volatile mNetwork:Lcom/android/okhttp/internal/Network;
+.field private final mLock:Ljava/lang/Object;
 
 .field private volatile mNetworkBoundSocketFactory:Landroid/net/Network$NetworkBoundSocketFactory;
 
@@ -122,7 +122,7 @@
 
     iput-object v0, p0, Landroid/net/Network;->mConnectionPool:Lcom/android/okhttp/ConnectionPool;
 
-    iput-object v0, p0, Landroid/net/Network;->mNetwork:Lcom/android/okhttp/internal/Network;
+    iput-object v0, p0, Landroid/net/Network;->mDns:Lcom/android/okhttp/Dns;
 
     new-instance v0, Ljava/lang/Object;
 
@@ -146,7 +146,7 @@
 
     iput-object v0, p0, Landroid/net/Network;->mConnectionPool:Lcom/android/okhttp/ConnectionPool;
 
-    iput-object v0, p0, Landroid/net/Network;->mNetwork:Lcom/android/okhttp/internal/Network;
+    iput-object v0, p0, Landroid/net/Network;->mDns:Lcom/android/okhttp/Dns;
 
     new-instance v0, Ljava/lang/Object;
 
@@ -169,7 +169,7 @@
     monitor-enter v1
 
     :try_start_0
-    iget-object v0, p0, Landroid/net/Network;->mNetwork:Lcom/android/okhttp/internal/Network;
+    iget-object v0, p0, Landroid/net/Network;->mDns:Lcom/android/okhttp/Dns;
 
     if-nez v0, :cond_0
 
@@ -177,7 +177,7 @@
 
     invoke-direct {v0, p0}, Landroid/net/Network$2;-><init>(Landroid/net/Network;)V
 
-    iput-object v0, p0, Landroid/net/Network;->mNetwork:Lcom/android/okhttp/internal/Network;
+    iput-object v0, p0, Landroid/net/Network;->mDns:Lcom/android/okhttp/Dns;
 
     :cond_0
     iget-object v0, p0, Landroid/net/Network;->mConnectionPool:Lcom/android/okhttp/ConnectionPool;
@@ -190,7 +190,9 @@
 
     sget-wide v4, Landroid/net/Network;->httpKeepAliveDurationMs:J
 
-    invoke-direct {v0, v2, v4, v5}, Lcom/android/okhttp/ConnectionPool;-><init>(IJ)V
+    sget-object v3, Ljava/util/concurrent/TimeUnit;->MILLISECONDS:Ljava/util/concurrent/TimeUnit;
+
+    invoke-direct {v0, v2, v4, v5, v3}, Lcom/android/okhttp/ConnectionPool;-><init>(IJLjava/util/concurrent/TimeUnit;)V
 
     iput-object v0, p0, Landroid/net/Network;->mConnectionPool:Lcom/android/okhttp/ConnectionPool;
     :try_end_0
@@ -613,11 +615,9 @@
 
     invoke-virtual {v3, v4}, Lcom/android/okhttp/OkHttpClient;->setConnectionPool(Lcom/android/okhttp/ConnectionPool;)Lcom/android/okhttp/OkHttpClient;
 
-    sget-object v3, Lcom/android/okhttp/internal/Internal;->instance:Lcom/android/okhttp/internal/Internal;
+    iget-object v3, p0, Landroid/net/Network;->mDns:Lcom/android/okhttp/Dns;
 
-    iget-object v4, p0, Landroid/net/Network;->mNetwork:Lcom/android/okhttp/internal/Network;
-
-    invoke-virtual {v3, v0, v4}, Lcom/android/okhttp/internal/Internal;->setNetwork(Lcom/android/okhttp/OkHttpClient;Lcom/android/okhttp/internal/Network;)V
+    invoke-virtual {v0, v3}, Lcom/android/okhttp/OkHttpClient;->setDns(Lcom/android/okhttp/Dns;)Lcom/android/okhttp/OkHttpClient;
 
     invoke-virtual {v1, p1}, Lcom/android/okhttp/OkUrlFactory;->open(Ljava/net/URL;)Ljava/net/HttpURLConnection;
 

@@ -17,8 +17,6 @@
 # instance fields
 .field public defaultResponse:I
 
-.field public extras:Landroid/os/Bundle;
-
 .field public needNotify:Z
 
 .field public needVerify:Z

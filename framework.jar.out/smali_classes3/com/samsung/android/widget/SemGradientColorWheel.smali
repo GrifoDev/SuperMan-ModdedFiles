@@ -18,15 +18,19 @@
 # instance fields
 .field private final HUE_COLORS:[I
 
-.field private mCurX:F
+.field private final mContext:Landroid/content/Context;
 
-.field private mCurY:F
-
-.field private mCursorDrawable:Landroid/graphics/drawable/Drawable;
+.field private mCursorBitmap:Landroid/graphics/Bitmap;
 
 .field private mCursorPaint:Landroid/graphics/Paint;
 
-.field private final mCursorSize:I
+.field private final mCursorPaintSize:I
+
+.field private mCursorPosX:F
+
+.field private mCursorPosY:F
+
+.field private final mCursorShadowSize:I
 
 .field private mHuePaint:Landroid/graphics/Paint;
 
@@ -36,7 +40,13 @@
 
 .field private mRadius:I
 
+.field private final mResources:Landroid/content/res/Resources;
+
 .field private mSaturationPaint:Landroid/graphics/Paint;
+
+.field private mStrokePaint:Landroid/graphics/Paint;
+
+.field private mStrokeRadius:I
 
 
 # direct methods
@@ -53,17 +63,35 @@
 
     iput-object v0, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->HUE_COLORS:[I
 
-    invoke-virtual {p0}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
+    iput-object p1, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->mContext:Landroid/content/Context;
+
+    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    const v1, 0x1050344
+    iput-object v0, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->mResources:Landroid/content/res/Resources;
+
+    iget-object v0, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->mResources:Landroid/content/res/Resources;
+
+    const v1, 0x10501d1
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v0
 
-    iput v0, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->mCursorSize:I
+    iput v0, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->mCursorPaintSize:I
+
+    iget-object v0, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->mResources:Landroid/content/res/Resources;
+
+    const v1, 0x10501d2
+
+    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v0
+
+    iput v0, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->mCursorShadowSize:I
+
+    invoke-direct {p0}, Lcom/samsung/android/widget/SemGradientColorWheel;->init()V
 
     return-void
 
@@ -79,6 +107,279 @@
         -0x100
         -0x10000
     .end array-data
+.end method
+
+.method private init()V
+    .locals 14
+
+    const/4 v13, 0x0
+
+    const/4 v12, 0x1
+
+    iget-object v1, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->mResources:Landroid/content/res/Resources;
+
+    const v2, 0x10501d3
+
+    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v1
+
+    iget v2, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->mCursorShadowSize:I
+
+    add-int v11, v1, v2
+
+    div-int/lit8 v1, v11, 0x2
+
+    iput v1, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->mRadius:I
+
+    iget v1, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->mRadius:I
+
+    iget v2, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->mCursorShadowSize:I
+
+    div-int/lit8 v2, v2, 0x2
+
+    sub-int/2addr v1, v2
+
+    iput v1, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->mOrbitalRadius:I
+
+    iget v1, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->mOrbitalRadius:I
+
+    iget-object v2, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->mResources:Landroid/content/res/Resources;
+
+    const v3, 0x10501ef
+
+    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v2
+
+    add-int/2addr v1, v2
+
+    iput v1, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->mStrokeRadius:I
+
+    new-instance v8, Landroid/graphics/SweepGradient;
+
+    iget v1, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->mRadius:I
+
+    int-to-float v1, v1
+
+    iget v2, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->mRadius:I
+
+    int-to-float v2, v2
+
+    iget-object v3, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->HUE_COLORS:[I
+
+    invoke-direct {v8, v1, v2, v3, v13}, Landroid/graphics/SweepGradient;-><init>(FF[I[F)V
+
+    new-instance v1, Landroid/graphics/Paint;
+
+    invoke-direct {v1, v12}, Landroid/graphics/Paint;-><init>(I)V
+
+    iput-object v1, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->mHuePaint:Landroid/graphics/Paint;
+
+    iget-object v1, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->mHuePaint:Landroid/graphics/Paint;
+
+    invoke-virtual {v1, v8}, Landroid/graphics/Paint;->setShader(Landroid/graphics/Shader;)Landroid/graphics/Shader;
+
+    iget-object v1, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->mHuePaint:Landroid/graphics/Paint;
+
+    sget-object v2, Landroid/graphics/Paint$Style;->FILL:Landroid/graphics/Paint$Style;
+
+    invoke-virtual {v1, v2}, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
+
+    new-instance v0, Landroid/graphics/RadialGradient;
+
+    iget v1, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->mRadius:I
+
+    int-to-float v1, v1
+
+    iget v2, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->mRadius:I
+
+    int-to-float v2, v2
+
+    iget v3, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->mOrbitalRadius:I
+
+    int-to-float v3, v3
+
+    sget-object v6, Landroid/graphics/Shader$TileMode;->CLAMP:Landroid/graphics/Shader$TileMode;
+
+    const/4 v4, -0x1
+
+    const/4 v5, 0x0
+
+    invoke-direct/range {v0 .. v6}, Landroid/graphics/RadialGradient;-><init>(FFFIILandroid/graphics/Shader$TileMode;)V
+
+    new-instance v1, Landroid/graphics/Paint;
+
+    invoke-direct {v1, v12}, Landroid/graphics/Paint;-><init>(I)V
+
+    iput-object v1, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->mSaturationPaint:Landroid/graphics/Paint;
+
+    iget-object v1, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->mSaturationPaint:Landroid/graphics/Paint;
+
+    invoke-virtual {v1, v0}, Landroid/graphics/Paint;->setShader(Landroid/graphics/Shader;)Landroid/graphics/Shader;
+
+    new-instance v1, Landroid/graphics/Paint;
+
+    invoke-direct {v1}, Landroid/graphics/Paint;-><init>()V
+
+    iput-object v1, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->mCursorPaint:Landroid/graphics/Paint;
+
+    new-instance v1, Landroid/graphics/Paint;
+
+    invoke-direct {v1, v12}, Landroid/graphics/Paint;-><init>(I)V
+
+    iput-object v1, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->mStrokePaint:Landroid/graphics/Paint;
+
+    iget-object v2, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->mStrokePaint:Landroid/graphics/Paint;
+
+    iget-object v3, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->mContext:Landroid/content/Context;
+
+    sget-boolean v1, Lcom/samsung/android/widget/SemColorPicker;->sIsDeviceDefaultDark:Z
+
+    if-eqz v1, :cond_0
+
+    const v1, 0x1060155
+
+    :goto_0
+    invoke-virtual {v3, v1}, Landroid/content/Context;->getColor(I)I
+
+    move-result v1
+
+    invoke-virtual {v2, v1}, Landroid/graphics/Paint;->setColor(I)V
+
+    iget-object v1, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->mResources:Landroid/content/res/Resources;
+
+    const v2, 0x1080828
+
+    invoke-virtual {v1, v2, v13}, Landroid/content/res/Resources;->getDrawable(ILandroid/content/res/Resources$Theme;)Landroid/graphics/drawable/Drawable;
+
+    move-result-object v7
+
+    check-cast v7, Landroid/graphics/drawable/BitmapDrawable;
+
+    iget-object v1, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->mContext:Landroid/content/Context;
+
+    iget v2, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->mCursorShadowSize:I
+
+    iget v3, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->mCursorShadowSize:I
+
+    invoke-static {v1, v7, v2, v3}, Lcom/samsung/android/widget/SemGradientColorWheel;->resizeDrawable(Landroid/content/Context;Landroid/graphics/drawable/BitmapDrawable;II)Landroid/graphics/drawable/Drawable;
+
+    move-result-object v10
+
+    check-cast v10, Landroid/graphics/drawable/BitmapDrawable;
+
+    if-eqz v10, :cond_1
+
+    invoke-virtual {v10}, Landroid/graphics/drawable/BitmapDrawable;->getBitmap()Landroid/graphics/Bitmap;
+
+    move-result-object v1
+
+    iput-object v1, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->mCursorBitmap:Landroid/graphics/Bitmap;
+
+    :goto_1
+    new-instance v9, Landroid/widget/FrameLayout$LayoutParams;
+
+    invoke-direct {v9, v11, v11}, Landroid/widget/FrameLayout$LayoutParams;-><init>(II)V
+
+    iput v12, v9, Landroid/widget/FrameLayout$LayoutParams;->gravity:I
+
+    invoke-virtual {p0, v9}, Lcom/samsung/android/widget/SemGradientColorWheel;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+
+    return-void
+
+    :cond_0
+    const v1, 0x1060154
+
+    goto :goto_0
+
+    :cond_1
+    const-string/jumbo v1, "SemGradientColorWheel"
+
+    const-string/jumbo v2, "resizeDrawable == null"
+
+    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_1
+.end method
+
+.method private static resizeDrawable(Landroid/content/Context;Landroid/graphics/drawable/BitmapDrawable;II)Landroid/graphics/drawable/Drawable;
+    .locals 10
+
+    const/4 v2, 0x0
+
+    const/4 v1, 0x0
+
+    if-nez p1, :cond_0
+
+    return-object v2
+
+    :cond_0
+    invoke-virtual {p1}, Landroid/graphics/drawable/BitmapDrawable;->getBitmap()Landroid/graphics/Bitmap;
+
+    move-result-object v0
+
+    new-instance v5, Landroid/graphics/Matrix;
+
+    invoke-direct {v5}, Landroid/graphics/Matrix;-><init>()V
+
+    const/4 v9, 0x0
+
+    const/4 v8, 0x0
+
+    if-lez p2, :cond_1
+
+    int-to-float v2, p2
+
+    invoke-virtual {v0}, Landroid/graphics/Bitmap;->getWidth()I
+
+    move-result v3
+
+    int-to-float v3, v3
+
+    div-float v9, v2, v3
+
+    :cond_1
+    if-lez p3, :cond_2
+
+    int-to-float v2, p3
+
+    invoke-virtual {v0}, Landroid/graphics/Bitmap;->getHeight()I
+
+    move-result v3
+
+    int-to-float v3, v3
+
+    div-float v8, v2, v3
+
+    :cond_2
+    invoke-virtual {v5, v9, v8}, Landroid/graphics/Matrix;->postScale(FF)Z
+
+    invoke-virtual {v0}, Landroid/graphics/Bitmap;->getWidth()I
+
+    move-result v3
+
+    invoke-virtual {v0}, Landroid/graphics/Bitmap;->getHeight()I
+
+    move-result v4
+
+    const/4 v6, 0x1
+
+    move v2, v1
+
+    invoke-static/range {v0 .. v6}, Landroid/graphics/Bitmap;->createBitmap(Landroid/graphics/Bitmap;IIIILandroid/graphics/Matrix;Z)Landroid/graphics/Bitmap;
+
+    move-result-object v7
+
+    new-instance v1, Landroid/graphics/drawable/BitmapDrawable;
+
+    invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v2
+
+    invoke-direct {v1, v2, v7}, Landroid/graphics/drawable/BitmapDrawable;-><init>(Landroid/content/res/Resources;Landroid/graphics/Bitmap;)V
+
+    return-object v1
 .end method
 
 .method private updateCursorPosition(FF)V
@@ -118,7 +419,7 @@
 
     int-to-float v3, v3
 
-    iput v3, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->mCurX:F
+    iput v3, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->mCursorPosX:F
 
     iget v3, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->mRadius:I
 
@@ -138,255 +439,109 @@
 
     int-to-float v3, v3
 
-    iput v3, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->mCurY:F
+    iput v3, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->mCursorPosY:F
 
-    invoke-virtual {p0}, Landroid/view/View;->invalidate()V
+    invoke-virtual {p0}, Lcom/samsung/android/widget/SemGradientColorWheel;->invalidate()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public close()V
-    .locals 1
-
-    const/4 v0, 0x0
-
-    iput-object v0, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->mCursorPaint:Landroid/graphics/Paint;
-
-    iput-object v0, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->mHuePaint:Landroid/graphics/Paint;
-
-    iput-object v0, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->mSaturationPaint:Landroid/graphics/Paint;
-
-    iput-object v0, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->mListener:Lcom/samsung/android/widget/SemGradientColorWheel$OnWheelColorChangedListener;
-
-    return-void
-.end method
-
-.method init(I)V
-    .locals 11
-
-    const/4 v10, 0x0
-
-    const/4 v9, 0x1
-
-    iget v1, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->mCursorSize:I
-
-    add-int/2addr p1, v1
-
-    div-int/lit8 v1, p1, 0x2
-
-    iput v1, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->mRadius:I
-
-    iget v1, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->mRadius:I
-
-    iget v2, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->mCursorSize:I
-
-    div-int/lit8 v2, v2, 0x2
-
-    sub-int/2addr v1, v2
-
-    iput v1, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->mOrbitalRadius:I
-
-    new-instance v7, Landroid/graphics/SweepGradient;
-
-    iget v1, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->mRadius:I
-
-    int-to-float v1, v1
-
-    iget v2, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->mRadius:I
-
-    int-to-float v2, v2
-
-    iget-object v3, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->HUE_COLORS:[I
-
-    invoke-direct {v7, v1, v2, v3, v10}, Landroid/graphics/SweepGradient;-><init>(FF[I[F)V
-
-    new-instance v1, Landroid/graphics/Paint;
-
-    invoke-direct {v1, v9}, Landroid/graphics/Paint;-><init>(I)V
-
-    iput-object v1, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->mHuePaint:Landroid/graphics/Paint;
-
-    iget-object v1, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->mHuePaint:Landroid/graphics/Paint;
-
-    invoke-virtual {v1, v7}, Landroid/graphics/Paint;->setShader(Landroid/graphics/Shader;)Landroid/graphics/Shader;
-
-    iget-object v1, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->mHuePaint:Landroid/graphics/Paint;
-
-    sget-object v2, Landroid/graphics/Paint$Style;->FILL:Landroid/graphics/Paint$Style;
-
-    invoke-virtual {v1, v2}, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
-
-    new-instance v0, Landroid/graphics/RadialGradient;
-
-    iget v1, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->mRadius:I
-
-    int-to-float v1, v1
-
-    iget v2, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->mRadius:I
-
-    int-to-float v2, v2
-
-    iget v3, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->mOrbitalRadius:I
-
-    int-to-float v3, v3
-
-    sget-object v6, Landroid/graphics/Shader$TileMode;->CLAMP:Landroid/graphics/Shader$TileMode;
-
-    const/4 v4, -0x1
-
-    const/4 v5, 0x0
-
-    invoke-direct/range {v0 .. v6}, Landroid/graphics/RadialGradient;-><init>(FFFIILandroid/graphics/Shader$TileMode;)V
-
-    new-instance v1, Landroid/graphics/Paint;
-
-    invoke-direct {v1, v9}, Landroid/graphics/Paint;-><init>(I)V
-
-    iput-object v1, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->mSaturationPaint:Landroid/graphics/Paint;
-
-    iget-object v1, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->mSaturationPaint:Landroid/graphics/Paint;
-
-    invoke-virtual {v1, v0}, Landroid/graphics/Paint;->setShader(Landroid/graphics/Shader;)Landroid/graphics/Shader;
-
-    new-instance v1, Landroid/graphics/Paint;
-
-    invoke-direct {v1}, Landroid/graphics/Paint;-><init>()V
-
-    iput-object v1, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->mCursorPaint:Landroid/graphics/Paint;
-
-    invoke-virtual {p0}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v1
-
-    const v2, 0x10807de
-
-    invoke-virtual {v1, v2, v10}, Landroid/content/res/Resources;->getDrawable(ILandroid/content/res/Resources$Theme;)Landroid/graphics/drawable/Drawable;
-
-    move-result-object v1
-
-    iput-object v1, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->mCursorDrawable:Landroid/graphics/drawable/Drawable;
-
-    new-instance v8, Landroid/widget/FrameLayout$LayoutParams;
-
-    invoke-direct {v8, p1, p1}, Landroid/widget/FrameLayout$LayoutParams;-><init>(II)V
-
-    iput v9, v8, Landroid/widget/FrameLayout$LayoutParams;->gravity:I
-
-    invoke-virtual {p0, v8}, Landroid/view/View;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
-
-    return-void
-.end method
-
 .method protected onDraw(Landroid/graphics/Canvas;)V
-    .locals 9
+    .locals 5
 
-    const/high16 v8, 0x40000000    # 2.0f
+    const/high16 v4, 0x40000000    # 2.0f
 
     invoke-super {p0, p1}, Landroid/view/View;->onDraw(Landroid/graphics/Canvas;)V
 
-    iget v4, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->mRadius:I
+    iget v0, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->mRadius:I
 
-    int-to-float v4, v4
+    int-to-float v0, v0
 
-    iget v5, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->mRadius:I
+    iget v1, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->mRadius:I
 
-    int-to-float v5, v5
+    int-to-float v1, v1
 
-    iget v6, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->mOrbitalRadius:I
+    iget v2, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->mStrokeRadius:I
 
-    int-to-float v6, v6
+    int-to-float v2, v2
 
-    iget-object v7, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->mHuePaint:Landroid/graphics/Paint;
+    iget-object v3, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->mStrokePaint:Landroid/graphics/Paint;
 
-    invoke-virtual {p1, v4, v5, v6, v7}, Landroid/graphics/Canvas;->drawCircle(FFFLandroid/graphics/Paint;)V
+    invoke-virtual {p1, v0, v1, v2, v3}, Landroid/graphics/Canvas;->drawCircle(FFFLandroid/graphics/Paint;)V
 
-    iget v4, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->mRadius:I
+    iget v0, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->mRadius:I
 
-    int-to-float v4, v4
+    int-to-float v0, v0
 
-    iget v5, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->mRadius:I
+    iget v1, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->mRadius:I
 
-    int-to-float v5, v5
+    int-to-float v1, v1
 
-    iget v6, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->mOrbitalRadius:I
+    iget v2, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->mOrbitalRadius:I
 
-    int-to-float v6, v6
+    int-to-float v2, v2
 
-    iget-object v7, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->mSaturationPaint:Landroid/graphics/Paint;
+    iget-object v3, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->mHuePaint:Landroid/graphics/Paint;
 
-    invoke-virtual {p1, v4, v5, v6, v7}, Landroid/graphics/Canvas;->drawCircle(FFFLandroid/graphics/Paint;)V
+    invoke-virtual {p1, v0, v1, v2, v3}, Landroid/graphics/Canvas;->drawCircle(FFFLandroid/graphics/Paint;)V
 
-    iget v4, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->mCurX:F
+    iget v0, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->mRadius:I
 
-    iget v5, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->mCursorSize:I
+    int-to-float v0, v0
 
-    int-to-float v5, v5
+    iget v1, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->mRadius:I
 
-    div-float/2addr v5, v8
+    int-to-float v1, v1
 
-    sub-float/2addr v4, v5
+    iget v2, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->mOrbitalRadius:I
 
-    float-to-int v1, v4
+    int-to-float v2, v2
 
-    iget v4, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->mCurY:F
+    iget-object v3, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->mSaturationPaint:Landroid/graphics/Paint;
 
-    iget v5, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->mCursorSize:I
+    invoke-virtual {p1, v0, v1, v2, v3}, Landroid/graphics/Canvas;->drawCircle(FFFLandroid/graphics/Paint;)V
 
-    int-to-float v5, v5
+    iget v0, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->mCursorPosX:F
 
-    div-float/2addr v5, v8
+    iget v1, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->mCursorPosY:F
 
-    sub-float/2addr v4, v5
+    iget v2, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->mCursorPaintSize:I
 
-    float-to-int v3, v4
+    int-to-float v2, v2
 
-    iget v4, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->mCurX:F
+    div-float/2addr v2, v4
 
-    iget v5, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->mCursorSize:I
+    iget-object v3, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->mCursorPaint:Landroid/graphics/Paint;
 
-    int-to-float v5, v5
+    invoke-virtual {p1, v0, v1, v2, v3}, Landroid/graphics/Canvas;->drawCircle(FFFLandroid/graphics/Paint;)V
 
-    div-float/2addr v5, v8
+    iget-object v0, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->mCursorBitmap:Landroid/graphics/Bitmap;
 
-    add-float/2addr v4, v5
+    iget v1, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->mCursorPosX:F
 
-    float-to-int v2, v4
+    iget v2, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->mCursorShadowSize:I
 
-    iget v4, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->mCurY:F
+    int-to-float v2, v2
 
-    iget v5, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->mCursorSize:I
+    div-float/2addr v2, v4
 
-    int-to-float v5, v5
+    sub-float/2addr v1, v2
 
-    div-float/2addr v5, v8
+    iget v2, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->mCursorPosY:F
 
-    add-float/2addr v4, v5
+    iget v3, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->mCursorShadowSize:I
 
-    float-to-int v0, v4
+    int-to-float v3, v3
 
-    iget v4, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->mCurX:F
+    div-float/2addr v3, v4
 
-    iget v5, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->mCurY:F
+    sub-float/2addr v2, v3
 
-    iget v6, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->mCursorSize:I
+    iget-object v3, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->mCursorPaint:Landroid/graphics/Paint;
 
-    div-int/lit8 v6, v6, 0x2
-
-    int-to-float v6, v6
-
-    iget-object v7, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->mCursorPaint:Landroid/graphics/Paint;
-
-    invoke-virtual {p1, v4, v5, v6, v7}, Landroid/graphics/Canvas;->drawCircle(FFFLandroid/graphics/Paint;)V
-
-    iget-object v4, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->mCursorDrawable:Landroid/graphics/drawable/Drawable;
-
-    invoke-virtual {v4, v1, v3, v2, v0}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
-
-    iget-object v4, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->mCursorDrawable:Landroid/graphics/drawable/Drawable;
-
-    invoke-virtual {v4, p1}, Landroid/graphics/drawable/Drawable;->draw(Landroid/graphics/Canvas;)V
+    invoke-virtual {p1, v0, v1, v2, v3}, Landroid/graphics/Canvas;->drawBitmap(Landroid/graphics/Bitmap;FFLandroid/graphics/Paint;)V
 
     return-void
 .end method
@@ -453,13 +608,13 @@
 
     move-result v3
 
-    iput v3, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->mCurX:F
+    iput v3, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->mCursorPosX:F
 
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getY()F
 
     move-result v3
 
-    iput v3, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->mCurY:F
+    iput v3, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->mCursorPosY:F
 
     iget v3, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->mOrbitalRadius:I
 
@@ -477,9 +632,7 @@
 
     int-to-float v4, v4
 
-    invoke-virtual {p1}, Landroid/view/MotionEvent;->getX()F
-
-    move-result v5
+    iget v5, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->mCursorPosX:F
 
     iget v6, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->mRadius:I
 
@@ -493,7 +646,7 @@
 
     add-float/2addr v3, v4
 
-    iput v3, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->mCurX:F
+    iput v3, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->mCursorPosX:F
 
     iget v3, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->mRadius:I
 
@@ -503,9 +656,7 @@
 
     int-to-float v4, v4
 
-    invoke-virtual {p1}, Landroid/view/MotionEvent;->getY()F
-
-    move-result v5
+    iget v5, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->mCursorPosY:F
 
     iget v6, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->mRadius:I
 
@@ -519,14 +670,14 @@
 
     add-float/2addr v3, v4
 
-    iput v3, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->mCurY:F
+    iput v3, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->mCursorPosY:F
 
     :cond_1
     iget-object v3, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->mListener:Lcom/samsung/android/widget/SemGradientColorWheel$OnWheelColorChangedListener;
 
     if-eqz v3, :cond_3
 
-    iget v3, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->mCurY:F
+    iget v3, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->mCursorPosY:F
 
     iget v4, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->mRadius:I
 
@@ -540,7 +691,7 @@
 
     int-to-float v3, v3
 
-    iget v6, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->mCurX:F
+    iget v6, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->mCursorPosX:F
 
     sub-float/2addr v3, v6
 
@@ -572,10 +723,10 @@
 
     iget-object v3, p0, Lcom/samsung/android/widget/SemGradientColorWheel;->mListener:Lcom/samsung/android/widget/SemGradientColorWheel$OnWheelColorChangedListener;
 
-    invoke-interface {v3, v1, v2}, Lcom/samsung/android/widget/SemGradientColorWheel$OnWheelColorChangedListener;->onColorChanged(FF)V
+    invoke-interface {v3, v1, v2}, Lcom/samsung/android/widget/SemGradientColorWheel$OnWheelColorChangedListener;->onWheelColorChanged(FF)V
 
     :goto_1
-    invoke-virtual {p0}, Landroid/view/View;->invalidate()V
+    invoke-virtual {p0}, Lcom/samsung/android/widget/SemGradientColorWheel;->invalidate()V
 
     return v11
 
@@ -591,18 +742,18 @@
     return v10
 
     :cond_2
-    invoke-virtual {p0, v10}, Landroid/view/View;->playSoundEffect(I)V
+    invoke-virtual {p0, v10}, Lcom/samsung/android/widget/SemGradientColorWheel;->playSoundEffect(I)V
 
     goto :goto_0
 
     :pswitch_2
-    invoke-virtual {p0}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
+    invoke-virtual {p0}, Lcom/samsung/android/widget/SemGradientColorWheel;->getParent()Landroid/view/ViewParent;
 
     move-result-object v3
 
     if-eqz v3, :cond_0
 
-    invoke-virtual {p0}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
+    invoke-virtual {p0}, Lcom/samsung/android/widget/SemGradientColorWheel;->getParent()Landroid/view/ViewParent;
 
     move-result-object v3
 

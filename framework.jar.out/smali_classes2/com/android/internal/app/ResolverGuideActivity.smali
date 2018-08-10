@@ -37,7 +37,7 @@
 
     const/4 v3, 0x0
 
-    invoke-virtual {p0}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
+    invoke-virtual {p0}, Lcom/android/internal/app/ResolverGuideActivity;->getIntent()Landroid/content/Intent;
 
     move-result-object v1
 
@@ -126,7 +126,7 @@
     invoke-virtual {p0, v0}, Lcom/android/internal/app/ResolverGuideActivity;->safelyStartActivity(Landroid/content/Intent;)V
 
     :cond_1
-    invoke-virtual {p0}, Lcom/android/internal/app/AlertActivity;->dismiss()V
+    invoke-virtual {p0}, Lcom/android/internal/app/ResolverGuideActivity;->dismiss()V
 
     return-void
 .end method
@@ -138,7 +138,7 @@
 
     const v3, 0x10302d2
 
-    invoke-virtual {p0, v3}, Landroid/app/Activity;->setTheme(I)V
+    invoke-virtual {p0, v3}, Lcom/android/internal/app/ResolverGuideActivity;->setTheme(I)V
 
     invoke-super {p0, p1}, Lcom/android/internal/app/AlertActivity;->onCreate(Landroid/os/Bundle;)V
 
@@ -183,31 +183,23 @@
     invoke-virtual {p0, v2}, Lcom/android/internal/app/ResolverGuideActivity;->safelyStartActivity(Landroid/content/Intent;)V
 
     :cond_0
-    invoke-virtual {p0}, Landroid/app/Activity;->finish()V
+    invoke-virtual {p0}, Lcom/android/internal/app/ResolverGuideActivity;->finish()V
 
     :goto_0
     return-void
 
     :cond_1
-    iget-object v0, p0, Lcom/android/internal/app/AlertActivity;->mAlertParams:Lcom/android/internal/app/AlertController$AlertParams;
+    iget-object v0, p0, Lcom/android/internal/app/ResolverGuideActivity;->mAlertParams:Lcom/android/internal/app/AlertController$AlertParams;
 
-    invoke-virtual {p0}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v3
-
-    const v4, 0x1040826
-
-    invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
-
-    move-result-object v3
+    const-string/jumbo v3, "Default app selected"
 
     iput-object v3, v0, Lcom/android/internal/app/AlertController$AlertParams;->mTitle:Ljava/lang/CharSequence;
 
-    invoke-virtual {p0}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Lcom/android/internal/app/ResolverGuideActivity;->getResources()Landroid/content/res/Resources;
 
     move-result-object v3
 
-    const v4, 0x1040397
+    const v4, 0x10401c5
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -219,15 +211,17 @@
 
     move-result v3
 
-    const/16 v4, 0x64
+    invoke-static {v3}, Lcom/samsung/android/knox/SemPersonaManager;->isKnoxId(I)Z
 
-    if-lt v3, v4, :cond_2
+    move-result v3
 
-    invoke-virtual {p0}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
+    if-eqz v3, :cond_2
+
+    invoke-virtual {p0}, Lcom/android/internal/app/ResolverGuideActivity;->getResources()Landroid/content/res/Resources;
 
     move-result-object v3
 
-    const v4, 0x104082b
+    const v4, 0x10401c8
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -236,7 +230,7 @@
     iput-object v3, v0, Lcom/android/internal/app/AlertController$AlertParams;->mMessage:Ljava/lang/CharSequence;
 
     :cond_2
-    invoke-virtual {p0}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Lcom/android/internal/app/ResolverGuideActivity;->getResources()Landroid/content/res/Resources;
 
     move-result-object v3
 
@@ -256,9 +250,9 @@
 
     iput-boolean v5, v0, Lcom/android/internal/app/AlertController$AlertParams;->mCancelable:Z
 
-    invoke-virtual {p0, v5}, Landroid/app/Activity;->setFinishOnTouchOutside(Z)V
+    invoke-virtual {p0, v5}, Lcom/android/internal/app/ResolverGuideActivity;->setFinishOnTouchOutside(Z)V
 
-    invoke-virtual {p0}, Lcom/android/internal/app/AlertActivity;->setupAlert()V
+    invoke-virtual {p0}, Lcom/android/internal/app/ResolverGuideActivity;->setupAlert()V
 
     goto :goto_0
 .end method
@@ -276,7 +270,7 @@
 
     invoke-super {p0}, Lcom/android/internal/app/AlertActivity;->onStop()V
 
-    invoke-virtual {p0}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
+    invoke-virtual {p0}, Lcom/android/internal/app/ResolverGuideActivity;->getIntent()Landroid/content/Intent;
 
     move-result-object v0
 
@@ -290,13 +284,13 @@
 
     if-eqz v0, :cond_0
 
-    invoke-virtual {p0}, Landroid/app/Activity;->isChangingConfigurations()Z
+    invoke-virtual {p0}, Lcom/android/internal/app/ResolverGuideActivity;->isChangingConfigurations()Z
 
     move-result v0
 
     if-nez v0, :cond_0
 
-    invoke-virtual {p0}, Landroid/app/Activity;->finish()V
+    invoke-virtual {p0}, Lcom/android/internal/app/ResolverGuideActivity;->finish()V
 
     :cond_0
     return-void
@@ -311,7 +305,7 @@
 
     if-nez v3, :cond_0
 
-    invoke-virtual {p0, p1, v4}, Landroid/app/Activity;->startActivity(Landroid/content/Intent;Landroid/os/Bundle;)V
+    invoke-virtual {p0, p1, v4}, Lcom/android/internal/app/ResolverGuideActivity;->startActivity(Landroid/content/Intent;Landroid/os/Bundle;)V
 
     return-void
 
@@ -323,7 +317,7 @@
     const/16 v5, -0x2710
 
     :try_start_0
-    invoke-virtual {p0, p1, v3, v4, v5}, Landroid/app/Activity;->startActivityAsCaller(Landroid/content/Intent;Landroid/os/Bundle;ZI)V
+    invoke-virtual {p0, p1, v3, v4, v5}, Lcom/android/internal/app/ResolverGuideActivity;->startActivityAsCaller(Landroid/content/Intent;Landroid/os/Bundle;ZI)V
     :try_end_0
     .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -338,7 +332,7 @@
 
     move-result-object v3
 
-    invoke-virtual {p0}, Landroid/app/Activity;->getActivityToken()Landroid/os/IBinder;
+    invoke-virtual {p0}, Lcom/android/internal/app/ResolverGuideActivity;->getActivityToken()Landroid/os/IBinder;
 
     move-result-object v4
 

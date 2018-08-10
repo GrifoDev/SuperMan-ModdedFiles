@@ -218,6 +218,8 @@
 .method private static getTime(Ljava/lang/String;)Lcom/android/internal/http/HttpDateTime$TimeOfDay;
     .locals 7
 
+    const/4 v1, 0x0
+
     const/4 v5, 0x0
 
     const/4 v1, 0x1

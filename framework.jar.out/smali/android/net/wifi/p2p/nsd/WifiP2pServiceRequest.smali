@@ -131,150 +131,152 @@
 .end method
 
 .method private validateQuery(Ljava/lang/String;)V
-    .locals 5
+    .locals 6
 
     if-nez p1, :cond_0
 
     return-void
 
     :cond_0
+    const v0, 0xffff
+
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
-    move-result v2
+    move-result v3
 
-    rem-int/lit8 v2, v2, 0x2
+    rem-int/lit8 v3, v3, 0x2
 
-    const/4 v3, 0x1
+    const/4 v4, 0x1
 
-    if-ne v2, v3, :cond_1
+    if-ne v3, v4, :cond_1
 
-    new-instance v2, Ljava/lang/IllegalArgumentException;
+    new-instance v3, Ljava/lang/IllegalArgumentException;
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v4, "query size is invalid. query="
+    const-string/jumbo v5, "query size is invalid. query="
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    move-result-object v4
 
-    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    move-result-object v4
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v4
 
-    invoke-direct {v2, v3}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v3, v4}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v2
+    throw v3
 
     :cond_1
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
-    move-result v2
+    move-result v3
 
-    div-int/lit8 v2, v2, 0x2
+    div-int/lit8 v3, v3, 0x2
 
-    const v3, 0xffff
+    const v4, 0xffff
 
-    if-le v2, v3, :cond_2
+    if-le v3, v4, :cond_2
 
-    new-instance v2, Ljava/lang/IllegalArgumentException;
+    new-instance v3, Ljava/lang/IllegalArgumentException;
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v4, "query size is too large. len="
+    const-string/jumbo v5, "query size is too large. len="
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    move-result-object v4
 
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
-    move-result v4
+    move-result v5
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    move-result-object v4
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v4
 
-    invoke-direct {v2, v3}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v3, v4}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v2
+    throw v3
 
     :cond_2
-    sget-object v2, Ljava/util/Locale;->ROOT:Ljava/util/Locale;
+    sget-object v3, Ljava/util/Locale;->ROOT:Ljava/util/Locale;
 
-    invoke-virtual {p1, v2}, Ljava/lang/String;->toLowerCase(Ljava/util/Locale;)Ljava/lang/String;
+    invoke-virtual {p1, v3}, Ljava/lang/String;->toLowerCase(Ljava/util/Locale;)Ljava/lang/String;
 
     move-result-object p1
 
     invoke-virtual {p1}, Ljava/lang/String;->toCharArray()[C
 
-    move-result-object v1
+    move-result-object v2
 
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
-    array-length v3, v1
+    array-length v4, v2
 
     :goto_0
-    if-ge v2, v3, :cond_6
+    if-ge v3, v4, :cond_6
 
-    aget-char v0, v1, v2
+    aget-char v1, v2, v3
 
-    const/16 v4, 0x30
+    const/16 v5, 0x30
 
-    if-lt v0, v4, :cond_3
+    if-lt v1, v5, :cond_3
 
-    const/16 v4, 0x39
+    const/16 v5, 0x39
 
-    if-le v0, v4, :cond_5
+    if-le v1, v5, :cond_5
 
     :cond_3
-    const/16 v4, 0x61
+    const/16 v5, 0x61
 
-    if-lt v0, v4, :cond_4
+    if-lt v1, v5, :cond_4
 
-    const/16 v4, 0x66
+    const/16 v5, 0x66
 
-    if-le v0, v4, :cond_5
+    if-le v1, v5, :cond_5
 
     :cond_4
-    new-instance v2, Ljava/lang/IllegalArgumentException;
+    new-instance v3, Ljava/lang/IllegalArgumentException;
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v4, "query should be hex string. query="
+    const-string/jumbo v5, "query should be hex string. query="
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    move-result-object v4
 
-    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    move-result-object v4
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v4
 
-    invoke-direct {v2, v3}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v3, v4}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v2
+    throw v3
 
     :cond_5
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 v3, v3, 0x1
 
     goto :goto_0
 
@@ -313,9 +315,7 @@
     :cond_1
     move-object v0, p1
 
-    nop
-
-    nop
+    check-cast v0, Landroid/net/wifi/p2p/nsd/WifiP2pServiceRequest;
 
     iget v1, v0, Landroid/net/wifi/p2p/nsd/WifiP2pServiceRequest;->mProtocolType:I
 
@@ -485,6 +485,8 @@
 
 .method public hashCode()I
     .locals 3
+
+    const/16 v0, 0x11
 
     iget v1, p0, Landroid/net/wifi/p2p/nsd/WifiP2pServiceRequest;->mProtocolType:I
 

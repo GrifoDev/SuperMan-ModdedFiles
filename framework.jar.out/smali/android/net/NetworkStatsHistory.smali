@@ -882,6 +882,19 @@
     return-void
 .end method
 
+.method private static writeToProto(Landroid/util/proto/ProtoOutputStream;J[JI)V
+    .locals 3
+
+    if-eqz p3, :cond_0
+
+    aget-wide v0, p3, p4
+
+    invoke-virtual {p0, p1, p2, v0, v1}, Landroid/util/proto/ProtoOutputStream;->write(JJ)V
+
+    :cond_0
+    return-void
+.end method
+
 
 # virtual methods
 .method public describeContents()I
@@ -893,11 +906,11 @@
 .end method
 
 .method public dump(Lcom/android/internal/util/IndentingPrintWriter;Z)V
-    .locals 6
+    .locals 8
 
-    const-wide/16 v4, 0x3e8
+    const-wide/16 v6, 0x3e8
 
-    const/4 v1, 0x0
+    const/4 v4, 0x0
 
     const-string/jumbo v2, "NetworkStatsHistory: bucketDuration="
 
@@ -905,13 +918,15 @@
 
     iget-wide v2, p0, Landroid/net/NetworkStatsHistory;->bucketDuration:J
 
-    div-long/2addr v2, v4
+    div-long/2addr v2, v6
 
     invoke-virtual {p1, v2, v3}, Lcom/android/internal/util/IndentingPrintWriter;->println(J)V
 
     invoke-virtual {p1}, Lcom/android/internal/util/IndentingPrintWriter;->increaseIndent()V
 
     if-eqz p2, :cond_6
+
+    const/4 v1, 0x0
 
     :goto_0
     if-lez v1, :cond_0
@@ -942,7 +957,7 @@
 
     aget-wide v2, v2, v0
 
-    div-long/2addr v2, v4
+    div-long/2addr v2, v6
 
     invoke-virtual {p1, v2, v3}, Lcom/android/internal/util/IndentingPrintWriter;->print(J)V
 
@@ -1032,7 +1047,7 @@
 
     add-int/lit8 v2, v2, -0x20
 
-    invoke-static {v1, v2}, Ljava/lang/Math;->max(II)I
+    invoke-static {v4, v2}, Ljava/lang/Math;->max(II)I
 
     move-result v1
 
@@ -2295,20 +2310,15 @@
 
     move-result v34
 
+    invoke-virtual/range {p5 .. p5}, Landroid/net/NetworkStats$Entry;->isEmpty()Z
+
+    move-result v34
+
     if-eqz v34, :cond_0
 
     return-void
 
     :cond_0
-    invoke-virtual/range {p5 .. p5}, Landroid/net/NetworkStats$Entry;->isEmpty()Z
-
-    move-result v34
-
-    if-eqz v34, :cond_1
-
-    return-void
-
-    :cond_1
     invoke-direct/range {p0 .. p4}, Landroid/net/NetworkStatsHistory;->ensureBuckets(JJ)V
 
     sub-long v8, p3, p1
@@ -2324,7 +2334,7 @@
     move/from16 v20, v21
 
     :goto_0
-    if-ltz v20, :cond_2
+    if-ltz v20, :cond_1
 
     move-object/from16 v0, p0
 
@@ -2344,9 +2354,9 @@
 
     cmp-long v34, v4, p1
 
-    if-gez v34, :cond_3
+    if-gez v34, :cond_2
 
-    :cond_2
+    :cond_1
     move-object/from16 v0, p0
 
     iget-wide v0, v0, Landroid/net/NetworkStatsHistory;->totalBytes:J
@@ -2377,18 +2387,18 @@
 
     return-void
 
-    :cond_3
+    :cond_2
     cmp-long v34, v6, p3
 
-    if-lez v34, :cond_5
+    if-lez v34, :cond_4
 
-    :cond_4
+    :cond_3
     :goto_1
     add-int/lit8 v20, v20, -0x1
 
     goto :goto_0
 
-    :cond_5
+    :cond_4
     move-wide/from16 v0, p3
 
     invoke-static {v4, v5, v0, v1}, Ljava/lang/Math;->min(JJ)J
@@ -2407,7 +2417,7 @@
 
     cmp-long v34, v24, v34
 
-    if-lez v34, :cond_4
+    if-lez v34, :cond_3
 
     mul-long v34, v26, v24
 
@@ -2887,6 +2897,80 @@
     iget-wide v0, p0, Landroid/net/NetworkStatsHistory;->totalBytes:J
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Parcel;->writeLong(J)V
+
+    return-void
+.end method
+
+.method public writeToProto(Landroid/util/proto/ProtoOutputStream;J)V
+    .locals 10
+
+    const-wide v8, 0x10400000001L
+
+    invoke-virtual {p1, p2, p3}, Landroid/util/proto/ProtoOutputStream;->start(J)J
+
+    move-result-wide v2
+
+    iget-wide v6, p0, Landroid/net/NetworkStatsHistory;->bucketDuration:J
+
+    invoke-virtual {p1, v8, v9, v6, v7}, Landroid/util/proto/ProtoOutputStream;->write(JJ)V
+
+    const/4 v0, 0x0
+
+    :goto_0
+    iget v1, p0, Landroid/net/NetworkStatsHistory;->bucketCount:I
+
+    if-ge v0, v1, :cond_0
+
+    const-wide v6, 0x21100000002L
+
+    invoke-virtual {p1, v6, v7}, Landroid/util/proto/ProtoOutputStream;->start(J)J
+
+    move-result-wide v4
+
+    iget-object v1, p0, Landroid/net/NetworkStatsHistory;->bucketStart:[J
+
+    aget-wide v6, v1, v0
+
+    invoke-virtual {p1, v8, v9, v6, v7}, Landroid/util/proto/ProtoOutputStream;->write(JJ)V
+
+    iget-object v1, p0, Landroid/net/NetworkStatsHistory;->rxBytes:[J
+
+    const-wide v6, 0x10400000002L
+
+    invoke-static {p1, v6, v7, v1, v0}, Landroid/net/NetworkStatsHistory;->writeToProto(Landroid/util/proto/ProtoOutputStream;J[JI)V
+
+    iget-object v1, p0, Landroid/net/NetworkStatsHistory;->rxPackets:[J
+
+    const-wide v6, 0x10400000003L
+
+    invoke-static {p1, v6, v7, v1, v0}, Landroid/net/NetworkStatsHistory;->writeToProto(Landroid/util/proto/ProtoOutputStream;J[JI)V
+
+    iget-object v1, p0, Landroid/net/NetworkStatsHistory;->txBytes:[J
+
+    const-wide v6, 0x10400000004L
+
+    invoke-static {p1, v6, v7, v1, v0}, Landroid/net/NetworkStatsHistory;->writeToProto(Landroid/util/proto/ProtoOutputStream;J[JI)V
+
+    iget-object v1, p0, Landroid/net/NetworkStatsHistory;->txPackets:[J
+
+    const-wide v6, 0x10400000005L
+
+    invoke-static {p1, v6, v7, v1, v0}, Landroid/net/NetworkStatsHistory;->writeToProto(Landroid/util/proto/ProtoOutputStream;J[JI)V
+
+    iget-object v1, p0, Landroid/net/NetworkStatsHistory;->operations:[J
+
+    const-wide v6, 0x10400000006L
+
+    invoke-static {p1, v6, v7, v1, v0}, Landroid/net/NetworkStatsHistory;->writeToProto(Landroid/util/proto/ProtoOutputStream;J[JI)V
+
+    invoke-virtual {p1, v4, v5}, Landroid/util/proto/ProtoOutputStream;->end(J)V
+
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    invoke-virtual {p1, v2, v3}, Landroid/util/proto/ProtoOutputStream;->end(J)V
 
     return-void
 .end method

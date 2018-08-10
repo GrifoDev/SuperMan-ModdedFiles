@@ -174,11 +174,14 @@
         :pswitch_0
         :pswitch_0
         :pswitch_2
+        :pswitch_0
+        :pswitch_0
+        :pswitch_1
     .end packed-switch
 .end method
 
 .method private getAnglesInt(II[I)Z
-    .locals 12
+    .locals 11
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalStateException;,
@@ -187,9 +190,7 @@
         }
     .end annotation
 
-    const/16 v7, 0xc
-
-    const/4 v11, 0x1
+    const/4 v9, 0x1
 
     const/4 v10, 0x0
 
@@ -204,9 +205,9 @@
     throw v7
 
     :cond_0
-    if-ne p1, v11, :cond_1
+    if-ne p1, v9, :cond_1
 
-    move v0, v7
+    const/16 v0, 0xc
 
     :goto_0
     invoke-static {v0}, Landroid/media/AudioFormat;->channelCountFromOutChannelMask(I)I
@@ -215,11 +216,11 @@
 
     if-eqz p3, :cond_2
 
-    array-length v8, p3
+    array-length v7, p3
 
-    mul-int/lit8 v9, v2, 0x3
+    mul-int/lit8 v8, v2, 0x3
 
-    if-ge v8, v9, :cond_2
+    if-ge v7, v8, :cond_2
 
     const-string/jumbo v7, "Virtualizer"
 
@@ -293,6 +294,8 @@
     goto :goto_0
 
     :cond_2
+    const/16 v7, 0xc
+
     invoke-static {v7}, Ljava/nio/ByteBuffer;->allocate(I)Ljava/nio/ByteBuffer;
 
     move-result-object v3
@@ -405,7 +408,7 @@
     goto :goto_1
 
     :cond_3
-    return v11
+    return v9
 
     :cond_4
     const/4 v7, -0x4

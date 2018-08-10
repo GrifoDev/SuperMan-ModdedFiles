@@ -49,30 +49,36 @@
 
 # virtual methods
 .method public bundleToResult(Landroid/os/Bundle;)Landroid/accounts/Account;
-    .locals 3
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/accounts/AuthenticatorException;
         }
     .end annotation
 
-    const-string/jumbo v2, "authAccount"
+    const-string/jumbo v3, "authAccount"
 
-    invoke-virtual {p1, v2}, Landroid/os/BaseBundle;->getString(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    const-string/jumbo v2, "accountType"
-
-    invoke-virtual {p1, v2}, Landroid/os/BaseBundle;->getString(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {p1, v3}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
-    new-instance v2, Landroid/accounts/Account;
+    const-string/jumbo v3, "accountType"
 
-    invoke-direct {v2, v0, v1}, Landroid/accounts/Account;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {p1, v3}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
-    return-object v2
+    move-result-object v2
+
+    const-string/jumbo v3, "accountAccessId"
+
+    invoke-virtual {p1, v3}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    new-instance v3, Landroid/accounts/Account;
+
+    invoke-direct {v3, v1, v2, v0}, Landroid/accounts/Account;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
+    return-object v3
 .end method
 
 .method public bridge synthetic bundleToResult(Landroid/os/Bundle;)Ljava/lang/Object;
@@ -100,11 +106,11 @@
 
     iget-object v0, p0, Landroid/accounts/AccountManager$5;->this$0:Landroid/accounts/AccountManager;
 
-    invoke-static {v0}, Landroid/accounts/AccountManager;->-get3(Landroid/accounts/AccountManager;)Landroid/accounts/IAccountManager;
+    invoke-static {v0}, Landroid/accounts/AccountManager;->-get4(Landroid/accounts/AccountManager;)Landroid/accounts/IAccountManager;
 
     move-result-object v0
 
-    iget-object v1, p0, Landroid/accounts/AccountManager$BaseFutureTask;->mResponse:Landroid/accounts/IAccountManagerResponse;
+    iget-object v1, p0, Landroid/accounts/AccountManager$5;->mResponse:Landroid/accounts/IAccountManagerResponse;
 
     iget-object v2, p0, Landroid/accounts/AccountManager$5;->val$account:Landroid/accounts/Account;
 

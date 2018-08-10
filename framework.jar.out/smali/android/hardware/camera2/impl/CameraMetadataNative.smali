@@ -516,8 +516,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-static {}, Landroid/hardware/camera2/impl/CameraMetadataNative;->nativeClassInit()V
-
     invoke-static {}, Landroid/hardware/camera2/impl/CameraMetadataNative;->registerAllMarshalers()V
 
     return-void
@@ -624,36 +622,6 @@
     iput-wide v0, p0, Landroid/hardware/camera2/impl/CameraMetadataNative;->mMetadataPtr:J
 
     return-void
-.end method
-
-.method public static getAllVendorKeys(Ljava/lang/Class;)Ljava/util/ArrayList;
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "<K:",
-            "Ljava/lang/Object;",
-            ">(",
-            "Ljava/lang/Class",
-            "<TK;>;)",
-            "Ljava/util/ArrayList",
-            "<TK;>;"
-        }
-    .end annotation
-
-    if-nez p0, :cond_0
-
-    new-instance v0, Ljava/lang/NullPointerException;
-
-    invoke-direct {v0}, Ljava/lang/NullPointerException;-><init>()V
-
-    throw v0
-
-    :cond_0
-    invoke-static {p0}, Landroid/hardware/camera2/impl/CameraMetadataNative;->nativeGetAllVendorKeys(Ljava/lang/Class;)Ljava/util/ArrayList;
-
-    move-result-object v0
-
-    return-object v0
 .end method
 
 .method private getAvailableFormats()[I
@@ -765,7 +733,7 @@
 .end method
 
 .method private getBase(Landroid/hardware/camera2/impl/CameraMetadataNative$Key;)Ljava/lang/Object;
-    .locals 6
+    .locals 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -776,42 +744,50 @@
         }
     .end annotation
 
-    const/4 v4, 0x0
+    const/4 v6, 0x0
 
-    invoke-virtual {p1}, Landroid/hardware/camera2/impl/CameraMetadataNative$Key;->getTag()I
-
-    move-result v2
-
-    invoke-virtual {p0, v2}, Landroid/hardware/camera2/impl/CameraMetadataNative;->readValues(I)[B
-
-    move-result-object v3
-
-    if-nez v3, :cond_0
-
-    return-object v4
-
-    :cond_0
-    invoke-static {p1}, Landroid/hardware/camera2/impl/CameraMetadataNative;->getMarshalerForKey(Landroid/hardware/camera2/impl/CameraMetadataNative$Key;)Landroid/hardware/camera2/marshal/Marshaler;
-
-    move-result-object v1
-
-    invoke-static {v3}, Ljava/nio/ByteBuffer;->wrap([B)Ljava/nio/ByteBuffer;
-
-    move-result-object v4
-
-    invoke-static {}, Ljava/nio/ByteOrder;->nativeOrder()Ljava/nio/ByteOrder;
+    invoke-virtual {p1}, Landroid/hardware/camera2/impl/CameraMetadataNative$Key;->getName()Ljava/lang/String;
 
     move-result-object v5
 
-    invoke-virtual {v4, v5}, Ljava/nio/ByteBuffer;->order(Ljava/nio/ByteOrder;)Ljava/nio/ByteBuffer;
+    invoke-direct {p0, v5}, Landroid/hardware/camera2/impl/CameraMetadataNative;->nativeGetTagFromKeyLocal(Ljava/lang/String;)I
+
+    move-result v3
+
+    invoke-virtual {p0, v3}, Landroid/hardware/camera2/impl/CameraMetadataNative;->readValues(I)[B
+
+    move-result-object v4
+
+    if-nez v4, :cond_0
+
+    return-object v6
+
+    :cond_0
+    invoke-direct {p0, v3}, Landroid/hardware/camera2/impl/CameraMetadataNative;->nativeGetTypeFromTagLocal(I)I
+
+    move-result v2
+
+    invoke-static {p1, v2}, Landroid/hardware/camera2/impl/CameraMetadataNative;->getMarshalerForKey(Landroid/hardware/camera2/impl/CameraMetadataNative$Key;I)Landroid/hardware/camera2/marshal/Marshaler;
+
+    move-result-object v1
+
+    invoke-static {v4}, Ljava/nio/ByteBuffer;->wrap([B)Ljava/nio/ByteBuffer;
+
+    move-result-object v5
+
+    invoke-static {}, Ljava/nio/ByteOrder;->nativeOrder()Ljava/nio/ByteOrder;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/nio/ByteBuffer;->order(Ljava/nio/ByteOrder;)Ljava/nio/ByteBuffer;
 
     move-result-object v0
 
     invoke-virtual {v1, v0}, Landroid/hardware/camera2/marshal/Marshaler;->unmarshal(Ljava/nio/ByteBuffer;)Ljava/lang/Object;
 
-    move-result-object v4
+    move-result-object v5
 
-    return-object v4
+    return-object v5
 .end method
 
 .method private getFaceRectangles()[Landroid/graphics/Rect;
@@ -1373,13 +1349,13 @@
 .end method
 
 .method private getGpsLocation()Landroid/location/Location;
-    .locals 9
+    .locals 11
 
-    const/4 v8, 0x2
+    const/4 v10, 0x2
 
-    const/4 v7, 0x1
+    const/4 v9, 0x1
 
-    const/4 v6, 0x0
+    const/4 v8, 0x0
 
     const/4 v5, 0x0
 
@@ -1411,11 +1387,11 @@
 
     new-array v4, v4, [Ljava/lang/Object;
 
-    aput-object v2, v4, v6
+    aput-object v2, v4, v8
 
-    aput-object v0, v4, v7
+    aput-object v0, v4, v9
 
-    aput-object v3, v4, v8
+    aput-object v3, v4, v10
 
     invoke-static {v4}, Landroid/hardware/camera2/impl/CameraMetadataNative;->areValuesAllNull([Ljava/lang/Object;)Z
 
@@ -1440,20 +1416,24 @@
 
     move-result-wide v4
 
+    const-wide/16 v6, 0x3e8
+
+    mul-long/2addr v4, v6
+
     invoke-virtual {v1, v4, v5}, Landroid/location/Location;->setTime(J)V
 
     :goto_0
     if-eqz v0, :cond_2
 
-    aget-wide v4, v0, v6
+    aget-wide v4, v0, v8
 
     invoke-virtual {v1, v4, v5}, Landroid/location/Location;->setLatitude(D)V
 
-    aget-wide v4, v0, v7
+    aget-wide v4, v0, v9
 
     invoke-virtual {v1, v4, v5}, Landroid/location/Location;->setLongitude(D)V
 
-    aget-wide v4, v0, v8
+    aget-wide v4, v0, v10
 
     invoke-virtual {v1, v4, v5}, Landroid/location/Location;->setAltitude(D)V
 
@@ -1531,15 +1511,15 @@
     return-object v1
 .end method
 
-.method private static getMarshalerForKey(Landroid/hardware/camera2/impl/CameraMetadataNative$Key;)Landroid/hardware/camera2/marshal/Marshaler;
-    .locals 2
+.method private static getMarshalerForKey(Landroid/hardware/camera2/impl/CameraMetadataNative$Key;I)Landroid/hardware/camera2/marshal/Marshaler;
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
             "Ljava/lang/Object;",
             ">(",
             "Landroid/hardware/camera2/impl/CameraMetadataNative$Key",
-            "<TT;>;)",
+            "<TT;>;I)",
             "Landroid/hardware/camera2/marshal/Marshaler",
             "<TT;>;"
         }
@@ -1549,15 +1529,7 @@
 
     move-result-object v0
 
-    invoke-virtual {p0}, Landroid/hardware/camera2/impl/CameraMetadataNative$Key;->getTag()I
-
-    move-result v1
-
-    invoke-static {v1}, Landroid/hardware/camera2/impl/CameraMetadataNative;->getNativeType(I)I
-
-    move-result v1
-
-    invoke-static {v0, v1}, Landroid/hardware/camera2/marshal/MarshalRegistry;->getMarshaler(Landroid/hardware/camera2/utils/TypeReference;I)Landroid/hardware/camera2/marshal/Marshaler;
+    invoke-static {v0, p1}, Landroid/hardware/camera2/marshal/MarshalRegistry;->getMarshaler(Landroid/hardware/camera2/utils/TypeReference;I)Landroid/hardware/camera2/marshal/Marshaler;
 
     move-result-object v0
 
@@ -1796,10 +1768,10 @@
     throw v4
 .end method
 
-.method public static getNativeType(I)I
+.method public static getNativeType(IJ)I
     .locals 1
 
-    invoke-static {p0}, Landroid/hardware/camera2/impl/CameraMetadataNative;->nativeGetTypeFromTag(I)I
+    invoke-static {p0, p1, p2}, Landroid/hardware/camera2/impl/CameraMetadataNative;->nativeGetTypeFromTag(IJ)I
 
     move-result v0
 
@@ -1912,9 +1884,21 @@
 .end method
 
 .method public static getTag(Ljava/lang/String;)I
+    .locals 2
+
+    const-wide v0, 0x7fffffffffffffffL
+
+    invoke-static {p0, v0, v1}, Landroid/hardware/camera2/impl/CameraMetadataNative;->nativeGetTagFromKey(Ljava/lang/String;J)I
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public static getTag(Ljava/lang/String;J)I
     .locals 1
 
-    invoke-static {p0}, Landroid/hardware/camera2/impl/CameraMetadataNative;->nativeGetTagFromKey(Ljava/lang/String;)I
+    invoke-static {p0, p1, p2}, Landroid/hardware/camera2/impl/CameraMetadataNative;->nativeGetTagFromKey(Ljava/lang/String;J)I
 
     move-result v0
 
@@ -2029,9 +2013,6 @@
     .end annotation
 .end method
 
-.method private static native nativeClassInit()V
-.end method
-
 .method private synchronized native declared-synchronized nativeClose()V
 .end method
 
@@ -2043,13 +2024,13 @@
     .end annotation
 .end method
 
-.method private static native nativeGetAllVendorKeys(Ljava/lang/Class;)Ljava/util/ArrayList;
+.method private synchronized native declared-synchronized nativeGetAllVendorKeys(Ljava/lang/Class;)Ljava/util/ArrayList;
 .end method
 
 .method private synchronized native declared-synchronized nativeGetEntryCount()I
 .end method
 
-.method private static native nativeGetTagFromKey(Ljava/lang/String;)I
+.method private static native nativeGetTagFromKey(Ljava/lang/String;J)I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalArgumentException;
@@ -2057,7 +2038,23 @@
     .end annotation
 .end method
 
-.method private static native nativeGetTypeFromTag(I)I
+.method private synchronized native declared-synchronized nativeGetTagFromKeyLocal(Ljava/lang/String;)I
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/lang/IllegalArgumentException;
+        }
+    .end annotation
+.end method
+
+.method private static native nativeGetTypeFromTag(IJ)I
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/lang/IllegalArgumentException;
+        }
+    .end annotation
+.end method
+
+.method private synchronized native declared-synchronized nativeGetTypeFromTagLocal(I)I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalArgumentException;
@@ -2391,7 +2388,7 @@
 .end method
 
 .method private setBase(Landroid/hardware/camera2/impl/CameraMetadataNative$Key;Ljava/lang/Object;)V
-    .locals 7
+    .locals 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -2402,44 +2399,52 @@
         }
     .end annotation
 
-    const/4 v5, 0x0
+    const/4 v7, 0x0
 
-    invoke-virtual {p1}, Landroid/hardware/camera2/impl/CameraMetadataNative$Key;->getTag()I
+    invoke-virtual {p1}, Landroid/hardware/camera2/impl/CameraMetadataNative$Key;->getName()Ljava/lang/String;
 
-    move-result v3
+    move-result-object v6
+
+    invoke-direct {p0, v6}, Landroid/hardware/camera2/impl/CameraMetadataNative;->nativeGetTagFromKeyLocal(Ljava/lang/String;)I
+
+    move-result v4
 
     if-nez p2, :cond_0
 
-    invoke-virtual {p0, v3, v5}, Landroid/hardware/camera2/impl/CameraMetadataNative;->writeValues(I[B)V
+    invoke-virtual {p0, v4, v7}, Landroid/hardware/camera2/impl/CameraMetadataNative;->writeValues(I[B)V
 
     return-void
 
     :cond_0
-    invoke-static {p1}, Landroid/hardware/camera2/impl/CameraMetadataNative;->getMarshalerForKey(Landroid/hardware/camera2/impl/CameraMetadataNative$Key;)Landroid/hardware/camera2/marshal/Marshaler;
+    invoke-direct {p0, v4}, Landroid/hardware/camera2/impl/CameraMetadataNative;->nativeGetTypeFromTagLocal(I)I
+
+    move-result v2
+
+    invoke-static {p1, v2}, Landroid/hardware/camera2/impl/CameraMetadataNative;->getMarshalerForKey(Landroid/hardware/camera2/impl/CameraMetadataNative$Key;I)Landroid/hardware/camera2/marshal/Marshaler;
 
     move-result-object v1
 
     invoke-virtual {v1, p2}, Landroid/hardware/camera2/marshal/Marshaler;->calculateMarshalSize(Ljava/lang/Object;)I
 
-    move-result v2
+    move-result v3
 
-    new-array v4, v2, [B
+    new-array v5, v3, [B
 
-    invoke-static {v4}, Ljava/nio/ByteBuffer;->wrap([B)Ljava/nio/ByteBuffer;
-
-    move-result-object v5
-
-    invoke-static {}, Ljava/nio/ByteOrder;->nativeOrder()Ljava/nio/ByteOrder;
+    invoke-static {v5}, Ljava/nio/ByteBuffer;->wrap([B)Ljava/nio/ByteBuffer;
 
     move-result-object v6
 
-    invoke-virtual {v5, v6}, Ljava/nio/ByteBuffer;->order(Ljava/nio/ByteOrder;)Ljava/nio/ByteBuffer;
+    invoke-static {}, Ljava/nio/ByteOrder;->nativeOrder()Ljava/nio/ByteOrder;
+
+    move-result-object v7
+
+    invoke-virtual {v6, v7}, Ljava/nio/ByteBuffer;->order(Ljava/nio/ByteOrder;)Ljava/nio/ByteBuffer;
 
     move-result-object v0
 
     invoke-virtual {v1, p2, v0}, Landroid/hardware/camera2/marshal/Marshaler;->marshal(Ljava/lang/Object;Ljava/nio/ByteBuffer;)V
 
-    invoke-virtual {p0, v3, v4}, Landroid/hardware/camera2/impl/CameraMetadataNative;->writeValues(I[B)V
+    invoke-virtual {p0, v4, v5}, Landroid/hardware/camera2/impl/CameraMetadataNative;->writeValues(I[B)V
 
     return-void
 .end method
@@ -2622,6 +2627,8 @@
 
     aput v11, v1, v6
 
+    const/4 v7, 0x0
+
     mul-int/lit8 v11, v6, 0x6
 
     const/4 v7, 0x1
@@ -2734,9 +2741,9 @@
 .end method
 
 .method private setGpsLocation(Landroid/location/Location;)Z
-    .locals 8
+    .locals 9
 
-    const/4 v7, 0x1
+    const/4 v8, 0x1
 
     const/4 v6, 0x0
 
@@ -2759,7 +2766,7 @@
 
     move-result-wide v4
 
-    aput-wide v4, v0, v7
+    aput-wide v4, v0, v8
 
     invoke-virtual {p1}, Landroid/location/Location;->getAltitude()D
 
@@ -2779,7 +2786,11 @@
 
     invoke-virtual {p1}, Landroid/location/Location;->getTime()J
 
-    move-result-wide v2
+    move-result-wide v4
+
+    const-wide/16 v6, 0x3e8
+
+    div-long v2, v4, v6
 
     sget-object v4, Landroid/hardware/camera2/CaptureRequest;->JPEG_GPS_TIMESTAMP:Landroid/hardware/camera2/CaptureRequest$Key;
 
@@ -2802,7 +2813,7 @@
     invoke-static {v4, v5}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     :goto_0
-    return v7
+    return v8
 
     :cond_1
     sget-object v4, Landroid/hardware/camera2/CaptureRequest;->JPEG_GPS_PROCESSING_METHOD:Landroid/hardware/camera2/CaptureRequest$Key;
@@ -3153,6 +3164,36 @@
     move-result-object v1
 
     return-object v1
+.end method
+
+.method public getAllVendorKeys(Ljava/lang/Class;)Ljava/util/ArrayList;
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "<K:",
+            "Ljava/lang/Object;",
+            ">(",
+            "Ljava/lang/Class",
+            "<TK;>;)",
+            "Ljava/util/ArrayList",
+            "<TK;>;"
+        }
+    .end annotation
+
+    if-nez p1, :cond_0
+
+    new-instance v0, Ljava/lang/NullPointerException;
+
+    invoke-direct {v0}, Ljava/lang/NullPointerException;-><init>()V
+
+    throw v0
+
+    :cond_0
+    invoke-direct {p0, p1}, Landroid/hardware/camera2/impl/CameraMetadataNative;->nativeGetAllVendorKeys(Ljava/lang/Class;)Ljava/util/ArrayList;
+
+    move-result-object v0
+
+    return-object v0
 .end method
 
 .method public getEntryCount()I

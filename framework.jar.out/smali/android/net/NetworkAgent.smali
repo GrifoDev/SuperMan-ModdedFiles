@@ -44,13 +44,9 @@
 
 .field public static final INVALID_NETWORK:I = 0x2
 
-.field public static final INVALID_NETWORK_DISABLE:I = 0x3
-
 .field public static REDIRECT_URL_KEY:Ljava/lang/String; = null
 
 .field public static final VALID_NETWORK:I = 0x1
-
-.field public static final VALID_NETWORK_AUTHENTICATED:I = 0x4
 
 .field private static final VDBG:Z = false
 

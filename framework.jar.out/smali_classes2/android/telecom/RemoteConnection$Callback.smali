@@ -107,7 +107,31 @@
     return-void
 .end method
 
+.method public onRemoteRttRequest(Landroid/telecom/RemoteConnection;)V
+    .locals 0
+
+    return-void
+.end method
+
 .method public onRingbackRequested(Landroid/telecom/RemoteConnection;Z)V
+    .locals 0
+
+    return-void
+.end method
+
+.method public onRttInitiationFailure(Landroid/telecom/RemoteConnection;I)V
+    .locals 0
+
+    return-void
+.end method
+
+.method public onRttInitiationSuccess(Landroid/telecom/RemoteConnection;)V
+    .locals 0
+
+    return-void
+.end method
+
+.method public onRttSessionRemotelyTerminated(Landroid/telecom/RemoteConnection;)V
     .locals 0
 
     return-void

@@ -26,6 +26,8 @@
     .end annotation
 .end field
 
+.field public static final REPEAT_INFINITE:I = -0x1
+
 .field public static final TYPE_APPLICATION:I = 0x1
 
 .field private static final TYPE_INTERNAL:I = 0x7d0
@@ -34,15 +36,17 @@
 
 
 # instance fields
+.field private DEFAULT_LIGHTING_COLOR:I
+
+.field private mEffectColors:[I
+
 .field private mExtra:Landroid/os/Bundle;
 
-.field private final mInfiniteLoop:Z
-
-.field private final mMainColor:I
-
-.field private final mSubColor:I
+.field private mRepeatCount:I
 
 .field private final mType:I
+
+.field private mUserId:I
 
 
 # direct methods
@@ -58,70 +62,93 @@
     return-void
 .end method
 
-.method public constructor <init>(II)V
-    .locals 1
+.method public constructor <init>()V
+    .locals 3
 
-    const/4 v0, 0x0
+    const/4 v1, 0x1
+
+    const/4 v2, 0x0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    invoke-direct {p0, p1}, Lcom/samsung/android/edge/SemEdgeLightingInfo;->enforceEdgeLightingType(I)V
+    iput v2, p0, Lcom/samsung/android/edge/SemEdgeLightingInfo;->mUserId:I
 
-    iput p1, p0, Lcom/samsung/android/edge/SemEdgeLightingInfo;->mType:I
+    const v0, -0x7b5116
 
-    iput p2, p0, Lcom/samsung/android/edge/SemEdgeLightingInfo;->mMainColor:I
+    iput v0, p0, Lcom/samsung/android/edge/SemEdgeLightingInfo;->DEFAULT_LIGHTING_COLOR:I
 
-    iput v0, p0, Lcom/samsung/android/edge/SemEdgeLightingInfo;->mSubColor:I
+    iput v1, p0, Lcom/samsung/android/edge/SemEdgeLightingInfo;->mType:I
 
-    iput-boolean v0, p0, Lcom/samsung/android/edge/SemEdgeLightingInfo;->mInfiniteLoop:Z
+    new-array v0, v1, [I
+
+    iget v1, p0, Lcom/samsung/android/edge/SemEdgeLightingInfo;->DEFAULT_LIGHTING_COLOR:I
+
+    aput v1, v0, v2
+
+    iput-object v0, p0, Lcom/samsung/android/edge/SemEdgeLightingInfo;->mEffectColors:[I
+
+    iput v2, p0, Lcom/samsung/android/edge/SemEdgeLightingInfo;->mRepeatCount:I
 
     return-void
 .end method
 
-.method public constructor <init>(III)V
-    .locals 1
+.method public constructor <init>(I[I)V
+    .locals 3
+
+    const/4 v2, 0x0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput v2, p0, Lcom/samsung/android/edge/SemEdgeLightingInfo;->mUserId:I
+
+    const v0, -0x7b5116
+
+    iput v0, p0, Lcom/samsung/android/edge/SemEdgeLightingInfo;->DEFAULT_LIGHTING_COLOR:I
 
     invoke-direct {p0, p1}, Lcom/samsung/android/edge/SemEdgeLightingInfo;->enforceEdgeLightingType(I)V
 
     iput p1, p0, Lcom/samsung/android/edge/SemEdgeLightingInfo;->mType:I
 
-    iput p2, p0, Lcom/samsung/android/edge/SemEdgeLightingInfo;->mMainColor:I
+    if-eqz p2, :cond_0
 
-    iput p3, p0, Lcom/samsung/android/edge/SemEdgeLightingInfo;->mSubColor:I
+    array-length v0, p2
 
-    const/4 v0, 0x0
+    if-nez v0, :cond_1
 
-    iput-boolean v0, p0, Lcom/samsung/android/edge/SemEdgeLightingInfo;->mInfiniteLoop:Z
+    :cond_0
+    const/4 v0, 0x1
 
-    return-void
-.end method
+    new-array v0, v0, [I
 
-.method public constructor <init>(IIIZ)V
-    .locals 0
+    iget v1, p0, Lcom/samsung/android/edge/SemEdgeLightingInfo;->DEFAULT_LIGHTING_COLOR:I
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    aput v1, v0, v2
 
-    invoke-direct {p0, p1}, Lcom/samsung/android/edge/SemEdgeLightingInfo;->enforceEdgeLightingType(I)V
+    iput-object v0, p0, Lcom/samsung/android/edge/SemEdgeLightingInfo;->mEffectColors:[I
 
-    iput p1, p0, Lcom/samsung/android/edge/SemEdgeLightingInfo;->mType:I
-
-    iput p2, p0, Lcom/samsung/android/edge/SemEdgeLightingInfo;->mMainColor:I
-
-    iput p3, p0, Lcom/samsung/android/edge/SemEdgeLightingInfo;->mSubColor:I
-
-    iput-boolean p4, p0, Lcom/samsung/android/edge/SemEdgeLightingInfo;->mInfiniteLoop:Z
+    :goto_0
+    iput v2, p0, Lcom/samsung/android/edge/SemEdgeLightingInfo;->mRepeatCount:I
 
     return-void
+
+    :cond_1
+    iput-object p2, p0, Lcom/samsung/android/edge/SemEdgeLightingInfo;->mEffectColors:[I
+
+    goto :goto_0
 .end method
 
 .method private constructor <init>(Landroid/os/Parcel;)V
     .locals 2
 
-    const/4 v0, 0x1
-
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    const/4 v1, 0x0
+
+    iput v1, p0, Lcom/samsung/android/edge/SemEdgeLightingInfo;->mUserId:I
+
+    const v1, -0x7b5116
+
+    iput v1, p0, Lcom/samsung/android/edge/SemEdgeLightingInfo;->DEFAULT_LIGHTING_COLOR:I
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
@@ -131,37 +158,35 @@
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
-    move-result v1
+    move-result v0
 
-    iput v1, p0, Lcom/samsung/android/edge/SemEdgeLightingInfo;->mMainColor:I
+    new-array v1, v0, [I
+
+    iput-object v1, p0, Lcom/samsung/android/edge/SemEdgeLightingInfo;->mEffectColors:[I
+
+    iget-object v1, p0, Lcom/samsung/android/edge/SemEdgeLightingInfo;->mEffectColors:[I
+
+    invoke-virtual {p1, v1}, Landroid/os/Parcel;->readIntArray([I)V
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
 
-    iput v1, p0, Lcom/samsung/android/edge/SemEdgeLightingInfo;->mSubColor:I
-
-    invoke-virtual {p1}, Landroid/os/Parcel;->readByte()B
-
-    move-result v1
-
-    if-ne v1, v0, :cond_0
-
-    :goto_0
-    iput-boolean v0, p0, Lcom/samsung/android/edge/SemEdgeLightingInfo;->mInfiniteLoop:Z
+    iput v1, p0, Lcom/samsung/android/edge/SemEdgeLightingInfo;->mRepeatCount:I
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readBundle()Landroid/os/Bundle;
 
-    move-result-object v0
+    move-result-object v1
 
-    iput-object v0, p0, Lcom/samsung/android/edge/SemEdgeLightingInfo;->mExtra:Landroid/os/Bundle;
+    iput-object v1, p0, Lcom/samsung/android/edge/SemEdgeLightingInfo;->mExtra:Landroid/os/Bundle;
+
+    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
+
+    move-result v1
+
+    iput v1, p0, Lcom/samsung/android/edge/SemEdgeLightingInfo;->mUserId:I
 
     return-void
-
-    :cond_0
-    const/4 v0, 0x0
-
-    goto :goto_0
 .end method
 
 .method synthetic constructor <init>(Landroid/os/Parcel;Lcom/samsung/android/edge/SemEdgeLightingInfo;)V
@@ -231,6 +256,14 @@
     return v0
 .end method
 
+.method public getEffectColors()[I
+    .locals 1
+
+    iget-object v0, p0, Lcom/samsung/android/edge/SemEdgeLightingInfo;->mEffectColors:[I
+
+    return-object v0
+.end method
+
 .method public getExtra()Landroid/os/Bundle;
     .locals 1
 
@@ -239,18 +272,10 @@
     return-object v0
 .end method
 
-.method public getMainColor()I
+.method public getRepeatCount()I
     .locals 1
 
-    iget v0, p0, Lcom/samsung/android/edge/SemEdgeLightingInfo;->mMainColor:I
-
-    return v0
-.end method
-
-.method public getSubColor()I
-    .locals 1
-
-    iget v0, p0, Lcom/samsung/android/edge/SemEdgeLightingInfo;->mSubColor:I
+    iget v0, p0, Lcom/samsung/android/edge/SemEdgeLightingInfo;->mRepeatCount:I
 
     return v0
 .end method
@@ -263,18 +288,70 @@
     return v0
 .end method
 
-.method public isInfiniteLoop()Z
+.method public getUserId()I
     .locals 1
 
-    iget-boolean v0, p0, Lcom/samsung/android/edge/SemEdgeLightingInfo;->mInfiniteLoop:Z
+    iget v0, p0, Lcom/samsung/android/edge/SemEdgeLightingInfo;->mUserId:I
 
     return v0
+.end method
+
+.method public setEffectColors([I)V
+    .locals 2
+
+    if-eqz p1, :cond_0
+
+    array-length v0, p1
+
+    const/4 v1, 0x1
+
+    if-ge v0, v1, :cond_1
+
+    :cond_0
+    new-instance v0, Ljava/lang/IllegalArgumentException;
+
+    const-string/jumbo v1, "color set should be more than 1"
+
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+
+    :cond_1
+    iput-object p1, p0, Lcom/samsung/android/edge/SemEdgeLightingInfo;->mEffectColors:[I
+
+    return-void
 .end method
 
 .method public setExtra(Landroid/os/Bundle;)V
     .locals 0
 
     iput-object p1, p0, Lcom/samsung/android/edge/SemEdgeLightingInfo;->mExtra:Landroid/os/Bundle;
+
+    return-void
+.end method
+
+.method public setRepeatCount(I)V
+    .locals 1
+
+    if-gez p1, :cond_0
+
+    const/4 v0, -0x1
+
+    iput v0, p0, Lcom/samsung/android/edge/SemEdgeLightingInfo;->mRepeatCount:I
+
+    :goto_0
+    return-void
+
+    :cond_0
+    iput p1, p0, Lcom/samsung/android/edge/SemEdgeLightingInfo;->mRepeatCount:I
+
+    goto :goto_0
+.end method
+
+.method public setUserId(I)V
+    .locals 0
+
+    iput p1, p0, Lcom/samsung/android/edge/SemEdgeLightingInfo;->mUserId:I
 
     return-void
 .end method
@@ -298,39 +375,43 @@
 
     move-result-object v0
 
-    const-string/jumbo v1, ", mc = "
+    const-string/jumbo v1, ", colors= "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
-    iget v1, p0, Lcom/samsung/android/edge/SemEdgeLightingInfo;->mMainColor:I
+    iget-object v1, p0, Lcom/samsung/android/edge/SemEdgeLightingInfo;->mEffectColors:[I
+
+    invoke-static {v1}, Ljava/util/Arrays;->toString([I)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string/jumbo v1, ", repeat= "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    iget v1, p0, Lcom/samsung/android/edge/SemEdgeLightingInfo;->mRepeatCount:I
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
-    const-string/jumbo v1, ", sc = "
+    const-string/jumbo v1, ", userId = "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
-    iget v1, p0, Lcom/samsung/android/edge/SemEdgeLightingInfo;->mSubColor:I
+    iget v1, p0, Lcom/samsung/android/edge/SemEdgeLightingInfo;->mUserId:I
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    const-string/jumbo v1, ", il = "
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    iget-boolean v1, p0, Lcom/samsung/android/edge/SemEdgeLightingInfo;->mInfiniteLoop:Z
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
@@ -354,33 +435,27 @@
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    iget v0, p0, Lcom/samsung/android/edge/SemEdgeLightingInfo;->mMainColor:I
+    iget-object v0, p0, Lcom/samsung/android/edge/SemEdgeLightingInfo;->mEffectColors:[I
+
+    array-length v0, v0
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    iget v0, p0, Lcom/samsung/android/edge/SemEdgeLightingInfo;->mSubColor:I
+    iget-object v0, p0, Lcom/samsung/android/edge/SemEdgeLightingInfo;->mEffectColors:[I
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeIntArray([I)V
+
+    iget v0, p0, Lcom/samsung/android/edge/SemEdgeLightingInfo;->mRepeatCount:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    iget-boolean v0, p0, Lcom/samsung/android/edge/SemEdgeLightingInfo;->mInfiniteLoop:Z
-
-    if-eqz v0, :cond_0
-
-    const/4 v0, 0x1
-
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeByte(B)V
-
-    :goto_0
     iget-object v0, p0, Lcom/samsung/android/edge/SemEdgeLightingInfo;->mExtra:Landroid/os/Bundle;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeBundle(Landroid/os/Bundle;)V
 
+    iget v0, p0, Lcom/samsung/android/edge/SemEdgeLightingInfo;->mUserId:I
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
+
     return-void
-
-    :cond_0
-    const/4 v0, 0x0
-
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeByte(B)V
-
-    goto :goto_0
 .end method

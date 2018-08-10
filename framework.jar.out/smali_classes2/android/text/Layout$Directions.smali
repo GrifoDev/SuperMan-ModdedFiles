@@ -15,11 +15,11 @@
 
 
 # instance fields
-.field mDirections:[I
+.field public mDirections:[I
 
 
 # direct methods
-.method constructor <init>([I)V
+.method public constructor <init>([I)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V

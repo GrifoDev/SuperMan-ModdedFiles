@@ -63,7 +63,7 @@
 
     invoke-direct {v10}, Ljava/util/ArrayList;-><init>()V
 
-    invoke-virtual/range {p0 .. p0}, Landroid/gesture/Learner;->getInstances()Ljava/util/ArrayList;
+    invoke-virtual/range {p0 .. p0}, Landroid/gesture/InstanceLearner;->getInstances()Ljava/util/ArrayList;
 
     move-result-object v6
 

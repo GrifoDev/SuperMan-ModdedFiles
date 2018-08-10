@@ -59,17 +59,17 @@
 .end method
 
 .method private a(Ljava/lang/String;)Lcom/absolute/android/persistservice/WatchdogInfo;
-    .locals 1
+    .locals 2
 
-    iget-object v0, p0, Lcom/absolute/android/persistservice/ac;->c:Ljava/util/Hashtable;
+    iget-object v1, p0, Lcom/absolute/android/persistservice/q;->c:Ljava/util/Hashtable;
 
-    invoke-virtual {v0, p1}, Ljava/util/Hashtable;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v1, p1}, Ljava/util/Hashtable;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Lcom/absolute/android/persistservice/WatchdogInfo;
 
-    invoke-virtual {p0}, Lcom/absolute/android/persistservice/ac;->e()Z
+    invoke-virtual {p0}, Lcom/absolute/android/persistservice/q;->e()Z
 
     return-object v0
 .end method
@@ -85,11 +85,11 @@
 .method private a(Ljava/lang/String;Lcom/absolute/android/persistservice/WatchdogInfo;)V
     .locals 1
 
-    iget-object v0, p0, Lcom/absolute/android/persistservice/ac;->c:Ljava/util/Hashtable;
+    iget-object v0, p0, Lcom/absolute/android/persistservice/q;->c:Ljava/util/Hashtable;
 
     invoke-virtual {v0, p1, p2}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-virtual {p0}, Lcom/absolute/android/persistservice/ac;->e()Z
+    invoke-virtual {p0}, Lcom/absolute/android/persistservice/q;->e()Z
 
     return-void
 .end method
@@ -97,7 +97,7 @@
 .method private b(Ljava/lang/String;)Lcom/absolute/android/persistservice/WatchdogInfo;
     .locals 1
 
-    iget-object v0, p0, Lcom/absolute/android/persistservice/ac;->c:Ljava/util/Hashtable;
+    iget-object v0, p0, Lcom/absolute/android/persistservice/q;->c:Ljava/util/Hashtable;
 
     invoke-virtual {v0, p1}, Ljava/util/Hashtable;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -129,9 +129,9 @@
 .method private c(Ljava/lang/String;)V
     .locals 2
 
-    iget-object v0, p0, Lcom/absolute/android/persistservice/ac;->c:Ljava/util/Hashtable;
+    iget-object v1, p0, Lcom/absolute/android/persistservice/q;->c:Ljava/util/Hashtable;
 
-    invoke-virtual {v0, p1}, Ljava/util/Hashtable;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v1, p1}, Ljava/util/Hashtable;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -151,11 +151,11 @@
     :cond_2
     if-nez v0, :cond_0
 
-    new-instance v0, Ljava/lang/AssertionError;
+    new-instance v1, Ljava/lang/AssertionError;
 
-    invoke-direct {v0}, Ljava/lang/AssertionError;-><init>()V
+    invoke-direct {v1}, Ljava/lang/AssertionError;-><init>()V
 
-    throw v0
+    throw v1
 
     :cond_3
     invoke-virtual {v0}, Lcom/absolute/android/persistservice/WatchdogInfo;->a()I
@@ -166,11 +166,11 @@
 
     invoke-virtual {v0}, Lcom/absolute/android/persistservice/WatchdogInfo;->b()V
 
-    iget-object v1, p0, Lcom/absolute/android/persistservice/ac;->c:Ljava/util/Hashtable;
+    iget-object v1, p0, Lcom/absolute/android/persistservice/q;->c:Ljava/util/Hashtable;
 
     invoke-virtual {v1, p1, v0}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-virtual {p0}, Lcom/absolute/android/persistservice/ac;->e()Z
+    invoke-virtual {p0}, Lcom/absolute/android/persistservice/q;->e()Z
 
     goto :goto_0
 .end method
@@ -186,9 +186,9 @@
 .method private d(Ljava/lang/String;)V
     .locals 2
 
-    iget-object v0, p0, Lcom/absolute/android/persistservice/ac;->c:Ljava/util/Hashtable;
+    iget-object v1, p0, Lcom/absolute/android/persistservice/q;->c:Ljava/util/Hashtable;
 
-    invoke-virtual {v0, p1}, Ljava/util/Hashtable;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v1, p1}, Ljava/util/Hashtable;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -207,11 +207,11 @@
     :cond_1
     if-nez v0, :cond_0
 
-    new-instance v0, Ljava/lang/AssertionError;
+    new-instance v1, Ljava/lang/AssertionError;
 
-    invoke-direct {v0}, Ljava/lang/AssertionError;-><init>()V
+    invoke-direct {v1}, Ljava/lang/AssertionError;-><init>()V
 
-    throw v0
+    throw v1
 
     :cond_2
     invoke-virtual {v0}, Lcom/absolute/android/persistservice/WatchdogInfo;->a()I
@@ -225,11 +225,11 @@
 
     invoke-virtual {v0}, Lcom/absolute/android/persistservice/WatchdogInfo;->e()V
 
-    iget-object v1, p0, Lcom/absolute/android/persistservice/ac;->c:Ljava/util/Hashtable;
+    iget-object v1, p0, Lcom/absolute/android/persistservice/q;->c:Ljava/util/Hashtable;
 
     invoke-virtual {v1, p1, v0}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-virtual {p0}, Lcom/absolute/android/persistservice/ac;->e()Z
+    invoke-virtual {p0}, Lcom/absolute/android/persistservice/q;->e()Z
 
     goto :goto_0
 
@@ -254,9 +254,9 @@
 .method private e(Ljava/lang/String;)V
     .locals 2
 
-    iget-object v0, p0, Lcom/absolute/android/persistservice/ac;->c:Ljava/util/Hashtable;
+    iget-object v1, p0, Lcom/absolute/android/persistservice/q;->c:Ljava/util/Hashtable;
 
-    invoke-virtual {v0, p1}, Ljava/util/Hashtable;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v1, p1}, Ljava/util/Hashtable;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -275,22 +275,22 @@
     :cond_1
     if-nez v0, :cond_0
 
-    new-instance v0, Ljava/lang/AssertionError;
+    new-instance v1, Ljava/lang/AssertionError;
 
-    invoke-direct {v0}, Ljava/lang/AssertionError;-><init>()V
+    invoke-direct {v1}, Ljava/lang/AssertionError;-><init>()V
 
-    throw v0
+    throw v1
 
     :cond_2
     invoke-virtual {v0}, Lcom/absolute/android/persistservice/WatchdogInfo;->c()V
 
     invoke-virtual {v0}, Lcom/absolute/android/persistservice/WatchdogInfo;->f()V
 
-    iget-object v1, p0, Lcom/absolute/android/persistservice/ac;->c:Ljava/util/Hashtable;
+    iget-object v1, p0, Lcom/absolute/android/persistservice/q;->c:Ljava/util/Hashtable;
 
     invoke-virtual {v1, p1, v0}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-virtual {p0}, Lcom/absolute/android/persistservice/ac;->e()Z
+    invoke-virtual {p0}, Lcom/absolute/android/persistservice/q;->e()Z
 
     goto :goto_0
 .end method
@@ -306,9 +306,9 @@
 .method private f(Ljava/lang/String;)V
     .locals 2
 
-    iget-object v0, p0, Lcom/absolute/android/persistservice/ac;->c:Ljava/util/Hashtable;
+    iget-object v1, p0, Lcom/absolute/android/persistservice/q;->c:Ljava/util/Hashtable;
 
-    invoke-virtual {v0, p1}, Ljava/util/Hashtable;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v1, p1}, Ljava/util/Hashtable;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -327,20 +327,20 @@
     :cond_1
     if-nez v0, :cond_0
 
-    new-instance v0, Ljava/lang/AssertionError;
+    new-instance v1, Ljava/lang/AssertionError;
 
-    invoke-direct {v0}, Ljava/lang/AssertionError;-><init>()V
+    invoke-direct {v1}, Ljava/lang/AssertionError;-><init>()V
 
-    throw v0
+    throw v1
 
     :cond_2
     invoke-virtual {v0}, Lcom/absolute/android/persistservice/WatchdogInfo;->h()V
 
-    iget-object v1, p0, Lcom/absolute/android/persistservice/ac;->c:Ljava/util/Hashtable;
+    iget-object v1, p0, Lcom/absolute/android/persistservice/q;->c:Ljava/util/Hashtable;
 
     invoke-virtual {v1, p1, v0}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-virtual {p0}, Lcom/absolute/android/persistservice/ac;->e()Z
+    invoke-virtual {p0}, Lcom/absolute/android/persistservice/q;->e()Z
 
     goto :goto_0
 .end method
@@ -354,43 +354,43 @@
 .end method
 
 .method public i(Ljava/lang/String;)Z
-    .locals 6
+    .locals 7
 
-    const/4 v1, 0x1
+    const/4 v3, 0x1
 
-    const/4 v0, 0x0
+    const/4 v2, 0x0
 
-    new-instance v2, Lcom/absolute/android/persistservice/q;
+    new-instance v0, Lcom/absolute/android/persistservice/q;
 
-    iget-object v3, p0, Lcom/absolute/android/persistservice/q;->b:Lcom/absolute/android/persistservice/l;
+    iget-object v4, p0, Lcom/absolute/android/persistservice/q;->b:Lcom/absolute/android/persistservice/l;
 
-    iget-object v4, p0, Lcom/absolute/android/persistservice/ac;->d:Landroid/content/Context;
+    iget-object v5, p0, Lcom/absolute/android/persistservice/q;->d:Landroid/content/Context;
 
-    iget-object v5, p0, Lcom/absolute/android/persistservice/ac;->e:Lcom/absolute/android/persistservice/v;
+    iget-object v6, p0, Lcom/absolute/android/persistservice/q;->e:Lcom/absolute/android/persistservice/v;
 
-    invoke-direct {v2, v3, v4, v5}, Lcom/absolute/android/persistservice/q;-><init>(Lcom/absolute/android/persistservice/l;Landroid/content/Context;Lcom/absolute/android/persistservice/v;)V
+    invoke-direct {v0, v4, v5, v6}, Lcom/absolute/android/persistservice/q;-><init>(Lcom/absolute/android/persistservice/l;Landroid/content/Context;Lcom/absolute/android/persistservice/v;)V
 
     :try_start_0
-    invoke-virtual {v2, p1}, Lcom/absolute/android/persistservice/ac;->k(Ljava/lang/String;)V
+    invoke-virtual {v0, p1}, Lcom/absolute/android/persistservice/q;->k(Ljava/lang/String;)V
 
-    invoke-virtual {p0, v2}, Lcom/absolute/android/persistservice/ac;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p0, v0}, Lcom/absolute/android/persistservice/q;->equals(Ljava/lang/Object;)Z
     :try_end_0
     .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
 
-    move-result v2
+    move-result v4
 
-    if-eqz v2, :cond_0
+    if-eqz v4, :cond_0
 
     :goto_0
-    return v0
+    return v2
 
     :cond_0
-    move v0, v1
+    move v2, v3
 
     goto :goto_0
 
     :catch_0
-    move-exception v0
+    move-exception v1
 
-    return v1
+    return v3
 .end method

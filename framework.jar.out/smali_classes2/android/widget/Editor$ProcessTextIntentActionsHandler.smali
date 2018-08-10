@@ -37,9 +37,24 @@
     .end annotation
 .end field
 
+.field private final mContext:Landroid/content/Context;
+
 .field private final mEditor:Landroid/widget/Editor;
 
 .field private final mPackageManager:Landroid/content/pm/PackageManager;
+
+.field private final mPackageName:Ljava/lang/String;
+
+.field private final mSupportedActivities:Ljava/util/List;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/List",
+            "<",
+            "Landroid/content/pm/ResolveInfo;",
+            ">;"
+        }
+    .end annotation
+.end field
 
 .field private final mTextView:Landroid/widget/TextView;
 
@@ -62,6 +77,12 @@
 
     iput-object v0, p0, Landroid/widget/Editor$ProcessTextIntentActionsHandler;->mAccessibilityActions:Landroid/util/SparseArray;
 
+    new-instance v0, Ljava/util/ArrayList;
+
+    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+
+    iput-object v0, p0, Landroid/widget/Editor$ProcessTextIntentActionsHandler;->mSupportedActivities:Ljava/util/List;
+
     invoke-static {p1}, Lcom/android/internal/util/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
@@ -72,7 +93,7 @@
 
     iget-object v0, p0, Landroid/widget/Editor$ProcessTextIntentActionsHandler;->mEditor:Landroid/widget/Editor;
 
-    invoke-static {v0}, Landroid/widget/Editor;->-get13(Landroid/widget/Editor;)Landroid/widget/TextView;
+    invoke-static {v0}, Landroid/widget/Editor;->-get14(Landroid/widget/Editor;)Landroid/widget/TextView;
 
     move-result-object v0
 
@@ -90,6 +111,16 @@
 
     move-result-object v0
 
+    invoke-static {v0}, Lcom/android/internal/util/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/content/Context;
+
+    iput-object v0, p0, Landroid/widget/Editor$ProcessTextIntentActionsHandler;->mContext:Landroid/content/Context;
+
+    iget-object v0, p0, Landroid/widget/Editor$ProcessTextIntentActionsHandler;->mContext:Landroid/content/Context;
+
     invoke-virtual {v0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v0
@@ -101,6 +132,20 @@
     check-cast v0, Landroid/content/pm/PackageManager;
 
     iput-object v0, p0, Landroid/widget/Editor$ProcessTextIntentActionsHandler;->mPackageManager:Landroid/content/pm/PackageManager;
+
+    iget-object v0, p0, Landroid/widget/Editor$ProcessTextIntentActionsHandler;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v0}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lcom/android/internal/util/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    iput-object v0, p0, Landroid/widget/Editor$ProcessTextIntentActionsHandler;->mPackageName:Ljava/lang/String;
 
     return-void
 .end method
@@ -140,22 +185,19 @@
 
     invoke-direct {p0}, Landroid/widget/Editor$ProcessTextIntentActionsHandler;->createProcessTextIntent()Landroid/content/Intent;
 
-    move-result-object v1
+    move-result-object v0
 
-    const-string/jumbo v2, "android.intent.extra.PROCESS_TEXT_READONLY"
+    const-string/jumbo v1, "android.intent.extra.PROCESS_TEXT_READONLY"
 
-    iget-object v0, p0, Landroid/widget/Editor$ProcessTextIntentActionsHandler;->mTextView:Landroid/widget/TextView;
+    iget-object v2, p0, Landroid/widget/Editor$ProcessTextIntentActionsHandler;->mTextView:Landroid/widget/TextView;
 
-    invoke-virtual {v0}, Landroid/widget/TextView;->isTextEditable()Z
+    invoke-virtual {v2}, Landroid/widget/TextView;->isTextEditable()Z
 
-    move-result v0
+    move-result v2
 
-    if-eqz v0, :cond_0
+    xor-int/lit8 v2, v2, 0x1
 
-    const/4 v0, 0x0
-
-    :goto_0
-    invoke-virtual {v1, v2, v0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
+    invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
     move-result-object v0
 
@@ -172,11 +214,6 @@
     move-result-object v0
 
     return-object v0
-
-    :cond_0
-    const/4 v0, 0x1
-
-    goto :goto_0
 .end method
 
 .method private fireIntent(Landroid/content/Intent;)Z
@@ -238,39 +275,354 @@
     return-object v0
 .end method
 
-.method private getSupportedActivities()Ljava/util/List;
+.method private getOrder(Landroid/content/pm/ResolveInfo;)I
     .locals 3
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/util/List",
-            "<",
-            "Landroid/content/pm/ResolveInfo;",
-            ">;"
-        }
-    .end annotation
+
+    const/4 v2, -0x1
 
     iget-object v1, p0, Landroid/widget/Editor$ProcessTextIntentActionsHandler;->mTextView:Landroid/widget/TextView;
 
-    invoke-virtual {v1}, Landroid/widget/TextView;->getContext()Landroid/content/Context;
+    invoke-virtual {v1}, Landroid/widget/TextView;->isThemeDeviceDefault()Z
 
-    move-result-object v1
+    move-result v1
 
-    invoke-virtual {v1}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+    if-nez v1, :cond_0
+
+    return v2
+
+    :cond_0
+    invoke-virtual {p1}, Landroid/content/pm/ResolveInfo;->toString()Ljava/lang/String;
 
     move-result-object v0
 
+    const-string/jumbo v1, "com.sec.android.app.translator"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_1
+
+    const-string/jumbo v1, "com.google.android.apps.translate"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_2
+
+    :cond_1
+    const/16 v1, 0x9
+
+    return v1
+
+    :cond_2
+    const-string/jumbo v1, "com.diotek.sec.lookup.dictionary"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_3
+
+    const-string/jumbo v1, "com.sec.android.app.dictionary"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_4
+
+    :cond_3
+    const/16 v1, 0x8
+
+    return v1
+
+    :cond_4
+    return v2
+.end method
+
+.method private isSupportedActivity(Landroid/content/pm/ResolveInfo;)Z
+    .locals 4
+
+    const/4 v0, 0x1
+
+    const/4 v1, 0x0
+
+    iget-object v2, p0, Landroid/widget/Editor$ProcessTextIntentActionsHandler;->mPackageName:Ljava/lang/String;
+
+    iget-object v3, p1, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
+
+    iget-object v3, v3, Landroid/content/pm/ActivityInfo;->packageName:Ljava/lang/String;
+
+    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_0
+
+    iget-object v2, p1, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
+
+    iget-boolean v2, v2, Landroid/content/pm/ActivityInfo;->exported:Z
+
+    if-eqz v2, :cond_2
+
+    iget-object v2, p1, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
+
+    iget-object v2, v2, Landroid/content/pm/ActivityInfo;->permission:Ljava/lang/String;
+
+    if-eqz v2, :cond_0
+
+    iget-object v2, p0, Landroid/widget/Editor$ProcessTextIntentActionsHandler;->mContext:Landroid/content/Context;
+
+    iget-object v3, p1, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
+
+    iget-object v3, v3, Landroid/content/pm/ActivityInfo;->permission:Ljava/lang/String;
+
+    invoke-virtual {v2, v3}, Landroid/content/Context;->checkSelfPermission(Ljava/lang/String;)I
+
+    move-result v2
+
+    if-nez v2, :cond_1
+
+    :cond_0
+    :goto_0
+    return v0
+
+    :cond_1
+    move v0, v1
+
+    goto :goto_0
+
+    :cond_2
+    move v0, v1
+
+    goto :goto_0
+.end method
+
+.method private loadIcon(Landroid/content/pm/ResolveInfo;)Landroid/graphics/drawable/Drawable;
+    .locals 7
+
+    const/4 v6, 0x0
+
+    invoke-virtual {p1}, Landroid/content/pm/ResolveInfo;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    iget-object v4, p0, Landroid/widget/Editor$ProcessTextIntentActionsHandler;->mTextView:Landroid/widget/TextView;
+
+    invoke-virtual {v4}, Landroid/widget/TextView;->getContext()Landroid/content/Context;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+
+    move-result-object v2
+
+    invoke-virtual {p1, v2}, Landroid/content/pm/ResolveInfo;->loadIcon(Landroid/content/pm/PackageManager;)Landroid/graphics/drawable/Drawable;
+
+    move-result-object v1
+
+    const-string/jumbo v4, "com.sec.android.app.translator"
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v4
+
+    if-nez v4, :cond_0
+
+    const-string/jumbo v4, "com.google.android.apps.translate"
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_2
+
+    :cond_0
+    iget-object v4, p0, Landroid/widget/Editor$ProcessTextIntentActionsHandler;->mTextView:Landroid/widget/TextView;
+
+    invoke-virtual {v4}, Landroid/widget/TextView;->getContext()Landroid/content/Context;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v4
+
+    const v5, 0x1080a6d
+
+    invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
+
+    move-result-object v1
+
+    :cond_1
+    :goto_0
+    return-object v1
+
+    :cond_2
+    const-string/jumbo v4, "com.diotek.sec.lookup.dictionary"
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v4
+
+    if-nez v4, :cond_3
+
+    const-string/jumbo v4, "com.sec.android.app.dictionary"
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_4
+
+    :cond_3
+    iget-object v4, p0, Landroid/widget/Editor$ProcessTextIntentActionsHandler;->mTextView:Landroid/widget/TextView;
+
+    invoke-virtual {v4}, Landroid/widget/TextView;->getContext()Landroid/content/Context;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v4
+
+    const v5, 0x1080a64
+
+    invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
+
+    move-result-object v1
+
+    goto :goto_0
+
+    :cond_4
+    if-eqz v1, :cond_1
+
+    iget-object v4, p0, Landroid/widget/Editor$ProcessTextIntentActionsHandler;->mTextView:Landroid/widget/TextView;
+
+    invoke-virtual {v4}, Landroid/widget/TextView;->getContext()Landroid/content/Context;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v4
+
+    const v5, 0x1080a6b
+
+    invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Landroid/graphics/drawable/Drawable;->getIntrinsicWidth()I
+
+    move-result v0
+
+    invoke-virtual {v1, v6, v6, v0, v0}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
+
+    goto :goto_0
+.end method
+
+.method private loadSupportedActivities()V
+    .locals 6
+
+    iget-object v4, p0, Landroid/widget/Editor$ProcessTextIntentActionsHandler;->mSupportedActivities:Ljava/util/List;
+
+    invoke-interface {v4}, Ljava/util/List;->clear()V
+
+    iget-object v4, p0, Landroid/widget/Editor$ProcessTextIntentActionsHandler;->mTextView:Landroid/widget/TextView;
+
+    invoke-virtual {v4}, Landroid/widget/TextView;->getContext()Landroid/content/Context;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+
+    move-result-object v2
+
     invoke-direct {p0}, Landroid/widget/Editor$ProcessTextIntentActionsHandler;->createProcessTextIntent()Landroid/content/Intent;
 
+    move-result-object v4
+
+    const/4 v5, 0x0
+
+    invoke-virtual {v2, v4, v5}, Landroid/content/pm/PackageManager;->queryIntentActivities(Landroid/content/Intent;I)Ljava/util/List;
+
+    move-result-object v3
+
+    invoke-interface {v3}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+
     move-result-object v1
 
-    const/4 v2, 0x0
+    :cond_0
+    :goto_0
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
-    invoke-virtual {v0, v1, v2}, Landroid/content/pm/PackageManager;->queryIntentActivities(Landroid/content/Intent;I)Ljava/util/List;
+    move-result v4
 
-    move-result-object v1
+    if-eqz v4, :cond_3
 
-    return-object v1
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/content/pm/ResolveInfo;
+
+    invoke-direct {p0, v0}, Landroid/widget/Editor$ProcessTextIntentActionsHandler;->isSupportedActivity(Landroid/content/pm/ResolveInfo;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_0
+
+    invoke-virtual {v0}, Landroid/content/pm/ResolveInfo;->getComponentInfo()Landroid/content/pm/ComponentInfo;
+
+    move-result-object v4
+
+    iget-object v4, v4, Landroid/content/pm/ComponentInfo;->packageName:Ljava/lang/String;
+
+    const-string/jumbo v5, "com.diotek.sec.lookup.dictionary"
+
+    invoke-virtual {v4, v5}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v4
+
+    if-nez v4, :cond_1
+
+    invoke-virtual {v0}, Landroid/content/pm/ResolveInfo;->getComponentInfo()Landroid/content/pm/ComponentInfo;
+
+    move-result-object v4
+
+    iget-object v4, v4, Landroid/content/pm/ComponentInfo;->packageName:Ljava/lang/String;
+
+    const-string/jumbo v5, "com.sec.android.app.dictionary"
+
+    invoke-virtual {v4, v5}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_2
+
+    :cond_1
+    iget-object v4, p0, Landroid/widget/Editor$ProcessTextIntentActionsHandler;->mTextView:Landroid/widget/TextView;
+
+    invoke-virtual {v4}, Landroid/widget/TextView;->canDictionary()Z
+
+    move-result v4
+
+    xor-int/lit8 v4, v4, 0x1
+
+    if-nez v4, :cond_0
+
+    :cond_2
+    iget-object v4, p0, Landroid/widget/Editor$ProcessTextIntentActionsHandler;->mSupportedActivities:Ljava/util/List;
+
+    invoke-interface {v4, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    goto :goto_0
+
+    :cond_3
+    return-void
 .end method
 
 
@@ -288,9 +640,9 @@
 
     const/4 v1, 0x0
 
-    invoke-direct {p0}, Landroid/widget/Editor$ProcessTextIntentActionsHandler;->getSupportedActivities()Ljava/util/List;
+    invoke-direct {p0}, Landroid/widget/Editor$ProcessTextIntentActionsHandler;->loadSupportedActivities()V
 
-    move-result-object v5
+    iget-object v5, p0, Landroid/widget/Editor$ProcessTextIntentActionsHandler;->mSupportedActivities:Ljava/util/List;
 
     invoke-interface {v5}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
@@ -376,160 +728,73 @@
 .end method
 
 .method public onInitializeMenu(Landroid/view/Menu;)V
-    .locals 13
+    .locals 7
 
-    const/4 v12, 0x0
+    const/4 v6, 0x0
 
-    const/4 v3, 0x0
+    invoke-direct {p0}, Landroid/widget/Editor$ProcessTextIntentActionsHandler;->loadSupportedActivities()V
 
-    invoke-direct {p0}, Landroid/widget/Editor$ProcessTextIntentActionsHandler;->getSupportedActivities()Ljava/util/List;
+    iget-object v4, p0, Landroid/widget/Editor$ProcessTextIntentActionsHandler;->mSupportedActivities:Ljava/util/List;
 
-    move-result-object v10
+    invoke-interface {v4}, Ljava/util/List;->size()I
 
-    invoke-interface {v10}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+    move-result v3
 
-    move-result-object v7
+    const/4 v0, 0x0
 
     :goto_0
-    invoke-interface {v7}, Ljava/util/Iterator;->hasNext()Z
+    if-ge v0, v3, :cond_1
 
-    move-result v10
+    iget-object v4, p0, Landroid/widget/Editor$ProcessTextIntentActionsHandler;->mSupportedActivities:Ljava/util/List;
 
-    if-eqz v10, :cond_3
+    invoke-interface {v4, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    invoke-interface {v7}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    move-result-object v2
 
-    move-result-object v6
+    check-cast v2, Landroid/content/pm/ResolveInfo;
 
-    check-cast v6, Landroid/content/pm/ResolveInfo;
+    invoke-direct {p0, v2}, Landroid/widget/Editor$ProcessTextIntentActionsHandler;->getOrder(Landroid/content/pm/ResolveInfo;)I
 
-    invoke-virtual {v6}, Landroid/content/pm/ResolveInfo;->toString()Ljava/lang/String;
+    move-result v1
 
-    move-result-object v8
+    if-gez v1, :cond_0
 
-    iget-object v10, p0, Landroid/widget/Editor$ProcessTextIntentActionsHandler;->mTextView:Landroid/widget/TextView;
+    add-int/lit8 v1, v0, 0x64
 
-    invoke-virtual {v10}, Landroid/widget/TextView;->getContext()Landroid/content/Context;
+    :cond_0
+    invoke-direct {p0, v2}, Landroid/widget/Editor$ProcessTextIntentActionsHandler;->getLabel(Landroid/content/pm/ResolveInfo;)Ljava/lang/CharSequence;
 
-    move-result-object v10
+    move-result-object v4
 
-    invoke-virtual {v10}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+    invoke-interface {p1, v6, v6, v1, v4}, Landroid/view/Menu;->add(IIILjava/lang/CharSequence;)Landroid/view/MenuItem;
+
+    move-result-object v4
+
+    invoke-direct {p0, v2}, Landroid/widget/Editor$ProcessTextIntentActionsHandler;->loadIcon(Landroid/content/pm/ResolveInfo;)Landroid/graphics/drawable/Drawable;
 
     move-result-object v5
 
-    invoke-virtual {v6, v5}, Landroid/content/pm/ResolveInfo;->loadIcon(Landroid/content/pm/PackageManager;)Landroid/graphics/drawable/Drawable;
+    invoke-interface {v4, v5}, Landroid/view/MenuItem;->setIcon(Landroid/graphics/drawable/Drawable;)Landroid/view/MenuItem;
 
-    move-result-object v0
+    move-result-object v4
 
-    const-string/jumbo v10, "com.sec.android.app.translator"
+    invoke-direct {p0, v2}, Landroid/widget/Editor$ProcessTextIntentActionsHandler;->createProcessTextIntentForResolveInfo(Landroid/content/pm/ResolveInfo;)Landroid/content/Intent;
 
-    invoke-virtual {v8, v10}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+    move-result-object v5
 
-    move-result v10
+    invoke-interface {v4, v5}, Landroid/view/MenuItem;->setIntent(Landroid/content/Intent;)Landroid/view/MenuItem;
 
-    if-nez v10, :cond_0
+    move-result-object v4
 
-    const-string/jumbo v10, "com.google.android.apps.translate"
+    const/4 v5, 0x1
 
-    invoke-virtual {v8, v10}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+    invoke-interface {v4, v5}, Landroid/view/MenuItem;->setShowAsAction(I)V
 
-    move-result v10
-
-    if-eqz v10, :cond_2
-
-    :cond_0
-    iget-object v10, p0, Landroid/widget/Editor$ProcessTextIntentActionsHandler;->mTextView:Landroid/widget/TextView;
-
-    invoke-virtual {v10}, Landroid/widget/TextView;->getContext()Landroid/content/Context;
-
-    move-result-object v10
-
-    invoke-virtual {v10}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v10
-
-    const v11, 0x10809f3
-
-    invoke-virtual {v10, v11}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
-
-    move-result-object v0
-
-    :cond_1
-    :goto_1
-    add-int/lit8 v4, v3, 0x1
-
-    add-int/lit8 v10, v3, 0xa
-
-    invoke-direct {p0, v6}, Landroid/widget/Editor$ProcessTextIntentActionsHandler;->getLabel(Landroid/content/pm/ResolveInfo;)Ljava/lang/CharSequence;
-
-    move-result-object v11
-
-    invoke-interface {p1, v12, v12, v10, v11}, Landroid/view/Menu;->add(IIILjava/lang/CharSequence;)Landroid/view/MenuItem;
-
-    move-result-object v10
-
-    invoke-interface {v10, v0}, Landroid/view/MenuItem;->setIcon(Landroid/graphics/drawable/Drawable;)Landroid/view/MenuItem;
-
-    move-result-object v10
-
-    invoke-direct {p0, v6}, Landroid/widget/Editor$ProcessTextIntentActionsHandler;->createProcessTextIntentForResolveInfo(Landroid/content/pm/ResolveInfo;)Landroid/content/Intent;
-
-    move-result-object v11
-
-    invoke-interface {v10, v11}, Landroid/view/MenuItem;->setIntent(Landroid/content/Intent;)Landroid/view/MenuItem;
-
-    move-result-object v10
-
-    const/4 v11, 0x1
-
-    invoke-interface {v10, v11}, Landroid/view/MenuItem;->setShowAsAction(I)V
-
-    move v3, v4
+    add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    :cond_2
-    if-eqz v0, :cond_1
-
-    iget-object v10, p0, Landroid/widget/Editor$ProcessTextIntentActionsHandler;->mTextView:Landroid/widget/TextView;
-
-    invoke-virtual {v10}, Landroid/widget/TextView;->getContext()Landroid/content/Context;
-
-    move-result-object v10
-
-    invoke-virtual {v10}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v10
-
-    const v11, 0x10809f1
-
-    invoke-virtual {v10, v11}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
-
-    move-result-object v10
-
-    invoke-virtual {v10}, Landroid/graphics/drawable/Drawable;->getIntrinsicWidth()I
-
-    move-result v9
-
-    new-instance v2, Landroid/graphics/ColorMatrix;
-
-    invoke-direct {v2}, Landroid/graphics/ColorMatrix;-><init>()V
-
-    const/4 v10, 0x0
-
-    invoke-virtual {v2, v10}, Landroid/graphics/ColorMatrix;->setSaturation(F)V
-
-    new-instance v1, Landroid/graphics/ColorMatrixColorFilter;
-
-    invoke-direct {v1, v2}, Landroid/graphics/ColorMatrixColorFilter;-><init>(Landroid/graphics/ColorMatrix;)V
-
-    invoke-virtual {v0, v1}, Landroid/graphics/drawable/Drawable;->setColorFilter(Landroid/graphics/ColorFilter;)V
-
-    invoke-virtual {v0, v12, v12, v9, v9}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
-
-    goto :goto_1
-
-    :cond_3
+    :cond_1
     return-void
 .end method
 
@@ -552,15 +817,105 @@
 .end method
 
 .method public performMenuItemAction(Landroid/view/MenuItem;)Z
-    .locals 1
+    .locals 5
 
     invoke-interface {p1}, Landroid/view/MenuItem;->getIntent()Landroid/content/Intent;
 
+    move-result-object v2
+
+    invoke-direct {p0, v2}, Landroid/widget/Editor$ProcessTextIntentActionsHandler;->fireIntent(Landroid/content/Intent;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    iget-object v2, p0, Landroid/widget/Editor$ProcessTextIntentActionsHandler;->mEditor:Landroid/widget/Editor;
+
+    invoke-virtual {v2}, Landroid/widget/Editor;->stopTextActionMode()V
+
+    :cond_0
+    const-string/jumbo v0, ""
+
+    invoke-interface {p1}, Landroid/view/MenuItem;->getIntent()Landroid/content/Intent;
+
+    move-result-object v2
+
+    if-eqz v2, :cond_1
+
+    invoke-interface {p1}, Landroid/view/MenuItem;->getIntent()Landroid/content/Intent;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Landroid/content/Intent;->getComponent()Landroid/content/ComponentName;
+
+    move-result-object v2
+
+    if-eqz v2, :cond_1
+
+    invoke-interface {p1}, Landroid/view/MenuItem;->getIntent()Landroid/content/Intent;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Landroid/content/Intent;->getComponent()Landroid/content/ComponentName;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
+
     move-result-object v0
 
-    invoke-direct {p0, v0}, Landroid/widget/Editor$ProcessTextIntentActionsHandler;->fireIntent(Landroid/content/Intent;)Z
+    :cond_1
+    const-string/jumbo v2, "com.sec.android.app.translator"
 
-    move-result v0
+    invoke-virtual {v0, v2}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
 
-    return v0
+    move-result v2
+
+    if-nez v2, :cond_2
+
+    const-string/jumbo v2, "com.google.android.apps.translate"
+
+    invoke-virtual {v0, v2}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_3
+
+    :cond_2
+    iget-object v2, p0, Landroid/widget/Editor$ProcessTextIntentActionsHandler;->mTextView:Landroid/widget/TextView;
+
+    const-string/jumbo v3, "CPAT"
+
+    const-string/jumbo v4, "CPTL"
+
+    invoke-virtual {v2, v3, v4}, Landroid/widget/TextView;->insertLog(Ljava/lang/String;Ljava/lang/String;)V
+
+    :cond_3
+    const-string/jumbo v2, "com.diotek.sec.lookup.dictionary"
+
+    invoke-virtual {v0, v2}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_4
+
+    const-string/jumbo v2, "com.sec.android.app.dictionary"
+
+    invoke-virtual {v0, v2}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_5
+
+    :cond_4
+    iget-object v2, p0, Landroid/widget/Editor$ProcessTextIntentActionsHandler;->mTextView:Landroid/widget/TextView;
+
+    const-string/jumbo v3, "CPAT"
+
+    const-string/jumbo v4, "CPDT"
+
+    invoke-virtual {v2, v3, v4}, Landroid/widget/TextView;->insertLog(Ljava/lang/String;Ljava/lang/String;)V
+
+    :cond_5
+    return v1
 .end method

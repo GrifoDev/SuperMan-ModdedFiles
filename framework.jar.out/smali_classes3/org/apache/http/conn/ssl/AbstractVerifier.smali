@@ -606,7 +606,7 @@
 
     move-result v9
 
-    if-eqz v9, :cond_9
+    if-eqz v9, :cond_8
 
     const/16 v9, 0x2e
 
@@ -618,24 +618,22 @@
 
     const/4 v10, -0x1
 
-    if-eq v9, v10, :cond_9
+    if-eq v9, v10, :cond_8
 
     invoke-static {v1}, Lorg/apache/http/conn/ssl/AbstractVerifier;->acceptableCountryWildcard(Ljava/lang/String;)Z
 
     move-result v9
 
-    if-eqz v9, :cond_9
+    if-eqz v9, :cond_8
 
     invoke-static {p1}, Lorg/apache/http/conn/ssl/AbstractVerifier;->isIPv4Address(Ljava/lang/String;)Z
 
     move-result v9
 
-    if-eqz v9, :cond_8
-
-    const/4 v2, 0x0
+    xor-int/lit8 v2, v9, 0x1
 
     :goto_1
-    if-eqz v2, :cond_b
+    if-eqz v2, :cond_a
 
     const/4 v9, 0x1
 
@@ -659,7 +657,7 @@
 
     move-result v10
 
-    if-ne v9, v10, :cond_a
+    if-ne v9, v10, :cond_9
 
     const/4 v5, 0x1
 
@@ -668,7 +666,7 @@
     if-eqz v5, :cond_4
 
     :cond_7
-    if-nez v5, :cond_c
+    if-nez v5, :cond_b
 
     new-instance v9, Ljavax/net/ssl/SSLException;
 
@@ -705,28 +703,23 @@
     throw v9
 
     :cond_8
-    const/4 v2, 0x1
-
-    goto :goto_1
-
-    :cond_9
     const/4 v2, 0x0
 
     goto :goto_1
 
-    :cond_a
+    :cond_9
     const/4 v5, 0x0
 
     goto :goto_2
 
-    :cond_b
+    :cond_a
     invoke-virtual {v3, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
     goto :goto_2
 
-    :cond_c
+    :cond_b
     return-void
 .end method
 

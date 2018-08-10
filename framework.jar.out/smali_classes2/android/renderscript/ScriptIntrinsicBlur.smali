@@ -45,7 +45,17 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    xor-int/lit8 v3, v3, 0x1
+
+    if-eqz v3, :cond_0
+
+    new-instance v3, Landroid/renderscript/RSIllegalArgumentException;
+
+    const-string/jumbo v4, "Unsupported element type."
+
+    invoke-direct {v3, v4}, Landroid/renderscript/RSIllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v3
 
     :cond_0
     invoke-virtual {p1, p0}, Landroid/renderscript/Element;->getID(Landroid/renderscript/RenderScript;)J
@@ -67,15 +77,6 @@
     invoke-virtual {v2, v3}, Landroid/renderscript/ScriptIntrinsicBlur;->setRadius(F)V
 
     return-object v2
-
-    :cond_1
-    new-instance v3, Landroid/renderscript/RSIllegalArgumentException;
-
-    const-string/jumbo v4, "Unsuported element type."
-
-    invoke-direct {v3, v4}, Landroid/renderscript/RSIllegalArgumentException;-><init>(Ljava/lang/String;)V
-
-    throw v3
 .end method
 
 
@@ -85,11 +86,30 @@
 
     const/4 v1, 0x0
 
+    const/4 v2, 0x0
+
+    invoke-virtual {p1}, Landroid/renderscript/Allocation;->getType()Landroid/renderscript/Type;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/renderscript/Type;->getY()I
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    new-instance v0, Landroid/renderscript/RSIllegalArgumentException;
+
+    const-string/jumbo v1, "Output is a 1D Allocation"
+
+    invoke-direct {v0, v1}, Landroid/renderscript/RSIllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+
+    :cond_0
     move-object v0, v1
 
     check-cast v0, Landroid/renderscript/Allocation;
-
-    const/4 v2, 0x0
 
     invoke-virtual {p0, v2, v0, p1, v1}, Landroid/renderscript/ScriptIntrinsicBlur;->forEach(ILandroid/renderscript/Allocation;Landroid/renderscript/Allocation;Landroid/renderscript/FieldPacker;)V
 
@@ -101,11 +121,30 @@
 
     const/4 v4, 0x0
 
+    const/4 v1, 0x0
+
+    invoke-virtual {p1}, Landroid/renderscript/Allocation;->getType()Landroid/renderscript/Type;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/renderscript/Type;->getY()I
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    new-instance v0, Landroid/renderscript/RSIllegalArgumentException;
+
+    const-string/jumbo v1, "Output is a 1D Allocation"
+
+    invoke-direct {v0, v1}, Landroid/renderscript/RSIllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+
+    :cond_0
     move-object v2, v4
 
     check-cast v2, Landroid/renderscript/Allocation;
-
-    const/4 v1, 0x0
 
     move-object v0, p0
 
@@ -149,8 +188,27 @@
 .end method
 
 .method public setInput(Landroid/renderscript/Allocation;)V
-    .locals 1
+    .locals 2
 
+    invoke-virtual {p1}, Landroid/renderscript/Allocation;->getType()Landroid/renderscript/Type;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/renderscript/Type;->getY()I
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    new-instance v0, Landroid/renderscript/RSIllegalArgumentException;
+
+    const-string/jumbo v1, "Input set to a 1D Allocation"
+
+    invoke-direct {v0, v1}, Landroid/renderscript/RSIllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+
+    :cond_0
     iput-object p1, p0, Landroid/renderscript/ScriptIntrinsicBlur;->mInput:Landroid/renderscript/Allocation;
 
     const/4 v0, 0x1

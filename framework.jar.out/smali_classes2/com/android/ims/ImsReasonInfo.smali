@@ -15,6 +15,8 @@
 
 
 # static fields
+.field public static final CODE_ACCESS_CLASS_BLOCKED:I = 0x5e8
+
 .field public static final CODE_ANSWERED_ELSEWHERE:I = 0x3f6
 
 .field public static final CODE_BLACKLISTED_CALL_ID:I = 0x1fa
@@ -24,6 +26,10 @@
 .field public static final CODE_CALL_END_CAUSE_CALL_PULL:I = 0x3f8
 
 .field public static final CODE_CALL_PULL_OUT_OF_SYNC:I = 0x3f7
+
+.field public static final CODE_DATA_DISABLED:I = 0x57e
+
+.field public static final CODE_DATA_LIMIT_REACHED:I = 0x57d
 
 .field public static final CODE_ECBM_NOT_SUPPORTED:I = 0x385
 
@@ -38,6 +44,8 @@
 .field public static final CODE_EPDG_TUNNEL_REKEY_FAILURE:I = 0x579
 
 .field public static final CODE_FDN_BLOCKED:I = 0xf1
+
+.field public static final CODE_IKEV2_AUTH_FAILURE:I = 0x580
 
 .field public static final CODE_IWLAN_DPD_FAILURE:I = 0x514
 
@@ -56,6 +64,10 @@
 .field public static final CODE_LOCAL_CALL_VCC_ON_PROGRESSING:I = 0x90
 
 .field public static final CODE_LOCAL_CALL_VOLTE_RETRY_REQUIRED:I = 0x93
+
+.field public static final CODE_LOCAL_E911_RETRY_REQUIRED:I = 0x2328
+
+.field public static final CODE_LOCAL_ENDED_BY_CONFERENCE_MERGE:I = 0x6c
 
 .field public static final CODE_LOCAL_HO_NOT_FEASIBLE:I = 0x95
 
@@ -87,6 +99,8 @@
 
 .field public static final CODE_LOW_BATTERY:I = 0x1f9
 
+.field public static final CODE_MAXIMUM_NUMBER_OF_CALLS_REACHED:I = 0x57b
+
 .field public static final CODE_MEDIA_INIT_FAILED:I = 0x191
 
 .field public static final CODE_MEDIA_NOT_ACCEPTABLE:I = 0x193
@@ -97,7 +111,65 @@
 
 .field public static final CODE_MULTIENDPOINT_NOT_SUPPORTED:I = 0x386
 
+.field public static final CODE_NETWORK_DETACH:I = 0x5e9
+
+.field public static final CODE_NETWORK_REJECT:I = 0x5e0
+
+.field public static final CODE_NETWORK_RESP_TIMEOUT:I = 0x5df
+
+.field public static final CODE_NO_VALID_SIM:I = 0x5dd
+
+.field public static final CODE_OEM_CAUSE_1:I = 0xf001
+
+.field public static final CODE_OEM_CAUSE_10:I = 0xf00a
+
+.field public static final CODE_OEM_CAUSE_11:I = 0xf00b
+
+.field public static final CODE_OEM_CAUSE_12:I = 0xf00c
+
+.field public static final CODE_OEM_CAUSE_13:I = 0xf00d
+
+.field public static final CODE_OEM_CAUSE_14:I = 0xf00e
+
+.field public static final CODE_OEM_CAUSE_15:I = 0xf00f
+
+.field public static final CODE_OEM_CAUSE_2:I = 0xf002
+
+.field public static final CODE_OEM_CAUSE_3:I = 0xf003
+
+.field public static final CODE_OEM_CAUSE_4:I = 0xf004
+
+.field public static final CODE_OEM_CAUSE_5:I = 0xf005
+
+.field public static final CODE_OEM_CAUSE_6:I = 0xf006
+
+.field public static final CODE_OEM_CAUSE_7:I = 0xf007
+
+.field public static final CODE_OEM_CAUSE_8:I = 0xf008
+
+.field public static final CODE_OEM_CAUSE_9:I = 0xf009
+
+.field public static final CODE_RADIO_ACCESS_FAILURE:I = 0x5e1
+
+.field public static final CODE_RADIO_INTERNAL_ERROR:I = 0x5de
+
+.field public static final CODE_RADIO_LINK_FAILURE:I = 0x5e2
+
+.field public static final CODE_RADIO_LINK_LOST:I = 0x5e3
+
+.field public static final CODE_RADIO_OFF:I = 0x5dc
+
+.field public static final CODE_RADIO_RELEASE_ABNORMAL:I = 0x5e7
+
+.field public static final CODE_RADIO_RELEASE_NORMAL:I = 0x5e6
+
+.field public static final CODE_RADIO_SETUP_FAILURE:I = 0x5e5
+
+.field public static final CODE_RADIO_UPLINK_FAILURE:I = 0x5e4
+
 .field public static final CODE_REGISTRATION_ERROR:I = 0x3e8
+
+.field public static final CODE_REMOTE_CALL_DECLINE:I = 0x57c
 
 .field public static final CODE_SIP_BAD_ADDRESS:I = 0x151
 
@@ -171,6 +243,8 @@
 
 .field public static final CODE_UT_SERVICE_UNAVAILABLE:I = 0x322
 
+.field public static final CODE_WIFI_LOST:I = 0x57f
+
 .field public static final CREATOR:Landroid/os/Parcelable$Creator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -187,6 +261,10 @@
 .field public static final EXTRA_CODE_CALL_RETRY_NORMAL:I = 0x1
 
 .field public static final EXTRA_CODE_CALL_RETRY_SILENT_REDIAL:I = 0x2
+
+.field public static final EXTRA_CODE_E911_RETRY_CS:I = 0x17e
+
+.field public static final EXTRA_CODE_E911_RETRY_SEARCH:I = 0x17d
 
 .field public static final EXTRA_MSG_SERVICE_NOT_AUTHORIZED:Ljava/lang/String; = "Forbidden. Not Authorized for Service"
 

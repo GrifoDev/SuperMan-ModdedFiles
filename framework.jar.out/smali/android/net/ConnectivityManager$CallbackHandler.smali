@@ -21,52 +21,28 @@
 
 
 # instance fields
-.field private final mCallbackMap:Ljava/util/HashMap;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/HashMap",
-            "<",
-            "Landroid/net/NetworkRequest;",
-            "Landroid/net/ConnectivityManager$NetworkCallback;",
-            ">;"
-        }
-    .end annotation
-.end field
-
-.field private final mCm:Landroid/net/ConnectivityManager;
-
-.field private final mRefCount:Ljava/util/concurrent/atomic/AtomicInteger;
-
 .field final synthetic this$0:Landroid/net/ConnectivityManager;
 
 
 # direct methods
-.method constructor <init>(Landroid/net/ConnectivityManager;Landroid/os/Looper;Ljava/util/HashMap;Ljava/util/concurrent/atomic/AtomicInteger;Landroid/net/ConnectivityManager;)V
+.method constructor <init>(Landroid/net/ConnectivityManager;Landroid/os/Handler;)V
+    .locals 1
+
+    invoke-virtual {p2}, Landroid/os/Handler;->getLooper()Landroid/os/Looper;
+
+    move-result-object v0
+
+    invoke-direct {p0, p1, v0}, Landroid/net/ConnectivityManager$CallbackHandler;-><init>(Landroid/net/ConnectivityManager;Landroid/os/Looper;)V
+
+    return-void
+.end method
+
+.method constructor <init>(Landroid/net/ConnectivityManager;Landroid/os/Looper;)V
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Landroid/os/Looper;",
-            "Ljava/util/HashMap",
-            "<",
-            "Landroid/net/NetworkRequest;",
-            "Landroid/net/ConnectivityManager$NetworkCallback;",
-            ">;",
-            "Ljava/util/concurrent/atomic/AtomicInteger;",
-            "Landroid/net/ConnectivityManager;",
-            ")V"
-        }
-    .end annotation
 
     iput-object p1, p0, Landroid/net/ConnectivityManager$CallbackHandler;->this$0:Landroid/net/ConnectivityManager;
 
     invoke-direct {p0, p2}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
-
-    iput-object p3, p0, Landroid/net/ConnectivityManager$CallbackHandler;->mCallbackMap:Ljava/util/HashMap;
-
-    iput-object p4, p0, Landroid/net/ConnectivityManager$CallbackHandler;->mRefCount:Ljava/util/concurrent/atomic/AtomicInteger;
-
-    iput-object p5, p0, Landroid/net/ConnectivityManager$CallbackHandler;->mCm:Landroid/net/ConnectivityManager;
 
     return-void
 .end method
@@ -74,12 +50,16 @@
 .method private getCallback(Landroid/net/NetworkRequest;Ljava/lang/String;)Landroid/net/ConnectivityManager$NetworkCallback;
     .locals 4
 
-    iget-object v2, p0, Landroid/net/ConnectivityManager$CallbackHandler;->mCallbackMap:Ljava/util/HashMap;
+    invoke-static {}, Landroid/net/ConnectivityManager;->-get1()Ljava/util/HashMap;
+
+    move-result-object v2
 
     monitor-enter v2
 
     :try_start_0
-    iget-object v1, p0, Landroid/net/ConnectivityManager$CallbackHandler;->mCallbackMap:Ljava/util/HashMap;
+    invoke-static {}, Landroid/net/ConnectivityManager;->-get1()Ljava/util/HashMap;
+
+    move-result-object v1
 
     invoke-virtual {v1, p1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -134,6 +114,16 @@
 
 .method private getObject(Landroid/os/Message;Ljava/lang/Class;)Ljava/lang/Object;
     .locals 2
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "<T:",
+            "Ljava/lang/Object;",
+            ">(",
+            "Landroid/os/Message;",
+            "Ljava/lang/Class",
+            "<TT;>;)TT;"
+        }
+    .end annotation
 
     invoke-virtual {p1}, Landroid/os/Message;->getData()Landroid/os/Bundle;
 
@@ -177,9 +167,10 @@
 
     :cond_0
     :goto_0
+    :pswitch_0
     return-void
 
-    :pswitch_0
+    :pswitch_1
     const-string/jumbo v5, "PRECHECK"
 
     invoke-direct {p0, v4, v5}, Landroid/net/ConnectivityManager$CallbackHandler;->getCallback(Landroid/net/NetworkRequest;Ljava/lang/String;)Landroid/net/ConnectivityManager$NetworkCallback;
@@ -192,7 +183,7 @@
 
     goto :goto_0
 
-    :pswitch_1
+    :pswitch_2
     const-string/jumbo v5, "AVAILABLE"
 
     invoke-direct {p0, v4, v5}, Landroid/net/ConnectivityManager$CallbackHandler;->getCallback(Landroid/net/NetworkRequest;Ljava/lang/String;)Landroid/net/ConnectivityManager$NetworkCallback;
@@ -205,7 +196,7 @@
 
     goto :goto_0
 
-    :pswitch_2
+    :pswitch_3
     const-string/jumbo v5, "LOSING"
 
     invoke-direct {p0, v4, v5}, Landroid/net/ConnectivityManager$CallbackHandler;->getCallback(Landroid/net/NetworkRequest;Ljava/lang/String;)Landroid/net/ConnectivityManager$NetworkCallback;
@@ -220,7 +211,7 @@
 
     goto :goto_0
 
-    :pswitch_3
+    :pswitch_4
     const-string/jumbo v5, "LOST"
 
     invoke-direct {p0, v4, v5}, Landroid/net/ConnectivityManager$CallbackHandler;->getCallback(Landroid/net/NetworkRequest;Ljava/lang/String;)Landroid/net/ConnectivityManager$NetworkCallback;
@@ -233,7 +224,7 @@
 
     goto :goto_0
 
-    :pswitch_4
+    :pswitch_5
     const-string/jumbo v5, "UNAVAIL"
 
     invoke-direct {p0, v4, v5}, Landroid/net/ConnectivityManager$CallbackHandler;->getCallback(Landroid/net/NetworkRequest;Ljava/lang/String;)Landroid/net/ConnectivityManager$NetworkCallback;
@@ -246,7 +237,7 @@
 
     goto :goto_0
 
-    :pswitch_5
+    :pswitch_6
     const-string/jumbo v5, "CAP_CHANGED"
 
     invoke-direct {p0, v4, v5}, Landroid/net/ConnectivityManager$CallbackHandler;->getCallback(Landroid/net/NetworkRequest;Ljava/lang/String;)Landroid/net/ConnectivityManager$NetworkCallback;
@@ -267,7 +258,7 @@
 
     goto :goto_0
 
-    :pswitch_6
+    :pswitch_7
     const-string/jumbo v5, "IP_CHANGED"
 
     invoke-direct {p0, v4, v5}, Landroid/net/ConnectivityManager$CallbackHandler;->getCallback(Landroid/net/NetworkRequest;Ljava/lang/String;)Landroid/net/ConnectivityManager$NetworkCallback;
@@ -288,7 +279,7 @@
 
     goto :goto_0
 
-    :pswitch_7
+    :pswitch_8
     const-string/jumbo v5, "SUSPENDED"
 
     invoke-direct {p0, v4, v5}, Landroid/net/ConnectivityManager$CallbackHandler;->getCallback(Landroid/net/NetworkRequest;Ljava/lang/String;)Landroid/net/ConnectivityManager$NetworkCallback;
@@ -301,7 +292,7 @@
 
     goto :goto_0
 
-    :pswitch_8
+    :pswitch_9
     const-string/jumbo v5, "RESUMED"
 
     invoke-direct {p0, v4, v5}, Landroid/net/ConnectivityManager$CallbackHandler;->getCallback(Landroid/net/NetworkRequest;Ljava/lang/String;)Landroid/net/ConnectivityManager$NetworkCallback;
@@ -314,15 +305,17 @@
 
     goto/16 :goto_0
 
-    :pswitch_9
-    const/4 v0, 0x0
+    :pswitch_a
+    invoke-static {}, Landroid/net/ConnectivityManager;->-get1()Ljava/util/HashMap;
 
-    iget-object v6, p0, Landroid/net/ConnectivityManager$CallbackHandler;->mCallbackMap:Ljava/util/HashMap;
+    move-result-object v6
 
     monitor-enter v6
 
     :try_start_0
-    iget-object v5, p0, Landroid/net/ConnectivityManager$CallbackHandler;->mCallbackMap:Ljava/util/HashMap;
+    invoke-static {}, Landroid/net/ConnectivityManager;->-get1()Ljava/util/HashMap;
+
+    move-result-object v5
 
     invoke-virtual {v5, v4}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -334,31 +327,13 @@
 
     monitor-exit v6
 
-    if-eqz v0, :cond_2
+    if-nez v0, :cond_0
 
-    iget-object v6, p0, Landroid/net/ConnectivityManager$CallbackHandler;->mRefCount:Ljava/util/concurrent/atomic/AtomicInteger;
+    const-string/jumbo v5, "ConnectivityManager.CallbackHandler"
 
-    monitor-enter v6
+    const-string/jumbo v6, "callback not found for RELEASED message"
 
-    :try_start_1
-    iget-object v5, p0, Landroid/net/ConnectivityManager$CallbackHandler;->mRefCount:Ljava/util/concurrent/atomic/AtomicInteger;
-
-    invoke-virtual {v5}, Ljava/util/concurrent/atomic/AtomicInteger;->decrementAndGet()I
-
-    move-result v5
-
-    if-nez v5, :cond_1
-
-    invoke-virtual {p0}, Landroid/net/ConnectivityManager$CallbackHandler;->getLooper()Landroid/os/Looper;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Landroid/os/Looper;->quit()V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
-
-    :cond_1
-    monitor-exit v6
+    invoke-static {v5, v6}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     goto/16 :goto_0
 
@@ -368,37 +343,6 @@
     monitor-exit v6
 
     throw v5
-
-    :catchall_1
-    move-exception v5
-
-    monitor-exit v6
-
-    throw v5
-
-    :cond_2
-    const-string/jumbo v5, "ConnectivityManager.CallbackHandler"
-
-    const-string/jumbo v6, "callback not found for RELEASED message"
-
-    invoke-static {v5, v6}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto/16 :goto_0
-
-    :pswitch_a
-    const-string/jumbo v5, "ConnectivityManager.CallbackHandler"
-
-    const-string/jumbo v6, "Listener quitting"
-
-    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    invoke-virtual {p0}, Landroid/net/ConnectivityManager$CallbackHandler;->getLooper()Landroid/os/Looper;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Landroid/os/Looper;->quit()V
-
-    goto/16 :goto_0
 
     :pswitch_b
     iget-object v6, p0, Landroid/net/ConnectivityManager$CallbackHandler;->this$0:Landroid/net/ConnectivityManager;
@@ -413,19 +357,21 @@
 
     goto/16 :goto_0
 
+    nop
+
     :pswitch_data_0
     .packed-switch 0x80001
-        :pswitch_0
         :pswitch_1
         :pswitch_2
         :pswitch_3
         :pswitch_4
         :pswitch_5
         :pswitch_6
-        :pswitch_9
-        :pswitch_a
-        :pswitch_b
         :pswitch_7
+        :pswitch_a
+        :pswitch_0
+        :pswitch_b
         :pswitch_8
+        :pswitch_9
     .end packed-switch
 .end method

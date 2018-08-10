@@ -406,9 +406,7 @@
     const/4 v1, 0x0
 
     :try_start_0
-    nop
-
-    nop
+    check-cast v1, [B
 
     :goto_0
     invoke-virtual {p0, p1, v1}, Landroid/net/nsd/NsdServiceInfo;->setAttribute(Ljava/lang/String;[B)V
@@ -712,7 +710,7 @@
 
     move-result-object v9
 
-    invoke-virtual {v0}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/IllegalArgumentException;->getMessage()Ljava/lang/String;
 
     move-result-object v10
 

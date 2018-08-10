@@ -17,7 +17,7 @@
     value = {
         "Landroid/app/SystemServiceRegistry$CachedServiceFetcher",
         "<",
-        "Landroid/app/StatusBarManager;",
+        "Lcom/samsung/android/allaroundsensing/SemAllAroundSensingManager;",
         ">;"
     }
 .end annotation
@@ -34,24 +34,35 @@
 
 
 # virtual methods
-.method public createService(Landroid/app/ContextImpl;)Landroid/app/StatusBarManager;
-    .locals 2
+.method public createService(Landroid/app/ContextImpl;)Lcom/samsung/android/allaroundsensing/SemAllAroundSensingManager;
+    .locals 3
 
-    new-instance v0, Landroid/app/StatusBarManager;
+    const-string/jumbo v2, "AAS"
 
-    invoke-virtual {p1}, Landroid/app/ContextImpl;->getOuterContext()Landroid/content/Context;
+    invoke-static {v2}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lcom/samsung/android/allaroundsensing/ISemAllAroundSensingManager$Stub;->asInterface(Landroid/os/IBinder;)Lcom/samsung/android/allaroundsensing/ISemAllAroundSensingManager;
 
     move-result-object v1
 
-    invoke-direct {v0, v1}, Landroid/app/StatusBarManager;-><init>(Landroid/content/Context;)V
+    new-instance v2, Lcom/samsung/android/allaroundsensing/SemAllAroundSensingManager;
 
-    return-object v0
+    invoke-direct {v2, v1}, Lcom/samsung/android/allaroundsensing/SemAllAroundSensingManager;-><init>(Lcom/samsung/android/allaroundsensing/ISemAllAroundSensingManager;)V
+
+    return-object v2
 .end method
 
 .method public bridge synthetic createService(Landroid/app/ContextImpl;)Ljava/lang/Object;
     .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/ServiceManager$ServiceNotFoundException;
+        }
+    .end annotation
 
-    invoke-virtual {p0, p1}, Landroid/app/SystemServiceRegistry$38;->createService(Landroid/app/ContextImpl;)Landroid/app/StatusBarManager;
+    invoke-virtual {p0, p1}, Landroid/app/SystemServiceRegistry$38;->createService(Landroid/app/ContextImpl;)Lcom/samsung/android/allaroundsensing/SemAllAroundSensingManager;
 
     move-result-object v0
 

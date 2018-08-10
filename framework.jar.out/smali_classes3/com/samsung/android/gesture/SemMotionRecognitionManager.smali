@@ -13,8 +13,6 @@
 
 
 # static fields
-.field public static final ACTION_MOTION_RECOGNITION_EVENT:Ljava/lang/String; = "com.samsung.android.gesture.MOTION_RECOGNITION_EVENT"
-
 .field private static final DEBUG_LEVEL_HIGH:I = 0x4948
 
 .field private static final DEBUG_LEVEL_LOW:I = 0x4f4c
@@ -47,7 +45,7 @@
 
 .field public static final EVENT_VOLUME_DOWN:I = 0x200
 
-.field public static final MOTION_ALL:I = 0x172405
+.field public static final MOTION_ALL:I = 0x120405
 
 .field public static final MOTION_CALL_POSE:I = 0x40000
 
@@ -87,25 +85,21 @@
 
 .field protected static final TAG:Ljava/lang/String; = "MotionRecognitionManager"
 
-.field private static final localLOGV:Z = false
-
 .field private static final mMotionVersion:I = 0x1
 
 
 # instance fields
-.field private mMainLooper:Landroid/os/Looper;
+.field private final mMainLooper:Landroid/os/Looper;
 
 .field private mMovementCnt:I
 
-.field private mSContextManager:Landroid/hardware/scontext/SContextManager;
-
-.field private mSContextService:Lcom/samsung/android/hardware/context/ISemContextService;
-
 .field private mSSPEnabled:Z
+
+.field private final mSemContextManager:Lcom/samsung/android/hardware/context/SemContextManager;
 
 .field private motionService:Lcom/samsung/android/gesture/IMotionRecognitionService;
 
-.field private final mySContextMotionListener:Landroid/hardware/scontext/SContextListener;
+.field private final mySemContextMotionListener:Lcom/samsung/android/hardware/context/SemContextListener;
 
 .field private final sListenerDelegates:Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
@@ -113,17 +107,6 @@
             "Ljava/util/ArrayList",
             "<",
             "Lcom/samsung/android/gesture/SemMotionRecognitionManager$MRListenerDelegate;",
-            ">;"
-        }
-    .end annotation
-.end field
-
-.field private final sListenerwithSSP:Ljava/util/ArrayList;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/ArrayList",
-            "<",
-            "Ljava/lang/String;",
             ">;"
         }
     .end annotation
@@ -156,208 +139,95 @@
 .end method
 
 .method public constructor <init>(Landroid/os/Looper;)V
-    .locals 6
+    .locals 7
 
-    const/4 v5, 0x0
+    const/4 v6, 0x0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    new-instance v2, Ljava/util/ArrayList;
+    new-instance v3, Ljava/util/ArrayList;
 
-    invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {v3}, Ljava/util/ArrayList;-><init>()V
 
-    iput-object v2, p0, Lcom/samsung/android/gesture/SemMotionRecognitionManager;->sListenerDelegates:Ljava/util/ArrayList;
+    iput-object v3, p0, Lcom/samsung/android/gesture/SemMotionRecognitionManager;->sListenerDelegates:Ljava/util/ArrayList;
 
-    new-instance v2, Ljava/util/ArrayList;
+    new-instance v3, Lcom/samsung/android/gesture/SemMotionRecognitionManager$1;
 
-    invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {v3, p0}, Lcom/samsung/android/gesture/SemMotionRecognitionManager$1;-><init>(Lcom/samsung/android/gesture/SemMotionRecognitionManager;)V
 
-    iput-object v2, p0, Lcom/samsung/android/gesture/SemMotionRecognitionManager;->sListenerwithSSP:Ljava/util/ArrayList;
+    iput-object v3, p0, Lcom/samsung/android/gesture/SemMotionRecognitionManager;->mySemContextMotionListener:Lcom/samsung/android/hardware/context/SemContextListener;
 
-    new-instance v2, Lcom/samsung/android/gesture/SemMotionRecognitionManager$1;
+    const-string/jumbo v3, "motion_recognition"
 
-    invoke-direct {v2, p0}, Lcom/samsung/android/gesture/SemMotionRecognitionManager$1;-><init>(Lcom/samsung/android/gesture/SemMotionRecognitionManager;)V
-
-    iput-object v2, p0, Lcom/samsung/android/gesture/SemMotionRecognitionManager;->mySContextMotionListener:Landroid/hardware/scontext/SContextListener;
-
-    const-string/jumbo v2, "scontext"
-
-    invoke-static {v2}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
-
-    move-result-object v2
-
-    invoke-static {v2}, Lcom/samsung/android/hardware/context/ISemContextService$Stub;->asInterface(Landroid/os/IBinder;)Lcom/samsung/android/hardware/context/ISemContextService;
-
-    move-result-object v2
-
-    iput-object v2, p0, Lcom/samsung/android/gesture/SemMotionRecognitionManager;->mSContextService:Lcom/samsung/android/hardware/context/ISemContextService;
-
-    const-string/jumbo v2, "MotionRecognitionManager"
-
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v4, "mSContextService = "
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-static {v3}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
 
     move-result-object v3
 
-    iget-object v4, p0, Lcom/samsung/android/gesture/SemMotionRecognitionManager;->mSContextService:Lcom/samsung/android/hardware/context/ISemContextService;
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-static {v3}, Lcom/samsung/android/gesture/IMotionRecognitionService$Stub;->asInterface(Landroid/os/IBinder;)Lcom/samsung/android/gesture/IMotionRecognitionService;
 
     move-result-object v3
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    iput-object v3, p0, Lcom/samsung/android/gesture/SemMotionRecognitionManager;->motionService:Lcom/samsung/android/gesture/IMotionRecognitionService;
+
+    const-string/jumbo v3, "scontext"
+
+    invoke-static {v3}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
 
     move-result-object v3
 
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    iput-object p1, p0, Lcom/samsung/android/gesture/SemMotionRecognitionManager;->mMainLooper:Landroid/os/Looper;
-
-    new-instance v2, Landroid/hardware/scontext/SContextManager;
-
-    iget-object v3, p0, Lcom/samsung/android/gesture/SemMotionRecognitionManager;->mMainLooper:Landroid/os/Looper;
-
-    invoke-direct {v2, v3}, Landroid/hardware/scontext/SContextManager;-><init>(Landroid/os/Looper;)V
-
-    iput-object v2, p0, Lcom/samsung/android/gesture/SemMotionRecognitionManager;->mSContextManager:Landroid/hardware/scontext/SContextManager;
-
-    iput v5, p0, Lcom/samsung/android/gesture/SemMotionRecognitionManager;->mMovementCnt:I
-
-    iget-object v2, p0, Lcom/samsung/android/gesture/SemMotionRecognitionManager;->mSContextService:Lcom/samsung/android/hardware/context/ISemContextService;
-
-    if-eqz v2, :cond_1
-
-    :try_start_0
-    iget-object v2, p0, Lcom/samsung/android/gesture/SemMotionRecognitionManager;->mSContextService:Lcom/samsung/android/hardware/context/ISemContextService;
-
-    invoke-interface {v2}, Lcom/samsung/android/hardware/context/ISemContextService;->getMotionRecognitionService()Landroid/os/IBinder;
+    invoke-static {v3}, Lcom/samsung/android/hardware/context/ISemContextService$Stub;->asInterface(Landroid/os/IBinder;)Lcom/samsung/android/hardware/context/ISemContextService;
 
     move-result-object v1
 
-    invoke-static {v1}, Lcom/samsung/android/gesture/IMotionRecognitionService$Stub;->asInterface(Landroid/os/IBinder;)Lcom/samsung/android/gesture/IMotionRecognitionService;
+    const-string/jumbo v3, "MotionRecognitionManager"
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v5, "mSemontextService = "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iput-object p1, p0, Lcom/samsung/android/gesture/SemMotionRecognitionManager;->mMainLooper:Landroid/os/Looper;
+
+    new-instance v3, Lcom/samsung/android/hardware/context/SemContextManager;
+
+    iget-object v4, p0, Lcom/samsung/android/gesture/SemMotionRecognitionManager;->mMainLooper:Landroid/os/Looper;
+
+    invoke-direct {v3, v4}, Lcom/samsung/android/hardware/context/SemContextManager;-><init>(Landroid/os/Looper;)V
+
+    iput-object v3, p0, Lcom/samsung/android/gesture/SemMotionRecognitionManager;->mSemContextManager:Lcom/samsung/android/hardware/context/SemContextManager;
+
+    iput v6, p0, Lcom/samsung/android/gesture/SemMotionRecognitionManager;->mMovementCnt:I
+
+    if-eqz v1, :cond_1
+
+    :try_start_0
+    invoke-interface {v1}, Lcom/samsung/android/hardware/context/ISemContextService;->getMotionRecognitionService()Landroid/os/IBinder;
 
     move-result-object v2
 
-    iput-object v2, p0, Lcom/samsung/android/gesture/SemMotionRecognitionManager;->motionService:Lcom/samsung/android/gesture/IMotionRecognitionService;
+    invoke-static {v2}, Lcom/samsung/android/gesture/IMotionRecognitionService$Stub;->asInterface(Landroid/os/IBinder;)Lcom/samsung/android/gesture/IMotionRecognitionService;
+
+    move-result-object v3
+
+    iput-object v3, p0, Lcom/samsung/android/gesture/SemMotionRecognitionManager;->motionService:Lcom/samsung/android/gesture/IMotionRecognitionService;
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    const-string/jumbo v2, "MotionRecognitionManager"
-
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v4, "motionService = "
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    iget-object v4, p0, Lcom/samsung/android/gesture/SemMotionRecognitionManager;->motionService:Lcom/samsung/android/gesture/IMotionRecognitionService;
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :goto_0
-    const-string/jumbo v2, "MotionRecognitionManager"
-
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v4, "motionService = "
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    iget-object v4, p0, Lcom/samsung/android/gesture/SemMotionRecognitionManager;->motionService:Lcom/samsung/android/gesture/IMotionRecognitionService;
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    iput v5, p0, Lcom/samsung/android/gesture/SemMotionRecognitionManager;->mMovementCnt:I
-
-    :try_start_1
-    iget-object v2, p0, Lcom/samsung/android/gesture/SemMotionRecognitionManager;->motionService:Lcom/samsung/android/gesture/IMotionRecognitionService;
-
-    if-eqz v2, :cond_0
-
-    iget-object v2, p0, Lcom/samsung/android/gesture/SemMotionRecognitionManager;->motionService:Lcom/samsung/android/gesture/IMotionRecognitionService;
-
-    invoke-interface {v2}, Lcom/samsung/android/gesture/IMotionRecognitionService;->getSSPstatus()Z
-
-    move-result v2
-
-    iput-boolean v2, p0, Lcom/samsung/android/gesture/SemMotionRecognitionManager;->mSSPEnabled:Z
-    :try_end_1
-    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_1
-
-    :cond_0
-    :goto_1
-    return-void
-
-    :catch_0
-    move-exception v0
-
-    :try_start_2
-    const-string/jumbo v2, "MotionRecognitionManager"
-
-    const-string/jumbo v3, "RemoteException in motionService: "
-
-    invoke-static {v2, v3, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
-
-    const-string/jumbo v2, "MotionRecognitionManager"
-
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v4, "motionService = "
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    iget-object v4, p0, Lcom/samsung/android/gesture/SemMotionRecognitionManager;->motionService:Lcom/samsung/android/gesture/IMotionRecognitionService;
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_0
-
-    :catchall_0
-    move-exception v2
 
     const-string/jumbo v3, "MotionRecognitionManager"
 
@@ -383,31 +253,142 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    throw v2
+    :goto_0
+    const-string/jumbo v3, "MotionRecognitionManager"
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v5, "motionService = "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    iget-object v5, p0, Lcom/samsung/android/gesture/SemMotionRecognitionManager;->motionService:Lcom/samsung/android/gesture/IMotionRecognitionService;
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iput v6, p0, Lcom/samsung/android/gesture/SemMotionRecognitionManager;->mMovementCnt:I
+
+    :try_start_1
+    iget-object v3, p0, Lcom/samsung/android/gesture/SemMotionRecognitionManager;->motionService:Lcom/samsung/android/gesture/IMotionRecognitionService;
+
+    if-eqz v3, :cond_0
+
+    iget-object v3, p0, Lcom/samsung/android/gesture/SemMotionRecognitionManager;->motionService:Lcom/samsung/android/gesture/IMotionRecognitionService;
+
+    invoke-interface {v3}, Lcom/samsung/android/gesture/IMotionRecognitionService;->getSSPstatus()Z
+
+    move-result v3
+
+    iput-boolean v3, p0, Lcom/samsung/android/gesture/SemMotionRecognitionManager;->mSSPEnabled:Z
+    :try_end_1
+    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_1
+
+    :cond_0
+    :goto_1
+    return-void
+
+    :catch_0
+    move-exception v0
+
+    :try_start_2
+    const-string/jumbo v3, "MotionRecognitionManager"
+
+    const-string/jumbo v4, "RemoteException in motionService: "
+
+    invoke-static {v3, v4, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+
+    const-string/jumbo v3, "MotionRecognitionManager"
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v5, "motionService = "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    iget-object v5, p0, Lcom/samsung/android/gesture/SemMotionRecognitionManager;->motionService:Lcom/samsung/android/gesture/IMotionRecognitionService;
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
+
+    :catchall_0
+    move-exception v3
+
+    const-string/jumbo v4, "MotionRecognitionManager"
+
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v6, "motionService = "
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    iget-object v6, p0, Lcom/samsung/android/gesture/SemMotionRecognitionManager;->motionService:Lcom/samsung/android/gesture/IMotionRecognitionService;
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    throw v3
 
     :cond_1
-    const-string/jumbo v2, "motion_recognition"
+    const-string/jumbo v3, "motion_recognition"
 
-    invoke-static {v2}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
+    invoke-static {v3}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
 
-    move-result-object v2
+    move-result-object v3
 
-    invoke-static {v2}, Lcom/samsung/android/gesture/IMotionRecognitionService$Stub;->asInterface(Landroid/os/IBinder;)Lcom/samsung/android/gesture/IMotionRecognitionService;
+    invoke-static {v3}, Lcom/samsung/android/gesture/IMotionRecognitionService$Stub;->asInterface(Landroid/os/IBinder;)Lcom/samsung/android/gesture/IMotionRecognitionService;
 
-    move-result-object v2
+    move-result-object v3
 
-    iput-object v2, p0, Lcom/samsung/android/gesture/SemMotionRecognitionManager;->motionService:Lcom/samsung/android/gesture/IMotionRecognitionService;
+    iput-object v3, p0, Lcom/samsung/android/gesture/SemMotionRecognitionManager;->motionService:Lcom/samsung/android/gesture/IMotionRecognitionService;
 
     goto :goto_0
 
     :catch_1
     move-exception v0
 
-    const-string/jumbo v2, "MotionRecognitionManager"
+    const-string/jumbo v3, "MotionRecognitionManager"
 
-    const-string/jumbo v3, "RemoteException in getSSPstatus: "
+    const-string/jumbo v4, "RemoteException in getSSPstatus: "
 
-    invoke-static {v2, v3, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v3, v4, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     goto :goto_1
 .end method
@@ -423,11 +404,9 @@
 
     move-result-object v2
 
-    const/4 v0, -0x1
-
     const-string/jumbo v3, "Unknown"
 
-    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v3, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v3
 
@@ -819,7 +798,7 @@
 
     if-eqz v10, :cond_8
 
-    iget-object v10, p0, Lcom/samsung/android/gesture/SemMotionRecognitionManager;->mySContextMotionListener:Landroid/hardware/scontext/SContextListener;
+    iget-object v10, p0, Lcom/samsung/android/gesture/SemMotionRecognitionManager;->mySemContextMotionListener:Lcom/samsung/android/hardware/context/SemContextListener;
 
     if-eqz v10, :cond_7
 
@@ -833,13 +812,13 @@
 
     invoke-static {v10, v12}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-object v10, p0, Lcom/samsung/android/gesture/SemMotionRecognitionManager;->mSContextManager:Landroid/hardware/scontext/SContextManager;
+    iget-object v10, p0, Lcom/samsung/android/gesture/SemMotionRecognitionManager;->mSemContextManager:Lcom/samsung/android/hardware/context/SemContextManager;
 
-    iget-object v12, p0, Lcom/samsung/android/gesture/SemMotionRecognitionManager;->mySContextMotionListener:Landroid/hardware/scontext/SContextListener;
+    iget-object v12, p0, Lcom/samsung/android/gesture/SemMotionRecognitionManager;->mySemContextMotionListener:Lcom/samsung/android/hardware/context/SemContextListener;
 
     const/4 v13, 0x5
 
-    invoke-virtual {v10, v12, v13}, Landroid/hardware/scontext/SContextManager;->registerListener(Landroid/hardware/scontext/SContextListener;I)Z
+    invoke-virtual {v10, v12, v13}, Lcom/samsung/android/hardware/context/SemContextManager;->registerListener(Lcom/samsung/android/hardware/context/SemContextListener;I)Z
 
     :goto_5
     iget v10, p0, Lcom/samsung/android/gesture/SemMotionRecognitionManager;->mMovementCnt:I
@@ -1261,8 +1240,6 @@
 .method public setTestSensor()Z
     .locals 4
 
-    const/4 v1, 0x0
-
     :try_start_0
     iget-object v2, p0, Lcom/samsung/android/gesture/SemMotionRecognitionManager;->motionService:Lcom/samsung/android/gesture/IMotionRecognitionService;
 
@@ -1375,7 +1352,7 @@
     const/4 v2, 0x0
 
     :goto_1
-    if-ge v2, v5, :cond_4
+    if-ge v2, v5, :cond_5
 
     iget-object v7, p0, Lcom/samsung/android/gesture/SemMotionRecognitionManager;->sListenerDelegates:Ljava/util/ArrayList;
 
@@ -1389,7 +1366,7 @@
 
     move-result-object v7
 
-    if-ne v7, p1, :cond_6
+    if-ne v7, p1, :cond_7
 
     iget-object v7, p0, Lcom/samsung/android/gesture/SemMotionRecognitionManager;->sListenerDelegates:Ljava/util/ArrayList;
 
@@ -1410,7 +1387,7 @@
 
     iget-boolean v7, p0, Lcom/samsung/android/gesture/SemMotionRecognitionManager;->mSSPEnabled:Z
 
-    if-eqz v7, :cond_5
+    if-eqz v7, :cond_6
 
     iget v7, p0, Lcom/samsung/android/gesture/SemMotionRecognitionManager;->mMovementCnt:I
 
@@ -1432,13 +1409,13 @@
 
     iput v7, p0, Lcom/samsung/android/gesture/SemMotionRecognitionManager;->mMovementCnt:I
 
-    iget-object v7, p0, Lcom/samsung/android/gesture/SemMotionRecognitionManager;->mSContextManager:Landroid/hardware/scontext/SContextManager;
+    iget-object v7, p0, Lcom/samsung/android/gesture/SemMotionRecognitionManager;->mSemContextManager:Lcom/samsung/android/hardware/context/SemContextManager;
 
-    iget-object v9, p0, Lcom/samsung/android/gesture/SemMotionRecognitionManager;->mySContextMotionListener:Landroid/hardware/scontext/SContextListener;
+    iget-object v9, p0, Lcom/samsung/android/gesture/SemMotionRecognitionManager;->mySemContextMotionListener:Lcom/samsung/android/hardware/context/SemContextListener;
 
     const/4 v10, 0x5
 
-    invoke-virtual {v7, v9, v10}, Landroid/hardware/scontext/SContextManager;->unregisterListener(Landroid/hardware/scontext/SContextListener;I)V
+    invoke-virtual {v7, v9, v10}, Lcom/samsung/android/hardware/context/SemContextManager;->unregisterListener(Lcom/samsung/android/hardware/context/SemContextListener;I)V
 
     :cond_2
     const-string/jumbo v7, "MotionRecognitionManager"
@@ -1475,7 +1452,9 @@
 
     if-eqz v7, :cond_4
 
-    if-nez v0, :cond_4
+    xor-int/lit8 v7, v0, 0x1
+
+    if-eqz v7, :cond_4
 
     iget-object v7, p0, Lcom/samsung/android/gesture/SemMotionRecognitionManager;->motionService:Lcom/samsung/android/gesture/IMotionRecognitionService;
 
@@ -1487,6 +1466,9 @@
     :cond_4
     :goto_3
     :try_start_2
+    invoke-virtual {v3}, Lcom/samsung/android/gesture/SemMotionRecognitionManager$MRListenerDelegate;->resetListener()V
+
+    :cond_5
     new-instance v7, Ljava/lang/StringBuilder;
 
     invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
@@ -1563,7 +1545,7 @@
 
     return-void
 
-    :cond_5
+    :cond_6
     :try_start_3
     iget-object v7, p0, Lcom/samsung/android/gesture/SemMotionRecognitionManager;->motionService:Lcom/samsung/android/gesture/IMotionRecognitionService;
 
@@ -1645,7 +1627,7 @@
 
     throw v7
 
-    :cond_6
+    :cond_7
     add-int/lit8 v2, v2, 0x1
 
     goto/16 :goto_1
@@ -1673,8 +1655,6 @@
     move-result v3
 
     const/4 v2, 0x0
-
-    const/4 v1, 0x0
 
     const/4 v0, 0x0
 

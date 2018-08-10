@@ -74,10 +74,6 @@
 
 .field public static final FLAG_SYSPROPS:I = 0x4
 
-.field public static final LABEL_BG_TOTAL:I = 0x1
-
-.field public static final LABEL_TOTAL:I = 0x0
-
 .field private static final MAGIC:I = 0x50535454
 
 .field public static final NON_CACHED_PROC_STATES:[I
@@ -689,344 +685,6 @@
 
     :cond_2
     return-void
-.end method
-
-.method static processSummaryLocked(Ljava/lang/String;Ljava/util/ArrayList;[I[I[IZJJ)Ljava/util/ArrayList;
-    .locals 20
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/lang/String;",
-            "Ljava/util/ArrayList",
-            "<",
-            "Lcom/android/internal/app/procstats/ProcessState;",
-            ">;[I[I[IZJJ)",
-            "Ljava/util/ArrayList",
-            "<",
-            "Lcom/android/internal/app/procstats/ProcStatsCollection;",
-            ">;"
-        }
-    .end annotation
-
-    new-instance v12, Ljava/util/ArrayList;
-
-    invoke-direct {v12}, Ljava/util/ArrayList;-><init>()V
-
-    const-string/jumbo v14, "ProcessStats"
-
-    new-instance v15, Ljava/lang/StringBuilder;
-
-    invoke-direct {v15}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v16, "ProcStats processSummaryLocked  "
-
-    invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v15
-
-    invoke-virtual/range {p1 .. p1}, Ljava/util/ArrayList;->size()I
-
-    move-result v16
-
-    invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v15
-
-    invoke-virtual {v15}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v15
-
-    invoke-static {v14, v15}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    invoke-virtual/range {p1 .. p1}, Ljava/util/ArrayList;->size()I
-
-    move-result v14
-
-    add-int/lit8 v6, v14, -0x1
-
-    :goto_0
-    if-ltz v6, :cond_4
-
-    move-object/from16 v0, p1
-
-    invoke-virtual {v0, v6}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v7
-
-    check-cast v7, Lcom/android/internal/app/procstats/ProcessState;
-
-    new-instance v13, Lcom/android/internal/app/procstats/ProcStatsCollection;
-
-    invoke-direct {v13}, Lcom/android/internal/app/procstats/ProcStatsCollection;-><init>()V
-
-    iget-object v14, v13, Lcom/android/internal/app/procstats/ProcStatsCollection;->Label:[Ljava/lang/String;
-
-    const-string/jumbo v15, "TOTAL"
-
-    const/16 v16, 0x0
-
-    aput-object v15, v14, v16
-
-    sget-object p4, Lcom/android/internal/app/procstats/ProcessStats;->NON_CACHED_PROC_STATES:[I
-
-    new-instance v5, Lcom/android/internal/app/procstats/ProcessStats$ProcessDataCollection;
-
-    move-object/from16 v0, p2
-
-    move-object/from16 v1, p3
-
-    move-object/from16 v2, p4
-
-    invoke-direct {v5, v0, v1, v2}, Lcom/android/internal/app/procstats/ProcessStats$ProcessDataCollection;-><init>([I[I[I)V
-
-    move-wide/from16 v0, p6
-
-    invoke-virtual {v7, v5, v0, v1}, Lcom/android/internal/app/procstats/ProcessState;->computeProcessData(Lcom/android/internal/app/procstats/ProcessStats$ProcessDataCollection;J)V
-
-    iget-wide v14, v5, Lcom/android/internal/app/procstats/ProcessStats$ProcessDataCollection;->totalTime:J
-
-    long-to-double v14, v14
-
-    move-wide/from16 v0, p8
-
-    long-to-double v0, v0
-
-    move-wide/from16 v16, v0
-
-    div-double v14, v14, v16
-
-    const-wide/high16 v16, 0x4059000000000000L    # 100.0
-
-    mul-double v10, v14, v16
-
-    iget-object v14, v13, Lcom/android/internal/app/procstats/ProcStatsCollection;->Label:[Ljava/lang/String;
-
-    const-string/jumbo v15, "Bg TOTAL"
-
-    const/16 v16, 0x1
-
-    aput-object v15, v14, v16
-
-    const/16 v14, 0x9
-
-    const/16 v15, 0xa
-
-    const/16 v16, 0xb
-
-    const/16 v17, 0xc
-
-    const/16 v18, 0xd
-
-    filled-new-array/range {v14 .. v18}, [I
-
-    move-result-object p4
-
-    new-instance v4, Lcom/android/internal/app/procstats/ProcessStats$ProcessDataCollection;
-
-    move-object/from16 v0, p2
-
-    move-object/from16 v1, p3
-
-    move-object/from16 v2, p4
-
-    invoke-direct {v4, v0, v1, v2}, Lcom/android/internal/app/procstats/ProcessStats$ProcessDataCollection;-><init>([I[I[I)V
-
-    move-wide/from16 v0, p6
-
-    invoke-virtual {v7, v4, v0, v1}, Lcom/android/internal/app/procstats/ProcessState;->computeProcessData(Lcom/android/internal/app/procstats/ProcessStats$ProcessDataCollection;J)V
-
-    iget-wide v14, v4, Lcom/android/internal/app/procstats/ProcessStats$ProcessDataCollection;->totalTime:J
-
-    long-to-double v14, v14
-
-    move-wide/from16 v0, p8
-
-    long-to-double v0, v0
-
-    move-wide/from16 v16, v0
-
-    div-double v14, v14, v16
-
-    const-wide/high16 v16, 0x4059000000000000L    # 100.0
-
-    mul-double v8, v14, v16
-
-    const-wide/high16 v14, 0x3ff0000000000000L    # 1.0
-
-    cmpl-double v14, v10, v14
-
-    if-gez v14, :cond_0
-
-    const-wide/high16 v14, 0x3ff0000000000000L    # 1.0
-
-    cmpl-double v14, v8, v14
-
-    if-ltz v14, :cond_3
-
-    :cond_0
-    iget-object v14, v7, Lcom/android/internal/app/procstats/ProcessState;->mName:Ljava/lang/String;
-
-    iput-object v14, v13, Lcom/android/internal/app/procstats/ProcStatsCollection;->procName:Ljava/lang/String;
-
-    iget-wide v14, v5, Lcom/android/internal/app/procstats/ProcessStats$ProcessDataCollection;->numPss:J
-
-    const-wide/16 v16, 0x0
-
-    cmp-long v14, v14, v16
-
-    if-eqz v14, :cond_1
-
-    iget-object v14, v13, Lcom/android/internal/app/procstats/ProcStatsCollection;->percentage:[D
-
-    const/4 v15, 0x0
-
-    aput-wide v10, v14, v15
-
-    iget-object v14, v13, Lcom/android/internal/app/procstats/ProcStatsCollection;->minPss:[J
-
-    iget-wide v0, v5, Lcom/android/internal/app/procstats/ProcessStats$ProcessDataCollection;->minPss:J
-
-    move-wide/from16 v16, v0
-
-    const/4 v15, 0x0
-
-    aput-wide v16, v14, v15
-
-    iget-object v14, v13, Lcom/android/internal/app/procstats/ProcStatsCollection;->avgPss:[J
-
-    iget-wide v0, v5, Lcom/android/internal/app/procstats/ProcessStats$ProcessDataCollection;->avgPss:J
-
-    move-wide/from16 v16, v0
-
-    const/4 v15, 0x0
-
-    aput-wide v16, v14, v15
-
-    iget-object v14, v13, Lcom/android/internal/app/procstats/ProcStatsCollection;->maxPss:[J
-
-    iget-wide v0, v5, Lcom/android/internal/app/procstats/ProcessStats$ProcessDataCollection;->maxPss:J
-
-    move-wide/from16 v16, v0
-
-    const/4 v15, 0x0
-
-    aput-wide v16, v14, v15
-
-    iget-object v14, v13, Lcom/android/internal/app/procstats/ProcStatsCollection;->minUss:[J
-
-    iget-wide v0, v5, Lcom/android/internal/app/procstats/ProcessStats$ProcessDataCollection;->minUss:J
-
-    move-wide/from16 v16, v0
-
-    const/4 v15, 0x0
-
-    aput-wide v16, v14, v15
-
-    iget-object v14, v13, Lcom/android/internal/app/procstats/ProcStatsCollection;->avgUss:[J
-
-    iget-wide v0, v5, Lcom/android/internal/app/procstats/ProcessStats$ProcessDataCollection;->avgUss:J
-
-    move-wide/from16 v16, v0
-
-    const/4 v15, 0x0
-
-    aput-wide v16, v14, v15
-
-    iget-object v14, v13, Lcom/android/internal/app/procstats/ProcStatsCollection;->maxUss:[J
-
-    iget-wide v0, v5, Lcom/android/internal/app/procstats/ProcessStats$ProcessDataCollection;->maxUss:J
-
-    move-wide/from16 v16, v0
-
-    const/4 v15, 0x0
-
-    aput-wide v16, v14, v15
-
-    :cond_1
-    iget-wide v14, v4, Lcom/android/internal/app/procstats/ProcessStats$ProcessDataCollection;->numPss:J
-
-    const-wide/16 v16, 0x0
-
-    cmp-long v14, v14, v16
-
-    if-eqz v14, :cond_2
-
-    iget-object v14, v13, Lcom/android/internal/app/procstats/ProcStatsCollection;->percentage:[D
-
-    const/4 v15, 0x1
-
-    aput-wide v8, v14, v15
-
-    iget-object v14, v13, Lcom/android/internal/app/procstats/ProcStatsCollection;->minPss:[J
-
-    iget-wide v0, v4, Lcom/android/internal/app/procstats/ProcessStats$ProcessDataCollection;->minPss:J
-
-    move-wide/from16 v16, v0
-
-    const/4 v15, 0x1
-
-    aput-wide v16, v14, v15
-
-    iget-object v14, v13, Lcom/android/internal/app/procstats/ProcStatsCollection;->avgPss:[J
-
-    iget-wide v0, v4, Lcom/android/internal/app/procstats/ProcessStats$ProcessDataCollection;->avgPss:J
-
-    move-wide/from16 v16, v0
-
-    const/4 v15, 0x1
-
-    aput-wide v16, v14, v15
-
-    iget-object v14, v13, Lcom/android/internal/app/procstats/ProcStatsCollection;->maxPss:[J
-
-    iget-wide v0, v4, Lcom/android/internal/app/procstats/ProcessStats$ProcessDataCollection;->maxPss:J
-
-    move-wide/from16 v16, v0
-
-    const/4 v15, 0x1
-
-    aput-wide v16, v14, v15
-
-    iget-object v14, v13, Lcom/android/internal/app/procstats/ProcStatsCollection;->minUss:[J
-
-    iget-wide v0, v4, Lcom/android/internal/app/procstats/ProcessStats$ProcessDataCollection;->minUss:J
-
-    move-wide/from16 v16, v0
-
-    const/4 v15, 0x1
-
-    aput-wide v16, v14, v15
-
-    iget-object v14, v13, Lcom/android/internal/app/procstats/ProcStatsCollection;->avgUss:[J
-
-    iget-wide v0, v4, Lcom/android/internal/app/procstats/ProcessStats$ProcessDataCollection;->avgUss:J
-
-    move-wide/from16 v16, v0
-
-    const/4 v15, 0x1
-
-    aput-wide v16, v14, v15
-
-    iget-object v14, v13, Lcom/android/internal/app/procstats/ProcStatsCollection;->maxUss:[J
-
-    iget-wide v0, v4, Lcom/android/internal/app/procstats/ProcessStats$ProcessDataCollection;->maxUss:J
-
-    move-wide/from16 v16, v0
-
-    const/4 v15, 0x1
-
-    aput-wide v16, v14, v15
-
-    :cond_2
-    invoke-virtual {v12, v13}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    :cond_3
-    add-int/lit8 v6, v6, -0x1
-
-    goto/16 :goto_0
-
-    :cond_4
-    return-object v12
 .end method
 
 .method private readCheckedInt(Landroid/os/Parcel;ILjava/lang/String;)Z
@@ -2335,7 +1993,7 @@
 
     move-result v8
 
-    if-eqz p7, :cond_3
+    if-eqz p7, :cond_1
 
     move-object/from16 v0, p7
 
@@ -2361,7 +2019,7 @@
 
     check-cast v2, Lcom/android/internal/app/procstats/ProcessState;
 
-    if-nez v18, :cond_0
+    if-nez v18, :cond_2
 
     invoke-virtual {v2}, Lcom/android/internal/app/procstats/ProcessState;->getName()Ljava/lang/String;
 
@@ -2373,33 +2031,40 @@
 
     move-result v3
 
+    xor-int/lit8 v3, v3, 0x1
+
     if-eqz v3, :cond_2
 
     :cond_0
-    if-eqz p8, :cond_1
+    :goto_5
+    add-int/lit8 v13, v13, 0x1
+
+    goto :goto_4
+
+    :cond_1
+    const/16 v18, 0x1
+
+    goto :goto_3
+
+    :cond_2
+    if-eqz p8, :cond_3
 
     invoke-virtual {v2}, Lcom/android/internal/app/procstats/ProcessState;->isInUse()Z
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    xor-int/lit8 v3, v3, 0x1
 
-    :cond_1
+    if-nez v3, :cond_0
+
+    :cond_3
     invoke-virtual {v2}, Lcom/android/internal/app/procstats/ProcessState;->getCommonProcess()Lcom/android/internal/app/procstats/ProcessState;
 
     move-result-object v3
 
     invoke-virtual {v10, v3}, Landroid/util/ArraySet;->add(Ljava/lang/Object;)Z
 
-    :cond_2
-    add-int/lit8 v13, v13, 0x1
-
-    goto :goto_4
-
-    :cond_3
-    const/16 v18, 0x1
-
-    goto :goto_3
+    goto :goto_5
 
     :cond_4
     add-int/lit8 v15, v15, 0x1
@@ -2414,7 +2079,7 @@
     :cond_6
     add-int/lit8 v12, v12, 0x1
 
-    goto :goto_0
+    goto/16 :goto_0
 
     :cond_7
     new-instance v16, Ljava/util/ArrayList;
@@ -2429,7 +2094,7 @@
 
     const/4 v11, 0x0
 
-    :goto_5
+    :goto_6
     invoke-virtual {v10}, Landroid/util/ArraySet;->size()I
 
     move-result v3
@@ -2483,7 +2148,7 @@
     :cond_8
     add-int/lit8 v11, v11, 0x1
 
-    goto :goto_5
+    goto :goto_6
 
     :cond_9
     sget-object v3, Lcom/android/internal/app/procstats/ProcessState;->COMPARATOR:Ljava/util/Comparator;
@@ -3277,7 +2942,7 @@
 
     check-cast v4, Ljava/lang/String;
 
-    if-eqz p2, :cond_5
+    if-eqz p2, :cond_7
 
     move-object/from16 v0, p2
 
@@ -3285,9 +2950,23 @@
 
     move-result v3
 
-    if-eqz v3, :cond_a
+    xor-int/lit8 v3, v3, 0x1
+
+    if-eqz v3, :cond_7
 
     :cond_5
+    add-int/lit8 v33, v33, 0x1
+
+    goto :goto_1
+
+    :cond_6
+    move-object/from16 v0, p0
+
+    iget-wide v12, v0, Lcom/android/internal/app/procstats/ProcessStats;->mTimePeriodEndRealtime:J
+
+    goto/16 :goto_0
+
+    :cond_7
     move-object/from16 v0, v41
 
     move/from16 v1, v33
@@ -3307,7 +2986,7 @@
 
     move/from16 v0, v36
 
-    if-ge v0, v3, :cond_a
+    if-ge v0, v3, :cond_5
 
     move-object/from16 v0, v48
 
@@ -3336,7 +3015,7 @@
 
     move/from16 v0, v37
 
-    if-ge v0, v3, :cond_9
+    if-ge v0, v3, :cond_a
 
     move-object/from16 v0, v50
 
@@ -3379,7 +3058,7 @@
 
     move/from16 v1, v30
 
-    if-ge v0, v1, :cond_7
+    if-ge v0, v1, :cond_8
 
     move-object/from16 v0, v42
 
@@ -3413,14 +3092,7 @@
 
     goto :goto_4
 
-    :cond_6
-    move-object/from16 v0, p0
-
-    iget-wide v12, v0, Lcom/android/internal/app/procstats/ProcessStats;->mTimePeriodEndRealtime:J
-
-    goto/16 :goto_0
-
-    :cond_7
+    :cond_8
     const/16 v35, 0x0
 
     :goto_5
@@ -3428,7 +3100,7 @@
 
     move/from16 v1, v31
 
-    if-ge v0, v1, :cond_8
+    if-ge v0, v1, :cond_9
 
     move-object/from16 v0, v42
 
@@ -3474,20 +3146,15 @@
 
     goto :goto_5
 
-    :cond_8
+    :cond_9
     add-int/lit8 v37, v37, 0x1
 
     goto/16 :goto_3
 
-    :cond_9
+    :cond_a
     add-int/lit8 v36, v36, 0x1
 
     goto/16 :goto_2
-
-    :cond_a
-    add-int/lit8 v33, v33, 0x1
-
-    goto/16 :goto_1
 
     :cond_b
     move-object/from16 v0, p0
@@ -4194,7 +3861,7 @@
 
     move/from16 v0, v29
 
-    if-ge v0, v5, :cond_1d
+    if-ge v0, v5, :cond_19
 
     move-object/from16 v0, v36
 
@@ -4225,7 +3892,7 @@
 
     move/from16 v0, v32
 
-    if-ge v0, v5, :cond_1c
+    if-ge v0, v5, :cond_18
 
     move-object/from16 v0, v46
 
@@ -4254,7 +3921,7 @@
 
     move/from16 v0, v33
 
-    if-ge v0, v5, :cond_1b
+    if-ge v0, v5, :cond_17
 
     move-object/from16 v0, v49
 
@@ -4427,7 +4094,7 @@
     :cond_9
     if-eqz p5, :cond_a
 
-    if-eqz p6, :cond_10
+    if-eqz p6, :cond_e
 
     :cond_a
     const/16 v30, 0x0
@@ -4437,7 +4104,7 @@
 
     move/from16 v1, v16
 
-    if-ge v0, v1, :cond_15
+    if-ge v0, v1, :cond_13
 
     move-object/from16 v0, v39
 
@@ -4463,7 +4130,14 @@
 
     move-result v5
 
-    if-eqz v5, :cond_d
+    xor-int/lit8 v5, v5, 0x1
+
+    if-eqz v5, :cond_b
+
+    :goto_6
+    add-int/lit8 v30, v30, 0x1
+
+    goto :goto_5
 
     :cond_b
     if-eqz p7, :cond_c
@@ -4472,7 +4146,39 @@
 
     move-result v5
 
-    if-eqz v5, :cond_e
+    xor-int/lit8 v5, v5, 0x1
+
+    if-eqz v5, :cond_c
+
+    const-string/jumbo v5, "      (Not active: "
+
+    move-object/from16 v0, p1
+
+    invoke-virtual {v0, v5}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    move-object/from16 v0, v39
+
+    iget-object v5, v0, Lcom/android/internal/app/procstats/ProcessStats$PackageState;->mProcesses:Landroid/util/ArrayMap;
+
+    move/from16 v0, v30
+
+    invoke-virtual {v5, v0}, Landroid/util/ArrayMap;->keyAt(I)Ljava/lang/Object;
+
+    move-result-object v5
+
+    check-cast v5, Ljava/lang/String;
+
+    move-object/from16 v0, p1
+
+    invoke-virtual {v0, v5}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    const-string/jumbo v5, ")"
+
+    move-object/from16 v0, p1
+
+    invoke-virtual {v0, v5}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    goto :goto_6
 
     :cond_c
     const-string/jumbo v5, "      Process "
@@ -4505,7 +4211,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_f
+    if-eqz v5, :cond_d
 
     const-string/jumbo v5, " (multi, "
 
@@ -4513,7 +4219,7 @@
 
     invoke-virtual {v0, v5}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    :goto_6
+    :goto_7
     invoke-virtual {v4}, Lcom/android/internal/app/procstats/ProcessState;->getDurationsBucketCount()I
 
     move-result v5
@@ -4568,53 +4274,18 @@
 
     invoke-virtual {v4, v0, v5, v1}, Lcom/android/internal/app/procstats/ProcessState;->dumpInternalLocked(Ljava/io/PrintWriter;Ljava/lang/String;Z)V
 
+    goto/16 :goto_6
+
     :cond_d
-    :goto_7
-    add-int/lit8 v30, v30, 0x1
-
-    goto/16 :goto_5
-
-    :cond_e
-    const-string/jumbo v5, "      (Not active: "
-
-    move-object/from16 v0, p1
-
-    invoke-virtual {v0, v5}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
-
-    move-object/from16 v0, v39
-
-    iget-object v5, v0, Lcom/android/internal/app/procstats/ProcessStats$PackageState;->mProcesses:Landroid/util/ArrayMap;
-
-    move/from16 v0, v30
-
-    invoke-virtual {v5, v0}, Landroid/util/ArrayMap;->keyAt(I)Ljava/lang/Object;
-
-    move-result-object v5
-
-    check-cast v5, Ljava/lang/String;
-
-    move-object/from16 v0, p1
-
-    invoke-virtual {v0, v5}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
-
-    const-string/jumbo v5, ")"
-
-    move-object/from16 v0, p1
-
-    invoke-virtual {v0, v5}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
-
-    goto :goto_7
-
-    :cond_f
     const-string/jumbo v5, " (unique, "
 
     move-object/from16 v0, p1
 
     invoke-virtual {v0, v5}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    goto :goto_6
+    goto :goto_7
 
-    :cond_10
+    :cond_e
     new-instance v8, Ljava/util/ArrayList;
 
     invoke-direct {v8}, Ljava/util/ArrayList;-><init>()V
@@ -4626,7 +4297,7 @@
 
     move/from16 v1, v16
 
-    if-ge v0, v1, :cond_14
+    if-ge v0, v1, :cond_12
 
     move-object/from16 v0, v39
 
@@ -4640,7 +4311,7 @@
 
     check-cast v4, Lcom/android/internal/app/procstats/ProcessState;
 
-    if-nez v37, :cond_11
+    if-nez v37, :cond_10
 
     invoke-virtual {v4}, Lcom/android/internal/app/procstats/ProcessState;->getName()Ljava/lang/String;
 
@@ -4652,26 +4323,33 @@
 
     move-result v5
 
-    if-eqz v5, :cond_13
+    xor-int/lit8 v5, v5, 0x1
 
-    :cond_11
-    if-eqz p7, :cond_12
+    if-eqz v5, :cond_10
+
+    :cond_f
+    :goto_9
+    add-int/lit8 v30, v30, 0x1
+
+    goto :goto_8
+
+    :cond_10
+    if-eqz p7, :cond_11
 
     invoke-virtual {v4}, Lcom/android/internal/app/procstats/ProcessState;->isInUse()Z
 
     move-result v5
 
-    if-eqz v5, :cond_13
+    xor-int/lit8 v5, v5, 0x1
 
-    :cond_12
+    if-nez v5, :cond_f
+
+    :cond_11
     invoke-virtual {v8, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    :cond_13
-    add-int/lit8 v30, v30, 0x1
+    goto :goto_9
 
-    goto :goto_8
-
-    :cond_14
+    :cond_12
     const-string/jumbo v7, "      "
 
     sget-object v9, Lcom/android/internal/app/procstats/ProcessStats;->ALL_SCREEN_ADJ:[I
@@ -4686,10 +4364,10 @@
 
     invoke-static/range {v6 .. v15}, Lcom/android/internal/app/procstats/DumpUtils;->dumpProcessSummaryLocked(Ljava/io/PrintWriter;Ljava/lang/String;Ljava/util/ArrayList;[I[I[IJJ)V
 
-    :cond_15
+    :cond_13
     const/16 v31, 0x0
 
-    :goto_9
+    :goto_a
     move/from16 v0, v31
 
     move/from16 v1, v28
@@ -4708,7 +4386,7 @@
 
     check-cast v17, Lcom/android/internal/app/procstats/ServiceState;
 
-    if-nez v37, :cond_16
+    if-nez v37, :cond_14
 
     invoke-virtual/range {v17 .. v17}, Lcom/android/internal/app/procstats/ServiceState;->getProcessName()Ljava/lang/String;
 
@@ -4720,19 +4398,58 @@
 
     move-result v5
 
-    if-eqz v5, :cond_18
+    xor-int/lit8 v5, v5, 0x1
 
-    :cond_16
-    if-eqz p7, :cond_17
+    if-eqz v5, :cond_14
+
+    :goto_b
+    add-int/lit8 v31, v31, 0x1
+
+    goto :goto_a
+
+    :cond_14
+    if-eqz p7, :cond_15
 
     invoke-virtual/range {v17 .. v17}, Lcom/android/internal/app/procstats/ServiceState;->isInUse()Z
 
     move-result v5
 
-    if-eqz v5, :cond_19
+    xor-int/lit8 v5, v5, 0x1
 
-    :cond_17
-    if-eqz p6, :cond_1a
+    if-eqz v5, :cond_15
+
+    const-string/jumbo v5, "      (Not active: "
+
+    move-object/from16 v0, p1
+
+    invoke-virtual {v0, v5}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    move-object/from16 v0, v39
+
+    iget-object v5, v0, Lcom/android/internal/app/procstats/ProcessStats$PackageState;->mServices:Landroid/util/ArrayMap;
+
+    move/from16 v0, v31
+
+    invoke-virtual {v5, v0}, Landroid/util/ArrayMap;->keyAt(I)Ljava/lang/Object;
+
+    move-result-object v5
+
+    check-cast v5, Ljava/lang/String;
+
+    move-object/from16 v0, p1
+
+    invoke-virtual {v0, v5}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    const-string/jumbo v5, ")"
+
+    move-object/from16 v0, p1
+
+    invoke-virtual {v0, v5}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    goto :goto_b
+
+    :cond_15
+    if-eqz p6, :cond_16
 
     const-string/jumbo v5, "      Service "
 
@@ -4740,7 +4457,7 @@
 
     invoke-virtual {v0, v5}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    :goto_a
+    :goto_c
     move-object/from16 v0, v39
 
     iget-object v5, v0, Lcom/android/internal/app/procstats/ProcessStats$PackageState;->mServices:Landroid/util/ArrayMap;
@@ -4795,63 +4512,28 @@
 
     invoke-virtual/range {v17 .. v27}, Lcom/android/internal/app/procstats/ServiceState;->dumpStats(Ljava/io/PrintWriter;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JJZZ)V
 
-    :cond_18
-    :goto_b
-    add-int/lit8 v31, v31, 0x1
-
-    goto :goto_9
-
-    :cond_19
-    const-string/jumbo v5, "      (Not active: "
-
-    move-object/from16 v0, p1
-
-    invoke-virtual {v0, v5}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
-
-    move-object/from16 v0, v39
-
-    iget-object v5, v0, Lcom/android/internal/app/procstats/ProcessStats$PackageState;->mServices:Landroid/util/ArrayMap;
-
-    move/from16 v0, v31
-
-    invoke-virtual {v5, v0}, Landroid/util/ArrayMap;->keyAt(I)Ljava/lang/Object;
-
-    move-result-object v5
-
-    check-cast v5, Ljava/lang/String;
-
-    move-object/from16 v0, p1
-
-    invoke-virtual {v0, v5}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
-
-    const-string/jumbo v5, ")"
-
-    move-object/from16 v0, p1
-
-    invoke-virtual {v0, v5}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
-
     goto :goto_b
 
-    :cond_1a
+    :cond_16
     const-string/jumbo v5, "      * "
 
     move-object/from16 v0, p1
 
     invoke-virtual {v0, v5}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    goto :goto_a
+    goto :goto_c
 
-    :cond_1b
+    :cond_17
     add-int/lit8 v32, v32, 0x1
 
     goto/16 :goto_1
 
-    :cond_1c
+    :cond_18
     add-int/lit8 v29, v29, 0x1
 
     goto/16 :goto_0
 
-    :cond_1d
+    :cond_19
     move-object/from16 v0, p0
 
     iget-object v5, v0, Lcom/android/internal/app/procstats/ProcessStats;->mProcesses:Lcom/android/internal/app/ProcessMap;
@@ -4868,14 +4550,14 @@
 
     const/16 v29, 0x0
 
-    :goto_c
+    :goto_d
     invoke-virtual/range {v41 .. v41}, Landroid/util/ArrayMap;->size()I
 
     move-result v5
 
     move/from16 v0, v29
 
-    if-ge v0, v5, :cond_27
+    if-ge v0, v5, :cond_21
 
     move-object/from16 v0, v41
 
@@ -4899,14 +4581,14 @@
 
     const/16 v32, 0x0
 
-    :goto_d
+    :goto_e
     invoke-virtual/range {v47 .. v47}, Landroid/util/SparseArray;->size()I
 
     move-result v5
 
     move/from16 v0, v32
 
-    if-ge v0, v5, :cond_26
+    if-ge v0, v5, :cond_20
 
     move-object/from16 v0, v47
 
@@ -4932,22 +4614,22 @@
 
     move-result v5
 
-    if-eqz v5, :cond_1f
+    if-eqz v5, :cond_1b
 
-    :cond_1e
-    :goto_e
+    :cond_1a
+    :goto_f
     add-int/lit8 v32, v32, 0x1
 
-    goto :goto_d
+    goto :goto_e
 
-    :cond_1f
+    :cond_1b
     invoke-virtual {v4}, Lcom/android/internal/app/procstats/ProcessState;->isMultiPackage()Z
 
     move-result v5
 
-    if-eqz v5, :cond_1e
+    if-eqz v5, :cond_1a
 
-    if-eqz p2, :cond_20
+    if-eqz p2, :cond_1c
 
     move-object/from16 v0, p2
 
@@ -4957,20 +4639,35 @@
 
     move-result v5
 
-    if-eqz v5, :cond_24
+    xor-int/lit8 v5, v5, 0x1
 
-    :cond_20
-    :goto_f
+    if-eqz v5, :cond_1c
+
+    invoke-virtual {v4}, Lcom/android/internal/app/procstats/ProcessState;->getPackage()Ljava/lang/String;
+
+    move-result-object v5
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v5
+
+    xor-int/lit8 v5, v5, 0x1
+
+    if-nez v5, :cond_1a
+
+    :cond_1c
     add-int/lit8 v34, v34, 0x1
 
-    if-eqz v44, :cond_21
+    if-eqz v44, :cond_1d
 
     invoke-virtual/range {p1 .. p1}, Ljava/io/PrintWriter;->println()V
 
-    :cond_21
+    :cond_1d
     const/16 v44, 0x1
 
-    if-nez v40, :cond_22
+    if-nez v40, :cond_1e
 
     const-string/jumbo v5, "Multi-Package Common Processes:"
 
@@ -4980,16 +4677,38 @@
 
     const/16 v40, 0x1
 
-    :cond_22
-    if-eqz p7, :cond_23
+    :cond_1e
+    if-eqz p7, :cond_1f
 
     invoke-virtual {v4}, Lcom/android/internal/app/procstats/ProcessState;->isInUse()Z
 
     move-result v5
 
-    if-eqz v5, :cond_25
+    xor-int/lit8 v5, v5, 0x1
 
-    :cond_23
+    if-eqz v5, :cond_1f
+
+    const-string/jumbo v5, "      (Not active: "
+
+    move-object/from16 v0, p1
+
+    invoke-virtual {v0, v5}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    move-object/from16 v0, p1
+
+    move-object/from16 v1, v43
+
+    invoke-virtual {v0, v1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    const-string/jumbo v5, ")"
+
+    move-object/from16 v0, p1
+
+    invoke-virtual {v0, v5}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    goto :goto_f
+
+    :cond_1f
     const-string/jumbo v5, "  * "
 
     move-object/from16 v0, p1
@@ -5078,51 +4797,15 @@
 
     invoke-virtual {v4, v0, v5, v1}, Lcom/android/internal/app/procstats/ProcessState;->dumpInternalLocked(Ljava/io/PrintWriter;Ljava/lang/String;Z)V
 
-    goto/16 :goto_e
-
-    :cond_24
-    invoke-virtual {v4}, Lcom/android/internal/app/procstats/ProcessState;->getPackage()Ljava/lang/String;
-
-    move-result-object v5
-
-    move-object/from16 v0, p2
-
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_1e
-
     goto/16 :goto_f
 
-    :cond_25
-    const-string/jumbo v5, "      (Not active: "
-
-    move-object/from16 v0, p1
-
-    invoke-virtual {v0, v5}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
-
-    move-object/from16 v0, p1
-
-    move-object/from16 v1, v43
-
-    invoke-virtual {v0, v1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
-
-    const-string/jumbo v5, ")"
-
-    move-object/from16 v0, p1
-
-    invoke-virtual {v0, v5}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
-
-    goto/16 :goto_e
-
-    :cond_26
+    :cond_20
     add-int/lit8 v29, v29, 0x1
 
-    goto/16 :goto_c
+    goto/16 :goto_d
 
-    :cond_27
-    if-eqz p6, :cond_28
+    :cond_21
+    if-eqz p6, :cond_22
 
     invoke-virtual/range {p1 .. p1}, Ljava/io/PrintWriter;->println()V
 
@@ -5156,13 +4839,13 @@
 
     invoke-virtual {v0, v5}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    :cond_28
-    if-eqz v44, :cond_29
+    :cond_22
+    if-eqz v44, :cond_23
 
     invoke-virtual/range {p1 .. p1}, Ljava/io/PrintWriter;->println()V
 
-    :cond_29
-    if-eqz p5, :cond_2b
+    :cond_23
+    if-eqz p5, :cond_25
 
     const-string/jumbo v5, "Summary:"
 
@@ -5183,7 +4866,7 @@
     invoke-virtual/range {v19 .. v24}, Lcom/android/internal/app/procstats/ProcessStats;->dumpSummaryLocked(Ljava/io/PrintWriter;Ljava/lang/String;JZ)V
 
     :goto_10
-    if-eqz p6, :cond_2a
+    if-eqz p6, :cond_24
 
     invoke-virtual/range {p1 .. p1}, Ljava/io/PrintWriter;->println()V
 
@@ -5207,12 +4890,12 @@
 
     invoke-virtual {v0, v5}, Ljava/io/PrintWriter;->println(Z)V
 
-    :cond_2a
+    :cond_24
     invoke-direct/range {p0 .. p1}, Lcom/android/internal/app/procstats/ProcessStats;->dumpFragmentationLocked(Ljava/io/PrintWriter;)V
 
     return-void
 
-    :cond_2b
+    :cond_25
     move-object/from16 v0, p0
 
     move-object/from16 v1, p1
@@ -5743,64 +5426,6 @@
 
     :cond_0
     return v0
-.end method
-
-.method filteredSummaryLocked(Ljava/lang/String;Ljava/lang/String;[I[I[I[IJJLjava/lang/String;Z)Ljava/util/ArrayList;
-    .locals 11
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/lang/String;",
-            "Ljava/lang/String;",
-            "[I[I[I[IJJ",
-            "Ljava/lang/String;",
-            "Z)",
-            "Ljava/util/ArrayList",
-            "<",
-            "Lcom/android/internal/app/procstats/ProcStatsCollection;",
-            ">;"
-        }
-    .end annotation
-
-    move-object v1, p0
-
-    move-object v2, p3
-
-    move-object v3, p4
-
-    move-object/from16 v4, p5
-
-    move-object/from16 v5, p6
-
-    move-wide/from16 v6, p7
-
-    move-object/from16 v8, p11
-
-    move/from16 v9, p12
-
-    invoke-virtual/range {v1 .. v9}, Lcom/android/internal/app/procstats/ProcessStats;->collectProcessesLocked([I[I[I[IJLjava/lang/String;Z)Ljava/util/ArrayList;
-
-    move-result-object v1
-
-    const/4 v5, 0x1
-
-    move-object v0, p2
-
-    move-object v2, p3
-
-    move-object v3, p4
-
-    move-object/from16 v4, p6
-
-    move-wide/from16 v6, p7
-
-    move-wide/from16 v8, p9
-
-    invoke-static/range {v0 .. v9}, Lcom/android/internal/app/procstats/ProcessStats;->processSummaryLocked(Ljava/lang/String;Ljava/util/ArrayList;[I[I[IZJJ)Ljava/util/ArrayList;
-
-    move-result-object v0
-
-    return-object v0
 .end method
 
 .method public getPackageStateLocked(Ljava/lang/String;II)Lcom/android/internal/app/procstats/ProcessStats$PackageState;
@@ -6782,11 +6407,9 @@
 
     invoke-virtual {v11, v9, v7}, Lcom/android/internal/app/ProcessMap;->get(Ljava/lang/String;I)Ljava/lang/Object;
 
-    move-result-object v11
+    move-result-object v4
 
-    check-cast v11, Lcom/android/internal/app/procstats/ProcessState;
-
-    move-object v4, v11
+    check-cast v4, Lcom/android/internal/app/procstats/ProcessState;
 
     :goto_2
     if-eqz v4, :cond_13
@@ -7149,11 +6772,9 @@
 
     invoke-virtual {v11, v9}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v11
+    move-result-object v4
 
-    check-cast v11, Lcom/android/internal/app/procstats/ProcessState;
-
-    move-object v4, v11
+    check-cast v4, Lcom/android/internal/app/procstats/ProcessState;
 
     :goto_4
     if-eqz v4, :cond_20
@@ -7288,11 +6909,9 @@
 
     invoke-virtual {v11, v13}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v11
+    move-result-object v10
 
-    check-cast v11, Lcom/android/internal/app/procstats/ServiceState;
-
-    move-object v10, v11
+    check-cast v10, Lcom/android/internal/app/procstats/ServiceState;
 
     :goto_6
     if-nez v10, :cond_26
@@ -7896,63 +7515,6 @@
     iput-wide v8, v0, Lcom/android/internal/app/procstats/ProcessStats;->mStartTime:J
 
     return-void
-.end method
-
-.method public summaryLocked(Ljava/lang/String;JZ)Ljava/util/ArrayList;
-    .locals 14
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/lang/String;",
-            "JZ)",
-            "Ljava/util/ArrayList",
-            "<",
-            "Lcom/android/internal/app/procstats/ProcStatsCollection;",
-            ">;"
-        }
-    .end annotation
-
-    iget-object v2, p0, Lcom/android/internal/app/procstats/ProcessStats;->mMemFactorDurations:[J
-
-    iget v3, p0, Lcom/android/internal/app/procstats/ProcessStats;->mMemFactor:I
-
-    iget-wide v4, p0, Lcom/android/internal/app/procstats/ProcessStats;->mStartTime:J
-
-    const/4 v0, 0x0
-
-    const/4 v1, 0x0
-
-    move-wide/from16 v6, p2
-
-    invoke-static/range {v0 .. v7}, Lcom/android/internal/app/procstats/DumpUtils;->dumpSingleTime(Ljava/io/PrintWriter;Ljava/lang/String;[JIJJ)J
-
-    move-result-wide v10
-
-    const-string/jumbo v3, "  "
-
-    sget-object v4, Lcom/android/internal/app/procstats/ProcessStats;->ALL_SCREEN_ADJ:[I
-
-    sget-object v5, Lcom/android/internal/app/procstats/ProcessStats;->ALL_MEM_ADJ:[I
-
-    sget-object v6, Lcom/android/internal/app/procstats/ProcessStats;->ALL_PROC_STATES:[I
-
-    sget-object v7, Lcom/android/internal/app/procstats/ProcessStats;->NON_CACHED_PROC_STATES:[I
-
-    const/4 v2, 0x0
-
-    move-object v1, p0
-
-    move-wide/from16 v8, p2
-
-    move-object v12, p1
-
-    move/from16 v13, p4
-
-    invoke-virtual/range {v1 .. v13}, Lcom/android/internal/app/procstats/ProcessStats;->filteredSummaryLocked(Ljava/lang/String;Ljava/lang/String;[I[I[I[IJJLjava/lang/String;Z)Ljava/util/ArrayList;
-
-    move-result-object v0
-
-    return-object v0
 .end method
 
 .method public updateFragmentation()V

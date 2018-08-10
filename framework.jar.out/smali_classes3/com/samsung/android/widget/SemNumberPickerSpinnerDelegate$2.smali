@@ -49,9 +49,7 @@
 
     if-nez v0, :cond_0
 
-    nop
-
-    nop
+    check-cast p1, Landroid/widget/EditText;
 
     invoke-virtual {p1}, Landroid/widget/EditText;->selectAll()V
 

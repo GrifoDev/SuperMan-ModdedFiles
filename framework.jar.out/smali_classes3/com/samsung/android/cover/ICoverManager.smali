@@ -63,6 +63,14 @@
     .end annotation
 .end method
 
+.method public abstract getCoverSwitchState()Z
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract getVersion()I
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -159,6 +167,14 @@
     .end annotation
 .end method
 
+.method public abstract requestCoverAuthentication(Landroid/os/IBinder;Landroid/content/ComponentName;)Z
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract sendDataToCover(I[B)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -200,6 +216,14 @@
 .end method
 
 .method public abstract setCoverPackage(Ljava/lang/String;)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract setFotaInProgress(ZLandroid/os/IBinder;Landroid/content/ComponentName;)Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

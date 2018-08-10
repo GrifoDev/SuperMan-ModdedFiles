@@ -39,6 +39,8 @@
 # instance fields
 .field public focused:Z
 
+.field public lastFocused:Z
+
 .field public name:Ljava/lang/String;
 
 .field public packageName:Ljava/lang/String;
@@ -96,44 +98,69 @@
 .end method
 
 .method public readFromParcel(Landroid/os/Parcel;)V
-    .locals 2
+    .locals 3
 
-    const/4 v0, 0x0
+    const/4 v1, 0x1
 
-    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v1
-
-    iput-object v1, p0, Lcom/samsung/android/view/SemWindowManager$VisibleWindowInfo;->packageName:Ljava/lang/String;
+    const/4 v2, 0x0
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
-    iput-object v1, p0, Lcom/samsung/android/view/SemWindowManager$VisibleWindowInfo;->name:Ljava/lang/String;
+    iput-object v0, p0, Lcom/samsung/android/view/SemWindowManager$VisibleWindowInfo;->packageName:Ljava/lang/String;
+
+    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/samsung/android/view/SemWindowManager$VisibleWindowInfo;->name:Ljava/lang/String;
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
-    move-result v1
+    move-result v0
 
-    iput v1, p0, Lcom/samsung/android/view/SemWindowManager$VisibleWindowInfo;->type:I
+    iput v0, p0, Lcom/samsung/android/view/SemWindowManager$VisibleWindowInfo;->type:I
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
-    const/4 v0, 0x1
+    move v0, v1
 
-    :cond_0
+    :goto_0
     iput-boolean v0, p0, Lcom/samsung/android/view/SemWindowManager$VisibleWindowInfo;->focused:Z
 
+    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    :goto_1
+    iput-boolean v1, p0, Lcom/samsung/android/view/SemWindowManager$VisibleWindowInfo;->lastFocused:Z
+
     return-void
+
+    :cond_0
+    move v0, v2
+
+    goto :goto_0
+
+    :cond_1
+    move v1, v2
+
+    goto :goto_1
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .locals 1
+    .locals 3
+
+    const/4 v1, 0x1
+
+    const/4 v2, 0x0
 
     iget-object v0, p0, Lcom/samsung/android/view/SemWindowManager$VisibleWindowInfo;->packageName:Ljava/lang/String;
 
@@ -151,15 +178,27 @@
 
     if-eqz v0, :cond_0
 
-    const/4 v0, 0x1
+    move v0, v1
 
     :goto_0
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
+    iget-boolean v0, p0, Lcom/samsung/android/view/SemWindowManager$VisibleWindowInfo;->lastFocused:Z
+
+    if-eqz v0, :cond_1
+
+    :goto_1
+    invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeInt(I)V
+
     return-void
 
     :cond_0
-    const/4 v0, 0x0
+    move v0, v2
 
     goto :goto_0
+
+    :cond_1
+    move v1, v2
+
+    goto :goto_1
 .end method

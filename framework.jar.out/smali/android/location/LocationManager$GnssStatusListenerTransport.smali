@@ -47,10 +47,6 @@
     .end annotation
 .end field
 
-.field private final mOldGnssCallback:Landroid/location/GnssStatusCallback;
-
-.field private final mOldGnssNmeaListener:Landroid/location/GnssNmeaListener;
-
 .field final synthetic this$0:Landroid/location/LocationManager;
 
 
@@ -95,72 +91,6 @@
     return-object v0
 .end method
 
-.method static synthetic -get5(Landroid/location/LocationManager$GnssStatusListenerTransport;)Landroid/location/GnssStatusCallback;
-    .locals 1
-
-    iget-object v0, p0, Landroid/location/LocationManager$GnssStatusListenerTransport;->mOldGnssCallback:Landroid/location/GnssStatusCallback;
-
-    return-object v0
-.end method
-
-.method static synthetic -get6(Landroid/location/LocationManager$GnssStatusListenerTransport;)Landroid/location/GnssNmeaListener;
-    .locals 1
-
-    iget-object v0, p0, Landroid/location/LocationManager$GnssStatusListenerTransport;->mOldGnssNmeaListener:Landroid/location/GnssNmeaListener;
-
-    return-object v0
-.end method
-
-.method constructor <init>(Landroid/location/LocationManager;Landroid/location/GnssNmeaListener;)V
-    .locals 1
-
-    const/4 v0, 0x0
-
-    invoke-direct {p0, p1, p2, v0}, Landroid/location/LocationManager$GnssStatusListenerTransport;-><init>(Landroid/location/LocationManager;Landroid/location/GnssNmeaListener;Landroid/os/Handler;)V
-
-    return-void
-.end method
-
-.method constructor <init>(Landroid/location/LocationManager;Landroid/location/GnssNmeaListener;Landroid/os/Handler;)V
-    .locals 2
-
-    const/4 v1, 0x0
-
-    iput-object p1, p0, Landroid/location/LocationManager$GnssStatusListenerTransport;->this$0:Landroid/location/LocationManager;
-
-    invoke-direct {p0}, Landroid/location/IGnssStatusListener$Stub;-><init>()V
-
-    iput-object v1, p0, Landroid/location/LocationManager$GnssStatusListenerTransport;->mGnssCallback:Landroid/location/GnssStatus$Callback;
-
-    iput-object v1, p0, Landroid/location/LocationManager$GnssStatusListenerTransport;->mOldGnssCallback:Landroid/location/GnssStatusCallback;
-
-    new-instance v0, Landroid/location/LocationManager$GnssStatusListenerTransport$GnssHandler;
-
-    invoke-direct {v0, p0, p3}, Landroid/location/LocationManager$GnssStatusListenerTransport$GnssHandler;-><init>(Landroid/location/LocationManager$GnssStatusListenerTransport;Landroid/os/Handler;)V
-
-    iput-object v0, p0, Landroid/location/LocationManager$GnssStatusListenerTransport;->mGnssHandler:Landroid/os/Handler;
-
-    iput-object p2, p0, Landroid/location/LocationManager$GnssStatusListenerTransport;->mOldGnssNmeaListener:Landroid/location/GnssNmeaListener;
-
-    new-instance v0, Landroid/location/LocationManager$GnssStatusListenerTransport$4;
-
-    invoke-direct {v0, p0}, Landroid/location/LocationManager$GnssStatusListenerTransport$4;-><init>(Landroid/location/LocationManager$GnssStatusListenerTransport;)V
-
-    iput-object v0, p0, Landroid/location/LocationManager$GnssStatusListenerTransport;->mGnssNmeaListener:Landroid/location/OnNmeaMessageListener;
-
-    iput-object v1, p0, Landroid/location/LocationManager$GnssStatusListenerTransport;->mGpsListener:Landroid/location/GpsStatus$Listener;
-
-    iput-object v1, p0, Landroid/location/LocationManager$GnssStatusListenerTransport;->mGpsNmeaListener:Landroid/location/GpsStatus$NmeaListener;
-
-    new-instance v0, Ljava/util/ArrayList;
-
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
-
-    iput-object v0, p0, Landroid/location/LocationManager$GnssStatusListenerTransport;->mNmeaBuffer:Ljava/util/ArrayList;
-
-    return-void
-.end method
-
 .method constructor <init>(Landroid/location/LocationManager;Landroid/location/GnssStatus$Callback;)V
     .locals 1
 
@@ -180,8 +110,6 @@
 
     invoke-direct {p0}, Landroid/location/IGnssStatusListener$Stub;-><init>()V
 
-    iput-object v1, p0, Landroid/location/LocationManager$GnssStatusListenerTransport;->mOldGnssCallback:Landroid/location/GnssStatusCallback;
-
     iput-object p2, p0, Landroid/location/LocationManager$GnssStatusListenerTransport;->mGnssCallback:Landroid/location/GnssStatus$Callback;
 
     new-instance v0, Landroid/location/LocationManager$GnssStatusListenerTransport$GnssHandler;
@@ -189,54 +117,6 @@
     invoke-direct {v0, p0, p3}, Landroid/location/LocationManager$GnssStatusListenerTransport$GnssHandler;-><init>(Landroid/location/LocationManager$GnssStatusListenerTransport;Landroid/os/Handler;)V
 
     iput-object v0, p0, Landroid/location/LocationManager$GnssStatusListenerTransport;->mGnssHandler:Landroid/os/Handler;
-
-    iput-object v1, p0, Landroid/location/LocationManager$GnssStatusListenerTransport;->mOldGnssNmeaListener:Landroid/location/GnssNmeaListener;
-
-    iput-object v1, p0, Landroid/location/LocationManager$GnssStatusListenerTransport;->mGnssNmeaListener:Landroid/location/OnNmeaMessageListener;
-
-    iput-object v1, p0, Landroid/location/LocationManager$GnssStatusListenerTransport;->mNmeaBuffer:Ljava/util/ArrayList;
-
-    iput-object v1, p0, Landroid/location/LocationManager$GnssStatusListenerTransport;->mGpsListener:Landroid/location/GpsStatus$Listener;
-
-    iput-object v1, p0, Landroid/location/LocationManager$GnssStatusListenerTransport;->mGpsNmeaListener:Landroid/location/GpsStatus$NmeaListener;
-
-    return-void
-.end method
-
-.method constructor <init>(Landroid/location/LocationManager;Landroid/location/GnssStatusCallback;)V
-    .locals 1
-
-    const/4 v0, 0x0
-
-    invoke-direct {p0, p1, p2, v0}, Landroid/location/LocationManager$GnssStatusListenerTransport;-><init>(Landroid/location/LocationManager;Landroid/location/GnssStatusCallback;Landroid/os/Handler;)V
-
-    return-void
-.end method
-
-.method constructor <init>(Landroid/location/LocationManager;Landroid/location/GnssStatusCallback;Landroid/os/Handler;)V
-    .locals 2
-
-    const/4 v1, 0x0
-
-    iput-object p1, p0, Landroid/location/LocationManager$GnssStatusListenerTransport;->this$0:Landroid/location/LocationManager;
-
-    invoke-direct {p0}, Landroid/location/IGnssStatusListener$Stub;-><init>()V
-
-    iput-object p2, p0, Landroid/location/LocationManager$GnssStatusListenerTransport;->mOldGnssCallback:Landroid/location/GnssStatusCallback;
-
-    new-instance v0, Landroid/location/LocationManager$GnssStatusListenerTransport$3;
-
-    invoke-direct {v0, p0}, Landroid/location/LocationManager$GnssStatusListenerTransport$3;-><init>(Landroid/location/LocationManager$GnssStatusListenerTransport;)V
-
-    iput-object v0, p0, Landroid/location/LocationManager$GnssStatusListenerTransport;->mGnssCallback:Landroid/location/GnssStatus$Callback;
-
-    new-instance v0, Landroid/location/LocationManager$GnssStatusListenerTransport$GnssHandler;
-
-    invoke-direct {v0, p0, p3}, Landroid/location/LocationManager$GnssStatusListenerTransport$GnssHandler;-><init>(Landroid/location/LocationManager$GnssStatusListenerTransport;Landroid/os/Handler;)V
-
-    iput-object v0, p0, Landroid/location/LocationManager$GnssStatusListenerTransport;->mGnssHandler:Landroid/os/Handler;
-
-    iput-object v1, p0, Landroid/location/LocationManager$GnssStatusListenerTransport;->mOldGnssNmeaListener:Landroid/location/GnssNmeaListener;
 
     iput-object v1, p0, Landroid/location/LocationManager$GnssStatusListenerTransport;->mGnssNmeaListener:Landroid/location/OnNmeaMessageListener;
 
@@ -280,19 +160,25 @@
 
     iput-object v1, p0, Landroid/location/LocationManager$GnssStatusListenerTransport;->mNmeaBuffer:Ljava/util/ArrayList;
 
-    iput-object v1, p0, Landroid/location/LocationManager$GnssStatusListenerTransport;->mOldGnssCallback:Landroid/location/GnssStatusCallback;
+    iget-object v0, p0, Landroid/location/LocationManager$GnssStatusListenerTransport;->mGpsListener:Landroid/location/GpsStatus$Listener;
+
+    if-eqz v0, :cond_0
 
     new-instance v0, Landroid/location/LocationManager$GnssStatusListenerTransport$1;
 
     invoke-direct {v0, p0}, Landroid/location/LocationManager$GnssStatusListenerTransport$1;-><init>(Landroid/location/LocationManager$GnssStatusListenerTransport;)V
 
+    :goto_0
     iput-object v0, p0, Landroid/location/LocationManager$GnssStatusListenerTransport;->mGnssCallback:Landroid/location/GnssStatus$Callback;
-
-    iput-object v1, p0, Landroid/location/LocationManager$GnssStatusListenerTransport;->mOldGnssNmeaListener:Landroid/location/GnssNmeaListener;
 
     iput-object v1, p0, Landroid/location/LocationManager$GnssStatusListenerTransport;->mGnssNmeaListener:Landroid/location/OnNmeaMessageListener;
 
     return-void
+
+    :cond_0
+    move-object v0, v1
+
+    goto :goto_0
 .end method
 
 .method constructor <init>(Landroid/location/LocationManager;Landroid/location/GpsStatus$NmeaListener;)V
@@ -308,38 +194,39 @@
 .method constructor <init>(Landroid/location/LocationManager;Landroid/location/GpsStatus$NmeaListener;Landroid/os/Handler;)V
     .locals 2
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
     iput-object p1, p0, Landroid/location/LocationManager$GnssStatusListenerTransport;->this$0:Landroid/location/LocationManager;
 
     invoke-direct {p0}, Landroid/location/IGnssStatusListener$Stub;-><init>()V
 
-    iput-object v1, p0, Landroid/location/LocationManager$GnssStatusListenerTransport;->mGpsListener:Landroid/location/GpsStatus$Listener;
+    iput-object v0, p0, Landroid/location/LocationManager$GnssStatusListenerTransport;->mGpsListener:Landroid/location/GpsStatus$Listener;
 
-    new-instance v0, Landroid/location/LocationManager$GnssStatusListenerTransport$GnssHandler;
+    new-instance v1, Landroid/location/LocationManager$GnssStatusListenerTransport$GnssHandler;
 
-    invoke-direct {v0, p0, p3}, Landroid/location/LocationManager$GnssStatusListenerTransport$GnssHandler;-><init>(Landroid/location/LocationManager$GnssStatusListenerTransport;Landroid/os/Handler;)V
+    invoke-direct {v1, p0, p3}, Landroid/location/LocationManager$GnssStatusListenerTransport$GnssHandler;-><init>(Landroid/location/LocationManager$GnssStatusListenerTransport;Landroid/os/Handler;)V
 
-    iput-object v0, p0, Landroid/location/LocationManager$GnssStatusListenerTransport;->mGnssHandler:Landroid/os/Handler;
+    iput-object v1, p0, Landroid/location/LocationManager$GnssStatusListenerTransport;->mGnssHandler:Landroid/os/Handler;
 
     iput-object p2, p0, Landroid/location/LocationManager$GnssStatusListenerTransport;->mGpsNmeaListener:Landroid/location/GpsStatus$NmeaListener;
 
-    new-instance v0, Ljava/util/ArrayList;
+    new-instance v1, Ljava/util/ArrayList;
 
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
 
-    iput-object v0, p0, Landroid/location/LocationManager$GnssStatusListenerTransport;->mNmeaBuffer:Ljava/util/ArrayList;
+    iput-object v1, p0, Landroid/location/LocationManager$GnssStatusListenerTransport;->mNmeaBuffer:Ljava/util/ArrayList;
 
-    iput-object v1, p0, Landroid/location/LocationManager$GnssStatusListenerTransport;->mOldGnssCallback:Landroid/location/GnssStatusCallback;
+    iput-object v0, p0, Landroid/location/LocationManager$GnssStatusListenerTransport;->mGnssCallback:Landroid/location/GnssStatus$Callback;
 
-    iput-object v1, p0, Landroid/location/LocationManager$GnssStatusListenerTransport;->mGnssCallback:Landroid/location/GnssStatus$Callback;
+    iget-object v1, p0, Landroid/location/LocationManager$GnssStatusListenerTransport;->mGpsNmeaListener:Landroid/location/GpsStatus$NmeaListener;
 
-    iput-object v1, p0, Landroid/location/LocationManager$GnssStatusListenerTransport;->mOldGnssNmeaListener:Landroid/location/GnssNmeaListener;
+    if-eqz v1, :cond_0
 
     new-instance v0, Landroid/location/LocationManager$GnssStatusListenerTransport$2;
 
     invoke-direct {v0, p0}, Landroid/location/LocationManager$GnssStatusListenerTransport$2;-><init>(Landroid/location/LocationManager$GnssStatusListenerTransport;)V
 
+    :cond_0
     iput-object v0, p0, Landroid/location/LocationManager$GnssStatusListenerTransport;->mGnssNmeaListener:Landroid/location/OnNmeaMessageListener;
 
     return-void
@@ -364,8 +251,6 @@
 
     invoke-direct {p0}, Landroid/location/IGnssStatusListener$Stub;-><init>()V
 
-    iput-object v1, p0, Landroid/location/LocationManager$GnssStatusListenerTransport;->mOldGnssCallback:Landroid/location/GnssStatusCallback;
-
     iput-object v1, p0, Landroid/location/LocationManager$GnssStatusListenerTransport;->mGnssCallback:Landroid/location/GnssStatus$Callback;
 
     new-instance v0, Landroid/location/LocationManager$GnssStatusListenerTransport$GnssHandler;
@@ -373,8 +258,6 @@
     invoke-direct {v0, p0, p3}, Landroid/location/LocationManager$GnssStatusListenerTransport$GnssHandler;-><init>(Landroid/location/LocationManager$GnssStatusListenerTransport;Landroid/os/Handler;)V
 
     iput-object v0, p0, Landroid/location/LocationManager$GnssStatusListenerTransport;->mGnssHandler:Landroid/os/Handler;
-
-    iput-object v1, p0, Landroid/location/LocationManager$GnssStatusListenerTransport;->mOldGnssNmeaListener:Landroid/location/GnssNmeaListener;
 
     iput-object p2, p0, Landroid/location/LocationManager$GnssStatusListenerTransport;->mGnssNmeaListener:Landroid/location/OnNmeaMessageListener;
 
@@ -396,7 +279,7 @@
 .method public onFirstFix(I)V
     .locals 2
 
-    iget-object v1, p0, Landroid/location/LocationManager$GnssStatusListenerTransport;->mGpsListener:Landroid/location/GpsStatus$Listener;
+    iget-object v1, p0, Landroid/location/LocationManager$GnssStatusListenerTransport;->mGnssCallback:Landroid/location/GnssStatus$Callback;
 
     if-eqz v1, :cond_0
 
@@ -423,7 +306,7 @@
 .method public onGnssStarted()V
     .locals 2
 
-    iget-object v1, p0, Landroid/location/LocationManager$GnssStatusListenerTransport;->mGpsListener:Landroid/location/GpsStatus$Listener;
+    iget-object v1, p0, Landroid/location/LocationManager$GnssStatusListenerTransport;->mGnssCallback:Landroid/location/GnssStatus$Callback;
 
     if-eqz v1, :cond_0
 
@@ -446,7 +329,7 @@
 .method public onGnssStopped()V
     .locals 2
 
-    iget-object v1, p0, Landroid/location/LocationManager$GnssStatusListenerTransport;->mGpsListener:Landroid/location/GpsStatus$Listener;
+    iget-object v1, p0, Landroid/location/LocationManager$GnssStatusListenerTransport;->mGnssCallback:Landroid/location/GnssStatus$Callback;
 
     if-eqz v1, :cond_0
 
@@ -517,16 +400,14 @@
     throw v1
 .end method
 
-.method public onSvStatusChanged(I[I[F[F[F)V
+.method public onSvStatusChanged(I[I[F[F[F[F)V
     .locals 9
-
-    const/4 v8, 0x4
 
     iget-object v0, p0, Landroid/location/LocationManager$GnssStatusListenerTransport;->mGnssCallback:Landroid/location/GnssStatus$Callback;
 
     if-eqz v0, :cond_0
 
-    iget-object v7, p0, Landroid/location/LocationManager$GnssStatusListenerTransport;->this$0:Landroid/location/LocationManager;
+    iget-object v8, p0, Landroid/location/LocationManager$GnssStatusListenerTransport;->this$0:Landroid/location/LocationManager;
 
     new-instance v0, Landroid/location/GnssStatus;
 
@@ -540,23 +421,29 @@
 
     move-object v5, p5
 
-    invoke-direct/range {v0 .. v5}, Landroid/location/GnssStatus;-><init>(I[I[F[F[F)V
+    move-object v6, p6
 
-    invoke-static {v7, v0}, Landroid/location/LocationManager;->-set0(Landroid/location/LocationManager;Landroid/location/GnssStatus;)Landroid/location/GnssStatus;
+    invoke-direct/range {v0 .. v6}, Landroid/location/GnssStatus;-><init>(I[I[F[F[F[F)V
+
+    invoke-static {v8, v0}, Landroid/location/LocationManager;->-set0(Landroid/location/LocationManager;Landroid/location/GnssStatus;)Landroid/location/GnssStatus;
 
     invoke-static {}, Landroid/os/Message;->obtain()Landroid/os/Message;
 
-    move-result-object v6
+    move-result-object v7
 
-    iput v8, v6, Landroid/os/Message;->what:I
+    const/4 v0, 0x4
 
-    iget-object v0, p0, Landroid/location/LocationManager$GnssStatusListenerTransport;->mGnssHandler:Landroid/os/Handler;
-
-    invoke-virtual {v0, v8}, Landroid/os/Handler;->removeMessages(I)V
+    iput v0, v7, Landroid/os/Message;->what:I
 
     iget-object v0, p0, Landroid/location/LocationManager$GnssStatusListenerTransport;->mGnssHandler:Landroid/os/Handler;
 
-    invoke-virtual {v0, v6}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
+    const/4 v1, 0x4
+
+    invoke-virtual {v0, v1}, Landroid/os/Handler;->removeMessages(I)V
+
+    iget-object v0, p0, Landroid/location/LocationManager$GnssStatusListenerTransport;->mGnssHandler:Landroid/os/Handler;
+
+    invoke-virtual {v0, v7}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
 
     :cond_0
     return-void

@@ -21,11 +21,11 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .locals 2
+    .locals 3
 
-    iget v0, p1, Landroid/os/Message;->what:I
+    iget v1, p1, Landroid/os/Message;->what:I
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v1, :pswitch_data_0
 
     :goto_0
     return-void
@@ -42,31 +42,31 @@
     goto :goto_0
 
     :pswitch_1
-    iget-object v0, p0, Lcom/absolute/android/persistservice/aa;->a:Lcom/absolute/android/persistservice/y;
+    iget-object v1, p0, Lcom/absolute/android/persistservice/aa;->a:Lcom/absolute/android/persistservice/y;
 
-    invoke-static {v0}, Lcom/absolute/android/persistservice/y;->a(Lcom/absolute/android/persistservice/y;)V
+    invoke-static {v1}, Lcom/absolute/android/persistservice/y;->a(Lcom/absolute/android/persistservice/y;)V
 
     goto :goto_0
 
     :pswitch_2
-    iget-object v1, p0, Lcom/absolute/android/persistservice/aa;->a:Lcom/absolute/android/persistservice/y;
+    iget-object v2, p0, Lcom/absolute/android/persistservice/aa;->a:Lcom/absolute/android/persistservice/y;
 
-    iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
+    iget-object v1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    check-cast v0, Ljava/lang/String;
+    check-cast v1, Ljava/lang/String;
 
-    invoke-static {v1, v0}, Lcom/absolute/android/persistservice/y;->b(Lcom/absolute/android/persistservice/y;Ljava/lang/String;)V
+    invoke-static {v2, v1}, Lcom/absolute/android/persistservice/y;->b(Lcom/absolute/android/persistservice/y;Ljava/lang/String;)V
 
     goto :goto_0
 
     :pswitch_3
-    iget-object v1, p0, Lcom/absolute/android/persistservice/aa;->a:Lcom/absolute/android/persistservice/y;
+    iget-object v2, p0, Lcom/absolute/android/persistservice/aa;->a:Lcom/absolute/android/persistservice/y;
 
-    iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
+    iget-object v1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    check-cast v0, Ljava/lang/String;
+    check-cast v1, Ljava/lang/String;
 
-    invoke-static {v1, v0}, Lcom/absolute/android/persistservice/y;->c(Lcom/absolute/android/persistservice/y;Ljava/lang/String;)V
+    invoke-static {v2, v1}, Lcom/absolute/android/persistservice/y;->c(Lcom/absolute/android/persistservice/y;Ljava/lang/String;)V
 
     goto :goto_0
 

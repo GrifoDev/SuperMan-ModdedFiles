@@ -31,9 +31,9 @@
     :catch_0
     move-exception v0
 
-    new-instance v1, Ljava/lang/RuntimeException;
+    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
 
-    invoke-direct {v1, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
+    move-result-object v1
 
     throw v1
 .end method
@@ -57,9 +57,9 @@
     :catch_0
     move-exception v0
 
-    new-instance v1, Ljava/lang/RuntimeException;
+    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
 
-    invoke-direct {v1, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
+    move-result-object v1
 
     throw v1
 .end method
@@ -93,9 +93,9 @@
     :catch_0
     move-exception v0
 
-    new-instance v1, Ljava/lang/RuntimeException;
+    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
 
-    invoke-direct {v1, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
+    move-result-object v1
 
     throw v1
 .end method

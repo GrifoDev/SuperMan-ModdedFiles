@@ -19,7 +19,7 @@
 
 .field private final mHandler:Landroid/os/Handler;
 
-.field private final mListener:Lcom/samsung/android/gesture/SemMotionEventListener;
+.field private mListener:Lcom/samsung/android/gesture/SemMotionEventListener;
 
 .field private mListenerPackageName:Ljava/lang/String;
 
@@ -139,6 +139,16 @@
     iget-object v1, p0, Lcom/samsung/android/gesture/SemMotionRecognitionManager$MRListenerDelegate;->mHandler:Landroid/os/Handler;
 
     invoke-virtual {v1, v0}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
+
+    return-void
+.end method
+
+.method public resetListener()V
+    .locals 1
+
+    const/4 v0, 0x0
+
+    iput-object v0, p0, Lcom/samsung/android/gesture/SemMotionRecognitionManager$MRListenerDelegate;->mListener:Lcom/samsung/android/gesture/SemMotionEventListener;
 
     return-void
 .end method

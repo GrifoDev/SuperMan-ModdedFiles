@@ -38,6 +38,8 @@
 
 .field public final isKey:Z
 
+.field private final packageName:Ljava/lang/String;
+
 .field private final settingsActivity:Ljava/lang/String;
 
 .field private final supportsUploading:Z
@@ -59,7 +61,7 @@
 .end method
 
 .method public constructor <init>(Landroid/os/Parcel;)V
-    .locals 8
+    .locals 9
 
     const/4 v0, 0x1
 
@@ -113,9 +115,13 @@
 
     move-result-object v7
 
+    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v8
+
     move-object v0, p0
 
-    invoke-direct/range {v0 .. v7}, Landroid/content/SyncAdapterType;-><init>(Ljava/lang/String;Ljava/lang/String;ZZZZLjava/lang/String;)V
+    invoke-direct/range {v0 .. v8}, Landroid/content/SyncAdapterType;-><init>(Ljava/lang/String;Ljava/lang/String;ZZZZLjava/lang/String;Ljava/lang/String;)V
 
     return-void
 
@@ -136,7 +142,9 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;Ljava/lang/String;)V
-    .locals 3
+    .locals 4
+
+    const/4 v3, 0x0
 
     const/4 v2, 0x0
 
@@ -218,17 +226,19 @@
 
     iput-boolean v2, p0, Landroid/content/SyncAdapterType;->allowParallelSyncs:Z
 
-    const/4 v0, 0x0
-
-    iput-object v0, p0, Landroid/content/SyncAdapterType;->settingsActivity:Ljava/lang/String;
+    iput-object v3, p0, Landroid/content/SyncAdapterType;->settingsActivity:Ljava/lang/String;
 
     iput-boolean v1, p0, Landroid/content/SyncAdapterType;->isKey:Z
+
+    iput-object v3, p0, Landroid/content/SyncAdapterType;->packageName:Ljava/lang/String;
 
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;ZZ)V
     .locals 3
+
+    const/4 v2, 0x0
 
     const/4 v1, 0x0
 
@@ -308,16 +318,16 @@
 
     iput-boolean v1, p0, Landroid/content/SyncAdapterType;->allowParallelSyncs:Z
 
-    const/4 v0, 0x0
-
-    iput-object v0, p0, Landroid/content/SyncAdapterType;->settingsActivity:Ljava/lang/String;
+    iput-object v2, p0, Landroid/content/SyncAdapterType;->settingsActivity:Ljava/lang/String;
 
     iput-boolean v1, p0, Landroid/content/SyncAdapterType;->isKey:Z
+
+    iput-object v2, p0, Landroid/content/SyncAdapterType;->packageName:Ljava/lang/String;
 
     return-void
 .end method
 
-.method public constructor <init>(Ljava/lang/String;Ljava/lang/String;ZZZZLjava/lang/String;)V
+.method public constructor <init>(Ljava/lang/String;Ljava/lang/String;ZZZZLjava/lang/String;Ljava/lang/String;)V
     .locals 3
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -401,6 +411,8 @@
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Landroid/content/SyncAdapterType;->isKey:Z
+
+    iput-object p8, p0, Landroid/content/SyncAdapterType;->packageName:Ljava/lang/String;
 
     return-void
 .end method
@@ -491,6 +503,14 @@
     return v1
 .end method
 
+.method public getPackageName()Ljava/lang/String;
+    .locals 1
+
+    iget-object v0, p0, Landroid/content/SyncAdapterType;->packageName:Ljava/lang/String;
+
+    return-object v0
+.end method
+
 .method public getSettingsActivity()Ljava/lang/String;
     .locals 2
 
@@ -514,6 +534,8 @@
 
 .method public hashCode()I
     .locals 3
+
+    const/16 v0, 0x11
 
     iget-object v1, p0, Landroid/content/SyncAdapterType;->authority:Ljava/lang/String;
 
@@ -735,6 +757,18 @@
 
     move-result-object v0
 
+    const-string/jumbo v1, ", packageName="
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    iget-object v1, p0, Landroid/content/SyncAdapterType;->packageName:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
     const-string/jumbo v1, "}"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -811,6 +845,10 @@
     invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeInt(I)V
 
     iget-object v0, p0, Landroid/content/SyncAdapterType;->settingsActivity:Ljava/lang/String;
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+
+    iget-object v0, p0, Landroid/content/SyncAdapterType;->packageName:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 

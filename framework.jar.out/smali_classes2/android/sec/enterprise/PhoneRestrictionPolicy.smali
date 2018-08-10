@@ -40,6 +40,8 @@
 
 .field public static final PERMISSION_RECEIVE_BLOCKED_SMS_MMS_INTERNAL:Ljava/lang/String; = "com.samsung.android.knox.permission.KNOX_RECEIVE_BLOCKED_SMS_MMS_INTERNAL"
 
+.field public static final RCS_FEATURE_ALL:I = 0x1
+
 .field public static final SENDTYPE_GENERIC:I = -0x1
 
 .field private static TAG:Ljava/lang/String;

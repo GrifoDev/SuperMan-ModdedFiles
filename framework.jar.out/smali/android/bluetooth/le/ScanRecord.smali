@@ -12,7 +12,11 @@
 
 .field private static final DATA_TYPE_MANUFACTURER_SPECIFIC_DATA:I = 0xff
 
-.field private static final DATA_TYPE_SERVICE_DATA:I = 0x16
+.field private static final DATA_TYPE_SERVICE_DATA_128_BIT:I = 0x21
+
+.field private static final DATA_TYPE_SERVICE_DATA_16_BIT:I = 0x16
+
+.field private static final DATA_TYPE_SERVICE_DATA_32_BIT:I = 0x20
 
 .field private static final DATA_TYPE_SERVICE_UUIDS_128_BIT_COMPLETE:I = 0x7
 
@@ -147,12 +151,6 @@
     return-object v3
 
     :cond_0
-    const-string/jumbo v3, "ScanRecord"
-
-    const-string/jumbo v10, "parseFromBytes"
-
-    invoke-static {v3, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
     const/16 v21, 0x0
 
     const/4 v7, -0x1
@@ -189,7 +187,7 @@
 
     move/from16 v0, v22
 
-    if-ge v0, v3, :cond_4
+    if-ge v0, v3, :cond_6
 
     add-int/lit8 v21, v22, 0x1
 
@@ -371,6 +369,16 @@
     :sswitch_6
     const/16 v34, 0x2
 
+    const/16 v3, 0x20
+
+    move/from16 v0, v25
+
+    if-ne v0, v3, :cond_4
+
+    const/16 v34, 0x4
+
+    :cond_3
+    :goto_4
     move-object/from16 v0, p0
 
     move/from16 v1, v22
@@ -385,9 +393,9 @@
 
     move-result-object v32
 
-    add-int/lit8 v3, v22, 0x2
+    add-int v3, v22, v34
 
-    add-int/lit8 v10, v23, -0x2
+    sub-int v10, v23, v34
 
     move-object/from16 v0, p0
 
@@ -402,6 +410,17 @@
     invoke-interface {v6, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     goto/16 :goto_2
+
+    :cond_4
+    const/16 v3, 0x21
+
+    move/from16 v0, v25
+
+    if-ne v0, v3, :cond_3
+
+    const/16 v34, 0x10
+
+    goto :goto_4
 
     :sswitch_7
     add-int/lit8 v3, v22, 0x1
@@ -438,7 +457,7 @@
 
     check-cast v30, [B
 
-    if-eqz v30, :cond_3
+    if-eqz v30, :cond_5
 
     const-string/jumbo v3, "ScanRecord"
 
@@ -506,13 +525,7 @@
 
     goto/16 :goto_2
 
-    :cond_3
-    const-string/jumbo v3, "ScanRecord"
-
-    const-string/jumbo v10, "first manudata for manu ID"
-
-    invoke-static {v3, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
+    :cond_5
     move/from16 v0, v29
 
     move-object/from16 v1, v28
@@ -528,10 +541,12 @@
 
     goto/16 :goto_3
 
-    :cond_4
+    :cond_6
     move/from16 v21, v22
 
     goto/16 :goto_1
+
+    nop
 
     :sswitch_data_0
     .sparse-switch
@@ -546,6 +561,8 @@
         0x9 -> :sswitch_4
         0xa -> :sswitch_5
         0x16 -> :sswitch_6
+        0x20 -> :sswitch_6
+        0x21 -> :sswitch_6
         0xff -> :sswitch_7
     .end sparse-switch
 .end method
@@ -737,13 +754,20 @@
 
     const/4 v3, 0x0
 
+    const/4 v0, 0x0
+
+    iget-object v1, p0, Landroid/bluetooth/le/ScanRecord;->mManuDatalist:Ljava/util/ArrayList;
+
+    if-eqz v1, :cond_0
+
     iget-object v1, p0, Landroid/bluetooth/le/ScanRecord;->mManuDatalist:Ljava/util/ArrayList;
 
     invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
 
     move-result v0
 
-    if-lez v0, :cond_0
+    :cond_0
+    if-lez v0, :cond_1
 
     const-string/jumbo v1, "ScanRecord"
 
@@ -755,7 +779,7 @@
 
     return v1
 
-    :cond_0
+    :cond_1
     const-string/jumbo v1, "ScanRecord"
 
     const-string/jumbo v2, "Not a Multi Manu data"

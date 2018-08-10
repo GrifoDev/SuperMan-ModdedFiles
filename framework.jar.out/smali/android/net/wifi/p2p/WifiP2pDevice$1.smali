@@ -182,15 +182,15 @@
 
     if-ne v1, v2, :cond_1
 
-    sget-object v1, Landroid/net/wifi/p2p/WifiP2pCccUpnpDevInfo;->CREATOR:Landroid/os/Parcelable$Creator;
+    sget-object v1, Landroid/net/wifi/p2p/SemWifiP2pMirrorLinkUpnpDeviceInfo;->CREATOR:Landroid/os/Parcelable$Creator;
 
     invoke-interface {v1, p1}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
 
     move-result-object v1
 
-    check-cast v1, Landroid/net/wifi/p2p/WifiP2pCccUpnpDevInfo;
+    check-cast v1, Landroid/net/wifi/p2p/SemWifiP2pMirrorLinkUpnpDeviceInfo;
 
-    iput-object v1, v0, Landroid/net/wifi/p2p/WifiP2pDevice;->cccUpnpInfo:Landroid/net/wifi/p2p/WifiP2pCccUpnpDevInfo;
+    iput-object v1, v0, Landroid/net/wifi/p2p/WifiP2pDevice;->semMirrorLinkUpnpInfo:Landroid/net/wifi/p2p/SemWifiP2pMirrorLinkUpnpDeviceInfo;
 
     :cond_1
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
@@ -199,15 +199,15 @@
 
     if-ne v1, v2, :cond_2
 
-    sget-object v1, Landroid/net/wifi/p2p/WifiP2pCccInternetInfo;->CREATOR:Landroid/os/Parcelable$Creator;
+    sget-object v1, Landroid/net/wifi/p2p/SemWifiP2pMirrorLinkInternetInfo;->CREATOR:Landroid/os/Parcelable$Creator;
 
     invoke-interface {v1, p1}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
 
     move-result-object v1
 
-    check-cast v1, Landroid/net/wifi/p2p/WifiP2pCccInternetInfo;
+    check-cast v1, Landroid/net/wifi/p2p/SemWifiP2pMirrorLinkInternetInfo;
 
-    iput-object v1, v0, Landroid/net/wifi/p2p/WifiP2pDevice;->cccInternetInfo:Landroid/net/wifi/p2p/WifiP2pCccInternetInfo;
+    iput-object v1, v0, Landroid/net/wifi/p2p/WifiP2pDevice;->semMirrorLinkInternetInfo:Landroid/net/wifi/p2p/SemWifiP2pMirrorLinkInternetInfo;
 
     :cond_2
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I

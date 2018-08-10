@@ -18,7 +18,7 @@
 
 .field public mMode:I
 
-.field public final mPath:Landroid/graphics/Path;
+.field public mPath:Landroid/graphics/Path;
 
 .field public mRadius:F
 
@@ -34,12 +34,6 @@
     const/4 v0, 0x0
 
     iput v0, p0, Landroid/graphics/Outline;->mMode:I
-
-    new-instance v0, Landroid/graphics/Path;
-
-    invoke-direct {v0}, Landroid/graphics/Path;-><init>()V
-
-    iput-object v0, p0, Landroid/graphics/Outline;->mPath:Landroid/graphics/Path;
 
     new-instance v0, Landroid/graphics/Rect;
 
@@ -62,12 +56,6 @@
     const/4 v0, 0x0
 
     iput v0, p0, Landroid/graphics/Outline;->mMode:I
-
-    new-instance v0, Landroid/graphics/Path;
-
-    invoke-direct {v0}, Landroid/graphics/Path;-><init>()V
-
-    iput-object v0, p0, Landroid/graphics/Outline;->mPath:Landroid/graphics/Path;
 
     new-instance v0, Landroid/graphics/Rect;
 
@@ -200,12 +188,30 @@
 
     iput v0, p0, Landroid/graphics/Outline;->mMode:I
 
+    iget v0, p1, Landroid/graphics/Outline;->mMode:I
+
+    const/4 v1, 0x2
+
+    if-ne v0, v1, :cond_1
+
+    iget-object v0, p0, Landroid/graphics/Outline;->mPath:Landroid/graphics/Path;
+
+    if-nez v0, :cond_0
+
+    new-instance v0, Landroid/graphics/Path;
+
+    invoke-direct {v0}, Landroid/graphics/Path;-><init>()V
+
+    iput-object v0, p0, Landroid/graphics/Outline;->mPath:Landroid/graphics/Path;
+
+    :cond_0
     iget-object v0, p0, Landroid/graphics/Outline;->mPath:Landroid/graphics/Path;
 
     iget-object v1, p1, Landroid/graphics/Outline;->mPath:Landroid/graphics/Path;
 
     invoke-virtual {v0, v1}, Landroid/graphics/Path;->set(Landroid/graphics/Path;)V
 
+    :cond_1
     iget-object v0, p0, Landroid/graphics/Outline;->mRect:Landroid/graphics/Rect;
 
     iget-object v1, p1, Landroid/graphics/Outline;->mRect:Landroid/graphics/Rect;
@@ -260,6 +266,17 @@
     throw v0
 
     :cond_1
+    iget-object v0, p0, Landroid/graphics/Outline;->mPath:Landroid/graphics/Path;
+
+    if-nez v0, :cond_2
+
+    new-instance v0, Landroid/graphics/Path;
+
+    invoke-direct {v0}, Landroid/graphics/Path;-><init>()V
+
+    iput-object v0, p0, Landroid/graphics/Outline;->mPath:Landroid/graphics/Path;
+
+    :cond_2
     const/4 v0, 0x2
 
     iput v0, p0, Landroid/graphics/Outline;->mMode:I
@@ -282,13 +299,18 @@
 .method public setEmpty()V
     .locals 1
 
-    const/4 v0, 0x0
+    iget-object v0, p0, Landroid/graphics/Outline;->mPath:Landroid/graphics/Path;
 
-    iput v0, p0, Landroid/graphics/Outline;->mMode:I
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Landroid/graphics/Outline;->mPath:Landroid/graphics/Path;
 
     invoke-virtual {v0}, Landroid/graphics/Path;->rewind()V
+
+    :cond_0
+    const/4 v0, 0x0
+
+    iput v0, p0, Landroid/graphics/Outline;->mMode:I
 
     iget-object v0, p0, Landroid/graphics/Outline;->mRect:Landroid/graphics/Rect;
 
@@ -343,13 +365,20 @@
     return-void
 
     :cond_2
+    iget-object v0, p0, Landroid/graphics/Outline;->mPath:Landroid/graphics/Path;
+
+    if-nez v0, :cond_3
+
+    new-instance v0, Landroid/graphics/Path;
+
+    invoke-direct {v0}, Landroid/graphics/Path;-><init>()V
+
+    iput-object v0, p0, Landroid/graphics/Outline;->mPath:Landroid/graphics/Path;
+
+    :goto_0
     const/4 v0, 0x2
 
     iput v0, p0, Landroid/graphics/Outline;->mMode:I
-
-    iget-object v0, p0, Landroid/graphics/Outline;->mPath:Landroid/graphics/Path;
-
-    invoke-virtual {v0}, Landroid/graphics/Path;->rewind()V
 
     iget-object v0, p0, Landroid/graphics/Outline;->mPath:Landroid/graphics/Path;
 
@@ -374,6 +403,13 @@
     iput v0, p0, Landroid/graphics/Outline;->mRadius:F
 
     return-void
+
+    :cond_3
+    iget-object v0, p0, Landroid/graphics/Outline;->mPath:Landroid/graphics/Path;
+
+    invoke-virtual {v0}, Landroid/graphics/Path;->rewind()V
+
+    goto :goto_0
 .end method
 
 .method public setOval(Landroid/graphics/Rect;)V
@@ -429,7 +465,7 @@
 .end method
 
 .method public setRoundRect(IIIIF)V
-    .locals 1
+    .locals 2
 
     if-ge p1, p3, :cond_0
 
@@ -441,6 +477,17 @@
     return-void
 
     :cond_1
+    iget v0, p0, Landroid/graphics/Outline;->mMode:I
+
+    const/4 v1, 0x2
+
+    if-ne v0, v1, :cond_2
+
+    iget-object v0, p0, Landroid/graphics/Outline;->mPath:Landroid/graphics/Path;
+
+    invoke-virtual {v0}, Landroid/graphics/Path;->rewind()V
+
+    :cond_2
     const/4 v0, 0x1
 
     iput v0, p0, Landroid/graphics/Outline;->mMode:I
@@ -450,10 +497,6 @@
     invoke-virtual {v0, p1, p2, p3, p4}, Landroid/graphics/Rect;->set(IIII)V
 
     iput p5, p0, Landroid/graphics/Outline;->mRadius:F
-
-    iget-object v0, p0, Landroid/graphics/Outline;->mPath:Landroid/graphics/Path;
-
-    invoke-virtual {v0}, Landroid/graphics/Path;->rewind()V
 
     return-void
 .end method

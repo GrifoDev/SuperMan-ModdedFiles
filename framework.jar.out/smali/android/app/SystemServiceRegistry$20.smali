@@ -1,5 +1,5 @@
 .class final Landroid/app/SystemServiceRegistry$20;
-.super Landroid/app/SystemServiceRegistry$StaticServiceFetcher;
+.super Landroid/app/SystemServiceRegistry$CachedServiceFetcher;
 .source "SystemServiceRegistry.java"
 
 
@@ -15,9 +15,9 @@
 
 .annotation system Ldalvik/annotation/Signature;
     value = {
-        "Landroid/app/SystemServiceRegistry$StaticServiceFetcher",
+        "Landroid/app/SystemServiceRegistry$CachedServiceFetcher",
         "<",
-        "Landroid/hardware/input/InputManager;",
+        "Landroid/nfc/NfcManager;",
         ">;"
     }
 .end annotation
@@ -27,27 +27,32 @@
 .method constructor <init>()V
     .locals 0
 
-    invoke-direct {p0}, Landroid/app/SystemServiceRegistry$StaticServiceFetcher;-><init>()V
+    invoke-direct {p0}, Landroid/app/SystemServiceRegistry$CachedServiceFetcher;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public createService()Landroid/hardware/input/InputManager;
+.method public createService(Landroid/app/ContextImpl;)Landroid/nfc/NfcManager;
     .locals 1
 
-    invoke-static {}, Landroid/hardware/input/InputManager;->getInstance()Landroid/hardware/input/InputManager;
+    new-instance v0, Landroid/nfc/NfcManager;
 
-    move-result-object v0
+    invoke-direct {v0, p1}, Landroid/nfc/NfcManager;-><init>(Landroid/content/Context;)V
 
     return-object v0
 .end method
 
-.method public bridge synthetic createService()Ljava/lang/Object;
+.method public bridge synthetic createService(Landroid/app/ContextImpl;)Ljava/lang/Object;
     .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/ServiceManager$ServiceNotFoundException;
+        }
+    .end annotation
 
-    invoke-virtual {p0}, Landroid/app/SystemServiceRegistry$20;->createService()Landroid/hardware/input/InputManager;
+    invoke-virtual {p0, p1}, Landroid/app/SystemServiceRegistry$20;->createService(Landroid/app/ContextImpl;)Landroid/nfc/NfcManager;
 
     move-result-object v0
 

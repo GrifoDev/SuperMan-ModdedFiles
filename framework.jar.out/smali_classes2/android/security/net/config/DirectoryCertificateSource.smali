@@ -14,6 +14,10 @@
 .end annotation
 
 
+# static fields
+.field private static final LOG_TAG:Ljava/lang/String; = "DirectoryCertificateSrc"
+
+
 # instance fields
 .field private final mCertFactory:Ljava/security/cert/CertificateFactory;
 
@@ -73,7 +77,9 @@
 .end method
 
 .method private findCert(Ljavax/security/auth/x500/X500Principal;Landroid/security/net/config/DirectoryCertificateSource$CertSelector;)Ljava/security/cert/X509Certificate;
-    .locals 6
+    .locals 7
+
+    const/4 v6, 0x0
 
     invoke-direct {p0, p1}, Landroid/security/net/config/DirectoryCertificateSource;->getHash(Ljavax/security/auth/x500/X500Principal;)Ljava/lang/String;
 
@@ -119,9 +125,7 @@
     if-nez v4, :cond_1
 
     :cond_0
-    const/4 v4, 0x0
-
-    return-object v4
+    return-object v6
 
     :cond_1
     invoke-virtual {p0, v1}, Landroid/security/net/config/DirectoryCertificateSource;->isCertMarkedAsRemoved(Ljava/lang/String;)Z
@@ -139,6 +143,8 @@
     invoke-direct {p0, v1}, Landroid/security/net/config/DirectoryCertificateSource;->readCertificate(Ljava/lang/String;)Ljava/security/cert/X509Certificate;
 
     move-result-object v0
+
+    if-eqz v0, :cond_2
 
     invoke-virtual {v0}, Ljava/security/cert/X509Certificate;->getSubjectX500Principal()Ljavax/security/auth/x500/X500Principal;
 
@@ -243,6 +249,8 @@
 
     move-result-object v0
 
+    if-eqz v0, :cond_2
+
     invoke-virtual {v0}, Ljava/security/cert/X509Certificate;->getSubjectX500Principal()Ljavax/security/auth/x500/X500Principal;
 
     move-result-object v5
@@ -339,6 +347,31 @@
     move-exception v0
 
     :goto_0
+    :try_start_2
+    const-string/jumbo v3, "DirectoryCertificateSrc"
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v5, "Failed to read certificate from "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v3, v4, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+
     const/4 v3, 0x0
 
     invoke-static {v1}, Llibcore/io/IoUtils;->closeQuietly(Ljava/lang/AutoCloseable;)V

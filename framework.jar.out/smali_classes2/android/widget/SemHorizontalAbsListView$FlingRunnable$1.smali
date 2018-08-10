@@ -49,7 +49,7 @@
 
     iget-object v4, v4, Landroid/widget/SemHorizontalAbsListView$FlingRunnable;->this$0:Landroid/widget/SemHorizontalAbsListView;
 
-    invoke-static {v4}, Landroid/widget/SemHorizontalAbsListView;->-get33(Landroid/widget/SemHorizontalAbsListView;)Landroid/view/VelocityTracker;
+    invoke-static {v4}, Landroid/widget/SemHorizontalAbsListView;->-get26(Landroid/widget/SemHorizontalAbsListView;)Landroid/view/VelocityTracker;
 
     move-result-object v2
 
@@ -121,7 +121,7 @@
 
     const-wide/16 v6, 0x28
 
-    invoke-virtual {v4, p0, v6, v7}, Landroid/view/View;->postDelayed(Ljava/lang/Runnable;J)Z
+    invoke-virtual {v4, p0, v6, v7}, Landroid/widget/SemHorizontalAbsListView;->postDelayed(Ljava/lang/Runnable;J)Z
 
     :goto_0
     return-void

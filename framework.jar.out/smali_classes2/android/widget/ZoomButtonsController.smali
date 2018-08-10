@@ -16,6 +16,9 @@
     }
 .end annotation
 
+.annotation runtime Ljava/lang/Deprecated;
+.end annotation
+
 
 # static fields
 .field private static final MSG_DISMISS_ZOOM_CONTROLS:I = 0x3
@@ -291,11 +294,11 @@
 
     iput v3, v2, Landroid/view/WindowManager$LayoutParams;->flags:I
 
-    iput v4, v2, Landroid/view/ViewGroup$LayoutParams;->height:I
+    iput v4, v2, Landroid/view/WindowManager$LayoutParams;->height:I
 
     const/4 v3, -0x1
 
-    iput v3, v2, Landroid/view/ViewGroup$LayoutParams;->width:I
+    iput v3, v2, Landroid/view/WindowManager$LayoutParams;->width:I
 
     const/16 v3, 0x3e8
 
@@ -305,7 +308,7 @@
 
     iput v3, v2, Landroid/view/WindowManager$LayoutParams;->format:I
 
-    const v3, 0x10302f1
+    const v3, 0x103030f
 
     iput v3, v2, Landroid/view/WindowManager$LayoutParams;->windowAnimations:I
 
@@ -317,7 +320,7 @@
 
     invoke-direct {v0, p0, v3}, Landroid/widget/ZoomButtonsController$Container;-><init>(Landroid/widget/ZoomButtonsController;Landroid/content/Context;)V
 
-    invoke-virtual {v0, v2}, Landroid/view/View;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+    invoke-virtual {v0, v2}, Landroid/widget/FrameLayout;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
     const/4 v3, 0x1
 
@@ -333,13 +336,13 @@
 
     check-cast v1, Landroid/view/LayoutInflater;
 
-    const v3, 0x1090181
+    const v3, 0x109017f
 
     invoke-virtual {v1, v3, v0}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
-    const v3, 0x1020526
+    const v3, 0x102059f
 
-    invoke-virtual {v0, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v0, v3}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
 
     move-result-object v3
 
@@ -416,7 +419,7 @@
 
     iget-object v10, p0, Landroid/widget/ZoomButtonsController;->mContainer:Landroid/widget/FrameLayout;
 
-    invoke-virtual {v10}, Landroid/view/ViewGroup;->getChildCount()I
+    invoke-virtual {v10}, Landroid/widget/FrameLayout;->getChildCount()I
 
     move-result v10
 
@@ -427,7 +430,7 @@
 
     iget-object v10, p0, Landroid/widget/ZoomButtonsController;->mContainer:Landroid/widget/FrameLayout;
 
-    invoke-virtual {v10, v9}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {v10, v9}, Landroid/widget/FrameLayout;->getChildAt(I)Landroid/view/View;
 
     move-result-object v0
 
@@ -588,11 +591,11 @@
 
     move-result v3
 
-    if-eqz v3, :cond_5
+    if-eqz v3, :cond_4
 
     const/4 v3, 0x4
 
-    if-ne v1, v3, :cond_4
+    if-ne v1, v3, :cond_2
 
     invoke-virtual {p1}, Landroid/view/KeyEvent;->getAction()I
 
@@ -628,48 +631,46 @@
 
     move-result v3
 
-    if-ne v3, v5, :cond_2
+    if-ne v3, v5, :cond_3
 
     invoke-virtual {p1}, Landroid/view/KeyEvent;->isTracking()Z
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_3
 
     invoke-virtual {p1}, Landroid/view/KeyEvent;->isCanceled()Z
 
     move-result v3
 
+    xor-int/lit8 v3, v3, 0x1
+
     if-eqz v3, :cond_3
 
-    :cond_2
-    :goto_0
-    return v4
-
-    :cond_3
     invoke-virtual {p0, v4}, Landroid/widget/ZoomButtonsController;->setVisible(Z)V
 
     return v5
 
-    :cond_4
+    :cond_2
     sget v3, Landroid/widget/ZoomButtonsController;->ZOOM_CONTROLS_TIMEOUT:I
 
     invoke-direct {p0, v3}, Landroid/widget/ZoomButtonsController;->dismissControlsDelayed(I)V
 
-    goto :goto_0
+    :cond_3
+    return v4
 
-    :cond_5
+    :cond_4
     iget-object v3, p0, Landroid/widget/ZoomButtonsController;->mOwnerView:Landroid/view/View;
 
     invoke-virtual {v3}, Landroid/view/View;->getViewRootImpl()Landroid/view/ViewRootImpl;
 
     move-result-object v2
 
-    if-eqz v2, :cond_6
+    if-eqz v2, :cond_5
 
     invoke-virtual {v2, p1}, Landroid/view/ViewRootImpl;->dispatchInputEvent(Landroid/view/InputEvent;)V
 
-    :cond_6
+    :cond_5
     return v5
 .end method
 
@@ -717,7 +718,7 @@
 
     iget-object v4, p0, Landroid/widget/ZoomButtonsController;->mContainer:Landroid/widget/FrameLayout;
 
-    invoke-virtual {v4}, Landroid/view/View;->getHeight()I
+    invoke-virtual {v4}, Landroid/widget/FrameLayout;->getHeight()I
 
     move-result v4
 
@@ -761,7 +762,7 @@
 
     iget-object v4, p0, Landroid/widget/ZoomButtonsController;->mContainerLayoutParams:Landroid/view/WindowManager$LayoutParams;
 
-    iput v3, v4, Landroid/view/ViewGroup$LayoutParams;->width:I
+    iput v3, v4, Landroid/view/WindowManager$LayoutParams;->width:I
 
     iget-object v4, p0, Landroid/widget/ZoomButtonsController;->mContainerLayoutParams:Landroid/view/WindowManager$LayoutParams;
 

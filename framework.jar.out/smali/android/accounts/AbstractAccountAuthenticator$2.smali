@@ -49,7 +49,7 @@
 
     const/4 v2, 0x0
 
-    invoke-virtual {v0, v1, v2}, Landroid/os/BaseBundle;->putBoolean(Ljava/lang/String;Z)V
+    invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
 
     iget-object v1, p0, Landroid/accounts/AbstractAccountAuthenticator$2;->val$response:Landroid/accounts/AccountAuthenticatorResponse;
 

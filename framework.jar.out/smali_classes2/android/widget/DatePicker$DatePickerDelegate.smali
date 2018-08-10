@@ -24,6 +24,9 @@
 .method public abstract getCalendarViewShown()Z
 .end method
 
+.method public abstract getDate()J
+.end method
+
 .method public abstract getDayOfMonth()I
 .end method
 
@@ -63,6 +66,9 @@
 .method public abstract onSaveInstanceState(Landroid/os/Parcelable;)Landroid/os/Parcelable;
 .end method
 
+.method public abstract setAutoFillChangeListener(Landroid/widget/DatePicker$OnDateChangedListener;)V
+.end method
+
 .method public abstract setCalendarViewShown(Z)V
 .end method
 
@@ -78,6 +84,9 @@
 .method public abstract setMinDate(J)V
 .end method
 
+.method public abstract setOnDateChangedListener(Landroid/widget/DatePicker$OnDateChangedListener;)V
+.end method
+
 .method public abstract setSpinnersShown(Z)V
 .end method
 
@@ -85,4 +94,7 @@
 .end method
 
 .method public abstract updateDate(III)V
+.end method
+
+.method public abstract updateDate(J)V
 .end method

@@ -157,7 +157,7 @@
 
     new-instance v2, Ljava/lang/UnsupportedOperationException;
 
-    invoke-virtual {v0}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/IllegalArgumentException;->getMessage()Ljava/lang/String;
 
     move-result-object v3
 

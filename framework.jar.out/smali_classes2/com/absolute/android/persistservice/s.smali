@@ -18,7 +18,7 @@
 
 # virtual methods
 .method public verify(Ljava/lang/String;Ljavax/net/ssl/SSLSession;)Z
-    .locals 2
+    .locals 3
 
     invoke-static {}, Ljavax/net/ssl/HttpsURLConnection;->getDefaultHostnameVerifier()Ljavax/net/ssl/HostnameVerifier;
 
@@ -26,11 +26,11 @@
 
     invoke-static {}, Lcom/absolute/android/persistservice/r;->a()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-interface {v0, v1, p2}, Ljavax/net/ssl/HostnameVerifier;->verify(Ljava/lang/String;Ljavax/net/ssl/SSLSession;)Z
+    invoke-interface {v0, v2, p2}, Ljavax/net/ssl/HostnameVerifier;->verify(Ljava/lang/String;Ljavax/net/ssl/SSLSession;)Z
 
-    move-result v0
+    move-result v1
 
-    return v0
+    return v1
 .end method

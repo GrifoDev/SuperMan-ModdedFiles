@@ -115,19 +115,11 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    xor-int/lit8 v0, v0, 0x1
 
-    const/4 v0, 0x0
-
-    :goto_0
     sput-boolean v0, Landroid/media/SubtitleController;->-assertionsDisabled:Z
 
     return-void
-
-    :cond_0
-    const/4 v0, 0x1
-
-    goto :goto_0
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/media/MediaTimeProvider;Landroid/media/SubtitleController$Listener;)V
@@ -185,24 +177,15 @@
 .end method
 
 .method private checkAnchorLooper()V
-    .locals 4
+    .locals 2
 
-    const/4 v0, 0x1
+    sget-boolean v0, Landroid/media/SubtitleController;->-assertionsDisabled:Z
 
-    const/4 v1, 0x0
+    if-nez v0, :cond_0
 
-    sget-boolean v2, Landroid/media/SubtitleController;->-assertionsDisabled:Z
+    iget-object v0, p0, Landroid/media/SubtitleController;->mHandler:Landroid/os/Handler;
 
-    if-nez v2, :cond_1
-
-    iget-object v2, p0, Landroid/media/SubtitleController;->mHandler:Landroid/os/Handler;
-
-    if-eqz v2, :cond_0
-
-    move v2, v0
-
-    :goto_0
-    if-nez v2, :cond_1
+    if-nez v0, :cond_0
 
     new-instance v0, Ljava/lang/AssertionError;
 
@@ -213,29 +196,21 @@
     throw v0
 
     :cond_0
-    move v2, v1
+    sget-boolean v0, Landroid/media/SubtitleController;->-assertionsDisabled:Z
 
-    goto :goto_0
-
-    :cond_1
-    sget-boolean v2, Landroid/media/SubtitleController;->-assertionsDisabled:Z
-
-    if-nez v2, :cond_3
+    if-nez v0, :cond_1
 
     invoke-static {}, Landroid/os/Looper;->myLooper()Landroid/os/Looper;
 
-    move-result-object v2
+    move-result-object v0
 
-    iget-object v3, p0, Landroid/media/SubtitleController;->mHandler:Landroid/os/Handler;
+    iget-object v1, p0, Landroid/media/SubtitleController;->mHandler:Landroid/os/Handler;
 
-    invoke-virtual {v3}, Landroid/os/Handler;->getLooper()Landroid/os/Looper;
+    invoke-virtual {v1}, Landroid/os/Handler;->getLooper()Landroid/os/Looper;
 
-    move-result-object v3
+    move-result-object v1
 
-    if-ne v2, v3, :cond_2
-
-    :goto_1
-    if-nez v0, :cond_3
+    if-eq v0, v1, :cond_1
 
     new-instance v0, Ljava/lang/AssertionError;
 
@@ -245,12 +220,7 @@
 
     throw v0
 
-    :cond_2
-    move v0, v1
-
-    goto :goto_1
-
-    :cond_3
+    :cond_1
     return-void
 .end method
 
@@ -486,16 +456,11 @@
 
     sget-boolean v0, Landroid/media/SubtitleController;->-assertionsDisabled:Z
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_0
 
     iget-object v0, p0, Landroid/media/SubtitleController;->mHandler:Landroid/os/Handler;
 
-    if-eqz v0, :cond_0
-
-    const/4 v0, 0x1
-
-    :goto_0
-    if-nez v0, :cond_1
+    if-nez v0, :cond_0
 
     new-instance v0, Ljava/lang/AssertionError;
 
@@ -506,11 +471,6 @@
     throw v0
 
     :cond_0
-    const/4 v0, 0x0
-
-    goto :goto_0
-
-    :cond_1
     invoke-static {}, Landroid/os/Looper;->myLooper()Landroid/os/Looper;
 
     move-result-object v0
@@ -521,21 +481,21 @@
 
     move-result-object v1
 
-    if-ne v0, v1, :cond_2
+    if-ne v0, v1, :cond_1
 
     iget-object v0, p0, Landroid/media/SubtitleController;->mHandler:Landroid/os/Handler;
 
     invoke-virtual {v0, p1}, Landroid/os/Handler;->dispatchMessage(Landroid/os/Message;)V
 
-    :goto_1
+    :goto_0
     return-void
 
-    :cond_2
+    :cond_1
     iget-object v0, p0, Landroid/media/SubtitleController;->mHandler:Landroid/os/Handler;
 
     invoke-virtual {v0, p1}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
 
-    goto :goto_1
+    goto :goto_0
 .end method
 
 
@@ -692,11 +652,8 @@
 
     move-result v15
 
-    if-eqz v15, :cond_5
+    xor-int/lit8 v11, v15, 0x1
 
-    const/4 v11, 0x0
-
-    :goto_0
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/media/SubtitleController;->mTracks:Ljava/util/Vector;
@@ -715,12 +672,12 @@
     move-result-object v14
 
     :cond_1
-    :goto_1
+    :goto_0
     invoke-interface {v14}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v15
 
-    if-eqz v15, :cond_e
+    if-eqz v15, :cond_d
 
     invoke-interface {v14}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -748,11 +705,11 @@
 
     move-result v15
 
-    if-eqz v15, :cond_6
+    if-eqz v15, :cond_5
 
     const/4 v4, 0x1
 
-    :goto_2
+    :goto_1
     const-string/jumbo v15, "is-autoselect"
 
     const/16 v16, 0x1
@@ -763,11 +720,11 @@
 
     move-result v15
 
-    if-eqz v15, :cond_7
+    if-eqz v15, :cond_6
 
     const/4 v1, 0x1
 
-    :goto_3
+    :goto_2
     const-string/jumbo v15, "is-default"
 
     const/16 v16, 0x0
@@ -778,12 +735,12 @@
 
     move-result v15
 
-    if-eqz v15, :cond_8
+    if-eqz v15, :cond_7
 
     const/4 v6, 0x1
 
-    :goto_4
-    if-eqz v9, :cond_9
+    :goto_3
+    if-eqz v9, :cond_8
 
     invoke-virtual {v9}, Ljava/util/Locale;->getLanguage()Ljava/lang/String;
 
@@ -795,7 +752,7 @@
 
     move-result v15
 
-    if-nez v15, :cond_9
+    if-nez v15, :cond_8
 
     invoke-virtual {v9}, Ljava/util/Locale;->getISO3Language()Ljava/lang/String;
 
@@ -805,7 +762,7 @@
 
     move-result v15
 
-    if-nez v15, :cond_9
+    if-nez v15, :cond_8
 
     invoke-virtual {v9}, Ljava/util/Locale;->getLanguage()Ljava/lang/String;
 
@@ -817,40 +774,42 @@
 
     move-result v8
 
-    :goto_5
-    if-eqz v4, :cond_a
+    :goto_4
+    if-eqz v4, :cond_9
 
     const/4 v15, 0x0
 
     move/from16 v16, v15
 
-    :goto_6
-    if-nez v12, :cond_b
+    :goto_5
+    if-nez v12, :cond_a
 
-    if-eqz v6, :cond_b
+    if-eqz v6, :cond_a
 
     const/4 v15, 0x4
+
+    :goto_6
+    add-int v16, v16, v15
+
+    if-eqz v1, :cond_b
+
+    const/4 v15, 0x0
 
     :goto_7
     add-int v16, v16, v15
 
-    if-eqz v1, :cond_c
-
-    const/4 v15, 0x0
-
-    :goto_8
-    add-int v16, v16, v15
-
-    if-eqz v8, :cond_d
+    if-eqz v8, :cond_c
 
     const/4 v15, 0x1
 
-    :goto_9
+    :goto_8
     add-int v10, v16, v15
 
     if-eqz v11, :cond_2
 
-    if-eqz v4, :cond_1
+    xor-int/lit8 v15, v4, 0x1
+
+    if-nez v15, :cond_1
 
     :cond_2
     if-nez v12, :cond_3
@@ -873,56 +832,51 @@
 
     move-object v3, v13
 
-    goto/16 :goto_1
-
-    :cond_5
-    const/4 v11, 0x1
-
     goto/16 :goto_0
 
-    :cond_6
+    :cond_5
     const/4 v4, 0x0
+
+    goto :goto_1
+
+    :cond_6
+    const/4 v1, 0x0
 
     goto :goto_2
 
     :cond_7
-    const/4 v1, 0x0
+    const/4 v6, 0x0
 
     goto :goto_3
 
     :cond_8
-    const/4 v6, 0x0
+    const/4 v8, 0x1
 
     goto :goto_4
 
     :cond_9
-    const/4 v8, 0x1
-
-    goto :goto_5
-
-    :cond_a
     const/16 v15, 0x8
 
     move/from16 v16, v15
 
+    goto :goto_5
+
+    :cond_a
+    const/4 v15, 0x0
+
     goto :goto_6
 
     :cond_b
-    const/4 v15, 0x0
+    const/4 v15, 0x2
 
     goto :goto_7
 
     :cond_c
-    const/4 v15, 0x2
+    const/4 v15, 0x0
 
     goto :goto_8
 
     :cond_d
-    const/4 v15, 0x0
-
-    goto :goto_9
-
-    :cond_e
     monitor-exit v17
 
     return-object v3
@@ -1165,7 +1119,13 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    xor-int/lit8 v0, v0, 0x1
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x0
+
+    return v0
 
     :cond_0
     iget-object v0, p0, Landroid/media/SubtitleController;->mHandler:Landroid/os/Handler;
@@ -1179,11 +1139,6 @@
     invoke-direct {p0, v0}, Landroid/media/SubtitleController;->processOnAnchor(Landroid/os/Message;)V
 
     const/4 v0, 0x1
-
-    return v0
-
-    :cond_1
-    const/4 v0, 0x0
 
     return v0
 .end method

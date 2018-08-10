@@ -43,6 +43,12 @@
     return-void
 .end method
 
+.method public onRequestQueueEmpty()V
+    .locals 0
+
+    return-void
+.end method
+
 .method public onSurfacePrepared(Landroid/view/Surface;)V
     .locals 0
 

@@ -307,14 +307,17 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    xor-int/lit8 v0, v0, 0x1
 
-    iget v0, p0, Landroid/media/Rating;->mRatingValue:F
-
-    return v0
+    if-eqz v0, :cond_1
 
     :cond_0
     const/high16 v0, -0x40800000    # -1.0f
+
+    return v0
+
+    :cond_1
+    iget v0, p0, Landroid/media/Rating;->mRatingValue:F
 
     return v0
 .end method

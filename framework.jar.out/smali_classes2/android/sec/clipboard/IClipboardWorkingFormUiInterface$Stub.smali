@@ -41,7 +41,7 @@
 
     const-string/jumbo v0, "android.sec.clipboard.IClipboardWorkingFormUiInterface"
 
-    invoke-virtual {p0, p0, v0}, Landroid/os/Binder;->attachInterface(Landroid/os/IInterface;Ljava/lang/String;)V
+    invoke-virtual {p0, p0, v0}, Landroid/sec/clipboard/IClipboardWorkingFormUiInterface$Stub;->attachInterface(Landroid/os/IInterface;Ljava/lang/String;)V
 
     return-void
 .end method
@@ -124,8 +124,6 @@
 
     invoke-virtual {p0, v0}, Landroid/sec/clipboard/IClipboardWorkingFormUiInterface$Stub;->setClipboardDataListChange(I)V
 
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
     return v4
 
     :sswitch_2
@@ -142,8 +140,6 @@
     move-result-object v2
 
     invoke-virtual {p0, v2}, Landroid/sec/clipboard/IClipboardWorkingFormUiInterface$Stub;->setClipboardDataMgr(Landroid/sec/clipboard/data/IClipboardDataList;)V
-
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     return v4
 
@@ -162,11 +158,7 @@
 
     invoke-virtual {p0, v1}, Landroid/sec/clipboard/IClipboardWorkingFormUiInterface$Stub;->setClipboardDataUiEvent(Landroid/sec/clipboard/IClipboardDataUiEvent;)V
 
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
     return v4
-
-    nop
 
     :sswitch_data_0
     .sparse-switch

@@ -61,7 +61,7 @@
 
     iget v4, v4, Landroid/widget/SemHorizontalAbsListView;->mTouchMode:I
 
-    if-nez v4, :cond_1
+    if-nez v4, :cond_4
 
     iget-object v4, p0, Landroid/widget/SemHorizontalAbsListView$CheckForTap;->this$0:Landroid/widget/SemHorizontalAbsListView;
 
@@ -75,11 +75,11 @@
 
     iget-object v6, p0, Landroid/widget/SemHorizontalAbsListView$CheckForTap;->this$0:Landroid/widget/SemHorizontalAbsListView;
 
-    iget v6, v6, Landroid/widget/AdapterView;->mFirstPosition:I
+    iget v6, v6, Landroid/widget/SemHorizontalAbsListView;->mFirstPosition:I
 
     sub-int/2addr v5, v6
 
-    invoke-virtual {v4, v5}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {v4, v5}, Landroid/widget/SemHorizontalAbsListView;->getChildAt(I)Landroid/view/View;
 
     move-result-object v0
 
@@ -94,36 +94,33 @@
     invoke-static {v4, v5}, Landroid/widget/SemHorizontalAbsListView;->-set2(Landroid/widget/SemHorizontalAbsListView;Z)Z
 
     :cond_0
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_4
 
     invoke-virtual {v0}, Landroid/view/View;->hasFocusable()Z
 
     move-result v4
 
-    if-eqz v4, :cond_2
+    xor-int/lit8 v4, v4, 0x1
 
-    :cond_1
-    :goto_0
-    return-void
+    if-eqz v4, :cond_4
 
-    :cond_2
     iget-object v4, p0, Landroid/widget/SemHorizontalAbsListView$CheckForTap;->this$0:Landroid/widget/SemHorizontalAbsListView;
 
-    invoke-virtual {v4}, Landroid/widget/AdapterView;->getAdapter()Landroid/widget/Adapter;
+    invoke-virtual {v4}, Landroid/widget/SemHorizontalAbsListView;->getAdapter()Landroid/widget/Adapter;
 
     move-result-object v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_4
 
     iget-object v4, p0, Landroid/widget/SemHorizontalAbsListView$CheckForTap;->this$0:Landroid/widget/SemHorizontalAbsListView;
 
     iget v4, v4, Landroid/widget/SemHorizontalAbsListView;->mMotionPosition:I
 
-    if-ltz v4, :cond_1
+    if-ltz v4, :cond_4
 
     iget-object v4, p0, Landroid/widget/SemHorizontalAbsListView$CheckForTap;->this$0:Landroid/widget/SemHorizontalAbsListView;
 
-    invoke-virtual {v4}, Landroid/widget/AdapterView;->getAdapter()Landroid/widget/Adapter;
+    invoke-virtual {v4}, Landroid/widget/SemHorizontalAbsListView;->getAdapter()Landroid/widget/Adapter;
 
     move-result-object v4
 
@@ -137,7 +134,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_4
 
     iget-object v4, p0, Landroid/widget/SemHorizontalAbsListView$CheckForTap;->this$0:Landroid/widget/SemHorizontalAbsListView;
 
@@ -145,15 +142,15 @@
 
     iget-object v4, p0, Landroid/widget/SemHorizontalAbsListView$CheckForTap;->this$0:Landroid/widget/SemHorizontalAbsListView;
 
-    iget-boolean v4, v4, Landroid/widget/AdapterView;->mDataChanged:Z
+    iget-boolean v4, v4, Landroid/widget/SemHorizontalAbsListView;->mDataChanged:Z
 
-    if-nez v4, :cond_8
+    if-nez v4, :cond_7
 
     invoke-virtual {v0, v9}, Landroid/view/View;->setPressed(Z)V
 
     iget-object v4, p0, Landroid/widget/SemHorizontalAbsListView$CheckForTap;->this$0:Landroid/widget/SemHorizontalAbsListView;
 
-    invoke-virtual {v4, v9}, Landroid/view/View;->setPressed(Z)V
+    invoke-virtual {v4, v9}, Landroid/widget/SemHorizontalAbsListView;->setPressed(Z)V
 
     iget-object v4, p0, Landroid/widget/SemHorizontalAbsListView$CheckForTap;->this$0:Landroid/widget/SemHorizontalAbsListView;
 
@@ -169,7 +166,7 @@
 
     iget-object v4, p0, Landroid/widget/SemHorizontalAbsListView$CheckForTap;->this$0:Landroid/widget/SemHorizontalAbsListView;
 
-    invoke-virtual {v4}, Landroid/view/View;->refreshDrawableState()V
+    invoke-virtual {v4}, Landroid/widget/SemHorizontalAbsListView;->refreshDrawableState()V
 
     invoke-static {}, Landroid/view/ViewConfiguration;->getLongPressTimeout()I
 
@@ -177,7 +174,7 @@
 
     iget-object v4, p0, Landroid/widget/SemHorizontalAbsListView$CheckForTap;->this$0:Landroid/widget/SemHorizontalAbsListView;
 
-    invoke-virtual {v4}, Landroid/view/View;->isLongClickable()Z
+    invoke-virtual {v4}, Landroid/widget/SemHorizontalAbsListView;->isLongClickable()Z
 
     move-result v2
 
@@ -185,7 +182,7 @@
 
     iget-object v4, v4, Landroid/widget/SemHorizontalAbsListView;->mSelector:Landroid/graphics/drawable/Drawable;
 
-    if-eqz v4, :cond_4
+    if-eqz v4, :cond_2
 
     iget-object v4, p0, Landroid/widget/SemHorizontalAbsListView$CheckForTap;->this$0:Landroid/widget/SemHorizontalAbsListView;
 
@@ -195,22 +192,20 @@
 
     move-result-object v1
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_1
 
     instance-of v4, v1, Landroid/graphics/drawable/TransitionDrawable;
 
-    if-eqz v4, :cond_3
+    if-eqz v4, :cond_1
 
-    if-eqz v2, :cond_6
+    if-eqz v2, :cond_5
 
-    nop
-
-    nop
+    check-cast v1, Landroid/graphics/drawable/TransitionDrawable;
 
     invoke-virtual {v1, v3}, Landroid/graphics/drawable/TransitionDrawable;->startTransition(I)V
 
-    :cond_3
-    :goto_1
+    :cond_1
+    :goto_0
     iget-object v4, p0, Landroid/widget/SemHorizontalAbsListView$CheckForTap;->this$0:Landroid/widget/SemHorizontalAbsListView;
 
     iget-object v4, v4, Landroid/widget/SemHorizontalAbsListView;->mSelector:Landroid/graphics/drawable/Drawable;
@@ -221,8 +216,8 @@
 
     invoke-virtual {v4, v5, v6}, Landroid/graphics/drawable/Drawable;->setHotspot(FF)V
 
-    :cond_4
-    if-eqz v2, :cond_7
+    :cond_2
+    if-eqz v2, :cond_6
 
     iget-object v4, p0, Landroid/widget/SemHorizontalAbsListView$CheckForTap;->this$0:Landroid/widget/SemHorizontalAbsListView;
 
@@ -230,7 +225,7 @@
 
     move-result-object v4
 
-    if-nez v4, :cond_5
+    if-nez v4, :cond_3
 
     iget-object v4, p0, Landroid/widget/SemHorizontalAbsListView$CheckForTap;->this$0:Landroid/widget/SemHorizontalAbsListView;
 
@@ -242,14 +237,14 @@
 
     invoke-static {v4, v5}, Landroid/widget/SemHorizontalAbsListView;->-set4(Landroid/widget/SemHorizontalAbsListView;Landroid/widget/SemHorizontalAbsListView$CheckForLongPress;)Landroid/widget/SemHorizontalAbsListView$CheckForLongPress;
 
-    :cond_5
+    :cond_3
     iget-object v4, p0, Landroid/widget/SemHorizontalAbsListView$CheckForTap;->this$0:Landroid/widget/SemHorizontalAbsListView;
 
     invoke-static {v4}, Landroid/widget/SemHorizontalAbsListView;->-get21(Landroid/widget/SemHorizontalAbsListView;)Landroid/widget/SemHorizontalAbsListView$CheckForLongPress;
 
     move-result-object v4
 
-    invoke-virtual {v4}, Landroid/widget/SemHorizontalAbsListView$WindowRunnnable;->rememberWindowAttachCount()V
+    invoke-virtual {v4}, Landroid/widget/SemHorizontalAbsListView$CheckForLongPress;->rememberWindowAttachCount()V
 
     iget-object v4, p0, Landroid/widget/SemHorizontalAbsListView$CheckForTap;->this$0:Landroid/widget/SemHorizontalAbsListView;
 
@@ -261,16 +256,23 @@
 
     int-to-long v6, v3
 
-    invoke-virtual {v4, v5, v6, v7}, Landroid/view/View;->postDelayed(Ljava/lang/Runnable;J)Z
+    invoke-virtual {v4, v5, v6, v7}, Landroid/widget/SemHorizontalAbsListView;->postDelayed(Ljava/lang/Runnable;J)Z
 
-    goto/16 :goto_0
+    :cond_4
+    :goto_1
+    return-void
 
-    :cond_6
-    nop
-
-    nop
+    :cond_5
+    check-cast v1, Landroid/graphics/drawable/TransitionDrawable;
 
     invoke-virtual {v1}, Landroid/graphics/drawable/TransitionDrawable;->resetTransition()V
+
+    goto :goto_0
+
+    :cond_6
+    iget-object v4, p0, Landroid/widget/SemHorizontalAbsListView$CheckForTap;->this$0:Landroid/widget/SemHorizontalAbsListView;
+
+    iput v10, v4, Landroid/widget/SemHorizontalAbsListView;->mTouchMode:I
 
     goto :goto_1
 
@@ -279,12 +281,5 @@
 
     iput v10, v4, Landroid/widget/SemHorizontalAbsListView;->mTouchMode:I
 
-    goto/16 :goto_0
-
-    :cond_8
-    iget-object v4, p0, Landroid/widget/SemHorizontalAbsListView$CheckForTap;->this$0:Landroid/widget/SemHorizontalAbsListView;
-
-    iput v10, v4, Landroid/widget/SemHorizontalAbsListView;->mTouchMode:I
-
-    goto/16 :goto_0
+    goto :goto_1
 .end method

@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0xa
     name = "DecodedBuffer"
 .end annotation
 
@@ -20,8 +20,6 @@
 .field private frameNo:I
 
 .field private matrix:[F
-
-.field final synthetic this$0:Lcom/samsung/android/media/SelfMotionPanoramaConverter;
 
 
 # direct methods
@@ -49,18 +47,16 @@
     return-object v0
 .end method
 
-.method public constructor <init>(Lcom/samsung/android/media/SelfMotionPanoramaConverter;[BI[F)V
+.method public constructor <init>([BI[F)V
     .locals 0
-
-    iput-object p1, p0, Lcom/samsung/android/media/SelfMotionPanoramaConverter$DecodedBuffer;->this$0:Lcom/samsung/android/media/SelfMotionPanoramaConverter;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p2, p0, Lcom/samsung/android/media/SelfMotionPanoramaConverter$DecodedBuffer;->buffer:[B
+    iput-object p1, p0, Lcom/samsung/android/media/SelfMotionPanoramaConverter$DecodedBuffer;->buffer:[B
 
-    iput p3, p0, Lcom/samsung/android/media/SelfMotionPanoramaConverter$DecodedBuffer;->frameNo:I
+    iput p2, p0, Lcom/samsung/android/media/SelfMotionPanoramaConverter$DecodedBuffer;->frameNo:I
 
-    iput-object p4, p0, Lcom/samsung/android/media/SelfMotionPanoramaConverter$DecodedBuffer;->matrix:[F
+    iput-object p3, p0, Lcom/samsung/android/media/SelfMotionPanoramaConverter$DecodedBuffer;->matrix:[F
 
     return-void
 .end method

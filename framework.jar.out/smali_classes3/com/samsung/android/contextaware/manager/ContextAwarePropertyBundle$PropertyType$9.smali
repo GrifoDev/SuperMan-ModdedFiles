@@ -58,9 +58,7 @@
 
     if-eqz v0, :cond_0
 
-    nop
-
-    nop
+    check-cast p1, [J
 
     invoke-static {p1}, Lcom/samsung/android/contextaware/manager/ContextAwarePropertyBundle;->-set14([J)[J
 

@@ -17,7 +17,7 @@
     value = {
         "Landroid/app/SystemServiceRegistry$CachedServiceFetcher",
         "<",
-        "Landroid/net/wifi/WifiOffloadManager;",
+        "Landroid/net/NetworkPolicyManager;",
         ">;"
     }
 .end annotation
@@ -34,36 +34,40 @@
 
 
 # virtual methods
-.method public createService(Landroid/app/ContextImpl;)Landroid/net/wifi/WifiOffloadManager;
-    .locals 4
+.method public createService(Landroid/app/ContextImpl;)Landroid/net/NetworkPolicyManager;
+    .locals 2
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/ServiceManager$ServiceNotFoundException;
+        }
+    .end annotation
 
-    const-string/jumbo v2, "wifioffload"
+    new-instance v0, Landroid/net/NetworkPolicyManager;
 
-    invoke-static {v2}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
+    const-string/jumbo v1, "netpolicy"
 
-    move-result-object v0
-
-    invoke-static {v0}, Landroid/net/wifi/IWifiOffloadManager$Stub;->asInterface(Landroid/os/IBinder;)Landroid/net/wifi/IWifiOffloadManager;
+    invoke-static {v1}, Landroid/os/ServiceManager;->getServiceOrThrow(Ljava/lang/String;)Landroid/os/IBinder;
 
     move-result-object v1
 
-    const-string/jumbo v2, "SystemServiceRegistry"
+    invoke-static {v1}, Landroid/net/INetworkPolicyManager$Stub;->asInterface(Landroid/os/IBinder;)Landroid/net/INetworkPolicyManager;
 
-    const-string/jumbo v3, "return wifioffload service"
+    move-result-object v1
 
-    invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-direct {v0, p1, v1}, Landroid/net/NetworkPolicyManager;-><init>(Landroid/content/Context;Landroid/net/INetworkPolicyManager;)V
 
-    new-instance v2, Landroid/net/wifi/WifiOffloadManager;
-
-    invoke-direct {v2, v1}, Landroid/net/wifi/WifiOffloadManager;-><init>(Landroid/net/wifi/IWifiOffloadManager;)V
-
-    return-object v2
+    return-object v0
 .end method
 
 .method public bridge synthetic createService(Landroid/app/ContextImpl;)Ljava/lang/Object;
     .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/ServiceManager$ServiceNotFoundException;
+        }
+    .end annotation
 
-    invoke-virtual {p0, p1}, Landroid/app/SystemServiceRegistry$30;->createService(Landroid/app/ContextImpl;)Landroid/net/wifi/WifiOffloadManager;
+    invoke-virtual {p0, p1}, Landroid/app/SystemServiceRegistry$30;->createService(Landroid/app/ContextImpl;)Landroid/net/NetworkPolicyManager;
 
     move-result-object v0
 

@@ -76,7 +76,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/cover/CoverListenerDelegate;->mHandler:Lcom/samsung/android/cover/CoverListenerDelegate$ListenerDelegateHandler;
 
-    invoke-virtual {v1, v0}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
+    invoke-virtual {v1, v0}, Lcom/samsung/android/cover/CoverListenerDelegate$ListenerDelegateHandler;->sendMessage(Landroid/os/Message;)Z
 
     return-void
 .end method
@@ -99,7 +99,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/cover/CoverListenerDelegate;->mListener:Lcom/samsung/android/cover/CoverManager$StateListener;
 
-    invoke-virtual {v0}, Ljava/lang/Object;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Lcom/samsung/android/cover/CoverManager$StateListener;->toString()Ljava/lang/String;
 
     move-result-object v0
 

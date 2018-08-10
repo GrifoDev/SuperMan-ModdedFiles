@@ -70,6 +70,10 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    const/4 v0, -0x1
+
+    iput v0, p0, Landroid/hardware/location/NanoAppFilter;->mContextHubId:I
+
     iput-wide p1, p0, Landroid/hardware/location/NanoAppFilter;->mAppId:J
 
     iput p3, p0, Landroid/hardware/location/NanoAppFilter;->mAppVersion:I
@@ -85,6 +89,10 @@
     .locals 2
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    const/4 v0, -0x1
+
+    iput v0, p0, Landroid/hardware/location/NanoAppFilter;->mContextHubId:I
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readLong()J
 

@@ -38,7 +38,7 @@
 .method public onAnimationEnd(Landroid/animation/Animator;)V
     .locals 2
 
-    invoke-static {}, Landroid/widget/SemExpandableListView;->-get4()Ljava/lang/String;
+    invoke-static {}, Landroid/widget/SemExpandableListView;->-get5()Ljava/lang/String;
 
     move-result-object v0
 

@@ -67,11 +67,11 @@
 
     iput-object v0, p0, Landroid/widget/CalendarViewLegacyDelegate$WeeksAdapter;->mSelectedDate:Landroid/icu/util/Calendar;
 
-    iput-object p2, p1, Landroid/widget/CalendarView$AbstractCalendarViewDelegate;->mContext:Landroid/content/Context;
+    iput-object p2, p1, Landroid/widget/CalendarViewLegacyDelegate;->mContext:Landroid/content/Context;
 
     new-instance v0, Landroid/view/GestureDetector;
 
-    iget-object v1, p1, Landroid/widget/CalendarView$AbstractCalendarViewDelegate;->mContext:Landroid/content/Context;
+    iget-object v1, p1, Landroid/widget/CalendarViewLegacyDelegate;->mContext:Landroid/content/Context;
 
     new-instance v2, Landroid/widget/CalendarViewLegacyDelegate$WeeksAdapter$CalendarGestureListener;
 
@@ -159,7 +159,7 @@
     iput v0, p0, Landroid/widget/CalendarViewLegacyDelegate$WeeksAdapter;->mTotalWeekCount:I
 
     :cond_1
-    invoke-virtual {p0}, Landroid/widget/BaseAdapter;->notifyDataSetChanged()V
+    invoke-virtual {p0}, Landroid/widget/CalendarViewLegacyDelegate$WeeksAdapter;->notifyDataSetChanged()V
 
     return-void
 .end method
@@ -250,7 +250,7 @@
 
     iget-object v4, p0, Landroid/widget/CalendarViewLegacyDelegate$WeeksAdapter;->this$0:Landroid/widget/CalendarViewLegacyDelegate;
 
-    iget-object v4, v4, Landroid/widget/CalendarView$AbstractCalendarViewDelegate;->mContext:Landroid/content/Context;
+    iget-object v4, v4, Landroid/widget/CalendarViewLegacyDelegate;->mContext:Landroid/content/Context;
 
     invoke-direct {v2, v3, v4}, Landroid/widget/CalendarViewLegacyDelegate$WeekView;-><init>(Landroid/widget/CalendarViewLegacyDelegate;Landroid/content/Context;)V
 
@@ -258,13 +258,13 @@
 
     invoke-direct {v0, v5, v5}, Landroid/widget/AbsListView$LayoutParams;-><init>(II)V
 
-    invoke-virtual {v2, v0}, Landroid/view/View;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+    invoke-virtual {v2, v0}, Landroid/widget/CalendarViewLegacyDelegate$WeekView;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
     const/4 v3, 0x1
 
-    invoke-virtual {v2, v3}, Landroid/view/View;->setClickable(Z)V
+    invoke-virtual {v2, v3}, Landroid/widget/CalendarViewLegacyDelegate$WeekView;->setClickable(Z)V
 
-    invoke-virtual {v2, p0}, Landroid/view/View;->setOnTouchListener(Landroid/view/View$OnTouchListener;)V
+    invoke-virtual {v2, p0}, Landroid/widget/CalendarViewLegacyDelegate$WeekView;->setOnTouchListener(Landroid/view/View$OnTouchListener;)V
 
     goto :goto_0
 
@@ -285,7 +285,7 @@
 
     move-result-object v1
 
-    invoke-virtual {v1}, Landroid/view/View;->isEnabled()Z
+    invoke-virtual {v1}, Landroid/widget/ListView;->isEnabled()Z
 
     move-result v1
 
@@ -390,7 +390,7 @@
     :cond_0
     iput p1, p0, Landroid/widget/CalendarViewLegacyDelegate$WeeksAdapter;->mFocusedMonth:I
 
-    invoke-virtual {p0}, Landroid/widget/BaseAdapter;->notifyDataSetChanged()V
+    invoke-virtual {p0}, Landroid/widget/CalendarViewLegacyDelegate$WeeksAdapter;->notifyDataSetChanged()V
 
     return-void
 .end method
@@ -457,7 +457,7 @@
 
     iput v0, p0, Landroid/widget/CalendarViewLegacyDelegate$WeeksAdapter;->mFocusedMonth:I
 
-    invoke-virtual {p0}, Landroid/widget/BaseAdapter;->notifyDataSetChanged()V
+    invoke-virtual {p0}, Landroid/widget/CalendarViewLegacyDelegate$WeeksAdapter;->notifyDataSetChanged()V
 
     return-void
 .end method

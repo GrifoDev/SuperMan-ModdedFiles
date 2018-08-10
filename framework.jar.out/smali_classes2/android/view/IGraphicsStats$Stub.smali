@@ -120,9 +120,13 @@
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
+    move-result-object v3
+
+    invoke-static {v3}, Landroid/view/IGraphicsStatsCallback$Stub;->asInterface(Landroid/os/IBinder;)Landroid/view/IGraphicsStatsCallback;
+
     move-result-object v1
 
-    invoke-virtual {p0, v0, v1}, Landroid/view/IGraphicsStats$Stub;->requestBufferForProcess(Ljava/lang/String;Landroid/os/IBinder;)Landroid/os/ParcelFileDescriptor;
+    invoke-virtual {p0, v0, v1}, Landroid/view/IGraphicsStats$Stub;->requestBufferForProcess(Ljava/lang/String;Landroid/view/IGraphicsStatsCallback;)Landroid/os/ParcelFileDescriptor;
 
     move-result-object v2
 

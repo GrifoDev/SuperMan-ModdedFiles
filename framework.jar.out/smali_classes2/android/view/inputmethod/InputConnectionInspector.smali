@@ -207,6 +207,22 @@
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     :cond_c
+    and-int/lit16 v2, p0, 0x80
+
+    if-eqz v2, :cond_e
+
+    if-nez v0, :cond_d
+
+    const-string/jumbo v2, ","
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    :cond_d
+    const-string/jumbo v2, "commitContent(InputContentInfo, Bundle)"
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    :cond_e
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v2
@@ -299,6 +315,15 @@
     or-int/lit8 v1, v1, 0x40
 
     :cond_7
+    invoke-static {p0}, Landroid/view/inputmethod/InputConnectionInspector;->hasCommitContent(Ljava/lang/Class;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_8
+
+    or-int/lit16 v1, v1, 0x80
+
+    :cond_8
     sget-object v2, Landroid/view/inputmethod/InputConnectionInspector;->sMissingMethodsMap:Ljava/util/Map;
 
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -313,345 +338,347 @@
 .method private static hasCloseConnection(Ljava/lang/Class;)Z
     .locals 5
 
-    const/4 v2, 0x0
-
-    :try_start_0
-    const-string/jumbo v3, "closeConnection"
-
     const/4 v4, 0x0
 
-    new-array v4, v4, [Ljava/lang/Class;
+    :try_start_0
+    const-string/jumbo v2, "closeConnection"
 
-    invoke-virtual {p0, v3, v4}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+    const/4 v3, 0x0
+
+    new-array v3, v3, [Ljava/lang/Class;
+
+    invoke-virtual {p0, v2, v3}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
 
     move-result-object v1
 
     invoke-virtual {v1}, Ljava/lang/reflect/Method;->getModifiers()I
 
-    move-result v3
+    move-result v2
 
-    invoke-static {v3}, Ljava/lang/reflect/Modifier;->isAbstract(I)Z
+    invoke-static {v2}, Ljava/lang/reflect/Modifier;->isAbstract(I)Z
     :try_end_0
     .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_0
 
-    move-result v3
+    move-result v2
 
-    if-eqz v3, :cond_0
+    xor-int/lit8 v2, v2, 0x1
 
-    :goto_0
     return v2
-
-    :cond_0
-    const/4 v2, 0x1
-
-    goto :goto_0
 
     :catch_0
     move-exception v0
 
-    return v2
+    return v4
 .end method
 
-.method private static hasCommitCorrection(Ljava/lang/Class;)Z
-    .locals 8
+.method private static hasCommitContent(Ljava/lang/Class;)Z
+    .locals 7
 
-    const/4 v3, 0x1
-
-    const/4 v2, 0x0
+    const/4 v6, 0x0
 
     :try_start_0
-    const-string/jumbo v4, "commitCorrection"
+    const-string/jumbo v2, "commitContent"
+
+    const/4 v3, 0x3
+
+    new-array v3, v3, [Ljava/lang/Class;
+
+    const-class v4, Landroid/view/inputmethod/InputContentInfo;
+
+    const/4 v5, 0x0
+
+    aput-object v4, v3, v5
+
+    sget-object v4, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
 
     const/4 v5, 0x1
 
-    new-array v5, v5, [Ljava/lang/Class;
+    aput-object v4, v3, v5
 
-    const-class v6, Landroid/view/inputmethod/CorrectionInfo;
-
-    const/4 v7, 0x0
-
-    aput-object v6, v5, v7
-
-    invoke-virtual {p0, v4, v5}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/reflect/Method;->getModifiers()I
-
-    move-result v4
-
-    invoke-static {v4}, Ljava/lang/reflect/Modifier;->isAbstract(I)Z
-    :try_end_0
-    .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_0
-
-    move-result v4
-
-    if-eqz v4, :cond_0
-
-    :goto_0
-    return v2
-
-    :cond_0
-    move v2, v3
-
-    goto :goto_0
-
-    :catch_0
-    move-exception v0
-
-    return v2
-.end method
-
-.method private static hasDeleteSurroundingTextInCodePoints(Ljava/lang/Class;)Z
-    .locals 8
-
-    const/4 v3, 0x1
-
-    const/4 v2, 0x0
-
-    :try_start_0
-    const-string/jumbo v4, "deleteSurroundingTextInCodePoints"
+    const-class v4, Landroid/os/Bundle;
 
     const/4 v5, 0x2
 
-    new-array v5, v5, [Ljava/lang/Class;
+    aput-object v4, v3, v5
 
-    sget-object v6, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
-
-    const/4 v7, 0x0
-
-    aput-object v6, v5, v7
-
-    sget-object v6, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
-
-    const/4 v7, 0x1
-
-    aput-object v6, v5, v7
-
-    invoke-virtual {p0, v4, v5}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+    invoke-virtual {p0, v2, v3}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
 
     move-result-object v1
 
     invoke-virtual {v1}, Ljava/lang/reflect/Method;->getModifiers()I
 
-    move-result v4
+    move-result v2
 
-    invoke-static {v4}, Ljava/lang/reflect/Modifier;->isAbstract(I)Z
+    invoke-static {v2}, Ljava/lang/reflect/Modifier;->isAbstract(I)Z
     :try_end_0
     .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_0
 
-    move-result v4
+    move-result v2
 
-    if-eqz v4, :cond_0
+    xor-int/lit8 v2, v2, 0x1
 
-    :goto_0
     return v2
-
-    :cond_0
-    move v2, v3
-
-    goto :goto_0
 
     :catch_0
     move-exception v0
 
+    return v6
+.end method
+
+.method private static hasCommitCorrection(Ljava/lang/Class;)Z
+    .locals 7
+
+    const/4 v6, 0x0
+
+    :try_start_0
+    const-string/jumbo v2, "commitCorrection"
+
+    const/4 v3, 0x1
+
+    new-array v3, v3, [Ljava/lang/Class;
+
+    const-class v4, Landroid/view/inputmethod/CorrectionInfo;
+
+    const/4 v5, 0x0
+
+    aput-object v4, v3, v5
+
+    invoke-virtual {p0, v2, v3}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/reflect/Method;->getModifiers()I
+
+    move-result v2
+
+    invoke-static {v2}, Ljava/lang/reflect/Modifier;->isAbstract(I)Z
+    :try_end_0
+    .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v2
+
+    xor-int/lit8 v2, v2, 0x1
+
     return v2
+
+    :catch_0
+    move-exception v0
+
+    return v6
+.end method
+
+.method private static hasDeleteSurroundingTextInCodePoints(Ljava/lang/Class;)Z
+    .locals 7
+
+    const/4 v6, 0x0
+
+    :try_start_0
+    const-string/jumbo v2, "deleteSurroundingTextInCodePoints"
+
+    const/4 v3, 0x2
+
+    new-array v3, v3, [Ljava/lang/Class;
+
+    sget-object v4, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
+
+    const/4 v5, 0x0
+
+    aput-object v4, v3, v5
+
+    sget-object v4, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
+
+    const/4 v5, 0x1
+
+    aput-object v4, v3, v5
+
+    invoke-virtual {p0, v2, v3}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/reflect/Method;->getModifiers()I
+
+    move-result v2
+
+    invoke-static {v2}, Ljava/lang/reflect/Modifier;->isAbstract(I)Z
+    :try_end_0
+    .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v2
+
+    xor-int/lit8 v2, v2, 0x1
+
+    return v2
+
+    :catch_0
+    move-exception v0
+
+    return v6
 .end method
 
 .method private static hasGetHandler(Ljava/lang/Class;)Z
     .locals 5
 
-    const/4 v2, 0x0
-
-    :try_start_0
-    const-string/jumbo v3, "getHandler"
-
     const/4 v4, 0x0
 
-    new-array v4, v4, [Ljava/lang/Class;
+    :try_start_0
+    const-string/jumbo v2, "getHandler"
 
-    invoke-virtual {p0, v3, v4}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+    const/4 v3, 0x0
+
+    new-array v3, v3, [Ljava/lang/Class;
+
+    invoke-virtual {p0, v2, v3}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
 
     move-result-object v1
 
     invoke-virtual {v1}, Ljava/lang/reflect/Method;->getModifiers()I
 
-    move-result v3
+    move-result v2
 
-    invoke-static {v3}, Ljava/lang/reflect/Modifier;->isAbstract(I)Z
+    invoke-static {v2}, Ljava/lang/reflect/Modifier;->isAbstract(I)Z
     :try_end_0
     .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_0
 
-    move-result v3
+    move-result v2
 
-    if-eqz v3, :cond_0
+    xor-int/lit8 v2, v2, 0x1
 
-    :goto_0
     return v2
-
-    :cond_0
-    const/4 v2, 0x1
-
-    goto :goto_0
 
     :catch_0
     move-exception v0
 
-    return v2
+    return v4
 .end method
 
 .method private static hasGetSelectedText(Ljava/lang/Class;)Z
-    .locals 8
+    .locals 7
+
+    const/4 v6, 0x0
+
+    :try_start_0
+    const-string/jumbo v2, "getSelectedText"
 
     const/4 v3, 0x1
 
-    const/4 v2, 0x0
+    new-array v3, v3, [Ljava/lang/Class;
 
-    :try_start_0
-    const-string/jumbo v4, "getSelectedText"
+    sget-object v4, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
 
-    const/4 v5, 0x1
+    const/4 v5, 0x0
 
-    new-array v5, v5, [Ljava/lang/Class;
+    aput-object v4, v3, v5
 
-    sget-object v6, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
-
-    const/4 v7, 0x0
-
-    aput-object v6, v5, v7
-
-    invoke-virtual {p0, v4, v5}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+    invoke-virtual {p0, v2, v3}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
 
     move-result-object v1
 
     invoke-virtual {v1}, Ljava/lang/reflect/Method;->getModifiers()I
 
-    move-result v4
+    move-result v2
 
-    invoke-static {v4}, Ljava/lang/reflect/Modifier;->isAbstract(I)Z
+    invoke-static {v2}, Ljava/lang/reflect/Modifier;->isAbstract(I)Z
     :try_end_0
     .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_0
 
-    move-result v4
+    move-result v2
 
-    if-eqz v4, :cond_0
+    xor-int/lit8 v2, v2, 0x1
 
-    :goto_0
     return v2
-
-    :cond_0
-    move v2, v3
-
-    goto :goto_0
 
     :catch_0
     move-exception v0
 
-    return v2
+    return v6
 .end method
 
 .method private static hasRequestCursorUpdate(Ljava/lang/Class;)Z
-    .locals 8
+    .locals 7
+
+    const/4 v6, 0x0
+
+    :try_start_0
+    const-string/jumbo v2, "requestCursorUpdates"
 
     const/4 v3, 0x1
 
-    const/4 v2, 0x0
+    new-array v3, v3, [Ljava/lang/Class;
 
-    :try_start_0
-    const-string/jumbo v4, "requestCursorUpdates"
+    sget-object v4, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
 
-    const/4 v5, 0x1
+    const/4 v5, 0x0
 
-    new-array v5, v5, [Ljava/lang/Class;
+    aput-object v4, v3, v5
 
-    sget-object v6, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
-
-    const/4 v7, 0x0
-
-    aput-object v6, v5, v7
-
-    invoke-virtual {p0, v4, v5}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+    invoke-virtual {p0, v2, v3}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
 
     move-result-object v1
 
     invoke-virtual {v1}, Ljava/lang/reflect/Method;->getModifiers()I
 
-    move-result v4
+    move-result v2
 
-    invoke-static {v4}, Ljava/lang/reflect/Modifier;->isAbstract(I)Z
+    invoke-static {v2}, Ljava/lang/reflect/Modifier;->isAbstract(I)Z
     :try_end_0
     .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_0
 
-    move-result v4
+    move-result v2
 
-    if-eqz v4, :cond_0
+    xor-int/lit8 v2, v2, 0x1
 
-    :goto_0
     return v2
-
-    :cond_0
-    move v2, v3
-
-    goto :goto_0
 
     :catch_0
     move-exception v0
 
-    return v2
+    return v6
 .end method
 
 .method private static hasSetComposingRegion(Ljava/lang/Class;)Z
-    .locals 8
+    .locals 7
 
-    const/4 v3, 0x1
-
-    const/4 v2, 0x0
+    const/4 v6, 0x0
 
     :try_start_0
-    const-string/jumbo v4, "setComposingRegion"
+    const-string/jumbo v2, "setComposingRegion"
 
-    const/4 v5, 0x2
+    const/4 v3, 0x2
 
-    new-array v5, v5, [Ljava/lang/Class;
+    new-array v3, v3, [Ljava/lang/Class;
 
-    sget-object v6, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
+    sget-object v4, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
 
-    const/4 v7, 0x0
+    const/4 v5, 0x0
 
-    aput-object v6, v5, v7
+    aput-object v4, v3, v5
 
-    sget-object v6, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
+    sget-object v4, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
 
-    const/4 v7, 0x1
+    const/4 v5, 0x1
 
-    aput-object v6, v5, v7
+    aput-object v4, v3, v5
 
-    invoke-virtual {p0, v4, v5}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+    invoke-virtual {p0, v2, v3}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
 
     move-result-object v1
 
     invoke-virtual {v1}, Ljava/lang/reflect/Method;->getModifiers()I
 
-    move-result v4
+    move-result v2
 
-    invoke-static {v4}, Ljava/lang/reflect/Modifier;->isAbstract(I)Z
+    invoke-static {v2}, Ljava/lang/reflect/Modifier;->isAbstract(I)Z
     :try_end_0
     .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_0
 
-    move-result v4
+    move-result v2
 
-    if-eqz v4, :cond_0
+    xor-int/lit8 v2, v2, 0x1
 
-    :goto_0
     return v2
-
-    :cond_0
-    move v2, v3
-
-    goto :goto_0
 
     :catch_0
     move-exception v0
 
-    return v2
+    return v6
 .end method

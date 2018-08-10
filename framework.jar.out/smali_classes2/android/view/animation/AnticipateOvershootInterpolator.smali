@@ -108,7 +108,7 @@
 
     move-result v1
 
-    invoke-virtual {p0, v1}, Landroid/view/animation/BaseInterpolator;->setChangingConfiguration(I)V
+    invoke-virtual {p0, v1}, Landroid/view/animation/AnticipateOvershootInterpolator;->setChangingConfiguration(I)V
 
     invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
 

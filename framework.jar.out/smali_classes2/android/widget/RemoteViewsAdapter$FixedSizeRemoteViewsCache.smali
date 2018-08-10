@@ -665,7 +665,7 @@
     move v5, v2
 
     :goto_1
-    if-gt v5, v3, :cond_5
+    if-gt v5, v3, :cond_4
 
     iget-object v6, p0, Landroid/widget/RemoteViewsAdapter$FixedSizeRemoteViewsCache;->mIndexRemoteViews:Landroid/util/SparseArray;
 
@@ -681,15 +681,10 @@
 
     move-result v6
 
-    if-eqz v6, :cond_4
+    xor-int/lit8 v6, v6, 0x1
 
-    :cond_3
-    :goto_2
-    add-int/lit8 v5, v5, 0x1
+    if-eqz v6, :cond_3
 
-    goto :goto_1
-
-    :cond_4
     iget-object v6, p0, Landroid/widget/RemoteViewsAdapter$FixedSizeRemoteViewsCache;->mIndicesToLoad:Landroid/util/SparseBooleanArray;
 
     const/4 v8, 0x0
@@ -698,7 +693,17 @@
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
-    goto :goto_2
+    :cond_3
+    add-int/lit8 v5, v5, 0x1
+
+    goto :goto_1
+
+    :cond_4
+    monitor-exit v7
+
+    const/4 v6, 0x1
+
+    return v6
 
     :catchall_1
     move-exception v6
@@ -706,13 +711,6 @@
     monitor-exit v7
 
     throw v6
-
-    :cond_5
-    monitor-exit v7
-
-    const/4 v6, 0x1
-
-    return v6
 .end method
 
 .method public queueRequestedPositionToLoad(I)V

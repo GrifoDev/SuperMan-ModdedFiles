@@ -37,10 +37,6 @@
 
 .field public flags:B
 
-.field public networkId:I
-
-.field public priority:I
-
 .field public ssid:Ljava/lang/String;
 
 

@@ -101,6 +101,17 @@
 
     move-result-object v3
 
+    if-nez v3, :cond_1
+
+    new-instance v5, Ljava/lang/IllegalStateException;
+
+    const-string/jumbo v6, "gamemanager system service is not available"
+
+    invoke-direct {v5, v6}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+
+    throw v5
+
+    :cond_1
     const/4 v4, -0x1
 
     :try_start_0
@@ -112,7 +123,7 @@
 
     const/4 v5, -0x1
 
-    if-ne v4, v5, :cond_1
+    if-ne v4, v5, :cond_2
 
     new-instance v5, Ljava/lang/IllegalStateException;
 
@@ -133,17 +144,17 @@
 
     throw v5
 
-    :cond_1
+    :cond_2
     const/4 v5, 0x1
 
-    if-ne v4, v5, :cond_2
+    if-ne v4, v5, :cond_3
 
     const/4 v2, 0x1
 
     :goto_0
     return v2
 
-    :cond_2
+    :cond_3
     const/4 v2, 0x0
 
     goto :goto_0

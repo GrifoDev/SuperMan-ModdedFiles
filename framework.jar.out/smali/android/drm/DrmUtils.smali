@@ -99,7 +99,7 @@
 
     new-array v1, v3, [B
 
-    invoke-virtual {v0, v1}, Ljava/io/FilterInputStream;->read([B)I
+    invoke-virtual {v0, v1}, Ljava/io/BufferedInputStream;->read([B)I
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 

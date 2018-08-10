@@ -814,11 +814,11 @@
 .method public toCharsString()Ljava/lang/String;
     .locals 2
 
-    const/4 v0, 0x0
-
     iget-object v1, p0, Landroid/content/pm/Signature;->mStringRef:Ljava/lang/ref/SoftReference;
 
     if-nez v1, :cond_0
+
+    const/4 v0, 0x0
 
     :goto_0
     if-eqz v0, :cond_1
@@ -830,11 +830,9 @@
 
     invoke-virtual {v1}, Ljava/lang/ref/SoftReference;->get()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v0
 
-    check-cast v1, Ljava/lang/String;
-
-    move-object v0, v1
+    check-cast v0, Ljava/lang/String;
 
     goto :goto_0
 

@@ -88,14 +88,25 @@
 
     if-ne v1, v2, :cond_3
 
+    move v1, v2
+
     :goto_3
-    iput-boolean v2, v0, Landroid/net/NetworkMisc;->knoxProfile:Z
+    iput-boolean v1, v0, Landroid/net/NetworkMisc;->knoxProfile:Z
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v1
 
     iput-object v1, v0, Landroid/net/NetworkMisc;->subscriberId:Ljava/lang/String;
+
+    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
+
+    move-result v1
+
+    if-eqz v1, :cond_4
+
+    :goto_4
+    iput-boolean v2, v0, Landroid/net/NetworkMisc;->provisioningNotificationDisabled:Z
 
     return-object v0
 
@@ -115,9 +126,14 @@
     goto :goto_2
 
     :cond_3
-    move v2, v3
+    move v1, v3
 
     goto :goto_3
+
+    :cond_4
+    move v2, v3
+
+    goto :goto_4
 .end method
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;

@@ -53,11 +53,11 @@
 
     const/4 v0, 0x1
 
-    invoke-virtual {p0, v0}, Landroid/widget/LinearLayout;->setOrientation(I)V
+    invoke-virtual {p0, v0}, Landroid/media/WebVttRenderingWidget$RegionLayout;->setOrientation(I)V
 
     iget v0, p3, Landroid/view/accessibility/CaptioningManager$CaptionStyle;->windowColor:I
 
-    invoke-virtual {p0, v0}, Landroid/view/View;->setBackgroundColor(I)V
+    invoke-virtual {p0, v0}, Landroid/media/WebVttRenderingWidget$RegionLayout;->setBackgroundColor(I)V
 
     return-void
 .end method
@@ -103,7 +103,7 @@
 
     move-result p2
 
-    invoke-virtual {p0, p1, p2}, Landroid/view/View;->measure(II)V
+    invoke-virtual {p0, p1, p2}, Landroid/media/WebVttRenderingWidget$RegionLayout;->measure(II)V
 
     return-void
 .end method
@@ -172,7 +172,7 @@
 
     invoke-virtual {v3, v2}, Ljava/util/ArrayList;->remove(I)Ljava/lang/Object;
 
-    invoke-virtual {p0, v0}, Landroid/view/ViewGroup;->removeView(Landroid/view/View;)V
+    invoke-virtual {p0, v0}, Landroid/media/WebVttRenderingWidget$RegionLayout;->removeView(Landroid/view/View;)V
 
     add-int/lit8 v1, v1, -0x1
 
@@ -235,7 +235,7 @@
     :cond_1
     new-instance v0, Landroid/media/WebVttRenderingWidget$CueLayout;
 
-    invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
+    invoke-virtual {p0}, Landroid/media/WebVttRenderingWidget$RegionLayout;->getContext()Landroid/content/Context;
 
     move-result-object v3
 
@@ -249,9 +249,9 @@
 
     invoke-virtual {v3, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    invoke-virtual {p0, v0, v6, v6}, Landroid/view/ViewGroup;->addView(Landroid/view/View;II)V
+    invoke-virtual {p0, v0, v6, v6}, Landroid/media/WebVttRenderingWidget$RegionLayout;->addView(Landroid/view/View;II)V
 
-    invoke-virtual {p0}, Landroid/view/ViewGroup;->getChildCount()I
+    invoke-virtual {p0}, Landroid/media/WebVttRenderingWidget$RegionLayout;->getChildCount()I
 
     move-result v3
 
@@ -263,7 +263,7 @@
 
     const/4 v3, 0x0
 
-    invoke-virtual {p0, v3}, Landroid/view/ViewGroup;->removeViewAt(I)V
+    invoke-virtual {p0, v3}, Landroid/media/WebVttRenderingWidget$RegionLayout;->removeViewAt(I)V
 
     :cond_2
     return-void
@@ -304,7 +304,7 @@
     :cond_0
     iget v3, p1, Landroid/view/accessibility/CaptioningManager$CaptionStyle;->windowColor:I
 
-    invoke-virtual {p0, v3}, Landroid/view/View;->setBackgroundColor(I)V
+    invoke-virtual {p0, v3}, Landroid/media/WebVttRenderingWidget$RegionLayout;->setBackgroundColor(I)V
 
     return-void
 .end method

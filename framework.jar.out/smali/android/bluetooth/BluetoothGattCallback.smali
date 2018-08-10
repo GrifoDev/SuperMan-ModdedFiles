@@ -14,12 +14,6 @@
 
 
 # virtual methods
-.method public onAutoConnectionStatusCb(I)V
-    .locals 0
-
-    return-void
-.end method
-
 .method public onCharacteristicChanged(Landroid/bluetooth/BluetoothGatt;Landroid/bluetooth/BluetoothGattCharacteristic;)V
     .locals 0
 
@@ -38,13 +32,13 @@
     return-void
 .end method
 
-.method public onConnParamsChanged(Landroid/bluetooth/BluetoothGatt;II)V
+.method public onConnectionStateChange(Landroid/bluetooth/BluetoothGatt;II)V
     .locals 0
 
     return-void
 .end method
 
-.method public onConnectionStateChange(Landroid/bluetooth/BluetoothGatt;II)V
+.method public onConnectionUpdated(Landroid/bluetooth/BluetoothGatt;IIII)V
     .locals 0
 
     return-void
@@ -63,6 +57,18 @@
 .end method
 
 .method public onMtuChanged(Landroid/bluetooth/BluetoothGatt;II)V
+    .locals 0
+
+    return-void
+.end method
+
+.method public onPhyRead(Landroid/bluetooth/BluetoothGatt;III)V
+    .locals 0
+
+    return-void
+.end method
+
+.method public onPhyUpdate(Landroid/bluetooth/BluetoothGatt;III)V
     .locals 0
 
     return-void

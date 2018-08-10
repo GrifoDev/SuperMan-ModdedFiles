@@ -37,7 +37,7 @@
 
     const-string/jumbo v0, "android.hardware.input.ITabletModeChangedListener"
 
-    invoke-virtual {p0, p0, v0}, Landroid/os/Binder;->attachInterface(Landroid/os/IInterface;Ljava/lang/String;)V
+    invoke-virtual {p0, p0, v0}, Landroid/hardware/input/ITabletModeChangedListener$Stub;->attachInterface(Landroid/os/IInterface;Ljava/lang/String;)V
 
     return-void
 .end method
@@ -92,9 +92,7 @@
         }
     .end annotation
 
-    const/4 v2, 0x0
-
-    const/4 v3, 0x1
+    const/4 v4, 0x1
 
     sparse-switch p1, :sswitch_data_0
 
@@ -105,16 +103,16 @@
     return v3
 
     :sswitch_0
-    const-string/jumbo v4, "android.hardware.input.ITabletModeChangedListener"
+    const-string/jumbo v3, "android.hardware.input.ITabletModeChangedListener"
 
-    invoke-virtual {p3, v4}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p3, v3}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    return v3
+    return v4
 
     :sswitch_1
-    const-string/jumbo v4, "android.hardware.input.ITabletModeChangedListener"
+    const-string/jumbo v3, "android.hardware.input.ITabletModeChangedListener"
 
-    invoke-virtual {p2, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readLong()J
 
@@ -122,16 +120,23 @@
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v4
+    move-result v3
 
-    if-eqz v4, :cond_0
+    if-eqz v3, :cond_0
 
-    move v2, v3
+    const/4 v2, 0x1
 
-    :cond_0
+    :goto_0
     invoke-virtual {p0, v0, v1, v2}, Landroid/hardware/input/ITabletModeChangedListener$Stub;->onTabletModeChanged(JZ)V
 
-    return v3
+    return v4
+
+    :cond_0
+    const/4 v2, 0x0
+
+    goto :goto_0
+
+    nop
 
     :sswitch_data_0
     .sparse-switch

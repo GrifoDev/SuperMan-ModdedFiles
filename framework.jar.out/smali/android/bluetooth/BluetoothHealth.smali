@@ -417,7 +417,7 @@
 
     const-string/jumbo v1, "BluetoothHealth"
 
-    invoke-virtual {v0}, Ljava/lang/Throwable;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Landroid/os/RemoteException;->toString()Ljava/lang/String;
 
     move-result-object v2
 
@@ -487,7 +487,7 @@
 
     const-string/jumbo v1, "BluetoothHealth"
 
-    invoke-virtual {v0}, Ljava/lang/Throwable;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Landroid/os/RemoteException;->toString()Ljava/lang/String;
 
     move-result-object v2
 
@@ -557,7 +557,7 @@
 
     const-string/jumbo v1, "BluetoothHealth"
 
-    invoke-virtual {v0}, Ljava/lang/Throwable;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Landroid/os/RemoteException;->toString()Ljava/lang/String;
 
     move-result-object v2
 
@@ -631,11 +631,9 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    xor-int/lit8 v2, v2, 0x1
 
-    const/4 v2, 0x1
-
-    return v2
+    if-eqz v2, :cond_1
 
     :cond_0
     const-string/jumbo v2, "BluetoothHealth"
@@ -661,6 +659,11 @@
     invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     return v5
+
+    :cond_1
+    const/4 v2, 0x1
+
+    return v2
 .end method
 
 .method public getConnectedDevices()Ljava/util/List;
@@ -789,7 +792,7 @@
 
     const-string/jumbo v1, "BluetoothHealth"
 
-    invoke-virtual {v0}, Ljava/lang/Throwable;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Landroid/os/RemoteException;->toString()Ljava/lang/String;
 
     move-result-object v2
 
@@ -952,7 +955,7 @@
 
     const-string/jumbo v1, "BluetoothHealth"
 
-    invoke-virtual {v0}, Ljava/lang/Throwable;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Landroid/os/RemoteException;->toString()Ljava/lang/String;
 
     move-result-object v2
 
@@ -998,8 +1001,14 @@
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    xor-int/lit8 v4, v4, 0x1
 
+    if-eqz v4, :cond_1
+
+    :cond_0
+    return v2
+
+    :cond_1
     new-instance v3, Landroid/bluetooth/BluetoothHealth$BluetoothHealthCallbackWrapper;
 
     invoke-direct {v3, p5}, Landroid/bluetooth/BluetoothHealth$BluetoothHealthCallbackWrapper;-><init>(Landroid/bluetooth/BluetoothHealthCallback;)V
@@ -1010,7 +1019,7 @@
 
     iget-object v4, p0, Landroid/bluetooth/BluetoothHealth;->mService:Landroid/bluetooth/IBluetoothHealth;
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_2
 
     :try_start_0
     iget-object v4, p0, Landroid/bluetooth/BluetoothHealth;->mService:Landroid/bluetooth/IBluetoothHealth;
@@ -1024,15 +1033,12 @@
     :goto_0
     return v2
 
-    :cond_0
-    return v2
-
     :catch_0
     move-exception v1
 
     const-string/jumbo v4, "BluetoothHealth"
 
-    invoke-virtual {v1}, Ljava/lang/Throwable;->toString()Ljava/lang/String;
+    invoke-virtual {v1}, Landroid/os/RemoteException;->toString()Ljava/lang/String;
 
     move-result-object v5
 
@@ -1040,7 +1046,7 @@
 
     goto :goto_0
 
-    :cond_1
+    :cond_2
     const-string/jumbo v4, "BluetoothHealth"
 
     const-string/jumbo v5, "Proxy not attached to service"
@@ -1132,7 +1138,7 @@
 
     const-string/jumbo v2, "BluetoothHealth"
 
-    invoke-virtual {v0}, Ljava/lang/Throwable;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Landroid/os/RemoteException;->toString()Ljava/lang/String;
 
     move-result-object v3
 

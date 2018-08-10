@@ -3,12 +3,12 @@
 .source "ViewRootImpl.java"
 
 # interfaces
-.implements Ljava/lang/Runnable;
+.implements Landroid/view/Choreographer$FrameCallback;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Landroid/view/ViewRootImpl;->loadSystemProperties()V
+    value = Landroid/view/ViewRootImpl;->profileRendering(Z)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -34,96 +34,49 @@
 
 
 # virtual methods
-.method public run()V
-    .locals 5
-
-    const/16 v4, 0x16
+.method public doFrame(J)V
+    .locals 4
 
     const/4 v3, 0x0
 
-    iget-object v1, p0, Landroid/view/ViewRootImpl$5;->this$0:Landroid/view/ViewRootImpl;
+    iget-object v0, p0, Landroid/view/ViewRootImpl$5;->this$0:Landroid/view/ViewRootImpl;
 
-    const-string/jumbo v2, "viewroot.profile_rendering"
-
-    invoke-static {v2, v3}, Landroid/os/SystemProperties;->getBoolean(Ljava/lang/String;Z)Z
-
-    move-result v2
-
-    invoke-static {v1, v2}, Landroid/view/ViewRootImpl;->-set1(Landroid/view/ViewRootImpl;Z)Z
+    iget-object v0, v0, Landroid/view/ViewRootImpl;->mDirty:Landroid/graphics/Rect;
 
     iget-object v1, p0, Landroid/view/ViewRootImpl$5;->this$0:Landroid/view/ViewRootImpl;
+
+    iget v1, v1, Landroid/view/ViewRootImpl;->mWidth:I
 
     iget-object v2, p0, Landroid/view/ViewRootImpl$5;->this$0:Landroid/view/ViewRootImpl;
 
-    iget-object v2, v2, Landroid/view/ViewRootImpl;->mAttachInfo:Landroid/view/View$AttachInfo;
+    iget v2, v2, Landroid/view/ViewRootImpl;->mHeight:I
 
-    iget-boolean v2, v2, Landroid/view/View$AttachInfo;->mHasWindowFocus:Z
+    invoke-virtual {v0, v3, v3, v1, v2}, Landroid/graphics/Rect;->set(IIII)V
 
-    invoke-static {v1, v2}, Landroid/view/ViewRootImpl;->-wrap13(Landroid/view/ViewRootImpl;Z)V
+    iget-object v0, p0, Landroid/view/ViewRootImpl$5;->this$0:Landroid/view/ViewRootImpl;
 
-    iget-object v1, p0, Landroid/view/ViewRootImpl$5;->this$0:Landroid/view/ViewRootImpl;
+    invoke-virtual {v0}, Landroid/view/ViewRootImpl;->scheduleTraversals()V
 
-    iget-object v1, v1, Landroid/view/ViewRootImpl;->mAttachInfo:Landroid/view/View$AttachInfo;
+    iget-object v0, p0, Landroid/view/ViewRootImpl$5;->this$0:Landroid/view/ViewRootImpl;
 
-    iget-object v1, v1, Landroid/view/View$AttachInfo;->mHardwareRenderer:Landroid/view/ThreadedRenderer;
-
-    if-eqz v1, :cond_0
-
-    iget-object v1, p0, Landroid/view/ViewRootImpl$5;->this$0:Landroid/view/ViewRootImpl;
-
-    iget-object v1, v1, Landroid/view/ViewRootImpl;->mAttachInfo:Landroid/view/View$AttachInfo;
-
-    iget-object v1, v1, Landroid/view/View$AttachInfo;->mHardwareRenderer:Landroid/view/ThreadedRenderer;
-
-    invoke-virtual {v1}, Landroid/view/ThreadedRenderer;->loadSystemProperties()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    iget-object v1, p0, Landroid/view/ViewRootImpl$5;->this$0:Landroid/view/ViewRootImpl;
-
-    invoke-virtual {v1}, Landroid/view/ViewRootImpl;->invalidate()V
-
-    :cond_0
-    const-string/jumbo v1, "debug.layout"
-
-    invoke-static {v1, v3}, Landroid/os/SystemProperties;->getBoolean(Ljava/lang/String;Z)Z
+    invoke-static {v0}, Landroid/view/ViewRootImpl;->-get7(Landroid/view/ViewRootImpl;)Z
 
     move-result v0
 
-    iget-object v1, p0, Landroid/view/ViewRootImpl$5;->this$0:Landroid/view/ViewRootImpl;
+    if-eqz v0, :cond_0
 
-    iget-object v1, v1, Landroid/view/ViewRootImpl;->mAttachInfo:Landroid/view/View$AttachInfo;
+    iget-object v0, p0, Landroid/view/ViewRootImpl$5;->this$0:Landroid/view/ViewRootImpl;
 
-    iget-boolean v1, v1, Landroid/view/View$AttachInfo;->mDebugLayout:Z
-
-    if-eq v0, v1, :cond_1
+    iget-object v0, v0, Landroid/view/ViewRootImpl;->mChoreographer:Landroid/view/Choreographer;
 
     iget-object v1, p0, Landroid/view/ViewRootImpl$5;->this$0:Landroid/view/ViewRootImpl;
 
-    iget-object v1, v1, Landroid/view/ViewRootImpl;->mAttachInfo:Landroid/view/View$AttachInfo;
+    invoke-static {v1}, Landroid/view/ViewRootImpl;->-get6(Landroid/view/ViewRootImpl;)Landroid/view/Choreographer$FrameCallback;
 
-    iput-boolean v0, v1, Landroid/view/View$AttachInfo;->mDebugLayout:Z
+    move-result-object v1
 
-    iget-object v1, p0, Landroid/view/ViewRootImpl$5;->this$0:Landroid/view/ViewRootImpl;
+    invoke-virtual {v0, v1}, Landroid/view/Choreographer;->postFrameCallback(Landroid/view/Choreographer$FrameCallback;)V
 
-    iget-object v1, v1, Landroid/view/ViewRootImpl;->mHandler:Landroid/view/ViewRootImpl$ViewRootHandler;
-
-    invoke-virtual {v1, v4}, Landroid/os/Handler;->hasMessages(I)Z
-
-    move-result v1
-
-    if-nez v1, :cond_1
-
-    iget-object v1, p0, Landroid/view/ViewRootImpl$5;->this$0:Landroid/view/ViewRootImpl;
-
-    iget-object v1, v1, Landroid/view/ViewRootImpl;->mHandler:Landroid/view/ViewRootImpl$ViewRootHandler;
-
-    const-wide/16 v2, 0xc8
-
-    invoke-virtual {v1, v4, v2, v3}, Landroid/os/Handler;->sendEmptyMessageDelayed(IJ)Z
-
-    :cond_1
+    :cond_0
     return-void
 .end method

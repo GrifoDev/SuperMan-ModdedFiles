@@ -28,6 +28,8 @@
 
 .field public static final FLAG_SINGLE_USER:I = 0x40000000
 
+.field public static final FLAG_VISIBLE_TO_INSTANT_APP:I = 0x100000
+
 
 # instance fields
 .field public authority:Ljava/lang/String;

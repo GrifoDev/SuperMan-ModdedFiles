@@ -15,6 +15,8 @@
 
 
 # instance fields
+.field private mAlpha:I
+
 .field private mColor:I
 
 .field private mHsv:[F
@@ -30,6 +32,10 @@
 
     iput v0, p0, Lcom/samsung/android/widget/SemColorPicker$PickedColor;->mColor:I
 
+    const/16 v0, 0xff
+
+    iput v0, p0, Lcom/samsung/android/widget/SemColorPicker$PickedColor;->mAlpha:I
+
     const/4 v0, 0x3
 
     new-array v0, v0, [F
@@ -41,6 +47,14 @@
 
 
 # virtual methods
+.method public getAlpha()I
+    .locals 1
+
+    iget v0, p0, Lcom/samsung/android/widget/SemColorPicker$PickedColor;->mAlpha:I
+
+    return v0
+.end method
+
 .method public getColor()I
     .locals 1
 
@@ -61,14 +75,42 @@
     return v0
 .end method
 
+.method public setAlpha(I)V
+    .locals 2
+
+    iput p1, p0, Lcom/samsung/android/widget/SemColorPicker$PickedColor;->mAlpha:I
+
+    iget v0, p0, Lcom/samsung/android/widget/SemColorPicker$PickedColor;->mAlpha:I
+
+    iget-object v1, p0, Lcom/samsung/android/widget/SemColorPicker$PickedColor;->mHsv:[F
+
+    invoke-static {v0, v1}, Landroid/graphics/Color;->HSVToColor(I[F)I
+
+    move-result v0
+
+    iput v0, p0, Lcom/samsung/android/widget/SemColorPicker$PickedColor;->mColor:I
+
+    return-void
+.end method
+
 .method public setColor(I)V
-    .locals 1
+    .locals 2
 
     iput p1, p0, Lcom/samsung/android/widget/SemColorPicker$PickedColor;->mColor:I
 
-    iget-object v0, p0, Lcom/samsung/android/widget/SemColorPicker$PickedColor;->mHsv:[F
+    iget v0, p0, Lcom/samsung/android/widget/SemColorPicker$PickedColor;->mColor:I
 
-    invoke-static {p1, v0}, Landroid/graphics/Color;->colorToHSV(I[F)V
+    invoke-static {v0}, Landroid/graphics/Color;->alpha(I)I
+
+    move-result v0
+
+    iput v0, p0, Lcom/samsung/android/widget/SemColorPicker$PickedColor;->mAlpha:I
+
+    iget v0, p0, Lcom/samsung/android/widget/SemColorPicker$PickedColor;->mColor:I
+
+    iget-object v1, p0, Lcom/samsung/android/widget/SemColorPicker$PickedColor;->mHsv:[F
+
+    invoke-static {v0, v1}, Landroid/graphics/Color;->colorToHSV(I[F)V
 
     return-void
 .end method
@@ -96,9 +138,11 @@
 
     aput v1, v0, v2
 
-    iget-object v0, p0, Lcom/samsung/android/widget/SemColorPicker$PickedColor;->mHsv:[F
+    iget v0, p0, Lcom/samsung/android/widget/SemColorPicker$PickedColor;->mAlpha:I
 
-    invoke-static {v0}, Landroid/graphics/Color;->HSVToColor([F)I
+    iget-object v1, p0, Lcom/samsung/android/widget/SemColorPicker$PickedColor;->mHsv:[F
+
+    invoke-static {v0, v1}, Landroid/graphics/Color;->HSVToColor(I[F)I
 
     move-result v0
 
@@ -116,9 +160,11 @@
 
     aput p1, v0, v1
 
-    iget-object v0, p0, Lcom/samsung/android/widget/SemColorPicker$PickedColor;->mHsv:[F
+    iget v0, p0, Lcom/samsung/android/widget/SemColorPicker$PickedColor;->mAlpha:I
 
-    invoke-static {v0}, Landroid/graphics/Color;->HSVToColor([F)I
+    iget-object v1, p0, Lcom/samsung/android/widget/SemColorPicker$PickedColor;->mHsv:[F
+
+    invoke-static {v0, v1}, Landroid/graphics/Color;->HSVToColor(I[F)I
 
     move-result v0
 

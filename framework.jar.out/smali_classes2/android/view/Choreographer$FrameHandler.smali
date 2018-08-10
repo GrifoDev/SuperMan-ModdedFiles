@@ -70,21 +70,6 @@
 
     goto :goto_0
 
-    :pswitch_3
-    iget-object v1, p0, Landroid/view/Choreographer$FrameHandler;->this$0:Landroid/view/Choreographer;
-
-    iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
-
-    check-cast v0, Ljava/lang/Long;
-
-    invoke-virtual {v0}, Ljava/lang/Long;->longValue()J
-
-    move-result-wide v2
-
-    invoke-virtual {v1, v2, v3}, Landroid/view/Choreographer;->doReport(J)V
-
-    goto :goto_0
-
     nop
 
     :pswitch_data_0
@@ -92,6 +77,5 @@
         :pswitch_0
         :pswitch_1
         :pswitch_2
-        :pswitch_3
     .end packed-switch
 .end method

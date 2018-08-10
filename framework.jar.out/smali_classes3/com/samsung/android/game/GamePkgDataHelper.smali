@@ -12,9 +12,29 @@
 
 
 # static fields
+.field private static final ASPECT_RATIO_16_9:F = 1.7777778f
+
+.field public static final CATEGORY_GAME:I = 0x1
+
+.field public static final CATEGORY_MANAGED_APP:I = 0xa
+
+.field public static final CATEGORY_NON_GAME:I = 0x0
+
+.field public static final CATEGORY_SEC_GAME_FAMILY:I = 0x3
+
+.field public static final CATEGORY_TUNABLE_NON_GAME:I = 0x2
+
+.field public static final CATEGORY_UNDEFINED:I = -0x1
+
 .field public static final CPU_GPU_LEVEL_DEFAULT:I = 0x0
 
-.field static final TAG:Ljava/lang/String; = "GamePkgDataHelper"
+.field public static final MIN_PERCENT_UNDEFINED:I = -0x1
+
+.field public static final SHIFT_TEMPERATURE_DEFAULT:I = 0x0
+
+.field private static final TAG:Ljava/lang/String; = "GamePkgDataHelper"
+
+.field private static final bConventionalModeEnabled:Z
 
 .field private static mInstance:Lcom/samsung/android/game/GamePkgDataHelper;
 
@@ -95,27 +115,218 @@
 
 
 # virtual methods
-.method public declared-synchronized clearAllGamePkgData()V
-    .locals 2
+.method public declared-synchronized getGamePkgData(Ljava/lang/String;)Lcom/samsung/android/game/GamePkgDataHelper$GamePkgData;
+    .locals 5
 
     monitor-enter p0
 
     :try_start_0
-    const-string/jumbo v0, "GamePkgDataHelper"
+    const-string/jumbo v2, "GamePkgDataHelper"
 
-    const-string/jumbo v1, "clearAllGamePkgData()"
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    iget-object v0, p0, Lcom/samsung/android/game/GamePkgDataHelper;->mGamePkgDataMap:Ljava/util/HashMap;
+    const-string/jumbo v4, "getGamePkgData(). "
 
-    invoke-virtual {v0}, Ljava/util/HashMap;->clear()V
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 v0, 0x0
+
+    if-eqz p1, :cond_0
+
+    iget-object v2, p0, Lcom/samsung/android/game/GamePkgDataHelper;->mGamePkgDataMap:Ljava/util/HashMap;
+
+    invoke-virtual {v2, p1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/samsung/android/game/GamePkgDataHelper$GamePkgData;
+
+    if-eqz v1, :cond_0
+
+    invoke-virtual {v1}, Lcom/samsung/android/game/GamePkgDataHelper$GamePkgData;->getCategory()I
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result v2
+
+    const/4 v3, 0x1
+
+    if-ne v2, v3, :cond_0
+
+    move-object v0, v1
+
+    :cond_0
+    monitor-exit p0
+
+    return-object v0
+
+    :catchall_0
+    move-exception v2
+
+    monitor-exit p0
+
+    throw v2
+.end method
+
+.method public declared-synchronized getGamePkgDataIncServer(Ljava/lang/String;)Lcom/samsung/android/game/GamePkgDataHelper$GamePkgData;
+    .locals 6
+
+    const/4 v5, 0x1
+
+    monitor-enter p0
+
+    :try_start_0
+    const-string/jumbo v2, "GamePkgDataHelper"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "getGamePkgDataIncServer(). "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 v0, 0x0
+
+    if-eqz p1, :cond_1
+
+    iget-object v2, p0, Lcom/samsung/android/game/GamePkgDataHelper;->mGamePkgDataMap:Ljava/util/HashMap;
+
+    invoke-virtual {v2, p1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/samsung/android/game/GamePkgDataHelper$GamePkgData;
+
+    if-eqz v1, :cond_1
+
+    invoke-virtual {v1}, Lcom/samsung/android/game/GamePkgDataHelper$GamePkgData;->getServerCategory()I
+
+    move-result v2
+
+    const/16 v3, 0xa
+
+    if-eq v2, v3, :cond_1
+
+    invoke-virtual {v1}, Lcom/samsung/android/game/GamePkgDataHelper$GamePkgData;->getCategory()I
+
+    move-result v2
+
+    if-eq v2, v5, :cond_0
+
+    invoke-virtual {v1}, Lcom/samsung/android/game/GamePkgDataHelper$GamePkgData;->getServerCategory()I
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result v2
+
+    if-ne v2, v5, :cond_1
+
+    :cond_0
+    move-object v0, v1
+
+    :cond_1
+    monitor-exit p0
+
+    return-object v0
+
+    :catchall_0
+    move-exception v2
+
+    monitor-exit p0
+
+    throw v2
+.end method
+
+.method public declared-synchronized getPkgData(Ljava/lang/String;)Lcom/samsung/android/game/GamePkgDataHelper$GamePkgData;
+    .locals 2
+
+    monitor-enter p0
+
+    const/4 v0, 0x0
+
+    if-eqz p1, :cond_0
+
+    :try_start_0
+    iget-object v1, p0, Lcom/samsung/android/game/GamePkgDataHelper;->mGamePkgDataMap:Ljava/util/HashMap;
+
+    invoke-virtual {v1, p1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/samsung/android/game/GamePkgDataHelper$GamePkgData;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    :cond_0
+    monitor-exit p0
+
+    return-object v0
+
+    :catchall_0
+    move-exception v1
+
+    monitor-exit p0
+
+    throw v1
+.end method
+
+.method public declared-synchronized getPkgNameSet()Ljava/util/Set;
+    .locals 2
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/Set",
+            "<",
+            "Ljava/lang/String;",
+            ">;"
+        }
+    .end annotation
+
+    monitor-enter p0
+
+    :try_start_0
+    new-instance v0, Ljava/util/HashSet;
+
+    iget-object v1, p0, Lcom/samsung/android/game/GamePkgDataHelper;->mGamePkgDataMap:Ljava/util/HashMap;
+
+    invoke-virtual {v1}, Ljava/util/HashMap;->keySet()Ljava/util/Set;
+
+    move-result-object v1
+
+    invoke-direct {v0, v1}, Ljava/util/HashSet;-><init>(Ljava/util/Collection;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     monitor-exit p0
 
-    return-void
+    return-object v0
 
     :catchall_0
     move-exception v0
@@ -125,63 +336,88 @@
     throw v0
 .end method
 
-.method public declared-synchronized getGamePkgData(Ljava/lang/String;)Lcom/samsung/android/game/GamePkgDataHelper$GamePkgData;
-    .locals 4
+.method public declared-synchronized getSosPolicy(Ljava/lang/String;)Ljava/lang/String;
+    .locals 6
 
-    const/4 v3, 0x0
+    const/16 v5, 0xa
 
     monitor-enter p0
 
     :try_start_0
-    const-string/jumbo v0, "GamePkgDataHelper"
+    const-string/jumbo v2, "GamePkgDataHelper"
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v2, "getGamePkgData(). "
+    const-string/jumbo v4, "getSosPolicy(). "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 v0, 0x0
+
+    if-eqz p1, :cond_1
+
+    iget-object v2, p0, Lcom/samsung/android/game/GamePkgDataHelper;->mGamePkgDataMap:Ljava/util/HashMap;
+
+    invoke-virtual {v2, p1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v1
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    check-cast v1, Lcom/samsung/android/game/GamePkgDataHelper$GamePkgData;
 
-    move-result-object v1
+    if-eqz v1, :cond_1
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v1}, Lcom/samsung/android/game/GamePkgDataHelper$GamePkgData;->getServerCategory()I
 
-    move-result-object v1
+    move-result v2
 
-    invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    const/4 v3, 0x1
 
-    if-eqz p1, :cond_0
+    if-eq v2, v3, :cond_1
 
-    iget-object v0, p0, Lcom/samsung/android/game/GamePkgDataHelper;->mGamePkgDataMap:Ljava/util/HashMap;
+    invoke-virtual {v1}, Lcom/samsung/android/game/GamePkgDataHelper$GamePkgData;->getCategory()I
 
-    invoke-virtual {v0, p1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    move-result v2
 
-    move-result-object v0
+    if-eq v2, v5, :cond_0
 
-    check-cast v0, Lcom/samsung/android/game/GamePkgDataHelper$GamePkgData;
+    invoke-virtual {v1}, Lcom/samsung/android/game/GamePkgDataHelper$GamePkgData;->getServerCategory()I
+
+    move-result v2
+
+    if-ne v2, v5, :cond_1
+
+    :cond_0
+    invoke-virtual {v1}, Lcom/samsung/android/game/GamePkgDataHelper$GamePkgData;->getSosPolicy()Ljava/lang/String;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
+    move-result-object v0
+
+    :cond_1
     monitor-exit p0
 
     return-object v0
 
-    :cond_0
-    monitor-exit p0
-
-    return-object v3
-
     :catchall_0
-    move-exception v0
+    move-exception v2
 
     monitor-exit p0
 
-    throw v0
+    throw v2
 .end method
 
 .method public declared-synchronized putGamePkgData(Ljava/lang/String;Lcom/samsung/android/game/GamePkgDataHelper$GamePkgData;)V
@@ -284,138 +520,28 @@
     throw v0
 .end method
 
-.method public declared-synchronized showAllGamePkgDataInfo()V
-    .locals 6
+.method public declared-synchronized size()I
+    .locals 1
 
     monitor-enter p0
 
     :try_start_0
-    iget-object v3, p0, Lcom/samsung/android/game/GamePkgDataHelper;->mGamePkgDataMap:Ljava/util/HashMap;
+    iget-object v0, p0, Lcom/samsung/android/game/GamePkgDataHelper;->mGamePkgDataMap:Ljava/util/HashMap;
 
-    invoke-virtual {v3}, Ljava/util/HashMap;->entrySet()Ljava/util/Set;
-
-    move-result-object v3
-
-    invoke-interface {v3}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
-
-    move-result-object v1
-
-    :goto_0
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v3
-
-    if-eqz v3, :cond_0
-
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Ljava/util/Map$Entry;
-
-    invoke-interface {v0}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Lcom/samsung/android/game/GamePkgDataHelper$GamePkgData;
-
-    const-string/jumbo v4, "GamePkgDataHelper"
-
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v5, "key: "
-
-    invoke-virtual {v3, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-interface {v0}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
-
-    move-result-object v3
-
-    check-cast v3, Ljava/lang/String;
-
-    invoke-virtual {v5, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    const-string/jumbo v5, ", PkgName: "
-
-    invoke-virtual {v3, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v2}, Lcom/samsung/android/game/GamePkgDataHelper$GamePkgData;->getPkgName()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-virtual {v3, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    const-string/jumbo v5, ", cpuLevel: "
-
-    invoke-virtual {v3, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v2}, Lcom/samsung/android/game/GamePkgDataHelper$GamePkgData;->getCpuLevel()I
-
-    move-result v5
-
-    invoke-virtual {v3, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    const-string/jumbo v5, ", gpuLevel: "
-
-    invoke-virtual {v3, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v2}, Lcom/samsung/android/game/GamePkgDataHelper$GamePkgData;->getGpuLevel()I
-
-    move-result v5
-
-    invoke-virtual {v3, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    const-string/jumbo v5, ", governorSetting: "
-
-    invoke-virtual {v3, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v2}, Lcom/samsung/android/game/GamePkgDataHelper$GamePkgData;->getGovernorSetting()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-virtual {v3, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-static {v4, v3}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v0}, Ljava/util/HashMap;->size()I
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    goto :goto_0
+    move-result v0
+
+    monitor-exit p0
+
+    return v0
 
     :catchall_0
-    move-exception v3
+    move-exception v0
 
     monitor-exit p0
 
-    throw v3
-
-    :cond_0
-    monitor-exit p0
-
-    return-void
+    throw v0
 .end method

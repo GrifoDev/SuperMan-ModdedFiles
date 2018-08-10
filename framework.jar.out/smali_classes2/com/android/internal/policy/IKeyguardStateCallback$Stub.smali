@@ -26,13 +26,17 @@
 # static fields
 .field private static final DESCRIPTOR:Ljava/lang/String; = "com.android.internal.policy.IKeyguardStateCallback"
 
+.field static final TRANSACTION_onHasLockscreenWallpaperChanged:I = 0x5
+
 .field static final TRANSACTION_onInputRestrictedStateChanged:I = 0x3
 
 .field static final TRANSACTION_onShowingStateChanged:I = 0x1
 
 .field static final TRANSACTION_onSimSecureStateChanged:I = 0x2
 
-.field static final TRANSACTION_onSwipeLockShowingStateChanged:I = 0x4
+.field static final TRANSACTION_onSwipeLockShowingStateChanged:I = 0x6
+
+.field static final TRANSACTION_onTrustedChanged:I = 0x4
 
 
 # direct methods
@@ -98,9 +102,7 @@
         }
     .end annotation
 
-    const/4 v0, 0x0
-
-    const/4 v1, 0x1
+    const/4 v2, 0x1
 
     sparse-switch p1, :sswitch_data_0
 
@@ -111,93 +113,161 @@
     return v1
 
     :sswitch_0
-    const-string/jumbo v2, "com.android.internal.policy.IKeyguardStateCallback"
+    const-string/jumbo v1, "com.android.internal.policy.IKeyguardStateCallback"
 
-    invoke-virtual {p3, v2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p3, v1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    return v1
+    return v2
 
     :sswitch_1
-    const-string/jumbo v2, "com.android.internal.policy.IKeyguardStateCallback"
+    const-string/jumbo v1, "com.android.internal.policy.IKeyguardStateCallback"
 
-    invoke-virtual {p2, v2}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v1}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v2
+    move-result v1
 
-    if-eqz v2, :cond_0
+    if-eqz v1, :cond_0
 
-    move v0, v1
+    const/4 v0, 0x1
 
-    :cond_0
+    :goto_0
     invoke-virtual {p0, v0}, Lcom/android/internal/policy/IKeyguardStateCallback$Stub;->onShowingStateChanged(Z)V
 
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    return v1
+    return v2
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
 
     :sswitch_2
-    const-string/jumbo v2, "com.android.internal.policy.IKeyguardStateCallback"
+    const-string/jumbo v1, "com.android.internal.policy.IKeyguardStateCallback"
 
-    invoke-virtual {p2, v2}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v1}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v2
+    move-result v1
 
-    if-eqz v2, :cond_1
+    if-eqz v1, :cond_1
 
-    move v0, v1
+    const/4 v0, 0x1
 
-    :cond_1
+    :goto_1
     invoke-virtual {p0, v0}, Lcom/android/internal/policy/IKeyguardStateCallback$Stub;->onSimSecureStateChanged(Z)V
 
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    return v1
+    return v2
+
+    :cond_1
+    const/4 v0, 0x0
+
+    goto :goto_1
 
     :sswitch_3
-    const-string/jumbo v2, "com.android.internal.policy.IKeyguardStateCallback"
+    const-string/jumbo v1, "com.android.internal.policy.IKeyguardStateCallback"
 
-    invoke-virtual {p2, v2}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v1}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v2
+    move-result v1
 
-    if-eqz v2, :cond_2
+    if-eqz v1, :cond_2
 
-    move v0, v1
+    const/4 v0, 0x1
 
-    :cond_2
+    :goto_2
     invoke-virtual {p0, v0}, Lcom/android/internal/policy/IKeyguardStateCallback$Stub;->onInputRestrictedStateChanged(Z)V
 
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    return v1
+    return v2
+
+    :cond_2
+    const/4 v0, 0x0
+
+    goto :goto_2
 
     :sswitch_4
-    const-string/jumbo v2, "com.android.internal.policy.IKeyguardStateCallback"
+    const-string/jumbo v1, "com.android.internal.policy.IKeyguardStateCallback"
 
-    invoke-virtual {p2, v2}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v1}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v2
+    move-result v1
 
-    if-eqz v2, :cond_3
+    if-eqz v1, :cond_3
 
-    move v0, v1
+    const/4 v0, 0x1
+
+    :goto_3
+    invoke-virtual {p0, v0}, Lcom/android/internal/policy/IKeyguardStateCallback$Stub;->onTrustedChanged(Z)V
+
+    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+
+    return v2
 
     :cond_3
+    const/4 v0, 0x0
+
+    goto :goto_3
+
+    :sswitch_5
+    const-string/jumbo v1, "com.android.internal.policy.IKeyguardStateCallback"
+
+    invoke-virtual {p2, v1}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v1
+
+    if-eqz v1, :cond_4
+
+    const/4 v0, 0x1
+
+    :goto_4
+    invoke-virtual {p0, v0}, Lcom/android/internal/policy/IKeyguardStateCallback$Stub;->onHasLockscreenWallpaperChanged(Z)V
+
+    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+
+    return v2
+
+    :cond_4
+    const/4 v0, 0x0
+
+    goto :goto_4
+
+    :sswitch_6
+    const-string/jumbo v1, "com.android.internal.policy.IKeyguardStateCallback"
+
+    invoke-virtual {p2, v1}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v1
+
+    if-eqz v1, :cond_5
+
+    const/4 v0, 0x1
+
+    :goto_5
     invoke-virtual {p0, v0}, Lcom/android/internal/policy/IKeyguardStateCallback$Stub;->onSwipeLockShowingStateChanged(Z)V
 
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    return v1
+    return v2
 
-    nop
+    :cond_5
+    const/4 v0, 0x0
+
+    goto :goto_5
 
     :sswitch_data_0
     .sparse-switch
@@ -205,6 +275,8 @@
         0x2 -> :sswitch_2
         0x3 -> :sswitch_3
         0x4 -> :sswitch_4
+        0x5 -> :sswitch_5
+        0x6 -> :sswitch_6
         0x5f4e5446 -> :sswitch_0
     .end sparse-switch
 .end method

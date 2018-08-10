@@ -58,9 +58,11 @@
 
     move-result v0
 
-    invoke-static {v0}, Landroid/text/AndroidCharacter;->getMirror(C)C
+    invoke-static {v0}, Landroid/icu/lang/UCharacter;->getMirror(I)I
 
     move-result v0
+
+    int-to-char v0, v0
 
     return v0
 .end method

@@ -173,15 +173,13 @@
 .method private static getGLEnvironment(Landroid/filterfw/core/FilterContext;)Landroid/filterfw/core/GLEnvironment;
     .locals 3
 
-    const/4 v0, 0x0
-
     if-eqz p0, :cond_0
 
     invoke-virtual {p0}, Landroid/filterfw/core/FilterContext;->getGLEnvironment()Landroid/filterfw/core/GLEnvironment;
 
     move-result-object v0
 
-    :cond_0
+    :goto_0
     if-nez v0, :cond_1
 
     new-instance v1, Ljava/lang/NullPointerException;
@@ -191,6 +189,11 @@
     invoke-direct {v1, v2}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
     throw v1
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
 
     :cond_1
     return-object v0
@@ -395,9 +398,7 @@
 
     move-object v1, p2
 
-    nop
-
-    nop
+    check-cast v1, Landroid/filterfw/core/GLFrame;
 
     iget v5, p0, Landroid/filterfw/core/ShaderProgram;->mMaxTileSize:I
 

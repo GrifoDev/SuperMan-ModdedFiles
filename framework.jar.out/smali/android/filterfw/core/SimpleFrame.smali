@@ -17,7 +17,7 @@
 
     const/4 v0, 0x0
 
-    invoke-virtual {p0, v0}, Landroid/filterfw/core/Frame;->setReusable(Z)V
+    invoke-virtual {p0, v0}, Landroid/filterfw/core/SimpleFrame;->setReusable(Z)V
 
     return-void
 .end method
@@ -90,7 +90,7 @@
 .method private setFormatObjectClass(Ljava/lang/Class;)V
     .locals 2
 
-    invoke-virtual {p0}, Landroid/filterfw/core/Frame;->getFormat()Landroid/filterfw/core/FrameFormat;
+    invoke-virtual {p0}, Landroid/filterfw/core/SimpleFrame;->getFormat()Landroid/filterfw/core/FrameFormat;
 
     move-result-object v1
 
@@ -100,7 +100,7 @@
 
     invoke-virtual {v0, p1}, Landroid/filterfw/core/MutableFrameFormat;->setObjectClass(Ljava/lang/Class;)V
 
-    invoke-virtual {p0, v0}, Landroid/filterfw/core/Frame;->setFormat(Landroid/filterfw/core/FrameFormat;)V
+    invoke-virtual {p0, v0}, Landroid/filterfw/core/SimpleFrame;->setFormat(Landroid/filterfw/core/FrameFormat;)V
 
     return-void
 .end method
@@ -118,7 +118,7 @@
 
     invoke-direct {v1, v0, p1}, Landroid/filterfw/core/SimpleFrame;-><init>(Landroid/filterfw/core/FrameFormat;Landroid/filterfw/core/FrameManager;)V
 
-    invoke-virtual {v1, p0}, Landroid/filterfw/core/Frame;->setObjectValue(Ljava/lang/Object;)V
+    invoke-virtual {v1, p0}, Landroid/filterfw/core/SimpleFrame;->setObjectValue(Ljava/lang/Object;)V
 
     return-object v1
 .end method
@@ -238,7 +238,7 @@
 .method public setBitmap(Landroid/graphics/Bitmap;)V
     .locals 0
 
-    invoke-virtual {p0}, Landroid/filterfw/core/Frame;->assertFrameMutable()V
+    invoke-virtual {p0}, Landroid/filterfw/core/SimpleFrame;->assertFrameMutable()V
 
     invoke-virtual {p0, p1}, Landroid/filterfw/core/SimpleFrame;->setGenericObjectValue(Ljava/lang/Object;)V
 
@@ -248,7 +248,7 @@
 .method public setData(Ljava/nio/ByteBuffer;II)V
     .locals 1
 
-    invoke-virtual {p0}, Landroid/filterfw/core/Frame;->assertFrameMutable()V
+    invoke-virtual {p0}, Landroid/filterfw/core/SimpleFrame;->assertFrameMutable()V
 
     invoke-virtual {p1}, Ljava/nio/ByteBuffer;->array()[B
 
@@ -266,7 +266,7 @@
 .method public setFloats([F)V
     .locals 0
 
-    invoke-virtual {p0}, Landroid/filterfw/core/Frame;->assertFrameMutable()V
+    invoke-virtual {p0}, Landroid/filterfw/core/SimpleFrame;->assertFrameMutable()V
 
     invoke-virtual {p0, p1}, Landroid/filterfw/core/SimpleFrame;->setGenericObjectValue(Ljava/lang/Object;)V
 
@@ -276,7 +276,7 @@
 .method protected setGenericObjectValue(Ljava/lang/Object;)V
     .locals 4
 
-    invoke-virtual {p0}, Landroid/filterfw/core/Frame;->getFormat()Landroid/filterfw/core/FrameFormat;
+    invoke-virtual {p0}, Landroid/filterfw/core/SimpleFrame;->getFormat()Landroid/filterfw/core/FrameFormat;
 
     move-result-object v0
 
@@ -370,7 +370,7 @@
 .method public setInts([I)V
     .locals 0
 
-    invoke-virtual {p0}, Landroid/filterfw/core/Frame;->assertFrameMutable()V
+    invoke-virtual {p0}, Landroid/filterfw/core/SimpleFrame;->assertFrameMutable()V
 
     invoke-virtual {p0, p1}, Landroid/filterfw/core/SimpleFrame;->setGenericObjectValue(Ljava/lang/Object;)V
 
@@ -390,7 +390,7 @@
 
     move-result-object v0
 
-    invoke-virtual {p0}, Landroid/filterfw/core/Frame;->getFormat()Landroid/filterfw/core/FrameFormat;
+    invoke-virtual {p0}, Landroid/filterfw/core/SimpleFrame;->getFormat()Landroid/filterfw/core/FrameFormat;
 
     move-result-object v1
 

@@ -96,6 +96,28 @@
     return-void
 .end method
 
+.method public constructor <init>(Ljava/lang/String;Ljava/lang/Class;J)V
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/lang/String;",
+            "Ljava/lang/Class",
+            "<TT;>;J)V"
+        }
+    .end annotation
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    new-instance v0, Landroid/hardware/camera2/impl/CameraMetadataNative$Key;
+
+    invoke-direct {v0, p1, p2, p3, p4}, Landroid/hardware/camera2/impl/CameraMetadataNative$Key;-><init>(Ljava/lang/String;Ljava/lang/Class;J)V
+
+    iput-object v0, p0, Landroid/hardware/camera2/CameraCharacteristics$Key;->mKey:Landroid/hardware/camera2/impl/CameraMetadataNative$Key;
+
+    return-void
+.end method
+
 
 # virtual methods
 .method public final equals(Ljava/lang/Object;)Z
@@ -149,6 +171,18 @@
     iget-object v0, p0, Landroid/hardware/camera2/CameraCharacteristics$Key;->mKey:Landroid/hardware/camera2/impl/CameraMetadataNative$Key;
 
     return-object v0
+.end method
+
+.method public getVendorId()J
+    .locals 2
+
+    iget-object v0, p0, Landroid/hardware/camera2/CameraCharacteristics$Key;->mKey:Landroid/hardware/camera2/impl/CameraMetadataNative$Key;
+
+    invoke-virtual {v0}, Landroid/hardware/camera2/impl/CameraMetadataNative$Key;->getVendorId()J
+
+    move-result-wide v0
+
+    return-wide v0
 .end method
 
 .method public final hashCode()I

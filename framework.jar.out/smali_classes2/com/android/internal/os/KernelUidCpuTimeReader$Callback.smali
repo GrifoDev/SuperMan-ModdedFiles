@@ -15,5 +15,5 @@
 
 
 # virtual methods
-.method public abstract onUidCpuTime(IJJJ)V
+.method public abstract onUidCpuTime(IJJ)V
 .end method

@@ -126,7 +126,7 @@
 
     move-result-object v1
 
-    invoke-virtual {v0, v1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v1}, Landroid/os/Looper;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
@@ -147,12 +147,10 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    xor-int/lit8 v0, v0, 0x1
 
-    :cond_1
-    return-void
+    if-eqz v0, :cond_1
 
-    :cond_2
     new-instance v0, Ljava/lang/RuntimeException;
 
     const-string/jumbo v1, "Could not activate GLEnvironment!"
@@ -160,6 +158,9 @@
     invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
     throw v0
+
+    :cond_1
+    return-void
 .end method
 
 .method public activateSurfaceWithId(I)V
@@ -216,12 +217,10 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    xor-int/lit8 v0, v0, 0x1
 
-    :cond_0
-    return-void
+    if-eqz v0, :cond_0
 
-    :cond_1
     new-instance v0, Ljava/lang/RuntimeException;
 
     const-string/jumbo v1, "Could not deactivate GLEnvironment!"
@@ -229,6 +228,9 @@
     invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
     throw v0
+
+    :cond_0
+    return-void
 .end method
 
 .method protected finalize()V

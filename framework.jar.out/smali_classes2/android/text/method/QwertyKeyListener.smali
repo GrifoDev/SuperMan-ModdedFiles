@@ -1388,7 +1388,7 @@
     move/from16 v44, v33
 
     :goto_4
-    if-lez v44, :cond_18
+    if-lez v44, :cond_11
 
     add-int/lit8 v5, v44, -0x1
 
@@ -1400,18 +1400,69 @@
 
     const/16 v5, 0x27
 
-    if-eq v8, v5, :cond_11
+    if-eq v8, v5, :cond_18
 
     invoke-static {v8}, Ljava/lang/Character;->isLetter(C)Z
 
     move-result v5
 
+    xor-int/lit8 v5, v5, 0x1
+
     if-eqz v5, :cond_18
 
     :cond_11
-    add-int/lit8 v44, v44, -0x1
+    move-object/from16 v0, p0
 
-    goto :goto_4
+    move-object/from16 v1, p2
+
+    move/from16 v2, v44
+
+    move/from16 v3, v33
+
+    move-object/from16 v4, p1
+
+    invoke-direct {v0, v1, v2, v3, v4}, Landroid/text/method/QwertyKeyListener;->getReplacement(Ljava/lang/CharSequence;IILandroid/view/View;)Ljava/lang/String;
+
+    move-result-object v36
+
+    if-eqz v36, :cond_16
+
+    invoke-interface/range {p2 .. p2}, Landroid/text/Editable;->length()I
+
+    move-result v5
+
+    const-class v6, Landroid/text/method/QwertyKeyListener$Replaced;
+
+    const/4 v7, 0x0
+
+    move-object/from16 v0, p2
+
+    invoke-interface {v0, v7, v5, v6}, Landroid/text/Editable;->getSpans(IILjava/lang/Class;)[Ljava/lang/Object;
+
+    move-result-object v37
+
+    check-cast v37, [Landroid/text/method/QwertyKeyListener$Replaced;
+
+    const/16 v17, 0x0
+
+    :goto_5
+    move-object/from16 v0, v37
+
+    array-length v5, v0
+
+    move/from16 v0, v17
+
+    if-ge v0, v5, :cond_19
+
+    aget-object v5, v37, v17
+
+    move-object/from16 v0, p2
+
+    invoke-interface {v0, v5}, Landroid/text/Editable;->removeSpan(Ljava/lang/Object;)V
+
+    add-int/lit8 v17, v17, 0x1
+
+    goto :goto_5
 
     :cond_12
     const/16 v29, 0x0
@@ -1502,7 +1553,7 @@
     if-eq v5, v6, :cond_10
 
     :cond_16
-    :goto_5
+    :goto_6
     and-int/lit8 v5, v35, 0x4
 
     if-eqz v5, :cond_1c
@@ -1555,7 +1606,7 @@
 
     add-int/lit8 v30, v39, -0x3
 
-    :goto_6
+    :goto_7
     if-lez v30, :cond_1a
 
     const/16 v5, 0x22
@@ -1581,61 +1632,12 @@
 
     add-int/lit8 v30, v30, -0x1
 
-    goto :goto_6
+    goto :goto_7
 
     :cond_18
-    move-object/from16 v0, p0
+    add-int/lit8 v44, v44, -0x1
 
-    move-object/from16 v1, p2
-
-    move/from16 v2, v44
-
-    move/from16 v3, v33
-
-    move-object/from16 v4, p1
-
-    invoke-direct {v0, v1, v2, v3, v4}, Landroid/text/method/QwertyKeyListener;->getReplacement(Ljava/lang/CharSequence;IILandroid/view/View;)Ljava/lang/String;
-
-    move-result-object v36
-
-    if-eqz v36, :cond_16
-
-    invoke-interface/range {p2 .. p2}, Landroid/text/Editable;->length()I
-
-    move-result v5
-
-    const-class v6, Landroid/text/method/QwertyKeyListener$Replaced;
-
-    const/4 v7, 0x0
-
-    move-object/from16 v0, p2
-
-    invoke-interface {v0, v7, v5, v6}, Landroid/text/Editable;->getSpans(IILjava/lang/Class;)[Ljava/lang/Object;
-
-    move-result-object v37
-
-    check-cast v37, [Landroid/text/method/QwertyKeyListener$Replaced;
-
-    const/16 v17, 0x0
-
-    :goto_7
-    move-object/from16 v0, v37
-
-    array-length v5, v0
-
-    move/from16 v0, v17
-
-    if-ge v0, v5, :cond_19
-
-    aget-object v5, v37, v17
-
-    move-object/from16 v0, p2
-
-    invoke-interface {v0, v5}, Landroid/text/Editable;->removeSpan(Ljava/lang/Object;)V
-
-    add-int/lit8 v17, v17, 0x1
-
-    goto :goto_7
+    goto/16 :goto_4
 
     :cond_19
     sub-int v5, v33, v44
@@ -1682,7 +1684,7 @@
 
     invoke-interface {v0, v1, v2, v3}, Landroid/text/Editable;->replace(IILjava/lang/CharSequence;)Landroid/text/Editable;
 
-    goto/16 :goto_5
+    goto :goto_6
 
     :cond_1a
     invoke-static {v8}, Ljava/lang/Character;->isLetter(C)Z

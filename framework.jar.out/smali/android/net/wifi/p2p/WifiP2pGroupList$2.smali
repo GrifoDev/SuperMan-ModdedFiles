@@ -58,13 +58,10 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    xor-int/lit8 v0, v0, 0x1
 
-    :cond_0
-    :goto_0
-    return-void
+    if-eqz v0, :cond_0
 
-    :cond_1
     iget-object v0, p0, Landroid/net/wifi/p2p/WifiP2pGroupList$2;->this$0:Landroid/net/wifi/p2p/WifiP2pGroupList;
 
     invoke-static {v0}, Landroid/net/wifi/p2p/WifiP2pGroupList;->-get1(Landroid/net/wifi/p2p/WifiP2pGroupList;)Landroid/net/wifi/p2p/WifiP2pGroupList$GroupDeleteListener;
@@ -77,7 +74,8 @@
 
     invoke-interface {v0, v1}, Landroid/net/wifi/p2p/WifiP2pGroupList$GroupDeleteListener;->onDeleteGroup(I)V
 
-    goto :goto_0
+    :cond_0
+    return-void
 .end method
 
 .method protected bridge synthetic entryRemoved(ZLjava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V

@@ -1,5 +1,5 @@
 .class final Landroid/app/SystemServiceRegistry$14;
-.super Landroid/app/SystemServiceRegistry$StaticServiceFetcher;
+.super Landroid/app/SystemServiceRegistry$StaticApplicationContextServiceFetcher;
 .source "SystemServiceRegistry.java"
 
 
@@ -15,9 +15,9 @@
 
 .annotation system Ldalvik/annotation/Signature;
     value = {
-        "Landroid/app/SystemServiceRegistry$StaticServiceFetcher",
+        "Landroid/app/SystemServiceRegistry$StaticApplicationContextServiceFetcher",
         "<",
-        "Landroid/location/CountryDetector;",
+        "Landroid/net/ConnectivityManager;",
         ">;"
     }
 .end annotation
@@ -27,37 +27,47 @@
 .method constructor <init>()V
     .locals 0
 
-    invoke-direct {p0}, Landroid/app/SystemServiceRegistry$StaticServiceFetcher;-><init>()V
+    invoke-direct {p0}, Landroid/app/SystemServiceRegistry$StaticApplicationContextServiceFetcher;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public createService()Landroid/location/CountryDetector;
+.method public createService(Landroid/content/Context;)Landroid/net/ConnectivityManager;
     .locals 3
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/ServiceManager$ServiceNotFoundException;
+        }
+    .end annotation
 
-    const-string/jumbo v1, "country_detector"
+    const-string/jumbo v2, "connectivity"
 
-    invoke-static {v1}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
+    invoke-static {v2}, Landroid/os/ServiceManager;->getServiceOrThrow(Ljava/lang/String;)Landroid/os/IBinder;
 
     move-result-object v0
 
-    new-instance v1, Landroid/location/CountryDetector;
+    invoke-static {v0}, Landroid/net/IConnectivityManager$Stub;->asInterface(Landroid/os/IBinder;)Landroid/net/IConnectivityManager;
 
-    invoke-static {v0}, Landroid/location/ICountryDetector$Stub;->asInterface(Landroid/os/IBinder;)Landroid/location/ICountryDetector;
+    move-result-object v1
 
-    move-result-object v2
+    new-instance v2, Landroid/net/ConnectivityManager;
 
-    invoke-direct {v1, v2}, Landroid/location/CountryDetector;-><init>(Landroid/location/ICountryDetector;)V
+    invoke-direct {v2, p1, v1}, Landroid/net/ConnectivityManager;-><init>(Landroid/content/Context;Landroid/net/IConnectivityManager;)V
 
-    return-object v1
+    return-object v2
 .end method
 
-.method public bridge synthetic createService()Ljava/lang/Object;
+.method public bridge synthetic createService(Landroid/content/Context;)Ljava/lang/Object;
     .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/ServiceManager$ServiceNotFoundException;
+        }
+    .end annotation
 
-    invoke-virtual {p0}, Landroid/app/SystemServiceRegistry$14;->createService()Landroid/location/CountryDetector;
+    invoke-virtual {p0, p1}, Landroid/app/SystemServiceRegistry$14;->createService(Landroid/content/Context;)Landroid/net/ConnectivityManager;
 
     move-result-object v0
 

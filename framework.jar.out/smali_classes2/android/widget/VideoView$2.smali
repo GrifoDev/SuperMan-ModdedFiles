@@ -103,7 +103,7 @@
     :goto_3
     iget-object v2, p0, Landroid/widget/VideoView$2;->this$0:Landroid/widget/VideoView;
 
-    invoke-static {v2}, Landroid/widget/VideoView;->-get7(Landroid/widget/VideoView;)Landroid/media/MediaPlayer$OnPreparedListener;
+    invoke-static {v2}, Landroid/widget/VideoView;->-get8(Landroid/widget/VideoView;)Landroid/media/MediaPlayer$OnPreparedListener;
 
     move-result-object v2
 
@@ -111,13 +111,13 @@
 
     iget-object v2, p0, Landroid/widget/VideoView$2;->this$0:Landroid/widget/VideoView;
 
-    invoke-static {v2}, Landroid/widget/VideoView;->-get7(Landroid/widget/VideoView;)Landroid/media/MediaPlayer$OnPreparedListener;
+    invoke-static {v2}, Landroid/widget/VideoView;->-get8(Landroid/widget/VideoView;)Landroid/media/MediaPlayer$OnPreparedListener;
 
     move-result-object v2
 
     iget-object v4, p0, Landroid/widget/VideoView$2;->this$0:Landroid/widget/VideoView;
 
-    invoke-static {v4}, Landroid/widget/VideoView;->-get3(Landroid/widget/VideoView;)Landroid/media/MediaPlayer;
+    invoke-static {v4}, Landroid/widget/VideoView;->-get4(Landroid/widget/VideoView;)Landroid/media/MediaPlayer;
 
     move-result-object v4
 
@@ -126,7 +126,7 @@
     :cond_0
     iget-object v2, p0, Landroid/widget/VideoView$2;->this$0:Landroid/widget/VideoView;
 
-    invoke-static {v2}, Landroid/widget/VideoView;->-get2(Landroid/widget/VideoView;)Landroid/widget/MediaController;
+    invoke-static {v2}, Landroid/widget/VideoView;->-get3(Landroid/widget/VideoView;)Landroid/widget/MediaController;
 
     move-result-object v2
 
@@ -134,7 +134,7 @@
 
     iget-object v2, p0, Landroid/widget/VideoView$2;->this$0:Landroid/widget/VideoView;
 
-    invoke-static {v2}, Landroid/widget/VideoView;->-get2(Landroid/widget/VideoView;)Landroid/widget/MediaController;
+    invoke-static {v2}, Landroid/widget/VideoView;->-get3(Landroid/widget/VideoView;)Landroid/widget/MediaController;
 
     move-result-object v2
 
@@ -159,7 +159,7 @@
 
     iget-object v2, p0, Landroid/widget/VideoView$2;->this$0:Landroid/widget/VideoView;
 
-    invoke-static {v2}, Landroid/widget/VideoView;->-get8(Landroid/widget/VideoView;)I
+    invoke-static {v2}, Landroid/widget/VideoView;->-get9(Landroid/widget/VideoView;)I
 
     move-result v1
 
@@ -172,7 +172,7 @@
     :cond_2
     iget-object v2, p0, Landroid/widget/VideoView$2;->this$0:Landroid/widget/VideoView;
 
-    invoke-static {v2}, Landroid/widget/VideoView;->-get13(Landroid/widget/VideoView;)I
+    invoke-static {v2}, Landroid/widget/VideoView;->-get14(Landroid/widget/VideoView;)I
 
     move-result v2
 
@@ -180,7 +180,7 @@
 
     iget-object v2, p0, Landroid/widget/VideoView$2;->this$0:Landroid/widget/VideoView;
 
-    invoke-static {v2}, Landroid/widget/VideoView;->-get12(Landroid/widget/VideoView;)I
+    invoke-static {v2}, Landroid/widget/VideoView;->-get13(Landroid/widget/VideoView;)I
 
     move-result v2
 
@@ -194,17 +194,31 @@
 
     iget-object v3, p0, Landroid/widget/VideoView$2;->this$0:Landroid/widget/VideoView;
 
-    invoke-static {v3}, Landroid/widget/VideoView;->-get13(Landroid/widget/VideoView;)I
+    invoke-static {v3}, Landroid/widget/VideoView;->-get14(Landroid/widget/VideoView;)I
 
     move-result v3
 
     iget-object v4, p0, Landroid/widget/VideoView$2;->this$0:Landroid/widget/VideoView;
 
-    invoke-static {v4}, Landroid/widget/VideoView;->-get12(Landroid/widget/VideoView;)I
+    invoke-static {v4}, Landroid/widget/VideoView;->-get13(Landroid/widget/VideoView;)I
 
     move-result v4
 
     invoke-interface {v2, v3, v4}, Landroid/view/SurfaceHolder;->setFixedSize(II)V
+
+    iget-object v2, p0, Landroid/widget/VideoView$2;->this$0:Landroid/widget/VideoView;
+
+    invoke-static {v2}, Landroid/widget/VideoView;->-get11(Landroid/widget/VideoView;)I
+
+    move-result v2
+
+    iget-object v3, p0, Landroid/widget/VideoView$2;->this$0:Landroid/widget/VideoView;
+
+    invoke-static {v3}, Landroid/widget/VideoView;->-get14(Landroid/widget/VideoView;)I
+
+    move-result v3
+
+    if-ne v2, v3, :cond_3
 
     iget-object v2, p0, Landroid/widget/VideoView$2;->this$0:Landroid/widget/VideoView;
 
@@ -222,21 +236,7 @@
 
     iget-object v2, p0, Landroid/widget/VideoView$2;->this$0:Landroid/widget/VideoView;
 
-    invoke-static {v2}, Landroid/widget/VideoView;->-get9(Landroid/widget/VideoView;)I
-
-    move-result v2
-
-    iget-object v3, p0, Landroid/widget/VideoView$2;->this$0:Landroid/widget/VideoView;
-
-    invoke-static {v3}, Landroid/widget/VideoView;->-get12(Landroid/widget/VideoView;)I
-
-    move-result v3
-
-    if-ne v2, v3, :cond_3
-
-    iget-object v2, p0, Landroid/widget/VideoView$2;->this$0:Landroid/widget/VideoView;
-
-    invoke-static {v2}, Landroid/widget/VideoView;->-get11(Landroid/widget/VideoView;)I
+    invoke-static {v2}, Landroid/widget/VideoView;->-get12(Landroid/widget/VideoView;)I
 
     move-result v2
 
@@ -248,7 +248,7 @@
 
     iget-object v2, p0, Landroid/widget/VideoView$2;->this$0:Landroid/widget/VideoView;
 
-    invoke-static {v2}, Landroid/widget/VideoView;->-get2(Landroid/widget/VideoView;)Landroid/widget/MediaController;
+    invoke-static {v2}, Landroid/widget/VideoView;->-get3(Landroid/widget/VideoView;)Landroid/widget/MediaController;
 
     move-result-object v2
 
@@ -256,7 +256,7 @@
 
     iget-object v2, p0, Landroid/widget/VideoView$2;->this$0:Landroid/widget/VideoView;
 
-    invoke-static {v2}, Landroid/widget/VideoView;->-get2(Landroid/widget/VideoView;)Landroid/widget/MediaController;
+    invoke-static {v2}, Landroid/widget/VideoView;->-get3(Landroid/widget/VideoView;)Landroid/widget/MediaController;
 
     move-result-object v2
 
@@ -322,7 +322,7 @@
     :cond_9
     iget-object v2, p0, Landroid/widget/VideoView$2;->this$0:Landroid/widget/VideoView;
 
-    invoke-static {v2}, Landroid/widget/VideoView;->-get2(Landroid/widget/VideoView;)Landroid/widget/MediaController;
+    invoke-static {v2}, Landroid/widget/VideoView;->-get3(Landroid/widget/VideoView;)Landroid/widget/MediaController;
 
     move-result-object v2
 
@@ -330,7 +330,7 @@
 
     iget-object v2, p0, Landroid/widget/VideoView$2;->this$0:Landroid/widget/VideoView;
 
-    invoke-static {v2}, Landroid/widget/VideoView;->-get2(Landroid/widget/VideoView;)Landroid/widget/MediaController;
+    invoke-static {v2}, Landroid/widget/VideoView;->-get3(Landroid/widget/VideoView;)Landroid/widget/MediaController;
 
     move-result-object v2
 
@@ -341,7 +341,7 @@
     :cond_a
     iget-object v2, p0, Landroid/widget/VideoView$2;->this$0:Landroid/widget/VideoView;
 
-    invoke-static {v2}, Landroid/widget/VideoView;->-get11(Landroid/widget/VideoView;)I
+    invoke-static {v2}, Landroid/widget/VideoView;->-get12(Landroid/widget/VideoView;)I
 
     move-result v2
 

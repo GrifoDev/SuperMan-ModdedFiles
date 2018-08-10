@@ -47,9 +47,7 @@
 
     move-object v0, v3
 
-    nop
-
-    nop
+    check-cast v0, [I
 
     invoke-static {p0}, Lcom/samsung/android/media/QdioJNI;->checkFileString(Ljava/lang/String;)Z
 
@@ -212,16 +210,19 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    xor-int/lit8 v0, v0, 0x1
 
-    invoke-static {p0, p1}, Lcom/samsung/android/media/QdioJNI;->copyAdioData(Ljava/lang/String;Ljava/lang/String;)I
-
-    move-result v0
-
-    return v0
+    if-eqz v0, :cond_1
 
     :cond_0
     const/4 v0, 0x0
+
+    return v0
+
+    :cond_1
+    invoke-static {p0, p1}, Lcom/samsung/android/media/QdioJNI;->copyAdioData(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v0
 
     return v0
 .end method
@@ -235,9 +236,7 @@
 
     move-object v1, v3
 
-    nop
-
-    nop
+    check-cast v1, [I
 
     invoke-static {p0}, Lcom/samsung/android/media/QdioJNI;->checkFileString(Ljava/lang/String;)Z
 
@@ -376,9 +375,7 @@
 
     move-object v0, v2
 
-    nop
-
-    nop
+    check-cast v0, [I
 
     invoke-static {p0}, Lcom/samsung/android/media/QdioJNI;->checkFileString(Ljava/lang/String;)Z
 
@@ -470,9 +467,7 @@
 
     move-object v4, v8
 
-    nop
-
-    nop
+    check-cast v4, [B
 
     if-nez p0, :cond_0
 
@@ -723,7 +718,7 @@
     move-exception v0
 
     :try_start_3
-    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
@@ -751,9 +746,7 @@
 
     move-object v4, v8
 
-    nop
-
-    nop
+    check-cast v4, [B
 
     if-nez p0, :cond_0
 
@@ -1004,7 +997,7 @@
     move-exception v0
 
     :try_start_3
-    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 

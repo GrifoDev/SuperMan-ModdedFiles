@@ -43,6 +43,8 @@
 
 .field private final mProviderData:Ljava/lang/String;
 
+.field private final mSimId:I
+
 .field private final mSource:Ljava/lang/String;
 
 .field private final mTimestamp:Ljava/lang/Long;
@@ -200,6 +202,12 @@
 
     iput-object v0, p0, Landroid/telecom/Voicemail;->mTranscription:Ljava/lang/String;
 
+    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
+
+    move-result v0
+
+    iput v0, p0, Landroid/telecom/Voicemail;->mSimId:I
+
     return-void
 
     :cond_0
@@ -231,7 +239,7 @@
     return-void
 .end method
 
-.method private constructor <init>(Ljava/lang/Long;Ljava/lang/String;Landroid/telecom/PhoneAccountHandle;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/String;Ljava/lang/String;Landroid/net/Uri;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/String;)V
+.method private constructor <init>(Ljava/lang/Long;Ljava/lang/String;Landroid/telecom/PhoneAccountHandle;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/String;Ljava/lang/String;Landroid/net/Uri;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/String;I)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -258,13 +266,15 @@
 
     iput-object p11, p0, Landroid/telecom/Voicemail;->mTranscription:Ljava/lang/String;
 
+    iput p12, p0, Landroid/telecom/Voicemail;->mSimId:I
+
     return-void
 .end method
 
-.method synthetic constructor <init>(Ljava/lang/Long;Ljava/lang/String;Landroid/telecom/PhoneAccountHandle;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/String;Ljava/lang/String;Landroid/net/Uri;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/String;Landroid/telecom/Voicemail;)V
+.method synthetic constructor <init>(Ljava/lang/Long;Ljava/lang/String;Landroid/telecom/PhoneAccountHandle;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/String;Ljava/lang/String;Landroid/net/Uri;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/String;ILandroid/telecom/Voicemail;)V
     .locals 0
 
-    invoke-direct/range {p0 .. p11}, Landroid/telecom/Voicemail;-><init>(Ljava/lang/Long;Ljava/lang/String;Landroid/telecom/PhoneAccountHandle;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/String;Ljava/lang/String;Landroid/net/Uri;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/String;)V
+    invoke-direct/range {p0 .. p12}, Landroid/telecom/Voicemail;-><init>(Ljava/lang/Long;Ljava/lang/String;Landroid/telecom/PhoneAccountHandle;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/String;Ljava/lang/String;Landroid/net/Uri;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/String;I)V
 
     return-void
 .end method
@@ -357,6 +367,14 @@
     iget-object v0, p0, Landroid/telecom/Voicemail;->mPhoneAccount:Landroid/telecom/PhoneAccountHandle;
 
     return-object v0
+.end method
+
+.method public getSimId()I
+    .locals 1
+
+    iget v0, p0, Landroid/telecom/Voicemail;->mSimId:I
+
+    return v0
 .end method
 
 .method public getSourceData()Ljava/lang/String;
@@ -509,6 +527,10 @@
     iget-object v0, p0, Landroid/telecom/Voicemail;->mTranscription:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeCharSequence(Ljava/lang/CharSequence;)V
+
+    iget v0, p0, Landroid/telecom/Voicemail;->mSimId:I
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
     return-void
 

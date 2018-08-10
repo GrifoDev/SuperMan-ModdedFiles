@@ -57,7 +57,7 @@
 
     move-result-object v2
 
-    invoke-virtual {v2}, Landroid/view/View;->isFocused()Z
+    invoke-virtual {v2}, Landroid/widget/EditText;->isFocused()Z
 
     move-result v2
 
@@ -79,7 +79,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate$3;->this$0:Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate;
 
-    iget-object v2, v2, Lcom/samsung/android/widget/SemNumberPicker$AbstractSemNumberPickerDelegate;->mDelegator:Lcom/samsung/android/widget/SemNumberPicker;
+    iget-object v2, v2, Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate;->mDelegator:Lcom/samsung/android/widget/SemNumberPicker;
 
     new-instance v3, Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate$3$1;
 
@@ -87,7 +87,7 @@
 
     const-wide/16 v4, 0x14
 
-    invoke-virtual {v2, v3, v4, v5}, Landroid/view/View;->postDelayed(Ljava/lang/Runnable;J)Z
+    invoke-virtual {v2, v3, v4, v5}, Lcom/samsung/android/widget/SemNumberPicker;->postDelayed(Ljava/lang/Runnable;J)Z
 
     :cond_0
     return-void

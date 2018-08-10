@@ -91,7 +91,7 @@
 
     iget-object v2, p1, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
 
-    iget-object v0, v2, Landroid/content/pm/PackageItemInfo;->name:Ljava/lang/String;
+    iget-object v0, v2, Landroid/content/pm/ActivityInfo;->name:Ljava/lang/String;
 
     :cond_2
     iget-object v2, p0, Landroid/content/pm/ResolveInfo$DisplayNameComparator;->mPM:Landroid/content/pm/PackageManager;
@@ -104,7 +104,7 @@
 
     iget-object v2, p2, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
 
-    iget-object v1, v2, Landroid/content/pm/PackageItemInfo;->name:Ljava/lang/String;
+    iget-object v1, v2, Landroid/content/pm/ActivityInfo;->name:Ljava/lang/String;
 
     :cond_3
     iget-object v2, p0, Landroid/content/pm/ResolveInfo$DisplayNameComparator;->mCollator:Ljava/text/Collator;

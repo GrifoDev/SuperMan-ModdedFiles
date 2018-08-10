@@ -34,7 +34,7 @@
 
 
 # instance fields
-.field private mDeviceRecords:Ljava/util/ArrayList;
+.field private final mDeviceRecords:Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/ArrayList",
@@ -161,14 +161,6 @@
     return v0
 .end method
 
-.method public hasCaptureDevices()Z
-    .locals 1
-
-    iget-boolean v0, p0, Lcom/android/internal/alsa/AlsaDevicesParser;->mHasCaptureDevices:Z
-
-    return v0
-.end method
-
 .method public hasCaptureDevices(I)Z
     .locals 4
 
@@ -213,14 +205,6 @@
     return v3
 .end method
 
-.method public hasMIDIDevices()Z
-    .locals 1
-
-    iget-boolean v0, p0, Lcom/android/internal/alsa/AlsaDevicesParser;->mHasMIDIDevices:Z
-
-    return v0
-.end method
-
 .method public hasMIDIDevices(I)Z
     .locals 4
 
@@ -261,14 +245,6 @@
     const/4 v2, 0x0
 
     return v2
-.end method
-
-.method public hasPlaybackDevices()Z
-    .locals 1
-
-    iget-boolean v0, p0, Lcom/android/internal/alsa/AlsaDevicesParser;->mHasPlaybackDevices:Z
-
-    return v0
 .end method
 
 .method public hasPlaybackDevices(I)Z

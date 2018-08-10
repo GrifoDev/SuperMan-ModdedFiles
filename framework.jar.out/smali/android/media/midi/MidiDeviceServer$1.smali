@@ -59,24 +59,26 @@
 .end method
 
 .method public closePort(Landroid/os/IBinder;)V
-    .locals 3
+    .locals 4
 
-    iget-object v1, p0, Landroid/media/midi/MidiDeviceServer$1;->this$0:Landroid/media/midi/MidiDeviceServer;
+    const/4 v1, 0x0
 
-    invoke-static {v1}, Landroid/media/midi/MidiDeviceServer;->-get10(Landroid/media/midi/MidiDeviceServer;)Ljava/util/HashMap;
+    iget-object v2, p0, Landroid/media/midi/MidiDeviceServer$1;->this$0:Landroid/media/midi/MidiDeviceServer;
+
+    invoke-static {v2}, Landroid/media/midi/MidiDeviceServer;->-get11(Landroid/media/midi/MidiDeviceServer;)Ljava/util/HashMap;
+
+    move-result-object v3
+
+    monitor-enter v3
+
+    :try_start_0
+    iget-object v2, p0, Landroid/media/midi/MidiDeviceServer$1;->this$0:Landroid/media/midi/MidiDeviceServer;
+
+    invoke-static {v2}, Landroid/media/midi/MidiDeviceServer;->-get11(Landroid/media/midi/MidiDeviceServer;)Ljava/util/HashMap;
 
     move-result-object v2
 
-    monitor-enter v2
-
-    :try_start_0
-    iget-object v1, p0, Landroid/media/midi/MidiDeviceServer$1;->this$0:Landroid/media/midi/MidiDeviceServer;
-
-    invoke-static {v1}, Landroid/media/midi/MidiDeviceServer;->-get10(Landroid/media/midi/MidiDeviceServer;)Ljava/util/HashMap;
-
-    move-result-object v1
-
-    invoke-virtual {v1, p1}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, p1}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -84,33 +86,68 @@
 
     if-eqz v0, :cond_0
 
+    invoke-virtual {v0}, Landroid/media/midi/MidiDeviceServer$PortClient;->getInputPort()Landroid/media/midi/MidiInputPort;
+
+    move-result-object v1
+
     invoke-virtual {v0}, Landroid/media/midi/MidiDeviceServer$PortClient;->close()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     :cond_0
-    monitor-exit v2
+    monitor-exit v3
 
+    if-eqz v1, :cond_1
+
+    iget-object v2, p0, Landroid/media/midi/MidiDeviceServer$1;->this$0:Landroid/media/midi/MidiDeviceServer;
+
+    invoke-static {v2}, Landroid/media/midi/MidiDeviceServer;->-get2(Landroid/media/midi/MidiDeviceServer;)Ljava/util/HashMap;
+
+    move-result-object v3
+
+    monitor-enter v3
+
+    :try_start_1
+    iget-object v2, p0, Landroid/media/midi/MidiDeviceServer$1;->this$0:Landroid/media/midi/MidiDeviceServer;
+
+    invoke-static {v2}, Landroid/media/midi/MidiDeviceServer;->-get2(Landroid/media/midi/MidiDeviceServer;)Ljava/util/HashMap;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v1}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+
+    monitor-exit v3
+
+    :cond_1
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception v2
 
-    monitor-exit v2
+    monitor-exit v3
 
-    throw v1
+    throw v2
+
+    :catchall_1
+    move-exception v2
+
+    monitor-exit v3
+
+    throw v2
 .end method
 
-.method public connectPorts(Landroid/os/IBinder;Landroid/os/ParcelFileDescriptor;I)I
+.method public connectPorts(Landroid/os/IBinder;Ljava/io/FileDescriptor;I)I
     .locals 6
 
     new-instance v2, Landroid/media/midi/MidiInputPort;
 
-    invoke-direct {v2, p2, p3}, Landroid/media/midi/MidiInputPort;-><init>(Landroid/os/ParcelFileDescriptor;I)V
+    invoke-direct {v2, p2, p3}, Landroid/media/midi/MidiInputPort;-><init>(Ljava/io/FileDescriptor;I)V
 
     iget-object v4, p0, Landroid/media/midi/MidiDeviceServer$1;->this$0:Landroid/media/midi/MidiDeviceServer;
 
-    invoke-static {v4}, Landroid/media/midi/MidiDeviceServer;->-get8(Landroid/media/midi/MidiDeviceServer;)[Lcom/android/internal/midi/MidiDispatcher;
+    invoke-static {v4}, Landroid/media/midi/MidiDeviceServer;->-get9(Landroid/media/midi/MidiDeviceServer;)[Lcom/android/internal/midi/MidiDispatcher;
 
     move-result-object v4
 
@@ -131,7 +168,7 @@
 
     iget-object v4, p0, Landroid/media/midi/MidiDeviceServer$1;->this$0:Landroid/media/midi/MidiDeviceServer;
 
-    invoke-static {v4}, Landroid/media/midi/MidiDeviceServer;->-get9(Landroid/media/midi/MidiDeviceServer;)[I
+    invoke-static {v4}, Landroid/media/midi/MidiDeviceServer;->-get10(Landroid/media/midi/MidiDeviceServer;)[I
 
     move-result-object v4
 
@@ -139,7 +176,7 @@
 
     iget-object v4, p0, Landroid/media/midi/MidiDeviceServer$1;->this$0:Landroid/media/midi/MidiDeviceServer;
 
-    invoke-static {v4}, Landroid/media/midi/MidiDeviceServer;->-wrap0(Landroid/media/midi/MidiDeviceServer;)V
+    invoke-static {v4}, Landroid/media/midi/MidiDeviceServer;->-wrap1(Landroid/media/midi/MidiDeviceServer;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -147,7 +184,7 @@
 
     iget-object v4, p0, Landroid/media/midi/MidiDeviceServer$1;->this$0:Landroid/media/midi/MidiDeviceServer;
 
-    invoke-static {v4}, Landroid/media/midi/MidiDeviceServer;->-get6(Landroid/media/midi/MidiDeviceServer;)Ljava/util/concurrent/CopyOnWriteArrayList;
+    invoke-static {v4}, Landroid/media/midi/MidiDeviceServer;->-get7(Landroid/media/midi/MidiDeviceServer;)Ljava/util/concurrent/CopyOnWriteArrayList;
 
     move-result-object v4
 
@@ -161,7 +198,7 @@
 
     iget-object v4, p0, Landroid/media/midi/MidiDeviceServer$1;->this$0:Landroid/media/midi/MidiDeviceServer;
 
-    invoke-static {v4}, Landroid/media/midi/MidiDeviceServer;->-get10(Landroid/media/midi/MidiDeviceServer;)Ljava/util/HashMap;
+    invoke-static {v4}, Landroid/media/midi/MidiDeviceServer;->-get11(Landroid/media/midi/MidiDeviceServer;)Ljava/util/HashMap;
 
     move-result-object v5
 
@@ -170,13 +207,34 @@
     :try_start_1
     iget-object v4, p0, Landroid/media/midi/MidiDeviceServer$1;->this$0:Landroid/media/midi/MidiDeviceServer;
 
-    invoke-static {v4}, Landroid/media/midi/MidiDeviceServer;->-get10(Landroid/media/midi/MidiDeviceServer;)Ljava/util/HashMap;
+    invoke-static {v4}, Landroid/media/midi/MidiDeviceServer;->-get11(Landroid/media/midi/MidiDeviceServer;)Ljava/util/HashMap;
 
     move-result-object v4
 
     invoke-virtual {v4, p1, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_1
+
+    monitor-exit v5
+
+    iget-object v4, p0, Landroid/media/midi/MidiDeviceServer$1;->this$0:Landroid/media/midi/MidiDeviceServer;
+
+    invoke-static {v4}, Landroid/media/midi/MidiDeviceServer;->-get2(Landroid/media/midi/MidiDeviceServer;)Ljava/util/HashMap;
+
+    move-result-object v5
+
+    monitor-enter v5
+
+    :try_start_2
+    iget-object v4, p0, Landroid/media/midi/MidiDeviceServer$1;->this$0:Landroid/media/midi/MidiDeviceServer;
+
+    invoke-static {v4}, Landroid/media/midi/MidiDeviceServer;->-get2(Landroid/media/midi/MidiDeviceServer;)Ljava/util/HashMap;
+
+    move-result-object v4
+
+    invoke-virtual {v4, v2, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_2
 
     monitor-exit v5
 
@@ -199,6 +257,13 @@
     monitor-exit v5
 
     throw v4
+
+    :catchall_2
+    move-exception v4
+
+    monitor-exit v5
+
+    throw v4
 .end method
 
 .method public getDeviceInfo()Landroid/media/midi/MidiDeviceInfo;
@@ -213,7 +278,7 @@
     return-object v0
 .end method
 
-.method public openInputPort(Landroid/os/IBinder;I)Landroid/os/ParcelFileDescriptor;
+.method public openInputPort(Landroid/os/IBinder;I)Ljava/io/FileDescriptor;
     .locals 9
 
     const/4 v8, 0x0
@@ -253,7 +318,7 @@
 
     iget-object v4, p0, Landroid/media/midi/MidiDeviceServer$1;->this$0:Landroid/media/midi/MidiDeviceServer;
 
-    invoke-static {v4}, Landroid/media/midi/MidiDeviceServer;->-get2(Landroid/media/midi/MidiDeviceServer;)I
+    invoke-static {v4}, Landroid/media/midi/MidiDeviceServer;->-get3(Landroid/media/midi/MidiDeviceServer;)I
 
     move-result v4
 
@@ -287,7 +352,7 @@
     :cond_2
     iget-object v4, p0, Landroid/media/midi/MidiDeviceServer$1;->this$0:Landroid/media/midi/MidiDeviceServer;
 
-    invoke-static {v4}, Landroid/media/midi/MidiDeviceServer;->-get4(Landroid/media/midi/MidiDeviceServer;)[Landroid/media/midi/MidiOutputPort;
+    invoke-static {v4}, Landroid/media/midi/MidiDeviceServer;->-get5(Landroid/media/midi/MidiDeviceServer;)[Landroid/media/midi/MidiOutputPort;
 
     move-result-object v5
 
@@ -296,7 +361,7 @@
     :try_start_0
     iget-object v4, p0, Landroid/media/midi/MidiDeviceServer$1;->this$0:Landroid/media/midi/MidiDeviceServer;
 
-    invoke-static {v4}, Landroid/media/midi/MidiDeviceServer;->-get4(Landroid/media/midi/MidiDeviceServer;)[Landroid/media/midi/MidiOutputPort;
+    invoke-static {v4}, Landroid/media/midi/MidiDeviceServer;->-get5(Landroid/media/midi/MidiDeviceServer;)[Landroid/media/midi/MidiOutputPort;
 
     move-result-object v4
 
@@ -340,9 +405,7 @@
 
     :cond_3
     :try_start_1
-    sget v4, Landroid/system/OsConstants;->SOCK_SEQPACKET:I
-
-    invoke-static {v4}, Landroid/os/ParcelFileDescriptor;->createSocketPair(I)[Landroid/os/ParcelFileDescriptor;
+    invoke-static {}, Landroid/media/midi/MidiDeviceServer;->-wrap0()[Ljava/io/FileDescriptor;
 
     move-result-object v3
 
@@ -352,11 +415,11 @@
 
     aget-object v4, v3, v4
 
-    invoke-direct {v2, v4, p2}, Landroid/media/midi/MidiOutputPort;-><init>(Landroid/os/ParcelFileDescriptor;I)V
+    invoke-direct {v2, v4, p2}, Landroid/media/midi/MidiOutputPort;-><init>(Ljava/io/FileDescriptor;I)V
 
     iget-object v4, p0, Landroid/media/midi/MidiDeviceServer$1;->this$0:Landroid/media/midi/MidiDeviceServer;
 
-    invoke-static {v4}, Landroid/media/midi/MidiDeviceServer;->-get4(Landroid/media/midi/MidiDeviceServer;)[Landroid/media/midi/MidiOutputPort;
+    invoke-static {v4}, Landroid/media/midi/MidiDeviceServer;->-get5(Landroid/media/midi/MidiDeviceServer;)[Landroid/media/midi/MidiOutputPort;
 
     move-result-object v4
 
@@ -364,13 +427,13 @@
 
     iget-object v4, p0, Landroid/media/midi/MidiDeviceServer$1;->this$0:Landroid/media/midi/MidiDeviceServer;
 
-    invoke-static {v4}, Landroid/media/midi/MidiDeviceServer;->-get5(Landroid/media/midi/MidiDeviceServer;)[Landroid/media/midi/MidiReceiver;
+    invoke-static {v4}, Landroid/media/midi/MidiDeviceServer;->-get6(Landroid/media/midi/MidiDeviceServer;)[Landroid/media/midi/MidiReceiver;
 
     move-result-object v4
 
     aget-object v4, v4, p2
 
-    invoke-virtual {v2, v4}, Landroid/media/midi/MidiSender;->connect(Landroid/media/midi/MidiReceiver;)V
+    invoke-virtual {v2, v4}, Landroid/media/midi/MidiOutputPort;->connect(Landroid/media/midi/MidiReceiver;)V
 
     new-instance v0, Landroid/media/midi/MidiDeviceServer$InputPortClient;
 
@@ -380,7 +443,7 @@
 
     iget-object v4, p0, Landroid/media/midi/MidiDeviceServer$1;->this$0:Landroid/media/midi/MidiDeviceServer;
 
-    invoke-static {v4}, Landroid/media/midi/MidiDeviceServer;->-get10(Landroid/media/midi/MidiDeviceServer;)Ljava/util/HashMap;
+    invoke-static {v4}, Landroid/media/midi/MidiDeviceServer;->-get11(Landroid/media/midi/MidiDeviceServer;)Ljava/util/HashMap;
 
     move-result-object v6
 
@@ -392,7 +455,7 @@
     :try_start_2
     iget-object v4, p0, Landroid/media/midi/MidiDeviceServer$1;->this$0:Landroid/media/midi/MidiDeviceServer;
 
-    invoke-static {v4}, Landroid/media/midi/MidiDeviceServer;->-get10(Landroid/media/midi/MidiDeviceServer;)Ljava/util/HashMap;
+    invoke-static {v4}, Landroid/media/midi/MidiDeviceServer;->-get11(Landroid/media/midi/MidiDeviceServer;)Ljava/util/HashMap;
 
     move-result-object v4
 
@@ -405,7 +468,7 @@
 
     iget-object v4, p0, Landroid/media/midi/MidiDeviceServer$1;->this$0:Landroid/media/midi/MidiDeviceServer;
 
-    invoke-static {v4}, Landroid/media/midi/MidiDeviceServer;->-get3(Landroid/media/midi/MidiDeviceServer;)[Z
+    invoke-static {v4}, Landroid/media/midi/MidiDeviceServer;->-get4(Landroid/media/midi/MidiDeviceServer;)[Z
 
     move-result-object v4
 
@@ -415,7 +478,7 @@
 
     iget-object v4, p0, Landroid/media/midi/MidiDeviceServer$1;->this$0:Landroid/media/midi/MidiDeviceServer;
 
-    invoke-static {v4}, Landroid/media/midi/MidiDeviceServer;->-wrap0(Landroid/media/midi/MidiDeviceServer;)V
+    invoke-static {v4}, Landroid/media/midi/MidiDeviceServer;->-wrap1(Landroid/media/midi/MidiDeviceServer;)V
 
     const/4 v4, 0x1
 
@@ -445,7 +508,7 @@
     :try_start_5
     const-string/jumbo v4, "MidiDeviceServer"
 
-    const-string/jumbo v6, "unable to create ParcelFileDescriptors in openInputPort"
+    const-string/jumbo v6, "unable to create FileDescriptors in openInputPort"
 
     invoke-static {v4, v6}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_5
@@ -463,7 +526,7 @@
     throw v4
 .end method
 
-.method public openOutputPort(Landroid/os/IBinder;I)Landroid/os/ParcelFileDescriptor;
+.method public openOutputPort(Landroid/os/IBinder;I)Ljava/io/FileDescriptor;
     .locals 10
 
     const/4 v9, 0x0
@@ -503,7 +566,7 @@
 
     iget-object v6, p0, Landroid/media/midi/MidiDeviceServer$1;->this$0:Landroid/media/midi/MidiDeviceServer;
 
-    invoke-static {v6}, Landroid/media/midi/MidiDeviceServer;->-get7(Landroid/media/midi/MidiDeviceServer;)I
+    invoke-static {v6}, Landroid/media/midi/MidiDeviceServer;->-get8(Landroid/media/midi/MidiDeviceServer;)I
 
     move-result v6
 
@@ -536,9 +599,7 @@
 
     :cond_2
     :try_start_0
-    sget v6, Landroid/system/OsConstants;->SOCK_SEQPACKET:I
-
-    invoke-static {v6}, Landroid/os/ParcelFileDescriptor;->createSocketPair(I)[Landroid/os/ParcelFileDescriptor;
+    invoke-static {}, Landroid/media/midi/MidiDeviceServer;->-wrap0()[Ljava/io/FileDescriptor;
 
     move-result-object v5
 
@@ -548,11 +609,34 @@
 
     aget-object v6, v5, v6
 
-    invoke-direct {v3, v6, p2}, Landroid/media/midi/MidiInputPort;-><init>(Landroid/os/ParcelFileDescriptor;I)V
+    invoke-direct {v3, v6, p2}, Landroid/media/midi/MidiInputPort;-><init>(Ljava/io/FileDescriptor;I)V
 
     iget-object v6, p0, Landroid/media/midi/MidiDeviceServer$1;->this$0:Landroid/media/midi/MidiDeviceServer;
 
-    invoke-static {v6}, Landroid/media/midi/MidiDeviceServer;->-get8(Landroid/media/midi/MidiDeviceServer;)[Lcom/android/internal/midi/MidiDispatcher;
+    invoke-static {v6}, Landroid/media/midi/MidiDeviceServer;->-get1(Landroid/media/midi/MidiDeviceServer;)Landroid/media/midi/MidiDeviceInfo;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Landroid/media/midi/MidiDeviceInfo;->getType()I
+
+    move-result v6
+
+    const/4 v7, 0x2
+
+    if-eq v6, v7, :cond_3
+
+    const/4 v6, 0x0
+
+    aget-object v6, v5, v6
+
+    const/4 v7, 0x0
+
+    invoke-static {v6, v7}, Llibcore/io/IoUtils;->setBlocking(Ljava/io/FileDescriptor;Z)V
+
+    :cond_3
+    iget-object v6, p0, Landroid/media/midi/MidiDeviceServer$1;->this$0:Landroid/media/midi/MidiDeviceServer;
+
+    invoke-static {v6}, Landroid/media/midi/MidiDeviceServer;->-get9(Landroid/media/midi/MidiDeviceServer;)[Lcom/android/internal/midi/MidiDispatcher;
 
     move-result-object v6
 
@@ -575,7 +659,7 @@
 
     iget-object v6, p0, Landroid/media/midi/MidiDeviceServer$1;->this$0:Landroid/media/midi/MidiDeviceServer;
 
-    invoke-static {v6}, Landroid/media/midi/MidiDeviceServer;->-get9(Landroid/media/midi/MidiDeviceServer;)[I
+    invoke-static {v6}, Landroid/media/midi/MidiDeviceServer;->-get10(Landroid/media/midi/MidiDeviceServer;)[I
 
     move-result-object v6
 
@@ -583,7 +667,7 @@
 
     iget-object v6, p0, Landroid/media/midi/MidiDeviceServer$1;->this$0:Landroid/media/midi/MidiDeviceServer;
 
-    invoke-static {v6}, Landroid/media/midi/MidiDeviceServer;->-wrap0(Landroid/media/midi/MidiDeviceServer;)V
+    invoke-static {v6}, Landroid/media/midi/MidiDeviceServer;->-wrap1(Landroid/media/midi/MidiDeviceServer;)V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
@@ -592,7 +676,7 @@
 
     iget-object v6, p0, Landroid/media/midi/MidiDeviceServer$1;->this$0:Landroid/media/midi/MidiDeviceServer;
 
-    invoke-static {v6}, Landroid/media/midi/MidiDeviceServer;->-get6(Landroid/media/midi/MidiDeviceServer;)Ljava/util/concurrent/CopyOnWriteArrayList;
+    invoke-static {v6}, Landroid/media/midi/MidiDeviceServer;->-get7(Landroid/media/midi/MidiDeviceServer;)Ljava/util/concurrent/CopyOnWriteArrayList;
 
     move-result-object v6
 
@@ -606,7 +690,7 @@
 
     iget-object v6, p0, Landroid/media/midi/MidiDeviceServer$1;->this$0:Landroid/media/midi/MidiDeviceServer;
 
-    invoke-static {v6}, Landroid/media/midi/MidiDeviceServer;->-get10(Landroid/media/midi/MidiDeviceServer;)Ljava/util/HashMap;
+    invoke-static {v6}, Landroid/media/midi/MidiDeviceServer;->-get11(Landroid/media/midi/MidiDeviceServer;)Ljava/util/HashMap;
 
     move-result-object v7
 
@@ -617,7 +701,7 @@
     :try_start_3
     iget-object v6, p0, Landroid/media/midi/MidiDeviceServer$1;->this$0:Landroid/media/midi/MidiDeviceServer;
 
-    invoke-static {v6}, Landroid/media/midi/MidiDeviceServer;->-get10(Landroid/media/midi/MidiDeviceServer;)Ljava/util/HashMap;
+    invoke-static {v6}, Landroid/media/midi/MidiDeviceServer;->-get11(Landroid/media/midi/MidiDeviceServer;)Ljava/util/HashMap;
 
     move-result-object v6
 
@@ -626,6 +710,30 @@
     .catchall {:try_start_3 .. :try_end_3} :catchall_1
 
     :try_start_4
+    monitor-exit v7
+
+    iget-object v6, p0, Landroid/media/midi/MidiDeviceServer$1;->this$0:Landroid/media/midi/MidiDeviceServer;
+
+    invoke-static {v6}, Landroid/media/midi/MidiDeviceServer;->-get2(Landroid/media/midi/MidiDeviceServer;)Ljava/util/HashMap;
+
+    move-result-object v7
+
+    monitor-enter v7
+    :try_end_4
+    .catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_0
+
+    :try_start_5
+    iget-object v6, p0, Landroid/media/midi/MidiDeviceServer$1;->this$0:Landroid/media/midi/MidiDeviceServer;
+
+    invoke-static {v6}, Landroid/media/midi/MidiDeviceServer;->-get2(Landroid/media/midi/MidiDeviceServer;)Ljava/util/HashMap;
+
+    move-result-object v6
+
+    invoke-virtual {v6, v3, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    :try_end_5
+    .catchall {:try_start_5 .. :try_end_5} :catchall_2
+
+    :try_start_6
     monitor-exit v7
 
     const/4 v6, 0x1
@@ -640,15 +748,15 @@
     monitor-exit v1
 
     throw v6
-    :try_end_4
-    .catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_0
+    :try_end_6
+    .catch Ljava/io/IOException; {:try_start_6 .. :try_end_6} :catch_0
 
     :catch_0
     move-exception v2
 
     const-string/jumbo v6, "MidiDeviceServer"
 
-    const-string/jumbo v7, "unable to create ParcelFileDescriptors in openOutputPort"
+    const-string/jumbo v7, "unable to create FileDescriptors in openOutputPort"
 
     invoke-static {v6, v7}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -657,12 +765,19 @@
     :catchall_1
     move-exception v6
 
-    :try_start_5
+    :try_start_7
     monitor-exit v7
 
     throw v6
-    :try_end_5
-    .catch Ljava/io/IOException; {:try_start_5 .. :try_end_5} :catch_0
+
+    :catchall_2
+    move-exception v6
+
+    monitor-exit v7
+
+    throw v6
+    :try_end_7
+    .catch Ljava/io/IOException; {:try_start_7 .. :try_end_7} :catch_0
 .end method
 
 .method public setDeviceInfo(Landroid/media/midi/MidiDeviceInfo;)V

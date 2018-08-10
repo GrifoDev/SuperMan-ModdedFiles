@@ -10,11 +10,11 @@
 
 .field public static final KEY_TYPE_RSA:I = 0x1
 
-.field public static final KEY_TYPE_SYMM:I = 0x2
-
 .field public static final NO_ERROR:I = 0x0
 
-.field private static final TAG:Ljava/lang/String; = "DeviceRootKeyServiceManager"
+.field private static final TAG:Ljava/lang/String; = "DeviceRootKeyServiceManager(1.1.0)"
+
+.field private static final VERSION:Ljava/lang/String; = "1.1.0"
 
 
 # instance fields
@@ -43,7 +43,7 @@
 
     iput-object v0, p0, Lcom/samsung/android/service/DeviceRootKeyService/DeviceRootKeyServiceManager;->mService:Lcom/samsung/android/service/DeviceRootKeyService/IDeviceRootKeyService;
 
-    const-string/jumbo v0, "DeviceRootKeyServiceManager"
+    const-string/jumbo v0, "DeviceRootKeyServiceManager(1.1.0)"
 
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -81,7 +81,7 @@
 
     const/4 v4, 0x0
 
-    const-string/jumbo v2, "DeviceRootKeyServiceManager"
+    const-string/jumbo v2, "DeviceRootKeyServiceManager(1.1.0)"
 
     const-string/jumbo v3, "createServiceKeySession() is called."
 
@@ -102,20 +102,110 @@
     :catch_0
     move-exception v0
 
-    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
 
     return-object v4
 
     :catch_1
     move-exception v1
 
-    const-string/jumbo v2, "DeviceRootKeyServiceManager"
+    const-string/jumbo v2, "DeviceRootKeyServiceManager(1.1.0)"
 
     const-string/jumbo v3, "Failed to connect service."
 
     invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-virtual {v1}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v1}, Ljava/lang/NullPointerException;->printStackTrace()V
+
+    return-object v4
+.end method
+
+.method public doSelfTestProvService(ILcom/samsung/android/service/DeviceRootKeyService/Tlv;)[B
+    .locals 5
+
+    const/4 v4, 0x0
+
+    const-string/jumbo v2, "DeviceRootKeyServiceManager(1.1.0)"
+
+    const-string/jumbo v3, "doSelfTestProvService() is called."
+
+    invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    :try_start_0
+    iget-object v2, p0, Lcom/samsung/android/service/DeviceRootKeyService/DeviceRootKeyServiceManager;->mService:Lcom/samsung/android/service/DeviceRootKeyService/IDeviceRootKeyService;
+
+    const-string/jumbo v3, "PROV"
+
+    invoke-interface {v2, v3, p1, p2}, Lcom/samsung/android/service/DeviceRootKeyService/IDeviceRootKeyService;->doSelfTestProvServiceBlob(Ljava/lang/String;ILcom/samsung/android/service/DeviceRootKeyService/Tlv;)[B
+    :try_end_0
+    .catch Ljava/lang/NullPointerException; {:try_start_0 .. :try_end_0} :catch_1
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result-object v2
+
+    return-object v2
+
+    :catch_0
+    move-exception v0
+
+    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
+
+    return-object v4
+
+    :catch_1
+    move-exception v1
+
+    const-string/jumbo v2, "DeviceRootKeyServiceManager(1.1.0)"
+
+    const-string/jumbo v3, "Failed to connect service."
+
+    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-virtual {v1}, Ljava/lang/NullPointerException;->printStackTrace()V
+
+    return-object v4
+.end method
+
+.method public getDeviceRootKeyCertificate(I)[B
+    .locals 5
+
+    const/4 v4, 0x0
+
+    const-string/jumbo v2, "DeviceRootKeyServiceManager(1.1.0)"
+
+    const-string/jumbo v3, "getDeviceRootKeyCertificate() is called."
+
+    invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    :try_start_0
+    iget-object v2, p0, Lcom/samsung/android/service/DeviceRootKeyService/DeviceRootKeyServiceManager;->mService:Lcom/samsung/android/service/DeviceRootKeyService/IDeviceRootKeyService;
+
+    invoke-interface {v2, p1}, Lcom/samsung/android/service/DeviceRootKeyService/IDeviceRootKeyService;->getDeviceRootKeyCertificate(I)[B
+    :try_end_0
+    .catch Ljava/lang/NullPointerException; {:try_start_0 .. :try_end_0} :catch_1
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result-object v2
+
+    return-object v2
+
+    :catch_0
+    move-exception v0
+
+    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
+
+    return-object v4
+
+    :catch_1
+    move-exception v1
+
+    const-string/jumbo v2, "DeviceRootKeyServiceManager(1.1.0)"
+
+    const-string/jumbo v3, "Failed to connect service."
+
+    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-virtual {v1}, Ljava/lang/NullPointerException;->printStackTrace()V
 
     return-object v4
 .end method
@@ -125,7 +215,7 @@
 
     const/4 v4, 0x0
 
-    const-string/jumbo v2, "DeviceRootKeyServiceManager"
+    const-string/jumbo v2, "DeviceRootKeyServiceManager(1.1.0)"
 
     const-string/jumbo v3, "getDeviceRootKeyUID() is called."
 
@@ -146,39 +236,67 @@
     :catch_0
     move-exception v0
 
-    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
 
     return-object v4
 
     :catch_1
     move-exception v1
 
-    const-string/jumbo v2, "DeviceRootKeyServiceManager"
+    const-string/jumbo v2, "DeviceRootKeyServiceManager(1.1.0)"
 
     const-string/jumbo v3, "Failed to connect service."
 
     invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-virtual {v1}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v1}, Ljava/lang/NullPointerException;->printStackTrace()V
 
     return-object v4
 .end method
 
 .method public isAliveDeviceRootKeyService()Z
-    .locals 1
+    .locals 5
 
-    iget-object v0, p0, Lcom/samsung/android/service/DeviceRootKeyService/DeviceRootKeyServiceManager;->mService:Lcom/samsung/android/service/DeviceRootKeyService/IDeviceRootKeyService;
+    const/4 v4, 0x0
 
-    if-eqz v0, :cond_0
+    iget-object v2, p0, Lcom/samsung/android/service/DeviceRootKeyService/DeviceRootKeyServiceManager;->mService:Lcom/samsung/android/service/DeviceRootKeyService/IDeviceRootKeyService;
 
-    const/4 v0, 0x1
+    if-eqz v2, :cond_0
 
-    return v0
+    :try_start_0
+    iget-object v2, p0, Lcom/samsung/android/service/DeviceRootKeyService/DeviceRootKeyServiceManager;->mService:Lcom/samsung/android/service/DeviceRootKeyService/IDeviceRootKeyService;
+
+    invoke-interface {v2}, Lcom/samsung/android/service/DeviceRootKeyService/IDeviceRootKeyService;->isServiceReady()Z
+    :try_end_0
+    .catch Ljava/lang/NullPointerException; {:try_start_0 .. :try_end_0} :catch_1
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v2
+
+    return v2
+
+    :catch_0
+    move-exception v0
+
+    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
+
+    return v4
+
+    :catch_1
+    move-exception v1
+
+    const-string/jumbo v2, "DeviceRootKeyServiceManager(1.1.0)"
+
+    const-string/jumbo v3, "Failed to connect service."
+
+    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-virtual {v1}, Ljava/lang/NullPointerException;->printStackTrace()V
+
+    return v4
 
     :cond_0
-    const/4 v0, 0x0
-
-    return v0
+    return v4
 .end method
 
 .method public isExistDeviceRootKey(I)Z
@@ -186,7 +304,7 @@
 
     const/4 v4, 0x0
 
-    const-string/jumbo v2, "DeviceRootKeyServiceManager"
+    const-string/jumbo v2, "DeviceRootKeyServiceManager(1.1.0)"
 
     const-string/jumbo v3, "isExistDeviceRootKey() is called."
 
@@ -207,20 +325,20 @@
     :catch_0
     move-exception v0
 
-    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
 
     return v4
 
     :catch_1
     move-exception v1
 
-    const-string/jumbo v2, "DeviceRootKeyServiceManager"
+    const-string/jumbo v2, "DeviceRootKeyServiceManager(1.1.0)"
 
     const-string/jumbo v3, "Failed to connect service."
 
     invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-virtual {v1}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v1}, Ljava/lang/NullPointerException;->printStackTrace()V
 
     return v4
 .end method
@@ -230,7 +348,7 @@
 
     const/16 v4, -0x2710
 
-    const-string/jumbo v2, "DeviceRootKeyServiceManager"
+    const-string/jumbo v2, "DeviceRootKeyServiceManager(1.1.0)"
 
     const-string/jumbo v3, "releaseServiceKeySession() is called."
 
@@ -251,20 +369,20 @@
     :catch_0
     move-exception v0
 
-    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
 
     return v4
 
     :catch_1
     move-exception v1
 
-    const-string/jumbo v2, "DeviceRootKeyServiceManager"
+    const-string/jumbo v2, "DeviceRootKeyServiceManager(1.1.0)"
 
     const-string/jumbo v3, "Failed to connect service."
 
     invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-virtual {v1}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v1}, Ljava/lang/NullPointerException;->printStackTrace()V
 
     return v4
 .end method
@@ -274,9 +392,15 @@
 
     const/16 v4, -0x2710
 
-    const-string/jumbo v2, "DeviceRootKeyServiceManager"
+    const-string/jumbo v2, "DeviceRootKeyServiceManager(1.1.0)"
 
     const-string/jumbo v3, "setDeviceRootKey() is called."
+
+    invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    const-string/jumbo v2, "DeviceRootKeyServiceManager(1.1.0)"
+
+    const-string/jumbo v3, "This function has been deprecated."
 
     invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -295,20 +419,20 @@
     :catch_0
     move-exception v0
 
-    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
 
     return v4
 
     :catch_1
     move-exception v1
 
-    const-string/jumbo v2, "DeviceRootKeyServiceManager"
+    const-string/jumbo v2, "DeviceRootKeyServiceManager(1.1.0)"
 
     const-string/jumbo v3, "Failed to connect service."
 
     invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-virtual {v1}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v1}, Ljava/lang/NullPointerException;->printStackTrace()V
 
     return v4
 .end method

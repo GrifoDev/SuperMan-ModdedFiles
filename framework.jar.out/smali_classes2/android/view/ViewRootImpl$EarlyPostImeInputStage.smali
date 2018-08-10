@@ -38,17 +38,34 @@
 
     iget-object v1, p0, Landroid/view/ViewRootImpl$EarlyPostImeInputStage;->this$0:Landroid/view/ViewRootImpl;
 
+    iget-object v1, v1, Landroid/view/ViewRootImpl;->mAttachInfo:Landroid/view/View$AttachInfo;
+
+    iget-object v1, v1, Landroid/view/View$AttachInfo;->mTooltipHost:Landroid/view/View;
+
+    if-eqz v1, :cond_0
+
+    iget-object v1, p0, Landroid/view/ViewRootImpl$EarlyPostImeInputStage;->this$0:Landroid/view/ViewRootImpl;
+
+    iget-object v1, v1, Landroid/view/ViewRootImpl;->mAttachInfo:Landroid/view/View$AttachInfo;
+
+    iget-object v1, v1, Landroid/view/View$AttachInfo;->mTooltipHost:Landroid/view/View;
+
+    invoke-virtual {v1, v0}, Landroid/view/View;->handleTooltipKey(Landroid/view/KeyEvent;)V
+
+    :cond_0
+    iget-object v1, p0, Landroid/view/ViewRootImpl$EarlyPostImeInputStage;->this$0:Landroid/view/ViewRootImpl;
+
     invoke-static {v1, v0}, Landroid/view/ViewRootImpl;->-wrap1(Landroid/view/ViewRootImpl;Landroid/view/KeyEvent;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1
 
     const/4 v1, 0x1
 
     return v1
 
-    :cond_0
+    :cond_1
     iget-object v1, p0, Landroid/view/ViewRootImpl$EarlyPostImeInputStage;->this$0:Landroid/view/ViewRootImpl;
 
     iget-object v1, v1, Landroid/view/ViewRootImpl;->mFallbackEventHandler:Landroid/view/FallbackEventHandler;
@@ -93,18 +110,60 @@
     if-ne v0, v2, :cond_2
 
     :cond_1
+    iget-object v3, p0, Landroid/view/ViewRootImpl$EarlyPostImeInputStage;->this$0:Landroid/view/ViewRootImpl;
+
+    const/16 v2, 0x2002
+
+    invoke-virtual {v1, v2}, Landroid/view/MotionEvent;->isFromSource(I)Z
+
+    move-result v2
+
+    if-nez v2, :cond_6
+
+    const/16 v2, 0x4002
+
+    invoke-virtual {v1, v2}, Landroid/view/MotionEvent;->isFromSource(I)Z
+
+    move-result v2
+
+    :goto_0
+    invoke-virtual {v3, v2}, Landroid/view/ViewRootImpl;->semEnsureMouseStylusMode(Z)Z
+
     iget-object v2, p0, Landroid/view/ViewRootImpl$EarlyPostImeInputStage;->this$0:Landroid/view/ViewRootImpl;
 
-    const/4 v3, 0x1
+    const/16 v3, 0x1002
+
+    invoke-virtual {v1, v3}, Landroid/view/MotionEvent;->isFromSource(I)Z
+
+    move-result v3
 
     invoke-virtual {v2, v3}, Landroid/view/ViewRootImpl;->ensureTouchMode(Z)Z
 
     :cond_2
+    if-nez v0, :cond_3
+
+    iget-object v2, p0, Landroid/view/ViewRootImpl$EarlyPostImeInputStage;->this$0:Landroid/view/ViewRootImpl;
+
+    iget-object v2, v2, Landroid/view/ViewRootImpl;->mAttachInfo:Landroid/view/View$AttachInfo;
+
+    iget-object v2, v2, Landroid/view/View$AttachInfo;->mTooltipHost:Landroid/view/View;
+
+    if-eqz v2, :cond_3
+
+    iget-object v2, p0, Landroid/view/ViewRootImpl$EarlyPostImeInputStage;->this$0:Landroid/view/ViewRootImpl;
+
+    iget-object v2, v2, Landroid/view/ViewRootImpl;->mAttachInfo:Landroid/view/View$AttachInfo;
+
+    iget-object v2, v2, Landroid/view/View$AttachInfo;->mTooltipHost:Landroid/view/View;
+
+    invoke-virtual {v2}, Landroid/view/View;->hideTooltip()V
+
+    :cond_3
     iget-object v2, p0, Landroid/view/ViewRootImpl$EarlyPostImeInputStage;->this$0:Landroid/view/ViewRootImpl;
 
     iget v2, v2, Landroid/view/ViewRootImpl;->mCurScrollY:I
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_4
 
     const/4 v2, 0x0
 
@@ -116,12 +175,12 @@
 
     invoke-virtual {v1, v2, v3}, Landroid/view/MotionEvent;->offsetLocation(FF)V
 
-    :cond_3
+    :cond_4
     invoke-virtual {v1}, Landroid/view/MotionEvent;->isTouchEvent()Z
 
     move-result v2
 
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_5
 
     iget-object v2, p0, Landroid/view/ViewRootImpl$EarlyPostImeInputStage;->this$0:Landroid/view/ViewRootImpl;
 
@@ -151,8 +210,13 @@
 
     iput v3, v2, Landroid/view/ViewRootImpl;->mLastTouchSource:I
 
-    :cond_4
+    :cond_5
     return v4
+
+    :cond_6
+    const/4 v2, 0x1
+
+    goto :goto_0
 .end method
 
 

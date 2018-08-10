@@ -54,7 +54,7 @@
 
     const/4 v0, 0x0
 
-    invoke-virtual {p0, v0}, Landroid/os/Handler;->removeCallbacksAndMessages(Ljava/lang/Object;)V
+    invoke-virtual {p0, v0}, Landroid/hardware/display/DisplayManagerGlobal$DisplayVolumeListenerDelegate;->removeCallbacksAndMessages(Ljava/lang/Object;)V
 
     return-void
 .end method
@@ -76,19 +76,19 @@
     :pswitch_0
     const-string/jumbo v5, "minVol"
 
-    invoke-virtual {v1, v5}, Landroid/os/BaseBundle;->getInt(Ljava/lang/String;)I
+    invoke-virtual {v1, v5}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
 
     move-result v4
 
     const-string/jumbo v5, "maxVol"
 
-    invoke-virtual {v1, v5}, Landroid/os/BaseBundle;->getInt(Ljava/lang/String;)I
+    invoke-virtual {v1, v5}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
 
     move-result v3
 
     const-string/jumbo v5, "curVol"
 
-    invoke-virtual {v1, v5}, Landroid/os/BaseBundle;->getInt(Ljava/lang/String;)I
+    invoke-virtual {v1, v5}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
 
     move-result v0
 
@@ -96,7 +96,7 @@
 
     const/4 v6, 0x0
 
-    invoke-virtual {v1, v5, v6}, Landroid/os/BaseBundle;->getBoolean(Ljava/lang/String;Z)Z
+    invoke-virtual {v1, v5, v6}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;Z)Z
 
     move-result v2
 
@@ -136,16 +136,16 @@
     .end packed-switch
 .end method
 
-.method public sendDisplayVolumeEvent(Landroid/os/Bundle;I)V
+.method public sendDisplayVolumeEvent(ILandroid/os/Bundle;)V
     .locals 1
 
-    invoke-static {p0, p2}, Landroid/os/Message;->obtain(Landroid/os/Handler;I)Landroid/os/Message;
+    invoke-static {p0, p1}, Landroid/os/Message;->obtain(Landroid/os/Handler;I)Landroid/os/Message;
 
     move-result-object v0
 
-    invoke-virtual {v0, p1}, Landroid/os/Message;->setData(Landroid/os/Bundle;)V
+    invoke-virtual {v0, p2}, Landroid/os/Message;->setData(Landroid/os/Bundle;)V
 
-    invoke-virtual {p0, v0}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
+    invoke-virtual {p0, v0}, Landroid/hardware/display/DisplayManagerGlobal$DisplayVolumeListenerDelegate;->sendMessage(Landroid/os/Message;)Z
 
     return-void
 .end method

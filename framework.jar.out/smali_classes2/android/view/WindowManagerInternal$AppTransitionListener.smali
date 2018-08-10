@@ -25,7 +25,7 @@
 
 
 # virtual methods
-.method public onAppTransitionCancelledLocked()V
+.method public onAppTransitionCancelledLocked(I)V
     .locals 0
 
     return-void
@@ -43,8 +43,10 @@
     return-void
 .end method
 
-.method public onAppTransitionStartingLocked(Landroid/os/IBinder;Landroid/os/IBinder;Landroid/view/animation/Animation;Landroid/view/animation/Animation;)V
-    .locals 0
+.method public onAppTransitionStartingLocked(ILandroid/os/IBinder;Landroid/os/IBinder;Landroid/view/animation/Animation;Landroid/view/animation/Animation;)I
+    .locals 1
 
-    return-void
+    const/4 v0, 0x0
+
+    return v0
 .end method

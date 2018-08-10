@@ -143,9 +143,20 @@
 
     move-result-object v0
 
+    if-eqz v0, :cond_0
+
+    invoke-super {p0}, Landroid/database/AbstractWindowedCursor;->getWindow()Landroid/database/CursorWindow;
+
+    move-result-object v0
+
     invoke-virtual {v0}, Landroid/database/CursorWindow;->getNumRows()I
 
     move-result v0
+
+    return v0
+
+    :cond_0
+    const/4 v0, 0x0
 
     return v0
 .end method
@@ -189,7 +200,7 @@
 
     const-string/jumbo v2, "ColumnNames"
 
-    invoke-virtual {v1, v2}, Landroid/os/BaseBundle;->getStringArray(Ljava/lang/String;)[Ljava/lang/String;
+    invoke-virtual {v1, v2}, Landroid/os/Bundle;->getStringArray(Ljava/lang/String;)[Ljava/lang/String;
 
     move-result-object v1
 
@@ -246,7 +257,7 @@
 
     iget-object v2, p0, Landroid/content/CustomCursor;->mColumnNames:[Ljava/lang/String;
 
-    invoke-virtual {v0, v1, v2}, Landroid/os/BaseBundle;->putStringArray(Ljava/lang/String;[Ljava/lang/String;)V
+    invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putStringArray(Ljava/lang/String;[Ljava/lang/String;)V
 
     iget-object v0, p0, Landroid/content/CustomCursor;->mBundle:Landroid/os/Bundle;
 
@@ -265,7 +276,7 @@
     if-eqz v0, :cond_1
 
     :cond_0
-    invoke-virtual {p0}, Landroid/database/AbstractCursor;->close()V
+    invoke-virtual {p0}, Landroid/content/CustomCursor;->close()V
 
     :cond_1
     return-void

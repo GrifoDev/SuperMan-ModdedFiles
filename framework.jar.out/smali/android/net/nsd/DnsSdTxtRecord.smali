@@ -527,9 +527,7 @@
     :cond_1
     move-object v0, p1
 
-    nop
-
-    nop
+    check-cast v0, Landroid/net/nsd/DnsSdTxtRecord;
 
     iget-object v1, v0, Landroid/net/nsd/DnsSdTxtRecord;->mData:[B
 

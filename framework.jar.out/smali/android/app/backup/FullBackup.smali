@@ -40,6 +40,8 @@
 
 .field public static final FULL_RESTORE_INTENT_ACTION:Ljava/lang/String; = "fullrest"
 
+.field public static final KEY_VALUE_DATA_TOKEN:Ljava/lang/String; = "k"
+
 .field public static final MANAGED_EXTERNAL_TREE_TOKEN:Ljava/lang/String; = "ef"
 
 .field public static final NO_BACKUP_TREE_TOKEN:Ljava/lang/String; = "nb"

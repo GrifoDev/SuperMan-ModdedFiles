@@ -145,7 +145,7 @@
 .method protected getStandardView(I)Landroid/widget/RemoteViews;
     .locals 5
 
-    const v4, 0x1020444
+    const v4, 0x1020355
 
     invoke-virtual {p0}, Landroid/app/Notification$Style;->checkBuilder()V
 
@@ -261,7 +261,7 @@
     return-object v0
 .end method
 
-.method public makeContentView()Landroid/widget/RemoteViews;
+.method public makeContentView(Z)Landroid/widget/RemoteViews;
     .locals 1
 
     const/4 v0, 0x0
@@ -269,7 +269,7 @@
     return-object v0
 .end method
 
-.method public makeHeadsUpContentView()Landroid/widget/RemoteViews;
+.method public makeHeadsUpContentView(Z)Landroid/widget/RemoteViews;
     .locals 1
 
     const/4 v0, 0x0

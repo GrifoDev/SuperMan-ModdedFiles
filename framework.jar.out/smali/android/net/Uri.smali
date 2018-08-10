@@ -206,7 +206,7 @@
     const/4 v2, 0x0
 
     :goto_0
-    if-ge v2, v8, :cond_9
+    if-ge v2, v8, :cond_8
 
     move v7, v2
 
@@ -271,7 +271,13 @@
 
     move-result v10
 
-    if-eqz v10, :cond_7
+    xor-int/lit8 v10, v10, 0x1
+
+    if-eqz v10, :cond_6
+
+    add-int/lit8 v6, v6, 0x1
+
+    goto :goto_2
 
     :cond_6
     invoke-virtual {p0, v2, v6}, Ljava/lang/String;->substring(II)Ljava/lang/String;
@@ -290,7 +296,7 @@
     const/4 v5, 0x0
 
     :goto_3
-    if-ge v5, v1, :cond_8
+    if-ge v5, v1, :cond_7
 
     const/16 v10, 0x25
 
@@ -324,11 +330,6 @@
 
     goto :goto_3
 
-    :cond_7
-    add-int/lit8 v6, v6, 0x1
-
-    goto :goto_2
-
     :catch_0
     move-exception v3
 
@@ -338,18 +339,18 @@
 
     throw v10
 
-    :cond_8
+    :cond_7
     move v2, v6
 
     goto :goto_0
 
-    :cond_9
-    if-nez v4, :cond_a
+    :cond_8
+    if-nez v4, :cond_9
 
     :goto_4
     return-object p0
 
-    :cond_a
+    :cond_9
     invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p0
@@ -553,6 +554,35 @@
 .method public abstract buildUpon()Landroid/net/Uri$Builder;
 .end method
 
+.method public checkContentUriWithoutPermission(Ljava/lang/String;I)V
+    .locals 2
+
+    const-string/jumbo v0, "content"
+
+    invoke-virtual {p0}, Landroid/net/Uri;->getScheme()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    invoke-static {p2}, Landroid/content/Intent;->isAccessUriMode(I)Z
+
+    move-result v0
+
+    xor-int/lit8 v0, v0, 0x1
+
+    if-eqz v0, :cond_0
+
+    invoke-static {p0, p1}, Landroid/os/StrictMode;->onContentUriWithoutPermission(Landroid/net/Uri;Ljava/lang/String;)V
+
+    :cond_0
+    return-void
+.end method
+
 .method public checkFileUriExposed(Ljava/lang/String;)V
     .locals 2
 
@@ -572,22 +602,26 @@
 
     move-result-object v0
 
+    if-eqz v0, :cond_0
+
+    invoke-virtual {p0}, Landroid/net/Uri;->getPath()Ljava/lang/String;
+
+    move-result-object v0
+
     const-string/jumbo v1, "/system/"
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    xor-int/lit8 v0, v0, 0x1
 
-    :cond_0
-    :goto_0
-    return-void
+    if-eqz v0, :cond_0
 
-    :cond_1
     invoke-static {p0, p1}, Landroid/os/StrictMode;->onFileUriExposed(Landroid/net/Uri;Ljava/lang/String;)V
 
-    goto :goto_0
+    :cond_0
+    return-void
 .end method
 
 .method public compareTo(Landroid/net/Uri;)I
@@ -655,9 +689,7 @@
 .end method
 
 .method public getBooleanQueryParameter(Ljava/lang/String;Z)Z
-    .locals 3
-
-    const/4 v1, 0x0
+    .locals 2
 
     invoke-virtual {p0, p1}, Landroid/net/Uri;->getQueryParameter(Ljava/lang/String;)Ljava/lang/String;
 
@@ -668,34 +700,33 @@
     return p2
 
     :cond_0
-    sget-object v2, Ljava/util/Locale;->ROOT:Ljava/util/Locale;
+    sget-object v1, Ljava/util/Locale;->ROOT:Ljava/util/Locale;
 
-    invoke-virtual {v0, v2}, Ljava/lang/String;->toLowerCase(Ljava/util/Locale;)Ljava/lang/String;
+    invoke-virtual {v0, v1}, Ljava/lang/String;->toLowerCase(Ljava/util/Locale;)Ljava/lang/String;
 
     move-result-object v0
 
-    const-string/jumbo v2, "false"
+    const-string/jumbo v1, "false"
 
-    invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result v1
 
-    if-nez v2, :cond_1
+    if-nez v1, :cond_1
 
-    const-string/jumbo v2, "0"
+    const-string/jumbo v1, "0"
 
-    invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result v1
 
-    if-eqz v2, :cond_2
+    xor-int/lit8 v1, v1, 0x1
 
-    :cond_1
     :goto_0
     return v1
 
-    :cond_2
-    const/4 v1, 0x1
+    :cond_1
+    const/4 v1, 0x0
 
     goto :goto_0
 .end method
@@ -1288,17 +1319,9 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    xor-int/lit8 v0, v0, 0x1
 
-    const/4 v0, 0x0
-
-    :goto_0
     return v0
-
-    :cond_0
-    const/4 v0, 0x1
-
-    goto :goto_0
 .end method
 
 .method public abstract isHierarchical()Z
@@ -1311,17 +1334,9 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    xor-int/lit8 v0, v0, 0x1
 
-    const/4 v0, 0x0
-
-    :goto_0
     return v0
-
-    :cond_0
-    const/4 v0, 0x1
-
-    goto :goto_0
 .end method
 
 .method public isPathPrefixMatch(Landroid/net/Uri;)Z

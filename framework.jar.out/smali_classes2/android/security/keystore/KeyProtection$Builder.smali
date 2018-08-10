@@ -17,6 +17,10 @@
 # instance fields
 .field private mBlockModes:[Ljava/lang/String;
 
+.field private mBoundToSecureUserId:J
+
+.field private mCriticalToDeviceEncryption:Z
+
 .field private mDigests:[Ljava/lang/String;
 
 .field private mEncryptionPaddings:[Ljava/lang/String;
@@ -58,6 +62,14 @@
 
     iput-boolean v1, p0, Landroid/security/keystore/KeyProtection$Builder;->mInvalidatedByBiometricEnrollment:Z
 
+    const-wide/16 v0, 0x0
+
+    iput-wide v0, p0, Landroid/security/keystore/KeyProtection$Builder;->mBoundToSecureUserId:J
+
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Landroid/security/keystore/KeyProtection$Builder;->mCriticalToDeviceEncryption:Z
+
     iput p1, p0, Landroid/security/keystore/KeyProtection$Builder;->mPurposes:I
 
     return-void
@@ -66,41 +78,79 @@
 
 # virtual methods
 .method public build()Landroid/security/keystore/KeyProtection;
-    .locals 15
+    .locals 20
 
-    new-instance v0, Landroid/security/keystore/KeyProtection;
+    new-instance v2, Landroid/security/keystore/KeyProtection;
 
-    iget-object v1, p0, Landroid/security/keystore/KeyProtection$Builder;->mKeyValidityStart:Ljava/util/Date;
+    move-object/from16 v0, p0
 
-    iget-object v2, p0, Landroid/security/keystore/KeyProtection$Builder;->mKeyValidityForOriginationEnd:Ljava/util/Date;
+    iget-object v3, v0, Landroid/security/keystore/KeyProtection$Builder;->mKeyValidityStart:Ljava/util/Date;
 
-    iget-object v3, p0, Landroid/security/keystore/KeyProtection$Builder;->mKeyValidityForConsumptionEnd:Ljava/util/Date;
+    move-object/from16 v0, p0
 
-    iget v4, p0, Landroid/security/keystore/KeyProtection$Builder;->mPurposes:I
+    iget-object v4, v0, Landroid/security/keystore/KeyProtection$Builder;->mKeyValidityForOriginationEnd:Ljava/util/Date;
 
-    iget-object v5, p0, Landroid/security/keystore/KeyProtection$Builder;->mEncryptionPaddings:[Ljava/lang/String;
+    move-object/from16 v0, p0
 
-    iget-object v6, p0, Landroid/security/keystore/KeyProtection$Builder;->mSignaturePaddings:[Ljava/lang/String;
+    iget-object v5, v0, Landroid/security/keystore/KeyProtection$Builder;->mKeyValidityForConsumptionEnd:Ljava/util/Date;
 
-    iget-object v7, p0, Landroid/security/keystore/KeyProtection$Builder;->mDigests:[Ljava/lang/String;
+    move-object/from16 v0, p0
 
-    iget-object v8, p0, Landroid/security/keystore/KeyProtection$Builder;->mBlockModes:[Ljava/lang/String;
+    iget v6, v0, Landroid/security/keystore/KeyProtection$Builder;->mPurposes:I
 
-    iget-boolean v9, p0, Landroid/security/keystore/KeyProtection$Builder;->mRandomizedEncryptionRequired:Z
+    move-object/from16 v0, p0
 
-    iget-boolean v10, p0, Landroid/security/keystore/KeyProtection$Builder;->mUserAuthenticationRequired:Z
+    iget-object v7, v0, Landroid/security/keystore/KeyProtection$Builder;->mEncryptionPaddings:[Ljava/lang/String;
 
-    iget v11, p0, Landroid/security/keystore/KeyProtection$Builder;->mUserAuthenticationValidityDurationSeconds:I
+    move-object/from16 v0, p0
 
-    iget-boolean v12, p0, Landroid/security/keystore/KeyProtection$Builder;->mUserAuthenticationValidWhileOnBody:Z
+    iget-object v8, v0, Landroid/security/keystore/KeyProtection$Builder;->mSignaturePaddings:[Ljava/lang/String;
 
-    iget-boolean v13, p0, Landroid/security/keystore/KeyProtection$Builder;->mInvalidatedByBiometricEnrollment:Z
+    move-object/from16 v0, p0
 
-    const/4 v14, 0x0
+    iget-object v9, v0, Landroid/security/keystore/KeyProtection$Builder;->mDigests:[Ljava/lang/String;
 
-    invoke-direct/range {v0 .. v14}, Landroid/security/keystore/KeyProtection;-><init>(Ljava/util/Date;Ljava/util/Date;Ljava/util/Date;I[Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;ZZIZZLandroid/security/keystore/KeyProtection;)V
+    move-object/from16 v0, p0
 
-    return-object v0
+    iget-object v10, v0, Landroid/security/keystore/KeyProtection$Builder;->mBlockModes:[Ljava/lang/String;
+
+    move-object/from16 v0, p0
+
+    iget-boolean v11, v0, Landroid/security/keystore/KeyProtection$Builder;->mRandomizedEncryptionRequired:Z
+
+    move-object/from16 v0, p0
+
+    iget-boolean v12, v0, Landroid/security/keystore/KeyProtection$Builder;->mUserAuthenticationRequired:Z
+
+    move-object/from16 v0, p0
+
+    iget v13, v0, Landroid/security/keystore/KeyProtection$Builder;->mUserAuthenticationValidityDurationSeconds:I
+
+    move-object/from16 v0, p0
+
+    iget-boolean v14, v0, Landroid/security/keystore/KeyProtection$Builder;->mUserAuthenticationValidWhileOnBody:Z
+
+    move-object/from16 v0, p0
+
+    iget-boolean v15, v0, Landroid/security/keystore/KeyProtection$Builder;->mInvalidatedByBiometricEnrollment:Z
+
+    move-object/from16 v0, p0
+
+    iget-wide v0, v0, Landroid/security/keystore/KeyProtection$Builder;->mBoundToSecureUserId:J
+
+    move-wide/from16 v16, v0
+
+    move-object/from16 v0, p0
+
+    iget-boolean v0, v0, Landroid/security/keystore/KeyProtection$Builder;->mCriticalToDeviceEncryption:Z
+
+    move/from16 v18, v0
+
+    const/16 v19, 0x0
+
+    invoke-direct/range {v2 .. v19}, Landroid/security/keystore/KeyProtection;-><init>(Ljava/util/Date;Ljava/util/Date;Ljava/util/Date;I[Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;ZZIZZJZLandroid/security/keystore/KeyProtection;)V
+
+    return-object v2
 .end method
 
 .method public varargs setBlockModes([Ljava/lang/String;)Landroid/security/keystore/KeyProtection$Builder;
@@ -111,6 +161,22 @@
     move-result-object v0
 
     iput-object v0, p0, Landroid/security/keystore/KeyProtection$Builder;->mBlockModes:[Ljava/lang/String;
+
+    return-object p0
+.end method
+
+.method public setBoundToSpecificSecureUserId(J)Landroid/security/keystore/KeyProtection$Builder;
+    .locals 1
+
+    iput-wide p1, p0, Landroid/security/keystore/KeyProtection$Builder;->mBoundToSecureUserId:J
+
+    return-object p0
+.end method
+
+.method public setCriticalToDeviceEncryption(Z)Landroid/security/keystore/KeyProtection$Builder;
+    .locals 0
+
+    iput-boolean p1, p0, Landroid/security/keystore/KeyProtection$Builder;->mCriticalToDeviceEncryption:Z
 
     return-object p0
 .end method

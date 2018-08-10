@@ -47,7 +47,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate$4;->this$0:Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate;
 
-    invoke-static {v3}, Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate;->-get21(Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate;)I
+    invoke-static {v3}, Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate;->-get23(Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate;)I
 
     move-result v3
 
@@ -90,7 +90,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate$4;->this$0:Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate;
 
-    invoke-static {v3}, Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate;->-get21(Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate;)I
+    invoke-static {v3}, Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate;->-get23(Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate;)I
 
     move-result v0
 
@@ -123,9 +123,9 @@
 
     iget-object v3, p0, Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate$4;->this$0:Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate;
 
-    iget-object v3, v3, Lcom/samsung/android/widget/SemNumberPicker$AbstractSemNumberPickerDelegate;->mDelegator:Lcom/samsung/android/widget/SemNumberPicker;
+    iget-object v3, v3, Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate;->mDelegator:Lcom/samsung/android/widget/SemNumberPicker;
 
-    invoke-virtual {v3}, Landroid/view/View;->invalidate()V
+    invoke-virtual {v3}, Lcom/samsung/android/widget/SemNumberPicker;->invalidate()V
 
     new-instance v3, Landroid/os/Handler;
 
@@ -146,7 +146,7 @@
     :cond_1
     iget-object v3, p0, Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate$4;->this$0:Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate;
 
-    invoke-static {v3}, Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate;->-get21(Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate;)I
+    invoke-static {v3}, Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate;->-get23(Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate;)I
 
     move-result v3
 
@@ -157,7 +157,7 @@
     :cond_2
     iget-object v3, p0, Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate$4;->this$0:Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate;
 
-    invoke-static {v3}, Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate;->-get21(Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate;)I
+    invoke-static {v3}, Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate;->-get23(Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate;)I
 
     move-result v3
 
@@ -168,7 +168,7 @@
     :cond_3
     iget-object v3, p0, Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate$4;->this$0:Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate;
 
-    invoke-static {v3}, Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate;->-get21(Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate;)I
+    invoke-static {v3}, Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate;->-get23(Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate;)I
 
     move-result v3
 

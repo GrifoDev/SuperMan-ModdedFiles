@@ -244,12 +244,12 @@
 
     iget-object v2, p0, Landroid/hardware/camera2/legacy/GLThreadManager;->mGLHandlerThread:Landroid/hardware/camera2/legacy/RequestHandlerThread;
 
-    invoke-virtual {v2}, Landroid/os/HandlerThread;->quitSafely()Z
+    invoke-virtual {v2}, Landroid/hardware/camera2/legacy/RequestHandlerThread;->quitSafely()Z
 
     :try_start_0
     iget-object v2, p0, Landroid/hardware/camera2/legacy/GLThreadManager;->mGLHandlerThread:Landroid/hardware/camera2/legacy/RequestHandlerThread;
 
-    invoke-virtual {v2}, Ljava/lang/Thread;->join()V
+    invoke-virtual {v2}, Landroid/hardware/camera2/legacy/RequestHandlerThread;->join()V
     :try_end_0
     .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -269,7 +269,7 @@
 
     iget-object v5, p0, Landroid/hardware/camera2/legacy/GLThreadManager;->mGLHandlerThread:Landroid/hardware/camera2/legacy/RequestHandlerThread;
 
-    invoke-virtual {v5}, Ljava/lang/Thread;->getName()Ljava/lang/String;
+    invoke-virtual {v5}, Landroid/hardware/camera2/legacy/RequestHandlerThread;->getName()Ljava/lang/String;
 
     move-result-object v5
 
@@ -279,7 +279,7 @@
 
     iget-object v5, p0, Landroid/hardware/camera2/legacy/GLThreadManager;->mGLHandlerThread:Landroid/hardware/camera2/legacy/RequestHandlerThread;
 
-    invoke-virtual {v5}, Ljava/lang/Thread;->getId()J
+    invoke-virtual {v5}, Landroid/hardware/camera2/legacy/RequestHandlerThread;->getId()J
 
     move-result-wide v6
 
@@ -355,7 +355,7 @@
 
     iget-object v0, p0, Landroid/hardware/camera2/legacy/GLThreadManager;->mGLHandlerThread:Landroid/hardware/camera2/legacy/RequestHandlerThread;
 
-    invoke-virtual {v0}, Ljava/lang/Thread;->start()V
+    invoke-virtual {v0}, Landroid/hardware/camera2/legacy/RequestHandlerThread;->start()V
 
     return-void
 .end method

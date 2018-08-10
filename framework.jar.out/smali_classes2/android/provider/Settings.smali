@@ -7,9 +7,9 @@
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Landroid/provider/Settings$Bookmarks;,
+        Landroid/provider/Settings$ContentProviderHolder;,
         Landroid/provider/Settings$GenerationTracker;,
         Landroid/provider/Settings$Global;,
-        Landroid/provider/Settings$LogMsg;,
         Landroid/provider/Settings$NameValueCache;,
         Landroid/provider/Settings$NameValueTable;,
         Landroid/provider/Settings$Secure;,
@@ -48,6 +48,8 @@
 
 .field public static final ACTION_CAST_SETTINGS:Ljava/lang/String; = "android.settings.CAST_SETTINGS"
 
+.field public static final ACTION_CHANNEL_NOTIFICATION_SETTINGS:Ljava/lang/String; = "android.settings.CHANNEL_NOTIFICATION_SETTINGS"
+
 .field public static final ACTION_CONDITION_PROVIDER_SETTINGS:Ljava/lang/String; = "android.settings.ACTION_CONDITION_PROVIDER_SETTINGS"
 
 .field public static final ACTION_DATA_ROAMING_SETTINGS:Ljava/lang/String; = "android.settings.DATA_ROAMING_SETTINGS"
@@ -59,6 +61,10 @@
 .field public static final ACTION_DISPLAY_SETTINGS:Ljava/lang/String; = "android.settings.DISPLAY_SETTINGS"
 
 .field public static final ACTION_DREAM_SETTINGS:Ljava/lang/String; = "android.settings.DREAM_SETTINGS"
+
+.field public static final ACTION_ENTERPRISE_PRIVACY_SETTINGS:Ljava/lang/String; = "android.settings.ENTERPRISE_PRIVACY_SETTINGS"
+
+.field public static final ACTION_FOREGROUND_SERVICES_SETTINGS:Ljava/lang/String; = "android.settings.FOREGROUND_SERVICES_SETTINGS"
 
 .field public static final ACTION_HARD_KEYBOARD_SETTINGS:Ljava/lang/String; = "android.settings.HARD_KEYBOARD_SETTINGS"
 
@@ -78,6 +84,8 @@
 
 .field public static final ACTION_LOCATION_SOURCE_SETTINGS:Ljava/lang/String; = "android.settings.LOCATION_SOURCE_SETTINGS"
 
+.field public static final ACTION_MANAGED_PROFILE_SETTINGS:Ljava/lang/String; = "android.settings.MANAGED_PROFILE_SETTINGS"
+
 .field public static final ACTION_MANAGE_ALL_APPLICATIONS_SETTINGS:Ljava/lang/String; = "android.settings.MANAGE_ALL_APPLICATIONS_SETTINGS"
 
 .field public static final ACTION_MANAGE_APPLICATIONS_SETTINGS:Ljava/lang/String; = "android.settings.MANAGE_APPLICATIONS_SETTINGS"
@@ -85,6 +93,8 @@
 .field public static final ACTION_MANAGE_DEFAULT_APPS_SETTINGS:Ljava/lang/String; = "android.settings.MANAGE_DEFAULT_APPS_SETTINGS"
 
 .field public static final ACTION_MANAGE_OVERLAY_PERMISSION:Ljava/lang/String; = "android.settings.action.MANAGE_OVERLAY_PERMISSION"
+
+.field public static final ACTION_MANAGE_UNKNOWN_APP_SOURCES:Ljava/lang/String; = "android.settings.MANAGE_UNKNOWN_APP_SOURCES"
 
 .field public static final ACTION_MANAGE_WRITE_SETTINGS:Ljava/lang/String; = "android.settings.action.MANAGE_WRITE_SETTINGS"
 
@@ -100,6 +110,8 @@
 
 .field public static final ACTION_NFC_SETTINGS:Ljava/lang/String; = "android.settings.NFC_SETTINGS"
 
+.field public static final ACTION_NIGHT_DISPLAY_SETTINGS:Ljava/lang/String; = "android.settings.NIGHT_DISPLAY_SETTINGS"
+
 .field public static final ACTION_NOTIFICATION_LISTENER_SETTINGS:Ljava/lang/String; = "android.settings.ACTION_NOTIFICATION_LISTENER_SETTINGS"
 
 .field public static final ACTION_NOTIFICATION_POLICY_ACCESS_SETTINGS:Ljava/lang/String; = "android.settings.NOTIFICATION_POLICY_ACCESS_SETTINGS"
@@ -108,6 +120,8 @@
 
 .field public static final ACTION_PAIRING_SETTINGS:Ljava/lang/String; = "android.settings.PAIRING_SETTINGS"
 
+.field public static final ACTION_PICTURE_IN_PICTURE_SETTINGS:Ljava/lang/String; = "android.settings.PICTURE_IN_PICTURE_SETTINGS"
+
 .field public static final ACTION_PRINT_SETTINGS:Ljava/lang/String; = "android.settings.ACTION_PRINT_SETTINGS"
 
 .field public static final ACTION_PRIVACY_SETTINGS:Ljava/lang/String; = "android.settings.PRIVACY_SETTINGS"
@@ -115,6 +129,8 @@
 .field public static final ACTION_QUICK_LAUNCH_SETTINGS:Ljava/lang/String; = "android.settings.QUICK_LAUNCH_SETTINGS"
 
 .field public static final ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS:Ljava/lang/String; = "android.settings.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS"
+
+.field public static final ACTION_REQUEST_SET_AUTOFILL_SERVICE:Ljava/lang/String; = "android.settings.REQUEST_SET_AUTOFILL_SERVICE"
 
 .field public static final ACTION_SEARCH_SETTINGS:Ljava/lang/String; = "android.search.action.SEARCH_SETTINGS"
 
@@ -135,6 +151,8 @@
 .field public static final ACTION_SIM_MGT_CHANGED:Ljava/lang/String; = "com.samsung.settings.SIMCARD_MGT"
 
 .field public static final ACTION_SOUND_SETTINGS:Ljava/lang/String; = "android.settings.SOUND_SETTINGS"
+
+.field public static final ACTION_STORAGE_MANAGER_SETTINGS:Ljava/lang/String; = "android.settings.STORAGE_MANAGER_SETTINGS"
 
 .field public static final ACTION_SYNC_SETTINGS:Ljava/lang/String; = "android.settings.SYNC_SETTINGS"
 
@@ -196,11 +214,21 @@
 
 .field public static final CALL_METHOD_GET_SYSTEM:Ljava/lang/String; = "GET_system"
 
+.field public static final CALL_METHOD_MAKE_DEFAULT_KEY:Ljava/lang/String; = "_make_default"
+
 .field public static final CALL_METHOD_PUT_GLOBAL:Ljava/lang/String; = "PUT_global"
 
 .field public static final CALL_METHOD_PUT_SECURE:Ljava/lang/String; = "PUT_secure"
 
 .field public static final CALL_METHOD_PUT_SYSTEM:Ljava/lang/String; = "PUT_system"
+
+.field public static final CALL_METHOD_RESET_GLOBAL:Ljava/lang/String; = "RESET_global"
+
+.field public static final CALL_METHOD_RESET_MODE_KEY:Ljava/lang/String; = "_reset_mode"
+
+.field public static final CALL_METHOD_RESET_SECURE:Ljava/lang/String; = "RESET_secure"
+
+.field public static final CALL_METHOD_TAG_KEY:Ljava/lang/String; = "_tag"
 
 .field public static final CALL_METHOD_TRACK_GENERATION_KEY:Ljava/lang/String; = "_track_generation"
 
@@ -212,13 +240,15 @@
 
 .field public static final EXTRA_AIRPLANE_MODE_ENABLED:Ljava/lang/String; = "airplane_mode_enabled"
 
-.field public static final EXTRA_APP_PACKAGE:Ljava/lang/String; = "app_package"
+.field public static final EXTRA_APP_PACKAGE:Ljava/lang/String; = "android.provider.extra.APP_PACKAGE"
 
 .field public static final EXTRA_APP_UID:Ljava/lang/String; = "app_uid"
 
 .field public static final EXTRA_AUTHORITIES:Ljava/lang/String; = "authorities"
 
 .field public static final EXTRA_BATTERY_SAVER_MODE_ENABLED:Ljava/lang/String; = "android.settings.extra.battery_saver_mode_enabled"
+
+.field public static final EXTRA_CHANNEL_ID:Ljava/lang/String; = "android.provider.extra.CHANNEL_ID"
 
 .field public static final EXTRA_DO_NOT_DISTURB_MODE_ENABLED:Ljava/lang/String; = "android.settings.extra.do_not_disturb_mode_enabled"
 
@@ -252,9 +282,21 @@
 
 .field private static final PM_WRITE_SETTINGS:[Ljava/lang/String;
 
+.field public static final RESET_MODE_PACKAGE_DEFAULTS:I = 0x1
+
+.field public static final RESET_MODE_TRUSTED_DEFAULTS:I = 0x4
+
+.field public static final RESET_MODE_UNTRUSTED_CHANGES:I = 0x3
+
+.field public static final RESET_MODE_UNTRUSTED_DEFAULTS:I = 0x2
+
 .field private static final TAG:Ljava/lang/String; = "Settings"
 
 .field private static final mLocationSettingsLock:Ljava/lang/Object;
+
+.field private static sInSystemServer:Z
+
+.field private static final sInSystemServerLock:Ljava/lang/Object;
 
 
 # direct methods
@@ -278,6 +320,14 @@
     invoke-direct {v0}, Ljava/lang/Object;-><init>()V
 
     sput-object v0, Landroid/provider/Settings;->mLocationSettingsLock:Ljava/lang/Object;
+
+    sput-boolean v2, Landroid/provider/Settings;->sInSystemServer:Z
+
+    new-instance v0, Ljava/lang/Object;
+
+    invoke-direct {v0}, Ljava/lang/Object;-><init>()V
+
+    sput-object v0, Landroid/provider/Settings;->sInSystemServerLock:Ljava/lang/Object;
 
     new-array v0, v3, [Ljava/lang/String;
 
@@ -678,4 +728,54 @@
     move-result v0
 
     return v0
+.end method
+
+.method public static isInSystemServer()Z
+    .locals 2
+
+    sget-object v0, Landroid/provider/Settings;->sInSystemServerLock:Ljava/lang/Object;
+
+    monitor-enter v0
+
+    :try_start_0
+    sget-boolean v1, Landroid/provider/Settings;->sInSystemServer:Z
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit v0
+
+    return v1
+
+    :catchall_0
+    move-exception v1
+
+    monitor-exit v0
+
+    throw v1
+.end method
+
+.method public static setInSystemServer()V
+    .locals 2
+
+    sget-object v0, Landroid/provider/Settings;->sInSystemServerLock:Ljava/lang/Object;
+
+    monitor-enter v0
+
+    const/4 v1, 0x1
+
+    :try_start_0
+    sput-boolean v1, Landroid/provider/Settings;->sInSystemServer:Z
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit v0
+
+    return-void
+
+    :catchall_0
+    move-exception v1
+
+    monitor-exit v0
+
+    throw v1
 .end method

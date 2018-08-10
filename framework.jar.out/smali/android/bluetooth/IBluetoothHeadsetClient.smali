@@ -23,14 +23,6 @@
     .end annotation
 .end method
 
-.method public abstract acceptIncomingConnect(Landroid/bluetooth/BluetoothDevice;)Z
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
 .method public abstract connect(Landroid/bluetooth/BluetoothDevice;)Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -39,7 +31,7 @@
     .end annotation
 .end method
 
-.method public abstract connectAudio()Z
+.method public abstract connectAudio(Landroid/bluetooth/BluetoothDevice;)Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -47,15 +39,7 @@
     .end annotation
 .end method
 
-.method public abstract dial(Landroid/bluetooth/BluetoothDevice;Ljava/lang/String;)Z
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract dialMemory(Landroid/bluetooth/BluetoothDevice;I)Z
+.method public abstract dial(Landroid/bluetooth/BluetoothDevice;Ljava/lang/String;)Landroid/bluetooth/BluetoothHeadsetClientCall;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -71,7 +55,7 @@
     .end annotation
 .end method
 
-.method public abstract disconnectAudio()Z
+.method public abstract disconnectAudio(Landroid/bluetooth/BluetoothDevice;)Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -95,7 +79,7 @@
     .end annotation
 .end method
 
-.method public abstract getAudioRouteAllowed()Z
+.method public abstract getAudioRouteAllowed(Landroid/bluetooth/BluetoothDevice;)Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -104,14 +88,6 @@
 .end method
 
 .method public abstract getAudioState(Landroid/bluetooth/BluetoothDevice;)I
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract getCLCC()Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -223,23 +199,7 @@
     .end annotation
 .end method
 
-.method public abstract redial(Landroid/bluetooth/BluetoothDevice;)Z
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
 .method public abstract rejectCall(Landroid/bluetooth/BluetoothDevice;)Z
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract rejectIncomingConnect(Landroid/bluetooth/BluetoothDevice;)Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -255,7 +215,7 @@
     .end annotation
 .end method
 
-.method public abstract setAudioRouteAllowed(Z)V
+.method public abstract setAudioRouteAllowed(Landroid/bluetooth/BluetoothDevice;Z)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -287,7 +247,7 @@
     .end annotation
 .end method
 
-.method public abstract terminateCall(Landroid/bluetooth/BluetoothDevice;I)Z
+.method public abstract terminateCall(Landroid/bluetooth/BluetoothDevice;Landroid/bluetooth/BluetoothHeadsetClientCall;)Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

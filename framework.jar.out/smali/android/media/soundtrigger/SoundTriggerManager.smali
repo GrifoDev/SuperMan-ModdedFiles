@@ -74,9 +74,6 @@
 
     check-cast v1, Landroid/media/soundtrigger/SoundTriggerDetector;
 
-    if-eqz v1, :cond_1
-
-    :cond_1
     new-instance v0, Landroid/media/soundtrigger/SoundTriggerDetector;
 
     iget-object v2, p0, Landroid/media/soundtrigger/SoundTriggerManager;->mSoundTriggerService:Lcom/android/internal/app/ISoundTriggerService;

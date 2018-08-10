@@ -119,136 +119,161 @@
 .end method
 
 .method public createAnimator(Landroid/view/ViewGroup;Landroid/transition/TransitionValues;Landroid/transition/TransitionValues;)Landroid/animation/Animator;
-    .locals 7
+    .locals 10
 
-    const/4 v5, 0x0
+    const/4 v8, 0x0
 
     if-eqz p2, :cond_0
 
     if-nez p3, :cond_1
 
     :cond_0
-    return-object v5
+    return-object v8
 
     :cond_1
-    iget-object v3, p2, Landroid/transition/TransitionValues;->values:Ljava/util/Map;
+    iget-object v6, p2, Landroid/transition/TransitionValues;->values:Ljava/util/Map;
 
-    const-string/jumbo v4, "android:clipBounds:clip"
+    const-string/jumbo v7, "android:clipBounds:clip"
 
-    invoke-interface {v3, v4}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
+    invoke-interface {v6, v7}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
 
-    move-result v3
+    move-result v6
 
-    if-eqz v3, :cond_0
+    xor-int/lit8 v6, v6, 0x1
 
-    iget-object v3, p3, Landroid/transition/TransitionValues;->values:Ljava/util/Map;
+    if-nez v6, :cond_0
 
-    const-string/jumbo v4, "android:clipBounds:clip"
+    iget-object v6, p3, Landroid/transition/TransitionValues;->values:Ljava/util/Map;
 
-    invoke-interface {v3, v4}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
+    const-string/jumbo v7, "android:clipBounds:clip"
 
-    move-result v3
+    invoke-interface {v6, v7}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
 
-    if-eqz v3, :cond_0
+    move-result v6
 
-    iget-object v3, p2, Landroid/transition/TransitionValues;->values:Ljava/util/Map;
+    xor-int/lit8 v6, v6, 0x1
 
-    const-string/jumbo v4, "android:clipBounds:clip"
+    if-nez v6, :cond_0
 
-    invoke-interface {v3, v4}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    iget-object v6, p2, Landroid/transition/TransitionValues;->values:Ljava/util/Map;
 
-    move-result-object v2
+    const-string/jumbo v7, "android:clipBounds:clip"
 
-    check-cast v2, Landroid/graphics/Rect;
+    invoke-interface {v6, v7}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    iget-object v3, p3, Landroid/transition/TransitionValues;->values:Ljava/util/Map;
+    move-result-object v5
 
-    const-string/jumbo v4, "android:clipBounds:clip"
+    check-cast v5, Landroid/graphics/Rect;
 
-    invoke-interface {v3, v4}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    iget-object v6, p3, Landroid/transition/TransitionValues;->values:Ljava/util/Map;
 
-    move-result-object v0
+    const-string/jumbo v7, "android:clipBounds:clip"
 
-    check-cast v0, Landroid/graphics/Rect;
+    invoke-interface {v6, v7}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    if-nez v2, :cond_2
+    move-result-object v1
 
-    if-nez v0, :cond_2
+    check-cast v1, Landroid/graphics/Rect;
 
-    return-object v5
+    if-nez v1, :cond_2
+
+    const/4 v2, 0x1
+
+    :goto_0
+    if-nez v5, :cond_3
+
+    if-nez v1, :cond_3
+
+    return-object v8
 
     :cond_2
-    if-nez v2, :cond_4
-
-    iget-object v3, p2, Landroid/transition/TransitionValues;->values:Ljava/util/Map;
-
-    const-string/jumbo v4, "android:clipBounds:bounds"
-
-    invoke-interface {v3, v4}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Landroid/graphics/Rect;
-
-    :cond_3
-    :goto_0
-    invoke-virtual {v2, v0}, Landroid/graphics/Rect;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_5
-
-    return-object v5
-
-    :cond_4
-    if-nez v0, :cond_3
-
-    iget-object v3, p3, Landroid/transition/TransitionValues;->values:Ljava/util/Map;
-
-    const-string/jumbo v4, "android:clipBounds:bounds"
-
-    invoke-interface {v3, v4}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/graphics/Rect;
+    const/4 v2, 0x0
 
     goto :goto_0
 
+    :cond_3
+    if-nez v5, :cond_5
+
+    iget-object v6, p2, Landroid/transition/TransitionValues;->values:Ljava/util/Map;
+
+    const-string/jumbo v7, "android:clipBounds:bounds"
+
+    invoke-interface {v6, v7}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v5
+
+    check-cast v5, Landroid/graphics/Rect;
+
+    :cond_4
+    :goto_1
+    invoke-virtual {v5, v1}, Landroid/graphics/Rect;->equals(Ljava/lang/Object;)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_6
+
+    return-object v8
+
     :cond_5
+    if-nez v1, :cond_4
+
+    iget-object v6, p3, Landroid/transition/TransitionValues;->values:Ljava/util/Map;
+
+    const-string/jumbo v7, "android:clipBounds:bounds"
+
+    invoke-interface {v6, v7}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/graphics/Rect;
+
+    goto :goto_1
+
+    :cond_6
+    iget-object v6, p3, Landroid/transition/TransitionValues;->view:Landroid/view/View;
+
+    invoke-virtual {v6, v5}, Landroid/view/View;->setClipBounds(Landroid/graphics/Rect;)V
+
+    new-instance v4, Landroid/animation/RectEvaluator;
+
+    new-instance v6, Landroid/graphics/Rect;
+
+    invoke-direct {v6}, Landroid/graphics/Rect;-><init>()V
+
+    invoke-direct {v4, v6}, Landroid/animation/RectEvaluator;-><init>(Landroid/graphics/Rect;)V
+
+    iget-object v6, p3, Landroid/transition/TransitionValues;->view:Landroid/view/View;
+
+    const-string/jumbo v7, "clipBounds"
+
+    const/4 v8, 0x2
+
+    new-array v8, v8, [Ljava/lang/Object;
+
+    const/4 v9, 0x0
+
+    aput-object v5, v8, v9
+
+    const/4 v9, 0x1
+
+    aput-object v1, v8, v9
+
+    invoke-static {v6, v7, v4, v8}, Landroid/animation/ObjectAnimator;->ofObject(Ljava/lang/Object;Ljava/lang/String;Landroid/animation/TypeEvaluator;[Ljava/lang/Object;)Landroid/animation/ObjectAnimator;
+
+    move-result-object v0
+
+    if-eqz v2, :cond_7
+
     iget-object v3, p3, Landroid/transition/TransitionValues;->view:Landroid/view/View;
 
-    invoke-virtual {v3, v2}, Landroid/view/View;->setClipBounds(Landroid/graphics/Rect;)V
+    new-instance v6, Landroid/transition/ChangeClipBounds$1;
 
-    new-instance v1, Landroid/animation/RectEvaluator;
+    invoke-direct {v6, p0, v3}, Landroid/transition/ChangeClipBounds$1;-><init>(Landroid/transition/ChangeClipBounds;Landroid/view/View;)V
 
-    new-instance v3, Landroid/graphics/Rect;
+    invoke-virtual {v0, v6}, Landroid/animation/ObjectAnimator;->addListener(Landroid/animation/Animator$AnimatorListener;)V
 
-    invoke-direct {v3}, Landroid/graphics/Rect;-><init>()V
-
-    invoke-direct {v1, v3}, Landroid/animation/RectEvaluator;-><init>(Landroid/graphics/Rect;)V
-
-    iget-object v3, p3, Landroid/transition/TransitionValues;->view:Landroid/view/View;
-
-    const-string/jumbo v4, "clipBounds"
-
-    const/4 v5, 0x2
-
-    new-array v5, v5, [Ljava/lang/Object;
-
-    const/4 v6, 0x0
-
-    aput-object v2, v5, v6
-
-    const/4 v6, 0x1
-
-    aput-object v0, v5, v6
-
-    invoke-static {v3, v4, v1, v5}, Landroid/animation/ObjectAnimator;->ofObject(Ljava/lang/Object;Ljava/lang/String;Landroid/animation/TypeEvaluator;[Ljava/lang/Object;)Landroid/animation/ObjectAnimator;
-
-    move-result-object v3
-
-    return-object v3
+    :cond_7
+    return-object v0
 .end method
 
 .method public getTransitionProperties()[Ljava/lang/String;

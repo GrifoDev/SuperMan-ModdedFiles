@@ -94,7 +94,7 @@
     goto :goto_0
 
     :cond_1
-    invoke-virtual {v0}, Ljava/lang/Enum;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/SensorHubParserProtocol$SUB_DATA_TYPE;->toString()Ljava/lang/String;
 
     move-result-object v5
 
@@ -104,7 +104,7 @@
 
     if-eqz v5, :cond_0
 
-    invoke-virtual {v0}, Ljava/lang/Enum;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/SensorHubParserProtocol$SUB_DATA_TYPE;->toString()Ljava/lang/String;
 
     move-result-object v1
 

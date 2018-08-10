@@ -93,7 +93,7 @@
 
     iget-object v6, p0, Landroid/widget/Editor$SuggestionHelper;->this$0:Landroid/widget/Editor;
 
-    invoke-static {v6}, Landroid/widget/Editor;->-get13(Landroid/widget/Editor;)Landroid/widget/TextView;
+    invoke-static {v6}, Landroid/widget/Editor;->-get14(Landroid/widget/Editor;)Landroid/widget/TextView;
 
     move-result-object v6
 
@@ -103,7 +103,7 @@
 
     iget-object v6, p0, Landroid/widget/Editor$SuggestionHelper;->this$0:Landroid/widget/Editor;
 
-    invoke-static {v6}, Landroid/widget/Editor;->-get13(Landroid/widget/Editor;)Landroid/widget/TextView;
+    invoke-static {v6}, Landroid/widget/Editor;->-get14(Landroid/widget/Editor;)Landroid/widget/TextView;
 
     move-result-object v6
 
@@ -179,7 +179,7 @@
 
     move-object/from16 v19, v0
 
-    invoke-static/range {v19 .. v19}, Landroid/widget/Editor;->-get13(Landroid/widget/Editor;)Landroid/widget/TextView;
+    invoke-static/range {v19 .. v19}, Landroid/widget/Editor;->-get14(Landroid/widget/Editor;)Landroid/widget/TextView;
 
     move-result-object v19
 

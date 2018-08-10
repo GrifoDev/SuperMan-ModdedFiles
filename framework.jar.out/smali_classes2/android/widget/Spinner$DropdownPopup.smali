@@ -81,14 +81,6 @@
 
     const/4 v4, 0x0
 
-    new-instance v1, Landroid/graphics/Rect;
-
-    invoke-direct {v1}, Landroid/graphics/Rect;-><init>()V
-
-    iget-object v8, p0, Landroid/widget/Spinner$DropdownPopup;->this$0:Landroid/widget/Spinner;
-
-    invoke-virtual {v8, v1}, Landroid/widget/Spinner;->getWindowDisplayFrame(Landroid/graphics/Rect;)V
-
     if-eqz v0, :cond_2
 
     iget-object v8, p0, Landroid/widget/Spinner$DropdownPopup;->this$0:Landroid/widget/Spinner;
@@ -155,6 +147,14 @@
     invoke-virtual {v9, v8, v10}, Landroid/widget/Spinner;->measureContentWidth(Landroid/widget/SpinnerAdapter;Landroid/graphics/drawable/Drawable;)I
 
     move-result v2
+
+    new-instance v1, Landroid/graphics/Rect;
+
+    invoke-direct {v1}, Landroid/graphics/Rect;-><init>()V
+
+    iget-object v8, p0, Landroid/widget/Spinner$DropdownPopup;->this$0:Landroid/widget/Spinner;
+
+    invoke-virtual {v8, v1}, Landroid/widget/Spinner;->getWindowDisplayFrame(Landroid/graphics/Rect;)V
 
     iget v8, v1, Landroid/graphics/Rect;->right:I
 
@@ -253,7 +253,7 @@
 
     neg-int v4, v8
 
-    goto :goto_0
+    goto/16 :goto_0
 
     :cond_2
     iget-object v8, p0, Landroid/widget/Spinner$DropdownPopup;->this$0:Landroid/widget/Spinner;

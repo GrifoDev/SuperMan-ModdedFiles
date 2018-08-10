@@ -84,7 +84,7 @@
 
     const-string/jumbo v1, "value"
 
-    invoke-virtual {p0, v1, v0}, Landroid/filterfw/core/Filter;->pushOutput(Ljava/lang/String;Landroid/filterfw/core/Frame;)V
+    invoke-virtual {p0, v1, v0}, Landroid/filterpacks/numeric/SinWaveFilter;->pushOutput(Ljava/lang/String;Landroid/filterfw/core/Frame;)V
 
     iget v1, p0, Landroid/filterpacks/numeric/SinWaveFilter;->mValue:F
 
@@ -116,7 +116,7 @@
 
     iget-object v1, p0, Landroid/filterpacks/numeric/SinWaveFilter;->mOutputFormat:Landroid/filterfw/core/FrameFormat;
 
-    invoke-virtual {p0, v0, v1}, Landroid/filterfw/core/Filter;->addOutputPort(Ljava/lang/String;Landroid/filterfw/core/FrameFormat;)V
+    invoke-virtual {p0, v0, v1}, Landroid/filterpacks/numeric/SinWaveFilter;->addOutputPort(Ljava/lang/String;Landroid/filterfw/core/FrameFormat;)V
 
     return-void
 .end method

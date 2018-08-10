@@ -42,7 +42,11 @@
 
 .field public static final COMMAND_SMOOTH_SCROLL:Ljava/lang/String; = "SMOOTH_SCROLL"
 
+.field public static final COMMAND_SUSTAINED_PERF:Ljava/lang/String; = "SUSTAINED_PERF"
+
 .field public static final COMMAND_USB_TETHERING:Ljava/lang/String; = "USBTETHERING"
+
+.field public static final COMMAND_VR_MODE:Ljava/lang/String; = "VR_MODE"
 
 .field static final DEVICE_TYPE:Ljava/lang/String;
 
@@ -57,10 +61,6 @@
 .field private static volatile mAMSCState:Lcom/samsung/android/os/SemDvfsManager;
 
 .field private static volatile mAMSCStateTail:Lcom/samsung/android/os/SemDvfsManager;
-
-.field static mRotationCPUCoreNumBooster:Lcom/samsung/android/os/SemDvfsManager;
-
-.field static mRotationGPUBooster:Lcom/samsung/android/os/SemDvfsManager;
 
 .field static volatile sCfmsService:Landroid/os/ICustomFrequencyManager;
 
@@ -114,10 +114,6 @@
     move-result-object v0
 
     sput-object v0, Lcom/samsung/android/os/SemPerfManager;->DEVICE_TYPE:Ljava/lang/String;
-
-    sput-object v3, Lcom/samsung/android/os/SemPerfManager;->mRotationCPUCoreNumBooster:Lcom/samsung/android/os/SemDvfsManager;
-
-    sput-object v3, Lcom/samsung/android/os/SemPerfManager;->mRotationGPUBooster:Lcom/samsung/android/os/SemDvfsManager;
 
     sput-object v3, Lcom/samsung/android/os/SemPerfManager;->mAMSCState:Lcom/samsung/android/os/SemDvfsManager;
 
@@ -219,7 +215,7 @@
     :catch_0
     move-exception v0
 
-    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/NullPointerException;->printStackTrace()V
 
     goto :goto_0
 
@@ -298,217 +294,6 @@
     goto :goto_0
 .end method
 
-.method public static onWindowRotationEvent(Landroid/content/Context;Ljava/lang/String;)V
-    .locals 5
-
-    const/4 v4, 0x0
-
-    sget-object v2, Lcom/samsung/android/os/SemPerfManager;->mRotationCPUCoreNumBooster:Lcom/samsung/android/os/SemDvfsManager;
-
-    if-nez v2, :cond_0
-
-    const/16 v2, 0xe
-
-    invoke-static {p0, p1, v2}, Lcom/samsung/android/os/SemDvfsManager;->createInstance(Landroid/content/Context;Ljava/lang/String;I)Lcom/samsung/android/os/SemDvfsManager;
-
-    move-result-object v2
-
-    sput-object v2, Lcom/samsung/android/os/SemPerfManager;->mRotationCPUCoreNumBooster:Lcom/samsung/android/os/SemDvfsManager;
-
-    sget-object v2, Lcom/samsung/android/os/SemPerfManager;->mRotationCPUCoreNumBooster:Lcom/samsung/android/os/SemDvfsManager;
-
-    invoke-virtual {v2}, Lcom/samsung/android/os/SemDvfsManager;->getSupportedFrequency()[I
-
-    move-result-object v0
-
-    if-eqz v0, :cond_7
-
-    sget-object v2, Lcom/samsung/android/os/SemPerfManager;->mRotationCPUCoreNumBooster:Lcom/samsung/android/os/SemDvfsManager;
-
-    aget v3, v0, v4
-
-    invoke-virtual {v2, v3}, Lcom/samsung/android/os/SemDvfsManager;->setDvfsValue(I)V
-
-    :cond_0
-    :goto_0
-    sget-object v2, Lcom/samsung/android/os/SemPerfManager;->mRotationCPUCoreNumBooster:Lcom/samsung/android/os/SemDvfsManager;
-
-    if-eqz v2, :cond_1
-
-    sget-object v2, Lcom/samsung/android/os/SemPerfManager;->mRotationCPUCoreNumBooster:Lcom/samsung/android/os/SemDvfsManager;
-
-    const/16 v3, 0x1f4
-
-    invoke-virtual {v2, v3}, Lcom/samsung/android/os/SemDvfsManager;->acquire(I)V
-
-    :cond_1
-    const-string/jumbo v2, "exynos4"
-
-    sget-object v3, Lcom/samsung/android/os/SemPerfManager;->BOARD_PLATFORM:Ljava/lang/String;
-
-    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-nez v2, :cond_3
-
-    const-string/jumbo v2, "exynos5"
-
-    sget-object v3, Lcom/samsung/android/os/SemPerfManager;->BOARD_PLATFORM:Ljava/lang/String;
-
-    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-nez v2, :cond_3
-
-    const-string/jumbo v2, "hf"
-
-    const-string/jumbo v3, "hrl"
-
-    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_2
-
-    const-string/jumbo v2, "tablet"
-
-    sget-object v3, Lcom/samsung/android/os/SemPerfManager;->DEVICE_TYPE:Ljava/lang/String;
-
-    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-nez v2, :cond_3
-
-    :cond_2
-    const-string/jumbo v2, "msm8226"
-
-    sget-object v3, Lcom/samsung/android/os/SemPerfManager;->BOARD_PLATFORM:Ljava/lang/String;
-
-    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_6
-
-    :cond_3
-    sget-object v2, Lcom/samsung/android/os/SemPerfManager;->mRotationGPUBooster:Lcom/samsung/android/os/SemDvfsManager;
-
-    if-nez v2, :cond_5
-
-    const/16 v2, 0x10
-
-    invoke-static {p0, p1, v2}, Lcom/samsung/android/os/SemDvfsManager;->createInstance(Landroid/content/Context;Ljava/lang/String;I)Lcom/samsung/android/os/SemDvfsManager;
-
-    move-result-object v2
-
-    sput-object v2, Lcom/samsung/android/os/SemPerfManager;->mRotationGPUBooster:Lcom/samsung/android/os/SemDvfsManager;
-
-    sget-object v2, Lcom/samsung/android/os/SemPerfManager;->mRotationGPUBooster:Lcom/samsung/android/os/SemDvfsManager;
-
-    invoke-virtual {v2}, Lcom/samsung/android/os/SemDvfsManager;->getSupportedFrequency()[I
-
-    move-result-object v1
-
-    if-eqz v1, :cond_a
-
-    const-string/jumbo v2, "ssrm_hero2l_xx"
-
-    const-string/jumbo v3, "zl"
-
-    invoke-virtual {v2, v3}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
-
-    move-result v2
-
-    if-nez v2, :cond_4
-
-    const-string/jumbo v2, "exynos4"
-
-    sget-object v3, Lcom/samsung/android/os/SemPerfManager;->BOARD_PLATFORM:Ljava/lang/String;
-
-    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_8
-
-    :cond_4
-    sget-object v2, Lcom/samsung/android/os/SemPerfManager;->mRotationGPUBooster:Lcom/samsung/android/os/SemDvfsManager;
-
-    array-length v3, v1
-
-    add-int/lit8 v3, v3, -0x2
-
-    aget v3, v1, v3
-
-    invoke-virtual {v2, v3}, Lcom/samsung/android/os/SemDvfsManager;->setDvfsValue(I)V
-
-    :cond_5
-    :goto_1
-    sget-object v2, Lcom/samsung/android/os/SemPerfManager;->mRotationGPUBooster:Lcom/samsung/android/os/SemDvfsManager;
-
-    if-eqz v2, :cond_6
-
-    sget-object v2, Lcom/samsung/android/os/SemPerfManager;->mRotationGPUBooster:Lcom/samsung/android/os/SemDvfsManager;
-
-    const/16 v3, 0x7d0
-
-    invoke-virtual {v2, v3}, Lcom/samsung/android/os/SemDvfsManager;->acquire(I)V
-
-    :cond_6
-    return-void
-
-    :cond_7
-    const-string/jumbo v2, "SemPerfManager"
-
-    const-string/jumbo v3, "onWindowRotationEvent:: coreTable is null"
-
-    invoke-static {v2, v3}, Lcom/samsung/android/os/SemPerfManager;->logOnEng(Ljava/lang/String;Ljava/lang/String;)V
-
-    goto/16 :goto_0
-
-    :cond_8
-    const-string/jumbo v2, "msm8226"
-
-    sget-object v3, Lcom/samsung/android/os/SemPerfManager;->BOARD_PLATFORM:Ljava/lang/String;
-
-    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_9
-
-    sget-object v2, Lcom/samsung/android/os/SemPerfManager;->mRotationGPUBooster:Lcom/samsung/android/os/SemDvfsManager;
-
-    aget v3, v1, v4
-
-    invoke-virtual {v2, v3}, Lcom/samsung/android/os/SemDvfsManager;->setDvfsValue(I)V
-
-    goto :goto_1
-
-    :cond_9
-    sget-object v2, Lcom/samsung/android/os/SemPerfManager;->mRotationGPUBooster:Lcom/samsung/android/os/SemDvfsManager;
-
-    const/4 v3, 0x1
-
-    aget v3, v1, v3
-
-    invoke-virtual {v2, v3}, Lcom/samsung/android/os/SemDvfsManager;->setDvfsValue(I)V
-
-    goto :goto_1
-
-    :cond_a
-    const-string/jumbo v2, "SemPerfManager"
-
-    const-string/jumbo v3, "onWindowRotationEvent:: gpuTable is null"
-
-    invoke-static {v2, v3}, Lcom/samsung/android/os/SemPerfManager;->logOnEng(Ljava/lang/String;Ljava/lang/String;)V
-
-    goto :goto_1
-.end method
-
 .method public static sendCommandToSsrm(Ljava/lang/String;Ljava/lang/String;)V
     .locals 3
 
@@ -549,7 +334,7 @@
     :catch_0
     move-exception v1
 
-    invoke-virtual {v1}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v1}, Ljava/lang/Exception;->printStackTrace()V
 
     goto :goto_0
 .end method

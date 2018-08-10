@@ -25,10 +25,16 @@
 
 
 # virtual methods
-.method public abstract addWindowToken(Landroid/os/IBinder;I)V
+.method public abstract addWindowToken(Landroid/os/IBinder;II)V
 .end method
 
 .method public abstract clearLastInputMethodWindowForTransition()V
+.end method
+
+.method public abstract computeWindowsForAccessibility()V
+.end method
+
+.method public abstract disableHideSViewCoverOnce()V
 .end method
 
 .method public abstract getCompatibleMagnificationSpecForWindow(Landroid/os/IBinder;)Landroid/view/MagnificationSpec;
@@ -58,16 +64,22 @@
 .method public abstract isStackVisible(I)Z
 .end method
 
+.method public abstract onShowVirtualKeyboardVS(Landroid/os/IBinder;)Z
+.end method
+
 .method public abstract registerAppTransitionListener(Landroid/view/WindowManagerInternal$AppTransitionListener;)V
 .end method
 
-.method public abstract removeWindowToken(Landroid/os/IBinder;Z)V
+.method public abstract removeWindowToken(Landroid/os/IBinder;ZI)V
 .end method
 
 .method public abstract requestTraversalFromDisplayManager()V
 .end method
 
 .method public abstract saveLastInputMethodWindowForTransition()V
+.end method
+
+.method public abstract setForceShowMagnifiableBounds(Z)V
 .end method
 
 .method public abstract setInputFilter(Landroid/view/IInputFilter;)V
@@ -86,6 +98,9 @@
 .end method
 
 .method public abstract showGlobalActions()V
+.end method
+
+.method public abstract updateInputMethodWindowStatus(Landroid/os/IBinder;ZZLandroid/os/IBinder;)V
 .end method
 
 .method public abstract waitForAllWindowsDrawn(Ljava/lang/Runnable;J)V

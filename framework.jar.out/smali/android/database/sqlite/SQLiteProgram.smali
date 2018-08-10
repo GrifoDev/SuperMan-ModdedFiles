@@ -37,31 +37,27 @@
 .method constructor <init>(Landroid/database/sqlite/SQLiteDatabase;Ljava/lang/String;[Ljava/lang/Object;Landroid/os/CancellationSignal;)V
     .locals 9
 
-    const/4 v8, 0x0
-
-    const/4 v7, 0x0
-
     invoke-direct {p0}, Landroid/database/sqlite/SQLiteClosable;-><init>()V
 
     iput-object p1, p0, Landroid/database/sqlite/SQLiteProgram;->mDatabase:Landroid/database/sqlite/SQLiteDatabase;
 
     invoke-virtual {p2}, Ljava/lang/String;->trim()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v5
 
-    iput-object v4, p0, Landroid/database/sqlite/SQLiteProgram;->mSql:Ljava/lang/String;
+    iput-object v5, p0, Landroid/database/sqlite/SQLiteProgram;->mSql:Ljava/lang/String;
 
-    iget-object v4, p0, Landroid/database/sqlite/SQLiteProgram;->mSql:Ljava/lang/String;
+    iget-object v5, p0, Landroid/database/sqlite/SQLiteProgram;->mSql:Ljava/lang/String;
 
-    invoke-static {v4}, Landroid/database/DatabaseUtils;->getSqlStatementType(Ljava/lang/String;)I
+    invoke-static {v5}, Landroid/database/DatabaseUtils;->getSqlStatementType(Ljava/lang/String;)I
 
     move-result v3
 
     packed-switch v3, :pswitch_data_0
 
-    const/4 v4, 0x1
+    const/4 v5, 0x1
 
-    if-ne v3, v4, :cond_0
+    if-ne v3, v5, :cond_0
 
     const/4 v0, 0x1
 
@@ -73,137 +69,269 @@
 
     invoke-virtual {p1}, Landroid/database/sqlite/SQLiteDatabase;->getThreadSession()Landroid/database/sqlite/SQLiteSession;
 
-    move-result-object v4
+    move-result-object v5
 
-    iget-object v5, p0, Landroid/database/sqlite/SQLiteProgram;->mSql:Ljava/lang/String;
+    iget-object v6, p0, Landroid/database/sqlite/SQLiteProgram;->mSql:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/database/sqlite/SQLiteDatabase;->getThreadDefaultConnectionFlags(Z)I
 
-    move-result v6
+    move-result v7
 
-    invoke-virtual {v4, v5, v6, p4, v2}, Landroid/database/sqlite/SQLiteSession;->prepare(Ljava/lang/String;ILandroid/os/CancellationSignal;Landroid/database/sqlite/SQLiteStatementInfo;)V
+    invoke-virtual {v5, v6, v7, p4, v2}, Landroid/database/sqlite/SQLiteSession;->prepare(Ljava/lang/String;ILandroid/os/CancellationSignal;Landroid/database/sqlite/SQLiteStatementInfo;)V
 
-    iget-boolean v4, v2, Landroid/database/sqlite/SQLiteStatementInfo;->readOnly:Z
+    const/4 v5, 0x7
 
-    iput-boolean v4, p0, Landroid/database/sqlite/SQLiteProgram;->mReadOnly:Z
+    if-ne v3, v5, :cond_1
 
-    iget-object v4, v2, Landroid/database/sqlite/SQLiteStatementInfo;->columnNames:[Ljava/lang/String;
+    const/4 v5, 0x0
 
-    iput-object v4, p0, Landroid/database/sqlite/SQLiteProgram;->mColumnNames:[Ljava/lang/String;
+    :goto_1
+    iput-boolean v5, p0, Landroid/database/sqlite/SQLiteProgram;->mReadOnly:Z
 
-    iget v4, v2, Landroid/database/sqlite/SQLiteStatementInfo;->numParameters:I
+    iget-object v5, v2, Landroid/database/sqlite/SQLiteStatementInfo;->columnNames:[Ljava/lang/String;
 
-    iput v4, p0, Landroid/database/sqlite/SQLiteProgram;->mNumParameters:I
+    iput-object v5, p0, Landroid/database/sqlite/SQLiteProgram;->mColumnNames:[Ljava/lang/String;
+
+    iget v5, v2, Landroid/database/sqlite/SQLiteStatementInfo;->numParameters:I
+
+    iput v5, p0, Landroid/database/sqlite/SQLiteProgram;->mNumParameters:I
     :try_end_0
     .catch Landroid/database/sqlite/SQLiteDatabaseCorruptException; {:try_start_0 .. :try_end_0} :catch_0
 
-    :goto_1
-    if-eqz p3, :cond_1
+    :goto_2
+    if-eqz p3, :cond_2
 
-    array-length v4, p3
-
-    iget v5, p0, Landroid/database/sqlite/SQLiteProgram;->mNumParameters:I
-
-    if-le v4, v5, :cond_1
-
-    new-instance v4, Ljava/lang/IllegalArgumentException;
-
-    new-instance v5, Ljava/lang/StringBuilder;
-
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v6, "Too many bind arguments.  "
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    array-length v6, p3
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    const-string/jumbo v6, " arguments were provided but the statement needs "
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
+    array-length v5, p3
 
     iget v6, p0, Landroid/database/sqlite/SQLiteProgram;->mNumParameters:I
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    if-le v5, v6, :cond_2
 
-    move-result-object v5
+    new-instance v5, Ljava/lang/IllegalArgumentException;
 
-    const-string/jumbo v6, " arguments."
+    new-instance v6, Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
 
-    move-result-object v5
+    const-string/jumbo v7, "Too many bind arguments.  "
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    move-result-object v6
 
-    invoke-direct {v4, v5}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    array-length v7, p3
 
-    throw v4
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    const-string/jumbo v7, " arguments were provided but the statement needs "
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    iget v7, p0, Landroid/database/sqlite/SQLiteProgram;->mNumParameters:I
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    const-string/jumbo v7, " arguments."
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-direct {v5, v6}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v5
 
     :pswitch_0
-    iput-boolean v7, p0, Landroid/database/sqlite/SQLiteProgram;->mReadOnly:Z
+    const/4 v5, 0x0
 
-    sget-object v4, Landroid/database/sqlite/SQLiteProgram;->EMPTY_STRING_ARRAY:[Ljava/lang/String;
+    iput-boolean v5, p0, Landroid/database/sqlite/SQLiteProgram;->mReadOnly:Z
 
-    iput-object v4, p0, Landroid/database/sqlite/SQLiteProgram;->mColumnNames:[Ljava/lang/String;
+    sget-object v5, Landroid/database/sqlite/SQLiteProgram;->EMPTY_STRING_ARRAY:[Ljava/lang/String;
 
-    iput v7, p0, Landroid/database/sqlite/SQLiteProgram;->mNumParameters:I
+    iput-object v5, p0, Landroid/database/sqlite/SQLiteProgram;->mColumnNames:[Ljava/lang/String;
 
-    goto :goto_1
+    const/4 v5, 0x0
+
+    iput v5, p0, Landroid/database/sqlite/SQLiteProgram;->mNumParameters:I
+
+    goto :goto_2
 
     :cond_0
     const/4 v0, 0x0
 
     goto :goto_0
 
+    :cond_1
+    :try_start_1
+    iget-boolean v5, v2, Landroid/database/sqlite/SQLiteStatementInfo;->readOnly:Z
+    :try_end_1
+    .catch Landroid/database/sqlite/SQLiteDatabaseCorruptException; {:try_start_1 .. :try_end_1} :catch_0
+
+    goto :goto_1
+
     :catch_0
     move-exception v1
 
     invoke-virtual {v1}, Landroid/database/sqlite/SQLiteDatabaseCorruptException;->getCorruptCode()I
 
-    move-result v4
+    move-result v5
 
-    invoke-virtual {p0, v4}, Landroid/database/sqlite/SQLiteProgram;->onCorruption(I)V
+    invoke-virtual {p0, v5}, Landroid/database/sqlite/SQLiteProgram;->onCorruption(I)V
 
     throw v1
 
-    :cond_1
-    iget v4, p0, Landroid/database/sqlite/SQLiteProgram;->mNumParameters:I
-
-    if-eqz v4, :cond_3
-
-    iget v4, p0, Landroid/database/sqlite/SQLiteProgram;->mNumParameters:I
-
-    new-array v4, v4, [Ljava/lang/Object;
-
-    iput-object v4, p0, Landroid/database/sqlite/SQLiteProgram;->mBindArgs:[Ljava/lang/Object;
-
-    if-eqz p3, :cond_2
-
-    iget-object v4, p0, Landroid/database/sqlite/SQLiteProgram;->mBindArgs:[Ljava/lang/Object;
-
-    array-length v5, p3
-
-    invoke-static {p3, v7, v4, v7, v5}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
-
     :cond_2
-    :goto_2
-    return-void
+    iget v5, p0, Landroid/database/sqlite/SQLiteProgram;->mNumParameters:I
+
+    if-eqz v5, :cond_5
+
+    iget v5, p0, Landroid/database/sqlite/SQLiteProgram;->mNumParameters:I
+
+    new-array v5, v5, [Ljava/lang/Object;
+
+    iput-object v5, p0, Landroid/database/sqlite/SQLiteProgram;->mBindArgs:[Ljava/lang/Object;
+
+    if-eqz p3, :cond_3
+
+    iget-object v5, p0, Landroid/database/sqlite/SQLiteProgram;->mBindArgs:[Ljava/lang/Object;
+
+    array-length v6, p3
+
+    const/4 v7, 0x0
+
+    const/4 v8, 0x0
+
+    invoke-static {p3, v7, v5, v8, v6}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     :cond_3
-    iput-object v8, p0, Landroid/database/sqlite/SQLiteProgram;->mBindArgs:[Ljava/lang/Object;
+    :goto_3
+    const/4 v5, 0x7
 
-    goto :goto_2
+    if-ne v3, v5, :cond_6
+
+    iget-object v5, p0, Landroid/database/sqlite/SQLiteProgram;->mDatabase:Landroid/database/sqlite/SQLiteDatabase;
+
+    iget-object v6, p0, Landroid/database/sqlite/SQLiteProgram;->mSql:Ljava/lang/String;
+
+    invoke-static {v5, v6, p4}, Landroid/database/sqlite/SQLitePragma;->checkAndSetSpecialPragma(Landroid/database/sqlite/SQLiteDatabase;Ljava/lang/String;Landroid/os/CancellationSignal;)V
+
+    :cond_4
+    :goto_4
+    return-void
+
+    :cond_5
+    const/4 v5, 0x0
+
+    iput-object v5, p0, Landroid/database/sqlite/SQLiteProgram;->mBindArgs:[Ljava/lang/Object;
+
+    goto :goto_3
+
+    :cond_6
+    const/16 v5, 0x8
+
+    if-ne v3, v5, :cond_4
+
+    iget-object v5, p0, Landroid/database/sqlite/SQLiteProgram;->mDatabase:Landroid/database/sqlite/SQLiteDatabase;
+
+    invoke-virtual {v5}, Landroid/database/sqlite/SQLiteDatabase;->isOpen()Z
+
+    move-result v5
+
+    if-eqz v5, :cond_4
+
+    iget-object v5, p0, Landroid/database/sqlite/SQLiteProgram;->mDatabase:Landroid/database/sqlite/SQLiteDatabase;
+
+    invoke-virtual {v5}, Landroid/database/sqlite/SQLiteDatabase;->getMaxConnectionPoolSize()I
+
+    move-result v5
+
+    const/4 v6, 0x1
+
+    if-le v5, v6, :cond_4
+
+    iget-object v5, p0, Landroid/database/sqlite/SQLiteProgram;->mSql:Ljava/lang/String;
+
+    invoke-virtual {v5}, Ljava/lang/String;->length()I
+
+    move-result v5
+
+    const/4 v6, 0x6
+
+    if-lt v5, v6, :cond_4
+
+    iget-object v5, p0, Landroid/database/sqlite/SQLiteProgram;->mSql:Ljava/lang/String;
+
+    const/4 v6, 0x0
+
+    const/4 v7, 0x6
+
+    invoke-virtual {v5, v6, v7}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+
+    move-result-object v5
+
+    const-string/jumbo v6, "CREATE"
+
+    invoke-virtual {v5, v6}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_4
+
+    iget-object v5, p0, Landroid/database/sqlite/SQLiteProgram;->mSql:Ljava/lang/String;
+
+    const/4 v6, 0x6
+
+    invoke-virtual {v5, v6}, Ljava/lang/String;->substring(I)Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/String;->trim()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/String;->length()I
+
+    move-result v5
+
+    const/4 v6, 0x4
+
+    if-lt v5, v6, :cond_4
+
+    const/4 v5, 0x0
+
+    const/4 v6, 0x4
+
+    invoke-virtual {v4, v5, v6}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+
+    move-result-object v5
+
+    const-string/jumbo v6, "TEMP"
+
+    invoke-virtual {v5, v6}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_4
+
+    iget-object v5, p0, Landroid/database/sqlite/SQLiteProgram;->mDatabase:Landroid/database/sqlite/SQLiteDatabase;
+
+    const/4 v6, 0x1
+
+    invoke-virtual {v5, v6}, Landroid/database/sqlite/SQLiteDatabase;->closeAndDiscardNonPrimaryConnections(Z)V
+
+    goto :goto_4
+
+    nop
 
     :pswitch_data_0
     .packed-switch 0x4

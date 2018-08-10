@@ -39,7 +39,7 @@
 
     const-string/jumbo v0, "com.samsung.android.cover.ICoverManagerCallback"
 
-    invoke-virtual {p0, p0, v0}, Landroid/os/Binder;->attachInterface(Landroid/os/IInterface;Ljava/lang/String;)V
+    invoke-virtual {p0, p0, v0}, Lcom/samsung/android/cover/ICoverManagerCallback$Stub;->attachInterface(Landroid/os/IInterface;Ljava/lang/String;)V
 
     return-void
 .end method
@@ -133,8 +133,6 @@
     :goto_0
     invoke-virtual {p0, v0}, Lcom/samsung/android/cover/ICoverManagerCallback$Stub;->coverCallback(Lcom/samsung/android/cover/CoverState;)V
 
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
     return v3
 
     :cond_0
@@ -156,6 +154,8 @@
     invoke-virtual {p3, v1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
     return v3
+
+    nop
 
     :sswitch_data_0
     .sparse-switch

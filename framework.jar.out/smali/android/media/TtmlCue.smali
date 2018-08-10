@@ -33,11 +33,11 @@
 
     iput-object v0, p0, Landroid/media/TtmlCue;->TAG:Ljava/lang/String;
 
-    iput-wide p1, p0, Landroid/media/SubtitleTrack$Cue;->mStartTimeMs:J
+    iput-wide p1, p0, Landroid/media/TtmlCue;->mStartTimeMs:J
 
-    iput-wide p3, p0, Landroid/media/SubtitleTrack$Cue;->mEndTimeMs:J
+    iput-wide p3, p0, Landroid/media/TtmlCue;->mEndTimeMs:J
 
-    iput-wide p7, p0, Landroid/media/SubtitleTrack$Cue;->mRunID:J
+    iput-wide p7, p0, Landroid/media/TtmlCue;->mRunID:J
 
     iput-object p5, p0, Landroid/media/TtmlCue;->mText:Ljava/lang/String;
 

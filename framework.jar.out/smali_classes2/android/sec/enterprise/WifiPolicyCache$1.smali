@@ -56,13 +56,13 @@
 
     const-string/jumbo v4, "com.samsung.android.knox.intent.extra.WIFI_TYPE_CHANGED_INTERNAL"
 
-    invoke-virtual {v1, v4}, Landroid/os/BaseBundle;->getString(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v1, v4}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v2
 
     const-string/jumbo v4, "com.samsung.android.knox.intent.extra.USER_ID_INTERNAL"
 
-    invoke-virtual {v1, v4}, Landroid/os/BaseBundle;->getInt(Ljava/lang/String;)I
+    invoke-virtual {v1, v4}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
 
     move-result v3
 

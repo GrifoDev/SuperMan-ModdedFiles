@@ -19,6 +19,10 @@
 
 .field itemIndices:[I
 
+.field mIsAlwaysShow:Z
+
+.field mIsSkipCollapsibleHeight:Z
+
 .field measuredRowHeight:I
 
 .field final row:Landroid/view/ViewGroup;
@@ -26,7 +30,9 @@
 
 # direct methods
 .method public constructor <init>(Landroid/view/ViewGroup;I)V
-    .locals 1
+    .locals 2
+
+    const/4 v1, 0x0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -39,6 +45,10 @@
     new-array v0, p2, [I
 
     iput-object v0, p0, Lcom/android/internal/app/ChooserActivity$RowViewHolder;->itemIndices:[I
+
+    iput-boolean v1, p0, Lcom/android/internal/app/ChooserActivity$RowViewHolder;->mIsAlwaysShow:Z
+
+    iput-boolean v1, p0, Lcom/android/internal/app/ChooserActivity$RowViewHolder;->mIsSkipCollapsibleHeight:Z
 
     return-void
 .end method
@@ -65,6 +75,38 @@
     move-result v1
 
     iput v1, p0, Lcom/android/internal/app/ChooserActivity$RowViewHolder;->measuredRowHeight:I
+
+    return-void
+.end method
+
+.method public semIsAlwaysShow()Z
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/android/internal/app/ChooserActivity$RowViewHolder;->mIsAlwaysShow:Z
+
+    return v0
+.end method
+
+.method public semIsSkipCollapsibleHeightRow()Z
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/android/internal/app/ChooserActivity$RowViewHolder;->mIsSkipCollapsibleHeight:Z
+
+    return v0
+.end method
+
+.method public semSetAlwaysShow(Z)V
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/android/internal/app/ChooserActivity$RowViewHolder;->mIsAlwaysShow:Z
+
+    return-void
+.end method
+
+.method public semSkipCollapsibleHeightRow(Z)V
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/android/internal/app/ChooserActivity$RowViewHolder;->mIsSkipCollapsibleHeight:Z
 
     return-void
 .end method

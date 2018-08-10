@@ -518,15 +518,10 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    xor-int/lit8 v0, v0, 0x1
 
-    :cond_0
-    :goto_0
-    iget-object v0, p0, Landroid/view/accessibility/CaptioningManager$CaptionStyle;->mParsedTypeface:Landroid/graphics/Typeface;
+    if-eqz v0, :cond_0
 
-    return-object v0
-
-    :cond_1
     iget-object v0, p0, Landroid/view/accessibility/CaptioningManager$CaptionStyle;->mRawTypeface:Ljava/lang/String;
 
     const/4 v1, 0x0
@@ -537,7 +532,10 @@
 
     iput-object v0, p0, Landroid/view/accessibility/CaptioningManager$CaptionStyle;->mParsedTypeface:Landroid/graphics/Typeface;
 
-    goto :goto_0
+    :cond_0
+    iget-object v0, p0, Landroid/view/accessibility/CaptioningManager$CaptionStyle;->mParsedTypeface:Landroid/graphics/Typeface;
+
+    return-object v0
 .end method
 
 .method public hasBackgroundColor()Z

@@ -35,30 +35,13 @@
 
 # virtual methods
 .method public onEditorAction(Landroid/widget/TextView;ILandroid/view/KeyEvent;)Z
-    .locals 3
+    .locals 2
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    const/16 v0, 0x270f
-
-    if-ne p2, v0, :cond_0
-
-    iget-object v0, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$2;->this$0:Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;
-
-    const-string/jumbo v1, "EditorAction 9999 arrived"
-
-    invoke-static {v0, v1}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->-wrap5(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;Ljava/lang/String;)V
-
-    iget-object v0, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$2;->this$0:Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;
-
-    const/4 v1, 0x1
-
-    invoke-static {v0, v1}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->-set0(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;Z)Z
-
-    :cond_0
     const/4 v0, 0x6
 
-    if-ne p2, v0, :cond_1
+    if-ne p2, v0, :cond_0
 
     iget-object v0, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$2;->this$0:Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;
 
@@ -66,8 +49,8 @@
 
     iget-object v0, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$2;->this$0:Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;
 
-    invoke-virtual {v0, v2}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->setEditTextMode(Z)V
+    invoke-virtual {v0, v1}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->setEditTextMode(Z)V
 
-    :cond_1
-    return v2
+    :cond_0
+    return v1
 .end method

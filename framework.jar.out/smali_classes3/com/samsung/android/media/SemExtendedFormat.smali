@@ -15,7 +15,8 @@
         Lcom/samsung/android/media/SemExtendedFormat$SEFDataPosition64;,
         Lcom/samsung/android/media/SemExtendedFormat$SEFDataPosition;,
         Lcom/samsung/android/media/SemExtendedFormat$SEFSubDataPosition64;,
-        Lcom/samsung/android/media/SemExtendedFormat$SEFSubDataPosition;
+        Lcom/samsung/android/media/SemExtendedFormat$SEFSubDataPosition;,
+        Lcom/samsung/android/media/SemExtendedFormat$SEFViewerPackageName;
     }
 .end annotation
 
@@ -23,7 +24,7 @@
 # static fields
 .field private static final DEBUG:Z = false
 
-.field private static final SEF_VERSION:Ljava/lang/String; = "1.03"
+.field private static final SEF_VERSION:Ljava/lang/String; = "1.11"
 
 .field private static final TAG:Ljava/lang/String; = "SemExtendedFormat"
 
@@ -222,7 +223,7 @@
     :catch_0
     move-exception v11
 
-    invoke-virtual {v11}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v11}, Ljava/io/IOException;->printStackTrace()V
 
     goto :goto_0
 
@@ -233,7 +234,7 @@
     const/4 v13, 0x0
 
     :try_start_3
-    invoke-virtual {v12}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v12}, Ljava/lang/Exception;->printStackTrace()V
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
@@ -248,7 +249,7 @@
     :catch_2
     move-exception v11
 
-    invoke-virtual {v11}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v11}, Ljava/io/IOException;->printStackTrace()V
 
     goto :goto_2
 
@@ -269,7 +270,7 @@
     :catch_3
     move-exception v11
 
-    invoke-virtual {v11}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v11}, Ljava/io/IOException;->printStackTrace()V
 
     goto :goto_4
 
@@ -2227,7 +2228,7 @@
     :catch_0
     move-exception v0
 
-    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/io/IOException;->printStackTrace()V
 
     goto :goto_0
 
@@ -2282,7 +2283,7 @@
 
     invoke-direct {v2, p1, v4, p0}, Lcom/samsung/android/transcode/EncodeSoundNShot;-><init>(Ljava/lang/String;ILjava/lang/String;)V
 
-    invoke-virtual {v2}, Lcom/samsung/android/transcode/core/Encode;->encode()V
+    invoke-virtual {v2}, Lcom/samsung/android/transcode/EncodeSoundNShot;->encode()V
     :try_end_1
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
 
@@ -3786,7 +3787,7 @@
 
     :goto_1
     :try_start_5
-    invoke-virtual {v3}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v3}, Ljava/lang/Exception;->printStackTrace()V
     :try_end_5
     .catchall {:try_start_5 .. :try_end_5} :catchall_0
 
@@ -3965,9 +3966,7 @@
     :cond_3
     move-object v1, v3
 
-    nop
-
-    nop
+    check-cast v1, [J
 
     new-instance v2, Lcom/samsung/android/media/SemExtendedFormat$DataPosition;
 
@@ -3977,18 +3976,29 @@
 
     move-result v4
 
-    if-nez v4, :cond_4
+    if-nez v4, :cond_5
 
     invoke-static {v0}, Lcom/samsung/android/media/QdioJNI;->isJPEG(Ljava/lang/String;)I
 
     move-result v4
 
-    if-ne v4, v6, :cond_4
+    if-ne v4, v6, :cond_5
 
     invoke-static {v0}, Lcom/samsung/android/media/QdioJNI;->getAudioDataPositionArray(Ljava/lang/String;)[J
 
     move-result-object v1
 
+    if-nez v1, :cond_4
+
+    const-string/jumbo v4, "SemExtendedFormat"
+
+    const-string/jumbo v5, "No Sound data is found in file."
+
+    invoke-static {v4, v5}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-object v3
+
+    :cond_4
     aget-wide v4, v1, v5
 
     iput-wide v4, v2, Lcom/samsung/android/media/SemExtendedFormat$DataPosition;->offset:J
@@ -3999,12 +4009,12 @@
 
     return-object v2
 
-    :cond_4
+    :cond_5
     invoke-static {v0, p1}, Lcom/samsung/android/media/SEFJNI;->getSEFDataPosition64(Ljava/lang/String;Ljava/lang/String;)[J
 
     move-result-object v1
 
-    if-nez v1, :cond_5
+    if-nez v1, :cond_6
 
     const-string/jumbo v4, "SemExtendedFormat"
 
@@ -4014,7 +4024,7 @@
 
     return-object v3
 
-    :cond_5
+    :cond_6
     aget-wide v4, v1, v5
 
     iput-wide v4, v2, Lcom/samsung/android/media/SemExtendedFormat$DataPosition;->offset:J
@@ -4110,9 +4120,7 @@
     :cond_3
     move-object v0, v2
 
-    nop
-
-    nop
+    check-cast v0, [J
 
     invoke-static {v1}, Lcom/samsung/android/media/SEFJNI;->isSEFFile(Ljava/lang/String;)I
 
@@ -4544,7 +4552,7 @@
     :catch_0
     move-exception v1
 
-    invoke-virtual {v1}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v1}, Ljava/io/IOException;->printStackTrace()V
 
     :cond_5
     const-string/jumbo v4, "SemExtendedFormat"
@@ -4833,7 +4841,7 @@
 
     :goto_1
     :try_start_5
-    invoke-virtual {v3}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v3}, Ljava/lang/Exception;->printStackTrace()V
     :try_end_5
     .catchall {:try_start_5 .. :try_end_5} :catchall_0
 
@@ -5081,7 +5089,7 @@
 
     :goto_1
     :try_start_5
-    invoke-virtual {v3}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v3}, Ljava/lang/Exception;->printStackTrace()V
     :try_end_5
     .catchall {:try_start_5 .. :try_end_5} :catchall_0
 
@@ -5917,7 +5925,7 @@
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v3, "1.03_"
+    const-string/jumbo v3, "1.11_"
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -6653,6 +6661,148 @@
     return v0
 .end method
 
+.method public static isMp4ConversionSupported(Landroid/content/Context;Ljava/lang/String;)Z
+    .locals 8
+
+    const/4 v5, 0x1
+
+    const/4 v7, 0x0
+
+    new-instance v3, Ljava/lang/StringBuffer;
+
+    const-string/jumbo v4, ""
+
+    invoke-direct {v3, v4}, Ljava/lang/StringBuffer;-><init>(Ljava/lang/String;)V
+
+    :try_start_0
+    new-instance v1, Ljava/io/File;
+
+    invoke-direct {v1, p1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+
+    invoke-static {p1}, Lcom/samsung/android/media/SemExtendedFormat;->getMajorDataType(Ljava/lang/String;)I
+
+    move-result v2
+
+    sparse-switch v2, :sswitch_data_0
+
+    const-string/jumbo v4, "SemExtendedFormat"
+
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v6, "This type of file is not yet supported. type="
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    return v7
+
+    :sswitch_0
+    const-string/jumbo v4, "com.samsung.android.app.interactivepanoramaviewer"
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
+    invoke-virtual {v3}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {p0, v4}, Lcom/samsung/android/media/SemExtendedFormat;->isViewerInstalled(Landroid/content/Context;Ljava/lang/String;)Z
+
+    move-result v4
+
+    return v4
+
+    :sswitch_1
+    const/16 v4, 0x8e1
+
+    invoke-static {v1, v4}, Lcom/samsung/android/media/SemExtendedFormat;->hasSEFData(Ljava/io/File;I)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_0
+
+    const-string/jumbo v4, "com.samsung.android.app.motionpanoramaviewer"
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
+    invoke-virtual {v3}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {p0, v4}, Lcom/samsung/android/media/SemExtendedFormat;->isViewerInstalled(Landroid/content/Context;Ljava/lang/String;)Z
+
+    move-result v4
+
+    return v4
+
+    :cond_0
+    return v7
+
+    :sswitch_2
+    return v5
+
+    :sswitch_3
+    const/16 v4, 0x971
+
+    invoke-static {v1, v4}, Lcom/samsung/android/media/SemExtendedFormat;->hasSEFData(Ljava/io/File;I)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_1
+
+    const-string/jumbo v4, "com.samsung.android.app.selfmotionpanoramaviewer"
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
+    invoke-virtual {v3}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {p0, v4}, Lcom/samsung/android/media/SemExtendedFormat;->isViewerInstalled(Landroid/content/Context;Ljava/lang/String;)Z
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v4
+
+    return v4
+
+    :cond_1
+    return v7
+
+    :sswitch_4
+    return v5
+
+    :catch_0
+    move-exception v0
+
+    invoke-virtual {v0}, Ljava/io/IOException;->printStackTrace()V
+
+    return v7
+
+    nop
+
+    :sswitch_data_0
+    .sparse-switch
+        0x800 -> :sswitch_4
+        0x8d0 -> :sswitch_0
+        0x8e0 -> :sswitch_1
+        0x970 -> :sswitch_3
+        0xa30 -> :sswitch_2
+    .end sparse-switch
+.end method
+
 .method public static isSEFFile(Ljava/io/File;)Z
     .locals 6
     .annotation system Ldalvik/annotation/Throws;
@@ -6853,6 +7003,38 @@
     const/4 v1, 0x1
 
     goto :goto_0
+.end method
+
+.method private static isViewerInstalled(Landroid/content/Context;Ljava/lang/String;)Z
+    .locals 5
+
+    const/4 v4, 0x1
+
+    invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+
+    move-result-object v1
+
+    :try_start_0
+    invoke-virtual {p1}, Ljava/lang/String;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    const/4 v3, 0x1
+
+    invoke-virtual {v1, v2, v3}, Landroid/content/pm/PackageManager;->getPackageInfo(Ljava/lang/String;I)Landroid/content/pm/PackageInfo;
+    :try_end_0
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+
+    return v4
+
+    :catch_0
+    move-exception v0
+
+    invoke-virtual {v0}, Landroid/content/pm/PackageManager$NameNotFoundException;->printStackTrace()V
+
+    const/4 v2, 0x0
+
+    return v2
 .end method
 
 .method public static listKeyNames(Ljava/io/File;)[Ljava/lang/String;

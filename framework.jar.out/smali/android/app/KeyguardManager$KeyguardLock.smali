@@ -13,6 +13,9 @@
     name = "KeyguardLock"
 .end annotation
 
+.annotation runtime Ljava/lang/Deprecated;
+.end annotation
+
 
 # instance fields
 .field private final mTag:Ljava/lang/String;

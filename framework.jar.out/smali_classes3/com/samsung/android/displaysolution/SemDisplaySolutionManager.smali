@@ -16,6 +16,8 @@
 
 .field public static final SUPPORT_PERSONAL_AUTOBRIGHTNESS_CONTROL:I = 0x3
 
+.field public static final SUPPORT_PERSONAL_AUTOBRIGHTNESS_CONTROL_V3:I = 0x4
+
 .field private static final TAG:Ljava/lang/String; = "SemDisplaySolutionManager"
 
 
@@ -189,6 +191,27 @@
     return v2
 .end method
 
+.method public onHdrStateChanged(Z)V
+    .locals 2
+
+    :try_start_0
+    iget-object v1, p0, Lcom/samsung/android/displaysolution/SemDisplaySolutionManager;->mService:Lcom/samsung/android/displaysolution/ISemDisplaySolutionManager;
+
+    invoke-interface {v1, p1}, Lcom/samsung/android/displaysolution/ISemDisplaySolutionManager;->onHdrStateChanged(Z)V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    :goto_0
+    return-void
+
+    :catch_0
+    move-exception v0
+
+    invoke-direct {p0, v0}, Lcom/samsung/android/displaysolution/SemDisplaySolutionManager;->onError(Ljava/lang/Exception;)V
+
+    goto :goto_0
+.end method
+
 .method public setGalleryModeEnable(Z)V
     .locals 2
 
@@ -196,6 +219,27 @@
     iget-object v1, p0, Lcom/samsung/android/displaysolution/SemDisplaySolutionManager;->mService:Lcom/samsung/android/displaysolution/ISemDisplaySolutionManager;
 
     invoke-interface {v1, p1}, Lcom/samsung/android/displaysolution/ISemDisplaySolutionManager;->setGalleryModeEnable(Z)V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    :goto_0
+    return-void
+
+    :catch_0
+    move-exception v0
+
+    invoke-direct {p0, v0}, Lcom/samsung/android/displaysolution/SemDisplaySolutionManager;->onError(Ljava/lang/Exception;)V
+
+    goto :goto_0
+.end method
+
+.method public setIRCompensationMode(Z)V
+    .locals 2
+
+    :try_start_0
+    iget-object v1, p0, Lcom/samsung/android/displaysolution/SemDisplaySolutionManager;->mService:Lcom/samsung/android/displaysolution/ISemDisplaySolutionManager;
+
+    invoke-interface {v1, p1}, Lcom/samsung/android/displaysolution/ISemDisplaySolutionManager;->setIRCompensationMode(Z)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 

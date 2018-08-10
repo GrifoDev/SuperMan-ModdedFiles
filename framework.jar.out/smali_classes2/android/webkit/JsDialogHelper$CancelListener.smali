@@ -52,7 +52,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/webkit/JsResult;->cancel()V
+    invoke-virtual {v0}, Landroid/webkit/JsPromptResult;->cancel()V
 
     return-void
 .end method
@@ -66,7 +66,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/webkit/JsResult;->cancel()V
+    invoke-virtual {v0}, Landroid/webkit/JsPromptResult;->cancel()V
 
     return-void
 .end method

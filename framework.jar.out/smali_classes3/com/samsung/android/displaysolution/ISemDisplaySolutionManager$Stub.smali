@@ -34,15 +34,19 @@
 
 .field static final TRANSACTION_isMdnieScenarioControlServiceEnabled:I = 0x4
 
-.field static final TRANSACTION_setGalleryModeEnable:I = 0x6
+.field static final TRANSACTION_onHdrStateChanged:I = 0x6
 
-.field static final TRANSACTION_setMdnieScenarioControlServiceEnable:I = 0x7
+.field static final TRANSACTION_setGalleryModeEnable:I = 0x8
 
-.field static final TRANSACTION_setMultipleScreenBrightness:I = 0x9
+.field static final TRANSACTION_setIRCompensationMode:I = 0x5
 
-.field static final TRANSACTION_setScreenBrightnessForPreview:I = 0x8
+.field static final TRANSACTION_setMdnieScenarioControlServiceEnable:I = 0x9
 
-.field static final TRANSACTION_setVideoModeEnable:I = 0x5
+.field static final TRANSACTION_setMultipleScreenBrightness:I = 0xb
+
+.field static final TRANSACTION_setScreenBrightnessForPreview:I = 0xa
+
+.field static final TRANSACTION_setVideoModeEnable:I = 0x7
 
 
 # direct methods
@@ -53,7 +57,7 @@
 
     const-string/jumbo v0, "com.samsung.android.displaysolution.ISemDisplaySolutionManager"
 
-    invoke-virtual {p0, p0, v0}, Landroid/os/Binder;->attachInterface(Landroid/os/IInterface;Ljava/lang/String;)V
+    invoke-virtual {p0, p0, v0}, Lcom/samsung/android/displaysolution/ISemDisplaySolutionManager$Stub;->attachInterface(Landroid/os/IInterface;Ljava/lang/String;)V
 
     return-void
 .end method
@@ -203,81 +207,131 @@
     return v6
 
     :sswitch_5
-    const-string/jumbo v7, "com.samsung.android.displaysolution.ISemDisplaySolutionManager"
+    const-string/jumbo v5, "com.samsung.android.displaysolution.ISemDisplaySolutionManager"
 
-    invoke-virtual {p2, v7}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v5}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v7
+    move-result v5
 
-    if-eqz v7, :cond_3
+    if-eqz v5, :cond_3
 
-    move v2, v6
+    const/4 v2, 0x1
 
     :goto_0
-    invoke-virtual {p0, v2}, Lcom/samsung/android/displaysolution/ISemDisplaySolutionManager$Stub;->setVideoModeEnable(Z)V
+    invoke-virtual {p0, v2}, Lcom/samsung/android/displaysolution/ISemDisplaySolutionManager$Stub;->setIRCompensationMode(Z)V
 
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     return v6
 
     :cond_3
-    move v2, v5
+    const/4 v2, 0x0
 
     goto :goto_0
 
     :sswitch_6
-    const-string/jumbo v7, "com.samsung.android.displaysolution.ISemDisplaySolutionManager"
+    const-string/jumbo v5, "com.samsung.android.displaysolution.ISemDisplaySolutionManager"
 
-    invoke-virtual {p2, v7}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v5}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v7
+    move-result v5
 
-    if-eqz v7, :cond_4
+    if-eqz v5, :cond_4
 
-    move v2, v6
+    const/4 v2, 0x1
 
     :goto_1
-    invoke-virtual {p0, v2}, Lcom/samsung/android/displaysolution/ISemDisplaySolutionManager$Stub;->setGalleryModeEnable(Z)V
+    invoke-virtual {p0, v2}, Lcom/samsung/android/displaysolution/ISemDisplaySolutionManager$Stub;->onHdrStateChanged(Z)V
 
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     return v6
 
     :cond_4
-    move v2, v5
+    const/4 v2, 0x0
 
     goto :goto_1
 
     :sswitch_7
-    const-string/jumbo v7, "com.samsung.android.displaysolution.ISemDisplaySolutionManager"
+    const-string/jumbo v5, "com.samsung.android.displaysolution.ISemDisplaySolutionManager"
 
-    invoke-virtual {p2, v7}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v5}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v7
+    move-result v5
 
-    if-eqz v7, :cond_5
+    if-eqz v5, :cond_5
 
-    move v2, v6
+    const/4 v2, 0x1
 
     :goto_2
-    invoke-virtual {p0, v2}, Lcom/samsung/android/displaysolution/ISemDisplaySolutionManager$Stub;->setMdnieScenarioControlServiceEnable(Z)V
+    invoke-virtual {p0, v2}, Lcom/samsung/android/displaysolution/ISemDisplaySolutionManager$Stub;->setVideoModeEnable(Z)V
 
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     return v6
 
     :cond_5
-    move v2, v5
+    const/4 v2, 0x0
 
     goto :goto_2
 
     :sswitch_8
+    const-string/jumbo v5, "com.samsung.android.displaysolution.ISemDisplaySolutionManager"
+
+    invoke-virtual {p2, v5}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v5
+
+    if-eqz v5, :cond_6
+
+    const/4 v2, 0x1
+
+    :goto_3
+    invoke-virtual {p0, v2}, Lcom/samsung/android/displaysolution/ISemDisplaySolutionManager$Stub;->setGalleryModeEnable(Z)V
+
+    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+
+    return v6
+
+    :cond_6
+    const/4 v2, 0x0
+
+    goto :goto_3
+
+    :sswitch_9
+    const-string/jumbo v5, "com.samsung.android.displaysolution.ISemDisplaySolutionManager"
+
+    invoke-virtual {p2, v5}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v5
+
+    if-eqz v5, :cond_7
+
+    const/4 v2, 0x1
+
+    :goto_4
+    invoke-virtual {p0, v2}, Lcom/samsung/android/displaysolution/ISemDisplaySolutionManager$Stub;->setMdnieScenarioControlServiceEnable(Z)V
+
+    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+
+    return v6
+
+    :cond_7
+    const/4 v2, 0x0
+
+    goto :goto_4
+
+    :sswitch_a
     const-string/jumbo v5, "com.samsung.android.displaysolution.ISemDisplaySolutionManager"
 
     invoke-virtual {p2, v5}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -292,7 +346,7 @@
 
     return v6
 
-    :sswitch_9
+    :sswitch_b
     const-string/jumbo v5, "com.samsung.android.displaysolution.ISemDisplaySolutionManager"
 
     invoke-virtual {p2, v5}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -318,6 +372,8 @@
         0x7 -> :sswitch_7
         0x8 -> :sswitch_8
         0x9 -> :sswitch_9
+        0xa -> :sswitch_a
+        0xb -> :sswitch_b
         0x5f4e5446 -> :sswitch_0
     .end sparse-switch
 .end method

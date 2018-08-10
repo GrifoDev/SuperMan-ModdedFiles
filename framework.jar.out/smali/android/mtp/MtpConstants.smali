@@ -90,42 +90,6 @@
 
 .field public static final DEVICE_PROPERTY_WHITE_BALANCE:I = 0x5005
 
-.field public static final EVENT_CANCEL_TRANSACTION:I = 0x4001
-
-.field public static final EVENT_CAPTURE_COMPLETE:I = 0x400d
-
-.field public static final EVENT_DEVICE_INFO_CHANGED:I = 0x4008
-
-.field public static final EVENT_DEVICE_PROP_CHANGED:I = 0x4006
-
-.field public static final EVENT_DEVICE_RESET:I = 0x400b
-
-.field public static final EVENT_OBJECT_ADDED:I = 0x4002
-
-.field public static final EVENT_OBJECT_INFO_CHANGED:I = 0x4007
-
-.field public static final EVENT_OBJECT_PROP_CHANGED:I = 0xc801
-
-.field public static final EVENT_OBJECT_PROP_DESC_CHANGED:I = 0xc802
-
-.field public static final EVENT_OBJECT_REFERENCES_CHANGED:I = 0xc803
-
-.field public static final EVENT_OBJECT_REMOVED:I = 0x4003
-
-.field public static final EVENT_REQUEST_OBJECT_TRANSFER:I = 0x4009
-
-.field public static final EVENT_STORAGE_INFO_CHANGED:I = 0x400c
-
-.field public static final EVENT_STORE_ADDED:I = 0x4004
-
-.field public static final EVENT_STORE_FULL:I = 0x400a
-
-.field public static final EVENT_STORE_REMOVED:I = 0x4005
-
-.field public static final EVENT_UNDEFINED:I = 0x4000
-
-.field public static final EVENT_UNREPORTED_STATUS:I = 0x400e
-
 .field public static final FORMAT_3GP_CONTAINER:I = 0xb984
 
 .field public static final FORMAT_AAC:I = 0xb903

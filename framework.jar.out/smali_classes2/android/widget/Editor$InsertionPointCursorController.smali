@@ -24,14 +24,6 @@
 
 
 # direct methods
-.method static synthetic -get0(Landroid/widget/Editor$InsertionPointCursorController;)Landroid/widget/Editor$InsertionHandleView;
-    .locals 1
-
-    iget-object v0, p0, Landroid/widget/Editor$InsertionPointCursorController;->mHandle:Landroid/widget/Editor$InsertionHandleView;
-
-    return-object v0
-.end method
-
 .method static synthetic -wrap0(Landroid/widget/Editor$InsertionPointCursorController;)Landroid/widget/Editor$InsertionHandleView;
     .locals 1
 
@@ -42,22 +34,21 @@
     return-object v0
 .end method
 
-.method public constructor <init>(Landroid/widget/Editor;)V
-    .locals 1
+.method private constructor <init>(Landroid/widget/Editor;)V
+    .locals 0
 
     iput-object p1, p0, Landroid/widget/Editor$InsertionPointCursorController;->this$0:Landroid/widget/Editor;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    invoke-static {p1}, Landroid/widget/Editor;->-get0(Landroid/widget/Editor;)Landroid/os/Handler;
+    return-void
+.end method
 
-    move-result-object v0
+.method synthetic constructor <init>(Landroid/widget/Editor;Landroid/widget/Editor$InsertionPointCursorController;)V
+    .locals 0
 
-    if-nez v0, :cond_0
+    invoke-direct {p0, p1}, Landroid/widget/Editor$InsertionPointCursorController;-><init>(Landroid/widget/Editor;)V
 
-    invoke-static {p1}, Landroid/widget/Editor;->-wrap21(Landroid/widget/Editor;)V
-
-    :cond_0
     return-void
 .end method
 
@@ -76,7 +67,7 @@
 
     iget-object v1, p0, Landroid/widget/Editor$InsertionPointCursorController;->this$0:Landroid/widget/Editor;
 
-    invoke-static {v1}, Landroid/widget/Editor;->-get13(Landroid/widget/Editor;)Landroid/widget/TextView;
+    invoke-static {v1}, Landroid/widget/Editor;->-get14(Landroid/widget/Editor;)Landroid/widget/TextView;
 
     move-result-object v1
 
@@ -86,7 +77,7 @@
 
     iget-object v2, p0, Landroid/widget/Editor$InsertionPointCursorController;->this$0:Landroid/widget/Editor;
 
-    invoke-static {v2}, Landroid/widget/Editor;->-get13(Landroid/widget/Editor;)Landroid/widget/TextView;
+    invoke-static {v2}, Landroid/widget/Editor;->-get14(Landroid/widget/Editor;)Landroid/widget/TextView;
 
     move-result-object v2
 
@@ -123,183 +114,6 @@
     return-object v0
 .end method
 
-.method private startHide()V
-    .locals 5
-
-    const/4 v4, 0x4
-
-    const/4 v3, 0x3
-
-    invoke-direct {p0}, Landroid/widget/Editor$InsertionPointCursorController;->getHandle()Landroid/widget/Editor$InsertionHandleView;
-
-    move-result-object v1
-
-    const/16 v2, 0x64
-
-    invoke-virtual {v1, v2}, Landroid/widget/Editor$InsertionHandleView;->setHideDuration(I)V
-
-    invoke-direct {p0}, Landroid/widget/Editor$InsertionPointCursorController;->getHandle()Landroid/widget/Editor$InsertionHandleView;
-
-    move-result-object v1
-
-    const/4 v2, 0x1
-
-    invoke-virtual {v1, v2}, Landroid/widget/Editor$InsertionHandleView;->setIsAnimating(Z)V
-
-    iget-object v1, p0, Landroid/widget/Editor$InsertionPointCursorController;->this$0:Landroid/widget/Editor;
-
-    invoke-static {v1, v4}, Landroid/widget/Editor;->-wrap5(Landroid/widget/Editor;I)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    return-void
-
-    :cond_0
-    iget-object v1, p0, Landroid/widget/Editor$InsertionPointCursorController;->this$0:Landroid/widget/Editor;
-
-    invoke-static {v1, v3}, Landroid/widget/Editor;->-wrap5(Landroid/widget/Editor;I)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_1
-
-    iget-object v1, p0, Landroid/widget/Editor$InsertionPointCursorController;->this$0:Landroid/widget/Editor;
-
-    invoke-static {v1, v3}, Landroid/widget/Editor;->-wrap22(Landroid/widget/Editor;I)V
-
-    :cond_1
-    invoke-static {}, Landroid/os/Message;->obtain()Landroid/os/Message;
-
-    move-result-object v0
-
-    invoke-direct {p0}, Landroid/widget/Editor$InsertionPointCursorController;->getHandle()Landroid/widget/Editor$InsertionHandleView;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Landroid/widget/Editor$InsertionHandleView;->getHideAnimator()Landroid/animation/ValueAnimator;
-
-    move-result-object v1
-
-    iput-object v1, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
-
-    iput v4, v0, Landroid/os/Message;->what:I
-
-    iget-object v1, p0, Landroid/widget/Editor$InsertionPointCursorController;->this$0:Landroid/widget/Editor;
-
-    invoke-static {v1}, Landroid/widget/Editor;->-wrap4(Landroid/widget/Editor;)Landroid/widget/Editor$PositionListener;
-
-    move-result-object v1
-
-    invoke-direct {p0}, Landroid/widget/Editor$InsertionPointCursorController;->getHandle()Landroid/widget/Editor$InsertionHandleView;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Landroid/widget/Editor$PositionListener;->removeSubscriber(Landroid/widget/Editor$TextViewPositionListener;)V
-
-    iget-object v1, p0, Landroid/widget/Editor$InsertionPointCursorController;->this$0:Landroid/widget/Editor;
-
-    invoke-static {v1}, Landroid/widget/Editor;->-get0(Landroid/widget/Editor;)Landroid/os/Handler;
-
-    move-result-object v1
-
-    invoke-virtual {v1, v0}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
-
-    return-void
-.end method
-
-.method private startShow()V
-    .locals 6
-
-    const/4 v5, 0x4
-
-    const/4 v4, 0x3
-
-    invoke-direct {p0}, Landroid/widget/Editor$InsertionPointCursorController;->getHandle()Landroid/widget/Editor$InsertionHandleView;
-
-    move-result-object v2
-
-    const/16 v3, 0xc8
-
-    invoke-virtual {v2, v3}, Landroid/widget/Editor$InsertionHandleView;->setShowDuration(I)V
-
-    invoke-direct {p0}, Landroid/widget/Editor$InsertionPointCursorController;->getHandle()Landroid/widget/Editor$InsertionHandleView;
-
-    move-result-object v2
-
-    const/4 v3, 0x1
-
-    invoke-virtual {v2, v3}, Landroid/widget/Editor$InsertionHandleView;->setIsAnimating(Z)V
-
-    iget-object v2, p0, Landroid/widget/Editor$InsertionPointCursorController;->this$0:Landroid/widget/Editor;
-
-    invoke-static {v2, v4}, Landroid/widget/Editor;->-wrap5(Landroid/widget/Editor;I)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_0
-
-    return-void
-
-    :cond_0
-    iget-object v2, p0, Landroid/widget/Editor$InsertionPointCursorController;->this$0:Landroid/widget/Editor;
-
-    invoke-static {v2, v5}, Landroid/widget/Editor;->-wrap5(Landroid/widget/Editor;I)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_1
-
-    iget-object v2, p0, Landroid/widget/Editor$InsertionPointCursorController;->this$0:Landroid/widget/Editor;
-
-    invoke-static {v2, v5}, Landroid/widget/Editor;->-wrap22(Landroid/widget/Editor;I)V
-
-    :cond_1
-    invoke-direct {p0}, Landroid/widget/Editor$InsertionPointCursorController;->getHandle()Landroid/widget/Editor$InsertionHandleView;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Landroid/widget/Editor$InsertionHandleView;->getShowAnimator()Landroid/animation/ValueAnimator;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/animation/ValueAnimator;->isStarted()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_2
-
-    invoke-virtual {v0}, Landroid/animation/ValueAnimator;->pause()V
-
-    :cond_2
-    invoke-static {}, Landroid/os/Message;->obtain()Landroid/os/Message;
-
-    move-result-object v1
-
-    invoke-direct {p0}, Landroid/widget/Editor$InsertionPointCursorController;->getHandle()Landroid/widget/Editor$InsertionHandleView;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Landroid/widget/Editor$InsertionHandleView;->getShowAnimator()Landroid/animation/ValueAnimator;
-
-    move-result-object v2
-
-    iput-object v2, v1, Landroid/os/Message;->obj:Ljava/lang/Object;
-
-    iput v4, v1, Landroid/os/Message;->what:I
-
-    iget-object v2, p0, Landroid/widget/Editor$InsertionPointCursorController;->this$0:Landroid/widget/Editor;
-
-    invoke-static {v2}, Landroid/widget/Editor;->-get0(Landroid/widget/Editor;)Landroid/os/Handler;
-
-    move-result-object v2
-
-    invoke-virtual {v2, v1}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
-
-    return-void
-.end method
-
 
 # virtual methods
 .method public hide()V
@@ -307,7 +121,7 @@
 
     iget-object v0, p0, Landroid/widget/Editor$InsertionPointCursorController;->mHandle:Landroid/widget/Editor$InsertionHandleView;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Landroid/widget/Editor$InsertionPointCursorController;->mHandle:Landroid/widget/Editor$InsertionHandleView;
 
@@ -317,16 +131,11 @@
 
     if-eqz v0, :cond_0
 
-    invoke-direct {p0}, Landroid/widget/Editor$InsertionPointCursorController;->startHide()V
-
-    return-void
-
-    :cond_0
     iget-object v0, p0, Landroid/widget/Editor$InsertionPointCursorController;->mHandle:Landroid/widget/Editor$InsertionHandleView;
 
     invoke-virtual {v0}, Landroid/widget/Editor$InsertionHandleView;->hide()V
 
-    :cond_1
+    :cond_0
     return-void
 .end method
 
@@ -339,7 +148,15 @@
 
     iget-object v0, p0, Landroid/widget/Editor$InsertionPointCursorController;->mHandle:Landroid/widget/Editor$InsertionHandleView;
 
-    invoke-virtual {v0}, Landroid/widget/Editor$InsertionHandleView;->hide()V
+    invoke-virtual {v0}, Landroid/widget/Editor$InsertionHandleView;->isShowing()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Landroid/widget/Editor$InsertionPointCursorController;->mHandle:Landroid/widget/Editor$InsertionHandleView;
+
+    invoke-virtual {v0}, Landroid/widget/Editor$InsertionHandleView;->hideImmediately()V
 
     :cond_0
     return-void
@@ -409,7 +226,7 @@
 
     iget-object v1, p0, Landroid/widget/Editor$InsertionPointCursorController;->this$0:Landroid/widget/Editor;
 
-    invoke-static {v1}, Landroid/widget/Editor;->-get13(Landroid/widget/Editor;)Landroid/widget/TextView;
+    invoke-static {v1}, Landroid/widget/Editor;->-get14(Landroid/widget/Editor;)Landroid/widget/TextView;
 
     move-result-object v1
 
@@ -443,9 +260,37 @@
 .end method
 
 .method public show()V
-    .locals 1
+    .locals 2
 
-    invoke-direct {p0}, Landroid/widget/Editor$InsertionPointCursorController;->startShow()V
+    iget-object v0, p0, Landroid/widget/Editor$InsertionPointCursorController;->this$0:Landroid/widget/Editor;
+
+    invoke-static {v0}, Landroid/widget/Editor;->-wrap9(Landroid/widget/Editor;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    invoke-static {}, Landroid/view/ViewRootImpl;->isDesktopmode()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    :cond_0
+    const-string/jumbo v0, "Editor"
+
+    const-string/jumbo v1, "Action mode didn\'t start because Universal Switch / Desktop mode was enabled."
+
+    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
+
+    :cond_1
+    invoke-direct {p0}, Landroid/widget/Editor$InsertionPointCursorController;->getHandle()Landroid/widget/Editor$InsertionHandleView;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/widget/Editor$InsertionHandleView;->removeHiderCallback()V
 
     invoke-direct {p0}, Landroid/widget/Editor$InsertionPointCursorController;->getHandle()Landroid/widget/Editor$InsertionHandleView;
 
@@ -457,7 +302,7 @@
 
     iget-object v0, v0, Landroid/widget/Editor;->mSelectionModifierCursorController:Landroid/widget/Editor$SelectionModifierCursorController;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_2
 
     iget-object v0, p0, Landroid/widget/Editor$InsertionPointCursorController;->this$0:Landroid/widget/Editor;
 
@@ -465,6 +310,6 @@
 
     invoke-virtual {v0}, Landroid/widget/Editor$SelectionModifierCursorController;->hide()V
 
-    :cond_0
+    :cond_2
     return-void
 .end method

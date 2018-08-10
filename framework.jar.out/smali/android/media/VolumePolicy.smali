@@ -15,6 +15,10 @@
 
 
 # static fields
+.field public static final A11Y_MODE_INDEPENDENT_A11Y_VOLUME:I = 0x1
+
+.field public static final A11Y_MODE_MEDIA_A11Y_VOLUME:I
+
 .field public static final CREATOR:Landroid/os/Parcelable$Creator;
     .annotation system Ldalvik/annotation/Signature;
         value = {

@@ -108,7 +108,7 @@
     const/4 v7, 0x0
 
     :try_start_2
-    invoke-virtual {v4, v0, v7, v6}, Ljava/io/FileOutputStream;->write([BII)V
+    invoke-virtual {v4, v0, v7, v6}, Ljava/io/OutputStream;->write([BII)V
     :try_end_2
     .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_0
     .catchall {:try_start_2 .. :try_end_2} :catchall_1

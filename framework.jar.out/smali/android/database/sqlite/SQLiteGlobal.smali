@@ -32,6 +32,24 @@
     return-void
 .end method
 
+.method public static clearRandArray(J)V
+    .locals 0
+
+    invoke-static {p0, p1}, Landroid/database/sqlite/SQLiteGlobal;->nativeClearRandArray(J)V
+
+    return-void
+.end method
+
+.method public static createRandArray()J
+    .locals 2
+
+    invoke-static {}, Landroid/database/sqlite/SQLiteGlobal;->nativeCreateRandArray()J
+
+    move-result-wide v0
+
+    return-wide v0
+.end method
+
 .method public static getDefaultJournalMode()Ljava/lang/String;
     .locals 3
 
@@ -41,7 +59,7 @@
 
     move-result-object v1
 
-    const v2, 0x104004f
+    const v2, 0x104027b
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -110,7 +128,7 @@
 
     move-result-object v1
 
-    const v2, 0x1040050
+    const v2, 0x104027c
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -132,7 +150,7 @@
 
     move-result-object v1
 
-    const v2, 0x10e0075
+    const v2, 0x10e00ec
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -145,6 +163,16 @@
     return v0
 .end method
 
+.method public static getRandArray(J)[C
+    .locals 2
+
+    invoke-static {p0, p1}, Landroid/database/sqlite/SQLiteGlobal;->nativeGetRandArray(J)[C
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
 .method public static getWALAutoCheckpoint()I
     .locals 4
 
@@ -154,7 +182,7 @@
 
     move-result-object v2
 
-    const v3, 0x10e0076
+    const v3, 0x10e00ed
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -182,7 +210,7 @@
 
     move-result-object v2
 
-    const v3, 0x10e0074
+    const v3, 0x10e00eb
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -210,7 +238,7 @@
 
     move-result-object v1
 
-    const v2, 0x1040051
+    const v2, 0x104027d
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -221,6 +249,53 @@
     move-result-object v0
 
     return-object v0
+.end method
+
+.method public static isDeviceOnShutdown()Z
+    .locals 3
+
+    const-string/jumbo v1, "sys.powerctl"
+
+    const-string/jumbo v2, "none"
+
+    invoke-static {v1, v2}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string/jumbo v1, "reboot"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    const-string/jumbo v1, "shutdown"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    :cond_0
+    const/4 v1, 0x1
+
+    return v1
+
+    :cond_1
+    const/4 v1, 0x0
+
+    return v1
+.end method
+
+.method private static native nativeClearRandArray(J)V
+.end method
+
+.method private static native nativeCreateRandArray()J
+.end method
+
+.method private static native nativeGetRandArray(J)[C
 .end method
 
 .method private static native nativeReleaseMemory()I

@@ -76,7 +76,7 @@
     invoke-virtual {v0, v1}, Ljava/util/concurrent/ConcurrentHashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
     :cond_2
-    invoke-virtual {p0}, Lcom/samsung/android/contextaware/manager/fault/RestoreTransaction;->getContextManager()Lcom/samsung/android/contextaware/manager/ContextManager;
+    invoke-virtual {p0}, Lcom/samsung/android/contextaware/manager/fault/RegisterCmdOperationRestore;->getContextManager()Lcom/samsung/android/contextaware/manager/ContextManager;
 
     move-result-object v0
 

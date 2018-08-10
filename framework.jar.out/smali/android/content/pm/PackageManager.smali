@@ -14,9 +14,7 @@
         Landroid/content/pm/PackageManager$SemFreeStorageNotifyListener;,
         Landroid/content/pm/PackageManager$SemPackageDataObserver;,
         Landroid/content/pm/PackageManager$SemPackageInstallListener;,
-        Landroid/content/pm/PackageManager$SemPackageInstallObserver;,
-        Landroid/content/pm/PackageManager$SemPackageStatsListener;,
-        Landroid/content/pm/PackageManager$SemPackageStatsObserver;
+        Landroid/content/pm/PackageManager$SemPackageInstallObserver;
     }
 .end annotation
 
@@ -49,6 +47,8 @@
 .field public static final DELETE_FAILED_INTERNAL_ERROR:I = -0x1
 
 .field public static final DELETE_FAILED_OWNER_BLOCKED:I = -0x4
+
+.field public static final DELETE_FAILED_USED_SHARED_LIBRARY:I = -0x6
 
 .field public static final DELETE_FAILED_USER_RESTRICTED:I = -0x3
 
@@ -96,6 +96,8 @@
 
 .field public static final EXTRA_VERIFICATION_VERSION_CODE:Ljava/lang/String; = "android.content.pm.extra.VERIFICATION_VERSION_CODE"
 
+.field public static final FEATURE_ACTIVITIES_ON_SECONDARY_DISPLAYS:Ljava/lang/String; = "android.software.activities_on_secondary_displays"
+
 .field public static final FEATURE_APP_WIDGETS:Ljava/lang/String; = "android.software.app_widgets"
 
 .field public static final FEATURE_AUDIO_LOW_LATENCY:Ljava/lang/String; = "android.hardware.audio.low_latency"
@@ -103,6 +105,8 @@
 .field public static final FEATURE_AUDIO_OUTPUT:Ljava/lang/String; = "android.hardware.audio.output"
 
 .field public static final FEATURE_AUDIO_PRO:Ljava/lang/String; = "android.hardware.audio.pro"
+
+.field public static final FEATURE_AUTOFILL:Ljava/lang/String; = "android.software.autofill"
 
 .field public static final FEATURE_AUTOMOTIVE:Ljava/lang/String; = "android.hardware.type.automotive"
 
@@ -134,6 +138,8 @@
 
 .field public static final FEATURE_CAMERA_LEVEL_FULL:Ljava/lang/String; = "android.hardware.camera.level.full"
 
+.field public static final FEATURE_COMPANION_DEVICE_SETUP:Ljava/lang/String; = "android.software.companion_device_setup"
+
 .field public static final FEATURE_CONNECTION_SERVICE:Ljava/lang/String; = "android.software.connectionservice"
 
 .field public static final FEATURE_CONSUMER_IR:Ljava/lang/String; = "android.hardware.consumerir"
@@ -148,7 +154,11 @@
 
 .field public static final FEATURE_COVER_SVIEW:Ljava/lang/String; = "com.sec.feature.cover.sview"
 
+.field public static final FEATURE_CTS:Ljava/lang/String; = "android.software.cts"
+
 .field public static final FEATURE_DEVICE_ADMIN:Ljava/lang/String; = "android.software.device_admin"
+
+.field public static final FEATURE_EMBEDDED:Ljava/lang/String; = "android.hardware.type.embedded"
 
 .field public static final FEATURE_ETHERNET:Ljava/lang/String; = "android.hardware.ethernet"
 
@@ -161,8 +171,6 @@
 .field public static final FEATURE_FILE_BASED_ENCRYPTION:Ljava/lang/String; = "android.software.file_based_encryption"
 
 .field public static final FEATURE_FINGERPRINT:Ljava/lang/String; = "android.hardware.fingerprint"
-
-.field public static final FEATURE_FLASH_BAR:Ljava/lang/String; = "com.sec.feature.flashbar"
 
 .field public static final FEATURE_FREEFORM_WINDOW_MANAGEMENT:Ljava/lang/String; = "android.software.freeform_window_management"
 
@@ -198,53 +206,11 @@
 
 .field public static final FEATURE_MIDI:Ljava/lang/String; = "android.software.midi"
 
-.field public static final FEATURE_MINI_MODE:Ljava/lang/String; = "com.sec.feature.minimode"
-
-.field public static final FEATURE_MINI_MODE_TRAY:Ljava/lang/String; = "com.sec.feature.minimode_tray"
-
-.field public static final FEATURE_MIRRORLINK_FW:Ljava/lang/String; = "com.samsung.feature.mirrorlink_fw"
-
 .field public static final FEATURE_MOTIONRECOGNITION_SERVICE:Ljava/lang/String; = "com.sec.feature.motionrecognition_service"
 
-.field public static final FEATURE_MULTIWINDOW:Ljava/lang/String; = "com.sec.feature.multiwindow"
-
-.field public static final FEATURE_MULTIWINDOW_BEZEL_UI:Ljava/lang/String; = "com.sec.feature.multiwindow.bezelui"
-
-.field public static final FEATURE_MULTIWINDOW_COMMON_UI:Ljava/lang/String; = "com.sec.feature.multiwindow.commonui"
-
-.field public static final FEATURE_MULTIWINDOW_DOWNLOADABLE:Ljava/lang/String; = "com.sec.feature.multiwindow.downloadable"
-
-.field public static final FEATURE_MULTIWINDOW_FREESTYLE:Ljava/lang/String; = "com.sec.feature.multiwindow.freestyle"
-
-.field public static final FEATURE_MULTIWINDOW_FREESTYLE_DOCKING:Ljava/lang/String; = "com.sec.feature.multiwindow.freestyledocking"
-
-.field public static final FEATURE_MULTIWINDOW_FREESTYLE_LAUNCH:Ljava/lang/String; = "com.sec.feature.multiwindow.freestylelaunch"
-
-.field public static final FEATURE_MULTIWINDOW_MINIMIZE:Ljava/lang/String; = "com.sec.feature.multiwindow.minimize"
-
-.field public static final FEATURE_MULTIWINDOW_MINIMIZE_ANIMATION:Ljava/lang/String; = "com.sec.feature.multiwindow.minimizeanimation"
-
-.field public static final FEATURE_MULTIWINDOW_MULTIINSTANCE:Ljava/lang/String; = "com.sec.feature.multiwindow.multiinstance"
-
-.field public static final FEATURE_MULTIWINDOW_PHONE:Ljava/lang/String; = "com.sec.feature.multiwindow.phone"
-
-.field public static final FEATURE_MULTIWINDOW_QUADVIEW:Ljava/lang/String; = "com.sec.feature.multiwindow.quadview"
-
-.field public static final FEATURE_MULTIWINDOW_RECENT_UI:Ljava/lang/String; = "com.sec.feature.multiwindow.recentui"
-
-.field public static final FEATURE_MULTIWINDOW_SELECTIVE_1_ORIENTATION:Ljava/lang/String; = "com.sec.feature.multiwindow.selective1orientation"
-
-.field public static final FEATURE_MULTIWINDOW_SIMPLIFICATION_UI:Ljava/lang/String; = "com.sec.feature.multiwindow.simplificationui"
-
-.field public static final FEATURE_MULTIWINDOW_STYLE_TRANSITION:Ljava/lang/String; = "com.sec.feature.multiwindow.styletransition"
-
-.field public static final FEATURE_MULTIWINDOW_TABLET:Ljava/lang/String; = "com.sec.feature.multiwindow.tablet"
-
-.field public static final FEATURE_MULTIWINDOW_TAB_PENWINDOW:Ljava/lang/String; = "com.sec.feature.multiwindow.tabpenwindow"
-
-.field public static final FEATURE_MULTIWINDOW_TOOLKIT:Ljava/lang/String; = "com.sec.feature.multiwindow.toolkit"
-
 .field public static final FEATURE_NFC:Ljava/lang/String; = "android.hardware.nfc"
+
+.field public static final FEATURE_NFC_ANY:Ljava/lang/String; = "android.hardware.nfc.any"
 
 .field public static final FEATURE_NFC_HCE:Ljava/lang/String; = "android.hardware.nfc.hce"
     .annotation runtime Ljava/lang/Deprecated;
@@ -301,6 +267,8 @@
 
 .field public static final FEATURE_TELEPHONY:Ljava/lang/String; = "android.hardware.telephony"
 
+.field public static final FEATURE_TELEPHONY_CARRIERLOCK:Ljava/lang/String; = "android.hardware.telephony.carrierlock"
+
 .field public static final FEATURE_TELEPHONY_CDMA:Ljava/lang/String; = "android.hardware.telephony.cdma"
 
 .field public static final FEATURE_TELEPHONY_GSM:Ljava/lang/String; = "android.hardware.telephony.gsm"
@@ -328,9 +296,13 @@
 
 .field public static final FEATURE_VOICE_RECOGNIZERS:Ljava/lang/String; = "android.software.voice_recognizers"
 
+.field public static final FEATURE_VR_HEADTRACKING:Ljava/lang/String; = "android.hardware.vr.headtracking"
+
 .field public static final FEATURE_VR_MODE:Ljava/lang/String; = "android.software.vr.mode"
 
 .field public static final FEATURE_VR_MODE_HIGH_PERFORMANCE:Ljava/lang/String; = "android.hardware.vr.high_performance"
+
+.field public static final FEATURE_VULKAN_HARDWARE_COMPUTE:Ljava/lang/String; = "android.hardware.vulkan.compute"
 
 .field public static final FEATURE_VULKAN_HARDWARE_LEVEL:Ljava/lang/String; = "android.hardware.vulkan.level"
 
@@ -342,9 +314,9 @@
 
 .field public static final FEATURE_WIFI:Ljava/lang/String; = "android.hardware.wifi"
 
-.field public static final FEATURE_WIFI_DIRECT:Ljava/lang/String; = "android.hardware.wifi.direct"
+.field public static final FEATURE_WIFI_AWARE:Ljava/lang/String; = "android.hardware.wifi.aware"
 
-.field public static final FEATURE_WIFI_NAN:Ljava/lang/String; = "android.hardware.wifi.nan"
+.field public static final FEATURE_WIFI_DIRECT:Ljava/lang/String; = "android.hardware.wifi.direct"
 
 .field public static final FLAG_PERMISSION_GRANTED_BY_DEFAULT:I = 0x20
 
@@ -409,6 +381,8 @@
 
 .field public static final ICON_TRAY_SQUICLE_MODE:I = 0x1
 
+.field public static final INSTALL_ALLOCATE_AGGRESSIVE:I = 0x8000
+
 .field public static final INSTALL_ALLOW_DOWNGRADE:I = 0x80
 
 .field public static final INSTALL_ALLOW_TEST:I = 0x4
@@ -417,9 +391,10 @@
 
 .field public static final INSTALL_DONT_KILL_APP:I = 0x1000
 
-.field public static final INSTALL_EPHEMERAL:I = 0x800
-
 .field public static final INSTALL_EXTERNAL:I = 0x8
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
 
 .field public static final INSTALL_FAILED_ABORTED:I = -0x73
 
@@ -439,7 +414,7 @@
 
 .field public static final INSTALL_FAILED_EAS_POLICY_REJECTED_PERMISSION:I = -0x75
 
-.field public static final INSTALL_FAILED_EPHEMERAL_INVALID:I = -0x74
+.field public static final INSTALL_FAILED_INSTANT_APP_INVALID:I = -0x74
 
 .field public static final INSTALL_FAILED_INSUFFICIENT_STORAGE:I = -0x4
 
@@ -452,6 +427,8 @@
 .field public static final INSTALL_FAILED_INVALID_URI:I = -0x3
 
 .field public static final INSTALL_FAILED_MEDIA_UNAVAILABLE:I = -0x14
+
+.field public static final INSTALL_FAILED_MISSING_CERTIFICATION:I = -0xbba
 
 .field public static final INSTALL_FAILED_MISSING_FEATURE:I = -0x11
 
@@ -469,7 +446,13 @@
 
 .field public static final INSTALL_FAILED_PERMISSION_MODEL_DOWNGRADE:I = -0x1a
 
+.field public static final INSTALL_FAILED_REJECTED_BY_BUILDTYPE:I = -0xbb9
+
+.field public static final INSTALL_FAILED_REJECTED_BY_DATE:I = -0xbb8
+
 .field public static final INSTALL_FAILED_REPLACE_COULDNT_DELETE:I = -0xa
+
+.field public static final INSTALL_FAILED_SANDBOX_VERSION_DOWNGRADE:I = -0x1b
 
 .field public static final INSTALL_FAILED_SHARED_USER_INCOMPATIBLE:I = -0x8
 
@@ -498,10 +481,17 @@
 .field public static final INSTALL_FORCE_VOLUME_UUID:I = 0x200
 
 .field public static final INSTALL_FORWARD_LOCK:I = 0x1
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
 
 .field public static final INSTALL_FROM_ADB:I = 0x20
 
+.field public static final INSTALL_FULL_APP:I = 0x4000
+
 .field public static final INSTALL_GRANT_RUNTIME_PERMISSIONS:I = 0x100
+
+.field public static final INSTALL_INSTANT_APP:I = 0x800
 
 .field public static final INSTALL_INTERNAL:I = 0x10
 
@@ -526,6 +516,16 @@
 .field public static final INSTALL_PARSE_FAILED_NO_CERTIFICATES:I = -0x67
 
 .field public static final INSTALL_PARSE_FAILED_UNEXPECTED_EXCEPTION:I = -0x66
+
+.field public static final INSTALL_REASON_DEVICE_RESTORE:I = 0x2
+
+.field public static final INSTALL_REASON_DEVICE_SETUP:I = 0x3
+
+.field public static final INSTALL_REASON_POLICY:I = 0x1
+
+.field public static final INSTALL_REASON_UNKNOWN:I = 0x0
+
+.field public static final INSTALL_REASON_USER:I = 0x4
 
 .field public static final INSTALL_REPLACE_EXISTING:I = 0x2
 
@@ -553,6 +553,8 @@
 
 .field public static final MATCH_ALL:I = 0x20000
 
+.field public static final MATCH_ANY_USER:I = 0x400000
+
 .field public static final MATCH_DEBUG_TRIAGED_MISSING:I = 0x10000000
 
 .field public static final MATCH_DEFAULT_ONLY:I = 0x10000
@@ -565,26 +567,21 @@
 
 .field public static final MATCH_DISABLED_UNTIL_USED_COMPONENTS:I = 0x8000
 
-.field public static final MATCH_ENCRYPTION_AWARE:I = 0x80000
-    .annotation runtime Ljava/lang/Deprecated;
-    .end annotation
-.end field
-
-.field public static final MATCH_ENCRYPTION_AWARE_AND_UNAWARE:I = 0xc0000
-    .annotation runtime Ljava/lang/Deprecated;
-    .end annotation
-.end field
-
-.field public static final MATCH_ENCRYPTION_UNAWARE:I = 0x40000
-    .annotation runtime Ljava/lang/Deprecated;
-    .end annotation
-.end field
+.field public static final MATCH_EXPLICITLY_VISIBLE_ONLY:I = 0x2000000
 
 .field public static final MATCH_FACTORY_ONLY:I = 0x200000
+
+.field public static final MATCH_INSTANT:I = 0x800000
+
+.field public static final MATCH_KNOWN_PACKAGES:I = 0x402000
+
+.field public static final MATCH_STATIC_SHARED_LIBRARIES:I = 0x4000000
 
 .field public static final MATCH_SYSTEM_ONLY:I = 0x100000
 
 .field public static final MATCH_UNINSTALLED_PACKAGES:I = 0x2000
+
+.field public static final MATCH_VISIBLE_TO_INSTANT_APP_ONLY:I = 0x1000000
 
 .field public static final MAXIMUM_VERIFICATION_TIMEOUT:J = 0x36ee80L
 
@@ -592,6 +589,8 @@
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 .end field
+
+.field public static final MOVE_FAILED_3RD_PARTY_NOT_ALLOWED_ON_INTERNAL:I = -0x9
 
 .field public static final MOVE_FAILED_DEVICE_ADMIN:I = -0x8
 
@@ -642,8 +641,6 @@
 
 .field public static final PERMISSION_GRANTED:I = 0x0
 
-.field public static final SEM_FEATURE_AOD:Ljava/lang/String; = "com.samsung.feature.aodservice"
-
 .field public static final SEM_FEATURE_BARCODE_EMULATOR:Ljava/lang/String; = "com.sec.feature.barcode_emulator"
 
 .field public static final SEM_FEATURE_CALL_VT_SUPPORT:Ljava/lang/String; = "com.sec.feature.call_vt_support"
@@ -654,11 +651,17 @@
 
 .field public static final SEM_FEATURE_COVER_SVIEW:Ljava/lang/String; = "com.sec.feature.cover.sview"
 
+.field public static final SEM_FEATURE_DEVICE_CATEGORY_PHONE:Ljava/lang/String; = "com.samsung.feature.device_category_phone"
+
 .field public static final SEM_FEATURE_DEVICE_CATEGORY_PHONE_HIGH_END:Ljava/lang/String; = "com.samsung.feature.device_category_phone_high_end"
 
 .field public static final SEM_FEATURE_DEVICE_CATEGORY_PHONE_LOW_END:Ljava/lang/String; = "com.samsung.feature.device_category_phone_low_end"
 
 .field public static final SEM_FEATURE_DEVICE_CATEGORY_TABLET:Ljava/lang/String; = "com.samsung.feature.device_category_tablet"
+
+.field public static final SEM_FEATURE_DEVICE_CATEGORY_TABLET_HIGH_END:Ljava/lang/String; = "com.samsung.feature.device_category_tablet_high_end"
+
+.field public static final SEM_FEATURE_DEVICE_CATEGORY_TABLET_LOW_END:Ljava/lang/String; = "com.samsung.feature.device_category_tablet_low_end"
 
 .field public static final SEM_FEATURE_DUAL_SCREEN:Ljava/lang/String; = "com.sec.feature.dual_lcd"
 
@@ -738,6 +741,8 @@
 
 .field public static final VERIFICATION_REJECT:I = -0x1
 
+.field public static final VERSION_CODE_HIGHEST:I = -0x1
+
 
 # direct methods
 .method public constructor <init>()V
@@ -782,8 +787,14 @@
 
     return v0
 
+    :pswitch_7
+    const/4 v0, 0x5
+
+    return v0
+
     :pswitch_data_0
-    .packed-switch -0x5
+    .packed-switch -0x6
+        :pswitch_7
         :pswitch_6
         :pswitch_5
         :pswitch_4
@@ -836,8 +847,14 @@
 
     return-object v0
 
+    :pswitch_7
+    const-string/jumbo v0, "DELETE_FAILED_USED_SHARED_LIBRARY"
+
+    return-object v0
+
     :pswitch_data_0
-    .packed-switch -0x5
+    .packed-switch -0x6
+        :pswitch_7
         :pswitch_6
         :pswitch_5
         :pswitch_4
@@ -1497,24 +1514,6 @@
     throw v0
 .end method
 
-.method public abstract applyOverlays(Ljava/util/List;Ljava/util/List;Landroid/content/pm/IOverlayCallback;Z)V
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/List",
-            "<",
-            "Ljava/lang/String;",
-            ">;",
-            "Ljava/util/List",
-            "<",
-            "Ljava/lang/String;",
-            ">;",
-            "Landroid/content/pm/IOverlayCallback;",
-            "Z)V"
-        }
-    .end annotation
-.end method
-
 .method public abstract applyRuntimePermissions(Ljava/lang/String;Ljava/util/List;II)Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1629,13 +1628,23 @@
     goto :goto_0
 .end method
 
+.method public abstract canRequestPackageInstalls()Z
+.end method
+
 .method public abstract cancelEMPHandlerSendPendingBroadcast()V
 .end method
 
 .method public abstract canonicalToCurrentPackageNames([Ljava/lang/String;)[Ljava/lang/String;
 .end method
 
-.method public abstract checkComponentMetadataForIconTray(Ljava/lang/String;Ljava/lang/String;)Z
+.method public checkComponentMetadataForIconTray(Ljava/lang/String;Ljava/lang/String;)Z
+    .locals 1
+
+    invoke-virtual {p0, p1, p2}, Landroid/content/pm/PackageManager;->semCheckComponentMetadataForIconTray(Ljava/lang/String;Ljava/lang/String;)Z
+
+    move-result v0
+
+    return v0
 .end method
 
 .method public abstract checkPermission(Ljava/lang/String;Ljava/lang/String;)I
@@ -1651,6 +1660,9 @@
 .end method
 
 .method public abstract clearCrossProfileIntentFilters(I)V
+.end method
+
+.method public abstract clearInstantAppCookie()V
 .end method
 
 .method public abstract clearPackagePreferredActivities(Ljava/lang/String;)V
@@ -1672,6 +1684,18 @@
 .end method
 
 .method public abstract extendVerificationTimeout(IIJ)V
+.end method
+
+.method public extendVerificationTimeout2(IIJ)V
+    .locals 2
+
+    new-instance v0, Ljava/lang/RuntimeException;
+
+    const-string/jumbo v1, "Not implemented. Must override in a subclass."
+
+    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+
+    throw v0
 .end method
 
 .method public abstract flushPackageRestrictionsAsUser(I)V
@@ -1773,6 +1797,14 @@
     .end annotation
 .end method
 
+.method public abstract getActivityInfoAsUser(Landroid/content/ComponentName;II)Landroid/content/pm/ActivityInfo;
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/content/pm/PackageManager$NameNotFoundException;
+        }
+    .end annotation
+.end method
+
 .method public abstract getActivityLogo(Landroid/content/ComponentName;)Landroid/graphics/drawable/Drawable;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1845,6 +1877,11 @@
 
 .method public getApplicationIconForIconTray(Landroid/content/pm/ApplicationInfo;I)Landroid/graphics/drawable/Drawable;
     .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/content/pm/PackageManager$NameNotFoundException;
+        }
+    .end annotation
 
     invoke-virtual {p0, p1, p2}, Landroid/content/pm/PackageManager;->semGetApplicationIconForIconTray(Landroid/content/pm/ApplicationInfo;I)Landroid/graphics/drawable/Drawable;
 
@@ -1918,6 +1955,9 @@
     return-object v0
 .end method
 
+.method public abstract getChangedPackages(I)Landroid/content/pm/ChangedPackages;
+.end method
+
 .method public abstract getComponentEnabledSetting(Landroid/content/ComponentName;)I
 .end method
 
@@ -1940,27 +1980,6 @@
     return-object v0
 .end method
 
-.method public abstract getEphemeralApplicationIcon(Ljava/lang/String;)Landroid/graphics/drawable/Drawable;
-.end method
-
-.method public abstract getEphemeralApplications()Ljava/util/List;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/util/List",
-            "<",
-            "Landroid/content/pm/EphemeralApplicationInfo;",
-            ">;"
-        }
-    .end annotation
-.end method
-
-.method public abstract getEphemeralCookie()[B
-.end method
-
-.method public abstract getEphemeralCookieMaxSizeBytes()I
-.end method
-
 .method public abstract getHomeActivities(Ljava/util/List;)Landroid/content/ComponentName;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1974,10 +1993,25 @@
     .end annotation
 .end method
 
+.method public abstract getInstallReason(Ljava/lang/String;Landroid/os/UserHandle;)I
+.end method
+
 .method public abstract getInstalledApplications(I)Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)",
+            "Ljava/util/List",
+            "<",
+            "Landroid/content/pm/ApplicationInfo;",
+            ">;"
+        }
+    .end annotation
+.end method
+
+.method public abstract getInstalledApplicationsAsUser(II)Ljava/util/List;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(II)",
             "Ljava/util/List",
             "<",
             "Landroid/content/pm/ApplicationInfo;",
@@ -2011,6 +2045,39 @@
 .end method
 
 .method public abstract getInstallerPackageName(Ljava/lang/String;)Ljava/lang/String;
+.end method
+
+.method public abstract getInstantAppAndroidId(Ljava/lang/String;Landroid/os/UserHandle;)Ljava/lang/String;
+.end method
+
+.method public abstract getInstantAppCookie()[B
+.end method
+
+.method public abstract getInstantAppCookieMaxBytes()I
+.end method
+
+.method public abstract getInstantAppCookieMaxSize()I
+.end method
+
+.method public abstract getInstantAppIcon(Ljava/lang/String;)Landroid/graphics/drawable/Drawable;
+.end method
+
+.method public abstract getInstantAppInstallerComponent()Landroid/content/ComponentName;
+.end method
+
+.method public abstract getInstantAppResolverSettingsComponent()Landroid/content/ComponentName;
+.end method
+
+.method public abstract getInstantApps()Ljava/util/List;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/List",
+            "<",
+            "Landroid/content/pm/InstantAppInfo;",
+            ">;"
+        }
+    .end annotation
 .end method
 
 .method public abstract getInstrumentationInfo(Landroid/content/ComponentName;I)Landroid/content/pm/InstrumentationInfo;
@@ -2047,7 +2114,7 @@
 .method public abstract getLeanbackLaunchIntentForPackage(Ljava/lang/String;)Landroid/content/Intent;
 .end method
 
-.method public abstract getManagedUserBadgedDrawable(Landroid/graphics/drawable/Drawable;Landroid/graphics/Rect;I)Landroid/graphics/drawable/Drawable;
+.method public abstract getLockedBadgedIcon(Landroid/graphics/drawable/Drawable;)Landroid/graphics/drawable/Drawable;
 .end method
 
 .method public abstract getMoveStatus(I)I
@@ -2066,6 +2133,12 @@
     new-instance v11, Landroid/content/pm/PackageParser;
 
     invoke-direct {v11}, Landroid/content/pm/PackageParser;-><init>()V
+
+    new-instance v2, Landroid/content/pm/PackageParser$CallbackImpl;
+
+    invoke-direct {v2, p0}, Landroid/content/pm/PackageParser$CallbackImpl;-><init>(Landroid/content/pm/PackageManager;)V
+
+    invoke-virtual {v11, v2}, Landroid/content/pm/PackageParser;->setCallback(Landroid/content/pm/PackageParser$Callback;)V
 
     new-instance v0, Ljava/io/File;
 
@@ -2158,6 +2231,14 @@
     .end annotation
 .end method
 
+.method public abstract getPackageInfo(Landroid/content/pm/VersionedPackage;I)Landroid/content/pm/PackageInfo;
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/content/pm/PackageManager$NameNotFoundException;
+        }
+    .end annotation
+.end method
+
 .method public abstract getPackageInfo(Ljava/lang/String;I)Landroid/content/pm/PackageInfo;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -2179,6 +2260,8 @@
 
 .method public getPackageSizeInfo(Ljava/lang/String;Landroid/content/pm/IPackageStatsObserver;)V
     .locals 1
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 
     invoke-static {}, Landroid/os/UserHandle;->myUserId()I
 
@@ -2190,6 +2273,8 @@
 .end method
 
 .method public abstract getPackageSizeInfoAsUser(Ljava/lang/String;ILandroid/content/pm/IPackageStatsObserver;)V
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 .end method
 
 .method public abstract getPackageUid(Ljava/lang/String;I)I
@@ -2388,6 +2473,30 @@
 .method public abstract getServicesSystemSharedLibraryPackageName()Ljava/lang/String;
 .end method
 
+.method public abstract getSharedLibraries(I)Ljava/util/List;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(I)",
+            "Ljava/util/List",
+            "<",
+            "Landroid/content/pm/SharedLibraryInfo;",
+            ">;"
+        }
+    .end annotation
+.end method
+
+.method public abstract getSharedLibrariesAsUser(II)Ljava/util/List;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(II)",
+            "Ljava/util/List",
+            "<",
+            "Landroid/content/pm/SharedLibraryInfo;",
+            ">;"
+        }
+    .end annotation
+.end method
+
 .method public abstract getSharedSystemSharedLibraryPackageName()Ljava/lang/String;
 .end method
 
@@ -2411,9 +2520,6 @@
 .end method
 
 .method public abstract getText(Ljava/lang/String;ILandroid/content/pm/ApplicationInfo;)Ljava/lang/CharSequence;
-.end method
-
-.method public abstract getThemeAppIcon(Landroid/content/pm/PackageItemInfo;Z)Landroid/graphics/drawable/Drawable;
 .end method
 
 .method public abstract getUidForSharedUser(Ljava/lang/String;)I
@@ -2462,6 +2568,14 @@
     .end annotation
 .end method
 
+.method public abstract installExistingPackage(Ljava/lang/String;I)I
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/content/pm/PackageManager$NameNotFoundException;
+        }
+    .end annotation
+.end method
+
 .method public abstract installExistingPackageAsUser(Ljava/lang/String;I)I
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -2480,13 +2594,28 @@
     .end annotation
 .end method
 
-.method public abstract isEphemeralApplication()Z
+.method public abstract installPackageForMDM(Ljava/lang/String;Landroid/content/pm/IPackageInstallObserver2;IILjava/lang/String;Landroid/content/pm/VerificationParams;Ljava/lang/String;)V
+.end method
+
+.method public abstract isHidden(Ljava/lang/String;)Z
+.end method
+
+.method public abstract isInstantApp()Z
+.end method
+
+.method public abstract isInstantApp(Ljava/lang/String;)Z
+.end method
+
+.method public abstract isLock(Ljava/lang/String;)Z
 .end method
 
 .method public abstract isPackageAvailable(Ljava/lang/String;)Z
 .end method
 
 .method public abstract isPackageSuspendedForUser(Ljava/lang/String;I)Z
+.end method
+
+.method public abstract isPermissionReviewModeEnabled()Z
 .end method
 
 .method public abstract isPermissionRevokedByPolicy(Ljava/lang/String;Ljava/lang/String;)Z
@@ -2547,7 +2676,7 @@
 .end method
 
 .method public queryBroadcastReceivers(Landroid/content/Intent;II)Ljava/util/List;
-    .locals 2
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -2563,17 +2692,40 @@
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
-    const-string/jumbo v0, "PackageManager"
+    const-string/jumbo v0, "Shame on you for calling the hidden API queryBroadcastReceivers(). Shame!"
 
-    const-string/jumbo v1, "STAHP USING HIDDEN APIS KTHX"
+    invoke-static {}, Ldalvik/system/VMRuntime;->getRuntime()Ldalvik/system/VMRuntime;
 
-    invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    move-result-object v1
+
+    invoke-virtual {v1}, Ldalvik/system/VMRuntime;->getTargetSdkVersion()I
+
+    move-result v1
+
+    const/16 v2, 0x1a
+
+    if-lt v1, v2, :cond_0
+
+    new-instance v1, Ljava/lang/UnsupportedOperationException;
+
+    const-string/jumbo v2, "Shame on you for calling the hidden API queryBroadcastReceivers(). Shame!"
+
+    invoke-direct {v1, v2}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
+
+    throw v1
+
+    :cond_0
+    const-string/jumbo v1, "PackageManager"
+
+    const-string/jumbo v2, "Shame on you for calling the hidden API queryBroadcastReceivers(). Shame!"
+
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     invoke-virtual {p0, p1, p2, p3}, Landroid/content/pm/PackageManager;->queryBroadcastReceiversAsUser(Landroid/content/Intent;II)Ljava/util/List;
 
-    move-result-object v0
+    move-result-object v1
 
-    return-object v0
+    return-object v1
 .end method
 
 .method public abstract queryBroadcastReceiversAsUser(Landroid/content/Intent;II)Ljava/util/List;
@@ -2629,6 +2781,29 @@
             ">;"
         }
     .end annotation
+.end method
+
+.method public queryContentProviders(Ljava/lang/String;IILjava/lang/String;)Ljava/util/List;
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/lang/String;",
+            "II",
+            "Ljava/lang/String;",
+            ")",
+            "Ljava/util/List",
+            "<",
+            "Landroid/content/pm/ProviderInfo;",
+            ">;"
+        }
+    .end annotation
+
+    invoke-virtual {p0, p1, p2, p3}, Landroid/content/pm/PackageManager;->queryContentProviders(Ljava/lang/String;II)Ljava/util/List;
+
+    move-result-object v0
+
+    return-object v0
 .end method
 
 .method public abstract queryInstrumentation(Ljava/lang/String;I)Ljava/util/List;
@@ -2834,6 +3009,20 @@
 .method public abstract revokeRuntimePermission(Ljava/lang/String;Ljava/lang/String;Landroid/os/UserHandle;)V
 .end method
 
+.method public semCheckComponentMetadataForIconTray(Ljava/lang/String;Ljava/lang/String;)Z
+    .locals 2
+
+    const-string/jumbo v0, "PackageManager"
+
+    const-string/jumbo v1, "Not implemented. Must override in a subclass."
+
+    invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 v0, 0x0
+
+    return v0
+.end method
+
 .method public semFreeStorageAndNotify(JLandroid/content/pm/PackageManager$SemFreeStorageNotifyListener;)V
     .locals 3
 
@@ -2884,20 +3073,18 @@
 .method public abstract semGetDrawableForIconTray(Landroid/graphics/drawable/Drawable;I)Landroid/graphics/drawable/Drawable;
 .end method
 
-.method public semGetPackageSizeInfo(Ljava/lang/String;Landroid/content/pm/PackageManager$SemPackageStatsListener;)V
+.method public semGetDrawableForIconTray(Landroid/graphics/drawable/Drawable;ILjava/lang/String;I)Landroid/graphics/drawable/Drawable;
     .locals 2
 
-    new-instance v0, Landroid/content/pm/PackageManager$SemPackageStatsObserver;
+    const-string/jumbo v0, "PackageManager"
 
-    invoke-direct {v0, p0, p2}, Landroid/content/pm/PackageManager$SemPackageStatsObserver;-><init>(Landroid/content/pm/PackageManager;Landroid/content/pm/PackageManager$SemPackageStatsListener;)V
+    const-string/jumbo v1, "Not implemented. Must override in a subclass."
 
-    invoke-static {}, Landroid/os/UserHandle;->myUserId()I
+    invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    move-result v1
+    const/4 v0, 0x0
 
-    invoke-virtual {p0, p1, v1, v0}, Landroid/content/pm/PackageManager;->getPackageSizeInfoAsUser(Ljava/lang/String;ILandroid/content/pm/IPackageStatsObserver;)V
-
-    return-void
+    return-object v0
 .end method
 
 .method public semGetPermissionFlags(Ljava/lang/String;Ljava/lang/String;Landroid/os/UserHandle;)I
@@ -2965,12 +3152,29 @@
     return-void
 .end method
 
+.method public semShouldPackIntoIconTray(Ljava/lang/String;)Z
+    .locals 2
+
+    const-string/jumbo v0, "PackageManager"
+
+    const-string/jumbo v1, "Not implemented. Must override in a subclass."
+
+    invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 v0, 0x0
+
+    return v0
+.end method
+
 .method public semUpdatePermissionFlags(Ljava/lang/String;Ljava/lang/String;IILandroid/os/UserHandle;)V
     .locals 0
 
     invoke-virtual/range {p0 .. p5}, Landroid/content/pm/PackageManager;->updatePermissionFlags(Ljava/lang/String;Ljava/lang/String;IILandroid/os/UserHandle;)V
 
     return-void
+.end method
+
+.method public abstract setApplicationCategoryHint(Ljava/lang/String;I)V
 .end method
 
 .method public abstract setApplicationEnabledSetting(Ljava/lang/String;II)V
@@ -2997,22 +3201,35 @@
 .method public abstract setDefaultBrowserPackageNameAsUser(Ljava/lang/String;I)Z
 .end method
 
-.method public abstract setEphemeralCookie([B)Z
+.method public abstract setInstallerPackageName(Ljava/lang/String;Ljava/lang/String;)V
 .end method
 
-.method public abstract setInstallerPackageName(Ljava/lang/String;Ljava/lang/String;)V
+.method public abstract setInstantAppCookie([B)Z
 .end method
 
 .method public abstract setPackagesSuspendedAsUser([Ljava/lang/String;ZI)[Ljava/lang/String;
 .end method
 
-.method public abstract shouldPackIntoIconTray(Ljava/lang/String;)Z
+.method public abstract setUpdateAvailable(Ljava/lang/String;Z)V
+.end method
+
+.method public shouldPackIntoIconTray(Ljava/lang/String;)Z
+    .locals 1
+
+    invoke-virtual {p0, p1}, Landroid/content/pm/PackageManager;->semShouldPackIntoIconTray(Ljava/lang/String;)Z
+
+    move-result v0
+
+    return v0
 .end method
 
 .method public abstract shouldShowRequestPermissionRationale(Ljava/lang/String;)Z
 .end method
 
 .method public abstract unregisterMoveCallback(Landroid/content/pm/PackageManager$MoveCallback;)V
+.end method
+
+.method public abstract updateInstantAppCookie([B)V
 .end method
 
 .method public abstract updateIntentVerificationStatusAsUser(Ljava/lang/String;II)Z
@@ -3034,4 +3251,16 @@
 .end method
 
 .method public abstract verifyPendingInstall(II)V
+.end method
+
+.method public verifyPendingInstall2(II)V
+    .locals 2
+
+    new-instance v0, Ljava/lang/RuntimeException;
+
+    const-string/jumbo v1, "Not implemented. Must override in a subclass."
+
+    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+
+    throw v0
 .end method

@@ -27,7 +27,7 @@
 
 # virtual methods
 .method public calculateApp(Lcom/android/internal/os/BatterySipper;Landroid/os/BatteryStats$Uid;JJI)V
-    .locals 30
+    .locals 36
 
     move-object/from16 v0, p2
 
@@ -35,7 +35,7 @@
 
     invoke-virtual {v0, v1}, Landroid/os/BatteryStats$Uid;->getUserCpuTimeUs(I)J
 
-    move-result-wide v26
+    move-result-wide v32
 
     move-object/from16 v0, p2
 
@@ -43,195 +43,219 @@
 
     invoke-virtual {v0, v1}, Landroid/os/BatteryStats$Uid;->getSystemCpuTimeUs(I)J
 
-    move-result-wide v28
+    move-result-wide v34
 
-    add-long v26, v26, v28
+    add-long v32, v32, v34
 
-    const-wide/16 v28, 0x3e8
+    const-wide/16 v34, 0x3e8
 
-    div-long v26, v26, v28
+    div-long v32, v32, v34
 
-    move-wide/from16 v0, v26
+    move-wide/from16 v0, v32
 
     move-object/from16 v2, p1
 
     iput-wide v0, v2, Lcom/android/internal/os/BatterySipper;->cpuTimeMs:J
 
-    const-wide/16 v24, 0x0
+    const-wide/16 v30, 0x0
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/os/CpuPowerCalculator;->mProfile:Lcom/android/internal/os/PowerProfile;
 
-    move-object/from16 v23, v0
+    move-object/from16 v29, v0
 
-    invoke-virtual/range {v23 .. v23}, Lcom/android/internal/os/PowerProfile;->getNumCpuClusters()I
+    invoke-virtual/range {v29 .. v29}, Lcom/android/internal/os/PowerProfile;->getNumCpuClusters()I
 
-    move-result v14
+    move-result v20
 
-    const/4 v4, 0x0
+    const/4 v6, 0x0
 
     :goto_0
-    if-ge v4, v14, :cond_1
+    move/from16 v0, v20
+
+    if-ge v6, v0, :cond_1
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/os/CpuPowerCalculator;->mProfile:Lcom/android/internal/os/PowerProfile;
 
-    move-object/from16 v23, v0
+    move-object/from16 v29, v0
 
-    move-object/from16 v0, v23
+    move-object/from16 v0, v29
 
-    invoke-virtual {v0, v4}, Lcom/android/internal/os/PowerProfile;->getNumSpeedStepsInCpuCluster(I)I
+    invoke-virtual {v0, v6}, Lcom/android/internal/os/PowerProfile;->getNumSpeedStepsInCpuCluster(I)I
 
-    move-result v22
+    move-result v28
 
-    const/16 v19, 0x0
+    const/16 v25, 0x0
 
     :goto_1
-    move/from16 v0, v19
+    move/from16 v0, v25
 
-    move/from16 v1, v22
+    move/from16 v1, v28
 
     if-ge v0, v1, :cond_0
 
     move-object/from16 v0, p2
 
-    move/from16 v1, v19
+    move/from16 v1, v25
 
     move/from16 v2, p7
 
-    invoke-virtual {v0, v4, v1, v2}, Landroid/os/BatteryStats$Uid;->getTimeAtCpuSpeed(III)J
+    invoke-virtual {v0, v6, v1, v2}, Landroid/os/BatteryStats$Uid;->getTimeAtCpuSpeed(III)J
 
-    move-result-wide v26
+    move-result-wide v32
 
-    add-long v24, v24, v26
+    add-long v30, v30, v32
 
-    add-int/lit8 v19, v19, 0x1
+    add-int/lit8 v25, v25, 0x1
 
     goto :goto_1
 
     :cond_0
-    add-int/lit8 v4, v4, 0x1
+    add-int/lit8 v6, v6, 0x1
 
     goto :goto_0
 
     :cond_1
-    const-wide/16 v26, 0x1
+    const-wide/16 v32, 0x1
 
-    invoke-static/range {v24 .. v27}, Ljava/lang/Math;->max(JJ)J
+    invoke-static/range {v30 .. v33}, Ljava/lang/Math;->max(JJ)J
 
-    move-result-wide v24
+    move-result-wide v30
 
-    const-wide/16 v8, 0x0
+    const-wide/16 v14, 0x0
 
-    const/4 v4, 0x0
+    const/4 v6, 0x0
 
     :goto_2
-    if-ge v4, v14, :cond_3
+    move/from16 v0, v20
+
+    if-ge v6, v0, :cond_3
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/os/CpuPowerCalculator;->mProfile:Lcom/android/internal/os/PowerProfile;
 
-    move-object/from16 v23, v0
+    move-object/from16 v29, v0
 
-    move-object/from16 v0, v23
+    move-object/from16 v0, v29
 
-    invoke-virtual {v0, v4}, Lcom/android/internal/os/PowerProfile;->getNumSpeedStepsInCpuCluster(I)I
+    invoke-virtual {v0, v6}, Lcom/android/internal/os/PowerProfile;->getNumSpeedStepsInCpuCluster(I)I
 
-    move-result v22
+    move-result v28
 
-    const/16 v19, 0x0
+    const/16 v25, 0x0
 
     :goto_3
-    move/from16 v0, v19
+    move/from16 v0, v25
 
-    move/from16 v1, v22
+    move/from16 v1, v28
 
     if-ge v0, v1, :cond_2
 
     move-object/from16 v0, p2
 
-    move/from16 v1, v19
+    move/from16 v1, v25
 
     move/from16 v2, p7
 
-    invoke-virtual {v0, v4, v1, v2}, Landroid/os/BatteryStats$Uid;->getTimeAtCpuSpeed(III)J
+    invoke-virtual {v0, v6, v1, v2}, Landroid/os/BatteryStats$Uid;->getTimeAtCpuSpeed(III)J
 
-    move-result-wide v26
+    move-result-wide v32
 
-    move-wide/from16 v0, v26
-
-    long-to-double v0, v0
-
-    move-wide/from16 v26, v0
-
-    move-wide/from16 v0, v24
+    move-wide/from16 v0, v32
 
     long-to-double v0, v0
 
-    move-wide/from16 v28, v0
+    move-wide/from16 v32, v0
 
-    div-double v20, v26, v28
+    move-wide/from16 v0, v30
+
+    long-to-double v0, v0
+
+    move-wide/from16 v34, v0
+
+    div-double v26, v32, v34
 
     move-object/from16 v0, p1
 
     iget-wide v0, v0, Lcom/android/internal/os/BatterySipper;->cpuTimeMs:J
 
-    move-wide/from16 v26, v0
+    move-wide/from16 v32, v0
 
-    move-wide/from16 v0, v26
+    move-wide/from16 v0, v32
 
     long-to-double v0, v0
 
-    move-wide/from16 v26, v0
+    move-wide/from16 v32, v0
 
-    mul-double v26, v26, v20
+    mul-double v32, v32, v26
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/os/CpuPowerCalculator;->mProfile:Lcom/android/internal/os/PowerProfile;
 
-    move-object/from16 v23, v0
+    move-object/from16 v29, v0
 
-    move-object/from16 v0, v23
+    move-object/from16 v0, v29
 
-    move/from16 v1, v19
+    move/from16 v1, v25
 
-    invoke-virtual {v0, v4, v1}, Lcom/android/internal/os/PowerProfile;->getAveragePowerForCpu(II)D
+    invoke-virtual {v0, v6, v1}, Lcom/android/internal/os/PowerProfile;->getAveragePowerForCpu(II)D
 
-    move-result-wide v28
+    move-result-wide v34
 
-    mul-double v10, v26, v28
+    mul-double v16, v32, v34
 
-    add-double/2addr v8, v10
+    add-double v14, v14, v16
 
-    add-int/lit8 v19, v19, 0x1
+    add-int/lit8 v25, v25, 0x1
 
     goto :goto_3
 
     :cond_2
-    add-int/lit8 v4, v4, 0x1
+    add-int/lit8 v6, v6, 0x1
 
     goto :goto_2
 
     :cond_3
-    const-wide v26, 0x414b774000000000L    # 3600000.0
+    const-wide v32, 0x414b774000000000L    # 3600000.0
 
-    div-double v26, v8, v26
+    div-double v32, v14, v32
 
-    move-wide/from16 v0, v26
+    move-wide/from16 v0, v32
 
     move-object/from16 v2, p1
 
     iput-wide v0, v2, Lcom/android/internal/os/BatterySipper;->cpuPowerMah:D
 
+    const-wide/16 v18, 0x0
+
+    const-wide/16 v10, 0x0
+
     const-wide/16 v12, 0x0
 
-    const-wide/16 v26, 0x0
+    move-object/from16 v0, p0
 
-    move-wide/from16 v0, v26
+    iget-object v0, v0, Lcom/android/internal/os/CpuPowerCalculator;->mProfile:Lcom/android/internal/os/PowerProfile;
+
+    move-object/from16 v29, v0
+
+    const-string/jumbo v32, "aod.on"
+
+    move-object/from16 v0, v29
+
+    move-object/from16 v1, v32
+
+    invoke-virtual {v0, v1}, Lcom/android/internal/os/PowerProfile;->getAveragePower(Ljava/lang/String;)D
+
+    move-result-wide v4
+
+    const-wide/16 v32, 0x0
+
+    move-wide/from16 v0, v32
 
     move-object/from16 v2, p1
 
@@ -239,180 +263,268 @@
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/BatteryStats$Uid;->getProcessStats()Landroid/util/ArrayMap;
 
-    move-result-object v16
+    move-result-object v22
 
-    invoke-virtual/range {v16 .. v16}, Landroid/util/ArrayMap;->size()I
+    invoke-virtual/range {v22 .. v22}, Landroid/util/ArrayMap;->size()I
 
-    move-result v17
+    move-result v23
 
-    const/4 v5, 0x0
+    const/4 v7, 0x0
 
     :goto_4
-    move/from16 v0, v17
+    move/from16 v0, v23
 
-    if-ge v5, v0, :cond_7
+    if-ge v7, v0, :cond_8
 
-    move-object/from16 v0, v16
+    move-object/from16 v0, v22
 
-    invoke-virtual {v0, v5}, Landroid/util/ArrayMap;->valueAt(I)Ljava/lang/Object;
+    invoke-virtual {v0, v7}, Landroid/util/ArrayMap;->valueAt(I)Ljava/lang/Object;
 
-    move-result-object v18
+    move-result-object v24
 
-    check-cast v18, Landroid/os/BatteryStats$Uid$Proc;
+    check-cast v24, Landroid/os/BatteryStats$Uid$Proc;
 
-    move-object/from16 v0, v16
+    move-object/from16 v0, v22
 
-    invoke-virtual {v0, v5}, Landroid/util/ArrayMap;->keyAt(I)Ljava/lang/Object;
+    invoke-virtual {v0, v7}, Landroid/util/ArrayMap;->keyAt(I)Ljava/lang/Object;
 
-    move-result-object v15
+    move-result-object v21
 
-    check-cast v15, Ljava/lang/String;
+    check-cast v21, Ljava/lang/String;
 
     move-object/from16 v0, p1
 
     iget-wide v0, v0, Lcom/android/internal/os/BatterySipper;->cpuFgTimeMs:J
 
-    move-wide/from16 v26, v0
+    move-wide/from16 v32, v0
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v24
 
     move/from16 v1, p7
 
     invoke-virtual {v0, v1}, Landroid/os/BatteryStats$Uid$Proc;->getForegroundTime(I)J
 
-    move-result-wide v28
+    move-result-wide v34
 
-    add-long v26, v26, v28
+    add-long v32, v32, v34
 
-    move-wide/from16 v0, v26
+    move-wide/from16 v0, v32
 
     move-object/from16 v2, p1
 
     iput-wide v0, v2, Lcom/android/internal/os/BatterySipper;->cpuFgTimeMs:J
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v24
 
     move/from16 v1, p7
 
     invoke-virtual {v0, v1}, Landroid/os/BatteryStats$Uid$Proc;->getUserTime(I)J
 
-    move-result-wide v26
+    move-result-wide v32
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v24
 
     move/from16 v1, p7
 
     invoke-virtual {v0, v1}, Landroid/os/BatteryStats$Uid$Proc;->getSystemTime(I)J
 
-    move-result-wide v28
+    move-result-wide v34
 
-    add-long v26, v26, v28
+    add-long v32, v32, v34
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v24
 
     move/from16 v1, p7
 
     invoke-virtual {v0, v1}, Landroid/os/BatteryStats$Uid$Proc;->getForegroundTime(I)J
 
-    move-result-wide v28
+    move-result-wide v34
 
-    add-long v6, v26, v28
+    add-long v8, v32, v34
 
-    move-object/from16 v0, p1
+    add-long/2addr v12, v8
 
-    iget-object v0, v0, Lcom/android/internal/os/BatterySipper;->packageWithHighestDrain:Ljava/lang/String;
+    const-wide/16 v32, 0x0
 
-    move-object/from16 v23, v0
+    cmpl-double v29, v4, v32
 
-    if-eqz v23, :cond_4
+    if-lez v29, :cond_5
 
-    move-object/from16 v0, p1
+    const-string/jumbo v29, "com.samsung.android.app.aodservice"
 
-    iget-object v0, v0, Lcom/android/internal/os/BatterySipper;->packageWithHighestDrain:Ljava/lang/String;
+    move-object/from16 v0, v21
 
-    move-object/from16 v23, v0
-
-    const-string/jumbo v26, "*"
-
-    move-object/from16 v0, v23
-
-    move-object/from16 v1, v26
+    move-object/from16 v1, v29
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
-    move-result v23
+    move-result v29
 
-    if-eqz v23, :cond_6
+    if-eqz v29, :cond_5
+
+    add-long/2addr v10, v8
 
     :cond_4
-    long-to-double v12, v6
-
-    move-object/from16 v0, p1
-
-    iput-object v15, v0, Lcom/android/internal/os/BatterySipper;->packageWithHighestDrain:Ljava/lang/String;
-
-    :cond_5
     :goto_5
-    add-int/lit8 v5, v5, 0x1
+    add-int/lit8 v7, v7, 0x1
 
     goto :goto_4
 
-    :cond_6
-    long-to-double v0, v6
+    :cond_5
+    move-object/from16 v0, p1
 
-    move-wide/from16 v26, v0
+    iget-object v0, v0, Lcom/android/internal/os/BatterySipper;->packageWithHighestDrain:Ljava/lang/String;
 
-    cmpg-double v23, v12, v26
+    move-object/from16 v29, v0
 
-    if-gez v23, :cond_5
-
-    const-string/jumbo v23, "*"
-
-    move-object/from16 v0, v23
-
-    invoke-virtual {v15, v0}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
-
-    move-result v23
-
-    if-nez v23, :cond_5
-
-    long-to-double v12, v6
+    if-eqz v29, :cond_6
 
     move-object/from16 v0, p1
 
-    iput-object v15, v0, Lcom/android/internal/os/BatterySipper;->packageWithHighestDrain:Ljava/lang/String;
+    iget-object v0, v0, Lcom/android/internal/os/BatterySipper;->packageWithHighestDrain:Ljava/lang/String;
+
+    move-object/from16 v29, v0
+
+    const-string/jumbo v32, "*"
+
+    move-object/from16 v0, v29
+
+    move-object/from16 v1, v32
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v29
+
+    if-eqz v29, :cond_7
+
+    :cond_6
+    long-to-double v0, v8
+
+    move-wide/from16 v18, v0
+
+    move-object/from16 v0, v21
+
+    move-object/from16 v1, p1
+
+    iput-object v0, v1, Lcom/android/internal/os/BatterySipper;->packageWithHighestDrain:Ljava/lang/String;
 
     goto :goto_5
 
     :cond_7
+    long-to-double v0, v8
+
+    move-wide/from16 v32, v0
+
+    cmpg-double v29, v18, v32
+
+    if-gez v29, :cond_4
+
+    const-string/jumbo v29, "*"
+
+    move-object/from16 v0, v21
+
+    move-object/from16 v1, v29
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v29
+
+    xor-int/lit8 v29, v29, 0x1
+
+    if-eqz v29, :cond_4
+
+    long-to-double v0, v8
+
+    move-wide/from16 v18, v0
+
+    move-object/from16 v0, v21
+
+    move-object/from16 v1, p1
+
+    iput-object v0, v1, Lcom/android/internal/os/BatterySipper;->packageWithHighestDrain:Ljava/lang/String;
+
+    goto :goto_5
+
+    :cond_8
+    const-wide/16 v32, 0x0
+
+    cmp-long v29, v10, v32
+
+    if-lez v29, :cond_9
+
+    move-object/from16 v0, p1
+
+    iget-wide v0, v0, Lcom/android/internal/os/BatterySipper;->cpuPowerMah:D
+
+    move-wide/from16 v32, v0
+
+    long-to-double v0, v10
+
+    move-wide/from16 v34, v0
+
+    mul-double v32, v32, v34
+
+    long-to-double v0, v12
+
+    move-wide/from16 v34, v0
+
+    div-double v32, v32, v34
+
+    move-wide/from16 v0, v32
+
+    move-object/from16 v2, p1
+
+    iput-wide v0, v2, Lcom/android/internal/os/BatterySipper;->aodPowerMah:D
+
+    move-object/from16 v0, p1
+
+    iget-wide v0, v0, Lcom/android/internal/os/BatterySipper;->cpuPowerMah:D
+
+    move-wide/from16 v32, v0
+
+    move-object/from16 v0, p1
+
+    iget-wide v0, v0, Lcom/android/internal/os/BatterySipper;->aodPowerMah:D
+
+    move-wide/from16 v34, v0
+
+    sub-double v32, v32, v34
+
+    move-wide/from16 v0, v32
+
+    move-object/from16 v2, p1
+
+    iput-wide v0, v2, Lcom/android/internal/os/BatterySipper;->cpuPowerMah:D
+
+    :cond_9
     move-object/from16 v0, p1
 
     iget-wide v0, v0, Lcom/android/internal/os/BatterySipper;->cpuFgTimeMs:J
 
-    move-wide/from16 v26, v0
+    move-wide/from16 v32, v0
 
     move-object/from16 v0, p1
 
     iget-wide v0, v0, Lcom/android/internal/os/BatterySipper;->cpuTimeMs:J
 
-    move-wide/from16 v28, v0
+    move-wide/from16 v34, v0
 
-    cmp-long v23, v26, v28
+    cmp-long v29, v32, v34
 
-    if-lez v23, :cond_8
+    if-lez v29, :cond_a
 
     move-object/from16 v0, p1
 
     iget-wide v0, v0, Lcom/android/internal/os/BatterySipper;->cpuFgTimeMs:J
 
-    move-wide/from16 v26, v0
+    move-wide/from16 v32, v0
 
-    move-wide/from16 v0, v26
+    move-wide/from16 v0, v32
 
     move-object/from16 v2, p1
 
     iput-wide v0, v2, Lcom/android/internal/os/BatterySipper;->cpuTimeMs:J
 
-    :cond_8
+    :cond_a
     return-void
 .end method

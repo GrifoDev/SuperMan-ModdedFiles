@@ -61,10 +61,16 @@
             ")TT;"
         }
     .end annotation
+
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/ServiceManager$ServiceNotFoundException;
+        }
+    .end annotation
 .end method
 
 .method public final getService(Landroid/app/ContextImpl;)Ljava/lang/Object;
-    .locals 3
+    .locals 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -78,31 +84,46 @@
     monitor-enter v0
 
     :try_start_0
-    iget v2, p0, Landroid/app/SystemServiceRegistry$CachedServiceFetcher;->mCacheIndex:I
+    iget v3, p0, Landroid/app/SystemServiceRegistry$CachedServiceFetcher;->mCacheIndex:I
 
-    aget-object v1, v0, v2
-
-    if-nez v1, :cond_0
-
-    invoke-virtual {p0, p1}, Landroid/app/SystemServiceRegistry$CachedServiceFetcher;->createService(Landroid/app/ContextImpl;)Ljava/lang/Object;
-
-    move-result-object v1
-
-    iget v2, p0, Landroid/app/SystemServiceRegistry$CachedServiceFetcher;->mCacheIndex:I
-
-    aput-object v1, v0, v2
+    aget-object v2, v0, v3
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
+    if-nez v2, :cond_0
+
+    :try_start_1
+    invoke-virtual {p0, p1}, Landroid/app/SystemServiceRegistry$CachedServiceFetcher;->createService(Landroid/app/ContextImpl;)Ljava/lang/Object;
+
+    move-result-object v2
+
+    iget v3, p0, Landroid/app/SystemServiceRegistry$CachedServiceFetcher;->mCacheIndex:I
+
+    aput-object v2, v0, v3
+    :try_end_1
+    .catch Landroid/os/ServiceManager$ServiceNotFoundException; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
     :cond_0
+    :goto_0
     monitor-exit v0
 
-    return-object v1
+    return-object v2
+
+    :catch_0
+    move-exception v1
+
+    :try_start_2
+    invoke-static {v1}, Landroid/app/SystemServiceRegistry;->onServiceNotFound(Landroid/os/ServiceManager$ServiceNotFoundException;)V
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+
+    goto :goto_0
 
     :catchall_0
-    move-exception v2
+    move-exception v3
 
     monitor-exit v0
 
-    throw v2
+    throw v3
 .end method

@@ -39,7 +39,7 @@
 
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroid/media/AudioFocusInfo;
-    .locals 7
+    .locals 9
 
     new-instance v0, Landroid/media/AudioFocusInfo;
 
@@ -51,17 +51,17 @@
 
     check-cast v1, Landroid/media/AudioAttributes;
 
-    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
-    move-result-object v2
+    move-result v2
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v3
 
-    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
+    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
-    move-result v4
+    move-result-object v4
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
@@ -71,7 +71,15 @@
 
     move-result v6
 
-    invoke-direct/range {v0 .. v6}, Landroid/media/AudioFocusInfo;-><init>(Landroid/media/AudioAttributes;Ljava/lang/String;Ljava/lang/String;III)V
+    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
+
+    move-result v7
+
+    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
+
+    move-result v8
+
+    invoke-direct/range {v0 .. v8}, Landroid/media/AudioFocusInfo;-><init>(Landroid/media/AudioAttributes;ILjava/lang/String;Ljava/lang/String;IIII)V
 
     return-object v0
 .end method

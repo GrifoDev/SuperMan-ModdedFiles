@@ -30,9 +30,6 @@
 .method public abstract finishInput()V
 .end method
 
-.method public abstract showSideSyncSoftInput(I)V
-.end method
-
 .method public abstract toggleSoftInput(II)V
 .end method
 

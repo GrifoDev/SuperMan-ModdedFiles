@@ -207,6 +207,8 @@
 
     const/16 v0, 0x1f
 
+    const/4 v1, 0x1
+
     iget-object v2, p0, Landroid/hardware/soundtrigger/SoundTrigger$KeyphraseRecognitionExtra;->confidenceLevels:[Landroid/hardware/soundtrigger/SoundTrigger$ConfidenceLevel;
 
     invoke-static {v2}, Ljava/util/Arrays;->hashCode([Ljava/lang/Object;)I

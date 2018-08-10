@@ -122,15 +122,25 @@
 
     iget v0, v0, Landroid/net/NetworkStats$Entry;->uid:I
 
-    invoke-static {v0}, Landroid/app/usage/NetworkStats$Bucket;->-wrap3(I)I
+    invoke-static {v0}, Landroid/app/usage/NetworkStats$Bucket;->-wrap4(I)I
 
     move-result v0
 
-    invoke-static {p1, v0}, Landroid/app/usage/NetworkStats$Bucket;->-set9(Landroid/app/usage/NetworkStats$Bucket;I)I
+    invoke-static {p1, v0}, Landroid/app/usage/NetworkStats$Bucket;->-set10(Landroid/app/usage/NetworkStats$Bucket;I)I
 
     iget-object v0, p0, Landroid/app/usage/NetworkStats;->mRecycledSummaryEntry:Landroid/net/NetworkStats$Entry;
 
     iget v0, v0, Landroid/net/NetworkStats$Entry;->tag:I
+
+    invoke-static {v0}, Landroid/app/usage/NetworkStats$Bucket;->-wrap3(I)I
+
+    move-result v0
+
+    invoke-static {p1, v0}, Landroid/app/usage/NetworkStats$Bucket;->-set7(Landroid/app/usage/NetworkStats$Bucket;I)I
+
+    iget-object v0, p0, Landroid/app/usage/NetworkStats;->mRecycledSummaryEntry:Landroid/net/NetworkStats$Entry;
+
+    iget v0, v0, Landroid/net/NetworkStats$Entry;->set:I
 
     invoke-static {v0}, Landroid/app/usage/NetworkStats$Bucket;->-wrap2(I)I
 
@@ -140,23 +150,23 @@
 
     iget-object v0, p0, Landroid/app/usage/NetworkStats;->mRecycledSummaryEntry:Landroid/net/NetworkStats$Entry;
 
-    iget v0, v0, Landroid/net/NetworkStats$Entry;->set:I
-
-    invoke-static {v0}, Landroid/app/usage/NetworkStats$Bucket;->-wrap1(I)I
-
-    move-result v0
-
-    invoke-static {p1, v0}, Landroid/app/usage/NetworkStats$Bucket;->-set5(Landroid/app/usage/NetworkStats$Bucket;I)I
-
-    iget-object v0, p0, Landroid/app/usage/NetworkStats;->mRecycledSummaryEntry:Landroid/net/NetworkStats$Entry;
-
-    iget v0, v0, Landroid/net/NetworkStats$Entry;->roaming:I
+    iget v0, v0, Landroid/net/NetworkStats$Entry;->metered:I
 
     invoke-static {v0}, Landroid/app/usage/NetworkStats$Bucket;->-wrap0(I)I
 
     move-result v0
 
     invoke-static {p1, v0}, Landroid/app/usage/NetworkStats$Bucket;->-set2(Landroid/app/usage/NetworkStats$Bucket;I)I
+
+    iget-object v0, p0, Landroid/app/usage/NetworkStats;->mRecycledSummaryEntry:Landroid/net/NetworkStats$Entry;
+
+    iget v0, v0, Landroid/net/NetworkStats$Entry;->roaming:I
+
+    invoke-static {v0}, Landroid/app/usage/NetworkStats$Bucket;->-wrap1(I)I
+
+    move-result v0
+
+    invoke-static {p1, v0}, Landroid/app/usage/NetworkStats$Bucket;->-set3(Landroid/app/usage/NetworkStats$Bucket;I)I
 
     iget-wide v0, p0, Landroid/app/usage/NetworkStats;->mStartTimeStamp:J
 
@@ -170,25 +180,25 @@
 
     iget-wide v0, v0, Landroid/net/NetworkStats$Entry;->rxBytes:J
 
-    invoke-static {p1, v0, v1}, Landroid/app/usage/NetworkStats$Bucket;->-set3(Landroid/app/usage/NetworkStats$Bucket;J)J
+    invoke-static {p1, v0, v1}, Landroid/app/usage/NetworkStats$Bucket;->-set4(Landroid/app/usage/NetworkStats$Bucket;J)J
 
     iget-object v0, p0, Landroid/app/usage/NetworkStats;->mRecycledSummaryEntry:Landroid/net/NetworkStats$Entry;
 
     iget-wide v0, v0, Landroid/net/NetworkStats$Entry;->rxPackets:J
 
-    invoke-static {p1, v0, v1}, Landroid/app/usage/NetworkStats$Bucket;->-set4(Landroid/app/usage/NetworkStats$Bucket;J)J
+    invoke-static {p1, v0, v1}, Landroid/app/usage/NetworkStats$Bucket;->-set5(Landroid/app/usage/NetworkStats$Bucket;J)J
 
     iget-object v0, p0, Landroid/app/usage/NetworkStats;->mRecycledSummaryEntry:Landroid/net/NetworkStats$Entry;
 
     iget-wide v0, v0, Landroid/net/NetworkStats$Entry;->txBytes:J
 
-    invoke-static {p1, v0, v1}, Landroid/app/usage/NetworkStats$Bucket;->-set7(Landroid/app/usage/NetworkStats$Bucket;J)J
+    invoke-static {p1, v0, v1}, Landroid/app/usage/NetworkStats$Bucket;->-set8(Landroid/app/usage/NetworkStats$Bucket;J)J
 
     iget-object v0, p0, Landroid/app/usage/NetworkStats;->mRecycledSummaryEntry:Landroid/net/NetworkStats$Entry;
 
     iget-wide v0, v0, Landroid/net/NetworkStats$Entry;->txPackets:J
 
-    invoke-static {p1, v0, v1}, Landroid/app/usage/NetworkStats$Bucket;->-set8(Landroid/app/usage/NetworkStats$Bucket;J)J
+    invoke-static {p1, v0, v1}, Landroid/app/usage/NetworkStats$Bucket;->-set9(Landroid/app/usage/NetworkStats$Bucket;J)J
 
     return-void
 .end method
@@ -234,23 +244,25 @@
 
     move-result v0
 
+    invoke-static {v0}, Landroid/app/usage/NetworkStats$Bucket;->-wrap4(I)I
+
+    move-result v0
+
+    invoke-static {p1, v0}, Landroid/app/usage/NetworkStats$Bucket;->-set10(Landroid/app/usage/NetworkStats$Bucket;I)I
+
+    iget v0, p0, Landroid/app/usage/NetworkStats;->mTag:I
+
     invoke-static {v0}, Landroid/app/usage/NetworkStats$Bucket;->-wrap3(I)I
 
     move-result v0
 
-    invoke-static {p1, v0}, Landroid/app/usage/NetworkStats$Bucket;->-set9(Landroid/app/usage/NetworkStats$Bucket;I)I
+    invoke-static {p1, v0}, Landroid/app/usage/NetworkStats$Bucket;->-set7(Landroid/app/usage/NetworkStats$Bucket;I)I
 
-    iget v0, p0, Landroid/app/usage/NetworkStats;->mTag:I
-
-    invoke-static {v0}, Landroid/app/usage/NetworkStats$Bucket;->-wrap2(I)I
-
-    move-result v0
-
-    invoke-static {p1, v0}, Landroid/app/usage/NetworkStats$Bucket;->-set6(Landroid/app/usage/NetworkStats$Bucket;I)I
-
-    invoke-static {p1, v3}, Landroid/app/usage/NetworkStats$Bucket;->-set5(Landroid/app/usage/NetworkStats$Bucket;I)I
+    invoke-static {p1, v3}, Landroid/app/usage/NetworkStats$Bucket;->-set6(Landroid/app/usage/NetworkStats$Bucket;I)I
 
     invoke-static {p1, v3}, Landroid/app/usage/NetworkStats$Bucket;->-set2(Landroid/app/usage/NetworkStats$Bucket;I)I
+
+    invoke-static {p1, v3}, Landroid/app/usage/NetworkStats$Bucket;->-set3(Landroid/app/usage/NetworkStats$Bucket;I)I
 
     iget-object v0, p0, Landroid/app/usage/NetworkStats;->mRecycledHistoryEntry:Landroid/net/NetworkStatsHistory$Entry;
 
@@ -274,25 +286,25 @@
 
     iget-wide v0, v0, Landroid/net/NetworkStatsHistory$Entry;->rxBytes:J
 
-    invoke-static {p1, v0, v1}, Landroid/app/usage/NetworkStats$Bucket;->-set3(Landroid/app/usage/NetworkStats$Bucket;J)J
+    invoke-static {p1, v0, v1}, Landroid/app/usage/NetworkStats$Bucket;->-set4(Landroid/app/usage/NetworkStats$Bucket;J)J
 
     iget-object v0, p0, Landroid/app/usage/NetworkStats;->mRecycledHistoryEntry:Landroid/net/NetworkStatsHistory$Entry;
 
     iget-wide v0, v0, Landroid/net/NetworkStatsHistory$Entry;->rxPackets:J
 
-    invoke-static {p1, v0, v1}, Landroid/app/usage/NetworkStats$Bucket;->-set4(Landroid/app/usage/NetworkStats$Bucket;J)J
+    invoke-static {p1, v0, v1}, Landroid/app/usage/NetworkStats$Bucket;->-set5(Landroid/app/usage/NetworkStats$Bucket;J)J
 
     iget-object v0, p0, Landroid/app/usage/NetworkStats;->mRecycledHistoryEntry:Landroid/net/NetworkStatsHistory$Entry;
 
     iget-wide v0, v0, Landroid/net/NetworkStatsHistory$Entry;->txBytes:J
 
-    invoke-static {p1, v0, v1}, Landroid/app/usage/NetworkStats$Bucket;->-set7(Landroid/app/usage/NetworkStats$Bucket;J)J
+    invoke-static {p1, v0, v1}, Landroid/app/usage/NetworkStats$Bucket;->-set8(Landroid/app/usage/NetworkStats$Bucket;J)J
 
     iget-object v0, p0, Landroid/app/usage/NetworkStats;->mRecycledHistoryEntry:Landroid/net/NetworkStatsHistory$Entry;
 
     iget-wide v0, v0, Landroid/net/NetworkStatsHistory$Entry;->txPackets:J
 
-    invoke-static {p1, v0, v1}, Landroid/app/usage/NetworkStats$Bucket;->-set8(Landroid/app/usage/NetworkStats$Bucket;J)J
+    invoke-static {p1, v0, v1}, Landroid/app/usage/NetworkStats$Bucket;->-set9(Landroid/app/usage/NetworkStats$Bucket;J)J
 
     const/4 v0, 0x1
 

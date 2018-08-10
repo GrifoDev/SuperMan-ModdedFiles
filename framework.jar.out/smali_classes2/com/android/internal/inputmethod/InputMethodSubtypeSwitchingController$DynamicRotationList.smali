@@ -255,9 +255,9 @@
     const/4 v2, 0x1
 
     :goto_0
-    if-ge v2, v0, :cond_4
+    if-ge v2, v0, :cond_3
 
-    if-eqz p4, :cond_2
+    if-eqz p4, :cond_1
 
     move v3, v2
 
@@ -278,7 +278,7 @@
 
     check-cast v4, Lcom/android/internal/inputmethod/InputMethodSubtypeSwitchingController$ImeSubtypeListItem;
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_2
 
     iget-object v7, v4, Lcom/android/internal/inputmethod/InputMethodSubtypeSwitchingController$ImeSubtypeListItem;->mImi:Landroid/view/inputmethod/InputMethodInfo;
 
@@ -286,22 +286,23 @@
 
     move-result v7
 
-    if-eqz v7, :cond_3
+    xor-int/lit8 v7, v7, 0x1
 
-    :cond_1
-    return-object v4
+    if-eqz v7, :cond_2
 
-    :cond_2
-    sub-int v3, v0, v2
-
-    goto :goto_1
-
-    :cond_3
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
-    :cond_4
+    :cond_1
+    sub-int v3, v0, v2
+
+    goto :goto_1
+
+    :cond_2
+    return-object v4
+
+    :cond_3
     return-object v8
 .end method
 

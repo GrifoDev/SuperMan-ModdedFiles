@@ -17,7 +17,7 @@
     value = {
         "Landroid/app/SystemServiceRegistry$CachedServiceFetcher",
         "<",
-        "Landroid/net/nsd/NsdManager;",
+        "Landroid/app/NotificationManager;",
         ">;"
     }
 .end annotation
@@ -34,34 +34,59 @@
 
 
 # virtual methods
-.method public createService(Landroid/app/ContextImpl;)Landroid/net/nsd/NsdManager;
-    .locals 4
-
-    const-string/jumbo v2, "servicediscovery"
-
-    invoke-static {v2}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
-
-    move-result-object v0
-
-    invoke-static {v0}, Landroid/net/nsd/INsdManager$Stub;->asInterface(Landroid/os/IBinder;)Landroid/net/nsd/INsdManager;
-
-    move-result-object v1
-
-    new-instance v2, Landroid/net/nsd/NsdManager;
+.method public createService(Landroid/app/ContextImpl;)Landroid/app/NotificationManager;
+    .locals 9
 
     invoke-virtual {p1}, Landroid/app/ContextImpl;->getOuterContext()Landroid/content/Context;
 
-    move-result-object v3
+    move-result-object v6
 
-    invoke-direct {v2, v3, v1}, Landroid/net/nsd/NsdManager;-><init>(Landroid/content/Context;Landroid/net/nsd/INsdManager;)V
+    new-instance v7, Landroid/app/NotificationManager;
 
-    return-object v2
+    new-instance v8, Landroid/view/ContextThemeWrapper;
+
+    invoke-virtual {v6}, Landroid/content/Context;->getApplicationInfo()Landroid/content/pm/ApplicationInfo;
+
+    move-result-object v0
+
+    iget v1, v0, Landroid/content/pm/ApplicationInfo;->targetSdkVersion:I
+
+    const/4 v0, 0x0
+
+    const v2, 0x103000b
+
+    const v3, 0x103006f
+
+    const v4, 0x103012e
+
+    const v5, 0x1030132
+
+    invoke-static/range {v0 .. v5}, Landroid/content/res/Resources;->selectSystemTheme(IIIIII)I
+
+    move-result v0
+
+    invoke-direct {v8, v6, v0}, Landroid/view/ContextThemeWrapper;-><init>(Landroid/content/Context;I)V
+
+    iget-object v0, p1, Landroid/app/ContextImpl;->mMainThread:Landroid/app/ActivityThread;
+
+    invoke-virtual {v0}, Landroid/app/ActivityThread;->getHandler()Landroid/os/Handler;
+
+    move-result-object v0
+
+    invoke-direct {v7, v8, v0}, Landroid/app/NotificationManager;-><init>(Landroid/content/Context;Landroid/os/Handler;)V
+
+    return-object v7
 .end method
 
 .method public bridge synthetic createService(Landroid/app/ContextImpl;)Ljava/lang/Object;
     .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/ServiceManager$ServiceNotFoundException;
+        }
+    .end annotation
 
-    invoke-virtual {p0, p1}, Landroid/app/SystemServiceRegistry$31;->createService(Landroid/app/ContextImpl;)Landroid/net/nsd/NsdManager;
+    invoke-virtual {p0, p1}, Landroid/app/SystemServiceRegistry$31;->createService(Landroid/app/ContextImpl;)Landroid/app/NotificationManager;
 
     move-result-object v0
 

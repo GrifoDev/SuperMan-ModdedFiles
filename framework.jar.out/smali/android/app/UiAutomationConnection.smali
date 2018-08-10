@@ -214,7 +214,7 @@
 
     iget-object v1, p0, Landroid/app/UiAutomationConnection;->mWindowManager:Landroid/view/IWindowManager;
 
-    invoke-interface {v1}, Landroid/view/IWindowManager;->getRotation()I
+    invoke-interface {v1}, Landroid/view/IWindowManager;->getDefaultDisplayRotation()I
 
     move-result v1
 

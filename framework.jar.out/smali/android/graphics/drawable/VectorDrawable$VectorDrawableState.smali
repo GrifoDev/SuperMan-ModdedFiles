@@ -13,8 +13,26 @@
     name = "VectorDrawableState"
 .end annotation
 
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Landroid/graphics/drawable/VectorDrawable$VectorDrawableState$1;
+    }
+.end annotation
+
 
 # static fields
+.field static final ALPHA:Landroid/util/Property;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Landroid/util/Property",
+            "<",
+            "Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;",
+            "Ljava/lang/Float;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 .field private static final NATIVE_ALLOCATION_SIZE:I = 0x13c
 
 
@@ -23,9 +41,9 @@
 
 .field mAutoMirrored:Z
 
-.field mBaseHeight:F
+.field mBaseHeight:I
 
-.field mBaseWidth:F
+.field mBaseWidth:I
 
 .field mCacheDirty:Z
 
@@ -85,64 +103,16 @@
     return-void
 .end method
 
-.method public constructor <init>()V
-    .locals 4
+.method static constructor <clinit>()V
+    .locals 2
 
-    const/4 v3, 0x0
+    new-instance v0, Landroid/graphics/drawable/VectorDrawable$VectorDrawableState$1;
 
-    const/4 v2, 0x0
+    const-string/jumbo v1, "alpha"
 
-    const/4 v1, 0x0
+    invoke-direct {v0, v1}, Landroid/graphics/drawable/VectorDrawable$VectorDrawableState$1;-><init>(Ljava/lang/String;)V
 
-    invoke-direct {p0}, Landroid/graphics/drawable/Drawable$ConstantState;-><init>()V
-
-    iput-object v3, p0, Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;->mTint:Landroid/content/res/ColorStateList;
-
-    sget-object v0, Landroid/graphics/drawable/VectorDrawable;->DEFAULT_TINT_MODE:Landroid/graphics/PorterDuff$Mode;
-
-    iput-object v0, p0, Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;->mTintMode:Landroid/graphics/PorterDuff$Mode;
-
-    iput v1, p0, Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;->mBaseWidth:F
-
-    iput v1, p0, Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;->mBaseHeight:F
-
-    iput v1, p0, Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;->mViewportWidth:F
-
-    iput v1, p0, Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;->mViewportHeight:F
-
-    sget-object v0, Landroid/graphics/Insets;->NONE:Landroid/graphics/Insets;
-
-    iput-object v0, p0, Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;->mOpticalInsets:Landroid/graphics/Insets;
-
-    iput-object v3, p0, Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;->mRootName:Ljava/lang/String;
-
-    iput-object v3, p0, Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;->mNativeTree:Lcom/android/internal/util/VirtualRefBasePtr;
-
-    const/16 v0, 0xa0
-
-    iput v0, p0, Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;->mDensity:I
-
-    new-instance v0, Landroid/util/ArrayMap;
-
-    invoke-direct {v0}, Landroid/util/ArrayMap;-><init>()V
-
-    iput-object v0, p0, Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;->mVGTargetsMap:Landroid/util/ArrayMap;
-
-    iput v2, p0, Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;->mLastSWCachePixelCount:I
-
-    iput v2, p0, Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;->mLastHWCachePixelCount:I
-
-    iput v2, p0, Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;->mAllocationOfAllNodes:I
-
-    new-instance v0, Landroid/graphics/drawable/VectorDrawable$VGroup;
-
-    invoke-direct {v0}, Landroid/graphics/drawable/VectorDrawable$VGroup;-><init>()V
-
-    iput-object v0, p0, Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;->mRootGroup:Landroid/graphics/drawable/VectorDrawable$VGroup;
-
-    iget-object v0, p0, Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;->mRootGroup:Landroid/graphics/drawable/VectorDrawable$VGroup;
-
-    invoke-direct {p0, v0}, Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;->createNativeTree(Landroid/graphics/drawable/VectorDrawable$VGroup;)V
+    sput-object v0, Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;->ALPHA:Landroid/util/Property;
 
     return-void
 .end method
@@ -158,27 +128,27 @@
 
     invoke-direct {p0}, Landroid/graphics/drawable/Drawable$ConstantState;-><init>()V
 
-    iput-object v1, p0, Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;->mTint:Landroid/content/res/ColorStateList;
+    iput-object v2, p0, Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;->mTint:Landroid/content/res/ColorStateList;
 
     sget-object v0, Landroid/graphics/drawable/VectorDrawable;->DEFAULT_TINT_MODE:Landroid/graphics/PorterDuff$Mode;
 
     iput-object v0, p0, Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;->mTintMode:Landroid/graphics/PorterDuff$Mode;
 
-    iput v2, p0, Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;->mBaseWidth:F
+    iput v1, p0, Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;->mBaseWidth:I
 
-    iput v2, p0, Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;->mBaseHeight:F
+    iput v1, p0, Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;->mBaseHeight:I
 
-    iput v2, p0, Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;->mViewportWidth:F
+    iput v3, p0, Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;->mViewportWidth:F
 
-    iput v2, p0, Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;->mViewportHeight:F
+    iput v3, p0, Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;->mViewportHeight:F
 
     sget-object v0, Landroid/graphics/Insets;->NONE:Landroid/graphics/Insets;
 
     iput-object v0, p0, Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;->mOpticalInsets:Landroid/graphics/Insets;
 
-    iput-object v1, p0, Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;->mRootName:Ljava/lang/String;
+    iput-object v2, p0, Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;->mRootName:Ljava/lang/String;
 
-    iput-object v1, p0, Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;->mNativeTree:Lcom/android/internal/util/VirtualRefBasePtr;
+    iput-object v2, p0, Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;->mNativeTree:Lcom/android/internal/util/VirtualRefBasePtr;
 
     const/16 v0, 0xa0
 
@@ -190,11 +160,11 @@
 
     iput-object v0, p0, Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;->mVGTargetsMap:Landroid/util/ArrayMap;
 
-    iput v3, p0, Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;->mLastSWCachePixelCount:I
+    iput v1, p0, Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;->mLastSWCachePixelCount:I
 
-    iput v3, p0, Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;->mLastHWCachePixelCount:I
+    iput v1, p0, Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;->mLastHWCachePixelCount:I
 
-    iput v3, p0, Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;->mAllocationOfAllNodes:I
+    iput v1, p0, Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;->mAllocationOfAllNodes:I
 
     if-eqz p1, :cond_1
 
@@ -232,13 +202,13 @@
 
     invoke-direct {p0, p1, v0}, Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;->createNativeTreeFromCopy(Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;Landroid/graphics/drawable/VectorDrawable$VGroup;)V
 
-    iget v0, p1, Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;->mBaseWidth:F
+    iget v0, p1, Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;->mBaseWidth:I
 
-    iput v0, p0, Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;->mBaseWidth:F
+    iput v0, p0, Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;->mBaseWidth:I
 
-    iget v0, p1, Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;->mBaseHeight:F
+    iget v0, p1, Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;->mBaseHeight:I
 
-    iput v0, p0, Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;->mBaseHeight:F
+    iput v0, p0, Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;->mBaseHeight:I
 
     iget v0, p1, Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;->mViewportWidth:F
 
@@ -269,32 +239,47 @@
     invoke-virtual {v0, v1, p0}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     :cond_0
+    :goto_0
     invoke-virtual {p0}, Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;->onTreeConstructionFinished()V
 
-    :cond_1
     return-void
+
+    :cond_1
+    new-instance v0, Landroid/graphics/drawable/VectorDrawable$VGroup;
+
+    invoke-direct {v0}, Landroid/graphics/drawable/VectorDrawable$VGroup;-><init>()V
+
+    iput-object v0, p0, Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;->mRootGroup:Landroid/graphics/drawable/VectorDrawable$VGroup;
+
+    iget-object v0, p0, Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;->mRootGroup:Landroid/graphics/drawable/VectorDrawable$VGroup;
+
+    invoke-direct {p0, v0}, Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;->createNativeTree(Landroid/graphics/drawable/VectorDrawable$VGroup;)V
+
+    goto :goto_0
 .end method
 
 .method private applyDensityScaling(II)V
-    .locals 6
+    .locals 7
+
+    const/4 v6, 0x1
 
     const/4 v5, 0x0
 
-    iget v4, p0, Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;->mBaseWidth:F
+    iget v4, p0, Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;->mBaseWidth:I
 
-    invoke-static {v4, p1, p2}, Landroid/graphics/drawable/Drawable;->scaleFromDensity(FII)F
-
-    move-result v4
-
-    iput v4, p0, Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;->mBaseWidth:F
-
-    iget v4, p0, Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;->mBaseHeight:F
-
-    invoke-static {v4, p1, p2}, Landroid/graphics/drawable/Drawable;->scaleFromDensity(FII)F
+    invoke-static {v4, p1, p2, v6}, Landroid/graphics/drawable/Drawable;->scaleFromDensity(IIIZ)I
 
     move-result v4
 
-    iput v4, p0, Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;->mBaseHeight:F
+    iput v4, p0, Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;->mBaseWidth:I
+
+    iget v4, p0, Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;->mBaseHeight:I
+
+    invoke-static {v4, p1, p2, v6}, Landroid/graphics/drawable/Drawable;->scaleFromDensity(IIIZ)I
+
+    move-result v4
+
+    iput v4, p0, Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;->mBaseHeight:I
 
     iget-object v4, p0, Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;->mOpticalInsets:Landroid/graphics/Insets;
 
@@ -342,7 +327,7 @@
 
     new-instance v0, Lcom/android/internal/util/VirtualRefBasePtr;
 
-    invoke-static {p1}, Landroid/graphics/drawable/VectorDrawable$VGroup;->-get1(Landroid/graphics/drawable/VectorDrawable$VGroup;)J
+    invoke-static {p1}, Landroid/graphics/drawable/VectorDrawable$VGroup;->-get8(Landroid/graphics/drawable/VectorDrawable$VGroup;)J
 
     move-result-wide v2
 
@@ -376,7 +361,7 @@
 
     move-result-wide v2
 
-    invoke-static {p2}, Landroid/graphics/drawable/VectorDrawable$VGroup;->-get1(Landroid/graphics/drawable/VectorDrawable$VGroup;)J
+    invoke-static {p2}, Landroid/graphics/drawable/VectorDrawable$VGroup;->-get8(Landroid/graphics/drawable/VectorDrawable$VGroup;)J
 
     move-result-wide v4
 
@@ -596,6 +581,71 @@
     move-result-wide v0
 
     return-wide v0
+.end method
+
+.method getProperty(Ljava/lang/String;)Landroid/util/Property;
+    .locals 1
+
+    sget-object v0, Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;->ALPHA:Landroid/util/Property;
+
+    invoke-virtual {v0}, Landroid/util/Property;->getName()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    sget-object v0, Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;->ALPHA:Landroid/util/Property;
+
+    return-object v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    return-object v0
+.end method
+
+.method public hasFocusStateSpecified()Z
+    .locals 1
+
+    iget-object v0, p0, Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;->mTint:Landroid/content/res/ColorStateList;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;->mTint:Landroid/content/res/ColorStateList;
+
+    invoke-virtual {v0}, Landroid/content/res/ColorStateList;->hasFocusStateSpecified()Z
+
+    move-result v0
+
+    if-nez v0, :cond_1
+
+    :cond_0
+    iget-object v0, p0, Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;->mRootGroup:Landroid/graphics/drawable/VectorDrawable$VGroup;
+
+    if-eqz v0, :cond_2
+
+    iget-object v0, p0, Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;->mRootGroup:Landroid/graphics/drawable/VectorDrawable$VGroup;
+
+    invoke-virtual {v0}, Landroid/graphics/drawable/VectorDrawable$VGroup;->hasFocusStateSpecified()Z
+
+    move-result v0
+
+    :goto_0
+    return v0
+
+    :cond_1
+    const/4 v0, 0x1
+
+    goto :goto_0
+
+    :cond_2
+    const/4 v0, 0x0
+
+    goto :goto_0
 .end method
 
 .method public isStateful()Z

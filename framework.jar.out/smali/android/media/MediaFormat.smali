@@ -48,6 +48,10 @@
 
 .field public static final KEY_CAPTURE_RATE:Ljava/lang/String; = "capture-rate"
 
+.field public static final KEY_CA_SESSION_ID:Ljava/lang/String; = "ca-session-id"
+
+.field public static final KEY_CA_SYSTEM_ID:Ljava/lang/String; = "ca-system-id"
+
 .field public static final KEY_CHANNEL_COUNT:Ljava/lang/String; = "channel-count"
 
 .field public static final KEY_CHANNEL_MASK:Ljava/lang/String; = "channel-mask"
@@ -89,6 +93,8 @@
 .field public static final KEY_I_FRAME_INTERVAL:Ljava/lang/String; = "i-frame-interval"
 
 .field public static final KEY_LANGUAGE:Ljava/lang/String; = "language"
+
+.field public static final KEY_LATENCY:Ljava/lang/String; = "latency"
 
 .field public static final KEY_LEVEL:Ljava/lang/String; = "level"
 
@@ -140,6 +146,8 @@
 
 .field public static final MIMETYPE_AUDIO_EAC3:Ljava/lang/String; = "audio/eac3"
 
+.field public static final MIMETYPE_AUDIO_EAC3_JOC:Ljava/lang/String; = "audio/eac3-joc"
+
 .field public static final MIMETYPE_AUDIO_FLAC:Ljava/lang/String; = "audio/flac"
 
 .field public static final MIMETYPE_AUDIO_G711_ALAW:Ljava/lang/String; = "audio/g711-alaw"
@@ -155,6 +163,8 @@
 .field public static final MIMETYPE_AUDIO_QCELP:Ljava/lang/String; = "audio/qcelp"
 
 .field public static final MIMETYPE_AUDIO_RAW:Ljava/lang/String; = "audio/raw"
+
+.field public static final MIMETYPE_AUDIO_SCRAMBLED:Ljava/lang/String; = "audio/scrambled"
 
 .field public static final MIMETYPE_AUDIO_VORBIS:Ljava/lang/String; = "audio/vorbis"
 
@@ -175,6 +185,8 @@
 .field public static final MIMETYPE_VIDEO_MPEG4:Ljava/lang/String; = "video/mp4v-es"
 
 .field public static final MIMETYPE_VIDEO_RAW:Ljava/lang/String; = "video/raw"
+
+.field public static final MIMETYPE_VIDEO_SCRAMBLED:Ljava/lang/String; = "video/scrambled"
 
 .field public static final MIMETYPE_VIDEO_VP8:Ljava/lang/String; = "video/x-vnd.on2.vp8"
 

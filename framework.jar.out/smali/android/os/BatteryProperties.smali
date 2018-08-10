@@ -36,6 +36,8 @@
 
 .field public batteryCurrentNow:I
 
+.field public batteryFullCharge:I
+
 .field public batteryHealth:I
 
 .field public batteryHighVoltageCharger:Z
@@ -49,6 +51,8 @@
 .field public batteryPresent:Z
 
 .field public batterySWSelfDischarging:Z
+
+.field public batterySecCurrentEvent:I
 
 .field public batterySecEvent:I
 
@@ -201,6 +205,12 @@
 
     move-result v0
 
+    iput v0, p0, Landroid/os/BatteryProperties;->batteryFullCharge:I
+
+    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
+
+    move-result v0
+
     iput v0, p0, Landroid/os/BatteryProperties;->batteryChargeCounter:I
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
@@ -281,6 +291,12 @@
 
     move-result v0
 
+    iput v0, p0, Landroid/os/BatteryProperties;->batterySecCurrentEvent:I
+
+    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
+
+    move-result v0
+
     if-ne v0, v1, :cond_8
 
     :goto_8
@@ -306,7 +322,7 @@
     :cond_3
     move v0, v2
 
-    goto :goto_3
+    goto/16 :goto_3
 
     :cond_4
     move v0, v2
@@ -403,6 +419,14 @@
 
     iput v0, p0, Landroid/os/BatteryProperties;->batteryTemperature:I
 
+    iget v0, p1, Landroid/os/BatteryProperties;->batteryFullCharge:I
+
+    iput v0, p0, Landroid/os/BatteryProperties;->batteryFullCharge:I
+
+    iget v0, p1, Landroid/os/BatteryProperties;->batteryChargeCounter:I
+
+    iput v0, p0, Landroid/os/BatteryProperties;->batteryChargeCounter:I
+
     iget-object v0, p1, Landroid/os/BatteryProperties;->batteryTechnology:Ljava/lang/String;
 
     iput-object v0, p0, Landroid/os/BatteryProperties;->batteryTechnology:Ljava/lang/String;
@@ -434,6 +458,10 @@
     iget v0, p1, Landroid/os/BatteryProperties;->batterySecEvent:I
 
     iput v0, p0, Landroid/os/BatteryProperties;->batterySecEvent:I
+
+    iget v0, p1, Landroid/os/BatteryProperties;->batterySecCurrentEvent:I
+
+    iput v0, p0, Landroid/os/BatteryProperties;->batterySecCurrentEvent:I
 
     iget-boolean v0, p1, Landroid/os/BatteryProperties;->chargerOTGOnline:Z
 
@@ -517,6 +545,10 @@
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
+    iget v0, p0, Landroid/os/BatteryProperties;->batteryFullCharge:I
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
+
     iget v0, p0, Landroid/os/BatteryProperties;->batteryChargeCounter:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
@@ -577,6 +609,10 @@
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
+    iget v0, p0, Landroid/os/BatteryProperties;->batterySecCurrentEvent:I
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
+
     iget-boolean v0, p0, Landroid/os/BatteryProperties;->chargerOTGOnline:Z
 
     if-eqz v0, :cond_8
@@ -599,7 +635,7 @@
     :cond_2
     move v0, v2
 
-    goto :goto_2
+    goto/16 :goto_2
 
     :cond_3
     move v0, v2

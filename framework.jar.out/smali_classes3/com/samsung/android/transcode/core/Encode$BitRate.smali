@@ -31,7 +31,11 @@
 
 .field public static final MIN_VIDEO_QCIF_BITRATE:I = 0x40
 
+.field public static final MIN_VIDEO_QHD_BITRATE:I = 0x3e8
+
 .field public static final MIN_VIDEO_QVGA_BITRATE:I = 0x96
+
+.field public static final MIN_VIDEO_UHD_BITRATE:I = 0x3e8
 
 .field public static final MIN_VIDEO_VGA_BITRATE:I = 0x15e
 
@@ -39,13 +43,17 @@
 
 .field public static final VIDEO_DEFAULT_BITRATE:I = 0x7d0
 
-.field public static final VIDEO_FHD_BITRATE:I = 0x2710
+.field public static final VIDEO_FHD_BITRATE:I = 0x32c8
 
 .field public static final VIDEO_HD_BITRATE:I = 0x1f40
 
 .field public static final VIDEO_QCIF_BITRATE:I = 0x118
 
+.field public static final VIDEO_QHD_BITRATE:I = 0x4650
+
 .field public static final VIDEO_QVGA_BITRATE:I = 0x200
+
+.field public static final VIDEO_UHD_BITRATE:I = 0x88b8
 
 .field public static final VIDEO_VGA_BITRATE:I = 0x1388
 

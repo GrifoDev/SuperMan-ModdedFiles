@@ -15,14 +15,6 @@
 
 
 # static fields
-.field public static final ACTION_CLEAR_HTTP_BROWSER_PROXY:Ljava/lang/String; = "mdm.intent.action.clear.http.proxy"
-
-.field public static final ACTION_CLEAR_HTTP_BROWSER_PROXY_INTERNAL:Ljava/lang/String; = "com.samsung.android.knox.intent.action.CLEAR_HTTP_BROWSER_PROXY_INTERNAL"
-
-.field public static final ACTION_SET_HTTP_BROWSER_PROXY:Ljava/lang/String; = "mdm.intent.action.set.http.proxy"
-
-.field public static final ACTION_SET_HTTP_BROWSER_PROXY_INTERNAL:Ljava/lang/String; = "com.samsung.android.knox.intent.action.SET_HTTP_BROWSER_PROXY_INTERNAL"
-
 .field public static final BROWSER_AUTOFILL_SETTING:I = 0x4
 
 .field public static final BROWSER_COOKIES_SETTING:I = 0x2
@@ -32,10 +24,6 @@
 .field public static final BROWSER_JAVASCRIPT_SETTING:I = 0x10
 
 .field public static final BROWSER_POPUP_SETTING:I = 0x1
-
-.field public static final EXTRA_HTTP_PROXY_BROWSER_SERVER:Ljava/lang/String; = "mdm.intent.extra.http.proxy.server"
-
-.field public static final EXTRA_HTTP_PROXY_BROWSER_SERVER_INTERNAL:Ljava/lang/String; = "com.samsung.android.knox.intent.extra.HTTP_BROWSER_PROXY_INTERNAL"
 
 
 # instance fields

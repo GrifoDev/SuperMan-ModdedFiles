@@ -17,7 +17,7 @@
     value = {
         "Landroid/app/SystemServiceRegistry$CachedServiceFetcher",
         "<",
-        "Landroid/os/CustomFrequencyManager;",
+        "Landroid/net/nsd/NsdManager;",
         ">;"
     }
 .end annotation
@@ -34,45 +34,44 @@
 
 
 # virtual methods
-.method public createService(Landroid/app/ContextImpl;)Landroid/os/CustomFrequencyManager;
+.method public createService(Landroid/app/ContextImpl;)Landroid/net/nsd/NsdManager;
     .locals 4
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/ServiceManager$ServiceNotFoundException;
+        }
+    .end annotation
 
-    const-string/jumbo v2, "CustomFrequencyManagerService"
+    const-string/jumbo v2, "servicediscovery"
 
-    invoke-static {v2}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
+    invoke-static {v2}, Landroid/os/ServiceManager;->getServiceOrThrow(Ljava/lang/String;)Landroid/os/IBinder;
 
     move-result-object v0
 
-    invoke-static {v0}, Landroid/os/ICustomFrequencyManager$Stub;->asInterface(Landroid/os/IBinder;)Landroid/os/ICustomFrequencyManager;
+    invoke-static {v0}, Landroid/net/nsd/INsdManager$Stub;->asInterface(Landroid/os/IBinder;)Landroid/net/nsd/INsdManager;
 
     move-result-object v1
 
-    if-nez v1, :cond_0
+    new-instance v2, Landroid/net/nsd/NsdManager;
 
-    const-string/jumbo v2, "SystemServiceRegistry"
-
-    const-string/jumbo v3, "Failed to get custom frequency manager service."
-
-    invoke-static {v2, v3}, Landroid/util/Log;->wtf(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_0
-    new-instance v2, Landroid/os/CustomFrequencyManager;
-
-    iget-object v3, p1, Landroid/app/ContextImpl;->mMainThread:Landroid/app/ActivityThread;
-
-    invoke-virtual {v3}, Landroid/app/ActivityThread;->getHandler()Landroid/os/Handler;
+    invoke-virtual {p1}, Landroid/app/ContextImpl;->getOuterContext()Landroid/content/Context;
 
     move-result-object v3
 
-    invoke-direct {v2, v1, v3}, Landroid/os/CustomFrequencyManager;-><init>(Landroid/os/ICustomFrequencyManager;Landroid/os/Handler;)V
+    invoke-direct {v2, v3, v1}, Landroid/net/nsd/NsdManager;-><init>(Landroid/content/Context;Landroid/net/nsd/INsdManager;)V
 
     return-object v2
 .end method
 
 .method public bridge synthetic createService(Landroid/app/ContextImpl;)Ljava/lang/Object;
     .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/ServiceManager$ServiceNotFoundException;
+        }
+    .end annotation
 
-    invoke-virtual {p0, p1}, Landroid/app/SystemServiceRegistry$33;->createService(Landroid/app/ContextImpl;)Landroid/os/CustomFrequencyManager;
+    invoke-virtual {p0, p1}, Landroid/app/SystemServiceRegistry$33;->createService(Landroid/app/ContextImpl;)Landroid/net/nsd/NsdManager;
 
     move-result-object v0
 

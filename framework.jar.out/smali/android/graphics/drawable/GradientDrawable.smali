@@ -510,17 +510,24 @@
 
     iget-object v8, p0, Landroid/graphics/drawable/GradientDrawable;->mRingPath:Landroid/graphics/Path;
 
-    if-eqz v8, :cond_0
+    if-eqz v8, :cond_1
 
     iget-boolean v8, p1, Landroid/graphics/drawable/GradientDrawable$GradientState;->mUseLevelForShape:Z
 
-    if-eqz v8, :cond_1
+    if-eqz v8, :cond_0
 
     iget-boolean v8, p0, Landroid/graphics/drawable/GradientDrawable;->mPathIsDirty:Z
+
+    xor-int/lit8 v8, v8, 0x1
 
     if-eqz v8, :cond_1
 
     :cond_0
+    iget-object v8, p0, Landroid/graphics/drawable/GradientDrawable;->mRingPath:Landroid/graphics/Path;
+
+    return-object v8
+
+    :cond_1
     iput-boolean v10, p0, Landroid/graphics/drawable/GradientDrawable;->mPathIsDirty:Z
 
     iget-boolean v8, p1, Landroid/graphics/drawable/GradientDrawable$GradientState;->mUseLevelForShape:Z
@@ -645,11 +652,6 @@
 
     :goto_4
     return-object v3
-
-    :cond_1
-    iget-object v8, p0, Landroid/graphics/drawable/GradientDrawable;->mRingPath:Landroid/graphics/Path;
-
-    return-object v8
 
     :cond_2
     const/high16 v4, 0x43b40000    # 360.0f
@@ -886,11 +888,8 @@
 
     move-result v2
 
-    if-eqz v2, :cond_12
+    xor-int/lit8 v2, v2, 0x1
 
-    const/4 v2, 0x0
-
-    :goto_3
     return v2
 
     :cond_3
@@ -1122,7 +1121,7 @@
 
     move/from16 v26, v0
 
-    :goto_4
+    :goto_3
     move-object/from16 v0, v23
 
     iget v2, v0, Landroid/graphics/drawable/GradientDrawable$GradientState;->mHeight:I
@@ -1137,7 +1136,7 @@
 
     move/from16 v17, v0
 
-    :goto_5
+    :goto_4
     move/from16 v0, v26
 
     move/from16 v1, v17
@@ -1149,7 +1148,7 @@
     mul-float/2addr v11, v2
 
     :cond_5
-    :goto_6
+    :goto_5
     move-object/from16 v0, v23
 
     iget-boolean v2, v0, Landroid/graphics/drawable/GradientDrawable$GradientState;->mUseLevel:Z
@@ -1209,14 +1208,14 @@
 
     move-result v26
 
-    goto :goto_4
+    goto :goto_3
 
     :cond_9
     invoke-virtual/range {v22 .. v22}, Landroid/graphics/RectF;->height()F
 
     move-result v17
 
-    goto :goto_5
+    goto :goto_4
 
     :cond_a
     move-object/from16 v0, v23
@@ -1241,7 +1240,7 @@
 
     mul-float/2addr v11, v2
 
-    goto :goto_6
+    goto :goto_5
 
     :cond_b
     move-object/from16 v0, v23
@@ -1406,7 +1405,7 @@
 
     const/16 v18, 0x0
 
-    :goto_7
+    :goto_6
     move/from16 v0, v18
 
     move/from16 v1, v20
@@ -1425,7 +1424,7 @@
 
     add-int/lit8 v18, v18, 0x1
 
-    goto :goto_7
+    goto :goto_6
 
     :cond_10
     const/high16 v2, 0x3f800000    # 1.0f
@@ -1448,11 +1447,6 @@
     invoke-virtual {v2, v8}, Landroid/graphics/Paint;->setShader(Landroid/graphics/Shader;)Landroid/graphics/Shader;
 
     goto/16 :goto_2
-
-    :cond_12
-    const/4 v2, 0x1
-
-    goto/16 :goto_3
 
     :pswitch_data_0
     .packed-switch 0x1
@@ -1758,7 +1752,11 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    xor-int/lit8 v0, v0, 0x1
+
+    if-eqz v0, :cond_0
+
+    return v1
 
     :cond_0
     iget-object v0, p0, Landroid/graphics/drawable/GradientDrawable;->mGradientState:Landroid/graphics/drawable/GradientDrawable$GradientState;
@@ -1777,18 +1775,16 @@
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    xor-int/lit8 v0, v0, 0x1
+
+    if-eqz v0, :cond_1
+
+    return v1
 
     :cond_1
     const/4 v0, 0x1
 
     return v0
-
-    :cond_2
-    return v1
-
-    :cond_3
-    return v1
 .end method
 
 .method private modulateAlpha(I)I
@@ -2943,7 +2939,7 @@
 
     iget v7, v7, Landroid/graphics/Insets;->left:I
 
-    const/16 v8, 0xa
+    const/16 v8, 0xb
 
     invoke-virtual {p1, v8, v7}, Landroid/content/res/TypedArray;->getDimensionPixelSize(II)I
 
@@ -2953,7 +2949,7 @@
 
     iget v7, v7, Landroid/graphics/Insets;->top:I
 
-    const/16 v8, 0xb
+    const/16 v8, 0xd
 
     invoke-virtual {p1, v8, v7}, Landroid/content/res/TypedArray;->getDimensionPixelSize(II)I
 
@@ -2973,7 +2969,7 @@
 
     iget v7, v7, Landroid/graphics/Insets;->bottom:I
 
-    const/16 v8, 0xd
+    const/16 v8, 0xa
 
     invoke-virtual {p1, v8, v7}, Landroid/content/res/TypedArray;->getDimensionPixelSize(II)I
 
@@ -3147,7 +3143,7 @@
 .end method
 
 .method public draw(Landroid/graphics/Canvas;)V
-    .locals 22
+    .locals 21
 
     invoke-direct/range {p0 .. p0}, Landroid/graphics/drawable/GradientDrawable;->ensureValidRect()Z
 
@@ -3164,7 +3160,7 @@
 
     invoke-virtual {v3}, Landroid/graphics/Paint;->getAlpha()I
 
-    move-result v16
+    move-result v15
 
     move-object/from16 v0, p0
 
@@ -3178,9 +3174,15 @@
 
     invoke-virtual {v3}, Landroid/graphics/Paint;->getAlpha()I
 
-    move-result v17
+    move-result v16
 
     :goto_0
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v15}, Landroid/graphics/drawable/GradientDrawable;->modulateAlpha(I)I
+
+    move-result v10
+
     move-object/from16 v0, p0
 
     move/from16 v1, v16
@@ -3189,15 +3191,7 @@
 
     move-result v11
 
-    move-object/from16 v0, p0
-
-    move/from16 v1, v17
-
-    invoke-direct {v0, v1}, Landroid/graphics/drawable/GradientDrawable;->modulateAlpha(I)I
-
-    move-result v12
-
-    if-lez v12, :cond_8
+    if-lez v11, :cond_8
 
     move-object/from16 v0, p0
 
@@ -3219,19 +3213,19 @@
 
     if-lez v3, :cond_7
 
-    const/4 v14, 0x1
+    const/4 v13, 0x1
 
     :goto_1
-    if-lez v11, :cond_9
+    if-lez v10, :cond_9
 
-    const/4 v13, 0x1
+    const/4 v12, 0x1
 
     :goto_2
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/graphics/drawable/GradientDrawable;->mGradientState:Landroid/graphics/drawable/GradientDrawable$GradientState;
 
-    move-object/from16 v20, v0
+    move-object/from16 v19, v0
 
     move-object/from16 v0, p0
 
@@ -3241,14 +3235,14 @@
 
     move-object/from16 v0, p0
 
-    iget-object v10, v0, Landroid/graphics/drawable/GradientDrawable;->mColorFilter:Landroid/graphics/ColorFilter;
+    iget-object v9, v0, Landroid/graphics/drawable/GradientDrawable;->mColorFilter:Landroid/graphics/ColorFilter;
 
     :goto_3
-    if-eqz v14, :cond_c
-
     if-eqz v13, :cond_c
 
-    move-object/from16 v0, v20
+    if-eqz v12, :cond_c
+
+    move-object/from16 v0, v19
 
     iget v3, v0, Landroid/graphics/drawable/GradientDrawable$GradientState;->mShape:I
 
@@ -3258,7 +3252,7 @@
 
     const/16 v3, 0xff
 
-    if-ge v12, v3, :cond_c
+    if-ge v11, v3, :cond_c
 
     move-object/from16 v0, p0
 
@@ -3268,16 +3262,13 @@
 
     if-lt v3, v4, :cond_1
 
-    if-eqz v10, :cond_b
+    if-eqz v9, :cond_b
 
     :cond_1
-    const/4 v3, 0x1
+    const/16 v20, 0x1
 
     :goto_4
-    move/from16 v21, v3
-
-    :goto_5
-    if-eqz v21, :cond_d
+    if-eqz v20, :cond_d
 
     move-object/from16 v0, p0
 
@@ -3298,7 +3289,7 @@
 
     iget-object v3, v0, Landroid/graphics/drawable/GradientDrawable;->mLayerPaint:Landroid/graphics/Paint;
 
-    move-object/from16 v0, v20
+    move-object/from16 v0, v19
 
     iget-boolean v4, v0, Landroid/graphics/drawable/GradientDrawable$GradientState;->mDither:Z
 
@@ -3318,7 +3309,7 @@
 
     iget-object v3, v0, Landroid/graphics/drawable/GradientDrawable;->mLayerPaint:Landroid/graphics/Paint;
 
-    invoke-virtual {v3, v10}, Landroid/graphics/Paint;->setColorFilter(Landroid/graphics/ColorFilter;)Landroid/graphics/ColorFilter;
+    invoke-virtual {v3, v9}, Landroid/graphics/Paint;->setColorFilter(Landroid/graphics/ColorFilter;)Landroid/graphics/ColorFilter;
 
     move-object/from16 v0, p0
 
@@ -3326,7 +3317,7 @@
 
     invoke-virtual {v3}, Landroid/graphics/Paint;->getStrokeWidth()F
 
-    move-result v19
+    move-result v18
 
     move-object/from16 v0, p0
 
@@ -3334,7 +3325,7 @@
 
     iget v3, v3, Landroid/graphics/RectF;->left:F
 
-    sub-float v4, v3, v19
+    sub-float v4, v3, v18
 
     move-object/from16 v0, p0
 
@@ -3342,7 +3333,7 @@
 
     iget v3, v3, Landroid/graphics/RectF;->top:F
 
-    sub-float v5, v3, v19
+    sub-float v5, v3, v18
 
     move-object/from16 v0, p0
 
@@ -3350,7 +3341,7 @@
 
     iget v3, v3, Landroid/graphics/RectF;->right:F
 
-    add-float v6, v3, v19
+    add-float v6, v3, v18
 
     move-object/from16 v0, p0
 
@@ -3358,17 +3349,15 @@
 
     iget v3, v3, Landroid/graphics/RectF;->bottom:F
 
-    add-float v7, v3, v19
+    add-float v7, v3, v18
 
     move-object/from16 v0, p0
 
     iget-object v8, v0, Landroid/graphics/drawable/GradientDrawable;->mLayerPaint:Landroid/graphics/Paint;
 
-    const/4 v9, 0x4
-
     move-object/from16 v3, p1
 
-    invoke-virtual/range {v3 .. v9}, Landroid/graphics/Canvas;->saveLayer(FFFFLandroid/graphics/Paint;I)I
+    invoke-virtual/range {v3 .. v8}, Landroid/graphics/Canvas;->saveLayer(FFFFLandroid/graphics/Paint;)I
 
     move-object/from16 v0, p0
 
@@ -3387,72 +3376,72 @@
     invoke-virtual {v3, v4}, Landroid/graphics/Paint;->setColorFilter(Landroid/graphics/ColorFilter;)Landroid/graphics/ColorFilter;
 
     :cond_3
-    :goto_6
-    move-object/from16 v0, v20
+    :goto_5
+    move-object/from16 v0, v19
 
     iget v3, v0, Landroid/graphics/drawable/GradientDrawable$GradientState;->mShape:I
 
     packed-switch v3, :pswitch_data_0
 
     :cond_4
-    :goto_7
-    if-eqz v21, :cond_14
+    :goto_6
+    if-eqz v20, :cond_14
 
     invoke-virtual/range {p1 .. p1}, Landroid/graphics/Canvas;->restore()V
 
     :cond_5
-    :goto_8
+    :goto_7
     return-void
 
     :cond_6
-    const/16 v17, 0x0
+    const/16 v16, 0x0
 
     goto/16 :goto_0
 
     :cond_7
-    const/4 v14, 0x0
+    const/4 v13, 0x0
 
     goto/16 :goto_1
 
     :cond_8
-    const/4 v14, 0x0
+    const/4 v13, 0x0
 
     goto/16 :goto_1
 
     :cond_9
-    const/4 v13, 0x0
+    const/4 v12, 0x0
 
     goto/16 :goto_2
 
     :cond_a
     move-object/from16 v0, p0
 
-    iget-object v10, v0, Landroid/graphics/drawable/GradientDrawable;->mTintFilter:Landroid/graphics/PorterDuffColorFilter;
+    iget-object v9, v0, Landroid/graphics/drawable/GradientDrawable;->mTintFilter:Landroid/graphics/PorterDuffColorFilter;
 
     goto/16 :goto_3
 
     :cond_b
-    const/4 v3, 0x0
+    const/16 v20, 0x0
 
     goto/16 :goto_4
 
     :cond_c
-    const/16 v21, 0x0
+    const/16 v20, 0x0
 
-    goto/16 :goto_5
+    goto/16 :goto_4
 
     :cond_d
     move-object/from16 v0, p0
 
     iget-object v3, v0, Landroid/graphics/drawable/GradientDrawable;->mFillPaint:Landroid/graphics/Paint;
 
-    invoke-virtual {v3, v11}, Landroid/graphics/Paint;->setAlpha(I)V
+    invoke-virtual {v3, v10}, Landroid/graphics/Paint;->setAlpha(I)V
 
     move-object/from16 v0, p0
 
     iget-object v3, v0, Landroid/graphics/drawable/GradientDrawable;->mFillPaint:Landroid/graphics/Paint;
 
-    move-object/from16 v0, v20
+    move-object/from16 v0, v19
 
     iget-boolean v4, v0, Landroid/graphics/drawable/GradientDrawable$GradientState;->mDither:Z
 
@@ -3462,11 +3451,11 @@
 
     iget-object v3, v0, Landroid/graphics/drawable/GradientDrawable;->mFillPaint:Landroid/graphics/Paint;
 
-    invoke-virtual {v3, v10}, Landroid/graphics/Paint;->setColorFilter(Landroid/graphics/ColorFilter;)Landroid/graphics/ColorFilter;
+    invoke-virtual {v3, v9}, Landroid/graphics/Paint;->setColorFilter(Landroid/graphics/ColorFilter;)Landroid/graphics/ColorFilter;
 
-    if-eqz v10, :cond_e
+    if-eqz v9, :cond_e
 
-    move-object/from16 v0, v20
+    move-object/from16 v0, v19
 
     iget-object v3, v0, Landroid/graphics/drawable/GradientDrawable$GradientState;->mSolidColors:Landroid/content/res/ColorStateList;
 
@@ -3485,19 +3474,19 @@
     invoke-virtual {v3, v4}, Landroid/graphics/Paint;->setColor(I)V
 
     :cond_e
-    if-eqz v14, :cond_3
+    if-eqz v13, :cond_3
 
     move-object/from16 v0, p0
 
     iget-object v3, v0, Landroid/graphics/drawable/GradientDrawable;->mStrokePaint:Landroid/graphics/Paint;
 
-    invoke-virtual {v3, v12}, Landroid/graphics/Paint;->setAlpha(I)V
+    invoke-virtual {v3, v11}, Landroid/graphics/Paint;->setAlpha(I)V
 
     move-object/from16 v0, p0
 
     iget-object v3, v0, Landroid/graphics/drawable/GradientDrawable;->mStrokePaint:Landroid/graphics/Paint;
 
-    move-object/from16 v0, v20
+    move-object/from16 v0, v19
 
     iget-boolean v4, v0, Landroid/graphics/drawable/GradientDrawable$GradientState;->mDither:Z
 
@@ -3507,12 +3496,12 @@
 
     iget-object v3, v0, Landroid/graphics/drawable/GradientDrawable;->mStrokePaint:Landroid/graphics/Paint;
 
-    invoke-virtual {v3, v10}, Landroid/graphics/Paint;->setColorFilter(Landroid/graphics/ColorFilter;)Landroid/graphics/ColorFilter;
+    invoke-virtual {v3, v9}, Landroid/graphics/Paint;->setColorFilter(Landroid/graphics/ColorFilter;)Landroid/graphics/ColorFilter;
 
-    goto :goto_6
+    goto :goto_5
 
     :pswitch_0
-    move-object/from16 v0, v20
+    move-object/from16 v0, v19
 
     iget-object v3, v0, Landroid/graphics/drawable/GradientDrawable$GradientState;->mRadiusArray:[F
 
@@ -3532,7 +3521,7 @@
 
     invoke-virtual {v0, v3, v4}, Landroid/graphics/Canvas;->drawPath(Landroid/graphics/Path;Landroid/graphics/Paint;)V
 
-    if-eqz v14, :cond_4
+    if-eqz v13, :cond_4
 
     move-object/from16 v0, p0
 
@@ -3546,10 +3535,10 @@
 
     invoke-virtual {v0, v3, v4}, Landroid/graphics/Canvas;->drawPath(Landroid/graphics/Path;Landroid/graphics/Paint;)V
 
-    goto/16 :goto_7
+    goto/16 :goto_6
 
     :cond_f
-    move-object/from16 v0, v20
+    move-object/from16 v0, v19
 
     iget v3, v0, Landroid/graphics/drawable/GradientDrawable$GradientState;->mRadius:F
 
@@ -3559,7 +3548,7 @@
 
     if-lez v3, :cond_10
 
-    move-object/from16 v0, v20
+    move-object/from16 v0, v19
 
     iget v3, v0, Landroid/graphics/drawable/GradientDrawable$GradientState;->mRadius:F
 
@@ -3589,7 +3578,7 @@
 
     invoke-static {v3, v4}, Ljava/lang/Math;->min(FF)F
 
-    move-result v19
+    move-result v18
 
     move-object/from16 v0, p0
 
@@ -3601,13 +3590,13 @@
 
     move-object/from16 v0, p1
 
-    move/from16 v1, v19
+    move/from16 v1, v18
 
-    move/from16 v2, v19
+    move/from16 v2, v18
 
     invoke-virtual {v0, v3, v1, v2, v4}, Landroid/graphics/Canvas;->drawRoundRect(Landroid/graphics/RectF;FFLandroid/graphics/Paint;)V
 
-    if-eqz v14, :cond_4
+    if-eqz v13, :cond_4
 
     move-object/from16 v0, p0
 
@@ -3619,13 +3608,13 @@
 
     move-object/from16 v0, p1
 
-    move/from16 v1, v19
+    move/from16 v1, v18
 
-    move/from16 v2, v19
+    move/from16 v2, v18
 
     invoke-virtual {v0, v3, v1, v2, v4}, Landroid/graphics/Canvas;->drawRoundRect(Landroid/graphics/RectF;FFLandroid/graphics/Paint;)V
 
-    goto/16 :goto_7
+    goto/16 :goto_6
 
     :cond_10
     move-object/from16 v0, p0
@@ -3638,10 +3627,10 @@
 
     if-nez v3, :cond_11
 
-    if-eqz v10, :cond_13
+    if-eqz v9, :cond_13
 
     :cond_11
-    :goto_9
+    :goto_8
     move-object/from16 v0, p0
 
     iget-object v3, v0, Landroid/graphics/drawable/GradientDrawable;->mRect:Landroid/graphics/RectF;
@@ -3655,7 +3644,7 @@
     invoke-virtual {v0, v3, v4}, Landroid/graphics/Canvas;->drawRect(Landroid/graphics/RectF;Landroid/graphics/Paint;)V
 
     :cond_12
-    if-eqz v14, :cond_4
+    if-eqz v13, :cond_4
 
     move-object/from16 v0, p0
 
@@ -3669,7 +3658,7 @@
 
     invoke-virtual {v0, v3, v4}, Landroid/graphics/Canvas;->drawRect(Landroid/graphics/RectF;Landroid/graphics/Paint;)V
 
-    goto/16 :goto_7
+    goto/16 :goto_6
 
     :cond_13
     move-object/from16 v0, p0
@@ -3682,7 +3671,7 @@
 
     if-eqz v3, :cond_12
 
-    goto :goto_9
+    goto :goto_8
 
     :pswitch_1
     move-object/from16 v0, p0
@@ -3697,7 +3686,7 @@
 
     invoke-virtual {v0, v3, v4}, Landroid/graphics/Canvas;->drawOval(Landroid/graphics/RectF;Landroid/graphics/Paint;)V
 
-    if-eqz v14, :cond_4
+    if-eqz v13, :cond_4
 
     move-object/from16 v0, p0
 
@@ -3711,26 +3700,26 @@
 
     invoke-virtual {v0, v3, v4}, Landroid/graphics/Canvas;->drawOval(Landroid/graphics/RectF;Landroid/graphics/Paint;)V
 
-    goto/16 :goto_7
+    goto/16 :goto_6
 
     :pswitch_2
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/graphics/drawable/GradientDrawable;->mRect:Landroid/graphics/RectF;
 
-    move-object/from16 v18, v0
+    move-object/from16 v17, v0
 
-    invoke-virtual/range {v18 .. v18}, Landroid/graphics/RectF;->centerY()F
+    invoke-virtual/range {v17 .. v17}, Landroid/graphics/RectF;->centerY()F
 
     move-result v5
 
-    if-eqz v14, :cond_4
+    if-eqz v13, :cond_4
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v17
 
     iget v4, v0, Landroid/graphics/RectF;->left:F
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v17
 
     iget v6, v0, Landroid/graphics/RectF;->right:F
 
@@ -3744,16 +3733,16 @@
 
     invoke-virtual/range {v3 .. v8}, Landroid/graphics/Canvas;->drawLine(FFFFLandroid/graphics/Paint;)V
 
-    goto/16 :goto_7
+    goto/16 :goto_6
 
     :pswitch_3
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v20
+    move-object/from16 v1, v19
 
     invoke-direct {v0, v1}, Landroid/graphics/drawable/GradientDrawable;->buildRing(Landroid/graphics/drawable/GradientDrawable$GradientState;)Landroid/graphics/Path;
 
-    move-result-object v15
+    move-result-object v14
 
     move-object/from16 v0, p0
 
@@ -3761,9 +3750,9 @@
 
     move-object/from16 v0, p1
 
-    invoke-virtual {v0, v15, v3}, Landroid/graphics/Canvas;->drawPath(Landroid/graphics/Path;Landroid/graphics/Paint;)V
+    invoke-virtual {v0, v14, v3}, Landroid/graphics/Canvas;->drawPath(Landroid/graphics/Path;Landroid/graphics/Paint;)V
 
-    if-eqz v14, :cond_4
+    if-eqz v13, :cond_4
 
     move-object/from16 v0, p0
 
@@ -3771,32 +3760,28 @@
 
     move-object/from16 v0, p1
 
-    invoke-virtual {v0, v15, v3}, Landroid/graphics/Canvas;->drawPath(Landroid/graphics/Path;Landroid/graphics/Paint;)V
+    invoke-virtual {v0, v14, v3}, Landroid/graphics/Canvas;->drawPath(Landroid/graphics/Path;Landroid/graphics/Paint;)V
 
-    goto/16 :goto_7
+    goto/16 :goto_6
 
     :cond_14
     move-object/from16 v0, p0
 
     iget-object v3, v0, Landroid/graphics/drawable/GradientDrawable;->mFillPaint:Landroid/graphics/Paint;
 
-    move/from16 v0, v16
+    invoke-virtual {v3, v15}, Landroid/graphics/Paint;->setAlpha(I)V
 
-    invoke-virtual {v3, v0}, Landroid/graphics/Paint;->setAlpha(I)V
-
-    if-eqz v14, :cond_5
+    if-eqz v13, :cond_5
 
     move-object/from16 v0, p0
 
     iget-object v3, v0, Landroid/graphics/drawable/GradientDrawable;->mStrokePaint:Landroid/graphics/Paint;
 
-    move/from16 v0, v17
+    move/from16 v0, v16
 
     invoke-virtual {v3, v0}, Landroid/graphics/Paint;->setAlpha(I)V
 
-    goto/16 :goto_8
-
-    nop
+    goto/16 :goto_7
 
     :pswitch_data_0
     .packed-switch 0x0
@@ -4047,15 +4032,11 @@
 .end method
 
 .method public getOutline(Landroid/graphics/Outline;)V
-    .locals 13
+    .locals 12
 
-    const/4 v7, 0x1
-
-    const/high16 v12, 0x3f000000    # 0.5f
+    const/high16 v11, 0x3f000000    # 0.5f
 
     const/4 v9, 0x0
-
-    const/4 v8, 0x0
 
     iget-object v5, p0, Landroid/graphics/drawable/GradientDrawable;->mGradientState:Landroid/graphics/drawable/GradientDrawable$GradientState;
 
@@ -4063,23 +4044,25 @@
 
     move-result-object v1
 
-    iget-boolean v10, v5, Landroid/graphics/drawable/GradientDrawable$GradientState;->mOpaqueOverShape:Z
+    iget-boolean v8, v5, Landroid/graphics/drawable/GradientDrawable$GradientState;->mOpaqueOverShape:Z
 
-    if-eqz v10, :cond_2
+    if-eqz v8, :cond_3
 
-    iget-object v10, p0, Landroid/graphics/drawable/GradientDrawable;->mGradientState:Landroid/graphics/drawable/GradientDrawable$GradientState;
+    iget-object v8, p0, Landroid/graphics/drawable/GradientDrawable;->mGradientState:Landroid/graphics/drawable/GradientDrawable$GradientState;
 
-    iget v10, v10, Landroid/graphics/drawable/GradientDrawable$GradientState;->mStrokeWidth:I
+    iget v8, v8, Landroid/graphics/drawable/GradientDrawable$GradientState;->mStrokeWidth:I
 
-    if-lez v10, :cond_0
+    if-lez v8, :cond_0
 
-    iget-object v10, p0, Landroid/graphics/drawable/GradientDrawable;->mStrokePaint:Landroid/graphics/Paint;
+    iget-object v8, p0, Landroid/graphics/drawable/GradientDrawable;->mStrokePaint:Landroid/graphics/Paint;
 
-    if-nez v10, :cond_1
+    if-nez v8, :cond_1
 
     :cond_0
+    const/4 v7, 0x1
+
     :goto_0
-    if-eqz v7, :cond_3
+    if-eqz v7, :cond_4
 
     iget-object v8, p0, Landroid/graphics/drawable/GradientDrawable;->mFillPaint:Landroid/graphics/Paint;
 
@@ -4107,30 +4090,35 @@
     return-void
 
     :cond_1
-    iget-object v10, p0, Landroid/graphics/drawable/GradientDrawable;->mStrokePaint:Landroid/graphics/Paint;
+    iget-object v8, p0, Landroid/graphics/drawable/GradientDrawable;->mStrokePaint:Landroid/graphics/Paint;
+
+    invoke-virtual {v8}, Landroid/graphics/Paint;->getAlpha()I
+
+    move-result v8
+
+    iget-object v10, p0, Landroid/graphics/drawable/GradientDrawable;->mFillPaint:Landroid/graphics/Paint;
 
     invoke-virtual {v10}, Landroid/graphics/Paint;->getAlpha()I
 
     move-result v10
 
-    iget-object v11, p0, Landroid/graphics/drawable/GradientDrawable;->mFillPaint:Landroid/graphics/Paint;
+    if-ne v8, v10, :cond_2
 
-    invoke-virtual {v11}, Landroid/graphics/Paint;->getAlpha()I
-
-    move-result v11
-
-    if-eq v10, v11, :cond_0
-
-    move v7, v8
+    const/4 v7, 0x1
 
     goto :goto_0
 
     :cond_2
-    move v7, v8
+    const/4 v7, 0x0
 
     goto :goto_0
 
     :cond_3
+    const/4 v7, 0x0
+
+    goto :goto_0
+
+    :cond_4
     move v8, v9
 
     goto :goto_1
@@ -4138,7 +4126,7 @@
     :pswitch_0
     iget-object v8, v5, Landroid/graphics/drawable/GradientDrawable$GradientState;->mRadiusArray:[F
 
-    if-eqz v8, :cond_4
+    if-eqz v8, :cond_5
 
     invoke-direct {p0}, Landroid/graphics/drawable/GradientDrawable;->buildPathIfDirty()V
 
@@ -4148,14 +4136,14 @@
 
     return-void
 
-    :cond_4
+    :cond_5
     const/4 v4, 0x0
 
     iget v8, v5, Landroid/graphics/drawable/GradientDrawable$GradientState;->mRadius:F
 
     cmpl-float v8, v8, v9
 
-    if-lez v8, :cond_5
+    if-lez v8, :cond_6
 
     iget v8, v5, Landroid/graphics/drawable/GradientDrawable$GradientState;->mRadius:F
 
@@ -4173,13 +4161,13 @@
 
     int-to-float v9, v9
 
-    mul-float/2addr v9, v12
+    mul-float/2addr v9, v11
 
     invoke-static {v8, v9}, Ljava/lang/Math;->min(FF)F
 
     move-result v4
 
-    :cond_5
+    :cond_6
     invoke-virtual {p1, v1, v4}, Landroid/graphics/Outline;->setRoundRect(Landroid/graphics/Rect;F)V
 
     return-void
@@ -4192,7 +4180,7 @@
     :pswitch_2
     iget-object v8, p0, Landroid/graphics/drawable/GradientDrawable;->mStrokePaint:Landroid/graphics/Paint;
 
-    if-nez v8, :cond_6
+    if-nez v8, :cond_7
 
     const v3, 0x38d1b717    # 1.0E-4f
 
@@ -4231,18 +4219,16 @@
 
     return-void
 
-    :cond_6
+    :cond_7
     iget-object v8, p0, Landroid/graphics/drawable/GradientDrawable;->mStrokePaint:Landroid/graphics/Paint;
 
     invoke-virtual {v8}, Landroid/graphics/Paint;->getStrokeWidth()F
 
     move-result v8
 
-    mul-float v3, v8, v12
+    mul-float v3, v8, v11
 
     goto :goto_2
-
-    nop
 
     :pswitch_data_0
     .packed-switch 0x0
@@ -4293,6 +4279,61 @@
     iget-boolean v0, v0, Landroid/graphics/drawable/GradientDrawable$GradientState;->mUseLevel:Z
 
     return v0
+.end method
+
+.method public hasFocusStateSpecified()Z
+    .locals 2
+
+    iget-object v0, p0, Landroid/graphics/drawable/GradientDrawable;->mGradientState:Landroid/graphics/drawable/GradientDrawable$GradientState;
+
+    iget-object v1, v0, Landroid/graphics/drawable/GradientDrawable$GradientState;->mSolidColors:Landroid/content/res/ColorStateList;
+
+    if-eqz v1, :cond_0
+
+    iget-object v1, v0, Landroid/graphics/drawable/GradientDrawable$GradientState;->mSolidColors:Landroid/content/res/ColorStateList;
+
+    invoke-virtual {v1}, Landroid/content/res/ColorStateList;->hasFocusStateSpecified()Z
+
+    move-result v1
+
+    if-nez v1, :cond_2
+
+    :cond_0
+    iget-object v1, v0, Landroid/graphics/drawable/GradientDrawable$GradientState;->mStrokeColors:Landroid/content/res/ColorStateList;
+
+    if-eqz v1, :cond_1
+
+    iget-object v1, v0, Landroid/graphics/drawable/GradientDrawable$GradientState;->mStrokeColors:Landroid/content/res/ColorStateList;
+
+    invoke-virtual {v1}, Landroid/content/res/ColorStateList;->hasFocusStateSpecified()Z
+
+    move-result v1
+
+    if-nez v1, :cond_2
+
+    :cond_1
+    iget-object v1, v0, Landroid/graphics/drawable/GradientDrawable$GradientState;->mTint:Landroid/content/res/ColorStateList;
+
+    if-eqz v1, :cond_3
+
+    iget-object v1, v0, Landroid/graphics/drawable/GradientDrawable$GradientState;->mTint:Landroid/content/res/ColorStateList;
+
+    invoke-virtual {v1}, Landroid/content/res/ColorStateList;->hasFocusStateSpecified()Z
+
+    move-result v1
+
+    :goto_0
+    return v1
+
+    :cond_2
+    const/4 v1, 0x1
+
+    goto :goto_0
+
+    :cond_3
+    const/4 v1, 0x0
+
+    goto :goto_0
 .end method
 
 .method public inflate(Landroid/content/res/Resources;Lorg/xmlpull/v1/XmlPullParser;Landroid/util/AttributeSet;Landroid/content/res/Resources$Theme;)V

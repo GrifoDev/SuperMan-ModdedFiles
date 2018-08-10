@@ -45,19 +45,6 @@
 
     invoke-virtual {p0, v2}, Landroid/widget/ActionMenuPresenter$OverflowMenuButton;->setEnabled(Z)V
 
-    invoke-virtual {p0}, Landroid/widget/ActionMenuPresenter$OverflowMenuButton;->getHoverUIFeatureLevel()I
-
-    move-result v0
-
-    const/4 v1, 0x2
-
-    if-lt v0, v1, :cond_0
-
-    invoke-virtual {p0, v2}, Landroid/widget/ActionMenuPresenter$OverflowMenuButton;->semSetHoverPopupType(I)V
-
-    invoke-virtual {p0, v2}, Landroid/widget/ActionMenuPresenter$OverflowMenuButton;->setLongClickable(Z)V
-
-    :cond_0
     return-void
 .end method
 
@@ -125,7 +112,7 @@
 
     iget-object v10, p0, Landroid/widget/ActionMenuPresenter$OverflowMenuButton;->this$0:Landroid/widget/ActionMenuPresenter;
 
-    invoke-static {v10}, Landroid/widget/ActionMenuPresenter;->-get1(Landroid/widget/ActionMenuPresenter;)Z
+    invoke-static {v10}, Landroid/widget/ActionMenuPresenter;->-get2(Landroid/widget/ActionMenuPresenter;)Z
 
     move-result v10
 

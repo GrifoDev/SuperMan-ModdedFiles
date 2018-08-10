@@ -49,9 +49,9 @@
 
     move-result-wide v2
 
-    sub-long/2addr v0, v2
+    invoke-static {v0, v1, v2, v3}, Ljava/lang/Long;->compare(JJ)I
 
-    long-to-int v0, v0
+    move-result v0
 
     return v0
 .end method

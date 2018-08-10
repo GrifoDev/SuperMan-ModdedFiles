@@ -532,7 +532,9 @@
 
     move-result v26
 
-    if-eqz v26, :cond_0
+    xor-int/lit8 v26, v26, 0x1
+
+    if-nez v26, :cond_0
 
     sget-object v26, Lcom/android/internal/R$styleable;->ColorStateListItem:[I
 
@@ -1213,6 +1215,20 @@
     return-object v0
 .end method
 
+.method public hasFocusStateSpecified()Z
+    .locals 2
+
+    iget-object v0, p0, Landroid/content/res/ColorStateList;->mStateSpecs:[[I
+
+    const v1, 0x101009c
+
+    invoke-static {v0, v1}, Landroid/util/StateSet;->containsAttribute([[II)Z
+
+    move-result v0
+
+    return v0
+.end method
+
 .method public hasState(I)Z
     .locals 8
 
@@ -1274,21 +1290,31 @@
 .end method
 
 .method public isStateful()Z
-    .locals 2
+    .locals 3
 
     const/4 v0, 0x1
 
-    iget-object v1, p0, Landroid/content/res/ColorStateList;->mStateSpecs:[[I
+    const/4 v1, 0x0
 
-    array-length v1, v1
+    iget-object v2, p0, Landroid/content/res/ColorStateList;->mStateSpecs:[[I
 
-    if-le v1, v0, :cond_0
+    array-length v2, v2
+
+    if-lt v2, v0, :cond_0
+
+    iget-object v2, p0, Landroid/content/res/ColorStateList;->mStateSpecs:[[I
+
+    aget-object v2, v2, v1
+
+    array-length v2, v2
+
+    if-lez v2, :cond_0
 
     :goto_0
     return v0
 
     :cond_0
-    const/4 v0, 0x0
+    move v0, v1
 
     goto :goto_0
 .end method
@@ -1302,8 +1328,14 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    xor-int/lit8 v1, v1, 0x1
 
+    if-eqz v1, :cond_1
+
+    :cond_0
+    return-object p0
+
+    :cond_1
     new-instance v0, Landroid/content/res/ColorStateList;
 
     invoke-direct {v0, p0}, Landroid/content/res/ColorStateList;-><init>(Landroid/content/res/ColorStateList;)V
@@ -1311,9 +1343,6 @@
     invoke-direct {v0, p1}, Landroid/content/res/ColorStateList;->applyTheme(Landroid/content/res/Resources$Theme;)V
 
     return-object v0
-
-    :cond_0
-    return-object p0
 .end method
 
 .method public bridge synthetic obtainForTheme(Landroid/content/res/Resources$Theme;)Landroid/content/res/ComplexColor;

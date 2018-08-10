@@ -61,8 +61,5 @@
 
     check-cast v1, Landroid/service/media/MediaBrowserService$ConnectionRecord;
 
-    if-eqz v1, :cond_0
-
-    :cond_0
     return-void
 .end method

@@ -8,10 +8,9 @@
     value = {
         Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$1;,
         Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$2;,
-        Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$3;,
         Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$OnSpinnerDateChangedListener;,
-        Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$TwKeyListener;,
-        Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$TwTextWatcher;
+        Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$SemKeyListener;,
+        Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$SemTextWatcher;
     }
 .end annotation
 
@@ -19,9 +18,9 @@
 # static fields
 .field private static final DATE_FORMAT:Ljava/lang/String; = "MM/dd/yyyy"
 
-.field private static final TAG:Ljava/lang/String; = "SemDatePickerSpinnerLayout"
+.field private static final DEBUG:Z
 
-.field private static final sem_DEBUG:Z
+.field private static final TAG:Ljava/lang/String;
 
 
 # instance fields
@@ -38,8 +37,6 @@
 .field private final PICKER_MONTH:I
 
 .field private final PICKER_YEAR:I
-
-.field private isMonthJan:Z
 
 .field private mCurrentDate:Ljava/util/Calendar;
 
@@ -89,10 +86,6 @@
 
 .field private mNumberOfMonths:I
 
-.field private mNumberTextSize:I
-
-.field private mOnDateChangedListener:Lcom/samsung/android/widget/SemDatePicker$OnDateChangedListener;
-
 .field private mOnEditTextModeChangedListener:Lcom/samsung/android/widget/SemDatePicker$OnEditTextModeChangedListener;
 
 .field private mOnSpinnerDateChangedListener:Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$OnSpinnerDateChangedListener;
@@ -111,17 +104,11 @@
 
 .field private final mSpinners:Landroid/widget/LinearLayout;
 
-.field private mSubNumberTextSize:I
-
-.field private mSubTextSize:I
-
 .field private mTempDate:Ljava/util/Calendar;
 
-.field private mTextSize:I
+.field private mToast:Landroid/widget/Toast;
 
 .field private mToastText:Ljava/lang/String;
-
-.field private mYearEditorActionListener:Landroid/widget/TextView$OnEditorActionListener;
 
 .field private final mYearSpinner:Lcom/samsung/android/widget/SemNumberPicker;
 
@@ -132,7 +119,7 @@
 .method static synthetic -get0(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)Landroid/content/Context;
     .locals 1
 
-    iget-object v0, p0, Landroid/view/View;->mContext:Landroid/content/Context;
+    iget-object v0, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mContext:Landroid/content/Context;
 
     return-object v0
 .end method
@@ -177,7 +164,23 @@
     return v0
 .end method
 
-.method static synthetic -get14(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)Lcom/samsung/android/widget/SemNumberPicker;
+.method static synthetic -get14(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)Ljava/util/Calendar;
+    .locals 1
+
+    iget-object v0, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mMaxDate:Ljava/util/Calendar;
+
+    return-object v0
+.end method
+
+.method static synthetic -get15(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)Ljava/util/Calendar;
+    .locals 1
+
+    iget-object v0, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mMinDate:Ljava/util/Calendar;
+
+    return-object v0
+.end method
+
+.method static synthetic -get16(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)Lcom/samsung/android/widget/SemNumberPicker;
     .locals 1
 
     iget-object v0, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mMonthSpinner:Lcom/samsung/android/widget/SemNumberPicker;
@@ -185,7 +188,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get15(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)I
+.method static synthetic -get17(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)I
     .locals 1
 
     iget v0, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mNumberOfMonths:I
@@ -193,7 +196,7 @@
     return v0
 .end method
 
-.method static synthetic -get16(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)[Landroid/widget/EditText;
+.method static synthetic -get18(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)[Landroid/widget/EditText;
     .locals 1
 
     iget-object v0, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mPickerTexts:[Landroid/widget/EditText;
@@ -201,26 +204,10 @@
     return-object v0
 .end method
 
-.method static synthetic -get17(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)[Ljava/lang/String;
+.method static synthetic -get19(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)[Ljava/lang/String;
     .locals 1
 
     iget-object v0, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mShortMonths:[Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method static synthetic -get18(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)Ljava/lang/Object;
-    .locals 1
-
-    iget-object v0, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mSolarLunarTables:Ljava/lang/Object;
-
-    return-object v0
-.end method
-
-.method static synthetic -get19(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)Ljava/util/Calendar;
-    .locals 1
-
-    iget-object v0, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mTempDate:Ljava/util/Calendar;
 
     return-object v0
 .end method
@@ -233,7 +220,31 @@
     return-object v0
 .end method
 
-.method static synthetic -get20(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)Ljava/lang/String;
+.method static synthetic -get20(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)Ljava/lang/Object;
+    .locals 1
+
+    iget-object v0, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mSolarLunarTables:Ljava/lang/Object;
+
+    return-object v0
+.end method
+
+.method static synthetic -get21(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)Ljava/util/Calendar;
+    .locals 1
+
+    iget-object v0, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mTempDate:Ljava/util/Calendar;
+
+    return-object v0
+.end method
+
+.method static synthetic -get22(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)Landroid/widget/Toast;
+    .locals 1
+
+    iget-object v0, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mToast:Landroid/widget/Toast;
+
+    return-object v0
+.end method
+
+.method static synthetic -get23(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)Ljava/lang/String;
     .locals 1
 
     iget-object v0, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mToastText:Ljava/lang/String;
@@ -241,7 +252,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get21(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)Lcom/samsung/android/widget/SemNumberPicker;
+.method static synthetic -get24(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)Lcom/samsung/android/widget/SemNumberPicker;
     .locals 1
 
     iget-object v0, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mYearSpinner:Lcom/samsung/android/widget/SemNumberPicker;
@@ -308,20 +319,12 @@
 .method static synthetic -set0(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;Z)Z
     .locals 0
 
-    iput-boolean p1, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->isMonthJan:Z
-
-    return p1
-.end method
-
-.method static synthetic -set1(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;Z)Z
-    .locals 0
-
     iput-boolean p1, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mIsLeapMonth:Z
 
     return p1
 .end method
 
-.method static synthetic -set2(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;I)I
+.method static synthetic -set1(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;I)I
     .locals 0
 
     iput p1, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mLunarTempDay:I
@@ -329,7 +332,7 @@
     return p1
 .end method
 
-.method static synthetic -set3(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;I)I
+.method static synthetic -set2(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;I)I
     .locals 0
 
     iput p1, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mLunarTempMonth:I
@@ -337,12 +340,20 @@
     return p1
 .end method
 
-.method static synthetic -set4(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;I)I
+.method static synthetic -set3(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;I)I
     .locals 0
 
     iput p1, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mLunarTempYear:I
 
     return p1
+.end method
+
+.method static synthetic -set4(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;Landroid/widget/Toast;)Landroid/widget/Toast;
+    .locals 0
+
+    iput-object p1, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mToast:Landroid/widget/Toast;
+
+    return-object p1
 .end method
 
 .method static synthetic -wrap0(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)Z
@@ -375,15 +386,23 @@
     return-object v0
 .end method
 
-.method static synthetic -wrap3(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;Z)V
+.method static synthetic -wrap3(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)V
     .locals 0
 
-    invoke-direct {p0, p1}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->notifyDateChanged(Z)V
+    invoke-direct {p0}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->notifyDateChanged()V
 
     return-void
 .end method
 
-.method static synthetic -wrap4(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;III)V
+.method static synthetic -wrap4(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;Ljava/lang/String;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->semLog(Ljava/lang/String;)V
+
+    return-void
+.end method
+
+.method static synthetic -wrap5(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;III)V
     .locals 0
 
     invoke-direct {p0, p1, p2, p3}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->setDate(III)V
@@ -391,18 +410,10 @@
     return-void
 .end method
 
-.method static synthetic -wrap5(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;Ljava/lang/String;)V
+.method static synthetic -wrap6(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;Z)V
     .locals 0
 
-    invoke-direct {p0, p1}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->twLog(Ljava/lang/String;)V
-
-    return-void
-.end method
-
-.method static synthetic -wrap6(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;Lcom/samsung/android/widget/SemNumberPicker;Z)V
-    .locals 0
-
-    invoke-direct {p0, p1, p2}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->updateModeState(Lcom/samsung/android/widget/SemNumberPicker;Z)V
+    invoke-direct {p0, p1}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->updateModeState(Z)V
 
     return-void
 .end method
@@ -411,6 +422,20 @@
     .locals 0
 
     invoke-direct {p0, p1, p2, p3, p4}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->updateSpinners(ZZZZ)V
+
+    return-void
+.end method
+
+.method static constructor <clinit>()V
+    .locals 1
+
+    const-class v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;
+
+    invoke-virtual {v0}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
+
+    move-result-object v0
+
+    sput-object v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->TAG:Ljava/lang/String;
 
     return-void
 .end method
@@ -446,613 +471,607 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;II)V
-    .locals 11
+    .locals 12
 
-    const/4 v10, 0x0
+    invoke-direct/range {p0 .. p4}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;II)V
 
-    const v7, 0x102044b
+    new-instance v8, Ljava/text/SimpleDateFormat;
 
-    const/4 v9, 0x2
+    const-string/jumbo v9, "MM/dd/yyyy"
+
+    invoke-direct {v8, v9}, Ljava/text/SimpleDateFormat;-><init>(Ljava/lang/String;)V
+
+    iput-object v8, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mDateFormat:Ljava/text/DateFormat;
+
+    const/4 v8, 0x0
+
+    iput-boolean v8, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mIsLunar:Z
+
+    const/4 v8, 0x0
+
+    iput-boolean v8, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mIsLeapMonth:Z
+
+    const/4 v8, 0x0
+
+    iput-object v8, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mPathClassLoader:Ldalvik/system/PathClassLoader;
+
+    new-instance v8, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$1;
+
+    invoke-direct {v8, p0}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$1;-><init>(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)V
+
+    iput-object v8, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mModeChangeListener:Lcom/samsung/android/widget/SemNumberPicker$OnEditTextModeChangedListener;
+
+    const/4 v8, 0x3
+
+    new-array v8, v8, [Landroid/widget/EditText;
+
+    iput-object v8, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mPickerTexts:[Landroid/widget/EditText;
+
+    const/4 v8, 0x0
+
+    iput v8, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->PICKER_DAY:I
 
     const/4 v8, 0x1
 
-    const/4 v6, 0x0
-
-    invoke-direct {p0, p1, p2, p3, p4}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;II)V
-
-    new-instance v4, Ljava/text/SimpleDateFormat;
-
-    const-string/jumbo v5, "MM/dd/yyyy"
-
-    invoke-direct {v4, v5}, Ljava/text/SimpleDateFormat;-><init>(Ljava/lang/String;)V
-
-    iput-object v4, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mDateFormat:Ljava/text/DateFormat;
-
-    new-instance v4, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$1;
-
-    invoke-direct {v4, p0}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$1;-><init>(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)V
-
-    iput-object v4, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mModeChangeListener:Lcom/samsung/android/widget/SemNumberPicker$OnEditTextModeChangedListener;
-
-    iput-boolean v6, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mIsLunar:Z
-
-    iput-boolean v6, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mIsLeapMonth:Z
-
-    iput-object v10, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mPathClassLoader:Ldalvik/system/PathClassLoader;
-
-    const/4 v4, 0x3
-
-    new-array v4, v4, [Landroid/widget/EditText;
-
-    iput-object v4, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mPickerTexts:[Landroid/widget/EditText;
-
-    iput-boolean v6, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->isMonthJan:Z
-
-    iput v6, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->PICKER_DAY:I
-
     iput v8, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->PICKER_MONTH:I
 
-    iput v9, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->PICKER_YEAR:I
+    const/4 v8, 0x2
 
-    iput v6, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->FORMAT_MMDDYYYY:I
+    iput v8, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->PICKER_YEAR:I
+
+    const/4 v8, 0x0
+
+    iput v8, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->FORMAT_MMDDYYYY:I
+
+    const/4 v8, 0x1
 
     iput v8, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->FORMAT_DDMMYYYY:I
 
-    iput v9, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->FORMAT_YYYYMMDD:I
+    const/4 v8, 0x2
 
-    const/4 v4, 0x3
+    iput v8, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->FORMAT_YYYYMMDD:I
 
-    iput v4, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->FORMAT_YYYYDDMM:I
+    const/4 v8, 0x3
 
-    new-instance v4, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$2;
+    iput v8, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->FORMAT_YYYYDDMM:I
 
-    invoke-direct {v4, p0}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$2;-><init>(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)V
+    new-instance v8, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$2;
 
-    iput-object v4, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mEditorActionListener:Landroid/widget/TextView$OnEditorActionListener;
+    invoke-direct {v8, p0}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$2;-><init>(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)V
 
-    new-instance v4, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$3;
+    iput-object v8, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mEditorActionListener:Landroid/widget/TextView$OnEditorActionListener;
 
-    invoke-direct {v4, p0}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$3;-><init>(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)V
+    iget-object v8, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mContext:Landroid/content/Context;
 
-    iput-object v4, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mYearEditorActionListener:Landroid/widget/TextView$OnEditorActionListener;
-
-    iget-object v4, p0, Landroid/view/View;->mContext:Landroid/content/Context;
-
-    invoke-static {v4}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
+    invoke-static {v8}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
 
     move-result-object v0
 
-    const v4, 0x10900ff
+    const v8, 0x1090105
 
-    invoke-virtual {v0, v4, p0, v8}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
+    const/4 v9, 0x1
+
+    invoke-virtual {v0, v8, p0, v9}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
     invoke-static {}, Ljava/util/Locale;->getDefault()Ljava/util/Locale;
 
-    move-result-object v4
+    move-result-object v8
 
-    iput-object v4, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mCurrentLocale:Ljava/util/Locale;
+    iput-object v8, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mCurrentLocale:Ljava/util/Locale;
 
-    iget-object v4, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mCurrentLocale:Ljava/util/Locale;
+    iget-object v8, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mCurrentLocale:Ljava/util/Locale;
 
-    invoke-virtual {p0, v4}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->setCurrentLocale(Ljava/util/Locale;)V
+    invoke-virtual {p0, v8}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->setCurrentLocale(Ljava/util/Locale;)V
 
-    new-instance v2, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$4;
+    new-instance v3, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$3;
 
-    invoke-direct {v2, p0}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$4;-><init>(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)V
+    invoke-direct {v3, p0}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$3;-><init>(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)V
 
-    const v4, 0x10204a8
+    const v8, 0x1020483
 
-    invoke-virtual {p0, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v8}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->findViewById(I)Landroid/view/View;
 
-    move-result-object v4
+    move-result-object v8
 
-    check-cast v4, Landroid/widget/LinearLayout;
+    check-cast v8, Landroid/widget/LinearLayout;
 
-    iput-object v4, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mSpinners:Landroid/widget/LinearLayout;
+    iput-object v8, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mSpinners:Landroid/widget/LinearLayout;
 
-    const v4, 0x10204aa
+    const v8, 0x1020484
 
-    invoke-virtual {p0, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v8}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->findViewById(I)Landroid/view/View;
 
-    move-result-object v4
+    move-result-object v8
 
-    iput-object v4, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mPrimaryEmptyView:Landroid/view/View;
+    iput-object v8, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mPrimaryEmptyView:Landroid/view/View;
 
-    const v4, 0x10204ac
+    const v8, 0x1020485
 
-    invoke-virtual {p0, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v8}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->findViewById(I)Landroid/view/View;
 
-    move-result-object v4
+    move-result-object v8
 
-    iput-object v4, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mSecondaryEmptyView:Landroid/view/View;
+    iput-object v8, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mSecondaryEmptyView:Landroid/view/View;
 
-    const v4, 0x10204a9
+    const v8, 0x1020486
 
-    invoke-virtual {p0, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v8}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->findViewById(I)Landroid/view/View;
 
-    move-result-object v4
+    move-result-object v8
 
-    check-cast v4, Lcom/samsung/android/widget/SemNumberPicker;
+    check-cast v8, Lcom/samsung/android/widget/SemNumberPicker;
 
-    iput-object v4, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mDaySpinner:Lcom/samsung/android/widget/SemNumberPicker;
+    iput-object v8, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mDaySpinner:Lcom/samsung/android/widget/SemNumberPicker;
 
-    iget-object v4, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mDaySpinner:Lcom/samsung/android/widget/SemNumberPicker;
+    iget-object v8, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mDaySpinner:Lcom/samsung/android/widget/SemNumberPicker;
 
-    invoke-virtual {v4, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    const v9, 0x10203ca
 
-    move-result-object v4
+    invoke-virtual {v8, v9}, Lcom/samsung/android/widget/SemNumberPicker;->findViewById(I)Landroid/view/View;
 
-    check-cast v4, Landroid/widget/EditText;
+    move-result-object v8
 
-    iput-object v4, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mDaySpinnerInput:Landroid/widget/EditText;
+    check-cast v8, Landroid/widget/EditText;
 
-    iget-object v4, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mDaySpinner:Lcom/samsung/android/widget/SemNumberPicker;
+    iput-object v8, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mDaySpinnerInput:Landroid/widget/EditText;
+
+    iget-object v8, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mDaySpinner:Lcom/samsung/android/widget/SemNumberPicker;
 
     invoke-static {}, Lcom/samsung/android/widget/SemNumberPicker;->getTwoDigitFormatter()Lcom/samsung/android/widget/SemNumberPicker$Formatter;
 
-    move-result-object v5
+    move-result-object v9
 
-    invoke-virtual {v4, v5}, Lcom/samsung/android/widget/SemNumberPicker;->setFormatter(Lcom/samsung/android/widget/SemNumberPicker$Formatter;)V
+    invoke-virtual {v8, v9}, Lcom/samsung/android/widget/SemNumberPicker;->setFormatter(Lcom/samsung/android/widget/SemNumberPicker$Formatter;)V
 
-    iget-object v4, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mDaySpinner:Lcom/samsung/android/widget/SemNumberPicker;
+    iget-object v8, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mDaySpinner:Lcom/samsung/android/widget/SemNumberPicker;
 
-    invoke-virtual {v4, v2}, Lcom/samsung/android/widget/SemNumberPicker;->setOnValueChangedListener(Lcom/samsung/android/widget/SemNumberPicker$OnValueChangeListener;)V
+    invoke-virtual {v8, v3}, Lcom/samsung/android/widget/SemNumberPicker;->setOnValueChangedListener(Lcom/samsung/android/widget/SemNumberPicker$OnValueChangeListener;)V
 
-    iget-object v4, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mDaySpinner:Lcom/samsung/android/widget/SemNumberPicker;
+    iget-object v8, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mDaySpinner:Lcom/samsung/android/widget/SemNumberPicker;
 
-    iget-object v5, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mModeChangeListener:Lcom/samsung/android/widget/SemNumberPicker$OnEditTextModeChangedListener;
+    iget-object v9, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mModeChangeListener:Lcom/samsung/android/widget/SemNumberPicker$OnEditTextModeChangedListener;
 
-    invoke-virtual {v4, v5}, Lcom/samsung/android/widget/SemNumberPicker;->setOnEditTextModeChangedListener(Lcom/samsung/android/widget/SemNumberPicker$OnEditTextModeChangedListener;)V
+    invoke-virtual {v8, v9}, Lcom/samsung/android/widget/SemNumberPicker;->setOnEditTextModeChangedListener(Lcom/samsung/android/widget/SemNumberPicker$OnEditTextModeChangedListener;)V
 
-    iget-object v4, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mDaySpinner:Lcom/samsung/android/widget/SemNumberPicker;
+    iget-object v8, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mDaySpinner:Lcom/samsung/android/widget/SemNumberPicker;
 
-    invoke-virtual {v4, v9}, Lcom/samsung/android/widget/SemNumberPicker;->setMaxInputLength(I)V
+    const/4 v9, 0x2
 
-    iget-object v4, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mDaySpinner:Lcom/samsung/android/widget/SemNumberPicker;
+    invoke-virtual {v8, v9}, Lcom/samsung/android/widget/SemNumberPicker;->setMaxInputLength(I)V
 
-    invoke-virtual {v4}, Lcom/samsung/android/widget/SemNumberPicker;->setYearDateTimeInputMode()V
+    iget-object v8, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mDaySpinner:Lcom/samsung/android/widget/SemNumberPicker;
 
-    const v4, 0x10204ab
+    invoke-virtual {v8}, Lcom/samsung/android/widget/SemNumberPicker;->setYearDateTimeInputMode()V
 
-    invoke-virtual {p0, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    const v8, 0x1020488
 
-    move-result-object v4
+    invoke-virtual {p0, v8}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->findViewById(I)Landroid/view/View;
 
-    check-cast v4, Lcom/samsung/android/widget/SemNumberPicker;
+    move-result-object v8
 
-    iput-object v4, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mMonthSpinner:Lcom/samsung/android/widget/SemNumberPicker;
+    check-cast v8, Lcom/samsung/android/widget/SemNumberPicker;
 
-    iget-object v4, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mMonthSpinner:Lcom/samsung/android/widget/SemNumberPicker;
+    iput-object v8, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mMonthSpinner:Lcom/samsung/android/widget/SemNumberPicker;
 
-    invoke-virtual {v4, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    iget-object v8, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mMonthSpinner:Lcom/samsung/android/widget/SemNumberPicker;
 
-    move-result-object v4
+    const v9, 0x10203ca
 
-    check-cast v4, Landroid/widget/EditText;
+    invoke-virtual {v8, v9}, Lcom/samsung/android/widget/SemNumberPicker;->findViewById(I)Landroid/view/View;
 
-    iput-object v4, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mMonthSpinnerInput:Landroid/widget/EditText;
+    move-result-object v8
+
+    check-cast v8, Landroid/widget/EditText;
+
+    iput-object v8, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mMonthSpinnerInput:Landroid/widget/EditText;
 
     invoke-direct {p0}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->usingNumericMonths()Z
 
-    move-result v4
+    move-result v8
 
-    if-eqz v4, :cond_2
+    if-eqz v8, :cond_2
 
-    iget-object v4, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mMonthSpinner:Lcom/samsung/android/widget/SemNumberPicker;
+    iget-object v8, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mMonthSpinner:Lcom/samsung/android/widget/SemNumberPicker;
 
-    invoke-virtual {v4, v8}, Lcom/samsung/android/widget/SemNumberPicker;->setMinValue(I)V
+    const/4 v9, 0x1
 
-    iget-object v4, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mMonthSpinner:Lcom/samsung/android/widget/SemNumberPicker;
+    invoke-virtual {v8, v9}, Lcom/samsung/android/widget/SemNumberPicker;->setMinValue(I)V
 
-    const/16 v5, 0xc
+    iget-object v8, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mMonthSpinner:Lcom/samsung/android/widget/SemNumberPicker;
 
-    invoke-virtual {v4, v5}, Lcom/samsung/android/widget/SemNumberPicker;->setMaxValue(I)V
+    const/16 v9, 0xc
 
-    iget-object v4, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mMonthSpinner:Lcom/samsung/android/widget/SemNumberPicker;
+    invoke-virtual {v8, v9}, Lcom/samsung/android/widget/SemNumberPicker;->setMaxValue(I)V
 
-    invoke-virtual {v4}, Lcom/samsung/android/widget/SemNumberPicker;->setYearDateTimeInputMode()V
+    iget-object v8, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mMonthSpinner:Lcom/samsung/android/widget/SemNumberPicker;
 
-    iget-object v4, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mMonthSpinner:Lcom/samsung/android/widget/SemNumberPicker;
+    invoke-virtual {v8}, Lcom/samsung/android/widget/SemNumberPicker;->setYearDateTimeInputMode()V
 
-    invoke-virtual {v4, v9}, Lcom/samsung/android/widget/SemNumberPicker;->setMaxInputLength(I)V
+    iget-object v8, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mMonthSpinner:Lcom/samsung/android/widget/SemNumberPicker;
+
+    const/4 v9, 0x2
+
+    invoke-virtual {v8, v9}, Lcom/samsung/android/widget/SemNumberPicker;->setMaxInputLength(I)V
 
     :goto_0
-    iget-object v4, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mMonthSpinner:Lcom/samsung/android/widget/SemNumberPicker;
+    iget-object v8, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mMonthSpinner:Lcom/samsung/android/widget/SemNumberPicker;
 
-    invoke-virtual {v4, v2}, Lcom/samsung/android/widget/SemNumberPicker;->setOnValueChangedListener(Lcom/samsung/android/widget/SemNumberPicker$OnValueChangeListener;)V
+    invoke-virtual {v8, v3}, Lcom/samsung/android/widget/SemNumberPicker;->setOnValueChangedListener(Lcom/samsung/android/widget/SemNumberPicker$OnValueChangeListener;)V
 
-    iget-object v4, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mMonthSpinner:Lcom/samsung/android/widget/SemNumberPicker;
+    iget-object v8, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mMonthSpinner:Lcom/samsung/android/widget/SemNumberPicker;
 
-    iget-object v5, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mModeChangeListener:Lcom/samsung/android/widget/SemNumberPicker$OnEditTextModeChangedListener;
+    iget-object v9, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mModeChangeListener:Lcom/samsung/android/widget/SemNumberPicker$OnEditTextModeChangedListener;
 
-    invoke-virtual {v4, v5}, Lcom/samsung/android/widget/SemNumberPicker;->setOnEditTextModeChangedListener(Lcom/samsung/android/widget/SemNumberPicker$OnEditTextModeChangedListener;)V
+    invoke-virtual {v8, v9}, Lcom/samsung/android/widget/SemNumberPicker;->setOnEditTextModeChangedListener(Lcom/samsung/android/widget/SemNumberPicker$OnEditTextModeChangedListener;)V
 
-    const v4, 0x10204ad
+    const v8, 0x102048a
 
-    invoke-virtual {p0, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v8}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->findViewById(I)Landroid/view/View;
+
+    move-result-object v8
+
+    check-cast v8, Lcom/samsung/android/widget/SemNumberPicker;
+
+    iput-object v8, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mYearSpinner:Lcom/samsung/android/widget/SemNumberPicker;
+
+    iget-object v8, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mYearSpinner:Lcom/samsung/android/widget/SemNumberPicker;
+
+    const v9, 0x10203ca
+
+    invoke-virtual {v8, v9}, Lcom/samsung/android/widget/SemNumberPicker;->findViewById(I)Landroid/view/View;
+
+    move-result-object v8
+
+    check-cast v8, Landroid/widget/EditText;
+
+    iput-object v8, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mYearSpinnerInput:Landroid/widget/EditText;
+
+    iget-object v8, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mYearSpinner:Lcom/samsung/android/widget/SemNumberPicker;
+
+    invoke-virtual {v8, v3}, Lcom/samsung/android/widget/SemNumberPicker;->setOnValueChangedListener(Lcom/samsung/android/widget/SemNumberPicker$OnValueChangeListener;)V
+
+    iget-object v8, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mYearSpinner:Lcom/samsung/android/widget/SemNumberPicker;
+
+    iget-object v9, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mModeChangeListener:Lcom/samsung/android/widget/SemNumberPicker$OnEditTextModeChangedListener;
+
+    invoke-virtual {v8, v9}, Lcom/samsung/android/widget/SemNumberPicker;->setOnEditTextModeChangedListener(Lcom/samsung/android/widget/SemNumberPicker$OnEditTextModeChangedListener;)V
+
+    iget-object v8, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mYearSpinner:Lcom/samsung/android/widget/SemNumberPicker;
+
+    const/4 v9, 0x4
+
+    invoke-virtual {v8, v9}, Lcom/samsung/android/widget/SemNumberPicker;->setMaxInputLength(I)V
+
+    iget-object v8, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mYearSpinner:Lcom/samsung/android/widget/SemNumberPicker;
+
+    invoke-virtual {v8}, Lcom/samsung/android/widget/SemNumberPicker;->setYearDateTimeInputMode()V
+
+    iget-object v8, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mDaySpinner:Lcom/samsung/android/widget/SemNumberPicker;
+
+    const-string/jumbo v9, "sec-roboto-condensed-light"
+
+    const/4 v10, 0x0
+
+    invoke-static {v9, v10}, Landroid/graphics/Typeface;->create(Ljava/lang/String;I)Landroid/graphics/Typeface;
+
+    move-result-object v9
+
+    invoke-virtual {v8, v9}, Lcom/samsung/android/widget/SemNumberPicker;->setTextTypeface(Landroid/graphics/Typeface;)V
+
+    iget-object v8, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mMonthSpinner:Lcom/samsung/android/widget/SemNumberPicker;
+
+    const-string/jumbo v9, "sec-roboto-condensed-light"
+
+    const/4 v10, 0x0
+
+    invoke-static {v9, v10}, Landroid/graphics/Typeface;->create(Ljava/lang/String;I)Landroid/graphics/Typeface;
+
+    move-result-object v9
+
+    invoke-virtual {v8, v9}, Lcom/samsung/android/widget/SemNumberPicker;->setTextTypeface(Landroid/graphics/Typeface;)V
+
+    iget-object v8, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mYearSpinner:Lcom/samsung/android/widget/SemNumberPicker;
+
+    const-string/jumbo v9, "sec-roboto-condensed-light"
+
+    const/4 v10, 0x0
+
+    invoke-static {v9, v10}, Landroid/graphics/Typeface;->create(Ljava/lang/String;I)Landroid/graphics/Typeface;
+
+    move-result-object v9
+
+    invoke-virtual {v8, v9}, Lcom/samsung/android/widget/SemNumberPicker;->setTextTypeface(Landroid/graphics/Typeface;)V
+
+    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v4
 
-    check-cast v4, Lcom/samsung/android/widget/SemNumberPicker;
+    const v8, 0x1050221
 
-    iput-object v4, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mYearSpinner:Lcom/samsung/android/widget/SemNumberPicker;
+    invoke-virtual {v4, v8}, Landroid/content/res/Resources;->getInteger(I)I
 
-    iget-object v4, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mYearSpinner:Lcom/samsung/android/widget/SemNumberPicker;
+    move-result v2
 
-    invoke-virtual {v4, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    const v8, 0x1050220
 
-    move-result-object v4
-
-    check-cast v4, Landroid/widget/EditText;
-
-    iput-object v4, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mYearSpinnerInput:Landroid/widget/EditText;
-
-    iget-object v4, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mYearSpinner:Lcom/samsung/android/widget/SemNumberPicker;
-
-    invoke-virtual {v4, v2}, Lcom/samsung/android/widget/SemNumberPicker;->setOnValueChangedListener(Lcom/samsung/android/widget/SemNumberPicker$OnValueChangeListener;)V
-
-    iget-object v4, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mYearSpinner:Lcom/samsung/android/widget/SemNumberPicker;
-
-    iget-object v5, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mModeChangeListener:Lcom/samsung/android/widget/SemNumberPicker$OnEditTextModeChangedListener;
-
-    invoke-virtual {v4, v5}, Lcom/samsung/android/widget/SemNumberPicker;->setOnEditTextModeChangedListener(Lcom/samsung/android/widget/SemNumberPicker$OnEditTextModeChangedListener;)V
-
-    iget-object v4, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mYearSpinner:Lcom/samsung/android/widget/SemNumberPicker;
-
-    const/4 v5, 0x4
-
-    invoke-virtual {v4, v5}, Lcom/samsung/android/widget/SemNumberPicker;->setMaxInputLength(I)V
-
-    iget-object v4, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mYearSpinner:Lcom/samsung/android/widget/SemNumberPicker;
-
-    invoke-virtual {v4}, Lcom/samsung/android/widget/SemNumberPicker;->setYearDateTimeInputMode()V
-
-    iget-object v4, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mDaySpinner:Lcom/samsung/android/widget/SemNumberPicker;
-
-    const-string/jumbo v5, "sec-roboto-condensed-light"
-
-    invoke-static {v5, v6}, Landroid/graphics/Typeface;->create(Ljava/lang/String;I)Landroid/graphics/Typeface;
-
-    move-result-object v5
-
-    invoke-virtual {v4, v5}, Lcom/samsung/android/widget/SemNumberPicker;->setTextTypeface(Landroid/graphics/Typeface;)V
-
-    iget-object v4, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mMonthSpinner:Lcom/samsung/android/widget/SemNumberPicker;
-
-    const-string/jumbo v5, "sec-roboto-condensed-light"
-
-    invoke-static {v5, v6}, Landroid/graphics/Typeface;->create(Ljava/lang/String;I)Landroid/graphics/Typeface;
-
-    move-result-object v5
-
-    invoke-virtual {v4, v5}, Lcom/samsung/android/widget/SemNumberPicker;->setTextTypeface(Landroid/graphics/Typeface;)V
-
-    iget-object v4, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mYearSpinner:Lcom/samsung/android/widget/SemNumberPicker;
-
-    const-string/jumbo v5, "sec-roboto-condensed-light"
-
-    invoke-static {v5, v6}, Landroid/graphics/Typeface;->create(Ljava/lang/String;I)Landroid/graphics/Typeface;
-
-    move-result-object v5
-
-    invoke-virtual {v4, v5}, Lcom/samsung/android/widget/SemNumberPicker;->setTextTypeface(Landroid/graphics/Typeface;)V
-
-    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v3
-
-    const v4, 0x1050314
-
-    invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getInteger(I)I
-
-    move-result v4
-
-    iput v4, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mNumberTextSize:I
-
-    const v4, 0x1050315
-
-    invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getInteger(I)I
-
-    move-result v4
-
-    iput v4, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mSubNumberTextSize:I
-
-    iget v4, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mNumberTextSize:I
-
-    add-int/lit8 v4, v4, -0x2
-
-    iput v4, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mTextSize:I
-
-    iget v4, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mSubNumberTextSize:I
-
-    add-int/lit8 v4, v4, -0x1
-
-    iput v4, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mSubTextSize:I
-
-    const v4, 0x10408e5
-
-    invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v4
-
-    iput-object v4, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mToastText:Ljava/lang/String;
-
-    iget-object v4, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mCurrentLocale:Ljava/util/Locale;
-
-    invoke-virtual {v4}, Ljava/util/Locale;->getLanguage()Ljava/lang/String;
-
-    move-result-object v1
-
-    const-string/jumbo v4, "my"
-
-    invoke-virtual {v4, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v4
-
-    if-nez v4, :cond_0
-
-    const-string/jumbo v4, "ml"
-
-    invoke-virtual {v4, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v4
-
-    if-nez v4, :cond_0
-
-    const-string/jumbo v4, "bn"
-
-    invoke-virtual {v4, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v4
-
-    if-nez v4, :cond_0
-
-    const-string/jumbo v4, "ar"
-
-    invoke-virtual {v4, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v4
-
-    if-nez v4, :cond_0
-
-    const-string/jumbo v4, "fa"
-
-    invoke-virtual {v4, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_3
-
-    :cond_0
-    const v4, 0x1050316
-
-    invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getInteger(I)I
-
-    move-result v4
-
-    iput v4, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mTextSize:I
-
-    const v4, 0x1050317
-
-    invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getInteger(I)I
-
-    move-result v4
-
-    iput v4, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mSubTextSize:I
-
-    :cond_1
-    :goto_1
-    iget-object v4, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mDaySpinner:Lcom/samsung/android/widget/SemNumberPicker;
-
-    iget v5, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mNumberTextSize:I
-
-    int-to-float v5, v5
-
-    invoke-virtual {v4, v5}, Lcom/samsung/android/widget/SemNumberPicker;->setTextSize(F)V
-
-    iget-object v4, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mYearSpinner:Lcom/samsung/android/widget/SemNumberPicker;
-
-    iget v5, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mNumberTextSize:I
-
-    int-to-float v5, v5
-
-    invoke-virtual {v4, v5}, Lcom/samsung/android/widget/SemNumberPicker;->setTextSize(F)V
-
-    iget-object v4, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mDaySpinner:Lcom/samsung/android/widget/SemNumberPicker;
-
-    iget v5, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mSubNumberTextSize:I
-
-    int-to-float v5, v5
-
-    invoke-virtual {v4, v5}, Lcom/samsung/android/widget/SemNumberPicker;->setSubTextSize(F)V
-
-    iget-object v4, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mYearSpinner:Lcom/samsung/android/widget/SemNumberPicker;
-
-    iget v5, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mSubNumberTextSize:I
-
-    int-to-float v5, v5
-
-    invoke-virtual {v4, v5}, Lcom/samsung/android/widget/SemNumberPicker;->setSubTextSize(F)V
-
-    invoke-direct {p0}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->usingNumericMonths()Z
-
-    move-result v4
-
-    if-eqz v4, :cond_4
-
-    iget-object v4, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mMonthSpinner:Lcom/samsung/android/widget/SemNumberPicker;
-
-    iget v5, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mNumberTextSize:I
-
-    int-to-float v5, v5
-
-    invoke-virtual {v4, v5}, Lcom/samsung/android/widget/SemNumberPicker;->setTextSize(F)V
-
-    iget-object v4, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mMonthSpinner:Lcom/samsung/android/widget/SemNumberPicker;
-
-    iget v5, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mSubNumberTextSize:I
-
-    int-to-float v5, v5
-
-    invoke-virtual {v4, v5}, Lcom/samsung/android/widget/SemNumberPicker;->setSubTextSize(F)V
-
-    :goto_2
-    iget-object v4, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mDaySpinner:Lcom/samsung/android/widget/SemNumberPicker;
-
-    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v5
-
-    const v6, 0x10408e0
-
-    invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-virtual {v4, v5}, Lcom/samsung/android/widget/SemNumberPicker;->setPickerContentDescription(Ljava/lang/String;)V
-
-    iget-object v4, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mMonthSpinner:Lcom/samsung/android/widget/SemNumberPicker;
-
-    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v5
-
-    const v6, 0x10408e1
-
-    invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-virtual {v4, v5}, Lcom/samsung/android/widget/SemNumberPicker;->setPickerContentDescription(Ljava/lang/String;)V
-
-    iget-object v4, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mYearSpinner:Lcom/samsung/android/widget/SemNumberPicker;
-
-    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v5
-
-    const v6, 0x10408e2
-
-    invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-virtual {v4, v5}, Lcom/samsung/android/widget/SemNumberPicker;->setPickerContentDescription(Ljava/lang/String;)V
-
-    iget-object v4, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mCurrentDate:Ljava/util/Calendar;
-
-    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
-
-    move-result-wide v6
-
-    invoke-virtual {v4, v6, v7}, Ljava/util/Calendar;->setTimeInMillis(J)V
-
-    iget-object v4, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mCurrentDate:Ljava/util/Calendar;
-
-    invoke-virtual {v4, v8}, Ljava/util/Calendar;->get(I)I
-
-    move-result v4
-
-    iget-object v5, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mCurrentDate:Ljava/util/Calendar;
-
-    invoke-virtual {v5, v9}, Ljava/util/Calendar;->get(I)I
+    invoke-virtual {v4, v8}, Landroid/content/res/Resources;->getInteger(I)I
 
     move-result v5
 
-    iget-object v6, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mCurrentDate:Ljava/util/Calendar;
+    add-int/lit8 v7, v2, -0x2
 
-    const/4 v7, 0x5
+    move v6, v5
 
-    invoke-virtual {v6, v7}, Ljava/util/Calendar;->get(I)I
+    const v8, 0x1040949
+
+    invoke-virtual {v4, v8}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v8
+
+    iput-object v8, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mToastText:Ljava/lang/String;
+
+    iget-object v8, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mCurrentLocale:Ljava/util/Locale;
+
+    invoke-virtual {v8}, Ljava/util/Locale;->getLanguage()Ljava/lang/String;
+
+    move-result-object v1
+
+    const-string/jumbo v8, "my"
+
+    invoke-virtual {v8, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v8
+
+    if-nez v8, :cond_0
+
+    const-string/jumbo v8, "ml"
+
+    invoke-virtual {v8, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v8
+
+    if-nez v8, :cond_0
+
+    const-string/jumbo v8, "bn"
+
+    invoke-virtual {v8, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v8
+
+    if-nez v8, :cond_0
+
+    const-string/jumbo v8, "ar"
+
+    invoke-virtual {v8, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v8
+
+    if-nez v8, :cond_0
+
+    const-string/jumbo v8, "fa"
+
+    invoke-virtual {v8, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v8
+
+    if-eqz v8, :cond_3
+
+    :cond_0
+    const v8, 0x105021f
+
+    invoke-virtual {v4, v8}, Landroid/content/res/Resources;->getInteger(I)I
+
+    move-result v7
+
+    const v8, 0x105021e
+
+    invoke-virtual {v4, v8}, Landroid/content/res/Resources;->getInteger(I)I
 
     move-result v6
 
-    invoke-virtual {p0, v4, v5, v6, v10}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->init(IIILcom/samsung/android/widget/SemDatePicker$OnDateChangedListener;)V
+    :cond_1
+    :goto_1
+    iget-object v8, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mDaySpinner:Lcom/samsung/android/widget/SemNumberPicker;
+
+    int-to-float v9, v2
+
+    invoke-virtual {v8, v9}, Lcom/samsung/android/widget/SemNumberPicker;->setTextSize(F)V
+
+    iget-object v8, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mYearSpinner:Lcom/samsung/android/widget/SemNumberPicker;
+
+    int-to-float v9, v2
+
+    invoke-virtual {v8, v9}, Lcom/samsung/android/widget/SemNumberPicker;->setTextSize(F)V
+
+    iget-object v8, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mDaySpinner:Lcom/samsung/android/widget/SemNumberPicker;
+
+    int-to-float v9, v5
+
+    invoke-virtual {v8, v9}, Lcom/samsung/android/widget/SemNumberPicker;->setSubTextSize(F)V
+
+    iget-object v8, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mYearSpinner:Lcom/samsung/android/widget/SemNumberPicker;
+
+    int-to-float v9, v5
+
+    invoke-virtual {v8, v9}, Lcom/samsung/android/widget/SemNumberPicker;->setSubTextSize(F)V
+
+    invoke-direct {p0}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->usingNumericMonths()Z
+
+    move-result v8
+
+    if-eqz v8, :cond_4
+
+    iget-object v8, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mMonthSpinner:Lcom/samsung/android/widget/SemNumberPicker;
+
+    int-to-float v9, v2
+
+    invoke-virtual {v8, v9}, Lcom/samsung/android/widget/SemNumberPicker;->setTextSize(F)V
+
+    iget-object v8, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mMonthSpinner:Lcom/samsung/android/widget/SemNumberPicker;
+
+    int-to-float v9, v5
+
+    invoke-virtual {v8, v9}, Lcom/samsung/android/widget/SemNumberPicker;->setSubTextSize(F)V
+
+    :goto_2
+    iget-object v8, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mDaySpinner:Lcom/samsung/android/widget/SemNumberPicker;
+
+    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v9
+
+    const v10, 0x104093a
+
+    invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-virtual {v8, v9}, Lcom/samsung/android/widget/SemNumberPicker;->setPickerContentDescription(Ljava/lang/String;)V
+
+    iget-object v8, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mMonthSpinner:Lcom/samsung/android/widget/SemNumberPicker;
+
+    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v9
+
+    const v10, 0x104093d
+
+    invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-virtual {v8, v9}, Lcom/samsung/android/widget/SemNumberPicker;->setPickerContentDescription(Ljava/lang/String;)V
+
+    iget-object v8, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mYearSpinner:Lcom/samsung/android/widget/SemNumberPicker;
+
+    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v9
+
+    const v10, 0x1040940
+
+    invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-virtual {v8, v9}, Lcom/samsung/android/widget/SemNumberPicker;->setPickerContentDescription(Ljava/lang/String;)V
+
+    iget-object v8, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mCurrentDate:Ljava/util/Calendar;
+
+    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
+
+    move-result-wide v10
+
+    invoke-virtual {v8, v10, v11}, Ljava/util/Calendar;->setTimeInMillis(J)V
+
+    iget-object v8, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mCurrentDate:Ljava/util/Calendar;
+
+    const/4 v9, 0x1
+
+    invoke-virtual {v8, v9}, Ljava/util/Calendar;->get(I)I
+
+    move-result v8
+
+    iget-object v9, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mCurrentDate:Ljava/util/Calendar;
+
+    const/4 v10, 0x2
+
+    invoke-virtual {v9, v10}, Ljava/util/Calendar;->get(I)I
+
+    move-result v9
+
+    iget-object v10, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mCurrentDate:Ljava/util/Calendar;
+
+    const/4 v11, 0x5
+
+    invoke-virtual {v10, v11}, Ljava/util/Calendar;->get(I)I
+
+    move-result v10
+
+    invoke-virtual {p0, v8, v9, v10}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->init(III)V
 
     invoke-direct {p0}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->reorderSpinners()V
 
     return-void
 
     :cond_2
-    iget-object v4, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mMonthSpinner:Lcom/samsung/android/widget/SemNumberPicker;
+    iget-object v8, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mMonthSpinner:Lcom/samsung/android/widget/SemNumberPicker;
 
-    invoke-virtual {v4, v6}, Lcom/samsung/android/widget/SemNumberPicker;->setMinValue(I)V
+    const/4 v9, 0x0
 
-    iget-object v4, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mMonthSpinner:Lcom/samsung/android/widget/SemNumberPicker;
+    invoke-virtual {v8, v9}, Lcom/samsung/android/widget/SemNumberPicker;->setMinValue(I)V
 
-    iget v5, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mNumberOfMonths:I
+    iget-object v8, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mMonthSpinner:Lcom/samsung/android/widget/SemNumberPicker;
 
-    add-int/lit8 v5, v5, -0x1
+    iget v9, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mNumberOfMonths:I
 
-    invoke-virtual {v4, v5}, Lcom/samsung/android/widget/SemNumberPicker;->setMaxValue(I)V
+    add-int/lit8 v9, v9, -0x1
 
-    iget-object v4, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mMonthSpinner:Lcom/samsung/android/widget/SemNumberPicker;
+    invoke-virtual {v8, v9}, Lcom/samsung/android/widget/SemNumberPicker;->setMaxValue(I)V
 
-    invoke-virtual {v4, v10}, Lcom/samsung/android/widget/SemNumberPicker;->setFormatter(Lcom/samsung/android/widget/SemNumberPicker$Formatter;)V
+    iget-object v8, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mMonthSpinner:Lcom/samsung/android/widget/SemNumberPicker;
 
-    iget-object v4, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mMonthSpinner:Lcom/samsung/android/widget/SemNumberPicker;
+    const/4 v9, 0x0
 
-    iget-object v5, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mShortMonths:[Ljava/lang/String;
+    invoke-virtual {v8, v9}, Lcom/samsung/android/widget/SemNumberPicker;->setFormatter(Lcom/samsung/android/widget/SemNumberPicker$Formatter;)V
 
-    invoke-virtual {v4, v5}, Lcom/samsung/android/widget/SemNumberPicker;->setDisplayedValues([Ljava/lang/String;)V
+    iget-object v8, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mMonthSpinner:Lcom/samsung/android/widget/SemNumberPicker;
 
-    iget-object v4, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mMonthSpinnerInput:Landroid/widget/EditText;
+    iget-object v9, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mShortMonths:[Ljava/lang/String;
 
-    invoke-virtual {v4, v8}, Landroid/widget/TextView;->setInputType(I)V
+    invoke-virtual {v8, v9}, Lcom/samsung/android/widget/SemNumberPicker;->setDisplayedValues([Ljava/lang/String;)V
 
-    iget-object v4, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mMonthSpinner:Lcom/samsung/android/widget/SemNumberPicker;
+    iget-object v8, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mMonthSpinnerInput:Landroid/widget/EditText;
 
-    invoke-virtual {v4}, Lcom/samsung/android/widget/SemNumberPicker;->setMonthInputMode()V
+    const/4 v9, 0x1
+
+    invoke-virtual {v8, v9}, Landroid/widget/EditText;->setInputType(I)V
+
+    iget-object v8, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mMonthSpinner:Lcom/samsung/android/widget/SemNumberPicker;
+
+    invoke-virtual {v8}, Lcom/samsung/android/widget/SemNumberPicker;->setMonthInputMode()V
 
     goto/16 :goto_0
 
     :cond_3
-    const-string/jumbo v4, "ga"
+    const-string/jumbo v8, "ga"
 
-    invoke-virtual {v4, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v8, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v4
+    move-result v8
 
-    if-eqz v4, :cond_1
+    if-eqz v8, :cond_1
 
-    const v4, 0x1050316
+    const v8, 0x105021f
 
-    invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getInteger(I)I
+    invoke-virtual {v4, v8}, Landroid/content/res/Resources;->getInteger(I)I
 
-    move-result v4
+    move-result v8
 
-    add-int/lit8 v4, v4, -0x1
+    add-int/lit8 v7, v8, -0x1
 
-    iput v4, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mTextSize:I
+    const v8, 0x105021e
 
-    const v4, 0x1050317
+    invoke-virtual {v4, v8}, Landroid/content/res/Resources;->getInteger(I)I
 
-    invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getInteger(I)I
+    move-result v8
 
-    move-result v4
-
-    add-int/lit8 v4, v4, -0x1
-
-    iput v4, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mSubTextSize:I
+    add-int/lit8 v6, v8, -0x1
 
     goto/16 :goto_1
 
     :cond_4
-    iget-object v4, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mMonthSpinner:Lcom/samsung/android/widget/SemNumberPicker;
+    iget-object v8, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mMonthSpinner:Lcom/samsung/android/widget/SemNumberPicker;
 
-    iget v5, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mTextSize:I
+    int-to-float v9, v7
 
-    int-to-float v5, v5
+    invoke-virtual {v8, v9}, Lcom/samsung/android/widget/SemNumberPicker;->setTextSize(F)V
 
-    invoke-virtual {v4, v5}, Lcom/samsung/android/widget/SemNumberPicker;->setTextSize(F)V
+    iget-object v8, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mMonthSpinner:Lcom/samsung/android/widget/SemNumberPicker;
 
-    iget-object v4, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mMonthSpinner:Lcom/samsung/android/widget/SemNumberPicker;
+    int-to-float v9, v6
 
-    iget v5, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mSubTextSize:I
-
-    int-to-float v5, v5
-
-    invoke-virtual {v4, v5}, Lcom/samsung/android/widget/SemNumberPicker;->setSubTextSize(F)V
+    invoke-virtual {v8, v9}, Lcom/samsung/android/widget/SemNumberPicker;->setSubTextSize(F)V
 
     goto/16 :goto_2
 .end method
@@ -1134,9 +1153,7 @@
 
     if-eqz v2, :cond_1
 
-    nop
-
-    nop
+    check-cast v0, Ljava/lang/Integer;
 
     invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
@@ -1178,7 +1195,7 @@
     :catch_0
     move-exception v0
 
-    const-string/jumbo v2, "SemDatePickerSpinnerLayout"
+    sget-object v2, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->TAG:Ljava/lang/String;
 
     new-instance v3, Ljava/lang/StringBuilder;
 
@@ -1204,19 +1221,19 @@
 .end method
 
 .method private varargs invoke(Ljava/lang/Object;Ljava/lang/reflect/Method;[Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 8
+    .locals 7
 
-    const/4 v7, 0x0
+    const/4 v6, 0x0
 
     if-nez p2, :cond_0
 
-    const-string/jumbo v4, "SemDatePickerSpinnerLayout"
+    sget-object v3, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->TAG:Ljava/lang/String;
 
-    const-string/jumbo v5, "method is null"
+    const-string/jumbo v4, "method is null"
 
-    invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v3, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    return-object v7
+    return-object v6
 
     :cond_0
     :try_start_0
@@ -1233,94 +1250,94 @@
     :catch_0
     move-exception v2
 
-    const-string/jumbo v4, "SemDatePickerSpinnerLayout"
+    sget-object v3, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->TAG:Ljava/lang/String;
 
-    new-instance v5, Ljava/lang/StringBuilder;
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
     invoke-virtual {p2}, Ljava/lang/reflect/Method;->getName()Ljava/lang/String;
 
-    move-result-object v6
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
     move-result-object v5
 
-    const-string/jumbo v6, " InvocationTargetException"
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v4
 
-    move-result-object v5
+    const-string/jumbo v5, " InvocationTargetException"
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    move-result-object v4
 
-    invoke-static {v4, v5, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v3, v4, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     :goto_0
-    return-object v7
+    return-object v6
 
     :catch_1
     move-exception v1
 
-    const-string/jumbo v4, "SemDatePickerSpinnerLayout"
+    sget-object v3, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->TAG:Ljava/lang/String;
 
-    new-instance v5, Ljava/lang/StringBuilder;
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
     invoke-virtual {p2}, Ljava/lang/reflect/Method;->getName()Ljava/lang/String;
 
-    move-result-object v6
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
     move-result-object v5
 
-    const-string/jumbo v6, " IllegalArgumentException"
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v4
 
-    move-result-object v5
+    const-string/jumbo v5, " IllegalArgumentException"
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    move-result-object v4
 
-    invoke-static {v4, v5, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v3, v4, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     goto :goto_0
 
     :catch_2
     move-exception v0
 
-    const-string/jumbo v4, "SemDatePickerSpinnerLayout"
+    sget-object v3, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->TAG:Ljava/lang/String;
 
-    new-instance v5, Ljava/lang/StringBuilder;
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
     invoke-virtual {p2}, Ljava/lang/reflect/Method;->getName()Ljava/lang/String;
 
-    move-result-object v6
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
     move-result-object v5
 
-    const-string/jumbo v6, " IllegalAccessException"
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v4
 
-    move-result-object v5
+    const-string/jumbo v5, " IllegalAccessException"
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    move-result-object v4
 
-    invoke-static {v4, v5, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v3, v4, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     goto :goto_0
 .end method
@@ -1368,18 +1385,16 @@
     goto :goto_0
 .end method
 
-.method private notifyDateChanged(Z)V
+.method private notifyDateChanged()V
     .locals 4
 
     const/4 v0, 0x4
 
-    invoke-virtual {p0, v0}, Landroid/view/View;->sendAccessibilityEvent(I)V
+    invoke-virtual {p0, v0}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->sendAccessibilityEvent(I)V
 
     iget-object v0, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mOnSpinnerDateChangedListener:Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$OnSpinnerDateChangedListener;
 
     if-eqz v0, :cond_0
-
-    if-eqz p1, :cond_0
 
     iget-object v0, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mOnSpinnerDateChangedListener:Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$OnSpinnerDateChangedListener;
 
@@ -1401,32 +1416,6 @@
     return-void
 .end method
 
-.method private parseDate(Ljava/lang/String;Ljava/util/Calendar;)Z
-    .locals 2
-
-    :try_start_0
-    iget-object v1, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mDateFormat:Ljava/text/DateFormat;
-
-    invoke-virtual {v1, p1}, Ljava/text/DateFormat;->parse(Ljava/lang/String;)Ljava/util/Date;
-
-    move-result-object v1
-
-    invoke-virtual {p2, v1}, Ljava/util/Calendar;->setTime(Ljava/util/Date;)V
-    :try_end_0
-    .catch Ljava/text/ParseException; {:try_start_0 .. :try_end_0} :catch_0
-
-    const/4 v1, 0x1
-
-    return v1
-
-    :catch_0
-    move-exception v0
-
-    const/4 v1, 0x0
-
-    return v1
-.end method
-
 .method private reorderSpinners()V
     .locals 12
 
@@ -1440,7 +1429,7 @@
 
     iget-object v6, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mSpinners:Landroid/widget/LinearLayout;
 
-    invoke-virtual {v6}, Landroid/view/ViewGroup;->removeAllViews()V
+    invoke-virtual {v6}, Landroid/widget/LinearLayout;->removeAllViews()V
 
     invoke-static {}, Ljava/util/Locale;->getDefault()Ljava/util/Locale;
 
@@ -1482,7 +1471,7 @@
 
     iget-object v7, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mDaySpinner:Lcom/samsung/android/widget/SemNumberPicker;
 
-    invoke-virtual {v6, v7}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
+    invoke-virtual {v6, v7}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
 
     iget-object v6, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mDaySpinner:Lcom/samsung/android/widget/SemNumberPicker;
 
@@ -1501,7 +1490,7 @@
 
     iget-object v7, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mMonthSpinner:Lcom/samsung/android/widget/SemNumberPicker;
 
-    invoke-virtual {v6, v7}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
+    invoke-virtual {v6, v7}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
 
     iget-object v6, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mMonthSpinner:Lcom/samsung/android/widget/SemNumberPicker;
 
@@ -1514,7 +1503,7 @@
 
     iget-object v7, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mYearSpinner:Lcom/samsung/android/widget/SemNumberPicker;
 
-    invoke-virtual {v6, v7}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
+    invoke-virtual {v6, v7}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
 
     iget-object v6, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mYearSpinner:Lcom/samsung/android/widget/SemNumberPicker;
 
@@ -1527,7 +1516,7 @@
 
     iget-object v7, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mPrimaryEmptyView:Landroid/view/View;
 
-    invoke-virtual {v6, v7}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
+    invoke-virtual {v6, v7}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
 
     goto :goto_2
 
@@ -1536,7 +1525,7 @@
 
     iget-object v7, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mSecondaryEmptyView:Landroid/view/View;
 
-    invoke-virtual {v6, v7}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
+    invoke-virtual {v6, v7}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
 
     goto :goto_2
 
@@ -1596,6 +1585,12 @@
         :pswitch_0
         :pswitch_1
     .end packed-switch
+.end method
+
+.method private semLog(Ljava/lang/String;)V
+    .locals 0
+
+    return-void
 .end method
 
 .method private setDate(III)V
@@ -1674,9 +1669,9 @@
     const v0, 0x2000005
 
     :goto_0
-    const v2, 0x102044b
+    const v2, 0x10203ca
 
-    invoke-virtual {p1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p1, v2}, Lcom/samsung/android/widget/SemNumberPicker;->findViewById(I)Landroid/view/View;
 
     move-result-object v1
 
@@ -1693,473 +1688,234 @@
 .end method
 
 .method private setTextWatcher(I)V
-    .locals 7
+    .locals 10
 
-    const/4 v6, 0x4
+    const/4 v9, 0x3
 
-    const/4 v5, 0x3
+    const/4 v8, 0x2
 
-    const/4 v4, 0x0
+    const/4 v7, 0x1
 
-    const/4 v3, 0x2
+    const/4 v6, 0x0
 
-    const/4 v2, 0x1
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    new-instance v0, Ljava/lang/StringBuilder;
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    const-string/jumbo v4, "setTextWatcher() usingNumericMonths  : "
 
-    const-string/jumbo v1, "setTextWatcher() usingNumericMonths  : "
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
+    move-result-object v3
 
     invoke-direct {p0}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->usingNumericMonths()Z
 
-    move-result v1
+    move-result v4
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    move-result-object v0
+    move-result-object v3
 
-    const-string/jumbo v1, "format  : "
+    const-string/jumbo v4, "format  : "
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v0
+    move-result-object v3
 
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v0
+    move-result-object v3
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v3
 
-    invoke-direct {p0, v0}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->twLog(Ljava/lang/String;)V
+    invoke-direct {p0, v3}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->semLog(Ljava/lang/String;)V
+
+    const/4 v2, -0x1
+
+    const/4 v1, -0x1
+
+    const/4 v0, -0x1
 
     packed-switch p1, :pswitch_data_0
 
     :goto_0
-    iget-object v0, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mPickerTexts:[Landroid/widget/EditText;
+    iget-object v3, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mPickerTexts:[Landroid/widget/EditText;
 
-    aget-object v0, v0, v4
+    iget-object v4, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mYearSpinner:Lcom/samsung/android/widget/SemNumberPicker;
 
-    new-instance v1, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$TwKeyListener;
+    invoke-virtual {v4}, Lcom/samsung/android/widget/SemNumberPicker;->getEditText()Landroid/widget/EditText;
 
-    invoke-direct {v1, p0}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$TwKeyListener;-><init>(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)V
+    move-result-object v4
 
-    invoke-virtual {v0, v1}, Landroid/view/View;->setOnKeyListener(Landroid/view/View$OnKeyListener;)V
+    aput-object v4, v3, v2
 
-    iget-object v0, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mPickerTexts:[Landroid/widget/EditText;
+    iget-object v3, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mPickerTexts:[Landroid/widget/EditText;
 
-    aget-object v0, v0, v2
+    iget-object v4, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mMonthSpinner:Lcom/samsung/android/widget/SemNumberPicker;
 
-    new-instance v1, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$TwKeyListener;
+    invoke-virtual {v4}, Lcom/samsung/android/widget/SemNumberPicker;->getEditText()Landroid/widget/EditText;
 
-    invoke-direct {v1, p0}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$TwKeyListener;-><init>(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)V
+    move-result-object v4
 
-    invoke-virtual {v0, v1}, Landroid/view/View;->setOnKeyListener(Landroid/view/View$OnKeyListener;)V
+    aput-object v4, v3, v1
 
-    iget-object v0, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mPickerTexts:[Landroid/widget/EditText;
+    iget-object v3, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mPickerTexts:[Landroid/widget/EditText;
 
-    aget-object v0, v0, v3
+    iget-object v4, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mDaySpinner:Lcom/samsung/android/widget/SemNumberPicker;
 
-    new-instance v1, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$TwKeyListener;
+    invoke-virtual {v4}, Lcom/samsung/android/widget/SemNumberPicker;->getEditText()Landroid/widget/EditText;
 
-    invoke-direct {v1, p0}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$TwKeyListener;-><init>(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)V
+    move-result-object v4
 
-    invoke-virtual {v0, v1}, Landroid/view/View;->setOnKeyListener(Landroid/view/View$OnKeyListener;)V
+    aput-object v4, v3, v0
+
+    iget-object v3, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mPickerTexts:[Landroid/widget/EditText;
+
+    aget-object v3, v3, v2
+
+    new-instance v4, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$SemTextWatcher;
+
+    const/4 v5, 0x4
+
+    invoke-direct {v4, p0, v5, v2, v6}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$SemTextWatcher;-><init>(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;IIZ)V
+
+    invoke-virtual {v3, v4}, Landroid/widget/EditText;->addTextChangedListener(Landroid/text/TextWatcher;)V
+
+    invoke-direct {p0}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->usingNumericMonths()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_2
+
+    iget-object v3, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mPickerTexts:[Landroid/widget/EditText;
+
+    aget-object v3, v3, v1
+
+    new-instance v4, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$SemTextWatcher;
+
+    invoke-direct {v4, p0, v8, v1, v7}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$SemTextWatcher;-><init>(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;IIZ)V
+
+    invoke-virtual {v3, v4}, Landroid/widget/EditText;->addTextChangedListener(Landroid/text/TextWatcher;)V
+
+    :goto_1
+    iget-object v3, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mPickerTexts:[Landroid/widget/EditText;
+
+    aget-object v3, v3, v0
+
+    new-instance v4, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$SemTextWatcher;
+
+    invoke-direct {v4, p0, v8, v0, v6}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$SemTextWatcher;-><init>(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;IIZ)V
+
+    invoke-virtual {v3, v4}, Landroid/widget/EditText;->addTextChangedListener(Landroid/text/TextWatcher;)V
+
+    if-ne p1, v9, :cond_0
+
+    invoke-direct {p0}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->usingNumericMonths()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_1
+
+    :cond_0
+    iget-object v3, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mPickerTexts:[Landroid/widget/EditText;
+
+    iget-object v4, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mPickerTexts:[Landroid/widget/EditText;
+
+    array-length v4, v4
+
+    add-int/lit8 v4, v4, -0x1
+
+    aget-object v3, v3, v4
+
+    iget-object v4, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mEditorActionListener:Landroid/widget/TextView$OnEditorActionListener;
+
+    invoke-virtual {v3, v4}, Landroid/widget/EditText;->setOnEditorActionListener(Landroid/widget/TextView$OnEditorActionListener;)V
+
+    :cond_1
+    iget-object v3, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mPickerTexts:[Landroid/widget/EditText;
+
+    aget-object v3, v3, v2
+
+    new-instance v4, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$SemKeyListener;
+
+    invoke-direct {v4, p0}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$SemKeyListener;-><init>(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)V
+
+    invoke-virtual {v3, v4}, Landroid/widget/EditText;->setOnKeyListener(Landroid/view/View$OnKeyListener;)V
+
+    iget-object v3, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mPickerTexts:[Landroid/widget/EditText;
+
+    aget-object v3, v3, v1
+
+    new-instance v4, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$SemKeyListener;
+
+    invoke-direct {v4, p0}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$SemKeyListener;-><init>(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)V
+
+    invoke-virtual {v3, v4}, Landroid/widget/EditText;->setOnKeyListener(Landroid/view/View$OnKeyListener;)V
+
+    iget-object v3, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mPickerTexts:[Landroid/widget/EditText;
+
+    aget-object v3, v3, v0
+
+    new-instance v4, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$SemKeyListener;
+
+    invoke-direct {v4, p0}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$SemKeyListener;-><init>(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;)V
+
+    invoke-virtual {v3, v4}, Landroid/widget/EditText;->setOnKeyListener(Landroid/view/View$OnKeyListener;)V
 
     return-void
 
     :pswitch_0
-    iget-object v0, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mPickerTexts:[Landroid/widget/EditText;
+    const/4 v1, 0x0
 
-    iget-object v1, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mMonthSpinner:Lcom/samsung/android/widget/SemNumberPicker;
+    const/4 v0, 0x1
 
-    invoke-virtual {v1}, Lcom/samsung/android/widget/SemNumberPicker;->getEditText()Landroid/widget/EditText;
-
-    move-result-object v1
-
-    aput-object v1, v0, v4
-
-    iget-object v0, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mPickerTexts:[Landroid/widget/EditText;
-
-    iget-object v1, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mDaySpinner:Lcom/samsung/android/widget/SemNumberPicker;
-
-    invoke-virtual {v1}, Lcom/samsung/android/widget/SemNumberPicker;->getEditText()Landroid/widget/EditText;
-
-    move-result-object v1
-
-    aput-object v1, v0, v2
-
-    iget-object v0, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mPickerTexts:[Landroid/widget/EditText;
-
-    iget-object v1, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mYearSpinner:Lcom/samsung/android/widget/SemNumberPicker;
-
-    invoke-virtual {v1}, Lcom/samsung/android/widget/SemNumberPicker;->getEditText()Landroid/widget/EditText;
-
-    move-result-object v1
-
-    aput-object v1, v0, v3
-
-    invoke-direct {p0}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->usingNumericMonths()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mPickerTexts:[Landroid/widget/EditText;
-
-    aget-object v0, v0, v4
-
-    new-instance v1, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$TwTextWatcher;
-
-    invoke-direct {v1, p0, v3, v4, v2}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$TwTextWatcher;-><init>(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;IIZ)V
-
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->addTextChangedListener(Landroid/text/TextWatcher;)V
-
-    iget-object v0, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mPickerTexts:[Landroid/widget/EditText;
-
-    aget-object v0, v0, v4
-
-    iget-object v1, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mEditorActionListener:Landroid/widget/TextView$OnEditorActionListener;
-
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setOnEditorActionListener(Landroid/widget/TextView$OnEditorActionListener;)V
-
-    :goto_1
-    iget-object v0, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mPickerTexts:[Landroid/widget/EditText;
-
-    aget-object v0, v0, v2
-
-    new-instance v1, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$TwTextWatcher;
-
-    invoke-direct {v1, p0, v3, v2, v4}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$TwTextWatcher;-><init>(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;IIZ)V
-
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->addTextChangedListener(Landroid/text/TextWatcher;)V
-
-    iget-object v0, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mPickerTexts:[Landroid/widget/EditText;
-
-    aget-object v0, v0, v3
-
-    new-instance v1, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$TwTextWatcher;
-
-    invoke-direct {v1, p0, v6, v3, v4}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$TwTextWatcher;-><init>(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;IIZ)V
-
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->addTextChangedListener(Landroid/text/TextWatcher;)V
-
-    iget-object v0, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mPickerTexts:[Landroid/widget/EditText;
-
-    aget-object v0, v0, v3
-
-    iget-object v1, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mYearEditorActionListener:Landroid/widget/TextView$OnEditorActionListener;
-
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setOnEditorActionListener(Landroid/widget/TextView$OnEditorActionListener;)V
-
-    goto :goto_0
-
-    :cond_0
-    iget-object v0, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mPickerTexts:[Landroid/widget/EditText;
-
-    aget-object v0, v0, v4
-
-    new-instance v1, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$TwTextWatcher;
-
-    invoke-direct {v1, p0, v5, v4, v2}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$TwTextWatcher;-><init>(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;IIZ)V
-
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->addTextChangedListener(Landroid/text/TextWatcher;)V
-
-    goto :goto_1
-
-    :pswitch_1
-    iget-object v0, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mPickerTexts:[Landroid/widget/EditText;
-
-    iget-object v1, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mDaySpinner:Lcom/samsung/android/widget/SemNumberPicker;
-
-    invoke-virtual {v1}, Lcom/samsung/android/widget/SemNumberPicker;->getEditText()Landroid/widget/EditText;
-
-    move-result-object v1
-
-    aput-object v1, v0, v4
-
-    iget-object v0, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mPickerTexts:[Landroid/widget/EditText;
-
-    iget-object v1, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mMonthSpinner:Lcom/samsung/android/widget/SemNumberPicker;
-
-    invoke-virtual {v1}, Lcom/samsung/android/widget/SemNumberPicker;->getEditText()Landroid/widget/EditText;
-
-    move-result-object v1
-
-    aput-object v1, v0, v2
-
-    iget-object v0, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mPickerTexts:[Landroid/widget/EditText;
-
-    iget-object v1, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mYearSpinner:Lcom/samsung/android/widget/SemNumberPicker;
-
-    invoke-virtual {v1}, Lcom/samsung/android/widget/SemNumberPicker;->getEditText()Landroid/widget/EditText;
-
-    move-result-object v1
-
-    aput-object v1, v0, v3
-
-    iget-object v0, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mPickerTexts:[Landroid/widget/EditText;
-
-    aget-object v0, v0, v4
-
-    new-instance v1, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$TwTextWatcher;
-
-    invoke-direct {v1, p0, v3, v4, v4}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$TwTextWatcher;-><init>(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;IIZ)V
-
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->addTextChangedListener(Landroid/text/TextWatcher;)V
-
-    invoke-direct {p0}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->usingNumericMonths()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    iget-object v0, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mPickerTexts:[Landroid/widget/EditText;
-
-    aget-object v0, v0, v2
-
-    new-instance v1, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$TwTextWatcher;
-
-    invoke-direct {v1, p0, v3, v2, v2}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$TwTextWatcher;-><init>(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;IIZ)V
-
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->addTextChangedListener(Landroid/text/TextWatcher;)V
-
-    iget-object v0, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mPickerTexts:[Landroid/widget/EditText;
-
-    aget-object v0, v0, v2
-
-    iget-object v1, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mEditorActionListener:Landroid/widget/TextView$OnEditorActionListener;
-
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setOnEditorActionListener(Landroid/widget/TextView$OnEditorActionListener;)V
-
-    :goto_2
-    iget-object v0, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mPickerTexts:[Landroid/widget/EditText;
-
-    aget-object v0, v0, v3
-
-    new-instance v1, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$TwTextWatcher;
-
-    invoke-direct {v1, p0, v6, v3, v4}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$TwTextWatcher;-><init>(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;IIZ)V
-
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->addTextChangedListener(Landroid/text/TextWatcher;)V
-
-    iget-object v0, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mPickerTexts:[Landroid/widget/EditText;
-
-    aget-object v0, v0, v3
-
-    iget-object v1, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mYearEditorActionListener:Landroid/widget/TextView$OnEditorActionListener;
-
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setOnEditorActionListener(Landroid/widget/TextView$OnEditorActionListener;)V
+    const/4 v2, 0x2
 
     goto/16 :goto_0
 
-    :cond_1
-    iget-object v0, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mPickerTexts:[Landroid/widget/EditText;
+    :pswitch_1
+    const/4 v0, 0x0
 
-    aget-object v0, v0, v2
+    const/4 v1, 0x1
 
-    new-instance v1, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$TwTextWatcher;
+    const/4 v2, 0x2
 
-    invoke-direct {v1, p0, v5, v2, v2}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$TwTextWatcher;-><init>(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;IIZ)V
-
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->addTextChangedListener(Landroid/text/TextWatcher;)V
-
-    goto :goto_2
+    goto/16 :goto_0
 
     :pswitch_2
-    iget-object v0, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mPickerTexts:[Landroid/widget/EditText;
+    const/4 v2, 0x0
 
-    iget-object v1, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mYearSpinner:Lcom/samsung/android/widget/SemNumberPicker;
+    const/4 v1, 0x1
 
-    invoke-virtual {v1}, Lcom/samsung/android/widget/SemNumberPicker;->getEditText()Landroid/widget/EditText;
+    const/4 v0, 0x2
 
-    move-result-object v1
+    goto/16 :goto_0
 
-    aput-object v1, v0, v4
+    :pswitch_3
+    const/4 v2, 0x0
 
-    iget-object v0, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mPickerTexts:[Landroid/widget/EditText;
+    const/4 v0, 0x1
 
-    iget-object v1, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mMonthSpinner:Lcom/samsung/android/widget/SemNumberPicker;
-
-    invoke-virtual {v1}, Lcom/samsung/android/widget/SemNumberPicker;->getEditText()Landroid/widget/EditText;
-
-    move-result-object v1
-
-    aput-object v1, v0, v2
-
-    iget-object v0, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mPickerTexts:[Landroid/widget/EditText;
-
-    iget-object v1, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mDaySpinner:Lcom/samsung/android/widget/SemNumberPicker;
-
-    invoke-virtual {v1}, Lcom/samsung/android/widget/SemNumberPicker;->getEditText()Landroid/widget/EditText;
-
-    move-result-object v1
-
-    aput-object v1, v0, v3
-
-    iget-object v0, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mPickerTexts:[Landroid/widget/EditText;
-
-    aget-object v0, v0, v4
-
-    new-instance v1, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$TwTextWatcher;
-
-    invoke-direct {v1, p0, v6, v4, v4}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$TwTextWatcher;-><init>(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;IIZ)V
-
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->addTextChangedListener(Landroid/text/TextWatcher;)V
-
-    invoke-direct {p0}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->usingNumericMonths()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_2
-
-    iget-object v0, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mPickerTexts:[Landroid/widget/EditText;
-
-    aget-object v0, v0, v2
-
-    new-instance v1, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$TwTextWatcher;
-
-    invoke-direct {v1, p0, v3, v2, v2}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$TwTextWatcher;-><init>(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;IIZ)V
-
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->addTextChangedListener(Landroid/text/TextWatcher;)V
-
-    iget-object v0, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mPickerTexts:[Landroid/widget/EditText;
-
-    aget-object v0, v0, v2
-
-    iget-object v1, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mEditorActionListener:Landroid/widget/TextView$OnEditorActionListener;
-
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setOnEditorActionListener(Landroid/widget/TextView$OnEditorActionListener;)V
-
-    :goto_3
-    iget-object v0, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mPickerTexts:[Landroid/widget/EditText;
-
-    aget-object v0, v0, v3
-
-    new-instance v1, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$TwTextWatcher;
-
-    invoke-direct {v1, p0, v3, v3, v4}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$TwTextWatcher;-><init>(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;IIZ)V
-
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->addTextChangedListener(Landroid/text/TextWatcher;)V
-
-    iget-object v0, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mPickerTexts:[Landroid/widget/EditText;
-
-    aget-object v0, v0, v3
-
-    iget-object v1, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mYearEditorActionListener:Landroid/widget/TextView$OnEditorActionListener;
-
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setOnEditorActionListener(Landroid/widget/TextView$OnEditorActionListener;)V
+    const/4 v1, 0x2
 
     goto/16 :goto_0
 
     :cond_2
-    iget-object v0, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mPickerTexts:[Landroid/widget/EditText;
+    iget-object v3, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mPickerTexts:[Landroid/widget/EditText;
 
-    aget-object v0, v0, v2
+    aget-object v3, v3, v1
 
-    new-instance v1, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$TwTextWatcher;
+    new-instance v4, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$SemTextWatcher;
 
-    invoke-direct {v1, p0, v5, v2, v2}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$TwTextWatcher;-><init>(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;IIZ)V
+    invoke-direct {v4, p0, v9, v1, v7}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$SemTextWatcher;-><init>(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;IIZ)V
 
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->addTextChangedListener(Landroid/text/TextWatcher;)V
+    invoke-virtual {v3, v4}, Landroid/widget/EditText;->addTextChangedListener(Landroid/text/TextWatcher;)V
 
-    goto :goto_3
+    goto :goto_1
 
-    :pswitch_3
-    iget-object v0, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mPickerTexts:[Landroid/widget/EditText;
-
-    iget-object v1, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mYearSpinner:Lcom/samsung/android/widget/SemNumberPicker;
-
-    invoke-virtual {v1}, Lcom/samsung/android/widget/SemNumberPicker;->getEditText()Landroid/widget/EditText;
-
-    move-result-object v1
-
-    aput-object v1, v0, v4
-
-    iget-object v0, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mPickerTexts:[Landroid/widget/EditText;
-
-    iget-object v1, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mDaySpinner:Lcom/samsung/android/widget/SemNumberPicker;
-
-    invoke-virtual {v1}, Lcom/samsung/android/widget/SemNumberPicker;->getEditText()Landroid/widget/EditText;
-
-    move-result-object v1
-
-    aput-object v1, v0, v2
-
-    iget-object v0, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mPickerTexts:[Landroid/widget/EditText;
-
-    iget-object v1, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mMonthSpinner:Lcom/samsung/android/widget/SemNumberPicker;
-
-    invoke-virtual {v1}, Lcom/samsung/android/widget/SemNumberPicker;->getEditText()Landroid/widget/EditText;
-
-    move-result-object v1
-
-    aput-object v1, v0, v3
-
-    iget-object v0, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mPickerTexts:[Landroid/widget/EditText;
-
-    aget-object v0, v0, v4
-
-    new-instance v1, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$TwTextWatcher;
-
-    invoke-direct {v1, p0, v6, v4, v4}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$TwTextWatcher;-><init>(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;IIZ)V
-
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->addTextChangedListener(Landroid/text/TextWatcher;)V
-
-    iget-object v0, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mPickerTexts:[Landroid/widget/EditText;
-
-    aget-object v0, v0, v2
-
-    new-instance v1, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$TwTextWatcher;
-
-    invoke-direct {v1, p0, v3, v2, v4}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$TwTextWatcher;-><init>(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;IIZ)V
-
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->addTextChangedListener(Landroid/text/TextWatcher;)V
-
-    invoke-direct {p0}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->usingNumericMonths()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_3
-
-    iget-object v0, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mPickerTexts:[Landroid/widget/EditText;
-
-    aget-object v0, v0, v3
-
-    new-instance v1, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$TwTextWatcher;
-
-    invoke-direct {v1, p0, v3, v3, v2}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$TwTextWatcher;-><init>(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;IIZ)V
-
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->addTextChangedListener(Landroid/text/TextWatcher;)V
-
-    iget-object v0, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mPickerTexts:[Landroid/widget/EditText;
-
-    aget-object v0, v0, v3
-
-    iget-object v1, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mEditorActionListener:Landroid/widget/TextView$OnEditorActionListener;
-
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setOnEditorActionListener(Landroid/widget/TextView$OnEditorActionListener;)V
-
-    goto/16 :goto_0
-
-    :cond_3
-    iget-object v0, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mPickerTexts:[Landroid/widget/EditText;
-
-    aget-object v0, v0, v3
-
-    new-instance v1, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$TwTextWatcher;
-
-    invoke-direct {v1, p0, v5, v3, v2}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$TwTextWatcher;-><init>(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;IIZ)V
-
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->addTextChangedListener(Landroid/text/TextWatcher;)V
-
-    goto/16 :goto_0
+    nop
 
     :pswitch_data_0
     .packed-switch 0x0
@@ -2170,46 +1926,19 @@
     .end packed-switch
 .end method
 
-.method private trySetContentDescription(Landroid/view/View;II)V
-    .locals 2
-
-    invoke-virtual {p1, p2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_0
-
-    iget-object v1, p0, Landroid/view/View;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v1, p3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Landroid/view/View;->setContentDescription(Ljava/lang/CharSequence;)V
-
-    :cond_0
-    return-void
-.end method
-
-.method private twLog(Ljava/lang/String;)V
-    .locals 0
-
-    return-void
-.end method
-
-.method private updateModeState(Lcom/samsung/android/widget/SemNumberPicker;Z)V
+.method private updateModeState(Z)V
     .locals 2
 
     const/4 v1, 0x0
 
     iget-boolean v0, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mIsEditTextMode:Z
 
-    if-ne v0, p2, :cond_0
+    if-ne v0, p1, :cond_0
 
     return-void
 
     :cond_0
-    if-nez p2, :cond_3
+    if-nez p1, :cond_3
 
     iget-object v0, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mDaySpinner:Lcom/samsung/android/widget/SemNumberPicker;
 
@@ -2254,205 +1983,255 @@
 .end method
 
 .method private updateSpinners(ZZZZ)V
-    .locals 15
+    .locals 18
 
     if-eqz p2, :cond_0
 
-    iget-object v12, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mYearSpinner:Lcom/samsung/android/widget/SemNumberPicker;
+    move-object/from16 v0, p0
 
-    iget-object v13, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mMinDate:Ljava/util/Calendar;
+    iget-object v14, v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mYearSpinner:Lcom/samsung/android/widget/SemNumberPicker;
 
-    const/4 v14, 0x1
+    move-object/from16 v0, p0
 
-    invoke-virtual {v13, v14}, Ljava/util/Calendar;->get(I)I
+    iget-object v15, v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mMinDate:Ljava/util/Calendar;
 
-    move-result v13
+    const/16 v16, 0x1
 
-    invoke-virtual {v12, v13}, Lcom/samsung/android/widget/SemNumberPicker;->setMinValue(I)V
+    invoke-virtual/range {v15 .. v16}, Ljava/util/Calendar;->get(I)I
 
-    iget-object v12, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mYearSpinner:Lcom/samsung/android/widget/SemNumberPicker;
+    move-result v15
 
-    iget-object v13, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mMaxDate:Ljava/util/Calendar;
+    invoke-virtual {v14, v15}, Lcom/samsung/android/widget/SemNumberPicker;->setMinValue(I)V
 
-    const/4 v14, 0x1
+    move-object/from16 v0, p0
 
-    invoke-virtual {v13, v14}, Ljava/util/Calendar;->get(I)I
+    iget-object v14, v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mYearSpinner:Lcom/samsung/android/widget/SemNumberPicker;
 
-    move-result v13
+    move-object/from16 v0, p0
 
-    invoke-virtual {v12, v13}, Lcom/samsung/android/widget/SemNumberPicker;->setMaxValue(I)V
+    iget-object v15, v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mMaxDate:Ljava/util/Calendar;
 
-    iget-object v12, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mYearSpinner:Lcom/samsung/android/widget/SemNumberPicker;
+    const/16 v16, 0x1
 
-    const/4 v13, 0x0
+    invoke-virtual/range {v15 .. v16}, Ljava/util/Calendar;->get(I)I
 
-    invoke-virtual {v12, v13}, Lcom/samsung/android/widget/SemNumberPicker;->setWrapSelectorWheel(Z)V
+    move-result v15
+
+    invoke-virtual {v14, v15}, Lcom/samsung/android/widget/SemNumberPicker;->setMaxValue(I)V
+
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mYearSpinner:Lcom/samsung/android/widget/SemNumberPicker;
+
+    const/4 v15, 0x0
+
+    invoke-virtual {v14, v15}, Lcom/samsung/android/widget/SemNumberPicker;->setWrapSelectorWheel(Z)V
 
     :cond_0
     if-eqz p3, :cond_2
 
-    iget-object v12, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mMinDate:Ljava/util/Calendar;
+    move-object/from16 v0, p0
 
-    const/4 v13, 0x1
+    iget-object v14, v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mMinDate:Ljava/util/Calendar;
 
-    invoke-virtual {v12, v13}, Ljava/util/Calendar;->get(I)I
+    const/4 v15, 0x1
+
+    invoke-virtual {v14, v15}, Ljava/util/Calendar;->get(I)I
+
+    move-result v10
+
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mMaxDate:Ljava/util/Calendar;
+
+    const/4 v15, 0x1
+
+    invoke-virtual {v14, v15}, Ljava/util/Calendar;->get(I)I
+
+    move-result v7
+
+    sub-int v3, v7, v10
+
+    if-nez v3, :cond_5
+
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mMinDate:Ljava/util/Calendar;
+
+    const/4 v15, 0x2
+
+    invoke-virtual {v14, v15}, Ljava/util/Calendar;->get(I)I
 
     move-result v9
 
-    iget-object v12, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mMaxDate:Ljava/util/Calendar;
+    move-object/from16 v0, p0
 
-    const/4 v13, 0x1
+    iget-object v14, v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mMaxDate:Ljava/util/Calendar;
 
-    invoke-virtual {v12, v13}, Ljava/util/Calendar;->get(I)I
+    const/4 v15, 0x2
+
+    invoke-virtual {v14, v15}, Ljava/util/Calendar;->get(I)I
 
     move-result v6
 
-    sub-int v2, v6, v9
-
-    if-nez v2, :cond_5
-
-    iget-object v12, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mMinDate:Ljava/util/Calendar;
-
-    const/4 v13, 0x2
-
-    invoke-virtual {v12, v13}, Ljava/util/Calendar;->get(I)I
-
-    move-result v8
-
-    iget-object v12, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mMaxDate:Ljava/util/Calendar;
-
-    const/4 v13, 0x2
-
-    invoke-virtual {v12, v13}, Ljava/util/Calendar;->get(I)I
-
-    move-result v5
-
     :goto_0
-    invoke-direct {p0}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->usingNumericMonths()Z
-
-    move-result v12
-
-    if-eqz v12, :cond_1
-
-    add-int/lit8 v8, v8, 0x1
-
-    add-int/lit8 v5, v5, 0x1
-
-    :cond_1
-    iget-object v12, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mMonthSpinner:Lcom/samsung/android/widget/SemNumberPicker;
-
-    const/4 v13, 0x0
-
-    invoke-virtual {v12, v13}, Lcom/samsung/android/widget/SemNumberPicker;->setDisplayedValues([Ljava/lang/String;)V
-
-    iget-object v12, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mMonthSpinner:Lcom/samsung/android/widget/SemNumberPicker;
-
-    invoke-virtual {v12, v8}, Lcom/samsung/android/widget/SemNumberPicker;->setMinValue(I)V
-
-    iget-object v12, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mMonthSpinner:Lcom/samsung/android/widget/SemNumberPicker;
-
-    invoke-virtual {v12, v5}, Lcom/samsung/android/widget/SemNumberPicker;->setMaxValue(I)V
-
-    invoke-direct {p0}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->usingNumericMonths()Z
-
-    move-result v12
-
-    if-nez v12, :cond_2
-
-    iget-object v12, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mShortMonths:[Ljava/lang/String;
-
-    iget-object v13, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mMonthSpinner:Lcom/samsung/android/widget/SemNumberPicker;
-
-    invoke-virtual {v13}, Lcom/samsung/android/widget/SemNumberPicker;->getMinValue()I
-
-    move-result v13
-
-    iget-object v14, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mMonthSpinner:Lcom/samsung/android/widget/SemNumberPicker;
-
-    invoke-virtual {v14}, Lcom/samsung/android/widget/SemNumberPicker;->getMaxValue()I
+    invoke-direct/range {p0 .. p0}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->usingNumericMonths()Z
 
     move-result v14
 
-    add-int/lit8 v14, v14, 0x1
+    if-eqz v14, :cond_1
 
-    invoke-static {v12, v13, v14}, Ljava/util/Arrays;->copyOfRange([Ljava/lang/Object;II)[Ljava/lang/Object;
+    add-int/lit8 v9, v9, 0x1
 
-    move-result-object v3
+    add-int/lit8 v6, v6, 0x1
 
-    check-cast v3, [Ljava/lang/String;
+    :cond_1
+    move-object/from16 v0, p0
 
-    iget-object v12, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mMonthSpinner:Lcom/samsung/android/widget/SemNumberPicker;
+    iget-object v14, v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mMonthSpinner:Lcom/samsung/android/widget/SemNumberPicker;
 
-    invoke-virtual {v12, v3}, Lcom/samsung/android/widget/SemNumberPicker;->setDisplayedValues([Ljava/lang/String;)V
+    const/4 v15, 0x0
+
+    invoke-virtual {v14, v15}, Lcom/samsung/android/widget/SemNumberPicker;->setDisplayedValues([Ljava/lang/String;)V
+
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mMonthSpinner:Lcom/samsung/android/widget/SemNumberPicker;
+
+    invoke-virtual {v14, v9}, Lcom/samsung/android/widget/SemNumberPicker;->setMinValue(I)V
+
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mMonthSpinner:Lcom/samsung/android/widget/SemNumberPicker;
+
+    invoke-virtual {v14, v6}, Lcom/samsung/android/widget/SemNumberPicker;->setMaxValue(I)V
+
+    invoke-direct/range {p0 .. p0}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->usingNumericMonths()Z
+
+    move-result v14
+
+    if-nez v14, :cond_2
+
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mShortMonths:[Ljava/lang/String;
+
+    move-object/from16 v0, p0
+
+    iget-object v15, v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mMonthSpinner:Lcom/samsung/android/widget/SemNumberPicker;
+
+    invoke-virtual {v15}, Lcom/samsung/android/widget/SemNumberPicker;->getMinValue()I
+
+    move-result v15
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mMonthSpinner:Lcom/samsung/android/widget/SemNumberPicker;
+
+    move-object/from16 v16, v0
+
+    invoke-virtual/range {v16 .. v16}, Lcom/samsung/android/widget/SemNumberPicker;->getMaxValue()I
+
+    move-result v16
+
+    add-int/lit8 v16, v16, 0x1
+
+    invoke-static/range {v14 .. v16}, Ljava/util/Arrays;->copyOfRange([Ljava/lang/Object;II)[Ljava/lang/Object;
+
+    move-result-object v4
+
+    check-cast v4, [Ljava/lang/String;
+
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mMonthSpinner:Lcom/samsung/android/widget/SemNumberPicker;
+
+    invoke-virtual {v14, v4}, Lcom/samsung/android/widget/SemNumberPicker;->setDisplayedValues([Ljava/lang/String;)V
 
     :cond_2
     if-eqz p4, :cond_4
 
-    iget-object v12, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mMinDate:Ljava/util/Calendar;
+    move-object/from16 v0, p0
 
-    const/4 v13, 0x1
+    iget-object v14, v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mMinDate:Ljava/util/Calendar;
 
-    invoke-virtual {v12, v13}, Ljava/util/Calendar;->get(I)I
+    const/4 v15, 0x1
+
+    invoke-virtual {v14, v15}, Ljava/util/Calendar;->get(I)I
+
+    move-result v10
+
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mMaxDate:Ljava/util/Calendar;
+
+    const/4 v15, 0x1
+
+    invoke-virtual {v14, v15}, Ljava/util/Calendar;->get(I)I
+
+    move-result v7
+
+    sub-int v3, v7, v10
+
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mMinDate:Ljava/util/Calendar;
+
+    const/4 v15, 0x2
+
+    invoke-virtual {v14, v15}, Ljava/util/Calendar;->get(I)I
 
     move-result v9
 
-    iget-object v12, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mMaxDate:Ljava/util/Calendar;
+    move-object/from16 v0, p0
 
-    const/4 v13, 0x1
+    iget-object v14, v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mMaxDate:Ljava/util/Calendar;
 
-    invoke-virtual {v12, v13}, Ljava/util/Calendar;->get(I)I
+    const/4 v15, 0x2
+
+    invoke-virtual {v14, v15}, Ljava/util/Calendar;->get(I)I
 
     move-result v6
 
     sub-int v2, v6, v9
 
-    iget-object v12, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mMinDate:Ljava/util/Calendar;
-
-    const/4 v13, 0x2
-
-    invoke-virtual {v12, v13}, Ljava/util/Calendar;->get(I)I
-
-    move-result v8
-
-    iget-object v12, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mMaxDate:Ljava/util/Calendar;
-
-    const/4 v13, 0x2
-
-    invoke-virtual {v12, v13}, Ljava/util/Calendar;->get(I)I
-
-    move-result v5
-
-    sub-int v1, v5, v8
+    if-nez v3, :cond_9
 
     if-nez v2, :cond_9
 
-    if-nez v1, :cond_9
+    move-object/from16 v0, p0
 
-    iget-object v12, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mMinDate:Ljava/util/Calendar;
+    iget-object v14, v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mMinDate:Ljava/util/Calendar;
 
-    const/4 v13, 0x5
+    const/4 v15, 0x5
 
-    invoke-virtual {v12, v13}, Ljava/util/Calendar;->get(I)I
+    invoke-virtual {v14, v15}, Ljava/util/Calendar;->get(I)I
 
-    move-result v7
+    move-result v8
 
-    iget-object v12, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mMaxDate:Ljava/util/Calendar;
+    move-object/from16 v0, p0
 
-    const/4 v13, 0x5
+    iget-object v14, v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mMaxDate:Ljava/util/Calendar;
 
-    invoke-virtual {v12, v13}, Ljava/util/Calendar;->get(I)I
+    const/4 v15, 0x5
 
-    move-result v4
+    invoke-virtual {v14, v15}, Ljava/util/Calendar;->get(I)I
+
+    move-result v5
 
     :cond_3
     :goto_1
-    iget-object v12, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mDaySpinner:Lcom/samsung/android/widget/SemNumberPicker;
+    move-object/from16 v0, p0
 
-    invoke-virtual {v12, v7}, Lcom/samsung/android/widget/SemNumberPicker;->setMinValue(I)V
+    iget-object v14, v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mDaySpinner:Lcom/samsung/android/widget/SemNumberPicker;
 
-    iget-object v12, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mDaySpinner:Lcom/samsung/android/widget/SemNumberPicker;
+    invoke-virtual {v14, v8}, Lcom/samsung/android/widget/SemNumberPicker;->setMinValue(I)V
 
-    invoke-virtual {v12, v4}, Lcom/samsung/android/widget/SemNumberPicker;->setMaxValue(I)V
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mDaySpinner:Lcom/samsung/android/widget/SemNumberPicker;
+
+    invoke-virtual {v14, v5}, Lcom/samsung/android/widget/SemNumberPicker;->setMaxValue(I)V
 
     :cond_4
     if-nez p1, :cond_d
@@ -2460,311 +2239,429 @@
     return-void
 
     :cond_5
-    iget-object v12, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mCurrentDate:Ljava/util/Calendar;
+    move-object/from16 v0, p0
 
-    const/4 v13, 0x1
+    iget-object v14, v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mCurrentDate:Ljava/util/Calendar;
 
-    invoke-virtual {v12, v13}, Ljava/util/Calendar;->get(I)I
+    const/4 v15, 0x1
 
-    move-result v11
+    invoke-virtual {v14, v15}, Ljava/util/Calendar;->get(I)I
 
-    iget-boolean v12, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mIsLunar:Z
+    move-result v13
 
-    if-eqz v12, :cond_6
+    move-object/from16 v0, p0
 
-    iget v11, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mLunarCurrentYear:I
+    iget-boolean v14, v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mIsLunar:Z
+
+    if-eqz v14, :cond_6
+
+    move-object/from16 v0, p0
+
+    iget v13, v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mLunarCurrentYear:I
 
     :cond_6
-    iget-object v12, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mMinDate:Ljava/util/Calendar;
+    move-object/from16 v0, p0
 
-    const/4 v13, 0x1
+    iget-object v14, v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mMinDate:Ljava/util/Calendar;
 
-    invoke-virtual {v12, v13}, Ljava/util/Calendar;->get(I)I
+    const/4 v15, 0x1
 
-    move-result v12
+    invoke-virtual {v14, v15}, Ljava/util/Calendar;->get(I)I
 
-    if-ne v11, v12, :cond_7
+    move-result v14
 
-    iget-object v12, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mMinDate:Ljava/util/Calendar;
+    if-ne v13, v14, :cond_7
 
-    const/4 v13, 0x2
+    move-object/from16 v0, p0
 
-    invoke-virtual {v12, v13}, Ljava/util/Calendar;->get(I)I
+    iget-object v14, v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mMinDate:Ljava/util/Calendar;
 
-    move-result v8
+    const/4 v15, 0x2
 
-    const/16 v5, 0xb
+    invoke-virtual {v14, v15}, Ljava/util/Calendar;->get(I)I
+
+    move-result v9
+
+    const/16 v6, 0xb
 
     goto/16 :goto_0
 
     :cond_7
-    iget-object v12, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mMaxDate:Ljava/util/Calendar;
+    move-object/from16 v0, p0
 
-    const/4 v13, 0x1
+    iget-object v14, v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mMaxDate:Ljava/util/Calendar;
 
-    invoke-virtual {v12, v13}, Ljava/util/Calendar;->get(I)I
+    const/4 v15, 0x1
 
-    move-result v12
+    invoke-virtual {v14, v15}, Ljava/util/Calendar;->get(I)I
 
-    if-ne v11, v12, :cond_8
+    move-result v14
 
-    const/4 v8, 0x0
+    if-ne v13, v14, :cond_8
 
-    iget-object v12, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mMaxDate:Ljava/util/Calendar;
+    const/4 v9, 0x0
 
-    const/4 v13, 0x2
+    move-object/from16 v0, p0
 
-    invoke-virtual {v12, v13}, Ljava/util/Calendar;->get(I)I
+    iget-object v14, v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mMaxDate:Ljava/util/Calendar;
 
-    move-result v5
+    const/4 v15, 0x2
+
+    invoke-virtual {v14, v15}, Ljava/util/Calendar;->get(I)I
+
+    move-result v6
 
     goto/16 :goto_0
 
     :cond_8
-    const/4 v8, 0x0
+    const/4 v9, 0x0
 
-    const/16 v5, 0xb
+    const/16 v6, 0xb
 
     goto/16 :goto_0
 
     :cond_9
-    iget-object v12, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mCurrentDate:Ljava/util/Calendar;
+    move-object/from16 v0, p0
 
-    const/4 v13, 0x1
+    iget-object v14, v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mCurrentDate:Ljava/util/Calendar;
 
-    invoke-virtual {v12, v13}, Ljava/util/Calendar;->get(I)I
+    const/4 v15, 0x1
+
+    invoke-virtual {v14, v15}, Ljava/util/Calendar;->get(I)I
+
+    move-result v13
+
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mCurrentDate:Ljava/util/Calendar;
+
+    const/4 v15, 0x2
+
+    invoke-virtual {v14, v15}, Ljava/util/Calendar;->get(I)I
 
     move-result v11
 
-    iget-object v12, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mCurrentDate:Ljava/util/Calendar;
+    move-object/from16 v0, p0
 
-    const/4 v13, 0x2
+    iget-boolean v14, v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mIsLunar:Z
 
-    invoke-virtual {v12, v13}, Ljava/util/Calendar;->get(I)I
+    if-eqz v14, :cond_a
 
-    move-result v10
+    move-object/from16 v0, p0
 
-    iget-boolean v12, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mIsLunar:Z
+    iget v13, v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mLunarCurrentYear:I
 
-    if-eqz v12, :cond_a
+    move-object/from16 v0, p0
 
-    iget v11, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mLunarCurrentYear:I
-
-    iget v10, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mLunarCurrentMonth:I
+    iget v11, v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mLunarCurrentMonth:I
 
     :cond_a
-    iget-object v12, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mMinDate:Ljava/util/Calendar;
+    move-object/from16 v0, p0
 
-    const/4 v13, 0x1
+    iget-object v14, v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mMinDate:Ljava/util/Calendar;
 
-    invoke-virtual {v12, v13}, Ljava/util/Calendar;->get(I)I
+    const/4 v15, 0x1
 
-    move-result v12
+    invoke-virtual {v14, v15}, Ljava/util/Calendar;->get(I)I
 
-    if-ne v11, v12, :cond_b
+    move-result v14
 
-    iget-object v12, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mMinDate:Ljava/util/Calendar;
+    if-ne v13, v14, :cond_b
 
-    const/4 v13, 0x2
+    move-object/from16 v0, p0
 
-    invoke-virtual {v12, v13}, Ljava/util/Calendar;->get(I)I
+    iget-object v14, v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mMinDate:Ljava/util/Calendar;
 
-    move-result v12
+    const/4 v15, 0x2
 
-    if-ne v10, v12, :cond_b
+    invoke-virtual {v14, v15}, Ljava/util/Calendar;->get(I)I
 
-    iget-object v12, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mMinDate:Ljava/util/Calendar;
+    move-result v14
 
-    const/4 v13, 0x5
+    if-ne v11, v14, :cond_b
 
-    invoke-virtual {v12, v13}, Ljava/util/Calendar;->get(I)I
+    move-object/from16 v0, p0
 
-    move-result v7
+    iget-object v14, v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mMinDate:Ljava/util/Calendar;
 
-    iget-object v12, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mCurrentDate:Ljava/util/Calendar;
+    const/4 v15, 0x5
 
-    const/4 v13, 0x5
+    invoke-virtual {v14, v15}, Ljava/util/Calendar;->get(I)I
 
-    invoke-virtual {v12, v13}, Ljava/util/Calendar;->getActualMaximum(I)I
+    move-result v8
 
-    move-result v4
+    move-object/from16 v0, p0
 
-    iget-boolean v12, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mIsLunar:Z
+    iget-object v14, v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mCurrentDate:Ljava/util/Calendar;
 
-    if-eqz v12, :cond_3
+    const/4 v15, 0x5
 
-    iget-boolean v12, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mIsLeapMonth:Z
+    invoke-virtual {v14, v15}, Ljava/util/Calendar;->getActualMaximum(I)I
 
-    invoke-direct {p0, v11, v10, v12}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->getLunarMaxDayOfMonth(IIZ)I
+    move-result v5
 
-    move-result v4
+    move-object/from16 v0, p0
+
+    iget-boolean v14, v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mIsLunar:Z
+
+    if-eqz v14, :cond_3
+
+    move-object/from16 v0, p0
+
+    iget-boolean v14, v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mIsLeapMonth:Z
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v13, v11, v14}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->getLunarMaxDayOfMonth(IIZ)I
+
+    move-result v5
 
     goto/16 :goto_1
 
     :cond_b
-    iget-object v12, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mMaxDate:Ljava/util/Calendar;
+    move-object/from16 v0, p0
 
-    const/4 v13, 0x1
+    iget-object v14, v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mMaxDate:Ljava/util/Calendar;
 
-    invoke-virtual {v12, v13}, Ljava/util/Calendar;->get(I)I
+    const/4 v15, 0x1
 
-    move-result v12
+    invoke-virtual {v14, v15}, Ljava/util/Calendar;->get(I)I
 
-    if-ne v11, v12, :cond_c
+    move-result v14
 
-    iget-object v12, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mMaxDate:Ljava/util/Calendar;
+    if-ne v13, v14, :cond_c
 
-    const/4 v13, 0x2
+    move-object/from16 v0, p0
 
-    invoke-virtual {v12, v13}, Ljava/util/Calendar;->get(I)I
+    iget-object v14, v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mMaxDate:Ljava/util/Calendar;
 
-    move-result v12
+    const/4 v15, 0x2
 
-    if-ne v10, v12, :cond_c
+    invoke-virtual {v14, v15}, Ljava/util/Calendar;->get(I)I
 
-    const/4 v7, 0x1
+    move-result v14
 
-    iget-object v12, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mMaxDate:Ljava/util/Calendar;
+    if-ne v11, v14, :cond_c
 
-    const/4 v13, 0x5
+    const/4 v8, 0x1
 
-    invoke-virtual {v12, v13}, Ljava/util/Calendar;->get(I)I
+    move-object/from16 v0, p0
 
-    move-result v4
+    iget-object v14, v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mMaxDate:Ljava/util/Calendar;
+
+    const/4 v15, 0x5
+
+    invoke-virtual {v14, v15}, Ljava/util/Calendar;->get(I)I
+
+    move-result v5
+
+    move-object/from16 v0, p0
+
+    iget-boolean v14, v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mIsLunar:Z
+
+    if-eqz v14, :cond_3
+
+    move-object/from16 v0, p0
+
+    iget-boolean v14, v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mIsLeapMonth:Z
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v13, v11, v14}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->getLunarMaxDayOfMonth(IIZ)I
+
+    move-result v14
+
+    invoke-static {v5, v14}, Ljava/lang/Math;->min(II)I
+
+    move-result v5
 
     goto/16 :goto_1
 
     :cond_c
-    const/4 v7, 0x1
+    const/4 v8, 0x1
 
-    iget-object v12, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mCurrentDate:Ljava/util/Calendar;
+    move-object/from16 v0, p0
 
-    const/4 v13, 0x5
+    iget-object v14, v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mCurrentDate:Ljava/util/Calendar;
 
-    invoke-virtual {v12, v13}, Ljava/util/Calendar;->getActualMaximum(I)I
+    const/4 v15, 0x5
 
-    move-result v4
+    invoke-virtual {v14, v15}, Ljava/util/Calendar;->getActualMaximum(I)I
 
-    iget-boolean v12, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mIsLunar:Z
+    move-result v5
 
-    if-eqz v12, :cond_3
+    move-object/from16 v0, p0
 
-    iget-boolean v12, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mIsLeapMonth:Z
+    iget-boolean v14, v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mIsLunar:Z
 
-    invoke-direct {p0, v11, v10, v12}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->getLunarMaxDayOfMonth(IIZ)I
+    if-eqz v14, :cond_3
 
-    move-result v4
+    move-object/from16 v0, p0
+
+    iget-boolean v14, v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mIsLeapMonth:Z
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v13, v11, v14}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->getLunarMaxDayOfMonth(IIZ)I
+
+    move-result v5
 
     goto/16 :goto_1
 
     :cond_d
-    iget-object v12, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mYearSpinner:Lcom/samsung/android/widget/SemNumberPicker;
+    move-object/from16 v0, p0
 
-    iget-object v13, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mCurrentDate:Ljava/util/Calendar;
+    iget-object v14, v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mYearSpinner:Lcom/samsung/android/widget/SemNumberPicker;
 
-    const/4 v14, 0x1
+    move-object/from16 v0, p0
 
-    invoke-virtual {v13, v14}, Ljava/util/Calendar;->get(I)I
+    iget-object v15, v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mCurrentDate:Ljava/util/Calendar;
 
-    move-result v13
+    const/16 v16, 0x1
 
-    invoke-virtual {v12, v13}, Lcom/samsung/android/widget/SemNumberPicker;->setValue(I)V
+    invoke-virtual/range {v15 .. v16}, Ljava/util/Calendar;->get(I)I
 
-    iget-object v12, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mYearSpinnerInput:Landroid/widget/EditText;
+    move-result v15
 
-    invoke-virtual {v12}, Landroid/view/View;->hasFocus()Z
+    invoke-virtual {v14, v15}, Lcom/samsung/android/widget/SemNumberPicker;->setValue(I)V
 
-    move-result v12
+    move-object/from16 v0, p0
 
-    if-eqz v12, :cond_e
+    iget-object v14, v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mCurrentDate:Ljava/util/Calendar;
 
-    iget-object v12, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mYearSpinnerInput:Landroid/widget/EditText;
+    const/4 v15, 0x2
 
-    invoke-virtual {v12}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
+    invoke-virtual {v14, v15}, Ljava/util/Calendar;->get(I)I
 
-    move-result-object v12
+    move-result v11
 
-    iget-object v13, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mYearSpinnerInput:Landroid/widget/EditText;
+    move-object/from16 v0, p0
 
-    invoke-virtual {v13}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
+    iget-boolean v14, v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mIsLunar:Z
 
-    move-result-object v13
+    if-eqz v14, :cond_e
 
-    invoke-interface {v13}, Landroid/text/Editable;->length()I
+    move-object/from16 v0, p0
 
-    move-result v13
-
-    invoke-static {v12, v13}, Landroid/text/Selection;->setSelection(Landroid/text/Spannable;I)V
+    iget v11, v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mLunarCurrentMonth:I
 
     :cond_e
-    iget-object v12, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mCurrentDate:Ljava/util/Calendar;
+    invoke-direct/range {p0 .. p0}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->usingNumericMonths()Z
 
-    const/4 v13, 0x2
+    move-result v14
 
-    invoke-virtual {v12, v13}, Ljava/util/Calendar;->get(I)I
+    if-eqz v14, :cond_12
 
-    move-result v10
+    move-object/from16 v0, p0
 
-    iget-boolean v12, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mIsLunar:Z
+    iget-object v14, v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mMonthSpinner:Lcom/samsung/android/widget/SemNumberPicker;
 
-    if-eqz v12, :cond_f
+    add-int/lit8 v15, v11, 0x1
 
-    iget v10, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mLunarCurrentMonth:I
-
-    :cond_f
-    invoke-direct {p0}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->usingNumericMonths()Z
-
-    move-result v12
-
-    if-eqz v12, :cond_12
-
-    iget-object v12, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mMonthSpinner:Lcom/samsung/android/widget/SemNumberPicker;
-
-    add-int/lit8 v13, v10, 0x1
-
-    invoke-virtual {v12, v13}, Lcom/samsung/android/widget/SemNumberPicker;->setValue(I)V
+    invoke-virtual {v14, v15}, Lcom/samsung/android/widget/SemNumberPicker;->setValue(I)V
 
     :goto_2
-    iget-object v12, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mCurrentDate:Ljava/util/Calendar;
+    move-object/from16 v0, p0
 
-    const/4 v13, 0x5
+    iget-object v14, v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mCurrentDate:Ljava/util/Calendar;
 
-    invoke-virtual {v12, v13}, Ljava/util/Calendar;->get(I)I
+    const/4 v15, 0x5
 
-    move-result v0
+    invoke-virtual {v14, v15}, Ljava/util/Calendar;->get(I)I
 
-    iget-boolean v12, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mIsLunar:Z
+    move-result v1
 
-    if-eqz v12, :cond_10
+    move-object/from16 v0, p0
 
-    iget v0, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mLunarCurrentDay:I
+    iget-boolean v14, v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mIsLunar:Z
+
+    if-eqz v14, :cond_f
+
+    move-object/from16 v0, p0
+
+    iget v1, v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mLunarCurrentDay:I
+
+    :cond_f
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mDaySpinner:Lcom/samsung/android/widget/SemNumberPicker;
+
+    invoke-virtual {v14, v1}, Lcom/samsung/android/widget/SemNumberPicker;->setValue(I)V
+
+    invoke-direct/range {p0 .. p0}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->usingNumericMonths()Z
+
+    move-result v14
+
+    if-eqz v14, :cond_10
+
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mMonthSpinnerInput:Landroid/widget/EditText;
+
+    const/4 v15, 0x2
+
+    invoke-virtual {v14, v15}, Landroid/widget/EditText;->setRawInputType(I)V
 
     :cond_10
-    iget-object v12, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mDaySpinner:Lcom/samsung/android/widget/SemNumberPicker;
+    move-object/from16 v0, p0
 
-    invoke-virtual {v12, v0}, Lcom/samsung/android/widget/SemNumberPicker;->setValue(I)V
+    iget-boolean v14, v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mIsEditTextMode:Z
 
-    invoke-direct {p0}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->usingNumericMonths()Z
+    if-eqz v14, :cond_11
 
-    move-result v12
+    move-object/from16 v0, p0
 
-    if-eqz v12, :cond_11
+    iget-object v14, v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mPickerTexts:[Landroid/widget/EditText;
 
-    iget-object v12, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mMonthSpinnerInput:Landroid/widget/EditText;
+    if-eqz v14, :cond_11
 
-    const/4 v13, 0x2
+    move-object/from16 v0, p0
 
-    invoke-virtual {v12, v13}, Landroid/widget/TextView;->setRawInputType(I)V
+    iget-object v15, v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mPickerTexts:[Landroid/widget/EditText;
+
+    const/4 v14, 0x0
+
+    array-length v0, v15
+
+    move/from16 v16, v0
+
+    :goto_3
+    move/from16 v0, v16
+
+    if-ge v14, v0, :cond_11
+
+    aget-object v12, v15, v14
+
+    invoke-virtual {v12}, Landroid/widget/EditText;->hasFocus()Z
+
+    move-result v17
+
+    if-eqz v17, :cond_13
+
+    const/4 v14, 0x0
+
+    const/4 v15, 0x0
+
+    invoke-virtual {v12, v14, v15}, Landroid/widget/EditText;->setSelection(II)V
+
+    invoke-virtual {v12}, Landroid/widget/EditText;->selectAll()V
 
     :cond_11
     return-void
 
     :cond_12
-    iget-object v12, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mMonthSpinner:Lcom/samsung/android/widget/SemNumberPicker;
+    move-object/from16 v0, p0
 
-    invoke-virtual {v12, v10}, Lcom/samsung/android/widget/SemNumberPicker;->setValue(I)V
+    iget-object v14, v0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mMonthSpinner:Lcom/samsung/android/widget/SemNumberPicker;
+
+    invoke-virtual {v14, v11}, Lcom/samsung/android/widget/SemNumberPicker;->setValue(I)V
 
     goto :goto_2
+
+    :cond_13
+    add-int/lit8 v14, v14, 0x1
+
+    goto :goto_3
 .end method
 
 .method private usingNumericMonths()Z
@@ -2966,7 +2863,7 @@
     return v0
 .end method
 
-.method public init(IIILcom/samsung/android/widget/SemDatePicker$OnDateChangedListener;)V
+.method public init(III)V
     .locals 1
 
     const/4 v0, 0x1
@@ -2974,8 +2871,6 @@
     invoke-direct {p0, p1, p2, p3}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->setDate(III)V
 
     invoke-direct {p0, v0, v0, v0, v0}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->updateSpinners(ZZZZ)V
-
-    iput-object p4, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mOnDateChangedListener:Lcom/samsung/android/widget/SemDatePicker$OnDateChangedListener;
 
     return-void
 .end method
@@ -3005,7 +2900,7 @@
 
     const/16 v0, 0x14
 
-    iget-object v2, p0, Landroid/view/View;->mContext:Landroid/content/Context;
+    iget-object v2, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mContext:Landroid/content/Context;
 
     iget-object v3, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mCurrentDate:Ljava/util/Calendar;
 
@@ -3019,7 +2914,7 @@
 
     move-result-object v1
 
-    invoke-virtual {p1}, Landroid/view/accessibility/AccessibilityRecord;->getText()Ljava/util/List;
+    invoke-virtual {p1}, Landroid/view/accessibility/AccessibilityEvent;->getText()Ljava/util/List;
 
     move-result-object v2
 
@@ -3176,7 +3071,7 @@
     :cond_0
     iput-boolean p1, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mIsEditTextMode:Z
 
-    iget-object v1, p0, Landroid/view/View;->mContext:Landroid/content/Context;
+    iget-object v1, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mContext:Landroid/content/Context;
 
     const-string/jumbo v2, "input_method"
 
@@ -3198,19 +3093,19 @@
 
     invoke-virtual {v1, p1}, Lcom/samsung/android/widget/SemNumberPicker;->setEditTextMode(Z)V
 
+    if-eqz v0, :cond_1
+
     iget-boolean v1, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mIsEditTextMode:Z
 
     if-nez v1, :cond_3
-
-    if-eqz v0, :cond_1
 
     invoke-virtual {v0}, Landroid/view/inputmethod/InputMethodManager;->isInputMethodShown()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_3
 
-    invoke-virtual {p0}, Landroid/view/View;->getWindowToken()Landroid/os/IBinder;
+    invoke-virtual {p0}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->getWindowToken()Landroid/os/IBinder;
 
     move-result-object v1
 
@@ -3232,13 +3127,17 @@
     return-void
 
     :cond_3
-    if-eqz v0, :cond_1
+    iget-boolean v1, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mIsEditTextMode:Z
+
+    if-eqz v1, :cond_1
 
     invoke-virtual {v0}, Landroid/view/inputmethod/InputMethodManager;->isInputMethodShown()Z
 
     move-result v1
 
-    if-nez v1, :cond_1
+    xor-int/lit8 v1, v1, 0x1
+
+    if-eqz v1, :cond_1
 
     iget-object v1, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mDaySpinner:Lcom/samsung/android/widget/SemNumberPicker;
 
@@ -3274,36 +3173,38 @@
 .end method
 
 .method public setLunar(ZZLdalvik/system/PathClassLoader;)V
-    .locals 11
+    .locals 12
+
+    const/4 v11, 0x2
+
+    const/4 v8, 0x0
+
+    const/4 v10, 0x0
+
+    const/4 v9, 0x1
 
     iput-boolean p1, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mIsLunar:Z
 
     iput-boolean p2, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mIsLeapMonth:Z
 
-    iget-boolean v7, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mIsLunar:Z
+    iget-boolean v6, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mIsLunar:Z
 
-    if-eqz v7, :cond_2
+    if-eqz v6, :cond_2
 
-    iget-object v7, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mPathClassLoader:Ldalvik/system/PathClassLoader;
+    iget-object v6, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mPathClassLoader:Ldalvik/system/PathClassLoader;
 
-    if-nez v7, :cond_2
-
-    invoke-static {}, Lcom/samsung/android/widget/SemDatePicker;->getCalendarPackageName()Ljava/lang/String;
-
-    move-result-object v1
+    if-nez v6, :cond_2
 
     iput-object p3, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mPathClassLoader:Ldalvik/system/PathClassLoader;
 
-    const/4 v0, 0x0
-
     :try_start_0
-    const-string/jumbo v4, "com.android.calendar.Feature"
+    const-string/jumbo v3, "com.android.calendar.Feature"
 
-    iget-object v7, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mPathClassLoader:Ldalvik/system/PathClassLoader;
+    iget-object v6, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mPathClassLoader:Ldalvik/system/PathClassLoader;
 
-    const/4 v8, 0x1
+    const/4 v7, 0x1
 
-    invoke-static {v4, v8, v7}, Ljava/lang/Class;->forName(Ljava/lang/String;ZLjava/lang/ClassLoader;)Ljava/lang/Class;
+    invoke-static {v3, v7, v6}, Ljava/lang/Class;->forName(Ljava/lang/String;ZLjava/lang/ClassLoader;)Ljava/lang/Class;
     :try_end_0
     .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -3311,149 +3212,121 @@
 
     if-nez v0, :cond_0
 
-    const-string/jumbo v7, "SemDatePickerSpinnerLayout"
+    sget-object v6, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->TAG:Ljava/lang/String;
 
-    const-string/jumbo v8, "setLunar, Calendar Feature class is null"
+    const-string/jumbo v7, "setLunar, Calendar Feature class is null"
 
-    invoke-static {v7, v8}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v6, v7}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 
     :catch_0
-    move-exception v3
+    move-exception v2
 
-    const-string/jumbo v7, "SemDatePickerSpinnerLayout"
+    sget-object v6, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->TAG:Ljava/lang/String;
 
-    const-string/jumbo v8, "setLunar, Calendar Feature class not found"
+    const-string/jumbo v7, "setLunar, Calendar Feature class not found"
 
-    invoke-static {v7, v8}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v6, v7}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 
     :cond_0
-    const-string/jumbo v7, "getSolarLunarTables"
+    const-string/jumbo v6, "getSolarLunarTables"
 
-    const/4 v8, 0x0
+    new-array v7, v10, [Ljava/lang/Class;
 
-    new-array v8, v8, [Ljava/lang/Class;
+    invoke-direct {p0, v0, v6, v7}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->getMethod(Ljava/lang/Class;Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
 
-    invoke-direct {p0, v0, v7, v8}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->getMethod(Ljava/lang/Class;Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+    move-result-object v4
 
-    move-result-object v5
+    new-array v6, v10, [Ljava/lang/Object;
 
-    const/4 v7, 0x0
-
-    new-array v7, v7, [Ljava/lang/Object;
-
-    const/4 v8, 0x0
-
-    invoke-direct {p0, v8, v5, v7}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->invoke(Ljava/lang/Object;Ljava/lang/reflect/Method;[Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v7
-
-    iput-object v7, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mSolarLunarTables:Ljava/lang/Object;
-
-    const/4 v6, 0x0
-
-    :try_start_1
-    const-string/jumbo v2, "com.samsung.android.calendar.secfeature.lunarcalendar.SolarLunarTables"
-
-    iget-object v7, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mPathClassLoader:Ldalvik/system/PathClassLoader;
-
-    const/4 v8, 0x1
-
-    invoke-static {v2, v8, v7}, Ljava/lang/Class;->forName(Ljava/lang/String;ZLjava/lang/ClassLoader;)Ljava/lang/Class;
-    :try_end_1
-    .catch Ljava/lang/ClassNotFoundException; {:try_start_1 .. :try_end_1} :catch_1
+    invoke-direct {p0, v8, v4, v6}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->invoke(Ljava/lang/Object;Ljava/lang/reflect/Method;[Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v6
 
-    if-nez v6, :cond_1
+    iput-object v6, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mSolarLunarTables:Ljava/lang/Object;
 
-    const-string/jumbo v7, "SemDatePickerSpinnerLayout"
+    :try_start_1
+    const-string/jumbo v1, "com.samsung.android.calendar.secfeature.lunarcalendar.SolarLunarTables"
 
-    const-string/jumbo v8, "setLunar, Calendar Tables class is null"
+    iget-object v6, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mPathClassLoader:Ldalvik/system/PathClassLoader;
 
-    invoke-static {v7, v8}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    const/4 v7, 0x1
+
+    invoke-static {v1, v7, v6}, Ljava/lang/Class;->forName(Ljava/lang/String;ZLjava/lang/ClassLoader;)Ljava/lang/Class;
+    :try_end_1
+    .catch Ljava/lang/ClassNotFoundException; {:try_start_1 .. :try_end_1} :catch_1
+
+    move-result-object v5
+
+    if-nez v5, :cond_1
+
+    sget-object v6, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v7, "setLunar, Calendar Tables class is null"
+
+    invoke-static {v6, v7}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 
     :catch_1
-    move-exception v3
+    move-exception v2
 
-    const-string/jumbo v7, "SemDatePickerSpinnerLayout"
+    sget-object v6, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->TAG:Ljava/lang/String;
 
-    const-string/jumbo v8, "setLunar, Calendar Tables class not found"
+    const-string/jumbo v7, "setLunar, Calendar Tables class not found"
 
-    invoke-static {v7, v8}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v6, v7}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 
     :cond_1
-    const-string/jumbo v7, "isLeapMonth"
+    const-string/jumbo v6, "isLeapMonth"
 
-    const/4 v8, 0x2
+    new-array v7, v11, [Ljava/lang/Class;
 
-    new-array v8, v8, [Ljava/lang/Class;
+    sget-object v8, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
 
-    sget-object v9, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
+    aput-object v8, v7, v10
 
-    const/4 v10, 0x0
+    sget-object v8, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
 
-    aput-object v9, v8, v10
+    aput-object v8, v7, v9
 
-    sget-object v9, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
+    invoke-direct {p0, v5, v6, v7}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->getMethod(Ljava/lang/Class;Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
 
-    const/4 v10, 0x1
+    move-result-object v6
 
-    aput-object v9, v8, v10
+    iput-object v6, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mIsLeapMonthMethod:Ljava/lang/reflect/Method;
 
-    invoke-direct {p0, v6, v7, v8}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->getMethod(Ljava/lang/Class;Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+    const-string/jumbo v6, "getDayLengthOf"
 
-    move-result-object v7
+    const/4 v7, 0x3
 
-    iput-object v7, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mIsLeapMonthMethod:Ljava/lang/reflect/Method;
+    new-array v7, v7, [Ljava/lang/Class;
 
-    const-string/jumbo v7, "getDayLengthOf"
+    sget-object v8, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
 
-    const/4 v8, 0x3
+    aput-object v8, v7, v10
 
-    new-array v8, v8, [Ljava/lang/Class;
+    sget-object v8, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
 
-    sget-object v9, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
+    aput-object v8, v7, v9
 
-    const/4 v10, 0x0
+    sget-object v8, Ljava/lang/Boolean;->TYPE:Ljava/lang/Class;
 
-    aput-object v9, v8, v10
+    aput-object v8, v7, v11
 
-    sget-object v9, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
+    invoke-direct {p0, v5, v6, v7}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->getMethod(Ljava/lang/Class;Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
 
-    const/4 v10, 0x1
+    move-result-object v6
 
-    aput-object v9, v8, v10
-
-    sget-object v9, Ljava/lang/Boolean;->TYPE:Ljava/lang/Class;
-
-    const/4 v10, 0x2
-
-    aput-object v9, v8, v10
-
-    invoke-direct {p0, v6, v7, v8}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->getMethod(Ljava/lang/Class;Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
-
-    move-result-object v7
-
-    iput-object v7, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mGetDayLengthOfMethod:Ljava/lang/reflect/Method;
+    iput-object v6, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mGetDayLengthOfMethod:Ljava/lang/reflect/Method;
 
     :cond_2
-    const/4 v7, 0x0
-
-    const/4 v8, 0x1
-
-    const/4 v9, 0x1
-
-    const/4 v10, 0x1
-
-    invoke-direct {p0, v7, v8, v9, v10}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->updateSpinners(ZZZZ)V
+    invoke-direct {p0, v10, v9, v9, v9}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->updateSpinners(ZZZZ)V
 
     return-void
 .end method
@@ -3576,21 +3449,7 @@
 
     invoke-direct {p0, v1, v1, v1, v1}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->updateSpinners(ZZZZ)V
 
-    iget-boolean v0, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mIsLunar:Z
-
-    if-eqz v0, :cond_1
-
-    const/4 v0, 0x0
-
-    invoke-direct {p0, v0}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->notifyDateChanged(Z)V
-
-    :goto_0
     return-void
-
-    :cond_1
-    invoke-direct {p0, v1}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->notifyDateChanged(Z)V
-
-    goto :goto_0
 .end method
 
 .method public updateInputState()V
@@ -3612,7 +3471,7 @@
 
     if-eqz v1, :cond_1
 
-    invoke-virtual {p0}, Landroid/view/View;->getWindowToken()Landroid/os/IBinder;
+    invoke-virtual {p0}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->getWindowToken()Landroid/os/IBinder;
 
     move-result-object v1
 
@@ -3620,7 +3479,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mYearSpinnerInput:Landroid/widget/EditText;
 
-    invoke-virtual {v1}, Landroid/view/View;->clearFocus()V
+    invoke-virtual {v1}, Landroid/widget/EditText;->clearFocus()V
 
     :cond_0
     :goto_0
@@ -3635,7 +3494,7 @@
 
     if-eqz v1, :cond_2
 
-    invoke-virtual {p0}, Landroid/view/View;->getWindowToken()Landroid/os/IBinder;
+    invoke-virtual {p0}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->getWindowToken()Landroid/os/IBinder;
 
     move-result-object v1
 
@@ -3643,7 +3502,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mMonthSpinnerInput:Landroid/widget/EditText;
 
-    invoke-virtual {v1}, Landroid/view/View;->clearFocus()V
+    invoke-virtual {v1}, Landroid/widget/EditText;->clearFocus()V
 
     goto :goto_0
 
@@ -3656,7 +3515,7 @@
 
     if-eqz v1, :cond_0
 
-    invoke-virtual {p0}, Landroid/view/View;->getWindowToken()Landroid/os/IBinder;
+    invoke-virtual {p0}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->getWindowToken()Landroid/os/IBinder;
 
     move-result-object v1
 
@@ -3664,7 +3523,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->mDaySpinnerInput:Landroid/widget/EditText;
 
-    invoke-virtual {v1}, Landroid/view/View;->clearFocus()V
+    invoke-virtual {v1}, Landroid/widget/EditText;->clearFocus()V
 
     goto :goto_0
 .end method

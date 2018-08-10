@@ -28,9 +28,7 @@
 
 .field static final TRANSACTION_connect:I = 0x8
 
-.field static final TRANSACTION_connect_to:I = 0x9
-
-.field static final TRANSACTION_disconnect:I = 0xa
+.field static final TRANSACTION_disconnect:I = 0x9
 
 .field static final TRANSACTION_isPreoccupied:I = 0x2
 
@@ -55,7 +53,7 @@
 
     const-string/jumbo v0, "android.bluetooth.ISemBluetoothHidDevice"
 
-    invoke-virtual {p0, p0, v0}, Landroid/os/Binder;->attachInterface(Landroid/os/IInterface;Ljava/lang/String;)V
+    invoke-virtual {p0, p0, v0}, Landroid/bluetooth/ISemBluetoothHidDevice$Stub;->attachInterface(Landroid/os/IInterface;Ljava/lang/String;)V
 
     return-void
 .end method
@@ -497,42 +495,11 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    invoke-virtual {p0}, Landroid/bluetooth/ISemBluetoothHidDevice$Stub;->connect()Z
-
-    move-result v13
-
-    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
-
-    if-eqz v13, :cond_c
-
-    const/4 v1, 0x1
-
-    :goto_c
-    move-object/from16 v0, p3
-
-    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
-
-    const/4 v1, 0x1
-
-    return v1
-
-    :cond_c
-    const/4 v1, 0x0
-
-    goto :goto_c
-
-    :sswitch_9
-    const-string/jumbo v1, "android.bluetooth.ISemBluetoothHidDevice"
-
-    move-object/from16 v0, p2
-
-    invoke-virtual {v0, v1}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
 
-    if-eqz v1, :cond_d
+    if-eqz v1, :cond_c
 
     sget-object v1, Landroid/bluetooth/BluetoothDevice;->CREATOR:Landroid/os/Parcelable$Creator;
 
@@ -544,8 +511,44 @@
 
     check-cast v9, Landroid/bluetooth/BluetoothDevice;
 
+    :goto_c
+    invoke-virtual {p0, v9}, Landroid/bluetooth/ISemBluetoothHidDevice$Stub;->connect(Landroid/bluetooth/BluetoothDevice;)Z
+
+    move-result v13
+
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    if-eqz v13, :cond_d
+
+    const/4 v1, 0x1
+
     :goto_d
-    invoke-virtual {p0, v9}, Landroid/bluetooth/ISemBluetoothHidDevice$Stub;->connect_to(Landroid/bluetooth/BluetoothDevice;)Z
+    move-object/from16 v0, p3
+
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
+
+    const/4 v1, 0x1
+
+    return v1
+
+    :cond_c
+    const/4 v9, 0x0
+
+    goto :goto_c
+
+    :cond_d
+    const/4 v1, 0x0
+
+    goto :goto_d
+
+    :sswitch_9
+    const-string/jumbo v1, "android.bluetooth.ISemBluetoothHidDevice"
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual {p0}, Landroid/bluetooth/ISemBluetoothHidDevice$Stub;->disconnect()Z
 
     move-result v13
 
@@ -564,48 +567,10 @@
 
     return v1
 
-    :cond_d
-    const/4 v9, 0x0
-
-    goto :goto_d
-
     :cond_e
     const/4 v1, 0x0
 
     goto :goto_e
-
-    :sswitch_a
-    const-string/jumbo v1, "android.bluetooth.ISemBluetoothHidDevice"
-
-    move-object/from16 v0, p2
-
-    invoke-virtual {v0, v1}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    invoke-virtual {p0}, Landroid/bluetooth/ISemBluetoothHidDevice$Stub;->disconnect()Z
-
-    move-result v13
-
-    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
-
-    if-eqz v13, :cond_f
-
-    const/4 v1, 0x1
-
-    :goto_f
-    move-object/from16 v0, p3
-
-    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
-
-    const/4 v1, 0x1
-
-    return v1
-
-    :cond_f
-    const/4 v1, 0x0
-
-    goto :goto_f
-
-    nop
 
     :sswitch_data_0
     .sparse-switch
@@ -618,7 +583,6 @@
         0x7 -> :sswitch_7
         0x8 -> :sswitch_8
         0x9 -> :sswitch_9
-        0xa -> :sswitch_a
         0x5f4e5446 -> :sswitch_0
     .end sparse-switch
 .end method

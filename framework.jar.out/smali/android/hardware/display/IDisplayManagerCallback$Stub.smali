@@ -26,11 +26,13 @@
 # static fields
 .field private static final DESCRIPTOR:Ljava/lang/String; = "android.hardware.display.IDisplayManagerCallback"
 
-.field static final TRANSACTION_onDeviceEvent:I = 0x2
+.field static final TRANSACTION_onDeviceEvent:I = 0x4
 
 .field static final TRANSACTION_onDisplayEvent:I = 0x1
 
-.field static final TRANSACTION_onDisplayVolumeEvent:I = 0x3
+.field static final TRANSACTION_onDisplayVolumeEvent:I = 0x2
+
+.field static final TRANSACTION_onDisplayVolumeKeyEvent:I = 0x3
 
 
 # direct methods
@@ -89,34 +91,34 @@
 .end method
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    .locals 5
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    const/4 v4, 0x1
+    const/4 v5, 0x1
 
     sparse-switch p1, :sswitch_data_0
 
     invoke-super {p0, p1, p2, p3, p4}, Landroid/os/Binder;->onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    move-result v3
-
-    return v3
-
-    :sswitch_0
-    const-string/jumbo v3, "android.hardware.display.IDisplayManagerCallback"
-
-    invoke-virtual {p3, v3}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    move-result v4
 
     return v4
 
-    :sswitch_1
-    const-string/jumbo v3, "android.hardware.display.IDisplayManagerCallback"
+    :sswitch_0
+    const-string/jumbo v4, "android.hardware.display.IDisplayManagerCallback"
 
-    invoke-virtual {p2, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p3, v4}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+
+    return v5
+
+    :sswitch_1
+    const-string/jumbo v4, "android.hardware.display.IDisplayManagerCallback"
+
+    invoke-virtual {p2, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
@@ -128,55 +130,68 @@
 
     invoke-virtual {p0, v0, v2}, Landroid/hardware/display/IDisplayManagerCallback$Stub;->onDisplayEvent(II)V
 
-    return v4
+    return v5
 
     :sswitch_2
-    const-string/jumbo v3, "android.hardware.display.IDisplayManagerCallback"
+    const-string/jumbo v4, "android.hardware.display.IDisplayManagerCallback"
 
-    invoke-virtual {p2, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v3
+    move-result v0
 
-    if-eqz v3, :cond_0
+    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
-    sget-object v3, Landroid/os/Bundle;->CREATOR:Landroid/os/Parcelable$Creator;
+    move-result v4
 
-    invoke-interface {v3, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+    if-eqz v4, :cond_0
 
-    move-result-object v1
+    sget-object v4, Landroid/os/Bundle;->CREATOR:Landroid/os/Parcelable$Creator;
 
-    check-cast v1, Landroid/os/Bundle;
+    invoke-interface {v4, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Landroid/os/Bundle;
 
     :goto_0
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+    invoke-virtual {p0, v0, v3}, Landroid/hardware/display/IDisplayManagerCallback$Stub;->onDisplayVolumeEvent(ILandroid/os/Bundle;)V
 
-    move-result v2
-
-    invoke-virtual {p0, v1, v2}, Landroid/hardware/display/IDisplayManagerCallback$Stub;->onDeviceEvent(Landroid/os/Bundle;I)V
-
-    return v4
+    return v5
 
     :cond_0
-    const/4 v1, 0x0
+    const/4 v3, 0x0
 
     goto :goto_0
 
     :sswitch_3
-    const-string/jumbo v3, "android.hardware.display.IDisplayManagerCallback"
+    const-string/jumbo v4, "android.hardware.display.IDisplayManagerCallback"
 
-    invoke-virtual {p2, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v3
+    move-result v0
 
-    if-eqz v3, :cond_1
+    invoke-virtual {p0, v0}, Landroid/hardware/display/IDisplayManagerCallback$Stub;->onDisplayVolumeKeyEvent(I)V
 
-    sget-object v3, Landroid/os/Bundle;->CREATOR:Landroid/os/Parcelable$Creator;
+    return v5
 
-    invoke-interface {v3, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+    :sswitch_4
+    const-string/jumbo v4, "android.hardware.display.IDisplayManagerCallback"
+
+    invoke-virtual {p2, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v4
+
+    if-eqz v4, :cond_1
+
+    sget-object v4, Landroid/os/Bundle;->CREATOR:Landroid/os/Parcelable$Creator;
+
+    invoke-interface {v4, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
 
     move-result-object v1
 
@@ -187,9 +202,9 @@
 
     move-result v2
 
-    invoke-virtual {p0, v1, v2}, Landroid/hardware/display/IDisplayManagerCallback$Stub;->onDisplayVolumeEvent(Landroid/os/Bundle;I)V
+    invoke-virtual {p0, v1, v2}, Landroid/hardware/display/IDisplayManagerCallback$Stub;->onDeviceEvent(Landroid/os/Bundle;I)V
 
-    return v4
+    return v5
 
     :cond_1
     const/4 v1, 0x0
@@ -201,6 +216,7 @@
         0x1 -> :sswitch_1
         0x2 -> :sswitch_2
         0x3 -> :sswitch_3
+        0x4 -> :sswitch_4
         0x5f4e5446 -> :sswitch_0
     .end sparse-switch
 .end method

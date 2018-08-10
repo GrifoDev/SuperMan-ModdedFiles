@@ -62,7 +62,7 @@
 
     aput v1, v0, v2
 
-    invoke-virtual {p0, v0}, Landroid/animation/ValueAnimator;->setFloatValues([F)V
+    invoke-virtual {p0, v0}, Lcom/samsung/android/graphics/spr/document/animator/SprAnimatorRotate;->setFloatValues([F)V
 
     return-void
 .end method
@@ -192,7 +192,7 @@
     return v0
 
     :cond_0
-    invoke-virtual {p0}, Landroid/animation/ValueAnimator;->getAnimatedValue()Ljava/lang/Object;
+    invoke-virtual {p0}, Lcom/samsung/android/graphics/spr/document/animator/SprAnimatorRotate;->getAnimatedValue()Ljava/lang/Object;
 
     move-result-object v0
 

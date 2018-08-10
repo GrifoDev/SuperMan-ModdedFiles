@@ -237,7 +237,7 @@
 
     move-object/from16 v16, v0
 
-    invoke-virtual/range {v15 .. v16}, Landroid/renderscript/BaseObj;->getID(Landroid/renderscript/RenderScript;)J
+    invoke-virtual/range {v15 .. v16}, Landroid/renderscript/Allocation;->getID(Landroid/renderscript/RenderScript;)J
 
     move-result-wide v16
 
@@ -307,7 +307,7 @@
 
     move-object/from16 v16, v0
 
-    invoke-virtual/range {v15 .. v16}, Landroid/renderscript/BaseObj;->getID(Landroid/renderscript/RenderScript;)J
+    invoke-virtual/range {v15 .. v16}, Landroid/renderscript/Allocation;->getID(Landroid/renderscript/RenderScript;)J
 
     move-result-wide v2
 

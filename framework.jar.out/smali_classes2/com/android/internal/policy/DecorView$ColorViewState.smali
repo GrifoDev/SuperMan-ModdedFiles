@@ -15,25 +15,13 @@
 
 
 # instance fields
+.field final attributes:Lcom/android/internal/policy/DecorView$ColorViewAttributes;
+
 .field color:I
-
-.field final hideWindowFlag:I
-
-.field final horizontalGravity:I
-
-.field final id:I
 
 .field present:Z
 
-.field final systemUiHideFlag:I
-
 .field targetVisibility:I
-
-.field final transitionName:Ljava/lang/String;
-
-.field final translucentFlag:I
-
-.field final verticalGravity:I
 
 .field view:Landroid/view/View;
 
@@ -41,7 +29,7 @@
 
 
 # direct methods
-.method constructor <init>(IIIILjava/lang/String;II)V
+.method constructor <init>(Lcom/android/internal/policy/DecorView$ColorViewAttributes;)V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -58,19 +46,7 @@
 
     iput-boolean v0, p0, Lcom/android/internal/policy/DecorView$ColorViewState;->present:Z
 
-    iput p6, p0, Lcom/android/internal/policy/DecorView$ColorViewState;->id:I
-
-    iput p1, p0, Lcom/android/internal/policy/DecorView$ColorViewState;->systemUiHideFlag:I
-
-    iput p2, p0, Lcom/android/internal/policy/DecorView$ColorViewState;->translucentFlag:I
-
-    iput p3, p0, Lcom/android/internal/policy/DecorView$ColorViewState;->verticalGravity:I
-
-    iput p4, p0, Lcom/android/internal/policy/DecorView$ColorViewState;->horizontalGravity:I
-
-    iput-object p5, p0, Lcom/android/internal/policy/DecorView$ColorViewState;->transitionName:Ljava/lang/String;
-
-    iput p7, p0, Lcom/android/internal/policy/DecorView$ColorViewState;->hideWindowFlag:I
+    iput-object p1, p0, Lcom/android/internal/policy/DecorView$ColorViewState;->attributes:Lcom/android/internal/policy/DecorView$ColorViewAttributes;
 
     return-void
 .end method

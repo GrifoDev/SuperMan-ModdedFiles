@@ -12,3 +12,13 @@
         Lcom/samsung/android/service/sats/ISatsService$Stub;
     }
 .end annotation
+
+
+# virtual methods
+.method public abstract executePseudoDrkAtCommnd(Ljava/lang/String;)Ljava/lang/String;
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method

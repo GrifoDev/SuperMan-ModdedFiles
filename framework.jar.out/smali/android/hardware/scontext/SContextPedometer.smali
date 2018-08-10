@@ -116,7 +116,7 @@
 
     const-string/jumbo v2, "LoggingCount"
 
-    invoke-virtual {v1, v2}, Landroid/os/BaseBundle;->getInt(Ljava/lang/String;)I
+    invoke-virtual {v1, v2}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
 
     move-result v0
 
@@ -131,7 +131,7 @@
 
     const-string/jumbo v1, "CumulativeCalorie"
 
-    invoke-virtual {v0, v1}, Landroid/os/BaseBundle;->getDouble(Ljava/lang/String;)D
+    invoke-virtual {v0, v1}, Landroid/os/Bundle;->getDouble(Ljava/lang/String;)D
 
     move-result-wide v0
 
@@ -145,7 +145,7 @@
 
     const-string/jumbo v1, "CalorieDiff"
 
-    invoke-virtual {v0, v1}, Landroid/os/BaseBundle;->getDouble(Ljava/lang/String;)D
+    invoke-virtual {v0, v1}, Landroid/os/Bundle;->getDouble(Ljava/lang/String;)D
 
     move-result-wide v0
 
@@ -174,7 +174,7 @@
 
     const-string/jumbo v2, "CalorieDiffArray"
 
-    invoke-virtual {v1, v2}, Landroid/os/BaseBundle;->getDoubleArray(Ljava/lang/String;)[D
+    invoke-virtual {v1, v2}, Landroid/os/Bundle;->getDoubleArray(Ljava/lang/String;)[D
 
     move-result-object v0
 
@@ -191,7 +191,7 @@
 
     const-string/jumbo v1, "CumulativeCalorie"
 
-    invoke-virtual {v0, v1}, Landroid/os/BaseBundle;->getDouble(Ljava/lang/String;)D
+    invoke-virtual {v0, v1}, Landroid/os/Bundle;->getDouble(Ljava/lang/String;)D
 
     move-result-wide v0
 
@@ -207,7 +207,7 @@
 
     const-string/jumbo v1, "CumulativeDistance"
 
-    invoke-virtual {v0, v1}, Landroid/os/BaseBundle;->getDouble(Ljava/lang/String;)D
+    invoke-virtual {v0, v1}, Landroid/os/Bundle;->getDouble(Ljava/lang/String;)D
 
     move-result-wide v0
 
@@ -223,7 +223,7 @@
 
     const-string/jumbo v1, "CumulativeRunDownStepCount"
 
-    invoke-virtual {v0, v1}, Landroid/os/BaseBundle;->getLong(Ljava/lang/String;)J
+    invoke-virtual {v0, v1}, Landroid/os/Bundle;->getLong(Ljava/lang/String;)J
 
     move-result-wide v0
 
@@ -239,7 +239,7 @@
 
     const-string/jumbo v1, "CumulativeRunFlatStepCount"
 
-    invoke-virtual {v0, v1}, Landroid/os/BaseBundle;->getLong(Ljava/lang/String;)J
+    invoke-virtual {v0, v1}, Landroid/os/Bundle;->getLong(Ljava/lang/String;)J
 
     move-result-wide v0
 
@@ -255,7 +255,7 @@
 
     const-string/jumbo v1, "CumulativeRunUpStepCount"
 
-    invoke-virtual {v0, v1}, Landroid/os/BaseBundle;->getLong(Ljava/lang/String;)J
+    invoke-virtual {v0, v1}, Landroid/os/Bundle;->getLong(Ljava/lang/String;)J
 
     move-result-wide v0
 
@@ -271,7 +271,7 @@
 
     const-string/jumbo v1, "CumulativeTotalStepCount"
 
-    invoke-virtual {v0, v1}, Landroid/os/BaseBundle;->getLong(Ljava/lang/String;)J
+    invoke-virtual {v0, v1}, Landroid/os/Bundle;->getLong(Ljava/lang/String;)J
 
     move-result-wide v0
 
@@ -287,7 +287,7 @@
 
     const-string/jumbo v1, "CumulativeWalkDownStepCount"
 
-    invoke-virtual {v0, v1}, Landroid/os/BaseBundle;->getLong(Ljava/lang/String;)J
+    invoke-virtual {v0, v1}, Landroid/os/Bundle;->getLong(Ljava/lang/String;)J
 
     move-result-wide v0
 
@@ -303,7 +303,7 @@
 
     const-string/jumbo v1, "CumulativeWalkFlatStepCount"
 
-    invoke-virtual {v0, v1}, Landroid/os/BaseBundle;->getLong(Ljava/lang/String;)J
+    invoke-virtual {v0, v1}, Landroid/os/Bundle;->getLong(Ljava/lang/String;)J
 
     move-result-wide v0
 
@@ -319,7 +319,7 @@
 
     const-string/jumbo v1, "CumulativeWalkUpStepCount"
 
-    invoke-virtual {v0, v1}, Landroid/os/BaseBundle;->getLong(Ljava/lang/String;)J
+    invoke-virtual {v0, v1}, Landroid/os/Bundle;->getLong(Ljava/lang/String;)J
 
     move-result-wide v0
 
@@ -333,7 +333,7 @@
 
     const-string/jumbo v1, "CumulativeDistance"
 
-    invoke-virtual {v0, v1}, Landroid/os/BaseBundle;->getDouble(Ljava/lang/String;)D
+    invoke-virtual {v0, v1}, Landroid/os/Bundle;->getDouble(Ljava/lang/String;)D
 
     move-result-wide v0
 
@@ -347,7 +347,7 @@
 
     const-string/jumbo v1, "DistanceDiff"
 
-    invoke-virtual {v0, v1}, Landroid/os/BaseBundle;->getDouble(Ljava/lang/String;)D
+    invoke-virtual {v0, v1}, Landroid/os/Bundle;->getDouble(Ljava/lang/String;)D
 
     move-result-wide v0
 
@@ -376,7 +376,7 @@
 
     const-string/jumbo v2, "DistanceDiffArray"
 
-    invoke-virtual {v1, v2}, Landroid/os/BaseBundle;->getDoubleArray(Ljava/lang/String;)[D
+    invoke-virtual {v1, v2}, Landroid/os/Bundle;->getDoubleArray(Ljava/lang/String;)[D
 
     move-result-object v0
 
@@ -399,7 +399,7 @@
 
     const-string/jumbo v1, "CumulativeRunDownStepCount"
 
-    invoke-virtual {v0, v1}, Landroid/os/BaseBundle;->getLong(Ljava/lang/String;)J
+    invoke-virtual {v0, v1}, Landroid/os/Bundle;->getLong(Ljava/lang/String;)J
 
     move-result-wide v0
 
@@ -413,7 +413,7 @@
 
     const-string/jumbo v1, "RunDownStepCountDiff"
 
-    invoke-virtual {v0, v1}, Landroid/os/BaseBundle;->getLong(Ljava/lang/String;)J
+    invoke-virtual {v0, v1}, Landroid/os/Bundle;->getLong(Ljava/lang/String;)J
 
     move-result-wide v0
 
@@ -442,7 +442,7 @@
 
     const-string/jumbo v2, "RunDownStepCountDiffArray"
 
-    invoke-virtual {v1, v2}, Landroid/os/BaseBundle;->getLongArray(Ljava/lang/String;)[J
+    invoke-virtual {v1, v2}, Landroid/os/Bundle;->getLongArray(Ljava/lang/String;)[J
 
     move-result-object v0
 
@@ -457,7 +457,7 @@
 
     const-string/jumbo v1, "CumulativeRunFlatStepCount"
 
-    invoke-virtual {v0, v1}, Landroid/os/BaseBundle;->getLong(Ljava/lang/String;)J
+    invoke-virtual {v0, v1}, Landroid/os/Bundle;->getLong(Ljava/lang/String;)J
 
     move-result-wide v0
 
@@ -471,7 +471,7 @@
 
     const-string/jumbo v1, "RunStepCountDiff"
 
-    invoke-virtual {v0, v1}, Landroid/os/BaseBundle;->getLong(Ljava/lang/String;)J
+    invoke-virtual {v0, v1}, Landroid/os/Bundle;->getLong(Ljava/lang/String;)J
 
     move-result-wide v0
 
@@ -500,7 +500,7 @@
 
     const-string/jumbo v2, "RunStepCountDiffArray"
 
-    invoke-virtual {v1, v2}, Landroid/os/BaseBundle;->getLongArray(Ljava/lang/String;)[J
+    invoke-virtual {v1, v2}, Landroid/os/Bundle;->getLongArray(Ljava/lang/String;)[J
 
     move-result-object v0
 
@@ -515,7 +515,7 @@
 
     const-string/jumbo v1, "CumulativeRunUpStepCount"
 
-    invoke-virtual {v0, v1}, Landroid/os/BaseBundle;->getLong(Ljava/lang/String;)J
+    invoke-virtual {v0, v1}, Landroid/os/Bundle;->getLong(Ljava/lang/String;)J
 
     move-result-wide v0
 
@@ -529,7 +529,7 @@
 
     const-string/jumbo v1, "RunUpStepCountDiff"
 
-    invoke-virtual {v0, v1}, Landroid/os/BaseBundle;->getLong(Ljava/lang/String;)J
+    invoke-virtual {v0, v1}, Landroid/os/Bundle;->getLong(Ljava/lang/String;)J
 
     move-result-wide v0
 
@@ -558,7 +558,7 @@
 
     const-string/jumbo v2, "RunUpStepCountDiffArray"
 
-    invoke-virtual {v1, v2}, Landroid/os/BaseBundle;->getLongArray(Ljava/lang/String;)[J
+    invoke-virtual {v1, v2}, Landroid/os/Bundle;->getLongArray(Ljava/lang/String;)[J
 
     move-result-object v0
 
@@ -573,7 +573,7 @@
 
     const-string/jumbo v1, "Speed"
 
-    invoke-virtual {v0, v1}, Landroid/os/BaseBundle;->getDouble(Ljava/lang/String;)D
+    invoke-virtual {v0, v1}, Landroid/os/Bundle;->getDouble(Ljava/lang/String;)D
 
     move-result-wide v0
 
@@ -602,7 +602,7 @@
 
     const-string/jumbo v2, "SpeedArray"
 
-    invoke-virtual {v1, v2}, Landroid/os/BaseBundle;->getDoubleArray(Ljava/lang/String;)[D
+    invoke-virtual {v1, v2}, Landroid/os/Bundle;->getDoubleArray(Ljava/lang/String;)[D
 
     move-result-object v0
 
@@ -617,7 +617,7 @@
 
     const-string/jumbo v1, "StepStatus"
 
-    invoke-virtual {v0, v1}, Landroid/os/BaseBundle;->getInt(Ljava/lang/String;)I
+    invoke-virtual {v0, v1}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
 
     move-result v0
 
@@ -646,7 +646,7 @@
 
     const-string/jumbo v2, "TimeStampArray"
 
-    invoke-virtual {v1, v2}, Landroid/os/BaseBundle;->getLongArray(Ljava/lang/String;)[J
+    invoke-virtual {v1, v2}, Landroid/os/Bundle;->getLongArray(Ljava/lang/String;)[J
 
     move-result-object v0
 
@@ -661,7 +661,7 @@
 
     const-string/jumbo v1, "CumulativeTotalStepCount"
 
-    invoke-virtual {v0, v1}, Landroid/os/BaseBundle;->getLong(Ljava/lang/String;)J
+    invoke-virtual {v0, v1}, Landroid/os/Bundle;->getLong(Ljava/lang/String;)J
 
     move-result-wide v0
 
@@ -675,7 +675,7 @@
 
     const-string/jumbo v1, "TotalStepCountDiff"
 
-    invoke-virtual {v0, v1}, Landroid/os/BaseBundle;->getLong(Ljava/lang/String;)J
+    invoke-virtual {v0, v1}, Landroid/os/Bundle;->getLong(Ljava/lang/String;)J
 
     move-result-wide v0
 
@@ -704,7 +704,7 @@
 
     const-string/jumbo v2, "TotalStepCountDiffArray"
 
-    invoke-virtual {v1, v2}, Landroid/os/BaseBundle;->getLongArray(Ljava/lang/String;)[J
+    invoke-virtual {v1, v2}, Landroid/os/Bundle;->getLongArray(Ljava/lang/String;)[J
 
     move-result-object v0
 
@@ -721,7 +721,7 @@
 
     const-string/jumbo v1, "UpDownStepCount"
 
-    invoke-virtual {v0, v1}, Landroid/os/BaseBundle;->getLong(Ljava/lang/String;)J
+    invoke-virtual {v0, v1}, Landroid/os/Bundle;->getLong(Ljava/lang/String;)J
 
     move-result-wide v0
 
@@ -737,7 +737,7 @@
 
     const-string/jumbo v1, "UpDownStepCountDiff"
 
-    invoke-virtual {v0, v1}, Landroid/os/BaseBundle;->getLong(Ljava/lang/String;)J
+    invoke-virtual {v0, v1}, Landroid/os/Bundle;->getLong(Ljava/lang/String;)J
 
     move-result-wide v0
 
@@ -751,7 +751,7 @@
 
     const-string/jumbo v1, "CumulativeWalkDownStepCount"
 
-    invoke-virtual {v0, v1}, Landroid/os/BaseBundle;->getLong(Ljava/lang/String;)J
+    invoke-virtual {v0, v1}, Landroid/os/Bundle;->getLong(Ljava/lang/String;)J
 
     move-result-wide v0
 
@@ -765,7 +765,7 @@
 
     const-string/jumbo v1, "WalkDownStepCountDiff"
 
-    invoke-virtual {v0, v1}, Landroid/os/BaseBundle;->getLong(Ljava/lang/String;)J
+    invoke-virtual {v0, v1}, Landroid/os/Bundle;->getLong(Ljava/lang/String;)J
 
     move-result-wide v0
 
@@ -794,7 +794,7 @@
 
     const-string/jumbo v2, "WalkDownStepCountDiffArray"
 
-    invoke-virtual {v1, v2}, Landroid/os/BaseBundle;->getLongArray(Ljava/lang/String;)[J
+    invoke-virtual {v1, v2}, Landroid/os/Bundle;->getLongArray(Ljava/lang/String;)[J
 
     move-result-object v0
 
@@ -809,7 +809,7 @@
 
     const-string/jumbo v1, "CumulativeWalkFlatStepCount"
 
-    invoke-virtual {v0, v1}, Landroid/os/BaseBundle;->getLong(Ljava/lang/String;)J
+    invoke-virtual {v0, v1}, Landroid/os/Bundle;->getLong(Ljava/lang/String;)J
 
     move-result-wide v0
 
@@ -823,7 +823,7 @@
 
     const-string/jumbo v1, "WalkStepCountDiff"
 
-    invoke-virtual {v0, v1}, Landroid/os/BaseBundle;->getLong(Ljava/lang/String;)J
+    invoke-virtual {v0, v1}, Landroid/os/Bundle;->getLong(Ljava/lang/String;)J
 
     move-result-wide v0
 
@@ -852,7 +852,7 @@
 
     const-string/jumbo v2, "WalkStepCountDiffArray"
 
-    invoke-virtual {v1, v2}, Landroid/os/BaseBundle;->getLongArray(Ljava/lang/String;)[J
+    invoke-virtual {v1, v2}, Landroid/os/Bundle;->getLongArray(Ljava/lang/String;)[J
 
     move-result-object v0
 
@@ -867,7 +867,7 @@
 
     const-string/jumbo v1, "CumulativeWalkUpStepCount"
 
-    invoke-virtual {v0, v1}, Landroid/os/BaseBundle;->getLong(Ljava/lang/String;)J
+    invoke-virtual {v0, v1}, Landroid/os/Bundle;->getLong(Ljava/lang/String;)J
 
     move-result-wide v0
 
@@ -881,7 +881,7 @@
 
     const-string/jumbo v1, "WalkUpStepCountDiff"
 
-    invoke-virtual {v0, v1}, Landroid/os/BaseBundle;->getLong(Ljava/lang/String;)J
+    invoke-virtual {v0, v1}, Landroid/os/Bundle;->getLong(Ljava/lang/String;)J
 
     move-result-wide v0
 
@@ -910,7 +910,7 @@
 
     const-string/jumbo v2, "WalkUpStepCountDiffArray"
 
-    invoke-virtual {v1, v2}, Landroid/os/BaseBundle;->getLongArray(Ljava/lang/String;)[J
+    invoke-virtual {v1, v2}, Landroid/os/Bundle;->getLongArray(Ljava/lang/String;)[J
 
     move-result-object v0
 
@@ -925,7 +925,7 @@
 
     const-string/jumbo v1, "WalkingFrequency"
 
-    invoke-virtual {v0, v1}, Landroid/os/BaseBundle;->getDouble(Ljava/lang/String;)D
+    invoke-virtual {v0, v1}, Landroid/os/Bundle;->getDouble(Ljava/lang/String;)D
 
     move-result-wide v0
 
@@ -941,7 +941,7 @@
 
     const-string/jumbo v1, "Mode"
 
-    invoke-virtual {v0, v1}, Landroid/os/BaseBundle;->getInt(Ljava/lang/String;)I
+    invoke-virtual {v0, v1}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
 
     move-result v0
 

@@ -13,11 +13,9 @@
 
 
 # static fields
-.field private static final DEBUG:Z
+.field private static final DEBUG:Z = true
 
 .field private static final TAG:Ljava/lang/String; = "MediaSessionHelper"
-
-.field private static mAudioCoreVolumekeyLoggingEnabled:Z
 
 .field private static sInstance:Landroid/media/session/MediaSessionLegacyHelper;
 
@@ -27,13 +25,7 @@
 # instance fields
 .field private mContext:Landroid/content/Context;
 
-.field private mCoverManager:Lcom/samsung/android/cover/ICoverManager;
-
 .field private mHandler:Landroid/os/Handler;
-
-.field private mKeyguardManager:Landroid/app/KeyguardManager;
-
-.field private mPowerManager:Landroid/os/PowerManager;
 
 .field private mSessionManager:Landroid/media/session/MediaSessionManager;
 
@@ -51,15 +43,7 @@
 
 
 # direct methods
-.method static synthetic -get0()Z
-    .locals 1
-
-    sget-boolean v0, Landroid/media/session/MediaSessionLegacyHelper;->DEBUG:Z
-
-    return v0
-.end method
-
-.method static synthetic -get1(Landroid/media/session/MediaSessionLegacyHelper;)Landroid/util/ArrayMap;
+.method static synthetic -get0(Landroid/media/session/MediaSessionLegacyHelper;)Landroid/util/ArrayMap;
     .locals 1
 
     iget-object v0, p0, Landroid/media/session/MediaSessionLegacyHelper;->mSessions:Landroid/util/ArrayMap;
@@ -76,27 +60,13 @@
 .end method
 
 .method static constructor <clinit>()V
-    .locals 2
-
-    const-string/jumbo v0, "MediaSessionHelper"
-
-    const/4 v1, 0x3
-
-    invoke-static {v0, v1}, Landroid/util/Log;->isLoggable(Ljava/lang/String;I)Z
-
-    move-result v0
-
-    sput-boolean v0, Landroid/media/session/MediaSessionLegacyHelper;->DEBUG:Z
+    .locals 1
 
     new-instance v0, Ljava/lang/Object;
 
     invoke-direct {v0}, Ljava/lang/Object;-><init>()V
 
     sput-object v0, Landroid/media/session/MediaSessionLegacyHelper;->sLock:Ljava/lang/Object;
-
-    const/4 v0, 0x0
-
-    sput-boolean v0, Landroid/media/session/MediaSessionLegacyHelper;->mAudioCoreVolumekeyLoggingEnabled:Z
 
     return-void
 .end method
@@ -133,50 +103,6 @@
     check-cast v0, Landroid/media/session/MediaSessionManager;
 
     iput-object v0, p0, Landroid/media/session/MediaSessionLegacyHelper;->mSessionManager:Landroid/media/session/MediaSessionManager;
-
-    const-string/jumbo v0, "power"
-
-    invoke-virtual {p1, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/os/PowerManager;
-
-    iput-object v0, p0, Landroid/media/session/MediaSessionLegacyHelper;->mPowerManager:Landroid/os/PowerManager;
-
-    const-string/jumbo v0, "keyguard"
-
-    invoke-virtual {p1, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/app/KeyguardManager;
-
-    iput-object v0, p0, Landroid/media/session/MediaSessionLegacyHelper;->mKeyguardManager:Landroid/app/KeyguardManager;
-
-    const-string/jumbo v0, "cover"
-
-    invoke-static {v0}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
-
-    move-result-object v0
-
-    invoke-static {v0}, Lcom/samsung/android/cover/ICoverManager$Stub;->asInterface(Landroid/os/IBinder;)Lcom/samsung/android/cover/ICoverManager;
-
-    move-result-object v0
-
-    iput-object v0, p0, Landroid/media/session/MediaSessionLegacyHelper;->mCoverManager:Lcom/samsung/android/cover/ICoverManager;
-
-    invoke-static {}, Lcom/samsung/android/feature/SemFloatingFeature;->getInstance()Lcom/samsung/android/feature/SemFloatingFeature;
-
-    move-result-object v0
-
-    const-string/jumbo v1, "SEC_FLOATING_FEATURE_CONTEXTSERVICE_ENABLE_SURVEY_MODE"
-
-    invoke-virtual {v0, v1}, Lcom/samsung/android/feature/SemFloatingFeature;->getBoolean(Ljava/lang/String;)Z
-
-    move-result v0
-
-    sput-boolean v0, Landroid/media/session/MediaSessionLegacyHelper;->mAudioCoreVolumekeyLoggingEnabled:Z
 
     return-void
 .end method
@@ -753,51 +679,6 @@
     goto/16 :goto_1
 .end method
 
-.method private isCoverOpen()Z
-    .locals 5
-
-    iget-object v3, p0, Landroid/media/session/MediaSessionLegacyHelper;->mCoverManager:Lcom/samsung/android/cover/ICoverManager;
-
-    if-nez v3, :cond_0
-
-    const/4 v3, 0x1
-
-    return v3
-
-    :cond_0
-    const/4 v1, 0x1
-
-    :try_start_0
-    iget-object v3, p0, Landroid/media/session/MediaSessionLegacyHelper;->mCoverManager:Lcom/samsung/android/cover/ICoverManager;
-
-    invoke-interface {v3}, Lcom/samsung/android/cover/ICoverManager;->getCoverState()Lcom/samsung/android/cover/CoverState;
-
-    move-result-object v2
-
-    if-eqz v2, :cond_1
-
-    invoke-virtual {v2}, Lcom/samsung/android/cover/CoverState;->getSwitchState()Z
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    move-result v1
-
-    :cond_1
-    :goto_0
-    return v1
-
-    :catch_0
-    move-exception v0
-
-    const-string/jumbo v3, "MediaSessionHelper"
-
-    const-string/jumbo v4, "Error while get SView coverstate"
-
-    invoke-static {v3, v4, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    goto :goto_0
-.end method
-
 .method private static scaleBitmapIfTooBig(Landroid/graphics/Bitmap;II)Landroid/graphics/Bitmap;
     .locals 15
 
@@ -939,183 +820,6 @@
     return-void
 .end method
 
-.method private sendLogAudioCoreVolumekeyLoggingEnabled(Ljava/lang/String;Ljava/lang/String;)V
-    .locals 8
-
-    new-instance v2, Landroid/content/ContentValues;
-
-    invoke-direct {v2}, Landroid/content/ContentValues;-><init>()V
-
-    const-string/jumbo v0, "android.media.session"
-
-    const-wide/16 v4, 0x3e8
-
-    const-string/jumbo v3, "app_id"
-
-    invoke-virtual {v2, v3, v0}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
-
-    const-string/jumbo v3, "feature"
-
-    invoke-virtual {v2, v3, p1}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
-
-    const-string/jumbo v3, "extra"
-
-    invoke-virtual {v2, v3, p2}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
-
-    const-string/jumbo v3, "value"
-
-    invoke-static {v4, v5}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
-
-    move-result-object v6
-
-    invoke-virtual {v2, v3, v6}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Long;)V
-
-    new-instance v1, Landroid/content/Intent;
-
-    invoke-direct {v1}, Landroid/content/Intent;-><init>()V
-
-    const-string/jumbo v3, "com.samsung.android.providers.context.log.action.USE_APP_FEATURE_SURVEY"
-
-    invoke-virtual {v1, v3}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
-
-    const-string/jumbo v3, "data"
-
-    invoke-virtual {v1, v3, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
-
-    const-string/jumbo v3, "com.samsung.android.providers.context"
-
-    invoke-virtual {v1, v3}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/Intent;
-
-    iget-object v3, p0, Landroid/media/session/MediaSessionLegacyHelper;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v3, v1}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
-
-    sget-boolean v3, Landroid/media/session/MediaSessionLegacyHelper;->DEBUG:Z
-
-    if-eqz v3, :cond_0
-
-    const-string/jumbo v3, "MediaSessionHelper"
-
-    new-instance v6, Ljava/lang/StringBuilder;
-
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v7, "AudioCoreVolumekeyLoggingEnabled success appId="
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    const-string/jumbo v7, "feature="
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    const-string/jumbo v7, "extra="
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    const-string/jumbo v7, "value="
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6, v4, v5}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-static {v3, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_0
-    return-void
-.end method
-
-.method private volumeKeyLogging()V
-    .locals 5
-
-    const/4 v2, 0x0
-
-    invoke-static {}, Landroid/media/AudioManager;->semGetActiveStreamType()I
-
-    move-result v3
-
-    const/4 v0, 0x0
-
-    const/4 v1, 0x0
-
-    if-nez v3, :cond_0
-
-    const-string/jumbo v0, "Call volume"
-
-    :goto_0
-    iget-object v4, p0, Landroid/media/session/MediaSessionLegacyHelper;->mPowerManager:Landroid/os/PowerManager;
-
-    invoke-virtual {v4}, Landroid/os/PowerManager;->isScreenOn()Z
-
-    move-result v4
-
-    if-eqz v4, :cond_2
-
-    :goto_1
-    if-eqz v2, :cond_3
-
-    const-string/jumbo v1, "MPVL"
-
-    :goto_2
-    invoke-direct {p0, v1, v0}, Landroid/media/session/MediaSessionLegacyHelper;->sendLogAudioCoreVolumekeyLoggingEnabled(Ljava/lang/String;Ljava/lang/String;)V
-
-    return-void
-
-    :cond_0
-    const/4 v4, 0x3
-
-    if-ne v3, v4, :cond_1
-
-    const-string/jumbo v0, "Music volume"
-
-    goto :goto_0
-
-    :cond_1
-    return-void
-
-    :cond_2
-    const/4 v2, 0x1
-
-    goto :goto_1
-
-    :cond_3
-    if-nez v3, :cond_4
-
-    const-string/jumbo v1, "UIFW"
-
-    const-string/jumbo v0, "Media"
-
-    goto :goto_2
-
-    :cond_4
-    return-void
-.end method
-
 
 # virtual methods
 .method public addMediaButtonListener(Landroid/app/PendingIntent;Landroid/content/ComponentName;Landroid/content/Context;)V
@@ -1144,10 +848,6 @@
 
     :cond_1
     iget-object v1, v0, Landroid/media/session/MediaSessionLegacyHelper$SessionHolder;->mMediaButtonListener:Landroid/media/session/MediaSessionLegacyHelper$MediaButtonListener;
-
-    if-eqz v1, :cond_2
-
-    sget-boolean v1, Landroid/media/session/MediaSessionLegacyHelper;->DEBUG:Z
 
     if-eqz v1, :cond_2
 
@@ -1198,10 +898,6 @@
 
     invoke-virtual {v0}, Landroid/media/session/MediaSessionLegacyHelper$SessionHolder;->update()V
 
-    sget-boolean v1, Landroid/media/session/MediaSessionLegacyHelper;->DEBUG:Z
-
-    if-eqz v1, :cond_3
-
     const-string/jumbo v1, "MediaSessionHelper"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -1224,7 +920,6 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_3
     return-void
 .end method
 
@@ -1255,15 +950,11 @@
     :cond_1
     iget-object v1, v0, Landroid/media/session/MediaSessionLegacyHelper$SessionHolder;->mRccListener:Landroid/media/session/MediaSession$Callback;
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_2
 
     iget-object v1, v0, Landroid/media/session/MediaSessionLegacyHelper$SessionHolder;->mRccListener:Landroid/media/session/MediaSession$Callback;
 
-    if-ne v1, p2, :cond_3
-
-    sget-boolean v1, Landroid/media/session/MediaSessionLegacyHelper;->DEBUG:Z
-
-    if-eqz v1, :cond_2
+    if-ne v1, p2, :cond_2
 
     const-string/jumbo v1, "MediaSessionHelper"
 
@@ -1271,10 +962,9 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_2
     return-void
 
-    :cond_3
+    :cond_2
     iput-object p2, v0, Landroid/media/session/MediaSessionLegacyHelper$SessionHolder;->mRccListener:Landroid/media/session/MediaSession$Callback;
 
     iget v1, v0, Landroid/media/session/MediaSessionLegacyHelper$SessionHolder;->mFlags:I
@@ -1290,10 +980,6 @@
     invoke-virtual {v1, v2}, Landroid/media/session/MediaSession;->setFlags(I)V
 
     invoke-virtual {v0}, Landroid/media/session/MediaSessionLegacyHelper$SessionHolder;->update()V
-
-    sget-boolean v1, Landroid/media/session/MediaSessionLegacyHelper;->DEBUG:Z
-
-    if-eqz v1, :cond_4
 
     const-string/jumbo v1, "MediaSessionHelper"
 
@@ -1323,7 +1009,6 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_4
     return-void
 .end method
 
@@ -1401,10 +1086,6 @@
 
     invoke-virtual {v0}, Landroid/media/session/MediaSessionLegacyHelper$SessionHolder;->update()V
 
-    sget-boolean v1, Landroid/media/session/MediaSessionLegacyHelper;->DEBUG:Z
-
-    if-eqz v1, :cond_1
-
     const-string/jumbo v1, "MediaSessionHelper"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -1469,10 +1150,6 @@
 
     invoke-virtual {v0}, Landroid/media/session/MediaSessionLegacyHelper$SessionHolder;->update()V
 
-    sget-boolean v1, Landroid/media/session/MediaSessionLegacyHelper;->DEBUG:Z
-
-    if-eqz v1, :cond_1
-
     const-string/jumbo v1, "MediaSessionHelper"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -1512,28 +1189,12 @@
 
     invoke-virtual {v0, p1, p2, p3}, Landroid/media/session/MediaSessionManager;->dispatchAdjustVolume(III)V
 
-    sget-boolean v0, Landroid/media/session/MediaSessionLegacyHelper;->mAudioCoreVolumekeyLoggingEnabled:Z
-
-    if-eqz v0, :cond_0
-
-    const/16 v0, 0x1014
-
-    if-ne p3, v0, :cond_0
-
-    invoke-direct {p0}, Landroid/media/session/MediaSessionLegacyHelper;->volumeKeyLogging()V
-
-    :cond_0
-    sget-boolean v0, Landroid/media/session/MediaSessionLegacyHelper;->DEBUG:Z
-
-    if-eqz v0, :cond_1
-
     const-string/jumbo v0, "MediaSessionHelper"
 
     const-string/jumbo v1, "dispatched volume adjustment"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_1
     return-void
 .end method
 
@@ -1554,10 +1215,6 @@
     iget-object v0, p0, Landroid/media/session/MediaSessionLegacyHelper;->mSessionManager:Landroid/media/session/MediaSessionManager;
 
     invoke-virtual {v0, p1, p2}, Landroid/media/session/MediaSessionManager;->dispatchMediaKeyEvent(Landroid/view/KeyEvent;Z)V
-
-    sget-boolean v0, Landroid/media/session/MediaSessionLegacyHelper;->DEBUG:Z
-
-    if-eqz v0, :cond_1
 
     const-string/jumbo v0, "MediaSessionHelper"
 
@@ -1581,211 +1238,26 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_1
     return-void
 .end method
 
-.method public sendVolumeKeyEvent(Landroid/view/KeyEvent;Z)V
-    .locals 9
-
-    const/high16 v8, -0x80000000
+.method public sendVolumeKeyEvent(Landroid/view/KeyEvent;IZ)V
+    .locals 2
 
     if-nez p1, :cond_0
 
-    const-string/jumbo v5, "MediaSessionHelper"
+    const-string/jumbo v0, "MediaSessionHelper"
 
-    const-string/jumbo v6, "Tried to send a null key event. Ignoring."
+    const-string/jumbo v1, "Tried to send a null key event. Ignoring."
 
-    invoke-static {v5, v6}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 
     :cond_0
-    invoke-virtual {p1}, Landroid/view/KeyEvent;->getAction()I
+    iget-object v0, p0, Landroid/media/session/MediaSessionLegacyHelper;->mSessionManager:Landroid/media/session/MediaSessionManager;
 
-    move-result v5
+    invoke-virtual {v0, p1, p2, p3}, Landroid/media/session/MediaSessionManager;->dispatchVolumeKeyEvent(Landroid/view/KeyEvent;IZ)V
 
-    if-nez v5, :cond_7
-
-    const/4 v1, 0x1
-
-    :goto_0
-    invoke-virtual {p1}, Landroid/view/KeyEvent;->getAction()I
-
-    move-result v5
-
-    const/4 v6, 0x1
-
-    if-ne v5, v6, :cond_8
-
-    const/4 v4, 0x1
-
-    :goto_1
-    const/4 v0, 0x0
-
-    const/4 v3, 0x0
-
-    const-string/jumbo v5, "MediaSessionHelper"
-
-    new-instance v6, Ljava/lang/StringBuilder;
-
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v7, "VolumeKeyEvent down:"
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    const-string/jumbo v7, ", musicOnly:"
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6, p2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    sget-boolean v5, Landroid/media/session/MediaSessionLegacyHelper;->mAudioCoreVolumekeyLoggingEnabled:Z
-
-    if-eqz v5, :cond_1
-
-    if-eqz v4, :cond_1
-
-    invoke-direct {p0}, Landroid/media/session/MediaSessionLegacyHelper;->volumeKeyLogging()V
-
-    :cond_1
-    invoke-virtual {p1}, Landroid/view/KeyEvent;->getKeyCode()I
-
-    move-result v5
-
-    sparse-switch v5, :sswitch_data_0
-
-    :goto_2
-    if-nez v1, :cond_2
-
-    if-eqz v4, :cond_6
-
-    :cond_2
-    const/16 v2, 0x1000
-
-    if-eqz v1, :cond_3
-
-    const v2, 0x20001000
-
-    :cond_3
-    if-nez p2, :cond_4
-
-    iget-object v5, p0, Landroid/media/session/MediaSessionLegacyHelper;->mKeyguardManager:Landroid/app/KeyguardManager;
-
-    if-eqz v5, :cond_9
-
-    iget-object v5, p0, Landroid/media/session/MediaSessionLegacyHelper;->mKeyguardManager:Landroid/app/KeyguardManager;
-
-    invoke-virtual {v5}, Landroid/app/KeyguardManager;->isKeyguardLocked()Z
-
-    move-result v5
-
-    if-eqz v5, :cond_9
-
-    invoke-direct {p0}, Landroid/media/session/MediaSessionLegacyHelper;->isCoverOpen()Z
-
-    move-result v5
-
-    if-eqz v5, :cond_9
-
-    :cond_4
-    or-int/lit16 v2, v2, 0x200
-
-    or-int/lit8 v2, v2, 0x1
-
-    :goto_3
-    if-eqz v0, :cond_b
-
-    if-eqz v4, :cond_5
-
-    const/4 v0, 0x0
-
-    :cond_5
-    iget-object v5, p0, Landroid/media/session/MediaSessionLegacyHelper;->mSessionManager:Landroid/media/session/MediaSessionManager;
-
-    invoke-virtual {v5, v8, v0, v2}, Landroid/media/session/MediaSessionManager;->dispatchAdjustVolume(III)V
-
-    :cond_6
-    :goto_4
     return-void
-
-    :cond_7
-    const/4 v1, 0x0
-
-    goto :goto_0
-
-    :cond_8
-    const/4 v4, 0x0
-
-    goto :goto_1
-
-    :sswitch_0
-    const/4 v0, 0x1
-
-    goto :goto_2
-
-    :sswitch_1
-    const/4 v0, -0x1
-
-    goto :goto_2
-
-    :sswitch_2
-    const/4 v3, 0x1
-
-    goto :goto_2
-
-    :cond_9
-    if-eqz v4, :cond_a
-
-    or-int/lit8 v2, v2, 0x14
-
-    goto :goto_3
-
-    :cond_a
-    or-int/lit8 v2, v2, 0x11
-
-    goto :goto_3
-
-    :cond_b
-    if-eqz v3, :cond_6
-
-    if-eqz v1, :cond_6
-
-    invoke-virtual {p1}, Landroid/view/KeyEvent;->getRepeatCount()I
-
-    move-result v5
-
-    if-nez v5, :cond_6
-
-    iget-object v5, p0, Landroid/media/session/MediaSessionLegacyHelper;->mSessionManager:Landroid/media/session/MediaSessionManager;
-
-    const/16 v6, 0x65
-
-    invoke-virtual {v5, v8, v6, v2}, Landroid/media/session/MediaSessionManager;->dispatchAdjustVolume(III)V
-
-    goto :goto_4
-
-    :sswitch_data_0
-    .sparse-switch
-        0x18 -> :sswitch_0
-        0x19 -> :sswitch_1
-        0xa4 -> :sswitch_2
-    .end sparse-switch
 .end method

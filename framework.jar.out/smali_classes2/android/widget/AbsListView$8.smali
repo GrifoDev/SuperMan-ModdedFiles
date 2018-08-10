@@ -3,12 +3,12 @@
 .source "AbsListView.java"
 
 # interfaces
-.implements Landroid/animation/ValueAnimator$AnimatorUpdateListener;
+.implements Ljava/lang/Runnable;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Landroid/widget/AbsListView;->semSetGoToTopEnabled(Z)V
+    value = Landroid/widget/AbsListView;->setFastScrollAlwaysVisible(Z)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,12 +20,16 @@
 # instance fields
 .field final synthetic this$0:Landroid/widget/AbsListView;
 
+.field final synthetic val$alwaysShow:Z
+
 
 # direct methods
-.method constructor <init>(Landroid/widget/AbsListView;)V
+.method constructor <init>(Landroid/widget/AbsListView;Z)V
     .locals 0
 
     iput-object p1, p0, Landroid/widget/AbsListView$8;->this$0:Landroid/widget/AbsListView;
+
+    iput-boolean p2, p0, Landroid/widget/AbsListView$8;->val$alwaysShow:Z
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -34,39 +38,14 @@
 
 
 # virtual methods
-.method public onAnimationUpdate(Landroid/animation/ValueAnimator;)V
-    .locals 3
+.method public run()V
+    .locals 2
 
-    :try_start_0
-    invoke-virtual {p1}, Landroid/animation/ValueAnimator;->getAnimatedValue()Ljava/lang/Object;
+    iget-object v0, p0, Landroid/widget/AbsListView$8;->this$0:Landroid/widget/AbsListView;
 
-    move-result-object v2
+    iget-boolean v1, p0, Landroid/widget/AbsListView$8;->val$alwaysShow:Z
 
-    check-cast v2, Ljava/lang/Integer;
+    invoke-static {v0, v1}, Landroid/widget/AbsListView;->-wrap18(Landroid/widget/AbsListView;Z)V
 
-    invoke-virtual {v2}, Ljava/lang/Integer;->intValue()I
-
-    move-result v1
-
-    iget-object v2, p0, Landroid/widget/AbsListView$8;->this$0:Landroid/widget/AbsListView;
-
-    invoke-static {v2}, Landroid/widget/AbsListView;->-get40(Landroid/widget/AbsListView;)Landroid/graphics/drawable/Drawable;
-
-    move-result-object v2
-
-    invoke-virtual {v2, v1}, Landroid/graphics/drawable/Drawable;->setAlpha(I)V
-
-    iget-object v2, p0, Landroid/widget/AbsListView$8;->this$0:Landroid/widget/AbsListView;
-
-    invoke-virtual {v2}, Landroid/view/View;->invalidate()V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
-
-    :goto_0
     return-void
-
-    :catch_0
-    move-exception v0
-
-    goto :goto_0
 .end method

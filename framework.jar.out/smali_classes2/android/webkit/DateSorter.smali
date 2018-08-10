@@ -132,7 +132,7 @@
 
     aput-object v7, v6, v11
 
-    const v4, 0x1140003
+    const v4, 0x1150012
 
     invoke-virtual {v5, v4, v13}, Landroid/content/res/Resources;->getQuantityString(II)Ljava/lang/String;
 
@@ -156,7 +156,7 @@
 
     iget-object v6, p0, Landroid/webkit/DateSorter;->mLabels:[Ljava/lang/String;
 
-    const v7, 0x1040355
+    const v7, 0x1040495
 
     invoke-virtual {p1, v7}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -168,7 +168,7 @@
 
     iget-object v6, p0, Landroid/webkit/DateSorter;->mLabels:[Ljava/lang/String;
 
-    const v7, 0x1040356
+    const v7, 0x1040614
 
     invoke-virtual {p1, v7}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -208,30 +208,32 @@
 
 # virtual methods
 .method public getBoundary(I)J
-    .locals 2
+    .locals 4
+
+    const/4 v1, 0x4
 
     const/4 v0, 0x4
 
     if-ltz p1, :cond_0
 
-    if-le p1, v0, :cond_1
+    if-le p1, v1, :cond_1
 
     :cond_0
     const/4 p1, 0x0
 
     :cond_1
-    if-ne p1, v0, :cond_2
+    if-ne p1, v1, :cond_2
 
-    const-wide/high16 v0, -0x8000000000000000L
+    const-wide/high16 v2, -0x8000000000000000L
 
-    return-wide v0
+    return-wide v2
 
     :cond_2
-    iget-object v0, p0, Landroid/webkit/DateSorter;->mBins:[J
+    iget-object v1, p0, Landroid/webkit/DateSorter;->mBins:[J
 
-    aget-wide v0, v0, p1
+    aget-wide v2, v1, p1
 
-    return-wide v0
+    return-wide v2
 .end method
 
 .method public getIndex(J)I

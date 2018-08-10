@@ -30,7 +30,7 @@
 # instance fields
 .field public final alpha:F
 
-.field public final bitmap:Landroid/graphics/Bitmap;
+.field public final buffer:Landroid/graphics/GraphicBuffer;
 
 .field public final duration:J
 
@@ -54,7 +54,7 @@
     return-void
 .end method
 
-.method public constructor <init>(ILandroid/graphics/Bitmap;Landroid/graphics/Rect;)V
+.method public constructor <init>(ILandroid/graphics/GraphicBuffer;Landroid/graphics/Rect;)V
     .locals 10
 
     const-wide/16 v6, 0x0
@@ -71,21 +71,21 @@
 
     move-wide v8, v6
 
-    invoke-direct/range {v1 .. v9}, Landroid/view/AppTransitionAnimationSpec;-><init>(ILandroid/graphics/Bitmap;Landroid/graphics/Rect;FJJ)V
+    invoke-direct/range {v1 .. v9}, Landroid/view/AppTransitionAnimationSpec;-><init>(ILandroid/graphics/GraphicBuffer;Landroid/graphics/Rect;FJJ)V
 
     return-void
 .end method
 
-.method public constructor <init>(ILandroid/graphics/Bitmap;Landroid/graphics/Rect;FJJ)V
+.method public constructor <init>(ILandroid/graphics/GraphicBuffer;Landroid/graphics/Rect;FJJ)V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput p1, p0, Landroid/view/AppTransitionAnimationSpec;->taskId:I
 
-    iput-object p2, p0, Landroid/view/AppTransitionAnimationSpec;->bitmap:Landroid/graphics/Bitmap;
-
     iput-object p3, p0, Landroid/view/AppTransitionAnimationSpec;->rect:Landroid/graphics/Rect;
+
+    iput-object p2, p0, Landroid/view/AppTransitionAnimationSpec;->buffer:Landroid/graphics/GraphicBuffer;
 
     iput p4, p0, Landroid/view/AppTransitionAnimationSpec;->alpha:F
 
@@ -113,17 +113,17 @@
 
     move-result-object v0
 
-    check-cast v0, Landroid/graphics/Bitmap;
+    check-cast v0, Landroid/graphics/Rect;
 
-    iput-object v0, p0, Landroid/view/AppTransitionAnimationSpec;->bitmap:Landroid/graphics/Bitmap;
+    iput-object v0, p0, Landroid/view/AppTransitionAnimationSpec;->rect:Landroid/graphics/Rect;
 
     invoke-virtual {p1, v1}, Landroid/os/Parcel;->readParcelable(Ljava/lang/ClassLoader;)Landroid/os/Parcelable;
 
     move-result-object v0
 
-    check-cast v0, Landroid/graphics/Rect;
+    check-cast v0, Landroid/graphics/GraphicBuffer;
 
-    iput-object v0, p0, Landroid/view/AppTransitionAnimationSpec;->rect:Landroid/graphics/Rect;
+    iput-object v0, p0, Landroid/view/AppTransitionAnimationSpec;->buffer:Landroid/graphics/GraphicBuffer;
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readFloat()F
 
@@ -175,13 +175,13 @@
 
     move-result-object v0
 
-    const-string/jumbo v1, ", bitmap: "
+    const-string/jumbo v1, ", buffer: "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
-    iget-object v1, p0, Landroid/view/AppTransitionAnimationSpec;->bitmap:Landroid/graphics/Bitmap;
+    iget-object v1, p0, Landroid/view/AppTransitionAnimationSpec;->buffer:Landroid/graphics/GraphicBuffer;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
@@ -257,11 +257,11 @@
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    iget-object v0, p0, Landroid/view/AppTransitionAnimationSpec;->bitmap:Landroid/graphics/Bitmap;
+    iget-object v0, p0, Landroid/view/AppTransitionAnimationSpec;->rect:Landroid/graphics/Rect;
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Parcel;->writeParcelable(Landroid/os/Parcelable;I)V
 
-    iget-object v0, p0, Landroid/view/AppTransitionAnimationSpec;->rect:Landroid/graphics/Rect;
+    iget-object v0, p0, Landroid/view/AppTransitionAnimationSpec;->buffer:Landroid/graphics/GraphicBuffer;
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Parcel;->writeParcelable(Landroid/os/Parcelable;I)V
 

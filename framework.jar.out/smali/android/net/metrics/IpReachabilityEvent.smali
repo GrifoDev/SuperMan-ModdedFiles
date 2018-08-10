@@ -1,5 +1,5 @@
 .class public final Landroid/net/metrics/IpReachabilityEvent;
-.super Landroid/net/metrics/IpConnectivityEvent;
+.super Ljava/lang/Object;
 .source "IpReachabilityEvent.java"
 
 # interfaces
@@ -29,15 +29,17 @@
 
 .field public static final NUD_FAILED:I = 0x200
 
+.field public static final NUD_FAILED_ORGANIC:I = 0x400
+
 .field public static final PROBE:I = 0x100
 
 .field public static final PROVISIONING_LOST:I = 0x300
 
+.field public static final PROVISIONING_LOST_ORGANIC:I = 0x500
+
 
 # instance fields
 .field public final eventType:I
-
-.field public final ifName:Ljava/lang/String;
 
 
 # direct methods
@@ -53,16 +55,20 @@
     return-void
 .end method
 
+.method public constructor <init>(I)V
+    .locals 0
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput p1, p0, Landroid/net/metrics/IpReachabilityEvent;->eventType:I
+
+    return-void
+.end method
+
 .method private constructor <init>(Landroid/os/Parcel;)V
     .locals 1
 
-    invoke-direct {p0}, Landroid/net/metrics/IpConnectivityEvent;-><init>()V
-
-    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v0
-
-    iput-object v0, p0, Landroid/net/metrics/IpReachabilityEvent;->ifName:Ljava/lang/String;
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
@@ -81,60 +87,35 @@
     return-void
 .end method
 
-.method private constructor <init>(Ljava/lang/String;I)V
-    .locals 0
+.method public static nudFailureEventType(ZZ)I
+    .locals 1
 
-    invoke-direct {p0}, Landroid/net/metrics/IpConnectivityEvent;-><init>()V
+    if-eqz p0, :cond_1
 
-    iput-object p1, p0, Landroid/net/metrics/IpReachabilityEvent;->ifName:Ljava/lang/String;
+    if-eqz p1, :cond_0
 
-    iput p2, p0, Landroid/net/metrics/IpReachabilityEvent;->eventType:I
+    const/16 v0, 0x300
 
-    return-void
-.end method
+    :goto_0
+    return v0
 
-.method public static logNudFailed(Ljava/lang/String;)V
-    .locals 2
+    :cond_0
+    const/16 v0, 0x200
 
-    new-instance v0, Landroid/net/metrics/IpReachabilityEvent;
+    goto :goto_0
 
-    const/16 v1, 0x200
+    :cond_1
+    if-eqz p1, :cond_2
 
-    invoke-direct {v0, p0, v1}, Landroid/net/metrics/IpReachabilityEvent;-><init>(Ljava/lang/String;I)V
+    const/16 v0, 0x500
 
-    invoke-static {v0}, Landroid/net/metrics/IpReachabilityEvent;->logEvent(Landroid/net/metrics/IpConnectivityEvent;)V
+    :goto_1
+    return v0
 
-    return-void
-.end method
+    :cond_2
+    const/16 v0, 0x400
 
-.method public static logProbeEvent(Ljava/lang/String;I)V
-    .locals 2
-
-    new-instance v0, Landroid/net/metrics/IpReachabilityEvent;
-
-    and-int/lit16 v1, p1, 0xff
-
-    or-int/lit16 v1, v1, 0x100
-
-    invoke-direct {v0, p0, v1}, Landroid/net/metrics/IpReachabilityEvent;-><init>(Ljava/lang/String;I)V
-
-    invoke-static {v0}, Landroid/net/metrics/IpReachabilityEvent;->logEvent(Landroid/net/metrics/IpConnectivityEvent;)V
-
-    return-void
-.end method
-
-.method public static logProvisioningLost(Ljava/lang/String;)V
-    .locals 2
-
-    new-instance v0, Landroid/net/metrics/IpReachabilityEvent;
-
-    const/16 v1, 0x300
-
-    invoke-direct {v0, p0, v1}, Landroid/net/metrics/IpReachabilityEvent;-><init>(Ljava/lang/String;I)V
-
-    invoke-static {v0}, Landroid/net/metrics/IpReachabilityEvent;->logEvent(Landroid/net/metrics/IpConnectivityEvent;)V
-
-    return-void
+    goto :goto_1
 .end method
 
 
@@ -148,45 +129,53 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 4
-
-    const-string/jumbo v0, "IpReachabilityEvent(%s, %s)"
-
-    const/4 v1, 0x2
-
-    new-array v1, v1, [Ljava/lang/Object;
-
-    iget-object v2, p0, Landroid/net/metrics/IpReachabilityEvent;->ifName:Ljava/lang/String;
-
-    const/4 v3, 0x0
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Landroid/net/metrics/IpReachabilityEvent$Decoder;->constants:Landroid/util/SparseArray;
+    .locals 7
 
     iget v3, p0, Landroid/net/metrics/IpReachabilityEvent;->eventType:I
 
-    invoke-virtual {v2, v3}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
+    const v4, 0xff00
 
-    move-result-object v2
+    and-int v1, v3, v4
 
-    const/4 v3, 0x1
+    iget v3, p0, Landroid/net/metrics/IpReachabilityEvent;->eventType:I
 
-    aput-object v2, v1, v3
+    and-int/lit16 v2, v3, 0xff
 
-    invoke-static {v0, v1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    sget-object v3, Landroid/net/metrics/IpReachabilityEvent$Decoder;->constants:Landroid/util/SparseArray;
+
+    invoke-virtual {v3, v1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
 
     move-result-object v0
 
-    return-object v0
+    check-cast v0, Ljava/lang/String;
+
+    const-string/jumbo v3, "IpReachabilityEvent(%s:%02x)"
+
+    const/4 v4, 0x2
+
+    new-array v4, v4, [Ljava/lang/Object;
+
+    const/4 v5, 0x0
+
+    aput-object v0, v4, v5
+
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v5
+
+    const/4 v6, 0x1
+
+    aput-object v5, v4, v6
+
+    invoke-static {v3, v4}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v3
+
+    return-object v3
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-
-    iget-object v0, p0, Landroid/net/metrics/IpReachabilityEvent;->ifName:Ljava/lang/String;
-
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
     iget v0, p0, Landroid/net/metrics/IpReachabilityEvent;->eventType:I
 

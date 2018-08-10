@@ -21,21 +21,13 @@
 .method public acceptsFrame()Z
     .locals 1
 
-    invoke-virtual {p0}, Landroid/filterfw/core/FilterPort;->hasFrame()Z
+    invoke-virtual {p0}, Landroid/filterfw/core/InputPort;->hasFrame()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    xor-int/lit8 v0, v0, 0x1
 
-    const/4 v0, 0x0
-
-    :goto_0
     return v0
-
-    :cond_0
-    const/4 v0, 0x1
-
-    goto :goto_0
 .end method
 
 .method public close()V
@@ -47,7 +39,7 @@
 
     iget-object v0, p0, Landroid/filterfw/core/InputPort;->mSourcePort:Landroid/filterfw/core/OutputPort;
 
-    invoke-virtual {v0}, Landroid/filterfw/core/FilterPort;->isOpen()Z
+    invoke-virtual {v0}, Landroid/filterfw/core/OutputPort;->isOpen()Z
 
     move-result v0
 
@@ -64,34 +56,31 @@
 .end method
 
 .method public filterMustClose()Z
-    .locals 2
+    .locals 1
 
-    const/4 v0, 0x0
+    invoke-virtual {p0}, Landroid/filterfw/core/InputPort;->isOpen()Z
 
-    invoke-virtual {p0}, Landroid/filterfw/core/FilterPort;->isOpen()Z
+    move-result v0
 
-    move-result v1
+    if-nez v0, :cond_0
 
-    if-nez v1, :cond_0
+    invoke-virtual {p0}, Landroid/filterfw/core/InputPort;->isBlocking()Z
 
-    invoke-virtual {p0}, Landroid/filterfw/core/FilterPort;->isBlocking()Z
+    move-result v0
 
-    move-result v1
+    if-eqz v0, :cond_0
 
-    if-eqz v1, :cond_0
+    invoke-virtual {p0}, Landroid/filterfw/core/InputPort;->hasFrame()Z
 
-    invoke-virtual {p0}, Landroid/filterfw/core/FilterPort;->hasFrame()Z
+    move-result v0
 
-    move-result v1
+    xor-int/lit8 v0, v0, 0x1
 
-    if-eqz v1, :cond_1
-
-    :cond_0
     :goto_0
     return v0
 
-    :cond_1
-    const/4 v0, 0x1
+    :cond_0
+    const/4 v0, 0x0
 
     goto :goto_0
 .end method
@@ -111,7 +100,7 @@
     :cond_0
     iget-object v0, p0, Landroid/filterfw/core/InputPort;->mSourcePort:Landroid/filterfw/core/OutputPort;
 
-    invoke-virtual {v0}, Landroid/filterfw/core/FilterPort;->getFilter()Landroid/filterfw/core/Filter;
+    invoke-virtual {v0}, Landroid/filterfw/core/OutputPort;->getFilter()Landroid/filterfw/core/Filter;
 
     move-result-object v0
 
@@ -127,7 +116,7 @@
 
     iget-object v0, p0, Landroid/filterfw/core/InputPort;->mSourcePort:Landroid/filterfw/core/OutputPort;
 
-    invoke-virtual {v0}, Landroid/filterfw/core/FilterPort;->getPortFormat()Landroid/filterfw/core/FrameFormat;
+    invoke-virtual {v0}, Landroid/filterfw/core/OutputPort;->getPortFormat()Landroid/filterfw/core/FrameFormat;
 
     move-result-object v0
 
@@ -135,7 +124,7 @@
     return-object v0
 
     :cond_0
-    invoke-virtual {p0}, Landroid/filterfw/core/FilterPort;->getPortFormat()Landroid/filterfw/core/FrameFormat;
+    invoke-virtual {p0}, Landroid/filterfw/core/InputPort;->getPortFormat()Landroid/filterfw/core/FrameFormat;
 
     move-result-object v0
 
@@ -177,26 +166,27 @@
 .end method
 
 .method public isReady()Z
-    .locals 2
+    .locals 1
 
-    const/4 v0, 0x1
+    invoke-virtual {p0}, Landroid/filterfw/core/InputPort;->hasFrame()Z
 
-    invoke-virtual {p0}, Landroid/filterfw/core/FilterPort;->hasFrame()Z
+    move-result v0
 
-    move-result v1
+    if-nez v0, :cond_0
 
-    if-nez v1, :cond_0
+    invoke-virtual {p0}, Landroid/filterfw/core/InputPort;->isBlocking()Z
 
-    invoke-virtual {p0}, Landroid/filterfw/core/FilterPort;->isBlocking()Z
+    move-result v0
 
-    move-result v1
+    xor-int/lit8 v0, v0, 0x1
 
-    if-eqz v1, :cond_0
-
-    const/4 v0, 0x0
+    :goto_0
+    return v0
 
     :cond_0
-    return v0
+    const/4 v0, 0x1
+
+    goto :goto_0
 .end method
 
 .method public open()V
@@ -210,22 +200,20 @@
 
     iget-object v0, p0, Landroid/filterfw/core/InputPort;->mSourcePort:Landroid/filterfw/core/OutputPort;
 
-    invoke-virtual {v0}, Landroid/filterfw/core/FilterPort;->isOpen()Z
+    invoke-virtual {v0}, Landroid/filterfw/core/OutputPort;->isOpen()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    xor-int/lit8 v0, v0, 0x1
 
-    :cond_0
-    :goto_0
-    return-void
+    if-eqz v0, :cond_0
 
-    :cond_1
     iget-object v0, p0, Landroid/filterfw/core/InputPort;->mSourcePort:Landroid/filterfw/core/OutputPort;
 
     invoke-virtual {v0}, Landroid/filterfw/core/OutputPort;->open()V
 
-    goto :goto_0
+    :cond_0
+    return-void
 .end method
 
 .method public setSourcePort(Landroid/filterfw/core/OutputPort;)V

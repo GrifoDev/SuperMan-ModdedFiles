@@ -35,10 +35,6 @@
 
     iput-object v0, p0, Landroid/view/DisplayAdjustments;->mCompatInfo:Landroid/content/res/CompatibilityInfo;
 
-    sget-object v0, Landroid/content/res/Configuration;->EMPTY:Landroid/content/res/Configuration;
-
-    iput-object v0, p0, Landroid/view/DisplayAdjustments;->mConfiguration:Landroid/content/res/Configuration;
-
     return-void
 .end method
 
@@ -51,17 +47,25 @@
 
     iput-object v0, p0, Landroid/view/DisplayAdjustments;->mCompatInfo:Landroid/content/res/CompatibilityInfo;
 
-    sget-object v0, Landroid/content/res/Configuration;->EMPTY:Landroid/content/res/Configuration;
+    new-instance v0, Landroid/content/res/Configuration;
+
+    if-eqz p1, :cond_0
+
+    :goto_0
+    invoke-direct {v0, p1}, Landroid/content/res/Configuration;-><init>(Landroid/content/res/Configuration;)V
 
     iput-object v0, p0, Landroid/view/DisplayAdjustments;->mConfiguration:Landroid/content/res/Configuration;
 
-    iput-object p1, p0, Landroid/view/DisplayAdjustments;->mConfiguration:Landroid/content/res/Configuration;
-
     return-void
+
+    :cond_0
+    sget-object p1, Landroid/content/res/Configuration;->EMPTY:Landroid/content/res/Configuration;
+
+    goto :goto_0
 .end method
 
 .method public constructor <init>(Landroid/view/DisplayAdjustments;)V
-    .locals 1
+    .locals 2
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -69,19 +73,29 @@
 
     iput-object v0, p0, Landroid/view/DisplayAdjustments;->mCompatInfo:Landroid/content/res/CompatibilityInfo;
 
-    sget-object v0, Landroid/content/res/Configuration;->EMPTY:Landroid/content/res/Configuration;
-
-    iput-object v0, p0, Landroid/view/DisplayAdjustments;->mConfiguration:Landroid/content/res/Configuration;
-
     iget-object v0, p1, Landroid/view/DisplayAdjustments;->mCompatInfo:Landroid/content/res/CompatibilityInfo;
 
     invoke-virtual {p0, v0}, Landroid/view/DisplayAdjustments;->setCompatibilityInfo(Landroid/content/res/CompatibilityInfo;)V
 
+    new-instance v1, Landroid/content/res/Configuration;
+
     iget-object v0, p1, Landroid/view/DisplayAdjustments;->mConfiguration:Landroid/content/res/Configuration;
 
-    iput-object v0, p0, Landroid/view/DisplayAdjustments;->mConfiguration:Landroid/content/res/Configuration;
+    if-eqz v0, :cond_0
+
+    iget-object v0, p1, Landroid/view/DisplayAdjustments;->mConfiguration:Landroid/content/res/Configuration;
+
+    :goto_0
+    invoke-direct {v1, v0}, Landroid/content/res/Configuration;-><init>(Landroid/content/res/Configuration;)V
+
+    iput-object v1, p0, Landroid/view/DisplayAdjustments;->mConfiguration:Landroid/content/res/Configuration;
 
     return-void
+
+    :cond_0
+    sget-object v0, Landroid/content/res/Configuration;->EMPTY:Landroid/content/res/Configuration;
+
+    goto :goto_0
 .end method
 
 
@@ -143,6 +157,8 @@
 .method public hashCode()I
     .locals 3
 
+    const/16 v0, 0x11
+
     iget-object v1, p0, Landroid/view/DisplayAdjustments;->mCompatInfo:Landroid/content/res/CompatibilityInfo;
 
     invoke-static {v1}, Ljava/util/Objects;->hashCode(Ljava/lang/Object;)I
@@ -180,30 +196,32 @@
     throw v0
 
     :cond_0
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_2
 
     invoke-virtual {p1}, Landroid/content/res/CompatibilityInfo;->isScalingRequired()Z
 
     move-result v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_1
 
     invoke-virtual {p1}, Landroid/content/res/CompatibilityInfo;->supportsScreen()Z
 
     move-result v0
 
+    xor-int/lit8 v0, v0, 0x1
+
     if-eqz v0, :cond_2
 
     :cond_1
-    sget-object v0, Landroid/content/res/CompatibilityInfo;->DEFAULT_COMPATIBILITY_INFO:Landroid/content/res/CompatibilityInfo;
-
-    iput-object v0, p0, Landroid/view/DisplayAdjustments;->mCompatInfo:Landroid/content/res/CompatibilityInfo;
+    iput-object p1, p0, Landroid/view/DisplayAdjustments;->mCompatInfo:Landroid/content/res/CompatibilityInfo;
 
     :goto_0
     return-void
 
     :cond_2
-    iput-object p1, p0, Landroid/view/DisplayAdjustments;->mCompatInfo:Landroid/content/res/CompatibilityInfo;
+    sget-object v0, Landroid/content/res/CompatibilityInfo;->DEFAULT_COMPATIBILITY_INFO:Landroid/content/res/CompatibilityInfo;
+
+    iput-object v0, p0, Landroid/view/DisplayAdjustments;->mCompatInfo:Landroid/content/res/CompatibilityInfo;
 
     goto :goto_0
 .end method
@@ -224,10 +242,12 @@
     throw v0
 
     :cond_0
+    iget-object v0, p0, Landroid/view/DisplayAdjustments;->mConfiguration:Landroid/content/res/Configuration;
+
     if-eqz p1, :cond_1
 
     :goto_0
-    iput-object p1, p0, Landroid/view/DisplayAdjustments;->mConfiguration:Landroid/content/res/Configuration;
+    invoke-virtual {v0, p1}, Landroid/content/res/Configuration;->setTo(Landroid/content/res/Configuration;)V
 
     return-void
 

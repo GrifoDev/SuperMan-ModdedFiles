@@ -85,14 +85,14 @@
 .end method
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    .locals 8
+    .locals 9
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    const/4 v7, 0x1
+    const/4 v8, 0x1
 
     sparse-switch p1, :sswitch_data_0
 
@@ -107,7 +107,7 @@
 
     invoke-virtual {p3, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    return v7
+    return v8
 
     :sswitch_1
     const-string/jumbo v0, "android.content.IIntentSender"
@@ -139,15 +139,19 @@
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
+    move-result-object v4
+
+    invoke-virtual {p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
+
     move-result-object v0
 
     invoke-static {v0}, Landroid/content/IIntentReceiver$Stub;->asInterface(Landroid/os/IBinder;)Landroid/content/IIntentReceiver;
 
-    move-result-object v4
+    move-result-object v5
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v6
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
@@ -159,16 +163,16 @@
 
     invoke-interface {v0, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
 
-    move-result-object v6
+    move-result-object v7
 
-    check-cast v6, Landroid/os/Bundle;
+    check-cast v7, Landroid/os/Bundle;
 
     :goto_1
     move-object v0, p0
 
-    invoke-virtual/range {v0 .. v6}, Landroid/content/IIntentSender$Stub;->send(ILandroid/content/Intent;Ljava/lang/String;Landroid/content/IIntentReceiver;Ljava/lang/String;Landroid/os/Bundle;)V
+    invoke-virtual/range {v0 .. v7}, Landroid/content/IIntentSender$Stub;->send(ILandroid/content/Intent;Ljava/lang/String;Landroid/os/IBinder;Landroid/content/IIntentReceiver;Ljava/lang/String;Landroid/os/Bundle;)V
 
-    return v7
+    return v8
 
     :cond_0
     const/4 v2, 0x0
@@ -176,7 +180,7 @@
     goto :goto_0
 
     :cond_1
-    const/4 v6, 0x0
+    const/4 v7, 0x0
 
     goto :goto_1
 

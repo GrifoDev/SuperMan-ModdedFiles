@@ -15,7 +15,7 @@
 
 
 # virtual methods
-.method public abstract destroy(Ljava/lang/String;Ljava/lang/String;[B)I
+.method public abstract destroy(Ljava/lang/String;Ljava/lang/String;[B[B[BLjava/lang/String;)I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

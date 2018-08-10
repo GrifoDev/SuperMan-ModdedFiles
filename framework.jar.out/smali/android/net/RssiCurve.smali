@@ -227,7 +227,7 @@
 .method public hashCode()I
     .locals 3
 
-    const/4 v0, 0x4
+    const/4 v0, 0x3
 
     new-array v0, v0, [Ljava/lang/Object;
 
@@ -251,25 +251,27 @@
 
     aput-object v1, v0, v2
 
-    iget-object v1, p0, Landroid/net/RssiCurve;->rssiBuckets:[B
-
-    const/4 v2, 0x2
-
-    aput-object v1, v0, v2
-
     iget v1, p0, Landroid/net/RssiCurve;->activeNetworkRssiBoost:I
 
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v1
 
-    const/4 v2, 0x3
+    const/4 v2, 0x2
 
     aput-object v1, v0, v2
 
     invoke-static {v0}, Ljava/util/Objects;->hash([Ljava/lang/Object;)I
 
     move-result v0
+
+    iget-object v1, p0, Landroid/net/RssiCurve;->rssiBuckets:[B
+
+    invoke-static {v1}, Ljava/util/Arrays;->hashCode([B)I
+
+    move-result v1
+
+    xor-int/2addr v0, v1
 
     return v0
 .end method

@@ -21,6 +21,8 @@
 
 
 # static fields
+.field static final AUTOFILL_ID:I = 0x4
+
 .field public static final CREATOR:Landroid/os/Parcelable$Creator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -32,8 +34,18 @@
     .end annotation
 .end field
 
+.field static final IS_AUTOFILLED:I = 0x2
+
+.field static final START_ACTIVITY_REQUESTED_WHO_SAVED:I = 0x1
+
 
 # instance fields
+.field mAutofillViewId:I
+
+.field mIsAutofilled:Z
+
+.field mSavedData:I
+
 .field mStartActivityRequestWhoSaved:Ljava/lang/String;
 
 
@@ -65,11 +77,29 @@
 
     invoke-direct {p0, p1, p2}, Landroid/view/AbsSavedState;-><init>(Landroid/os/Parcel;Ljava/lang/ClassLoader;)V
 
+    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
+
+    move-result v0
+
+    iput v0, p0, Landroid/view/View$BaseSavedState;->mSavedData:I
+
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Landroid/view/View$BaseSavedState;->mStartActivityRequestWhoSaved:Ljava/lang/String;
+
+    invoke-virtual {p1}, Landroid/os/Parcel;->readBoolean()Z
+
+    move-result v0
+
+    iput-boolean v0, p0, Landroid/view/View$BaseSavedState;->mIsAutofilled:Z
+
+    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
+
+    move-result v0
+
+    iput v0, p0, Landroid/view/View$BaseSavedState;->mAutofillViewId:I
 
     return-void
 .end method
@@ -89,9 +119,21 @@
 
     invoke-super {p0, p1, p2}, Landroid/view/AbsSavedState;->writeToParcel(Landroid/os/Parcel;I)V
 
+    iget v0, p0, Landroid/view/View$BaseSavedState;->mSavedData:I
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
+
     iget-object v0, p0, Landroid/view/View$BaseSavedState;->mStartActivityRequestWhoSaved:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+
+    iget-boolean v0, p0, Landroid/view/View$BaseSavedState;->mIsAutofilled:Z
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeBoolean(Z)V
+
+    iget v0, p0, Landroid/view/View$BaseSavedState;->mAutofillViewId:I
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
     return-void
 .end method

@@ -42,9 +42,7 @@
 
     packed-switch v0, :pswitch_data_0
 
-    invoke-static {}, Landroid/media/AudioManager;->-get0()Ljava/lang/String;
-
-    move-result-object v0
+    const-string/jumbo v0, "AudioManager"
 
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -101,8 +99,6 @@
     invoke-virtual {v1, v0}, Landroid/media/AudioDeviceCallback;->onAudioDevicesRemoved([Landroid/media/AudioDeviceInfo;)V
 
     goto :goto_0
-
-    nop
 
     :pswitch_data_0
     .packed-switch 0x0

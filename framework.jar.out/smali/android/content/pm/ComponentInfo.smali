@@ -21,6 +21,8 @@
 
 .field public processName:Ljava/lang/String;
 
+.field public splitName:Ljava/lang/String;
+
 
 # direct methods
 .method public constructor <init>()V
@@ -68,6 +70,10 @@
 
     iput-object v0, p0, Landroid/content/pm/ComponentInfo;->processName:Ljava/lang/String;
 
+    iget-object v0, p1, Landroid/content/pm/ComponentInfo;->splitName:Ljava/lang/String;
+
+    iput-object v0, p0, Landroid/content/pm/ComponentInfo;->splitName:Ljava/lang/String;
+
     iget v0, p1, Landroid/content/pm/ComponentInfo;->descriptionRes:I
 
     iput v0, p0, Landroid/content/pm/ComponentInfo;->descriptionRes:I
@@ -112,7 +118,7 @@
 
     if-eqz v1, :cond_1
 
-    move v0, v2
+    const/4 v0, 0x1
 
     :goto_0
     if-eqz v0, :cond_0
@@ -133,6 +139,12 @@
     move-result-object v1
 
     iput-object v1, p0, Landroid/content/pm/ComponentInfo;->processName:Ljava/lang/String;
+
+    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v1
+
+    iput-object v1, p0, Landroid/content/pm/ComponentInfo;->splitName:Ljava/lang/String;
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
@@ -176,7 +188,7 @@
     return-void
 
     :cond_1
-    move v0, v3
+    const/4 v0, 0x0
 
     goto :goto_0
 
@@ -308,10 +320,68 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    xor-int/lit8 v0, v0, 0x1
+
+    if-eqz v0, :cond_0
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string/jumbo v1, "processName="
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    iget-object v1, p0, Landroid/content/pm/ComponentInfo;->processName:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-interface {p1, v0}, Landroid/util/Printer;->println(Ljava/lang/String;)V
 
     :cond_0
-    :goto_0
+    iget-object v0, p0, Landroid/content/pm/ComponentInfo;->splitName:Ljava/lang/String;
+
+    if-eqz v0, :cond_1
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string/jumbo v1, "splitName="
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    iget-object v1, p0, Landroid/content/pm/ComponentInfo;->splitName:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-interface {p1, v0}, Landroid/util/Printer;->println(Ljava/lang/String;)V
+
+    :cond_1
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -364,7 +434,7 @@
 
     iget v0, p0, Landroid/content/pm/ComponentInfo;->descriptionRes:I
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2
 
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -392,37 +462,8 @@
 
     invoke-interface {p1, v0}, Landroid/util/Printer;->println(Ljava/lang/String;)V
 
-    :cond_1
-    return-void
-
     :cond_2
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    const-string/jumbo v1, "processName="
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    iget-object v1, p0, Landroid/content/pm/ComponentInfo;->processName:Ljava/lang/String;
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-interface {p1, v0}, Landroid/util/Printer;->println(Ljava/lang/String;)V
-
-    goto :goto_0
+    return-void
 .end method
 
 .method protected getApplicationInfo()Landroid/content/pm/ApplicationInfo;
@@ -564,135 +605,166 @@
 .end method
 
 .method public loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
-    .locals 6
+    .locals 8
 
     invoke-static {}, Landroid/sec/enterprise/EnterpriseDeviceManager;->getInstance()Landroid/sec/enterprise/EnterpriseDeviceManager;
 
-    move-result-object v4
+    move-result-object v5
 
-    invoke-virtual {v4}, Landroid/sec/enterprise/EnterpriseDeviceManager;->getApplicationPolicy()Landroid/sec/enterprise/ApplicationPolicy;
+    invoke-virtual {v5}, Landroid/sec/enterprise/EnterpriseDeviceManager;->getApplicationPolicy()Landroid/sec/enterprise/ApplicationPolicy;
 
     move-result-object v1
 
-    const/4 v3, 0x0
+    const/4 v4, 0x0
 
-    new-instance v4, Ljava/lang/StringBuilder;
+    new-instance v5, Ljava/lang/StringBuilder;
 
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    iget-object v6, p0, Landroid/content/pm/ComponentInfo;->packageName:Ljava/lang/String;
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    const-string/jumbo v6, "/"
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    iget-object v6, p0, Landroid/content/pm/ComponentInfo;->name:Ljava/lang/String;
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    iget-object v6, p0, Landroid/content/pm/ComponentInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
+
+    iget v6, v6, Landroid/content/pm/ApplicationInfo;->uid:I
+
+    invoke-static {v6}, Landroid/os/UserHandle;->getUserId(I)I
+
+    move-result v6
+
+    invoke-virtual {v1, v5, v6}, Landroid/sec/enterprise/ApplicationPolicy;->getApplicationNameFromDb(Ljava/lang/String;I)Ljava/lang/String;
+
+    move-result-object v4
+
+    if-nez v4, :cond_0
 
     iget-object v5, p0, Landroid/content/pm/ComponentInfo;->packageName:Ljava/lang/String;
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    iget-object v6, p0, Landroid/content/pm/ComponentInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
+
+    iget v6, v6, Landroid/content/pm/ApplicationInfo;->uid:I
+
+    invoke-static {v6}, Landroid/os/UserHandle;->getUserId(I)I
+
+    move-result v6
+
+    invoke-virtual {v1, v5, v6}, Landroid/sec/enterprise/ApplicationPolicy;->getApplicationNameFromDb(Ljava/lang/String;I)Ljava/lang/String;
 
     move-result-object v4
-
-    const-string/jumbo v5, "/"
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    iget-object v5, p0, Landroid/content/pm/ComponentInfo;->name:Ljava/lang/String;
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v4
-
-    iget-object v5, p0, Landroid/content/pm/ComponentInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
-
-    iget v5, v5, Landroid/content/pm/ApplicationInfo;->uid:I
-
-    invoke-static {v5}, Landroid/os/UserHandle;->getUserId(I)I
-
-    move-result v5
-
-    invoke-virtual {v1, v4, v5}, Landroid/sec/enterprise/ApplicationPolicy;->getApplicationNameFromDb(Ljava/lang/String;I)Ljava/lang/String;
-
-    move-result-object v3
-
-    if-nez v3, :cond_0
-
-    iget-object v4, p0, Landroid/content/pm/ComponentInfo;->packageName:Ljava/lang/String;
-
-    iget-object v5, p0, Landroid/content/pm/ComponentInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
-
-    iget v5, v5, Landroid/content/pm/ApplicationInfo;->uid:I
-
-    invoke-static {v5}, Landroid/os/UserHandle;->getUserId(I)I
-
-    move-result v5
-
-    invoke-virtual {v1, v4, v5}, Landroid/sec/enterprise/ApplicationPolicy;->getApplicationNameFromDb(Ljava/lang/String;I)Ljava/lang/String;
-
-    move-result-object v3
 
     :cond_0
-    if-eqz v3, :cond_1
+    if-eqz v4, :cond_1
+
+    return-object v4
+
+    :cond_1
+    iget-object v5, p0, Landroid/content/pm/ComponentInfo;->packageName:Ljava/lang/String;
+
+    iget-object v6, p0, Landroid/content/pm/ComponentInfo;->name:Ljava/lang/String;
+
+    invoke-static {v5, v6}, Lcom/samsung/android/knox/SemPersonaManager;->isKnoxIcon(Ljava/lang/String;Ljava/lang/String;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_2
+
+    iget-object v5, p0, Landroid/content/pm/ComponentInfo;->packageName:Ljava/lang/String;
+
+    iget-object v6, p0, Landroid/content/pm/ComponentInfo;->name:Ljava/lang/String;
+
+    iget-object v7, p0, Landroid/content/pm/ComponentInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
+
+    iget v7, v7, Landroid/content/pm/ApplicationInfo;->uid:I
+
+    invoke-static {v7}, Landroid/os/UserHandle;->getUserId(I)I
+
+    move-result v7
+
+    invoke-static {v5, v6, v7}, Lcom/samsung/android/knox/SemPersonaManager;->getContainerName(Ljava/lang/String;Ljava/lang/String;I)Ljava/lang/String;
+
+    move-result-object v3
+
+    if-eqz v3, :cond_2
 
     return-object v3
 
-    :cond_1
-    iget-object v4, p0, Landroid/content/pm/ComponentInfo;->nonLocalizedLabel:Ljava/lang/CharSequence;
-
-    if-eqz v4, :cond_2
-
-    iget-object v4, p0, Landroid/content/pm/ComponentInfo;->nonLocalizedLabel:Ljava/lang/CharSequence;
-
-    return-object v4
-
     :cond_2
+    iget-object v5, p0, Landroid/content/pm/ComponentInfo;->nonLocalizedLabel:Ljava/lang/CharSequence;
+
+    if-eqz v5, :cond_3
+
+    iget-object v5, p0, Landroid/content/pm/ComponentInfo;->nonLocalizedLabel:Ljava/lang/CharSequence;
+
+    return-object v5
+
+    :cond_3
     iget-object v0, p0, Landroid/content/pm/ComponentInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
-
-    iget v4, p0, Landroid/content/pm/ComponentInfo;->labelRes:I
-
-    if-eqz v4, :cond_3
-
-    iget-object v4, p0, Landroid/content/pm/ComponentInfo;->packageName:Ljava/lang/String;
 
     iget v5, p0, Landroid/content/pm/ComponentInfo;->labelRes:I
 
-    invoke-virtual {p1, v4, v5, v0}, Landroid/content/pm/PackageManager;->getText(Ljava/lang/String;ILandroid/content/pm/ApplicationInfo;)Ljava/lang/CharSequence;
+    if-eqz v5, :cond_4
+
+    iget-object v5, p0, Landroid/content/pm/ComponentInfo;->packageName:Ljava/lang/String;
+
+    iget v6, p0, Landroid/content/pm/ComponentInfo;->labelRes:I
+
+    invoke-virtual {p1, v5, v6, v0}, Landroid/content/pm/PackageManager;->getText(Ljava/lang/String;ILandroid/content/pm/ApplicationInfo;)Ljava/lang/CharSequence;
 
     move-result-object v2
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_4
 
     return-object v2
-
-    :cond_3
-    iget-object v4, v0, Landroid/content/pm/ApplicationInfo;->nonLocalizedLabel:Ljava/lang/CharSequence;
-
-    if-eqz v4, :cond_4
-
-    iget-object v4, v0, Landroid/content/pm/ApplicationInfo;->nonLocalizedLabel:Ljava/lang/CharSequence;
-
-    return-object v4
 
     :cond_4
-    iget v4, v0, Landroid/content/pm/ApplicationInfo;->labelRes:I
+    iget-object v5, v0, Landroid/content/pm/ApplicationInfo;->nonLocalizedLabel:Ljava/lang/CharSequence;
 
-    if-eqz v4, :cond_5
+    if-eqz v5, :cond_5
 
-    iget-object v4, p0, Landroid/content/pm/ComponentInfo;->packageName:Ljava/lang/String;
+    iget-object v5, v0, Landroid/content/pm/ApplicationInfo;->nonLocalizedLabel:Ljava/lang/CharSequence;
 
+    return-object v5
+
+    :cond_5
     iget v5, v0, Landroid/content/pm/ApplicationInfo;->labelRes:I
 
-    invoke-virtual {p1, v4, v5, v0}, Landroid/content/pm/PackageManager;->getText(Ljava/lang/String;ILandroid/content/pm/ApplicationInfo;)Ljava/lang/CharSequence;
+    if-eqz v5, :cond_6
+
+    iget-object v5, p0, Landroid/content/pm/ComponentInfo;->packageName:Ljava/lang/String;
+
+    iget v6, v0, Landroid/content/pm/ApplicationInfo;->labelRes:I
+
+    invoke-virtual {p1, v5, v6, v0}, Landroid/content/pm/PackageManager;->getText(Ljava/lang/String;ILandroid/content/pm/ApplicationInfo;)Ljava/lang/CharSequence;
 
     move-result-object v2
 
-    if-eqz v2, :cond_5
+    if-eqz v2, :cond_6
 
     return-object v2
 
-    :cond_5
-    iget-object v4, p0, Landroid/content/pm/ComponentInfo;->name:Ljava/lang/String;
+    :cond_6
+    iget-object v5, p0, Landroid/content/pm/ComponentInfo;->name:Ljava/lang/String;
 
-    return-object v4
+    return-object v5
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
@@ -712,6 +784,10 @@
 
     :goto_0
     iget-object v0, p0, Landroid/content/pm/ComponentInfo;->processName:Ljava/lang/String;
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+
+    iget-object v0, p0, Landroid/content/pm/ComponentInfo;->splitName:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 

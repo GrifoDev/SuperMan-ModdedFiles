@@ -114,11 +114,11 @@
 
     const/4 v2, 0x0
 
-    iget-object v0, p0, Lcom/samsung/android/graphics/spr/document/attribute/impl/SprGradientBase;->positions:[F
+    iget-object v0, p0, Lcom/samsung/android/graphics/spr/document/attribute/impl/SprRadialGradient;->positions:[F
 
     array-length v9, v0
 
-    iget-object v0, p0, Lcom/samsung/android/graphics/spr/document/attribute/impl/SprGradientBase;->positions:[F
+    iget-object v0, p0, Lcom/samsung/android/graphics/spr/document/attribute/impl/SprRadialGradient;->positions:[F
 
     add-int/lit8 v1, v9, -0x1
 
@@ -131,7 +131,7 @@
     add-int/lit8 v9, v9, 0x1
 
     :cond_0
-    iget-object v0, p0, Lcom/samsung/android/graphics/spr/document/attribute/impl/SprGradientBase;->positions:[F
+    iget-object v0, p0, Lcom/samsung/android/graphics/spr/document/attribute/impl/SprRadialGradient;->positions:[F
 
     aget v0, v0, v2
 
@@ -142,11 +142,11 @@
     add-int/lit8 v9, v9, 0x1
 
     :cond_1
-    iget-object v4, p0, Lcom/samsung/android/graphics/spr/document/attribute/impl/SprGradientBase;->colors:[I
+    iget-object v4, p0, Lcom/samsung/android/graphics/spr/document/attribute/impl/SprRadialGradient;->colors:[I
 
-    iget-object v5, p0, Lcom/samsung/android/graphics/spr/document/attribute/impl/SprGradientBase;->positions:[F
+    iget-object v5, p0, Lcom/samsung/android/graphics/spr/document/attribute/impl/SprRadialGradient;->positions:[F
 
-    iget-object v0, p0, Lcom/samsung/android/graphics/spr/document/attribute/impl/SprGradientBase;->positions:[F
+    iget-object v0, p0, Lcom/samsung/android/graphics/spr/document/attribute/impl/SprRadialGradient;->positions:[F
 
     array-length v0, v0
 
@@ -158,7 +158,7 @@
 
     const/4 v8, 0x0
 
-    iget-object v0, p0, Lcom/samsung/android/graphics/spr/document/attribute/impl/SprGradientBase;->positions:[F
+    iget-object v0, p0, Lcom/samsung/android/graphics/spr/document/attribute/impl/SprRadialGradient;->positions:[F
 
     aget v0, v0, v2
 
@@ -166,7 +166,7 @@
 
     if-eqz v0, :cond_2
 
-    iget-object v0, p0, Lcom/samsung/android/graphics/spr/document/attribute/impl/SprGradientBase;->colors:[I
+    iget-object v0, p0, Lcom/samsung/android/graphics/spr/document/attribute/impl/SprRadialGradient;->colors:[I
 
     aget v0, v0, v2
 
@@ -180,19 +180,19 @@
     const/4 v7, 0x0
 
     :goto_0
-    iget-object v0, p0, Lcom/samsung/android/graphics/spr/document/attribute/impl/SprGradientBase;->colors:[I
+    iget-object v0, p0, Lcom/samsung/android/graphics/spr/document/attribute/impl/SprRadialGradient;->colors:[I
 
     array-length v0, v0
 
     if-ge v7, v0, :cond_3
 
-    iget-object v0, p0, Lcom/samsung/android/graphics/spr/document/attribute/impl/SprGradientBase;->colors:[I
+    iget-object v0, p0, Lcom/samsung/android/graphics/spr/document/attribute/impl/SprRadialGradient;->colors:[I
 
     aget v0, v0, v7
 
     aput v0, v4, v8
 
-    iget-object v0, p0, Lcom/samsung/android/graphics/spr/document/attribute/impl/SprGradientBase;->positions:[F
+    iget-object v0, p0, Lcom/samsung/android/graphics/spr/document/attribute/impl/SprRadialGradient;->positions:[F
 
     aget v0, v0, v7
 
@@ -205,9 +205,9 @@
     goto :goto_0
 
     :cond_3
-    iget-object v0, p0, Lcom/samsung/android/graphics/spr/document/attribute/impl/SprGradientBase;->positions:[F
+    iget-object v0, p0, Lcom/samsung/android/graphics/spr/document/attribute/impl/SprRadialGradient;->positions:[F
 
-    iget-object v1, p0, Lcom/samsung/android/graphics/spr/document/attribute/impl/SprGradientBase;->positions:[F
+    iget-object v1, p0, Lcom/samsung/android/graphics/spr/document/attribute/impl/SprRadialGradient;->positions:[F
 
     array-length v1, v1
 
@@ -221,9 +221,9 @@
 
     add-int/lit8 v0, v9, -0x1
 
-    iget-object v1, p0, Lcom/samsung/android/graphics/spr/document/attribute/impl/SprGradientBase;->colors:[I
+    iget-object v1, p0, Lcom/samsung/android/graphics/spr/document/attribute/impl/SprRadialGradient;->colors:[I
 
-    iget-object v2, p0, Lcom/samsung/android/graphics/spr/document/attribute/impl/SprGradientBase;->positions:[F
+    iget-object v2, p0, Lcom/samsung/android/graphics/spr/document/attribute/impl/SprRadialGradient;->positions:[F
 
     array-length v2, v2
 
@@ -248,21 +248,21 @@
 
     sget-object v6, Lcom/samsung/android/graphics/spr/document/attribute/impl/SprRadialGradient;->sTileModeArray:[Landroid/graphics/Shader$TileMode;
 
-    iget-byte v10, p0, Lcom/samsung/android/graphics/spr/document/attribute/impl/SprGradientBase;->spreadMode:B
+    iget-byte v10, p0, Lcom/samsung/android/graphics/spr/document/attribute/impl/SprRadialGradient;->spreadMode:B
 
     aget-object v6, v6, v10
 
     invoke-direct/range {v0 .. v6}, Landroid/graphics/RadialGradient;-><init>(FFF[I[FLandroid/graphics/Shader$TileMode;)V
 
-    iput-object v0, p0, Lcom/samsung/android/graphics/spr/document/attribute/impl/SprGradientBase;->shader:Landroid/graphics/Shader;
+    iput-object v0, p0, Lcom/samsung/android/graphics/spr/document/attribute/impl/SprRadialGradient;->shader:Landroid/graphics/Shader;
 
-    iget-object v0, p0, Lcom/samsung/android/graphics/spr/document/attribute/impl/SprGradientBase;->matrix:Landroid/graphics/Matrix;
+    iget-object v0, p0, Lcom/samsung/android/graphics/spr/document/attribute/impl/SprRadialGradient;->matrix:Landroid/graphics/Matrix;
 
     if-eqz v0, :cond_5
 
-    iget-object v0, p0, Lcom/samsung/android/graphics/spr/document/attribute/impl/SprGradientBase;->shader:Landroid/graphics/Shader;
+    iget-object v0, p0, Lcom/samsung/android/graphics/spr/document/attribute/impl/SprRadialGradient;->shader:Landroid/graphics/Shader;
 
-    iget-object v1, p0, Lcom/samsung/android/graphics/spr/document/attribute/impl/SprGradientBase;->matrix:Landroid/graphics/Matrix;
+    iget-object v1, p0, Lcom/samsung/android/graphics/spr/document/attribute/impl/SprRadialGradient;->matrix:Landroid/graphics/Matrix;
 
     invoke-virtual {v0, v1}, Landroid/graphics/Shader;->setLocalMatrix(Landroid/graphics/Matrix;)V
 

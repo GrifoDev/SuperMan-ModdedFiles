@@ -314,7 +314,7 @@
 
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+    invoke-virtual {p0}, Lcom/samsung/android/game/IGameManagerService$Stub$Proxy;->getClass()Ljava/lang/Class;
 
     move-result-object v4
 

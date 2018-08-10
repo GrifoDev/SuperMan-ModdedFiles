@@ -236,33 +236,34 @@
 
 # virtual methods
 .method public dispatchWindowFocusChanged(Z)V
-    .locals 3
+    .locals 5
+
+    const/4 v4, 0x0
+
+    const/4 v3, 0x1
 
     invoke-super {p0, p1}, Landroid/widget/TextView;->dispatchWindowFocusChanged(Z)V
-
-    invoke-virtual {p0}, Landroid/widget/EditText;->isFocused()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    if-eqz p1, :cond_0
 
     invoke-virtual {p0}, Landroid/widget/EditText;->getSecClipboardEnabled()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1
 
     instance-of v0, p0, Landroid/inputmethodservice/ExtractEditText;
 
+    xor-int/lit8 v0, v0, 0x1
+
     if-eqz v0, :cond_1
 
-    :cond_0
-    :goto_0
-    return-void
+    invoke-virtual {p0}, Landroid/widget/EditText;->isFocused()Z
 
-    :cond_1
+    move-result v0
+
+    if-eqz v0, :cond_3
+
+    if-eqz p1, :cond_3
+
     invoke-virtual {p0}, Landroid/widget/EditText;->getSemClipboardManager()Lcom/samsung/android/content/clipboard/SemClipboardManager;
 
     move-result-object v0
@@ -271,17 +272,76 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-nez v0, :cond_0
 
+    invoke-virtual {p0}, Landroid/widget/EditText;->getSemClipboardManager()Lcom/samsung/android/content/clipboard/SemClipboardManager;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/samsung/android/content/clipboard/SemClipboardManager;->isFilterRequired()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    :cond_0
+    invoke-virtual {p0}, Landroid/widget/EditText;->getSemClipboardManager()Lcom/samsung/android/content/clipboard/SemClipboardManager;
+
+    move-result-object v0
+
+    invoke-virtual {p0}, Landroid/widget/EditText;->getInputType()I
+
+    move-result v1
+
+    iget-object v2, p0, Landroid/widget/EditText;->mPasteEventListener:Landroid/widget/TextView$TextViewClipboardEventListener;
+
+    invoke-virtual {v0, v3, v1, v2}, Lcom/samsung/android/content/clipboard/SemClipboardManager;->updateFilter(IILcom/samsung/android/content/clipboard/SemClipboardManager$OnPasteListener;)V
+
+    invoke-virtual {p0}, Landroid/widget/EditText;->getSemClipboardManager()Lcom/samsung/android/content/clipboard/SemClipboardManager;
+
+    move-result-object v0
+
+    iget-object v1, p0, Landroid/widget/EditText;->mClipboardChangeListener:Landroid/widget/TextView$TextViewClipboardChangeListener;
+
+    invoke-virtual {v0, v1}, Lcom/samsung/android/content/clipboard/SemClipboardManager;->registerClipboardEventListener(Lcom/samsung/android/content/clipboard/SemClipboardEventListener;)V
+
+    invoke-virtual {p0}, Landroid/widget/EditText;->getSemClipboardManager()Lcom/samsung/android/content/clipboard/SemClipboardManager;
+
+    move-result-object v0
+
+    invoke-virtual {v0, v3}, Lcom/samsung/android/content/clipboard/SemClipboardManager;->getLatestClip(I)Lcom/samsung/android/content/clipboard/data/SemClipData;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_2
+
+    invoke-virtual {p0, v3}, Landroid/widget/EditText;->setCanPaste(Z)V
+
+    :cond_1
+    :goto_0
+    return-void
+
+    :cond_2
+    invoke-virtual {p0, v4}, Landroid/widget/EditText;->setCanPaste(Z)V
+
+    goto :goto_0
+
+    :cond_3
     invoke-virtual {p0}, Landroid/widget/EditText;->getSemClipboardManager()Lcom/samsung/android/content/clipboard/SemClipboardManager;
 
     move-result-object v0
 
     iget-object v1, p0, Landroid/widget/EditText;->mPasteEventListener:Landroid/widget/TextView$TextViewClipboardEventListener;
 
-    const/4 v2, 0x1
+    invoke-virtual {v0, v4, v1}, Lcom/samsung/android/content/clipboard/SemClipboardManager;->clearFilter(ILcom/samsung/android/content/clipboard/SemClipboardManager$OnPasteListener;)Z
 
-    invoke-virtual {v0, v2, v1}, Lcom/samsung/android/content/clipboard/SemClipboardManager;->updateFilter(ILcom/samsung/android/content/clipboard/SemClipboardManager$OnPasteListener;)V
+    invoke-virtual {p0}, Landroid/widget/EditText;->getSemClipboardManager()Lcom/samsung/android/content/clipboard/SemClipboardManager;
+
+    move-result-object v0
+
+    iget-object v1, p0, Landroid/widget/EditText;->mClipboardChangeListener:Landroid/widget/TextView$TextViewClipboardChangeListener;
+
+    invoke-virtual {v0, v1}, Lcom/samsung/android/content/clipboard/SemClipboardManager;->unregisterClipboardEventListener(Lcom/samsung/android/content/clipboard/SemClipboardEventListener;)V
 
     goto :goto_0
 .end method
@@ -359,23 +419,84 @@
 .end method
 
 .method protected onFocusChanged(ZILandroid/graphics/Rect;)V
-    .locals 4
+    .locals 6
+
+    const/4 v5, 0x0
 
     const/4 v1, 0x1
-
-    if-eqz p1, :cond_0
 
     invoke-virtual {p0}, Landroid/widget/EditText;->getSecClipboardEnabled()Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1
+
+    if-eqz p1, :cond_5
 
     instance-of v2, p0, Landroid/inputmethodservice/ExtractEditText;
 
-    if-eqz v2, :cond_3
+    if-nez v2, :cond_1
+
+    invoke-virtual {p0}, Landroid/widget/EditText;->getSemClipboardManager()Lcom/samsung/android/content/clipboard/SemClipboardManager;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Lcom/samsung/android/content/clipboard/SemClipboardManager;->isShowing()Z
+
+    move-result v2
+
+    if-nez v2, :cond_0
+
+    invoke-virtual {p0}, Landroid/widget/EditText;->getSemClipboardManager()Lcom/samsung/android/content/clipboard/SemClipboardManager;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Lcom/samsung/android/content/clipboard/SemClipboardManager;->isFilterRequired()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
 
     :cond_0
+    invoke-virtual {p0}, Landroid/widget/EditText;->hasWindowFocus()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    invoke-virtual {p0}, Landroid/widget/EditText;->getSemClipboardManager()Lcom/samsung/android/content/clipboard/SemClipboardManager;
+
+    move-result-object v2
+
+    invoke-virtual {p0}, Landroid/widget/EditText;->getInputType()I
+
+    move-result v3
+
+    iget-object v4, p0, Landroid/widget/EditText;->mPasteEventListener:Landroid/widget/TextView$TextViewClipboardEventListener;
+
+    invoke-virtual {v2, v1, v3, v4}, Lcom/samsung/android/content/clipboard/SemClipboardManager;->updateFilter(IILcom/samsung/android/content/clipboard/SemClipboardManager$OnPasteListener;)V
+
+    invoke-virtual {p0}, Landroid/widget/EditText;->getSemClipboardManager()Lcom/samsung/android/content/clipboard/SemClipboardManager;
+
+    move-result-object v2
+
+    iget-object v3, p0, Landroid/widget/EditText;->mClipboardChangeListener:Landroid/widget/TextView$TextViewClipboardChangeListener;
+
+    invoke-virtual {v2, v3}, Lcom/samsung/android/content/clipboard/SemClipboardManager;->registerClipboardEventListener(Lcom/samsung/android/content/clipboard/SemClipboardEventListener;)V
+
+    invoke-virtual {p0}, Landroid/widget/EditText;->getSemClipboardManager()Lcom/samsung/android/content/clipboard/SemClipboardManager;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v1}, Lcom/samsung/android/content/clipboard/SemClipboardManager;->getLatestClip(I)Lcom/samsung/android/content/clipboard/data/SemClipData;
+
+    move-result-object v2
+
+    if-eqz v2, :cond_4
+
+    invoke-virtual {p0, v1}, Landroid/widget/EditText;->setCanPaste(Z)V
+
+    :cond_1
     :goto_0
     invoke-super {p0, p1, p2, p3}, Landroid/widget/TextView;->onFocusChanged(ZILandroid/graphics/Rect;)V
 
@@ -393,11 +514,11 @@
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_3
 
     iget-object v2, p0, Landroid/widget/EditText;->mHandler:Landroid/os/Handler;
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_2
 
     new-instance v2, Landroid/widget/EditText$2;
 
@@ -405,14 +526,14 @@
 
     iput-object v2, p0, Landroid/widget/EditText;->mHandler:Landroid/os/Handler;
 
-    :cond_1
+    :cond_2
     iget-object v2, p0, Landroid/widget/EditText;->mHandler:Landroid/os/Handler;
 
     invoke-virtual {v2}, Landroid/os/Handler;->obtainMessage()Landroid/os/Message;
 
     move-result-object v0
 
-    if-eqz p1, :cond_4
+    if-eqz p1, :cond_6
 
     :goto_1
     iput v1, v0, Landroid/os/Message;->what:I
@@ -421,37 +542,34 @@
 
     invoke-virtual {v1, v0}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
 
-    :cond_2
+    :cond_3
     return-void
 
-    :cond_3
-    invoke-virtual {p0}, Landroid/widget/EditText;->getSemClipboardManager()Lcom/samsung/android/content/clipboard/SemClipboardManager;
+    :cond_4
+    invoke-virtual {p0, v5}, Landroid/widget/EditText;->setCanPaste(Z)V
 
-    move-result-object v2
+    goto :goto_0
 
-    invoke-virtual {v2}, Lcom/samsung/android/content/clipboard/SemClipboardManager;->isShowing()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_0
-
-    invoke-virtual {p0}, Landroid/widget/EditText;->hasWindowFocus()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_0
-
+    :cond_5
     invoke-virtual {p0}, Landroid/widget/EditText;->getSemClipboardManager()Lcom/samsung/android/content/clipboard/SemClipboardManager;
 
     move-result-object v2
 
     iget-object v3, p0, Landroid/widget/EditText;->mPasteEventListener:Landroid/widget/TextView$TextViewClipboardEventListener;
 
-    invoke-virtual {v2, v1, v3}, Lcom/samsung/android/content/clipboard/SemClipboardManager;->updateFilter(ILcom/samsung/android/content/clipboard/SemClipboardManager$OnPasteListener;)V
+    invoke-virtual {v2, v5, v3}, Lcom/samsung/android/content/clipboard/SemClipboardManager;->clearFilter(ILcom/samsung/android/content/clipboard/SemClipboardManager$OnPasteListener;)Z
+
+    invoke-virtual {p0}, Landroid/widget/EditText;->getSemClipboardManager()Lcom/samsung/android/content/clipboard/SemClipboardManager;
+
+    move-result-object v2
+
+    iget-object v3, p0, Landroid/widget/EditText;->mClipboardChangeListener:Landroid/widget/TextView$TextViewClipboardChangeListener;
+
+    invoke-virtual {v2, v3}, Lcom/samsung/android/content/clipboard/SemClipboardManager;->unregisterClipboardEventListener(Lcom/samsung/android/content/clipboard/SemClipboardEventListener;)V
 
     goto :goto_0
 
-    :cond_4
+    :cond_6
     const/4 v1, 0x2
 
     goto :goto_1
@@ -549,4 +667,12 @@
     invoke-super {p0, p1, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;Landroid/widget/TextView$BufferType;)V
 
     return-void
+.end method
+
+.method protected supportsAutoSizeText()Z
+    .locals 1
+
+    const/4 v0, 0x0
+
+    return v0
 .end method

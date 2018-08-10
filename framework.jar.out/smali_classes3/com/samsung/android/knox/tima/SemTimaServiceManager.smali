@@ -102,7 +102,7 @@
 
     move-result-object v3
 
-    invoke-virtual {v1}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
 
     move-result-object v4
 
@@ -135,7 +135,7 @@
 
     move-result-object v3
 
-    invoke-virtual {v0}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
+    invoke-virtual {v0}, Landroid/os/RemoteException;->getMessage()Ljava/lang/String;
 
     move-result-object v4
 

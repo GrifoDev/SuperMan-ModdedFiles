@@ -15,7 +15,7 @@
 
 
 # virtual methods
-.method public abstract connected(Landroid/content/ComponentName;Landroid/os/IBinder;)V
+.method public abstract connected(Landroid/content/ComponentName;Landroid/os/IBinder;Z)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

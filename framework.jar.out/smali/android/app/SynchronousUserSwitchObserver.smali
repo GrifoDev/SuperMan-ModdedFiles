@@ -1,5 +1,5 @@
 .class public abstract Landroid/app/SynchronousUserSwitchObserver;
-.super Landroid/app/IUserSwitchObserver$Stub;
+.super Landroid/app/UserSwitchObserver;
 .source "SynchronousUserSwitchObserver.java"
 
 
@@ -7,7 +7,7 @@
 .method public constructor <init>()V
     .locals 0
 
-    invoke-direct {p0}, Landroid/app/IUserSwitchObserver$Stub;-><init>()V
+    invoke-direct {p0}, Landroid/app/UserSwitchObserver;-><init>()V
 
     return-void
 .end method

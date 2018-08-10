@@ -178,12 +178,10 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    xor-int/lit8 v0, v0, 0x1
 
-    :cond_1
-    return-void
+    if-eqz v0, :cond_1
 
-    :cond_2
     new-instance v0, Ljava/lang/RuntimeException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -239,6 +237,9 @@
     invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
     throw v0
+
+    :cond_1
+    return-void
 .end method
 
 .method public abstract clear()V

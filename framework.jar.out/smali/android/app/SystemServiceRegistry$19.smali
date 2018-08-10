@@ -1,5 +1,5 @@
 .class final Landroid/app/SystemServiceRegistry$19;
-.super Landroid/app/SystemServiceRegistry$CachedServiceFetcher;
+.super Landroid/app/SystemServiceRegistry$StaticServiceFetcher;
 .source "SystemServiceRegistry.java"
 
 
@@ -15,9 +15,9 @@
 
 .annotation system Ldalvik/annotation/Signature;
     value = {
-        "Landroid/app/SystemServiceRegistry$CachedServiceFetcher",
+        "Landroid/app/SystemServiceRegistry$StaticServiceFetcher",
         "<",
-        "Landroid/os/DropBoxManager;",
+        "Landroid/os/BatteryManager;",
         ">;"
     }
 .end annotation
@@ -27,44 +27,57 @@
 .method constructor <init>()V
     .locals 0
 
-    invoke-direct {p0}, Landroid/app/SystemServiceRegistry$CachedServiceFetcher;-><init>()V
+    invoke-direct {p0}, Landroid/app/SystemServiceRegistry$StaticServiceFetcher;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public createService(Landroid/app/ContextImpl;)Landroid/os/DropBoxManager;
-    .locals 4
+.method public createService()Landroid/os/BatteryManager;
+    .locals 3
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/ServiceManager$ServiceNotFoundException;
+        }
+    .end annotation
 
-    const/4 v3, 0x0
+    const-string/jumbo v2, "batterystats"
 
-    const-string/jumbo v2, "dropbox"
+    invoke-static {v2}, Landroid/os/ServiceManager;->getServiceOrThrow(Ljava/lang/String;)Landroid/os/IBinder;
 
-    invoke-static {v2}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
+    move-result-object v2
 
-    move-result-object v0
-
-    invoke-static {v0}, Lcom/android/internal/os/IDropBoxManagerService$Stub;->asInterface(Landroid/os/IBinder;)Lcom/android/internal/os/IDropBoxManagerService;
+    invoke-static {v2}, Lcom/android/internal/app/IBatteryStats$Stub;->asInterface(Landroid/os/IBinder;)Lcom/android/internal/app/IBatteryStats;
 
     move-result-object v1
 
-    if-nez v1, :cond_0
+    const-string/jumbo v2, "batteryproperties"
 
-    return-object v3
+    invoke-static {v2}, Landroid/os/ServiceManager;->getServiceOrThrow(Ljava/lang/String;)Landroid/os/IBinder;
 
-    :cond_0
-    new-instance v2, Landroid/os/DropBoxManager;
+    move-result-object v2
 
-    invoke-direct {v2, p1, v1}, Landroid/os/DropBoxManager;-><init>(Landroid/content/Context;Lcom/android/internal/os/IDropBoxManagerService;)V
+    invoke-static {v2}, Landroid/os/IBatteryPropertiesRegistrar$Stub;->asInterface(Landroid/os/IBinder;)Landroid/os/IBatteryPropertiesRegistrar;
+
+    move-result-object v0
+
+    new-instance v2, Landroid/os/BatteryManager;
+
+    invoke-direct {v2, v1, v0}, Landroid/os/BatteryManager;-><init>(Lcom/android/internal/app/IBatteryStats;Landroid/os/IBatteryPropertiesRegistrar;)V
 
     return-object v2
 .end method
 
-.method public bridge synthetic createService(Landroid/app/ContextImpl;)Ljava/lang/Object;
+.method public bridge synthetic createService()Ljava/lang/Object;
     .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/ServiceManager$ServiceNotFoundException;
+        }
+    .end annotation
 
-    invoke-virtual {p0, p1}, Landroid/app/SystemServiceRegistry$19;->createService(Landroid/app/ContextImpl;)Landroid/os/DropBoxManager;
+    invoke-virtual {p0}, Landroid/app/SystemServiceRegistry$19;->createService()Landroid/os/BatteryManager;
 
     move-result-object v0
 

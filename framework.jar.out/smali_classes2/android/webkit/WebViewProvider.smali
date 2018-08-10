@@ -125,6 +125,12 @@
 .method public abstract getProgress()I
 .end method
 
+.method public abstract getRendererPriorityWaivedWhenNotVisible()Z
+.end method
+
+.method public abstract getRendererRequestedPriority()I
+.end method
+
 .method public abstract getScale()F
 .end method
 
@@ -132,6 +138,14 @@
 .end method
 
 .method public abstract getSettings()Landroid/webkit/WebSettings;
+.end method
+
+.method public getTextClassifier()Landroid/view/textclassifier/TextClassifier;
+    .locals 1
+
+    sget-object v0, Landroid/view/textclassifier/TextClassifier;->NO_OP:Landroid/view/textclassifier/TextClassifier;
+
+    return-object v0
 .end method
 
 .method public abstract getTitle()Ljava/lang/String;
@@ -147,6 +161,12 @@
 .end method
 
 .method public abstract getVisibleTitleHeight()I
+.end method
+
+.method public abstract getWebChromeClient()Landroid/webkit/WebChromeClient;
+.end method
+
+.method public abstract getWebViewClient()Landroid/webkit/WebViewClient;
 .end method
 
 .method public abstract getZoomControls()Landroid/view/View;
@@ -311,6 +331,15 @@
 .end method
 
 .method public abstract setPictureListener(Landroid/webkit/WebView$PictureListener;)V
+.end method
+
+.method public abstract setRendererPriorityPolicy(IZ)V
+.end method
+
+.method public setTextClassifier(Landroid/view/textclassifier/TextClassifier;)V
+    .locals 0
+
+    return-void
 .end method
 
 .method public abstract setVerticalScrollbarOverlay(Z)V

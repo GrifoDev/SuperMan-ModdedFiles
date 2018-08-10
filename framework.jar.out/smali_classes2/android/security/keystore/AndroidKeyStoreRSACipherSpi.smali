@@ -67,7 +67,7 @@
 
     invoke-virtual {p1, v2, v0}, Landroid/security/keymaster/KeymasterArguments;->addEnum(II)V
 
-    invoke-virtual {p0}, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->getKeymasterPurposeOverride()I
+    invoke-virtual {p0}, Landroid/security/keystore/AndroidKeyStoreRSACipherSpi;->getKeymasterPurposeOverride()I
 
     move-result v1
 
@@ -245,9 +245,7 @@
 
     move-object v7, p2
 
-    nop
-
-    nop
+    check-cast v7, Landroid/security/keystore/AndroidKeyStoreKey;
 
     :goto_0
     instance-of v0, v7, Ljava/security/PrivateKey;
@@ -287,9 +285,7 @@
 
     move-object v7, p2
 
-    nop
-
-    nop
+    check-cast v7, Landroid/security/keystore/AndroidKeyStoreKey;
 
     goto :goto_0
 
@@ -463,7 +459,7 @@
 
     invoke-direct {v5}, Landroid/security/keymaster/KeyCharacteristics;-><init>()V
 
-    invoke-virtual {p0}, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->getKeyStore()Landroid/security/KeyStore;
+    invoke-virtual {p0}, Landroid/security/keystore/AndroidKeyStoreRSACipherSpi;->getKeyStore()Landroid/security/KeyStore;
 
     move-result-object v0
 
@@ -485,7 +481,7 @@
 
     if-eq v6, v0, :cond_6
 
-    invoke-virtual {p0}, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->getKeyStore()Landroid/security/KeyStore;
+    invoke-virtual {p0}, Landroid/security/keystore/AndroidKeyStoreRSACipherSpi;->getKeyStore()Landroid/security/KeyStore;
 
     move-result-object v0
 
@@ -572,7 +568,7 @@
 
     iput v0, p0, Landroid/security/keystore/AndroidKeyStoreRSACipherSpi;->mModulusSizeBytes:I
 
-    invoke-virtual {p0, v7}, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->setKey(Landroid/security/keystore/AndroidKeyStoreKey;)V
+    invoke-virtual {p0, v7}, Landroid/security/keystore/AndroidKeyStoreRSACipherSpi;->setKey(Landroid/security/keystore/AndroidKeyStoreKey;)V
 
     return-void
 

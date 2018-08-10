@@ -103,6 +103,37 @@
     return v0
 .end method
 
+.method public getBytes(I)[B
+    .locals 2
+
+    const/4 v1, 0x0
+
+    iget-object v0, p0, Landroid/security/keymaster/KeyCharacteristics;->hwEnforced:Landroid/security/keymaster/KeymasterArguments;
+
+    invoke-virtual {v0, p1}, Landroid/security/keymaster/KeymasterArguments;->containsTag(I)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Landroid/security/keymaster/KeyCharacteristics;->hwEnforced:Landroid/security/keymaster/KeymasterArguments;
+
+    invoke-virtual {v0, p1, v1}, Landroid/security/keymaster/KeymasterArguments;->getBytes(I[B)[B
+
+    move-result-object v0
+
+    return-object v0
+
+    :cond_0
+    iget-object v0, p0, Landroid/security/keymaster/KeyCharacteristics;->swEnforced:Landroid/security/keymaster/KeymasterArguments;
+
+    invoke-virtual {v0, p1, v1}, Landroid/security/keymaster/KeymasterArguments;->getBytes(I[B)[B
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
 .method public getDate(I)Ljava/util/Date;
     .locals 3
 

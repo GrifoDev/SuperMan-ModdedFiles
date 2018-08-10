@@ -61,7 +61,7 @@
     const-string/jumbo p4, ""
 
     :cond_0
-    invoke-static {p2}, Landroid/hardware/SystemSensorManager;->-get3(Landroid/hardware/SystemSensorManager;)J
+    invoke-static {p2}, Landroid/hardware/SystemSensorManager;->-get2(Landroid/hardware/SystemSensorManager;)J
 
     move-result-wide v0
 
@@ -73,7 +73,7 @@
 
     move-result-object v3
 
-    invoke-static {p2}, Landroid/hardware/SystemSensorManager;->-get1(Landroid/hardware/SystemSensorManager;)Landroid/content/Context;
+    invoke-static {p2}, Landroid/hardware/SystemSensorManager;->-get0(Landroid/hardware/SystemSensorManager;)Landroid/content/Context;
 
     move-result-object v4
 
@@ -459,7 +459,7 @@
 
     iget-object v3, p0, Landroid/hardware/SystemSensorManager$BaseEventQueue;->mManager:Landroid/hardware/SystemSensorManager;
 
-    invoke-static {v3}, Landroid/hardware/SystemSensorManager;->-get2(Landroid/hardware/SystemSensorManager;)Ljava/util/HashMap;
+    invoke-static {v3}, Landroid/hardware/SystemSensorManager;->-get1(Landroid/hardware/SystemSensorManager;)Ljava/util/HashMap;
 
     move-result-object v3
 

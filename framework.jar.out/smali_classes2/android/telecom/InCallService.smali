@@ -15,7 +15,7 @@
 
 
 # static fields
-.field static final LOG_TAG:Ljava/lang/String; = "InCallService"
+.field static final LOG_TAG:Ljava/lang/String; = "Telecom-InCallService"
 
 .field private static final MSG_ADD_CALL:I = 0x2
 
@@ -25,9 +25,13 @@
 
 .field private static final MSG_ON_CAN_ADD_CALL_CHANGED:I = 0x7
 
-.field private static final MSG_ON_CHANGE_IN_CONTENT:I = 0xa
+.field private static final MSG_ON_CHANGE_IN_CONTENT:I = 0x64
 
 .field private static final MSG_ON_CONNECTION_EVENT:I = 0x9
+
+.field private static final MSG_ON_RTT_INITIATION_FAILURE:I = 0xb
+
+.field private static final MSG_ON_RTT_UPGRADE_REQUEST:I = 0xa
 
 .field private static final MSG_SET_IN_CALL_ADAPTER:I = 0x1
 
@@ -81,6 +85,16 @@
     return-object p1
 .end method
 
+.method static synthetic -wrap0(I)Ljava/lang/String;
+    .locals 1
+
+    invoke-static {p0}, Landroid/telecom/InCallService;->eventToString(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
 .method public constructor <init>()V
     .locals 2
 
@@ -103,6 +117,116 @@
     iput-object v0, p0, Landroid/telecom/InCallService;->mPhoneListener:Landroid/telecom/Phone$Listener;
 
     return-void
+.end method
+
+.method private static eventToString(I)Ljava/lang/String;
+    .locals 2
+
+    sparse-switch p0, :sswitch_data_0
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v1, "UNKNOWN_EVENT("
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string/jumbo v1, ")"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+
+    :sswitch_0
+    const-string/jumbo v0, "SET_IN_CALL_ADAPTER"
+
+    return-object v0
+
+    :sswitch_1
+    const-string/jumbo v0, "ADD_CALL"
+
+    return-object v0
+
+    :sswitch_2
+    const-string/jumbo v0, "UPDATE_CALL"
+
+    return-object v0
+
+    :sswitch_3
+    const-string/jumbo v0, "SET_POST_DIAL_WAIT"
+
+    return-object v0
+
+    :sswitch_4
+    const-string/jumbo v0, "ON_CALL_AUDIO_STATE_CHANGED"
+
+    return-object v0
+
+    :sswitch_5
+    const-string/jumbo v0, "BRING_TO_FOREGROUND"
+
+    return-object v0
+
+    :sswitch_6
+    const-string/jumbo v0, "ON_CAN_ADD_CALL_CHANGED"
+
+    return-object v0
+
+    :sswitch_7
+    const-string/jumbo v0, "SILENCE_RINGER"
+
+    return-object v0
+
+    :sswitch_8
+    const-string/jumbo v0, "ON_CONNECTION_EVENT"
+
+    return-object v0
+
+    :sswitch_9
+    const-string/jumbo v0, "ON_RTT_UPGRADE_REQUEST"
+
+    return-object v0
+
+    :sswitch_a
+    const-string/jumbo v0, "ON_RTT_INITIATION_FAILURE"
+
+    return-object v0
+
+    :sswitch_b
+    const-string/jumbo v0, "ON_CHANGE_IN_CONTENT"
+
+    return-object v0
+
+    nop
+
+    :sswitch_data_0
+    .sparse-switch
+        0x1 -> :sswitch_0
+        0x2 -> :sswitch_1
+        0x3 -> :sswitch_2
+        0x4 -> :sswitch_3
+        0x5 -> :sswitch_4
+        0x6 -> :sswitch_5
+        0x7 -> :sswitch_6
+        0x8 -> :sswitch_7
+        0x9 -> :sswitch_8
+        0xa -> :sswitch_9
+        0xb -> :sswitch_a
+        0x64 -> :sswitch_b
+    .end sparse-switch
 .end method
 
 

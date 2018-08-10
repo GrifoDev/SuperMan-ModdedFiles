@@ -21,6 +21,9 @@
 .method public abstract getThreadId(ILjava/lang/String;I)[I
 .end method
 
+.method public abstract getVrRecentsMode()I
+.end method
+
 .method public abstract isVrMode()Z
 .end method
 

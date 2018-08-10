@@ -104,19 +104,34 @@
 
     iget-object v2, p1, Landroid/graphics/drawable/LayerDrawable$ChildDrawable;->mDrawable:Landroid/graphics/drawable/Drawable;
 
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_5
 
     invoke-virtual {v2}, Landroid/graphics/drawable/Drawable;->getConstantState()Landroid/graphics/drawable/Drawable$ConstantState;
 
     move-result-object v1
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_3
 
     move-object v0, v2
 
-    :goto_0
-    invoke-virtual {v0, p2}, Landroid/graphics/drawable/Drawable;->setCallback(Landroid/graphics/drawable/Drawable$Callback;)V
+    invoke-virtual {v2}, Landroid/graphics/drawable/Drawable;->getCallback()Landroid/graphics/drawable/Drawable$Callback;
 
+    move-result-object v3
+
+    if-eqz v3, :cond_0
+
+    const-string/jumbo v3, "LayerDrawable"
+
+    const-string/jumbo v4, "Invalid drawable added to LayerDrawable! Drawable already belongs to another owner but does not expose a constant state."
+
+    new-instance v5, Ljava/lang/RuntimeException;
+
+    invoke-direct {v5}, Ljava/lang/RuntimeException;-><init>()V
+
+    invoke-static {v3, v4, v5}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    :cond_0
+    :goto_0
     invoke-virtual {v2}, Landroid/graphics/drawable/Drawable;->getLayoutDirection()I
 
     move-result v3
@@ -134,6 +149,8 @@
     move-result v3
 
     invoke-virtual {v0, v3}, Landroid/graphics/drawable/Drawable;->setLevel(I)Z
+
+    invoke-virtual {v0, p2}, Landroid/graphics/drawable/Drawable;->setCallback(Landroid/graphics/drawable/Drawable$Callback;)V
 
     :goto_1
     iput-object v0, p0, Landroid/graphics/drawable/LayerDrawable$ChildDrawable;->mDrawable:Landroid/graphics/drawable/Drawable;
@@ -192,13 +209,13 @@
 
     iget-object v3, p0, Landroid/graphics/drawable/LayerDrawable$ChildDrawable;->mDrawable:Landroid/graphics/drawable/Drawable;
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_1
 
     iget-object v3, p0, Landroid/graphics/drawable/LayerDrawable$ChildDrawable;->mDrawable:Landroid/graphics/drawable/Drawable;
 
     instance-of v3, v3, Landroid/graphics/drawable/NinePatchDrawable;
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_1
 
     iget-object v3, p0, Landroid/graphics/drawable/LayerDrawable$ChildDrawable;->mDrawable:Landroid/graphics/drawable/Drawable;
 
@@ -208,12 +225,12 @@
 
     invoke-virtual {v3, v4}, Landroid/graphics/drawable/NinePatchDrawable;->setTargetDensity(I)V
 
-    :cond_0
+    :cond_1
     iget v3, p1, Landroid/graphics/drawable/LayerDrawable$ChildDrawable;->mDensity:I
 
     iget v4, p0, Landroid/graphics/drawable/LayerDrawable$ChildDrawable;->mDensity:I
 
-    if-eq v3, v4, :cond_1
+    if-eq v3, v4, :cond_2
 
     iget v3, p1, Landroid/graphics/drawable/LayerDrawable$ChildDrawable;->mDensity:I
 
@@ -221,11 +238,11 @@
 
     invoke-direct {p0, v3, v4}, Landroid/graphics/drawable/LayerDrawable$ChildDrawable;->applyDensityScaling(II)V
 
-    :cond_1
+    :cond_2
     return-void
 
-    :cond_2
-    if-eqz p3, :cond_3
+    :cond_3
+    if-eqz p3, :cond_4
 
     invoke-virtual {v1, p3}, Landroid/graphics/drawable/Drawable$ConstantState;->newDrawable(Landroid/content/res/Resources;)Landroid/graphics/drawable/Drawable;
 
@@ -233,14 +250,14 @@
 
     goto :goto_0
 
-    :cond_3
+    :cond_4
     invoke-virtual {v1}, Landroid/graphics/drawable/Drawable$ConstantState;->newDrawable()Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
 
     goto :goto_0
 
-    :cond_4
+    :cond_5
     const/4 v0, 0x0
 
     goto :goto_1

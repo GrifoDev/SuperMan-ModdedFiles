@@ -189,11 +189,16 @@
 
     move-result v6
 
-    if-eqz v6, :cond_3
+    xor-int/lit8 v6, v6, 0x1
+
+    if-eqz v6, :cond_2
+
+    invoke-virtual {v4}, Landroid/filterfw/core/GLEnvironment;->activate()V
+
+    const/4 v0, 0x1
 
     :cond_2
-    :goto_0
-    invoke-virtual {p1}, Ljava/util/HashMap;->entrySet()Ljava/util/Set;
+    invoke-virtual {p1}, Landroid/filterfw/core/KeyValueMap;->entrySet()Ljava/util/Set;
 
     move-result-object v6
 
@@ -201,12 +206,12 @@
 
     move-result-object v2
 
-    :goto_1
+    :goto_0
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v6
 
-    if-eqz v6, :cond_5
+    if-eqz v6, :cond_4
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -220,7 +225,7 @@
 
     instance-of v6, v6, Landroid/filterfw/core/Frame;
 
-    if-eqz v6, :cond_4
+    if-eqz v6, :cond_3
 
     iget-object v8, p0, Landroid/filterfw/core/FilterFunction;->mFilter:Landroid/filterfw/core/Filter;
 
@@ -238,16 +243,9 @@
 
     invoke-virtual {v8, v6, v7}, Landroid/filterfw/core/Filter;->pushInputFrame(Ljava/lang/String;Landroid/filterfw/core/Frame;)V
 
-    goto :goto_1
-
-    :cond_3
-    invoke-virtual {v4}, Landroid/filterfw/core/GLEnvironment;->activate()V
-
-    const/4 v0, 0x1
-
     goto :goto_0
 
-    :cond_4
+    :cond_3
     iget-object v7, p0, Landroid/filterfw/core/FilterFunction;->mFilter:Landroid/filterfw/core/Filter;
 
     invoke-interface {v1}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
@@ -262,9 +260,9 @@
 
     invoke-virtual {v7, v6, v8}, Landroid/filterfw/core/Filter;->pushInputValue(Ljava/lang/String;Ljava/lang/Object;)V
 
-    goto :goto_1
+    goto :goto_0
 
-    :cond_5
+    :cond_4
     iget-object v6, p0, Landroid/filterfw/core/FilterFunction;->mFilter:Landroid/filterfw/core/Filter;
 
     invoke-virtual {v6}, Landroid/filterfw/core/Filter;->getStatus()I
@@ -273,13 +271,13 @@
 
     const/4 v7, 0x3
 
-    if-eq v6, v7, :cond_6
+    if-eq v6, v7, :cond_5
 
     iget-object v6, p0, Landroid/filterfw/core/FilterFunction;->mFilter:Landroid/filterfw/core/Filter;
 
     invoke-virtual {v6}, Landroid/filterfw/core/Filter;->openOutputs()V
 
-    :cond_6
+    :cond_5
     iget-object v6, p0, Landroid/filterfw/core/FilterFunction;->mFilter:Landroid/filterfw/core/Filter;
 
     iget-object v7, p0, Landroid/filterfw/core/FilterFunction;->mFilterContext:Landroid/filterfw/core/FilterContext;
@@ -288,32 +286,32 @@
 
     const/4 v5, 0x0
 
-    if-ne v3, v9, :cond_7
+    if-ne v3, v9, :cond_6
 
     iget-object v6, p0, Landroid/filterfw/core/FilterFunction;->mResultHolders:[Landroid/filterfw/core/FilterFunction$FrameHolderPort;
 
     aget-object v6, v6, v10
 
-    invoke-virtual {v6}, Landroid/filterfw/core/StreamPort;->hasFrame()Z
+    invoke-virtual {v6}, Landroid/filterfw/core/FilterFunction$FrameHolderPort;->hasFrame()Z
 
     move-result v6
 
-    if-eqz v6, :cond_7
+    if-eqz v6, :cond_6
 
     iget-object v6, p0, Landroid/filterfw/core/FilterFunction;->mResultHolders:[Landroid/filterfw/core/FilterFunction$FrameHolderPort;
 
     aget-object v6, v6, v10
 
-    invoke-virtual {v6}, Landroid/filterfw/core/StreamPort;->pullFrame()Landroid/filterfw/core/Frame;
+    invoke-virtual {v6}, Landroid/filterfw/core/FilterFunction$FrameHolderPort;->pullFrame()Landroid/filterfw/core/Frame;
 
     move-result-object v5
 
-    :cond_7
-    if-eqz v0, :cond_8
+    :cond_6
+    if-eqz v0, :cond_7
 
     invoke-virtual {v4}, Landroid/filterfw/core/GLEnvironment;->deactivate()V
 
-    :cond_8
+    :cond_7
     return-object v5
 .end method
 

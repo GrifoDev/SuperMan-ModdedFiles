@@ -14,9 +14,23 @@
 
 .field public static final TAG_SYSTEM_BACKUP:I = -0xfd
 
+.field public static final TAG_SYSTEM_DHCP:I = -0xfb
+
 .field public static final TAG_SYSTEM_DOWNLOAD:I = -0xff
 
+.field public static final TAG_SYSTEM_GPS:I = -0xf7
+
+.field public static final TAG_SYSTEM_LOCAL:I = -0x56
+
 .field public static final TAG_SYSTEM_MEDIA:I = -0xfe
+
+.field public static final TAG_SYSTEM_NEIGHBOR:I = -0xf8
+
+.field public static final TAG_SYSTEM_NTP:I = -0xfa
+
+.field public static final TAG_SYSTEM_PAC:I = -0xf6
+
+.field public static final TAG_SYSTEM_PROBE:I = -0xf9
 
 .field public static final TAG_SYSTEM_RESTORE:I = -0xfc
 
@@ -77,7 +91,7 @@
 
     const/4 v0, -0x1
 
-    invoke-static {v0}, Lcom/android/server/NetworkManagementSocketTagger;->setThreadSocketStatsTag(I)V
+    invoke-static {v0}, Lcom/android/server/NetworkManagementSocketTagger;->setThreadSocketStatsTag(I)I
 
     return-void
 .end method
@@ -87,7 +101,7 @@
 
     const/4 v0, -0x1
 
-    invoke-static {v0}, Lcom/android/server/NetworkManagementSocketTagger;->setThreadSocketStatsUid(I)V
+    invoke-static {v0}, Lcom/android/server/NetworkManagementSocketTagger;->setThreadSocketStatsUid(I)I
 
     return-void
 .end method
@@ -116,6 +130,16 @@
     move-exception v1
 
     throw v1
+.end method
+
+.method public static getAndSetThreadStatsTag(I)I
+    .locals 1
+
+    invoke-static {p0}, Lcom/android/server/NetworkManagementSocketTagger;->setThreadSocketStatsTag(I)I
+
+    move-result v0
+
+    return v0
 .end method
 
 .method private static getClatIfaces()Ljava/lang/String;
@@ -1680,6 +1704,16 @@
     return-wide v2
 .end method
 
+.method public static getTotalRxBytesBuffered()J
+    .locals 2
+
+    invoke-static {}, Landroid/net/TrafficStats;->nativeGetTotalRxBytesBuffered()J
+
+    move-result-wide v0
+
+    return-wide v0
+.end method
+
 .method public static getTotalRxPackets()J
     .locals 6
 
@@ -1823,6 +1857,16 @@
     const-wide/16 v2, -0x1
 
     return-wide v2
+.end method
+
+.method public static getUidRxBytesBuffered(I)J
+    .locals 2
+
+    invoke-static {p0}, Landroid/net/TrafficStats;->nativeGetUidRxBytesBuffered(I)J
+
+    move-result-wide v0
+
+    return-wide v0
 .end method
 
 .method public static getUidRxPackets(I)J
@@ -2032,16 +2076,35 @@
 .method private static native nativeGetIfaceStat(Ljava/lang/String;I)J
 .end method
 
+.method private static native nativeGetTotalRxBytesBuffered()J
+.end method
+
 .method private static native nativeGetTotalStat(I)J
+.end method
+
+.method private static native nativeGetUidRxBytesBuffered(I)J
 .end method
 
 .method private static native nativeGetUidStat(II)J
 .end method
 
+.method private static native nativeRefreshTraffic(Ljava/lang/String;)Z
+.end method
+
+.method public static refreshTraffic(Ljava/lang/String;)Z
+    .locals 1
+
+    invoke-static {p0}, Landroid/net/TrafficStats;->nativeRefreshTraffic(Ljava/lang/String;)Z
+
+    move-result v0
+
+    return v0
+.end method
+
 .method public static setThreadStatsTag(I)V
     .locals 0
 
-    invoke-static {p0}, Lcom/android/server/NetworkManagementSocketTagger;->setThreadSocketStatsTag(I)V
+    invoke-static {p0}, Lcom/android/server/NetworkManagementSocketTagger;->setThreadSocketStatsTag(I)I
 
     return-void
 .end method
@@ -2069,7 +2132,7 @@
 .method public static setThreadStatsUid(I)V
     .locals 0
 
-    invoke-static {p0}, Lcom/android/server/NetworkManagementSocketTagger;->setThreadSocketStatsUid(I)V
+    invoke-static {p0}, Lcom/android/server/NetworkManagementSocketTagger;->setThreadSocketStatsUid(I)I
 
     return-void
 .end method

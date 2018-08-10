@@ -87,13 +87,18 @@
 
     iget-object v0, p0, Landroid/graphics/drawable/RippleDrawable$RippleState;->mOwner:Landroid/graphics/drawable/RippleDrawable;
 
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Landroid/graphics/drawable/RippleDrawable$RippleState;->mOwner:Landroid/graphics/drawable/RippleDrawable;
+
     invoke-virtual {v0, p2}, Landroid/graphics/drawable/RippleDrawable;->setDensity(I)V
 
+    :cond_0
     iget v0, p0, Landroid/graphics/drawable/RippleDrawable$RippleState;->mMaxRadius:I
 
     const/4 v1, -0x1
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_1
 
     iget v0, p0, Landroid/graphics/drawable/RippleDrawable$RippleState;->mMaxRadius:I
 
@@ -105,7 +110,7 @@
 
     iput v0, p0, Landroid/graphics/drawable/RippleDrawable$RippleState;->mMaxRadius:I
 
-    :cond_0
+    :cond_1
     return-void
 .end method
 

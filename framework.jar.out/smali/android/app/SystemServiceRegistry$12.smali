@@ -17,7 +17,7 @@
     value = {
         "Landroid/app/SystemServiceRegistry$CachedServiceFetcher",
         "<",
-        "Lcom/samsung/android/content/clipboard/SemClipboardManager;",
+        "Landroid/content/ClipboardManager;",
         ">;"
     }
 .end annotation
@@ -34,10 +34,15 @@
 
 
 # virtual methods
-.method public createService(Landroid/app/ContextImpl;)Lcom/samsung/android/content/clipboard/SemClipboardManager;
+.method public createService(Landroid/app/ContextImpl;)Landroid/content/ClipboardManager;
     .locals 3
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/ServiceManager$ServiceNotFoundException;
+        }
+    .end annotation
 
-    new-instance v0, Lcom/samsung/android/content/clipboard/SemClipboardManager;
+    new-instance v0, Landroid/content/ClipboardManager;
 
     invoke-virtual {p1}, Landroid/app/ContextImpl;->getOuterContext()Landroid/content/Context;
 
@@ -49,15 +54,20 @@
 
     move-result-object v2
 
-    invoke-direct {v0, v1, v2}, Lcom/samsung/android/content/clipboard/SemClipboardManager;-><init>(Landroid/content/Context;Landroid/os/Handler;)V
+    invoke-direct {v0, v1, v2}, Landroid/content/ClipboardManager;-><init>(Landroid/content/Context;Landroid/os/Handler;)V
 
     return-object v0
 .end method
 
 .method public bridge synthetic createService(Landroid/app/ContextImpl;)Ljava/lang/Object;
     .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/ServiceManager$ServiceNotFoundException;
+        }
+    .end annotation
 
-    invoke-virtual {p0, p1}, Landroid/app/SystemServiceRegistry$12;->createService(Landroid/app/ContextImpl;)Lcom/samsung/android/content/clipboard/SemClipboardManager;
+    invoke-virtual {p0, p1}, Landroid/app/SystemServiceRegistry$12;->createService(Landroid/app/ContextImpl;)Landroid/content/ClipboardManager;
 
     move-result-object v0
 

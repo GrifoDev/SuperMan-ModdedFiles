@@ -49,7 +49,7 @@
 
     const-string/jumbo v0, "android.bluetooth.ISemBluetoothHidDeviceCallback"
 
-    invoke-virtual {p0, p0, v0}, Landroid/os/Binder;->attachInterface(Landroid/os/IInterface;Ljava/lang/String;)V
+    invoke-virtual {p0, p0, v0}, Landroid/bluetooth/ISemBluetoothHidDeviceCallback$Stub;->attachInterface(Landroid/os/IInterface;Ljava/lang/String;)V
 
     return-void
 .end method
@@ -104,9 +104,7 @@
         }
     .end annotation
 
-    const/4 v7, 0x0
-
-    const/4 v9, 0x1
+    const/4 v10, 0x1
 
     sparse-switch p1, :sswitch_data_0
 
@@ -117,26 +115,26 @@
     return v9
 
     :sswitch_0
-    const-string/jumbo v10, "android.bluetooth.ISemBluetoothHidDeviceCallback"
+    const-string/jumbo v9, "android.bluetooth.ISemBluetoothHidDeviceCallback"
 
-    invoke-virtual {p3, v10}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p3, v9}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    return v9
+    return v10
 
     :sswitch_1
-    const-string/jumbo v10, "android.bluetooth.ISemBluetoothHidDeviceCallback"
+    const-string/jumbo v9, "android.bluetooth.ISemBluetoothHidDeviceCallback"
 
-    invoke-virtual {p2, v10}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v9}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v10
+    move-result v9
 
-    if-eqz v10, :cond_1
+    if-eqz v9, :cond_0
 
-    sget-object v10, Landroid/bluetooth/BluetoothDevice;->CREATOR:Landroid/os/Parcelable$Creator;
+    sget-object v9, Landroid/bluetooth/BluetoothDevice;->CREATOR:Landroid/os/Parcelable$Creator;
 
-    invoke-interface {v10, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+    invoke-interface {v9, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
 
     move-result-object v1
 
@@ -145,13 +143,13 @@
     :goto_0
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v10
+    move-result v9
 
-    if-eqz v10, :cond_2
+    if-eqz v9, :cond_1
 
-    sget-object v10, Landroid/bluetooth/SemBluetoothHidDeviceAppConfiguration;->CREATOR:Landroid/os/Parcelable$Creator;
+    sget-object v9, Landroid/bluetooth/SemBluetoothHidDeviceAppConfiguration;->CREATOR:Landroid/os/Parcelable$Creator;
 
-    invoke-interface {v10, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+    invoke-interface {v9, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
 
     move-result-object v4
 
@@ -160,49 +158,54 @@
     :goto_1
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v10
+    move-result v9
 
-    if-eqz v10, :cond_0
+    if-eqz v9, :cond_2
 
-    move v7, v9
+    const/4 v7, 0x1
 
-    :cond_0
+    :goto_2
     invoke-virtual {p0, v1, v4, v7}, Landroid/bluetooth/ISemBluetoothHidDeviceCallback$Stub;->onAppStatusChanged(Landroid/bluetooth/BluetoothDevice;Landroid/bluetooth/SemBluetoothHidDeviceAppConfiguration;Z)V
 
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    return v9
+    return v10
 
-    :cond_1
+    :cond_0
     const/4 v1, 0x0
 
     goto :goto_0
 
-    :cond_2
+    :cond_1
     const/4 v4, 0x0
 
     goto :goto_1
 
-    :sswitch_2
-    const-string/jumbo v10, "android.bluetooth.ISemBluetoothHidDeviceCallback"
+    :cond_2
+    const/4 v7, 0x0
 
-    invoke-virtual {p2, v10}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    goto :goto_2
+
+    :sswitch_2
+    const-string/jumbo v9, "android.bluetooth.ISemBluetoothHidDeviceCallback"
+
+    invoke-virtual {p2, v9}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v10
+    move-result v9
 
-    if-eqz v10, :cond_3
+    if-eqz v9, :cond_3
 
-    sget-object v10, Landroid/bluetooth/BluetoothDevice;->CREATOR:Landroid/os/Parcelable$Creator;
+    sget-object v9, Landroid/bluetooth/BluetoothDevice;->CREATOR:Landroid/os/Parcelable$Creator;
 
-    invoke-interface {v10, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+    invoke-interface {v9, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
 
     move-result-object v1
 
     check-cast v1, Landroid/bluetooth/BluetoothDevice;
 
-    :goto_2
+    :goto_3
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
@@ -211,17 +214,17 @@
 
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    return v9
+    return v10
 
     :cond_3
     const/4 v1, 0x0
 
-    goto :goto_2
+    goto :goto_3
 
     :sswitch_3
-    const-string/jumbo v10, "android.bluetooth.ISemBluetoothHidDeviceCallback"
+    const-string/jumbo v9, "android.bluetooth.ISemBluetoothHidDeviceCallback"
 
-    invoke-virtual {p2, v10}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v9}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readByte()B
 
@@ -239,12 +242,12 @@
 
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    return v9
+    return v10
 
     :sswitch_4
-    const-string/jumbo v10, "android.bluetooth.ISemBluetoothHidDeviceCallback"
+    const-string/jumbo v9, "android.bluetooth.ISemBluetoothHidDeviceCallback"
 
-    invoke-virtual {p2, v10}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v9}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readByte()B
 
@@ -262,12 +265,12 @@
 
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    return v9
+    return v10
 
     :sswitch_5
-    const-string/jumbo v10, "android.bluetooth.ISemBluetoothHidDeviceCallback"
+    const-string/jumbo v9, "android.bluetooth.ISemBluetoothHidDeviceCallback"
 
-    invoke-virtual {p2, v10}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v9}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readByte()B
 
@@ -277,12 +280,12 @@
 
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    return v9
+    return v10
 
     :sswitch_6
-    const-string/jumbo v10, "android.bluetooth.ISemBluetoothHidDeviceCallback"
+    const-string/jumbo v9, "android.bluetooth.ISemBluetoothHidDeviceCallback"
 
-    invoke-virtual {p2, v10}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v9}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readByte()B
 
@@ -296,20 +299,18 @@
 
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    return v9
+    return v10
 
     :sswitch_7
-    const-string/jumbo v10, "android.bluetooth.ISemBluetoothHidDeviceCallback"
+    const-string/jumbo v9, "android.bluetooth.ISemBluetoothHidDeviceCallback"
 
-    invoke-virtual {p2, v10}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v9}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p0}, Landroid/bluetooth/ISemBluetoothHidDeviceCallback$Stub;->onVirtualCableUnplug()V
 
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    return v9
-
-    nop
+    return v10
 
     :sswitch_data_0
     .sparse-switch

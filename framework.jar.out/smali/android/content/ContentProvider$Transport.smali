@@ -232,7 +232,7 @@
 
     iget-object v8, p0, Landroid/content/ContentProvider$Transport;->this$0:Landroid/content/ContentProvider;
 
-    invoke-static {v8, v6}, Landroid/content/ContentProvider;->-wrap1(Landroid/content/ContentProvider;Landroid/net/Uri;)V
+    invoke-static {v8, v6}, Landroid/content/ContentProvider;->-wrap2(Landroid/content/ContentProvider;Landroid/net/Uri;)V
 
     invoke-static {v6}, Landroid/content/ContentProvider;->getUserIdFromUri(Landroid/net/Uri;)I
 
@@ -304,7 +304,7 @@
     :cond_3
     iget-object v8, p0, Landroid/content/ContentProvider$Transport;->this$0:Landroid/content/ContentProvider;
 
-    invoke-static {v8, p1}, Landroid/content/ContentProvider;->-wrap0(Landroid/content/ContentProvider;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v8, p1}, Landroid/content/ContentProvider;->-wrap1(Landroid/content/ContentProvider;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v4
 
@@ -348,7 +348,7 @@
     :cond_5
     iget-object v8, p0, Landroid/content/ContentProvider$Transport;->this$0:Landroid/content/ContentProvider;
 
-    invoke-static {v8, v4}, Landroid/content/ContentProvider;->-wrap0(Landroid/content/ContentProvider;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v8, v4}, Landroid/content/ContentProvider;->-wrap1(Landroid/content/ContentProvider;Ljava/lang/String;)Ljava/lang/String;
 
     return-object v5
 
@@ -357,7 +357,7 @@
 
     iget-object v9, p0, Landroid/content/ContentProvider$Transport;->this$0:Landroid/content/ContentProvider;
 
-    invoke-static {v9, v4}, Landroid/content/ContentProvider;->-wrap0(Landroid/content/ContentProvider;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v9, v4}, Landroid/content/ContentProvider;->-wrap1(Landroid/content/ContentProvider;Ljava/lang/String;)Ljava/lang/String;
 
     throw v8
 .end method
@@ -369,9 +369,11 @@
 
     iget-object v1, p0, Landroid/content/ContentProvider$Transport;->this$0:Landroid/content/ContentProvider;
 
-    invoke-static {v1, p2}, Landroid/content/ContentProvider;->-wrap1(Landroid/content/ContentProvider;Landroid/net/Uri;)V
+    invoke-static {v1, p2}, Landroid/content/ContentProvider;->-wrap2(Landroid/content/ContentProvider;Landroid/net/Uri;)V
 
-    invoke-static {p2}, Landroid/content/ContentProvider;->getUriWithoutUserId(Landroid/net/Uri;)Landroid/net/Uri;
+    iget-object v1, p0, Landroid/content/ContentProvider$Transport;->this$0:Landroid/content/ContentProvider;
+
+    invoke-static {v1, p2}, Landroid/content/ContentProvider;->-wrap0(Landroid/content/ContentProvider;Landroid/net/Uri;)Landroid/net/Uri;
 
     move-result-object p2
 
@@ -388,7 +390,7 @@
     :cond_0
     iget-object v1, p0, Landroid/content/ContentProvider$Transport;->this$0:Landroid/content/ContentProvider;
 
-    invoke-static {v1, p1}, Landroid/content/ContentProvider;->-wrap0(Landroid/content/ContentProvider;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v1, p1}, Landroid/content/ContentProvider;->-wrap1(Landroid/content/ContentProvider;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -403,7 +405,7 @@
 
     iget-object v2, p0, Landroid/content/ContentProvider$Transport;->this$0:Landroid/content/ContentProvider;
 
-    invoke-static {v2, v0}, Landroid/content/ContentProvider;->-wrap0(Landroid/content/ContentProvider;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v2, v0}, Landroid/content/ContentProvider;->-wrap1(Landroid/content/ContentProvider;Ljava/lang/String;)Ljava/lang/String;
 
     return v1
 
@@ -412,7 +414,7 @@
 
     iget-object v2, p0, Landroid/content/ContentProvider$Transport;->this$0:Landroid/content/ContentProvider;
 
-    invoke-static {v2, v0}, Landroid/content/ContentProvider;->-wrap0(Landroid/content/ContentProvider;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v2, v0}, Landroid/content/ContentProvider;->-wrap1(Landroid/content/ContentProvider;Ljava/lang/String;)Ljava/lang/String;
 
     throw v1
 .end method
@@ -426,7 +428,7 @@
 
     iget-object v1, p0, Landroid/content/ContentProvider$Transport;->this$0:Landroid/content/ContentProvider;
 
-    invoke-static {v1, p1}, Landroid/content/ContentProvider;->-wrap0(Landroid/content/ContentProvider;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v1, p1}, Landroid/content/ContentProvider;->-wrap1(Landroid/content/ContentProvider;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -441,7 +443,7 @@
 
     iget-object v2, p0, Landroid/content/ContentProvider$Transport;->this$0:Landroid/content/ContentProvider;
 
-    invoke-static {v2, v0}, Landroid/content/ContentProvider;->-wrap0(Landroid/content/ContentProvider;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v2, v0}, Landroid/content/ContentProvider;->-wrap1(Landroid/content/ContentProvider;Ljava/lang/String;)Ljava/lang/String;
 
     return-object v1
 
@@ -450,7 +452,7 @@
 
     iget-object v2, p0, Landroid/content/ContentProvider$Transport;->this$0:Landroid/content/ContentProvider;
 
-    invoke-static {v2, v0}, Landroid/content/ContentProvider;->-wrap0(Landroid/content/ContentProvider;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v2, v0}, Landroid/content/ContentProvider;->-wrap1(Landroid/content/ContentProvider;Ljava/lang/String;)Ljava/lang/String;
 
     throw v1
 .end method
@@ -462,7 +464,7 @@
 
     iget-object v2, p0, Landroid/content/ContentProvider$Transport;->this$0:Landroid/content/ContentProvider;
 
-    invoke-static {v2, p2}, Landroid/content/ContentProvider;->-wrap1(Landroid/content/ContentProvider;Landroid/net/Uri;)V
+    invoke-static {v2, p2}, Landroid/content/ContentProvider;->-wrap2(Landroid/content/ContentProvider;Landroid/net/Uri;)V
 
     invoke-static {p2}, Landroid/content/ContentProvider;->getUserIdFromUri(Landroid/net/Uri;)I
 
@@ -483,7 +485,7 @@
     :cond_0
     iget-object v2, p0, Landroid/content/ContentProvider$Transport;->this$0:Landroid/content/ContentProvider;
 
-    invoke-static {v2, p1}, Landroid/content/ContentProvider;->-wrap0(Landroid/content/ContentProvider;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v2, p1}, Landroid/content/ContentProvider;->-wrap1(Landroid/content/ContentProvider;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -502,7 +504,7 @@
 
     iget-object v3, p0, Landroid/content/ContentProvider$Transport;->this$0:Landroid/content/ContentProvider;
 
-    invoke-static {v3, v0}, Landroid/content/ContentProvider;->-wrap0(Landroid/content/ContentProvider;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v3, v0}, Landroid/content/ContentProvider;->-wrap1(Landroid/content/ContentProvider;Ljava/lang/String;)Ljava/lang/String;
 
     return-object v2
 
@@ -511,7 +513,7 @@
 
     iget-object v3, p0, Landroid/content/ContentProvider$Transport;->this$0:Landroid/content/ContentProvider;
 
-    invoke-static {v3, v0}, Landroid/content/ContentProvider;->-wrap0(Landroid/content/ContentProvider;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v3, v0}, Landroid/content/ContentProvider;->-wrap1(Landroid/content/ContentProvider;Ljava/lang/String;)Ljava/lang/String;
 
     throw v2
 .end method
@@ -533,9 +535,11 @@
 
     iget-object v1, p0, Landroid/content/ContentProvider$Transport;->this$0:Landroid/content/ContentProvider;
 
-    invoke-static {v1, p2}, Landroid/content/ContentProvider;->-wrap1(Landroid/content/ContentProvider;Landroid/net/Uri;)V
+    invoke-static {v1, p2}, Landroid/content/ContentProvider;->-wrap2(Landroid/content/ContentProvider;Landroid/net/Uri;)V
 
-    invoke-static {p2}, Landroid/content/ContentProvider;->getUriWithoutUserId(Landroid/net/Uri;)Landroid/net/Uri;
+    iget-object v1, p0, Landroid/content/ContentProvider$Transport;->this$0:Landroid/content/ContentProvider;
+
+    invoke-static {v1, p2}, Landroid/content/ContentProvider;->-wrap0(Landroid/content/ContentProvider;Landroid/net/Uri;)Landroid/net/Uri;
 
     move-result-object p2
 
@@ -552,7 +556,7 @@
     :cond_0
     iget-object v1, p0, Landroid/content/ContentProvider$Transport;->this$0:Landroid/content/ContentProvider;
 
-    invoke-static {v1, p1}, Landroid/content/ContentProvider;->-wrap0(Landroid/content/ContentProvider;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v1, p1}, Landroid/content/ContentProvider;->-wrap1(Landroid/content/ContentProvider;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -567,7 +571,7 @@
 
     iget-object v2, p0, Landroid/content/ContentProvider$Transport;->this$0:Landroid/content/ContentProvider;
 
-    invoke-static {v2, v0}, Landroid/content/ContentProvider;->-wrap0(Landroid/content/ContentProvider;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v2, v0}, Landroid/content/ContentProvider;->-wrap1(Landroid/content/ContentProvider;Ljava/lang/String;)Ljava/lang/String;
 
     return v1
 
@@ -576,7 +580,7 @@
 
     iget-object v2, p0, Landroid/content/ContentProvider$Transport;->this$0:Landroid/content/ContentProvider;
 
-    invoke-static {v2, v0}, Landroid/content/ContentProvider;->-wrap0(Landroid/content/ContentProvider;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v2, v0}, Landroid/content/ContentProvider;->-wrap1(Landroid/content/ContentProvider;Ljava/lang/String;)Ljava/lang/String;
 
     throw v1
 .end method
@@ -612,9 +616,11 @@
 
     iget-object v0, p0, Landroid/content/ContentProvider$Transport;->this$0:Landroid/content/ContentProvider;
 
-    invoke-static {v0, p1}, Landroid/content/ContentProvider;->-wrap1(Landroid/content/ContentProvider;Landroid/net/Uri;)V
+    invoke-static {v0, p1}, Landroid/content/ContentProvider;->-wrap2(Landroid/content/ContentProvider;Landroid/net/Uri;)V
 
-    invoke-static {p1}, Landroid/content/ContentProvider;->getUriWithoutUserId(Landroid/net/Uri;)Landroid/net/Uri;
+    iget-object v0, p0, Landroid/content/ContentProvider$Transport;->this$0:Landroid/content/ContentProvider;
+
+    invoke-static {v0, p1}, Landroid/content/ContentProvider;->-wrap0(Landroid/content/ContentProvider;Landroid/net/Uri;)Landroid/net/Uri;
 
     move-result-object p1
 
@@ -632,9 +638,11 @@
 
     iget-object v0, p0, Landroid/content/ContentProvider$Transport;->this$0:Landroid/content/ContentProvider;
 
-    invoke-static {v0, p1}, Landroid/content/ContentProvider;->-wrap1(Landroid/content/ContentProvider;Landroid/net/Uri;)V
+    invoke-static {v0, p1}, Landroid/content/ContentProvider;->-wrap2(Landroid/content/ContentProvider;Landroid/net/Uri;)V
 
-    invoke-static {p1}, Landroid/content/ContentProvider;->getUriWithoutUserId(Landroid/net/Uri;)Landroid/net/Uri;
+    iget-object v0, p0, Landroid/content/ContentProvider$Transport;->this$0:Landroid/content/ContentProvider;
+
+    invoke-static {v0, p1}, Landroid/content/ContentProvider;->-wrap0(Landroid/content/ContentProvider;Landroid/net/Uri;)Landroid/net/Uri;
 
     move-result-object p1
 
@@ -652,13 +660,15 @@
 
     iget-object v2, p0, Landroid/content/ContentProvider$Transport;->this$0:Landroid/content/ContentProvider;
 
-    invoke-static {v2, p2}, Landroid/content/ContentProvider;->-wrap1(Landroid/content/ContentProvider;Landroid/net/Uri;)V
+    invoke-static {v2, p2}, Landroid/content/ContentProvider;->-wrap2(Landroid/content/ContentProvider;Landroid/net/Uri;)V
 
     invoke-static {p2}, Landroid/content/ContentProvider;->getUserIdFromUri(Landroid/net/Uri;)I
 
     move-result v1
 
-    invoke-static {p2}, Landroid/content/ContentProvider;->getUriWithoutUserId(Landroid/net/Uri;)Landroid/net/Uri;
+    iget-object v2, p0, Landroid/content/ContentProvider$Transport;->this$0:Landroid/content/ContentProvider;
+
+    invoke-static {v2, p2}, Landroid/content/ContentProvider;->-wrap0(Landroid/content/ContentProvider;Landroid/net/Uri;)Landroid/net/Uri;
 
     move-result-object p2
 
@@ -681,7 +691,7 @@
     :cond_0
     iget-object v2, p0, Landroid/content/ContentProvider$Transport;->this$0:Landroid/content/ContentProvider;
 
-    invoke-static {v2, p1}, Landroid/content/ContentProvider;->-wrap0(Landroid/content/ContentProvider;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v2, p1}, Landroid/content/ContentProvider;->-wrap1(Landroid/content/ContentProvider;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -700,7 +710,7 @@
 
     iget-object v3, p0, Landroid/content/ContentProvider$Transport;->this$0:Landroid/content/ContentProvider;
 
-    invoke-static {v3, v0}, Landroid/content/ContentProvider;->-wrap0(Landroid/content/ContentProvider;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v3, v0}, Landroid/content/ContentProvider;->-wrap1(Landroid/content/ContentProvider;Ljava/lang/String;)Ljava/lang/String;
 
     return-object v2
 
@@ -709,7 +719,7 @@
 
     iget-object v3, p0, Landroid/content/ContentProvider$Transport;->this$0:Landroid/content/ContentProvider;
 
-    invoke-static {v3, v0}, Landroid/content/ContentProvider;->-wrap0(Landroid/content/ContentProvider;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v3, v0}, Landroid/content/ContentProvider;->-wrap1(Landroid/content/ContentProvider;Ljava/lang/String;)Ljava/lang/String;
 
     throw v2
 .end method
@@ -724,9 +734,11 @@
 
     iget-object v1, p0, Landroid/content/ContentProvider$Transport;->this$0:Landroid/content/ContentProvider;
 
-    invoke-static {v1, p2}, Landroid/content/ContentProvider;->-wrap1(Landroid/content/ContentProvider;Landroid/net/Uri;)V
+    invoke-static {v1, p2}, Landroid/content/ContentProvider;->-wrap2(Landroid/content/ContentProvider;Landroid/net/Uri;)V
 
-    invoke-static {p2}, Landroid/content/ContentProvider;->getUriWithoutUserId(Landroid/net/Uri;)Landroid/net/Uri;
+    iget-object v1, p0, Landroid/content/ContentProvider$Transport;->this$0:Landroid/content/ContentProvider;
+
+    invoke-static {v1, p2}, Landroid/content/ContentProvider;->-wrap0(Landroid/content/ContentProvider;Landroid/net/Uri;)Landroid/net/Uri;
 
     move-result-object p2
 
@@ -736,7 +748,7 @@
 
     iget-object v1, p0, Landroid/content/ContentProvider$Transport;->this$0:Landroid/content/ContentProvider;
 
-    invoke-static {v1, p1}, Landroid/content/ContentProvider;->-wrap0(Landroid/content/ContentProvider;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v1, p1}, Landroid/content/ContentProvider;->-wrap1(Landroid/content/ContentProvider;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -755,7 +767,7 @@
 
     iget-object v2, p0, Landroid/content/ContentProvider$Transport;->this$0:Landroid/content/ContentProvider;
 
-    invoke-static {v2, v0}, Landroid/content/ContentProvider;->-wrap0(Landroid/content/ContentProvider;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v2, v0}, Landroid/content/ContentProvider;->-wrap1(Landroid/content/ContentProvider;Ljava/lang/String;)Ljava/lang/String;
 
     return-object v1
 
@@ -764,7 +776,7 @@
 
     iget-object v2, p0, Landroid/content/ContentProvider$Transport;->this$0:Landroid/content/ContentProvider;
 
-    invoke-static {v2, v0}, Landroid/content/ContentProvider;->-wrap0(Landroid/content/ContentProvider;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v2, v0}, Landroid/content/ContentProvider;->-wrap1(Landroid/content/ContentProvider;Ljava/lang/String;)Ljava/lang/String;
 
     throw v1
 .end method
@@ -779,9 +791,11 @@
 
     iget-object v1, p0, Landroid/content/ContentProvider$Transport;->this$0:Landroid/content/ContentProvider;
 
-    invoke-static {v1, p2}, Landroid/content/ContentProvider;->-wrap1(Landroid/content/ContentProvider;Landroid/net/Uri;)V
+    invoke-static {v1, p2}, Landroid/content/ContentProvider;->-wrap2(Landroid/content/ContentProvider;Landroid/net/Uri;)V
 
-    invoke-static {p2}, Landroid/content/ContentProvider;->getUriWithoutUserId(Landroid/net/Uri;)Landroid/net/Uri;
+    iget-object v1, p0, Landroid/content/ContentProvider$Transport;->this$0:Landroid/content/ContentProvider;
+
+    invoke-static {v1, p2}, Landroid/content/ContentProvider;->-wrap0(Landroid/content/ContentProvider;Landroid/net/Uri;)Landroid/net/Uri;
 
     move-result-object p2
 
@@ -789,7 +803,7 @@
 
     iget-object v1, p0, Landroid/content/ContentProvider$Transport;->this$0:Landroid/content/ContentProvider;
 
-    invoke-static {v1, p1}, Landroid/content/ContentProvider;->-wrap0(Landroid/content/ContentProvider;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v1, p1}, Landroid/content/ContentProvider;->-wrap1(Landroid/content/ContentProvider;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -808,7 +822,7 @@
 
     iget-object v2, p0, Landroid/content/ContentProvider$Transport;->this$0:Landroid/content/ContentProvider;
 
-    invoke-static {v2, v0}, Landroid/content/ContentProvider;->-wrap0(Landroid/content/ContentProvider;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v2, v0}, Landroid/content/ContentProvider;->-wrap1(Landroid/content/ContentProvider;Ljava/lang/String;)Ljava/lang/String;
 
     return-object v1
 
@@ -817,7 +831,7 @@
 
     iget-object v2, p0, Landroid/content/ContentProvider$Transport;->this$0:Landroid/content/ContentProvider;
 
-    invoke-static {v2, v0}, Landroid/content/ContentProvider;->-wrap0(Landroid/content/ContentProvider;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v2, v0}, Landroid/content/ContentProvider;->-wrap1(Landroid/content/ContentProvider;Ljava/lang/String;)Ljava/lang/String;
 
     throw v1
 .end method
@@ -836,9 +850,11 @@
 
     iget-object v1, p0, Landroid/content/ContentProvider$Transport;->this$0:Landroid/content/ContentProvider;
 
-    invoke-static {v1, p2}, Landroid/content/ContentProvider;->-wrap1(Landroid/content/ContentProvider;Landroid/net/Uri;)V
+    invoke-static {v1, p2}, Landroid/content/ContentProvider;->-wrap2(Landroid/content/ContentProvider;Landroid/net/Uri;)V
 
-    invoke-static {p2}, Landroid/content/ContentProvider;->getUriWithoutUserId(Landroid/net/Uri;)Landroid/net/Uri;
+    iget-object v1, p0, Landroid/content/ContentProvider$Transport;->this$0:Landroid/content/ContentProvider;
+
+    invoke-static {v1, p2}, Landroid/content/ContentProvider;->-wrap0(Landroid/content/ContentProvider;Landroid/net/Uri;)Landroid/net/Uri;
 
     move-result-object p2
 
@@ -850,7 +866,7 @@
 
     iget-object v1, p0, Landroid/content/ContentProvider$Transport;->this$0:Landroid/content/ContentProvider;
 
-    invoke-static {v1, p1}, Landroid/content/ContentProvider;->-wrap0(Landroid/content/ContentProvider;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v1, p1}, Landroid/content/ContentProvider;->-wrap1(Landroid/content/ContentProvider;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -869,7 +885,7 @@
 
     iget-object v2, p0, Landroid/content/ContentProvider$Transport;->this$0:Landroid/content/ContentProvider;
 
-    invoke-static {v2, v0}, Landroid/content/ContentProvider;->-wrap0(Landroid/content/ContentProvider;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v2, v0}, Landroid/content/ContentProvider;->-wrap1(Landroid/content/ContentProvider;Ljava/lang/String;)Ljava/lang/String;
 
     return-object v1
 
@@ -878,124 +894,166 @@
 
     iget-object v2, p0, Landroid/content/ContentProvider$Transport;->this$0:Landroid/content/ContentProvider;
 
-    invoke-static {v2, v0}, Landroid/content/ContentProvider;->-wrap0(Landroid/content/ContentProvider;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v2, v0}, Landroid/content/ContentProvider;->-wrap1(Landroid/content/ContentProvider;Ljava/lang/String;)Ljava/lang/String;
 
     throw v1
 .end method
 
-.method public query(Ljava/lang/String;Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;Landroid/os/ICancellationSignal;)Landroid/database/Cursor;
-    .locals 9
+.method public query(Ljava/lang/String;Landroid/net/Uri;[Ljava/lang/String;Landroid/os/Bundle;Landroid/os/ICancellationSignal;)Landroid/database/Cursor;
+    .locals 6
 
-    iget-object v0, p0, Landroid/content/ContentProvider$Transport;->this$0:Landroid/content/ContentProvider;
+    const/4 v5, 0x0
 
-    invoke-static {v0, p2}, Landroid/content/ContentProvider;->-wrap1(Landroid/content/ContentProvider;Landroid/net/Uri;)V
+    const/4 v4, 0x0
+
+    iget-object v2, p0, Landroid/content/ContentProvider$Transport;->this$0:Landroid/content/ContentProvider;
+
+    invoke-static {v2, p2}, Landroid/content/ContentProvider;->-wrap2(Landroid/content/ContentProvider;Landroid/net/Uri;)V
+
+    iget-object v2, p0, Landroid/content/ContentProvider$Transport;->this$0:Landroid/content/ContentProvider;
+
+    invoke-static {v2, p2}, Landroid/content/ContentProvider;->-wrap0(Landroid/content/ContentProvider;Landroid/net/Uri;)Landroid/net/Uri;
+
+    move-result-object p2
+
+    invoke-direct {p0, p1, p2, v4}, Landroid/content/ContentProvider$Transport;->enforceReadPermission(Ljava/lang/String;Landroid/net/Uri;Landroid/os/IBinder;)I
+
+    move-result v2
+
+    if-eqz v2, :cond_2
+
+    if-eqz p3, :cond_0
+
+    new-instance v2, Landroid/database/MatrixCursor;
+
+    invoke-direct {v2, p3, v5}, Landroid/database/MatrixCursor;-><init>([Ljava/lang/String;I)V
+
+    return-object v2
+
+    :cond_0
+    iget-object v2, p0, Landroid/content/ContentProvider$Transport;->this$0:Landroid/content/ContentProvider;
+
+    invoke-static {p5}, Landroid/os/CancellationSignal;->fromTransport(Landroid/os/ICancellationSignal;)Landroid/os/CancellationSignal;
+
+    move-result-object v3
+
+    invoke-virtual {v2, p2, p3, p4, v3}, Landroid/content/ContentProvider;->query(Landroid/net/Uri;[Ljava/lang/String;Landroid/os/Bundle;Landroid/os/CancellationSignal;)Landroid/database/Cursor;
+
+    move-result-object v0
+
+    if-nez v0, :cond_1
+
+    return-object v4
+
+    :cond_1
+    new-instance v2, Landroid/database/MatrixCursor;
+
+    invoke-interface {v0}, Landroid/database/Cursor;->getColumnNames()[Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-direct {v2, v3, v5}, Landroid/database/MatrixCursor;-><init>([Ljava/lang/String;I)V
+
+    return-object v2
+
+    :cond_2
+    iget-object v2, p0, Landroid/content/ContentProvider$Transport;->this$0:Landroid/content/ContentProvider;
+
+    invoke-static {v2, p1}, Landroid/content/ContentProvider;->-wrap1(Landroid/content/ContentProvider;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    :try_start_0
+    iget-object v2, p0, Landroid/content/ContentProvider$Transport;->this$0:Landroid/content/ContentProvider;
+
+    invoke-static {p5}, Landroid/os/CancellationSignal;->fromTransport(Landroid/os/ICancellationSignal;)Landroid/os/CancellationSignal;
+
+    move-result-object v3
+
+    invoke-virtual {v2, p2, p3, p4, v3}, Landroid/content/ContentProvider;->query(Landroid/net/Uri;[Ljava/lang/String;Landroid/os/Bundle;Landroid/os/CancellationSignal;)Landroid/database/Cursor;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result-object v2
+
+    iget-object v3, p0, Landroid/content/ContentProvider$Transport;->this$0:Landroid/content/ContentProvider;
+
+    invoke-static {v3, v1}, Landroid/content/ContentProvider;->-wrap1(Landroid/content/ContentProvider;Ljava/lang/String;)Ljava/lang/String;
+
+    return-object v2
+
+    :catchall_0
+    move-exception v2
+
+    iget-object v3, p0, Landroid/content/ContentProvider$Transport;->this$0:Landroid/content/ContentProvider;
+
+    invoke-static {v3, v1}, Landroid/content/ContentProvider;->-wrap1(Landroid/content/ContentProvider;Ljava/lang/String;)Ljava/lang/String;
+
+    throw v2
+.end method
+
+.method public refresh(Ljava/lang/String;Landroid/net/Uri;Landroid/os/Bundle;Landroid/os/ICancellationSignal;)Z
+    .locals 3
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    const/4 v2, 0x0
+
+    iget-object v1, p0, Landroid/content/ContentProvider$Transport;->this$0:Landroid/content/ContentProvider;
+
+    invoke-static {v1, p2}, Landroid/content/ContentProvider;->-wrap2(Landroid/content/ContentProvider;Landroid/net/Uri;)V
 
     invoke-static {p2}, Landroid/content/ContentProvider;->getUriWithoutUserId(Landroid/net/Uri;)Landroid/net/Uri;
 
     move-result-object p2
 
-    const/4 v0, 0x0
-
-    invoke-direct {p0, p1, p2, v0}, Landroid/content/ContentProvider$Transport;->enforceReadPermission(Ljava/lang/String;Landroid/net/Uri;Landroid/os/IBinder;)I
-
-    move-result v0
-
-    if-eqz v0, :cond_2
-
-    if-eqz p3, :cond_0
-
-    new-instance v0, Landroid/database/MatrixCursor;
-
     const/4 v1, 0x0
 
-    invoke-direct {v0, p3, v1}, Landroid/database/MatrixCursor;-><init>([Ljava/lang/String;I)V
+    invoke-direct {p0, p1, p2, v1}, Landroid/content/ContentProvider$Transport;->enforceReadPermission(Ljava/lang/String;Landroid/net/Uri;Landroid/os/IBinder;)I
 
-    return-object v0
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    return v2
 
     :cond_0
-    iget-object v0, p0, Landroid/content/ContentProvider$Transport;->this$0:Landroid/content/ContentProvider;
+    iget-object v1, p0, Landroid/content/ContentProvider$Transport;->this$0:Landroid/content/ContentProvider;
 
-    invoke-static/range {p7 .. p7}, Landroid/os/CancellationSignal;->fromTransport(Landroid/os/ICancellationSignal;)Landroid/os/CancellationSignal;
-
-    move-result-object v6
-
-    move-object v1, p2
-
-    move-object v2, p3
-
-    move-object v3, p4
-
-    move-object v4, p5
-
-    move-object v5, p6
-
-    invoke-virtual/range {v0 .. v6}, Landroid/content/ContentProvider;->query(Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;Landroid/os/CancellationSignal;)Landroid/database/Cursor;
-
-    move-result-object v7
-
-    if-nez v7, :cond_1
-
-    const/4 v0, 0x0
-
-    return-object v0
-
-    :cond_1
-    new-instance v0, Landroid/database/MatrixCursor;
-
-    invoke-interface {v7}, Landroid/database/Cursor;->getColumnNames()[Ljava/lang/String;
-
-    move-result-object v1
-
-    const/4 v2, 0x0
-
-    invoke-direct {v0, v1, v2}, Landroid/database/MatrixCursor;-><init>([Ljava/lang/String;I)V
-
-    return-object v0
-
-    :cond_2
-    iget-object v0, p0, Landroid/content/ContentProvider$Transport;->this$0:Landroid/content/ContentProvider;
-
-    invoke-static {v0, p1}, Landroid/content/ContentProvider;->-wrap0(Landroid/content/ContentProvider;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v8
-
-    :try_start_0
-    iget-object v0, p0, Landroid/content/ContentProvider$Transport;->this$0:Landroid/content/ContentProvider;
-
-    invoke-static/range {p7 .. p7}, Landroid/os/CancellationSignal;->fromTransport(Landroid/os/ICancellationSignal;)Landroid/os/CancellationSignal;
-
-    move-result-object v6
-
-    move-object v1, p2
-
-    move-object v2, p3
-
-    move-object v3, p4
-
-    move-object v4, p5
-
-    move-object v5, p6
-
-    invoke-virtual/range {v0 .. v6}, Landroid/content/ContentProvider;->query(Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;Landroid/os/CancellationSignal;)Landroid/database/Cursor;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    invoke-static {v1, p1}, Landroid/content/ContentProvider;->-wrap1(Landroid/content/ContentProvider;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
+    :try_start_0
     iget-object v1, p0, Landroid/content/ContentProvider$Transport;->this$0:Landroid/content/ContentProvider;
 
-    invoke-static {v1, v8}, Landroid/content/ContentProvider;->-wrap0(Landroid/content/ContentProvider;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {p4}, Landroid/os/CancellationSignal;->fromTransport(Landroid/os/ICancellationSignal;)Landroid/os/CancellationSignal;
 
-    return-object v0
+    move-result-object v2
+
+    invoke-virtual {v1, p2, p3, v2}, Landroid/content/ContentProvider;->refresh(Landroid/net/Uri;Landroid/os/Bundle;Landroid/os/CancellationSignal;)Z
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result v1
+
+    iget-object v2, p0, Landroid/content/ContentProvider$Transport;->this$0:Landroid/content/ContentProvider;
+
+    invoke-static {v2, v0}, Landroid/content/ContentProvider;->-wrap1(Landroid/content/ContentProvider;Ljava/lang/String;)Ljava/lang/String;
+
+    return v1
 
     :catchall_0
-    move-exception v0
+    move-exception v1
 
-    iget-object v1, p0, Landroid/content/ContentProvider$Transport;->this$0:Landroid/content/ContentProvider;
+    iget-object v2, p0, Landroid/content/ContentProvider$Transport;->this$0:Landroid/content/ContentProvider;
 
-    invoke-static {v1, v8}, Landroid/content/ContentProvider;->-wrap0(Landroid/content/ContentProvider;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v2, v0}, Landroid/content/ContentProvider;->-wrap1(Landroid/content/ContentProvider;Ljava/lang/String;)Ljava/lang/String;
 
-    throw v0
+    throw v1
 .end method
 
 .method public uncanonicalize(Ljava/lang/String;Landroid/net/Uri;)Landroid/net/Uri;
@@ -1005,7 +1063,7 @@
 
     iget-object v2, p0, Landroid/content/ContentProvider$Transport;->this$0:Landroid/content/ContentProvider;
 
-    invoke-static {v2, p2}, Landroid/content/ContentProvider;->-wrap1(Landroid/content/ContentProvider;Landroid/net/Uri;)V
+    invoke-static {v2, p2}, Landroid/content/ContentProvider;->-wrap2(Landroid/content/ContentProvider;Landroid/net/Uri;)V
 
     invoke-static {p2}, Landroid/content/ContentProvider;->getUserIdFromUri(Landroid/net/Uri;)I
 
@@ -1026,7 +1084,7 @@
     :cond_0
     iget-object v2, p0, Landroid/content/ContentProvider$Transport;->this$0:Landroid/content/ContentProvider;
 
-    invoke-static {v2, p1}, Landroid/content/ContentProvider;->-wrap0(Landroid/content/ContentProvider;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v2, p1}, Landroid/content/ContentProvider;->-wrap1(Landroid/content/ContentProvider;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -1045,7 +1103,7 @@
 
     iget-object v3, p0, Landroid/content/ContentProvider$Transport;->this$0:Landroid/content/ContentProvider;
 
-    invoke-static {v3, v0}, Landroid/content/ContentProvider;->-wrap0(Landroid/content/ContentProvider;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v3, v0}, Landroid/content/ContentProvider;->-wrap1(Landroid/content/ContentProvider;Ljava/lang/String;)Ljava/lang/String;
 
     return-object v2
 
@@ -1054,7 +1112,7 @@
 
     iget-object v3, p0, Landroid/content/ContentProvider$Transport;->this$0:Landroid/content/ContentProvider;
 
-    invoke-static {v3, v0}, Landroid/content/ContentProvider;->-wrap0(Landroid/content/ContentProvider;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v3, v0}, Landroid/content/ContentProvider;->-wrap1(Landroid/content/ContentProvider;Ljava/lang/String;)Ljava/lang/String;
 
     throw v2
 .end method
@@ -1066,9 +1124,11 @@
 
     iget-object v1, p0, Landroid/content/ContentProvider$Transport;->this$0:Landroid/content/ContentProvider;
 
-    invoke-static {v1, p2}, Landroid/content/ContentProvider;->-wrap1(Landroid/content/ContentProvider;Landroid/net/Uri;)V
+    invoke-static {v1, p2}, Landroid/content/ContentProvider;->-wrap2(Landroid/content/ContentProvider;Landroid/net/Uri;)V
 
-    invoke-static {p2}, Landroid/content/ContentProvider;->getUriWithoutUserId(Landroid/net/Uri;)Landroid/net/Uri;
+    iget-object v1, p0, Landroid/content/ContentProvider$Transport;->this$0:Landroid/content/ContentProvider;
+
+    invoke-static {v1, p2}, Landroid/content/ContentProvider;->-wrap0(Landroid/content/ContentProvider;Landroid/net/Uri;)Landroid/net/Uri;
 
     move-result-object p2
 
@@ -1085,7 +1145,7 @@
     :cond_0
     iget-object v1, p0, Landroid/content/ContentProvider$Transport;->this$0:Landroid/content/ContentProvider;
 
-    invoke-static {v1, p1}, Landroid/content/ContentProvider;->-wrap0(Landroid/content/ContentProvider;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v1, p1}, Landroid/content/ContentProvider;->-wrap1(Landroid/content/ContentProvider;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -1100,7 +1160,7 @@
 
     iget-object v2, p0, Landroid/content/ContentProvider$Transport;->this$0:Landroid/content/ContentProvider;
 
-    invoke-static {v2, v0}, Landroid/content/ContentProvider;->-wrap0(Landroid/content/ContentProvider;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v2, v0}, Landroid/content/ContentProvider;->-wrap1(Landroid/content/ContentProvider;Ljava/lang/String;)Ljava/lang/String;
 
     return v1
 
@@ -1109,7 +1169,7 @@
 
     iget-object v2, p0, Landroid/content/ContentProvider$Transport;->this$0:Landroid/content/ContentProvider;
 
-    invoke-static {v2, v0}, Landroid/content/ContentProvider;->-wrap0(Landroid/content/ContentProvider;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v2, v0}, Landroid/content/ContentProvider;->-wrap1(Landroid/content/ContentProvider;Ljava/lang/String;)Ljava/lang/String;
 
     throw v1
 .end method

@@ -41,15 +41,17 @@
 
 
 # instance fields
-.field mIsEndOfPath:Z
+.field public mContinuedStrokeId:I
 
-.field mIsStartOfPath:Z
+.field public mIsEndOfPath:Z
 
-.field mPathIndex:I
+.field public mIsStartOfPath:Z
 
-.field mX:F
+.field public mStrokeId:I
 
-.field mY:F
+.field public mX:F
+
+.field public mY:F
 
 
 # direct methods
@@ -96,7 +98,13 @@
 
     move-result v1
 
-    iput v1, p0, Landroid/accessibilityservice/GestureDescription$TouchPoint;->mPathIndex:I
+    iput v1, p0, Landroid/accessibilityservice/GestureDescription$TouchPoint;->mStrokeId:I
+
+    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
+
+    move-result v1
+
+    iput v1, p0, Landroid/accessibilityservice/GestureDescription$TouchPoint;->mContinuedStrokeId:I
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
@@ -145,12 +153,16 @@
 
 
 # virtual methods
-.method copyFrom(Landroid/accessibilityservice/GestureDescription$TouchPoint;)V
+.method public copyFrom(Landroid/accessibilityservice/GestureDescription$TouchPoint;)V
     .locals 1
 
-    iget v0, p1, Landroid/accessibilityservice/GestureDescription$TouchPoint;->mPathIndex:I
+    iget v0, p1, Landroid/accessibilityservice/GestureDescription$TouchPoint;->mStrokeId:I
 
-    iput v0, p0, Landroid/accessibilityservice/GestureDescription$TouchPoint;->mPathIndex:I
+    iput v0, p0, Landroid/accessibilityservice/GestureDescription$TouchPoint;->mStrokeId:I
+
+    iget v0, p1, Landroid/accessibilityservice/GestureDescription$TouchPoint;->mContinuedStrokeId:I
+
+    iput v0, p0, Landroid/accessibilityservice/GestureDescription$TouchPoint;->mContinuedStrokeId:I
 
     iget-boolean v0, p1, Landroid/accessibilityservice/GestureDescription$TouchPoint;->mIsStartOfPath:Z
 
@@ -182,7 +194,11 @@
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 2
 
-    iget v1, p0, Landroid/accessibilityservice/GestureDescription$TouchPoint;->mPathIndex:I
+    iget v1, p0, Landroid/accessibilityservice/GestureDescription$TouchPoint;->mStrokeId:I
+
+    invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeInt(I)V
+
+    iget v1, p0, Landroid/accessibilityservice/GestureDescription$TouchPoint;->mContinuedStrokeId:I
 
     invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeInt(I)V
 

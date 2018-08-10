@@ -18,7 +18,19 @@
 .method public abstract init(ILandroid/os/IBinder;)V
 .end method
 
+.method public abstract onAccessibilityButtonAvailabilityChanged(Z)V
+.end method
+
+.method public abstract onAccessibilityButtonClicked()V
+.end method
+
 .method public abstract onAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)V
+.end method
+
+.method public abstract onFingerprintCapturingGesturesChanged(Z)V
+.end method
+
+.method public abstract onFingerprintGesture(I)V
 .end method
 
 .method public abstract onGesture(I)Z

@@ -26,17 +26,13 @@
 
 .field public static final TAG_CSCFEATURE_IMS_ENABLEIMS:Ljava/lang/String; = "CscFeature_IMS_EnableIMS"
 
-.field public static final TAG_CSCFEATURE_IMS_ENABLELTEVIDEOCALL:Ljava/lang/String; = "CscFeature_IMS_EnableLTEVideoCall"
-
 .field public static final TAG_CSCFEATURE_IMS_ENABLERCSE:Ljava/lang/String; = "CscFeature_IMS_EnableRCSe"
 
 .field public static final TAG_CSCFEATURE_IMS_ENABLEVOLTE:Ljava/lang/String; = "CscFeature_IMS_EnableVoLTE"
 
 .field public static final TAG_CSCFEATURE_IMS_FRAMEWORKVERSION:Ljava/lang/String; = "CscFeature_IMS_FrameworkVersion"
 
-.field public static final TAG_CSCFEATURE_IMS_SUPPORTCALLPLUS:Ljava/lang/String; = "CscFeature_IMS_SupportCallPlus"
-
-.field public static final TAG_CSCFEATURE_IMS_SUPPORTJANSKY:Ljava/lang/String; = "CscFeature_IMS_SupportJansky"
+.field public static final TAG_CSCFEATURE_IMS_SUPPORTDUALLTESINGLEIMS:Ljava/lang/String; = "CscFeature_IMS_SupportDualLteSingleIms"
 
 .field public static final TAG_CSCFEATURE_IMS_SUPPORTNOSIME911:Ljava/lang/String; = "CscFeature_IMS_SupportNoSIME911"
 

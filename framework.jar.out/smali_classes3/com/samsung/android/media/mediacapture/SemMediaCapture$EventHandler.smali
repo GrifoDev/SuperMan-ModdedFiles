@@ -92,7 +92,7 @@
     :sswitch_0
     iget-object v1, p0, Lcom/samsung/android/media/mediacapture/SemMediaCapture$EventHandler;->this$0:Lcom/samsung/android/media/mediacapture/SemMediaCapture;
 
-    invoke-static {v1}, Lcom/samsung/android/media/mediacapture/SemMediaCapture;->-get3(Lcom/samsung/android/media/mediacapture/SemMediaCapture;)Lcom/samsung/android/media/mediacapture/SemMediaCapture$OnPlaybackCompletionListener;
+    invoke-static {v1}, Lcom/samsung/android/media/mediacapture/SemMediaCapture;->-get4(Lcom/samsung/android/media/mediacapture/SemMediaCapture;)Lcom/samsung/android/media/mediacapture/SemMediaCapture$OnPlaybackCompletionListener;
 
     move-result-object v1
 
@@ -100,7 +100,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/media/mediacapture/SemMediaCapture$EventHandler;->this$0:Lcom/samsung/android/media/mediacapture/SemMediaCapture;
 
-    invoke-static {v1}, Lcom/samsung/android/media/mediacapture/SemMediaCapture;->-get3(Lcom/samsung/android/media/mediacapture/SemMediaCapture;)Lcom/samsung/android/media/mediacapture/SemMediaCapture$OnPlaybackCompletionListener;
+    invoke-static {v1}, Lcom/samsung/android/media/mediacapture/SemMediaCapture;->-get4(Lcom/samsung/android/media/mediacapture/SemMediaCapture;)Lcom/samsung/android/media/mediacapture/SemMediaCapture$OnPlaybackCompletionListener;
 
     move-result-object v1
 
@@ -114,7 +114,7 @@
     :sswitch_1
     iget-object v1, p0, Lcom/samsung/android/media/mediacapture/SemMediaCapture$EventHandler;->this$0:Lcom/samsung/android/media/mediacapture/SemMediaCapture;
 
-    invoke-static {v1}, Lcom/samsung/android/media/mediacapture/SemMediaCapture;->-get5(Lcom/samsung/android/media/mediacapture/SemMediaCapture;)Lcom/samsung/android/media/mediacapture/SemMediaCapture$OnRecordingCompletionListener;
+    invoke-static {v1}, Lcom/samsung/android/media/mediacapture/SemMediaCapture;->-get6(Lcom/samsung/android/media/mediacapture/SemMediaCapture;)Lcom/samsung/android/media/mediacapture/SemMediaCapture$OnRecordingCompletionListener;
 
     move-result-object v1
 
@@ -122,7 +122,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/media/mediacapture/SemMediaCapture$EventHandler;->this$0:Lcom/samsung/android/media/mediacapture/SemMediaCapture;
 
-    invoke-static {v1}, Lcom/samsung/android/media/mediacapture/SemMediaCapture;->-get5(Lcom/samsung/android/media/mediacapture/SemMediaCapture;)Lcom/samsung/android/media/mediacapture/SemMediaCapture$OnRecordingCompletionListener;
+    invoke-static {v1}, Lcom/samsung/android/media/mediacapture/SemMediaCapture;->-get6(Lcom/samsung/android/media/mediacapture/SemMediaCapture;)Lcom/samsung/android/media/mediacapture/SemMediaCapture$OnRecordingCompletionListener;
 
     move-result-object v1
 
@@ -158,7 +158,7 @@
     :sswitch_3
     iget-object v1, p0, Lcom/samsung/android/media/mediacapture/SemMediaCapture$EventHandler;->this$0:Lcom/samsung/android/media/mediacapture/SemMediaCapture;
 
-    invoke-static {v1}, Lcom/samsung/android/media/mediacapture/SemMediaCapture;->-get4(Lcom/samsung/android/media/mediacapture/SemMediaCapture;)Lcom/samsung/android/media/mediacapture/SemMediaCapture$OnPreparedListener;
+    invoke-static {v1}, Lcom/samsung/android/media/mediacapture/SemMediaCapture;->-get5(Lcom/samsung/android/media/mediacapture/SemMediaCapture;)Lcom/samsung/android/media/mediacapture/SemMediaCapture$OnPreparedListener;
 
     move-result-object v1
 
@@ -166,7 +166,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/media/mediacapture/SemMediaCapture$EventHandler;->this$0:Lcom/samsung/android/media/mediacapture/SemMediaCapture;
 
-    invoke-static {v1}, Lcom/samsung/android/media/mediacapture/SemMediaCapture;->-get4(Lcom/samsung/android/media/mediacapture/SemMediaCapture;)Lcom/samsung/android/media/mediacapture/SemMediaCapture$OnPreparedListener;
+    invoke-static {v1}, Lcom/samsung/android/media/mediacapture/SemMediaCapture;->-get5(Lcom/samsung/android/media/mediacapture/SemMediaCapture;)Lcom/samsung/android/media/mediacapture/SemMediaCapture$OnPreparedListener;
 
     move-result-object v1
 
@@ -180,7 +180,7 @@
     :sswitch_4
     iget-object v1, p0, Lcom/samsung/android/media/mediacapture/SemMediaCapture$EventHandler;->this$0:Lcom/samsung/android/media/mediacapture/SemMediaCapture;
 
-    invoke-static {v1}, Lcom/samsung/android/media/mediacapture/SemMediaCapture;->-get6(Lcom/samsung/android/media/mediacapture/SemMediaCapture;)Lcom/samsung/android/media/mediacapture/SemMediaCapture$OnRenderingStartedListener;
+    invoke-static {v1}, Lcom/samsung/android/media/mediacapture/SemMediaCapture;->-get7(Lcom/samsung/android/media/mediacapture/SemMediaCapture;)Lcom/samsung/android/media/mediacapture/SemMediaCapture$OnRenderingStartedListener;
 
     move-result-object v1
 
@@ -188,7 +188,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/media/mediacapture/SemMediaCapture$EventHandler;->this$0:Lcom/samsung/android/media/mediacapture/SemMediaCapture;
 
-    invoke-static {v1}, Lcom/samsung/android/media/mediacapture/SemMediaCapture;->-get6(Lcom/samsung/android/media/mediacapture/SemMediaCapture;)Lcom/samsung/android/media/mediacapture/SemMediaCapture$OnRenderingStartedListener;
+    invoke-static {v1}, Lcom/samsung/android/media/mediacapture/SemMediaCapture;->-get7(Lcom/samsung/android/media/mediacapture/SemMediaCapture;)Lcom/samsung/android/media/mediacapture/SemMediaCapture$OnRenderingStartedListener;
 
     move-result-object v1
 
@@ -246,7 +246,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/media/mediacapture/SemMediaCapture$EventHandler;->this$0:Lcom/samsung/android/media/mediacapture/SemMediaCapture;
 
-    invoke-static {v1}, Lcom/samsung/android/media/mediacapture/SemMediaCapture;->-get2(Lcom/samsung/android/media/mediacapture/SemMediaCapture;)Lcom/samsung/android/media/mediacapture/SemMediaCapture$OnErrorListener;
+    invoke-static {v1}, Lcom/samsung/android/media/mediacapture/SemMediaCapture;->-get3(Lcom/samsung/android/media/mediacapture/SemMediaCapture;)Lcom/samsung/android/media/mediacapture/SemMediaCapture$OnErrorListener;
 
     move-result-object v1
 
@@ -254,7 +254,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/media/mediacapture/SemMediaCapture$EventHandler;->this$0:Lcom/samsung/android/media/mediacapture/SemMediaCapture;
 
-    invoke-static {v1}, Lcom/samsung/android/media/mediacapture/SemMediaCapture;->-get2(Lcom/samsung/android/media/mediacapture/SemMediaCapture;)Lcom/samsung/android/media/mediacapture/SemMediaCapture$OnErrorListener;
+    invoke-static {v1}, Lcom/samsung/android/media/mediacapture/SemMediaCapture;->-get3(Lcom/samsung/android/media/mediacapture/SemMediaCapture;)Lcom/samsung/android/media/mediacapture/SemMediaCapture$OnErrorListener;
 
     move-result-object v1
 
@@ -272,18 +272,43 @@
     return-void
 
     :sswitch_6
+    iget-object v1, p0, Lcom/samsung/android/media/mediacapture/SemMediaCapture$EventHandler;->this$0:Lcom/samsung/android/media/mediacapture/SemMediaCapture;
+
+    invoke-static {v1}, Lcom/samsung/android/media/mediacapture/SemMediaCapture;->-get2(Lcom/samsung/android/media/mediacapture/SemMediaCapture;)Lcom/samsung/android/media/mediacapture/SemMediaCapture$OnDecodingUpdatedListener;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_7
+
+    iget-object v1, p0, Lcom/samsung/android/media/mediacapture/SemMediaCapture$EventHandler;->this$0:Lcom/samsung/android/media/mediacapture/SemMediaCapture;
+
+    invoke-static {v1}, Lcom/samsung/android/media/mediacapture/SemMediaCapture;->-get2(Lcom/samsung/android/media/mediacapture/SemMediaCapture;)Lcom/samsung/android/media/mediacapture/SemMediaCapture$OnDecodingUpdatedListener;
+
+    move-result-object v1
+
+    iget-object v2, p0, Lcom/samsung/android/media/mediacapture/SemMediaCapture$EventHandler;->mMediaCapture:Lcom/samsung/android/media/mediacapture/SemMediaCapture;
+
+    iget v3, p1, Landroid/os/Message;->arg1:I
+
+    invoke-interface {v1, v2, v3}, Lcom/samsung/android/media/mediacapture/SemMediaCapture$OnDecodingUpdatedListener;->onUpdated(Lcom/samsung/android/media/mediacapture/SemMediaCapture;I)V
+
+    :cond_7
+    return-void
+
+    :sswitch_7
     return-void
 
     nop
 
     :sswitch_data_0
     .sparse-switch
-        0x0 -> :sswitch_6
+        0x0 -> :sswitch_7
         0x1 -> :sswitch_3
         0x5 -> :sswitch_2
         0x6 -> :sswitch_0
         0x7 -> :sswitch_1
         0x8 -> :sswitch_4
+        0xa -> :sswitch_6
         0x64 -> :sswitch_5
     .end sparse-switch
 .end method

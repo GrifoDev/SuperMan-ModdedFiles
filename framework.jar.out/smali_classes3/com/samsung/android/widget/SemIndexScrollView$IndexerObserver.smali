@@ -66,7 +66,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/widget/SemIndexScrollView$IndexerObserver;->mUpdateIndex:Ljava/lang/Runnable;
 
-    invoke-virtual {v0, v1}, Landroid/view/View;->removeCallbacks(Ljava/lang/Runnable;)Z
+    invoke-virtual {v0, v1}, Lcom/samsung/android/widget/SemIndexScrollView;->removeCallbacks(Ljava/lang/Runnable;)Z
 
     iget-object v0, p0, Lcom/samsung/android/widget/SemIndexScrollView$IndexerObserver;->this$0:Lcom/samsung/android/widget/SemIndexScrollView;
 
@@ -74,11 +74,7 @@
 
     const-wide/16 v2, 0xc8
 
-    invoke-virtual {v0, v1, v2, v3}, Landroid/view/View;->postDelayed(Ljava/lang/Runnable;J)Z
-
-    iget-object v0, p0, Lcom/samsung/android/widget/SemIndexScrollView$IndexerObserver;->this$0:Lcom/samsung/android/widget/SemIndexScrollView;
-
-    invoke-static {v0}, Lcom/samsung/android/widget/SemIndexScrollView;->-wrap0(Lcom/samsung/android/widget/SemIndexScrollView;)V
+    invoke-virtual {v0, v1, v2, v3}, Lcom/samsung/android/widget/SemIndexScrollView;->postDelayed(Ljava/lang/Runnable;J)Z
 
     return-void
 .end method
@@ -90,17 +86,9 @@
 
     iget-boolean v0, p0, Lcom/samsung/android/widget/SemIndexScrollView$IndexerObserver;->mDataInvalid:Z
 
-    if-eqz v0, :cond_0
+    xor-int/lit8 v0, v0, 0x1
 
-    const/4 v0, 0x0
-
-    :goto_0
     return v0
-
-    :cond_0
-    const/4 v0, 0x1
-
-    goto :goto_0
 .end method
 
 .method public onChanged()V

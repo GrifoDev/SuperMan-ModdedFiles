@@ -137,8 +137,6 @@
 
     invoke-virtual {p0, v0, v1}, Landroid/bluetooth/IBluetoothProfileServiceConnection$Stub;->onServiceConnected(Landroid/content/ComponentName;Landroid/os/IBinder;)V
 
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
     return v3
 
     :cond_0
@@ -167,8 +165,6 @@
 
     :goto_1
     invoke-virtual {p0, v0}, Landroid/bluetooth/IBluetoothProfileServiceConnection$Stub;->onServiceDisconnected(Landroid/content/ComponentName;)V
-
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     return v3
 

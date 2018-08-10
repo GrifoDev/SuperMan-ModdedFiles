@@ -15,7 +15,7 @@
 
 
 # virtual methods
-.method public abstract onCharacteristicReadRequest(Ljava/lang/String;IIZIILandroid/os/ParcelUuid;ILandroid/os/ParcelUuid;)V
+.method public abstract onCharacteristicReadRequest(Ljava/lang/String;IIZI)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -23,7 +23,7 @@
     .end annotation
 .end method
 
-.method public abstract onCharacteristicWriteRequest(Ljava/lang/String;IIIZZIILandroid/os/ParcelUuid;ILandroid/os/ParcelUuid;[B)V
+.method public abstract onCharacteristicWriteRequest(Ljava/lang/String;IIIZZI[B)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -31,7 +31,7 @@
     .end annotation
 .end method
 
-.method public abstract onDescriptorReadRequest(Ljava/lang/String;IIZIILandroid/os/ParcelUuid;ILandroid/os/ParcelUuid;Landroid/os/ParcelUuid;)V
+.method public abstract onConnectionUpdated(Ljava/lang/String;IIII)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -39,7 +39,15 @@
     .end annotation
 .end method
 
-.method public abstract onDescriptorWriteRequest(Ljava/lang/String;IIIZZIILandroid/os/ParcelUuid;ILandroid/os/ParcelUuid;Landroid/os/ParcelUuid;[B)V
+.method public abstract onDescriptorReadRequest(Ljava/lang/String;IIZI)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract onDescriptorWriteRequest(Ljava/lang/String;IIIZZI[B)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -71,7 +79,7 @@
     .end annotation
 .end method
 
-.method public abstract onScanResult(Ljava/lang/String;I[B)V
+.method public abstract onPhyRead(Ljava/lang/String;III)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -79,7 +87,7 @@
     .end annotation
 .end method
 
-.method public abstract onServerConnParamsChanged(Ljava/lang/String;II)V
+.method public abstract onPhyUpdate(Ljava/lang/String;III)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -103,7 +111,7 @@
     .end annotation
 .end method
 
-.method public abstract onServiceAdded(IIILandroid/os/ParcelUuid;)V
+.method public abstract onServiceAdded(ILandroid/bluetooth/BluetoothGattService;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

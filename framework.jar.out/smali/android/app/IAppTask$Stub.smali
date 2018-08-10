@@ -93,14 +93,14 @@
 .end method
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    .locals 10
+    .locals 11
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    const/4 v6, 0x0
+    const/4 v10, 0x0
 
     const/4 v9, 0x1
 
@@ -151,7 +151,7 @@
     return v9
 
     :cond_0
-    invoke-virtual {p3, v6}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p3, v10}, Landroid/os/Parcel;->writeInt(I)V
 
     goto :goto_0
 
@@ -246,14 +246,19 @@
 
     if-eqz v0, :cond_3
 
-    move v6, v9
+    const/4 v6, 0x1
 
-    :cond_3
+    :goto_3
     invoke-virtual {p0, v6}, Landroid/app/IAppTask$Stub;->setExcludeFromRecents(Z)V
 
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     return v9
+
+    :cond_3
+    const/4 v6, 0x0
+
+    goto :goto_3
 
     nop
 

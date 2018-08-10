@@ -36,7 +36,7 @@
     :cond_0
     invoke-static {}, Lcom/samsung/android/contextaware/utilbundle/logger/CaLogger;->trace()V
 
-    invoke-virtual {p0}, Lcom/samsung/android/contextaware/manager/fault/RestoreTransaction;->getContextManager()Lcom/samsung/android/contextaware/manager/ContextManager;
+    invoke-virtual {p0}, Lcom/samsung/android/contextaware/manager/fault/UnregisterCmdOperationRestore;->getContextManager()Lcom/samsung/android/contextaware/manager/ContextManager;
 
     move-result-object v0
 

@@ -804,11 +804,11 @@
 
     invoke-virtual {v5, v6}, Landroid/graphics/Paint;->setAntiAlias(Z)V
 
-    invoke-virtual {p0}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/widget/RadialTimePickerView;->getResources()Landroid/content/res/Resources;
 
     move-result-object v4
 
-    const v5, 0x1050141
+    const v5, 0x10502e5
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -816,7 +816,7 @@
 
     iput v5, p0, Landroid/widget/RadialTimePickerView;->mSelectorRadius:I
 
-    const v5, 0x1050142
+    const v5, 0x10502e6
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -824,7 +824,7 @@
 
     iput v5, p0, Landroid/widget/RadialTimePickerView;->mSelectorStroke:I
 
-    const v5, 0x1050144
+    const v5, 0x10502e4
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -832,7 +832,7 @@
 
     iput v5, p0, Landroid/widget/RadialTimePickerView;->mSelectorDotRadius:I
 
-    const v5, 0x1050143
+    const v5, 0x10502dc
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -842,7 +842,7 @@
 
     iget-object v5, p0, Landroid/widget/RadialTimePickerView;->mTextSize:[I
 
-    const v6, 0x1050146
+    const v6, 0x10502eb
 
     invoke-virtual {v4, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -854,7 +854,7 @@
 
     iget-object v5, p0, Landroid/widget/RadialTimePickerView;->mTextSize:[I
 
-    const v6, 0x1050146
+    const v6, 0x10502eb
 
     invoke-virtual {v4, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -866,7 +866,7 @@
 
     iget-object v5, p0, Landroid/widget/RadialTimePickerView;->mTextSize:[I
 
-    const v6, 0x1050147
+    const v6, 0x10502ea
 
     invoke-virtual {v4, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -878,7 +878,7 @@
 
     iget-object v5, p0, Landroid/widget/RadialTimePickerView;->mTextInset:[I
 
-    const v6, 0x1050145
+    const v6, 0x10502e9
 
     invoke-virtual {v4, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -890,7 +890,7 @@
 
     iget-object v5, p0, Landroid/widget/RadialTimePickerView;->mTextInset:[I
 
-    const v6, 0x1050145
+    const v6, 0x10502e9
 
     invoke-virtual {v4, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -902,7 +902,7 @@
 
     iget-object v5, p0, Landroid/widget/RadialTimePickerView;->mTextInset:[I
 
-    const v6, 0x10500d5
+    const v6, 0x10502e8
 
     invoke-virtual {v4, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -936,9 +936,9 @@
 
     iget-object v5, p0, Landroid/widget/RadialTimePickerView;->mTouchHelper:Landroid/widget/RadialTimePickerView$RadialPickerTouchHelper;
 
-    invoke-virtual {p0, v5}, Landroid/view/View;->setAccessibilityDelegate(Landroid/view/View$AccessibilityDelegate;)V
+    invoke-virtual {p0, v5}, Landroid/widget/RadialTimePickerView;->setAccessibilityDelegate(Landroid/view/View$AccessibilityDelegate;)V
 
-    invoke-virtual {p0}, Landroid/view/View;->getImportantForAccessibility()I
+    invoke-virtual {p0}, Landroid/widget/RadialTimePickerView;->getImportantForAccessibility()I
 
     move-result v5
 
@@ -946,7 +946,7 @@
 
     const/4 v5, 0x1
 
-    invoke-virtual {p0, v5}, Landroid/view/View;->setImportantForAccessibility(I)V
+    invoke-virtual {p0, v5}, Landroid/widget/RadialTimePickerView;->setImportantForAccessibility(I)V
 
     :cond_0
     invoke-direct {p0}, Landroid/widget/RadialTimePickerView;->initHoursAndMinutesText()V
@@ -985,7 +985,7 @@
 
     const/4 v5, 0x1
 
-    invoke-virtual {p0, v5}, Landroid/view/View;->setHapticFeedbackEnabled(Z)V
+    invoke-virtual {p0, v5}, Landroid/widget/RadialTimePickerView;->setHapticFeedbackEnabled(Z)V
 
     return-void
 .end method
@@ -1018,7 +1018,7 @@
 
     iget-object v1, p0, Landroid/widget/RadialTimePickerView;->mHoursToMinutesAnimator:Landroid/animation/ObjectAnimator;
 
-    invoke-virtual {v1}, Landroid/animation/ValueAnimator;->isStarted()Z
+    invoke-virtual {v1}, Landroid/animation/ObjectAnimator;->isStarted()Z
 
     move-result v1
 
@@ -1026,7 +1026,7 @@
 
     iget-object v1, p0, Landroid/widget/RadialTimePickerView;->mHoursToMinutesAnimator:Landroid/animation/ObjectAnimator;
 
-    invoke-virtual {v1}, Landroid/animation/ValueAnimator;->cancel()V
+    invoke-virtual {v1}, Landroid/animation/ObjectAnimator;->cancel()V
 
     iput-object v4, p0, Landroid/widget/RadialTimePickerView;->mHoursToMinutesAnimator:Landroid/animation/ObjectAnimator;
 
@@ -1405,14 +1405,11 @@
 
     aget-object v8, v0, v1
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_1
 
     iget-boolean v0, p0, Landroid/widget/RadialTimePickerView;->mIsOnInnerCircle:Z
 
-    if-eqz v0, :cond_2
-
-    :cond_0
-    const/4 v10, 0x0
+    xor-int/lit8 v10, v0, 0x1
 
     :goto_0
     iget-object v0, p0, Landroid/widget/RadialTimePickerView;->mSelectionDegrees:[I
@@ -1433,11 +1430,11 @@
 
     iget-boolean v0, p0, Landroid/widget/RadialTimePickerView;->mIs24HourMode:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Landroid/widget/RadialTimePickerView;->mInnerTextHours:[Ljava/lang/String;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Landroid/widget/RadialTimePickerView;->mTextSize:[I
 
@@ -1467,7 +1464,7 @@
 
     aget-object v8, v0, v1
 
-    if-eqz p3, :cond_3
+    if-eqz p3, :cond_2
 
     iget-boolean v10, p0, Landroid/widget/RadialTimePickerView;->mIsOnInnerCircle:Z
 
@@ -1488,15 +1485,15 @@
 
     invoke-direct/range {v0 .. v12}, Landroid/widget/RadialTimePickerView;->drawTextElements(Landroid/graphics/Canvas;FLandroid/graphics/Typeface;Landroid/content/res/ColorStateList;[Ljava/lang/String;[F[FLandroid/graphics/Paint;IZIZ)V
 
-    :cond_1
+    :cond_0
     return-void
 
-    :cond_2
-    const/4 v10, 0x1
+    :cond_1
+    const/4 v10, 0x0
 
     goto :goto_0
 
-    :cond_3
+    :cond_2
     const/4 v10, 0x0
 
     goto :goto_1
@@ -2053,28 +2050,40 @@
     :goto_0
     const/16 v9, 0xc
 
-    if-ge v7, v9, :cond_5
+    if-ge v7, v9, :cond_4
 
     if-eq v4, v7, :cond_0
 
-    if-ne v3, v7, :cond_3
+    if-ne v3, v7, :cond_1
 
     :cond_0
     const/4 v2, 0x1
 
     :goto_1
-    if-eqz p12, :cond_1
+    if-eqz p12, :cond_2
 
-    if-eqz v2, :cond_2
+    xor-int/lit8 v9, v2, 0x1
+
+    if-eqz v9, :cond_2
+
+    :goto_2
+    add-int/lit8 v7, v7, 0x1
+
+    goto :goto_0
 
     :cond_1
-    if-eqz p10, :cond_4
+    const/4 v2, 0x0
 
-    if-eqz v2, :cond_4
+    goto :goto_1
+
+    :cond_2
+    if-eqz p10, :cond_3
+
+    if-eqz v2, :cond_3
 
     const/16 v9, 0x20
 
-    :goto_2
+    :goto_3
     or-int/lit8 v8, v9, 0x8
 
     invoke-static {v8}, Landroid/util/StateSet;->get(I)[I
@@ -2113,22 +2122,14 @@
 
     invoke-virtual {p1, v9, v10, v11, v0}, Landroid/graphics/Canvas;->drawText(Ljava/lang/String;FFLandroid/graphics/Paint;)V
 
-    :cond_2
-    add-int/lit8 v7, v7, 0x1
-
-    goto :goto_0
-
-    :cond_3
-    const/4 v2, 0x0
-
-    goto :goto_1
-
-    :cond_4
-    const/4 v9, 0x0
-
     goto :goto_2
 
-    :cond_5
+    :cond_3
+    const/4 v9, 0x0
+
+    goto :goto_3
+
+    :cond_4
     return-void
 .end method
 
@@ -2556,9 +2557,9 @@
     :cond_3
     const/4 v6, 0x4
 
-    invoke-virtual {p0, v6}, Landroid/view/View;->performHapticFeedback(I)Z
+    invoke-virtual {p0, v6}, Landroid/widget/RadialTimePickerView;->performHapticFeedback(I)Z
 
-    invoke-virtual {p0}, Landroid/view/View;->invalidate()V
+    invoke-virtual {p0}, Landroid/widget/RadialTimePickerView;->invalidate()V
 
     :cond_4
     return v10
@@ -2861,10 +2862,10 @@
 
     iget-object v3, p0, Landroid/widget/RadialTimePickerView;->mTouchHelper:Landroid/widget/RadialTimePickerView$RadialPickerTouchHelper;
 
-    invoke-virtual {v3}, Lcom/android/internal/widget/ExploreByTouchHelper;->invalidateRoot()V
+    invoke-virtual {v3}, Landroid/widget/RadialTimePickerView$RadialPickerTouchHelper;->invalidateRoot()V
 
     :cond_2
-    invoke-virtual {p0}, Landroid/view/View;->invalidate()V
+    invoke-virtual {p0}, Landroid/widget/RadialTimePickerView;->invalidate()V
 
     if-eqz p2, :cond_3
 
@@ -2898,7 +2899,7 @@
 
     aput v1, v0, v2
 
-    invoke-virtual {p0}, Landroid/view/View;->invalidate()V
+    invoke-virtual {p0}, Landroid/widget/RadialTimePickerView;->invalidate()V
 
     if-eqz p2, :cond_0
 
@@ -2939,11 +2940,11 @@
     :goto_0
     invoke-direct {p0}, Landroid/widget/RadialTimePickerView;->initData()V
 
-    invoke-virtual {p0}, Landroid/view/View;->invalidate()V
+    invoke-virtual {p0}, Landroid/widget/RadialTimePickerView;->invalidate()V
 
     iget-object v0, p0, Landroid/widget/RadialTimePickerView;->mTouchHelper:Landroid/widget/RadialTimePickerView$RadialPickerTouchHelper;
 
-    invoke-virtual {v0}, Lcom/android/internal/widget/ExploreByTouchHelper;->invalidateRoot()V
+    invoke-virtual {v0}, Landroid/widget/RadialTimePickerView$RadialPickerTouchHelper;->invalidateRoot()V
 
     return-void
 
@@ -2954,7 +2955,7 @@
 
     iget-object v0, p0, Landroid/widget/RadialTimePickerView;->mHoursToMinutesAnimator:Landroid/animation/ObjectAnimator;
 
-    invoke-virtual {v0}, Landroid/animation/ValueAnimator;->isStarted()Z
+    invoke-virtual {v0}, Landroid/animation/ObjectAnimator;->isStarted()Z
 
     move-result v0
 
@@ -2962,7 +2963,7 @@
 
     iget-object v0, p0, Landroid/widget/RadialTimePickerView;->mHoursToMinutesAnimator:Landroid/animation/ObjectAnimator;
 
-    invoke-virtual {v0}, Landroid/animation/ValueAnimator;->cancel()V
+    invoke-virtual {v0}, Landroid/animation/ObjectAnimator;->cancel()V
 
     iput-object v1, p0, Landroid/widget/RadialTimePickerView;->mHoursToMinutesAnimator:Landroid/animation/ObjectAnimator;
 
@@ -3057,11 +3058,11 @@
 .method applyAttributes(Landroid/util/AttributeSet;II)V
     .locals 11
 
-    invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
+    invoke-virtual {p0}, Landroid/widget/RadialTimePickerView;->getContext()Landroid/content/Context;
 
     move-result-object v1
 
-    invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
+    invoke-virtual {p0}, Landroid/widget/RadialTimePickerView;->getContext()Landroid/content/Context;
 
     move-result-object v8
 
@@ -3174,7 +3175,7 @@
 
     iget-object v8, p0, Landroid/widget/RadialTimePickerView;->mPaintBackground:Landroid/graphics/Paint;
 
-    const v9, 0x10600e2
+    const v9, 0x10601ca
 
     invoke-virtual {v1, v9}, Landroid/content/Context;->getColor(I)I
 
@@ -3203,7 +3204,7 @@
 
     iget-object v0, p0, Landroid/widget/RadialTimePickerView;->mTouchHelper:Landroid/widget/RadialTimePickerView$RadialPickerTouchHelper;
 
-    invoke-virtual {v0, p1}, Lcom/android/internal/widget/ExploreByTouchHelper;->dispatchHoverEvent(Landroid/view/MotionEvent;)Z
+    invoke-virtual {v0, p1}, Landroid/widget/RadialTimePickerView$RadialPickerTouchHelper;->dispatchHoverEvent(Landroid/view/MotionEvent;)Z
 
     move-result v0
 
@@ -3344,7 +3345,7 @@
     return-void
 
     :cond_0
-    invoke-virtual {p0}, Landroid/view/View;->getWidth()I
+    invoke-virtual {p0}, Landroid/widget/RadialTimePickerView;->getWidth()I
 
     move-result v0
 
@@ -3352,7 +3353,7 @@
 
     iput v0, p0, Landroid/widget/RadialTimePickerView;->mXCenter:I
 
-    invoke-virtual {p0}, Landroid/view/View;->getHeight()I
+    invoke-virtual {p0}, Landroid/widget/RadialTimePickerView;->getHeight()I
 
     move-result v0
 
@@ -3422,9 +3423,61 @@
 
     iget-object v0, p0, Landroid/widget/RadialTimePickerView;->mTouchHelper:Landroid/widget/RadialTimePickerView$RadialPickerTouchHelper;
 
-    invoke-virtual {v0}, Lcom/android/internal/widget/ExploreByTouchHelper;->invalidateRoot()V
+    invoke-virtual {v0}, Landroid/widget/RadialTimePickerView$RadialPickerTouchHelper;->invalidateRoot()V
 
     return-void
+.end method
+
+.method public onResolvePointerIcon(Landroid/view/MotionEvent;I)Landroid/view/PointerIcon;
+    .locals 4
+
+    invoke-virtual {p0}, Landroid/widget/RadialTimePickerView;->isEnabled()Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    const/4 v1, 0x0
+
+    return-object v1
+
+    :cond_0
+    invoke-virtual {p1}, Landroid/view/MotionEvent;->getX()F
+
+    move-result v1
+
+    invoke-virtual {p1}, Landroid/view/MotionEvent;->getY()F
+
+    move-result v2
+
+    const/4 v3, 0x0
+
+    invoke-direct {p0, v1, v2, v3}, Landroid/widget/RadialTimePickerView;->getDegreesFromXY(FFZ)I
+
+    move-result v0
+
+    const/4 v1, -0x1
+
+    if-eq v0, v1, :cond_1
+
+    invoke-virtual {p0}, Landroid/widget/RadialTimePickerView;->getContext()Landroid/content/Context;
+
+    move-result-object v1
+
+    const/16 v2, 0x3ea
+
+    invoke-static {v1, v2}, Landroid/view/PointerIcon;->getSystemIcon(Landroid/content/Context;I)Landroid/view/PointerIcon;
+
+    move-result-object v1
+
+    return-object v1
+
+    :cond_1
+    invoke-super {p0, p1, p2}, Landroid/view/View;->onResolvePointerIcon(Landroid/view/MotionEvent;I)Landroid/view/PointerIcon;
+
+    move-result-object v1
+
+    return-object v1
 .end method
 
 .method public onTouchEvent(Landroid/view/MotionEvent;)Z
@@ -3522,11 +3575,11 @@
     :cond_1
     iput p1, p0, Landroid/widget/RadialTimePickerView;->mAmOrPm:I
 
-    invoke-virtual {p0}, Landroid/view/View;->invalidate()V
+    invoke-virtual {p0}, Landroid/widget/RadialTimePickerView;->invalidate()V
 
     iget-object v0, p0, Landroid/widget/RadialTimePickerView;->mTouchHelper:Landroid/widget/RadialTimePickerView$RadialPickerTouchHelper;
 
-    invoke-virtual {v0}, Lcom/android/internal/widget/ExploreByTouchHelper;->invalidateRoot()V
+    invoke-virtual {v0}, Landroid/widget/RadialTimePickerView$RadialPickerTouchHelper;->invalidateRoot()V
 
     const/4 v0, 0x1
 
@@ -3607,7 +3660,7 @@
 
     iput-boolean p1, p0, Landroid/widget/RadialTimePickerView;->mInputEnabled:Z
 
-    invoke-virtual {p0}, Landroid/view/View;->invalidate()V
+    invoke-virtual {p0}, Landroid/widget/RadialTimePickerView;->invalidate()V
 
     return-void
 .end method

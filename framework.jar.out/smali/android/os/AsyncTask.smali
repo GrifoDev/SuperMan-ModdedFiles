@@ -80,7 +80,15 @@
     .end annotation
 .end field
 
+.field private final mHandler:Landroid/os/Handler;
+
 .field private volatile mStatus:Landroid/os/AsyncTask$Status;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Landroid/os/AsyncTask$Status;"
+        }
+    .end annotation
+.end field
 
 .field private final mTaskInvoked:Ljava/util/concurrent/atomic/AtomicBoolean;
 
@@ -96,6 +104,14 @@
 
 # direct methods
 .method static synthetic -get0(Landroid/os/AsyncTask;)Ljava/util/concurrent/atomic/AtomicBoolean;
+    .locals 1
+
+    iget-object v0, p0, Landroid/os/AsyncTask;->mCancelled:Ljava/util/concurrent/atomic/AtomicBoolean;
+
+    return-object v0
+.end method
+
+.method static synthetic -get1(Landroid/os/AsyncTask;)Ljava/util/concurrent/atomic/AtomicBoolean;
     .locals 1
 
     iget-object v0, p0, Landroid/os/AsyncTask;->mTaskInvoked:Ljava/util/concurrent/atomic/AtomicBoolean;
@@ -126,7 +142,7 @@
     :try_start_0
     sget-object v1, Landroid/os/AsyncTask$Status;->FINISHED:Landroid/os/AsyncTask$Status;
 
-    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
+    invoke-virtual {v1}, Landroid/os/AsyncTask$Status;->ordinal()I
 
     move-result v1
 
@@ -140,7 +156,7 @@
     :try_start_1
     sget-object v1, Landroid/os/AsyncTask$Status;->PENDING:Landroid/os/AsyncTask$Status;
 
-    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
+    invoke-virtual {v1}, Landroid/os/AsyncTask$Status;->ordinal()I
 
     move-result v1
 
@@ -154,7 +170,7 @@
     :try_start_2
     sget-object v1, Landroid/os/AsyncTask$Status;->RUNNING:Landroid/os/AsyncTask$Status;
 
-    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
+    invoke-virtual {v1}, Landroid/os/AsyncTask$Status;->ordinal()I
 
     move-result v1
 
@@ -302,6 +318,35 @@
 .end method
 
 .method public constructor <init>()V
+    .locals 1
+
+    const/4 v0, 0x0
+
+    check-cast v0, Landroid/os/Looper;
+
+    invoke-direct {p0, v0}, Landroid/os/AsyncTask;-><init>(Landroid/os/Looper;)V
+
+    return-void
+.end method
+
+.method public constructor <init>(Landroid/os/Handler;)V
+    .locals 1
+
+    const/4 v0, 0x0
+
+    if-eqz p1, :cond_0
+
+    invoke-virtual {p1}, Landroid/os/Handler;->getLooper()Landroid/os/Looper;
+
+    move-result-object v0
+
+    :cond_0
+    invoke-direct {p0, v0}, Landroid/os/AsyncTask;-><init>(Landroid/os/Looper;)V
+
+    return-void
+.end method
+
+.method public constructor <init>(Landroid/os/Looper;)V
     .locals 2
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -322,6 +367,22 @@
 
     iput-object v0, p0, Landroid/os/AsyncTask;->mTaskInvoked:Ljava/util/concurrent/atomic/AtomicBoolean;
 
+    if-eqz p1, :cond_0
+
+    invoke-static {}, Landroid/os/Looper;->getMainLooper()Landroid/os/Looper;
+
+    move-result-object v0
+
+    if-ne p1, v0, :cond_1
+
+    :cond_0
+    invoke-static {}, Landroid/os/AsyncTask;->getMainHandler()Landroid/os/Handler;
+
+    move-result-object v0
+
+    :goto_0
+    iput-object v0, p0, Landroid/os/AsyncTask;->mHandler:Landroid/os/Handler;
+
     new-instance v0, Landroid/os/AsyncTask$2;
 
     invoke-direct {v0, p0}, Landroid/os/AsyncTask$2;-><init>(Landroid/os/AsyncTask;)V
@@ -337,6 +398,13 @@
     iput-object v0, p0, Landroid/os/AsyncTask;->mFuture:Ljava/util/concurrent/FutureTask;
 
     return-void
+
+    :cond_1
+    new-instance v0, Landroid/os/Handler;
+
+    invoke-direct {v0, p1}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
+
+    goto :goto_0
 .end method
 
 .method public static execute(Ljava/lang/Runnable;)V
@@ -378,8 +446,16 @@
     goto :goto_0
 .end method
 
-.method private static getHandler()Landroid/os/Handler;
-    .locals 2
+.method private getHandler()Landroid/os/Handler;
+    .locals 1
+
+    iget-object v0, p0, Landroid/os/AsyncTask;->mHandler:Landroid/os/Handler;
+
+    return-object v0
+.end method
+
+.method private static getMainHandler()Landroid/os/Handler;
+    .locals 3
 
     const-class v1, Landroid/os/AsyncTask;
 
@@ -392,7 +468,11 @@
 
     new-instance v0, Landroid/os/AsyncTask$InternalHandler;
 
-    invoke-direct {v0}, Landroid/os/AsyncTask$InternalHandler;-><init>()V
+    invoke-static {}, Landroid/os/Looper;->getMainLooper()Landroid/os/Looper;
+
+    move-result-object v2
+
+    invoke-direct {v0, v2}, Landroid/os/AsyncTask$InternalHandler;-><init>(Landroid/os/Looper;)V
 
     sput-object v0, Landroid/os/AsyncTask;->sHandler:Landroid/os/AsyncTask$InternalHandler;
 
@@ -423,7 +503,7 @@
 
     const/4 v5, 0x1
 
-    invoke-static {}, Landroid/os/AsyncTask;->getHandler()Landroid/os/Handler;
+    invoke-direct {p0}, Landroid/os/AsyncTask;->getHandler()Landroid/os/Handler;
 
     move-result-object v1
 
@@ -547,7 +627,7 @@
 
     iget-object v1, p0, Landroid/os/AsyncTask;->mStatus:Landroid/os/AsyncTask$Status;
 
-    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
+    invoke-virtual {v1}, Landroid/os/AsyncTask$Status;->ordinal()I
 
     move-result v1
 
@@ -650,6 +730,12 @@
 
 .method public final getStatus()Landroid/os/AsyncTask$Status;
     .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Landroid/os/AsyncTask$Status;"
+        }
+    .end annotation
 
     iget-object v0, p0, Landroid/os/AsyncTask;->mStatus:Landroid/os/AsyncTask$Status;
 
@@ -729,7 +815,7 @@
 
     if-nez v0, :cond_0
 
-    invoke-static {}, Landroid/os/AsyncTask;->getHandler()Landroid/os/Handler;
+    invoke-direct {p0}, Landroid/os/AsyncTask;->getHandler()Landroid/os/Handler;
 
     move-result-object v0
 

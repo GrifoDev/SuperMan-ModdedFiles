@@ -40,7 +40,7 @@
 
     move-result v2
 
-    invoke-virtual {p0}, Ljava/lang/Enum;->ordinal()I
+    invoke-virtual {p0}, Lcom/samsung/android/contextaware/utilbundle/logger/CaLogger$Level$2;->ordinal()I
 
     move-result v3
 
@@ -94,51 +94,59 @@
 .method fileLogging(Ljava/lang/String;)V
     .locals 6
 
-    const/4 v1, 0x1
-
-    const/4 v0, 0x0
-
     invoke-static {}, Lcom/samsung/android/contextaware/utilbundle/logger/CaLogger;->-get2()Z
 
-    move-result v2
+    move-result v1
 
-    if-eqz v2, :cond_0
+    if-eqz v1, :cond_2
 
     invoke-static {}, Lcom/samsung/android/contextaware/utilbundle/logger/CaLogger;->-get3()I
 
+    move-result v1
+
+    invoke-virtual {p0}, Lcom/samsung/android/contextaware/utilbundle/logger/CaLogger$Level$2;->ordinal()I
+
     move-result v2
 
-    invoke-virtual {p0}, Ljava/lang/Enum;->ordinal()I
+    if-gt v1, v2, :cond_1
 
-    move-result v3
+    const/4 v0, 0x1
 
-    if-gt v2, v3, :cond_0
-
-    move v0, v1
-
-    :cond_0
-    if-eqz v0, :cond_1
+    :goto_0
+    if-eqz v0, :cond_0
 
     invoke-static {}, Lcom/samsung/android/contextaware/utilbundle/logger/CaFileLogger;->getInstance()Lcom/samsung/android/contextaware/utilbundle/logger/CaFileLogger;
 
-    move-result-object v2
-
-    const-string/jumbo v3, "CAELogger"
-
-    const-string/jumbo v4, "D"
-
-    const-string/jumbo v5, "CAE"
-
-    invoke-static {v1}, Lcom/samsung/android/contextaware/utilbundle/logger/CaLogger$Level;->-wrap0(Z)Ljava/lang/String;
-
     move-result-object v1
 
-    invoke-static {v4, v5, v1, p1}, Lcom/samsung/android/contextaware/utilbundle/logger/CaLogger;->-wrap0(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    const-string/jumbo v2, "CAELogger"
 
-    move-result-object v1
+    const-string/jumbo v3, "D"
 
-    invoke-virtual {v2, v3, v1}, Lcom/samsung/android/contextaware/utilbundle/logger/CaFileLogger;->logging(Ljava/lang/String;Ljava/lang/String;)V
+    const-string/jumbo v4, "CAE"
+
+    const/4 v5, 0x1
+
+    invoke-static {v5}, Lcom/samsung/android/contextaware/utilbundle/logger/CaLogger$Level;->-wrap0(Z)Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v3, v4, v5, p1}, Lcom/samsung/android/contextaware/utilbundle/logger/CaLogger;->-wrap0(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {v1, v2, v3}, Lcom/samsung/android/contextaware/utilbundle/logger/CaFileLogger;->logging(Ljava/lang/String;Ljava/lang/String;)V
+
+    :cond_0
+    return-void
 
     :cond_1
-    return-void
+    const/4 v0, 0x0
+
+    goto :goto_0
+
+    :cond_2
+    const/4 v0, 0x0
+
+    goto :goto_0
 .end method

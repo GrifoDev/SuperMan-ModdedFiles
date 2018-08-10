@@ -36,9 +36,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/media/TextTrackCue;Landroid/view/accessibility/CaptioningManager$CaptionStyle;F)V
-    .locals 5
-
-    const/4 v1, 0x0
+    .locals 4
 
     const/4 v2, 0x1
 
@@ -50,76 +48,83 @@
 
     iput p4, p0, Landroid/media/WebVttRenderingWidget$CueLayout;->mFontSize:F
 
-    iget v3, p2, Landroid/media/TextTrackCue;->mWritingDirection:I
+    iget v1, p2, Landroid/media/TextTrackCue;->mWritingDirection:I
 
-    const/16 v4, 0x64
+    const/16 v3, 0x64
 
-    if-ne v3, v4, :cond_1
+    if-ne v1, v3, :cond_0
 
-    move v0, v2
+    const/4 v0, 0x1
 
     :goto_0
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1
 
     move v1, v2
 
-    :cond_0
-    invoke-virtual {p0, v1}, Landroid/widget/LinearLayout;->setOrientation(I)V
+    :goto_1
+    invoke-virtual {p0, v1}, Landroid/media/WebVttRenderingWidget$CueLayout;->setOrientation(I)V
 
     iget v1, p2, Landroid/media/TextTrackCue;->mAlignment:I
 
     packed-switch v1, :pswitch_data_0
 
-    :goto_1
+    :goto_2
     invoke-virtual {p0}, Landroid/media/WebVttRenderingWidget$CueLayout;->update()V
 
     return-void
 
-    :cond_1
-    move v0, v1
+    :cond_0
+    const/4 v0, 0x0
 
     goto :goto_0
+
+    :cond_1
+    const/4 v1, 0x0
+
+    goto :goto_1
 
     :pswitch_0
     const v1, 0x800005
 
-    invoke-virtual {p0, v1}, Landroid/widget/LinearLayout;->setGravity(I)V
+    invoke-virtual {p0, v1}, Landroid/media/WebVttRenderingWidget$CueLayout;->setGravity(I)V
 
-    goto :goto_1
+    goto :goto_2
 
     :pswitch_1
     const/4 v1, 0x3
 
-    invoke-virtual {p0, v1}, Landroid/widget/LinearLayout;->setGravity(I)V
+    invoke-virtual {p0, v1}, Landroid/media/WebVttRenderingWidget$CueLayout;->setGravity(I)V
 
-    goto :goto_1
+    goto :goto_2
 
     :pswitch_2
     if-eqz v0, :cond_2
 
-    :goto_2
-    invoke-virtual {p0, v2}, Landroid/widget/LinearLayout;->setGravity(I)V
+    :goto_3
+    invoke-virtual {p0, v2}, Landroid/media/WebVttRenderingWidget$CueLayout;->setGravity(I)V
 
-    goto :goto_1
+    goto :goto_2
 
     :cond_2
     const/16 v2, 0x10
 
-    goto :goto_2
+    goto :goto_3
 
     :pswitch_3
     const/4 v1, 0x5
 
-    invoke-virtual {p0, v1}, Landroid/widget/LinearLayout;->setGravity(I)V
+    invoke-virtual {p0, v1}, Landroid/media/WebVttRenderingWidget$CueLayout;->setGravity(I)V
 
-    goto :goto_1
+    goto :goto_2
 
     :pswitch_4
     const v1, 0x800003
 
-    invoke-virtual {p0, v1}, Landroid/widget/LinearLayout;->setGravity(I)V
+    invoke-virtual {p0, v1}, Landroid/media/WebVttRenderingWidget$CueLayout;->setGravity(I)V
 
-    goto :goto_1
+    goto :goto_2
+
+    nop
 
     :pswitch_data_0
     .packed-switch 0xc8
@@ -164,7 +169,7 @@
 
     move-result v5
 
-    invoke-virtual {p0}, Landroid/view/View;->getLayoutDirection()I
+    invoke-virtual {p0}, Landroid/media/WebVttRenderingWidget$CueLayout;->getLayoutDirection()I
 
     move-result v2
 
@@ -198,7 +203,7 @@
 
     move-result p2
 
-    invoke-virtual {p0, p1, p2}, Landroid/view/View;->measure(II)V
+    invoke-virtual {p0, p1, p2}, Landroid/media/WebVttRenderingWidget$CueLayout;->measure(II)V
 
     return-void
 
@@ -273,7 +278,7 @@
 
     iput p2, p0, Landroid/media/WebVttRenderingWidget$CueLayout;->mFontSize:F
 
-    invoke-virtual {p0}, Landroid/view/ViewGroup;->getChildCount()I
+    invoke-virtual {p0}, Landroid/media/WebVttRenderingWidget$CueLayout;->getChildCount()I
 
     move-result v2
 
@@ -282,7 +287,7 @@
     :goto_0
     if-ge v1, v2, :cond_1
 
-    invoke-virtual {p0, v1}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {p0, v1}, Landroid/media/WebVttRenderingWidget$CueLayout;->getChildAt(I)Landroid/view/View;
 
     move-result-object v0
 
@@ -290,9 +295,7 @@
 
     if-eqz v3, :cond_0
 
-    nop
-
-    nop
+    check-cast v0, Landroid/media/WebVttRenderingWidget$SpanLayout;
 
     invoke-virtual {v0, p1, p2}, Landroid/media/WebVttRenderingWidget$SpanLayout;->setCaptionStyle(Landroid/view/accessibility/CaptioningManager$CaptionStyle;F)V
 
@@ -322,9 +325,9 @@
 
     iput-boolean v8, p0, Landroid/media/WebVttRenderingWidget$CueLayout;->mActive:Z
 
-    invoke-virtual {p0}, Landroid/view/ViewGroup;->removeAllViews()V
+    invoke-virtual {p0}, Landroid/media/WebVttRenderingWidget$CueLayout;->removeAllViews()V
 
-    invoke-virtual {p0}, Landroid/view/View;->getLayoutDirection()I
+    invoke-virtual {p0}, Landroid/media/WebVttRenderingWidget$CueLayout;->getLayoutDirection()I
 
     move-result v8
 
@@ -358,7 +361,7 @@
 
     new-instance v5, Landroid/media/WebVttRenderingWidget$SpanLayout;
 
-    invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
+    invoke-virtual {p0}, Landroid/media/WebVttRenderingWidget$CueLayout;->getContext()Landroid/content/Context;
 
     move-result-object v8
 
@@ -366,11 +369,11 @@
 
     invoke-direct {v5, v8, v9}, Landroid/media/WebVttRenderingWidget$SpanLayout;-><init>(Landroid/content/Context;[Landroid/media/TextTrackCueSpan;)V
 
-    invoke-virtual {v5, v0}, Lcom/android/internal/widget/SubtitleView;->setAlignment(Landroid/text/Layout$Alignment;)V
+    invoke-virtual {v5, v0}, Landroid/media/WebVttRenderingWidget$SpanLayout;->setAlignment(Landroid/text/Layout$Alignment;)V
 
     invoke-virtual {v5, v1, v3}, Landroid/media/WebVttRenderingWidget$SpanLayout;->setCaptionStyle(Landroid/view/accessibility/CaptioningManager$CaptionStyle;F)V
 
-    invoke-virtual {p0, v5, v10, v10}, Landroid/view/ViewGroup;->addView(Landroid/view/View;II)V
+    invoke-virtual {p0, v5, v10, v10}, Landroid/media/WebVttRenderingWidget$CueLayout;->addView(Landroid/view/View;II)V
 
     add-int/lit8 v4, v4, 0x1
 

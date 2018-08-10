@@ -92,9 +92,7 @@
         }
     .end annotation
 
-    const/4 v0, 0x0
-
-    const/4 v1, 0x1
+    const/4 v2, 0x1
 
     sparse-switch p1, :sswitch_data_0
 
@@ -105,31 +103,34 @@
     return v1
 
     :sswitch_0
-    const-string/jumbo v2, "android.bluetooth.IBluetoothStateChangeCallback"
+    const-string/jumbo v1, "android.bluetooth.IBluetoothStateChangeCallback"
 
-    invoke-virtual {p3, v2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p3, v1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    return v1
+    return v2
 
     :sswitch_1
-    const-string/jumbo v2, "android.bluetooth.IBluetoothStateChangeCallback"
+    const-string/jumbo v1, "android.bluetooth.IBluetoothStateChangeCallback"
 
-    invoke-virtual {p2, v2}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v1}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v2
+    move-result v1
 
-    if-eqz v2, :cond_0
+    if-eqz v1, :cond_0
 
-    move v0, v1
+    const/4 v0, 0x1
 
-    :cond_0
+    :goto_0
     invoke-virtual {p0, v0}, Landroid/bluetooth/IBluetoothStateChangeCallback$Stub;->onBluetoothStateChange(Z)V
 
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+    return v2
 
-    return v1
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
 
     nop
 

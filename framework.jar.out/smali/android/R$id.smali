@@ -17,6 +17,8 @@
 # static fields
 .field public static final accessibilityActionContextClick:I = 0x102003c
 
+.field public static final accessibilityActionMoveWindow:I = 0x1020042
+
 .field public static final accessibilityActionScrollDown:I = 0x102003a
 
 .field public static final accessibilityActionScrollLeft:I = 0x1020039
@@ -32,6 +34,8 @@
 .field public static final accessibilityActionShowOnScreen:I = 0x1020036
 
 .field public static final addToDictionary:I = 0x102002a
+
+.field public static final autofill:I = 0x1020043
 
 .field public static final background:I = 0x1020000
 
@@ -136,6 +140,8 @@
 .field public static final text1:I = 0x1020014
 
 .field public static final text2:I = 0x1020015
+
+.field public static final textAssist:I = 0x1020041
 
 .field public static final title:I = 0x1020016
 

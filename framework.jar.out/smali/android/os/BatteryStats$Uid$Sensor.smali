@@ -32,5 +32,8 @@
 .method public abstract getHandle()I
 .end method
 
+.method public abstract getSensorBackgroundTime()Landroid/os/BatteryStats$Timer;
+.end method
+
 .method public abstract getSensorTime()Landroid/os/BatteryStats$Timer;
 .end method

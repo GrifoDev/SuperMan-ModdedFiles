@@ -143,7 +143,7 @@
 
     const/4 v15, 0x2
 
-    if-ne v14, v15, :cond_5
+    if-ne v14, v15, :cond_0
 
     move-object/from16 v0, p0
 
@@ -153,8 +153,14 @@
 
     move-result v14
 
-    if-eqz v14, :cond_5
+    xor-int/lit8 v14, v14, 0x1
 
+    if-eqz v14, :cond_1
+
+    :cond_0
+    return-void
+
+    :cond_1
     invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getRawX()F
 
     move-result v9
@@ -163,7 +169,7 @@
 
     move-result v10
 
-    if-nez v2, :cond_6
+    if-nez v2, :cond_7
 
     invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getButtonState()I
 
@@ -171,20 +177,20 @@
 
     and-int/lit8 v14, v14, 0x20
 
-    if-eqz v14, :cond_6
+    if-eqz v14, :cond_7
 
-    :cond_0
+    :cond_2
     invoke-static {}, Landroid/widget/TextView;->-get5()Z
 
     move-result v14
 
-    if-nez v14, :cond_3
+    if-nez v14, :cond_5
 
     invoke-static {}, Landroid/widget/TextView;->-get13()Landroid/widget/TextView;
 
     move-result-object v14
 
-    if-eqz v14, :cond_1
+    if-eqz v14, :cond_3
 
     invoke-static {}, Landroid/widget/TextView;->-get13()Landroid/widget/TextView;
 
@@ -194,9 +200,9 @@
 
     const/4 v14, 0x0
 
-    invoke-static {v14}, Landroid/widget/TextView;->-set8(Landroid/widget/TextView;)Landroid/widget/TextView;
+    invoke-static {v14}, Landroid/widget/TextView;->-set9(Landroid/widget/TextView;)Landroid/widget/TextView;
 
-    :cond_1
+    :cond_3
     move-object/from16 v0, p0
 
     iget-object v14, v0, Landroid/widget/TextView$StylusEventListener;->this$0:Landroid/widget/TextView;
@@ -205,19 +211,19 @@
 
     move-result v14
 
-    if-eqz v14, :cond_2
+    if-eqz v14, :cond_4
 
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
     move-result-wide v14
 
-    invoke-static {v14, v15}, Landroid/widget/TextView;->-set0(J)J
+    invoke-static {v14, v15}, Landroid/widget/TextView;->-set1(J)J
 
     invoke-static {}, Landroid/widget/TextView;->-get7()Landroid/widget/TextView;
 
     move-result-object v14
 
-    if-eqz v14, :cond_2
+    if-eqz v14, :cond_4
 
     invoke-static {}, Landroid/widget/TextView;->-get2()J
 
@@ -233,27 +239,57 @@
 
     cmp-long v14, v14, v16
 
-    if-gez v14, :cond_2
+    if-gez v14, :cond_4
 
     invoke-static {}, Landroid/widget/TextView;->-get7()Landroid/widget/TextView;
 
     move-result-object v14
 
-    invoke-static {v14}, Landroid/widget/TextView;->-set8(Landroid/widget/TextView;)Landroid/widget/TextView;
+    invoke-static {v14}, Landroid/widget/TextView;->-set9(Landroid/widget/TextView;)Landroid/widget/TextView;
 
-    :cond_2
+    :cond_4
     const/4 v14, 0x0
 
-    invoke-static {v14}, Landroid/widget/TextView;->-set4(Landroid/widget/TextView;)Landroid/widget/TextView;
+    invoke-static {v14}, Landroid/widget/TextView;->-set5(Landroid/widget/TextView;)Landroid/widget/TextView;
 
     const/4 v14, 0x1
 
-    invoke-static {v14}, Landroid/widget/TextView;->-set3(Z)Z
+    invoke-static {v14}, Landroid/widget/TextView;->-set4(Z)Z
 
-    :cond_3
+    :cond_5
     invoke-static {}, Landroid/widget/TextView;->-get5()Z
 
     move-result v14
+
+    if-eqz v14, :cond_9
+
+    invoke-static {}, Landroid/widget/TextView;->-get13()Landroid/widget/TextView;
+
+    move-result-object v14
+
+    if-eqz v14, :cond_6
+
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Landroid/widget/TextView$StylusEventListener;->mThisView:Landroid/widget/TextView;
+
+    if-nez v14, :cond_9
+
+    :cond_6
+    return-void
+
+    :cond_7
+    const/16 v14, 0xd3
+
+    if-eq v2, v14, :cond_2
+
+    const/4 v14, 0x0
+
+    invoke-static {v14}, Landroid/widget/TextView;->-set4(Z)Z
+
+    move-object/from16 v0, p0
+
+    iget-boolean v14, v0, Landroid/widget/TextView$StylusEventListener;->mPressed:Z
 
     if-eqz v14, :cond_8
 
@@ -261,45 +297,12 @@
 
     move-result-object v14
 
-    if-eqz v14, :cond_4
-
-    move-object/from16 v0, p0
-
-    iget-object v14, v0, Landroid/widget/TextView$StylusEventListener;->mThisView:Landroid/widget/TextView;
-
-    if-nez v14, :cond_8
-
-    :cond_4
-    return-void
-
-    :cond_5
-    return-void
-
-    :cond_6
-    const/16 v14, 0xd3
-
-    if-eq v2, v14, :cond_0
-
-    const/4 v14, 0x0
-
-    invoke-static {v14}, Landroid/widget/TextView;->-set3(Z)Z
-
-    move-object/from16 v0, p0
-
-    iget-boolean v14, v0, Landroid/widget/TextView$StylusEventListener;->mPressed:Z
-
-    if-eqz v14, :cond_7
-
-    invoke-static {}, Landroid/widget/TextView;->-get13()Landroid/widget/TextView;
-
-    move-result-object v14
-
-    if-nez v14, :cond_b
-
-    :cond_7
-    return-void
+    if-nez v14, :cond_e
 
     :cond_8
+    return-void
+
+    :cond_9
     invoke-static {}, Landroid/widget/TextView;->-get13()Landroid/widget/TextView;
 
     move-result-object v14
@@ -308,7 +311,7 @@
 
     iget-object v15, v0, Landroid/widget/TextView$StylusEventListener;->mThisView:Landroid/widget/TextView;
 
-    if-eq v14, v15, :cond_9
+    if-eq v14, v15, :cond_a
 
     move-object/from16 v0, p0
 
@@ -318,7 +321,7 @@
 
     return-void
 
-    :cond_9
+    :cond_a
     move-object/from16 v0, p0
 
     iget-object v14, v0, Landroid/widget/TextView$StylusEventListener;->this$0:Landroid/widget/TextView;
@@ -327,7 +330,7 @@
 
     move-result-object v14
 
-    if-eqz v14, :cond_a
+    if-eqz v14, :cond_b
 
     move-object/from16 v0, p0
 
@@ -341,16 +344,20 @@
 
     move-result v14
 
-    if-eqz v14, :cond_c
+    xor-int/lit8 v14, v14, 0x1
 
-    :cond_a
+    if-eqz v14, :cond_b
+
+    return-void
+
+    :cond_b
     invoke-static {}, Landroid/widget/TextView;->-get13()Landroid/widget/TextView;
 
     move-result-object v14
 
     instance-of v14, v14, Landroid/widget/EditText;
 
-    if-eqz v14, :cond_e
+    if-eqz v14, :cond_d
 
     invoke-static {}, Landroid/widget/TextView;->-get13()Landroid/widget/TextView;
 
@@ -374,7 +381,7 @@
 
     move-result v14
 
-    if-eqz v14, :cond_d
+    if-eqz v14, :cond_c
 
     move-object/from16 v0, p0
 
@@ -384,32 +391,14 @@
 
     move-result v14
 
-    if-eqz v14, :cond_d
+    xor-int/lit8 v14, v14, 0x1
 
-    :cond_b
-    move-object/from16 v0, p0
-
-    iget-object v14, v0, Landroid/widget/TextView$StylusEventListener;->this$0:Landroid/widget/TextView;
-
-    invoke-virtual {v14}, Landroid/widget/TextView;->getTextForMultiSelection()Ljava/lang/CharSequence;
-
-    move-result-object v13
-
-    invoke-static {v13}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v14
-
-    if-eqz v14, :cond_f
-
-    return-void
+    if-eqz v14, :cond_e
 
     :cond_c
     return-void
 
     :cond_d
-    return-void
-
-    :cond_e
     move-object/from16 v0, p0
 
     iget-object v14, v0, Landroid/widget/TextView$StylusEventListener;->this$0:Landroid/widget/TextView;
@@ -440,7 +429,24 @@
 
     move-result v14
 
-    if-nez v14, :cond_b
+    if-nez v14, :cond_e
+
+    return-void
+
+    :cond_e
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Landroid/widget/TextView$StylusEventListener;->this$0:Landroid/widget/TextView;
+
+    invoke-virtual {v14}, Landroid/widget/TextView;->getTextForMultiSelection()Ljava/lang/CharSequence;
+
+    move-result-object v13
+
+    invoke-static {v13}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v14
+
+    if-eqz v14, :cond_f
 
     return-void
 
@@ -462,7 +468,7 @@
 
     iget-object v14, v0, Landroid/widget/TextView$StylusEventListener;->this$0:Landroid/widget/TextView;
 
-    invoke-static {v14}, Landroid/widget/TextView;->-wrap9(Landroid/widget/TextView;)V
+    invoke-static {v14}, Landroid/widget/TextView;->-wrap7(Landroid/widget/TextView;)V
 
     move-object/from16 v0, p0
 
@@ -472,7 +478,7 @@
 
     move-result v14
 
-    if-nez v14, :cond_13
+    if-nez v14, :cond_12
 
     move-object/from16 v0, p0
 
@@ -549,7 +555,7 @@
 
     iget v14, v0, Landroid/widget/TextView$StylusEventListener;->mStartCurPosition:I
 
-    if-ltz v14, :cond_12
+    if-ltz v14, :cond_17
 
     move-object/from16 v0, p0
 
@@ -559,51 +565,16 @@
 
     move-result v14
 
-    if-eqz v14, :cond_11
+    if-eqz v14, :cond_16
 
     move-object/from16 v0, p0
 
     iget-boolean v14, v0, Landroid/widget/TextView$StylusEventListener;->mIsSelectableTextView:Z
 
-    if-eqz v14, :cond_14
+    xor-int/lit8 v14, v14, 0x1
 
-    :cond_11
-    :goto_2
-    move-object/from16 v0, p0
+    if-eqz v14, :cond_16
 
-    iget v14, v0, Landroid/widget/TextView$StylusEventListener;->mStartCurPosition:I
-
-    move-object/from16 v0, p0
-
-    iput v14, v0, Landroid/widget/TextView$StylusEventListener;->oldEndPos:I
-
-    const/4 v14, 0x1
-
-    move-object/from16 v0, p0
-
-    iput-boolean v14, v0, Landroid/widget/TextView$StylusEventListener;->mPressed:Z
-
-    move-object/from16 v0, p0
-
-    iget-object v14, v0, Landroid/widget/TextView$StylusEventListener;->this$0:Landroid/widget/TextView;
-
-    const/4 v15, 0x1
-
-    iput-boolean v15, v14, Landroid/widget/TextView;->mIsTouchDown:Z
-
-    :cond_12
-    const/4 v14, 0x0
-
-    invoke-static {v14}, Landroid/text/MultiSelection;->setNeedToScroll(Z)V
-
-    goto/16 :goto_0
-
-    :cond_13
-    const/4 v14, 0x1
-
-    goto :goto_1
-
-    :cond_14
     invoke-static {}, Landroid/widget/TextView;->-get2()J
 
     move-result-wide v14
@@ -626,13 +597,13 @@
 
     cmp-long v14, v14, v16
 
-    if-gez v14, :cond_16
+    if-gez v14, :cond_13
 
     invoke-static {}, Landroid/widget/TextView;->-get12()Ljava/lang/Runnable;
 
     move-result-object v14
 
-    if-eqz v14, :cond_15
+    if-eqz v14, :cond_11
 
     move-object/from16 v0, p0
 
@@ -642,13 +613,13 @@
 
     move-result-object v15
 
-    invoke-virtual {v14, v15}, Landroid/view/View;->removeCallbacks(Ljava/lang/Runnable;)Z
+    invoke-virtual {v14, v15}, Landroid/widget/TextView;->removeCallbacks(Ljava/lang/Runnable;)Z
 
     const/4 v14, 0x0
 
-    invoke-static {v14}, Landroid/widget/TextView;->-set7(Ljava/lang/Runnable;)Ljava/lang/Runnable;
+    invoke-static {v14}, Landroid/widget/TextView;->-set8(Ljava/lang/Runnable;)Ljava/lang/Runnable;
 
-    :cond_15
+    :cond_11
     const/4 v14, 0x0
 
     invoke-static {v14}, Landroid/text/MultiSelection;->setIsMultiSelectingText(Z)V
@@ -661,11 +632,16 @@
 
     move-result-wide v14
 
-    invoke-static {v14, v15}, Landroid/widget/TextView;->-set5(J)J
+    invoke-static {v14, v15}, Landroid/widget/TextView;->-set6(J)J
 
     goto/16 :goto_0
 
-    :cond_16
+    :cond_12
+    const/4 v14, 0x1
+
+    goto/16 :goto_1
+
+    :cond_13
     const/4 v14, 0x1
 
     invoke-static {v14}, Landroid/text/MultiSelection;->setIsMultiSelectingText(Z)V
@@ -682,7 +658,7 @@
 
     move-result v5
 
-    if-nez v5, :cond_17
+    if-nez v5, :cond_14
 
     move-object/from16 v0, p0
 
@@ -706,7 +682,7 @@
 
     aput v15, v14, v16
 
-    :cond_17
+    :cond_14
     move-object/from16 v0, p0
 
     iget v14, v0, Landroid/widget/TextView$StylusEventListener;->mStartCurPosition:I
@@ -719,7 +695,7 @@
 
     aget v15, v15, v16
 
-    if-ge v14, v15, :cond_19
+    if-ge v14, v15, :cond_18
 
     move-object/from16 v0, p0
 
@@ -733,13 +709,13 @@
 
     iput v14, v0, Landroid/widget/TextView$StylusEventListener;->mStartCurPosition:I
 
-    :cond_18
-    :goto_3
+    :cond_15
+    :goto_2
     invoke-static {}, Landroid/widget/TextView;->-get2()J
 
     move-result-wide v14
 
-    invoke-static {v14, v15}, Landroid/widget/TextView;->-set5(J)J
+    invoke-static {v14, v15}, Landroid/widget/TextView;->-set6(J)J
 
     const-string/jumbo v14, "TextView"
 
@@ -747,9 +723,37 @@
 
     invoke-static {v14, v15}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto/16 :goto_2
+    :cond_16
+    move-object/from16 v0, p0
 
-    :cond_19
+    iget v14, v0, Landroid/widget/TextView$StylusEventListener;->mStartCurPosition:I
+
+    move-object/from16 v0, p0
+
+    iput v14, v0, Landroid/widget/TextView$StylusEventListener;->oldEndPos:I
+
+    const/4 v14, 0x1
+
+    move-object/from16 v0, p0
+
+    iput-boolean v14, v0, Landroid/widget/TextView$StylusEventListener;->mPressed:Z
+
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Landroid/widget/TextView$StylusEventListener;->this$0:Landroid/widget/TextView;
+
+    const/4 v15, 0x1
+
+    iput-boolean v15, v14, Landroid/widget/TextView;->mIsTouchDown:Z
+
+    :cond_17
+    const/4 v14, 0x0
+
+    invoke-static {v14}, Landroid/text/MultiSelection;->setNeedToScroll(Z)V
+
+    goto/16 :goto_0
+
+    :cond_18
     move-object/from16 v0, p0
 
     iget v14, v0, Landroid/widget/TextView$StylusEventListener;->mStartCurPosition:I
@@ -762,7 +766,7 @@
 
     aget v15, v15, v16
 
-    if-le v14, v15, :cond_18
+    if-le v14, v15, :cond_15
 
     move-object/from16 v0, p0
 
@@ -776,7 +780,7 @@
 
     iput v14, v0, Landroid/widget/TextView$StylusEventListener;->mStartCurPosition:I
 
-    goto :goto_3
+    goto :goto_2
 
     :sswitch_1
     invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getButtonState()I
@@ -785,7 +789,7 @@
 
     and-int/lit8 v14, v14, 0x20
 
-    if-eqz v14, :cond_22
+    if-eqz v14, :cond_21
 
     move-object/from16 v0, p0
 
@@ -855,7 +859,7 @@
 
     cmpg-float v14, v14, v15
 
-    if-gez v14, :cond_1a
+    if-gez v14, :cond_19
 
     move-object/from16 v0, p0
 
@@ -871,7 +875,7 @@
 
     iput v14, v0, Landroid/widget/TextView$StylusEventListener;->mMaxX:F
 
-    :cond_1a
+    :cond_19
     move-object/from16 v0, p0
 
     iget-object v14, v0, Landroid/widget/TextView$StylusEventListener;->this$0:Landroid/widget/TextView;
@@ -888,7 +892,7 @@
 
     iget-boolean v14, v0, Landroid/widget/TextView$StylusEventListener;->mIsSelectableTextView:Z
 
-    if-nez v14, :cond_1b
+    if-nez v14, :cond_1a
 
     move-object/from16 v0, p0
 
@@ -902,7 +906,7 @@
 
     aget v15, v15, v16
 
-    if-ge v14, v15, :cond_1c
+    if-ge v14, v15, :cond_1b
 
     move-object/from16 v0, p0
 
@@ -916,8 +920,8 @@
 
     iput v14, v0, Landroid/widget/TextView$StylusEventListener;->mEndCurPosition:I
 
-    :cond_1b
-    :goto_4
+    :cond_1a
+    :goto_3
     move-object/from16 v0, p0
 
     iget v14, v0, Landroid/widget/TextView$StylusEventListener;->mStartCurPosition:I
@@ -926,7 +930,7 @@
 
     iget v15, v0, Landroid/widget/TextView$StylusEventListener;->mEndCurPosition:I
 
-    if-ne v14, v15, :cond_1d
+    if-ne v14, v15, :cond_1c
 
     move-object/from16 v0, p0
 
@@ -940,7 +944,7 @@
 
     goto/16 :goto_0
 
-    :cond_1c
+    :cond_1b
     move-object/from16 v0, p0
 
     iget v14, v0, Landroid/widget/TextView$StylusEventListener;->mEndCurPosition:I
@@ -953,7 +957,7 @@
 
     aget v15, v15, v16
 
-    if-le v14, v15, :cond_1b
+    if-le v14, v15, :cond_1a
 
     move-object/from16 v0, p0
 
@@ -967,9 +971,9 @@
 
     iput v14, v0, Landroid/widget/TextView$StylusEventListener;->mEndCurPosition:I
 
-    goto :goto_4
+    goto :goto_3
 
-    :cond_1d
+    :cond_1c
     move-object/from16 v0, p0
 
     iget v14, v0, Landroid/widget/TextView$StylusEventListener;->oldEndPos:I
@@ -1000,17 +1004,36 @@
 
     const/4 v15, 0x1
 
-    invoke-static {v14, v15}, Landroid/widget/TextView;->-set2(Landroid/widget/TextView;Z)Z
+    invoke-static {v14, v15}, Landroid/widget/TextView;->-set3(Landroid/widget/TextView;Z)Z
 
     move-object/from16 v0, p0
 
     iget-boolean v14, v0, Landroid/widget/TextView$StylusEventListener;->mIsSelectableTextView:Z
 
-    if-nez v14, :cond_20
+    if-nez v14, :cond_1f
 
     move-object/from16 v0, p0
 
     iget v14, v0, Landroid/widget/TextView$StylusEventListener;->mStartCurPosition:I
+
+    invoke-interface {v13}, Ljava/lang/CharSequence;->length()I
+
+    move-result v15
+
+    if-le v14, v15, :cond_1d
+
+    invoke-interface {v13}, Ljava/lang/CharSequence;->length()I
+
+    move-result v14
+
+    move-object/from16 v0, p0
+
+    iput v14, v0, Landroid/widget/TextView$StylusEventListener;->mStartCurPosition:I
+
+    :cond_1d
+    move-object/from16 v0, p0
+
+    iget v14, v0, Landroid/widget/TextView$StylusEventListener;->mEndCurPosition:I
 
     invoke-interface {v13}, Ljava/lang/CharSequence;->length()I
 
@@ -1024,28 +1047,9 @@
 
     move-object/from16 v0, p0
 
-    iput v14, v0, Landroid/widget/TextView$StylusEventListener;->mStartCurPosition:I
-
-    :cond_1e
-    move-object/from16 v0, p0
-
-    iget v14, v0, Landroid/widget/TextView$StylusEventListener;->mEndCurPosition:I
-
-    invoke-interface {v13}, Ljava/lang/CharSequence;->length()I
-
-    move-result v15
-
-    if-le v14, v15, :cond_1f
-
-    invoke-interface {v13}, Ljava/lang/CharSequence;->length()I
-
-    move-result v14
-
-    move-object/from16 v0, p0
-
     iput v14, v0, Landroid/widget/TextView$StylusEventListener;->mEndCurPosition:I
 
-    :cond_1f
+    :cond_1e
     check-cast v13, Landroid/text/Spannable;
 
     move-object/from16 v0, p0
@@ -1064,28 +1068,28 @@
 
     const/4 v15, 0x1
 
-    invoke-static {v14, v15}, Landroid/widget/TextView;->-set9(Landroid/widget/TextView;Z)Z
+    invoke-static {v14, v15}, Landroid/widget/TextView;->-set10(Landroid/widget/TextView;Z)Z
 
     goto/16 :goto_0
 
-    :cond_20
+    :cond_1f
     move-object/from16 v0, p0
 
     iget-object v14, v0, Landroid/widget/TextView$StylusEventListener;->mThisView:Landroid/widget/TextView;
 
-    invoke-virtual {v14}, Landroid/view/View;->isFocused()Z
+    invoke-virtual {v14}, Landroid/widget/TextView;->isFocused()Z
 
     move-result v14
 
-    if-nez v14, :cond_21
+    if-nez v14, :cond_20
 
     move-object/from16 v0, p0
 
     iget-object v14, v0, Landroid/widget/TextView$StylusEventListener;->mThisView:Landroid/widget/TextView;
 
-    invoke-virtual {v14}, Landroid/view/View;->requestFocus()Z
+    invoke-virtual {v14}, Landroid/widget/TextView;->requestFocus()Z
 
-    :cond_21
+    :cond_20
     check-cast v13, Landroid/text/Spannable;
 
     move-object/from16 v0, p0
@@ -1100,7 +1104,7 @@
 
     goto/16 :goto_0
 
-    :cond_22
+    :cond_21
     :sswitch_2
     move-object/from16 v0, p0
 
@@ -1142,7 +1146,7 @@
 
     cmpg-float v14, v14, v15
 
-    if-gez v14, :cond_23
+    if-gez v14, :cond_22
 
     move-object/from16 v0, p0
 
@@ -1158,7 +1162,7 @@
 
     iput v14, v0, Landroid/widget/TextView$StylusEventListener;->mMaxX:F
 
-    :cond_23
+    :cond_22
     move-object/from16 v0, p0
 
     iget-object v14, v0, Landroid/widget/TextView$StylusEventListener;->this$0:Landroid/widget/TextView;
@@ -1175,7 +1179,7 @@
 
     iget-boolean v14, v0, Landroid/widget/TextView$StylusEventListener;->mIsSelectableTextView:Z
 
-    if-nez v14, :cond_24
+    if-nez v14, :cond_23
 
     move-object/from16 v0, p0
 
@@ -1189,7 +1193,7 @@
 
     aget v15, v15, v16
 
-    if-ge v14, v15, :cond_27
+    if-ge v14, v15, :cond_26
 
     move-object/from16 v0, p0
 
@@ -1203,8 +1207,8 @@
 
     iput v14, v0, Landroid/widget/TextView$StylusEventListener;->mEndCurPosition:I
 
-    :cond_24
-    :goto_5
+    :cond_23
+    :goto_4
     const/4 v8, 0x0
 
     move-object/from16 v0, p0
@@ -1215,7 +1219,7 @@
 
     move-result-object v14
 
-    if-eqz v14, :cond_25
+    if-eqz v14, :cond_24
 
     move-object/from16 v0, p0
 
@@ -1237,19 +1241,19 @@
 
     move-result v15
 
-    if-ne v14, v15, :cond_28
+    if-ne v14, v15, :cond_27
 
     const/4 v8, 0x1
 
-    :cond_25
-    :goto_6
+    :cond_24
+    :goto_5
     move-object/from16 v0, p0
 
     iget-boolean v14, v0, Landroid/widget/TextView$StylusEventListener;->mIsSelectableTextView:Z
 
-    if-nez v14, :cond_29
+    if-nez v14, :cond_28
 
-    if-eqz v8, :cond_29
+    if-eqz v8, :cond_28
 
     move-object/from16 v0, p0
 
@@ -1265,13 +1269,13 @@
 
     cmpg-float v14, v14, v15
 
-    if-gez v14, :cond_29
+    if-gez v14, :cond_28
 
     invoke-static {}, Landroid/widget/TextView;->-get12()Ljava/lang/Runnable;
 
     move-result-object v14
 
-    if-eqz v14, :cond_26
+    if-eqz v14, :cond_25
 
     move-object/from16 v0, p0
 
@@ -1281,20 +1285,20 @@
 
     move-result-object v15
 
-    invoke-virtual {v14, v15}, Landroid/view/View;->removeCallbacks(Ljava/lang/Runnable;)Z
+    invoke-virtual {v14, v15}, Landroid/widget/TextView;->removeCallbacks(Ljava/lang/Runnable;)Z
 
     const/4 v14, 0x0
 
-    invoke-static {v14}, Landroid/widget/TextView;->-set7(Ljava/lang/Runnable;)Ljava/lang/Runnable;
+    invoke-static {v14}, Landroid/widget/TextView;->-set8(Ljava/lang/Runnable;)Ljava/lang/Runnable;
 
-    :cond_26
+    :cond_25
     new-instance v14, Landroid/widget/TextView$StylusEventListener$1;
 
     move-object/from16 v0, p0
 
     invoke-direct {v14, v0}, Landroid/widget/TextView$StylusEventListener$1;-><init>(Landroid/widget/TextView$StylusEventListener;)V
 
-    invoke-static {v14}, Landroid/widget/TextView;->-set7(Ljava/lang/Runnable;)Ljava/lang/Runnable;
+    invoke-static {v14}, Landroid/widget/TextView;->-set8(Ljava/lang/Runnable;)Ljava/lang/Runnable;
 
     move-object/from16 v0, p0
 
@@ -1314,7 +1318,7 @@
 
     move-wide/from16 v16, v0
 
-    invoke-virtual/range {v14 .. v17}, Landroid/view/View;->postDelayed(Ljava/lang/Runnable;J)Z
+    invoke-virtual/range {v14 .. v17}, Landroid/widget/TextView;->postDelayed(Ljava/lang/Runnable;J)Z
 
     move-object/from16 v0, p0
 
@@ -1332,7 +1336,7 @@
 
     goto/16 :goto_0
 
-    :cond_27
+    :cond_26
     move-object/from16 v0, p0
 
     iget v14, v0, Landroid/widget/TextView$StylusEventListener;->mEndCurPosition:I
@@ -1345,7 +1349,7 @@
 
     aget v15, v15, v16
 
-    if-le v14, v15, :cond_24
+    if-le v14, v15, :cond_23
 
     move-object/from16 v0, p0
 
@@ -1359,14 +1363,14 @@
 
     iput v14, v0, Landroid/widget/TextView$StylusEventListener;->mEndCurPosition:I
 
-    goto/16 :goto_5
+    goto/16 :goto_4
 
-    :cond_28
+    :cond_27
     const/4 v8, 0x0
 
-    goto :goto_6
+    goto :goto_5
 
-    :cond_29
+    :cond_28
     const/4 v14, 0x0
 
     invoke-static {v14}, Landroid/text/MultiSelection;->setNeedToScroll(Z)V
@@ -1379,7 +1383,7 @@
 
     iget v15, v0, Landroid/widget/TextView$StylusEventListener;->mEndCurPosition:I
 
-    if-ne v14, v15, :cond_2c
+    if-ne v14, v15, :cond_2b
 
     const/4 v14, 0x0
 
@@ -1391,7 +1395,7 @@
 
     iget-boolean v14, v0, Landroid/widget/TextView$StylusEventListener;->mIsSelectableTextView:Z
 
-    if-nez v14, :cond_2b
+    if-nez v14, :cond_2a
 
     const/4 v14, 0x0
 
@@ -1413,32 +1417,32 @@
 
     move-result v14
 
-    if-lez v14, :cond_2a
+    if-lez v14, :cond_29
 
     const/4 v14, 0x1
 
-    :goto_7
-    invoke-static {v15, v14}, Landroid/widget/TextView;->-set9(Landroid/widget/TextView;Z)Z
+    :goto_6
+    invoke-static {v15, v14}, Landroid/widget/TextView;->-set10(Landroid/widget/TextView;Z)Z
 
     goto/16 :goto_0
 
-    :cond_2a
+    :cond_29
     const/4 v14, 0x0
 
-    goto :goto_7
+    goto :goto_6
 
-    :cond_2b
+    :cond_2a
     move-object/from16 v0, p0
 
     iget-object v14, v0, Landroid/widget/TextView$StylusEventListener;->this$0:Landroid/widget/TextView;
 
     const/4 v15, 0x0
 
-    invoke-static {v14, v15}, Landroid/widget/TextView;->-set9(Landroid/widget/TextView;Z)Z
+    invoke-static {v14, v15}, Landroid/widget/TextView;->-set10(Landroid/widget/TextView;Z)Z
 
     goto/16 :goto_0
 
-    :cond_2c
+    :cond_2b
     move-object/from16 v0, p0
 
     iget v14, v0, Landroid/widget/TextView$StylusEventListener;->mStartCurPosition:I
@@ -1447,7 +1451,7 @@
 
     iget v15, v0, Landroid/widget/TextView$StylusEventListener;->mEndCurPosition:I
 
-    if-le v14, v15, :cond_2d
+    if-le v14, v15, :cond_2c
 
     move-object/from16 v0, p0
 
@@ -1465,12 +1469,12 @@
 
     iput v12, v0, Landroid/widget/TextView$StylusEventListener;->mEndCurPosition:I
 
-    :cond_2d
+    :cond_2c
     move-object/from16 v0, p0
 
     iget-boolean v14, v0, Landroid/widget/TextView$StylusEventListener;->mIsSelectableTextView:Z
 
-    if-nez v14, :cond_2f
+    if-nez v14, :cond_2e
 
     move-object v14, v13
 
@@ -1492,7 +1496,7 @@
 
     iget-object v14, v0, Landroid/widget/TextView$StylusEventListener;->this$0:Landroid/widget/TextView;
 
-    invoke-static {v14}, Landroid/widget/TextView;->-wrap12(Landroid/widget/TextView;)V
+    invoke-static {v14}, Landroid/widget/TextView;->-wrap10(Landroid/widget/TextView;)V
 
     :try_start_0
     new-instance v7, Lcom/samsung/android/infoextraction/SemInfoExtractionManager;
@@ -1501,7 +1505,7 @@
 
     iget-object v14, v0, Landroid/widget/TextView$StylusEventListener;->this$0:Landroid/widget/TextView;
 
-    invoke-virtual {v14}, Landroid/view/View;->getContext()Landroid/content/Context;
+    invoke-virtual {v14}, Landroid/widget/TextView;->getContext()Landroid/content/Context;
 
     move-result-object v14
 
@@ -1527,7 +1531,7 @@
     :try_end_0
     .catch Ljava/lang/IllegalStateException; {:try_start_0 .. :try_end_0} :catch_0
 
-    :goto_8
+    :goto_7
     const-string/jumbo v14, "TextView"
 
     const-string/jumbo v15, "Pen up with side button! : end text selection"
@@ -1546,14 +1550,14 @@
 
     const/4 v15, 0x1
 
-    invoke-static {v14, v15}, Landroid/widget/TextView;->-set9(Landroid/widget/TextView;Z)Z
+    invoke-static {v14, v15}, Landroid/widget/TextView;->-set10(Landroid/widget/TextView;Z)Z
 
     const/4 v14, 0x0
 
     invoke-static {v14}, Landroid/text/MultiSelection;->setIsMultiSelectingText(Z)V
 
-    :cond_2e
-    :goto_9
+    :cond_2d
+    :goto_8
     move-object/from16 v0, p0
 
     iget-object v14, v0, Landroid/widget/TextView$StylusEventListener;->this$0:Landroid/widget/TextView;
@@ -1579,22 +1583,26 @@
 
     invoke-static {v14, v15}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_8
+    goto :goto_7
 
-    :cond_2f
+    :cond_2e
     move-object/from16 v0, p0
 
     iget v14, v0, Landroid/widget/TextView$StylusEventListener;->mStartCurPosition:I
 
-    if-ltz v14, :cond_2e
+    if-ltz v14, :cond_2d
 
     move-object/from16 v0, p0
 
     iget v14, v0, Landroid/widget/TextView$StylusEventListener;->mEndCurPosition:I
 
-    if-ltz v14, :cond_2e
+    if-ltz v14, :cond_2d
 
-    if-eqz v8, :cond_2e
+    invoke-static {}, Landroid/widget/TextView;->-get16()Z
+
+    move-result v14
+
+    if-eqz v14, :cond_2d
 
     check-cast v13, Landroid/text/Spannable;
 
@@ -1616,7 +1624,7 @@
 
     move-result-object v14
 
-    if-eqz v14, :cond_30
+    if-eqz v14, :cond_2f
 
     move-object/from16 v0, p0
 
@@ -1628,7 +1636,7 @@
 
     iget-boolean v14, v14, Landroid/widget/Editor;->mCreatedWithASelection:Z
 
-    if-eqz v14, :cond_30
+    if-eqz v14, :cond_2f
 
     move-object/from16 v0, p0
 
@@ -1640,7 +1648,7 @@
 
     invoke-virtual {v14}, Landroid/widget/Editor;->stopTextActionMode()V
 
-    :cond_30
+    :cond_2f
     move-object/from16 v0, p0
 
     iget-object v14, v0, Landroid/widget/TextView$StylusEventListener;->this$0:Landroid/widget/TextView;
@@ -1649,7 +1657,7 @@
 
     move-result-object v14
 
-    if-eqz v14, :cond_2e
+    if-eqz v14, :cond_2d
 
     move-object/from16 v0, p0
 
@@ -1659,13 +1667,10 @@
 
     move-result-object v14
 
-    invoke-virtual {v14}, Landroid/widget/Editor;->startSelectionActionMode()Z
+    const/4 v15, 0x0
 
-    move-result v14
+    invoke-virtual {v14, v15}, Landroid/widget/Editor;->startSelectionActionModeAsync(Z)V
 
-    if-eqz v14, :cond_31
-
-    :cond_31
     move-object/from16 v0, p0
 
     iget-object v14, v0, Landroid/widget/TextView$StylusEventListener;->this$0:Landroid/widget/TextView;
@@ -1678,7 +1683,7 @@
 
     iput-boolean v15, v14, Landroid/widget/Editor;->mCreatedWithASelection:Z
 
-    goto :goto_9
+    goto :goto_8
 
     :sswitch_3
     move-object/from16 v0, p0
@@ -1699,7 +1704,7 @@
 
     iget-boolean v14, v0, Landroid/widget/TextView$StylusEventListener;->mIsSelectableTextView:Z
 
-    if-nez v14, :cond_33
+    if-nez v14, :cond_31
 
     const/4 v14, 0x0
 
@@ -1721,28 +1726,28 @@
 
     move-result v14
 
-    if-lez v14, :cond_32
+    if-lez v14, :cond_30
 
     const/4 v14, 0x1
 
-    :goto_a
-    invoke-static {v15, v14}, Landroid/widget/TextView;->-set9(Landroid/widget/TextView;Z)Z
+    :goto_9
+    invoke-static {v15, v14}, Landroid/widget/TextView;->-set10(Landroid/widget/TextView;Z)Z
 
     goto/16 :goto_0
 
-    :cond_32
+    :cond_30
     const/4 v14, 0x0
 
-    goto :goto_a
+    goto :goto_9
 
-    :cond_33
+    :cond_31
     move-object/from16 v0, p0
 
     iget-object v14, v0, Landroid/widget/TextView$StylusEventListener;->this$0:Landroid/widget/TextView;
 
     const/4 v15, 0x0
 
-    invoke-static {v14, v15}, Landroid/widget/TextView;->-set9(Landroid/widget/TextView;Z)Z
+    invoke-static {v14, v15}, Landroid/widget/TextView;->-set10(Landroid/widget/TextView;Z)Z
 
     move-object/from16 v0, p0
 
@@ -1759,6 +1764,8 @@
     invoke-static {v13, v14}, Landroid/widget/TextView;->semSetSelection(Landroid/text/Spannable;I)V
 
     goto/16 :goto_0
+
+    nop
 
     :sswitch_data_0
     .sparse-switch

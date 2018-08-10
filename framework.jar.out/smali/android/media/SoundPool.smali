@@ -1,5 +1,5 @@
 .class public Landroid/media/SoundPool;
-.super Ljava/lang/Object;
+.super Landroid/media/PlayerBase;
 .source "SoundPool.java"
 
 
@@ -20,14 +20,8 @@
 
 .field private static final TAG:Ljava/lang/String; = "SoundPool"
 
-.field private static sService:Landroid/media/IAudioService;
-
 
 # instance fields
-.field private final mAppOps:Lcom/android/internal/app/IAppOpsService;
-
-.field private final mAppOpsCallback:Lcom/android/internal/app/IAppOpsCallback;
-
 .field private final mAttributes:Landroid/media/AudioAttributes;
 
 .field private mEventHandler:Landroid/media/SoundPool$EventHandler;
@@ -66,14 +60,6 @@
     return-object v0
 .end method
 
-.method static synthetic -wrap0(Landroid/media/SoundPool;)V
-    .locals 0
-
-    invoke-direct {p0}, Landroid/media/SoundPool;->updateAppOpsPlayAudio()V
-
-    return-void
-.end method
-
 .method static constructor <clinit>()V
     .locals 2
 
@@ -95,7 +81,7 @@
 .end method
 
 .method public constructor <init>(III)V
-    .locals 1
+    .locals 2
 
     new-instance v0, Landroid/media/AudioAttributes$Builder;
 
@@ -111,87 +97,52 @@
 
     invoke-direct {p0, p1, v0}, Landroid/media/SoundPool;-><init>(ILandroid/media/AudioAttributes;)V
 
+    const-string/jumbo v0, "SoundPool"
+
+    const-string/jumbo v1, "SoundPool()"
+
+    invoke-static {p2, v0, v1}, Landroid/media/PlayerBase;->deprecateStreamTypeForPlayback(ILjava/lang/String;Ljava/lang/String;)V
+
     return-void
 .end method
 
 .method private constructor <init>(ILandroid/media/AudioAttributes;)V
-    .locals 7
+    .locals 2
 
-    const/4 v6, 0x0
+    const/4 v0, 0x3
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0, p2, v0}, Landroid/media/PlayerBase;-><init>(Landroid/media/AudioAttributes;I)V
 
-    new-instance v2, Ljava/lang/ref/WeakReference;
+    new-instance v0, Ljava/lang/ref/WeakReference;
 
-    invoke-direct {v2, p0}, Ljava/lang/ref/WeakReference;-><init>(Ljava/lang/Object;)V
+    invoke-direct {v0, p0}, Ljava/lang/ref/WeakReference;-><init>(Ljava/lang/Object;)V
 
-    invoke-direct {p0, v2, p1, p2}, Landroid/media/SoundPool;->native_setup(Ljava/lang/Object;ILjava/lang/Object;)I
+    invoke-direct {p0, v0, p1, p2}, Landroid/media/SoundPool;->native_setup(Ljava/lang/Object;ILjava/lang/Object;)I
 
-    move-result v2
+    move-result v0
 
-    if-eqz v2, :cond_0
+    if-eqz v0, :cond_0
 
-    new-instance v2, Ljava/lang/RuntimeException;
+    new-instance v0, Ljava/lang/RuntimeException;
 
-    const-string/jumbo v3, "Native setup failed"
+    const-string/jumbo v1, "Native setup failed"
 
-    invoke-direct {v2, v3}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
-    throw v2
+    throw v0
 
     :cond_0
-    new-instance v2, Ljava/lang/Object;
+    new-instance v0, Ljava/lang/Object;
 
-    invoke-direct {v2}, Ljava/lang/Object;-><init>()V
+    invoke-direct {v0}, Ljava/lang/Object;-><init>()V
 
-    iput-object v2, p0, Landroid/media/SoundPool;->mLock:Ljava/lang/Object;
+    iput-object v0, p0, Landroid/media/SoundPool;->mLock:Ljava/lang/Object;
 
     iput-object p2, p0, Landroid/media/SoundPool;->mAttributes:Landroid/media/AudioAttributes;
 
-    const-string/jumbo v2, "appops"
+    invoke-virtual {p0}, Landroid/media/SoundPool;->baseRegisterPlayer()V
 
-    invoke-static {v2}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
-
-    move-result-object v0
-
-    invoke-static {v0}, Lcom/android/internal/app/IAppOpsService$Stub;->asInterface(Landroid/os/IBinder;)Lcom/android/internal/app/IAppOpsService;
-
-    move-result-object v2
-
-    iput-object v2, p0, Landroid/media/SoundPool;->mAppOps:Lcom/android/internal/app/IAppOpsService;
-
-    invoke-direct {p0}, Landroid/media/SoundPool;->updateAppOpsPlayAudio()V
-
-    new-instance v2, Landroid/media/SoundPool$1;
-
-    invoke-direct {v2, p0}, Landroid/media/SoundPool$1;-><init>(Landroid/media/SoundPool;)V
-
-    iput-object v2, p0, Landroid/media/SoundPool;->mAppOpsCallback:Lcom/android/internal/app/IAppOpsCallback;
-
-    :try_start_0
-    iget-object v2, p0, Landroid/media/SoundPool;->mAppOps:Lcom/android/internal/app/IAppOpsService;
-
-    invoke-static {}, Landroid/app/ActivityThread;->currentPackageName()Ljava/lang/String;
-
-    move-result-object v3
-
-    iget-object v4, p0, Landroid/media/SoundPool;->mAppOpsCallback:Lcom/android/internal/app/IAppOpsCallback;
-
-    const/16 v5, 0x1c
-
-    invoke-interface {v2, v5, v3, v4}, Lcom/android/internal/app/IAppOpsService;->startWatchingMode(ILjava/lang/String;Lcom/android/internal/app/IAppOpsCallback;)V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    :goto_0
     return-void
-
-    :catch_0
-    move-exception v1
-
-    iput-boolean v6, p0, Landroid/media/SoundPool;->mHasAppOpsPlayAudio:Z
-
-    goto :goto_0
 .end method
 
 .method synthetic constructor <init>(ILandroid/media/AudioAttributes;Landroid/media/SoundPool;)V
@@ -205,110 +156,13 @@
 .method private final native _load(Ljava/io/FileDescriptor;JJI)I
 .end method
 
+.method private final native _mute(Z)V
+.end method
+
 .method private final native _play(IFFIIF)I
 .end method
 
 .method private final native _setVolume(IFF)V
-.end method
-
-.method private static getService()Landroid/media/IAudioService;
-    .locals 2
-
-    sget-object v1, Landroid/media/SoundPool;->sService:Landroid/media/IAudioService;
-
-    if-eqz v1, :cond_0
-
-    sget-object v1, Landroid/media/SoundPool;->sService:Landroid/media/IAudioService;
-
-    return-object v1
-
-    :cond_0
-    const-string/jumbo v1, "audio"
-
-    invoke-static {v1}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
-
-    move-result-object v0
-
-    invoke-static {v0}, Landroid/media/IAudioService$Stub;->asInterface(Landroid/os/IBinder;)Landroid/media/IAudioService;
-
-    move-result-object v1
-
-    sput-object v1, Landroid/media/SoundPool;->sService:Landroid/media/IAudioService;
-
-    sget-object v1, Landroid/media/SoundPool;->sService:Landroid/media/IAudioService;
-
-    return-object v1
-.end method
-
-.method private isRestricted()Z
-    .locals 6
-
-    const/4 v3, 0x0
-
-    invoke-static {}, Landroid/media/SoundPool;->getService()Landroid/media/IAudioService;
-
-    move-result-object v2
-
-    const/4 v0, 0x0
-
-    :try_start_0
-    invoke-interface {v2}, Landroid/media/IAudioService;->isCameraSoundForced()Z
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    move-result v0
-
-    :goto_0
-    if-eqz v0, :cond_0
-
-    iget-object v4, p0, Landroid/media/SoundPool;->mAttributes:Landroid/media/AudioAttributes;
-
-    invoke-virtual {v4}, Landroid/media/AudioAttributes;->getAllFlags()I
-
-    move-result v4
-
-    and-int/lit8 v4, v4, 0x1
-
-    if-eqz v4, :cond_0
-
-    return v3
-
-    :catch_0
-    move-exception v1
-
-    const-string/jumbo v4, "SoundPool"
-
-    const-string/jumbo v5, "Cannot access AudioService in isRestricted()"
-
-    invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_0
-
-    :cond_0
-    iget-object v4, p0, Landroid/media/SoundPool;->mAttributes:Landroid/media/AudioAttributes;
-
-    invoke-virtual {v4}, Landroid/media/AudioAttributes;->getAllFlags()I
-
-    move-result v4
-
-    and-int/lit8 v4, v4, 0x40
-
-    if-eqz v4, :cond_1
-
-    return v3
-
-    :cond_1
-    iget-boolean v4, p0, Landroid/media/SoundPool;->mHasAppOpsPlayAudio:Z
-
-    if-eqz v4, :cond_2
-
-    :goto_1
-    return v3
-
-    :cond_2
-    const/4 v3, 0x1
-
-    goto :goto_1
 .end method
 
 .method private final native native_release()V
@@ -349,59 +203,6 @@
 
     :cond_1
     return-void
-.end method
-
-.method private updateAppOpsPlayAudio()V
-    .locals 8
-
-    const/4 v3, 0x0
-
-    :try_start_0
-    iget-object v2, p0, Landroid/media/SoundPool;->mAppOps:Lcom/android/internal/app/IAppOpsService;
-
-    iget-object v4, p0, Landroid/media/SoundPool;->mAttributes:Landroid/media/AudioAttributes;
-
-    invoke-virtual {v4}, Landroid/media/AudioAttributes;->getUsage()I
-
-    move-result v4
-
-    invoke-static {}, Landroid/os/Process;->myUid()I
-
-    move-result v5
-
-    invoke-static {}, Landroid/app/ActivityThread;->currentPackageName()Ljava/lang/String;
-
-    move-result-object v6
-
-    const/16 v7, 0x1c
-
-    invoke-interface {v2, v7, v4, v5, v6}, Lcom/android/internal/app/IAppOpsService;->checkAudioOperation(IIILjava/lang/String;)I
-
-    move-result v1
-
-    if-nez v1, :cond_0
-
-    const/4 v2, 0x1
-
-    :goto_0
-    iput-boolean v2, p0, Landroid/media/SoundPool;->mHasAppOpsPlayAudio:Z
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    :goto_1
-    return-void
-
-    :cond_0
-    move v2, v3
-
-    goto :goto_0
-
-    :catch_0
-    move-exception v0
-
-    iput-boolean v3, p0, Landroid/media/SoundPool;->mHasAppOpsPlayAudio:Z
-
-    goto :goto_1
 .end method
 
 
@@ -613,17 +414,8 @@
 .method public final play(IFFIIF)I
     .locals 1
 
-    invoke-direct {p0}, Landroid/media/SoundPool;->isRestricted()Z
+    invoke-virtual {p0}, Landroid/media/SoundPool;->baseStart()V
 
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    const/4 p3, 0x0
-
-    const/4 p2, 0x0
-
-    :cond_0
     invoke-direct/range {p0 .. p6}, Landroid/media/SoundPool;->_play(IFFIIF)I
 
     move-result v0
@@ -631,32 +423,64 @@
     return v0
 .end method
 
+.method playerApplyVolumeShaper(Landroid/media/VolumeShaper$Configuration;Landroid/media/VolumeShaper$Operation;)I
+    .locals 1
+
+    const/4 v0, -0x1
+
+    return v0
+.end method
+
+.method playerGetVolumeShaperState(I)Landroid/media/VolumeShaper$State;
+    .locals 1
+
+    const/4 v0, 0x0
+
+    return-object v0
+.end method
+
+.method playerPause()V
+    .locals 0
+
+    return-void
+.end method
+
+.method playerSetAuxEffectSendLevel(ZF)I
+    .locals 1
+
+    const/4 v0, 0x0
+
+    return v0
+.end method
+
+.method playerSetVolume(ZFF)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Landroid/media/SoundPool;->_mute(Z)V
+
+    return-void
+.end method
+
+.method playerStart()V
+    .locals 0
+
+    return-void
+.end method
+
+.method playerStop()V
+    .locals 0
+
+    return-void
+.end method
+
 .method public final release()V
-    .locals 3
+    .locals 0
 
-    :try_start_0
-    iget-object v1, p0, Landroid/media/SoundPool;->mAppOpsCallback:Lcom/android/internal/app/IAppOpsCallback;
+    invoke-virtual {p0}, Landroid/media/SoundPool;->baseRelease()V
 
-    if-eqz v1, :cond_0
-
-    iget-object v1, p0, Landroid/media/SoundPool;->mAppOps:Lcom/android/internal/app/IAppOpsService;
-
-    iget-object v2, p0, Landroid/media/SoundPool;->mAppOpsCallback:Lcom/android/internal/app/IAppOpsCallback;
-
-    invoke-interface {v1, v2}, Lcom/android/internal/app/IAppOpsService;->stopWatchingMode(Lcom/android/internal/app/IAppOpsCallback;)V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    :cond_0
-    :goto_0
     invoke-direct {p0}, Landroid/media/SoundPool;->native_release()V
 
     return-void
-
-    :catch_0
-    move-exception v0
-
-    goto :goto_0
 .end method
 
 .method public final native resume(I)V
@@ -757,17 +581,8 @@
 .end method
 
 .method public final setVolume(IFF)V
-    .locals 1
+    .locals 0
 
-    invoke-direct {p0}, Landroid/media/SoundPool;->isRestricted()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    return-void
-
-    :cond_0
     invoke-direct {p0, p1, p2, p3}, Landroid/media/SoundPool;->_setVolume(IFF)V
 
     return-void

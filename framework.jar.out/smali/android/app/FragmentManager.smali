@@ -7,6 +7,7 @@
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Landroid/app/FragmentManager$BackStackEntry;,
+        Landroid/app/FragmentManager$FragmentLifecycleCallbacks;,
         Landroid/app/FragmentManager$OnBackStackChangedListener;
     }
 .end annotation
@@ -62,6 +63,21 @@
 .method public abstract getFragment(Landroid/os/Bundle;Ljava/lang/String;)Landroid/app/Fragment;
 .end method
 
+.method public abstract getFragments()Ljava/util/List;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/List",
+            "<",
+            "Landroid/app/Fragment;",
+            ">;"
+        }
+    .end annotation
+.end method
+
+.method public abstract getPrimaryNavigationFragment()Landroid/app/Fragment;
+.end method
+
 .method public invalidateOptionsMenu()V
     .locals 0
 
@@ -69,6 +85,9 @@
 .end method
 
 .method public abstract isDestroyed()Z
+.end method
+
+.method public abstract isStateSaved()Z
 .end method
 
 .method public openTransaction()Landroid/app/FragmentTransaction;
@@ -104,8 +123,14 @@
 .method public abstract putFragment(Landroid/os/Bundle;Ljava/lang/String;Landroid/app/Fragment;)V
 .end method
 
+.method public abstract registerFragmentLifecycleCallbacks(Landroid/app/FragmentManager$FragmentLifecycleCallbacks;Z)V
+.end method
+
 .method public abstract removeOnBackStackChangedListener(Landroid/app/FragmentManager$OnBackStackChangedListener;)V
 .end method
 
 .method public abstract saveFragmentInstanceState(Landroid/app/Fragment;)Landroid/app/Fragment$SavedState;
+.end method
+
+.method public abstract unregisterFragmentLifecycleCallbacks(Landroid/app/FragmentManager$FragmentLifecycleCallbacks;)V
 .end method

@@ -111,9 +111,7 @@
 
     if-eqz v0, :cond_0
 
-    nop
-
-    nop
+    check-cast p1, Landroid/hardware/display/WifiDisplay;
 
     iput-object p1, p0, Landroid/hardware/display/SemWifiDisplay;->mWfd:Landroid/hardware/display/WifiDisplay;
 
@@ -127,9 +125,7 @@
 
     move-object v0, p1
 
-    nop
-
-    nop
+    check-cast v0, Landroid/hardware/display/SemWifiDisplay;
 
     iget-object v0, v0, Landroid/hardware/display/SemWifiDisplay;->mWfd:Landroid/hardware/display/WifiDisplay;
 
@@ -137,9 +133,7 @@
 
     move-object v0, p1
 
-    nop
-
-    nop
+    check-cast v0, Landroid/hardware/display/SemWifiDisplay;
 
     iget-object v0, v0, Landroid/hardware/display/SemWifiDisplay;->mPort:Ljava/lang/String;
 
@@ -147,17 +141,13 @@
 
     move-object v0, p1
 
-    nop
-
-    nop
+    check-cast v0, Landroid/hardware/display/SemWifiDisplay;
 
     iget-boolean v0, v0, Landroid/hardware/display/SemWifiDisplay;->mIsPinConnection:Z
 
     iput-boolean v0, p0, Landroid/hardware/display/SemWifiDisplay;->mIsPinConnection:Z
 
-    nop
-
-    nop
+    check-cast p1, Landroid/hardware/display/SemWifiDisplay;
 
     iget-boolean v0, p1, Landroid/hardware/display/SemWifiDisplay;->mIsPersistentMode:Z
 
@@ -336,9 +326,7 @@
 
     if-eqz v0, :cond_0
 
-    nop
-
-    nop
+    check-cast p1, Landroid/hardware/display/SemWifiDisplay;
 
     invoke-virtual {p0, p1}, Landroid/hardware/display/SemWifiDisplay;->equals(Landroid/hardware/display/SemWifiDisplay;)Z
 
@@ -351,6 +339,14 @@
     const/4 v0, 0x0
 
     goto :goto_0
+.end method
+
+.method public getBluetoothMacAddress()Ljava/lang/String;
+    .locals 1
+
+    const-string/jumbo v0, ""
+
+    return-object v0
 .end method
 
 .method public getDeviceAddress()Ljava/lang/String;
@@ -414,6 +410,14 @@
 .end method
 
 .method public getIconIdx()I
+    .locals 1
+
+    const/4 v0, 0x0
+
+    return v0
+.end method
+
+.method public getIconIndex()I
     .locals 1
 
     iget-object v0, p0, Landroid/hardware/display/SemWifiDisplay;->mWfd:Landroid/hardware/display/WifiDisplay;
@@ -492,11 +496,7 @@
 .method public isOnlySupportsAudio()Z
     .locals 1
 
-    iget-object v0, p0, Landroid/hardware/display/SemWifiDisplay;->mWfd:Landroid/hardware/display/WifiDisplay;
-
-    invoke-virtual {v0}, Landroid/hardware/display/WifiDisplay;->isOnlySupportsAudio()Z
-
-    move-result v0
+    const/4 v0, 0x0
 
     return v0
 .end method
@@ -515,6 +515,30 @@
     iget-boolean v0, p0, Landroid/hardware/display/SemWifiDisplay;->mIsPinConnection:Z
 
     return v0
+.end method
+
+.method public semGetFriendlyDisplayName()Ljava/lang/String;
+    .locals 1
+
+    const-string/jumbo v0, ""
+
+    return-object v0
+.end method
+
+.method public semGetIconIndex()I
+    .locals 1
+
+    const/4 v0, 0x0
+
+    return v0
+.end method
+
+.method public semGetUri()Ljava/lang/String;
+    .locals 1
+
+    const-string/jumbo v0, ""
+
+    return-object v0
 .end method
 
 .method public setEmptySurface(Z)V

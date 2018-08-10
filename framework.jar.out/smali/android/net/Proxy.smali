@@ -15,6 +15,9 @@
 .field private static final EXCL_REGEX:Ljava/lang/String; = "[a-zA-Z0-9*]+(\\-[a-zA-Z0-9*]+)*(\\.[a-zA-Z0-9*]+(\\-[a-zA-Z0-9*]+)*)*"
 
 .field public static final EXTRA_PROXY_INFO:Ljava/lang/String; = "android.intent.extra.PROXY_INFO"
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
 
 .field private static final HOSTNAME_PATTERN:Ljava/util/regex/Pattern;
 
@@ -38,11 +41,9 @@
 
 .field private static final TAG:Ljava/lang/String; = "Proxy"
 
-.field private static sConnectivityManager:Landroid/net/ConnectivityManager; = null
+.field private static sConnectivityManager:Landroid/net/ConnectivityManager;
 
 .field private static final sDefaultProxySelector:Ljava/net/ProxySelector;
-
-.field private static final setAuthForPacProfile:Ljava/lang/String; = "knox.vpn.pac.auth"
 
 .field private static setEnterpriseProxySelector:I
 
@@ -100,6 +101,8 @@
 
 .method public static final getDefaultHost()Ljava/lang/String;
     .locals 2
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 
     const-string/jumbo v1, "http.proxyHost"
 
@@ -123,6 +126,8 @@
 
 .method public static final getDefaultPort()I
     .locals 3
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 
     const/4 v2, -0x1
 
@@ -158,6 +163,8 @@
 
 .method public static final getHost(Landroid/content/Context;)Ljava/lang/String;
     .locals 4
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 
     const/4 v3, 0x0
 
@@ -195,6 +202,8 @@
 
 .method public static final getPort(Landroid/content/Context;)I
     .locals 4
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 
     const/4 v3, -0x1
 
@@ -245,14 +254,10 @@
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    xor-int/lit8 v4, v4, 0x1
 
-    :cond_0
-    sget-object v4, Ljava/net/Proxy;->NO_PROXY:Ljava/net/Proxy;
+    if-eqz v4, :cond_0
 
-    return-object v4
-
-    :cond_1
     invoke-static {p1}, Ljava/net/URI;->create(Ljava/lang/String;)Ljava/net/URI;
 
     move-result-object v3
@@ -276,6 +281,11 @@
     move-result-object v4
 
     check-cast v4, Ljava/net/Proxy;
+
+    return-object v4
+
+    :cond_0
+    sget-object v4, Ljava/net/Proxy;->NO_PROXY:Ljava/net/Proxy;
 
     return-object v4
 .end method
@@ -389,7 +399,14 @@
 
     move-result v6
 
-    if-eqz v6, :cond_2
+    xor-int/lit8 v6, v6, 0x1
+
+    if-eqz v6, :cond_1
+
+    invoke-static/range {v0 .. v5}, Landroid/net/Proxy;->setHttpProxySystemPropertyInternal(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Landroid/net/Uri;)V
+
+    :goto_0
+    return-void
 
     :cond_1
     move-object v6, v0
@@ -403,12 +420,6 @@
     move-object v11, v5
 
     invoke-static/range {v6 .. v11}, Landroid/net/Proxy;->setHttpProxySystemPropertyInternal(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Landroid/net/Uri;)V
-
-    :goto_0
-    return-void
-
-    :cond_2
-    invoke-static/range {v0 .. v5}, Landroid/net/Proxy;->setHttpProxySystemPropertyInternal(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Landroid/net/Uri;)V
 
     goto :goto_0
 .end method
@@ -450,11 +461,9 @@
 .end method
 
 .method private static final setHttpProxySystemPropertyInternal(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Landroid/net/Uri;)V
-    .locals 7
+    .locals 4
 
-    const/4 v6, 0x1
-
-    const/4 v5, 0x2
+    const/4 v3, 0x2
 
     sget-boolean v0, Landroid/net/Proxy;->DBG:Z
 
@@ -518,52 +527,7 @@
     move-result-object p4
 
     :cond_1
-    sget-boolean v0, Landroid/net/Proxy;->DBG:Z
-
-    if-eqz v0, :cond_2
-
-    const-string/jumbo v0, "Proxy"
-
-    const-string/jumbo v1, "setHttpProxySystemPropertyInternal setEnterpriseProxySelector(%s) host(%s) port(%s) username(%s) pw(%s) xl(%s) "
-
-    const/4 v2, 0x6
-
-    new-array v2, v2, [Ljava/lang/Object;
-
-    sget v3, Landroid/net/Proxy;->setEnterpriseProxySelector:I
-
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    const/4 v4, 0x0
-
-    aput-object v3, v2, v4
-
-    aput-object p0, v2, v6
-
-    aput-object p1, v2, v5
-
-    const/4 v3, 0x3
-
-    aput-object p2, v2, v3
-
-    const/4 v3, 0x4
-
-    aput-object p3, v2, v3
-
-    const/4 v3, 0x5
-
-    aput-object p4, v2, v3
-
-    invoke-static {v1, v2}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_2
-    if-eqz p0, :cond_3
+    if-eqz p0, :cond_2
 
     const-string/jumbo v0, "http.proxyHost"
 
@@ -578,7 +542,7 @@
     invoke-static {v0, p0}, Ljava/lang/System;->setProperty(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     :goto_0
-    if-eqz p1, :cond_4
+    if-eqz p1, :cond_3
 
     const-string/jumbo v0, "http.proxyPort"
 
@@ -593,21 +557,21 @@
     invoke-static {v0, p1}, Ljava/lang/System;->setProperty(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     :goto_1
-    if-eqz p2, :cond_5
+    if-eqz p2, :cond_4
 
     const-string/jumbo v0, "http.proxyUser"
 
     invoke-static {v0, p2}, Ljava/lang/System;->setProperty(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     :goto_2
-    if-eqz p3, :cond_6
+    if-eqz p3, :cond_5
 
     const-string/jumbo v0, "http.proxyPassword"
 
     invoke-static {v0, p3}, Ljava/lang/System;->setProperty(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     :goto_3
-    if-eqz p4, :cond_7
+    if-eqz p4, :cond_6
 
     const-string/jumbo v0, "http.nonProxyHosts"
 
@@ -624,11 +588,13 @@
 
     move-result v0
 
-    if-nez v0, :cond_a
+    if-nez v0, :cond_9
 
     sget v0, Landroid/net/Proxy;->setEnterpriseProxySelector:I
 
-    if-ne v0, v6, :cond_8
+    const/4 v1, 0x1
+
+    if-ne v0, v1, :cond_7
 
     new-instance v0, Landroid/net/KnoxVpnProxySelector;
 
@@ -636,16 +602,10 @@
 
     invoke-static {v0}, Ljava/net/ProxySelector;->setDefault(Ljava/net/ProxySelector;)V
 
-    const-string/jumbo v0, "knox.vpn.pac.auth"
-
-    const-string/jumbo v1, "1"
-
-    invoke-static {v0, v1}, Ljava/lang/System;->setProperty(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
     :goto_5
     return-void
 
-    :cond_3
+    :cond_2
     const-string/jumbo v0, "http.proxyHost"
 
     invoke-static {v0}, Ljava/lang/System;->clearProperty(Ljava/lang/String;)Ljava/lang/String;
@@ -660,7 +620,7 @@
 
     goto :goto_0
 
-    :cond_4
+    :cond_3
     const-string/jumbo v0, "http.proxyPort"
 
     invoke-static {v0}, Ljava/lang/System;->clearProperty(Ljava/lang/String;)Ljava/lang/String;
@@ -675,21 +635,21 @@
 
     goto :goto_1
 
-    :cond_5
+    :cond_4
     const-string/jumbo v0, "http.proxyUser"
 
     invoke-static {v0}, Ljava/lang/System;->clearProperty(Ljava/lang/String;)Ljava/lang/String;
 
     goto :goto_2
 
-    :cond_6
+    :cond_5
     const-string/jumbo v0, "http.proxyPassword"
 
     invoke-static {v0}, Ljava/lang/System;->clearProperty(Ljava/lang/String;)Ljava/lang/String;
 
     goto :goto_3
 
-    :cond_7
+    :cond_6
     const-string/jumbo v0, "http.nonProxyHosts"
 
     invoke-static {v0}, Ljava/lang/System;->clearProperty(Ljava/lang/String;)Ljava/lang/String;
@@ -700,10 +660,10 @@
 
     goto :goto_4
 
-    :cond_8
+    :cond_7
     sget v0, Landroid/net/Proxy;->setEnterpriseProxySelector:I
 
-    if-ne v0, v5, :cond_9
+    if-ne v0, v3, :cond_8
 
     new-instance v0, Landroid/net/EnterpriseProxySelector;
 
@@ -719,27 +679,23 @@
 
     goto :goto_5
 
-    :cond_9
+    :cond_8
     new-instance v0, Landroid/net/PacProxySelector;
 
     invoke-direct {v0}, Landroid/net/PacProxySelector;-><init>()V
 
     invoke-static {v0}, Ljava/net/ProxySelector;->setDefault(Ljava/net/ProxySelector;)V
 
-    const-string/jumbo v0, "knox.vpn.pac.auth"
-
-    invoke-static {v0}, Ljava/lang/System;->clearProperty(Ljava/lang/String;)Ljava/lang/String;
-
     const-string/jumbo v0, "enterprise.proxy.auth"
 
     invoke-static {v0}, Ljava/lang/System;->clearProperty(Ljava/lang/String;)Ljava/lang/String;
 
     goto :goto_5
 
-    :cond_a
+    :cond_9
     sget v0, Landroid/net/Proxy;->setEnterpriseProxySelector:I
 
-    if-ne v0, v5, :cond_b
+    if-ne v0, v3, :cond_a
 
     new-instance v0, Landroid/net/EnterpriseProxySelector;
 
@@ -753,16 +709,12 @@
 
     invoke-static {v0, v1}, Ljava/lang/System;->setProperty(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    goto/16 :goto_5
+    goto :goto_5
 
-    :cond_b
+    :cond_a
     sget-object v0, Landroid/net/Proxy;->sDefaultProxySelector:Ljava/net/ProxySelector;
 
     invoke-static {v0}, Ljava/net/ProxySelector;->setDefault(Ljava/net/ProxySelector;)V
-
-    const-string/jumbo v0, "knox.vpn.pac.auth"
-
-    invoke-static {v0}, Ljava/lang/System;->clearProperty(Ljava/lang/String;)Ljava/lang/String;
 
     const-string/jumbo v0, "enterprise.proxy.auth"
 

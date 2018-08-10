@@ -261,6 +261,8 @@
 
     const/16 v0, 0x1f
 
+    const/4 v1, 0x1
+
     iget-object v2, p0, Landroid/hardware/soundtrigger/SoundTrigger$Keyphrase;->text:Ljava/lang/String;
 
     if-nez v2, :cond_0

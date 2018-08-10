@@ -20,6 +20,10 @@
 
 .field public static final DEAD_ZONE_SET_PROCESS_NAME:Ljava/lang/String; = "dead_zone_process_name"
 
+.field public static final EDGE_ZONE_LAND:Ljava/lang/String; = "edge_zone_land"
+
+.field public static final EDGE_ZONE_PORT:Ljava/lang/String; = "edge_zone_port"
+
 .field public static final EDGE_ZONE_WIDTH:Ljava/lang/String; = "edge_zone_width"
 
 .field private static final TAG:Ljava/lang/String; = "SemTspStateManager"
@@ -77,7 +81,7 @@
     throw v2
 
     :cond_1
-    invoke-virtual {p1}, Landroid/os/BaseBundle;->isEmpty()Z
+    invoke-virtual {p1}, Landroid/os/Bundle;->isEmpty()Z
 
     move-result v2
 
@@ -95,25 +99,9 @@
 
     instance-of v2, v0, Landroid/view/ViewRootImpl;
 
-    if-eqz v2, :cond_2
+    xor-int/lit8 v2, v2, 0x1
 
-    const-string/jumbo v2, "dead_zone_port_x1"
-
-    const/4 v3, -0x1
-
-    invoke-virtual {p1, v2, v3}, Landroid/os/BaseBundle;->getInt(Ljava/lang/String;I)I
-
-    move-result v2
-
-    if-gez v2, :cond_3
-
-    new-instance v2, Ljava/lang/IllegalArgumentException;
-
-    const-string/jumbo v3, "The dead zone do not have default zone width."
-
-    invoke-direct {v2, v3}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
-
-    throw v2
+    if-eqz v2, :cond_3
 
     :cond_2
     new-instance v2, Ljava/lang/IllegalArgumentException;
@@ -125,9 +113,7 @@
     throw v2
 
     :cond_3
-    nop
-
-    nop
+    check-cast v0, Landroid/view/ViewRootImpl;
 
     invoke-virtual {v0, p1}, Landroid/view/ViewRootImpl;->setTspDeadzone(Landroid/os/Bundle;)V
 
@@ -139,7 +125,7 @@
 
     if-eqz p1, :cond_0
 
-    invoke-virtual {p1}, Landroid/os/BaseBundle;->isEmpty()Z
+    invoke-virtual {p1}, Landroid/os/Bundle;->isEmpty()Z
 
     move-result v2
 
@@ -176,7 +162,7 @@
     :catch_0
     move-exception v0
 
-    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v0}, Landroid/os/RemoteException;->printStackTrace()V
 
     goto :goto_0
 .end method

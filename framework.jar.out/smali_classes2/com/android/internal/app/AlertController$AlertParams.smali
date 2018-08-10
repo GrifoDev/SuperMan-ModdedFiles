@@ -235,7 +235,7 @@
 
     iput-boolean v1, v6, Lcom/android/internal/app/AlertController$RecycleListView;->mRecycleOnMeasure:Z
 
-    invoke-static {p1, v6}, Lcom/android/internal/app/AlertController;->-set2(Lcom/android/internal/app/AlertController;Landroid/widget/ListView;)Landroid/widget/ListView;
+    iput-object v6, p1, Lcom/android/internal/app/AlertController;->mListView:Landroid/widget/ListView;
 
     return-void
 

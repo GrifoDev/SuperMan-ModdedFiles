@@ -12,6 +12,8 @@
 
 
 # instance fields
+.field private mAddedWidth:F
+
 .field private final mCharacterStyleSpanSet:Landroid/text/SpanSet;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -119,6 +121,50 @@
     iput-object v0, p0, Landroid/text/TextLine;->mReplacementSpanSpanSet:Landroid/text/SpanSet;
 
     return-void
+.end method
+
+.method private adjustHyphenEdit(III)I
+    .locals 2
+
+    move v0, p3
+
+    if-lez p1, :cond_0
+
+    and-int/lit8 v0, p3, -0x19
+
+    :cond_0
+    iget v1, p0, Landroid/text/TextLine;->mLen:I
+
+    if-ge p2, v1, :cond_1
+
+    and-int/lit8 v0, v0, -0x8
+
+    :cond_1
+    return v0
+.end method
+
+.method private countStretchableSpaces(II)I
+    .locals 3
+
+    const/4 v0, 0x0
+
+    move v1, p1
+
+    :goto_0
+    if-ge v1, p2, :cond_0
+
+    add-int/lit8 v0, v0, 0x1
+
+    add-int/lit8 v2, v1, 0x1
+
+    invoke-direct {p0, v2, p2}, Landroid/text/TextLine;->nextStretchableSpace(II)I
+
+    move-result v1
+
+    goto :goto_0
+
+    :cond_0
+    return v0
 .end method
 
 .method private drawRun(Landroid/graphics/Canvas;IIZFIIIZ)F
@@ -395,6 +441,12 @@
     iget-object v3, v0, Landroid/text/TextLine;->mPaint:Landroid/text/TextPaint;
 
     invoke-virtual {v2, v3}, Landroid/text/TextPaint;->set(Landroid/text/TextPaint;)V
+
+    move-object/from16 v0, p0
+
+    iget v3, v0, Landroid/text/TextLine;->mAddedWidth:F
+
+    invoke-virtual {v2, v3}, Landroid/text/TextPaint;->setWordSpacing(F)V
 
     move/from16 v4, p2
 
@@ -773,298 +825,153 @@
 .end method
 
 .method private handleRun(IIIZLandroid/graphics/Canvas;FIIILandroid/graphics/Paint$FontMetricsInt;Z)F
-    .locals 29
+    .locals 30
 
+    move/from16 v0, p2
+
+    move/from16 v1, p1
+
+    if-lt v0, v1, :cond_0
+
+    move/from16 v0, p2
+
+    move/from16 v1, p3
+
+    if-le v0, v1, :cond_1
+
+    :cond_0
+    new-instance v3, Ljava/lang/IndexOutOfBoundsException;
+
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v7, "measureLimit ("
+
+    invoke-virtual {v5, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    move/from16 v0, p2
+
+    invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    const-string/jumbo v7, ") is out of "
+
+    invoke-virtual {v5, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    const-string/jumbo v7, "start ("
+
+    invoke-virtual {v5, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    move/from16 v0, p1
+
+    invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    const-string/jumbo v7, ") and limit ("
+
+    invoke-virtual {v5, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    move/from16 v0, p3
+
+    invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    const-string/jumbo v7, ") bounds"
+
+    invoke-virtual {v5, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-direct {v3, v5}, Ljava/lang/IndexOutOfBoundsException;-><init>(Ljava/lang/String;)V
+
+    throw v3
+
+    :cond_1
     move/from16 v0, p1
 
     move/from16 v1, p2
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v1, :cond_3
 
     move-object/from16 v0, p0
 
-    iget-object v3, v0, Landroid/text/TextLine;->mWorkPaint:Landroid/text/TextPaint;
+    iget-object v4, v0, Landroid/text/TextLine;->mWorkPaint:Landroid/text/TextPaint;
 
     move-object/from16 v0, p0
 
-    iget-object v2, v0, Landroid/text/TextLine;->mPaint:Landroid/text/TextPaint;
+    iget-object v3, v0, Landroid/text/TextLine;->mPaint:Landroid/text/TextPaint;
 
-    invoke-virtual {v3, v2}, Landroid/text/TextPaint;->set(Landroid/text/TextPaint;)V
+    invoke-virtual {v4, v3}, Landroid/text/TextPaint;->set(Landroid/text/TextPaint;)V
 
-    if-eqz p10, :cond_0
+    if-eqz p10, :cond_2
 
     move-object/from16 v0, p10
 
-    invoke-static {v0, v3}, Landroid/text/TextLine;->expandMetricsFromPaint(Landroid/graphics/Paint$FontMetricsInt;Landroid/text/TextPaint;)V
-
-    :cond_0
-    const/4 v2, 0x0
-
-    return v2
-
-    :cond_1
-    move-object/from16 v0, p0
-
-    iget-object v2, v0, Landroid/text/TextLine;->mSpanned:Landroid/text/Spanned;
-
-    if-nez v2, :cond_4
-
-    move-object/from16 v0, p0
-
-    iget-object v3, v0, Landroid/text/TextLine;->mWorkPaint:Landroid/text/TextPaint;
-
-    move-object/from16 v0, p0
-
-    iget-object v2, v0, Landroid/text/TextLine;->mPaint:Landroid/text/TextPaint;
-
-    invoke-virtual {v3, v2}, Landroid/text/TextPaint;->set(Landroid/text/TextPaint;)V
-
-    move/from16 v8, p2
-
-    if-nez p11, :cond_2
-
-    move/from16 v0, p2
-
-    move/from16 v1, p2
-
-    if-ge v0, v1, :cond_3
+    invoke-static {v0, v4}, Landroid/text/TextLine;->expandMetricsFromPaint(Landroid/graphics/Paint$FontMetricsInt;Landroid/text/TextPaint;)V
 
     :cond_2
-    const/4 v15, 0x1
+    const/4 v3, 0x0
 
-    :goto_0
-    move-object/from16 v2, p0
-
-    move/from16 v4, p1
-
-    move/from16 v5, p3
-
-    move/from16 v6, p1
-
-    move/from16 v7, p3
-
-    move/from16 v8, p4
-
-    move-object/from16 v9, p5
-
-    move/from16 v10, p6
-
-    move/from16 v11, p7
-
-    move/from16 v12, p8
-
-    move/from16 v13, p9
-
-    move-object/from16 v14, p10
-
-    move/from16 v16, p2
-
-    invoke-direct/range {v2 .. v16}, Landroid/text/TextLine;->handleText(Landroid/text/TextPaint;IIIIZLandroid/graphics/Canvas;FIIILandroid/graphics/Paint$FontMetricsInt;ZI)F
-
-    move-result v2
-
-    return v2
+    return v3
 
     :cond_3
-    const/4 v15, 0x0
-
-    goto :goto_0
-
-    :cond_4
     move-object/from16 v0, p0
 
-    iget-object v2, v0, Landroid/text/TextLine;->mMetricAffectingSpanSpanSet:Landroid/text/SpanSet;
+    iget-object v3, v0, Landroid/text/TextLine;->mSpanned:Landroid/text/Spanned;
+
+    if-nez v3, :cond_4
 
     move-object/from16 v0, p0
 
-    iget-object v4, v0, Landroid/text/TextLine;->mSpanned:Landroid/text/Spanned;
+    iget-object v4, v0, Landroid/text/TextLine;->mWorkPaint:Landroid/text/TextPaint;
 
     move-object/from16 v0, p0
 
-    iget v6, v0, Landroid/text/TextLine;->mStart:I
+    iget-object v3, v0, Landroid/text/TextLine;->mPaint:Landroid/text/TextPaint;
 
-    add-int v6, v6, p1
+    invoke-virtual {v4, v3}, Landroid/text/TextPaint;->set(Landroid/text/TextPaint;)V
 
-    move-object/from16 v0, p0
+    invoke-virtual {v4}, Landroid/text/TextPaint;->getHyphenEdit()I
 
-    iget v9, v0, Landroid/text/TextLine;->mStart:I
-
-    add-int v9, v9, p3
-
-    invoke-virtual {v2, v4, v6, v9}, Landroid/text/SpanSet;->init(Landroid/text/Spanned;II)V
+    move-result v3
 
     move-object/from16 v0, p0
 
-    iget-object v2, v0, Landroid/text/TextLine;->mCharacterStyleSpanSet:Landroid/text/SpanSet;
+    move/from16 v1, p1
 
-    move-object/from16 v0, p0
+    move/from16 v2, p3
 
-    iget-object v4, v0, Landroid/text/TextLine;->mSpanned:Landroid/text/Spanned;
+    invoke-direct {v0, v1, v2, v3}, Landroid/text/TextLine;->adjustHyphenEdit(III)I
 
-    move-object/from16 v0, p0
+    move-result v3
 
-    iget v6, v0, Landroid/text/TextLine;->mStart:I
+    invoke-virtual {v4, v3}, Landroid/text/TextPaint;->setHyphenEdit(I)V
 
-    add-int v6, v6, p1
+    move-object/from16 v3, p0
 
-    move-object/from16 v0, p0
+    move/from16 v5, p1
 
-    iget v9, v0, Landroid/text/TextLine;->mStart:I
-
-    add-int v9, v9, p3
-
-    invoke-virtual {v2, v4, v6, v9}, Landroid/text/SpanSet;->init(Landroid/text/Spanned;II)V
-
-    move/from16 v26, p6
+    move/from16 v6, p3
 
     move/from16 v7, p1
 
-    :goto_1
-    move/from16 v0, p2
-
-    if-ge v7, v0, :cond_13
-
-    move-object/from16 v0, p0
-
-    iget-object v3, v0, Landroid/text/TextLine;->mWorkPaint:Landroid/text/TextPaint;
-
-    move-object/from16 v0, p0
-
-    iget-object v2, v0, Landroid/text/TextLine;->mPaint:Landroid/text/TextPaint;
-
-    invoke-virtual {v3, v2}, Landroid/text/TextPaint;->set(Landroid/text/TextPaint;)V
-
-    move-object/from16 v0, p0
-
-    iget-object v2, v0, Landroid/text/TextLine;->mMetricAffectingSpanSpanSet:Landroid/text/SpanSet;
-
-    move-object/from16 v0, p0
-
-    iget v4, v0, Landroid/text/TextLine;->mStart:I
-
-    add-int/2addr v4, v7
-
-    move-object/from16 v0, p0
-
-    iget v6, v0, Landroid/text/TextLine;->mStart:I
-
-    add-int v6, v6, p3
-
-    invoke-virtual {v2, v4, v6}, Landroid/text/SpanSet;->getNextTransition(II)I
-
-    move-result v2
-
-    move-object/from16 v0, p0
-
-    iget v4, v0, Landroid/text/TextLine;->mStart:I
-
-    sub-int v24, v2, v4
-
-    move/from16 v0, v24
-
-    move/from16 v1, p2
-
-    invoke-static {v0, v1}, Ljava/lang/Math;->min(II)I
-
-    move-result v8
-
-    const/4 v5, 0x0
-
-    const/4 v11, 0x0
-
-    :goto_2
-    move-object/from16 v0, p0
-
-    iget-object v2, v0, Landroid/text/TextLine;->mMetricAffectingSpanSpanSet:Landroid/text/SpanSet;
-
-    iget v2, v2, Landroid/text/SpanSet;->numberOfSpans:I
-
-    if-ge v11, v2, :cond_8
-
-    move-object/from16 v0, p0
-
-    iget-object v2, v0, Landroid/text/TextLine;->mMetricAffectingSpanSpanSet:Landroid/text/SpanSet;
-
-    iget-object v2, v2, Landroid/text/SpanSet;->spanStarts:[I
-
-    aget v2, v2, v11
-
-    move-object/from16 v0, p0
-
-    iget v4, v0, Landroid/text/TextLine;->mStart:I
-
-    add-int/2addr v4, v8
-
-    if-ge v2, v4, :cond_5
-
-    move-object/from16 v0, p0
-
-    iget-object v2, v0, Landroid/text/TextLine;->mMetricAffectingSpanSpanSet:Landroid/text/SpanSet;
-
-    iget-object v2, v2, Landroid/text/SpanSet;->spanEnds:[I
-
-    aget v2, v2, v11
-
-    move-object/from16 v0, p0
-
-    iget v4, v0, Landroid/text/TextLine;->mStart:I
-
-    add-int/2addr v4, v7
-
-    if-gt v2, v4, :cond_6
-
-    :cond_5
-    :goto_3
-    add-int/lit8 v11, v11, 0x1
-
-    goto :goto_2
-
-    :cond_6
-    move-object/from16 v0, p0
-
-    iget-object v2, v0, Landroid/text/TextLine;->mMetricAffectingSpanSpanSet:Landroid/text/SpanSet;
-
-    iget-object v2, v2, Landroid/text/SpanSet;->spans:[Ljava/lang/Object;
-
-    check-cast v2, [Landroid/text/style/MetricAffectingSpan;
-
-    aget-object v28, v2, v11
-
-    move-object/from16 v0, v28
-
-    instance-of v2, v0, Landroid/text/style/ReplacementSpan;
-
-    if-eqz v2, :cond_7
-
-    move-object/from16 v5, v28
-
-    check-cast v5, Landroid/text/style/ReplacementSpan;
-
-    goto :goto_3
-
-    :cond_7
-    move-object/from16 v0, v28
-
-    invoke-virtual {v0, v3}, Landroid/text/style/MetricAffectingSpan;->updateDrawState(Landroid/text/TextPaint;)V
-
-    goto :goto_3
-
-    :cond_8
-    if-eqz v5, :cond_c
-
-    if-nez p11, :cond_9
-
-    move/from16 v0, p2
-
-    if-ge v8, v0, :cond_b
-
-    :cond_9
-    const/16 v16, 0x1
-
-    :goto_4
-    move-object/from16 v4, p0
-
-    move-object v6, v3
+    move/from16 v8, p3
 
     move/from16 v9, p4
 
@@ -1080,199 +987,428 @@
 
     move-object/from16 v15, p10
 
-    invoke-direct/range {v4 .. v16}, Landroid/text/TextLine;->handleReplacement(Landroid/text/style/ReplacementSpan;Landroid/text/TextPaint;IIZLandroid/graphics/Canvas;FIIILandroid/graphics/Paint$FontMetricsInt;Z)F
+    move/from16 v16, p11
 
-    move-result v2
+    move/from16 v17, p2
 
-    add-float p6, p6, v2
+    invoke-direct/range {v3 .. v17}, Landroid/text/TextLine;->handleText(Landroid/text/TextPaint;IIIIZLandroid/graphics/Canvas;FIIILandroid/graphics/Paint$FontMetricsInt;ZI)F
 
-    :cond_a
-    move/from16 v7, v24
+    move-result v3
 
-    goto/16 :goto_1
+    return v3
 
-    :cond_b
-    const/16 v16, 0x0
+    :cond_4
+    move-object/from16 v0, p0
 
-    goto :goto_4
-
-    :cond_c
-    move v11, v7
-
-    :goto_5
-    if-ge v11, v8, :cond_a
+    iget-object v3, v0, Landroid/text/TextLine;->mMetricAffectingSpanSpanSet:Landroid/text/SpanSet;
 
     move-object/from16 v0, p0
 
-    iget-object v2, v0, Landroid/text/TextLine;->mCharacterStyleSpanSet:Landroid/text/SpanSet;
+    iget-object v5, v0, Landroid/text/TextLine;->mSpanned:Landroid/text/Spanned;
 
     move-object/from16 v0, p0
 
-    iget v4, v0, Landroid/text/TextLine;->mStart:I
+    iget v7, v0, Landroid/text/TextLine;->mStart:I
 
-    add-int/2addr v4, v11
-
-    move-object/from16 v0, p0
-
-    iget v6, v0, Landroid/text/TextLine;->mStart:I
-
-    add-int v6, v6, v24
-
-    invoke-virtual {v2, v4, v6}, Landroid/text/SpanSet;->getNextTransition(II)I
-
-    move-result v2
+    add-int v7, v7, p1
 
     move-object/from16 v0, p0
 
-    iget v4, v0, Landroid/text/TextLine;->mStart:I
+    iget v10, v0, Landroid/text/TextLine;->mStart:I
 
-    sub-int v12, v2, v4
+    add-int v10, v10, p3
 
-    invoke-static {v12, v8}, Ljava/lang/Math;->min(II)I
-
-    move-result v23
+    invoke-virtual {v3, v5, v7, v10}, Landroid/text/SpanSet;->init(Landroid/text/Spanned;II)V
 
     move-object/from16 v0, p0
 
-    iget-object v2, v0, Landroid/text/TextLine;->mPaint:Landroid/text/TextPaint;
+    iget-object v3, v0, Landroid/text/TextLine;->mCharacterStyleSpanSet:Landroid/text/SpanSet;
 
-    invoke-virtual {v3, v2}, Landroid/text/TextPaint;->set(Landroid/text/TextPaint;)V
-
-    const/16 v25, 0x0
-
-    :goto_6
     move-object/from16 v0, p0
 
-    iget-object v2, v0, Landroid/text/TextLine;->mCharacterStyleSpanSet:Landroid/text/SpanSet;
+    iget-object v5, v0, Landroid/text/TextLine;->mSpanned:Landroid/text/Spanned;
 
-    iget v2, v2, Landroid/text/SpanSet;->numberOfSpans:I
+    move-object/from16 v0, p0
+
+    iget v7, v0, Landroid/text/TextLine;->mStart:I
+
+    add-int v7, v7, p1
+
+    move-object/from16 v0, p0
+
+    iget v10, v0, Landroid/text/TextLine;->mStart:I
+
+    add-int v10, v10, p3
+
+    invoke-virtual {v3, v5, v7, v10}, Landroid/text/SpanSet;->init(Landroid/text/Spanned;II)V
+
+    move/from16 v27, p6
+
+    move/from16 v8, p1
+
+    :goto_0
+    move/from16 v0, p2
+
+    if-ge v8, v0, :cond_12
+
+    move-object/from16 v0, p0
+
+    iget-object v4, v0, Landroid/text/TextLine;->mWorkPaint:Landroid/text/TextPaint;
+
+    move-object/from16 v0, p0
+
+    iget-object v3, v0, Landroid/text/TextLine;->mPaint:Landroid/text/TextPaint;
+
+    invoke-virtual {v4, v3}, Landroid/text/TextPaint;->set(Landroid/text/TextPaint;)V
+
+    move-object/from16 v0, p0
+
+    iget-object v3, v0, Landroid/text/TextLine;->mMetricAffectingSpanSpanSet:Landroid/text/SpanSet;
+
+    move-object/from16 v0, p0
+
+    iget v5, v0, Landroid/text/TextLine;->mStart:I
+
+    add-int/2addr v5, v8
+
+    move-object/from16 v0, p0
+
+    iget v7, v0, Landroid/text/TextLine;->mStart:I
+
+    add-int v7, v7, p3
+
+    invoke-virtual {v3, v5, v7}, Landroid/text/SpanSet;->getNextTransition(II)I
+
+    move-result v3
+
+    move-object/from16 v0, p0
+
+    iget v5, v0, Landroid/text/TextLine;->mStart:I
+
+    sub-int v25, v3, v5
 
     move/from16 v0, v25
 
-    if-ge v0, v2, :cond_f
+    move/from16 v1, p2
+
+    invoke-static {v0, v1}, Ljava/lang/Math;->min(II)I
+
+    move-result v9
+
+    const/4 v6, 0x0
+
+    const/4 v12, 0x0
+
+    :goto_1
+    move-object/from16 v0, p0
+
+    iget-object v3, v0, Landroid/text/TextLine;->mMetricAffectingSpanSpanSet:Landroid/text/SpanSet;
+
+    iget v3, v3, Landroid/text/SpanSet;->numberOfSpans:I
+
+    if-ge v12, v3, :cond_8
 
     move-object/from16 v0, p0
 
-    iget-object v2, v0, Landroid/text/TextLine;->mCharacterStyleSpanSet:Landroid/text/SpanSet;
+    iget-object v3, v0, Landroid/text/TextLine;->mMetricAffectingSpanSpanSet:Landroid/text/SpanSet;
 
-    iget-object v2, v2, Landroid/text/SpanSet;->spanStarts:[I
+    iget-object v3, v3, Landroid/text/SpanSet;->spanStarts:[I
 
-    aget v2, v2, v25
-
-    move-object/from16 v0, p0
-
-    iget v4, v0, Landroid/text/TextLine;->mStart:I
-
-    add-int v4, v4, v23
-
-    if-ge v2, v4, :cond_d
+    aget v3, v3, v12
 
     move-object/from16 v0, p0
 
-    iget-object v2, v0, Landroid/text/TextLine;->mCharacterStyleSpanSet:Landroid/text/SpanSet;
+    iget v5, v0, Landroid/text/TextLine;->mStart:I
 
-    iget-object v2, v2, Landroid/text/SpanSet;->spanEnds:[I
+    add-int/2addr v5, v9
 
-    aget v2, v2, v25
+    if-ge v3, v5, :cond_5
 
     move-object/from16 v0, p0
 
-    iget v4, v0, Landroid/text/TextLine;->mStart:I
+    iget-object v3, v0, Landroid/text/TextLine;->mMetricAffectingSpanSpanSet:Landroid/text/SpanSet;
 
-    add-int/2addr v4, v11
+    iget-object v3, v3, Landroid/text/SpanSet;->spanEnds:[I
 
-    if-gt v2, v4, :cond_e
+    aget v3, v3, v12
+
+    move-object/from16 v0, p0
+
+    iget v5, v0, Landroid/text/TextLine;->mStart:I
+
+    add-int/2addr v5, v8
+
+    if-gt v3, v5, :cond_6
+
+    :cond_5
+    :goto_2
+    add-int/lit8 v12, v12, 0x1
+
+    goto :goto_1
+
+    :cond_6
+    move-object/from16 v0, p0
+
+    iget-object v3, v0, Landroid/text/TextLine;->mMetricAffectingSpanSpanSet:Landroid/text/SpanSet;
+
+    iget-object v3, v3, Landroid/text/SpanSet;->spans:[Ljava/lang/Object;
+
+    check-cast v3, [Landroid/text/style/MetricAffectingSpan;
+
+    aget-object v29, v3, v12
+
+    move-object/from16 v0, v29
+
+    instance-of v3, v0, Landroid/text/style/ReplacementSpan;
+
+    if-eqz v3, :cond_7
+
+    move-object/from16 v6, v29
+
+    check-cast v6, Landroid/text/style/ReplacementSpan;
+
+    goto :goto_2
+
+    :cond_7
+    move-object/from16 v0, v29
+
+    invoke-virtual {v0, v4}, Landroid/text/style/MetricAffectingSpan;->updateDrawState(Landroid/text/TextPaint;)V
+
+    goto :goto_2
+
+    :cond_8
+    if-eqz v6, :cond_c
+
+    if-nez p11, :cond_9
+
+    move/from16 v0, p2
+
+    if-ge v9, v0, :cond_b
+
+    :cond_9
+    const/16 v17, 0x1
+
+    :goto_3
+    move-object/from16 v5, p0
+
+    move-object v7, v4
+
+    move/from16 v10, p4
+
+    move-object/from16 v11, p5
+
+    move/from16 v12, p6
+
+    move/from16 v13, p7
+
+    move/from16 v14, p8
+
+    move/from16 v15, p9
+
+    move-object/from16 v16, p10
+
+    invoke-direct/range {v5 .. v17}, Landroid/text/TextLine;->handleReplacement(Landroid/text/style/ReplacementSpan;Landroid/text/TextPaint;IIZLandroid/graphics/Canvas;FIIILandroid/graphics/Paint$FontMetricsInt;Z)F
+
+    move-result v3
+
+    add-float p6, p6, v3
+
+    :cond_a
+    move/from16 v8, v25
+
+    goto/16 :goto_0
+
+    :cond_b
+    const/16 v17, 0x0
+
+    goto :goto_3
+
+    :cond_c
+    move v12, v8
+
+    :goto_4
+    if-ge v12, v9, :cond_a
+
+    move-object/from16 v0, p0
+
+    iget-object v3, v0, Landroid/text/TextLine;->mCharacterStyleSpanSet:Landroid/text/SpanSet;
+
+    move-object/from16 v0, p0
+
+    iget v5, v0, Landroid/text/TextLine;->mStart:I
+
+    add-int/2addr v5, v12
+
+    move-object/from16 v0, p0
+
+    iget v7, v0, Landroid/text/TextLine;->mStart:I
+
+    add-int v7, v7, v25
+
+    invoke-virtual {v3, v5, v7}, Landroid/text/SpanSet;->getNextTransition(II)I
+
+    move-result v3
+
+    move-object/from16 v0, p0
+
+    iget v5, v0, Landroid/text/TextLine;->mStart:I
+
+    sub-int v13, v3, v5
+
+    invoke-static {v13, v9}, Ljava/lang/Math;->min(II)I
+
+    move-result v24
+
+    move-object/from16 v0, p0
+
+    iget-object v3, v0, Landroid/text/TextLine;->mPaint:Landroid/text/TextPaint;
+
+    invoke-virtual {v4, v3}, Landroid/text/TextPaint;->set(Landroid/text/TextPaint;)V
+
+    const/16 v26, 0x0
+
+    :goto_5
+    move-object/from16 v0, p0
+
+    iget-object v3, v0, Landroid/text/TextLine;->mCharacterStyleSpanSet:Landroid/text/SpanSet;
+
+    iget v3, v3, Landroid/text/SpanSet;->numberOfSpans:I
+
+    move/from16 v0, v26
+
+    if-ge v0, v3, :cond_f
+
+    move-object/from16 v0, p0
+
+    iget-object v3, v0, Landroid/text/TextLine;->mCharacterStyleSpanSet:Landroid/text/SpanSet;
+
+    iget-object v3, v3, Landroid/text/SpanSet;->spanStarts:[I
+
+    aget v3, v3, v26
+
+    move-object/from16 v0, p0
+
+    iget v5, v0, Landroid/text/TextLine;->mStart:I
+
+    add-int v5, v5, v24
+
+    if-ge v3, v5, :cond_d
+
+    move-object/from16 v0, p0
+
+    iget-object v3, v0, Landroid/text/TextLine;->mCharacterStyleSpanSet:Landroid/text/SpanSet;
+
+    iget-object v3, v3, Landroid/text/SpanSet;->spanEnds:[I
+
+    aget v3, v3, v26
+
+    move-object/from16 v0, p0
+
+    iget v5, v0, Landroid/text/TextLine;->mStart:I
+
+    add-int/2addr v5, v12
+
+    if-gt v3, v5, :cond_e
 
     :cond_d
-    :goto_7
-    add-int/lit8 v25, v25, 0x1
+    :goto_6
+    add-int/lit8 v26, v26, 0x1
 
-    goto :goto_6
+    goto :goto_5
 
     :cond_e
     move-object/from16 v0, p0
 
-    iget-object v2, v0, Landroid/text/TextLine;->mCharacterStyleSpanSet:Landroid/text/SpanSet;
+    iget-object v3, v0, Landroid/text/TextLine;->mCharacterStyleSpanSet:Landroid/text/SpanSet;
 
-    iget-object v2, v2, Landroid/text/SpanSet;->spans:[Ljava/lang/Object;
+    iget-object v3, v3, Landroid/text/SpanSet;->spans:[Ljava/lang/Object;
 
-    check-cast v2, [Landroid/text/style/CharacterStyle;
+    check-cast v3, [Landroid/text/style/CharacterStyle;
 
-    aget-object v27, v2, v25
+    aget-object v28, v3, v26
 
-    move-object/from16 v0, v27
+    move-object/from16 v0, v28
 
-    invoke-virtual {v0, v3}, Landroid/text/style/CharacterStyle;->updateDrawState(Landroid/text/TextPaint;)V
+    invoke-virtual {v0, v4}, Landroid/text/style/CharacterStyle;->updateDrawState(Landroid/text/TextPaint;)V
 
-    goto :goto_7
+    goto :goto_6
 
     :cond_f
+    invoke-virtual {v4}, Landroid/text/TextPaint;->getHyphenEdit()I
+
+    move-result v3
+
     move-object/from16 v0, p0
 
-    iget v2, v0, Landroid/text/TextLine;->mLen:I
+    invoke-direct {v0, v12, v13, v3}, Landroid/text/TextLine;->adjustHyphenEdit(III)I
 
-    if-ge v12, v2, :cond_10
+    move-result v3
 
-    const/4 v2, 0x0
+    invoke-virtual {v4, v3}, Landroid/text/TextPaint;->setHyphenEdit(I)V
 
-    invoke-virtual {v3, v2}, Landroid/text/TextPaint;->setHyphenEdit(I)V
-
-    :cond_10
-    if-nez p11, :cond_11
+    if-nez p11, :cond_10
 
     move/from16 v0, p2
 
-    if-ge v12, v0, :cond_12
+    if-ge v13, v0, :cond_11
+
+    :cond_10
+    const/16 v23, 0x1
+
+    :goto_7
+    move-object/from16 v10, p0
+
+    move-object v11, v4
+
+    move v14, v8
+
+    move/from16 v15, v25
+
+    move/from16 v16, p4
+
+    move-object/from16 v17, p5
+
+    move/from16 v18, p6
+
+    move/from16 v19, p7
+
+    move/from16 v20, p8
+
+    move/from16 v21, p9
+
+    move-object/from16 v22, p10
+
+    invoke-direct/range {v10 .. v24}, Landroid/text/TextLine;->handleText(Landroid/text/TextPaint;IIIIZLandroid/graphics/Canvas;FIIILandroid/graphics/Paint$FontMetricsInt;ZI)F
+
+    move-result v3
+
+    add-float p6, p6, v3
+
+    move v12, v13
+
+    goto/16 :goto_4
 
     :cond_11
-    const/16 v22, 0x1
+    const/16 v23, 0x0
 
-    :goto_8
-    move-object/from16 v9, p0
-
-    move-object v10, v3
-
-    move v13, v7
-
-    move/from16 v14, v24
-
-    move/from16 v15, p4
-
-    move-object/from16 v16, p5
-
-    move/from16 v17, p6
-
-    move/from16 v18, p7
-
-    move/from16 v19, p8
-
-    move/from16 v20, p9
-
-    move-object/from16 v21, p10
-
-    invoke-direct/range {v9 .. v23}, Landroid/text/TextLine;->handleText(Landroid/text/TextPaint;IIIIZLandroid/graphics/Canvas;FIIILandroid/graphics/Paint$FontMetricsInt;ZI)F
-
-    move-result v2
-
-    add-float p6, p6, v2
-
-    move v11, v12
-
-    goto/16 :goto_5
+    goto :goto_7
 
     :cond_12
-    const/16 v22, 0x0
+    sub-float v3, p6, v27
 
-    goto :goto_8
-
-    :cond_13
-    sub-float v2, p6, v26
-
-    return v2
+    return v3
 .end method
 
 .method private handleText(Landroid/text/TextPaint;IIIIZLandroid/graphics/Canvas;FIIILandroid/graphics/Paint$FontMetricsInt;ZI)F
     .locals 21
+
+    move-object/from16 v0, p0
+
+    iget v2, v0, Landroid/text/TextLine;->mAddedWidth:F
+
+    move-object/from16 v0, p1
+
+    invoke-virtual {v0, v2}, Landroid/text/TextPaint;->setWordSpacing(F)V
 
     if-eqz p12, :cond_0
 
@@ -1364,7 +1500,7 @@
 
     move-result v2
 
-    invoke-static {v2}, Landroid/text/TextUtils;->isRegionalCharHandling(C)Z
+    invoke-static {v2}, Landroid/text/TextUtils;->semNeedMoreWidth(C)Z
 
     move-result v2
 
@@ -1611,6 +1747,77 @@
     goto/16 :goto_1
 .end method
 
+.method public static isLineEndSpace(C)Z
+    .locals 2
+
+    const/4 v0, 0x1
+
+    const/16 v1, 0x20
+
+    if-eq p0, v1, :cond_0
+
+    const/16 v1, 0x9
+
+    if-ne p0, v1, :cond_1
+
+    :cond_0
+    :goto_0
+    return v0
+
+    :cond_1
+    const/16 v1, 0x1680
+
+    if-eq p0, v1, :cond_0
+
+    const/16 v1, 0x2000
+
+    if-gt v1, p0, :cond_2
+
+    const/16 v1, 0x200a
+
+    if-gt p0, v1, :cond_2
+
+    const/16 v1, 0x2007
+
+    if-ne p0, v1, :cond_0
+
+    :cond_2
+    const/16 v1, 0x205f
+
+    if-eq p0, v1, :cond_0
+
+    const/16 v1, 0x3000
+
+    if-eq p0, v1, :cond_0
+
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
+.method private isStretchableWhitespace(I)Z
+    .locals 2
+
+    const/4 v0, 0x1
+
+    const/16 v1, 0x20
+
+    if-eq p1, v1, :cond_0
+
+    const/16 v1, 0xa0
+
+    if-ne p1, v1, :cond_1
+
+    :cond_0
+    :goto_0
+    return v0
+
+    :cond_1
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
 .method private measureRun(IIIZLandroid/graphics/Paint$FontMetricsInt;)F
     .locals 12
 
@@ -1643,6 +1850,53 @@
     move-result v0
 
     return v0
+.end method
+
+.method private nextStretchableSpace(II)I
+    .locals 4
+
+    move v1, p1
+
+    :goto_0
+    if-ge v1, p2, :cond_2
+
+    iget-boolean v2, p0, Landroid/text/TextLine;->mCharsValid:Z
+
+    if-eqz v2, :cond_0
+
+    iget-object v2, p0, Landroid/text/TextLine;->mChars:[C
+
+    aget-char v0, v2, v1
+
+    :goto_1
+    invoke-direct {p0, v0}, Landroid/text/TextLine;->isStretchableWhitespace(I)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    return v1
+
+    :cond_0
+    iget-object v2, p0, Landroid/text/TextLine;->mText:Ljava/lang/CharSequence;
+
+    iget v3, p0, Landroid/text/TextLine;->mStart:I
+
+    add-int/2addr v3, v1
+
+    invoke-interface {v2, v3}, Ljava/lang/CharSequence;->charAt(I)C
+
+    move-result v0
+
+    goto :goto_1
+
+    :cond_1
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_0
+
+    :cond_2
+    return p2
 .end method
 
 .method static obtain()Landroid/text/TextLine;
@@ -2117,7 +2371,9 @@
 .end method
 
 .method getOffsetToLeftRightOf(IZ)I
-    .locals 28
+    .locals 29
+
+    const/16 v17, 0x0
 
     move-object/from16 v0, p0
 
@@ -2133,7 +2389,7 @@
 
     if-ne v2, v7, :cond_2
 
-    const/16 v19, 0x1
+    const/16 v20, 0x1
 
     :goto_0
     move-object/from16 v0, p0
@@ -2142,17 +2398,17 @@
 
     iget-object v0, v2, Landroid/text/Layout$Directions;->mDirections:[I
 
-    move-object/from16 v26, v0
+    move-object/from16 v27, v0
 
-    const/16 v25, 0x0
+    const/16 v26, 0x0
 
     const/4 v4, 0x0
 
     move/from16 v5, v16
 
-    const/16 v17, -0x1
+    const/16 v18, -0x1
 
-    const/16 v27, 0x0
+    const/16 v28, 0x0
 
     if-nez p1, :cond_3
 
@@ -2162,7 +2418,7 @@
     :goto_1
     move/from16 v0, p2
 
-    move/from16 v1, v19
+    move/from16 v1, v20
 
     if-ne v0, v1, :cond_f
 
@@ -2178,19 +2434,19 @@
 
     if-ltz v10, :cond_18
 
-    move-object/from16 v0, v26
+    move-object/from16 v0, v27
 
     array-length v2, v0
 
     if-ge v10, v2, :cond_18
 
-    aget v2, v26, v10
+    aget v2, v27, v10
 
     add-int/lit8 v11, v2, 0x0
 
     add-int/lit8 v2, v10, 0x1
 
-    aget v2, v26, v2
+    aget v2, v27, v2
 
     const v7, 0x3ffffff
 
@@ -2207,13 +2463,13 @@
     :cond_1
     add-int/lit8 v2, v10, 0x1
 
-    aget v2, v26, v2
+    aget v2, v27, v2
 
     ushr-int/lit8 v2, v2, 0x1a
 
-    and-int/lit8 v18, v2, 0x3f
+    and-int/lit8 v19, v2, 0x3f
 
-    and-int/lit8 v2, v18, 0x1
+    and-int/lit8 v2, v19, 0x1
 
     if-eqz v2, :cond_11
 
@@ -2229,7 +2485,7 @@
     :goto_5
     const/4 v2, -0x1
 
-    move/from16 v0, v17
+    move/from16 v0, v18
 
     if-ne v0, v2, :cond_15
 
@@ -2244,23 +2500,23 @@
 
     invoke-direct/range {v9 .. v15}, Landroid/text/TextLine;->getOffsetBeforeAfter(IIIZIZ)I
 
-    move-result v17
+    move-result v18
 
     if-eqz v8, :cond_14
 
     :goto_7
-    move/from16 v0, v17
+    move/from16 v0, v18
 
     if-ne v0, v12, :cond_16
 
     move v3, v10
 
-    move/from16 v25, v18
+    move/from16 v26, v19
 
     goto :goto_1
 
     :cond_2
-    const/16 v19, 0x0
+    const/16 v20, 0x0
 
     goto :goto_0
 
@@ -2271,7 +2527,7 @@
 
     if-ne v0, v1, :cond_4
 
-    move-object/from16 v0, v26
+    move-object/from16 v0, v27
 
     array-length v3, v0
 
@@ -2281,13 +2537,13 @@
     const/4 v3, 0x0
 
     :goto_8
-    move-object/from16 v0, v26
+    move-object/from16 v0, v27
 
     array-length v2, v0
 
     if-ge v3, v2, :cond_7
 
-    aget v2, v26, v3
+    aget v2, v27, v3
 
     add-int/lit8 v4, v2, 0x0
 
@@ -2297,7 +2553,7 @@
 
     add-int/lit8 v2, v3, 0x1
 
-    aget v2, v26, v2
+    aget v2, v27, v2
 
     const v7, 0x3ffffff
 
@@ -2318,96 +2574,96 @@
 
     add-int/lit8 v2, v3, 0x1
 
-    aget v2, v26, v2
+    aget v2, v27, v2
 
     ushr-int/lit8 v2, v2, 0x1a
 
-    and-int/lit8 v25, v2, 0x3f
+    and-int/lit8 v26, v2, 0x3f
 
     move/from16 v0, p1
 
     if-ne v0, v4, :cond_7
 
-    add-int/lit8 v20, p1, -0x1
+    add-int/lit8 v21, p1, -0x1
 
-    const/16 v21, 0x0
+    const/16 v22, 0x0
 
     :goto_9
-    move-object/from16 v0, v26
+    move-object/from16 v0, v27
 
     array-length v2, v0
 
-    move/from16 v0, v21
+    move/from16 v0, v22
 
     if-ge v0, v2, :cond_7
 
-    aget v2, v26, v21
+    aget v2, v27, v22
 
-    add-int/lit8 v24, v2, 0x0
+    add-int/lit8 v25, v2, 0x0
 
-    move/from16 v0, v20
+    move/from16 v0, v21
 
-    move/from16 v1, v24
+    move/from16 v1, v25
 
     if-lt v0, v1, :cond_9
 
-    add-int/lit8 v2, v21, 0x1
+    add-int/lit8 v2, v22, 0x1
 
-    aget v2, v26, v2
+    aget v2, v27, v2
 
     const v7, 0x3ffffff
 
     and-int/2addr v2, v7
 
-    add-int v23, v24, v2
+    add-int v24, v25, v2
 
-    move/from16 v0, v23
+    move/from16 v0, v24
 
     move/from16 v1, v16
 
     if-le v0, v1, :cond_6
 
-    move/from16 v23, v16
+    move/from16 v24, v16
 
     :cond_6
-    move/from16 v0, v20
+    move/from16 v0, v21
 
-    move/from16 v1, v23
+    move/from16 v1, v24
 
     if-ge v0, v1, :cond_9
 
-    add-int/lit8 v2, v21, 0x1
+    add-int/lit8 v2, v22, 0x1
 
-    aget v2, v26, v2
+    aget v2, v27, v2
 
     ushr-int/lit8 v2, v2, 0x1a
 
-    and-int/lit8 v22, v2, 0x3f
+    and-int/lit8 v23, v2, 0x3f
 
-    move/from16 v0, v22
+    move/from16 v0, v23
 
-    move/from16 v1, v25
+    move/from16 v1, v26
 
     if-ge v0, v1, :cond_9
 
-    move/from16 v3, v21
+    move/from16 v3, v22
 
-    move/from16 v25, v22
+    move/from16 v26, v23
 
-    move/from16 v4, v24
+    move/from16 v4, v25
 
-    move/from16 v5, v23
+    move/from16 v5, v24
 
-    const/16 v27, 0x1
+    const/16 v28, 0x1
 
     :cond_7
-    move-object/from16 v0, v26
+    move-object/from16 v0, v27
 
     array-length v2, v0
 
     if-eq v3, v2, :cond_0
 
-    and-int/lit8 v2, v25, 0x1
+    and-int/lit8 v2, v26, 0x1
 
     if-eqz v2, :cond_b
 
@@ -2430,7 +2686,7 @@
 
     if-ne v0, v2, :cond_8
 
-    move/from16 v0, v27
+    move/from16 v0, v28
 
     if-eq v8, v0, :cond_0
 
@@ -2441,21 +2697,21 @@
 
     invoke-direct/range {v2 .. v8}, Landroid/text/TextLine;->getOffsetBeforeAfter(IIIZIZ)I
 
-    move-result v17
+    move-result v18
 
     if-eqz v8, :cond_e
 
     move v2, v5
 
     :goto_d
-    move/from16 v0, v17
+    move/from16 v0, v18
 
     if-eq v0, v2, :cond_0
 
-    return v17
+    return v18
 
     :cond_9
-    add-int/lit8 v21, v21, 0x2
+    add-int/lit8 v22, v22, 0x2
 
     goto :goto_9
 
@@ -2515,29 +2771,29 @@
     goto/16 :goto_7
 
     :cond_15
-    move/from16 v0, v18
+    move/from16 v0, v19
 
-    move/from16 v1, v25
+    move/from16 v1, v26
 
     if-ge v0, v1, :cond_16
 
     if-eqz v8, :cond_17
 
-    move/from16 v17, v11
+    move/from16 v18, v11
 
     :cond_16
     :goto_e
-    return v17
+    return v18
 
     :cond_17
-    move/from16 v17, v12
+    move/from16 v18, v12
 
     goto :goto_e
 
     :cond_18
     const/4 v2, -0x1
 
-    move/from16 v0, v17
+    move/from16 v0, v18
 
     if-ne v0, v2, :cond_1a
 
@@ -2547,17 +2803,17 @@
 
     iget v2, v0, Landroid/text/TextLine;->mLen:I
 
-    add-int/lit8 v17, v2, 0x1
+    add-int/lit8 v18, v2, 0x1
 
     goto :goto_e
 
     :cond_19
-    const/16 v17, -0x1
+    const/16 v18, -0x1
 
     goto :goto_e
 
     :cond_1a
-    move/from16 v0, v17
+    move/from16 v0, v18
 
     move/from16 v1, v16
 
@@ -2565,14 +2821,77 @@
 
     if-eqz v8, :cond_1b
 
-    move/from16 v17, v16
+    move/from16 v18, v16
 
     goto :goto_e
 
     :cond_1b
-    const/16 v17, 0x0
+    const/16 v18, 0x0
 
     goto :goto_e
+.end method
+
+.method justify(F)V
+    .locals 6
+
+    const/4 v5, 0x0
+
+    iget v0, p0, Landroid/text/TextLine;->mLen:I
+
+    :goto_0
+    if-lez v0, :cond_0
+
+    iget-object v3, p0, Landroid/text/TextLine;->mText:Ljava/lang/CharSequence;
+
+    iget v4, p0, Landroid/text/TextLine;->mStart:I
+
+    add-int/2addr v4, v0
+
+    add-int/lit8 v4, v4, -0x1
+
+    invoke-interface {v3, v4}, Ljava/lang/CharSequence;->charAt(I)C
+
+    move-result v3
+
+    invoke-static {v3}, Landroid/text/TextLine;->isLineEndSpace(C)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_0
+
+    add-int/lit8 v0, v0, -0x1
+
+    goto :goto_0
+
+    :cond_0
+    invoke-direct {p0, v5, v0}, Landroid/text/TextLine;->countStretchableSpaces(II)I
+
+    move-result v1
+
+    if-nez v1, :cond_1
+
+    return-void
+
+    :cond_1
+    const/4 v3, 0x0
+
+    invoke-virtual {p0, v0, v5, v3}, Landroid/text/TextLine;->measure(IZLandroid/graphics/Paint$FontMetricsInt;)F
+
+    move-result v3
+
+    invoke-static {v3}, Ljava/lang/Math;->abs(F)F
+
+    move-result v2
+
+    sub-float v3, p1, v2
+
+    int-to-float v4, v1
+
+    div-float/2addr v3, v4
+
+    iput v3, p0, Landroid/text/TextLine;->mAddedWidth:F
+
+    return-void
 .end method
 
 .method measure(IZLandroid/graphics/Paint$FontMetricsInt;)F
@@ -3156,6 +3475,10 @@
     move-object/from16 v0, p8
 
     iput-object v0, p0, Landroid/text/TextLine;->mTabs:Landroid/text/Layout$TabStops;
+
+    const/4 v7, 0x0
+
+    iput v7, p0, Landroid/text/TextLine;->mAddedWidth:F
 
     return-void
 .end method

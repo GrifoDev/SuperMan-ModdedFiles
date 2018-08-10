@@ -31,7 +31,7 @@
 
     sget-object v0, Landroid/telecom/AuthenticatorService;->mAuthenticator:Landroid/telecom/AuthenticatorService$Authenticator;
 
-    invoke-virtual {v0}, Landroid/accounts/AbstractAccountAuthenticator;->getIBinder()Landroid/os/IBinder;
+    invoke-virtual {v0}, Landroid/telecom/AuthenticatorService$Authenticator;->getIBinder()Landroid/os/IBinder;
 
     move-result-object v0
 

@@ -2,9 +2,6 @@
 .super Landroid/content/BroadcastReceiver$PendingResult;
 .source "LoadedApk.java"
 
-# interfaces
-.implements Ljava/lang/Runnable;
-
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingClass;
@@ -23,6 +20,8 @@
 .field private mDispatched:Z
 
 .field private final mOrdered:Z
+
+.field private mPreviousRunStacktrace:Ljava/lang/Throwable;
 
 .field final synthetic this$1:Landroid/app/LoadedApk$ReceiverDispatcher;
 
@@ -46,7 +45,7 @@
 
     move-result-object v8
 
-    invoke-virtual {p2}, Landroid/content/Intent;->getBroadcastQueueHint()I
+    invoke-virtual {p2}, Landroid/content/Intent;->getFlags()I
 
     move-result v10
 
@@ -82,7 +81,17 @@
 
 
 # virtual methods
-.method public run()V
+.method public final getRunnable()Ljava/lang/Runnable;
+    .locals 1
+
+    new-instance v0, Landroid/app/-$Lambda$FilBqgnXJrN9Mgyks1XHeAxzSTk;
+
+    invoke-direct {v0, p0}, Landroid/app/-$Lambda$FilBqgnXJrN9Mgyks1XHeAxzSTk;-><init>(Ljava/lang/Object;)V
+
+    return-object v0
+.end method
+
+.method synthetic lambda$-android_app_LoadedApk$ReceiverDispatcher$Args_52226()V
     .locals 12
 
     const-wide/16 v10, 0x40
@@ -95,7 +104,7 @@
 
     iget-boolean v4, p0, Landroid/app/LoadedApk$ReceiverDispatcher$Args;->mOrdered:Z
 
-    invoke-static {}, Landroid/app/ActivityManagerNative;->getDefault()Landroid/app/IActivityManager;
+    invoke-static {}, Landroid/app/ActivityManager;->getService()Landroid/app/IActivityManager;
 
     move-result-object v3
 
@@ -121,6 +130,22 @@
 
     move-result-object v7
 
+    const-string/jumbo v8, ": run() previously called at "
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    iget-object v8, p0, Landroid/app/LoadedApk$ReceiverDispatcher$Args;->mPreviousRunStacktrace:Ljava/lang/Throwable;
+
+    invoke-static {v8}, Landroid/util/Log;->getStackTraceString(Ljava/lang/Throwable;)Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
     invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v7
@@ -133,6 +158,14 @@
     const/4 v6, 0x1
 
     iput-boolean v6, p0, Landroid/app/LoadedApk$ReceiverDispatcher$Args;->mDispatched:Z
+
+    new-instance v6, Ljava/lang/Throwable;
+
+    const-string/jumbo v7, "Previous stacktrace"
+
+    invoke-direct {v6, v7}, Ljava/lang/Throwable;-><init>(Ljava/lang/String;)V
+
+    iput-object v6, p0, Landroid/app/LoadedApk$ReceiverDispatcher$Args;->mPreviousRunStacktrace:Ljava/lang/Throwable;
 
     if-eqz v5, :cond_1
 
@@ -238,7 +271,9 @@
 
     move-result v6
 
-    if-nez v6, :cond_4
+    xor-int/lit8 v6, v6, 0x1
+
+    if-eqz v6, :cond_4
 
     :cond_7
     invoke-static {v10, v11}, Landroid/os/Trace;->traceEnd(J)V

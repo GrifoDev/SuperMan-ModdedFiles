@@ -339,7 +339,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0, v2}, Ljava/nio/Buffer;->position(I)Ljava/nio/Buffer;
+    invoke-virtual {v0, v2}, Ljava/nio/FloatBuffer;->position(I)Ljava/nio/Buffer;
 
     sget-object v0, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer;->sHorizontalFlipTriangleVertices:[F
 
@@ -373,7 +373,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0, v2}, Ljava/nio/Buffer;->position(I)Ljava/nio/Buffer;
+    invoke-virtual {v0, v2}, Ljava/nio/FloatBuffer;->position(I)Ljava/nio/Buffer;
 
     sget-object v0, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer;->sVerticalFlipTriangleVertices:[F
 
@@ -407,7 +407,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0, v2}, Ljava/nio/Buffer;->position(I)Ljava/nio/Buffer;
+    invoke-virtual {v0, v2}, Ljava/nio/FloatBuffer;->position(I)Ljava/nio/Buffer;
 
     sget-object v0, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer;->sBothFlipTriangleVertices:[F
 
@@ -441,7 +441,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0, v2}, Ljava/nio/Buffer;->position(I)Ljava/nio/Buffer;
+    invoke-virtual {v0, v2}, Ljava/nio/FloatBuffer;->position(I)Ljava/nio/Buffer;
 
     iget-object v0, p0, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer;->mSTMatrix:[F
 
@@ -528,6 +528,86 @@
     throw v1
 
     :cond_0
+    return-void
+.end method
+
+.method private checkGlDrawError(Ljava/lang/String;)V
+    .locals 6
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/hardware/camera2/legacy/LegacyExceptionUtils$BufferQueueAbandonedException;
+        }
+    .end annotation
+
+    const/4 v2, 0x0
+
+    const/4 v1, 0x0
+
+    :goto_0
+    invoke-static {}, Landroid/opengl/GLES20;->glGetError()I
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    const/16 v3, 0x505
+
+    if-ne v0, v3, :cond_0
+
+    const/4 v2, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v1, 0x1
+
+    goto :goto_0
+
+    :cond_1
+    if-eqz v1, :cond_2
+
+    new-instance v3, Ljava/lang/IllegalStateException;
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    const-string/jumbo v5, ": GLES20 error: 0x"
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-static {v0}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-direct {v3, v4}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+
+    throw v3
+
+    :cond_2
+    if-eqz v2, :cond_3
+
+    new-instance v3, Landroid/hardware/camera2/legacy/LegacyExceptionUtils$BufferQueueAbandonedException;
+
+    invoke-direct {v3}, Landroid/hardware/camera2/legacy/LegacyExceptionUtils$BufferQueueAbandonedException;-><init>()V
+
+    throw v3
+
+    :cond_3
     return-void
 .end method
 
@@ -1090,6 +1170,11 @@
 
 .method private drawFrame(Landroid/graphics/SurfaceTexture;III)V
     .locals 17
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/hardware/camera2/legacy/LegacyExceptionUtils$BufferQueueAbandonedException;
+        }
+    .end annotation
 
     const-string/jumbo v2, "onDrawFrame start"
 
@@ -1276,7 +1361,7 @@
     :goto_0
     const/4 v2, 0x0
 
-    invoke-virtual {v7, v2}, Ljava/nio/Buffer;->position(I)Ljava/nio/Buffer;
+    invoke-virtual {v7, v2}, Ljava/nio/FloatBuffer;->position(I)Ljava/nio/Buffer;
 
     move-object/from16 v0, p0
 
@@ -1312,7 +1397,7 @@
 
     const/4 v2, 0x3
 
-    invoke-virtual {v7, v2}, Ljava/nio/Buffer;->position(I)Ljava/nio/Buffer;
+    invoke-virtual {v7, v2}, Ljava/nio/FloatBuffer;->position(I)Ljava/nio/Buffer;
 
     move-object/from16 v0, p0
 
@@ -1390,7 +1475,7 @@
 
     move-object/from16 v0, p0
 
-    invoke-direct {v0, v2}, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer;->checkGlError(Ljava/lang/String;)V
+    invoke-direct {v0, v2}, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer;->checkGlDrawError(Ljava/lang/String;)V
 
     return-void
 
@@ -2699,6 +2784,7 @@
 
     invoke-direct {v0, v4}, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer;->makeCurrent(Landroid/opengl/EGLSurface;)V
 
+    :try_start_2
     move-object/from16 v0, p0
 
     iget-object v5, v0, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer;->mSurfaceTexture:Landroid/graphics/SurfaceTexture;
@@ -2719,12 +2805,14 @@
     move-object/from16 v0, p0
 
     invoke-direct {v0, v5, v6, v7, v4}, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer;->drawFrame(Landroid/graphics/SurfaceTexture;III)V
+    :try_end_2
+    .catch Landroid/hardware/camera2/legacy/LegacyExceptionUtils$BufferQueueAbandonedException; {:try_start_2 .. :try_end_2} :catch_3
 
     move-object/from16 v0, p0
 
     iget-object v4, v0, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer;->mPBufferPixels:Ljava/nio/ByteBuffer;
 
-    invoke-virtual {v4}, Ljava/nio/Buffer;->clear()Ljava/nio/Buffer;
+    invoke-virtual {v4}, Ljava/nio/ByteBuffer;->clear()Ljava/nio/Buffer;
 
     iget v6, v15, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer$EGLSurfaceHolder;->width:I
 
@@ -2750,7 +2838,7 @@
 
     invoke-direct {v0, v4}, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer;->checkGlError(Ljava/lang/String;)V
 
-    :try_start_2
+    :try_start_3
     iget-object v4, v15, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer$EGLSurfaceHolder;->surface:Landroid/view/Surface;
 
     invoke-static {v4}, Landroid/hardware/camera2/legacy/LegacyCameraDevice;->detectSurfaceType(Landroid/view/Surface;)I
@@ -2792,8 +2880,8 @@
     iget v7, v15, Landroid/hardware/camera2/legacy/SurfaceTextureRenderer$EGLSurfaceHolder;->height:I
 
     invoke-static {v4, v5, v6, v7, v14}, Landroid/hardware/camera2/legacy/LegacyCameraDevice;->produceFrame(Landroid/view/Surface;[BIII)V
-    :try_end_2
-    .catch Landroid/hardware/camera2/legacy/LegacyExceptionUtils$BufferQueueAbandonedException; {:try_start_2 .. :try_end_2} :catch_2
+    :try_end_3
+    .catch Landroid/hardware/camera2/legacy/LegacyExceptionUtils$BufferQueueAbandonedException; {:try_start_3 .. :try_end_3} :catch_2
 
     goto :goto_3
 
@@ -2814,6 +2902,17 @@
     const/4 v4, 0x2
 
     goto :goto_4
+
+    :catch_3
+    move-exception v13
+
+    new-instance v4, Ljava/lang/IllegalStateException;
+
+    const-string/jumbo v5, "Surface abandoned, skipping drawFrame..."
+
+    invoke-direct {v4, v5, v13}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+
+    throw v4
 
     :cond_c
     invoke-virtual/range {p1 .. p1}, Landroid/hardware/camera2/legacy/CaptureCollector;->previewProduced()Landroid/hardware/camera2/legacy/RequestHolder;

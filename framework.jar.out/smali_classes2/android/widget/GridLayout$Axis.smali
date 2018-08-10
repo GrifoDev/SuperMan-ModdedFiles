@@ -116,19 +116,11 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    xor-int/lit8 v0, v0, 0x1
 
-    const/4 v0, 0x0
-
-    :goto_0
     sput-boolean v0, Landroid/widget/GridLayout$Axis;->-assertionsDisabled:Z
 
     return-void
-
-    :cond_0
-    const/4 v0, 0x1
-
-    goto :goto_0
 .end method
 
 .method private constructor <init>(Landroid/widget/GridLayout;Z)V
@@ -2009,20 +2001,18 @@
     :cond_2
     if-lez v4, :cond_3
 
-    if-eqz v5, :cond_4
+    xor-int/lit8 v6, v5, 0x1
 
-    :cond_3
-    :goto_1
-    return-void
+    if-eqz v6, :cond_3
 
-    :cond_4
     invoke-virtual {p0}, Landroid/widget/GridLayout$Axis;->invalidateValues()V
 
     invoke-direct {p0, v4, v3}, Landroid/widget/GridLayout$Axis;->shareOutDelta(IF)V
 
     invoke-direct {p0, p1}, Landroid/widget/GridLayout$Axis;->solve([I)Z
 
-    goto :goto_1
+    :cond_3
+    return-void
 .end method
 
 .method private topologicalSort(Ljava/util/List;)[Landroid/widget/GridLayout$Arc;

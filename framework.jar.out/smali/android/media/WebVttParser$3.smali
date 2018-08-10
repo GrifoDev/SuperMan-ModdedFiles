@@ -35,19 +35,11 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    xor-int/lit8 v0, v0, 0x1
 
-    const/4 v0, 0x0
-
-    :goto_0
     sput-boolean v0, Landroid/media/WebVttParser$3;->-assertionsDisabled:Z
 
     return-void
-
-    :cond_0
-    const/4 v0, 0x1
-
-    goto :goto_0
 .end method
 
 .method constructor <init>(Landroid/media/WebVttParser;)V
@@ -204,7 +196,7 @@
 
     move/from16 v1, v29
 
-    if-ge v0, v1, :cond_c
+    if-ge v0, v1, :cond_b
 
     aget-object v24, v28, v27
 
@@ -302,7 +294,7 @@
 
     const-string/jumbo v5, "has invalid value"
 
-    invoke-virtual/range {v21 .. v21}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
+    invoke-virtual/range {v21 .. v21}, Ljava/lang/NumberFormatException;->getMessage()Ljava/lang/String;
 
     move-result-object v6
 
@@ -317,7 +309,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_6
+    if-eqz v2, :cond_5
 
     const-string/jumbo v2, ".*[^0-9].*"
 
@@ -357,12 +349,7 @@
 
     iget v2, v0, Landroid/media/TextTrackRegion;->mLines:I
 
-    if-ltz v2, :cond_5
-
-    const/4 v2, 0x1
-
-    :goto_2
-    if-nez v2, :cond_0
+    if-gez v2, :cond_0
 
     new-instance v2, Ljava/lang/AssertionError;
 
@@ -388,18 +375,13 @@
     goto/16 :goto_1
 
     :cond_5
-    const/4 v2, 0x0
-
-    goto :goto_2
-
-    :cond_6
     const-string/jumbo v2, "regionanchor"
 
     invoke-virtual {v4, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-nez v2, :cond_7
+    if-nez v2, :cond_6
 
     const-string/jumbo v2, "viewportanchor"
 
@@ -407,16 +389,16 @@
 
     move-result v2
 
-    if-eqz v2, :cond_a
+    if-eqz v2, :cond_9
 
-    :cond_7
+    :cond_6
     const-string/jumbo v2, ","
 
     invoke-virtual {v7, v2}, Ljava/lang/String;->indexOf(Ljava/lang/String;)I
 
     move-result v20
 
-    if-gez v20, :cond_8
+    if-gez v20, :cond_7
 
     move-object/from16 v0, p0
 
@@ -430,7 +412,7 @@
 
     goto/16 :goto_1
 
-    :cond_8
+    :cond_7
     const/4 v2, 0x0
 
     move/from16 v0, v20
@@ -467,7 +449,7 @@
 
     const/16 v3, 0x72
 
-    if-ne v2, v3, :cond_9
+    if-ne v2, v3, :cond_8
 
     move/from16 v0, v25
 
@@ -494,7 +476,7 @@
 
     const-string/jumbo v11, "has invalid x component"
 
-    invoke-virtual/range {v21 .. v21}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
+    invoke-virtual/range {v21 .. v21}, Ljava/lang/NumberFormatException;->getMessage()Ljava/lang/String;
 
     move-result-object v12
 
@@ -515,7 +497,7 @@
 
     const-string/jumbo v17, "has invalid y component"
 
-    invoke-virtual/range {v21 .. v21}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
+    invoke-virtual/range {v21 .. v21}, Ljava/lang/NumberFormatException;->getMessage()Ljava/lang/String;
 
     move-result-object v18
 
@@ -525,7 +507,7 @@
 
     goto/16 :goto_1
 
-    :cond_9
+    :cond_8
     move/from16 v0, v25
 
     move-object/from16 v1, v23
@@ -540,7 +522,7 @@
 
     goto/16 :goto_1
 
-    :cond_a
+    :cond_9
     const-string/jumbo v2, "scroll"
 
     invoke-virtual {v4, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -555,7 +537,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_b
+    if-eqz v2, :cond_a
 
     const/16 v2, 0x12d
 
@@ -565,7 +547,7 @@
 
     goto/16 :goto_1
 
-    :cond_b
+    :cond_a
     move-object/from16 v0, p0
 
     iget-object v2, v0, Landroid/media/WebVttParser$3;->this$0:Landroid/media/WebVttParser;
@@ -578,6 +560,6 @@
 
     goto/16 :goto_1
 
-    :cond_c
+    :cond_b
     return-object v23
 .end method

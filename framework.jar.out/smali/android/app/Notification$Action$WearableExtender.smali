@@ -24,6 +24,8 @@
 
 .field private static final FLAG_AVAILABLE_OFFLINE:I = 0x1
 
+.field private static final FLAG_HINT_DISPLAY_INLINE:I = 0x4
+
 .field private static final FLAG_HINT_LAUNCHES_ACTIVITY:I = 0x2
 
 .field private static final KEY_CANCEL_LABEL:Ljava/lang/String; = "cancelLabel"
@@ -81,7 +83,7 @@
 
     const-string/jumbo v1, "flags"
 
-    invoke-virtual {v0, v1, v3}, Landroid/os/BaseBundle;->getInt(Ljava/lang/String;I)I
+    invoke-virtual {v0, v1, v3}, Landroid/os/Bundle;->getInt(Ljava/lang/String;I)I
 
     move-result v1
 
@@ -201,7 +203,7 @@
 
     iget v2, p0, Landroid/app/Notification$Action$WearableExtender;->mFlags:I
 
-    invoke-virtual {v0, v1, v2}, Landroid/os/BaseBundle;->putInt(Ljava/lang/String;I)V
+    invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
     :cond_0
     iget-object v1, p0, Landroid/app/Notification$Action$WearableExtender;->mInProgressLabel:Ljava/lang/CharSequence;
@@ -262,6 +264,23 @@
     iget-object v0, p0, Landroid/app/Notification$Action$WearableExtender;->mConfirmLabel:Ljava/lang/CharSequence;
 
     return-object v0
+.end method
+
+.method public getHintDisplayActionInline()Z
+    .locals 2
+
+    const/4 v0, 0x0
+
+    iget v1, p0, Landroid/app/Notification$Action$WearableExtender;->mFlags:I
+
+    and-int/lit8 v1, v1, 0x4
+
+    if-eqz v1, :cond_0
+
+    const/4 v0, 0x1
+
+    :cond_0
+    return v0
 .end method
 
 .method public getHintLaunchesActivity()Z
@@ -328,6 +347,16 @@
     .locals 0
 
     iput-object p1, p0, Landroid/app/Notification$Action$WearableExtender;->mConfirmLabel:Ljava/lang/CharSequence;
+
+    return-object p0
+.end method
+
+.method public setHintDisplayActionInline(Z)Landroid/app/Notification$Action$WearableExtender;
+    .locals 1
+
+    const/4 v0, 0x4
+
+    invoke-direct {p0, v0, p1}, Landroid/app/Notification$Action$WearableExtender;->setFlag(IZ)V
 
     return-object p0
 .end method

@@ -98,6 +98,8 @@
 
 .field public static final SEM_METADATA_KEY_GENRE_ASCII:I = 0x3ee
 
+.field public static final SEM_METADATA_KEY_HDR10_VIDEO:I = 0x403
+
 .field public static final SEM_METADATA_KEY_MULTI_AUDIO_CHANNELS:I = 0x3f4
 
 .field public static final SEM_METADATA_KEY_MULTI_AUDIO_LANGUAGES:I = 0x3f3
@@ -114,9 +116,15 @@
 
 .field public static final SEM_METADATA_KEY_TITLE_ASCII:I = 0x3ef
 
+.field public static final SEM_METADATA_KEY_USER_EDITED_DURAION:I = 0x405
+
+.field public static final SEM_METADATA_KEY_USER_EDITED_DURATION:I = 0x405
+
 .field public static final SEM_METADATA_KEY_VIDEOCODECINFO:I = 0x400
 
 .field public static final SEM_METADATA_KEY_VIDEOSNAPSHOT:I = 0x3f8
+
+.field public static final SEM_METADATA_KEY_VIDEO_BIT_DEPTH:I = 0x404
 
 .field public static final SEM_METADATA_KEY_WEATHER:I = 0x3f6
 

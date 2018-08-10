@@ -34,7 +34,7 @@
 
     if-ne p1, v0, :cond_0
 
-    invoke-virtual {p0}, Landroid/view/View;->clearFocus()V
+    invoke-virtual {p0}, Landroid/widget/NumberPicker$CustomEditText;->clearFocus()V
 
     :cond_0
     return-void

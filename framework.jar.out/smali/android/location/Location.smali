@@ -38,15 +38,21 @@
 
 .field public static final FORMAT_SECONDS:I = 0x2
 
-.field private static final HAS_ACCURACY_MASK:B = 0x8t
+.field private static final HAS_ALTITUDE_MASK:I = 0x1
 
-.field private static final HAS_ALTITUDE_MASK:B = 0x1t
+.field private static final HAS_BEARING_ACCURACY_MASK:I = 0x80
 
-.field private static final HAS_BEARING_MASK:B = 0x4t
+.field private static final HAS_BEARING_MASK:I = 0x4
 
-.field private static final HAS_MOCK_PROVIDER_MASK:B = 0x10t
+.field private static final HAS_HORIZONTAL_ACCURACY_MASK:I = 0x8
 
-.field private static final HAS_SPEED_MASK:B = 0x2t
+.field private static final HAS_MOCK_PROVIDER_MASK:I = 0x10
+
+.field private static final HAS_SPEED_ACCURACY_MASK:I = 0x40
+
+.field private static final HAS_SPEED_MASK:I = 0x2
+
+.field private static final HAS_VERTICAL_ACCURACY_MASK:I = 0x20
 
 .field private static sBearingDistanceCache:Ljava/lang/ThreadLocal;
     .annotation system Ldalvik/annotation/Signature;
@@ -61,17 +67,19 @@
 
 
 # instance fields
-.field private mAccuracy:F
-
 .field private mAltitude:D
 
 .field private mBearing:F
+
+.field private mBearingAccuracyDegrees:F
 
 .field private mElapsedRealtimeNanos:J
 
 .field private mExtras:Landroid/os/Bundle;
 
 .field private mFieldsMask:B
+
+.field private mHorizontalAccuracyMeters:F
 
 .field private mLatitude:D
 
@@ -81,19 +89,15 @@
 
 .field private mSpeed:F
 
+.field private mSpeedAccuracyMetersPerSecond:F
+
 .field private mTime:J
+
+.field private mVerticalAccuracyMeters:F
 
 
 # direct methods
-.method static synthetic -set0(Landroid/location/Location;F)F
-    .locals 0
-
-    iput p1, p0, Landroid/location/Location;->mAccuracy:F
-
-    return p1
-.end method
-
-.method static synthetic -set1(Landroid/location/Location;D)D
+.method static synthetic -set0(Landroid/location/Location;D)D
     .locals 1
 
     iput-wide p1, p0, Landroid/location/Location;->mAltitude:D
@@ -101,10 +105,42 @@
     return-wide p1
 .end method
 
-.method static synthetic -set2(Landroid/location/Location;F)F
+.method static synthetic -set1(Landroid/location/Location;F)F
     .locals 0
 
     iput p1, p0, Landroid/location/Location;->mBearing:F
+
+    return p1
+.end method
+
+.method static synthetic -set10(Landroid/location/Location;F)F
+    .locals 0
+
+    iput p1, p0, Landroid/location/Location;->mSpeedAccuracyMetersPerSecond:F
+
+    return p1
+.end method
+
+.method static synthetic -set11(Landroid/location/Location;J)J
+    .locals 1
+
+    iput-wide p1, p0, Landroid/location/Location;->mTime:J
+
+    return-wide p1
+.end method
+
+.method static synthetic -set12(Landroid/location/Location;F)F
+    .locals 0
+
+    iput p1, p0, Landroid/location/Location;->mVerticalAccuracyMeters:F
+
+    return p1
+.end method
+
+.method static synthetic -set2(Landroid/location/Location;F)F
+    .locals 0
+
+    iput p1, p0, Landroid/location/Location;->mBearingAccuracyDegrees:F
 
     return p1
 .end method
@@ -133,7 +169,15 @@
     return p1
 .end method
 
-.method static synthetic -set6(Landroid/location/Location;D)D
+.method static synthetic -set6(Landroid/location/Location;F)F
+    .locals 0
+
+    iput p1, p0, Landroid/location/Location;->mHorizontalAccuracyMeters:F
+
+    return p1
+.end method
+
+.method static synthetic -set7(Landroid/location/Location;D)D
     .locals 1
 
     iput-wide p1, p0, Landroid/location/Location;->mLatitude:D
@@ -141,7 +185,7 @@
     return-wide p1
 .end method
 
-.method static synthetic -set7(Landroid/location/Location;D)D
+.method static synthetic -set8(Landroid/location/Location;D)D
     .locals 1
 
     iput-wide p1, p0, Landroid/location/Location;->mLongitude:D
@@ -149,20 +193,12 @@
     return-wide p1
 .end method
 
-.method static synthetic -set8(Landroid/location/Location;F)F
+.method static synthetic -set9(Landroid/location/Location;F)F
     .locals 0
 
     iput p1, p0, Landroid/location/Location;->mSpeed:F
 
     return p1
-.end method
-
-.method static synthetic -set9(Landroid/location/Location;J)J
-    .locals 1
-
-    iput-wide p1, p0, Landroid/location/Location;->mTime:J
-
-    return-wide p1
 .end method
 
 .method static constructor <clinit>()V
@@ -188,9 +224,9 @@
 
     const-wide/16 v4, 0x0
 
-    const/4 v2, 0x0
+    const-wide/16 v2, 0x0
 
-    const-wide/16 v0, 0x0
+    const/4 v0, 0x0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -198,17 +234,23 @@
 
     iput-wide v4, p0, Landroid/location/Location;->mElapsedRealtimeNanos:J
 
-    iput-wide v0, p0, Landroid/location/Location;->mLatitude:D
+    iput-wide v2, p0, Landroid/location/Location;->mLatitude:D
 
-    iput-wide v0, p0, Landroid/location/Location;->mLongitude:D
+    iput-wide v2, p0, Landroid/location/Location;->mLongitude:D
 
-    iput-wide v0, p0, Landroid/location/Location;->mAltitude:D
+    iput-wide v2, p0, Landroid/location/Location;->mAltitude:D
 
-    iput v2, p0, Landroid/location/Location;->mSpeed:F
+    iput v0, p0, Landroid/location/Location;->mSpeed:F
 
-    iput v2, p0, Landroid/location/Location;->mBearing:F
+    iput v0, p0, Landroid/location/Location;->mBearing:F
 
-    iput v2, p0, Landroid/location/Location;->mAccuracy:F
+    iput v0, p0, Landroid/location/Location;->mHorizontalAccuracyMeters:F
+
+    iput v0, p0, Landroid/location/Location;->mVerticalAccuracyMeters:F
+
+    iput v0, p0, Landroid/location/Location;->mSpeedAccuracyMetersPerSecond:F
+
+    iput v0, p0, Landroid/location/Location;->mBearingAccuracyDegrees:F
 
     const/4 v0, 0x0
 
@@ -228,9 +270,9 @@
 
     const-wide/16 v4, 0x0
 
-    const/4 v2, 0x0
+    const-wide/16 v2, 0x0
 
-    const-wide/16 v0, 0x0
+    const/4 v0, 0x0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -238,17 +280,23 @@
 
     iput-wide v4, p0, Landroid/location/Location;->mElapsedRealtimeNanos:J
 
-    iput-wide v0, p0, Landroid/location/Location;->mLatitude:D
+    iput-wide v2, p0, Landroid/location/Location;->mLatitude:D
 
-    iput-wide v0, p0, Landroid/location/Location;->mLongitude:D
+    iput-wide v2, p0, Landroid/location/Location;->mLongitude:D
 
-    iput-wide v0, p0, Landroid/location/Location;->mAltitude:D
+    iput-wide v2, p0, Landroid/location/Location;->mAltitude:D
 
-    iput v2, p0, Landroid/location/Location;->mSpeed:F
+    iput v0, p0, Landroid/location/Location;->mSpeed:F
 
-    iput v2, p0, Landroid/location/Location;->mBearing:F
+    iput v0, p0, Landroid/location/Location;->mBearing:F
 
-    iput v2, p0, Landroid/location/Location;->mAccuracy:F
+    iput v0, p0, Landroid/location/Location;->mHorizontalAccuracyMeters:F
+
+    iput v0, p0, Landroid/location/Location;->mVerticalAccuracyMeters:F
+
+    iput v0, p0, Landroid/location/Location;->mSpeedAccuracyMetersPerSecond:F
+
+    iput v0, p0, Landroid/location/Location;->mBearingAccuracyDegrees:F
 
     const/4 v0, 0x0
 
@@ -264,477 +312,479 @@
 .end method
 
 .method private static computeDistanceAndBearing(DDDDLandroid/location/Location$BearingDistanceCache;)V
-    .locals 82
+    .locals 88
 
-    const-wide v70, 0x3f91df46a2529d39L    # 0.017453292519943295
+    const/16 v12, 0x14
 
-    mul-double p0, p0, v70
+    const-wide v76, 0x3f91df46a2529d39L    # 0.017453292519943295
 
-    const-wide v70, 0x3f91df46a2529d39L    # 0.017453292519943295
+    mul-double p0, p0, v76
 
-    mul-double p4, p4, v70
+    const-wide v76, 0x3f91df46a2529d39L    # 0.017453292519943295
 
-    const-wide v70, 0x3f91df46a2529d39L    # 0.017453292519943295
+    mul-double p4, p4, v76
 
-    mul-double p2, p2, v70
+    const-wide v76, 0x3f91df46a2529d39L    # 0.017453292519943295
 
-    const-wide v70, 0x3f91df46a2529d39L    # 0.017453292519943295
+    mul-double p2, p2, v76
 
-    mul-double p6, p6, v70
+    const-wide v76, 0x3f91df46a2529d39L    # 0.017453292519943295
 
-    const-wide v70, 0x40d4e22be425af00L    # 21384.685800000094
+    mul-double p6, p6, v76
 
-    const-wide v72, 0x415854a640000000L    # 6378137.0
+    const-wide v18, 0x415854a640000000L    # 6378137.0
 
-    div-double v40, v70, v72
+    const-wide v22, 0x41583fc4141bda51L    # 6356752.3142
 
-    const-wide v70, 0x42c27fd94c2fb880L    # 4.0680631590769E13
+    const-wide v76, 0x40d4e22be425af00L    # 21384.685800000094
 
-    const-wide v72, 0x42c260252eea6b87L    # 4.0408299984087055E13
+    const-wide v78, 0x415854a640000000L    # 6378137.0
 
-    sub-double v70, v70, v72
+    div-double v44, v76, v78
 
-    const-wide v72, 0x42c260252eea6b87L    # 4.0408299984087055E13
+    const-wide v76, 0x42c27fd94c2fb880L    # 4.0680631590769E13
 
-    div-double v16, v70, v72
+    const-wide v78, 0x42c260252eea6b87L    # 4.0408299984087055E13
+
+    sub-double v76, v76, v78
+
+    const-wide v78, 0x42c260252eea6b87L    # 4.0408299984087055E13
+
+    div-double v20, v76, v78
 
     sub-double v10, p6, p2
 
     const-wide/16 v4, 0x0
 
-    const-wide/high16 v70, 0x3ff0000000000000L    # 1.0
+    const-wide/high16 v76, 0x3ff0000000000000L    # 1.0
 
-    sub-double v70, v70, v40
+    sub-double v76, v76, v44
 
     invoke-static/range {p0 .. p1}, Ljava/lang/Math;->tan(D)D
 
-    move-result-wide v72
+    move-result-wide v78
 
-    mul-double v70, v70, v72
+    mul-double v76, v76, v78
 
-    invoke-static/range {v70 .. v71}, Ljava/lang/Math;->atan(D)D
-
-    move-result-wide v12
-
-    const-wide/high16 v70, 0x3ff0000000000000L    # 1.0
-
-    sub-double v70, v70, v40
-
-    invoke-static/range {p4 .. p5}, Ljava/lang/Math;->tan(D)D
-
-    move-result-wide v72
-
-    mul-double v70, v70, v72
-
-    invoke-static/range {v70 .. v71}, Ljava/lang/Math;->atan(D)D
+    invoke-static/range {v76 .. v77}, Ljava/lang/Math;->atan(D)D
 
     move-result-wide v14
 
-    invoke-static {v12, v13}, Ljava/lang/Math;->cos(D)D
+    const-wide/high16 v76, 0x3ff0000000000000L    # 1.0
 
-    move-result-wide v28
+    sub-double v76, v76, v44
+
+    invoke-static/range {p4 .. p5}, Ljava/lang/Math;->tan(D)D
+
+    move-result-wide v78
+
+    mul-double v76, v76, v78
+
+    invoke-static/range {v76 .. v77}, Ljava/lang/Math;->atan(D)D
+
+    move-result-wide v16
 
     invoke-static {v14, v15}, Ljava/lang/Math;->cos(D)D
 
-    move-result-wide v32
+    move-result-wide v34
 
-    invoke-static {v12, v13}, Ljava/lang/Math;->sin(D)D
+    invoke-static/range {v16 .. v17}, Ljava/lang/Math;->cos(D)D
 
-    move-result-wide v58
+    move-result-wide v38
 
     invoke-static {v14, v15}, Ljava/lang/Math;->sin(D)D
 
-    move-result-wide v62
+    move-result-wide v64
 
-    mul-double v30, v28, v32
+    invoke-static/range {v16 .. v17}, Ljava/lang/Math;->sin(D)D
 
-    mul-double v60, v58, v62
+    move-result-wide v68
 
-    const-wide/16 v48, 0x0
+    mul-double v36, v34, v38
 
-    const-wide/16 v36, 0x0
-
-    const-wide/16 v26, 0x0
-
-    const-wide/16 v18, 0x0
-
-    const-wide/16 v24, 0x0
+    mul-double v66, v64, v68
 
     const-wide/16 v54, 0x0
 
-    const-wide/16 v22, 0x0
+    const-wide/16 v42, 0x0
 
-    const-wide/16 v52, 0x0
+    const-wide/16 v32, 0x0
 
-    move-wide/from16 v44, v10
+    const-wide/16 v24, 0x0
 
-    const/16 v43, 0x0
+    const-wide/16 v30, 0x0
+
+    const-wide/16 v60, 0x0
+
+    const-wide/16 v28, 0x0
+
+    const-wide/16 v58, 0x0
+
+    move-wide/from16 v50, v10
+
+    const/16 v48, 0x0
 
     :goto_0
-    const/16 v70, 0x14
+    const/16 v49, 0x14
 
-    move/from16 v0, v43
+    move/from16 v0, v48
 
-    move/from16 v1, v70
+    move/from16 v1, v49
 
     if-ge v0, v1, :cond_0
 
-    move-wide/from16 v46, v44
+    move-wide/from16 v52, v50
 
-    invoke-static/range {v44 .. v45}, Ljava/lang/Math;->cos(D)D
+    invoke-static/range {v50 .. v51}, Ljava/lang/Math;->cos(D)D
 
-    move-result-wide v22
+    move-result-wide v28
 
-    invoke-static/range {v44 .. v45}, Ljava/lang/Math;->sin(D)D
+    invoke-static/range {v50 .. v51}, Ljava/lang/Math;->sin(D)D
 
-    move-result-wide v52
+    move-result-wide v58
 
-    mul-double v64, v32, v52
+    mul-double v70, v38, v58
 
-    mul-double v70, v28, v62
+    mul-double v76, v34, v68
 
-    mul-double v72, v58, v32
+    mul-double v78, v64, v38
 
-    mul-double v72, v72, v22
+    mul-double v78, v78, v28
 
-    sub-double v66, v70, v72
+    sub-double v72, v76, v78
 
-    mul-double v70, v64, v64
+    mul-double v76, v70, v70
 
-    mul-double v72, v66, v66
+    mul-double v78, v72, v72
 
-    add-double v56, v70, v72
+    add-double v62, v76, v78
 
-    invoke-static/range {v56 .. v57}, Ljava/lang/Math;->sqrt(D)D
+    invoke-static/range {v62 .. v63}, Ljava/lang/Math;->sqrt(D)D
 
-    move-result-wide v54
+    move-result-wide v60
 
-    mul-double v70, v30, v22
+    mul-double v76, v36, v28
 
-    add-double v24, v60, v70
+    add-double v30, v66, v76
 
-    move-wide/from16 v0, v54
+    move-wide/from16 v0, v60
 
-    move-wide/from16 v2, v24
+    move-wide/from16 v2, v30
 
     invoke-static {v0, v1, v2, v3}, Ljava/lang/Math;->atan2(DD)D
 
-    move-result-wide v48
+    move-result-wide v54
 
-    const-wide/16 v70, 0x0
+    const-wide/16 v76, 0x0
 
-    cmpl-double v70, v54, v70
+    cmpl-double v49, v60, v76
 
-    if-nez v70, :cond_1
+    if-nez v49, :cond_1
 
-    const-wide/16 v50, 0x0
+    const-wide/16 v56, 0x0
 
     :goto_1
-    mul-double v70, v50, v50
+    mul-double v76, v56, v56
 
-    const-wide/high16 v72, 0x3ff0000000000000L    # 1.0
+    const-wide/high16 v78, 0x3ff0000000000000L    # 1.0
 
-    sub-double v26, v72, v70
+    sub-double v32, v78, v76
 
-    const-wide/16 v70, 0x0
+    const-wide/16 v76, 0x0
 
-    cmpl-double v70, v26, v70
+    cmpl-double v49, v32, v76
 
-    if-nez v70, :cond_2
+    if-nez v49, :cond_2
 
-    const-wide/16 v18, 0x0
+    const-wide/16 v24, 0x0
 
     :goto_2
-    mul-double v68, v26, v16
+    mul-double v74, v32, v20
 
-    const-wide/high16 v70, 0x40d0000000000000L    # 16384.0
+    const-wide/high16 v76, 0x40d0000000000000L    # 16384.0
 
-    div-double v70, v68, v70
+    div-double v76, v74, v76
 
-    const-wide v72, 0x4065e00000000000L    # 175.0
+    const-wide v78, 0x4065e00000000000L    # 175.0
 
-    mul-double v72, v72, v68
+    mul-double v78, v78, v74
 
-    const-wide/high16 v74, 0x4074000000000000L    # 320.0
+    const-wide/high16 v80, 0x4074000000000000L    # 320.0
 
-    sub-double v72, v74, v72
+    sub-double v78, v80, v78
 
-    mul-double v72, v72, v68
+    mul-double v78, v78, v74
 
-    const-wide/high16 v74, -0x3f78000000000000L    # -768.0
+    const-wide/high16 v80, -0x3f78000000000000L    # -768.0
 
-    add-double v72, v72, v74
+    add-double v78, v78, v80
 
-    mul-double v72, v72, v68
+    mul-double v78, v78, v74
 
-    const-wide/high16 v74, 0x40b0000000000000L    # 4096.0
-
-    add-double v72, v72, v74
-
-    mul-double v70, v70, v72
-
-    const-wide/high16 v72, 0x3ff0000000000000L    # 1.0
-
-    add-double v4, v72, v70
-
-    const-wide/high16 v70, 0x4090000000000000L    # 1024.0
-
-    div-double v70, v68, v70
-
-    const-wide v72, 0x4047800000000000L    # 47.0
-
-    mul-double v72, v72, v68
-
-    const-wide v74, 0x4052800000000000L    # 74.0
-
-    sub-double v72, v74, v72
-
-    mul-double v72, v72, v68
-
-    const-wide/high16 v74, -0x3fa0000000000000L    # -128.0
-
-    add-double v72, v72, v74
-
-    mul-double v72, v72, v68
-
-    const-wide/high16 v74, 0x4070000000000000L    # 256.0
-
-    add-double v72, v72, v74
-
-    mul-double v6, v70, v72
-
-    const-wide/high16 v70, 0x4030000000000000L    # 16.0
-
-    div-double v70, v40, v70
-
-    mul-double v70, v70, v26
-
-    const-wide/high16 v72, 0x4008000000000000L    # 3.0
-
-    mul-double v72, v72, v26
-
-    const-wide/high16 v74, 0x4010000000000000L    # 4.0
-
-    sub-double v72, v74, v72
-
-    mul-double v72, v72, v40
-
-    const-wide/high16 v74, 0x4010000000000000L    # 4.0
-
-    add-double v72, v72, v74
-
-    mul-double v8, v70, v72
-
-    mul-double v20, v18, v18
-
-    mul-double v70, v6, v54
-
-    const-wide/high16 v72, 0x4010000000000000L    # 4.0
-
-    div-double v72, v6, v72
-
-    const-wide/high16 v74, 0x4000000000000000L    # 2.0
-
-    mul-double v74, v74, v20
-
-    const-wide/high16 v76, -0x4010000000000000L    # -1.0
-
-    add-double v74, v74, v76
-
-    mul-double v74, v74, v24
-
-    const-wide/high16 v76, 0x4018000000000000L    # 6.0
-
-    div-double v76, v6, v76
-
-    mul-double v76, v76, v18
-
-    const-wide/high16 v78, 0x4010000000000000L    # 4.0
-
-    mul-double v78, v78, v54
-
-    mul-double v78, v78, v54
-
-    const-wide/high16 v80, -0x3ff8000000000000L    # -3.0
+    const-wide/high16 v80, 0x40b0000000000000L    # 4096.0
 
     add-double v78, v78, v80
 
     mul-double v76, v76, v78
 
-    const-wide/high16 v78, 0x4010000000000000L    # 4.0
+    const-wide/high16 v78, 0x3ff0000000000000L    # 1.0
 
-    mul-double v78, v78, v20
+    add-double v4, v78, v76
 
-    const-wide/high16 v80, -0x3ff8000000000000L    # -3.0
+    const-wide/high16 v76, 0x4090000000000000L    # 1024.0
+
+    div-double v76, v74, v76
+
+    const-wide v78, 0x4047800000000000L    # 47.0
+
+    mul-double v78, v78, v74
+
+    const-wide v80, 0x4052800000000000L    # 74.0
+
+    sub-double v78, v80, v78
+
+    mul-double v78, v78, v74
+
+    const-wide/high16 v80, -0x3fa0000000000000L    # -128.0
 
     add-double v78, v78, v80
 
+    mul-double v78, v78, v74
+
+    const-wide/high16 v80, 0x4070000000000000L    # 256.0
+
+    add-double v78, v78, v80
+
+    mul-double v6, v76, v78
+
+    const-wide/high16 v76, 0x4030000000000000L    # 16.0
+
+    div-double v76, v44, v76
+
+    mul-double v76, v76, v32
+
+    const-wide/high16 v78, 0x4008000000000000L    # 3.0
+
+    mul-double v78, v78, v32
+
+    const-wide/high16 v80, 0x4010000000000000L    # 4.0
+
+    sub-double v78, v80, v78
+
+    mul-double v78, v78, v44
+
+    const-wide/high16 v80, 0x4010000000000000L    # 4.0
+
+    add-double v78, v78, v80
+
+    mul-double v8, v76, v78
+
+    mul-double v26, v24, v24
+
+    mul-double v76, v6, v60
+
+    const-wide/high16 v78, 0x4010000000000000L    # 4.0
+
+    div-double v78, v6, v78
+
+    const-wide/high16 v80, 0x4000000000000000L    # 2.0
+
+    mul-double v80, v80, v26
+
+    const-wide/high16 v82, -0x4010000000000000L    # -1.0
+
+    add-double v80, v80, v82
+
+    mul-double v80, v80, v30
+
+    const-wide/high16 v82, 0x4018000000000000L    # 6.0
+
+    div-double v82, v6, v82
+
+    mul-double v82, v82, v24
+
+    const-wide/high16 v84, 0x4010000000000000L    # 4.0
+
+    mul-double v84, v84, v60
+
+    mul-double v84, v84, v60
+
+    const-wide/high16 v86, -0x3ff8000000000000L    # -3.0
+
+    add-double v84, v84, v86
+
+    mul-double v82, v82, v84
+
+    const-wide/high16 v84, 0x4010000000000000L    # 4.0
+
+    mul-double v84, v84, v26
+
+    const-wide/high16 v86, -0x3ff8000000000000L    # -3.0
+
+    add-double v84, v84, v86
+
+    mul-double v82, v82, v84
+
+    sub-double v80, v80, v82
+
+    mul-double v78, v78, v80
+
+    add-double v78, v78, v24
+
+    mul-double v42, v76, v78
+
+    const-wide/high16 v76, 0x3ff0000000000000L    # 1.0
+
+    sub-double v76, v76, v8
+
+    mul-double v76, v76, v44
+
+    mul-double v76, v76, v56
+
+    mul-double v78, v8, v60
+
+    mul-double v80, v8, v30
+
+    const-wide/high16 v82, 0x4000000000000000L    # 2.0
+
+    mul-double v82, v82, v24
+
+    mul-double v82, v82, v24
+
+    const-wide/high16 v84, -0x4010000000000000L    # -1.0
+
+    add-double v82, v82, v84
+
+    mul-double v80, v80, v82
+
+    add-double v80, v80, v24
+
+    mul-double v78, v78, v80
+
+    add-double v78, v78, v54
+
     mul-double v76, v76, v78
 
-    sub-double v74, v74, v76
+    add-double v50, v10, v76
 
-    mul-double v72, v72, v74
+    sub-double v76, v50, v52
 
-    add-double v72, v72, v18
+    div-double v40, v76, v50
 
-    mul-double v36, v70, v72
+    invoke-static/range {v40 .. v41}, Ljava/lang/Math;->abs(D)D
 
-    const-wide/high16 v70, 0x3ff0000000000000L    # 1.0
+    move-result-wide v76
 
-    sub-double v70, v70, v8
+    const-wide v78, 0x3d719799812dea11L    # 1.0E-12
 
-    mul-double v70, v70, v40
+    cmpg-double v49, v76, v78
 
-    mul-double v70, v70, v50
-
-    mul-double v72, v8, v54
-
-    mul-double v74, v8, v24
-
-    const-wide/high16 v76, 0x4000000000000000L    # 2.0
-
-    mul-double v76, v76, v18
-
-    mul-double v76, v76, v18
-
-    const-wide/high16 v78, -0x4010000000000000L    # -1.0
-
-    add-double v76, v76, v78
-
-    mul-double v74, v74, v76
-
-    add-double v74, v74, v18
-
-    mul-double v72, v72, v74
-
-    add-double v72, v72, v48
-
-    mul-double v70, v70, v72
-
-    add-double v44, v10, v70
-
-    sub-double v70, v44, v46
-
-    div-double v34, v70, v44
-
-    invoke-static/range {v34 .. v35}, Ljava/lang/Math;->abs(D)D
-
-    move-result-wide v70
-
-    const-wide v72, 0x3d719799812dea11L    # 1.0E-12
-
-    cmpg-double v70, v70, v72
-
-    if-gez v70, :cond_3
+    if-gez v49, :cond_3
 
     :cond_0
-    const-wide v70, 0x41583fc4141bda51L    # 6356752.3142
+    const-wide v76, 0x41583fc4141bda51L    # 6356752.3142
 
-    mul-double v70, v70, v4
+    mul-double v76, v76, v4
 
-    sub-double v72, v48, v36
+    sub-double v78, v54, v42
 
-    mul-double v70, v70, v72
+    mul-double v76, v76, v78
 
-    move-wide/from16 v0, v70
+    move-wide/from16 v0, v76
 
-    double-to-float v0, v0
-
-    move/from16 v38, v0
+    double-to-float v13, v0
 
     move-object/from16 v0, p8
 
-    move/from16 v1, v38
+    invoke-static {v0, v13}, Landroid/location/Location$BearingDistanceCache;->-set0(Landroid/location/Location$BearingDistanceCache;F)F
 
-    invoke-static {v0, v1}, Landroid/location/Location$BearingDistanceCache;->-set0(Landroid/location/Location$BearingDistanceCache;F)F
+    mul-double v76, v38, v58
 
-    mul-double v70, v32, v52
+    mul-double v78, v34, v68
 
-    mul-double v72, v28, v62
+    mul-double v80, v64, v38
 
-    mul-double v74, v58, v32
+    mul-double v80, v80, v28
 
-    mul-double v74, v74, v22
+    sub-double v78, v78, v80
 
-    sub-double v72, v72, v74
+    invoke-static/range {v76 .. v79}, Ljava/lang/Math;->atan2(DD)D
 
-    invoke-static/range {v70 .. v73}, Ljava/lang/Math;->atan2(DD)D
+    move-result-wide v76
 
-    move-result-wide v70
-
-    move-wide/from16 v0, v70
+    move-wide/from16 v0, v76
 
     double-to-float v0, v0
 
-    move/from16 v42, v0
+    move/from16 v47, v0
 
-    move/from16 v0, v42
+    move/from16 v0, v47
 
     float-to-double v0, v0
 
-    move-wide/from16 v70, v0
+    move-wide/from16 v76, v0
 
-    const-wide v72, 0x404ca5dc1a63c1f8L    # 57.29577951308232
+    const-wide v78, 0x404ca5dc1a63c1f8L    # 57.29577951308232
 
-    mul-double v70, v70, v72
+    mul-double v76, v76, v78
 
-    move-wide/from16 v0, v70
+    move-wide/from16 v0, v76
 
     double-to-float v0, v0
 
-    move/from16 v42, v0
+    move/from16 v47, v0
 
     move-object/from16 v0, p8
 
-    move/from16 v1, v42
+    move/from16 v1, v47
 
     invoke-static {v0, v1}, Landroid/location/Location$BearingDistanceCache;->-set2(Landroid/location/Location$BearingDistanceCache;F)F
 
-    mul-double v70, v28, v52
+    mul-double v76, v34, v58
 
-    move-wide/from16 v0, v58
+    move-wide/from16 v0, v64
 
     neg-double v0, v0
 
-    move-wide/from16 v72, v0
+    move-wide/from16 v78, v0
 
-    mul-double v72, v72, v32
+    mul-double v78, v78, v38
 
-    mul-double v74, v28, v62
+    mul-double v80, v34, v68
 
-    mul-double v74, v74, v22
+    mul-double v80, v80, v28
 
-    add-double v72, v72, v74
+    add-double v78, v78, v80
 
-    invoke-static/range {v70 .. v73}, Ljava/lang/Math;->atan2(DD)D
+    invoke-static/range {v76 .. v79}, Ljava/lang/Math;->atan2(DD)D
 
-    move-result-wide v70
+    move-result-wide v76
 
-    move-wide/from16 v0, v70
+    move-wide/from16 v0, v76
 
     double-to-float v0, v0
 
-    move/from16 v39, v0
+    move/from16 v46, v0
 
-    move/from16 v0, v39
+    move/from16 v0, v46
 
     float-to-double v0, v0
 
-    move-wide/from16 v70, v0
+    move-wide/from16 v76, v0
 
-    const-wide v72, 0x404ca5dc1a63c1f8L    # 57.29577951308232
+    const-wide v78, 0x404ca5dc1a63c1f8L    # 57.29577951308232
 
-    mul-double v70, v70, v72
+    mul-double v76, v76, v78
 
-    move-wide/from16 v0, v70
+    move-wide/from16 v0, v76
 
     double-to-float v0, v0
 
-    move/from16 v39, v0
+    move/from16 v46, v0
 
     move-object/from16 v0, p8
 
-    move/from16 v1, v39
+    move/from16 v1, v46
 
     invoke-static {v0, v1}, Landroid/location/Location$BearingDistanceCache;->-set1(Landroid/location/Location$BearingDistanceCache;F)F
 
@@ -765,25 +815,25 @@
     return-void
 
     :cond_1
-    mul-double v70, v30, v52
+    mul-double v76, v36, v58
 
-    div-double v50, v70, v54
+    div-double v56, v76, v60
 
     goto/16 :goto_1
 
     :cond_2
-    const-wide/high16 v70, 0x4000000000000000L    # 2.0
+    const-wide/high16 v76, 0x4000000000000000L    # 2.0
 
-    mul-double v70, v70, v60
+    mul-double v76, v76, v66
 
-    div-double v70, v70, v26
+    div-double v76, v76, v32
 
-    sub-double v18, v24, v70
+    sub-double v24, v30, v76
 
     goto/16 :goto_2
 
     :cond_3
-    add-int/lit8 v43, v43, 0x1
+    add-int/lit8 v48, v48, 0x1
 
     goto/16 :goto_0
 .end method
@@ -927,7 +977,7 @@
 
     move-result v18
 
-    if-eqz v18, :cond_7
+    if-eqz v18, :cond_6
 
     invoke-static {v5}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
@@ -948,25 +998,25 @@
     const/4 v12, 0x1
 
     :goto_0
-    if-eqz v8, :cond_9
+    if-eqz v8, :cond_8
 
     const/16 v18, 0xb4
 
     move/from16 v0, v18
 
-    if-ne v2, v0, :cond_9
+    if-ne v2, v0, :cond_8
 
     const-wide/16 v18, 0x0
 
     cmpl-double v18, v6, v18
 
-    if-nez v18, :cond_9
+    if-nez v18, :cond_8
 
     const-wide/16 v18, 0x0
 
     cmpl-double v18, v10, v18
 
-    if-nez v18, :cond_8
+    if-nez v18, :cond_7
 
     const/4 v4, 0x1
 
@@ -979,30 +1029,19 @@
 
     cmpg-double v18, v18, v20
 
-    if-ltz v18, :cond_a
+    if-ltz v18, :cond_5
 
     const/16 v18, 0xb3
 
     move/from16 v0, v18
 
-    if-le v2, v0, :cond_5
+    if-le v2, v0, :cond_9
 
-    if-eqz v4, :cond_a
+    xor-int/lit8 v18, v4, 0x1
+
+    if-eqz v18, :cond_9
 
     :cond_5
-    const-wide/16 v18, 0x0
-
-    cmpg-double v18, v6, v18
-
-    if-ltz v18, :cond_6
-
-    const-wide/high16 v18, 0x404e000000000000L    # 60.0
-
-    cmpl-double v18, v6, v18
-
-    if-ltz v18, :cond_b
-
-    :cond_6
     new-instance v18, Ljava/lang/IllegalArgumentException;
 
     new-instance v19, Ljava/lang/StringBuilder;
@@ -1064,7 +1103,7 @@
 
     throw v18
 
-    :cond_7
+    :cond_6
     :try_start_1
     invoke-static {v5}, Ljava/lang/Double;->parseDouble(Ljava/lang/String;)D
 
@@ -1072,15 +1111,28 @@
 
     goto :goto_0
 
+    :cond_7
+    const/4 v4, 0x0
+
+    goto :goto_1
+
     :cond_8
     const/4 v4, 0x0
 
     goto :goto_1
 
     :cond_9
-    const/4 v4, 0x0
+    const-wide/16 v18, 0x0
 
-    goto :goto_1
+    cmpg-double v18, v6, v18
+
+    if-ltz v18, :cond_a
+
+    const-wide/high16 v18, 0x404e000000000000L    # 60.0
+
+    cmpl-double v18, v6, v18
+
+    if-ltz v18, :cond_b
 
     :cond_a
     new-instance v18, Ljava/lang/IllegalArgumentException;
@@ -1118,7 +1170,7 @@
 
     cmpl-double v18, v6, v18
 
-    if-gtz v18, :cond_6
+    if-gtz v18, :cond_a
 
     :cond_c
     const-wide/16 v18, 0x0
@@ -1633,7 +1685,7 @@
 .method public getAccuracy()F
     .locals 1
 
-    iget v0, p0, Landroid/location/Location;->mAccuracy:F
+    iget v0, p0, Landroid/location/Location;->mHorizontalAccuracyMeters:F
 
     return v0
 .end method
@@ -1650,6 +1702,14 @@
     .locals 1
 
     iget v0, p0, Landroid/location/Location;->mBearing:F
+
+    return v0
+.end method
+
+.method public getBearingAccuracyDegrees()F
+    .locals 1
+
+    iget v0, p0, Landroid/location/Location;->mBearingAccuracyDegrees:F
 
     return v0
 .end method
@@ -1729,12 +1789,28 @@
     return v0
 .end method
 
+.method public getSpeedAccuracyMetersPerSecond()F
+    .locals 1
+
+    iget v0, p0, Landroid/location/Location;->mSpeedAccuracyMetersPerSecond:F
+
+    return v0
+.end method
+
 .method public getTime()J
     .locals 2
 
     iget-wide v0, p0, Landroid/location/Location;->mTime:J
 
     return-wide v0
+.end method
+
+.method public getVerticalAccuracyMeters()F
+    .locals 1
+
+    iget v0, p0, Landroid/location/Location;->mVerticalAccuracyMeters:F
+
+    return v0
 .end method
 
 .method public hasAccuracy()Z
@@ -1788,6 +1864,23 @@
     return v0
 .end method
 
+.method public hasBearingAccuracy()Z
+    .locals 2
+
+    const/4 v0, 0x0
+
+    iget-byte v1, p0, Landroid/location/Location;->mFieldsMask:B
+
+    and-int/lit16 v1, v1, 0x80
+
+    if-eqz v1, :cond_0
+
+    const/4 v0, 0x1
+
+    :cond_0
+    return v0
+.end method
+
 .method public hasSpeed()Z
     .locals 2
 
@@ -1796,6 +1889,40 @@
     iget-byte v1, p0, Landroid/location/Location;->mFieldsMask:B
 
     and-int/lit8 v1, v1, 0x2
+
+    if-eqz v1, :cond_0
+
+    const/4 v0, 0x1
+
+    :cond_0
+    return v0
+.end method
+
+.method public hasSpeedAccuracy()Z
+    .locals 2
+
+    const/4 v0, 0x0
+
+    iget-byte v1, p0, Landroid/location/Location;->mFieldsMask:B
+
+    and-int/lit8 v1, v1, 0x40
+
+    if-eqz v1, :cond_0
+
+    const/4 v0, 0x1
+
+    :cond_0
+    return v0
+.end method
+
+.method public hasVerticalAccuracy()Z
+    .locals 2
+
+    const/4 v0, 0x0
+
+    iget-byte v1, p0, Landroid/location/Location;->mFieldsMask:B
+
+    and-int/lit8 v1, v1, 0x20
 
     if-eqz v1, :cond_0
 
@@ -1898,7 +2025,7 @@
 
     const/high16 v0, 0x42c80000    # 100.0f
 
-    iput v0, p0, Landroid/location/Location;->mAccuracy:F
+    iput v0, p0, Landroid/location/Location;->mHorizontalAccuracyMeters:F
 
     :cond_1
     iget-wide v0, p0, Landroid/location/Location;->mTime:J
@@ -1932,10 +2059,12 @@
 
 .method public removeAccuracy()V
     .locals 1
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 
     const/4 v0, 0x0
 
-    iput v0, p0, Landroid/location/Location;->mAccuracy:F
+    iput v0, p0, Landroid/location/Location;->mHorizontalAccuracyMeters:F
 
     iget-byte v0, p0, Landroid/location/Location;->mFieldsMask:B
 
@@ -1950,6 +2079,8 @@
 
 .method public removeAltitude()V
     .locals 2
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 
     const-wide/16 v0, 0x0
 
@@ -1968,6 +2099,8 @@
 
 .method public removeBearing()V
     .locals 1
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 
     const/4 v0, 0x0
 
@@ -1984,8 +2117,30 @@
     return-void
 .end method
 
+.method public removeBearingAccuracy()V
+    .locals 1
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+
+    const/4 v0, 0x0
+
+    iput v0, p0, Landroid/location/Location;->mBearingAccuracyDegrees:F
+
+    iget-byte v0, p0, Landroid/location/Location;->mFieldsMask:B
+
+    and-int/lit16 v0, v0, -0x81
+
+    int-to-byte v0, v0
+
+    iput-byte v0, p0, Landroid/location/Location;->mFieldsMask:B
+
+    return-void
+.end method
+
 .method public removeSpeed()V
     .locals 1
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 
     const/4 v0, 0x0
 
@@ -2002,6 +2157,46 @@
     return-void
 .end method
 
+.method public removeSpeedAccuracy()V
+    .locals 1
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+
+    const/4 v0, 0x0
+
+    iput v0, p0, Landroid/location/Location;->mSpeedAccuracyMetersPerSecond:F
+
+    iget-byte v0, p0, Landroid/location/Location;->mFieldsMask:B
+
+    and-int/lit8 v0, v0, -0x41
+
+    int-to-byte v0, v0
+
+    iput-byte v0, p0, Landroid/location/Location;->mFieldsMask:B
+
+    return-void
+.end method
+
+.method public removeVerticalAccuracy()V
+    .locals 1
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+
+    const/4 v0, 0x0
+
+    iput v0, p0, Landroid/location/Location;->mVerticalAccuracyMeters:F
+
+    iget-byte v0, p0, Landroid/location/Location;->mFieldsMask:B
+
+    and-int/lit8 v0, v0, -0x21
+
+    int-to-byte v0, v0
+
+    iput-byte v0, p0, Landroid/location/Location;->mFieldsMask:B
+
+    return-void
+.end method
+
 .method public reset()V
     .locals 8
 
@@ -2009,9 +2204,9 @@
 
     const/4 v4, 0x0
 
-    const/4 v1, 0x0
-
     const-wide/16 v2, 0x0
+
+    const/4 v1, 0x0
 
     iput-object v4, p0, Landroid/location/Location;->mProvider:Ljava/lang/String;
 
@@ -2033,7 +2228,13 @@
 
     iput v1, p0, Landroid/location/Location;->mBearing:F
 
-    iput v1, p0, Landroid/location/Location;->mAccuracy:F
+    iput v1, p0, Landroid/location/Location;->mHorizontalAccuracyMeters:F
+
+    iput v1, p0, Landroid/location/Location;->mVerticalAccuracyMeters:F
+
+    iput v1, p0, Landroid/location/Location;->mSpeedAccuracyMetersPerSecond:F
+
+    iput v1, p0, Landroid/location/Location;->mBearingAccuracyDegrees:F
 
     iput-object v4, p0, Landroid/location/Location;->mExtras:Landroid/os/Bundle;
 
@@ -2081,9 +2282,21 @@
 
     iput v1, p0, Landroid/location/Location;->mBearing:F
 
-    iget v1, p1, Landroid/location/Location;->mAccuracy:F
+    iget v1, p1, Landroid/location/Location;->mHorizontalAccuracyMeters:F
 
-    iput v1, p0, Landroid/location/Location;->mAccuracy:F
+    iput v1, p0, Landroid/location/Location;->mHorizontalAccuracyMeters:F
+
+    iget v1, p1, Landroid/location/Location;->mVerticalAccuracyMeters:F
+
+    iput v1, p0, Landroid/location/Location;->mVerticalAccuracyMeters:F
+
+    iget v1, p1, Landroid/location/Location;->mSpeedAccuracyMetersPerSecond:F
+
+    iput v1, p0, Landroid/location/Location;->mSpeedAccuracyMetersPerSecond:F
+
+    iget v1, p1, Landroid/location/Location;->mBearingAccuracyDegrees:F
+
+    iput v1, p0, Landroid/location/Location;->mBearingAccuracyDegrees:F
 
     iget-object v1, p1, Landroid/location/Location;->mExtras:Landroid/os/Bundle;
 
@@ -2107,7 +2320,7 @@
 .method public setAccuracy(F)V
     .locals 1
 
-    iput p1, p0, Landroid/location/Location;->mAccuracy:F
+    iput p1, p0, Landroid/location/Location;->mHorizontalAccuracyMeters:F
 
     iget-byte v0, p0, Landroid/location/Location;->mFieldsMask:B
 
@@ -2168,6 +2381,22 @@
     iget-byte v0, p0, Landroid/location/Location;->mFieldsMask:B
 
     or-int/lit8 v0, v0, 0x4
+
+    int-to-byte v0, v0
+
+    iput-byte v0, p0, Landroid/location/Location;->mFieldsMask:B
+
+    return-void
+.end method
+
+.method public setBearingAccuracyDegrees(F)V
+    .locals 1
+
+    iput p1, p0, Landroid/location/Location;->mBearingAccuracyDegrees:F
+
+    iget-byte v0, p0, Landroid/location/Location;->mFieldsMask:B
+
+    or-int/lit16 v0, v0, 0x80
 
     int-to-byte v0, v0
 
@@ -2293,10 +2522,42 @@
     return-void
 .end method
 
+.method public setSpeedAccuracyMetersPerSecond(F)V
+    .locals 1
+
+    iput p1, p0, Landroid/location/Location;->mSpeedAccuracyMetersPerSecond:F
+
+    iget-byte v0, p0, Landroid/location/Location;->mFieldsMask:B
+
+    or-int/lit8 v0, v0, 0x40
+
+    int-to-byte v0, v0
+
+    iput-byte v0, p0, Landroid/location/Location;->mFieldsMask:B
+
+    return-void
+.end method
+
 .method public setTime(J)V
     .locals 1
 
     iput-wide p1, p0, Landroid/location/Location;->mTime:J
+
+    return-void
+.end method
+
+.method public setVerticalAccuracyMeters(F)V
+    .locals 1
+
+    iput p1, p0, Landroid/location/Location;->mVerticalAccuracyMeters:F
+
+    iget-byte v0, p0, Landroid/location/Location;->mFieldsMask:B
+
+    or-int/lit8 v0, v0, 0x20
+
+    int-to-byte v0, v0
+
+    iput-byte v0, p0, Landroid/location/Location;->mFieldsMask:B
 
     return-void
 .end method
@@ -2356,11 +2617,11 @@
 
     if-eqz v1, :cond_6
 
-    const-string/jumbo v1, " acc=%.0f"
+    const-string/jumbo v1, " hAcc=%.0f"
 
     new-array v2, v7, [Ljava/lang/Object;
 
-    iget v3, p0, Landroid/location/Location;->mAccuracy:F
+    iget v3, p0, Landroid/location/Location;->mHorizontalAccuracyMeters:F
 
     invoke-static {v3}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
 
@@ -2448,6 +2709,81 @@
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
 
     :cond_3
+    invoke-virtual {p0}, Landroid/location/Location;->hasVerticalAccuracy()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_8
+
+    const-string/jumbo v1, " vAcc=%.0f"
+
+    new-array v2, v7, [Ljava/lang/Object;
+
+    iget v3, p0, Landroid/location/Location;->mVerticalAccuracyMeters:F
+
+    invoke-static {v3}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
+
+    move-result-object v3
+
+    aput-object v3, v2, v6
+
+    invoke-static {v1, v2}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    :goto_2
+    invoke-virtual {p0}, Landroid/location/Location;->hasSpeedAccuracy()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_9
+
+    const-string/jumbo v1, " sAcc=%.0f"
+
+    new-array v2, v7, [Ljava/lang/Object;
+
+    iget v3, p0, Landroid/location/Location;->mSpeedAccuracyMetersPerSecond:F
+
+    invoke-static {v3}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
+
+    move-result-object v3
+
+    aput-object v3, v2, v6
+
+    invoke-static {v1, v2}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    :goto_3
+    invoke-virtual {p0}, Landroid/location/Location;->hasBearingAccuracy()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_a
+
+    const-string/jumbo v1, " bAcc=%.0f"
+
+    new-array v2, v7, [Ljava/lang/Object;
+
+    iget v3, p0, Landroid/location/Location;->mBearingAccuracyDegrees:F
+
+    invoke-static {v3}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
+
+    move-result-object v3
+
+    aput-object v3, v2, v6
+
+    invoke-static {v1, v2}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    :goto_4
     invoke-virtual {p0}, Landroid/location/Location;->isFromMockProvider()Z
 
     move-result v1
@@ -2491,11 +2827,11 @@
     return-object v1
 
     :cond_6
-    const-string/jumbo v1, " acc=???"
+    const-string/jumbo v1, " hAcc=???"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_0
+    goto/16 :goto_0
 
     :cond_7
     const-string/jumbo v1, " et="
@@ -2510,7 +2846,28 @@
 
     invoke-static {v2, v3, v0}, Landroid/util/TimeUtils;->formatDuration(JLjava/lang/StringBuilder;)V
 
-    goto :goto_1
+    goto/16 :goto_1
+
+    :cond_8
+    const-string/jumbo v1, " vAcc=???"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    goto :goto_2
+
+    :cond_9
+    const-string/jumbo v1, " sAcc=???"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    goto :goto_3
+
+    :cond_a
+    const-string/jumbo v1, " bAcc=???"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    goto :goto_4
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
@@ -2552,7 +2909,19 @@
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeFloat(F)V
 
-    iget v0, p0, Landroid/location/Location;->mAccuracy:F
+    iget v0, p0, Landroid/location/Location;->mHorizontalAccuracyMeters:F
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeFloat(F)V
+
+    iget v0, p0, Landroid/location/Location;->mVerticalAccuracyMeters:F
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeFloat(F)V
+
+    iget v0, p0, Landroid/location/Location;->mSpeedAccuracyMetersPerSecond:F
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeFloat(F)V
+
+    iget v0, p0, Landroid/location/Location;->mBearingAccuracyDegrees:F
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeFloat(F)V
 

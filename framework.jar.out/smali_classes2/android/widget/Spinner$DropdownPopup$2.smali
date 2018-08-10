@@ -35,80 +35,86 @@
 
 # virtual methods
 .method public onGlobalLayout()V
-    .locals 2
+    .locals 3
 
-    iget-object v1, p0, Landroid/widget/Spinner$DropdownPopup$2;->this$1:Landroid/widget/Spinner$DropdownPopup;
+    iget-object v2, p0, Landroid/widget/Spinner$DropdownPopup$2;->this$1:Landroid/widget/Spinner$DropdownPopup;
 
-    iget-object v1, v1, Landroid/widget/Spinner$DropdownPopup;->this$0:Landroid/widget/Spinner;
+    iget-object v2, v2, Landroid/widget/Spinner$DropdownPopup;->this$0:Landroid/widget/Spinner;
 
-    invoke-virtual {v1}, Landroid/view/View;->getRootView()Landroid/view/View;
-
-    move-result-object v0
-
-    iget-object v1, p0, Landroid/widget/Spinner$DropdownPopup$2;->this$1:Landroid/widget/Spinner$DropdownPopup;
-
-    iget-object v1, v1, Landroid/widget/Spinner$DropdownPopup;->this$0:Landroid/widget/Spinner;
-
-    invoke-static {v1}, Landroid/widget/Spinner;->-get1(Landroid/widget/Spinner;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    instance-of v1, v0, Lcom/android/internal/policy/DecorView;
-
-    if-eqz v1, :cond_0
-
-    nop
-
-    nop
-
-    invoke-virtual {v0}, Lcom/android/internal/policy/DecorView;->getMultiWindowDecorSupportBridge()Lcom/samsung/android/internal/policy/MultiWindowDecorSupportBridge;
+    invoke-virtual {v2}, Landroid/widget/Spinner;->getRootView()Landroid/view/View;
 
     move-result-object v1
 
-    invoke-virtual {v1}, Lcom/samsung/android/internal/policy/MultiWindowDecorSupportBridge;->hasDecorCaptionView()Z
+    instance-of v2, v1, Lcom/android/internal/policy/DecorView;
 
-    move-result v1
+    if-eqz v2, :cond_0
 
-    if-eqz v1, :cond_0
+    check-cast v1, Lcom/android/internal/policy/DecorView;
 
-    iget-object v1, p0, Landroid/widget/Spinner$DropdownPopup$2;->this$1:Landroid/widget/Spinner$DropdownPopup;
+    invoke-virtual {v1}, Lcom/android/internal/policy/DecorView;->getMultiWindowDecorSupport()Lcom/android/internal/policy/MultiWindowDecorSupport;
 
-    invoke-virtual {v1}, Landroid/widget/Spinner$DropdownPopup;->computeContentWidth()V
-
-    iget-object v1, p0, Landroid/widget/Spinner$DropdownPopup$2;->this$1:Landroid/widget/Spinner$DropdownPopup;
-
-    invoke-static {v1}, Landroid/widget/Spinner$DropdownPopup;->-wrap0(Landroid/widget/Spinner$DropdownPopup;)V
+    move-result-object v0
 
     :goto_0
+    iget-object v2, p0, Landroid/widget/Spinner$DropdownPopup$2;->this$1:Landroid/widget/Spinner$DropdownPopup;
+
+    iget-object v2, v2, Landroid/widget/Spinner$DropdownPopup;->this$0:Landroid/widget/Spinner;
+
+    invoke-static {v2}, Landroid/widget/Spinner;->-get1(Landroid/widget/Spinner;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    if-eqz v0, :cond_1
+
+    invoke-virtual {v0}, Lcom/android/internal/policy/MultiWindowDecorSupport;->isFreeform()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    iget-object v2, p0, Landroid/widget/Spinner$DropdownPopup$2;->this$1:Landroid/widget/Spinner$DropdownPopup;
+
+    invoke-virtual {v2}, Landroid/widget/Spinner$DropdownPopup;->computeContentWidth()V
+
+    iget-object v2, p0, Landroid/widget/Spinner$DropdownPopup$2;->this$1:Landroid/widget/Spinner$DropdownPopup;
+
+    invoke-static {v2}, Landroid/widget/Spinner$DropdownPopup;->-wrap0(Landroid/widget/Spinner$DropdownPopup;)V
+
+    :goto_1
     return-void
 
     :cond_0
-    iget-object v1, p0, Landroid/widget/Spinner$DropdownPopup$2;->this$1:Landroid/widget/Spinner$DropdownPopup;
-
-    iget-object v1, v1, Landroid/widget/Spinner$DropdownPopup;->this$0:Landroid/widget/Spinner;
-
-    invoke-static {v1}, Landroid/widget/Spinner;->-wrap0(Landroid/widget/Spinner;)Z
-
-    move-result v1
-
-    if-nez v1, :cond_1
-
-    iget-object v1, p0, Landroid/widget/Spinner$DropdownPopup$2;->this$1:Landroid/widget/Spinner$DropdownPopup;
-
-    invoke-virtual {v1}, Landroid/widget/ListPopupWindow;->dismiss()V
+    const/4 v0, 0x0
 
     goto :goto_0
 
     :cond_1
-    iget-object v1, p0, Landroid/widget/Spinner$DropdownPopup$2;->this$1:Landroid/widget/Spinner$DropdownPopup;
+    iget-object v2, p0, Landroid/widget/Spinner$DropdownPopup$2;->this$1:Landroid/widget/Spinner$DropdownPopup;
 
-    invoke-virtual {v1}, Landroid/widget/Spinner$DropdownPopup;->computeContentWidth()V
+    iget-object v2, v2, Landroid/widget/Spinner$DropdownPopup;->this$0:Landroid/widget/Spinner;
 
-    iget-object v1, p0, Landroid/widget/Spinner$DropdownPopup$2;->this$1:Landroid/widget/Spinner$DropdownPopup;
+    invoke-static {v2}, Landroid/widget/Spinner;->-wrap0(Landroid/widget/Spinner;)Z
 
-    invoke-static {v1}, Landroid/widget/Spinner$DropdownPopup;->-wrap0(Landroid/widget/Spinner$DropdownPopup;)V
+    move-result v2
 
-    goto :goto_0
+    if-nez v2, :cond_2
+
+    iget-object v2, p0, Landroid/widget/Spinner$DropdownPopup$2;->this$1:Landroid/widget/Spinner$DropdownPopup;
+
+    invoke-virtual {v2}, Landroid/widget/Spinner$DropdownPopup;->dismiss()V
+
+    goto :goto_1
+
+    :cond_2
+    iget-object v2, p0, Landroid/widget/Spinner$DropdownPopup$2;->this$1:Landroid/widget/Spinner$DropdownPopup;
+
+    invoke-virtual {v2}, Landroid/widget/Spinner$DropdownPopup;->computeContentWidth()V
+
+    iget-object v2, p0, Landroid/widget/Spinner$DropdownPopup$2;->this$1:Landroid/widget/Spinner$DropdownPopup;
+
+    invoke-static {v2}, Landroid/widget/Spinner$DropdownPopup;->-wrap0(Landroid/widget/Spinner$DropdownPopup;)V
+
+    goto :goto_1
 .end method

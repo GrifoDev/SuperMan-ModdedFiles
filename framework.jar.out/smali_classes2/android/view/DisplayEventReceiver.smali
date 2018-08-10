@@ -6,6 +6,10 @@
 # static fields
 .field private static final TAG:Ljava/lang/String; = "DisplayEventReceiver"
 
+.field public static final VSYNC_SOURCE_APP:I = 0x0
+
+.field public static final VSYNC_SOURCE_SURFACE_FLINGER:I = 0x1
+
 
 # instance fields
 .field private final mCloseGuard:Ldalvik/system/CloseGuard;
@@ -17,6 +21,16 @@
 
 # direct methods
 .method public constructor <init>(Landroid/os/Looper;)V
+    .locals 1
+
+    const/4 v0, 0x0
+
+    invoke-direct {p0, p1, v0}, Landroid/view/DisplayEventReceiver;-><init>(Landroid/os/Looper;I)V
+
+    return-void
+.end method
+
+.method public constructor <init>(Landroid/os/Looper;I)V
     .locals 2
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -50,7 +64,7 @@
 
     iget-object v1, p0, Landroid/view/DisplayEventReceiver;->mMessageQueue:Landroid/os/MessageQueue;
 
-    invoke-static {v0, v1}, Landroid/view/DisplayEventReceiver;->nativeInit(Ljava/lang/ref/WeakReference;Landroid/os/MessageQueue;)J
+    invoke-static {v0, v1, p2}, Landroid/view/DisplayEventReceiver;->nativeInit(Ljava/lang/ref/WeakReference;Landroid/os/MessageQueue;I)J
 
     move-result-wide v0
 
@@ -125,7 +139,7 @@
 .method private static native nativeDispose(J)V
 .end method
 
-.method private static native nativeInit(Ljava/lang/ref/WeakReference;Landroid/os/MessageQueue;)J
+.method private static native nativeInit(Ljava/lang/ref/WeakReference;Landroid/os/MessageQueue;I)J
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -134,12 +148,14 @@
             "Landroid/view/DisplayEventReceiver;",
             ">;",
             "Landroid/os/MessageQueue;",
-            ")J"
+            "I)J"
         }
     .end annotation
 .end method
 
 .method private static native nativeScheduleVsync(J)V
+    .annotation build Ldalvik/annotation/optimization/FastNative;
+    .end annotation
 .end method
 
 

@@ -67,7 +67,7 @@
 
     const-string/jumbo v0, "com.samsung.android.game.IGameManagerService"
 
-    invoke-virtual {p0, p0, v0}, Landroid/os/Binder;->attachInterface(Landroid/os/IInterface;Ljava/lang/String;)V
+    invoke-virtual {p0, p0, v0}, Lcom/samsung/android/game/IGameManagerService$Stub;->attachInterface(Landroid/os/IInterface;Ljava/lang/String;)V
 
     return-void
 .end method
@@ -486,7 +486,7 @@
 
     move-result v2
 
-    invoke-virtual/range {p0 .. p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+    invoke-virtual/range {p0 .. p0}, Lcom/samsung/android/game/IGameManagerService$Stub;->getClass()Ljava/lang/Class;
 
     move-result-object v17
 

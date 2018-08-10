@@ -6,6 +6,7 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
+        Lcom/samsung/android/cover/CoverManager$CoverPowerKeyListener;,
         Lcom/samsung/android/cover/CoverManager$CoverStateListener;,
         Lcom/samsung/android/cover/CoverManager$LedSystemEventListener;,
         Lcom/samsung/android/cover/CoverManager$NfcLedCoverTouchListener;,
@@ -34,6 +35,17 @@
 
 # instance fields
 .field private mContext:Landroid/content/Context;
+
+.field private final mCoverPowerKeyListenerDelegates:Ljava/util/concurrent/CopyOnWriteArrayList;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/concurrent/CopyOnWriteArrayList",
+            "<",
+            "Lcom/samsung/android/cover/CoverPowerKeyListenerDelegate;",
+            ">;"
+        }
+    .end annotation
+.end field
 
 .field private final mCoverStateListenerDelegates:Ljava/util/concurrent/CopyOnWriteArrayList;
     .annotation system Ldalvik/annotation/Signature;
@@ -145,6 +157,12 @@
 
     invoke-direct {v0}, Ljava/util/concurrent/CopyOnWriteArrayList;-><init>()V
 
+    iput-object v0, p0, Lcom/samsung/android/cover/CoverManager;->mCoverPowerKeyListenerDelegates:Ljava/util/concurrent/CopyOnWriteArrayList;
+
+    new-instance v0, Ljava/util/concurrent/CopyOnWriteArrayList;
+
+    invoke-direct {v0}, Ljava/util/concurrent/CopyOnWriteArrayList;-><init>()V
+
     iput-object v0, p0, Lcom/samsung/android/cover/CoverManager;->mLcdOffDisableDelegates:Ljava/util/concurrent/CopyOnWriteArrayList;
 
     new-instance v0, Landroid/os/Binder;
@@ -156,6 +174,60 @@
     iput-object p1, p0, Lcom/samsung/android/cover/CoverManager;->mContext:Landroid/content/Context;
 
     invoke-direct {p0}, Lcom/samsung/android/cover/CoverManager;->initSystemFeature()V
+
+    return-void
+.end method
+
+.method public constructor <init>(Landroid/content/Context;Lcom/samsung/android/cover/ICoverManager;)V
+    .locals 1
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    new-instance v0, Ljava/util/concurrent/CopyOnWriteArrayList;
+
+    invoke-direct {v0}, Ljava/util/concurrent/CopyOnWriteArrayList;-><init>()V
+
+    iput-object v0, p0, Lcom/samsung/android/cover/CoverManager;->mListenerDelegates:Ljava/util/concurrent/CopyOnWriteArrayList;
+
+    new-instance v0, Ljava/util/concurrent/CopyOnWriteArrayList;
+
+    invoke-direct {v0}, Ljava/util/concurrent/CopyOnWriteArrayList;-><init>()V
+
+    iput-object v0, p0, Lcom/samsung/android/cover/CoverManager;->mCoverStateListenerDelegates:Ljava/util/concurrent/CopyOnWriteArrayList;
+
+    new-instance v0, Ljava/util/concurrent/CopyOnWriteArrayList;
+
+    invoke-direct {v0}, Ljava/util/concurrent/CopyOnWriteArrayList;-><init>()V
+
+    iput-object v0, p0, Lcom/samsung/android/cover/CoverManager;->mNfcLedCoverTouchListenerDelegates:Ljava/util/concurrent/CopyOnWriteArrayList;
+
+    new-instance v0, Ljava/util/concurrent/CopyOnWriteArrayList;
+
+    invoke-direct {v0}, Ljava/util/concurrent/CopyOnWriteArrayList;-><init>()V
+
+    iput-object v0, p0, Lcom/samsung/android/cover/CoverManager;->mLedSystemEventListenerDelegates:Ljava/util/concurrent/CopyOnWriteArrayList;
+
+    new-instance v0, Ljava/util/concurrent/CopyOnWriteArrayList;
+
+    invoke-direct {v0}, Ljava/util/concurrent/CopyOnWriteArrayList;-><init>()V
+
+    iput-object v0, p0, Lcom/samsung/android/cover/CoverManager;->mCoverPowerKeyListenerDelegates:Ljava/util/concurrent/CopyOnWriteArrayList;
+
+    new-instance v0, Ljava/util/concurrent/CopyOnWriteArrayList;
+
+    invoke-direct {v0}, Ljava/util/concurrent/CopyOnWriteArrayList;-><init>()V
+
+    iput-object v0, p0, Lcom/samsung/android/cover/CoverManager;->mLcdOffDisableDelegates:Ljava/util/concurrent/CopyOnWriteArrayList;
+
+    new-instance v0, Landroid/os/Binder;
+
+    invoke-direct {v0}, Landroid/os/Binder;-><init>()V
+
+    iput-object v0, p0, Lcom/samsung/android/cover/CoverManager;->mToken:Landroid/os/IBinder;
+
+    iput-object p1, p0, Lcom/samsung/android/cover/CoverManager;->mContext:Landroid/content/Context;
+
+    iput-object p2, p0, Lcom/samsung/android/cover/CoverManager;->mService:Lcom/samsung/android/cover/ICoverManager;
 
     return-void
 .end method
@@ -449,7 +521,7 @@
 
     move-result-object v6
 
-    invoke-virtual {v6, p1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v6, p1}, Lcom/samsung/android/cover/CoverManager$StateListener;->equals(Ljava/lang/Object;)Z
 
     move-result v6
 
@@ -482,7 +554,7 @@
 
     move-result-object v6
 
-    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+    invoke-virtual {p0}, Lcom/samsung/android/cover/CoverManager;->getClass()Ljava/lang/Class;
 
     move-result-object v7
 
@@ -583,7 +655,7 @@
 
     move-result-object v6
 
-    invoke-virtual {v6, p1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v6, p1}, Lcom/samsung/android/cover/CoverManager$StateListener;->equals(Ljava/lang/Object;)Z
 
     move-result v6
 
@@ -618,7 +690,7 @@
 
     move-result-object v6
 
-    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+    invoke-virtual {p0}, Lcom/samsung/android/cover/CoverManager;->getClass()Ljava/lang/Class;
 
     move-result-object v7
 
@@ -790,6 +862,14 @@
     goto :goto_0
 .end method
 
+.method isSupportFlipCover()Z
+    .locals 1
+
+    sget-boolean v0, Lcom/samsung/android/cover/CoverManager;->sIsFilpCoverSystemFeatureEnabled:Z
+
+    return v0
+.end method
+
 .method isSupportNfcLedCover()Z
     .locals 1
 
@@ -840,74 +920,232 @@
     .end packed-switch
 .end method
 
-.method public registerLedSystemListener(Lcom/samsung/android/cover/CoverManager$LedSystemEventListener;)V
-    .locals 9
+.method public registerCoverPowerKeyListener(Lcom/samsung/android/cover/CoverManager$CoverPowerKeyListener;)V
+    .locals 10
 
-    const/4 v8, 0x0
+    const/4 v9, 0x0
 
     invoke-virtual {p0}, Lcom/samsung/android/cover/CoverManager;->isSupportCover()Z
 
-    move-result v6
+    move-result v7
 
-    if-nez v6, :cond_0
+    if-nez v7, :cond_0
 
-    const-string/jumbo v6, "CoverManager"
+    const-string/jumbo v7, "CoverManager"
 
-    const-string/jumbo v7, "registerLedSystemListener : This device does not support cover"
+    const-string/jumbo v8, "registerCoverPowerKeyListener : This device does not support cover"
 
-    invoke-static {v6, v7}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v7, v8}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 
     :cond_0
-    const-string/jumbo v6, "CoverManager"
+    const-string/jumbo v7, "CoverManager"
 
-    const-string/jumbo v7, "registerLedSystemListener"
+    const-string/jumbo v8, "registerCoverPowerKeyListener"
 
-    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-virtual {p0}, Lcom/samsung/android/cover/CoverManager;->isSupportNfcLedCover()Z
+    invoke-virtual {p0}, Lcom/samsung/android/cover/CoverManager;->isSupportFlipCover()Z
 
-    move-result v6
+    move-result v7
 
-    if-nez v6, :cond_1
+    if-nez v7, :cond_1
 
-    const-string/jumbo v6, "CoverManager"
+    const-string/jumbo v7, "CoverManager"
 
-    const-string/jumbo v7, "registerLedSystemListener : This device does not support NFC Led cover"
+    const-string/jumbo v8, "registerLedSystemListener : This device does not support Flip cover"
 
-    invoke-static {v6, v7}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v7, v8}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 
     :cond_1
     if-nez p1, :cond_2
 
-    const-string/jumbo v6, "CoverManager"
+    const-string/jumbo v7, "CoverManager"
 
-    const-string/jumbo v7, "registerLedSystemListener : listener is null"
+    const-string/jumbo v8, "registerCoverPowerKeyListener : listener is null"
 
-    invoke-static {v6, v7}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v7, v8}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 
     :cond_2
-    const/4 v4, 0x0
+    const/4 v5, 0x0
 
-    iget-object v6, p0, Lcom/samsung/android/cover/CoverManager;->mLedSystemEventListenerDelegates:Ljava/util/concurrent/CopyOnWriteArrayList;
+    const/4 v3, 0x0
 
-    invoke-virtual {v6}, Ljava/util/concurrent/CopyOnWriteArrayList;->iterator()Ljava/util/Iterator;
+    iget-object v7, p0, Lcom/samsung/android/cover/CoverManager;->mCoverPowerKeyListenerDelegates:Ljava/util/concurrent/CopyOnWriteArrayList;
 
-    move-result-object v3
+    invoke-virtual {v7}, Ljava/util/concurrent/CopyOnWriteArrayList;->iterator()Ljava/util/Iterator;
+
+    move-result-object v4
 
     :cond_3
-    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v6
+    move-result v7
 
-    if-eqz v6, :cond_4
+    if-eqz v7, :cond_4
 
-    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/samsung/android/cover/CoverPowerKeyListenerDelegate;
+
+    invoke-virtual {v1}, Lcom/samsung/android/cover/CoverPowerKeyListenerDelegate;->getListener()Ljava/lang/Object;
+
+    move-result-object v7
+
+    invoke-virtual {v7, p1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+
+    move-result v7
+
+    if-eqz v7, :cond_3
+
+    move-object v5, v1
+
+    const/4 v3, 0x1
+
+    :cond_4
+    if-nez v5, :cond_5
+
+    new-instance v5, Lcom/samsung/android/cover/CoverPowerKeyListenerDelegate;
+
+    iget-object v7, p0, Lcom/samsung/android/cover/CoverManager;->mContext:Landroid/content/Context;
+
+    invoke-direct {v5, p1, v9, v7}, Lcom/samsung/android/cover/CoverPowerKeyListenerDelegate;-><init>(Lcom/samsung/android/cover/CoverManager$CoverPowerKeyListener;Landroid/os/Handler;Landroid/content/Context;)V
+
+    :cond_5
+    :try_start_0
+    invoke-direct {p0}, Lcom/samsung/android/cover/CoverManager;->getService()Lcom/samsung/android/cover/ICoverManager;
+
+    move-result-object v6
+
+    if-eqz v6, :cond_6
+
+    new-instance v0, Landroid/content/ComponentName;
+
+    iget-object v7, p0, Lcom/samsung/android/cover/CoverManager;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v7}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-virtual {p0}, Lcom/samsung/android/cover/CoverManager;->getClass()Ljava/lang/Class;
+
+    move-result-object v8
+
+    invoke-virtual {v8}, Ljava/lang/Class;->getCanonicalName()Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-direct {v0, v7, v8}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+
+    if-eqz v5, :cond_6
+
+    if-eqz v0, :cond_6
+
+    const/16 v7, 0xa
+
+    invoke-interface {v6, v7, v5, v0}, Lcom/samsung/android/cover/ICoverManager;->registerNfcTouchListenerCallback(ILandroid/os/IBinder;Landroid/content/ComponentName;)V
+
+    if-nez v3, :cond_6
+
+    iget-object v7, p0, Lcom/samsung/android/cover/CoverManager;->mCoverPowerKeyListenerDelegates:Ljava/util/concurrent/CopyOnWriteArrayList;
+
+    invoke-virtual {v7, v5}, Ljava/util/concurrent/CopyOnWriteArrayList;->add(Ljava/lang/Object;)Z
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    :cond_6
+    :goto_0
+    return-void
+
+    :catch_0
+    move-exception v2
+
+    const-string/jumbo v7, "CoverManager"
+
+    const-string/jumbo v8, "RemoteException in registerCoverPowerKeyListener: "
+
+    invoke-static {v7, v8, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    goto :goto_0
+.end method
+
+.method public registerLedSystemListener(Lcom/samsung/android/cover/CoverManager$LedSystemEventListener;)V
+    .locals 10
+
+    const/4 v9, 0x0
+
+    invoke-virtual {p0}, Lcom/samsung/android/cover/CoverManager;->isSupportCover()Z
+
+    move-result v7
+
+    if-nez v7, :cond_0
+
+    const-string/jumbo v7, "CoverManager"
+
+    const-string/jumbo v8, "registerLedSystemListener : This device does not support cover"
+
+    invoke-static {v7, v8}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
+
+    :cond_0
+    const-string/jumbo v7, "CoverManager"
+
+    const-string/jumbo v8, "registerLedSystemListener"
+
+    invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-virtual {p0}, Lcom/samsung/android/cover/CoverManager;->isSupportNfcLedCover()Z
+
+    move-result v7
+
+    if-nez v7, :cond_1
+
+    const-string/jumbo v7, "CoverManager"
+
+    const-string/jumbo v8, "registerLedSystemListener : This device does not support NFC Led cover"
+
+    invoke-static {v7, v8}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
+
+    :cond_1
+    if-nez p1, :cond_2
+
+    const-string/jumbo v7, "CoverManager"
+
+    const-string/jumbo v8, "registerLedSystemListener : listener is null"
+
+    invoke-static {v7, v8}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
+
+    :cond_2
+    const/4 v5, 0x0
+
+    const/4 v3, 0x0
+
+    iget-object v7, p0, Lcom/samsung/android/cover/CoverManager;->mLedSystemEventListenerDelegates:Ljava/util/concurrent/CopyOnWriteArrayList;
+
+    invoke-virtual {v7}, Ljava/util/concurrent/CopyOnWriteArrayList;->iterator()Ljava/util/Iterator;
+
+    move-result-object v4
+
+    :cond_3
+    invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v7
+
+    if-eqz v7, :cond_4
+
+    invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v1
 
@@ -915,62 +1153,66 @@
 
     invoke-virtual {v1}, Lcom/samsung/android/cover/LedSystemEventListenerDelegate;->getListener()Ljava/lang/Object;
 
-    move-result-object v6
+    move-result-object v7
 
-    invoke-virtual {v6, p1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v7, p1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
-    move-result v6
+    move-result v7
 
-    if-eqz v6, :cond_3
+    if-eqz v7, :cond_3
 
-    move-object v4, v1
+    move-object v5, v1
+
+    const/4 v3, 0x1
 
     :cond_4
-    if-nez v4, :cond_5
+    if-nez v5, :cond_5
 
-    new-instance v4, Lcom/samsung/android/cover/LedSystemEventListenerDelegate;
+    new-instance v5, Lcom/samsung/android/cover/LedSystemEventListenerDelegate;
 
-    iget-object v6, p0, Lcom/samsung/android/cover/CoverManager;->mContext:Landroid/content/Context;
+    iget-object v7, p0, Lcom/samsung/android/cover/CoverManager;->mContext:Landroid/content/Context;
 
-    invoke-direct {v4, p1, v8, v6}, Lcom/samsung/android/cover/LedSystemEventListenerDelegate;-><init>(Lcom/samsung/android/cover/CoverManager$LedSystemEventListener;Landroid/os/Handler;Landroid/content/Context;)V
-
-    iget-object v6, p0, Lcom/samsung/android/cover/CoverManager;->mLedSystemEventListenerDelegates:Ljava/util/concurrent/CopyOnWriteArrayList;
-
-    invoke-virtual {v6, v4}, Ljava/util/concurrent/CopyOnWriteArrayList;->add(Ljava/lang/Object;)Z
+    invoke-direct {v5, p1, v9, v7}, Lcom/samsung/android/cover/LedSystemEventListenerDelegate;-><init>(Lcom/samsung/android/cover/CoverManager$LedSystemEventListener;Landroid/os/Handler;Landroid/content/Context;)V
 
     :cond_5
     :try_start_0
     invoke-direct {p0}, Lcom/samsung/android/cover/CoverManager;->getService()Lcom/samsung/android/cover/ICoverManager;
 
-    move-result-object v5
+    move-result-object v6
 
-    if-eqz v5, :cond_6
+    if-eqz v6, :cond_6
 
     new-instance v0, Landroid/content/ComponentName;
 
-    iget-object v6, p0, Lcom/samsung/android/cover/CoverManager;->mContext:Landroid/content/Context;
+    iget-object v7, p0, Lcom/samsung/android/cover/CoverManager;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v6}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+    invoke-virtual {v7}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
 
     move-result-object v7
 
-    invoke-virtual {v7}, Ljava/lang/Class;->getCanonicalName()Ljava/lang/String;
+    invoke-virtual {p0}, Lcom/samsung/android/cover/CoverManager;->getClass()Ljava/lang/Class;
 
-    move-result-object v7
+    move-result-object v8
 
-    invoke-direct {v0, v6, v7}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v8}, Ljava/lang/Class;->getCanonicalName()Ljava/lang/String;
 
-    if-eqz v4, :cond_6
+    move-result-object v8
+
+    invoke-direct {v0, v7, v8}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+
+    if-eqz v5, :cond_6
 
     if-eqz v0, :cond_6
 
-    const/4 v6, 0x4
+    const/4 v7, 0x4
 
-    invoke-interface {v5, v6, v4, v0}, Lcom/samsung/android/cover/ICoverManager;->registerNfcTouchListenerCallback(ILandroid/os/IBinder;Landroid/content/ComponentName;)V
+    invoke-interface {v6, v7, v5, v0}, Lcom/samsung/android/cover/ICoverManager;->registerNfcTouchListenerCallback(ILandroid/os/IBinder;Landroid/content/ComponentName;)V
+
+    if-nez v3, :cond_6
+
+    iget-object v7, p0, Lcom/samsung/android/cover/CoverManager;->mLedSystemEventListenerDelegates:Ljava/util/concurrent/CopyOnWriteArrayList;
+
+    invoke-virtual {v7, v5}, Ljava/util/concurrent/CopyOnWriteArrayList;->add(Ljava/lang/Object;)Z
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -981,85 +1223,87 @@
     :catch_0
     move-exception v2
 
-    const-string/jumbo v6, "CoverManager"
+    const-string/jumbo v7, "CoverManager"
 
-    const-string/jumbo v7, "RemoteException in registerLedSystemListener: "
+    const-string/jumbo v8, "RemoteException in registerLedSystemListener: "
 
-    invoke-static {v6, v7, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v7, v8, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     goto :goto_0
 .end method
 
 .method public registerListener(Lcom/samsung/android/cover/CoverManager$CoverStateListener;)V
-    .locals 9
+    .locals 10
 
-    const/4 v8, 0x0
+    const/4 v9, 0x0
 
-    const-string/jumbo v6, "CoverManager"
+    const-string/jumbo v7, "CoverManager"
 
-    const-string/jumbo v7, "registerListener"
+    const-string/jumbo v8, "registerListener"
 
-    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     invoke-virtual {p0}, Lcom/samsung/android/cover/CoverManager;->isSupportCover()Z
 
-    move-result v6
+    move-result v7
 
-    if-nez v6, :cond_0
+    if-nez v7, :cond_0
 
-    const-string/jumbo v6, "CoverManager"
+    const-string/jumbo v7, "CoverManager"
 
-    const-string/jumbo v7, "registerListener : This device is not supported cover"
+    const-string/jumbo v8, "registerListener : This device is not supported cover"
 
-    invoke-static {v6, v7}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v7, v8}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 
     :cond_0
     invoke-static {}, Landroid/os/Process;->myUid()I
 
-    move-result v6
+    move-result v7
 
-    const/16 v7, 0x3e8
+    const/16 v8, 0x3e8
 
-    if-eq v6, v7, :cond_1
+    if-eq v7, v8, :cond_1
 
-    new-instance v6, Ljava/lang/SecurityException;
+    new-instance v7, Ljava/lang/SecurityException;
 
-    const-string/jumbo v7, "CoverManager only available from system UID."
+    const-string/jumbo v8, "CoverManager only available from system UID."
 
-    invoke-direct {v6, v7}, Ljava/lang/SecurityException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v7, v8}, Ljava/lang/SecurityException;-><init>(Ljava/lang/String;)V
 
-    throw v6
+    throw v7
 
     :cond_1
     if-nez p1, :cond_2
 
-    const-string/jumbo v6, "CoverManager"
+    const-string/jumbo v7, "CoverManager"
 
-    const-string/jumbo v7, "registerListener : listener is null"
+    const-string/jumbo v8, "registerListener : listener is null"
 
-    invoke-static {v6, v7}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v7, v8}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 
     :cond_2
     const/4 v1, 0x0
 
-    iget-object v6, p0, Lcom/samsung/android/cover/CoverManager;->mCoverStateListenerDelegates:Ljava/util/concurrent/CopyOnWriteArrayList;
+    const/4 v4, 0x0
 
-    invoke-virtual {v6}, Ljava/util/concurrent/CopyOnWriteArrayList;->iterator()Ljava/util/Iterator;
+    iget-object v7, p0, Lcom/samsung/android/cover/CoverManager;->mCoverStateListenerDelegates:Ljava/util/concurrent/CopyOnWriteArrayList;
 
-    move-result-object v4
+    invoke-virtual {v7}, Ljava/util/concurrent/CopyOnWriteArrayList;->iterator()Ljava/util/Iterator;
+
+    move-result-object v5
 
     :cond_3
-    invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v6
+    move-result v7
 
-    if-eqz v6, :cond_4
+    if-eqz v7, :cond_4
 
-    invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v2
 
@@ -1067,62 +1311,66 @@
 
     invoke-virtual {v2}, Lcom/samsung/android/cover/CoverStateListenerDelegate;->getListener()Lcom/samsung/android/cover/CoverManager$CoverStateListener;
 
-    move-result-object v6
+    move-result-object v7
 
-    invoke-virtual {v6, p1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v7, p1}, Lcom/samsung/android/cover/CoverManager$CoverStateListener;->equals(Ljava/lang/Object;)Z
 
-    move-result v6
+    move-result v7
 
-    if-eqz v6, :cond_3
+    if-eqz v7, :cond_3
 
     move-object v1, v2
+
+    const/4 v4, 0x1
 
     :cond_4
     if-nez v1, :cond_5
 
     new-instance v1, Lcom/samsung/android/cover/CoverStateListenerDelegate;
 
-    iget-object v6, p0, Lcom/samsung/android/cover/CoverManager;->mContext:Landroid/content/Context;
+    iget-object v7, p0, Lcom/samsung/android/cover/CoverManager;->mContext:Landroid/content/Context;
 
-    invoke-direct {v1, p1, v8, v6}, Lcom/samsung/android/cover/CoverStateListenerDelegate;-><init>(Lcom/samsung/android/cover/CoverManager$CoverStateListener;Landroid/os/Handler;Landroid/content/Context;)V
-
-    iget-object v6, p0, Lcom/samsung/android/cover/CoverManager;->mCoverStateListenerDelegates:Ljava/util/concurrent/CopyOnWriteArrayList;
-
-    invoke-virtual {v6, v1}, Ljava/util/concurrent/CopyOnWriteArrayList;->add(Ljava/lang/Object;)Z
+    invoke-direct {v1, p1, v9, v7}, Lcom/samsung/android/cover/CoverStateListenerDelegate;-><init>(Lcom/samsung/android/cover/CoverManager$CoverStateListener;Landroid/os/Handler;Landroid/content/Context;)V
 
     :cond_5
     :try_start_0
     invoke-direct {p0}, Lcom/samsung/android/cover/CoverManager;->getService()Lcom/samsung/android/cover/ICoverManager;
 
-    move-result-object v5
+    move-result-object v6
 
-    if-eqz v5, :cond_6
+    if-eqz v6, :cond_6
 
     new-instance v0, Landroid/content/ComponentName;
 
-    iget-object v6, p0, Lcom/samsung/android/cover/CoverManager;->mContext:Landroid/content/Context;
+    iget-object v7, p0, Lcom/samsung/android/cover/CoverManager;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v6}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+    invoke-virtual {v7}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
 
     move-result-object v7
 
-    invoke-virtual {v7}, Ljava/lang/Class;->getCanonicalName()Ljava/lang/String;
+    invoke-virtual {p0}, Lcom/samsung/android/cover/CoverManager;->getClass()Ljava/lang/Class;
 
-    move-result-object v7
+    move-result-object v8
 
-    invoke-direct {v0, v6, v7}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v8}, Ljava/lang/Class;->getCanonicalName()Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-direct {v0, v7, v8}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
     if-eqz v1, :cond_6
 
     if-eqz v0, :cond_6
 
-    const/4 v6, 0x2
+    const/4 v7, 0x2
 
-    invoke-interface {v5, v1, v0, v6}, Lcom/samsung/android/cover/ICoverManager;->registerListenerCallback(Landroid/os/IBinder;Landroid/content/ComponentName;I)V
+    invoke-interface {v6, v1, v0, v7}, Lcom/samsung/android/cover/ICoverManager;->registerListenerCallback(Landroid/os/IBinder;Landroid/content/ComponentName;I)V
+
+    if-nez v4, :cond_6
+
+    iget-object v7, p0, Lcom/samsung/android/cover/CoverManager;->mCoverStateListenerDelegates:Ljava/util/concurrent/CopyOnWriteArrayList;
+
+    invoke-virtual {v7, v1}, Ljava/util/concurrent/CopyOnWriteArrayList;->add(Ljava/lang/Object;)Z
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -1133,85 +1381,87 @@
     :catch_0
     move-exception v3
 
-    const-string/jumbo v6, "CoverManager"
+    const-string/jumbo v7, "CoverManager"
 
-    const-string/jumbo v7, "RemoteException in registerListener: "
+    const-string/jumbo v8, "RemoteException in registerListener: "
 
-    invoke-static {v6, v7, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v7, v8, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     goto :goto_0
 .end method
 
 .method public registerListener(Lcom/samsung/android/cover/CoverManager$StateListener;)V
-    .locals 9
+    .locals 10
 
-    const/4 v8, 0x0
+    const/4 v9, 0x0
 
-    const-string/jumbo v6, "CoverManager"
+    const-string/jumbo v7, "CoverManager"
 
-    const-string/jumbo v7, "registerListener"
+    const-string/jumbo v8, "registerListener"
 
-    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     invoke-virtual {p0}, Lcom/samsung/android/cover/CoverManager;->isSupportCover()Z
 
-    move-result v6
+    move-result v7
 
-    if-nez v6, :cond_0
+    if-nez v7, :cond_0
 
-    const-string/jumbo v6, "CoverManager"
+    const-string/jumbo v7, "CoverManager"
 
-    const-string/jumbo v7, "registerListener : This device is not supported cover"
+    const-string/jumbo v8, "registerListener : This device is not supported cover"
 
-    invoke-static {v6, v7}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v7, v8}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 
     :cond_0
     invoke-static {}, Landroid/os/Process;->myUid()I
 
-    move-result v6
+    move-result v7
 
-    const/16 v7, 0x3e8
+    const/16 v8, 0x3e8
 
-    if-eq v6, v7, :cond_1
+    if-eq v7, v8, :cond_1
 
-    new-instance v6, Ljava/lang/SecurityException;
+    new-instance v7, Ljava/lang/SecurityException;
 
-    const-string/jumbo v7, "CoverManager only available from system UID."
+    const-string/jumbo v8, "CoverManager only available from system UID."
 
-    invoke-direct {v6, v7}, Ljava/lang/SecurityException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v7, v8}, Ljava/lang/SecurityException;-><init>(Ljava/lang/String;)V
 
-    throw v6
+    throw v7
 
     :cond_1
     if-nez p1, :cond_2
 
-    const-string/jumbo v6, "CoverManager"
+    const-string/jumbo v7, "CoverManager"
 
-    const-string/jumbo v7, "registerListener : listener is null"
+    const-string/jumbo v8, "registerListener : listener is null"
 
-    invoke-static {v6, v7}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v7, v8}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 
     :cond_2
     const/4 v1, 0x0
 
-    iget-object v6, p0, Lcom/samsung/android/cover/CoverManager;->mListenerDelegates:Ljava/util/concurrent/CopyOnWriteArrayList;
+    const/4 v4, 0x0
 
-    invoke-virtual {v6}, Ljava/util/concurrent/CopyOnWriteArrayList;->iterator()Ljava/util/Iterator;
+    iget-object v7, p0, Lcom/samsung/android/cover/CoverManager;->mListenerDelegates:Ljava/util/concurrent/CopyOnWriteArrayList;
 
-    move-result-object v4
+    invoke-virtual {v7}, Ljava/util/concurrent/CopyOnWriteArrayList;->iterator()Ljava/util/Iterator;
+
+    move-result-object v5
 
     :cond_3
-    invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v6
+    move-result v7
 
-    if-eqz v6, :cond_4
+    if-eqz v7, :cond_4
 
-    invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v2
 
@@ -1219,60 +1469,64 @@
 
     invoke-virtual {v2}, Lcom/samsung/android/cover/CoverListenerDelegate;->getListener()Lcom/samsung/android/cover/CoverManager$StateListener;
 
-    move-result-object v6
+    move-result-object v7
 
-    invoke-virtual {v6, p1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v7, p1}, Lcom/samsung/android/cover/CoverManager$StateListener;->equals(Ljava/lang/Object;)Z
 
-    move-result v6
+    move-result v7
 
-    if-eqz v6, :cond_3
+    if-eqz v7, :cond_3
 
     move-object v1, v2
+
+    const/4 v4, 0x1
 
     :cond_4
     if-nez v1, :cond_5
 
     new-instance v1, Lcom/samsung/android/cover/CoverListenerDelegate;
 
-    iget-object v6, p0, Lcom/samsung/android/cover/CoverManager;->mContext:Landroid/content/Context;
+    iget-object v7, p0, Lcom/samsung/android/cover/CoverManager;->mContext:Landroid/content/Context;
 
-    invoke-direct {v1, p1, v8, v6}, Lcom/samsung/android/cover/CoverListenerDelegate;-><init>(Lcom/samsung/android/cover/CoverManager$StateListener;Landroid/os/Handler;Landroid/content/Context;)V
-
-    iget-object v6, p0, Lcom/samsung/android/cover/CoverManager;->mListenerDelegates:Ljava/util/concurrent/CopyOnWriteArrayList;
-
-    invoke-virtual {v6, v1}, Ljava/util/concurrent/CopyOnWriteArrayList;->add(Ljava/lang/Object;)Z
+    invoke-direct {v1, p1, v9, v7}, Lcom/samsung/android/cover/CoverListenerDelegate;-><init>(Lcom/samsung/android/cover/CoverManager$StateListener;Landroid/os/Handler;Landroid/content/Context;)V
 
     :cond_5
     :try_start_0
     invoke-direct {p0}, Lcom/samsung/android/cover/CoverManager;->getService()Lcom/samsung/android/cover/ICoverManager;
 
-    move-result-object v5
+    move-result-object v6
 
-    if-eqz v5, :cond_6
+    if-eqz v6, :cond_6
 
     new-instance v0, Landroid/content/ComponentName;
 
-    iget-object v6, p0, Lcom/samsung/android/cover/CoverManager;->mContext:Landroid/content/Context;
+    iget-object v7, p0, Lcom/samsung/android/cover/CoverManager;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v6}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+    invoke-virtual {v7}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
 
     move-result-object v7
 
-    invoke-virtual {v7}, Ljava/lang/Class;->getCanonicalName()Ljava/lang/String;
+    invoke-virtual {p0}, Lcom/samsung/android/cover/CoverManager;->getClass()Ljava/lang/Class;
 
-    move-result-object v7
+    move-result-object v8
 
-    invoke-direct {v0, v6, v7}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v8}, Ljava/lang/Class;->getCanonicalName()Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-direct {v0, v7, v8}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
     if-eqz v1, :cond_6
 
     if-eqz v0, :cond_6
 
-    invoke-interface {v5, v1, v0}, Lcom/samsung/android/cover/ICoverManager;->registerCallback(Landroid/os/IBinder;Landroid/content/ComponentName;)V
+    invoke-interface {v6, v1, v0}, Lcom/samsung/android/cover/ICoverManager;->registerCallback(Landroid/os/IBinder;Landroid/content/ComponentName;)V
+
+    if-nez v4, :cond_6
+
+    iget-object v7, p0, Lcom/samsung/android/cover/CoverManager;->mListenerDelegates:Ljava/util/concurrent/CopyOnWriteArrayList;
+
+    invoke-virtual {v7, v1}, Ljava/util/concurrent/CopyOnWriteArrayList;->add(Ljava/lang/Object;)Z
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -1283,85 +1537,87 @@
     :catch_0
     move-exception v3
 
-    const-string/jumbo v6, "CoverManager"
+    const-string/jumbo v7, "CoverManager"
 
-    const-string/jumbo v7, "RemoteException in registerListener: "
+    const-string/jumbo v8, "RemoteException in registerListener: "
 
-    invoke-static {v6, v7, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v7, v8, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     goto :goto_0
 .end method
 
 .method public registerNfcTouchListener(ILcom/samsung/android/cover/CoverManager$NfcLedCoverTouchListener;)V
-    .locals 9
+    .locals 10
 
-    const/4 v8, 0x0
+    const/4 v9, 0x0
 
-    const-string/jumbo v6, "CoverManager"
+    const-string/jumbo v7, "CoverManager"
 
-    const-string/jumbo v7, "registerNfcTouchListener"
+    const-string/jumbo v8, "registerNfcTouchListener"
 
-    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     invoke-virtual {p0}, Lcom/samsung/android/cover/CoverManager;->isSupportNfcLedCover()Z
 
-    move-result v6
+    move-result v7
 
-    if-nez v6, :cond_0
+    if-nez v7, :cond_0
 
-    const-string/jumbo v6, "CoverManager"
+    const-string/jumbo v7, "CoverManager"
 
-    const-string/jumbo v7, "registerNfcTouchListener : This device does not support NFC Led cover"
+    const-string/jumbo v8, "registerNfcTouchListener : This device does not support NFC Led cover"
 
-    invoke-static {v6, v7}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v7, v8}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 
     :cond_0
     invoke-static {}, Landroid/os/Process;->myUid()I
 
-    move-result v6
+    move-result v7
 
-    const/16 v7, 0x3e8
+    const/16 v8, 0x3e8
 
-    if-eq v6, v7, :cond_1
+    if-eq v7, v8, :cond_1
 
-    new-instance v6, Ljava/lang/SecurityException;
+    new-instance v7, Ljava/lang/SecurityException;
 
-    const-string/jumbo v7, "CoverManager only available from system UID."
+    const-string/jumbo v8, "CoverManager only available from system UID."
 
-    invoke-direct {v6, v7}, Ljava/lang/SecurityException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v7, v8}, Ljava/lang/SecurityException;-><init>(Ljava/lang/String;)V
 
-    throw v6
+    throw v7
 
     :cond_1
     if-nez p2, :cond_2
 
-    const-string/jumbo v6, "CoverManager"
+    const-string/jumbo v7, "CoverManager"
 
-    const-string/jumbo v7, "registerNfcTouchListener : listener is null"
+    const-string/jumbo v8, "registerNfcTouchListener : listener is null"
 
-    invoke-static {v6, v7}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v7, v8}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 
     :cond_2
-    const/4 v4, 0x0
+    const/4 v5, 0x0
 
-    iget-object v6, p0, Lcom/samsung/android/cover/CoverManager;->mNfcLedCoverTouchListenerDelegates:Ljava/util/concurrent/CopyOnWriteArrayList;
+    const/4 v3, 0x0
 
-    invoke-virtual {v6}, Ljava/util/concurrent/CopyOnWriteArrayList;->iterator()Ljava/util/Iterator;
+    iget-object v7, p0, Lcom/samsung/android/cover/CoverManager;->mNfcLedCoverTouchListenerDelegates:Ljava/util/concurrent/CopyOnWriteArrayList;
 
-    move-result-object v3
+    invoke-virtual {v7}, Ljava/util/concurrent/CopyOnWriteArrayList;->iterator()Ljava/util/Iterator;
+
+    move-result-object v4
 
     :cond_3
-    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v6
+    move-result v7
 
-    if-eqz v6, :cond_4
+    if-eqz v7, :cond_4
 
-    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v1
 
@@ -1369,60 +1625,64 @@
 
     invoke-virtual {v1}, Lcom/samsung/android/cover/NfcLedCoverTouchListenerDelegate;->getListener()Ljava/lang/Object;
 
-    move-result-object v6
+    move-result-object v7
 
-    invoke-virtual {v6, p2}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v7, p2}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
-    move-result v6
+    move-result v7
 
-    if-eqz v6, :cond_3
+    if-eqz v7, :cond_3
 
-    move-object v4, v1
+    move-object v5, v1
+
+    const/4 v3, 0x1
 
     :cond_4
-    if-nez v4, :cond_5
+    if-nez v5, :cond_5
 
-    new-instance v4, Lcom/samsung/android/cover/NfcLedCoverTouchListenerDelegate;
+    new-instance v5, Lcom/samsung/android/cover/NfcLedCoverTouchListenerDelegate;
 
-    iget-object v6, p0, Lcom/samsung/android/cover/CoverManager;->mContext:Landroid/content/Context;
+    iget-object v7, p0, Lcom/samsung/android/cover/CoverManager;->mContext:Landroid/content/Context;
 
-    invoke-direct {v4, p2, v8, v6}, Lcom/samsung/android/cover/NfcLedCoverTouchListenerDelegate;-><init>(Lcom/samsung/android/cover/CoverManager$NfcLedCoverTouchListener;Landroid/os/Handler;Landroid/content/Context;)V
-
-    iget-object v6, p0, Lcom/samsung/android/cover/CoverManager;->mNfcLedCoverTouchListenerDelegates:Ljava/util/concurrent/CopyOnWriteArrayList;
-
-    invoke-virtual {v6, v4}, Ljava/util/concurrent/CopyOnWriteArrayList;->add(Ljava/lang/Object;)Z
+    invoke-direct {v5, p2, v9, v7}, Lcom/samsung/android/cover/NfcLedCoverTouchListenerDelegate;-><init>(Lcom/samsung/android/cover/CoverManager$NfcLedCoverTouchListener;Landroid/os/Handler;Landroid/content/Context;)V
 
     :cond_5
     :try_start_0
     invoke-direct {p0}, Lcom/samsung/android/cover/CoverManager;->getService()Lcom/samsung/android/cover/ICoverManager;
 
-    move-result-object v5
+    move-result-object v6
 
-    if-eqz v5, :cond_6
+    if-eqz v6, :cond_6
 
     new-instance v0, Landroid/content/ComponentName;
 
-    iget-object v6, p0, Lcom/samsung/android/cover/CoverManager;->mContext:Landroid/content/Context;
+    iget-object v7, p0, Lcom/samsung/android/cover/CoverManager;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v6}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+    invoke-virtual {v7}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
 
     move-result-object v7
 
-    invoke-virtual {v7}, Ljava/lang/Class;->getCanonicalName()Ljava/lang/String;
+    invoke-virtual {p0}, Lcom/samsung/android/cover/CoverManager;->getClass()Ljava/lang/Class;
 
-    move-result-object v7
+    move-result-object v8
 
-    invoke-direct {v0, v6, v7}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v8}, Ljava/lang/Class;->getCanonicalName()Ljava/lang/String;
 
-    if-eqz v4, :cond_6
+    move-result-object v8
+
+    invoke-direct {v0, v7, v8}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+
+    if-eqz v5, :cond_6
 
     if-eqz v0, :cond_6
 
-    invoke-interface {v5, p1, v4, v0}, Lcom/samsung/android/cover/ICoverManager;->registerNfcTouchListenerCallback(ILandroid/os/IBinder;Landroid/content/ComponentName;)V
+    invoke-interface {v6, p1, v5, v0}, Lcom/samsung/android/cover/ICoverManager;->registerNfcTouchListenerCallback(ILandroid/os/IBinder;Landroid/content/ComponentName;)V
+
+    if-nez v3, :cond_6
+
+    iget-object v7, p0, Lcom/samsung/android/cover/CoverManager;->mNfcLedCoverTouchListenerDelegates:Ljava/util/concurrent/CopyOnWriteArrayList;
+
+    invoke-virtual {v7, v5}, Ljava/util/concurrent/CopyOnWriteArrayList;->add(Ljava/lang/Object;)Z
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -1433,11 +1693,11 @@
     :catch_0
     move-exception v2
 
-    const-string/jumbo v6, "CoverManager"
+    const-string/jumbo v7, "CoverManager"
 
-    const-string/jumbo v7, "RemoteException in registerNfcTouchListener: "
+    const-string/jumbo v8, "RemoteException in registerNfcTouchListener: "
 
-    invoke-static {v6, v7, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v7, v8, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     goto :goto_0
 .end method
@@ -1731,6 +1991,136 @@
     return-void
 .end method
 
+.method public unregisterCoverPowerKeyListener(Lcom/samsung/android/cover/CoverManager$CoverPowerKeyListener;)V
+    .locals 7
+
+    const-string/jumbo v5, "CoverManager"
+
+    const-string/jumbo v6, "unregisterCoverPowerKeyListener"
+
+    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-virtual {p0}, Lcom/samsung/android/cover/CoverManager;->isSupportCover()Z
+
+    move-result v5
+
+    if-nez v5, :cond_0
+
+    const-string/jumbo v5, "CoverManager"
+
+    const-string/jumbo v6, "unregisterCoverPowerKeyListener : This device does not support cover"
+
+    invoke-static {v5, v6}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
+
+    :cond_0
+    const-string/jumbo v5, "CoverManager"
+
+    const-string/jumbo v6, "unregisterCoverPowerKeyListener"
+
+    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-virtual {p0}, Lcom/samsung/android/cover/CoverManager;->isSupportFlipCover()Z
+
+    move-result v5
+
+    if-nez v5, :cond_1
+
+    const-string/jumbo v5, "CoverManager"
+
+    const-string/jumbo v6, "unregisterCoverPowerKeyListener : This device does not support Flip Cover"
+
+    invoke-static {v5, v6}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
+
+    :cond_1
+    if-nez p1, :cond_2
+
+    const-string/jumbo v5, "CoverManager"
+
+    const-string/jumbo v6, "unregisterCoverPowerKeyListener : listener is null"
+
+    invoke-static {v5, v6}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
+
+    :cond_2
+    const/4 v3, 0x0
+
+    iget-object v5, p0, Lcom/samsung/android/cover/CoverManager;->mCoverPowerKeyListenerDelegates:Ljava/util/concurrent/CopyOnWriteArrayList;
+
+    invoke-virtual {v5}, Ljava/util/concurrent/CopyOnWriteArrayList;->iterator()Ljava/util/Iterator;
+
+    move-result-object v2
+
+    :cond_3
+    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v5
+
+    if-eqz v5, :cond_4
+
+    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/samsung/android/cover/CoverPowerKeyListenerDelegate;
+
+    invoke-virtual {v0}, Lcom/samsung/android/cover/CoverPowerKeyListenerDelegate;->getListener()Ljava/lang/Object;
+
+    move-result-object v5
+
+    invoke-virtual {v5, p1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_3
+
+    move-object v3, v0
+
+    :cond_4
+    if-nez v3, :cond_5
+
+    return-void
+
+    :cond_5
+    :try_start_0
+    invoke-direct {p0}, Lcom/samsung/android/cover/CoverManager;->getService()Lcom/samsung/android/cover/ICoverManager;
+
+    move-result-object v4
+
+    if-eqz v4, :cond_6
+
+    invoke-interface {v4, v3}, Lcom/samsung/android/cover/ICoverManager;->unregisterNfcTouchListenerCallback(Landroid/os/IBinder;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_6
+
+    iget-object v5, p0, Lcom/samsung/android/cover/CoverManager;->mCoverPowerKeyListenerDelegates:Ljava/util/concurrent/CopyOnWriteArrayList;
+
+    invoke-virtual {v5, v3}, Ljava/util/concurrent/CopyOnWriteArrayList;->remove(Ljava/lang/Object;)Z
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    :cond_6
+    :goto_0
+    return-void
+
+    :catch_0
+    move-exception v1
+
+    const-string/jumbo v5, "CoverManager"
+
+    const-string/jumbo v6, "RemoteException in unregisterCoverPowerKeyListener: "
+
+    invoke-static {v5, v6, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    goto :goto_0
+.end method
+
 .method public unregisterLedSystemEventListener(Lcom/samsung/android/cover/CoverManager$LedSystemEventListener;)V
     .locals 7
 
@@ -1932,7 +2322,7 @@
 
     move-result-object v5
 
-    invoke-virtual {v5, p1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v5, p1}, Lcom/samsung/android/cover/CoverManager$CoverStateListener;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
@@ -2058,7 +2448,7 @@
 
     move-result-object v5
 
-    invoke-virtual {v5, p1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v5, p1}, Lcom/samsung/android/cover/CoverManager$StateListener;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 

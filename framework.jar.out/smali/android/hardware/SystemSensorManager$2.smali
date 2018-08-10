@@ -40,13 +40,7 @@
 
     const-string/jumbo v1, "android.intent.action.DYNAMIC_SENSOR_CHANGED"
 
-    if-ne v0, v1, :cond_1
-
-    invoke-static {}, Landroid/hardware/SystemSensorManager;->-get0()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
+    if-ne v0, v1, :cond_0
 
     const-string/jumbo v0, "SensorManager"
 
@@ -54,7 +48,6 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_0
     iget-object v0, p0, Landroid/hardware/SystemSensorManager$2;->this$0:Landroid/hardware/SystemSensorManager;
 
     const/4 v1, 0x1
@@ -65,6 +58,6 @@
 
     invoke-static {v0}, Landroid/hardware/SystemSensorManager;->-wrap0(Landroid/hardware/SystemSensorManager;)V
 
-    :cond_1
+    :cond_0
     return-void
 .end method

@@ -1,5 +1,5 @@
 .class Landroid/transition/ChangeText$6;
-.super Landroid/transition/Transition$TransitionListenerAdapter;
+.super Landroid/transition/TransitionListenerAdapter;
 .source "ChangeText.java"
 
 
@@ -58,7 +58,7 @@
 
     iput p9, p0, Landroid/transition/ChangeText$6;->val$startSelectionEnd:I
 
-    invoke-direct {p0}, Landroid/transition/Transition$TransitionListenerAdapter;-><init>()V
+    invoke-direct {p0}, Landroid/transition/TransitionListenerAdapter;-><init>()V
 
     const/4 v0, 0x0
 
@@ -69,6 +69,14 @@
 
 
 # virtual methods
+.method public onTransitionEnd(Landroid/transition/Transition;)V
+    .locals 0
+
+    invoke-virtual {p1, p0}, Landroid/transition/Transition;->removeListener(Landroid/transition/Transition$TransitionListener;)Landroid/transition/Transition;
+
+    return-void
+.end method
+
 .method public onTransitionPause(Landroid/transition/Transition;)V
     .locals 4
 

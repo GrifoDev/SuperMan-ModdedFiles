@@ -96,22 +96,20 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_0
 
     instance-of v1, v0, Landroid/text/method/LinkMovementMethod;
+
+    xor-int/lit8 v1, v1, 0x1
 
     if-eqz v1, :cond_1
 
     :cond_0
-    :goto_0
-    return-void
-
-    :cond_1
     invoke-virtual {p0}, Landroid/widget/TextView;->getLinksClickable()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1
 
     invoke-static {}, Landroid/text/method/LinkMovementMethod;->getInstance()Landroid/text/method/MovementMethod;
 
@@ -119,7 +117,8 @@
 
     invoke-virtual {p0, v1}, Landroid/widget/TextView;->setMovementMethod(Landroid/text/method/MovementMethod;)V
 
-    goto :goto_0
+    :cond_1
+    return-void
 .end method
 
 .method public static final addLinks(Landroid/widget/TextView;Ljava/util/regex/Pattern;Ljava/lang/String;)V
@@ -366,7 +365,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_7
 
     const-string/jumbo v2, "www."
 
@@ -374,7 +373,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_4
+    if-nez v2, :cond_6
 
     const-string/jumbo v2, "http://"
 
@@ -382,7 +381,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_4
+    if-nez v2, :cond_6
 
     const-string/jumbo v2, "https://"
 
@@ -390,7 +389,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_4
+    if-nez v2, :cond_6
 
     const-string/jumbo v2, "rtsp://"
 
@@ -398,154 +397,19 @@
 
     move-result v2
 
-    if-nez v2, :cond_4
+    if-nez v2, :cond_6
 
     const-string/jumbo v2, "ftp://"
 
     invoke-virtual {v12, v2}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
     move-result v2
+
+    :goto_2
+    xor-int/lit8 v2, v2, 0x1
 
     if-eqz v2, :cond_7
 
-    :cond_4
-    const-string/jumbo v2, "wap."
-
-    invoke-virtual {v12, v2}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_5
-
-    const-string/jumbo v2, "wap."
-
-    invoke-virtual {v12, v2}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
-
-    move-result v2
-
-    if-nez v2, :cond_5
-
-    const-string/jumbo v2, "http://"
-
-    invoke-virtual {v12, v2}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
-
-    move-result v2
-
-    if-nez v2, :cond_5
-
-    const-string/jumbo v2, "https://"
-
-    invoke-virtual {v12, v2}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
-
-    move-result v2
-
-    if-nez v2, :cond_5
-
-    const-string/jumbo v2, "rtsp://"
-
-    invoke-virtual {v12, v2}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
-
-    move-result v2
-
-    if-nez v2, :cond_5
-
-    const-string/jumbo v2, "ftp://"
-
-    invoke-virtual {v12, v2}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_8
-
-    :cond_5
-    :goto_2
-    const-string/jumbo v2, "."
-
-    invoke-virtual {v12, v2}, Ljava/lang/String;->lastIndexOf(Ljava/lang/String;)I
-
-    move-result v15
-
-    if-ltz v15, :cond_3
-
-    invoke-virtual {v12}, Ljava/lang/String;->length()I
-
-    move-result v2
-
-    add-int/lit8 v2, v2, -0x1
-
-    if-ge v15, v2, :cond_3
-
-    const-string/jumbo v2, "http://api.map.baidu.com/marker?location="
-
-    invoke-virtual {v12, v2}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
-
-    move-result v2
-
-    if-nez v2, :cond_3
-
-    add-int/lit8 v2, v15, 0x1
-
-    invoke-virtual {v12, v2}, Ljava/lang/String;->substring(I)Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/String;->toCharArray()[C
-
-    move-result-object v7
-
-    const/4 v8, 0x0
-
-    :goto_3
-    array-length v2, v7
-
-    if-ge v8, v2, :cond_6
-
-    aget-char v2, v7, v8
-
-    const/16 v3, 0x80
-
-    if-lt v2, v3, :cond_9
-
-    :cond_6
-    array-length v2, v7
-
-    if-ge v8, v2, :cond_3
-
-    iget v2, v10, Landroid/text/util/LinkSpec;->end:I
-
-    array-length v3, v7
-
-    sub-int/2addr v3, v8
-
-    sub-int/2addr v2, v3
-
-    iput v2, v10, Landroid/text/util/LinkSpec;->end:I
-
-    iget-object v2, v10, Landroid/text/util/LinkSpec;->url:Ljava/lang/String;
-
-    iget-object v3, v10, Landroid/text/util/LinkSpec;->url:Ljava/lang/String;
-
-    invoke-virtual {v3}, Ljava/lang/String;->length()I
-
-    move-result v3
-
-    array-length v4, v7
-
-    sub-int/2addr v4, v8
-
-    sub-int/2addr v3, v4
-
-    const/4 v4, 0x0
-
-    invoke-virtual {v2, v4, v3}, Ljava/lang/String;->substring(II)Ljava/lang/String;
-
-    move-result-object v2
-
-    iput-object v2, v10, Landroid/text/util/LinkSpec;->url:Ljava/lang/String;
-
-    goto/16 :goto_1
-
-    :cond_7
     iget v2, v10, Landroid/text/util/LinkSpec;->start:I
 
     const-string/jumbo v3, "www."
@@ -606,9 +470,153 @@
 
     iput-object v2, v10, Landroid/text/util/LinkSpec;->url:Ljava/lang/String;
 
+    :cond_4
+    :goto_3
+    const-string/jumbo v2, "."
+
+    invoke-virtual {v12, v2}, Ljava/lang/String;->lastIndexOf(Ljava/lang/String;)I
+
+    move-result v15
+
+    if-ltz v15, :cond_3
+
+    invoke-virtual {v12}, Ljava/lang/String;->length()I
+
+    move-result v2
+
+    add-int/lit8 v2, v2, -0x1
+
+    if-ge v15, v2, :cond_3
+
+    const-string/jumbo v2, "http://api.map.baidu.com/marker?location="
+
+    invoke-virtual {v12, v2}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v2
+
+    xor-int/lit8 v2, v2, 0x1
+
+    if-eqz v2, :cond_3
+
+    add-int/lit8 v2, v15, 0x1
+
+    invoke-virtual {v12, v2}, Ljava/lang/String;->substring(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/String;->toCharArray()[C
+
+    move-result-object v7
+
+    const/4 v8, 0x0
+
+    :goto_4
+    array-length v2, v7
+
+    if-ge v8, v2, :cond_5
+
+    aget-char v2, v7, v8
+
+    const/16 v3, 0x80
+
+    if-lt v2, v3, :cond_9
+
+    :cond_5
+    array-length v2, v7
+
+    if-ge v8, v2, :cond_3
+
+    iget v2, v10, Landroid/text/util/LinkSpec;->end:I
+
+    array-length v3, v7
+
+    sub-int/2addr v3, v8
+
+    sub-int/2addr v2, v3
+
+    iput v2, v10, Landroid/text/util/LinkSpec;->end:I
+
+    iget-object v2, v10, Landroid/text/util/LinkSpec;->url:Ljava/lang/String;
+
+    iget-object v3, v10, Landroid/text/util/LinkSpec;->url:Ljava/lang/String;
+
+    invoke-virtual {v3}, Ljava/lang/String;->length()I
+
+    move-result v3
+
+    array-length v4, v7
+
+    sub-int/2addr v4, v8
+
+    sub-int/2addr v3, v4
+
+    const/4 v4, 0x0
+
+    invoke-virtual {v2, v4, v3}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+
+    move-result-object v2
+
+    iput-object v2, v10, Landroid/text/util/LinkSpec;->url:Ljava/lang/String;
+
+    goto/16 :goto_1
+
+    :cond_6
+    const/4 v2, 0x1
+
     goto/16 :goto_2
 
-    :cond_8
+    :cond_7
+    const-string/jumbo v2, "wap."
+
+    invoke-virtual {v12, v2}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_4
+
+    const-string/jumbo v2, "wap."
+
+    invoke-virtual {v12, v2}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_8
+
+    const-string/jumbo v2, "http://"
+
+    invoke-virtual {v12, v2}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_8
+
+    const-string/jumbo v2, "https://"
+
+    invoke-virtual {v12, v2}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_8
+
+    const-string/jumbo v2, "rtsp://"
+
+    invoke-virtual {v12, v2}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_8
+
+    const-string/jumbo v2, "ftp://"
+
+    invoke-virtual {v12, v2}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v2
+
+    :goto_5
+    xor-int/lit8 v2, v2, 0x1
+
+    if-eqz v2, :cond_4
+
     iget v2, v10, Landroid/text/util/LinkSpec;->start:I
 
     const-string/jumbo v3, "wap."
@@ -669,12 +677,17 @@
 
     iput-object v2, v10, Landroid/text/util/LinkSpec;->url:Ljava/lang/String;
 
-    goto/16 :goto_2
+    goto/16 :goto_3
+
+    :cond_8
+    const/4 v2, 0x1
+
+    goto :goto_5
 
     :cond_9
     add-int/lit8 v8, v8, 0x1
 
-    goto/16 :goto_3
+    goto/16 :goto_4
 
     :cond_a
     move/from16 v0, p1
@@ -724,7 +737,7 @@
     const/4 v9, 0x0
 
     :cond_b
-    :goto_4
+    :goto_6
     invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
 
     move-result v2
@@ -920,7 +933,7 @@
 
     add-int/lit8 v9, v9, -0x1
 
-    goto/16 :goto_4
+    goto/16 :goto_6
 
     :cond_f
     const-string/jumbo v2, "www."
@@ -937,7 +950,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_10
+    if-nez v2, :cond_13
 
     const-string/jumbo v2, "http://"
 
@@ -945,7 +958,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_10
+    if-nez v2, :cond_13
 
     const-string/jumbo v2, "https://"
 
@@ -953,7 +966,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_10
+    if-nez v2, :cond_13
 
     const-string/jumbo v2, "rtsp://"
 
@@ -961,7 +974,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_10
+    if-nez v2, :cond_13
 
     const-string/jumbo v2, "ftp://"
 
@@ -969,102 +982,11 @@
 
     move-result v2
 
-    if-eqz v2, :cond_13
+    :goto_7
+    xor-int/lit8 v2, v2, 0x1
 
-    :cond_10
-    :goto_5
-    const-string/jumbo v2, "."
+    if-eqz v2, :cond_10
 
-    invoke-virtual {v12, v2}, Ljava/lang/String;->lastIndexOf(Ljava/lang/String;)I
-
-    move-result v15
-
-    if-ltz v15, :cond_12
-
-    invoke-virtual {v12}, Ljava/lang/String;->length()I
-
-    move-result v2
-
-    add-int/lit8 v2, v2, -0x1
-
-    if-ge v15, v2, :cond_12
-
-    add-int/lit8 v2, v15, 0x1
-
-    invoke-virtual {v12, v2}, Ljava/lang/String;->substring(I)Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/String;->toCharArray()[C
-
-    move-result-object v7
-
-    const/4 v8, 0x0
-
-    :goto_6
-    array-length v2, v7
-
-    if-ge v8, v2, :cond_11
-
-    aget-char v2, v7, v8
-
-    const/16 v3, 0x80
-
-    if-lt v2, v3, :cond_14
-
-    :cond_11
-    array-length v2, v7
-
-    if-ge v8, v2, :cond_12
-
-    if-lez v8, :cond_12
-
-    add-int/lit8 v2, v8, -0x1
-
-    aget-char v2, v7, v2
-
-    const/16 v3, 0x2f
-
-    if-eq v2, v3, :cond_12
-
-    iget v2, v10, Landroid/text/util/LinkSpec;->end:I
-
-    array-length v3, v7
-
-    sub-int/2addr v3, v8
-
-    sub-int/2addr v2, v3
-
-    iput v2, v10, Landroid/text/util/LinkSpec;->end:I
-
-    iget-object v2, v10, Landroid/text/util/LinkSpec;->url:Ljava/lang/String;
-
-    iget-object v3, v10, Landroid/text/util/LinkSpec;->url:Ljava/lang/String;
-
-    invoke-virtual {v3}, Ljava/lang/String;->length()I
-
-    move-result v3
-
-    array-length v4, v7
-
-    sub-int/2addr v4, v8
-
-    sub-int/2addr v3, v4
-
-    const/4 v4, 0x0
-
-    invoke-virtual {v2, v4, v3}, Ljava/lang/String;->substring(II)Ljava/lang/String;
-
-    move-result-object v2
-
-    iput-object v2, v10, Landroid/text/util/LinkSpec;->url:Ljava/lang/String;
-
-    :cond_12
-    add-int/lit8 v9, v9, 0x1
-
-    goto/16 :goto_4
-
-    :cond_13
     iget v2, v10, Landroid/text/util/LinkSpec;->start:I
 
     const-string/jumbo v3, "www."
@@ -1125,12 +1047,107 @@
 
     iput-object v2, v10, Landroid/text/util/LinkSpec;->url:Ljava/lang/String;
 
-    goto/16 :goto_5
+    :cond_10
+    const-string/jumbo v2, "."
+
+    invoke-virtual {v12, v2}, Ljava/lang/String;->lastIndexOf(Ljava/lang/String;)I
+
+    move-result v15
+
+    if-ltz v15, :cond_12
+
+    invoke-virtual {v12}, Ljava/lang/String;->length()I
+
+    move-result v2
+
+    add-int/lit8 v2, v2, -0x1
+
+    if-ge v15, v2, :cond_12
+
+    add-int/lit8 v2, v15, 0x1
+
+    invoke-virtual {v12, v2}, Ljava/lang/String;->substring(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/String;->toCharArray()[C
+
+    move-result-object v7
+
+    const/4 v8, 0x0
+
+    :goto_8
+    array-length v2, v7
+
+    if-ge v8, v2, :cond_11
+
+    aget-char v2, v7, v8
+
+    const/16 v3, 0x80
+
+    if-lt v2, v3, :cond_14
+
+    :cond_11
+    array-length v2, v7
+
+    if-ge v8, v2, :cond_12
+
+    if-lez v8, :cond_12
+
+    add-int/lit8 v2, v8, -0x1
+
+    aget-char v2, v7, v2
+
+    const/16 v3, 0x2f
+
+    if-eq v2, v3, :cond_12
+
+    iget v2, v10, Landroid/text/util/LinkSpec;->end:I
+
+    array-length v3, v7
+
+    sub-int/2addr v3, v8
+
+    sub-int/2addr v2, v3
+
+    iput v2, v10, Landroid/text/util/LinkSpec;->end:I
+
+    iget-object v2, v10, Landroid/text/util/LinkSpec;->url:Ljava/lang/String;
+
+    iget-object v3, v10, Landroid/text/util/LinkSpec;->url:Ljava/lang/String;
+
+    invoke-virtual {v3}, Ljava/lang/String;->length()I
+
+    move-result v3
+
+    array-length v4, v7
+
+    sub-int/2addr v4, v8
+
+    sub-int/2addr v3, v4
+
+    const/4 v4, 0x0
+
+    invoke-virtual {v2, v4, v3}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+
+    move-result-object v2
+
+    iput-object v2, v10, Landroid/text/util/LinkSpec;->url:Ljava/lang/String;
+
+    :cond_12
+    add-int/lit8 v9, v9, 0x1
+
+    goto/16 :goto_6
+
+    :cond_13
+    const/4 v2, 0x1
+
+    goto/16 :goto_7
 
     :cond_14
     add-int/lit8 v8, v8, 0x1
 
-    goto :goto_6
+    goto :goto_8
 
     :cond_15
     and-int/lit8 v2, p1, 0x2
@@ -1247,7 +1264,7 @@
 
     move-result-object v11
 
-    :goto_7
+    :goto_9
     invoke-interface {v11}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
@@ -1270,7 +1287,7 @@
 
     invoke-static {v2, v3, v4, v0}, Landroid/text/util/Linkify;->applyLink(Ljava/lang/String;IILandroid/text/Spannable;)V
 
-    goto :goto_7
+    goto :goto_9
 
     :cond_1c
     const/4 v2, 0x1

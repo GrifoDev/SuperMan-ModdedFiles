@@ -15,7 +15,7 @@
 
 
 # static fields
-.field public static final ALL:I = 0x3fffe
+.field public static final ALL:I = 0xbfffe
 
 .field private static final CDMA:I = 0x70
 
@@ -35,6 +35,8 @@
 .field private static final GSM:I = 0x10006
 
 .field private static final HS:I = 0x8e00
+
+.field private static final LTE:I = 0x84000
 
 .field public static final RAF_1xRTT:I = 0x40
 
@@ -65,6 +67,8 @@
 .field public static final RAF_IS95B:I = 0x20
 
 .field public static final RAF_LTE:I = 0x4000
+
+.field public static final RAF_LTE_CA:I = 0x80000
 
 .field public static final RAF_TD_SCDMA:I = 0x20000
 
@@ -141,7 +145,65 @@
     or-int/lit16 p0, p0, 0x3180
 
     :cond_3
+    const v0, 0x84000
+
+    and-int/2addr v0, p0
+
+    if-lez v0, :cond_4
+
+    const v0, 0x84000
+
+    or-int/2addr p0, v0
+
+    :cond_4
     return p0
+.end method
+
+.method public static getHighestRafCapability(I)I
+    .locals 3
+
+    const/4 v2, 0x0
+
+    const v0, 0x84000
+
+    and-int/2addr v0, p0
+
+    if-lez v0, :cond_0
+
+    const/4 v0, 0x3
+
+    return v0
+
+    :cond_0
+    const v0, 0x8e08
+
+    and-int/2addr v0, p0
+
+    const v1, 0xbf80
+
+    or-int/2addr v0, v1
+
+    if-lez v0, :cond_1
+
+    const/4 v0, 0x2
+
+    return v0
+
+    :cond_1
+    and-int/lit8 v0, p0, 0x70
+
+    const v1, 0x10006
+
+    or-int/2addr v0, v1
+
+    if-lez v0, :cond_2
+
+    const/4 v0, 0x1
+
+    return v0
+
+    :cond_2
+    return v2
 .end method
 
 .method public static getNetworkTypeFromRaf(I)I
@@ -275,25 +337,25 @@
         0x70 -> :sswitch_9
         0x3180 -> :sswitch_a
         0x31f0 -> :sswitch_3
-        0x4000 -> :sswitch_7
-        0x71f0 -> :sswitch_4
         0x8e08 -> :sswitch_2
-        0xce08 -> :sswitch_8
         0x10006 -> :sswitch_1
         0x18e0e -> :sswitch_0
         0x1bffe -> :sswitch_b
-        0x1ce0e -> :sswitch_5
-        0x1fffe -> :sswitch_6
         0x20000 -> :sswitch_c
-        0x24000 -> :sswitch_e
         0x28e08 -> :sswitch_d
-        0x2ce08 -> :sswitch_12
         0x30006 -> :sswitch_f
-        0x34006 -> :sswitch_10
         0x38e0e -> :sswitch_11
         0x3bffe -> :sswitch_14
-        0x3ce0e -> :sswitch_13
-        0x3fffe -> :sswitch_15
+        0x84000 -> :sswitch_7
+        0x871f0 -> :sswitch_4
+        0x8ce08 -> :sswitch_8
+        0x9ce0e -> :sswitch_5
+        0x9fffe -> :sswitch_6
+        0xa4000 -> :sswitch_e
+        0xace08 -> :sswitch_12
+        0xb4006 -> :sswitch_10
+        0xbce0e -> :sswitch_13
+        0xbfffe -> :sswitch_15
     .end sparse-switch
 .end method
 
@@ -333,27 +395,27 @@
     goto :goto_0
 
     :pswitch_5
-    const/16 v0, 0x71f0
+    const v0, 0x871f0
 
     goto :goto_0
 
     :pswitch_6
-    const v0, 0x1ce0e
+    const v0, 0x9ce0e
 
     goto :goto_0
 
     :pswitch_7
-    const v0, 0x1fffe
+    const v0, 0x9fffe
 
     goto :goto_0
 
     :pswitch_8
-    const/16 v0, 0x4000
+    const v0, 0x84000
 
     goto :goto_0
 
     :pswitch_9
-    const v0, 0xce08
+    const v0, 0x8ce08
 
     goto :goto_0
 
@@ -383,7 +445,7 @@
     goto :goto_0
 
     :pswitch_f
-    const v0, 0x24000
+    const v0, 0xa4000
 
     goto :goto_0
 
@@ -393,7 +455,7 @@
     goto :goto_0
 
     :pswitch_11
-    const v0, 0x34006
+    const v0, 0xb4006
 
     goto :goto_0
 
@@ -403,12 +465,12 @@
     goto :goto_0
 
     :pswitch_13
-    const v0, 0x2ce08
+    const v0, 0xace08
 
     goto :goto_0
 
     :pswitch_14
-    const v0, 0x3ce0e
+    const v0, 0xbce0e
 
     goto :goto_0
 
@@ -418,7 +480,7 @@
     goto :goto_0
 
     :pswitch_16
-    const v0, 0x3fffe
+    const v0, 0xbfffe
 
     goto :goto_0
 
@@ -777,6 +839,19 @@
     return v0
 
     :cond_14
+    const-string/jumbo v0, "LTE_CA"
+
+    invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_15
+
+    const/high16 v0, 0x80000
+
+    return v0
+
+    :cond_15
     const/4 v0, 0x1
 
     return v0

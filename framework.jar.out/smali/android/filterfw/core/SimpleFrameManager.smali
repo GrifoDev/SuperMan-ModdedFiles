@@ -81,7 +81,7 @@
 
     invoke-direct {v0, p1, p0}, Landroid/filterfw/core/GLFrame;-><init>(Landroid/filterfw/core/FrameFormat;Landroid/filterfw/core/FrameManager;)V
 
-    invoke-virtual {p0}, Landroid/filterfw/core/FrameManager;->getGLEnvironment()Landroid/filterfw/core/GLEnvironment;
+    invoke-virtual {p0}, Landroid/filterfw/core/SimpleFrameManager;->getGLEnvironment()Landroid/filterfw/core/GLEnvironment;
 
     move-result-object v2
 
@@ -173,7 +173,7 @@
 
     invoke-direct/range {v0 .. v5}, Landroid/filterfw/core/GLFrame;-><init>(Landroid/filterfw/core/FrameFormat;Landroid/filterfw/core/FrameManager;IJ)V
 
-    invoke-virtual {p0}, Landroid/filterfw/core/FrameManager;->getGLEnvironment()Landroid/filterfw/core/GLEnvironment;
+    invoke-virtual {p0}, Landroid/filterfw/core/SimpleFrameManager;->getGLEnvironment()Landroid/filterfw/core/GLEnvironment;
 
     move-result-object v1
 

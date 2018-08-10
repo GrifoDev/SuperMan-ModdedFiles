@@ -4,11 +4,19 @@
 
 
 # static fields
+.field public static final ACCOUNT_FEATURE_DEVICE_OR_PROFILE_OWNER_ALLOWED:Ljava/lang/String; = "android.account.DEVICE_OR_PROFILE_OWNER_ALLOWED"
+
+.field public static final ACCOUNT_FEATURE_DEVICE_OR_PROFILE_OWNER_DISALLOWED:Ljava/lang/String; = "android.account.DEVICE_OR_PROFILE_OWNER_DISALLOWED"
+
 .field public static final ACTION_ADD_DEVICE_ADMIN:Ljava/lang/String; = "android.app.action.ADD_DEVICE_ADMIN"
 
-.field public static final ACTION_BUGREPORT_SHARING_ACCEPTED:Ljava/lang/String; = "com.android.server.action.BUGREPORT_SHARING_ACCEPTED"
+.field public static final ACTION_APPLICATION_DELEGATION_SCOPES_CHANGED:Ljava/lang/String; = "android.app.action.APPLICATION_DELEGATION_SCOPES_CHANGED"
 
-.field public static final ACTION_BUGREPORT_SHARING_DECLINED:Ljava/lang/String; = "com.android.server.action.BUGREPORT_SHARING_DECLINED"
+.field public static final ACTION_BUGREPORT_SHARING_ACCEPTED:Ljava/lang/String; = "com.android.server.action.REMOTE_BUGREPORT_SHARING_ACCEPTED"
+
+.field public static final ACTION_BUGREPORT_SHARING_DECLINED:Ljava/lang/String; = "com.android.server.action.REMOTE_BUGREPORT_SHARING_DECLINED"
+
+.field public static final ACTION_DEVICE_ADMIN_SERVICE:Ljava/lang/String; = "android.app.action.DEVICE_ADMIN_SERVICE"
 
 .field public static final ACTION_DEVICE_OWNER_CHANGED:Ljava/lang/String; = "android.app.action.DEVICE_OWNER_CHANGED"
 
@@ -17,6 +25,8 @@
 .field public static final ACTION_DEVICE_POLICY_MANAGER_STATE_CHANGED:Ljava/lang/String; = "android.app.action.DEVICE_POLICY_MANAGER_STATE_CHANGED"
 
 .field public static final ACTION_MANAGED_PROFILE_PROVISIONED:Ljava/lang/String; = "android.app.action.MANAGED_PROFILE_PROVISIONED"
+
+.field public static final ACTION_PROVISIONING_SUCCESSFUL:Ljava/lang/String; = "android.app.action.PROVISIONING_SUCCESSFUL"
 
 .field public static final ACTION_PROVISION_FINALIZATION:Ljava/lang/String; = "android.app.action.PROVISION_FINALIZATION"
 
@@ -38,9 +48,59 @@
 
 .field public static final ACTION_SET_PROFILE_OWNER:Ljava/lang/String; = "android.app.action.SET_PROFILE_OWNER"
 
+.field public static final ACTION_SHOW_DEVICE_MONITORING_DIALOG:Ljava/lang/String; = "android.app.action.SHOW_DEVICE_MONITORING_DIALOG"
+
 .field public static final ACTION_START_ENCRYPTION:Ljava/lang/String; = "android.app.action.START_ENCRYPTION"
 
 .field public static final ACTION_SYSTEM_UPDATE_POLICY_CHANGED:Ljava/lang/String; = "android.app.action.SYSTEM_UPDATE_POLICY_CHANGED"
+
+.field public static final CODE_ACCOUNTS_NOT_EMPTY:I = 0x6
+
+.field public static final CODE_ADD_MANAGED_PROFILE_DISALLOWED:I = 0xf
+
+.field public static final CODE_CANNOT_ADD_MANAGED_PROFILE:I = 0xb
+
+.field public static final CODE_DEVICE_ADMIN_NOT_SUPPORTED:I = 0xd
+
+.field public static final CODE_HAS_DEVICE_OWNER:I = 0x1
+
+.field public static final CODE_HAS_PAIRED:I = 0x8
+
+.field public static final CODE_MANAGED_USERS_NOT_SUPPORTED:I = 0x9
+
+.field public static final CODE_NONSYSTEM_USER_EXISTS:I = 0x5
+
+.field public static final CODE_NOT_SYSTEM_USER:I = 0x7
+
+.field public static final CODE_NOT_SYSTEM_USER_SPLIT:I = 0xc
+
+.field public static final CODE_OK:I = 0x0
+
+.field public static final CODE_SPLIT_SYSTEM_USER_DEVICE_SYSTEM_USER:I = 0xe
+
+.field public static final CODE_SYSTEM_USER:I = 0xa
+
+.field public static final CODE_USER_HAS_PROFILE_OWNER:I = 0x2
+
+.field public static final CODE_USER_NOT_RUNNING:I = 0x3
+
+.field public static final CODE_USER_SETUP_COMPLETED:I = 0x4
+
+.field public static final DEFAULT_STRONG_AUTH_TIMEOUT_MS:J = 0xf731400L
+
+.field public static final DELEGATION_APP_RESTRICTIONS:Ljava/lang/String; = "delegation-app-restrictions"
+
+.field public static final DELEGATION_BLOCK_UNINSTALL:Ljava/lang/String; = "delegation-block-uninstall"
+
+.field public static final DELEGATION_CERT_INSTALL:Ljava/lang/String; = "delegation-cert-install"
+
+.field public static final DELEGATION_ENABLE_SYSTEM_APP:Ljava/lang/String; = "delegation-enable-system-app"
+
+.field public static final DELEGATION_KEEP_UNINSTALLED_PACKAGES:Ljava/lang/String; = "delegation-keep-uninstalled-packages"
+
+.field public static final DELEGATION_PACKAGE_ACCESS:Ljava/lang/String; = "delegation-package-access"
+
+.field public static final DELEGATION_PERMISSION_GRANT:Ljava/lang/String; = "delegation-permission-grant"
 
 .field public static final ENCRYPTION_STATUS_ACTIVATING:I = 0x2
 
@@ -50,15 +110,15 @@
 
 .field public static final ENCRYPTION_STATUS_ACTIVE_PER_USER:I = 0x5
 
-.field public static final ENCRYPTION_STATUS_DEFAULT_ENCRYPED_INTERNAL:I = 0x3
+.field public static final ENCRYPTION_STATUS_DEFAULT_ENCRYPTED_INTERNAL:I = 0x3
 
-.field public static final ENCRYPTION_STATUS_FAST_ENCRYPED_INTERNAL:I = 0x0
+.field public static final ENCRYPTION_STATUS_FAST_ENCRYPTED_INTERNAL:I = 0x0
 
-.field public static final ENCRYPTION_STATUS_FULLY_ENCRYPED_BOTH:I = 0x1
+.field public static final ENCRYPTION_STATUS_FULLY_ENCRYPTED_BOTH:I = 0x1
 
-.field public static final ENCRYPTION_STATUS_FULLY_ENCRYPED_ERROR:I = -0x1
+.field public static final ENCRYPTION_STATUS_FULLY_ENCRYPTED_ERROR:I = -0x1
 
-.field public static final ENCRYPTION_STATUS_FULLY_ENCRYPED_INTERNAL:I = 0x2
+.field public static final ENCRYPTION_STATUS_FULLY_ENCRYPTED_INTERNAL:I = 0x2
 
 .field public static final ENCRYPTION_STATUS_INACTIVE:I = 0x1
 
@@ -68,9 +128,9 @@
 
 .field public static final EXTRA_BUGREPORT_NOTIFICATION_TYPE:Ljava/lang/String; = "android.app.extra.bugreport_notification_type"
 
-.field public static final EXTRA_DEVICE_ADMIN:Ljava/lang/String; = "android.app.extra.DEVICE_ADMIN"
+.field public static final EXTRA_DELEGATION_SCOPES:Ljava/lang/String; = "android.app.extra.DELEGATION_SCOPES"
 
-.field public static final EXTRA_DPM_STATE_CHANGE_USERHANDLE:Ljava/lang/String; = "userhandle"
+.field public static final EXTRA_DEVICE_ADMIN:Ljava/lang/String; = "android.app.extra.DEVICE_ADMIN"
 
 .field public static final EXTRA_IS_BT_CHANGED:Ljava/lang/String; = "isBTChanged"
 
@@ -94,6 +154,10 @@
 
 .field public static final EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_LOCATION:Ljava/lang/String; = "android.app.extra.PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_LOCATION"
 
+.field public static final EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_ICON_URI:Ljava/lang/String; = "android.app.extra.PROVISIONING_DEVICE_ADMIN_PACKAGE_ICON_URI"
+
+.field public static final EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_LABEL:Ljava/lang/String; = "android.app.extra.PROVISIONING_DEVICE_ADMIN_PACKAGE_LABEL"
+
 .field public static final EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME:Ljava/lang/String; = "android.app.extra.PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME"
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -101,7 +165,18 @@
 
 .field public static final EXTRA_PROVISIONING_DEVICE_ADMIN_SIGNATURE_CHECKSUM:Ljava/lang/String; = "android.app.extra.PROVISIONING_DEVICE_ADMIN_SIGNATURE_CHECKSUM"
 
+.field public static final EXTRA_PROVISIONING_DISCLAIMERS:Ljava/lang/String; = "android.app.extra.PROVISIONING_DISCLAIMERS"
+
+.field public static final EXTRA_PROVISIONING_DISCLAIMER_CONTENT:Ljava/lang/String; = "android.app.extra.PROVISIONING_DISCLAIMER_CONTENT"
+
+.field public static final EXTRA_PROVISIONING_DISCLAIMER_HEADER:Ljava/lang/String; = "android.app.extra.PROVISIONING_DISCLAIMER_HEADER"
+
 .field public static final EXTRA_PROVISIONING_EMAIL_ADDRESS:Ljava/lang/String; = "android.app.extra.PROVISIONING_EMAIL_ADDRESS"
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
+
+.field public static final EXTRA_PROVISIONING_KEEP_ACCOUNT_ON_MIGRATION:Ljava/lang/String; = "android.app.extra.PROVISIONING_KEEP_ACCOUNT_ON_MIGRATION"
 
 .field public static final EXTRA_PROVISIONING_LEAVE_ALL_SYSTEM_APPS_ENABLED:Ljava/lang/String; = "android.app.extra.PROVISIONING_LEAVE_ALL_SYSTEM_APPS_ENABLED"
 
@@ -113,9 +188,15 @@
 
 .field public static final EXTRA_PROVISIONING_MAIN_COLOR:Ljava/lang/String; = "android.app.extra.PROVISIONING_MAIN_COLOR"
 
+.field public static final EXTRA_PROVISIONING_ORGANIZATION_NAME:Ljava/lang/String; = "android.app.extra.PROVISIONING_ORGANIZATION_NAME"
+
 .field public static final EXTRA_PROVISIONING_SKIP_ENCRYPTION:Ljava/lang/String; = "android.app.extra.PROVISIONING_SKIP_ENCRYPTION"
 
+.field public static final EXTRA_PROVISIONING_SKIP_USER_CONSENT:Ljava/lang/String; = "android.app.extra.PROVISIONING_SKIP_USER_CONSENT"
+
 .field public static final EXTRA_PROVISIONING_SKIP_USER_SETUP:Ljava/lang/String; = "android.app.extra.PROVISIONING_SKIP_USER_SETUP"
+
+.field public static final EXTRA_PROVISIONING_SUPPORT_URL:Ljava/lang/String; = "android.app.extra.PROVISIONING_SUPPORT_URL"
 
 .field public static final EXTRA_PROVISIONING_TIME_ZONE:Ljava/lang/String; = "android.app.extra.PROVISIONING_TIME_ZONE"
 
@@ -136,6 +217,10 @@
 .field public static final EXTRA_PROVISIONING_WIFI_SSID:Ljava/lang/String; = "android.app.extra.PROVISIONING_WIFI_SSID"
 
 .field public static final EXTRA_REMOTE_BUGREPORT_HASH:Ljava/lang/String; = "android.intent.extra.REMOTE_BUGREPORT_HASH"
+
+.field public static final EXTRA_RESTRICTION:Ljava/lang/String; = "android.app.extra.RESTRICTION"
+
+.field public static final FLAG_EVICT_CREDENTIAL_ENCRYPTION_KEY:I = 0x1
 
 .field public static final FLAG_MANAGED_CAN_ACCESS_PARENT:I = 0x2
 
@@ -185,7 +270,7 @@
 
 .field public static final PASSWORD_QUALITY_COMPLEX:I = 0x60000
 
-.field public static final PASSWORD_QUALITY_DIRECTION_LOCK:I = 0x1000
+.field public static final PASSWORD_QUALITY_DIRECTION_LOCK:I = 0x10001
 
 .field public static final PASSWORD_QUALITY_FINGERPRINT_OLD:I = 0x11000
 
@@ -212,6 +297,12 @@
 .field public static final PERMISSION_POLICY_AUTO_GRANT:I = 0x1
 
 .field public static final PERMISSION_POLICY_PROMPT:I = 0x0
+
+.field public static final POLICY_DISABLE_CAMERA:Ljava/lang/String; = "policy_disable_camera"
+
+.field public static final POLICY_DISABLE_SCREEN_CAPTURE:Ljava/lang/String; = "policy_disable_screen_capture"
+
+.field public static final PROFILE_KEYGUARD_FEATURES_AFFECT_OWNER:I = 0x30
 
 .field public static final RESET_PASSWORD_DO_NOT_ASK_CREDENTIALS_ON_BOOT:I = 0x2
 
@@ -259,6 +350,16 @@
     return-void
 .end method
 
+.method public constructor <init>(Landroid/content/Context;Landroid/app/admin/IDevicePolicyManager;)V
+    .locals 1
+
+    const/4 v0, 0x0
+
+    invoke-direct {p0, p1, p2, v0}, Landroid/app/admin/DevicePolicyManager;-><init>(Landroid/content/Context;Landroid/app/admin/IDevicePolicyManager;Z)V
+
+    return-void
+.end method
+
 .method protected constructor <init>(Landroid/content/Context;Landroid/app/admin/IDevicePolicyManager;Z)V
     .locals 0
 
@@ -271,48 +372,6 @@
     iput-boolean p3, p0, Landroid/app/admin/DevicePolicyManager;->mParentInstance:Z
 
     return-void
-.end method
-
-.method private constructor <init>(Landroid/content/Context;Z)V
-    .locals 1
-
-    const-string/jumbo v0, "device_policy"
-
-    invoke-static {v0}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
-
-    move-result-object v0
-
-    invoke-static {v0}, Landroid/app/admin/IDevicePolicyManager$Stub;->asInterface(Landroid/os/IBinder;)Landroid/app/admin/IDevicePolicyManager;
-
-    move-result-object v0
-
-    invoke-direct {p0, p1, v0, p2}, Landroid/app/admin/DevicePolicyManager;-><init>(Landroid/content/Context;Landroid/app/admin/IDevicePolicyManager;Z)V
-
-    return-void
-.end method
-
-.method public static create(Landroid/content/Context;)Landroid/app/admin/DevicePolicyManager;
-    .locals 3
-
-    const/4 v1, 0x0
-
-    new-instance v0, Landroid/app/admin/DevicePolicyManager;
-
-    const/4 v2, 0x0
-
-    invoke-direct {v0, p0, v2}, Landroid/app/admin/DevicePolicyManager;-><init>(Landroid/content/Context;Z)V
-
-    iget-object v2, v0, Landroid/app/admin/DevicePolicyManager;->mService:Landroid/app/admin/IDevicePolicyManager;
-
-    if-eqz v2, :cond_0
-
-    :goto_0
-    return-object v0
-
-    :cond_0
-    move-object v0, v1
-
-    goto :goto_0
 .end method
 
 .method private static getCaCertAlias([B)Ljava/lang/String;
@@ -635,6 +694,96 @@
     return v1
 .end method
 
+.method public bindDeviceAdminServiceAsUser(Landroid/content/ComponentName;Landroid/content/Intent;Landroid/content/ServiceConnection;ILandroid/os/UserHandle;)Z
+    .locals 9
+
+    const-string/jumbo v0, "bindDeviceAdminServiceAsUser"
+
+    invoke-direct {p0, v0}, Landroid/app/admin/DevicePolicyManager;->throwIfParentInstance(Ljava/lang/String;)V
+
+    :try_start_0
+    iget-object v0, p0, Landroid/app/admin/DevicePolicyManager;->mContext:Landroid/content/Context;
+
+    iget-object v1, p0, Landroid/app/admin/DevicePolicyManager;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v1}, Landroid/content/Context;->getMainThreadHandler()Landroid/os/Handler;
+
+    move-result-object v1
+
+    invoke-virtual {v0, p3, v1, p4}, Landroid/content/Context;->getServiceDispatcher(Landroid/content/ServiceConnection;Landroid/os/Handler;I)Landroid/app/IServiceConnection;
+
+    move-result-object v5
+
+    iget-object v0, p0, Landroid/app/admin/DevicePolicyManager;->mContext:Landroid/content/Context;
+
+    invoke-virtual {p2, v0}, Landroid/content/Intent;->prepareToLeaveProcess(Landroid/content/Context;)V
+
+    iget-object v0, p0, Landroid/app/admin/DevicePolicyManager;->mService:Landroid/app/admin/IDevicePolicyManager;
+
+    iget-object v1, p0, Landroid/app/admin/DevicePolicyManager;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v1}, Landroid/content/Context;->getIApplicationThread()Landroid/app/IApplicationThread;
+
+    move-result-object v2
+
+    iget-object v1, p0, Landroid/app/admin/DevicePolicyManager;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v1}, Landroid/content/Context;->getActivityToken()Landroid/os/IBinder;
+
+    move-result-object v3
+
+    invoke-virtual {p5}, Landroid/os/UserHandle;->getIdentifier()I
+
+    move-result v7
+
+    move-object v1, p1
+
+    move-object v4, p2
+
+    move v6, p4
+
+    invoke-interface/range {v0 .. v7}, Landroid/app/admin/IDevicePolicyManager;->bindDeviceAdminServiceAsUser(Landroid/content/ComponentName;Landroid/app/IApplicationThread;Landroid/os/IBinder;Landroid/content/Intent;Landroid/app/IServiceConnection;II)Z
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v0
+
+    return v0
+
+    :catch_0
+    move-exception v8
+
+    invoke-virtual {v8}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+
+    move-result-object v0
+
+    throw v0
+.end method
+
+.method public checkProvisioningPreCondition(Ljava/lang/String;Ljava/lang/String;)I
+    .locals 2
+
+    :try_start_0
+    iget-object v1, p0, Landroid/app/admin/DevicePolicyManager;->mService:Landroid/app/admin/IDevicePolicyManager;
+
+    invoke-interface {v1, p1, p2}, Landroid/app/admin/IDevicePolicyManager;->checkProvisioningPreCondition(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v1
+
+    return v1
+
+    :catch_0
+    move-exception v0
+
+    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+
+    move-result-object v1
+
+    throw v1
+.end method
+
 .method public clearCrossProfileIntentFilters(Landroid/content/ComponentName;)V
     .locals 2
 
@@ -668,6 +817,8 @@
 
 .method public clearDeviceOwnerApp(Ljava/lang/String;)V
     .locals 2
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 
     const-string/jumbo v1, "clearDeviceOwnerApp"
 
@@ -730,6 +881,8 @@
 
 .method public clearProfileOwner(Landroid/content/ComponentName;)V
     .locals 2
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 
     const-string/jumbo v1, "clearProfileOwner"
 
@@ -757,6 +910,43 @@
     move-result-object v1
 
     throw v1
+.end method
+
+.method public clearResetPasswordToken(Landroid/content/ComponentName;)Z
+    .locals 2
+
+    const-string/jumbo v1, "clearResetPasswordToken"
+
+    invoke-direct {p0, v1}, Landroid/app/admin/DevicePolicyManager;->throwIfParentInstance(Ljava/lang/String;)V
+
+    iget-object v1, p0, Landroid/app/admin/DevicePolicyManager;->mService:Landroid/app/admin/IDevicePolicyManager;
+
+    if-eqz v1, :cond_0
+
+    :try_start_0
+    iget-object v1, p0, Landroid/app/admin/DevicePolicyManager;->mService:Landroid/app/admin/IDevicePolicyManager;
+
+    invoke-interface {v1, p1}, Landroid/app/admin/IDevicePolicyManager;->clearResetPasswordToken(Landroid/content/ComponentName;)Z
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v1
+
+    return v1
+
+    :catch_0
+    move-exception v0
+
+    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+
+    move-result-object v1
+
+    throw v1
+
+    :cond_0
+    const/4 v1, 0x0
+
+    return v1
 .end method
 
 .method public clearUserRestriction(Landroid/content/ComponentName;Ljava/lang/String;)V
@@ -790,6 +980,43 @@
     move-result-object v1
 
     throw v1
+.end method
+
+.method public createAdminSupportIntent(Ljava/lang/String;)Landroid/content/Intent;
+    .locals 3
+
+    const/4 v2, 0x0
+
+    const-string/jumbo v1, "createAdminSupportIntent"
+
+    invoke-direct {p0, v1}, Landroid/app/admin/DevicePolicyManager;->throwIfParentInstance(Ljava/lang/String;)V
+
+    iget-object v1, p0, Landroid/app/admin/DevicePolicyManager;->mService:Landroid/app/admin/IDevicePolicyManager;
+
+    if-eqz v1, :cond_0
+
+    :try_start_0
+    iget-object v1, p0, Landroid/app/admin/DevicePolicyManager;->mService:Landroid/app/admin/IDevicePolicyManager;
+
+    invoke-interface {v1, p1}, Landroid/app/admin/IDevicePolicyManager;->createAdminSupportIntent(Ljava/lang/String;)Landroid/content/Intent;
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result-object v1
+
+    return-object v1
+
+    :catch_0
+    move-exception v0
+
+    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+
+    move-result-object v1
+
+    throw v1
+
+    :cond_0
+    return-object v2
 .end method
 
 .method public createAndInitializeUser(Landroid/content/ComponentName;Ljava/lang/String;Ljava/lang/String;Landroid/content/ComponentName;Landroid/os/Bundle;)Landroid/os/UserHandle;
@@ -851,7 +1078,7 @@
 .end method
 
 .method public enableSystemApp(Landroid/content/ComponentName;Landroid/content/Intent;)I
-    .locals 2
+    .locals 3
 
     const-string/jumbo v1, "enableSystemApp"
 
@@ -864,7 +1091,13 @@
     :try_start_0
     iget-object v1, p0, Landroid/app/admin/DevicePolicyManager;->mService:Landroid/app/admin/IDevicePolicyManager;
 
-    invoke-interface {v1, p1, p2}, Landroid/app/admin/IDevicePolicyManager;->enableSystemAppWithIntent(Landroid/content/ComponentName;Landroid/content/Intent;)I
+    iget-object v2, p0, Landroid/app/admin/DevicePolicyManager;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v2}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-interface {v1, p1, v2, p2}, Landroid/app/admin/IDevicePolicyManager;->enableSystemAppWithIntent(Landroid/content/ComponentName;Ljava/lang/String;Landroid/content/Intent;)I
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -888,7 +1121,7 @@
 .end method
 
 .method public enableSystemApp(Landroid/content/ComponentName;Ljava/lang/String;)V
-    .locals 2
+    .locals 3
 
     const-string/jumbo v1, "enableSystemApp"
 
@@ -901,7 +1134,13 @@
     :try_start_0
     iget-object v1, p0, Landroid/app/admin/DevicePolicyManager;->mService:Landroid/app/admin/IDevicePolicyManager;
 
-    invoke-interface {v1, p1, p2}, Landroid/app/admin/IDevicePolicyManager;->enableSystemApp(Landroid/content/ComponentName;Ljava/lang/String;)V
+    iget-object v2, p0, Landroid/app/admin/DevicePolicyManager;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v2}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-interface {v1, p1, v2, p2}, Landroid/app/admin/IDevicePolicyManager;->enableSystemApp(Landroid/content/ComponentName;Ljava/lang/String;Ljava/lang/String;)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -925,6 +1164,28 @@
     iget-object v1, p0, Landroid/app/admin/DevicePolicyManager;->mService:Landroid/app/admin/IDevicePolicyManager;
 
     invoke-interface {v1, p1, p2}, Landroid/app/admin/IDevicePolicyManager;->forceRemoveActiveAdmin(Landroid/content/ComponentName;I)V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    return-void
+
+    :catch_0
+    move-exception v0
+
+    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+
+    move-result-object v1
+
+    throw v1
+.end method
+
+.method public forceUpdateUserSetupComplete()V
+    .locals 2
+
+    :try_start_0
+    iget-object v1, p0, Landroid/app/admin/DevicePolicyManager;->mService:Landroid/app/admin/IDevicePolicyManager;
+
+    invoke-interface {v1}, Landroid/app/admin/IDevicePolicyManager;->forceUpdateUserSetupComplete()V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -1060,6 +1321,49 @@
     return-object v2
 .end method
 
+.method public getAffiliationIds(Landroid/content/ComponentName;)Ljava/util/Set;
+    .locals 3
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Landroid/content/ComponentName;",
+            ")",
+            "Ljava/util/Set",
+            "<",
+            "Ljava/lang/String;",
+            ">;"
+        }
+    .end annotation
+
+    const-string/jumbo v1, "getAffiliationIds"
+
+    invoke-direct {p0, v1}, Landroid/app/admin/DevicePolicyManager;->throwIfParentInstance(Ljava/lang/String;)V
+
+    :try_start_0
+    new-instance v1, Landroid/util/ArraySet;
+
+    iget-object v2, p0, Landroid/app/admin/DevicePolicyManager;->mService:Landroid/app/admin/IDevicePolicyManager;
+
+    invoke-interface {v2, p1}, Landroid/app/admin/IDevicePolicyManager;->getAffiliationIds(Landroid/content/ComponentName;)Ljava/util/List;
+
+    move-result-object v2
+
+    invoke-direct {v1, v2}, Landroid/util/ArraySet;-><init>(Ljava/util/Collection;)V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    return-object v1
+
+    :catch_0
+    move-exception v0
+
+    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+
+    move-result-object v1
+
+    throw v1
+.end method
+
 .method public getAllowCamera(Landroid/content/ComponentName;)Z
     .locals 1
 
@@ -1137,7 +1441,13 @@
     :try_start_0
     iget-object v1, p0, Landroid/app/admin/DevicePolicyManager;->mService:Landroid/app/admin/IDevicePolicyManager;
 
-    invoke-interface {v1, p1, p2}, Landroid/app/admin/IDevicePolicyManager;->getApplicationRestrictions(Landroid/content/ComponentName;Ljava/lang/String;)Landroid/os/Bundle;
+    iget-object v2, p0, Landroid/app/admin/DevicePolicyManager;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v2}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-interface {v1, p1, v2, p2}, Landroid/app/admin/IDevicePolicyManager;->getApplicationRestrictions(Landroid/content/ComponentName;Ljava/lang/String;Ljava/lang/String;)Landroid/os/Bundle;
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -1160,6 +1470,8 @@
 
 .method public getApplicationRestrictionsManagingPackage(Landroid/content/ComponentName;)Ljava/lang/String;
     .locals 3
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 
     const/4 v2, 0x0
 
@@ -1232,6 +1544,45 @@
     return v1
 .end method
 
+.method public getBindDeviceAdminTargetUsers(Landroid/content/ComponentName;)Ljava/util/List;
+    .locals 2
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Landroid/content/ComponentName;",
+            ")",
+            "Ljava/util/List",
+            "<",
+            "Landroid/os/UserHandle;",
+            ">;"
+        }
+    .end annotation
+
+    const-string/jumbo v1, "getBindDeviceAdminTargetUsers"
+
+    invoke-direct {p0, v1}, Landroid/app/admin/DevicePolicyManager;->throwIfParentInstance(Ljava/lang/String;)V
+
+    :try_start_0
+    iget-object v1, p0, Landroid/app/admin/DevicePolicyManager;->mService:Landroid/app/admin/IDevicePolicyManager;
+
+    invoke-interface {v1, p1}, Landroid/app/admin/IDevicePolicyManager;->getBindDeviceAdminTargetUsers(Landroid/content/ComponentName;)Ljava/util/List;
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result-object v1
+
+    return-object v1
+
+    :catch_0
+    move-exception v0
+
+    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+
+    move-result-object v1
+
+    throw v1
+.end method
+
 .method public getBluetoothContactSharingDisabled(Landroid/content/ComponentName;)Z
     .locals 2
 
@@ -1302,6 +1653,39 @@
 
     :cond_0
     const/4 v1, 0x1
+
+    return v1
+.end method
+
+.method public getBluetoothContactSharingEnabledForKnox(I)Z
+    .locals 2
+
+    iget-object v1, p0, Landroid/app/admin/DevicePolicyManager;->mService:Landroid/app/admin/IDevicePolicyManager;
+
+    if-eqz v1, :cond_0
+
+    :try_start_0
+    iget-object v1, p0, Landroid/app/admin/DevicePolicyManager;->mService:Landroid/app/admin/IDevicePolicyManager;
+
+    invoke-interface {v1, p1}, Landroid/app/admin/IDevicePolicyManager;->getBluetoothContactSharingEnabledForKnox(I)Z
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v1
+
+    return v1
+
+    :catch_0
+    move-exception v0
+
+    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+
+    move-result-object v1
+
+    throw v1
+
+    :cond_0
+    const/4 v1, 0x0
 
     return v1
 .end method
@@ -1400,6 +1784,9 @@
         value = {
             Ljava/lang/SecurityException;
         }
+    .end annotation
+
+    .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
     const/4 v2, 0x0
@@ -1685,8 +2072,112 @@
     return v1
 .end method
 
+.method public getDelegatePackages(Landroid/content/ComponentName;Ljava/lang/String;)Ljava/util/List;
+    .locals 3
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Landroid/content/ComponentName;",
+            "Ljava/lang/String;",
+            ")",
+            "Ljava/util/List",
+            "<",
+            "Ljava/lang/String;",
+            ">;"
+        }
+    .end annotation
+
+    const/4 v2, 0x0
+
+    const-string/jumbo v1, "getDelegatePackages"
+
+    invoke-direct {p0, v1}, Landroid/app/admin/DevicePolicyManager;->throwIfParentInstance(Ljava/lang/String;)V
+
+    iget-object v1, p0, Landroid/app/admin/DevicePolicyManager;->mService:Landroid/app/admin/IDevicePolicyManager;
+
+    if-eqz v1, :cond_0
+
+    :try_start_0
+    iget-object v1, p0, Landroid/app/admin/DevicePolicyManager;->mService:Landroid/app/admin/IDevicePolicyManager;
+
+    invoke-interface {v1, p1, p2}, Landroid/app/admin/IDevicePolicyManager;->getDelegatePackages(Landroid/content/ComponentName;Ljava/lang/String;)Ljava/util/List;
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result-object v1
+
+    return-object v1
+
+    :catch_0
+    move-exception v0
+
+    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+
+    move-result-object v1
+
+    throw v1
+
+    :cond_0
+    return-object v2
+.end method
+
+.method public getDelegatedScopes(Landroid/content/ComponentName;Ljava/lang/String;)Ljava/util/List;
+    .locals 3
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Landroid/content/ComponentName;",
+            "Ljava/lang/String;",
+            ")",
+            "Ljava/util/List",
+            "<",
+            "Ljava/lang/String;",
+            ">;"
+        }
+    .end annotation
+
+    const/4 v2, 0x0
+
+    const-string/jumbo v1, "getDelegatedScopes"
+
+    invoke-direct {p0, v1}, Landroid/app/admin/DevicePolicyManager;->throwIfParentInstance(Ljava/lang/String;)V
+
+    iget-object v1, p0, Landroid/app/admin/DevicePolicyManager;->mService:Landroid/app/admin/IDevicePolicyManager;
+
+    if-eqz v1, :cond_0
+
+    :try_start_0
+    iget-object v1, p0, Landroid/app/admin/DevicePolicyManager;->mService:Landroid/app/admin/IDevicePolicyManager;
+
+    invoke-interface {v1, p1, p2}, Landroid/app/admin/IDevicePolicyManager;->getDelegatedScopes(Landroid/content/ComponentName;Ljava/lang/String;)Ljava/util/List;
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result-object v1
+
+    return-object v1
+
+    :catch_0
+    move-exception v0
+
+    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+
+    move-result-object v1
+
+    throw v1
+
+    :cond_0
+    return-object v2
+.end method
+
 .method public getDeviceInitializerApp()Ljava/lang/String;
     .locals 1
+    .annotation build Landroid/annotation/SuppressLint;
+        value = {
+            "Doclava125"
+        }
+    .end annotation
+
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -1697,6 +2188,12 @@
 
 .method public getDeviceInitializerComponent()Landroid/content/ComponentName;
     .locals 1
+    .annotation build Landroid/annotation/SuppressLint;
+        value = {
+            "Doclava125"
+        }
+    .end annotation
+
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -1824,6 +2321,35 @@
 
     :cond_0
     return-object v2
+.end method
+
+.method public getDeviceOwnerOrganizationName()Ljava/lang/CharSequence;
+    .locals 2
+    .annotation build Landroid/annotation/SuppressLint;
+        value = {
+            "Doclava125"
+        }
+    .end annotation
+
+    :try_start_0
+    iget-object v1, p0, Landroid/app/admin/DevicePolicyManager;->mService:Landroid/app/admin/IDevicePolicyManager;
+
+    invoke-interface {v1}, Landroid/app/admin/IDevicePolicyManager;->getDeviceOwnerOrganizationName()Ljava/lang/CharSequence;
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result-object v1
+
+    return-object v1
+
+    :catch_0
+    move-exception v0
+
+    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+
+    move-result-object v1
+
+    throw v1
 .end method
 
 .method public getDeviceOwnerUserId()I
@@ -2001,7 +2527,13 @@
     :try_start_0
     iget-object v6, p0, Landroid/app/admin/DevicePolicyManager;->mService:Landroid/app/admin/IDevicePolicyManager;
 
-    invoke-interface {v6, p1}, Landroid/app/admin/IDevicePolicyManager;->enforceCanManageCaCerts(Landroid/content/ComponentName;)V
+    iget-object v7, p0, Landroid/app/admin/DevicePolicyManager;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v7}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-interface {v6, p1, v7}, Landroid/app/admin/IDevicePolicyManager;->enforceCanManageCaCerts(Landroid/content/ComponentName;Ljava/lang/String;)V
 
     new-instance v3, Lcom/android/org/conscrypt/TrustedCertificateStore;
 
@@ -2116,7 +2648,13 @@
     :try_start_0
     iget-object v1, p0, Landroid/app/admin/DevicePolicyManager;->mService:Landroid/app/admin/IDevicePolicyManager;
 
-    invoke-interface {v1, p1}, Landroid/app/admin/IDevicePolicyManager;->getKeepUninstalledPackages(Landroid/content/ComponentName;)Ljava/util/List;
+    iget-object v2, p0, Landroid/app/admin/DevicePolicyManager;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v2}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-interface {v1, p1, v2}, Landroid/app/admin/IDevicePolicyManager;->getKeepUninstalledPackages(Landroid/content/ComponentName;Ljava/lang/String;)Ljava/util/List;
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -2186,10 +2724,80 @@
     return v1
 .end method
 
-.method public getLockTaskPackages(Landroid/content/ComponentName;)[Ljava/lang/String;
-    .locals 3
+.method public getLastBugReportRequestTime()J
+    .locals 4
 
-    const/4 v2, 0x0
+    :try_start_0
+    iget-object v1, p0, Landroid/app/admin/DevicePolicyManager;->mService:Landroid/app/admin/IDevicePolicyManager;
+
+    invoke-interface {v1}, Landroid/app/admin/IDevicePolicyManager;->getLastBugReportRequestTime()J
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result-wide v2
+
+    return-wide v2
+
+    :catch_0
+    move-exception v0
+
+    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+
+    move-result-object v1
+
+    throw v1
+.end method
+
+.method public getLastNetworkLogRetrievalTime()J
+    .locals 4
+
+    :try_start_0
+    iget-object v1, p0, Landroid/app/admin/DevicePolicyManager;->mService:Landroid/app/admin/IDevicePolicyManager;
+
+    invoke-interface {v1}, Landroid/app/admin/IDevicePolicyManager;->getLastNetworkLogRetrievalTime()J
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result-wide v2
+
+    return-wide v2
+
+    :catch_0
+    move-exception v0
+
+    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+
+    move-result-object v1
+
+    throw v1
+.end method
+
+.method public getLastSecurityLogRetrievalTime()J
+    .locals 4
+
+    :try_start_0
+    iget-object v1, p0, Landroid/app/admin/DevicePolicyManager;->mService:Landroid/app/admin/IDevicePolicyManager;
+
+    invoke-interface {v1}, Landroid/app/admin/IDevicePolicyManager;->getLastSecurityLogRetrievalTime()J
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result-wide v2
+
+    return-wide v2
+
+    :catch_0
+    move-exception v0
+
+    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+
+    move-result-object v1
+
+    throw v1
+.end method
+
+.method public getLockTaskPackages(Landroid/content/ComponentName;)[Ljava/lang/String;
+    .locals 2
 
     const-string/jumbo v1, "getLockTaskPackages"
 
@@ -2220,7 +2828,11 @@
     throw v1
 
     :cond_0
-    return-object v2
+    const/4 v1, 0x0
+
+    new-array v1, v1, [Ljava/lang/String;
+
+    return-object v1
 .end method
 
 .method public getLongSupportMessage(Landroid/content/ComponentName;)Ljava/lang/CharSequence;
@@ -2575,8 +3187,47 @@
     throw v1
 .end method
 
+.method public getOwnerInstalledCaCerts(Landroid/os/UserHandle;)Ljava/util/List;
+    .locals 2
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Landroid/os/UserHandle;",
+            ")",
+            "Ljava/util/List",
+            "<",
+            "Ljava/lang/String;",
+            ">;"
+        }
+    .end annotation
+
+    :try_start_0
+    iget-object v1, p0, Landroid/app/admin/DevicePolicyManager;->mService:Landroid/app/admin/IDevicePolicyManager;
+
+    invoke-interface {v1, p1}, Landroid/app/admin/IDevicePolicyManager;->getOwnerInstalledCaCerts(Landroid/os/UserHandle;)Landroid/content/pm/StringParceledListSlice;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/content/pm/StringParceledListSlice;->getList()Ljava/util/List;
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result-object v1
+
+    return-object v1
+
+    :catch_0
+    move-exception v0
+
+    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+
+    move-result-object v1
+
+    throw v1
+.end method
+
 .method public getParentProfileInstance(Landroid/content/ComponentName;)Landroid/app/admin/DevicePolicyManager;
-    .locals 4
+    .locals 5
 
     const-string/jumbo v1, "getParentProfileInstance"
 
@@ -2616,9 +3267,11 @@
 
     iget-object v2, p0, Landroid/app/admin/DevicePolicyManager;->mContext:Landroid/content/Context;
 
-    const/4 v3, 0x1
+    iget-object v3, p0, Landroid/app/admin/DevicePolicyManager;->mService:Landroid/app/admin/IDevicePolicyManager;
 
-    invoke-direct {v1, v2, v3}, Landroid/app/admin/DevicePolicyManager;-><init>(Landroid/content/Context;Z)V
+    const/4 v4, 0x1
+
+    invoke-direct {v1, v2, v3, v4}, Landroid/app/admin/DevicePolicyManager;-><init>(Landroid/content/Context;Landroid/app/admin/IDevicePolicyManager;Z)V
     :try_end_1
     .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
 
@@ -2626,7 +3279,7 @@
 .end method
 
 .method public getParentProfileInstance(Landroid/content/pm/UserInfo;)Landroid/app/admin/DevicePolicyManager;
-    .locals 3
+    .locals 4
 
     iget-object v0, p0, Landroid/app/admin/DevicePolicyManager;->mContext:Landroid/content/Context;
 
@@ -2677,9 +3330,11 @@
 
     iget-object v1, p0, Landroid/app/admin/DevicePolicyManager;->mContext:Landroid/content/Context;
 
-    const/4 v2, 0x1
+    iget-object v2, p0, Landroid/app/admin/DevicePolicyManager;->mService:Landroid/app/admin/IDevicePolicyManager;
 
-    invoke-direct {v0, v1, v2}, Landroid/app/admin/DevicePolicyManager;-><init>(Landroid/content/Context;Z)V
+    const/4 v3, 0x1
+
+    invoke-direct {v0, v1, v2, v3}, Landroid/app/admin/DevicePolicyManager;-><init>(Landroid/content/Context;Landroid/app/admin/IDevicePolicyManager;Z)V
 
     return-object v0
 .end method
@@ -3256,8 +3911,36 @@
     return v1
 .end method
 
-.method public getPermissionGrantState(Landroid/content/ComponentName;Ljava/lang/String;Ljava/lang/String;)I
+.method public getPendingSystemUpdate(Landroid/content/ComponentName;)Landroid/app/admin/SystemUpdateInfo;
     .locals 2
+
+    const-string/jumbo v1, "getPendingSystemUpdate"
+
+    invoke-direct {p0, v1}, Landroid/app/admin/DevicePolicyManager;->throwIfParentInstance(Ljava/lang/String;)V
+
+    :try_start_0
+    iget-object v1, p0, Landroid/app/admin/DevicePolicyManager;->mService:Landroid/app/admin/IDevicePolicyManager;
+
+    invoke-interface {v1, p1}, Landroid/app/admin/IDevicePolicyManager;->getPendingSystemUpdate(Landroid/content/ComponentName;)Landroid/app/admin/SystemUpdateInfo;
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result-object v1
+
+    return-object v1
+
+    :catch_0
+    move-exception v0
+
+    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+
+    move-result-object v1
+
+    throw v1
+.end method
+
+.method public getPermissionGrantState(Landroid/content/ComponentName;Ljava/lang/String;Ljava/lang/String;)I
+    .locals 3
 
     const-string/jumbo v1, "getPermissionGrantState"
 
@@ -3266,7 +3949,13 @@
     :try_start_0
     iget-object v1, p0, Landroid/app/admin/DevicePolicyManager;->mService:Landroid/app/admin/IDevicePolicyManager;
 
-    invoke-interface {v1, p1, p2, p3}, Landroid/app/admin/IDevicePolicyManager;->getPermissionGrantState(Landroid/content/ComponentName;Ljava/lang/String;Ljava/lang/String;)I
+    iget-object v2, p0, Landroid/app/admin/DevicePolicyManager;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v2}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-interface {v1, p1, v2, p2, p3}, Landroid/app/admin/IDevicePolicyManager;->getPermissionGrantState(Landroid/content/ComponentName;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -3386,6 +4075,54 @@
     iget-object v1, p0, Landroid/app/admin/DevicePolicyManager;->mService:Landroid/app/admin/IDevicePolicyManager;
 
     invoke-interface {v1, p1}, Landroid/app/admin/IDevicePolicyManager;->getPermittedAccessibilityServices(Landroid/content/ComponentName;)Ljava/util/List;
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result-object v1
+
+    return-object v1
+
+    :catch_0
+    move-exception v0
+
+    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+
+    move-result-object v1
+
+    throw v1
+
+    :cond_0
+    return-object v2
+.end method
+
+.method public getPermittedCrossProfileNotificationListeners(Landroid/content/ComponentName;)Ljava/util/List;
+    .locals 3
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Landroid/content/ComponentName;",
+            ")",
+            "Ljava/util/List",
+            "<",
+            "Ljava/lang/String;",
+            ">;"
+        }
+    .end annotation
+
+    const/4 v2, 0x0
+
+    const-string/jumbo v1, "getPermittedCrossProfileNotificationListeners"
+
+    invoke-direct {p0, v1}, Landroid/app/admin/DevicePolicyManager;->throwIfParentInstance(Ljava/lang/String;)V
+
+    iget-object v1, p0, Landroid/app/admin/DevicePolicyManager;->mService:Landroid/app/admin/IDevicePolicyManager;
+
+    if-eqz v1, :cond_0
+
+    :try_start_0
+    iget-object v1, p0, Landroid/app/admin/DevicePolicyManager;->mService:Landroid/app/admin/IDevicePolicyManager;
+
+    invoke-interface {v1, p1}, Landroid/app/admin/IDevicePolicyManager;->getPermittedCrossProfileNotificationListeners(Landroid/content/ComponentName;)Ljava/util/List;
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -3754,6 +4491,55 @@
     move-result-object v1
 
     throw v1
+.end method
+
+.method public getRequiredStrongAuthTimeout(Landroid/content/ComponentName;)J
+    .locals 2
+
+    invoke-virtual {p0}, Landroid/app/admin/DevicePolicyManager;->myUserId()I
+
+    move-result v0
+
+    invoke-virtual {p0, p1, v0}, Landroid/app/admin/DevicePolicyManager;->getRequiredStrongAuthTimeout(Landroid/content/ComponentName;I)J
+
+    move-result-wide v0
+
+    return-wide v0
+.end method
+
+.method public getRequiredStrongAuthTimeout(Landroid/content/ComponentName;I)J
+    .locals 4
+
+    iget-object v1, p0, Landroid/app/admin/DevicePolicyManager;->mService:Landroid/app/admin/IDevicePolicyManager;
+
+    if-eqz v1, :cond_0
+
+    :try_start_0
+    iget-object v1, p0, Landroid/app/admin/DevicePolicyManager;->mService:Landroid/app/admin/IDevicePolicyManager;
+
+    iget-boolean v2, p0, Landroid/app/admin/DevicePolicyManager;->mParentInstance:Z
+
+    invoke-interface {v1, p1, p2, v2}, Landroid/app/admin/IDevicePolicyManager;->getRequiredStrongAuthTimeout(Landroid/content/ComponentName;IZ)J
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result-wide v2
+
+    return-wide v2
+
+    :catch_0
+    move-exception v0
+
+    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+
+    move-result-object v1
+
+    throw v1
+
+    :cond_0
+    const-wide/32 v2, 0xf731400
+
+    return-wide v2
 .end method
 
 .method public getSamsungEncryptionStatus(Landroid/content/ComponentName;)Z
@@ -4321,7 +5107,13 @@
     :try_start_0
     iget-object v3, p0, Landroid/app/admin/DevicePolicyManager;->mService:Landroid/app/admin/IDevicePolicyManager;
 
-    invoke-interface {v3, p1}, Landroid/app/admin/IDevicePolicyManager;->enforceCanManageCaCerts(Landroid/content/ComponentName;)V
+    iget-object v4, p0, Landroid/app/admin/DevicePolicyManager;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v4}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-interface {v3, p1, v4}, Landroid/app/admin/IDevicePolicyManager;->enforceCanManageCaCerts(Landroid/content/ComponentName;Ljava/lang/String;)V
 
     invoke-static {p2}, Landroid/app/admin/DevicePolicyManager;->getCaCertAlias([B)Ljava/lang/String;
     :try_end_0
@@ -4434,7 +5226,7 @@
 .end method
 
 .method public installCaCert(Landroid/content/ComponentName;[B)Z
-    .locals 2
+    .locals 3
 
     const-string/jumbo v1, "installCaCert"
 
@@ -4447,7 +5239,13 @@
     :try_start_0
     iget-object v1, p0, Landroid/app/admin/DevicePolicyManager;->mService:Landroid/app/admin/IDevicePolicyManager;
 
-    invoke-interface {v1, p1, p2}, Landroid/app/admin/IDevicePolicyManager;->installCaCert(Landroid/content/ComponentName;[B)Z
+    iget-object v2, p0, Landroid/app/admin/DevicePolicyManager;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v2}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-interface {v1, p1, v2, p2}, Landroid/app/admin/IDevicePolicyManager;->installCaCert(Landroid/content/ComponentName;Ljava/lang/String;[B)Z
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -4497,7 +5295,7 @@
 .end method
 
 .method public installKeyPair(Landroid/content/ComponentName;Ljava/security/PrivateKey;[Ljava/security/cert/Certificate;Ljava/lang/String;Z)Z
-    .locals 10
+    .locals 11
 
     const-string/jumbo v0, "installKeyPair"
 
@@ -4512,15 +5310,15 @@
 
     aget-object v1, p3, v1
 
-    const/4 v5, 0x0
+    const/4 v2, 0x0
 
-    aput-object v1, v0, v5
+    aput-object v1, v0, v2
 
     invoke-static {v0}, Landroid/security/Credentials;->convertToPem([Ljava/security/cert/Certificate;)[B
 
-    move-result-object v3
+    move-result-object v4
 
-    const/4 v4, 0x0
+    const/4 v5, 0x0
 
     array-length v0, p3
 
@@ -4540,7 +5338,7 @@
 
     invoke-static {v0}, Landroid/security/Credentials;->convertToPem([Ljava/security/cert/Certificate;)[B
 
-    move-result-object v4
+    move-result-object v5
 
     :cond_0
     invoke-interface {p2}, Ljava/security/PrivateKey;->getAlgorithm()Ljava/lang/String;
@@ -4561,17 +5359,23 @@
 
     invoke-virtual {v0}, Ljava/security/spec/PKCS8EncodedKeySpec;->getEncoded()[B
 
-    move-result-object v2
+    move-result-object v3
 
     iget-object v0, p0, Landroid/app/admin/DevicePolicyManager;->mService:Landroid/app/admin/IDevicePolicyManager;
 
+    iget-object v1, p0, Landroid/app/admin/DevicePolicyManager;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v1}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
+
+    move-result-object v2
+
     move-object v1, p1
 
-    move-object v5, p4
+    move-object v6, p4
 
-    move v6, p5
+    move/from16 v7, p5
 
-    invoke-interface/range {v0 .. v6}, Landroid/app/admin/IDevicePolicyManager;->installKeyPair(Landroid/content/ComponentName;[B[B[BLjava/lang/String;Z)Z
+    invoke-interface/range {v0 .. v7}, Landroid/app/admin/IDevicePolicyManager;->installKeyPair(Landroid/content/ComponentName;Ljava/lang/String;[B[B[BLjava/lang/String;Z)Z
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_2
     .catch Ljava/security/NoSuchAlgorithmException; {:try_start_0 .. :try_end_0} :catch_1
@@ -4584,13 +5388,13 @@
     return v0
 
     :catch_0
-    move-exception v8
+    move-exception v9
 
     sget-object v0, Landroid/app/admin/DevicePolicyManager;->TAG:Ljava/lang/String;
 
     const-string/jumbo v1, "Could not pem-encode certificate"
 
-    invoke-static {v0, v1, v8}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v0, v1, v9}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     :goto_0
     const/4 v0, 0x0
@@ -4598,20 +5402,20 @@
     return v0
 
     :catch_1
-    move-exception v9
+    move-exception v10
 
     sget-object v0, Landroid/app/admin/DevicePolicyManager;->TAG:Ljava/lang/String;
 
     const-string/jumbo v1, "Failed to obtain private key material"
 
-    invoke-static {v0, v1, v9}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v0, v1, v10}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     goto :goto_0
 
     :catch_2
-    move-exception v7
+    move-exception v8
 
-    invoke-virtual {v7}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+    invoke-virtual {v8}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
 
     move-result-object v0
 
@@ -4693,6 +5497,10 @@
 .method public isAdminActive(Landroid/content/ComponentName;)Z
     .locals 1
 
+    const-string/jumbo v0, "isAdminActive"
+
+    invoke-direct {p0, v0}, Landroid/app/admin/DevicePolicyManager;->throwIfParentInstance(Ljava/lang/String;)V
+
     invoke-virtual {p0}, Landroid/app/admin/DevicePolicyManager;->myUserId()I
 
     move-result v0
@@ -4747,23 +5555,13 @@
     :try_start_0
     iget-object v1, p0, Landroid/app/admin/DevicePolicyManager;->mService:Landroid/app/admin/IDevicePolicyManager;
 
-    if-eqz v1, :cond_0
-
-    iget-object v1, p0, Landroid/app/admin/DevicePolicyManager;->mService:Landroid/app/admin/IDevicePolicyManager;
-
     invoke-interface {v1}, Landroid/app/admin/IDevicePolicyManager;->isAffiliatedUser()Z
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v1
 
-    :goto_0
     return v1
-
-    :cond_0
-    const/4 v1, 0x0
-
-    goto :goto_0
 
     :catch_0
     move-exception v0
@@ -4776,7 +5574,7 @@
 .end method
 
 .method public isApplicationHidden(Landroid/content/ComponentName;Ljava/lang/String;)Z
-    .locals 2
+    .locals 3
 
     const-string/jumbo v1, "isApplicationHidden"
 
@@ -4789,7 +5587,13 @@
     :try_start_0
     iget-object v1, p0, Landroid/app/admin/DevicePolicyManager;->mService:Landroid/app/admin/IDevicePolicyManager;
 
-    invoke-interface {v1, p1, p2}, Landroid/app/admin/IDevicePolicyManager;->isApplicationHidden(Landroid/content/ComponentName;Ljava/lang/String;)Z
+    iget-object v2, p0, Landroid/app/admin/DevicePolicyManager;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v2}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-interface {v1, p1, v2, p2}, Landroid/app/admin/IDevicePolicyManager;->isApplicationHidden(Landroid/content/ComponentName;Ljava/lang/String;Ljava/lang/String;)Z
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -4810,6 +5614,34 @@
     const/4 v1, 0x0
 
     return v1
+.end method
+
+.method public isBackupServiceEnabled(Landroid/content/ComponentName;)Z
+    .locals 2
+
+    const-string/jumbo v1, "isBackupServiceEnabled"
+
+    invoke-direct {p0, v1}, Landroid/app/admin/DevicePolicyManager;->throwIfParentInstance(Ljava/lang/String;)V
+
+    :try_start_0
+    iget-object v1, p0, Landroid/app/admin/DevicePolicyManager;->mService:Landroid/app/admin/IDevicePolicyManager;
+
+    invoke-interface {v1, p1}, Landroid/app/admin/IDevicePolicyManager;->isBackupServiceEnabled(Landroid/content/ComponentName;)Z
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v1
+
+    return v1
+
+    :catch_0
+    move-exception v0
+
+    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+
+    move-result-object v1
+
+    throw v1
 .end method
 
 .method public isCaCertApproved(Ljava/lang/String;I)Z
@@ -4846,7 +5678,9 @@
 .end method
 
 .method public isCallerApplicationRestrictionsManagingPackage()Z
-    .locals 2
+    .locals 3
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 
     const-string/jumbo v1, "isCallerApplicationRestrictionsManagingPackage"
 
@@ -4859,7 +5693,13 @@
     :try_start_0
     iget-object v1, p0, Landroid/app/admin/DevicePolicyManager;->mService:Landroid/app/admin/IDevicePolicyManager;
 
-    invoke-interface {v1}, Landroid/app/admin/IDevicePolicyManager;->isCallerApplicationRestrictionsManagingPackage()Z
+    iget-object v2, p0, Landroid/app/admin/DevicePolicyManager;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v2}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-interface {v1, v2}, Landroid/app/admin/IDevicePolicyManager;->isCallerApplicationRestrictionsManagingPackage(Ljava/lang/String;)Z
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -4882,24 +5722,57 @@
     return v1
 .end method
 
+.method public isCurrentInputMethodSetByOwner()Z
+    .locals 2
+
+    :try_start_0
+    iget-object v1, p0, Landroid/app/admin/DevicePolicyManager;->mService:Landroid/app/admin/IDevicePolicyManager;
+
+    invoke-interface {v1}, Landroid/app/admin/IDevicePolicyManager;->isCurrentInputMethodSetByOwner()Z
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v1
+
+    return v1
+
+    :catch_0
+    move-exception v0
+
+    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+
+    move-result-object v1
+
+    throw v1
+.end method
+
 .method public isDeviceManaged()Z
-    .locals 1
+    .locals 2
+    .annotation build Landroid/annotation/SuppressLint;
+        value = {
+            "Doclava125"
+        }
+    .end annotation
 
-    invoke-virtual {p0}, Landroid/app/admin/DevicePolicyManager;->getDeviceOwnerComponentOnAnyUser()Landroid/content/ComponentName;
+    :try_start_0
+    iget-object v1, p0, Landroid/app/admin/DevicePolicyManager;->mService:Landroid/app/admin/IDevicePolicyManager;
 
-    move-result-object v0
+    invoke-interface {v1}, Landroid/app/admin/IDevicePolicyManager;->hasDeviceOwner()Z
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    if-eqz v0, :cond_0
+    move-result v1
 
-    const/4 v0, 0x1
+    return v1
 
-    :goto_0
-    return v0
+    :catch_0
+    move-exception v0
 
-    :cond_0
-    const/4 v0, 0x0
+    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
 
-    goto :goto_0
+    move-result-object v1
+
+    throw v1
 .end method
 
 .method public isDeviceOwnerApp(Ljava/lang/String;)Z
@@ -4938,6 +5811,54 @@
     move-result v0
 
     return v0
+.end method
+
+.method public isDeviceProvisioned()Z
+    .locals 2
+
+    :try_start_0
+    iget-object v1, p0, Landroid/app/admin/DevicePolicyManager;->mService:Landroid/app/admin/IDevicePolicyManager;
+
+    invoke-interface {v1}, Landroid/app/admin/IDevicePolicyManager;->isDeviceProvisioned()Z
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v1
+
+    return v1
+
+    :catch_0
+    move-exception v0
+
+    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+
+    move-result-object v1
+
+    throw v1
+.end method
+
+.method public isDeviceProvisioningConfigApplied()Z
+    .locals 2
+
+    :try_start_0
+    iget-object v1, p0, Landroid/app/admin/DevicePolicyManager;->mService:Landroid/app/admin/IDevicePolicyManager;
+
+    invoke-interface {v1}, Landroid/app/admin/IDevicePolicyManager;->isDeviceProvisioningConfigApplied()Z
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v1
+
+    return v1
+
+    :catch_0
+    move-exception v0
+
+    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+
+    move-result-object v1
+
+    throw v1
 .end method
 
 .method public isInputMethodPermittedByAdmin(Landroid/content/ComponentName;Ljava/lang/String;I)Z
@@ -5075,8 +5996,69 @@
     return v1
 .end method
 
+.method public isNetworkLoggingEnabled(Landroid/content/ComponentName;)Z
+    .locals 2
+
+    const-string/jumbo v1, "isNetworkLoggingEnabled"
+
+    invoke-direct {p0, v1}, Landroid/app/admin/DevicePolicyManager;->throwIfParentInstance(Ljava/lang/String;)V
+
+    :try_start_0
+    iget-object v1, p0, Landroid/app/admin/DevicePolicyManager;->mService:Landroid/app/admin/IDevicePolicyManager;
+
+    invoke-interface {v1, p1}, Landroid/app/admin/IDevicePolicyManager;->isNetworkLoggingEnabled(Landroid/content/ComponentName;)Z
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v1
+
+    return v1
+
+    :catch_0
+    move-exception v0
+
+    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+
+    move-result-object v1
+
+    throw v1
+.end method
+
+.method public isNotificationListenerServicePermitted(Ljava/lang/String;I)Z
+    .locals 2
+
+    iget-object v1, p0, Landroid/app/admin/DevicePolicyManager;->mService:Landroid/app/admin/IDevicePolicyManager;
+
+    if-eqz v1, :cond_0
+
+    :try_start_0
+    iget-object v1, p0, Landroid/app/admin/DevicePolicyManager;->mService:Landroid/app/admin/IDevicePolicyManager;
+
+    invoke-interface {v1, p1, p2}, Landroid/app/admin/IDevicePolicyManager;->isNotificationListenerServicePermitted(Ljava/lang/String;I)Z
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v1
+
+    return v1
+
+    :catch_0
+    move-exception v0
+
+    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+
+    move-result-object v1
+
+    throw v1
+
+    :cond_0
+    const/4 v1, 0x1
+
+    return v1
+.end method
+
 .method public isPackageSuspended(Landroid/content/ComponentName;Ljava/lang/String;)Z
-    .locals 3
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/content/pm/PackageManager$NameNotFoundException;
@@ -5094,7 +6076,13 @@
     :try_start_0
     iget-object v2, p0, Landroid/app/admin/DevicePolicyManager;->mService:Landroid/app/admin/IDevicePolicyManager;
 
-    invoke-interface {v2, p1, p2}, Landroid/app/admin/IDevicePolicyManager;->isPackageSuspended(Landroid/content/ComponentName;Ljava/lang/String;)Z
+    iget-object v3, p0, Landroid/app/admin/DevicePolicyManager;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v3}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-interface {v2, p1, v3, p2}, Landroid/app/admin/IDevicePolicyManager;->isPackageSuspended(Landroid/content/ComponentName;Ljava/lang/String;Ljava/lang/String;)Z
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_1
     .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
@@ -5213,7 +6201,7 @@
 .end method
 
 .method public isProvisioningAllowed(Ljava/lang/String;)Z
-    .locals 2
+    .locals 3
 
     const-string/jumbo v1, "isProvisioningAllowed"
 
@@ -5222,7 +6210,13 @@
     :try_start_0
     iget-object v1, p0, Landroid/app/admin/DevicePolicyManager;->mService:Landroid/app/admin/IDevicePolicyManager;
 
-    invoke-interface {v1, p1}, Landroid/app/admin/IDevicePolicyManager;->isProvisioningAllowed(Ljava/lang/String;)Z
+    iget-object v2, p0, Landroid/app/admin/DevicePolicyManager;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v2}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-interface {v1, p1, v2}, Landroid/app/admin/IDevicePolicyManager;->isProvisioningAllowed(Ljava/lang/String;Ljava/lang/String;)Z
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -5251,6 +6245,43 @@
     iget-object v1, p0, Landroid/app/admin/DevicePolicyManager;->mService:Landroid/app/admin/IDevicePolicyManager;
 
     invoke-interface {v1, p1, p2}, Landroid/app/admin/IDevicePolicyManager;->isRemovingAdmin(Landroid/content/ComponentName;I)Z
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v1
+
+    return v1
+
+    :catch_0
+    move-exception v0
+
+    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+
+    move-result-object v1
+
+    throw v1
+
+    :cond_0
+    const/4 v1, 0x0
+
+    return v1
+.end method
+
+.method public isResetPasswordTokenActive(Landroid/content/ComponentName;)Z
+    .locals 2
+
+    const-string/jumbo v1, "isResetPasswordTokenActive"
+
+    invoke-direct {p0, v1}, Landroid/app/admin/DevicePolicyManager;->throwIfParentInstance(Ljava/lang/String;)V
+
+    iget-object v1, p0, Landroid/app/admin/DevicePolicyManager;->mService:Landroid/app/admin/IDevicePolicyManager;
+
+    if-eqz v1, :cond_0
+
+    :try_start_0
+    iget-object v1, p0, Landroid/app/admin/DevicePolicyManager;->mService:Landroid/app/admin/IDevicePolicyManager;
+
+    invoke-interface {v1, p1}, Landroid/app/admin/IDevicePolicyManager;->isResetPasswordTokenActive(Landroid/content/ComponentName;)Z
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -5531,6 +6562,16 @@
 .end method
 
 .method public lockNow()V
+    .locals 1
+
+    const/4 v0, 0x0
+
+    invoke-virtual {p0, v0}, Landroid/app/admin/DevicePolicyManager;->lockNow(I)V
+
+    return-void
+.end method
+
+.method public lockNow(I)V
     .locals 3
 
     iget-object v1, p0, Landroid/app/admin/DevicePolicyManager;->mService:Landroid/app/admin/IDevicePolicyManager;
@@ -5542,7 +6583,7 @@
 
     iget-boolean v2, p0, Landroid/app/admin/DevicePolicyManager;->mParentInstance:Z
 
-    invoke-interface {v1, v2}, Landroid/app/admin/IDevicePolicyManager;->lockNow(Z)V
+    invoke-interface {v1, p1, v2}, Landroid/app/admin/IDevicePolicyManager;->lockNow(IZ)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -5583,7 +6624,46 @@
     :try_start_0
     iget-object v1, p0, Landroid/app/admin/DevicePolicyManager;->mService:Landroid/app/admin/IDevicePolicyManager;
 
-    invoke-interface {v1, p1, p2}, Landroid/app/admin/IDevicePolicyManager;->notifyPendingSystemUpdate(J)V
+    invoke-static {p1, p2}, Landroid/app/admin/SystemUpdateInfo;->of(J)Landroid/app/admin/SystemUpdateInfo;
+
+    move-result-object v2
+
+    invoke-interface {v1, v2}, Landroid/app/admin/IDevicePolicyManager;->notifyPendingSystemUpdate(Landroid/app/admin/SystemUpdateInfo;)V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    :cond_0
+    return-void
+
+    :catch_0
+    move-exception v0
+
+    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+
+    move-result-object v1
+
+    throw v1
+.end method
+
+.method public notifyPendingSystemUpdate(JZ)V
+    .locals 3
+
+    const-string/jumbo v1, "notifyPendingSystemUpdate"
+
+    invoke-direct {p0, v1}, Landroid/app/admin/DevicePolicyManager;->throwIfParentInstance(Ljava/lang/String;)V
+
+    iget-object v1, p0, Landroid/app/admin/DevicePolicyManager;->mService:Landroid/app/admin/IDevicePolicyManager;
+
+    if-eqz v1, :cond_0
+
+    :try_start_0
+    iget-object v1, p0, Landroid/app/admin/DevicePolicyManager;->mService:Landroid/app/admin/IDevicePolicyManager;
+
+    invoke-static {p1, p2, p3}, Landroid/app/admin/SystemUpdateInfo;->of(JZ)Landroid/app/admin/SystemUpdateInfo;
+
+    move-result-object v2
+
+    invoke-interface {v1, v2}, Landroid/app/admin/IDevicePolicyManager;->notifyPendingSystemUpdate(Landroid/app/admin/SystemUpdateInfo;)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -5818,7 +6898,7 @@
 .end method
 
 .method public removeKeyPair(Landroid/content/ComponentName;Ljava/lang/String;)Z
-    .locals 2
+    .locals 3
 
     const-string/jumbo v1, "removeKeyPair"
 
@@ -5827,7 +6907,13 @@
     :try_start_0
     iget-object v1, p0, Landroid/app/admin/DevicePolicyManager;->mService:Landroid/app/admin/IDevicePolicyManager;
 
-    invoke-interface {v1, p1, p2}, Landroid/app/admin/IDevicePolicyManager;->removeKeyPair(Landroid/content/ComponentName;Ljava/lang/String;)Z
+    iget-object v2, p0, Landroid/app/admin/DevicePolicyManager;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v2}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-interface {v1, p1, v2, p2}, Landroid/app/admin/IDevicePolicyManager;->removeKeyPair(Landroid/content/ComponentName;Ljava/lang/String;Ljava/lang/String;)Z
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -6134,6 +7220,82 @@
     const/4 v1, 0x0
 
     return v1
+.end method
+
+.method public resetPasswordWithToken(Landroid/content/ComponentName;Ljava/lang/String;[BI)Z
+    .locals 2
+
+    const-string/jumbo v1, "resetPassword"
+
+    invoke-direct {p0, v1}, Landroid/app/admin/DevicePolicyManager;->throwIfParentInstance(Ljava/lang/String;)V
+
+    iget-object v1, p0, Landroid/app/admin/DevicePolicyManager;->mService:Landroid/app/admin/IDevicePolicyManager;
+
+    if-eqz v1, :cond_0
+
+    :try_start_0
+    iget-object v1, p0, Landroid/app/admin/DevicePolicyManager;->mService:Landroid/app/admin/IDevicePolicyManager;
+
+    invoke-interface {v1, p1, p2, p3, p4}, Landroid/app/admin/IDevicePolicyManager;->resetPasswordWithToken(Landroid/content/ComponentName;Ljava/lang/String;[BI)Z
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v1
+
+    return v1
+
+    :catch_0
+    move-exception v0
+
+    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+
+    move-result-object v1
+
+    throw v1
+
+    :cond_0
+    const/4 v1, 0x0
+
+    return v1
+.end method
+
+.method public retrieveNetworkLogs(Landroid/content/ComponentName;J)Ljava/util/List;
+    .locals 2
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Landroid/content/ComponentName;",
+            "J)",
+            "Ljava/util/List",
+            "<",
+            "Landroid/app/admin/NetworkEvent;",
+            ">;"
+        }
+    .end annotation
+
+    const-string/jumbo v1, "retrieveNetworkLogs"
+
+    invoke-direct {p0, v1}, Landroid/app/admin/DevicePolicyManager;->throwIfParentInstance(Ljava/lang/String;)V
+
+    :try_start_0
+    iget-object v1, p0, Landroid/app/admin/DevicePolicyManager;->mService:Landroid/app/admin/IDevicePolicyManager;
+
+    invoke-interface {v1, p1, p2, p3}, Landroid/app/admin/IDevicePolicyManager;->retrieveNetworkLogs(Landroid/content/ComponentName;J)Ljava/util/List;
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result-object v1
+
+    return-object v1
+
+    :catch_0
+    move-exception v0
+
+    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+
+    move-result-object v1
+
+    throw v1
 .end method
 
 .method public retrievePreRebootSecurityLogs(Landroid/content/ComponentName;)Ljava/util/List;
@@ -7682,35 +8844,17 @@
     throw v1
 .end method
 
-.method public setActivePasswordState(IIIIIIIII)V
-    .locals 11
+.method public setActivePasswordState(Landroid/app/admin/PasswordMetrics;I)V
+    .locals 2
 
-    iget-object v0, p0, Landroid/app/admin/DevicePolicyManager;->mService:Landroid/app/admin/IDevicePolicyManager;
+    iget-object v1, p0, Landroid/app/admin/DevicePolicyManager;->mService:Landroid/app/admin/IDevicePolicyManager;
 
-    if-eqz v0, :cond_0
+    if-eqz v1, :cond_0
 
     :try_start_0
-    iget-object v0, p0, Landroid/app/admin/DevicePolicyManager;->mService:Landroid/app/admin/IDevicePolicyManager;
+    iget-object v1, p0, Landroid/app/admin/DevicePolicyManager;->mService:Landroid/app/admin/IDevicePolicyManager;
 
-    move v1, p1
-
-    move v2, p2
-
-    move v3, p3
-
-    move v4, p4
-
-    move/from16 v5, p5
-
-    move/from16 v6, p6
-
-    move/from16 v7, p7
-
-    move/from16 v8, p8
-
-    move/from16 v9, p9
-
-    invoke-interface/range {v0 .. v9}, Landroid/app/admin/IDevicePolicyManager;->setActivePasswordState(IIIIIIIII)V
+    invoke-interface {v1, p1, p2}, Landroid/app/admin/IDevicePolicyManager;->setActivePasswordState(Landroid/app/admin/PasswordMetrics;I)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -7718,13 +8862,13 @@
     return-void
 
     :catch_0
-    move-exception v10
+    move-exception v0
 
-    invoke-virtual {v10}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
 
-    move-result-object v0
+    move-result-object v1
 
-    throw v0
+    throw v1
 .end method
 
 .method public setActiveProfileOwner(Landroid/content/ComponentName;Ljava/lang/String;)Z
@@ -7737,6 +8881,9 @@
         value = {
             Ljava/lang/IllegalArgumentException;
         }
+    .end annotation
+
+    .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
     const/4 v3, 0x0
@@ -7834,6 +8981,17 @@
 
     invoke-direct {p0, v1}, Landroid/app/admin/DevicePolicyManager;->throwIfParentInstance(Ljava/lang/String;)V
 
+    if-nez p2, :cond_0
+
+    new-instance v1, Ljava/lang/IllegalArgumentException;
+
+    const-string/jumbo v2, "ids must not be null"
+
+    invoke-direct {v1, v2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v1
+
+    :cond_0
     :try_start_0
     iget-object v1, p0, Landroid/app/admin/DevicePolicyManager;->mService:Landroid/app/admin/IDevicePolicyManager;
 
@@ -7882,6 +9040,9 @@
             Landroid/content/pm/PackageManager$NameNotFoundException;,
             Ljava/lang/UnsupportedOperationException;
         }
+    .end annotation
+
+    .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
     const/4 v0, 0x1
@@ -7939,7 +9100,7 @@
 .end method
 
 .method public setApplicationHidden(Landroid/content/ComponentName;Ljava/lang/String;Z)Z
-    .locals 2
+    .locals 3
 
     const-string/jumbo v1, "setApplicationHidden"
 
@@ -7952,7 +9113,13 @@
     :try_start_0
     iget-object v1, p0, Landroid/app/admin/DevicePolicyManager;->mService:Landroid/app/admin/IDevicePolicyManager;
 
-    invoke-interface {v1, p1, p2, p3}, Landroid/app/admin/IDevicePolicyManager;->setApplicationHidden(Landroid/content/ComponentName;Ljava/lang/String;Z)Z
+    iget-object v2, p0, Landroid/app/admin/DevicePolicyManager;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v2}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-interface {v1, p1, v2, p2, p3}, Landroid/app/admin/IDevicePolicyManager;->setApplicationHidden(Landroid/content/ComponentName;Ljava/lang/String;Ljava/lang/String;Z)Z
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -7976,7 +9143,7 @@
 .end method
 
 .method public setApplicationRestrictions(Landroid/content/ComponentName;Ljava/lang/String;Landroid/os/Bundle;)V
-    .locals 2
+    .locals 3
 
     const-string/jumbo v1, "setApplicationRestrictions"
 
@@ -7989,7 +9156,13 @@
     :try_start_0
     iget-object v1, p0, Landroid/app/admin/DevicePolicyManager;->mService:Landroid/app/admin/IDevicePolicyManager;
 
-    invoke-interface {v1, p1, p2, p3}, Landroid/app/admin/IDevicePolicyManager;->setApplicationRestrictions(Landroid/content/ComponentName;Ljava/lang/String;Landroid/os/Bundle;)V
+    iget-object v2, p0, Landroid/app/admin/DevicePolicyManager;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v2}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-interface {v1, p1, v2, p2, p3}, Landroid/app/admin/IDevicePolicyManager;->setApplicationRestrictions(Landroid/content/ComponentName;Ljava/lang/String;Ljava/lang/String;Landroid/os/Bundle;)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -8012,6 +9185,9 @@
         value = {
             Landroid/content/pm/PackageManager$NameNotFoundException;
         }
+    .end annotation
+
+    .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
     const-string/jumbo v1, "setApplicationRestrictionsManagingPackage"
@@ -8083,6 +9259,32 @@
     throw v1
 .end method
 
+.method public setBackupServiceEnabled(Landroid/content/ComponentName;Z)V
+    .locals 2
+
+    const-string/jumbo v1, "setBackupServiceEnabled"
+
+    invoke-direct {p0, v1}, Landroid/app/admin/DevicePolicyManager;->throwIfParentInstance(Ljava/lang/String;)V
+
+    :try_start_0
+    iget-object v1, p0, Landroid/app/admin/DevicePolicyManager;->mService:Landroid/app/admin/IDevicePolicyManager;
+
+    invoke-interface {v1, p1, p2}, Landroid/app/admin/IDevicePolicyManager;->setBackupServiceEnabled(Landroid/content/ComponentName;Z)V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    return-void
+
+    :catch_0
+    move-exception v0
+
+    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+
+    move-result-object v1
+
+    throw v1
+.end method
+
 .method public setBluetoothContactSharingDisabled(Landroid/content/ComponentName;Z)V
     .locals 2
 
@@ -8098,6 +9300,33 @@
     iget-object v1, p0, Landroid/app/admin/DevicePolicyManager;->mService:Landroid/app/admin/IDevicePolicyManager;
 
     invoke-interface {v1, p1, p2}, Landroid/app/admin/IDevicePolicyManager;->setBluetoothContactSharingDisabled(Landroid/content/ComponentName;Z)V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    :cond_0
+    return-void
+
+    :catch_0
+    move-exception v0
+
+    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+
+    move-result-object v1
+
+    throw v1
+.end method
+
+.method public setBluetoothContactSharingEnabledForKnox(IZ)V
+    .locals 2
+
+    iget-object v1, p0, Landroid/app/admin/DevicePolicyManager;->mService:Landroid/app/admin/IDevicePolicyManager;
+
+    if-eqz v1, :cond_0
+
+    :try_start_0
+    iget-object v1, p0, Landroid/app/admin/DevicePolicyManager;->mService:Landroid/app/admin/IDevicePolicyManager;
+
+    invoke-interface {v1, p1, p2}, Landroid/app/admin/IDevicePolicyManager;->setBluetoothContactSharingEnabledForKnox(IZ)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -8151,6 +9380,9 @@
         value = {
             Ljava/lang/SecurityException;
         }
+    .end annotation
+
+    .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
     const-string/jumbo v1, "setCertInstallerPackage"
@@ -8227,6 +9459,48 @@
     iget-object v1, p0, Landroid/app/admin/DevicePolicyManager;->mService:Landroid/app/admin/IDevicePolicyManager;
 
     invoke-interface {v1, p1, p2}, Landroid/app/admin/IDevicePolicyManager;->setCrossProfileContactsSearchDisabled(Landroid/content/ComponentName;Z)V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    :cond_0
+    return-void
+
+    :catch_0
+    move-exception v0
+
+    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+
+    move-result-object v1
+
+    throw v1
+.end method
+
+.method public setDelegatedScopes(Landroid/content/ComponentName;Ljava/lang/String;Ljava/util/List;)V
+    .locals 2
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Landroid/content/ComponentName;",
+            "Ljava/lang/String;",
+            "Ljava/util/List",
+            "<",
+            "Ljava/lang/String;",
+            ">;)V"
+        }
+    .end annotation
+
+    const-string/jumbo v1, "setDelegatedScopes"
+
+    invoke-direct {p0, v1}, Landroid/app/admin/DevicePolicyManager;->throwIfParentInstance(Ljava/lang/String;)V
+
+    iget-object v1, p0, Landroid/app/admin/DevicePolicyManager;->mService:Landroid/app/admin/IDevicePolicyManager;
+
+    if-eqz v1, :cond_0
+
+    :try_start_0
+    iget-object v1, p0, Landroid/app/admin/DevicePolicyManager;->mService:Landroid/app/admin/IDevicePolicyManager;
+
+    invoke-interface {v1, p1, p2, p3}, Landroid/app/admin/IDevicePolicyManager;->setDelegatedScopes(Landroid/content/ComponentName;Ljava/lang/String;Ljava/util/List;)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -8337,6 +9611,28 @@
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     :cond_0
+    return-void
+
+    :catch_0
+    move-exception v0
+
+    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+
+    move-result-object v1
+
+    throw v1
+.end method
+
+.method public setDeviceProvisioningConfigApplied()V
+    .locals 2
+
+    :try_start_0
+    iget-object v1, p0, Landroid/app/admin/DevicePolicyManager;->mService:Landroid/app/admin/IDevicePolicyManager;
+
+    invoke-interface {v1}, Landroid/app/admin/IDevicePolicyManager;->setDeviceProvisioningConfigApplied()V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
     return-void
 
     :catch_0
@@ -8622,7 +9918,7 @@
 .end method
 
 .method public setKeepUninstalledPackages(Landroid/content/ComponentName;Ljava/util/List;)V
-    .locals 2
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -8645,7 +9941,13 @@
     :try_start_0
     iget-object v1, p0, Landroid/app/admin/DevicePolicyManager;->mService:Landroid/app/admin/IDevicePolicyManager;
 
-    invoke-interface {v1, p1, p2}, Landroid/app/admin/IDevicePolicyManager;->setKeepUninstalledPackages(Landroid/content/ComponentName;Ljava/util/List;)V
+    iget-object v2, p0, Landroid/app/admin/DevicePolicyManager;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v2}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-interface {v1, p1, v2, p2}, Landroid/app/admin/IDevicePolicyManager;->setKeepUninstalledPackages(Landroid/content/ComponentName;Ljava/lang/String;Ljava/util/List;)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -8917,6 +10219,32 @@
     goto :goto_0
 .end method
 
+.method public setNetworkLoggingEnabled(Landroid/content/ComponentName;Z)V
+    .locals 2
+
+    const-string/jumbo v1, "setNetworkLoggingEnabled"
+
+    invoke-direct {p0, v1}, Landroid/app/admin/DevicePolicyManager;->throwIfParentInstance(Ljava/lang/String;)V
+
+    :try_start_0
+    iget-object v1, p0, Landroid/app/admin/DevicePolicyManager;->mService:Landroid/app/admin/IDevicePolicyManager;
+
+    invoke-interface {v1, p1, p2}, Landroid/app/admin/IDevicePolicyManager;->setNetworkLoggingEnabled(Landroid/content/ComponentName;Z)V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    return-void
+
+    :catch_0
+    move-exception v0
+
+    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+
+    move-result-object v1
+
+    throw v1
+.end method
+
 .method public setOrganizationColor(Landroid/content/ComponentName;I)V
     .locals 2
 
@@ -9000,7 +10328,7 @@
 .end method
 
 .method public setPackagesSuspended(Landroid/content/ComponentName;[Ljava/lang/String;Z)[Ljava/lang/String;
-    .locals 2
+    .locals 3
 
     const-string/jumbo v1, "setPackagesSuspended"
 
@@ -9013,7 +10341,13 @@
     :try_start_0
     iget-object v1, p0, Landroid/app/admin/DevicePolicyManager;->mService:Landroid/app/admin/IDevicePolicyManager;
 
-    invoke-interface {v1, p1, p2, p3}, Landroid/app/admin/IDevicePolicyManager;->setPackagesSuspended(Landroid/content/ComponentName;[Ljava/lang/String;Z)[Ljava/lang/String;
+    iget-object v2, p0, Landroid/app/admin/DevicePolicyManager;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v2}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-interface {v1, p1, v2, p2, p3}, Landroid/app/admin/IDevicePolicyManager;->setPackagesSuspended(Landroid/content/ComponentName;Ljava/lang/String;[Ljava/lang/String;Z)[Ljava/lang/String;
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -9347,35 +10681,49 @@
 .end method
 
 .method public setPermissionGrantState(Landroid/content/ComponentName;Ljava/lang/String;Ljava/lang/String;I)Z
-    .locals 2
+    .locals 7
 
-    const-string/jumbo v1, "setPermissionGrantState"
+    const-string/jumbo v0, "setPermissionGrantState"
 
-    invoke-direct {p0, v1}, Landroid/app/admin/DevicePolicyManager;->throwIfParentInstance(Ljava/lang/String;)V
+    invoke-direct {p0, v0}, Landroid/app/admin/DevicePolicyManager;->throwIfParentInstance(Ljava/lang/String;)V
 
     :try_start_0
-    iget-object v1, p0, Landroid/app/admin/DevicePolicyManager;->mService:Landroid/app/admin/IDevicePolicyManager;
+    iget-object v0, p0, Landroid/app/admin/DevicePolicyManager;->mService:Landroid/app/admin/IDevicePolicyManager;
 
-    invoke-interface {v1, p1, p2, p3, p4}, Landroid/app/admin/IDevicePolicyManager;->setPermissionGrantState(Landroid/content/ComponentName;Ljava/lang/String;Ljava/lang/String;I)Z
+    iget-object v1, p0, Landroid/app/admin/DevicePolicyManager;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v1}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
+
+    move-result-object v2
+
+    move-object v1, p1
+
+    move-object v3, p2
+
+    move-object v4, p3
+
+    move v5, p4
+
+    invoke-interface/range {v0 .. v5}, Landroid/app/admin/IDevicePolicyManager;->setPermissionGrantState(Landroid/content/ComponentName;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;I)Z
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    move-result v1
+    move-result v0
 
-    return v1
+    return v0
 
     :catch_0
-    move-exception v0
+    move-exception v6
 
-    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+    invoke-virtual {v6}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
 
-    move-result-object v1
+    move-result-object v0
 
-    throw v1
+    throw v0
 .end method
 
 .method public setPermissionPolicy(Landroid/content/ComponentName;I)V
-    .locals 2
+    .locals 3
 
     const-string/jumbo v1, "setPermissionPolicy"
 
@@ -9384,7 +10732,13 @@
     :try_start_0
     iget-object v1, p0, Landroid/app/admin/DevicePolicyManager;->mService:Landroid/app/admin/IDevicePolicyManager;
 
-    invoke-interface {v1, p1, p2}, Landroid/app/admin/IDevicePolicyManager;->setPermissionPolicy(Landroid/content/ComponentName;I)V
+    iget-object v2, p0, Landroid/app/admin/DevicePolicyManager;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v2}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-interface {v1, p1, v2, p2}, Landroid/app/admin/IDevicePolicyManager;->setPermissionPolicy(Landroid/content/ComponentName;Ljava/lang/String;I)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -9425,6 +10779,53 @@
     iget-object v1, p0, Landroid/app/admin/DevicePolicyManager;->mService:Landroid/app/admin/IDevicePolicyManager;
 
     invoke-interface {v1, p1, p2}, Landroid/app/admin/IDevicePolicyManager;->setPermittedAccessibilityServices(Landroid/content/ComponentName;Ljava/util/List;)Z
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v1
+
+    return v1
+
+    :catch_0
+    move-exception v0
+
+    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+
+    move-result-object v1
+
+    throw v1
+
+    :cond_0
+    const/4 v1, 0x0
+
+    return v1
+.end method
+
+.method public setPermittedCrossProfileNotificationListeners(Landroid/content/ComponentName;Ljava/util/List;)Z
+    .locals 2
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Landroid/content/ComponentName;",
+            "Ljava/util/List",
+            "<",
+            "Ljava/lang/String;",
+            ">;)Z"
+        }
+    .end annotation
+
+    const-string/jumbo v1, "setPermittedCrossProfileNotificationListeners"
+
+    invoke-direct {p0, v1}, Landroid/app/admin/DevicePolicyManager;->throwIfParentInstance(Ljava/lang/String;)V
+
+    iget-object v1, p0, Landroid/app/admin/DevicePolicyManager;->mService:Landroid/app/admin/IDevicePolicyManager;
+
+    if-eqz v1, :cond_0
+
+    :try_start_0
+    iget-object v1, p0, Landroid/app/admin/DevicePolicyManager;->mService:Landroid/app/admin/IDevicePolicyManager;
+
+    invoke-interface {v1, p1, p2}, Landroid/app/admin/IDevicePolicyManager;->setPermittedCrossProfileNotificationListeners(Landroid/content/ComponentName;Ljava/util/List;)Z
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -9669,6 +11070,72 @@
     move-result-object v1
 
     throw v1
+.end method
+
+.method public setRequiredStrongAuthTimeout(Landroid/content/ComponentName;J)V
+    .locals 4
+
+    iget-object v1, p0, Landroid/app/admin/DevicePolicyManager;->mService:Landroid/app/admin/IDevicePolicyManager;
+
+    if-eqz v1, :cond_0
+
+    :try_start_0
+    iget-object v1, p0, Landroid/app/admin/DevicePolicyManager;->mService:Landroid/app/admin/IDevicePolicyManager;
+
+    iget-boolean v2, p0, Landroid/app/admin/DevicePolicyManager;->mParentInstance:Z
+
+    invoke-interface {v1, p1, p2, p3, v2}, Landroid/app/admin/IDevicePolicyManager;->setRequiredStrongAuthTimeout(Landroid/content/ComponentName;JZ)V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    :cond_0
+    return-void
+
+    :catch_0
+    move-exception v0
+
+    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+
+    move-result-object v1
+
+    throw v1
+.end method
+
+.method public setResetPasswordToken(Landroid/content/ComponentName;[B)Z
+    .locals 2
+
+    const-string/jumbo v1, "setResetPasswordToken"
+
+    invoke-direct {p0, v1}, Landroid/app/admin/DevicePolicyManager;->throwIfParentInstance(Ljava/lang/String;)V
+
+    iget-object v1, p0, Landroid/app/admin/DevicePolicyManager;->mService:Landroid/app/admin/IDevicePolicyManager;
+
+    if-eqz v1, :cond_0
+
+    :try_start_0
+    iget-object v1, p0, Landroid/app/admin/DevicePolicyManager;->mService:Landroid/app/admin/IDevicePolicyManager;
+
+    invoke-interface {v1, p1, p2}, Landroid/app/admin/IDevicePolicyManager;->setResetPasswordToken(Landroid/content/ComponentName;[B)Z
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v1
+
+    return v1
+
+    :catch_0
+    move-exception v0
+
+    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+
+    move-result-object v1
+
+    throw v1
+
+    :cond_0
+    const/4 v1, 0x0
+
+    return v1
 .end method
 
 .method public setRestrictionsProvider(Landroid/content/ComponentName;Landroid/content/ComponentName;)V
@@ -9947,7 +11414,7 @@
 .end method
 
 .method public setUninstallBlocked(Landroid/content/ComponentName;Ljava/lang/String;Z)V
-    .locals 2
+    .locals 3
 
     const-string/jumbo v1, "setUninstallBlocked"
 
@@ -9960,7 +11427,13 @@
     :try_start_0
     iget-object v1, p0, Landroid/app/admin/DevicePolicyManager;->mService:Landroid/app/admin/IDevicePolicyManager;
 
-    invoke-interface {v1, p1, p2, p3}, Landroid/app/admin/IDevicePolicyManager;->setUninstallBlocked(Landroid/content/ComponentName;Ljava/lang/String;Z)V
+    iget-object v2, p0, Landroid/app/admin/DevicePolicyManager;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v2}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-interface {v1, p1, v2, p2, p3}, Landroid/app/admin/IDevicePolicyManager;->setUninstallBlocked(Landroid/content/ComponentName;Ljava/lang/String;Ljava/lang/String;Z)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -10116,7 +11589,7 @@
 .end method
 
 .method public uninstallAllUserCaCerts(Landroid/content/ComponentName;)V
-    .locals 4
+    .locals 5
 
     const-string/jumbo v1, "uninstallAllUserCaCerts"
 
@@ -10129,6 +11602,12 @@
     :try_start_0
     iget-object v2, p0, Landroid/app/admin/DevicePolicyManager;->mService:Landroid/app/admin/IDevicePolicyManager;
 
+    iget-object v1, p0, Landroid/app/admin/DevicePolicyManager;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v1}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
+
+    move-result-object v3
+
     new-instance v1, Lcom/android/org/conscrypt/TrustedCertificateStore;
 
     invoke-direct {v1}, Lcom/android/org/conscrypt/TrustedCertificateStore;-><init>()V
@@ -10137,17 +11616,17 @@
 
     move-result-object v1
 
-    const/4 v3, 0x0
+    const/4 v4, 0x0
 
-    new-array v3, v3, [Ljava/lang/String;
+    new-array v4, v4, [Ljava/lang/String;
 
-    invoke-interface {v1, v3}, Ljava/util/Set;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
+    invoke-interface {v1, v4}, Ljava/util/Set;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
 
     move-result-object v1
 
     check-cast v1, [Ljava/lang/String;
 
-    invoke-interface {v2, p1, v1}, Landroid/app/admin/IDevicePolicyManager;->uninstallCaCerts(Landroid/content/ComponentName;[Ljava/lang/String;)V
+    invoke-interface {v2, p1, v3, v1}, Landroid/app/admin/IDevicePolicyManager;->uninstallCaCerts(Landroid/content/ComponentName;Ljava/lang/String;[Ljava/lang/String;)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -10165,7 +11644,7 @@
 .end method
 
 .method public uninstallCaCert(Landroid/content/ComponentName;[B)V
-    .locals 6
+    .locals 7
 
     const-string/jumbo v3, "uninstallCaCert"
 
@@ -10182,15 +11661,21 @@
 
     iget-object v3, p0, Landroid/app/admin/DevicePolicyManager;->mService:Landroid/app/admin/IDevicePolicyManager;
 
-    const/4 v4, 0x1
+    iget-object v4, p0, Landroid/app/admin/DevicePolicyManager;->mContext:Landroid/content/Context;
 
-    new-array v4, v4, [Ljava/lang/String;
+    invoke-virtual {v4}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
 
-    const/4 v5, 0x0
+    move-result-object v4
 
-    aput-object v0, v4, v5
+    const/4 v5, 0x1
 
-    invoke-interface {v3, p1, v4}, Landroid/app/admin/IDevicePolicyManager;->uninstallCaCerts(Landroid/content/ComponentName;[Ljava/lang/String;)V
+    new-array v5, v5, [Ljava/lang/String;
+
+    const/4 v6, 0x0
+
+    aput-object v0, v5, v6
+
+    invoke-interface {v3, p1, v4, v5}, Landroid/app/admin/IDevicePolicyManager;->uninstallCaCerts(Landroid/content/ComponentName;Ljava/lang/String;[Ljava/lang/String;)V
     :try_end_0
     .catch Ljava/security/cert/CertificateException; {:try_start_0 .. :try_end_0} :catch_1
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0

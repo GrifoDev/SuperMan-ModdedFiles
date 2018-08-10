@@ -12,56 +12,84 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0xa
     name = "SetSelectionCommand"
 .end annotation
 
 
 # instance fields
+.field private final mInputText:Landroid/widget/EditText;
+
+.field private mPosted:Z
+
 .field private mSelectionEnd:I
 
 .field private mSelectionStart:I
 
-.field final synthetic this$0:Landroid/widget/NumberPicker;
-
 
 # direct methods
-.method static synthetic -set0(Landroid/widget/NumberPicker$SetSelectionCommand;I)I
+.method public constructor <init>(Landroid/widget/EditText;)V
     .locals 0
-
-    iput p1, p0, Landroid/widget/NumberPicker$SetSelectionCommand;->mSelectionEnd:I
-
-    return p1
-.end method
-
-.method static synthetic -set1(Landroid/widget/NumberPicker$SetSelectionCommand;I)I
-    .locals 0
-
-    iput p1, p0, Landroid/widget/NumberPicker$SetSelectionCommand;->mSelectionStart:I
-
-    return p1
-.end method
-
-.method constructor <init>(Landroid/widget/NumberPicker;)V
-    .locals 0
-
-    iput-object p1, p0, Landroid/widget/NumberPicker$SetSelectionCommand;->this$0:Landroid/widget/NumberPicker;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Landroid/widget/NumberPicker$SetSelectionCommand;->mInputText:Landroid/widget/EditText;
 
     return-void
 .end method
 
 
 # virtual methods
+.method public cancel()V
+    .locals 1
+
+    iget-boolean v0, p0, Landroid/widget/NumberPicker$SetSelectionCommand;->mPosted:Z
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Landroid/widget/NumberPicker$SetSelectionCommand;->mInputText:Landroid/widget/EditText;
+
+    invoke-virtual {v0, p0}, Landroid/widget/EditText;->removeCallbacks(Ljava/lang/Runnable;)Z
+
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Landroid/widget/NumberPicker$SetSelectionCommand;->mPosted:Z
+
+    :cond_0
+    return-void
+.end method
+
+.method public post(II)V
+    .locals 1
+
+    iput p1, p0, Landroid/widget/NumberPicker$SetSelectionCommand;->mSelectionStart:I
+
+    iput p2, p0, Landroid/widget/NumberPicker$SetSelectionCommand;->mSelectionEnd:I
+
+    iget-boolean v0, p0, Landroid/widget/NumberPicker$SetSelectionCommand;->mPosted:Z
+
+    if-nez v0, :cond_0
+
+    iget-object v0, p0, Landroid/widget/NumberPicker$SetSelectionCommand;->mInputText:Landroid/widget/EditText;
+
+    invoke-virtual {v0, p0}, Landroid/widget/EditText;->post(Ljava/lang/Runnable;)Z
+
+    const/4 v0, 0x1
+
+    iput-boolean v0, p0, Landroid/widget/NumberPicker$SetSelectionCommand;->mPosted:Z
+
+    :cond_0
+    return-void
+.end method
+
 .method public run()V
     .locals 3
 
-    iget-object v0, p0, Landroid/widget/NumberPicker$SetSelectionCommand;->this$0:Landroid/widget/NumberPicker;
+    const/4 v0, 0x0
 
-    invoke-static {v0}, Landroid/widget/NumberPicker;->-get7(Landroid/widget/NumberPicker;)Landroid/widget/EditText;
+    iput-boolean v0, p0, Landroid/widget/NumberPicker$SetSelectionCommand;->mPosted:Z
 
-    move-result-object v0
+    iget-object v0, p0, Landroid/widget/NumberPicker$SetSelectionCommand;->mInputText:Landroid/widget/EditText;
 
     iget v1, p0, Landroid/widget/NumberPicker$SetSelectionCommand;->mSelectionStart:I
 

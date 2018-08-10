@@ -43,7 +43,7 @@
 
     const/4 v2, 0x0
 
-    const v1, 0x1020055
+    const v1, 0x1020542
 
     invoke-direct {p0}, Landroid/animation/AnimatorListenerAdapter;-><init>()V
 
@@ -177,7 +177,7 @@
 
     iget-object v1, p0, Landroid/transition/TranslationAnimationCreator$TransitionPositionListener;->mTransitionPosition:[I
 
-    const v2, 0x1020055
+    const v2, 0x1020542
 
     invoke-virtual {v0, v2, v1}, Landroid/view/View;->setTagInternal(ILjava/lang/Object;)V
 
@@ -262,6 +262,8 @@
     iget v1, p0, Landroid/transition/TranslationAnimationCreator$TransitionPositionListener;->mTerminalY:F
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setTranslationY(F)V
+
+    invoke-virtual {p1, p0}, Landroid/transition/Transition;->removeListener(Landroid/transition/Transition$TransitionListener;)Landroid/transition/Transition;
 
     return-void
 .end method

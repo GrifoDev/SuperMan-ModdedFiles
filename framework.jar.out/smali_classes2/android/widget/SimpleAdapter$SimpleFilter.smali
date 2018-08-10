@@ -269,7 +269,7 @@
 
     iget-object v0, p0, Landroid/widget/SimpleAdapter$SimpleFilter;->this$0:Landroid/widget/SimpleAdapter;
 
-    invoke-virtual {v0}, Landroid/widget/BaseAdapter;->notifyDataSetChanged()V
+    invoke-virtual {v0}, Landroid/widget/SimpleAdapter;->notifyDataSetChanged()V
 
     :goto_0
     return-void
@@ -277,7 +277,7 @@
     :cond_0
     iget-object v0, p0, Landroid/widget/SimpleAdapter$SimpleFilter;->this$0:Landroid/widget/SimpleAdapter;
 
-    invoke-virtual {v0}, Landroid/widget/BaseAdapter;->notifyDataSetInvalidated()V
+    invoke-virtual {v0}, Landroid/widget/SimpleAdapter;->notifyDataSetInvalidated()V
 
     goto :goto_0
 .end method

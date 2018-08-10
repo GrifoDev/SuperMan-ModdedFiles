@@ -155,12 +155,6 @@
 
     iput v6, v4, Landroid/net/wifi/ScanResult;->numIpConfigFailures:I
 
-    invoke-virtual/range {p1 .. p1}, Landroid/os/Parcel;->readInt()I
-
-    move-result v6
-
-    iput v6, v4, Landroid/net/wifi/ScanResult;->isAutoJoinCandidate:I
-
     invoke-virtual/range {p1 .. p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v6
@@ -181,38 +175,9 @@
 
     invoke-virtual/range {p1 .. p1}, Landroid/os/Parcel;->readInt()I
 
-    move-result v6
-
-    if-eqz v6, :cond_2
-
-    const/4 v6, 0x1
-
-    :goto_1
-    iput-boolean v6, v4, Landroid/net/wifi/ScanResult;->is5GHzVsi:Z
-
-    invoke-virtual/range {p1 .. p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v6
-
-    iput-object v6, v4, Landroid/net/wifi/ScanResult;->ChannelMode:Ljava/lang/String;
-
-    invoke-virtual/range {p1 .. p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v6
-
-    iput-object v6, v4, Landroid/net/wifi/ScanResult;->BSSLoadElement:Ljava/lang/String;
-
-    invoke-virtual/range {p1 .. p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v6
-
-    iput-object v6, v4, Landroid/net/wifi/ScanResult;->semVendorSpecificInfo:Ljava/lang/String;
-
-    invoke-virtual/range {p1 .. p1}, Landroid/os/Parcel;->readInt()I
-
     move-result v25
 
-    if-eqz v25, :cond_3
+    if-eqz v25, :cond_2
 
     move/from16 v0, v25
 
@@ -222,12 +187,12 @@
 
     const/16 v23, 0x0
 
-    :goto_2
+    :goto_1
     move/from16 v0, v23
 
     move/from16 v1, v25
 
-    if-ge v0, v1, :cond_3
+    if-ge v0, v1, :cond_2
 
     iget-object v6, v4, Landroid/net/wifi/ScanResult;->informationElements:[Landroid/net/wifi/ScanResult$InformationElement;
 
@@ -273,24 +238,19 @@
 
     add-int/lit8 v23, v23, 0x1
 
-    goto :goto_2
+    goto :goto_1
 
     :cond_1
     const/4 v6, 0x0
 
-    goto/16 :goto_0
+    goto :goto_0
 
     :cond_2
-    const/4 v6, 0x0
-
-    goto :goto_1
-
-    :cond_3
     invoke-virtual/range {p1 .. p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v25
 
-    if-eqz v25, :cond_4
+    if-eqz v25, :cond_3
 
     new-instance v6, Ljava/util/ArrayList;
 
@@ -300,12 +260,12 @@
 
     const/16 v23, 0x0
 
-    :goto_3
+    :goto_2
     move/from16 v0, v23
 
     move/from16 v1, v25
 
-    if-ge v0, v1, :cond_4
+    if-ge v0, v1, :cond_3
 
     iget-object v6, v4, Landroid/net/wifi/ScanResult;->anqpLines:Ljava/util/List;
 
@@ -317,14 +277,14 @@
 
     add-int/lit8 v23, v23, 0x1
 
-    goto :goto_3
+    goto :goto_2
 
-    :cond_4
+    :cond_3
     invoke-virtual/range {p1 .. p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v25
 
-    if-eqz v25, :cond_5
+    if-eqz v25, :cond_4
 
     move/from16 v0, v25
 
@@ -334,12 +294,12 @@
 
     const/16 v23, 0x0
 
-    :goto_4
+    :goto_3
     move/from16 v0, v23
 
     move/from16 v1, v25
 
-    if-ge v0, v1, :cond_5
+    if-ge v0, v1, :cond_4
 
     invoke-virtual/range {p1 .. p1}, Landroid/os/Parcel;->readInt()I
 
@@ -381,9 +341,33 @@
 
     add-int/lit8 v23, v23, 0x1
 
-    goto :goto_4
+    goto :goto_3
 
-    :cond_5
+    :cond_4
+    invoke-virtual/range {p1 .. p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v6
+
+    iput-object v6, v4, Landroid/net/wifi/ScanResult;->ChannelMode:Ljava/lang/String;
+
+    invoke-virtual/range {p1 .. p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v6
+
+    iput-object v6, v4, Landroid/net/wifi/ScanResult;->semVendorSpecificInfo:Ljava/lang/String;
+
+    invoke-virtual/range {p1 .. p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v6
+
+    iput-object v6, v4, Landroid/net/wifi/ScanResult;->semBssLoadElement:Ljava/lang/String;
+
+    invoke-virtual/range {p1 .. p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v6
+
+    iput-object v6, v4, Landroid/net/wifi/ScanResult;->semKtVendorSpecificInfo:Ljava/lang/String;
+
     return-object v4
 .end method
 

@@ -44,6 +44,8 @@
 
 .field public static final OTHER:I = 0x9
 
+.field public static final REASON_WIFI_ON_BUT_WFC_OFF:Ljava/lang/String; = "REASON_WIFI_ON_BUT_WFC_OFF"
+
 .field public static final REJECTED:I = 0x6
 
 .field public static final REMOTE:I = 0x3
@@ -550,6 +552,16 @@
 
     goto/16 :goto_0
 
+    :pswitch_b
+    const-string/jumbo v0, "CALL_PULLED"
+
+    goto/16 :goto_0
+
+    :pswitch_c
+    const-string/jumbo v0, "ANSWERED_ELSEWHERE"
+
+    goto/16 :goto_0
+
     :cond_0
     iget-object v4, p0, Landroid/telecom/DisconnectCause;->mDisconnectLabel:Ljava/lang/CharSequence;
 
@@ -588,6 +600,8 @@
         :pswitch_8
         :pswitch_9
         :pswitch_a
+        :pswitch_c
+        :pswitch_b
     .end packed-switch
 .end method
 

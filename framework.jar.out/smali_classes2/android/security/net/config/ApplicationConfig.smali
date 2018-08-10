@@ -381,17 +381,32 @@
 .end method
 
 .method public handleTrustStorageUpdate()V
-    .locals 4
+    .locals 5
 
-    invoke-direct {p0}, Landroid/security/net/config/ApplicationConfig;->ensureInitialized()V
+    iget-object v4, p0, Landroid/security/net/config/ApplicationConfig;->mLock:Ljava/lang/Object;
 
+    monitor-enter v4
+
+    :try_start_0
+    iget-boolean v3, p0, Landroid/security/net/config/ApplicationConfig;->mInitialized:Z
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    if-nez v3, :cond_0
+
+    monitor-exit v4
+
+    return-void
+
+    :cond_0
+    :try_start_1
     iget-object v3, p0, Landroid/security/net/config/ApplicationConfig;->mDefaultConfig:Landroid/security/net/config/NetworkSecurityConfig;
 
     invoke-virtual {v3}, Landroid/security/net/config/NetworkSecurityConfig;->handleTrustStorageUpdate()V
 
     iget-object v3, p0, Landroid/security/net/config/ApplicationConfig;->mConfigs:Ljava/util/Set;
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_2
 
     new-instance v2, Ljava/util/HashSet;
 
@@ -409,13 +424,13 @@
 
     move-result-object v1
 
-    :cond_0
+    :cond_1
     :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_2
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -431,45 +446,53 @@
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_1
 
     iget-object v3, v0, Landroid/util/Pair;->second:Ljava/lang/Object;
 
     check-cast v3, Landroid/security/net/config/NetworkSecurityConfig;
 
     invoke-virtual {v3}, Landroid/security/net/config/NetworkSecurityConfig;->handleTrustStorageUpdate()V
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     goto :goto_0
 
-    :cond_1
+    :catchall_0
+    move-exception v3
+
+    monitor-exit v4
+
+    throw v3
+
+    :cond_2
+    monitor-exit v4
+
     return-void
 .end method
 
 .method public hasPerDomainConfigs()Z
-    .locals 2
-
-    const/4 v0, 0x0
+    .locals 1
 
     invoke-direct {p0}, Landroid/security/net/config/ApplicationConfig;->ensureInitialized()V
 
-    iget-object v1, p0, Landroid/security/net/config/ApplicationConfig;->mConfigs:Ljava/util/Set;
+    iget-object v0, p0, Landroid/security/net/config/ApplicationConfig;->mConfigs:Ljava/util/Set;
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
-    iget-object v1, p0, Landroid/security/net/config/ApplicationConfig;->mConfigs:Ljava/util/Set;
+    iget-object v0, p0, Landroid/security/net/config/ApplicationConfig;->mConfigs:Ljava/util/Set;
 
-    invoke-interface {v1}, Ljava/util/Set;->isEmpty()Z
+    invoke-interface {v0}, Ljava/util/Set;->isEmpty()Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_1
+    xor-int/lit8 v0, v0, 0x1
 
-    :cond_0
     :goto_0
     return v0
 
-    :cond_1
-    const/4 v0, 0x1
+    :cond_0
+    const/4 v0, 0x0
 
     goto :goto_0
 .end method

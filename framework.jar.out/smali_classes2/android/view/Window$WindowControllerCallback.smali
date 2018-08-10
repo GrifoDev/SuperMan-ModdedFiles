@@ -33,3 +33,6 @@
         }
     .end annotation
 .end method
+
+.method public abstract isTaskRoot()Z
+.end method

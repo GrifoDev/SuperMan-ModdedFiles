@@ -170,6 +170,8 @@
 
 .field public static final ENCODING_DEFAULT:I = 0x1
 
+.field public static final ENCODING_DOLBY_TRUEHD:I = 0xe
+
 .field public static final ENCODING_DTS:I = 0x7
 
 .field public static final ENCODING_DTS_HD:I = 0x8

@@ -55,6 +55,14 @@
     .end annotation
 .end method
 
+.method public abstract setA11yMode(I)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract setLayoutDirection(I)V
     .annotation system Ldalvik/annotation/Throws;
         value = {

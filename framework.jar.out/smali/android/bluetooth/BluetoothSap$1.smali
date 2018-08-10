@@ -135,12 +135,6 @@
 
     if-nez v1, :cond_0
 
-    const-string/jumbo v1, "BluetoothSap"
-
-    const-string/jumbo v3, "Binding service..."
-
-    invoke-static {v1, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
     iget-object v1, p0, Landroid/bluetooth/BluetoothSap$1;->this$0:Landroid/bluetooth/BluetoothSap;
 
     invoke-virtual {v1}, Landroid/bluetooth/BluetoothSap;->doBind()Z

@@ -16,7 +16,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/absolute/android/sslutil/SslUtil;Ljava/lang/String;Ljava/lang/String;)V
-    .locals 4
+    .locals 3
 
     iput-object p1, p0, Lcom/absolute/android/sslutil/a;->a:Lcom/absolute/android/sslutil/SslUtil;
 
@@ -30,162 +30,135 @@
 
     move-result-object v0
 
-    const/4 v1, 0x3
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    const-string/jumbo v2, "ABTTrustManager created... expectedCertSubjectName="
 
-    const-string/jumbo v3, "ABTTrustManager created... expectedCertSubjectName="
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v1
 
-    move-result-object v2
+    const-string/jumbo v2, " hostSPKIHash="
 
-    const-string/jumbo v3, " hostSPKIHash="
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v1
 
-    move-result-object v2
+    invoke-virtual {v1, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v1
 
-    move-result-object v2
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v1
 
-    move-result-object v2
+    const/4 v2, 0x3
 
-    invoke-virtual {v0, v1, v2}, Lcom/absolute/android/logutil/LogUtil;->logMessage(ILjava/lang/String;)V
+    invoke-virtual {v0, v2, v1}, Lcom/absolute/android/logutil/LogUtil;->logMessage(ILjava/lang/String;)V
 
     return-void
 .end method
 
 .method private static a([Ljava/security/cert/X509Certificate;)[Ljava/security/cert/X509Certificate;
-    .locals 7
+    .locals 9
 
     const/4 v0, 0x0
 
-    const/4 v3, 0x1
-
-    const/4 v1, 0x0
-
-    if-nez p0, :cond_2
+    if-nez p0, :cond_0
 
     move-object p0, v0
 
-    :cond_0
     :goto_0
-    move-object v2, p0
+    return-object p0
+
+    :cond_0
+    :try_start_0
+    array-length v5, p0
+
+    new-array v0, v5, [Ljava/security/cert/X509Certificate;
+
+    const/4 v1, 0x0
+
+    :goto_1
+    array-length v5, p0
+
+    if-lt v1, v5, :cond_1
+
+    array-length v5, p0
+
+    const/4 v6, 0x1
+
+    if-gt v5, v6, :cond_2
+
+    move-object p0, v0
+
+    goto :goto_0
 
     :cond_1
-    :goto_1
-    return-object v2
-
-    :cond_2
-    :try_start_0
-    array-length v2, p0
-
-    new-array v2, v2, [Ljava/security/cert/X509Certificate;
+    aget-object v5, p0, v1
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_1
 
-    move v0, v1
+    :try_start_1
+    aput-object v5, v0, v1
+    :try_end_1
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
+
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_1
+
+    :cond_2
+    const/4 v1, 0x0
+
+    const/4 v3, 0x0
 
     :goto_2
-    :try_start_1
-    array-length v4, p0
+    :try_start_2
+    array-length v5, p0
 
-    if-lt v0, v4, :cond_3
+    if-lt v3, v5, :cond_3
 
-    array-length v0, p0
-
-    if-gt v0, v3, :cond_4
-
-    move-object p0, v2
+    :goto_3
+    if-nez v1, :cond_8
 
     goto :goto_0
 
     :cond_3
-    aget-object v4, p0, v0
+    const/4 v4, 0x0
 
-    aput-object v4, v2, v0
+    :goto_4
+    array-length v5, p0
 
-    add-int/lit8 v0, v0, 0x1
+    if-lt v4, v5, :cond_4
+
+    :goto_5
+    array-length v5, p0
+
+    if-eq v4, v5, :cond_7
+
+    add-int/lit8 v3, v3, 0x1
 
     goto :goto_2
 
     :cond_4
-    move v4, v1
-
-    :goto_3
-    array-length v0, p0
-
-    if-lt v4, v0, :cond_5
-
-    move v0, v1
-
-    :goto_4
-    if-eqz v0, :cond_0
-
-    move v3, v1
-
-    :goto_5
-    array-length v0, v2
-
-    add-int/lit8 v0, v0, -0x1
-
-    if-ge v3, v0, :cond_1
-
-    move v0, v1
-
-    :goto_6
-    array-length v4, p0
-
-    if-lt v0, v4, :cond_a
-
-    :goto_7
-    add-int/lit8 v0, v3, 0x1
-
-    move v3, v0
-
-    goto :goto_5
+    if-ne v3, v4, :cond_6
 
     :cond_5
-    move v0, v1
+    add-int/lit8 v4, v4, 0x1
 
-    :goto_8
-    array-length v5, p0
-
-    if-lt v0, v5, :cond_6
-
-    :goto_9
-    array-length v5, p0
-
-    if-eq v0, v5, :cond_9
-
-    add-int/lit8 v0, v4, 0x1
-
-    move v4, v0
-
-    goto :goto_3
+    goto :goto_4
 
     :cond_6
-    if-ne v4, v0, :cond_8
-
-    :cond_7
-    add-int/lit8 v0, v0, 0x1
-
-    goto :goto_8
-
-    :cond_8
-    aget-object v5, p0, v4
+    aget-object v5, p0, v3
 
     invoke-virtual {v5}, Ljava/security/cert/X509Certificate;->getIssuerDN()Ljava/security/Principal;
 
     move-result-object v5
 
-    aget-object v6, p0, v0
+    aget-object v6, p0, v4
 
     invoke-virtual {v6}, Ljava/security/cert/X509Certificate;->getSubjectDN()Ljava/security/Principal;
 
@@ -195,95 +168,131 @@
 
     move-result v5
 
-    if-eqz v5, :cond_7
+    if-eqz v5, :cond_5
 
-    goto :goto_9
+    goto :goto_5
+
+    :cond_7
+    aget-object v5, p0, v3
+    :try_end_2
+    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_1
+
+    const/4 v6, 0x0
+
+    :try_start_3
+    aput-object v5, v0, v6
+    :try_end_3
+    .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_0
+
+    const/4 v1, 0x1
+
+    goto :goto_3
+
+    :cond_8
+    const/4 v3, 0x0
+
+    :goto_6
+    :try_start_4
+    array-length v5, v0
+
+    add-int/lit8 v5, v5, -0x1
+
+    if-lt v3, v5, :cond_9
+
+    move-object p0, v0
+
+    goto :goto_0
 
     :cond_9
-    const/4 v0, 0x0
+    const/4 v4, 0x0
 
-    aget-object v4, p0, v4
+    :goto_7
+    array-length v5, p0
+    :try_end_4
+    .catch Ljava/lang/Exception; {:try_start_4 .. :try_end_4} :catch_1
 
-    aput-object v4, v2, v0
+    if-lt v4, v5, :cond_a
 
-    move v0, v3
-
-    goto :goto_4
-
-    :cond_a
-    aget-object v4, v2, v3
-
-    invoke-virtual {v4}, Ljava/security/cert/X509Certificate;->getSubjectDN()Ljava/security/Principal;
-
-    move-result-object v4
-
-    aget-object v5, p0, v0
-
-    invoke-virtual {v5}, Ljava/security/cert/X509Certificate;->getIssuerDN()Ljava/security/Principal;
-
-    move-result-object v5
-
-    invoke-interface {v4, v5}, Ljava/security/Principal;->equals(Ljava/lang/Object;)Z
-
-    move-result v4
-
-    if-nez v4, :cond_b
-
-    add-int/lit8 v0, v0, 0x1
+    :goto_8
+    add-int/lit8 v3, v3, 0x1
 
     goto :goto_6
 
-    :cond_b
-    add-int/lit8 v4, v3, 0x1
+    :cond_a
+    :try_start_5
+    aget-object v5, v0, v3
 
-    aget-object v0, p0, v0
+    invoke-virtual {v5}, Ljava/security/cert/X509Certificate;->getSubjectDN()Ljava/security/Principal;
 
-    aput-object v0, v2, v4
-    :try_end_1
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
+    move-result-object v5
+
+    aget-object v6, p0, v4
+
+    invoke-virtual {v6}, Ljava/security/cert/X509Certificate;->getIssuerDN()Ljava/security/Principal;
+
+    move-result-object v6
+
+    invoke-interface {v5, v6}, Ljava/security/Principal;->equals(Ljava/lang/Object;)Z
+
+    move-result v5
+
+    if-nez v5, :cond_b
+
+    add-int/lit8 v4, v4, 0x1
 
     goto :goto_7
 
-    :catch_0
-    move-exception v0
+    :cond_b
+    add-int/lit8 v5, v3, 0x1
 
-    :goto_a
+    aget-object v6, p0, v4
+
+    aput-object v6, v0, v5
+    :try_end_5
+    .catch Ljava/lang/Exception; {:try_start_5 .. :try_end_5} :catch_0
+
+    goto :goto_8
+
+    :catch_0
+    move-exception v2
+
+    move-object p0, v0
+
+    :goto_9
     invoke-static {}, Lcom/absolute/android/logutil/LogUtil;->get()Lcom/absolute/android/logutil/LogUtil;
 
-    move-result-object v1
+    move-result-object v5
 
-    const/4 v3, 0x6
+    new-instance v6, Ljava/lang/StringBuilder;
 
-    new-instance v4, Ljava/lang/StringBuilder;
+    const-string/jumbo v7, "Exception on reorderCerts: "
 
-    const-string/jumbo v5, "Exception on reorderCerts: "
+    invoke-direct {v6, v7}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-direct {v4, v5}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    const/4 v7, 0x6
 
-    invoke-static {v0}, Lcom/absolute/android/utils/ExceptionUtil;->getExceptionMessage(Ljava/lang/Throwable;)Ljava/lang/String;
+    invoke-static {v2}, Lcom/absolute/android/utils/ExceptionUtil;->getExceptionMessage(Ljava/lang/Throwable;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v8
 
-    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v0
+    move-result-object v6
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v6
 
-    invoke-virtual {v1, v3, v0}, Lcom/absolute/android/logutil/LogUtil;->logMessage(ILjava/lang/String;)V
+    invoke-virtual {v5, v7, v6}, Lcom/absolute/android/logutil/LogUtil;->logMessage(ILjava/lang/String;)V
 
-    goto/16 :goto_1
+    goto/16 :goto_0
 
     :catch_1
-    move-exception v1
+    move-exception v2
 
-    move-object v2, v0
+    move-object p0, v0
 
-    move-object v0, v1
-
-    goto :goto_a
+    goto :goto_9
 .end method
 
 
@@ -301,122 +310,117 @@
 .end method
 
 .method public final checkServerTrusted([Ljava/security/cert/X509Certificate;Ljava/lang/String;)V
-    .locals 10
+    .locals 13
 
-    const/4 v9, 0x3
+    array-length v10, p1
 
-    const/4 v3, 0x1
+    new-array v3, v10, [Ljava/security/cert/X509Certificate;
 
-    const/4 v1, 0x0
-
-    array-length v0, p1
-
-    new-array v4, v0, [Ljava/security/cert/X509Certificate;
-
-    move v0, v1
+    const/4 v4, 0x0
 
     :goto_0
-    array-length v2, p1
+    array-length v10, p1
 
-    if-lt v0, v2, :cond_0
+    if-lt v4, v10, :cond_0
 
-    const/4 v0, 0x0
+    const/4 v4, 0x0
+
+    const/4 v10, 0x0
 
     :try_start_0
-    aget-object v0, p1, v0
+    aget-object v6, p1, v10
 
-    invoke-virtual {v0}, Ljava/security/cert/X509Certificate;->getSubjectDN()Ljava/security/Principal;
+    invoke-virtual {v6}, Ljava/security/cert/X509Certificate;->getSubjectDN()Ljava/security/Principal;
 
-    move-result-object v2
+    move-result-object v10
 
-    invoke-interface {v2}, Ljava/security/Principal;->getName()Ljava/lang/String;
+    invoke-interface {v10}, Ljava/security/Principal;->getName()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v8
 
     invoke-static {}, Lcom/absolute/android/logutil/LogUtil;->get()Lcom/absolute/android/logutil/LogUtil;
 
-    move-result-object v5
+    move-result-object v10
 
-    const/4 v6, 0x3
+    new-instance v11, Ljava/lang/StringBuilder;
 
-    new-instance v7, Ljava/lang/StringBuilder;
+    const-string/jumbo v12, "checkServerTrusted cert subjectName = "
 
-    const-string/jumbo v8, "checkServerTrusted cert subjectName = "
+    invoke-direct {v11, v12}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-direct {v7, v8}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-virtual {v11, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v7, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v11
 
-    move-result-object v7
+    const-string/jumbo v12, ", expected:  "
 
-    const-string/jumbo v8, ", expected:  "
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v11
 
-    move-result-object v7
+    iget-object v12, p0, Lcom/absolute/android/sslutil/a;->b:Ljava/lang/String;
 
-    iget-object v8, p0, Lcom/absolute/android/sslutil/a;->b:Ljava/lang/String;
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v11
 
-    move-result-object v7
+    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v11
 
-    move-result-object v7
+    const/4 v12, 0x3
 
-    invoke-virtual {v5, v6, v7}, Lcom/absolute/android/logutil/LogUtil;->logMessage(ILjava/lang/String;)V
+    invoke-virtual {v10, v12, v11}, Lcom/absolute/android/logutil/LogUtil;->logMessage(ILjava/lang/String;)V
 
-    iget-object v5, p0, Lcom/absolute/android/sslutil/a;->b:Ljava/lang/String;
+    iget-object v10, p0, Lcom/absolute/android/sslutil/a;->b:Ljava/lang/String;
 
-    invoke-virtual {v2, v5}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+    invoke-virtual {v8, v10}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
 
-    move-result v2
+    move-result v10
 
-    if-nez v2, :cond_1
+    if-nez v10, :cond_1
 
-    new-instance v0, Ljava/security/cert/CertificateException;
+    new-instance v10, Ljava/security/cert/CertificateException;
 
-    const-string/jumbo v2, "Bad subject value: Certificate checking failed"
+    const-string/jumbo v11, "Bad subject value: Certificate checking failed"
 
-    invoke-direct {v0, v2}, Ljava/security/cert/CertificateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v10, v11}, Ljava/security/cert/CertificateException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw v10
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     :catch_0
-    move-exception v0
+    move-exception v6
 
-    move v2, v1
-
-    :goto_1
     invoke-static {}, Lcom/absolute/android/logutil/LogUtil;->get()Lcom/absolute/android/logutil/LogUtil;
 
-    move-result-object v5
+    move-result-object v10
 
-    const-string/jumbo v6, "m_defaultTrustManager.checkServerTrusted exception - do our own checking"
+    const-string/jumbo v11, "m_defaultTrustManager.checkServerTrusted exception - do our own checking"
 
-    invoke-virtual {v5, v9, v6}, Lcom/absolute/android/logutil/LogUtil;->logMessage(ILjava/lang/String;)V
+    const/4 v12, 0x3
 
-    if-nez v2, :cond_6
+    invoke-virtual {v10, v12, v11}, Lcom/absolute/android/logutil/LogUtil;->logMessage(ILjava/lang/String;)V
 
-    new-instance v1, Ljava/security/cert/CertificateException;
+    if-nez v4, :cond_6
 
-    invoke-virtual {v0}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
+    new-instance v10, Ljava/security/cert/CertificateException;
 
-    move-result-object v0
+    invoke-virtual {v6}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
 
-    invoke-direct {v1, v0}, Ljava/security/cert/CertificateException;-><init>(Ljava/lang/String;)V
+    move-result-object v11
 
-    throw v1
+    invoke-direct {v10, v11}, Ljava/security/cert/CertificateException;-><init>(Ljava/lang/String;)V
+
+    throw v10
 
     :cond_0
-    aget-object v2, p1, v0
+    aget-object v10, p1, v4
 
-    aput-object v2, v4, v0
+    aput-object v10, v3, v4
 
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v4, v4, 0x1
 
     goto :goto_0
 
@@ -424,330 +428,298 @@
     :try_start_1
     invoke-static {}, Lcom/absolute/android/logutil/LogUtil;->get()Lcom/absolute/android/logutil/LogUtil;
 
-    move-result-object v2
+    move-result-object v10
 
-    const/4 v5, 0x3
+    const-string/jumbo v11, "checkServerTrusted: Got expected certificate subject name"
 
-    const-string/jumbo v6, "checkServerTrusted: Got expected certificate subject name"
+    const/4 v12, 0x3
 
-    invoke-virtual {v2, v5, v6}, Lcom/absolute/android/logutil/LogUtil;->logMessage(ILjava/lang/String;)V
+    invoke-virtual {v10, v12, v11}, Lcom/absolute/android/logutil/LogUtil;->logMessage(ILjava/lang/String;)V
 
-    iget-object v2, p0, Lcom/absolute/android/sslutil/a;->c:Ljava/lang/String;
-    :try_end_1
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
+    iget-object v10, p0, Lcom/absolute/android/sslutil/a;->c:Ljava/lang/String;
 
-    if-nez v2, :cond_2
+    if-nez v10, :cond_2
 
-    :try_start_2
+    const/4 v4, 0x1
+
     invoke-static {}, Lcom/absolute/android/sslutil/SslUtil;->a()Ljavax/net/ssl/X509TrustManager;
 
-    move-result-object v0
+    move-result-object v10
 
-    invoke-interface {v0, p1, p2}, Ljavax/net/ssl/X509TrustManager;->checkServerTrusted([Ljava/security/cert/X509Certificate;Ljava/lang/String;)V
-    :try_end_2
-    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_5
+    invoke-interface {v10, p1, p2}, Ljavax/net/ssl/X509TrustManager;->checkServerTrusted([Ljava/security/cert/X509Certificate;Ljava/lang/String;)V
 
     return-void
 
     :cond_2
-    :try_start_3
-    invoke-virtual {v0}, Ljava/security/cert/Certificate;->getPublicKey()Ljava/security/PublicKey;
+    invoke-virtual {v6}, Ljava/security/cert/X509Certificate;->getPublicKey()Ljava/security/PublicKey;
 
-    move-result-object v0
+    move-result-object v10
 
-    invoke-interface {v0}, Ljava/security/PublicKey;->getEncoded()[B
-    :try_end_3
-    .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_0
+    invoke-interface {v10}, Ljava/security/PublicKey;->getEncoded()[B
 
-    move-result-object v0
+    move-result-object v6
 
-    if-nez v0, :cond_3
+    if-nez v6, :cond_4
 
-    move v2, v1
-
-    :goto_2
-    :try_start_4
+    :cond_3
+    :goto_1
     invoke-static {}, Lcom/absolute/android/logutil/LogUtil;->get()Lcom/absolute/android/logutil/LogUtil;
 
-    move-result-object v0
+    move-result-object v10
 
-    const/4 v5, 0x3
+    new-instance v11, Ljava/lang/StringBuilder;
 
-    new-instance v6, Ljava/lang/StringBuilder;
+    const-string/jumbo v12, "checkServerTrusted: certPinningSuccess="
 
-    const-string/jumbo v7, "checkServerTrusted: certPinningSuccess="
+    invoke-direct {v11, v12}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-direct {v6, v7}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-virtual {v11, v4}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v6, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    move-result-object v11
 
-    move-result-object v6
+    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v11
 
-    move-result-object v6
+    const/4 v12, 0x3
 
-    invoke-virtual {v0, v5, v6}, Lcom/absolute/android/logutil/LogUtil;->logMessage(ILjava/lang/String;)V
-    :try_end_4
-    .catch Ljava/lang/Exception; {:try_start_4 .. :try_end_4} :catch_1
+    invoke-virtual {v10, v12, v11}, Lcom/absolute/android/logutil/LogUtil;->logMessage(ILjava/lang/String;)V
 
-    if-eqz v2, :cond_5
+    if-eqz v4, :cond_5
 
     return-void
 
-    :cond_3
-    :try_start_5
-    const-string/jumbo v2, "SHA-256"
-
-    invoke-static {v2}, Ljava/security/MessageDigest;->getInstance(Ljava/lang/String;)Ljava/security/MessageDigest;
-
-    move-result-object v2
-
-    invoke-virtual {v2, v0}, Ljava/security/MessageDigest;->digest([B)[B
-
-    move-result-object v0
-
-    invoke-static {v0}, Lcom/absolute/android/crypt/HexUtilities;->EncodeBytesAsHexString([B)Ljava/lang/String;
-
-    move-result-object v0
-
-    iget-object v2, p0, Lcom/absolute/android/sslutil/a;->c:Ljava/lang/String;
-
-    invoke-virtual {v0, v2}, Ljava/lang/String;->compareToIgnoreCase(Ljava/lang/String;)I
-
-    move-result v0
-
-    if-eqz v0, :cond_4
-
-    move v2, v1
-
-    goto :goto_2
-
     :cond_4
+    const-string/jumbo v10, "SHA-256"
+
+    invoke-static {v10}, Ljava/security/MessageDigest;->getInstance(Ljava/lang/String;)Ljava/security/MessageDigest;
+
+    move-result-object v10
+
+    invoke-virtual {v10, v6}, Ljava/security/MessageDigest;->digest([B)[B
+
+    move-result-object v10
+
+    invoke-static {v10}, Lcom/absolute/android/crypt/HexUtilities;->EncodeBytesAsHexString([B)Ljava/lang/String;
+
+    move-result-object v10
+
+    iget-object v11, p0, Lcom/absolute/android/sslutil/a;->c:Ljava/lang/String;
+
+    invoke-virtual {v10, v11}, Ljava/lang/String;->compareToIgnoreCase(Ljava/lang/String;)I
+
+    move-result v10
+
+    if-nez v10, :cond_3
+
     invoke-static {}, Lcom/absolute/android/logutil/LogUtil;->get()Lcom/absolute/android/logutil/LogUtil;
 
-    move-result-object v0
+    move-result-object v10
 
-    const/4 v2, 0x3
+    const-string/jumbo v11, "checkServerTrusted: Cert Pinning worked, call checkServerTrusted"
 
-    const-string/jumbo v5, "checkServerTrusted: Cert Pinning worked, call checkServerTrusted"
+    const/4 v12, 0x3
 
-    invoke-virtual {v0, v2, v5}, Lcom/absolute/android/logutil/LogUtil;->logMessage(ILjava/lang/String;)V
-    :try_end_5
-    .catch Ljava/lang/Exception; {:try_start_5 .. :try_end_5} :catch_0
+    invoke-virtual {v10, v12, v11}, Lcom/absolute/android/logutil/LogUtil;->logMessage(ILjava/lang/String;)V
 
-    :try_start_6
+    const/4 v4, 0x1
+
     invoke-static {}, Lcom/absolute/android/sslutil/SslUtil;->a()Ljavax/net/ssl/X509TrustManager;
 
-    move-result-object v0
+    move-result-object v10
 
-    invoke-interface {v0, p1, p2}, Ljavax/net/ssl/X509TrustManager;->checkServerTrusted([Ljava/security/cert/X509Certificate;Ljava/lang/String;)V
-    :try_end_6
-    .catch Ljava/lang/Exception; {:try_start_6 .. :try_end_6} :catch_5
+    invoke-interface {v10, p1, p2}, Ljavax/net/ssl/X509TrustManager;->checkServerTrusted([Ljava/security/cert/X509Certificate;Ljava/lang/String;)V
 
-    move v2, v3
-
-    goto :goto_2
+    goto :goto_1
 
     :cond_5
-    :try_start_7
-    new-instance v0, Ljava/security/cert/CertificateException;
+    new-instance v10, Ljava/security/cert/CertificateException;
 
-    const-string/jumbo v5, "CertPinning-bad value: Certificate checking failed"
+    const-string/jumbo v11, "CertPinning-bad value: Certificate checking failed"
 
-    invoke-direct {v0, v5}, Ljava/security/cert/CertificateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v10, v11}, Ljava/security/cert/CertificateException;-><init>(Ljava/lang/String;)V
 
-    throw v0
-    :try_end_7
-    .catch Ljava/lang/Exception; {:try_start_7 .. :try_end_7} :catch_1
-
-    :catch_1
-    move-exception v0
-
-    goto/16 :goto_1
+    throw v10
+    :try_end_1
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
 
     :cond_6
-    :try_start_8
-    invoke-static {v4}, Lcom/absolute/android/sslutil/a;->a([Ljava/security/cert/X509Certificate;)[Ljava/security/cert/X509Certificate;
+    const/4 v7, 0x0
 
-    move-result-object v5
-
-    invoke-virtual {p0}, Lcom/absolute/android/sslutil/a;->getAcceptedIssuers()[Ljava/security/cert/X509Certificate;
+    :try_start_2
+    invoke-static {v3}, Lcom/absolute/android/sslutil/a;->a([Ljava/security/cert/X509Certificate;)[Ljava/security/cert/X509Certificate;
 
     move-result-object v6
 
-    move v4, v1
+    invoke-virtual {p0}, Lcom/absolute/android/sslutil/a;->getAcceptedIssuers()[Ljava/security/cert/X509Certificate;
+
+    move-result-object v5
+
+    const/4 v9, 0x0
+
+    :goto_2
+    array-length v10, v6
+
+    if-lt v9, v10, :cond_7
 
     :goto_3
-    array-length v0, v5
-
-    if-lt v4, v0, :cond_7
-
-    :goto_4
-    if-eqz v1, :cond_e
+    if-eqz v7, :cond_e
 
     return-void
 
     :cond_7
-    aget-object v2, v5, v4
+    aget-object v10, v6, v9
 
-    move v0, v1
+    const/4 v1, 0x0
+
+    const/4 v2, 0x0
+
+    :goto_4
+    array-length v11, v5
+
+    if-lt v2, v11, :cond_9
 
     :goto_5
-    array-length v7, v6
-
-    if-lt v0, v7, :cond_9
-
-    move v0, v1
-
-    :goto_6
-    if-nez v0, :cond_b
+    if-nez v1, :cond_b
 
     :cond_8
-    add-int/lit8 v4, v4, 0x1
+    add-int/lit8 v9, v9, 0x1
 
-    goto :goto_3
+    goto :goto_2
 
     :cond_9
-    aget-object v7, v6, v0
+    aget-object v11, v5, v2
 
-    invoke-virtual {v7}, Ljava/security/cert/X509Certificate;->getSubjectX500Principal()Ljavax/security/auth/x500/X500Principal;
+    invoke-virtual {v11}, Ljava/security/cert/X509Certificate;->getSubjectX500Principal()Ljavax/security/auth/x500/X500Principal;
 
-    move-result-object v7
+    move-result-object v11
 
-    invoke-virtual {v2}, Ljava/security/cert/X509Certificate;->getIssuerX500Principal()Ljavax/security/auth/x500/X500Principal;
+    invoke-virtual {v10}, Ljava/security/cert/X509Certificate;->getIssuerX500Principal()Ljavax/security/auth/x500/X500Principal;
 
-    move-result-object v8
+    move-result-object v12
 
-    invoke-virtual {v7, v8}, Ljavax/security/auth/x500/X500Principal;->equals(Ljava/lang/Object;)Z
-    :try_end_8
-    .catch Ljava/lang/Exception; {:try_start_8 .. :try_end_8} :catch_3
+    invoke-virtual {v11, v12}, Ljavax/security/auth/x500/X500Principal;->equals(Ljava/lang/Object;)Z
+    :try_end_2
+    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_2
 
-    move-result v7
+    move-result v11
 
-    if-nez v7, :cond_a
+    if-nez v11, :cond_a
 
-    :goto_7
-    add-int/lit8 v0, v0, 0x1
-
-    goto :goto_5
-
-    :cond_a
-    :try_start_9
-    aget-object v7, v6, v0
-
-    invoke-virtual {v7}, Ljava/security/cert/Certificate;->getPublicKey()Ljava/security/PublicKey;
-
-    move-result-object v7
-
-    invoke-virtual {v2, v7}, Ljava/security/cert/Certificate;->verify(Ljava/security/PublicKey;)V
-    :try_end_9
-    .catch Ljava/lang/Exception; {:try_start_9 .. :try_end_9} :catch_4
-
-    move v0, v3
-
-    goto :goto_6
-
-    :cond_b
-    :try_start_a
-    array-length v0, v5
-
-    add-int/lit8 v0, v0, -0x1
-
-    if-eq v4, v0, :cond_c
-
-    move v2, v4
-
-    move v0, v1
-
-    :goto_8
-    array-length v7, v5
-    :try_end_a
-    .catch Ljava/lang/Exception; {:try_start_a .. :try_end_a} :catch_3
-
-    add-int/lit8 v7, v7, -0x1
-
-    if-lt v2, v7, :cond_d
-
-    :goto_9
-    if-eqz v0, :cond_8
-
-    move v1, v3
+    :goto_6
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_4
 
+    :cond_a
+    :try_start_3
+    aget-object v11, v5, v2
+
+    invoke-virtual {v11}, Ljava/security/cert/X509Certificate;->getPublicKey()Ljava/security/PublicKey;
+
+    move-result-object v11
+
+    invoke-virtual {v10, v11}, Ljava/security/cert/X509Certificate;->verify(Ljava/security/PublicKey;)V
+    :try_end_3
+    .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_3
+    .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_2
+
+    const/4 v1, 0x1
+
+    goto :goto_5
+
+    :cond_b
+    const/4 v2, 0x0
+
+    :try_start_4
+    array-length v10, v6
+
+    add-int/lit8 v10, v10, -0x1
+
+    if-eq v9, v10, :cond_c
+
+    move v0, v9
+
+    :goto_7
+    array-length v10, v6
+    :try_end_4
+    .catch Ljava/lang/Exception; {:try_start_4 .. :try_end_4} :catch_2
+
+    add-int/lit8 v10, v10, -0x1
+
+    if-lt v0, v10, :cond_d
+
+    :goto_8
+    if-eqz v2, :cond_8
+
+    const/4 v7, 0x1
+
+    goto :goto_3
+
     :cond_c
-    move v0, v3
-
-    goto :goto_9
-
-    :cond_d
-    add-int/lit8 v0, v2, 0x1
-
-    :try_start_b
-    aget-object v0, v5, v0
-
-    aget-object v7, v5, v2
-
-    invoke-virtual {v7}, Ljava/security/cert/Certificate;->getPublicKey()Ljava/security/PublicKey;
-
-    move-result-object v7
-
-    invoke-virtual {v0, v7}, Ljava/security/cert/Certificate;->verify(Ljava/security/PublicKey;)V
-    :try_end_b
-    .catch Ljava/lang/Exception; {:try_start_b .. :try_end_b} :catch_2
-
-    add-int/lit8 v0, v2, 0x1
-
-    move v2, v0
-
-    move v0, v3
+    const/4 v2, 0x1
 
     goto :goto_8
 
-    :catch_2
-    move-exception v0
+    :cond_d
+    add-int/lit8 v10, v0, 0x1
 
-    move v0, v1
+    :try_start_5
+    aget-object v10, v6, v10
 
-    goto :goto_9
+    aget-object v11, v6, v0
 
-    :cond_e
-    :try_start_c
-    new-instance v0, Ljava/security/cert/CertificateException;
+    invoke-virtual {v11}, Ljava/security/cert/X509Certificate;->getPublicKey()Ljava/security/PublicKey;
 
-    const-string/jumbo v1, "CheckServerTrusted: Root cert is not trusted"
+    move-result-object v11
 
-    invoke-direct {v0, v1}, Ljava/security/cert/CertificateException;-><init>(Ljava/lang/String;)V
+    invoke-virtual {v10, v11}, Ljava/security/cert/X509Certificate;->verify(Ljava/security/PublicKey;)V
+    :try_end_5
+    .catch Ljava/lang/Exception; {:try_start_5 .. :try_end_5} :catch_1
+    .catch Ljava/lang/Exception; {:try_start_5 .. :try_end_5} :catch_2
 
-    throw v0
-    :try_end_c
-    .catch Ljava/lang/Exception; {:try_start_c .. :try_end_c} :catch_3
+    const/4 v2, 0x1
 
-    :catch_3
-    move-exception v0
-
-    new-instance v1, Ljava/security/cert/CertificateException;
-
-    invoke-virtual {v0}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-direct {v1, v0}, Ljava/security/cert/CertificateException;-><init>(Ljava/lang/String;)V
-
-    throw v1
-
-    :catch_4
-    move-exception v7
+    add-int/lit8 v0, v0, 0x1
 
     goto :goto_7
 
-    :catch_5
-    move-exception v0
+    :catch_1
+    move-exception v10
 
-    move v2, v3
+    const/4 v2, 0x0
 
-    goto/16 :goto_1
+    goto :goto_8
+
+    :cond_e
+    :try_start_6
+    new-instance v10, Ljava/security/cert/CertificateException;
+
+    const-string/jumbo v11, "CheckServerTrusted: Root cert is not trusted"
+
+    invoke-direct {v10, v11}, Ljava/security/cert/CertificateException;-><init>(Ljava/lang/String;)V
+
+    throw v10
+    :try_end_6
+    .catch Ljava/lang/Exception; {:try_start_6 .. :try_end_6} :catch_2
+
+    :catch_2
+    move-exception v8
+
+    new-instance v10, Ljava/security/cert/CertificateException;
+
+    invoke-virtual {v8}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
+
+    move-result-object v11
+
+    invoke-direct {v10, v11}, Ljava/security/cert/CertificateException;-><init>(Ljava/lang/String;)V
+
+    throw v10
+
+    :catch_3
+    move-exception v11
+
+    goto :goto_6
 .end method
 
 .method public final getAcceptedIssuers()[Ljava/security/cert/X509Certificate;

@@ -27,7 +27,7 @@
 
     const/4 v1, 0x0
 
-    invoke-virtual {p0, v1}, Landroid/view/View;->setFocusable(Z)V
+    invoke-virtual {p0, v1}, Landroid/widget/ZoomControls;->setFocusable(Z)V
 
     const-string/jumbo v1, "layout_inflater"
 
@@ -37,15 +37,15 @@
 
     check-cast v0, Landroid/view/LayoutInflater;
 
-    const v1, 0x1090182
+    const v1, 0x1090180
 
     const/4 v2, 0x1
 
     invoke-virtual {v0, v1, p0, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
-    const v1, 0x1020528
+    const v1, 0x10205a0
 
-    invoke-virtual {p0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v1}, Landroid/widget/ZoomControls;->findViewById(I)Landroid/view/View;
 
     move-result-object v1
 
@@ -53,9 +53,9 @@
 
     iput-object v1, p0, Landroid/widget/ZoomControls;->mZoomIn:Landroid/widget/ZoomButton;
 
-    const v1, 0x1020527
+    const v1, 0x10205a2
 
-    invoke-virtual {p0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v1}, Landroid/widget/ZoomControls;->findViewById(I)Landroid/view/View;
 
     move-result-object v1
 
@@ -75,11 +75,11 @@
 
     const-wide/16 v2, 0x1f4
 
-    invoke-virtual {v0, v2, v3}, Landroid/view/animation/Animation;->setDuration(J)V
+    invoke-virtual {v0, v2, v3}, Landroid/view/animation/AlphaAnimation;->setDuration(J)V
 
-    invoke-virtual {p0, v0}, Landroid/view/View;->startAnimation(Landroid/view/animation/Animation;)V
+    invoke-virtual {p0, v0}, Landroid/widget/ZoomControls;->startAnimation(Landroid/view/animation/Animation;)V
 
-    invoke-virtual {p0, p1}, Landroid/view/View;->setVisibility(I)V
+    invoke-virtual {p0, p1}, Landroid/widget/ZoomControls;->setVisibility(I)V
 
     return-void
 .end method
@@ -103,7 +103,7 @@
 
     iget-object v0, p0, Landroid/widget/ZoomControls;->mZoomIn:Landroid/widget/ZoomButton;
 
-    invoke-virtual {v0}, Landroid/view/View;->hasFocus()Z
+    invoke-virtual {v0}, Landroid/widget/ZoomButton;->hasFocus()Z
 
     move-result v0
 
@@ -111,7 +111,7 @@
 
     iget-object v0, p0, Landroid/widget/ZoomControls;->mZoomOut:Landroid/widget/ZoomButton;
 
-    invoke-virtual {v0}, Landroid/view/View;->hasFocus()Z
+    invoke-virtual {v0}, Landroid/widget/ZoomButton;->hasFocus()Z
 
     move-result v0
 
@@ -171,7 +171,7 @@
 
     iget-object v0, p0, Landroid/widget/ZoomControls;->mZoomIn:Landroid/widget/ZoomButton;
 
-    invoke-virtual {v0, p1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v0, p1}, Landroid/widget/ZoomButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     return-void
 .end method
@@ -181,7 +181,7 @@
 
     iget-object v0, p0, Landroid/widget/ZoomControls;->mZoomOut:Landroid/widget/ZoomButton;
 
-    invoke-virtual {v0, p1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v0, p1}, Landroid/widget/ZoomButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     return-void
 .end method

@@ -26,7 +26,7 @@
     .end annotation
 .end field
 
-.field private static final ROUTE_ALL:I = 0xf
+.field public static final ROUTE_ALL:I = 0xf
 
 .field public static final ROUTE_BLUETOOTH:I = 0x2
 

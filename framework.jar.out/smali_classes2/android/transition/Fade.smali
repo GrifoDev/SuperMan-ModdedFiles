@@ -75,6 +75,8 @@
 
     invoke-virtual {p0, v1}, Landroid/transition/Fade;->setMode(I)V
 
+    invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
+
     return-void
 .end method
 

@@ -3,12 +3,12 @@
 .source "BatteryStatsImpl.java"
 
 # interfaces
-.implements Ljava/lang/Runnable;
+.implements Lcom/android/internal/os/KernelUidCpuFreqTimeReader$Callback;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/internal/os/BatteryStatsImpl;->setOnBatteryLocked(JJZIII)V
+    value = Lcom/android/internal/os/BatteryStatsImpl;->readKernelUidCpuFreqTimesLocked()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,16 +20,12 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/internal/os/BatteryStatsImpl;
 
-.field final synthetic val$parcel:Landroid/os/Parcel;
-
 
 # direct methods
-.method constructor <init>(Lcom/android/internal/os/BatteryStatsImpl;Landroid/os/Parcel;)V
+.method constructor <init>(Lcom/android/internal/os/BatteryStatsImpl;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/internal/os/BatteryStatsImpl$4;->this$0:Lcom/android/internal/os/BatteryStatsImpl;
-
-    iput-object p2, p0, Lcom/android/internal/os/BatteryStatsImpl$4;->val$parcel:Landroid/os/Parcel;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -38,104 +34,107 @@
 
 
 # virtual methods
-.method public run()V
-    .locals 5
+.method public onCpuFreqs([J)V
+    .locals 1
 
-    iget-object v2, p0, Lcom/android/internal/os/BatteryStatsImpl$4;->this$0:Lcom/android/internal/os/BatteryStatsImpl;
+    iget-object v0, p0, Lcom/android/internal/os/BatteryStatsImpl$4;->this$0:Lcom/android/internal/os/BatteryStatsImpl;
 
-    iget-object v3, v2, Lcom/android/internal/os/BatteryStatsImpl;->mCheckinFile:Lcom/android/internal/os/AtomicFile;
+    invoke-static {v0, p1}, Lcom/android/internal/os/BatteryStatsImpl;->-set0(Lcom/android/internal/os/BatteryStatsImpl;[J)[J
 
-    monitor-enter v3
+    return-void
+.end method
 
-    const/4 v1, 0x0
+.method public onUidCpuFreqTime(I[J)V
+    .locals 4
 
-    :try_start_0
-    iget-object v2, p0, Lcom/android/internal/os/BatteryStatsImpl$4;->this$0:Lcom/android/internal/os/BatteryStatsImpl;
+    iget-object v1, p0, Lcom/android/internal/os/BatteryStatsImpl$4;->this$0:Lcom/android/internal/os/BatteryStatsImpl;
 
-    iget-object v2, v2, Lcom/android/internal/os/BatteryStatsImpl;->mCheckinFile:Lcom/android/internal/os/AtomicFile;
+    invoke-virtual {v1, p1}, Lcom/android/internal/os/BatteryStatsImpl;->mapUid(I)I
 
-    invoke-virtual {v2}, Lcom/android/internal/os/AtomicFile;->startWrite()Ljava/io/FileOutputStream;
+    move-result p1
+
+    invoke-static {p1}, Landroid/os/Process;->isIsolated(I)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    iget-object v1, p0, Lcom/android/internal/os/BatteryStatsImpl$4;->this$0:Lcom/android/internal/os/BatteryStatsImpl;
+
+    invoke-static {v1}, Lcom/android/internal/os/BatteryStatsImpl;->-get2(Lcom/android/internal/os/BatteryStatsImpl;)Lcom/android/internal/os/KernelUidCpuFreqTimeReader;
 
     move-result-object v1
 
-    iget-object v2, p0, Lcom/android/internal/os/BatteryStatsImpl$4;->val$parcel:Landroid/os/Parcel;
+    invoke-virtual {v1, p1}, Lcom/android/internal/os/KernelUidCpuFreqTimeReader;->removeUid(I)V
 
-    invoke-virtual {v2}, Landroid/os/Parcel;->marshall()[B
+    const-string/jumbo v1, "BatteryStatsImpl"
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "Got freq readings for an isolated uid with no mapping to owning uid: "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v2
 
-    invoke-virtual {v1, v2}, Ljava/io/FileOutputStream;->write([B)V
+    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/io/OutputStream;->flush()V
+    move-result-object v2
 
-    invoke-static {v1}, Landroid/os/FileUtils;->sync(Ljava/io/FileOutputStream;)Z
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v1}, Ljava/io/FileOutputStream;->close()V
+    move-result-object v2
 
-    iget-object v2, p0, Lcom/android/internal/os/BatteryStatsImpl$4;->this$0:Lcom/android/internal/os/BatteryStatsImpl;
-
-    iget-object v2, v2, Lcom/android/internal/os/BatteryStatsImpl;->mCheckinFile:Lcom/android/internal/os/AtomicFile;
-
-    invoke-virtual {v2, v1}, Lcom/android/internal/os/AtomicFile;->finishWrite(Ljava/io/FileOutputStream;)V
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_1
-
-    :try_start_1
-    iget-object v2, p0, Lcom/android/internal/os/BatteryStatsImpl$4;->val$parcel:Landroid/os/Parcel;
-
-    invoke-virtual {v2}, Landroid/os/Parcel;->recycle()V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    :goto_0
-    monitor-exit v3
+    invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 
-    :catch_0
-    move-exception v0
+    :cond_0
+    iget-object v1, p0, Lcom/android/internal/os/BatteryStatsImpl$4;->this$0:Lcom/android/internal/os/BatteryStatsImpl;
 
-    :try_start_2
-    const-string/jumbo v2, "BatteryStats"
+    invoke-virtual {v1, p1}, Lcom/android/internal/os/BatteryStatsImpl;->getUidStatsLocked(I)Lcom/android/internal/os/BatteryStatsImpl$Uid;
 
-    const-string/jumbo v4, "Error writing checkin battery statistics"
+    move-result-object v0
 
-    invoke-static {v2, v4, v0}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    iget-object v1, v0, Lcom/android/internal/os/BatteryStatsImpl$Uid;->mCpuFreqTimeMs:Lcom/android/internal/os/BatteryStatsImpl$LongSamplingCounterArray;
+
+    if-nez v1, :cond_1
+
+    new-instance v1, Lcom/android/internal/os/BatteryStatsImpl$LongSamplingCounterArray;
 
     iget-object v2, p0, Lcom/android/internal/os/BatteryStatsImpl$4;->this$0:Lcom/android/internal/os/BatteryStatsImpl;
 
-    iget-object v2, v2, Lcom/android/internal/os/BatteryStatsImpl;->mCheckinFile:Lcom/android/internal/os/AtomicFile;
+    iget-object v2, v2, Lcom/android/internal/os/BatteryStatsImpl;->mOnBatteryTimeBase:Lcom/android/internal/os/BatteryStatsImpl$TimeBase;
 
-    invoke-virtual {v2, v1}, Lcom/android/internal/os/AtomicFile;->failWrite(Ljava/io/FileOutputStream;)V
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_1
+    invoke-direct {v1, v2}, Lcom/android/internal/os/BatteryStatsImpl$LongSamplingCounterArray;-><init>(Lcom/android/internal/os/BatteryStatsImpl$TimeBase;)V
 
-    :try_start_3
-    iget-object v2, p0, Lcom/android/internal/os/BatteryStatsImpl$4;->val$parcel:Landroid/os/Parcel;
+    iput-object v1, v0, Lcom/android/internal/os/BatteryStatsImpl$Uid;->mCpuFreqTimeMs:Lcom/android/internal/os/BatteryStatsImpl$LongSamplingCounterArray;
 
-    invoke-virtual {v2}, Landroid/os/Parcel;->recycle()V
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+    :cond_1
+    iget-object v1, v0, Lcom/android/internal/os/BatteryStatsImpl$Uid;->mCpuFreqTimeMs:Lcom/android/internal/os/BatteryStatsImpl$LongSamplingCounterArray;
 
-    goto :goto_0
+    invoke-virtual {v1, p2}, Lcom/android/internal/os/BatteryStatsImpl$LongSamplingCounterArray;->addCountLocked([J)V
 
-    :catchall_0
-    move-exception v2
+    iget-object v1, v0, Lcom/android/internal/os/BatteryStatsImpl$Uid;->mScreenOffCpuFreqTimeMs:Lcom/android/internal/os/BatteryStatsImpl$LongSamplingCounterArray;
 
-    monitor-exit v3
+    if-nez v1, :cond_2
 
-    throw v2
+    new-instance v1, Lcom/android/internal/os/BatteryStatsImpl$LongSamplingCounterArray;
 
-    :catchall_1
-    move-exception v2
+    iget-object v2, p0, Lcom/android/internal/os/BatteryStatsImpl$4;->this$0:Lcom/android/internal/os/BatteryStatsImpl;
 
-    :try_start_4
-    iget-object v4, p0, Lcom/android/internal/os/BatteryStatsImpl$4;->val$parcel:Landroid/os/Parcel;
+    iget-object v2, v2, Lcom/android/internal/os/BatteryStatsImpl;->mOnBatteryScreenOffTimeBase:Lcom/android/internal/os/BatteryStatsImpl$TimeBase;
 
-    invoke-virtual {v4}, Landroid/os/Parcel;->recycle()V
+    invoke-direct {v1, v2}, Lcom/android/internal/os/BatteryStatsImpl$LongSamplingCounterArray;-><init>(Lcom/android/internal/os/BatteryStatsImpl$TimeBase;)V
 
-    throw v2
-    :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_0
+    iput-object v1, v0, Lcom/android/internal/os/BatteryStatsImpl$Uid;->mScreenOffCpuFreqTimeMs:Lcom/android/internal/os/BatteryStatsImpl$LongSamplingCounterArray;
+
+    :cond_2
+    iget-object v1, v0, Lcom/android/internal/os/BatteryStatsImpl$Uid;->mScreenOffCpuFreqTimeMs:Lcom/android/internal/os/BatteryStatsImpl$LongSamplingCounterArray;
+
+    invoke-virtual {v1, p2}, Lcom/android/internal/os/BatteryStatsImpl$LongSamplingCounterArray;->addCountLocked([J)V
+
+    return-void
 .end method

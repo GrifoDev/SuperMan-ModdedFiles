@@ -127,19 +127,45 @@
 
 
 # virtual methods
+.method public abstract getAggregatedPartialWakelockTimer()Landroid/os/BatteryStats$Timer;
+.end method
+
 .method public abstract getAudioTurnedOnTimer()Landroid/os/BatteryStats$Timer;
 .end method
 
 .method public abstract getBluetoothControllerActivity()Landroid/os/BatteryStats$ControllerActivityCounter;
 .end method
 
+.method public getBluetoothDutyScanTimer()Landroid/os/BatteryStats$Timer;
+    .locals 1
+
+    const/4 v0, 0x0
+
+    return-object v0
+.end method
+
+.method public abstract getBluetoothScanBackgroundTimer()Landroid/os/BatteryStats$Timer;
+.end method
+
+.method public abstract getBluetoothScanResultBgCounter()Landroid/os/BatteryStats$Counter;
+.end method
+
+.method public abstract getBluetoothScanResultCounter()Landroid/os/BatteryStats$Counter;
+.end method
+
 .method public abstract getBluetoothScanTimer()Landroid/os/BatteryStats$Timer;
+.end method
+
+.method public abstract getBluetoothUnoptimizedScanBackgroundTimer()Landroid/os/BatteryStats$Timer;
+.end method
+
+.method public abstract getBluetoothUnoptimizedScanTimer()Landroid/os/BatteryStats$Timer;
 .end method
 
 .method public abstract getCameraTurnedOnTimer()Landroid/os/BatteryStats$Timer;
 .end method
 
-.method public abstract getCpuPowerMaUs(I)J
+.method public abstract getCpuFreqTimes(I)[J
 .end method
 
 .method public abstract getFlashlightTurnedOnTimer()Landroid/os/BatteryStats$Timer;
@@ -169,6 +195,9 @@
 .end method
 
 .method public abstract getMobileRadioActiveTime(I)J
+.end method
+
+.method public abstract getMobileRadioApWakeupCount(I)J
 .end method
 
 .method public abstract getModemControllerActivity()Landroid/os/BatteryStats$ControllerActivityCounter;
@@ -224,6 +253,9 @@
             ">;"
         }
     .end annotation
+.end method
+
+.method public abstract getScreenOffCpuFreqTimes(I)[J
 .end method
 
 .method public abstract getSensorStats()Landroid/util/SparseArray;
@@ -307,7 +339,19 @@
 .method public abstract getWifiMulticastTime(JI)J
 .end method
 
+.method public abstract getWifiRadioApWakeupCount(I)J
+.end method
+
 .method public abstract getWifiRunningTime(JI)J
+.end method
+
+.method public abstract getWifiScanActualTime(J)J
+.end method
+
+.method public abstract getWifiScanBackgroundCount(I)I
+.end method
+
+.method public abstract getWifiScanBackgroundTime(J)J
 .end method
 
 .method public abstract getWifiScanCount(I)I

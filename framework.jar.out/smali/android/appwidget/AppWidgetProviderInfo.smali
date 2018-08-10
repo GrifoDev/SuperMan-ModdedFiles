@@ -61,8 +61,6 @@
     .end annotation
 .end field
 
-.field public labelRes:I
-
 .field public minHeight:I
 
 .field public minResizeHeight:I
@@ -224,52 +222,41 @@
 
     iput-object v0, p0, Landroid/appwidget/AppWidgetProviderInfo;->providerInfo:Landroid/content/pm/ActivityInfo;
 
-    sget-boolean v0, Landroid/os/Build;->IS_SYSTEM_SECURE:Z
-
-    if-eqz v0, :cond_2
-
-    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
-
-    move-result v0
-
-    iput v0, p0, Landroid/appwidget/AppWidgetProviderInfo;->labelRes:I
-
-    :cond_2
     return-void
 .end method
 
 .method private loadDrawable(Landroid/content/Context;IIZ)Landroid/graphics/drawable/Drawable;
-    .locals 4
+    .locals 5
+
+    const/4 v2, 0x0
 
     :try_start_0
     invoke-virtual {p1}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
-    move-result-object v2
+    move-result-object v3
 
-    iget-object v3, p0, Landroid/appwidget/AppWidgetProviderInfo;->providerInfo:Landroid/content/pm/ActivityInfo;
+    iget-object v4, p0, Landroid/appwidget/AppWidgetProviderInfo;->providerInfo:Landroid/content/pm/ActivityInfo;
 
-    iget-object v3, v3, Landroid/content/pm/ActivityInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
+    iget-object v4, v4, Landroid/content/pm/ActivityInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
 
-    invoke-virtual {v2, v3}, Landroid/content/pm/PackageManager;->getResourcesForApplication(Landroid/content/pm/ApplicationInfo;)Landroid/content/res/Resources;
+    invoke-virtual {v3, v4}, Landroid/content/pm/PackageManager;->getResourcesForApplication(Landroid/content/pm/ApplicationInfo;)Landroid/content/res/Resources;
 
     move-result-object v1
 
-    if-lez p3, :cond_1
+    invoke-static {p3}, Landroid/content/res/ResourceId;->isValid(I)Z
 
-    if-gtz p2, :cond_0
+    move-result v3
 
-    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    if-eqz v3, :cond_1
 
-    move-result-object v2
+    if-gez p2, :cond_0
 
-    invoke-virtual {v2}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
-
-    move-result-object v2
-
-    iget p2, v2, Landroid/util/DisplayMetrics;->densityDpi:I
+    const/4 p2, 0x0
 
     :cond_0
-    invoke-virtual {v1, p3, p2}, Landroid/content/res/Resources;->getDrawableForDensity(II)Landroid/graphics/drawable/Drawable;
+    const/4 v3, 0x0
+
+    invoke-virtual {v1, p3, p2, v3}, Landroid/content/res/Resources;->getDrawableForDensity(IILandroid/content/res/Resources$Theme;)Landroid/graphics/drawable/Drawable;
     :try_end_0
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
     .catch Landroid/content/res/Resources$NotFoundException; {:try_start_0 .. :try_end_0} :catch_0
@@ -294,13 +281,8 @@
 
     move-result-object v2
 
-    :goto_0
-    return-object v2
-
     :cond_2
-    const/4 v2, 0x0
-
-    goto :goto_0
+    return-object v2
 .end method
 
 
@@ -571,6 +553,44 @@
     return-object v0
 .end method
 
+.method public updateDimensions(Landroid/util/DisplayMetrics;)V
+    .locals 1
+
+    iget v0, p0, Landroid/appwidget/AppWidgetProviderInfo;->minWidth:I
+
+    invoke-static {v0, p1}, Landroid/util/TypedValue;->complexToDimensionPixelSize(ILandroid/util/DisplayMetrics;)I
+
+    move-result v0
+
+    iput v0, p0, Landroid/appwidget/AppWidgetProviderInfo;->minWidth:I
+
+    iget v0, p0, Landroid/appwidget/AppWidgetProviderInfo;->minHeight:I
+
+    invoke-static {v0, p1}, Landroid/util/TypedValue;->complexToDimensionPixelSize(ILandroid/util/DisplayMetrics;)I
+
+    move-result v0
+
+    iput v0, p0, Landroid/appwidget/AppWidgetProviderInfo;->minHeight:I
+
+    iget v0, p0, Landroid/appwidget/AppWidgetProviderInfo;->minResizeWidth:I
+
+    invoke-static {v0, p1}, Landroid/util/TypedValue;->complexToDimensionPixelSize(ILandroid/util/DisplayMetrics;)I
+
+    move-result v0
+
+    iput v0, p0, Landroid/appwidget/AppWidgetProviderInfo;->minResizeWidth:I
+
+    iget v0, p0, Landroid/appwidget/AppWidgetProviderInfo;->minResizeHeight:I
+
+    invoke-static {v0, p1}, Landroid/util/TypedValue;->complexToDimensionPixelSize(ILandroid/util/DisplayMetrics;)I
+
+    move-result v0
+
+    iput v0, p0, Landroid/appwidget/AppWidgetProviderInfo;->minResizeHeight:I
+
+    return-void
+.end method
+
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 3
 
@@ -580,7 +600,7 @@
 
     iget-object v0, p0, Landroid/appwidget/AppWidgetProviderInfo;->provider:Landroid/content/ComponentName;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_0
 
     invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeInt(I)V
 
@@ -619,7 +639,7 @@
 
     iget-object v0, p0, Landroid/appwidget/AppWidgetProviderInfo;->configure:Landroid/content/ComponentName;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_1
 
     invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeInt(I)V
 
@@ -656,23 +676,14 @@
 
     invoke-virtual {p1, v0, p2}, Landroid/os/Parcel;->writeParcelable(Landroid/os/Parcelable;I)V
 
-    sget-boolean v0, Landroid/os/Build;->IS_SYSTEM_SECURE:Z
-
-    if-eqz v0, :cond_0
-
-    iget v0, p0, Landroid/appwidget/AppWidgetProviderInfo;->labelRes:I
-
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
-
-    :cond_0
     return-void
 
-    :cond_1
+    :cond_0
     invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeInt(I)V
 
     goto :goto_0
 
-    :cond_2
+    :cond_1
     invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeInt(I)V
 
     goto :goto_1

@@ -45,8 +45,6 @@
 
 .field private static final TAG:Ljava/lang/String; = "PPS_SemPrivateModeManager"
 
-.field private static levelPrivatemode:I
-
 .field private static mContext:Landroid/content/Context;
 
 .field private static mHandler:Landroid/os/Handler;
@@ -58,6 +56,8 @@
 .field private static mService:Lcom/samsung/android/privatemode/IPrivateModeManager;
 
 .field private static sInstance:Lcom/samsung/android/privatemode/SemPrivateModeManager;
+
+.field private static versionPrivatemode:I
 
 
 # instance fields
@@ -128,9 +128,9 @@
 
     sput-object v1, Lcom/samsung/android/privatemode/SemPrivateModeManager;->mPrivateClient:Lcom/samsung/android/privatemode/IPrivateModeClient;
 
-    const/4 v0, 0x4
+    const/4 v0, -0x1
 
-    sput v0, Lcom/samsung/android/privatemode/SemPrivateModeManager;->levelPrivatemode:I
+    sput v0, Lcom/samsung/android/privatemode/SemPrivateModeManager;->versionPrivatemode:I
 
     return-void
 .end method
@@ -564,7 +564,7 @@
 
     const-string/jumbo v6, "version"
 
-    invoke-virtual {v0, v6}, Landroid/os/BaseBundle;->getString(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v0, v6}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v6
 
@@ -578,7 +578,7 @@
 
     const-string/jumbo v6, "isKnoxMode"
 
-    invoke-virtual {v0, v6}, Landroid/os/BaseBundle;->getString(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v0, v6}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v6
 
@@ -701,7 +701,7 @@
 
     const/4 v5, 0x0
 
-    sget v2, Lcom/samsung/android/privatemode/SemPrivateModeManager;->levelPrivatemode:I
+    sget v2, Lcom/samsung/android/privatemode/SemPrivateModeManager;->versionPrivatemode:I
 
     if-gez v2, :cond_0
 
@@ -715,7 +715,7 @@
 
     move-result v2
 
-    sput v2, Lcom/samsung/android/privatemode/SemPrivateModeManager;->levelPrivatemode:I
+    sput v2, Lcom/samsung/android/privatemode/SemPrivateModeManager;->versionPrivatemode:I
 
     const-string/jumbo v2, "PPS_SemPrivateModeManager"
 
@@ -729,7 +729,7 @@
 
     move-result-object v3
 
-    sget v4, Lcom/samsung/android/privatemode/SemPrivateModeManager;->levelPrivatemode:I
+    sget v4, Lcom/samsung/android/privatemode/SemPrivateModeManager;->versionPrivatemode:I
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
@@ -748,13 +748,13 @@
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v4, "isReady: levelPrivatemode : "
+    const-string/jumbo v4, "isReady: versionPrivatemode : "
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v3
 
-    sget v4, Lcom/samsung/android/privatemode/SemPrivateModeManager;->levelPrivatemode:I
+    sget v4, Lcom/samsung/android/privatemode/SemPrivateModeManager;->versionPrivatemode:I
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
@@ -789,7 +789,7 @@
     return v5
 
     :cond_1
-    sget v2, Lcom/samsung/android/privatemode/SemPrivateModeManager;->levelPrivatemode:I
+    sget v2, Lcom/samsung/android/privatemode/SemPrivateModeManager;->versionPrivatemode:I
 
     if-le v2, v6, :cond_7
 
@@ -829,7 +829,7 @@
 
     const-string/jumbo v3, "personal_mode_lock_type"
 
-    invoke-static {v2, v3, v5, v5}, Landroid/provider/Settings$System;->getIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)I
+    invoke-static {v2, v3, v5, v5}, Landroid/provider/Settings$Secure;->getIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)I
 
     move-result v0
 
@@ -1276,7 +1276,7 @@
 
     move-result-object v3
 
-    invoke-virtual {v1, v2, v3}, Landroid/os/BaseBundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v1, v2, v3}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
     sget-object v2, Lcom/samsung/android/privatemode/SemPrivateModeManager;->mService:Lcom/samsung/android/privatemode/IPrivateModeManager;
 

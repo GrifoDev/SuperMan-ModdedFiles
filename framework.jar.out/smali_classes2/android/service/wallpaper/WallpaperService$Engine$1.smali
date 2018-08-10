@@ -33,19 +33,7 @@
     return-void
 .end method
 
-
-# virtual methods
-.method public isCreating()Z
-    .locals 1
-
-    iget-object v0, p0, Landroid/service/wallpaper/WallpaperService$Engine$1;->this$1:Landroid/service/wallpaper/WallpaperService$Engine;
-
-    iget-boolean v0, v0, Landroid/service/wallpaper/WallpaperService$Engine;->mIsCreating:Z
-
-    return v0
-.end method
-
-.method public lockCanvas()Landroid/graphics/Canvas;
+.method private prepareToDraw()V
     .locals 3
 
     iget-object v1, p0, Landroid/service/wallpaper/WallpaperService$Engine$1;->this$1:Landroid/service/wallpaper/WallpaperService$Engine;
@@ -84,16 +72,60 @@
 
     :cond_1
     :goto_0
-    invoke-super {p0}, Lcom/android/internal/view/BaseSurfaceHolder;->lockCanvas()Landroid/graphics/Canvas;
-
-    move-result-object v1
-
-    return-object v1
+    return-void
 
     :catch_0
     move-exception v0
 
     goto :goto_0
+.end method
+
+
+# virtual methods
+.method public isCreating()Z
+    .locals 1
+
+    iget-object v0, p0, Landroid/service/wallpaper/WallpaperService$Engine$1;->this$1:Landroid/service/wallpaper/WallpaperService$Engine;
+
+    iget-boolean v0, v0, Landroid/service/wallpaper/WallpaperService$Engine;->mIsCreating:Z
+
+    return v0
+.end method
+
+.method public lockCanvas()Landroid/graphics/Canvas;
+    .locals 1
+
+    invoke-direct {p0}, Landroid/service/wallpaper/WallpaperService$Engine$1;->prepareToDraw()V
+
+    invoke-super {p0}, Lcom/android/internal/view/BaseSurfaceHolder;->lockCanvas()Landroid/graphics/Canvas;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public lockCanvas(Landroid/graphics/Rect;)Landroid/graphics/Canvas;
+    .locals 1
+
+    invoke-direct {p0}, Landroid/service/wallpaper/WallpaperService$Engine$1;->prepareToDraw()V
+
+    invoke-super {p0, p1}, Lcom/android/internal/view/BaseSurfaceHolder;->lockCanvas(Landroid/graphics/Rect;)Landroid/graphics/Canvas;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public lockHardwareCanvas()Landroid/graphics/Canvas;
+    .locals 1
+
+    invoke-direct {p0}, Landroid/service/wallpaper/WallpaperService$Engine$1;->prepareToDraw()V
+
+    invoke-super {p0}, Lcom/android/internal/view/BaseSurfaceHolder;->lockHardwareCanvas()Landroid/graphics/Canvas;
+
+    move-result-object v0
+
+    return-object v0
 .end method
 
 .method public onAllowLockCanvas()Z
@@ -108,12 +140,6 @@
 
 .method public onRelayoutContainer()V
     .locals 3
-
-    const-string/jumbo v1, "WallpaperService"
-
-    const-string/jumbo v2, "BaseSurfaceHolder:onRelayoutContainer"
-
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     iget-object v1, p0, Landroid/service/wallpaper/WallpaperService$Engine$1;->this$1:Landroid/service/wallpaper/WallpaperService$Engine;
 
@@ -137,12 +163,6 @@
 .method public onUpdateSurface()V
     .locals 3
 
-    const-string/jumbo v1, "WallpaperService"
-
-    const-string/jumbo v2, "BaseSurfaceHolder:onUpdateSurface"
-
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
     iget-object v1, p0, Landroid/service/wallpaper/WallpaperService$Engine$1;->this$1:Landroid/service/wallpaper/WallpaperService$Engine;
 
     iget-object v1, v1, Landroid/service/wallpaper/WallpaperService$Engine;->mCaller:Lcom/android/internal/os/HandlerCaller;
@@ -163,7 +183,7 @@
 .end method
 
 .method public setFixedSize(II)V
-    .locals 3
+    .locals 2
 
     iget-object v0, p0, Landroid/service/wallpaper/WallpaperService$Engine$1;->this$1:Landroid/service/wallpaper/WallpaperService$Engine;
 
@@ -180,38 +200,6 @@
     throw v0
 
     :cond_0
-    const-string/jumbo v0, "WallpaperService"
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v2, "BaseSurfaceHolder:setFixedSize[width]"
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    const-string/jumbo v2, " [height]"
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
     invoke-super {p0, p1, p2}, Lcom/android/internal/view/BaseSurfaceHolder;->setFixedSize(II)V
 
     return-void

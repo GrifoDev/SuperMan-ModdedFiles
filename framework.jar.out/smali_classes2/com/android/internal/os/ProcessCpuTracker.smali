@@ -7,6 +7,7 @@
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Lcom/android/internal/os/ProcessCpuTracker$1;,
+        Lcom/android/internal/os/ProcessCpuTracker$FilterStats;,
         Lcom/android/internal/os/ProcessCpuTracker$Stats;
     }
 .end annotation
@@ -456,11 +457,9 @@
 
     invoke-virtual {v0, v12}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    move-result-object v4
+    move-result-object v22
 
-    check-cast v4, Lcom/android/internal/os/ProcessCpuTracker$Stats;
-
-    move-object/from16 v22, v4
+    check-cast v22, Lcom/android/internal/os/ProcessCpuTracker$Stats;
 
     :goto_3
     if-eqz v22, :cond_9
@@ -527,7 +526,7 @@
     :goto_4
     add-int/lit8 v13, v13, 0x1
 
-    goto/16 :goto_1
+    goto :goto_1
 
     :cond_4
     const/16 v22, 0x0
@@ -1161,6 +1160,26 @@
 
     iget-object v3, p1, Lcom/android/internal/os/ProcessCpuTracker$Stats;->name:Ljava/lang/String;
 
+    const-string/jumbo v4, "app_process32"
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_0
+
+    iget-object v3, p1, Lcom/android/internal/os/ProcessCpuTracker$Stats;->name:Ljava/lang/String;
+
+    const-string/jumbo v4, "app_process64"
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_0
+
+    iget-object v3, p1, Lcom/android/internal/os/ProcessCpuTracker$Stats;->name:Ljava/lang/String;
+
     const-string/jumbo v4, "<pre-initialized>"
 
     invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -1224,10 +1243,9 @@
 
     move-result v3
 
-    if-eqz v3, :cond_3
+    xor-int/lit8 v3, v3, 0x1
 
-    :goto_0
-    return-void
+    if-eqz v3, :cond_4
 
     :cond_3
     iput-object v2, p1, Lcom/android/internal/os/ProcessCpuTracker$Stats;->name:Ljava/lang/String;
@@ -1240,7 +1258,8 @@
 
     iput v3, p1, Lcom/android/internal/os/ProcessCpuTracker$Stats;->nameWidth:I
 
-    goto :goto_0
+    :cond_4
+    return-void
 .end method
 
 .method private printProcessCPU(Ljava/io/PrintWriter;Ljava/lang/String;ILjava/lang/String;IIIIIIII)V
@@ -1882,6 +1901,66 @@
     return-object v0
 .end method
 
+.method public final getStats(Lcom/android/internal/os/ProcessCpuTracker$FilterStats;)Ljava/util/List;
+    .locals 5
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Lcom/android/internal/os/ProcessCpuTracker$FilterStats;",
+            ")",
+            "Ljava/util/List",
+            "<",
+            "Lcom/android/internal/os/ProcessCpuTracker$Stats;",
+            ">;"
+        }
+    .end annotation
+
+    new-instance v3, Ljava/util/ArrayList;
+
+    iget-object v4, p0, Lcom/android/internal/os/ProcessCpuTracker;->mProcStats:Ljava/util/ArrayList;
+
+    invoke-virtual {v4}, Ljava/util/ArrayList;->size()I
+
+    move-result v4
+
+    invoke-direct {v3, v4}, Ljava/util/ArrayList;-><init>(I)V
+
+    iget-object v4, p0, Lcom/android/internal/os/ProcessCpuTracker;->mProcStats:Ljava/util/ArrayList;
+
+    invoke-virtual {v4}, Ljava/util/ArrayList;->size()I
+
+    move-result v0
+
+    const/4 v1, 0x0
+
+    :goto_0
+    if-ge v1, v0, :cond_1
+
+    iget-object v4, p0, Lcom/android/internal/os/ProcessCpuTracker;->mProcStats:Ljava/util/ArrayList;
+
+    invoke-virtual {v4, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Lcom/android/internal/os/ProcessCpuTracker$Stats;
+
+    invoke-interface {p1, v2}, Lcom/android/internal/os/ProcessCpuTracker$FilterStats;->needed(Lcom/android/internal/os/ProcessCpuTracker$Stats;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_0
+
+    invoke-virtual {v3, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    :cond_0
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_0
+
+    :cond_1
+    return-object v3
+.end method
+
 .method public final getTotalCpuPercent()F
     .locals 3
 
@@ -1975,6 +2054,483 @@
     const/4 v0, 0x0
 
     return v0
+.end method
+
+.method public printCpuCoreInfo()Ljava/lang/String;
+    .locals 18
+
+    new-instance v10, Ljava/io/StringWriter;
+
+    invoke-direct {v10}, Ljava/io/StringWriter;-><init>()V
+
+    new-instance v9, Lcom/android/internal/util/FastPrintWriter;
+
+    const/4 v13, 0x0
+
+    const/16 v14, 0x80
+
+    invoke-direct {v9, v10, v13, v14}, Lcom/android/internal/util/FastPrintWriter;-><init>(Ljava/io/Writer;ZI)V
+
+    const/4 v13, 0x1
+
+    new-array v5, v13, [I
+
+    const/16 v13, 0x1020
+
+    const/4 v14, 0x0
+
+    aput v13, v5, v14
+
+    const/4 v13, 0x1
+
+    new-array v4, v13, [I
+
+    const/16 v13, 0x2020
+
+    const/4 v14, 0x0
+
+    aput v13, v4, v14
+
+    const/4 v13, 0x2
+
+    new-array v2, v13, [Ljava/lang/String;
+
+    const-string/jumbo v13, "/sys/devices/system/cpu/offline"
+
+    const/4 v14, 0x0
+
+    aput-object v13, v2, v14
+
+    const-string/jumbo v13, "/sys/devices/system/cpu/online"
+
+    const/4 v14, 0x1
+
+    aput-object v13, v2, v14
+
+    const-string/jumbo v3, "/sys/devices/system/cpu/possible"
+
+    const/4 v13, 0x3
+
+    new-array v1, v13, [Ljava/lang/String;
+
+    const-string/jumbo v13, "/sys/devices/system/cpu/cpu%d/cpufreq/scaling_cur_freq"
+
+    const/4 v14, 0x0
+
+    aput-object v13, v1, v14
+
+    const-string/jumbo v13, "/sys/devices/system/cpu/cpu%d/cpufreq/scaling_governor"
+
+    const/4 v14, 0x1
+
+    aput-object v13, v1, v14
+
+    const-string/jumbo v13, "/sys/devices/system/cpu/cpu%d/cpufreq/scaling_max_freq"
+
+    const/4 v14, 0x2
+
+    aput-object v13, v1, v14
+
+    const/4 v13, 0x3
+
+    new-array v0, v13, [Ljava/lang/String;
+
+    const-string/jumbo v13, "/sys/class/sec/sec-thermistor/temperature"
+
+    const/4 v14, 0x0
+
+    aput-object v13, v0, v14
+
+    const-string/jumbo v13, "/sys/devices/platform/sec-thermistor/temperature"
+
+    const/4 v14, 0x1
+
+    aput-object v13, v0, v14
+
+    const-string/jumbo v13, "/sys/class/sec/sec-ap-thermistor/temperature"
+
+    const/4 v14, 0x2
+
+    aput-object v13, v0, v14
+
+    const/4 v13, 0x1
+
+    new-array v11, v13, [Ljava/lang/String;
+
+    const/4 v13, 0x1
+
+    new-array v12, v13, [J
+
+    const/4 v6, 0x0
+
+    const-string/jumbo v13, "------ Current CPU Core Info ------"
+
+    invoke-virtual {v9, v13}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    const/4 v7, 0x0
+
+    :goto_0
+    array-length v13, v2
+
+    if-ge v7, v13, :cond_1
+
+    const-string/jumbo v13, "- "
+
+    invoke-virtual {v9, v13}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    aget-object v13, v2, v7
+
+    aget-object v14, v2, v7
+
+    const/16 v15, 0x2f
+
+    invoke-virtual {v14, v15}, Ljava/lang/String;->lastIndexOf(I)I
+
+    move-result v14
+
+    add-int/lit8 v14, v14, 0x1
+
+    invoke-virtual {v13, v14}, Ljava/lang/String;->substring(I)Ljava/lang/String;
+
+    move-result-object v13
+
+    invoke-virtual {v9, v13}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    const-string/jumbo v13, " : "
+
+    invoke-virtual {v9, v13}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    aget-object v13, v2, v7
+
+    const/4 v14, 0x0
+
+    const/4 v15, 0x0
+
+    invoke-static {v13, v5, v11, v14, v15}, Landroid/os/Process;->readProcFile(Ljava/lang/String;[I[Ljava/lang/String;[J[F)Z
+
+    move-result v13
+
+    if-eqz v13, :cond_0
+
+    const/4 v13, 0x0
+
+    aget-object v13, v11, v13
+
+    invoke-virtual {v9, v13}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    :goto_1
+    add-int/lit8 v7, v7, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    const-string/jumbo v13, "-"
+
+    invoke-virtual {v9, v13}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    goto :goto_1
+
+    :cond_1
+    const/4 v7, 0x0
+
+    :goto_2
+    array-length v13, v0
+
+    if-ge v7, v13, :cond_2
+
+    aget-object v13, v0, v7
+
+    const/4 v14, 0x1
+
+    new-array v14, v14, [Ljava/lang/Object;
+
+    invoke-static {v7}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v15
+
+    const/16 v16, 0x0
+
+    aput-object v15, v14, v16
+
+    invoke-static {v13, v14}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v13
+
+    const/4 v14, 0x0
+
+    const/4 v15, 0x0
+
+    invoke-static {v13, v4, v14, v12, v15}, Landroid/os/Process;->readProcFile(Ljava/lang/String;[I[Ljava/lang/String;[J[F)Z
+
+    move-result v13
+
+    if-eqz v13, :cond_4
+
+    const-string/jumbo v13, "- AP Temp = %d\n"
+
+    const/4 v14, 0x1
+
+    new-array v14, v14, [Ljava/lang/Object;
+
+    const/4 v15, 0x0
+
+    aget-wide v16, v12, v15
+
+    invoke-static/range {v16 .. v17}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+
+    move-result-object v15
+
+    const/16 v16, 0x0
+
+    aput-object v15, v14, v16
+
+    invoke-static {v13, v14}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v13
+
+    invoke-virtual {v9, v13}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    :cond_2
+    const-string/jumbo v13, "/sys/devices/system/cpu/possible"
+
+    const/4 v14, 0x0
+
+    const/4 v15, 0x0
+
+    invoke-static {v13, v5, v11, v14, v15}, Landroid/os/Process;->readProcFile(Ljava/lang/String;[I[Ljava/lang/String;[J[F)Z
+
+    move-result v13
+
+    if-eqz v13, :cond_3
+
+    const/4 v13, 0x0
+
+    aget-object v13, v11, v13
+
+    const/4 v14, 0x0
+
+    aget-object v14, v11, v14
+
+    invoke-virtual {v14}, Ljava/lang/String;->length()I
+
+    move-result v14
+
+    add-int/lit8 v14, v14, -0x2
+
+    invoke-virtual {v13, v14}, Ljava/lang/String;->substring(I)Ljava/lang/String;
+
+    move-result-object v13
+
+    invoke-virtual {v13}, Ljava/lang/String;->trim()Ljava/lang/String;
+
+    move-result-object v13
+
+    invoke-static {v13}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+
+    move-result v6
+
+    :cond_3
+    if-lez v6, :cond_b
+
+    const-string/jumbo v13, "                  "
+
+    invoke-virtual {v9, v13}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    const/4 v7, 0x0
+
+    :goto_3
+    if-gt v7, v6, :cond_5
+
+    const-string/jumbo v13, "%12d"
+
+    const/4 v14, 0x1
+
+    new-array v14, v14, [Ljava/lang/Object;
+
+    invoke-static {v7}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v15
+
+    const/16 v16, 0x0
+
+    aput-object v15, v14, v16
+
+    invoke-static {v13, v14}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v13
+
+    invoke-virtual {v9, v13}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    add-int/lit8 v7, v7, 0x1
+
+    goto :goto_3
+
+    :cond_4
+    add-int/lit8 v7, v7, 0x1
+
+    goto :goto_2
+
+    :cond_5
+    const-string/jumbo v13, "\n------------------"
+
+    invoke-virtual {v9, v13}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    const/4 v7, 0x0
+
+    :goto_4
+    if-gt v7, v6, :cond_6
+
+    const-string/jumbo v13, "------------"
+
+    invoke-virtual {v9, v13}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    add-int/lit8 v7, v7, 0x1
+
+    goto :goto_4
+
+    :cond_6
+    const/4 v7, 0x0
+
+    :goto_5
+    array-length v13, v1
+
+    if-ge v7, v13, :cond_9
+
+    const-string/jumbo v13, "\n%-18s"
+
+    const/4 v14, 0x1
+
+    new-array v14, v14, [Ljava/lang/Object;
+
+    aget-object v15, v1, v7
+
+    aget-object v16, v1, v7
+
+    const/16 v17, 0x2f
+
+    invoke-virtual/range {v16 .. v17}, Ljava/lang/String;->lastIndexOf(I)I
+
+    move-result v16
+
+    add-int/lit8 v16, v16, 0x1
+
+    invoke-virtual/range {v15 .. v16}, Ljava/lang/String;->substring(I)Ljava/lang/String;
+
+    move-result-object v15
+
+    const/16 v16, 0x0
+
+    aput-object v15, v14, v16
+
+    invoke-static {v13, v14}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v13
+
+    invoke-virtual {v9, v13}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    const/4 v8, 0x0
+
+    :goto_6
+    if-gt v8, v6, :cond_8
+
+    aget-object v13, v1, v7
+
+    const/4 v14, 0x1
+
+    new-array v14, v14, [Ljava/lang/Object;
+
+    invoke-static {v8}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v15
+
+    const/16 v16, 0x0
+
+    aput-object v15, v14, v16
+
+    invoke-static {v13, v14}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v13
+
+    const/4 v14, 0x0
+
+    const/4 v15, 0x0
+
+    invoke-static {v13, v5, v11, v14, v15}, Landroid/os/Process;->readProcFile(Ljava/lang/String;[I[Ljava/lang/String;[J[F)Z
+
+    move-result v13
+
+    if-eqz v13, :cond_7
+
+    const-string/jumbo v13, "%12s"
+
+    const/4 v14, 0x1
+
+    new-array v14, v14, [Ljava/lang/Object;
+
+    const/4 v15, 0x0
+
+    aget-object v15, v11, v15
+
+    invoke-virtual {v15}, Ljava/lang/String;->trim()Ljava/lang/String;
+
+    move-result-object v15
+
+    const/16 v16, 0x0
+
+    aput-object v15, v14, v16
+
+    invoke-static {v13, v14}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v13
+
+    invoke-virtual {v9, v13}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    :goto_7
+    add-int/lit8 v8, v8, 0x1
+
+    goto :goto_6
+
+    :cond_7
+    const-string/jumbo v13, "           -"
+
+    invoke-virtual {v9, v13}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    goto :goto_7
+
+    :cond_8
+    add-int/lit8 v7, v7, 0x1
+
+    goto :goto_5
+
+    :cond_9
+    const-string/jumbo v13, "\n------------------"
+
+    invoke-virtual {v9, v13}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    const/4 v7, 0x0
+
+    :goto_8
+    if-gt v7, v6, :cond_a
+
+    const-string/jumbo v13, "------------"
+
+    invoke-virtual {v9, v13}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    add-int/lit8 v7, v7, 0x1
+
+    goto :goto_8
+
+    :cond_a
+    invoke-virtual {v9}, Ljava/io/PrintWriter;->println()V
+
+    :cond_b
+    invoke-virtual {v9}, Ljava/io/PrintWriter;->flush()V
+
+    invoke-virtual {v10}, Ljava/io/StringWriter;->toString()Ljava/lang/String;
+
+    move-result-object v13
+
+    return-object v13
 .end method
 
 .method public final printCurrentLoad()Ljava/lang/String;

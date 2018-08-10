@@ -182,6 +182,8 @@
 
 .field public static final TONE_EAR_SAFETY_WARNING:I = 0xd4
 
+.field public static final TONE_HOLD_FOR_2DEGREES:I = 0xdc
+
 .field public static final TONE_HOLD_RECALL:I = 0xd3
 
 .field public static final TONE_LOCAL_CW:I = 0xd1

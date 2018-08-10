@@ -518,6 +518,8 @@
 
     sput-object v13, Lcom/android/internal/telephony/GsmAlphabet;->gsmExtendedToChar:Landroid/util/SparseIntArray;
 
+    const/4 v3, 0x0
+
     sget-object v13, Lcom/android/internal/telephony/GsmAlphabet;->charToGsm:Landroid/util/SparseIntArray;
 
     const/16 v14, 0x40
@@ -1787,7 +1789,7 @@
 
     add-int v25, v25, v26
 
-    if-nez v25, :cond_8
+    if-nez v25, :cond_a
 
     new-instance v22, Lcom/android/internal/telephony/GsmAlphabet$TextEncodingDetails;
 
@@ -1838,6 +1840,18 @@
     :goto_1
     const/4 v10, 0x0
 
+    invoke-static {}, Lcom/samsung/android/feature/SemCscFeature;->getInstance()Lcom/samsung/android/feature/SemCscFeature;
+
+    move-result-object v25
+
+    const-string/jumbo v26, "CscFeature_RIL_SegmentedSms"
+
+    invoke-virtual/range {v25 .. v26}, Lcom/samsung/android/feature/SemCscFeature;->getBoolean(Ljava/lang/String;)Z
+
+    move-result v25
+
+    if-nez v25, :cond_5
+
     if-lez p2, :cond_4
 
     move/from16 v0, p2
@@ -1853,9 +1867,9 @@
 
     move/from16 v0, v25
 
-    if-eq v14, v0, :cond_5
+    if-eq v14, v0, :cond_7
 
-    if-gt v14, v9, :cond_5
+    if-gt v14, v9, :cond_7
 
     const/16 v25, 0x1
 
@@ -1900,6 +1914,24 @@
     goto :goto_2
 
     :cond_5
+    if-lez p2, :cond_6
+
+    move/from16 v0, p2
+
+    rsub-int v0, v0, 0x9a
+
+    move/from16 v25, v0
+
+    add-int/lit8 v10, v25, -0x1
+
+    goto :goto_2
+
+    :cond_6
+    const/16 v10, 0x9a
+
+    goto :goto_2
+
+    :cond_7
     const/16 v25, -0x1
 
     move/from16 v0, v25
@@ -1910,7 +1942,7 @@
 
     iput v14, v0, Lcom/android/internal/telephony/GsmAlphabet$TextEncodingDetails;->codeUnitCount:I
 
-    if-le v14, v9, :cond_7
+    if-le v14, v9, :cond_9
 
     add-int/lit8 v25, v10, -0x1
 
@@ -1926,7 +1958,7 @@
 
     rem-int v25, v14, v10
 
-    if-lez v25, :cond_6
+    if-lez v25, :cond_8
 
     rem-int v25, v14, v10
 
@@ -1949,7 +1981,7 @@
 
     goto :goto_3
 
-    :cond_6
+    :cond_8
     const/16 v25, 0x0
 
     move/from16 v0, v25
@@ -1960,7 +1992,7 @@
 
     goto :goto_4
 
-    :cond_7
+    :cond_9
     const/16 v25, 0x1
 
     move/from16 v0, v25
@@ -1979,7 +2011,7 @@
 
     goto :goto_4
 
-    :cond_8
+    :cond_a
     sget v11, Lcom/android/internal/telephony/GsmAlphabet;->sHighestEnabledSingleShiftCode:I
 
     new-instance v8, Ljava/util/ArrayList;
@@ -2023,11 +2055,11 @@
 
     move/from16 v1, v27
 
-    if-ge v0, v1, :cond_b
+    if-ge v0, v1, :cond_c
 
     aget v5, v26, v25
 
-    if-eqz v5, :cond_9
+    if-eqz v5, :cond_b
 
     sget-object v28, Lcom/android/internal/telephony/GsmAlphabet;->sLanguageTables:[Ljava/lang/String;
 
@@ -2037,15 +2069,10 @@
 
     move-result v28
 
-    if-eqz v28, :cond_a
+    xor-int/lit8 v28, v28, 0x1
 
-    :cond_9
-    :goto_6
-    add-int/lit8 v25, v25, 0x1
+    if-eqz v28, :cond_b
 
-    goto :goto_5
-
-    :cond_a
     new-instance v28, Lcom/android/internal/telephony/GsmAlphabet$LanguagePairCount;
 
     move-object/from16 v0, v28
@@ -2056,92 +2083,31 @@
 
     invoke-interface {v8, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    goto :goto_6
-
     :cond_b
+    add-int/lit8 v25, v25, 0x1
+
+    goto :goto_5
+
+    :cond_c
     invoke-interface/range {p0 .. p0}, Ljava/lang/CharSequence;->length()I
 
     move-result v19
 
     const/4 v5, 0x0
 
-    :goto_7
+    :goto_6
     move/from16 v0, v19
 
-    if-ge v5, v0, :cond_c
+    if-ge v5, v0, :cond_15
 
     invoke-interface {v8}, Ljava/util/List;->isEmpty()Z
 
     move-result v25
 
-    if-eqz v25, :cond_f
+    xor-int/lit8 v25, v25, 0x1
 
-    :cond_c
-    new-instance v22, Lcom/android/internal/telephony/GsmAlphabet$TextEncodingDetails;
+    if-eqz v25, :cond_15
 
-    invoke-direct/range {v22 .. v22}, Lcom/android/internal/telephony/GsmAlphabet$TextEncodingDetails;-><init>()V
-
-    const v25, 0x7fffffff
-
-    move/from16 v0, v25
-
-    move-object/from16 v1, v22
-
-    iput v0, v1, Lcom/android/internal/telephony/GsmAlphabet$TextEncodingDetails;->msgCount:I
-
-    const/16 v25, 0x1
-
-    move/from16 v0, v25
-
-    move-object/from16 v1, v22
-
-    iput v0, v1, Lcom/android/internal/telephony/GsmAlphabet$TextEncodingDetails;->codeUnitSize:I
-
-    const v12, 0x7fffffff
-
-    invoke-interface {v8}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
-
-    move-result-object v7
-
-    :cond_d
-    invoke-interface {v7}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v25
-
-    if-eqz v25, :cond_21
-
-    invoke-interface {v7}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v6
-
-    check-cast v6, Lcom/android/internal/telephony/GsmAlphabet$LanguagePairCount;
-
-    const/16 v17, 0x0
-
-    :goto_8
-    move/from16 v0, v17
-
-    if-gt v0, v11, :cond_d
-
-    iget-object v0, v6, Lcom/android/internal/telephony/GsmAlphabet$LanguagePairCount;->septetCounts:[I
-
-    move-object/from16 v25, v0
-
-    aget v14, v25, v17
-
-    const/16 v25, -0x1
-
-    move/from16 v0, v25
-
-    if-ne v14, v0, :cond_18
-
-    :cond_e
-    :goto_9
-    add-int/lit8 v17, v17, 0x1
-
-    goto :goto_8
-
-    :cond_f
     move-object/from16 v0, p0
 
     invoke-interface {v0, v5}, Ljava/lang/CharSequence;->charAt(I)C
@@ -2152,7 +2118,7 @@
 
     move/from16 v0, v25
 
-    if-ne v4, v0, :cond_11
+    if-ne v4, v0, :cond_e
 
     const-string/jumbo v25, "GSM"
 
@@ -2160,22 +2126,22 @@
 
     invoke-static/range {v25 .. v26}, Landroid/util/secutil/Log;->secW(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_10
+    :cond_d
     add-int/lit8 v5, v5, 0x1
 
-    goto :goto_7
+    goto :goto_6
 
-    :cond_11
+    :cond_e
     invoke-interface {v8}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v7
 
-    :cond_12
+    :cond_f
     invoke-interface {v7}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v25
 
-    if-eqz v25, :cond_10
+    if-eqz v25, :cond_d
 
     invoke-interface {v7}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -2207,14 +2173,14 @@
 
     move/from16 v1, v25
 
-    if-ne v0, v1, :cond_16
+    if-ne v0, v1, :cond_13
 
     const/16 v20, 0x0
 
-    :goto_a
+    :goto_7
     move/from16 v0, v20
 
-    if-gt v0, v11, :cond_12
+    if-gt v0, v11, :cond_f
 
     iget-object v0, v6, Lcom/android/internal/telephony/GsmAlphabet$LanguagePairCount;->septetCounts:[I
 
@@ -2228,7 +2194,7 @@
 
     move/from16 v1, v26
 
-    if-eq v0, v1, :cond_13
+    if-eq v0, v1, :cond_10
 
     sget-object v25, Lcom/android/internal/telephony/GsmAlphabet;->sCharsToShiftTables:[Landroid/util/SparseIntArray;
 
@@ -2250,9 +2216,9 @@
 
     move/from16 v1, v25
 
-    if-ne v0, v1, :cond_15
+    if-ne v0, v1, :cond_12
 
-    if-eqz p1, :cond_14
+    if-eqz p1, :cond_11
 
     iget-object v0, v6, Lcom/android/internal/telephony/GsmAlphabet$LanguagePairCount;->septetCounts:[I
 
@@ -2274,13 +2240,13 @@
 
     aput v26, v25, v20
 
-    :cond_13
-    :goto_b
+    :cond_10
+    :goto_8
     add-int/lit8 v20, v20, 0x1
 
-    goto :goto_a
+    goto :goto_7
 
-    :cond_14
+    :cond_11
     iget-object v0, v6, Lcom/android/internal/telephony/GsmAlphabet$LanguagePairCount;->septetCounts:[I
 
     move-object/from16 v25, v0
@@ -2289,9 +2255,9 @@
 
     aput v26, v25, v20
 
-    goto :goto_b
+    goto :goto_8
 
-    :cond_15
+    :cond_12
     iget-object v0, v6, Lcom/android/internal/telephony/GsmAlphabet$LanguagePairCount;->septetCounts:[I
 
     move-object/from16 v25, v0
@@ -2302,15 +2268,15 @@
 
     aput v26, v25, v20
 
-    goto :goto_b
+    goto :goto_8
 
-    :cond_16
+    :cond_13
     const/16 v20, 0x0
 
-    :goto_c
+    :goto_9
     move/from16 v0, v20
 
-    if-gt v0, v11, :cond_12
+    if-gt v0, v11, :cond_f
 
     iget-object v0, v6, Lcom/android/internal/telephony/GsmAlphabet$LanguagePairCount;->septetCounts:[I
 
@@ -2324,7 +2290,7 @@
 
     move/from16 v1, v26
 
-    if-eq v0, v1, :cond_17
+    if-eq v0, v1, :cond_14
 
     iget-object v0, v6, Lcom/android/internal/telephony/GsmAlphabet$LanguagePairCount;->septetCounts:[I
 
@@ -2336,10 +2302,75 @@
 
     aput v26, v25, v20
 
-    :cond_17
+    :cond_14
     add-int/lit8 v20, v20, 0x1
 
-    goto :goto_c
+    goto :goto_9
+
+    :cond_15
+    new-instance v22, Lcom/android/internal/telephony/GsmAlphabet$TextEncodingDetails;
+
+    invoke-direct/range {v22 .. v22}, Lcom/android/internal/telephony/GsmAlphabet$TextEncodingDetails;-><init>()V
+
+    const v25, 0x7fffffff
+
+    move/from16 v0, v25
+
+    move-object/from16 v1, v22
+
+    iput v0, v1, Lcom/android/internal/telephony/GsmAlphabet$TextEncodingDetails;->msgCount:I
+
+    const/16 v25, 0x1
+
+    move/from16 v0, v25
+
+    move-object/from16 v1, v22
+
+    iput v0, v1, Lcom/android/internal/telephony/GsmAlphabet$TextEncodingDetails;->codeUnitSize:I
+
+    const v12, 0x7fffffff
+
+    invoke-interface {v8}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+
+    move-result-object v7
+
+    :cond_16
+    invoke-interface {v7}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v25
+
+    if-eqz v25, :cond_21
+
+    invoke-interface {v7}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v6
+
+    check-cast v6, Lcom/android/internal/telephony/GsmAlphabet$LanguagePairCount;
+
+    const/16 v17, 0x0
+
+    :goto_a
+    move/from16 v0, v17
+
+    if-gt v0, v11, :cond_16
+
+    iget-object v0, v6, Lcom/android/internal/telephony/GsmAlphabet$LanguagePairCount;->septetCounts:[I
+
+    move-object/from16 v25, v0
+
+    aget v14, v25, v17
+
+    const/16 v25, -0x1
+
+    move/from16 v0, v25
+
+    if-ne v14, v0, :cond_18
+
+    :cond_17
+    :goto_b
+    add-int/lit8 v17, v17, 0x1
+
+    goto :goto_a
 
     :cond_18
     iget v0, v6, Lcom/android/internal/telephony/GsmAlphabet$LanguagePairCount;->languageCode:I
@@ -2352,7 +2383,7 @@
 
     const/16 v23, 0x8
 
-    :goto_d
+    :goto_c
     add-int v25, v14, v23
 
     const/16 v26, 0xa0
@@ -2384,7 +2415,7 @@
 
     sub-int v16, v25, v14
 
-    :goto_e
+    :goto_d
     iget-object v0, v6, Lcom/android/internal/telephony/GsmAlphabet$LanguagePairCount;->unencodableCounts:[I
 
     move-object/from16 v25, v0
@@ -2395,7 +2426,7 @@
 
     move/from16 v0, v24
 
-    if-gt v0, v12, :cond_e
+    if-gt v0, v12, :cond_17
 
     :cond_1a
     if-eqz p1, :cond_20
@@ -2405,7 +2436,7 @@
     if-ge v0, v12, :cond_20
 
     :cond_1b
-    :goto_f
+    :goto_e
     move/from16 v12, v24
 
     move-object/from16 v0, v22
@@ -2438,7 +2469,7 @@
 
     iput v0, v1, Lcom/android/internal/telephony/GsmAlphabet$TextEncodingDetails;->languageShiftTable:I
 
-    goto/16 :goto_9
+    goto :goto_b
 
     :cond_1c
     iget v0, v6, Lcom/android/internal/telephony/GsmAlphabet$LanguagePairCount;->languageCode:I
@@ -2452,12 +2483,12 @@
     :cond_1d
     const/16 v23, 0x5
 
-    goto :goto_d
+    goto :goto_c
 
     :cond_1e
     const/16 v23, 0x0
 
-    goto :goto_d
+    goto :goto_c
 
     :cond_1f
     const/4 v13, 0x1
@@ -2470,7 +2501,7 @@
 
     sub-int v16, v25, v14
 
-    goto :goto_e
+    goto :goto_d
 
     :cond_20
     move-object/from16 v0, v22
@@ -2491,7 +2522,7 @@
 
     move/from16 v0, v25
 
-    if-ne v13, v0, :cond_e
+    if-ne v13, v0, :cond_17
 
     move-object/from16 v0, v22
 
@@ -2503,9 +2534,9 @@
 
     move/from16 v1, v25
 
-    if-le v0, v1, :cond_e
+    if-le v0, v1, :cond_17
 
-    goto :goto_f
+    goto :goto_e
 
     :cond_21
     move-object/from16 v0, v22
@@ -3748,7 +3779,7 @@
 
     move/from16 v1, v25
 
-    if-ge v0, v1, :cond_6
+    if-ge v0, v1, :cond_5
 
     aget v5, v24, v23
 
@@ -3762,15 +3793,10 @@
 
     move-result v26
 
-    if-eqz v26, :cond_5
+    xor-int/lit8 v26, v26, 0x1
 
-    :cond_4
-    :goto_2
-    add-int/lit8 v23, v23, 0x1
+    if-eqz v26, :cond_4
 
-    goto :goto_1
-
-    :cond_5
     new-instance v26, Lcom/android/internal/telephony/GsmAlphabet$LanguagePairCount;
 
     move-object/from16 v0, v26
@@ -3781,90 +3807,31 @@
 
     invoke-interface {v8, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    goto :goto_2
+    :cond_4
+    add-int/lit8 v23, v23, 0x1
 
-    :cond_6
+    goto :goto_1
+
+    :cond_5
     invoke-interface/range {p0 .. p0}, Ljava/lang/CharSequence;->length()I
 
     move-result v17
 
     const/4 v5, 0x0
 
-    :goto_3
+    :goto_2
     move/from16 v0, v17
 
-    if-ge v5, v0, :cond_7
+    if-ge v5, v0, :cond_e
 
     invoke-interface {v8}, Ljava/util/List;->isEmpty()Z
 
     move-result v23
 
-    if-eqz v23, :cond_a
+    xor-int/lit8 v23, v23, 0x1
 
-    :cond_7
-    new-instance v20, Lcom/android/internal/telephony/GsmAlphabet$TextEncodingDetails;
+    if-eqz v23, :cond_e
 
-    invoke-direct/range {v20 .. v20}, Lcom/android/internal/telephony/GsmAlphabet$TextEncodingDetails;-><init>()V
-
-    const v23, 0x7fffffff
-
-    move/from16 v0, v23
-
-    move-object/from16 v1, v20
-
-    iput v0, v1, Lcom/android/internal/telephony/GsmAlphabet$TextEncodingDetails;->msgCount:I
-
-    const/16 v23, 0x1
-
-    move/from16 v0, v23
-
-    move-object/from16 v1, v20
-
-    iput v0, v1, Lcom/android/internal/telephony/GsmAlphabet$TextEncodingDetails;->codeUnitSize:I
-
-    const v10, 0x7fffffff
-
-    invoke-interface {v8}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
-
-    move-result-object v7
-
-    :cond_8
-    invoke-interface {v7}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v23
-
-    if-eqz v23, :cond_1c
-
-    invoke-interface {v7}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v6
-
-    check-cast v6, Lcom/android/internal/telephony/GsmAlphabet$LanguagePairCount;
-
-    const/4 v15, 0x0
-
-    :goto_4
-    if-gt v15, v9, :cond_8
-
-    iget-object v0, v6, Lcom/android/internal/telephony/GsmAlphabet$LanguagePairCount;->septetCounts:[I
-
-    move-object/from16 v23, v0
-
-    aget v12, v23, v15
-
-    const/16 v23, -0x1
-
-    move/from16 v0, v23
-
-    if-ne v12, v0, :cond_13
-
-    :cond_9
-    :goto_5
-    add-int/lit8 v15, v15, 0x1
-
-    goto :goto_4
-
-    :cond_a
     move-object/from16 v0, p0
 
     invoke-interface {v0, v5}, Ljava/lang/CharSequence;->charAt(I)C
@@ -3875,7 +3842,7 @@
 
     move/from16 v0, v23
 
-    if-ne v4, v0, :cond_c
+    if-ne v4, v0, :cond_7
 
     const-string/jumbo v23, "GSM"
 
@@ -3883,22 +3850,22 @@
 
     invoke-static/range {v23 .. v24}, Landroid/telephony/Rlog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_b
+    :cond_6
     add-int/lit8 v5, v5, 0x1
 
-    goto :goto_3
+    goto :goto_2
 
-    :cond_c
+    :cond_7
     invoke-interface {v8}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v7
 
-    :cond_d
+    :cond_8
     invoke-interface {v7}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v23
 
-    if-eqz v23, :cond_b
+    if-eqz v23, :cond_6
 
     invoke-interface {v7}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -3930,14 +3897,14 @@
 
     move/from16 v1, v23
 
-    if-ne v0, v1, :cond_11
+    if-ne v0, v1, :cond_c
 
     const/16 v18, 0x0
 
-    :goto_6
+    :goto_3
     move/from16 v0, v18
 
-    if-gt v0, v9, :cond_d
+    if-gt v0, v9, :cond_8
 
     iget-object v0, v6, Lcom/android/internal/telephony/GsmAlphabet$LanguagePairCount;->septetCounts:[I
 
@@ -3951,7 +3918,7 @@
 
     move/from16 v1, v24
 
-    if-eq v0, v1, :cond_e
+    if-eq v0, v1, :cond_9
 
     sget-object v23, Lcom/android/internal/telephony/GsmAlphabet;->sCharsToShiftTables:[Landroid/util/SparseIntArray;
 
@@ -3973,9 +3940,9 @@
 
     move/from16 v1, v23
 
-    if-ne v0, v1, :cond_10
+    if-ne v0, v1, :cond_b
 
-    if-eqz p1, :cond_f
+    if-eqz p1, :cond_a
 
     iget-object v0, v6, Lcom/android/internal/telephony/GsmAlphabet$LanguagePairCount;->septetCounts:[I
 
@@ -3997,13 +3964,13 @@
 
     aput v24, v23, v18
 
-    :cond_e
-    :goto_7
+    :cond_9
+    :goto_4
     add-int/lit8 v18, v18, 0x1
 
-    goto :goto_6
+    goto :goto_3
 
-    :cond_f
+    :cond_a
     iget-object v0, v6, Lcom/android/internal/telephony/GsmAlphabet$LanguagePairCount;->septetCounts:[I
 
     move-object/from16 v23, v0
@@ -4012,9 +3979,9 @@
 
     aput v24, v23, v18
 
-    goto :goto_7
+    goto :goto_4
 
-    :cond_10
+    :cond_b
     iget-object v0, v6, Lcom/android/internal/telephony/GsmAlphabet$LanguagePairCount;->septetCounts:[I
 
     move-object/from16 v23, v0
@@ -4025,15 +3992,15 @@
 
     aput v24, v23, v18
 
-    goto :goto_7
+    goto :goto_4
 
-    :cond_11
+    :cond_c
     const/16 v18, 0x0
 
-    :goto_8
+    :goto_5
     move/from16 v0, v18
 
-    if-gt v0, v9, :cond_d
+    if-gt v0, v9, :cond_8
 
     iget-object v0, v6, Lcom/android/internal/telephony/GsmAlphabet$LanguagePairCount;->septetCounts:[I
 
@@ -4047,7 +4014,7 @@
 
     move/from16 v1, v24
 
-    if-eq v0, v1, :cond_12
+    if-eq v0, v1, :cond_d
 
     iget-object v0, v6, Lcom/android/internal/telephony/GsmAlphabet$LanguagePairCount;->septetCounts:[I
 
@@ -4059,23 +4026,86 @@
 
     aput v24, v23, v18
 
-    :cond_12
+    :cond_d
     add-int/lit8 v18, v18, 0x1
 
-    goto :goto_8
+    goto :goto_5
 
-    :cond_13
+    :cond_e
+    new-instance v20, Lcom/android/internal/telephony/GsmAlphabet$TextEncodingDetails;
+
+    invoke-direct/range {v20 .. v20}, Lcom/android/internal/telephony/GsmAlphabet$TextEncodingDetails;-><init>()V
+
+    const v23, 0x7fffffff
+
+    move/from16 v0, v23
+
+    move-object/from16 v1, v20
+
+    iput v0, v1, Lcom/android/internal/telephony/GsmAlphabet$TextEncodingDetails;->msgCount:I
+
+    const/16 v23, 0x1
+
+    move/from16 v0, v23
+
+    move-object/from16 v1, v20
+
+    iput v0, v1, Lcom/android/internal/telephony/GsmAlphabet$TextEncodingDetails;->codeUnitSize:I
+
+    const v10, 0x7fffffff
+
+    invoke-interface {v8}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+
+    move-result-object v7
+
+    :cond_f
+    invoke-interface {v7}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v23
+
+    if-eqz v23, :cond_1a
+
+    invoke-interface {v7}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v6
+
+    check-cast v6, Lcom/android/internal/telephony/GsmAlphabet$LanguagePairCount;
+
+    const/4 v15, 0x0
+
+    :goto_6
+    if-gt v15, v9, :cond_f
+
+    iget-object v0, v6, Lcom/android/internal/telephony/GsmAlphabet$LanguagePairCount;->septetCounts:[I
+
+    move-object/from16 v23, v0
+
+    aget v12, v23, v15
+
+    const/16 v23, -0x1
+
+    move/from16 v0, v23
+
+    if-ne v12, v0, :cond_11
+
+    :cond_10
+    :goto_7
+    add-int/lit8 v15, v15, 0x1
+
+    goto :goto_6
+
+    :cond_11
     iget v0, v6, Lcom/android/internal/telephony/GsmAlphabet$LanguagePairCount;->languageCode:I
 
     move/from16 v23, v0
 
-    if-eqz v23, :cond_17
+    if-eqz v23, :cond_15
 
-    if-eqz v15, :cond_17
+    if-eqz v15, :cond_15
 
     const/16 v21, 0x8
 
-    :goto_9
+    :goto_8
     add-int v23, v12, v21
 
     const/16 v24, 0xa0
@@ -4084,13 +4114,13 @@
 
     move/from16 v1, v24
 
-    if-le v0, v1, :cond_1a
+    if-le v0, v1, :cond_18
 
-    if-nez v21, :cond_14
+    if-nez v21, :cond_12
 
     const/16 v21, 0x1
 
-    :cond_14
+    :cond_12
     add-int/lit8 v21, v21, 0x6
 
     move/from16 v0, v21
@@ -4107,28 +4137,28 @@
 
     sub-int v14, v23, v12
 
-    :goto_a
+    :goto_9
     iget-object v0, v6, Lcom/android/internal/telephony/GsmAlphabet$LanguagePairCount;->unencodableCounts:[I
 
     move-object/from16 v23, v0
 
     aget v22, v23, v15
 
-    if-eqz p1, :cond_15
+    if-eqz p1, :cond_13
 
     move/from16 v0, v22
 
-    if-gt v0, v10, :cond_9
+    if-gt v0, v10, :cond_10
 
-    :cond_15
-    if-eqz p1, :cond_1b
+    :cond_13
+    if-eqz p1, :cond_19
 
     move/from16 v0, v22
 
-    if-ge v0, v10, :cond_1b
+    if-ge v0, v10, :cond_19
 
-    :cond_16
-    :goto_b
+    :cond_14
+    :goto_a
     move/from16 v10, v22
 
     move-object/from16 v0, v20
@@ -4157,28 +4187,28 @@
 
     iput v15, v0, Lcom/android/internal/telephony/GsmAlphabet$TextEncodingDetails;->languageShiftTable:I
 
-    goto/16 :goto_5
+    goto :goto_7
 
-    :cond_17
+    :cond_15
     iget v0, v6, Lcom/android/internal/telephony/GsmAlphabet$LanguagePairCount;->languageCode:I
 
     move/from16 v23, v0
 
-    if-nez v23, :cond_18
+    if-nez v23, :cond_16
 
-    if-eqz v15, :cond_19
+    if-eqz v15, :cond_17
 
-    :cond_18
+    :cond_16
     const/16 v21, 0x5
 
-    goto :goto_9
+    goto :goto_8
 
-    :cond_19
+    :cond_17
     const/16 v21, 0x0
 
-    goto :goto_9
+    goto :goto_8
 
-    :cond_1a
+    :cond_18
     const/4 v11, 0x1
 
     move/from16 v0, v21
@@ -4189,9 +4219,9 @@
 
     sub-int v14, v23, v12
 
-    goto :goto_a
+    goto :goto_9
 
-    :cond_1b
+    :cond_19
     move-object/from16 v0, v20
 
     iget v0, v0, Lcom/android/internal/telephony/GsmAlphabet$TextEncodingDetails;->msgCount:I
@@ -4200,7 +4230,7 @@
 
     move/from16 v0, v23
 
-    if-lt v11, v0, :cond_16
+    if-lt v11, v0, :cond_14
 
     move-object/from16 v0, v20
 
@@ -4210,7 +4240,7 @@
 
     move/from16 v0, v23
 
-    if-ne v11, v0, :cond_9
+    if-ne v11, v0, :cond_10
 
     move-object/from16 v0, v20
 
@@ -4220,11 +4250,11 @@
 
     move/from16 v0, v23
 
-    if-le v14, v0, :cond_9
+    if-le v14, v0, :cond_10
 
-    goto :goto_b
+    goto :goto_a
 
-    :cond_1c
+    :cond_1a
     move-object/from16 v0, v20
 
     iget v0, v0, Lcom/android/internal/telephony/GsmAlphabet$TextEncodingDetails;->msgCount:I
@@ -4237,13 +4267,13 @@
 
     move/from16 v1, v24
 
-    if-ne v0, v1, :cond_1d
+    if-ne v0, v1, :cond_1b
 
     const/16 v23, 0x0
 
     return-object v23
 
-    :cond_1d
+    :cond_1b
     return-object v20
 .end method
 
@@ -4373,7 +4403,7 @@
 
     move-result-object v0
 
-    const v1, 0x107004d
+    const v1, 0x107006f
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getIntArray(I)[I
 
@@ -4381,7 +4411,7 @@
 
     sput-object v1, Lcom/android/internal/telephony/GsmAlphabet;->sEnabledSingleShiftTables:[I
 
-    const v1, 0x107004e
+    const v1, 0x107006e
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getIntArray(I)[I
 
@@ -5033,10 +5063,29 @@
 
     move-result v12
 
-    if-eqz v12, :cond_2
+    xor-int/lit8 v12, v12, 0x1
+
+    if-eqz v12, :cond_0
+
+    invoke-static/range {p3 .. p3}, Ljava/nio/charset/Charset;->isSupported(Ljava/lang/String;)Z
+
+    move-result v12
+
+    if-eqz v12, :cond_0
+
+    const/4 v5, 0x1
+
+    invoke-static/range {p3 .. p3}, Ljava/nio/charset/Charset;->forName(Ljava/lang/String;)Ljava/nio/charset/Charset;
+
+    move-result-object v2
+
+    const/4 v12, 0x2
+
+    invoke-static {v12}, Ljava/nio/ByteBuffer;->allocate(I)Ljava/nio/ByteBuffer;
+
+    move-result-object v7
 
     :cond_0
-    :goto_0
     sget-object v12, Lcom/android/internal/telephony/GsmAlphabet;->sLanguageTables:[Ljava/lang/String;
 
     const/4 v13, 0x0
@@ -5061,7 +5110,7 @@
 
     move v4, v3
 
-    :goto_1
+    :goto_0
     add-int v12, p1, p2
 
     if-ge v4, v12, :cond_1
@@ -5072,7 +5121,7 @@
 
     const/16 v12, 0xff
 
-    if-ne v1, v12, :cond_3
+    if-ne v1, v12, :cond_2
 
     :cond_1
     invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
@@ -5082,32 +5131,11 @@
     return-object v12
 
     :cond_2
-    invoke-static/range {p3 .. p3}, Ljava/nio/charset/Charset;->isSupported(Ljava/lang/String;)Z
-
-    move-result v12
-
-    if-eqz v12, :cond_0
-
-    const/4 v5, 0x1
-
-    invoke-static/range {p3 .. p3}, Ljava/nio/charset/Charset;->forName(Ljava/lang/String;)Ljava/nio/charset/Charset;
-
-    move-result-object v2
-
-    const/4 v12, 0x2
-
-    invoke-static {v12}, Ljava/nio/ByteBuffer;->allocate(I)Ljava/nio/ByteBuffer;
-
-    move-result-object v7
-
-    goto :goto_0
-
-    :cond_3
     const/16 v12, 0x1b
 
-    if-ne v1, v12, :cond_5
+    if-ne v1, v12, :cond_4
 
-    if-eqz v8, :cond_4
+    if-eqz v8, :cond_3
 
     const/16 v12, 0x20
 
@@ -5117,43 +5145,43 @@
 
     move v3, v4
 
-    :goto_2
+    :goto_1
     add-int/lit8 v3, v3, 0x1
 
     move v4, v3
 
-    goto :goto_1
+    goto :goto_0
 
-    :cond_4
+    :cond_3
     const/4 v8, 0x1
 
     move v3, v4
 
-    goto :goto_2
+    goto :goto_1
 
-    :cond_5
-    if-eqz v8, :cond_9
+    :cond_4
+    if-eqz v8, :cond_8
 
     invoke-virtual {v11}, Ljava/lang/String;->length()I
 
     move-result v12
 
-    if-ge v1, v12, :cond_6
+    if-ge v1, v12, :cond_5
 
     invoke-virtual {v11, v1}, Ljava/lang/String;->charAt(I)C
 
     move-result v10
 
-    :goto_3
+    :goto_2
     const/16 v12, 0x20
 
-    if-ne v10, v12, :cond_8
+    if-ne v10, v12, :cond_7
 
     invoke-virtual {v6}, Ljava/lang/String;->length()I
 
     move-result v12
 
-    if-ge v1, v12, :cond_7
+    if-ge v1, v12, :cond_6
 
     invoke-virtual {v6, v1}, Ljava/lang/String;->charAt(I)C
 
@@ -5163,45 +5191,45 @@
 
     move v3, v4
 
-    :goto_4
+    :goto_3
     const/4 v8, 0x0
+
+    goto :goto_1
+
+    :cond_5
+    const/16 v10, 0x20
 
     goto :goto_2
 
     :cond_6
-    const/16 v10, 0x20
-
-    goto :goto_3
-
-    :cond_7
     const/16 v12, 0x20
 
     invoke-virtual {v9, v12}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     move v3, v4
 
-    goto :goto_4
+    goto :goto_3
 
-    :cond_8
+    :cond_7
     invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     move v3, v4
 
-    goto :goto_4
+    goto :goto_3
 
-    :cond_9
-    if-eqz v5, :cond_a
+    :cond_8
+    if-eqz v5, :cond_9
 
     const/16 v12, 0x80
 
-    if-ge v1, v12, :cond_b
+    if-ge v1, v12, :cond_a
 
-    :cond_a
+    :cond_9
     invoke-virtual {v6}, Ljava/lang/String;->length()I
 
     move-result v12
 
-    if-ge v1, v12, :cond_c
+    if-ge v1, v12, :cond_b
 
     invoke-virtual {v6, v1}, Ljava/lang/String;->charAt(I)C
 
@@ -5209,17 +5237,17 @@
 
     invoke-virtual {v9, v12}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    :goto_5
+    :goto_4
     move v3, v4
 
-    goto :goto_4
+    goto :goto_3
 
-    :cond_b
+    :cond_a
     add-int/lit8 v12, v4, 0x1
 
     add-int v13, p1, p2
 
-    if-ge v12, v13, :cond_a
+    if-ge v12, v13, :cond_9
 
     invoke-virtual {v7}, Ljava/nio/ByteBuffer;->clear()Ljava/nio/Buffer;
 
@@ -5241,14 +5269,14 @@
 
     invoke-virtual {v9, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_4
+    goto :goto_3
 
-    :cond_c
+    :cond_b
     const/16 v12, 0x20
 
     invoke-virtual {v9, v12}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    goto :goto_5
+    goto :goto_4
 .end method
 
 .method public static gsmExtendedToChar(I)C
@@ -5529,11 +5557,8 @@
 
     move-result v7
 
-    if-eqz p2, :cond_0
+    xor-int/lit8 v13, p2, 0x1
 
-    const/4 v13, 0x0
-
-    :goto_0
     move/from16 v0, p3
 
     move/from16 v1, p4
@@ -5544,7 +5569,7 @@
 
     const/4 v13, -0x1
 
-    if-ne v10, v13, :cond_1
+    if-ne v10, v13, :cond_0
 
     new-instance v13, Lcom/android/internal/telephony/EncodeException;
 
@@ -5555,16 +5580,11 @@
     throw v13
 
     :cond_0
-    const/4 v13, 0x1
-
-    goto :goto_0
-
-    :cond_1
     add-int v10, v10, p1
 
     const/16 v13, 0xff
 
-    if-le v10, v13, :cond_2
+    if-le v10, v13, :cond_1
 
     new-instance v13, Lcom/android/internal/telephony/EncodeException;
 
@@ -5574,7 +5594,7 @@
 
     throw v13
 
-    :cond_2
+    :cond_1
     mul-int/lit8 v13, v10, 0x7
 
     add-int/lit8 v13, v13, 0x7
@@ -5599,10 +5619,10 @@
 
     mul-int/lit8 v2, p1, 0x7
 
-    :goto_1
-    if-ge v8, v7, :cond_6
+    :goto_0
+    if-ge v8, v7, :cond_5
 
-    if-ge v11, v10, :cond_6
+    if-ge v11, v10, :cond_5
 
     invoke-virtual {p0, v8}, Ljava/lang/String;->charAt(I)C
 
@@ -5616,7 +5636,7 @@
 
     const/4 v13, -0x1
 
-    if-ne v12, v13, :cond_4
+    if-ne v12, v13, :cond_3
 
     const/4 v13, -0x1
 
@@ -5626,9 +5646,9 @@
 
     const/4 v13, -0x1
 
-    if-ne v12, v13, :cond_5
+    if-ne v12, v13, :cond_4
 
-    if-eqz p2, :cond_3
+    if-eqz p2, :cond_2
 
     new-instance v13, Lcom/android/internal/telephony/EncodeException;
 
@@ -5638,7 +5658,7 @@
 
     throw v13
 
-    :cond_3
+    :cond_2
     const/16 v13, 0x20
 
     const/16 v14, 0x20
@@ -5647,8 +5667,8 @@
 
     move-result v12
 
-    :cond_4
-    :goto_2
+    :cond_3
+    :goto_1
     invoke-static {v9, v2, v12}, Lcom/android/internal/telephony/GsmAlphabet;->packSmsChar([BII)V
 
     add-int/lit8 v11, v11, 0x1
@@ -5657,9 +5677,9 @@
 
     add-int/lit8 v2, v2, 0x7
 
-    goto :goto_1
+    goto :goto_0
 
-    :cond_5
+    :cond_4
     const/16 v13, 0x1b
 
     invoke-static {v9, v2, v13}, Lcom/android/internal/telephony/GsmAlphabet;->packSmsChar([BII)V
@@ -5668,9 +5688,9 @@
 
     add-int/lit8 v11, v11, 0x1
 
-    goto :goto_2
+    goto :goto_1
 
-    :cond_6
+    :cond_5
     int-to-byte v13, v10
 
     const/4 v14, 0x0

@@ -63,7 +63,7 @@
 
     invoke-direct {v1}, Lcom/samsung/android/content/clipboard/data/SemUriListClipData;-><init>()V
 
-    invoke-virtual {p0, v1}, Landroid/sec/clipboard/data/ClipboardData;->restoreBaseData(Lcom/samsung/android/content/clipboard/data/SemClipData;)V
+    invoke-virtual {p0, v1}, Landroid/sec/clipboard/data/list/ClipboardDataUriList;->restoreBaseData(Lcom/samsung/android/content/clipboard/data/SemClipData;)V
 
     new-instance v4, Ljava/util/ArrayList;
 
@@ -101,9 +101,7 @@
     :cond_2
     move-object v5, v1
 
-    nop
-
-    nop
+    check-cast v5, Lcom/samsung/android/content/clipboard/data/SemUriListClipData;
 
     invoke-virtual {v5, v4}, Lcom/samsung/android/content/clipboard/data/SemUriListClipData;->setUriList(Ljava/util/ArrayList;)Z
 

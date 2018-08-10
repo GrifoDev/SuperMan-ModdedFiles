@@ -15,7 +15,7 @@
 
 
 # instance fields
-.field public final service:Landroid/content/pm/PackageParser$Service;
+.field public service:Landroid/content/pm/PackageParser$Service;
 
 
 # direct methods
@@ -25,6 +25,14 @@
     invoke-direct {p0}, Landroid/content/pm/PackageParser$IntentInfo;-><init>()V
 
     iput-object p1, p0, Landroid/content/pm/PackageParser$ServiceIntentInfo;->service:Landroid/content/pm/PackageParser$Service;
+
+    return-void
+.end method
+
+.method public constructor <init>(Landroid/os/Parcel;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Landroid/content/pm/PackageParser$IntentInfo;-><init>(Landroid/os/Parcel;)V
 
     return-void
 .end method

@@ -443,7 +443,7 @@
 .end method
 
 .method private static isOnTop(Landroid/view/View;Landroid/view/View;)Z
-    .locals 9
+    .locals 8
 
     invoke-virtual {p0}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
 
@@ -513,11 +513,9 @@
     :cond_4
     invoke-virtual {v7, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    move-result-object v8
+    move-result-object v0
 
-    check-cast v8, Landroid/view/View;
-
-    move-object v0, v8
+    check-cast v0, Landroid/view/View;
 
     goto :goto_3
 
@@ -535,7 +533,7 @@
 .end method
 
 .method private static isOnTop(Ljava/util/ArrayList;Ljava/util/ArrayList;)Z
-    .locals 8
+    .locals 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -550,45 +548,45 @@
         }
     .end annotation
 
-    const/4 v3, 0x1
-
-    const/4 v5, 0x0
+    const/4 v6, 0x0
 
     invoke-virtual {p0}, Ljava/util/ArrayList;->isEmpty()Z
 
-    move-result v6
+    move-result v5
 
-    if-nez v6, :cond_0
+    if-nez v5, :cond_0
 
     invoke-virtual {p1}, Ljava/util/ArrayList;->isEmpty()Z
 
-    move-result v6
+    move-result v5
 
-    if-nez v6, :cond_0
+    if-nez v5, :cond_0
 
-    invoke-virtual {p0, v5}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    invoke-virtual {p0, v6}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v5
+
+    invoke-virtual {p1, v6}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v6
 
-    invoke-virtual {p1, v5}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v7
-
-    if-eq v6, v7, :cond_1
+    if-eq v5, v6, :cond_1
 
     :cond_0
-    return v3
+    const/4 v5, 0x1
+
+    return v5
 
     :cond_1
     invoke-virtual {p0}, Ljava/util/ArrayList;->size()I
 
-    move-result v6
+    move-result v5
 
     invoke-virtual {p1}, Ljava/util/ArrayList;->size()I
 
-    move-result v7
+    move-result v6
 
-    invoke-static {v6, v7}, Ljava/lang/Math;->min(II)I
+    invoke-static {v5, v6}, Ljava/lang/Math;->min(II)I
 
     move-result v1
 
@@ -625,15 +623,17 @@
     :cond_3
     invoke-virtual {p1}, Ljava/util/ArrayList;->size()I
 
-    move-result v6
+    move-result v5
 
-    if-ne v6, v1, :cond_4
+    if-ne v5, v1, :cond_4
+
+    const/4 v3, 0x1
 
     :goto_1
     return v3
 
     :cond_4
-    move v3, v5
+    const/4 v3, 0x0
 
     goto :goto_1
 .end method

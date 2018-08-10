@@ -47,7 +47,7 @@
 
     iget-object v0, p0, Landroid/app/SharedPreferencesImpl$EditorImpl$2;->val$awaitCommit:Ljava/lang/Runnable;
 
-    invoke-static {v0}, Landroid/app/QueuedWork;->remove(Ljava/lang/Runnable;)V
+    invoke-static {v0}, Landroid/app/QueuedWork;->removeFinisher(Ljava/lang/Runnable;)V
 
     return-void
 .end method

@@ -33,7 +33,7 @@
 
     iget-object v3, p1, Landroid/transition/TransitionValues;->view:Landroid/view/View;
 
-    const v4, 0x1020055
+    const v4, 0x1020542
 
     invoke-virtual {v3, v4}, Landroid/view/View;->getTag(I)Ljava/lang/Object;
 

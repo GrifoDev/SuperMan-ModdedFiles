@@ -20,3 +20,13 @@
 # virtual methods
 .method public abstract surfaceRedrawNeeded(Landroid/view/SurfaceHolder;)V
 .end method
+
+.method public surfaceRedrawNeededAsync(Landroid/view/SurfaceHolder;Ljava/lang/Runnable;)V
+    .locals 0
+
+    invoke-interface {p0, p1}, Landroid/view/SurfaceHolder$Callback2;->surfaceRedrawNeeded(Landroid/view/SurfaceHolder;)V
+
+    invoke-interface {p2}, Ljava/lang/Runnable;->run()V
+
+    return-void
+.end method

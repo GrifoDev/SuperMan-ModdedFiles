@@ -113,7 +113,7 @@
     :catch_0
     move-exception v0
 
-    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
 
     goto :goto_0
 .end method
@@ -164,28 +164,23 @@
 
     const/4 v0, 0x0
 
+    iget-boolean v1, p0, Landroid/database/sqlite/SQLiteSdpHelper;->mIsInitialized:Z
+
+    if-nez v1, :cond_0
+
+    iget-object v1, p0, Landroid/database/sqlite/SQLiteSdpHelper;->mDatabase:Landroid/database/sqlite/SQLiteDatabase;
+
+    if-nez v1, :cond_1
+
+    :cond_0
+    return-void
+
+    :cond_1
     iget-object v1, p0, Landroid/database/sqlite/SQLiteSdpHelper;->mLock:Ljava/lang/Object;
 
     monitor-enter v1
 
     :try_start_0
-    iget-boolean v2, p0, Landroid/database/sqlite/SQLiteSdpHelper;->mIsInitialized:Z
-
-    if-nez v2, :cond_0
-
-    iget-object v2, p0, Landroid/database/sqlite/SQLiteSdpHelper;->mDatabase:Landroid/database/sqlite/SQLiteDatabase;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    if-nez v2, :cond_1
-
-    :cond_0
-    monitor-exit v1
-
-    return-void
-
-    :cond_1
-    :try_start_1
     invoke-direct {p0}, Landroid/database/sqlite/SQLiteSdpHelper;->getEngineId()I
 
     move-result v2
@@ -193,8 +188,8 @@
     iput v2, p0, Landroid/database/sqlite/SQLiteSdpHelper;->mEngineId:I
 
     iget v2, p0, Landroid/database/sqlite/SQLiteSdpHelper;->mEngineId:I
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     if-gez v2, :cond_2
 
@@ -203,7 +198,7 @@
     return-void
 
     :cond_2
-    :try_start_2
+    :try_start_1
     new-instance v2, Landroid/database/sqlite/SQLiteSdpHelper$1;
 
     invoke-direct {v2, p0}, Landroid/database/sqlite/SQLiteSdpHelper$1;-><init>(Landroid/database/sqlite/SQLiteSdpHelper;)V
@@ -220,8 +215,8 @@
 
     :cond_3
     iput-boolean v0, p0, Landroid/database/sqlite/SQLiteSdpHelper;->mIsInitialized:Z
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     monitor-exit v1
 

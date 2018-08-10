@@ -1,14 +1,11 @@
 .class Landroid/app/EnterTransitionCoordinator$5;
-.super Ljava/lang/Object;
+.super Landroid/app/ActivityTransitionCoordinator$ContinueTransitionListener;
 .source "EnterTransitionCoordinator.java"
-
-# interfaces
-.implements Landroid/app/SharedElementCallback$OnSharedElementsReadyListener;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Landroid/app/EnterTransitionCoordinator;->onTakeSharedElements()V
+    value = Landroid/app/EnterTransitionCoordinator;->beginTransition(Landroid/view/ViewGroup;ZZ)Landroid/transition/Transition;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,49 +17,65 @@
 # instance fields
 .field final synthetic this$0:Landroid/app/EnterTransitionCoordinator;
 
-.field final synthetic val$sharedElementState:Landroid/os/Bundle;
+.field final synthetic val$transitioningViews:Ljava/util/ArrayList;
 
 
 # direct methods
-.method constructor <init>(Landroid/app/EnterTransitionCoordinator;Landroid/os/Bundle;)V
+.method constructor <init>(Landroid/app/EnterTransitionCoordinator;Landroid/app/ActivityTransitionCoordinator;Ljava/util/ArrayList;)V
     .locals 0
 
     iput-object p1, p0, Landroid/app/EnterTransitionCoordinator$5;->this$0:Landroid/app/EnterTransitionCoordinator;
 
-    iput-object p2, p0, Landroid/app/EnterTransitionCoordinator$5;->val$sharedElementState:Landroid/os/Bundle;
+    iput-object p3, p0, Landroid/app/EnterTransitionCoordinator$5;->val$transitioningViews:Ljava/util/ArrayList;
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0, p2}, Landroid/app/ActivityTransitionCoordinator$ContinueTransitionListener;-><init>(Landroid/app/ActivityTransitionCoordinator;)V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onSharedElementsReady()V
-    .locals 4
+.method public onTransitionEnd(Landroid/transition/Transition;)V
+    .locals 2
 
-    iget-object v1, p0, Landroid/app/EnterTransitionCoordinator$5;->this$0:Landroid/app/EnterTransitionCoordinator;
+    iget-object v0, p0, Landroid/app/EnterTransitionCoordinator$5;->this$0:Landroid/app/EnterTransitionCoordinator;
 
-    invoke-virtual {v1}, Landroid/app/EnterTransitionCoordinator;->getDecor()Landroid/view/ViewGroup;
+    const/4 v1, 0x0
 
-    move-result-object v0
+    invoke-static {v0, v1}, Landroid/app/EnterTransitionCoordinator;->-set0(Landroid/app/EnterTransitionCoordinator;Landroid/transition/Transition;)Landroid/transition/Transition;
+
+    invoke-virtual {p1, p0}, Landroid/transition/Transition;->removeListener(Landroid/transition/Transition$TransitionListener;)Landroid/transition/Transition;
+
+    iget-object v0, p0, Landroid/app/EnterTransitionCoordinator$5;->this$0:Landroid/app/EnterTransitionCoordinator;
+
+    invoke-virtual {v0}, Landroid/app/EnterTransitionCoordinator;->viewsTransitionComplete()V
+
+    invoke-super {p0, p1}, Landroid/app/ActivityTransitionCoordinator$ContinueTransitionListener;->onTransitionEnd(Landroid/transition/Transition;)V
+
+    return-void
+.end method
+
+.method public onTransitionStart(Landroid/transition/Transition;)V
+    .locals 3
+
+    iget-object v0, p0, Landroid/app/EnterTransitionCoordinator$5;->this$0:Landroid/app/EnterTransitionCoordinator;
+
+    invoke-static {v0, p1}, Landroid/app/EnterTransitionCoordinator;->-set0(Landroid/app/EnterTransitionCoordinator;Landroid/transition/Transition;)Landroid/transition/Transition;
+
+    iget-object v0, p0, Landroid/app/EnterTransitionCoordinator$5;->val$transitioningViews:Ljava/util/ArrayList;
 
     if-eqz v0, :cond_0
 
-    invoke-virtual {v0}, Landroid/view/View;->getViewTreeObserver()Landroid/view/ViewTreeObserver;
+    iget-object v0, p0, Landroid/app/EnterTransitionCoordinator$5;->this$0:Landroid/app/EnterTransitionCoordinator;
 
-    move-result-object v1
+    iget-object v1, p0, Landroid/app/EnterTransitionCoordinator$5;->val$transitioningViews:Ljava/util/ArrayList;
 
-    new-instance v2, Landroid/app/EnterTransitionCoordinator$5$1;
+    const/4 v2, 0x0
 
-    iget-object v3, p0, Landroid/app/EnterTransitionCoordinator$5;->val$sharedElementState:Landroid/os/Bundle;
-
-    invoke-direct {v2, p0, v0, v3}, Landroid/app/EnterTransitionCoordinator$5$1;-><init>(Landroid/app/EnterTransitionCoordinator$5;Landroid/view/View;Landroid/os/Bundle;)V
-
-    invoke-virtual {v1, v2}, Landroid/view/ViewTreeObserver;->addOnPreDrawListener(Landroid/view/ViewTreeObserver$OnPreDrawListener;)V
-
-    invoke-virtual {v0}, Landroid/view/View;->invalidate()V
+    invoke-virtual {v0, v1, v2}, Landroid/app/EnterTransitionCoordinator;->showViews(Ljava/util/ArrayList;Z)V
 
     :cond_0
+    invoke-super {p0, p1}, Landroid/app/ActivityTransitionCoordinator$ContinueTransitionListener;->onTransitionStart(Landroid/transition/Transition;)V
+
     return-void
 .end method

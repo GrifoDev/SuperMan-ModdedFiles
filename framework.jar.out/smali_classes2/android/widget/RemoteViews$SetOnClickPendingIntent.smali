@@ -90,7 +90,7 @@
     :cond_0
     iget-object v3, p0, Landroid/widget/RemoteViews$SetOnClickPendingIntent;->this$0:Landroid/widget/RemoteViews;
 
-    invoke-static {v3}, Landroid/widget/RemoteViews;->-get4(Landroid/widget/RemoteViews;)Z
+    invoke-static {v3}, Landroid/widget/RemoteViews;->-get5(Landroid/widget/RemoteViews;)Z
 
     move-result v3
 

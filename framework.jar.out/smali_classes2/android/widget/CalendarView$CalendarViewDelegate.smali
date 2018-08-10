@@ -15,6 +15,9 @@
 
 
 # virtual methods
+.method public abstract getBoundsForDate(JLandroid/graphics/Rect;)Z
+.end method
+
 .method public abstract getDate()J
 .end method
 

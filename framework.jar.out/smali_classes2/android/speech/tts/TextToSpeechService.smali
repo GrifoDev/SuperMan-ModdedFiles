@@ -8,19 +8,19 @@
     value = {
         Landroid/speech/tts/TextToSpeechService$1;,
         Landroid/speech/tts/TextToSpeechService$AudioOutputParams;,
-        Landroid/speech/tts/TextToSpeechService$AudioSpeechItemV1;,
+        Landroid/speech/tts/TextToSpeechService$AudioSpeechItem;,
         Landroid/speech/tts/TextToSpeechService$CallbackMap;,
         Landroid/speech/tts/TextToSpeechService$LoadLanguageItem;,
         Landroid/speech/tts/TextToSpeechService$LoadVoiceItem;,
         Landroid/speech/tts/TextToSpeechService$SilenceSpeechItem;,
         Landroid/speech/tts/TextToSpeechService$SpeechItem;,
-        Landroid/speech/tts/TextToSpeechService$SpeechItemV1;,
         Landroid/speech/tts/TextToSpeechService$SynthHandler;,
         Landroid/speech/tts/TextToSpeechService$SynthThread;,
-        Landroid/speech/tts/TextToSpeechService$SynthesisSpeechItemV1;,
-        Landroid/speech/tts/TextToSpeechService$SynthesisToFileOutputStreamSpeechItemV1;,
+        Landroid/speech/tts/TextToSpeechService$SynthesisSpeechItem;,
+        Landroid/speech/tts/TextToSpeechService$SynthesisToFileOutputStreamSpeechItem;,
         Landroid/speech/tts/TextToSpeechService$UtteranceProgressDispatcher;,
-        Landroid/speech/tts/TextToSpeechService$UtteranceSpeechItem;
+        Landroid/speech/tts/TextToSpeechService$UtteranceSpeechItem;,
+        Landroid/speech/tts/TextToSpeechService$UtteranceSpeechItemWithParams;
     }
 .end annotation
 
@@ -85,6 +85,16 @@
 .method static synthetic -wrap0(Landroid/speech/tts/TextToSpeechService;)I
     .locals 1
 
+    invoke-direct {p0}, Landroid/speech/tts/TextToSpeechService;->getDefaultPitch()I
+
+    move-result v0
+
+    return v0
+.end method
+
+.method static synthetic -wrap1(Landroid/speech/tts/TextToSpeechService;)I
+    .locals 1
+
     invoke-direct {p0}, Landroid/speech/tts/TextToSpeechService;->getDefaultSpeechRate()I
 
     move-result v0
@@ -92,7 +102,7 @@
     return v0
 .end method
 
-.method static synthetic -wrap1(Landroid/speech/tts/TextToSpeechService;)[Ljava/lang/String;
+.method static synthetic -wrap2(Landroid/speech/tts/TextToSpeechService;)[Ljava/lang/String;
     .locals 1
 
     invoke-direct {p0}, Landroid/speech/tts/TextToSpeechService;->getSettingsLocale()[Ljava/lang/String;
@@ -120,6 +130,20 @@
     iput-object v0, p0, Landroid/speech/tts/TextToSpeechService;->mBinder:Landroid/speech/tts/ITextToSpeechService$Stub;
 
     return-void
+.end method
+
+.method private getDefaultPitch()I
+    .locals 2
+
+    const-string/jumbo v0, "tts_default_pitch"
+
+    const/16 v1, 0x64
+
+    invoke-direct {p0, v0, v1}, Landroid/speech/tts/TextToSpeechService;->getSecureSettingInt(Ljava/lang/String;I)I
+
+    move-result v0
+
+    return v0
 .end method
 
 .method private getDefaultSpeechRate()I

@@ -63,9 +63,9 @@
 
     iget-object v0, p0, Landroid/view/ViewRootImpl$HighContrastTextManager;->this$0:Landroid/view/ViewRootImpl;
 
-    const/4 v1, 0x0
+    const/4 v1, 0x1
 
-    invoke-static {v0, v1}, Landroid/view/ViewRootImpl;->-wrap7(Landroid/view/ViewRootImpl;Z)V
+    invoke-static {v0, v1}, Landroid/view/ViewRootImpl;->-wrap8(Landroid/view/ViewRootImpl;Z)V
 
     return-void
 .end method

@@ -11,7 +11,8 @@
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Lcom/samsung/android/contextaware/utilbundle/CaPowerManager$1;,
-        Lcom/samsung/android/contextaware/utilbundle/CaPowerManager$2;
+        Lcom/samsung/android/contextaware/utilbundle/CaPowerManager$2;,
+        Lcom/samsung/android/contextaware/utilbundle/CaPowerManager$3;
     }
 .end annotation
 
@@ -33,9 +34,17 @@
 
 
 # instance fields
+.field private isScreenOff:Z
+
+.field private isScreenOn:Z
+
 .field private mAPWakeLock:Landroid/os/PowerManager$WakeLock;
 
 .field private mContext:Landroid/content/Context;
+
+.field private mDM:Landroid/hardware/display/DisplayManager;
+
+.field private final mDisplayListener:Landroid/hardware/display/DisplayManager$DisplayListener;
 
 .field private final mHandler:Landroid/os/Handler;
 
@@ -54,12 +63,52 @@
 
 
 # direct methods
-.method static synthetic -get0(Lcom/samsung/android/contextaware/utilbundle/CaPowerManager;)Landroid/os/Handler;
+.method static synthetic -get0(Lcom/samsung/android/contextaware/utilbundle/CaPowerManager;)Z
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/samsung/android/contextaware/utilbundle/CaPowerManager;->isScreenOff:Z
+
+    return v0
+.end method
+
+.method static synthetic -get1(Lcom/samsung/android/contextaware/utilbundle/CaPowerManager;)Z
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/samsung/android/contextaware/utilbundle/CaPowerManager;->isScreenOn:Z
+
+    return v0
+.end method
+
+.method static synthetic -get2(Lcom/samsung/android/contextaware/utilbundle/CaPowerManager;)Landroid/hardware/display/DisplayManager;
+    .locals 1
+
+    iget-object v0, p0, Lcom/samsung/android/contextaware/utilbundle/CaPowerManager;->mDM:Landroid/hardware/display/DisplayManager;
+
+    return-object v0
+.end method
+
+.method static synthetic -get3(Lcom/samsung/android/contextaware/utilbundle/CaPowerManager;)Landroid/os/Handler;
     .locals 1
 
     iget-object v0, p0, Lcom/samsung/android/contextaware/utilbundle/CaPowerManager;->mHandler:Landroid/os/Handler;
 
     return-object v0
+.end method
+
+.method static synthetic -set0(Lcom/samsung/android/contextaware/utilbundle/CaPowerManager;Z)Z
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/samsung/android/contextaware/utilbundle/CaPowerManager;->isScreenOff:Z
+
+    return p1
+.end method
+
+.method static synthetic -set1(Lcom/samsung/android/contextaware/utilbundle/CaPowerManager;Z)Z
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/samsung/android/contextaware/utilbundle/CaPowerManager;->isScreenOn:Z
+
+    return p1
 .end method
 
 .method static synthetic -wrap0(Lcom/samsung/android/contextaware/utilbundle/CaPowerManager;I)V
@@ -71,7 +120,9 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 1
+    .locals 2
+
+    const/4 v1, 0x0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -80,6 +131,10 @@
     invoke-direct {v0}, Ljava/util/concurrent/CopyOnWriteArrayList;-><init>()V
 
     iput-object v0, p0, Lcom/samsung/android/contextaware/utilbundle/CaPowerManager;->mListeners:Ljava/util/concurrent/CopyOnWriteArrayList;
+
+    iput-boolean v1, p0, Lcom/samsung/android/contextaware/utilbundle/CaPowerManager;->isScreenOff:Z
+
+    iput-boolean v1, p0, Lcom/samsung/android/contextaware/utilbundle/CaPowerManager;->isScreenOn:Z
 
     new-instance v0, Lcom/samsung/android/contextaware/utilbundle/CaPowerManager$1;
 
@@ -92,6 +147,12 @@
     invoke-direct {v0, p0}, Lcom/samsung/android/contextaware/utilbundle/CaPowerManager$2;-><init>(Lcom/samsung/android/contextaware/utilbundle/CaPowerManager;)V
 
     iput-object v0, p0, Lcom/samsung/android/contextaware/utilbundle/CaPowerManager;->mHandler:Landroid/os/Handler;
+
+    new-instance v0, Lcom/samsung/android/contextaware/utilbundle/CaPowerManager$3;
+
+    invoke-direct {v0, p0}, Lcom/samsung/android/contextaware/utilbundle/CaPowerManager$3;-><init>(Lcom/samsung/android/contextaware/utilbundle/CaPowerManager;)V
+
+    iput-object v0, p0, Lcom/samsung/android/contextaware/utilbundle/CaPowerManager;->mDisplayListener:Landroid/hardware/display/DisplayManager$DisplayListener;
 
     return-void
 .end method
@@ -265,13 +326,15 @@
 .end method
 
 .method public final initializeManager(Landroid/content/Context;)V
-    .locals 6
+    .locals 5
+
+    const/4 v4, 0x0
 
     if-nez p1, :cond_0
 
-    const-string/jumbo v4, "Context is null"
+    const-string/jumbo v2, "Context is null"
 
-    invoke-static {v4}, Lcom/samsung/android/contextaware/utilbundle/logger/CaLogger;->error(Ljava/lang/String;)V
+    invoke-static {v2}, Lcom/samsung/android/contextaware/utilbundle/logger/CaLogger;->error(Ljava/lang/String;)V
 
     return-void
 
@@ -280,51 +343,43 @@
 
     new-instance v0, Landroid/content/IntentFilter;
 
-    const-string/jumbo v4, "android.intent.action.SCREEN_OFF"
+    const-string/jumbo v2, "android.intent.action.ACTION_POWER_CONNECTED"
 
-    invoke-direct {v0, v4}, Landroid/content/IntentFilter;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v2}, Landroid/content/IntentFilter;-><init>(Ljava/lang/String;)V
 
     new-instance v1, Landroid/content/IntentFilter;
 
-    const-string/jumbo v4, "android.intent.action.SCREEN_ON"
+    const-string/jumbo v2, "android.intent.action.ACTION_POWER_DISCONNECTED"
 
-    invoke-direct {v1, v4}, Landroid/content/IntentFilter;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v2}, Landroid/content/IntentFilter;-><init>(Ljava/lang/String;)V
 
-    new-instance v2, Landroid/content/IntentFilter;
+    iget-object v2, p0, Lcom/samsung/android/contextaware/utilbundle/CaPowerManager;->mContext:Landroid/content/Context;
 
-    const-string/jumbo v4, "android.intent.action.ACTION_POWER_CONNECTED"
+    iget-object v3, p0, Lcom/samsung/android/contextaware/utilbundle/CaPowerManager;->mReceiver:Landroid/content/BroadcastReceiver;
 
-    invoke-direct {v2, v4}, Landroid/content/IntentFilter;-><init>(Ljava/lang/String;)V
+    invoke-virtual {v2, v3, v0}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
-    new-instance v3, Landroid/content/IntentFilter;
+    iget-object v2, p0, Lcom/samsung/android/contextaware/utilbundle/CaPowerManager;->mContext:Landroid/content/Context;
 
-    const-string/jumbo v4, "android.intent.action.ACTION_POWER_DISCONNECTED"
+    iget-object v3, p0, Lcom/samsung/android/contextaware/utilbundle/CaPowerManager;->mReceiver:Landroid/content/BroadcastReceiver;
 
-    invoke-direct {v3, v4}, Landroid/content/IntentFilter;-><init>(Ljava/lang/String;)V
+    invoke-virtual {v2, v3, v1}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
-    iget-object v4, p0, Lcom/samsung/android/contextaware/utilbundle/CaPowerManager;->mContext:Landroid/content/Context;
+    const-string/jumbo v2, "display"
 
-    iget-object v5, p0, Lcom/samsung/android/contextaware/utilbundle/CaPowerManager;->mReceiver:Landroid/content/BroadcastReceiver;
+    invoke-virtual {p1, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    invoke-virtual {v4, v5, v0}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
+    move-result-object v2
 
-    iget-object v4, p0, Lcom/samsung/android/contextaware/utilbundle/CaPowerManager;->mContext:Landroid/content/Context;
+    check-cast v2, Landroid/hardware/display/DisplayManager;
 
-    iget-object v5, p0, Lcom/samsung/android/contextaware/utilbundle/CaPowerManager;->mReceiver:Landroid/content/BroadcastReceiver;
+    iput-object v2, p0, Lcom/samsung/android/contextaware/utilbundle/CaPowerManager;->mDM:Landroid/hardware/display/DisplayManager;
 
-    invoke-virtual {v4, v5, v1}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
+    iget-object v2, p0, Lcom/samsung/android/contextaware/utilbundle/CaPowerManager;->mDM:Landroid/hardware/display/DisplayManager;
 
-    iget-object v4, p0, Lcom/samsung/android/contextaware/utilbundle/CaPowerManager;->mContext:Landroid/content/Context;
+    iget-object v3, p0, Lcom/samsung/android/contextaware/utilbundle/CaPowerManager;->mDisplayListener:Landroid/hardware/display/DisplayManager$DisplayListener;
 
-    iget-object v5, p0, Lcom/samsung/android/contextaware/utilbundle/CaPowerManager;->mReceiver:Landroid/content/BroadcastReceiver;
-
-    invoke-virtual {v4, v5, v2}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
-
-    iget-object v4, p0, Lcom/samsung/android/contextaware/utilbundle/CaPowerManager;->mContext:Landroid/content/Context;
-
-    iget-object v5, p0, Lcom/samsung/android/contextaware/utilbundle/CaPowerManager;->mReceiver:Landroid/content/BroadcastReceiver;
-
-    invoke-virtual {v4, v5, v3}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
+    invoke-virtual {v2, v3, v4}, Landroid/hardware/display/DisplayManager;->registerDisplayListener(Landroid/hardware/display/DisplayManager$DisplayListener;Landroid/os/Handler;)V
 
     return-void
 .end method
@@ -365,26 +420,31 @@
 
     move-result v1
 
-    if-ne v1, v3, :cond_1
+    if-ne v1, v3, :cond_2
 
     const-string/jumbo v5, "Screen Off."
 
     invoke-static {v5}, Lcom/samsung/android/contextaware/utilbundle/logger/CaLogger;->debug(Ljava/lang/String;)V
 
+    :cond_1
     :goto_0
-    if-eq v1, v3, :cond_2
+    if-eq v1, v3, :cond_3
 
     :goto_1
     return v3
 
-    :cond_1
+    :cond_2
+    const/4 v5, 0x2
+
+    if-ne v1, v5, :cond_1
+
     const-string/jumbo v5, "Screen On."
 
     invoke-static {v5}, Lcom/samsung/android/contextaware/utilbundle/logger/CaLogger;->debug(Ljava/lang/String;)V
 
     goto :goto_0
 
-    :cond_2
+    :cond_3
     move v3, v4
 
     goto :goto_1
@@ -459,8 +519,18 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    xor-int/lit8 v0, v0, 0x1
 
+    if-eqz v0, :cond_1
+
+    :cond_0
+    const-string/jumbo v0, "WakeLock is not held."
+
+    invoke-static {v0}, Lcom/samsung/android/contextaware/utilbundle/logger/CaLogger;->warning(Ljava/lang/String;)V
+
+    return-void
+
+    :cond_1
     invoke-static {}, Lcom/samsung/android/contextaware/utilbundle/logger/CaLogger;->trace()V
 
     iget-object v0, p0, Lcom/samsung/android/contextaware/utilbundle/CaPowerManager;->mAPWakeLock:Landroid/os/PowerManager$WakeLock;
@@ -468,13 +538,6 @@
     invoke-virtual {v0}, Landroid/os/PowerManager$WakeLock;->release()V
 
     iput-object v1, p0, Lcom/samsung/android/contextaware/utilbundle/CaPowerManager;->mAPWakeLock:Landroid/os/PowerManager$WakeLock;
-
-    return-void
-
-    :cond_0
-    const-string/jumbo v0, "WakeLock is not held."
-
-    invoke-static {v0}, Lcom/samsung/android/contextaware/utilbundle/logger/CaLogger;->warning(Ljava/lang/String;)V
 
     return-void
 .end method

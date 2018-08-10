@@ -36,86 +36,125 @@
 
 # virtual methods
 .method protected onPostExecute(Landroid/graphics/drawable/Drawable;)V
-    .locals 4
+    .locals 5
 
     invoke-super {p0, p1}, Lcom/android/internal/app/ResolverActivity$LoadIconTask;->onPostExecute(Landroid/graphics/drawable/Drawable;)V
 
-    iget-object v1, p0, Lcom/android/internal/app/ResolverActivity$LoadIconIntoViewTask;->this$0:Lcom/android/internal/app/ResolverActivity;
+    iget-object v2, p0, Lcom/android/internal/app/ResolverActivity$LoadIconIntoViewTask;->this$0:Lcom/android/internal/app/ResolverActivity;
 
-    invoke-static {v1}, Lcom/android/internal/app/ResolverActivity;->-wrap0(Lcom/android/internal/app/ResolverActivity;)Z
+    invoke-static {v2}, Lcom/android/internal/app/ResolverActivity;->-wrap0(Lcom/android/internal/app/ResolverActivity;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    iget-object v2, p0, Lcom/android/internal/app/ResolverActivity$LoadIconIntoViewTask;->mDisplayResolveInfo:Lcom/android/internal/app/ResolverActivity$DisplayResolveInfo;
+
+    invoke-virtual {v2}, Lcom/android/internal/app/ResolverActivity$DisplayResolveInfo;->getResolveInfo()Landroid/content/pm/ResolveInfo;
+
+    move-result-object v2
+
+    iget-object v2, v2, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
+
+    iget-object v2, v2, Landroid/content/pm/ActivityInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
+
+    iget v2, v2, Landroid/content/pm/ApplicationInfo;->uid:I
+
+    invoke-static {v2}, Landroid/os/UserHandle;->getUserId(I)I
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    invoke-static {v1}, Lcom/samsung/android/knox/SemPersonaManager;->isKnoxId(I)Z
 
-    iget-object v1, p0, Lcom/android/internal/app/ResolverActivity$LoadIconTask;->mDisplayResolveInfo:Lcom/android/internal/app/ResolverActivity$DisplayResolveInfo;
+    move-result v2
 
-    invoke-virtual {v1}, Lcom/android/internal/app/ResolverActivity$DisplayResolveInfo;->getResolveInfo()Landroid/content/pm/ResolveInfo;
+    if-eqz v2, :cond_0
 
-    move-result-object v1
+    const-string/jumbo v2, "ResolverActivity"
 
-    iget-object v1, v1, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    iget-object v1, v1, Landroid/content/pm/ComponentInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    iget v1, v1, Landroid/content/pm/ApplicationInfo;->uid:I
+    const-string/jumbo v4, "Setting NFC badged icon for "
 
-    invoke-static {v1}, Landroid/os/UserHandle;->getUserId(I)I
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result v0
+    move-result-object v3
 
-    invoke-static {v0}, Lcom/samsung/android/knox/SemPersonaManager;->isKnoxId(I)Z
+    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result v1
+    move-result-object v3
 
-    if-eqz v1, :cond_0
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    const-string/jumbo v1, "ResolverActivity"
+    move-result-object v3
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    iget-object v2, p0, Lcom/android/internal/app/ResolverActivity$LoadIconIntoViewTask;->this$0:Lcom/android/internal/app/ResolverActivity;
 
-    const-string/jumbo v3, "Setting NFC badged icon for "
+    iget-object v2, v2, Lcom/android/internal/app/ResolverActivity;->mPm:Landroid/content/pm/PackageManager;
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    iget-object v3, p0, Lcom/android/internal/app/ResolverActivity$LoadIconIntoViewTask;->mDisplayResolveInfo:Lcom/android/internal/app/ResolverActivity$DisplayResolveInfo;
 
-    move-result-object v2
+    invoke-virtual {v3}, Lcom/android/internal/app/ResolverActivity$DisplayResolveInfo;->getDisplayIcon()Landroid/graphics/drawable/Drawable;
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-result-object v3
 
-    move-result-object v2
+    new-instance v4, Landroid/os/UserHandle;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-direct {v4, v1}, Landroid/os/UserHandle;-><init>(I)V
 
-    move-result-object v2
-
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget-object v1, p0, Lcom/android/internal/app/ResolverActivity$LoadIconIntoViewTask;->this$0:Lcom/android/internal/app/ResolverActivity;
-
-    invoke-static {v1}, Lcom/android/internal/app/ResolverActivity;->-get14(Lcom/android/internal/app/ResolverActivity;)Landroid/content/pm/PackageManager;
-
-    move-result-object v1
-
-    iget-object v2, p0, Lcom/android/internal/app/ResolverActivity$LoadIconTask;->mDisplayResolveInfo:Lcom/android/internal/app/ResolverActivity$DisplayResolveInfo;
-
-    invoke-virtual {v2}, Lcom/android/internal/app/ResolverActivity$DisplayResolveInfo;->getDisplayIcon()Landroid/graphics/drawable/Drawable;
-
-    move-result-object v2
-
-    new-instance v3, Landroid/os/UserHandle;
-
-    invoke-direct {v3, v0}, Landroid/os/UserHandle;-><init>(I)V
-
-    invoke-virtual {v1, v2, v3}, Landroid/content/pm/PackageManager;->getUserBadgedIcon(Landroid/graphics/drawable/Drawable;Landroid/os/UserHandle;)Landroid/graphics/drawable/Drawable;
+    invoke-virtual {v2, v3, v4}, Landroid/content/pm/PackageManager;->getUserBadgedIcon(Landroid/graphics/drawable/Drawable;Landroid/os/UserHandle;)Landroid/graphics/drawable/Drawable;
 
     move-result-object p1
 
     :cond_0
-    iget-object v1, p0, Lcom/android/internal/app/ResolverActivity$LoadIconIntoViewTask;->mTargetView:Landroid/widget/ImageView;
+    iget-object v2, p0, Lcom/android/internal/app/ResolverActivity$LoadIconIntoViewTask;->mDisplayResolveInfo:Lcom/android/internal/app/ResolverActivity$DisplayResolveInfo;
 
-    invoke-virtual {v1, p1}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
+    invoke-virtual {v2}, Lcom/android/internal/app/ResolverActivity$DisplayResolveInfo;->getResolveInfo()Landroid/content/pm/ResolveInfo;
+
+    move-result-object v2
+
+    iget-object v2, v2, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
+
+    iget-object v2, v2, Landroid/content/pm/ActivityInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
+
+    iget v2, v2, Landroid/content/pm/ApplicationInfo;->uid:I
+
+    invoke-static {v2}, Landroid/os/UserHandle;->getUserId(I)I
+
+    move-result v0
+
+    invoke-static {v0}, Lcom/samsung/android/app/SemDualAppManager;->isDualAppId(I)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    iget-object v2, p0, Lcom/android/internal/app/ResolverActivity$LoadIconIntoViewTask;->this$0:Lcom/android/internal/app/ResolverActivity;
+
+    iget-object v2, v2, Lcom/android/internal/app/ResolverActivity;->mPm:Landroid/content/pm/PackageManager;
+
+    iget-object v3, p0, Lcom/android/internal/app/ResolverActivity$LoadIconIntoViewTask;->mDisplayResolveInfo:Lcom/android/internal/app/ResolverActivity$DisplayResolveInfo;
+
+    invoke-virtual {v3}, Lcom/android/internal/app/ResolverActivity$DisplayResolveInfo;->getDisplayIcon()Landroid/graphics/drawable/Drawable;
+
+    move-result-object v3
+
+    new-instance v4, Landroid/os/UserHandle;
+
+    invoke-direct {v4, v0}, Landroid/os/UserHandle;-><init>(I)V
+
+    invoke-virtual {v2, v3, v4}, Landroid/content/pm/PackageManager;->getUserBadgedIcon(Landroid/graphics/drawable/Drawable;Landroid/os/UserHandle;)Landroid/graphics/drawable/Drawable;
+
+    move-result-object p1
+
+    :cond_1
+    iget-object v2, p0, Lcom/android/internal/app/ResolverActivity$LoadIconIntoViewTask;->mTargetView:Landroid/widget/ImageView;
+
+    invoke-virtual {v2, p1}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
     return-void
 .end method

@@ -43,7 +43,7 @@
 
     const-string/jumbo v4, "body"
 
-    invoke-virtual {v2, v4}, Landroid/sax/Element;->getChild(Ljava/lang/String;)Landroid/sax/Element;
+    invoke-virtual {v2, v4}, Landroid/sax/RootElement;->getChild(Ljava/lang/String;)Landroid/sax/Element;
 
     move-result-object v0
 

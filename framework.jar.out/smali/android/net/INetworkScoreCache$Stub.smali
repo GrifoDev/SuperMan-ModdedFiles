@@ -124,8 +124,6 @@
 
     invoke-virtual {p0, v0}, Landroid/net/INetworkScoreCache$Stub;->updateScores(Ljava/util/List;)V
 
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
     return v2
 
     :sswitch_2
@@ -134,8 +132,6 @@
     invoke-virtual {p2, v1}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p0}, Landroid/net/INetworkScoreCache$Stub;->clearScores()V
-
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     return v2
 

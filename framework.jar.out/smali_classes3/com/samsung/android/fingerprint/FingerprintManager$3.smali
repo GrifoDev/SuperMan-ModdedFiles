@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/samsung/android/fingerprint/FingerprintManager;->binderDied()V
+    value = Lcom/samsung/android/fingerprint/FingerprintManager;->startSettingEnrollActivity(Landroid/content/Context;Lcom/samsung/android/fingerprint/FingerprintManager$EnrollFinishListener;Ljava/lang/String;I)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,12 +20,16 @@
 # instance fields
 .field final synthetic this$0:Lcom/samsung/android/fingerprint/FingerprintManager;
 
+.field final synthetic val$listener:Lcom/samsung/android/fingerprint/FingerprintManager$EnrollFinishListener;
+
 
 # direct methods
-.method constructor <init>(Lcom/samsung/android/fingerprint/FingerprintManager;)V
+.method constructor <init>(Lcom/samsung/android/fingerprint/FingerprintManager;Lcom/samsung/android/fingerprint/FingerprintManager$EnrollFinishListener;)V
     .locals 0
 
     iput-object p1, p0, Lcom/samsung/android/fingerprint/FingerprintManager$3;->this$0:Lcom/samsung/android/fingerprint/FingerprintManager;
+
+    iput-object p2, p0, Lcom/samsung/android/fingerprint/FingerprintManager$3;->val$listener:Lcom/samsung/android/fingerprint/FingerprintManager$EnrollFinishListener;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -35,41 +39,11 @@
 
 # virtual methods
 .method public run()V
-    .locals 4
+    .locals 1
 
-    new-instance v1, Lcom/samsung/android/fingerprint/FingerprintEvent;
+    iget-object v0, p0, Lcom/samsung/android/fingerprint/FingerprintManager$3;->val$listener:Lcom/samsung/android/fingerprint/FingerprintManager$EnrollFinishListener;
 
-    const v2, 0x186a0
+    invoke-interface {v0}, Lcom/samsung/android/fingerprint/FingerprintManager$EnrollFinishListener;->onEnrollFinish()V
 
-    invoke-direct {v1, v2}, Lcom/samsung/android/fingerprint/FingerprintEvent;-><init>(I)V
-
-    :try_start_0
-    invoke-static {}, Lcom/samsung/android/fingerprint/FingerprintManager;->-get3()Lcom/samsung/android/fingerprint/IFingerprintClient;
-
-    move-result-object v2
-
-    if-eqz v2, :cond_0
-
-    invoke-static {}, Lcom/samsung/android/fingerprint/FingerprintManager;->-get3()Lcom/samsung/android/fingerprint/IFingerprintClient;
-
-    move-result-object v2
-
-    invoke-interface {v2, v1}, Lcom/samsung/android/fingerprint/IFingerprintClient;->onFingerprintEvent(Lcom/samsung/android/fingerprint/FingerprintEvent;)V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
-
-    :cond_0
-    :goto_0
     return-void
-
-    :catch_0
-    move-exception v0
-
-    const-string/jumbo v2, "FPMS_FingerprintManager"
-
-    const-string/jumbo v3, "binderDied: failed to call onFingerprintEvent"
-
-    invoke-static {v2, v3, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    goto :goto_0
 .end method

@@ -20,6 +20,8 @@
 # instance fields
 .field final mCommand:I
 
+.field final mDead:Z
+
 .field final mName:Landroid/content/ComponentName;
 
 .field final mService:Landroid/os/IBinder;
@@ -28,7 +30,7 @@
 
 
 # direct methods
-.method constructor <init>(Landroid/app/LoadedApk$ServiceDispatcher;Landroid/content/ComponentName;Landroid/os/IBinder;I)V
+.method constructor <init>(Landroid/app/LoadedApk$ServiceDispatcher;Landroid/content/ComponentName;Landroid/os/IBinder;IZ)V
     .locals 0
 
     iput-object p1, p0, Landroid/app/LoadedApk$ServiceDispatcher$RunConnection;->this$1:Landroid/app/LoadedApk$ServiceDispatcher;
@@ -41,13 +43,15 @@
 
     iput p4, p0, Landroid/app/LoadedApk$ServiceDispatcher$RunConnection;->mCommand:I
 
+    iput-boolean p5, p0, Landroid/app/LoadedApk$ServiceDispatcher$RunConnection;->mDead:Z
+
     return-void
 .end method
 
 
 # virtual methods
 .method public run()V
-    .locals 3
+    .locals 4
 
     iget v0, p0, Landroid/app/LoadedApk$ServiceDispatcher$RunConnection;->mCommand:I
 
@@ -59,7 +63,9 @@
 
     iget-object v2, p0, Landroid/app/LoadedApk$ServiceDispatcher$RunConnection;->mService:Landroid/os/IBinder;
 
-    invoke-virtual {v0, v1, v2}, Landroid/app/LoadedApk$ServiceDispatcher;->doConnected(Landroid/content/ComponentName;Landroid/os/IBinder;)V
+    iget-boolean v3, p0, Landroid/app/LoadedApk$ServiceDispatcher$RunConnection;->mDead:Z
+
+    invoke-virtual {v0, v1, v2, v3}, Landroid/app/LoadedApk$ServiceDispatcher;->doConnected(Landroid/content/ComponentName;Landroid/os/IBinder;Z)V
 
     :cond_0
     :goto_0

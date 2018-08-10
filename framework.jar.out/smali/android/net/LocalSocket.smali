@@ -42,9 +42,7 @@
 .end method
 
 .method public constructor <init>(I)V
-    .locals 2
-
-    const/4 v1, 0x0
+    .locals 1
 
     new-instance v0, Landroid/net/LocalSocketImpl;
 
@@ -52,14 +50,10 @@
 
     invoke-direct {p0, v0, p1}, Landroid/net/LocalSocket;-><init>(Landroid/net/LocalSocketImpl;I)V
 
-    iput-boolean v1, p0, Landroid/net/LocalSocket;->isBound:Z
-
-    iput-boolean v1, p0, Landroid/net/LocalSocket;->isConnected:Z
-
     return-void
 .end method
 
-.method constructor <init>(Landroid/net/LocalSocketImpl;I)V
+.method private constructor <init>(Landroid/net/LocalSocketImpl;I)V
     .locals 1
 
     const/4 v0, 0x0
@@ -77,29 +71,50 @@
     return-void
 .end method
 
-.method public constructor <init>(Ljava/io/FileDescriptor;)V
-    .locals 3
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;
-        }
-    .end annotation
+.method private static createConnectedLocalSocket(Landroid/net/LocalSocketImpl;I)Landroid/net/LocalSocket;
+    .locals 2
 
-    const/4 v2, 0x1
+    const/4 v1, 0x1
+
+    new-instance v0, Landroid/net/LocalSocket;
+
+    invoke-direct {v0, p0, p1}, Landroid/net/LocalSocket;-><init>(Landroid/net/LocalSocketImpl;I)V
+
+    iput-boolean v1, v0, Landroid/net/LocalSocket;->isConnected:Z
+
+    iput-boolean v1, v0, Landroid/net/LocalSocket;->isBound:Z
+
+    iput-boolean v1, v0, Landroid/net/LocalSocket;->implCreated:Z
+
+    return-object v0
+.end method
+
+.method public static createConnectedLocalSocket(Ljava/io/FileDescriptor;)Landroid/net/LocalSocket;
+    .locals 2
 
     new-instance v0, Landroid/net/LocalSocketImpl;
 
-    invoke-direct {v0, p1}, Landroid/net/LocalSocketImpl;-><init>(Ljava/io/FileDescriptor;)V
+    invoke-direct {v0, p0}, Landroid/net/LocalSocketImpl;-><init>(Ljava/io/FileDescriptor;)V
 
     const/4 v1, 0x0
 
-    invoke-direct {p0, v0, v1}, Landroid/net/LocalSocket;-><init>(Landroid/net/LocalSocketImpl;I)V
+    invoke-static {v0, v1}, Landroid/net/LocalSocket;->createConnectedLocalSocket(Landroid/net/LocalSocketImpl;I)Landroid/net/LocalSocket;
 
-    iput-boolean v2, p0, Landroid/net/LocalSocket;->isBound:Z
+    move-result-object v0
 
-    iput-boolean v2, p0, Landroid/net/LocalSocket;->isConnected:Z
+    return-object v0
+.end method
 
-    return-void
+.method static createLocalSocketForAccept(Landroid/net/LocalSocketImpl;)Landroid/net/LocalSocket;
+    .locals 1
+
+    const/4 v0, 0x0
+
+    invoke-static {p0, v0}, Landroid/net/LocalSocket;->createConnectedLocalSocket(Landroid/net/LocalSocketImpl;I)Landroid/net/LocalSocket;
+
+    move-result-object v0
+
+    return-object v0
 .end method
 
 .method private implCreateIfNeeded()V

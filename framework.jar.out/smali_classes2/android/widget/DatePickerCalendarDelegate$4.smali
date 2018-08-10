@@ -39,19 +39,19 @@
 
     iget-object v1, p0, Landroid/widget/DatePickerCalendarDelegate$4;->this$0:Landroid/widget/DatePickerCalendarDelegate;
 
-    invoke-static {v1}, Landroid/widget/DatePickerCalendarDelegate;->-get2(Landroid/widget/DatePickerCalendarDelegate;)Landroid/widget/YearPickerView;
+    invoke-static {v1}, Landroid/widget/DatePickerCalendarDelegate;->-get1(Landroid/widget/DatePickerCalendarDelegate;)Landroid/widget/YearPickerView;
 
     move-result-object v1
 
-    invoke-virtual {v1}, Landroid/view/View;->requestFocus()Z
+    invoke-virtual {v1}, Landroid/widget/YearPickerView;->requestFocus()Z
 
     iget-object v1, p0, Landroid/widget/DatePickerCalendarDelegate$4;->this$0:Landroid/widget/DatePickerCalendarDelegate;
 
-    invoke-static {v1}, Landroid/widget/DatePickerCalendarDelegate;->-get2(Landroid/widget/DatePickerCalendarDelegate;)Landroid/widget/YearPickerView;
+    invoke-static {v1}, Landroid/widget/DatePickerCalendarDelegate;->-get1(Landroid/widget/DatePickerCalendarDelegate;)Landroid/widget/YearPickerView;
 
     move-result-object v1
 
-    invoke-virtual {v1}, Landroid/widget/AbsListView;->getSelectedView()Landroid/view/View;
+    invoke-virtual {v1}, Landroid/widget/YearPickerView;->getSelectedView()Landroid/view/View;
 
     move-result-object v0
 

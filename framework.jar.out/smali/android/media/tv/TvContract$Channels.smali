@@ -54,6 +54,8 @@
 
 .field public static final COLUMN_INTERNAL_PROVIDER_FLAG4:Ljava/lang/String; = "internal_provider_flag4"
 
+.field public static final COLUMN_INTERNAL_PROVIDER_ID:Ljava/lang/String; = "internal_provider_id"
+
 .field public static final COLUMN_LOCKED:Ljava/lang/String; = "locked"
 
 .field public static final COLUMN_NETWORK_AFFILIATION:Ljava/lang/String; = "network_affiliation"
@@ -65,6 +67,8 @@
 .field public static final COLUMN_SERVICE_ID:Ljava/lang/String; = "service_id"
 
 .field public static final COLUMN_SERVICE_TYPE:Ljava/lang/String; = "service_type"
+
+.field public static final COLUMN_TRANSIENT:Ljava/lang/String; = "transient"
 
 .field public static final COLUMN_TRANSPORT_STREAM_ID:Ljava/lang/String; = "transport_stream_id"
 
@@ -127,6 +131,8 @@
 .field public static final TYPE_OTHER:Ljava/lang/String; = "TYPE_OTHER"
 
 .field public static final TYPE_PAL:Ljava/lang/String; = "TYPE_PAL"
+
+.field public static final TYPE_PREVIEW:Ljava/lang/String; = "TYPE_PREVIEW"
 
 .field public static final TYPE_SECAM:Ljava/lang/String; = "TYPE_SECAM"
 

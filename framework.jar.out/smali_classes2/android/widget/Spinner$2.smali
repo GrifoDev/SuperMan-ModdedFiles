@@ -57,13 +57,13 @@
 
     iget-object v2, p0, Landroid/widget/Spinner$2;->this$0:Landroid/widget/Spinner;
 
-    invoke-virtual {v2}, Landroid/view/View;->getTextDirection()I
+    invoke-virtual {v2}, Landroid/widget/Spinner;->getTextDirection()I
 
     move-result v2
 
     iget-object v3, p0, Landroid/widget/Spinner$2;->this$0:Landroid/widget/Spinner;
 
-    invoke-virtual {v3}, Landroid/view/View;->getTextAlignment()I
+    invoke-virtual {v3}, Landroid/widget/Spinner;->getTextAlignment()I
 
     move-result v3
 
@@ -72,7 +72,7 @@
     :cond_0
     iget-object v1, p0, Landroid/widget/Spinner$2;->this$0:Landroid/widget/Spinner;
 
-    invoke-virtual {v1}, Landroid/view/View;->getViewTreeObserver()Landroid/view/ViewTreeObserver;
+    invoke-virtual {v1}, Landroid/widget/Spinner;->getViewTreeObserver()Landroid/view/ViewTreeObserver;
 
     move-result-object v0
 

@@ -342,7 +342,7 @@
 
     move-result-object v3
 
-    invoke-virtual {v3, p1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v3, p1}, Landroid/hardware/camera2/legacy/RequestHolder;->equals(Ljava/lang/Object;)Z
 
     move-result v3
 
@@ -622,19 +622,11 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    xor-int/lit8 v1, v1, 0x1
 
-    const/4 v1, 0x0
-
-    :goto_0
     invoke-virtual {v0}, Ljava/util/concurrent/locks/ReentrantLock;->unlock()V
 
     return v1
-
-    :cond_0
-    const/4 v1, 0x1
-
-    goto :goto_0
 
     :catchall_0
     move-exception v1

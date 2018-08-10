@@ -7,6 +7,7 @@
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Landroid/graphics/Matrix$1;,
+        Landroid/graphics/Matrix$NoImagePreloadHolder;,
         Landroid/graphics/Matrix$ScaleToFit;
     }
 .end annotation
@@ -33,12 +34,24 @@
 
 .field public static final MTRANS_Y:I = 0x5
 
+.field private static final NATIVE_ALLOCATION_SIZE:J = 0x28L
+
 
 # instance fields
-.field public native_instance:J
+.field public final native_instance:J
 
 
 # direct methods
+.method static synthetic -wrap0()J
+    .locals 2
+
+    invoke-static {}, Landroid/graphics/Matrix;->nGetNativeFinalizer()J
+
+    move-result-wide v0
+
+    return-wide v0
+.end method
+
 .method static constructor <clinit>()V
     .locals 1
 
@@ -52,23 +65,29 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 2
+    .locals 4
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     const-wide/16 v0, 0x0
 
-    invoke-static {v0, v1}, Landroid/graphics/Matrix;->native_create(J)J
+    invoke-static {v0, v1}, Landroid/graphics/Matrix;->nCreate(J)J
 
     move-result-wide v0
 
     iput-wide v0, p0, Landroid/graphics/Matrix;->native_instance:J
 
+    sget-object v0, Landroid/graphics/Matrix$NoImagePreloadHolder;->sRegistry:Llibcore/util/NativeAllocationRegistry;
+
+    iget-wide v2, p0, Landroid/graphics/Matrix;->native_instance:J
+
+    invoke-virtual {v0, p0, v2, v3}, Llibcore/util/NativeAllocationRegistry;->registerNativeAllocation(Ljava/lang/Object;J)Ljava/lang/Runnable;
+
     return-void
 .end method
 
 .method public constructor <init>(Landroid/graphics/Matrix;)V
-    .locals 2
+    .locals 4
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -77,11 +96,17 @@
     iget-wide v0, p1, Landroid/graphics/Matrix;->native_instance:J
 
     :goto_0
-    invoke-static {v0, v1}, Landroid/graphics/Matrix;->native_create(J)J
+    invoke-static {v0, v1}, Landroid/graphics/Matrix;->nCreate(J)J
 
     move-result-wide v0
 
     iput-wide v0, p0, Landroid/graphics/Matrix;->native_instance:J
+
+    sget-object v0, Landroid/graphics/Matrix$NoImagePreloadHolder;->sRegistry:Llibcore/util/NativeAllocationRegistry;
+
+    iget-wide v2, p0, Landroid/graphics/Matrix;->native_instance:J
+
+    invoke-virtual {v0, p0, v2, v3}, Llibcore/util/NativeAllocationRegistry;->registerNativeAllocation(Ljava/lang/Object;J)Ljava/lang/Runnable;
 
     return-void
 
@@ -131,130 +156,210 @@
     return-void
 .end method
 
-.method private static native finalizer(J)V
+.method private static native nCreate(J)J
 .end method
 
-.method private static native native_create(J)J
+.method private static native nEquals(JJ)Z
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
 .end method
 
-.method private static native native_equals(JJ)Z
+.method private static native nGetNativeFinalizer()J
 .end method
 
-.method private static native native_getValues(J[F)V
+.method private static native nGetValues(J[F)V
+    .annotation build Ldalvik/annotation/optimization/FastNative;
+    .end annotation
 .end method
 
-.method private static native native_invert(JJ)Z
+.method private static native nInvert(JJ)Z
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
 .end method
 
-.method private static native native_isAffine(J)Z
+.method private static native nIsAffine(J)Z
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
 .end method
 
-.method private static native native_isIdentity(J)Z
+.method private static native nIsIdentity(J)Z
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
 .end method
 
-.method private static native native_mapPoints(J[FI[FIIZ)V
+.method private static native nMapPoints(J[FI[FIIZ)V
+    .annotation build Ldalvik/annotation/optimization/FastNative;
+    .end annotation
 .end method
 
-.method private static native native_mapRadius(JF)F
+.method private static native nMapRadius(JF)F
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
 .end method
 
-.method private static native native_mapRect(JLandroid/graphics/RectF;Landroid/graphics/RectF;)Z
+.method private static native nMapRect(JLandroid/graphics/RectF;Landroid/graphics/RectF;)Z
+    .annotation build Ldalvik/annotation/optimization/FastNative;
+    .end annotation
 .end method
 
-.method private static native native_postConcat(JJ)V
+.method private static native nPostConcat(JJ)V
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
 .end method
 
-.method private static native native_postRotate(JF)V
+.method private static native nPostRotate(JF)V
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
 .end method
 
-.method private static native native_postRotate(JFFF)V
+.method private static native nPostRotate(JFFF)V
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
 .end method
 
-.method private static native native_postScale(JFF)V
+.method private static native nPostScale(JFF)V
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
 .end method
 
-.method private static native native_postScale(JFFFF)V
+.method private static native nPostScale(JFFFF)V
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
 .end method
 
-.method private static native native_postSkew(JFF)V
+.method private static native nPostSkew(JFF)V
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
 .end method
 
-.method private static native native_postSkew(JFFFF)V
+.method private static native nPostSkew(JFFFF)V
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
 .end method
 
-.method private static native native_postTranslate(JFF)V
+.method private static native nPostTranslate(JFF)V
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
 .end method
 
-.method private static native native_preConcat(JJ)V
+.method private static native nPreConcat(JJ)V
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
 .end method
 
-.method private static native native_preRotate(JF)V
+.method private static native nPreRotate(JF)V
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
 .end method
 
-.method private static native native_preRotate(JFFF)V
+.method private static native nPreRotate(JFFF)V
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
 .end method
 
-.method private static native native_preScale(JFF)V
+.method private static native nPreScale(JFF)V
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
 .end method
 
-.method private static native native_preScale(JFFFF)V
+.method private static native nPreScale(JFFFF)V
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
 .end method
 
-.method private static native native_preSkew(JFF)V
+.method private static native nPreSkew(JFF)V
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
 .end method
 
-.method private static native native_preSkew(JFFFF)V
+.method private static native nPreSkew(JFFFF)V
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
 .end method
 
-.method private static native native_preTranslate(JFF)V
+.method private static native nPreTranslate(JFF)V
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
 .end method
 
-.method private static native native_rectStaysRect(J)Z
+.method private static native nRectStaysRect(J)Z
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
 .end method
 
-.method private static native native_reset(J)V
+.method private static native nReset(J)V
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
 .end method
 
-.method private static native native_set(JJ)V
+.method private static native nSet(JJ)V
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
 .end method
 
-.method private static native native_setConcat(JJJ)V
+.method private static native nSetConcat(JJJ)V
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
 .end method
 
-.method private static native native_setPolyToPoly(J[FI[FII)Z
+.method private static native nSetPolyToPoly(J[FI[FII)Z
+    .annotation build Ldalvik/annotation/optimization/FastNative;
+    .end annotation
 .end method
 
-.method private static native native_setRectToRect(JLandroid/graphics/RectF;Landroid/graphics/RectF;I)Z
+.method private static native nSetRectToRect(JLandroid/graphics/RectF;Landroid/graphics/RectF;I)Z
+    .annotation build Ldalvik/annotation/optimization/FastNative;
+    .end annotation
 .end method
 
-.method private static native native_setRotate(JF)V
+.method private static native nSetRotate(JF)V
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
 .end method
 
-.method private static native native_setRotate(JFFF)V
+.method private static native nSetRotate(JFFF)V
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
 .end method
 
-.method private static native native_setScale(JFF)V
+.method private static native nSetScale(JFF)V
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
 .end method
 
-.method private static native native_setScale(JFFFF)V
+.method private static native nSetScale(JFFFF)V
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
 .end method
 
-.method private static native native_setSinCos(JFF)V
+.method private static native nSetSinCos(JFF)V
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
 .end method
 
-.method private static native native_setSinCos(JFFFF)V
+.method private static native nSetSinCos(JFFFF)V
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
 .end method
 
-.method private static native native_setSkew(JFF)V
+.method private static native nSetSkew(JFF)V
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
 .end method
 
-.method private static native native_setSkew(JFFFF)V
+.method private static native nSetSkew(JFFFF)V
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
 .end method
 
-.method private static native native_setTranslate(JFF)V
+.method private static native nSetTranslate(JFF)V
+    .annotation build Ldalvik/annotation/optimization/CriticalNative;
+    .end annotation
 .end method
 
-.method private static native native_setValues(J[F)V
+.method private static native nSetValues(J[F)V
+    .annotation build Ldalvik/annotation/optimization/FastNative;
+    .end annotation
 .end method
 
 
@@ -277,42 +382,11 @@
 
     iget-wide v2, p1, Landroid/graphics/Matrix;->native_instance:J
 
-    invoke-static {v0, v1, v2, v3}, Landroid/graphics/Matrix;->native_equals(JJ)Z
+    invoke-static {v0, v1, v2, v3}, Landroid/graphics/Matrix;->nEquals(JJ)Z
 
     move-result v0
 
     return v0
-.end method
-
-.method protected finalize()V
-    .locals 2
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/lang/Throwable;
-        }
-    .end annotation
-
-    :try_start_0
-    iget-wide v0, p0, Landroid/graphics/Matrix;->native_instance:J
-
-    invoke-static {v0, v1}, Landroid/graphics/Matrix;->finalizer(J)V
-
-    const-wide/16 v0, 0x0
-
-    iput-wide v0, p0, Landroid/graphics/Matrix;->native_instance:J
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    invoke-super {p0}, Ljava/lang/Object;->finalize()V
-
-    return-void
-
-    :catchall_0
-    move-exception v0
-
-    invoke-super {p0}, Ljava/lang/Object;->finalize()V
-
-    throw v0
 .end method
 
 .method public getValues([F)V
@@ -333,7 +407,7 @@
     :cond_0
     iget-wide v0, p0, Landroid/graphics/Matrix;->native_instance:J
 
-    invoke-static {v0, v1, p1}, Landroid/graphics/Matrix;->native_getValues(J[F)V
+    invoke-static {v0, v1, p1}, Landroid/graphics/Matrix;->nGetValues(J[F)V
 
     return-void
 .end method
@@ -353,7 +427,7 @@
 
     iget-wide v2, p1, Landroid/graphics/Matrix;->native_instance:J
 
-    invoke-static {v0, v1, v2, v3}, Landroid/graphics/Matrix;->native_invert(JJ)Z
+    invoke-static {v0, v1, v2, v3}, Landroid/graphics/Matrix;->nInvert(JJ)Z
 
     move-result v0
 
@@ -365,7 +439,7 @@
 
     iget-wide v0, p0, Landroid/graphics/Matrix;->native_instance:J
 
-    invoke-static {v0, v1}, Landroid/graphics/Matrix;->native_isAffine(J)Z
+    invoke-static {v0, v1}, Landroid/graphics/Matrix;->nIsAffine(J)Z
 
     move-result v0
 
@@ -377,7 +451,7 @@
 
     iget-wide v0, p0, Landroid/graphics/Matrix;->native_instance:J
 
-    invoke-static {v0, v1}, Landroid/graphics/Matrix;->native_isIdentity(J)Z
+    invoke-static {v0, v1}, Landroid/graphics/Matrix;->nIsIdentity(J)Z
 
     move-result v0
 
@@ -425,7 +499,7 @@
 
     move v6, p5
 
-    invoke-static/range {v0 .. v7}, Landroid/graphics/Matrix;->native_mapPoints(J[FI[FIIZ)V
+    invoke-static/range {v0 .. v7}, Landroid/graphics/Matrix;->nMapPoints(J[FI[FIIZ)V
 
     return-void
 .end method
@@ -470,7 +544,7 @@
 
     iget-wide v0, p0, Landroid/graphics/Matrix;->native_instance:J
 
-    invoke-static {v0, v1, p1}, Landroid/graphics/Matrix;->native_mapRadius(JF)F
+    invoke-static {v0, v1, p1}, Landroid/graphics/Matrix;->nMapRadius(JF)F
 
     move-result v0
 
@@ -504,7 +578,7 @@
     :cond_1
     iget-wide v0, p0, Landroid/graphics/Matrix;->native_instance:J
 
-    invoke-static {v0, v1, p1, p2}, Landroid/graphics/Matrix;->native_mapRect(JLandroid/graphics/RectF;Landroid/graphics/RectF;)Z
+    invoke-static {v0, v1, p1, p2}, Landroid/graphics/Matrix;->nMapRect(JLandroid/graphics/RectF;Landroid/graphics/RectF;)Z
 
     move-result v0
 
@@ -552,7 +626,7 @@
 
     move v6, p5
 
-    invoke-static/range {v0 .. v7}, Landroid/graphics/Matrix;->native_mapPoints(J[FI[FIIZ)V
+    invoke-static/range {v0 .. v7}, Landroid/graphics/Matrix;->nMapPoints(J[FI[FIIZ)V
 
     return-void
 .end method
@@ -592,7 +666,7 @@
     return-void
 .end method
 
-.method final ni()J
+.method public final ni()J
     .locals 2
 
     iget-wide v0, p0, Landroid/graphics/Matrix;->native_instance:J
@@ -607,7 +681,7 @@
 
     iget-wide v2, p1, Landroid/graphics/Matrix;->native_instance:J
 
-    invoke-static {v0, v1, v2, v3}, Landroid/graphics/Matrix;->native_postConcat(JJ)V
+    invoke-static {v0, v1, v2, v3}, Landroid/graphics/Matrix;->nPostConcat(JJ)V
 
     const/4 v0, 0x1
 
@@ -619,7 +693,7 @@
 
     iget-wide v0, p0, Landroid/graphics/Matrix;->native_instance:J
 
-    invoke-static {v0, v1, p1}, Landroid/graphics/Matrix;->native_postRotate(JF)V
+    invoke-static {v0, v1, p1}, Landroid/graphics/Matrix;->nPostRotate(JF)V
 
     const/4 v0, 0x1
 
@@ -631,7 +705,7 @@
 
     iget-wide v0, p0, Landroid/graphics/Matrix;->native_instance:J
 
-    invoke-static {v0, v1, p1, p2, p3}, Landroid/graphics/Matrix;->native_postRotate(JFFF)V
+    invoke-static {v0, v1, p1, p2, p3}, Landroid/graphics/Matrix;->nPostRotate(JFFF)V
 
     const/4 v0, 0x1
 
@@ -643,7 +717,7 @@
 
     iget-wide v0, p0, Landroid/graphics/Matrix;->native_instance:J
 
-    invoke-static {v0, v1, p1, p2}, Landroid/graphics/Matrix;->native_postScale(JFF)V
+    invoke-static {v0, v1, p1, p2}, Landroid/graphics/Matrix;->nPostScale(JFF)V
 
     const/4 v0, 0x1
 
@@ -663,7 +737,7 @@
 
     move v5, p4
 
-    invoke-static/range {v0 .. v5}, Landroid/graphics/Matrix;->native_postScale(JFFFF)V
+    invoke-static/range {v0 .. v5}, Landroid/graphics/Matrix;->nPostScale(JFFFF)V
 
     const/4 v0, 0x1
 
@@ -675,7 +749,7 @@
 
     iget-wide v0, p0, Landroid/graphics/Matrix;->native_instance:J
 
-    invoke-static {v0, v1, p1, p2}, Landroid/graphics/Matrix;->native_postSkew(JFF)V
+    invoke-static {v0, v1, p1, p2}, Landroid/graphics/Matrix;->nPostSkew(JFF)V
 
     const/4 v0, 0x1
 
@@ -695,7 +769,7 @@
 
     move v5, p4
 
-    invoke-static/range {v0 .. v5}, Landroid/graphics/Matrix;->native_postSkew(JFFFF)V
+    invoke-static/range {v0 .. v5}, Landroid/graphics/Matrix;->nPostSkew(JFFFF)V
 
     const/4 v0, 0x1
 
@@ -707,7 +781,7 @@
 
     iget-wide v0, p0, Landroid/graphics/Matrix;->native_instance:J
 
-    invoke-static {v0, v1, p1, p2}, Landroid/graphics/Matrix;->native_postTranslate(JFF)V
+    invoke-static {v0, v1, p1, p2}, Landroid/graphics/Matrix;->nPostTranslate(JFF)V
 
     const/4 v0, 0x1
 
@@ -721,7 +795,7 @@
 
     iget-wide v2, p1, Landroid/graphics/Matrix;->native_instance:J
 
-    invoke-static {v0, v1, v2, v3}, Landroid/graphics/Matrix;->native_preConcat(JJ)V
+    invoke-static {v0, v1, v2, v3}, Landroid/graphics/Matrix;->nPreConcat(JJ)V
 
     const/4 v0, 0x1
 
@@ -733,7 +807,7 @@
 
     iget-wide v0, p0, Landroid/graphics/Matrix;->native_instance:J
 
-    invoke-static {v0, v1, p1}, Landroid/graphics/Matrix;->native_preRotate(JF)V
+    invoke-static {v0, v1, p1}, Landroid/graphics/Matrix;->nPreRotate(JF)V
 
     const/4 v0, 0x1
 
@@ -745,7 +819,7 @@
 
     iget-wide v0, p0, Landroid/graphics/Matrix;->native_instance:J
 
-    invoke-static {v0, v1, p1, p2, p3}, Landroid/graphics/Matrix;->native_preRotate(JFFF)V
+    invoke-static {v0, v1, p1, p2, p3}, Landroid/graphics/Matrix;->nPreRotate(JFFF)V
 
     const/4 v0, 0x1
 
@@ -757,7 +831,7 @@
 
     iget-wide v0, p0, Landroid/graphics/Matrix;->native_instance:J
 
-    invoke-static {v0, v1, p1, p2}, Landroid/graphics/Matrix;->native_preScale(JFF)V
+    invoke-static {v0, v1, p1, p2}, Landroid/graphics/Matrix;->nPreScale(JFF)V
 
     const/4 v0, 0x1
 
@@ -777,7 +851,7 @@
 
     move v5, p4
 
-    invoke-static/range {v0 .. v5}, Landroid/graphics/Matrix;->native_preScale(JFFFF)V
+    invoke-static/range {v0 .. v5}, Landroid/graphics/Matrix;->nPreScale(JFFFF)V
 
     const/4 v0, 0x1
 
@@ -789,7 +863,7 @@
 
     iget-wide v0, p0, Landroid/graphics/Matrix;->native_instance:J
 
-    invoke-static {v0, v1, p1, p2}, Landroid/graphics/Matrix;->native_preSkew(JFF)V
+    invoke-static {v0, v1, p1, p2}, Landroid/graphics/Matrix;->nPreSkew(JFF)V
 
     const/4 v0, 0x1
 
@@ -809,7 +883,7 @@
 
     move v5, p4
 
-    invoke-static/range {v0 .. v5}, Landroid/graphics/Matrix;->native_preSkew(JFFFF)V
+    invoke-static/range {v0 .. v5}, Landroid/graphics/Matrix;->nPreSkew(JFFFF)V
 
     const/4 v0, 0x1
 
@@ -821,7 +895,7 @@
 
     iget-wide v0, p0, Landroid/graphics/Matrix;->native_instance:J
 
-    invoke-static {v0, v1, p1, p2}, Landroid/graphics/Matrix;->native_preTranslate(JFF)V
+    invoke-static {v0, v1, p1, p2}, Landroid/graphics/Matrix;->nPreTranslate(JFF)V
 
     const/4 v0, 0x1
 
@@ -939,7 +1013,7 @@
 
     iget-wide v0, p0, Landroid/graphics/Matrix;->native_instance:J
 
-    invoke-static {v0, v1}, Landroid/graphics/Matrix;->native_rectStaysRect(J)Z
+    invoke-static {v0, v1}, Landroid/graphics/Matrix;->nRectStaysRect(J)Z
 
     move-result v0
 
@@ -951,7 +1025,7 @@
 
     iget-wide v0, p0, Landroid/graphics/Matrix;->native_instance:J
 
-    invoke-static {v0, v1}, Landroid/graphics/Matrix;->native_reset(J)V
+    invoke-static {v0, v1}, Landroid/graphics/Matrix;->nReset(J)V
 
     return-void
 .end method
@@ -971,7 +1045,7 @@
 
     iget-wide v2, p1, Landroid/graphics/Matrix;->native_instance:J
 
-    invoke-static {v0, v1, v2, v3}, Landroid/graphics/Matrix;->native_set(JJ)V
+    invoke-static {v0, v1, v2, v3}, Landroid/graphics/Matrix;->nSet(JJ)V
 
     goto :goto_0
 .end method
@@ -985,7 +1059,7 @@
 
     iget-wide v4, p2, Landroid/graphics/Matrix;->native_instance:J
 
-    invoke-static/range {v0 .. v5}, Landroid/graphics/Matrix;->native_setConcat(JJJ)V
+    invoke-static/range {v0 .. v5}, Landroid/graphics/Matrix;->nSetConcat(JJJ)V
 
     const/4 v0, 0x1
 
@@ -1020,7 +1094,7 @@
 
     move v6, p5
 
-    invoke-static/range {v0 .. v6}, Landroid/graphics/Matrix;->native_setPolyToPoly(J[FI[FII)Z
+    invoke-static/range {v0 .. v6}, Landroid/graphics/Matrix;->nSetPolyToPoly(J[FI[FII)Z
 
     move-result v0
 
@@ -1046,7 +1120,7 @@
 
     iget v2, p3, Landroid/graphics/Matrix$ScaleToFit;->nativeInt:I
 
-    invoke-static {v0, v1, p1, p2, v2}, Landroid/graphics/Matrix;->native_setRectToRect(JLandroid/graphics/RectF;Landroid/graphics/RectF;I)Z
+    invoke-static {v0, v1, p1, p2, v2}, Landroid/graphics/Matrix;->nSetRectToRect(JLandroid/graphics/RectF;Landroid/graphics/RectF;I)Z
 
     move-result v0
 
@@ -1058,7 +1132,7 @@
 
     iget-wide v0, p0, Landroid/graphics/Matrix;->native_instance:J
 
-    invoke-static {v0, v1, p1}, Landroid/graphics/Matrix;->native_setRotate(JF)V
+    invoke-static {v0, v1, p1}, Landroid/graphics/Matrix;->nSetRotate(JF)V
 
     return-void
 .end method
@@ -1068,7 +1142,7 @@
 
     iget-wide v0, p0, Landroid/graphics/Matrix;->native_instance:J
 
-    invoke-static {v0, v1, p1, p2, p3}, Landroid/graphics/Matrix;->native_setRotate(JFFF)V
+    invoke-static {v0, v1, p1, p2, p3}, Landroid/graphics/Matrix;->nSetRotate(JFFF)V
 
     return-void
 .end method
@@ -1078,7 +1152,7 @@
 
     iget-wide v0, p0, Landroid/graphics/Matrix;->native_instance:J
 
-    invoke-static {v0, v1, p1, p2}, Landroid/graphics/Matrix;->native_setScale(JFF)V
+    invoke-static {v0, v1, p1, p2}, Landroid/graphics/Matrix;->nSetScale(JFF)V
 
     return-void
 .end method
@@ -1096,7 +1170,7 @@
 
     move v5, p4
 
-    invoke-static/range {v0 .. v5}, Landroid/graphics/Matrix;->native_setScale(JFFFF)V
+    invoke-static/range {v0 .. v5}, Landroid/graphics/Matrix;->nSetScale(JFFFF)V
 
     return-void
 .end method
@@ -1106,7 +1180,7 @@
 
     iget-wide v0, p0, Landroid/graphics/Matrix;->native_instance:J
 
-    invoke-static {v0, v1, p1, p2}, Landroid/graphics/Matrix;->native_setSinCos(JFF)V
+    invoke-static {v0, v1, p1, p2}, Landroid/graphics/Matrix;->nSetSinCos(JFF)V
 
     return-void
 .end method
@@ -1124,7 +1198,7 @@
 
     move v5, p4
 
-    invoke-static/range {v0 .. v5}, Landroid/graphics/Matrix;->native_setSinCos(JFFFF)V
+    invoke-static/range {v0 .. v5}, Landroid/graphics/Matrix;->nSetSinCos(JFFFF)V
 
     return-void
 .end method
@@ -1134,7 +1208,7 @@
 
     iget-wide v0, p0, Landroid/graphics/Matrix;->native_instance:J
 
-    invoke-static {v0, v1, p1, p2}, Landroid/graphics/Matrix;->native_setSkew(JFF)V
+    invoke-static {v0, v1, p1, p2}, Landroid/graphics/Matrix;->nSetSkew(JFF)V
 
     return-void
 .end method
@@ -1152,7 +1226,7 @@
 
     move v5, p4
 
-    invoke-static/range {v0 .. v5}, Landroid/graphics/Matrix;->native_setSkew(JFFFF)V
+    invoke-static/range {v0 .. v5}, Landroid/graphics/Matrix;->nSetSkew(JFFFF)V
 
     return-void
 .end method
@@ -1162,7 +1236,7 @@
 
     iget-wide v0, p0, Landroid/graphics/Matrix;->native_instance:J
 
-    invoke-static {v0, v1, p1, p2}, Landroid/graphics/Matrix;->native_setTranslate(JFF)V
+    invoke-static {v0, v1, p1, p2}, Landroid/graphics/Matrix;->nSetTranslate(JFF)V
 
     return-void
 .end method
@@ -1185,7 +1259,7 @@
     :cond_0
     iget-wide v0, p0, Landroid/graphics/Matrix;->native_instance:J
 
-    invoke-static {v0, v1, p1}, Landroid/graphics/Matrix;->native_setValues(J[F)V
+    invoke-static {v0, v1, p1}, Landroid/graphics/Matrix;->nSetValues(J[F)V
 
     return-void
 .end method

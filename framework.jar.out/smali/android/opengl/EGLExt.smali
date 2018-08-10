@@ -12,6 +12,8 @@
 
 .field public static final EGL_OPENGL_ES3_BIT_KHR:I = 0x40
 
+.field public static final EGL_RECORDABLE_ANDROID:I = 0x3142
+
 
 # direct methods
 .method static constructor <clinit>()V

@@ -38,6 +38,8 @@
 
 .field public static final PROTECTION_FLAG_DEVELOPMENT:I = 0x20
 
+.field public static final PROTECTION_FLAG_EPHEMERAL:I = 0x1000
+
 .field public static final PROTECTION_FLAG_INSTALLER:I = 0x100
 
 .field public static final PROTECTION_FLAG_PRE23:I = 0x80
@@ -45,6 +47,8 @@
 .field public static final PROTECTION_FLAG_PREINSTALLED:I = 0x400
 
 .field public static final PROTECTION_FLAG_PRIVILEGED:I = 0x10
+
+.field public static final PROTECTION_FLAG_RUNTIME_ONLY:I = 0x2000
 
 .field public static final PROTECTION_FLAG_SETUP:I = 0x800
 
@@ -57,7 +61,7 @@
 
 .field public static final PROTECTION_MASK_BASE:I = 0xf
 
-.field public static final PROTECTION_MASK_FLAGS:I = 0xff0
+.field public static final PROTECTION_MASK_FLAGS:I = 0xfff0
 
 .field public static final PROTECTION_NORMAL:I = 0x0
 
@@ -387,6 +391,52 @@
     move-result-object v0
 
     :cond_7
+    and-int/lit16 v1, p0, 0x1000
+
+    if-eqz v1, :cond_8
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "|ephemeral"
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    :cond_8
+    and-int/lit16 v1, p0, 0x2000
+
+    if-eqz v1, :cond_9
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "|runtime"
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    :cond_9
     return-object v0
 
     :pswitch_0

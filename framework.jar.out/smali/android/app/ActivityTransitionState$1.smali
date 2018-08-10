@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 1
+    .locals 2
 
     iget-object v0, p0, Landroid/app/ActivityTransitionState$1;->this$0:Landroid/app/ActivityTransitionState;
 
@@ -60,7 +60,9 @@
     :cond_0
     iget-object v0, p0, Landroid/app/ActivityTransitionState$1;->this$0:Landroid/app/ActivityTransitionState;
 
-    invoke-static {v0}, Landroid/app/ActivityTransitionState;->-wrap0(Landroid/app/ActivityTransitionState;)V
+    const/4 v1, 0x0
+
+    invoke-static {v0, v1}, Landroid/app/ActivityTransitionState;->-wrap0(Landroid/app/ActivityTransitionState;Z)V
 
     iget-object v0, p0, Landroid/app/ActivityTransitionState$1;->this$0:Landroid/app/ActivityTransitionState;
 

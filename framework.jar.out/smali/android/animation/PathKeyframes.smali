@@ -453,12 +453,6 @@
     return-object v5
 .end method
 
-.method public invalidateCache()V
-    .locals 0
-
-    return-void
-.end method
-
 .method public setEvaluator(Landroid/animation/TypeEvaluator;)V
     .locals 0
 

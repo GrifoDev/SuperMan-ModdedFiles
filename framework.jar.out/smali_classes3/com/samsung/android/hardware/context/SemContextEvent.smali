@@ -30,8 +30,6 @@
 # instance fields
 .field public context:Landroid/os/Bundle;
 
-.field private mDuplicatedEventContext:Lcom/samsung/android/hardware/context/SemContextEventContext;
-
 .field private mEventContext:Lcom/samsung/android/hardware/context/SemContextEventContext;
 
 .field public semContext:Lcom/samsung/android/hardware/context/SemContext;
@@ -117,7 +115,7 @@
 
     iput-object v0, p0, Lcom/samsung/android/hardware/context/SemContextEvent;->mEventContext:Lcom/samsung/android/hardware/context/SemContextEventContext;
 
-    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+    invoke-virtual {p0}, Lcom/samsung/android/hardware/context/SemContextEvent;->getClass()Ljava/lang/Class;
 
     move-result-object v0
 
@@ -131,31 +129,6 @@
 
     iput-object v0, p0, Lcom/samsung/android/hardware/context/SemContextEvent;->context:Landroid/os/Bundle;
 
-    iget-object v0, p0, Lcom/samsung/android/hardware/context/SemContextEvent;->semContext:Lcom/samsung/android/hardware/context/SemContext;
-
-    invoke-virtual {v0}, Lcom/samsung/android/hardware/context/SemContext;->getType()I
-
-    move-result v0
-
-    const/16 v1, 0x31
-
-    if-ne v0, v1, :cond_0
-
-    const-class v0, Lcom/samsung/android/hardware/context/SemContextEventContext;
-
-    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
-
-    move-result-object v0
-
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->readParcelable(Ljava/lang/ClassLoader;)Landroid/os/Parcelable;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/samsung/android/hardware/context/SemContextEventContext;
-
-    iput-object v0, p0, Lcom/samsung/android/hardware/context/SemContextEvent;->mDuplicatedEventContext:Lcom/samsung/android/hardware/context/SemContextEventContext;
-
-    :cond_0
     return-void
 .end method
 
@@ -225,6 +198,16 @@
     iget-object v0, p0, Lcom/samsung/android/hardware/context/SemContextEvent;->mEventContext:Lcom/samsung/android/hardware/context/SemContextEventContext;
 
     check-cast v0, Lcom/samsung/android/hardware/context/SemContextActivityNotificationEx;
+
+    return-object v0
+.end method
+
+.method public getActivityNotificationForLocationContext()Lcom/samsung/android/hardware/context/SemContextActivityNotificationForLocation;
+    .locals 1
+
+    iget-object v0, p0, Lcom/samsung/android/hardware/context/SemContextEvent;->mEventContext:Lcom/samsung/android/hardware/context/SemContextEventContext;
+
+    check-cast v0, Lcom/samsung/android/hardware/context/SemContextActivityNotificationForLocation;
 
     return-object v0
 .end method
@@ -329,36 +312,12 @@
     return-object v0
 .end method
 
-.method getCaptureMotionContext()Lcom/samsung/android/hardware/context/SemContextCaptureMotion;
-    .locals 1
-    .annotation runtime Ljava/lang/Deprecated;
-    .end annotation
-
-    iget-object v0, p0, Lcom/samsung/android/hardware/context/SemContextEvent;->mEventContext:Lcom/samsung/android/hardware/context/SemContextEventContext;
-
-    check-cast v0, Lcom/samsung/android/hardware/context/SemContextCaptureMotion;
-
-    return-object v0
-.end method
-
 .method public getCarryingDetectionContext()Lcom/samsung/android/hardware/context/SemContextCarryingDetection;
     .locals 1
 
     iget-object v0, p0, Lcom/samsung/android/hardware/context/SemContextEvent;->mEventContext:Lcom/samsung/android/hardware/context/SemContextEventContext;
 
     check-cast v0, Lcom/samsung/android/hardware/context/SemContextCarryingDetection;
-
-    return-object v0
-.end method
-
-.method public getCurrentStatusForPositioningContext()Lcom/samsung/android/hardware/context/SemContextCurrentStatusForPositioning;
-    .locals 1
-    .annotation runtime Ljava/lang/Deprecated;
-    .end annotation
-
-    iget-object v0, p0, Lcom/samsung/android/hardware/context/SemContextEvent;->mEventContext:Lcom/samsung/android/hardware/context/SemContextEventContext;
-
-    check-cast v0, Lcom/samsung/android/hardware/context/SemContextCurrentStatusForPositioning;
 
     return-object v0
 .end method
@@ -373,44 +332,12 @@
     return-object v0
 .end method
 
-.method public getDualDisplayAngleContext()Lcom/samsung/android/hardware/context/SemContextDualDisplayAngle;
-    .locals 1
-
-    iget-object v0, p0, Lcom/samsung/android/hardware/context/SemContextEvent;->mEventContext:Lcom/samsung/android/hardware/context/SemContextEventContext;
-
-    check-cast v0, Lcom/samsung/android/hardware/context/SemContextDualDisplayAngle;
-
-    return-object v0
-.end method
-
 .method public getEnvironmentAdaptiveDisplayContext()Lcom/samsung/android/hardware/context/SemContextEnvironmentAdaptiveDisplay;
     .locals 1
 
     iget-object v0, p0, Lcom/samsung/android/hardware/context/SemContextEvent;->mEventContext:Lcom/samsung/android/hardware/context/SemContextEventContext;
 
     check-cast v0, Lcom/samsung/android/hardware/context/SemContextEnvironmentAdaptiveDisplay;
-
-    return-object v0
-.end method
-
-.method public getEnvironmentContext()Lcom/samsung/android/hardware/context/SemContextEnvironment;
-    .locals 1
-    .annotation runtime Ljava/lang/Deprecated;
-    .end annotation
-
-    iget-object v0, p0, Lcom/samsung/android/hardware/context/SemContextEvent;->mEventContext:Lcom/samsung/android/hardware/context/SemContextEventContext;
-
-    check-cast v0, Lcom/samsung/android/hardware/context/SemContextEnvironment;
-
-    return-object v0
-.end method
-
-.method public getExerciseContext()Lcom/samsung/android/hardware/context/SemContextExercise;
-    .locals 1
-
-    iget-object v0, p0, Lcom/samsung/android/hardware/context/SemContextEvent;->mEventContext:Lcom/samsung/android/hardware/context/SemContextEventContext;
-
-    check-cast v0, Lcom/samsung/android/hardware/context/SemContextExercise;
 
     return-object v0
 .end method
@@ -447,10 +374,22 @@
 
 .method public getFlipMotionContext()Lcom/samsung/android/hardware/context/SemContextFlipMotion;
     .locals 1
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 
     iget-object v0, p0, Lcom/samsung/android/hardware/context/SemContextEvent;->mEventContext:Lcom/samsung/android/hardware/context/SemContextEventContext;
 
     check-cast v0, Lcom/samsung/android/hardware/context/SemContextFlipMotion;
+
+    return-object v0
+.end method
+
+.method public getFreeFallDetectionContext()Lcom/samsung/android/hardware/context/SemContextFreeFallDetection;
+    .locals 1
+
+    iget-object v0, p0, Lcom/samsung/android/hardware/context/SemContextEvent;->mEventContext:Lcom/samsung/android/hardware/context/SemContextEventContext;
+
+    check-cast v0, Lcom/samsung/android/hardware/context/SemContextFreeFallDetection;
 
     return-object v0
 .end method
@@ -475,24 +414,22 @@
     return-object v0
 .end method
 
-.method public getMainScreenDetectionContext()Lcom/samsung/android/hardware/context/SemContextMainScreenDetection;
+.method public getLocationChangeTriggerContext()Lcom/samsung/android/hardware/context/SemContextLocationChangeTrigger;
     .locals 1
 
-    iget-object v0, p0, Lcom/samsung/android/hardware/context/SemContextEvent;->mDuplicatedEventContext:Lcom/samsung/android/hardware/context/SemContextEventContext;
+    iget-object v0, p0, Lcom/samsung/android/hardware/context/SemContextEvent;->mEventContext:Lcom/samsung/android/hardware/context/SemContextEventContext;
 
-    check-cast v0, Lcom/samsung/android/hardware/context/SemContextMainScreenDetection;
+    check-cast v0, Lcom/samsung/android/hardware/context/SemContextLocationChangeTrigger;
 
     return-object v0
 .end method
 
-.method public getMotionContext()Lcom/samsung/android/hardware/context/SemContextMotion;
+.method public getLocationCoreContext()Lcom/samsung/android/hardware/context/SemContextLocationCore;
     .locals 1
-    .annotation runtime Ljava/lang/Deprecated;
-    .end annotation
 
     iget-object v0, p0, Lcom/samsung/android/hardware/context/SemContextEvent;->mEventContext:Lcom/samsung/android/hardware/context/SemContextEventContext;
 
-    check-cast v0, Lcom/samsung/android/hardware/context/SemContextMotion;
+    check-cast v0, Lcom/samsung/android/hardware/context/SemContextLocationCore;
 
     return-object v0
 .end method
@@ -515,18 +452,6 @@
     iget-object v0, p0, Lcom/samsung/android/hardware/context/SemContextEvent;->mEventContext:Lcom/samsung/android/hardware/context/SemContextEventContext;
 
     check-cast v0, Lcom/samsung/android/hardware/context/SemContextMovement;
-
-    return-object v0
-.end method
-
-.method public getMovementForPositioningContext()Lcom/samsung/android/hardware/context/SemContextMovementForPositioning;
-    .locals 1
-    .annotation runtime Ljava/lang/Deprecated;
-    .end annotation
-
-    iget-object v0, p0, Lcom/samsung/android/hardware/context/SemContextEvent;->mEventContext:Lcom/samsung/android/hardware/context/SemContextEventContext;
-
-    check-cast v0, Lcom/samsung/android/hardware/context/SemContextMovementForPositioning;
 
     return-object v0
 .end method
@@ -561,16 +486,6 @@
     return-object v0
 .end method
 
-.method public getSLocationCoreContext()Lcom/samsung/android/hardware/context/SemContextSLocationCore;
-    .locals 1
-
-    iget-object v0, p0, Lcom/samsung/android/hardware/context/SemContextEvent;->mEventContext:Lcom/samsung/android/hardware/context/SemContextEventContext;
-
-    check-cast v0, Lcom/samsung/android/hardware/context/SemContextSLocationCore;
-
-    return-object v0
-.end method
-
 .method public getSedentaryTimerContext()Lcom/samsung/android/hardware/context/SemContextSedentaryTimer;
     .locals 1
 
@@ -601,18 +516,6 @@
     return-object v0
 .end method
 
-.method public getSleepMonitorContext()Lcom/samsung/android/hardware/context/SemContextSleepMonitor;
-    .locals 1
-    .annotation runtime Ljava/lang/Deprecated;
-    .end annotation
-
-    iget-object v0, p0, Lcom/samsung/android/hardware/context/SemContextEvent;->mEventContext:Lcom/samsung/android/hardware/context/SemContextEventContext;
-
-    check-cast v0, Lcom/samsung/android/hardware/context/SemContextSleepMonitor;
-
-    return-object v0
-.end method
-
 .method public getSpecificPoseAlertContext()Lcom/samsung/android/hardware/context/SemContextSpecificPoseAlert;
     .locals 1
 
@@ -639,30 +542,6 @@
     iget-object v0, p0, Lcom/samsung/android/hardware/context/SemContextEvent;->mEventContext:Lcom/samsung/android/hardware/context/SemContextEventContext;
 
     check-cast v0, Lcom/samsung/android/hardware/context/SemContextStepLevelMonitor;
-
-    return-object v0
-.end method
-
-.method getTemperatureAlertContext()Lcom/samsung/android/hardware/context/SemContextTemperatureAlert;
-    .locals 1
-    .annotation runtime Ljava/lang/Deprecated;
-    .end annotation
-
-    iget-object v0, p0, Lcom/samsung/android/hardware/context/SemContextEvent;->mEventContext:Lcom/samsung/android/hardware/context/SemContextEventContext;
-
-    check-cast v0, Lcom/samsung/android/hardware/context/SemContextTemperatureAlert;
-
-    return-object v0
-.end method
-
-.method public getTestFlatMotionContext()Lcom/samsung/android/hardware/context/SemContextTestFlatMotion;
-    .locals 1
-    .annotation runtime Ljava/lang/Deprecated;
-    .end annotation
-
-    iget-object v0, p0, Lcom/samsung/android/hardware/context/SemContextEvent;->mEventContext:Lcom/samsung/android/hardware/context/SemContextEventContext;
-
-    check-cast v0, Lcom/samsung/android/hardware/context/SemContextTestFlatMotion;
 
     return-object v0
 .end method
@@ -760,19 +639,6 @@
     goto :goto_0
 
     :pswitch_4
-    new-instance v0, Lcom/samsung/android/hardware/context/SemContextMotion;
-
-    invoke-direct {v0}, Lcom/samsung/android/hardware/context/SemContextMotion;-><init>()V
-
-    iput-object v0, p0, Lcom/samsung/android/hardware/context/SemContextEvent;->mEventContext:Lcom/samsung/android/hardware/context/SemContextEventContext;
-
-    iget-object v0, p0, Lcom/samsung/android/hardware/context/SemContextEvent;->mEventContext:Lcom/samsung/android/hardware/context/SemContextEventContext;
-
-    invoke-virtual {v0, p2}, Lcom/samsung/android/hardware/context/SemContextEventContext;->setValues(Landroid/os/Bundle;)V
-
-    goto :goto_0
-
-    :pswitch_5
     new-instance v0, Lcom/samsung/android/hardware/context/SemContextMovement;
 
     invoke-direct {v0}, Lcom/samsung/android/hardware/context/SemContextMovement;-><init>()V
@@ -785,7 +651,7 @@
 
     goto :goto_0
 
-    :pswitch_6
+    :pswitch_5
     new-instance v0, Lcom/samsung/android/hardware/context/SemContextAutoRotation;
 
     invoke-direct {v0}, Lcom/samsung/android/hardware/context/SemContextAutoRotation;-><init>()V
@@ -798,7 +664,7 @@
 
     goto :goto_0
 
-    :pswitch_7
+    :pswitch_6
     new-instance v0, Lcom/samsung/android/hardware/context/SemContextAirMotion;
 
     invoke-direct {v0}, Lcom/samsung/android/hardware/context/SemContextAirMotion;-><init>()V
@@ -811,46 +677,7 @@
 
     goto :goto_0
 
-    :pswitch_8
-    new-instance v0, Lcom/samsung/android/hardware/context/SemContextEnvironment;
-
-    invoke-direct {v0}, Lcom/samsung/android/hardware/context/SemContextEnvironment;-><init>()V
-
-    iput-object v0, p0, Lcom/samsung/android/hardware/context/SemContextEvent;->mEventContext:Lcom/samsung/android/hardware/context/SemContextEventContext;
-
-    iget-object v0, p0, Lcom/samsung/android/hardware/context/SemContextEvent;->mEventContext:Lcom/samsung/android/hardware/context/SemContextEventContext;
-
-    invoke-virtual {v0, p2}, Lcom/samsung/android/hardware/context/SemContextEventContext;->setValues(Landroid/os/Bundle;)V
-
-    goto :goto_0
-
-    :pswitch_9
-    new-instance v0, Lcom/samsung/android/hardware/context/SemContextMovementForPositioning;
-
-    invoke-direct {v0}, Lcom/samsung/android/hardware/context/SemContextMovementForPositioning;-><init>()V
-
-    iput-object v0, p0, Lcom/samsung/android/hardware/context/SemContextEvent;->mEventContext:Lcom/samsung/android/hardware/context/SemContextEventContext;
-
-    iget-object v0, p0, Lcom/samsung/android/hardware/context/SemContextEvent;->mEventContext:Lcom/samsung/android/hardware/context/SemContextEventContext;
-
-    invoke-virtual {v0, p2}, Lcom/samsung/android/hardware/context/SemContextEventContext;->setValues(Landroid/os/Bundle;)V
-
-    goto :goto_0
-
-    :pswitch_a
-    new-instance v0, Lcom/samsung/android/hardware/context/SemContextCurrentStatusForPositioning;
-
-    invoke-direct {v0}, Lcom/samsung/android/hardware/context/SemContextCurrentStatusForPositioning;-><init>()V
-
-    iput-object v0, p0, Lcom/samsung/android/hardware/context/SemContextEvent;->mEventContext:Lcom/samsung/android/hardware/context/SemContextEventContext;
-
-    iget-object v0, p0, Lcom/samsung/android/hardware/context/SemContextEvent;->mEventContext:Lcom/samsung/android/hardware/context/SemContextEventContext;
-
-    invoke-virtual {v0, p2}, Lcom/samsung/android/hardware/context/SemContextEventContext;->setValues(Landroid/os/Bundle;)V
-
-    goto/16 :goto_0
-
-    :pswitch_b
+    :pswitch_7
     new-instance v0, Lcom/samsung/android/hardware/context/SemContextCallPose;
 
     invoke-direct {v0}, Lcom/samsung/android/hardware/context/SemContextCallPose;-><init>()V
@@ -861,9 +688,9 @@
 
     invoke-virtual {v0, p2}, Lcom/samsung/android/hardware/context/SemContextEventContext;->setValues(Landroid/os/Bundle;)V
 
-    goto/16 :goto_0
+    goto :goto_0
 
-    :pswitch_c
+    :pswitch_8
     new-instance v0, Lcom/samsung/android/hardware/context/SemContextShakeMotion;
 
     invoke-direct {v0}, Lcom/samsung/android/hardware/context/SemContextShakeMotion;-><init>()V
@@ -874,9 +701,9 @@
 
     invoke-virtual {v0, p2}, Lcom/samsung/android/hardware/context/SemContextEventContext;->setValues(Landroid/os/Bundle;)V
 
-    goto/16 :goto_0
+    goto :goto_0
 
-    :pswitch_d
+    :pswitch_9
     new-instance v0, Lcom/samsung/android/hardware/context/SemContextFlipCoverAction;
 
     invoke-direct {v0}, Lcom/samsung/android/hardware/context/SemContextFlipCoverAction;-><init>()V
@@ -887,9 +714,9 @@
 
     invoke-virtual {v0, p2}, Lcom/samsung/android/hardware/context/SemContextEventContext;->setValues(Landroid/os/Bundle;)V
 
-    goto/16 :goto_0
+    goto :goto_0
 
-    :pswitch_e
+    :pswitch_a
     new-instance v0, Lcom/samsung/android/hardware/context/SemContextGyroTemperature;
 
     invoke-direct {v0}, Lcom/samsung/android/hardware/context/SemContextGyroTemperature;-><init>()V
@@ -902,7 +729,7 @@
 
     goto/16 :goto_0
 
-    :pswitch_f
+    :pswitch_b
     new-instance v0, Lcom/samsung/android/hardware/context/SemContextPutDownMotion;
 
     invoke-direct {v0}, Lcom/samsung/android/hardware/context/SemContextPutDownMotion;-><init>()V
@@ -915,7 +742,7 @@
 
     goto/16 :goto_0
 
-    :pswitch_10
+    :pswitch_c
     new-instance v0, Lcom/samsung/android/hardware/context/SemContextWakeUpVoice;
 
     invoke-direct {v0}, Lcom/samsung/android/hardware/context/SemContextWakeUpVoice;-><init>()V
@@ -928,7 +755,7 @@
 
     goto/16 :goto_0
 
-    :pswitch_11
+    :pswitch_d
     new-instance v0, Lcom/samsung/android/hardware/context/SemContextBounceShortMotion;
 
     invoke-direct {v0}, Lcom/samsung/android/hardware/context/SemContextBounceShortMotion;-><init>()V
@@ -941,7 +768,7 @@
 
     goto/16 :goto_0
 
-    :pswitch_12
+    :pswitch_e
     new-instance v0, Lcom/samsung/android/hardware/context/SemContextBounceLongMotion;
 
     invoke-direct {v0}, Lcom/samsung/android/hardware/context/SemContextBounceLongMotion;-><init>()V
@@ -954,7 +781,7 @@
 
     goto/16 :goto_0
 
-    :pswitch_13
+    :pswitch_f
     new-instance v0, Lcom/samsung/android/hardware/context/SemContextWristUpMotion;
 
     invoke-direct {v0}, Lcom/samsung/android/hardware/context/SemContextWristUpMotion;-><init>()V
@@ -967,7 +794,7 @@
 
     goto/16 :goto_0
 
-    :pswitch_14
+    :pswitch_10
     new-instance v0, Lcom/samsung/android/hardware/context/SemContextFlatMotion;
 
     invoke-direct {v0}, Lcom/samsung/android/hardware/context/SemContextFlatMotion;-><init>()V
@@ -980,7 +807,7 @@
 
     goto/16 :goto_0
 
-    :pswitch_15
+    :pswitch_11
     new-instance v0, Lcom/samsung/android/hardware/context/SemContextMovementAlert;
 
     invoke-direct {v0}, Lcom/samsung/android/hardware/context/SemContextMovementAlert;-><init>()V
@@ -993,7 +820,7 @@
 
     goto/16 :goto_0
 
-    :pswitch_16
+    :pswitch_12
     new-instance v0, Lcom/samsung/android/hardware/context/SemContextDevicePosition;
 
     invoke-direct {v0}, Lcom/samsung/android/hardware/context/SemContextDevicePosition;-><init>()V
@@ -1006,20 +833,7 @@
 
     goto/16 :goto_0
 
-    :pswitch_17
-    new-instance v0, Lcom/samsung/android/hardware/context/SemContextTemperatureAlert;
-
-    invoke-direct {v0}, Lcom/samsung/android/hardware/context/SemContextTemperatureAlert;-><init>()V
-
-    iput-object v0, p0, Lcom/samsung/android/hardware/context/SemContextEvent;->mEventContext:Lcom/samsung/android/hardware/context/SemContextEventContext;
-
-    iget-object v0, p0, Lcom/samsung/android/hardware/context/SemContextEvent;->mEventContext:Lcom/samsung/android/hardware/context/SemContextEventContext;
-
-    invoke-virtual {v0, p2}, Lcom/samsung/android/hardware/context/SemContextEventContext;->setValues(Landroid/os/Bundle;)V
-
-    goto/16 :goto_0
-
-    :pswitch_18
+    :pswitch_13
     new-instance v0, Lcom/samsung/android/hardware/context/SemContextActivityLocationLogging;
 
     invoke-direct {v0}, Lcom/samsung/android/hardware/context/SemContextActivityLocationLogging;-><init>()V
@@ -1032,7 +846,7 @@
 
     goto/16 :goto_0
 
-    :pswitch_19
+    :pswitch_14
     new-instance v0, Lcom/samsung/android/hardware/context/SemContextActivityTracker;
 
     invoke-direct {v0}, Lcom/samsung/android/hardware/context/SemContextActivityTracker;-><init>()V
@@ -1045,7 +859,7 @@
 
     goto/16 :goto_0
 
-    :pswitch_1a
+    :pswitch_15
     new-instance v0, Lcom/samsung/android/hardware/context/SemContextActivityBatch;
 
     invoke-direct {v0}, Lcom/samsung/android/hardware/context/SemContextActivityBatch;-><init>()V
@@ -1058,7 +872,7 @@
 
     goto/16 :goto_0
 
-    :pswitch_1b
+    :pswitch_16
     new-instance v0, Lcom/samsung/android/hardware/context/SemContextActivityNotification;
 
     invoke-direct {v0}, Lcom/samsung/android/hardware/context/SemContextActivityNotification;-><init>()V
@@ -1071,7 +885,7 @@
 
     goto/16 :goto_0
 
-    :pswitch_1c
+    :pswitch_17
     new-instance v0, Lcom/samsung/android/hardware/context/SemContextSpecificPoseAlert;
 
     invoke-direct {v0}, Lcom/samsung/android/hardware/context/SemContextSpecificPoseAlert;-><init>()V
@@ -1084,23 +898,10 @@
 
     goto/16 :goto_0
 
-    :pswitch_1d
-    new-instance v0, Lcom/samsung/android/hardware/context/SemContextSleepMonitor;
+    :pswitch_18
+    new-instance v0, Lcom/samsung/android/hardware/context/SemContextActivityNotificationForLocation;
 
-    invoke-direct {v0}, Lcom/samsung/android/hardware/context/SemContextSleepMonitor;-><init>()V
-
-    iput-object v0, p0, Lcom/samsung/android/hardware/context/SemContextEvent;->mEventContext:Lcom/samsung/android/hardware/context/SemContextEventContext;
-
-    iget-object v0, p0, Lcom/samsung/android/hardware/context/SemContextEvent;->mEventContext:Lcom/samsung/android/hardware/context/SemContextEventContext;
-
-    invoke-virtual {v0, p2}, Lcom/samsung/android/hardware/context/SemContextEventContext;->setValues(Landroid/os/Bundle;)V
-
-    goto/16 :goto_0
-
-    :pswitch_1e
-    new-instance v0, Lcom/samsung/android/hardware/context/SemContextActivityNotificationEx;
-
-    invoke-direct {v0}, Lcom/samsung/android/hardware/context/SemContextActivityNotificationEx;-><init>()V
+    invoke-direct {v0}, Lcom/samsung/android/hardware/context/SemContextActivityNotificationForLocation;-><init>()V
 
     iput-object v0, p0, Lcom/samsung/android/hardware/context/SemContextEvent;->mEventContext:Lcom/samsung/android/hardware/context/SemContextEventContext;
 
@@ -1110,20 +911,7 @@
 
     goto/16 :goto_0
 
-    :pswitch_1f
-    new-instance v0, Lcom/samsung/android/hardware/context/SemContextCaptureMotion;
-
-    invoke-direct {v0}, Lcom/samsung/android/hardware/context/SemContextCaptureMotion;-><init>()V
-
-    iput-object v0, p0, Lcom/samsung/android/hardware/context/SemContextEvent;->mEventContext:Lcom/samsung/android/hardware/context/SemContextEventContext;
-
-    iget-object v0, p0, Lcom/samsung/android/hardware/context/SemContextEvent;->mEventContext:Lcom/samsung/android/hardware/context/SemContextEventContext;
-
-    invoke-virtual {v0, p2}, Lcom/samsung/android/hardware/context/SemContextEventContext;->setValues(Landroid/os/Bundle;)V
-
-    goto/16 :goto_0
-
-    :pswitch_20
+    :pswitch_19
     new-instance v0, Lcom/samsung/android/hardware/context/SemContextCallMotion;
 
     invoke-direct {v0}, Lcom/samsung/android/hardware/context/SemContextCallMotion;-><init>()V
@@ -1136,7 +924,7 @@
 
     goto/16 :goto_0
 
-    :pswitch_21
+    :pswitch_1a
     new-instance v0, Lcom/samsung/android/hardware/context/SemContextStepLevelMonitor;
 
     invoke-direct {v0}, Lcom/samsung/android/hardware/context/SemContextStepLevelMonitor;-><init>()V
@@ -1149,7 +937,7 @@
 
     goto/16 :goto_0
 
-    :pswitch_22
+    :pswitch_1b
     new-instance v0, Lcom/samsung/android/hardware/context/SemContextActiveTimeMonitor;
 
     invoke-direct {v0}, Lcom/samsung/android/hardware/context/SemContextActiveTimeMonitor;-><init>()V
@@ -1162,7 +950,7 @@
 
     goto/16 :goto_0
 
-    :pswitch_23
+    :pswitch_1c
     new-instance v0, Lcom/samsung/android/hardware/context/SemContextSedentaryTimer;
 
     invoke-direct {v0}, Lcom/samsung/android/hardware/context/SemContextSedentaryTimer;-><init>()V
@@ -1175,7 +963,7 @@
 
     goto/16 :goto_0
 
-    :pswitch_24
+    :pswitch_1d
     new-instance v0, Lcom/samsung/android/hardware/context/SemContextFlatMotionForTableMode;
 
     invoke-direct {v0}, Lcom/samsung/android/hardware/context/SemContextFlatMotionForTableMode;-><init>()V
@@ -1188,7 +976,7 @@
 
     goto/16 :goto_0
 
-    :pswitch_25
+    :pswitch_1e
     new-instance v0, Lcom/samsung/android/hardware/context/SemContextAutoBrightness;
 
     invoke-direct {v0}, Lcom/samsung/android/hardware/context/SemContextAutoBrightness;-><init>()V
@@ -1201,20 +989,7 @@
 
     goto/16 :goto_0
 
-    :pswitch_26
-    new-instance v0, Lcom/samsung/android/hardware/context/SemContextExercise;
-
-    invoke-direct {v0}, Lcom/samsung/android/hardware/context/SemContextExercise;-><init>()V
-
-    iput-object v0, p0, Lcom/samsung/android/hardware/context/SemContextEvent;->mEventContext:Lcom/samsung/android/hardware/context/SemContextEventContext;
-
-    iget-object v0, p0, Lcom/samsung/android/hardware/context/SemContextEvent;->mEventContext:Lcom/samsung/android/hardware/context/SemContextEventContext;
-
-    invoke-virtual {v0, p2}, Lcom/samsung/android/hardware/context/SemContextEventContext;->setValues(Landroid/os/Bundle;)V
-
-    goto/16 :goto_0
-
-    :pswitch_27
+    :pswitch_1f
     new-instance v0, Lcom/samsung/android/hardware/context/SemContextAbnormalPressure;
 
     invoke-direct {v0}, Lcom/samsung/android/hardware/context/SemContextAbnormalPressure;-><init>()V
@@ -1227,7 +1002,7 @@
 
     goto/16 :goto_0
 
-    :pswitch_28
+    :pswitch_20
     new-instance v0, Lcom/samsung/android/hardware/context/SemContextPhoneStatusMonitor;
 
     invoke-direct {v0}, Lcom/samsung/android/hardware/context/SemContextPhoneStatusMonitor;-><init>()V
@@ -1240,7 +1015,7 @@
 
     goto/16 :goto_0
 
-    :pswitch_29
+    :pswitch_21
     new-instance v0, Lcom/samsung/android/hardware/context/SemContextHallSensor;
 
     invoke-direct {v0}, Lcom/samsung/android/hardware/context/SemContextHallSensor;-><init>()V
@@ -1253,7 +1028,7 @@
 
     goto/16 :goto_0
 
-    :pswitch_2a
+    :pswitch_22
     new-instance v0, Lcom/samsung/android/hardware/context/SemContextEnvironmentAdaptiveDisplay;
 
     invoke-direct {v0}, Lcom/samsung/android/hardware/context/SemContextEnvironmentAdaptiveDisplay;-><init>()V
@@ -1266,20 +1041,7 @@
 
     goto/16 :goto_0
 
-    :pswitch_2b
-    new-instance v0, Lcom/samsung/android/hardware/context/SemContextDualDisplayAngle;
-
-    invoke-direct {v0}, Lcom/samsung/android/hardware/context/SemContextDualDisplayAngle;-><init>()V
-
-    iput-object v0, p0, Lcom/samsung/android/hardware/context/SemContextEvent;->mEventContext:Lcom/samsung/android/hardware/context/SemContextEventContext;
-
-    iget-object v0, p0, Lcom/samsung/android/hardware/context/SemContextEvent;->mEventContext:Lcom/samsung/android/hardware/context/SemContextEventContext;
-
-    invoke-virtual {v0, p2}, Lcom/samsung/android/hardware/context/SemContextEventContext;->setValues(Landroid/os/Bundle;)V
-
-    goto/16 :goto_0
-
-    :pswitch_2c
+    :pswitch_23
     new-instance v0, Lcom/samsung/android/hardware/context/SemContextWirelessChargingDetection;
 
     invoke-direct {v0}, Lcom/samsung/android/hardware/context/SemContextWirelessChargingDetection;-><init>()V
@@ -1292,10 +1054,10 @@
 
     goto/16 :goto_0
 
-    :pswitch_2d
-    new-instance v0, Lcom/samsung/android/hardware/context/SemContextSLocationCore;
+    :pswitch_24
+    new-instance v0, Lcom/samsung/android/hardware/context/SemContextLocationCore;
 
-    invoke-direct {v0}, Lcom/samsung/android/hardware/context/SemContextSLocationCore;-><init>()V
+    invoke-direct {v0}, Lcom/samsung/android/hardware/context/SemContextLocationCore;-><init>()V
 
     iput-object v0, p0, Lcom/samsung/android/hardware/context/SemContextEvent;->mEventContext:Lcom/samsung/android/hardware/context/SemContextEventContext;
 
@@ -1305,7 +1067,7 @@
 
     goto/16 :goto_0
 
-    :pswitch_2e
+    :pswitch_25
     new-instance v0, Lcom/samsung/android/hardware/context/SemContextFlipMotion;
 
     invoke-direct {v0}, Lcom/samsung/android/hardware/context/SemContextFlipMotion;-><init>()V
@@ -1316,19 +1078,9 @@
 
     invoke-virtual {v0, p2}, Lcom/samsung/android/hardware/context/SemContextEventContext;->setValues(Landroid/os/Bundle;)V
 
-    new-instance v0, Lcom/samsung/android/hardware/context/SemContextMainScreenDetection;
-
-    invoke-direct {v0}, Lcom/samsung/android/hardware/context/SemContextMainScreenDetection;-><init>()V
-
-    iput-object v0, p0, Lcom/samsung/android/hardware/context/SemContextEvent;->mDuplicatedEventContext:Lcom/samsung/android/hardware/context/SemContextEventContext;
-
-    iget-object v0, p0, Lcom/samsung/android/hardware/context/SemContextEvent;->mDuplicatedEventContext:Lcom/samsung/android/hardware/context/SemContextEventContext;
-
-    invoke-virtual {v0, p2}, Lcom/samsung/android/hardware/context/SemContextEventContext;->setValues(Landroid/os/Bundle;)V
-
     goto/16 :goto_0
 
-    :pswitch_2f
+    :pswitch_26
     new-instance v0, Lcom/samsung/android/hardware/context/SemContextAnyMotionDetector;
 
     invoke-direct {v0}, Lcom/samsung/android/hardware/context/SemContextAnyMotionDetector;-><init>()V
@@ -1341,7 +1093,7 @@
 
     goto/16 :goto_0
 
-    :pswitch_30
+    :pswitch_27
     new-instance v0, Lcom/samsung/android/hardware/context/SemContextCarryingDetection;
 
     invoke-direct {v0}, Lcom/samsung/android/hardware/context/SemContextCarryingDetection;-><init>()V
@@ -1354,10 +1106,36 @@
 
     goto/16 :goto_0
 
-    :pswitch_31
+    :pswitch_28
     new-instance v0, Lcom/samsung/android/hardware/context/SemContextSensorStatusCheck;
 
     invoke-direct {v0}, Lcom/samsung/android/hardware/context/SemContextSensorStatusCheck;-><init>()V
+
+    iput-object v0, p0, Lcom/samsung/android/hardware/context/SemContextEvent;->mEventContext:Lcom/samsung/android/hardware/context/SemContextEventContext;
+
+    iget-object v0, p0, Lcom/samsung/android/hardware/context/SemContextEvent;->mEventContext:Lcom/samsung/android/hardware/context/SemContextEventContext;
+
+    invoke-virtual {v0, p2}, Lcom/samsung/android/hardware/context/SemContextEventContext;->setValues(Landroid/os/Bundle;)V
+
+    goto/16 :goto_0
+
+    :pswitch_29
+    new-instance v0, Lcom/samsung/android/hardware/context/SemContextLocationChangeTrigger;
+
+    invoke-direct {v0}, Lcom/samsung/android/hardware/context/SemContextLocationChangeTrigger;-><init>()V
+
+    iput-object v0, p0, Lcom/samsung/android/hardware/context/SemContextEvent;->mEventContext:Lcom/samsung/android/hardware/context/SemContextEventContext;
+
+    iget-object v0, p0, Lcom/samsung/android/hardware/context/SemContextEvent;->mEventContext:Lcom/samsung/android/hardware/context/SemContextEventContext;
+
+    invoke-virtual {v0, p2}, Lcom/samsung/android/hardware/context/SemContextEventContext;->setValues(Landroid/os/Bundle;)V
+
+    goto/16 :goto_0
+
+    :pswitch_2a
+    new-instance v0, Lcom/samsung/android/hardware/context/SemContextFreeFallDetection;
+
+    invoke-direct {v0}, Lcom/samsung/android/hardware/context/SemContextFreeFallDetection;-><init>()V
 
     iput-object v0, p0, Lcom/samsung/android/hardware/context/SemContextEvent;->mEventContext:Lcom/samsung/android/hardware/context/SemContextEventContext;
 
@@ -1372,9 +1150,13 @@
         :pswitch_1
         :pswitch_2
         :pswitch_3
+        :pswitch_0
         :pswitch_4
         :pswitch_5
         :pswitch_6
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
         :pswitch_7
         :pswitch_8
         :pswitch_9
@@ -1387,40 +1169,39 @@
         :pswitch_10
         :pswitch_11
         :pswitch_12
+        :pswitch_0
         :pswitch_13
         :pswitch_14
         :pswitch_15
         :pswitch_16
         :pswitch_17
+        :pswitch_0
         :pswitch_18
+        :pswitch_0
         :pswitch_19
         :pswitch_1a
         :pswitch_1b
         :pswitch_1c
         :pswitch_1d
+        :pswitch_0
+        :pswitch_0
         :pswitch_1e
+        :pswitch_0
         :pswitch_1f
         :pswitch_20
         :pswitch_21
         :pswitch_22
+        :pswitch_0
         :pswitch_23
         :pswitch_24
-        :pswitch_0
         :pswitch_0
         :pswitch_25
         :pswitch_26
         :pswitch_27
         :pswitch_28
+        :pswitch_0
         :pswitch_29
         :pswitch_2a
-        :pswitch_2b
-        :pswitch_2c
-        :pswitch_2d
-        :pswitch_0
-        :pswitch_2e
-        :pswitch_2f
-        :pswitch_30
-        :pswitch_31
     .end packed-switch
 .end method
 
@@ -1443,20 +1224,5 @@
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeBundle(Landroid/os/Bundle;)V
 
-    iget-object v0, p0, Lcom/samsung/android/hardware/context/SemContextEvent;->semContext:Lcom/samsung/android/hardware/context/SemContext;
-
-    invoke-virtual {v0}, Lcom/samsung/android/hardware/context/SemContext;->getType()I
-
-    move-result v0
-
-    const/16 v1, 0x31
-
-    if-ne v0, v1, :cond_0
-
-    iget-object v0, p0, Lcom/samsung/android/hardware/context/SemContextEvent;->mDuplicatedEventContext:Lcom/samsung/android/hardware/context/SemContextEventContext;
-
-    invoke-virtual {p1, v0, p2}, Landroid/os/Parcel;->writeParcelable(Landroid/os/Parcelable;I)V
-
-    :cond_0
     return-void
 .end method

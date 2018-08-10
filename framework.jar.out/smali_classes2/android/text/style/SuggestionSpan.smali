@@ -429,7 +429,7 @@
     return-void
 
     :cond_0
-    const v0, 0x1160006
+    const v0, 0x1110120
 
     sget-object v2, Lcom/android/internal/R$styleable;->SuggestionSpan:[I
 
@@ -449,7 +449,7 @@
 
     iput v2, p0, Landroid/text/style/SuggestionSpan;->mMisspelledUnderlineColor:I
 
-    const v0, 0x1160005
+    const v0, 0x111011f
 
     sget-object v2, Lcom/android/internal/R$styleable;->SuggestionSpan:[I
 
@@ -469,7 +469,7 @@
 
     iput v2, p0, Landroid/text/style/SuggestionSpan;->mEasyCorrectUnderlineColor:I
 
-    const v0, 0x1160007
+    const v0, 0x111011e
 
     sget-object v2, Lcom/android/internal/R$styleable;->SuggestionSpan:[I
 

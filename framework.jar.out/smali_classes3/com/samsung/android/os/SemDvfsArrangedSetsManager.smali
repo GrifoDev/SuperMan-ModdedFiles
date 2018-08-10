@@ -15,11 +15,11 @@
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/samsung/android/os/SemDvfsManager;->LOG_TAG:Ljava/lang/String;
+    iput-object v0, p0, Lcom/samsung/android/os/SemDvfsArrangedSetsManager;->LOG_TAG:Ljava/lang/String;
 
     const-string/jumbo v0, "DEF"
 
-    iput-object v0, p0, Lcom/samsung/android/os/SemDvfsManager;->mName:Ljava/lang/String;
+    iput-object v0, p0, Lcom/samsung/android/os/SemDvfsArrangedSetsManager;->mName:Ljava/lang/String;
 
     return-void
 .end method
@@ -47,22 +47,22 @@
 
     const/4 v2, 0x0
 
-    iget-object v1, p0, Lcom/samsung/android/os/SemDvfsManager;->mCustomFreqManager:Landroid/os/CustomFrequencyManager;
+    iget-object v1, p0, Lcom/samsung/android/os/SemDvfsArrangedSetsManager;->mCustomFreqManager:Landroid/os/CustomFrequencyManager;
 
     if-nez v1, :cond_0
 
     return-void
 
     :cond_0
-    iget v1, p0, Lcom/samsung/android/os/SemDvfsManager;->mType:I
+    iget v1, p0, Lcom/samsung/android/os/SemDvfsArrangedSetsManager;->mType:I
 
     if-ne v1, v4, :cond_6
 
-    iget v1, p0, Lcom/samsung/android/os/SemDvfsManager;->mDvfsValue:I
+    iget v1, p0, Lcom/samsung/android/os/SemDvfsArrangedSetsManager;->mDvfsValue:I
 
     if-ge v1, v3, :cond_5
 
-    iput v3, p0, Lcom/samsung/android/os/SemDvfsManager;->mDvfsValue:I
+    iput v3, p0, Lcom/samsung/android/os/SemDvfsArrangedSetsManager;->mDvfsValue:I
 
     :cond_1
     :goto_0
@@ -71,7 +71,7 @@
     move-result-object v0
 
     :try_start_0
-    iget-object v1, p0, Lcom/samsung/android/os/SemDvfsManager;->LOG_TAG:Ljava/lang/String;
+    iget-object v1, p0, Lcom/samsung/android/os/SemDvfsArrangedSetsManager;->LOG_TAG:Ljava/lang/String;
 
     new-instance v2, Ljava/lang/StringBuilder;
 
@@ -105,7 +105,7 @@
 
     move-result-object v2
 
-    iget-object v3, p0, Lcom/samsung/android/os/SemDvfsManager;->mTagName:Ljava/lang/String;
+    iget-object v3, p0, Lcom/samsung/android/os/SemDvfsArrangedSetsManager;->mTagName:Ljava/lang/String;
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -115,42 +115,50 @@
 
     move-result-object v2
 
-    invoke-virtual {p0, v1, v2}, Lcom/samsung/android/os/SemDvfsManager;->logOnEng(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {p0, v1, v2}, Lcom/samsung/android/os/SemDvfsArrangedSetsManager;->logOnEng(Ljava/lang/String;Ljava/lang/String;)V
 
     iget-boolean v1, p0, Lcom/samsung/android/os/SemDvfsArrangedSetsManager;->mIsAcquired:Z
 
     if-eqz v1, :cond_2
 
-    iget-object v1, p0, Lcom/samsung/android/os/SemDvfsManager;->LOG_TAG:Ljava/lang/String;
+    const/4 v1, -0x1
+
+    if-ne p1, v1, :cond_2
+
+    iget-object v1, p0, Lcom/samsung/android/os/SemDvfsArrangedSetsManager;->LOG_TAG:Ljava/lang/String;
 
     const-string/jumbo v2, "acquire:: DVFS lock is already acquired. Previous lock will be released first."
 
-    invoke-virtual {p0, v1, v2}, Lcom/samsung/android/os/SemDvfsManager;->logOnEng(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {p0, v1, v2}, Lcom/samsung/android/os/SemDvfsArrangedSetsManager;->logOnEng(Ljava/lang/String;Ljava/lang/String;)V
 
-    invoke-virtual {p0}, Lcom/samsung/android/os/SemDvfsManager;->release()V
+    invoke-virtual {p0}, Lcom/samsung/android/os/SemDvfsArrangedSetsManager;->release()V
 
     :cond_2
-    iget v1, p0, Lcom/samsung/android/os/SemDvfsManager;->mType:I
+    iget v1, p0, Lcom/samsung/android/os/SemDvfsArrangedSetsManager;->mType:I
 
     if-ne v1, v4, :cond_7
 
-    iget v1, p0, Lcom/samsung/android/os/SemDvfsManager;->mDvfsValue:I
+    iget-object v1, p0, Lcom/samsung/android/os/SemDvfsArrangedSetsManager;->mDvfsRequest:Landroid/os/CustomFrequencyManager$FrequencyRequest;
+
+    if-nez v1, :cond_7
+
+    iget v1, p0, Lcom/samsung/android/os/SemDvfsArrangedSetsManager;->mDvfsValue:I
 
     if-ltz v1, :cond_3
 
-    iget v1, p0, Lcom/samsung/android/os/SemDvfsManager;->mDvfsValue:I
+    iget v1, p0, Lcom/samsung/android/os/SemDvfsArrangedSetsManager;->mDvfsValue:I
 
     if-ge v1, v5, :cond_3
 
-    iget-object v1, p0, Lcom/samsung/android/os/SemDvfsManager;->mCustomFreqManager:Landroid/os/CustomFrequencyManager;
+    iget-object v1, p0, Lcom/samsung/android/os/SemDvfsArrangedSetsManager;->mCustomFreqManager:Landroid/os/CustomFrequencyManager;
 
-    iget v3, p0, Lcom/samsung/android/os/SemDvfsManager;->mDvfsValue:I
+    iget v3, p0, Lcom/samsung/android/os/SemDvfsArrangedSetsManager;->mDvfsValue:I
 
     int-to-long v4, p1
 
-    iget-object v6, p0, Lcom/samsung/android/os/SemDvfsManager;->mTagName:Ljava/lang/String;
+    iget-object v6, p0, Lcom/samsung/android/os/SemDvfsArrangedSetsManager;->mTagName:Ljava/lang/String;
 
-    iget-object v7, p0, Lcom/samsung/android/os/SemDvfsManager;->mContext:Landroid/content/Context;
+    iget-object v7, p0, Lcom/samsung/android/os/SemDvfsArrangedSetsManager;->mContext:Landroid/content/Context;
 
     const/4 v2, 0x3
 
@@ -158,15 +166,15 @@
 
     move-result-object v1
 
-    iput-object v1, p0, Lcom/samsung/android/os/SemDvfsManager;->mDvfsRequest:Landroid/os/CustomFrequencyManager$FrequencyRequest;
+    iput-object v1, p0, Lcom/samsung/android/os/SemDvfsArrangedSetsManager;->mDvfsRequest:Landroid/os/CustomFrequencyManager$FrequencyRequest;
 
     :cond_3
     :goto_1
-    iget-object v1, p0, Lcom/samsung/android/os/SemDvfsManager;->mDvfsRequest:Landroid/os/CustomFrequencyManager$FrequencyRequest;
+    iget-object v1, p0, Lcom/samsung/android/os/SemDvfsArrangedSetsManager;->mDvfsRequest:Landroid/os/CustomFrequencyManager$FrequencyRequest;
 
     if-eqz v1, :cond_4
 
-    iget-object v1, p0, Lcom/samsung/android/os/SemDvfsManager;->mDvfsRequest:Landroid/os/CustomFrequencyManager$FrequencyRequest;
+    iget-object v1, p0, Lcom/samsung/android/os/SemDvfsArrangedSetsManager;->mDvfsRequest:Landroid/os/CustomFrequencyManager$FrequencyRequest;
 
     invoke-virtual {v1}, Landroid/os/CustomFrequencyManager$FrequencyRequest;->doFrequencyRequest()V
 
@@ -182,38 +190,42 @@
     return-void
 
     :cond_5
-    iget v1, p0, Lcom/samsung/android/os/SemDvfsManager;->mDvfsValue:I
+    iget v1, p0, Lcom/samsung/android/os/SemDvfsArrangedSetsManager;->mDvfsValue:I
 
     if-le v1, v5, :cond_1
 
-    iput v5, p0, Lcom/samsung/android/os/SemDvfsManager;->mDvfsValue:I
+    iput v5, p0, Lcom/samsung/android/os/SemDvfsArrangedSetsManager;->mDvfsValue:I
 
     goto :goto_0
 
     :cond_6
-    iget v1, p0, Lcom/samsung/android/os/SemDvfsManager;->mType:I
+    iget v1, p0, Lcom/samsung/android/os/SemDvfsArrangedSetsManager;->mType:I
 
     if-le v1, v4, :cond_1
 
-    iput v2, p0, Lcom/samsung/android/os/SemDvfsManager;->mDvfsValue:I
+    iput v2, p0, Lcom/samsung/android/os/SemDvfsArrangedSetsManager;->mDvfsValue:I
 
-    goto :goto_0
+    goto/16 :goto_0
 
     :cond_7
     :try_start_1
-    iget v1, p0, Lcom/samsung/android/os/SemDvfsManager;->mType:I
+    iget v1, p0, Lcom/samsung/android/os/SemDvfsArrangedSetsManager;->mType:I
 
     const/16 v2, 0x17
 
     if-ne v1, v2, :cond_8
 
-    iget-object v1, p0, Lcom/samsung/android/os/SemDvfsManager;->mCustomFreqManager:Landroid/os/CustomFrequencyManager;
+    iget-object v1, p0, Lcom/samsung/android/os/SemDvfsArrangedSetsManager;->mDvfsRequest:Landroid/os/CustomFrequencyManager$FrequencyRequest;
+
+    if-nez v1, :cond_8
+
+    iget-object v1, p0, Lcom/samsung/android/os/SemDvfsArrangedSetsManager;->mCustomFreqManager:Landroid/os/CustomFrequencyManager;
 
     int-to-long v4, p1
 
-    iget-object v6, p0, Lcom/samsung/android/os/SemDvfsManager;->mTagName:Ljava/lang/String;
+    iget-object v6, p0, Lcom/samsung/android/os/SemDvfsArrangedSetsManager;->mTagName:Ljava/lang/String;
 
-    iget-object v7, p0, Lcom/samsung/android/os/SemDvfsManager;->mContext:Landroid/content/Context;
+    iget-object v7, p0, Lcom/samsung/android/os/SemDvfsArrangedSetsManager;->mContext:Landroid/content/Context;
 
     const/16 v2, 0xc
 
@@ -223,7 +235,7 @@
 
     move-result-object v1
 
-    iput-object v1, p0, Lcom/samsung/android/os/SemDvfsManager;->mDvfsRequest:Landroid/os/CustomFrequencyManager$FrequencyRequest;
+    iput-object v1, p0, Lcom/samsung/android/os/SemDvfsArrangedSetsManager;->mDvfsRequest:Landroid/os/CustomFrequencyManager$FrequencyRequest;
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
@@ -238,19 +250,23 @@
 
     :cond_8
     :try_start_2
-    iget v1, p0, Lcom/samsung/android/os/SemDvfsManager;->mType:I
+    iget v1, p0, Lcom/samsung/android/os/SemDvfsArrangedSetsManager;->mType:I
 
     const/16 v2, 0x18
 
     if-ne v1, v2, :cond_9
 
-    iget-object v1, p0, Lcom/samsung/android/os/SemDvfsManager;->mCustomFreqManager:Landroid/os/CustomFrequencyManager;
+    iget-object v1, p0, Lcom/samsung/android/os/SemDvfsArrangedSetsManager;->mDvfsRequest:Landroid/os/CustomFrequencyManager$FrequencyRequest;
+
+    if-nez v1, :cond_9
+
+    iget-object v1, p0, Lcom/samsung/android/os/SemDvfsArrangedSetsManager;->mCustomFreqManager:Landroid/os/CustomFrequencyManager;
 
     int-to-long v4, p1
 
-    iget-object v6, p0, Lcom/samsung/android/os/SemDvfsManager;->mTagName:Ljava/lang/String;
+    iget-object v6, p0, Lcom/samsung/android/os/SemDvfsArrangedSetsManager;->mTagName:Ljava/lang/String;
 
-    iget-object v7, p0, Lcom/samsung/android/os/SemDvfsManager;->mContext:Landroid/content/Context;
+    iget-object v7, p0, Lcom/samsung/android/os/SemDvfsArrangedSetsManager;->mContext:Landroid/content/Context;
 
     const/16 v2, 0xd
 
@@ -260,24 +276,28 @@
 
     move-result-object v1
 
-    iput-object v1, p0, Lcom/samsung/android/os/SemDvfsManager;->mDvfsRequest:Landroid/os/CustomFrequencyManager$FrequencyRequest;
+    iput-object v1, p0, Lcom/samsung/android/os/SemDvfsArrangedSetsManager;->mDvfsRequest:Landroid/os/CustomFrequencyManager$FrequencyRequest;
 
     goto :goto_1
 
     :cond_9
-    iget v1, p0, Lcom/samsung/android/os/SemDvfsManager;->mType:I
+    iget v1, p0, Lcom/samsung/android/os/SemDvfsArrangedSetsManager;->mType:I
 
     const/16 v2, 0x19
 
     if-ne v1, v2, :cond_a
 
-    iget-object v1, p0, Lcom/samsung/android/os/SemDvfsManager;->mCustomFreqManager:Landroid/os/CustomFrequencyManager;
+    iget-object v1, p0, Lcom/samsung/android/os/SemDvfsArrangedSetsManager;->mDvfsRequest:Landroid/os/CustomFrequencyManager$FrequencyRequest;
+
+    if-nez v1, :cond_a
+
+    iget-object v1, p0, Lcom/samsung/android/os/SemDvfsArrangedSetsManager;->mCustomFreqManager:Landroid/os/CustomFrequencyManager;
 
     int-to-long v4, p1
 
-    iget-object v6, p0, Lcom/samsung/android/os/SemDvfsManager;->mTagName:Ljava/lang/String;
+    iget-object v6, p0, Lcom/samsung/android/os/SemDvfsArrangedSetsManager;->mTagName:Ljava/lang/String;
 
-    iget-object v7, p0, Lcom/samsung/android/os/SemDvfsManager;->mContext:Landroid/content/Context;
+    iget-object v7, p0, Lcom/samsung/android/os/SemDvfsArrangedSetsManager;->mContext:Landroid/content/Context;
 
     const/16 v2, 0xe
 
@@ -287,24 +307,28 @@
 
     move-result-object v1
 
-    iput-object v1, p0, Lcom/samsung/android/os/SemDvfsManager;->mDvfsRequest:Landroid/os/CustomFrequencyManager$FrequencyRequest;
+    iput-object v1, p0, Lcom/samsung/android/os/SemDvfsArrangedSetsManager;->mDvfsRequest:Landroid/os/CustomFrequencyManager$FrequencyRequest;
 
     goto :goto_1
 
     :cond_a
-    iget v1, p0, Lcom/samsung/android/os/SemDvfsManager;->mType:I
+    iget v1, p0, Lcom/samsung/android/os/SemDvfsArrangedSetsManager;->mType:I
 
     const/16 v2, 0x1a
 
     if-ne v1, v2, :cond_3
 
-    iget-object v1, p0, Lcom/samsung/android/os/SemDvfsManager;->mCustomFreqManager:Landroid/os/CustomFrequencyManager;
+    iget-object v1, p0, Lcom/samsung/android/os/SemDvfsArrangedSetsManager;->mDvfsRequest:Landroid/os/CustomFrequencyManager$FrequencyRequest;
+
+    if-nez v1, :cond_3
+
+    iget-object v1, p0, Lcom/samsung/android/os/SemDvfsArrangedSetsManager;->mCustomFreqManager:Landroid/os/CustomFrequencyManager;
 
     int-to-long v4, p1
 
-    iget-object v6, p0, Lcom/samsung/android/os/SemDvfsManager;->mTagName:Ljava/lang/String;
+    iget-object v6, p0, Lcom/samsung/android/os/SemDvfsArrangedSetsManager;->mTagName:Ljava/lang/String;
 
-    iget-object v7, p0, Lcom/samsung/android/os/SemDvfsManager;->mContext:Landroid/content/Context;
+    iget-object v7, p0, Lcom/samsung/android/os/SemDvfsArrangedSetsManager;->mContext:Landroid/content/Context;
 
     const/16 v2, 0xf
 
@@ -314,11 +338,11 @@
 
     move-result-object v1
 
-    iput-object v1, p0, Lcom/samsung/android/os/SemDvfsManager;->mDvfsRequest:Landroid/os/CustomFrequencyManager$FrequencyRequest;
+    iput-object v1, p0, Lcom/samsung/android/os/SemDvfsArrangedSetsManager;->mDvfsRequest:Landroid/os/CustomFrequencyManager$FrequencyRequest;
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    goto :goto_1
+    goto/16 :goto_1
 .end method
 
 .method public clearDvfsValue()V
@@ -326,7 +350,7 @@
 
     const/16 v0, -0x3e7
 
-    iput v0, p0, Lcom/samsung/android/os/SemDvfsManager;->mDvfsValue:I
+    iput v0, p0, Lcom/samsung/android/os/SemDvfsArrangedSetsManager;->mDvfsValue:I
 
     return-void
 .end method
@@ -334,7 +358,7 @@
 .method public setDvfsValue(I)V
     .locals 0
 
-    iput p1, p0, Lcom/samsung/android/os/SemDvfsManager;->mDvfsValue:I
+    iput p1, p0, Lcom/samsung/android/os/SemDvfsArrangedSetsManager;->mDvfsValue:I
 
     return-void
 .end method

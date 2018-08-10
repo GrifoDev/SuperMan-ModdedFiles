@@ -219,19 +219,19 @@
 .end method
 
 .method public getDbm()I
-    .locals 5
-
-    const v3, 0x7fffffff
+    .locals 4
 
     iget v2, p0, Landroid/telephony/CellSignalStrengthWcdma;->mSignalStrength:I
 
-    const/16 v4, 0x63
+    const/16 v3, 0x63
 
-    if-ne v2, v4, :cond_0
+    if-ne v2, v3, :cond_0
 
-    move v0, v3
+    const v0, 0x7fffffff
 
     :goto_0
+    const v3, 0x7fffffff
+
     if-eq v0, v3, :cond_1
 
     mul-int/lit8 v3, v0, 0x2
@@ -305,19 +305,21 @@
 .end method
 
 .method public hashCode()I
-    .locals 2
+    .locals 3
 
-    iget v0, p0, Landroid/telephony/CellSignalStrengthWcdma;->mSignalStrength:I
+    const/16 v0, 0x1f
 
-    mul-int/lit8 v0, v0, 0x1f
-
-    iget v1, p0, Landroid/telephony/CellSignalStrengthWcdma;->mBitErrorRate:I
+    iget v1, p0, Landroid/telephony/CellSignalStrengthWcdma;->mSignalStrength:I
 
     mul-int/lit8 v1, v1, 0x1f
 
-    add-int/2addr v0, v1
+    iget v2, p0, Landroid/telephony/CellSignalStrengthWcdma;->mBitErrorRate:I
 
-    return v0
+    mul-int/lit8 v2, v2, 0x1f
+
+    add-int/2addr v1, v2
+
+    return v1
 .end method
 
 .method public initialize(II)V

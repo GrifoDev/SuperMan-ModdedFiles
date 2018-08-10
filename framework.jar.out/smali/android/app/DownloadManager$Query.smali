@@ -21,6 +21,8 @@
 
 
 # instance fields
+.field private mFilterString:Ljava/lang/String;
+
 .field private mIds:[J
 
 .field private mOnlyIncludeVisibleInDownloadsUi:Z
@@ -43,6 +45,8 @@
     iput-object v0, p0, Landroid/app/DownloadManager$Query;->mIds:[J
 
     iput-object v0, p0, Landroid/app/DownloadManager$Query;->mStatusFlags:Ljava/lang/Integer;
+
+    iput-object v0, p0, Landroid/app/DownloadManager$Query;->mFilterString:Ljava/lang/String;
 
     const-string/jumbo v0, "lastmod"
 
@@ -695,6 +699,14 @@
     move-result-object v0
 
     iput-object v0, p0, Landroid/app/DownloadManager$Query;->mStatusFlags:Ljava/lang/Integer;
+
+    return-object p0
+.end method
+
+.method public setFilterByString(Ljava/lang/String;)Landroid/app/DownloadManager$Query;
+    .locals 0
+
+    iput-object p1, p0, Landroid/app/DownloadManager$Query;->mFilterString:Ljava/lang/String;
 
     return-object p0
 .end method

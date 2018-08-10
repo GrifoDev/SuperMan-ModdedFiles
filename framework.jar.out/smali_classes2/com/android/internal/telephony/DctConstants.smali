@@ -121,7 +121,7 @@
 
 .field public static final EVENT_DO_RECOVERY:I = 0x42012
 
-.field public static final EVENT_DUN_STATE_CHANGED:I = 0x42068
+.field public static final EVENT_EMERGENCY_TIMEOUT:I = 0x42072
 
 .field public static final EVENT_ENABLE_DATA_SWITCH_READY:I = 0x42064
 
@@ -135,11 +135,19 @@
 
 .field public static final EVENT_ICC_CHANGED:I = 0x42021
 
+.field public static final EVENT_IMS_PREFERENCE_CHANGED:I = 0x42073
+
 .field public static final EVENT_LINK_STATE_CHANGED:I = 0x4200a
 
 .field public static final EVENT_LTE_ROAMING_DB_CHANGED:I = 0x42046
 
 .field public static final EVENT_MOBILE_DATA_CHANGE:I = 0x42071
+
+.field public static final EVENT_NON_DDS_MMS_ENDED:I = 0x42075
+
+.field public static final EVENT_NON_DDS_MMS_STARTED:I = 0x42074
+
+.field public static final EVENT_PCO_DATA_RECEIVED:I = 0x4202d
 
 .field public static final EVENT_PLMN_CHANGED:I = 0x4206c
 
@@ -173,13 +181,11 @@
 
 .field public static final EVENT_SETUP_DATA_RECORDS_LOADED:I = 0x42070
 
+.field public static final EVENT_SET_CARRIER_DATA_ENABLED:I = 0x4202e
+
 .field public static final EVENT_SET_FORCE_INTERNAL_DATA_ENABLE:I = 0x42069
 
 .field public static final EVENT_SET_INTERNAL_DATA_ENABLE:I = 0x4201b
-
-.field public static final EVENT_SET_VOICE_DOMAIN:I = 0x42065
-
-.field public static final EVENT_SET_VOICE_DOMAIN_DONE:I = 0x42066
 
 .field public static final EVENT_TRY_SETUP_DATA:I = 0x42003
 

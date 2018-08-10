@@ -138,7 +138,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/internal/PhoneStateMonitorRunner$2;->this$0:Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/internal/PhoneStateMonitorRunner;
 
-    invoke-virtual {v1}, Lcom/samsung/android/contextaware/manager/ContextComponent;->notifyObserver()V
+    invoke-virtual {v1}, Lcom/samsung/android/contextaware/dataprovider/sensorhubprovider/internal/PhoneStateMonitorRunner;->notifyObserver()V
 
     :cond_0
     :goto_0

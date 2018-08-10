@@ -36,9 +36,7 @@
 
 .field public appWidth:I
 
-.field public colorTransformId:I
-
-.field public defaultColorTransformId:I
+.field public colorMode:I
 
 .field public defaultModeId:I
 
@@ -80,6 +78,8 @@
 
 .field public presentationDeadlineNanos:J
 
+.field public removeMode:I
+
 .field public rotation:I
 
 .field public smallestNominalAppHeight:I
@@ -88,7 +88,7 @@
 
 .field public state:I
 
-.field public supportedColorTransforms:[Landroid/view/Display$ColorTransform;
+.field public supportedColorModes:[I
 
 .field public supportedModes:[Landroid/view/Display$Mode;
 
@@ -111,7 +111,9 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 1
+    .locals 2
+
+    const/4 v1, 0x0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -119,15 +121,23 @@
 
     iput-object v0, p0, Landroid/view/DisplayInfo;->supportedModes:[Landroid/view/Display$Mode;
 
-    sget-object v0, Landroid/view/Display$ColorTransform;->EMPTY_ARRAY:[Landroid/view/Display$ColorTransform;
+    const/4 v0, 0x1
 
-    iput-object v0, p0, Landroid/view/DisplayInfo;->supportedColorTransforms:[Landroid/view/Display$ColorTransform;
+    new-array v0, v0, [I
+
+    aput v1, v0, v1
+
+    iput-object v0, p0, Landroid/view/DisplayInfo;->supportedColorModes:[I
+
+    iput v1, p0, Landroid/view/DisplayInfo;->removeMode:I
 
     return-void
 .end method
 
 .method private constructor <init>(Landroid/os/Parcel;)V
-    .locals 1
+    .locals 2
+
+    const/4 v1, 0x0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -135,9 +145,15 @@
 
     iput-object v0, p0, Landroid/view/DisplayInfo;->supportedModes:[Landroid/view/Display$Mode;
 
-    sget-object v0, Landroid/view/Display$ColorTransform;->EMPTY_ARRAY:[Landroid/view/Display$ColorTransform;
+    const/4 v0, 0x1
 
-    iput-object v0, p0, Landroid/view/DisplayInfo;->supportedColorTransforms:[Landroid/view/Display$ColorTransform;
+    new-array v0, v0, [I
+
+    aput v1, v0, v1
+
+    iput-object v0, p0, Landroid/view/DisplayInfo;->supportedColorModes:[I
+
+    iput v1, p0, Landroid/view/DisplayInfo;->removeMode:I
 
     invoke-virtual {p0, p1}, Landroid/view/DisplayInfo;->readFromParcel(Landroid/os/Parcel;)V
 
@@ -153,7 +169,9 @@
 .end method
 
 .method public constructor <init>(Landroid/view/DisplayInfo;)V
-    .locals 1
+    .locals 2
+
+    const/4 v1, 0x0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -161,68 +179,19 @@
 
     iput-object v0, p0, Landroid/view/DisplayInfo;->supportedModes:[Landroid/view/Display$Mode;
 
-    sget-object v0, Landroid/view/Display$ColorTransform;->EMPTY_ARRAY:[Landroid/view/Display$ColorTransform;
+    const/4 v0, 0x1
 
-    iput-object v0, p0, Landroid/view/DisplayInfo;->supportedColorTransforms:[Landroid/view/Display$ColorTransform;
+    new-array v0, v0, [I
+
+    aput v1, v0, v1
+
+    iput-object v0, p0, Landroid/view/DisplayInfo;->supportedColorModes:[I
+
+    iput v1, p0, Landroid/view/DisplayInfo;->removeMode:I
 
     invoke-virtual {p0, p1}, Landroid/view/DisplayInfo;->copyFrom(Landroid/view/DisplayInfo;)V
 
     return-void
-.end method
-
-.method private findColorTransform(I)Landroid/view/Display$ColorTransform;
-    .locals 5
-
-    const/4 v1, 0x0
-
-    :goto_0
-    iget-object v2, p0, Landroid/view/DisplayInfo;->supportedColorTransforms:[Landroid/view/Display$ColorTransform;
-
-    array-length v2, v2
-
-    if-ge v1, v2, :cond_1
-
-    iget-object v2, p0, Landroid/view/DisplayInfo;->supportedColorTransforms:[Landroid/view/Display$ColorTransform;
-
-    aget-object v0, v2, v1
-
-    invoke-virtual {v0}, Landroid/view/Display$ColorTransform;->getId()I
-
-    move-result v2
-
-    if-ne v2, p1, :cond_0
-
-    return-object v0
-
-    :cond_0
-    add-int/lit8 v1, v1, 0x1
-
-    goto :goto_0
-
-    :cond_1
-    new-instance v2, Ljava/lang/IllegalStateException;
-
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v4, "Unable to locate color transform: "
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-direct {v2, v3}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
-
-    throw v2
 .end method
 
 .method private findMode(I)Landroid/view/Display$Mode;
@@ -358,6 +327,39 @@
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     :cond_6
+    const/high16 v1, 0x200000
+
+    and-int/2addr v1, p0
+
+    if-eqz v1, :cond_7
+
+    const-string/jumbo v1, ", FLAG_SHOW_IN_DEFAULT_DEVICE"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    :cond_7
+    const/high16 v1, 0x10000000
+
+    and-int/2addr v1, p0
+
+    if-eqz v1, :cond_8
+
+    const-string/jumbo v1, ", FLAG_WIFI_DISPLAY"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    :cond_8
+    const/high16 v1, 0x20000000
+
+    and-int/2addr v1, p0
+
+    if-eqz v1, :cond_9
+
+    const-string/jumbo v1, ", FLAG_NO_LOCK_PRESENTATION"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    :cond_9
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v1
@@ -366,9 +368,7 @@
 .end method
 
 .method private getMetricsWithSize(Landroid/util/DisplayMetrics;Landroid/content/res/CompatibilityInfo;Landroid/content/res/Configuration;II)V
-    .locals 6
-
-    const/high16 v5, 0x3f000000    # 0.5f
+    .locals 5
 
     const v4, 0x3bcccccd    # 0.00625f
 
@@ -422,7 +422,7 @@
 
     iget v2, p1, Landroid/util/DisplayMetrics;->densityDpi:I
 
-    invoke-static {v1, v2}, Lcom/samsung/android/bridge/multiwindow/MultiWindowManagerBridge$Utils;->getFreeformDensity(II)I
+    invoke-static {v1, v2}, Lcom/samsung/android/multiwindow/MultiWindowManager$Utils;->getFreeformDensity(II)I
 
     move-result v0
 
@@ -469,42 +469,38 @@
 
     if-eqz p3, :cond_1
 
-    iget v2, p3, Landroid/content/res/Configuration;->screenWidthDp:I
+    iget-object v2, p3, Landroid/content/res/Configuration;->appBounds:Landroid/graphics/Rect;
 
     if-eqz v2, :cond_1
 
-    iget v2, p3, Landroid/content/res/Configuration;->screenWidthDp:I
+    iget-object v2, p3, Landroid/content/res/Configuration;->appBounds:Landroid/graphics/Rect;
 
-    int-to-float v2, v2
+    invoke-virtual {v2}, Landroid/graphics/Rect;->width()I
 
-    iget v3, p1, Landroid/util/DisplayMetrics;->density:F
-
-    mul-float/2addr v2, v3
-
-    add-float/2addr v2, v5
-
-    float-to-int p4, v2
+    move-result p4
 
     :cond_1
     if-eqz p3, :cond_2
 
-    iget v2, p3, Landroid/content/res/Configuration;->screenHeightDp:I
+    iget-object v2, p3, Landroid/content/res/Configuration;->appBounds:Landroid/graphics/Rect;
 
     if-eqz v2, :cond_2
 
-    iget v2, p3, Landroid/content/res/Configuration;->screenHeightDp:I
+    iget-object v2, p3, Landroid/content/res/Configuration;->appBounds:Landroid/graphics/Rect;
 
-    int-to-float v2, v2
+    invoke-virtual {v2}, Landroid/graphics/Rect;->height()I
 
-    iget v3, p1, Landroid/util/DisplayMetrics;->density:F
-
-    mul-float/2addr v2, v3
-
-    add-float/2addr v2, v5
-
-    float-to-int p5, v2
+    move-result p5
 
     :cond_2
+    iget v2, p0, Landroid/view/DisplayInfo;->appWidth:I
+
+    iput v2, p1, Landroid/util/DisplayMetrics;->appWidth:I
+
+    iget v2, p0, Landroid/view/DisplayInfo;->appHeight:I
+
+    iput v2, p1, Landroid/util/DisplayMetrics;->appHeight:I
+
     iput p4, p1, Landroid/util/DisplayMetrics;->widthPixels:I
 
     iput p4, p1, Landroid/util/DisplayMetrics;->noncompatWidthPixels:I
@@ -630,27 +626,21 @@
 
     iput-object v0, p0, Landroid/view/DisplayInfo;->supportedModes:[Landroid/view/Display$Mode;
 
-    iget v0, p1, Landroid/view/DisplayInfo;->colorTransformId:I
+    iget v0, p1, Landroid/view/DisplayInfo;->colorMode:I
 
-    iput v0, p0, Landroid/view/DisplayInfo;->colorTransformId:I
+    iput v0, p0, Landroid/view/DisplayInfo;->colorMode:I
 
-    iget v0, p1, Landroid/view/DisplayInfo;->defaultColorTransformId:I
+    iget-object v0, p1, Landroid/view/DisplayInfo;->supportedColorModes:[I
 
-    iput v0, p0, Landroid/view/DisplayInfo;->defaultColorTransformId:I
-
-    iget-object v0, p1, Landroid/view/DisplayInfo;->supportedColorTransforms:[Landroid/view/Display$ColorTransform;
-
-    iget-object v1, p1, Landroid/view/DisplayInfo;->supportedColorTransforms:[Landroid/view/Display$ColorTransform;
+    iget-object v1, p1, Landroid/view/DisplayInfo;->supportedColorModes:[I
 
     array-length v1, v1
 
-    invoke-static {v0, v1}, Ljava/util/Arrays;->copyOf([Ljava/lang/Object;I)[Ljava/lang/Object;
+    invoke-static {v0, v1}, Ljava/util/Arrays;->copyOf([II)[I
 
     move-result-object v0
 
-    check-cast v0, [Landroid/view/Display$ColorTransform;
-
-    iput-object v0, p0, Landroid/view/DisplayInfo;->supportedColorTransforms:[Landroid/view/Display$ColorTransform;
+    iput-object v0, p0, Landroid/view/DisplayInfo;->supportedColorModes:[I
 
     iget-object v0, p1, Landroid/view/DisplayInfo;->hdrCapabilities:Landroid/view/Display$HdrCapabilities;
 
@@ -688,6 +678,10 @@
 
     iput-object v0, p0, Landroid/view/DisplayInfo;->ownerPackageName:Ljava/lang/String;
 
+    iget v0, p1, Landroid/view/DisplayInfo;->removeMode:I
+
+    iput v0, p0, Landroid/view/DisplayInfo;->removeMode:I
+
     return-void
 .end method
 
@@ -700,225 +694,236 @@
 .end method
 
 .method public equals(Landroid/view/DisplayInfo;)Z
-    .locals 4
+    .locals 6
+
+    const/4 v0, 0x0
 
     if-eqz p1, :cond_0
 
-    iget v0, p0, Landroid/view/DisplayInfo;->layerStack:I
+    iget v1, p0, Landroid/view/DisplayInfo;->layerStack:I
 
-    iget v1, p1, Landroid/view/DisplayInfo;->layerStack:I
+    iget v2, p1, Landroid/view/DisplayInfo;->layerStack:I
 
-    if-ne v0, v1, :cond_0
+    if-ne v1, v2, :cond_0
 
-    iget v0, p0, Landroid/view/DisplayInfo;->flags:I
+    iget v1, p0, Landroid/view/DisplayInfo;->flags:I
 
-    iget v1, p1, Landroid/view/DisplayInfo;->flags:I
+    iget v2, p1, Landroid/view/DisplayInfo;->flags:I
 
-    if-ne v0, v1, :cond_0
+    if-ne v1, v2, :cond_0
 
-    iget v0, p0, Landroid/view/DisplayInfo;->type:I
+    iget v1, p0, Landroid/view/DisplayInfo;->type:I
 
-    iget v1, p1, Landroid/view/DisplayInfo;->type:I
+    iget v2, p1, Landroid/view/DisplayInfo;->type:I
 
-    if-ne v0, v1, :cond_0
+    if-ne v1, v2, :cond_0
 
-    iget-object v0, p0, Landroid/view/DisplayInfo;->address:Ljava/lang/String;
+    iget-object v1, p0, Landroid/view/DisplayInfo;->address:Ljava/lang/String;
 
-    iget-object v1, p1, Landroid/view/DisplayInfo;->address:Ljava/lang/String;
+    iget-object v2, p1, Landroid/view/DisplayInfo;->address:Ljava/lang/String;
 
-    invoke-static {v0, v1}, Llibcore/util/Objects;->equal(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invoke-static {v1, v2}, Llibcore/util/Objects;->equal(Ljava/lang/Object;Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v1
 
-    if-eqz v0, :cond_0
+    if-eqz v1, :cond_0
 
-    iget-object v0, p0, Landroid/view/DisplayInfo;->uniqueId:Ljava/lang/String;
+    iget-object v1, p0, Landroid/view/DisplayInfo;->uniqueId:Ljava/lang/String;
 
-    iget-object v1, p1, Landroid/view/DisplayInfo;->uniqueId:Ljava/lang/String;
+    iget-object v2, p1, Landroid/view/DisplayInfo;->uniqueId:Ljava/lang/String;
 
-    invoke-static {v0, v1}, Llibcore/util/Objects;->equal(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invoke-static {v1, v2}, Llibcore/util/Objects;->equal(Ljava/lang/Object;Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v1
 
-    if-eqz v0, :cond_0
+    if-eqz v1, :cond_0
 
-    iget v0, p0, Landroid/view/DisplayInfo;->appWidth:I
+    iget v1, p0, Landroid/view/DisplayInfo;->appWidth:I
 
-    iget v1, p1, Landroid/view/DisplayInfo;->appWidth:I
+    iget v2, p1, Landroid/view/DisplayInfo;->appWidth:I
 
-    if-ne v0, v1, :cond_0
+    if-ne v1, v2, :cond_0
 
-    iget v0, p0, Landroid/view/DisplayInfo;->appHeight:I
+    iget v1, p0, Landroid/view/DisplayInfo;->appHeight:I
 
-    iget v1, p1, Landroid/view/DisplayInfo;->appHeight:I
+    iget v2, p1, Landroid/view/DisplayInfo;->appHeight:I
 
-    if-ne v0, v1, :cond_0
+    if-ne v1, v2, :cond_0
 
-    iget v0, p0, Landroid/view/DisplayInfo;->smallestNominalAppWidth:I
+    iget v1, p0, Landroid/view/DisplayInfo;->smallestNominalAppWidth:I
 
-    iget v1, p1, Landroid/view/DisplayInfo;->smallestNominalAppWidth:I
+    iget v2, p1, Landroid/view/DisplayInfo;->smallestNominalAppWidth:I
 
-    if-ne v0, v1, :cond_0
+    if-ne v1, v2, :cond_0
 
-    iget v0, p0, Landroid/view/DisplayInfo;->smallestNominalAppHeight:I
+    iget v1, p0, Landroid/view/DisplayInfo;->smallestNominalAppHeight:I
 
-    iget v1, p1, Landroid/view/DisplayInfo;->smallestNominalAppHeight:I
+    iget v2, p1, Landroid/view/DisplayInfo;->smallestNominalAppHeight:I
 
-    if-ne v0, v1, :cond_0
+    if-ne v1, v2, :cond_0
 
-    iget v0, p0, Landroid/view/DisplayInfo;->largestNominalAppWidth:I
+    iget v1, p0, Landroid/view/DisplayInfo;->largestNominalAppWidth:I
 
-    iget v1, p1, Landroid/view/DisplayInfo;->largestNominalAppWidth:I
+    iget v2, p1, Landroid/view/DisplayInfo;->largestNominalAppWidth:I
 
-    if-ne v0, v1, :cond_0
+    if-ne v1, v2, :cond_0
 
-    iget v0, p0, Landroid/view/DisplayInfo;->largestNominalAppHeight:I
+    iget v1, p0, Landroid/view/DisplayInfo;->largestNominalAppHeight:I
 
-    iget v1, p1, Landroid/view/DisplayInfo;->largestNominalAppHeight:I
+    iget v2, p1, Landroid/view/DisplayInfo;->largestNominalAppHeight:I
 
-    if-ne v0, v1, :cond_0
+    if-ne v1, v2, :cond_0
 
-    iget v0, p0, Landroid/view/DisplayInfo;->logicalWidth:I
+    iget v1, p0, Landroid/view/DisplayInfo;->logicalWidth:I
 
-    iget v1, p1, Landroid/view/DisplayInfo;->logicalWidth:I
+    iget v2, p1, Landroid/view/DisplayInfo;->logicalWidth:I
 
-    if-ne v0, v1, :cond_0
+    if-ne v1, v2, :cond_0
 
-    iget v0, p0, Landroid/view/DisplayInfo;->logicalHeight:I
+    iget v1, p0, Landroid/view/DisplayInfo;->logicalHeight:I
 
-    iget v1, p1, Landroid/view/DisplayInfo;->logicalHeight:I
+    iget v2, p1, Landroid/view/DisplayInfo;->logicalHeight:I
 
-    if-ne v0, v1, :cond_0
+    if-ne v1, v2, :cond_0
 
-    iget v0, p0, Landroid/view/DisplayInfo;->overscanLeft:I
+    iget v1, p0, Landroid/view/DisplayInfo;->overscanLeft:I
 
-    iget v1, p1, Landroid/view/DisplayInfo;->overscanLeft:I
+    iget v2, p1, Landroid/view/DisplayInfo;->overscanLeft:I
 
-    if-ne v0, v1, :cond_0
+    if-ne v1, v2, :cond_0
 
-    iget v0, p0, Landroid/view/DisplayInfo;->overscanTop:I
+    iget v1, p0, Landroid/view/DisplayInfo;->overscanTop:I
 
-    iget v1, p1, Landroid/view/DisplayInfo;->overscanTop:I
+    iget v2, p1, Landroid/view/DisplayInfo;->overscanTop:I
 
-    if-ne v0, v1, :cond_0
+    if-ne v1, v2, :cond_0
 
-    iget v0, p0, Landroid/view/DisplayInfo;->overscanRight:I
+    iget v1, p0, Landroid/view/DisplayInfo;->overscanRight:I
 
-    iget v1, p1, Landroid/view/DisplayInfo;->overscanRight:I
+    iget v2, p1, Landroid/view/DisplayInfo;->overscanRight:I
 
-    if-ne v0, v1, :cond_0
+    if-ne v1, v2, :cond_0
 
-    iget v0, p0, Landroid/view/DisplayInfo;->overscanBottom:I
+    iget v1, p0, Landroid/view/DisplayInfo;->overscanBottom:I
 
-    iget v1, p1, Landroid/view/DisplayInfo;->overscanBottom:I
+    iget v2, p1, Landroid/view/DisplayInfo;->overscanBottom:I
 
-    if-ne v0, v1, :cond_0
+    if-ne v1, v2, :cond_0
 
-    iget v0, p0, Landroid/view/DisplayInfo;->rotation:I
+    iget v1, p0, Landroid/view/DisplayInfo;->rotation:I
 
-    iget v1, p1, Landroid/view/DisplayInfo;->rotation:I
+    iget v2, p1, Landroid/view/DisplayInfo;->rotation:I
 
-    if-ne v0, v1, :cond_0
+    if-ne v1, v2, :cond_0
 
-    iget v0, p0, Landroid/view/DisplayInfo;->modeId:I
+    iget v1, p0, Landroid/view/DisplayInfo;->modeId:I
 
-    iget v1, p1, Landroid/view/DisplayInfo;->modeId:I
+    iget v2, p1, Landroid/view/DisplayInfo;->modeId:I
 
-    if-ne v0, v1, :cond_0
+    if-ne v1, v2, :cond_0
 
-    iget v0, p0, Landroid/view/DisplayInfo;->defaultModeId:I
+    iget v1, p0, Landroid/view/DisplayInfo;->defaultModeId:I
 
-    iget v1, p1, Landroid/view/DisplayInfo;->defaultModeId:I
+    iget v2, p1, Landroid/view/DisplayInfo;->defaultModeId:I
 
-    if-ne v0, v1, :cond_0
+    if-ne v1, v2, :cond_0
 
-    iget v0, p0, Landroid/view/DisplayInfo;->colorTransformId:I
+    iget v1, p0, Landroid/view/DisplayInfo;->colorMode:I
 
-    iget v1, p1, Landroid/view/DisplayInfo;->colorTransformId:I
+    iget v2, p1, Landroid/view/DisplayInfo;->colorMode:I
 
-    if-ne v0, v1, :cond_0
+    if-ne v1, v2, :cond_0
 
-    iget v0, p0, Landroid/view/DisplayInfo;->defaultColorTransformId:I
+    iget-object v1, p0, Landroid/view/DisplayInfo;->supportedColorModes:[I
 
-    iget v1, p1, Landroid/view/DisplayInfo;->defaultColorTransformId:I
+    iget-object v2, p1, Landroid/view/DisplayInfo;->supportedColorModes:[I
 
-    if-ne v0, v1, :cond_0
+    invoke-static {v1, v2}, Ljava/util/Arrays;->equals([I[I)Z
 
-    iget-object v0, p0, Landroid/view/DisplayInfo;->hdrCapabilities:Landroid/view/Display$HdrCapabilities;
+    move-result v1
 
-    iget-object v1, p1, Landroid/view/DisplayInfo;->hdrCapabilities:Landroid/view/Display$HdrCapabilities;
+    if-eqz v1, :cond_0
 
-    invoke-static {v0, v1}, Llibcore/util/Objects;->equal(Ljava/lang/Object;Ljava/lang/Object;)Z
+    iget-object v1, p0, Landroid/view/DisplayInfo;->hdrCapabilities:Landroid/view/Display$HdrCapabilities;
 
-    move-result v0
+    iget-object v2, p1, Landroid/view/DisplayInfo;->hdrCapabilities:Landroid/view/Display$HdrCapabilities;
 
-    if-eqz v0, :cond_0
+    invoke-static {v1, v2}, Llibcore/util/Objects;->equal(Ljava/lang/Object;Ljava/lang/Object;)Z
 
-    iget v0, p0, Landroid/view/DisplayInfo;->logicalDensityDpi:I
+    move-result v1
 
-    iget v1, p1, Landroid/view/DisplayInfo;->logicalDensityDpi:I
+    if-eqz v1, :cond_0
 
-    if-ne v0, v1, :cond_0
+    iget v1, p0, Landroid/view/DisplayInfo;->logicalDensityDpi:I
 
-    iget v0, p0, Landroid/view/DisplayInfo;->physicalXDpi:F
+    iget v2, p1, Landroid/view/DisplayInfo;->logicalDensityDpi:I
 
-    iget v1, p1, Landroid/view/DisplayInfo;->physicalXDpi:F
+    if-ne v1, v2, :cond_0
 
-    cmpl-float v0, v0, v1
+    iget v1, p0, Landroid/view/DisplayInfo;->physicalXDpi:F
 
-    if-nez v0, :cond_0
+    iget v2, p1, Landroid/view/DisplayInfo;->physicalXDpi:F
 
-    iget v0, p0, Landroid/view/DisplayInfo;->physicalYDpi:F
+    cmpl-float v1, v1, v2
 
-    iget v1, p1, Landroid/view/DisplayInfo;->physicalYDpi:F
+    if-nez v1, :cond_0
 
-    cmpl-float v0, v0, v1
+    iget v1, p0, Landroid/view/DisplayInfo;->physicalYDpi:F
 
-    if-nez v0, :cond_0
+    iget v2, p1, Landroid/view/DisplayInfo;->physicalYDpi:F
 
-    iget-wide v0, p0, Landroid/view/DisplayInfo;->appVsyncOffsetNanos:J
+    cmpl-float v1, v1, v2
 
-    iget-wide v2, p1, Landroid/view/DisplayInfo;->appVsyncOffsetNanos:J
+    if-nez v1, :cond_0
 
-    cmp-long v0, v0, v2
+    iget-wide v2, p0, Landroid/view/DisplayInfo;->appVsyncOffsetNanos:J
 
-    if-nez v0, :cond_0
+    iget-wide v4, p1, Landroid/view/DisplayInfo;->appVsyncOffsetNanos:J
 
-    iget-wide v0, p0, Landroid/view/DisplayInfo;->presentationDeadlineNanos:J
+    cmp-long v1, v2, v4
 
-    iget-wide v2, p1, Landroid/view/DisplayInfo;->presentationDeadlineNanos:J
+    if-nez v1, :cond_0
 
-    cmp-long v0, v0, v2
+    iget-wide v2, p0, Landroid/view/DisplayInfo;->presentationDeadlineNanos:J
 
-    if-nez v0, :cond_0
+    iget-wide v4, p1, Landroid/view/DisplayInfo;->presentationDeadlineNanos:J
 
-    iget v0, p0, Landroid/view/DisplayInfo;->state:I
+    cmp-long v1, v2, v4
 
-    iget v1, p1, Landroid/view/DisplayInfo;->state:I
+    if-nez v1, :cond_0
 
-    if-ne v0, v1, :cond_0
+    iget v1, p0, Landroid/view/DisplayInfo;->state:I
 
-    iget v0, p0, Landroid/view/DisplayInfo;->ownerUid:I
+    iget v2, p1, Landroid/view/DisplayInfo;->state:I
 
-    iget v1, p1, Landroid/view/DisplayInfo;->ownerUid:I
+    if-ne v1, v2, :cond_0
 
-    if-ne v0, v1, :cond_0
+    iget v1, p0, Landroid/view/DisplayInfo;->ownerUid:I
 
-    iget-object v0, p0, Landroid/view/DisplayInfo;->ownerPackageName:Ljava/lang/String;
+    iget v2, p1, Landroid/view/DisplayInfo;->ownerUid:I
 
-    iget-object v1, p1, Landroid/view/DisplayInfo;->ownerPackageName:Ljava/lang/String;
+    if-ne v1, v2, :cond_0
 
-    invoke-static {v0, v1}, Llibcore/util/Objects;->equal(Ljava/lang/Object;Ljava/lang/Object;)Z
+    iget-object v1, p0, Landroid/view/DisplayInfo;->ownerPackageName:Ljava/lang/String;
 
-    move-result v0
+    iget-object v2, p1, Landroid/view/DisplayInfo;->ownerPackageName:Ljava/lang/String;
 
-    :goto_0
-    return v0
+    invoke-static {v1, v2}, Llibcore/util/Objects;->equal(Ljava/lang/Object;Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    iget v1, p0, Landroid/view/DisplayInfo;->removeMode:I
+
+    iget v2, p1, Landroid/view/DisplayInfo;->removeMode:I
+
+    if-ne v1, v2, :cond_0
+
+    const/4 v0, 0x1
 
     :cond_0
-    const/4 v0, 0x0
-
-    goto :goto_0
+    return v0
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
@@ -1048,30 +1053,6 @@
     invoke-direct/range {v0 .. v5}, Landroid/view/DisplayInfo;->getMetricsWithSize(Landroid/util/DisplayMetrics;Landroid/content/res/CompatibilityInfo;Landroid/content/res/Configuration;II)V
 
     return-void
-.end method
-
-.method public getColorTransform()Landroid/view/Display$ColorTransform;
-    .locals 1
-
-    iget v0, p0, Landroid/view/DisplayInfo;->colorTransformId:I
-
-    invoke-direct {p0, v0}, Landroid/view/DisplayInfo;->findColorTransform(I)Landroid/view/Display$ColorTransform;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public getDefaultColorTransform()Landroid/view/Display$ColorTransform;
-    .locals 1
-
-    iget v0, p0, Landroid/view/DisplayInfo;->defaultColorTransformId:I
-
-    invoke-direct {p0, v0}, Landroid/view/DisplayInfo;->findColorTransform(I)Landroid/view/Display$ColorTransform;
-
-    move-result-object v0
-
-    return-object v0
 .end method
 
 .method public getDefaultMode()Landroid/view/Display$Mode;
@@ -1289,6 +1270,77 @@
     return v0
 .end method
 
+.method public isHdr()Z
+    .locals 3
+
+    const/4 v1, 0x0
+
+    iget-object v2, p0, Landroid/view/DisplayInfo;->hdrCapabilities:Landroid/view/Display$HdrCapabilities;
+
+    if-eqz v2, :cond_1
+
+    iget-object v2, p0, Landroid/view/DisplayInfo;->hdrCapabilities:Landroid/view/Display$HdrCapabilities;
+
+    invoke-virtual {v2}, Landroid/view/Display$HdrCapabilities;->getSupportedHdrTypes()[I
+
+    move-result-object v0
+
+    :goto_0
+    if-eqz v0, :cond_0
+
+    array-length v2, v0
+
+    if-lez v2, :cond_0
+
+    const/4 v1, 0x1
+
+    :cond_0
+    return v1
+
+    :cond_1
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
+.method public isWideColorGamut()Z
+    .locals 6
+
+    const/4 v2, 0x0
+
+    iget-object v3, p0, Landroid/view/DisplayInfo;->supportedColorModes:[I
+
+    array-length v4, v3
+
+    move v1, v2
+
+    :goto_0
+    if-ge v1, v4, :cond_2
+
+    aget v0, v3, v1
+
+    const/4 v5, 0x6
+
+    if-eq v0, v5, :cond_0
+
+    const/4 v5, 0x7
+
+    if-le v0, v5, :cond_1
+
+    :cond_0
+    const/4 v1, 0x1
+
+    return v1
+
+    :cond_1
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_0
+
+    :cond_2
+    return v2
+.end method
+
 .method public readFromParcel(Landroid/os/Parcel;)V
     .locals 6
 
@@ -1446,38 +1498,28 @@
 
     move-result v3
 
-    iput v3, p0, Landroid/view/DisplayInfo;->colorTransformId:I
-
-    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
-
-    move-result v3
-
-    iput v3, p0, Landroid/view/DisplayInfo;->defaultColorTransformId:I
+    iput v3, p0, Landroid/view/DisplayInfo;->colorMode:I
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
 
-    new-array v3, v1, [Landroid/view/Display$ColorTransform;
+    new-array v3, v1, [I
 
-    iput-object v3, p0, Landroid/view/DisplayInfo;->supportedColorTransforms:[Landroid/view/Display$ColorTransform;
+    iput-object v3, p0, Landroid/view/DisplayInfo;->supportedColorModes:[I
 
     const/4 v0, 0x0
 
     :goto_1
     if-ge v0, v1, :cond_1
 
-    iget-object v4, p0, Landroid/view/DisplayInfo;->supportedColorTransforms:[Landroid/view/Display$ColorTransform;
+    iget-object v3, p0, Landroid/view/DisplayInfo;->supportedColorModes:[I
 
-    sget-object v3, Landroid/view/Display$ColorTransform;->CREATOR:Landroid/os/Parcelable$Creator;
+    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
-    invoke-interface {v3, p1}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+    move-result v4
 
-    move-result-object v3
-
-    check-cast v3, Landroid/view/Display$ColorTransform;
-
-    aput-object v3, v4, v0
+    aput v4, v3, v0
 
     add-int/lit8 v0, v0, 0x1
 
@@ -1547,6 +1589,12 @@
     move-result-object v3
 
     iput-object v3, p0, Landroid/view/DisplayInfo;->uniqueId:Ljava/lang/String;
+
+    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
+
+    move-result v3
+
+    iput v3, p0, Landroid/view/DisplayInfo;->removeMode:I
 
     return-void
 .end method
@@ -1713,29 +1761,21 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v1, ", colorTransformId "
+    const-string/jumbo v1, ", colorMode "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget v1, p0, Landroid/view/DisplayInfo;->colorTransformId:I
+    iget v1, p0, Landroid/view/DisplayInfo;->colorMode:I
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v1, ", defaultColorTransformId "
+    const-string/jumbo v1, ", supportedColorModes "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget v1, p0, Landroid/view/DisplayInfo;->defaultColorTransformId:I
+    iget-object v1, p0, Landroid/view/DisplayInfo;->supportedColorModes:[I
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    const-string/jumbo v1, ", supportedColorTransforms "
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    iget-object v1, p0, Landroid/view/DisplayInfo;->supportedColorTransforms:[Landroid/view/Display$ColorTransform;
-
-    invoke-static {v1}, Ljava/util/Arrays;->toString([Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v1}, Ljava/util/Arrays;->toString([I)Ljava/lang/String;
 
     move-result-object v1
 
@@ -1888,6 +1928,14 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    const-string/jumbo v1, ", removeMode "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget v1, p0, Landroid/view/DisplayInfo;->removeMode:I
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
     const-string/jumbo v1, "}"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -2019,15 +2067,11 @@
     goto :goto_0
 
     :cond_0
-    iget v1, p0, Landroid/view/DisplayInfo;->colorTransformId:I
+    iget v1, p0, Landroid/view/DisplayInfo;->colorMode:I
 
     invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeInt(I)V
 
-    iget v1, p0, Landroid/view/DisplayInfo;->defaultColorTransformId:I
-
-    invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeInt(I)V
-
-    iget-object v1, p0, Landroid/view/DisplayInfo;->supportedColorTransforms:[Landroid/view/Display$ColorTransform;
+    iget-object v1, p0, Landroid/view/DisplayInfo;->supportedColorModes:[I
 
     array-length v1, v1
 
@@ -2036,17 +2080,17 @@
     const/4 v0, 0x0
 
     :goto_1
-    iget-object v1, p0, Landroid/view/DisplayInfo;->supportedColorTransforms:[Landroid/view/Display$ColorTransform;
+    iget-object v1, p0, Landroid/view/DisplayInfo;->supportedColorModes:[I
 
     array-length v1, v1
 
     if-ge v0, v1, :cond_1
 
-    iget-object v1, p0, Landroid/view/DisplayInfo;->supportedColorTransforms:[Landroid/view/Display$ColorTransform;
+    iget-object v1, p0, Landroid/view/DisplayInfo;->supportedColorModes:[I
 
-    aget-object v1, v1, v0
+    aget v1, v1, v0
 
-    invoke-virtual {v1, p1, p2}, Landroid/view/Display$ColorTransform;->writeToParcel(Landroid/os/Parcel;I)V
+    invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeInt(I)V
 
     add-int/lit8 v0, v0, 0x1
 
@@ -2092,6 +2136,10 @@
     iget-object v1, p0, Landroid/view/DisplayInfo;->uniqueId:Ljava/lang/String;
 
     invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+
+    iget v1, p0, Landroid/view/DisplayInfo;->removeMode:I
+
+    invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeInt(I)V
 
     return-void
 .end method

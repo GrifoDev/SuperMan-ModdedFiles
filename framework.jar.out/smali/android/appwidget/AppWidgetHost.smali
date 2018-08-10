@@ -13,6 +13,8 @@
 
 
 # static fields
+.field private static final DEBUG:Z
+
 .field static final HANDLE_PROVIDERS_CHANGED:I = 0x3
 
 .field static final HANDLE_PROVIDER_CHANGED:I = 0x2
@@ -55,13 +57,23 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .locals 2
 
     new-instance v0, Ljava/lang/Object;
 
     invoke-direct {v0}, Ljava/lang/Object;-><init>()V
 
     sput-object v0, Landroid/appwidget/AppWidgetHost;->sServiceLock:Ljava/lang/Object;
+
+    const-string/jumbo v0, "eng"
+
+    sget-object v1, Landroid/os/Build;->TYPE:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    sput-boolean v0, Landroid/appwidget/AppWidgetHost;->DEBUG:Z
 
     return-void
 .end method
@@ -252,7 +264,7 @@
 .end method
 
 .method public final createView(Landroid/content/Context;ILandroid/appwidget/AppWidgetProviderInfo;)Landroid/appwidget/AppWidgetHostView;
-    .locals 6
+    .locals 5
 
     invoke-virtual {p0, p1, p2, p3}, Landroid/appwidget/AppWidgetHost;->onCreateView(Landroid/content/Context;ILandroid/appwidget/AppWidgetProviderInfo;)Landroid/appwidget/AppWidgetHostView;
 
@@ -304,23 +316,7 @@
 
     new-instance v3, Ljava/lang/RuntimeException;
 
-    new-instance v4, Ljava/lang/StringBuilder;
-
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v5, "system server dead? id : "
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v4
+    const-string/jumbo v4, "system server dead?"
 
     invoke-direct {v3, v4, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
 
@@ -328,7 +324,7 @@
 .end method
 
 .method public deleteAppWidgetId(I)V
-    .locals 4
+    .locals 6
 
     iget-object v2, p0, Landroid/appwidget/AppWidgetHost;->mViews:Landroid/util/SparseArray;
 
@@ -342,6 +338,45 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     :try_start_1
+    sget-boolean v1, Landroid/appwidget/AppWidgetHost;->DEBUG:Z
+
+    if-eqz v1, :cond_0
+
+    const-string/jumbo v1, "AppWidgetHost"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "deleteAppWidgetId() appWidgetId = "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v1, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    const-string/jumbo v1, "AppWidgetHost"
+
+    const-string/jumbo v3, "Stack:"
+
+    new-instance v4, Ljava/lang/Throwable;
+
+    const-string/jumbo v5, "stack dump"
+
+    invoke-direct {v4, v5}, Ljava/lang/Throwable;-><init>(Ljava/lang/String;)V
+
+    invoke-static {v1, v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    :cond_0
     sget-object v1, Landroid/appwidget/AppWidgetHost;->sService:Lcom/android/internal/appwidget/IAppWidgetService;
 
     iget-object v3, p0, Landroid/appwidget/AppWidgetHost;->mContextOpPackageName:Ljava/lang/String;
@@ -457,45 +492,9 @@
 .method protected onProviderChanged(ILandroid/appwidget/AppWidgetProviderInfo;)V
     .locals 3
 
-    iget v1, p2, Landroid/appwidget/AppWidgetProviderInfo;->minWidth:I
+    iget-object v1, p0, Landroid/appwidget/AppWidgetHost;->mDisplayMetrics:Landroid/util/DisplayMetrics;
 
-    iget-object v2, p0, Landroid/appwidget/AppWidgetHost;->mDisplayMetrics:Landroid/util/DisplayMetrics;
-
-    invoke-static {v1, v2}, Landroid/util/TypedValue;->complexToDimensionPixelSize(ILandroid/util/DisplayMetrics;)I
-
-    move-result v1
-
-    iput v1, p2, Landroid/appwidget/AppWidgetProviderInfo;->minWidth:I
-
-    iget v1, p2, Landroid/appwidget/AppWidgetProviderInfo;->minHeight:I
-
-    iget-object v2, p0, Landroid/appwidget/AppWidgetHost;->mDisplayMetrics:Landroid/util/DisplayMetrics;
-
-    invoke-static {v1, v2}, Landroid/util/TypedValue;->complexToDimensionPixelSize(ILandroid/util/DisplayMetrics;)I
-
-    move-result v1
-
-    iput v1, p2, Landroid/appwidget/AppWidgetProviderInfo;->minHeight:I
-
-    iget v1, p2, Landroid/appwidget/AppWidgetProviderInfo;->minResizeWidth:I
-
-    iget-object v2, p0, Landroid/appwidget/AppWidgetHost;->mDisplayMetrics:Landroid/util/DisplayMetrics;
-
-    invoke-static {v1, v2}, Landroid/util/TypedValue;->complexToDimensionPixelSize(ILandroid/util/DisplayMetrics;)I
-
-    move-result v1
-
-    iput v1, p2, Landroid/appwidget/AppWidgetProviderInfo;->minResizeWidth:I
-
-    iget v1, p2, Landroid/appwidget/AppWidgetProviderInfo;->minResizeHeight:I
-
-    iget-object v2, p0, Landroid/appwidget/AppWidgetHost;->mDisplayMetrics:Landroid/util/DisplayMetrics;
-
-    invoke-static {v1, v2}, Landroid/util/TypedValue;->complexToDimensionPixelSize(ILandroid/util/DisplayMetrics;)I
-
-    move-result v1
-
-    iput v1, p2, Landroid/appwidget/AppWidgetProviderInfo;->minResizeHeight:I
+    invoke-virtual {p2, v1}, Landroid/appwidget/AppWidgetProviderInfo;->updateDimensions(Landroid/util/DisplayMetrics;)V
 
     iget-object v2, p0, Landroid/appwidget/AppWidgetHost;->mViews:Landroid/util/SparseArray;
 
@@ -601,107 +600,140 @@
 .method public startListening()V
     .locals 10
 
-    iget-object v1, p0, Landroid/appwidget/AppWidgetHost;->mViews:Landroid/util/SparseArray;
+    iget-object v7, p0, Landroid/appwidget/AppWidgetHost;->mViews:Landroid/util/SparseArray;
 
-    monitor-enter v1
+    monitor-enter v7
 
     :try_start_0
-    iget-object v0, p0, Landroid/appwidget/AppWidgetHost;->mViews:Landroid/util/SparseArray;
+    iget-object v6, p0, Landroid/appwidget/AppWidgetHost;->mViews:Landroid/util/SparseArray;
 
-    invoke-virtual {v0}, Landroid/util/SparseArray;->size()I
-
-    move-result v6
-
-    new-array v4, v6, [I
-
-    const/4 v8, 0x0
-
-    :goto_0
-    if-ge v8, v6, :cond_0
-
-    iget-object v0, p0, Landroid/appwidget/AppWidgetHost;->mViews:Landroid/util/SparseArray;
-
-    invoke-virtual {v0, v8}, Landroid/util/SparseArray;->keyAt(I)I
+    invoke-virtual {v6}, Landroid/util/SparseArray;->size()I
 
     move-result v0
 
-    aput v0, v4, v8
+    new-array v3, v0, [I
+
+    const/4 v2, 0x0
+
+    :goto_0
+    if-ge v2, v0, :cond_0
+
+    iget-object v6, p0, Landroid/appwidget/AppWidgetHost;->mViews:Landroid/util/SparseArray;
+
+    invoke-virtual {v6, v2}, Landroid/util/SparseArray;->keyAt(I)I
+
+    move-result v6
+
+    aput v6, v3, v2
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    add-int/lit8 v8, v8, 0x1
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
     :cond_0
-    monitor-exit v1
-
-    array-length v0, v4
-
-    new-array v5, v0, [I
+    monitor-exit v7
 
     :try_start_1
-    sget-object v0, Landroid/appwidget/AppWidgetHost;->sService:Lcom/android/internal/appwidget/IAppWidgetService;
+    sget-object v6, Landroid/appwidget/AppWidgetHost;->sService:Lcom/android/internal/appwidget/IAppWidgetService;
 
-    iget-object v1, p0, Landroid/appwidget/AppWidgetHost;->mCallbacks:Landroid/appwidget/AppWidgetHost$Callbacks;
+    iget-object v7, p0, Landroid/appwidget/AppWidgetHost;->mCallbacks:Landroid/appwidget/AppWidgetHost$Callbacks;
 
-    iget-object v2, p0, Landroid/appwidget/AppWidgetHost;->mContextOpPackageName:Ljava/lang/String;
+    iget-object v8, p0, Landroid/appwidget/AppWidgetHost;->mContextOpPackageName:Ljava/lang/String;
 
-    iget v3, p0, Landroid/appwidget/AppWidgetHost;->mHostId:I
+    iget v9, p0, Landroid/appwidget/AppWidgetHost;->mHostId:I
 
-    invoke-interface/range {v0 .. v5}, Lcom/android/internal/appwidget/IAppWidgetService;->startListening(Lcom/android/internal/appwidget/IAppWidgetHost;Ljava/lang/String;I[I[I)Landroid/content/pm/ParceledListSlice;
+    invoke-interface {v6, v7, v8, v9, v3}, Lcom/android/internal/appwidget/IAppWidgetService;->startListening(Lcom/android/internal/appwidget/IAppWidgetHost;Ljava/lang/String;I[I)Landroid/content/pm/ParceledListSlice;
 
-    move-result-object v0
+    move-result-object v6
 
-    invoke-virtual {v0}, Landroid/content/pm/ParceledListSlice;->getList()Ljava/util/List;
+    invoke-virtual {v6}, Landroid/content/pm/ParceledListSlice;->getList()Ljava/util/List;
     :try_end_1
     .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
 
-    move-result-object v9
+    move-result-object v5
 
-    invoke-interface {v9}, Ljava/util/List;->size()I
+    invoke-interface {v5}, Ljava/util/List;->size()I
 
-    move-result v6
+    move-result v0
 
-    const/4 v8, 0x0
+    const/4 v2, 0x0
 
     :goto_1
-    if-ge v8, v6, :cond_1
+    if-ge v2, v0, :cond_1
 
-    aget v1, v5, v8
+    invoke-interface {v5, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    invoke-interface {v9, v8}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    move-result-object v4
 
-    move-result-object v0
+    check-cast v4, Landroid/appwidget/PendingHostUpdate;
 
-    check-cast v0, Landroid/widget/RemoteViews;
+    iget v6, v4, Landroid/appwidget/PendingHostUpdate;->type:I
 
-    invoke-virtual {p0, v1, v0}, Landroid/appwidget/AppWidgetHost;->updateAppWidgetView(ILandroid/widget/RemoteViews;)V
+    packed-switch v6, :pswitch_data_0
 
-    add-int/lit8 v8, v8, 0x1
+    :goto_2
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_1
 
     :catchall_0
-    move-exception v0
+    move-exception v6
 
-    monitor-exit v1
+    monitor-exit v7
 
-    throw v0
+    throw v6
 
     :catch_0
-    move-exception v7
+    move-exception v1
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    new-instance v6, Ljava/lang/RuntimeException;
 
-    const-string/jumbo v1, "system server dead?"
+    const-string/jumbo v7, "system server dead?"
 
-    invoke-direct {v0, v1, v7}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+    invoke-direct {v6, v7, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    throw v0
+    throw v6
+
+    :pswitch_0
+    iget v6, v4, Landroid/appwidget/PendingHostUpdate;->appWidgetId:I
+
+    iget-object v7, v4, Landroid/appwidget/PendingHostUpdate;->views:Landroid/widget/RemoteViews;
+
+    invoke-virtual {p0, v6, v7}, Landroid/appwidget/AppWidgetHost;->updateAppWidgetView(ILandroid/widget/RemoteViews;)V
+
+    goto :goto_2
+
+    :pswitch_1
+    iget v6, v4, Landroid/appwidget/PendingHostUpdate;->appWidgetId:I
+
+    iget-object v7, v4, Landroid/appwidget/PendingHostUpdate;->widgetInfo:Landroid/appwidget/AppWidgetProviderInfo;
+
+    invoke-virtual {p0, v6, v7}, Landroid/appwidget/AppWidgetHost;->onProviderChanged(ILandroid/appwidget/AppWidgetProviderInfo;)V
+
+    goto :goto_2
+
+    :pswitch_2
+    iget v6, v4, Landroid/appwidget/PendingHostUpdate;->appWidgetId:I
+
+    iget v7, v4, Landroid/appwidget/PendingHostUpdate;->viewId:I
+
+    invoke-virtual {p0, v6, v7}, Landroid/appwidget/AppWidgetHost;->viewDataChanged(II)V
+
+    goto :goto_2
 
     :cond_1
     return-void
+
+    nop
+
+    :pswitch_data_0
+    .packed-switch 0x0
+        :pswitch_0
+        :pswitch_1
+        :pswitch_2
+    .end packed-switch
 .end method
 
 .method public stopListening()V

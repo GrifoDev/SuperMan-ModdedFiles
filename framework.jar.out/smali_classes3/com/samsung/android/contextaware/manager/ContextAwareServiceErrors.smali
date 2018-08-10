@@ -43,6 +43,8 @@
 
 .field public static final enum ERROR_NOT_SUPPORT_CMD:Lcom/samsung/android/contextaware/manager/ContextAwareServiceErrors;
 
+.field public static final enum ERROR_PROPERTY_VALUE_FAULT:Lcom/samsung/android/contextaware/manager/ContextAwareServiceErrors;
+
 .field public static final enum ERROR_SERVICE_CODE_NULL_EXCEPTION:Lcom/samsung/android/contextaware/manager/ContextAwareServiceErrors;
 
 .field public static final enum ERROR_SERVICE_COUNT_FAULT:Lcom/samsung/android/contextaware/manager/ContextAwareServiceErrors;
@@ -314,17 +316,29 @@
 
     new-instance v0, Lcom/samsung/android/contextaware/manager/ContextAwareServiceErrors;
 
-    const-string/jumbo v1, "ERROR_TIME_OUT"
+    const-string/jumbo v1, "ERROR_PROPERTY_VALUE_FAULT"
 
-    const-string/jumbo v2, "ERROR : Time out"
+    const-string/jumbo v2, "Property value is fault"
 
     const/16 v3, 0x14
 
     invoke-direct {v0, v1, v3, v2}, Lcom/samsung/android/contextaware/manager/ContextAwareServiceErrors;-><init>(Ljava/lang/String;ILjava/lang/String;)V
 
+    sput-object v0, Lcom/samsung/android/contextaware/manager/ContextAwareServiceErrors;->ERROR_PROPERTY_VALUE_FAULT:Lcom/samsung/android/contextaware/manager/ContextAwareServiceErrors;
+
+    new-instance v0, Lcom/samsung/android/contextaware/manager/ContextAwareServiceErrors;
+
+    const-string/jumbo v1, "ERROR_TIME_OUT"
+
+    const-string/jumbo v2, "ERROR : Time out"
+
+    const/16 v3, 0x15
+
+    invoke-direct {v0, v1, v3, v2}, Lcom/samsung/android/contextaware/manager/ContextAwareServiceErrors;-><init>(Ljava/lang/String;ILjava/lang/String;)V
+
     sput-object v0, Lcom/samsung/android/contextaware/manager/ContextAwareServiceErrors;->ERROR_TIME_OUT:Lcom/samsung/android/contextaware/manager/ContextAwareServiceErrors;
 
-    const/16 v0, 0x15
+    const/16 v0, 0x16
 
     new-array v0, v0, [Lcom/samsung/android/contextaware/manager/ContextAwareServiceErrors;
 
@@ -438,9 +452,15 @@
 
     aput-object v1, v0, v2
 
-    sget-object v1, Lcom/samsung/android/contextaware/manager/ContextAwareServiceErrors;->ERROR_TIME_OUT:Lcom/samsung/android/contextaware/manager/ContextAwareServiceErrors;
+    sget-object v1, Lcom/samsung/android/contextaware/manager/ContextAwareServiceErrors;->ERROR_PROPERTY_VALUE_FAULT:Lcom/samsung/android/contextaware/manager/ContextAwareServiceErrors;
 
     const/16 v2, 0x14
+
+    aput-object v1, v0, v2
+
+    sget-object v1, Lcom/samsung/android/contextaware/manager/ContextAwareServiceErrors;->ERROR_TIME_OUT:Lcom/samsung/android/contextaware/manager/ContextAwareServiceErrors;
+
+    const/16 v2, 0x15
 
     aput-object v1, v0, v2
 
@@ -477,7 +497,7 @@
 
     aget-object v0, v3, v2
 
-    invoke-virtual {v0}, Ljava/lang/Enum;->ordinal()I
+    invoke-virtual {v0}, Lcom/samsung/android/contextaware/manager/ContextAwareServiceErrors;->ordinal()I
 
     move-result v5
 
@@ -532,7 +552,7 @@
 .method public final getCode()I
     .locals 1
 
-    invoke-virtual {p0}, Ljava/lang/Enum;->ordinal()I
+    invoke-virtual {p0}, Lcom/samsung/android/contextaware/manager/ContextAwareServiceErrors;->ordinal()I
 
     move-result v0
 

@@ -158,28 +158,42 @@
 .end method
 
 .method private static native nCanMorph(JJ)Z
+    .annotation build Ldalvik/annotation/optimization/FastNative;
+    .end annotation
 .end method
 
 .method private static native nCreateEmptyPathData()J
+    .annotation build Ldalvik/annotation/optimization/FastNative;
+    .end annotation
 .end method
 
 .method private static native nCreatePathData(J)J
+    .annotation build Ldalvik/annotation/optimization/FastNative;
+    .end annotation
 .end method
 
 .method private static native nCreatePathDataFromString(Ljava/lang/String;I)J
 .end method
 
 .method private static native nCreatePathFromPathData(JJ)V
+    .annotation build Ldalvik/annotation/optimization/FastNative;
+    .end annotation
 .end method
 
 .method private static native nFinalize(J)V
+    .annotation build Ldalvik/annotation/optimization/FastNative;
+    .end annotation
 .end method
 
 .method private static native nInterpolatePathData(JJJF)Z
+    .annotation build Ldalvik/annotation/optimization/FastNative;
+    .end annotation
 .end method
 
 .method private static native nParseStringForPath(JLjava/lang/String;I)V
 .end method
 
 .method private static native nSetPathData(JJ)V
+    .annotation build Ldalvik/annotation/optimization/FastNative;
+    .end annotation
 .end method

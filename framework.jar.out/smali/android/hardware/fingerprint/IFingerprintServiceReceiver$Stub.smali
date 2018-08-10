@@ -34,6 +34,8 @@
 
 .field static final TRANSACTION_onEnrollResult:I = 0x1
 
+.field static final TRANSACTION_onEnumerated:I = 0x7
+
 .field static final TRANSACTION_onError:I = 0x5
 
 .field static final TRANSACTION_onRemoved:I = 0x6
@@ -159,7 +161,11 @@
 
     move-result v4
 
-    invoke-virtual {p0, v2, v3, v4}, Landroid/hardware/fingerprint/IFingerprintServiceReceiver$Stub;->onAcquired(JI)V
+    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v5
+
+    invoke-virtual {p0, v2, v3, v4, v5}, Landroid/hardware/fingerprint/IFingerprintServiceReceiver$Stub;->onAcquired(JII)V
 
     return v7
 
@@ -226,7 +232,11 @@
 
     move-result v4
 
-    invoke-virtual {p0, v2, v3, v4}, Landroid/hardware/fingerprint/IFingerprintServiceReceiver$Stub;->onError(JI)V
+    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v5
+
+    invoke-virtual {p0, v2, v3, v4, v5}, Landroid/hardware/fingerprint/IFingerprintServiceReceiver$Stub;->onError(JII)V
 
     return v7
 
@@ -247,7 +257,40 @@
 
     move-result v5
 
-    invoke-virtual {p0, v2, v3, v4, v5}, Landroid/hardware/fingerprint/IFingerprintServiceReceiver$Stub;->onRemoved(JII)V
+    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v6
+
+    move-object v1, p0
+
+    invoke-virtual/range {v1 .. v6}, Landroid/hardware/fingerprint/IFingerprintServiceReceiver$Stub;->onRemoved(JIII)V
+
+    return v7
+
+    :sswitch_7
+    const-string/jumbo v1, "android.hardware.fingerprint.IFingerprintServiceReceiver"
+
+    invoke-virtual {p2, v1}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual {p2}, Landroid/os/Parcel;->readLong()J
+
+    move-result-wide v2
+
+    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v4
+
+    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v5
+
+    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v6
+
+    move-object v1, p0
+
+    invoke-virtual/range {v1 .. v6}, Landroid/hardware/fingerprint/IFingerprintServiceReceiver$Stub;->onEnumerated(JIII)V
 
     return v7
 
@@ -261,6 +304,7 @@
         0x4 -> :sswitch_4
         0x5 -> :sswitch_5
         0x6 -> :sswitch_6
+        0x7 -> :sswitch_7
         0x5f4e5446 -> :sswitch_0
     .end sparse-switch
 .end method

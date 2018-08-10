@@ -15,6 +15,14 @@
 
 
 # virtual methods
+.method public abstract getVr2dDisplayId()I
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract getVrModeState()Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -31,7 +39,39 @@
     .end annotation
 .end method
 
+.method public abstract registerPersistentVrStateListener(Landroid/service/vr/IPersistentVrStateCallbacks;)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract setPersistentVrModeEnabled(Z)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract setVr2dDisplayProperties(Landroid/app/Vr2dDisplayProperties;)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract unregisterListener(Landroid/service/vr/IVrStateCallbacks;)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract unregisterPersistentVrStateListener(Landroid/service/vr/IPersistentVrStateCallbacks;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

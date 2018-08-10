@@ -26,57 +26,61 @@
 # static fields
 .field private static final DESCRIPTOR:Ljava/lang/String; = "com.android.internal.app.IVoiceInteractionManagerService"
 
-.field static final TRANSACTION_activeServiceSupportsAssist:I = 0x18
+.field static final TRANSACTION_activeServiceSupportsAssist:I = 0x19
 
-.field static final TRANSACTION_activeServiceSupportsLaunchFromKeyguard:I = 0x19
+.field static final TRANSACTION_activeServiceSupportsLaunchFromKeyguard:I = 0x1a
 
-.field static final TRANSACTION_closeSystemDialogs:I = 0x7
+.field static final TRANSACTION_closeSystemDialogs:I = 0x8
 
-.field static final TRANSACTION_deleteKeyphraseSoundModel:I = 0xe
+.field static final TRANSACTION_deleteKeyphraseSoundModel:I = 0xf
 
 .field static final TRANSACTION_deliverNewSession:I = 0x2
 
-.field static final TRANSACTION_finish:I = 0x8
+.field static final TRANSACTION_finish:I = 0x9
 
-.field static final TRANSACTION_getActiveServiceComponentName:I = 0x13
+.field static final TRANSACTION_getActiveServiceComponentName:I = 0x14
 
-.field static final TRANSACTION_getDisabledShowContext:I = 0xa
+.field static final TRANSACTION_getDisabledShowContext:I = 0xb
 
-.field static final TRANSACTION_getDspModuleProperties:I = 0xf
+.field static final TRANSACTION_getDspModuleProperties:I = 0x10
 
-.field static final TRANSACTION_getKeyphraseSoundModel:I = 0xc
+.field static final TRANSACTION_getKeyphraseSoundModel:I = 0xd
 
-.field static final TRANSACTION_getUserDisabledShowContext:I = 0xb
+.field static final TRANSACTION_getUserDisabledShowContext:I = 0xc
 
-.field static final TRANSACTION_hideCurrentSession:I = 0x15
+.field static final TRANSACTION_hideCurrentSession:I = 0x16
 
 .field static final TRANSACTION_hideSessionFromSession:I = 0x4
 
-.field static final TRANSACTION_isEnrolledForKeyphrase:I = 0x10
+.field static final TRANSACTION_isEnrolledForKeyphrase:I = 0x11
 
-.field static final TRANSACTION_isSessionRunning:I = 0x17
+.field static final TRANSACTION_isSessionRunning:I = 0x18
 
-.field static final TRANSACTION_launchVoiceAssistFromKeyguard:I = 0x16
+.field static final TRANSACTION_launchVoiceAssistFromKeyguard:I = 0x17
 
-.field static final TRANSACTION_onLockscreenShown:I = 0x1a
+.field static final TRANSACTION_onLockscreenShown:I = 0x1b
 
-.field static final TRANSACTION_setDisabledShowContext:I = 0x9
+.field static final TRANSACTION_registerVoiceInteractionSessionListener:I = 0x1c
 
-.field static final TRANSACTION_setKeepAwake:I = 0x6
+.field static final TRANSACTION_setDisabledShowContext:I = 0xa
+
+.field static final TRANSACTION_setKeepAwake:I = 0x7
 
 .field static final TRANSACTION_showSession:I = 0x1
 
-.field static final TRANSACTION_showSessionForActiveService:I = 0x14
+.field static final TRANSACTION_showSessionForActiveService:I = 0x15
 
 .field static final TRANSACTION_showSessionFromSession:I = 0x3
 
-.field static final TRANSACTION_startRecognition:I = 0x11
+.field static final TRANSACTION_startAssistantActivity:I = 0x6
+
+.field static final TRANSACTION_startRecognition:I = 0x12
 
 .field static final TRANSACTION_startVoiceActivity:I = 0x5
 
-.field static final TRANSACTION_stopRecognition:I = 0x12
+.field static final TRANSACTION_stopRecognition:I = 0x13
 
-.field static final TRANSACTION_updateKeyphraseSoundModel:I = 0xd
+.field static final TRANSACTION_updateKeyphraseSoundModel:I = 0xe
 
 
 # direct methods
@@ -135,7 +139,7 @@
 .end method
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    .locals 28
+    .locals 29
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -188,20 +192,20 @@
 
     invoke-interface {v3, v0}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
 
-    move-result-object v14
+    move-result-object v15
 
-    check-cast v14, Landroid/os/Bundle;
+    check-cast v15, Landroid/os/Bundle;
 
     :goto_0
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v18
+    move-result v19
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v18
+    move/from16 v1, v19
 
-    invoke-virtual {v0, v4, v14, v1}, Lcom/android/internal/app/IVoiceInteractionManagerService$Stub;->showSession(Landroid/service/voice/IVoiceInteractionService;Landroid/os/Bundle;I)V
+    invoke-virtual {v0, v4, v15, v1}, Lcom/android/internal/app/IVoiceInteractionManagerService$Stub;->showSession(Landroid/service/voice/IVoiceInteractionService;Landroid/os/Bundle;I)V
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
@@ -210,7 +214,7 @@
     return v3
 
     :cond_0
-    const/4 v14, 0x0
+    const/4 v15, 0x0
 
     goto :goto_0
 
@@ -231,7 +235,7 @@
 
     invoke-static {v3}, Landroid/service/voice/IVoiceInteractionSession$Stub;->asInterface(Landroid/os/IBinder;)Landroid/service/voice/IVoiceInteractionSession;
 
-    move-result-object v15
+    move-result-object v16
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
@@ -239,19 +243,21 @@
 
     invoke-static {v3}, Lcom/android/internal/app/IVoiceInteractor$Stub;->asInterface(Landroid/os/IBinder;)Lcom/android/internal/app/IVoiceInteractor;
 
-    move-result-object v21
+    move-result-object v22
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v21
+    move-object/from16 v1, v16
 
-    invoke-virtual {v0, v12, v15, v1}, Lcom/android/internal/app/IVoiceInteractionManagerService$Stub;->deliverNewSession(Landroid/os/IBinder;Landroid/service/voice/IVoiceInteractionSession;Lcom/android/internal/app/IVoiceInteractor;)Z
+    move-object/from16 v2, v22
 
-    move-result v27
+    invoke-virtual {v0, v12, v1, v2}, Lcom/android/internal/app/IVoiceInteractionManagerService$Stub;->deliverNewSession(Landroid/os/IBinder;Landroid/service/voice/IVoiceInteractionSession;Lcom/android/internal/app/IVoiceInteractor;)Z
+
+    move-result v28
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v27, :cond_1
+    if-eqz v28, :cond_1
 
     const/4 v3, 0x1
 
@@ -292,26 +298,26 @@
 
     invoke-interface {v3, v0}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
 
-    move-result-object v14
+    move-result-object v15
 
-    check-cast v14, Landroid/os/Bundle;
+    check-cast v15, Landroid/os/Bundle;
 
     :goto_2
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v18
+    move-result v19
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v18
+    move/from16 v1, v19
 
-    invoke-virtual {v0, v12, v14, v1}, Lcom/android/internal/app/IVoiceInteractionManagerService$Stub;->showSessionFromSession(Landroid/os/IBinder;Landroid/os/Bundle;I)Z
+    invoke-virtual {v0, v12, v15, v1}, Lcom/android/internal/app/IVoiceInteractionManagerService$Stub;->showSessionFromSession(Landroid/os/IBinder;Landroid/os/Bundle;I)Z
 
-    move-result v27
+    move-result v28
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v27, :cond_3
+    if-eqz v28, :cond_3
 
     const/4 v3, 0x1
 
@@ -325,7 +331,7 @@
     return v3
 
     :cond_2
-    const/4 v14, 0x0
+    const/4 v15, 0x0
 
     goto :goto_2
 
@@ -349,11 +355,11 @@
 
     invoke-virtual {v0, v12}, Lcom/android/internal/app/IVoiceInteractionManagerService$Stub;->hideSessionFromSession(Landroid/os/IBinder;)Z
 
-    move-result v27
+    move-result v28
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v27, :cond_4
+    if-eqz v28, :cond_4
 
     const/4 v3, 0x1
 
@@ -394,9 +400,9 @@
 
     invoke-interface {v3, v0}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
 
-    move-result-object v13
+    move-result-object v14
 
-    check-cast v13, Landroid/content/Intent;
+    check-cast v14, Landroid/content/Intent;
 
     :goto_5
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
@@ -405,15 +411,15 @@
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v12, v13, v6}, Lcom/android/internal/app/IVoiceInteractionManagerService$Stub;->startVoiceActivity(Landroid/os/IBinder;Landroid/content/Intent;Ljava/lang/String;)I
+    invoke-virtual {v0, v12, v14, v6}, Lcom/android/internal/app/IVoiceInteractionManagerService$Stub;->startVoiceActivity(Landroid/os/IBinder;Landroid/content/Intent;Ljava/lang/String;)I
 
-    move-result v23
+    move-result v24
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     move-object/from16 v0, p3
 
-    move/from16 v1, v23
+    move/from16 v1, v24
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
 
@@ -422,7 +428,7 @@
     return v3
 
     :cond_5
-    const/4 v13, 0x0
+    const/4 v14, 0x0
 
     goto :goto_5
 
@@ -443,12 +449,67 @@
 
     if-eqz v3, :cond_6
 
-    const/16 v17, 0x1
+    sget-object v3, Landroid/content/Intent;->CREATOR:Landroid/os/Parcelable$Creator;
+
+    move-object/from16 v0, p2
+
+    invoke-interface {v3, v0}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+
+    move-result-object v14
+
+    check-cast v14, Landroid/content/Intent;
 
     :goto_6
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v6
+
     move-object/from16 v0, p0
 
-    move/from16 v1, v17
+    invoke-virtual {v0, v12, v14, v6}, Lcom/android/internal/app/IVoiceInteractionManagerService$Stub;->startAssistantActivity(Landroid/os/IBinder;Landroid/content/Intent;Ljava/lang/String;)I
+
+    move-result v24
+
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    move-object/from16 v0, p3
+
+    move/from16 v1, v24
+
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
+
+    const/4 v3, 0x1
+
+    return v3
+
+    :cond_6
+    const/4 v14, 0x0
+
+    goto :goto_6
+
+    :sswitch_7
+    const-string/jumbo v3, "com.android.internal.app.IVoiceInteractionManagerService"
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
+
+    move-result-object v12
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v3
+
+    if-eqz v3, :cond_7
+
+    const/16 v18, 0x1
+
+    :goto_7
+    move-object/from16 v0, p0
+
+    move/from16 v1, v18
 
     invoke-virtual {v0, v12, v1}, Lcom/android/internal/app/IVoiceInteractionManagerService$Stub;->setKeepAwake(Landroid/os/IBinder;Z)V
 
@@ -458,12 +519,12 @@
 
     return v3
 
-    :cond_6
-    const/16 v17, 0x0
+    :cond_7
+    const/16 v18, 0x0
 
-    goto :goto_6
+    goto :goto_7
 
-    :sswitch_7
+    :sswitch_8
     const-string/jumbo v3, "com.android.internal.app.IVoiceInteractionManagerService"
 
     move-object/from16 v0, p2
@@ -484,7 +545,7 @@
 
     return v3
 
-    :sswitch_8
+    :sswitch_9
     const-string/jumbo v3, "com.android.internal.app.IVoiceInteractionManagerService"
 
     move-object/from16 v0, p2
@@ -505,7 +566,7 @@
 
     return v3
 
-    :sswitch_9
+    :sswitch_a
     const-string/jumbo v3, "com.android.internal.app.IVoiceInteractionManagerService"
 
     move-object/from16 v0, p2
@@ -526,7 +587,7 @@
 
     return v3
 
-    :sswitch_a
+    :sswitch_b
     const-string/jumbo v3, "com.android.internal.app.IVoiceInteractionManagerService"
 
     move-object/from16 v0, p2
@@ -535,36 +596,13 @@
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/internal/app/IVoiceInteractionManagerService$Stub;->getDisabledShowContext()I
 
-    move-result v23
+    move-result v24
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     move-object/from16 v0, p3
 
-    move/from16 v1, v23
-
-    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
-
-    const/4 v3, 0x1
-
-    return v3
-
-    :sswitch_b
-    const-string/jumbo v3, "com.android.internal.app.IVoiceInteractionManagerService"
-
-    move-object/from16 v0, p2
-
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    invoke-virtual/range {p0 .. p0}, Lcom/android/internal/app/IVoiceInteractionManagerService$Stub;->getUserDisabledShowContext()I
-
-    move-result v23
-
-    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
-
-    move-object/from16 v0, p3
-
-    move/from16 v1, v23
+    move/from16 v1, v24
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
 
@@ -579,53 +617,21 @@
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
+    invoke-virtual/range {p0 .. p0}, Lcom/android/internal/app/IVoiceInteractionManagerService$Stub;->getUserDisabledShowContext()I
 
-    move-result v9
-
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v16
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v16
-
-    invoke-virtual {v0, v9, v1}, Lcom/android/internal/app/IVoiceInteractionManagerService$Stub;->getKeyphraseSoundModel(ILjava/lang/String;)Landroid/hardware/soundtrigger/SoundTrigger$KeyphraseSoundModel;
-
-    move-result-object v25
+    move-result v24
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v25, :cond_7
-
-    const/4 v3, 0x1
-
     move-object/from16 v0, p3
 
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
+    move/from16 v1, v24
 
-    const/4 v3, 0x1
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
 
-    move-object/from16 v0, v25
-
-    move-object/from16 v1, p3
-
-    invoke-virtual {v0, v1, v3}, Landroid/hardware/soundtrigger/SoundTrigger$KeyphraseSoundModel;->writeToParcel(Landroid/os/Parcel;I)V
-
-    :goto_7
     const/4 v3, 0x1
 
     return v3
-
-    :cond_7
-    const/4 v3, 0x0
-
-    move-object/from16 v0, p3
-
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
-
-    goto :goto_7
 
     :sswitch_d
     const-string/jumbo v3, "com.android.internal.app.IVoiceInteractionManagerService"
@@ -636,41 +642,49 @@
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v3
+    move-result v9
 
-    if-eqz v3, :cond_8
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
-    sget-object v3, Landroid/hardware/soundtrigger/SoundTrigger$KeyphraseSoundModel;->CREATOR:Landroid/os/Parcelable$Creator;
+    move-result-object v17
 
-    move-object/from16 v0, p2
-
-    invoke-interface {v3, v0}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-
-    move-result-object v10
-
-    check-cast v10, Landroid/hardware/soundtrigger/SoundTrigger$KeyphraseSoundModel;
-
-    :goto_8
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v10}, Lcom/android/internal/app/IVoiceInteractionManagerService$Stub;->updateKeyphraseSoundModel(Landroid/hardware/soundtrigger/SoundTrigger$KeyphraseSoundModel;)I
+    move-object/from16 v1, v17
 
-    move-result v23
+    invoke-virtual {v0, v9, v1}, Lcom/android/internal/app/IVoiceInteractionManagerService$Stub;->getKeyphraseSoundModel(ILjava/lang/String;)Landroid/hardware/soundtrigger/SoundTrigger$KeyphraseSoundModel;
+
+    move-result-object v26
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
+    if-eqz v26, :cond_8
+
+    const/4 v3, 0x1
+
     move-object/from16 v0, p3
 
-    move/from16 v1, v23
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
 
-    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
+    const/4 v3, 0x1
 
+    move-object/from16 v0, v26
+
+    move-object/from16 v1, p3
+
+    invoke-virtual {v0, v1, v3}, Landroid/hardware/soundtrigger/SoundTrigger$KeyphraseSoundModel;->writeToParcel(Landroid/os/Parcel;I)V
+
+    :goto_8
     const/4 v3, 0x1
 
     return v3
 
     :cond_8
-    const/4 v10, 0x0
+    const/4 v3, 0x0
+
+    move-object/from16 v0, p3
+
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
 
     goto :goto_8
 
@@ -683,25 +697,32 @@
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v9
+    move-result v3
 
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+    if-eqz v3, :cond_9
 
-    move-result-object v16
+    sget-object v3, Landroid/hardware/soundtrigger/SoundTrigger$KeyphraseSoundModel;->CREATOR:Landroid/os/Parcelable$Creator;
 
+    move-object/from16 v0, p2
+
+    invoke-interface {v3, v0}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+
+    move-result-object v10
+
+    check-cast v10, Landroid/hardware/soundtrigger/SoundTrigger$KeyphraseSoundModel;
+
+    :goto_9
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v16
+    invoke-virtual {v0, v10}, Lcom/android/internal/app/IVoiceInteractionManagerService$Stub;->updateKeyphraseSoundModel(Landroid/hardware/soundtrigger/SoundTrigger$KeyphraseSoundModel;)I
 
-    invoke-virtual {v0, v9, v1}, Lcom/android/internal/app/IVoiceInteractionManagerService$Stub;->deleteKeyphraseSoundModel(ILjava/lang/String;)I
-
-    move-result v23
+    move-result v24
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     move-object/from16 v0, p3
 
-    move/from16 v1, v23
+    move/from16 v1, v24
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
 
@@ -709,7 +730,47 @@
 
     return v3
 
+    :cond_9
+    const/4 v10, 0x0
+
+    goto :goto_9
+
     :sswitch_f
+    const-string/jumbo v3, "com.android.internal.app.IVoiceInteractionManagerService"
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v9
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v17
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v17
+
+    invoke-virtual {v0, v9, v1}, Lcom/android/internal/app/IVoiceInteractionManagerService$Stub;->deleteKeyphraseSoundModel(ILjava/lang/String;)I
+
+    move-result v24
+
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    move-object/from16 v0, p3
+
+    move/from16 v1, v24
+
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
+
+    const/4 v3, 0x1
+
+    return v3
+
+    :sswitch_10
     const-string/jumbo v3, "com.android.internal.app.IVoiceInteractionManagerService"
 
     move-object/from16 v0, p2
@@ -728,11 +789,11 @@
 
     invoke-virtual {v0, v4}, Lcom/android/internal/app/IVoiceInteractionManagerService$Stub;->getDspModuleProperties(Landroid/service/voice/IVoiceInteractionService;)Landroid/hardware/soundtrigger/SoundTrigger$ModuleProperties;
 
-    move-result-object v26
+    move-result-object v27
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v26, :cond_9
+    if-eqz v27, :cond_a
 
     const/4 v3, 0x1
 
@@ -742,27 +803,27 @@
 
     const/4 v3, 0x1
 
-    move-object/from16 v0, v26
+    move-object/from16 v0, v27
 
     move-object/from16 v1, p3
 
     invoke-virtual {v0, v1, v3}, Landroid/hardware/soundtrigger/SoundTrigger$ModuleProperties;->writeToParcel(Landroid/os/Parcel;I)V
 
-    :goto_9
+    :goto_a
     const/4 v3, 0x1
 
     return v3
 
-    :cond_9
+    :cond_a
     const/4 v3, 0x0
 
     move-object/from16 v0, p3
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto :goto_9
+    goto :goto_a
 
-    :sswitch_10
+    :sswitch_11
     const-string/jumbo v3, "com.android.internal.app.IVoiceInteractionManagerService"
 
     move-object/from16 v0, p2
@@ -789,15 +850,15 @@
 
     invoke-virtual {v0, v4, v5, v6}, Lcom/android/internal/app/IVoiceInteractionManagerService$Stub;->isEnrolledForKeyphrase(Landroid/service/voice/IVoiceInteractionService;ILjava/lang/String;)Z
 
-    move-result v27
+    move-result v28
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v27, :cond_a
+    if-eqz v28, :cond_b
 
     const/4 v3, 0x1
 
-    :goto_a
+    :goto_b
     move-object/from16 v0, p3
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
@@ -806,12 +867,12 @@
 
     return v3
 
-    :cond_a
+    :cond_b
     const/4 v3, 0x0
 
-    goto :goto_a
+    goto :goto_b
 
-    :sswitch_11
+    :sswitch_12
     const-string/jumbo v3, "com.android.internal.app.IVoiceInteractionManagerService"
 
     move-object/from16 v0, p2
@@ -846,7 +907,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_b
+    if-eqz v3, :cond_c
 
     sget-object v3, Landroid/hardware/soundtrigger/SoundTrigger$RecognitionConfig;->CREATOR:Landroid/os/Parcelable$Creator;
 
@@ -858,18 +919,18 @@
 
     check-cast v8, Landroid/hardware/soundtrigger/SoundTrigger$RecognitionConfig;
 
-    :goto_b
+    :goto_c
     move-object/from16 v3, p0
 
     invoke-virtual/range {v3 .. v8}, Lcom/android/internal/app/IVoiceInteractionManagerService$Stub;->startRecognition(Landroid/service/voice/IVoiceInteractionService;ILjava/lang/String;Landroid/hardware/soundtrigger/IRecognitionStatusCallback;Landroid/hardware/soundtrigger/SoundTrigger$RecognitionConfig;)I
 
-    move-result v23
+    move-result v24
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     move-object/from16 v0, p3
 
-    move/from16 v1, v23
+    move/from16 v1, v24
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
 
@@ -877,12 +938,12 @@
 
     return v3
 
-    :cond_b
+    :cond_c
     const/4 v8, 0x0
 
-    goto :goto_b
+    goto :goto_c
 
-    :sswitch_12
+    :sswitch_13
     const-string/jumbo v3, "com.android.internal.app.IVoiceInteractionManagerService"
 
     move-object/from16 v0, p2
@@ -907,21 +968,21 @@
 
     invoke-static {v3}, Landroid/hardware/soundtrigger/IRecognitionStatusCallback$Stub;->asInterface(Landroid/os/IBinder;)Landroid/hardware/soundtrigger/IRecognitionStatusCallback;
 
-    move-result-object v19
+    move-result-object v20
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v19
+    move-object/from16 v1, v20
 
     invoke-virtual {v0, v4, v5, v1}, Lcom/android/internal/app/IVoiceInteractionManagerService$Stub;->stopRecognition(Landroid/service/voice/IVoiceInteractionService;ILandroid/hardware/soundtrigger/IRecognitionStatusCallback;)I
 
-    move-result v23
+    move-result v24
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     move-object/from16 v0, p3
 
-    move/from16 v1, v23
+    move/from16 v1, v24
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
 
@@ -929,7 +990,7 @@
 
     return v3
 
-    :sswitch_13
+    :sswitch_14
     const-string/jumbo v3, "com.android.internal.app.IVoiceInteractionManagerService"
 
     move-object/from16 v0, p2
@@ -938,11 +999,11 @@
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/internal/app/IVoiceInteractionManagerService$Stub;->getActiveServiceComponentName()Landroid/content/ComponentName;
 
-    move-result-object v24
+    move-result-object v25
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v24, :cond_c
+    if-eqz v25, :cond_d
 
     const/4 v3, 0x1
 
@@ -952,27 +1013,27 @@
 
     const/4 v3, 0x1
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v25
 
     move-object/from16 v1, p3
 
     invoke-virtual {v0, v1, v3}, Landroid/content/ComponentName;->writeToParcel(Landroid/os/Parcel;I)V
 
-    :goto_c
+    :goto_d
     const/4 v3, 0x1
 
     return v3
 
-    :cond_c
+    :cond_d
     const/4 v3, 0x0
 
     move-object/from16 v0, p3
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto :goto_c
+    goto :goto_d
 
-    :sswitch_14
+    :sswitch_15
     const-string/jumbo v3, "com.android.internal.app.IVoiceInteractionManagerService"
 
     move-object/from16 v0, p2
@@ -983,7 +1044,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_d
+    if-eqz v3, :cond_e
 
     sget-object v3, Landroid/os/Bundle;->CREATOR:Landroid/os/Parcelable$Creator;
 
@@ -995,7 +1056,7 @@
 
     check-cast v11, Landroid/os/Bundle;
 
-    :goto_d
+    :goto_e
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v5
@@ -1006,29 +1067,29 @@
 
     invoke-static {v3}, Lcom/android/internal/app/IVoiceInteractionSessionShowCallback$Stub;->asInterface(Landroid/os/IBinder;)Lcom/android/internal/app/IVoiceInteractionSessionShowCallback;
 
-    move-result-object v20
+    move-result-object v21
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
-    move-result-object v22
+    move-result-object v23
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v20
+    move-object/from16 v1, v21
 
-    move-object/from16 v2, v22
+    move-object/from16 v2, v23
 
     invoke-virtual {v0, v11, v5, v1, v2}, Lcom/android/internal/app/IVoiceInteractionManagerService$Stub;->showSessionForActiveService(Landroid/os/Bundle;ILcom/android/internal/app/IVoiceInteractionSessionShowCallback;Landroid/os/IBinder;)Z
 
-    move-result v27
+    move-result v28
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v27, :cond_e
+    if-eqz v28, :cond_f
 
     const/4 v3, 0x1
 
-    :goto_e
+    :goto_f
     move-object/from16 v0, p3
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
@@ -1037,17 +1098,17 @@
 
     return v3
 
-    :cond_d
-    const/4 v11, 0x0
-
-    goto :goto_d
-
     :cond_e
-    const/4 v3, 0x0
+    const/4 v11, 0x0
 
     goto :goto_e
 
-    :sswitch_15
+    :cond_f
+    const/4 v3, 0x0
+
+    goto :goto_f
+
+    :sswitch_16
     const-string/jumbo v3, "com.android.internal.app.IVoiceInteractionManagerService"
 
     move-object/from16 v0, p2
@@ -1062,7 +1123,7 @@
 
     return v3
 
-    :sswitch_16
+    :sswitch_17
     const-string/jumbo v3, "com.android.internal.app.IVoiceInteractionManagerService"
 
     move-object/from16 v0, p2
@@ -1077,7 +1138,7 @@
 
     return v3
 
-    :sswitch_17
+    :sswitch_18
     const-string/jumbo v3, "com.android.internal.app.IVoiceInteractionManagerService"
 
     move-object/from16 v0, p2
@@ -1086,42 +1147,11 @@
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/internal/app/IVoiceInteractionManagerService$Stub;->isSessionRunning()Z
 
-    move-result v27
+    move-result v28
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v27, :cond_f
-
-    const/4 v3, 0x1
-
-    :goto_f
-    move-object/from16 v0, p3
-
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
-
-    const/4 v3, 0x1
-
-    return v3
-
-    :cond_f
-    const/4 v3, 0x0
-
-    goto :goto_f
-
-    :sswitch_18
-    const-string/jumbo v3, "com.android.internal.app.IVoiceInteractionManagerService"
-
-    move-object/from16 v0, p2
-
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    invoke-virtual/range {p0 .. p0}, Lcom/android/internal/app/IVoiceInteractionManagerService$Stub;->activeServiceSupportsAssist()Z
-
-    move-result v27
-
-    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
-
-    if-eqz v27, :cond_10
+    if-eqz v28, :cond_10
 
     const/4 v3, 0x1
 
@@ -1146,13 +1176,13 @@
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    invoke-virtual/range {p0 .. p0}, Lcom/android/internal/app/IVoiceInteractionManagerService$Stub;->activeServiceSupportsLaunchFromKeyguard()Z
+    invoke-virtual/range {p0 .. p0}, Lcom/android/internal/app/IVoiceInteractionManagerService$Stub;->activeServiceSupportsAssist()Z
 
-    move-result v27
+    move-result v28
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v27, :cond_11
+    if-eqz v28, :cond_11
 
     const/4 v3, 0x1
 
@@ -1177,7 +1207,63 @@
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
+    invoke-virtual/range {p0 .. p0}, Lcom/android/internal/app/IVoiceInteractionManagerService$Stub;->activeServiceSupportsLaunchFromKeyguard()Z
+
+    move-result v28
+
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    if-eqz v28, :cond_12
+
+    const/4 v3, 0x1
+
+    :goto_12
+    move-object/from16 v0, p3
+
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
+
+    const/4 v3, 0x1
+
+    return v3
+
+    :cond_12
+    const/4 v3, 0x0
+
+    goto :goto_12
+
+    :sswitch_1b
+    const-string/jumbo v3, "com.android.internal.app.IVoiceInteractionManagerService"
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
     invoke-virtual/range {p0 .. p0}, Lcom/android/internal/app/IVoiceInteractionManagerService$Stub;->onLockscreenShown()V
+
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    const/4 v3, 0x1
+
+    return v3
+
+    :sswitch_1c
+    const-string/jumbo v3, "com.android.internal.app.IVoiceInteractionManagerService"
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
+
+    move-result-object v3
+
+    invoke-static {v3}, Lcom/android/internal/app/IVoiceInteractionSessionListener$Stub;->asInterface(Landroid/os/IBinder;)Lcom/android/internal/app/IVoiceInteractionSessionListener;
+
+    move-result-object v13
+
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v13}, Lcom/android/internal/app/IVoiceInteractionManagerService$Stub;->registerVoiceInteractionSessionListener(Lcom/android/internal/app/IVoiceInteractionSessionListener;)V
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
@@ -1215,6 +1301,8 @@
         0x18 -> :sswitch_18
         0x19 -> :sswitch_19
         0x1a -> :sswitch_1a
+        0x1b -> :sswitch_1b
+        0x1c -> :sswitch_1c
         0x5f4e5446 -> :sswitch_0
     .end sparse-switch
 .end method

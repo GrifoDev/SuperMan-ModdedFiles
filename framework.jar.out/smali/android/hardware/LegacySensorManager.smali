@@ -48,7 +48,7 @@
 .end method
 
 .method public constructor <init>(Landroid/hardware/SensorManager;)V
-    .locals 4
+    .locals 5
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -94,7 +94,9 @@
 
     invoke-direct {v3, p0}, Landroid/hardware/LegacySensorManager$1;-><init>(Landroid/hardware/LegacySensorManager;)V
 
-    invoke-interface {v1, v3}, Landroid/view/IWindowManager;->watchRotation(Landroid/view/IRotationWatcher;)I
+    const/4 v4, 0x0
+
+    invoke-interface {v1, v3, v4}, Landroid/view/IWindowManager;->watchRotation(Landroid/view/IRotationWatcher;I)I
 
     move-result v1
 
@@ -392,6 +394,8 @@
     return v0
 
     :cond_0
+    const/4 v9, 0x0
+
     move-object v0, p0
 
     move-object v3, p1
@@ -464,19 +468,19 @@
     if-nez v0, :cond_4
 
     :goto_3
-    const/4 v4, 0x4
+    const/4 v1, 0x4
 
-    const/4 v5, 0x7
+    const/4 v2, 0x7
 
-    move-object v3, p0
+    move-object v0, p0
 
-    move-object v6, p1
+    move-object v3, p1
 
-    move v7, p2
+    move v4, p2
 
-    move v8, p3
+    move v5, p3
 
-    invoke-direct/range {v3 .. v8}, Landroid/hardware/LegacySensorManager;->registerLegacyListener(IILandroid/hardware/SensorListener;II)Z
+    invoke-direct/range {v0 .. v5}, Landroid/hardware/LegacySensorManager;->registerLegacyListener(IILandroid/hardware/SensorListener;II)Z
 
     move-result v0
 
@@ -506,7 +510,7 @@
     goto :goto_3
 
     :cond_5
-    move v9, v2
+    const/4 v9, 0x1
 
     goto :goto_4
 .end method

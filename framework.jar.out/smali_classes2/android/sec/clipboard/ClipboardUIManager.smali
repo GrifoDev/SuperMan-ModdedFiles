@@ -185,7 +185,7 @@
     :catch_0
     move-exception v0
 
-    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v0}, Landroid/os/RemoteException;->printStackTrace()V
 
     goto :goto_0
 .end method
@@ -274,7 +274,7 @@
 
     if-eqz v2, :cond_1
 
-    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v0}, Landroid/os/RemoteException;->printStackTrace()V
 
     :goto_1
     invoke-virtual {p0}, Landroid/sec/clipboard/ClipboardUIManager;->binderDied()V
@@ -375,7 +375,7 @@
     :catch_0
     move-exception v0
 
-    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v0}, Landroid/os/RemoteException;->printStackTrace()V
 
     const/4 v1, 0x0
 
@@ -537,7 +537,7 @@
 
     invoke-static {v2, v3}, Landroid/sec/clipboard/util/Log;->secE(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v0}, Landroid/os/RemoteException;->printStackTrace()V
 
     const/4 v1, 0x0
 
@@ -618,7 +618,7 @@
     :catch_0
     move-exception v0
 
-    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v0}, Landroid/os/RemoteException;->printStackTrace()V
 
     goto :goto_0
 .end method

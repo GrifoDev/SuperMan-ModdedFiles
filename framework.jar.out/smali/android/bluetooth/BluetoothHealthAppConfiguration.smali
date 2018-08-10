@@ -196,6 +196,8 @@
 .method public hashCode()I
     .locals 3
 
+    const/16 v0, 0x11
+
     iget-object v1, p0, Landroid/bluetooth/BluetoothHealthAppConfiguration;->mName:Ljava/lang/String;
 
     if-eqz v1, :cond_0

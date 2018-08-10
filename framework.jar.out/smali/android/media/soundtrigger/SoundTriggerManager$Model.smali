@@ -58,7 +58,7 @@
 
     iget-object v0, p0, Landroid/media/soundtrigger/SoundTriggerManager$Model;->mGenericSoundModel:Landroid/hardware/soundtrigger/SoundTrigger$GenericSoundModel;
 
-    iget-object v0, v0, Landroid/hardware/soundtrigger/SoundTrigger$SoundModel;->data:[B
+    iget-object v0, v0, Landroid/hardware/soundtrigger/SoundTrigger$GenericSoundModel;->data:[B
 
     return-object v0
 .end method
@@ -68,7 +68,7 @@
 
     iget-object v0, p0, Landroid/media/soundtrigger/SoundTriggerManager$Model;->mGenericSoundModel:Landroid/hardware/soundtrigger/SoundTrigger$GenericSoundModel;
 
-    iget-object v0, v0, Landroid/hardware/soundtrigger/SoundTrigger$SoundModel;->uuid:Ljava/util/UUID;
+    iget-object v0, v0, Landroid/hardware/soundtrigger/SoundTrigger$GenericSoundModel;->uuid:Ljava/util/UUID;
 
     return-object v0
 .end method
@@ -78,7 +78,7 @@
 
     iget-object v0, p0, Landroid/media/soundtrigger/SoundTriggerManager$Model;->mGenericSoundModel:Landroid/hardware/soundtrigger/SoundTrigger$GenericSoundModel;
 
-    iget-object v0, v0, Landroid/hardware/soundtrigger/SoundTrigger$SoundModel;->vendorUuid:Ljava/util/UUID;
+    iget-object v0, v0, Landroid/hardware/soundtrigger/SoundTrigger$GenericSoundModel;->vendorUuid:Ljava/util/UUID;
 
     return-object v0
 .end method

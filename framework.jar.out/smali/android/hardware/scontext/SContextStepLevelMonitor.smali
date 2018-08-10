@@ -115,7 +115,7 @@
 
     const-string/jumbo v1, "CalorieArray"
 
-    invoke-virtual {v0, v1}, Landroid/os/BaseBundle;->getDoubleArray(Ljava/lang/String;)[D
+    invoke-virtual {v0, v1}, Landroid/os/Bundle;->getDoubleArray(Ljava/lang/String;)[D
 
     move-result-object v0
 
@@ -129,7 +129,7 @@
 
     const-string/jumbo v1, "DataCount"
 
-    invoke-virtual {v0, v1}, Landroid/os/BaseBundle;->getInt(Ljava/lang/String;)I
+    invoke-virtual {v0, v1}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
 
     move-result v0
 
@@ -143,7 +143,7 @@
 
     const-string/jumbo v1, "DistanceArray"
 
-    invoke-virtual {v0, v1}, Landroid/os/BaseBundle;->getDoubleArray(Ljava/lang/String;)[D
+    invoke-virtual {v0, v1}, Landroid/os/Bundle;->getDoubleArray(Ljava/lang/String;)[D
 
     move-result-object v0
 
@@ -157,7 +157,7 @@
 
     const-string/jumbo v1, "DurationArray"
 
-    invoke-virtual {v0, v1}, Landroid/os/BaseBundle;->getIntArray(Ljava/lang/String;)[I
+    invoke-virtual {v0, v1}, Landroid/os/Bundle;->getIntArray(Ljava/lang/String;)[I
 
     move-result-object v0
 
@@ -171,7 +171,7 @@
 
     const-string/jumbo v1, "Mode"
 
-    invoke-virtual {v0, v1}, Landroid/os/BaseBundle;->getInt(Ljava/lang/String;)I
+    invoke-virtual {v0, v1}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
 
     move-result v0
 
@@ -185,7 +185,7 @@
 
     const-string/jumbo v1, "StepCountArray"
 
-    invoke-virtual {v0, v1}, Landroid/os/BaseBundle;->getIntArray(Ljava/lang/String;)[I
+    invoke-virtual {v0, v1}, Landroid/os/Bundle;->getIntArray(Ljava/lang/String;)[I
 
     move-result-object v0
 
@@ -199,7 +199,7 @@
 
     const-string/jumbo v1, "StepTypeArray"
 
-    invoke-virtual {v0, v1}, Landroid/os/BaseBundle;->getIntArray(Ljava/lang/String;)[I
+    invoke-virtual {v0, v1}, Landroid/os/Bundle;->getIntArray(Ljava/lang/String;)[I
 
     move-result-object v0
 
@@ -219,7 +219,7 @@
 
     const-string/jumbo v5, "DataCount"
 
-    invoke-virtual {v4, v5}, Landroid/os/BaseBundle;->getInt(Ljava/lang/String;)I
+    invoke-virtual {v4, v5}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
 
     move-result v2
 
@@ -227,7 +227,7 @@
 
     const-string/jumbo v5, "DurationArray"
 
-    invoke-virtual {v4, v5}, Landroid/os/BaseBundle;->getIntArray(Ljava/lang/String;)[I
+    invoke-virtual {v4, v5}, Landroid/os/Bundle;->getIntArray(Ljava/lang/String;)[I
 
     move-result-object v0
 
@@ -244,7 +244,7 @@
 
     const-string/jumbo v5, "TimeStamp"
 
-    invoke-virtual {v4, v5}, Landroid/os/BaseBundle;->getLong(Ljava/lang/String;)J
+    invoke-virtual {v4, v5}, Landroid/os/Bundle;->getLong(Ljava/lang/String;)J
 
     move-result-wide v4
 
@@ -283,7 +283,7 @@
 
     const-string/jumbo v5, "TimeStampArray"
 
-    invoke-virtual {v4, v5}, Landroid/os/BaseBundle;->getLongArray(Ljava/lang/String;)[J
+    invoke-virtual {v4, v5}, Landroid/os/Bundle;->getLongArray(Ljava/lang/String;)[J
 
     move-result-object v3
 
@@ -306,7 +306,7 @@
 
     const-string/jumbo v0, "Mode"
 
-    invoke-virtual {p1, v0}, Landroid/os/BaseBundle;->getInt(Ljava/lang/String;)I
+    invoke-virtual {p1, v0}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
 
     move-result v0
 

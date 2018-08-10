@@ -53,6 +53,8 @@
 .method private isCurrent(Ljava/lang/String;)Z
     .locals 4
 
+    const/4 v1, 0x1
+
     const/4 v3, 0x0
 
     iget-object v0, p0, Landroid/media/browse/MediaBrowser$MediaServiceConnection;->this$0:Landroid/media/browse/MediaBrowser;
@@ -61,7 +63,7 @@
 
     move-result-object v0
 
-    if-eq v0, p0, :cond_1
+    if-ne v0, p0, :cond_0
 
     iget-object v0, p0, Landroid/media/browse/MediaBrowser$MediaServiceConnection;->this$0:Landroid/media/browse/MediaBrowser;
 
@@ -69,7 +71,24 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-nez v0, :cond_2
+
+    :cond_0
+    iget-object v0, p0, Landroid/media/browse/MediaBrowser$MediaServiceConnection;->this$0:Landroid/media/browse/MediaBrowser;
+
+    invoke-static {v0}, Landroid/media/browse/MediaBrowser;->-get8(Landroid/media/browse/MediaBrowser;)I
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    iget-object v0, p0, Landroid/media/browse/MediaBrowser$MediaServiceConnection;->this$0:Landroid/media/browse/MediaBrowser;
+
+    invoke-static {v0}, Landroid/media/browse/MediaBrowser;->-get8(Landroid/media/browse/MediaBrowser;)I
+
+    move-result v0
+
+    if-eq v0, v1, :cond_1
 
     const-string/jumbo v0, "MediaBrowser"
 
@@ -129,13 +148,19 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_0
+    :cond_1
     return v3
 
-    :cond_1
-    const/4 v0, 0x1
+    :cond_2
+    iget-object v0, p0, Landroid/media/browse/MediaBrowser$MediaServiceConnection;->this$0:Landroid/media/browse/MediaBrowser;
 
-    return v0
+    invoke-static {v0}, Landroid/media/browse/MediaBrowser;->-get8(Landroid/media/browse/MediaBrowser;)I
+
+    move-result v0
+
+    if-eq v0, v1, :cond_0
+
+    return v1
 .end method
 
 .method private postOrRun(Ljava/lang/Runnable;)V

@@ -71,6 +71,31 @@
     .end annotation
 .end method
 
+.method public abstract copyFiles2(ILjava/util/List;ILjava/util/List;Lcom/samsung/android/knox/SemIRCPCallback;Ljava/lang/String;)J
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(I",
+            "Ljava/util/List",
+            "<",
+            "Ljava/lang/String;",
+            ">;I",
+            "Ljava/util/List",
+            "<",
+            "Ljava/lang/String;",
+            ">;",
+            "Lcom/samsung/android/knox/SemIRCPCallback;",
+            "Ljava/lang/String;",
+            ")J"
+        }
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract getErrorMessage(I)Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -147,6 +172,31 @@
     .end annotation
 .end method
 
+.method public abstract moveFiles2(ILjava/util/List;ILjava/util/List;Lcom/samsung/android/knox/SemIRCPCallback;Ljava/lang/String;)J
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(I",
+            "Ljava/util/List",
+            "<",
+            "Ljava/lang/String;",
+            ">;I",
+            "Ljava/util/List",
+            "<",
+            "Ljava/lang/String;",
+            ">;",
+            "Lcom/samsung/android/knox/SemIRCPCallback;",
+            "Ljava/lang/String;",
+            ")J"
+        }
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract moveFilesForApp(ILjava/util/List;Ljava/util/List;)J
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -184,6 +234,30 @@
         }
     .end annotation
 
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract moveUnlimitedFiles(IILandroid/net/Uri;Lcom/samsung/android/knox/SemIRCPCallback;)J
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract moveUnlimitedFiles2(IILandroid/net/Uri;Lcom/samsung/android/knox/SemIRCPCallback;Ljava/lang/String;)J
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract moveUnlimitedFilesForApp(ILandroid/net/Uri;II)J
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

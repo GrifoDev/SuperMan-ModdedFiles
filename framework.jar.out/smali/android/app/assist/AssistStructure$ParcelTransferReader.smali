@@ -141,7 +141,7 @@
 
 # virtual methods
 .method go()V
-    .locals 4
+    .locals 6
 
     invoke-direct {p0}, Landroid/app/assist/AssistStructure$ParcelTransferReader;->fetchData()V
 
@@ -154,6 +154,36 @@
     move-result-object v3
 
     iput-object v3, v2, Landroid/app/assist/AssistStructure;->mActivityComponent:Landroid/content/ComponentName;
+
+    iget-object v2, p0, Landroid/app/assist/AssistStructure$ParcelTransferReader;->this$0:Landroid/app/assist/AssistStructure;
+
+    iget-object v3, p0, Landroid/app/assist/AssistStructure$ParcelTransferReader;->mCurParcel:Landroid/os/Parcel;
+
+    invoke-virtual {v3}, Landroid/os/Parcel;->readInt()I
+
+    move-result v3
+
+    invoke-static {v2, v3}, Landroid/app/assist/AssistStructure;->-set2(Landroid/app/assist/AssistStructure;I)I
+
+    iget-object v2, p0, Landroid/app/assist/AssistStructure$ParcelTransferReader;->this$0:Landroid/app/assist/AssistStructure;
+
+    iget-object v3, p0, Landroid/app/assist/AssistStructure$ParcelTransferReader;->mCurParcel:Landroid/os/Parcel;
+
+    invoke-virtual {v3}, Landroid/os/Parcel;->readLong()J
+
+    move-result-wide v4
+
+    invoke-static {v2, v4, v5}, Landroid/app/assist/AssistStructure;->-set1(Landroid/app/assist/AssistStructure;J)J
+
+    iget-object v2, p0, Landroid/app/assist/AssistStructure$ParcelTransferReader;->this$0:Landroid/app/assist/AssistStructure;
+
+    iget-object v3, p0, Landroid/app/assist/AssistStructure$ParcelTransferReader;->mCurParcel:Landroid/os/Parcel;
+
+    invoke-virtual {v3}, Landroid/os/Parcel;->readLong()J
+
+    move-result-wide v4
+
+    invoke-static {v2, v4, v5}, Landroid/app/assist/AssistStructure;->-set0(Landroid/app/assist/AssistStructure;J)J
 
     iget-object v2, p0, Landroid/app/assist/AssistStructure$ParcelTransferReader;->mCurParcel:Landroid/os/Parcel;
 

@@ -81,6 +81,18 @@
     return v0
 .end method
 
+.method public commitContent(Landroid/view/inputmethod/InputContentInfo;ILandroid/os/Bundle;)Z
+    .locals 1
+
+    iget-object v0, p0, Landroid/view/inputmethod/InputConnectionWrapper;->mTarget:Landroid/view/inputmethod/InputConnection;
+
+    invoke-interface {v0, p1, p2, p3}, Landroid/view/inputmethod/InputConnection;->commitContent(Landroid/view/inputmethod/InputContentInfo;ILandroid/os/Bundle;)Z
+
+    move-result v0
+
+    return v0
+.end method
+
 .method public commitCorrection(Landroid/view/inputmethod/CorrectionInfo;)Z
     .locals 1
 
@@ -350,7 +362,17 @@
 
     iget-boolean v0, p0, Landroid/view/inputmethod/InputConnectionWrapper;->mMutable:Z
 
-    if-eqz v0, :cond_1
+    xor-int/lit8 v0, v0, 0x1
+
+    if-eqz v0, :cond_0
+
+    new-instance v0, Ljava/lang/SecurityException;
+
+    const-string/jumbo v1, "not mutable"
+
+    invoke-direct {v0, v1}, Ljava/lang/SecurityException;-><init>(Ljava/lang/String;)V
+
+    throw v0
 
     :cond_0
     iput-object p1, p0, Landroid/view/inputmethod/InputConnectionWrapper;->mTarget:Landroid/view/inputmethod/InputConnection;
@@ -362,13 +384,4 @@
     iput v0, p0, Landroid/view/inputmethod/InputConnectionWrapper;->mMissingMethodFlags:I
 
     return-void
-
-    :cond_1
-    new-instance v0, Ljava/lang/SecurityException;
-
-    const-string/jumbo v1, "not mutable"
-
-    invoke-direct {v0, v1}, Ljava/lang/SecurityException;-><init>(Ljava/lang/String;)V
-
-    throw v0
 .end method

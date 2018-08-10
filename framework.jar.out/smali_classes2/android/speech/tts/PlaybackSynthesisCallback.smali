@@ -156,7 +156,7 @@
 
     if-ne v3, v5, :cond_4
 
-    invoke-virtual {p0}, Landroid/speech/tts/AbstractSynthesisCallback;->errorCodeOnStop()I
+    invoke-virtual {p0}, Landroid/speech/tts/PlaybackSynthesisCallback;->errorCodeOnStop()I
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
@@ -266,7 +266,7 @@
 
     if-ne v2, v4, :cond_1
 
-    invoke-virtual {p0}, Landroid/speech/tts/AbstractSynthesisCallback;->errorCodeOnStop()I
+    invoke-virtual {p0}, Landroid/speech/tts/PlaybackSynthesisCallback;->errorCodeOnStop()I
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
@@ -469,6 +469,29 @@
     throw v0
 .end method
 
+.method public rangeStart(III)V
+    .locals 2
+
+    iget-object v0, p0, Landroid/speech/tts/PlaybackSynthesisCallback;->mItem:Landroid/speech/tts/SynthesisPlaybackQueueItem;
+
+    if-nez v0, :cond_0
+
+    const-string/jumbo v0, "PlaybackSynthesisRequest"
+
+    const-string/jumbo v1, "mItem is null"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
+
+    :cond_0
+    iget-object v0, p0, Landroid/speech/tts/PlaybackSynthesisCallback;->mItem:Landroid/speech/tts/SynthesisPlaybackQueueItem;
+
+    invoke-virtual {v0, p1, p2, p3}, Landroid/speech/tts/SynthesisPlaybackQueueItem;->rangeStart(III)V
+
+    return-void
+.end method
+
 .method public start(III)I
     .locals 11
 
@@ -584,7 +607,7 @@
 
     if-ne v1, v2, :cond_2
 
-    invoke-virtual {p0}, Landroid/speech/tts/AbstractSynthesisCallback;->errorCodeOnStop()I
+    invoke-virtual {p0}, Landroid/speech/tts/PlaybackSynthesisCallback;->errorCodeOnStop()I
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 

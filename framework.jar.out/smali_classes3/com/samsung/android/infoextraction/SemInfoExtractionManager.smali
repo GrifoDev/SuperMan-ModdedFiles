@@ -231,7 +231,7 @@
 
     move-result-object v0
 
-    const-string/jumbo v2, "com.sec.android.app.SmartClipService"
+    const-string/jumbo v2, "com.samsung.android.service.airviewdictionary"
 
     invoke-virtual {v0, v2}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/Intent;
 
@@ -290,7 +290,7 @@
 
     move-result-object v2
 
-    invoke-virtual {v0}, Ljava/lang/Throwable;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/Exception;->toString()Ljava/lang/String;
 
     move-result-object v3
 
@@ -344,11 +344,11 @@
 
     iget-wide v6, p0, Lcom/samsung/android/infoextraction/SemInfoExtractionManager;->mRequestNumber:J
 
-    invoke-virtual {v0, v4, v6, v7}, Landroid/os/BaseBundle;->putLong(Ljava/lang/String;J)V
+    invoke-virtual {v0, v4, v6, v7}, Landroid/os/Bundle;->putLong(Ljava/lang/String;J)V
 
     const-string/jumbo v4, "data_type"
 
-    invoke-virtual {v0, v4, p2}, Landroid/os/BaseBundle;->putInt(Ljava/lang/String;I)V
+    invoke-virtual {v0, v4, p2}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
     packed-switch p2, :pswitch_data_0
 
@@ -418,7 +418,7 @@
 
     check-cast p3, Ljava/lang/String;
 
-    invoke-virtual {v0, v4, p3}, Landroid/os/BaseBundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v0, v4, p3}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
     goto :goto_0
 
@@ -429,7 +429,7 @@
 
     move-result-object v5
 
-    invoke-virtual {v0, v4, v5}, Landroid/os/BaseBundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v0, v4, v5}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
     goto :goto_0
 
@@ -457,7 +457,7 @@
     :catch_0
     move-exception v1
 
-    invoke-virtual {v1}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v1}, Landroid/os/RemoteException;->printStackTrace()V
 
     goto :goto_1
 
@@ -703,7 +703,7 @@
 
     invoke-direct {v1}, Landroid/content/Intent;-><init>()V
 
-    const-string/jumbo v2, "com.sec.android.app.SmartClipService"
+    const-string/jumbo v2, "com.samsung.android.service.airviewdictionary"
 
     invoke-virtual {v1, v2}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/Intent;
 
@@ -729,7 +729,7 @@
     :catch_0
     move-exception v0
 
-    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
 
     goto :goto_0
 .end method
@@ -830,7 +830,7 @@
 
     invoke-direct {v1}, Landroid/content/Intent;-><init>()V
 
-    const-string/jumbo v2, "com.sec.android.app.SmartClipService"
+    const-string/jumbo v2, "com.samsung.android.service.airviewdictionary"
 
     invoke-virtual {v1, v2}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/Intent;
 
@@ -864,7 +864,7 @@
     :catch_0
     move-exception v0
 
-    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
 
     goto :goto_0
 .end method

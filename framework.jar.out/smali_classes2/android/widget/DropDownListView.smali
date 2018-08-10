@@ -255,28 +255,63 @@
 .end method
 
 .method public isInTouchMode()Z
-    .locals 1
+    .locals 3
 
-    iget-boolean v0, p0, Landroid/widget/DropDownListView;->mHijackFocus:Z
+    invoke-virtual {p0}, Landroid/widget/DropDownListView;->getContext()Landroid/content/Context;
 
-    if-eqz v0, :cond_0
+    move-result-object v1
 
-    iget-boolean v0, p0, Landroid/widget/DropDownListView;->mListSelectionHidden:Z
+    invoke-virtual {v1}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
-    if-nez v0, :cond_1
+    move-result-object v1
 
-    :cond_0
-    invoke-super {p0}, Landroid/widget/ListView;->isInTouchMode()Z
+    const-string/jumbo v2, "com.sec.feature.folder_type"
+
+    invoke-virtual {v1, v2}, Landroid/content/pm/PackageManager;->hasSystemFeature(Ljava/lang/String;)Z
 
     move-result v0
 
-    :goto_0
-    return v0
+    if-eqz v0, :cond_1
 
-    :cond_1
-    const/4 v0, 0x1
+    iget-boolean v1, p0, Landroid/widget/DropDownListView;->mIsAutoCompleteTextPopup:Z
+
+    if-eqz v1, :cond_1
+
+    iget-boolean v1, p0, Landroid/widget/DropDownListView;->mHijackFocus:Z
+
+    if-eqz v1, :cond_0
+
+    iget-boolean v1, p0, Landroid/widget/DropDownListView;->mListSelectionHidden:Z
+
+    :goto_0
+    return v1
+
+    :cond_0
+    const/4 v1, 0x0
 
     goto :goto_0
+
+    :cond_1
+    iget-boolean v1, p0, Landroid/widget/DropDownListView;->mHijackFocus:Z
+
+    if-eqz v1, :cond_2
+
+    iget-boolean v1, p0, Landroid/widget/DropDownListView;->mListSelectionHidden:Z
+
+    if-nez v1, :cond_3
+
+    :cond_2
+    invoke-super {p0}, Landroid/widget/ListView;->isInTouchMode()Z
+
+    move-result v1
+
+    :goto_1
+    return v1
+
+    :cond_3
+    const/4 v1, 0x1
+
+    goto :goto_1
 .end method
 
 .method obtainView(I[Z)Landroid/view/View;
@@ -492,7 +527,7 @@
 
     const/4 v4, 0x7
 
-    if-ne v0, v4, :cond_4
+    if-ne v0, v4, :cond_5
 
     :cond_1
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getX()F
@@ -511,11 +546,11 @@
 
     move-result v3
 
-    if-eq v3, v6, :cond_3
+    if-eq v3, v6, :cond_4
 
     iget v4, p0, Landroid/widget/DropDownListView;->mSelectedPosition:I
 
-    if-eq v3, v4, :cond_3
+    if-eq v3, v4, :cond_4
 
     invoke-virtual {p0}, Landroid/widget/DropDownListView;->getFirstVisiblePosition()I
 
@@ -531,29 +566,40 @@
 
     move-result v4
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_3
 
     invoke-virtual {p0}, Landroid/widget/DropDownListView;->requestFocus()Z
 
+    invoke-virtual {p0}, Landroid/widget/DropDownListView;->isHovered()Z
+
+    move-result v4
+
+    if-nez v4, :cond_2
+
+    const/4 v4, 0x1
+
+    invoke-virtual {p0, v4}, Landroid/widget/DropDownListView;->setHovered(Z)V
+
+    :cond_2
     invoke-virtual {p0, v3, v2}, Landroid/widget/DropDownListView;->positionSelector(ILandroid/view/View;)V
 
     invoke-virtual {p0, v3}, Landroid/widget/DropDownListView;->setSelectedPositionInt(I)V
 
     invoke-virtual {p0, v3}, Landroid/widget/DropDownListView;->setNextSelectedPositionInt(I)V
 
-    :cond_2
+    :cond_3
     invoke-virtual {p0}, Landroid/widget/DropDownListView;->updateSelectorState()V
 
-    :cond_3
+    :cond_4
     :goto_0
     return v1
 
-    :cond_4
+    :cond_5
     invoke-super {p0}, Landroid/widget/ListView;->shouldShowSelector()Z
 
     move-result v4
 
-    if-nez v4, :cond_3
+    if-nez v4, :cond_4
 
     invoke-virtual {p0, v6}, Landroid/widget/DropDownListView;->setSelectedPositionInt(I)V
 

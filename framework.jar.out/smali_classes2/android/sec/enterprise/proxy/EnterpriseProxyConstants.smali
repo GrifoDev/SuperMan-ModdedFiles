@@ -57,6 +57,8 @@
 
 .field public static final PERMISSION_KNOX_SET_PROXY_CREDENTIAL_INTERNAL:Ljava/lang/String; = "com.samsung.android.knox.permission.KNOX_SET_PROXY_CREDENTIAL_INTERNAL"
 
+.field public static final PROXY_REFRESH_CREDENTIALS_DIALOG:Ljava/lang/String; = "com.samsung.android.knox.intent.action.PROXY_REFRESH_CREDENTIALS_DIALOG_INTERNAL"
+
 
 # direct methods
 .method static constructor <clinit>()V

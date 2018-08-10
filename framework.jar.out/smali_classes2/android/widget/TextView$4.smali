@@ -39,7 +39,7 @@
 
     iget-object v0, p0, Landroid/widget/TextView$4;->this$0:Landroid/widget/TextView;
 
-    invoke-virtual {v0}, Landroid/view/View;->requestLayout()V
+    invoke-virtual {v0}, Landroid/widget/TextView;->requestLayout()V
 
     return-void
 .end method

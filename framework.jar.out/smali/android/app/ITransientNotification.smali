@@ -23,7 +23,7 @@
     .end annotation
 .end method
 
-.method public abstract show()V
+.method public abstract show(Landroid/os/IBinder;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

@@ -161,6 +161,77 @@
     return v0
 .end method
 
+.method public equals(Ljava/lang/Object;)Z
+    .locals 5
+
+    const/4 v1, 0x1
+
+    const/4 v2, 0x0
+
+    if-ne p0, p1, :cond_0
+
+    return v1
+
+    :cond_0
+    instance-of v3, p1, Landroid/view/Display$HdrCapabilities;
+
+    if-nez v3, :cond_1
+
+    return v2
+
+    :cond_1
+    move-object v0, p1
+
+    check-cast v0, Landroid/view/Display$HdrCapabilities;
+
+    iget-object v3, p0, Landroid/view/Display$HdrCapabilities;->mSupportedHdrTypes:[I
+
+    iget-object v4, v0, Landroid/view/Display$HdrCapabilities;->mSupportedHdrTypes:[I
+
+    invoke-static {v3, v4}, Ljava/util/Arrays;->equals([I[I)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_3
+
+    iget v3, p0, Landroid/view/Display$HdrCapabilities;->mMaxLuminance:F
+
+    iget v4, v0, Landroid/view/Display$HdrCapabilities;->mMaxLuminance:F
+
+    cmpl-float v3, v3, v4
+
+    if-nez v3, :cond_3
+
+    iget v3, p0, Landroid/view/Display$HdrCapabilities;->mMaxAverageLuminance:F
+
+    iget v4, v0, Landroid/view/Display$HdrCapabilities;->mMaxAverageLuminance:F
+
+    cmpl-float v3, v3, v4
+
+    if-nez v3, :cond_3
+
+    iget v3, p0, Landroid/view/Display$HdrCapabilities;->mMinLuminance:F
+
+    iget v4, v0, Landroid/view/Display$HdrCapabilities;->mMinLuminance:F
+
+    cmpl-float v3, v3, v4
+
+    if-nez v3, :cond_2
+
+    :goto_0
+    return v1
+
+    :cond_2
+    move v1, v2
+
+    goto :goto_0
+
+    :cond_3
+    move v1, v2
+
+    goto :goto_0
+.end method
+
 .method public getDesiredMaxAverageLuminance()F
     .locals 1
 
@@ -191,6 +262,52 @@
     iget-object v0, p0, Landroid/view/Display$HdrCapabilities;->mSupportedHdrTypes:[I
 
     return-object v0
+.end method
+
+.method public hashCode()I
+    .locals 3
+
+    const/16 v0, 0x17
+
+    iget-object v1, p0, Landroid/view/Display$HdrCapabilities;->mSupportedHdrTypes:[I
+
+    invoke-static {v1}, Ljava/util/Arrays;->hashCode([I)I
+
+    move-result v1
+
+    add-int/lit16 v0, v1, 0x187
+
+    mul-int/lit8 v1, v0, 0x11
+
+    iget v2, p0, Landroid/view/Display$HdrCapabilities;->mMaxLuminance:F
+
+    invoke-static {v2}, Ljava/lang/Float;->floatToIntBits(F)I
+
+    move-result v2
+
+    add-int v0, v1, v2
+
+    mul-int/lit8 v1, v0, 0x11
+
+    iget v2, p0, Landroid/view/Display$HdrCapabilities;->mMaxAverageLuminance:F
+
+    invoke-static {v2}, Ljava/lang/Float;->floatToIntBits(F)I
+
+    move-result v2
+
+    add-int v0, v1, v2
+
+    mul-int/lit8 v1, v0, 0x11
+
+    iget v2, p0, Landroid/view/Display$HdrCapabilities;->mMinLuminance:F
+
+    invoke-static {v2}, Ljava/lang/Float;->floatToIntBits(F)I
+
+    move-result v2
+
+    add-int v0, v1, v2
+
+    return v0
 .end method
 
 .method public readFromParcel(Landroid/os/Parcel;)V

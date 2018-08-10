@@ -15,7 +15,7 @@
 
 
 # instance fields
-.field public final activity:Landroid/content/pm/PackageParser$Activity;
+.field public activity:Landroid/content/pm/PackageParser$Activity;
 
 
 # direct methods
@@ -25,6 +25,14 @@
     invoke-direct {p0}, Landroid/content/pm/PackageParser$IntentInfo;-><init>()V
 
     iput-object p1, p0, Landroid/content/pm/PackageParser$ActivityIntentInfo;->activity:Landroid/content/pm/PackageParser$Activity;
+
+    return-void
+.end method
+
+.method public constructor <init>(Landroid/os/Parcel;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Landroid/content/pm/PackageParser$IntentInfo;-><init>(Landroid/os/Parcel;)V
 
     return-void
 .end method

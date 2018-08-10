@@ -161,7 +161,7 @@
 
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+    invoke-virtual {p0}, Lcom/samsung/android/hardware/context/ISemContextService$Stub$Proxy;->getClass()Ljava/lang/Class;
 
     move-result-object v4
 
@@ -485,7 +485,7 @@
     throw v2
 .end method
 
-.method public setReferenceData(I[B)Z
+.method public setReferenceData(II[B)Z
     .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -508,7 +508,9 @@
 
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
 
-    invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeByteArray([B)V
+    invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeInt(I)V
+
+    invoke-virtual {v0, p3}, Landroid/os/Parcel;->writeByteArray([B)V
 
     iget-object v3, p0, Lcom/samsung/android/hardware/context/ISemContextService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 

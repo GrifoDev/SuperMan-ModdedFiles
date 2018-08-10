@@ -68,9 +68,9 @@
 
     move-object/from16 v0, p0
 
-    iput-boolean v13, v0, Landroid/media/Image;->mIsImageValid:Z
+    iput-boolean v13, v0, Landroid/media/MediaCodec$MediaImage;->mIsImageValid:Z
 
-    invoke-virtual/range {p1 .. p1}, Ljava/nio/Buffer;->isReadOnly()Z
+    invoke-virtual/range {p1 .. p1}, Ljava/nio/ByteBuffer;->isReadOnly()Z
 
     move-result v13
 
@@ -104,7 +104,7 @@
 
     iput-object v0, v1, Landroid/media/MediaCodec$MediaImage;->mInfo:Ljava/nio/ByteBuffer;
 
-    invoke-virtual/range {p2 .. p2}, Ljava/nio/Buffer;->remaining()I
+    invoke-virtual/range {p2 .. p2}, Ljava/nio/ByteBuffer;->remaining()I
 
     move-result v13
 
@@ -465,13 +465,13 @@
     throw v13
 
     :cond_a
-    invoke-virtual/range {p1 .. p1}, Ljava/nio/Buffer;->clear()Ljava/nio/Buffer;
+    invoke-virtual/range {p1 .. p1}, Ljava/nio/ByteBuffer;->clear()Ljava/nio/Buffer;
 
     move-object/from16 v0, p0
 
     iget-object v13, v0, Landroid/media/MediaCodec$MediaImage;->mBuffer:Ljava/nio/ByteBuffer;
 
-    invoke-virtual {v13}, Ljava/nio/Buffer;->position()I
+    invoke-virtual {v13}, Ljava/nio/ByteBuffer;->position()I
 
     move-result v13
 
@@ -491,9 +491,9 @@
 
     move-object/from16 v0, p1
 
-    invoke-virtual {v0, v13}, Ljava/nio/Buffer;->position(I)Ljava/nio/Buffer;
+    invoke-virtual {v0, v13}, Ljava/nio/ByteBuffer;->position(I)Ljava/nio/Buffer;
 
-    invoke-virtual/range {p1 .. p1}, Ljava/nio/Buffer;->position()I
+    invoke-virtual/range {p1 .. p1}, Ljava/nio/ByteBuffer;->position()I
 
     move-result v13
 
@@ -531,7 +531,7 @@
 
     move-object/from16 v0, p1
 
-    invoke-virtual {v0, v13}, Ljava/nio/Buffer;->limit(I)Ljava/nio/Buffer;
+    invoke-virtual {v0, v13}, Ljava/nio/ByteBuffer;->limit(I)Ljava/nio/Buffer;
 
     move-object/from16 v0, p0
 
@@ -566,7 +566,7 @@
 
     move-result-object v14
 
-    invoke-virtual/range {p2 .. p2}, Ljava/nio/Buffer;->remaining()I
+    invoke-virtual/range {p2 .. p2}, Ljava/nio/ByteBuffer;->remaining()I
 
     move-result v15
 
@@ -632,7 +632,7 @@
 .method public close()V
     .locals 1
 
-    iget-boolean v0, p0, Landroid/media/Image;->mIsImageValid:Z
+    iget-boolean v0, p0, Landroid/media/MediaCodec$MediaImage;->mIsImageValid:Z
 
     if-eqz v0, :cond_0
 
@@ -642,7 +642,7 @@
 
     const/4 v0, 0x0
 
-    iput-boolean v0, p0, Landroid/media/Image;->mIsImageValid:Z
+    iput-boolean v0, p0, Landroid/media/MediaCodec$MediaImage;->mIsImageValid:Z
 
     :cond_0
     return-void
@@ -651,7 +651,7 @@
 .method public getFormat()I
     .locals 1
 
-    invoke-virtual {p0}, Landroid/media/Image;->throwISEIfImageIsInvalid()V
+    invoke-virtual {p0}, Landroid/media/MediaCodec$MediaImage;->throwISEIfImageIsInvalid()V
 
     iget v0, p0, Landroid/media/MediaCodec$MediaImage;->mFormat:I
 
@@ -661,7 +661,7 @@
 .method public getHeight()I
     .locals 1
 
-    invoke-virtual {p0}, Landroid/media/Image;->throwISEIfImageIsInvalid()V
+    invoke-virtual {p0}, Landroid/media/MediaCodec$MediaImage;->throwISEIfImageIsInvalid()V
 
     iget v0, p0, Landroid/media/MediaCodec$MediaImage;->mHeight:I
 
@@ -671,7 +671,7 @@
 .method public getPlanes()[Landroid/media/Image$Plane;
     .locals 2
 
-    invoke-virtual {p0}, Landroid/media/Image;->throwISEIfImageIsInvalid()V
+    invoke-virtual {p0}, Landroid/media/MediaCodec$MediaImage;->throwISEIfImageIsInvalid()V
 
     iget-object v0, p0, Landroid/media/MediaCodec$MediaImage;->mPlanes:[Landroid/media/Image$Plane;
 
@@ -691,7 +691,7 @@
 .method public getTimestamp()J
     .locals 2
 
-    invoke-virtual {p0}, Landroid/media/Image;->throwISEIfImageIsInvalid()V
+    invoke-virtual {p0}, Landroid/media/MediaCodec$MediaImage;->throwISEIfImageIsInvalid()V
 
     iget-wide v0, p0, Landroid/media/MediaCodec$MediaImage;->mTimestamp:J
 
@@ -701,7 +701,7 @@
 .method public getWidth()I
     .locals 1
 
-    invoke-virtual {p0}, Landroid/media/Image;->throwISEIfImageIsInvalid()V
+    invoke-virtual {p0}, Landroid/media/MediaCodec$MediaImage;->throwISEIfImageIsInvalid()V
 
     iget v0, p0, Landroid/media/MediaCodec$MediaImage;->mWidth:I
 

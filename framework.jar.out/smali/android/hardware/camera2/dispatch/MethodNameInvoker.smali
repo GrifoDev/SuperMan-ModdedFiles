@@ -45,6 +45,8 @@
     .end annotation
 .end field
 
+.field private final mTargetClassMethods:[Ljava/lang/reflect/Method;
+
 
 # direct methods
 .method public constructor <init>(Landroid/hardware/camera2/dispatch/Dispatchable;Ljava/lang/Class;)V
@@ -68,6 +70,12 @@
     iput-object v0, p0, Landroid/hardware/camera2/dispatch/MethodNameInvoker;->mMethods:Ljava/util/concurrent/ConcurrentHashMap;
 
     iput-object p2, p0, Landroid/hardware/camera2/dispatch/MethodNameInvoker;->mTargetClass:Ljava/lang/Class;
+
+    invoke-virtual {p2}, Ljava/lang/Class;->getMethods()[Ljava/lang/reflect/Method;
+
+    move-result-object v0
+
+    iput-object v0, p0, Landroid/hardware/camera2/dispatch/MethodNameInvoker;->mTargetClassMethods:[Ljava/lang/reflect/Method;
 
     iput-object p1, p0, Landroid/hardware/camera2/dispatch/MethodNameInvoker;->mTarget:Landroid/hardware/camera2/dispatch/Dispatchable;
 
@@ -106,11 +114,7 @@
 
     if-nez v2, :cond_2
 
-    iget-object v3, p0, Landroid/hardware/camera2/dispatch/MethodNameInvoker;->mTargetClass:Ljava/lang/Class;
-
-    invoke-virtual {v3}, Ljava/lang/Class;->getMethods()[Ljava/lang/reflect/Method;
-
-    move-result-object v4
+    iget-object v4, p0, Landroid/hardware/camera2/dispatch/MethodNameInvoker;->mTargetClassMethods:[Ljava/lang/reflect/Method;
 
     const/4 v3, 0x0
 

@@ -51,66 +51,66 @@
 .end method
 
 .method public ping()Z
-    .locals 7
+    .locals 8
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    const/4 v1, 0x1
+    const/4 v4, 0x1
 
-    const/4 v0, 0x0
+    const/4 v3, 0x0
+
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v1
 
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v2
 
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v3
-
     :try_start_0
-    const-string/jumbo v4, "com.absolute.android.persistence.IABTPing"
+    const-string/jumbo v5, "com.absolute.android.persistence.IABTPing"
 
-    invoke-virtual {v2, v4}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+    invoke-virtual {v1, v5}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    iget-object v4, p0, Lcom/absolute/android/persistence/IABTPing$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+    iget-object v5, p0, Lcom/absolute/android/persistence/IABTPing$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/4 v5, 0x1
+    const/4 v6, 0x1
 
-    const/4 v6, 0x0
+    const/4 v7, 0x0
 
-    invoke-interface {v4, v5, v2, v3, v6}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+    invoke-interface {v5, v6, v1, v2, v7}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    invoke-virtual {v3}, Landroid/os/Parcel;->readException()V
+    invoke-virtual {v2}, Landroid/os/Parcel;->readException()V
 
-    invoke-virtual {v3}, Landroid/os/Parcel;->readInt()I
+    invoke-virtual {v2}, Landroid/os/Parcel;->readInt()I
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    move-result v4
+    move-result v5
 
-    if-nez v4, :cond_0
+    if-nez v5, :cond_0
 
     :goto_0
-    invoke-virtual {v3}, Landroid/os/Parcel;->recycle()V
-
     invoke-virtual {v2}, Landroid/os/Parcel;->recycle()V
 
-    return v0
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    return v3
 
     :cond_0
-    move v0, v1
+    move v3, v4
 
     goto :goto_0
 
     :catchall_0
     move-exception v0
 
-    invoke-virtual {v3}, Landroid/os/Parcel;->recycle()V
-
     invoke-virtual {v2}, Landroid/os/Parcel;->recycle()V
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     throw v0
 .end method

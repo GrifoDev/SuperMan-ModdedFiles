@@ -44,7 +44,7 @@
 
     iget-object v8, p0, Landroid/app/ProgressDialog$1;->this$0:Landroid/app/ProgressDialog;
 
-    invoke-static {v8}, Landroid/app/ProgressDialog;->-get1(Landroid/app/ProgressDialog;)Landroid/widget/ProgressBar;
+    invoke-static {v8}, Landroid/app/ProgressDialog;->-get0(Landroid/app/ProgressDialog;)Landroid/widget/ProgressBar;
 
     move-result-object v8
 
@@ -54,7 +54,7 @@
 
     iget-object v8, p0, Landroid/app/ProgressDialog$1;->this$0:Landroid/app/ProgressDialog;
 
-    invoke-static {v8}, Landroid/app/ProgressDialog;->-get1(Landroid/app/ProgressDialog;)Landroid/widget/ProgressBar;
+    invoke-static {v8}, Landroid/app/ProgressDialog;->-get0(Landroid/app/ProgressDialog;)Landroid/widget/ProgressBar;
 
     move-result-object v8
 
@@ -64,7 +64,7 @@
 
     iget-object v8, p0, Landroid/app/ProgressDialog$1;->this$0:Landroid/app/ProgressDialog;
 
-    invoke-static {v8}, Landroid/app/ProgressDialog;->-get3(Landroid/app/ProgressDialog;)Ljava/lang/String;
+    invoke-static {v8}, Landroid/app/ProgressDialog;->-get2(Landroid/app/ProgressDialog;)Ljava/lang/String;
 
     move-result-object v8
 
@@ -72,17 +72,17 @@
 
     iget-object v8, p0, Landroid/app/ProgressDialog$1;->this$0:Landroid/app/ProgressDialog;
 
-    invoke-static {v8}, Landroid/app/ProgressDialog;->-get3(Landroid/app/ProgressDialog;)Ljava/lang/String;
+    invoke-static {v8}, Landroid/app/ProgressDialog;->-get2(Landroid/app/ProgressDialog;)Ljava/lang/String;
 
     move-result-object v0
 
     iget-object v8, p0, Landroid/app/ProgressDialog$1;->this$0:Landroid/app/ProgressDialog;
 
-    invoke-static {v8}, Landroid/app/ProgressDialog;->-get2(Landroid/app/ProgressDialog;)Landroid/widget/TextView;
+    invoke-static {v8}, Landroid/app/ProgressDialog;->-get1(Landroid/app/ProgressDialog;)Landroid/widget/TextView;
 
     move-result-object v8
 
-    invoke-virtual {v8}, Landroid/view/View;->isLayoutRtl()Z
+    invoke-virtual {v8}, Landroid/widget/TextView;->isLayoutRtl()Z
 
     move-result v8
 
@@ -90,7 +90,7 @@
 
     iget-object v8, p0, Landroid/app/ProgressDialog$1;->this$0:Landroid/app/ProgressDialog;
 
-    invoke-static {v8}, Landroid/app/ProgressDialog;->-get2(Landroid/app/ProgressDialog;)Landroid/widget/TextView;
+    invoke-static {v8}, Landroid/app/ProgressDialog;->-get1(Landroid/app/ProgressDialog;)Landroid/widget/TextView;
 
     move-result-object v8
 
@@ -117,7 +117,7 @@
     :goto_0
     iget-object v8, p0, Landroid/app/ProgressDialog$1;->this$0:Landroid/app/ProgressDialog;
 
-    invoke-static {v8}, Landroid/app/ProgressDialog;->-get5(Landroid/app/ProgressDialog;)Ljava/text/NumberFormat;
+    invoke-static {v8}, Landroid/app/ProgressDialog;->-get4(Landroid/app/ProgressDialog;)Ljava/text/NumberFormat;
 
     move-result-object v8
 
@@ -133,7 +133,7 @@
 
     iget-object v8, p0, Landroid/app/ProgressDialog$1;->this$0:Landroid/app/ProgressDialog;
 
-    invoke-static {v8}, Landroid/app/ProgressDialog;->-get5(Landroid/app/ProgressDialog;)Ljava/text/NumberFormat;
+    invoke-static {v8}, Landroid/app/ProgressDialog;->-get4(Landroid/app/ProgressDialog;)Ljava/text/NumberFormat;
 
     move-result-object v8
 
@@ -145,7 +145,9 @@
 
     new-instance v8, Landroid/text/style/StyleSpan;
 
-    invoke-static {}, Landroid/app/ProgressDialog;->-get0()Z
+    iget-object v9, p0, Landroid/app/ProgressDialog$1;->this$0:Landroid/app/ProgressDialog;
+
+    invoke-static {v9}, Landroid/app/ProgressDialog;->-get5(Landroid/app/ProgressDialog;)Z
 
     move-result v9
 
@@ -166,7 +168,7 @@
 
     iget-object v6, p0, Landroid/app/ProgressDialog$1;->this$0:Landroid/app/ProgressDialog;
 
-    invoke-static {v6}, Landroid/app/ProgressDialog;->-get4(Landroid/app/ProgressDialog;)Landroid/widget/TextView;
+    invoke-static {v6}, Landroid/app/ProgressDialog;->-get3(Landroid/app/ProgressDialog;)Landroid/widget/TextView;
 
     move-result-object v6
 
@@ -178,7 +180,7 @@
     :cond_1
     iget-object v8, p0, Landroid/app/ProgressDialog$1;->this$0:Landroid/app/ProgressDialog;
 
-    invoke-static {v8}, Landroid/app/ProgressDialog;->-get2(Landroid/app/ProgressDialog;)Landroid/widget/TextView;
+    invoke-static {v8}, Landroid/app/ProgressDialog;->-get1(Landroid/app/ProgressDialog;)Landroid/widget/TextView;
 
     move-result-object v8
 
@@ -207,7 +209,7 @@
     :cond_2
     iget-object v8, p0, Landroid/app/ProgressDialog$1;->this$0:Landroid/app/ProgressDialog;
 
-    invoke-static {v8}, Landroid/app/ProgressDialog;->-get2(Landroid/app/ProgressDialog;)Landroid/widget/TextView;
+    invoke-static {v8}, Landroid/app/ProgressDialog;->-get1(Landroid/app/ProgressDialog;)Landroid/widget/TextView;
 
     move-result-object v8
 
@@ -220,7 +222,7 @@
     :cond_3
     iget-object v6, p0, Landroid/app/ProgressDialog$1;->this$0:Landroid/app/ProgressDialog;
 
-    invoke-static {v6}, Landroid/app/ProgressDialog;->-get4(Landroid/app/ProgressDialog;)Landroid/widget/TextView;
+    invoke-static {v6}, Landroid/app/ProgressDialog;->-get3(Landroid/app/ProgressDialog;)Landroid/widget/TextView;
 
     move-result-object v6
 

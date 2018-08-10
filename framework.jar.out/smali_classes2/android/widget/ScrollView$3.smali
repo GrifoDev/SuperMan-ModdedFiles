@@ -41,7 +41,7 @@
 
     const/4 v1, 0x0
 
-    invoke-static {v0, v1}, Landroid/widget/ScrollView;->-wrap5(Landroid/widget/ScrollView;I)V
+    invoke-static {v0, v1}, Landroid/widget/ScrollView;->-wrap3(Landroid/widget/ScrollView;I)V
 
     return-void
 .end method

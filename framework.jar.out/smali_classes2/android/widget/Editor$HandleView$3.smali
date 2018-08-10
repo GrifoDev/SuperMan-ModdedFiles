@@ -1,14 +1,11 @@
 .class Landroid/widget/Editor$HandleView$3;
-.super Ljava/lang/Object;
+.super Landroid/animation/AnimatorListenerAdapter;
 .source "Editor.java"
-
-# interfaces
-.implements Landroid/animation/ValueAnimator$AnimatorUpdateListener;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Landroid/widget/Editor$HandleView;->magnifyHandleView()V
+    value = Landroid/widget/Editor$HandleView;->getChangeSizeAnimator(Landroid/graphics/Rect;Landroid/graphics/Rect;)Landroid/animation/ObjectAnimator;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,54 +17,68 @@
 # instance fields
 .field final synthetic this$1:Landroid/widget/Editor$HandleView;
 
+.field final synthetic val$targetRect:Landroid/graphics/Rect;
+
 
 # direct methods
-.method constructor <init>(Landroid/widget/Editor$HandleView;)V
+.method constructor <init>(Landroid/widget/Editor$HandleView;Landroid/graphics/Rect;)V
     .locals 0
 
     iput-object p1, p0, Landroid/widget/Editor$HandleView$3;->this$1:Landroid/widget/Editor$HandleView;
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    iput-object p2, p0, Landroid/widget/Editor$HandleView$3;->val$targetRect:Landroid/graphics/Rect;
+
+    invoke-direct {p0}, Landroid/animation/AnimatorListenerAdapter;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onAnimationUpdate(Landroid/animation/ValueAnimator;)V
-    .locals 3
+.method public onAnimationEnd(Landroid/animation/Animator;)V
+    .locals 4
 
-    const-string/jumbo v2, "width"
+    iget-object v0, p0, Landroid/widget/Editor$HandleView$3;->this$1:Landroid/widget/Editor$HandleView;
 
-    invoke-virtual {p1, v2}, Landroid/animation/ValueAnimator;->getAnimatedValue(Ljava/lang/String;)Ljava/lang/Object;
+    iget-object v0, v0, Landroid/widget/Editor$HandleView;->mDrawable:Landroid/graphics/drawable/Drawable;
 
-    move-result-object v2
+    iget-object v1, p0, Landroid/widget/Editor$HandleView$3;->this$1:Landroid/widget/Editor$HandleView;
 
-    check-cast v2, Ljava/lang/Integer;
+    iget-object v2, p0, Landroid/widget/Editor$HandleView$3;->val$targetRect:Landroid/graphics/Rect;
 
-    invoke-virtual {v2}, Ljava/lang/Integer;->intValue()I
+    invoke-virtual {v2}, Landroid/graphics/Rect;->width()I
 
-    move-result v1
+    move-result v2
 
-    const-string/jumbo v2, "height"
+    iget-object v3, p0, Landroid/widget/Editor$HandleView$3;->val$targetRect:Landroid/graphics/Rect;
 
-    invoke-virtual {p1, v2}, Landroid/animation/ValueAnimator;->getAnimatedValue(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {v3}, Landroid/graphics/Rect;->height()I
 
-    move-result-object v2
+    move-result v3
 
-    check-cast v2, Ljava/lang/Integer;
+    invoke-static {v1, v2, v3}, Landroid/widget/Editor$HandleView;->-wrap0(Landroid/widget/Editor$HandleView;II)Landroid/graphics/Rect;
 
-    invoke-virtual {v2}, Ljava/lang/Integer;->intValue()I
+    move-result-object v1
 
-    move-result v0
+    invoke-virtual {v0, v1}, Landroid/graphics/drawable/Drawable;->setBounds(Landroid/graphics/Rect;)V
 
-    iget-object v2, p0, Landroid/widget/Editor$HandleView$3;->this$1:Landroid/widget/Editor$HandleView;
+    iget-object v0, p0, Landroid/widget/Editor$HandleView$3;->this$1:Landroid/widget/Editor$HandleView;
 
-    invoke-virtual {v2, v1, v0}, Landroid/widget/Editor$HandleView;->updateDrawableBounds(II)V
+    invoke-virtual {v0}, Landroid/widget/Editor$HandleView;->requestLayout()V
 
-    iget-object v2, p0, Landroid/widget/Editor$HandleView$3;->this$1:Landroid/widget/Editor$HandleView;
+    iget-object v0, p0, Landroid/widget/Editor$HandleView$3;->this$1:Landroid/widget/Editor$HandleView;
 
-    invoke-virtual {v2}, Landroid/widget/Editor$HandleView;->invalidate()V
+    invoke-virtual {v0}, Landroid/widget/Editor$HandleView;->invalidate()V
+
+    return-void
+.end method
+
+.method public onAnimationStart(Landroid/animation/Animator;Z)V
+    .locals 1
+
+    iget-object v0, p0, Landroid/widget/Editor$HandleView$3;->this$1:Landroid/widget/Editor$HandleView;
+
+    invoke-virtual {v0}, Landroid/widget/Editor$HandleView;->requestLayout()V
 
     return-void
 .end method

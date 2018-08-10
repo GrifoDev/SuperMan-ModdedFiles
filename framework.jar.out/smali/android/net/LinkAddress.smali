@@ -232,7 +232,7 @@
 
     aget-byte v2, v0, v1
 
-    and-int/lit8 v2, v2, -0x4
+    and-int/lit8 v2, v2, -0x2
 
     const/4 v3, -0x4
 
@@ -444,22 +444,16 @@
 
     sget v3, Landroid/system/OsConstants;->RT_SCOPE_UNIVERSE:I
 
-    if-ne v2, v3, :cond_0
+    if-ne v2, v3, :cond_2
 
     invoke-direct {p0}, Landroid/net/LinkAddress;->isIPv6ULA()Z
 
     move-result v2
 
+    xor-int/lit8 v2, v2, 0x1
+
     if-eqz v2, :cond_2
 
-    :cond_0
-    move v0, v1
-
-    :cond_1
-    :goto_0
-    return v0
-
-    :cond_2
     iget v2, p0, Landroid/net/LinkAddress;->flags:I
 
     sget v3, Landroid/system/OsConstants;->IFA_F_DADFAILED:I
@@ -474,7 +468,7 @@
 
     cmp-long v2, v2, v6
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_2
 
     iget v2, p0, Landroid/net/LinkAddress;->flags:I
 
@@ -486,7 +480,7 @@
 
     cmp-long v2, v2, v6
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_0
 
     iget v2, p0, Landroid/net/LinkAddress;->flags:I
 
@@ -498,8 +492,18 @@
 
     cmp-long v2, v2, v6
 
-    if-nez v2, :cond_1
+    if-eqz v2, :cond_1
 
+    :cond_0
+    :goto_0
+    return v0
+
+    :cond_1
+    move v0, v1
+
+    goto :goto_0
+
+    :cond_2
     move v0, v1
 
     goto :goto_0

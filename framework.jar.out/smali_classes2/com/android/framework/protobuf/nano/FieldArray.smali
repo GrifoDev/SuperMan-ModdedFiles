@@ -380,9 +380,7 @@
     :cond_1
     move-object v0, p1
 
-    nop
-
-    nop
+    check-cast v0, Lcom/android/framework/protobuf/nano/FieldArray;
 
     invoke-virtual {p0}, Lcom/android/framework/protobuf/nano/FieldArray;->size()I
 

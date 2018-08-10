@@ -39,41 +39,42 @@
 
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroid/view/PointerIcon;
-    .locals 7
+    .locals 8
 
+    :try_start_0
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
-    move-result v5
+    move-result v6
 
-    if-nez v5, :cond_0
+    if-nez v6, :cond_0
 
     invoke-static {}, Landroid/view/PointerIcon;->getNullIcon()Landroid/view/PointerIcon;
 
-    move-result-object v6
+    move-result-object v7
 
-    return-object v6
+    return-object v7
 
     :cond_0
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
-    move-result v4
+    move-result v5
 
-    if-eqz v4, :cond_1
+    if-eqz v5, :cond_1
 
-    new-instance v3, Landroid/view/PointerIcon;
+    new-instance v4, Landroid/view/PointerIcon;
 
-    const/4 v6, 0x0
+    const/4 v7, 0x0
 
-    invoke-direct {v3, v5, v6}, Landroid/view/PointerIcon;-><init>(ILandroid/view/PointerIcon;)V
+    invoke-direct {v4, v6, v7}, Landroid/view/PointerIcon;-><init>(ILandroid/view/PointerIcon;)V
 
-    invoke-static {v3, v4}, Landroid/view/PointerIcon;->-set0(Landroid/view/PointerIcon;I)I
+    invoke-static {v4, v5}, Landroid/view/PointerIcon;->-set0(Landroid/view/PointerIcon;I)I
 
-    return-object v3
+    return-object v4
 
     :cond_1
-    sget-object v6, Landroid/graphics/Bitmap;->CREATOR:Landroid/os/Parcelable$Creator;
+    sget-object v7, Landroid/graphics/Bitmap;->CREATOR:Landroid/os/Parcelable$Creator;
 
-    invoke-interface {v6, p1}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+    invoke-interface {v7, p1}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -81,17 +82,52 @@
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readFloat()F
 
-    move-result v1
+    move-result v2
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readFloat()F
 
-    move-result v2
+    move-result v3
 
-    invoke-static {v0, v1, v2}, Landroid/view/PointerIcon;->create(Landroid/graphics/Bitmap;FF)Landroid/view/PointerIcon;
+    const/16 v7, 0x4e20
 
-    move-result-object v6
+    if-ne v6, v7, :cond_2
 
-    return-object v6
+    invoke-static {v0, v2, v3}, Landroid/view/PointerIcon;->-wrap1(Landroid/graphics/Bitmap;FF)Landroid/view/PointerIcon;
+
+    move-result-object v7
+
+    return-object v7
+
+    :cond_2
+    const/4 v7, -0x1
+
+    if-ne v6, v7, :cond_3
+
+    invoke-static {v0, v2, v3, v6}, Landroid/view/PointerIcon;->-wrap0(Landroid/graphics/Bitmap;FFI)Landroid/view/PointerIcon;
+
+    move-result-object v7
+
+    return-object v7
+
+    :cond_3
+    invoke-static {v0, v2, v3}, Landroid/view/PointerIcon;->create(Landroid/graphics/Bitmap;FF)Landroid/view/PointerIcon;
+    :try_end_0
+    .catch Ljava/lang/IllegalStateException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result-object v7
+
+    return-object v7
+
+    :catch_0
+    move-exception v1
+
+    invoke-virtual {v1}, Ljava/lang/IllegalStateException;->printStackTrace()V
+
+    invoke-static {}, Landroid/view/PointerIcon;->getNullIcon()Landroid/view/PointerIcon;
+
+    move-result-object v7
+
+    return-object v7
 .end method
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;

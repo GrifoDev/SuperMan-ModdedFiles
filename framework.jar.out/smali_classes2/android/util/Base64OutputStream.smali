@@ -163,7 +163,7 @@
     throw v0
 
     :cond_0
-    iget-object v0, p0, Ljava/io/FilterOutputStream;->out:Ljava/io/OutputStream;
+    iget-object v0, p0, Landroid/util/Base64OutputStream;->out:Ljava/io/OutputStream;
 
     iget-object v1, p0, Landroid/util/Base64OutputStream;->coder:Landroid/util/Base64$Coder;
 
@@ -215,7 +215,7 @@
 
     if-nez v2, :cond_1
 
-    iget-object v2, p0, Ljava/io/FilterOutputStream;->out:Ljava/io/OutputStream;
+    iget-object v2, p0, Landroid/util/Base64OutputStream;->out:Ljava/io/OutputStream;
 
     invoke-virtual {v2}, Ljava/io/OutputStream;->close()V
     :try_end_1
@@ -236,7 +236,7 @@
 
     :cond_1
     :try_start_2
-    iget-object v2, p0, Ljava/io/FilterOutputStream;->out:Ljava/io/OutputStream;
+    iget-object v2, p0, Landroid/util/Base64OutputStream;->out:Ljava/io/OutputStream;
 
     invoke-virtual {v2}, Ljava/io/OutputStream;->flush()V
     :try_end_2

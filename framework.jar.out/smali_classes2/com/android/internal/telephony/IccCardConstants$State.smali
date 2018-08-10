@@ -30,6 +30,8 @@
 
 .field public static final enum CARD_IO_ERROR:Lcom/android/internal/telephony/IccCardConstants$State;
 
+.field public static final enum CARD_RESTRICTED:Lcom/android/internal/telephony/IccCardConstants$State;
+
 .field public static final enum DETECTED:Lcom/android/internal/telephony/IccCardConstants$State;
 
 .field public static final enum NETWORK_LOCKED:Lcom/android/internal/telephony/IccCardConstants$State;
@@ -149,9 +151,19 @@
 
     new-instance v0, Lcom/android/internal/telephony/IccCardConstants$State;
 
-    const-string/jumbo v1, "PERSO_LOCKED"
+    const-string/jumbo v1, "CARD_RESTRICTED"
 
     const/16 v2, 0x9
+
+    invoke-direct {v0, v1, v2}, Lcom/android/internal/telephony/IccCardConstants$State;-><init>(Ljava/lang/String;I)V
+
+    sput-object v0, Lcom/android/internal/telephony/IccCardConstants$State;->CARD_RESTRICTED:Lcom/android/internal/telephony/IccCardConstants$State;
+
+    new-instance v0, Lcom/android/internal/telephony/IccCardConstants$State;
+
+    const-string/jumbo v1, "PERSO_LOCKED"
+
+    const/16 v2, 0xa
 
     invoke-direct {v0, v1, v2}, Lcom/android/internal/telephony/IccCardConstants$State;-><init>(Ljava/lang/String;I)V
 
@@ -161,7 +173,7 @@
 
     const-string/jumbo v1, "NETWORK_SUBSET_LOCKED"
 
-    const/16 v2, 0xa
+    const/16 v2, 0xb
 
     invoke-direct {v0, v1, v2}, Lcom/android/internal/telephony/IccCardConstants$State;-><init>(Ljava/lang/String;I)V
 
@@ -171,7 +183,7 @@
 
     const-string/jumbo v1, "SIM_SERVICE_PROVIDER_LOCKED"
 
-    const/16 v2, 0xb
+    const/16 v2, 0xc
 
     invoke-direct {v0, v1, v2}, Lcom/android/internal/telephony/IccCardConstants$State;-><init>(Ljava/lang/String;I)V
 
@@ -181,13 +193,13 @@
 
     const-string/jumbo v1, "DETECTED"
 
-    const/16 v2, 0xc
+    const/16 v2, 0xd
 
     invoke-direct {v0, v1, v2}, Lcom/android/internal/telephony/IccCardConstants$State;-><init>(Ljava/lang/String;I)V
 
     sput-object v0, Lcom/android/internal/telephony/IccCardConstants$State;->DETECTED:Lcom/android/internal/telephony/IccCardConstants$State;
 
-    const/16 v0, 0xd
+    const/16 v0, 0xe
 
     new-array v0, v0, [Lcom/android/internal/telephony/IccCardConstants$State;
 
@@ -235,27 +247,33 @@
 
     aput-object v1, v0, v2
 
-    sget-object v1, Lcom/android/internal/telephony/IccCardConstants$State;->PERSO_LOCKED:Lcom/android/internal/telephony/IccCardConstants$State;
+    sget-object v1, Lcom/android/internal/telephony/IccCardConstants$State;->CARD_RESTRICTED:Lcom/android/internal/telephony/IccCardConstants$State;
 
     const/16 v2, 0x9
 
     aput-object v1, v0, v2
 
-    sget-object v1, Lcom/android/internal/telephony/IccCardConstants$State;->NETWORK_SUBSET_LOCKED:Lcom/android/internal/telephony/IccCardConstants$State;
+    sget-object v1, Lcom/android/internal/telephony/IccCardConstants$State;->PERSO_LOCKED:Lcom/android/internal/telephony/IccCardConstants$State;
 
     const/16 v2, 0xa
 
     aput-object v1, v0, v2
 
-    sget-object v1, Lcom/android/internal/telephony/IccCardConstants$State;->SIM_SERVICE_PROVIDER_LOCKED:Lcom/android/internal/telephony/IccCardConstants$State;
+    sget-object v1, Lcom/android/internal/telephony/IccCardConstants$State;->NETWORK_SUBSET_LOCKED:Lcom/android/internal/telephony/IccCardConstants$State;
 
     const/16 v2, 0xb
 
     aput-object v1, v0, v2
 
-    sget-object v1, Lcom/android/internal/telephony/IccCardConstants$State;->DETECTED:Lcom/android/internal/telephony/IccCardConstants$State;
+    sget-object v1, Lcom/android/internal/telephony/IccCardConstants$State;->SIM_SERVICE_PROVIDER_LOCKED:Lcom/android/internal/telephony/IccCardConstants$State;
 
     const/16 v2, 0xc
+
+    aput-object v1, v0, v2
+
+    sget-object v1, Lcom/android/internal/telephony/IccCardConstants$State;->DETECTED:Lcom/android/internal/telephony/IccCardConstants$State;
+
+    const/16 v2, 0xd
 
     aput-object v1, v0, v2
 
@@ -334,24 +352,31 @@
     return-object v0
 
     :pswitch_9
-    sget-object v0, Lcom/android/internal/telephony/IccCardConstants$State;->PERSO_LOCKED:Lcom/android/internal/telephony/IccCardConstants$State;
+    sget-object v0, Lcom/android/internal/telephony/IccCardConstants$State;->CARD_RESTRICTED:Lcom/android/internal/telephony/IccCardConstants$State;
 
     return-object v0
 
     :pswitch_a
-    sget-object v0, Lcom/android/internal/telephony/IccCardConstants$State;->NETWORK_SUBSET_LOCKED:Lcom/android/internal/telephony/IccCardConstants$State;
+    sget-object v0, Lcom/android/internal/telephony/IccCardConstants$State;->PERSO_LOCKED:Lcom/android/internal/telephony/IccCardConstants$State;
 
     return-object v0
 
     :pswitch_b
-    sget-object v0, Lcom/android/internal/telephony/IccCardConstants$State;->SIM_SERVICE_PROVIDER_LOCKED:Lcom/android/internal/telephony/IccCardConstants$State;
+    sget-object v0, Lcom/android/internal/telephony/IccCardConstants$State;->NETWORK_SUBSET_LOCKED:Lcom/android/internal/telephony/IccCardConstants$State;
 
     return-object v0
 
     :pswitch_c
+    sget-object v0, Lcom/android/internal/telephony/IccCardConstants$State;->SIM_SERVICE_PROVIDER_LOCKED:Lcom/android/internal/telephony/IccCardConstants$State;
+
+    return-object v0
+
+    :pswitch_d
     sget-object v0, Lcom/android/internal/telephony/IccCardConstants$State;->DETECTED:Lcom/android/internal/telephony/IccCardConstants$State;
 
     return-object v0
+
+    nop
 
     :pswitch_data_0
     .packed-switch 0x0
@@ -368,6 +393,7 @@
         :pswitch_a
         :pswitch_b
         :pswitch_c
+        :pswitch_d
     .end packed-switch
 .end method
 
@@ -421,19 +447,23 @@
 
     if-eq p0, v1, :cond_0
 
-    sget-object v1, Lcom/android/internal/telephony/IccCardConstants$State;->PERSO_LOCKED:Lcom/android/internal/telephony/IccCardConstants$State;
-
-    if-eq p0, v1, :cond_0
-
-    sget-object v1, Lcom/android/internal/telephony/IccCardConstants$State;->DETECTED:Lcom/android/internal/telephony/IccCardConstants$State;
-
-    if-eq p0, v1, :cond_0
-
     sget-object v1, Lcom/android/internal/telephony/IccCardConstants$State;->PERM_DISABLED:Lcom/android/internal/telephony/IccCardConstants$State;
 
     if-eq p0, v1, :cond_0
 
     sget-object v1, Lcom/android/internal/telephony/IccCardConstants$State;->CARD_IO_ERROR:Lcom/android/internal/telephony/IccCardConstants$State;
+
+    if-eq p0, v1, :cond_0
+
+    sget-object v1, Lcom/android/internal/telephony/IccCardConstants$State;->CARD_RESTRICTED:Lcom/android/internal/telephony/IccCardConstants$State;
+
+    if-eq p0, v1, :cond_0
+
+    sget-object v1, Lcom/android/internal/telephony/IccCardConstants$State;->PERSO_LOCKED:Lcom/android/internal/telephony/IccCardConstants$State;
+
+    if-eq p0, v1, :cond_0
+
+    sget-object v1, Lcom/android/internal/telephony/IccCardConstants$State;->DETECTED:Lcom/android/internal/telephony/IccCardConstants$State;
 
     if-eq p0, v1, :cond_0
 

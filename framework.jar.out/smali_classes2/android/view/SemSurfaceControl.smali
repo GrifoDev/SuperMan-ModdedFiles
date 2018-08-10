@@ -27,25 +27,9 @@
 .end method
 
 .method public static screenshot(Landroid/graphics/Rect;IIIIZI)Landroid/graphics/Bitmap;
-    .locals 8
+    .locals 1
 
-    const/4 v7, 0x0
-
-    move-object v0, p0
-
-    move v1, p1
-
-    move v2, p2
-
-    move v3, p3
-
-    move v4, p4
-
-    move v5, p5
-
-    move v6, p6
-
-    invoke-static/range {v0 .. v7}, Landroid/view/SurfaceControl;->screenshot(Landroid/graphics/Rect;IIIIZII)Landroid/graphics/Bitmap;
+    invoke-static/range {p0 .. p6}, Landroid/view/SurfaceControl;->screenshot(Landroid/graphics/Rect;IIIIZI)Landroid/graphics/Bitmap;
 
     move-result-object v0
 

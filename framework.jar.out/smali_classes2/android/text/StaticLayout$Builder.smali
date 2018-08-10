@@ -44,6 +44,8 @@
 
 .field mIncludePad:Z
 
+.field mJustificationMode:I
+
 .field mLeftIndents:[I
 
 .field mLocale:Ljava/util/Locale;
@@ -185,6 +187,8 @@
     iput v2, v0, Landroid/text/StaticLayout$Builder;->mBreakStrategy:I
 
     iput v2, v0, Landroid/text/StaticLayout$Builder;->mHyphenationFrequency:I
+
+    iput v2, v0, Landroid/text/StaticLayout$Builder;->mJustificationMode:I
 
     invoke-static {}, Landroid/text/MeasuredText;->obtain()Landroid/text/MeasuredText;
 
@@ -420,8 +424,6 @@
 .method public setIndents([I[I)Landroid/text/StaticLayout$Builder;
     .locals 8
 
-    const/4 v6, 0x0
-
     iput-object p1, p0, Landroid/text/StaticLayout$Builder;->mLeftIndents:[I
 
     iput-object p2, p0, Landroid/text/StaticLayout$Builder;->mRightIndents:[I
@@ -433,21 +435,21 @@
     :goto_0
     if-nez p2, :cond_1
 
-    move v4, v6
+    const/4 v4, 0x0
 
     :goto_1
     invoke-static {v2, v4}, Ljava/lang/Math;->max(II)I
 
-    move-result v7
+    move-result v6
 
-    new-array v1, v7, [I
+    new-array v1, v6, [I
 
     const/4 v0, 0x0
 
     :goto_2
-    array-length v7, v1
+    array-length v6, v1
 
-    if-ge v0, v7, :cond_4
+    if-ge v0, v6, :cond_4
 
     if-ge v0, v2, :cond_2
 
@@ -459,9 +461,9 @@
     aget v5, p2, v0
 
     :goto_4
-    add-int v7, v3, v5
+    add-int v6, v3, v5
 
-    aput v7, v1, v0
+    aput v6, v1, v0
 
     add-int/lit8 v0, v0, 0x1
 
@@ -483,7 +485,7 @@
     goto :goto_3
 
     :cond_3
-    move v5, v6
+    const/4 v5, 0x0
 
     goto :goto_4
 
@@ -491,6 +493,14 @@
     iget-wide v6, p0, Landroid/text/StaticLayout$Builder;->mNativePtr:J
 
     invoke-static {v6, v7, v1}, Landroid/text/StaticLayout;->-wrap6(J[I)V
+
+    return-object p0
+.end method
+
+.method public setJustificationMode(I)Landroid/text/StaticLayout$Builder;
+    .locals 0
+
+    iput p1, p0, Landroid/text/StaticLayout$Builder;->mJustificationMode:I
 
     return-object p0
 .end method

@@ -134,7 +134,7 @@
 .method protected final getAdditionalEntropyAmountForFinish()I
     .locals 1
 
-    invoke-virtual {p0}, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->isEncrypting()Z
+    invoke-virtual {p0}, Landroid/security/keystore/AndroidKeyStoreRSACipherSpi$OAEPWithMGF1Padding;->isEncrypting()Z
 
     move-result v0
 
@@ -295,9 +295,7 @@
     :cond_1
     move-object v9, p1
 
-    nop
-
-    nop
+    check-cast v9, Ljavax/crypto/spec/OAEPParameterSpec;
 
     const-string/jumbo v10, "MGF1"
 
@@ -475,9 +473,7 @@
     :cond_4
     move-object v5, v4
 
-    nop
-
-    nop
+    check-cast v5, Ljava/security/spec/MGF1ParameterSpec;
 
     invoke-virtual {v5}, Ljava/security/spec/MGF1ParameterSpec;->getDigestAlgorithm()Ljava/lang/String;
 
@@ -575,9 +571,7 @@
     :cond_6
     move-object v7, v6
 
-    nop
-
-    nop
+    check-cast v7, Ljavax/crypto/spec/PSource$PSpecified;
 
     invoke-virtual {v7}, Ljavax/crypto/spec/PSource$PSpecified;->getValue()[B
 

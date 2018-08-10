@@ -31,6 +31,12 @@
     return-void
 .end method
 
+.method public onCaptureQueueEmpty(Landroid/hardware/camera2/CameraCaptureSession;)V
+    .locals 0
+
+    return-void
+.end method
+
 .method public onClosed(Landroid/hardware/camera2/CameraCaptureSession;)V
     .locals 0
 

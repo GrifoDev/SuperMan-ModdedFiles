@@ -129,7 +129,7 @@
     :goto_0
     iget-object v3, p0, Landroid/gesture/GestureOverlayView$FadeOutRunnable;->this$0:Landroid/gesture/GestureOverlayView;
 
-    invoke-virtual {v3}, Landroid/view/View;->invalidate()V
+    invoke-virtual {v3}, Landroid/gesture/GestureOverlayView;->invalidate()V
 
     return-void
 
@@ -196,7 +196,7 @@
 
     const-wide/16 v6, 0x10
 
-    invoke-virtual {v3, p0, v6, v7}, Landroid/view/View;->postDelayed(Ljava/lang/Runnable;J)Z
+    invoke-virtual {v3, p0, v6, v7}, Landroid/gesture/GestureOverlayView;->postDelayed(Ljava/lang/Runnable;J)Z
 
     goto :goto_0
 

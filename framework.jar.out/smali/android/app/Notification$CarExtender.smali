@@ -62,8 +62,6 @@
 
     const/4 v4, 0x0
 
-    const/4 v1, 0x0
-
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput v4, p0, Landroid/app/Notification$CarExtender;->mColor:I
@@ -71,6 +69,8 @@
     iget-object v2, p1, Landroid/app/Notification;->extras:Landroid/os/Bundle;
 
     if-nez v2, :cond_1
+
+    const/4 v1, 0x0
 
     :goto_0
     if-eqz v1, :cond_0
@@ -87,7 +87,7 @@
 
     const-string/jumbo v2, "app_color"
 
-    invoke-virtual {v1, v2, v4}, Landroid/os/BaseBundle;->getInt(Ljava/lang/String;I)I
+    invoke-virtual {v1, v2, v4}, Landroid/os/Bundle;->getInt(Ljava/lang/String;I)I
 
     move-result v2
 
@@ -148,7 +148,7 @@
 
     iget v3, p0, Landroid/app/Notification$CarExtender;->mColor:I
 
-    invoke-virtual {v1, v2, v3}, Landroid/os/BaseBundle;->putInt(Ljava/lang/String;I)V
+    invoke-virtual {v1, v2, v3}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
     :cond_1
     iget-object v2, p0, Landroid/app/Notification$CarExtender;->mUnreadConversation:Landroid/app/Notification$CarExtender$UnreadConversation;

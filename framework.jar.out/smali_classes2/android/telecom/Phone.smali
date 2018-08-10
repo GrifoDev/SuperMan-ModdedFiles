@@ -29,6 +29,8 @@
     .end annotation
 .end field
 
+.field private final mCallingPackage:Ljava/lang/String;
+
 .field private final mCalls:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -55,6 +57,8 @@
     .end annotation
 .end field
 
+.field private final mTargetSdkVersion:I
+
 .field private final mUnmodifiableCalls:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -68,7 +72,7 @@
 
 
 # direct methods
-.method constructor <init>(Landroid/telecom/InCallAdapter;)V
+.method constructor <init>(Landroid/telecom/InCallAdapter;Ljava/lang/String;I)V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -104,6 +108,10 @@
     iput-boolean v0, p0, Landroid/telecom/Phone;->mCanAddCall:Z
 
     iput-object p1, p0, Landroid/telecom/Phone;->mInCallAdapter:Landroid/telecom/InCallAdapter;
+
+    iput-object p2, p0, Landroid/telecom/Phone;->mCallingPackage:Ljava/lang/String;
+
+    iput p3, p0, Landroid/telecom/Phone;->mTargetSdkVersion:I
 
     return-void
 .end method
@@ -507,21 +515,27 @@
 .end method
 
 .method final internalAddCall(Landroid/telecom/ParcelableCall;)V
-    .locals 4
+    .locals 7
 
     new-instance v0, Landroid/telecom/Call;
 
     invoke-virtual {p1}, Landroid/telecom/ParcelableCall;->getId()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v2
 
-    iget-object v2, p0, Landroid/telecom/Phone;->mInCallAdapter:Landroid/telecom/InCallAdapter;
+    iget-object v3, p0, Landroid/telecom/Phone;->mInCallAdapter:Landroid/telecom/InCallAdapter;
 
     invoke-virtual {p1}, Landroid/telecom/ParcelableCall;->getState()I
 
-    move-result v3
+    move-result v4
 
-    invoke-direct {v0, p0, v1, v2, v3}, Landroid/telecom/Call;-><init>(Landroid/telecom/Phone;Ljava/lang/String;Landroid/telecom/InCallAdapter;I)V
+    iget-object v5, p0, Landroid/telecom/Phone;->mCallingPackage:Ljava/lang/String;
+
+    iget v6, p0, Landroid/telecom/Phone;->mTargetSdkVersion:I
+
+    move-object v1, p0
+
+    invoke-direct/range {v0 .. v6}, Landroid/telecom/Call;-><init>(Landroid/telecom/Phone;Ljava/lang/String;Landroid/telecom/InCallAdapter;ILjava/lang/String;I)V
 
     iget-object v1, p0, Landroid/telecom/Phone;->mCallByTelecomCallId:Ljava/util/Map;
 
@@ -609,6 +623,44 @@
     if-eqz v0, :cond_0
 
     invoke-virtual {v0, p2, p3}, Landroid/telecom/Call;->internalOnConnectionEvent(Ljava/lang/String;Landroid/os/Bundle;)V
+
+    :cond_0
+    return-void
+.end method
+
+.method final internalOnRttInitiationFailure(Ljava/lang/String;I)V
+    .locals 2
+
+    iget-object v1, p0, Landroid/telecom/Phone;->mCallByTelecomCallId:Ljava/util/Map;
+
+    invoke-interface {v1, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/telecom/Call;
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {v0, p2}, Landroid/telecom/Call;->internalOnRttInitiationFailure(I)V
+
+    :cond_0
+    return-void
+.end method
+
+.method final internalOnRttUpgradeRequest(Ljava/lang/String;I)V
+    .locals 2
+
+    iget-object v1, p0, Landroid/telecom/Phone;->mCallByTelecomCallId:Ljava/util/Map;
+
+    invoke-interface {v1, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/telecom/Call;
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {v0, p2}, Landroid/telecom/Call;->internalOnRttUpgradeRequest(I)V
 
     :cond_0
     return-void

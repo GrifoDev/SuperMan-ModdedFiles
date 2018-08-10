@@ -20,6 +20,8 @@
 
 .field public static final AUDIO_SERVICE:Ljava/lang/String; = "audio"
 
+.field public static final AUTOFILL_MANAGER_SERVICE:Ljava/lang/String; = "autofill"
+
 .field public static final BACKUP_SERVICE:Ljava/lang/String; = "backup"
 
 .field public static final BARBEAM_SERVICE:Ljava/lang/String; = "barbeam"
@@ -45,6 +47,8 @@
 .field public static final BIND_FOREGROUND_SERVICE_WHILE_AWAKE:I = 0x2000000
 
 .field public static final BIND_IMPORTANT:I = 0x40
+
+.field public static final BIND_IMPORTANT_BACKGROUND:I = 0x800000
 
 .field public static final BIND_NOT_FOREGROUND:I = 0x4
 
@@ -74,6 +78,8 @@
 
 .field public static final CODEC_SOLUTION_SERVICE:Ljava/lang/String; = "CodecSolution"
 
+.field public static final COMPANION_DEVICE_SERVICE:Ljava/lang/String; = "companiondevice"
+
 .field public static final CONNECTIVITY_SERVICE:Ljava/lang/String; = "connectivity"
 
 .field public static final CONSUMER_IR_SERVICE:Ljava/lang/String; = "consumer_ir"
@@ -96,12 +102,7 @@
 
 .field public static final COUNTRY_DETECTOR:Ljava/lang/String; = "country_detector"
 
-.field public static final CP_POSITIONING_SERVICE:Ljava/lang/String; = "cpp_service"
-
-.field public static final DESKTOP_SERVICE:Ljava/lang/String; = "desktop"
-    .annotation runtime Ljava/lang/Deprecated;
-    .end annotation
-.end field
+.field public static final DEVICE_IDENTIFIERS_SERVICE:Ljava/lang/String; = "device_identifiers"
 
 .field public static final DEVICE_IDLE_CONTROLLER:Ljava/lang/String; = "deviceidle"
 
@@ -117,8 +118,6 @@
 
 .field public static final FINGERPRINT_SERVICE:Ljava/lang/String; = "fingerprint"
 
-.field public static final FM_RADIO_SERVICE:Ljava/lang/String; = "FMPlayer"
-
 .field public static final GATEKEEPER_SERVICE:Ljava/lang/String; = "android.service.gatekeeper.IGateKeeperService"
 
 .field public static final HARDWARE_PROPERTIES_SERVICE:Ljava/lang/String; = "hardware_properties"
@@ -129,9 +128,13 @@
 
 .field public static final ICCC_SERVICE:Ljava/lang/String; = "iccc"
 
+.field public static final INCIDENT_SERVICE:Ljava/lang/String; = "incident"
+
 .field public static final INPUT_METHOD_SERVICE:Ljava/lang/String; = "input_method"
 
 .field public static final INPUT_SERVICE:Ljava/lang/String; = "input"
+
+.field public static final IPSEC_SERVICE:Ljava/lang/String; = "ipsec"
 
 .field public static final JOB_SCHEDULER_SERVICE:Ljava/lang/String; = "jobscheduler"
 
@@ -176,7 +179,7 @@
     .end annotation
 .end field
 
-.field public static final MOTION_RECOGNITION_SERVICE:Ljava/lang/String; = "motion_recognition"
+.field public static final MULTISCREEN_SERVICE:Ljava/lang/String; = "MultiScreen"
 
 .field public static final MULTIWINDOW_SERVICE:Ljava/lang/String; = "multiwindow"
 
@@ -194,6 +197,10 @@
 
 .field public static final NSD_SERVICE:Ljava/lang/String; = "servicediscovery"
 
+.field public static final OEM_LOCK_SERVICE:Ljava/lang/String; = "oem_lock"
+
+.field public static final OVERLAY_SERVICE:Ljava/lang/String; = "overlay"
+
 .field public static final PERSISTENT_DATA_BLOCK_SERVICE:Ljava/lang/String; = "persistent_data_block"
 
 .field public static final PERSONA_SERVICE:Ljava/lang/String; = "persona"
@@ -202,11 +209,11 @@
 
 .field public static final PRINT_SERVICE:Ljava/lang/String; = "print"
 
-.field public static final QUICKCONNECT_SERVICE:Ljava/lang/String; = "quickconnect"
-
 .field public static final RADIO_SERVICE:Ljava/lang/String; = "radio"
 
 .field public static final RCP_SERVICE:Ljava/lang/String; = "rcp"
+
+.field public static final RECEIVER_VISIBLE_TO_INSTANT_APPS:I = 0x1
 
 .field public static final RECOVERY_SERVICE:Ljava/lang/String; = "recovery"
 
@@ -222,21 +229,21 @@
 
 .field public static final SEM_CONTEXT_SERVICE:Ljava/lang/String; = "scontext"
 
+.field public static final SEM_COVER_SERVICE:Ljava/lang/String; = "cover"
+
 .field public static final SEM_DESKTOP_MODE_SERVICE:Ljava/lang/String; = "desktopmode"
 
 .field public static final SEM_DISPLAY_SOLUTION_SERVICE:Ljava/lang/String; = "DisplaySolution"
+
+.field public static final SEM_DMF_SERVICE:Ljava/lang/String; = "DmfManagerService"
 
 .field public static final SEM_EDGE_SERVICE:Ljava/lang/String; = "edge"
 
 .field public static final SEM_EXECUTABLE_SERVICE:Ljava/lang/String; = "execute"
 
-.field public static final SEM_EXECUTE_SERVICE:Ljava/lang/String; = "execute"
-
 .field public static final SEM_FM_RADIO_SERVICE:Ljava/lang/String; = "FMPlayer"
 
 .field public static final SEM_LOCATION_SERVICE:Ljava/lang/String; = "sec_location"
-
-.field public static final SEM_MAGAZINE_CARD_SERVICE:Ljava/lang/String; = "magazinecardservice"
 
 .field public static final SEM_MDNIE_SERVICE:Ljava/lang/String; = "mDNIe"
 
@@ -244,13 +251,17 @@
 
 .field public static final SEM_PERSONA_SERVICE:Ljava/lang/String; = "persona"
 
+.field public static final SEM_PROAUDIO:Ljava/lang/String; = "SamsungProAudio"
+
 .field public static final SEM_RCP_SERVICE:Ljava/lang/String; = "rcp"
 
 .field public static final SEM_SPEN_GESTURE_SERVICE:Ljava/lang/String; = "spengestureservice"
 
 .field public static final SEM_STATUS_BAR_SERVICE:Ljava/lang/String; = "sem_statusbar"
 
-.field public static final SENSORHUB_SERVICE:Ljava/lang/String; = "sensorhub"
+.field public static final SEM_VIRTUAL_SPACE_SERVICE:Ljava/lang/String; = "virtualspace"
+
+.field public static final SEM_VR_MANAGER_SERVICE:Ljava/lang/String; = "vr"
 
 .field public static final SENSOR_SERVICE:Ljava/lang/String; = "sensor"
 
@@ -266,6 +277,8 @@
 
 .field public static final STORAGE_SERVICE:Ljava/lang/String; = "storage"
 
+.field public static final STORAGE_STATS_SERVICE:Ljava/lang/String; = "storagestats"
+
 .field public static final SYSTEM_HEALTH_SERVICE:Ljava/lang/String; = "systemhealth"
 
 .field public static final TELECOM_SERVICE:Ljava/lang/String; = "telecom"
@@ -273,6 +286,8 @@
 .field public static final TELEPHONY_SERVICE:Ljava/lang/String; = "phone"
 
 .field public static final TELEPHONY_SUBSCRIPTION_SERVICE:Ljava/lang/String; = "telephony_subscription_service"
+
+.field public static final TEXT_CLASSIFICATION_SERVICE:Ljava/lang/String; = "textclassification"
 
 .field public static final TEXT_SERVICES_MANAGER_SERVICE:Ljava/lang/String; = "textservices"
 
@@ -292,21 +307,17 @@
 
 .field public static final VIBRATOR_SERVICE:Ljava/lang/String; = "vibrator"
 
-.field public static final VIRTUALSCREEN_SERVICE:Ljava/lang/String; = "virtualscreen"
-
 .field public static final VOICE_INTERACTION_MANAGER_SERVICE:Ljava/lang/String; = "voiceinteraction"
 
 .field public static final VOIP_SERVICE:Ljava/lang/String; = "voip"
 
 .field public static final VR_MANAGER_SERVICE:Ljava/lang/String; = "vr"
 
-.field public static final VZW_LOCATION_SERVICE:Ljava/lang/String; = "VZW_LOCATION_SERVICE"
+.field public static final VR_SERVICE:Ljava/lang/String; = "vrmanager"
 
 .field public static final WALLPAPER_SERVICE:Ljava/lang/String; = "wallpaper"
 
-.field public static final WIFI_HS20_SERVICE:Ljava/lang/String; = "wifihs20"
-
-.field public static final WIFI_NAN_SERVICE:Ljava/lang/String; = "wifinan"
+.field public static final WIFI_AWARE_SERVICE:Ljava/lang/String; = "wifiaware"
 
 .field public static final WIFI_OFFLOAD_SERVICE:Ljava/lang/String; = "wifioffload"
 
@@ -320,8 +331,20 @@
 
 .field public static final WINDOW_SERVICE:Ljava/lang/String; = "window"
 
+.field private static sLastAutofillId:I
+
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    const/4 v0, -0x1
+
+    sput v0, Landroid/content/Context;->sLastAutofillId:I
+
+    return-void
+.end method
+
 .method public constructor <init>()V
     .locals 0
 
@@ -332,6 +355,31 @@
 
 
 # virtual methods
+.method public assertRuntimeOverlayThemable()V
+    .locals 2
+
+    invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    invoke-static {}, Landroid/content/res/Resources;->getSystem()Landroid/content/res/Resources;
+
+    move-result-object v1
+
+    if-ne v0, v1, :cond_0
+
+    new-instance v0, Ljava/lang/IllegalArgumentException;
+
+    const-string/jumbo v1, "Non-UI context used to display UI; get a UI context from ActivityThread#getSystemUiContext()"
+
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+
+    :cond_0
+    return-void
+.end method
+
 .method public abstract bindService(Landroid/content/Intent;Landroid/content/ServiceConnection;I)Z
 .end method
 
@@ -357,6 +405,9 @@
     invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
     throw v0
+.end method
+
+.method public abstract canLoadUnsafeResources()Z
 .end method
 
 .method public canStartActivityForResult()Z
@@ -419,31 +470,15 @@
 .method public abstract createConfigurationContext(Landroid/content/res/Configuration;)Landroid/content/Context;
 .end method
 
-.method public createCredentialEncryptedStorageContext()Landroid/content/Context;
-    .locals 1
-    .annotation runtime Ljava/lang/Deprecated;
+.method public abstract createContextForSplit(Ljava/lang/String;)Landroid/content/Context;
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/content/pm/PackageManager$NameNotFoundException;
+        }
     .end annotation
-
-    invoke-virtual {p0}, Landroid/content/Context;->createCredentialProtectedStorageContext()Landroid/content/Context;
-
-    move-result-object v0
-
-    return-object v0
 .end method
 
 .method public abstract createCredentialProtectedStorageContext()Landroid/content/Context;
-.end method
-
-.method public createDeviceEncryptedStorageContext()Landroid/content/Context;
-    .locals 1
-    .annotation runtime Ljava/lang/Deprecated;
-    .end annotation
-
-    invoke-virtual {p0}, Landroid/content/Context;->createDeviceProtectedStorageContext()Landroid/content/Context;
-
-    move-result-object v0
-
-    return-object v0
 .end method
 
 .method public abstract createDeviceProtectedStorageContext()Landroid/content/Context;
@@ -460,42 +495,12 @@
     .end annotation
 .end method
 
-.method public createPackageContext(Ljava/lang/String;Ljava/lang/ClassLoader;I)Landroid/content/Context;
-    .locals 1
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/content/pm/PackageManager$NameNotFoundException;
-        }
-    .end annotation
-
-    invoke-virtual {p0, p1, p3}, Landroid/content/Context;->createPackageContext(Ljava/lang/String;I)Landroid/content/Context;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
 .method public abstract createPackageContextAsUser(Ljava/lang/String;ILandroid/os/UserHandle;)Landroid/content/Context;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/content/pm/PackageManager$NameNotFoundException;
         }
     .end annotation
-.end method
-
-.method public createPackageContextAsUser(Ljava/lang/String;Ljava/lang/ClassLoader;ILandroid/os/UserHandle;)Landroid/content/Context;
-    .locals 1
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/content/pm/PackageManager$NameNotFoundException;
-        }
-    .end annotation
-
-    invoke-virtual {p0, p1, p3, p4}, Landroid/content/Context;->createPackageContextAsUser(Ljava/lang/String;ILandroid/os/UserHandle;)Landroid/content/Context;
-
-    move-result-object v0
-
-    return-object v0
 .end method
 
 .method public abstract databaseList()[Ljava/lang/String;
@@ -532,6 +537,18 @@
 .end method
 
 .method public abstract fileList()[Ljava/lang/String;
+.end method
+
+.method public getActivityToken()Landroid/os/IBinder;
+    .locals 2
+
+    new-instance v0, Ljava/lang/RuntimeException;
+
+    const-string/jumbo v1, "Not implemented. Must override in a subclass."
+
+    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+
+    throw v0
 .end method
 
 .method public abstract getApplicationContext()Landroid/content/Context;
@@ -609,14 +626,6 @@
 .method public abstract getDisplayAdjustments(I)Landroid/view/DisplayAdjustments;
 .end method
 
-.method public getDisplayId()I
-    .locals 1
-
-    const/4 v0, 0x0
-
-    return v0
-.end method
-
 .method public final getDrawable(I)Landroid/graphics/drawable/Drawable;
     .locals 2
 
@@ -656,7 +665,56 @@
 .method public abstract getFilesDir()Ljava/io/File;
 .end method
 
+.method public getIApplicationThread()Landroid/app/IApplicationThread;
+    .locals 2
+
+    new-instance v0, Ljava/lang/RuntimeException;
+
+    const-string/jumbo v1, "Not implemented. Must override in a subclass."
+
+    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+.end method
+
 .method public abstract getMainLooper()Landroid/os/Looper;
+.end method
+
+.method public getMainThreadHandler()Landroid/os/Handler;
+    .locals 2
+
+    new-instance v0, Ljava/lang/RuntimeException;
+
+    const-string/jumbo v1, "Not implemented. Must override in a subclass."
+
+    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+.end method
+
+.method public getNextAutofillId()I
+    .locals 2
+
+    sget v0, Landroid/content/Context;->sLastAutofillId:I
+
+    const v1, 0x3ffffffe    # 1.9999998f
+
+    if-ne v0, v1, :cond_0
+
+    const/4 v0, -0x1
+
+    sput v0, Landroid/content/Context;->sLastAutofillId:I
+
+    :cond_0
+    sget v0, Landroid/content/Context;->sLastAutofillId:I
+
+    add-int/lit8 v0, v0, 0x1
+
+    sput v0, Landroid/content/Context;->sLastAutofillId:I
+
+    sget v0, Landroid/content/Context;->sLastAutofillId:I
+
+    return v0
 .end method
 
 .method public abstract getNoBackupFilesDir()Ljava/io/File;
@@ -671,14 +729,6 @@
 .method public abstract getOpPackageName()Ljava/lang/String;
 .end method
 
-.method public getOuterContext()Landroid/content/Context;
-    .locals 1
-
-    const/4 v0, 0x0
-
-    return-object v0
-.end method
-
 .method public abstract getPackageCodePath()Ljava/lang/String;
 .end method
 
@@ -691,7 +741,22 @@
 .method public abstract getPackageResourcePath()Ljava/lang/String;
 .end method
 
+.method public abstract getPreloadsFileCache()Ljava/io/File;
+.end method
+
 .method public abstract getResources()Landroid/content/res/Resources;
+.end method
+
+.method public getServiceDispatcher(Landroid/content/ServiceConnection;Landroid/os/Handler;I)Landroid/app/IServiceConnection;
+    .locals 2
+
+    new-instance v0, Ljava/lang/RuntimeException;
+
+    const-string/jumbo v1, "Not implemented. Must override in a subclass."
+
+    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+
+    throw v0
 .end method
 
 .method public abstract getSharedPreferences(Ljava/io/File;I)Landroid/content/SharedPreferences;
@@ -713,14 +778,6 @@
     move-result-object v0
 
     return-object v0
-.end method
-
-.method public getShrinkRequested()Z
-    .locals 1
-
-    const/4 v0, 0x0
-
-    return v0
 .end method
 
 .method public final getString(I)Ljava/lang/String;
@@ -842,31 +899,7 @@
 .method public abstract grantUriPermission(Ljava/lang/String;Landroid/net/Uri;I)V
 .end method
 
-.method public isCredentialEncryptedStorage()Z
-    .locals 1
-    .annotation runtime Ljava/lang/Deprecated;
-    .end annotation
-
-    invoke-virtual {p0}, Landroid/content/Context;->isCredentialProtectedStorage()Z
-
-    move-result v0
-
-    return v0
-.end method
-
 .method public abstract isCredentialProtectedStorage()Z
-.end method
-
-.method public isDeviceEncryptedStorage()Z
-    .locals 1
-    .annotation runtime Ljava/lang/Deprecated;
-    .end annotation
-
-    invoke-virtual {p0}, Landroid/content/Context;->isDeviceProtectedStorage()Z
-
-    move-result v0
-
-    return v0
 .end method
 
 .method public abstract isDeviceProtectedStorage()Z
@@ -876,30 +909,6 @@
     .locals 1
 
     const/4 v0, 0x0
-
-    return v0
-.end method
-
-.method public migrateDatabaseFrom(Landroid/content/Context;Ljava/lang/String;)Z
-    .locals 1
-    .annotation runtime Ljava/lang/Deprecated;
-    .end annotation
-
-    invoke-virtual {p0, p1, p2}, Landroid/content/Context;->moveDatabaseFrom(Landroid/content/Context;Ljava/lang/String;)Z
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public migrateSharedPreferencesFrom(Landroid/content/Context;Ljava/lang/String;)Z
-    .locals 1
-    .annotation runtime Ljava/lang/Deprecated;
-    .end annotation
-
-    invoke-virtual {p0, p1, p2}, Landroid/content/Context;->moveSharedPreferencesFrom(Landroid/content/Context;Ljava/lang/String;)Z
-
-    move-result v0
 
     return v0
 .end method
@@ -1015,7 +1024,13 @@
 .method public abstract registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 .end method
 
+.method public abstract registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;I)Landroid/content/Intent;
+.end method
+
 .method public abstract registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;Ljava/lang/String;Landroid/os/Handler;)Landroid/content/Intent;
+.end method
+
+.method public abstract registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;Ljava/lang/String;Landroid/os/Handler;I)Landroid/content/Intent;
 .end method
 
 .method public abstract registerReceiverAsUser(Landroid/content/BroadcastReceiver;Landroid/os/UserHandle;Landroid/content/IntentFilter;Ljava/lang/String;Landroid/os/Handler;)Landroid/content/Intent;
@@ -1032,6 +1047,39 @@
 .end method
 
 .method public abstract revokeUriPermission(Landroid/net/Uri;I)V
+.end method
+
+.method public abstract revokeUriPermission(Ljava/lang/String;Landroid/net/Uri;I)V
+.end method
+
+.method public semBindServiceAsUser(Landroid/content/Intent;Landroid/content/ServiceConnection;ILandroid/os/UserHandle;)Z
+    .locals 1
+
+    invoke-virtual {p0, p1, p2, p3, p4}, Landroid/content/Context;->bindServiceAsUser(Landroid/content/Intent;Landroid/content/ServiceConnection;ILandroid/os/UserHandle;)Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public semGetSharedPreferencesPath(Ljava/lang/String;)Ljava/io/File;
+    .locals 1
+
+    invoke-virtual {p0, p1}, Landroid/content/Context;->getSharedPreferencesPath(Ljava/lang/String;)Ljava/io/File;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public semGetSharedPrefsFile(Ljava/lang/String;)Ljava/io/File;
+    .locals 1
+
+    invoke-virtual {p0, p1}, Landroid/content/Context;->getSharedPreferencesPath(Ljava/lang/String;)Ljava/io/File;
+
+    move-result-object v0
+
+    return-object v0
 .end method
 
 .method public semRegisterReceiverAsUser(Landroid/content/BroadcastReceiver;Landroid/os/UserHandle;Landroid/content/IntentFilter;Ljava/lang/String;Landroid/os/Handler;)Landroid/content/Intent;
@@ -1093,6 +1141,9 @@
 .method public abstract sendBroadcastAsUser(Landroid/content/Intent;Landroid/os/UserHandle;Ljava/lang/String;I)V
 .end method
 
+.method public abstract sendBroadcastAsUser(Landroid/content/Intent;Landroid/os/UserHandle;Ljava/lang/String;Landroid/os/Bundle;)V
+.end method
+
 .method public abstract sendBroadcastMultiplePermissions(Landroid/content/Intent;[Ljava/lang/String;)V
 .end method
 
@@ -1143,12 +1194,6 @@
 .method public abstract sendStickyOrderedBroadcastAsUser(Landroid/content/Intent;Landroid/os/UserHandle;Landroid/content/BroadcastReceiver;Landroid/os/Handler;ILjava/lang/String;Landroid/os/Bundle;)V
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
-.end method
-
-.method public setDisplay(Landroid/view/Display;)V
-    .locals 0
-
-    return-void
 .end method
 
 .method public abstract setTheme(I)V
@@ -1242,6 +1287,12 @@
     throw v0
 .end method
 
+.method public abstract startForegroundService(Landroid/content/Intent;)Landroid/content/ComponentName;
+.end method
+
+.method public abstract startForegroundServiceAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)Landroid/content/ComponentName;
+.end method
+
 .method public abstract startInstrumentation(Landroid/content/ComponentName;Ljava/lang/String;Landroid/os/Bundle;)Z
 .end method
 
@@ -1289,4 +1340,7 @@
 .end method
 
 .method public abstract unregisterReceiver(Landroid/content/BroadcastReceiver;)V
+.end method
+
+.method public abstract updateDisplay(I)V
 .end method

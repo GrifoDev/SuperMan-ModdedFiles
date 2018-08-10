@@ -298,7 +298,7 @@
 
     move-result-object v1
 
-    const v2, 0x1050064
+    const v2, 0x1050076
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 
@@ -625,8 +625,6 @@
 .method private static clip(Landroid/widget/GridLayout$Interval;ZI)I
     .locals 3
 
-    const/4 v0, 0x0
-
     invoke-virtual {p0}, Landroid/widget/GridLayout$Interval;->size()I
 
     move-result v1
@@ -644,7 +642,7 @@
 
     move-result v0
 
-    :cond_1
+    :goto_0
     sub-int v2, p2, v0
 
     invoke-static {v1, v2}, Ljava/lang/Math;->min(II)I
@@ -652,6 +650,11 @@
     move-result v2
 
     return v2
+
+    :cond_1
+    const/4 v0, 0x0
+
+    goto :goto_0
 .end method
 
 .method private computeLayoutParamsHashCode()I
@@ -936,17 +939,15 @@
 .end method
 
 .method private getDefaultMargin(Landroid/view/View;Landroid/widget/GridLayout$LayoutParams;ZZ)I
-    .locals 8
+    .locals 7
 
-    const/4 v1, 0x1
+    const/4 v6, 0x0
 
-    const/4 v5, 0x0
+    iget-boolean v5, p0, Landroid/widget/GridLayout;->mUseDefaultMargins:Z
 
-    iget-boolean v6, p0, Landroid/widget/GridLayout;->mUseDefaultMargins:Z
+    if-nez v5, :cond_0
 
-    if-nez v6, :cond_0
-
-    return v5
+    return v6
 
     :cond_0
     if-eqz p3, :cond_1
@@ -961,26 +962,27 @@
     :goto_1
     iget-object v3, v4, Landroid/widget/GridLayout$Spec;->span:Landroid/widget/GridLayout$Interval;
 
-    if-eqz p3, :cond_4
+    if-eqz p3, :cond_3
 
     invoke-virtual {p0}, Landroid/widget/GridLayout;->isLayoutRtl()Z
 
-    move-result v6
+    move-result v5
 
-    if-eqz v6, :cond_4
+    if-eqz v5, :cond_3
 
-    if-eqz p4, :cond_3
-
-    move v2, v5
+    xor-int/lit8 v2, p4, 0x1
 
     :goto_2
-    if-eqz v2, :cond_6
+    if-eqz v2, :cond_5
 
-    iget v6, v3, Landroid/widget/GridLayout$Interval;->min:I
+    iget v5, v3, Landroid/widget/GridLayout$Interval;->min:I
 
-    if-nez v6, :cond_5
+    if-nez v5, :cond_4
 
     :goto_3
+    const/4 v1, 0x1
+
+    :goto_4
     invoke-direct {p0, p1, v1, p3, p4}, Landroid/widget/GridLayout;->getDefaultMargin(Landroid/view/View;ZZZ)I
 
     move-result v5
@@ -998,28 +1000,23 @@
     goto :goto_1
 
     :cond_3
-    move v2, v1
-
-    goto :goto_2
-
-    :cond_4
     move v2, p4
 
     goto :goto_2
 
+    :cond_4
+    const/4 v1, 0x0
+
+    goto :goto_4
+
     :cond_5
-    move v1, v5
-
-    goto :goto_3
-
-    :cond_6
-    iget v6, v3, Landroid/widget/GridLayout$Interval;->max:I
+    iget v5, v3, Landroid/widget/GridLayout$Interval;->max:I
 
     invoke-virtual {v0}, Landroid/widget/GridLayout$Axis;->getCount()I
 
-    move-result v7
+    move-result v6
 
-    if-ne v6, v7, :cond_5
+    if-ne v5, v6, :cond_4
 
     goto :goto_3
 .end method
@@ -1655,12 +1652,12 @@
 
     move/from16 v19, v0
 
-    if-nez v19, :cond_4
+    if-nez v19, :cond_3
 
     const/4 v5, 0x1
 
     :goto_0
-    if-eqz v5, :cond_5
+    if-eqz v5, :cond_4
 
     move-object/from16 v0, p0
 
@@ -1677,7 +1674,7 @@
 
     move/from16 v1, v20
 
-    if-eq v0, v1, :cond_6
+    if-eq v0, v1, :cond_5
 
     iget v4, v3, Landroid/widget/GridLayout$Axis;->definedCount:I
 
@@ -1709,7 +1706,7 @@
 
     check-cast v7, Landroid/widget/GridLayout$LayoutParams;
 
-    if-eqz v5, :cond_7
+    if-eqz v5, :cond_6
 
     iget-object v11, v7, Landroid/widget/GridLayout$LayoutParams;->rowSpec:Landroid/widget/GridLayout$Spec;
 
@@ -1727,7 +1724,7 @@
     iget v8, v9, Landroid/widget/GridLayout$Interval;->min:I
 
     :cond_0
-    if-eqz v5, :cond_8
+    if-eqz v5, :cond_7
 
     iget-object v0, v7, Landroid/widget/GridLayout$LayoutParams;->columnSpec:Landroid/widget/GridLayout$Spec;
 
@@ -1755,13 +1752,80 @@
     iget v14, v15, Landroid/widget/GridLayout$Interval;->min:I
 
     :cond_1
-    if-eqz v4, :cond_3
+    if-eqz v4, :cond_b
 
-    if-eqz v12, :cond_9
+    if-eqz v12, :cond_2
 
-    if-eqz v18, :cond_9
+    xor-int/lit8 v19, v18, 0x1
+
+    if-eqz v19, :cond_a
 
     :cond_2
+    :goto_6
+    add-int v19, v14, v16
+
+    move/from16 v0, v19
+
+    invoke-static {v13, v8, v14, v0}, Landroid/widget/GridLayout;->fits([IIII)Z
+
+    move-result v19
+
+    if-nez v19, :cond_a
+
+    if-eqz v18, :cond_8
+
+    add-int/lit8 v8, v8, 0x1
+
+    goto :goto_6
+
+    :cond_3
+    const/4 v5, 0x0
+
+    goto :goto_0
+
+    :cond_4
+    move-object/from16 v0, p0
+
+    iget-object v3, v0, Landroid/widget/GridLayout;->mVerticalAxis:Landroid/widget/GridLayout$Axis;
+
+    goto :goto_1
+
+    :cond_5
+    const/4 v4, 0x0
+
+    goto :goto_2
+
+    :cond_6
+    iget-object v11, v7, Landroid/widget/GridLayout$LayoutParams;->columnSpec:Landroid/widget/GridLayout$Spec;
+
+    goto :goto_4
+
+    :cond_7
+    iget-object v0, v7, Landroid/widget/GridLayout$LayoutParams;->rowSpec:Landroid/widget/GridLayout$Spec;
+
+    move-object/from16 v17, v0
+
+    goto :goto_5
+
+    :cond_8
+    add-int v19, v14, v16
+
+    move/from16 v0, v19
+
+    if-gt v0, v4, :cond_9
+
+    add-int/lit8 v14, v14, 0x1
+
+    goto :goto_6
+
+    :cond_9
+    const/4 v14, 0x0
+
+    add-int/lit8 v8, v8, 0x1
+
+    goto :goto_6
+
+    :cond_a
     add-int v19, v14, v16
 
     add-int v20, v8, v10
@@ -1772,91 +1836,26 @@
 
     invoke-static {v13, v14, v0, v1}, Landroid/widget/GridLayout;->procrusteanFill([IIII)V
 
-    :cond_3
+    :cond_b
     if-eqz v5, :cond_c
 
     move/from16 v0, v16
 
     invoke-static {v7, v8, v10, v14, v0}, Landroid/widget/GridLayout;->setCellGroup(Landroid/widget/GridLayout$LayoutParams;IIII)V
 
-    :goto_6
+    :goto_7
     add-int v14, v14, v16
 
     add-int/lit8 v6, v6, 0x1
 
-    goto :goto_3
-
-    :cond_4
-    const/4 v5, 0x0
-
-    goto :goto_0
-
-    :cond_5
-    move-object/from16 v0, p0
-
-    iget-object v3, v0, Landroid/widget/GridLayout;->mVerticalAxis:Landroid/widget/GridLayout$Axis;
-
-    goto :goto_1
-
-    :cond_6
-    const/4 v4, 0x0
-
-    goto :goto_2
-
-    :cond_7
-    iget-object v11, v7, Landroid/widget/GridLayout$LayoutParams;->columnSpec:Landroid/widget/GridLayout$Spec;
-
-    goto :goto_4
-
-    :cond_8
-    iget-object v0, v7, Landroid/widget/GridLayout$LayoutParams;->rowSpec:Landroid/widget/GridLayout$Spec;
-
-    move-object/from16 v17, v0
-
-    goto :goto_5
-
-    :cond_9
-    :goto_7
-    add-int v19, v14, v16
-
-    move/from16 v0, v19
-
-    invoke-static {v13, v8, v14, v0}, Landroid/widget/GridLayout;->fits([IIII)Z
-
-    move-result v19
-
-    if-nez v19, :cond_2
-
-    if-eqz v18, :cond_a
-
-    add-int/lit8 v8, v8, 0x1
-
-    goto :goto_7
-
-    :cond_a
-    add-int v19, v14, v16
-
-    move/from16 v0, v19
-
-    if-gt v0, v4, :cond_b
-
-    add-int/lit8 v14, v14, 0x1
-
-    goto :goto_7
-
-    :cond_b
-    const/4 v14, 0x0
-
-    add-int/lit8 v8, v8, 0x1
-
-    goto :goto_7
+    goto/16 :goto_3
 
     :cond_c
     move/from16 v0, v16
 
     invoke-static {v7, v14, v0, v8, v10}, Landroid/widget/GridLayout;->setCellGroup(Landroid/widget/GridLayout$LayoutParams;IIII)V
 
-    goto :goto_6
+    goto :goto_7
 
     :cond_d
     return-void
@@ -1945,6 +1944,10 @@
 
 .method protected generateLayoutParams(Landroid/view/ViewGroup$LayoutParams;)Landroid/widget/GridLayout$LayoutParams;
     .locals 1
+
+    sget-boolean v0, Landroid/widget/GridLayout;->sPreserveMarginParamsInLayoutParamConversion:Z
+
+    if-eqz v0, :cond_1
 
     instance-of v0, p1, Landroid/widget/GridLayout$LayoutParams;
 

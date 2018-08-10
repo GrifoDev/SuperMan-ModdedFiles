@@ -27,6 +27,8 @@
 
 .field public static final OPSTR_ADD_VOICEMAIL:Ljava/lang/String; = "android:add_voicemail"
 
+.field public static final OPSTR_ANSWER_PHONE_CALLS:Ljava/lang/String; = "android:answer_phone_calls"
+
 .field public static final OPSTR_BODY_SENSORS:Ljava/lang/String; = "android:body_sensors"
 
 .field public static final OPSTR_CALL_PHONE:Ljava/lang/String; = "android:call_phone"
@@ -41,11 +43,17 @@
 
 .field public static final OPSTR_GET_USAGE_STATS:Ljava/lang/String; = "android:get_usage_stats"
 
+.field public static final OPSTR_INSTANT_APP_START_FOREGROUND:Ljava/lang/String; = "android:instant_app_start_foreground"
+
 .field public static final OPSTR_MOCK_LOCATION:Ljava/lang/String; = "android:mock_location"
 
 .field public static final OPSTR_MONITOR_HIGH_POWER_LOCATION:Ljava/lang/String; = "android:monitor_location_high_power"
 
 .field public static final OPSTR_MONITOR_LOCATION:Ljava/lang/String; = "android:monitor_location"
+
+.field public static final OPSTR_PICTURE_IN_PICTURE:Ljava/lang/String; = "android:picture_in_picture"
+
+.field public static final OPSTR_PROCESS_OUTGOING_CALLS:Ljava/lang/String; = "android:process_outgoing_calls"
 
 .field public static final OPSTR_READ_CALENDAR:Ljava/lang/String; = "android:read_calendar"
 
@@ -56,6 +64,8 @@
 .field public static final OPSTR_READ_CONTACTS:Ljava/lang/String; = "android:read_contacts"
 
 .field public static final OPSTR_READ_EXTERNAL_STORAGE:Ljava/lang/String; = "android:read_external_storage"
+
+.field public static final OPSTR_READ_PHONE_NUMBERS:Ljava/lang/String; = "android:read_phone_numbers"
 
 .field public static final OPSTR_READ_PHONE_STATE:Ljava/lang/String; = "android:read_phone_state"
 
@@ -95,9 +105,13 @@
 
 .field public static final OP_ADD_VOICEMAIL:I = 0x34
 
+.field public static final OP_ANSWER_PHONE_CALLS:I = 0x45
+
 .field public static final OP_ASSIST_SCREENSHOT:I = 0x32
 
 .field public static final OP_ASSIST_STRUCTURE:I = 0x31
+
+.field public static final OP_AUDIO_ACCESSIBILITY_VOLUME:I = 0x40
 
 .field public static final OP_AUDIO_ALARM_VOLUME:I = 0x25
 
@@ -129,6 +143,8 @@
 
 .field public static final OP_GPS:I = 0x2
 
+.field public static final OP_INSTANT_APP_START_FOREGROUND:I = 0x44
+
 .field public static final OP_MOCK_LOCATION:I = 0x3a
 
 .field public static final OP_MONITOR_HIGH_POWER_LOCATION:I = 0x2a
@@ -140,6 +156,8 @@
 .field public static final OP_NEIGHBORING_CELLS:I = 0xc
 
 .field public static final OP_NONE:I = -0x1
+
+.field public static final OP_PICTURE_IN_PICTURE:I = 0x43
 
 .field public static final OP_PLAY_AUDIO:I = 0x1c
 
@@ -163,6 +181,8 @@
 
 .field public static final OP_READ_ICC_SMS:I = 0x15
 
+.field public static final OP_READ_PHONE_NUMBERS:I = 0x41
+
 .field public static final OP_READ_PHONE_STATE:I = 0x33
 
 .field public static final OP_READ_SMS:I = 0xe
@@ -177,13 +197,15 @@
 
 .field public static final OP_RECORD_AUDIO:I = 0x1b
 
+.field public static final OP_REQUEST_INSTALL_PACKAGES:I = 0x42
+
 .field public static final OP_RUN_IN_BACKGROUND:I = 0x3f
 
 .field public static final OP_SEND_SMS:I = 0x14
 
 .field public static final OP_SYSTEM_ALERT_WINDOW:I = 0x18
 
-.field public static final OP_SYSTEM_INTERNAL_WINDOW:I = 0x40
+.field public static final OP_SYSTEM_INTERNAL_WINDOW:I = 0x46
 
 .field public static final OP_TAKE_AUDIO_FOCUS:I = 0x20
 
@@ -221,9 +243,9 @@
 
 .field public static final OP_WRITE_WALLPAPER:I = 0x30
 
-.field private static final RUNTIME_PERMISSIONS_OPS:[I
+.field private static final RUNTIME_AND_APPOP_PERMISSIONS_OPS:[I
 
-.field public static final _NUM_OP:I = 0x41
+.field public static final _NUM_OP:I = 0x47
 
 .field private static sOpAllowSystemRestrictionBypass:[Z
 
@@ -253,7 +275,7 @@
 
 .field private static sOpToSwitch:[I
 
-.field private static sRuntimePermToOp:Ljava/util/HashMap;
+.field private static sPermToOp:Ljava/util/HashMap;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/HashMap",
@@ -300,11 +322,11 @@
 
     const/4 v9, 0x1
 
-    const/16 v8, 0x19
+    const/16 v8, 0x1f
 
     const/4 v2, 0x0
 
-    const/16 v7, 0x41
+    const/16 v7, 0x47
 
     const/4 v6, 0x0
 
@@ -312,7 +334,7 @@
 
     fill-array-data v3, :array_0
 
-    sput-object v3, Landroid/app/AppOpsManager;->RUNTIME_PERMISSIONS_OPS:[I
+    sput-object v3, Landroid/app/AppOpsManager;->RUNTIME_AND_APPOP_PERMISSIONS_OPS:[I
 
     new-array v3, v7, [I
 
@@ -450,7 +472,9 @@
 
     aput-object v4, v3, v5
 
-    aput-object v6, v3, v8
+    const/16 v4, 0x19
+
+    aput-object v6, v3, v4
 
     const-string/jumbo v4, "android:camera"
 
@@ -476,9 +500,7 @@
 
     aput-object v6, v3, v4
 
-    const/16 v4, 0x1f
-
-    aput-object v6, v3, v4
+    aput-object v6, v3, v8
 
     const/16 v4, 0x20
 
@@ -582,9 +604,11 @@
 
     aput-object v4, v3, v5
 
-    const/16 v4, 0x36
+    const-string/jumbo v4, "android:process_outgoing_calls"
 
-    aput-object v6, v3, v4
+    const/16 v5, 0x36
+
+    aput-object v4, v3, v5
 
     const-string/jumbo v4, "android:use_fingerprint"
 
@@ -636,9 +660,41 @@
 
     aput-object v6, v3, v4
 
+    const/16 v4, 0x40
+
+    aput-object v6, v3, v4
+
+    const-string/jumbo v4, "android:read_phone_numbers"
+
+    const/16 v5, 0x41
+
+    aput-object v4, v3, v5
+
+    const/16 v4, 0x42
+
+    aput-object v6, v3, v4
+
+    const-string/jumbo v4, "android:picture_in_picture"
+
+    const/16 v5, 0x43
+
+    aput-object v4, v3, v5
+
+    const-string/jumbo v4, "android:instant_app_start_foreground"
+
+    const/16 v5, 0x44
+
+    aput-object v4, v3, v5
+
+    const-string/jumbo v4, "android:answer_phone_calls"
+
+    const/16 v5, 0x45
+
+    aput-object v4, v3, v5
+
     const-string/jumbo v4, "android:system_internal_window"
 
-    const/16 v5, 0x40
+    const/16 v5, 0x46
 
     aput-object v4, v3, v5
 
@@ -794,7 +850,9 @@
 
     const-string/jumbo v4, "ACCESS_NOTIFICATIONS"
 
-    aput-object v4, v3, v8
+    const/16 v5, 0x19
+
+    aput-object v4, v3, v5
 
     const-string/jumbo v4, "CAMERA"
 
@@ -828,9 +886,7 @@
 
     const-string/jumbo v4, "TAKE_MEDIA_BUTTONS"
 
-    const/16 v5, 0x1f
-
-    aput-object v4, v3, v5
+    aput-object v4, v3, v8
 
     const-string/jumbo v4, "TAKE_AUDIO_FOCUS"
 
@@ -1024,9 +1080,45 @@
 
     aput-object v4, v3, v5
 
-    const-string/jumbo v4, "SYSTEM_INTERNAL_WINDOW"
+    const-string/jumbo v4, "AUDIO_ACCESSIBILITY_VOLUME"
 
     const/16 v5, 0x40
+
+    aput-object v4, v3, v5
+
+    const-string/jumbo v4, "READ_PHONE_NUMBERS"
+
+    const/16 v5, 0x41
+
+    aput-object v4, v3, v5
+
+    const-string/jumbo v4, "REQUEST_INSTALL_PACKAGES"
+
+    const/16 v5, 0x42
+
+    aput-object v4, v3, v5
+
+    const-string/jumbo v4, "PICTURE_IN_PICTURE"
+
+    const/16 v5, 0x43
+
+    aput-object v4, v3, v5
+
+    const-string/jumbo v4, "INSTANT_APP_START_FOREGROUND"
+
+    const/16 v5, 0x44
+
+    aput-object v4, v3, v5
+
+    const-string/jumbo v4, "ANSWER_PHONE_CALLS"
+
+    const/16 v5, 0x45
+
+    aput-object v4, v3, v5
+
+    const-string/jumbo v4, "SYSTEM_INTERNAL_WINDOW"
+
+    const/16 v5, 0x46
 
     aput-object v4, v3, v5
 
@@ -1172,7 +1264,9 @@
 
     const-string/jumbo v4, "android.permission.ACCESS_NOTIFICATIONS"
 
-    aput-object v4, v3, v8
+    const/16 v5, 0x19
+
+    aput-object v4, v3, v5
 
     const-string/jumbo v4, "android.permission.CAMERA"
 
@@ -1198,9 +1292,7 @@
 
     aput-object v6, v3, v4
 
-    const/16 v4, 0x1f
-
-    aput-object v6, v3, v4
+    aput-object v6, v3, v8
 
     const/16 v4, 0x20
 
@@ -1358,6 +1450,38 @@
 
     aput-object v6, v3, v4
 
+    const-string/jumbo v4, "android.permission.READ_PHONE_NUMBERS"
+
+    const/16 v5, 0x41
+
+    aput-object v4, v3, v5
+
+    const-string/jumbo v4, "android.permission.REQUEST_INSTALL_PACKAGES"
+
+    const/16 v5, 0x42
+
+    aput-object v4, v3, v5
+
+    const/16 v4, 0x43
+
+    aput-object v6, v3, v4
+
+    const-string/jumbo v4, "android.permission.INSTANT_APP_FOREGROUND_SERVICE"
+
+    const/16 v5, 0x44
+
+    aput-object v4, v3, v5
+
+    const-string/jumbo v4, "android.permission.ANSWER_PHONE_CALLS"
+
+    const/16 v5, 0x45
+
+    aput-object v4, v3, v5
+
+    const/16 v4, 0x46
+
+    aput-object v6, v3, v4
+
     sput-object v3, Landroid/app/AppOpsManager;->sOpPerms:[Ljava/lang/String;
 
     new-array v3, v7, [Ljava/lang/String;
@@ -1486,7 +1610,9 @@
 
     aput-object v4, v3, v5
 
-    aput-object v6, v3, v8
+    const/16 v4, 0x19
+
+    aput-object v6, v3, v4
 
     const-string/jumbo v4, "no_camera"
 
@@ -1512,9 +1638,7 @@
 
     aput-object v6, v3, v4
 
-    const/16 v4, 0x1f
-
-    aput-object v6, v3, v4
+    aput-object v6, v3, v8
 
     const/16 v4, 0x20
 
@@ -1668,7 +1792,33 @@
 
     aput-object v6, v3, v4
 
-    const/16 v4, 0x40
+    const-string/jumbo v4, "no_adjust_volume"
+
+    const/16 v5, 0x40
+
+    aput-object v4, v3, v5
+
+    const/16 v4, 0x41
+
+    aput-object v6, v3, v4
+
+    const/16 v4, 0x42
+
+    aput-object v6, v3, v4
+
+    const/16 v4, 0x43
+
+    aput-object v6, v3, v4
+
+    const/16 v4, 0x44
+
+    aput-object v6, v3, v4
+
+    const/16 v4, 0x45
+
+    aput-object v6, v3, v4
+
+    const/16 v4, 0x46
 
     aput-object v6, v3, v4
 
@@ -1702,7 +1852,7 @@
 
     invoke-direct {v3}, Ljava/util/HashMap;-><init>()V
 
-    sput-object v3, Landroid/app/AppOpsManager;->sRuntimePermToOp:Ljava/util/HashMap;
+    sput-object v3, Landroid/app/AppOpsManager;->sPermToOp:Ljava/util/HashMap;
 
     sget-object v3, Landroid/app/AppOpsManager;->sOpToSwitch:[I
 
@@ -2093,7 +2243,7 @@
     goto :goto_0
 
     :cond_9
-    sget-object v3, Landroid/app/AppOpsManager;->RUNTIME_PERMISSIONS_OPS:[I
+    sget-object v3, Landroid/app/AppOpsManager;->RUNTIME_AND_APPOP_PERMISSIONS_OPS:[I
 
     array-length v4, v3
 
@@ -2108,7 +2258,7 @@
 
     if-eqz v5, :cond_a
 
-    sget-object v5, Landroid/app/AppOpsManager;->sRuntimePermToOp:Ljava/util/HashMap;
+    sget-object v5, Landroid/app/AppOpsManager;->sPermToOp:Ljava/util/HashMap;
 
     sget-object v6, Landroid/app/AppOpsManager;->sOpPerms:[Ljava/lang/String;
 
@@ -2146,22 +2296,28 @@
         0x0
         0x1
         0x33
+        0x41
         0xd
         0x6
         0x7
         0x34
         0x35
         0x36
+        0x45
         0x1b
         0x1a
         0x38
+        0x19
+        0x18
+        0x17
+        0x42
     .end array-data
 
     :array_1
     .array-data 4
         0x0
-        0x1
-        0x2
+        0x0
+        0x0
         0x3
         0x4
         0x5
@@ -2177,8 +2333,8 @@
         0xf
         0x10
         0x10
-        0x10
-        0x10
+        0x12
+        0x13
         0x14
         0xe
         0xf
@@ -2200,8 +2356,8 @@
         0x26
         0x27
         0x28
-        0x1
-        0x1
+        0x0
+        0x0
         0x2b
         0x2c
         0x2d
@@ -2224,6 +2380,12 @@
         0x3e
         0x3f
         0x40
+        0x41
+        0x42
+        0x43
+        0x44
+        0x45
+        0x46
     .end array-data
 
     :array_2
@@ -2292,10 +2454,14 @@
         0x0t
         0x0t
         0x0t
+        0x0t
+        0x0t
+        0x0t
+        0x0t
+        0x0t
+        0x0t
         0x1t
     .end array-data
-
-    nop
 
     :array_3
     .array-data 4
@@ -2363,6 +2529,12 @@
         0x0
         0x0
         0x0
+        0x0
+        0x0
+        0x3
+        0x0
+        0x3
+        0x0
         0x3
     .end array-data
 
@@ -2384,6 +2556,12 @@
         0x0t
         0x0t
         0x1t
+        0x0t
+        0x0t
+        0x0t
+        0x0t
+        0x0t
+        0x0t
         0x0t
         0x0t
         0x0t
@@ -2577,17 +2755,9 @@
 
     aget-boolean v0, v0, p0
 
-    if-eqz v0, :cond_0
+    xor-int/lit8 v0, v0, 0x1
 
-    const/4 v0, 0x0
-
-    :goto_0
     return v0
-
-    :cond_0
-    const/4 v0, 0x1
-
-    goto :goto_0
 .end method
 
 .method public static opToDefaultMode(I)I
@@ -2688,7 +2858,7 @@
 
     const/4 v2, 0x0
 
-    sget-object v1, Landroid/app/AppOpsManager;->sRuntimePermToOp:Ljava/util/HashMap;
+    sget-object v1, Landroid/app/AppOpsManager;->sPermToOp:Ljava/util/HashMap;
 
     invoke-virtual {v1, p0}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -2715,7 +2885,7 @@
 .method public static permissionToOpCode(Ljava/lang/String;)I
     .locals 2
 
-    sget-object v1, Landroid/app/AppOpsManager;->sRuntimePermToOp:Ljava/util/HashMap;
+    sget-object v1, Landroid/app/AppOpsManager;->sPermToOp:Ljava/util/HashMap;
 
     invoke-virtual {v1, p0}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 

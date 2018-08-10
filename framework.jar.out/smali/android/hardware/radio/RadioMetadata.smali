@@ -635,31 +635,23 @@
     const/4 v4, 0x0
 
     invoke-static {p2, v4, v3}, Landroid/graphics/BitmapFactory;->decodeByteArray([BII)Landroid/graphics/Bitmap;
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result-object v0
 
-    if-nez v0, :cond_2
+    if-eqz v0, :cond_2
 
-    return v5
-
-    :cond_2
     iget-object v3, p0, Landroid/hardware/radio/RadioMetadata;->mBundle:Landroid/os/Bundle;
 
     invoke-virtual {v3, v2, v0}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     return v6
 
     :catch_0
     move-exception v1
 
-    return v5
-
-    :catchall_0
-    move-exception v3
-
+    :cond_2
     return v5
 .end method
 

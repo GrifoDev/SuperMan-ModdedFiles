@@ -101,16 +101,16 @@
 .end method
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    .locals 9
+    .locals 10
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    const/4 v0, 0x0
+    const/4 v7, 0x0
 
-    const/4 v7, 0x1
+    const/4 v8, 0x1
 
     sparse-switch p1, :sswitch_data_0
 
@@ -121,16 +121,16 @@
     return v7
 
     :sswitch_0
-    const-string/jumbo v8, "android.service.persistentdata.IPersistentDataBlockService"
+    const-string/jumbo v7, "android.service.persistentdata.IPersistentDataBlockService"
 
-    invoke-virtual {p3, v8}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p3, v7}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    return v7
+    return v8
 
     :sswitch_1
-    const-string/jumbo v8, "android.service.persistentdata.IPersistentDataBlockService"
+    const-string/jumbo v7, "android.service.persistentdata.IPersistentDataBlockService"
 
-    invoke-virtual {p2, v8}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v7}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p2}, Landroid/os/Parcel;->createByteArray()[B
 
@@ -144,12 +144,12 @@
 
     invoke-virtual {p3, v2}, Landroid/os/Parcel;->writeInt(I)V
 
-    return v7
+    return v8
 
     :sswitch_2
-    const-string/jumbo v8, "android.service.persistentdata.IPersistentDataBlockService"
+    const-string/jumbo v7, "android.service.persistentdata.IPersistentDataBlockService"
 
-    invoke-virtual {p2, v8}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v7}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p0}, Landroid/service/persistentdata/IPersistentDataBlockService$Stub;->read()[B
 
@@ -159,23 +159,23 @@
 
     invoke-virtual {p3, v6}, Landroid/os/Parcel;->writeByteArray([B)V
 
-    return v7
+    return v8
 
     :sswitch_3
-    const-string/jumbo v8, "android.service.persistentdata.IPersistentDataBlockService"
+    const-string/jumbo v7, "android.service.persistentdata.IPersistentDataBlockService"
 
-    invoke-virtual {p2, v8}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v7}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p0}, Landroid/service/persistentdata/IPersistentDataBlockService$Stub;->wipe()V
 
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    return v7
+    return v8
 
     :sswitch_4
-    const-string/jumbo v8, "android.service.persistentdata.IPersistentDataBlockService"
+    const-string/jumbo v7, "android.service.persistentdata.IPersistentDataBlockService"
 
-    invoke-virtual {p2, v8}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v7}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p0}, Landroid/service/persistentdata/IPersistentDataBlockService$Stub;->getDataBlockSize()I
 
@@ -185,12 +185,12 @@
 
     invoke-virtual {p3, v2}, Landroid/os/Parcel;->writeInt(I)V
 
-    return v7
+    return v8
 
     :sswitch_5
-    const-string/jumbo v8, "android.service.persistentdata.IPersistentDataBlockService"
+    const-string/jumbo v7, "android.service.persistentdata.IPersistentDataBlockService"
 
-    invoke-virtual {p2, v8}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v7}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p0}, Landroid/service/persistentdata/IPersistentDataBlockService$Stub;->getMaximumDataBlockSize()J
 
@@ -200,32 +200,37 @@
 
     invoke-virtual {p3, v4, v5}, Landroid/os/Parcel;->writeLong(J)V
 
-    return v7
+    return v8
 
     :sswitch_6
-    const-string/jumbo v8, "android.service.persistentdata.IPersistentDataBlockService"
+    const-string/jumbo v7, "android.service.persistentdata.IPersistentDataBlockService"
 
-    invoke-virtual {p2, v8}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v7}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v8
+    move-result v7
 
-    if-eqz v8, :cond_0
+    if-eqz v7, :cond_0
 
-    move v0, v7
+    const/4 v0, 0x1
 
-    :cond_0
+    :goto_0
     invoke-virtual {p0, v0}, Landroid/service/persistentdata/IPersistentDataBlockService$Stub;->setOemUnlockEnabled(Z)V
 
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    return v7
+    return v8
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
 
     :sswitch_7
-    const-string/jumbo v8, "android.service.persistentdata.IPersistentDataBlockService"
+    const-string/jumbo v9, "android.service.persistentdata.IPersistentDataBlockService"
 
-    invoke-virtual {p2, v8}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v9}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p0}, Landroid/service/persistentdata/IPersistentDataBlockService$Stub;->getOemUnlockEnabled()Z
 
@@ -235,17 +240,17 @@
 
     if-eqz v3, :cond_1
 
-    move v0, v7
+    move v7, v8
 
     :cond_1
-    invoke-virtual {p3, v0}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p3, v7}, Landroid/os/Parcel;->writeInt(I)V
 
-    return v7
+    return v8
 
     :sswitch_8
-    const-string/jumbo v8, "android.service.persistentdata.IPersistentDataBlockService"
+    const-string/jumbo v7, "android.service.persistentdata.IPersistentDataBlockService"
 
-    invoke-virtual {p2, v8}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v7}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p0}, Landroid/service/persistentdata/IPersistentDataBlockService$Stub;->getFlashLockState()I
 
@@ -255,12 +260,12 @@
 
     invoke-virtual {p3, v2}, Landroid/os/Parcel;->writeInt(I)V
 
-    return v7
+    return v8
 
     :sswitch_9
-    const-string/jumbo v8, "android.service.persistentdata.IPersistentDataBlockService"
+    const-string/jumbo v9, "android.service.persistentdata.IPersistentDataBlockService"
 
-    invoke-virtual {p2, v8}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v9}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p0}, Landroid/service/persistentdata/IPersistentDataBlockService$Stub;->isEnabled()Z
 
@@ -270,12 +275,12 @@
 
     if-eqz v3, :cond_2
 
-    move v0, v7
+    move v7, v8
 
     :cond_2
-    invoke-virtual {p3, v0}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p3, v7}, Landroid/os/Parcel;->writeInt(I)V
 
-    return v7
+    return v8
 
     nop
 

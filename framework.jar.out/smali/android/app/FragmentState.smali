@@ -246,7 +246,7 @@
     return v0
 .end method
 
-.method public instantiate(Landroid/app/FragmentHostCallback;Landroid/app/Fragment;Landroid/app/FragmentManagerNonConfig;)Landroid/app/Fragment;
+.method public instantiate(Landroid/app/FragmentHostCallback;Landroid/app/FragmentContainer;Landroid/app/Fragment;Landroid/app/FragmentManagerNonConfig;)Landroid/app/Fragment;
     .locals 4
 
     iget-object v1, p0, Landroid/app/FragmentState;->mInstance:Landroid/app/Fragment;
@@ -270,16 +270,19 @@
     invoke-virtual {v1, v2}, Landroid/os/Bundle;->setClassLoader(Ljava/lang/ClassLoader;)V
 
     :cond_0
+    if-eqz p2, :cond_3
+
     iget-object v1, p0, Landroid/app/FragmentState;->mClassName:Ljava/lang/String;
 
     iget-object v2, p0, Landroid/app/FragmentState;->mArguments:Landroid/os/Bundle;
 
-    invoke-static {v0, v1, v2}, Landroid/app/Fragment;->instantiate(Landroid/content/Context;Ljava/lang/String;Landroid/os/Bundle;)Landroid/app/Fragment;
+    invoke-virtual {p2, v0, v1, v2}, Landroid/app/FragmentContainer;->instantiate(Landroid/content/Context;Ljava/lang/String;Landroid/os/Bundle;)Landroid/app/Fragment;
 
     move-result-object v1
 
     iput-object v1, p0, Landroid/app/FragmentState;->mInstance:Landroid/app/Fragment;
 
+    :goto_0
     iget-object v1, p0, Landroid/app/FragmentState;->mSavedFragmentState:Landroid/os/Bundle;
 
     if-eqz v1, :cond_1
@@ -303,7 +306,7 @@
 
     iget v2, p0, Landroid/app/FragmentState;->mIndex:I
 
-    invoke-virtual {v1, v2, p2}, Landroid/app/Fragment;->setIndex(ILandroid/app/Fragment;)V
+    invoke-virtual {v1, v2, p3}, Landroid/app/Fragment;->setIndex(ILandroid/app/Fragment;)V
 
     iget-object v1, p0, Landroid/app/FragmentState;->mInstance:Landroid/app/Fragment;
 
@@ -390,11 +393,24 @@
     :cond_2
     iget-object v1, p0, Landroid/app/FragmentState;->mInstance:Landroid/app/Fragment;
 
-    iput-object p3, v1, Landroid/app/Fragment;->mChildNonConfig:Landroid/app/FragmentManagerNonConfig;
+    iput-object p4, v1, Landroid/app/Fragment;->mChildNonConfig:Landroid/app/FragmentManagerNonConfig;
 
     iget-object v1, p0, Landroid/app/FragmentState;->mInstance:Landroid/app/Fragment;
 
     return-object v1
+
+    :cond_3
+    iget-object v1, p0, Landroid/app/FragmentState;->mClassName:Ljava/lang/String;
+
+    iget-object v2, p0, Landroid/app/FragmentState;->mArguments:Landroid/os/Bundle;
+
+    invoke-static {v0, v1, v2}, Landroid/app/Fragment;->instantiate(Landroid/content/Context;Ljava/lang/String;Landroid/os/Bundle;)Landroid/app/Fragment;
+
+    move-result-object v1
+
+    iput-object v1, p0, Landroid/app/FragmentState;->mInstance:Landroid/app/Fragment;
+
+    goto :goto_0
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V

@@ -116,7 +116,7 @@
 
     iput-object p2, p0, Landroid/view/ViewGroup$ViewLocationHolder;->mView:Landroid/view/View;
 
-    invoke-virtual {p1}, Landroid/view/View;->getLayoutDirection()I
+    invoke-virtual {p1}, Landroid/view/ViewGroup;->getLayoutDirection()I
 
     move-result v1
 

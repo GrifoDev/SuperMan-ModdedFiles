@@ -9,6 +9,8 @@
 # static fields
 .field private static final APP_INFO_INDEX:I = 0x1
 
+.field private static final HIDE_PNNED:Ljava/lang/String; = "hide_pinned"
+
 .field private static final NAME_KEY:Ljava/lang/String; = "componentName"
 
 .field private static final PINNED_KEY:Ljava/lang/String; = "pinned"
@@ -18,11 +20,19 @@
 .field private static final TOGGLE_PIN_INDEX:I
 
 
+# instance fields
+.field private mIsHidePinned:Z
+
+
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .locals 1
 
     invoke-direct {p0}, Landroid/app/DialogFragment;-><init>()V
+
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Lcom/android/internal/app/ResolverTargetActionsDialogFragment;->mIsHidePinned:Z
 
     return-void
 .end method
@@ -31,6 +41,10 @@
     .locals 2
 
     invoke-direct {p0}, Landroid/app/DialogFragment;-><init>()V
+
+    const/4 v1, 0x0
+
+    iput-boolean v1, p0, Lcom/android/internal/app/ResolverTargetActionsDialogFragment;->mIsHidePinned:Z
 
     new-instance v0, Landroid/os/Bundle;
 
@@ -46,9 +60,43 @@
 
     const-string/jumbo v1, "pinned"
 
-    invoke-virtual {v0, v1, p3}, Landroid/os/BaseBundle;->putBoolean(Ljava/lang/String;Z)V
+    invoke-virtual {v0, v1, p3}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
 
-    invoke-virtual {p0, v0}, Landroid/app/Fragment;->setArguments(Landroid/os/Bundle;)V
+    invoke-virtual {p0, v0}, Lcom/android/internal/app/ResolverTargetActionsDialogFragment;->setArguments(Landroid/os/Bundle;)V
+
+    return-void
+.end method
+
+.method public constructor <init>(Ljava/lang/CharSequence;Landroid/content/ComponentName;ZZ)V
+    .locals 2
+
+    invoke-direct {p0}, Landroid/app/DialogFragment;-><init>()V
+
+    const/4 v1, 0x0
+
+    iput-boolean v1, p0, Lcom/android/internal/app/ResolverTargetActionsDialogFragment;->mIsHidePinned:Z
+
+    new-instance v0, Landroid/os/Bundle;
+
+    invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
+
+    const-string/jumbo v1, "title"
+
+    invoke-virtual {v0, v1, p1}, Landroid/os/Bundle;->putCharSequence(Ljava/lang/String;Ljava/lang/CharSequence;)V
+
+    const-string/jumbo v1, "componentName"
+
+    invoke-virtual {v0, v1, p2}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
+
+    const-string/jumbo v1, "pinned"
+
+    invoke-virtual {v0, v1, p3}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
+
+    const-string/jumbo v1, "hide_pinned"
+
+    invoke-virtual {v0, v1, p4}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
+
+    invoke-virtual {p0, v0}, Lcom/android/internal/app/ResolverTargetActionsDialogFragment;->setArguments(Landroid/os/Bundle;)V
 
     return-void
 .end method
@@ -58,7 +106,7 @@
 .method public onClick(Landroid/content/DialogInterface;I)V
     .locals 10
 
-    invoke-virtual {p0}, Landroid/app/Fragment;->getArguments()Landroid/os/Bundle;
+    invoke-virtual {p0}, Lcom/android/internal/app/ResolverTargetActionsDialogFragment;->getArguments()Landroid/os/Bundle;
 
     move-result-object v0
 
@@ -70,15 +118,22 @@
 
     check-cast v4, Landroid/content/ComponentName;
 
+    iget-boolean v6, p0, Lcom/android/internal/app/ResolverTargetActionsDialogFragment;->mIsHidePinned:Z
+
+    if-eqz v6, :cond_0
+
+    const/4 p2, 0x1
+
+    :cond_0
     packed-switch p2, :pswitch_data_0
 
     :goto_0
-    invoke-virtual {p0}, Landroid/app/DialogFragment;->dismiss()V
+    invoke-virtual {p0}, Lcom/android/internal/app/ResolverTargetActionsDialogFragment;->dismiss()V
 
     return-void
 
     :pswitch_0
-    invoke-virtual {p0}, Landroid/app/Fragment;->getContext()Landroid/content/Context;
+    invoke-virtual {p0}, Lcom/android/internal/app/ResolverTargetActionsDialogFragment;->getContext()Landroid/content/Context;
 
     move-result-object v6
 
@@ -100,7 +155,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1
 
     invoke-interface {v5}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
 
@@ -113,7 +168,7 @@
     invoke-interface {v6}, Landroid/content/SharedPreferences$Editor;->apply()V
 
     :goto_1
-    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Lcom/android/internal/app/ResolverTargetActionsDialogFragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v6
 
@@ -121,7 +176,7 @@
 
     goto :goto_0
 
-    :cond_0
+    :cond_1
     invoke-interface {v5}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
 
     move-result-object v6
@@ -169,11 +224,9 @@
 
     move-result-object v2
 
-    invoke-virtual {p0, v2}, Landroid/app/Fragment;->startActivity(Landroid/content/Intent;)V
+    invoke-virtual {p0, v2}, Lcom/android/internal/app/ResolverTargetActionsDialogFragment;->startActivity(Landroid/content/Intent;)V
 
     goto :goto_0
-
-    nop
 
     :pswitch_data_0
     .packed-switch 0x0
@@ -185,26 +238,30 @@
 .method public onCreateDialog(Landroid/os/Bundle;)Landroid/app/Dialog;
     .locals 4
 
-    invoke-virtual {p0}, Landroid/app/Fragment;->getArguments()Landroid/os/Bundle;
+    const/4 v3, 0x0
+
+    invoke-virtual {p0}, Lcom/android/internal/app/ResolverTargetActionsDialogFragment;->getArguments()Landroid/os/Bundle;
 
     move-result-object v0
 
-    const-string/jumbo v2, "pinned"
+    const-string/jumbo v2, "hide_pinned"
 
-    const/4 v3, 0x0
-
-    invoke-virtual {v0, v2, v3}, Landroid/os/BaseBundle;->getBoolean(Ljava/lang/String;Z)Z
+    invoke-virtual {v0, v2, v3}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;Z)Z
 
     move-result v2
 
+    iput-boolean v2, p0, Lcom/android/internal/app/ResolverTargetActionsDialogFragment;->mIsHidePinned:Z
+
+    iget-boolean v2, p0, Lcom/android/internal/app/ResolverTargetActionsDialogFragment;->mIsHidePinned:Z
+
     if-eqz v2, :cond_0
 
-    const v1, 0x107000d
+    const v1, 0x10700b2
 
     :goto_0
     new-instance v2, Landroid/app/AlertDialog$Builder;
 
-    invoke-virtual {p0}, Landroid/app/Fragment;->getContext()Landroid/content/Context;
+    invoke-virtual {p0}, Lcom/android/internal/app/ResolverTargetActionsDialogFragment;->getContext()Landroid/content/Context;
 
     move-result-object v3
 
@@ -237,7 +294,20 @@
     return-object v2
 
     :cond_0
-    const v1, 0x107000c
+    const-string/jumbo v2, "pinned"
+
+    invoke-virtual {v0, v2, v3}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;Z)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    const v1, 0x10700b1
+
+    goto :goto_0
+
+    :cond_1
+    const v1, 0x10700b0
 
     goto :goto_0
 .end method

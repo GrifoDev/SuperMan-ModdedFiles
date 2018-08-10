@@ -1,11 +1,14 @@
 .class Landroid/widget/Editor$5;
-.super Landroid/os/Handler;
+.super Ljava/lang/Object;
 .source "Editor.java"
+
+# interfaces
+.implements Landroid/widget/Editor$TextViewPositionListener;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Landroid/widget/Editor;->prepareAnimatorHander()V
+    value = Landroid/widget/Editor;->setDPIPositionListenerEnalbed(Z)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -24,77 +27,47 @@
 
     iput-object p1, p0, Landroid/widget/Editor$5;->this$0:Landroid/widget/Editor;
 
-    invoke-direct {p0}, Landroid/os/Handler;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public handleMessage(Landroid/os/Message;)V
-    .locals 2
+.method public updatePosition(IIZZ)V
+    .locals 3
 
-    iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
+    iget-object v1, p0, Landroid/widget/Editor$5;->this$0:Landroid/widget/Editor;
+
+    invoke-static {v1}, Landroid/widget/Editor;->-get14(Landroid/widget/Editor;)Landroid/widget/TextView;
+
+    move-result-object v1
+
+    const/4 v2, 0x0
+
+    invoke-virtual {v1, v2}, Landroid/widget/TextView;->semGetDirectPenInputInstance(Z)Lcom/samsung/android/directpeninput/SemDirectPenInput;
+
+    move-result-object v0
 
     if-eqz v0, :cond_1
 
-    iget v0, p1, Landroid/os/Message;->what:I
+    if-nez p3, :cond_0
+
+    if-eqz p4, :cond_1
+
+    :cond_0
+    if-eqz p3, :cond_2
 
     const/4 v1, 0x1
 
-    if-eq v0, v1, :cond_0
-
-    iget v0, p1, Landroid/os/Message;->what:I
-
-    const/4 v1, 0x2
-
-    if-ne v0, v1, :cond_2
-
-    :cond_0
-    iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
-
-    check-cast v0, Landroid/animation/AnimatorSet;
-
-    invoke-virtual {v0}, Landroid/animation/AnimatorSet;->start()V
+    :goto_0
+    invoke-virtual {v0, v1}, Lcom/samsung/android/directpeninput/SemDirectPenInput;->notifyPositionChanged(I)V
 
     :cond_1
-    :goto_0
     return-void
 
     :cond_2
-    iget v0, p1, Landroid/os/Message;->what:I
-
-    const/4 v1, 0x3
-
-    if-eq v0, v1, :cond_3
-
-    iget v0, p1, Landroid/os/Message;->what:I
-
-    const/4 v1, 0x4
-
-    if-ne v0, v1, :cond_4
-
-    :cond_3
-    iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
-
-    check-cast v0, Landroid/animation/ValueAnimator;
-
-    invoke-virtual {v0}, Landroid/animation/ValueAnimator;->start()V
-
-    goto :goto_0
-
-    :cond_4
-    iget v0, p1, Landroid/os/Message;->what:I
-
-    const/4 v1, 0x6
-
-    if-ne v0, v1, :cond_1
-
-    iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
-
-    check-cast v0, Landroid/animation/ValueAnimator;
-
-    invoke-virtual {v0}, Landroid/animation/ValueAnimator;->start()V
+    const/4 v1, 0x2
 
     goto :goto_0
 .end method

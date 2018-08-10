@@ -271,7 +271,7 @@
 
     const-string/jumbo v0, "pointer"
 
-    invoke-virtual {p4}, Ljava/lang/Object;->toString()Ljava/lang/String;
+    invoke-virtual {p4}, Ljava/nio/Buffer;->toString()Ljava/lang/String;
 
     move-result-object v1
 
@@ -355,7 +355,7 @@
 .method private checkError()V
     .locals 4
 
-    iget-object v2, p0, Landroid/opengl/GLWrapperBase;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v2, p0, Landroid/opengl/GLLogWrapper;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
     invoke-interface {v2}, Ljavax/microedition/khronos/opengles/GL10;->glGetError()I
 
@@ -1838,7 +1838,7 @@
     :sswitch_4
     new-array v0, v1, [I
 
-    iget-object v1, p0, Landroid/opengl/GLWrapperBase;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v1, p0, Landroid/opengl/GLLogWrapper;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
     const v2, 0x86a2
 
@@ -2808,13 +2808,13 @@
 
     check-cast v6, Ljava/nio/ByteBuffer;
 
-    invoke-virtual {v6}, Ljava/nio/Buffer;->position()I
+    invoke-virtual {v6}, Ljava/nio/ByteBuffer;->position()I
 
     move-result v13
 
     if-eqz v4, :cond_0
 
-    invoke-virtual {v6}, Ljava/nio/Buffer;->limit()I
+    invoke-virtual {v6}, Ljava/nio/ByteBuffer;->limit()I
 
     move-result v21
 
@@ -2858,10 +2858,10 @@
     goto :goto_0
 
     :cond_2
-    invoke-virtual {v6, v13}, Ljava/nio/Buffer;->position(I)Ljava/nio/Buffer;
+    invoke-virtual {v6, v13}, Ljava/nio/ByteBuffer;->position(I)Ljava/nio/Buffer;
 
     :goto_2
-    invoke-virtual {v14}, Ljava/nio/Buffer;->rewind()Ljava/nio/Buffer;
+    invoke-virtual {v14}, Ljava/nio/ByteBuffer;->rewind()Ljava/nio/Buffer;
 
     invoke-static {}, Ljava/nio/ByteOrder;->nativeOrder()Ljava/nio/ByteOrder;
 
@@ -2886,13 +2886,13 @@
 
     check-cast v7, Ljava/nio/CharBuffer;
 
-    invoke-virtual {v7}, Ljava/nio/Buffer;->position()I
+    invoke-virtual {v7}, Ljava/nio/CharBuffer;->position()I
 
     move-result v13
 
     if-eqz v4, :cond_4
 
-    invoke-virtual {v7}, Ljava/nio/Buffer;->limit()I
+    invoke-virtual {v7}, Ljava/nio/CharBuffer;->limit()I
 
     move-result v21
 
@@ -2939,7 +2939,7 @@
     goto :goto_3
 
     :cond_5
-    invoke-virtual {v7, v13}, Ljava/nio/Buffer;->position(I)Ljava/nio/Buffer;
+    invoke-virtual {v7, v13}, Ljava/nio/CharBuffer;->position(I)Ljava/nio/Buffer;
 
     goto :goto_2
 
@@ -2956,13 +2956,13 @@
 
     check-cast v12, Ljava/nio/ShortBuffer;
 
-    invoke-virtual {v12}, Ljava/nio/Buffer;->position()I
+    invoke-virtual {v12}, Ljava/nio/ShortBuffer;->position()I
 
     move-result v13
 
     if-eqz v4, :cond_7
 
-    invoke-virtual {v12}, Ljava/nio/Buffer;->limit()I
+    invoke-virtual {v12}, Ljava/nio/ShortBuffer;->limit()I
 
     move-result v21
 
@@ -3007,7 +3007,7 @@
     goto :goto_4
 
     :cond_8
-    invoke-virtual {v12, v13}, Ljava/nio/Buffer;->position(I)Ljava/nio/Buffer;
+    invoke-virtual {v12, v13}, Ljava/nio/ShortBuffer;->position(I)Ljava/nio/Buffer;
 
     goto/16 :goto_2
 
@@ -3024,13 +3024,13 @@
 
     check-cast v10, Ljava/nio/IntBuffer;
 
-    invoke-virtual {v10}, Ljava/nio/Buffer;->position()I
+    invoke-virtual {v10}, Ljava/nio/IntBuffer;->position()I
 
     move-result v13
 
     if-eqz v4, :cond_a
 
-    invoke-virtual {v10}, Ljava/nio/Buffer;->limit()I
+    invoke-virtual {v10}, Ljava/nio/IntBuffer;->limit()I
 
     move-result v21
 
@@ -3079,7 +3079,7 @@
     goto :goto_5
 
     :cond_b
-    invoke-virtual {v10, v13}, Ljava/nio/Buffer;->position(I)Ljava/nio/Buffer;
+    invoke-virtual {v10, v13}, Ljava/nio/IntBuffer;->position(I)Ljava/nio/Buffer;
 
     goto/16 :goto_2
 
@@ -3096,13 +3096,13 @@
 
     check-cast v9, Ljava/nio/FloatBuffer;
 
-    invoke-virtual {v9}, Ljava/nio/Buffer;->position()I
+    invoke-virtual {v9}, Ljava/nio/FloatBuffer;->position()I
 
     move-result v13
 
     if-eqz v4, :cond_d
 
-    invoke-virtual {v9}, Ljava/nio/Buffer;->limit()I
+    invoke-virtual {v9}, Ljava/nio/FloatBuffer;->limit()I
 
     move-result v21
 
@@ -3151,7 +3151,7 @@
     goto :goto_6
 
     :cond_e
-    invoke-virtual {v9, v13}, Ljava/nio/Buffer;->position(I)Ljava/nio/Buffer;
+    invoke-virtual {v9, v13}, Ljava/nio/FloatBuffer;->position(I)Ljava/nio/Buffer;
 
     goto/16 :goto_2
 
@@ -3168,13 +3168,13 @@
 
     check-cast v8, Ljava/nio/DoubleBuffer;
 
-    invoke-virtual {v8}, Ljava/nio/Buffer;->position()I
+    invoke-virtual {v8}, Ljava/nio/DoubleBuffer;->position()I
 
     move-result v13
 
     if-eqz v4, :cond_10
 
-    invoke-virtual {v8}, Ljava/nio/Buffer;->limit()I
+    invoke-virtual {v8}, Ljava/nio/DoubleBuffer;->limit()I
 
     move-result v21
 
@@ -3223,7 +3223,7 @@
     goto :goto_7
 
     :cond_11
-    invoke-virtual {v8, v13}, Ljava/nio/Buffer;->position(I)Ljava/nio/Buffer;
+    invoke-virtual {v8, v13}, Ljava/nio/DoubleBuffer;->position(I)Ljava/nio/Buffer;
 
     goto/16 :goto_2
 
@@ -3240,13 +3240,13 @@
 
     check-cast v11, Ljava/nio/LongBuffer;
 
-    invoke-virtual {v11}, Ljava/nio/Buffer;->position()I
+    invoke-virtual {v11}, Ljava/nio/LongBuffer;->position()I
 
     move-result v13
 
     if-eqz v4, :cond_13
 
-    invoke-virtual {v11}, Ljava/nio/Buffer;->limit()I
+    invoke-virtual {v11}, Ljava/nio/LongBuffer;->limit()I
 
     move-result v21
 
@@ -3295,7 +3295,7 @@
     goto :goto_8
 
     :cond_14
-    invoke-virtual {v11, v13}, Ljava/nio/Buffer;->position(I)Ljava/nio/Buffer;
+    invoke-virtual {v11, v13}, Ljava/nio/LongBuffer;->position(I)Ljava/nio/Buffer;
 
     goto/16 :goto_2
 
@@ -3360,22 +3360,20 @@
 
     move-object v2, p3
 
-    nop
-
-    nop
+    check-cast v2, Ljava/nio/CharBuffer;
 
     :goto_2
-    invoke-virtual {v2}, Ljava/nio/Buffer;->position()I
+    invoke-virtual {v2}, Ljava/nio/CharBuffer;->position()I
 
     move-result v5
 
     const/4 v7, 0x0
 
-    invoke-virtual {v2, v7}, Ljava/nio/Buffer;->position(I)Ljava/nio/Buffer;
+    invoke-virtual {v2, v7}, Ljava/nio/CharBuffer;->position(I)Ljava/nio/Buffer;
 
     invoke-virtual {v2, v6}, Ljava/nio/CharBuffer;->get([C)Ljava/nio/CharBuffer;
 
-    invoke-virtual {v2, v5}, Ljava/nio/Buffer;->position(I)Ljava/nio/Buffer;
+    invoke-virtual {v2, v5}, Ljava/nio/CharBuffer;->position(I)Ljava/nio/Buffer;
 
     goto :goto_0
 
@@ -3846,7 +3844,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
     invoke-interface {v0, p1}, Ljavax/microedition/khronos/opengles/GL10;->glActiveTexture(I)V
 
@@ -3872,7 +3870,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
     invoke-interface {v0, p1, p2}, Ljavax/microedition/khronos/opengles/GL10;->glAlphaFunc(IF)V
 
@@ -3898,7 +3896,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
     invoke-interface {v0, p1, p2}, Ljavax/microedition/khronos/opengles/GL10;->glAlphaFuncx(II)V
 
@@ -3924,7 +3922,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
 
     invoke-interface {v0, p1, p2}, Ljavax/microedition/khronos/opengles/GL11;->glBindBuffer(II)V
 
@@ -3950,7 +3948,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl11ExtensionPack:Ljavax/microedition/khronos/opengles/GL11ExtensionPack;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl11ExtensionPack:Ljavax/microedition/khronos/opengles/GL11ExtensionPack;
 
     invoke-interface {v0, p1, p2}, Ljavax/microedition/khronos/opengles/GL11ExtensionPack;->glBindFramebufferOES(II)V
 
@@ -3976,7 +3974,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl11ExtensionPack:Ljavax/microedition/khronos/opengles/GL11ExtensionPack;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl11ExtensionPack:Ljavax/microedition/khronos/opengles/GL11ExtensionPack;
 
     invoke-interface {v0, p1, p2}, Ljavax/microedition/khronos/opengles/GL11ExtensionPack;->glBindRenderbufferOES(II)V
 
@@ -4006,7 +4004,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
     invoke-interface {v0, p1, p2}, Ljavax/microedition/khronos/opengles/GL10;->glBindTexture(II)V
 
@@ -4028,7 +4026,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl11ExtensionPack:Ljavax/microedition/khronos/opengles/GL11ExtensionPack;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl11ExtensionPack:Ljavax/microedition/khronos/opengles/GL11ExtensionPack;
 
     invoke-interface {v0, p1}, Ljavax/microedition/khronos/opengles/GL11ExtensionPack;->glBlendEquation(I)V
 
@@ -4054,7 +4052,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl11ExtensionPack:Ljavax/microedition/khronos/opengles/GL11ExtensionPack;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl11ExtensionPack:Ljavax/microedition/khronos/opengles/GL11ExtensionPack;
 
     invoke-interface {v0, p1, p2}, Ljavax/microedition/khronos/opengles/GL11ExtensionPack;->glBlendEquationSeparate(II)V
 
@@ -4088,7 +4086,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
     invoke-interface {v0, p1, p2}, Ljavax/microedition/khronos/opengles/GL10;->glBlendFunc(II)V
 
@@ -4122,7 +4120,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl11ExtensionPack:Ljavax/microedition/khronos/opengles/GL11ExtensionPack;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl11ExtensionPack:Ljavax/microedition/khronos/opengles/GL11ExtensionPack;
 
     invoke-interface {v0, p1, p2, p3, p4}, Ljavax/microedition/khronos/opengles/GL11ExtensionPack;->glBlendFuncSeparate(IIII)V
 
@@ -4148,7 +4146,7 @@
 
     const-string/jumbo v0, "data"
 
-    invoke-virtual {p3}, Ljava/lang/Object;->toString()Ljava/lang/String;
+    invoke-virtual {p3}, Ljava/nio/Buffer;->toString()Ljava/lang/String;
 
     move-result-object v1
 
@@ -4160,7 +4158,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
 
     invoke-interface {v0, p1, p2, p3, p4}, Ljavax/microedition/khronos/opengles/GL11;->glBufferData(IILjava/nio/Buffer;I)V
 
@@ -4190,7 +4188,7 @@
 
     const-string/jumbo v0, "data"
 
-    invoke-virtual {p4}, Ljava/lang/Object;->toString()Ljava/lang/String;
+    invoke-virtual {p4}, Ljava/nio/Buffer;->toString()Ljava/lang/String;
 
     move-result-object v1
 
@@ -4198,7 +4196,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
 
     invoke-interface {v0, p1, p2, p3, p4}, Ljavax/microedition/khronos/opengles/GL11;->glBufferSubData(IIILjava/nio/Buffer;)V
 
@@ -4220,7 +4218,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v1, p0, Landroid/opengl/GLWrapperBase;->mgl11ExtensionPack:Ljavax/microedition/khronos/opengles/GL11ExtensionPack;
+    iget-object v1, p0, Landroid/opengl/GLLogWrapper;->mgl11ExtensionPack:Ljavax/microedition/khronos/opengles/GL11ExtensionPack;
 
     invoke-interface {v1, p1}, Ljavax/microedition/khronos/opengles/GL11ExtensionPack;->glCheckFramebufferStatusOES(I)I
 
@@ -4248,7 +4246,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
     invoke-interface {v0, p1}, Ljavax/microedition/khronos/opengles/GL10;->glClear(I)V
 
@@ -4282,7 +4280,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
     invoke-interface {v0, p1, p2, p3, p4}, Ljavax/microedition/khronos/opengles/GL10;->glClearColor(FFFF)V
 
@@ -4316,7 +4314,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
     invoke-interface {v0, p1, p2, p3, p4}, Ljavax/microedition/khronos/opengles/GL10;->glClearColorx(IIII)V
 
@@ -4338,7 +4336,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
     invoke-interface {v0, p1}, Ljavax/microedition/khronos/opengles/GL10;->glClearDepthf(F)V
 
@@ -4360,7 +4358,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
     invoke-interface {v0, p1}, Ljavax/microedition/khronos/opengles/GL10;->glClearDepthx(I)V
 
@@ -4382,7 +4380,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
     invoke-interface {v0, p1}, Ljavax/microedition/khronos/opengles/GL10;->glClearStencil(I)V
 
@@ -4404,7 +4402,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
     invoke-interface {v0, p1}, Ljavax/microedition/khronos/opengles/GL10;->glClientActiveTexture(I)V
 
@@ -4432,7 +4430,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
 
     invoke-interface {v0, p1, p2}, Ljavax/microedition/khronos/opengles/GL11;->glClipPlanef(ILjava/nio/FloatBuffer;)V
 
@@ -4464,7 +4462,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
 
     invoke-interface {v0, p1, p2, p3}, Ljavax/microedition/khronos/opengles/GL11;->glClipPlanef(I[FI)V
 
@@ -4492,7 +4490,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
 
     invoke-interface {v0, p1, p2}, Ljavax/microedition/khronos/opengles/GL11;->glClipPlanex(ILjava/nio/IntBuffer;)V
 
@@ -4524,7 +4522,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
 
     invoke-interface {v0, p1, p2, p3}, Ljavax/microedition/khronos/opengles/GL11;->glClipPlanex(I[II)V
 
@@ -4558,7 +4556,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
     invoke-interface {v0, p1, p2, p3, p4}, Ljavax/microedition/khronos/opengles/GL10;->glColor4f(FFFF)V
 
@@ -4592,7 +4590,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
 
     invoke-interface {v0, p1, p2, p3, p4}, Ljavax/microedition/khronos/opengles/GL11;->glColor4ub(BBBB)V
 
@@ -4626,7 +4624,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
     invoke-interface {v0, p1, p2, p3, p4}, Ljavax/microedition/khronos/opengles/GL10;->glColor4x(IIII)V
 
@@ -4660,7 +4658,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
     invoke-interface {v0, p1, p2, p3, p4}, Ljavax/microedition/khronos/opengles/GL10;->glColorMask(ZZZZ)V
 
@@ -4694,7 +4692,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
 
     invoke-interface {v0, p1, p2, p3, p4}, Ljavax/microedition/khronos/opengles/GL11;->glColorPointer(IIII)V
 
@@ -4730,7 +4728,7 @@
 
     iput-object v0, p0, Landroid/opengl/GLLogWrapper;->mColorPointer:Landroid/opengl/GLLogWrapper$PointerInfo;
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
     invoke-interface {v0, p1, p2, p3, p4}, Ljavax/microedition/khronos/opengles/GL10;->glColorPointer(IIILjava/nio/Buffer;)V
 
@@ -4784,7 +4782,7 @@
 
     const-string/jumbo v1, "data"
 
-    invoke-virtual/range {p8 .. p8}, Ljava/lang/Object;->toString()Ljava/lang/String;
+    invoke-virtual/range {p8 .. p8}, Ljava/nio/Buffer;->toString()Ljava/lang/String;
 
     move-result-object v2
 
@@ -4792,7 +4790,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v1, p0, Landroid/opengl/GLWrapperBase;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v1, p0, Landroid/opengl/GLLogWrapper;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
     move v2, p1
 
@@ -4870,7 +4868,7 @@
 
     const-string/jumbo v1, "data"
 
-    invoke-virtual/range {p9 .. p9}, Ljava/lang/Object;->toString()Ljava/lang/String;
+    invoke-virtual/range {p9 .. p9}, Ljava/nio/Buffer;->toString()Ljava/lang/String;
 
     move-result-object v2
 
@@ -4878,7 +4876,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v1, p0, Landroid/opengl/GLWrapperBase;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v1, p0, Landroid/opengl/GLLogWrapper;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
     move v2, p1
 
@@ -4956,7 +4954,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v1, p0, Landroid/opengl/GLWrapperBase;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v1, p0, Landroid/opengl/GLLogWrapper;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
     move v2, p1
 
@@ -5032,7 +5030,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v1, p0, Landroid/opengl/GLWrapperBase;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v1, p0, Landroid/opengl/GLLogWrapper;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
     move v2, p1
 
@@ -5070,7 +5068,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
     invoke-interface {v0, p1}, Ljavax/microedition/khronos/opengles/GL10;->glCullFace(I)V
 
@@ -5092,7 +5090,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl11Ext:Ljavax/microedition/khronos/opengles/GL11Ext;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl11Ext:Ljavax/microedition/khronos/opengles/GL11Ext;
 
     invoke-interface {v0, p1}, Ljavax/microedition/khronos/opengles/GL11Ext;->glCurrentPaletteMatrixOES(I)V
 
@@ -5122,7 +5120,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
 
     invoke-interface {v0, p1, p2}, Ljavax/microedition/khronos/opengles/GL11;->glDeleteBuffers(ILjava/nio/IntBuffer;)V
 
@@ -5156,7 +5154,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
 
     invoke-interface {v0, p1, p2, p3}, Ljavax/microedition/khronos/opengles/GL11;->glDeleteBuffers(I[II)V
 
@@ -5186,7 +5184,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl11ExtensionPack:Ljavax/microedition/khronos/opengles/GL11ExtensionPack;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl11ExtensionPack:Ljavax/microedition/khronos/opengles/GL11ExtensionPack;
 
     invoke-interface {v0, p1, p2}, Ljavax/microedition/khronos/opengles/GL11ExtensionPack;->glDeleteFramebuffersOES(ILjava/nio/IntBuffer;)V
 
@@ -5220,7 +5218,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl11ExtensionPack:Ljavax/microedition/khronos/opengles/GL11ExtensionPack;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl11ExtensionPack:Ljavax/microedition/khronos/opengles/GL11ExtensionPack;
 
     invoke-interface {v0, p1, p2, p3}, Ljavax/microedition/khronos/opengles/GL11ExtensionPack;->glDeleteFramebuffersOES(I[II)V
 
@@ -5250,7 +5248,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl11ExtensionPack:Ljavax/microedition/khronos/opengles/GL11ExtensionPack;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl11ExtensionPack:Ljavax/microedition/khronos/opengles/GL11ExtensionPack;
 
     invoke-interface {v0, p1, p2}, Ljavax/microedition/khronos/opengles/GL11ExtensionPack;->glDeleteRenderbuffersOES(ILjava/nio/IntBuffer;)V
 
@@ -5284,7 +5282,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl11ExtensionPack:Ljavax/microedition/khronos/opengles/GL11ExtensionPack;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl11ExtensionPack:Ljavax/microedition/khronos/opengles/GL11ExtensionPack;
 
     invoke-interface {v0, p1, p2, p3}, Ljavax/microedition/khronos/opengles/GL11ExtensionPack;->glDeleteRenderbuffersOES(I[II)V
 
@@ -5310,7 +5308,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
     invoke-interface {v0, p1, p2}, Ljavax/microedition/khronos/opengles/GL10;->glDeleteTextures(ILjava/nio/IntBuffer;)V
 
@@ -5340,7 +5338,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
     invoke-interface {v0, p1, p2, p3}, Ljavax/microedition/khronos/opengles/GL10;->glDeleteTextures(I[II)V
 
@@ -5362,7 +5360,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
     invoke-interface {v0, p1}, Ljavax/microedition/khronos/opengles/GL10;->glDepthFunc(I)V
 
@@ -5384,7 +5382,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
     invoke-interface {v0, p1}, Ljavax/microedition/khronos/opengles/GL10;->glDepthMask(Z)V
 
@@ -5410,7 +5408,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
     invoke-interface {v0, p1, p2}, Ljavax/microedition/khronos/opengles/GL10;->glDepthRangef(FF)V
 
@@ -5436,7 +5434,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
     invoke-interface {v0, p1, p2}, Ljavax/microedition/khronos/opengles/GL10;->glDepthRangex(II)V
 
@@ -5462,7 +5460,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
     invoke-interface {v0, p1}, Ljavax/microedition/khronos/opengles/GL10;->glDisable(I)V
 
@@ -5494,7 +5492,7 @@
 
     :goto_0
     :pswitch_0
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
     invoke-interface {v0, p1}, Ljavax/microedition/khronos/opengles/GL10;->glDisableClientState(I)V
 
@@ -5573,7 +5571,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v1, p0, Landroid/opengl/GLWrapperBase;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v1, p0, Landroid/opengl/GLLogWrapper;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
     invoke-interface {v1, p1, p2, p3}, Ljavax/microedition/khronos/opengles/GL10;->glDrawArrays(III)V
 
@@ -5607,7 +5605,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
 
     invoke-interface {v0, p1, p2, p3, p4}, Ljavax/microedition/khronos/opengles/GL11;->glDrawElements(IIII)V
 
@@ -5671,7 +5669,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v3, p0, Landroid/opengl/GLWrapperBase;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v3, p0, Landroid/opengl/GLLogWrapper;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
     invoke-interface {v3, p1, p2, p3, p4}, Ljavax/microedition/khronos/opengles/GL10;->glDrawElements(IIILjava/nio/Buffer;)V
 
@@ -5709,7 +5707,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl11Ext:Ljavax/microedition/khronos/opengles/GL11Ext;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl11Ext:Ljavax/microedition/khronos/opengles/GL11Ext;
 
     move v1, p1
 
@@ -5743,7 +5741,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl11Ext:Ljavax/microedition/khronos/opengles/GL11Ext;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl11Ext:Ljavax/microedition/khronos/opengles/GL11Ext;
 
     invoke-interface {v0, p1}, Ljavax/microedition/khronos/opengles/GL11Ext;->glDrawTexfvOES(Ljava/nio/FloatBuffer;)V
 
@@ -5771,7 +5769,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl11Ext:Ljavax/microedition/khronos/opengles/GL11Ext;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl11Ext:Ljavax/microedition/khronos/opengles/GL11Ext;
 
     invoke-interface {v0, p1, p2}, Ljavax/microedition/khronos/opengles/GL11Ext;->glDrawTexfvOES([FI)V
 
@@ -5809,7 +5807,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl11Ext:Ljavax/microedition/khronos/opengles/GL11Ext;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl11Ext:Ljavax/microedition/khronos/opengles/GL11Ext;
 
     move v1, p1
 
@@ -5843,7 +5841,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl11Ext:Ljavax/microedition/khronos/opengles/GL11Ext;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl11Ext:Ljavax/microedition/khronos/opengles/GL11Ext;
 
     invoke-interface {v0, p1}, Ljavax/microedition/khronos/opengles/GL11Ext;->glDrawTexivOES(Ljava/nio/IntBuffer;)V
 
@@ -5871,7 +5869,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl11Ext:Ljavax/microedition/khronos/opengles/GL11Ext;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl11Ext:Ljavax/microedition/khronos/opengles/GL11Ext;
 
     invoke-interface {v0, p1, p2}, Ljavax/microedition/khronos/opengles/GL11Ext;->glDrawTexivOES([II)V
 
@@ -5909,7 +5907,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl11Ext:Ljavax/microedition/khronos/opengles/GL11Ext;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl11Ext:Ljavax/microedition/khronos/opengles/GL11Ext;
 
     move v1, p1
 
@@ -5943,7 +5941,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl11Ext:Ljavax/microedition/khronos/opengles/GL11Ext;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl11Ext:Ljavax/microedition/khronos/opengles/GL11Ext;
 
     invoke-interface {v0, p1}, Ljavax/microedition/khronos/opengles/GL11Ext;->glDrawTexsvOES(Ljava/nio/ShortBuffer;)V
 
@@ -5971,7 +5969,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl11Ext:Ljavax/microedition/khronos/opengles/GL11Ext;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl11Ext:Ljavax/microedition/khronos/opengles/GL11Ext;
 
     invoke-interface {v0, p1, p2}, Ljavax/microedition/khronos/opengles/GL11Ext;->glDrawTexsvOES([SI)V
 
@@ -6009,7 +6007,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl11Ext:Ljavax/microedition/khronos/opengles/GL11Ext;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl11Ext:Ljavax/microedition/khronos/opengles/GL11Ext;
 
     move v1, p1
 
@@ -6043,7 +6041,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl11Ext:Ljavax/microedition/khronos/opengles/GL11Ext;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl11Ext:Ljavax/microedition/khronos/opengles/GL11Ext;
 
     invoke-interface {v0, p1}, Ljavax/microedition/khronos/opengles/GL11Ext;->glDrawTexxvOES(Ljava/nio/IntBuffer;)V
 
@@ -6071,7 +6069,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl11Ext:Ljavax/microedition/khronos/opengles/GL11Ext;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl11Ext:Ljavax/microedition/khronos/opengles/GL11Ext;
 
     invoke-interface {v0, p1, p2}, Ljavax/microedition/khronos/opengles/GL11Ext;->glDrawTexxvOES([II)V
 
@@ -6097,7 +6095,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
     invoke-interface {v0, p1}, Ljavax/microedition/khronos/opengles/GL10;->glEnable(I)V
 
@@ -6129,7 +6127,7 @@
 
     :goto_0
     :pswitch_0
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
     invoke-interface {v0, p1}, Ljavax/microedition/khronos/opengles/GL10;->glEnableClientState(I)V
 
@@ -6176,7 +6174,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
     invoke-interface {v0}, Ljavax/microedition/khronos/opengles/GL10;->glFinish()V
 
@@ -6194,7 +6192,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
     invoke-interface {v0}, Ljavax/microedition/khronos/opengles/GL10;->glFlush()V
 
@@ -6220,7 +6218,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
     invoke-interface {v0, p1, p2}, Ljavax/microedition/khronos/opengles/GL10;->glFogf(IF)V
 
@@ -6254,7 +6252,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
     invoke-interface {v0, p1, p2}, Ljavax/microedition/khronos/opengles/GL10;->glFogfv(ILjava/nio/FloatBuffer;)V
 
@@ -6292,7 +6290,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
     invoke-interface {v0, p1, p2, p3}, Ljavax/microedition/khronos/opengles/GL10;->glFogfv(I[FI)V
 
@@ -6322,7 +6320,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
     invoke-interface {v0, p1, p2}, Ljavax/microedition/khronos/opengles/GL10;->glFogx(II)V
 
@@ -6356,7 +6354,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
     invoke-interface {v0, p1, p2}, Ljavax/microedition/khronos/opengles/GL10;->glFogxv(ILjava/nio/IntBuffer;)V
 
@@ -6394,7 +6392,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
     invoke-interface {v0, p1, p2, p3}, Ljavax/microedition/khronos/opengles/GL10;->glFogxv(I[II)V
 
@@ -6428,7 +6426,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl11ExtensionPack:Ljavax/microedition/khronos/opengles/GL11ExtensionPack;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl11ExtensionPack:Ljavax/microedition/khronos/opengles/GL11ExtensionPack;
 
     invoke-interface {v0, p1, p2, p3, p4}, Ljavax/microedition/khronos/opengles/GL11ExtensionPack;->glFramebufferRenderbufferOES(IIII)V
 
@@ -6466,7 +6464,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl11ExtensionPack:Ljavax/microedition/khronos/opengles/GL11ExtensionPack;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl11ExtensionPack:Ljavax/microedition/khronos/opengles/GL11ExtensionPack;
 
     move v1, p1
 
@@ -6498,7 +6496,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
     invoke-interface {v0, p1}, Ljavax/microedition/khronos/opengles/GL10;->glFrontFace(I)V
 
@@ -6540,7 +6538,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
     move v1, p1
 
@@ -6594,7 +6592,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
     move v1, p1
 
@@ -6636,7 +6634,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
 
     invoke-interface {v0, p1, p2}, Ljavax/microedition/khronos/opengles/GL11;->glGenBuffers(ILjava/nio/IntBuffer;)V
 
@@ -6670,7 +6668,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
 
     invoke-interface {v0, p1, p2, p3}, Ljavax/microedition/khronos/opengles/GL11;->glGenBuffers(I[II)V
 
@@ -6700,7 +6698,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl11ExtensionPack:Ljavax/microedition/khronos/opengles/GL11ExtensionPack;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl11ExtensionPack:Ljavax/microedition/khronos/opengles/GL11ExtensionPack;
 
     invoke-interface {v0, p1, p2}, Ljavax/microedition/khronos/opengles/GL11ExtensionPack;->glGenFramebuffersOES(ILjava/nio/IntBuffer;)V
 
@@ -6734,7 +6732,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl11ExtensionPack:Ljavax/microedition/khronos/opengles/GL11ExtensionPack;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl11ExtensionPack:Ljavax/microedition/khronos/opengles/GL11ExtensionPack;
 
     invoke-interface {v0, p1, p2, p3}, Ljavax/microedition/khronos/opengles/GL11ExtensionPack;->glGenFramebuffersOES(I[II)V
 
@@ -6764,7 +6762,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl11ExtensionPack:Ljavax/microedition/khronos/opengles/GL11ExtensionPack;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl11ExtensionPack:Ljavax/microedition/khronos/opengles/GL11ExtensionPack;
 
     invoke-interface {v0, p1, p2}, Ljavax/microedition/khronos/opengles/GL11ExtensionPack;->glGenRenderbuffersOES(ILjava/nio/IntBuffer;)V
 
@@ -6798,7 +6796,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl11ExtensionPack:Ljavax/microedition/khronos/opengles/GL11ExtensionPack;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl11ExtensionPack:Ljavax/microedition/khronos/opengles/GL11ExtensionPack;
 
     invoke-interface {v0, p1, p2, p3}, Ljavax/microedition/khronos/opengles/GL11ExtensionPack;->glGenRenderbuffersOES(I[II)V
 
@@ -6826,7 +6824,7 @@
 
     invoke-direct {p0, v0, v1}, Landroid/opengl/GLLogWrapper;->arg(Ljava/lang/String;Ljava/lang/String;)V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
     invoke-interface {v0, p1, p2}, Ljavax/microedition/khronos/opengles/GL10;->glGenTextures(ILjava/nio/IntBuffer;)V
 
@@ -6866,7 +6864,7 @@
 
     invoke-direct {p0, v0, p3}, Landroid/opengl/GLLogWrapper;->arg(Ljava/lang/String;I)V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
     invoke-interface {v0, p1, p2, p3}, Ljavax/microedition/khronos/opengles/GL10;->glGenTextures(I[II)V
 
@@ -6896,7 +6894,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl11ExtensionPack:Ljavax/microedition/khronos/opengles/GL11ExtensionPack;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl11ExtensionPack:Ljavax/microedition/khronos/opengles/GL11ExtensionPack;
 
     invoke-interface {v0, p1}, Ljavax/microedition/khronos/opengles/GL11ExtensionPack;->glGenerateMipmapOES(I)V
 
@@ -6926,7 +6924,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
 
     invoke-interface {v0, p1, p2}, Ljavax/microedition/khronos/opengles/GL11;->glGetBooleanv(ILjava/nio/IntBuffer;)V
 
@@ -6960,7 +6958,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
 
     invoke-interface {v0, p1, p2, p3}, Ljavax/microedition/khronos/opengles/GL11;->glGetBooleanv(I[ZI)V
 
@@ -6994,7 +6992,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
 
     invoke-interface {v0, p1, p2, p3}, Ljavax/microedition/khronos/opengles/GL11;->glGetBufferParameteriv(IILjava/nio/IntBuffer;)V
 
@@ -7032,7 +7030,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
 
     invoke-interface {v0, p1, p2, p3, p4}, Ljavax/microedition/khronos/opengles/GL11;->glGetBufferParameteriv(II[II)V
 
@@ -7062,7 +7060,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
 
     invoke-interface {v0, p1, p2}, Ljavax/microedition/khronos/opengles/GL11;->glGetClipPlanef(ILjava/nio/FloatBuffer;)V
 
@@ -7096,7 +7094,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
 
     invoke-interface {v0, p1, p2, p3}, Ljavax/microedition/khronos/opengles/GL11;->glGetClipPlanef(I[FI)V
 
@@ -7126,7 +7124,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
 
     invoke-interface {v0, p1, p2}, Ljavax/microedition/khronos/opengles/GL11;->glGetClipPlanex(ILjava/nio/IntBuffer;)V
 
@@ -7160,7 +7158,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
 
     invoke-interface {v0, p1, p2, p3}, Ljavax/microedition/khronos/opengles/GL11;->glGetClipPlanex(I[II)V
 
@@ -7174,7 +7172,7 @@
 
     invoke-direct {p0, v1}, Landroid/opengl/GLLogWrapper;->begin(Ljava/lang/String;)V
 
-    iget-object v1, p0, Landroid/opengl/GLWrapperBase;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v1, p0, Landroid/opengl/GLLogWrapper;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
     invoke-interface {v1}, Ljavax/microedition/khronos/opengles/GL10;->glGetError()I
 
@@ -7206,7 +7204,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
 
     invoke-interface {v0, p1, p2}, Ljavax/microedition/khronos/opengles/GL11;->glGetFixedv(ILjava/nio/IntBuffer;)V
 
@@ -7240,7 +7238,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
 
     invoke-interface {v0, p1, p2, p3}, Ljavax/microedition/khronos/opengles/GL11;->glGetFixedv(I[II)V
 
@@ -7268,7 +7266,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
 
     invoke-interface {v0, p1, p2}, Ljavax/microedition/khronos/opengles/GL11;->glGetFloatv(ILjava/nio/FloatBuffer;)V
 
@@ -7302,7 +7300,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
 
     invoke-interface {v0, p1, p2, p3}, Ljavax/microedition/khronos/opengles/GL11;->glGetFloatv(I[FI)V
 
@@ -7338,7 +7336,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl11ExtensionPack:Ljavax/microedition/khronos/opengles/GL11ExtensionPack;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl11ExtensionPack:Ljavax/microedition/khronos/opengles/GL11ExtensionPack;
 
     invoke-interface {v0, p1, p2, p3, p4}, Ljavax/microedition/khronos/opengles/GL11ExtensionPack;->glGetFramebufferAttachmentParameterivOES(IIILjava/nio/IntBuffer;)V
 
@@ -7380,7 +7378,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl11ExtensionPack:Ljavax/microedition/khronos/opengles/GL11ExtensionPack;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl11ExtensionPack:Ljavax/microedition/khronos/opengles/GL11ExtensionPack;
 
     move v1, p1
 
@@ -7422,7 +7420,7 @@
 
     invoke-direct {p0, v0, v1}, Landroid/opengl/GLLogWrapper;->arg(Ljava/lang/String;Ljava/lang/String;)V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
     invoke-interface {v0, p1, p2}, Ljavax/microedition/khronos/opengles/GL10;->glGetIntegerv(ILjava/nio/IntBuffer;)V
 
@@ -7472,7 +7470,7 @@
 
     invoke-direct {p0, v0, p3}, Landroid/opengl/GLLogWrapper;->arg(Ljava/lang/String;I)V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
     invoke-interface {v0, p1, p2, p3}, Ljavax/microedition/khronos/opengles/GL10;->glGetIntegerv(I[II)V
 
@@ -7520,7 +7518,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
 
     invoke-interface {v0, p1, p2, p3}, Ljavax/microedition/khronos/opengles/GL11;->glGetLightfv(IILjava/nio/FloatBuffer;)V
 
@@ -7558,7 +7556,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
 
     invoke-interface {v0, p1, p2, p3, p4}, Ljavax/microedition/khronos/opengles/GL11;->glGetLightfv(II[FI)V
 
@@ -7592,7 +7590,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
 
     invoke-interface {v0, p1, p2, p3}, Ljavax/microedition/khronos/opengles/GL11;->glGetLightxv(IILjava/nio/IntBuffer;)V
 
@@ -7630,7 +7628,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
 
     invoke-interface {v0, p1, p2, p3, p4}, Ljavax/microedition/khronos/opengles/GL11;->glGetLightxv(II[II)V
 
@@ -7664,7 +7662,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
 
     invoke-interface {v0, p1, p2, p3}, Ljavax/microedition/khronos/opengles/GL11;->glGetMaterialfv(IILjava/nio/FloatBuffer;)V
 
@@ -7702,7 +7700,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
 
     invoke-interface {v0, p1, p2, p3, p4}, Ljavax/microedition/khronos/opengles/GL11;->glGetMaterialfv(II[FI)V
 
@@ -7736,7 +7734,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
 
     invoke-interface {v0, p1, p2, p3}, Ljavax/microedition/khronos/opengles/GL11;->glGetMaterialxv(IILjava/nio/IntBuffer;)V
 
@@ -7774,7 +7772,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
 
     invoke-interface {v0, p1, p2, p3, p4}, Ljavax/microedition/khronos/opengles/GL11;->glGetMaterialxv(II[II)V
 
@@ -7804,7 +7802,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
 
     invoke-interface {v0, p1, p2}, Ljavax/microedition/khronos/opengles/GL11;->glGetPointerv(I[Ljava/nio/Buffer;)V
 
@@ -7838,7 +7836,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl11ExtensionPack:Ljavax/microedition/khronos/opengles/GL11ExtensionPack;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl11ExtensionPack:Ljavax/microedition/khronos/opengles/GL11ExtensionPack;
 
     invoke-interface {v0, p1, p2, p3}, Ljavax/microedition/khronos/opengles/GL11ExtensionPack;->glGetRenderbufferParameterivOES(IILjava/nio/IntBuffer;)V
 
@@ -7876,7 +7874,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl11ExtensionPack:Ljavax/microedition/khronos/opengles/GL11ExtensionPack;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl11ExtensionPack:Ljavax/microedition/khronos/opengles/GL11ExtensionPack;
 
     invoke-interface {v0, p1, p2, p3, p4}, Ljavax/microedition/khronos/opengles/GL11ExtensionPack;->glGetRenderbufferParameterivOES(II[II)V
 
@@ -7896,7 +7894,7 @@
 
     invoke-direct {p0, v1, p1}, Landroid/opengl/GLLogWrapper;->arg(Ljava/lang/String;I)V
 
-    iget-object v1, p0, Landroid/opengl/GLWrapperBase;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v1, p0, Landroid/opengl/GLLogWrapper;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
     invoke-interface {v1, p1}, Ljavax/microedition/khronos/opengles/GL10;->glGetString(I)Ljava/lang/String;
 
@@ -7934,7 +7932,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
 
     invoke-interface {v0, p1, p2, p3}, Ljavax/microedition/khronos/opengles/GL11;->glGetTexEnviv(IILjava/nio/IntBuffer;)V
 
@@ -7972,7 +7970,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
 
     invoke-interface {v0, p1, p2, p3, p4}, Ljavax/microedition/khronos/opengles/GL11;->glGetTexEnviv(II[II)V
 
@@ -8006,7 +8004,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
 
     invoke-interface {v0, p1, p2, p3}, Ljavax/microedition/khronos/opengles/GL11;->glGetTexEnvxv(IILjava/nio/IntBuffer;)V
 
@@ -8044,7 +8042,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
 
     invoke-interface {v0, p1, p2, p3, p4}, Ljavax/microedition/khronos/opengles/GL11;->glGetTexEnviv(II[II)V
 
@@ -8078,7 +8076,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl11ExtensionPack:Ljavax/microedition/khronos/opengles/GL11ExtensionPack;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl11ExtensionPack:Ljavax/microedition/khronos/opengles/GL11ExtensionPack;
 
     invoke-interface {v0, p1, p2, p3}, Ljavax/microedition/khronos/opengles/GL11ExtensionPack;->glGetTexGenfv(IILjava/nio/FloatBuffer;)V
 
@@ -8116,7 +8114,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl11ExtensionPack:Ljavax/microedition/khronos/opengles/GL11ExtensionPack;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl11ExtensionPack:Ljavax/microedition/khronos/opengles/GL11ExtensionPack;
 
     invoke-interface {v0, p1, p2, p3, p4}, Ljavax/microedition/khronos/opengles/GL11ExtensionPack;->glGetTexGenfv(II[FI)V
 
@@ -8150,7 +8148,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl11ExtensionPack:Ljavax/microedition/khronos/opengles/GL11ExtensionPack;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl11ExtensionPack:Ljavax/microedition/khronos/opengles/GL11ExtensionPack;
 
     invoke-interface {v0, p1, p2, p3}, Ljavax/microedition/khronos/opengles/GL11ExtensionPack;->glGetTexGeniv(IILjava/nio/IntBuffer;)V
 
@@ -8188,7 +8186,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl11ExtensionPack:Ljavax/microedition/khronos/opengles/GL11ExtensionPack;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl11ExtensionPack:Ljavax/microedition/khronos/opengles/GL11ExtensionPack;
 
     invoke-interface {v0, p1, p2, p3, p4}, Ljavax/microedition/khronos/opengles/GL11ExtensionPack;->glGetTexGeniv(II[II)V
 
@@ -8222,7 +8220,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl11ExtensionPack:Ljavax/microedition/khronos/opengles/GL11ExtensionPack;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl11ExtensionPack:Ljavax/microedition/khronos/opengles/GL11ExtensionPack;
 
     invoke-interface {v0, p1, p2, p3}, Ljavax/microedition/khronos/opengles/GL11ExtensionPack;->glGetTexGenxv(IILjava/nio/IntBuffer;)V
 
@@ -8260,7 +8258,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl11ExtensionPack:Ljavax/microedition/khronos/opengles/GL11ExtensionPack;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl11ExtensionPack:Ljavax/microedition/khronos/opengles/GL11ExtensionPack;
 
     invoke-interface {v0, p1, p2, p3, p4}, Ljavax/microedition/khronos/opengles/GL11ExtensionPack;->glGetTexGenxv(II[II)V
 
@@ -8294,7 +8292,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
 
     invoke-interface {v0, p1, p2, p3}, Ljavax/microedition/khronos/opengles/GL11;->glGetTexParameterfv(IILjava/nio/FloatBuffer;)V
 
@@ -8332,7 +8330,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
 
     invoke-interface {v0, p1, p2, p3, p4}, Ljavax/microedition/khronos/opengles/GL11;->glGetTexParameterfv(II[FI)V
 
@@ -8366,7 +8364,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
 
     invoke-interface {v0, p1, p2, p3}, Ljavax/microedition/khronos/opengles/GL11;->glGetTexParameteriv(IILjava/nio/IntBuffer;)V
 
@@ -8404,7 +8402,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
 
     invoke-interface {v0, p1, p2, p3, p4}, Ljavax/microedition/khronos/opengles/GL11;->glGetTexEnviv(II[II)V
 
@@ -8438,7 +8436,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
 
     invoke-interface {v0, p1, p2, p3}, Ljavax/microedition/khronos/opengles/GL11;->glGetTexParameterxv(IILjava/nio/IntBuffer;)V
 
@@ -8476,7 +8474,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
 
     invoke-interface {v0, p1, p2, p3, p4}, Ljavax/microedition/khronos/opengles/GL11;->glGetTexParameterxv(II[II)V
 
@@ -8510,7 +8508,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
     invoke-interface {v0, p1, p2}, Ljavax/microedition/khronos/opengles/GL10;->glHint(II)V
 
@@ -8532,7 +8530,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v1, p0, Landroid/opengl/GLWrapperBase;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
+    iget-object v1, p0, Landroid/opengl/GLLogWrapper;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
 
     invoke-interface {v1, p1}, Ljavax/microedition/khronos/opengles/GL11;->glIsBuffer(I)Z
 
@@ -8556,7 +8554,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v1, p0, Landroid/opengl/GLWrapperBase;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
+    iget-object v1, p0, Landroid/opengl/GLLogWrapper;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
 
     invoke-interface {v1, p1}, Ljavax/microedition/khronos/opengles/GL11;->glIsEnabled(I)Z
 
@@ -8580,7 +8578,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v1, p0, Landroid/opengl/GLWrapperBase;->mgl11ExtensionPack:Ljavax/microedition/khronos/opengles/GL11ExtensionPack;
+    iget-object v1, p0, Landroid/opengl/GLLogWrapper;->mgl11ExtensionPack:Ljavax/microedition/khronos/opengles/GL11ExtensionPack;
 
     invoke-interface {v1, p1}, Ljavax/microedition/khronos/opengles/GL11ExtensionPack;->glIsFramebufferOES(I)Z
 
@@ -8604,7 +8602,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl11ExtensionPack:Ljavax/microedition/khronos/opengles/GL11ExtensionPack;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl11ExtensionPack:Ljavax/microedition/khronos/opengles/GL11ExtensionPack;
 
     invoke-interface {v0, p1}, Ljavax/microedition/khronos/opengles/GL11ExtensionPack;->glIsRenderbufferOES(I)Z
 
@@ -8628,7 +8626,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v1, p0, Landroid/opengl/GLWrapperBase;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
+    iget-object v1, p0, Landroid/opengl/GLLogWrapper;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
 
     invoke-interface {v1, p1}, Ljavax/microedition/khronos/opengles/GL11;->glIsTexture(I)Z
 
@@ -8660,7 +8658,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
     invoke-interface {v0, p1, p2}, Ljavax/microedition/khronos/opengles/GL10;->glLightModelf(IF)V
 
@@ -8694,7 +8692,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
     invoke-interface {v0, p1, p2}, Ljavax/microedition/khronos/opengles/GL10;->glLightModelfv(ILjava/nio/FloatBuffer;)V
 
@@ -8732,7 +8730,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
     invoke-interface {v0, p1, p2, p3}, Ljavax/microedition/khronos/opengles/GL10;->glLightModelfv(I[FI)V
 
@@ -8762,7 +8760,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
     invoke-interface {v0, p1, p2}, Ljavax/microedition/khronos/opengles/GL10;->glLightModelx(II)V
 
@@ -8796,7 +8794,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
     invoke-interface {v0, p1, p2}, Ljavax/microedition/khronos/opengles/GL10;->glLightModelxv(ILjava/nio/IntBuffer;)V
 
@@ -8834,7 +8832,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
     invoke-interface {v0, p1, p2, p3}, Ljavax/microedition/khronos/opengles/GL10;->glLightModelxv(I[II)V
 
@@ -8872,7 +8870,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
     invoke-interface {v0, p1, p2, p3}, Ljavax/microedition/khronos/opengles/GL10;->glLightf(IIF)V
 
@@ -8914,7 +8912,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
     invoke-interface {v0, p1, p2, p3}, Ljavax/microedition/khronos/opengles/GL10;->glLightfv(IILjava/nio/FloatBuffer;)V
 
@@ -8960,7 +8958,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
     invoke-interface {v0, p1, p2, p3, p4}, Ljavax/microedition/khronos/opengles/GL10;->glLightfv(II[FI)V
 
@@ -8998,7 +8996,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
     invoke-interface {v0, p1, p2, p3}, Ljavax/microedition/khronos/opengles/GL10;->glLightx(III)V
 
@@ -9040,7 +9038,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
     invoke-interface {v0, p1, p2, p3}, Ljavax/microedition/khronos/opengles/GL10;->glLightxv(IILjava/nio/IntBuffer;)V
 
@@ -9086,7 +9084,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
     invoke-interface {v0, p1, p2, p3, p4}, Ljavax/microedition/khronos/opengles/GL10;->glLightxv(II[II)V
 
@@ -9108,7 +9106,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
     invoke-interface {v0, p1}, Ljavax/microedition/khronos/opengles/GL10;->glLineWidth(F)V
 
@@ -9130,7 +9128,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
     invoke-interface {v0, p1}, Ljavax/microedition/khronos/opengles/GL10;->glLineWidthx(I)V
 
@@ -9148,7 +9146,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
     invoke-interface {v0}, Ljavax/microedition/khronos/opengles/GL10;->glLoadIdentity()V
 
@@ -9172,7 +9170,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
     invoke-interface {v0, p1}, Ljavax/microedition/khronos/opengles/GL10;->glLoadMatrixf(Ljava/nio/FloatBuffer;)V
 
@@ -9200,7 +9198,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
     invoke-interface {v0, p1, p2}, Ljavax/microedition/khronos/opengles/GL10;->glLoadMatrixf([FI)V
 
@@ -9224,7 +9222,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
     invoke-interface {v0, p1}, Ljavax/microedition/khronos/opengles/GL10;->glLoadMatrixx(Ljava/nio/IntBuffer;)V
 
@@ -9252,7 +9250,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
     invoke-interface {v0, p1, p2}, Ljavax/microedition/khronos/opengles/GL10;->glLoadMatrixx([II)V
 
@@ -9270,7 +9268,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl11Ext:Ljavax/microedition/khronos/opengles/GL11Ext;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl11Ext:Ljavax/microedition/khronos/opengles/GL11Ext;
 
     invoke-interface {v0}, Ljavax/microedition/khronos/opengles/GL11Ext;->glLoadPaletteFromModelViewMatrixOES()V
 
@@ -9292,7 +9290,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
     invoke-interface {v0, p1}, Ljavax/microedition/khronos/opengles/GL10;->glLogicOp(I)V
 
@@ -9330,7 +9328,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
     invoke-interface {v0, p1, p2, p3}, Ljavax/microedition/khronos/opengles/GL10;->glMaterialf(IIF)V
 
@@ -9372,7 +9370,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
     invoke-interface {v0, p1, p2, p3}, Ljavax/microedition/khronos/opengles/GL10;->glMaterialfv(IILjava/nio/FloatBuffer;)V
 
@@ -9418,7 +9416,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
     invoke-interface {v0, p1, p2, p3, p4}, Ljavax/microedition/khronos/opengles/GL10;->glMaterialfv(II[FI)V
 
@@ -9456,7 +9454,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
     invoke-interface {v0, p1, p2, p3}, Ljavax/microedition/khronos/opengles/GL10;->glMaterialx(III)V
 
@@ -9498,7 +9496,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
     invoke-interface {v0, p1, p2, p3}, Ljavax/microedition/khronos/opengles/GL10;->glMaterialxv(IILjava/nio/IntBuffer;)V
 
@@ -9544,7 +9542,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
     invoke-interface {v0, p1, p2, p3, p4}, Ljavax/microedition/khronos/opengles/GL10;->glMaterialxv(II[II)V
 
@@ -9578,7 +9576,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl11Ext:Ljavax/microedition/khronos/opengles/GL11Ext;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl11Ext:Ljavax/microedition/khronos/opengles/GL11Ext;
 
     invoke-interface {v0, p1, p2, p3, p4}, Ljavax/microedition/khronos/opengles/GL11Ext;->glMatrixIndexPointerOES(IIII)V
 
@@ -9598,7 +9596,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl11Ext:Ljavax/microedition/khronos/opengles/GL11Ext;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl11Ext:Ljavax/microedition/khronos/opengles/GL11Ext;
 
     invoke-interface {v0, p1, p2, p3, p4}, Ljavax/microedition/khronos/opengles/GL11Ext;->glMatrixIndexPointerOES(IIILjava/nio/Buffer;)V
 
@@ -9624,7 +9622,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
     invoke-interface {v0, p1}, Ljavax/microedition/khronos/opengles/GL10;->glMatrixMode(I)V
 
@@ -9648,7 +9646,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
     invoke-interface {v0, p1}, Ljavax/microedition/khronos/opengles/GL10;->glMultMatrixf(Ljava/nio/FloatBuffer;)V
 
@@ -9676,7 +9674,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
     invoke-interface {v0, p1, p2}, Ljavax/microedition/khronos/opengles/GL10;->glMultMatrixf([FI)V
 
@@ -9700,7 +9698,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
     invoke-interface {v0, p1}, Ljavax/microedition/khronos/opengles/GL10;->glMultMatrixx(Ljava/nio/IntBuffer;)V
 
@@ -9728,7 +9726,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
     invoke-interface {v0, p1, p2}, Ljavax/microedition/khronos/opengles/GL10;->glMultMatrixx([II)V
 
@@ -9766,7 +9764,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
     move v1, p1
 
@@ -9814,7 +9812,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
     move v1, p1
 
@@ -9854,7 +9852,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
     invoke-interface {v0, p1, p2, p3}, Ljavax/microedition/khronos/opengles/GL10;->glNormal3f(FFF)V
 
@@ -9884,7 +9882,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
     invoke-interface {v0, p1, p2, p3}, Ljavax/microedition/khronos/opengles/GL10;->glNormal3x(III)V
 
@@ -9914,7 +9912,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
 
     invoke-interface {v0, p1, p2, p3}, Ljavax/microedition/khronos/opengles/GL11;->glNormalPointer(III)V
 
@@ -9938,7 +9936,7 @@
 
     const-string/jumbo v0, "pointer"
 
-    invoke-virtual {p3}, Ljava/lang/Object;->toString()Ljava/lang/String;
+    invoke-virtual {p3}, Ljava/nio/Buffer;->toString()Ljava/lang/String;
 
     move-result-object v1
 
@@ -9962,7 +9960,7 @@
 
     iput-object v0, p0, Landroid/opengl/GLLogWrapper;->mNormalPointer:Landroid/opengl/GLLogWrapper$PointerInfo;
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
     invoke-interface {v0, p1, p2, p3}, Ljavax/microedition/khronos/opengles/GL10;->glNormalPointer(IILjava/nio/Buffer;)V
 
@@ -10004,7 +10002,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
     move v1, p1
 
@@ -10058,7 +10056,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
     move v1, p1
 
@@ -10096,7 +10094,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
     invoke-interface {v0, p1, p2}, Ljavax/microedition/khronos/opengles/GL10;->glPixelStorei(II)V
 
@@ -10122,7 +10120,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
 
     invoke-interface {v0, p1, p2}, Ljavax/microedition/khronos/opengles/GL11;->glPointParameterf(IF)V
 
@@ -10152,7 +10150,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
 
     invoke-interface {v0, p1, p2}, Ljavax/microedition/khronos/opengles/GL11;->glPointParameterfv(ILjava/nio/FloatBuffer;)V
 
@@ -10186,7 +10184,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
 
     invoke-interface {v0, p1, p2, p3}, Ljavax/microedition/khronos/opengles/GL11;->glPointParameterfv(I[FI)V
 
@@ -10212,7 +10210,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
 
     invoke-interface {v0, p1, p2}, Ljavax/microedition/khronos/opengles/GL11;->glPointParameterx(II)V
 
@@ -10242,7 +10240,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
 
     invoke-interface {v0, p1, p2}, Ljavax/microedition/khronos/opengles/GL11;->glPointParameterxv(ILjava/nio/IntBuffer;)V
 
@@ -10276,7 +10274,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
 
     invoke-interface {v0, p1, p2, p3}, Ljavax/microedition/khronos/opengles/GL11;->glPointParameterxv(I[II)V
 
@@ -10298,7 +10296,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
     invoke-interface {v0, p1}, Ljavax/microedition/khronos/opengles/GL10;->glPointSize(F)V
 
@@ -10324,7 +10322,7 @@
 
     const-string/jumbo v0, "params"
 
-    invoke-virtual {p3}, Ljava/lang/Object;->toString()Ljava/lang/String;
+    invoke-virtual {p3}, Ljava/nio/Buffer;->toString()Ljava/lang/String;
 
     move-result-object v1
 
@@ -10332,7 +10330,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
 
     invoke-interface {v0, p1, p2, p3}, Ljavax/microedition/khronos/opengles/GL11;->glPointSizePointerOES(IILjava/nio/Buffer;)V
 
@@ -10354,7 +10352,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
     invoke-interface {v0, p1}, Ljavax/microedition/khronos/opengles/GL10;->glPointSizex(I)V
 
@@ -10380,7 +10378,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
     invoke-interface {v0, p1, p2}, Ljavax/microedition/khronos/opengles/GL10;->glPolygonOffset(FF)V
 
@@ -10406,7 +10404,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
     invoke-interface {v0, p1, p2}, Ljavax/microedition/khronos/opengles/GL10;->glPolygonOffsetx(II)V
 
@@ -10424,7 +10422,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
     invoke-interface {v0}, Ljavax/microedition/khronos/opengles/GL10;->glPopMatrix()V
 
@@ -10442,7 +10440,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
     invoke-interface {v0}, Ljavax/microedition/khronos/opengles/GL10;->glPushMatrix()V
 
@@ -10478,7 +10476,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v1, p0, Landroid/opengl/GLWrapperBase;->mgl10Ext:Ljavax/microedition/khronos/opengles/GL10Ext;
+    iget-object v1, p0, Landroid/opengl/GLLogWrapper;->mgl10Ext:Ljavax/microedition/khronos/opengles/GL10Ext;
 
     invoke-interface {v1, p1, p2}, Ljavax/microedition/khronos/opengles/GL10Ext;->glQueryMatrixxOES(Ljava/nio/IntBuffer;Ljava/nio/IntBuffer;)I
 
@@ -10532,7 +10530,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v1, p0, Landroid/opengl/GLWrapperBase;->mgl10Ext:Ljavax/microedition/khronos/opengles/GL10Ext;
+    iget-object v1, p0, Landroid/opengl/GLLogWrapper;->mgl10Ext:Ljavax/microedition/khronos/opengles/GL10Ext;
 
     invoke-interface {v1, p1, p2, p3, p4}, Ljavax/microedition/khronos/opengles/GL10Ext;->glQueryMatrixxOES([II[II)I
 
@@ -10592,7 +10590,7 @@
 
     const-string/jumbo v0, "pixels"
 
-    invoke-virtual {p7}, Ljava/lang/Object;->toString()Ljava/lang/String;
+    invoke-virtual {p7}, Ljava/nio/Buffer;->toString()Ljava/lang/String;
 
     move-result-object v1
 
@@ -10600,7 +10598,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
     move v1, p1
 
@@ -10648,7 +10646,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl11ExtensionPack:Ljavax/microedition/khronos/opengles/GL11ExtensionPack;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl11ExtensionPack:Ljavax/microedition/khronos/opengles/GL11ExtensionPack;
 
     invoke-interface {v0, p1, p2, p3, p4}, Ljavax/microedition/khronos/opengles/GL11ExtensionPack;->glRenderbufferStorageOES(IIII)V
 
@@ -10682,7 +10680,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
     invoke-interface {v0, p1, p2, p3, p4}, Ljavax/microedition/khronos/opengles/GL10;->glRotatef(FFFF)V
 
@@ -10716,7 +10714,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
     invoke-interface {v0, p1, p2, p3, p4}, Ljavax/microedition/khronos/opengles/GL10;->glRotatex(IIII)V
 
@@ -10742,7 +10740,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
     invoke-interface {v0, p1, p2}, Ljavax/microedition/khronos/opengles/GL10;->glSampleCoverage(FZ)V
 
@@ -10768,7 +10766,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
     invoke-interface {v0, p1, p2}, Ljavax/microedition/khronos/opengles/GL10;->glSampleCoveragex(IZ)V
 
@@ -10798,7 +10796,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
     invoke-interface {v0, p1, p2, p3}, Ljavax/microedition/khronos/opengles/GL10;->glScalef(FFF)V
 
@@ -10828,7 +10826,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
     invoke-interface {v0, p1, p2, p3}, Ljavax/microedition/khronos/opengles/GL10;->glScalex(III)V
 
@@ -10862,7 +10860,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
     invoke-interface {v0, p1, p2, p3, p4}, Ljavax/microedition/khronos/opengles/GL10;->glScissor(IIII)V
 
@@ -10888,7 +10886,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
     invoke-interface {v0, p1}, Ljavax/microedition/khronos/opengles/GL10;->glShadeModel(I)V
 
@@ -10918,7 +10916,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
     invoke-interface {v0, p1, p2, p3}, Ljavax/microedition/khronos/opengles/GL10;->glStencilFunc(III)V
 
@@ -10940,7 +10938,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
     invoke-interface {v0, p1}, Ljavax/microedition/khronos/opengles/GL10;->glStencilMask(I)V
 
@@ -10970,7 +10968,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
     invoke-interface {v0, p1, p2, p3}, Ljavax/microedition/khronos/opengles/GL10;->glStencilOp(III)V
 
@@ -11004,7 +11002,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
 
     invoke-interface {v0, p1, p2, p3, p4}, Ljavax/microedition/khronos/opengles/GL11;->glTexCoordPointer(IIII)V
 
@@ -11038,7 +11036,7 @@
 
     iput-object v0, p0, Landroid/opengl/GLLogWrapper;->mTexCoordPointer:Landroid/opengl/GLLogWrapper$PointerInfo;
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
     invoke-interface {v0, p1, p2, p3, p4}, Ljavax/microedition/khronos/opengles/GL10;->glTexCoordPointer(IIILjava/nio/Buffer;)V
 
@@ -11080,7 +11078,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
     invoke-interface {v0, p1, p2, p3}, Ljavax/microedition/khronos/opengles/GL10;->glTexEnvf(IIF)V
 
@@ -11122,7 +11120,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
     invoke-interface {v0, p1, p2, p3}, Ljavax/microedition/khronos/opengles/GL10;->glTexEnvfv(IILjava/nio/FloatBuffer;)V
 
@@ -11168,7 +11166,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
     invoke-interface {v0, p1, p2, p3, p4}, Ljavax/microedition/khronos/opengles/GL10;->glTexEnvfv(II[FI)V
 
@@ -11198,7 +11196,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
 
     invoke-interface {v0, p1, p2, p3}, Ljavax/microedition/khronos/opengles/GL11;->glTexEnvi(III)V
 
@@ -11232,7 +11230,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
 
     invoke-interface {v0, p1, p2, p3}, Ljavax/microedition/khronos/opengles/GL11;->glTexEnviv(IILjava/nio/IntBuffer;)V
 
@@ -11270,7 +11268,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
 
     invoke-interface {v0, p1, p2, p3, p4}, Ljavax/microedition/khronos/opengles/GL11;->glTexEnviv(II[II)V
 
@@ -11308,7 +11306,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
     invoke-interface {v0, p1, p2, p3}, Ljavax/microedition/khronos/opengles/GL10;->glTexEnvx(III)V
 
@@ -11350,7 +11348,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
     invoke-interface {v0, p1, p2, p3}, Ljavax/microedition/khronos/opengles/GL10;->glTexEnvxv(IILjava/nio/IntBuffer;)V
 
@@ -11396,7 +11394,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
     invoke-interface {v0, p1, p2, p3, p4}, Ljavax/microedition/khronos/opengles/GL10;->glTexEnvxv(II[II)V
 
@@ -11426,7 +11424,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl11ExtensionPack:Ljavax/microedition/khronos/opengles/GL11ExtensionPack;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl11ExtensionPack:Ljavax/microedition/khronos/opengles/GL11ExtensionPack;
 
     invoke-interface {v0, p1, p2, p3}, Ljavax/microedition/khronos/opengles/GL11ExtensionPack;->glTexGenf(IIF)V
 
@@ -11460,7 +11458,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl11ExtensionPack:Ljavax/microedition/khronos/opengles/GL11ExtensionPack;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl11ExtensionPack:Ljavax/microedition/khronos/opengles/GL11ExtensionPack;
 
     invoke-interface {v0, p1, p2, p3}, Ljavax/microedition/khronos/opengles/GL11ExtensionPack;->glTexGenfv(IILjava/nio/FloatBuffer;)V
 
@@ -11498,7 +11496,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl11ExtensionPack:Ljavax/microedition/khronos/opengles/GL11ExtensionPack;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl11ExtensionPack:Ljavax/microedition/khronos/opengles/GL11ExtensionPack;
 
     invoke-interface {v0, p1, p2, p3, p4}, Ljavax/microedition/khronos/opengles/GL11ExtensionPack;->glTexGenfv(II[FI)V
 
@@ -11528,7 +11526,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl11ExtensionPack:Ljavax/microedition/khronos/opengles/GL11ExtensionPack;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl11ExtensionPack:Ljavax/microedition/khronos/opengles/GL11ExtensionPack;
 
     invoke-interface {v0, p1, p2, p3}, Ljavax/microedition/khronos/opengles/GL11ExtensionPack;->glTexGeni(III)V
 
@@ -11562,7 +11560,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl11ExtensionPack:Ljavax/microedition/khronos/opengles/GL11ExtensionPack;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl11ExtensionPack:Ljavax/microedition/khronos/opengles/GL11ExtensionPack;
 
     invoke-interface {v0, p1, p2, p3}, Ljavax/microedition/khronos/opengles/GL11ExtensionPack;->glTexGeniv(IILjava/nio/IntBuffer;)V
 
@@ -11600,7 +11598,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl11ExtensionPack:Ljavax/microedition/khronos/opengles/GL11ExtensionPack;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl11ExtensionPack:Ljavax/microedition/khronos/opengles/GL11ExtensionPack;
 
     invoke-interface {v0, p1, p2, p3, p4}, Ljavax/microedition/khronos/opengles/GL11ExtensionPack;->glTexGeniv(II[II)V
 
@@ -11630,7 +11628,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl11ExtensionPack:Ljavax/microedition/khronos/opengles/GL11ExtensionPack;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl11ExtensionPack:Ljavax/microedition/khronos/opengles/GL11ExtensionPack;
 
     invoke-interface {v0, p1, p2, p3}, Ljavax/microedition/khronos/opengles/GL11ExtensionPack;->glTexGenx(III)V
 
@@ -11664,7 +11662,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl11ExtensionPack:Ljavax/microedition/khronos/opengles/GL11ExtensionPack;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl11ExtensionPack:Ljavax/microedition/khronos/opengles/GL11ExtensionPack;
 
     invoke-interface {v0, p1, p2, p3}, Ljavax/microedition/khronos/opengles/GL11ExtensionPack;->glTexGenxv(IILjava/nio/IntBuffer;)V
 
@@ -11702,7 +11700,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl11ExtensionPack:Ljavax/microedition/khronos/opengles/GL11ExtensionPack;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl11ExtensionPack:Ljavax/microedition/khronos/opengles/GL11ExtensionPack;
 
     invoke-interface {v0, p1, p2, p3, p4}, Ljavax/microedition/khronos/opengles/GL11ExtensionPack;->glTexGenxv(II[II)V
 
@@ -11760,7 +11758,7 @@
 
     const-string/jumbo v1, "pixels"
 
-    invoke-virtual/range {p9 .. p9}, Ljava/lang/Object;->toString()Ljava/lang/String;
+    invoke-virtual/range {p9 .. p9}, Ljava/nio/Buffer;->toString()Ljava/lang/String;
 
     move-result-object v2
 
@@ -11768,7 +11766,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v1, p0, Landroid/opengl/GLWrapperBase;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v1, p0, Landroid/opengl/GLLogWrapper;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
     move v2, p1
 
@@ -11828,7 +11826,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
     invoke-interface {v0, p1, p2, p3}, Ljavax/microedition/khronos/opengles/GL10;->glTexParameterf(IIF)V
 
@@ -11862,7 +11860,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
 
     invoke-interface {v0, p1, p2, p3}, Ljavax/microedition/khronos/opengles/GL11;->glTexParameterfv(IILjava/nio/FloatBuffer;)V
 
@@ -11900,7 +11898,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
 
     invoke-interface {v0, p1, p2, p3, p4}, Ljavax/microedition/khronos/opengles/GL11;->glTexParameterfv(II[FI)V
 
@@ -11930,7 +11928,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
 
     invoke-interface {v0, p1, p2, p3}, Ljavax/microedition/khronos/opengles/GL11;->glTexParameteri(III)V
 
@@ -11970,7 +11968,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
 
     invoke-interface {v0, p1, p2, p3}, Ljavax/microedition/khronos/opengles/GL11;->glTexParameteriv(IILjava/nio/IntBuffer;)V
 
@@ -12010,7 +12008,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
 
     invoke-interface {v0, p1, p2, p3, p4}, Ljavax/microedition/khronos/opengles/GL11;->glTexParameteriv(II[II)V
 
@@ -12048,7 +12046,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
     invoke-interface {v0, p1, p2, p3}, Ljavax/microedition/khronos/opengles/GL10;->glTexParameterx(III)V
 
@@ -12082,7 +12080,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
 
     invoke-interface {v0, p1, p2, p3}, Ljavax/microedition/khronos/opengles/GL11;->glTexParameterxv(IILjava/nio/IntBuffer;)V
 
@@ -12120,7 +12118,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
 
     invoke-interface {v0, p1, p2, p3, p4}, Ljavax/microedition/khronos/opengles/GL11;->glTexParameterxv(II[II)V
 
@@ -12182,7 +12180,7 @@
 
     const-string/jumbo v1, "pixels"
 
-    invoke-virtual/range {p9 .. p9}, Ljava/lang/Object;->toString()Ljava/lang/String;
+    invoke-virtual/range {p9 .. p9}, Ljava/nio/Buffer;->toString()Ljava/lang/String;
 
     move-result-object v2
 
@@ -12190,7 +12188,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v1, p0, Landroid/opengl/GLWrapperBase;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v1, p0, Landroid/opengl/GLLogWrapper;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
     move v2, p1
 
@@ -12238,7 +12236,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
     invoke-interface {v0, p1, p2, p3}, Ljavax/microedition/khronos/opengles/GL10;->glTranslatef(FFF)V
 
@@ -12268,7 +12266,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
     invoke-interface {v0, p1, p2, p3}, Ljavax/microedition/khronos/opengles/GL10;->glTranslatex(III)V
 
@@ -12302,7 +12300,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
 
     invoke-interface {v0, p1, p2, p3, p4}, Ljavax/microedition/khronos/opengles/GL11;->glVertexPointer(IIII)V
 
@@ -12336,7 +12334,7 @@
 
     iput-object v0, p0, Landroid/opengl/GLLogWrapper;->mVertexPointer:Landroid/opengl/GLLogWrapper$PointerInfo;
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
     invoke-interface {v0, p1, p2, p3, p4}, Ljavax/microedition/khronos/opengles/GL10;->glVertexPointer(IIILjava/nio/Buffer;)V
 
@@ -12370,7 +12368,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl:Ljavax/microedition/khronos/opengles/GL10;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl:Ljavax/microedition/khronos/opengles/GL10;
 
     invoke-interface {v0, p1, p2, p3, p4}, Ljavax/microedition/khronos/opengles/GL10;->glViewport(IIII)V
 
@@ -12404,7 +12402,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl11Ext:Ljavax/microedition/khronos/opengles/GL11Ext;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl11Ext:Ljavax/microedition/khronos/opengles/GL11Ext;
 
     invoke-interface {v0, p1, p2, p3, p4}, Ljavax/microedition/khronos/opengles/GL11Ext;->glWeightPointerOES(IIII)V
 
@@ -12424,7 +12422,7 @@
 
     invoke-direct {p0}, Landroid/opengl/GLLogWrapper;->end()V
 
-    iget-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl11Ext:Ljavax/microedition/khronos/opengles/GL11Ext;
+    iget-object v0, p0, Landroid/opengl/GLLogWrapper;->mgl11Ext:Ljavax/microedition/khronos/opengles/GL11Ext;
 
     invoke-interface {v0, p1, p2, p3, p4}, Ljavax/microedition/khronos/opengles/GL11Ext;->glWeightPointerOES(IIILjava/nio/Buffer;)V
 

@@ -35,19 +35,11 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    xor-int/lit8 v0, v0, 0x1
 
-    const/4 v0, 0x0
-
-    :goto_0
     sput-boolean v0, Landroid/media/WebVttParser$4;->-assertionsDisabled:Z
 
     return-void
-
-    :cond_0
-    const/4 v0, 0x1
-
-    goto :goto_0
 .end method
 
 .method constructor <init>(Landroid/media/WebVttParser;)V
@@ -65,33 +57,26 @@
 .method public parse(Ljava/lang/String;)V
     .locals 2
 
-    const/4 v0, 0x0
-
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
-    move-result v1
+    move-result v0
 
-    if-nez v1, :cond_0
+    if-nez v0, :cond_0
 
     return-void
 
     :cond_0
-    sget-boolean v1, Landroid/media/WebVttParser$4;->-assertionsDisabled:Z
+    sget-boolean v0, Landroid/media/WebVttParser$4;->-assertionsDisabled:Z
 
-    if-nez v1, :cond_2
+    if-nez v0, :cond_1
 
-    iget-object v1, p0, Landroid/media/WebVttParser$4;->this$0:Landroid/media/WebVttParser;
+    iget-object v0, p0, Landroid/media/WebVttParser$4;->this$0:Landroid/media/WebVttParser;
 
-    invoke-static {v1}, Landroid/media/WebVttParser;->-get0(Landroid/media/WebVttParser;)Landroid/media/TextTrackCue;
+    invoke-static {v0}, Landroid/media/WebVttParser;->-get0(Landroid/media/WebVttParser;)Landroid/media/TextTrackCue;
 
-    move-result-object v1
+    move-result-object v0
 
-    if-nez v1, :cond_1
-
-    const/4 v0, 0x1
-
-    :cond_1
-    if-nez v0, :cond_2
+    if-eqz v0, :cond_1
 
     new-instance v0, Ljava/lang/AssertionError;
 
@@ -99,14 +84,14 @@
 
     throw v0
 
-    :cond_2
+    :cond_1
     const-string/jumbo v0, "NOTE"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_2
 
     const-string/jumbo v0, "NOTE "
 
@@ -114,9 +99,9 @@
 
     move-result v0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_3
 
-    :cond_3
+    :cond_2
     iget-object v0, p0, Landroid/media/WebVttParser$4;->this$0:Landroid/media/WebVttParser;
 
     iget-object v1, p0, Landroid/media/WebVttParser$4;->this$0:Landroid/media/WebVttParser;
@@ -127,7 +112,7 @@
 
     invoke-static {v0, v1}, Landroid/media/WebVttParser;->-set1(Landroid/media/WebVttParser;Landroid/media/WebVttParser$Phase;)Landroid/media/WebVttParser$Phase;
 
-    :cond_4
+    :cond_3
     iget-object v0, p0, Landroid/media/WebVttParser$4;->this$0:Landroid/media/WebVttParser;
 
     new-instance v1, Landroid/media/TextTrackCue;
@@ -160,7 +145,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_4
 
     iget-object v0, p0, Landroid/media/WebVttParser$4;->this$0:Landroid/media/WebVttParser;
 
@@ -173,7 +158,7 @@
     :goto_0
     return-void
 
-    :cond_5
+    :cond_4
     iget-object v0, p0, Landroid/media/WebVttParser$4;->this$0:Landroid/media/WebVttParser;
 
     invoke-static {v0}, Landroid/media/WebVttParser;->-get0(Landroid/media/WebVttParser;)Landroid/media/TextTrackCue;

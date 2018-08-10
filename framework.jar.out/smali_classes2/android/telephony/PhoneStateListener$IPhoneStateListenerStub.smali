@@ -160,6 +160,22 @@
     return-void
 .end method
 
+.method public onDataActivationStateChanged(I)V
+    .locals 3
+
+    const/4 v2, 0x0
+
+    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v0
+
+    const/high16 v1, 0x40000
+
+    invoke-direct {p0, v1, v2, v2, v0}, Landroid/telephony/PhoneStateListener$IPhoneStateListenerStub;->send(IIILjava/lang/Object;)V
+
+    return-void
+.end method
+
 .method public onDataActivity(I)V
     .locals 3
 
@@ -198,38 +214,12 @@
     return-void
 .end method
 
-.method public onDunDataActivity(I)V
-    .locals 3
-
-    const/high16 v0, 0x40000
-
-    const/4 v1, 0x0
-
-    const/4 v2, 0x0
-
-    invoke-direct {p0, v0, p1, v1, v2}, Landroid/telephony/PhoneStateListener$IPhoneStateListenerStub;->send(IIILjava/lang/Object;)V
-
-    return-void
-.end method
-
-.method public onDunDataConnectionStateChanged(II)V
-    .locals 2
-
-    const/high16 v0, 0x80000
-
-    const/4 v1, 0x0
-
-    invoke-direct {p0, v0, p1, p2, v1}, Landroid/telephony/PhoneStateListener$IPhoneStateListenerStub;->send(IIILjava/lang/Object;)V
-
-    return-void
-.end method
-
 .method public onFdnUpdated()V
     .locals 3
 
     const/4 v2, 0x0
 
-    const/high16 v0, 0x20000
+    const/high16 v0, 0x80000
 
     const/4 v1, 0x0
 
@@ -358,6 +348,22 @@
     const/16 v0, 0x4000
 
     invoke-direct {p0, v0, v1, v1, p1}, Landroid/telephony/PhoneStateListener$IPhoneStateListenerStub;->send(IIILjava/lang/Object;)V
+
+    return-void
+.end method
+
+.method public onVoiceActivationStateChanged(I)V
+    .locals 3
+
+    const/4 v2, 0x0
+
+    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v0
+
+    const/high16 v1, 0x20000
+
+    invoke-direct {p0, v1, v2, v2, v0}, Landroid/telephony/PhoneStateListener$IPhoneStateListenerStub;->send(IIILjava/lang/Object;)V
 
     return-void
 .end method

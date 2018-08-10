@@ -74,6 +74,8 @@
 .method scanNextPath()V
     .locals 4
 
+    const/4 v3, 0x0
+
     iget v1, p0, Landroid/media/MediaScannerConnection$ClientProxy;->mNextPath:I
 
     iget-object v2, p0, Landroid/media/MediaScannerConnection$ClientProxy;->mPaths:[Ljava/lang/String;
@@ -85,6 +87,8 @@
     iget-object v1, p0, Landroid/media/MediaScannerConnection$ClientProxy;->mConnection:Landroid/media/MediaScannerConnection;
 
     invoke-virtual {v1}, Landroid/media/MediaScannerConnection;->disconnect()V
+
+    iput-object v3, p0, Landroid/media/MediaScannerConnection$ClientProxy;->mConnection:Landroid/media/MediaScannerConnection;
 
     return-void
 

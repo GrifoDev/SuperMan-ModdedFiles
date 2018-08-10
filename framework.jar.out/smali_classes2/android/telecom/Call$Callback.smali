@@ -103,6 +103,30 @@
     return-void
 .end method
 
+.method public onRttInitiationFailure(Landroid/telecom/Call;I)V
+    .locals 0
+
+    return-void
+.end method
+
+.method public onRttModeChanged(Landroid/telecom/Call;I)V
+    .locals 0
+
+    return-void
+.end method
+
+.method public onRttRequest(Landroid/telecom/Call;I)V
+    .locals 0
+
+    return-void
+.end method
+
+.method public onRttStatusChanged(Landroid/telecom/Call;ZLandroid/telecom/Call$RttCall;)V
+    .locals 0
+
+    return-void
+.end method
+
 .method public onStateChanged(Landroid/telecom/Call;I)V
     .locals 0
 

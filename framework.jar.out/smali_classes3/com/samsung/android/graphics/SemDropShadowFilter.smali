@@ -1,5 +1,5 @@
 .class public Lcom/samsung/android/graphics/SemDropShadowFilter;
-.super Lcom/samsung/android/graphics/SemGenericImageFilter;
+.super Lcom/samsung/android/graphics/SemGenericImageFilterLegacy;
 .source "SemDropShadowFilter.java"
 
 
@@ -34,54 +34,6 @@
 
 
 # direct methods
-.method static synthetic -get0(Lcom/samsung/android/graphics/SemDropShadowFilter;)F
-    .locals 1
-
-    iget v0, p0, Lcom/samsung/android/graphics/SemDropShadowFilter;->mAngle:F
-
-    return v0
-.end method
-
-.method static synthetic -get1(Lcom/samsung/android/graphics/SemDropShadowFilter;)F
-    .locals 1
-
-    iget v0, p0, Lcom/samsung/android/graphics/SemDropShadowFilter;->mDistance:F
-
-    return v0
-.end method
-
-.method static synthetic -get2(Lcom/samsung/android/graphics/SemDropShadowFilter;)F
-    .locals 1
-
-    iget v0, p0, Lcom/samsung/android/graphics/SemDropShadowFilter;->mQuality:F
-
-    return v0
-.end method
-
-.method static synthetic -set0(Lcom/samsung/android/graphics/SemDropShadowFilter;F)F
-    .locals 0
-
-    iput p1, p0, Lcom/samsung/android/graphics/SemDropShadowFilter;->mAngle:F
-
-    return p1
-.end method
-
-.method static synthetic -set1(Lcom/samsung/android/graphics/SemDropShadowFilter;F)F
-    .locals 0
-
-    iput p1, p0, Lcom/samsung/android/graphics/SemDropShadowFilter;->mDistance:F
-
-    return p1
-.end method
-
-.method static synthetic -set2(Lcom/samsung/android/graphics/SemDropShadowFilter;F)F
-    .locals 0
-
-    iput p1, p0, Lcom/samsung/android/graphics/SemDropShadowFilter;->mQuality:F
-
-    return p1
-.end method
-
 .method static constructor <clinit>()V
     .locals 3
 
@@ -121,7 +73,7 @@
 
     sget-object v1, Lcom/samsung/android/graphics/SemDropShadowFilter;->mFragmentShaderCode:[Ljava/lang/String;
 
-    invoke-direct {p0, v6, v0, v1}, Lcom/samsung/android/graphics/SemGenericImageFilter;-><init>(I[Ljava/lang/String;[Ljava/lang/String;)V
+    invoke-direct {p0, v6, v0, v1}, Lcom/samsung/android/graphics/SemGenericImageFilterLegacy;-><init>(I[Ljava/lang/String;[Ljava/lang/String;)V
 
     iput v4, p0, Lcom/samsung/android/graphics/SemDropShadowFilter;->mAngle:F
 
@@ -145,7 +97,7 @@
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/graphics/SemDropShadowFilter;->setQuality(F)V
 
-    invoke-virtual {p0, v3}, Lcom/samsung/android/graphics/SemImageFilterSet;->getFilterAt(I)Lcom/samsung/android/graphics/SemImageFilter;
+    invoke-virtual {p0, v3}, Lcom/samsung/android/graphics/SemDropShadowFilter;->getFilterAt(I)Lcom/samsung/android/graphics/SemImageFilter;
 
     move-result-object v0
 
@@ -155,7 +107,7 @@
 
     invoke-virtual {v0, v1, v2}, Lcom/samsung/android/graphics/SemCustomFilter;->setValue(IF)V
 
-    invoke-virtual {p0, v3}, Lcom/samsung/android/graphics/SemImageFilterSet;->getFilterAt(I)Lcom/samsung/android/graphics/SemImageFilter;
+    invoke-virtual {p0, v3}, Lcom/samsung/android/graphics/SemDropShadowFilter;->getFilterAt(I)Lcom/samsung/android/graphics/SemImageFilter;
 
     move-result-object v0
 
@@ -165,7 +117,7 @@
 
     invoke-virtual {v0, v1, v2}, Lcom/samsung/android/graphics/SemCustomFilter;->setValue(IF)V
 
-    invoke-virtual {p0, v3}, Lcom/samsung/android/graphics/SemImageFilterSet;->getFilterAt(I)Lcom/samsung/android/graphics/SemImageFilter;
+    invoke-virtual {p0, v3}, Lcom/samsung/android/graphics/SemDropShadowFilter;->getFilterAt(I)Lcom/samsung/android/graphics/SemImageFilter;
 
     move-result-object v0
 
@@ -184,212 +136,6 @@
 
 
 # virtual methods
-.method public animateAngle(FFJJLandroid/animation/TimeInterpolator;)[I
-    .locals 7
-
-    new-instance v1, Lcom/samsung/android/graphics/SemDropShadowFilter$3;
-
-    invoke-direct {v1, p0, p2, p1}, Lcom/samsung/android/graphics/SemDropShadowFilter$3;-><init>(Lcom/samsung/android/graphics/SemDropShadowFilter;FF)V
-
-    move-object v0, p0
-
-    move-wide v2, p3
-
-    move-wide v4, p5
-
-    move-object v6, p7
-
-    invoke-virtual/range {v0 .. v6}, Lcom/samsung/android/graphics/SemImageFilterSet;->addAnimationForAllPasses(Lcom/samsung/android/graphics/SemImageFilter$IAnimationListener;JJLandroid/animation/TimeInterpolator;)[I
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public animateDistance(FFJJLandroid/animation/TimeInterpolator;)[I
-    .locals 7
-
-    new-instance v1, Lcom/samsung/android/graphics/SemDropShadowFilter$2;
-
-    invoke-direct {v1, p0, p2, p1}, Lcom/samsung/android/graphics/SemDropShadowFilter$2;-><init>(Lcom/samsung/android/graphics/SemDropShadowFilter;FF)V
-
-    move-object v0, p0
-
-    move-wide v2, p3
-
-    move-wide v4, p5
-
-    move-object v6, p7
-
-    invoke-virtual/range {v0 .. v6}, Lcom/samsung/android/graphics/SemImageFilterSet;->addAnimationForAllPasses(Lcom/samsung/android/graphics/SemImageFilter$IAnimationListener;JJLandroid/animation/TimeInterpolator;)[I
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public animateQuality(FFJJLandroid/animation/TimeInterpolator;)[I
-    .locals 7
-
-    new-instance v1, Lcom/samsung/android/graphics/SemDropShadowFilter$4;
-
-    invoke-direct {v1, p0, p2, p1}, Lcom/samsung/android/graphics/SemDropShadowFilter$4;-><init>(Lcom/samsung/android/graphics/SemDropShadowFilter;FF)V
-
-    move-object v0, p0
-
-    move-wide v2, p3
-
-    move-wide v4, p5
-
-    move-object v6, p7
-
-    invoke-virtual/range {v0 .. v6}, Lcom/samsung/android/graphics/SemImageFilterSet;->addAnimationForAllPasses(Lcom/samsung/android/graphics/SemImageFilter$IAnimationListener;JJLandroid/animation/TimeInterpolator;)[I
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public animateShadowColor(FFFFFFFFJJLandroid/animation/TimeInterpolator;)[I
-    .locals 11
-
-    new-instance v0, Lcom/samsung/android/graphics/SemDropShadowFilter$1;
-
-    move-object v1, p0
-
-    move v2, p2
-
-    move v3, p1
-
-    move v4, p4
-
-    move v5, p3
-
-    move/from16 v6, p6
-
-    move/from16 v7, p5
-
-    move/from16 v8, p8
-
-    move/from16 v9, p7
-
-    invoke-direct/range {v0 .. v9}, Lcom/samsung/android/graphics/SemDropShadowFilter$1;-><init>(Lcom/samsung/android/graphics/SemDropShadowFilter;FFFFFFFF)V
-
-    move-object v2, p0
-
-    move-object v3, v0
-
-    move-wide/from16 v4, p9
-
-    move-wide/from16 v6, p11
-
-    move-object/from16 v8, p13
-
-    invoke-virtual/range {v2 .. v8}, Lcom/samsung/android/graphics/SemImageFilterSet;->addAnimationForAllPasses(Lcom/samsung/android/graphics/SemImageFilter$IAnimationListener;JJLandroid/animation/TimeInterpolator;)[I
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public animateShadowColor(IIJJLandroid/animation/TimeInterpolator;)[I
-    .locals 15
-
-    invoke-static/range {p1 .. p1}, Landroid/graphics/Color;->red(I)I
-
-    move-result v0
-
-    int-to-float v0, v0
-
-    const/high16 v1, 0x437f0000    # 255.0f
-
-    div-float v2, v0, v1
-
-    invoke-static/range {p2 .. p2}, Landroid/graphics/Color;->red(I)I
-
-    move-result v0
-
-    int-to-float v0, v0
-
-    const/high16 v1, 0x437f0000    # 255.0f
-
-    div-float v3, v0, v1
-
-    invoke-static/range {p1 .. p1}, Landroid/graphics/Color;->green(I)I
-
-    move-result v0
-
-    int-to-float v0, v0
-
-    const/high16 v1, 0x437f0000    # 255.0f
-
-    div-float v4, v0, v1
-
-    invoke-static/range {p2 .. p2}, Landroid/graphics/Color;->green(I)I
-
-    move-result v0
-
-    int-to-float v0, v0
-
-    const/high16 v1, 0x437f0000    # 255.0f
-
-    div-float v5, v0, v1
-
-    invoke-static/range {p1 .. p1}, Landroid/graphics/Color;->blue(I)I
-
-    move-result v0
-
-    int-to-float v0, v0
-
-    const/high16 v1, 0x437f0000    # 255.0f
-
-    div-float v6, v0, v1
-
-    invoke-static/range {p2 .. p2}, Landroid/graphics/Color;->blue(I)I
-
-    move-result v0
-
-    int-to-float v0, v0
-
-    const/high16 v1, 0x437f0000    # 255.0f
-
-    div-float v7, v0, v1
-
-    invoke-static/range {p1 .. p1}, Landroid/graphics/Color;->alpha(I)I
-
-    move-result v0
-
-    int-to-float v0, v0
-
-    const/high16 v1, 0x437f0000    # 255.0f
-
-    div-float v8, v0, v1
-
-    invoke-static/range {p2 .. p2}, Landroid/graphics/Color;->alpha(I)I
-
-    move-result v0
-
-    int-to-float v0, v0
-
-    const/high16 v1, 0x437f0000    # 255.0f
-
-    div-float v9, v0, v1
-
-    move-object v1, p0
-
-    move-wide/from16 v10, p3
-
-    move-wide/from16 v12, p5
-
-    move-object/from16 v14, p7
-
-    invoke-virtual/range {v1 .. v14}, Lcom/samsung/android/graphics/SemDropShadowFilter;->animateShadowColor(FFFFFFFFJJLandroid/animation/TimeInterpolator;)[I
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
 .method public clone()Lcom/samsung/android/graphics/SemDropShadowFilter;
     .locals 2
     .annotation system Ldalvik/annotation/Throws;
@@ -398,7 +144,7 @@
         }
     .end annotation
 
-    invoke-super {p0}, Lcom/samsung/android/graphics/SemGenericImageFilter;->clone()Lcom/samsung/android/graphics/SemGenericImageFilter;
+    invoke-super {p0}, Lcom/samsung/android/graphics/SemGenericImageFilterLegacy;->clone()Lcom/samsung/android/graphics/SemGenericImageFilterLegacy;
 
     move-result-object v0
 
@@ -419,7 +165,52 @@
     return-object v0
 .end method
 
-.method public bridge synthetic clone()Lcom/samsung/android/graphics/SemGenericImageFilter;
+.method public bridge synthetic clone()Lcom/samsung/android/graphics/SemGenericImageFilterLegacy;
+    .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/lang/CloneNotSupportedException;
+        }
+    .end annotation
+
+    invoke-virtual {p0}, Lcom/samsung/android/graphics/SemDropShadowFilter;->clone()Lcom/samsung/android/graphics/SemDropShadowFilter;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public bridge synthetic clone()Lcom/samsung/android/graphics/SemImageFilter;
+    .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/lang/CloneNotSupportedException;
+        }
+    .end annotation
+
+    invoke-virtual {p0}, Lcom/samsung/android/graphics/SemDropShadowFilter;->clone()Lcom/samsung/android/graphics/SemDropShadowFilter;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public bridge synthetic clone()Lcom/samsung/android/graphics/SemImageFilterSet;
+    .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/lang/CloneNotSupportedException;
+        }
+    .end annotation
+
+    invoke-virtual {p0}, Lcom/samsung/android/graphics/SemDropShadowFilter;->clone()Lcom/samsung/android/graphics/SemDropShadowFilter;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public bridge synthetic clone()Ljava/lang/Object;
     .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -467,7 +258,7 @@
 
     new-array v0, v4, [F
 
-    iget-object v1, p0, Lcom/samsung/android/graphics/SemGenericImageFilter;->mParams:[F
+    iget-object v1, p0, Lcom/samsung/android/graphics/SemDropShadowFilter;->mParams:[F
 
     aget v1, v1, v3
 
@@ -475,7 +266,7 @@
 
     aput v1, v0, v2
 
-    iget-object v1, p0, Lcom/samsung/android/graphics/SemGenericImageFilter;->mParams:[F
+    iget-object v1, p0, Lcom/samsung/android/graphics/SemDropShadowFilter;->mParams:[F
 
     aget v1, v1, v4
 
@@ -483,7 +274,7 @@
 
     aput v1, v0, v2
 
-    iget-object v1, p0, Lcom/samsung/android/graphics/SemGenericImageFilter;->mParams:[F
+    iget-object v1, p0, Lcom/samsung/android/graphics/SemDropShadowFilter;->mParams:[F
 
     const/4 v2, 0x5
 
@@ -493,7 +284,7 @@
 
     aput v1, v0, v2
 
-    iget-object v1, p0, Lcom/samsung/android/graphics/SemGenericImageFilter;->mParams:[F
+    iget-object v1, p0, Lcom/samsung/android/graphics/SemDropShadowFilter;->mParams:[F
 
     const/4 v2, 0x6
 
@@ -545,19 +336,19 @@
 
     const/4 v4, 0x1
 
-    invoke-virtual {p0, v4, v2}, Lcom/samsung/android/graphics/SemGenericImageFilter;->setParam(IF)V
+    invoke-virtual {p0, v4, v2}, Lcom/samsung/android/graphics/SemDropShadowFilter;->setParam(IF)V
 
     const/4 v4, 0x2
 
-    invoke-virtual {p0, v4, v3}, Lcom/samsung/android/graphics/SemGenericImageFilter;->setParam(IF)V
+    invoke-virtual {p0, v4, v3}, Lcom/samsung/android/graphics/SemDropShadowFilter;->setParam(IF)V
 
     iget v4, p0, Lcom/samsung/android/graphics/SemDropShadowFilter;->mQuality:F
 
     const/4 v5, 0x7
 
-    invoke-virtual {p0, v5, v4}, Lcom/samsung/android/graphics/SemGenericImageFilter;->setParam(IF)V
+    invoke-virtual {p0, v5, v4}, Lcom/samsung/android/graphics/SemDropShadowFilter;->setParam(IF)V
 
-    invoke-virtual {p0}, Lcom/samsung/android/graphics/SemGenericImageFilter;->notifyWorkerFilters()V
+    invoke-virtual {p0}, Lcom/samsung/android/graphics/SemDropShadowFilter;->notifyWorkerFilters()V
 
     return-void
 .end method
@@ -634,7 +425,7 @@
 
     const/4 v3, 0x0
 
-    iget-object v0, p0, Lcom/samsung/android/graphics/SemGenericImageFilter;->mParams:[F
+    iget-object v0, p0, Lcom/samsung/android/graphics/SemDropShadowFilter;->mParams:[F
 
     invoke-static {p1, v4}, Ljava/lang/Math;->min(FF)F
 
@@ -648,7 +439,7 @@
 
     aput v1, v0, v2
 
-    iget-object v0, p0, Lcom/samsung/android/graphics/SemGenericImageFilter;->mParams:[F
+    iget-object v0, p0, Lcom/samsung/android/graphics/SemDropShadowFilter;->mParams:[F
 
     invoke-static {p2, v4}, Ljava/lang/Math;->min(FF)F
 
@@ -662,7 +453,7 @@
 
     aput v1, v0, v2
 
-    iget-object v0, p0, Lcom/samsung/android/graphics/SemGenericImageFilter;->mParams:[F
+    iget-object v0, p0, Lcom/samsung/android/graphics/SemDropShadowFilter;->mParams:[F
 
     invoke-static {p3, v4}, Ljava/lang/Math;->min(FF)F
 
@@ -676,7 +467,7 @@
 
     aput v1, v0, v2
 
-    iget-object v0, p0, Lcom/samsung/android/graphics/SemGenericImageFilter;->mParams:[F
+    iget-object v0, p0, Lcom/samsung/android/graphics/SemDropShadowFilter;->mParams:[F
 
     invoke-static {p4, v4}, Ljava/lang/Math;->min(FF)F
 
@@ -690,7 +481,7 @@
 
     aput v1, v0, v2
 
-    invoke-virtual {p0}, Lcom/samsung/android/graphics/SemGenericImageFilter;->setFilterParamsChanged()V
+    invoke-virtual {p0}, Lcom/samsung/android/graphics/SemDropShadowFilter;->setFilterParamsChanged()V
 
     invoke-virtual {p0}, Lcom/samsung/android/graphics/SemDropShadowFilter;->preSetupShader()V
 

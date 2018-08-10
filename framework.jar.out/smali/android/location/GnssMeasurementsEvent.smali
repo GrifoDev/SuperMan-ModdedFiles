@@ -27,12 +27,6 @@
     .end annotation
 .end field
 
-.field public static final STATUS_GNSS_LOCATION_DISABLED:I = 0x2
-
-.field public static final STATUS_NOT_SUPPORTED:I = 0x0
-
-.field public static final STATUS_READY:I = 0x1
-
 
 # instance fields
 .field private final mClock:Landroid/location/GnssClock;
@@ -85,17 +79,18 @@
     if-nez v1, :cond_2
 
     :cond_1
-    new-instance v1, Ljava/security/InvalidParameterException;
+    invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
 
-    const-string/jumbo v2, "Parameter \'measurements\' must not be null or empty."
+    move-result-object v1
 
-    invoke-direct {v1, v2}, Ljava/security/InvalidParameterException;-><init>(Ljava/lang/String;)V
+    iput-object v1, p0, Landroid/location/GnssMeasurementsEvent;->mReadOnlyMeasurements:Ljava/util/Collection;
 
-    throw v1
-
-    :cond_2
+    :goto_0
     iput-object p1, p0, Landroid/location/GnssMeasurementsEvent;->mClock:Landroid/location/GnssClock;
 
+    return-void
+
+    :cond_2
     invoke-static {p2}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
 
     move-result-object v0
@@ -106,7 +101,7 @@
 
     iput-object v1, p0, Landroid/location/GnssMeasurementsEvent;->mReadOnlyMeasurements:Ljava/util/Collection;
 
-    return-void
+    goto :goto_0
 .end method
 
 

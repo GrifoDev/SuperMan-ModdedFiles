@@ -62,9 +62,7 @@
 
     if-eqz v0, :cond_1
 
-    nop
-
-    nop
+    check-cast p1, Ljava/lang/Integer;
 
     invoke-virtual {p1}, Ljava/lang/Integer;->longValue()J
 
@@ -81,9 +79,7 @@
 
     if-eqz v0, :cond_2
 
-    nop
-
-    nop
+    check-cast p1, Ljava/lang/Long;
 
     invoke-virtual {p1}, Ljava/lang/Long;->longValue()J
 
@@ -98,9 +94,7 @@
 
     if-eqz v0, :cond_3
 
-    nop
-
-    nop
+    check-cast p1, Ljava/lang/Float;
 
     invoke-virtual {p1}, Ljava/lang/Float;->longValue()J
 
@@ -115,9 +109,7 @@
 
     if-eqz v0, :cond_0
 
-    nop
-
-    nop
+    check-cast p1, Ljava/lang/Double;
 
     invoke-virtual {p1}, Ljava/lang/Double;->longValue()J
 

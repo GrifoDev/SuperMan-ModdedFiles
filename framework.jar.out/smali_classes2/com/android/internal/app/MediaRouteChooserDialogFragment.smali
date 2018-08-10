@@ -21,13 +21,13 @@
 
     const/4 v0, 0x1
 
-    invoke-virtual {p0, v0}, Landroid/app/DialogFragment;->setCancelable(Z)V
+    invoke-virtual {p0, v0}, Lcom/android/internal/app/MediaRouteChooserDialogFragment;->setCancelable(Z)V
 
     const/4 v0, 0x0
 
     const v1, 0x103012e
 
-    invoke-virtual {p0, v0, v1}, Landroid/app/DialogFragment;->setStyle(II)V
+    invoke-virtual {p0, v0, v1}, Lcom/android/internal/app/MediaRouteChooserDialogFragment;->setStyle(II)V
 
     return-void
 .end method
@@ -37,7 +37,7 @@
 .method public getRouteTypes()I
     .locals 2
 
-    invoke-virtual {p0}, Landroid/app/Fragment;->getArguments()Landroid/os/Bundle;
+    invoke-virtual {p0}, Lcom/android/internal/app/MediaRouteChooserDialogFragment;->getArguments()Landroid/os/Bundle;
 
     move-result-object v0
 
@@ -45,7 +45,7 @@
 
     const-string/jumbo v1, "routeTypes"
 
-    invoke-virtual {v0, v1}, Landroid/os/BaseBundle;->getInt(Ljava/lang/String;)I
+    invoke-virtual {v0, v1}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
 
     move-result v1
 
@@ -63,7 +63,7 @@
 
     new-instance v0, Lcom/android/internal/app/MediaRouteChooserDialog;
 
-    invoke-virtual {p0}, Landroid/app/DialogFragment;->getTheme()I
+    invoke-virtual {p0}, Lcom/android/internal/app/MediaRouteChooserDialogFragment;->getTheme()I
 
     move-result v1
 
@@ -75,7 +75,7 @@
 .method public onCreateDialog(Landroid/os/Bundle;)Landroid/app/Dialog;
     .locals 2
 
-    invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
+    invoke-virtual {p0}, Lcom/android/internal/app/MediaRouteChooserDialogFragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
@@ -105,7 +105,7 @@
 
     iput-object p1, p0, Lcom/android/internal/app/MediaRouteChooserDialogFragment;->mExtendedSettingsClickListener:Landroid/view/View$OnClickListener;
 
-    invoke-virtual {p0}, Landroid/app/DialogFragment;->getDialog()Landroid/app/Dialog;
+    invoke-virtual {p0}, Lcom/android/internal/app/MediaRouteChooserDialogFragment;->getDialog()Landroid/app/Dialog;
 
     move-result-object v0
 
@@ -128,7 +128,7 @@
 
     if-eq p1, v2, :cond_1
 
-    invoke-virtual {p0}, Landroid/app/Fragment;->getArguments()Landroid/os/Bundle;
+    invoke-virtual {p0}, Lcom/android/internal/app/MediaRouteChooserDialogFragment;->getArguments()Landroid/os/Bundle;
 
     move-result-object v0
 
@@ -141,11 +141,11 @@
     :cond_0
     const-string/jumbo v2, "routeTypes"
 
-    invoke-virtual {v0, v2, p1}, Landroid/os/BaseBundle;->putInt(Ljava/lang/String;I)V
+    invoke-virtual {v0, v2, p1}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
-    invoke-virtual {p0, v0}, Landroid/app/Fragment;->setArguments(Landroid/os/Bundle;)V
+    invoke-virtual {p0, v0}, Lcom/android/internal/app/MediaRouteChooserDialogFragment;->setArguments(Landroid/os/Bundle;)V
 
-    invoke-virtual {p0}, Landroid/app/DialogFragment;->getDialog()Landroid/app/Dialog;
+    invoke-virtual {p0}, Lcom/android/internal/app/MediaRouteChooserDialogFragment;->getDialog()Landroid/app/Dialog;
 
     move-result-object v1
 

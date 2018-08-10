@@ -41,7 +41,7 @@
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
 
-    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+    invoke-virtual {p0}, Lcom/android/framework/protobuf/nano/android/ParcelableExtendableMessageNano;->getClass()Ljava/lang/Class;
 
     move-result-object v0
 

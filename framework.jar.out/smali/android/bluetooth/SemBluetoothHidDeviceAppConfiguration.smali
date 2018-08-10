@@ -93,9 +93,7 @@
 
     iget-wide v2, p0, Landroid/bluetooth/SemBluetoothHidDeviceAppConfiguration;->mHash:J
 
-    nop
-
-    nop
+    check-cast p1, Landroid/bluetooth/SemBluetoothHidDeviceAppConfiguration;
 
     iget-wide v4, p1, Landroid/bluetooth/SemBluetoothHidDeviceAppConfiguration;->mHash:J
 

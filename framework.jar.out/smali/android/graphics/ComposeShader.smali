@@ -3,105 +3,68 @@
 .source "ComposeShader.java"
 
 
-# static fields
-.field private static final TYPE_PORTERDUFFMODE:I = 0x2
-
-.field private static final TYPE_XFERMODE:I = 0x1
-
-
 # instance fields
-.field private mPorterDuffMode:Landroid/graphics/PorterDuff$Mode;
+.field private mNativeInstanceShaderA:J
 
-.field private final mShaderA:Landroid/graphics/Shader;
+.field private mNativeInstanceShaderB:J
 
-.field private final mShaderB:Landroid/graphics/Shader;
+.field private mPorterDuffMode:I
 
-.field private mType:I
+.field mShaderA:Landroid/graphics/Shader;
 
-.field private mXferMode:Landroid/graphics/Xfermode;
+.field mShaderB:Landroid/graphics/Shader;
 
 
 # direct methods
-.method public constructor <init>(Landroid/graphics/Shader;Landroid/graphics/Shader;Landroid/graphics/PorterDuff$Mode;)V
-    .locals 5
+.method private constructor <init>(Landroid/graphics/Shader;Landroid/graphics/Shader;I)V
+    .locals 2
 
     invoke-direct {p0}, Landroid/graphics/Shader;-><init>()V
 
-    const/4 v0, 0x2
+    if-eqz p1, :cond_0
 
-    iput v0, p0, Landroid/graphics/ComposeShader;->mType:I
+    if-nez p2, :cond_1
 
+    :cond_0
+    new-instance v0, Ljava/lang/IllegalArgumentException;
+
+    const-string/jumbo v1, "Shader parameters must not be null"
+
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+
+    :cond_1
     iput-object p1, p0, Landroid/graphics/ComposeShader;->mShaderA:Landroid/graphics/Shader;
 
     iput-object p2, p0, Landroid/graphics/ComposeShader;->mShaderB:Landroid/graphics/Shader;
 
-    iput-object p3, p0, Landroid/graphics/ComposeShader;->mPorterDuffMode:Landroid/graphics/PorterDuff$Mode;
+    iput p3, p0, Landroid/graphics/ComposeShader;->mPorterDuffMode:I
 
-    invoke-virtual {p1}, Landroid/graphics/Shader;->getNativeInstance()J
+    return-void
+.end method
 
-    move-result-wide v0
+.method public constructor <init>(Landroid/graphics/Shader;Landroid/graphics/Shader;Landroid/graphics/PorterDuff$Mode;)V
+    .locals 1
 
-    invoke-virtual {p2}, Landroid/graphics/Shader;->getNativeInstance()J
+    iget v0, p3, Landroid/graphics/PorterDuff$Mode;->nativeInt:I
 
-    move-result-wide v2
-
-    iget v4, p3, Landroid/graphics/PorterDuff$Mode;->nativeInt:I
-
-    invoke-static {v0, v1, v2, v3, v4}, Landroid/graphics/ComposeShader;->nativeCreate2(JJI)J
-
-    move-result-wide v0
-
-    invoke-virtual {p0, v0, v1}, Landroid/graphics/ComposeShader;->init(J)V
+    invoke-direct {p0, p1, p2, v0}, Landroid/graphics/ComposeShader;-><init>(Landroid/graphics/Shader;Landroid/graphics/Shader;I)V
 
     return-void
 .end method
 
 .method public constructor <init>(Landroid/graphics/Shader;Landroid/graphics/Shader;Landroid/graphics/Xfermode;)V
-    .locals 6
+    .locals 1
 
-    invoke-direct {p0}, Landroid/graphics/Shader;-><init>()V
+    iget v0, p3, Landroid/graphics/Xfermode;->porterDuffMode:I
 
-    const/4 v0, 0x1
-
-    iput v0, p0, Landroid/graphics/ComposeShader;->mType:I
-
-    iput-object p1, p0, Landroid/graphics/ComposeShader;->mShaderA:Landroid/graphics/Shader;
-
-    iput-object p2, p0, Landroid/graphics/ComposeShader;->mShaderB:Landroid/graphics/Shader;
-
-    iput-object p3, p0, Landroid/graphics/ComposeShader;->mXferMode:Landroid/graphics/Xfermode;
-
-    invoke-virtual {p1}, Landroid/graphics/Shader;->getNativeInstance()J
-
-    move-result-wide v0
-
-    invoke-virtual {p2}, Landroid/graphics/Shader;->getNativeInstance()J
-
-    move-result-wide v2
-
-    if-eqz p3, :cond_0
-
-    iget-wide v4, p3, Landroid/graphics/Xfermode;->native_instance:J
-
-    :goto_0
-    invoke-static/range {v0 .. v5}, Landroid/graphics/ComposeShader;->nativeCreate1(JJJ)J
-
-    move-result-wide v0
-
-    invoke-virtual {p0, v0, v1}, Landroid/graphics/ComposeShader;->init(J)V
+    invoke-direct {p0, p1, p2, v0}, Landroid/graphics/ComposeShader;-><init>(Landroid/graphics/Shader;Landroid/graphics/Shader;I)V
 
     return-void
-
-    :cond_0
-    const-wide/16 v4, 0x0
-
-    goto :goto_0
 .end method
 
-.method private static native nativeCreate1(JJJ)J
-.end method
-
-.method private static native nativeCreate2(JJI)J
+.method private static native nativeCreate(JJJI)J
 .end method
 
 
@@ -109,19 +72,6 @@
 .method protected copy()Landroid/graphics/Shader;
     .locals 4
 
-    iget v1, p0, Landroid/graphics/ComposeShader;->mType:I
-
-    packed-switch v1, :pswitch_data_0
-
-    new-instance v1, Ljava/lang/IllegalArgumentException;
-
-    const-string/jumbo v2, "ComposeShader should be created with either Xfermode or PorterDuffMode"
-
-    invoke-direct {v1, v2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
-
-    throw v1
-
-    :pswitch_0
     new-instance v0, Landroid/graphics/ComposeShader;
 
     iget-object v1, p0, Landroid/graphics/ComposeShader;->mShaderA:Landroid/graphics/Shader;
@@ -136,41 +86,87 @@
 
     move-result-object v2
 
-    iget-object v3, p0, Landroid/graphics/ComposeShader;->mXferMode:Landroid/graphics/Xfermode;
+    iget v3, p0, Landroid/graphics/ComposeShader;->mPorterDuffMode:I
 
-    invoke-direct {v0, v1, v2, v3}, Landroid/graphics/ComposeShader;-><init>(Landroid/graphics/Shader;Landroid/graphics/Shader;Landroid/graphics/Xfermode;)V
+    invoke-direct {v0, v1, v2, v3}, Landroid/graphics/ComposeShader;-><init>(Landroid/graphics/Shader;Landroid/graphics/Shader;I)V
 
-    :goto_0
     invoke-virtual {p0, v0}, Landroid/graphics/ComposeShader;->copyLocalMatrix(Landroid/graphics/Shader;)V
 
     return-object v0
+.end method
 
-    :pswitch_1
-    new-instance v0, Landroid/graphics/ComposeShader;
+.method createNativeInstance(J)J
+    .locals 7
 
-    iget-object v1, p0, Landroid/graphics/ComposeShader;->mShaderA:Landroid/graphics/Shader;
+    iget-object v0, p0, Landroid/graphics/ComposeShader;->mShaderA:Landroid/graphics/Shader;
 
-    invoke-virtual {v1}, Landroid/graphics/Shader;->copy()Landroid/graphics/Shader;
+    invoke-virtual {v0}, Landroid/graphics/Shader;->getNativeInstance()J
 
-    move-result-object v1
+    move-result-wide v0
 
-    iget-object v2, p0, Landroid/graphics/ComposeShader;->mShaderB:Landroid/graphics/Shader;
+    iput-wide v0, p0, Landroid/graphics/ComposeShader;->mNativeInstanceShaderA:J
 
-    invoke-virtual {v2}, Landroid/graphics/Shader;->copy()Landroid/graphics/Shader;
+    iget-object v0, p0, Landroid/graphics/ComposeShader;->mShaderB:Landroid/graphics/Shader;
 
-    move-result-object v2
+    invoke-virtual {v0}, Landroid/graphics/Shader;->getNativeInstance()J
 
-    iget-object v3, p0, Landroid/graphics/ComposeShader;->mPorterDuffMode:Landroid/graphics/PorterDuff$Mode;
+    move-result-wide v0
 
-    invoke-direct {v0, v1, v2, v3}, Landroid/graphics/ComposeShader;-><init>(Landroid/graphics/Shader;Landroid/graphics/Shader;Landroid/graphics/PorterDuff$Mode;)V
+    iput-wide v0, p0, Landroid/graphics/ComposeShader;->mNativeInstanceShaderB:J
 
-    goto :goto_0
+    iget-object v0, p0, Landroid/graphics/ComposeShader;->mShaderA:Landroid/graphics/Shader;
 
-    nop
+    invoke-virtual {v0}, Landroid/graphics/Shader;->getNativeInstance()J
 
-    :pswitch_data_0
-    .packed-switch 0x1
-        :pswitch_0
-        :pswitch_1
-    .end packed-switch
+    move-result-wide v2
+
+    iget-object v0, p0, Landroid/graphics/ComposeShader;->mShaderB:Landroid/graphics/Shader;
+
+    invoke-virtual {v0}, Landroid/graphics/Shader;->getNativeInstance()J
+
+    move-result-wide v4
+
+    iget v6, p0, Landroid/graphics/ComposeShader;->mPorterDuffMode:I
+
+    move-wide v0, p1
+
+    invoke-static/range {v0 .. v6}, Landroid/graphics/ComposeShader;->nativeCreate(JJJI)J
+
+    move-result-wide v0
+
+    return-wide v0
+.end method
+
+.method protected verifyNativeInstance()V
+    .locals 4
+
+    iget-object v0, p0, Landroid/graphics/ComposeShader;->mShaderA:Landroid/graphics/Shader;
+
+    invoke-virtual {v0}, Landroid/graphics/Shader;->getNativeInstance()J
+
+    move-result-wide v0
+
+    iget-wide v2, p0, Landroid/graphics/ComposeShader;->mNativeInstanceShaderA:J
+
+    cmp-long v0, v0, v2
+
+    if-nez v0, :cond_0
+
+    iget-object v0, p0, Landroid/graphics/ComposeShader;->mShaderB:Landroid/graphics/Shader;
+
+    invoke-virtual {v0}, Landroid/graphics/Shader;->getNativeInstance()J
+
+    move-result-wide v0
+
+    iget-wide v2, p0, Landroid/graphics/ComposeShader;->mNativeInstanceShaderB:J
+
+    cmp-long v0, v0, v2
+
+    if-eqz v0, :cond_1
+
+    :cond_0
+    invoke-virtual {p0}, Landroid/graphics/ComposeShader;->discardNativeInstance()V
+
+    :cond_1
+    return-void
 .end method

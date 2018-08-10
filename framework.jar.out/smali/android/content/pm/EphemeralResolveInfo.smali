@@ -10,8 +10,11 @@
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Landroid/content/pm/EphemeralResolveInfo$1;,
-        Landroid/content/pm/EphemeralResolveInfo$EphemeralResolveIntentInfo;
+        Landroid/content/pm/EphemeralResolveInfo$EphemeralDigest;
     }
+.end annotation
+
+.annotation runtime Ljava/lang/Deprecated;
 .end annotation
 
 
@@ -31,11 +34,9 @@
 
 
 # instance fields
-.field private final mDigestBytes:[B
+.field private final mInstantAppResolveInfo:Landroid/content/pm/InstantAppResolveInfo;
 
-.field private final mDigestPrefix:I
-
-.field private final mFilters:Ljava/util/List;
+.field private final mLegacyFilters:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/List",
@@ -44,9 +45,10 @@
             ">;"
         }
     .end annotation
-.end field
 
-.field private final mPackageName:Ljava/lang/String;
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
 
 
 # direct methods
@@ -62,8 +64,69 @@
     return-void
 .end method
 
-.method public constructor <init>(Landroid/net/Uri;Ljava/lang/String;Ljava/util/List;)V
+.method public constructor <init>(Landroid/content/pm/EphemeralResolveInfo$EphemeralDigest;Ljava/lang/String;Ljava/util/List;)V
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Landroid/content/pm/EphemeralResolveInfo$EphemeralDigest;",
+            "Ljava/lang/String;",
+            "Ljava/util/List",
+            "<",
+            "Landroid/content/pm/EphemeralIntentFilter;",
+            ">;)V"
+        }
+    .end annotation
+
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+
+    const/4 v0, -0x1
+
+    invoke-direct {p0, p1, p2, p3, v0}, Landroid/content/pm/EphemeralResolveInfo;-><init>(Landroid/content/pm/EphemeralResolveInfo$EphemeralDigest;Ljava/lang/String;Ljava/util/List;I)V
+
+    return-void
+.end method
+
+.method public constructor <init>(Landroid/content/pm/EphemeralResolveInfo$EphemeralDigest;Ljava/lang/String;Ljava/util/List;I)V
     .locals 3
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Landroid/content/pm/EphemeralResolveInfo$EphemeralDigest;",
+            "Ljava/lang/String;",
+            "Ljava/util/List",
+            "<",
+            "Landroid/content/pm/EphemeralIntentFilter;",
+            ">;I)V"
+        }
+    .end annotation
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    new-instance v0, Landroid/content/pm/InstantAppResolveInfo;
+
+    invoke-virtual {p1}, Landroid/content/pm/EphemeralResolveInfo$EphemeralDigest;->getInstantAppDigest()Landroid/content/pm/InstantAppResolveInfo$InstantAppDigest;
+
+    move-result-object v1
+
+    invoke-static {p3}, Landroid/content/pm/EphemeralResolveInfo;->createInstantAppIntentFilterList(Ljava/util/List;)Ljava/util/List;
+
+    move-result-object v2
+
+    invoke-direct {v0, v1, p2, v2, p4}, Landroid/content/pm/InstantAppResolveInfo;-><init>(Landroid/content/pm/InstantAppResolveInfo$InstantAppDigest;Ljava/lang/String;Ljava/util/List;I)V
+
+    iput-object v0, p0, Landroid/content/pm/EphemeralResolveInfo;->mInstantAppResolveInfo:Landroid/content/pm/InstantAppResolveInfo;
+
+    const/4 v0, 0x0
+
+    iput-object v0, p0, Landroid/content/pm/EphemeralResolveInfo;->mLegacyFilters:Ljava/util/List;
+
+    return-void
+.end method
+
+.method public constructor <init>(Landroid/net/Uri;Ljava/lang/String;Ljava/util/List;)V
+    .locals 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -76,85 +139,70 @@
         }
     .end annotation
 
-    const/4 v1, 0x0
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    new-instance v0, Ljava/util/ArrayList;
-
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
-
-    iput-object v0, p0, Landroid/content/pm/EphemeralResolveInfo;->mFilters:Ljava/util/List;
 
     if-eqz p1, :cond_0
 
     if-nez p2, :cond_1
 
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance v1, Ljava/lang/IllegalArgumentException;
 
-    invoke-direct {v0}, Ljava/lang/IllegalArgumentException;-><init>()V
+    invoke-direct {v1}, Ljava/lang/IllegalArgumentException;-><init>()V
 
-    throw v0
+    throw v1
 
     :cond_1
     if-eqz p3, :cond_0
 
+    invoke-interface {p3}, Ljava/util/List;->isEmpty()Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    new-instance v0, Ljava/util/ArrayList;
+
+    const/4 v1, 0x1
+
+    invoke-direct {v0, v1}, Ljava/util/ArrayList;-><init>(I)V
+
+    new-instance v1, Landroid/content/pm/EphemeralIntentFilter;
+
+    invoke-direct {v1, p2, p3}, Landroid/content/pm/EphemeralIntentFilter;-><init>(Ljava/lang/String;Ljava/util/List;)V
+
+    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    new-instance v1, Landroid/content/pm/InstantAppResolveInfo;
+
+    invoke-virtual {p1}, Landroid/net/Uri;->getHost()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v0}, Landroid/content/pm/EphemeralResolveInfo;->createInstantAppIntentFilterList(Ljava/util/List;)Ljava/util/List;
+
+    move-result-object v3
+
+    invoke-direct {v1, v2, p2, v3}, Landroid/content/pm/InstantAppResolveInfo;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/util/List;)V
+
+    iput-object v1, p0, Landroid/content/pm/EphemeralResolveInfo;->mInstantAppResolveInfo:Landroid/content/pm/InstantAppResolveInfo;
+
+    new-instance v1, Ljava/util/ArrayList;
+
     invoke-interface {p3}, Ljava/util/List;->size()I
 
-    move-result v0
+    move-result v2
 
-    if-eqz v0, :cond_0
+    invoke-direct {v1, v2}, Ljava/util/ArrayList;-><init>(I)V
 
-    invoke-static {p1}, Landroid/content/pm/EphemeralResolveInfo;->generateDigest(Landroid/net/Uri;)[B
+    iput-object v1, p0, Landroid/content/pm/EphemeralResolveInfo;->mLegacyFilters:Ljava/util/List;
 
-    move-result-object v0
+    iget-object v1, p0, Landroid/content/pm/EphemeralResolveInfo;->mLegacyFilters:Ljava/util/List;
 
-    iput-object v0, p0, Landroid/content/pm/EphemeralResolveInfo;->mDigestBytes:[B
-
-    iget-object v0, p0, Landroid/content/pm/EphemeralResolveInfo;->mDigestBytes:[B
-
-    aget-byte v0, v0, v1
-
-    shl-int/lit8 v0, v0, 0x18
-
-    iget-object v1, p0, Landroid/content/pm/EphemeralResolveInfo;->mDigestBytes:[B
-
-    const/4 v2, 0x1
-
-    aget-byte v1, v1, v2
-
-    shl-int/lit8 v1, v1, 0x10
-
-    or-int/2addr v0, v1
-
-    iget-object v1, p0, Landroid/content/pm/EphemeralResolveInfo;->mDigestBytes:[B
-
-    const/4 v2, 0x2
-
-    aget-byte v1, v1, v2
-
-    shl-int/lit8 v1, v1, 0x8
-
-    or-int/2addr v0, v1
-
-    iget-object v1, p0, Landroid/content/pm/EphemeralResolveInfo;->mDigestBytes:[B
-
-    const/4 v2, 0x3
-
-    aget-byte v1, v1, v2
-
-    shl-int/lit8 v1, v1, 0x0
-
-    or-int/2addr v0, v1
-
-    iput v0, p0, Landroid/content/pm/EphemeralResolveInfo;->mDigestPrefix:I
-
-    iget-object v0, p0, Landroid/content/pm/EphemeralResolveInfo;->mFilters:Ljava/util/List;
-
-    invoke-interface {v0, p3}, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
-
-    iput-object p2, p0, Landroid/content/pm/EphemeralResolveInfo;->mPackageName:Ljava/lang/String;
+    invoke-interface {v1, p3}, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
 
     return-void
 .end method
@@ -162,77 +210,108 @@
 .method constructor <init>(Landroid/os/Parcel;)V
     .locals 2
 
+    const/4 v1, 0x0
+
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    invoke-virtual {p1, v1}, Landroid/os/Parcel;->readParcelable(Ljava/lang/ClassLoader;)Landroid/os/Parcelable;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/content/pm/InstantAppResolveInfo;
+
+    iput-object v0, p0, Landroid/content/pm/EphemeralResolveInfo;->mInstantAppResolveInfo:Landroid/content/pm/InstantAppResolveInfo;
 
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
-    iput-object v0, p0, Landroid/content/pm/EphemeralResolveInfo;->mFilters:Ljava/util/List;
+    iput-object v0, p0, Landroid/content/pm/EphemeralResolveInfo;->mLegacyFilters:Ljava/util/List;
 
-    invoke-virtual {p1}, Landroid/os/Parcel;->createByteArray()[B
-
-    move-result-object v0
-
-    iput-object v0, p0, Landroid/content/pm/EphemeralResolveInfo;->mDigestBytes:[B
-
-    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
-
-    move-result v0
-
-    iput v0, p0, Landroid/content/pm/EphemeralResolveInfo;->mDigestPrefix:I
-
-    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v0
-
-    iput-object v0, p0, Landroid/content/pm/EphemeralResolveInfo;->mPackageName:Ljava/lang/String;
-
-    iget-object v0, p0, Landroid/content/pm/EphemeralResolveInfo;->mFilters:Ljava/util/List;
-
-    const/4 v1, 0x0
+    iget-object v0, p0, Landroid/content/pm/EphemeralResolveInfo;->mLegacyFilters:Ljava/util/List;
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Parcel;->readList(Ljava/util/List;Ljava/lang/ClassLoader;)V
 
     return-void
 .end method
 
-.method private static generateDigest(Landroid/net/Uri;)[B
-    .locals 5
+.method public constructor <init>(Ljava/lang/String;Ljava/lang/String;Ljava/util/List;)V
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/lang/String;",
+            "Ljava/lang/String;",
+            "Ljava/util/List",
+            "<",
+            "Landroid/content/pm/EphemeralIntentFilter;",
+            ">;)V"
+        }
+    .end annotation
 
-    :try_start_0
-    const-string/jumbo v3, "SHA-256"
+    new-instance v0, Landroid/content/pm/EphemeralResolveInfo$EphemeralDigest;
 
-    invoke-static {v3}, Ljava/security/MessageDigest;->getInstance(Ljava/lang/String;)Ljava/security/MessageDigest;
+    invoke-direct {v0, p1}, Landroid/content/pm/EphemeralResolveInfo$EphemeralDigest;-><init>(Ljava/lang/String;)V
 
-    move-result-object v0
+    invoke-direct {p0, v0, p2, p3}, Landroid/content/pm/EphemeralResolveInfo;-><init>(Landroid/content/pm/EphemeralResolveInfo$EphemeralDigest;Ljava/lang/String;Ljava/util/List;)V
 
-    invoke-virtual {p0}, Landroid/net/Uri;->getHost()Ljava/lang/String;
+    return-void
+.end method
 
-    move-result-object v3
+.method private static createInstantAppIntentFilterList(Ljava/util/List;)Ljava/util/List;
+    .locals 4
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/List",
+            "<",
+            "Landroid/content/pm/EphemeralIntentFilter;",
+            ">;)",
+            "Ljava/util/List",
+            "<",
+            "Landroid/content/pm/InstantAppIntentFilter;",
+            ">;"
+        }
+    .end annotation
 
-    invoke-virtual {v3}, Ljava/lang/String;->getBytes()[B
+    const/4 v3, 0x0
 
-    move-result-object v2
-
-    invoke-virtual {v0, v2}, Ljava/security/MessageDigest;->digest([B)[B
-    :try_end_0
-    .catch Ljava/security/NoSuchAlgorithmException; {:try_start_0 .. :try_end_0} :catch_0
-
-    move-result-object v3
+    if-nez p0, :cond_0
 
     return-object v3
 
-    :catch_0
-    move-exception v1
+    :cond_0
+    invoke-interface {p0}, Ljava/util/List;->size()I
 
-    new-instance v3, Ljava/lang/IllegalStateException;
+    move-result v0
 
-    const-string/jumbo v4, "could not find digest algorithm"
+    new-instance v2, Ljava/util/ArrayList;
 
-    invoke-direct {v3, v4}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v2, v0}, Ljava/util/ArrayList;-><init>(I)V
 
-    throw v3
+    const/4 v1, 0x0
+
+    :goto_0
+    if-ge v1, v0, :cond_1
+
+    invoke-interface {p0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Landroid/content/pm/EphemeralIntentFilter;
+
+    invoke-virtual {v3}, Landroid/content/pm/EphemeralIntentFilter;->getInstantAppIntentFilter()Landroid/content/pm/InstantAppIntentFilter;
+
+    move-result-object v3
+
+    invoke-interface {v2, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_0
+
+    :cond_1
+    return-object v2
 .end method
 
 
@@ -248,7 +327,11 @@
 .method public getDigestBytes()[B
     .locals 1
 
-    iget-object v0, p0, Landroid/content/pm/EphemeralResolveInfo;->mDigestBytes:[B
+    iget-object v0, p0, Landroid/content/pm/EphemeralResolveInfo;->mInstantAppResolveInfo:Landroid/content/pm/InstantAppResolveInfo;
+
+    invoke-virtual {v0}, Landroid/content/pm/InstantAppResolveInfo;->getDigestBytes()[B
+
+    move-result-object v0
 
     return-object v0
 .end method
@@ -256,7 +339,11 @@
 .method public getDigestPrefix()I
     .locals 1
 
-    iget v0, p0, Landroid/content/pm/EphemeralResolveInfo;->mDigestPrefix:I
+    iget-object v0, p0, Landroid/content/pm/EphemeralResolveInfo;->mInstantAppResolveInfo:Landroid/content/pm/InstantAppResolveInfo;
+
+    invoke-virtual {v0}, Landroid/content/pm/InstantAppResolveInfo;->getDigestPrefix()I
+
+    move-result v0
 
     return v0
 .end method
@@ -273,35 +360,105 @@
         }
     .end annotation
 
-    iget-object v0, p0, Landroid/content/pm/EphemeralResolveInfo;->mFilters:Ljava/util/List;
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+
+    iget-object v0, p0, Landroid/content/pm/EphemeralResolveInfo;->mLegacyFilters:Ljava/util/List;
 
     return-object v0
+.end method
+
+.method public getInstantAppResolveInfo()Landroid/content/pm/InstantAppResolveInfo;
+    .locals 1
+
+    iget-object v0, p0, Landroid/content/pm/EphemeralResolveInfo;->mInstantAppResolveInfo:Landroid/content/pm/InstantAppResolveInfo;
+
+    return-object v0
+.end method
+
+.method public getIntentFilters()Ljava/util/List;
+    .locals 6
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/List",
+            "<",
+            "Landroid/content/pm/EphemeralIntentFilter;",
+            ">;"
+        }
+    .end annotation
+
+    iget-object v4, p0, Landroid/content/pm/EphemeralResolveInfo;->mInstantAppResolveInfo:Landroid/content/pm/InstantAppResolveInfo;
+
+    invoke-virtual {v4}, Landroid/content/pm/InstantAppResolveInfo;->getIntentFilters()Ljava/util/List;
+
+    move-result-object v1
+
+    invoke-interface {v1}, Ljava/util/List;->size()I
+
+    move-result v0
+
+    new-instance v3, Ljava/util/ArrayList;
+
+    invoke-direct {v3, v0}, Ljava/util/ArrayList;-><init>(I)V
+
+    const/4 v2, 0x0
+
+    :goto_0
+    if-ge v2, v0, :cond_0
+
+    new-instance v5, Landroid/content/pm/EphemeralIntentFilter;
+
+    invoke-interface {v1, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v4
+
+    check-cast v4, Landroid/content/pm/InstantAppIntentFilter;
+
+    invoke-direct {v5, v4}, Landroid/content/pm/EphemeralIntentFilter;-><init>(Landroid/content/pm/InstantAppIntentFilter;)V
+
+    invoke-interface {v3, v5}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    add-int/lit8 v2, v2, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    return-object v3
 .end method
 
 .method public getPackageName()Ljava/lang/String;
     .locals 1
 
-    iget-object v0, p0, Landroid/content/pm/EphemeralResolveInfo;->mPackageName:Ljava/lang/String;
+    iget-object v0, p0, Landroid/content/pm/EphemeralResolveInfo;->mInstantAppResolveInfo:Landroid/content/pm/InstantAppResolveInfo;
+
+    invoke-virtual {v0}, Landroid/content/pm/InstantAppResolveInfo;->getPackageName()Ljava/lang/String;
+
+    move-result-object v0
 
     return-object v0
+.end method
+
+.method public getVersionCode()I
+    .locals 1
+
+    iget-object v0, p0, Landroid/content/pm/EphemeralResolveInfo;->mInstantAppResolveInfo:Landroid/content/pm/InstantAppResolveInfo;
+
+    invoke-virtual {v0}, Landroid/content/pm/InstantAppResolveInfo;->getVersionCode()I
+
+    move-result v0
+
+    return v0
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
 
-    iget-object v0, p0, Landroid/content/pm/EphemeralResolveInfo;->mDigestBytes:[B
+    iget-object v0, p0, Landroid/content/pm/EphemeralResolveInfo;->mInstantAppResolveInfo:Landroid/content/pm/InstantAppResolveInfo;
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeByteArray([B)V
+    invoke-virtual {p1, v0, p2}, Landroid/os/Parcel;->writeParcelable(Landroid/os/Parcelable;I)V
 
-    iget v0, p0, Landroid/content/pm/EphemeralResolveInfo;->mDigestPrefix:I
-
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
-
-    iget-object v0, p0, Landroid/content/pm/EphemeralResolveInfo;->mPackageName:Ljava/lang/String;
-
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
-
-    iget-object v0, p0, Landroid/content/pm/EphemeralResolveInfo;->mFilters:Ljava/util/List;
+    iget-object v0, p0, Landroid/content/pm/EphemeralResolveInfo;->mLegacyFilters:Ljava/util/List;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeList(Ljava/util/List;)V
 

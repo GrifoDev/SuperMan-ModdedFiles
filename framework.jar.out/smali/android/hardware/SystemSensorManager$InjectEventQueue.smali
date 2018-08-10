@@ -54,7 +54,7 @@
 .method injectSensorData(I[FIJ)I
     .locals 2
 
-    invoke-virtual/range {p0 .. p5}, Landroid/hardware/SystemSensorManager$BaseEventQueue;->injectSensorDataBase(I[FIJ)I
+    invoke-virtual/range {p0 .. p5}, Landroid/hardware/SystemSensorManager$InjectEventQueue;->injectSensorDataBase(I[FIJ)I
 
     move-result v0
 

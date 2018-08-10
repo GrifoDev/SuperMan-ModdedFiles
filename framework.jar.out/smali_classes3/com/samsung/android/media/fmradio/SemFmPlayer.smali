@@ -181,13 +181,13 @@
         }
     .end annotation
 
-    invoke-virtual {p1}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {p1}, Landroid/os/RemoteException;->printStackTrace()V
 
     new-instance v0, Lcom/samsung/android/media/fmradio/SemFmPlayerNotEnabledException;
 
     const-string/jumbo v1, "Radio service is not running restart the phone."
 
-    invoke-virtual {p1}, Ljava/lang/Throwable;->fillInStackTrace()Ljava/lang/Throwable;
+    invoke-virtual {p1}, Landroid/os/RemoteException;->fillInStackTrace()Ljava/lang/Throwable;
 
     move-result-object v2
 
@@ -350,9 +350,29 @@
         }
     .end annotation
 
+    const/4 v2, 0x0
+
+    const-string/jumbo v3, "factory"
+
+    const-string/jumbo v4, "ro.factory.factory_binary"
+
+    const-string/jumbo v5, "Unknown"
+
+    invoke-static {v4, v5}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v1
+
     invoke-virtual {p0}, Lcom/samsung/android/media/fmradio/SemFmPlayer;->isAirPlaneMode()Z
 
     move-result v3
+
+    if-eqz v3, :cond_0
+
+    xor-int/lit8 v3, v1, 0x1
 
     if-eqz v3, :cond_0
 
@@ -371,22 +391,6 @@
     throw v3
 
     :cond_0
-    const/4 v2, 0x0
-
-    const-string/jumbo v3, "factory"
-
-    const-string/jumbo v4, "ro.factory.factory_binary"
-
-    const-string/jumbo v5, "Unknown"
-
-    invoke-static {v4, v5}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v1
-
     if-eqz v1, :cond_1
 
     :try_start_0
@@ -1653,12 +1657,14 @@
 .end method
 
 .method public setSpeakerEnabled(Z)Z
-    .locals 3
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/samsung/android/media/fmradio/SemFmPlayerException;
         }
     .end annotation
+
+    const/4 v3, 0x2
 
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -1688,16 +1694,24 @@
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     :goto_0
-    iget-object v1, p0, Lcom/samsung/android/media/fmradio/SemFmPlayer;->mAudioManager:Landroid/media/AudioManager;
-
-    invoke-virtual {v1, p1}, Landroid/media/AudioManager;->semSetRadioSpeakerOn(Z)V
+    if-eqz p1, :cond_0
 
     iget-object v1, p0, Lcom/samsung/android/media/fmradio/SemFmPlayer;->mAudioManager:Landroid/media/AudioManager;
 
-    invoke-virtual {v1}, Landroid/media/AudioManager;->semIsRadioSpeakerOn()Z
+    invoke-virtual {v1, v3}, Landroid/media/AudioManager;->semSetRadioOutputPath(I)Z
+
+    :goto_1
+    iget-object v1, p0, Lcom/samsung/android/media/fmradio/SemFmPlayer;->mAudioManager:Landroid/media/AudioManager;
+
+    invoke-virtual {v1}, Landroid/media/AudioManager;->semGetRadioOutputPath()I
 
     move-result v1
 
+    if-ne v1, v3, :cond_1
+
+    const/4 v1, 0x1
+
+    :goto_2
     return v1
 
     :catch_0
@@ -1706,6 +1720,20 @@
     invoke-direct {p0, v0}, Lcom/samsung/android/media/fmradio/SemFmPlayer;->remoteError(Landroid/os/RemoteException;)V
 
     goto :goto_0
+
+    :cond_0
+    iget-object v1, p0, Lcom/samsung/android/media/fmradio/SemFmPlayer;->mAudioManager:Landroid/media/AudioManager;
+
+    const/4 v2, 0x3
+
+    invoke-virtual {v1, v2}, Landroid/media/AudioManager;->semSetRadioOutputPath(I)Z
+
+    goto :goto_1
+
+    :cond_1
+    const/4 v1, 0x0
+
+    goto :goto_2
 .end method
 
 .method public setTunningParameter(Ljava/lang/String;I)V

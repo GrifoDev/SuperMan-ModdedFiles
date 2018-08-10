@@ -196,17 +196,13 @@
 
     move-object v11, p1
 
-    nop
-
-    nop
+    check-cast v11, Landroid/telephony/gsm/GsmCellLocation;
 
     invoke-virtual {v11}, Landroid/telephony/gsm/GsmCellLocation;->getCid()I
 
     move-result v1
 
-    nop
-
-    nop
+    check-cast p1, Landroid/telephony/gsm/GsmCellLocation;
 
     invoke-virtual {p1}, Landroid/telephony/gsm/GsmCellLocation;->getLac()I
 
@@ -268,9 +264,7 @@
 
     move-object v11, p1
 
-    nop
-
-    nop
+    check-cast v11, Landroid/telephony/cdma/CdmaCellLocation;
 
     invoke-virtual {v11}, Landroid/telephony/cdma/CdmaCellLocation;->getBaseStationId()I
 
@@ -278,17 +272,13 @@
 
     move-object v11, p1
 
-    nop
-
-    nop
+    check-cast v11, Landroid/telephony/cdma/CdmaCellLocation;
 
     invoke-virtual {v11}, Landroid/telephony/cdma/CdmaCellLocation;->getNetworkId()I
 
     move-result v3
 
-    nop
-
-    nop
+    check-cast p1, Landroid/telephony/cdma/CdmaCellLocation;
 
     invoke-virtual {p1}, Landroid/telephony/cdma/CdmaCellLocation;->getSystemId()I
 
@@ -327,17 +317,13 @@
 
     move-object v11, p1
 
-    nop
-
-    nop
+    check-cast v11, Landroid/telephony/gsm/GsmCellLocation;
 
     invoke-virtual {v11}, Landroid/telephony/gsm/GsmCellLocation;->getCid()I
 
     move-result v1
 
-    nop
-
-    nop
+    check-cast p1, Landroid/telephony/gsm/GsmCellLocation;
 
     invoke-virtual {p1}, Landroid/telephony/gsm/GsmCellLocation;->getLac()I
 
@@ -358,9 +344,7 @@
 
     move-object v11, p1
 
-    nop
-
-    nop
+    check-cast v11, Landroid/telephony/cdma/CdmaCellLocation;
 
     invoke-virtual {v11}, Landroid/telephony/cdma/CdmaCellLocation;->getBaseStationId()I
 
@@ -368,17 +352,13 @@
 
     move-object v11, p1
 
-    nop
-
-    nop
+    check-cast v11, Landroid/telephony/cdma/CdmaCellLocation;
 
     invoke-virtual {v11}, Landroid/telephony/cdma/CdmaCellLocation;->getNetworkId()I
 
     move-result v3
 
-    nop
-
-    nop
+    check-cast p1, Landroid/telephony/cdma/CdmaCellLocation;
 
     invoke-virtual {p1}, Landroid/telephony/cdma/CdmaCellLocation;->getSystemId()I
 

@@ -10,6 +10,9 @@
     }
 .end annotation
 
+.annotation runtime Ljava/lang/Deprecated;
+.end annotation
+
 
 # static fields
 .field private static final CMD_CLOSE:I = 0x3

@@ -696,32 +696,33 @@
 .end method
 
 .method private isRtlCompatibilityMode()Z
-    .locals 3
+    .locals 2
 
-    const/4 v1, 0x1
+    iget-object v1, p0, Landroid/widget/ExpandableListView;->mContext:Landroid/content/Context;
 
-    iget-object v2, p0, Landroid/widget/ExpandableListView;->mContext:Landroid/content/Context;
+    invoke-virtual {v1}, Landroid/content/Context;->getApplicationInfo()Landroid/content/pm/ApplicationInfo;
 
-    invoke-virtual {v2}, Landroid/content/Context;->getApplicationInfo()Landroid/content/pm/ApplicationInfo;
+    move-result-object v1
 
-    move-result-object v2
+    iget v0, v1, Landroid/content/pm/ApplicationInfo;->targetSdkVersion:I
 
-    iget v0, v2, Landroid/content/pm/ApplicationInfo;->targetSdkVersion:I
+    const/16 v1, 0x11
 
-    const/16 v2, 0x11
-
-    if-lt v0, v2, :cond_0
+    if-lt v0, v1, :cond_0
 
     invoke-direct {p0}, Landroid/widget/ExpandableListView;->hasRtlSupport()Z
 
-    move-result v2
+    move-result v1
 
-    if-eqz v2, :cond_0
+    xor-int/lit8 v1, v1, 0x1
 
-    const/4 v1, 0x0
+    :goto_0
+    return v1
 
     :cond_0
-    return v1
+    const/4 v1, 0x1
+
+    goto :goto_0
 .end method
 
 .method private resolveChildIndicator()V

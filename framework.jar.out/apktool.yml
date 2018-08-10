@@ -6,6 +6,7 @@ isFrameworkApk: false
 packageInfo: null
 sdkInfo: null
 sharedLibrary: false
+sparseResources: false
 unknownFiles:
   fragmentshadernv12.glsl: '8'
   fragmentshadernv21.glsl: '8'
@@ -26,5 +27,5 @@ unknownFiles:
   com/absolute/android/persistence/MethodReturnValue.aidl: '8'
   com/absolute/android/persistence/MethodSpec.aidl: '8'
 usesFramework: null
-version: 2.3.1
+version: 2.3.3
 versionInfo: null

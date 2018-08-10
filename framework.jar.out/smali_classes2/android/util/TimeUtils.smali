@@ -955,7 +955,7 @@
 .end method
 
 .method public static getTimeZones(Ljava/lang/String;)Ljava/util/ArrayList;
-    .locals 12
+    .locals 15
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -968,64 +968,91 @@
         }
     .end annotation
 
-    sget-object v10, Landroid/util/TimeUtils;->sLastLockObj:Ljava/lang/Object;
+    sget-object v13, Landroid/util/TimeUtils;->sLastLockObj:Ljava/lang/Object;
 
-    monitor-enter v10
+    monitor-enter v13
 
     if-eqz p0, :cond_0
 
     :try_start_0
-    sget-object v9, Landroid/util/TimeUtils;->sLastCountry:Ljava/lang/String;
+    sget-object v12, Landroid/util/TimeUtils;->sLastCountry:Ljava/lang/String;
 
-    invoke-virtual {p0, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p0, v12}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v9
+    move-result v12
 
-    if-eqz v9, :cond_0
+    if-eqz v12, :cond_0
 
-    sget-object v9, Landroid/util/TimeUtils;->sLastZones:Ljava/util/ArrayList;
+    sget-object v12, Landroid/util/TimeUtils;->sLastZones:Ljava/util/ArrayList;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    monitor-exit v10
+    monitor-exit v13
 
-    return-object v9
+    return-object v12
 
     :cond_0
-    monitor-exit v10
+    monitor-exit v13
 
-    new-instance v7, Ljava/util/ArrayList;
+    new-instance v10, Ljava/util/ArrayList;
 
-    invoke-direct {v7}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {v10}, Ljava/util/ArrayList;-><init>()V
 
-    if-nez p0, :cond_1
+    if-eqz p0, :cond_1
 
-    return-object v7
+    invoke-virtual {p0}, Ljava/lang/String;->length()I
 
-    :catchall_0
-    move-exception v9
+    move-result v12
 
-    monitor-exit v10
+    const/4 v13, 0x2
 
-    throw v9
+    if-eq v12, v13, :cond_2
 
     :cond_1
+    return-object v10
+
+    :catchall_0
+    move-exception v12
+
+    monitor-exit v13
+
+    throw v12
+
+    :cond_2
+    new-instance v9, Ljava/util/ArrayList;
+
+    new-instance v12, Ljava/util/Locale;
+
+    const-string/jumbo v13, ""
+
+    invoke-direct {v12, v13, p0}, Ljava/util/Locale;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+
+    invoke-static {v12}, Llibcore/icu/TimeZoneNames;->forLocale(Ljava/util/Locale;)[Ljava/lang/String;
+
+    move-result-object v12
+
+    invoke-static {v12}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
+
+    move-result-object v12
+
+    invoke-direct {v9, v12}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
+
     invoke-static {}, Landroid/content/res/Resources;->getSystem()Landroid/content/res/Resources;
 
     move-result-object v5
 
-    const v9, 0x1110019
+    const v12, 0x1170019
 
-    invoke-virtual {v5, v9}, Landroid/content/res/Resources;->getXml(I)Landroid/content/res/XmlResourceParser;
+    invoke-virtual {v5, v12}, Landroid/content/res/Resources;->getXml(I)Landroid/content/res/XmlResourceParser;
 
     move-result-object v4
 
     :try_start_1
-    const-string/jumbo v9, "timezones"
+    const-string/jumbo v12, "timezones"
 
-    invoke-static {v4, v9}, Lcom/android/internal/util/XmlUtils;->beginDocument(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;)V
+    invoke-static {v4, v12}, Lcom/android/internal/util/XmlUtils;->beginDocument(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;)V
 
-    :cond_2
+    :cond_3
     :goto_0
     invoke-static {v4}, Lcom/android/internal/util/XmlUtils;->nextElement(Lorg/xmlpull/v1/XmlPullParser;)V
 
@@ -1033,121 +1060,152 @@
 
     move-result-object v3
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_4
 
-    const-string/jumbo v9, "timezone"
+    const-string/jumbo v12, "timezone"
 
-    invoke-virtual {v3, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v3, v12}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    :try_end_1
+    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_1 .. :try_end_1} :catch_0
+    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
-    move-result v9
+    move-result v12
 
-    if-eqz v9, :cond_3
+    xor-int/lit8 v12, v12, 0x1
 
-    const-string/jumbo v9, "code"
+    if-eqz v12, :cond_6
 
-    const/4 v10, 0x0
+    :cond_4
+    invoke-interface {v4}, Landroid/content/res/XmlResourceParser;->close()V
 
-    invoke-interface {v4, v10, v9}, Landroid/content/res/XmlResourceParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    :goto_1
+    invoke-interface {v9}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+
+    move-result-object v7
+
+    :cond_5
+    :goto_2
+    invoke-interface {v7}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v12
+
+    if-eqz v12, :cond_7
+
+    invoke-interface {v7}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v6
+
+    check-cast v6, Ljava/lang/String;
+
+    invoke-static {v6}, Ljava/util/TimeZone;->getTimeZone(Ljava/lang/String;)Ljava/util/TimeZone;
+
+    move-result-object v8
+
+    invoke-virtual {v8}, Ljava/util/TimeZone;->getID()Ljava/lang/String;
+
+    move-result-object v12
+
+    const-string/jumbo v13, "GMT"
+
+    invoke-virtual {v12, v13}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v12
+
+    if-nez v12, :cond_5
+
+    invoke-virtual {v10, v8}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto :goto_2
+
+    :cond_6
+    :try_start_2
+    const-string/jumbo v12, "code"
+
+    const/4 v13, 0x0
+
+    invoke-interface {v4, v13, v12}, Landroid/content/res/XmlResourceParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
     invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v9
+    move-result v12
 
-    if-eqz v9, :cond_2
+    if-eqz v12, :cond_3
 
     invoke-interface {v4}, Landroid/content/res/XmlResourceParser;->next()I
 
-    move-result v9
+    move-result v12
 
-    const/4 v10, 0x4
+    const/4 v13, 0x4
 
-    if-ne v9, v10, :cond_2
+    if-ne v12, v13, :cond_3
 
     invoke-interface {v4}, Landroid/content/res/XmlResourceParser;->getText()Ljava/lang/String;
 
+    move-result-object v11
+
+    invoke-virtual {v9, v11}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
+
+    invoke-static {v11}, Ljava/util/TimeZone;->getTimeZone(Ljava/lang/String;)Ljava/util/TimeZone;
+
     move-result-object v8
 
-    invoke-static {v8}, Ljava/util/TimeZone;->getTimeZone(Ljava/lang/String;)Ljava/util/TimeZone;
+    invoke-virtual {v8}, Ljava/util/TimeZone;->getID()Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v12
 
-    invoke-virtual {v6}, Ljava/util/TimeZone;->getID()Ljava/lang/String;
+    const-string/jumbo v13, "GMT"
 
-    move-result-object v9
+    invoke-virtual {v12, v13}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
-    const-string/jumbo v10, "GMT"
+    move-result v12
 
-    invoke-virtual {v9, v10}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+    if-nez v12, :cond_3
 
-    move-result v9
-
-    if-nez v9, :cond_2
-
-    invoke-virtual {v7, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-    :try_end_1
-    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_1 .. :try_end_1} :catch_0
-    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    invoke-virtual {v10, v8}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    :try_end_2
+    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_2 .. :try_end_2} :catch_0
+    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_1
+    .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
     goto :goto_0
 
     :catch_0
     move-exception v2
 
-    :try_start_2
-    const-string/jumbo v9, "TimeUtils"
-
-    new-instance v10, Ljava/lang/StringBuilder;
-
-    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v11, "Got xml parser exception getTimeZone(\'"
-
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v10
-
-    invoke-virtual {v10, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v10
-
-    const-string/jumbo v11, "\'): e="
-
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v10
-
-    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v10
-
-    invoke-static {v9, v10, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_1
-
-    invoke-interface {v4}, Landroid/content/res/XmlResourceParser;->close()V
-
-    :goto_1
-    sget-object v10, Landroid/util/TimeUtils;->sLastLockObj:Ljava/lang/Object;
-
-    monitor-enter v10
-
     :try_start_3
-    sput-object v7, Landroid/util/TimeUtils;->sLastZones:Ljava/util/ArrayList;
+    const-string/jumbo v12, "TimeUtils"
 
-    sput-object p0, Landroid/util/TimeUtils;->sLastCountry:Ljava/lang/String;
+    new-instance v13, Ljava/lang/StringBuilder;
 
-    sget-object v9, Landroid/util/TimeUtils;->sLastZones:Ljava/util/ArrayList;
+    invoke-direct {v13}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v14, "Got xml parser exception getTimeZone(\'"
+
+    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v13
+
+    invoke-virtual {v13, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v13
+
+    const-string/jumbo v14, "\'): e="
+
+    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v13
+
+    invoke-virtual {v13}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v13
+
+    invoke-static {v12, v13, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
     :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_2
+    .catchall {:try_start_3 .. :try_end_3} :catchall_1
 
-    monitor-exit v10
-
-    return-object v9
-
-    :cond_3
     invoke-interface {v4}, Landroid/content/res/XmlResourceParser;->close()V
 
     goto :goto_1
@@ -1156,53 +1214,71 @@
     move-exception v1
 
     :try_start_4
-    const-string/jumbo v9, "TimeUtils"
+    const-string/jumbo v12, "TimeUtils"
 
-    new-instance v10, Ljava/lang/StringBuilder;
+    new-instance v13, Ljava/lang/StringBuilder;
 
-    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v13}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v11, "Got IO exception getTimeZone(\'"
+    const-string/jumbo v14, "Got IO exception getTimeZone(\'"
 
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v10
+    move-result-object v13
 
-    invoke-virtual {v10, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v13, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v10
+    move-result-object v13
 
-    const-string/jumbo v11, "\'): e="
+    const-string/jumbo v14, "\'): e="
 
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v10
+    move-result-object v13
 
-    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v13}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v10
+    move-result-object v13
 
-    invoke-static {v9, v10, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v12, v13, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
     :try_end_4
     .catchall {:try_start_4 .. :try_end_4} :catchall_1
 
     invoke-interface {v4}, Landroid/content/res/XmlResourceParser;->close()V
 
-    goto :goto_1
+    goto/16 :goto_1
 
     :catchall_1
-    move-exception v9
+    move-exception v12
 
     invoke-interface {v4}, Landroid/content/res/XmlResourceParser;->close()V
 
-    throw v9
+    throw v12
+
+    :cond_7
+    sget-object v13, Landroid/util/TimeUtils;->sLastLockObj:Ljava/lang/Object;
+
+    monitor-enter v13
+
+    :try_start_5
+    sput-object v10, Landroid/util/TimeUtils;->sLastZones:Ljava/util/ArrayList;
+
+    sput-object p0, Landroid/util/TimeUtils;->sLastCountry:Ljava/lang/String;
+
+    sget-object v12, Landroid/util/TimeUtils;->sLastZones:Ljava/util/ArrayList;
+    :try_end_5
+    .catchall {:try_start_5 .. :try_end_5} :catchall_2
+
+    monitor-exit v13
+
+    return-object v12
 
     :catchall_2
-    move-exception v9
+    move-exception v12
 
-    monitor-exit v10
+    monitor-exit v13
 
-    throw v9
+    throw v12
 .end method
 
 .method public static getTimeZonesWithUniqueOffsets(Ljava/lang/String;)Ljava/util/ArrayList;

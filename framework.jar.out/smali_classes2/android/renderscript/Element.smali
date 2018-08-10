@@ -823,7 +823,7 @@
 .end method
 
 .method constructor <init>(JLandroid/renderscript/RenderScript;Landroid/renderscript/Element$DataType;Landroid/renderscript/Element$DataKind;ZI)V
-    .locals 3
+    .locals 1
 
     invoke-direct {p0, p1, p2, p3}, Landroid/renderscript/BaseObj;-><init>(JLandroid/renderscript/RenderScript;)V
 
@@ -857,12 +857,6 @@
     iput-boolean p6, p0, Landroid/renderscript/Element;->mNormalized:Z
 
     iput p7, p0, Landroid/renderscript/Element;->mVectorSize:I
-
-    iget-object v0, p0, Landroid/renderscript/Element;->guard:Ldalvik/system/CloseGuard;
-
-    const-string/jumbo v1, "destroy"
-
-    invoke-virtual {v0, v1}, Ldalvik/system/CloseGuard;->open(Ljava/lang/String;)V
 
     return-void
 
@@ -957,12 +951,6 @@
 
     :cond_0
     invoke-direct {p0}, Landroid/renderscript/Element;->updateVisibleSubElements()V
-
-    iget-object v1, p0, Landroid/renderscript/Element;->guard:Ldalvik/system/CloseGuard;
-
-    const-string/jumbo v2, "destroy"
-
-    invoke-virtual {v1, v2}, Ldalvik/system/CloseGuard;->open(Ljava/lang/String;)V
 
     return-void
 .end method

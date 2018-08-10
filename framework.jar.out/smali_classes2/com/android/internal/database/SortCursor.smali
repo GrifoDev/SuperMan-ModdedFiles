@@ -39,7 +39,7 @@
 .method static synthetic -set0(Lcom/android/internal/database/SortCursor;I)I
     .locals 0
 
-    iput p1, p0, Landroid/database/AbstractCursor;->mPos:I
+    iput p1, p0, Lcom/android/internal/database/SortCursor;->mPos:I
 
     return p1
 .end method

@@ -38,7 +38,7 @@
 
     iget-object v0, p0, Landroid/view/NotificationHeaderView$1;->this$0:Landroid/view/NotificationHeaderView;
 
-    invoke-static {v0}, Landroid/view/NotificationHeaderView;->-get0(Landroid/view/NotificationHeaderView;)Landroid/graphics/drawable/Drawable;
+    invoke-static {v0}, Landroid/view/NotificationHeaderView;->-get1(Landroid/view/NotificationHeaderView;)Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
 
@@ -52,7 +52,7 @@
 
     iget-object v1, p0, Landroid/view/NotificationHeaderView$1;->this$0:Landroid/view/NotificationHeaderView;
 
-    invoke-static {v1}, Landroid/view/NotificationHeaderView;->-get4(Landroid/view/NotificationHeaderView;)I
+    invoke-static {v1}, Landroid/view/NotificationHeaderView;->-get3(Landroid/view/NotificationHeaderView;)I
 
     move-result v1
 

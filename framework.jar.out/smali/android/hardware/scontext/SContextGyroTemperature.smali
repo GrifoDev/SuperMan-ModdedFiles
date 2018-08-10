@@ -89,7 +89,7 @@
 
     const-string/jumbo v1, "GyroTemperature"
 
-    invoke-virtual {v0, v1}, Landroid/os/BaseBundle;->getDouble(Ljava/lang/String;)D
+    invoke-virtual {v0, v1}, Landroid/os/Bundle;->getDouble(Ljava/lang/String;)D
 
     move-result-wide v0
 

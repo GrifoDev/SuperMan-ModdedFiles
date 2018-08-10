@@ -269,6 +269,14 @@
     .end annotation
 .end method
 
+.method public abstract requestChannelBrowsable(Landroid/net/Uri;I)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract selectTrack(Landroid/os/IBinder;ILjava/lang/String;I)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -278,6 +286,14 @@
 .end method
 
 .method public abstract sendAppPrivateCommand(Landroid/os/IBinder;Ljava/lang/String;Landroid/os/Bundle;I)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract sendTvInputNotifyIntent(Landroid/content/Intent;I)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

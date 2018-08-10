@@ -49,7 +49,7 @@
 
     iget-object v4, v4, Landroid/widget/AbsListView$FlingRunnable;->this$0:Landroid/widget/AbsListView;
 
-    invoke-static {v4}, Landroid/widget/AbsListView;->-get43(Landroid/widget/AbsListView;)Landroid/view/VelocityTracker;
+    invoke-static {v4}, Landroid/widget/AbsListView;->-get35(Landroid/widget/AbsListView;)Landroid/view/VelocityTracker;
 
     move-result-object v2
 

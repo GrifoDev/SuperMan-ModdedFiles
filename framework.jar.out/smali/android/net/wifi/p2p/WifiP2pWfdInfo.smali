@@ -150,13 +150,13 @@
 
     sget-object v0, Ljava/util/Locale;->US:Ljava/util/Locale;
 
-    const-string/jumbo v1, "%04x%04x%04x%04x"
+    const-string/jumbo v1, "%04x%04x%04x"
 
-    const/4 v2, 0x4
+    const/4 v2, 0x3
 
     new-array v2, v2, [Ljava/lang/Object;
 
-    const/4 v3, 0x6
+    iget v3, p0, Landroid/net/wifi/p2p/WifiP2pWfdInfo;->mDeviceInfo:I
 
     invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -166,7 +166,7 @@
 
     aput-object v3, v2, v4
 
-    iget v3, p0, Landroid/net/wifi/p2p/WifiP2pWfdInfo;->mDeviceInfo:I
+    iget v3, p0, Landroid/net/wifi/p2p/WifiP2pWfdInfo;->mCtrlPort:I
 
     invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -176,23 +176,13 @@
 
     aput-object v3, v2, v4
 
-    iget v3, p0, Landroid/net/wifi/p2p/WifiP2pWfdInfo;->mCtrlPort:I
-
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    const/4 v4, 0x2
-
-    aput-object v3, v2, v4
-
     iget v3, p0, Landroid/net/wifi/p2p/WifiP2pWfdInfo;->mMaxThroughput:I
 
     invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v3
 
-    const/4 v4, 0x3
+    const/4 v4, 0x2
 
     aput-object v3, v2, v4
 

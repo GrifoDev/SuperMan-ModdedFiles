@@ -14,12 +14,6 @@
 .end annotation
 
 
-# static fields
-.field private static final AP_SLEEP:Ljava/lang/String; = "android.intent.action.SCREEN_OFF"
-
-.field private static final AP_WAKEUP:Ljava/lang/String; = "android.intent.action.SCREEN_ON"
-
-
 # instance fields
 .field final synthetic this$0:Lcom/samsung/android/contextaware/utilbundle/CaPowerManager;
 
@@ -44,7 +38,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/contextaware/utilbundle/CaPowerManager$1;->this$0:Lcom/samsung/android/contextaware/utilbundle/CaPowerManager;
 
-    invoke-static {v0}, Lcom/samsung/android/contextaware/utilbundle/CaPowerManager;->-get0(Lcom/samsung/android/contextaware/utilbundle/CaPowerManager;)Landroid/os/Handler;
+    invoke-static {v0}, Lcom/samsung/android/contextaware/utilbundle/CaPowerManager;->-get3(Lcom/samsung/android/contextaware/utilbundle/CaPowerManager;)Landroid/os/Handler;
 
     move-result-object v0
 
@@ -59,7 +53,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/contextaware/utilbundle/CaPowerManager$1;->this$0:Lcom/samsung/android/contextaware/utilbundle/CaPowerManager;
 
-    invoke-static {v0}, Lcom/samsung/android/contextaware/utilbundle/CaPowerManager;->-get0(Lcom/samsung/android/contextaware/utilbundle/CaPowerManager;)Landroid/os/Handler;
+    invoke-static {v0}, Lcom/samsung/android/contextaware/utilbundle/CaPowerManager;->-get3(Lcom/samsung/android/contextaware/utilbundle/CaPowerManager;)Landroid/os/Handler;
 
     move-result-object v0
 
@@ -74,7 +68,7 @@
 
     move-result-object v0
 
-    const-string/jumbo v1, "android.intent.action.SCREEN_OFF"
+    const-string/jumbo v1, "android.intent.action.ACTION_POWER_CONNECTED"
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -84,11 +78,11 @@
 
     iget-object v0, p0, Lcom/samsung/android/contextaware/utilbundle/CaPowerManager$1;->this$0:Lcom/samsung/android/contextaware/utilbundle/CaPowerManager;
 
-    invoke-static {v0}, Lcom/samsung/android/contextaware/utilbundle/CaPowerManager;->-get0(Lcom/samsung/android/contextaware/utilbundle/CaPowerManager;)Landroid/os/Handler;
+    invoke-static {v0}, Lcom/samsung/android/contextaware/utilbundle/CaPowerManager;->-get3(Lcom/samsung/android/contextaware/utilbundle/CaPowerManager;)Landroid/os/Handler;
 
     move-result-object v0
 
-    const/16 v1, 0x1003
+    const/16 v1, 0x1005
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->sendEmptyMessage(I)Z
 
@@ -97,56 +91,6 @@
     return-void
 
     :cond_3
-    invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
-
-    move-result-object v0
-
-    const-string/jumbo v1, "android.intent.action.SCREEN_ON"
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_4
-
-    iget-object v0, p0, Lcom/samsung/android/contextaware/utilbundle/CaPowerManager$1;->this$0:Lcom/samsung/android/contextaware/utilbundle/CaPowerManager;
-
-    invoke-static {v0}, Lcom/samsung/android/contextaware/utilbundle/CaPowerManager;->-get0(Lcom/samsung/android/contextaware/utilbundle/CaPowerManager;)Landroid/os/Handler;
-
-    move-result-object v0
-
-    const/16 v1, 0x1004
-
-    invoke-virtual {v0, v1}, Landroid/os/Handler;->sendEmptyMessage(I)Z
-
-    goto :goto_0
-
-    :cond_4
-    invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
-
-    move-result-object v0
-
-    const-string/jumbo v1, "android.intent.action.ACTION_POWER_CONNECTED"
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_5
-
-    iget-object v0, p0, Lcom/samsung/android/contextaware/utilbundle/CaPowerManager$1;->this$0:Lcom/samsung/android/contextaware/utilbundle/CaPowerManager;
-
-    invoke-static {v0}, Lcom/samsung/android/contextaware/utilbundle/CaPowerManager;->-get0(Lcom/samsung/android/contextaware/utilbundle/CaPowerManager;)Landroid/os/Handler;
-
-    move-result-object v0
-
-    const/16 v1, 0x1005
-
-    invoke-virtual {v0, v1}, Landroid/os/Handler;->sendEmptyMessage(I)Z
-
-    goto :goto_0
-
-    :cond_5
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
@@ -161,7 +105,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/contextaware/utilbundle/CaPowerManager$1;->this$0:Lcom/samsung/android/contextaware/utilbundle/CaPowerManager;
 
-    invoke-static {v0}, Lcom/samsung/android/contextaware/utilbundle/CaPowerManager;->-get0(Lcom/samsung/android/contextaware/utilbundle/CaPowerManager;)Landroid/os/Handler;
+    invoke-static {v0}, Lcom/samsung/android/contextaware/utilbundle/CaPowerManager;->-get3(Lcom/samsung/android/contextaware/utilbundle/CaPowerManager;)Landroid/os/Handler;
 
     move-result-object v0
 

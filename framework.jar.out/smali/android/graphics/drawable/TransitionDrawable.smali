@@ -326,11 +326,9 @@
 .end method
 
 .method public reverseTransition(I)V
-    .locals 10
+    .locals 8
 
-    const/4 v2, 0x1
-
-    const/16 v4, 0xff
+    const/16 v2, 0xff
 
     const/4 v3, 0x0
 
@@ -338,25 +336,25 @@
 
     move-result-wide v0
 
-    iget-wide v6, p0, Landroid/graphics/drawable/TransitionDrawable;->mStartTimeMillis:J
+    iget-wide v4, p0, Landroid/graphics/drawable/TransitionDrawable;->mStartTimeMillis:J
 
-    sub-long v6, v0, v6
+    sub-long v4, v0, v4
 
-    iget v5, p0, Landroid/graphics/drawable/TransitionDrawable;->mDuration:I
+    iget v6, p0, Landroid/graphics/drawable/TransitionDrawable;->mDuration:I
 
-    int-to-long v8, v5
+    int-to-long v6, v6
 
-    cmp-long v5, v6, v8
+    cmp-long v4, v4, v6
 
-    if-lez v5, :cond_1
+    if-lez v4, :cond_1
 
-    iget v5, p0, Landroid/graphics/drawable/TransitionDrawable;->mTo:I
+    iget v4, p0, Landroid/graphics/drawable/TransitionDrawable;->mTo:I
 
-    if-nez v5, :cond_0
+    if-nez v4, :cond_0
 
     iput v3, p0, Landroid/graphics/drawable/TransitionDrawable;->mFrom:I
 
-    iput v4, p0, Landroid/graphics/drawable/TransitionDrawable;->mTo:I
+    iput v2, p0, Landroid/graphics/drawable/TransitionDrawable;->mTo:I
 
     iput v3, p0, Landroid/graphics/drawable/TransitionDrawable;->mAlpha:I
 
@@ -374,48 +372,47 @@
     return-void
 
     :cond_0
-    iput v4, p0, Landroid/graphics/drawable/TransitionDrawable;->mFrom:I
+    iput v2, p0, Landroid/graphics/drawable/TransitionDrawable;->mFrom:I
 
     iput v3, p0, Landroid/graphics/drawable/TransitionDrawable;->mTo:I
 
-    iput v4, p0, Landroid/graphics/drawable/TransitionDrawable;->mAlpha:I
+    iput v2, p0, Landroid/graphics/drawable/TransitionDrawable;->mAlpha:I
+
+    const/4 v2, 0x1
 
     iput-boolean v2, p0, Landroid/graphics/drawable/TransitionDrawable;->mReverse:Z
 
     goto :goto_0
 
     :cond_1
-    iget-boolean v5, p0, Landroid/graphics/drawable/TransitionDrawable;->mReverse:Z
+    iget-boolean v4, p0, Landroid/graphics/drawable/TransitionDrawable;->mReverse:Z
 
-    if-eqz v5, :cond_2
+    xor-int/lit8 v4, v4, 0x1
+
+    iput-boolean v4, p0, Landroid/graphics/drawable/TransitionDrawable;->mReverse:Z
+
+    iget v4, p0, Landroid/graphics/drawable/TransitionDrawable;->mAlpha:I
+
+    iput v4, p0, Landroid/graphics/drawable/TransitionDrawable;->mFrom:I
+
+    iget-boolean v4, p0, Landroid/graphics/drawable/TransitionDrawable;->mReverse:Z
+
+    if-eqz v4, :cond_2
 
     move v2, v3
 
     :cond_2
-    iput-boolean v2, p0, Landroid/graphics/drawable/TransitionDrawable;->mReverse:Z
-
-    iget v2, p0, Landroid/graphics/drawable/TransitionDrawable;->mAlpha:I
-
-    iput v2, p0, Landroid/graphics/drawable/TransitionDrawable;->mFrom:I
+    iput v2, p0, Landroid/graphics/drawable/TransitionDrawable;->mTo:I
 
     iget-boolean v2, p0, Landroid/graphics/drawable/TransitionDrawable;->mReverse:Z
 
     if-eqz v2, :cond_3
 
-    move v2, v3
-
-    :goto_1
-    iput v2, p0, Landroid/graphics/drawable/TransitionDrawable;->mTo:I
-
-    iget-boolean v2, p0, Landroid/graphics/drawable/TransitionDrawable;->mReverse:Z
-
-    if-eqz v2, :cond_4
-
     iget-wide v4, p0, Landroid/graphics/drawable/TransitionDrawable;->mStartTimeMillis:J
 
     sub-long v4, v0, v4
 
-    :goto_2
+    :goto_1
     long-to-int v2, v4
 
     iput v2, p0, Landroid/graphics/drawable/TransitionDrawable;->mDuration:I
@@ -425,11 +422,6 @@
     return-void
 
     :cond_3
-    move v2, v4
-
-    goto :goto_1
-
-    :cond_4
     iget v2, p0, Landroid/graphics/drawable/TransitionDrawable;->mOriginalDuration:I
 
     int-to-long v4, v2
@@ -440,7 +432,7 @@
 
     sub-long/2addr v4, v6
 
-    goto :goto_2
+    goto :goto_1
 .end method
 
 .method public setCrossFadeEnabled(Z)V

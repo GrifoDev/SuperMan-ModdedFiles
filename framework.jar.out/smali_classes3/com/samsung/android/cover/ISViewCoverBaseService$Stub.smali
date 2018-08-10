@@ -47,7 +47,7 @@
 
     const-string/jumbo v0, "com.samsung.android.cover.ISViewCoverBaseService"
 
-    invoke-virtual {p0, p0, v0}, Landroid/os/Binder;->attachInterface(Landroid/os/IInterface;Ljava/lang/String;)V
+    invoke-virtual {p0, p0, v0}, Lcom/samsung/android/cover/ISViewCoverBaseService$Stub;->attachInterface(Landroid/os/IInterface;Ljava/lang/String;)V
 
     return-void
 .end method
@@ -170,8 +170,6 @@
     :goto_0
     invoke-virtual {p0, v0}, Lcom/samsung/android/cover/ISViewCoverBaseService$Stub;->updateCoverState(Lcom/samsung/android/cover/CoverState;)V
 
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
     return v5
 
     :cond_0
@@ -200,17 +198,17 @@
     return v5
 
     :sswitch_6
-    const-string/jumbo v6, "com.samsung.android.cover.ISViewCoverBaseService"
+    const-string/jumbo v4, "com.samsung.android.cover.ISViewCoverBaseService"
 
-    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v6
+    move-result v4
 
-    if-eqz v6, :cond_2
+    if-eqz v4, :cond_2
 
-    move v1, v5
+    const/4 v1, 0x1
 
     :goto_1
     invoke-virtual {p0, v1}, Lcom/samsung/android/cover/ISViewCoverBaseService$Stub;->onCoverAppCovered(Z)I
@@ -224,9 +222,11 @@
     return v5
 
     :cond_2
-    move v1, v4
+    const/4 v1, 0x0
 
     goto :goto_1
+
+    nop
 
     :sswitch_data_0
     .sparse-switch

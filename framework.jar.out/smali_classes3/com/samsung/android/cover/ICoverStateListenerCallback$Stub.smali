@@ -41,7 +41,7 @@
 
     const-string/jumbo v0, "com.samsung.android.cover.ICoverStateListenerCallback"
 
-    invoke-virtual {p0, p0, v0}, Landroid/os/Binder;->attachInterface(Landroid/os/IInterface;Ljava/lang/String;)V
+    invoke-virtual {p0, p0, v0}, Lcom/samsung/android/cover/ICoverStateListenerCallback$Stub;->attachInterface(Landroid/os/IInterface;Ljava/lang/String;)V
 
     return-void
 .end method
@@ -96,9 +96,7 @@
         }
     .end annotation
 
-    const/4 v0, 0x0
-
-    const/4 v2, 0x1
+    const/4 v3, 0x1
 
     sparse-switch p1, :sswitch_data_0
 
@@ -109,56 +107,62 @@
     return v2
 
     :sswitch_0
-    const-string/jumbo v3, "com.samsung.android.cover.ICoverStateListenerCallback"
+    const-string/jumbo v2, "com.samsung.android.cover.ICoverStateListenerCallback"
 
-    invoke-virtual {p3, v3}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p3, v2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    return v2
+    return v3
 
     :sswitch_1
-    const-string/jumbo v3, "com.samsung.android.cover.ICoverStateListenerCallback"
+    const-string/jumbo v2, "com.samsung.android.cover.ICoverStateListenerCallback"
 
-    invoke-virtual {p2, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v2}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v3
+    move-result v2
 
-    if-eqz v3, :cond_0
+    if-eqz v2, :cond_0
 
-    move v0, v2
+    const/4 v0, 0x1
 
-    :cond_0
+    :goto_0
     invoke-virtual {p0, v0}, Lcom/samsung/android/cover/ICoverStateListenerCallback$Stub;->onCoverSwitchStateChanged(Z)V
 
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+    return v3
 
-    return v2
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
 
     :sswitch_2
-    const-string/jumbo v3, "com.samsung.android.cover.ICoverStateListenerCallback"
+    const-string/jumbo v2, "com.samsung.android.cover.ICoverStateListenerCallback"
 
-    invoke-virtual {p2, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v2}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v3
+    move-result v2
 
-    if-eqz v3, :cond_1
+    if-eqz v2, :cond_1
 
-    move v0, v2
+    const/4 v0, 0x1
 
-    :cond_1
+    :goto_1
     invoke-virtual {p0, v0}, Lcom/samsung/android/cover/ICoverStateListenerCallback$Stub;->onCoverAttachStateChanged(Z)V
 
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+    return v3
 
-    return v2
+    :cond_1
+    const/4 v0, 0x0
+
+    goto :goto_1
 
     :sswitch_3
-    const-string/jumbo v3, "com.samsung.android.cover.ICoverStateListenerCallback"
+    const-string/jumbo v2, "com.samsung.android.cover.ICoverStateListenerCallback"
 
-    invoke-virtual {p2, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v2}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p0}, Lcom/samsung/android/cover/ICoverStateListenerCallback$Stub;->getListenerInfo()Ljava/lang/String;
 
@@ -168,7 +172,9 @@
 
     invoke-virtual {p3, v1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    return v2
+    return v3
+
+    nop
 
     :sswitch_data_0
     .sparse-switch

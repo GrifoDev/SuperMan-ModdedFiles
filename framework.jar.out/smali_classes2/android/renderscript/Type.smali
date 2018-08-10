@@ -38,15 +38,9 @@
 
 # direct methods
 .method constructor <init>(JLandroid/renderscript/RenderScript;)V
-    .locals 3
+    .locals 1
 
     invoke-direct {p0, p1, p2, p3}, Landroid/renderscript/BaseObj;-><init>(JLandroid/renderscript/RenderScript;)V
-
-    iget-object v0, p0, Landroid/renderscript/Type;->guard:Ldalvik/system/CloseGuard;
-
-    const-string/jumbo v1, "destroy"
-
-    invoke-virtual {v0, v1}, Ldalvik/system/CloseGuard;->open(Ljava/lang/String;)V
 
     return-void
 .end method

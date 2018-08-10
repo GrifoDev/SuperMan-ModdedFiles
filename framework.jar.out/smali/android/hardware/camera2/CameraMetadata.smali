@@ -184,6 +184,9 @@
 .field public static final CONTROL_SCENE_MODE_HDR:I = 0x12
 
 .field public static final CONTROL_SCENE_MODE_HIGH_SPEED_VIDEO:I = 0x11
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
 
 .field public static final CONTROL_SCENE_MODE_LANDSCAPE:I = 0x4
 
@@ -416,229 +419,21 @@
 .field public static final TONEMAP_PRESET_CURVE_SRGB:I
 
 
+# instance fields
+.field private mNativeInstance:Landroid/hardware/camera2/impl/CameraMetadataNative;
+
+
 # direct methods
 .method protected constructor <init>()V
-    .locals 0
+    .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    const/4 v0, 0x0
+
+    iput-object v0, p0, Landroid/hardware/camera2/CameraMetadata;->mNativeInstance:Landroid/hardware/camera2/impl/CameraMetadataNative;
+
     return-void
-.end method
-
-.method static getKeysStatic(Ljava/lang/Class;Ljava/lang/Class;Landroid/hardware/camera2/CameraMetadata;[I)Ljava/util/ArrayList;
-    .locals 14
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "<TKey:",
-            "Ljava/lang/Object;",
-            ">(",
-            "Ljava/lang/Class",
-            "<*>;",
-            "Ljava/lang/Class",
-            "<TTKey;>;",
-            "Landroid/hardware/camera2/CameraMetadata",
-            "<TTKey;>;[I)",
-            "Ljava/util/ArrayList",
-            "<TTKey;>;"
-        }
-    .end annotation
-
-    const-class v11, Landroid/hardware/camera2/TotalCaptureResult;
-
-    invoke-virtual {p0, v11}, Ljava/lang/Class;->equals(Ljava/lang/Object;)Z
-
-    move-result v11
-
-    if-eqz v11, :cond_0
-
-    const-class p0, Landroid/hardware/camera2/CaptureResult;
-
-    :cond_0
-    if-eqz p3, :cond_1
-
-    invoke-static/range {p3 .. p3}, Ljava/util/Arrays;->sort([I)V
-
-    :cond_1
-    new-instance v8, Ljava/util/ArrayList;
-
-    invoke-direct {v8}, Ljava/util/ArrayList;-><init>()V
-
-    invoke-virtual {p0}, Ljava/lang/Class;->getDeclaredFields()[Ljava/lang/reflect/Field;
-
-    move-result-object v4
-
-    const/4 v11, 0x0
-
-    array-length v12, v4
-
-    :goto_0
-    if-ge v11, v12, :cond_4
-
-    aget-object v3, v4, v11
-
-    invoke-virtual {v3}, Ljava/lang/reflect/Field;->getType()Ljava/lang/Class;
-
-    move-result-object v13
-
-    invoke-virtual {v13, p1}, Ljava/lang/Class;->isAssignableFrom(Ljava/lang/Class;)Z
-
-    move-result v13
-
-    if-eqz v13, :cond_3
-
-    invoke-virtual {v3}, Ljava/lang/reflect/Field;->getModifiers()I
-
-    move-result v13
-
-    and-int/lit8 v13, v13, 0x1
-
-    if-eqz v13, :cond_3
-
-    :try_start_0
-    move-object/from16 v0, p2
-
-    invoke-virtual {v3, v0}, Ljava/lang/reflect/Field;->get(Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_0
-    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
-
-    move-result-object v7
-
-    if-eqz p2, :cond_2
-
-    move-object/from16 v0, p2
-
-    invoke-virtual {v0, v7}, Landroid/hardware/camera2/CameraMetadata;->getProtected(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v13
-
-    if-eqz v13, :cond_3
-
-    :cond_2
-    move-object/from16 v0, p3
-
-    invoke-static {v7, v3, v0}, Landroid/hardware/camera2/CameraMetadata;->shouldKeyBeAdded(Ljava/lang/Object;Ljava/lang/reflect/Field;[I)Z
-
-    move-result v13
-
-    if-eqz v13, :cond_3
-
-    invoke-virtual {v8, v7}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    :cond_3
-    add-int/lit8 v11, v11, 0x1
-
-    goto :goto_0
-
-    :catch_0
-    move-exception v2
-
-    new-instance v11, Ljava/lang/AssertionError;
-
-    const-string/jumbo v12, "Can\'t get IllegalArgumentException"
-
-    invoke-direct {v11, v12, v2}, Ljava/lang/AssertionError;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
-
-    throw v11
-
-    :catch_1
-    move-exception v1
-
-    new-instance v11, Ljava/lang/AssertionError;
-
-    const-string/jumbo v12, "Can\'t get IllegalAccessException"
-
-    invoke-direct {v11, v12, v1}, Ljava/lang/AssertionError;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
-
-    throw v11
-
-    :cond_4
-    invoke-static {p1}, Landroid/hardware/camera2/impl/CameraMetadataNative;->getAllVendorKeys(Ljava/lang/Class;)Ljava/util/ArrayList;
-
-    move-result-object v10
-
-    if-eqz v10, :cond_9
-
-    invoke-interface {v10}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
-
-    move-result-object v6
-
-    :cond_5
-    :goto_1
-    invoke-interface {v6}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v11
-
-    if-eqz v11, :cond_9
-
-    invoke-interface {v6}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v5
-
-    instance-of v11, v5, Landroid/hardware/camera2/CaptureRequest$Key;
-
-    if-eqz v11, :cond_7
-
-    move-object v11, v5
-
-    check-cast v11, Landroid/hardware/camera2/CaptureRequest$Key;
-
-    invoke-virtual {v11}, Landroid/hardware/camera2/CaptureRequest$Key;->getName()Ljava/lang/String;
-
-    move-result-object v9
-
-    :goto_2
-    if-eqz p3, :cond_6
-
-    invoke-static {v9}, Landroid/hardware/camera2/impl/CameraMetadataNative;->getTag(Ljava/lang/String;)I
-
-    move-result v11
-
-    move-object/from16 v0, p3
-
-    invoke-static {v0, v11}, Ljava/util/Arrays;->binarySearch([II)I
-
-    move-result v11
-
-    if-ltz v11, :cond_5
-
-    :cond_6
-    invoke-virtual {v8, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    goto :goto_1
-
-    :cond_7
-    instance-of v11, v5, Landroid/hardware/camera2/CaptureResult$Key;
-
-    if-eqz v11, :cond_8
-
-    move-object v11, v5
-
-    check-cast v11, Landroid/hardware/camera2/CaptureResult$Key;
-
-    invoke-virtual {v11}, Landroid/hardware/camera2/CaptureResult$Key;->getName()Ljava/lang/String;
-
-    move-result-object v9
-
-    goto :goto_2
-
-    :cond_8
-    instance-of v11, v5, Landroid/hardware/camera2/CameraCharacteristics$Key;
-
-    if-eqz v11, :cond_5
-
-    move-object v11, v5
-
-    check-cast v11, Landroid/hardware/camera2/CameraCharacteristics$Key;
-
-    invoke-virtual {v11}, Landroid/hardware/camera2/CameraCharacteristics$Key;->getName()Ljava/lang/String;
-
-    move-result-object v9
-
-    goto :goto_2
-
-    :cond_9
-    return-object v8
 .end method
 
 .method private static shouldKeyBeAdded(Ljava/lang/Object;Ljava/lang/reflect/Field;[I)Z
@@ -772,6 +567,267 @@
     .end annotation
 .end method
 
+.method getKeys(Ljava/lang/Class;Ljava/lang/Class;Landroid/hardware/camera2/CameraMetadata;[I)Ljava/util/ArrayList;
+    .locals 17
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "<TKey:",
+            "Ljava/lang/Object;",
+            ">(",
+            "Ljava/lang/Class",
+            "<*>;",
+            "Ljava/lang/Class",
+            "<TTKey;>;",
+            "Landroid/hardware/camera2/CameraMetadata",
+            "<TTKey;>;[I)",
+            "Ljava/util/ArrayList",
+            "<TTKey;>;"
+        }
+    .end annotation
+
+    const-class v14, Landroid/hardware/camera2/TotalCaptureResult;
+
+    move-object/from16 v0, p1
+
+    invoke-virtual {v0, v14}, Ljava/lang/Class;->equals(Ljava/lang/Object;)Z
+
+    move-result v14
+
+    if-eqz v14, :cond_0
+
+    const-class p1, Landroid/hardware/camera2/CaptureResult;
+
+    :cond_0
+    if-eqz p4, :cond_1
+
+    invoke-static/range {p4 .. p4}, Ljava/util/Arrays;->sort([I)V
+
+    :cond_1
+    new-instance v9, Ljava/util/ArrayList;
+
+    invoke-direct {v9}, Ljava/util/ArrayList;-><init>()V
+
+    invoke-virtual/range {p1 .. p1}, Ljava/lang/Class;->getDeclaredFields()[Ljava/lang/reflect/Field;
+
+    move-result-object v5
+
+    const/4 v14, 0x0
+
+    array-length v15, v5
+
+    :goto_0
+    if-ge v14, v15, :cond_4
+
+    aget-object v4, v5, v14
+
+    invoke-virtual {v4}, Ljava/lang/reflect/Field;->getType()Ljava/lang/Class;
+
+    move-result-object v16
+
+    move-object/from16 v0, v16
+
+    move-object/from16 v1, p2
+
+    invoke-virtual {v0, v1}, Ljava/lang/Class;->isAssignableFrom(Ljava/lang/Class;)Z
+
+    move-result v16
+
+    if-eqz v16, :cond_3
+
+    invoke-virtual {v4}, Ljava/lang/reflect/Field;->getModifiers()I
+
+    move-result v16
+
+    and-int/lit8 v16, v16, 0x1
+
+    if-eqz v16, :cond_3
+
+    :try_start_0
+    move-object/from16 v0, p3
+
+    invoke-virtual {v4, v0}, Ljava/lang/reflect/Field;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    :try_end_0
+    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_1
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result-object v8
+
+    if-eqz p3, :cond_2
+
+    move-object/from16 v0, p3
+
+    invoke-virtual {v0, v8}, Landroid/hardware/camera2/CameraMetadata;->getProtected(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v16
+
+    if-eqz v16, :cond_3
+
+    :cond_2
+    move-object/from16 v0, p4
+
+    invoke-static {v8, v4, v0}, Landroid/hardware/camera2/CameraMetadata;->shouldKeyBeAdded(Ljava/lang/Object;Ljava/lang/reflect/Field;[I)Z
+
+    move-result v16
+
+    if-eqz v16, :cond_3
+
+    invoke-virtual {v9, v8}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    :cond_3
+    add-int/lit8 v14, v14, 0x1
+
+    goto :goto_0
+
+    :catch_0
+    move-exception v3
+
+    new-instance v14, Ljava/lang/AssertionError;
+
+    const-string/jumbo v15, "Can\'t get IllegalArgumentException"
+
+    invoke-direct {v14, v15, v3}, Ljava/lang/AssertionError;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+
+    throw v14
+
+    :catch_1
+    move-exception v2
+
+    new-instance v14, Ljava/lang/AssertionError;
+
+    const-string/jumbo v15, "Can\'t get IllegalAccessException"
+
+    invoke-direct {v14, v15, v2}, Ljava/lang/AssertionError;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+
+    throw v14
+
+    :cond_4
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Landroid/hardware/camera2/CameraMetadata;->mNativeInstance:Landroid/hardware/camera2/impl/CameraMetadataNative;
+
+    if-nez v14, :cond_5
+
+    return-object v9
+
+    :cond_5
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Landroid/hardware/camera2/CameraMetadata;->mNativeInstance:Landroid/hardware/camera2/impl/CameraMetadataNative;
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v14, v0}, Landroid/hardware/camera2/impl/CameraMetadataNative;->getAllVendorKeys(Ljava/lang/Class;)Ljava/util/ArrayList;
+
+    move-result-object v11
+
+    if-eqz v11, :cond_a
+
+    invoke-interface {v11}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+
+    move-result-object v7
+
+    :cond_6
+    :goto_1
+    invoke-interface {v7}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v14
+
+    if-eqz v14, :cond_a
+
+    invoke-interface {v7}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v6
+
+    instance-of v14, v6, Landroid/hardware/camera2/CaptureRequest$Key;
+
+    if-eqz v14, :cond_8
+
+    move-object v14, v6
+
+    check-cast v14, Landroid/hardware/camera2/CaptureRequest$Key;
+
+    invoke-virtual {v14}, Landroid/hardware/camera2/CaptureRequest$Key;->getName()Ljava/lang/String;
+
+    move-result-object v10
+
+    move-object v14, v6
+
+    check-cast v14, Landroid/hardware/camera2/CaptureRequest$Key;
+
+    invoke-virtual {v14}, Landroid/hardware/camera2/CaptureRequest$Key;->getVendorId()J
+
+    move-result-wide v12
+
+    :goto_2
+    if-eqz p4, :cond_7
+
+    invoke-static {v10, v12, v13}, Landroid/hardware/camera2/impl/CameraMetadataNative;->getTag(Ljava/lang/String;J)I
+
+    move-result v14
+
+    move-object/from16 v0, p4
+
+    invoke-static {v0, v14}, Ljava/util/Arrays;->binarySearch([II)I
+
+    move-result v14
+
+    if-ltz v14, :cond_6
+
+    :cond_7
+    invoke-virtual {v9, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto :goto_1
+
+    :cond_8
+    instance-of v14, v6, Landroid/hardware/camera2/CaptureResult$Key;
+
+    if-eqz v14, :cond_9
+
+    move-object v14, v6
+
+    check-cast v14, Landroid/hardware/camera2/CaptureResult$Key;
+
+    invoke-virtual {v14}, Landroid/hardware/camera2/CaptureResult$Key;->getName()Ljava/lang/String;
+
+    move-result-object v10
+
+    move-object v14, v6
+
+    check-cast v14, Landroid/hardware/camera2/CaptureResult$Key;
+
+    invoke-virtual {v14}, Landroid/hardware/camera2/CaptureResult$Key;->getVendorId()J
+
+    move-result-wide v12
+
+    goto :goto_2
+
+    :cond_9
+    instance-of v14, v6, Landroid/hardware/camera2/CameraCharacteristics$Key;
+
+    if-eqz v14, :cond_6
+
+    move-object v14, v6
+
+    check-cast v14, Landroid/hardware/camera2/CameraCharacteristics$Key;
+
+    invoke-virtual {v14}, Landroid/hardware/camera2/CameraCharacteristics$Key;->getName()Ljava/lang/String;
+
+    move-result-object v10
+
+    move-object v14, v6
+
+    check-cast v14, Landroid/hardware/camera2/CameraCharacteristics$Key;
+
+    invoke-virtual {v14}, Landroid/hardware/camera2/CameraCharacteristics$Key;->getVendorId()J
+
+    move-result-wide v12
+
+    goto :goto_2
+
+    :cond_a
+    return-object v9
+.end method
+
 .method public getKeys()Ljava/util/List;
     .locals 3
     .annotation system Ldalvik/annotation/Signature;
@@ -792,7 +848,7 @@
 
     const/4 v2, 0x0
 
-    invoke-static {v0, v1, p0, v2}, Landroid/hardware/camera2/CameraMetadata;->getKeysStatic(Ljava/lang/Class;Ljava/lang/Class;Landroid/hardware/camera2/CameraMetadata;[I)Ljava/util/ArrayList;
+    invoke-virtual {p0, v0, v1, p0, v2}, Landroid/hardware/camera2/CameraMetadata;->getKeys(Ljava/lang/Class;Ljava/lang/Class;Landroid/hardware/camera2/CameraMetadata;[I)Ljava/util/ArrayList;
 
     move-result-object v1
 
@@ -811,4 +867,12 @@
             ">(TTKey;)TT;"
         }
     .end annotation
+.end method
+
+.method protected setNativeInstance(Landroid/hardware/camera2/impl/CameraMetadataNative;)V
+    .locals 0
+
+    iput-object p1, p0, Landroid/hardware/camera2/CameraMetadata;->mNativeInstance:Landroid/hardware/camera2/impl/CameraMetadataNative;
+
+    return-void
 .end method

@@ -89,7 +89,7 @@
 
     const-string/jumbo v1, "Flag"
 
-    invoke-virtual {v0, v1}, Landroid/os/BaseBundle;->getIntArray(Ljava/lang/String;)[I
+    invoke-virtual {v0, v1}, Landroid/os/Bundle;->getIntArray(Ljava/lang/String;)[I
 
     move-result-object v0
 
@@ -117,7 +117,7 @@
 
     const-string/jumbo v1, "Stage"
 
-    invoke-virtual {v0, v1}, Landroid/os/BaseBundle;->getIntArray(Ljava/lang/String;)[I
+    invoke-virtual {v0, v1}, Landroid/os/Bundle;->getIntArray(Ljava/lang/String;)[I
 
     move-result-object v0
 
@@ -131,7 +131,7 @@
 
     const-string/jumbo v1, "SleepStatus"
 
-    invoke-virtual {v0, v1}, Landroid/os/BaseBundle;->getIntArray(Ljava/lang/String;)[I
+    invoke-virtual {v0, v1}, Landroid/os/Bundle;->getIntArray(Ljava/lang/String;)[I
 
     move-result-object v0
 
@@ -145,7 +145,7 @@
 
     const-string/jumbo v1, "Wrist"
 
-    invoke-virtual {v0, v1}, Landroid/os/BaseBundle;->getIntArray(Ljava/lang/String;)[I
+    invoke-virtual {v0, v1}, Landroid/os/Bundle;->getIntArray(Ljava/lang/String;)[I
 
     move-result-object v0
 
@@ -159,7 +159,7 @@
 
     const-string/jumbo v1, "ZCM"
 
-    invoke-virtual {v0, v1}, Landroid/os/BaseBundle;->getIntArray(Ljava/lang/String;)[I
+    invoke-virtual {v0, v1}, Landroid/os/Bundle;->getIntArray(Ljava/lang/String;)[I
 
     move-result-object v0
 

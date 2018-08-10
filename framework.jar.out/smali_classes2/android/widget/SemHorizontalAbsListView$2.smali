@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Landroid/widget/SemHorizontalAbsListView;->setFastScrollEnabled(Z)V
+    value = Landroid/widget/SemHorizontalAbsListView;->setFastScrollAlwaysVisible(Z)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,7 +20,7 @@
 # instance fields
 .field final synthetic this$0:Landroid/widget/SemHorizontalAbsListView;
 
-.field final synthetic val$enabled:Z
+.field final synthetic val$alwaysShow:Z
 
 
 # direct methods
@@ -29,7 +29,7 @@
 
     iput-object p1, p0, Landroid/widget/SemHorizontalAbsListView$2;->this$0:Landroid/widget/SemHorizontalAbsListView;
 
-    iput-boolean p2, p0, Landroid/widget/SemHorizontalAbsListView$2;->val$enabled:Z
+    iput-boolean p2, p0, Landroid/widget/SemHorizontalAbsListView$2;->val$alwaysShow:Z
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -43,9 +43,9 @@
 
     iget-object v0, p0, Landroid/widget/SemHorizontalAbsListView$2;->this$0:Landroid/widget/SemHorizontalAbsListView;
 
-    iget-boolean v1, p0, Landroid/widget/SemHorizontalAbsListView$2;->val$enabled:Z
+    iget-boolean v1, p0, Landroid/widget/SemHorizontalAbsListView$2;->val$alwaysShow:Z
 
-    invoke-static {v0, v1}, Landroid/widget/SemHorizontalAbsListView;->-wrap12(Landroid/widget/SemHorizontalAbsListView;Z)V
+    invoke-static {v0, v1}, Landroid/widget/SemHorizontalAbsListView;->-wrap11(Landroid/widget/SemHorizontalAbsListView;Z)V
 
     return-void
 .end method

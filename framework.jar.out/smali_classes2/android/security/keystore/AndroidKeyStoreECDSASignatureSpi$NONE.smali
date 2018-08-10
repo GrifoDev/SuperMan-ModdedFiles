@@ -42,7 +42,7 @@
 
     move-result-object v1
 
-    invoke-virtual {p0}, Landroid/security/keystore/AndroidKeyStoreECDSASignatureSpi;->getGroupSizeBits()I
+    invoke-virtual {p0}, Landroid/security/keystore/AndroidKeyStoreECDSASignatureSpi$NONE;->getGroupSizeBits()I
 
     move-result v2
 

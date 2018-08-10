@@ -66,7 +66,7 @@
 
     new-instance v1, Landroid/speech/tts/SilencePlaybackQueueItem;
 
-    invoke-virtual {p0}, Landroid/speech/tts/TextToSpeechService$SpeechItem;->getCallerIdentity()Ljava/lang/Object;
+    invoke-virtual {p0}, Landroid/speech/tts/TextToSpeechService$SilenceSpeechItem;->getCallerIdentity()Ljava/lang/Object;
 
     move-result-object v2
 

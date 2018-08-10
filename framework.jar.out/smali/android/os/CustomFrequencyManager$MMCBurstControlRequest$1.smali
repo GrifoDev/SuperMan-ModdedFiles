@@ -45,7 +45,7 @@
 
     iget-object v0, p0, Landroid/os/CustomFrequencyManager$MMCBurstControlRequest$1;->this$1:Landroid/os/CustomFrequencyManager$MMCBurstControlRequest;
 
-    invoke-virtual {v0}, Landroid/os/CustomFrequencyManager$FrequencyRequest;->cancelFrequencyRequest()V
+    invoke-virtual {v0}, Landroid/os/CustomFrequencyManager$MMCBurstControlRequest;->cancelFrequencyRequest()V
 
     return-void
 .end method

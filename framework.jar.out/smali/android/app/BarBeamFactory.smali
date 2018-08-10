@@ -40,7 +40,7 @@
     :catch_0
     move-exception v0
 
-    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v0}, Landroid/app/BarBeamException;->printStackTrace()V
 
     new-instance v1, Landroid/app/BarBeamException;
 
@@ -91,7 +91,7 @@
     :catch_0
     move-exception v0
 
-    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v0}, Landroid/app/BarBeamException;->printStackTrace()V
 
     new-instance v1, Landroid/app/BarBeamException;
 
@@ -104,7 +104,7 @@
     :catch_1
     move-exception v0
 
-    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v0}, Landroid/app/BarBeamException;->printStackTrace()V
 
     new-instance v1, Landroid/app/BarBeamException;
 
@@ -355,7 +355,7 @@
     :catch_0
     move-exception v0
 
-    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v0}, Landroid/app/BarBeamException;->printStackTrace()V
 
     new-instance v1, Landroid/app/BarBeamException;
 

@@ -31,6 +31,14 @@
     .end annotation
 .end method
 
+.method public abstract enqueue(Landroid/app/job/JobInfo;Landroid/app/job/JobWorkItem;)I
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract getAllPendingJobs()Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {

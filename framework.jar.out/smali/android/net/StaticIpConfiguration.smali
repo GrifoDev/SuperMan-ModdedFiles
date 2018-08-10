@@ -295,10 +295,19 @@
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    xor-int/lit8 v3, v3, 0x1
+
+    if-eqz v3, :cond_0
+
+    iget-object v3, p0, Landroid/net/StaticIpConfiguration;->gateway:Ljava/net/InetAddress;
+
+    invoke-static {v3, p1}, Landroid/net/RouteInfo;->makeHostRoute(Ljava/net/InetAddress;Ljava/lang/String;)Landroid/net/RouteInfo;
+
+    move-result-object v3
+
+    invoke-interface {v1, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     :cond_0
-    :goto_0
     iget-object v3, p0, Landroid/net/StaticIpConfiguration;->gateway:Ljava/net/InetAddress;
 
     if-eqz v3, :cond_1
@@ -315,23 +324,14 @@
 
     :cond_1
     return-object v1
-
-    :cond_2
-    iget-object v3, p0, Landroid/net/StaticIpConfiguration;->gateway:Ljava/net/InetAddress;
-
-    invoke-static {v3, p1}, Landroid/net/RouteInfo;->makeHostRoute(Ljava/net/InetAddress;Ljava/lang/String;)Landroid/net/RouteInfo;
-
-    move-result-object v3
-
-    invoke-interface {v1, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    goto :goto_0
 .end method
 
 .method public hashCode()I
     .locals 4
 
     const/4 v2, 0x0
+
+    const/16 v0, 0xd
 
     iget-object v1, p0, Landroid/net/StaticIpConfiguration;->ipAddress:Landroid/net/LinkAddress;
 

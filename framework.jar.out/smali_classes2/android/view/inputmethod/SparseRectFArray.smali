@@ -211,9 +211,7 @@
     :cond_2
     move-object v0, p1
 
-    nop
-
-    nop
+    check-cast v0, Landroid/view/inputmethod/SparseRectFArray;
 
     iget-object v2, p0, Landroid/view/inputmethod/SparseRectFArray;->mKeys:[I
 

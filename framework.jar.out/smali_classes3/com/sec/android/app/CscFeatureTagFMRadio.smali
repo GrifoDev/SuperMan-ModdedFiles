@@ -16,6 +16,8 @@
 
 .field public static final TAG_CSCFEATURE_FMRADIO_CONFIGHYBRIDSEARCHTUNNIG:Ljava/lang/String; = "CscFeature_FMRadio_ConfigHybridSearchTunnig"
 
+.field public static final TAG_CSCFEATURE_FMRADIO_CONFIGMEDIATEKDESENSELIST:Ljava/lang/String; = "CscFeature_FMRadio_ConfigMediatekDesenseList"
+
 .field public static final TAG_CSCFEATURE_FMRADIO_DECONSTANTAS:Ljava/lang/String; = "CscFeature_FMRadio_DeconstantAs"
 
 .field public static final TAG_CSCFEATURE_FMRADIO_DEFAULTCHANNELAS:Ljava/lang/String; = "CscFeature_FMRadio_DefaultChannelAs"

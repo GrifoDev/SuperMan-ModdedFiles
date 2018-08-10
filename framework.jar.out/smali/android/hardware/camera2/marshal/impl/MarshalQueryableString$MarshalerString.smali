@@ -64,9 +64,7 @@
 .method public calculateMarshalSize(Ljava/lang/String;)I
     .locals 2
 
-    invoke-static {}, Landroid/hardware/camera2/marshal/impl/MarshalQueryableString;->-get0()Ljava/nio/charset/Charset;
-
-    move-result-object v1
+    sget-object v1, Landroid/hardware/camera2/marshal/impl/MarshalQueryableString$PreloadHolder;->UTF8_CHARSET:Ljava/nio/charset/Charset;
 
     invoke-virtual {p1, v1}, Ljava/lang/String;->getBytes(Ljava/nio/charset/Charset;)[B
 
@@ -100,9 +98,7 @@
 .method public marshal(Ljava/lang/String;Ljava/nio/ByteBuffer;)V
     .locals 2
 
-    invoke-static {}, Landroid/hardware/camera2/marshal/impl/MarshalQueryableString;->-get0()Ljava/nio/charset/Charset;
-
-    move-result-object v1
+    sget-object v1, Landroid/hardware/camera2/marshal/impl/MarshalQueryableString$PreloadHolder;->UTF8_CHARSET:Ljava/nio/charset/Charset;
 
     invoke-virtual {p1, v1}, Ljava/lang/String;->getBytes(Ljava/nio/charset/Charset;)[B
 
@@ -132,14 +128,14 @@
 
     const/4 v5, 0x0
 
-    invoke-virtual {p1}, Ljava/nio/Buffer;->mark()Ljava/nio/Buffer;
+    invoke-virtual {p1}, Ljava/nio/ByteBuffer;->mark()Ljava/nio/Buffer;
 
     const/4 v0, 0x0
 
     const/4 v2, 0x0
 
     :goto_0
-    invoke-virtual {p1}, Ljava/nio/Buffer;->hasRemaining()Z
+    invoke-virtual {p1}, Ljava/nio/ByteBuffer;->hasRemaining()Z
 
     move-result v3
 
@@ -170,7 +166,7 @@
     goto :goto_0
 
     :cond_2
-    invoke-virtual {p1}, Ljava/nio/Buffer;->reset()Ljava/nio/Buffer;
+    invoke-virtual {p1}, Ljava/nio/ByteBuffer;->reset()Ljava/nio/Buffer;
 
     add-int/lit8 v3, v2, 0x1
 
@@ -182,9 +178,7 @@
 
     new-instance v3, Ljava/lang/String;
 
-    invoke-static {}, Landroid/hardware/camera2/marshal/impl/MarshalQueryableString;->-get0()Ljava/nio/charset/Charset;
-
-    move-result-object v4
+    sget-object v4, Landroid/hardware/camera2/marshal/impl/MarshalQueryableString$PreloadHolder;->UTF8_CHARSET:Ljava/nio/charset/Charset;
 
     invoke-direct {v3, v1, v5, v2, v4}, Ljava/lang/String;-><init>([BIILjava/nio/charset/Charset;)V
 

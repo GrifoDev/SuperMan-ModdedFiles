@@ -42,7 +42,7 @@
     return-object v0
 .end method
 
-.method public destroy(Ljava/lang/String;Ljava/lang/String;[B)I
+.method public destroy(Ljava/lang/String;Ljava/lang/String;[B[B[BLjava/lang/String;)I
     .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -68,6 +68,12 @@
     invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
     invoke-virtual {v0, p3}, Landroid/os/Parcel;->writeByteArray([B)V
+
+    invoke-virtual {v0, p4}, Landroid/os/Parcel;->writeByteArray([B)V
+
+    invoke-virtual {v0, p5}, Landroid/os/Parcel;->writeByteArray([B)V
+
+    invoke-virtual {v0, p6}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
     iget-object v3, p0, Lcom/samsung/android/service/vaultkeeper/IVaultKeeperService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 

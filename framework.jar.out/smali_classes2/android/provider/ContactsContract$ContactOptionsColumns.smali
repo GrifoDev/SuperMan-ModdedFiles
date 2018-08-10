@@ -19,7 +19,15 @@
 
 .field public static final LAST_TIME_CONTACTED:Ljava/lang/String; = "last_time_contacted"
 
+.field public static final LR_LAST_TIME_CONTACTED:Ljava/lang/String; = "last_time_contacted"
+
+.field public static final LR_TIMES_CONTACTED:Ljava/lang/String; = "times_contacted"
+
 .field public static final PINNED:Ljava/lang/String; = "pinned"
+
+.field public static final RAW_LAST_TIME_CONTACTED:Ljava/lang/String; = "x_last_time_contacted"
+
+.field public static final RAW_TIMES_CONTACTED:Ljava/lang/String; = "x_times_contacted"
 
 .field public static final SEND_TO_VOICEMAIL:Ljava/lang/String; = "send_to_voicemail"
 

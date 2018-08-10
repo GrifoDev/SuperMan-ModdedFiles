@@ -30,11 +30,13 @@
 
 .field static final TRANSACTION_displaySafeVolumeWarning:I = 0x1
 
-.field static final TRANSACTION_displayVolumeLimiterToast:I = 0x7
+.field static final TRANSACTION_displayVolumeLimiterToast:I = 0x8
 
-.field static final TRANSACTION_isSafeVolumeDialogShowing:I = 0x6
+.field static final TRANSACTION_isSafeVolumeDialogShowing:I = 0x7
 
 .field static final TRANSACTION_masterMuteChanged:I = 0x3
+
+.field static final TRANSACTION_setA11yMode:I = 0x6
 
 .field static final TRANSACTION_setLayoutDirection:I = 0x4
 
@@ -191,6 +193,21 @@
 
     invoke-virtual {p2, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
+    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v0
+
+    invoke-virtual {p0, v0}, Landroid/media/IVolumeController$Stub;->setA11yMode(I)V
+
+    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+
+    return v4
+
+    :sswitch_7
+    const-string/jumbo v3, "android.media.IVolumeController"
+
+    invoke-virtual {p2, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
     invoke-virtual {p0}, Landroid/media/IVolumeController$Stub;->isSafeVolumeDialogShowing()Z
 
     move-result v2
@@ -211,7 +228,7 @@
 
     goto :goto_0
 
-    :sswitch_7
+    :sswitch_8
     const-string/jumbo v3, "android.media.IVolumeController"
 
     invoke-virtual {p2, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -219,6 +236,8 @@
     invoke-virtual {p0}, Landroid/media/IVolumeController$Stub;->displayVolumeLimiterToast()V
 
     return v4
+
+    nop
 
     :sswitch_data_0
     .sparse-switch
@@ -229,6 +248,7 @@
         0x5 -> :sswitch_5
         0x6 -> :sswitch_6
         0x7 -> :sswitch_7
+        0x8 -> :sswitch_8
         0x5f4e5446 -> :sswitch_0
     .end sparse-switch
 .end method

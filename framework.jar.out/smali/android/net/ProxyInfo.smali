@@ -534,18 +534,22 @@
 
     move-result v3
 
-    if-eqz v3, :cond_5
+    xor-int/lit8 v3, v3, 0x1
+
+    if-eqz v3, :cond_4
+
+    return v2
 
     :cond_4
     iget-object v3, p0, Landroid/net/ProxyInfo;->mHost:Ljava/lang/String;
 
-    if-eqz v3, :cond_6
+    if-eqz v3, :cond_5
 
     invoke-virtual {v0}, Landroid/net/ProxyInfo;->getHost()Ljava/lang/String;
 
     move-result-object v3
 
-    if-eqz v3, :cond_6
+    if-eqz v3, :cond_5
 
     iget-object v3, p0, Landroid/net/ProxyInfo;->mHost:Ljava/lang/String;
 
@@ -557,41 +561,63 @@
 
     move-result v3
 
-    if-nez v3, :cond_6
+    if-nez v3, :cond_5
 
     return v2
 
     :cond_5
+    iget-object v3, p0, Landroid/net/ProxyInfo;->mHost:Ljava/lang/String;
+
+    if-eqz v3, :cond_6
+
+    iget-object v3, v0, Landroid/net/ProxyInfo;->mHost:Ljava/lang/String;
+
+    if-nez v3, :cond_6
+
     return v2
 
     :cond_6
     iget-object v3, p0, Landroid/net/ProxyInfo;->mHost:Ljava/lang/String;
 
-    if-eqz v3, :cond_7
+    if-nez v3, :cond_7
 
     iget-object v3, v0, Landroid/net/ProxyInfo;->mHost:Ljava/lang/String;
 
-    if-nez v3, :cond_7
+    if-eqz v3, :cond_7
 
     return v2
 
     :cond_7
-    iget-object v3, p0, Landroid/net/ProxyInfo;->mHost:Ljava/lang/String;
-
-    if-nez v3, :cond_8
-
-    iget-object v3, v0, Landroid/net/ProxyInfo;->mHost:Ljava/lang/String;
-
-    if-eqz v3, :cond_8
-
-    return v2
-
-    :cond_8
     iget v3, p0, Landroid/net/ProxyInfo;->mPort:I
 
     iget v4, v0, Landroid/net/ProxyInfo;->mPort:I
 
-    if-eq v3, v4, :cond_9
+    if-eq v3, v4, :cond_8
+
+    return v2
+
+    :cond_8
+    iget-object v3, p0, Landroid/net/ProxyInfo;->mUsername:Ljava/lang/String;
+
+    if-eqz v3, :cond_9
+
+    invoke-virtual {v0}, Landroid/net/ProxyInfo;->semGetUsername()Ljava/lang/String;
+
+    move-result-object v3
+
+    if-eqz v3, :cond_9
+
+    iget-object v3, p0, Landroid/net/ProxyInfo;->mUsername:Ljava/lang/String;
+
+    invoke-virtual {v0}, Landroid/net/ProxyInfo;->semGetUsername()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_9
 
     return v2
 
@@ -600,21 +626,7 @@
 
     if-eqz v3, :cond_a
 
-    invoke-virtual {v0}, Landroid/net/ProxyInfo;->semGetUsername()Ljava/lang/String;
-
-    move-result-object v3
-
-    if-eqz v3, :cond_a
-
-    iget-object v3, p0, Landroid/net/ProxyInfo;->mUsername:Ljava/lang/String;
-
-    invoke-virtual {v0}, Landroid/net/ProxyInfo;->semGetUsername()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
+    iget-object v3, v0, Landroid/net/ProxyInfo;->mUsername:Ljava/lang/String;
 
     if-nez v3, :cond_a
 
@@ -623,35 +635,24 @@
     :cond_a
     iget-object v3, p0, Landroid/net/ProxyInfo;->mUsername:Ljava/lang/String;
 
-    if-eqz v3, :cond_b
+    if-nez v3, :cond_b
 
     iget-object v3, v0, Landroid/net/ProxyInfo;->mUsername:Ljava/lang/String;
 
-    if-nez v3, :cond_b
+    if-eqz v3, :cond_b
 
     return v2
 
     :cond_b
-    iget-object v3, p0, Landroid/net/ProxyInfo;->mUsername:Ljava/lang/String;
-
-    if-nez v3, :cond_c
-
-    iget-object v3, v0, Landroid/net/ProxyInfo;->mUsername:Ljava/lang/String;
-
-    if-eqz v3, :cond_c
-
-    return v2
-
-    :cond_c
     iget-object v3, p0, Landroid/net/ProxyInfo;->mPassword:Ljava/lang/String;
 
-    if-eqz v3, :cond_d
+    if-eqz v3, :cond_c
 
     invoke-virtual {v0}, Landroid/net/ProxyInfo;->semGetPassword()Ljava/lang/String;
 
     move-result-object v3
 
-    if-eqz v3, :cond_d
+    if-eqz v3, :cond_c
 
     iget-object v3, p0, Landroid/net/ProxyInfo;->mPassword:Ljava/lang/String;
 
@@ -663,6 +664,17 @@
 
     move-result v3
 
+    if-nez v3, :cond_c
+
+    return v2
+
+    :cond_c
+    iget-object v3, p0, Landroid/net/ProxyInfo;->mPassword:Ljava/lang/String;
+
+    if-eqz v3, :cond_d
+
+    iget-object v3, v0, Landroid/net/ProxyInfo;->mPassword:Ljava/lang/String;
+
     if-nez v3, :cond_d
 
     return v2
@@ -670,35 +682,24 @@
     :cond_d
     iget-object v3, p0, Landroid/net/ProxyInfo;->mPassword:Ljava/lang/String;
 
-    if-eqz v3, :cond_e
+    if-nez v3, :cond_e
 
     iget-object v3, v0, Landroid/net/ProxyInfo;->mPassword:Ljava/lang/String;
 
-    if-nez v3, :cond_e
+    if-eqz v3, :cond_e
 
     return v2
 
     :cond_e
-    iget-object v3, p0, Landroid/net/ProxyInfo;->mPassword:Ljava/lang/String;
-
-    if-nez v3, :cond_f
-
-    iget-object v3, v0, Landroid/net/ProxyInfo;->mPassword:Ljava/lang/String;
-
-    if-eqz v3, :cond_f
-
-    return v2
-
-    :cond_f
     iget v3, p0, Landroid/net/ProxyInfo;->mEnterpriseProxy:I
 
     iget v4, v0, Landroid/net/ProxyInfo;->mEnterpriseProxy:I
 
-    if-eq v3, v4, :cond_10
+    if-eq v3, v4, :cond_f
 
     return v2
 
-    :cond_10
+    :cond_f
     return v1
 .end method
 

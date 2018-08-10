@@ -12,6 +12,120 @@
     return-void
 .end method
 
+.method static byteArrayToHexString([B)Ljava/lang/String;
+    .locals 6
+
+    const/4 v3, 0x0
+
+    const/4 v5, 0x0
+
+    const-string/jumbo v0, "0123456789ABCDEF"
+
+    if-nez p0, :cond_0
+
+    return-object v3
+
+    :cond_0
+    array-length v3, p0
+
+    if-nez v3, :cond_1
+
+    const-string/jumbo v3, ""
+
+    return-object v3
+
+    :cond_1
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    array-length v3, p0
+
+    mul-int/lit8 v3, v3, 0x3
+
+    add-int/lit8 v3, v3, -0x1
+
+    invoke-direct {v1, v3}, Ljava/lang/StringBuilder;-><init>(I)V
+
+    const-string/jumbo v3, "0123456789ABCDEF"
+
+    aget-byte v4, p0, v5
+
+    and-int/lit16 v4, v4, 0xf0
+
+    shr-int/lit8 v4, v4, 0x4
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->charAt(I)C
+
+    move-result v3
+
+    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    const-string/jumbo v4, "0123456789ABCDEF"
+
+    aget-byte v5, p0, v5
+
+    and-int/lit8 v5, v5, 0xf
+
+    invoke-virtual {v4, v5}, Ljava/lang/String;->charAt(I)C
+
+    move-result v4
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    const/4 v2, 0x1
+
+    :goto_0
+    array-length v3, p0
+
+    if-ge v2, v3, :cond_2
+
+    const-string/jumbo v3, " "
+
+    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    const-string/jumbo v4, "0123456789ABCDEF"
+
+    aget-byte v5, p0, v2
+
+    and-int/lit16 v5, v5, 0xf0
+
+    shr-int/lit8 v5, v5, 0x4
+
+    invoke-virtual {v4, v5}, Ljava/lang/String;->charAt(I)C
+
+    move-result v4
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    const-string/jumbo v4, "0123456789ABCDEF"
+
+    aget-byte v5, p0, v2
+
+    and-int/lit8 v5, v5, 0xf
+
+    invoke-virtual {v4, v5}, Ljava/lang/String;->charAt(I)C
+
+    move-result v4
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    add-int/lit8 v2, v2, 0x1
+
+    goto :goto_0
+
+    :cond_2
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    return-object v3
+.end method
+
 .method static checkAdapterStateOn(Landroid/bluetooth/BluetoothAdapter;)V
     .locals 2
 
@@ -21,9 +135,9 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    xor-int/lit8 v0, v0, 0x1
 
-    return-void
+    if-eqz v0, :cond_1
 
     :cond_0
     new-instance v0, Ljava/lang/IllegalStateException;
@@ -33,6 +147,9 @@
     invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
     throw v0
+
+    :cond_1
+    return-void
 .end method
 
 .method static equals(Landroid/util/SparseArray;Landroid/util/SparseArray;)Z
@@ -84,7 +201,7 @@
 
     move-result v1
 
-    if-ge v0, v1, :cond_5
+    if-ge v0, v1, :cond_6
 
     invoke-virtual {p0, v0}, Landroid/util/SparseArray;->keyAt(I)I
 
@@ -112,16 +229,19 @@
 
     move-result v1
 
-    if-eqz v1, :cond_4
+    xor-int/lit8 v1, v1, 0x1
 
-    add-int/lit8 v0, v0, 0x1
-
-    goto :goto_0
+    if-eqz v1, :cond_5
 
     :cond_4
     return v3
 
     :cond_5
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_0
+
+    :cond_6
     return v4
 .end method
 
@@ -219,63 +339,6 @@
 
     :cond_6
     return v6
-.end method
-
-.method public static getAddressForLog(Ljava/lang/String;)Ljava/lang/String;
-    .locals 3
-
-    if-nez p0, :cond_0
-
-    const-string/jumbo v0, "null"
-
-    return-object v0
-
-    :cond_0
-    invoke-virtual {p0}, Ljava/lang/String;->length()I
-
-    move-result v0
-
-    const/16 v1, 0x11
-
-    if-ne v0, v1, :cond_1
-
-    invoke-static {}, Landroid/os/Debug;->semIsProductDev()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_2
-
-    :cond_1
-    return-object p0
-
-    :cond_2
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    const/4 v1, 0x0
-
-    const/16 v2, 0xe
-
-    invoke-virtual {p0, v1, v2}, Ljava/lang/String;->substring(II)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    const-string/jumbo v1, ":XX"
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
 .end method
 
 .method static toString(Landroid/util/SparseArray;)Ljava/lang/String;

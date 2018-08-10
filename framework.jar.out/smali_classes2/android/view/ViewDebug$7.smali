@@ -26,12 +26,12 @@
 
 
 # direct methods
-.method constructor <init>(Landroid/view/View;Landroid/view/ViewHierarchyEncoder;Ljava/util/concurrent/CountDownLatch;)V
+.method constructor <init>(Landroid/view/ViewHierarchyEncoder;Landroid/view/View;Ljava/util/concurrent/CountDownLatch;)V
     .locals 0
 
-    iput-object p1, p0, Landroid/view/ViewDebug$7;->val$view:Landroid/view/View;
+    iput-object p1, p0, Landroid/view/ViewDebug$7;->val$encoder:Landroid/view/ViewHierarchyEncoder;
 
-    iput-object p2, p0, Landroid/view/ViewDebug$7;->val$encoder:Landroid/view/ViewHierarchyEncoder;
+    iput-object p2, p0, Landroid/view/ViewDebug$7;->val$view:Landroid/view/View;
 
     iput-object p3, p0, Landroid/view/ViewDebug$7;->val$latch:Ljava/util/concurrent/CountDownLatch;
 
@@ -43,7 +43,31 @@
 
 # virtual methods
 .method public run()V
-    .locals 2
+    .locals 3
+
+    iget-object v0, p0, Landroid/view/ViewDebug$7;->val$encoder:Landroid/view/ViewHierarchyEncoder;
+
+    const-string/jumbo v1, "window:left"
+
+    iget-object v2, p0, Landroid/view/ViewDebug$7;->val$view:Landroid/view/View;
+
+    iget-object v2, v2, Landroid/view/View;->mAttachInfo:Landroid/view/View$AttachInfo;
+
+    iget v2, v2, Landroid/view/View$AttachInfo;->mWindowLeft:I
+
+    invoke-virtual {v0, v1, v2}, Landroid/view/ViewHierarchyEncoder;->addProperty(Ljava/lang/String;I)V
+
+    iget-object v0, p0, Landroid/view/ViewDebug$7;->val$encoder:Landroid/view/ViewHierarchyEncoder;
+
+    const-string/jumbo v1, "window:top"
+
+    iget-object v2, p0, Landroid/view/ViewDebug$7;->val$view:Landroid/view/View;
+
+    iget-object v2, v2, Landroid/view/View;->mAttachInfo:Landroid/view/View$AttachInfo;
+
+    iget v2, v2, Landroid/view/View$AttachInfo;->mWindowTop:I
+
+    invoke-virtual {v0, v1, v2}, Landroid/view/ViewHierarchyEncoder;->addProperty(Ljava/lang/String;I)V
 
     iget-object v0, p0, Landroid/view/ViewDebug$7;->val$view:Landroid/view/View;
 

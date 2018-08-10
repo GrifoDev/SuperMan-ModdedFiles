@@ -513,11 +513,7 @@
 .method public static getCountryDateString(Landroid/content/Context;)Ljava/lang/String;
     .locals 1
 
-    const v0, 0x1040a26
-
-    invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
-
-    move-result-object v0
+    const-string/jumbo v0, ""
 
     return-object v0
 .end method
@@ -525,11 +521,7 @@
 .method public static getCountryTimeString(Landroid/content/Context;)Ljava/lang/String;
     .locals 1
 
-    const v0, 0x1040a27
-
-    invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
-
-    move-result-object v0
+    const-string/jumbo v0, ""
 
     return-object v0
 .end method
@@ -537,11 +529,7 @@
 .method public static getSmartPatternsForDate(Landroid/content/Context;)Ljava/util/regex/Pattern;
     .locals 2
 
-    const v0, 0x1040a26
-
-    invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
-
-    move-result-object v0
+    const-string/jumbo v0, ""
 
     sput-object v0, Lcom/samsung/android/infoextraction/regex/SemEntityPatterns;->COUNTRY_DATE_STRING:Ljava/lang/String;
 
@@ -575,11 +563,7 @@
 .method public static getSmartPatternsForTime(Landroid/content/Context;)Ljava/util/regex/Pattern;
     .locals 2
 
-    const v0, 0x1040a27
-
-    invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
-
-    move-result-object v0
+    const-string/jumbo v0, ""
 
     sput-object v0, Lcom/samsung/android/infoextraction/regex/SemEntityPatterns;->COUNTRY_TIME_STRING:Ljava/lang/String;
 

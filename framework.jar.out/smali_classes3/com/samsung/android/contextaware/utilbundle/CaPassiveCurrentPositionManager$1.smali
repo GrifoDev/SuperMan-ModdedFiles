@@ -105,12 +105,11 @@
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_0
 
     const/4 v4, 0x2
 
     :cond_0
-    :goto_0
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/samsung/android/contextaware/utilbundle/CaPassiveCurrentPositionManager$1;->this$0:Lcom/samsung/android/contextaware/utilbundle/CaPassiveCurrentPositionManager;
@@ -153,23 +152,6 @@
 
     :cond_1
     return-void
-
-    :cond_2
-    invoke-virtual/range {p1 .. p1}, Landroid/location/Location;->getProvider()Ljava/lang/String;
-
-    move-result-object v2
-
-    const-string/jumbo v3, "fused"
-
-    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_0
-
-    const/4 v4, 0x3
-
-    goto :goto_0
 .end method
 
 .method public final onProviderDisabled(Ljava/lang/String;)V

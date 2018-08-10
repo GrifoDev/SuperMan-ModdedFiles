@@ -3,12 +3,12 @@
 .source "AbsListView.java"
 
 # interfaces
-.implements Landroid/animation/ValueAnimator$AnimatorUpdateListener;
+.implements Ljava/lang/Runnable;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Landroid/widget/AbsListView;->semSetGoToTopEnabled(Z)V
+    value = Landroid/widget/AbsListView;->setFastScrollEnabled(Z)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,12 +20,16 @@
 # instance fields
 .field final synthetic this$0:Landroid/widget/AbsListView;
 
+.field final synthetic val$enabled:Z
+
 
 # direct methods
-.method constructor <init>(Landroid/widget/AbsListView;)V
+.method constructor <init>(Landroid/widget/AbsListView;Z)V
     .locals 0
 
     iput-object p1, p0, Landroid/widget/AbsListView$7;->this$0:Landroid/widget/AbsListView;
+
+    iput-boolean p2, p0, Landroid/widget/AbsListView$7;->val$enabled:Z
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -34,35 +38,30 @@
 
 
 # virtual methods
-.method public onAnimationUpdate(Landroid/animation/ValueAnimator;)V
-    .locals 3
+.method public run()V
+    .locals 2
 
-    :try_start_0
-    invoke-virtual {p1}, Landroid/animation/ValueAnimator;->getAnimatedValue()Ljava/lang/Object;
+    iget-object v0, p0, Landroid/widget/AbsListView$7;->this$0:Landroid/widget/AbsListView;
 
-    move-result-object v2
+    iget-boolean v0, v0, Landroid/widget/AbsListView;->mSemFastScrollCustomEffectEnabled:Z
 
-    check-cast v2, Ljava/lang/Integer;
+    if-eqz v0, :cond_0
 
-    invoke-virtual {v2}, Ljava/lang/Integer;->intValue()I
+    iget-object v0, p0, Landroid/widget/AbsListView$7;->this$0:Landroid/widget/AbsListView;
 
-    move-result v1
+    iget-boolean v1, p0, Landroid/widget/AbsListView$7;->val$enabled:Z
 
-    iget-object v2, p0, Landroid/widget/AbsListView$7;->this$0:Landroid/widget/AbsListView;
-
-    invoke-static {v2}, Landroid/widget/AbsListView;->-get40(Landroid/widget/AbsListView;)Landroid/graphics/drawable/Drawable;
-
-    move-result-object v2
-
-    invoke-virtual {v2, v1}, Landroid/graphics/drawable/Drawable;->setAlpha(I)V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    invoke-static {v0, v1}, Landroid/widget/AbsListView;->-wrap14(Landroid/widget/AbsListView;Z)V
 
     :goto_0
     return-void
 
-    :catch_0
-    move-exception v0
+    :cond_0
+    iget-object v0, p0, Landroid/widget/AbsListView$7;->this$0:Landroid/widget/AbsListView;
+
+    iget-boolean v1, p0, Landroid/widget/AbsListView$7;->val$enabled:Z
+
+    invoke-static {v0, v1}, Landroid/widget/AbsListView;->-wrap19(Landroid/widget/AbsListView;Z)V
 
     goto :goto_0
 .end method

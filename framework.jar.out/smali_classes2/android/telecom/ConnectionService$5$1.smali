@@ -1,9 +1,6 @@
 .class Landroid/telecom/ConnectionService$5$1;
-.super Ljava/lang/Object;
+.super Landroid/telecom/Logging/Runnable;
 .source "ConnectionService.java"
-
-# interfaces
-.implements Ljava/lang/Runnable;
 
 
 # annotations
@@ -26,23 +23,23 @@
 
 
 # direct methods
-.method constructor <init>(Landroid/telecom/ConnectionService$5;Ljava/util/List;Ljava/util/List;)V
+.method constructor <init>(Landroid/telecom/ConnectionService$5;Ljava/lang/String;Ljava/lang/Object;Ljava/util/List;Ljava/util/List;)V
     .locals 0
 
     iput-object p1, p0, Landroid/telecom/ConnectionService$5$1;->this$1:Landroid/telecom/ConnectionService$5;
 
-    iput-object p2, p0, Landroid/telecom/ConnectionService$5$1;->val$componentNames:Ljava/util/List;
+    iput-object p4, p0, Landroid/telecom/ConnectionService$5$1;->val$componentNames:Ljava/util/List;
 
-    iput-object p3, p0, Landroid/telecom/ConnectionService$5$1;->val$services:Ljava/util/List;
+    iput-object p5, p0, Landroid/telecom/ConnectionService$5$1;->val$services:Ljava/util/List;
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0, p2, p3}, Landroid/telecom/Logging/Runnable;-><init>(Ljava/lang/String;Ljava/lang/Object;)V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public run()V
+.method public loggedRun()V
     .locals 4
 
     const/4 v0, 0x0
@@ -103,7 +100,7 @@
 
     iget-object v1, v1, Landroid/telecom/ConnectionService$5;->this$0:Landroid/telecom/ConnectionService;
 
-    invoke-static {v1}, Landroid/telecom/ConnectionService;->-wrap11(Landroid/telecom/ConnectionService;)V
+    invoke-static {v1}, Landroid/telecom/ConnectionService;->-wrap14(Landroid/telecom/ConnectionService;)V
 
     new-instance v1, Ljava/lang/StringBuilder;
 

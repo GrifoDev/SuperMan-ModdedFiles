@@ -21,6 +21,10 @@
 .end annotation
 
 
+# static fields
+.field private static final LOG_TAG:Ljava/lang/String;
+
+
 # instance fields
 .field mAdapter:Landroid/widget/SpinnerAdapter;
 
@@ -50,6 +54,20 @@
     .locals 0
 
     invoke-virtual {p0, p1, p2}, Landroid/widget/AbsSpinner;->removeDetachedView(Landroid/view/View;Z)V
+
+    return-void
+.end method
+
+.method static constructor <clinit>()V
+    .locals 1
+
+    const-class v0, Landroid/widget/AbsSpinner;
+
+    invoke-virtual {v0}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
+
+    move-result-object v0
+
+    sput-object v0, Landroid/widget/AbsSpinner;->LOG_TAG:Ljava/lang/String;
 
     return-void
 .end method
@@ -133,6 +151,17 @@
 
     iput-object v3, p0, Landroid/widget/AbsSpinner;->mRecycler:Landroid/widget/AbsSpinner$RecycleBin;
 
+    invoke-virtual {p0}, Landroid/widget/AbsSpinner;->getImportantForAutofill()I
+
+    move-result v3
+
+    if-nez v3, :cond_0
+
+    const/4 v3, 0x1
+
+    invoke-virtual {p0, v3}, Landroid/widget/AbsSpinner;->setImportantForAutofill(I)V
+
+    :cond_0
     invoke-direct {p0}, Landroid/widget/AbsSpinner;->initAbsSpinner()V
 
     sget-object v3, Lcom/android/internal/R$styleable;->AbsSpinner:[I
@@ -145,7 +174,7 @@
 
     move-result-object v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1
 
     new-instance v1, Landroid/widget/ArrayAdapter;
 
@@ -159,7 +188,7 @@
 
     invoke-virtual {p0, v1}, Landroid/widget/AbsSpinner;->setAdapter(Landroid/widget/SpinnerAdapter;)V
 
-    :cond_0
+    :cond_1
     invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
 
     return-void
@@ -181,6 +210,62 @@
 
 
 # virtual methods
+.method public autofill(Landroid/view/autofill/AutofillValue;)V
+    .locals 3
+
+    invoke-virtual {p0}, Landroid/widget/AbsSpinner;->isEnabled()Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    return-void
+
+    :cond_0
+    invoke-virtual {p1}, Landroid/view/autofill/AutofillValue;->isList()Z
+
+    move-result v0
+
+    if-nez v0, :cond_1
+
+    sget-object v0, Landroid/widget/AbsSpinner;->LOG_TAG:Ljava/lang/String;
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string/jumbo v2, " could not be autofilled into "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
+
+    :cond_1
+    invoke-virtual {p1}, Landroid/view/autofill/AutofillValue;->getListValue()I
+
+    move-result v0
+
+    invoke-virtual {p0, v0}, Landroid/widget/AbsSpinner;->setSelection(I)V
+
+    return-void
+.end method
+
 .method protected dispatchRestoreInstanceState(Landroid/util/SparseArray;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
@@ -242,6 +327,52 @@
     iget-object v0, p0, Landroid/widget/AbsSpinner;->mAdapter:Landroid/widget/SpinnerAdapter;
 
     return-object v0
+.end method
+
+.method public getAutofillType()I
+    .locals 1
+
+    invoke-virtual {p0}, Landroid/widget/AbsSpinner;->isEnabled()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x3
+
+    :goto_0
+    return v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
+.method public getAutofillValue()Landroid/view/autofill/AutofillValue;
+    .locals 1
+
+    invoke-virtual {p0}, Landroid/widget/AbsSpinner;->isEnabled()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {p0}, Landroid/widget/AbsSpinner;->getSelectedItemPosition()I
+
+    move-result v0
+
+    invoke-static {v0}, Landroid/view/autofill/AutofillValue;->forList(I)Landroid/view/autofill/AutofillValue;
+
+    move-result-object v0
+
+    :goto_0
+    return-object v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
 .end method
 
 .method getChildHeight(Landroid/view/View;)I
@@ -413,6 +544,8 @@
     invoke-interface {v8, v4, v9, p0}, Landroid/widget/SpinnerAdapter;->getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
 
     move-result-object v5
+
+    if-eqz v5, :cond_1
 
     invoke-virtual {v5}, Landroid/view/View;->getImportantForAccessibility()I
 
@@ -804,24 +937,22 @@
 .method public setAdapter(Landroid/widget/SpinnerAdapter;)V
     .locals 4
 
-    const/4 v1, -0x1
+    iget-object v1, p0, Landroid/widget/AbsSpinner;->mAdapter:Landroid/widget/SpinnerAdapter;
 
-    const/4 v0, 0x0
+    if-eqz v1, :cond_0
 
-    iget-object v2, p0, Landroid/widget/AbsSpinner;->mAdapter:Landroid/widget/SpinnerAdapter;
+    iget-object v1, p0, Landroid/widget/AbsSpinner;->mAdapter:Landroid/widget/SpinnerAdapter;
 
-    if-eqz v2, :cond_0
+    iget-object v2, p0, Landroid/widget/AbsSpinner;->mDataSetObserver:Landroid/database/DataSetObserver;
 
-    iget-object v2, p0, Landroid/widget/AbsSpinner;->mAdapter:Landroid/widget/SpinnerAdapter;
-
-    iget-object v3, p0, Landroid/widget/AbsSpinner;->mDataSetObserver:Landroid/database/DataSetObserver;
-
-    invoke-interface {v2, v3}, Landroid/widget/SpinnerAdapter;->unregisterDataSetObserver(Landroid/database/DataSetObserver;)V
+    invoke-interface {v1, v2}, Landroid/widget/SpinnerAdapter;->unregisterDataSetObserver(Landroid/database/DataSetObserver;)V
 
     invoke-virtual {p0}, Landroid/widget/AbsSpinner;->resetList()V
 
     :cond_0
     iput-object p1, p0, Landroid/widget/AbsSpinner;->mAdapter:Landroid/widget/SpinnerAdapter;
+
+    const/4 v1, -0x1
 
     iput v1, p0, Landroid/widget/AbsSpinner;->mOldSelectedPosition:I
 
@@ -829,39 +960,41 @@
 
     iput-wide v2, p0, Landroid/widget/AbsSpinner;->mOldSelectedRowId:J
 
-    iget-object v2, p0, Landroid/widget/AbsSpinner;->mAdapter:Landroid/widget/SpinnerAdapter;
+    iget-object v1, p0, Landroid/widget/AbsSpinner;->mAdapter:Landroid/widget/SpinnerAdapter;
 
-    if-eqz v2, :cond_3
+    if-eqz v1, :cond_3
 
-    iget v2, p0, Landroid/widget/AbsSpinner;->mItemCount:I
+    iget v1, p0, Landroid/widget/AbsSpinner;->mItemCount:I
 
-    iput v2, p0, Landroid/widget/AbsSpinner;->mOldItemCount:I
+    iput v1, p0, Landroid/widget/AbsSpinner;->mOldItemCount:I
 
-    iget-object v2, p0, Landroid/widget/AbsSpinner;->mAdapter:Landroid/widget/SpinnerAdapter;
+    iget-object v1, p0, Landroid/widget/AbsSpinner;->mAdapter:Landroid/widget/SpinnerAdapter;
 
-    invoke-interface {v2}, Landroid/widget/SpinnerAdapter;->getCount()I
+    invoke-interface {v1}, Landroid/widget/SpinnerAdapter;->getCount()I
 
-    move-result v2
+    move-result v1
 
-    iput v2, p0, Landroid/widget/AbsSpinner;->mItemCount:I
+    iput v1, p0, Landroid/widget/AbsSpinner;->mItemCount:I
 
     invoke-virtual {p0}, Landroid/widget/AbsSpinner;->checkFocus()V
 
-    new-instance v2, Landroid/widget/AdapterView$AdapterDataSetObserver;
+    new-instance v1, Landroid/widget/AdapterView$AdapterDataSetObserver;
 
-    invoke-direct {v2, p0}, Landroid/widget/AdapterView$AdapterDataSetObserver;-><init>(Landroid/widget/AdapterView;)V
+    invoke-direct {v1, p0}, Landroid/widget/AdapterView$AdapterDataSetObserver;-><init>(Landroid/widget/AdapterView;)V
 
-    iput-object v2, p0, Landroid/widget/AbsSpinner;->mDataSetObserver:Landroid/database/DataSetObserver;
+    iput-object v1, p0, Landroid/widget/AbsSpinner;->mDataSetObserver:Landroid/database/DataSetObserver;
 
-    iget-object v2, p0, Landroid/widget/AbsSpinner;->mAdapter:Landroid/widget/SpinnerAdapter;
+    iget-object v1, p0, Landroid/widget/AbsSpinner;->mAdapter:Landroid/widget/SpinnerAdapter;
 
-    iget-object v3, p0, Landroid/widget/AbsSpinner;->mDataSetObserver:Landroid/database/DataSetObserver;
+    iget-object v2, p0, Landroid/widget/AbsSpinner;->mDataSetObserver:Landroid/database/DataSetObserver;
 
-    invoke-interface {v2, v3}, Landroid/widget/SpinnerAdapter;->registerDataSetObserver(Landroid/database/DataSetObserver;)V
+    invoke-interface {v1, v2}, Landroid/widget/SpinnerAdapter;->registerDataSetObserver(Landroid/database/DataSetObserver;)V
 
-    iget v2, p0, Landroid/widget/AbsSpinner;->mItemCount:I
+    iget v1, p0, Landroid/widget/AbsSpinner;->mItemCount:I
 
-    if-lez v2, :cond_2
+    if-lez v1, :cond_2
+
+    const/4 v0, 0x0
 
     :goto_0
     invoke-virtual {p0, v0}, Landroid/widget/AbsSpinner;->setSelectedPositionInt(I)V
@@ -881,7 +1014,7 @@
     return-void
 
     :cond_2
-    move v0, v1
+    const/4 v0, -0x1
 
     goto :goto_0
 
@@ -908,40 +1041,40 @@
 .end method
 
 .method public setSelection(IZ)V
-    .locals 4
-
-    const/4 v1, 0x0
+    .locals 3
 
     if-eqz p2, :cond_1
 
-    iget v2, p0, Landroid/widget/AbsSpinner;->mFirstPosition:I
+    iget v1, p0, Landroid/widget/AbsSpinner;->mFirstPosition:I
 
-    if-gt v2, p1, :cond_1
+    if-gt v1, p1, :cond_1
 
-    iget v2, p0, Landroid/widget/AbsSpinner;->mFirstPosition:I
+    iget v1, p0, Landroid/widget/AbsSpinner;->mFirstPosition:I
 
     invoke-virtual {p0}, Landroid/widget/AbsSpinner;->getChildCount()I
 
-    move-result v3
+    move-result v2
 
-    add-int/2addr v2, v3
+    add-int/2addr v1, v2
 
-    add-int/lit8 v2, v2, -0x1
+    add-int/lit8 v1, v1, -0x1
 
-    if-gt p1, v2, :cond_0
+    if-gt p1, v1, :cond_0
 
-    const/4 v1, 0x1
-
-    :cond_0
-    move v0, v1
+    const/4 v0, 0x1
 
     :goto_0
     invoke-virtual {p0, p1, v0}, Landroid/widget/AbsSpinner;->setSelectionInt(IZ)V
 
     return-void
 
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
+
     :cond_1
-    move v0, v1
+    const/4 v0, 0x0
 
     goto :goto_0
 .end method

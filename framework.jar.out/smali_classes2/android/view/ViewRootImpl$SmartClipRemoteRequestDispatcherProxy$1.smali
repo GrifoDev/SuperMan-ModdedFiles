@@ -82,6 +82,18 @@
     return-object v0
 .end method
 
+.method public getTranslatedPoint()Landroid/graphics/PointF;
+    .locals 1
+
+    iget-object v0, p0, Landroid/view/ViewRootImpl$SmartClipRemoteRequestDispatcherProxy$1;->this$1:Landroid/view/ViewRootImpl$SmartClipRemoteRequestDispatcherProxy;
+
+    iget-object v0, v0, Landroid/view/ViewRootImpl$SmartClipRemoteRequestDispatcherProxy;->this$0:Landroid/view/ViewRootImpl;
+
+    iget-object v0, v0, Landroid/view/ViewRootImpl;->mTranslatedPoint:Landroid/graphics/PointF;
+
+    return-object v0
+.end method
+
 .method public getViewRootImpl()Landroid/view/ViewRootImpl;
     .locals 1
 

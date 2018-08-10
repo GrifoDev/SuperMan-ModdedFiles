@@ -492,21 +492,10 @@
 
     iget-boolean v0, p0, Landroid/view/animation/Animation;->mEnded:Z
 
-    if-eqz v0, :cond_1
+    xor-int/lit8 v0, v0, 0x1
 
-    :cond_0
-    :goto_0
-    const-wide/high16 v0, -0x8000000000000000L
+    if-eqz v0, :cond_0
 
-    iput-wide v0, p0, Landroid/view/animation/Animation;->mStartTime:J
-
-    iput-boolean v2, p0, Landroid/view/animation/Animation;->mOneMoreTime:Z
-
-    iput-boolean v2, p0, Landroid/view/animation/Animation;->mMore:Z
-
-    return-void
-
-    :cond_1
     invoke-direct {p0}, Landroid/view/animation/Animation;->fireAnimationEnd()V
 
     const/4 v0, 0x1
@@ -517,7 +506,16 @@
 
     invoke-virtual {v0}, Ldalvik/system/CloseGuard;->close()V
 
-    goto :goto_0
+    :cond_0
+    const-wide/high16 v0, -0x8000000000000000L
+
+    iput-wide v0, p0, Landroid/view/animation/Animation;->mStartTime:J
+
+    iput-boolean v2, p0, Landroid/view/animation/Animation;->mOneMoreTime:Z
+
+    iput-boolean v2, p0, Landroid/view/animation/Animation;->mMore:Z
+
+    return-void
 .end method
 
 .method protected clone()Landroid/view/animation/Animation;
@@ -611,13 +609,10 @@
 
     iget-boolean v0, p0, Landroid/view/animation/Animation;->mEnded:Z
 
-    if-eqz v0, :cond_1
+    xor-int/lit8 v0, v0, 0x1
 
-    :cond_0
-    :goto_0
-    return-void
+    if-eqz v0, :cond_0
 
-    :cond_1
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Landroid/view/animation/Animation;->mEnded:Z
@@ -628,7 +623,8 @@
 
     invoke-direct {p0}, Landroid/view/animation/Animation;->fireAnimationEnd()V
 
-    goto :goto_0
+    :cond_0
+    return-void
 .end method
 
 .method protected ensureInterpolator()V
@@ -866,11 +862,8 @@
     move-result v4
 
     :goto_1
-    if-eqz v4, :cond_d
+    xor-int/lit8 v7, v4, 0x1
 
-    const/4 v7, 0x0
-
-    :goto_2
     iput-boolean v7, p0, Landroid/view/animation/Animation;->mMore:Z
 
     iget-boolean v7, p0, Landroid/view/animation/Animation;->mFillEnabled:Z
@@ -982,7 +975,7 @@
 
     move-result v7
 
-    if-eqz v7, :cond_e
+    if-eqz v7, :cond_d
 
     :cond_8
     iget-boolean v7, p0, Landroid/view/animation/Animation;->mEnded:Z
@@ -1000,14 +993,14 @@
     invoke-direct {p0}, Landroid/view/animation/Animation;->fireAnimationEnd()V
 
     :cond_9
-    :goto_3
+    :goto_2
     iget-boolean v7, p0, Landroid/view/animation/Animation;->mMore:Z
 
-    if-nez v7, :cond_12
+    if-nez v7, :cond_10
 
     iget-boolean v7, p0, Landroid/view/animation/Animation;->mOneMoreTime:Z
 
-    if-eqz v7, :cond_12
+    if-eqz v7, :cond_10
 
     const/4 v7, 0x0
 
@@ -1039,14 +1032,9 @@
     goto/16 :goto_1
 
     :cond_d
-    const/4 v7, 0x1
-
-    goto/16 :goto_2
-
-    :cond_e
     iget v7, p0, Landroid/view/animation/Animation;->mRepeatCount:I
 
-    if-lez v7, :cond_f
+    if-lez v7, :cond_e
 
     iget v7, p0, Landroid/view/animation/Animation;->mRepeated:I
 
@@ -1054,23 +1042,20 @@
 
     iput v7, p0, Landroid/view/animation/Animation;->mRepeated:I
 
-    :cond_f
+    :cond_e
     iget v7, p0, Landroid/view/animation/Animation;->mRepeatMode:I
 
     const/4 v10, 0x2
 
-    if-ne v7, v10, :cond_10
+    if-ne v7, v10, :cond_f
 
     iget-boolean v7, p0, Landroid/view/animation/Animation;->mCycleFlip:Z
 
-    if-eqz v7, :cond_11
+    xor-int/lit8 v7, v7, 0x1
 
-    const/4 v7, 0x0
-
-    :goto_4
     iput-boolean v7, p0, Landroid/view/animation/Animation;->mCycleFlip:Z
 
-    :cond_10
+    :cond_f
     const-wide/16 v10, -0x1
 
     iput-wide v10, p0, Landroid/view/animation/Animation;->mStartTime:J
@@ -1081,14 +1066,9 @@
 
     invoke-direct {p0}, Landroid/view/animation/Animation;->fireAnimationRepeat()V
 
-    goto :goto_3
+    goto :goto_2
 
-    :cond_11
-    const/4 v7, 0x1
-
-    goto :goto_4
-
-    :cond_12
+    :cond_10
     iget-boolean v7, p0, Landroid/view/animation/Animation;->mMore:Z
 
     return v7

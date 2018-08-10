@@ -49,11 +49,11 @@
 
     iget-object v0, p0, Landroid/accounts/AccountManager$17;->this$0:Landroid/accounts/AccountManager;
 
-    invoke-static {v0}, Landroid/accounts/AccountManager;->-get3(Landroid/accounts/AccountManager;)Landroid/accounts/IAccountManager;
+    invoke-static {v0}, Landroid/accounts/AccountManager;->-get4(Landroid/accounts/AccountManager;)Landroid/accounts/IAccountManager;
 
     move-result-object v1
 
-    iget-object v2, p0, Landroid/accounts/AccountManager$AmsTask;->mResponse:Landroid/accounts/IAccountManagerResponse;
+    iget-object v2, p0, Landroid/accounts/AccountManager$17;->mResponse:Landroid/accounts/IAccountManagerResponse;
 
     iget-object v3, p0, Landroid/accounts/AccountManager$17;->val$accountType:Ljava/lang/String;
 

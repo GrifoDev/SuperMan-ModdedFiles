@@ -120,7 +120,7 @@
 
     const/4 v6, 0x0
 
-    invoke-virtual {p0, v5, v6}, Landroid/content/ContextWrapper;->createPackageContext(Ljava/lang/String;I)Landroid/content/Context;
+    invoke-virtual {p0, v5, v6}, Landroid/accounts/ChooseAccountActivity;->createPackageContext(Ljava/lang/String;I)Landroid/content/Context;
 
     move-result-object v0
 
@@ -252,7 +252,7 @@
 
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
-    invoke-virtual {p0}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
+    invoke-virtual {p0}, Landroid/accounts/ChooseAccountActivity;->getIntent()Landroid/content/Intent;
 
     move-result-object v3
 
@@ -264,7 +264,7 @@
 
     iput-object v3, p0, Landroid/accounts/ChooseAccountActivity;->mAccounts:[Landroid/os/Parcelable;
 
-    invoke-virtual {p0}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
+    invoke-virtual {p0}, Landroid/accounts/ChooseAccountActivity;->getIntent()Landroid/content/Intent;
 
     move-result-object v3
 
@@ -284,7 +284,7 @@
 
     const/4 v3, 0x0
 
-    invoke-virtual {p0, v3}, Landroid/app/Activity;->setResult(I)V
+    invoke-virtual {p0, v3}, Landroid/accounts/ChooseAccountActivity;->setResult(I)V
 
     invoke-virtual {p0}, Landroid/accounts/ChooseAccountActivity;->finish()V
 
@@ -339,13 +339,13 @@
     goto :goto_0
 
     :cond_1
-    const v3, 0x1090040
+    const v3, 0x1090043
 
-    invoke-virtual {p0, v3}, Landroid/app/Activity;->setContentView(I)V
+    invoke-virtual {p0, v3}, Landroid/accounts/ChooseAccountActivity;->setContentView(I)V
 
     const v3, 0x102000a
 
-    invoke-virtual {p0, v3}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v3}, Landroid/accounts/ChooseAccountActivity;->findViewById(I)Landroid/view/View;
 
     move-result-object v1
 
@@ -359,15 +359,15 @@
 
     invoke-virtual {v1, v3}, Landroid/widget/ListView;->setAdapter(Landroid/widget/ListAdapter;)V
 
-    invoke-virtual {v1, v6}, Landroid/widget/AbsListView;->setChoiceMode(I)V
+    invoke-virtual {v1, v6}, Landroid/widget/ListView;->setChoiceMode(I)V
 
-    invoke-virtual {v1, v6}, Landroid/widget/AbsListView;->setTextFilterEnabled(Z)V
+    invoke-virtual {v1, v6}, Landroid/widget/ListView;->setTextFilterEnabled(Z)V
 
     new-instance v3, Landroid/accounts/ChooseAccountActivity$1;
 
     invoke-direct {v3, p0}, Landroid/accounts/ChooseAccountActivity$1;-><init>(Landroid/accounts/ChooseAccountActivity;)V
 
-    invoke-virtual {v1, v3}, Landroid/widget/AdapterView;->setOnItemClickListener(Landroid/widget/AdapterView$OnItemClickListener;)V
+    invoke-virtual {v1, v3}, Landroid/widget/ListView;->setOnItemClickListener(Landroid/widget/AdapterView$OnItemClickListener;)V
 
     return-void
 .end method
@@ -411,13 +411,13 @@
 
     iget-object v3, v0, Landroid/accounts/Account;->name:Ljava/lang/String;
 
-    invoke-virtual {v1, v2, v3}, Landroid/os/BaseBundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v1, v2, v3}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
     const-string/jumbo v2, "accountType"
 
     iget-object v3, v0, Landroid/accounts/Account;->type:Ljava/lang/String;
 
-    invoke-virtual {v1, v2, v3}, Landroid/os/BaseBundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v1, v2, v3}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
     iput-object v1, p0, Landroid/accounts/ChooseAccountActivity;->mResult:Landroid/os/Bundle;
 

@@ -66,30 +66,19 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    xor-int/lit8 v0, v0, 0x1
 
-    :cond_1
-    iget-object v0, p0, Landroid/media/WebVttParser$2;->this$0:Landroid/media/WebVttParser;
+    if-eqz v0, :cond_1
 
-    iget-object v1, p0, Landroid/media/WebVttParser$2;->this$0:Landroid/media/WebVttParser;
-
-    invoke-static {v1}, Landroid/media/WebVttParser;->-get6(Landroid/media/WebVttParser;)Landroid/media/WebVttParser$Phase;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Landroid/media/WebVttParser;->-set1(Landroid/media/WebVttParser;Landroid/media/WebVttParser$Phase;)Landroid/media/WebVttParser$Phase;
-
-    :goto_0
-    return-void
-
-    :cond_2
     const-string/jumbo v0, "WEBVTT\t"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
     move-result v0
 
-    if-nez v0, :cond_1
+    xor-int/lit8 v0, v0, 0x1
+
+    if-eqz v0, :cond_1
 
     iget-object v0, p0, Landroid/media/WebVttParser$2;->this$0:Landroid/media/WebVttParser;
 
@@ -102,6 +91,20 @@
     iget-object v1, p0, Landroid/media/WebVttParser$2;->this$0:Landroid/media/WebVttParser;
 
     invoke-static {v1}, Landroid/media/WebVttParser;->-get8(Landroid/media/WebVttParser;)Landroid/media/WebVttParser$Phase;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/media/WebVttParser;->-set1(Landroid/media/WebVttParser;Landroid/media/WebVttParser$Phase;)Landroid/media/WebVttParser$Phase;
+
+    :goto_0
+    return-void
+
+    :cond_1
+    iget-object v0, p0, Landroid/media/WebVttParser$2;->this$0:Landroid/media/WebVttParser;
+
+    iget-object v1, p0, Landroid/media/WebVttParser$2;->this$0:Landroid/media/WebVttParser;
+
+    invoke-static {v1}, Landroid/media/WebVttParser;->-get6(Landroid/media/WebVttParser;)Landroid/media/WebVttParser$Phase;
 
     move-result-object v1
 

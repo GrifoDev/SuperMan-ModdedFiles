@@ -61,7 +61,7 @@
 
     iget-object v5, p0, Landroid/widget/TextClock$2;->this$0:Landroid/widget/TextClock;
 
-    invoke-static {v5}, Landroid/widget/TextClock;->-get0(Landroid/widget/TextClock;)Ljava/lang/Runnable;
+    invoke-static {v5}, Landroid/widget/TextClock;->-get2(Landroid/widget/TextClock;)Ljava/lang/Runnable;
 
     move-result-object v5
 

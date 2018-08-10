@@ -321,41 +321,53 @@
 .end method
 
 .method obtainStyledAttributes(Landroid/content/res/Resources$Theme;Landroid/util/AttributeSet;[III)Landroid/content/res/TypedArray;
-    .locals 15
+    .locals 18
 
-    iget-object v14, p0, Landroid/content/res/ResourcesImpl$ThemeImpl;->mKey:Landroid/content/res/Resources$ThemeKey;
+    move-object/from16 v0, p0
 
-    monitor-enter v14
+    iget-object v0, v0, Landroid/content/res/ResourcesImpl$ThemeImpl;->mKey:Landroid/content/res/Resources$ThemeKey;
+
+    move-object/from16 v17, v0
+
+    monitor-enter v17
 
     :try_start_0
     move-object/from16 v0, p3
 
-    array-length v12, v0
+    array-length v15, v0
 
     invoke-virtual/range {p1 .. p1}, Landroid/content/res/Resources$Theme;->getResources()Landroid/content/res/Resources;
 
     move-result-object v2
 
-    invoke-static {v2, v12}, Landroid/content/res/TypedArray;->obtain(Landroid/content/res/Resources;I)Landroid/content/res/TypedArray;
+    invoke-static {v2, v15}, Landroid/content/res/TypedArray;->obtain(Landroid/content/res/Resources;I)Landroid/content/res/TypedArray;
 
-    move-result-object v11
+    move-result-object v14
 
     move-object/from16 v0, p2
 
     check-cast v0, Landroid/content/res/XmlBlock$Parser;
 
-    move-object v13, v0
+    move-object/from16 v16, v0
 
-    iget-wide v2, p0, Landroid/content/res/ResourcesImpl$ThemeImpl;->mTheme:J
+    move-object/from16 v0, p0
 
-    if-eqz v13, :cond_0
+    iget-wide v2, v0, Landroid/content/res/ResourcesImpl$ThemeImpl;->mTheme:J
 
-    iget-wide v6, v13, Landroid/content/res/XmlBlock$Parser;->mParseState:J
+    if-eqz v16, :cond_0
+
+    move-object/from16 v0, v16
+
+    iget-wide v6, v0, Landroid/content/res/XmlBlock$Parser;->mParseState:J
 
     :goto_0
-    iget-object v9, v11, Landroid/content/res/TypedArray;->mData:[I
+    move-object/from16 v0, p3
 
-    iget-object v10, v11, Landroid/content/res/TypedArray;->mIndices:[I
+    array-length v9, v0
+
+    iget-wide v10, v14, Landroid/content/res/TypedArray;->mDataAddress:J
+
+    iget-wide v12, v14, Landroid/content/res/TypedArray;->mIndicesAddress:J
 
     move/from16 v4, p4
 
@@ -363,19 +375,21 @@
 
     move-object/from16 v8, p3
 
-    invoke-static/range {v2 .. v10}, Landroid/content/res/AssetManager;->applyStyle(JIIJ[I[I[I)Z
+    invoke-static/range {v2 .. v13}, Landroid/content/res/AssetManager;->applyStyle(JIIJ[IIJJ)V
 
     move-object/from16 v0, p1
 
-    iput-object v0, v11, Landroid/content/res/TypedArray;->mTheme:Landroid/content/res/Resources$Theme;
+    iput-object v0, v14, Landroid/content/res/TypedArray;->mTheme:Landroid/content/res/Resources$Theme;
 
-    iput-object v13, v11, Landroid/content/res/TypedArray;->mXml:Landroid/content/res/XmlBlock$Parser;
+    move-object/from16 v0, v16
+
+    iput-object v0, v14, Landroid/content/res/TypedArray;->mXml:Landroid/content/res/XmlBlock$Parser;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    monitor-exit v14
+    monitor-exit v17
 
-    return-object v11
+    return-object v14
 
     :cond_0
     const-wide/16 v6, 0x0
@@ -385,7 +399,7 @@
     :catchall_0
     move-exception v2
 
-    monitor-exit v14
+    monitor-exit v17
 
     throw v2
 .end method

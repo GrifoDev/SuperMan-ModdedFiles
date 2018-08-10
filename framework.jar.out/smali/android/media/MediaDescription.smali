@@ -16,6 +16,20 @@
 
 
 # static fields
+.field public static final BT_FOLDER_TYPE_ALBUMS:J = 0x2L
+
+.field public static final BT_FOLDER_TYPE_ARTISTS:J = 0x3L
+
+.field public static final BT_FOLDER_TYPE_GENRES:J = 0x4L
+
+.field public static final BT_FOLDER_TYPE_MIXED:J = 0x0L
+
+.field public static final BT_FOLDER_TYPE_PLAYLISTS:J = 0x5L
+
+.field public static final BT_FOLDER_TYPE_TITLES:J = 0x1L
+
+.field public static final BT_FOLDER_TYPE_YEARS:J = 0x6L
+
 .field public static final CREATOR:Landroid/os/Parcelable$Creator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -26,6 +40,8 @@
         }
     .end annotation
 .end field
+
+.field public static final EXTRA_BT_FOLDER_TYPE:Ljava/lang/String; = "android.media.extra.BT_FOLDER_TYPE"
 
 
 # instance fields
@@ -171,6 +187,95 @@
     const/4 v0, 0x0
 
     return v0
+.end method
+
+.method public equals(Ljava/lang/Object;)Z
+    .locals 4
+
+    const/4 v3, 0x0
+
+    if-nez p1, :cond_0
+
+    return v3
+
+    :cond_0
+    instance-of v1, p1, Landroid/media/MediaDescription;
+
+    if-nez v1, :cond_1
+
+    return v3
+
+    :cond_1
+    move-object v0, p1
+
+    check-cast v0, Landroid/media/MediaDescription;
+
+    iget-object v1, p0, Landroid/media/MediaDescription;->mTitle:Ljava/lang/CharSequence;
+
+    invoke-static {v1}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v1
+
+    iget-object v2, v0, Landroid/media/MediaDescription;->mTitle:Ljava/lang/CharSequence;
+
+    invoke-static {v2}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_2
+
+    return v3
+
+    :cond_2
+    iget-object v1, p0, Landroid/media/MediaDescription;->mSubtitle:Ljava/lang/CharSequence;
+
+    invoke-static {v1}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v1
+
+    iget-object v2, v0, Landroid/media/MediaDescription;->mSubtitle:Ljava/lang/CharSequence;
+
+    invoke-static {v2}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_3
+
+    return v3
+
+    :cond_3
+    iget-object v1, p0, Landroid/media/MediaDescription;->mDescription:Ljava/lang/CharSequence;
+
+    invoke-static {v1}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v1
+
+    iget-object v2, v0, Landroid/media/MediaDescription;->mDescription:Ljava/lang/CharSequence;
+
+    invoke-static {v2}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_4
+
+    return v3
+
+    :cond_4
+    const/4 v1, 0x1
+
+    return v1
 .end method
 
 .method public getDescription()Ljava/lang/CharSequence;

@@ -58,7 +58,7 @@
 
     if-nez v5, :cond_0
 
-    iput-boolean v10, p0, Lcom/samsung/android/graphics/spr/animation/SprDrawableAnimation;->mIsRunning:Z
+    iput-boolean v10, p0, Lcom/samsung/android/graphics/spr/animation/SprDrawableAnimationValue;->mIsRunning:Z
 
     return-void
 
@@ -136,7 +136,7 @@
 
     iget-object v5, v0, Lcom/samsung/android/graphics/spr/animation/SprDrawableAnimationValue$AnimatorData;->object:Lcom/samsung/android/graphics/spr/document/shape/SprObjectBase;
 
-    iget-object v6, p0, Lcom/samsung/android/graphics/spr/animation/SprDrawableAnimation;->mDocument:Lcom/samsung/android/graphics/spr/document/SprDocument;
+    iget-object v6, p0, Lcom/samsung/android/graphics/spr/animation/SprDrawableAnimationValue;->mDocument:Lcom/samsung/android/graphics/spr/document/SprDocument;
 
     invoke-virtual {v5, v6}, Lcom/samsung/android/graphics/spr/document/shape/SprObjectBase;->preDraw(Lcom/samsung/android/graphics/spr/document/SprDocument;)V
 
@@ -188,9 +188,9 @@
 
     if-lez v5, :cond_7
 
-    iget-object v5, p0, Lcom/samsung/android/graphics/spr/animation/SprDrawableAnimation;->mDrawable:Landroid/graphics/drawable/Drawable;
+    iget-object v5, p0, Lcom/samsung/android/graphics/spr/animation/SprDrawableAnimationValue;->mDrawable:Landroid/graphics/drawable/Drawable;
 
-    iget v6, p0, Lcom/samsung/android/graphics/spr/animation/SprDrawableAnimation;->mInterval:I
+    iget v6, p0, Lcom/samsung/android/graphics/spr/animation/SprDrawableAnimationValue;->mInterval:I
 
     int-to-long v6, v6
 
@@ -199,7 +199,7 @@
     invoke-virtual {v5, p0, v6, v7}, Landroid/graphics/drawable/Drawable;->scheduleSelf(Ljava/lang/Runnable;J)V
 
     :cond_7
-    iget-object v5, p0, Lcom/samsung/android/graphics/spr/animation/SprDrawableAnimation;->mDrawable:Landroid/graphics/drawable/Drawable;
+    iget-object v5, p0, Lcom/samsung/android/graphics/spr/animation/SprDrawableAnimationValue;->mDrawable:Landroid/graphics/drawable/Drawable;
 
     invoke-virtual {v5}, Landroid/graphics/drawable/Drawable;->invalidateSelf()V
 
@@ -219,7 +219,7 @@
 
     move-result-wide v8
 
-    iget-object v12, p0, Lcom/samsung/android/graphics/spr/animation/SprDrawableAnimation;->mDocument:Lcom/samsung/android/graphics/spr/document/SprDocument;
+    iget-object v12, p0, Lcom/samsung/android/graphics/spr/animation/SprDrawableAnimationValue;->mDocument:Lcom/samsung/android/graphics/spr/document/SprDocument;
 
     invoke-virtual {v12}, Lcom/samsung/android/graphics/spr/document/SprDocument;->getValueAnimationObjects()Ljava/util/ArrayList;
 
@@ -345,7 +345,7 @@
     invoke-virtual {v12, v5}, Lcom/samsung/android/graphics/spr/document/shape/SprObjectBase;->appendAttribute(Lcom/samsung/android/graphics/spr/document/attribute/SprAttributeBase;)V
 
     :try_start_0
-    invoke-virtual {v5}, Lcom/samsung/android/graphics/spr/document/attribute/SprAttributeColor;->clone()Lcom/samsung/android/graphics/spr/document/attribute/SprAttributeColor;
+    invoke-virtual {v5}, Lcom/samsung/android/graphics/spr/document/attribute/SprAttributeFill;->clone()Lcom/samsung/android/graphics/spr/document/attribute/SprAttributeColor;
 
     move-result-object v5
 
@@ -374,7 +374,7 @@
     invoke-virtual {v12, v11}, Lcom/samsung/android/graphics/spr/document/shape/SprObjectBase;->appendAttribute(Lcom/samsung/android/graphics/spr/document/attribute/SprAttributeBase;)V
 
     :try_start_1
-    invoke-virtual {v11}, Lcom/samsung/android/graphics/spr/document/attribute/SprAttributeColor;->clone()Lcom/samsung/android/graphics/spr/document/attribute/SprAttributeColor;
+    invoke-virtual {v11}, Lcom/samsung/android/graphics/spr/document/attribute/SprAttributeStroke;->clone()Lcom/samsung/android/graphics/spr/document/attribute/SprAttributeColor;
 
     move-result-object v11
 
@@ -483,7 +483,7 @@
     throw v12
 
     :cond_7
-    iget-object v12, p0, Lcom/samsung/android/graphics/spr/animation/SprDrawableAnimation;->mDrawable:Landroid/graphics/drawable/Drawable;
+    iget-object v12, p0, Lcom/samsung/android/graphics/spr/animation/SprDrawableAnimationValue;->mDrawable:Landroid/graphics/drawable/Drawable;
 
     invoke-virtual {v12, p0, v8, v9}, Landroid/graphics/drawable/Drawable;->scheduleSelf(Ljava/lang/Runnable;J)V
 
@@ -739,7 +739,7 @@
 
     iget v4, v4, Lcom/samsung/android/graphics/spr/document/animator/SprAnimatorBase$UpdateParameter;->fillColor:I
 
-    iput v4, v3, Lcom/samsung/android/graphics/spr/document/attribute/SprAttributeColor;->color:I
+    iput v4, v3, Lcom/samsung/android/graphics/spr/document/attribute/SprAttributeFill;->color:I
 
     :cond_5
     iget-object v3, p1, Lcom/samsung/android/graphics/spr/animation/SprDrawableAnimationValue$AnimatorData;->updateParameter:Lcom/samsung/android/graphics/spr/document/animator/SprAnimatorBase$UpdateParameter;
@@ -754,7 +754,7 @@
 
     iget v4, v4, Lcom/samsung/android/graphics/spr/document/animator/SprAnimatorBase$UpdateParameter;->strokeColor:I
 
-    iput v4, v3, Lcom/samsung/android/graphics/spr/document/attribute/SprAttributeColor;->color:I
+    iput v4, v3, Lcom/samsung/android/graphics/spr/document/attribute/SprAttributeStroke;->color:I
 
     :cond_6
     iget-object v3, p1, Lcom/samsung/android/graphics/spr/animation/SprDrawableAnimationValue$AnimatorData;->object:Lcom/samsung/android/graphics/spr/document/shape/SprObjectBase;

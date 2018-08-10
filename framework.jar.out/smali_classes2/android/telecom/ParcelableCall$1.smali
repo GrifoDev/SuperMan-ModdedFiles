@@ -39,13 +39,13 @@
 
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroid/telecom/ParcelableCall;
-    .locals 28
+    .locals 34
 
     const-class v3, Landroid/telecom/ParcelableCall;
 
     invoke-virtual {v3}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
 
-    move-result-object v2
+    move-result-object v32
 
     invoke-virtual/range {p1 .. p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
@@ -57,7 +57,9 @@
 
     move-object/from16 v0, p1
 
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->readParcelable(Ljava/lang/ClassLoader;)Landroid/os/Parcelable;
+    move-object/from16 v1, v32
+
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->readParcelable(Ljava/lang/ClassLoader;)Landroid/os/Parcelable;
 
     move-result-object v6
 
@@ -69,7 +71,9 @@
 
     move-object/from16 v0, p1
 
-    invoke-virtual {v0, v7, v2}, Landroid/os/Parcel;->readList(Ljava/util/List;Ljava/lang/ClassLoader;)V
+    move-object/from16 v1, v32
+
+    invoke-virtual {v0, v7, v1}, Landroid/os/Parcel;->readList(Ljava/util/List;Ljava/lang/ClassLoader;)V
 
     invoke-virtual/range {p1 .. p1}, Landroid/os/Parcel;->readInt()I
 
@@ -81,55 +85,61 @@
 
     invoke-virtual/range {p1 .. p1}, Landroid/os/Parcel;->readLong()J
 
-    move-result-wide v10
+    move-result-wide v11
 
     move-object/from16 v0, p1
 
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->readParcelable(Ljava/lang/ClassLoader;)Landroid/os/Parcelable;
+    move-object/from16 v1, v32
 
-    move-result-object v12
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->readParcelable(Ljava/lang/ClassLoader;)Landroid/os/Parcelable;
 
-    check-cast v12, Landroid/net/Uri;
+    move-result-object v13
+
+    check-cast v13, Landroid/net/Uri;
 
     invoke-virtual/range {p1 .. p1}, Landroid/os/Parcel;->readInt()I
 
-    move-result v13
+    move-result v14
 
     invoke-virtual/range {p1 .. p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
-    move-result-object v14
+    move-result-object v15
 
     invoke-virtual/range {p1 .. p1}, Landroid/os/Parcel;->readInt()I
 
-    move-result v15
+    move-result v16
 
     move-object/from16 v0, p1
 
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->readParcelable(Ljava/lang/ClassLoader;)Landroid/os/Parcelable;
+    move-object/from16 v1, v32
 
-    move-result-object v16
-
-    check-cast v16, Landroid/telecom/GatewayInfo;
-
-    move-object/from16 v0, p1
-
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->readParcelable(Ljava/lang/ClassLoader;)Landroid/os/Parcelable;
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->readParcelable(Ljava/lang/ClassLoader;)Landroid/os/Parcelable;
 
     move-result-object v17
 
-    check-cast v17, Landroid/telecom/PhoneAccountHandle;
+    check-cast v17, Landroid/telecom/GatewayInfo;
+
+    move-object/from16 v0, p1
+
+    move-object/from16 v1, v32
+
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->readParcelable(Ljava/lang/ClassLoader;)Landroid/os/Parcelable;
+
+    move-result-object v18
+
+    check-cast v18, Landroid/telecom/PhoneAccountHandle;
 
     invoke-virtual/range {p1 .. p1}, Landroid/os/Parcel;->readByte()B
 
     move-result v3
 
-    const/16 v27, 0x1
+    const/16 v33, 0x1
 
-    move/from16 v0, v27
+    move/from16 v0, v33
 
     if-ne v3, v0, :cond_0
 
-    const/16 v18, 0x1
+    const/16 v19, 0x1
 
     :goto_0
     invoke-virtual/range {p1 .. p1}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
@@ -138,33 +148,11 @@
 
     invoke-static {v3}, Lcom/android/internal/telecom/IVideoProvider$Stub;->asInterface(Landroid/os/IBinder;)Lcom/android/internal/telecom/IVideoProvider;
 
-    move-result-object v19
+    move-result-object v20
 
     invoke-virtual/range {p1 .. p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
-    move-result-object v20
-
-    new-instance v21, Ljava/util/ArrayList;
-
-    invoke-direct/range {v21 .. v21}, Ljava/util/ArrayList;-><init>()V
-
-    move-object/from16 v0, p1
-
-    move-object/from16 v1, v21
-
-    invoke-virtual {v0, v1, v2}, Landroid/os/Parcel;->readList(Ljava/util/List;Ljava/lang/ClassLoader;)V
-
-    move-object/from16 v0, p1
-
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->readParcelable(Ljava/lang/ClassLoader;)Landroid/os/Parcelable;
-
-    move-result-object v22
-
-    check-cast v22, Landroid/telecom/StatusHints;
-
-    invoke-virtual/range {p1 .. p1}, Landroid/os/Parcel;->readInt()I
-
-    move-result v23
+    move-result-object v23
 
     new-instance v24, Ljava/util/ArrayList;
 
@@ -174,30 +162,98 @@
 
     move-object/from16 v1, v24
 
+    move-object/from16 v2, v32
+
     invoke-virtual {v0, v1, v2}, Landroid/os/Parcel;->readList(Ljava/util/List;Ljava/lang/ClassLoader;)V
 
     move-object/from16 v0, p1
 
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->readBundle(Ljava/lang/ClassLoader;)Landroid/os/Bundle;
+    move-object/from16 v1, v32
+
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->readParcelable(Ljava/lang/ClassLoader;)Landroid/os/Parcelable;
 
     move-result-object v25
 
+    check-cast v25, Landroid/telecom/StatusHints;
+
+    invoke-virtual/range {p1 .. p1}, Landroid/os/Parcel;->readInt()I
+
+    move-result v26
+
+    new-instance v27, Ljava/util/ArrayList;
+
+    invoke-direct/range {v27 .. v27}, Ljava/util/ArrayList;-><init>()V
+
     move-object/from16 v0, p1
 
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->readBundle(Ljava/lang/ClassLoader;)Landroid/os/Bundle;
+    move-object/from16 v1, v27
 
-    move-result-object v26
+    move-object/from16 v2, v32
+
+    invoke-virtual {v0, v1, v2}, Landroid/os/Parcel;->readList(Ljava/util/List;Ljava/lang/ClassLoader;)V
+
+    move-object/from16 v0, p1
+
+    move-object/from16 v1, v32
+
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->readBundle(Ljava/lang/ClassLoader;)Landroid/os/Bundle;
+
+    move-result-object v28
+
+    move-object/from16 v0, p1
+
+    move-object/from16 v1, v32
+
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->readBundle(Ljava/lang/ClassLoader;)Landroid/os/Bundle;
+
+    move-result-object v29
+
+    invoke-virtual/range {p1 .. p1}, Landroid/os/Parcel;->readInt()I
+
+    move-result v10
+
+    invoke-virtual/range {p1 .. p1}, Landroid/os/Parcel;->readByte()B
+
+    move-result v3
+
+    const/16 v33, 0x1
+
+    move/from16 v0, v33
+
+    if-ne v3, v0, :cond_1
+
+    const/16 v21, 0x1
+
+    :goto_1
+    move-object/from16 v0, p1
+
+    move-object/from16 v1, v32
+
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->readParcelable(Ljava/lang/ClassLoader;)Landroid/os/Parcelable;
+
+    move-result-object v22
+
+    check-cast v22, Landroid/telecom/ParcelableRttCall;
+
+    invoke-virtual/range {p1 .. p1}, Landroid/os/Parcel;->readLong()J
+
+    move-result-wide v30
 
     new-instance v3, Landroid/telecom/ParcelableCall;
 
-    invoke-direct/range {v3 .. v26}, Landroid/telecom/ParcelableCall;-><init>(Ljava/lang/String;ILandroid/telecom/DisconnectCause;Ljava/util/List;IIJLandroid/net/Uri;ILjava/lang/String;ILandroid/telecom/GatewayInfo;Landroid/telecom/PhoneAccountHandle;ZLcom/android/internal/telecom/IVideoProvider;Ljava/lang/String;Ljava/util/List;Landroid/telecom/StatusHints;ILjava/util/List;Landroid/os/Bundle;Landroid/os/Bundle;)V
+    invoke-direct/range {v3 .. v31}, Landroid/telecom/ParcelableCall;-><init>(Ljava/lang/String;ILandroid/telecom/DisconnectCause;Ljava/util/List;IIIJLandroid/net/Uri;ILjava/lang/String;ILandroid/telecom/GatewayInfo;Landroid/telecom/PhoneAccountHandle;ZLcom/android/internal/telecom/IVideoProvider;ZLandroid/telecom/ParcelableRttCall;Ljava/lang/String;Ljava/util/List;Landroid/telecom/StatusHints;ILjava/util/List;Landroid/os/Bundle;Landroid/os/Bundle;J)V
 
     return-object v3
 
     :cond_0
-    const/16 v18, 0x0
+    const/16 v19, 0x0
 
     goto :goto_0
+
+    :cond_1
+    const/16 v21, 0x0
+
+    goto :goto_1
 .end method
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;

@@ -135,14 +135,23 @@
     :catch_0
     move-exception v0
 
-    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
 
     goto :goto_0
 .end method
 
 .method public static getInstance()Landroid/util/secutil/CustomizedTextParser;
-    .locals 1
+    .locals 2
 
+    sget-object v0, Landroid/util/secutil/CustomizedTextParser;->mInstance:Landroid/util/secutil/CustomizedTextParser;
+
+    if-nez v0, :cond_1
+
+    const-class v1, Landroid/util/secutil/CustomizedTextParser;
+
+    monitor-enter v1
+
+    :try_start_0
     sget-object v0, Landroid/util/secutil/CustomizedTextParser;->mInstance:Landroid/util/secutil/CustomizedTextParser;
 
     if-nez v0, :cond_0
@@ -156,11 +165,23 @@
     sget-object v0, Landroid/util/secutil/CustomizedTextParser;->mInstance:Landroid/util/secutil/CustomizedTextParser;
 
     invoke-direct {v0}, Landroid/util/secutil/CustomizedTextParser;->initialize()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     :cond_0
+    monitor-exit v1
+
+    :cond_1
     sget-object v0, Landroid/util/secutil/CustomizedTextParser;->mInstance:Landroid/util/secutil/CustomizedTextParser;
 
     return-object v0
+
+    :catchall_0
+    move-exception v0
+
+    monitor-exit v1
+
+    throw v0
 .end method
 
 .method private getValue(Lorg/w3c/dom/Node;)Ljava/lang/String;
@@ -568,7 +589,7 @@
     move-exception v2
 
     :try_start_2
-    invoke-virtual {v2}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v2}, Ljava/lang/Exception;->printStackTrace()V
     :try_end_2
     .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_1
 
@@ -645,82 +666,101 @@
 
 # virtual methods
 .method public getCustomizedText(Ljava/lang/String;)Ljava/lang/String;
-    .locals 4
-
-    iget-object v1, p0, Landroid/util/secutil/CustomizedTextParser;->mRuleMap:Ljava/util/HashMap;
-
-    if-eqz v1, :cond_0
-
-    iget-object v1, p0, Landroid/util/secutil/CustomizedTextParser;->mRuleMap:Ljava/util/HashMap;
-
-    invoke-virtual {v1}, Ljava/util/HashMap;->size()I
-
-    move-result v1
-
-    if-gtz v1, :cond_1
-
-    :cond_0
-    const-string/jumbo v1, "CustomizedTextParser"
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v3, "getCustomizedText Rule is empty. mRuleMap="
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
+    .locals 6
 
     iget-object v3, p0, Landroid/util/secutil/CustomizedTextParser;->mRuleMap:Ljava/util/HashMap;
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    if-eqz v3, :cond_0
 
-    move-result-object v2
+    iget-object v3, p0, Landroid/util/secutil/CustomizedTextParser;->mRuleMap:Ljava/util/HashMap;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v3}, Ljava/util/HashMap;->size()I
 
-    move-result-object v2
+    move-result v3
 
-    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    if-gtz v3, :cond_1
+
+    :cond_0
+    const-string/jumbo v3, "CustomizedTextParser"
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v5, "getCustomizedText Rule is empty. mRuleMap="
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    iget-object v5, p0, Landroid/util/secutil/CustomizedTextParser;->mRuleMap:Ljava/util/HashMap;
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v3, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     return-object p1
 
     :cond_1
-    iget-object v1, p0, Landroid/util/secutil/CustomizedTextParser;->mRuleMap:Ljava/util/HashMap;
+    iget-object v3, p0, Landroid/util/secutil/CustomizedTextParser;->mRuleMap:Ljava/util/HashMap;
 
-    invoke-virtual {v1, p1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v3, p1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Ljava/lang/String;
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_3
 
-    const-string/jumbo v1, "CustomizedTextParser"
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v3, "convertString replaceText is null. preString= "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1}, Ljava/lang/String;->trim()Ljava/lang/String;
 
     move-result-object v2
 
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    iget-object v3, p0, Landroid/util/secutil/CustomizedTextParser;->mRuleMap:Ljava/util/HashMap;
 
-    move-result-object v2
+    invoke-virtual {v3, v2}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v1
 
-    move-result-object v2
+    check-cast v1, Ljava/lang/String;
 
-    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    if-nez v1, :cond_2
+
+    const-string/jumbo v3, "CustomizedTextParser"
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v5, "convertString replaceText is null. preString= "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v3, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     return-object p1
 
     :cond_2
+    invoke-virtual {p1, v2, v1}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
+
+    move-result-object v0
+
+    :cond_3
     return-object v0
 .end method

@@ -50,7 +50,7 @@
     return-object v0
 .end method
 
-.method public onAcquired(JI)V
+.method public onAcquired(JII)V
     .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -70,6 +70,8 @@
     invoke-virtual {v0, p1, p2}, Landroid/os/Parcel;->writeLong(J)V
 
     invoke-virtual {v0, p3}, Landroid/os/Parcel;->writeInt(I)V
+
+    invoke-virtual {v0, p4}, Landroid/os/Parcel;->writeInt(I)V
 
     iget-object v1, p0, Landroid/hardware/fingerprint/IFingerprintServiceReceiver$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
@@ -253,7 +255,7 @@
     throw v1
 .end method
 
-.method public onError(JI)V
+.method public onEnumerated(JIII)V
     .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -273,6 +275,57 @@
     invoke-virtual {v0, p1, p2}, Landroid/os/Parcel;->writeLong(J)V
 
     invoke-virtual {v0, p3}, Landroid/os/Parcel;->writeInt(I)V
+
+    invoke-virtual {v0, p4}, Landroid/os/Parcel;->writeInt(I)V
+
+    invoke-virtual {v0, p5}, Landroid/os/Parcel;->writeInt(I)V
+
+    iget-object v1, p0, Landroid/hardware/fingerprint/IFingerprintServiceReceiver$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+
+    const/4 v2, 0x7
+
+    const/4 v3, 0x0
+
+    const/4 v4, 0x1
+
+    invoke-interface {v1, v2, v0, v3, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    return-void
+
+    :catchall_0
+    move-exception v1
+
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    throw v1
+.end method
+
+.method public onError(JII)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    :try_start_0
+    const-string/jumbo v1, "android.hardware.fingerprint.IFingerprintServiceReceiver"
+
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v0, p1, p2}, Landroid/os/Parcel;->writeLong(J)V
+
+    invoke-virtual {v0, p3}, Landroid/os/Parcel;->writeInt(I)V
+
+    invoke-virtual {v0, p4}, Landroid/os/Parcel;->writeInt(I)V
 
     iget-object v1, p0, Landroid/hardware/fingerprint/IFingerprintServiceReceiver$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
@@ -298,7 +351,7 @@
     throw v1
 .end method
 
-.method public onRemoved(JII)V
+.method public onRemoved(JIII)V
     .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -320,6 +373,8 @@
     invoke-virtual {v0, p3}, Landroid/os/Parcel;->writeInt(I)V
 
     invoke-virtual {v0, p4}, Landroid/os/Parcel;->writeInt(I)V
+
+    invoke-virtual {v0, p5}, Landroid/os/Parcel;->writeInt(I)V
 
     iget-object v1, p0, Landroid/hardware/fingerprint/IFingerprintServiceReceiver$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 

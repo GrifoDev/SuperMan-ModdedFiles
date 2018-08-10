@@ -175,7 +175,7 @@
     return p0
 
     :sswitch_0
-    const/16 v0, 0x2af8
+    const/16 v0, 0x2789
 
     return v0
 

@@ -20,7 +20,7 @@
     return-void
 .end method
 
-.method public static final intToMode(I)Landroid/graphics/PorterDuff$Mode;
+.method public static intToMode(I)Landroid/graphics/PorterDuff$Mode;
     .locals 1
 
     packed-switch p0, :pswitch_data_0
@@ -140,7 +140,7 @@
     .end packed-switch
 .end method
 
-.method public static final modeToInt(Landroid/graphics/PorterDuff$Mode;)I
+.method public static modeToInt(Landroid/graphics/PorterDuff$Mode;)I
     .locals 1
 
     iget v0, p0, Landroid/graphics/PorterDuff$Mode;->nativeInt:I

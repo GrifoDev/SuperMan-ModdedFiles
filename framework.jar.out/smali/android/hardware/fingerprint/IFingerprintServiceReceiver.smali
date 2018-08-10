@@ -15,7 +15,7 @@
 
 
 # virtual methods
-.method public abstract onAcquired(JI)V
+.method public abstract onAcquired(JII)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -47,7 +47,7 @@
     .end annotation
 .end method
 
-.method public abstract onError(JI)V
+.method public abstract onEnumerated(JIII)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -55,7 +55,15 @@
     .end annotation
 .end method
 
-.method public abstract onRemoved(JII)V
+.method public abstract onError(JII)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract onRemoved(JIII)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

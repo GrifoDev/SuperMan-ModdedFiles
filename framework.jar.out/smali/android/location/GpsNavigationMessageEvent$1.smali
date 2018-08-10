@@ -41,7 +41,7 @@
 .method public createFromParcel(Landroid/os/Parcel;)Landroid/location/GpsNavigationMessageEvent;
     .locals 3
 
-    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+    invoke-virtual {p0}, Landroid/location/GpsNavigationMessageEvent$1;->getClass()Ljava/lang/Class;
 
     move-result-object v2
 

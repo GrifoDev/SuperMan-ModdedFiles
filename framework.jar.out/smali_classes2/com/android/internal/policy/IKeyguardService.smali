@@ -23,7 +23,7 @@
     .end annotation
 .end method
 
-.method public abstract dismiss()V
+.method public abstract dismiss(Lcom/android/internal/policy/IKeyguardDismissCallback;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -32,14 +32,6 @@
 .end method
 
 .method public abstract doKeyguardTimeout(Landroid/os/Bundle;)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract keyguardDone(ZZ)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -111,6 +103,14 @@
     .end annotation
 .end method
 
+.method public abstract onShortPowerPressedGoHome()V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract onStartedGoingToSleep(I)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -167,7 +167,15 @@
     .end annotation
 .end method
 
-.method public abstract setOccluded(Z)V
+.method public abstract setOccluded(ZZ)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract setSwitchingUser(Z)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

@@ -51,6 +51,8 @@
 
 .field public static final paste:I = 0x104000b
 
+.field public static final paste_as_plain_text:I = 0x1040019
+
 .field public static final search_go:I = 0x104000c
 
 .field public static final selectAll:I = 0x104000d

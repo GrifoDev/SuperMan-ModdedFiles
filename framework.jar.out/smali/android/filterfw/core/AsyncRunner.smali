@@ -362,7 +362,7 @@
 
     aput-object v2, v1, v3
 
-    invoke-virtual {v0, v1}, Landroid/os/AsyncTask;->execute([Ljava/lang/Object;)Landroid/os/AsyncTask;
+    invoke-virtual {v0, v1}, Landroid/filterfw/core/AsyncRunner$AsyncRunnerTask;->execute([Ljava/lang/Object;)Landroid/os/AsyncTask;
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
@@ -412,7 +412,7 @@
     :try_start_1
     new-instance v0, Landroid/filterfw/core/SyncRunner;
 
-    iget-object v1, p0, Landroid/filterfw/core/GraphRunner;->mFilterContext:Landroid/filterfw/core/FilterContext;
+    iget-object v1, p0, Landroid/filterfw/core/AsyncRunner;->mFilterContext:Landroid/filterfw/core/FilterContext;
 
     iget-object v2, p0, Landroid/filterfw/core/AsyncRunner;->mSchedulerClass:Ljava/lang/Class;
 
@@ -435,29 +435,21 @@
     :try_start_0
     iget-object v0, p0, Landroid/filterfw/core/AsyncRunner;->mRunTask:Landroid/filterfw/core/AsyncRunner$AsyncRunnerTask;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1
 
     iget-object v0, p0, Landroid/filterfw/core/AsyncRunner;->mRunTask:Landroid/filterfw/core/AsyncRunner$AsyncRunnerTask;
 
-    invoke-virtual {v0}, Landroid/os/AsyncTask;->isCancelled()Z
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    invoke-virtual {v0}, Landroid/filterfw/core/AsyncRunner$AsyncRunnerTask;->isCancelled()Z
 
     move-result v0
 
+    xor-int/lit8 v0, v0, 0x1
+
     if-eqz v0, :cond_1
 
-    :cond_0
-    :goto_0
-    monitor-exit p0
-
-    return-void
-
-    :cond_1
-    :try_start_1
     iget-boolean v0, p0, Landroid/filterfw/core/AsyncRunner;->mLogVerbose:Z
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_0
 
     const-string/jumbo v0, "AsyncRunner"
 
@@ -465,16 +457,19 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_2
+    :cond_0
     iget-object v0, p0, Landroid/filterfw/core/AsyncRunner;->mRunTask:Landroid/filterfw/core/AsyncRunner$AsyncRunnerTask;
 
     const/4 v1, 0x0
 
-    invoke-virtual {v0, v1}, Landroid/os/AsyncTask;->cancel(Z)Z
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    invoke-virtual {v0, v1}, Landroid/filterfw/core/AsyncRunner$AsyncRunnerTask;->cancel(Z)Z
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    goto :goto_0
+    :cond_1
+    monitor-exit p0
+
+    return-void
 
     :catchall_0
     move-exception v0

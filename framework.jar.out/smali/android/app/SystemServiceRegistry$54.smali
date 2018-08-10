@@ -17,7 +17,7 @@
     value = {
         "Landroid/app/SystemServiceRegistry$CachedServiceFetcher",
         "<",
-        "Landroid/app/SemStatusBarManager;",
+        "Landroid/net/wifi/WifiManager;",
         ">;"
     }
 .end annotation
@@ -34,24 +34,48 @@
 
 
 # virtual methods
-.method public createService(Landroid/app/ContextImpl;)Landroid/app/SemStatusBarManager;
-    .locals 2
+.method public createService(Landroid/app/ContextImpl;)Landroid/net/wifi/WifiManager;
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/ServiceManager$ServiceNotFoundException;
+        }
+    .end annotation
 
-    new-instance v0, Landroid/app/SemStatusBarManager;
+    const-string/jumbo v2, "wifi"
 
-    invoke-virtual {p1}, Landroid/app/ContextImpl;->getOuterContext()Landroid/content/Context;
+    invoke-static {v2}, Landroid/os/ServiceManager;->getServiceOrThrow(Ljava/lang/String;)Landroid/os/IBinder;
+
+    move-result-object v0
+
+    invoke-static {v0}, Landroid/net/wifi/IWifiManager$Stub;->asInterface(Landroid/os/IBinder;)Landroid/net/wifi/IWifiManager;
 
     move-result-object v1
 
-    invoke-direct {v0, v1}, Landroid/app/SemStatusBarManager;-><init>(Landroid/content/Context;)V
+    new-instance v2, Landroid/net/wifi/WifiManager;
 
-    return-object v0
+    invoke-virtual {p1}, Landroid/app/ContextImpl;->getOuterContext()Landroid/content/Context;
+
+    move-result-object v3
+
+    invoke-static {}, Landroid/net/ConnectivityThread;->getInstanceLooper()Landroid/os/Looper;
+
+    move-result-object v4
+
+    invoke-direct {v2, v3, v1, v4}, Landroid/net/wifi/WifiManager;-><init>(Landroid/content/Context;Landroid/net/wifi/IWifiManager;Landroid/os/Looper;)V
+
+    return-object v2
 .end method
 
 .method public bridge synthetic createService(Landroid/app/ContextImpl;)Ljava/lang/Object;
     .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/ServiceManager$ServiceNotFoundException;
+        }
+    .end annotation
 
-    invoke-virtual {p0, p1}, Landroid/app/SystemServiceRegistry$54;->createService(Landroid/app/ContextImpl;)Landroid/app/SemStatusBarManager;
+    invoke-virtual {p0, p1}, Landroid/app/SystemServiceRegistry$54;->createService(Landroid/app/ContextImpl;)Landroid/net/wifi/WifiManager;
 
     move-result-object v0
 

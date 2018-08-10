@@ -19,14 +19,12 @@
 
 # direct methods
 .method public constructor <init>(Landroid/nfc/Tag;)V
-    .locals 4
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
-
-    const/16 v3, 0x8
 
     const/4 v1, 0x1
 
@@ -52,60 +50,6 @@
 
     iput-object v1, p0, Landroid/nfc/tech/NfcA;->mAtqa:[B
 
-    const-string/jumbo v1, "NXP_PN547C2"
-
-    const-string/jumbo v2, "S3FWRN5"
-
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-nez v1, :cond_0
-
-    const-string/jumbo v1, "NXP_PN548C2"
-
-    const-string/jumbo v2, "S3FWRN5"
-
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_1
-
-    :cond_0
-    invoke-virtual {p1, v3}, Landroid/nfc/Tag;->hasTech(I)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_1
-
-    invoke-virtual {p1, v3}, Landroid/nfc/Tag;->getTechExtras(I)Landroid/os/Bundle;
-
-    move-result-object v0
-
-    iget-short v1, p0, Landroid/nfc/tech/NfcA;->mSak:S
-
-    const-string/jumbo v2, "sak"
-
-    invoke-virtual {v0, v2}, Landroid/os/Bundle;->getShort(Ljava/lang/String;)S
-
-    move-result v2
-
-    or-int/2addr v1, v2
-
-    int-to-short v1, v1
-
-    iput-short v1, p0, Landroid/nfc/tech/NfcA;->mSak:S
-
-    const-string/jumbo v1, "atqa"
-
-    invoke-virtual {v0, v1}, Landroid/os/Bundle;->getByteArray(Ljava/lang/String;)[B
-
-    move-result-object v1
-
-    iput-object v1, p0, Landroid/nfc/tech/NfcA;->mAtqa:[B
-
-    :cond_1
     return-void
 .end method
 
@@ -169,7 +113,7 @@
 .method public getMaxTransceiveLength()I
     .locals 1
 
-    invoke-virtual {p0}, Landroid/nfc/tech/BasicTagTechnology;->getMaxTransceiveLengthInternal()I
+    invoke-virtual {p0}, Landroid/nfc/tech/NfcA;->getMaxTransceiveLengthInternal()I
 
     move-result v0
 
@@ -198,7 +142,7 @@
     .locals 3
 
     :try_start_0
-    iget-object v1, p0, Landroid/nfc/tech/BasicTagTechnology;->mTag:Landroid/nfc/Tag;
+    iget-object v1, p0, Landroid/nfc/tech/NfcA;->mTag:Landroid/nfc/Tag;
 
     invoke-virtual {v1}, Landroid/nfc/Tag;->getTagService()Landroid/nfc/INfcTag;
 
@@ -250,7 +194,7 @@
     .locals 4
 
     :try_start_0
-    iget-object v2, p0, Landroid/nfc/tech/BasicTagTechnology;->mTag:Landroid/nfc/Tag;
+    iget-object v2, p0, Landroid/nfc/tech/NfcA;->mTag:Landroid/nfc/Tag;
 
     invoke-virtual {v2}, Landroid/nfc/Tag;->getTagService()Landroid/nfc/INfcTag;
 
@@ -297,7 +241,7 @@
 
     const/4 v0, 0x1
 
-    invoke-virtual {p0, p1, v0}, Landroid/nfc/tech/BasicTagTechnology;->transceive([BZ)[B
+    invoke-virtual {p0, p1, v0}, Landroid/nfc/tech/NfcA;->transceive([BZ)[B
 
     move-result-object v0
 

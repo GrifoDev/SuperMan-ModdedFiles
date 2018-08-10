@@ -166,7 +166,7 @@
 
     iget-object v0, p0, Landroid/media/AsyncPlayer;->mThread:Landroid/media/AsyncPlayer$Thread;
 
-    invoke-virtual {v0}, Ljava/lang/Thread;->start()V
+    invoke-virtual {v0}, Landroid/media/AsyncPlayer$Thread;->start()V
 
     :cond_0
     return-void
@@ -306,6 +306,12 @@
 # virtual methods
 .method public play(Landroid/content/Context;Landroid/net/Uri;ZI)V
     .locals 3
+
+    const-string/jumbo v1, "AsyncPlayer"
+
+    const-string/jumbo v2, "play()"
+
+    invoke-static {p4, v1, v2}, Landroid/media/PlayerBase;->deprecateStreamTypeForPlayback(ILjava/lang/String;Ljava/lang/String;)V
 
     if-eqz p1, :cond_0
 

@@ -33,6 +33,8 @@
 
 .field public static final QUERY_TRANSACTION:I = 0x1
 
+.field public static final REFRESH_TRANSACTION:I = 0x1b
+
 .field public static final UNCANONICALIZE_TRANSACTION:I = 0x1a
 
 .field public static final UPDATE_TRANSACTION:I = 0xa
@@ -153,7 +155,15 @@
     .end annotation
 .end method
 
-.method public abstract query(Ljava/lang/String;Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;Landroid/os/ICancellationSignal;)Landroid/database/Cursor;
+.method public abstract query(Ljava/lang/String;Landroid/net/Uri;[Ljava/lang/String;Landroid/os/Bundle;Landroid/os/ICancellationSignal;)Landroid/database/Cursor;
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract refresh(Ljava/lang/String;Landroid/net/Uri;Landroid/os/Bundle;Landroid/os/ICancellationSignal;)Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

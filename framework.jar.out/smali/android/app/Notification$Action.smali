@@ -38,6 +38,8 @@
     .end annotation
 .end field
 
+.field private static final EXTRA_DATA_ONLY_INPUTS:Ljava/lang/String; = "android.extra.DATA_ONLY_INPUTS"
+
 
 # instance fields
 .field public actionIntent:Landroid/app/PendingIntent;
@@ -104,7 +106,7 @@
 
     const/4 v5, 0x0
 
-    const/4 v6, 0x0
+    const/4 v6, 0x1
 
     move-object v0, p0
 
@@ -122,7 +124,7 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    const/4 v0, 0x0
+    const/4 v0, 0x1
 
     iput-boolean v0, p0, Landroid/app/Notification$Action;->mAllowGeneratedReplies:Z
 
@@ -185,7 +187,7 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-boolean v2, p0, Landroid/app/Notification$Action;->mAllowGeneratedReplies:Z
+    iput-boolean v1, p0, Landroid/app/Notification$Action;->mAllowGeneratedReplies:Z
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
@@ -311,12 +313,15 @@
 
     iget-object v3, p0, Landroid/app/Notification$Action;->actionIntent:Landroid/app/PendingIntent;
 
+    iget-object v4, p0, Landroid/app/Notification$Action;->mExtras:Landroid/os/Bundle;
+
+    if-nez v4, :cond_0
+
     new-instance v4, Landroid/os/Bundle;
 
-    iget-object v5, p0, Landroid/app/Notification$Action;->mExtras:Landroid/os/Bundle;
+    invoke-direct {v4}, Landroid/os/Bundle;-><init>()V
 
-    invoke-direct {v4, v5}, Landroid/os/Bundle;-><init>(Landroid/os/Bundle;)V
-
+    :goto_0
     invoke-virtual {p0}, Landroid/app/Notification$Action;->getRemoteInputs()[Landroid/app/RemoteInput;
 
     move-result-object v5
@@ -328,6 +333,15 @@
     invoke-direct/range {v0 .. v6}, Landroid/app/Notification$Action;-><init>(Landroid/graphics/drawable/Icon;Ljava/lang/CharSequence;Landroid/app/PendingIntent;Landroid/os/Bundle;[Landroid/app/RemoteInput;Z)V
 
     return-object v0
+
+    :cond_0
+    new-instance v4, Landroid/os/Bundle;
+
+    iget-object v5, p0, Landroid/app/Notification$Action;->mExtras:Landroid/os/Bundle;
+
+    invoke-direct {v4, v5}, Landroid/os/Bundle;-><init>(Landroid/os/Bundle;)V
+
+    goto :goto_0
 .end method
 
 .method public bridge synthetic clone()Ljava/lang/Object;
@@ -359,6 +373,22 @@
     iget-boolean v0, p0, Landroid/app/Notification$Action;->mAllowGeneratedReplies:Z
 
     return v0
+.end method
+
+.method public getDataOnlyRemoteInputs()[Landroid/app/RemoteInput;
+    .locals 2
+
+    iget-object v0, p0, Landroid/app/Notification$Action;->mExtras:Landroid/os/Bundle;
+
+    const-string/jumbo v1, "android.extra.DATA_ONLY_INPUTS"
+
+    invoke-virtual {v0, v1}, Landroid/os/Bundle;->getParcelableArray(Ljava/lang/String;)[Landroid/os/Parcelable;
+
+    move-result-object v0
+
+    check-cast v0, [Landroid/app/RemoteInput;
+
+    return-object v0
 .end method
 
 .method public getExtras()Landroid/os/Bundle;

@@ -1,4 +1,4 @@
-.class Landroid/text/PackedIntVector;
+.class public Landroid/text/PackedIntVector;
 .super Ljava/lang/Object;
 .source "PackedIntVector.java"
 

@@ -3,17 +3,27 @@
 .source "Editor.java"
 
 # interfaces
-.implements Landroid/animation/ValueAnimator$AnimatorUpdateListener;
+.implements Landroid/animation/TypeEvaluator;
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Landroid/widget/Editor$HandleView;->resetHandleView()V
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Landroid/widget/Editor$HandleView;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
     accessFlags = 0x0
     name = null
+.end annotation
+
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "Ljava/lang/Object;",
+        "Landroid/animation/TypeEvaluator",
+        "<",
+        "Landroid/graphics/Rect;",
+        ">;"
+    }
 .end annotation
 
 
@@ -34,152 +44,68 @@
 
 
 # virtual methods
-.method public onAnimationUpdate(Landroid/animation/ValueAnimator;)V
-    .locals 11
+.method public evaluate(FLandroid/graphics/Rect;Landroid/graphics/Rect;)Landroid/graphics/Rect;
+    .locals 7
 
-    const/4 v10, 0x1
-
-    const/4 v9, -0x1
-
-    const/4 v8, 0x0
-
-    iget-object v5, p0, Landroid/widget/Editor$HandleView$1;->this$1:Landroid/widget/Editor$HandleView;
-
-    invoke-static {v5}, Landroid/widget/Editor$HandleView;->-get2(Landroid/widget/Editor$HandleView;)Z
-
-    move-result v5
-
-    if-nez v5, :cond_0
-
-    return-void
-
-    :cond_0
-    const-string/jumbo v5, "width"
-
-    invoke-virtual {p1, v5}, Landroid/animation/ValueAnimator;->getAnimatedValue(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v5
-
-    check-cast v5, Ljava/lang/Integer;
-
-    invoke-virtual {v5}, Ljava/lang/Integer;->intValue()I
+    invoke-virtual {p2}, Landroid/graphics/Rect;->width()I
 
     move-result v2
 
-    const-string/jumbo v5, "height"
+    invoke-virtual {p2}, Landroid/graphics/Rect;->height()I
 
-    invoke-virtual {p1, v5}, Landroid/animation/ValueAnimator;->getAnimatedValue(Ljava/lang/String;)Ljava/lang/Object;
+    move-result v1
 
-    move-result-object v5
-
-    check-cast v5, Ljava/lang/Integer;
-
-    invoke-virtual {v5}, Ljava/lang/Integer;->intValue()I
-
-    move-result v0
-
-    const-string/jumbo v5, "positionX"
-
-    invoke-virtual {p1, v5}, Landroid/animation/ValueAnimator;->getAnimatedValue(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v5
-
-    check-cast v5, Ljava/lang/Integer;
-
-    invoke-virtual {v5}, Ljava/lang/Integer;->intValue()I
-
-    move-result v3
-
-    const-string/jumbo v5, "positionY"
-
-    invoke-virtual {p1, v5}, Landroid/animation/ValueAnimator;->getAnimatedValue(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v5
-
-    check-cast v5, Ljava/lang/Integer;
-
-    invoke-virtual {v5}, Ljava/lang/Integer;->intValue()I
+    invoke-virtual {p3}, Landroid/graphics/Rect;->width()I
 
     move-result v4
 
-    iget-object v5, p0, Landroid/widget/Editor$HandleView$1;->this$1:Landroid/widget/Editor$HandleView;
+    invoke-virtual {p3}, Landroid/graphics/Rect;->height()I
 
-    invoke-virtual {v5, v2, v0}, Landroid/widget/Editor$HandleView;->updateDrawableBounds(II)V
+    move-result v3
 
-    const/4 v5, 0x2
+    sub-int v6, v4, v2
 
-    new-array v1, v5, [I
+    int-to-float v6, v6
 
-    iget-object v5, p0, Landroid/widget/Editor$HandleView$1;->this$1:Landroid/widget/Editor$HandleView;
+    mul-float/2addr v6, p1
 
-    iget v5, v5, Landroid/widget/Editor$HandleView;->mHotspotX:I
-
-    add-int/2addr v5, v3
-
-    iget-object v6, p0, Landroid/widget/Editor$HandleView$1;->this$1:Landroid/widget/Editor$HandleView;
-
-    invoke-virtual {v6}, Landroid/widget/Editor$HandleView;->getHorizontalOffset()I
+    invoke-static {v6}, Ljava/lang/Math;->round(F)I
 
     move-result v6
 
-    add-int/2addr v5, v6
+    add-int v5, v2, v6
 
-    aput v5, v1, v8
+    sub-int v6, v3, v1
 
-    aput v4, v1, v10
+    int-to-float v6, v6
 
-    iget-object v5, p0, Landroid/widget/Editor$HandleView$1;->this$1:Landroid/widget/Editor$HandleView;
+    mul-float/2addr v6, p1
 
-    iget-object v5, v5, Landroid/widget/Editor$HandleView;->this$0:Landroid/widget/Editor;
+    invoke-static {v6}, Ljava/lang/Math;->round(F)I
 
-    invoke-static {v5}, Landroid/widget/Editor;->-get13(Landroid/widget/Editor;)Landroid/widget/TextView;
+    move-result v6
 
-    move-result-object v5
-
-    invoke-virtual {v5, v1}, Landroid/view/View;->transformFromViewToWindowSpace([I)V
-
-    aget v5, v1, v8
+    add-int v0, v1, v6
 
     iget-object v6, p0, Landroid/widget/Editor$HandleView$1;->this$1:Landroid/widget/Editor$HandleView;
 
-    iget v6, v6, Landroid/widget/Editor$HandleView;->mHotspotX:I
+    invoke-static {v6, v5, v0}, Landroid/widget/Editor$HandleView;->-wrap0(Landroid/widget/Editor$HandleView;II)Landroid/graphics/Rect;
 
-    iget-object v7, p0, Landroid/widget/Editor$HandleView$1;->this$1:Landroid/widget/Editor$HandleView;
+    move-result-object v6
 
-    invoke-virtual {v7}, Landroid/widget/Editor$HandleView;->getHorizontalOffset()I
+    return-object v6
+.end method
 
-    move-result v7
+.method public bridge synthetic evaluate(FLjava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    .locals 1
 
-    add-int/2addr v6, v7
+    check-cast p2, Landroid/graphics/Rect;
 
-    sub-int/2addr v5, v6
+    check-cast p3, Landroid/graphics/Rect;
 
-    aput v5, v1, v8
+    invoke-virtual {p0, p1, p2, p3}, Landroid/widget/Editor$HandleView$1;->evaluate(FLandroid/graphics/Rect;Landroid/graphics/Rect;)Landroid/graphics/Rect;
 
-    iget-object v5, p0, Landroid/widget/Editor$HandleView$1;->this$1:Landroid/widget/Editor$HandleView;
+    move-result-object v0
 
-    invoke-virtual {v5}, Landroid/widget/Editor$HandleView;->isShowing()Z
-
-    move-result v5
-
-    if-eqz v5, :cond_1
-
-    iget-object v5, p0, Landroid/widget/Editor$HandleView$1;->this$1:Landroid/widget/Editor$HandleView;
-
-    invoke-virtual {v5}, Landroid/widget/Editor$HandleView;->invalidate()V
-
-    iget-object v5, p0, Landroid/widget/Editor$HandleView$1;->this$1:Landroid/widget/Editor$HandleView;
-
-    invoke-static {v5}, Landroid/widget/Editor$HandleView;->-get0(Landroid/widget/Editor$HandleView;)Landroid/widget/PopupWindow;
-
-    move-result-object v5
-
-    aget v6, v1, v8
-
-    aget v7, v1, v10
-
-    invoke-virtual {v5, v6, v7, v9, v9}, Landroid/widget/PopupWindow;->update(IIII)V
-
-    :cond_1
-    return-void
+    return-object v0
 .end method

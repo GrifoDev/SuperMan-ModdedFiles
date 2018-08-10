@@ -21,6 +21,10 @@
 
 .field public static final MSG_ON_LISTENER_HINTS_CHANGED:I = 0x5
 
+.field public static final MSG_ON_NOTIFICATION_CHANNEL_GROUP_MODIFIED:I = 0x8
+
+.field public static final MSG_ON_NOTIFICATION_CHANNEL_MODIFIED:I = 0x7
+
 .field public static final MSG_ON_NOTIFICATION_POSTED:I = 0x1
 
 .field public static final MSG_ON_NOTIFICATION_RANKING_UPDATE:I = 0x4
@@ -50,22 +54,22 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .locals 6
+    .locals 12
 
-    iget-object v5, p0, Landroid/service/notification/NotificationListenerService$MyHandler;->this$0:Landroid/service/notification/NotificationListenerService;
+    iget-object v11, p0, Landroid/service/notification/NotificationListenerService$MyHandler;->this$0:Landroid/service/notification/NotificationListenerService;
 
-    invoke-static {v5}, Landroid/service/notification/NotificationListenerService;->-get1(Landroid/service/notification/NotificationListenerService;)Z
+    invoke-static {v11}, Landroid/service/notification/NotificationListenerService;->-get1(Landroid/service/notification/NotificationListenerService;)Z
 
-    move-result v5
+    move-result v11
 
-    if-nez v5, :cond_0
+    if-nez v11, :cond_0
 
     return-void
 
     :cond_0
-    iget v5, p1, Landroid/os/Message;->what:I
+    iget v11, p1, Landroid/os/Message;->what:I
 
-    packed-switch v5, :pswitch_data_0
+    packed-switch v11, :pswitch_data_0
 
     :goto_0
     return-void
@@ -75,19 +79,19 @@
 
     check-cast v0, Lcom/android/internal/os/SomeArgs;
 
-    iget-object v4, v0, Lcom/android/internal/os/SomeArgs;->arg1:Ljava/lang/Object;
+    iget-object v9, v0, Lcom/android/internal/os/SomeArgs;->arg1:Ljava/lang/Object;
 
-    check-cast v4, Landroid/service/notification/StatusBarNotification;
+    check-cast v9, Landroid/service/notification/StatusBarNotification;
 
-    iget-object v3, v0, Lcom/android/internal/os/SomeArgs;->arg2:Ljava/lang/Object;
+    iget-object v7, v0, Lcom/android/internal/os/SomeArgs;->arg2:Ljava/lang/Object;
 
-    check-cast v3, Landroid/service/notification/NotificationListenerService$RankingMap;
+    check-cast v7, Landroid/service/notification/NotificationListenerService$RankingMap;
 
     invoke-virtual {v0}, Lcom/android/internal/os/SomeArgs;->recycle()V
 
-    iget-object v5, p0, Landroid/service/notification/NotificationListenerService$MyHandler;->this$0:Landroid/service/notification/NotificationListenerService;
+    iget-object v11, p0, Landroid/service/notification/NotificationListenerService$MyHandler;->this$0:Landroid/service/notification/NotificationListenerService;
 
-    invoke-virtual {v5, v4, v3}, Landroid/service/notification/NotificationListenerService;->onNotificationPosted(Landroid/service/notification/StatusBarNotification;Landroid/service/notification/NotificationListenerService$RankingMap;)V
+    invoke-virtual {v11, v9, v7}, Landroid/service/notification/NotificationListenerService;->onNotificationPosted(Landroid/service/notification/StatusBarNotification;Landroid/service/notification/NotificationListenerService$RankingMap;)V
 
     goto :goto_0
 
@@ -96,59 +100,127 @@
 
     check-cast v0, Lcom/android/internal/os/SomeArgs;
 
-    iget-object v4, v0, Lcom/android/internal/os/SomeArgs;->arg1:Ljava/lang/Object;
+    iget-object v9, v0, Lcom/android/internal/os/SomeArgs;->arg1:Ljava/lang/Object;
 
-    check-cast v4, Landroid/service/notification/StatusBarNotification;
+    check-cast v9, Landroid/service/notification/StatusBarNotification;
 
-    iget-object v3, v0, Lcom/android/internal/os/SomeArgs;->arg2:Ljava/lang/Object;
+    iget-object v7, v0, Lcom/android/internal/os/SomeArgs;->arg2:Ljava/lang/Object;
 
-    check-cast v3, Landroid/service/notification/NotificationListenerService$RankingMap;
+    check-cast v7, Landroid/service/notification/NotificationListenerService$RankingMap;
+
+    iget-object v11, v0, Lcom/android/internal/os/SomeArgs;->arg3:Ljava/lang/Object;
+
+    check-cast v11, Ljava/lang/Integer;
+
+    invoke-virtual {v11}, Ljava/lang/Integer;->intValue()I
+
+    move-result v8
 
     invoke-virtual {v0}, Lcom/android/internal/os/SomeArgs;->recycle()V
 
-    iget-object v5, p0, Landroid/service/notification/NotificationListenerService$MyHandler;->this$0:Landroid/service/notification/NotificationListenerService;
+    iget-object v11, p0, Landroid/service/notification/NotificationListenerService$MyHandler;->this$0:Landroid/service/notification/NotificationListenerService;
 
-    invoke-virtual {v5, v4, v3}, Landroid/service/notification/NotificationListenerService;->onNotificationRemoved(Landroid/service/notification/StatusBarNotification;Landroid/service/notification/NotificationListenerService$RankingMap;)V
+    invoke-virtual {v11, v9, v7, v8}, Landroid/service/notification/NotificationListenerService;->onNotificationRemoved(Landroid/service/notification/StatusBarNotification;Landroid/service/notification/NotificationListenerService$RankingMap;I)V
 
     goto :goto_0
 
     :pswitch_2
-    iget-object v5, p0, Landroid/service/notification/NotificationListenerService$MyHandler;->this$0:Landroid/service/notification/NotificationListenerService;
+    iget-object v11, p0, Landroid/service/notification/NotificationListenerService$MyHandler;->this$0:Landroid/service/notification/NotificationListenerService;
 
-    invoke-virtual {v5}, Landroid/service/notification/NotificationListenerService;->onListenerConnected()V
+    invoke-virtual {v11}, Landroid/service/notification/NotificationListenerService;->onListenerConnected()V
 
     goto :goto_0
 
     :pswitch_3
-    iget-object v3, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
+    iget-object v7, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    check-cast v3, Landroid/service/notification/NotificationListenerService$RankingMap;
+    check-cast v7, Landroid/service/notification/NotificationListenerService$RankingMap;
 
-    iget-object v5, p0, Landroid/service/notification/NotificationListenerService$MyHandler;->this$0:Landroid/service/notification/NotificationListenerService;
+    iget-object v11, p0, Landroid/service/notification/NotificationListenerService$MyHandler;->this$0:Landroid/service/notification/NotificationListenerService;
 
-    invoke-virtual {v5, v3}, Landroid/service/notification/NotificationListenerService;->onNotificationRankingUpdate(Landroid/service/notification/NotificationListenerService$RankingMap;)V
+    invoke-virtual {v11, v7}, Landroid/service/notification/NotificationListenerService;->onNotificationRankingUpdate(Landroid/service/notification/NotificationListenerService$RankingMap;)V
 
     goto :goto_0
 
     :pswitch_4
-    iget v1, p1, Landroid/os/Message;->arg1:I
+    iget v3, p1, Landroid/os/Message;->arg1:I
 
-    iget-object v5, p0, Landroid/service/notification/NotificationListenerService$MyHandler;->this$0:Landroid/service/notification/NotificationListenerService;
+    iget-object v11, p0, Landroid/service/notification/NotificationListenerService$MyHandler;->this$0:Landroid/service/notification/NotificationListenerService;
 
-    invoke-virtual {v5, v1}, Landroid/service/notification/NotificationListenerService;->onListenerHintsChanged(I)V
+    invoke-virtual {v11, v3}, Landroid/service/notification/NotificationListenerService;->onListenerHintsChanged(I)V
 
     goto :goto_0
 
     :pswitch_5
-    iget v2, p1, Landroid/os/Message;->arg1:I
+    iget v4, p1, Landroid/os/Message;->arg1:I
 
-    iget-object v5, p0, Landroid/service/notification/NotificationListenerService$MyHandler;->this$0:Landroid/service/notification/NotificationListenerService;
+    iget-object v11, p0, Landroid/service/notification/NotificationListenerService$MyHandler;->this$0:Landroid/service/notification/NotificationListenerService;
 
-    invoke-virtual {v5, v2}, Landroid/service/notification/NotificationListenerService;->onInterruptionFilterChanged(I)V
+    invoke-virtual {v11, v4}, Landroid/service/notification/NotificationListenerService;->onInterruptionFilterChanged(I)V
 
     goto :goto_0
 
-    nop
+    :pswitch_6
+    iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
+
+    check-cast v0, Lcom/android/internal/os/SomeArgs;
+
+    iget-object v6, v0, Lcom/android/internal/os/SomeArgs;->arg1:Ljava/lang/Object;
+
+    check-cast v6, Ljava/lang/String;
+
+    iget-object v10, v0, Lcom/android/internal/os/SomeArgs;->arg2:Ljava/lang/Object;
+
+    check-cast v10, Landroid/os/UserHandle;
+
+    iget-object v1, v0, Lcom/android/internal/os/SomeArgs;->arg3:Ljava/lang/Object;
+
+    check-cast v1, Landroid/app/NotificationChannel;
+
+    iget-object v11, v0, Lcom/android/internal/os/SomeArgs;->arg4:Ljava/lang/Object;
+
+    check-cast v11, Ljava/lang/Integer;
+
+    invoke-virtual {v11}, Ljava/lang/Integer;->intValue()I
+
+    move-result v5
+
+    iget-object v11, p0, Landroid/service/notification/NotificationListenerService$MyHandler;->this$0:Landroid/service/notification/NotificationListenerService;
+
+    invoke-virtual {v11, v6, v10, v1, v5}, Landroid/service/notification/NotificationListenerService;->onNotificationChannelModified(Ljava/lang/String;Landroid/os/UserHandle;Landroid/app/NotificationChannel;I)V
+
+    goto :goto_0
+
+    :pswitch_7
+    iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
+
+    check-cast v0, Lcom/android/internal/os/SomeArgs;
+
+    iget-object v6, v0, Lcom/android/internal/os/SomeArgs;->arg1:Ljava/lang/Object;
+
+    check-cast v6, Ljava/lang/String;
+
+    iget-object v10, v0, Lcom/android/internal/os/SomeArgs;->arg2:Ljava/lang/Object;
+
+    check-cast v10, Landroid/os/UserHandle;
+
+    iget-object v2, v0, Lcom/android/internal/os/SomeArgs;->arg3:Ljava/lang/Object;
+
+    check-cast v2, Landroid/app/NotificationChannelGroup;
+
+    iget-object v11, v0, Lcom/android/internal/os/SomeArgs;->arg4:Ljava/lang/Object;
+
+    check-cast v11, Ljava/lang/Integer;
+
+    invoke-virtual {v11}, Ljava/lang/Integer;->intValue()I
+
+    move-result v5
+
+    iget-object v11, p0, Landroid/service/notification/NotificationListenerService$MyHandler;->this$0:Landroid/service/notification/NotificationListenerService;
+
+    invoke-virtual {v11, v6, v10, v2, v5}, Landroid/service/notification/NotificationListenerService;->onNotificationChannelGroupModified(Ljava/lang/String;Landroid/os/UserHandle;Landroid/app/NotificationChannelGroup;I)V
+
+    goto/16 :goto_0
 
     :pswitch_data_0
     .packed-switch 0x1
@@ -158,5 +230,7 @@
         :pswitch_3
         :pswitch_4
         :pswitch_5
+        :pswitch_6
+        :pswitch_7
     .end packed-switch
 .end method

@@ -13,12 +13,18 @@
 
 .field private final mSelf:Ljava/lang/ref/WeakReference;
 
+.field volatile mWarnOnBlocking:Z
+
 
 # direct methods
 .method constructor <init>()V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    sget-boolean v0, Landroid/os/Binder;->sWarnOnBlocking:Z
+
+    iput-boolean v0, p0, Landroid/os/BinderProxy;->mWarnOnBlocking:Z
 
     new-instance v0, Ljava/lang/ref/WeakReference;
 
@@ -132,6 +138,10 @@
 
     invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
 
+    const-string/jumbo v6, "pp"
+
+    invoke-virtual {v0, v6, v5}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
+
     const-string/jumbo v6, "interfaceName"
 
     invoke-virtual {p2}, Landroid/os/Parcel;->getInterfaceName()Ljava/lang/String;
@@ -139,6 +149,22 @@
     move-result-object v7
 
     invoke-virtual {v0, v6, v7}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+
+    const-string/jumbo v6, "uid"
+
+    invoke-static {}, Landroid/os/Binder;->getCallingUid()I
+
+    move-result v7
+
+    invoke-virtual {v0, v6, v7}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
+
+    const-string/jumbo v6, "pid"
+
+    invoke-static {}, Landroid/os/Binder;->getCallingPid()I
+
+    move-result v7
+
+    invoke-virtual {v0, v6, v7}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
     new-instance v4, Landroid/os/Message;
 
@@ -148,15 +174,7 @@
 
     iput v6, v4, Landroid/os/Message;->what:I
 
-    iput-object v5, v4, Landroid/os/Message;->obj:Ljava/lang/Object;
-
     iput p1, v4, Landroid/os/Message;->arg1:I
-
-    invoke-static {}, Landroid/os/Binder;->getCallingUid()I
-
-    move-result v6
-
-    iput v6, v4, Landroid/os/Message;->arg2:I
 
     invoke-virtual {v4, v0}, Landroid/os/Message;->setData(Landroid/os/Bundle;)V
 
@@ -355,7 +373,7 @@
     return-object v0
 .end method
 
-.method public shellCommand(Ljava/io/FileDescriptor;Ljava/io/FileDescriptor;Ljava/io/FileDescriptor;[Ljava/lang/String;Landroid/os/ResultReceiver;)V
+.method public shellCommand(Ljava/io/FileDescriptor;Ljava/io/FileDescriptor;Ljava/io/FileDescriptor;[Ljava/lang/String;Landroid/os/ShellCallback;Landroid/os/ResultReceiver;)V
     .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -381,7 +399,9 @@
 
     invoke-virtual {v0, p4}, Landroid/os/Parcel;->writeStringArray([Ljava/lang/String;)V
 
-    invoke-virtual {p5, v0, v2}, Landroid/os/ResultReceiver;->writeToParcel(Landroid/os/Parcel;I)V
+    invoke-static {p5, v0}, Landroid/os/ShellCallback;->writeToParcel(Landroid/os/ShellCallback;Landroid/os/Parcel;)V
+
+    invoke-virtual {p6, v0, v2}, Landroid/os/ResultReceiver;->writeToParcel(Landroid/os/Parcel;I)V
 
     const v2, 0x5f434d44
 
@@ -411,44 +431,131 @@
 .end method
 
 .method public transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    .locals 1
+    .locals 8
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    const-string/jumbo v0, "Unreasonably large binder buffer"
+    const/4 v4, 0x0
 
-    invoke-static {p0, p1, p2, v0}, Landroid/os/Binder;->checkParcel(Landroid/os/IBinder;ILandroid/os/Parcel;Ljava/lang/String;)V
+    const-wide/16 v6, 0x1
 
+    const-string/jumbo v3, "Unreasonably large binder buffer"
+
+    invoke-static {p0, p1, p2, v3}, Landroid/os/Binder;->checkParcel(Landroid/os/IBinder;ILandroid/os/Parcel;Ljava/lang/String;)V
+
+    iget-boolean v3, p0, Landroid/os/BinderProxy;->mWarnOnBlocking:Z
+
+    if-eqz v3, :cond_0
+
+    and-int/lit8 v3, p4, 0x1
+
+    if-nez v3, :cond_0
+
+    iput-boolean v4, p0, Landroid/os/BinderProxy;->mWarnOnBlocking:Z
+
+    const-string/jumbo v3, "Binder"
+
+    const-string/jumbo v4, "Outgoing transactions from this process must be FLAG_ONEWAY"
+
+    new-instance v5, Ljava/lang/Throwable;
+
+    invoke-direct {v5}, Ljava/lang/Throwable;-><init>()V
+
+    invoke-static {v3, v4, v5}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    :cond_0
     invoke-static {}, Landroid/os/Binder;->isTracingEnabled()Z
 
-    move-result v0
+    move-result v2
 
-    if-eqz v0, :cond_0
+    if-eqz v2, :cond_1
+
+    new-instance v1, Ljava/lang/Throwable;
+
+    invoke-direct {v1}, Ljava/lang/Throwable;-><init>()V
 
     invoke-static {}, Landroid/os/Binder;->getTransactionTracker()Landroid/os/TransactionTracker;
 
-    move-result-object v0
+    move-result-object v3
 
-    invoke-virtual {v0}, Landroid/os/TransactionTracker;->addTrace()V
+    invoke-virtual {v3, v1}, Landroid/os/TransactionTracker;->addTrace(Ljava/lang/Throwable;)V
 
-    :cond_0
+    invoke-virtual {v1}, Ljava/lang/Throwable;->getStackTrace()[Ljava/lang/StackTraceElement;
+
+    move-result-object v3
+
+    const/4 v4, 0x1
+
+    aget-object v0, v3, v4
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v0}, Ljava/lang/StackTraceElement;->getClassName()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    const-string/jumbo v4, "."
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v0}, Ljava/lang/StackTraceElement;->getMethodName()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v6, v7, v3}, Landroid/os/Trace;->traceBegin(JLjava/lang/String;)V
+
+    :cond_1
     invoke-direct {p0, p2}, Landroid/os/BinderProxy;->isMsgForGoogleLocation(Landroid/os/Parcel;)Z
 
-    move-result v0
+    move-result v3
 
-    if-eqz v0, :cond_1
+    if-eqz v3, :cond_2
 
     invoke-direct {p0, p1, p2}, Landroid/os/BinderProxy;->sendInfoToNSFLP(ILandroid/os/Parcel;)V
 
-    :cond_1
+    :cond_2
+    :try_start_0
     invoke-virtual {p0, p1, p2, p3, p4}, Landroid/os/BinderProxy;->transactNative(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    move-result v0
+    move-result v3
 
-    return v0
+    if-eqz v2, :cond_3
+
+    invoke-static {v6, v7}, Landroid/os/Trace;->traceEnd(J)V
+
+    :cond_3
+    return v3
+
+    :catchall_0
+    move-exception v3
+
+    if-eqz v2, :cond_4
+
+    invoke-static {v6, v7}, Landroid/os/Trace;->traceEnd(J)V
+
+    :cond_4
+    throw v3
 .end method
 
 .method public native transactNative(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z

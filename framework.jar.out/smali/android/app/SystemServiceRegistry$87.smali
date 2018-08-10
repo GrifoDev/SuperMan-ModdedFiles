@@ -35,17 +35,37 @@
 
 # virtual methods
 .method public createService(Landroid/app/ContextImpl;)Landroid/content/pm/ShortcutManager;
-    .locals 1
+    .locals 3
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/ServiceManager$ServiceNotFoundException;
+        }
+    .end annotation
 
-    new-instance v0, Landroid/content/pm/ShortcutManager;
+    const-string/jumbo v1, "shortcut"
 
-    invoke-direct {v0, p1}, Landroid/content/pm/ShortcutManager;-><init>(Landroid/content/Context;)V
+    invoke-static {v1}, Landroid/os/ServiceManager;->getServiceOrThrow(Ljava/lang/String;)Landroid/os/IBinder;
 
-    return-object v0
+    move-result-object v0
+
+    new-instance v1, Landroid/content/pm/ShortcutManager;
+
+    invoke-static {v0}, Landroid/content/pm/IShortcutService$Stub;->asInterface(Landroid/os/IBinder;)Landroid/content/pm/IShortcutService;
+
+    move-result-object v2
+
+    invoke-direct {v1, p1, v2}, Landroid/content/pm/ShortcutManager;-><init>(Landroid/content/Context;Landroid/content/pm/IShortcutService;)V
+
+    return-object v1
 .end method
 
 .method public bridge synthetic createService(Landroid/app/ContextImpl;)Ljava/lang/Object;
     .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/ServiceManager$ServiceNotFoundException;
+        }
+    .end annotation
 
     invoke-virtual {p0, p1}, Landroid/app/SystemServiceRegistry$87;->createService(Landroid/app/ContextImpl;)Landroid/content/pm/ShortcutManager;
 

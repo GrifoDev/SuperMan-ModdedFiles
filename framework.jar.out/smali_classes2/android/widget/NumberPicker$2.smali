@@ -51,13 +51,13 @@
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/view/View;->clearFocus()V
+    invoke-virtual {v0}, Landroid/widget/EditText;->clearFocus()V
 
     invoke-virtual {p1}, Landroid/view/View;->getId()I
 
     move-result v0
 
-    const v1, 0x102044a
+    const v1, 0x1020318
 
     if-ne v0, v1, :cond_0
 

@@ -16,8 +16,6 @@
 
 .field public static final VIEW_STATE_ENABLED:I = 0x8
 
-.field public static final VIEW_STATE_FINGER_HOVERED:I = 0x400
-
 .field public static final VIEW_STATE_FOCUSED:I = 0x4
 
 .field public static final VIEW_STATE_HOVERED:I = 0x80
@@ -29,6 +27,8 @@
 .field public static final VIEW_STATE_SELECTED:I = 0x2
 
 .field private static final VIEW_STATE_SETS:[[I
+
+.field public static final VIEW_STATE_SPEN_HOVERED:I = 0x400
 
 .field public static final VIEW_STATE_WINDOW_FOCUSED:I = 0x1
 
@@ -234,7 +234,7 @@
         0x100
         0x1010369
         0x200
-        0x11600ca
+        0x111014a
         0x400
     .end array-data
 .end method
@@ -245,6 +245,61 @@
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
+.end method
+
+.method public static containsAttribute([[II)Z
+    .locals 8
+
+    const/4 v3, 0x0
+
+    if-eqz p0, :cond_0
+
+    array-length v5, p0
+
+    move v4, v3
+
+    :goto_0
+    if-ge v4, v5, :cond_0
+
+    aget-object v0, p0, v4
+
+    if-nez v0, :cond_1
+
+    :cond_0
+    return v3
+
+    :cond_1
+    array-length v6, v0
+
+    move v2, v3
+
+    :goto_1
+    if-ge v2, v6, :cond_4
+
+    aget v1, v0, v2
+
+    if-eq v1, p1, :cond_2
+
+    neg-int v7, v1
+
+    if-ne v7, p1, :cond_3
+
+    :cond_2
+    const/4 v2, 0x1
+
+    return v2
+
+    :cond_3
+    add-int/lit8 v2, v2, 0x1
+
+    goto :goto_1
+
+    :cond_4
+    add-int/lit8 v2, v4, 0x1
+
+    move v4, v2
+
+    goto :goto_0
 .end method
 
 .method public static dump([I)Ljava/lang/String;
@@ -434,11 +489,11 @@
 .end method
 
 .method public static stateSetMatches([I[I)Z
-    .locals 10
+    .locals 11
 
     const/4 v8, 0x1
 
-    const/4 v9, 0x0
+    const/4 v10, 0x0
 
     if-nez p1, :cond_1
 
@@ -459,7 +514,7 @@
     const/4 v1, 0x0
 
     :goto_0
-    if-ge v1, v6, :cond_a
+    if-ge v1, v6, :cond_9
 
     aget v7, p0, v1
 
@@ -486,7 +541,7 @@
 
     if-eqz v3, :cond_5
 
-    return v9
+    return v10
 
     :cond_3
     const/4 v3, 0x0
@@ -496,34 +551,35 @@
     goto :goto_1
 
     :cond_4
-    if-ne v4, v7, :cond_8
+    if-ne v4, v7, :cond_7
 
-    if-eqz v3, :cond_7
+    if-eqz v3, :cond_6
 
     const/4 v0, 0x1
 
     :cond_5
-    if-eqz v3, :cond_6
+    if-eqz v3, :cond_8
 
-    if-eqz v0, :cond_9
+    xor-int/lit8 v9, v0, 0x1
+
+    if-eqz v9, :cond_8
+
+    return v10
 
     :cond_6
-    add-int/lit8 v1, v1, 0x1
-
-    goto :goto_0
+    return v10
 
     :cond_7
-    return v9
-
-    :cond_8
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_2
 
-    :cond_9
-    return v9
+    :cond_8
+    add-int/lit8 v1, v1, 0x1
 
-    :cond_a
+    goto :goto_0
+
+    :cond_9
     return v8
 .end method
 

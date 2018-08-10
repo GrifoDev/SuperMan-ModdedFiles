@@ -37,7 +37,7 @@
 
     const-string/jumbo v0, "android.sec.enterprise.proxy.IProxyCredentialsCallback"
 
-    invoke-virtual {p0, p0, v0}, Landroid/os/Binder;->attachInterface(Landroid/os/IInterface;Ljava/lang/String;)V
+    invoke-virtual {p0, p0, v0}, Landroid/sec/enterprise/proxy/IProxyCredentialsCallback$Stub;->attachInterface(Landroid/os/IInterface;Ljava/lang/String;)V
 
     return-void
 .end method

@@ -1,11 +1,14 @@
 .class Landroid/hardware/fingerprint/FingerprintManager$2;
-.super Landroid/hardware/fingerprint/IFingerprintServiceLockoutResetCallback$Stub;
+.super Ljava/lang/Object;
 .source "FingerprintManager.java"
+
+# interfaces
+.implements Ljava/lang/Runnable;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Landroid/hardware/fingerprint/FingerprintManager;->addLockoutResetCallback(Landroid/hardware/fingerprint/FingerprintManager$LockoutResetCallback;)V
+    value = Landroid/hardware/fingerprint/FingerprintManager;->authenticate(Landroid/hardware/fingerprint/FingerprintManager$CryptoObject;Landroid/os/CancellationSignal;ILandroid/hardware/fingerprint/FingerprintManager$AuthenticationCallback;Landroid/os/Handler;ILandroid/os/Bundle;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -17,61 +20,40 @@
 # instance fields
 .field final synthetic this$0:Landroid/hardware/fingerprint/FingerprintManager;
 
-.field final synthetic val$callback:Landroid/hardware/fingerprint/FingerprintManager$LockoutResetCallback;
-
-.field final synthetic val$powerManager:Landroid/os/PowerManager;
+.field final synthetic val$callback:Landroid/hardware/fingerprint/FingerprintManager$AuthenticationCallback;
 
 
 # direct methods
-.method constructor <init>(Landroid/hardware/fingerprint/FingerprintManager;Landroid/os/PowerManager;Landroid/hardware/fingerprint/FingerprintManager$LockoutResetCallback;)V
+.method constructor <init>(Landroid/hardware/fingerprint/FingerprintManager;Landroid/hardware/fingerprint/FingerprintManager$AuthenticationCallback;)V
     .locals 0
 
     iput-object p1, p0, Landroid/hardware/fingerprint/FingerprintManager$2;->this$0:Landroid/hardware/fingerprint/FingerprintManager;
 
-    iput-object p2, p0, Landroid/hardware/fingerprint/FingerprintManager$2;->val$powerManager:Landroid/os/PowerManager;
+    iput-object p2, p0, Landroid/hardware/fingerprint/FingerprintManager$2;->val$callback:Landroid/hardware/fingerprint/FingerprintManager$AuthenticationCallback;
 
-    iput-object p3, p0, Landroid/hardware/fingerprint/FingerprintManager$2;->val$callback:Landroid/hardware/fingerprint/FingerprintManager$LockoutResetCallback;
-
-    invoke-direct {p0}, Landroid/hardware/fingerprint/IFingerprintServiceLockoutResetCallback$Stub;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onLockoutReset(J)V
+.method public run()V
     .locals 4
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    iget-object v1, p0, Landroid/hardware/fingerprint/FingerprintManager$2;->val$powerManager:Landroid/os/PowerManager;
-
-    const-string/jumbo v2, "lockoutResetCallback"
 
     const/4 v3, 0x1
 
-    invoke-virtual {v1, v3, v2}, Landroid/os/PowerManager;->newWakeLock(ILjava/lang/String;)Landroid/os/PowerManager$WakeLock;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/os/PowerManager$WakeLock;->acquire()V
+    iget-object v0, p0, Landroid/hardware/fingerprint/FingerprintManager$2;->val$callback:Landroid/hardware/fingerprint/FingerprintManager$AuthenticationCallback;
 
     iget-object v1, p0, Landroid/hardware/fingerprint/FingerprintManager$2;->this$0:Landroid/hardware/fingerprint/FingerprintManager;
 
-    invoke-static {v1}, Landroid/hardware/fingerprint/FingerprintManager;->-get3(Landroid/hardware/fingerprint/FingerprintManager;)Landroid/os/Handler;
+    const/4 v2, 0x0
+
+    invoke-static {v1, v3, v2}, Landroid/hardware/fingerprint/FingerprintManager;->-wrap1(Landroid/hardware/fingerprint/FingerprintManager;II)Ljava/lang/String;
 
     move-result-object v1
 
-    new-instance v2, Landroid/hardware/fingerprint/FingerprintManager$2$1;
-
-    iget-object v3, p0, Landroid/hardware/fingerprint/FingerprintManager$2;->val$callback:Landroid/hardware/fingerprint/FingerprintManager$LockoutResetCallback;
-
-    invoke-direct {v2, p0, v0, v3}, Landroid/hardware/fingerprint/FingerprintManager$2$1;-><init>(Landroid/hardware/fingerprint/FingerprintManager$2;Landroid/os/PowerManager$WakeLock;Landroid/hardware/fingerprint/FingerprintManager$LockoutResetCallback;)V
-
-    invoke-virtual {v1, v2}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+    invoke-virtual {v0, v3, v1}, Landroid/hardware/fingerprint/FingerprintManager$AuthenticationCallback;->onAuthenticationError(ILjava/lang/CharSequence;)V
 
     return-void
 .end method

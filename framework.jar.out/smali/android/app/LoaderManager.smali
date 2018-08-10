@@ -36,6 +36,14 @@
 .method public abstract dump(Ljava/lang/String;Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
 .end method
 
+.method public getFragmentHostCallback()Landroid/app/FragmentHostCallback;
+    .locals 1
+
+    const/4 v0, 0x0
+
+    return-object v0
+.end method
+
 .method public abstract getLoader(I)Landroid/content/Loader;
     .annotation system Ldalvik/annotation/Signature;
         value = {

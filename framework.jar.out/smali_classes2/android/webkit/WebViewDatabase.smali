@@ -33,6 +33,8 @@
 
 # virtual methods
 .method public abstract clearFormData()V
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 .end method
 
 .method public abstract clearHttpAuthUsernamePassword()V
@@ -43,7 +45,12 @@
     .end annotation
 .end method
 
+.method public abstract getHttpAuthUsernamePassword(Ljava/lang/String;Ljava/lang/String;)[Ljava/lang/String;
+.end method
+
 .method public abstract hasFormData()Z
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 .end method
 
 .method public abstract hasHttpAuthUsernamePassword()Z
@@ -52,4 +59,7 @@
 .method public abstract hasUsernamePassword()Z
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
+.end method
+
+.method public abstract setHttpAuthUsernamePassword(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 .end method

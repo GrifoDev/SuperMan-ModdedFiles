@@ -71,7 +71,7 @@
     .end annotation
 .end method
 
-.method public abstract setReferenceData(I[B)Z
+.method public abstract setReferenceData(II[B)Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

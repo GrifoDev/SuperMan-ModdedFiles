@@ -18,13 +18,21 @@
 
 .field public static final ACTION_REQUEST_LISTENING:Ljava/lang/String; = "android.service.quicksettings.action.REQUEST_LISTENING"
 
-.field public static final EXTRA_COMPONENT:Ljava/lang/String; = "android.service.quicksettings.extra.COMPONENT"
-
 .field public static final EXTRA_SERVICE:Ljava/lang/String; = "service"
+
+.field public static final EXTRA_STATE:Ljava/lang/String; = "state"
 
 .field public static final EXTRA_TOKEN:Ljava/lang/String; = "token"
 
 .field public static final META_DATA_ACTIVE_TILE:Ljava/lang/String; = "android.service.quicksettings.ACTIVE_TILE"
+
+.field public static final SEM_META_DATA_DEFAULT_TILE_NAME:Ljava/lang/String; = "android.service.quicksettings.SEM_DEFAULT_TILE_NAME"
+
+.field public static final SEM_META_DATA_DEFAULT_TILE_STATE:Ljava/lang/String; = "android.service.quicksettings.SEM_DEFAULT_TILE_STATE"
+
+.field public static final SEM_META_DATA_DEFAULT_TILE_UNLOCK_POLICY:Ljava/lang/String; = "android.service.quicksettings.SEM_DEFAULT_TILE_UNLOCK_POLICY"
+
+.field public static final SEM_META_DATA_DEFAULT_TILE_USER_POLICY:Ljava/lang/String; = "android.service.quicksettings.SEM_DEFAULT_TILE_USER_POLICY"
 
 
 # instance fields
@@ -122,6 +130,22 @@
     return-void
 .end method
 
+.method public static isQuickSettingsSupported()Z
+    .locals 2
+
+    invoke-static {}, Landroid/content/res/Resources;->getSystem()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    const v1, 0x1120089
+
+    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
+
+    move-result v0
+
+    return v0
+.end method
+
 .method public static final requestListeningState(Landroid/content/Context;Landroid/content/ComponentName;)V
     .locals 2
 
@@ -131,9 +155,13 @@
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    const-string/jumbo v1, "android.service.quicksettings.extra.COMPONENT"
+    const-string/jumbo v1, "android.intent.extra.COMPONENT_NAME"
 
     invoke-virtual {v0, v1, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
+
+    const-string/jumbo v1, "com.android.systemui"
+
+    invoke-virtual {v0, v1}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/Intent;
 
     const-string/jumbo v1, "android.permission.BIND_QUICK_SETTINGS_TILE"
 
@@ -347,6 +375,14 @@
     return-object v0
 .end method
 
+.method public semGetDetailViewSettingButtonName()Ljava/lang/CharSequence;
+    .locals 1
+
+    const/4 v0, 0x0
+
+    return-object v0
+.end method
+
 .method public semGetDetailViewTitle()Ljava/lang/CharSequence;
     .locals 1
 
@@ -377,73 +413,6 @@
     const/4 v0, 0x1
 
     return v0
-.end method
-
-.method public semRefreshConnection(Landroid/content/Intent;)V
-    .locals 4
-
-    const-string/jumbo v1, "service"
-
-    invoke-virtual {p1, v1}, Landroid/content/Intent;->getIBinderExtra(Ljava/lang/String;)Landroid/os/IBinder;
-
-    move-result-object v1
-
-    invoke-static {v1}, Landroid/service/quicksettings/IQSService$Stub;->asInterface(Landroid/os/IBinder;)Landroid/service/quicksettings/IQSService;
-
-    move-result-object v1
-
-    iput-object v1, p0, Landroid/service/quicksettings/TileService;->mService:Landroid/service/quicksettings/IQSService;
-
-    const-string/jumbo v1, "token"
-
-    invoke-virtual {p1, v1}, Landroid/content/Intent;->getIBinderExtra(Ljava/lang/String;)Landroid/os/IBinder;
-
-    move-result-object v1
-
-    iput-object v1, p0, Landroid/service/quicksettings/TileService;->mTileToken:Landroid/os/IBinder;
-
-    :try_start_0
-    iget-object v1, p0, Landroid/service/quicksettings/TileService;->mService:Landroid/service/quicksettings/IQSService;
-
-    iget-object v2, p0, Landroid/service/quicksettings/TileService;->mTileToken:Landroid/os/IBinder;
-
-    invoke-interface {v1, v2}, Landroid/service/quicksettings/IQSService;->getTile(Landroid/os/IBinder;)Landroid/service/quicksettings/Tile;
-
-    move-result-object v1
-
-    iput-object v1, p0, Landroid/service/quicksettings/TileService;->mTile:Landroid/service/quicksettings/Tile;
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    iget-object v1, p0, Landroid/service/quicksettings/TileService;->mTile:Landroid/service/quicksettings/Tile;
-
-    if-eqz v1, :cond_0
-
-    iget-object v1, p0, Landroid/service/quicksettings/TileService;->mTile:Landroid/service/quicksettings/Tile;
-
-    iget-object v2, p0, Landroid/service/quicksettings/TileService;->mService:Landroid/service/quicksettings/IQSService;
-
-    iget-object v3, p0, Landroid/service/quicksettings/TileService;->mTileToken:Landroid/os/IBinder;
-
-    invoke-virtual {v1, v2, v3}, Landroid/service/quicksettings/Tile;->setService(Landroid/service/quicksettings/IQSService;Landroid/os/IBinder;)V
-
-    iget-object v1, p0, Landroid/service/quicksettings/TileService;->mTile:Landroid/service/quicksettings/Tile;
-
-    invoke-virtual {v1}, Landroid/service/quicksettings/Tile;->updateTile()V
-
-    :cond_0
-    return-void
-
-    :catch_0
-    move-exception v0
-
-    new-instance v1, Ljava/lang/RuntimeException;
-
-    const-string/jumbo v2, "Unable to reach IQSService"
-
-    invoke-direct {v1, v2, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
-
-    throw v1
 .end method
 
 .method public semSetToggleButtonChecked(Z)V
@@ -508,18 +477,6 @@
 
     invoke-virtual {v2}, Landroid/view/Window;->getAttributes()Landroid/view/WindowManager$LayoutParams;
 
-    move-result-object v2
-
-    iget-object v3, p0, Landroid/service/quicksettings/TileService;->mToken:Landroid/os/IBinder;
-
-    iput-object v3, v2, Landroid/view/WindowManager$LayoutParams;->token:Landroid/os/IBinder;
-
-    invoke-virtual {p1}, Landroid/app/Dialog;->getWindow()Landroid/view/Window;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Landroid/view/Window;->getAttributes()Landroid/view/WindowManager$LayoutParams;
-
     move-result-object v0
 
     iget v2, v0, Landroid/view/WindowManager$LayoutParams;->type:I
@@ -533,6 +490,18 @@
     const/16 v3, 0x7d9
 
     if-eq v2, v3, :cond_0
+
+    invoke-virtual {p1}, Landroid/app/Dialog;->getWindow()Landroid/view/Window;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Landroid/view/Window;->getAttributes()Landroid/view/WindowManager$LayoutParams;
+
+    move-result-object v2
+
+    iget-object v3, p0, Landroid/service/quicksettings/TileService;->mToken:Landroid/os/IBinder;
+
+    iput-object v3, v2, Landroid/view/WindowManager$LayoutParams;->token:Landroid/os/IBinder;
 
     invoke-virtual {p1}, Landroid/app/Dialog;->getWindow()Landroid/view/Window;
 

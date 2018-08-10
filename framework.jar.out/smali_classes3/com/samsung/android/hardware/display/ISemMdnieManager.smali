@@ -23,6 +23,22 @@
     .end annotation
 .end method
 
+.method public abstract getCurrentPocIndex()I
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract getPocSettingValue()I
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract getScreenMode()I
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -55,6 +71,30 @@
     .end annotation
 .end method
 
+.method public abstract isMdnieFisrtUsed()Z
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract isMdniePocFused()Z
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract isMdniePocSupported()Z
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract isScreenModeSupported()Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -71,6 +111,14 @@
     .end annotation
 .end method
 
+.method public abstract setColorVision(ZII)Z
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract setContentMode(I)Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -79,7 +127,31 @@
     .end annotation
 .end method
 
+.method public abstract setLightNotificationMode(Z)Z
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract setNightMode(ZI)Z
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract setPocCancel()Z
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract setPocSetting(I)Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

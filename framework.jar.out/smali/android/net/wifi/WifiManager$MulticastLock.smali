@@ -171,7 +171,9 @@
     :try_end_5
     .catchall {:try_start_5 .. :try_end_5} :catchall_1
 
-    if-eqz v1, :cond_0
+    xor-int/lit8 v1, v1, 0x1
+
+    if-nez v1, :cond_0
 
     :cond_2
     :goto_0

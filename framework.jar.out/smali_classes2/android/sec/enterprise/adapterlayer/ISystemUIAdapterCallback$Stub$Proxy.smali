@@ -50,54 +50,49 @@
         }
     .end annotation
 
-    const/4 v2, 0x0
+    const/4 v1, 0x1
 
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
     :try_start_0
-    const-string/jumbo v3, "android.sec.enterprise.adapterlayer.ISystemUIAdapterCallback"
+    const-string/jumbo v2, "android.sec.enterprise.adapterlayer.ISystemUIAdapterCallback"
 
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     if-eqz p1, :cond_0
 
-    const/4 v2, 0x1
+    :goto_0
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
 
-    :cond_0
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
+    iget-object v1, p0, Landroid/sec/enterprise/adapterlayer/ISystemUIAdapterCallback$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    iget-object v2, p0, Landroid/sec/enterprise/adapterlayer/ISystemUIAdapterCallback$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+    const/4 v2, 0x6
 
-    const/4 v3, 0x6
+    const/4 v3, 0x0
 
-    const/4 v4, 0x0
+    const/4 v4, 0x1
 
-    invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+    invoke-interface {v1, v2, v0, v3, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
     return-void
 
-    :catchall_0
-    move-exception v2
+    :cond_0
+    const/4 v1, 0x0
 
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+    goto :goto_0
+
+    :catchall_0
+    move-exception v1
 
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    throw v2
+    throw v1
 .end method
 
 .method public getInterfaceDescriptor()Ljava/lang/String;
@@ -116,54 +111,102 @@
         }
     .end annotation
 
-    const/4 v2, 0x0
+    const/4 v1, 0x1
 
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
     :try_start_0
-    const-string/jumbo v3, "android.sec.enterprise.adapterlayer.ISystemUIAdapterCallback"
+    const-string/jumbo v2, "android.sec.enterprise.adapterlayer.ISystemUIAdapterCallback"
 
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     if-eqz p1, :cond_0
 
-    const/4 v2, 0x1
+    :goto_0
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
 
-    :cond_0
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
+    iget-object v1, p0, Landroid/sec/enterprise/adapterlayer/ISystemUIAdapterCallback$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    iget-object v2, p0, Landroid/sec/enterprise/adapterlayer/ISystemUIAdapterCallback$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+    const/16 v2, 0xc
 
-    const/16 v3, 0xa
+    const/4 v3, 0x0
 
-    const/4 v4, 0x0
+    const/4 v4, 0x1
 
-    invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+    invoke-interface {v1, v2, v0, v3, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
     return-void
 
-    :catchall_0
-    move-exception v2
+    :cond_0
+    const/4 v1, 0x0
 
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+    goto :goto_0
+
+    :catchall_0
+    move-exception v1
 
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    throw v2
+    throw v1
+.end method
+
+.method public setApplicationNameControlEnabled(Z)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    const/4 v1, 0x1
+
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    :try_start_0
+    const-string/jumbo v2, "android.sec.enterprise.adapterlayer.ISystemUIAdapterCallback"
+
+    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    if-eqz p1, :cond_0
+
+    :goto_0
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
+
+    iget-object v1, p0, Landroid/sec/enterprise/adapterlayer/ISystemUIAdapterCallback$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+
+    const/16 v2, 0x19
+
+    const/4 v3, 0x0
+
+    const/4 v4, 0x1
+
+    invoke-interface {v1, v2, v0, v3, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    return-void
+
+    :cond_0
+    const/4 v1, 0x0
+
+    goto :goto_0
+
+    :catchall_0
+    move-exception v1
+
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    throw v1
 .end method
 
 .method public setBluetoothAllowed(Z)V
@@ -174,54 +217,49 @@
         }
     .end annotation
 
-    const/4 v2, 0x0
+    const/4 v1, 0x1
 
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
     :try_start_0
-    const-string/jumbo v3, "android.sec.enterprise.adapterlayer.ISystemUIAdapterCallback"
+    const-string/jumbo v2, "android.sec.enterprise.adapterlayer.ISystemUIAdapterCallback"
 
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     if-eqz p1, :cond_0
 
-    const/4 v2, 0x1
+    :goto_0
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
 
-    :cond_0
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
+    iget-object v1, p0, Landroid/sec/enterprise/adapterlayer/ISystemUIAdapterCallback$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    iget-object v2, p0, Landroid/sec/enterprise/adapterlayer/ISystemUIAdapterCallback$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+    const/16 v2, 0x10
 
-    const/16 v3, 0xe
+    const/4 v3, 0x0
 
-    const/4 v4, 0x0
+    const/4 v4, 0x1
 
-    invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+    invoke-interface {v1, v2, v0, v3, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
     return-void
 
-    :catchall_0
-    move-exception v2
+    :cond_0
+    const/4 v1, 0x0
 
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+    goto :goto_0
+
+    :catchall_0
+    move-exception v1
 
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    throw v2
+    throw v1
 .end method
 
 .method public setCellularDataAllowed(Z)V
@@ -232,54 +270,102 @@
         }
     .end annotation
 
-    const/4 v2, 0x0
+    const/4 v1, 0x1
 
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
     :try_start_0
-    const-string/jumbo v3, "android.sec.enterprise.adapterlayer.ISystemUIAdapterCallback"
+    const-string/jumbo v2, "android.sec.enterprise.adapterlayer.ISystemUIAdapterCallback"
 
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     if-eqz p1, :cond_0
 
-    const/4 v2, 0x1
+    :goto_0
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
 
-    :cond_0
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
+    iget-object v1, p0, Landroid/sec/enterprise/adapterlayer/ISystemUIAdapterCallback$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    iget-object v2, p0, Landroid/sec/enterprise/adapterlayer/ISystemUIAdapterCallback$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+    const/16 v2, 0xd
 
-    const/16 v3, 0xb
+    const/4 v3, 0x0
 
-    const/4 v4, 0x0
+    const/4 v4, 0x1
 
-    invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+    invoke-interface {v1, v2, v0, v3, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
     return-void
 
-    :catchall_0
-    move-exception v2
+    :cond_0
+    const/4 v1, 0x0
 
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+    goto :goto_0
+
+    :catchall_0
+    move-exception v1
 
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    throw v2
+    throw v1
+.end method
+
+.method public setGPSStateChangeAllowed(Z)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    const/4 v1, 0x1
+
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    :try_start_0
+    const-string/jumbo v2, "android.sec.enterprise.adapterlayer.ISystemUIAdapterCallback"
+
+    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    if-eqz p1, :cond_0
+
+    :goto_0
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
+
+    iget-object v1, p0, Landroid/sec/enterprise/adapterlayer/ISystemUIAdapterCallback$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+
+    const/16 v2, 0x15
+
+    const/4 v3, 0x0
+
+    const/4 v4, 0x1
+
+    invoke-interface {v1, v2, v0, v3, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    return-void
+
+    :cond_0
+    const/4 v1, 0x0
+
+    goto :goto_0
+
+    :catchall_0
+    move-exception v1
+
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    throw v1
 .end method
 
 .method public setKioskModeEnabled(Z)V
@@ -290,54 +376,49 @@
         }
     .end annotation
 
-    const/4 v2, 0x0
+    const/4 v1, 0x1
 
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
     :try_start_0
-    const-string/jumbo v3, "android.sec.enterprise.adapterlayer.ISystemUIAdapterCallback"
+    const-string/jumbo v2, "android.sec.enterprise.adapterlayer.ISystemUIAdapterCallback"
 
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     if-eqz p1, :cond_0
 
-    const/4 v2, 0x1
+    :goto_0
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
 
-    :cond_0
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
+    iget-object v1, p0, Landroid/sec/enterprise/adapterlayer/ISystemUIAdapterCallback$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    iget-object v2, p0, Landroid/sec/enterprise/adapterlayer/ISystemUIAdapterCallback$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+    const/4 v2, 0x3
 
-    const/4 v3, 0x3
+    const/4 v3, 0x0
 
-    const/4 v4, 0x0
+    const/4 v4, 0x1
 
-    invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+    invoke-interface {v1, v2, v0, v3, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
     return-void
 
-    :catchall_0
-    move-exception v2
+    :cond_0
+    const/4 v1, 0x0
 
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+    goto :goto_0
+
+    :catchall_0
+    move-exception v1
 
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    throw v2
+    throw v1
 .end method
 
 .method public setLocationProviderAllowed(Ljava/lang/String;Z)V
@@ -348,56 +429,51 @@
         }
     .end annotation
 
-    const/4 v2, 0x0
+    const/4 v1, 0x1
 
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
     :try_start_0
-    const-string/jumbo v3, "android.sec.enterprise.adapterlayer.ISystemUIAdapterCallback"
+    const-string/jumbo v2, "android.sec.enterprise.adapterlayer.ISystemUIAdapterCallback"
 
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
     if-eqz p2, :cond_0
 
-    const/4 v2, 0x1
+    :goto_0
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
 
-    :cond_0
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
+    iget-object v1, p0, Landroid/sec/enterprise/adapterlayer/ISystemUIAdapterCallback$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    iget-object v2, p0, Landroid/sec/enterprise/adapterlayer/ISystemUIAdapterCallback$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+    const/16 v2, 0x14
 
-    const/16 v3, 0x12
+    const/4 v3, 0x0
 
-    const/4 v4, 0x0
+    const/4 v4, 0x1
 
-    invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+    invoke-interface {v1, v2, v0, v3, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
     return-void
 
-    :catchall_0
-    move-exception v2
+    :cond_0
+    const/4 v1, 0x0
 
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+    goto :goto_0
+
+    :catchall_0
+    move-exception v1
 
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    throw v2
+    throw v1
 .end method
 
 .method public setLockedIccIds([Ljava/lang/String;)V
@@ -412,43 +488,141 @@
 
     move-result-object v0
 
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
     :try_start_0
-    const-string/jumbo v2, "android.sec.enterprise.adapterlayer.ISystemUIAdapterCallback"
+    const-string/jumbo v1, "android.sec.enterprise.adapterlayer.ISystemUIAdapterCallback"
 
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeStringArray([Ljava/lang/String;)V
 
-    iget-object v2, p0, Landroid/sec/enterprise/adapterlayer/ISystemUIAdapterCallback$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+    iget-object v1, p0, Landroid/sec/enterprise/adapterlayer/ISystemUIAdapterCallback$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x13
+    const/16 v2, 0x16
 
-    const/4 v4, 0x0
+    const/4 v3, 0x0
 
-    invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+    const/4 v4, 0x1
 
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+    invoke-interface {v1, v2, v0, v3, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
     return-void
 
     :catchall_0
-    move-exception v2
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+    move-exception v1
 
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    throw v2
+    throw v1
+.end method
+
+.method public setLockscreenInvisibleOverlay(Z)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    const/4 v1, 0x1
+
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    :try_start_0
+    const-string/jumbo v2, "android.sec.enterprise.adapterlayer.ISystemUIAdapterCallback"
+
+    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    if-eqz p1, :cond_0
+
+    :goto_0
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
+
+    iget-object v1, p0, Landroid/sec/enterprise/adapterlayer/ISystemUIAdapterCallback$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+
+    const/16 v2, 0x17
+
+    const/4 v3, 0x0
+
+    const/4 v4, 0x1
+
+    invoke-interface {v1, v2, v0, v3, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    return-void
+
+    :cond_0
+    const/4 v1, 0x0
+
+    goto :goto_0
+
+    :catchall_0
+    move-exception v1
+
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    throw v1
+.end method
+
+.method public setLockscreenWallpaper(Z)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    const/4 v1, 0x1
+
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    :try_start_0
+    const-string/jumbo v2, "android.sec.enterprise.adapterlayer.ISystemUIAdapterCallback"
+
+    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    if-eqz p1, :cond_0
+
+    :goto_0
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
+
+    iget-object v1, p0, Landroid/sec/enterprise/adapterlayer/ISystemUIAdapterCallback$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+
+    const/16 v2, 0x18
+
+    const/4 v3, 0x0
+
+    const/4 v4, 0x1
+
+    invoke-interface {v1, v2, v0, v3, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    return-void
+
+    :cond_0
+    const/4 v1, 0x0
+
+    goto :goto_0
+
+    :catchall_0
+    move-exception v1
+
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    throw v1
 .end method
 
 .method public setMaximumFailedPasswordsForDisable(I)V
@@ -463,43 +637,88 @@
 
     move-result-object v0
 
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
     :try_start_0
-    const-string/jumbo v2, "android.sec.enterprise.adapterlayer.ISystemUIAdapterCallback"
+    const-string/jumbo v1, "android.sec.enterprise.adapterlayer.ISystemUIAdapterCallback"
 
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
 
-    iget-object v2, p0, Landroid/sec/enterprise/adapterlayer/ISystemUIAdapterCallback$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+    iget-object v1, p0, Landroid/sec/enterprise/adapterlayer/ISystemUIAdapterCallback$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/4 v3, 0x4
+    const/4 v2, 0x4
 
-    const/4 v4, 0x0
+    const/4 v3, 0x0
 
-    invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+    const/4 v4, 0x1
 
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+    invoke-interface {v1, v2, v0, v3, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
     return-void
 
     :catchall_0
-    move-exception v2
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+    move-exception v1
 
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    throw v2
+    throw v1
+.end method
+
+.method public setMultifactorAuthEnabled(Z)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    const/4 v1, 0x1
+
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    :try_start_0
+    const-string/jumbo v2, "android.sec.enterprise.adapterlayer.ISystemUIAdapterCallback"
+
+    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    if-eqz p1, :cond_0
+
+    :goto_0
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
+
+    iget-object v1, p0, Landroid/sec/enterprise/adapterlayer/ISystemUIAdapterCallback$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+
+    const/16 v2, 0x8
+
+    const/4 v3, 0x0
+
+    const/4 v4, 0x1
+
+    invoke-interface {v1, v2, v0, v3, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    return-void
+
+    :cond_0
+    const/4 v1, 0x0
+
+    goto :goto_0
+
+    :catchall_0
+    move-exception v1
+
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    throw v1
 .end method
 
 .method public setNFCAllowed(Z)V
@@ -510,54 +729,49 @@
         }
     .end annotation
 
-    const/4 v2, 0x0
+    const/4 v1, 0x1
 
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
     :try_start_0
-    const-string/jumbo v3, "android.sec.enterprise.adapterlayer.ISystemUIAdapterCallback"
+    const-string/jumbo v2, "android.sec.enterprise.adapterlayer.ISystemUIAdapterCallback"
 
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     if-eqz p1, :cond_0
 
-    const/4 v2, 0x1
+    :goto_0
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
 
-    :cond_0
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
+    iget-object v1, p0, Landroid/sec/enterprise/adapterlayer/ISystemUIAdapterCallback$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    iget-object v2, p0, Landroid/sec/enterprise/adapterlayer/ISystemUIAdapterCallback$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+    const/16 v2, 0xe
 
-    const/16 v3, 0xc
+    const/4 v3, 0x0
 
-    const/4 v4, 0x0
+    const/4 v4, 0x1
 
-    invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+    invoke-interface {v1, v2, v0, v3, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
     return-void
 
-    :catchall_0
-    move-exception v2
+    :cond_0
+    const/4 v1, 0x0
 
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+    goto :goto_0
+
+    :catchall_0
+    move-exception v1
 
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    throw v2
+    throw v1
 .end method
 
 .method public setNFCStateChangeAllowed(Z)V
@@ -568,54 +782,49 @@
         }
     .end annotation
 
-    const/4 v2, 0x0
+    const/4 v1, 0x1
 
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
     :try_start_0
-    const-string/jumbo v3, "android.sec.enterprise.adapterlayer.ISystemUIAdapterCallback"
+    const-string/jumbo v2, "android.sec.enterprise.adapterlayer.ISystemUIAdapterCallback"
 
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     if-eqz p1, :cond_0
 
-    const/4 v2, 0x1
+    :goto_0
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
 
-    :cond_0
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
+    iget-object v1, p0, Landroid/sec/enterprise/adapterlayer/ISystemUIAdapterCallback$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    iget-object v2, p0, Landroid/sec/enterprise/adapterlayer/ISystemUIAdapterCallback$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+    const/16 v2, 0x11
 
-    const/16 v3, 0xf
+    const/4 v3, 0x0
 
-    const/4 v4, 0x0
+    const/4 v4, 0x1
 
-    invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+    invoke-interface {v1, v2, v0, v3, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
     return-void
 
-    :catchall_0
-    move-exception v2
+    :cond_0
+    const/4 v1, 0x0
 
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+    goto :goto_0
+
+    :catchall_0
+    move-exception v1
 
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    throw v2
+    throw v1
 .end method
 
 .method public setNavigationBarHidden(Z)V
@@ -626,54 +835,49 @@
         }
     .end annotation
 
-    const/4 v2, 0x0
+    const/4 v1, 0x1
 
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
     :try_start_0
-    const-string/jumbo v3, "android.sec.enterprise.adapterlayer.ISystemUIAdapterCallback"
+    const-string/jumbo v2, "android.sec.enterprise.adapterlayer.ISystemUIAdapterCallback"
 
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     if-eqz p1, :cond_0
 
-    const/4 v2, 0x1
+    :goto_0
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
 
-    :cond_0
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
+    iget-object v1, p0, Landroid/sec/enterprise/adapterlayer/ISystemUIAdapterCallback$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    iget-object v2, p0, Landroid/sec/enterprise/adapterlayer/ISystemUIAdapterCallback$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+    const/4 v2, 0x2
 
-    const/4 v3, 0x2
+    const/4 v3, 0x0
 
-    const/4 v4, 0x0
+    const/4 v4, 0x1
 
-    invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+    invoke-interface {v1, v2, v0, v3, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
     return-void
 
-    :catchall_0
-    move-exception v2
+    :cond_0
+    const/4 v1, 0x0
 
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+    goto :goto_0
+
+    :catchall_0
+    move-exception v1
 
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    throw v2
+    throw v1
 .end method
 
 .method public setPasswordLockDelay(I)V
@@ -688,43 +892,88 @@
 
     move-result-object v0
 
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
     :try_start_0
-    const-string/jumbo v2, "android.sec.enterprise.adapterlayer.ISystemUIAdapterCallback"
+    const-string/jumbo v1, "android.sec.enterprise.adapterlayer.ISystemUIAdapterCallback"
 
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
 
-    iget-object v2, p0, Landroid/sec/enterprise/adapterlayer/ISystemUIAdapterCallback$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+    iget-object v1, p0, Landroid/sec/enterprise/adapterlayer/ISystemUIAdapterCallback$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/4 v3, 0x7
+    const/4 v2, 0x7
 
-    const/4 v4, 0x0
+    const/4 v3, 0x0
 
-    invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+    const/4 v4, 0x1
 
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+    invoke-interface {v1, v2, v0, v3, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
     return-void
 
     :catchall_0
-    move-exception v2
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+    move-exception v1
 
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    throw v2
+    throw v1
+.end method
+
+.method public setPasswordVisibilityEnabled(Z)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    const/4 v1, 0x1
+
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    :try_start_0
+    const-string/jumbo v2, "android.sec.enterprise.adapterlayer.ISystemUIAdapterCallback"
+
+    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    if-eqz p1, :cond_0
+
+    :goto_0
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
+
+    iget-object v1, p0, Landroid/sec/enterprise/adapterlayer/ISystemUIAdapterCallback$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+
+    const/16 v2, 0x9
+
+    const/4 v3, 0x0
+
+    const/4 v4, 0x1
+
+    invoke-interface {v1, v2, v0, v3, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    return-void
+
+    :cond_0
+    const/4 v1, 0x0
+
+    goto :goto_0
+
+    :catchall_0
+    move-exception v1
+
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    throw v1
 .end method
 
 .method public setPwdChangeRequested(I)V
@@ -739,43 +988,35 @@
 
     move-result-object v0
 
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
     :try_start_0
-    const-string/jumbo v2, "android.sec.enterprise.adapterlayer.ISystemUIAdapterCallback"
+    const-string/jumbo v1, "android.sec.enterprise.adapterlayer.ISystemUIAdapterCallback"
 
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
 
-    iget-object v2, p0, Landroid/sec/enterprise/adapterlayer/ISystemUIAdapterCallback$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+    iget-object v1, p0, Landroid/sec/enterprise/adapterlayer/ISystemUIAdapterCallback$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/4 v3, 0x5
+    const/4 v2, 0x5
 
-    const/4 v4, 0x0
+    const/4 v3, 0x0
 
-    invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+    const/4 v4, 0x1
 
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+    invoke-interface {v1, v2, v0, v3, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
     return-void
 
     :catchall_0
-    move-exception v2
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+    move-exception v1
 
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    throw v2
+    throw v1
 .end method
 
 .method public setSettingsChangeAllowed(Z)V
@@ -786,54 +1027,49 @@
         }
     .end annotation
 
-    const/4 v2, 0x0
+    const/4 v1, 0x1
 
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
     :try_start_0
-    const-string/jumbo v3, "android.sec.enterprise.adapterlayer.ISystemUIAdapterCallback"
+    const-string/jumbo v2, "android.sec.enterprise.adapterlayer.ISystemUIAdapterCallback"
 
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     if-eqz p1, :cond_0
 
-    const/4 v2, 0x1
+    :goto_0
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
 
-    :cond_0
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
+    iget-object v1, p0, Landroid/sec/enterprise/adapterlayer/ISystemUIAdapterCallback$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    iget-object v2, p0, Landroid/sec/enterprise/adapterlayer/ISystemUIAdapterCallback$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+    const/16 v2, 0xa
 
-    const/16 v3, 0x8
+    const/4 v3, 0x0
 
-    const/4 v4, 0x0
+    const/4 v4, 0x1
 
-    invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+    invoke-interface {v1, v2, v0, v3, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
     return-void
 
-    :catchall_0
-    move-exception v2
+    :cond_0
+    const/4 v1, 0x0
 
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+    goto :goto_0
+
+    :catchall_0
+    move-exception v1
 
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    throw v2
+    throw v1
 .end method
 
 .method public setStatusBarExpansionAllowed(Z)V
@@ -844,54 +1080,49 @@
         }
     .end annotation
 
-    const/4 v2, 0x0
+    const/4 v1, 0x1
 
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
     :try_start_0
-    const-string/jumbo v3, "android.sec.enterprise.adapterlayer.ISystemUIAdapterCallback"
+    const-string/jumbo v2, "android.sec.enterprise.adapterlayer.ISystemUIAdapterCallback"
 
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     if-eqz p1, :cond_0
 
-    const/4 v2, 0x1
+    :goto_0
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
 
-    :cond_0
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
+    iget-object v1, p0, Landroid/sec/enterprise/adapterlayer/ISystemUIAdapterCallback$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    iget-object v2, p0, Landroid/sec/enterprise/adapterlayer/ISystemUIAdapterCallback$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+    const/16 v2, 0xb
 
-    const/16 v3, 0x9
+    const/4 v3, 0x0
 
-    const/4 v4, 0x0
+    const/4 v4, 0x1
 
-    invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+    invoke-interface {v1, v2, v0, v3, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
     return-void
 
-    :catchall_0
-    move-exception v2
+    :cond_0
+    const/4 v1, 0x0
 
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+    goto :goto_0
+
+    :catchall_0
+    move-exception v1
 
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    throw v2
+    throw v1
 .end method
 
 .method public setStatusBarHidden(Z)V
@@ -902,59 +1133,49 @@
         }
     .end annotation
 
-    const/4 v2, 0x1
-
-    const/4 v3, 0x0
+    const/4 v1, 0x1
 
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
     :try_start_0
-    const-string/jumbo v4, "android.sec.enterprise.adapterlayer.ISystemUIAdapterCallback"
+    const-string/jumbo v2, "android.sec.enterprise.adapterlayer.ISystemUIAdapterCallback"
 
-    invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     if-eqz p1, :cond_0
 
     :goto_0
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
 
-    iget-object v2, p0, Landroid/sec/enterprise/adapterlayer/ISystemUIAdapterCallback$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+    iget-object v1, p0, Landroid/sec/enterprise/adapterlayer/ISystemUIAdapterCallback$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/4 v3, 0x1
+    const/4 v2, 0x1
 
-    const/4 v4, 0x0
+    const/4 v3, 0x0
 
-    invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+    const/4 v4, 0x1
 
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+    invoke-interface {v1, v2, v0, v3, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
     return-void
 
     :cond_0
-    move v2, v3
+    const/4 v1, 0x0
 
     goto :goto_0
 
     :catchall_0
-    move-exception v2
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+    move-exception v1
 
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    throw v2
+    throw v1
 .end method
 
 .method public setWifiAllowed(Z)V
@@ -965,54 +1186,49 @@
         }
     .end annotation
 
-    const/4 v2, 0x0
+    const/4 v1, 0x1
 
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
     :try_start_0
-    const-string/jumbo v3, "android.sec.enterprise.adapterlayer.ISystemUIAdapterCallback"
+    const-string/jumbo v2, "android.sec.enterprise.adapterlayer.ISystemUIAdapterCallback"
 
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     if-eqz p1, :cond_0
 
-    const/4 v2, 0x1
+    :goto_0
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
 
-    :cond_0
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
+    iget-object v1, p0, Landroid/sec/enterprise/adapterlayer/ISystemUIAdapterCallback$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    iget-object v2, p0, Landroid/sec/enterprise/adapterlayer/ISystemUIAdapterCallback$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+    const/16 v2, 0x13
 
-    const/16 v3, 0x11
+    const/4 v3, 0x0
 
-    const/4 v4, 0x0
+    const/4 v4, 0x1
 
-    invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+    invoke-interface {v1, v2, v0, v3, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
     return-void
 
-    :catchall_0
-    move-exception v2
+    :cond_0
+    const/4 v1, 0x0
 
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+    goto :goto_0
+
+    :catchall_0
+    move-exception v1
 
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    throw v2
+    throw v1
 .end method
 
 .method public setWifiStateChangeAllowed(Z)V
@@ -1023,54 +1239,49 @@
         }
     .end annotation
 
-    const/4 v2, 0x0
+    const/4 v1, 0x1
 
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
     :try_start_0
-    const-string/jumbo v3, "android.sec.enterprise.adapterlayer.ISystemUIAdapterCallback"
+    const-string/jumbo v2, "android.sec.enterprise.adapterlayer.ISystemUIAdapterCallback"
 
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     if-eqz p1, :cond_0
 
-    const/4 v2, 0x1
+    :goto_0
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
 
-    :cond_0
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
+    iget-object v1, p0, Landroid/sec/enterprise/adapterlayer/ISystemUIAdapterCallback$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    iget-object v2, p0, Landroid/sec/enterprise/adapterlayer/ISystemUIAdapterCallback$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+    const/16 v2, 0x12
 
-    const/16 v3, 0x10
+    const/4 v3, 0x0
 
-    const/4 v4, 0x0
+    const/4 v4, 0x1
 
-    invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+    invoke-interface {v1, v2, v0, v3, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
     return-void
 
-    :catchall_0
-    move-exception v2
+    :cond_0
+    const/4 v1, 0x0
 
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+    goto :goto_0
+
+    :catchall_0
+    move-exception v1
 
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    throw v2
+    throw v1
 .end method
 
 .method public setWifiTetheringAllowed(Z)V
@@ -1081,52 +1292,47 @@
         }
     .end annotation
 
-    const/4 v2, 0x0
+    const/4 v1, 0x1
 
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
     :try_start_0
-    const-string/jumbo v3, "android.sec.enterprise.adapterlayer.ISystemUIAdapterCallback"
+    const-string/jumbo v2, "android.sec.enterprise.adapterlayer.ISystemUIAdapterCallback"
 
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     if-eqz p1, :cond_0
 
-    const/4 v2, 0x1
+    :goto_0
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
 
-    :cond_0
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
+    iget-object v1, p0, Landroid/sec/enterprise/adapterlayer/ISystemUIAdapterCallback$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    iget-object v2, p0, Landroid/sec/enterprise/adapterlayer/ISystemUIAdapterCallback$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+    const/16 v2, 0xf
 
-    const/16 v3, 0xd
+    const/4 v3, 0x0
 
-    const/4 v4, 0x0
+    const/4 v4, 0x1
 
-    invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+    invoke-interface {v1, v2, v0, v3, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
     return-void
 
-    :catchall_0
-    move-exception v2
+    :cond_0
+    const/4 v1, 0x0
 
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+    goto :goto_0
+
+    :catchall_0
+    move-exception v1
 
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    throw v2
+    throw v1
 .end method

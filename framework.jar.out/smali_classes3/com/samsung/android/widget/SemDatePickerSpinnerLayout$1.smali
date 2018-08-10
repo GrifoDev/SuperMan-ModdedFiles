@@ -43,7 +43,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$1;->this$0:Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;
 
-    invoke-static {v0, p1, p2}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->-wrap6(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;Lcom/samsung/android/widget/SemNumberPicker;Z)V
+    invoke-static {v0, p2}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->-wrap6(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;Z)V
 
     return-void
 .end method

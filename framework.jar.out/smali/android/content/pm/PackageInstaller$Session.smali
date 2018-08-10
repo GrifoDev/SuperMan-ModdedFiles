@@ -123,31 +123,72 @@
 .end method
 
 .method public fsync(Ljava/io/OutputStream;)V
-    .locals 2
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    instance-of v0, p1, Landroid/os/FileBridge$FileBridgeOutputStream;
+    sget-boolean v1, Landroid/content/pm/PackageInstaller;->ENABLE_REVOCABLE_FD:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v1, :cond_1
+
+    instance-of v1, p1, Landroid/os/ParcelFileDescriptor$AutoCloseOutputStream;
+
+    if-eqz v1, :cond_0
+
+    :try_start_0
+    check-cast p1, Landroid/os/ParcelFileDescriptor$AutoCloseOutputStream;
+
+    invoke-virtual {p1}, Landroid/os/ParcelFileDescriptor$AutoCloseOutputStream;->getFD()Ljava/io/FileDescriptor;
+
+    move-result-object v1
+
+    invoke-static {v1}, Landroid/system/Os;->fsync(Ljava/io/FileDescriptor;)V
+    :try_end_0
+    .catch Landroid/system/ErrnoException; {:try_start_0 .. :try_end_0} :catch_0
+
+    :goto_0
+    return-void
+
+    :catch_0
+    move-exception v0
+
+    invoke-virtual {v0}, Landroid/system/ErrnoException;->rethrowAsIOException()Ljava/io/IOException;
+
+    move-result-object v1
+
+    throw v1
+
+    :cond_0
+    new-instance v1, Ljava/lang/IllegalArgumentException;
+
+    const-string/jumbo v2, "Unrecognized stream"
+
+    invoke-direct {v1, v2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v1
+
+    :cond_1
+    instance-of v1, p1, Landroid/os/FileBridge$FileBridgeOutputStream;
+
+    if-eqz v1, :cond_2
 
     check-cast p1, Landroid/os/FileBridge$FileBridgeOutputStream;
 
     invoke-virtual {p1}, Landroid/os/FileBridge$FileBridgeOutputStream;->fsync()V
 
-    return-void
+    goto :goto_0
 
-    :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    :cond_2
+    new-instance v1, Ljava/lang/IllegalArgumentException;
 
-    const-string/jumbo v1, "Unrecognized stream"
+    const-string/jumbo v2, "Unrecognized stream"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw v1
 .end method
 
 .method public getNames()[Ljava/lang/String;
@@ -237,6 +278,29 @@
     .end annotation
 
     :try_start_0
+    sget-boolean v0, Landroid/content/pm/PackageInstaller;->ENABLE_REVOCABLE_FD:Z
+
+    if-eqz v0, :cond_0
+
+    new-instance v9, Landroid/os/ParcelFileDescriptor$AutoCloseOutputStream;
+
+    iget-object v0, p0, Landroid/content/pm/PackageInstaller$Session;->mSession:Landroid/content/pm/IPackageInstallerSession;
+
+    move-object v1, p1
+
+    move-wide v2, p2
+
+    move-wide v4, p4
+
+    invoke-interface/range {v0 .. v5}, Landroid/content/pm/IPackageInstallerSession;->openWrite(Ljava/lang/String;JJ)Landroid/os/ParcelFileDescriptor;
+
+    move-result-object v0
+
+    invoke-direct {v9, v0}, Landroid/os/ParcelFileDescriptor$AutoCloseOutputStream;-><init>(Landroid/os/ParcelFileDescriptor;)V
+
+    return-object v9
+
+    :cond_0
     iget-object v0, p0, Landroid/content/pm/PackageInstaller$Session;->mSession:Landroid/content/pm/IPackageInstallerSession;
 
     move-object v1, p1

@@ -85,7 +85,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Landroid/widget/TextView$ChangeWatcher;->this$0:Landroid/widget/TextView;
 
@@ -93,11 +93,13 @@
 
     move-result v0
 
-    invoke-static {v0}, Landroid/widget/TextView;->-wrap6(I)Z
+    invoke-static {v0}, Landroid/widget/TextView;->isPasswordInputType(I)Z
 
     move-result v0
 
-    if-nez v0, :cond_0
+    xor-int/lit8 v0, v0, 0x1
+
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Landroid/widget/TextView$ChangeWatcher;->this$0:Landroid/widget/TextView;
 
@@ -105,28 +107,20 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    xor-int/lit8 v0, v0, 0x1
 
-    :cond_0
-    iget-object v0, p0, Landroid/widget/TextView$ChangeWatcher;->this$0:Landroid/widget/TextView;
+    if-eqz v0, :cond_0
 
-    invoke-static {v0}, Landroid/widget/TextView;->-wrap8(Landroid/widget/TextView;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_2
-
-    :cond_1
     invoke-interface {p1}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Landroid/widget/TextView$ChangeWatcher;->mBeforeText:Ljava/lang/CharSequence;
 
-    :cond_2
+    :cond_0
     iget-object v0, p0, Landroid/widget/TextView$ChangeWatcher;->this$0:Landroid/widget/TextView;
 
-    invoke-static {v0, p1, p2, p3, p4}, Landroid/widget/TextView;->-wrap11(Landroid/widget/TextView;Ljava/lang/CharSequence;III)V
+    invoke-static {v0, p1, p2, p3, p4}, Landroid/widget/TextView;->-wrap9(Landroid/widget/TextView;Ljava/lang/CharSequence;III)V
 
     return-void
 .end method

@@ -391,6 +391,8 @@
 
     const/16 v0, 0x1f
 
+    const/4 v1, 0x1
+
     iget-object v2, p0, Landroid/speech/tts/Voice;->mFeatures:Ljava/util/Set;
 
     if-nez v2, :cond_0

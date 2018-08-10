@@ -274,69 +274,14 @@
     return-void
 .end method
 
-.method public damageChild(Landroid/view/View;Landroid/graphics/Rect;)V
-    .locals 3
-
-    iget-object v2, p0, Landroid/view/ViewOverlay$OverlayViewGroup;->mHostView:Landroid/view/View;
-
-    if-eqz v2, :cond_1
-
-    iget v0, p1, Landroid/view/View;->mLeft:I
-
-    iget v1, p1, Landroid/view/View;->mTop:I
-
-    invoke-virtual {p1}, Landroid/view/View;->getMatrix()Landroid/graphics/Matrix;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Landroid/graphics/Matrix;->isIdentity()Z
-
-    move-result v2
-
-    if-nez v2, :cond_0
-
-    invoke-virtual {p1, p2}, Landroid/view/View;->transformRect(Landroid/graphics/Rect;)V
-
-    :cond_0
-    invoke-virtual {p2, v0, v1}, Landroid/graphics/Rect;->offset(II)V
-
-    iget-object v2, p0, Landroid/view/ViewOverlay$OverlayViewGroup;->mHostView:Landroid/view/View;
-
-    invoke-virtual {v2, p2}, Landroid/view/View;->invalidate(Landroid/graphics/Rect;)V
-
-    :cond_1
-    return-void
-.end method
-
-.method protected damageChildInParent(IILandroid/graphics/Rect;)Landroid/view/ViewParent;
-    .locals 1
-
-    iget-object v0, p0, Landroid/view/ViewOverlay$OverlayViewGroup;->mHostView:Landroid/view/View;
-
-    instance-of v0, v0, Landroid/view/ViewGroup;
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Landroid/view/ViewOverlay$OverlayViewGroup;->mHostView:Landroid/view/View;
-
-    check-cast v0, Landroid/view/ViewGroup;
-
-    invoke-virtual {v0, p1, p2, p3}, Landroid/view/ViewGroup;->damageChildInParent(IILandroid/graphics/Rect;)Landroid/view/ViewParent;
-
-    move-result-object v0
-
-    return-object v0
-
-    :cond_0
-    const/4 v0, 0x0
-
-    return-object v0
-.end method
-
 .method protected dispatchDraw(Landroid/graphics/Canvas;)V
     .locals 3
 
+    invoke-virtual {p1}, Landroid/graphics/Canvas;->insertReorderBarrier()V
+
     invoke-super {p0, p1}, Landroid/view/ViewGroup;->dispatchDraw(Landroid/graphics/Canvas;)V
+
+    invoke-virtual {p1}, Landroid/graphics/Canvas;->insertInorderBarrier()V
 
     iget-object v2, p0, Landroid/view/ViewOverlay$OverlayViewGroup;->mDrawables:Ljava/util/ArrayList;
 
@@ -428,7 +373,7 @@
     return-void
 .end method
 
-.method invalidate(Z)V
+.method public invalidate(Z)V
     .locals 1
 
     invoke-super {p0, p1}, Landroid/view/ViewGroup;->invalidate(Z)V
@@ -586,6 +531,39 @@
 
     :cond_1
     return v1
+.end method
+
+.method public onDescendantInvalidated(Landroid/view/View;Landroid/view/View;)V
+    .locals 2
+
+    iget-object v0, p0, Landroid/view/ViewOverlay$OverlayViewGroup;->mHostView:Landroid/view/View;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Landroid/view/ViewOverlay$OverlayViewGroup;->mHostView:Landroid/view/View;
+
+    instance-of v0, v0, Landroid/view/ViewGroup;
+
+    if-eqz v0, :cond_1
+
+    iget-object v0, p0, Landroid/view/ViewOverlay$OverlayViewGroup;->mHostView:Landroid/view/View;
+
+    check-cast v0, Landroid/view/ViewGroup;
+
+    iget-object v1, p0, Landroid/view/ViewOverlay$OverlayViewGroup;->mHostView:Landroid/view/View;
+
+    invoke-virtual {v0, v1, p2}, Landroid/view/ViewGroup;->onDescendantInvalidated(Landroid/view/View;Landroid/view/View;)V
+
+    invoke-super {p0, p1, p2}, Landroid/view/ViewGroup;->onDescendantInvalidated(Landroid/view/View;Landroid/view/View;)V
+
+    :cond_0
+    :goto_0
+    return-void
+
+    :cond_1
+    invoke-virtual {p0}, Landroid/view/ViewOverlay$OverlayViewGroup;->invalidate()V
+
+    goto :goto_0
 .end method
 
 .method protected onLayout(ZIIII)V

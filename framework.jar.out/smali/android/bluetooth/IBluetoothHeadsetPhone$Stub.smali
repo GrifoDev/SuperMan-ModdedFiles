@@ -36,6 +36,8 @@
 
 .field static final TRANSACTION_getSubscriberNumber:I = 0x6
 
+.field static final TRANSACTION_handleVoipCallStateChange:I = 0xc
+
 .field static final TRANSACTION_hangupCall:I = 0x2
 
 .field static final TRANSACTION_listCurrentCalls:I = 0x7
@@ -312,17 +314,17 @@
     return v5
 
     :sswitch_b
-    const-string/jumbo v6, "android.bluetooth.IBluetoothHeadsetPhone"
+    const-string/jumbo v4, "android.bluetooth.IBluetoothHeadsetPhone"
 
-    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v6
+    move-result v4
 
-    if-eqz v6, :cond_6
+    if-eqz v4, :cond_6
 
-    move v1, v5
+    const/4 v1, 0x1
 
     :goto_0
     invoke-virtual {p0, v1}, Landroid/bluetooth/IBluetoothHeadsetPhone$Stub;->cdmaSetSecondCallState(Z)V
@@ -332,11 +334,20 @@
     return v5
 
     :cond_6
-    move v1, v4
+    const/4 v1, 0x0
 
     goto :goto_0
 
-    nop
+    :sswitch_c
+    const-string/jumbo v4, "android.bluetooth.IBluetoothHeadsetPhone"
+
+    invoke-virtual {p2, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual {p0}, Landroid/bluetooth/IBluetoothHeadsetPhone$Stub;->handleVoipCallStateChange()V
+
+    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+
+    return v5
 
     :sswitch_data_0
     .sparse-switch
@@ -351,6 +362,7 @@
         0x9 -> :sswitch_9
         0xa -> :sswitch_a
         0xb -> :sswitch_b
+        0xc -> :sswitch_c
         0x5f4e5446 -> :sswitch_0
     .end sparse-switch
 .end method

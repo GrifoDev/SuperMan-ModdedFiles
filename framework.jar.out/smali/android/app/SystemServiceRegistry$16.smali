@@ -1,5 +1,5 @@
 .class final Landroid/app/SystemServiceRegistry$16;
-.super Landroid/app/SystemServiceRegistry$CachedServiceFetcher;
+.super Landroid/app/SystemServiceRegistry$StaticServiceFetcher;
 .source "SystemServiceRegistry.java"
 
 
@@ -15,9 +15,9 @@
 
 .annotation system Ldalvik/annotation/Signature;
     value = {
-        "Landroid/app/SystemServiceRegistry$CachedServiceFetcher",
+        "Landroid/app/SystemServiceRegistry$StaticServiceFetcher",
         "<",
-        "Landroid/app/DownloadManager;",
+        "Landroid/location/CountryDetector;",
         ">;"
     }
 .end annotation
@@ -27,27 +27,47 @@
 .method constructor <init>()V
     .locals 0
 
-    invoke-direct {p0}, Landroid/app/SystemServiceRegistry$CachedServiceFetcher;-><init>()V
+    invoke-direct {p0}, Landroid/app/SystemServiceRegistry$StaticServiceFetcher;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public createService(Landroid/app/ContextImpl;)Landroid/app/DownloadManager;
-    .locals 1
+.method public createService()Landroid/location/CountryDetector;
+    .locals 3
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/ServiceManager$ServiceNotFoundException;
+        }
+    .end annotation
 
-    new-instance v0, Landroid/app/DownloadManager;
+    const-string/jumbo v1, "country_detector"
 
-    invoke-direct {v0, p1}, Landroid/app/DownloadManager;-><init>(Landroid/content/Context;)V
+    invoke-static {v1}, Landroid/os/ServiceManager;->getServiceOrThrow(Ljava/lang/String;)Landroid/os/IBinder;
 
-    return-object v0
+    move-result-object v0
+
+    new-instance v1, Landroid/location/CountryDetector;
+
+    invoke-static {v0}, Landroid/location/ICountryDetector$Stub;->asInterface(Landroid/os/IBinder;)Landroid/location/ICountryDetector;
+
+    move-result-object v2
+
+    invoke-direct {v1, v2}, Landroid/location/CountryDetector;-><init>(Landroid/location/ICountryDetector;)V
+
+    return-object v1
 .end method
 
-.method public bridge synthetic createService(Landroid/app/ContextImpl;)Ljava/lang/Object;
+.method public bridge synthetic createService()Ljava/lang/Object;
     .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/ServiceManager$ServiceNotFoundException;
+        }
+    .end annotation
 
-    invoke-virtual {p0, p1}, Landroid/app/SystemServiceRegistry$16;->createService(Landroid/app/ContextImpl;)Landroid/app/DownloadManager;
+    invoke-virtual {p0}, Landroid/app/SystemServiceRegistry$16;->createService()Landroid/location/CountryDetector;
 
     move-result-object v0
 

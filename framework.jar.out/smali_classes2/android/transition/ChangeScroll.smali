@@ -4,12 +4,38 @@
 
 
 # static fields
+.field private static final PROPERTIES:[Ljava/lang/String;
+
 .field private static final PROPNAME_SCROLL_X:Ljava/lang/String; = "android:changeScroll:x"
 
 .field private static final PROPNAME_SCROLL_Y:Ljava/lang/String; = "android:changeScroll:y"
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 3
+
+    const/4 v0, 0x2
+
+    new-array v0, v0, [Ljava/lang/String;
+
+    const-string/jumbo v1, "android:changeScroll:x"
+
+    const/4 v2, 0x0
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "android:changeScroll:y"
+
+    const/4 v2, 0x1
+
+    aput-object v1, v0, v2
+
+    sput-object v0, Landroid/transition/ChangeScroll;->PROPERTIES:[Ljava/lang/String;
+
+    return-void
+.end method
+
 .method public constructor <init>()V
     .locals 0
 
@@ -202,4 +228,12 @@
     move-result-object v7
 
     return-object v7
+.end method
+
+.method public getTransitionProperties()[Ljava/lang/String;
+    .locals 1
+
+    sget-object v0, Landroid/transition/ChangeScroll;->PROPERTIES:[Ljava/lang/String;
+
+    return-object v0
 .end method

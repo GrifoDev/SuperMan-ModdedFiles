@@ -29,6 +29,8 @@
 
 .field mRebuildShader:Z
 
+.field mSrcDensityOverride:I
+
 .field mTargetDensity:I
 
 .field mThemeAttrs:[I
@@ -44,7 +46,9 @@
 
 # direct methods
 .method constructor <init>(Landroid/graphics/Bitmap;)V
-    .locals 2
+    .locals 3
+
+    const/4 v2, 0x0
 
     const/4 v1, 0x0
 
@@ -72,13 +76,13 @@
 
     iput-object v1, p0, Landroid/graphics/drawable/BitmapDrawable$BitmapState;->mTileModeY:Landroid/graphics/Shader$TileMode;
 
+    iput v2, p0, Landroid/graphics/drawable/BitmapDrawable$BitmapState;->mSrcDensityOverride:I
+
     const/16 v0, 0xa0
 
     iput v0, p0, Landroid/graphics/drawable/BitmapDrawable$BitmapState;->mTargetDensity:I
 
-    const/4 v0, 0x0
-
-    iput-boolean v0, p0, Landroid/graphics/drawable/BitmapDrawable$BitmapState;->mAutoMirrored:Z
+    iput-boolean v2, p0, Landroid/graphics/drawable/BitmapDrawable$BitmapState;->mAutoMirrored:Z
 
     iput-object p1, p0, Landroid/graphics/drawable/BitmapDrawable$BitmapState;->mBitmap:Landroid/graphics/Bitmap;
 
@@ -94,7 +98,9 @@
 .end method
 
 .method constructor <init>(Landroid/graphics/drawable/BitmapDrawable$BitmapState;)V
-    .locals 2
+    .locals 3
+
+    const/4 v2, 0x0
 
     const/4 v1, 0x0
 
@@ -122,13 +128,13 @@
 
     iput-object v1, p0, Landroid/graphics/drawable/BitmapDrawable$BitmapState;->mTileModeY:Landroid/graphics/Shader$TileMode;
 
+    iput v2, p0, Landroid/graphics/drawable/BitmapDrawable$BitmapState;->mSrcDensityOverride:I
+
     const/16 v0, 0xa0
 
     iput v0, p0, Landroid/graphics/drawable/BitmapDrawable$BitmapState;->mTargetDensity:I
 
-    const/4 v0, 0x0
-
-    iput-boolean v0, p0, Landroid/graphics/drawable/BitmapDrawable$BitmapState;->mAutoMirrored:Z
+    iput-boolean v2, p0, Landroid/graphics/drawable/BitmapDrawable$BitmapState;->mAutoMirrored:Z
 
     iget-object v0, p1, Landroid/graphics/drawable/BitmapDrawable$BitmapState;->mBitmap:Landroid/graphics/Bitmap;
 
@@ -162,6 +168,10 @@
 
     iput-object v0, p0, Landroid/graphics/drawable/BitmapDrawable$BitmapState;->mTileModeY:Landroid/graphics/Shader$TileMode;
 
+    iget v0, p1, Landroid/graphics/drawable/BitmapDrawable$BitmapState;->mSrcDensityOverride:I
+
+    iput v0, p0, Landroid/graphics/drawable/BitmapDrawable$BitmapState;->mSrcDensityOverride:I
+
     iget v0, p1, Landroid/graphics/drawable/BitmapDrawable$BitmapState;->mTargetDensity:I
 
     iput v0, p0, Landroid/graphics/drawable/BitmapDrawable$BitmapState;->mTargetDensity:I
@@ -191,56 +201,6 @@
 
 
 # virtual methods
-.method public addAtlasableBitmaps(Ljava/util/Collection;)I
-    .locals 2
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/Collection",
-            "<",
-            "Landroid/graphics/Bitmap;",
-            ">;)I"
-        }
-    .end annotation
-
-    iget-object v0, p0, Landroid/graphics/drawable/BitmapDrawable$BitmapState;->mBitmap:Landroid/graphics/Bitmap;
-
-    invoke-virtual {p0, v0}, Landroid/graphics/drawable/BitmapDrawable$BitmapState;->isAtlasable(Landroid/graphics/Bitmap;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Landroid/graphics/drawable/BitmapDrawable$BitmapState;->mBitmap:Landroid/graphics/Bitmap;
-
-    invoke-interface {p1, v0}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Landroid/graphics/drawable/BitmapDrawable$BitmapState;->mBitmap:Landroid/graphics/Bitmap;
-
-    invoke-virtual {v0}, Landroid/graphics/Bitmap;->getWidth()I
-
-    move-result v0
-
-    iget-object v1, p0, Landroid/graphics/drawable/BitmapDrawable$BitmapState;->mBitmap:Landroid/graphics/Bitmap;
-
-    invoke-virtual {v1}, Landroid/graphics/Bitmap;->getHeight()I
-
-    move-result v1
-
-    mul-int/2addr v0, v1
-
-    return v0
-
-    :cond_0
-    const/4 v0, 0x0
-
-    return v0
-.end method
-
 .method public canApplyTheme()Z
     .locals 1
 

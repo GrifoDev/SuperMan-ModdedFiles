@@ -28,6 +28,8 @@
 
 .field static final TRANSACTION_onForegroundProfileSwitch:I = 0x3
 
+.field static final TRANSACTION_onLockedBootComplete:I = 0x4
+
 .field static final TRANSACTION_onUserSwitchComplete:I = 0x2
 
 .field static final TRANSACTION_onUserSwitching:I = 0x1
@@ -160,11 +162,25 @@
 
     return v3
 
+    :sswitch_4
+    const-string/jumbo v2, "android.app.IUserSwitchObserver"
+
+    invoke-virtual {p2, v2}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v0
+
+    invoke-virtual {p0, v0}, Landroid/app/IUserSwitchObserver$Stub;->onLockedBootComplete(I)V
+
+    return v3
+
     :sswitch_data_0
     .sparse-switch
         0x1 -> :sswitch_1
         0x2 -> :sswitch_2
         0x3 -> :sswitch_3
+        0x4 -> :sswitch_4
         0x5f4e5446 -> :sswitch_0
     .end sparse-switch
 .end method

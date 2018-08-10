@@ -15,6 +15,8 @@
 
 
 # static fields
+.field public static final MUXER_OUTPUT_3GPP:I = 0x2
+
 .field public static final MUXER_OUTPUT_FLV_RTMP:I = 0x64
 
 .field public static final MUXER_OUTPUT_MPEG_4:I = 0x0

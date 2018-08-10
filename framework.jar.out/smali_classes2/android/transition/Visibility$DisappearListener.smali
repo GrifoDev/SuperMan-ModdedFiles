@@ -1,5 +1,5 @@
 .class Landroid/transition/Visibility$DisappearListener;
-.super Landroid/transition/Transition$TransitionListenerAdapter;
+.super Landroid/transition/TransitionListenerAdapter;
 .source "Visibility.java"
 
 # interfaces
@@ -36,7 +36,7 @@
 .method public constructor <init>(Landroid/view/View;IZ)V
     .locals 1
 
-    invoke-direct {p0}, Landroid/transition/Transition$TransitionListenerAdapter;-><init>()V
+    invoke-direct {p0}, Landroid/transition/TransitionListenerAdapter;-><init>()V
 
     const/4 v0, 0x0
 
@@ -187,6 +187,8 @@
     .locals 0
 
     invoke-direct {p0}, Landroid/transition/Visibility$DisappearListener;->hideViewWhenNotCanceled()V
+
+    invoke-virtual {p1, p0}, Landroid/transition/Transition;->removeListener(Landroid/transition/Transition$TransitionListener;)Landroid/transition/Transition;
 
     return-void
 .end method

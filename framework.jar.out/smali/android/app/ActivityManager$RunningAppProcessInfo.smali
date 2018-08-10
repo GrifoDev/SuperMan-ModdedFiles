@@ -43,9 +43,16 @@
 
 .field public static final IMPORTANCE_BACKGROUND:I = 0x190
 
-.field public static final IMPORTANCE_CANT_SAVE_STATE:I = 0xaa
+.field public static final IMPORTANCE_CACHED:I = 0x190
+
+.field public static final IMPORTANCE_CANT_SAVE_STATE:I = 0x10e
+
+.field public static final IMPORTANCE_CANT_SAVE_STATE_PRE_26:I = 0xaa
 
 .field public static final IMPORTANCE_EMPTY:I = 0x1f4
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
 
 .field public static final IMPORTANCE_FOREGROUND:I = 0x64
 
@@ -53,7 +60,9 @@
 
 .field public static final IMPORTANCE_GONE:I = 0x3e8
 
-.field public static final IMPORTANCE_PERCEPTIBLE:I = 0x82
+.field public static final IMPORTANCE_PERCEPTIBLE:I = 0xe6
+
+.field public static final IMPORTANCE_PERCEPTIBLE_PRE_26:I = 0x82
 
 .field public static final IMPORTANCE_SERVICE:I = 0x12c
 
@@ -161,10 +170,90 @@
     return-void
 .end method
 
+.method public static importanceToProcState(I)I
+    .locals 1
+
+    const/16 v0, 0x3e8
+
+    if-ne p0, v0, :cond_0
+
+    const/16 v0, 0x12
+
+    return v0
+
+    :cond_0
+    const/16 v0, 0x190
+
+    if-lt p0, v0, :cond_1
+
+    const/16 v0, 0xd
+
+    return v0
+
+    :cond_1
+    const/16 v0, 0x12c
+
+    if-lt p0, v0, :cond_2
+
+    const/16 v0, 0xb
+
+    return v0
+
+    :cond_2
+    const/16 v0, 0x10e
+
+    if-le p0, v0, :cond_3
+
+    const/16 v0, 0xa
+
+    return v0
+
+    :cond_3
+    const/16 v0, 0xe6
+
+    if-lt p0, v0, :cond_4
+
+    const/16 v0, 0x8
+
+    return v0
+
+    :cond_4
+    const/16 v0, 0xc8
+
+    if-lt p0, v0, :cond_5
+
+    const/4 v0, 0x6
+
+    return v0
+
+    :cond_5
+    const/16 v0, 0x96
+
+    if-lt p0, v0, :cond_6
+
+    const/4 v0, 0x5
+
+    return v0
+
+    :cond_6
+    const/16 v0, 0x7d
+
+    if-lt p0, v0, :cond_7
+
+    const/4 v0, 0x4
+
+    return v0
+
+    :cond_7
+    const/4 v0, 0x3
+
+    return v0
+.end method
+
 .method public static procStateToImportance(I)I
     .locals 1
 
-    const/4 v0, -0x1
+    const/16 v0, 0x12
 
     if-ne p0, v0, :cond_0
 
@@ -173,7 +262,7 @@
     return v0
 
     :cond_0
-    const/16 v0, 0xc
+    const/16 v0, 0xd
 
     if-lt p0, v0, :cond_1
 
@@ -182,7 +271,7 @@
     return v0
 
     :cond_1
-    const/16 v0, 0xa
+    const/16 v0, 0xb
 
     if-lt p0, v0, :cond_2
 
@@ -191,20 +280,20 @@
     return v0
 
     :cond_2
-    const/16 v0, 0x9
+    const/16 v0, 0xa
 
     if-le p0, v0, :cond_3
 
-    const/16 v0, 0xaa
+    const/16 v0, 0x10e
 
     return v0
 
     :cond_3
-    const/4 v0, 0x7
+    const/16 v0, 0x8
 
     if-lt p0, v0, :cond_4
 
-    const/16 v0, 0x82
+    const/16 v0, 0xe6
 
     return v0
 
@@ -239,6 +328,55 @@
     const/16 v0, 0x64
 
     return v0
+.end method
+
+.method public static procStateToImportanceForClient(ILandroid/content/Context;)I
+    .locals 1
+
+    invoke-virtual {p1}, Landroid/content/Context;->getApplicationInfo()Landroid/content/pm/ApplicationInfo;
+
+    move-result-object v0
+
+    iget v0, v0, Landroid/content/pm/ApplicationInfo;->targetSdkVersion:I
+
+    invoke-static {p0, v0}, Landroid/app/ActivityManager$RunningAppProcessInfo;->procStateToImportanceForTargetSdk(II)I
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public static procStateToImportanceForTargetSdk(II)I
+    .locals 2
+
+    invoke-static {p0}, Landroid/app/ActivityManager$RunningAppProcessInfo;->procStateToImportance(I)I
+
+    move-result v0
+
+    const/16 v1, 0x1a
+
+    if-ge p1, v1, :cond_0
+
+    sparse-switch v0, :sswitch_data_0
+
+    :cond_0
+    return v0
+
+    :sswitch_0
+    const/16 v1, 0x82
+
+    return v1
+
+    :sswitch_1
+    const/16 v1, 0xaa
+
+    return v1
+
+    :sswitch_data_0
+    .sparse-switch
+        0xe6 -> :sswitch_0
+        0x10e -> :sswitch_1
+    .end sparse-switch
 .end method
 
 

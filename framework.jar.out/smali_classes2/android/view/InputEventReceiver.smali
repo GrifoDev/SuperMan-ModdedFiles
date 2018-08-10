@@ -121,12 +121,13 @@
 .end method
 
 .method private dispose(Z)V
-    .locals 6
+    .locals 4
 
-    const-wide/16 v4, 0x0
+    const-wide/16 v2, 0x0
 
-    const/4 v2, 0x0
+    monitor-enter p0
 
+    :try_start_0
     iget-object v0, p0, Landroid/view/InputEventReceiver;->mCloseGuard:Ldalvik/system/CloseGuard;
 
     if-eqz v0, :cond_1
@@ -145,7 +146,7 @@
     :cond_1
     iget-wide v0, p0, Landroid/view/InputEventReceiver;->mReceiverPtr:J
 
-    cmp-long v0, v0, v4
+    cmp-long v0, v0, v2
 
     if-eqz v0, :cond_2
 
@@ -153,14 +154,31 @@
 
     invoke-static {v0, v1}, Landroid/view/InputEventReceiver;->nativeDispose(J)V
 
-    iput-wide v4, p0, Landroid/view/InputEventReceiver;->mReceiverPtr:J
+    const-wide/16 v0, 0x0
+
+    iput-wide v0, p0, Landroid/view/InputEventReceiver;->mReceiverPtr:J
 
     :cond_2
-    iput-object v2, p0, Landroid/view/InputEventReceiver;->mInputChannel:Landroid/view/InputChannel;
+    const/4 v0, 0x0
 
-    iput-object v2, p0, Landroid/view/InputEventReceiver;->mMessageQueue:Landroid/os/MessageQueue;
+    iput-object v0, p0, Landroid/view/InputEventReceiver;->mInputChannel:Landroid/view/InputChannel;
+
+    const/4 v0, 0x0
+
+    iput-object v0, p0, Landroid/view/InputEventReceiver;->mMessageQueue:Landroid/os/MessageQueue;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit p0
 
     return-void
+
+    :catchall_0
+    move-exception v0
+
+    monitor-exit p0
+
+    throw v0
 .end method
 
 .method private static native nativeConsumeBatchedInputEvents(JJ)Z
@@ -192,6 +210,9 @@
 .method public final consumeBatchedInputEvents(J)Z
     .locals 5
 
+    monitor-enter p0
+
+    :try_start_0
     iget-wide v0, p0, Landroid/view/InputEventReceiver;->mReceiverPtr:J
 
     const-wide/16 v2, 0x0
@@ -205,19 +226,35 @@
     const-string/jumbo v1, "Attempted to consume batched input events but the input event receiver has already been disposed."
 
     invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     const/4 v0, 0x0
+
+    monitor-exit p0
 
     return v0
 
     :cond_0
+    :try_start_1
     iget-wide v0, p0, Landroid/view/InputEventReceiver;->mReceiverPtr:J
 
     invoke-static {v0, v1, p1, p2}, Landroid/view/InputEventReceiver;->nativeConsumeBatchedInputEvents(JJ)Z
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     move-result v0
 
+    monitor-exit p0
+
     return v0
+
+    :catchall_0
+    move-exception v0
+
+    monitor-exit p0
+
+    throw v0
 .end method
 
 .method public dispose()V
@@ -260,8 +297,11 @@
 .method public final finishInputEvent(Landroid/view/InputEvent;Z)V
     .locals 6
 
+    monitor-enter p0
+
     if-nez p1, :cond_0
 
+    :try_start_0
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v3, "event must not be null"
@@ -269,8 +309,18 @@
     invoke-direct {v2, v3}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v2
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    :catchall_0
+    move-exception v2
+
+    monitor-exit p0
+
+    throw v2
 
     :cond_0
+    :try_start_1
     iget-wide v2, p0, Landroid/view/InputEventReceiver;->mReceiverPtr:J
 
     const-wide/16 v4, 0x0
@@ -287,10 +337,15 @@
 
     :goto_0
     invoke-virtual {p1}, Landroid/view/InputEvent;->recycleIfNeededAfterDispatch()V
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    monitor-exit p0
 
     return-void
 
     :cond_1
+    :try_start_2
     iget-object v2, p0, Landroid/view/InputEventReceiver;->mSeqMap:Landroid/util/SparseIntArray;
 
     invoke-virtual {p1}, Landroid/view/InputEvent;->getSequenceNumber()I
@@ -325,6 +380,8 @@
     iget-wide v2, p0, Landroid/view/InputEventReceiver;->mReceiverPtr:J
 
     invoke-static {v2, v3, v1, p2}, Landroid/view/InputEventReceiver;->nativeFinishInputEvent(JIZ)V
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     goto :goto_0
 .end method

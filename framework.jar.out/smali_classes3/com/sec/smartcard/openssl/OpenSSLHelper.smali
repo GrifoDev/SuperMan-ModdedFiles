@@ -81,47 +81,41 @@
 .method public getPrivateKey(Ljava/lang/String;)Ljava/security/PrivateKey;
     .locals 4
 
-    const-string/jumbo v2, "OpenSSLHelper"
+    const/4 v3, 0x0
 
-    const-string/jumbo v3, "getPrivateKey function"
+    const-string/jumbo v1, "OpenSSLHelper"
 
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    const-string/jumbo v2, "getPrivateKey function"
 
-    iget-object v2, p0, Lcom/sec/smartcard/openssl/OpenSSLHelper;->pkey:Ljava/security/PrivateKey;
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    if-nez v2, :cond_0
+    if-nez p1, :cond_0
 
-    const-string/jumbo v2, "secpkcs11"
+    return-object v3
 
-    invoke-static {v2}, Lcom/android/org/conscrypt/OpenSSLEngine;->getCustomInstance(Ljava/lang/String;)Lcom/android/org/conscrypt/OpenSSLEngine;
+    :cond_0
+    :try_start_0
+    invoke-static {p1}, Lcom/sec/enterprise/jce/provider/pkcs11/OpenSSLEnginePrivateKeyHelper;->ccmGetPrivateKeyById(Ljava/lang/String;)Ljava/security/PrivateKey;
 
     move-result-object v1
 
-    if-eqz v1, :cond_0
-
-    :try_start_0
-    invoke-virtual {v1, p1}, Lcom/android/org/conscrypt/OpenSSLEngine;->getPrivateKeyById(Ljava/lang/String;)Ljava/security/PrivateKey;
-
-    move-result-object v2
-
-    iput-object v2, p0, Lcom/sec/smartcard/openssl/OpenSSLHelper;->pkey:Ljava/security/PrivateKey;
+    iput-object v1, p0, Lcom/sec/smartcard/openssl/OpenSSLHelper;->pkey:Ljava/security/PrivateKey;
     :try_end_0
     .catch Ljava/security/InvalidKeyException; {:try_start_0 .. :try_end_0} :catch_0
 
-    :cond_0
     :goto_0
-    iget-object v2, p0, Lcom/sec/smartcard/openssl/OpenSSLHelper;->pkey:Ljava/security/PrivateKey;
+    iget-object v1, p0, Lcom/sec/smartcard/openssl/OpenSSLHelper;->pkey:Ljava/security/PrivateKey;
 
-    return-object v2
+    return-object v1
 
     :catch_0
     move-exception v0
 
-    const-string/jumbo v2, "OpenSSLHelper"
+    const-string/jumbo v1, "OpenSSLHelper"
 
-    const-string/jumbo v3, "InvalidKeyException"
+    const-string/jumbo v2, "InvalidKeyException"
 
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 .end method

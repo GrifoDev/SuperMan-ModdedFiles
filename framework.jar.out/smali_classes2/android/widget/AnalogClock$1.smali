@@ -75,7 +75,7 @@
 
     iget-object v1, p0, Landroid/widget/AnalogClock$1;->this$0:Landroid/widget/AnalogClock;
 
-    invoke-virtual {v1}, Landroid/view/View;->invalidate()V
+    invoke-virtual {v1}, Landroid/widget/AnalogClock;->invalidate()V
 
     return-void
 .end method

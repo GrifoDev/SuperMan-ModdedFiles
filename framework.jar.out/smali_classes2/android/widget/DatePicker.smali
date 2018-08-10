@@ -15,16 +15,34 @@
 
 
 # static fields
-.field private static final MODE_CALENDAR:I = 0x2
+.field private static final LOG_TAG:Ljava/lang/String;
 
-.field private static final MODE_SPINNER:I = 0x1
+.field public static final MODE_CALENDAR:I = 0x2
+
+.field public static final MODE_SPINNER:I = 0x1
 
 
 # instance fields
 .field private final mDelegate:Landroid/widget/DatePicker$DatePickerDelegate;
 
+.field private final mMode:I
+
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    const-class v0, Landroid/widget/DatePicker;
+
+    invoke-virtual {v0}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
+
+    move-result-object v0
+
+    sput-object v0, Landroid/widget/DatePicker;->LOG_TAG:Ljava/lang/String;
+
+    return-void
+.end method
+
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
 
@@ -56,58 +74,107 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;II)V
-    .locals 6
+    .locals 7
+
+    const/4 v6, 0x1
 
     const/4 v5, 0x0
 
     invoke-direct {p0, p1, p2, p3, p4}, Landroid/widget/FrameLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;II)V
 
-    sget-object v3, Lcom/android/internal/R$styleable;->DatePicker:[I
+    invoke-virtual {p0}, Landroid/widget/DatePicker;->getImportantForAutofill()I
 
-    invoke-virtual {p1, p2, v3, p3, p4}, Landroid/content/Context;->obtainStyledAttributes(Landroid/util/AttributeSet;[III)Landroid/content/res/TypedArray;
+    move-result v4
+
+    if-nez v4, :cond_0
+
+    invoke-virtual {p0, v6}, Landroid/widget/DatePicker;->setImportantForAutofill(I)V
+
+    :cond_0
+    sget-object v4, Lcom/android/internal/R$styleable;->DatePicker:[I
+
+    invoke-virtual {p1, p2, v4, p3, p4}, Landroid/content/Context;->obtainStyledAttributes(Landroid/util/AttributeSet;[III)Landroid/content/res/TypedArray;
 
     move-result-object v0
 
-    const/16 v3, 0x10
+    const/16 v4, 0x11
 
-    const/4 v4, 0x1
-
-    invoke-virtual {v0, v3, v4}, Landroid/content/res/TypedArray;->getInt(II)I
+    invoke-virtual {v0, v4, v5}, Landroid/content/res/TypedArray;->getBoolean(IZ)Z
 
     move-result v2
 
-    const/4 v3, 0x3
+    const/16 v4, 0x10
 
-    invoke-virtual {v0, v3, v5}, Landroid/content/res/TypedArray;->getInt(II)I
+    invoke-virtual {v0, v4, v6}, Landroid/content/res/TypedArray;->getInt(II)I
+
+    move-result v3
+
+    const/4 v4, 0x3
+
+    invoke-virtual {v0, v4, v5}, Landroid/content/res/TypedArray;->getInt(II)I
 
     move-result v1
 
     invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
 
-    packed-switch v2, :pswitch_data_0
+    const/4 v4, 0x2
+
+    if-ne v3, v4, :cond_2
+
+    if-eqz v2, :cond_2
+
+    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v4
+
+    const v5, 0x10e00e9
+
+    invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getInteger(I)I
+
+    move-result v4
+
+    iput v4, p0, Landroid/widget/DatePicker;->mMode:I
+
+    :goto_0
+    iget v4, p0, Landroid/widget/DatePicker;->mMode:I
+
+    packed-switch v4, :pswitch_data_0
 
     invoke-direct {p0, p1, p2, p3, p4}, Landroid/widget/DatePicker;->createSpinnerUIDelegate(Landroid/content/Context;Landroid/util/AttributeSet;II)Landroid/widget/DatePicker$DatePickerDelegate;
 
-    move-result-object v3
+    move-result-object v4
 
-    iput-object v3, p0, Landroid/widget/DatePicker;->mDelegate:Landroid/widget/DatePicker$DatePickerDelegate;
+    iput-object v4, p0, Landroid/widget/DatePicker;->mDelegate:Landroid/widget/DatePicker$DatePickerDelegate;
 
-    :goto_0
-    if-eqz v1, :cond_0
+    :goto_1
+    if-eqz v1, :cond_1
 
     invoke-virtual {p0, v1}, Landroid/widget/DatePicker;->setFirstDayOfWeek(I)V
 
-    :cond_0
+    :cond_1
+    iget-object v4, p0, Landroid/widget/DatePicker;->mDelegate:Landroid/widget/DatePicker$DatePickerDelegate;
+
+    new-instance v5, Landroid/widget/-$Lambda$BV-ZMvzFTXSucX7TdTNW-nTaMgA;
+
+    invoke-direct {v5, p0, p1}, Landroid/widget/-$Lambda$BV-ZMvzFTXSucX7TdTNW-nTaMgA;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
+
+    invoke-interface {v4, v5}, Landroid/widget/DatePicker$DatePickerDelegate;->setAutoFillChangeListener(Landroid/widget/DatePicker$OnDateChangedListener;)V
+
     return-void
+
+    :cond_2
+    iput v3, p0, Landroid/widget/DatePicker;->mMode:I
+
+    goto :goto_0
 
     :pswitch_0
     invoke-direct {p0, p1, p2, p3, p4}, Landroid/widget/DatePicker;->createCalendarUIDelegate(Landroid/content/Context;Landroid/util/AttributeSet;II)Landroid/widget/DatePicker$DatePickerDelegate;
 
-    move-result-object v3
+    move-result-object v4
 
-    iput-object v3, p0, Landroid/widget/DatePicker;->mDelegate:Landroid/widget/DatePicker$DatePickerDelegate;
+    iput-object v4, p0, Landroid/widget/DatePicker;->mDelegate:Landroid/widget/DatePicker$DatePickerDelegate;
 
-    goto :goto_0
+    goto :goto_1
 
     nop
 
@@ -159,6 +226,64 @@
 
 
 # virtual methods
+.method public autofill(Landroid/view/autofill/AutofillValue;)V
+    .locals 4
+
+    invoke-virtual {p0}, Landroid/widget/DatePicker;->isEnabled()Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    return-void
+
+    :cond_0
+    invoke-virtual {p1}, Landroid/view/autofill/AutofillValue;->isDate()Z
+
+    move-result v0
+
+    if-nez v0, :cond_1
+
+    sget-object v0, Landroid/widget/DatePicker;->LOG_TAG:Ljava/lang/String;
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string/jumbo v2, " could not be autofilled into "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
+
+    :cond_1
+    iget-object v0, p0, Landroid/widget/DatePicker;->mDelegate:Landroid/widget/DatePicker$DatePickerDelegate;
+
+    invoke-virtual {p1}, Landroid/view/autofill/AutofillValue;->getDateValue()J
+
+    move-result-wide v2
+
+    invoke-interface {v0, v2, v3}, Landroid/widget/DatePicker$DatePickerDelegate;->updateDate(J)V
+
+    return-void
+.end method
+
 .method public dispatchPopulateAccessibilityEventInternal(Landroid/view/accessibility/AccessibilityEvent;)Z
     .locals 1
 
@@ -169,6 +294,20 @@
     move-result v0
 
     return v0
+.end method
+
+.method public dispatchProvideAutofillStructure(Landroid/view/ViewStructure;I)V
+    .locals 1
+
+    invoke-virtual {p0}, Landroid/widget/DatePicker;->getAutofillId()Landroid/view/autofill/AutofillId;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Landroid/view/ViewStructure;->setAutofillId(Landroid/view/autofill/AutofillId;)V
+
+    invoke-virtual {p0, p1, p2}, Landroid/widget/DatePicker;->onProvideAutofillStructure(Landroid/view/ViewStructure;I)V
+
+    return-void
 .end method
 
 .method protected dispatchRestoreInstanceState(Landroid/util/SparseArray;)V
@@ -198,6 +337,54 @@
     move-result-object v0
 
     return-object v0
+.end method
+
+.method public getAutofillType()I
+    .locals 1
+
+    invoke-virtual {p0}, Landroid/widget/DatePicker;->isEnabled()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x4
+
+    :goto_0
+    return v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
+.method public getAutofillValue()Landroid/view/autofill/AutofillValue;
+    .locals 2
+
+    invoke-virtual {p0}, Landroid/widget/DatePicker;->isEnabled()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Landroid/widget/DatePicker;->mDelegate:Landroid/widget/DatePicker$DatePickerDelegate;
+
+    invoke-interface {v0}, Landroid/widget/DatePicker$DatePickerDelegate;->getDate()J
+
+    move-result-wide v0
+
+    invoke-static {v0, v1}, Landroid/view/autofill/AutofillValue;->forDate(J)Landroid/view/autofill/AutofillValue;
+
+    move-result-object v0
+
+    :goto_0
+    return-object v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
 .end method
 
 .method public getCalendarView()Landroid/widget/CalendarView;
@@ -284,6 +471,14 @@
     return-wide v0
 .end method
 
+.method public getMode()I
+    .locals 1
+
+    iget v0, p0, Landroid/widget/DatePicker;->mMode:I
+
+    return v0
+.end method
+
 .method public getMonth()I
     .locals 1
 
@@ -342,6 +537,25 @@
     move-result v0
 
     return v0
+.end method
+
+.method synthetic lambda$-android_widget_DatePicker_6867(Landroid/content/Context;Landroid/widget/DatePicker;III)V
+    .locals 2
+
+    const-class v1, Landroid/view/autofill/AutofillManager;
+
+    invoke-virtual {p1, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/view/autofill/AutofillManager;
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {v0, p0}, Landroid/view/autofill/AutofillManager;->notifyValueChanged(Landroid/view/View;)V
+
+    :cond_0
+    return-void
 .end method
 
 .method protected onConfigurationChanged(Landroid/content/res/Configuration;)V
@@ -483,6 +697,16 @@
     iget-object v0, p0, Landroid/widget/DatePicker;->mDelegate:Landroid/widget/DatePicker$DatePickerDelegate;
 
     invoke-interface {v0, p1, p2}, Landroid/widget/DatePicker$DatePickerDelegate;->setMinDate(J)V
+
+    return-void
+.end method
+
+.method public setOnDateChangedListener(Landroid/widget/DatePicker$OnDateChangedListener;)V
+    .locals 1
+
+    iget-object v0, p0, Landroid/widget/DatePicker;->mDelegate:Landroid/widget/DatePicker$DatePickerDelegate;
+
+    invoke-interface {v0, p1}, Landroid/widget/DatePicker$DatePickerDelegate;->setOnDateChangedListener(Landroid/widget/DatePicker$OnDateChangedListener;)V
 
     return-void
 .end method

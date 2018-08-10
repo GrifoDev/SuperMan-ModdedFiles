@@ -137,7 +137,7 @@
     .end annotation
 .end method
 
-.method public abstract getInstalledProvidersForProfile(II)Landroid/content/pm/ParceledListSlice;
+.method public abstract getInstalledProvidersForProfile(IILjava/lang/String;)Landroid/content/pm/ParceledListSlice;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -161,6 +161,14 @@
     .end annotation
 .end method
 
+.method public abstract isRequestPinAppWidgetSupported()Z
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract notifyAppWidgetViewDataChanged(Ljava/lang/String;[II)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -177,6 +185,14 @@
     .end annotation
 .end method
 
+.method public abstract requestPinAppWidget(Ljava/lang/String;Landroid/content/ComponentName;Landroid/os/Bundle;Landroid/content/IntentSender;)Z
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract setBindAppWidgetPermission(Ljava/lang/String;IZ)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -185,7 +201,7 @@
     .end annotation
 .end method
 
-.method public abstract startListening(Lcom/android/internal/appwidget/IAppWidgetHost;Ljava/lang/String;I[I[I)Landroid/content/pm/ParceledListSlice;
+.method public abstract startListening(Lcom/android/internal/appwidget/IAppWidgetHost;Ljava/lang/String;I[I)Landroid/content/pm/ParceledListSlice;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

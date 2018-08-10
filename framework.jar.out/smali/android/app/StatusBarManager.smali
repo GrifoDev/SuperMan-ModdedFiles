@@ -331,22 +331,6 @@
     throw v2
 .end method
 
-.method public getPanelExpandState()Z
-    .locals 1
-
-    const/4 v0, 0x0
-
-    return v0
-.end method
-
-.method public getQuickSettingPanelExpandState()Z
-    .locals 1
-
-    const/4 v0, 0x0
-
-    return v0
-.end method
-
 .method public removeIcon(Ljava/lang/String;)V
     .locals 3
 

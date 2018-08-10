@@ -1660,7 +1660,9 @@
 .end method
 
 .method public getPropertyValues(Landroid/animation/PropertyValuesHolder$PropertyValues;)V
-    .locals 2
+    .locals 3
+
+    const/4 v2, 0x0
 
     invoke-virtual {p0}, Landroid/animation/PropertyValuesHolder;->init()V
 
@@ -1736,7 +1738,29 @@
 
     instance-of v0, v0, Landroid/animation/PathKeyframes$IntKeyframesBase;
 
+    if-nez v0, :cond_2
+
+    iget-object v0, p0, Landroid/animation/PropertyValuesHolder;->mKeyframes:Landroid/animation/Keyframes;
+
+    invoke-interface {v0}, Landroid/animation/Keyframes;->getKeyframes()Ljava/util/List;
+
+    move-result-object v0
+
     if-eqz v0, :cond_3
+
+    iget-object v0, p0, Landroid/animation/PropertyValuesHolder;->mKeyframes:Landroid/animation/Keyframes;
+
+    invoke-interface {v0}, Landroid/animation/Keyframes;->getKeyframes()Ljava/util/List;
+
+    move-result-object v0
+
+    invoke-interface {v0}, Ljava/util/List;->size()I
+
+    move-result v0
+
+    const/4 v1, 0x2
+
+    if-le v0, v1, :cond_3
 
     :cond_2
     new-instance v0, Landroid/animation/PropertyValuesHolder$1;
@@ -1749,11 +1773,17 @@
     return-void
 
     :cond_3
-    const/4 v0, 0x0
-
-    iput-object v0, p1, Landroid/animation/PropertyValuesHolder$PropertyValues;->dataSource:Landroid/animation/PropertyValuesHolder$PropertyValues$DataSource;
+    iput-object v2, p1, Landroid/animation/PropertyValuesHolder$PropertyValues;->dataSource:Landroid/animation/PropertyValuesHolder$PropertyValues$DataSource;
 
     goto :goto_0
+.end method
+
+.method public getValueType()Ljava/lang/Class;
+    .locals 1
+
+    iget-object v0, p0, Landroid/animation/PropertyValuesHolder;->mValueType:Ljava/lang/Class;
+
+    return-object v0
 .end method
 
 .method init()V
@@ -2090,10 +2120,6 @@
     .locals 14
 
     const/4 v13, 0x0
-
-    iget-object v10, p0, Landroid/animation/PropertyValuesHolder;->mKeyframes:Landroid/animation/Keyframes;
-
-    invoke-interface {v10}, Landroid/animation/Keyframes;->invalidateCache()V
 
     iget-object v10, p0, Landroid/animation/PropertyValuesHolder;->mProperty:Landroid/util/Property;
 

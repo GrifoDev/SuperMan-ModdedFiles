@@ -153,6 +153,17 @@
 .method public static unflattenFromString(Ljava/lang/String;)Landroid/graphics/Rect;
     .locals 6
 
+    const/4 v2, 0x0
+
+    invoke-static {p0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    return-object v2
+
+    :cond_0
     invoke-static {p0}, Landroid/graphics/Rect$UnflattenHelper;->getMatcher(Ljava/lang/String;)Ljava/util/regex/Matcher;
 
     move-result-object v0
@@ -161,13 +172,11 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_1
 
-    const/4 v1, 0x0
+    return-object v2
 
-    return-object v1
-
-    :cond_0
+    :cond_1
     new-instance v1, Landroid/graphics/Rect;
 
     const/4 v2, 0x1

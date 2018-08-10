@@ -930,12 +930,12 @@
 
     move-result v9
 
-    if-le v9, v3, :cond_8
+    if-le v9, v3, :cond_9
 
     :cond_1
     const/4 v9, 0x1
 
-    if-eq v8, v9, :cond_8
+    if-eq v8, v9, :cond_9
 
     const/4 v9, 0x2
 
@@ -951,7 +951,7 @@
 
     move-result v9
 
-    if-eqz v9, :cond_7
+    if-eqz v9, :cond_8
 
     iget-object v9, p0, Landroid/transition/TransitionInflater;->mContext:Landroid/content/Context;
 
@@ -969,13 +969,17 @@
 
     move-result v5
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_3
 
     invoke-virtual {p3, v5}, Landroid/transition/Transition;->addTarget(I)Landroid/transition/Transition;
 
+    :cond_2
+    :goto_1
+    invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
+
     goto :goto_0
 
-    :cond_2
+    :cond_3
     const/4 v9, 0x2
 
     const/4 v10, 0x0
@@ -984,29 +988,16 @@
 
     move-result v5
 
-    if-eqz v5, :cond_3
+    if-eqz v5, :cond_4
 
     const/4 v9, 0x1
 
     invoke-virtual {p3, v5, v9}, Landroid/transition/Transition;->excludeTarget(IZ)Landroid/transition/Transition;
 
-    goto :goto_0
-
-    :cond_3
-    const/4 v9, 0x4
-
-    invoke-virtual {v0, v9}, Landroid/content/res/TypedArray;->getString(I)Ljava/lang/String;
-
-    move-result-object v7
-
-    if-eqz v7, :cond_4
-
-    invoke-virtual {p3, v7}, Landroid/transition/Transition;->addTarget(Ljava/lang/String;)Landroid/transition/Transition;
-
-    goto :goto_0
+    goto :goto_1
 
     :cond_4
-    const/4 v9, 0x5
+    const/4 v9, 0x4
 
     invoke-virtual {v0, v9}, Landroid/content/res/TypedArray;->getString(I)Ljava/lang/String;
 
@@ -1014,20 +1005,33 @@
 
     if-eqz v7, :cond_5
 
+    invoke-virtual {p3, v7}, Landroid/transition/Transition;->addTarget(Ljava/lang/String;)Landroid/transition/Transition;
+
+    goto :goto_1
+
+    :cond_5
+    const/4 v9, 0x5
+
+    invoke-virtual {v0, v9}, Landroid/content/res/TypedArray;->getString(I)Ljava/lang/String;
+
+    move-result-object v7
+
+    if-eqz v7, :cond_6
+
     const/4 v9, 0x1
 
     invoke-virtual {p3, v7, v9}, Landroid/transition/Transition;->excludeTarget(Ljava/lang/String;Z)Landroid/transition/Transition;
 
-    goto :goto_0
+    goto :goto_1
 
-    :cond_5
+    :cond_6
     const/4 v9, 0x3
 
     invoke-virtual {v0, v9}, Landroid/content/res/TypedArray;->getString(I)Ljava/lang/String;
 
     move-result-object v1
 
-    if-eqz v1, :cond_6
+    if-eqz v1, :cond_7
 
     :try_start_0
     invoke-static {v1}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
@@ -1040,10 +1044,12 @@
     :try_end_0
     .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_0
+    goto :goto_1
 
     :catch_0
     move-exception v4
+
+    invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
 
     new-instance v9, Ljava/lang/RuntimeException;
 
@@ -1069,7 +1075,7 @@
 
     throw v9
 
-    :cond_6
+    :cond_7
     const/4 v9, 0x0
 
     :try_start_1
@@ -1077,7 +1083,7 @@
 
     move-result-object v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_2
 
     invoke-static {v1}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
 
@@ -1087,9 +1093,9 @@
     :try_end_1
     .catch Ljava/lang/ClassNotFoundException; {:try_start_1 .. :try_end_1} :catch_0
 
-    goto/16 :goto_0
+    goto :goto_1
 
-    :cond_7
+    :cond_8
     new-instance v9, Ljava/lang/RuntimeException;
 
     new-instance v10, Ljava/lang/StringBuilder;
@@ -1118,7 +1124,7 @@
 
     throw v9
 
-    :cond_8
+    :cond_9
     return-void
 .end method
 

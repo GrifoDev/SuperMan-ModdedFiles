@@ -145,7 +145,22 @@
 
     move-result v10
 
-    if-eqz v10, :cond_3
+    xor-int/lit8 v10, v10, 0x1
+
+    if-eqz v10, :cond_2
+
+    new-instance v3, Landroid/net/ProxyInfo;
+
+    const/4 v10, 0x0
+
+    invoke-direct/range {v3 .. v10}, Landroid/net/ProxyInfo;-><init>(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Landroid/net/ProxyInfo;)V
+
+    :goto_0
+    move/from16 v0, v16
+
+    invoke-virtual {v3, v0}, Landroid/net/ProxyInfo;->setEnterpriseProxy(I)V
+
+    return-object v3
 
     :cond_2
     new-instance v3, Landroid/net/ProxyInfo;
@@ -163,20 +178,6 @@
     move-object v14, v9
 
     invoke-direct/range {v10 .. v15}, Landroid/net/ProxyInfo;-><init>(Ljava/lang/String;ILjava/lang/String;[Ljava/lang/String;Landroid/net/ProxyInfo;)V
-
-    :goto_0
-    move/from16 v0, v16
-
-    invoke-virtual {v3, v0}, Landroid/net/ProxyInfo;->setEnterpriseProxy(I)V
-
-    return-object v3
-
-    :cond_3
-    new-instance v3, Landroid/net/ProxyInfo;
-
-    const/4 v10, 0x0
-
-    invoke-direct/range {v3 .. v10}, Landroid/net/ProxyInfo;-><init>(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Landroid/net/ProxyInfo;)V
 
     goto :goto_0
 .end method

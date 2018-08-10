@@ -19,8 +19,6 @@
 
 .field private mCustomAdvInterval:I
 
-.field private mIsStandardAdv:Z
-
 .field private mMode:I
 
 .field private mTimeoutMillis:I
@@ -50,15 +48,13 @@
 
     iput v1, p0, Landroid/bluetooth/le/AdvertiseSettings$Builder;->mCustomAdvInterval:I
 
-    iput-boolean v1, p0, Landroid/bluetooth/le/AdvertiseSettings$Builder;->mIsStandardAdv:Z
-
     return-void
 .end method
 
 
 # virtual methods
 .method public build()Landroid/bluetooth/le/AdvertiseSettings;
-    .locals 8
+    .locals 7
 
     new-instance v0, Landroid/bluetooth/le/AdvertiseSettings;
 
@@ -72,11 +68,9 @@
 
     iget v5, p0, Landroid/bluetooth/le/AdvertiseSettings$Builder;->mCustomAdvInterval:I
 
-    iget-boolean v6, p0, Landroid/bluetooth/le/AdvertiseSettings$Builder;->mIsStandardAdv:Z
+    const/4 v6, 0x0
 
-    const/4 v7, 0x0
-
-    invoke-direct/range {v0 .. v7}, Landroid/bluetooth/le/AdvertiseSettings;-><init>(IIZIIZLandroid/bluetooth/le/AdvertiseSettings;)V
+    invoke-direct/range {v0 .. v6}, Landroid/bluetooth/le/AdvertiseSettings;-><init>(IIZIILandroid/bluetooth/le/AdvertiseSettings;)V
 
     return-object v0
 .end method
@@ -84,11 +78,11 @@
 .method public semSetCustomAdvertiseInterval(I)Landroid/bluetooth/le/AdvertiseSettings$Builder;
     .locals 3
 
-    const/16 v0, 0x20
+    const/16 v0, 0x14
 
     if-lt p1, v0, :cond_0
 
-    const/16 v0, 0x4000
+    const/16 v0, 0x2800
 
     if-le p1, v0, :cond_1
 
@@ -171,14 +165,6 @@
     .locals 0
 
     iput-boolean p1, p0, Landroid/bluetooth/le/AdvertiseSettings$Builder;->mConnectable:Z
-
-    return-object p0
-.end method
-
-.method public setStandardAdvertising(Z)Landroid/bluetooth/le/AdvertiseSettings$Builder;
-    .locals 0
-
-    iput-boolean p1, p0, Landroid/bluetooth/le/AdvertiseSettings$Builder;->mIsStandardAdv:Z
 
     return-object p0
 .end method

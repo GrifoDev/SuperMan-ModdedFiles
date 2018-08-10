@@ -57,7 +57,7 @@
 
     const-string/jumbo v0, "com.android.ims.internal.IImsVideoCallProvider"
 
-    invoke-virtual {p0, p0, v0}, Landroid/os/Binder;->attachInterface(Landroid/os/IInterface;Ljava/lang/String;)V
+    invoke-virtual {p0, p0, v0}, Lcom/android/ims/internal/IImsVideoCallProvider$Stub;->attachInterface(Landroid/os/IInterface;Ljava/lang/String;)V
 
     return-void
 .end method
@@ -105,74 +105,78 @@
 .end method
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    .locals 10
+    .locals 11
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    const/4 v9, 0x1
+    const/4 v10, 0x1
 
     sparse-switch p1, :sswitch_data_0
 
     invoke-super {p0, p1, p2, p3, p4}, Landroid/os/Binder;->onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    move-result v8
-
-    return v8
-
-    :sswitch_0
-    const-string/jumbo v8, "com.android.ims.internal.IImsVideoCallProvider"
-
-    invoke-virtual {p3, v8}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    move-result v9
 
     return v9
 
-    :sswitch_1
-    const-string/jumbo v8, "com.android.ims.internal.IImsVideoCallProvider"
+    :sswitch_0
+    const-string/jumbo v9, "com.android.ims.internal.IImsVideoCallProvider"
 
-    invoke-virtual {p2, v8}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p3, v9}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+
+    return v10
+
+    :sswitch_1
+    const-string/jumbo v9, "com.android.ims.internal.IImsVideoCallProvider"
+
+    invoke-virtual {p2, v9}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
-    move-result-object v8
+    move-result-object v9
 
-    invoke-static {v8}, Lcom/android/ims/internal/IImsVideoCallCallback$Stub;->asInterface(Landroid/os/IBinder;)Lcom/android/ims/internal/IImsVideoCallCallback;
+    invoke-static {v9}, Lcom/android/ims/internal/IImsVideoCallCallback$Stub;->asInterface(Landroid/os/IBinder;)Lcom/android/ims/internal/IImsVideoCallCallback;
 
     move-result-object v5
 
     invoke-virtual {p0, v5}, Lcom/android/ims/internal/IImsVideoCallProvider$Stub;->setCallback(Lcom/android/ims/internal/IImsVideoCallCallback;)V
 
-    return v9
+    return v10
 
     :sswitch_2
-    const-string/jumbo v8, "com.android.ims.internal.IImsVideoCallProvider"
+    const-string/jumbo v9, "com.android.ims.internal.IImsVideoCallProvider"
 
-    invoke-virtual {p2, v8}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v9}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v6
 
-    invoke-virtual {p0, v6}, Lcom/android/ims/internal/IImsVideoCallProvider$Stub;->setCamera(Ljava/lang/String;)V
+    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
-    return v9
+    move-result v7
+
+    invoke-virtual {p0, v6, v7}, Lcom/android/ims/internal/IImsVideoCallProvider$Stub;->setCamera(Ljava/lang/String;I)V
+
+    return v10
 
     :sswitch_3
-    const-string/jumbo v8, "com.android.ims.internal.IImsVideoCallProvider"
+    const-string/jumbo v9, "com.android.ims.internal.IImsVideoCallProvider"
 
-    invoke-virtual {p2, v8}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v9}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v8
+    move-result v9
 
-    if-eqz v8, :cond_0
+    if-eqz v9, :cond_0
 
-    sget-object v8, Landroid/view/Surface;->CREATOR:Landroid/os/Parcelable$Creator;
+    sget-object v9, Landroid/view/Surface;->CREATOR:Landroid/os/Parcelable$Creator;
 
-    invoke-interface {v8, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+    invoke-interface {v9, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
 
     move-result-object v4
 
@@ -181,7 +185,7 @@
     :goto_0
     invoke-virtual {p0, v4}, Lcom/android/ims/internal/IImsVideoCallProvider$Stub;->setPreviewSurface(Landroid/view/Surface;)V
 
-    return v9
+    return v10
 
     :cond_0
     const/4 v4, 0x0
@@ -189,19 +193,19 @@
     goto :goto_0
 
     :sswitch_4
-    const-string/jumbo v8, "com.android.ims.internal.IImsVideoCallProvider"
+    const-string/jumbo v9, "com.android.ims.internal.IImsVideoCallProvider"
 
-    invoke-virtual {p2, v8}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v9}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v8
+    move-result v9
 
-    if-eqz v8, :cond_1
+    if-eqz v9, :cond_1
 
-    sget-object v8, Landroid/view/Surface;->CREATOR:Landroid/os/Parcelable$Creator;
+    sget-object v9, Landroid/view/Surface;->CREATOR:Landroid/os/Parcelable$Creator;
 
-    invoke-interface {v8, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+    invoke-interface {v9, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
 
     move-result-object v4
 
@@ -210,7 +214,7 @@
     :goto_1
     invoke-virtual {p0, v4}, Lcom/android/ims/internal/IImsVideoCallProvider$Stub;->setDisplaySurface(Landroid/view/Surface;)V
 
-    return v9
+    return v10
 
     :cond_1
     const/4 v4, 0x0
@@ -218,9 +222,9 @@
     goto :goto_1
 
     :sswitch_5
-    const-string/jumbo v8, "com.android.ims.internal.IImsVideoCallProvider"
+    const-string/jumbo v9, "com.android.ims.internal.IImsVideoCallProvider"
 
-    invoke-virtual {p2, v8}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v9}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
@@ -228,12 +232,12 @@
 
     invoke-virtual {p0, v1}, Lcom/android/ims/internal/IImsVideoCallProvider$Stub;->setDeviceOrientation(I)V
 
-    return v9
+    return v10
 
     :sswitch_6
-    const-string/jumbo v8, "com.android.ims.internal.IImsVideoCallProvider"
+    const-string/jumbo v9, "com.android.ims.internal.IImsVideoCallProvider"
 
-    invoke-virtual {p2, v8}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v9}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readFloat()F
 
@@ -241,22 +245,22 @@
 
     invoke-virtual {p0, v0}, Lcom/android/ims/internal/IImsVideoCallProvider$Stub;->setZoom(F)V
 
-    return v9
+    return v10
 
     :sswitch_7
-    const-string/jumbo v8, "com.android.ims.internal.IImsVideoCallProvider"
+    const-string/jumbo v9, "com.android.ims.internal.IImsVideoCallProvider"
 
-    invoke-virtual {p2, v8}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v9}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v8
+    move-result v9
 
-    if-eqz v8, :cond_2
+    if-eqz v9, :cond_2
 
-    sget-object v8, Landroid/telecom/VideoProfile;->CREATOR:Landroid/os/Parcelable$Creator;
+    sget-object v9, Landroid/telecom/VideoProfile;->CREATOR:Landroid/os/Parcelable$Creator;
 
-    invoke-interface {v8, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+    invoke-interface {v9, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
 
     move-result-object v3
 
@@ -265,22 +269,22 @@
     :goto_2
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v8
+    move-result v9
 
-    if-eqz v8, :cond_3
+    if-eqz v9, :cond_3
 
-    sget-object v8, Landroid/telecom/VideoProfile;->CREATOR:Landroid/os/Parcelable$Creator;
+    sget-object v9, Landroid/telecom/VideoProfile;->CREATOR:Landroid/os/Parcelable$Creator;
 
-    invoke-interface {v8, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+    invoke-interface {v9, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
 
-    move-result-object v7
+    move-result-object v8
 
-    check-cast v7, Landroid/telecom/VideoProfile;
+    check-cast v8, Landroid/telecom/VideoProfile;
 
     :goto_3
-    invoke-virtual {p0, v3, v7}, Lcom/android/ims/internal/IImsVideoCallProvider$Stub;->sendSessionModifyRequest(Landroid/telecom/VideoProfile;Landroid/telecom/VideoProfile;)V
+    invoke-virtual {p0, v3, v8}, Lcom/android/ims/internal/IImsVideoCallProvider$Stub;->sendSessionModifyRequest(Landroid/telecom/VideoProfile;Landroid/telecom/VideoProfile;)V
 
-    return v9
+    return v10
 
     :cond_2
     const/4 v3, 0x0
@@ -288,24 +292,24 @@
     goto :goto_2
 
     :cond_3
-    const/4 v7, 0x0
+    const/4 v8, 0x0
 
     goto :goto_3
 
     :sswitch_8
-    const-string/jumbo v8, "com.android.ims.internal.IImsVideoCallProvider"
+    const-string/jumbo v9, "com.android.ims.internal.IImsVideoCallProvider"
 
-    invoke-virtual {p2, v8}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v9}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v8
+    move-result v9
 
-    if-eqz v8, :cond_4
+    if-eqz v9, :cond_4
 
-    sget-object v8, Landroid/telecom/VideoProfile;->CREATOR:Landroid/os/Parcelable$Creator;
+    sget-object v9, Landroid/telecom/VideoProfile;->CREATOR:Landroid/os/Parcelable$Creator;
 
-    invoke-interface {v8, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+    invoke-interface {v9, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
 
     move-result-object v3
 
@@ -314,7 +318,7 @@
     :goto_4
     invoke-virtual {p0, v3}, Lcom/android/ims/internal/IImsVideoCallProvider$Stub;->sendSessionModifyResponse(Landroid/telecom/VideoProfile;)V
 
-    return v9
+    return v10
 
     :cond_4
     const/4 v3, 0x0
@@ -322,37 +326,37 @@
     goto :goto_4
 
     :sswitch_9
-    const-string/jumbo v8, "com.android.ims.internal.IImsVideoCallProvider"
+    const-string/jumbo v9, "com.android.ims.internal.IImsVideoCallProvider"
 
-    invoke-virtual {p2, v8}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v9}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p0}, Lcom/android/ims/internal/IImsVideoCallProvider$Stub;->requestCameraCapabilities()V
 
-    return v9
+    return v10
 
     :sswitch_a
-    const-string/jumbo v8, "com.android.ims.internal.IImsVideoCallProvider"
+    const-string/jumbo v9, "com.android.ims.internal.IImsVideoCallProvider"
 
-    invoke-virtual {p2, v8}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v9}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p0}, Lcom/android/ims/internal/IImsVideoCallProvider$Stub;->requestCallDataUsage()V
 
-    return v9
+    return v10
 
     :sswitch_b
-    const-string/jumbo v8, "com.android.ims.internal.IImsVideoCallProvider"
+    const-string/jumbo v9, "com.android.ims.internal.IImsVideoCallProvider"
 
-    invoke-virtual {p2, v8}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v9}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v8
+    move-result v9
 
-    if-eqz v8, :cond_5
+    if-eqz v9, :cond_5
 
-    sget-object v8, Landroid/net/Uri;->CREATOR:Landroid/os/Parcelable$Creator;
+    sget-object v9, Landroid/net/Uri;->CREATOR:Landroid/os/Parcelable$Creator;
 
-    invoke-interface {v8, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+    invoke-interface {v9, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
 
     move-result-object v2
 
@@ -361,7 +365,7 @@
     :goto_5
     invoke-virtual {p0, v2}, Lcom/android/ims/internal/IImsVideoCallProvider$Stub;->setPauseImage(Landroid/net/Uri;)V
 
-    return v9
+    return v10
 
     :cond_5
     const/4 v2, 0x0

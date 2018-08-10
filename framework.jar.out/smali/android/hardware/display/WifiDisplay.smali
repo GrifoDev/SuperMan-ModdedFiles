@@ -4,24 +4,12 @@
 
 # interfaces
 .implements Landroid/os/Parcelable;
-.implements Ljava/lang/Comparable;
 
 
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Landroid/hardware/display/WifiDisplay$1;
-    }
-.end annotation
-
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "Ljava/lang/Object;",
-        "Landroid/os/Parcelable;",
-        "Ljava/lang/Comparable",
-        "<",
-        "Landroid/hardware/display/WifiDisplay;",
-        ">;"
     }
 .end annotation
 
@@ -44,25 +32,23 @@
 # instance fields
 .field private final mCanConnect:Z
 
-.field private mDevInfo:I
-
 .field private final mDeviceAddress:Ljava/lang/String;
 
 .field private final mDeviceAlias:Ljava/lang/String;
 
+.field private mDeviceInfo:I
+
 .field private final mDeviceName:Ljava/lang/String;
 
-.field private mIconIdx:I
+.field private mDeviceType:Ljava/lang/String;
+
+.field private mIconIndex:I
 
 .field private final mIsAvailable:Z
 
 .field private mIsEmptySurface:Z
 
 .field private final mIsRemembered:Z
-
-.field private mOnlySupportsAudio:Z
-
-.field private mPrimaryDeviceType:Ljava/lang/String;
 
 .field private mUri:Ljava/lang/String;
 
@@ -86,64 +72,10 @@
     return-void
 .end method
 
-.method public constructor <init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZZZ)V
-    .locals 2
-
-    const/4 v0, 0x0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput v0, p0, Landroid/hardware/display/WifiDisplay;->mIconIdx:I
-
-    iput v0, p0, Landroid/hardware/display/WifiDisplay;->mDevInfo:I
-
-    if-nez p1, :cond_0
-
-    new-instance v0, Ljava/lang/IllegalArgumentException;
-
-    const-string/jumbo v1, "deviceAddress must not be null"
-
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
-
-    throw v0
-
-    :cond_0
-    if-nez p2, :cond_1
-
-    new-instance v0, Ljava/lang/IllegalArgumentException;
-
-    const-string/jumbo v1, "deviceName must not be null"
-
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
-
-    throw v0
-
-    :cond_1
-    iput-object p1, p0, Landroid/hardware/display/WifiDisplay;->mDeviceAddress:Ljava/lang/String;
-
-    iput-object p2, p0, Landroid/hardware/display/WifiDisplay;->mDeviceName:Ljava/lang/String;
-
-    iput-object p3, p0, Landroid/hardware/display/WifiDisplay;->mDeviceAlias:Ljava/lang/String;
-
-    iput-boolean p4, p0, Landroid/hardware/display/WifiDisplay;->mIsAvailable:Z
-
-    iput-boolean p5, p0, Landroid/hardware/display/WifiDisplay;->mCanConnect:Z
-
-    iput-boolean p6, p0, Landroid/hardware/display/WifiDisplay;->mIsRemembered:Z
-
-    return-void
-.end method
-
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZZZLjava/lang/String;)V
     .locals 2
 
-    const/4 v0, 0x0
-
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput v0, p0, Landroid/hardware/display/WifiDisplay;->mIconIdx:I
-
-    iput v0, p0, Landroid/hardware/display/WifiDisplay;->mDevInfo:I
 
     if-nez p1, :cond_0
 
@@ -179,7 +111,7 @@
 
     iput-boolean p6, p0, Landroid/hardware/display/WifiDisplay;->mIsRemembered:Z
 
-    iput-object p7, p0, Landroid/hardware/display/WifiDisplay;->mPrimaryDeviceType:Ljava/lang/String;
+    iput-object p7, p0, Landroid/hardware/display/WifiDisplay;->mDeviceType:Ljava/lang/String;
 
     return-void
 .end method
@@ -190,52 +122,6 @@
     .locals 1
 
     iget-boolean v0, p0, Landroid/hardware/display/WifiDisplay;->mCanConnect:Z
-
-    return v0
-.end method
-
-.method public compareTo(Landroid/hardware/display/WifiDisplay;)I
-    .locals 2
-
-    iget-object v0, p0, Landroid/hardware/display/WifiDisplay;->mDeviceAlias:Ljava/lang/String;
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p1, Landroid/hardware/display/WifiDisplay;->mDeviceAlias:Ljava/lang/String;
-
-    if-nez v0, :cond_1
-
-    :cond_0
-    iget-object v0, p0, Landroid/hardware/display/WifiDisplay;->mDeviceName:Ljava/lang/String;
-
-    iget-object v1, p1, Landroid/hardware/display/WifiDisplay;->mDeviceName:Ljava/lang/String;
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->compareTo(Ljava/lang/String;)I
-
-    move-result v0
-
-    return v0
-
-    :cond_1
-    iget-object v0, p0, Landroid/hardware/display/WifiDisplay;->mDeviceAlias:Ljava/lang/String;
-
-    iget-object v1, p1, Landroid/hardware/display/WifiDisplay;->mDeviceAlias:Ljava/lang/String;
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->compareTo(Ljava/lang/String;)I
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public bridge synthetic compareTo(Ljava/lang/Object;)I
-    .locals 1
-
-    check-cast p1, Landroid/hardware/display/WifiDisplay;
-
-    invoke-virtual {p0, p1}, Landroid/hardware/display/WifiDisplay;->compareTo(Landroid/hardware/display/WifiDisplay;)I
-
-    move-result v0
 
     return v0
 .end method
@@ -331,7 +217,7 @@
 .method public getDeviceInfo()I
     .locals 1
 
-    iget v0, p0, Landroid/hardware/display/WifiDisplay;->mDevInfo:I
+    iget v0, p0, Landroid/hardware/display/WifiDisplay;->mDeviceInfo:I
 
     return v0
 .end method
@@ -365,7 +251,7 @@
 .method public getIconIdx()I
     .locals 1
 
-    iget v0, p0, Landroid/hardware/display/WifiDisplay;->mIconIdx:I
+    iget v0, p0, Landroid/hardware/display/WifiDisplay;->mIconIndex:I
 
     return v0
 .end method
@@ -373,19 +259,9 @@
 .method public getPrimaryDeviceType()Ljava/lang/String;
     .locals 1
 
-    iget-object v0, p0, Landroid/hardware/display/WifiDisplay;->mPrimaryDeviceType:Ljava/lang/String;
+    iget-object v0, p0, Landroid/hardware/display/WifiDisplay;->mDeviceType:Ljava/lang/String;
 
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Landroid/hardware/display/WifiDisplay;->mPrimaryDeviceType:Ljava/lang/String;
-
-    :goto_0
     return-object v0
-
-    :cond_0
-    const-string/jumbo v0, ""
-
-    goto :goto_0
 .end method
 
 .method public getUri()Ljava/lang/String;
@@ -446,14 +322,6 @@
     return v0
 .end method
 
-.method public isOnlySupportsAudio()Z
-    .locals 1
-
-    iget-boolean v0, p0, Landroid/hardware/display/WifiDisplay;->mOnlySupportsAudio:Z
-
-    return v0
-.end method
-
 .method public isRemembered()Z
     .locals 1
 
@@ -465,7 +333,7 @@
 .method public setDeviceInfo(I)V
     .locals 0
 
-    iput p1, p0, Landroid/hardware/display/WifiDisplay;->mDevInfo:I
+    iput p1, p0, Landroid/hardware/display/WifiDisplay;->mDeviceInfo:I
 
     return-void
 .end method
@@ -481,15 +349,7 @@
 .method public setIconIdx(I)V
     .locals 0
 
-    iput p1, p0, Landroid/hardware/display/WifiDisplay;->mIconIdx:I
-
-    return-void
-.end method
-
-.method public setOnlySupportsAudio(Z)V
-    .locals 0
-
-    iput-boolean p1, p0, Landroid/hardware/display/WifiDisplay;->mOnlySupportsAudio:Z
+    iput p1, p0, Landroid/hardware/display/WifiDisplay;->mIconIndex:I
 
     return-void
 .end method
@@ -610,43 +470,43 @@
 
     move-result-object v1
 
-    const-string/jumbo v2, ", primaryDeviceType "
+    const-string/jumbo v2, ", mDeviceType "
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
-    iget-object v2, p0, Landroid/hardware/display/WifiDisplay;->mPrimaryDeviceType:Ljava/lang/String;
+    iget-object v2, p0, Landroid/hardware/display/WifiDisplay;->mDeviceType:Ljava/lang/String;
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
-    const-string/jumbo v2, ", mIconIdx "
+    const-string/jumbo v2, ", mIconIndex "
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
-    iget v2, p0, Landroid/hardware/display/WifiDisplay;->mIconIdx:I
+    iget v2, p0, Landroid/hardware/display/WifiDisplay;->mIconIndex:I
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
-    const-string/jumbo v2, ", devInfo = "
+    const-string/jumbo v2, ", mDeviceInfo "
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
-    iget v2, p0, Landroid/hardware/display/WifiDisplay;->mDevInfo:I
+    iget v2, p0, Landroid/hardware/display/WifiDisplay;->mDeviceInfo:I
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
-    const-string/jumbo v2, ", uri "
+    const-string/jumbo v2, ", mUri "
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -723,15 +583,15 @@
     :goto_2
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    iget-object v0, p0, Landroid/hardware/display/WifiDisplay;->mPrimaryDeviceType:Ljava/lang/String;
+    iget-object v0, p0, Landroid/hardware/display/WifiDisplay;->mDeviceType:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    iget v0, p0, Landroid/hardware/display/WifiDisplay;->mIconIdx:I
+    iget v0, p0, Landroid/hardware/display/WifiDisplay;->mIconIndex:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    iget v0, p0, Landroid/hardware/display/WifiDisplay;->mDevInfo:I
+    iget v0, p0, Landroid/hardware/display/WifiDisplay;->mDeviceInfo:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
@@ -743,16 +603,7 @@
 
     if-eqz v0, :cond_3
 
-    move v0, v1
-
     :goto_3
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
-
-    iget-boolean v0, p0, Landroid/hardware/display/WifiDisplay;->mOnlySupportsAudio:Z
-
-    if-eqz v0, :cond_4
-
-    :goto_4
     invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeInt(I)V
 
     return-void
@@ -773,12 +624,7 @@
     goto :goto_2
 
     :cond_3
-    move v0, v2
-
-    goto :goto_3
-
-    :cond_4
     move v1, v2
 
-    goto :goto_4
+    goto :goto_3
 .end method

@@ -47,6 +47,18 @@
     return-void
 .end method
 
+.method public onCaptureQueueEmpty(Landroid/hardware/camera2/CameraCaptureSession;)V
+    .locals 2
+
+    iget-object v0, p0, Landroid/hardware/camera2/impl/CameraConstrainedHighSpeedCaptureSessionImpl$WrapperCallback;->mCallback:Landroid/hardware/camera2/CameraCaptureSession$StateCallback;
+
+    iget-object v1, p0, Landroid/hardware/camera2/impl/CameraConstrainedHighSpeedCaptureSessionImpl$WrapperCallback;->this$0:Landroid/hardware/camera2/impl/CameraConstrainedHighSpeedCaptureSessionImpl;
+
+    invoke-virtual {v0, v1}, Landroid/hardware/camera2/CameraCaptureSession$StateCallback;->onCaptureQueueEmpty(Landroid/hardware/camera2/CameraCaptureSession;)V
+
+    return-void
+.end method
+
 .method public onClosed(Landroid/hardware/camera2/CameraCaptureSession;)V
     .locals 2
 

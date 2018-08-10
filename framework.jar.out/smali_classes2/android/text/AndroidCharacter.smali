@@ -3,6 +3,11 @@
 .source "AndroidCharacter.java"
 
 
+# annotations
+.annotation runtime Ljava/lang/Deprecated;
+.end annotation
+
+
 # static fields
 .field public static final EAST_ASIAN_WIDTH_AMBIGUOUS:I = 0x1
 

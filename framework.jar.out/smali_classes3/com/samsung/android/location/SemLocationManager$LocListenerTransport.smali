@@ -77,9 +77,18 @@
     goto :goto_0
 
     :pswitch_1
+    const/4 v2, 0x0
+
+    iget-object v3, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
+
+    if-eqz v3, :cond_0
+
     iget-object v2, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v2, Landroid/location/Location;
+
+    :cond_0
+    if-eqz v2, :cond_1
 
     invoke-virtual {v2}, Landroid/location/Location;->getExtras()Landroid/os/Bundle;
 
@@ -87,12 +96,13 @@
 
     const-string/jumbo v3, "currentlocationaddress"
 
-    invoke-virtual {v1, v3}, Landroid/os/BaseBundle;->get(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {v1, v3}, Landroid/os/Bundle;->get(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Landroid/location/Address;
 
+    :goto_1
     iget-object v4, p0, Lcom/samsung/android/location/SemLocationManager$LocListenerTransport;->mListener:Lcom/samsung/android/location/SemLocationListener;
 
     iget-object v3, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
@@ -103,7 +113,14 @@
 
     goto :goto_0
 
-    nop
+    :cond_1
+    new-instance v0, Landroid/location/Address;
+
+    sget-object v3, Ljava/util/Locale;->ENGLISH:Ljava/util/Locale;
+
+    invoke-direct {v0, v3}, Landroid/location/Address;-><init>(Ljava/util/Locale;)V
+
+    goto :goto_1
 
     :pswitch_data_0
     .packed-switch 0x1
@@ -135,19 +152,8 @@
 .end method
 
 .method public onLocationChanged(Landroid/location/Location;Landroid/location/Address;)V
-    .locals 4
+    .locals 3
 
-    if-nez p1, :cond_0
-
-    const-string/jumbo v2, "SemLocationManager"
-
-    const-string/jumbo v3, "onLocationChanged location is null"
-
-    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    return-void
-
-    :cond_0
     invoke-static {}, Landroid/os/Message;->obtain()Landroid/os/Message;
 
     move-result-object v1
@@ -155,6 +161,8 @@
     const/4 v2, 0x2
 
     iput v2, v1, Landroid/os/Message;->what:I
+
+    if-eqz p1, :cond_0
 
     new-instance v0, Landroid/os/Bundle;
 
@@ -166,6 +174,7 @@
 
     invoke-virtual {p1, v0}, Landroid/location/Location;->setExtras(Landroid/os/Bundle;)V
 
+    :cond_0
     iput-object p1, v1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     iget-object v2, p0, Lcom/samsung/android/location/SemLocationManager$LocListenerTransport;->mListenerHandler:Landroid/os/Handler;

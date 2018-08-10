@@ -63,7 +63,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/media/codec/SemVideoTranscoder;->mEncodeVideo:Lcom/samsung/android/transcode/core/EncodeVideo;
 
-    invoke-virtual {v0}, Lcom/samsung/android/transcode/core/Encode;->encode()V
+    invoke-virtual {v0}, Lcom/samsung/android/transcode/core/EncodeVideo;->encode()V
 
     return-void
 .end method
@@ -78,6 +78,31 @@
     move-result v0
 
     return v0
+.end method
+
+.method public initialize(Ljava/lang/String;IILandroid/content/Context;Landroid/net/Uri;)V
+    .locals 6
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    iget-object v0, p0, Lcom/samsung/android/media/codec/SemVideoTranscoder;->mEncodeVideo:Lcom/samsung/android/transcode/core/EncodeVideo;
+
+    move-object v1, p1
+
+    move v2, p2
+
+    move v3, p3
+
+    move-object v4, p4
+
+    move-object v5, p5
+
+    invoke-virtual/range {v0 .. v5}, Lcom/samsung/android/transcode/core/EncodeVideo;->initialize(Ljava/lang/String;IILandroid/content/Context;Landroid/net/Uri;)V
+
+    return-void
 .end method
 
 .method public initialize(Ljava/lang/String;IILjava/lang/String;)V
@@ -126,7 +151,7 @@
 
     invoke-direct {v1, p0}, Lcom/samsung/android/media/codec/SemVideoTranscoder$1;-><init>(Lcom/samsung/android/media/codec/SemVideoTranscoder;)V
 
-    invoke-virtual {v0, v1}, Lcom/samsung/android/transcode/core/Encode;->setProgressUpdateListener(Lcom/samsung/android/transcode/core/Encode$EncodeEventListener;)V
+    invoke-virtual {v0, v1}, Lcom/samsung/android/transcode/core/EncodeVideo;->setProgressUpdateListener(Lcom/samsung/android/transcode/core/Encode$EncodeEventListener;)V
 
     return-void
 .end method

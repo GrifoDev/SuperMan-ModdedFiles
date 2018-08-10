@@ -51,7 +51,7 @@
 
     if-eqz v0, :cond_0
 
-    const v1, 0x1020436
+    const v1, 0x10203be
 
     invoke-direct {p0, v0, v1, p1}, Landroid/app/Notification$DecoratedMediaCustomViewStyle;->buildIntoRemoteView(Landroid/widget/RemoteViews;ILandroid/widget/RemoteViews;)Landroid/widget/RemoteViews;
 
@@ -70,11 +70,13 @@
 
     if-eq p1, v1, :cond_1
 
-    invoke-super {p0}, Landroid/app/Notification$MediaStyle;->makeContentView()Landroid/widget/RemoteViews;
+    const/4 v1, 0x0
+
+    invoke-super {p0, v1}, Landroid/app/Notification$MediaStyle;->makeContentView(Z)Landroid/widget/RemoteViews;
 
     move-result-object v0
 
-    const v1, 0x1020442
+    const v1, 0x10203bc
 
     invoke-direct {p0, v0, v1, p1}, Landroid/app/Notification$DecoratedMediaCustomViewStyle;->buildIntoRemoteView(Landroid/widget/RemoteViews;ILandroid/widget/RemoteViews;)Landroid/widget/RemoteViews;
 
@@ -136,10 +138,12 @@
     goto :goto_0
 .end method
 
-.method public makeContentView()Landroid/widget/RemoteViews;
+.method public makeContentView(Z)Landroid/widget/RemoteViews;
     .locals 3
 
-    invoke-super {p0}, Landroid/app/Notification$MediaStyle;->makeContentView()Landroid/widget/RemoteViews;
+    const/4 v1, 0x0
+
+    invoke-super {p0, v1}, Landroid/app/Notification$MediaStyle;->makeContentView(Z)Landroid/widget/RemoteViews;
 
     move-result-object v0
 
@@ -151,7 +155,7 @@
 
     iget-object v1, v1, Landroid/app/Notification;->contentView:Landroid/widget/RemoteViews;
 
-    const v2, 0x1020442
+    const v2, 0x10203bc
 
     invoke-direct {p0, v0, v2, v1}, Landroid/app/Notification$DecoratedMediaCustomViewStyle;->buildIntoRemoteView(Landroid/widget/RemoteViews;ILandroid/widget/RemoteViews;)Landroid/widget/RemoteViews;
 
@@ -160,7 +164,7 @@
     return-object v1
 .end method
 
-.method public makeHeadsUpContentView()Landroid/widget/RemoteViews;
+.method public makeHeadsUpContentView(Z)Landroid/widget/RemoteViews;
     .locals 2
 
     iget-object v1, p0, Landroid/app/Notification$DecoratedMediaCustomViewStyle;->mBuilder:Landroid/app/Notification$Builder;

@@ -74,7 +74,7 @@
     return-object v0
 
     :cond_0
-    invoke-virtual {p0}, Lcom/android/internal/midi/EventScheduler;->removeEventfromPool()Lcom/android/internal/midi/EventScheduler$SchedulableEvent;
+    invoke-virtual {p0}, Lcom/android/internal/midi/MidiEventScheduler;->removeEventfromPool()Lcom/android/internal/midi/EventScheduler$SchedulableEvent;
 
     move-result-object v0
 
@@ -95,7 +95,7 @@
 
     iput p3, v0, Lcom/android/internal/midi/MidiEventScheduler$MidiEvent;->count:I
 
-    invoke-virtual {v0, p4, p5}, Lcom/android/internal/midi/EventScheduler$SchedulableEvent;->setTimestamp(J)V
+    invoke-virtual {v0, p4, p5}, Lcom/android/internal/midi/MidiEventScheduler$MidiEvent;->setTimestamp(J)V
 
     goto :goto_0
 .end method
@@ -111,9 +111,7 @@
 
     move-object v0, p1
 
-    nop
-
-    nop
+    check-cast v0, Lcom/android/internal/midi/MidiEventScheduler$MidiEvent;
 
     iget-object v1, v0, Lcom/android/internal/midi/MidiEventScheduler$MidiEvent;->data:[B
 

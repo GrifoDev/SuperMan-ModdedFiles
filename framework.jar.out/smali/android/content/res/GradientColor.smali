@@ -649,7 +649,7 @@
 
     move/from16 v1, v18
 
-    if-eq v0, v1, :cond_4
+    if-eq v0, v1, :cond_5
 
     invoke-interface/range {p2 .. p2}, Lorg/xmlpull/v1/XmlPullParser;->getDepth()I
 
@@ -663,7 +663,7 @@
 
     move/from16 v1, v18
 
-    if-eq v0, v1, :cond_4
+    if-eq v0, v1, :cond_5
 
     :cond_1
     const/16 v18, 0x2
@@ -686,7 +686,9 @@
 
     move-result v18
 
-    if-eqz v18, :cond_0
+    xor-int/lit8 v18, v18, 0x1
+
+    if-nez v18, :cond_0
 
     sget-object v18, Lcom/android/internal/R$styleable;->GradientColorItem:[I
 
@@ -718,10 +720,48 @@
 
     move-result v9
 
-    if-eqz v8, :cond_3
+    if-eqz v8, :cond_2
 
-    if-eqz v9, :cond_3
+    xor-int/lit8 v18, v9, 0x1
 
+    if-eqz v18, :cond_3
+
+    :cond_2
+    new-instance v18, Lorg/xmlpull/v1/XmlPullParserException;
+
+    new-instance v19, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v19 .. v19}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-interface/range {p2 .. p2}, Lorg/xmlpull/v1/XmlPullParser;->getPositionDescription()Ljava/lang/String;
+
+    move-result-object v20
+
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
+    const-string/jumbo v20, ": <item> tag requires a \'color\' attribute and a \'offset\' "
+
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
+    const-string/jumbo v20, "attribute!"
+
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
+    invoke-virtual/range {v19 .. v19}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v19
+
+    invoke-direct/range {v18 .. v19}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
+
+    throw v18
+
+    :cond_3
     invoke-virtual {v4}, Landroid/content/res/TypedArray;->extractThemeAttrs()[I
 
     move-result-object v15
@@ -770,11 +810,11 @@
 
     invoke-virtual {v4}, Landroid/content/res/TypedArray;->recycle()V
 
-    if-eqz v15, :cond_2
+    if-eqz v15, :cond_4
 
     const/4 v10, 0x1
 
-    :cond_2
+    :cond_4
     invoke-static {v6, v12, v5}, Lcom/android/internal/util/GrowingArrayUtils;->append([III)[I
 
     move-result-object v6
@@ -795,45 +835,10 @@
 
     goto/16 :goto_0
 
-    :cond_3
-    new-instance v18, Lorg/xmlpull/v1/XmlPullParserException;
+    :cond_5
+    if-lez v12, :cond_6
 
-    new-instance v19, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v19 .. v19}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-interface/range {p2 .. p2}, Lorg/xmlpull/v1/XmlPullParser;->getPositionDescription()Ljava/lang/String;
-
-    move-result-object v20
-
-    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v19
-
-    const-string/jumbo v20, ": <item> tag requires a \'color\' attribute and a \'offset\' "
-
-    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v19
-
-    const-string/jumbo v20, "attribute!"
-
-    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v19
-
-    invoke-virtual/range {v19 .. v19}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v19
-
-    invoke-direct/range {v18 .. v19}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
-
-    throw v18
-
-    :cond_4
-    if-lez v12, :cond_5
-
-    if-eqz v10, :cond_6
+    if-eqz v10, :cond_7
 
     new-array v0, v12, [[I
 
@@ -922,10 +927,10 @@
 
     invoke-static {v14, v0, v1, v2, v12}, Ljava/lang/System;->arraycopy([FI[FII)V
 
-    :cond_5
+    :cond_6
     return-void
 
-    :cond_6
+    :cond_7
     const/16 v18, 0x0
 
     move-object/from16 v0, v18
@@ -1454,8 +1459,14 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    xor-int/lit8 v1, v1, 0x1
 
+    if-eqz v1, :cond_1
+
+    :cond_0
+    return-object p0
+
+    :cond_1
     new-instance v0, Landroid/content/res/GradientColor;
 
     invoke-direct {v0, p0}, Landroid/content/res/GradientColor;-><init>(Landroid/content/res/GradientColor;)V
@@ -1463,7 +1474,4 @@
     invoke-direct {v0, p1}, Landroid/content/res/GradientColor;->applyTheme(Landroid/content/res/Resources$Theme;)V
 
     return-object v0
-
-    :cond_0
-    return-object p0
 .end method

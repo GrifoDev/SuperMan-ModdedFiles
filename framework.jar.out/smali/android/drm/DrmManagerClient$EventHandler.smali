@@ -107,7 +107,43 @@
 
     move-result v17
 
-    if-eqz v17, :cond_4
+    xor-int/lit8 v17, v17, 0x1
+
+    if-eqz v17, :cond_0
+
+    :try_start_0
+    new-instance v13, Ljava/io/FileInputStream;
+
+    invoke-direct {v13, v11}, Ljava/io/FileInputStream;-><init>(Ljava/lang/String;)V
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+
+    :try_start_1
+    invoke-virtual {v13}, Ljava/io/FileInputStream;->getFD()Ljava/io/FileDescriptor;
+
+    move-result-object v10
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Landroid/drm/DrmManagerClient$EventHandler;->this$0:Landroid/drm/DrmManagerClient;
+
+    move-object/from16 v17, v0
+
+    move-object/from16 v0, v17
+
+    invoke-virtual {v0, v10}, Landroid/drm/DrmManagerClient;->setFD(Ljava/io/FileDescriptor;)Ljava/lang/String;
+
+    move-result-object v3
+
+    const-string/jumbo v17, "FileDescriptorKey"
+
+    move-object/from16 v0, v17
+
+    invoke-virtual {v6, v0, v3}, Landroid/drm/DrmInfo;->put(Ljava/lang/String;Ljava/lang/Object;)V
+    :try_end_1
+    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_2
+
+    move-object v12, v13
 
     :cond_0
     :goto_0
@@ -149,14 +185,14 @@
 
     if-eqz v12, :cond_1
 
-    :try_start_0
+    :try_start_2
     invoke-virtual {v12}, Ljava/io/FileInputStream;->close()V
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_1
+    :try_end_2
+    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_1
 
     :cond_1
     :goto_1
-    if-eqz v15, :cond_5
+    if-eqz v15, :cond_4
 
     iget v0, v15, Landroid/drm/DrmInfoStatus;->statusCode:I
 
@@ -168,7 +204,7 @@
 
     move/from16 v1, v17
 
-    if-ne v0, v1, :cond_5
+    if-ne v0, v1, :cond_4
 
     new-instance v9, Landroid/drm/DrmEvent;
 
@@ -283,43 +319,6 @@
     :cond_3
     return-void
 
-    :cond_4
-    :try_start_1
-    new-instance v13, Ljava/io/FileInputStream;
-
-    invoke-direct {v13, v11}, Ljava/io/FileInputStream;-><init>(Ljava/lang/String;)V
-    :try_end_1
-    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
-
-    :try_start_2
-    invoke-virtual {v13}, Ljava/io/FileInputStream;->getFD()Ljava/io/FileDescriptor;
-
-    move-result-object v10
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/drm/DrmManagerClient$EventHandler;->this$0:Landroid/drm/DrmManagerClient;
-
-    move-object/from16 v17, v0
-
-    move-object/from16 v0, v17
-
-    invoke-virtual {v0, v10}, Landroid/drm/DrmManagerClient;->setFD(Ljava/io/FileDescriptor;)Ljava/lang/String;
-
-    move-result-object v3
-
-    const-string/jumbo v17, "FileDescriptorKey"
-
-    move-object/from16 v0, v17
-
-    invoke-virtual {v6, v0, v3}, Landroid/drm/DrmInfo;->put(Ljava/lang/String;Ljava/lang/Object;)V
-    :try_end_2
-    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_2
-
-    move-object v12, v13
-
-    goto/16 :goto_0
-
     :catch_0
     move-exception v7
 
@@ -357,13 +356,13 @@
 
     goto/16 :goto_1
 
-    :cond_5
-    if-eqz v15, :cond_6
+    :cond_4
+    if-eqz v15, :cond_5
 
     iget v14, v15, Landroid/drm/DrmInfoStatus;->infoType:I
 
     :goto_4
-    if-eqz v15, :cond_7
+    if-eqz v15, :cond_6
 
     iget-object v0, v15, Landroid/drm/DrmInfoStatus;->data:Landroid/drm/ProcessedData;
 
@@ -373,7 +372,7 @@
 
     move-result-object v17
 
-    if-eqz v17, :cond_7
+    if-eqz v17, :cond_6
 
     iget-object v0, v15, Landroid/drm/DrmInfoStatus;->data:Landroid/drm/ProcessedData;
 
@@ -427,14 +426,14 @@
 
     goto/16 :goto_2
 
-    :cond_6
+    :cond_5
     invoke-virtual {v6}, Landroid/drm/DrmInfo;->getInfoType()I
 
     move-result v14
 
     goto :goto_4
 
-    :cond_7
+    :cond_6
     new-instance v8, Landroid/drm/DrmErrorEvent;
 
     move-object/from16 v0, p0
@@ -492,7 +491,7 @@
 
     move-result v17
 
-    if-nez v17, :cond_8
+    if-nez v17, :cond_7
 
     new-instance v9, Landroid/drm/DrmEvent;
 
@@ -520,7 +519,7 @@
 
     goto/16 :goto_2
 
-    :cond_8
+    :cond_7
     new-instance v8, Landroid/drm/DrmErrorEvent;
 
     move-object/from16 v0, p0

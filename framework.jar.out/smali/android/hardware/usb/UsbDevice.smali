@@ -71,11 +71,17 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;IIIIILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-    .locals 0
+    .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Landroid/hardware/usb/UsbDevice;->mName:Ljava/lang/String;
+    invoke-static {p1}, Lcom/android/internal/util/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    iput-object v0, p0, Landroid/hardware/usb/UsbDevice;->mName:Ljava/lang/String;
 
     iput p2, p0, Landroid/hardware/usb/UsbDevice;->mVendorId:I
 
@@ -91,7 +97,13 @@
 
     iput-object p8, p0, Landroid/hardware/usb/UsbDevice;->mProductName:Ljava/lang/String;
 
-    iput-object p9, p0, Landroid/hardware/usb/UsbDevice;->mVersion:Ljava/lang/String;
+    invoke-static {p9}, Lcom/android/internal/util/Preconditions;->checkStringNotEmpty(Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    iput-object v0, p0, Landroid/hardware/usb/UsbDevice;->mVersion:Ljava/lang/String;
 
     iput-object p10, p0, Landroid/hardware/usb/UsbDevice;->mSerialNumber:Ljava/lang/String;
 
@@ -417,9 +429,17 @@
 .end method
 
 .method public setConfigurations([Landroid/os/Parcelable;)V
-    .locals 0
+    .locals 1
 
-    iput-object p1, p0, Landroid/hardware/usb/UsbDevice;->mConfigurations:[Landroid/os/Parcelable;
+    const-string/jumbo v0, "configuration"
+
+    invoke-static {p1, v0}, Lcom/android/internal/util/Preconditions;->checkArrayElementsNotNull([Ljava/lang/Object;Ljava/lang/String;)[Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, [Landroid/os/Parcelable;
+
+    iput-object v0, p0, Landroid/hardware/usb/UsbDevice;->mConfigurations:[Landroid/os/Parcelable;
 
     return-void
 .end method

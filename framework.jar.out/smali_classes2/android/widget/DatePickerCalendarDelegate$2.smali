@@ -43,9 +43,7 @@
 
     iget-object v3, p0, Landroid/widget/DatePickerCalendarDelegate$2;->this$0:Landroid/widget/DatePickerCalendarDelegate;
 
-    invoke-static {v3}, Landroid/widget/DatePickerCalendarDelegate;->-get0(Landroid/widget/DatePickerCalendarDelegate;)Landroid/icu/util/Calendar;
-
-    move-result-object v3
+    iget-object v3, v3, Landroid/widget/DatePickerCalendarDelegate;->mCurrentDate:Landroid/icu/util/Calendar;
 
     invoke-virtual {v3, v6}, Landroid/icu/util/Calendar;->get(I)I
 
@@ -53,9 +51,7 @@
 
     iget-object v3, p0, Landroid/widget/DatePickerCalendarDelegate$2;->this$0:Landroid/widget/DatePickerCalendarDelegate;
 
-    invoke-static {v3}, Landroid/widget/DatePickerCalendarDelegate;->-get0(Landroid/widget/DatePickerCalendarDelegate;)Landroid/icu/util/Calendar;
-
-    move-result-object v3
+    iget-object v3, v3, Landroid/widget/DatePickerCalendarDelegate;->mCurrentDate:Landroid/icu/util/Calendar;
 
     const/4 v4, 0x2
 
@@ -71,18 +67,14 @@
 
     iget-object v3, p0, Landroid/widget/DatePickerCalendarDelegate$2;->this$0:Landroid/widget/DatePickerCalendarDelegate;
 
-    invoke-static {v3}, Landroid/widget/DatePickerCalendarDelegate;->-get0(Landroid/widget/DatePickerCalendarDelegate;)Landroid/icu/util/Calendar;
-
-    move-result-object v3
+    iget-object v3, v3, Landroid/widget/DatePickerCalendarDelegate;->mCurrentDate:Landroid/icu/util/Calendar;
 
     invoke-virtual {v3, v6, v1}, Landroid/icu/util/Calendar;->set(II)V
 
     :cond_0
     iget-object v3, p0, Landroid/widget/DatePickerCalendarDelegate$2;->this$0:Landroid/widget/DatePickerCalendarDelegate;
 
-    invoke-static {v3}, Landroid/widget/DatePickerCalendarDelegate;->-get0(Landroid/widget/DatePickerCalendarDelegate;)Landroid/icu/util/Calendar;
-
-    move-result-object v3
+    iget-object v3, v3, Landroid/widget/DatePickerCalendarDelegate;->mCurrentDate:Landroid/icu/util/Calendar;
 
     invoke-virtual {v3, v5, p2}, Landroid/icu/util/Calendar;->set(II)V
 
@@ -98,11 +90,11 @@
 
     iget-object v3, p0, Landroid/widget/DatePickerCalendarDelegate$2;->this$0:Landroid/widget/DatePickerCalendarDelegate;
 
-    invoke-static {v3}, Landroid/widget/DatePickerCalendarDelegate;->-get1(Landroid/widget/DatePickerCalendarDelegate;)Landroid/widget/TextView;
+    invoke-static {v3}, Landroid/widget/DatePickerCalendarDelegate;->-get0(Landroid/widget/DatePickerCalendarDelegate;)Landroid/widget/TextView;
 
     move-result-object v3
 
-    invoke-virtual {v3}, Landroid/view/View;->requestFocus()Z
+    invoke-virtual {v3}, Landroid/widget/TextView;->requestFocus()Z
 
     return-void
 .end method

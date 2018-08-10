@@ -107,7 +107,7 @@
 
     iget-object v1, p0, Lcom/android/internal/policy/PhoneWindow$PanelMenuPresenterCallback;->this$0:Lcom/android/internal/policy/PhoneWindow;
 
-    invoke-virtual {v1, v2}, Landroid/view/Window;->hasFeature(I)Z
+    invoke-virtual {v1, v2}, Lcom/android/internal/policy/PhoneWindow;->hasFeature(I)Z
 
     move-result v1
 
@@ -115,7 +115,7 @@
 
     iget-object v1, p0, Lcom/android/internal/policy/PhoneWindow$PanelMenuPresenterCallback;->this$0:Lcom/android/internal/policy/PhoneWindow;
 
-    invoke-virtual {v1}, Landroid/view/Window;->getCallback()Landroid/view/Window$Callback;
+    invoke-virtual {v1}, Lcom/android/internal/policy/PhoneWindow;->getCallback()Landroid/view/Window$Callback;
 
     move-result-object v0
 
@@ -123,20 +123,18 @@
 
     iget-object v1, p0, Lcom/android/internal/policy/PhoneWindow$PanelMenuPresenterCallback;->this$0:Lcom/android/internal/policy/PhoneWindow;
 
-    invoke-virtual {v1}, Landroid/view/Window;->isDestroyed()Z
+    invoke-virtual {v1}, Lcom/android/internal/policy/PhoneWindow;->isDestroyed()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    xor-int/lit8 v1, v1, 0x1
+
+    if-eqz v1, :cond_0
+
+    invoke-interface {v0, v2, p1}, Landroid/view/Window$Callback;->onMenuOpened(ILandroid/view/Menu;)Z
 
     :cond_0
-    :goto_0
     const/4 v1, 0x1
 
     return v1
-
-    :cond_1
-    invoke-interface {v0, v2, p1}, Landroid/view/Window$Callback;->onMenuOpened(ILandroid/view/Menu;)Z
-
-    goto :goto_0
 .end method

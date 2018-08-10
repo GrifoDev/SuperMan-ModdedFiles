@@ -17,7 +17,7 @@
     value = {
         "Landroid/app/SystemServiceRegistry$CachedServiceFetcher",
         "<",
-        "Lcom/samsung/android/app/SemExecutableManager;",
+        "Lcom/samsung/android/aod/AODManager;",
         ">;"
     }
 .end annotation
@@ -34,24 +34,35 @@
 
 
 # virtual methods
-.method public createService(Landroid/app/ContextImpl;)Lcom/samsung/android/app/SemExecutableManager;
-    .locals 2
+.method public createService(Landroid/app/ContextImpl;)Lcom/samsung/android/aod/AODManager;
+    .locals 3
 
-    new-instance v0, Lcom/samsung/android/app/SemExecutableManager;
+    const-string/jumbo v1, "AODManagerService"
 
-    invoke-virtual {p1}, Landroid/app/ContextImpl;->getOuterContext()Landroid/content/Context;
+    invoke-static {v1}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-direct {v0, v1}, Lcom/samsung/android/app/SemExecutableManager;-><init>(Landroid/content/Context;)V
+    new-instance v1, Lcom/samsung/android/aod/AODManager;
 
-    return-object v0
+    invoke-static {v0}, Lcom/samsung/android/aod/IAODManager$Stub;->asInterface(Landroid/os/IBinder;)Lcom/samsung/android/aod/IAODManager;
+
+    move-result-object v2
+
+    invoke-direct {v1, p1, v2}, Lcom/samsung/android/aod/AODManager;-><init>(Landroid/content/Context;Lcom/samsung/android/aod/IAODManager;)V
+
+    return-object v1
 .end method
 
 .method public bridge synthetic createService(Landroid/app/ContextImpl;)Ljava/lang/Object;
     .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/ServiceManager$ServiceNotFoundException;
+        }
+    .end annotation
 
-    invoke-virtual {p0, p1}, Landroid/app/SystemServiceRegistry$92;->createService(Landroid/app/ContextImpl;)Lcom/samsung/android/app/SemExecutableManager;
+    invoke-virtual {p0, p1}, Landroid/app/SystemServiceRegistry$92;->createService(Landroid/app/ContextImpl;)Lcom/samsung/android/aod/AODManager;
 
     move-result-object v0
 

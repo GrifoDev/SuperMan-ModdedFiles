@@ -70,13 +70,13 @@
 
     iget v2, p0, Landroid/hardware/scontext/SContextSleepMonitorAttribute;->mSensibility:I
 
-    invoke-virtual {v0, v1, v2}, Landroid/os/BaseBundle;->putInt(Ljava/lang/String;I)V
+    invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
     const-string/jumbo v1, "sampling_interval"
 
     iget v2, p0, Landroid/hardware/scontext/SContextSleepMonitorAttribute;->mSamplingInterval:I
 
-    invoke-virtual {v0, v1, v2}, Landroid/os/BaseBundle;->putInt(Ljava/lang/String;I)V
+    invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
     const/16 v1, 0x1d
 

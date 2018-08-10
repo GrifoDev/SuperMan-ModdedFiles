@@ -21,6 +21,8 @@
 
 .field mDrawableState:Landroid/graphics/drawable/Drawable$ConstantState;
 
+.field mSrcDensityOverride:I
+
 .field private mThemeAttrs:[I
 
 
@@ -46,9 +48,13 @@
 
     const/16 v1, 0xa0
 
+    const/4 v2, 0x0
+
     invoke-direct {p0}, Landroid/graphics/drawable/Drawable$ConstantState;-><init>()V
 
     iput v1, p0, Landroid/graphics/drawable/DrawableWrapper$DrawableWrapperState;->mDensity:I
+
+    iput v2, p0, Landroid/graphics/drawable/DrawableWrapper$DrawableWrapperState;->mSrcDensityOverride:I
 
     if-eqz p1, :cond_0
 
@@ -63,6 +69,10 @@
     iget-object v2, p1, Landroid/graphics/drawable/DrawableWrapper$DrawableWrapperState;->mDrawableState:Landroid/graphics/drawable/Drawable$ConstantState;
 
     iput-object v2, p0, Landroid/graphics/drawable/DrawableWrapper$DrawableWrapperState;->mDrawableState:Landroid/graphics/drawable/Drawable$ConstantState;
+
+    iget v2, p1, Landroid/graphics/drawable/DrawableWrapper$DrawableWrapperState;->mSrcDensityOverride:I
+
+    iput v2, p0, Landroid/graphics/drawable/DrawableWrapper$DrawableWrapperState;->mSrcDensityOverride:I
 
     :cond_0
     if-eqz p2, :cond_2
@@ -98,34 +108,6 @@
 
 
 # virtual methods
-.method public addAtlasableBitmaps(Ljava/util/Collection;)I
-    .locals 2
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/Collection",
-            "<",
-            "Landroid/graphics/Bitmap;",
-            ">;)I"
-        }
-    .end annotation
-
-    iget-object v0, p0, Landroid/graphics/drawable/DrawableWrapper$DrawableWrapperState;->mDrawableState:Landroid/graphics/drawable/Drawable$ConstantState;
-
-    if-eqz v0, :cond_0
-
-    invoke-virtual {v0, p1}, Landroid/graphics/drawable/Drawable$ConstantState;->addAtlasableBitmaps(Ljava/util/Collection;)I
-
-    move-result v1
-
-    return v1
-
-    :cond_0
-    const/4 v1, 0x0
-
-    return v1
-.end method
-
 .method public canApplyTheme()Z
     .locals 1
 

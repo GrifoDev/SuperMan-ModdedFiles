@@ -90,7 +90,7 @@
 
     check-cast v4, Landroid/accounts/OnAccountsUpdateListener;
 
-    invoke-static {v6, v3, v4, v0}, Landroid/accounts/AccountManager;->-wrap3(Landroid/accounts/AccountManager;Landroid/os/Handler;Landroid/accounts/OnAccountsUpdateListener;[Landroid/accounts/Account;)V
+    invoke-static {v6, v3, v4, v0}, Landroid/accounts/AccountManager;->-wrap4(Landroid/accounts/AccountManager;Landroid/os/Handler;Landroid/accounts/OnAccountsUpdateListener;[Landroid/accounts/Account;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 

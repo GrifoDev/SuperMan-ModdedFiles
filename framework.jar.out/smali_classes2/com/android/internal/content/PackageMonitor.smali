@@ -236,8 +236,6 @@
 .method getPackageName(Landroid/content/Intent;)Ljava/lang/String;
     .locals 2
 
-    const/4 v0, 0x0
-
     invoke-virtual {p1}, Landroid/content/Intent;->getData()Landroid/net/Uri;
 
     move-result-object v1
@@ -248,8 +246,13 @@
 
     move-result-object v0
 
-    :cond_0
+    :goto_0
     return-object v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
 .end method
 
 .method public getRegisteredHandler()Landroid/os/Handler;

@@ -61,13 +61,13 @@
 
     iget-object v0, p0, Lcom/samsung/android/widget/SemDatePicker$ChangeCurrentByOneFromLongPressCommand;->this$0:Lcom/samsung/android/widget/SemDatePicker;
 
-    invoke-static {v0}, Lcom/samsung/android/widget/SemDatePicker;->-get5(Lcom/samsung/android/widget/SemDatePicker;)Lcom/android/internal/widget/ViewPager;
+    invoke-static {v0}, Lcom/samsung/android/widget/SemDatePicker;->-get4(Lcom/samsung/android/widget/SemDatePicker;)Lcom/android/internal/widget/ViewPager;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/samsung/android/widget/SemDatePicker$ChangeCurrentByOneFromLongPressCommand;->this$0:Lcom/samsung/android/widget/SemDatePicker;
 
-    invoke-static {v1}, Lcom/samsung/android/widget/SemDatePicker;->-get8(Lcom/samsung/android/widget/SemDatePicker;)I
+    invoke-static {v1}, Lcom/samsung/android/widget/SemDatePicker;->-get7(Lcom/samsung/android/widget/SemDatePicker;)I
 
     move-result v1
 
@@ -78,26 +78,22 @@
     :goto_0
     iget-object v0, p0, Lcom/samsung/android/widget/SemDatePicker$ChangeCurrentByOneFromLongPressCommand;->this$0:Lcom/samsung/android/widget/SemDatePicker;
 
-    iget-object v1, p0, Lcom/samsung/android/widget/SemDatePicker$ChangeCurrentByOneFromLongPressCommand;->this$0:Lcom/samsung/android/widget/SemDatePicker;
+    const-wide/16 v2, 0x12c
 
-    invoke-static {v1}, Lcom/samsung/android/widget/SemDatePicker;->-get22(Lcom/samsung/android/widget/SemDatePicker;)J
-
-    move-result-wide v2
-
-    invoke-virtual {v0, p0, v2, v3}, Landroid/view/View;->postDelayed(Ljava/lang/Runnable;J)Z
+    invoke-virtual {v0, p0, v2, v3}, Lcom/samsung/android/widget/SemDatePicker;->postDelayed(Ljava/lang/Runnable;J)Z
 
     return-void
 
     :cond_0
     iget-object v0, p0, Lcom/samsung/android/widget/SemDatePicker$ChangeCurrentByOneFromLongPressCommand;->this$0:Lcom/samsung/android/widget/SemDatePicker;
 
-    invoke-static {v0}, Lcom/samsung/android/widget/SemDatePicker;->-get5(Lcom/samsung/android/widget/SemDatePicker;)Lcom/android/internal/widget/ViewPager;
+    invoke-static {v0}, Lcom/samsung/android/widget/SemDatePicker;->-get4(Lcom/samsung/android/widget/SemDatePicker;)Lcom/android/internal/widget/ViewPager;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/samsung/android/widget/SemDatePicker$ChangeCurrentByOneFromLongPressCommand;->this$0:Lcom/samsung/android/widget/SemDatePicker;
 
-    invoke-static {v1}, Lcom/samsung/android/widget/SemDatePicker;->-get8(Lcom/samsung/android/widget/SemDatePicker;)I
+    invoke-static {v1}, Lcom/samsung/android/widget/SemDatePicker;->-get7(Lcom/samsung/android/widget/SemDatePicker;)I
 
     move-result v1
 

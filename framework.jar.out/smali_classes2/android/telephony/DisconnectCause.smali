@@ -8,6 +8,8 @@
 
 .field public static final ACM_EXCEED:I = 0xe6
 
+.field public static final ANSWERED_ELSEWHERE:I = 0x34
+
 .field public static final BARRED_IN_CUG:I = 0xe1
 
 .field public static final BARRER_NOT_ALLOWED:I = 0xe2
@@ -19,6 +21,8 @@
 .field public static final BUSY:I = 0x4
 
 .field public static final CALL_BARRED:I = 0x14
+
+.field public static final CALL_PULLED:I = 0x33
 
 .field public static final CALL_REJECT:I = 0xcf
 
@@ -56,9 +60,17 @@
 
 .field public static final CS_RESTRICTED_NORMAL:I = 0x17
 
+.field public static final DATA_DISABLED:I = 0x36
+
+.field public static final DATA_LIMIT_REACHED:I = 0x37
+
 .field public static final DESTINATION_OUT_OF:I = 0xd3
 
+.field public static final DIALED_CALL_FORWARDING_WHILE_ROAMING:I = 0x39
+
 .field public static final DIALED_MMI:I = 0x27
+
+.field public static final DIALED_ON_WRONG_SLOT:I = 0x38
 
 .field public static final DIAL_MODIFIED_TO_DIAL:I = 0x30
 
@@ -83,6 +95,8 @@
 .field public static final IE_ERROR:I = 0xef
 
 .field public static final IE_NON_EXIST:I = 0xf2
+
+.field public static final IMEI_NOT_ACCEPTED:I = 0x3a
 
 .field public static final IMS_ERROR:I = 0x65
 
@@ -116,9 +130,7 @@
 
 .field public static final LOST_SIGNAL:I = 0xe
 
-.field public static final MAXIMUM_VALID_VALUE:I = 0xf8
-
-.field public static final MINIMUM_VALID_VALUE:I = 0x0
+.field public static final MAXIMUM_NUMBER_OF_CALLS_REACHED:I = 0x35
 
 .field public static final MMI:I = 0x6
 
@@ -159,6 +171,8 @@
 .field public static final NO_ROUTE:I = 0xcb
 
 .field public static final NO_SUBSCRIBED:I = 0xe0
+
+.field public static final NO_SUBSCRIPTION:I = 0x68
 
 .field public static final NO_USER_RESP:I = 0xce
 
@@ -215,6 +229,8 @@
 .field public static final VIDEO_CALL_NOT_ALLOWED_WHILE_TTY_ENABLED:I = 0x32
 
 .field public static final VOICEMAIL_NUMBER_MISSING:I = 0x28
+
+.field public static final WIFI_LOST:I = 0x3b
 
 .field public static final WIFI_OUT_OF_FOOTPRINT:I = 0x67
 
@@ -1852,266 +1868,316 @@
     return-object v0
 
     :pswitch_33
-    const-string/jumbo v0, "NO_ANSWER"
+    const-string/jumbo v0, "CALL_PULLED"
 
     return-object v0
 
     :pswitch_34
-    const-string/jumbo v0, "IMS_ERROR"
+    const-string/jumbo v0, "ANSWERED_ELSEWHERE"
 
     return-object v0
 
     :pswitch_35
-    const-string/jumbo v0, "UAVAILABLE_CHANNEL"
+    const-string/jumbo v0, "MAXIMUM_NUMER_OF_CALLS_REACHED"
 
     return-object v0
 
     :pswitch_36
-    const-string/jumbo v0, "WIFI_OUT_OF_FOOTPRINT"
+    const-string/jumbo v0, "DATA_DISABLED"
 
     return-object v0
 
     :pswitch_37
-    const-string/jumbo v0, "BEARER_CAPABILITY_NOT_AUTHORIZED"
+    const-string/jumbo v0, "DATA_LIMIT_REACHED"
 
     return-object v0
 
     :pswitch_38
-    const-string/jumbo v0, "REQUESTED_FACILITY_NOT_IMPLEMENTED"
+    const-string/jumbo v0, "DIALED_ON_WRONG_SLOT"
 
     return-object v0
 
     :pswitch_39
-    const-string/jumbo v0, "NO_USER_RESP"
+    const-string/jumbo v0, "DIALED_CALL_FORWARDING_WHILE_ROAMING"
 
     return-object v0
 
     :pswitch_3a
-    const-string/jumbo v0, "NO_CIRCUIT"
+    const-string/jumbo v0, "IMEI_NOT_ACCEPTED"
 
     return-object v0
 
     :pswitch_3b
-    const-string/jumbo v0, "TMP_FAIL"
+    const-string/jumbo v0, "WIFI_LOST"
 
     return-object v0
 
     :pswitch_3c
-    const-string/jumbo v0, "SWITCH_CONGESTION"
+    const-string/jumbo v0, "NO_ANSWER"
 
     return-object v0
 
     :pswitch_3d
-    const-string/jumbo v0, "NO_CHANNEL"
+    const-string/jumbo v0, "IMS_ERROR"
 
     return-object v0
 
     :pswitch_3e
-    const-string/jumbo v0, "NO_QOS"
+    const-string/jumbo v0, "UAVAILABLE_CHANNEL"
 
     return-object v0
 
     :pswitch_3f
-    const-string/jumbo v0, "NO_BEARER"
+    const-string/jumbo v0, "WIFI_OUT_OF_FOOTPRINT"
 
     return-object v0
 
     :pswitch_40
-    const-string/jumbo v0, "ACM_EXCEED"
+    const-string/jumbo v0, "NO_SUBSCRIPTION"
 
     return-object v0
 
     :pswitch_41
-    const-string/jumbo v0, "UNASSIGNED_NUM"
+    const-string/jumbo v0, "BEARER_CAPABILITY_NOT_AUTHORIZED"
 
     return-object v0
 
     :pswitch_42
-    const-string/jumbo v0, "NO_ROUTE"
+    const-string/jumbo v0, "REQUESTED_FACILITY_NOT_IMPLEMENTED"
 
     return-object v0
 
     :pswitch_43
-    const-string/jumbo v0, "CHANNEL_UNACCEPT"
+    const-string/jumbo v0, "NO_USER_RESP"
 
     return-object v0
 
     :pswitch_44
-    const-string/jumbo v0, "OP_DETERMINED"
+    const-string/jumbo v0, "NO_CIRCUIT"
 
     return-object v0
 
     :pswitch_45
-    const-string/jumbo v0, "CALL_REJECT"
+    const-string/jumbo v0, "TMP_FAIL"
 
     return-object v0
 
     :pswitch_46
-    const-string/jumbo v0, "PRE_EMPTION"
+    const-string/jumbo v0, "SWITCH_CONGESTION"
 
     return-object v0
 
     :pswitch_47
-    const-string/jumbo v0, "NON_SELECTED"
+    const-string/jumbo v0, "NO_CHANNEL"
 
     return-object v0
 
     :pswitch_48
-    const-string/jumbo v0, "DESTINATION_OUT_OF"
+    const-string/jumbo v0, "NO_QOS"
 
     return-object v0
 
     :pswitch_49
-    const-string/jumbo v0, "INVALID_NUM_FORMAT"
+    const-string/jumbo v0, "NO_BEARER"
 
     return-object v0
 
     :pswitch_4a
-    const-string/jumbo v0, "FACILITY_REJECT"
+    const-string/jumbo v0, "ACM_EXCEED"
 
     return-object v0
 
     :pswitch_4b
-    const-string/jumbo v0, "NET_OUT_OF"
+    const-string/jumbo v0, "UNASSIGNED_NUM"
 
     return-object v0
 
     :pswitch_4c
-    const-string/jumbo v0, "ACCESS_DISCARD"
+    const-string/jumbo v0, "NO_ROUTE"
 
     return-object v0
 
     :pswitch_4d
-    const-string/jumbo v0, "NO_RESOURCE"
+    const-string/jumbo v0, "CHANNEL_UNACCEPT"
 
     return-object v0
 
     :pswitch_4e
-    const-string/jumbo v0, "NO_SUBSCRIBED"
+    const-string/jumbo v0, "OP_DETERMINED"
 
     return-object v0
 
     :pswitch_4f
-    const-string/jumbo v0, "BARRED_IN_CUG"
+    const-string/jumbo v0, "CALL_REJECT"
 
     return-object v0
 
     :pswitch_50
-    const-string/jumbo v0, "BARRER_NOT_ALLOWED"
+    const-string/jumbo v0, "PRE_EMPTION"
 
     return-object v0
 
     :pswitch_51
-    const-string/jumbo v0, "SERVICE_UNAVAILABLE"
+    const-string/jumbo v0, "NON_SELECTED"
 
     return-object v0
 
     :pswitch_52
-    const-string/jumbo v0, "BEARER_UNINPLEMENTED"
+    const-string/jumbo v0, "DESTINATION_OUT_OF"
 
     return-object v0
 
     :pswitch_53
-    const-string/jumbo v0, "FACILITY_UNINPLEMENTED"
+    const-string/jumbo v0, "INVALID_NUM_FORMAT"
 
     return-object v0
 
     :pswitch_54
-    const-string/jumbo v0, "RESTRICTED_DIGITAL"
+    const-string/jumbo v0, "FACILITY_REJECT"
 
     return-object v0
 
     :pswitch_55
-    const-string/jumbo v0, "SERVICE_UNINPLEMENTED"
+    const-string/jumbo v0, "NET_OUT_OF"
 
     return-object v0
 
     :pswitch_56
-    const-string/jumbo v0, "INVALID_TI"
+    const-string/jumbo v0, "ACCESS_DISCARD"
 
     return-object v0
 
     :pswitch_57
-    const-string/jumbo v0, "NOT_IN_CUG"
+    const-string/jumbo v0, "NO_RESOURCE"
 
     return-object v0
 
     :pswitch_58
-    const-string/jumbo v0, "INCOMPATIBLE_DEST"
+    const-string/jumbo v0, "NO_SUBSCRIBED"
 
     return-object v0
 
     :pswitch_59
-    const-string/jumbo v0, "INVALID_TRANSIT_NET"
+    const-string/jumbo v0, "BARRED_IN_CUG"
 
     return-object v0
 
     :pswitch_5a
-    const-string/jumbo v0, "INCORRECT_MSG"
+    const-string/jumbo v0, "BARRER_NOT_ALLOWED"
 
     return-object v0
 
     :pswitch_5b
-    const-string/jumbo v0, "IE_ERROR"
+    const-string/jumbo v0, "SERVICE_UNAVAILABLE"
 
     return-object v0
 
     :pswitch_5c
-    const-string/jumbo v0, "MSG_TYPE_NON_EXIST"
+    const-string/jumbo v0, "BEARER_UNINPLEMENTED"
 
     return-object v0
 
     :pswitch_5d
-    const-string/jumbo v0, "MSG_NOT_COMP"
+    const-string/jumbo v0, "FACILITY_UNINPLEMENTED"
 
     return-object v0
 
     :pswitch_5e
-    const-string/jumbo v0, "IE_NON_EXIST"
+    const-string/jumbo v0, "RESTRICTED_DIGITAL"
 
     return-object v0
 
     :pswitch_5f
-    const-string/jumbo v0, "INVALID_IE_CONTENTS"
+    const-string/jumbo v0, "SERVICE_UNINPLEMENTED"
 
     return-object v0
 
     :pswitch_60
-    const-string/jumbo v0, "MSG_NOT_COMP_CALL_STATE"
+    const-string/jumbo v0, "INVALID_TI"
 
     return-object v0
 
     :pswitch_61
-    const-string/jumbo v0, "RECOVERY_TIMER_EXPIRY"
+    const-string/jumbo v0, "NOT_IN_CUG"
 
     return-object v0
 
     :pswitch_62
-    const-string/jumbo v0, "PROTOCOL_ERROR"
+    const-string/jumbo v0, "INCOMPATIBLE_DEST"
 
     return-object v0
 
     :pswitch_63
-    const-string/jumbo v0, "INTERWORKING"
+    const-string/jumbo v0, "INVALID_TRANSIT_NET"
 
     return-object v0
 
     :pswitch_64
-    const-string/jumbo v0, "NUMBER_CHANGED"
+    const-string/jumbo v0, "INCORRECT_MSG"
 
     return-object v0
 
     :pswitch_65
-    const-string/jumbo v0, "STATUS_ENQUIRY"
+    const-string/jumbo v0, "IE_ERROR"
 
     return-object v0
 
     :pswitch_66
-    const-string/jumbo v0, "NORMAL_UNSPECIFIED"
+    const-string/jumbo v0, "MSG_TYPE_NON_EXIST"
 
     return-object v0
 
     :pswitch_67
+    const-string/jumbo v0, "MSG_NOT_COMP"
+
+    return-object v0
+
+    :pswitch_68
+    const-string/jumbo v0, "IE_NON_EXIST"
+
+    return-object v0
+
+    :pswitch_69
+    const-string/jumbo v0, "INVALID_IE_CONTENTS"
+
+    return-object v0
+
+    :pswitch_6a
+    const-string/jumbo v0, "MSG_NOT_COMP_CALL_STATE"
+
+    return-object v0
+
+    :pswitch_6b
+    const-string/jumbo v0, "RECOVERY_TIMER_EXPIRY"
+
+    return-object v0
+
+    :pswitch_6c
+    const-string/jumbo v0, "PROTOCOL_ERROR"
+
+    return-object v0
+
+    :pswitch_6d
+    const-string/jumbo v0, "INTERWORKING"
+
+    return-object v0
+
+    :pswitch_6e
+    const-string/jumbo v0, "NUMBER_CHANGED"
+
+    return-object v0
+
+    :pswitch_6f
+    const-string/jumbo v0, "STATUS_ENQUIRY"
+
+    return-object v0
+
+    :pswitch_70
+    const-string/jumbo v0, "NORMAL_UNSPECIFIED"
+
+    return-object v0
+
+    :pswitch_71
     const-string/jumbo v0, "PLAY_BUSYTONE"
 
     return-object v0
@@ -2169,196 +2235,186 @@
         :pswitch_2c
         :pswitch_31
         :pswitch_32
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
         :pswitch_33
         :pswitch_34
         :pswitch_35
         :pswitch_36
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
         :pswitch_37
         :pswitch_38
+        :pswitch_39
+        :pswitch_3a
+        :pswitch_3b
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_3c
+        :pswitch_3d
+        :pswitch_3e
+        :pswitch_3f
+        :pswitch_40
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
         :pswitch_41
         :pswitch_42
-        :pswitch_43
-        :pswitch_44
-        :pswitch_39
-        :pswitch_45
-        :pswitch_64
-        :pswitch_46
-        :pswitch_47
-        :pswitch_48
-        :pswitch_49
-        :pswitch_4a
-        :pswitch_65
-        :pswitch_66
-        :pswitch_3a
         :pswitch_4b
-        :pswitch_3b
-        :pswitch_3c
         :pswitch_4c
-        :pswitch_3d
         :pswitch_4d
-        :pswitch_3e
         :pswitch_4e
+        :pswitch_43
         :pswitch_4f
+        :pswitch_6e
         :pswitch_50
-        :pswitch_3f
         :pswitch_51
         :pswitch_52
-        :pswitch_40
         :pswitch_53
         :pswitch_54
+        :pswitch_6f
+        :pswitch_70
+        :pswitch_44
         :pswitch_55
+        :pswitch_45
+        :pswitch_46
         :pswitch_56
+        :pswitch_47
         :pswitch_57
+        :pswitch_48
         :pswitch_58
         :pswitch_59
         :pswitch_5a
+        :pswitch_49
         :pswitch_5b
         :pswitch_5c
+        :pswitch_4a
         :pswitch_5d
         :pswitch_5e
         :pswitch_5f
@@ -2366,6 +2422,16 @@
         :pswitch_61
         :pswitch_62
         :pswitch_63
+        :pswitch_64
+        :pswitch_65
+        :pswitch_66
         :pswitch_67
+        :pswitch_68
+        :pswitch_69
+        :pswitch_6a
+        :pswitch_6b
+        :pswitch_6c
+        :pswitch_6d
+        :pswitch_71
     .end packed-switch
 .end method

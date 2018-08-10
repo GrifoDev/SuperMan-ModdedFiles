@@ -292,7 +292,7 @@
 
     iput-object v2, p0, Lcom/samsung/android/knox/keystore/CSRProfile;->profileType:Lcom/samsung/android/knox/keystore/CSRProfile$ProfileType;
 
-    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/IllegalArgumentException;->printStackTrace()V
 
     goto :goto_0
 
@@ -301,7 +301,7 @@
 
     iput-object v2, p0, Lcom/samsung/android/knox/keystore/CSRProfile;->csrFormat:Lcom/samsung/android/knox/keystore/CSRProfile$CSRFormat;
 
-    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/IllegalArgumentException;->printStackTrace()V
 
     goto :goto_1
 
@@ -310,7 +310,7 @@
 
     iput-object v2, p0, Lcom/samsung/android/knox/keystore/CSRProfile;->keyAlgType:Lcom/samsung/android/knox/keystore/CSRProfile$KeyAlgorithm;
 
-    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/IllegalArgumentException;->printStackTrace()V
 
     goto :goto_2
 .end method
@@ -342,7 +342,7 @@
 
     sget-object v0, Lcom/samsung/android/knox/keystore/CSRProfile$ProfileType;->SCEP:Lcom/samsung/android/knox/keystore/CSRProfile$ProfileType;
 
-    invoke-virtual {v0}, Ljava/lang/Enum;->name()Ljava/lang/String;
+    invoke-virtual {v0}, Lcom/samsung/android/knox/keystore/CSRProfile$ProfileType;->name()Ljava/lang/String;
 
     move-result-object v0
 
@@ -355,7 +355,7 @@
 
     sget-object v0, Lcom/samsung/android/knox/keystore/CSRProfile$CSRFormat;->PKCS10:Lcom/samsung/android/knox/keystore/CSRProfile$CSRFormat;
 
-    invoke-virtual {v0}, Ljava/lang/Enum;->name()Ljava/lang/String;
+    invoke-virtual {v0}, Lcom/samsung/android/knox/keystore/CSRProfile$CSRFormat;->name()Ljava/lang/String;
 
     move-result-object v0
 
@@ -368,7 +368,7 @@
 
     sget-object v0, Lcom/samsung/android/knox/keystore/CSRProfile$KeyAlgorithm;->RSA:Lcom/samsung/android/knox/keystore/CSRProfile$KeyAlgorithm;
 
-    invoke-virtual {v0}, Ljava/lang/Enum;->name()Ljava/lang/String;
+    invoke-virtual {v0}, Lcom/samsung/android/knox/keystore/CSRProfile$KeyAlgorithm;->name()Ljava/lang/String;
 
     move-result-object v0
 
@@ -416,7 +416,7 @@
     :cond_0
     iget-object v0, p0, Lcom/samsung/android/knox/keystore/CSRProfile;->profileType:Lcom/samsung/android/knox/keystore/CSRProfile$ProfileType;
 
-    invoke-virtual {v0}, Ljava/lang/Enum;->name()Ljava/lang/String;
+    invoke-virtual {v0}, Lcom/samsung/android/knox/keystore/CSRProfile$ProfileType;->name()Ljava/lang/String;
 
     move-result-object v0
 
@@ -427,7 +427,7 @@
     :cond_1
     iget-object v0, p0, Lcom/samsung/android/knox/keystore/CSRProfile;->csrFormat:Lcom/samsung/android/knox/keystore/CSRProfile$CSRFormat;
 
-    invoke-virtual {v0}, Ljava/lang/Enum;->name()Ljava/lang/String;
+    invoke-virtual {v0}, Lcom/samsung/android/knox/keystore/CSRProfile$CSRFormat;->name()Ljava/lang/String;
 
     move-result-object v0
 
@@ -438,7 +438,7 @@
     :cond_2
     iget-object v0, p0, Lcom/samsung/android/knox/keystore/CSRProfile;->keyAlgType:Lcom/samsung/android/knox/keystore/CSRProfile$KeyAlgorithm;
 
-    invoke-virtual {v0}, Ljava/lang/Enum;->name()Ljava/lang/String;
+    invoke-virtual {v0}, Lcom/samsung/android/knox/keystore/CSRProfile$KeyAlgorithm;->name()Ljava/lang/String;
 
     move-result-object v0
 

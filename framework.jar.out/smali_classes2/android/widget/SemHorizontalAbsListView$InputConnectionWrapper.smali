@@ -53,7 +53,7 @@
 
     iget-object v1, p0, Landroid/widget/SemHorizontalAbsListView$InputConnectionWrapper;->mOutAttrs:Landroid/view/inputmethod/EditorInfo;
 
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->onCreateInputConnection(Landroid/view/inputmethod/EditorInfo;)Landroid/view/inputmethod/InputConnection;
+    invoke-virtual {v0, v1}, Landroid/widget/EditText;->onCreateInputConnection(Landroid/view/inputmethod/EditorInfo;)Landroid/view/inputmethod/InputConnection;
 
     move-result-object v0
 
@@ -115,6 +115,20 @@
     move-result-object v0
 
     invoke-interface {v0, p1}, Landroid/view/inputmethod/InputConnection;->commitCompletion(Landroid/view/inputmethod/CompletionInfo;)Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public commitContent(Landroid/view/inputmethod/InputContentInfo;ILandroid/os/Bundle;)Z
+    .locals 1
+
+    invoke-direct {p0}, Landroid/widget/SemHorizontalAbsListView$InputConnectionWrapper;->getTarget()Landroid/view/inputmethod/InputConnection;
+
+    move-result-object v0
+
+    invoke-interface {v0, p1, p2, p3}, Landroid/view/inputmethod/InputConnection;->commitContent(Landroid/view/inputmethod/InputContentInfo;ILandroid/os/Bundle;)Z
 
     move-result v0
 
@@ -350,7 +364,7 @@
 
     iget-object v1, p0, Landroid/widget/SemHorizontalAbsListView$InputConnectionWrapper;->this$0:Landroid/widget/SemHorizontalAbsListView;
 
-    invoke-virtual {v1}, Landroid/view/View;->getContext()Landroid/content/Context;
+    invoke-virtual {v1}, Landroid/widget/SemHorizontalAbsListView;->getContext()Landroid/content/Context;
 
     move-result-object v1
 
@@ -366,7 +380,7 @@
 
     iget-object v1, p0, Landroid/widget/SemHorizontalAbsListView$InputConnectionWrapper;->this$0:Landroid/widget/SemHorizontalAbsListView;
 
-    invoke-virtual {v1}, Landroid/view/View;->getWindowToken()Landroid/os/IBinder;
+    invoke-virtual {v1}, Landroid/widget/SemHorizontalAbsListView;->getWindowToken()Landroid/os/IBinder;
 
     move-result-object v1
 

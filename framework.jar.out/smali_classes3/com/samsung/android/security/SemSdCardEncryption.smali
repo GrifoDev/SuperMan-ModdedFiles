@@ -16,8 +16,6 @@
 # static fields
 .field public static final ADMIN_START:Ljava/lang/String; = "adminStart"
 
-.field public static final CHANGE_ECRYPTFS_PASSWORD:I = 0xb
-
 .field public static final CHECK_OTHER_DEVICE:Ljava/lang/String; = "OtherDevice"
 
 .field private static final DEBUG:Z = true
@@ -51,8 +49,6 @@
 .field public static final INTERNAL_STORAGE_PATH:Ljava/lang/String; = "/mnt/sdcard"
 
 .field private static final IS_SUPPORT_SDCARD_SLOT:Z
-
-.field public static final MOUNT_PATH_STATUS:I = 0xc
 
 .field public static final MOVE_MOUNT:Ljava/lang/String; = "MoveMount"
 
@@ -96,7 +92,7 @@
 
 .field private mDew:Lcom/samsung/android/security/DirEncryptionWrapper;
 
-.field private m_InstDirEncSvc:Landroid/os/storage/IDirEncryptService;
+.field private m_InstDirEncSvc:Lcom/samsung/android/security/IDirEncryptService;
 
 
 # direct methods
@@ -137,7 +133,7 @@
 
     iput-object v2, p0, Lcom/samsung/android/security/SemSdCardEncryption;->mDew:Lcom/samsung/android/security/DirEncryptionWrapper;
 
-    iput-object v2, p0, Lcom/samsung/android/security/SemSdCardEncryption;->m_InstDirEncSvc:Landroid/os/storage/IDirEncryptService;
+    iput-object v2, p0, Lcom/samsung/android/security/SemSdCardEncryption;->m_InstDirEncSvc:Lcom/samsung/android/security/IDirEncryptService;
 
     iput-object p1, p0, Lcom/samsung/android/security/SemSdCardEncryption;->mContext:Landroid/content/Context;
 
@@ -155,13 +151,13 @@
 
     move-result-object v0
 
-    invoke-static {v0}, Landroid/os/storage/IDirEncryptService$Stub;->asInterface(Landroid/os/IBinder;)Landroid/os/storage/IDirEncryptService;
+    invoke-static {v0}, Lcom/samsung/android/security/IDirEncryptService$Stub;->asInterface(Landroid/os/IBinder;)Lcom/samsung/android/security/IDirEncryptService;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/samsung/android/security/SemSdCardEncryption;->m_InstDirEncSvc:Landroid/os/storage/IDirEncryptService;
+    iput-object v0, p0, Lcom/samsung/android/security/SemSdCardEncryption;->m_InstDirEncSvc:Lcom/samsung/android/security/IDirEncryptService;
 
-    iget-object v0, p0, Lcom/samsung/android/security/SemSdCardEncryption;->m_InstDirEncSvc:Landroid/os/storage/IDirEncryptService;
+    iget-object v0, p0, Lcom/samsung/android/security/SemSdCardEncryption;->m_InstDirEncSvc:Lcom/samsung/android/security/IDirEncryptService;
 
     if-nez v0, :cond_0
 
@@ -182,7 +178,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    iput-object v2, p0, Lcom/samsung/android/security/SemSdCardEncryption;->m_InstDirEncSvc:Landroid/os/storage/IDirEncryptService;
+    iput-object v2, p0, Lcom/samsung/android/security/SemSdCardEncryption;->m_InstDirEncSvc:Lcom/samsung/android/security/IDirEncryptService;
 
     :cond_1
     return-void
@@ -219,7 +215,7 @@
     return-void
 
     :cond_0
-    iget-object v1, p0, Lcom/samsung/android/security/SemSdCardEncryption;->m_InstDirEncSvc:Landroid/os/storage/IDirEncryptService;
+    iget-object v1, p0, Lcom/samsung/android/security/SemSdCardEncryption;->m_InstDirEncSvc:Lcom/samsung/android/security/IDirEncryptService;
 
     if-nez v1, :cond_1
 
@@ -227,9 +223,9 @@
 
     :cond_1
     :try_start_0
-    iget-object v1, p0, Lcom/samsung/android/security/SemSdCardEncryption;->m_InstDirEncSvc:Landroid/os/storage/IDirEncryptService;
+    iget-object v1, p0, Lcom/samsung/android/security/SemSdCardEncryption;->m_InstDirEncSvc:Lcom/samsung/android/security/IDirEncryptService;
 
-    invoke-interface {v1, p1}, Landroid/os/storage/IDirEncryptService;->SetMountSDcardToHelper(Z)V
+    invoke-interface {v1, p1}, Lcom/samsung/android/security/IDirEncryptService;->SetMountSDcardToHelper(Z)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -279,9 +275,9 @@
 
     :cond_0
     :try_start_0
-    iget-object v1, p0, Lcom/samsung/android/security/SemSdCardEncryption;->m_InstDirEncSvc:Landroid/os/storage/IDirEncryptService;
+    iget-object v1, p0, Lcom/samsung/android/security/SemSdCardEncryption;->m_InstDirEncSvc:Lcom/samsung/android/security/IDirEncryptService;
 
-    invoke-interface {v1, p1}, Landroid/os/storage/IDirEncryptService;->clearPrefs(Ljava/lang/String;)V
+    invoke-interface {v1, p1}, Lcom/samsung/android/security/IDirEncryptService;->clearPrefs(Ljava/lang/String;)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -314,11 +310,11 @@
 
     if-eqz v2, :cond_0
 
-    invoke-static {v2}, Landroid/os/storage/IMountService$Stub;->asInterface(Landroid/os/IBinder;)Landroid/os/storage/IMountService;
+    invoke-static {v2}, Landroid/os/storage/IStorageManager$Stub;->asInterface(Landroid/os/IBinder;)Landroid/os/storage/IStorageManager;
 
     move-result-object v3
 
-    invoke-interface {v3, p1}, Landroid/os/storage/IMountService;->encryptExternalStorage(Z)I
+    invoke-interface {v3, p1}, Landroid/os/storage/IStorageManager;->encryptExternalStorage(Z)I
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -354,7 +350,7 @@
     return v1
 
     :cond_0
-    iget-object v2, p0, Lcom/samsung/android/security/SemSdCardEncryption;->m_InstDirEncSvc:Landroid/os/storage/IDirEncryptService;
+    iget-object v2, p0, Lcom/samsung/android/security/SemSdCardEncryption;->m_InstDirEncSvc:Lcom/samsung/android/security/IDirEncryptService;
 
     if-nez v2, :cond_1
 
@@ -362,9 +358,9 @@
 
     :cond_1
     :try_start_0
-    iget-object v2, p0, Lcom/samsung/android/security/SemSdCardEncryption;->m_InstDirEncSvc:Landroid/os/storage/IDirEncryptService;
+    iget-object v2, p0, Lcom/samsung/android/security/SemSdCardEncryption;->m_InstDirEncSvc:Lcom/samsung/android/security/IDirEncryptService;
 
-    invoke-interface {v2}, Landroid/os/storage/IDirEncryptService;->getAdditionalSpaceRequired()I
+    invoke-interface {v2}, Lcom/samsung/android/security/IDirEncryptService;->getAdditionalSpaceRequired()I
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -399,7 +395,7 @@
     return v1
 
     :cond_0
-    iget-object v2, p0, Lcom/samsung/android/security/SemSdCardEncryption;->m_InstDirEncSvc:Landroid/os/storage/IDirEncryptService;
+    iget-object v2, p0, Lcom/samsung/android/security/SemSdCardEncryption;->m_InstDirEncSvc:Lcom/samsung/android/security/IDirEncryptService;
 
     if-nez v2, :cond_1
 
@@ -407,9 +403,9 @@
 
     :cond_1
     :try_start_0
-    iget-object v2, p0, Lcom/samsung/android/security/SemSdCardEncryption;->m_InstDirEncSvc:Landroid/os/storage/IDirEncryptService;
+    iget-object v2, p0, Lcom/samsung/android/security/SemSdCardEncryption;->m_InstDirEncSvc:Lcom/samsung/android/security/IDirEncryptService;
 
-    invoke-interface {v2}, Landroid/os/storage/IDirEncryptService;->getCurrentStatus()I
+    invoke-interface {v2}, Lcom/samsung/android/security/IDirEncryptService;->getCurrentStatus()I
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -492,7 +488,7 @@
     return v1
 
     :cond_0
-    iget-object v2, p0, Lcom/samsung/android/security/SemSdCardEncryption;->m_InstDirEncSvc:Landroid/os/storage/IDirEncryptService;
+    iget-object v2, p0, Lcom/samsung/android/security/SemSdCardEncryption;->m_InstDirEncSvc:Lcom/samsung/android/security/IDirEncryptService;
 
     if-nez v2, :cond_1
 
@@ -500,9 +496,9 @@
 
     :cond_1
     :try_start_0
-    iget-object v2, p0, Lcom/samsung/android/security/SemSdCardEncryption;->m_InstDirEncSvc:Landroid/os/storage/IDirEncryptService;
+    iget-object v2, p0, Lcom/samsung/android/security/SemSdCardEncryption;->m_InstDirEncSvc:Lcom/samsung/android/security/IDirEncryptService;
 
-    invoke-interface {v2}, Landroid/os/storage/IDirEncryptService;->getLastError()I
+    invoke-interface {v2}, Lcom/samsung/android/security/IDirEncryptService;->getLastError()I
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -560,7 +556,7 @@
 
     const/4 v3, 0x0
 
-    iget-object v2, p0, Lcom/samsung/android/security/SemSdCardEncryption;->m_InstDirEncSvc:Landroid/os/storage/IDirEncryptService;
+    iget-object v2, p0, Lcom/samsung/android/security/SemSdCardEncryption;->m_InstDirEncSvc:Lcom/samsung/android/security/IDirEncryptService;
 
     if-nez v2, :cond_0
 
@@ -570,9 +566,9 @@
     const/4 v0, 0x0
 
     :try_start_0
-    iget-object v2, p0, Lcom/samsung/android/security/SemSdCardEncryption;->m_InstDirEncSvc:Landroid/os/storage/IDirEncryptService;
+    iget-object v2, p0, Lcom/samsung/android/security/SemSdCardEncryption;->m_InstDirEncSvc:Lcom/samsung/android/security/IDirEncryptService;
 
-    invoke-interface {v2, p1}, Landroid/os/storage/IDirEncryptService;->getSdCardEncryptionPreferences(Ljava/lang/String;)Lcom/samsung/android/security/SemSdCardEncryptionPolicy;
+    invoke-interface {v2, p1}, Lcom/samsung/android/security/IDirEncryptService;->getSdCardEncryptionPreferences(Ljava/lang/String;)Lcom/samsung/android/security/SemSdCardEncryptionPolicy;
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -622,7 +618,7 @@
 
     const/4 v1, 0x0
 
-    iget-object v2, p0, Lcom/samsung/android/security/SemSdCardEncryption;->m_InstDirEncSvc:Landroid/os/storage/IDirEncryptService;
+    iget-object v2, p0, Lcom/samsung/android/security/SemSdCardEncryption;->m_InstDirEncSvc:Lcom/samsung/android/security/IDirEncryptService;
 
     if-nez v2, :cond_0
 
@@ -632,9 +628,9 @@
 
     :cond_0
     :try_start_0
-    iget-object v2, p0, Lcom/samsung/android/security/SemSdCardEncryption;->m_InstDirEncSvc:Landroid/os/storage/IDirEncryptService;
+    iget-object v2, p0, Lcom/samsung/android/security/SemSdCardEncryption;->m_InstDirEncSvc:Lcom/samsung/android/security/IDirEncryptService;
 
-    invoke-interface {v2}, Landroid/os/storage/IDirEncryptService;->isEncryptionAppliedSDCard()Z
+    invoke-interface {v2}, Lcom/samsung/android/security/IDirEncryptService;->isEncryptionAppliedSDCard()Z
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -704,7 +700,7 @@
     return v1
 
     :cond_0
-    iget-object v2, p0, Lcom/samsung/android/security/SemSdCardEncryption;->m_InstDirEncSvc:Landroid/os/storage/IDirEncryptService;
+    iget-object v2, p0, Lcom/samsung/android/security/SemSdCardEncryption;->m_InstDirEncSvc:Lcom/samsung/android/security/IDirEncryptService;
 
     if-nez v2, :cond_1
 
@@ -712,9 +708,9 @@
 
     :cond_1
     :try_start_0
-    iget-object v2, p0, Lcom/samsung/android/security/SemSdCardEncryption;->m_InstDirEncSvc:Landroid/os/storage/IDirEncryptService;
+    iget-object v2, p0, Lcom/samsung/android/security/SemSdCardEncryption;->m_InstDirEncSvc:Lcom/samsung/android/security/IDirEncryptService;
 
-    invoke-interface {v2}, Landroid/os/storage/IDirEncryptService;->isStorageCardEncryptionPoliciesApplied()I
+    invoke-interface {v2}, Lcom/samsung/android/security/IDirEncryptService;->isStorageCardEncryptionPoliciesApplied()I
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -758,10 +754,10 @@
     return v0
 .end method
 
-.method public registerListener(Landroid/os/storage/IDirEncryptServiceListener;)V
+.method public registerListener(Lcom/samsung/android/security/IDirEncryptServiceListener;)V
     .locals 3
 
-    iget-object v1, p0, Lcom/samsung/android/security/SemSdCardEncryption;->m_InstDirEncSvc:Landroid/os/storage/IDirEncryptService;
+    iget-object v1, p0, Lcom/samsung/android/security/SemSdCardEncryption;->m_InstDirEncSvc:Lcom/samsung/android/security/IDirEncryptService;
 
     if-nez v1, :cond_0
 
@@ -769,47 +765,9 @@
 
     :cond_0
     :try_start_0
-    iget-object v1, p0, Lcom/samsung/android/security/SemSdCardEncryption;->m_InstDirEncSvc:Landroid/os/storage/IDirEncryptService;
+    iget-object v1, p0, Lcom/samsung/android/security/SemSdCardEncryption;->m_InstDirEncSvc:Lcom/samsung/android/security/IDirEncryptService;
 
-    invoke-interface {v1, p1}, Landroid/os/storage/IDirEncryptService;->registerListener(Landroid/os/storage/IDirEncryptServiceListener;)V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    :goto_0
-    return-void
-
-    :catch_0
-    move-exception v0
-
-    const-string/jumbo v1, "SemSdCardEncryption"
-
-    const-string/jumbo v2, "Unable to communicate with DirEncryptService"
-
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_0
-.end method
-
-.method public revertSecureStorageForKnoxMigration(Ljava/lang/String;I)V
-    .locals 3
-
-    iget-object v1, p0, Lcom/samsung/android/security/SemSdCardEncryption;->m_InstDirEncSvc:Landroid/os/storage/IDirEncryptService;
-
-    if-nez v1, :cond_0
-
-    const-string/jumbo v1, "SemSdCardEncryption"
-
-    const-string/jumbo v2, "No DirEncSvc for Knox migration."
-
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    return-void
-
-    :cond_0
-    :try_start_0
-    iget-object v1, p0, Lcom/samsung/android/security/SemSdCardEncryption;->m_InstDirEncSvc:Landroid/os/storage/IDirEncryptService;
-
-    invoke-interface {v1, p1, p2}, Landroid/os/storage/IDirEncryptService;->revertSecureStorageForKnoxMigration(Ljava/lang/String;I)V
+    invoke-interface {v1, p1}, Lcom/samsung/android/security/IDirEncryptService;->registerListener(Lcom/samsung/android/security/IDirEncryptServiceListener;)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -829,54 +787,23 @@
 .end method
 
 .method public setAdminPolicy(ZLjava/lang/String;)I
-    .locals 3
+    .locals 2
 
-    iget-object v1, p0, Lcom/samsung/android/security/SemSdCardEncryption;->mContext:Landroid/content/Context;
+    if-eqz p1, :cond_0
 
-    const-string/jumbo v2, "device_policy"
-
-    invoke-virtual {v1, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/app/admin/DevicePolicyManager;
-
-    const/4 v1, 0x0
-
-    invoke-virtual {v0, v1}, Landroid/app/admin/DevicePolicyManager;->semGetRequireStorageCardEncryption(Landroid/content/ComponentName;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    if-nez p1, :cond_0
-
-    const-string/jumbo v1, "SemSdCardEncryption"
-
-    const-string/jumbo v2, "DPM set the encryption policy yet"
-
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    const/16 v1, 0x9
-
-    return v1
-
-    :cond_0
-    if-eqz p1, :cond_1
-
-    const/4 v1, 0x1
+    const/4 v0, 0x1
 
     :goto_0
-    const/4 v2, -0x1
+    const/4 v1, -0x1
 
-    invoke-virtual {p0, v1, v2, p2}, Lcom/samsung/android/security/SemSdCardEncryption;->setSdCardEncryptionPolicy(IILjava/lang/String;)I
+    invoke-virtual {p0, v0, v1, p2}, Lcom/samsung/android/security/SemSdCardEncryption;->setSdCardEncryptionPolicy(IILjava/lang/String;)I
 
-    move-result v1
+    move-result v0
 
-    return v1
+    return v0
 
-    :cond_1
-    const/4 v1, 0x0
+    :cond_0
+    const/4 v0, 0x0
 
     goto :goto_0
 .end method
@@ -893,7 +820,7 @@
     return-void
 
     :cond_0
-    iget-object v1, p0, Lcom/samsung/android/security/SemSdCardEncryption;->m_InstDirEncSvc:Landroid/os/storage/IDirEncryptService;
+    iget-object v1, p0, Lcom/samsung/android/security/SemSdCardEncryption;->m_InstDirEncSvc:Lcom/samsung/android/security/IDirEncryptService;
 
     if-nez v1, :cond_1
 
@@ -901,9 +828,9 @@
 
     :cond_1
     :try_start_0
-    iget-object v1, p0, Lcom/samsung/android/security/SemSdCardEncryption;->m_InstDirEncSvc:Landroid/os/storage/IDirEncryptService;
+    iget-object v1, p0, Lcom/samsung/android/security/SemSdCardEncryption;->m_InstDirEncSvc:Lcom/samsung/android/security/IDirEncryptService;
 
-    invoke-interface {v1, p1}, Landroid/os/storage/IDirEncryptService;->setNeedToCreateKey(Z)V
+    invoke-interface {v1, p1}, Lcom/samsung/android/security/IDirEncryptService;->setNeedToCreateKey(Z)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -936,7 +863,7 @@
     return v1
 
     :cond_0
-    iget-object v3, p0, Lcom/samsung/android/security/SemSdCardEncryption;->m_InstDirEncSvc:Landroid/os/storage/IDirEncryptService;
+    iget-object v3, p0, Lcom/samsung/android/security/SemSdCardEncryption;->m_InstDirEncSvc:Lcom/samsung/android/security/IDirEncryptService;
 
     if-nez v3, :cond_1
 
@@ -952,11 +879,11 @@
 
     if-eqz v2, :cond_2
 
-    invoke-static {v2}, Landroid/os/storage/IMountService$Stub;->asInterface(Landroid/os/IBinder;)Landroid/os/storage/IMountService;
+    invoke-static {v2}, Landroid/os/storage/IStorageManager$Stub;->asInterface(Landroid/os/IBinder;)Landroid/os/storage/IStorageManager;
 
     move-result-object v3
 
-    invoke-interface {v3, p1}, Landroid/os/storage/IMountService;->setExternalEncryptionPassword(Ljava/lang/String;)I
+    invoke-interface {v3, p1}, Landroid/os/storage/IStorageManager;->setExternalEncryptionPassword(Ljava/lang/String;)I
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -1010,7 +937,7 @@
     return v1
 
     :cond_0
-    iget-object v2, p0, Lcom/samsung/android/security/SemSdCardEncryption;->m_InstDirEncSvc:Landroid/os/storage/IDirEncryptService;
+    iget-object v2, p0, Lcom/samsung/android/security/SemSdCardEncryption;->m_InstDirEncSvc:Lcom/samsung/android/security/IDirEncryptService;
 
     if-nez v2, :cond_1
 
@@ -1018,9 +945,9 @@
 
     :cond_1
     :try_start_0
-    iget-object v2, p0, Lcom/samsung/android/security/SemSdCardEncryption;->m_InstDirEncSvc:Landroid/os/storage/IDirEncryptService;
+    iget-object v2, p0, Lcom/samsung/android/security/SemSdCardEncryption;->m_InstDirEncSvc:Lcom/samsung/android/security/IDirEncryptService;
 
-    invoke-interface {v2, p1, p2, p3}, Landroid/os/storage/IDirEncryptService;->setSdCardEncryptionPolicy(IILjava/lang/String;)I
+    invoke-interface {v2, p1, p2, p3}, Lcom/samsung/android/security/IDirEncryptService;->setSdCardEncryptionPolicy(IILjava/lang/String;)I
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -1099,7 +1026,7 @@
     return v1
 
     :cond_0
-    iget-object v2, p0, Lcom/samsung/android/security/SemSdCardEncryption;->m_InstDirEncSvc:Landroid/os/storage/IDirEncryptService;
+    iget-object v2, p0, Lcom/samsung/android/security/SemSdCardEncryption;->m_InstDirEncSvc:Lcom/samsung/android/security/IDirEncryptService;
 
     if-nez v2, :cond_1
 
@@ -1107,13 +1034,13 @@
 
     :cond_1
     :try_start_0
-    iget-object v2, p0, Lcom/samsung/android/security/SemSdCardEncryption;->m_InstDirEncSvc:Landroid/os/storage/IDirEncryptService;
+    iget-object v2, p0, Lcom/samsung/android/security/SemSdCardEncryption;->m_InstDirEncSvc:Lcom/samsung/android/security/IDirEncryptService;
 
     const/4 v3, 0x4
 
     const/4 v4, 0x7
 
-    invoke-interface {v2, p1, v3, v4}, Landroid/os/storage/IDirEncryptService;->setStorageCardEncryptionPolicy(III)I
+    invoke-interface {v2, p1, v3, v4}, Lcom/samsung/android/security/IDirEncryptService;->setStorageCardEncryptionPolicy(III)I
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -1191,7 +1118,7 @@
 .method public unmountSDCardByAdmin()V
     .locals 3
 
-    iget-object v1, p0, Lcom/samsung/android/security/SemSdCardEncryption;->m_InstDirEncSvc:Landroid/os/storage/IDirEncryptService;
+    iget-object v1, p0, Lcom/samsung/android/security/SemSdCardEncryption;->m_InstDirEncSvc:Lcom/samsung/android/security/IDirEncryptService;
 
     if-nez v1, :cond_0
 
@@ -1199,9 +1126,9 @@
 
     :cond_0
     :try_start_0
-    iget-object v1, p0, Lcom/samsung/android/security/SemSdCardEncryption;->m_InstDirEncSvc:Landroid/os/storage/IDirEncryptService;
+    iget-object v1, p0, Lcom/samsung/android/security/SemSdCardEncryption;->m_InstDirEncSvc:Lcom/samsung/android/security/IDirEncryptService;
 
-    invoke-interface {v1}, Landroid/os/storage/IDirEncryptService;->unmountSDCardByAdmin()V
+    invoke-interface {v1}, Lcom/samsung/android/security/IDirEncryptService;->unmountSDCardByAdmin()V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -1256,10 +1183,10 @@
     return v1
 .end method
 
-.method public unregisterListener(Landroid/os/storage/IDirEncryptServiceListener;)V
+.method public unregisterListener(Lcom/samsung/android/security/IDirEncryptServiceListener;)V
     .locals 3
 
-    iget-object v1, p0, Lcom/samsung/android/security/SemSdCardEncryption;->m_InstDirEncSvc:Landroid/os/storage/IDirEncryptService;
+    iget-object v1, p0, Lcom/samsung/android/security/SemSdCardEncryption;->m_InstDirEncSvc:Lcom/samsung/android/security/IDirEncryptService;
 
     if-nez v1, :cond_0
 
@@ -1267,9 +1194,9 @@
 
     :cond_0
     :try_start_0
-    iget-object v1, p0, Lcom/samsung/android/security/SemSdCardEncryption;->m_InstDirEncSvc:Landroid/os/storage/IDirEncryptService;
+    iget-object v1, p0, Lcom/samsung/android/security/SemSdCardEncryption;->m_InstDirEncSvc:Lcom/samsung/android/security/IDirEncryptService;
 
-    invoke-interface {v1, p1}, Landroid/os/storage/IDirEncryptService;->unregisterListener(Landroid/os/storage/IDirEncryptServiceListener;)V
+    invoke-interface {v1, p1}, Lcom/samsung/android/security/IDirEncryptService;->unregisterListener(Lcom/samsung/android/security/IDirEncryptServiceListener;)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 

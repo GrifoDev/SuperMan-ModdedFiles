@@ -12,6 +12,8 @@
 
 .field public static final TAG_CSCFEATURE_AUDIO_CONFIGACTIONVOLUMEKEY:Ljava/lang/String; = "CscFeature_Audio_ConfigActionVolumeKey"
 
+.field public static final TAG_CSCFEATURE_AUDIO_CONFIGBOOTSOUNDDELAY:Ljava/lang/String; = "CscFeature_Audio_ConfigBootSoundDelay"
+
 .field public static final TAG_CSCFEATURE_AUDIO_CONFIGCALLVOLUMESTEPS:Ljava/lang/String; = "CscFeature_Audio_ConfigCallVolumeSteps"
 
 .field public static final TAG_CSCFEATURE_AUDIO_CONFIGDEFCALLSAMPLERATE:Ljava/lang/String; = "CscFeature_Audio_ConfigDefCallSampleRate"
@@ -20,9 +22,9 @@
 
 .field public static final TAG_CSCFEATURE_AUDIO_SUPPORTFACTORYLF:Ljava/lang/String; = "CscFeature_Audio_SupportFactoryLF"
 
-.field public static final TAG_CSCFEATURE_AUDIO_SUPPORTSEPARATECALLGAINWB:Ljava/lang/String; = "CscFeature_Audio_SupportSeparateCallGainWB"
+.field public static final TAG_CSCFEATURE_AUDIO_SUPPORTFORBIDDENGAMESETSPEAKERINCALL:Ljava/lang/String; = "CscFeature_Audio_SupportForbiddenGameSetSpeakerInCall"
 
-.field public static final TAG_CSCFEATURE_AUDIO_SUPPORTSEPARATERINGBACKTONEGAIN:Ljava/lang/String; = "CscFeature_Audio_SupportSeparateRingBackToneGain"
+.field public static final TAG_CSCFEATURE_AUDIO_SUPPORTSEPARATECALLGAINWB:Ljava/lang/String; = "CscFeature_Audio_SupportSeparateCallGainWB"
 
 .field public static final TAG_CSCFEATURE_AUDIO_SUPPORTSYNCBOOTSOUND:Ljava/lang/String; = "CscFeature_Audio_SupportSyncBootSound"
 

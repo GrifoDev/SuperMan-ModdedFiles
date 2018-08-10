@@ -49,7 +49,9 @@
 
     if-nez v0, :cond_0
 
-    const-string/jumbo v3, "NsdManager"
+    invoke-static {}, Landroid/net/nsd/NsdManager;->-get0()Ljava/lang/String;
+
+    move-result-object v3
 
     new-instance v4, Ljava/lang/StringBuilder;
 
@@ -78,7 +80,7 @@
     :pswitch_1
     iget-object v3, p0, Landroid/net/nsd/NsdManager$ServiceHandler;->this$0:Landroid/net/nsd/NsdManager;
 
-    invoke-static {v3}, Landroid/net/nsd/NsdManager;->-get0(Landroid/net/nsd/NsdManager;)Lcom/android/internal/util/AsyncChannel;
+    invoke-static {v3}, Landroid/net/nsd/NsdManager;->-get1(Landroid/net/nsd/NsdManager;)Lcom/android/internal/util/AsyncChannel;
 
     move-result-object v3
 
@@ -91,7 +93,7 @@
     :pswitch_2
     iget-object v3, p0, Landroid/net/nsd/NsdManager$ServiceHandler;->this$0:Landroid/net/nsd/NsdManager;
 
-    invoke-static {v3}, Landroid/net/nsd/NsdManager;->-get1(Landroid/net/nsd/NsdManager;)Ljava/util/concurrent/CountDownLatch;
+    invoke-static {v3}, Landroid/net/nsd/NsdManager;->-get2(Landroid/net/nsd/NsdManager;)Ljava/util/concurrent/CountDownLatch;
 
     move-result-object v3
 
@@ -100,7 +102,9 @@
     return-void
 
     :pswitch_3
-    const-string/jumbo v3, "NsdManager"
+    invoke-static {}, Landroid/net/nsd/NsdManager;->-get0()Ljava/lang/String;
+
+    move-result-object v3
 
     const-string/jumbo v4, "Channel lost"
 
@@ -122,7 +126,9 @@
     packed-switch v3, :pswitch_data_1
 
     :pswitch_4
-    const-string/jumbo v3, "NsdManager"
+    invoke-static {}, Landroid/net/nsd/NsdManager;->-get0()Ljava/lang/String;
+
+    move-result-object v3
 
     new-instance v4, Ljava/lang/StringBuilder;
 
@@ -332,8 +338,6 @@
     invoke-interface {v0, v3}, Landroid/net/nsd/NsdManager$ResolveListener;->onServiceResolved(Landroid/net/nsd/NsdServiceInfo;)V
 
     goto/16 :goto_0
-
-    nop
 
     :pswitch_data_0
     .packed-switch 0x11000

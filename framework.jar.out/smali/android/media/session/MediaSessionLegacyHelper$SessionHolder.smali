@@ -78,7 +78,7 @@
 
     iget-object v1, p0, Landroid/media/session/MediaSessionLegacyHelper$SessionHolder;->this$0:Landroid/media/session/MediaSessionLegacyHelper;
 
-    invoke-static {v1}, Landroid/media/session/MediaSessionLegacyHelper;->-get1(Landroid/media/session/MediaSessionLegacyHelper;)Landroid/util/ArrayMap;
+    invoke-static {v1}, Landroid/media/session/MediaSessionLegacyHelper;->-get0(Landroid/media/session/MediaSessionLegacyHelper;)Landroid/util/ArrayMap;
 
     move-result-object v1
 

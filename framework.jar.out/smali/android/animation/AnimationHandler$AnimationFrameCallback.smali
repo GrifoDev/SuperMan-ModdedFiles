@@ -18,5 +18,5 @@
 .method public abstract commitAnimationFrame(J)V
 .end method
 
-.method public abstract doAnimationFrame(J)V
+.method public abstract doAnimationFrame(J)Z
 .end method

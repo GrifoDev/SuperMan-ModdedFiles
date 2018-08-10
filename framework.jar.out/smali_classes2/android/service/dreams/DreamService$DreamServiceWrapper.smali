@@ -39,7 +39,7 @@
 
 
 # virtual methods
-.method public attach(Landroid/os/IBinder;Z)V
+.method public attach(Landroid/os/IBinder;ZLandroid/os/IRemoteCallback;)V
     .locals 2
 
     iget-object v0, p0, Landroid/service/dreams/DreamService$DreamServiceWrapper;->this$0:Landroid/service/dreams/DreamService;
@@ -50,7 +50,7 @@
 
     new-instance v1, Landroid/service/dreams/DreamService$DreamServiceWrapper$1;
 
-    invoke-direct {v1, p0, p1, p2}, Landroid/service/dreams/DreamService$DreamServiceWrapper$1;-><init>(Landroid/service/dreams/DreamService$DreamServiceWrapper;Landroid/os/IBinder;Z)V
+    invoke-direct {v1, p0, p1, p2, p3}, Landroid/service/dreams/DreamService$DreamServiceWrapper$1;-><init>(Landroid/service/dreams/DreamService$DreamServiceWrapper;Landroid/os/IBinder;ZLandroid/os/IRemoteCallback;)V
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 

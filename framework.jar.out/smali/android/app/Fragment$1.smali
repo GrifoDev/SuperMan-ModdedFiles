@@ -33,6 +33,13 @@
 # virtual methods
 .method public onFindViewById(I)Landroid/view/View;
     .locals 2
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "<T:",
+            "Landroid/view/View;",
+            ">(I)TT;"
+        }
+    .end annotation
 
     iget-object v0, p0, Landroid/app/Fragment$1;->this$0:Landroid/app/Fragment;
 

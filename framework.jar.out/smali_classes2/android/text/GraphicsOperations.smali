@@ -7,10 +7,10 @@
 
 
 # virtual methods
-.method public abstract drawText(Landroid/graphics/Canvas;IIFFLandroid/graphics/Paint;)V
+.method public abstract drawText(Landroid/graphics/BaseCanvas;IIFFLandroid/graphics/Paint;)V
 .end method
 
-.method public abstract drawTextRun(Landroid/graphics/Canvas;IIIIFFZLandroid/graphics/Paint;)V
+.method public abstract drawTextRun(Landroid/graphics/BaseCanvas;IIIIFFZLandroid/graphics/Paint;)V
 .end method
 
 .method public abstract getTextRunAdvances(IIIIZ[FILandroid/graphics/Paint;)F

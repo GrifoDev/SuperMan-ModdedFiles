@@ -26,12 +26,6 @@
     .end annotation
 .end field
 
-.field public static final MARKED_DEX:I = 0x1
-
-.field public static final STRING_MARKED_DEX:Ljava/lang/String; = "|marked_dex"
-
-.field public static final UNMARKED_DEX:I
-
 
 # instance fields
 .field private groupKey:Ljava/lang/String;
@@ -40,11 +34,9 @@
 
 .field private final initialPid:I
 
-.field private key:Ljava/lang/String;
+.field private final key:Ljava/lang/String;
 
 .field private mContext:Landroid/content/Context;
-
-.field private markedDex:I
 
 .field private final notification:Landroid/app/Notification;
 
@@ -81,11 +73,7 @@
 
     const/4 v2, 0x0
 
-    const/4 v0, 0x0
-
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput v0, p0, Landroid/service/notification/StatusBarNotification;->markedDex:I
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
@@ -173,12 +161,6 @@
 
     iput-object v0, p0, Landroid/service/notification/StatusBarNotification;->groupKey:Ljava/lang/String;
 
-    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
-
-    move-result v0
-
-    iput v0, p0, Landroid/service/notification/StatusBarNotification;->markedDex:I
-
     return-void
 
     :cond_0
@@ -192,46 +174,12 @@
     goto :goto_1
 .end method
 
-.method public constructor <init>(Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;IIILandroid/app/Notification;Landroid/os/UserHandle;)V
-    .locals 12
-
-    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
-
-    move-result-wide v10
-
-    move-object v0, p0
-
-    move-object v1, p1
-
-    move-object v2, p2
-
-    move v3, p3
-
-    move-object/from16 v4, p4
-
-    move/from16 v5, p5
-
-    move/from16 v6, p6
-
-    move/from16 v7, p7
-
-    move-object/from16 v8, p8
-
-    move-object/from16 v9, p9
-
-    invoke-direct/range {v0 .. v11}, Landroid/service/notification/StatusBarNotification;-><init>(Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;IIILandroid/app/Notification;Landroid/os/UserHandle;J)V
-
-    return-void
-.end method
-
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;IIILandroid/app/Notification;Landroid/os/UserHandle;J)V
     .locals 2
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    const/4 v0, 0x0
-
-    iput v0, p0, Landroid/service/notification/StatusBarNotification;->markedDex:I
 
     if-nez p1, :cond_0
 
@@ -288,10 +236,6 @@
     .locals 2
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    const/4 v0, 0x0
-
-    iput v0, p0, Landroid/service/notification/StatusBarNotification;->markedDex:I
 
     if-nez p1, :cond_0
 
@@ -467,7 +411,7 @@
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v4, "p:"
+    const-string/jumbo v4, "c:"
 
     invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -475,9 +419,11 @@
 
     iget-object v4, p0, Landroid/service/notification/StatusBarNotification;->notification:Landroid/app/Notification;
 
-    iget v4, v4, Landroid/app/Notification;->priority:I
+    invoke-virtual {v4}, Landroid/app/Notification;->getChannelId()Ljava/lang/String;
 
-    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-result-object v4
+
+    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v2
 
@@ -726,6 +672,29 @@
     return v0
 .end method
 
+.method public getGroup()Ljava/lang/String;
+    .locals 1
+
+    iget-object v0, p0, Landroid/service/notification/StatusBarNotification;->overrideGroupKey:Ljava/lang/String;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Landroid/service/notification/StatusBarNotification;->overrideGroupKey:Ljava/lang/String;
+
+    return-object v0
+
+    :cond_0
+    invoke-virtual {p0}, Landroid/service/notification/StatusBarNotification;->getNotification()Landroid/app/Notification;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/app/Notification;->getGroup()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
 .method public getGroupKey()Ljava/lang/String;
     .locals 1
 
@@ -783,14 +752,41 @@
 .end method
 
 .method public getPackageContext(Landroid/content/Context;)Landroid/content/Context;
-    .locals 6
+    .locals 7
 
-    const/4 v5, 0x0
+    const/4 v6, 0x0
 
     iget-object v2, p0, Landroid/service/notification/StatusBarNotification;->mContext:Landroid/content/Context;
 
-    if-nez v2, :cond_0
+    if-eqz v2, :cond_0
 
+    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
+
+    move-result-object v2
+
+    iget-object v3, p0, Landroid/service/notification/StatusBarNotification;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v3}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
+
+    move-result-object v3
+
+    invoke-virtual {v2, v3}, Landroid/content/res/Configuration;->equals(Landroid/content/res/Configuration;)Z
+
+    move-result v2
+
+    xor-int/lit8 v2, v2, 0x1
+
+    if-eqz v2, :cond_1
+
+    :cond_0
     :try_start_0
     invoke-virtual {p1}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
@@ -798,9 +794,13 @@
 
     iget-object v3, p0, Landroid/service/notification/StatusBarNotification;->pkg:Ljava/lang/String;
 
-    const/16 v4, 0x2000
+    invoke-virtual {p0}, Landroid/service/notification/StatusBarNotification;->getUserId()I
 
-    invoke-virtual {v2, v3, v4}, Landroid/content/pm/PackageManager;->getApplicationInfo(Ljava/lang/String;I)Landroid/content/pm/ApplicationInfo;
+    move-result v4
+
+    const/16 v5, 0x2000
+
+    invoke-virtual {v2, v3, v5, v4}, Landroid/content/pm/PackageManager;->getApplicationInfoAsUser(Ljava/lang/String;II)Landroid/content/pm/ApplicationInfo;
 
     move-result-object v0
 
@@ -814,15 +814,15 @@
     :try_end_0
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
-    :cond_0
+    :cond_1
     :goto_0
     iget-object v2, p0, Landroid/service/notification/StatusBarNotification;->mContext:Landroid/content/Context;
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_2
 
     iput-object p1, p0, Landroid/service/notification/StatusBarNotification;->mContext:Landroid/content/Context;
 
-    :cond_1
+    :cond_2
     iget-object v2, p0, Landroid/service/notification/StatusBarNotification;->mContext:Landroid/content/Context;
 
     return-object v2
@@ -830,7 +830,7 @@
     :catch_0
     move-exception v1
 
-    iput-object v5, p0, Landroid/service/notification/StatusBarNotification;->mContext:Landroid/content/Context;
+    iput-object v6, p0, Landroid/service/notification/StatusBarNotification;->mContext:Landroid/content/Context;
 
     goto :goto_0
 .end method
@@ -877,6 +877,8 @@
 
 .method public getUserId()I
     .locals 1
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 
     iget-object v0, p0, Landroid/service/notification/StatusBarNotification;->user:Landroid/os/UserHandle;
 
@@ -972,24 +974,6 @@
     return v0
 .end method
 
-.method public isMarkedDex()Z
-    .locals 2
-
-    const/4 v0, 0x1
-
-    iget v1, p0, Landroid/service/notification/StatusBarNotification;->markedDex:I
-
-    if-ne v1, v0, :cond_0
-
-    :goto_0
-    return v0
-
-    :cond_0
-    const/4 v0, 0x0
-
-    goto :goto_0
-.end method
-
 .method public isOngoing()Z
     .locals 2
 
@@ -1007,38 +991,6 @@
 
     :cond_0
     return v0
-.end method
-
-.method public markedDex()V
-    .locals 3
-
-    const/4 v1, 0x1
-
-    iput v1, p0, Landroid/service/notification/StatusBarNotification;->markedDex:I
-
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    iget-object v1, p0, Landroid/service/notification/StatusBarNotification;->key:Ljava/lang/String;
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    const-string/jumbo v2, "|marked_dex"
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    iput-object v1, p0, Landroid/service/notification/StatusBarNotification;->key:Ljava/lang/String;
-
-    return-void
 .end method
 
 .method public setOverrideGroupKey(Ljava/lang/String;)V
@@ -1111,73 +1063,6 @@
     return-object v0
 .end method
 
-.method public unmarkedDex()V
-    .locals 6
-
-    const/4 v5, 0x0
-
-    iput v5, p0, Landroid/service/notification/StatusBarNotification;->markedDex:I
-
-    iget-object v3, p0, Landroid/service/notification/StatusBarNotification;->key:Ljava/lang/String;
-
-    const-string/jumbo v4, "|marked_dex"
-
-    invoke-virtual {v3, v4}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_0
-
-    iget-object v3, p0, Landroid/service/notification/StatusBarNotification;->key:Ljava/lang/String;
-
-    const-string/jumbo v4, "|marked_dex"
-
-    invoke-virtual {v3, v4}, Ljava/lang/String;->indexOf(Ljava/lang/String;)I
-
-    move-result v0
-
-    const-string/jumbo v3, "|marked_dex"
-
-    invoke-virtual {v3}, Ljava/lang/String;->length()I
-
-    move-result v3
-
-    add-int v1, v0, v3
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    iget-object v3, p0, Landroid/service/notification/StatusBarNotification;->key:Ljava/lang/String;
-
-    invoke-virtual {v3, v5, v0}, Ljava/lang/String;->substring(II)Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    iget-object v4, p0, Landroid/service/notification/StatusBarNotification;->key:Ljava/lang/String;
-
-    invoke-virtual {v4, v1}, Ljava/lang/String;->substring(I)Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    iput-object v3, p0, Landroid/service/notification/StatusBarNotification;->key:Ljava/lang/String;
-
-    :cond_0
-    return-void
-.end method
-
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 4
 
@@ -1239,10 +1124,6 @@
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
     :goto_1
-    iget v0, p0, Landroid/service/notification/StatusBarNotification;->markedDex:I
-
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
-
     return-void
 
     :cond_0

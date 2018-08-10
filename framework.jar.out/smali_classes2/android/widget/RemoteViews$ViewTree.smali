@@ -26,7 +26,7 @@
     .end annotation
 .end field
 
-.field private final mRoot:Landroid/view/View;
+.field private mRoot:Landroid/view/View;
 
 
 # direct methods
@@ -67,11 +67,20 @@
 .method private addViewChild(Landroid/view/View;)V
     .locals 6
 
-    invoke-virtual {p1}, Landroid/view/View;->getId()I
+    invoke-virtual {p1}, Landroid/view/View;->isRootNamespace()Z
 
     move-result v5
 
     if-eqz v5, :cond_0
+
+    return-void
+
+    :cond_0
+    invoke-virtual {p1}, Landroid/view/View;->getId()I
+
+    move-result v5
+
+    if-eqz v5, :cond_1
 
     new-instance v3, Landroid/widget/RemoteViews$ViewTree;
 
@@ -86,17 +95,11 @@
     :goto_0
     instance-of v5, p1, Landroid/view/ViewGroup;
 
-    if-eqz v5, :cond_1
-
-    invoke-virtual {p1}, Landroid/view/View;->isRootNamespace()Z
-
-    move-result v5
-
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_2
 
     iget-object v5, v2, Landroid/widget/RemoteViews$ViewTree;->mChildren:Ljava/util/ArrayList;
 
-    if-nez v5, :cond_1
+    if-nez v5, :cond_2
 
     new-instance v5, Ljava/util/ArrayList;
 
@@ -106,9 +109,7 @@
 
     move-object v4, p1
 
-    nop
-
-    nop
+    check-cast v4, Landroid/view/ViewGroup;
 
     invoke-virtual {v4}, Landroid/view/ViewGroup;->getChildCount()I
 
@@ -117,7 +118,7 @@
     const/4 v1, 0x0
 
     :goto_1
-    if-ge v1, v0, :cond_1
+    if-ge v1, v0, :cond_2
 
     invoke-virtual {v4, v1}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
 
@@ -129,12 +130,12 @@
 
     goto :goto_1
 
-    :cond_0
+    :cond_1
     move-object v2, p0
 
     goto :goto_0
 
-    :cond_1
+    :cond_2
     return-void
 .end method
 
@@ -185,14 +186,6 @@
 
     if-eqz v3, :cond_1
 
-    iget-object v3, p0, Landroid/widget/RemoteViews$ViewTree;->mRoot:Landroid/view/View;
-
-    invoke-virtual {v3}, Landroid/view/View;->isRootNamespace()Z
-
-    move-result v3
-
-    if-eqz v3, :cond_1
-
     iget-object v2, p0, Landroid/widget/RemoteViews$ViewTree;->mRoot:Landroid/view/View;
 
     check-cast v2, Landroid/view/ViewGroup;
@@ -222,6 +215,13 @@
 
 .method public findViewById(I)Landroid/view/View;
     .locals 3
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "<T:",
+            "Landroid/view/View;",
+            ">(I)TT;"
+        }
+    .end annotation
 
     const/4 v1, 0x0
 
@@ -305,4 +305,18 @@
 
     :cond_3
     return-object v4
+.end method
+
+.method public replaceView(Landroid/view/View;)V
+    .locals 1
+
+    iput-object p1, p0, Landroid/widget/RemoteViews$ViewTree;->mRoot:Landroid/view/View;
+
+    const/4 v0, 0x0
+
+    iput-object v0, p0, Landroid/widget/RemoteViews$ViewTree;->mChildren:Ljava/util/ArrayList;
+
+    invoke-virtual {p0}, Landroid/widget/RemoteViews$ViewTree;->createTree()V
+
+    return-void
 .end method

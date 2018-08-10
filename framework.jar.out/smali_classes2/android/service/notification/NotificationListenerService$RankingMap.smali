@@ -37,6 +37,18 @@
 
 
 # instance fields
+.field private mChannels:Landroid/util/ArrayMap;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Landroid/util/ArrayMap",
+            "<",
+            "Ljava/lang/String;",
+            "Landroid/app/NotificationChannel;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 .field private mImportance:Landroid/util/ArrayMap;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -84,6 +96,20 @@
     .end annotation
 .end field
 
+.field private mOverridePeople:Landroid/util/ArrayMap;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Landroid/util/ArrayMap",
+            "<",
+            "Ljava/lang/String;",
+            "Ljava/util/ArrayList",
+            "<",
+            "Ljava/lang/String;",
+            ">;>;"
+        }
+    .end annotation
+.end field
+
 .field private final mRankingUpdate:Landroid/service/notification/NotificationRankingUpdate;
 
 .field private mRanks:Landroid/util/ArrayMap;
@@ -94,6 +120,44 @@
             "Ljava/lang/String;",
             "Ljava/lang/Integer;",
             ">;"
+        }
+    .end annotation
+.end field
+
+.field private mSecPinState:Landroid/util/ArrayMap;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Landroid/util/ArrayMap",
+            "<",
+            "Ljava/lang/String;",
+            "Ljava/lang/Boolean;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field private mShowBadge:Landroid/util/ArrayMap;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Landroid/util/ArrayMap",
+            "<",
+            "Ljava/lang/String;",
+            "Ljava/lang/Boolean;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field private mSnoozeCriteria:Landroid/util/ArrayMap;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Landroid/util/ArrayMap",
+            "<",
+            "Ljava/lang/String;",
+            "Ljava/util/ArrayList",
+            "<",
+            "Landroid/service/notification/SnoozeCriterion;",
+            ">;>;"
         }
     .end annotation
 .end field
@@ -151,6 +215,62 @@
 
     invoke-direct {p0, p1}, Landroid/service/notification/NotificationListenerService$RankingMap;-><init>(Landroid/service/notification/NotificationRankingUpdate;)V
 
+    return-void
+.end method
+
+.method private buildChannelsLocked()V
+    .locals 5
+
+    iget-object v3, p0, Landroid/service/notification/NotificationListenerService$RankingMap;->mRankingUpdate:Landroid/service/notification/NotificationRankingUpdate;
+
+    invoke-virtual {v3}, Landroid/service/notification/NotificationRankingUpdate;->getChannels()Landroid/os/Bundle;
+
+    move-result-object v0
+
+    new-instance v3, Landroid/util/ArrayMap;
+
+    invoke-virtual {v0}, Landroid/os/Bundle;->size()I
+
+    move-result v4
+
+    invoke-direct {v3, v4}, Landroid/util/ArrayMap;-><init>(I)V
+
+    iput-object v3, p0, Landroid/service/notification/NotificationListenerService$RankingMap;->mChannels:Landroid/util/ArrayMap;
+
+    invoke-virtual {v0}, Landroid/os/Bundle;->keySet()Ljava/util/Set;
+
+    move-result-object v3
+
+    invoke-interface {v3}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+
+    move-result-object v2
+
+    :goto_0
+    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_0
+
+    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Ljava/lang/String;
+
+    iget-object v4, p0, Landroid/service/notification/NotificationListenerService$RankingMap;->mChannels:Landroid/util/ArrayMap;
+
+    invoke-virtual {v0, v1}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
+
+    move-result-object v3
+
+    check-cast v3, Landroid/app/NotificationChannel;
+
+    invoke-virtual {v4, v1, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    goto :goto_0
+
+    :cond_0
     return-void
 .end method
 
@@ -336,6 +456,60 @@
     return-void
 .end method
 
+.method private buildOverridePeopleLocked()V
+    .locals 5
+
+    iget-object v3, p0, Landroid/service/notification/NotificationListenerService$RankingMap;->mRankingUpdate:Landroid/service/notification/NotificationRankingUpdate;
+
+    invoke-virtual {v3}, Landroid/service/notification/NotificationRankingUpdate;->getOverridePeople()Landroid/os/Bundle;
+
+    move-result-object v2
+
+    new-instance v3, Landroid/util/ArrayMap;
+
+    invoke-virtual {v2}, Landroid/os/Bundle;->size()I
+
+    move-result v4
+
+    invoke-direct {v3, v4}, Landroid/util/ArrayMap;-><init>(I)V
+
+    iput-object v3, p0, Landroid/service/notification/NotificationListenerService$RankingMap;->mOverridePeople:Landroid/util/ArrayMap;
+
+    invoke-virtual {v2}, Landroid/os/Bundle;->keySet()Ljava/util/Set;
+
+    move-result-object v3
+
+    invoke-interface {v3}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+
+    move-result-object v1
+
+    :goto_0
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_0
+
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    iget-object v3, p0, Landroid/service/notification/NotificationListenerService$RankingMap;->mOverridePeople:Landroid/util/ArrayMap;
+
+    invoke-virtual {v2, v0}, Landroid/os/Bundle;->getStringArrayList(Ljava/lang/String;)Ljava/util/ArrayList;
+
+    move-result-object v4
+
+    invoke-virtual {v3, v0, v4}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    goto :goto_0
+
+    :cond_0
+    return-void
+.end method
+
 .method private buildRanksLocked()V
     .locals 5
 
@@ -371,6 +545,176 @@
     invoke-virtual {v3, v1, v4}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     add-int/lit8 v0, v0, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    return-void
+.end method
+
+.method private buildSecPinStateLocked()V
+    .locals 5
+
+    iget-object v3, p0, Landroid/service/notification/NotificationListenerService$RankingMap;->mRankingUpdate:Landroid/service/notification/NotificationRankingUpdate;
+
+    invoke-virtual {v3}, Landroid/service/notification/NotificationRankingUpdate;->getSecPinState()Landroid/os/Bundle;
+
+    move-result-object v2
+
+    new-instance v3, Landroid/util/ArrayMap;
+
+    invoke-virtual {v2}, Landroid/os/Bundle;->size()I
+
+    move-result v4
+
+    invoke-direct {v3, v4}, Landroid/util/ArrayMap;-><init>(I)V
+
+    iput-object v3, p0, Landroid/service/notification/NotificationListenerService$RankingMap;->mSecPinState:Landroid/util/ArrayMap;
+
+    invoke-virtual {v2}, Landroid/os/Bundle;->keySet()Ljava/util/Set;
+
+    move-result-object v3
+
+    invoke-interface {v3}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+
+    move-result-object v1
+
+    :goto_0
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_0
+
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    iget-object v3, p0, Landroid/service/notification/NotificationListenerService$RankingMap;->mSecPinState:Landroid/util/ArrayMap;
+
+    invoke-virtual {v2, v0}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;)Z
+
+    move-result v4
+
+    invoke-static {v4}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v4
+
+    invoke-virtual {v3, v0, v4}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    goto :goto_0
+
+    :cond_0
+    return-void
+.end method
+
+.method private buildShowBadgeLocked()V
+    .locals 5
+
+    iget-object v3, p0, Landroid/service/notification/NotificationListenerService$RankingMap;->mRankingUpdate:Landroid/service/notification/NotificationRankingUpdate;
+
+    invoke-virtual {v3}, Landroid/service/notification/NotificationRankingUpdate;->getShowBadge()Landroid/os/Bundle;
+
+    move-result-object v2
+
+    new-instance v3, Landroid/util/ArrayMap;
+
+    invoke-virtual {v2}, Landroid/os/Bundle;->size()I
+
+    move-result v4
+
+    invoke-direct {v3, v4}, Landroid/util/ArrayMap;-><init>(I)V
+
+    iput-object v3, p0, Landroid/service/notification/NotificationListenerService$RankingMap;->mShowBadge:Landroid/util/ArrayMap;
+
+    invoke-virtual {v2}, Landroid/os/Bundle;->keySet()Ljava/util/Set;
+
+    move-result-object v3
+
+    invoke-interface {v3}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+
+    move-result-object v1
+
+    :goto_0
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_0
+
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    iget-object v3, p0, Landroid/service/notification/NotificationListenerService$RankingMap;->mShowBadge:Landroid/util/ArrayMap;
+
+    invoke-virtual {v2, v0}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;)Z
+
+    move-result v4
+
+    invoke-static {v4}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v4
+
+    invoke-virtual {v3, v0, v4}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    goto :goto_0
+
+    :cond_0
+    return-void
+.end method
+
+.method private buildSnoozeCriteriaLocked()V
+    .locals 5
+
+    iget-object v3, p0, Landroid/service/notification/NotificationListenerService$RankingMap;->mRankingUpdate:Landroid/service/notification/NotificationRankingUpdate;
+
+    invoke-virtual {v3}, Landroid/service/notification/NotificationRankingUpdate;->getSnoozeCriteria()Landroid/os/Bundle;
+
+    move-result-object v2
+
+    new-instance v3, Landroid/util/ArrayMap;
+
+    invoke-virtual {v2}, Landroid/os/Bundle;->size()I
+
+    move-result v4
+
+    invoke-direct {v3, v4}, Landroid/util/ArrayMap;-><init>(I)V
+
+    iput-object v3, p0, Landroid/service/notification/NotificationListenerService$RankingMap;->mSnoozeCriteria:Landroid/util/ArrayMap;
+
+    invoke-virtual {v2}, Landroid/os/Bundle;->keySet()Ljava/util/Set;
+
+    move-result-object v3
+
+    invoke-interface {v3}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+
+    move-result-object v1
+
+    :goto_0
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_0
+
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    iget-object v3, p0, Landroid/service/notification/NotificationListenerService$RankingMap;->mSnoozeCriteria:Landroid/util/ArrayMap;
+
+    invoke-virtual {v2, v0}, Landroid/os/Bundle;->getParcelableArrayList(Ljava/lang/String;)Ljava/util/ArrayList;
+
+    move-result-object v4
+
+    invoke-virtual {v3, v0, v4}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     goto :goto_0
 
@@ -494,6 +838,41 @@
     return-void
 .end method
 
+.method private getChannel(Ljava/lang/String;)Landroid/app/NotificationChannel;
+    .locals 1
+
+    monitor-enter p0
+
+    :try_start_0
+    iget-object v0, p0, Landroid/service/notification/NotificationListenerService$RankingMap;->mChannels:Landroid/util/ArrayMap;
+
+    if-nez v0, :cond_0
+
+    invoke-direct {p0}, Landroid/service/notification/NotificationListenerService$RankingMap;->buildChannelsLocked()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    :cond_0
+    monitor-exit p0
+
+    iget-object v0, p0, Landroid/service/notification/NotificationListenerService$RankingMap;->mChannels:Landroid/util/ArrayMap;
+
+    invoke-virtual {v0, p1}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/app/NotificationChannel;
+
+    return-object v0
+
+    :catchall_0
+    move-exception v0
+
+    monitor-exit p0
+
+    throw v0
+.end method
+
 .method private getImportance(Ljava/lang/String;)I
     .locals 2
 
@@ -610,6 +989,52 @@
     throw v0
 .end method
 
+.method private getOverridePeople(Ljava/lang/String;)Ljava/util/ArrayList;
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/lang/String;",
+            ")",
+            "Ljava/util/ArrayList",
+            "<",
+            "Ljava/lang/String;",
+            ">;"
+        }
+    .end annotation
+
+    monitor-enter p0
+
+    :try_start_0
+    iget-object v0, p0, Landroid/service/notification/NotificationListenerService$RankingMap;->mOverridePeople:Landroid/util/ArrayMap;
+
+    if-nez v0, :cond_0
+
+    invoke-direct {p0}, Landroid/service/notification/NotificationListenerService$RankingMap;->buildOverridePeopleLocked()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    :cond_0
+    monitor-exit p0
+
+    iget-object v0, p0, Landroid/service/notification/NotificationListenerService$RankingMap;->mOverridePeople:Landroid/util/ArrayMap;
+
+    invoke-virtual {v0, p1}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/util/ArrayList;
+
+    return-object v0
+
+    :catchall_0
+    move-exception v0
+
+    monitor-exit p0
+
+    throw v0
+.end method
+
 .method private getRank(Ljava/lang/String;)I
     .locals 2
 
@@ -655,6 +1080,146 @@
     const/4 v1, -0x1
 
     goto :goto_0
+.end method
+
+.method private getSecPinState(Ljava/lang/String;)Z
+    .locals 2
+
+    monitor-enter p0
+
+    :try_start_0
+    iget-object v1, p0, Landroid/service/notification/NotificationListenerService$RankingMap;->mSecPinState:Landroid/util/ArrayMap;
+
+    if-nez v1, :cond_0
+
+    invoke-direct {p0}, Landroid/service/notification/NotificationListenerService$RankingMap;->buildSecPinStateLocked()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    :cond_0
+    monitor-exit p0
+
+    iget-object v1, p0, Landroid/service/notification/NotificationListenerService$RankingMap;->mSecPinState:Landroid/util/ArrayMap;
+
+    invoke-virtual {v1, p1}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/Boolean;
+
+    if-nez v0, :cond_1
+
+    const/4 v1, 0x0
+
+    :goto_0
+    return v1
+
+    :catchall_0
+    move-exception v1
+
+    monitor-exit p0
+
+    throw v1
+
+    :cond_1
+    invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z
+
+    move-result v1
+
+    goto :goto_0
+.end method
+
+.method private getShowBadge(Ljava/lang/String;)Z
+    .locals 2
+
+    monitor-enter p0
+
+    :try_start_0
+    iget-object v1, p0, Landroid/service/notification/NotificationListenerService$RankingMap;->mShowBadge:Landroid/util/ArrayMap;
+
+    if-nez v1, :cond_0
+
+    invoke-direct {p0}, Landroid/service/notification/NotificationListenerService$RankingMap;->buildShowBadgeLocked()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    :cond_0
+    monitor-exit p0
+
+    iget-object v1, p0, Landroid/service/notification/NotificationListenerService$RankingMap;->mShowBadge:Landroid/util/ArrayMap;
+
+    invoke-virtual {v1, p1}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/Boolean;
+
+    if-nez v0, :cond_1
+
+    const/4 v1, 0x0
+
+    :goto_0
+    return v1
+
+    :catchall_0
+    move-exception v1
+
+    monitor-exit p0
+
+    throw v1
+
+    :cond_1
+    invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z
+
+    move-result v1
+
+    goto :goto_0
+.end method
+
+.method private getSnoozeCriteria(Ljava/lang/String;)Ljava/util/ArrayList;
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/lang/String;",
+            ")",
+            "Ljava/util/ArrayList",
+            "<",
+            "Landroid/service/notification/SnoozeCriterion;",
+            ">;"
+        }
+    .end annotation
+
+    monitor-enter p0
+
+    :try_start_0
+    iget-object v0, p0, Landroid/service/notification/NotificationListenerService$RankingMap;->mSnoozeCriteria:Landroid/util/ArrayMap;
+
+    if-nez v0, :cond_0
+
+    invoke-direct {p0}, Landroid/service/notification/NotificationListenerService$RankingMap;->buildSnoozeCriteriaLocked()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    :cond_0
+    monitor-exit p0
+
+    iget-object v0, p0, Landroid/service/notification/NotificationListenerService$RankingMap;->mSnoozeCriteria:Landroid/util/ArrayMap;
+
+    invoke-virtual {v0, p1}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/util/ArrayList;
+
+    return-object v0
+
+    :catchall_0
+    move-exception v0
+
+    monitor-exit p0
+
+    throw v0
 .end method
 
 .method private getSuppressedVisualEffects(Ljava/lang/String;)I
@@ -805,11 +1370,7 @@
 .end method
 
 .method public getRanking(Ljava/lang/String;Landroid/service/notification/NotificationListenerService$Ranking;)Z
-    .locals 11
-
-    const/4 v10, 0x1
-
-    const/4 v9, 0x0
+    .locals 14
 
     invoke-direct {p0, p1}, Landroid/service/notification/NotificationListenerService$RankingMap;->getRank(Ljava/lang/String;)I
 
@@ -819,11 +1380,8 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    xor-int/lit8 v3, v0, 0x1
 
-    move v3, v9
-
-    :goto_0
     invoke-direct {p0, p1}, Landroid/service/notification/NotificationListenerService$RankingMap;->getVisibilityOverride(Ljava/lang/String;)I
 
     move-result v4
@@ -844,26 +1402,43 @@
 
     move-result-object v8
 
-    move-object v0, p2
+    invoke-direct {p0, p1}, Landroid/service/notification/NotificationListenerService$RankingMap;->getChannel(Ljava/lang/String;)Landroid/app/NotificationChannel;
+
+    move-result-object v9
+
+    invoke-direct {p0, p1}, Landroid/service/notification/NotificationListenerService$RankingMap;->getOverridePeople(Ljava/lang/String;)Ljava/util/ArrayList;
+
+    move-result-object v10
+
+    invoke-direct {p0, p1}, Landroid/service/notification/NotificationListenerService$RankingMap;->getSnoozeCriteria(Ljava/lang/String;)Ljava/util/ArrayList;
+
+    move-result-object v11
+
+    invoke-direct {p0, p1}, Landroid/service/notification/NotificationListenerService$RankingMap;->getShowBadge(Ljava/lang/String;)Z
+
+    move-result v12
+
+    invoke-direct {p0, p1}, Landroid/service/notification/NotificationListenerService$RankingMap;->getSecPinState(Ljava/lang/String;)Z
+
+    move-result v13
+
+    move-object/from16 v0, p2
 
     move-object v1, p1
 
-    invoke-static/range {v0 .. v8}, Landroid/service/notification/NotificationListenerService$Ranking;->-wrap0(Landroid/service/notification/NotificationListenerService$Ranking;Ljava/lang/String;IZIIILjava/lang/CharSequence;Ljava/lang/String;)V
+    invoke-static/range {v0 .. v13}, Landroid/service/notification/NotificationListenerService$Ranking;->-wrap0(Landroid/service/notification/NotificationListenerService$Ranking;Ljava/lang/String;IZIIILjava/lang/CharSequence;Ljava/lang/String;Landroid/app/NotificationChannel;Ljava/util/ArrayList;Ljava/util/ArrayList;ZZ)V
 
-    if-ltz v2, :cond_1
+    if-ltz v2, :cond_0
 
-    :goto_1
-    return v10
+    const/4 v0, 0x1
+
+    :goto_0
+    return v0
 
     :cond_0
-    move v3, v10
+    const/4 v0, 0x0
 
     goto :goto_0
-
-    :cond_1
-    move v10, v9
-
-    goto :goto_1
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V

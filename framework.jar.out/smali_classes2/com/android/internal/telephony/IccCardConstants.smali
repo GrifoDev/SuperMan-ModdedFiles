@@ -14,8 +14,6 @@
 # static fields
 .field public static final INTENT_KEY_ICC_STATE:Ljava/lang/String; = "ss"
 
-.field public static final INTENT_KEY_ICC_TYPE:Ljava/lang/String; = "ICC_TYPE"
-
 .field public static final INTENT_KEY_LOCKED_REASON:Ljava/lang/String; = "reason"
 
 .field public static final INTENT_VALUE_ABSENT_ON_PERM_DISABLED:Ljava/lang/String; = "PERM_DISABLED"
@@ -24,7 +22,7 @@
 
 .field public static final INTENT_VALUE_ICC_CARD_IO_ERROR:Ljava/lang/String; = "CARD_IO_ERROR"
 
-.field public static final INTENT_VALUE_ICC_ICCID:Ljava/lang/String; = "ICCID"
+.field public static final INTENT_VALUE_ICC_CARD_RESTRICTED:Ljava/lang/String; = "CARD_RESTRICTED"
 
 .field public static final INTENT_VALUE_ICC_IMSI:Ljava/lang/String; = "IMSI"
 
@@ -34,8 +32,6 @@
 
 .field public static final INTENT_VALUE_ICC_LOCKED:Ljava/lang/String; = "LOCKED"
 
-.field public static final INTENT_VALUE_ICC_MDN:Ljava/lang/String; = "MDN"
-
 .field public static final INTENT_VALUE_ICC_NOT_READY:Ljava/lang/String; = "NOT_READY"
 
 .field public static final INTENT_VALUE_ICC_READY:Ljava/lang/String; = "READY"
@@ -44,15 +40,11 @@
 
 .field public static final INTENT_VALUE_LOCKED_NETWORK:Ljava/lang/String; = "NETWORK"
 
-.field public static final INTENT_VALUE_LOCKED_ON_PERSO:Ljava/lang/String; = "PERSO"
-
 .field public static final INTENT_VALUE_LOCKED_ON_PIN:Ljava/lang/String; = "PIN"
 
 .field public static final INTENT_VALUE_LOCKED_ON_PUK:Ljava/lang/String; = "PUK"
 
 .field public static final INTENT_VALUE_LOCKED_PERSO:Ljava/lang/String; = "PERSO"
-
-.field public static final INTENT_VALUE_LOCKED_SUBSET_NETWORK:Ljava/lang/String; = "NETWORK_SUBSET"
 
 
 # direct methods

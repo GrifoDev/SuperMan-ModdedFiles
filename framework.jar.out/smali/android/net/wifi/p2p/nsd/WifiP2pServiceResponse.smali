@@ -155,7 +155,7 @@
     :catch_0
     move-exception v1
 
-    invoke-virtual {v1}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v1}, Ljava/lang/Exception;->printStackTrace()V
 
     const/4 v4, 0x0
 
@@ -165,13 +165,13 @@
     return-object v0
 .end method
 
-.method public static newInstance(Ljava/lang/String;)Ljava/util/List;
-    .locals 18
+.method public static newInstance(Ljava/lang/String;[B)Ljava/util/List;
+    .locals 13
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Ljava/lang/String;",
-            ")",
+            "[B)",
             "Ljava/util/List",
             "<",
             "Landroid/net/wifi/p2p/nsd/WifiP2pServiceResponse;",
@@ -179,204 +179,163 @@
         }
     .end annotation
 
-    new-instance v13, Ljava/util/ArrayList;
+    const/4 v12, 0x0
 
-    invoke-direct {v13}, Ljava/util/ArrayList;-><init>()V
+    new-instance v9, Ljava/util/ArrayList;
 
-    const-string/jumbo v15, " "
+    invoke-direct {v9}, Ljava/util/ArrayList;-><init>()V
 
-    move-object/from16 v0, p0
+    new-instance v4, Landroid/net/wifi/p2p/WifiP2pDevice;
 
-    invoke-virtual {v0, v15}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
+    invoke-direct {v4}, Landroid/net/wifi/p2p/WifiP2pDevice;-><init>()V
 
-    move-result-object v8
+    iput-object p0, v4, Landroid/net/wifi/p2p/WifiP2pDevice;->deviceAddress:Ljava/lang/String;
 
-    array-length v15, v8
+    if-nez p1, :cond_0
 
-    const/16 v16, 0x4
-
-    move/from16 v0, v16
-
-    if-eq v15, v0, :cond_0
-
-    const/4 v15, 0x0
-
-    return-object v15
+    return-object v12
 
     :cond_0
-    new-instance v6, Landroid/net/wifi/p2p/WifiP2pDevice;
+    new-instance v6, Ljava/io/DataInputStream;
 
-    invoke-direct {v6}, Landroid/net/wifi/p2p/WifiP2pDevice;-><init>()V
+    new-instance v10, Ljava/io/ByteArrayInputStream;
 
-    const/4 v15, 0x1
+    invoke-direct {v10, p1}, Ljava/io/ByteArrayInputStream;-><init>([B)V
 
-    aget-object v14, v8, v15
-
-    iput-object v14, v6, Landroid/net/wifi/p2p/WifiP2pDevice;->deviceAddress:Ljava/lang/String;
-
-    const/4 v15, 0x3
-
-    aget-object v15, v8, v15
-
-    invoke-static {v15}, Landroid/net/wifi/p2p/nsd/WifiP2pServiceResponse;->hexStr2Bin(Ljava/lang/String;)[B
-
-    move-result-object v9
-
-    if-nez v9, :cond_1
-
-    const/4 v15, 0x0
-
-    return-object v15
+    invoke-direct {v6, v10}, Ljava/io/DataInputStream;-><init>(Ljava/io/InputStream;)V
 
     :cond_1
-    new-instance v10, Ljava/io/DataInputStream;
-
-    new-instance v15, Ljava/io/ByteArrayInputStream;
-
-    invoke-direct {v15, v9}, Ljava/io/ByteArrayInputStream;-><init>([B)V
-
-    invoke-direct {v10, v15}, Ljava/io/DataInputStream;-><init>(Ljava/io/InputStream;)V
-
-    :cond_2
     :goto_0
     :try_start_0
-    invoke-virtual {v10}, Ljava/io/FilterInputStream;->available()I
+    invoke-virtual {v6}, Ljava/io/DataInputStream;->available()I
 
-    move-result v15
+    move-result v10
 
-    if-lez v15, :cond_8
+    if-lez v10, :cond_7
 
-    invoke-virtual {v10}, Ljava/io/DataInputStream;->readUnsignedByte()I
+    invoke-virtual {v6}, Ljava/io/DataInputStream;->readUnsignedByte()I
 
-    move-result v15
+    move-result v10
 
-    invoke-virtual {v10}, Ljava/io/DataInputStream;->readUnsignedByte()I
+    invoke-virtual {v6}, Ljava/io/DataInputStream;->readUnsignedByte()I
 
-    move-result v16
+    move-result v11
 
-    shl-int/lit8 v16, v16, 0x8
+    shl-int/lit8 v11, v11, 0x8
 
-    add-int v15, v15, v16
+    add-int/2addr v10, v11
 
-    add-int/lit8 v12, v15, -0x3
+    add-int/lit8 v8, v10, -0x3
 
-    invoke-virtual {v10}, Ljava/io/DataInputStream;->readUnsignedByte()I
+    invoke-virtual {v6}, Ljava/io/DataInputStream;->readUnsignedByte()I
+
+    move-result v1
+
+    invoke-virtual {v6}, Ljava/io/DataInputStream;->readUnsignedByte()I
 
     move-result v3
 
-    invoke-virtual {v10}, Ljava/io/DataInputStream;->readUnsignedByte()I
+    invoke-virtual {v6}, Ljava/io/DataInputStream;->readUnsignedByte()I
 
-    move-result v5
+    move-result v2
 
-    invoke-virtual {v10}, Ljava/io/DataInputStream;->readUnsignedByte()I
+    if-gez v8, :cond_2
 
-    move-result v4
+    return-object v12
 
-    if-gez v12, :cond_3
+    :cond_2
+    if-nez v8, :cond_3
 
-    const/4 v15, 0x0
+    if-nez v2, :cond_1
 
-    return-object v15
+    new-instance v0, Landroid/net/wifi/p2p/nsd/WifiP2pServiceResponse;
 
-    :cond_3
-    if-nez v12, :cond_4
+    const/4 v5, 0x0
 
-    if-nez v4, :cond_2
+    invoke-direct/range {v0 .. v5}, Landroid/net/wifi/p2p/nsd/WifiP2pServiceResponse;-><init>(IIILandroid/net/wifi/p2p/WifiP2pDevice;[B)V
 
-    new-instance v2, Landroid/net/wifi/p2p/nsd/WifiP2pServiceResponse;
-
-    const/4 v7, 0x0
-
-    invoke-direct/range {v2 .. v7}, Landroid/net/wifi/p2p/nsd/WifiP2pServiceResponse;-><init>(IIILandroid/net/wifi/p2p/WifiP2pDevice;[B)V
-
-    invoke-interface {v13, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v9, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
     goto :goto_0
 
     :catch_0
-    move-exception v11
+    move-exception v7
 
-    invoke-virtual {v11}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v7}, Ljava/io/IOException;->printStackTrace()V
 
-    invoke-interface {v13}, Ljava/util/List;->size()I
+    invoke-interface {v9}, Ljava/util/List;->size()I
 
-    move-result v15
+    move-result v10
 
-    if-lez v15, :cond_9
+    if-lez v10, :cond_8
 
-    return-object v13
+    return-object v9
+
+    :cond_3
+    :try_start_1
+    sget v10, Landroid/net/wifi/p2p/nsd/WifiP2pServiceResponse;->MAX_BUF_SIZE:I
+
+    if-le v8, v10, :cond_4
+
+    int-to-long v10, v8
+
+    invoke-virtual {v6, v10, v11}, Ljava/io/DataInputStream;->skip(J)J
+
+    goto :goto_0
 
     :cond_4
-    :try_start_1
-    sget v15, Landroid/net/wifi/p2p/nsd/WifiP2pServiceResponse;->MAX_BUF_SIZE:I
+    new-array v5, v8, [B
 
-    if-le v12, v15, :cond_5
+    invoke-virtual {v6, v5}, Ljava/io/DataInputStream;->readFully([B)V
 
-    int-to-long v0, v12
+    const/4 v10, 0x1
 
-    move-wide/from16 v16, v0
+    if-ne v1, v10, :cond_5
 
-    move-wide/from16 v0, v16
+    invoke-static {v2, v3, v4, v5}, Landroid/net/wifi/p2p/nsd/WifiP2pDnsSdServiceResponse;->newInstance(IILandroid/net/wifi/p2p/WifiP2pDevice;[B)Landroid/net/wifi/p2p/nsd/WifiP2pDnsSdServiceResponse;
 
-    invoke-virtual {v10, v0, v1}, Ljava/io/FilterInputStream;->skip(J)J
+    move-result-object v0
+
+    :goto_1
+    if-eqz v0, :cond_1
+
+    invoke-virtual {v0}, Landroid/net/wifi/p2p/nsd/WifiP2pServiceResponse;->getStatus()I
+
+    move-result v10
+
+    if-nez v10, :cond_1
+
+    invoke-interface {v9, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     goto :goto_0
 
     :cond_5
-    new-array v7, v12, [B
+    const/4 v10, 0x2
 
-    invoke-virtual {v10, v7}, Ljava/io/DataInputStream;->readFully([B)V
+    if-ne v1, v10, :cond_6
 
-    const/4 v15, 0x1
+    invoke-static {v2, v3, v4, v5}, Landroid/net/wifi/p2p/nsd/WifiP2pUpnpServiceResponse;->newInstance(IILandroid/net/wifi/p2p/WifiP2pDevice;[B)Landroid/net/wifi/p2p/nsd/WifiP2pUpnpServiceResponse;
 
-    if-ne v3, v15, :cond_6
-
-    invoke-static {v4, v5, v6, v7}, Landroid/net/wifi/p2p/nsd/WifiP2pDnsSdServiceResponse;->newInstance(IILandroid/net/wifi/p2p/WifiP2pDevice;[B)Landroid/net/wifi/p2p/nsd/WifiP2pDnsSdServiceResponse;
-
-    move-result-object v2
-
-    :goto_1
-    if-eqz v2, :cond_2
-
-    invoke-virtual {v2}, Landroid/net/wifi/p2p/nsd/WifiP2pServiceResponse;->getStatus()I
-
-    move-result v15
-
-    if-nez v15, :cond_2
-
-    invoke-interface {v13, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    goto :goto_0
-
-    :cond_6
-    const/4 v15, 0x2
-
-    if-ne v3, v15, :cond_7
-
-    invoke-static {v4, v5, v6, v7}, Landroid/net/wifi/p2p/nsd/WifiP2pUpnpServiceResponse;->newInstance(IILandroid/net/wifi/p2p/WifiP2pDevice;[B)Landroid/net/wifi/p2p/nsd/WifiP2pUpnpServiceResponse;
-
-    move-result-object v2
+    move-result-object v0
 
     goto :goto_1
 
-    :cond_7
-    new-instance v2, Landroid/net/wifi/p2p/nsd/WifiP2pServiceResponse;
+    :cond_6
+    new-instance v0, Landroid/net/wifi/p2p/nsd/WifiP2pServiceResponse;
 
-    invoke-direct/range {v2 .. v7}, Landroid/net/wifi/p2p/nsd/WifiP2pServiceResponse;-><init>(IIILandroid/net/wifi/p2p/WifiP2pDevice;[B)V
+    invoke-direct/range {v0 .. v5}, Landroid/net/wifi/p2p/nsd/WifiP2pServiceResponse;-><init>(IIILandroid/net/wifi/p2p/WifiP2pDevice;[B)V
     :try_end_1
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
 
     goto :goto_1
 
+    :cond_7
+    return-object v9
+
     :cond_8
-    return-object v13
-
-    :cond_9
-    const/4 v15, 0x0
-
-    return-object v15
+    return-object v12
 .end method
 
 
@@ -410,9 +369,7 @@
     :cond_1
     move-object v0, p1
 
-    nop
-
-    nop
+    check-cast v0, Landroid/net/wifi/p2p/nsd/WifiP2pServiceResponse;
 
     iget v2, v0, Landroid/net/wifi/p2p/nsd/WifiP2pServiceResponse;->mServiceType:I
 
@@ -496,6 +453,8 @@
     .locals 4
 
     const/4 v2, 0x0
+
+    const/16 v0, 0x11
 
     iget v1, p0, Landroid/net/wifi/p2p/nsd/WifiP2pServiceResponse;->mServiceType:I
 

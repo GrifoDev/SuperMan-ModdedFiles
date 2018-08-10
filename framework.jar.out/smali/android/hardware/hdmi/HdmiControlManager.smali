@@ -377,6 +377,11 @@
 
 .method public getClient(I)Landroid/hardware/hdmi/HdmiClient;
     .locals 2
+    .annotation build Landroid/annotation/SuppressLint;
+        value = {
+            "Doclava125"
+        }
+    .end annotation
 
     const/4 v0, 0x0
 
@@ -428,6 +433,11 @@
 
 .method public getPlaybackClient()Landroid/hardware/hdmi/HdmiPlaybackClient;
     .locals 1
+    .annotation build Landroid/annotation/SuppressLint;
+        value = {
+            "Doclava125"
+        }
+    .end annotation
 
     const/4 v0, 0x4
 
@@ -442,6 +452,11 @@
 
 .method public getTvClient()Landroid/hardware/hdmi/HdmiTvClient;
     .locals 1
+    .annotation build Landroid/annotation/SuppressLint;
+        value = {
+            "Doclava125"
+        }
+    .end annotation
 
     const/4 v0, 0x0
 
@@ -506,4 +521,26 @@
     move-result-object v2
 
     throw v2
+.end method
+
+.method public setStandbyMode(Z)V
+    .locals 2
+
+    :try_start_0
+    iget-object v1, p0, Landroid/hardware/hdmi/HdmiControlManager;->mService:Landroid/hardware/hdmi/IHdmiControlService;
+
+    invoke-interface {v1, p1}, Landroid/hardware/hdmi/IHdmiControlService;->setStandbyMode(Z)V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    return-void
+
+    :catch_0
+    move-exception v0
+
+    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+
+    move-result-object v1
+
+    throw v1
 .end method

@@ -20,41 +20,9 @@
 
 .field public static final ACTION_PLAYER_SETTING:Ljava/lang/String; = "android.bluetooth.avrcp-controller.profile.action.PLAYER_SETTING"
 
-.field public static final ACTION_TRACK_EVENT:Ljava/lang/String; = "android.bluetooth.avrcp-controller.profile.action.TRACK_EVENT"
-
-.field private static final DBG:Z = false
-
-.field public static final EXTRA_METADATA:Ljava/lang/String; = "android.bluetooth.avrcp-controller.profile.extra.METADATA"
-
-.field public static final EXTRA_PLAYBACK:Ljava/lang/String; = "android.bluetooth.avrcp-controller.profile.extra.PLAYBACK"
+.field private static final DBG:Z
 
 .field public static final EXTRA_PLAYER_SETTING:Ljava/lang/String; = "android.bluetooth.avrcp-controller.profile.extra.PLAYER_SETTING"
-
-.field public static final KEY_STATE_PRESSED:I = 0x0
-
-.field public static final KEY_STATE_RELEASED:I = 0x1
-
-.field public static final PASS_THRU_CMD_ID_BACKWARD:I = 0x4c
-
-.field public static final PASS_THRU_CMD_ID_FF:I = 0x49
-
-.field public static final PASS_THRU_CMD_ID_FORWARD:I = 0x4b
-
-.field public static final PASS_THRU_CMD_ID_NEXT_GRP:I = 0x0
-
-.field public static final PASS_THRU_CMD_ID_PAUSE:I = 0x46
-
-.field public static final PASS_THRU_CMD_ID_PLAY:I = 0x44
-
-.field public static final PASS_THRU_CMD_ID_PREV_GRP:I = 0x1
-
-.field public static final PASS_THRU_CMD_ID_REWIND:I = 0x48
-
-.field public static final PASS_THRU_CMD_ID_STOP:I = 0x45
-
-.field public static final PASS_THRU_CMD_ID_VOL_DOWN:I = 0x42
-
-.field public static final PASS_THRU_CMD_ID_VOL_UP:I = 0x41
 
 .field private static final TAG:Ljava/lang/String; = "BluetoothAvrcpController"
 
@@ -76,7 +44,15 @@
 
 
 # direct methods
-.method static synthetic -get0(Landroid/bluetooth/BluetoothAvrcpController;)Landroid/content/ServiceConnection;
+.method static synthetic -get0()Z
+    .locals 1
+
+    sget-boolean v0, Landroid/bluetooth/BluetoothAvrcpController;->DBG:Z
+
+    return v0
+.end method
+
+.method static synthetic -get1(Landroid/bluetooth/BluetoothAvrcpController;)Landroid/content/ServiceConnection;
     .locals 1
 
     iget-object v0, p0, Landroid/bluetooth/BluetoothAvrcpController;->mConnection:Landroid/content/ServiceConnection;
@@ -84,7 +60,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get1(Landroid/bluetooth/BluetoothAvrcpController;)Landroid/content/Context;
+.method static synthetic -get2(Landroid/bluetooth/BluetoothAvrcpController;)Landroid/content/Context;
     .locals 1
 
     iget-object v0, p0, Landroid/bluetooth/BluetoothAvrcpController;->mContext:Landroid/content/Context;
@@ -92,7 +68,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get2(Landroid/bluetooth/BluetoothAvrcpController;)Landroid/bluetooth/IBluetoothAvrcpController;
+.method static synthetic -get3(Landroid/bluetooth/BluetoothAvrcpController;)Landroid/bluetooth/IBluetoothAvrcpController;
     .locals 1
 
     iget-object v0, p0, Landroid/bluetooth/BluetoothAvrcpController;->mService:Landroid/bluetooth/IBluetoothAvrcpController;
@@ -100,7 +76,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get3(Landroid/bluetooth/BluetoothAvrcpController;)Landroid/bluetooth/BluetoothProfile$ServiceListener;
+.method static synthetic -get4(Landroid/bluetooth/BluetoothAvrcpController;)Landroid/bluetooth/BluetoothProfile$ServiceListener;
     .locals 1
 
     iget-object v0, p0, Landroid/bluetooth/BluetoothAvrcpController;->mServiceListener:Landroid/bluetooth/BluetoothProfile$ServiceListener;
@@ -114,6 +90,18 @@
     iput-object p1, p0, Landroid/bluetooth/BluetoothAvrcpController;->mService:Landroid/bluetooth/IBluetoothAvrcpController;
 
     return-object p1
+.end method
+
+.method static constructor <clinit>()V
+    .locals 1
+
+    invoke-static {}, Landroid/os/Debug;->semIsProductDev()Z
+
+    move-result v0
+
+    sput-boolean v0, Landroid/bluetooth/BluetoothAvrcpController;->DBG:Z
+
+    return-void
 .end method
 
 .method constructor <init>(Landroid/content/Context;Landroid/bluetooth/BluetoothProfile$ServiceListener;)V
@@ -368,11 +356,9 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    xor-int/lit8 v2, v2, 0x1
 
-    const/4 v2, 0x1
-
-    return v2
+    if-eqz v2, :cond_1
 
     :cond_0
     const-string/jumbo v2, "BluetoothAvrcpController"
@@ -398,6 +384,11 @@
     invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     return v5
+
+    :cond_1
+    const/4 v2, 0x1
+
+    return v2
 .end method
 
 .method public finalize()V
@@ -672,136 +663,33 @@
     return-object v1
 .end method
 
-.method public getMetadata(Landroid/bluetooth/BluetoothDevice;)Landroid/media/MediaMetadata;
-    .locals 6
-
-    const/4 v5, 0x0
-
-    const/4 v1, 0x0
-
-    iget-object v2, p0, Landroid/bluetooth/BluetoothAvrcpController;->mService:Landroid/bluetooth/IBluetoothAvrcpController;
-
-    if-eqz v2, :cond_0
-
-    invoke-direct {p0}, Landroid/bluetooth/BluetoothAvrcpController;->isEnabled()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_0
-
-    :try_start_0
-    iget-object v2, p0, Landroid/bluetooth/BluetoothAvrcpController;->mService:Landroid/bluetooth/IBluetoothAvrcpController;
-
-    invoke-interface {v2, p1}, Landroid/bluetooth/IBluetoothAvrcpController;->getMetadata(Landroid/bluetooth/BluetoothDevice;)Landroid/media/MediaMetadata;
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    move-result-object v1
-
-    :cond_0
-    return-object v1
-
-    :catch_0
-    move-exception v0
-
-    const-string/jumbo v2, "BluetoothAvrcpController"
-
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v4, "Error talking to BT service in getMetadata() "
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    return-object v5
-.end method
-
-.method public getPlaybackState(Landroid/bluetooth/BluetoothDevice;)Landroid/media/session/PlaybackState;
-    .locals 6
-
-    const/4 v5, 0x0
-
-    const/4 v1, 0x0
-
-    iget-object v2, p0, Landroid/bluetooth/BluetoothAvrcpController;->mService:Landroid/bluetooth/IBluetoothAvrcpController;
-
-    if-eqz v2, :cond_0
-
-    invoke-direct {p0}, Landroid/bluetooth/BluetoothAvrcpController;->isEnabled()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_0
-
-    :try_start_0
-    iget-object v2, p0, Landroid/bluetooth/BluetoothAvrcpController;->mService:Landroid/bluetooth/IBluetoothAvrcpController;
-
-    invoke-interface {v2, p1}, Landroid/bluetooth/IBluetoothAvrcpController;->getPlaybackState(Landroid/bluetooth/BluetoothDevice;)Landroid/media/session/PlaybackState;
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    move-result-object v1
-
-    :cond_0
-    return-object v1
-
-    :catch_0
-    move-exception v0
-
-    const-string/jumbo v2, "BluetoothAvrcpController"
-
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v4, "Error talking to BT service in getPlaybackState() "
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    return-object v5
-.end method
-
 .method public getPlayerSettings(Landroid/bluetooth/BluetoothDevice;)Landroid/bluetooth/BluetoothAvrcpPlayerSettings;
     .locals 6
 
     const/4 v5, 0x0
 
+    sget-boolean v2, Landroid/bluetooth/BluetoothAvrcpController;->DBG:Z
+
+    if-eqz v2, :cond_0
+
+    const-string/jumbo v2, "BluetoothAvrcpController"
+
+    const-string/jumbo v3, "getPlayerSettings"
+
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_0
     const/4 v1, 0x0
 
     iget-object v2, p0, Landroid/bluetooth/BluetoothAvrcpController;->mService:Landroid/bluetooth/IBluetoothAvrcpController;
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1
 
     invoke-direct {p0}, Landroid/bluetooth/BluetoothAvrcpController;->isEnabled()Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1
 
     :try_start_0
     iget-object v2, p0, Landroid/bluetooth/BluetoothAvrcpController;->mService:Landroid/bluetooth/IBluetoothAvrcpController;
@@ -812,7 +700,7 @@
 
     move-result-object v1
 
-    :cond_0
+    :cond_1
     return-object v1
 
     :catch_0
@@ -933,68 +821,31 @@
     return-void
 .end method
 
-.method public sendPassThroughCmd(Landroid/bluetooth/BluetoothDevice;II)V
-    .locals 3
-
-    iget-object v1, p0, Landroid/bluetooth/BluetoothAvrcpController;->mService:Landroid/bluetooth/IBluetoothAvrcpController;
-
-    if-eqz v1, :cond_0
-
-    invoke-direct {p0}, Landroid/bluetooth/BluetoothAvrcpController;->isEnabled()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    :try_start_0
-    iget-object v1, p0, Landroid/bluetooth/BluetoothAvrcpController;->mService:Landroid/bluetooth/IBluetoothAvrcpController;
-
-    invoke-interface {v1, p1, p2, p3}, Landroid/bluetooth/IBluetoothAvrcpController;->sendPassThroughCmd(Landroid/bluetooth/BluetoothDevice;II)V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    return-void
-
-    :catch_0
-    move-exception v0
-
-    const-string/jumbo v1, "BluetoothAvrcpController"
-
-    const-string/jumbo v2, "Error talking to BT service in sendPassThroughCmd()"
-
-    invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    return-void
-
-    :cond_0
-    iget-object v1, p0, Landroid/bluetooth/BluetoothAvrcpController;->mService:Landroid/bluetooth/IBluetoothAvrcpController;
-
-    if-nez v1, :cond_1
-
-    const-string/jumbo v1, "BluetoothAvrcpController"
-
-    const-string/jumbo v2, "Proxy not attached to service"
-
-    invoke-static {v1, v2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_1
-    return-void
-.end method
-
 .method public setPlayerApplicationSetting(Landroid/bluetooth/BluetoothAvrcpPlayerSettings;)Z
     .locals 5
 
     const/4 v4, 0x0
 
-    iget-object v1, p0, Landroid/bluetooth/BluetoothAvrcpController;->mService:Landroid/bluetooth/IBluetoothAvrcpController;
+    sget-boolean v1, Landroid/bluetooth/BluetoothAvrcpController;->DBG:Z
 
     if-eqz v1, :cond_0
+
+    const-string/jumbo v1, "BluetoothAvrcpController"
+
+    const-string/jumbo v2, "setPlayerApplicationSetting"
+
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_0
+    iget-object v1, p0, Landroid/bluetooth/BluetoothAvrcpController;->mService:Landroid/bluetooth/IBluetoothAvrcpController;
+
+    if-eqz v1, :cond_1
 
     invoke-direct {p0}, Landroid/bluetooth/BluetoothAvrcpController;->isEnabled()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1
 
     :try_start_0
     iget-object v1, p0, Landroid/bluetooth/BluetoothAvrcpController;->mService:Landroid/bluetooth/IBluetoothAvrcpController;
@@ -1034,10 +885,10 @@
 
     return v4
 
-    :cond_0
+    :cond_1
     iget-object v1, p0, Landroid/bluetooth/BluetoothAvrcpController;->mService:Landroid/bluetooth/IBluetoothAvrcpController;
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_2
 
     const-string/jumbo v1, "BluetoothAvrcpController"
 
@@ -1045,6 +896,6 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_1
+    :cond_2
     return v4
 .end method

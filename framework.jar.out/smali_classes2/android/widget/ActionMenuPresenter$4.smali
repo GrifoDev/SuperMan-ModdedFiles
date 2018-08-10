@@ -43,7 +43,7 @@
     :goto_0
     iget-object v1, p0, Landroid/widget/ActionMenuPresenter$4;->this$0:Landroid/widget/ActionMenuPresenter;
 
-    invoke-static {v1}, Landroid/widget/ActionMenuPresenter;->-get8(Landroid/widget/ActionMenuPresenter;)Ljava/util/List;
+    invoke-static {v1}, Landroid/widget/ActionMenuPresenter;->-get9(Landroid/widget/ActionMenuPresenter;)Ljava/util/List;
 
     move-result-object v1
 
@@ -55,7 +55,7 @@
 
     iget-object v1, p0, Landroid/widget/ActionMenuPresenter$4;->this$0:Landroid/widget/ActionMenuPresenter;
 
-    invoke-static {v1}, Landroid/widget/ActionMenuPresenter;->-get8(Landroid/widget/ActionMenuPresenter;)Ljava/util/List;
+    invoke-static {v1}, Landroid/widget/ActionMenuPresenter;->-get9(Landroid/widget/ActionMenuPresenter;)Ljava/util/List;
 
     move-result-object v1
 
@@ -71,7 +71,7 @@
 
     iget-object v1, p0, Landroid/widget/ActionMenuPresenter$4;->this$0:Landroid/widget/ActionMenuPresenter;
 
-    invoke-static {v1}, Landroid/widget/ActionMenuPresenter;->-get8(Landroid/widget/ActionMenuPresenter;)Ljava/util/List;
+    invoke-static {v1}, Landroid/widget/ActionMenuPresenter;->-get9(Landroid/widget/ActionMenuPresenter;)Ljava/util/List;
 
     move-result-object v1
 
@@ -80,7 +80,7 @@
     :cond_0
     iget-object v1, p0, Landroid/widget/ActionMenuPresenter$4;->this$0:Landroid/widget/ActionMenuPresenter;
 
-    invoke-static {v1}, Landroid/widget/ActionMenuPresenter;->-get4(Landroid/widget/ActionMenuPresenter;)Lcom/android/internal/view/menu/MenuView;
+    invoke-static {v1}, Landroid/widget/ActionMenuPresenter;->-get5(Landroid/widget/ActionMenuPresenter;)Lcom/android/internal/view/menu/MenuView;
 
     move-result-object v1
 

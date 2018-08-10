@@ -93,31 +93,29 @@
 .end method
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    .locals 6
+    .locals 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    const/4 v1, 0x0
-
-    const/4 v4, 0x1
+    const/4 v6, 0x1
 
     sparse-switch p1, :sswitch_data_0
 
     invoke-super {p0, p1, p2, p3, p4}, Landroid/os/Binder;->onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    move-result v4
+    move-result v5
 
-    return v4
+    return v5
 
     :sswitch_0
     const-string/jumbo v5, "android.view.IDockedStackListener"
 
     invoke-virtual {p3, v5}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    return v4
+    return v6
 
     :sswitch_1
     const-string/jumbo v5, "android.view.IDockedStackListener"
@@ -130,12 +128,17 @@
 
     if-eqz v5, :cond_0
 
-    move v1, v4
+    const/4 v1, 0x1
 
-    :cond_0
+    :goto_0
     invoke-virtual {p0, v1}, Landroid/view/IDockedStackListener$Stub;->onDividerVisibilityChanged(Z)V
 
-    return v4
+    return v6
+
+    :cond_0
+    const/4 v1, 0x0
+
+    goto :goto_0
 
     :sswitch_2
     const-string/jumbo v5, "android.view.IDockedStackListener"
@@ -148,12 +151,17 @@
 
     if-eqz v5, :cond_1
 
-    move v1, v4
+    const/4 v1, 0x1
 
-    :cond_1
+    :goto_1
     invoke-virtual {p0, v1}, Landroid/view/IDockedStackListener$Stub;->onDockedStackExistsChanged(Z)V
 
-    return v4
+    return v6
+
+    :cond_1
+    const/4 v1, 0x0
+
+    goto :goto_1
 
     :sswitch_3
     const-string/jumbo v5, "android.view.IDockedStackListener"
@@ -168,19 +176,33 @@
 
     const/4 v1, 0x1
 
-    :goto_0
+    :goto_2
     invoke-virtual {p2}, Landroid/os/Parcel;->readLong()J
 
     move-result-wide v2
 
-    invoke-virtual {p0, v1, v2, v3}, Landroid/view/IDockedStackListener$Stub;->onDockedStackMinimizedChanged(ZJ)V
+    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
-    return v4
+    move-result v5
+
+    if-eqz v5, :cond_3
+
+    const/4 v4, 0x1
+
+    :goto_3
+    invoke-virtual {p0, v1, v2, v3, v4}, Landroid/view/IDockedStackListener$Stub;->onDockedStackMinimizedChanged(ZJZ)V
+
+    return v6
 
     :cond_2
     const/4 v1, 0x0
 
-    goto :goto_0
+    goto :goto_2
+
+    :cond_3
+    const/4 v4, 0x0
+
+    goto :goto_3
 
     :sswitch_4
     const-string/jumbo v5, "android.view.IDockedStackListener"
@@ -191,23 +213,23 @@
 
     move-result v5
 
-    if-eqz v5, :cond_3
+    if-eqz v5, :cond_4
 
     const/4 v1, 0x1
 
-    :goto_1
+    :goto_4
     invoke-virtual {p2}, Landroid/os/Parcel;->readLong()J
 
     move-result-wide v2
 
     invoke-virtual {p0, v1, v2, v3}, Landroid/view/IDockedStackListener$Stub;->onAdjustedForImeChanged(ZJ)V
 
-    return v4
+    return v6
 
-    :cond_3
+    :cond_4
     const/4 v1, 0x0
 
-    goto :goto_1
+    goto :goto_4
 
     :sswitch_5
     const-string/jumbo v5, "android.view.IDockedStackListener"
@@ -220,7 +242,7 @@
 
     invoke-virtual {p0, v0}, Landroid/view/IDockedStackListener$Stub;->onDockSideChanged(I)V
 
-    return v4
+    return v6
 
     nop
 

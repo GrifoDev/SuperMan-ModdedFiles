@@ -71,12 +71,12 @@
 
     move/from16 v0, v18
 
-    if-ge v9, v0, :cond_0
+    if-ge v9, v0, :cond_1
 
     const/4 v6, 0x1
 
     :goto_0
-    if-eqz v6, :cond_1
+    if-eqz v6, :cond_2
 
     sget-wide v10, Landroid/provider/ContactsContract$Contacts;->ENTERPRISE_CONTACT_ID_BASE:J
 
@@ -99,7 +99,7 @@
 
     move-result-object v14
 
-    if-nez v14, :cond_2
+    if-nez v14, :cond_3
 
     const-wide/32 v12, 0x3b9aca00
 
@@ -108,7 +108,7 @@
 
     move-result v9
 
-    if-nez v9, :cond_3
+    if-nez v9, :cond_0
 
     sget-object v9, Landroid/provider/ContactsContract$Contacts;->ENTERPRISE_CONTACT_LOOKUP_PREFIX:Ljava/lang/String;
 
@@ -116,13 +116,40 @@
 
     move-result v9
 
-    if-eqz v9, :cond_3
+    xor-int/lit8 v9, v9, 0x1
 
+    if-eqz v9, :cond_4
+
+    :cond_0
+    const/4 v9, 0x0
+
+    return v9
+
+    :cond_1
+    const/4 v6, 0x0
+
+    goto :goto_0
+
+    :cond_2
+    invoke-static/range {v17 .. v17}, Landroid/content/ContentUris;->parseId(Landroid/net/Uri;)J
+
+    move-result-wide v10
+
+    goto :goto_1
+
+    :cond_3
+    invoke-static {v14}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
+
+    move-result-wide v12
+
+    goto :goto_2
+
+    :cond_4
     invoke-static {v10, v11}, Landroid/provider/ContactsContract$Contacts;->isEnterpriseContactId(J)Z
 
     move-result v9
 
-    if-nez v9, :cond_4
+    if-nez v9, :cond_5
 
     new-instance v9, Ljava/lang/IllegalArgumentException;
 
@@ -152,36 +179,12 @@
 
     throw v9
 
-    :cond_0
-    const/4 v6, 0x0
-
-    goto :goto_0
-
-    :cond_1
-    invoke-static/range {v17 .. v17}, Landroid/content/ContentUris;->parseId(Landroid/net/Uri;)J
-
-    move-result-wide v10
-
-    goto :goto_1
-
-    :cond_2
-    invoke-static {v14}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
-
-    move-result-wide v12
-
-    goto :goto_2
-
-    :cond_3
-    const/4 v9, 0x0
-
-    return v9
-
-    :cond_4
+    :cond_5
     invoke-static {v12, v13}, Landroid/provider/ContactsContract$Directory;->isEnterpriseDirectoryId(J)Z
 
     move-result v9
 
-    if-nez v9, :cond_5
+    if-nez v9, :cond_6
 
     new-instance v9, Ljava/lang/IllegalArgumentException;
 
@@ -211,7 +214,7 @@
 
     throw v9
 
-    :cond_5
+    :cond_6
     const-class v9, Landroid/app/admin/DevicePolicyManager;
 
     move-object/from16 v0, p0
@@ -303,7 +306,7 @@
     :catch_0
     move-exception v0
 
-    const v1, 0x104028e
+    const v1, 0x1040878
 
     const/4 v2, 0x0
 

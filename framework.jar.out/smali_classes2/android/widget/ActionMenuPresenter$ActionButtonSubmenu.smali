@@ -50,23 +50,23 @@
 
     if-nez v0, :cond_0
 
-    invoke-static {p1}, Landroid/widget/ActionMenuPresenter;->-get5(Landroid/widget/ActionMenuPresenter;)Landroid/view/View;
+    invoke-static {p1}, Landroid/widget/ActionMenuPresenter;->-get6(Landroid/widget/ActionMenuPresenter;)Landroid/view/View;
 
     move-result-object v0
 
     if-nez v0, :cond_2
 
-    invoke-static {p1}, Landroid/widget/ActionMenuPresenter;->-get4(Landroid/widget/ActionMenuPresenter;)Lcom/android/internal/view/menu/MenuView;
+    invoke-static {p1}, Landroid/widget/ActionMenuPresenter;->-get5(Landroid/widget/ActionMenuPresenter;)Lcom/android/internal/view/menu/MenuView;
 
     move-result-object v0
 
     check-cast v0, Landroid/view/View;
 
     :goto_0
-    invoke-virtual {p0, v0}, Lcom/android/internal/view/menu/MenuPopupHelper;->setAnchorView(Landroid/view/View;)V
+    invoke-virtual {p0, v0}, Landroid/widget/ActionMenuPresenter$ActionButtonSubmenu;->setAnchorView(Landroid/view/View;)V
 
     :cond_0
-    invoke-static {p1}, Landroid/widget/ActionMenuPresenter;->-get1(Landroid/widget/ActionMenuPresenter;)Z
+    invoke-static {p1}, Landroid/widget/ActionMenuPresenter;->-get2(Landroid/widget/ActionMenuPresenter;)Z
 
     move-result v0
 
@@ -74,17 +74,17 @@
 
     const v0, 0x800005
 
-    invoke-virtual {p0, v0}, Lcom/android/internal/view/menu/MenuPopupHelper;->setGravity(I)V
+    invoke-virtual {p0, v0}, Landroid/widget/ActionMenuPresenter$ActionButtonSubmenu;->setGravity(I)V
 
     :cond_1
     iget-object v0, p1, Landroid/widget/ActionMenuPresenter;->mPopupPresenterCallback:Landroid/widget/ActionMenuPresenter$PopupPresenterCallback;
 
-    invoke-virtual {p0, v0}, Lcom/android/internal/view/menu/MenuPopupHelper;->setPresenterCallback(Lcom/android/internal/view/menu/MenuPresenter$Callback;)V
+    invoke-virtual {p0, v0}, Landroid/widget/ActionMenuPresenter$ActionButtonSubmenu;->setPresenterCallback(Lcom/android/internal/view/menu/MenuPresenter$Callback;)V
 
     return-void
 
     :cond_2
-    invoke-static {p1}, Landroid/widget/ActionMenuPresenter;->-get5(Landroid/widget/ActionMenuPresenter;)Landroid/view/View;
+    invoke-static {p1}, Landroid/widget/ActionMenuPresenter;->-get6(Landroid/widget/ActionMenuPresenter;)Landroid/view/View;
 
     move-result-object v0
 

@@ -11,6 +11,8 @@
 # static fields
 .field private static sGetInstanceAllowed:Z
 
+.field private static final sLock:Ljava/lang/Object;
+
 .field private static sRef:Landroid/webkit/CookieSyncManager;
 
 
@@ -21,6 +23,12 @@
     const/4 v0, 0x0
 
     sput-boolean v0, Landroid/webkit/CookieSyncManager;->sGetInstanceAllowed:Z
+
+    new-instance v0, Ljava/lang/Object;
+
+    invoke-direct {v0}, Ljava/lang/Object;-><init>()V
+
+    sput-object v0, Landroid/webkit/CookieSyncManager;->sLock:Ljava/lang/Object;
 
     return-void
 .end method
@@ -54,10 +62,10 @@
     return-void
 .end method
 
-.method public static declared-synchronized createInstance(Landroid/content/Context;)Landroid/webkit/CookieSyncManager;
+.method public static createInstance(Landroid/content/Context;)Landroid/webkit/CookieSyncManager;
     .locals 3
 
-    const-class v1, Landroid/webkit/CookieSyncManager;
+    sget-object v1, Landroid/webkit/CookieSyncManager;->sLock:Ljava/lang/Object;
 
     monitor-enter v1
 
@@ -96,10 +104,10 @@
     return-object v0
 .end method
 
-.method public static declared-synchronized getInstance()Landroid/webkit/CookieSyncManager;
+.method public static getInstance()Landroid/webkit/CookieSyncManager;
     .locals 2
 
-    const-class v1, Landroid/webkit/CookieSyncManager;
+    sget-object v1, Landroid/webkit/CookieSyncManager;->sLock:Ljava/lang/Object;
 
     monitor-enter v1
 

@@ -1,14 +1,11 @@
 .class Landroid/app/ExitTransitionCoordinator$4;
-.super Ljava/lang/Object;
+.super Landroid/os/Handler;
 .source "ExitTransitionCoordinator.java"
-
-# interfaces
-.implements Ljava/lang/Runnable;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Landroid/app/ExitTransitionCoordinator;->startExit()V
+    value = Landroid/app/ExitTransitionCoordinator;->startExit(ILandroid/content/Intent;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -27,19 +24,25 @@
 
     iput-object p1, p0, Landroid/app/ExitTransitionCoordinator$4;->this$0:Landroid/app/ExitTransitionCoordinator;
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Landroid/os/Handler;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public run()V
-    .locals 1
+.method public handleMessage(Landroid/os/Message;)V
+    .locals 2
 
     iget-object v0, p0, Landroid/app/ExitTransitionCoordinator$4;->this$0:Landroid/app/ExitTransitionCoordinator;
 
-    invoke-static {v0}, Landroid/app/ExitTransitionCoordinator;->-wrap0(Landroid/app/ExitTransitionCoordinator;)V
+    const/4 v1, 0x1
+
+    invoke-static {v0, v1}, Landroid/app/ExitTransitionCoordinator;->-set2(Landroid/app/ExitTransitionCoordinator;Z)Z
+
+    iget-object v0, p0, Landroid/app/ExitTransitionCoordinator$4;->this$0:Landroid/app/ExitTransitionCoordinator;
+
+    invoke-static {v0}, Landroid/app/ExitTransitionCoordinator;->-wrap3(Landroid/app/ExitTransitionCoordinator;)V
 
     return-void
 .end method

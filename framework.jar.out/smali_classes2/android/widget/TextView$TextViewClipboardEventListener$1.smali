@@ -47,7 +47,7 @@
 
     iget-object v1, p0, Landroid/widget/TextView$TextViewClipboardEventListener$1;->val$dataInner:Lcom/samsung/android/content/clipboard/data/SemClipData;
 
-    invoke-static {v0, v1}, Landroid/widget/TextView;->-wrap10(Landroid/widget/TextView;Lcom/samsung/android/content/clipboard/data/SemClipData;)V
+    invoke-static {v0, v1}, Landroid/widget/TextView;->-wrap8(Landroid/widget/TextView;Lcom/samsung/android/content/clipboard/data/SemClipData;)V
 
     return-void
 .end method

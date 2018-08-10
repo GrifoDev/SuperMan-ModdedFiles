@@ -12,13 +12,11 @@
 
 .field public static final TAG_CSCFEATURE_SECURITY_CONFIGLOCKLEVELODE:Ljava/lang/String; = "CscFeature_Security_ConfigLockLevelODE"
 
+.field public static final TAG_CSCFEATURE_SECURITY_DELETECARDAPPLET:Ljava/lang/String; = "CscFeature_Security_DeleteCardApplet"
+
 .field public static final TAG_CSCFEATURE_SECURITY_DISABLEESESPI:Ljava/lang/String; = "CscFeature_Security_DisableeSESPI"
 
 .field public static final TAG_CSCFEATURE_SECURITY_DISABLEOMADRM:Ljava/lang/String; = "CscFeature_Security_DisableOmaDrm"
-
-.field public static final TAG_CSCFEATURE_SECURITY_ENABLEDRMNETSYNC:Ljava/lang/String; = "CscFeature_Security_EnableDrmNetSync"
-
-.field public static final TAG_CSCFEATURE_SECURITY_ENABLEDRMTERUTEN:Ljava/lang/String; = "CscFeature_Security_EnableDrmTeruten"
 
 
 # direct methods

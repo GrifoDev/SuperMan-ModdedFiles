@@ -533,11 +533,11 @@
 .end method
 
 .method private generateServicesMap([II)V
-    .locals 23
+    .locals 24
 
-    new-instance v14, Ljava/util/ArrayList;
+    new-instance v15, Ljava/util/ArrayList;
 
-    invoke-direct {v14}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {v15}, Ljava/util/ArrayList;-><init>()V
 
     move-object/from16 v0, p0
 
@@ -545,95 +545,96 @@
 
     invoke-virtual {v0, v1}, Landroid/content/pm/RegisteredServicesCache;->queryIntentServices(I)Ljava/util/List;
 
+    move-result-object v14
+
+    invoke-interface {v14}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+
     move-result-object v13
 
-    invoke-interface {v13}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+    :goto_0
+    invoke-interface {v13}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v20
+
+    if-eqz v20, :cond_1
+
+    invoke-interface {v13}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v12
 
-    :goto_0
-    invoke-interface {v12}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v19
-
-    if-eqz v19, :cond_1
-
-    invoke-interface {v12}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v11
-
-    check-cast v11, Landroid/content/pm/ResolveInfo;
+    check-cast v12, Landroid/content/pm/ResolveInfo;
 
     :try_start_0
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v11}, Landroid/content/pm/RegisteredServicesCache;->parseServiceInfo(Landroid/content/pm/ResolveInfo;)Landroid/content/pm/RegisteredServicesCache$ServiceInfo;
+    invoke-virtual {v0, v12}, Landroid/content/pm/RegisteredServicesCache;->parseServiceInfo(Landroid/content/pm/ResolveInfo;)Landroid/content/pm/RegisteredServicesCache$ServiceInfo;
 
-    move-result-object v8
+    move-result-object v9
 
-    if-nez v8, :cond_0
+    if-nez v9, :cond_0
 
-    const-string/jumbo v19, "PackageManager"
+    const-string/jumbo v20, "PackageManager"
 
-    new-instance v20, Ljava/lang/StringBuilder;
+    new-instance v21, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v20 .. v20}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v21 .. v21}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v21, "Unable to load service info "
+    const-string/jumbo v22, "Unable to load service info "
 
-    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v20
-
-    invoke-virtual {v11}, Landroid/content/pm/ResolveInfo;->toString()Ljava/lang/String;
+    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v21
 
-    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v12}, Landroid/content/pm/ResolveInfo;->toString()Ljava/lang/String;
 
-    move-result-object v20
+    move-result-object v22
 
-    invoke-virtual/range {v20 .. v20}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v20
+    move-result-object v21
 
-    invoke-static/range {v19 .. v20}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual/range {v21 .. v21}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v21
+
+    invoke-static/range {v20 .. v21}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_0
     .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_0 .. :try_end_0} :catch_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Ljava/lang/NullPointerException; {:try_start_0 .. :try_end_0} :catch_1
 
     goto :goto_0
 
     :catch_0
     move-exception v6
 
-    const-string/jumbo v19, "PackageManager"
+    const-string/jumbo v20, "PackageManager"
 
-    new-instance v20, Ljava/lang/StringBuilder;
+    new-instance v21, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v20 .. v20}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v21 .. v21}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v21, "Unable to load service info "
+    const-string/jumbo v22, "Unable to load service info "
 
-    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v20
-
-    invoke-virtual {v11}, Landroid/content/pm/ResolveInfo;->toString()Ljava/lang/String;
+    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v21
 
-    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v12}, Landroid/content/pm/ResolveInfo;->toString()Ljava/lang/String;
 
-    move-result-object v20
+    move-result-object v22
 
-    invoke-virtual/range {v20 .. v20}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v21 .. v22}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v20
+    move-result-object v21
 
-    move-object/from16 v0, v19
+    invoke-virtual/range {v21 .. v21}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-object/from16 v1, v20
+    move-result-object v21
+
+    move-object/from16 v0, v20
+
+    move-object/from16 v1, v21
 
     invoke-static {v0, v1, v6}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
@@ -641,10 +642,26 @@
 
     :cond_0
     :try_start_1
-    invoke-virtual {v14, v8}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v15, v9}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
     :try_end_1
     .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_1 .. :try_end_1} :catch_0
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
+    .catch Ljava/lang/NullPointerException; {:try_start_1 .. :try_end_1} :catch_1
+
+    goto :goto_0
+
+    :catch_1
+    move-exception v7
+
+    const-string/jumbo v20, "PackageManager"
+
+    const-string/jumbo v21, "Unable to load service info: NPE"
+
+    move-object/from16 v0, v20
+
+    move-object/from16 v1, v21
+
+    invoke-static {v0, v1, v7}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     goto :goto_0
 
@@ -653,9 +670,9 @@
 
     iget-object v0, v0, Landroid/content/pm/RegisteredServicesCache;->mServicesLock:Ljava/lang/Object;
 
-    move-object/from16 v20, v0
+    move-object/from16 v21, v0
 
-    monitor-enter v20
+    monitor-enter v21
 
     :try_start_2
     move-object/from16 v0, p0
@@ -664,28 +681,28 @@
 
     invoke-direct {v0, v1}, Landroid/content/pm/RegisteredServicesCache;->findOrCreateUserLocked(I)Landroid/content/pm/RegisteredServicesCache$UserServices;
 
-    move-result-object v16
+    move-result-object v17
 
-    move-object/from16 v0, v16
+    move-object/from16 v0, v17
 
     iget-object v0, v0, Landroid/content/pm/RegisteredServicesCache$UserServices;->services:Ljava/util/Map;
 
-    move-object/from16 v19, v0
+    move-object/from16 v20, v0
 
-    if-nez v19, :cond_4
+    if-nez v20, :cond_4
 
-    const/4 v7, 0x1
+    const/4 v8, 0x1
 
     :goto_1
-    if-eqz v7, :cond_2
+    if-eqz v8, :cond_2
 
     invoke-static {}, Lcom/google/android/collect/Maps;->newHashMap()Ljava/util/HashMap;
 
-    move-result-object v19
+    move-result-object v20
 
-    move-object/from16 v0, v19
+    move-object/from16 v0, v20
 
-    move-object/from16 v1, v16
+    move-object/from16 v1, v17
 
     iput-object v0, v1, Landroid/content/pm/RegisteredServicesCache$UserServices;->services:Ljava/util/Map;
 
@@ -696,116 +713,116 @@
 
     const/4 v4, 0x0
 
-    invoke-interface {v14}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
-
-    move-result-object v9
-
-    :cond_3
-    :goto_2
-    invoke-interface {v9}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v19
-
-    if-eqz v19, :cond_9
-
-    invoke-interface {v9}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v8
-
-    check-cast v8, Landroid/content/pm/RegisteredServicesCache$ServiceInfo;
-
-    move-object/from16 v0, v16
-
-    iget-object v0, v0, Landroid/content/pm/RegisteredServicesCache$UserServices;->persistentServices:Ljava/util/Map;
-
-    move-object/from16 v19, v0
-
-    iget-object v0, v8, Landroid/content/pm/RegisteredServicesCache$ServiceInfo;->type:Ljava/lang/Object;
-
-    move-object/from16 v21, v0
-
-    move-object/from16 v0, v19
-
-    move-object/from16 v1, v21
-
-    invoke-interface {v0, v1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v15}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v10
 
-    check-cast v10, Ljava/lang/Integer;
+    :cond_3
+    :goto_2
+    invoke-interface {v10}, Ljava/util/Iterator;->hasNext()Z
 
-    if-nez v10, :cond_6
+    move-result v20
 
-    const/4 v4, 0x1
+    if-eqz v20, :cond_9
 
-    move-object/from16 v0, v16
+    invoke-interface {v10}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    iget-object v0, v0, Landroid/content/pm/RegisteredServicesCache$UserServices;->services:Ljava/util/Map;
+    move-result-object v9
 
-    move-object/from16 v19, v0
+    check-cast v9, Landroid/content/pm/RegisteredServicesCache$ServiceInfo;
 
-    iget-object v0, v8, Landroid/content/pm/RegisteredServicesCache$ServiceInfo;->type:Ljava/lang/Object;
-
-    move-object/from16 v21, v0
-
-    move-object/from16 v0, v19
-
-    move-object/from16 v1, v21
-
-    invoke-interface {v0, v1, v8}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-object/from16 v0, v16
+    move-object/from16 v0, v17
 
     iget-object v0, v0, Landroid/content/pm/RegisteredServicesCache$UserServices;->persistentServices:Ljava/util/Map;
 
-    move-object/from16 v19, v0
+    move-object/from16 v20, v0
 
-    iget-object v0, v8, Landroid/content/pm/RegisteredServicesCache$ServiceInfo;->type:Ljava/lang/Object;
+    iget-object v0, v9, Landroid/content/pm/RegisteredServicesCache$ServiceInfo;->type:Ljava/lang/Object;
 
-    move-object/from16 v21, v0
+    move-object/from16 v22, v0
 
-    iget v0, v8, Landroid/content/pm/RegisteredServicesCache$ServiceInfo;->uid:I
+    move-object/from16 v0, v20
 
-    move/from16 v22, v0
+    move-object/from16 v1, v22
 
-    invoke-static/range {v22 .. v22}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-interface {v0, v1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v22
+    move-result-object v11
 
-    move-object/from16 v0, v19
+    check-cast v11, Ljava/lang/Integer;
 
-    move-object/from16 v1, v21
+    if-nez v11, :cond_6
 
-    move-object/from16 v2, v22
+    const/4 v4, 0x1
+
+    move-object/from16 v0, v17
+
+    iget-object v0, v0, Landroid/content/pm/RegisteredServicesCache$UserServices;->services:Ljava/util/Map;
+
+    move-object/from16 v20, v0
+
+    iget-object v0, v9, Landroid/content/pm/RegisteredServicesCache$ServiceInfo;->type:Ljava/lang/Object;
+
+    move-object/from16 v22, v0
+
+    move-object/from16 v0, v20
+
+    move-object/from16 v1, v22
+
+    invoke-interface {v0, v1, v9}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-object/from16 v0, v17
+
+    iget-object v0, v0, Landroid/content/pm/RegisteredServicesCache$UserServices;->persistentServices:Ljava/util/Map;
+
+    move-object/from16 v20, v0
+
+    iget-object v0, v9, Landroid/content/pm/RegisteredServicesCache$ServiceInfo;->type:Ljava/lang/Object;
+
+    move-object/from16 v22, v0
+
+    iget v0, v9, Landroid/content/pm/RegisteredServicesCache$ServiceInfo;->uid:I
+
+    move/from16 v23, v0
+
+    invoke-static/range {v23 .. v23}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v23
+
+    move-object/from16 v0, v20
+
+    move-object/from16 v1, v22
+
+    move-object/from16 v2, v23
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-object/from16 v0, v16
+    move-object/from16 v0, v17
 
     iget-boolean v0, v0, Landroid/content/pm/RegisteredServicesCache$UserServices;->mPersistentServicesFileDidNotExist:Z
 
-    move/from16 v19, v0
+    move/from16 v20, v0
 
-    if-eqz v19, :cond_5
+    if-eqz v20, :cond_5
 
-    move/from16 v19, v7
+    move/from16 v20, v8
 
     :goto_3
-    if-nez v19, :cond_3
+    if-nez v20, :cond_3
 
-    iget-object v0, v8, Landroid/content/pm/RegisteredServicesCache$ServiceInfo;->type:Ljava/lang/Object;
+    iget-object v0, v9, Landroid/content/pm/RegisteredServicesCache$ServiceInfo;->type:Ljava/lang/Object;
 
-    move-object/from16 v19, v0
+    move-object/from16 v20, v0
 
-    const/16 v21, 0x0
+    const/16 v22, 0x0
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v19
+    move-object/from16 v1, v20
 
     move/from16 v2, p2
 
-    move/from16 v3, v21
+    move/from16 v3, v22
 
     invoke-direct {v0, v1, v2, v3}, Landroid/content/pm/RegisteredServicesCache;->notifyListener(Ljava/lang/Object;IZ)V
     :try_end_2
@@ -814,149 +831,151 @@
     goto :goto_2
 
     :catchall_0
-    move-exception v19
+    move-exception v20
 
-    monitor-exit v20
+    monitor-exit v21
 
-    throw v19
+    throw v20
 
     :cond_4
-    const/4 v7, 0x0
+    const/4 v8, 0x0
 
     goto/16 :goto_1
 
     :cond_5
-    const/16 v19, 0x0
+    const/16 v20, 0x0
 
     goto :goto_3
 
     :cond_6
     :try_start_3
-    invoke-virtual {v10}, Ljava/lang/Integer;->intValue()I
+    invoke-virtual {v11}, Ljava/lang/Integer;->intValue()I
 
-    move-result v19
+    move-result v20
 
-    iget v0, v8, Landroid/content/pm/RegisteredServicesCache$ServiceInfo;->uid:I
+    iget v0, v9, Landroid/content/pm/RegisteredServicesCache$ServiceInfo;->uid:I
 
-    move/from16 v21, v0
+    move/from16 v22, v0
 
-    move/from16 v0, v19
+    move/from16 v0, v20
 
-    move/from16 v1, v21
+    move/from16 v1, v22
 
     if-ne v0, v1, :cond_7
 
-    move-object/from16 v0, v16
+    move-object/from16 v0, v17
 
     iget-object v0, v0, Landroid/content/pm/RegisteredServicesCache$UserServices;->services:Ljava/util/Map;
 
-    move-object/from16 v19, v0
+    move-object/from16 v20, v0
 
-    iget-object v0, v8, Landroid/content/pm/RegisteredServicesCache$ServiceInfo;->type:Ljava/lang/Object;
+    iget-object v0, v9, Landroid/content/pm/RegisteredServicesCache$ServiceInfo;->type:Ljava/lang/Object;
 
-    move-object/from16 v21, v0
+    move-object/from16 v22, v0
 
-    move-object/from16 v0, v19
+    move-object/from16 v0, v20
 
-    move-object/from16 v1, v21
+    move-object/from16 v1, v22
 
-    invoke-interface {v0, v1, v8}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v1, v9}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     goto/16 :goto_2
 
     :cond_7
-    iget v0, v8, Landroid/content/pm/RegisteredServicesCache$ServiceInfo;->uid:I
+    iget v0, v9, Landroid/content/pm/RegisteredServicesCache$ServiceInfo;->uid:I
 
-    move/from16 v19, v0
+    move/from16 v20, v0
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v19
+    move/from16 v1, v20
 
     invoke-virtual {v0, v1}, Landroid/content/pm/RegisteredServicesCache;->inSystemImage(I)Z
 
-    move-result v19
+    move-result v20
 
-    if-nez v19, :cond_8
+    if-nez v20, :cond_8
 
-    iget-object v0, v8, Landroid/content/pm/RegisteredServicesCache$ServiceInfo;->type:Ljava/lang/Object;
+    iget-object v0, v9, Landroid/content/pm/RegisteredServicesCache$ServiceInfo;->type:Ljava/lang/Object;
 
-    move-object/from16 v19, v0
+    move-object/from16 v20, v0
 
-    invoke-virtual {v10}, Ljava/lang/Integer;->intValue()I
+    invoke-virtual {v11}, Ljava/lang/Integer;->intValue()I
 
-    move-result v21
+    move-result v22
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v19
+    move-object/from16 v1, v20
 
-    move/from16 v2, v21
+    move/from16 v2, v22
 
-    invoke-direct {v0, v14, v1, v2}, Landroid/content/pm/RegisteredServicesCache;->containsTypeAndUid(Ljava/util/ArrayList;Ljava/lang/Object;I)Z
+    invoke-direct {v0, v15, v1, v2}, Landroid/content/pm/RegisteredServicesCache;->containsTypeAndUid(Ljava/util/ArrayList;Ljava/lang/Object;I)Z
 
-    move-result v19
+    move-result v20
 
-    if-nez v19, :cond_3
+    xor-int/lit8 v20, v20, 0x1
+
+    if-eqz v20, :cond_3
 
     :cond_8
     const/4 v4, 0x1
 
-    move-object/from16 v0, v16
+    move-object/from16 v0, v17
 
     iget-object v0, v0, Landroid/content/pm/RegisteredServicesCache$UserServices;->services:Ljava/util/Map;
 
-    move-object/from16 v19, v0
+    move-object/from16 v20, v0
 
-    iget-object v0, v8, Landroid/content/pm/RegisteredServicesCache$ServiceInfo;->type:Ljava/lang/Object;
+    iget-object v0, v9, Landroid/content/pm/RegisteredServicesCache$ServiceInfo;->type:Ljava/lang/Object;
 
-    move-object/from16 v21, v0
+    move-object/from16 v22, v0
 
-    move-object/from16 v0, v19
+    move-object/from16 v0, v20
 
-    move-object/from16 v1, v21
+    move-object/from16 v1, v22
 
-    invoke-interface {v0, v1, v8}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v1, v9}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-object/from16 v0, v16
+    move-object/from16 v0, v17
 
     iget-object v0, v0, Landroid/content/pm/RegisteredServicesCache$UserServices;->persistentServices:Ljava/util/Map;
 
-    move-object/from16 v19, v0
+    move-object/from16 v20, v0
 
-    iget-object v0, v8, Landroid/content/pm/RegisteredServicesCache$ServiceInfo;->type:Ljava/lang/Object;
+    iget-object v0, v9, Landroid/content/pm/RegisteredServicesCache$ServiceInfo;->type:Ljava/lang/Object;
 
-    move-object/from16 v21, v0
+    move-object/from16 v22, v0
 
-    iget v0, v8, Landroid/content/pm/RegisteredServicesCache$ServiceInfo;->uid:I
+    iget v0, v9, Landroid/content/pm/RegisteredServicesCache$ServiceInfo;->uid:I
 
-    move/from16 v22, v0
+    move/from16 v23, v0
 
-    invoke-static/range {v22 .. v22}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static/range {v23 .. v23}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v22
+    move-result-object v23
 
-    move-object/from16 v0, v19
+    move-object/from16 v0, v20
 
-    move-object/from16 v1, v21
+    move-object/from16 v1, v22
 
-    move-object/from16 v2, v22
+    move-object/from16 v2, v23
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    iget-object v0, v8, Landroid/content/pm/RegisteredServicesCache$ServiceInfo;->type:Ljava/lang/Object;
+    iget-object v0, v9, Landroid/content/pm/RegisteredServicesCache$ServiceInfo;->type:Ljava/lang/Object;
 
-    move-object/from16 v19, v0
+    move-object/from16 v20, v0
 
-    const/16 v21, 0x0
+    const/16 v22, 0x0
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v19
+    move-object/from16 v1, v20
 
     move/from16 v2, p2
 
-    move/from16 v3, v21
+    move/from16 v3, v22
 
     invoke-direct {v0, v1, v2, v3}, Landroid/content/pm/RegisteredServicesCache;->notifyListener(Ljava/lang/Object;IZ)V
 
@@ -965,133 +984,135 @@
     :cond_9
     invoke-static {}, Lcom/google/android/collect/Lists;->newArrayList()Ljava/util/ArrayList;
 
-    move-result-object v15
+    move-result-object v16
 
-    move-object/from16 v0, v16
+    move-object/from16 v0, v17
 
     iget-object v0, v0, Landroid/content/pm/RegisteredServicesCache$UserServices;->persistentServices:Ljava/util/Map;
 
-    move-object/from16 v19, v0
+    move-object/from16 v20, v0
 
-    invoke-interface/range {v19 .. v19}, Ljava/util/Map;->keySet()Ljava/util/Set;
+    invoke-interface/range {v20 .. v20}, Ljava/util/Map;->keySet()Ljava/util/Set;
+
+    move-result-object v20
+
+    invoke-interface/range {v20 .. v20}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v19
-
-    invoke-interface/range {v19 .. v19}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
-
-    move-result-object v18
 
     :cond_a
     :goto_4
-    invoke-interface/range {v18 .. v18}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface/range {v19 .. v19}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v19
+    move-result v20
 
-    if-eqz v19, :cond_b
+    if-eqz v20, :cond_b
 
-    invoke-interface/range {v18 .. v18}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface/range {v19 .. v19}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v17
+    move-result-object v18
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v17
+    move-object/from16 v1, v18
 
-    invoke-direct {v0, v14, v1}, Landroid/content/pm/RegisteredServicesCache;->containsType(Ljava/util/ArrayList;Ljava/lang/Object;)Z
+    invoke-direct {v0, v15, v1}, Landroid/content/pm/RegisteredServicesCache;->containsType(Ljava/util/ArrayList;Ljava/lang/Object;)Z
 
-    move-result v19
+    move-result v20
 
-    if-nez v19, :cond_a
+    if-nez v20, :cond_a
 
-    move-object/from16 v0, v16
+    move-object/from16 v0, v17
 
     iget-object v0, v0, Landroid/content/pm/RegisteredServicesCache$UserServices;->persistentServices:Ljava/util/Map;
 
-    move-object/from16 v19, v0
+    move-object/from16 v20, v0
 
-    move-object/from16 v0, v19
+    move-object/from16 v0, v20
 
-    move-object/from16 v1, v17
+    move-object/from16 v1, v18
 
     invoke-interface {v0, v1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v19
+    move-result-object v20
 
-    check-cast v19, Ljava/lang/Integer;
+    check-cast v20, Ljava/lang/Integer;
 
-    invoke-virtual/range {v19 .. v19}, Ljava/lang/Integer;->intValue()I
+    invoke-virtual/range {v20 .. v20}, Ljava/lang/Integer;->intValue()I
 
-    move-result v19
+    move-result v20
 
     move-object/from16 v0, p0
 
     move-object/from16 v1, p1
 
-    move/from16 v2, v19
+    move/from16 v2, v20
 
     invoke-direct {v0, v1, v2}, Landroid/content/pm/RegisteredServicesCache;->containsUid([II)Z
 
-    move-result v19
+    move-result v20
 
-    if-eqz v19, :cond_a
+    if-eqz v20, :cond_a
 
-    move-object/from16 v0, v17
+    move-object/from16 v0, v16
 
-    invoke-virtual {v15, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    move-object/from16 v1, v18
+
+    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     goto :goto_4
 
     :cond_b
-    invoke-interface {v15}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+    invoke-interface/range {v16 .. v16}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+
+    move-result-object v19
+
+    :goto_5
+    invoke-interface/range {v19 .. v19}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v20
+
+    if-eqz v20, :cond_c
+
+    invoke-interface/range {v19 .. v19}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v18
 
-    :goto_5
-    invoke-interface/range {v18 .. v18}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v19
-
-    if-eqz v19, :cond_c
-
-    invoke-interface/range {v18 .. v18}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v17
-
     const/4 v4, 0x1
 
-    move-object/from16 v0, v16
+    move-object/from16 v0, v17
 
     iget-object v0, v0, Landroid/content/pm/RegisteredServicesCache$UserServices;->persistentServices:Ljava/util/Map;
 
-    move-object/from16 v19, v0
+    move-object/from16 v20, v0
 
-    move-object/from16 v0, v19
+    move-object/from16 v0, v20
 
-    move-object/from16 v1, v17
+    move-object/from16 v1, v18
 
     invoke-interface {v0, v1}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-object/from16 v0, v16
+    move-object/from16 v0, v17
 
     iget-object v0, v0, Landroid/content/pm/RegisteredServicesCache$UserServices;->services:Ljava/util/Map;
 
-    move-object/from16 v19, v0
+    move-object/from16 v20, v0
 
-    move-object/from16 v0, v19
+    move-object/from16 v0, v20
 
-    move-object/from16 v1, v17
+    move-object/from16 v1, v18
 
     invoke-interface {v0, v1}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    const/16 v19, 0x1
+    const/16 v20, 0x1
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v17
+    move-object/from16 v1, v18
 
     move/from16 v2, p2
 
-    move/from16 v3, v19
+    move/from16 v3, v20
 
     invoke-direct {v0, v1, v2, v3}, Landroid/content/pm/RegisteredServicesCache;->notifyListener(Ljava/lang/Object;IZ)V
 
@@ -1108,7 +1129,7 @@
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v16
+    move-object/from16 v1, v17
 
     move/from16 v2, p2
 
@@ -1117,7 +1138,7 @@
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
     :cond_d
-    monitor-exit v20
+    monitor-exit v21
 
     return-void
 .end method
@@ -2118,17 +2139,14 @@
 
     move-result-object v3
 
-    if-nez v3, :cond_0
+    if-eqz v3, :cond_1
 
-    return v5
-
-    :cond_0
     array-length v6, v3
 
     move v4, v5
 
     :goto_0
-    if-ge v4, v6, :cond_2
+    if-ge v4, v6, :cond_1
 
     aget-object v1, v3, v4
 
@@ -2153,7 +2171,7 @@
 
     and-int/lit8 v7, v7, 0x1
 
-    if-eqz v7, :cond_1
+    if-eqz v7, :cond_0
 
     const/4 v4, 0x1
 
@@ -2164,12 +2182,12 @@
 
     return v5
 
-    :cond_1
+    :cond_0
     add-int/lit8 v4, v4, 0x1
 
     goto :goto_0
 
-    :cond_2
+    :cond_1
     return v5
 .end method
 
@@ -2559,4 +2577,141 @@
     monitor-exit p0
 
     throw v0
+.end method
+
+.method public updateServices(I)V
+    .locals 12
+
+    iget-object v11, p0, Landroid/content/pm/RegisteredServicesCache;->mServicesLock:Ljava/lang/Object;
+
+    monitor-enter v11
+
+    :try_start_0
+    invoke-direct {p0, p1}, Landroid/content/pm/RegisteredServicesCache;->findOrCreateUserLocked(I)Landroid/content/pm/RegisteredServicesCache$UserServices;
+
+    move-result-object v8
+
+    iget-object v10, v8, Landroid/content/pm/RegisteredServicesCache$UserServices;->services:Ljava/util/Map;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    if-nez v10, :cond_0
+
+    monitor-exit v11
+
+    return-void
+
+    :cond_0
+    :try_start_1
+    new-instance v0, Ljava/util/ArrayList;
+
+    iget-object v10, v8, Landroid/content/pm/RegisteredServicesCache$UserServices;->services:Ljava/util/Map;
+
+    invoke-interface {v10}, Ljava/util/Map;->values()Ljava/util/Collection;
+
+    move-result-object v10
+
+    invoke-direct {v0, v10}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    monitor-exit v11
+
+    const/4 v6, 0x0
+
+    invoke-interface {v0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+
+    move-result-object v5
+
+    :cond_1
+    :goto_0
+    invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v10
+
+    if-eqz v10, :cond_4
+
+    invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v4
+
+    check-cast v4, Landroid/content/pm/RegisteredServicesCache$ServiceInfo;
+
+    iget-object v10, v4, Landroid/content/pm/RegisteredServicesCache$ServiceInfo;->componentInfo:Landroid/content/pm/ComponentInfo;
+
+    iget-object v10, v10, Landroid/content/pm/ComponentInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
+
+    iget v9, v10, Landroid/content/pm/ApplicationInfo;->versionCode:I
+
+    iget-object v10, v4, Landroid/content/pm/RegisteredServicesCache$ServiceInfo;->componentInfo:Landroid/content/pm/ComponentInfo;
+
+    iget-object v3, v10, Landroid/content/pm/ComponentInfo;->packageName:Ljava/lang/String;
+
+    const/4 v2, 0x0
+
+    :try_start_2
+    iget-object v10, p0, Landroid/content/pm/RegisteredServicesCache;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v10}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+
+    move-result-object v10
+
+    const/4 v11, 0x0
+
+    invoke-virtual {v10, v3, v11, p1}, Landroid/content/pm/PackageManager;->getApplicationInfoAsUser(Ljava/lang/String;II)Landroid/content/pm/ApplicationInfo;
+    :try_end_2
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_2 .. :try_end_2} :catch_0
+
+    move-result-object v2
+
+    :goto_1
+    if-eqz v2, :cond_2
+
+    iget v10, v2, Landroid/content/pm/ApplicationInfo;->versionCode:I
+
+    if-eq v10, v9, :cond_1
+
+    :cond_2
+    if-nez v6, :cond_3
+
+    new-instance v6, Landroid/util/IntArray;
+
+    invoke-direct {v6}, Landroid/util/IntArray;-><init>()V
+
+    :cond_3
+    iget v10, v4, Landroid/content/pm/RegisteredServicesCache$ServiceInfo;->uid:I
+
+    invoke-virtual {v6, v10}, Landroid/util/IntArray;->add(I)V
+
+    goto :goto_0
+
+    :catchall_0
+    move-exception v10
+
+    monitor-exit v11
+
+    throw v10
+
+    :cond_4
+    if-eqz v6, :cond_5
+
+    invoke-virtual {v6}, Landroid/util/IntArray;->size()I
+
+    move-result v10
+
+    if-lez v10, :cond_5
+
+    invoke-virtual {v6}, Landroid/util/IntArray;->toArray()[I
+
+    move-result-object v7
+
+    invoke-direct {p0, v7, p1}, Landroid/content/pm/RegisteredServicesCache;->generateServicesMap([II)V
+
+    :cond_5
+    return-void
+
+    :catch_0
+    move-exception v1
+
+    goto :goto_1
 .end method

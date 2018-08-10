@@ -72,7 +72,7 @@
 
     iget v4, p0, Landroid/widget/SemExpandableListView$ViewInfo;->bottom:I
 
-    invoke-virtual {v0, v1, v2, v3, v4}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
+    invoke-virtual {v0, v1, v2, v3, v4}, Landroid/graphics/drawable/BitmapDrawable;->setBounds(IIII)V
 
     return-void
 .end method

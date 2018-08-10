@@ -346,6 +346,8 @@
 
     const/4 v2, 0x0
 
+    const/16 v0, 0x11
+
     iget-object v1, p0, Landroid/hardware/location/GeofenceHardwareImpl$Reaper;->mCallback:Landroid/hardware/location/IGeofenceHardwareCallback;
 
     if-eqz v1, :cond_1

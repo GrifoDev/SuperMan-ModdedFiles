@@ -73,7 +73,7 @@
 
     move-result-wide v4
 
-    invoke-virtual {v0, v1, v2, v4, v5}, Landroid/hardware/camera2/impl/CameraDeviceImpl$CaptureCallback;->onCaptureSequenceCompleted(Landroid/hardware/camera2/CameraDevice;IJ)V
+    invoke-interface {v0, v1, v2, v4, v5}, Landroid/hardware/camera2/impl/CameraDeviceImpl$CaptureCallback;->onCaptureSequenceCompleted(Landroid/hardware/camera2/CameraDevice;IJ)V
 
     :cond_0
     return-void

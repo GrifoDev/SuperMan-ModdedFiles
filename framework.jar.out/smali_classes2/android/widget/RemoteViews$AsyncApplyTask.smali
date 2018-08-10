@@ -52,7 +52,15 @@
 
 
 # direct methods
-.method static synthetic -get0(Landroid/widget/RemoteViews$AsyncApplyTask;)Landroid/view/View;
+.method static synthetic -get0(Landroid/widget/RemoteViews$AsyncApplyTask;)Ljava/lang/Exception;
+    .locals 1
+
+    iget-object v0, p0, Landroid/widget/RemoteViews$AsyncApplyTask;->mError:Ljava/lang/Exception;
+
+    return-object v0
+.end method
+
+.method static synthetic -get1(Landroid/widget/RemoteViews$AsyncApplyTask;)Landroid/view/View;
     .locals 1
 
     iget-object v0, p0, Landroid/widget/RemoteViews$AsyncApplyTask;->mResult:Landroid/view/View;
@@ -135,7 +143,7 @@
 
     move-result-object v3
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_1
 
     iget-object v3, p0, Landroid/widget/RemoteViews$AsyncApplyTask;->mRV:Landroid/widget/RemoteViews;
 
@@ -154,21 +162,16 @@
     const/4 v2, 0x0
 
     :goto_0
-    if-ge v2, v0, :cond_1
+    if-ge v2, v0, :cond_2
 
-    invoke-virtual {p0}, Landroid/os/AsyncTask;->isCancelled()Z
+    invoke-virtual {p0}, Landroid/widget/RemoteViews$AsyncApplyTask;->isCancelled()Z
 
     move-result v3
 
+    xor-int/lit8 v3, v3, 0x1
+
     if-eqz v3, :cond_2
 
-    :cond_1
-    :goto_1
-    iget-object v3, p0, Landroid/widget/RemoteViews$AsyncApplyTask;->mTree:Landroid/widget/RemoteViews$ViewTree;
-
-    return-object v3
-
-    :cond_2
     iget-object v4, p0, Landroid/widget/RemoteViews$AsyncApplyTask;->mActions:[Landroid/widget/RemoteViews$Action;
 
     iget-object v3, p0, Landroid/widget/RemoteViews$AsyncApplyTask;->mRV:Landroid/widget/RemoteViews;
@@ -199,14 +202,17 @@
 
     goto :goto_0
 
-    :cond_3
+    :cond_1
     const/4 v3, 0x0
 
     iput-object v3, p0, Landroid/widget/RemoteViews$AsyncApplyTask;->mActions:[Landroid/widget/RemoteViews$Action;
+
+    :cond_2
+    iget-object v3, p0, Landroid/widget/RemoteViews$AsyncApplyTask;->mTree:Landroid/widget/RemoteViews$ViewTree;
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_1
+    return-object v3
 
     :catch_0
     move-exception v1
@@ -233,7 +239,7 @@
 
     const/4 v0, 0x1
 
-    invoke-virtual {p0, v0}, Landroid/os/AsyncTask;->cancel(Z)Z
+    invoke-virtual {p0, v0}, Landroid/widget/RemoteViews$AsyncApplyTask;->cancel(Z)Z
 
     return-void
 .end method

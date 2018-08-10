@@ -1596,6 +1596,69 @@
     return v4
 .end method
 
+.method public semDisableAutoRouting()Z
+    .locals 1
+
+    invoke-virtual {p0}, Landroid/nfc/cardemulation/CardEmulation;->disableAutoRouting()Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public semEnableAutoRouting()Z
+    .locals 1
+
+    invoke-virtual {p0}, Landroid/nfc/cardemulation/CardEmulation;->enableAutoRouting()Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public semGetServices(Ljava/lang/String;)Ljava/util/List;
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/lang/String;",
+            ")",
+            "Ljava/util/List",
+            "<",
+            "Landroid/nfc/cardemulation/SemApduServiceInfo;",
+            ">;"
+        }
+    .end annotation
+
+    invoke-virtual {p0, p1}, Landroid/nfc/cardemulation/CardEmulation;->getServices(Ljava/lang/String;)Ljava/util/List;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/util/List;
+
+    return-object v0
+.end method
+
+.method public semIsAutoRoutingSupported()Z
+    .locals 1
+
+    invoke-virtual {p0}, Landroid/nfc/cardemulation/CardEmulation;->supportsAutoRouting()Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public semIsRegisteredService(Landroid/content/ComponentName;Ljava/lang/String;)Z
+    .locals 1
+
+    invoke-virtual {p0, p1, p2}, Landroid/nfc/cardemulation/CardEmulation;->isRegisteredService(Landroid/content/ComponentName;Ljava/lang/String;)Z
+
+    move-result v0
+
+    return v0
+.end method
+
 .method public semSetAidsPolicyForService(Landroid/content/ComponentName;Ljava/util/List;I)Z
     .locals 5
     .annotation system Ldalvik/annotation/Signature;
@@ -1669,6 +1732,26 @@
     invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     return v4
+.end method
+
+.method public semSetOtherService(Landroid/content/ComponentName;)Z
+    .locals 1
+
+    invoke-virtual {p0, p1}, Landroid/nfc/cardemulation/CardEmulation;->setOtherService(Landroid/content/ComponentName;)Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public semUnsetOtherService(Landroid/content/ComponentName;)Z
+    .locals 1
+
+    invoke-virtual {p0, p1}, Landroid/nfc/cardemulation/CardEmulation;->unsetOtherService(Landroid/content/ComponentName;)Z
+
+    move-result v0
+
+    return v0
 .end method
 
 .method public setDefaultForNextTap(Landroid/content/ComponentName;)Z

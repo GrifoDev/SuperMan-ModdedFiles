@@ -1248,25 +1248,17 @@
 
     invoke-virtual {v0, p0}, Landroid/text/format/Time$TimeCalculator;->copyFieldsFromTime(Landroid/text/format/Time;)V
 
-    iget-object v1, p0, Landroid/text/format/Time;->calculator:Landroid/text/format/Time$TimeCalculator;
+    iget-object v0, p0, Landroid/text/format/Time;->calculator:Landroid/text/format/Time$TimeCalculator;
 
-    iget-boolean v0, p0, Landroid/text/format/Time;->allDay:Z
+    iget-boolean v1, p0, Landroid/text/format/Time;->allDay:Z
 
-    if-eqz v0, :cond_0
+    xor-int/lit8 v1, v1, 0x1
 
-    const/4 v0, 0x0
-
-    :goto_0
-    invoke-virtual {v1, v0}, Landroid/text/format/Time$TimeCalculator;->format2445(Z)Ljava/lang/String;
+    invoke-virtual {v0, v1}, Landroid/text/format/Time$TimeCalculator;->format2445(Z)Ljava/lang/String;
 
     move-result-object v0
 
     return-object v0
-
-    :cond_0
-    const/4 v0, 0x1
-
-    goto :goto_0
 .end method
 
 .method public format3339(Z)Ljava/lang/String;

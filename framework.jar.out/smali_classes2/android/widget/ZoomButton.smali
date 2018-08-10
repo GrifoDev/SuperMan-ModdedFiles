@@ -13,6 +13,9 @@
     }
 .end annotation
 
+.annotation runtime Ljava/lang/Deprecated;
+.end annotation
+
 
 # instance fields
 .field private mIsInLongpress:Z
@@ -84,7 +87,7 @@
 
     iput-wide v0, p0, Landroid/widget/ZoomButton;->mZoomSpeed:J
 
-    invoke-virtual {p0, p0}, Landroid/view/View;->setOnLongClickListener(Landroid/view/View$OnLongClickListener;)V
+    invoke-virtual {p0, p0}, Landroid/widget/ZoomButton;->setOnLongClickListener(Landroid/view/View$OnLongClickListener;)V
 
     return-void
 .end method
@@ -94,7 +97,7 @@
 .method public dispatchUnhandledMove(Landroid/view/View;I)Z
     .locals 1
 
-    invoke-virtual {p0}, Landroid/view/View;->clearFocus()V
+    invoke-virtual {p0}, Landroid/widget/ZoomButton;->clearFocus()V
 
     invoke-super {p0, p1, p2}, Landroid/widget/ImageButton;->dispatchUnhandledMove(Landroid/view/View;I)Z
 
@@ -138,7 +141,7 @@
 
     iget-object v0, p0, Landroid/widget/ZoomButton;->mRunnable:Ljava/lang/Runnable;
 
-    invoke-virtual {p0, v0}, Landroid/view/View;->post(Ljava/lang/Runnable;)Z
+    invoke-virtual {p0, v0}, Landroid/widget/ZoomButton;->post(Ljava/lang/Runnable;)Z
 
     return v1
 .end method
@@ -182,7 +185,7 @@
 
     const/4 v0, 0x0
 
-    invoke-virtual {p0, v0}, Landroid/view/View;->setPressed(Z)V
+    invoke-virtual {p0, v0}, Landroid/widget/ZoomButton;->setPressed(Z)V
 
     :cond_0
     invoke-super {p0, p1}, Landroid/widget/ImageButton;->setEnabled(Z)V

@@ -42,103 +42,257 @@
 
 # virtual methods
 .method public evaluate(FLjava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 12
+    .locals 18
 
     check-cast p2, Ljava/lang/Integer;
 
-    invoke-virtual {p2}, Ljava/lang/Integer;->intValue()I
+    invoke-virtual/range {p2 .. p2}, Ljava/lang/Integer;->intValue()I
 
-    move-result v8
+    move-result v12
 
-    shr-int/lit8 v10, v8, 0x18
+    shr-int/lit8 v14, v12, 0x18
 
-    and-int/lit16 v5, v10, 0xff
+    and-int/lit16 v14, v14, 0xff
 
-    shr-int/lit8 v10, v8, 0x10
+    int-to-float v14, v14
 
-    and-int/lit16 v9, v10, 0xff
+    const/high16 v15, 0x437f0000    # 255.0f
 
-    shr-int/lit8 v10, v8, 0x8
+    div-float v9, v14, v15
 
-    and-int/lit16 v7, v10, 0xff
+    shr-int/lit8 v14, v12, 0x10
 
-    and-int/lit16 v6, v8, 0xff
+    and-int/lit16 v14, v14, 0xff
+
+    int-to-float v14, v14
+
+    const/high16 v15, 0x437f0000    # 255.0f
+
+    div-float v13, v14, v15
+
+    shr-int/lit8 v14, v12, 0x8
+
+    and-int/lit16 v14, v14, 0xff
+
+    int-to-float v14, v14
+
+    const/high16 v15, 0x437f0000    # 255.0f
+
+    div-float v11, v14, v15
+
+    and-int/lit16 v14, v12, 0xff
+
+    int-to-float v14, v14
+
+    const/high16 v15, 0x437f0000    # 255.0f
+
+    div-float v10, v14, v15
 
     check-cast p3, Ljava/lang/Integer;
 
-    invoke-virtual {p3}, Ljava/lang/Integer;->intValue()I
+    invoke-virtual/range {p3 .. p3}, Ljava/lang/Integer;->intValue()I
 
-    move-result v3
+    move-result v5
 
-    shr-int/lit8 v10, v3, 0x18
+    shr-int/lit8 v14, v5, 0x18
 
-    and-int/lit16 v0, v10, 0xff
+    and-int/lit16 v14, v14, 0xff
 
-    shr-int/lit8 v10, v3, 0x10
+    int-to-float v14, v14
 
-    and-int/lit16 v4, v10, 0xff
+    const/high16 v15, 0x437f0000    # 255.0f
 
-    shr-int/lit8 v10, v3, 0x8
+    div-float v2, v14, v15
 
-    and-int/lit16 v2, v10, 0xff
+    shr-int/lit8 v14, v5, 0x10
 
-    and-int/lit16 v1, v3, 0xff
+    and-int/lit16 v14, v14, 0xff
 
-    sub-int v10, v0, v5
+    int-to-float v14, v14
 
-    int-to-float v10, v10
+    const/high16 v15, 0x437f0000    # 255.0f
 
-    mul-float/2addr v10, p1
+    div-float v6, v14, v15
 
-    float-to-int v10, v10
+    shr-int/lit8 v14, v5, 0x8
 
-    add-int/2addr v10, v5
+    and-int/lit16 v14, v14, 0xff
 
-    shl-int/lit8 v10, v10, 0x18
+    int-to-float v14, v14
 
-    sub-int v11, v4, v9
+    const/high16 v15, 0x437f0000    # 255.0f
 
-    int-to-float v11, v11
+    div-float v4, v14, v15
 
-    mul-float/2addr v11, p1
+    and-int/lit16 v14, v5, 0xff
 
-    float-to-int v11, v11
+    int-to-float v14, v14
 
-    add-int/2addr v11, v9
+    const/high16 v15, 0x437f0000    # 255.0f
 
-    shl-int/lit8 v11, v11, 0x10
+    div-float v3, v14, v15
 
-    or-int/2addr v10, v11
+    float-to-double v14, v13
 
-    sub-int v11, v2, v7
+    const-wide v16, 0x400199999999999aL    # 2.2
 
-    int-to-float v11, v11
+    invoke-static/range {v14 .. v17}, Ljava/lang/Math;->pow(DD)D
 
-    mul-float/2addr v11, p1
+    move-result-wide v14
 
-    float-to-int v11, v11
+    double-to-float v13, v14
 
-    add-int/2addr v11, v7
+    float-to-double v14, v11
 
-    shl-int/lit8 v11, v11, 0x8
+    const-wide v16, 0x400199999999999aL    # 2.2
 
-    or-int/2addr v10, v11
+    invoke-static/range {v14 .. v17}, Ljava/lang/Math;->pow(DD)D
 
-    sub-int v11, v1, v6
+    move-result-wide v14
 
-    int-to-float v11, v11
+    double-to-float v11, v14
 
-    mul-float/2addr v11, p1
+    float-to-double v14, v10
 
-    float-to-int v11, v11
+    const-wide v16, 0x400199999999999aL    # 2.2
 
-    add-int/2addr v11, v6
+    invoke-static/range {v14 .. v17}, Ljava/lang/Math;->pow(DD)D
 
-    or-int/2addr v10, v11
+    move-result-wide v14
 
-    invoke-static {v10}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    double-to-float v10, v14
 
-    move-result-object v10
+    float-to-double v14, v6
 
-    return-object v10
+    const-wide v16, 0x400199999999999aL    # 2.2
+
+    invoke-static/range {v14 .. v17}, Ljava/lang/Math;->pow(DD)D
+
+    move-result-wide v14
+
+    double-to-float v6, v14
+
+    float-to-double v14, v4
+
+    const-wide v16, 0x400199999999999aL    # 2.2
+
+    invoke-static/range {v14 .. v17}, Ljava/lang/Math;->pow(DD)D
+
+    move-result-wide v14
+
+    double-to-float v4, v14
+
+    float-to-double v14, v3
+
+    const-wide v16, 0x400199999999999aL    # 2.2
+
+    invoke-static/range {v14 .. v17}, Ljava/lang/Math;->pow(DD)D
+
+    move-result-wide v14
+
+    double-to-float v3, v14
+
+    sub-float v14, v2, v9
+
+    mul-float v14, v14, p1
+
+    add-float v0, v9, v14
+
+    sub-float v14, v6, v13
+
+    mul-float v14, v14, p1
+
+    add-float v8, v13, v14
+
+    sub-float v14, v4, v11
+
+    mul-float v14, v14, p1
+
+    add-float v7, v11, v14
+
+    sub-float v14, v3, v10
+
+    mul-float v14, v14, p1
+
+    add-float v1, v10, v14
+
+    const/high16 v14, 0x437f0000    # 255.0f
+
+    mul-float/2addr v0, v14
+
+    float-to-double v14, v8
+
+    const-wide v16, 0x3fdd1745d1745d17L    # 0.45454545454545453
+
+    invoke-static/range {v14 .. v17}, Ljava/lang/Math;->pow(DD)D
+
+    move-result-wide v14
+
+    double-to-float v14, v14
+
+    const/high16 v15, 0x437f0000    # 255.0f
+
+    mul-float v8, v14, v15
+
+    float-to-double v14, v7
+
+    const-wide v16, 0x3fdd1745d1745d17L    # 0.45454545454545453
+
+    invoke-static/range {v14 .. v17}, Ljava/lang/Math;->pow(DD)D
+
+    move-result-wide v14
+
+    double-to-float v14, v14
+
+    const/high16 v15, 0x437f0000    # 255.0f
+
+    mul-float v7, v14, v15
+
+    float-to-double v14, v1
+
+    const-wide v16, 0x3fdd1745d1745d17L    # 0.45454545454545453
+
+    invoke-static/range {v14 .. v17}, Ljava/lang/Math;->pow(DD)D
+
+    move-result-wide v14
+
+    double-to-float v14, v14
+
+    const/high16 v15, 0x437f0000    # 255.0f
+
+    mul-float v1, v14, v15
+
+    invoke-static {v0}, Ljava/lang/Math;->round(F)I
+
+    move-result v14
+
+    shl-int/lit8 v14, v14, 0x18
+
+    invoke-static {v8}, Ljava/lang/Math;->round(F)I
+
+    move-result v15
+
+    shl-int/lit8 v15, v15, 0x10
+
+    or-int/2addr v14, v15
+
+    invoke-static {v7}, Ljava/lang/Math;->round(F)I
+
+    move-result v15
+
+    shl-int/lit8 v15, v15, 0x8
+
+    or-int/2addr v14, v15
+
+    invoke-static {v1}, Ljava/lang/Math;->round(F)I
+
+    move-result v15
+
+    or-int/2addr v14, v15
+
+    invoke-static {v14}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v14
+
+    return-object v14
 .end method

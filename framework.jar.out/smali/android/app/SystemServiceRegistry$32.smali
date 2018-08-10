@@ -17,7 +17,7 @@
     value = {
         "Landroid/app/SystemServiceRegistry$CachedServiceFetcher",
         "<",
-        "Landroid/os/PowerManager;",
+        "Landroid/net/wifi/WifiOffloadManager;",
         ">;"
     }
 .end annotation
@@ -34,49 +34,41 @@
 
 
 # virtual methods
-.method public createService(Landroid/app/ContextImpl;)Landroid/os/PowerManager;
-    .locals 5
+.method public createService(Landroid/app/ContextImpl;)Landroid/net/wifi/WifiOffloadManager;
+    .locals 4
 
-    const-string/jumbo v2, "power"
+    const-string/jumbo v2, "wifioffload"
 
     invoke-static {v2}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
 
     move-result-object v0
 
-    invoke-static {v0}, Landroid/os/IPowerManager$Stub;->asInterface(Landroid/os/IBinder;)Landroid/os/IPowerManager;
+    invoke-static {v0}, Landroid/net/wifi/IWifiOffloadManager$Stub;->asInterface(Landroid/os/IBinder;)Landroid/net/wifi/IWifiOffloadManager;
 
     move-result-object v1
 
-    if-nez v1, :cond_0
-
     const-string/jumbo v2, "SystemServiceRegistry"
 
-    const-string/jumbo v3, "Failed to get power manager service."
+    const-string/jumbo v3, "return wifioffload service"
 
-    invoke-static {v2, v3}, Landroid/util/Log;->wtf(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_0
-    new-instance v2, Landroid/os/PowerManager;
+    new-instance v2, Landroid/net/wifi/WifiOffloadManager;
 
-    invoke-virtual {p1}, Landroid/app/ContextImpl;->getOuterContext()Landroid/content/Context;
-
-    move-result-object v3
-
-    iget-object v4, p1, Landroid/app/ContextImpl;->mMainThread:Landroid/app/ActivityThread;
-
-    invoke-virtual {v4}, Landroid/app/ActivityThread;->getHandler()Landroid/os/Handler;
-
-    move-result-object v4
-
-    invoke-direct {v2, v3, v1, v4}, Landroid/os/PowerManager;-><init>(Landroid/content/Context;Landroid/os/IPowerManager;Landroid/os/Handler;)V
+    invoke-direct {v2, v1}, Landroid/net/wifi/WifiOffloadManager;-><init>(Landroid/net/wifi/IWifiOffloadManager;)V
 
     return-object v2
 .end method
 
 .method public bridge synthetic createService(Landroid/app/ContextImpl;)Ljava/lang/Object;
     .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/ServiceManager$ServiceNotFoundException;
+        }
+    .end annotation
 
-    invoke-virtual {p0, p1}, Landroid/app/SystemServiceRegistry$32;->createService(Landroid/app/ContextImpl;)Landroid/os/PowerManager;
+    invoke-virtual {p0, p1}, Landroid/app/SystemServiceRegistry$32;->createService(Landroid/app/ContextImpl;)Landroid/net/wifi/WifiOffloadManager;
 
     move-result-object v0
 

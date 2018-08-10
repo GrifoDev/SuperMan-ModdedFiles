@@ -29,13 +29,15 @@
 
 .field final owner:Landroid/content/pm/PackageParser$Package;
 
+.field final roundIconRes:I
+
 .field sa:Landroid/content/res/TypedArray;
 
 .field tag:Ljava/lang/String;
 
 
 # direct methods
-.method constructor <init>(Landroid/content/pm/PackageParser$Package;[Ljava/lang/String;IIIII)V
+.method constructor <init>(Landroid/content/pm/PackageParser$Package;[Ljava/lang/String;IIIIII)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -50,9 +52,11 @@
 
     iput p5, p0, Landroid/content/pm/PackageParser$ParsePackageItemArgs;->iconRes:I
 
-    iput p6, p0, Landroid/content/pm/PackageParser$ParsePackageItemArgs;->logoRes:I
+    iput p7, p0, Landroid/content/pm/PackageParser$ParsePackageItemArgs;->logoRes:I
 
-    iput p7, p0, Landroid/content/pm/PackageParser$ParsePackageItemArgs;->bannerRes:I
+    iput p8, p0, Landroid/content/pm/PackageParser$ParsePackageItemArgs;->bannerRes:I
+
+    iput p6, p0, Landroid/content/pm/PackageParser$ParsePackageItemArgs;->roundIconRes:I
 
     return-void
 .end method

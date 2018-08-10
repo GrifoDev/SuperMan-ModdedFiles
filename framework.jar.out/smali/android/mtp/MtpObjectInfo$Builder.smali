@@ -344,17 +344,42 @@
 .end method
 
 .method public setKeywords(Ljava/lang/String;)Landroid/mtp/MtpObjectInfo$Builder;
-    .locals 1
+    .locals 2
 
+    invoke-static {}, Ldalvik/system/VMRuntime;->getRuntime()Ldalvik/system/VMRuntime;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ldalvik/system/VMRuntime;->getTargetSdkVersion()I
+
+    move-result v0
+
+    const/16 v1, 0x19
+
+    if-le v0, v1, :cond_1
+
+    invoke-static {p1}, Lcom/android/internal/util/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+
+    :cond_0
+    :goto_0
     iget-object v0, p0, Landroid/mtp/MtpObjectInfo$Builder;->mObjectInfo:Landroid/mtp/MtpObjectInfo;
 
     invoke-static {v0, p1}, Landroid/mtp/MtpObjectInfo;->-set10(Landroid/mtp/MtpObjectInfo;Ljava/lang/String;)Ljava/lang/String;
 
     return-object p0
+
+    :cond_1
+    if-nez p1, :cond_0
+
+    const-string/jumbo p1, ""
+
+    goto :goto_0
 .end method
 
 .method public setName(Ljava/lang/String;)Landroid/mtp/MtpObjectInfo$Builder;
     .locals 1
+
+    invoke-static {p1}, Lcom/android/internal/util/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     iget-object v0, p0, Landroid/mtp/MtpObjectInfo$Builder;->mObjectInfo:Landroid/mtp/MtpObjectInfo;
 

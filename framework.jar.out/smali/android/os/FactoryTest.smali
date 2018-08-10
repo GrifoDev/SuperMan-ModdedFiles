@@ -175,111 +175,10 @@
     .end packed-switch
 .end method
 
-.method private static getFactoryModeFromFile()Z
-    .locals 5
-
-    const/4 v4, 0x0
-
-    sget-object v1, Landroid/os/FactoryTest;->mFactoryMode:Ljava/lang/String;
-
-    if-nez v1, :cond_1
-
-    :try_start_0
-    new-instance v1, Ljava/io/File;
-
-    const-string/jumbo v2, "/efs/FactoryApp/factorymode"
-
-    invoke-direct {v1, v2}, Ljava/io/File;-><init>(Ljava/lang/String;)V
-
-    const/16 v2, 0x20
-
-    const/4 v3, 0x0
-
-    invoke-static {v1, v2, v3}, Landroid/os/FileUtils;->readTextFile(Ljava/io/File;ILjava/lang/String;)Ljava/lang/String;
-
-    move-result-object v1
-
-    sput-object v1, Landroid/os/FactoryTest;->mFactoryMode:Ljava/lang/String;
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
-
-    :goto_0
-    sget-object v1, Landroid/os/FactoryTest;->mFactoryMode:Ljava/lang/String;
-
-    if-nez v1, :cond_0
-
-    const-string/jumbo v1, "FactoryTest"
-
-    const-string/jumbo v2, "mFactoryMode is null. so it is USER mode"
-
-    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    const-string/jumbo v1, "ON"
-
-    sput-object v1, Landroid/os/FactoryTest;->mFactoryMode:Ljava/lang/String;
-
-    :cond_0
-    sget-object v1, Landroid/os/FactoryTest;->mFactoryMode:Ljava/lang/String;
-
-    const-string/jumbo v2, "OFF"
-
-    invoke-virtual {v1, v2}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_2
-
-    const-string/jumbo v1, "FactoryTest"
-
-    const-string/jumbo v2, "Factory mode"
-
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    const/4 v1, 0x1
-
-    sput-boolean v1, Landroid/os/FactoryTest;->mIsFactoryMode:Z
-
-    :cond_1
-    :goto_1
-    sget-boolean v1, Landroid/os/FactoryTest;->mIsFactoryMode:Z
-
-    return v1
-
-    :catch_0
-    move-exception v0
-
-    const-string/jumbo v1, "FactoryTest"
-
-    const-string/jumbo v2, "cannot open file : /efs/FactoryApp/factorymode"
-
-    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    sput-boolean v4, Landroid/os/FactoryTest;->mIsFactoryMode:Z
-
-    goto :goto_0
-
-    :cond_2
-    const-string/jumbo v1, "FactoryTest"
-
-    const-string/jumbo v2, "User mode"
-
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    sput-boolean v4, Landroid/os/FactoryTest;->mIsFactoryMode:Z
-
-    goto :goto_1
-.end method
-
 .method public static getMode()I
-    .locals 2
+    .locals 1
 
-    const-string/jumbo v0, "ro.factorytest"
-
-    const/4 v1, 0x0
-
-    invoke-static {v0, v1}, Landroid/os/SystemProperties;->getInt(Ljava/lang/String;I)I
-
-    move-result v0
+    sget v0, Lcom/android/internal/os/RoSystemProperties;->FACTORYTEST:I
 
     return v0
 .end method
@@ -351,9 +250,7 @@
     return v0
 
     :cond_0
-    invoke-static {}, Landroid/os/FactoryTest;->getFactoryModeFromFile()Z
-
-    move-result v0
+    const/4 v0, 0x0
 
     return v0
 .end method
@@ -361,7 +258,9 @@
 .method public static isFactoryMode(Landroid/content/Context;Landroid/telephony/TelephonyManager;)Z
     .locals 4
 
-    const/4 v3, 0x1
+    const/4 v3, 0x0
+
+    const/4 v2, 0x1
 
     invoke-static {}, Landroid/os/FactoryTest;->isFactoryBinary()Z
 
@@ -375,7 +274,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    return v3
+    return v2
 
     :cond_0
     if-eqz p0, :cond_1
@@ -386,13 +285,11 @@
 
     const-string/jumbo v1, "SHOULD_SHUT_DOWN"
 
-    const/4 v2, 0x0
-
-    invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+    invoke-static {v0, v1, v3}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
     move-result v0
 
-    if-ne v0, v3, :cond_1
+    if-ne v0, v2, :cond_1
 
     const-string/jumbo v0, "FactoryTest"
 
@@ -400,7 +297,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    return v3
+    return v2
 
     :cond_1
     if-eqz p1, :cond_2
@@ -423,14 +320,10 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    return v3
+    return v2
 
     :cond_2
-    invoke-static {}, Landroid/os/FactoryTest;->getFactoryModeFromFile()Z
-
-    move-result v0
-
-    return v0
+    return v3
 .end method
 
 .method public static isFactoryPBAPhase()Z

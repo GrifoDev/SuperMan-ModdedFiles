@@ -43,7 +43,7 @@
 
     iget-object v0, p0, Landroid/widget/SemExpandableListView$3;->this$0:Landroid/widget/SemExpandableListView;
 
-    invoke-static {v0}, Landroid/widget/SemExpandableListView;->-get29(Landroid/widget/SemExpandableListView;)Landroid/widget/SemExpandableListView$OnGroupCollapseListener;
+    invoke-static {v0}, Landroid/widget/SemExpandableListView;->-get34(Landroid/widget/SemExpandableListView;)Landroid/widget/SemExpandableListView$OnGroupCollapseListener;
 
     move-result-object v0
 
@@ -51,7 +51,7 @@
 
     iget-object v0, p0, Landroid/widget/SemExpandableListView$3;->this$0:Landroid/widget/SemExpandableListView;
 
-    invoke-static {v0}, Landroid/widget/SemExpandableListView;->-get29(Landroid/widget/SemExpandableListView;)Landroid/widget/SemExpandableListView$OnGroupCollapseListener;
+    invoke-static {v0}, Landroid/widget/SemExpandableListView;->-get34(Landroid/widget/SemExpandableListView;)Landroid/widget/SemExpandableListView$OnGroupCollapseListener;
 
     move-result-object v0
 

@@ -22,8 +22,6 @@
 
 .field static final TAG:Ljava/lang/String; = "NFC"
 
-.field private static mLedCallback:Landroid/nfc/NfcAdapter$LedCoverNotificationCallback;
-
 .field private static mLedCoverCallback:Landroid/nfc/NfcAdapter$SemLedCoverRfDetectedCallback;
 
 
@@ -55,9 +53,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
-
-    const/4 v1, 0x0
+    .locals 1
 
     const/4 v0, 0x0
 
@@ -67,9 +63,9 @@
 
     sput-object v0, Landroid/nfc/NfcActivityManager;->DBG:Ljava/lang/Boolean;
 
-    sput-object v1, Landroid/nfc/NfcActivityManager;->mLedCallback:Landroid/nfc/NfcAdapter$LedCoverNotificationCallback;
+    const/4 v0, 0x0
 
-    sput-object v1, Landroid/nfc/NfcActivityManager;->mLedCoverCallback:Landroid/nfc/NfcAdapter$SemLedCoverRfDetectedCallback;
+    sput-object v0, Landroid/nfc/NfcActivityManager;->mLedCoverCallback:Landroid/nfc/NfcAdapter$SemLedCoverRfDetectedCallback;
 
     return-void
 .end method
@@ -103,10 +99,6 @@
 .method public LedCoverNotification()V
     .locals 2
 
-    sget-object v0, Landroid/nfc/NfcActivityManager;->mLedCallback:Landroid/nfc/NfcAdapter$LedCoverNotificationCallback;
-
-    if-nez v0, :cond_0
-
     sget-object v0, Landroid/nfc/NfcActivityManager;->mLedCoverCallback:Landroid/nfc/NfcAdapter$SemLedCoverRfDetectedCallback;
 
     if-nez v0, :cond_0
@@ -120,24 +112,15 @@
     return-void
 
     :cond_0
-    sget-object v0, Landroid/nfc/NfcActivityManager;->mLedCallback:Landroid/nfc/NfcAdapter$LedCoverNotificationCallback;
-
-    if-eqz v0, :cond_1
-
-    sget-object v0, Landroid/nfc/NfcActivityManager;->mLedCallback:Landroid/nfc/NfcAdapter$LedCoverNotificationCallback;
-
-    invoke-interface {v0}, Landroid/nfc/NfcAdapter$LedCoverNotificationCallback;->LedCoverNotification()V
-
-    :cond_1
     sget-object v0, Landroid/nfc/NfcActivityManager;->mLedCoverCallback:Landroid/nfc/NfcAdapter$SemLedCoverRfDetectedCallback;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_1
 
     sget-object v0, Landroid/nfc/NfcActivityManager;->mLedCoverCallback:Landroid/nfc/NfcAdapter$SemLedCoverRfDetectedCallback;
 
     invoke-interface {v0}, Landroid/nfc/NfcAdapter$SemLedCoverRfDetectedCallback;->onRfDetected()V
 
-    :cond_2
+    :cond_1
     return-void
 .end method
 
@@ -401,7 +384,7 @@
 
     move-result-object v9
 
-    if-eqz v9, :cond_4
+    if-eqz v9, :cond_3
 
     const-string/jumbo v17, "file"
 
@@ -411,7 +394,7 @@
 
     move-result v17
 
-    if-nez v17, :cond_3
+    if-nez v17, :cond_4
 
     const-string/jumbo v17, "content"
 
@@ -421,20 +404,16 @@
 
     move-result v17
 
+    xor-int/lit8 v17, v17, 0x1
+
     if-eqz v17, :cond_4
 
     :cond_3
-    invoke-static {}, Landroid/os/UserHandle;->myUserId()I
+    const-string/jumbo v17, "NFC"
 
-    move-result v17
+    const-string/jumbo v18, "Uri needs to have either scheme file or scheme content"
 
-    move/from16 v0, v17
-
-    invoke-static {v11, v0}, Landroid/content/ContentProvider;->maybeAddUserId(Landroid/net/Uri;I)Landroid/net/Uri;
-
-    move-result-object v11
-
-    invoke-virtual {v14, v11}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-static/range {v17 .. v18}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_1
 
@@ -449,11 +428,17 @@
 
     :cond_4
     :try_start_4
-    const-string/jumbo v17, "NFC"
+    invoke-static {}, Landroid/os/UserHandle;->myUserId()I
 
-    const-string/jumbo v18, "Uri needs to have either scheme file or scheme content"
+    move-result v17
 
-    invoke-static/range {v17 .. v18}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    move/from16 v0, v17
+
+    invoke-static {v11, v0}, Landroid/content/ContentProvider;->maybeAddUserId(Landroid/net/Uri;I)Landroid/net/Uri;
+
+    move-result-object v11
+
+    invoke-virtual {v14, v11}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     goto :goto_1
 
@@ -1443,31 +1428,6 @@
     monitor-exit p0
 
     throw v3
-.end method
-
-.method public setLedCoverNtfCallback(Landroid/nfc/NfcAdapter$LedCoverNotificationCallback;)V
-    .locals 2
-
-    sput-object p1, Landroid/nfc/NfcActivityManager;->mLedCallback:Landroid/nfc/NfcAdapter$LedCoverNotificationCallback;
-
-    :try_start_0
-    sget-object v1, Landroid/nfc/NfcAdapter;->sService:Landroid/nfc/INfcAdapter;
-
-    invoke-interface {v1, p0}, Landroid/nfc/INfcAdapter;->setLedCoverCallback(Landroid/nfc/IAppCallback;)V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    :goto_0
-    return-void
-
-    :catch_0
-    move-exception v0
-
-    iget-object v1, p0, Landroid/nfc/NfcActivityManager;->mAdapter:Landroid/nfc/NfcAdapter;
-
-    invoke-virtual {v1, v0}, Landroid/nfc/NfcAdapter;->attemptDeadServiceRecovery(Ljava/lang/Exception;)V
-
-    goto :goto_0
 .end method
 
 .method public setLedCoverRfDetectedCallback(Landroid/nfc/NfcAdapter$SemLedCoverRfDetectedCallback;)V

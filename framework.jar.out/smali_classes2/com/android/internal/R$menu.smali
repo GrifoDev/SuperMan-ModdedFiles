@@ -15,11 +15,11 @@
 
 
 # static fields
-.field public static final language_selection_list:I = 0x1150000
+.field public static final language_selection_list:I = 0x1140000
 
-.field public static final webview_copy:I = 0x1150001
+.field public static final webview_copy:I = 0x1140001
 
-.field public static final webview_find:I = 0x1150002
+.field public static final webview_find:I = 0x1140002
 
 
 # direct methods

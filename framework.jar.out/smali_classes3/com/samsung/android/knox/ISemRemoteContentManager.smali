@@ -15,6 +15,14 @@
 
 
 # virtual methods
+.method public abstract addExportShortcutInfo(Landroid/content/ComponentName;I)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract cancelCopyChunks(J)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -88,6 +96,24 @@
 .end method
 
 .method public abstract getCallerInfo(Ljava/lang/String;)Landroid/content/CustomCursor;
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract getExportShortcutInfo(I)Ljava/util/List;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(I)",
+            "Ljava/util/List",
+            "<",
+            "Landroid/content/ComponentName;",
+            ">;"
+        }
+    .end annotation
+
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -207,6 +233,14 @@
     .end annotation
 .end method
 
+.method public abstract moveUnlimitedFiles(ILandroid/net/Uri;II)J
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract queryAllProviders(Ljava/lang/String;Ljava/lang/String;I[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -250,14 +284,6 @@
     .end annotation
 .end method
 
-.method public abstract registerDbObserver(Ljava/lang/String;I)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
 .method public abstract registerExchangeData(Ljava/lang/String;Landroid/os/IRunnableCallback;I)Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -267,6 +293,14 @@
 .end method
 
 .method public abstract registerMonitorCb(Ljava/lang/String;Landroid/os/IRunnableCallback;)Z
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract registerObserver(Ljava/lang/String;I)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -306,6 +340,14 @@
     .end annotation
 .end method
 
+.method public abstract removeExportShortcutInfo(Landroid/content/ComponentName;I)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract switchPersona(I)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -314,7 +356,7 @@
     .end annotation
 .end method
 
-.method public abstract unRegisterDbObserver(Ljava/lang/String;I)V
+.method public abstract unRegisterObserver(Ljava/lang/String;I)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

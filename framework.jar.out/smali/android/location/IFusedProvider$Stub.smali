@@ -124,11 +124,7 @@
 
     invoke-virtual {p0, v0}, Landroid/location/IFusedProvider$Stub;->onFusedLocationHardwareChange(Landroid/hardware/location/IFusedLocationHardware;)V
 
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
     return v2
-
-    nop
 
     :sswitch_data_0
     .sparse-switch

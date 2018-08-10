@@ -41,11 +41,17 @@
 
 .field mountExternal:I
 
-.field mountKnoxPoint:I
-
 .field niceName:Ljava/lang/String;
 
 .field permittedCapabilities:J
+
+.field preloadDefault:Z
+
+.field preloadPackage:Ljava/lang/String;
+
+.field preloadPackageCacheKey:Ljava/lang/String;
+
+.field preloadPackageLibs:Ljava/lang/String;
 
 .field remainingArgs:[Ljava/lang/String;
 
@@ -90,8 +96,6 @@
 
     iput v0, p0, Lcom/android/internal/os/ZygoteConnection$Arguments;->mountExternal:I
 
-    iput v0, p0, Lcom/android/internal/os/ZygoteConnection$Arguments;->mountKnoxPoint:I
-
     invoke-direct {p0, p1}, Lcom/android/internal/os/ZygoteConnection$Arguments;->parseArgs([Ljava/lang/String;)V
 
     return-void
@@ -129,13 +133,13 @@
     :cond_0
     iget-boolean v10, p0, Lcom/android/internal/os/ZygoteConnection$Arguments;->abiListQuery:Z
 
-    if-eqz v10, :cond_29
+    if-eqz v10, :cond_2b
 
     array-length v10, p1
 
     sub-int/2addr v10, v3
 
-    if-lez v10, :cond_2b
+    if-lez v10, :cond_2e
 
     new-instance v10, Ljava/lang/IllegalArgumentException;
 
@@ -288,7 +292,7 @@
     goto :goto_1
 
     :cond_8
-    const-string/jumbo v10, "--enable-debugger"
+    const-string/jumbo v10, "--enable-jdwp"
 
     invoke-virtual {v0, v10}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -390,7 +394,7 @@
     goto/16 :goto_1
 
     :cond_e
-    const-string/jumbo v10, "--enable-jni-logging"
+    const-string/jumbo v10, "--java-debuggable"
 
     invoke-virtual {v0, v10}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -400,14 +404,14 @@
 
     iget v10, p0, Lcom/android/internal/os/ZygoteConnection$Arguments;->debugFlags:I
 
-    or-int/lit8 v10, v10, 0x10
+    or-int/lit16 v10, v10, 0x100
 
     iput v10, p0, Lcom/android/internal/os/ZygoteConnection$Arguments;->debugFlags:I
 
     goto/16 :goto_1
 
     :cond_f
-    const-string/jumbo v10, "--enable-assert"
+    const-string/jumbo v10, "--enable-jni-logging"
 
     invoke-virtual {v0, v10}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -417,14 +421,14 @@
 
     iget v10, p0, Lcom/android/internal/os/ZygoteConnection$Arguments;->debugFlags:I
 
-    or-int/lit8 v10, v10, 0x4
+    or-int/lit8 v10, v10, 0x10
 
     iput v10, p0, Lcom/android/internal/os/ZygoteConnection$Arguments;->debugFlags:I
 
     goto/16 :goto_1
 
     :cond_10
-    const-string/jumbo v10, "--runtime-args"
+    const-string/jumbo v10, "--enable-assert"
 
     invoke-virtual {v0, v10}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -432,22 +436,39 @@
 
     if-eqz v10, :cond_11
 
-    const/4 v9, 0x1
+    iget v10, p0, Lcom/android/internal/os/ZygoteConnection$Arguments;->debugFlags:I
+
+    or-int/lit8 v10, v10, 0x4
+
+    iput v10, p0, Lcom/android/internal/os/ZygoteConnection$Arguments;->debugFlags:I
 
     goto/16 :goto_1
 
     :cond_11
+    const-string/jumbo v10, "--runtime-args"
+
+    invoke-virtual {v0, v10}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v10
+
+    if-eqz v10, :cond_12
+
+    const/4 v9, 0x1
+
+    goto/16 :goto_1
+
+    :cond_12
     const-string/jumbo v10, "--seinfo="
 
     invoke-virtual {v0, v10}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
     move-result v10
 
-    if-eqz v10, :cond_13
+    if-eqz v10, :cond_14
 
     iget-boolean v10, p0, Lcom/android/internal/os/ZygoteConnection$Arguments;->seInfoSpecified:Z
 
-    if-eqz v10, :cond_12
+    if-eqz v10, :cond_13
 
     new-instance v10, Ljava/lang/IllegalArgumentException;
 
@@ -457,7 +478,7 @@
 
     throw v10
 
-    :cond_12
+    :cond_13
     const/4 v10, 0x1
 
     iput-boolean v10, p0, Lcom/android/internal/os/ZygoteConnection$Arguments;->seInfoSpecified:Z
@@ -478,37 +499,8 @@
 
     goto/16 :goto_1
 
-    :cond_13
-    const-string/jumbo v10, "--category="
-
-    invoke-virtual {v0, v10}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
-
-    move-result v10
-
-    if-eqz v10, :cond_14
-
-    const/16 v10, 0x3d
-
-    invoke-virtual {v0, v10}, Ljava/lang/String;->indexOf(I)I
-
-    move-result v10
-
-    add-int/lit8 v10, v10, 0x1
-
-    invoke-virtual {v0, v10}, Ljava/lang/String;->substring(I)Ljava/lang/String;
-
-    move-result-object v10
-
-    invoke-static {v10}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
-
-    move-result v10
-
-    iput v10, p0, Lcom/android/internal/os/ZygoteConnection$Arguments;->category:I
-
-    goto/16 :goto_1
-
     :cond_14
-    const-string/jumbo v10, "--accessInfo="
+    const-string/jumbo v10, "--category="
 
     invoke-virtual {v0, v10}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
@@ -532,22 +524,51 @@
 
     move-result v10
 
-    iput v10, p0, Lcom/android/internal/os/ZygoteConnection$Arguments;->accessInfo:I
+    iput v10, p0, Lcom/android/internal/os/ZygoteConnection$Arguments;->category:I
 
     goto/16 :goto_1
 
     :cond_15
+    const-string/jumbo v10, "--accessInfo="
+
+    invoke-virtual {v0, v10}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v10
+
+    if-eqz v10, :cond_16
+
+    const/16 v10, 0x3d
+
+    invoke-virtual {v0, v10}, Ljava/lang/String;->indexOf(I)I
+
+    move-result v10
+
+    add-int/lit8 v10, v10, 0x1
+
+    invoke-virtual {v0, v10}, Ljava/lang/String;->substring(I)Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-static {v10}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+
+    move-result v10
+
+    iput v10, p0, Lcom/android/internal/os/ZygoteConnection$Arguments;->accessInfo:I
+
+    goto/16 :goto_1
+
+    :cond_16
     const-string/jumbo v10, "--capabilities="
 
     invoke-virtual {v0, v10}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
     move-result v10
 
-    if-eqz v10, :cond_18
+    if-eqz v10, :cond_19
 
     iget-boolean v10, p0, Lcom/android/internal/os/ZygoteConnection$Arguments;->capabilitiesSpecified:Z
 
-    if-eqz v10, :cond_16
+    if-eqz v10, :cond_17
 
     new-instance v10, Ljava/lang/IllegalArgumentException;
 
@@ -557,7 +578,7 @@
 
     throw v10
 
-    :cond_16
+    :cond_17
     const/4 v10, 0x1
 
     iput-boolean v10, p0, Lcom/android/internal/os/ZygoteConnection$Arguments;->capabilitiesSpecified:Z
@@ -586,7 +607,7 @@
 
     const/4 v11, 0x1
 
-    if-ne v10, v11, :cond_17
+    if-ne v10, v11, :cond_18
 
     const/4 v10, 0x0
 
@@ -608,7 +629,7 @@
 
     goto/16 :goto_1
 
-    :cond_17
+    :cond_18
     const/4 v10, 0x0
 
     aget-object v10, v2, v10
@@ -639,14 +660,14 @@
 
     goto/16 :goto_1
 
-    :cond_18
+    :cond_19
     const-string/jumbo v10, "--rlimit="
 
     invoke-virtual {v0, v10}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
     move-result v10
 
-    if-eqz v10, :cond_1c
+    if-eqz v10, :cond_1d
 
     const/16 v10, 0x3d
 
@@ -670,7 +691,7 @@
 
     const/4 v11, 0x3
 
-    if-eq v10, v11, :cond_19
+    if-eq v10, v11, :cond_1a
 
     new-instance v10, Ljava/lang/IllegalArgumentException;
 
@@ -680,7 +701,7 @@
 
     throw v10
 
-    :cond_19
+    :cond_1a
     array-length v10, v6
 
     new-array v8, v10, [I
@@ -690,7 +711,7 @@
     :goto_2
     array-length v10, v6
 
-    if-ge v5, v10, :cond_1a
+    if-ge v5, v10, :cond_1b
 
     aget-object v10, v6, v5
 
@@ -704,10 +725,10 @@
 
     goto :goto_2
 
-    :cond_1a
+    :cond_1b
     iget-object v10, p0, Lcom/android/internal/os/ZygoteConnection$Arguments;->rlimits:Ljava/util/ArrayList;
 
-    if-nez v10, :cond_1b
+    if-nez v10, :cond_1c
 
     new-instance v10, Ljava/util/ArrayList;
 
@@ -715,25 +736,25 @@
 
     iput-object v10, p0, Lcom/android/internal/os/ZygoteConnection$Arguments;->rlimits:Ljava/util/ArrayList;
 
-    :cond_1b
+    :cond_1c
     iget-object v10, p0, Lcom/android/internal/os/ZygoteConnection$Arguments;->rlimits:Ljava/util/ArrayList;
 
     invoke-virtual {v10, v8}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     goto/16 :goto_1
 
-    :cond_1c
+    :cond_1d
     const-string/jumbo v10, "--setgroups="
 
     invoke-virtual {v0, v10}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
     move-result v10
 
-    if-eqz v10, :cond_1e
+    if-eqz v10, :cond_1f
 
     iget-object v10, p0, Lcom/android/internal/os/ZygoteConnection$Arguments;->gids:[I
 
-    if-eqz v10, :cond_1d
+    if-eqz v10, :cond_1e
 
     new-instance v10, Ljava/lang/IllegalArgumentException;
 
@@ -743,7 +764,7 @@
 
     throw v10
 
-    :cond_1d
+    :cond_1e
     const/16 v10, 0x3d
 
     invoke-virtual {v0, v10}, Ljava/lang/String;->indexOf(I)I
@@ -789,18 +810,18 @@
 
     goto :goto_3
 
-    :cond_1e
+    :cond_1f
     const-string/jumbo v10, "--invoke-with"
 
     invoke-virtual {v0, v10}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v10
 
-    if-eqz v10, :cond_20
+    if-eqz v10, :cond_21
 
     iget-object v10, p0, Lcom/android/internal/os/ZygoteConnection$Arguments;->invokeWith:Ljava/lang/String;
 
-    if-eqz v10, :cond_1f
+    if-eqz v10, :cond_20
 
     new-instance v10, Ljava/lang/IllegalArgumentException;
 
@@ -810,7 +831,7 @@
 
     throw v10
 
-    :cond_1f
+    :cond_20
     add-int/lit8 v3, v3, 0x1
 
     :try_start_0
@@ -833,18 +854,18 @@
 
     throw v10
 
-    :cond_20
+    :cond_21
     const-string/jumbo v10, "--nice-name="
 
     invoke-virtual {v0, v10}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
     move-result v10
 
-    if-eqz v10, :cond_22
+    if-eqz v10, :cond_23
 
     iget-object v10, p0, Lcom/android/internal/os/ZygoteConnection$Arguments;->niceName:Ljava/lang/String;
 
-    if-eqz v10, :cond_21
+    if-eqz v10, :cond_22
 
     new-instance v10, Ljava/lang/IllegalArgumentException;
 
@@ -854,7 +875,7 @@
 
     throw v10
 
-    :cond_21
+    :cond_22
     const/16 v10, 0x3d
 
     invoke-virtual {v0, v10}, Ljava/lang/String;->indexOf(I)I
@@ -871,23 +892,8 @@
 
     goto/16 :goto_1
 
-    :cond_22
-    const-string/jumbo v10, "--mount-external-default"
-
-    invoke-virtual {v0, v10}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v10
-
-    if-eqz v10, :cond_23
-
-    const/4 v10, 0x1
-
-    iput v10, p0, Lcom/android/internal/os/ZygoteConnection$Arguments;->mountExternal:I
-
-    goto/16 :goto_1
-
     :cond_23
-    const-string/jumbo v10, "--mount-external-read"
+    const-string/jumbo v10, "--mount-external-default"
 
     invoke-virtual {v0, v10}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -895,14 +901,14 @@
 
     if-eqz v10, :cond_24
 
-    const/4 v10, 0x2
+    const/4 v10, 0x1
 
     iput v10, p0, Lcom/android/internal/os/ZygoteConnection$Arguments;->mountExternal:I
 
     goto/16 :goto_1
 
     :cond_24
-    const-string/jumbo v10, "--mount-external-write"
+    const-string/jumbo v10, "--mount-external-read"
 
     invoke-virtual {v0, v10}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -910,14 +916,14 @@
 
     if-eqz v10, :cond_25
 
-    const/4 v10, 0x3
+    const/4 v10, 0x2
 
     iput v10, p0, Lcom/android/internal/os/ZygoteConnection$Arguments;->mountExternal:I
 
     goto/16 :goto_1
 
     :cond_25
-    const-string/jumbo v10, "--query-abi-list"
+    const-string/jumbo v10, "--mount-external-write"
 
     invoke-virtual {v0, v10}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -925,39 +931,29 @@
 
     if-eqz v10, :cond_26
 
+    const/4 v10, 0x3
+
+    iput v10, p0, Lcom/android/internal/os/ZygoteConnection$Arguments;->mountExternal:I
+
+    goto/16 :goto_1
+
+    :cond_26
+    const-string/jumbo v10, "--query-abi-list"
+
+    invoke-virtual {v0, v10}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v10
+
+    if-eqz v10, :cond_27
+
     const/4 v10, 0x1
 
     iput-boolean v10, p0, Lcom/android/internal/os/ZygoteConnection$Arguments;->abiListQuery:Z
 
     goto/16 :goto_1
 
-    :cond_26
-    const-string/jumbo v10, "--instruction-set="
-
-    invoke-virtual {v0, v10}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
-
-    move-result v10
-
-    if-eqz v10, :cond_27
-
-    const/16 v10, 0x3d
-
-    invoke-virtual {v0, v10}, Ljava/lang/String;->indexOf(I)I
-
-    move-result v10
-
-    add-int/lit8 v10, v10, 0x1
-
-    invoke-virtual {v0, v10}, Ljava/lang/String;->substring(I)Ljava/lang/String;
-
-    move-result-object v10
-
-    iput-object v10, p0, Lcom/android/internal/os/ZygoteConnection$Arguments;->instructionSet:Ljava/lang/String;
-
-    goto/16 :goto_1
-
     :cond_27
-    const-string/jumbo v10, "--app-data-dir="
+    const-string/jumbo v10, "--instruction-set="
 
     invoke-virtual {v0, v10}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
@@ -977,18 +973,18 @@
 
     move-result-object v10
 
-    iput-object v10, p0, Lcom/android/internal/os/ZygoteConnection$Arguments;->appDataDir:Ljava/lang/String;
+    iput-object v10, p0, Lcom/android/internal/os/ZygoteConnection$Arguments;->instructionSet:Ljava/lang/String;
 
     goto/16 :goto_1
 
     :cond_28
-    const-string/jumbo v10, "--mount-knox-point="
+    const-string/jumbo v10, "--app-data-dir="
 
     invoke-virtual {v0, v10}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
     move-result v10
 
-    if-eqz v10, :cond_0
+    if-eqz v10, :cond_29
 
     const/16 v10, 0x3d
 
@@ -1002,16 +998,79 @@
 
     move-result-object v10
 
-    invoke-static {v10}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
-
-    move-result v10
-
-    iput v10, p0, Lcom/android/internal/os/ZygoteConnection$Arguments;->mountKnoxPoint:I
+    iput-object v10, p0, Lcom/android/internal/os/ZygoteConnection$Arguments;->appDataDir:Ljava/lang/String;
 
     goto/16 :goto_1
 
     :cond_29
-    if-nez v9, :cond_2a
+    const-string/jumbo v10, "--preload-package"
+
+    invoke-virtual {v0, v10}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v10
+
+    if-eqz v10, :cond_2a
+
+    add-int/lit8 v3, v3, 0x1
+
+    aget-object v10, p1, v3
+
+    iput-object v10, p0, Lcom/android/internal/os/ZygoteConnection$Arguments;->preloadPackage:Ljava/lang/String;
+
+    add-int/lit8 v3, v3, 0x1
+
+    aget-object v10, p1, v3
+
+    iput-object v10, p0, Lcom/android/internal/os/ZygoteConnection$Arguments;->preloadPackageLibs:Ljava/lang/String;
+
+    add-int/lit8 v3, v3, 0x1
+
+    aget-object v10, p1, v3
+
+    iput-object v10, p0, Lcom/android/internal/os/ZygoteConnection$Arguments;->preloadPackageCacheKey:Ljava/lang/String;
+
+    goto/16 :goto_1
+
+    :cond_2a
+    const-string/jumbo v10, "--preload-default"
+
+    invoke-virtual {v0, v10}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v10
+
+    if-eqz v10, :cond_0
+
+    const/4 v10, 0x1
+
+    iput-boolean v10, p0, Lcom/android/internal/os/ZygoteConnection$Arguments;->preloadDefault:Z
+
+    goto/16 :goto_1
+
+    :cond_2b
+    iget-object v10, p0, Lcom/android/internal/os/ZygoteConnection$Arguments;->preloadPackage:Ljava/lang/String;
+
+    if-eqz v10, :cond_2c
+
+    array-length v10, p1
+
+    sub-int/2addr v10, v3
+
+    if-lez v10, :cond_2e
+
+    new-instance v10, Ljava/lang/IllegalArgumentException;
+
+    const-string/jumbo v11, "Unexpected arguments after --preload-package."
+
+    invoke-direct {v10, v11}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v10
+
+    :cond_2c
+    iget-boolean v10, p0, Lcom/android/internal/os/ZygoteConnection$Arguments;->preloadDefault:Z
+
+    if-nez v10, :cond_2e
+
+    if-nez v9, :cond_2d
 
     new-instance v10, Ljava/lang/IllegalArgumentException;
 
@@ -1039,7 +1098,7 @@
 
     throw v10
 
-    :cond_2a
+    :cond_2d
     array-length v10, p1
 
     sub-int/2addr v10, v3
@@ -1058,6 +1117,6 @@
 
     invoke-static {p1, v3, v10, v12, v11}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    :cond_2b
+    :cond_2e
     return-void
 .end method

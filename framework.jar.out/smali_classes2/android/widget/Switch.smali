@@ -4,6 +4,9 @@
 
 
 # annotations
+.annotation runtime Landroid/widget/RemoteViews$RemoteView;
+.end annotation
+
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Landroid/widget/Switch$1;
@@ -53,8 +56,6 @@
 
 .field private mHasTrackTintMode:Z
 
-.field private mIsDeviceDefaultLight:Z
-
 .field private mIsSupportSemSwitchVI:Z
 
 .field private mIsThemeChanged:Z
@@ -98,6 +99,8 @@
 .field private mTextOn:Ljava/lang/CharSequence;
 
 .field private mTextPaint:Landroid/text/TextPaint;
+
+.field private mThemeIsDeviceDefault:Z
 
 .field private mThumbDrawable:Landroid/graphics/drawable/Drawable;
 
@@ -206,199 +209,165 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;II)V
-    .locals 18
+    .locals 17
 
     invoke-direct/range {p0 .. p4}, Landroid/widget/CompoundButton;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;II)V
 
-    const/4 v15, 0x0
+    const/4 v14, 0x0
 
     move-object/from16 v0, p0
 
-    iput-object v15, v0, Landroid/widget/Switch;->mThumbTintList:Landroid/content/res/ColorStateList;
+    iput-object v14, v0, Landroid/widget/Switch;->mThumbTintList:Landroid/content/res/ColorStateList;
 
-    const/4 v15, 0x0
-
-    move-object/from16 v0, p0
-
-    iput-object v15, v0, Landroid/widget/Switch;->mThumbTintMode:Landroid/graphics/PorterDuff$Mode;
-
-    const/4 v15, 0x0
+    const/4 v14, 0x0
 
     move-object/from16 v0, p0
 
-    iput-boolean v15, v0, Landroid/widget/Switch;->mHasThumbTint:Z
+    iput-object v14, v0, Landroid/widget/Switch;->mThumbTintMode:Landroid/graphics/PorterDuff$Mode;
 
-    const/4 v15, 0x0
-
-    move-object/from16 v0, p0
-
-    iput-boolean v15, v0, Landroid/widget/Switch;->mHasThumbTintMode:Z
-
-    const/4 v15, 0x0
+    const/4 v14, 0x0
 
     move-object/from16 v0, p0
 
-    iput-object v15, v0, Landroid/widget/Switch;->mTrackTintList:Landroid/content/res/ColorStateList;
+    iput-boolean v14, v0, Landroid/widget/Switch;->mHasThumbTint:Z
 
-    const/4 v15, 0x0
-
-    move-object/from16 v0, p0
-
-    iput-object v15, v0, Landroid/widget/Switch;->mTrackTintMode:Landroid/graphics/PorterDuff$Mode;
-
-    const/4 v15, 0x0
+    const/4 v14, 0x0
 
     move-object/from16 v0, p0
 
-    iput-boolean v15, v0, Landroid/widget/Switch;->mHasTrackTint:Z
+    iput-boolean v14, v0, Landroid/widget/Switch;->mHasThumbTintMode:Z
 
-    const/4 v15, 0x0
+    const/4 v14, 0x0
 
     move-object/from16 v0, p0
 
-    iput-boolean v15, v0, Landroid/widget/Switch;->mHasTrackTintMode:Z
+    iput-object v14, v0, Landroid/widget/Switch;->mTrackTintList:Landroid/content/res/ColorStateList;
+
+    const/4 v14, 0x0
+
+    move-object/from16 v0, p0
+
+    iput-object v14, v0, Landroid/widget/Switch;->mTrackTintMode:Landroid/graphics/PorterDuff$Mode;
+
+    const/4 v14, 0x0
+
+    move-object/from16 v0, p0
+
+    iput-boolean v14, v0, Landroid/widget/Switch;->mHasTrackTint:Z
+
+    const/4 v14, 0x0
+
+    move-object/from16 v0, p0
+
+    iput-boolean v14, v0, Landroid/widget/Switch;->mHasTrackTintMode:Z
 
     invoke-static {}, Landroid/view/VelocityTracker;->obtain()Landroid/view/VelocityTracker;
 
-    move-result-object v15
+    move-result-object v14
 
     move-object/from16 v0, p0
 
-    iput-object v15, v0, Landroid/widget/Switch;->mVelocityTracker:Landroid/view/VelocityTracker;
+    iput-object v14, v0, Landroid/widget/Switch;->mVelocityTracker:Landroid/view/VelocityTracker;
 
-    const/4 v15, 0x0
-
-    move-object/from16 v0, p0
-
-    iput-boolean v15, v0, Landroid/widget/Switch;->mIsSupportSemSwitchVI:Z
-
-    new-instance v15, Landroid/graphics/Rect;
-
-    invoke-direct {v15}, Landroid/graphics/Rect;-><init>()V
+    const/4 v14, 0x0
 
     move-object/from16 v0, p0
 
-    iput-object v15, v0, Landroid/widget/Switch;->mTempRect:Landroid/graphics/Rect;
+    iput-boolean v14, v0, Landroid/widget/Switch;->mIsSupportSemSwitchVI:Z
 
-    new-instance v8, Landroid/util/TypedValue;
+    new-instance v14, Landroid/graphics/Rect;
 
-    invoke-direct {v8}, Landroid/util/TypedValue;-><init>()V
+    invoke-direct {v14}, Landroid/graphics/Rect;-><init>()V
 
-    new-instance v6, Landroid/util/TypedValue;
+    move-object/from16 v0, p0
 
-    invoke-direct {v6}, Landroid/util/TypedValue;-><init>()V
+    iput-object v14, v0, Landroid/widget/Switch;->mTempRect:Landroid/graphics/Rect;
+
+    new-instance v9, Landroid/util/TypedValue;
+
+    invoke-direct {v9}, Landroid/util/TypedValue;-><init>()V
 
     invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getTheme()Landroid/content/res/Resources$Theme;
 
-    move-result-object v15
+    move-result-object v14
 
-    const v16, 0x11600cb
+    const v15, 0x1110082
 
-    const/16 v17, 0x0
-
-    move/from16 v0, v16
-
-    move/from16 v1, v17
-
-    invoke-virtual {v15, v0, v8, v1}, Landroid/content/res/Resources$Theme;->resolveAttribute(ILandroid/util/TypedValue;Z)Z
-
-    invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getTheme()Landroid/content/res/Resources$Theme;
-
-    move-result-object v15
-
-    const v16, 0x11600cd
-
-    const/16 v17, 0x1
+    const/16 v16, 0x0
 
     move/from16 v0, v16
 
-    move/from16 v1, v17
+    invoke-virtual {v14, v15, v9, v0}, Landroid/content/res/Resources$Theme;->resolveAttribute(ILandroid/util/TypedValue;Z)Z
 
-    invoke-virtual {v15, v0, v6, v1}, Landroid/content/res/Resources$Theme;->resolveAttribute(ILandroid/util/TypedValue;Z)Z
+    iget v14, v9, Landroid/util/TypedValue;->data:I
 
-    iget v15, v8, Landroid/util/TypedValue;->data:I
+    if-eqz v14, :cond_0
 
-    if-eqz v15, :cond_0
-
-    iget v15, v6, Landroid/util/TypedValue;->data:I
-
-    if-nez v15, :cond_0
-
-    const/4 v15, 0x1
+    const/4 v14, 0x1
 
     move-object/from16 v0, p0
 
-    iput-boolean v15, v0, Landroid/widget/Switch;->mIsDeviceDefaultLight:Z
+    iput-boolean v14, v0, Landroid/widget/Switch;->mThemeIsDeviceDefault:Z
 
     invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v15
+    move-result-object v14
 
-    const-string/jumbo v16, "current_sec_active_themepackage"
+    const-string/jumbo v15, "current_sec_active_themepackage"
 
-    invoke-static/range {v15 .. v16}, Landroid/provider/Settings$System;->getString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v14, v15}, Landroid/provider/Settings$System;->getString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v9
+    move-result-object v7
 
-    if-eqz v9, :cond_d
+    if-eqz v7, :cond_d
 
-    const/4 v15, 0x1
+    const/4 v14, 0x1
 
     :goto_0
     move-object/from16 v0, p0
 
-    iput-boolean v15, v0, Landroid/widget/Switch;->mIsThemeChanged:Z
+    iput-boolean v14, v0, Landroid/widget/Switch;->mIsThemeChanged:Z
 
     :cond_0
-    new-instance v15, Landroid/text/TextPaint;
+    new-instance v14, Landroid/text/TextPaint;
 
-    const/16 v16, 0x1
+    const/4 v15, 0x1
 
-    invoke-direct/range {v15 .. v16}, Landroid/text/TextPaint;-><init>(I)V
+    invoke-direct {v14, v15}, Landroid/text/TextPaint;-><init>(I)V
 
     move-object/from16 v0, p0
 
-    iput-object v15, v0, Landroid/widget/Switch;->mTextPaint:Landroid/text/TextPaint;
+    iput-object v14, v0, Landroid/widget/Switch;->mTextPaint:Landroid/text/TextPaint;
 
     invoke-virtual/range {p0 .. p0}, Landroid/widget/Switch;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v10
+    move-result-object v8
 
     move-object/from16 v0, p0
 
-    iget-object v15, v0, Landroid/widget/Switch;->mTextPaint:Landroid/text/TextPaint;
+    iget-object v14, v0, Landroid/widget/Switch;->mTextPaint:Landroid/text/TextPaint;
 
-    invoke-virtual {v10}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
+    invoke-virtual {v8}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
 
-    move-result-object v16
+    move-result-object v15
 
-    move-object/from16 v0, v16
+    iget v15, v15, Landroid/util/DisplayMetrics;->density:F
 
-    iget v0, v0, Landroid/util/DisplayMetrics;->density:F
-
-    move/from16 v16, v0
-
-    move/from16 v0, v16
-
-    iput v0, v15, Landroid/text/TextPaint;->density:F
+    iput v15, v14, Landroid/text/TextPaint;->density:F
 
     move-object/from16 v0, p0
 
-    iget-object v15, v0, Landroid/widget/Switch;->mTextPaint:Landroid/text/TextPaint;
+    iget-object v14, v0, Landroid/widget/Switch;->mTextPaint:Landroid/text/TextPaint;
 
-    invoke-virtual {v10}, Landroid/content/res/Resources;->getCompatibilityInfo()Landroid/content/res/CompatibilityInfo;
+    invoke-virtual {v8}, Landroid/content/res/Resources;->getCompatibilityInfo()Landroid/content/res/CompatibilityInfo;
 
-    move-result-object v16
+    move-result-object v15
 
-    move-object/from16 v0, v16
+    iget v15, v15, Landroid/content/res/CompatibilityInfo;->applicationScale:F
 
-    iget v0, v0, Landroid/content/res/CompatibilityInfo;->applicationScale:F
+    invoke-virtual {v14, v15}, Landroid/text/TextPaint;->setCompatibilityScaling(F)V
 
-    move/from16 v16, v0
-
-    invoke-virtual/range {v15 .. v16}, Landroid/text/TextPaint;->setCompatibilityScaling(F)V
-
-    sget-object v15, Lcom/android/internal/R$styleable;->Switch:[I
+    sget-object v14, Lcom/android/internal/R$styleable;->Switch:[I
 
     move-object/from16 v0, p1
 
@@ -408,307 +377,338 @@
 
     move/from16 v3, p4
 
-    invoke-virtual {v0, v1, v15, v2, v3}, Landroid/content/Context;->obtainStyledAttributes(Landroid/util/AttributeSet;[III)Landroid/content/res/TypedArray;
+    invoke-virtual {v0, v1, v14, v2, v3}, Landroid/content/Context;->obtainStyledAttributes(Landroid/util/AttributeSet;[III)Landroid/content/res/TypedArray;
 
     move-result-object v4
 
-    const/4 v15, 0x2
+    const/4 v14, 0x2
 
-    invoke-virtual {v4, v15}, Landroid/content/res/TypedArray;->getDrawable(I)Landroid/graphics/drawable/Drawable;
-
-    move-result-object v15
-
-    move-object/from16 v0, p0
-
-    iput-object v15, v0, Landroid/widget/Switch;->mThumbDrawable:Landroid/graphics/drawable/Drawable;
-
-    move-object/from16 v0, p0
-
-    iget-object v15, v0, Landroid/widget/Switch;->mThumbDrawable:Landroid/graphics/drawable/Drawable;
-
-    if-eqz v15, :cond_1
-
-    move-object/from16 v0, p0
-
-    iget-object v15, v0, Landroid/widget/Switch;->mThumbDrawable:Landroid/graphics/drawable/Drawable;
-
-    move-object/from16 v0, p0
-
-    invoke-virtual {v15, v0}, Landroid/graphics/drawable/Drawable;->setCallback(Landroid/graphics/drawable/Drawable$Callback;)V
-
-    :cond_1
-    const/4 v15, 0x4
-
-    invoke-virtual {v4, v15}, Landroid/content/res/TypedArray;->getDrawable(I)Landroid/graphics/drawable/Drawable;
-
-    move-result-object v15
-
-    move-object/from16 v0, p0
-
-    iput-object v15, v0, Landroid/widget/Switch;->mTrackDrawable:Landroid/graphics/drawable/Drawable;
-
-    move-object/from16 v0, p0
-
-    iget-object v15, v0, Landroid/widget/Switch;->mTrackDrawable:Landroid/graphics/drawable/Drawable;
-
-    if-eqz v15, :cond_2
-
-    move-object/from16 v0, p0
-
-    iget-object v15, v0, Landroid/widget/Switch;->mTrackDrawable:Landroid/graphics/drawable/Drawable;
-
-    move-object/from16 v0, p0
-
-    invoke-virtual {v15, v0}, Landroid/graphics/drawable/Drawable;->setCallback(Landroid/graphics/drawable/Drawable$Callback;)V
-
-    :cond_2
-    move-object/from16 v0, p0
-
-    iget-boolean v15, v0, Landroid/widget/Switch;->mIsDeviceDefaultLight:Z
-
-    if-eqz v15, :cond_3
-
-    move-object/from16 v0, p0
-
-    iget-boolean v15, v0, Landroid/widget/Switch;->mIsThemeChanged:Z
-
-    if-eqz v15, :cond_e
-
-    :cond_3
-    :goto_1
-    const/4 v15, 0x0
-
-    invoke-virtual {v4, v15}, Landroid/content/res/TypedArray;->getText(I)Ljava/lang/CharSequence;
-
-    move-result-object v15
-
-    move-object/from16 v0, p0
-
-    iput-object v15, v0, Landroid/widget/Switch;->mTextOn:Ljava/lang/CharSequence;
-
-    const/4 v15, 0x1
-
-    invoke-virtual {v4, v15}, Landroid/content/res/TypedArray;->getText(I)Ljava/lang/CharSequence;
-
-    move-result-object v15
-
-    move-object/from16 v0, p0
-
-    iput-object v15, v0, Landroid/widget/Switch;->mTextOff:Ljava/lang/CharSequence;
-
-    const/16 v15, 0xb
-
-    const/16 v16, 0x1
-
-    move/from16 v0, v16
-
-    invoke-virtual {v4, v15, v0}, Landroid/content/res/TypedArray;->getBoolean(IZ)Z
-
-    move-result v15
-
-    move-object/from16 v0, p0
-
-    iput-boolean v15, v0, Landroid/widget/Switch;->mShowText:Z
-
-    const/4 v15, 0x7
-
-    const/16 v16, 0x0
-
-    move/from16 v0, v16
-
-    invoke-virtual {v4, v15, v0}, Landroid/content/res/TypedArray;->getDimensionPixelSize(II)I
-
-    move-result v15
-
-    move-object/from16 v0, p0
-
-    iput v15, v0, Landroid/widget/Switch;->mThumbTextPadding:I
-
-    const/4 v15, 0x5
-
-    const/16 v16, 0x0
-
-    move/from16 v0, v16
-
-    invoke-virtual {v4, v15, v0}, Landroid/content/res/TypedArray;->getDimensionPixelSize(II)I
-
-    move-result v15
-
-    move-object/from16 v0, p0
-
-    iput v15, v0, Landroid/widget/Switch;->mSwitchMinWidth:I
-
-    const/4 v15, 0x6
-
-    const/16 v16, 0x0
-
-    move/from16 v0, v16
-
-    invoke-virtual {v4, v15, v0}, Landroid/content/res/TypedArray;->getDimensionPixelSize(II)I
-
-    move-result v15
-
-    move-object/from16 v0, p0
-
-    iput v15, v0, Landroid/widget/Switch;->mSwitchPadding:I
-
-    const/16 v15, 0x8
-
-    const/16 v16, 0x0
-
-    move/from16 v0, v16
-
-    invoke-virtual {v4, v15, v0}, Landroid/content/res/TypedArray;->getBoolean(IZ)Z
-
-    move-result v15
-
-    move-object/from16 v0, p0
-
-    iput-boolean v15, v0, Landroid/widget/Switch;->mSplitTrack:Z
-
-    const/16 v15, 0x9
-
-    invoke-virtual {v4, v15}, Landroid/content/res/TypedArray;->getColorStateList(I)Landroid/content/res/ColorStateList;
-
-    move-result-object v11
-
-    if-eqz v11, :cond_4
-
-    move-object/from16 v0, p0
-
-    iput-object v11, v0, Landroid/widget/Switch;->mThumbTintList:Landroid/content/res/ColorStateList;
-
-    const/4 v15, 0x1
-
-    move-object/from16 v0, p0
-
-    iput-boolean v15, v0, Landroid/widget/Switch;->mHasThumbTint:Z
-
-    :cond_4
-    const/16 v15, 0xa
-
-    const/16 v16, -0x1
-
-    move/from16 v0, v16
-
-    invoke-virtual {v4, v15, v0}, Landroid/content/res/TypedArray;->getInt(II)I
-
-    move-result v15
-
-    const/16 v16, 0x0
-
-    invoke-static/range {v15 .. v16}, Landroid/graphics/drawable/Drawable;->parseTintMode(ILandroid/graphics/PorterDuff$Mode;)Landroid/graphics/PorterDuff$Mode;
-
-    move-result-object v12
-
-    move-object/from16 v0, p0
-
-    iget-object v15, v0, Landroid/widget/Switch;->mThumbTintMode:Landroid/graphics/PorterDuff$Mode;
-
-    if-eq v15, v12, :cond_5
-
-    move-object/from16 v0, p0
-
-    iput-object v12, v0, Landroid/widget/Switch;->mThumbTintMode:Landroid/graphics/PorterDuff$Mode;
-
-    const/4 v15, 0x1
-
-    move-object/from16 v0, p0
-
-    iput-boolean v15, v0, Landroid/widget/Switch;->mHasThumbTintMode:Z
-
-    :cond_5
-    move-object/from16 v0, p0
-
-    iget-boolean v15, v0, Landroid/widget/Switch;->mHasThumbTint:Z
-
-    if-nez v15, :cond_6
-
-    move-object/from16 v0, p0
-
-    iget-boolean v15, v0, Landroid/widget/Switch;->mHasThumbTintMode:Z
-
-    if-eqz v15, :cond_7
-
-    :cond_6
-    invoke-direct/range {p0 .. p0}, Landroid/widget/Switch;->applyThumbTint()V
-
-    :cond_7
-    const/16 v15, 0xc
-
-    invoke-virtual {v4, v15}, Landroid/content/res/TypedArray;->getColorStateList(I)Landroid/content/res/ColorStateList;
-
-    move-result-object v13
-
-    if-eqz v13, :cond_8
-
-    move-object/from16 v0, p0
-
-    iput-object v13, v0, Landroid/widget/Switch;->mTrackTintList:Landroid/content/res/ColorStateList;
-
-    const/4 v15, 0x1
-
-    move-object/from16 v0, p0
-
-    iput-boolean v15, v0, Landroid/widget/Switch;->mHasTrackTint:Z
-
-    :cond_8
-    const/16 v15, 0xd
-
-    const/16 v16, -0x1
-
-    move/from16 v0, v16
-
-    invoke-virtual {v4, v15, v0}, Landroid/content/res/TypedArray;->getInt(II)I
-
-    move-result v15
-
-    const/16 v16, 0x0
-
-    invoke-static/range {v15 .. v16}, Landroid/graphics/drawable/Drawable;->parseTintMode(ILandroid/graphics/PorterDuff$Mode;)Landroid/graphics/PorterDuff$Mode;
+    invoke-virtual {v4, v14}, Landroid/content/res/TypedArray;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
     move-result-object v14
 
     move-object/from16 v0, p0
 
-    iget-object v15, v0, Landroid/widget/Switch;->mTrackTintMode:Landroid/graphics/PorterDuff$Mode;
-
-    if-eq v15, v14, :cond_9
+    iput-object v14, v0, Landroid/widget/Switch;->mThumbDrawable:Landroid/graphics/drawable/Drawable;
 
     move-object/from16 v0, p0
 
-    iput-object v14, v0, Landroid/widget/Switch;->mTrackTintMode:Landroid/graphics/PorterDuff$Mode;
+    iget-object v14, v0, Landroid/widget/Switch;->mThumbDrawable:Landroid/graphics/drawable/Drawable;
+
+    if-eqz v14, :cond_1
+
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Landroid/widget/Switch;->mThumbDrawable:Landroid/graphics/drawable/Drawable;
+
+    move-object/from16 v0, p0
+
+    invoke-virtual {v14, v0}, Landroid/graphics/drawable/Drawable;->setCallback(Landroid/graphics/drawable/Drawable$Callback;)V
+
+    :cond_1
+    const/4 v14, 0x4
+
+    invoke-virtual {v4, v14}, Landroid/content/res/TypedArray;->getDrawable(I)Landroid/graphics/drawable/Drawable;
+
+    move-result-object v14
+
+    move-object/from16 v0, p0
+
+    iput-object v14, v0, Landroid/widget/Switch;->mTrackDrawable:Landroid/graphics/drawable/Drawable;
+
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Landroid/widget/Switch;->mTrackDrawable:Landroid/graphics/drawable/Drawable;
+
+    if-eqz v14, :cond_2
+
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Landroid/widget/Switch;->mTrackDrawable:Landroid/graphics/drawable/Drawable;
+
+    move-object/from16 v0, p0
+
+    invoke-virtual {v14, v0}, Landroid/graphics/drawable/Drawable;->setCallback(Landroid/graphics/drawable/Drawable$Callback;)V
+
+    :cond_2
+    move-object/from16 v0, p0
+
+    iget-boolean v14, v0, Landroid/widget/Switch;->mThemeIsDeviceDefault:Z
+
+    if-eqz v14, :cond_3
+
+    move-object/from16 v0, p0
+
+    iget-boolean v14, v0, Landroid/widget/Switch;->mIsThemeChanged:Z
+
+    xor-int/lit8 v14, v14, 0x1
+
+    if-eqz v14, :cond_3
+
+    invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getTheme()Landroid/content/res/Resources$Theme;
+
+    move-result-object v14
+
+    const v15, 0x1080b4d
+
+    invoke-virtual {v8, v15, v14}, Landroid/content/res/Resources;->getDrawable(ILandroid/content/res/Resources$Theme;)Landroid/graphics/drawable/Drawable;
+
+    move-result-object v14
+
+    move-object/from16 v0, p0
+
+    iput-object v14, v0, Landroid/widget/Switch;->mTrackOnDrawable:Landroid/graphics/drawable/Drawable;
+
+    invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getTheme()Landroid/content/res/Resources$Theme;
+
+    move-result-object v14
+
+    const v15, 0x1080b4c
+
+    invoke-virtual {v8, v15, v14}, Landroid/content/res/Resources;->getDrawable(ILandroid/content/res/Resources$Theme;)Landroid/graphics/drawable/Drawable;
+
+    move-result-object v14
+
+    move-object/from16 v0, p0
+
+    iput-object v14, v0, Landroid/widget/Switch;->mTrackOffDrawable:Landroid/graphics/drawable/Drawable;
+
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Landroid/widget/Switch;->mTrackOnDrawable:Landroid/graphics/drawable/Drawable;
+
+    if-eqz v14, :cond_3
+
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Landroid/widget/Switch;->mTrackOffDrawable:Landroid/graphics/drawable/Drawable;
+
+    if-eqz v14, :cond_3
+
+    const/4 v14, 0x1
+
+    move-object/from16 v0, p0
+
+    iput-boolean v14, v0, Landroid/widget/Switch;->mIsSupportSemSwitchVI:Z
+
+    :cond_3
+    const/4 v14, 0x0
+
+    invoke-virtual {v4, v14}, Landroid/content/res/TypedArray;->getText(I)Ljava/lang/CharSequence;
+
+    move-result-object v14
+
+    move-object/from16 v0, p0
+
+    iput-object v14, v0, Landroid/widget/Switch;->mTextOn:Ljava/lang/CharSequence;
+
+    const/4 v14, 0x1
+
+    invoke-virtual {v4, v14}, Landroid/content/res/TypedArray;->getText(I)Ljava/lang/CharSequence;
+
+    move-result-object v14
+
+    move-object/from16 v0, p0
+
+    iput-object v14, v0, Landroid/widget/Switch;->mTextOff:Ljava/lang/CharSequence;
+
+    const/16 v14, 0xb
 
     const/4 v15, 0x1
 
+    invoke-virtual {v4, v14, v15}, Landroid/content/res/TypedArray;->getBoolean(IZ)Z
+
+    move-result v14
+
     move-object/from16 v0, p0
 
-    iput-boolean v15, v0, Landroid/widget/Switch;->mHasTrackTintMode:Z
+    iput-boolean v14, v0, Landroid/widget/Switch;->mShowText:Z
+
+    const/4 v14, 0x7
+
+    const/4 v15, 0x0
+
+    invoke-virtual {v4, v14, v15}, Landroid/content/res/TypedArray;->getDimensionPixelSize(II)I
+
+    move-result v14
+
+    move-object/from16 v0, p0
+
+    iput v14, v0, Landroid/widget/Switch;->mThumbTextPadding:I
+
+    const/4 v14, 0x5
+
+    const/4 v15, 0x0
+
+    invoke-virtual {v4, v14, v15}, Landroid/content/res/TypedArray;->getDimensionPixelSize(II)I
+
+    move-result v14
+
+    move-object/from16 v0, p0
+
+    iput v14, v0, Landroid/widget/Switch;->mSwitchMinWidth:I
+
+    const/4 v14, 0x6
+
+    const/4 v15, 0x0
+
+    invoke-virtual {v4, v14, v15}, Landroid/content/res/TypedArray;->getDimensionPixelSize(II)I
+
+    move-result v14
+
+    move-object/from16 v0, p0
+
+    iput v14, v0, Landroid/widget/Switch;->mSwitchPadding:I
+
+    const/16 v14, 0x8
+
+    const/4 v15, 0x0
+
+    invoke-virtual {v4, v14, v15}, Landroid/content/res/TypedArray;->getBoolean(IZ)Z
+
+    move-result v14
+
+    move-object/from16 v0, p0
+
+    iput-boolean v14, v0, Landroid/widget/Switch;->mSplitTrack:Z
+
+    const/16 v14, 0x9
+
+    invoke-virtual {v4, v14}, Landroid/content/res/TypedArray;->getColorStateList(I)Landroid/content/res/ColorStateList;
+
+    move-result-object v10
+
+    if-eqz v10, :cond_4
+
+    move-object/from16 v0, p0
+
+    iput-object v10, v0, Landroid/widget/Switch;->mThumbTintList:Landroid/content/res/ColorStateList;
+
+    const/4 v14, 0x1
+
+    move-object/from16 v0, p0
+
+    iput-boolean v14, v0, Landroid/widget/Switch;->mHasThumbTint:Z
+
+    :cond_4
+    const/16 v14, 0xa
+
+    const/4 v15, -0x1
+
+    invoke-virtual {v4, v14, v15}, Landroid/content/res/TypedArray;->getInt(II)I
+
+    move-result v14
+
+    const/4 v15, 0x0
+
+    invoke-static {v14, v15}, Landroid/graphics/drawable/Drawable;->parseTintMode(ILandroid/graphics/PorterDuff$Mode;)Landroid/graphics/PorterDuff$Mode;
+
+    move-result-object v11
+
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Landroid/widget/Switch;->mThumbTintMode:Landroid/graphics/PorterDuff$Mode;
+
+    if-eq v14, v11, :cond_5
+
+    move-object/from16 v0, p0
+
+    iput-object v11, v0, Landroid/widget/Switch;->mThumbTintMode:Landroid/graphics/PorterDuff$Mode;
+
+    const/4 v14, 0x1
+
+    move-object/from16 v0, p0
+
+    iput-boolean v14, v0, Landroid/widget/Switch;->mHasThumbTintMode:Z
+
+    :cond_5
+    move-object/from16 v0, p0
+
+    iget-boolean v14, v0, Landroid/widget/Switch;->mHasThumbTint:Z
+
+    if-nez v14, :cond_6
+
+    move-object/from16 v0, p0
+
+    iget-boolean v14, v0, Landroid/widget/Switch;->mHasThumbTintMode:Z
+
+    if-eqz v14, :cond_7
+
+    :cond_6
+    invoke-direct/range {p0 .. p0}, Landroid/widget/Switch;->applyThumbTint()V
+
+    :cond_7
+    const/16 v14, 0xc
+
+    invoke-virtual {v4, v14}, Landroid/content/res/TypedArray;->getColorStateList(I)Landroid/content/res/ColorStateList;
+
+    move-result-object v12
+
+    if-eqz v12, :cond_8
+
+    move-object/from16 v0, p0
+
+    iput-object v12, v0, Landroid/widget/Switch;->mTrackTintList:Landroid/content/res/ColorStateList;
+
+    const/4 v14, 0x1
+
+    move-object/from16 v0, p0
+
+    iput-boolean v14, v0, Landroid/widget/Switch;->mHasTrackTint:Z
+
+    :cond_8
+    const/16 v14, 0xd
+
+    const/4 v15, -0x1
+
+    invoke-virtual {v4, v14, v15}, Landroid/content/res/TypedArray;->getInt(II)I
+
+    move-result v14
+
+    const/4 v15, 0x0
+
+    invoke-static {v14, v15}, Landroid/graphics/drawable/Drawable;->parseTintMode(ILandroid/graphics/PorterDuff$Mode;)Landroid/graphics/PorterDuff$Mode;
+
+    move-result-object v13
+
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Landroid/widget/Switch;->mTrackTintMode:Landroid/graphics/PorterDuff$Mode;
+
+    if-eq v14, v13, :cond_9
+
+    move-object/from16 v0, p0
+
+    iput-object v13, v0, Landroid/widget/Switch;->mTrackTintMode:Landroid/graphics/PorterDuff$Mode;
+
+    const/4 v14, 0x1
+
+    move-object/from16 v0, p0
+
+    iput-boolean v14, v0, Landroid/widget/Switch;->mHasTrackTintMode:Z
 
     :cond_9
     move-object/from16 v0, p0
 
-    iget-boolean v15, v0, Landroid/widget/Switch;->mHasTrackTint:Z
+    iget-boolean v14, v0, Landroid/widget/Switch;->mHasTrackTint:Z
 
-    if-nez v15, :cond_a
+    if-nez v14, :cond_a
 
     move-object/from16 v0, p0
 
-    iget-boolean v15, v0, Landroid/widget/Switch;->mHasTrackTintMode:Z
+    iget-boolean v14, v0, Landroid/widget/Switch;->mHasTrackTintMode:Z
 
-    if-eqz v15, :cond_b
+    if-eqz v14, :cond_b
 
     :cond_a
     invoke-direct/range {p0 .. p0}, Landroid/widget/Switch;->applyTrackTint()V
 
     :cond_b
-    const/4 v15, 0x3
+    const/4 v14, 0x3
 
-    const/16 v16, 0x0
+    const/4 v15, 0x0
 
-    move/from16 v0, v16
-
-    invoke-virtual {v4, v15, v0}, Landroid/content/res/TypedArray;->getResourceId(II)I
+    invoke-virtual {v4, v14, v15}, Landroid/content/res/TypedArray;->getResourceId(II)I
 
     move-result v5
 
@@ -725,93 +725,40 @@
 
     invoke-static/range {p1 .. p1}, Landroid/view/ViewConfiguration;->get(Landroid/content/Context;)Landroid/view/ViewConfiguration;
 
-    move-result-object v7
+    move-result-object v6
 
-    invoke-virtual {v7}, Landroid/view/ViewConfiguration;->getScaledTouchSlop()I
+    invoke-virtual {v6}, Landroid/view/ViewConfiguration;->getScaledTouchSlop()I
 
-    move-result v15
-
-    move-object/from16 v0, p0
-
-    iput v15, v0, Landroid/widget/Switch;->mTouchSlop:I
-
-    invoke-virtual {v7}, Landroid/view/ViewConfiguration;->getScaledMinimumFlingVelocity()I
-
-    move-result v15
+    move-result v14
 
     move-object/from16 v0, p0
 
-    iput v15, v0, Landroid/widget/Switch;->mMinFlingVelocity:I
+    iput v14, v0, Landroid/widget/Switch;->mTouchSlop:I
+
+    invoke-virtual {v6}, Landroid/view/ViewConfiguration;->getScaledMinimumFlingVelocity()I
+
+    move-result v14
+
+    move-object/from16 v0, p0
+
+    iput v14, v0, Landroid/widget/Switch;->mMinFlingVelocity:I
 
     invoke-virtual/range {p0 .. p0}, Landroid/widget/Switch;->refreshDrawableState()V
 
     invoke-virtual/range {p0 .. p0}, Landroid/widget/Switch;->isChecked()Z
 
-    move-result v15
+    move-result v14
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v15}, Landroid/widget/Switch;->setChecked(Z)V
+    invoke-virtual {v0, v14}, Landroid/widget/Switch;->setChecked(Z)V
 
     return-void
 
     :cond_d
-    const/4 v15, 0x0
+    const/4 v14, 0x0
 
     goto/16 :goto_0
-
-    :cond_e
-    invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getTheme()Landroid/content/res/Resources$Theme;
-
-    move-result-object v15
-
-    const v16, 0x1080ac2
-
-    move/from16 v0, v16
-
-    invoke-virtual {v10, v0, v15}, Landroid/content/res/Resources;->getDrawable(ILandroid/content/res/Resources$Theme;)Landroid/graphics/drawable/Drawable;
-
-    move-result-object v15
-
-    move-object/from16 v0, p0
-
-    iput-object v15, v0, Landroid/widget/Switch;->mTrackOnDrawable:Landroid/graphics/drawable/Drawable;
-
-    invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getTheme()Landroid/content/res/Resources$Theme;
-
-    move-result-object v15
-
-    const v16, 0x1080ac0
-
-    move/from16 v0, v16
-
-    invoke-virtual {v10, v0, v15}, Landroid/content/res/Resources;->getDrawable(ILandroid/content/res/Resources$Theme;)Landroid/graphics/drawable/Drawable;
-
-    move-result-object v15
-
-    move-object/from16 v0, p0
-
-    iput-object v15, v0, Landroid/widget/Switch;->mTrackOffDrawable:Landroid/graphics/drawable/Drawable;
-
-    move-object/from16 v0, p0
-
-    iget-object v15, v0, Landroid/widget/Switch;->mTrackOnDrawable:Landroid/graphics/drawable/Drawable;
-
-    if-eqz v15, :cond_3
-
-    move-object/from16 v0, p0
-
-    iget-object v15, v0, Landroid/widget/Switch;->mTrackOffDrawable:Landroid/graphics/drawable/Drawable;
-
-    if-eqz v15, :cond_3
-
-    const/4 v15, 0x1
-
-    move-object/from16 v0, p0
-
-    iput-boolean v15, v0, Landroid/widget/Switch;->mIsSupportSemSwitchVI:Z
-
-    goto/16 :goto_1
 .end method
 
 .method private animateThumbToCheckedState(Z)V
@@ -850,7 +797,7 @@
 
     move-result-object v3
 
-    const v4, 0x10c002b
+    const v4, 0x10c001f
 
     invoke-static {v3, v4}, Landroid/view/animation/AnimationUtils;->loadInterpolator(Landroid/content/Context;I)Landroid/view/animation/Interpolator;
 
@@ -1280,23 +1227,33 @@
     move-result-object v1
 
     :goto_0
-    new-instance v0, Landroid/text/StaticLayout;
+    invoke-interface {v1}, Ljava/lang/CharSequence;->length()I
+
+    move-result v0
 
     iget-object v2, p0, Landroid/widget/Switch;->mTextPaint:Landroid/text/TextPaint;
 
-    iget-object v3, p0, Landroid/widget/Switch;->mTextPaint:Landroid/text/TextPaint;
+    invoke-virtual {p0}, Landroid/widget/Switch;->getTextDirectionHeuristic()Landroid/text/TextDirectionHeuristic;
 
-    invoke-static {v1, v3}, Landroid/text/Layout;->getDesiredWidth(Ljava/lang/CharSequence;Landroid/text/TextPaint;)F
+    move-result-object v4
 
-    move-result v3
+    const/4 v5, 0x0
 
-    float-to-double v4, v3
+    invoke-static {v1, v5, v0, v2, v4}, Landroid/text/Layout;->getDesiredWidth(Ljava/lang/CharSequence;IILandroid/text/TextPaint;Landroid/text/TextDirectionHeuristic;)F
+
+    move-result v0
+
+    float-to-double v4, v0
 
     invoke-static {v4, v5}, Ljava/lang/Math;->ceil(D)D
 
     move-result-wide v4
 
     double-to-int v3, v4
+
+    new-instance v0, Landroid/text/StaticLayout;
+
+    iget-object v2, p0, Landroid/widget/Switch;->mTextPaint:Landroid/text/TextPaint;
 
     sget-object v4, Landroid/text/Layout$Alignment;->ALIGN_NORMAL:Landroid/text/Layout$Alignment;
 
@@ -1314,6 +1271,67 @@
     move-object v1, p1
 
     goto :goto_0
+.end method
+
+.method private onProvideAutoFillStructureForAssistOrAutofill(Landroid/view/ViewStructure;)V
+    .locals 5
+
+    invoke-virtual {p0}, Landroid/widget/Switch;->isChecked()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_1
+
+    iget-object v2, p0, Landroid/widget/Switch;->mTextOn:Ljava/lang/CharSequence;
+
+    :goto_0
+    invoke-static {v2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_0
+
+    invoke-virtual {p1}, Landroid/view/ViewStructure;->getText()Ljava/lang/CharSequence;
+
+    move-result-object v1
+
+    invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_2
+
+    invoke-virtual {p1, v2}, Landroid/view/ViewStructure;->setText(Ljava/lang/CharSequence;)V
+
+    :cond_0
+    :goto_1
+    return-void
+
+    :cond_1
+    iget-object v2, p0, Landroid/widget/Switch;->mTextOff:Ljava/lang/CharSequence;
+
+    goto :goto_0
+
+    :cond_2
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/CharSequence;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    const/16 v4, 0x20
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/CharSequence;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p1, v0}, Landroid/view/ViewStructure;->setText(Ljava/lang/CharSequence;)V
+
+    goto :goto_1
 .end method
 
 .method private setSwitchTypefaceByIndex(II)V
@@ -1665,7 +1683,7 @@
 
     move-object/from16 v0, p0
 
-    iget-boolean v15, v0, Landroid/widget/Switch;->mIsDeviceDefaultLight:Z
+    iget-boolean v15, v0, Landroid/widget/Switch;->mThemeIsDeviceDefault:Z
 
     if-eqz v15, :cond_5
 
@@ -2846,7 +2864,7 @@
 
     move-result-object v12
 
-    const v13, 0x10501d1
+    const v13, 0x10503e2
 
     invoke-virtual {v12, v13}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2854,7 +2872,7 @@
 
     iget v12, p0, Landroid/widget/Switch;->mSwitchMinWidth:I
 
-    iget-boolean v13, p0, Landroid/widget/Switch;->mIsDeviceDefaultLight:Z
+    iget-boolean v13, p0, Landroid/widget/Switch;->mThemeIsDeviceDefault:Z
 
     if-eqz v13, :cond_7
 
@@ -2950,67 +2968,24 @@
     goto :goto_0
 .end method
 
+.method public onProvideAutofillStructure(Landroid/view/ViewStructure;I)V
+    .locals 0
+
+    invoke-super {p0, p1, p2}, Landroid/widget/CompoundButton;->onProvideAutofillStructure(Landroid/view/ViewStructure;I)V
+
+    invoke-direct {p0, p1}, Landroid/widget/Switch;->onProvideAutoFillStructureForAssistOrAutofill(Landroid/view/ViewStructure;)V
+
+    return-void
+.end method
+
 .method public onProvideStructure(Landroid/view/ViewStructure;)V
-    .locals 5
+    .locals 0
 
     invoke-super {p0, p1}, Landroid/widget/CompoundButton;->onProvideStructure(Landroid/view/ViewStructure;)V
 
-    invoke-virtual {p0}, Landroid/widget/Switch;->isChecked()Z
+    invoke-direct {p0, p1}, Landroid/widget/Switch;->onProvideAutoFillStructureForAssistOrAutofill(Landroid/view/ViewStructure;)V
 
-    move-result v3
-
-    if-eqz v3, :cond_1
-
-    iget-object v2, p0, Landroid/widget/Switch;->mTextOn:Ljava/lang/CharSequence;
-
-    :goto_0
-    invoke-static {v2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v3
-
-    if-nez v3, :cond_0
-
-    invoke-virtual {p1}, Landroid/view/ViewStructure;->getText()Ljava/lang/CharSequence;
-
-    move-result-object v1
-
-    invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_2
-
-    invoke-virtual {p1, v2}, Landroid/view/ViewStructure;->setText(Ljava/lang/CharSequence;)V
-
-    :cond_0
-    :goto_1
     return-void
-
-    :cond_1
-    iget-object v2, p0, Landroid/widget/Switch;->mTextOff:Ljava/lang/CharSequence;
-
-    goto :goto_0
-
-    :cond_2
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/CharSequence;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    const/16 v4, 0x20
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/CharSequence;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {p1, v0}, Landroid/view/ViewStructure;->setText(Ljava/lang/CharSequence;)V
-
-    goto :goto_1
 .end method
 
 .method public onTouchEvent(Landroid/view/MotionEvent;)Z
@@ -3242,6 +3217,9 @@
 
 .method public setChecked(Z)V
     .locals 1
+    .annotation runtime Landroid/view/RemotableViewMethod;
+        asyncImpl = "setCheckedAsync"
+    .end annotation
 
     invoke-super {p0, p1}, Landroid/widget/CompoundButton;->setChecked(Z)V
 
@@ -3525,7 +3503,7 @@
     goto :goto_0
 
     :cond_2
-    move v1, v2
+    const/4 v1, 0x0
 
     goto :goto_1
 
@@ -3725,19 +3703,11 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    xor-int/lit8 v0, v0, 0x1
 
-    const/4 v0, 0x0
-
-    :goto_0
     invoke-virtual {p0, v0}, Landroid/widget/Switch;->setChecked(Z)V
 
     return-void
-
-    :cond_0
-    const/4 v0, 0x1
-
-    goto :goto_0
 .end method
 
 .method protected verifyDrawable(Landroid/graphics/drawable/Drawable;)Z

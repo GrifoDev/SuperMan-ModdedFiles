@@ -325,7 +325,7 @@
 .end method
 
 .method public static detectSurfaceType(Landroid/view/Surface;)I
-    .locals 1
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/hardware/camera2/legacy/LegacyExceptionUtils$BufferQueueAbandonedException;
@@ -338,11 +338,22 @@
 
     move-result v0
 
+    const/4 v1, 0x1
+
+    if-lt v0, v1, :cond_0
+
+    const/4 v1, 0x5
+
+    if-gt v0, v1, :cond_0
+
+    const/16 v0, 0x22
+
+    :cond_0
     invoke-static {v0}, Landroid/hardware/camera2/legacy/LegacyExceptionUtils;->throwOnError(I)I
 
-    move-result v0
+    move-result v1
 
-    return v0
+    return v1
 .end method
 
 .method static detectSurfaceUsageFlags(Landroid/view/Surface;)I
@@ -852,113 +863,74 @@
 .end method
 
 .method public static isFlexibleConsumer(Landroid/view/Surface;)Z
-    .locals 3
-
-    const/4 v0, 0x0
-
-    invoke-static {p0}, Landroid/hardware/camera2/legacy/LegacyCameraDevice;->detectSurfaceUsageFlags(Landroid/view/Surface;)I
-
-    move-result v1
-
-    const/high16 v2, 0x110000
-
-    and-int/2addr v2, v1
-
-    if-nez v2, :cond_0
-
-    and-int/lit16 v2, v1, 0x903
-
-    if-eqz v2, :cond_0
-
-    const/4 v0, 0x1
-
-    :cond_0
-    return v0
-.end method
-
-.method public static isPreviewConsumer(Landroid/view/Surface;)Z
-    .locals 6
+    .locals 5
 
     invoke-static {p0}, Landroid/hardware/camera2/legacy/LegacyCameraDevice;->detectSurfaceUsageFlags(Landroid/view/Surface;)I
 
     move-result v3
 
-    const v4, 0x110003
+    const/high16 v1, 0x110000
+
+    const/16 v0, 0x903
+
+    const/high16 v4, 0x110000
 
     and-int/2addr v4, v3
 
     if-nez v4, :cond_1
 
-    and-int/lit16 v4, v3, 0xb00
+    and-int/lit16 v4, v3, 0x903
 
     if-eqz v4, :cond_0
 
-    const/4 v1, 0x1
+    const/4 v2, 0x1
 
     :goto_0
-    const/4 v2, 0x0
-
-    :try_start_0
-    invoke-static {p0}, Landroid/hardware/camera2/legacy/LegacyCameraDevice;->detectSurfaceType(Landroid/view/Surface;)I
-    :try_end_0
-    .catch Landroid/hardware/camera2/legacy/LegacyExceptionUtils$BufferQueueAbandonedException; {:try_start_0 .. :try_end_0} :catch_0
-
-    move-result v2
-
-    return v1
+    return v2
 
     :cond_0
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
     goto :goto_0
 
     :cond_1
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
     goto :goto_0
-
-    :catch_0
-    move-exception v0
-
-    new-instance v4, Ljava/lang/IllegalArgumentException;
-
-    const-string/jumbo v5, "Surface was abandoned"
-
-    invoke-direct {v4, v5, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
-
-    throw v4
 .end method
 
-.method public static isVideoEncoderConsumer(Landroid/view/Surface;)Z
-    .locals 6
+.method public static isPreviewConsumer(Landroid/view/Surface;)Z
+    .locals 8
 
     invoke-static {p0}, Landroid/hardware/camera2/legacy/LegacyCameraDevice;->detectSurfaceUsageFlags(Landroid/view/Surface;)I
 
-    move-result v2
+    move-result v5
 
-    const v4, 0x100903
+    const v1, 0x110003
 
-    and-int/2addr v4, v2
+    const/16 v0, 0xb00
 
-    if-nez v4, :cond_1
+    const v6, 0x110003
 
-    const/high16 v4, 0x10000
+    and-int/2addr v6, v5
 
-    and-int/2addr v4, v2
+    if-nez v6, :cond_1
 
-    if-eqz v4, :cond_0
+    and-int/lit16 v6, v5, 0xb00
+
+    if-eqz v6, :cond_0
 
     const/4 v3, 0x1
 
     :goto_0
-    const/4 v1, 0x0
+    const/4 v4, 0x0
 
     :try_start_0
     invoke-static {p0}, Landroid/hardware/camera2/legacy/LegacyCameraDevice;->detectSurfaceType(Landroid/view/Surface;)I
     :try_end_0
     .catch Landroid/hardware/camera2/legacy/LegacyExceptionUtils$BufferQueueAbandonedException; {:try_start_0 .. :try_end_0} :catch_0
 
-    move-result v1
+    move-result v4
 
     return v3
 
@@ -973,15 +945,74 @@
     goto :goto_0
 
     :catch_0
-    move-exception v0
+    move-exception v2
 
-    new-instance v4, Ljava/lang/IllegalArgumentException;
+    new-instance v6, Ljava/lang/IllegalArgumentException;
 
-    const-string/jumbo v5, "Surface was abandoned"
+    const-string/jumbo v7, "Surface was abandoned"
 
-    invoke-direct {v4, v5, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+    invoke-direct {v6, v7, v2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    throw v4
+    throw v6
+.end method
+
+.method public static isVideoEncoderConsumer(Landroid/view/Surface;)Z
+    .locals 8
+
+    invoke-static {p0}, Landroid/hardware/camera2/legacy/LegacyCameraDevice;->detectSurfaceUsageFlags(Landroid/view/Surface;)I
+
+    move-result v4
+
+    const v1, 0x100903
+
+    const/high16 v0, 0x10000
+
+    const v6, 0x100903
+
+    and-int/2addr v6, v4
+
+    if-nez v6, :cond_1
+
+    const/high16 v6, 0x10000
+
+    and-int/2addr v6, v4
+
+    if-eqz v6, :cond_0
+
+    const/4 v5, 0x1
+
+    :goto_0
+    const/4 v3, 0x0
+
+    :try_start_0
+    invoke-static {p0}, Landroid/hardware/camera2/legacy/LegacyCameraDevice;->detectSurfaceType(Landroid/view/Surface;)I
+    :try_end_0
+    .catch Landroid/hardware/camera2/legacy/LegacyExceptionUtils$BufferQueueAbandonedException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v3
+
+    return v5
+
+    :cond_0
+    const/4 v5, 0x0
+
+    goto :goto_0
+
+    :cond_1
+    const/4 v5, 0x0
+
+    goto :goto_0
+
+    :catch_0
+    move-exception v2
+
+    new-instance v6, Ljava/lang/IllegalArgumentException;
+
+    const-string/jumbo v7, "Surface was abandoned"
+
+    invoke-direct {v6, v7, v2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+
+    throw v6
 .end method
 
 .method private static native nativeConnectSurface(Landroid/view/Surface;)I
@@ -1427,13 +1458,9 @@
 
     if-nez v10, :cond_2
 
-    const/4 v14, 0x1
+    const/16 v14, 0x22
 
-    if-lt v13, v14, :cond_3
-
-    const/4 v14, 0x5
-
-    if-gt v13, v14, :cond_3
+    if-ne v13, v14, :cond_3
 
     const/16 v14, 0x23
 

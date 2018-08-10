@@ -100,94 +100,94 @@
 .end method
 
 .method public static getPersistenceService(Landroid/content/Context;)Lcom/absolute/android/persistence/ABTPersistenceManager;
-    .locals 4
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/InterruptedException;
         }
     .end annotation
 
-    sget-object v1, Lcom/absolute/android/persistence/ABTPersistenceManager;->s_connection:Landroid/content/ServiceConnection;
+    sget-object v0, Lcom/absolute/android/persistence/ABTPersistenceManager;->s_connection:Landroid/content/ServiceConnection;
 
-    monitor-enter v1
+    monitor-enter v0
 
     :try_start_0
-    sget-object v0, Lcom/absolute/android/persistence/ABTPersistenceManager;->s_persistenceManager:Lcom/absolute/android/persistence/ABTPersistenceManager;
+    sget-object v3, Lcom/absolute/android/persistence/ABTPersistenceManager;->s_persistenceManager:Lcom/absolute/android/persistence/ABTPersistenceManager;
 
-    if-eqz v0, :cond_0
+    if-eqz v3, :cond_0
 
     :goto_0
-    sget-object v0, Lcom/absolute/android/persistence/ABTPersistenceManager;->s_persistenceManager:Lcom/absolute/android/persistence/ABTPersistenceManager;
+    sget-object v3, Lcom/absolute/android/persistence/ABTPersistenceManager;->s_persistenceManager:Lcom/absolute/android/persistence/ABTPersistenceManager;
 
-    monitor-exit v1
+    monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    return-object v0
+    return-object v3
 
     :cond_0
     :try_start_1
-    const-string/jumbo v0, "ABTPersistenceService"
+    const-string/jumbo v3, "ABTPersistenceService"
 
-    invoke-virtual {p0, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {p0, v3}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v3
 
-    check-cast v0, Lcom/absolute/android/persistence/ABTPersistenceManager;
+    check-cast v3, Lcom/absolute/android/persistence/ABTPersistenceManager;
 
-    sput-object v0, Lcom/absolute/android/persistence/ABTPersistenceManager;->s_persistenceManager:Lcom/absolute/android/persistence/ABTPersistenceManager;
+    sput-object v3, Lcom/absolute/android/persistence/ABTPersistenceManager;->s_persistenceManager:Lcom/absolute/android/persistence/ABTPersistenceManager;
     :try_end_1
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     :goto_1
     :try_start_2
-    sget-object v0, Lcom/absolute/android/persistence/ABTPersistenceManager;->s_persistenceManager:Lcom/absolute/android/persistence/ABTPersistenceManager;
+    sget-object v3, Lcom/absolute/android/persistence/ABTPersistenceManager;->s_persistenceManager:Lcom/absolute/android/persistence/ABTPersistenceManager;
 
-    if-eqz v0, :cond_1
+    if-eqz v3, :cond_1
 
     :goto_2
     sput-object p0, Lcom/absolute/android/persistence/ABTPersistenceManager;->s_context:Landroid/content/Context;
 
-    sget-object v0, Lcom/absolute/android/persistence/ABTPersistenceManager;->s_connection:Landroid/content/ServiceConnection;
+    sget-object v3, Lcom/absolute/android/persistence/ABTPersistenceManager;->s_connection:Landroid/content/ServiceConnection;
 
-    invoke-virtual {v0}, Ljava/lang/Object;->wait()V
+    invoke-virtual {v3}, Ljava/lang/Object;->wait()V
 
     goto :goto_0
 
     :catchall_0
-    move-exception v0
+    move-exception v1
 
-    monitor-exit v1
+    monitor-exit v0
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    throw v0
+    throw v1
 
     :cond_1
     :try_start_3
-    new-instance v0, Landroid/content/Intent;
+    new-instance v2, Landroid/content/Intent;
 
-    invoke-direct {v0}, Landroid/content/Intent;-><init>()V
+    invoke-direct {v2}, Landroid/content/Intent;-><init>()V
 
-    const-string/jumbo v2, "com.absolute.android.persistenceapp"
+    const-string/jumbo v3, "com.absolute.android.persistenceapp"
 
-    const-string/jumbo v3, "com.absolute.android.persistenceapp.ABTPersistenceSystemApp"
+    const-string/jumbo v4, "com.absolute.android.persistenceapp.ABTPersistenceSystemApp"
 
-    invoke-virtual {v0, v2, v3}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+    invoke-virtual {v2, v3, v4}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    sget-object v2, Lcom/absolute/android/persistence/ABTPersistenceManager;->s_connection:Landroid/content/ServiceConnection;
+    sget-object v3, Lcom/absolute/android/persistence/ABTPersistenceManager;->s_connection:Landroid/content/ServiceConnection;
 
-    const/4 v3, 0x1
+    const/4 v4, 0x1
 
-    invoke-virtual {p0, v0, v2, v3}, Landroid/content/Context;->bindService(Landroid/content/Intent;Landroid/content/ServiceConnection;I)Z
+    invoke-virtual {p0, v2, v3, v4}, Landroid/content/Context;->bindService(Landroid/content/Intent;Landroid/content/ServiceConnection;I)Z
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
     goto :goto_2
 
     :catch_0
-    move-exception v0
+    move-exception v3
 
     goto :goto_1
 .end method
@@ -300,25 +300,25 @@
 .end method
 
 .method protected finalize()V
-    .locals 3
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Throwable;
         }
     .end annotation
 
-    sget-object v1, Lcom/absolute/android/persistence/ABTPersistenceManager;->s_connection:Landroid/content/ServiceConnection;
-
-    monitor-enter v1
-
-    :try_start_0
     sget-object v0, Lcom/absolute/android/persistence/ABTPersistenceManager;->s_connection:Landroid/content/ServiceConnection;
 
-    if-nez v0, :cond_1
+    monitor-enter v0
+
+    :try_start_0
+    sget-object v2, Lcom/absolute/android/persistence/ABTPersistenceManager;->s_connection:Landroid/content/ServiceConnection;
+
+    if-nez v2, :cond_1
 
     :cond_0
     :goto_0
-    monitor-exit v1
+    monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -328,26 +328,26 @@
 
     :cond_1
     :try_start_1
-    sget-object v0, Lcom/absolute/android/persistence/ABTPersistenceManager;->s_context:Landroid/content/Context;
+    sget-object v2, Lcom/absolute/android/persistence/ABTPersistenceManager;->s_context:Landroid/content/Context;
 
-    if-eqz v0, :cond_0
+    if-eqz v2, :cond_0
 
-    sget-object v0, Lcom/absolute/android/persistence/ABTPersistenceManager;->s_context:Landroid/content/Context;
+    sget-object v2, Lcom/absolute/android/persistence/ABTPersistenceManager;->s_context:Landroid/content/Context;
 
-    sget-object v2, Lcom/absolute/android/persistence/ABTPersistenceManager;->s_connection:Landroid/content/ServiceConnection;
+    sget-object v3, Lcom/absolute/android/persistence/ABTPersistenceManager;->s_connection:Landroid/content/ServiceConnection;
 
-    invoke-virtual {v0, v2}, Landroid/content/Context;->unbindService(Landroid/content/ServiceConnection;)V
+    invoke-virtual {v2, v3}, Landroid/content/Context;->unbindService(Landroid/content/ServiceConnection;)V
 
     goto :goto_0
 
     :catchall_0
-    move-exception v0
+    move-exception v1
 
-    monitor-exit v1
+    monitor-exit v0
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    throw v0
+    throw v1
 .end method
 
 .method public getAllApplicationProfiles()[Lcom/absolute/android/persistence/AppProfile;

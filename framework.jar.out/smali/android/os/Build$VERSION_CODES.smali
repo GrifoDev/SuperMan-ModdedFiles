@@ -67,6 +67,10 @@
 
 .field public static final N:I = 0x18
 
+.field public static final N_MR1:I = 0x19
+
+.field public static final O:I = 0x1a
+
 
 # direct methods
 .method public constructor <init>()V

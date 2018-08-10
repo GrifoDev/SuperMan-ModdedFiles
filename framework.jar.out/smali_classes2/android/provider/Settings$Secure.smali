@@ -19,6 +19,8 @@
 
 .field public static final ACCESSIBILITY_AUTOCLICK_ENABLED:Ljava/lang/String; = "accessibility_autoclick_enabled"
 
+.field public static final ACCESSIBILITY_BUTTON_TARGET_COMPONENT:Ljava/lang/String; = "accessibility_button_target_component"
+
 .field public static final ACCESSIBILITY_CAPTIONING_BACKGROUND_COLOR:Ljava/lang/String; = "accessibility_captioning_background_color"
 
 .field public static final ACCESSIBILITY_CAPTIONING_EDGE_COLOR:Ljava/lang/String; = "accessibility_captioning_edge_color"
@@ -41,8 +43,6 @@
 
 .field public static final ACCESSIBILITY_CURSOR_COLOR:Ljava/lang/String; = "accessibility_cursor_color"
 
-.field public static final ACCESSIBILITY_DISPLAY_COLOR_MATRIX:Ljava/lang/String; = "accessibility_display_color_matrix"
-
 .field public static final ACCESSIBILITY_DISPLAY_DALTONIZER:Ljava/lang/String; = "accessibility_display_daltonizer"
 
 .field public static final ACCESSIBILITY_DISPLAY_DALTONIZER_ENABLED:Ljava/lang/String; = "accessibility_display_daltonizer_enabled"
@@ -50,8 +50,13 @@
 .field public static final ACCESSIBILITY_DISPLAY_INVERSION_ENABLED:Ljava/lang/String; = "accessibility_display_inversion_enabled"
 
 .field public static final ACCESSIBILITY_DISPLAY_MAGNIFICATION_AUTO_UPDATE:Ljava/lang/String; = "accessibility_display_magnification_auto_update"
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
 
 .field public static final ACCESSIBILITY_DISPLAY_MAGNIFICATION_ENABLED:Ljava/lang/String; = "accessibility_display_magnification_enabled"
+
+.field public static final ACCESSIBILITY_DISPLAY_MAGNIFICATION_NAVBAR_ENABLED:Ljava/lang/String; = "accessibility_display_magnification_navbar_enabled"
 
 .field public static final ACCESSIBILITY_DISPLAY_MAGNIFICATION_SCALE:Ljava/lang/String; = "accessibility_display_magnification_scale"
 
@@ -67,17 +72,26 @@
 
 .field public static final ACCESSIBILITY_NON_WEB_GRANULARITY:Ljava/lang/String; = "accessibility_non_web_granularity"
 
-.field public static final ACCESSIBILITY_SCREEN_READER_URL:Ljava/lang/String; = "accessibility_script_injection_url"
-
 .field public static final ACCESSIBILITY_SCRIPT_INJECTION:Ljava/lang/String; = "accessibility_script_injection"
 
 .field public static final ACCESSIBILITY_SEC_CAPTIONING_ENABLED:Ljava/lang/String; = "accessibility_sec_captioning_enabled"
+
+.field public static final ACCESSIBILITY_SHORTCUT_DIALOG_SHOWN:Ljava/lang/String; = "accessibility_shortcut_dialog_shown"
+
+.field public static final ACCESSIBILITY_SHORTCUT_ENABLED:Ljava/lang/String; = "accessibility_shortcut_enabled"
+
+.field public static final ACCESSIBILITY_SHORTCUT_ON_LOCK_SCREEN:Ljava/lang/String; = "accessibility_shortcut_on_lock_screen"
+
+.field public static final ACCESSIBILITY_SHORTCUT_TARGET_SERVICE:Ljava/lang/String; = "accessibility_shortcut_target_service"
 
 .field public static final ACCESSIBILITY_SINGLE_TAP_SELECTION:Ljava/lang/String; = "accessibility_single_tap_selection"
 
 .field public static final ACCESSIBILITY_SOFT_KEYBOARD_MODE:Ljava/lang/String; = "accessibility_soft_keyboard_mode"
 
 .field public static final ACCESSIBILITY_SPEAK_PASSWORD:Ljava/lang/String; = "speak_password"
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
 
 .field public static final ACCESSIBILITY_UNIVERSAL_SWITCH_BLUETOOTH_KEY_MAPPED:Ljava/lang/String; = "universal_switch_bluetooth_key_mapped"
 
@@ -88,8 +102,6 @@
 .field public static final ACCESSIBILITY_UNIVERSAL_SWITCH_ENABLED_FROM_DIRECTACCESS:Ljava/lang/String; = "universal_switch_enabled_from_directaccess"
 
 .field public static final ACCESSIBILITY_UNIVERSAL_SWITCH_SCREEN_AS_SWITCH:Ljava/lang/String; = "accessibility_universal_switch_screen_as_switch"
-
-.field public static final ACCESSIBILITY_WEB_CONTENT_KEY_BINDINGS:Ljava/lang/String; = "accessibility_web_content_key_bindings"
 
 .field public static final ACCESSIBILITY_WEB_GRANULARITY:Ljava/lang/String; = "accessibility_web_granularity"
 
@@ -115,6 +127,12 @@
 
 .field public static final ASSISTANT:Ljava/lang/String; = "assistant"
 
+.field public static final ASSIST_DISCLOSURE_ENABLED:Ljava/lang/String; = "assist_disclosure_enabled"
+
+.field public static final ASSIST_GESTURE_ENABLED:Ljava/lang/String; = "assist_gesture_enabled"
+
+.field public static final ASSIST_GESTURE_SENSITIVITY:Ljava/lang/String; = "assist_gesture_sensitivity"
+
 .field public static final ASSIST_SCREENSHOT_ENABLED:Ljava/lang/String; = "assist_screenshot_enabled"
 
 .field public static final ASSIST_STRUCTURE_ENABLED:Ljava/lang/String; = "assist_structure_enabled"
@@ -124,6 +142,20 @@
 .field public static final AUTOCSP_ENABLED:Ljava/lang/String; = "autocsp_enabled"
 
 .field public static final AUTOCSP_OPERATOR_CODE:Ljava/lang/String; = "data_operator_code"
+
+.field public static final AUTOFILL_SERVICE:Ljava/lang/String; = "autofill_service"
+
+.field public static final AUTOFILL_SERVICE_SEARCH_URI:Ljava/lang/String; = "autofill_service_search_uri"
+
+.field public static final AUTOMATIC_STORAGE_MANAGER_BYTES_CLEARED:Ljava/lang/String; = "automatic_storage_manager_bytes_cleared"
+
+.field public static final AUTOMATIC_STORAGE_MANAGER_DAYS_TO_RETAIN:Ljava/lang/String; = "automatic_storage_manager_days_to_retain"
+
+.field public static final AUTOMATIC_STORAGE_MANAGER_DAYS_TO_RETAIN_DEFAULT:I = 0x5a
+
+.field public static final AUTOMATIC_STORAGE_MANAGER_ENABLED:Ljava/lang/String; = "automatic_storage_manager_enabled"
+
+.field public static final AUTOMATIC_STORAGE_MANAGER_LAST_RUN:Ljava/lang/String; = "automatic_storage_manager_last_run"
 
 .field public static final AUTO_SWIPE_MAIN_USER:Ljava/lang/String; = "auto_swipe_main_user"
 
@@ -136,6 +168,8 @@
 
 .field public static final BACKGROUND_DATA_BY_USER:Ljava/lang/String; = "background_data_by_user"
 
+.field public static final BACKGROUND_UNLOCK_WITH_BIOMETRICS:Ljava/lang/String; = "biometrics_auto_wakeup_enabled"
+
 .field public static final BACKUP_AUTO_RESTORE:Ljava/lang/String; = "backup_auto_restore"
 
 .field public static final BACKUP_ENABLED:Ljava/lang/String; = "backup_enabled"
@@ -144,20 +178,20 @@
 
 .field public static final BACKUP_TRANSPORT:Ljava/lang/String; = "backup_transport"
 
-.field public static final BAR_SERVICE_COMPONENT:Ljava/lang/String; = "bar_service_component"
+.field public static final BIOMETRICS_BACKUP_PASSWORD:I = 0x0
+
+.field public static final BIOMETRICS_BACKUP_SAMSUNG_ACCOUNT:I = 0x1
+
+.field public static final BIOMETRICS_BACKUP_TYPE:Ljava/lang/String; = "biometrics_backup_type"
 
 .field public static final BIOMETRICS_FAILED_ATTEMPT:Ljava/lang/String; = "biometrics_failed_attempt"
 
 .field public static final BIOMETRICS_REMAINING_TIME:Ljava/lang/String; = "biometrics_remaining_time"
 
-.field public static final BLUETOOTH_HCI_LOG:Ljava/lang/String; = "bluetooth_hci_log"
-
 .field public static final BLUETOOTH_ON:Ljava/lang/String; = "bluetooth_on"
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 .end field
-
-.field public static final BRIGHTNESS_USE_TWILIGHT:Ljava/lang/String; = "brightness_use_twilight"
 
 .field public static final BUGREPORT_IN_POWER_MENU:Ljava/lang/String; = "bugreport_in_power_menu"
     .annotation runtime Ljava/lang/Deprecated;
@@ -166,7 +200,11 @@
 
 .field public static final CAMERA_DOUBLE_TAP_POWER_GESTURE_DISABLED:Ljava/lang/String; = "camera_double_tap_power_gesture_disabled"
 
+.field public static final CAMERA_DOUBLE_TWIST_TO_FLIP_ENABLED:Ljava/lang/String; = "camera_double_twist_to_flip_enabled"
+
 .field public static final CAMERA_GESTURE_DISABLED:Ljava/lang/String; = "camera_gesture_disabled"
+
+.field public static final CARRIER_APPS_HANDLED:Ljava/lang/String; = "carrier_apps_handled"
 
 .field public static final CARRIER_MATCH_ALWAYS_ASK:Ljava/lang/String; = "carrier_match_always_ask"
 
@@ -247,6 +285,8 @@
     .end annotation
 .end field
 
+.field public static final CMAS_ADDITIONAL_BROADCAST_PKG:Ljava/lang/String; = "cmas_additional_broadcast_pkg"
+
 .field public static final COMPLETED_CATEGORY_PREFIX:Ljava/lang/String; = "suggested.completed_category."
 
 .field public static final CONNECTIVITY_RELEASE_PENDING_INTENT_DELAY_MS:Ljava/lang/String; = "connectivity_release_pending_intent_delay_ms"
@@ -264,10 +304,14 @@
 
 .field public static final DEFAULT_INPUT_METHOD:Ljava/lang/String; = "default_input_method"
 
+.field public static final DEMO_USER_SETUP_COMPLETE:Ljava/lang/String; = "demo_user_setup_complete"
+
 .field public static final DEVELOPMENT_SETTINGS_ENABLED:Ljava/lang/String; = "development_settings_enabled"
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 .end field
+
+.field public static final DEVICE_PAIRED:Ljava/lang/String; = "device_paired"
 
 .field public static final DEVICE_PROVISIONED:Ljava/lang/String; = "device_provisioned"
     .annotation runtime Ljava/lang/Deprecated;
@@ -294,7 +338,13 @@
 
 .field public static final DOUBLE_TAP_TO_WAKE:Ljava/lang/String; = "double_tap_to_wake"
 
+.field public static final DOZE_ALWAYS_ON:Ljava/lang/String; = "doze_always_on"
+
 .field public static final DOZE_ENABLED:Ljava/lang/String; = "doze_enabled"
+
+.field public static final DOZE_PULSE_ON_DOUBLE_TAP:Ljava/lang/String; = "doze_pulse_on_double_tap"
+
+.field public static final DOZE_PULSE_ON_PICK_UP:Ljava/lang/String; = "doze_pulse_on_pick_up"
 
 .field public static final EMERGENCY_ASSISTANCE_APPLICATION:Ljava/lang/String; = "emergency_assistance_application"
 
@@ -305,6 +355,8 @@
 .field public static final ENABLED_ACCESSIBILITY_S_TALKBACK:Ljava/lang/String; = "enabled_accessibility_s_talkback"
 
 .field public static final ENABLED_INPUT_METHODS:Ljava/lang/String; = "enabled_input_methods"
+
+.field public static final ENABLED_NOTIFICATION_ASSISTANT:Ljava/lang/String; = "enabled_notification_assistant"
 
 .field public static final ENABLED_NOTIFICATION_LISTENERS:Ljava/lang/String; = "enabled_notification_listeners"
 
@@ -325,6 +377,14 @@
 
 .field public static final IMMERSIVE_MODE_CONFIRMATIONS:Ljava/lang/String; = "immersive_mode_confirmations"
 
+.field public static final INCALL_BACK_BUTTON_BEHAVIOR:Ljava/lang/String; = "incall_back_button_behavior"
+
+.field public static final INCALL_BACK_BUTTON_BEHAVIOR_DEFAULT:I = 0x0
+
+.field public static final INCALL_BACK_BUTTON_BEHAVIOR_HANGUP:I = 0x1
+
+.field public static final INCALL_BACK_BUTTON_BEHAVIOR_NONE:I = 0x0
+
 .field public static final INCALL_POWER_BUTTON_BEHAVIOR:Ljava/lang/String; = "incall_power_button_behavior"
 
 .field public static final INCALL_POWER_BUTTON_BEHAVIOR_DEFAULT:I = 0x1
@@ -339,7 +399,18 @@
 
 .field public static final INSTALL_NON_MARKET_APPS:Ljava/lang/String; = "install_non_market_apps"
 
-.field public static final INTERACTION_CONTROL_EXIT_LOCKED:Ljava/lang/String; = "interaction_control_exit_locked"
+.field public static final INSTANT_APPS_ENABLED:Ljava/lang/String; = "instant_apps_enabled"
+
+.field public static final INSTANT_APP_SETTINGS:Ljava/util/Set;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/Set",
+            "<",
+            "Ljava/lang/String;",
+            ">;"
+        }
+    .end annotation
+.end field
 
 .field public static final KDDI_CPA_APN:Ljava/lang/String; = "kddi_cpa_apn"
 
@@ -427,8 +498,14 @@
 .field public static final LOCK_SCREEN_LOCK_AFTER_TIMEOUT:Ljava/lang/String; = "lock_screen_lock_after_timeout"
 
 .field public static final LOCK_SCREEN_OWNER_INFO:Ljava/lang/String; = "lock_screen_owner_info"
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
 
 .field public static final LOCK_SCREEN_OWNER_INFO_ENABLED:Ljava/lang/String; = "lock_screen_owner_info_enabled"
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
 
 .field public static final LOCK_SCREEN_QUICK_NOTE:Ljava/lang/String; = "lock_screen_quick_note"
 
@@ -495,6 +572,8 @@
     .end annotation
 .end field
 
+.field public static final MULTI_PRESS_TIMEOUT:Ljava/lang/String; = "multi_press_timeout"
+
 .field public static final NETWORK_OPERATOR_AUTO_MANUAL:Ljava/lang/String; = "network_operator_choice_auto_manual"
 
 .field public static final NETWORK_PREFERENCE:Ljava/lang/String; = "network_preference"
@@ -507,6 +586,24 @@
 .field public static final NFC_PAYMENT_DEFAULT_COMPONENT:Ljava/lang/String; = "nfc_payment_default_component"
 
 .field public static final NFC_PAYMENT_FOREGROUND:Ljava/lang/String; = "nfc_payment_foreground"
+
+.field public static final NIGHT_DISPLAY_ACTIVATED:Ljava/lang/String; = "night_display_activated"
+
+.field public static final NIGHT_DISPLAY_AUTO_MODE:Ljava/lang/String; = "night_display_auto_mode"
+
+.field public static final NIGHT_DISPLAY_COLOR_TEMPERATURE:Ljava/lang/String; = "night_display_color_temperature"
+
+.field public static final NIGHT_DISPLAY_CUSTOM_END_TIME:Ljava/lang/String; = "night_display_custom_end_time"
+
+.field public static final NIGHT_DISPLAY_CUSTOM_START_TIME:Ljava/lang/String; = "night_display_custom_start_time"
+
+.field public static final NIGHT_DISPLAY_LAST_ACTIVATED_TIME:Ljava/lang/String; = "night_display_last_activated_time"
+
+.field public static final NOTIFICATION_BADGING:Ljava/lang/String; = "notification_badging"
+
+.field public static final OVERVIEW_LAST_STACK_ACTIVE_TIME:Ljava/lang/String; = "overview_last_stack_active_time"
+
+.field public static final PACKAGE_VERIFIER_STATE:Ljava/lang/String; = "package_verifier_state"
 
 .field public static final PACKAGE_VERIFIER_USER_CONSENT:Ljava/lang/String; = "package_verifier_user_consent"
 
@@ -523,6 +620,10 @@
 .field public static final PREFERRED_TTY_MODE:Ljava/lang/String; = "preferred_tty_mode"
 
 .field public static final PRINT_SERVICE_SEARCH_URI:Ljava/lang/String; = "print_service_search_uri"
+
+.field public static final QS_TILES:Ljava/lang/String; = "sysui_qs_tiles"
+
+.field public static final RICH_NOTIFICATION_AVAILABLE:Ljava/lang/String; = "RICH_NOTIFICATION_AVAILABLE"
 
 .field public static final SCREENSAVER_ACTIVATE_ON_DOCK:Ljava/lang/String; = "screensaver_activate_on_dock"
 
@@ -624,13 +725,23 @@
 
 .field public static final SEM_ASSISTANT_MENU_DOMINANT_HAND_TYPE:Ljava/lang/String; = "assistant_menu_dominant_hand_type"
 
+.field public static final SEM_COLOR_ADJUSTMENT_TYPE:Ljava/lang/String; = "color_adjustment_type"
+
 .field public static final SEM_COLOR_BLIND_SEVERITY:Ljava/lang/String; = "color_blind_cvdseverity"
 
 .field public static final SEM_COLOR_BLIND_TYPE:Ljava/lang/String; = "color_blind_cvdtype"
 
 .field public static final SEM_COLOR_BLIND_USER_PARAMETER:Ljava/lang/String; = "color_blind_user_parameter"
 
+.field public static final SEM_COLOR_LENS_OPACTITY:Ljava/lang/String; = "color_lens_opacity"
+
+.field public static final SEM_COLOR_LENS_SWITCH:Ljava/lang/String; = "color_lens_switch"
+
+.field public static final SEM_COLOR_LENS_TYPE:Ljava/lang/String; = "color_lens_type"
+
 .field public static final SEM_ENABLED_NOTIFICATION_LISTENERS:Ljava/lang/String; = "enabled_notification_listeners"
+
+.field public static final SEM_FACE_FASTER_RECOGNITION:Ljava/lang/String; = "face_faster_recognition"
 
 .field public static final SEM_INCALL_POWER_BUTTON_BEHAVIOR:Ljava/lang/String; = "incall_power_button_behavior"
 
@@ -648,6 +759,10 @@
 
 .field public static final SEM_PERFORMANCE_MODE:Ljava/lang/String; = "sem_perfomance_mode"
 
+.field public static final SEM_PREDEFINED_COLOR_BLIND_INTENSITY:Ljava/lang/String; = "predefined_color_blind_intensity"
+
+.field public static final SEM_SSECURE_HIDDEN_APPS_PACKAGES:Ljava/lang/String; = "ssecure_hidden_apps_packages"
+
 .field public static final SEM_WLAN_PERMISSION_AVAILABLE:Ljava/lang/String; = "wlan_permission_available"
 
 .field public static final SETTINGS_CLASSNAME:Ljava/lang/String; = "settings_classname"
@@ -655,6 +770,8 @@
 .field public static final SETTINGS_TO_BACKUP:[Ljava/lang/String;
 
 .field public static final SHOW_IME_WITH_HARD_KEYBOARD:Ljava/lang/String; = "show_ime_with_hard_keyboard"
+
+.field public static final SHOW_KEYBOARD_BUTTON:Ljava/lang/String; = "show_keyboard_button"
 
 .field public static final SHOW_MODE_AUTO:I = 0x0
 
@@ -689,6 +806,10 @@
 .field public static final SPRINT_GSM_VOICE_GUARD:Ljava/lang/String; = "sprint_gsm_voice_guard"
 
 .field public static final SPRINT_GSM_VOICE_ROAMING:Ljava/lang/String; = "sprint_gsm_voice_roaming"
+
+.field public static final SYNC_PARENT_SOUNDS:Ljava/lang/String; = "sync_parent_sounds"
+
+.field public static final SYSTEM_NAVIGATION_KEYS_ENABLED:Ljava/lang/String; = "system_navigation_keys_enabled"
 
 .field public static final TOUCH_EXPLORATION_ENABLED:Ljava/lang/String; = "touch_exploration_enabled"
 
@@ -732,19 +853,11 @@
 
 .field public static final TV_INPUT_HIDDEN_INPUTS:Ljava/lang/String; = "tv_input_hidden_inputs"
 
-.field public static final TWILIGHT_MODE:Ljava/lang/String; = "twilight_mode"
-
-.field public static final TWILIGHT_MODE_AUTO:I = 0x2
-
-.field public static final TWILIGHT_MODE_AUTO_OVERRIDE_OFF:I = 0x3
-
-.field public static final TWILIGHT_MODE_AUTO_OVERRIDE_ON:I = 0x4
-
-.field public static final TWILIGHT_MODE_LOCKED_OFF:I = 0x0
-
-.field public static final TWILIGHT_MODE_LOCKED_ON:I = 0x1
+.field public static final TV_USER_SETUP_COMPLETE:Ljava/lang/String; = "tv_user_setup_complete"
 
 .field public static final UI_NIGHT_MODE:Ljava/lang/String; = "ui_night_mode"
+
+.field public static final UNKNOWN_SOURCES_DEFAULT_REVERSED:Ljava/lang/String; = "unknown_sources_default_reversed"
 
 .field public static final UNSAFE_VOLUME_MUSIC_ACTIVE_MS:Ljava/lang/String; = "unsafe_volume_music_active_ms"
 
@@ -766,8 +879,6 @@
 
 .field public static final VOICE_RECOGNITION_SERVICE:Ljava/lang/String; = "voice_recognition_service"
 
-.field public static final VOLUME_CONTROLLER_SERVICE_COMPONENT:Ljava/lang/String; = "volume_controller_service_component"
-
 .field public static final VR_DISPLAY_MODE:Ljava/lang/String; = "vr_display_mode"
 
 .field public static final VR_DISPLAY_MODE_LOW_PERSISTENCE:I = 0x0
@@ -776,11 +887,15 @@
 
 .field public static final WAKE_GESTURE_ENABLED:Ljava/lang/String; = "wake_gesture_enabled"
 
+.field public static final WIFI_ADPS:Ljava/lang/String; = "wifi_adps"
+
 .field public static final WIFI_AP_5G_CHECKED:Ljava/lang/String; = "wifi_ap_5G_checked"
 
 .field public static final WIFI_AP_CUSTOMER:Ljava/lang/String; = "wifi_ap_customer"
 
 .field public static final WIFI_AP_ENABLE_WIFI_SHARING:Ljava/lang/String; = "wifi_ap_enable_wifi_sharing"
+
+.field public static final WIFI_AP_FIRST_TIME_WIFI_SHARING_DIALOG:Ljava/lang/String; = "wifi_ap_first_time_wifi_sharing_dialog"
 
 .field public static final WIFI_AP_LAST_2G_CHANNEL:Ljava/lang/String; = "wifi_ap_last_2g_channel"
 
@@ -790,13 +905,25 @@
 
 .field public static final WIFI_AP_MOBILE_DATA_USAGE_VALUE:Ljava/lang/String; = "wifi_ap_mobile_data_usage_value"
 
+.field public static final WIFI_AP_NUMBER_OF_MAX_MACADDR_CLIENT:Ljava/lang/String; = "wifi_ap_number_of_max_macaddr_client"
+
 .field public static final WIFI_AP_PLUGGED_TYPE:Ljava/lang/String; = "wifi_ap_plugged_type"
 
+.field public static final WIFI_AP_PMF_CHECKED:Ljava/lang/String; = "wifi_ap_pmf_checked"
+
+.field public static final WIFI_AP_POWERSAVE_MODE_CHECKED:Ljava/lang/String; = "wifi_ap_powersave_mode_checked"
+
+.field public static final WIFI_AP_POWERSAVE_MODE_SETTINGS:Ljava/lang/String; = "wifi_ap_powersave_mode_settings"
+
 .field public static final WIFI_AP_QR_CODE_GENERATED:Ljava/lang/String; = "wifi_ap_qr_code_generated"
+
+.field public static final WIFI_AP_RANDOM_PASSWORD:Ljava/lang/String; = "wifi_ap_random_password"
 
 .field public static final WIFI_AP_SAVED_STATE:Ljava/lang/String; = "wifi_ap_saved_state"
 
 .field public static final WIFI_AP_SHOW_PASSWORD:Ljava/lang/String; = "wifi_ap_show_passwd"
+
+.field public static final WIFI_AP_SUPPORTTEMP_SPR:Ljava/lang/String; = "wifi_ap_supporttemp_spr"
 
 .field public static final WIFI_AP_TIMEOUT_SETTING:Ljava/lang/String; = "wifi_ap_timeout_setting"
 
@@ -813,8 +940,6 @@
 .field public static final WIFI_CONNECTION_TYPE:Ljava/lang/String; = "wifi_cmcc_manual"
 
 .field public static final WIFI_DEFAULTAP_PROFILE:Ljava/lang/String; = "wifi_defaultap_profile"
-
-.field public static final WIFI_DISCONNECT_DELAY_DURATION:Ljava/lang/String; = "wifi_disconnect_delay_duration"
 
 .field public static final WIFI_GENERALINFO_NWINFO:Ljava/lang/String; = "wifi_generalinfo_nwinfo"
 
@@ -874,6 +999,8 @@
 .field public static final WIFI_SCAN_FOR_FREE_WLNAS:Ljava/lang/String; = "wifi_scan_for_free_wlans"
 
 .field public static final WIFI_SENSOR_MONITOR_ENABLE:Ljava/lang/String; = "wifi_sensor_monitor_enable"
+
+.field public static final WIFI_SHARING_LITE_FIRSTTIME_POPUP:Ljava/lang/String; = "wifi_sharing_lite_firsttime_popup"
 
 .field public static final WIFI_SNS_DIALOG_FOR_STARTING_SETTINGS:Ljava/lang/String; = "wifi_sns_dialog_for_starting_settings"
 
@@ -964,12 +1091,14 @@
 
 .field private static final sNameValueCache:Landroid/provider/Settings$NameValueCache;
 
+.field private static final sProviderHolder:Landroid/provider/Settings$ContentProviderHolder;
+
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 5
+    .locals 6
 
-    const/4 v4, 0x3
+    const/4 v5, 0x3
 
     const-string/jumbo v0, "content://settings/secure"
 
@@ -979,6 +1108,14 @@
 
     sput-object v0, Landroid/provider/Settings$Secure;->CONTENT_URI:Landroid/net/Uri;
 
+    new-instance v0, Landroid/provider/Settings$ContentProviderHolder;
+
+    sget-object v1, Landroid/provider/Settings$Secure;->CONTENT_URI:Landroid/net/Uri;
+
+    invoke-direct {v0, v1}, Landroid/provider/Settings$ContentProviderHolder;-><init>(Landroid/net/Uri;)V
+
+    sput-object v0, Landroid/provider/Settings$Secure;->sProviderHolder:Landroid/provider/Settings$ContentProviderHolder;
+
     new-instance v0, Landroid/provider/Settings$NameValueCache;
 
     sget-object v1, Landroid/provider/Settings$Secure;->CONTENT_URI:Landroid/net/Uri;
@@ -987,7 +1124,9 @@
 
     const-string/jumbo v3, "PUT_secure"
 
-    invoke-direct {v0, v1, v2, v3}, Landroid/provider/Settings$NameValueCache;-><init>(Landroid/net/Uri;Ljava/lang/String;Ljava/lang/String;)V
+    sget-object v4, Landroid/provider/Settings$Secure;->sProviderHolder:Landroid/provider/Settings$ContentProviderHolder;
+
+    invoke-direct {v0, v1, v2, v3, v4}, Landroid/provider/Settings$NameValueCache;-><init>(Landroid/net/Uri;Ljava/lang/String;Ljava/lang/String;Landroid/provider/Settings$ContentProviderHolder;)V
 
     sput-object v0, Landroid/provider/Settings$Secure;->sNameValueCache:Landroid/provider/Settings$NameValueCache;
 
@@ -997,7 +1136,7 @@
 
     new-instance v0, Ljava/util/HashSet;
 
-    invoke-direct {v0, v4}, Ljava/util/HashSet;-><init>(I)V
+    invoke-direct {v0, v5}, Ljava/util/HashSet;-><init>(I)V
 
     sput-object v0, Landroid/provider/Settings$Secure;->MOVED_TO_LOCK_SETTINGS:Ljava/util/HashSet;
 
@@ -1016,24 +1155,6 @@
     sget-object v0, Landroid/provider/Settings$Secure;->MOVED_TO_LOCK_SETTINGS:Ljava/util/HashSet;
 
     const-string/jumbo v1, "lock_pattern_tactile_feedback_enabled"
-
-    invoke-virtual {v0, v1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$Secure;->MOVED_TO_LOCK_SETTINGS:Ljava/util/HashSet;
-
-    const-string/jumbo v1, "lock_signature_autolock"
-
-    invoke-virtual {v0, v1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$Secure;->MOVED_TO_LOCK_SETTINGS:Ljava/util/HashSet;
-
-    const-string/jumbo v1, "lock_signature_visible_pattern"
-
-    invoke-virtual {v0, v1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$Secure;->MOVED_TO_LOCK_SETTINGS:Ljava/util/HashSet;
-
-    const-string/jumbo v1, "lock_signature_verification_level"
 
     invoke-virtual {v0, v1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
@@ -1429,12 +1550,6 @@
 
     sget-object v0, Landroid/provider/Settings$Secure;->MOVED_TO_GLOBAL:Ljava/util/HashSet;
 
-    const-string/jumbo v1, "wifi_hotspot2_enabled"
-
-    invoke-virtual {v0, v1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$Secure;->MOVED_TO_GLOBAL:Ljava/util/HashSet;
-
     const-string/jumbo v1, "wifi_supplicant_scan_interval_ms"
 
     invoke-virtual {v0, v1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
@@ -1721,737 +1836,527 @@
 
     invoke-virtual {v0, v1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
-    sget-object v0, Landroid/provider/Settings$Secure;->MOVED_TO_GLOBAL:Ljava/util/HashSet;
-
-    const-string/jumbo v1, "wifi_auto_connect_type"
-
-    invoke-virtual {v0, v1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$Secure;->MOVED_TO_GLOBAL:Ljava/util/HashSet;
-
-    const-string/jumbo v1, "assisted_gps_configurable_list"
-
-    invoke-virtual {v0, v1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$Secure;->MOVED_TO_GLOBAL:Ljava/util/HashSet;
-
-    const-string/jumbo v1, "assisted_gps_supl_host"
-
-    invoke-virtual {v0, v1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$Secure;->MOVED_TO_GLOBAL:Ljava/util/HashSet;
-
-    const-string/jumbo v1, "assisted_gps_supl_port"
-
-    invoke-virtual {v0, v1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$Secure;->MOVED_TO_GLOBAL:Ljava/util/HashSet;
-
-    const-string/jumbo v1, "assisted_gps_position_mode"
-
-    invoke-virtual {v0, v1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$Secure;->MOVED_TO_GLOBAL:Ljava/util/HashSet;
-
-    const-string/jumbo v1, "assisted_gps_network"
-
-    invoke-virtual {v0, v1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$Secure;->MOVED_TO_GLOBAL:Ljava/util/HashSet;
-
-    const-string/jumbo v1, "assisted_gps_reset_type"
-
-    invoke-virtual {v0, v1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$Secure;->MOVED_TO_GLOBAL:Ljava/util/HashSet;
-
-    const-string/jumbo v1, "wifi_scan_intervel_wfd_connected_ms"
-
-    invoke-virtual {v0, v1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$Secure;->MOVED_TO_GLOBAL:Ljava/util/HashSet;
-
-    const-string/jumbo v1, "wifi_watchdog_poor_network_avoidance_enabled"
-
-    invoke-virtual {v0, v1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$Secure;->MOVED_TO_GLOBAL:Ljava/util/HashSet;
-
-    const-string/jumbo v1, "wifi_watchdog_poor_network_dialog_do_not_show"
-
-    invoke-virtual {v0, v1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$Secure;->MOVED_TO_GLOBAL:Ljava/util/HashSet;
-
-    const-string/jumbo v1, "wifi_watchdog_poor_network_aggressive_mode_on"
-
-    invoke-virtual {v0, v1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$Secure;->MOVED_TO_GLOBAL:Ljava/util/HashSet;
-
-    const-string/jumbo v1, "wifi_settings_run_foreground"
-
-    invoke-virtual {v0, v1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$Secure;->MOVED_TO_GLOBAL:Ljava/util/HashSet;
-
-    const-string/jumbo v1, "wifi_free_wifi_scan_auto_connection_mode"
-
-    invoke-virtual {v0, v1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$Secure;->MOVED_TO_GLOBAL:Ljava/util/HashSet;
-
-    const-string/jumbo v1, "wifi_watchdog_version"
-
-    invoke-virtual {v0, v1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$Secure;->MOVED_TO_GLOBAL:Ljava/util/HashSet;
-
-    const-string/jumbo v1, "wifi_share_profile"
-
-    invoke-virtual {v0, v1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$Secure;->MOVED_TO_GLOBAL:Ljava/util/HashSet;
-
-    const-string/jumbo v1, "global_http_proxy_username"
-
-    invoke-virtual {v0, v1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$Secure;->MOVED_TO_GLOBAL:Ljava/util/HashSet;
-
-    const-string/jumbo v1, "global_http_proxy_password"
-
-    invoke-virtual {v0, v1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$Secure;->MOVED_TO_GLOBAL:Ljava/util/HashSet;
-
-    const-string/jumbo v1, "sd_encryption"
-
-    invoke-virtual {v0, v1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$Secure;->MOVED_TO_GLOBAL:Ljava/util/HashSet;
-
-    const-string/jumbo v1, "data_encryption"
-
-    invoke-virtual {v0, v1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$Secure;->MOVED_TO_GLOBAL:Ljava/util/HashSet;
-
-    const-string/jumbo v1, "boot_lock"
-
-    invoke-virtual {v0, v1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$Secure;->MOVED_TO_GLOBAL:Ljava/util/HashSet;
-
-    const-string/jumbo v1, "adb_blocked"
-
-    invoke-virtual {v0, v1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$Secure;->MOVED_TO_GLOBAL:Ljava/util/HashSet;
-
-    const-string/jumbo v1, "usb_blocked"
-
-    invoke-virtual {v0, v1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$Secure;->MOVED_TO_GLOBAL:Ljava/util/HashSet;
-
-    const-string/jumbo v1, "admin_locked"
-
-    invoke-virtual {v0, v1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$Secure;->MOVED_TO_GLOBAL:Ljava/util/HashSet;
-
-    const-string/jumbo v1, "ota_delay"
-
-    invoke-virtual {v0, v1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$Secure;->MOVED_TO_GLOBAL:Ljava/util/HashSet;
-
-    const-string/jumbo v1, "emergency_lock"
-
-    invoke-virtual {v0, v1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$Secure;->MOVED_TO_GLOBAL:Ljava/util/HashSet;
-
-    const-string/jumbo v1, "tethering_blocked"
-
-    invoke-virtual {v0, v1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$Secure;->MOVED_TO_GLOBAL:Ljava/util/HashSet;
-
-    const-string/jumbo v1, "screenshot_blocked"
-
-    invoke-virtual {v0, v1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$Secure;->MOVED_TO_GLOBAL:Ljava/util/HashSet;
-
-    const-string/jumbo v1, "apn_locked"
-
-    invoke-virtual {v0, v1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$Secure;->MOVED_TO_GLOBAL:Ljava/util/HashSet;
-
-    const-string/jumbo v1, "sd_encryption_required"
-
-    invoke-virtual {v0, v1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$Secure;->MOVED_TO_GLOBAL:Ljava/util/HashSet;
-
-    const-string/jumbo v1, "screen_mode_setting_backup"
-
-    invoke-virtual {v0, v1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
-
-    sget-object v0, Landroid/provider/Settings$Secure;->MOVED_TO_GLOBAL:Ljava/util/HashSet;
-
-    const-string/jumbo v1, "emergency_lock_call_state"
-
-    invoke-virtual {v0, v1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
-
-    const/16 v0, 0x5b
+    const/16 v0, 0x57
 
     new-array v0, v0, [Ljava/lang/String;
 
-    const-string/jumbo v1, "wifi_auto_connecct"
+    const-string/jumbo v1, "wifi_cmcc_manual"
 
     const/4 v2, 0x0
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "wifi_cmcc_manual"
+    const-string/jumbo v1, "bugreport_in_power_menu"
 
     const/4 v2, 0x1
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "wlan_notify_cmcc"
+    const-string/jumbo v1, "mock_location"
 
     const/4 v2, 0x2
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "wlan_permission_available"
+    const-string/jumbo v1, "parental_control_enabled"
 
-    aput-object v1, v0, v4
+    aput-object v1, v0, v5
 
-    const-string/jumbo v1, "wifi_internet_service_check_warning"
+    const-string/jumbo v1, "parental_control_redirect_url"
 
     const/4 v2, 0x4
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "wifi_poor_connection_warning"
+    const-string/jumbo v1, "usb_mass_storage_enabled"
 
     const/4 v2, 0x5
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "wifi_wwsm_patch_key"
+    const-string/jumbo v1, "accessibility_display_inversion_enabled"
 
     const/4 v2, 0x6
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "wifi_wwsm_patch_remove_sns_menu_from_settings"
+    const-string/jumbo v1, "accessibility_display_daltonizer"
 
     const/4 v2, 0x7
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "wifi_wwsm_patch_update_available"
+    const-string/jumbo v1, "accessibility_display_daltonizer_enabled"
 
     const/16 v2, 0x8
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "wifi_wwsm_patch_need_to_check_appstore"
+    const-string/jumbo v1, "accessibility_display_magnification_enabled"
 
     const/16 v2, 0x9
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "wifi_wwsm_patch_restore_sns_enabled"
+    const-string/jumbo v1, "accessibility_display_magnification_navbar_enabled"
 
     const/16 v2, 0xa
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "wifi_wwsm_patch_test_mode_enabled"
+    const-string/jumbo v1, "autofill_service"
 
     const/16 v2, 0xb
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "wifi_scan_for_free_wlans"
+    const-string/jumbo v1, "accessibility_display_magnification_scale"
 
     const/16 v2, 0xc
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "chameleon_tethereddata"
+    const-string/jumbo v1, "enabled_accessibility_services"
 
     const/16 v2, 0xd
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "att_hotspot_test"
+    const-string/jumbo v1, "enabled_notification_listeners"
 
     const/16 v2, 0xe
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "enabled_accessibility_s_talkback"
+    const-string/jumbo v1, "enabled_vr_listeners"
 
     const/16 v2, 0xf
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "accessibility_cursor_color"
+    const-string/jumbo v1, "enabled_input_methods"
 
     const/16 v2, 0x10
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "accessibility_large_cursor"
+    const-string/jumbo v1, "touch_exploration_granted_accessibility_services"
 
     const/16 v2, 0x11
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "accessibility_web_granularity"
+    const-string/jumbo v1, "touch_exploration_enabled"
 
     const/16 v2, 0x12
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "accessibility_single_tap_selection"
+    const-string/jumbo v1, "accessibility_enabled"
 
     const/16 v2, 0x13
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "accessibility_universal_switch_cursor_color"
+    const-string/jumbo v1, "accessibility_shortcut_target_service"
 
     const/16 v2, 0x14
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "universal_switch_enabled"
+    const-string/jumbo v1, "accessibility_button_target_component"
 
     const/16 v2, 0x15
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "universal_switch_enabled_from_directaccess"
+    const-string/jumbo v1, "accessibility_shortcut_dialog_shown"
 
     const/16 v2, 0x16
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "accessibility_universal_switch_screen_as_switch"
+    const-string/jumbo v1, "accessibility_shortcut_enabled"
 
     const/16 v2, 0x17
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "universal_switch_bluetooth_key_mapped"
+    const-string/jumbo v1, "accessibility_shortcut_on_lock_screen"
 
     const/16 v2, 0x18
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "accessibility_non_web_granularity"
+    const-string/jumbo v1, "speak_password"
 
     const/16 v2, 0x19
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "bugreport_in_power_menu"
+    const-string/jumbo v1, "high_text_contrast_enabled"
 
     const/16 v2, 0x1a
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "mock_location"
+    const-string/jumbo v1, "accessibility_captioning_preset"
 
     const/16 v2, 0x1b
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "parental_control_enabled"
+    const-string/jumbo v1, "accessibility_captioning_enabled"
 
     const/16 v2, 0x1c
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "parental_control_redirect_url"
+    const-string/jumbo v1, "accessibility_captioning_locale"
 
     const/16 v2, 0x1d
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "usb_mass_storage_enabled"
+    const-string/jumbo v1, "accessibility_captioning_background_color"
 
     const/16 v2, 0x1e
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "accessibility_display_inversion_enabled"
+    const-string/jumbo v1, "accessibility_captioning_foreground_color"
 
     const/16 v2, 0x1f
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "accessibility_display_daltonizer"
+    const-string/jumbo v1, "accessibility_captioning_edge_type"
 
     const/16 v2, 0x20
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "accessibility_display_color_matrix"
+    const-string/jumbo v1, "accessibility_captioning_edge_color"
 
     const/16 v2, 0x21
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "accessibility_display_daltonizer_enabled"
+    const-string/jumbo v1, "accessibility_captioning_typeface"
 
     const/16 v2, 0x22
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "accessibility_display_magnification_enabled"
+    const-string/jumbo v1, "accessibility_captioning_font_scale"
 
     const/16 v2, 0x23
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "accessibility_display_magnification_scale"
+    const-string/jumbo v1, "accessibility_captioning_window_color"
 
     const/16 v2, 0x24
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "accessibility_display_magnification_auto_update"
+    const-string/jumbo v1, "tts_use_defaults"
 
     const/16 v2, 0x25
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "accessibility_script_injection"
+    const-string/jumbo v1, "tts_default_rate"
 
     const/16 v2, 0x26
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "accessibility_web_content_key_bindings"
+    const-string/jumbo v1, "tts_default_pitch"
 
     const/16 v2, 0x27
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "enabled_accessibility_services"
+    const-string/jumbo v1, "tts_default_synth"
 
     const/16 v2, 0x28
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "enabled_notification_listeners"
+    const-string/jumbo v1, "tts_default_lang"
 
     const/16 v2, 0x29
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "enabled_vr_listeners"
+    const-string/jumbo v1, "tts_default_country"
 
     const/16 v2, 0x2a
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "enabled_input_methods"
+    const-string/jumbo v1, "tts_enabled_plugins"
 
     const/16 v2, 0x2b
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "touch_exploration_granted_accessibility_services"
+    const-string/jumbo v1, "tts_default_locale"
 
     const/16 v2, 0x2c
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "touch_exploration_enabled"
+    const-string/jumbo v1, "show_ime_with_hard_keyboard"
 
     const/16 v2, 0x2d
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "accessibility_enabled"
+    const-string/jumbo v1, "wifi_networks_available_notification_on"
 
     const/16 v2, 0x2e
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "speak_password"
+    const-string/jumbo v1, "wifi_networks_available_repeat_delay"
 
     const/16 v2, 0x2f
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "high_text_contrast_enabled"
+    const-string/jumbo v1, "wifi_num_open_networks_kept"
 
     const/16 v2, 0x30
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "accessibility_captioning_preset"
+    const-string/jumbo v1, "selected_spell_checker"
 
     const/16 v2, 0x31
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "accessibility_captioning_enabled"
+    const-string/jumbo v1, "selected_spell_checker_subtype"
 
     const/16 v2, 0x32
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "accessibility_captioning_locale"
+    const-string/jumbo v1, "spell_checker_enabled"
 
     const/16 v2, 0x33
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "accessibility_captioning_background_color"
+    const-string/jumbo v1, "mount_play_not_snd"
 
     const/16 v2, 0x34
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "accessibility_captioning_foreground_color"
+    const-string/jumbo v1, "mount_ums_autostart"
 
     const/16 v2, 0x35
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "accessibility_captioning_edge_type"
+    const-string/jumbo v1, "mount_ums_prompt"
 
     const/16 v2, 0x36
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "accessibility_captioning_edge_color"
+    const-string/jumbo v1, "mount_ums_notify_enabled"
 
     const/16 v2, 0x37
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "accessibility_captioning_typeface"
+    const-string/jumbo v1, "sleep_timeout"
 
     const/16 v2, 0x38
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "accessibility_captioning_font_scale"
+    const-string/jumbo v1, "double_tap_to_wake"
 
     const/16 v2, 0x39
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "accessibility_captioning_window_color"
+    const-string/jumbo v1, "wake_gesture_enabled"
 
     const/16 v2, 0x3a
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "tts_use_defaults"
+    const-string/jumbo v1, "long_press_timeout"
 
     const/16 v2, 0x3b
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "tts_default_rate"
+    const-string/jumbo v1, "camera_gesture_disabled"
 
     const/16 v2, 0x3c
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "tts_default_pitch"
+    const-string/jumbo v1, "accessibility_autoclick_enabled"
 
     const/16 v2, 0x3d
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "tts_default_synth"
+    const-string/jumbo v1, "accessibility_autoclick_delay"
 
     const/16 v2, 0x3e
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "tts_default_lang"
+    const-string/jumbo v1, "accessibility_large_pointer_icon"
 
     const/16 v2, 0x3f
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "tts_default_country"
+    const-string/jumbo v1, "preferred_tty_mode"
 
     const/16 v2, 0x40
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "tts_enabled_plugins"
+    const-string/jumbo v1, "enhanced_voice_privacy_enabled"
 
     const/16 v2, 0x41
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "tts_default_locale"
+    const-string/jumbo v1, "tty_mode_enabled"
 
     const/16 v2, 0x42
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "show_ime_with_hard_keyboard"
+    const-string/jumbo v1, "incall_power_button_behavior"
 
     const/16 v2, 0x43
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "wifi_networks_available_notification_on"
+    const-string/jumbo v1, "night_display_custom_start_time"
 
     const/16 v2, 0x44
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "wifi_networks_available_repeat_delay"
+    const-string/jumbo v1, "night_display_custom_end_time"
 
     const/16 v2, 0x45
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "wifi_num_open_networks_kept"
+    const-string/jumbo v1, "night_display_color_temperature"
 
     const/16 v2, 0x46
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "selected_spell_checker"
+    const-string/jumbo v1, "night_display_auto_mode"
 
     const/16 v2, 0x47
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "selected_spell_checker_subtype"
+    const-string/jumbo v1, "night_display_last_activated_time"
 
     const/16 v2, 0x48
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "spell_checker_enabled"
+    const-string/jumbo v1, "night_display_activated"
 
     const/16 v2, 0x49
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "mount_play_not_snd"
+    const-string/jumbo v1, "sync_parent_sounds"
 
     const/16 v2, 0x4a
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "mount_ums_autostart"
+    const-string/jumbo v1, "camera_double_twist_to_flip_enabled"
 
     const/16 v2, 0x4b
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "mount_ums_prompt"
+    const-string/jumbo v1, "camera_double_tap_power_gesture_disabled"
 
     const/16 v2, 0x4c
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "mount_ums_notify_enabled"
+    const-string/jumbo v1, "system_navigation_keys_enabled"
 
     const/16 v2, 0x4d
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "sleep_timeout"
+    const-string/jumbo v1, "doze_enabled"
 
     const/16 v2, 0x4e
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "double_tap_to_wake"
+    const-string/jumbo v1, "doze_pulse_on_pick_up"
 
     const/16 v2, 0x4f
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "wake_gesture_enabled"
+    const-string/jumbo v1, "doze_pulse_on_double_tap"
 
     const/16 v2, 0x50
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "long_press_timeout"
+    const-string/jumbo v1, "nfc_payment_default_component"
 
     const/16 v2, 0x51
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "camera_gesture_disabled"
+    const-string/jumbo v1, "automatic_storage_manager_days_to_retain"
 
     const/16 v2, 0x52
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "accessibility_autoclick_enabled"
+    const-string/jumbo v1, "assist_gesture_enabled"
 
     const/16 v2, 0x53
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "accessibility_autoclick_delay"
+    const-string/jumbo v1, "assist_gesture_sensitivity"
 
     const/16 v2, 0x54
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "accessibility_large_pointer_icon"
+    const-string/jumbo v1, "vr_display_mode"
 
     const/16 v2, 0x55
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "preferred_tty_mode"
+    const-string/jumbo v1, "notification_badging"
 
     const/16 v2, 0x56
-
-    aput-object v1, v0, v2
-
-    const-string/jumbo v1, "enhanced_voice_privacy_enabled"
-
-    const/16 v2, 0x57
-
-    aput-object v1, v0, v2
-
-    const-string/jumbo v1, "tty_mode_enabled"
-
-    const/16 v2, 0x58
-
-    aput-object v1, v0, v2
-
-    const-string/jumbo v1, "incall_power_button_behavior"
-
-    const/16 v2, 0x59
-
-    aput-object v1, v0, v2
-
-    const-string/jumbo v1, "wifi_disconnect_delay_duration"
-
-    const/16 v2, 0x5a
 
     aput-object v1, v0, v2
 
@@ -2478,6 +2383,12 @@
     sget-object v0, Landroid/provider/Settings$Secure;->CLONE_TO_MANAGED_PROFILE:Ljava/util/Set;
 
     const-string/jumbo v1, "allowed_geolocation_origins"
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    sget-object v0, Landroid/provider/Settings$Secure;->CLONE_TO_MANAGED_PROFILE:Ljava/util/Set;
+
+    const-string/jumbo v1, "autofill_service"
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
@@ -2535,9 +2446,171 @@
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    sget-object v0, Landroid/provider/Settings$Secure;->CLONE_TO_MANAGED_PROFILE:Ljava/util/Set;
+    new-instance v0, Landroid/util/ArraySet;
 
-    const-string/jumbo v1, "is_smpw_key"
+    invoke-direct {v0}, Landroid/util/ArraySet;-><init>()V
+
+    sput-object v0, Landroid/provider/Settings$Secure;->INSTANT_APP_SETTINGS:Ljava/util/Set;
+
+    sget-object v0, Landroid/provider/Settings$Secure;->INSTANT_APP_SETTINGS:Ljava/util/Set;
+
+    const-string/jumbo v1, "enabled_accessibility_services"
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    sget-object v0, Landroid/provider/Settings$Secure;->INSTANT_APP_SETTINGS:Ljava/util/Set;
+
+    const-string/jumbo v1, "speak_password"
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    sget-object v0, Landroid/provider/Settings$Secure;->INSTANT_APP_SETTINGS:Ljava/util/Set;
+
+    const-string/jumbo v1, "accessibility_display_inversion_enabled"
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    sget-object v0, Landroid/provider/Settings$Secure;->INSTANT_APP_SETTINGS:Ljava/util/Set;
+
+    const-string/jumbo v1, "accessibility_captioning_enabled"
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    sget-object v0, Landroid/provider/Settings$Secure;->INSTANT_APP_SETTINGS:Ljava/util/Set;
+
+    const-string/jumbo v1, "accessibility_captioning_preset"
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    sget-object v0, Landroid/provider/Settings$Secure;->INSTANT_APP_SETTINGS:Ljava/util/Set;
+
+    const-string/jumbo v1, "accessibility_captioning_edge_type"
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    sget-object v0, Landroid/provider/Settings$Secure;->INSTANT_APP_SETTINGS:Ljava/util/Set;
+
+    const-string/jumbo v1, "accessibility_captioning_edge_color"
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    sget-object v0, Landroid/provider/Settings$Secure;->INSTANT_APP_SETTINGS:Ljava/util/Set;
+
+    const-string/jumbo v1, "accessibility_captioning_locale"
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    sget-object v0, Landroid/provider/Settings$Secure;->INSTANT_APP_SETTINGS:Ljava/util/Set;
+
+    const-string/jumbo v1, "accessibility_captioning_background_color"
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    sget-object v0, Landroid/provider/Settings$Secure;->INSTANT_APP_SETTINGS:Ljava/util/Set;
+
+    const-string/jumbo v1, "accessibility_captioning_foreground_color"
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    sget-object v0, Landroid/provider/Settings$Secure;->INSTANT_APP_SETTINGS:Ljava/util/Set;
+
+    const-string/jumbo v1, "accessibility_captioning_typeface"
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    sget-object v0, Landroid/provider/Settings$Secure;->INSTANT_APP_SETTINGS:Ljava/util/Set;
+
+    const-string/jumbo v1, "accessibility_captioning_font_scale"
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    sget-object v0, Landroid/provider/Settings$Secure;->INSTANT_APP_SETTINGS:Ljava/util/Set;
+
+    const-string/jumbo v1, "accessibility_captioning_window_color"
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    sget-object v0, Landroid/provider/Settings$Secure;->INSTANT_APP_SETTINGS:Ljava/util/Set;
+
+    const-string/jumbo v1, "accessibility_display_daltonizer_enabled"
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    sget-object v0, Landroid/provider/Settings$Secure;->INSTANT_APP_SETTINGS:Ljava/util/Set;
+
+    const-string/jumbo v1, "accessibility_display_daltonizer"
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    sget-object v0, Landroid/provider/Settings$Secure;->INSTANT_APP_SETTINGS:Ljava/util/Set;
+
+    const-string/jumbo v1, "accessibility_autoclick_delay"
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    sget-object v0, Landroid/provider/Settings$Secure;->INSTANT_APP_SETTINGS:Ljava/util/Set;
+
+    const-string/jumbo v1, "accessibility_autoclick_enabled"
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    sget-object v0, Landroid/provider/Settings$Secure;->INSTANT_APP_SETTINGS:Ljava/util/Set;
+
+    const-string/jumbo v1, "accessibility_large_pointer_icon"
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    sget-object v0, Landroid/provider/Settings$Secure;->INSTANT_APP_SETTINGS:Ljava/util/Set;
+
+    const-string/jumbo v1, "universal_switch_enabled"
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    sget-object v0, Landroid/provider/Settings$Secure;->INSTANT_APP_SETTINGS:Ljava/util/Set;
+
+    const-string/jumbo v1, "default_input_method"
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    sget-object v0, Landroid/provider/Settings$Secure;->INSTANT_APP_SETTINGS:Ljava/util/Set;
+
+    const-string/jumbo v1, "enabled_input_methods"
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    sget-object v0, Landroid/provider/Settings$Secure;->INSTANT_APP_SETTINGS:Ljava/util/Set;
+
+    const-string/jumbo v1, "android_id"
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    sget-object v0, Landroid/provider/Settings$Secure;->INSTANT_APP_SETTINGS:Ljava/util/Set;
+
+    const-string/jumbo v1, "package_verifier_user_consent"
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    sget-object v0, Landroid/provider/Settings$Secure;->INSTANT_APP_SETTINGS:Ljava/util/Set;
+
+    const-string/jumbo v1, "mock_location"
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    sget-object v0, Landroid/provider/Settings$Secure;->INSTANT_APP_SETTINGS:Ljava/util/Set;
+
+    const-string/jumbo v1, "app_lock_enabled"
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    sget-object v0, Landroid/provider/Settings$Secure;->INSTANT_APP_SETTINGS:Ljava/util/Set;
+
+    const-string/jumbo v1, "ssecure_hidden_apps_packages"
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    sget-object v0, Landroid/provider/Settings$Secure;->INSTANT_APP_SETTINGS:Ljava/util/Set;
+
+    const-string/jumbo v1, "applock_locked_apps_packages"
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
@@ -3042,7 +3115,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_6
 
     const-class v4, Landroid/provider/Settings$Secure;
 
@@ -3071,7 +3144,7 @@
 
     const/16 v5, 0x3e8
 
-    if-ne v3, v5, :cond_3
+    if-ne v3, v5, :cond_2
 
     const/4 v3, 0x1
 
@@ -3085,46 +3158,25 @@
 
     sget-object v3, Landroid/provider/Settings$Secure;->sLockSettings:Lcom/android/internal/widget/ILockSettings;
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_6
 
     sget-boolean v3, Landroid/provider/Settings$Secure;->sIsSystemProcess:Z
 
-    if-eqz v3, :cond_4
+    xor-int/lit8 v3, v3, 0x1
 
-    :cond_2
-    :goto_1
-    sget-object v3, Landroid/provider/Settings$Secure;->sNameValueCache:Landroid/provider/Settings$NameValueCache;
+    if-eqz v3, :cond_6
 
-    invoke-virtual {v3, p0, p1, p2}, Landroid/provider/Settings$NameValueCache;->getStringForUser(Landroid/content/ContentResolver;Ljava/lang/String;I)Ljava/lang/String;
-
-    move-result-object v3
-
-    return-object v3
-
-    :cond_3
-    const/4 v3, 0x0
-
-    goto :goto_0
-
-    :catchall_0
-    move-exception v3
-
-    monitor-exit v4
-
-    throw v3
-
-    :cond_4
     invoke-static {}, Landroid/app/ActivityThread;->currentApplication()Landroid/app/Application;
 
     move-result-object v0
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_4
 
     invoke-virtual {v0}, Landroid/app/Application;->getApplicationInfo()Landroid/content/pm/ApplicationInfo;
 
     move-result-object v3
 
-    if-eqz v3, :cond_6
+    if-eqz v3, :cond_4
 
     invoke-virtual {v0}, Landroid/app/Application;->getApplicationInfo()Landroid/content/pm/ApplicationInfo;
 
@@ -3134,12 +3186,12 @@
 
     const/16 v4, 0x16
 
-    if-gt v3, v4, :cond_5
+    if-gt v3, v4, :cond_3
 
     const/4 v1, 0x1
 
-    :goto_2
-    if-eqz v1, :cond_7
+    :goto_1
+    if-eqz v1, :cond_5
 
     :try_start_1
     sget-object v3, Landroid/provider/Settings$Secure;->sLockSettings:Lcom/android/internal/widget/ILockSettings;
@@ -3154,17 +3206,29 @@
 
     return-object v3
 
+    :cond_2
+    const/4 v3, 0x0
+
+    goto :goto_0
+
+    :catchall_0
+    move-exception v3
+
+    monitor-exit v4
+
+    throw v3
+
+    :cond_3
+    const/4 v1, 0x0
+
+    goto :goto_1
+
+    :cond_4
+    const/4 v1, 0x0
+
+    goto :goto_1
+
     :cond_5
-    const/4 v1, 0x0
-
-    goto :goto_2
-
-    :cond_6
-    const/4 v1, 0x0
-
-    goto :goto_2
-
-    :cond_7
     new-instance v3, Ljava/lang/SecurityException;
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -3204,7 +3268,14 @@
     :catch_0
     move-exception v2
 
-    goto :goto_1
+    :cond_6
+    sget-object v3, Landroid/provider/Settings$Secure;->sNameValueCache:Landroid/provider/Settings$NameValueCache;
+
+    invoke-virtual {v3, p0, p1, p2}, Landroid/provider/Settings$NameValueCache;->getStringForUser(Landroid/content/ContentResolver;Ljava/lang/String;I)Ljava/lang/String;
+
+    move-result-object v3
+
+    return-object v3
 .end method
 
 .method public static getUriFor(Ljava/lang/String;)Landroid/net/Uri;
@@ -3467,8 +3538,54 @@
     return v0
 .end method
 
+.method public static putString(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)Z
+    .locals 6
+
+    invoke-static {}, Landroid/os/UserHandle;->myUserId()I
+
+    move-result v5
+
+    move-object v0, p0
+
+    move-object v1, p1
+
+    move-object v2, p2
+
+    move-object v3, p3
+
+    move v4, p4
+
+    invoke-static/range {v0 .. v5}, Landroid/provider/Settings$Secure;->putStringForUser(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZI)Z
+
+    move-result v0
+
+    return v0
+.end method
+
 .method public static putStringForUser(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;I)Z
-    .locals 3
+    .locals 6
+
+    const/4 v3, 0x0
+
+    const/4 v4, 0x0
+
+    move-object v0, p0
+
+    move-object v1, p1
+
+    move-object v2, p2
+
+    move v5, p3
+
+    invoke-static/range {v0 .. v5}, Landroid/provider/Settings$Secure;->putStringForUser(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZI)Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public static putStringForUser(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZI)Z
+    .locals 7
 
     const-string/jumbo v0, "location_mode"
 
@@ -3482,7 +3599,7 @@
 
     move-result v0
 
-    invoke-static {p0, v0, p3}, Landroid/provider/Settings$Secure;->setLocationModeForUser(Landroid/content/ContentResolver;II)Z
+    invoke-static {p0, v0, p5}, Landroid/provider/Settings$Secure;->setLocationModeForUser(Landroid/content/ContentResolver;II)Z
 
     move-result v0
 
@@ -3513,7 +3630,7 @@
 
     move-result-object v1
 
-    const-string/jumbo v2, " has moved from android.provider.Settings.System"
+    const-string/jumbo v2, " has moved from android.provider.Settings.Secure"
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -3531,7 +3648,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-static {p0, p1, p2, p3}, Landroid/provider/Settings$Global;->putStringForUser(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;I)Z
+    invoke-static/range {p0 .. p5}, Landroid/provider/Settings$Global;->putStringForUser(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZI)Z
 
     move-result v0
 
@@ -3540,11 +3657,111 @@
     :cond_1
     sget-object v0, Landroid/provider/Settings$Secure;->sNameValueCache:Landroid/provider/Settings$NameValueCache;
 
-    invoke-virtual {v0, p0, p1, p2, p3}, Landroid/provider/Settings$NameValueCache;->putStringForUser(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;I)Z
+    move-object v1, p0
+
+    move-object v2, p1
+
+    move-object v3, p2
+
+    move-object v4, p3
+
+    move v5, p4
+
+    move v6, p5
+
+    invoke-virtual/range {v0 .. v6}, Landroid/provider/Settings$NameValueCache;->putStringForUser(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZI)Z
 
     move-result v0
 
     return v0
+.end method
+
+.method public static resetToDefaults(Landroid/content/ContentResolver;Ljava/lang/String;)V
+    .locals 2
+
+    invoke-static {}, Landroid/os/UserHandle;->myUserId()I
+
+    move-result v0
+
+    const/4 v1, 0x1
+
+    invoke-static {p0, p1, v1, v0}, Landroid/provider/Settings$Secure;->resetToDefaultsAsUser(Landroid/content/ContentResolver;Ljava/lang/String;II)V
+
+    return-void
+.end method
+
+.method public static resetToDefaultsAsUser(Landroid/content/ContentResolver;Ljava/lang/String;II)V
+    .locals 6
+
+    :try_start_0
+    new-instance v0, Landroid/os/Bundle;
+
+    invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
+
+    const-string/jumbo v3, "_user"
+
+    invoke-virtual {v0, v3, p3}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
+
+    if-eqz p1, :cond_0
+
+    const-string/jumbo v3, "_tag"
+
+    invoke-virtual {v0, v3, p1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+
+    :cond_0
+    const-string/jumbo v3, "_reset_mode"
+
+    invoke-virtual {v0, v3, p2}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
+
+    sget-object v3, Landroid/provider/Settings$Secure;->sProviderHolder:Landroid/provider/Settings$ContentProviderHolder;
+
+    invoke-virtual {v3, p0}, Landroid/provider/Settings$ContentProviderHolder;->getProvider(Landroid/content/ContentResolver;)Landroid/content/IContentProvider;
+
+    move-result-object v1
+
+    invoke-virtual {p0}, Landroid/content/ContentResolver;->getPackageName()Ljava/lang/String;
+
+    move-result-object v3
+
+    const-string/jumbo v4, "RESET_secure"
+
+    const/4 v5, 0x0
+
+    invoke-interface {v1, v3, v4, v5, v0}, Landroid/content/IContentProvider;->call(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Landroid/os/Bundle;)Landroid/os/Bundle;
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    :goto_0
+    return-void
+
+    :catch_0
+    move-exception v2
+
+    const-string/jumbo v3, "Settings"
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v5, "Can\'t reset do defaults for "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    sget-object v5, Landroid/provider/Settings$Secure;->CONTENT_URI:Landroid/net/Uri;
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v3, v4, v2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    goto :goto_0
 .end method
 
 .method private static final restoreLocationModeForUser(Landroid/content/ContentResolver;I)Z

@@ -146,8 +146,14 @@
 .field private static sThenTime:Landroid/text/format/Time;
 
 .field public static final sameMonthTable:[I
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
 
 .field public static final sameYearTable:[I
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
 
 
 # direct methods
@@ -299,103 +305,144 @@
 .end method
 
 .method public static formatDuration(J)Ljava/lang/CharSequence;
+    .locals 2
+
+    const/16 v0, 0xa
+
+    invoke-static {p0, p1, v0}, Landroid/text/format/DateUtils;->formatDuration(JI)Ljava/lang/CharSequence;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public static formatDuration(JI)Ljava/lang/CharSequence;
     .locals 12
 
     const-wide/32 v10, 0x36ee80
 
-    const-wide/32 v6, 0xea60
+    const-wide/32 v8, 0xea60
 
-    const/4 v9, 0x1
+    sparse-switch p2, :sswitch_data_0
 
-    const/4 v8, 0x0
+    sget-object v4, Landroid/icu/text/MeasureFormat$FormatWidth;->WIDE:Landroid/icu/text/MeasureFormat$FormatWidth;
 
-    invoke-static {}, Landroid/content/res/Resources;->getSystem()Landroid/content/res/Resources;
-
-    move-result-object v2
-
-    cmp-long v4, p0, v10
-
-    if-ltz v4, :cond_0
-
-    const-wide/32 v4, 0x1b7740
-
-    add-long/2addr v4, p0
-
-    div-long/2addr v4, v10
-
-    long-to-int v0, v4
-
-    new-array v4, v9, [Ljava/lang/Object;
-
-    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    :goto_0
+    invoke-static {}, Ljava/util/Locale;->getDefault()Ljava/util/Locale;
 
     move-result-object v5
 
-    aput-object v5, v4, v8
+    invoke-static {v5, v4}, Landroid/icu/text/MeasureFormat;->getInstance(Ljava/util/Locale;Landroid/icu/text/MeasureFormat$FormatWidth;)Landroid/icu/text/MeasureFormat;
 
-    const v5, 0x1140006
+    move-result-object v0
 
-    invoke-virtual {v2, v5, v0, v4}, Landroid/content/res/Resources;->getQuantityString(II[Ljava/lang/Object;)Ljava/lang/String;
+    cmp-long v5, p0, v10
 
-    move-result-object v4
+    if-ltz v5, :cond_0
 
-    return-object v4
+    const-wide/32 v6, 0x1b7740
 
-    :cond_0
-    cmp-long v4, p0, v6
+    add-long/2addr v6, p0
 
-    if-ltz v4, :cond_1
+    div-long/2addr v6, v10
 
-    const-wide/16 v4, 0x7530
+    long-to-int v1, v6
 
-    add-long/2addr v4, p0
-
-    div-long/2addr v4, v6
-
-    long-to-int v1, v4
-
-    new-array v4, v9, [Ljava/lang/Object;
+    new-instance v5, Landroid/icu/util/Measure;
 
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
+    move-result-object v6
+
+    sget-object v7, Landroid/icu/util/MeasureUnit;->HOUR:Landroid/icu/util/TimeUnit;
+
+    invoke-direct {v5, v6, v7}, Landroid/icu/util/Measure;-><init>(Ljava/lang/Number;Landroid/icu/util/MeasureUnit;)V
+
+    invoke-virtual {v0, v5}, Landroid/icu/text/MeasureFormat;->format(Ljava/lang/Object;)Ljava/lang/String;
+
     move-result-object v5
 
-    aput-object v5, v4, v8
+    return-object v5
 
-    const v5, 0x1140005
+    :sswitch_0
+    sget-object v4, Landroid/icu/text/MeasureFormat$FormatWidth;->WIDE:Landroid/icu/text/MeasureFormat$FormatWidth;
 
-    invoke-virtual {v2, v5, v1, v4}, Landroid/content/res/Resources;->getQuantityString(II[Ljava/lang/Object;)Ljava/lang/String;
+    goto :goto_0
 
-    move-result-object v4
+    :sswitch_1
+    sget-object v4, Landroid/icu/text/MeasureFormat$FormatWidth;->SHORT:Landroid/icu/text/MeasureFormat$FormatWidth;
 
-    return-object v4
+    goto :goto_0
+
+    :sswitch_2
+    sget-object v4, Landroid/icu/text/MeasureFormat$FormatWidth;->NARROW:Landroid/icu/text/MeasureFormat$FormatWidth;
+
+    goto :goto_0
+
+    :cond_0
+    cmp-long v5, p0, v8
+
+    if-ltz v5, :cond_1
+
+    const-wide/16 v6, 0x7530
+
+    add-long/2addr v6, p0
+
+    div-long/2addr v6, v8
+
+    long-to-int v2, v6
+
+    new-instance v5, Landroid/icu/util/Measure;
+
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    sget-object v7, Landroid/icu/util/MeasureUnit;->MINUTE:Landroid/icu/util/TimeUnit;
+
+    invoke-direct {v5, v6, v7}, Landroid/icu/util/Measure;-><init>(Ljava/lang/Number;Landroid/icu/util/MeasureUnit;)V
+
+    invoke-virtual {v0, v5}, Landroid/icu/text/MeasureFormat;->format(Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v5
+
+    return-object v5
 
     :cond_1
-    const-wide/16 v4, 0x1f4
+    const-wide/16 v6, 0x1f4
 
-    add-long/2addr v4, p0
+    add-long/2addr v6, p0
 
-    const-wide/16 v6, 0x3e8
+    const-wide/16 v8, 0x3e8
 
-    div-long/2addr v4, v6
+    div-long/2addr v6, v8
 
-    long-to-int v3, v4
+    long-to-int v3, v6
 
-    new-array v4, v9, [Ljava/lang/Object;
+    new-instance v5, Landroid/icu/util/Measure;
 
     invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
+    move-result-object v6
+
+    sget-object v7, Landroid/icu/util/MeasureUnit;->SECOND:Landroid/icu/util/TimeUnit;
+
+    invoke-direct {v5, v6, v7}, Landroid/icu/util/Measure;-><init>(Ljava/lang/Number;Landroid/icu/util/MeasureUnit;)V
+
+    invoke-virtual {v0, v5}, Landroid/icu/text/MeasureFormat;->format(Ljava/lang/Object;)Ljava/lang/String;
+
     move-result-object v5
 
-    aput-object v5, v4, v8
+    return-object v5
 
-    const v5, 0x1140004
-
-    invoke-virtual {v2, v5, v3, v4}, Landroid/content/res/Resources;->getQuantityString(II[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v4
-
-    return-object v4
+    :sswitch_data_0
+    .sparse-switch
+        0xa -> :sswitch_0
+        0x14 -> :sswitch_1
+        0x1e -> :sswitch_1
+        0x28 -> :sswitch_1
+        0x32 -> :sswitch_2
+    .end sparse-switch
 .end method
 
 .method public static formatElapsedTime(J)Ljava/lang/String;
@@ -984,7 +1031,7 @@
 
     move-result-object v12
 
-    const v2, 0x1040358
+    const v2, 0x104086c
 
     :goto_0
     if-eqz p3, :cond_2
@@ -1036,7 +1083,7 @@
 
     move-result-object v12
 
-    const v2, 0x1040357
+    const v2, 0x104086b
 
     goto :goto_0
 
@@ -1055,7 +1102,7 @@
 
     move-result-object v12
 
-    const v2, 0x1040357
+    const v2, 0x104086b
 
     goto :goto_0
 
@@ -1112,15 +1159,14 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    xor-int/lit8 v2, v2, 0x1
 
-    :goto_0
-    return-void
+    if-eqz v2, :cond_1
 
     :cond_0
     sput-object v0, Landroid/text/format/DateUtils;->sLastConfig:Landroid/content/res/Configuration;
 
-    const v2, 0x104036c
+    const v2, 0x10402f0
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1128,7 +1174,7 @@
 
     sput-object v2, Landroid/text/format/DateUtils;->sElapsedFormatMMSS:Ljava/lang/String;
 
-    const v2, 0x104036d
+    const v2, 0x10402ef
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1136,7 +1182,8 @@
 
     sput-object v2, Landroid/text/format/DateUtils;->sElapsedFormatHMMSS:Ljava/lang/String;
 
-    goto :goto_0
+    :cond_1
+    return-void
 .end method
 
 .method public static isToday(J)Z

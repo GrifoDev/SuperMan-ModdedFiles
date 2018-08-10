@@ -59,22 +59,6 @@
     .end annotation
 .end method
 
-.method public abstract getMetadata(Landroid/bluetooth/BluetoothDevice;)Landroid/media/MediaMetadata;
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract getPlaybackState(Landroid/bluetooth/BluetoothDevice;)Landroid/media/session/PlaybackState;
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
 .method public abstract getPlayerSettings(Landroid/bluetooth/BluetoothDevice;)Landroid/bluetooth/BluetoothAvrcpPlayerSettings;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -84,14 +68,6 @@
 .end method
 
 .method public abstract sendGroupNavigationCmd(Landroid/bluetooth/BluetoothDevice;II)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract sendPassThroughCmd(Landroid/bluetooth/BluetoothDevice;II)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

@@ -26,13 +26,9 @@
 # static fields
 .field private static final DESCRIPTOR:Ljava/lang/String; = "android.service.tima.IPKMService"
 
-.field static final TRANSACTION_checkEvent:I = 0x2
+.field static final TRANSACTION_checkEvent:I = 0x1
 
-.field static final TRANSACTION_checkHistory:I = 0x3
-
-.field static final TRANSACTION_dumpLog:I = 0x1
-
-.field static final TRANSACTION_getEventList:I = 0x4
+.field static final TRANSACTION_getEventList:I = 0x2
 
 
 # direct methods
@@ -43,7 +39,7 @@
 
     const-string/jumbo v0, "android.service.tima.IPKMService"
 
-    invoke-virtual {p0, p0, v0}, Landroid/os/Binder;->attachInterface(Landroid/os/IInterface;Ljava/lang/String;)V
+    invoke-virtual {p0, p0, v0}, Landroid/service/tima/IPKMService$Stub;->attachInterface(Landroid/os/IInterface;Ljava/lang/String;)V
 
     return-void
 .end method
@@ -91,87 +87,49 @@
 .end method
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    .locals 7
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    const/4 v6, 0x1
+    const/4 v4, 0x1
 
     sparse-switch p1, :sswitch_data_0
 
     invoke-super {p0, p1, p2, p3, p4}, Landroid/os/Binder;->onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    move-result v5
+    move-result v3
 
-    return v5
+    return v3
 
     :sswitch_0
-    const-string/jumbo v5, "android.service.tima.IPKMService"
+    const-string/jumbo v3, "android.service.tima.IPKMService"
 
-    invoke-virtual {p3, v5}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p3, v3}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    return v6
+    return v4
 
     :sswitch_1
-    const-string/jumbo v5, "android.service.tima.IPKMService"
+    const-string/jumbo v3, "android.service.tima.IPKMService"
 
-    invoke-virtual {p2, v5}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    invoke-virtual {p0}, Landroid/service/tima/IPKMService$Stub;->dumpLog()[B
-
-    move-result-object v4
-
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
-    invoke-virtual {p3, v4}, Landroid/os/Parcel;->writeByteArray([B)V
-
-    return v6
-
-    :sswitch_2
-    const-string/jumbo v5, "android.service.tima.IPKMService"
-
-    invoke-virtual {p2, v5}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p0}, Landroid/service/tima/IPKMService$Stub;->checkEvent()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v1
 
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    invoke-virtual {p3, v2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p3, v1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    return v6
+    return v4
 
-    :sswitch_3
-    const-string/jumbo v5, "android.service.tima.IPKMService"
+    :sswitch_2
+    const-string/jumbo v3, "android.service.tima.IPKMService"
 
-    invoke-virtual {p2, v5}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v0
-
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v1
-
-    invoke-virtual {p0, v0, v1}, Landroid/service/tima/IPKMService$Stub;->checkHistory(II)Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
-    invoke-virtual {p3, v2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
-
-    return v6
-
-    :sswitch_4
-    const-string/jumbo v5, "android.service.tima.IPKMService"
-
-    invoke-virtual {p2, v5}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
@@ -179,20 +137,18 @@
 
     invoke-virtual {p0, v0}, Landroid/service/tima/IPKMService$Stub;->getEventList(I)Ljava/util/List;
 
-    move-result-object v3
+    move-result-object v2
 
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    invoke-virtual {p3, v3}, Landroid/os/Parcel;->writeStringList(Ljava/util/List;)V
+    invoke-virtual {p3, v2}, Landroid/os/Parcel;->writeStringList(Ljava/util/List;)V
 
-    return v6
+    return v4
 
     :sswitch_data_0
     .sparse-switch
         0x1 -> :sswitch_1
         0x2 -> :sswitch_2
-        0x3 -> :sswitch_3
-        0x4 -> :sswitch_4
         0x5f4e5446 -> :sswitch_0
     .end sparse-switch
 .end method

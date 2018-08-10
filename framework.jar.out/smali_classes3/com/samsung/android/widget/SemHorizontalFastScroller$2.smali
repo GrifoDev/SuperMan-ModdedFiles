@@ -34,25 +34,17 @@
 .method public onAnimationEnd(Landroid/animation/Animator;)V
     .locals 2
 
-    iget-object v1, p0, Lcom/samsung/android/widget/SemHorizontalFastScroller$2;->this$0:Lcom/samsung/android/widget/SemHorizontalFastScroller;
-
     iget-object v0, p0, Lcom/samsung/android/widget/SemHorizontalFastScroller$2;->this$0:Lcom/samsung/android/widget/SemHorizontalFastScroller;
 
-    invoke-static {v0}, Lcom/samsung/android/widget/SemHorizontalFastScroller;->-get0(Lcom/samsung/android/widget/SemHorizontalFastScroller;)Z
+    iget-object v1, p0, Lcom/samsung/android/widget/SemHorizontalFastScroller$2;->this$0:Lcom/samsung/android/widget/SemHorizontalFastScroller;
 
-    move-result v0
+    invoke-static {v1}, Lcom/samsung/android/widget/SemHorizontalFastScroller;->-get0(Lcom/samsung/android/widget/SemHorizontalFastScroller;)Z
 
-    if-eqz v0, :cond_0
+    move-result v1
 
-    const/4 v0, 0x0
+    xor-int/lit8 v1, v1, 0x1
 
-    :goto_0
-    invoke-static {v1, v0}, Lcom/samsung/android/widget/SemHorizontalFastScroller;->-set0(Lcom/samsung/android/widget/SemHorizontalFastScroller;Z)Z
+    invoke-static {v0, v1}, Lcom/samsung/android/widget/SemHorizontalFastScroller;->-set0(Lcom/samsung/android/widget/SemHorizontalFastScroller;Z)Z
 
     return-void
-
-    :cond_0
-    const/4 v0, 0x1
-
-    goto :goto_0
 .end method

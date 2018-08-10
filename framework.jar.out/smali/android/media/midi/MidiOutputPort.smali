@@ -53,7 +53,7 @@
     return-object v0
 .end method
 
-.method constructor <init>(Landroid/media/midi/IMidiDeviceServer;Landroid/os/IBinder;Landroid/os/ParcelFileDescriptor;I)V
+.method constructor <init>(Landroid/media/midi/IMidiDeviceServer;Landroid/os/IBinder;Ljava/io/FileDescriptor;I)V
     .locals 2
 
     invoke-direct {p0}, Landroid/media/midi/MidiSender;-><init>()V
@@ -84,7 +84,11 @@
 
     new-instance v0, Landroid/os/ParcelFileDescriptor$AutoCloseInputStream;
 
-    invoke-direct {v0, p3}, Landroid/os/ParcelFileDescriptor$AutoCloseInputStream;-><init>(Landroid/os/ParcelFileDescriptor;)V
+    new-instance v1, Landroid/os/ParcelFileDescriptor;
+
+    invoke-direct {v1, p3}, Landroid/os/ParcelFileDescriptor;-><init>(Ljava/io/FileDescriptor;)V
+
+    invoke-direct {v0, v1}, Landroid/os/ParcelFileDescriptor$AutoCloseInputStream;-><init>(Landroid/os/ParcelFileDescriptor;)V
 
     iput-object v0, p0, Landroid/media/midi/MidiOutputPort;->mInputStream:Ljava/io/FileInputStream;
 
@@ -101,12 +105,12 @@
     return-void
 .end method
 
-.method constructor <init>(Landroid/os/ParcelFileDescriptor;I)V
+.method constructor <init>(Ljava/io/FileDescriptor;I)V
     .locals 1
 
     const/4 v0, 0x0
 
-    invoke-direct {p0, v0, v0, p1, p2}, Landroid/media/midi/MidiOutputPort;-><init>(Landroid/media/midi/IMidiDeviceServer;Landroid/os/IBinder;Landroid/os/ParcelFileDescriptor;I)V
+    invoke-direct {p0, v0, v0, p1, p2}, Landroid/media/midi/MidiOutputPort;-><init>(Landroid/media/midi/IMidiDeviceServer;Landroid/os/IBinder;Ljava/io/FileDescriptor;I)V
 
     return-void
 .end method

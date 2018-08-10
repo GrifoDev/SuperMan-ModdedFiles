@@ -31,6 +31,24 @@
 
 
 # virtual methods
+.method protected onConfigurationChanged(Landroid/content/res/Configuration;)V
+    .locals 2
+
+    const/4 v1, 0x0
+
+    invoke-super {p0, p1}, Landroid/widget/FrameLayout;->onConfigurationChanged(Landroid/content/res/Configuration;)V
+
+    iget-object v0, p0, Landroid/widget/PopupWindow$PopupBackgroundView;->this$0:Landroid/widget/PopupWindow;
+
+    invoke-static {v0, v1}, Landroid/widget/PopupWindow;->-set0(Landroid/widget/PopupWindow;Z)Z
+
+    iget-object v0, p0, Landroid/widget/PopupWindow$PopupBackgroundView;->this$0:Landroid/widget/PopupWindow;
+
+    invoke-static {v0, v1}, Landroid/widget/PopupWindow;->-set2(Landroid/widget/PopupWindow;Z)Z
+
+    return-void
+.end method
+
 .method protected onCreateDrawableState(I)[I
     .locals 2
 

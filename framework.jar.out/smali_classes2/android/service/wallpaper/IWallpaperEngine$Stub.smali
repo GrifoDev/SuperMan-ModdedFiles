@@ -102,8 +102,6 @@
         }
     .end annotation
 
-    const/4 v9, 0x0
-
     const/4 v10, 0x1
 
     sparse-switch p1, :sswitch_data_0
@@ -178,12 +176,17 @@
 
     if-eqz v0, :cond_1
 
-    move v9, v10
+    const/4 v9, 0x1
 
-    :cond_1
+    :goto_1
     invoke-virtual {p0, v9}, Landroid/service/wallpaper/IWallpaperEngine$Stub;->setVisibility(Z)V
 
     return v10
+
+    :cond_1
+    const/4 v9, 0x0
+
+    goto :goto_1
 
     :sswitch_4
     const-string/jumbo v0, "android.service.wallpaper.IWallpaperEngine"
@@ -204,7 +207,7 @@
 
     check-cast v8, Landroid/view/MotionEvent;
 
-    :goto_1
+    :goto_2
     invoke-virtual {p0, v8}, Landroid/service/wallpaper/IWallpaperEngine$Stub;->dispatchPointer(Landroid/view/MotionEvent;)V
 
     return v10
@@ -212,7 +215,7 @@
     :cond_2
     const/4 v8, 0x0
 
-    goto :goto_1
+    goto :goto_2
 
     :sswitch_5
     const-string/jumbo v0, "android.service.wallpaper.IWallpaperEngine"
@@ -249,7 +252,7 @@
 
     check-cast v5, Landroid/os/Bundle;
 
-    :goto_2
+    :goto_3
     move-object v0, p0
 
     invoke-virtual/range {v0 .. v5}, Landroid/service/wallpaper/IWallpaperEngine$Stub;->dispatchWallpaperCommand(Ljava/lang/String;IIILandroid/os/Bundle;)V
@@ -259,7 +262,7 @@
     :cond_3
     const/4 v5, 0x0
 
-    goto :goto_2
+    goto :goto_3
 
     :sswitch_6
     const-string/jumbo v0, "android.service.wallpaper.IWallpaperEngine"
@@ -269,8 +272,6 @@
     invoke-virtual {p0}, Landroid/service/wallpaper/IWallpaperEngine$Stub;->destroy()V
 
     return v10
-
-    nop
 
     :sswitch_data_0
     .sparse-switch

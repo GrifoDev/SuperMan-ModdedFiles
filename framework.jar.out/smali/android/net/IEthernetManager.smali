@@ -15,7 +15,7 @@
 
 
 # virtual methods
-.method public abstract UpdateEthDevInfo(Landroid/net/EthernetDevInfo;)V
+.method public abstract UpdateEthDevInfo(Landroid/net/EthernetDevInfo;ILandroid/net/ProxyInfo;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -48,6 +48,22 @@
 .end method
 
 .method public abstract getSavedEthConfig()Landroid/net/EthernetDevInfo;
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract getSavedProxyInfo()Landroid/net/ProxyInfo;
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract getSavedProxySettings()I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

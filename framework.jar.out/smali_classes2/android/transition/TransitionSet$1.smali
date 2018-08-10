@@ -1,5 +1,5 @@
 .class Landroid/transition/TransitionSet$1;
-.super Landroid/transition/Transition$TransitionListenerAdapter;
+.super Landroid/transition/TransitionListenerAdapter;
 .source "TransitionSet.java"
 
 
@@ -28,7 +28,7 @@
 
     iput-object p2, p0, Landroid/transition/TransitionSet$1;->val$nextTransition:Landroid/transition/Transition;
 
-    invoke-direct {p0}, Landroid/transition/Transition$TransitionListenerAdapter;-><init>()V
+    invoke-direct {p0}, Landroid/transition/TransitionListenerAdapter;-><init>()V
 
     return-void
 .end method

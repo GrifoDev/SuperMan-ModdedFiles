@@ -103,37 +103,53 @@
 .end method
 
 .method public shouldSkipIme()Z
-    .locals 2
-
-    const/4 v0, 0x0
-
-    iget v1, p0, Landroid/view/ViewRootImpl$QueuedInputEvent;->mFlags:I
-
-    and-int/lit8 v1, v1, 0x1
-
-    if-eqz v1, :cond_0
+    .locals 3
 
     const/4 v0, 0x1
+
+    const/4 v1, 0x0
+
+    iget v2, p0, Landroid/view/ViewRootImpl$QueuedInputEvent;->mFlags:I
+
+    and-int/lit8 v2, v2, 0x1
+
+    if-eqz v2, :cond_0
 
     return v0
 
     :cond_0
+    iget-object v2, p0, Landroid/view/ViewRootImpl$QueuedInputEvent;->mEvent:Landroid/view/InputEvent;
+
+    instance-of v2, v2, Landroid/view/MotionEvent;
+
+    if-eqz v2, :cond_2
+
     iget-object v1, p0, Landroid/view/ViewRootImpl$QueuedInputEvent;->mEvent:Landroid/view/InputEvent;
 
-    instance-of v1, v1, Landroid/view/MotionEvent;
+    const/4 v2, 0x2
 
-    if-eqz v1, :cond_1
+    invoke-virtual {v1, v2}, Landroid/view/InputEvent;->isFromSource(I)Z
+
+    move-result v1
+
+    if-nez v1, :cond_1
 
     iget-object v0, p0, Landroid/view/ViewRootImpl$QueuedInputEvent;->mEvent:Landroid/view/InputEvent;
 
-    const/4 v1, 0x2
+    const/high16 v1, 0x400000
 
     invoke-virtual {v0, v1}, Landroid/view/InputEvent;->isFromSource(I)Z
 
     move-result v0
 
     :cond_1
+    :goto_0
     return v0
+
+    :cond_2
+    move v0, v1
+
+    goto :goto_0
 .end method
 
 .method public toString()Ljava/lang/String;

@@ -157,7 +157,7 @@
     return-void
 .end method
 
-.method public static native dumpNativeBacktraceToFile(ILjava/lang/String;)V
+.method public static native dumpNativeBacktraceToFileTimeout(ILjava/lang/String;I)V
 .end method
 
 .method public static native dumpNativeHeap(Ljava/io/FileDescriptor;)V
@@ -1427,14 +1427,19 @@
     return-void
 .end method
 
-.method public static saveDump(Landroid/content/pm/ApplicationInfo;Ljava/lang/String;)V
-    .locals 8
+.method public static declared-synchronized saveDump(Ljava/lang/String;Landroid/content/pm/ApplicationInfo;)V
+    .locals 10
 
-    const/4 v4, 0x0
+    const/4 v6, 0x1
 
+    const-class v7, Landroid/os/Debug;
+
+    monitor-enter v7
+
+    :try_start_0
     const-string/jumbo v5, "bugreportsys"
 
-    invoke-virtual {v5, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v5, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
@@ -1442,25 +1447,31 @@
 
     const-string/jumbo v5, "sys.reset_reason"
 
-    const-string/jumbo v6, "P|EX"
+    const-string/jumbo v8, "P|EX"
 
-    invoke-static {v5, v6}, Landroid/os/SystemProperties;->set(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v5, v8}, Landroid/os/SystemProperties;->set(Ljava/lang/String;Ljava/lang/String;)V
+
+    const-string/jumbo v5, "ctl.start"
+
+    const-string/jumbo v8, "resetreason"
+
+    invoke-static {v5, v8}, Landroid/os/SystemProperties;->set(Ljava/lang/String;Ljava/lang/String;)V
 
     :cond_0
     :goto_0
     const-string/jumbo v5, "sys.mobilecare.preload"
 
-    const-string/jumbo v6, "UNKNOWN"
+    const-string/jumbo v8, "UNKNOWN"
 
-    invoke-static {v5, v6}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v5, v8}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v3
 
     const-string/jumbo v5, "ro.debug_level"
 
-    const-string/jumbo v6, "0x4f4c"
+    const-string/jumbo v8, "0x4f4c"
 
-    invoke-static {v5, v6}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v5, v8}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -1468,13 +1479,13 @@
 
     move-result v5
 
-    if-nez v5, :cond_1
+    if-nez v5, :cond_5
 
     const-string/jumbo v5, "Debug"
 
-    const-string/jumbo v6, "!@DumpState : SHIP"
+    const-string/jumbo v8, "!@DumpState : SHIP"
 
-    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v5, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     const-string/jumbo v5, "0x4f4c"
 
@@ -1482,21 +1493,220 @@
 
     move-result v5
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_5
 
+    const-string/jumbo v5, "Debug"
+
+    new-instance v8, Ljava/lang/StringBuilder;
+
+    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v9, "!@DumpState : debug level:"
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-virtual {v8, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-static {v5, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    :try_start_1
+    const-string/jumbo v5, "true"
+
+    invoke-virtual {v5, v3}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v5
+
+    if-nez v5, :cond_5
+
+    const-string/jumbo v5, "bugreportsys"
+
+    invoke-virtual {v5, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v5
+
+    if-nez v5, :cond_3
+
+    const-string/jumbo v5, "bugreportswd"
+
+    invoke-virtual {v5, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v5
+
+    if-nez v5, :cond_3
+
+    const-string/jumbo v5, "unsupportedSDcard"
+
+    invoke-virtual {v5, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v5
+
+    if-nez v5, :cond_3
+
+    const-string/jumbo v5, "bugreportmount"
+
+    invoke-virtual {v5, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v5
+
+    :goto_1
+    xor-int/lit8 v5, v5, 0x1
+
+    if-eqz v5, :cond_5
+
+    iget-object v5, p1, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
+
+    if-eqz v5, :cond_4
+
+    iget-object v5, p1, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
+
+    const-string/jumbo v8, "com.sec"
+
+    invoke-virtual {v5, v8}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v5
+
+    if-nez v5, :cond_1
+
+    iget-object v5, p1, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
+
+    const-string/jumbo v8, "com.samsung"
+
+    invoke-virtual {v5, v8}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v5
+
+    if-nez v5, :cond_1
+
+    iget-object v5, p1, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
+
+    const-string/jumbo v6, "com.android.phone"
+
+    invoke-virtual {v5, v6}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v6
+
+    :cond_1
+    :goto_2
+    if-nez v6, :cond_5
+
+    const-string/jumbo v5, "Debug"
+
+    const-string/jumbo v6, "!@Dumpstate : Finally, system will skip dumpstate"
+
+    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_1
+    .catch Ljava/lang/NullPointerException; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    monitor-exit v7
+
+    return-void
+
+    :cond_2
+    :try_start_2
+    const-string/jumbo v5, "bugreportswd"
+
+    invoke-virtual {v5, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_0
+
+    const-string/jumbo v5, "sys.reset_reason"
+
+    const-string/jumbo v8, "P|WD"
+
+    invoke-static {v5, v8}, Landroid/os/SystemProperties;->set(Ljava/lang/String;Ljava/lang/String;)V
+
+    const-string/jumbo v5, "ctl.start"
+
+    const-string/jumbo v8, "resetreason"
+
+    invoke-static {v5, v8}, Landroid/os/SystemProperties;->set(Ljava/lang/String;Ljava/lang/String;)V
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+
+    goto/16 :goto_0
+
+    :catchall_0
+    move-exception v5
+
+    monitor-exit v7
+
+    throw v5
+
+    :cond_3
+    move v5, v6
+
+    goto :goto_1
+
+    :cond_4
+    const/4 v6, 0x0
+
+    goto :goto_2
+
+    :catch_0
+    move-exception v2
+
+    monitor-exit v7
+
+    return-void
+
+    :cond_5
+    :try_start_3
+    const-string/jumbo v5, "init.svc.bugreportsa"
+
+    const-string/jumbo v6, "UNKNOWN"
+
+    invoke-static {v5, v6}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v4
+
+    const-string/jumbo v5, "running"
+
+    invoke-virtual {v5, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_6
+
+    const-string/jumbo v5, "Debug"
+
+    const-string/jumbo v6, "!@DEBUG:saveDump is skipped becasue service is running\n"
+
+    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+
+    monitor-exit v7
+
+    return-void
+
+    :cond_6
+    :try_start_4
     const-string/jumbo v5, "Debug"
 
     new-instance v6, Ljava/lang/StringBuilder;
 
     invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v7, "!@DumpState : debug level:"
+    const-string/jumbo v8, "!@DEBUG:bugreport "
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v6
 
-    invoke-virtual {v6, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v6
 
@@ -1506,246 +1716,32 @@
 
     invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const-string/jumbo v5, "true"
+    const-string/jumbo v5, "dumpstate.options"
 
-    invoke-virtual {v5, v3}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    invoke-static {v5, p0}, Landroid/os/SystemProperties;->set(Ljava/lang/String;Ljava/lang/String;)V
 
-    move-result v5
+    const-string/jumbo v5, "ctl.start"
 
-    if-nez v5, :cond_1
-
-    const-string/jumbo v5, "bugreportsys"
-
-    invoke-virtual {v5, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v5
-
-    if-nez v5, :cond_1
-
-    const-string/jumbo v5, "bugreportswd"
-
-    invoke-virtual {v5, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_3
-
-    :cond_1
-    new-instance v4, Ljava/lang/StringBuilder;
-
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v5, "init.svc."
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v4
-
-    const-string/jumbo v5, "UNKNOWN"
-
-    invoke-static {v4, v5}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v3
-
-    const-string/jumbo v4, "running"
-
-    invoke-virtual {v4, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_6
-
-    const-string/jumbo v4, "Debug"
-
-    const-string/jumbo v5, "!@Dumpstate is already running\n"
-
-    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    return-void
-
-    :cond_2
-    const-string/jumbo v5, "bugreportswd"
-
-    invoke-virtual {v5, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_0
-
-    const-string/jumbo v5, "sys.reset_reason"
-
-    const-string/jumbo v6, "P|WD"
+    const-string/jumbo v6, "bugreportsa"
 
     invoke-static {v5, v6}, Landroid/os/SystemProperties;->set(Ljava/lang/String;Ljava/lang/String;)V
+    :try_end_4
+    .catchall {:try_start_4 .. :try_end_4} :catchall_0
 
-    goto/16 :goto_0
+    const-wide/16 v8, 0x1388
 
-    :cond_3
-    iget-object v5, p0, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
+    :try_start_5
+    invoke-static {v8, v9}, Ljava/lang/Thread;->sleep(J)V
+    :try_end_5
+    .catch Ljava/lang/InterruptedException; {:try_start_5 .. :try_end_5} :catch_1
+    .catchall {:try_start_5 .. :try_end_5} :catchall_0
 
-    if-eqz v5, :cond_4
-
-    iget-object v4, p0, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
-
-    const-string/jumbo v5, "com.sec"
-
-    invoke-virtual {v4, v5}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
-
-    move-result v4
-
-    if-nez v4, :cond_5
-
-    iget-object v4, p0, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
-
-    const-string/jumbo v5, "com.samsung"
-
-    invoke-virtual {v4, v5}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
-
-    move-result v4
-
-    :cond_4
-    :goto_1
-    if-nez v4, :cond_1
-
-    const-string/jumbo v4, "Debug"
-
-    const-string/jumbo v5, "!@Dumpstate : Finally, system will skip dumpstate"
-
-    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    return-void
-
-    :cond_5
-    const/4 v4, 0x1
-
-    goto :goto_1
-
-    :cond_6
-    const-string/jumbo v4, "ctl.start"
-
-    invoke-static {v4, p1}, Landroid/os/SystemProperties;->set(Ljava/lang/String;Ljava/lang/String;)V
-
-    const-wide/16 v4, 0x1f4
-
-    :try_start_0
-    invoke-static {v4, v5}, Ljava/lang/Thread;->sleep(J)V
-
-    new-instance v4, Ljava/lang/StringBuilder;
-
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v5, "init.svc."
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v4
-
-    const-string/jumbo v5, "UNKNOWN"
-
-    invoke-static {v4, v5}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v3
-
-    const-string/jumbo v4, "running"
-
-    invoke-virtual {v4, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_9
-
-    const-string/jumbo v4, "Debug"
-
-    const-string/jumbo v5, "!@dumpstate auto run"
-
-    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    const/16 v2, 0x64
-
-    :goto_2
-    if-lez v2, :cond_7
-
-    const-string/jumbo v4, "running"
-
-    invoke-virtual {v4, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_7
-
-    const-wide/16 v4, 0x64
-
-    invoke-static {v4, v5}, Ljava/lang/Thread;->sleep(J)V
-
-    new-instance v4, Ljava/lang/StringBuilder;
-
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v5, "init.svc."
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v4
-
-    const-string/jumbo v5, "running"
-
-    invoke-static {v4, v5}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v3
-
-    add-int/lit8 v2, v2, -0x1
-
-    goto :goto_2
-
-    :cond_7
-    if-nez v2, :cond_8
-
-    const-string/jumbo v4, "Debug"
-
-    const-string/jumbo v5, "!@Dumpstate waiting timeout(10sec)\n"
-
-    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_8
     :goto_3
+    monitor-exit v7
+
     return-void
 
-    :cond_9
-    const-string/jumbo v4, "Debug"
-
-    const-string/jumbo v5, "!@Dumpstate is not executed\n"
-
-    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_0
-    .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
-
-    goto :goto_3
-
-    :catch_0
+    :catch_1
     move-exception v1
 
     goto :goto_3
@@ -1760,6 +1756,17 @@
 .end method
 
 .method private static native saveDumpstateNative(Ljava/lang/String;)V
+.end method
+
+.method public static saveDumpsys(Ljava/lang/String;)V
+    .locals 0
+
+    invoke-static {p0}, Landroid/os/Debug;->saveDumpsysNative(Ljava/lang/String;)V
+
+    return-void
+.end method
+
+.method private static native saveDumpsysNative(Ljava/lang/String;)V
 .end method
 
 .method public static semIsOemUnlockEnabled(Landroid/content/Context;)Z
@@ -1947,8 +1954,8 @@
     return-void
 .end method
 
-.method public static startMethodTracing(Ljava/lang/String;Ljava/io/FileDescriptor;II)V
-    .locals 6
+.method public static startMethodTracing(Ljava/lang/String;Ljava/io/FileDescriptor;IIZ)V
+    .locals 7
 
     const/4 v4, 0x0
 
@@ -1962,7 +1969,9 @@
 
     move v5, v4
 
-    invoke-static/range {v0 .. v5}, Ldalvik/system/VMDebug;->startMethodTracing(Ljava/lang/String;Ljava/io/FileDescriptor;IIZI)V
+    move v6, p4
+
+    invoke-static/range {v0 .. v6}, Ldalvik/system/VMDebug;->startMethodTracing(Ljava/lang/String;Ljava/io/FileDescriptor;IIZIZ)V
 
     return-void
 .end method

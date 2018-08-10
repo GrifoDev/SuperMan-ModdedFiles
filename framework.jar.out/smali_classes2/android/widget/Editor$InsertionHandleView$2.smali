@@ -35,33 +35,11 @@
 
 # virtual methods
 .method public run()V
-    .locals 2
+    .locals 1
 
-    invoke-static {}, Landroid/os/Message;->obtain()Landroid/os/Message;
+    iget-object v0, p0, Landroid/widget/Editor$InsertionHandleView$2;->this$1:Landroid/widget/Editor$InsertionHandleView;
 
-    move-result-object v0
-
-    iget-object v1, p0, Landroid/widget/Editor$InsertionHandleView$2;->this$1:Landroid/widget/Editor$InsertionHandleView;
-
-    invoke-virtual {v1}, Landroid/widget/Editor$InsertionHandleView;->getHideAnimator()Landroid/animation/ValueAnimator;
-
-    move-result-object v1
-
-    iput-object v1, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
-
-    const/4 v1, 0x4
-
-    iput v1, v0, Landroid/os/Message;->what:I
-
-    iget-object v1, p0, Landroid/widget/Editor$InsertionHandleView$2;->this$1:Landroid/widget/Editor$InsertionHandleView;
-
-    iget-object v1, v1, Landroid/widget/Editor$InsertionHandleView;->this$0:Landroid/widget/Editor;
-
-    invoke-static {v1}, Landroid/widget/Editor;->-get0(Landroid/widget/Editor;)Landroid/os/Handler;
-
-    move-result-object v1
-
-    invoke-virtual {v1, v0}, Landroid/os/Handler;->sendMessageAtFrontOfQueue(Landroid/os/Message;)Z
+    invoke-virtual {v0}, Landroid/widget/Editor$InsertionHandleView;->hide()V
 
     return-void
 .end method

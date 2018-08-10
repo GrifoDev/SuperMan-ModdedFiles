@@ -300,14 +300,6 @@
     return v0
 .end method
 
-.method public getRenderer()Landroid/opengl/GLSurfaceView$Renderer;
-    .locals 1
-
-    iget-object v0, p0, Landroid/opengl/GLSurfaceView;->mRenderer:Landroid/opengl/GLSurfaceView$Renderer;
-
-    return-object v0
-.end method
-
 .method protected onAttachedToWindow()V
     .locals 3
 
@@ -626,6 +618,14 @@
 .end method
 
 .method public surfaceRedrawNeeded(Landroid/view/SurfaceHolder;)V
+    .locals 0
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+
+    return-void
+.end method
+
+.method public surfaceRedrawNeededAsync(Landroid/view/SurfaceHolder;Ljava/lang/Runnable;)V
     .locals 1
 
     iget-object v0, p0, Landroid/opengl/GLSurfaceView;->mGLThread:Landroid/opengl/GLSurfaceView$GLThread;
@@ -634,7 +634,7 @@
 
     iget-object v0, p0, Landroid/opengl/GLSurfaceView;->mGLThread:Landroid/opengl/GLSurfaceView$GLThread;
 
-    invoke-virtual {v0}, Landroid/opengl/GLSurfaceView$GLThread;->requestRenderAndWait()V
+    invoke-virtual {v0, p2}, Landroid/opengl/GLSurfaceView$GLThread;->requestRenderAndNotify(Ljava/lang/Runnable;)V
 
     :cond_0
     return-void

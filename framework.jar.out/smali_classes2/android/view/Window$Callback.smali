@@ -63,6 +63,12 @@
 .method public abstract onPanelClosed(ILandroid/view/Menu;)V
 .end method
 
+.method public onPointerCaptureChanged(Z)V
+    .locals 0
+
+    return-void
+.end method
+
 .method public abstract onPreparePanel(ILandroid/view/View;Landroid/view/Menu;)Z
 .end method
 

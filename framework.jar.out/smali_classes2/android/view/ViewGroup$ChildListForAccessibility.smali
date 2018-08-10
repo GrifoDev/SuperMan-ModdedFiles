@@ -266,18 +266,6 @@
     return v0
 .end method
 
-.method public getChildIndex(Landroid/view/View;)I
-    .locals 1
-
-    iget-object v0, p0, Landroid/view/ViewGroup$ChildListForAccessibility;->mChildren:Ljava/util/ArrayList;
-
-    invoke-virtual {v0, p1}, Ljava/util/ArrayList;->indexOf(Ljava/lang/Object;)I
-
-    move-result v0
-
-    return v0
-.end method
-
 .method public recycle()V
     .locals 1
 

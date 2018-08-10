@@ -42,8 +42,8 @@
     return-object v0
 .end method
 
-.method public doBackup(Landroid/os/ParcelFileDescriptor;Landroid/os/ParcelFileDescriptor;Landroid/os/ParcelFileDescriptor;ILandroid/app/backup/IBackupManager;)V
-    .locals 5
+.method public doBackup(Landroid/os/ParcelFileDescriptor;Landroid/os/ParcelFileDescriptor;Landroid/os/ParcelFileDescriptor;JILandroid/app/backup/IBackupManager;)V
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -94,11 +94,13 @@
     invoke-virtual {p3, v0, v2}, Landroid/os/ParcelFileDescriptor;->writeToParcel(Landroid/os/Parcel;I)V
 
     :goto_2
-    invoke-virtual {v0, p4}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {v0, p4, p5}, Landroid/os/Parcel;->writeLong(J)V
 
-    if-eqz p5, :cond_0
+    invoke-virtual {v0, p6}, Landroid/os/Parcel;->writeInt(I)V
 
-    invoke-interface {p5}, Landroid/app/backup/IBackupManager;->asBinder()Landroid/os/IBinder;
+    if-eqz p7, :cond_0
+
+    invoke-interface {p7}, Landroid/app/backup/IBackupManager;->asBinder()Landroid/os/IBinder;
 
     move-result-object v1
 
@@ -156,8 +158,8 @@
     goto :goto_2
 .end method
 
-.method public doFullBackup(Landroid/os/ParcelFileDescriptor;ILandroid/app/backup/IBackupManager;)V
-    .locals 5
+.method public doFullBackup(Landroid/os/ParcelFileDescriptor;JILandroid/app/backup/IBackupManager;)V
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -186,11 +188,13 @@
     invoke-virtual {p1, v0, v2}, Landroid/os/ParcelFileDescriptor;->writeToParcel(Landroid/os/Parcel;I)V
 
     :goto_0
-    invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {v0, p2, p3}, Landroid/os/Parcel;->writeLong(J)V
 
-    if-eqz p3, :cond_0
+    invoke-virtual {v0, p4}, Landroid/os/Parcel;->writeInt(I)V
 
-    invoke-interface {p3}, Landroid/app/backup/IBackupManager;->asBinder()Landroid/os/IBinder;
+    if-eqz p5, :cond_0
+
+    invoke-interface {p5}, Landroid/app/backup/IBackupManager;->asBinder()Landroid/os/IBinder;
 
     move-result-object v1
 
@@ -231,7 +235,7 @@
     throw v1
 .end method
 
-.method public doMeasureFullBackup(ILandroid/app/backup/IBackupManager;)V
+.method public doMeasureFullBackup(JILandroid/app/backup/IBackupManager;)V
     .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -250,11 +254,13 @@
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {v0, p1, p2}, Landroid/os/Parcel;->writeLong(J)V
 
-    if-eqz p2, :cond_0
+    invoke-virtual {v0, p3}, Landroid/os/Parcel;->writeInt(I)V
 
-    invoke-interface {p2}, Landroid/app/backup/IBackupManager;->asBinder()Landroid/os/IBinder;
+    if-eqz p4, :cond_0
+
+    invoke-interface {p4}, Landroid/app/backup/IBackupManager;->asBinder()Landroid/os/IBinder;
 
     move-result-object v1
 

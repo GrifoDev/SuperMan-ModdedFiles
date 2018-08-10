@@ -45,6 +45,12 @@
 .method abstract getNativeSize()I
 .end method
 
+.method abstract getProperty(Ljava/lang/String;)Landroid/util/Property;
+.end method
+
+.method abstract hasFocusStateSpecified()Z
+.end method
+
 .method abstract inflate(Landroid/content/res/Resources;Landroid/util/AttributeSet;Landroid/content/res/Resources$Theme;)V
 .end method
 

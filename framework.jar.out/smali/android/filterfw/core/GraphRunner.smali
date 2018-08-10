@@ -63,17 +63,18 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    xor-int/lit8 v1, v1, 0x1
 
-    :cond_0
-    const/4 v1, 0x0
+    if-eqz v1, :cond_0
 
-    return v1
-
-    :cond_1
     invoke-virtual {v0}, Landroid/filterfw/core/GLEnvironment;->activate()V
 
     const/4 v1, 0x1
+
+    return v1
+
+    :cond_0
+    const/4 v1, 0x0
 
     return v1
 .end method

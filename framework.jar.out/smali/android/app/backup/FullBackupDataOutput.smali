@@ -6,18 +6,22 @@
 # instance fields
 .field private final mData:Landroid/app/backup/BackupDataOutput;
 
+.field private final mQuota:J
+
 .field private mSize:J
 
 
 # direct methods
-.method public constructor <init>()V
-    .locals 2
+.method public constructor <init>(J)V
+    .locals 3
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     const/4 v0, 0x0
 
     iput-object v0, p0, Landroid/app/backup/FullBackupDataOutput;->mData:Landroid/app/backup/BackupDataOutput;
+
+    iput-wide p1, p0, Landroid/app/backup/FullBackupDataOutput;->mQuota:J
 
     const-wide/16 v0, 0x0
 
@@ -29,6 +33,16 @@
 .method public constructor <init>(Landroid/os/ParcelFileDescriptor;)V
     .locals 2
 
+    const-wide/16 v0, -0x1
+
+    invoke-direct {p0, p1, v0, v1}, Landroid/app/backup/FullBackupDataOutput;-><init>(Landroid/os/ParcelFileDescriptor;J)V
+
+    return-void
+.end method
+
+.method public constructor <init>(Landroid/os/ParcelFileDescriptor;J)V
+    .locals 2
+
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     new-instance v0, Landroid/app/backup/BackupDataOutput;
@@ -37,9 +51,11 @@
 
     move-result-object v1
 
-    invoke-direct {v0, v1}, Landroid/app/backup/BackupDataOutput;-><init>(Ljava/io/FileDescriptor;)V
+    invoke-direct {v0, v1, p2, p3}, Landroid/app/backup/BackupDataOutput;-><init>(Ljava/io/FileDescriptor;J)V
 
     iput-object v0, p0, Landroid/app/backup/FullBackupDataOutput;->mData:Landroid/app/backup/BackupDataOutput;
+
+    iput-wide p2, p0, Landroid/app/backup/FullBackupDataOutput;->mQuota:J
 
     return-void
 .end method
@@ -71,6 +87,14 @@
     iget-object v0, p0, Landroid/app/backup/FullBackupDataOutput;->mData:Landroid/app/backup/BackupDataOutput;
 
     return-object v0
+.end method
+
+.method public getQuota()J
+    .locals 2
+
+    iget-wide v0, p0, Landroid/app/backup/FullBackupDataOutput;->mQuota:J
+
+    return-wide v0
 .end method
 
 .method public getSize()J

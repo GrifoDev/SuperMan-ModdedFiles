@@ -254,13 +254,15 @@
     throw v1
 .end method
 
-.method public onDockedStackMinimizedChanged(ZJ)V
+.method public onDockedStackMinimizedChanged(ZJZ)V
     .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
+
+    const/4 v2, 0x0
 
     const/4 v1, 0x1
 
@@ -269,16 +271,23 @@
     move-result-object v0
 
     :try_start_0
-    const-string/jumbo v2, "android.view.IDockedStackListener"
+    const-string/jumbo v3, "android.view.IDockedStackListener"
 
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     if-eqz p1, :cond_0
 
+    move v3, v1
+
     :goto_0
-    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
 
     invoke-virtual {v0, p2, p3}, Landroid/os/Parcel;->writeLong(J)V
+
+    if-eqz p4, :cond_1
+
+    :goto_1
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
 
     iget-object v1, p0, Landroid/view/IDockedStackListener$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
@@ -297,9 +306,14 @@
     return-void
 
     :cond_0
-    const/4 v1, 0x0
+    move v3, v2
 
     goto :goto_0
+
+    :cond_1
+    move v1, v2
+
+    goto :goto_1
 
     :catchall_0
     move-exception v1

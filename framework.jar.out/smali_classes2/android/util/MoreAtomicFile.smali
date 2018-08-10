@@ -83,7 +83,7 @@
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {p0}, Landroid/util/AtomicFile;->getBaseFile()Ljava/io/File;
+    invoke-virtual {p0}, Landroid/util/MoreAtomicFile;->getBaseFile()Ljava/io/File;
 
     move-result-object v2
 
@@ -122,11 +122,16 @@
 .method public finishWrite(Ljava/io/FileOutputStream;)V
     .locals 2
 
+    if-eqz p1, :cond_0
+
+    invoke-static {p1}, Landroid/os/FileUtils;->sync(Ljava/io/FileOutputStream;)Z
+
+    :cond_0
     iget-object v0, p0, Landroid/util/MoreAtomicFile;->mMoreBackupName:Ljava/io/File;
 
     invoke-virtual {v0}, Ljava/io/File;->delete()Z
 
-    invoke-virtual {p0}, Landroid/util/AtomicFile;->getBackupFile()Ljava/io/File;
+    invoke-virtual {p0}, Landroid/util/MoreAtomicFile;->getBackupFile()Ljava/io/File;
 
     move-result-object v0
 
@@ -134,7 +139,9 @@
 
     invoke-virtual {v0, v1}, Ljava/io/File;->renameTo(Ljava/io/File;)Z
 
-    invoke-super {p0, p1}, Landroid/util/AtomicFile;->finishWrite(Ljava/io/FileOutputStream;)V
+    const/4 v0, 0x0
+
+    invoke-super {p0, p1, v0}, Landroid/util/AtomicFile;->finishWrite(Ljava/io/FileOutputStream;Z)V
 
     return-void
 .end method
@@ -150,7 +157,7 @@
         }
     .end annotation
 
-    invoke-virtual {p0}, Landroid/util/AtomicFile;->getBaseFile()Ljava/io/File;
+    invoke-virtual {p0}, Landroid/util/MoreAtomicFile;->getBaseFile()Ljava/io/File;
 
     move-result-object v0
 
@@ -163,7 +170,7 @@
     invoke-virtual {p0}, Landroid/util/MoreAtomicFile;->processDamagedFile()V
 
     :cond_0
-    invoke-virtual {p0}, Landroid/util/AtomicFile;->getBaseFile()Ljava/io/File;
+    invoke-virtual {p0}, Landroid/util/MoreAtomicFile;->getBaseFile()Ljava/io/File;
 
     move-result-object v0
 
@@ -173,7 +180,7 @@
 
     if-nez v0, :cond_1
 
-    invoke-virtual {p0}, Landroid/util/AtomicFile;->getBackupFile()Ljava/io/File;
+    invoke-virtual {p0}, Landroid/util/MoreAtomicFile;->getBackupFile()Ljava/io/File;
 
     move-result-object v0
 
@@ -181,19 +188,10 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    xor-int/lit8 v0, v0, 0x1
 
-    :cond_1
-    :goto_0
-    iget-object v0, p0, Landroid/util/MoreAtomicFile;->mPw:Ljava/io/PrintWriter;
+    if-eqz v0, :cond_1
 
-    invoke-super {p0, v0}, Landroid/util/AtomicFile;->openRead(Ljava/io/PrintWriter;)Ljava/io/FileInputStream;
-
-    move-result-object v0
-
-    return-object v0
-
-    :cond_2
     iget-object v0, p0, Landroid/util/MoreAtomicFile;->mMoreBackupName:Ljava/io/File;
 
     invoke-virtual {v0}, Ljava/io/File;->exists()Z
@@ -226,7 +224,7 @@
 
     move-result-object v1
 
-    invoke-virtual {p0}, Landroid/util/AtomicFile;->getBackupFile()Ljava/io/File;
+    invoke-virtual {p0}, Landroid/util/MoreAtomicFile;->getBackupFile()Ljava/io/File;
 
     move-result-object v2
 
@@ -238,17 +236,24 @@
 
     move-result-object v1
 
-    invoke-virtual {p0, v0, v1}, Landroid/util/AtomicFile;->logToFile(Ljava/io/PrintWriter;Ljava/lang/String;)V
+    invoke-virtual {p0, v0, v1}, Landroid/util/MoreAtomicFile;->logToFile(Ljava/io/PrintWriter;Ljava/lang/String;)V
 
     iget-object v0, p0, Landroid/util/MoreAtomicFile;->mMoreBackupName:Ljava/io/File;
 
-    invoke-virtual {p0}, Landroid/util/AtomicFile;->getBackupFile()Ljava/io/File;
+    invoke-virtual {p0}, Landroid/util/MoreAtomicFile;->getBackupFile()Ljava/io/File;
 
     move-result-object v1
 
     invoke-virtual {v0, v1}, Ljava/io/File;->renameTo(Ljava/io/File;)Z
 
-    goto :goto_0
+    :cond_1
+    iget-object v0, p0, Landroid/util/MoreAtomicFile;->mPw:Ljava/io/PrintWriter;
+
+    invoke-super {p0, v0}, Landroid/util/AtomicFile;->openRead(Ljava/io/PrintWriter;)Ljava/io/FileInputStream;
+
+    move-result-object v0
+
+    return-object v0
 .end method
 
 .method public processDamagedFile()V
@@ -256,7 +261,7 @@
 
     invoke-virtual {p0}, Landroid/util/MoreAtomicFile;->saveDamagedFile()V
 
-    invoke-virtual {p0}, Landroid/util/AtomicFile;->getBaseFile()Ljava/io/File;
+    invoke-virtual {p0}, Landroid/util/MoreAtomicFile;->getBaseFile()Ljava/io/File;
 
     move-result-object v0
 
@@ -268,7 +273,7 @@
 .method saveDamagedFile()V
     .locals 4
 
-    invoke-virtual {p0}, Landroid/util/AtomicFile;->getBaseFile()Ljava/io/File;
+    invoke-virtual {p0}, Landroid/util/MoreAtomicFile;->getBaseFile()Ljava/io/File;
 
     move-result-object v0
 
@@ -278,7 +283,7 @@
 
     if-eqz v0, :cond_0
 
-    invoke-virtual {p0}, Landroid/util/AtomicFile;->getBaseFile()Ljava/io/File;
+    invoke-virtual {p0}, Landroid/util/MoreAtomicFile;->getBaseFile()Ljava/io/File;
 
     move-result-object v0
 
@@ -288,7 +293,7 @@
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {p0}, Landroid/util/AtomicFile;->getBaseFile()Ljava/io/File;
+    invoke-virtual {p0}, Landroid/util/MoreAtomicFile;->getBaseFile()Ljava/io/File;
 
     move-result-object v3
 
@@ -326,7 +331,7 @@
         }
     .end annotation
 
-    invoke-virtual {p0}, Landroid/util/AtomicFile;->getBaseFile()Ljava/io/File;
+    invoke-virtual {p0}, Landroid/util/MoreAtomicFile;->getBaseFile()Ljava/io/File;
 
     move-result-object v0
 
@@ -339,7 +344,7 @@
     invoke-virtual {p0}, Landroid/util/MoreAtomicFile;->processDamagedFile()V
 
     :cond_0
-    invoke-virtual {p0}, Landroid/util/AtomicFile;->getBaseFile()Ljava/io/File;
+    invoke-virtual {p0}, Landroid/util/MoreAtomicFile;->getBaseFile()Ljava/io/File;
 
     move-result-object v0
 
@@ -349,7 +354,7 @@
 
     if-nez v0, :cond_1
 
-    invoke-virtual {p0}, Landroid/util/AtomicFile;->getBackupFile()Ljava/io/File;
+    invoke-virtual {p0}, Landroid/util/MoreAtomicFile;->getBackupFile()Ljava/io/File;
 
     move-result-object v0
 
@@ -357,19 +362,10 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    xor-int/lit8 v0, v0, 0x1
 
-    :cond_1
-    :goto_0
-    iget-object v0, p0, Landroid/util/MoreAtomicFile;->mPw:Ljava/io/PrintWriter;
+    if-eqz v0, :cond_1
 
-    invoke-super {p0, v0}, Landroid/util/AtomicFile;->startWrite(Ljava/io/PrintWriter;)Ljava/io/FileOutputStream;
-
-    move-result-object v0
-
-    return-object v0
-
-    :cond_2
     iget-object v0, p0, Landroid/util/MoreAtomicFile;->mMoreBackupName:Ljava/io/File;
 
     invoke-virtual {v0}, Ljava/io/File;->exists()Z
@@ -402,7 +398,7 @@
 
     move-result-object v1
 
-    invoke-virtual {p0}, Landroid/util/AtomicFile;->getBackupFile()Ljava/io/File;
+    invoke-virtual {p0}, Landroid/util/MoreAtomicFile;->getBaseFile()Ljava/io/File;
 
     move-result-object v2
 
@@ -414,15 +410,22 @@
 
     move-result-object v1
 
-    invoke-virtual {p0, v0, v1}, Landroid/util/AtomicFile;->logToFile(Ljava/io/PrintWriter;Ljava/lang/String;)V
+    invoke-virtual {p0, v0, v1}, Landroid/util/MoreAtomicFile;->logToFile(Ljava/io/PrintWriter;Ljava/lang/String;)V
 
     iget-object v0, p0, Landroid/util/MoreAtomicFile;->mMoreBackupName:Ljava/io/File;
 
-    invoke-virtual {p0}, Landroid/util/AtomicFile;->getBaseFile()Ljava/io/File;
+    invoke-virtual {p0}, Landroid/util/MoreAtomicFile;->getBaseFile()Ljava/io/File;
 
     move-result-object v1
 
     invoke-virtual {v0, v1}, Ljava/io/File;->renameTo(Ljava/io/File;)Z
 
-    goto :goto_0
+    :cond_1
+    iget-object v0, p0, Landroid/util/MoreAtomicFile;->mPw:Ljava/io/PrintWriter;
+
+    invoke-super {p0, v0}, Landroid/util/AtomicFile;->startWrite(Ljava/io/PrintWriter;)Ljava/io/FileOutputStream;
+
+    move-result-object v0
+
+    return-object v0
 .end method

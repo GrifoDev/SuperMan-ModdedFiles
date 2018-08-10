@@ -44,88 +44,43 @@
 
 # virtual methods
 .method public onChanged()V
-    .locals 11
+    .locals 12
 
-    const/4 v10, 0x0
+    const/4 v11, 0x0
 
-    iget-object v7, p0, Lcom/android/internal/app/ChooserActivity$OffsetDataSetObserver;->this$0:Lcom/android/internal/app/ChooserActivity;
+    iget-object v8, p0, Lcom/android/internal/app/ChooserActivity$OffsetDataSetObserver;->this$0:Lcom/android/internal/app/ChooserActivity;
 
-    iget-object v7, v7, Lcom/android/internal/app/ChooserActivity;->mResolverDrawerLayout:Lcom/android/internal/widget/ResolverDrawerLayout;
+    iget-object v8, v8, Lcom/android/internal/app/ChooserActivity;->mResolverDrawerLayout:Lcom/android/internal/widget/ResolverDrawerLayout;
 
-    if-nez v7, :cond_0
+    if-nez v8, :cond_0
 
     return-void
 
     :cond_0
-    iget-object v7, p0, Lcom/android/internal/app/ChooserActivity$OffsetDataSetObserver;->this$0:Lcom/android/internal/app/ChooserActivity;
+    iget-object v8, p0, Lcom/android/internal/app/ChooserActivity$OffsetDataSetObserver;->this$0:Lcom/android/internal/app/ChooserActivity;
 
-    invoke-static {v7}, Lcom/android/internal/app/ChooserActivity;->-get2(Lcom/android/internal/app/ChooserActivity;)Lcom/android/internal/app/ChooserActivity$ChooserRowAdapter;
+    invoke-static {v8}, Lcom/android/internal/app/ChooserActivity;->-get2(Lcom/android/internal/app/ChooserActivity;)Lcom/android/internal/app/ChooserActivity$ChooserRowAdapter;
 
-    move-result-object v7
+    move-result-object v8
 
-    invoke-virtual {v7}, Lcom/android/internal/app/ChooserActivity$ChooserRowAdapter;->getServiceTargetRowCount()I
+    invoke-virtual {v8}, Lcom/android/internal/app/ChooserActivity$ChooserRowAdapter;->getServiceTargetRowCount()I
 
     move-result v0
 
     const/4 v3, 0x0
+
+    iget-object v8, p0, Lcom/android/internal/app/ChooserActivity$OffsetDataSetObserver;->this$0:Lcom/android/internal/app/ChooserActivity;
+
+    invoke-virtual {v8}, Lcom/android/internal/app/ChooserActivity;->semGetTopPanelCount()I
+
+    move-result v5
 
     const/4 v2, 0x0
 
     :goto_0
     if-ge v2, v0, :cond_3
 
-    iget-object v7, p0, Lcom/android/internal/app/ChooserActivity$OffsetDataSetObserver;->this$0:Lcom/android/internal/app/ChooserActivity;
-
-    invoke-static {v7}, Lcom/android/internal/app/ChooserActivity;->-get2(Lcom/android/internal/app/ChooserActivity;)Lcom/android/internal/app/ChooserActivity$ChooserRowAdapter;
-
-    move-result-object v7
-
-    invoke-virtual {v7}, Lcom/android/internal/app/ChooserActivity$ChooserRowAdapter;->getCallerTargetRowCount()I
-
-    move-result v7
-
-    add-int v4, v7, v2
-
-    iget-object v7, p0, Lcom/android/internal/app/ChooserActivity$OffsetDataSetObserver;->this$0:Lcom/android/internal/app/ChooserActivity;
-
-    invoke-static {v7}, Lcom/android/internal/app/ChooserActivity;->-get2(Lcom/android/internal/app/ChooserActivity;)Lcom/android/internal/app/ChooserActivity$ChooserRowAdapter;
-
-    move-result-object v7
-
-    invoke-virtual {v7, v4}, Lcom/android/internal/app/ChooserActivity$ChooserRowAdapter;->getItemViewType(I)I
-
-    move-result v6
-
-    iget v7, p0, Lcom/android/internal/app/ChooserActivity$OffsetDataSetObserver;->mCachedViewType:I
-
-    if-eq v6, v7, :cond_1
-
-    iput-object v10, p0, Lcom/android/internal/app/ChooserActivity$OffsetDataSetObserver;->mCachedView:Landroid/view/View;
-
-    :cond_1
-    iget-object v7, p0, Lcom/android/internal/app/ChooserActivity$OffsetDataSetObserver;->this$0:Lcom/android/internal/app/ChooserActivity;
-
-    invoke-static {v7}, Lcom/android/internal/app/ChooserActivity;->-get2(Lcom/android/internal/app/ChooserActivity;)Lcom/android/internal/app/ChooserActivity$ChooserRowAdapter;
-
-    move-result-object v7
-
-    iget-object v8, p0, Lcom/android/internal/app/ChooserActivity$OffsetDataSetObserver;->mCachedView:Landroid/view/View;
-
-    iget-object v9, p0, Lcom/android/internal/app/ChooserActivity$OffsetDataSetObserver;->mListView:Landroid/widget/AbsListView;
-
-    invoke-virtual {v7, v4, v8, v9}, Lcom/android/internal/app/ChooserActivity$ChooserRowAdapter;->getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Landroid/view/View;->getTag()Ljava/lang/Object;
-
-    move-result-object v7
-
-    check-cast v7, Lcom/android/internal/app/ChooserActivity$RowViewHolder;
-
-    iget v1, v7, Lcom/android/internal/app/ChooserActivity$RowViewHolder;->measuredRowHeight:I
-
-    int-to-float v7, v1
+    add-int v4, v2, v5
 
     iget-object v8, p0, Lcom/android/internal/app/ChooserActivity$OffsetDataSetObserver;->this$0:Lcom/android/internal/app/ChooserActivity;
 
@@ -133,21 +88,62 @@
 
     move-result-object v8
 
-    invoke-static {v8, v4}, Lcom/android/internal/app/ChooserActivity$ChooserRowAdapter;->-wrap0(Lcom/android/internal/app/ChooserActivity$ChooserRowAdapter;I)F
+    invoke-virtual {v8, v4}, Lcom/android/internal/app/ChooserActivity$ChooserRowAdapter;->getItemViewType(I)I
 
-    move-result v8
+    move-result v7
 
-    mul-float/2addr v7, v8
+    iget v8, p0, Lcom/android/internal/app/ChooserActivity$OffsetDataSetObserver;->mCachedViewType:I
 
-    float-to-int v7, v7
+    if-eq v7, v8, :cond_1
 
-    add-int/2addr v3, v7
+    iput-object v11, p0, Lcom/android/internal/app/ChooserActivity$OffsetDataSetObserver;->mCachedView:Landroid/view/View;
 
-    if-ltz v6, :cond_2
+    :cond_1
+    iget-object v8, p0, Lcom/android/internal/app/ChooserActivity$OffsetDataSetObserver;->this$0:Lcom/android/internal/app/ChooserActivity;
 
-    iput v6, p0, Lcom/android/internal/app/ChooserActivity$OffsetDataSetObserver;->mCachedViewType:I
+    invoke-static {v8}, Lcom/android/internal/app/ChooserActivity;->-get2(Lcom/android/internal/app/ChooserActivity;)Lcom/android/internal/app/ChooserActivity$ChooserRowAdapter;
 
-    iput-object v5, p0, Lcom/android/internal/app/ChooserActivity$OffsetDataSetObserver;->mCachedView:Landroid/view/View;
+    move-result-object v8
+
+    iget-object v9, p0, Lcom/android/internal/app/ChooserActivity$OffsetDataSetObserver;->mCachedView:Landroid/view/View;
+
+    iget-object v10, p0, Lcom/android/internal/app/ChooserActivity$OffsetDataSetObserver;->mListView:Landroid/widget/AbsListView;
+
+    invoke-virtual {v8, v4, v9, v10}, Lcom/android/internal/app/ChooserActivity$ChooserRowAdapter;->getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Landroid/view/View;->getTag()Ljava/lang/Object;
+
+    move-result-object v8
+
+    check-cast v8, Lcom/android/internal/app/ChooserActivity$RowViewHolder;
+
+    iget v1, v8, Lcom/android/internal/app/ChooserActivity$RowViewHolder;->measuredRowHeight:I
+
+    int-to-float v8, v1
+
+    iget-object v9, p0, Lcom/android/internal/app/ChooserActivity$OffsetDataSetObserver;->this$0:Lcom/android/internal/app/ChooserActivity;
+
+    invoke-static {v9}, Lcom/android/internal/app/ChooserActivity;->-get2(Lcom/android/internal/app/ChooserActivity;)Lcom/android/internal/app/ChooserActivity$ChooserRowAdapter;
+
+    move-result-object v9
+
+    invoke-static {v9, v4}, Lcom/android/internal/app/ChooserActivity$ChooserRowAdapter;->-wrap0(Lcom/android/internal/app/ChooserActivity$ChooserRowAdapter;I)F
+
+    move-result v9
+
+    mul-float/2addr v8, v9
+
+    float-to-int v8, v8
+
+    add-int/2addr v3, v8
+
+    if-ltz v7, :cond_2
+
+    iput v7, p0, Lcom/android/internal/app/ChooserActivity$OffsetDataSetObserver;->mCachedViewType:I
+
+    iput-object v6, p0, Lcom/android/internal/app/ChooserActivity$OffsetDataSetObserver;->mCachedView:Landroid/view/View;
 
     :goto_1
     add-int/lit8 v2, v2, 0x1
@@ -155,18 +151,18 @@
     goto :goto_0
 
     :cond_2
-    const/4 v7, -0x1
+    const/4 v8, -0x1
 
-    iput v7, p0, Lcom/android/internal/app/ChooserActivity$OffsetDataSetObserver;->mCachedViewType:I
+    iput v8, p0, Lcom/android/internal/app/ChooserActivity$OffsetDataSetObserver;->mCachedViewType:I
 
     goto :goto_1
 
     :cond_3
-    iget-object v7, p0, Lcom/android/internal/app/ChooserActivity$OffsetDataSetObserver;->this$0:Lcom/android/internal/app/ChooserActivity;
+    iget-object v8, p0, Lcom/android/internal/app/ChooserActivity$OffsetDataSetObserver;->this$0:Lcom/android/internal/app/ChooserActivity;
 
-    iget-object v7, v7, Lcom/android/internal/app/ChooserActivity;->mResolverDrawerLayout:Lcom/android/internal/widget/ResolverDrawerLayout;
+    iget-object v8, v8, Lcom/android/internal/app/ChooserActivity;->mResolverDrawerLayout:Lcom/android/internal/widget/ResolverDrawerLayout;
 
-    invoke-virtual {v7, v3}, Lcom/android/internal/widget/ResolverDrawerLayout;->setCollapsibleHeightReserved(I)V
+    invoke-virtual {v8, v3}, Lcom/android/internal/widget/ResolverDrawerLayout;->setCollapsibleHeightReserved(I)V
 
     return-void
 .end method

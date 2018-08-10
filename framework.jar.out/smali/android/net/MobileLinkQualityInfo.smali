@@ -75,7 +75,7 @@
 
     invoke-direct {v0}, Landroid/net/MobileLinkQualityInfo;-><init>()V
 
-    invoke-virtual {v0, p0}, Landroid/net/LinkQualityInfo;->initializeFromParcel(Landroid/os/Parcel;)V
+    invoke-virtual {v0, p0}, Landroid/net/MobileLinkQualityInfo;->initializeFromParcel(Landroid/os/Parcel;)V
 
     invoke-virtual {p0}, Landroid/os/Parcel;->readInt()I
 

@@ -25,6 +25,8 @@
 
 
 # instance fields
+.field public aodPowerMah:D
+
 .field public bluetoothPowerMah:D
 
 .field public bluetoothRunningTimeMs:J
@@ -79,9 +81,17 @@
 
 .field public percent:D
 
+.field public proportionalSmearMah:D
+
+.field public screenPowerMah:D
+
 .field public sensorPowerMah:D
 
+.field public shouldHide:Z
+
 .field public totalPowerMah:D
+
+.field public totalSmearedPowerMah:D
 
 .field public uidObj:Landroid/os/BatteryStats$Uid;
 
@@ -392,6 +402,30 @@
 
     iput-wide v0, p0, Lcom/android/internal/os/BatterySipper;->bluetoothPowerMah:D
 
+    iget-wide v0, p0, Lcom/android/internal/os/BatterySipper;->screenPowerMah:D
+
+    iget-wide v2, p1, Lcom/android/internal/os/BatterySipper;->screenPowerMah:D
+
+    add-double/2addr v0, v2
+
+    iput-wide v0, p0, Lcom/android/internal/os/BatterySipper;->screenPowerMah:D
+
+    iget-wide v0, p0, Lcom/android/internal/os/BatterySipper;->proportionalSmearMah:D
+
+    iget-wide v2, p1, Lcom/android/internal/os/BatterySipper;->proportionalSmearMah:D
+
+    add-double/2addr v0, v2
+
+    iput-wide v0, p0, Lcom/android/internal/os/BatterySipper;->proportionalSmearMah:D
+
+    iget-wide v0, p0, Lcom/android/internal/os/BatterySipper;->totalSmearedPowerMah:D
+
+    iget-wide v2, p1, Lcom/android/internal/os/BatterySipper;->totalSmearedPowerMah:D
+
+    add-double/2addr v0, v2
+
+    iput-wide v0, p0, Lcom/android/internal/os/BatterySipper;->totalSmearedPowerMah:D
+
     return-void
 .end method
 
@@ -558,6 +592,20 @@
     add-double/2addr v0, v2
 
     iput-wide v0, p0, Lcom/android/internal/os/BatterySipper;->totalPowerMah:D
+
+    iget-wide v0, p0, Lcom/android/internal/os/BatterySipper;->totalPowerMah:D
+
+    iget-wide v2, p0, Lcom/android/internal/os/BatterySipper;->screenPowerMah:D
+
+    add-double/2addr v0, v2
+
+    iget-wide v2, p0, Lcom/android/internal/os/BatterySipper;->proportionalSmearMah:D
+
+    add-double/2addr v0, v2
+
+    iput-wide v0, p0, Lcom/android/internal/os/BatterySipper;->totalSmearedPowerMah:D
+
+    iget-wide v0, p0, Lcom/android/internal/os/BatterySipper;->totalPowerMah:D
 
     return-wide v0
 .end method

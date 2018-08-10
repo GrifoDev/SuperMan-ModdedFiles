@@ -97,9 +97,7 @@
 
     move-object v0, p1
 
-    nop
-
-    nop
+    check-cast v0, Landroid/bluetooth/SemBluetoothHidDeviceAppSdpSettings;
 
     iget-object v2, p0, Landroid/bluetooth/SemBluetoothHidDeviceAppSdpSettings;->name:Ljava/lang/String;
 

@@ -131,7 +131,9 @@
 
     move-result v11
 
-    if-lez v11, :cond_1
+    const/4 v12, 0x1
+
+    if-le v11, v12, :cond_1
 
     const/4 v11, 0x0
 

@@ -777,37 +777,39 @@
 .end method
 
 .method public hashCode()I
-    .locals 2
+    .locals 3
 
-    iget v0, p0, Landroid/telephony/CellSignalStrengthCdma;->mCdmaDbm:I
+    const/16 v0, 0x1f
 
-    mul-int/lit8 v0, v0, 0x1f
-
-    iget v1, p0, Landroid/telephony/CellSignalStrengthCdma;->mCdmaEcio:I
+    iget v1, p0, Landroid/telephony/CellSignalStrengthCdma;->mCdmaDbm:I
 
     mul-int/lit8 v1, v1, 0x1f
 
-    add-int/2addr v0, v1
+    iget v2, p0, Landroid/telephony/CellSignalStrengthCdma;->mCdmaEcio:I
 
-    iget v1, p0, Landroid/telephony/CellSignalStrengthCdma;->mEvdoDbm:I
+    mul-int/lit8 v2, v2, 0x1f
 
-    mul-int/lit8 v1, v1, 0x1f
+    add-int/2addr v1, v2
 
-    add-int/2addr v0, v1
+    iget v2, p0, Landroid/telephony/CellSignalStrengthCdma;->mEvdoDbm:I
 
-    iget v1, p0, Landroid/telephony/CellSignalStrengthCdma;->mEvdoEcio:I
+    mul-int/lit8 v2, v2, 0x1f
 
-    mul-int/lit8 v1, v1, 0x1f
+    add-int/2addr v1, v2
 
-    add-int/2addr v0, v1
+    iget v2, p0, Landroid/telephony/CellSignalStrengthCdma;->mEvdoEcio:I
 
-    iget v1, p0, Landroid/telephony/CellSignalStrengthCdma;->mEvdoSnr:I
+    mul-int/lit8 v2, v2, 0x1f
 
-    mul-int/lit8 v1, v1, 0x1f
+    add-int/2addr v1, v2
 
-    add-int/2addr v0, v1
+    iget v2, p0, Landroid/telephony/CellSignalStrengthCdma;->mEvdoSnr:I
 
-    return v0
+    mul-int/lit8 v2, v2, 0x1f
+
+    add-int/2addr v1, v2
+
+    return v1
 .end method
 
 .method public initialize(IIIII)V

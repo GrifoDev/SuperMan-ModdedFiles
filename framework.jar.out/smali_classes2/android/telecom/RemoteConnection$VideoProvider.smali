@@ -33,6 +33,10 @@
     .end annotation
 .end field
 
+.field private final mCallingPackage:Ljava/lang/String;
+
+.field private final mTargetSdkVersion:I
+
 .field private final mVideoCallbackDelegate:Lcom/android/internal/telecom/IVideoCallback;
 
 .field private final mVideoCallbackServant:Landroid/telecom/VideoCallbackServant;
@@ -49,7 +53,7 @@
     return-object v0
 .end method
 
-.method constructor <init>(Lcom/android/internal/telecom/IVideoProvider;)V
+.method constructor <init>(Lcom/android/internal/telecom/IVideoProvider;Ljava/lang/String;I)V
     .locals 5
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -85,6 +89,10 @@
     iput-object v1, p0, Landroid/telecom/RemoteConnection$VideoProvider;->mCallbacks:Ljava/util/Set;
 
     iput-object p1, p0, Landroid/telecom/RemoteConnection$VideoProvider;->mVideoProviderBinder:Lcom/android/internal/telecom/IVideoProvider;
+
+    iput-object p2, p0, Landroid/telecom/RemoteConnection$VideoProvider;->mCallingPackage:Ljava/lang/String;
+
+    iput p3, p0, Landroid/telecom/RemoteConnection$VideoProvider;->mTargetSdkVersion:I
 
     :try_start_0
     iget-object v1, p0, Landroid/telecom/RemoteConnection$VideoProvider;->mVideoProviderBinder:Lcom/android/internal/telecom/IVideoProvider;
@@ -201,12 +209,16 @@
 .end method
 
 .method public setCamera(Ljava/lang/String;)V
-    .locals 2
+    .locals 4
 
     :try_start_0
     iget-object v1, p0, Landroid/telecom/RemoteConnection$VideoProvider;->mVideoProviderBinder:Lcom/android/internal/telecom/IVideoProvider;
 
-    invoke-interface {v1, p1}, Lcom/android/internal/telecom/IVideoProvider;->setCamera(Ljava/lang/String;)V
+    iget-object v2, p0, Landroid/telecom/RemoteConnection$VideoProvider;->mCallingPackage:Ljava/lang/String;
+
+    iget v3, p0, Landroid/telecom/RemoteConnection$VideoProvider;->mTargetSdkVersion:I
+
+    invoke-interface {v1, p1, v2, v3}, Lcom/android/internal/telecom/IVideoProvider;->setCamera(Ljava/lang/String;Ljava/lang/String;I)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 

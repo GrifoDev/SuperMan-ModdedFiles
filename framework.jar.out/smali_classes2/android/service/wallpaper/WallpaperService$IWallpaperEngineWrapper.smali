@@ -176,7 +176,7 @@
 .end method
 
 .method public executeMessage(Landroid/os/Message;)V
-    .locals 11
+    .locals 10
 
     const/4 v7, 0x1
 
@@ -291,12 +291,6 @@
     invoke-virtual {v9, v6}, Landroid/service/wallpaper/WallpaperService$Engine;->doDisplayPaddingChanged(Landroid/graphics/Rect;)V
 
     :sswitch_5
-    const-string/jumbo v6, "WallpaperService"
-
-    const-string/jumbo v9, "MSG_UPDATE_SURFACE"
-
-    invoke-static {v6, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
     iget-object v6, p0, Landroid/service/wallpaper/WallpaperService$IWallpaperEngineWrapper;->mEngine:Landroid/service/wallpaper/WallpaperService$Engine;
 
     invoke-virtual {v6, v7, v8, v8}, Landroid/service/wallpaper/WallpaperService$Engine;->updateSurface(ZZZ)V
@@ -304,42 +298,6 @@
     goto :goto_0
 
     :sswitch_6
-    const-string/jumbo v6, "WallpaperService"
-
-    new-instance v9, Ljava/lang/StringBuilder;
-
-    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v10, "Visibility change in "
-
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    iget-object v10, p0, Landroid/service/wallpaper/WallpaperService$IWallpaperEngineWrapper;->mEngine:Landroid/service/wallpaper/WallpaperService$Engine;
-
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    const-string/jumbo v10, ": "
-
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    iget v10, p1, Landroid/os/Message;->arg1:I
-
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v9
-
-    invoke-static {v6, v9}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
-
     iget-object v9, p0, Landroid/service/wallpaper/WallpaperService$IWallpaperEngineWrapper;->mEngine:Landroid/service/wallpaper/WallpaperService$Engine;
 
     iget v6, p1, Landroid/os/Message;->arg1:I
@@ -351,7 +309,7 @@
     :goto_1
     invoke-virtual {v9, v6}, Landroid/service/wallpaper/WallpaperService$Engine;->doVisibilityChanged(Z)V
 
-    goto/16 :goto_0
+    goto :goto_0
 
     :cond_0
     move v6, v8
@@ -363,7 +321,7 @@
 
     invoke-virtual {v6, v7}, Landroid/service/wallpaper/WallpaperService$Engine;->doOffsetsChanged(Z)V
 
-    goto/16 :goto_0
+    goto :goto_0
 
     :sswitch_8
     iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
@@ -374,15 +332,9 @@
 
     invoke-virtual {v6, v0}, Landroid/service/wallpaper/WallpaperService$Engine;->doCommand(Landroid/service/wallpaper/WallpaperService$WallpaperCommand;)V
 
-    goto/16 :goto_0
+    goto :goto_0
 
     :sswitch_9
-    const-string/jumbo v6, "WallpaperService"
-
-    const-string/jumbo v9, "MSG_WINDOW_RESIZED"
-
-    invoke-static {v6, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
     iget v6, p1, Landroid/os/Message;->arg1:I
 
     if-eqz v6, :cond_1
@@ -456,28 +408,6 @@
 
     :cond_2
     if-nez v5, :cond_3
-
-    const-string/jumbo v6, "WallpaperService"
-
-    new-instance v7, Ljava/lang/StringBuilder;
-
-    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v8, "Delivering touch event: "
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    invoke-virtual {v7, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-static {v6, v7}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     iget-object v6, p0, Landroid/service/wallpaper/WallpaperService$IWallpaperEngineWrapper;->mEngine:Landroid/service/wallpaper/WallpaperService$Engine;
 

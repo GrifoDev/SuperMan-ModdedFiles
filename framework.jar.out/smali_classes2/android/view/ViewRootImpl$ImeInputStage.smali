@@ -49,7 +49,7 @@
 
     iget-object v1, p0, Landroid/view/ViewRootImpl$ImeInputStage;->this$0:Landroid/view/ViewRootImpl;
 
-    invoke-static {v1}, Landroid/view/ViewRootImpl;->-get6(Landroid/view/ViewRootImpl;)Ljava/lang/String;
+    invoke-static {v1}, Landroid/view/ViewRootImpl;->-get9(Landroid/view/ViewRootImpl;)Ljava/lang/String;
 
     move-result-object v1
 
@@ -76,7 +76,7 @@
 
     iget-boolean v3, v3, Landroid/view/ViewRootImpl;->mLastWasImTarget:Z
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_2
 
     iget-object v3, p0, Landroid/view/ViewRootImpl$ImeInputStage;->this$0:Landroid/view/ViewRootImpl;
 
@@ -84,17 +84,15 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    xor-int/lit8 v3, v3, 0x1
 
-    :cond_0
-    return v4
+    if-eqz v3, :cond_2
 
-    :cond_1
     invoke-static {}, Landroid/view/inputmethod/InputMethodManager;->peekInstance()Landroid/view/inputmethod/InputMethodManager;
 
     move-result-object v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_2
 
     iget-object v0, p1, Landroid/view/ViewRootImpl$QueuedInputEvent;->mEvent:Landroid/view/InputEvent;
 
@@ -106,17 +104,20 @@
 
     move-result v2
 
-    if-ne v2, v5, :cond_2
+    if-ne v2, v5, :cond_0
 
     return v5
 
-    :cond_2
-    if-nez v2, :cond_3
+    :cond_0
+    if-nez v2, :cond_1
 
     return v4
 
-    :cond_3
+    :cond_1
     const/4 v3, 0x3
 
     return v3
+
+    :cond_2
+    return v4
 .end method

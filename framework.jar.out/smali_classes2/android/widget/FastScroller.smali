@@ -437,7 +437,7 @@
 
     move-result-object v2
 
-    const v3, 0x105009f
+    const v3, 0x1050095
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -804,7 +804,7 @@
     return v17
 
     :cond_3
-    if-eqz v15, :cond_5
+    if-eqz v15, :cond_6
 
     move-object/from16 v0, p0
 
@@ -812,7 +812,7 @@
 
     move-object/from16 v17, v0
 
-    if-eqz v17, :cond_5
+    if-eqz v17, :cond_6
 
     move-object/from16 v0, p0
 
@@ -826,15 +826,12 @@
 
     move/from16 v17, v0
 
-    if-lez v17, :cond_4
+    if-lez v17, :cond_5
 
-    const/16 v17, 0x1
+    const/4 v5, 0x1
 
     :goto_0
-    move/from16 v5, v17
-
-    :goto_1
-    if-eqz v5, :cond_6
+    if-eqz v5, :cond_4
 
     move-object/from16 v0, p0
 
@@ -842,33 +839,11 @@
 
     move/from16 v17, v0
 
-    if-eqz v17, :cond_6
+    xor-int/lit8 v17, v17, 0x1
 
-    move-object/from16 v0, p0
-
-    iget v0, v0, Landroid/widget/FastScroller;->mHeaderCount:I
-
-    move/from16 v17, v0
-
-    sub-int p1, p1, v17
-
-    if-gez p1, :cond_8
-
-    const/16 v17, 0x0
-
-    return v17
+    if-eqz v17, :cond_8
 
     :cond_4
-    const/16 v17, 0x0
-
-    goto :goto_0
-
-    :cond_5
-    const/4 v5, 0x0
-
-    goto :goto_1
-
-    :cond_6
     move/from16 v0, p2
 
     move/from16 v1, p3
@@ -878,6 +853,16 @@
     const/16 v17, 0x0
 
     return v17
+
+    :cond_5
+    const/4 v5, 0x0
+
+    goto :goto_0
+
+    :cond_6
+    const/4 v5, 0x0
+
+    goto :goto_0
 
     :cond_7
     move/from16 v0, p1
@@ -905,6 +890,21 @@
 
     move/from16 v17, v0
 
+    sub-int p1, p1, v17
+
+    if-gez p1, :cond_9
+
+    const/16 v17, 0x0
+
+    return v17
+
+    :cond_9
+    move-object/from16 v0, p0
+
+    iget v0, v0, Landroid/widget/FastScroller;->mHeaderCount:I
+
+    move/from16 v17, v0
+
     sub-int p3, p3, v17
 
     move-object/from16 v0, p0
@@ -919,18 +919,18 @@
 
     move-result-object v3
 
-    if-eqz v3, :cond_9
+    if-eqz v3, :cond_a
 
     invoke-virtual {v3}, Landroid/view/View;->getHeight()I
 
     move-result v17
 
-    if-nez v17, :cond_b
+    if-nez v17, :cond_c
 
-    :cond_9
+    :cond_a
     const/4 v6, 0x0
 
-    :goto_2
+    :goto_1
     move/from16 v0, p1
 
     invoke-interface {v15, v0}, Landroid/widget/SectionIndexer;->getSectionForPosition(I)I
@@ -955,13 +955,13 @@
 
     move/from16 v0, v17
 
-    if-ge v13, v0, :cond_d
+    if-ge v13, v0, :cond_e
 
     add-int/lit8 v17, v13, 0x1
 
     move/from16 v0, v17
 
-    if-ge v0, v14, :cond_c
+    if-ge v0, v14, :cond_d
 
     add-int/lit8 v17, v13, 0x1
 
@@ -971,15 +971,15 @@
 
     move-result v9
 
-    :goto_3
+    :goto_2
     sub-int v11, v9, v16
 
-    :goto_4
-    if-nez v11, :cond_e
+    :goto_3
+    if-nez v11, :cond_f
 
     const/4 v10, 0x0
 
-    :goto_5
+    :goto_4
     int-to-float v0, v13
 
     move/from16 v17, v0
@@ -992,7 +992,7 @@
 
     div-float v12, v17, v18
 
-    if-lez p1, :cond_a
+    if-lez p1, :cond_b
 
     add-int v17, p1, p2
 
@@ -1000,7 +1000,7 @@
 
     move/from16 v1, p3
 
-    if-ne v0, v1, :cond_a
+    if-ne v0, v1, :cond_b
 
     move-object/from16 v0, p0
 
@@ -1034,7 +1034,7 @@
 
     move-result v17
 
-    if-eqz v17, :cond_f
+    if-eqz v17, :cond_10
 
     invoke-virtual {v7}, Landroid/view/View;->getHeight()I
 
@@ -1058,10 +1058,10 @@
 
     sub-int v4, v17, v18
 
-    :goto_6
-    if-lez v4, :cond_a
+    :goto_5
+    if-lez v4, :cond_b
 
-    if-lez v8, :cond_a
+    if-lez v8, :cond_b
 
     const/high16 v17, 0x3f800000    # 1.0f
 
@@ -1081,10 +1081,10 @@
 
     add-float v12, v12, v17
 
-    :cond_a
+    :cond_b
     return v12
 
-    :cond_b
+    :cond_c
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/widget/FastScroller;->mList:Landroid/widget/AbsListView;
@@ -1119,19 +1119,19 @@
 
     div-float v6, v17, v18
 
+    goto/16 :goto_1
+
+    :cond_d
+    add-int/lit8 v9, p3, -0x1
+
     goto/16 :goto_2
 
-    :cond_c
-    add-int/lit8 v9, p3, -0x1
+    :cond_e
+    sub-int v11, p3, v16
 
     goto/16 :goto_3
 
-    :cond_d
-    sub-int v11, p3, v16
-
-    goto/16 :goto_4
-
-    :cond_e
+    :cond_f
     move/from16 v0, p1
 
     int-to-float v0, v0
@@ -1154,9 +1154,9 @@
 
     div-float v10, v17, v18
 
-    goto/16 :goto_5
+    goto/16 :goto_4
 
-    :cond_f
+    :cond_10
     invoke-virtual {v7}, Landroid/view/View;->getHeight()I
 
     move-result v17
@@ -1179,7 +1179,7 @@
 
     sub-int v4, v17, v18
 
-    goto :goto_6
+    goto :goto_5
 .end method
 
 .method private getPosFromMotionEvent(F)F
@@ -1514,8 +1514,6 @@
 
     const/4 v5, 0x0
 
-    const/4 v0, 0x0
-
     iget-object v6, p0, Landroid/widget/FastScroller;->mThumbImage:Landroid/widget/ImageView;
 
     invoke-virtual {v6}, Landroid/widget/ImageView;->getTranslationY()F
@@ -1550,31 +1548,38 @@
 
     sub-float v3, v6, v7
 
-    cmpl-float v6, v3, v0
+    const/4 v6, 0x0
 
-    if-lez v6, :cond_0
+    cmpl-float v6, v3, v6
+
+    if-lez v6, :cond_1
 
     const/high16 v6, 0x40000000    # 2.0f
 
     div-float v0, v3, v6
 
-    :cond_0
+    :goto_0
     sub-float v6, v4, v0
 
     cmpl-float v6, p1, v6
 
-    if-ltz v6, :cond_1
+    if-ltz v6, :cond_0
 
     add-float v6, v1, v0
 
     cmpg-float v6, p1, v6
 
-    if-gtz v6, :cond_1
+    if-gtz v6, :cond_0
 
     const/4 v5, 0x1
 
-    :cond_1
+    :cond_0
     return v5
+
+    :cond_1
+    const/4 v0, 0x0
+
+    goto :goto_0
 .end method
 
 .method private layoutThumb()V
@@ -2727,7 +2732,9 @@
 
     if-eqz v22, :cond_6
 
-    if-nez v7, :cond_6
+    xor-int/lit8 v22, v7, 0x1
+
+    if-eqz v22, :cond_6
 
     invoke-direct/range {p0 .. p0}, Landroid/widget/FastScroller;->transitionToVisible()V
 
@@ -3271,11 +3278,8 @@
 
     move-result v20
 
-    if-eqz v20, :cond_5
+    xor-int/lit8 v20, v20, 0x1
 
-    const/16 v20, 0x0
-
-    :goto_2
     return v20
 
     :cond_3
@@ -3301,11 +3305,6 @@
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setScaleX(F)V
 
     goto :goto_1
-
-    :cond_5
-    const/16 v20, 0x1
-
-    goto :goto_2
 .end method
 
 .method private transitionToDragging()V
@@ -4240,15 +4239,13 @@
 .method public onItemCountChanged(II)V
     .locals 4
 
-    const/4 v1, 0x0
-
     iget v2, p0, Landroid/widget/FastScroller;->mOldItemCount:I
 
     if-ne v2, p2, :cond_0
 
     iget v2, p0, Landroid/widget/FastScroller;->mOldChildCount:I
 
-    if-eq v2, p1, :cond_3
+    if-eq v2, p1, :cond_2
 
     :cond_0
     iput p2, p0, Landroid/widget/FastScroller;->mOldItemCount:I
@@ -4257,18 +4254,18 @@
 
     sub-int v2, p2, p1
 
-    if-lez v2, :cond_1
+    if-lez v2, :cond_3
 
     const/4 v1, 0x1
 
-    :cond_1
-    if-eqz v1, :cond_2
+    :goto_0
+    if-eqz v1, :cond_1
 
     iget v2, p0, Landroid/widget/FastScroller;->mState:I
 
     const/4 v3, 0x2
 
-    if-eq v2, v3, :cond_2
+    if-eq v2, v3, :cond_1
 
     iget-object v2, p0, Landroid/widget/FastScroller;->mList:Landroid/widget/AbsListView;
 
@@ -4282,71 +4279,125 @@
 
     invoke-direct {p0, v2}, Landroid/widget/FastScroller;->setThumbPos(F)V
 
-    :cond_2
+    :cond_1
     invoke-direct {p0, p1, p2}, Landroid/widget/FastScroller;->updateLongList(II)V
 
-    :cond_3
+    :cond_2
     return-void
+
+    :cond_3
+    const/4 v1, 0x0
+
+    goto :goto_0
+.end method
+
+.method public onResolvePointerIcon(Landroid/view/MotionEvent;I)Landroid/view/PointerIcon;
+    .locals 2
+
+    iget v0, p0, Landroid/widget/FastScroller;->mState:I
+
+    const/4 v1, 0x2
+
+    if-eq v0, v1, :cond_0
+
+    invoke-virtual {p1}, Landroid/view/MotionEvent;->getX()F
+
+    move-result v0
+
+    invoke-virtual {p1}, Landroid/view/MotionEvent;->getY()F
+
+    move-result v1
+
+    invoke-direct {p0, v0, v1}, Landroid/widget/FastScroller;->isPointInside(FF)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    :cond_0
+    iget-object v0, p0, Landroid/widget/FastScroller;->mList:Landroid/widget/AbsListView;
+
+    invoke-virtual {v0}, Landroid/widget/AbsListView;->getContext()Landroid/content/Context;
+
+    move-result-object v0
+
+    const/16 v1, 0x3e8
+
+    invoke-static {v0, v1}, Landroid/view/PointerIcon;->getSystemIcon(Landroid/content/Context;I)Landroid/view/PointerIcon;
+
+    move-result-object v0
+
+    return-object v0
+
+    :cond_1
+    const/4 v0, 0x0
+
+    return-object v0
 .end method
 
 .method public onScroll(III)V
-    .locals 4
+    .locals 5
 
-    const/4 v3, 0x2
+    const/4 v4, 0x2
 
-    const/4 v1, 0x1
+    const/4 v3, 0x1
 
-    const/4 v0, 0x0
+    const/4 v2, 0x0
 
     invoke-virtual {p0}, Landroid/widget/FastScroller;->isEnabled()Z
 
-    move-result v2
+    move-result v1
 
-    if-nez v2, :cond_0
+    if-nez v1, :cond_0
 
-    invoke-direct {p0, v0}, Landroid/widget/FastScroller;->setState(I)V
+    invoke-direct {p0, v2}, Landroid/widget/FastScroller;->setState(I)V
 
     return-void
 
     :cond_0
-    sub-int v2, p3, p2
+    sub-int v1, p3, p2
 
-    if-lez v2, :cond_1
+    if-lez v1, :cond_3
 
-    move v0, v1
+    const/4 v0, 0x1
 
-    :cond_1
-    if-eqz v0, :cond_2
+    :goto_0
+    if-eqz v0, :cond_1
 
-    iget v2, p0, Landroid/widget/FastScroller;->mState:I
+    iget v1, p0, Landroid/widget/FastScroller;->mState:I
 
-    if-eq v2, v3, :cond_2
+    if-eq v1, v4, :cond_1
 
     invoke-direct {p0, p1, p2, p3}, Landroid/widget/FastScroller;->getPosFromItemCount(III)F
 
-    move-result v2
+    move-result v1
 
-    invoke-direct {p0, v2}, Landroid/widget/FastScroller;->setThumbPos(F)V
+    invoke-direct {p0, v1}, Landroid/widget/FastScroller;->setThumbPos(F)V
 
-    :cond_2
-    iput-boolean v1, p0, Landroid/widget/FastScroller;->mScrollCompleted:Z
+    :cond_1
+    iput-boolean v3, p0, Landroid/widget/FastScroller;->mScrollCompleted:Z
 
-    iget v2, p0, Landroid/widget/FastScroller;->mFirstVisibleItem:I
+    iget v1, p0, Landroid/widget/FastScroller;->mFirstVisibleItem:I
 
-    if-eq v2, p1, :cond_3
+    if-eq v1, p1, :cond_2
 
     iput p1, p0, Landroid/widget/FastScroller;->mFirstVisibleItem:I
 
-    iget v2, p0, Landroid/widget/FastScroller;->mState:I
+    iget v1, p0, Landroid/widget/FastScroller;->mState:I
 
-    if-eq v2, v3, :cond_3
+    if-eq v1, v4, :cond_2
 
-    invoke-direct {p0, v1}, Landroid/widget/FastScroller;->setState(I)V
+    invoke-direct {p0, v3}, Landroid/widget/FastScroller;->setState(I)V
 
     invoke-direct {p0}, Landroid/widget/FastScroller;->postAutoHide()V
 
-    :cond_3
+    :cond_2
     return-void
+
+    :cond_3
+    const/4 v0, 0x0
+
+    goto :goto_0
 .end method
 
 .method public onSectionsChanged()V
@@ -4942,13 +4993,13 @@
         :pswitch_8
         :pswitch_9
         :pswitch_d
-        :pswitch_3
-        :pswitch_a
-        :pswitch_b
-        :pswitch_4
-        :pswitch_2
         :pswitch_1
+        :pswitch_2
         :pswitch_0
+        :pswitch_3
+        :pswitch_b
+        :pswitch_a
+        :pswitch_4
     .end packed-switch
 .end method
 

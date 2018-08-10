@@ -204,11 +204,13 @@
 .method public getAsBoolean(Ljava/lang/String;)Ljava/lang/Boolean;
     .locals 5
 
-    const/4 v2, 0x0
+    const/4 v2, 0x1
 
-    iget-object v3, p0, Landroid/content/ContentValues;->mValues:Ljava/util/HashMap;
+    const/4 v3, 0x0
 
-    invoke-virtual {v3, p1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    iget-object v4, p0, Landroid/content/ContentValues;->mValues:Ljava/util/HashMap;
+
+    invoke-virtual {v4, p1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v1
 
@@ -222,36 +224,51 @@
     :catch_0
     move-exception v0
 
-    instance-of v3, v1, Ljava/lang/CharSequence;
+    instance-of v4, v1, Ljava/lang/CharSequence;
 
-    if-eqz v3, :cond_0
+    if-eqz v4, :cond_1
 
     invoke-virtual {v1}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v3
 
-    invoke-static {v2}, Ljava/lang/Boolean;->valueOf(Ljava/lang/String;)Ljava/lang/Boolean;
+    invoke-static {v3}, Ljava/lang/Boolean;->valueOf(Ljava/lang/String;)Ljava/lang/Boolean;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/Boolean;->booleanValue()Z
+
+    move-result v3
+
+    if-nez v3, :cond_0
+
+    const-string/jumbo v2, "1"
+
+    invoke-virtual {v2, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    :cond_0
+    invoke-static {v2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v2
 
     return-object v2
 
-    :cond_0
-    instance-of v3, v1, Ljava/lang/Number;
+    :cond_1
+    instance-of v4, v1, Ljava/lang/Number;
 
-    if-eqz v3, :cond_2
+    if-eqz v4, :cond_3
 
     check-cast v1, Ljava/lang/Number;
 
     invoke-virtual {v1}, Ljava/lang/Number;->intValue()I
 
-    move-result v3
+    move-result v4
 
-    if-eqz v3, :cond_1
+    if-eqz v4, :cond_2
 
-    const/4 v2, 0x1
-
-    :cond_1
+    :goto_0
     invoke-static {v2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v2
@@ -259,6 +276,11 @@
     return-object v2
 
     :cond_2
+    move v2, v3
+
+    goto :goto_0
+
+    :cond_3
     const-string/jumbo v2, "ContentValues"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -1160,6 +1182,18 @@
     iget-object v0, p0, Landroid/content/ContentValues;->mValues:Ljava/util/HashMap;
 
     invoke-virtual {v0}, Ljava/util/HashMap;->hashCode()I
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public isEmpty()Z
+    .locals 1
+
+    iget-object v0, p0, Landroid/content/ContentValues;->mValues:Ljava/util/HashMap;
+
+    invoke-virtual {v0}, Ljava/util/HashMap;->isEmpty()Z
 
     move-result v0
 

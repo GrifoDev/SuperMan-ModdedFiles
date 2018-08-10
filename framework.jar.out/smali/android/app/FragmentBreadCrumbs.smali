@@ -78,7 +78,7 @@
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 1
 
-    const v0, 0x116001d
+    const v0, 0x111003c
 
     invoke-direct {p0, p1, p2, v0}, Landroid/app/FragmentBreadCrumbs;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
@@ -126,9 +126,9 @@
 
     iput v1, p0, Landroid/app/FragmentBreadCrumbs;->mGravity:I
 
-    const/4 v1, 0x1
+    const/4 v1, 0x2
 
-    const v2, 0x1090063
+    const v2, 0x1090065
 
     invoke-virtual {v0, v1, v2}, Landroid/content/res/TypedArray;->getResourceId(II)I
 
@@ -136,7 +136,7 @@
 
     iput v1, p0, Landroid/app/FragmentBreadCrumbs;->mLayoutResId:I
 
-    const/4 v1, 0x2
+    const/4 v1, 0x1
 
     invoke-virtual {v0, v1, v3}, Landroid/content/res/TypedArray;->getColor(II)I
 
@@ -519,7 +519,7 @@
 
     iget-object v0, p0, Landroid/app/FragmentBreadCrumbs;->mInflater:Landroid/view/LayoutInflater;
 
-    const v1, 0x1090065
+    const v1, 0x1090067
 
     const/4 v2, 0x0
 
@@ -774,7 +774,7 @@
 
     if-nez v7, :cond_3
 
-    const v18, 0x1020042
+    const v18, 0x1020352
 
     move/from16 v0, v18
 
@@ -912,7 +912,7 @@
 
     invoke-virtual {v5, v0}, Landroid/view/View;->setVisibility(I)V
 
-    const v18, 0x1020042
+    const v18, 0x1020352
 
     move/from16 v0, v18
 

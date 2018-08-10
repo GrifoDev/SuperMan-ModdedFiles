@@ -211,7 +211,7 @@
     :catch_0
     move-exception v2
 
-    invoke-virtual {v2}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v2}, Ljava/lang/Exception;->printStackTrace()V
 
     goto :goto_0
 
@@ -237,7 +237,7 @@
     :catch_1
     move-exception v2
 
-    invoke-virtual {v2}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v2}, Ljava/lang/Exception;->printStackTrace()V
 
     goto :goto_2
 .end method
@@ -361,7 +361,7 @@
     :catch_0
     move-exception v2
 
-    invoke-virtual {v2}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v2}, Ljava/io/IOException;->printStackTrace()V
 
     goto :goto_0
 
@@ -370,7 +370,7 @@
 
     :goto_2
     :try_start_3
-    invoke-virtual {v3}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v3}, Ljava/lang/Exception;->printStackTrace()V
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
@@ -386,7 +386,7 @@
     :catch_2
     move-exception v2
 
-    invoke-virtual {v2}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v2}, Ljava/io/IOException;->printStackTrace()V
 
     goto :goto_1
 
@@ -408,7 +408,7 @@
     :catch_3
     move-exception v2
 
-    invoke-virtual {v2}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v2}, Ljava/io/IOException;->printStackTrace()V
 
     goto :goto_4
 
@@ -430,6 +430,19 @@
 .method public createThumnailFromData(Landroid/content/Context;Lcom/samsung/android/content/clipboard/data/SemClipData;)Ljava/lang/String;
     .locals 23
 
+    if-nez p1, :cond_0
+
+    const-string/jumbo v20, "FileHelper"
+
+    const-string/jumbo v21, "createThumnailFromData(): context is null!"
+
+    invoke-static/range {v20 .. v21}, Landroid/sec/clipboard/util/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/16 v20, 0x0
+
+    return-object v20
+
+    :cond_0
     const/4 v11, 0x0
 
     invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -445,7 +458,7 @@
 
     move-result-object v20
 
-    const v21, 0x10501e9
+    const v21, 0x1050301
 
     invoke-virtual/range {v20 .. v21}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -461,7 +474,7 @@
 
     move-result-object v20
 
-    const v21, 0x10501e8
+    const v21, 0x1050300
 
     invoke-virtual/range {v20 .. v21}, Landroid/content/res/Resources;->getDimension(I)F
     :try_end_0
@@ -476,7 +489,7 @@
     move/from16 v17, v0
 
     :goto_0
-    if-eqz p2, :cond_2
+    if-eqz p2, :cond_3
 
     invoke-virtual/range {p2 .. p2}, Lcom/samsung/android/content/clipboard/data/SemClipData;->getClipType()I
 
@@ -488,7 +501,7 @@
 
     move/from16 v1, v21
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v1, :cond_2
 
     move-object/from16 v11, p2
 
@@ -532,9 +545,9 @@
     move-result-object v14
 
     :goto_1
-    if-eqz v14, :cond_0
+    if-eqz v14, :cond_1
 
-    if-eqz v14, :cond_3
+    if-eqz v14, :cond_4
 
     invoke-virtual {v14}, Ljava/lang/String;->length()I
 
@@ -546,9 +559,9 @@
 
     move/from16 v1, v21
 
-    if-ge v0, v1, :cond_3
+    if-ge v0, v1, :cond_4
 
-    :cond_0
+    :cond_1
     const-string/jumbo v20, "FileHelper"
 
     const-string/jumbo v21, "getFirstImage : FileName is empty."
@@ -562,11 +575,11 @@
     :catch_0
     move-exception v8
 
-    invoke-virtual {v8}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v8}, Ljava/lang/Exception;->printStackTrace()V
 
     goto :goto_0
 
-    :cond_1
+    :cond_2
     const-string/jumbo v20, "FileHelper"
 
     new-instance v21, Ljava/lang/StringBuilder;
@@ -597,7 +610,7 @@
 
     return-object v20
 
-    :cond_2
+    :cond_3
     const-string/jumbo v20, "FileHelper"
 
     new-instance v21, Ljava/lang/StringBuilder;
@@ -631,11 +644,11 @@
     :catch_1
     move-exception v8
 
-    invoke-virtual {v8}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v8}, Ljava/lang/Exception;->printStackTrace()V
 
     goto :goto_1
 
-    :cond_3
+    :cond_4
     const-string/jumbo v20, "FileHelper"
 
     new-instance v21, Ljava/lang/StringBuilder;
@@ -672,7 +685,7 @@
 
     move-result v20
 
-    if-eqz v20, :cond_8
+    if-eqz v20, :cond_9
 
     const/16 v20, 0x2c
 
@@ -682,9 +695,9 @@
 
     move-result v12
 
-    if-lez v12, :cond_4
+    if-lez v12, :cond_5
 
-    if-ge v12, v13, :cond_4
+    if-ge v12, v13, :cond_5
 
     const-string/jumbo v20, "data:"
 
@@ -704,7 +717,7 @@
 
     move-result v20
 
-    if-eqz v20, :cond_4
+    if-eqz v20, :cond_5
 
     add-int/lit8 v20, v12, 0x1
 
@@ -734,9 +747,9 @@
 
     move-result-object v3
 
-    :cond_4
+    :cond_5
     :goto_2
-    if-eqz v3, :cond_e
+    if-eqz v3, :cond_f
 
     new-instance v15, Ljava/io/File;
 
@@ -798,10 +811,10 @@
     .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_4
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    if-eqz v10, :cond_5
+    if-eqz v10, :cond_6
 
     :try_start_3
-    sget-object v20, Landroid/graphics/Bitmap$CompressFormat;->PNG:Landroid/graphics/Bitmap$CompressFormat;
+    sget-object v20, Landroid/graphics/Bitmap$CompressFormat;->JPEG:Landroid/graphics/Bitmap$CompressFormat;
 
     const/16 v21, 0x32
 
@@ -814,30 +827,30 @@
     .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_7
     .catchall {:try_start_3 .. :try_end_3} :catchall_1
 
-    :cond_5
-    if-eqz v10, :cond_6
+    :cond_6
+    if-eqz v10, :cond_7
 
     :try_start_4
     invoke-virtual {v10}, Ljava/io/FileOutputStream;->close()V
     :try_end_4
     .catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_3
 
-    :cond_6
+    :cond_7
     :goto_3
     move-object v9, v10
 
-    :cond_7
+    :cond_8
     :goto_4
     invoke-virtual {v3}, Landroid/graphics/Bitmap;->recycle()V
 
     return-object v16
 
-    :cond_8
+    :cond_9
     sget v20, Landroid/sec/clipboard/util/FileHelper;->LENGTH_HTTP_URL:I
 
     move/from16 v0, v20
 
-    if-le v13, v0, :cond_a
+    if-le v13, v0, :cond_b
 
     sget v20, Landroid/sec/clipboard/util/FileHelper;->LENGTH_HTTP_URL:I
 
@@ -857,9 +870,9 @@
 
     move-result v20
 
-    if-nez v20, :cond_a
+    if-nez v20, :cond_b
 
-    :cond_9
+    :cond_a
     const-string/jumbo v20, "FileHelper"
 
     const-string/jumbo v21, "downloadSimpleBitmap"
@@ -909,12 +922,12 @@
 
     goto/16 :goto_2
 
-    :cond_a
+    :cond_b
     sget v20, Landroid/sec/clipboard/util/FileHelper;->LENGTH_HTTPS_URL:I
 
     move/from16 v0, v20
 
-    if-le v13, v0, :cond_b
+    if-le v13, v0, :cond_c
 
     sget v20, Landroid/sec/clipboard/util/FileHelper;->LENGTH_HTTPS_URL:I
 
@@ -934,16 +947,16 @@
 
     move-result v20
 
-    if-eqz v20, :cond_9
+    if-eqz v20, :cond_a
 
-    :cond_b
-    if-eqz v4, :cond_c
+    :cond_c
+    if-eqz v4, :cond_d
 
     sget v20, Landroid/sec/clipboard/util/FileHelper;->LENGTH_CONTENT_URI:I
 
     move/from16 v0, v20
 
-    if-le v13, v0, :cond_c
+    if-le v13, v0, :cond_d
 
     sget v20, Landroid/sec/clipboard/util/FileHelper;->LENGTH_CONTENT_URI:I
 
@@ -963,7 +976,7 @@
 
     move-result v20
 
-    if-nez v20, :cond_c
+    if-nez v20, :cond_d
 
     const-string/jumbo v20, "FileHelper"
 
@@ -990,13 +1003,13 @@
     :catch_2
     move-exception v8
 
-    invoke-virtual {v8}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v8}, Ljava/lang/Exception;->printStackTrace()V
 
     const/16 v20, 0x0
 
     return-object v20
 
-    :cond_c
+    :cond_d
     const-string/jumbo v20, "FileHelper"
 
     const-string/jumbo v21, "invalid data"
@@ -1008,7 +1021,7 @@
     :catch_3
     move-exception v7
 
-    invoke-virtual {v7}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v7}, Ljava/io/IOException;->printStackTrace()V
 
     goto/16 :goto_3
 
@@ -1017,11 +1030,11 @@
 
     :goto_5
     :try_start_6
-    invoke-virtual {v8}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v8}, Ljava/lang/Exception;->printStackTrace()V
     :try_end_6
     .catchall {:try_start_6 .. :try_end_6} :catchall_0
 
-    if-eqz v9, :cond_7
+    if-eqz v9, :cond_8
 
     :try_start_7
     invoke-virtual {v9}, Ljava/io/FileOutputStream;->close()V
@@ -1033,7 +1046,7 @@
     :catch_5
     move-exception v7
 
-    invoke-virtual {v7}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v7}, Ljava/io/IOException;->printStackTrace()V
 
     goto/16 :goto_4
 
@@ -1041,25 +1054,25 @@
     move-exception v20
 
     :goto_6
-    if-eqz v9, :cond_d
+    if-eqz v9, :cond_e
 
     :try_start_8
     invoke-virtual {v9}, Ljava/io/FileOutputStream;->close()V
     :try_end_8
     .catch Ljava/io/IOException; {:try_start_8 .. :try_end_8} :catch_6
 
-    :cond_d
+    :cond_e
     :goto_7
     throw v20
 
     :catch_6
     move-exception v7
 
-    invoke-virtual {v7}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v7}, Ljava/io/IOException;->printStackTrace()V
 
     goto :goto_7
 
-    :cond_e
+    :cond_f
     const/16 v20, 0x0
 
     return-object v20
@@ -1097,7 +1110,7 @@
 
     move-result-object v19
 
-    const v20, 0x10501e9
+    const v20, 0x1050301
 
     invoke-virtual/range {v19 .. v20}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1113,7 +1126,7 @@
 
     move-result-object v19
 
-    const v20, 0x10501e8
+    const v20, 0x1050300
 
     invoke-virtual/range {v19 .. v20}, Landroid/content/res/Resources;->getDimension(I)F
     :try_end_0
@@ -1128,7 +1141,7 @@
     :goto_0
     if-eqz p2, :cond_2
 
-    invoke-virtual/range {p2 .. p2}, Lcom/samsung/android/content/clipboard/data/SemClipData;->getClipType()I
+    invoke-virtual/range {p2 .. p2}, Lcom/samsung/android/content/clipboard/data/SemUriClipData;->getClipType()I
 
     move-result v19
 
@@ -1190,7 +1203,7 @@
     :catch_0
     move-exception v7
 
-    invoke-virtual {v7}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v7}, Ljava/lang/Exception;->printStackTrace()V
 
     goto :goto_0
 
@@ -1207,7 +1220,7 @@
 
     move-result-object v20
 
-    invoke-virtual/range {p2 .. p2}, Lcom/samsung/android/content/clipboard/data/SemClipData;->getClipType()I
+    invoke-virtual/range {p2 .. p2}, Lcom/samsung/android/content/clipboard/data/SemUriClipData;->getClipType()I
 
     move-result v21
 
@@ -1540,7 +1553,7 @@
     :catch_1
     move-exception v6
 
-    invoke-virtual {v6}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v6}, Ljava/io/IOException;->printStackTrace()V
 
     goto :goto_2
 
@@ -1549,7 +1562,7 @@
 
     :goto_4
     :try_start_4
-    invoke-virtual {v7}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v7}, Ljava/lang/Exception;->printStackTrace()V
     :try_end_4
     .catchall {:try_start_4 .. :try_end_4} :catchall_0
 
@@ -1565,7 +1578,7 @@
     :catch_3
     move-exception v6
 
-    invoke-virtual {v6}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v6}, Ljava/io/IOException;->printStackTrace()V
 
     goto :goto_3
 
@@ -1587,7 +1600,7 @@
     :catch_4
     move-exception v6
 
-    invoke-virtual {v6}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v6}, Ljava/io/IOException;->printStackTrace()V
 
     goto :goto_6
 
@@ -1700,7 +1713,7 @@
     :catch_0
     move-exception v2
 
-    invoke-virtual {v2}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v2}, Ljava/io/IOException;->printStackTrace()V
 
     goto :goto_0
 
@@ -1709,7 +1722,7 @@
 
     :goto_2
     :try_start_3
-    invoke-virtual {v3}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v3}, Ljava/lang/Exception;->printStackTrace()V
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
@@ -1725,7 +1738,7 @@
     :catch_2
     move-exception v2
 
-    invoke-virtual {v2}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v2}, Ljava/io/IOException;->printStackTrace()V
 
     goto :goto_1
 
@@ -1747,7 +1760,7 @@
     :catch_3
     move-exception v2
 
-    invoke-virtual {v2}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v2}, Ljava/io/IOException;->printStackTrace()V
 
     goto :goto_4
 
@@ -1817,7 +1830,7 @@
     if-eqz v5, :cond_1
 
     :try_start_1
-    sget-object v7, Landroid/graphics/Bitmap$CompressFormat;->PNG:Landroid/graphics/Bitmap$CompressFormat;
+    sget-object v7, Landroid/graphics/Bitmap$CompressFormat;->JPEG:Landroid/graphics/Bitmap$CompressFormat;
 
     const/16 v8, 0x32
 
@@ -1849,7 +1862,7 @@
     :catch_0
     move-exception v2
 
-    invoke-virtual {v2}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v2}, Ljava/io/IOException;->printStackTrace()V
 
     goto :goto_0
 
@@ -1858,7 +1871,7 @@
 
     :goto_2
     :try_start_3
-    invoke-virtual {v3}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v3}, Ljava/lang/Exception;->printStackTrace()V
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
@@ -1874,7 +1887,7 @@
     :catch_2
     move-exception v2
 
-    invoke-virtual {v2}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v2}, Ljava/io/IOException;->printStackTrace()V
 
     goto :goto_1
 
@@ -1896,7 +1909,7 @@
     :catch_3
     move-exception v2
 
-    invoke-virtual {v2}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v2}, Ljava/io/IOException;->printStackTrace()V
 
     goto :goto_4
 
@@ -2044,12 +2057,12 @@
     if-eqz v3, :cond_0
 
     :try_start_3
-    invoke-virtual {v3}, Ljava/nio/channels/spi/AbstractInterruptibleChannel;->close()V
+    invoke-virtual {v3}, Ljava/nio/channels/FileChannel;->close()V
 
     :cond_0
     if-eqz v8, :cond_1
 
-    invoke-virtual {v8}, Ljava/nio/channels/spi/AbstractInterruptibleChannel;->close()V
+    invoke-virtual {v8}, Ljava/nio/channels/FileChannel;->close()V
 
     :cond_1
     if-eqz v13, :cond_2
@@ -2078,7 +2091,7 @@
     :catch_0
     move-exception v10
 
-    invoke-virtual {v10}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v10}, Ljava/io/IOException;->printStackTrace()V
 
     move-object v14, v15
 
@@ -2091,19 +2104,19 @@
 
     :goto_1
     :try_start_4
-    invoke-virtual {v10}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v10}, Ljava/io/IOException;->printStackTrace()V
     :try_end_4
     .catchall {:try_start_4 .. :try_end_4} :catchall_0
 
     if-eqz v3, :cond_4
 
     :try_start_5
-    invoke-virtual {v3}, Ljava/nio/channels/spi/AbstractInterruptibleChannel;->close()V
+    invoke-virtual {v3}, Ljava/nio/channels/FileChannel;->close()V
 
     :cond_4
     if-eqz v8, :cond_5
 
-    invoke-virtual {v8}, Ljava/nio/channels/spi/AbstractInterruptibleChannel;->close()V
+    invoke-virtual {v8}, Ljava/nio/channels/FileChannel;->close()V
 
     :cond_5
     if-eqz v12, :cond_6
@@ -2127,7 +2140,7 @@
     :catch_2
     move-exception v10
 
-    invoke-virtual {v10}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v10}, Ljava/io/IOException;->printStackTrace()V
 
     goto :goto_0
 
@@ -2136,7 +2149,7 @@
 
     :goto_2
     :try_start_6
-    invoke-virtual {v9}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v9}, Ljava/io/FileNotFoundException;->printStackTrace()V
     :try_end_6
     .catchall {:try_start_6 .. :try_end_6} :catchall_0
 
@@ -2145,12 +2158,12 @@
     if-eqz v3, :cond_8
 
     :try_start_7
-    invoke-virtual {v3}, Ljava/nio/channels/spi/AbstractInterruptibleChannel;->close()V
+    invoke-virtual {v3}, Ljava/nio/channels/FileChannel;->close()V
 
     :cond_8
     if-eqz v8, :cond_9
 
-    invoke-virtual {v8}, Ljava/nio/channels/spi/AbstractInterruptibleChannel;->close()V
+    invoke-virtual {v8}, Ljava/nio/channels/FileChannel;->close()V
 
     :cond_9
     if-eqz v12, :cond_a
@@ -2175,7 +2188,7 @@
     :catch_4
     move-exception v10
 
-    invoke-virtual {v10}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v10}, Ljava/io/IOException;->printStackTrace()V
 
     goto :goto_3
 
@@ -2186,12 +2199,12 @@
     if-eqz v3, :cond_c
 
     :try_start_8
-    invoke-virtual {v3}, Ljava/nio/channels/spi/AbstractInterruptibleChannel;->close()V
+    invoke-virtual {v3}, Ljava/nio/channels/FileChannel;->close()V
 
     :cond_c
     if-eqz v8, :cond_d
 
-    invoke-virtual {v8}, Ljava/nio/channels/spi/AbstractInterruptibleChannel;->close()V
+    invoke-virtual {v8}, Ljava/nio/channels/FileChannel;->close()V
 
     :cond_d
     if-eqz v12, :cond_e
@@ -2216,7 +2229,7 @@
     :catch_5
     move-exception v10
 
-    invoke-virtual {v10}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v10}, Ljava/io/IOException;->printStackTrace()V
 
     goto :goto_5
 
@@ -2375,28 +2388,28 @@
     :catch_0
     move-exception v10
 
-    invoke-virtual {v10}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v10}, Ljava/io/IOException;->printStackTrace()V
 
     goto :goto_0
 
     :catch_1
     move-exception v9
 
-    invoke-virtual {v9}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v9}, Ljava/io/FileNotFoundException;->printStackTrace()V
 
     return v2
 
     :catch_2
     move-exception v9
 
-    invoke-virtual {v9}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v9}, Ljava/io/FileNotFoundException;->printStackTrace()V
 
     return v2
 
     :catch_3
     move-exception v10
 
-    invoke-virtual {v10}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v10}, Ljava/io/IOException;->printStackTrace()V
 
     goto :goto_1
 
@@ -2420,12 +2433,12 @@
 
     invoke-virtual/range {v3 .. v8}, Ljava/nio/channels/FileChannel;->transferTo(JJLjava/nio/channels/WritableByteChannel;)J
 
-    invoke-virtual {v3}, Ljava/nio/channels/spi/AbstractInterruptibleChannel;->close()V
+    invoke-virtual {v3}, Ljava/nio/channels/FileChannel;->close()V
 
     :cond_5
     if-eqz v8, :cond_6
 
-    invoke-virtual {v8}, Ljava/nio/channels/spi/AbstractInterruptibleChannel;->close()V
+    invoke-virtual {v8}, Ljava/nio/channels/FileChannel;->close()V
 
     :cond_6
     if-eqz v13, :cond_7
@@ -2446,12 +2459,12 @@
     if-eqz v3, :cond_9
 
     :try_start_4
-    invoke-virtual {v3}, Ljava/nio/channels/spi/AbstractInterruptibleChannel;->close()V
+    invoke-virtual {v3}, Ljava/nio/channels/FileChannel;->close()V
 
     :cond_9
     if-eqz v8, :cond_a
 
-    invoke-virtual {v8}, Ljava/nio/channels/spi/AbstractInterruptibleChannel;->close()V
+    invoke-virtual {v8}, Ljava/nio/channels/FileChannel;->close()V
 
     :cond_a
     if-eqz v11, :cond_b
@@ -2472,7 +2485,7 @@
     :catch_4
     move-exception v10
 
-    invoke-virtual {v10}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v10}, Ljava/io/IOException;->printStackTrace()V
 
     goto :goto_2
 
@@ -2480,7 +2493,7 @@
     move-exception v10
 
     :try_start_5
-    invoke-virtual {v10}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v10}, Ljava/io/IOException;->printStackTrace()V
     :try_end_5
     .catchall {:try_start_5 .. :try_end_5} :catchall_0
 
@@ -2489,12 +2502,12 @@
     if-eqz v3, :cond_d
 
     :try_start_6
-    invoke-virtual {v3}, Ljava/nio/channels/spi/AbstractInterruptibleChannel;->close()V
+    invoke-virtual {v3}, Ljava/nio/channels/FileChannel;->close()V
 
     :cond_d
     if-eqz v8, :cond_e
 
-    invoke-virtual {v8}, Ljava/nio/channels/spi/AbstractInterruptibleChannel;->close()V
+    invoke-virtual {v8}, Ljava/nio/channels/FileChannel;->close()V
 
     :cond_e
     if-eqz v11, :cond_f
@@ -2513,7 +2526,7 @@
     :catch_6
     move-exception v10
 
-    invoke-virtual {v10}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v10}, Ljava/io/IOException;->printStackTrace()V
 
     goto :goto_2
 
@@ -2523,12 +2536,12 @@
     if-eqz v3, :cond_10
 
     :try_start_7
-    invoke-virtual {v3}, Ljava/nio/channels/spi/AbstractInterruptibleChannel;->close()V
+    invoke-virtual {v3}, Ljava/nio/channels/FileChannel;->close()V
 
     :cond_10
     if-eqz v8, :cond_11
 
-    invoke-virtual {v8}, Ljava/nio/channels/spi/AbstractInterruptibleChannel;->close()V
+    invoke-virtual {v8}, Ljava/nio/channels/FileChannel;->close()V
 
     :cond_11
     if-eqz v11, :cond_12
@@ -2549,7 +2562,7 @@
     :catch_7
     move-exception v10
 
-    invoke-virtual {v10}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v10}, Ljava/io/IOException;->printStackTrace()V
 
     goto :goto_3
 .end method
@@ -2660,7 +2673,7 @@
     :catch_0
     move-exception v1
 
-    invoke-virtual {v1}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v1}, Ljava/io/IOException;->printStackTrace()V
 
     goto :goto_0
 
@@ -2669,7 +2682,7 @@
 
     :goto_2
     :try_start_4
-    invoke-virtual {v3}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v3}, Ljava/lang/ClassCastException;->printStackTrace()V
     :try_end_4
     .catchall {:try_start_4 .. :try_end_4} :catchall_0
 
@@ -2690,7 +2703,7 @@
     :catch_2
     move-exception v1
 
-    invoke-virtual {v1}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v1}, Ljava/io/IOException;->printStackTrace()V
 
     goto :goto_1
 
@@ -2699,7 +2712,7 @@
 
     :goto_3
     :try_start_6
-    invoke-virtual {v1}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v1}, Ljava/io/IOException;->printStackTrace()V
     :try_end_6
     .catchall {:try_start_6 .. :try_end_6} :catchall_0
 
@@ -2720,7 +2733,7 @@
     :catch_4
     move-exception v1
 
-    invoke-virtual {v1}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v1}, Ljava/io/IOException;->printStackTrace()V
 
     goto :goto_1
 
@@ -2729,7 +2742,7 @@
 
     :goto_4
     :try_start_8
-    invoke-virtual {v4}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v4}, Ljava/lang/ClassNotFoundException;->printStackTrace()V
     :try_end_8
     .catchall {:try_start_8 .. :try_end_8} :catchall_0
 
@@ -2750,7 +2763,7 @@
     :catch_6
     move-exception v1
 
-    invoke-virtual {v1}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v1}, Ljava/io/IOException;->printStackTrace()V
 
     goto :goto_1
 
@@ -2759,7 +2772,7 @@
 
     :goto_5
     :try_start_a
-    invoke-virtual {v2}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v2}, Ljava/io/StreamCorruptedException;->printStackTrace()V
     :try_end_a
     .catchall {:try_start_a .. :try_end_a} :catchall_0
 
@@ -2780,7 +2793,7 @@
     :catch_8
     move-exception v1
 
-    invoke-virtual {v1}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v1}, Ljava/io/IOException;->printStackTrace()V
 
     goto :goto_1
 
@@ -2789,7 +2802,7 @@
 
     :goto_6
     :try_start_c
-    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/io/FileNotFoundException;->printStackTrace()V
     :try_end_c
     .catchall {:try_start_c .. :try_end_c} :catchall_0
 
@@ -2810,7 +2823,7 @@
     :catch_a
     move-exception v1
 
-    invoke-virtual {v1}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v1}, Ljava/io/IOException;->printStackTrace()V
 
     goto :goto_1
 
@@ -2837,7 +2850,7 @@
     :catch_b
     move-exception v1
 
-    invoke-virtual {v1}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v1}, Ljava/io/IOException;->printStackTrace()V
 
     goto :goto_8
 
@@ -3044,7 +3057,7 @@
 
     move-result-object v7
 
-    invoke-virtual {v0}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/io/IOException;->getMessage()Ljava/lang/String;
 
     move-result-object v8
 
@@ -3058,7 +3071,7 @@
 
     invoke-static {v6, v7}, Landroid/sec/clipboard/util/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/io/IOException;->printStackTrace()V
 
     goto :goto_0
 
@@ -3079,7 +3092,7 @@
 
     move-result-object v7
 
-    invoke-virtual {v0}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/io/IOException;->getMessage()Ljava/lang/String;
 
     move-result-object v8
 
@@ -3093,7 +3106,7 @@
 
     invoke-static {v6, v7}, Landroid/sec/clipboard/util/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/io/IOException;->printStackTrace()V
     :try_end_4
     .catchall {:try_start_4 .. :try_end_4} :catchall_0
 
@@ -3128,7 +3141,7 @@
 
     move-result-object v7
 
-    invoke-virtual {v0}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/io/IOException;->getMessage()Ljava/lang/String;
 
     move-result-object v8
 
@@ -3142,7 +3155,7 @@
 
     invoke-static {v6, v7}, Landroid/sec/clipboard/util/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/io/IOException;->printStackTrace()V
 
     goto :goto_1
 
@@ -3181,7 +3194,7 @@
 
     move-result-object v8
 
-    invoke-virtual {v0}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/io/IOException;->getMessage()Ljava/lang/String;
 
     move-result-object v9
 
@@ -3195,7 +3208,7 @@
 
     invoke-static {v7, v8}, Landroid/sec/clipboard/util/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/io/IOException;->printStackTrace()V
 
     goto :goto_4
 
@@ -3295,7 +3308,7 @@
     :catch_0
     move-exception v0
 
-    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
 
     goto :goto_0
 

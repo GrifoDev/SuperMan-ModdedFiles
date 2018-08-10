@@ -109,6 +109,20 @@
     return-void
 .end method
 
+.method hasFocusStateSpecified()Z
+    .locals 2
+
+    iget-object v0, p0, Landroid/graphics/drawable/StateListDrawable$StateListState;->mStateSets:[[I
+
+    const v1, 0x101009c
+
+    invoke-static {v0, v1}, Landroid/util/StateSet;->containsAttribute([[II)Z
+
+    move-result v0
+
+    return v0
+.end method
+
 .method indexOfStateSet([I)I
     .locals 4
 

@@ -26,11 +26,13 @@
 
 .field public static final CONSTELLATION_TYPE_MASK:I = 0xf
 
-.field public static final CONSTELLATION_TYPE_SHIFT_WIDTH:I = 0x3
+.field public static final CONSTELLATION_TYPE_SHIFT_WIDTH:I = 0x4
 
 .field public static final CONSTELLATION_UNKNOWN:I = 0x0
 
 .field public static final GNSS_SV_FLAGS_HAS_ALMANAC_DATA:I = 0x2
+
+.field public static final GNSS_SV_FLAGS_HAS_CARRIER_FREQUENCY:I = 0x8
 
 .field public static final GNSS_SV_FLAGS_HAS_EPHEMERIS_DATA:I = 0x1
 
@@ -38,11 +40,13 @@
 
 .field public static final GNSS_SV_FLAGS_USED_IN_FIX:I = 0x4
 
-.field public static final SVID_SHIFT_WIDTH:I = 0x7
+.field public static final SVID_SHIFT_WIDTH:I = 0x8
 
 
 # instance fields
 .field mAzimuths:[F
+
+.field mCarrierFrequencies:[F
 
 .field mCn0DbHz:[F
 
@@ -54,7 +58,7 @@
 
 
 # direct methods
-.method constructor <init>(I[I[F[F[F)V
+.method constructor <init>(I[I[F[F[F[F)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -69,6 +73,8 @@
 
     iput-object p5, p0, Landroid/location/GnssStatus;->mAzimuths:[F
 
+    iput-object p6, p0, Landroid/location/GnssStatus;->mCarrierFrequencies:[F
+
     return-void
 .end method
 
@@ -78,6 +84,16 @@
     .locals 1
 
     iget-object v0, p0, Landroid/location/GnssStatus;->mAzimuths:[F
+
+    aget v0, v0, p1
+
+    return v0
+.end method
+
+.method public getCarrierFrequencyHz(I)F
+    .locals 1
+
+    iget-object v0, p0, Landroid/location/GnssStatus;->mCarrierFrequencies:[F
 
     aget v0, v0, p1
 
@@ -101,7 +117,7 @@
 
     aget v0, v0, p1
 
-    shr-int/lit8 v0, v0, 0x3
+    shr-int/lit8 v0, v0, 0x4
 
     and-int/lit8 v0, v0, 0xf
 
@@ -114,16 +130,6 @@
     iget-object v0, p0, Landroid/location/GnssStatus;->mElevations:[F
 
     aget v0, v0, p1
-
-    return v0
-.end method
-
-.method public getNumSatellites()I
-    .locals 1
-
-    invoke-virtual {p0}, Landroid/location/GnssStatus;->getSatelliteCount()I
-
-    move-result v0
 
     return v0
 .end method
@@ -143,17 +149,7 @@
 
     aget v0, v0, p1
 
-    shr-int/lit8 v0, v0, 0x7
-
-    return v0
-.end method
-
-.method public hasAlmanac(I)Z
-    .locals 1
-
-    invoke-virtual {p0, p1}, Landroid/location/GnssStatus;->hasAlmanacData(I)Z
-
-    move-result v0
+    shr-int/lit8 v0, v0, 0x8
 
     return v0
 .end method
@@ -177,13 +173,22 @@
     return v0
 .end method
 
-.method public hasEphemeris(I)Z
-    .locals 1
+.method public hasCarrierFrequencyHz(I)Z
+    .locals 2
 
-    invoke-virtual {p0, p1}, Landroid/location/GnssStatus;->hasEphemerisData(I)Z
+    const/4 v0, 0x0
 
-    move-result v0
+    iget-object v1, p0, Landroid/location/GnssStatus;->mSvidWithFlags:[I
 
+    aget v1, v1, p1
+
+    and-int/lit8 v1, v1, 0x8
+
+    if-eqz v1, :cond_0
+
+    const/4 v0, 0x1
+
+    :cond_0
     return v0
 .end method
 

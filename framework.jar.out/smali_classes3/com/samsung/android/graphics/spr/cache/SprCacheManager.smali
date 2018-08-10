@@ -64,6 +64,11 @@
 .method public addCache(Landroid/graphics/Bitmap;I)V
     .locals 8
 
+    if-nez p1, :cond_0
+
+    return-void
+
+    :cond_0
     invoke-virtual {p1}, Landroid/graphics/Bitmap;->getWidth()I
 
     move-result v4
@@ -85,12 +90,12 @@
 
     move-result-object v1
 
-    :cond_0
+    :cond_1
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v5
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_2
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -100,20 +105,20 @@
 
     iget v5, v0, Lcom/samsung/android/graphics/spr/cache/SprCacheManager$SprCache;->width:I
 
-    if-ne v5, v4, :cond_0
+    if-ne v5, v4, :cond_1
 
     iget v5, v0, Lcom/samsung/android/graphics/spr/cache/SprCacheManager$SprCache;->height:I
 
-    if-ne v5, v3, :cond_0
+    if-ne v5, v3, :cond_1
 
     iget v5, v0, Lcom/samsung/android/graphics/spr/cache/SprCacheManager$SprCache;->dpi:I
 
-    if-ne v5, p2, :cond_0
+    if-ne v5, p2, :cond_1
 
     const/4 v2, 0x1
 
-    :cond_1
-    if-nez v2, :cond_2
+    :cond_2
+    if-nez v2, :cond_3
 
     iget-object v5, p0, Lcom/samsung/android/graphics/spr/cache/SprCacheManager;->mCacheList:Ljava/util/ArrayList;
 
@@ -125,7 +130,7 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    :cond_2
+    :cond_3
     monitor-exit v6
 
     return-void

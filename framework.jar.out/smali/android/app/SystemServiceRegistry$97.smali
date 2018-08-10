@@ -17,7 +17,7 @@
     value = {
         "Landroid/app/SystemServiceRegistry$CachedServiceFetcher",
         "<",
-        "Lcom/samsung/android/displaysolution/SemDisplaySolutionManager;",
+        "Landroid/view/autofill/AutofillManager;",
         ">;"
     }
 .end annotation
@@ -34,30 +34,44 @@
 
 
 # virtual methods
-.method public createService(Landroid/app/ContextImpl;)Lcom/samsung/android/displaysolution/SemDisplaySolutionManager;
-    .locals 3
+.method public createService(Landroid/app/ContextImpl;)Landroid/view/autofill/AutofillManager;
+    .locals 4
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/ServiceManager$ServiceNotFoundException;
+        }
+    .end annotation
 
-    const-string/jumbo v2, "DisplaySolution"
+    const-string/jumbo v2, "autofill"
 
     invoke-static {v2}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
 
     move-result-object v0
 
-    invoke-static {v0}, Lcom/samsung/android/displaysolution/ISemDisplaySolutionManager$Stub;->asInterface(Landroid/os/IBinder;)Lcom/samsung/android/displaysolution/ISemDisplaySolutionManager;
+    invoke-static {v0}, Landroid/view/autofill/IAutoFillManager$Stub;->asInterface(Landroid/os/IBinder;)Landroid/view/autofill/IAutoFillManager;
 
     move-result-object v1
 
-    new-instance v2, Lcom/samsung/android/displaysolution/SemDisplaySolutionManager;
+    new-instance v2, Landroid/view/autofill/AutofillManager;
 
-    invoke-direct {v2, v1}, Lcom/samsung/android/displaysolution/SemDisplaySolutionManager;-><init>(Lcom/samsung/android/displaysolution/ISemDisplaySolutionManager;)V
+    invoke-virtual {p1}, Landroid/app/ContextImpl;->getOuterContext()Landroid/content/Context;
+
+    move-result-object v3
+
+    invoke-direct {v2, v3, v1}, Landroid/view/autofill/AutofillManager;-><init>(Landroid/content/Context;Landroid/view/autofill/IAutoFillManager;)V
 
     return-object v2
 .end method
 
 .method public bridge synthetic createService(Landroid/app/ContextImpl;)Ljava/lang/Object;
     .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/ServiceManager$ServiceNotFoundException;
+        }
+    .end annotation
 
-    invoke-virtual {p0, p1}, Landroid/app/SystemServiceRegistry$97;->createService(Landroid/app/ContextImpl;)Lcom/samsung/android/displaysolution/SemDisplaySolutionManager;
+    invoke-virtual {p0, p1}, Landroid/app/SystemServiceRegistry$97;->createService(Landroid/app/ContextImpl;)Landroid/view/autofill/AutofillManager;
 
     move-result-object v0
 

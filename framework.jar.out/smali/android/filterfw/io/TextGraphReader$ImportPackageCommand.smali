@@ -64,7 +64,7 @@
 
     new-instance v1, Landroid/filterfw/io/GraphIOException;
 
-    invoke-virtual {v0}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/IllegalArgumentException;->getMessage()Ljava/lang/String;
 
     move-result-object v2
 

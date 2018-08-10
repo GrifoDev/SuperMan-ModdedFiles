@@ -1,5 +1,5 @@
 .class Landroid/transition/Fade$1;
-.super Landroid/transition/Transition$TransitionListenerAdapter;
+.super Landroid/transition/TransitionListenerAdapter;
 .source "Fade.java"
 
 
@@ -28,7 +28,7 @@
 
     iput-object p2, p0, Landroid/transition/Fade$1;->val$view:Landroid/view/View;
 
-    invoke-direct {p0}, Landroid/transition/Transition$TransitionListenerAdapter;-><init>()V
+    invoke-direct {p0}, Landroid/transition/TransitionListenerAdapter;-><init>()V
 
     return-void
 .end method
@@ -43,6 +43,8 @@
     const/high16 v1, 0x3f800000    # 1.0f
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setTransitionAlpha(F)V
+
+    invoke-virtual {p1, p0}, Landroid/transition/Transition;->removeListener(Landroid/transition/Transition$TransitionListener;)Landroid/transition/Transition;
 
     return-void
 .end method

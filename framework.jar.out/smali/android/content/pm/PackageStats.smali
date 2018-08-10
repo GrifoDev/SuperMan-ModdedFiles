@@ -13,6 +13,9 @@
     }
 .end annotation
 
+.annotation runtime Ljava/lang/Deprecated;
+.end annotation
+
 
 # static fields
 .field public static final CREATOR:Landroid/os/Parcelable$Creator;
@@ -212,6 +215,218 @@
     .locals 1
 
     const/4 v0, 0x0
+
+    return v0
+.end method
+
+.method public equals(Ljava/lang/Object;)Z
+    .locals 6
+
+    const/4 v1, 0x0
+
+    instance-of v2, p1, Landroid/content/pm/PackageStats;
+
+    if-nez v2, :cond_0
+
+    return v1
+
+    :cond_0
+    move-object v0, p1
+
+    check-cast v0, Landroid/content/pm/PackageStats;
+
+    iget-object v2, p0, Landroid/content/pm/PackageStats;->packageName:Ljava/lang/String;
+
+    iget-object v3, v0, Landroid/content/pm/PackageStats;->packageName:Ljava/lang/String;
+
+    invoke-static {v2, v3}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    iget v2, p0, Landroid/content/pm/PackageStats;->userHandle:I
+
+    iget v3, v0, Landroid/content/pm/PackageStats;->userHandle:I
+
+    if-ne v2, v3, :cond_1
+
+    iget-wide v2, p0, Landroid/content/pm/PackageStats;->codeSize:J
+
+    iget-wide v4, v0, Landroid/content/pm/PackageStats;->codeSize:J
+
+    cmp-long v2, v2, v4
+
+    if-nez v2, :cond_1
+
+    iget-wide v2, p0, Landroid/content/pm/PackageStats;->dataSize:J
+
+    iget-wide v4, v0, Landroid/content/pm/PackageStats;->dataSize:J
+
+    cmp-long v2, v2, v4
+
+    if-nez v2, :cond_1
+
+    iget-wide v2, p0, Landroid/content/pm/PackageStats;->cacheSize:J
+
+    iget-wide v4, v0, Landroid/content/pm/PackageStats;->cacheSize:J
+
+    cmp-long v2, v2, v4
+
+    if-nez v2, :cond_1
+
+    iget-wide v2, p0, Landroid/content/pm/PackageStats;->externalCodeSize:J
+
+    iget-wide v4, v0, Landroid/content/pm/PackageStats;->externalCodeSize:J
+
+    cmp-long v2, v2, v4
+
+    if-nez v2, :cond_1
+
+    iget-wide v2, p0, Landroid/content/pm/PackageStats;->externalDataSize:J
+
+    iget-wide v4, v0, Landroid/content/pm/PackageStats;->externalDataSize:J
+
+    cmp-long v2, v2, v4
+
+    if-nez v2, :cond_1
+
+    iget-wide v2, p0, Landroid/content/pm/PackageStats;->externalCacheSize:J
+
+    iget-wide v4, v0, Landroid/content/pm/PackageStats;->externalCacheSize:J
+
+    cmp-long v2, v2, v4
+
+    if-nez v2, :cond_1
+
+    iget-wide v2, p0, Landroid/content/pm/PackageStats;->externalMediaSize:J
+
+    iget-wide v4, v0, Landroid/content/pm/PackageStats;->externalMediaSize:J
+
+    cmp-long v2, v2, v4
+
+    if-nez v2, :cond_1
+
+    iget-wide v2, p0, Landroid/content/pm/PackageStats;->externalObbSize:J
+
+    iget-wide v4, v0, Landroid/content/pm/PackageStats;->externalObbSize:J
+
+    cmp-long v2, v2, v4
+
+    if-nez v2, :cond_1
+
+    const/4 v1, 0x1
+
+    :cond_1
+    return v1
+.end method
+
+.method public hashCode()I
+    .locals 4
+
+    const/16 v0, 0xa
+
+    new-array v0, v0, [Ljava/lang/Object;
+
+    iget-object v1, p0, Landroid/content/pm/PackageStats;->packageName:Ljava/lang/String;
+
+    const/4 v2, 0x0
+
+    aput-object v1, v0, v2
+
+    iget v1, p0, Landroid/content/pm/PackageStats;->userHandle:I
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    const/4 v2, 0x1
+
+    aput-object v1, v0, v2
+
+    iget-wide v2, p0, Landroid/content/pm/PackageStats;->codeSize:J
+
+    invoke-static {v2, v3}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+
+    move-result-object v1
+
+    const/4 v2, 0x2
+
+    aput-object v1, v0, v2
+
+    iget-wide v2, p0, Landroid/content/pm/PackageStats;->dataSize:J
+
+    invoke-static {v2, v3}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+
+    move-result-object v1
+
+    const/4 v2, 0x3
+
+    aput-object v1, v0, v2
+
+    iget-wide v2, p0, Landroid/content/pm/PackageStats;->cacheSize:J
+
+    invoke-static {v2, v3}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+
+    move-result-object v1
+
+    const/4 v2, 0x4
+
+    aput-object v1, v0, v2
+
+    iget-wide v2, p0, Landroid/content/pm/PackageStats;->externalCodeSize:J
+
+    invoke-static {v2, v3}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+
+    move-result-object v1
+
+    const/4 v2, 0x5
+
+    aput-object v1, v0, v2
+
+    iget-wide v2, p0, Landroid/content/pm/PackageStats;->externalDataSize:J
+
+    invoke-static {v2, v3}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+
+    move-result-object v1
+
+    const/4 v2, 0x6
+
+    aput-object v1, v0, v2
+
+    iget-wide v2, p0, Landroid/content/pm/PackageStats;->externalCacheSize:J
+
+    invoke-static {v2, v3}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+
+    move-result-object v1
+
+    const/4 v2, 0x7
+
+    aput-object v1, v0, v2
+
+    iget-wide v2, p0, Landroid/content/pm/PackageStats;->externalMediaSize:J
+
+    invoke-static {v2, v3}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+
+    move-result-object v1
+
+    const/16 v2, 0x8
+
+    aput-object v1, v0, v2
+
+    iget-wide v2, p0, Landroid/content/pm/PackageStats;->externalObbSize:J
+
+    invoke-static {v2, v3}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+
+    move-result-object v1
+
+    const/16 v2, 0x9
+
+    aput-object v1, v0, v2
+
+    invoke-static {v0}, Ljava/util/Objects;->hash([Ljava/lang/Object;)I
+
+    move-result v0
 
     return v0
 .end method

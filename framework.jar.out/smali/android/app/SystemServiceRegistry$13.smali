@@ -1,5 +1,5 @@
 .class final Landroid/app/SystemServiceRegistry$13;
-.super Landroid/app/SystemServiceRegistry$StaticApplicationContextServiceFetcher;
+.super Landroid/app/SystemServiceRegistry$CachedServiceFetcher;
 .source "SystemServiceRegistry.java"
 
 
@@ -15,9 +15,9 @@
 
 .annotation system Ldalvik/annotation/Signature;
     value = {
-        "Landroid/app/SystemServiceRegistry$StaticApplicationContextServiceFetcher",
+        "Landroid/app/SystemServiceRegistry$CachedServiceFetcher",
         "<",
-        "Landroid/net/ConnectivityManager;",
+        "Lcom/samsung/android/content/clipboard/SemClipboardManager;",
         ">;"
     }
 .end annotation
@@ -27,37 +27,42 @@
 .method constructor <init>()V
     .locals 0
 
-    invoke-direct {p0}, Landroid/app/SystemServiceRegistry$StaticApplicationContextServiceFetcher;-><init>()V
+    invoke-direct {p0}, Landroid/app/SystemServiceRegistry$CachedServiceFetcher;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public createService(Landroid/content/Context;)Landroid/net/ConnectivityManager;
+.method public createService(Landroid/app/ContextImpl;)Lcom/samsung/android/content/clipboard/SemClipboardManager;
     .locals 3
 
-    const-string/jumbo v2, "connectivity"
+    new-instance v0, Lcom/samsung/android/content/clipboard/SemClipboardManager;
 
-    invoke-static {v2}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
-
-    move-result-object v0
-
-    invoke-static {v0}, Landroid/net/IConnectivityManager$Stub;->asInterface(Landroid/os/IBinder;)Landroid/net/IConnectivityManager;
+    invoke-virtual {p1}, Landroid/app/ContextImpl;->getOuterContext()Landroid/content/Context;
 
     move-result-object v1
 
-    new-instance v2, Landroid/net/ConnectivityManager;
+    iget-object v2, p1, Landroid/app/ContextImpl;->mMainThread:Landroid/app/ActivityThread;
 
-    invoke-direct {v2, p1, v1}, Landroid/net/ConnectivityManager;-><init>(Landroid/content/Context;Landroid/net/IConnectivityManager;)V
+    invoke-virtual {v2}, Landroid/app/ActivityThread;->getHandler()Landroid/os/Handler;
 
-    return-object v2
+    move-result-object v2
+
+    invoke-direct {v0, v1, v2}, Lcom/samsung/android/content/clipboard/SemClipboardManager;-><init>(Landroid/content/Context;Landroid/os/Handler;)V
+
+    return-object v0
 .end method
 
-.method public bridge synthetic createService(Landroid/content/Context;)Ljava/lang/Object;
+.method public bridge synthetic createService(Landroid/app/ContextImpl;)Ljava/lang/Object;
     .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/ServiceManager$ServiceNotFoundException;
+        }
+    .end annotation
 
-    invoke-virtual {p0, p1}, Landroid/app/SystemServiceRegistry$13;->createService(Landroid/content/Context;)Landroid/net/ConnectivityManager;
+    invoke-virtual {p0, p1}, Landroid/app/SystemServiceRegistry$13;->createService(Landroid/app/ContextImpl;)Lcom/samsung/android/content/clipboard/SemClipboardManager;
 
     move-result-object v0
 

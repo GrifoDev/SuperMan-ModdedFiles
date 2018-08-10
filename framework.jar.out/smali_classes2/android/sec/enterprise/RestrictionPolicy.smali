@@ -18,12 +18,20 @@
 
 .field private static TAG:Ljava/lang/String;
 
+.field public static final installerExceptions:[Ljava/lang/String;
+
 .field public static final settingsExceptions:[Ljava/lang/String;
 
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .locals 6
+
+    const/4 v5, 0x2
+
+    const/4 v4, 0x1
+
+    const/4 v3, 0x0
 
     const-string/jumbo v0, "RestrictionPolicy"
 
@@ -35,21 +43,15 @@
 
     const-string/jumbo v1, "com.android.settings.ActivityPicker"
 
-    const/4 v2, 0x0
-
-    aput-object v1, v0, v2
+    aput-object v1, v0, v3
 
     const-string/jumbo v1, "com.android.settings.AppWidgetPickActivity"
 
-    const/4 v2, 0x1
-
-    aput-object v1, v0, v2
+    aput-object v1, v0, v4
 
     const-string/jumbo v1, "com.android.settings.widget.SettingsAppWidgetProvider"
 
-    const/4 v2, 0x2
-
-    aput-object v1, v0, v2
+    aput-object v1, v0, v5
 
     const-string/jumbo v1, "com.android.settings.ChooseLockAdditionalPin"
 
@@ -196,6 +198,18 @@
     aput-object v1, v0, v2
 
     sput-object v0, Landroid/sec/enterprise/RestrictionPolicy;->settingsExceptions:[Ljava/lang/String;
+
+    new-array v0, v5, [Ljava/lang/String;
+
+    const-string/jumbo v1, "com.android.vending"
+
+    aput-object v1, v0, v3
+
+    const-string/jumbo v1, "com.sec.android.app.samsungapps"
+
+    aput-object v1, v0, v4
+
+    sput-object v0, Landroid/sec/enterprise/RestrictionPolicy;->installerExceptions:[Ljava/lang/String;
 
     return-void
 .end method
@@ -417,6 +431,66 @@
     return v2
 .end method
 
+.method public isFactoryResetAllowed()Z
+    .locals 4
+
+    :try_start_0
+    invoke-static {}, Landroid/sec/enterprise/EnterpriseDeviceManager$EDMProxyServiceHelper;->getService()Landroid/sec/enterprise/IEDMProxy;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_0
+
+    invoke-interface {v1}, Landroid/sec/enterprise/IEDMProxy;->isFactoryResetAllowed()Z
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v2
+
+    return v2
+
+    :catch_0
+    move-exception v0
+
+    sget-object v2, Landroid/sec/enterprise/RestrictionPolicy;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v3, "PXY-isFactoryResetAllowed returning default value"
+
+    invoke-static {v2, v3, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    :cond_0
+    const/4 v2, 0x1
+
+    return v2
+.end method
+
+.method public isGoogleAccountsAutoSyncAllowedAsUser(I)Z
+    .locals 3
+
+    :try_start_0
+    invoke-static {}, Landroid/sec/enterprise/EnterpriseDeviceManager$EDMProxyServiceHelper;->getService()Landroid/sec/enterprise/IEDMProxy;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_0
+
+    invoke-interface {v1, p1}, Landroid/sec/enterprise/IEDMProxy;->isGoogleAccountsAutoSyncAllowedAsUser(I)Z
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v2
+
+    return v2
+
+    :catch_0
+    move-exception v0
+
+    :cond_0
+    const/4 v2, 0x1
+
+    return v2
+.end method
+
 .method public isGoogleCrashReportAllowed()Z
     .locals 4
 
@@ -488,6 +562,33 @@
     if-eqz v1, :cond_0
 
     invoke-interface {v1, p1}, Landroid/sec/enterprise/IEDMProxy;->isMicrophoneEnabled(Z)Z
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v2
+
+    return v2
+
+    :catch_0
+    move-exception v0
+
+    :cond_0
+    const/4 v2, 0x1
+
+    return v2
+.end method
+
+.method public isMockLocationEnabled()Z
+    .locals 3
+
+    :try_start_0
+    invoke-static {}, Landroid/sec/enterprise/EnterpriseDeviceManager$EDMProxyServiceHelper;->getService()Landroid/sec/enterprise/IEDMProxy;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_0
+
+    invoke-interface {v1}, Landroid/sec/enterprise/IEDMProxy;->isMockLocationEnabled()Z
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 

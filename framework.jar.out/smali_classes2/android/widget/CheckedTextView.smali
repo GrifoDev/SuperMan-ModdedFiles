@@ -25,6 +25,8 @@
 
 .field private mCheckMarkGravity:I
 
+.field private mCheckMarkHeight:I
+
 .field private mCheckMarkResource:I
 
 .field private mCheckMarkTintList:Landroid/content/res/ColorStateList;
@@ -40,6 +42,8 @@
 .field private mHasCheckMarkTint:Z
 
 .field private mHasCheckMarkTintMode:Z
+
+.field private mIsDeviceDefault:Z
 
 .field private mIsSetCheckMark:Z
 
@@ -98,190 +102,144 @@
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;II)V
     .locals 10
 
-    invoke-direct {p0, p1, p2, p3, p4}, Landroid/widget/TextView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;II)V
+    const/4 v9, 0x3
 
-    const/4 v7, 0x0
+    const/4 v8, 0x2
 
-    iput-object v7, p0, Landroid/widget/CheckedTextView;->mCheckMarkTintList:Landroid/content/res/ColorStateList;
-
-    const/4 v7, 0x0
-
-    iput-object v7, p0, Landroid/widget/CheckedTextView;->mCheckMarkTintMode:Landroid/graphics/PorterDuff$Mode;
-
-    const/4 v7, 0x0
-
-    iput-boolean v7, p0, Landroid/widget/CheckedTextView;->mHasCheckMarkTint:Z
-
-    const/4 v7, 0x0
-
-    iput-boolean v7, p0, Landroid/widget/CheckedTextView;->mHasCheckMarkTintMode:Z
-
-    const/4 v7, 0x0
-
-    iput-boolean v7, p0, Landroid/widget/CheckedTextView;->mIsSetCheckMark:Z
-
-    const v7, 0x800005
-
-    iput v7, p0, Landroid/widget/CheckedTextView;->mCheckMarkGravity:I
-
-    sget-object v7, Lcom/android/internal/R$styleable;->CheckedTextView:[I
-
-    invoke-virtual {p1, p2, v7, p3, p4}, Landroid/content/Context;->obtainStyledAttributes(Landroid/util/AttributeSet;[III)Landroid/content/res/TypedArray;
-
-    move-result-object v0
+    const/4 v4, 0x0
 
     const/4 v7, 0x1
+
+    const/4 v6, 0x0
+
+    invoke-direct {p0, p1, p2, p3, p4}, Landroid/widget/TextView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;II)V
+
+    iput-object v4, p0, Landroid/widget/CheckedTextView;->mCheckMarkTintList:Landroid/content/res/ColorStateList;
+
+    iput-object v4, p0, Landroid/widget/CheckedTextView;->mCheckMarkTintMode:Landroid/graphics/PorterDuff$Mode;
+
+    iput-boolean v6, p0, Landroid/widget/CheckedTextView;->mHasCheckMarkTint:Z
+
+    iput-boolean v6, p0, Landroid/widget/CheckedTextView;->mHasCheckMarkTintMode:Z
+
+    iput-boolean v6, p0, Landroid/widget/CheckedTextView;->mIsSetCheckMark:Z
+
+    const v4, 0x800005
+
+    iput v4, p0, Landroid/widget/CheckedTextView;->mCheckMarkGravity:I
+
+    iput-boolean v6, p0, Landroid/widget/CheckedTextView;->mIsDeviceDefault:Z
+
+    sget-object v4, Lcom/android/internal/R$styleable;->CheckedTextView:[I
+
+    invoke-virtual {p1, p2, v4, p3, p4}, Landroid/content/Context;->obtainStyledAttributes(Landroid/util/AttributeSet;[III)Landroid/content/res/TypedArray;
+
+    move-result-object v0
 
     invoke-virtual {v0, v7}, Landroid/content/res/TypedArray;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
     move-result-object v2
 
-    const/4 v3, 0x0
+    new-instance v3, Landroid/util/TypedValue;
 
-    new-instance v5, Landroid/util/TypedValue;
-
-    invoke-direct {v5}, Landroid/util/TypedValue;-><init>()V
+    invoke-direct {v3}, Landroid/util/TypedValue;-><init>()V
 
     invoke-virtual {p0}, Landroid/widget/CheckedTextView;->getContext()Landroid/content/Context;
 
-    move-result-object v7
+    move-result-object v4
 
-    invoke-virtual {v7}, Landroid/content/Context;->getTheme()Landroid/content/res/Resources$Theme;
+    invoke-virtual {v4}, Landroid/content/Context;->getTheme()Landroid/content/res/Resources$Theme;
 
-    move-result-object v7
+    move-result-object v4
 
-    const v8, 0x11600cb
+    const v5, 0x1110082
 
-    const/4 v9, 0x1
+    invoke-virtual {v4, v5, v3, v7}, Landroid/content/res/Resources$Theme;->resolveAttribute(ILandroid/util/TypedValue;Z)Z
 
-    invoke-virtual {v7, v8, v5, v9}, Landroid/content/res/Resources$Theme;->resolveAttribute(ILandroid/util/TypedValue;Z)Z
+    iget v4, v3, Landroid/util/TypedValue;->data:I
 
-    iget v7, v5, Landroid/util/TypedValue;->data:I
+    if-eqz v4, :cond_0
 
-    if-eqz v7, :cond_0
-
-    const/4 v3, 0x1
+    iput-boolean v7, p0, Landroid/widget/CheckedTextView;->mIsDeviceDefault:Z
 
     :cond_0
-    const/4 v4, 0x0
-
-    new-instance v6, Landroid/util/TypedValue;
-
-    invoke-direct {v6}, Landroid/util/TypedValue;-><init>()V
-
     invoke-virtual {p0}, Landroid/widget/CheckedTextView;->getContext()Landroid/content/Context;
 
-    move-result-object v7
+    move-result-object v4
 
-    invoke-virtual {v7}, Landroid/content/Context;->getTheme()Landroid/content/res/Resources$Theme;
+    invoke-virtual {v4}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v7
+    move-result-object v4
 
-    const v8, 0x11600cd
+    const v5, 0x10502f7
 
-    const/4 v9, 0x1
+    invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
-    invoke-virtual {v7, v8, v6, v9}, Landroid/content/res/Resources$Theme;->resolveAttribute(ILandroid/util/TypedValue;Z)Z
+    move-result v4
 
-    iget v7, v6, Landroid/util/TypedValue;->data:I
+    iput v4, p0, Landroid/widget/CheckedTextView;->mDrawablePadding:I
 
-    if-eqz v7, :cond_1
-
-    const/4 v4, 0x1
-
-    :cond_1
-    invoke-virtual {p0}, Landroid/widget/CheckedTextView;->getContext()Landroid/content/Context;
-
-    move-result-object v7
-
-    invoke-virtual {v7}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v7
-
-    const v8, 0x10502d3
-
-    invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
-
-    move-result v7
-
-    iput v7, p0, Landroid/widget/CheckedTextView;->mDrawablePadding:I
-
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_1
 
     invoke-virtual {p0, v2}, Landroid/widget/CheckedTextView;->setCheckMarkDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    :cond_2
-    if-eqz v3, :cond_3
+    :cond_1
+    iget-boolean v4, p0, Landroid/widget/CheckedTextView;->mIsDeviceDefault:Z
 
-    if-eqz v4, :cond_6
+    if-eqz v4, :cond_4
 
-    :cond_3
-    const/4 v7, 0x4
+    iput-boolean v7, p0, Landroid/widget/CheckedTextView;->mIsSetCheckMark:Z
 
-    const v8, 0x800005
+    const/4 v4, 0x4
 
-    invoke-virtual {v0, v7, v8}, Landroid/content/res/TypedArray;->getInt(II)I
+    const v5, 0x800003
 
-    move-result v7
+    invoke-virtual {v0, v4, v5}, Landroid/content/res/TypedArray;->getInt(II)I
 
-    iput v7, p0, Landroid/widget/CheckedTextView;->mCheckMarkGravity:I
+    move-result v4
+
+    iput v4, p0, Landroid/widget/CheckedTextView;->mCheckMarkGravity:I
 
     :goto_0
-    const/4 v7, 0x3
+    invoke-virtual {v0, v9}, Landroid/content/res/TypedArray;->hasValue(I)Z
 
-    invoke-virtual {v0, v7}, Landroid/content/res/TypedArray;->hasValue(I)Z
+    move-result v4
 
-    move-result v7
+    if-eqz v4, :cond_2
 
-    if-eqz v7, :cond_4
+    const/4 v4, -0x1
 
-    const/4 v7, 0x3
+    invoke-virtual {v0, v9, v4}, Landroid/content/res/TypedArray;->getInt(II)I
 
-    const/4 v8, -0x1
+    move-result v4
 
-    invoke-virtual {v0, v7, v8}, Landroid/content/res/TypedArray;->getInt(II)I
+    iget-object v5, p0, Landroid/widget/CheckedTextView;->mCheckMarkTintMode:Landroid/graphics/PorterDuff$Mode;
 
-    move-result v7
+    invoke-static {v4, v5}, Landroid/graphics/drawable/Drawable;->parseTintMode(ILandroid/graphics/PorterDuff$Mode;)Landroid/graphics/PorterDuff$Mode;
 
-    iget-object v8, p0, Landroid/widget/CheckedTextView;->mCheckMarkTintMode:Landroid/graphics/PorterDuff$Mode;
+    move-result-object v4
 
-    invoke-static {v7, v8}, Landroid/graphics/drawable/Drawable;->parseTintMode(ILandroid/graphics/PorterDuff$Mode;)Landroid/graphics/PorterDuff$Mode;
-
-    move-result-object v7
-
-    iput-object v7, p0, Landroid/widget/CheckedTextView;->mCheckMarkTintMode:Landroid/graphics/PorterDuff$Mode;
-
-    const/4 v7, 0x1
+    iput-object v4, p0, Landroid/widget/CheckedTextView;->mCheckMarkTintMode:Landroid/graphics/PorterDuff$Mode;
 
     iput-boolean v7, p0, Landroid/widget/CheckedTextView;->mHasCheckMarkTintMode:Z
 
-    :cond_4
-    const/4 v7, 0x2
+    :cond_2
+    invoke-virtual {v0, v8}, Landroid/content/res/TypedArray;->hasValue(I)Z
 
-    invoke-virtual {v0, v7}, Landroid/content/res/TypedArray;->hasValue(I)Z
+    move-result v4
 
-    move-result v7
+    if-eqz v4, :cond_3
 
-    if-eqz v7, :cond_5
+    invoke-virtual {v0, v8}, Landroid/content/res/TypedArray;->getColorStateList(I)Landroid/content/res/ColorStateList;
 
-    const/4 v7, 0x2
+    move-result-object v4
 
-    invoke-virtual {v0, v7}, Landroid/content/res/TypedArray;->getColorStateList(I)Landroid/content/res/ColorStateList;
-
-    move-result-object v7
-
-    iput-object v7, p0, Landroid/widget/CheckedTextView;->mCheckMarkTintList:Landroid/content/res/ColorStateList;
-
-    const/4 v7, 0x1
+    iput-object v4, p0, Landroid/widget/CheckedTextView;->mCheckMarkTintList:Landroid/content/res/ColorStateList;
 
     iput-boolean v7, p0, Landroid/widget/CheckedTextView;->mHasCheckMarkTint:Z
 
-    :cond_5
-    const/4 v7, 0x0
-
-    const/4 v8, 0x0
-
-    invoke-virtual {v0, v7, v8}, Landroid/content/res/TypedArray;->getBoolean(IZ)Z
+    :cond_3
+    invoke-virtual {v0, v6, v6}, Landroid/content/res/TypedArray;->getBoolean(IZ)Z
 
     move-result v1
 
@@ -293,28 +251,16 @@
 
     return-void
 
-    :cond_6
-    sget-boolean v7, Landroid/widget/CheckedTextView;->TW_SCAFE_AMERICANO:Z
+    :cond_4
+    const/4 v4, 0x4
 
-    if-nez v7, :cond_3
+    const v5, 0x800005
 
-    sget-boolean v7, Landroid/widget/CheckedTextView;->TW_SCAFE_MOCHA:Z
+    invoke-virtual {v0, v4, v5}, Landroid/content/res/TypedArray;->getInt(II)I
 
-    if-nez v7, :cond_3
+    move-result v4
 
-    const/4 v7, 0x1
-
-    iput-boolean v7, p0, Landroid/widget/CheckedTextView;->mIsSetCheckMark:Z
-
-    const/4 v7, 0x4
-
-    const v8, 0x800003
-
-    invoke-virtual {v0, v7, v8}, Landroid/content/res/TypedArray;->getInt(II)I
-
-    move-result v7
-
-    iput v7, p0, Landroid/widget/CheckedTextView;->mCheckMarkGravity:I
+    iput v4, p0, Landroid/widget/CheckedTextView;->mCheckMarkGravity:I
 
     goto :goto_0
 .end method
@@ -459,14 +405,14 @@
     :cond_0
     iget-object v0, p0, Landroid/widget/CheckedTextView;->mCheckMarkDrawable:Landroid/graphics/drawable/Drawable;
 
-    if-eq p1, v0, :cond_1
+    if-eq p1, v0, :cond_2
 
     move v0, v1
 
     :goto_0
     iput-boolean v0, p0, Landroid/widget/CheckedTextView;->mNeedRequestlayout:Z
 
-    if-eqz p1, :cond_3
+    if-eqz p1, :cond_4
 
     invoke-virtual {p1, p0}, Landroid/graphics/drawable/Drawable;->setCallback(Landroid/graphics/drawable/Drawable$Callback;)V
 
@@ -474,7 +420,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_3
 
     :goto_1
     invoke-virtual {p1, v1, v2}, Landroid/graphics/drawable/Drawable;->setVisible(ZZ)Z
@@ -495,6 +441,17 @@
 
     iput v0, p0, Landroid/widget/CheckedTextView;->mCheckMarkWidth:I
 
+    iget-boolean v0, p0, Landroid/widget/CheckedTextView;->mIsDeviceDefault:Z
+
+    if-eqz v0, :cond_1
+
+    invoke-virtual {p1}, Landroid/graphics/drawable/Drawable;->getIntrinsicHeight()I
+
+    move-result v0
+
+    iput v0, p0, Landroid/widget/CheckedTextView;->mCheckMarkHeight:I
+
+    :cond_1
     invoke-virtual {p0}, Landroid/widget/CheckedTextView;->getDrawableState()[I
 
     move-result-object v0
@@ -512,17 +469,17 @@
 
     return-void
 
-    :cond_1
+    :cond_2
     move v0, v2
 
     goto :goto_0
 
-    :cond_2
+    :cond_3
     move v1, v2
 
     goto :goto_1
 
-    :cond_3
+    :cond_4
     iput v2, p0, Landroid/widget/CheckedTextView;->mCheckMarkWidth:I
 
     goto :goto_2
@@ -859,15 +816,18 @@
 
     and-int/lit8 v8, v11, 0x70
 
-    invoke-virtual {v3}, Landroid/graphics/drawable/Drawable;->getIntrinsicHeight()I
+    iget-boolean v11, p0, Landroid/widget/CheckedTextView;->mIsDeviceDefault:Z
 
-    move-result v4
+    if-eqz v11, :cond_1
 
+    iget v4, p0, Landroid/widget/CheckedTextView;->mCheckMarkHeight:I
+
+    :goto_0
     const/4 v10, 0x0
 
     sparse-switch v8, :sswitch_data_0
 
-    :goto_0
+    :goto_1
     invoke-direct {p0}, Landroid/widget/CheckedTextView;->isCheckMarkAtStart()Z
 
     move-result v2
@@ -880,7 +840,7 @@
 
     add-int v1, v10, v4
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_2
 
     iget v5, p0, Landroid/widget/CheckedTextView;->mBasePadding:I
 
@@ -888,12 +848,12 @@
 
     add-int v6, v5, v11
 
-    :goto_1
+    :goto_2
     invoke-virtual {p0}, Landroid/widget/CheckedTextView;->isLayoutRtl()Z
 
     move-result v11
 
-    if-eqz v11, :cond_2
+    if-eqz v11, :cond_3
 
     iget v11, p0, Landroid/widget/CheckedTextView;->mScrollX:I
 
@@ -905,7 +865,7 @@
 
     invoke-virtual {v3, v11, v7, v12, v1}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
 
-    :goto_2
+    :goto_3
     invoke-virtual {v3, p1}, Landroid/graphics/drawable/Drawable;->draw(Landroid/graphics/Canvas;)V
 
     invoke-virtual {p0}, Landroid/widget/CheckedTextView;->getBackground()Landroid/graphics/drawable/Drawable;
@@ -927,6 +887,13 @@
     :cond_0
     return-void
 
+    :cond_1
+    invoke-virtual {v3}, Landroid/graphics/drawable/Drawable;->getIntrinsicHeight()I
+
+    move-result v4
+
+    goto :goto_0
+
     :sswitch_0
     invoke-virtual {p0}, Landroid/widget/CheckedTextView;->getHeight()I
 
@@ -934,7 +901,7 @@
 
     sub-int v10, v11, v4
 
-    goto :goto_0
+    goto :goto_1
 
     :sswitch_1
     invoke-virtual {p0}, Landroid/widget/CheckedTextView;->getHeight()I
@@ -945,9 +912,9 @@
 
     div-int/lit8 v10, v11, 0x2
 
-    goto :goto_0
+    goto :goto_1
 
-    :cond_1
+    :cond_2
     iget v11, p0, Landroid/widget/CheckedTextView;->mBasePadding:I
 
     sub-int v6, v9, v11
@@ -956,12 +923,14 @@
 
     sub-int v5, v6, v11
 
-    goto :goto_1
+    goto :goto_2
 
-    :cond_2
+    :cond_3
     invoke-virtual {v3, v5, v7, v6, v1}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
 
-    goto :goto_2
+    goto :goto_3
+
+    nop
 
     :sswitch_data_0
     .sparse-switch
@@ -1176,19 +1145,11 @@
 
     iget-boolean v0, p0, Landroid/widget/CheckedTextView;->mChecked:Z
 
-    if-eqz v0, :cond_0
+    xor-int/lit8 v0, v0, 0x1
 
-    const/4 v0, 0x0
-
-    :goto_0
     invoke-virtual {p0, v0}, Landroid/widget/CheckedTextView;->setChecked(Z)V
 
     return-void
-
-    :cond_0
-    const/4 v0, 0x1
-
-    goto :goto_0
 .end method
 
 .method protected verifyDrawable(Landroid/graphics/drawable/Drawable;)Z

@@ -28,7 +28,7 @@
 
     const/4 v0, 0x0
 
-    invoke-static {}, Lcom/absolute/android/persistservice/ABTPersistenceService;->c()Ljava/lang/String;
+    invoke-static {}, Lcom/absolute/android/persistservice/ABTPersistenceService;->d()Ljava/lang/String;
 
     move-result-object v1
 

@@ -279,96 +279,6 @@
     return-object v0
 .end method
 
-.method public getLayoutInflater(Landroid/os/Bundle;)Landroid/view/LayoutInflater;
-    .locals 2
-
-    iget-boolean v0, p0, Landroid/app/DialogFragment;->mShowsDialog:Z
-
-    if-nez v0, :cond_0
-
-    invoke-super {p0, p1}, Landroid/app/Fragment;->getLayoutInflater(Landroid/os/Bundle;)Landroid/view/LayoutInflater;
-
-    move-result-object v0
-
-    return-object v0
-
-    :cond_0
-    invoke-virtual {p0, p1}, Landroid/app/DialogFragment;->onCreateDialog(Landroid/os/Bundle;)Landroid/app/Dialog;
-
-    move-result-object v0
-
-    iput-object v0, p0, Landroid/app/DialogFragment;->mDialog:Landroid/app/Dialog;
-
-    iget v0, p0, Landroid/app/DialogFragment;->mStyle:I
-
-    packed-switch v0, :pswitch_data_0
-
-    :goto_0
-    iget-object v0, p0, Landroid/app/DialogFragment;->mDialog:Landroid/app/Dialog;
-
-    if-eqz v0, :cond_1
-
-    iget-object v0, p0, Landroid/app/DialogFragment;->mDialog:Landroid/app/Dialog;
-
-    invoke-virtual {v0}, Landroid/app/Dialog;->getContext()Landroid/content/Context;
-
-    move-result-object v0
-
-    const-string/jumbo v1, "layout_inflater"
-
-    invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/view/LayoutInflater;
-
-    return-object v0
-
-    :pswitch_0
-    iget-object v0, p0, Landroid/app/DialogFragment;->mDialog:Landroid/app/Dialog;
-
-    invoke-virtual {v0}, Landroid/app/Dialog;->getWindow()Landroid/view/Window;
-
-    move-result-object v0
-
-    const/16 v1, 0x18
-
-    invoke-virtual {v0, v1}, Landroid/view/Window;->addFlags(I)V
-
-    :pswitch_1
-    iget-object v0, p0, Landroid/app/DialogFragment;->mDialog:Landroid/app/Dialog;
-
-    const/4 v1, 0x1
-
-    invoke-virtual {v0, v1}, Landroid/app/Dialog;->requestWindowFeature(I)Z
-
-    goto :goto_0
-
-    :cond_1
-    iget-object v0, p0, Landroid/app/DialogFragment;->mHost:Landroid/app/FragmentHostCallback;
-
-    invoke-virtual {v0}, Landroid/app/FragmentHostCallback;->getContext()Landroid/content/Context;
-
-    move-result-object v0
-
-    const-string/jumbo v1, "layout_inflater"
-
-    invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/view/LayoutInflater;
-
-    return-object v0
-
-    :pswitch_data_0
-    .packed-switch 0x1
-        :pswitch_1
-        :pswitch_1
-        :pswitch_0
-    .end packed-switch
-.end method
-
 .method public getShowsDialog()Z
     .locals 1
 
@@ -648,18 +558,16 @@
 
     iget-boolean v0, p0, Landroid/app/DialogFragment;->mDismissed:Z
 
-    if-eqz v0, :cond_1
+    xor-int/lit8 v0, v0, 0x1
 
-    :cond_0
-    :goto_0
-    return-void
+    if-eqz v0, :cond_0
 
-    :cond_1
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Landroid/app/DialogFragment;->mDismissed:Z
 
-    goto :goto_0
+    :cond_0
+    return-void
 .end method
 
 .method public onDismiss(Landroid/content/DialogInterface;)V
@@ -675,6 +583,96 @@
 
     :cond_0
     return-void
+.end method
+
+.method public onGetLayoutInflater(Landroid/os/Bundle;)Landroid/view/LayoutInflater;
+    .locals 2
+
+    iget-boolean v0, p0, Landroid/app/DialogFragment;->mShowsDialog:Z
+
+    if-nez v0, :cond_0
+
+    invoke-super {p0, p1}, Landroid/app/Fragment;->onGetLayoutInflater(Landroid/os/Bundle;)Landroid/view/LayoutInflater;
+
+    move-result-object v0
+
+    return-object v0
+
+    :cond_0
+    invoke-virtual {p0, p1}, Landroid/app/DialogFragment;->onCreateDialog(Landroid/os/Bundle;)Landroid/app/Dialog;
+
+    move-result-object v0
+
+    iput-object v0, p0, Landroid/app/DialogFragment;->mDialog:Landroid/app/Dialog;
+
+    iget v0, p0, Landroid/app/DialogFragment;->mStyle:I
+
+    packed-switch v0, :pswitch_data_0
+
+    :goto_0
+    iget-object v0, p0, Landroid/app/DialogFragment;->mDialog:Landroid/app/Dialog;
+
+    if-eqz v0, :cond_1
+
+    iget-object v0, p0, Landroid/app/DialogFragment;->mDialog:Landroid/app/Dialog;
+
+    invoke-virtual {v0}, Landroid/app/Dialog;->getContext()Landroid/content/Context;
+
+    move-result-object v0
+
+    const-string/jumbo v1, "layout_inflater"
+
+    invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/view/LayoutInflater;
+
+    return-object v0
+
+    :pswitch_0
+    iget-object v0, p0, Landroid/app/DialogFragment;->mDialog:Landroid/app/Dialog;
+
+    invoke-virtual {v0}, Landroid/app/Dialog;->getWindow()Landroid/view/Window;
+
+    move-result-object v0
+
+    const/16 v1, 0x18
+
+    invoke-virtual {v0, v1}, Landroid/view/Window;->addFlags(I)V
+
+    :pswitch_1
+    iget-object v0, p0, Landroid/app/DialogFragment;->mDialog:Landroid/app/Dialog;
+
+    const/4 v1, 0x1
+
+    invoke-virtual {v0, v1}, Landroid/app/Dialog;->requestWindowFeature(I)Z
+
+    goto :goto_0
+
+    :cond_1
+    iget-object v0, p0, Landroid/app/DialogFragment;->mHost:Landroid/app/FragmentHostCallback;
+
+    invoke-virtual {v0}, Landroid/app/FragmentHostCallback;->getContext()Landroid/content/Context;
+
+    move-result-object v0
+
+    const-string/jumbo v1, "layout_inflater"
+
+    invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/view/LayoutInflater;
+
+    return-object v0
+
+    :pswitch_data_0
+    .packed-switch 0x1
+        :pswitch_1
+        :pswitch_1
+        :pswitch_0
+    .end packed-switch
 .end method
 
 .method public onSaveInstanceState(Landroid/os/Bundle;)V
@@ -840,7 +838,7 @@
     if-ne v0, v1, :cond_1
 
     :cond_0
-    const v0, 0x1030490
+    const v0, 0x10303ee
 
     iput v0, p0, Landroid/app/DialogFragment;->mTheme:I
 

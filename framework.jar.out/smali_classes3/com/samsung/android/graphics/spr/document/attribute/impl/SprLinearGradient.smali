@@ -130,13 +130,13 @@
 
     iget v4, p0, Lcom/samsung/android/graphics/spr/document/attribute/impl/SprLinearGradient;->y2:F
 
-    iget-object v5, p0, Lcom/samsung/android/graphics/spr/document/attribute/impl/SprGradientBase;->colors:[I
+    iget-object v5, p0, Lcom/samsung/android/graphics/spr/document/attribute/impl/SprLinearGradient;->colors:[I
 
-    iget-object v6, p0, Lcom/samsung/android/graphics/spr/document/attribute/impl/SprGradientBase;->positions:[F
+    iget-object v6, p0, Lcom/samsung/android/graphics/spr/document/attribute/impl/SprLinearGradient;->positions:[F
 
     sget-object v7, Lcom/samsung/android/graphics/spr/document/attribute/impl/SprLinearGradient;->sTileModeArray:[Landroid/graphics/Shader$TileMode;
 
-    iget-byte v8, p0, Lcom/samsung/android/graphics/spr/document/attribute/impl/SprGradientBase;->spreadMode:B
+    iget-byte v8, p0, Lcom/samsung/android/graphics/spr/document/attribute/impl/SprLinearGradient;->spreadMode:B
 
     add-int/lit8 v8, v8, -0x1
 
@@ -144,15 +144,15 @@
 
     invoke-direct/range {v0 .. v7}, Landroid/graphics/LinearGradient;-><init>(FFFF[I[FLandroid/graphics/Shader$TileMode;)V
 
-    iput-object v0, p0, Lcom/samsung/android/graphics/spr/document/attribute/impl/SprGradientBase;->shader:Landroid/graphics/Shader;
+    iput-object v0, p0, Lcom/samsung/android/graphics/spr/document/attribute/impl/SprLinearGradient;->shader:Landroid/graphics/Shader;
 
-    iget-object v0, p0, Lcom/samsung/android/graphics/spr/document/attribute/impl/SprGradientBase;->matrix:Landroid/graphics/Matrix;
+    iget-object v0, p0, Lcom/samsung/android/graphics/spr/document/attribute/impl/SprLinearGradient;->matrix:Landroid/graphics/Matrix;
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/samsung/android/graphics/spr/document/attribute/impl/SprGradientBase;->shader:Landroid/graphics/Shader;
+    iget-object v0, p0, Lcom/samsung/android/graphics/spr/document/attribute/impl/SprLinearGradient;->shader:Landroid/graphics/Shader;
 
-    iget-object v1, p0, Lcom/samsung/android/graphics/spr/document/attribute/impl/SprGradientBase;->matrix:Landroid/graphics/Matrix;
+    iget-object v1, p0, Lcom/samsung/android/graphics/spr/document/attribute/impl/SprLinearGradient;->matrix:Landroid/graphics/Matrix;
 
     invoke-virtual {v0, v1}, Landroid/graphics/Shader;->setLocalMatrix(Landroid/graphics/Matrix;)V
 

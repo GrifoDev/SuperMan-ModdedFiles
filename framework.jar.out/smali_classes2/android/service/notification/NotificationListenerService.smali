@@ -31,6 +31,50 @@
 
 .field public static final INTERRUPTION_FILTER_UNKNOWN:I = 0x0
 
+.field public static final NOTIFICATION_CHANNEL_OR_GROUP_ADDED:I = 0x1
+
+.field public static final NOTIFICATION_CHANNEL_OR_GROUP_DELETED:I = 0x3
+
+.field public static final NOTIFICATION_CHANNEL_OR_GROUP_UPDATED:I = 0x2
+
+.field public static final REASON_APP_CANCEL:I = 0x8
+
+.field public static final REASON_APP_CANCEL_ALL:I = 0x9
+
+.field public static final REASON_CANCEL:I = 0x2
+
+.field public static final REASON_CANCEL_ALL:I = 0x3
+
+.field public static final REASON_CHANNEL_BANNED:I = 0x11
+
+.field public static final REASON_CLICK:I = 0x1
+
+.field public static final REASON_ERROR:I = 0x4
+
+.field public static final REASON_GROUP_OPTIMIZATION:I = 0xd
+
+.field public static final REASON_GROUP_SUMMARY_CANCELED:I = 0xc
+
+.field public static final REASON_LISTENER_CANCEL:I = 0xa
+
+.field public static final REASON_LISTENER_CANCEL_ALL:I = 0xb
+
+.field public static final REASON_PACKAGE_BANNED:I = 0x7
+
+.field public static final REASON_PACKAGE_CHANGED:I = 0x5
+
+.field public static final REASON_PACKAGE_SUSPENDED:I = 0xe
+
+.field public static final REASON_PROFILE_TURNED_OFF:I = 0xf
+
+.field public static final REASON_SNOOZED:I = 0x12
+
+.field public static final REASON_TIMEOUT:I = 0x13
+
+.field public static final REASON_UNAUTOBUNDLED:I = 0x10
+
+.field public static final REASON_USER_STOPPED:I = 0x6
+
 .field public static final SERVICE_INTERFACE:Ljava/lang/String; = "android.service.notification.NotificationListenerService"
 
 .field public static final SUPPRESSED_EFFECT_SCREEN_OFF:I = 0x1
@@ -115,15 +159,7 @@
     return p1
 .end method
 
-.method static synthetic -wrap0(Landroid/service/notification/NotificationListenerService;Landroid/service/notification/NotificationRankingUpdate;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Landroid/service/notification/NotificationListenerService;->applyUpdateLocked(Landroid/service/notification/NotificationRankingUpdate;)V
-
-    return-void
-.end method
-
-.method static synthetic -wrap1(Landroid/service/notification/NotificationListenerService;Landroid/app/Notification;)V
+.method static synthetic -wrap0(Landroid/service/notification/NotificationListenerService;Landroid/app/Notification;)V
     .locals 0
 
     invoke-direct {p0, p1}, Landroid/service/notification/NotificationListenerService;->createLegacyIconExtras(Landroid/app/Notification;)V
@@ -131,7 +167,7 @@
     return-void
 .end method
 
-.method static synthetic -wrap2(Landroid/service/notification/NotificationListenerService;Landroid/app/Notification;)V
+.method static synthetic -wrap1(Landroid/service/notification/NotificationListenerService;Landroid/app/Notification;)V
     .locals 0
 
     invoke-direct {p0, p1}, Landroid/service/notification/NotificationListenerService;->maybePopulateRemoteViews(Landroid/app/Notification;)V
@@ -140,49 +176,15 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 2
+    .locals 1
 
     invoke-direct {p0}, Landroid/app/Service;-><init>()V
 
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-class v1, Landroid/service/notification/NotificationListenerService;
-
-    invoke-virtual {v1}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    const-string/jumbo v1, "["
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
     invoke-virtual {p0}, Landroid/service/notification/NotificationListenerService;->getClass()Ljava/lang/Class;
 
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
     move-result-object v0
 
-    const-string/jumbo v1, "]"
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
 
     move-result-object v0
 
@@ -205,18 +207,115 @@
     return-void
 .end method
 
-.method private applyUpdateLocked(Landroid/service/notification/NotificationRankingUpdate;)V
-    .locals 2
+.method private cleanUpNotificationList(Landroid/content/pm/ParceledListSlice;)[Landroid/service/notification/StatusBarNotification;
+    .locals 10
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Landroid/content/pm/ParceledListSlice",
+            "<",
+            "Landroid/service/notification/StatusBarNotification;",
+            ">;)[",
+            "Landroid/service/notification/StatusBarNotification;"
+        }
+    .end annotation
 
-    new-instance v0, Landroid/service/notification/NotificationListenerService$RankingMap;
+    invoke-virtual {p1}, Landroid/content/pm/ParceledListSlice;->getList()Ljava/util/List;
+
+    move-result-object v4
 
     const/4 v1, 0x0
 
-    invoke-direct {v0, p1, v1}, Landroid/service/notification/NotificationListenerService$RankingMap;-><init>(Landroid/service/notification/NotificationRankingUpdate;Landroid/service/notification/NotificationListenerService$RankingMap;)V
+    invoke-interface {v4}, Ljava/util/List;->size()I
 
-    iput-object v0, p0, Landroid/service/notification/NotificationListenerService;->mRankingMap:Landroid/service/notification/NotificationListenerService$RankingMap;
+    move-result v0
 
-    return-void
+    const/4 v3, 0x0
+
+    :goto_0
+    if-ge v3, v0, :cond_1
+
+    invoke-interface {v4, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v6
+
+    check-cast v6, Landroid/service/notification/StatusBarNotification;
+
+    invoke-virtual {v6}, Landroid/service/notification/StatusBarNotification;->getNotification()Landroid/app/Notification;
+
+    move-result-object v5
+
+    :try_start_0
+    invoke-direct {p0, v5}, Landroid/service/notification/NotificationListenerService;->createLegacyIconExtras(Landroid/app/Notification;)V
+
+    invoke-direct {p0, v5}, Landroid/service/notification/NotificationListenerService;->maybePopulateRemoteViews(Landroid/app/Notification;)V
+    :try_end_0
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
+
+    :goto_1
+    add-int/lit8 v3, v3, 0x1
+
+    goto :goto_0
+
+    :catch_0
+    move-exception v2
+
+    if-nez v1, :cond_0
+
+    new-instance v1, Ljava/util/ArrayList;
+
+    invoke-direct {v1, v0}, Ljava/util/ArrayList;-><init>(I)V
+
+    :cond_0
+    invoke-virtual {v1, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    iget-object v7, p0, Landroid/service/notification/NotificationListenerService;->TAG:Ljava/lang/String;
+
+    new-instance v8, Ljava/lang/StringBuilder;
+
+    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v9, "get(Active/Snoozed)Notifications: can\'t rebuild notification from "
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-virtual {v6}, Landroid/service/notification/StatusBarNotification;->getPackageName()Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-static {v7, v8}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_1
+
+    :cond_1
+    if-eqz v1, :cond_2
+
+    invoke-interface {v4, v1}, Ljava/util/List;->removeAll(Ljava/util/Collection;)Z
+
+    :cond_2
+    invoke-interface {v4}, Ljava/util/List;->size()I
+
+    move-result v7
+
+    new-array v7, v7, [Landroid/service/notification/StatusBarNotification;
+
+    invoke-interface {v4, v7}, Ljava/util/List;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
+
+    move-result-object v7
+
+    check-cast v7, [Landroid/service/notification/StatusBarNotification;
+
+    return-object v7
 .end method
 
 .method private createLegacyIconExtras(Landroid/app/Notification;)V
@@ -370,6 +469,20 @@
 
 
 # virtual methods
+.method public final applyUpdateLocked(Landroid/service/notification/NotificationRankingUpdate;)V
+    .locals 2
+
+    new-instance v0, Landroid/service/notification/NotificationListenerService$RankingMap;
+
+    const/4 v1, 0x0
+
+    invoke-direct {v0, p1, v1}, Landroid/service/notification/NotificationListenerService$RankingMap;-><init>(Landroid/service/notification/NotificationRankingUpdate;Landroid/service/notification/NotificationListenerService$RankingMap;)V
+
+    iput-object v0, p0, Landroid/service/notification/NotificationListenerService;->mRankingMap:Landroid/service/notification/NotificationListenerService$RankingMap;
+
+    return-void
+.end method
+
 .method protected attachBaseContext(Landroid/content/Context;)V
     .locals 2
 
@@ -446,6 +559,8 @@
 
 .method public final cancelNotification(Ljava/lang/String;Ljava/lang/String;I)V
     .locals 3
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 
     invoke-virtual {p0}, Landroid/service/notification/NotificationListenerService;->isBound()Z
 
@@ -520,6 +635,44 @@
     goto :goto_0
 .end method
 
+.method public final changeNotificationPinned(Ljava/lang/String;Z)V
+    .locals 3
+
+    invoke-virtual {p0}, Landroid/service/notification/NotificationListenerService;->isBound()Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    return-void
+
+    :cond_0
+    :try_start_0
+    invoke-virtual {p0}, Landroid/service/notification/NotificationListenerService;->getNotificationInterface()Landroid/app/INotificationManager;
+
+    move-result-object v1
+
+    iget-object v2, p0, Landroid/service/notification/NotificationListenerService;->mWrapper:Landroid/service/notification/NotificationListenerService$NotificationListenerWrapper;
+
+    invoke-interface {v1, v2, p1, p2}, Landroid/app/INotificationManager;->pinNotificationFromListener(Landroid/service/notification/INotificationListener;Ljava/lang/String;Z)V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    :goto_0
+    return-void
+
+    :catch_0
+    move-exception v0
+
+    iget-object v1, p0, Landroid/service/notification/NotificationListenerService;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v2, "Unable to contact notification manager"
+
+    invoke-static {v1, v2, v0}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    goto :goto_0
+.end method
+
 .method public getActiveNotifications()[Landroid/service/notification/StatusBarNotification;
     .locals 2
 
@@ -559,146 +712,48 @@
 .end method
 
 .method public getActiveNotifications([Ljava/lang/String;I)[Landroid/service/notification/StatusBarNotification;
-    .locals 13
+    .locals 5
 
-    const/4 v12, 0x0
+    const/4 v4, 0x0
 
     invoke-virtual {p0}, Landroid/service/notification/NotificationListenerService;->isBound()Z
 
-    move-result v9
+    move-result v2
 
-    if-nez v9, :cond_0
+    if-nez v2, :cond_0
 
-    return-object v12
+    return-object v4
 
     :cond_0
     :try_start_0
     invoke-virtual {p0}, Landroid/service/notification/NotificationListenerService;->getNotificationInterface()Landroid/app/INotificationManager;
 
-    move-result-object v9
+    move-result-object v2
 
-    iget-object v10, p0, Landroid/service/notification/NotificationListenerService;->mWrapper:Landroid/service/notification/NotificationListenerService$NotificationListenerWrapper;
+    iget-object v3, p0, Landroid/service/notification/NotificationListenerService;->mWrapper:Landroid/service/notification/NotificationListenerService$NotificationListenerWrapper;
 
-    invoke-interface {v9, v10, p1, p2}, Landroid/app/INotificationManager;->getActiveNotificationsFromListener(Landroid/service/notification/INotificationListener;[Ljava/lang/String;I)Landroid/content/pm/ParceledListSlice;
+    invoke-interface {v2, v3, p1, p2}, Landroid/app/INotificationManager;->getActiveNotificationsFromListener(Landroid/service/notification/INotificationListener;[Ljava/lang/String;I)Landroid/content/pm/ParceledListSlice;
 
-    move-result-object v7
+    move-result-object v1
 
-    invoke-virtual {v7}, Landroid/content/pm/ParceledListSlice;->getList()Ljava/util/List;
-
-    move-result-object v5
-
-    const/4 v1, 0x0
-
-    invoke-interface {v5}, Ljava/util/List;->size()I
-
-    move-result v0
-
-    const/4 v4, 0x0
-
-    :goto_0
-    if-ge v4, v0, :cond_2
-
-    invoke-interface {v5, v4}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v8
-
-    check-cast v8, Landroid/service/notification/StatusBarNotification;
-
-    invoke-virtual {v8}, Landroid/service/notification/StatusBarNotification;->getNotification()Landroid/app/Notification;
+    invoke-direct {p0, v1}, Landroid/service/notification/NotificationListenerService;->cleanUpNotificationList(Landroid/content/pm/ParceledListSlice;)[Landroid/service/notification/StatusBarNotification;
     :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_1
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    move-result-object v6
+    move-result-object v2
 
-    :try_start_1
-    invoke-direct {p0, v6}, Landroid/service/notification/NotificationListenerService;->createLegacyIconExtras(Landroid/app/Notification;)V
-
-    invoke-direct {p0, v6}, Landroid/service/notification/NotificationListenerService;->maybePopulateRemoteViews(Landroid/app/Notification;)V
-    :try_end_1
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_1 .. :try_end_1} :catch_0
-    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_1
-
-    :goto_1
-    add-int/lit8 v4, v4, 0x1
-
-    goto :goto_0
+    return-object v2
 
     :catch_0
-    move-exception v2
+    move-exception v0
 
-    if-nez v1, :cond_1
+    iget-object v2, p0, Landroid/service/notification/NotificationListenerService;->TAG:Ljava/lang/String;
 
-    :try_start_2
-    new-instance v1, Ljava/util/ArrayList;
+    const-string/jumbo v3, "Unable to contact notification manager"
 
-    invoke-direct {v1, v0}, Ljava/util/ArrayList;-><init>(I)V
+    invoke-static {v2, v3, v0}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    :cond_1
-    invoke-virtual {v1, v8}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    iget-object v9, p0, Landroid/service/notification/NotificationListenerService;->TAG:Ljava/lang/String;
-
-    new-instance v10, Ljava/lang/StringBuilder;
-
-    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v11, "getActiveNotifications: can\'t rebuild notification from "
-
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v10
-
-    invoke-virtual {v8}, Landroid/service/notification/StatusBarNotification;->getPackageName()Ljava/lang/String;
-
-    move-result-object v11
-
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v10
-
-    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v10
-
-    invoke-static {v9, v10, v2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-    :try_end_2
-    .catch Landroid/os/RemoteException; {:try_start_2 .. :try_end_2} :catch_1
-
-    goto :goto_1
-
-    :catch_1
-    move-exception v3
-
-    iget-object v9, p0, Landroid/service/notification/NotificationListenerService;->TAG:Ljava/lang/String;
-
-    const-string/jumbo v10, "Unable to contact notification manager"
-
-    invoke-static {v9, v10, v3}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    return-object v12
-
-    :cond_2
-    if-eqz v1, :cond_3
-
-    :try_start_3
-    invoke-interface {v5, v1}, Ljava/util/List;->removeAll(Ljava/util/Collection;)Z
-
-    :cond_3
-    invoke-interface {v5}, Ljava/util/List;->size()I
-
-    move-result v9
-
-    new-array v9, v9, [Landroid/service/notification/StatusBarNotification;
-
-    invoke-interface {v5, v9}, Ljava/util/List;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
-
-    move-result-object v9
-
-    check-cast v9, [Landroid/service/notification/StatusBarNotification;
-    :try_end_3
-    .catch Landroid/os/RemoteException; {:try_start_3 .. :try_end_3} :catch_1
-
-    return-object v9
+    return-object v4
 .end method
 
 .method protected getContext()Landroid/content/Context;
@@ -822,6 +877,128 @@
     throw v1
 .end method
 
+.method public final getNotificationChannelGroups(Ljava/lang/String;Landroid/os/UserHandle;)Ljava/util/List;
+    .locals 3
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/lang/String;",
+            "Landroid/os/UserHandle;",
+            ")",
+            "Ljava/util/List",
+            "<",
+            "Landroid/app/NotificationChannelGroup;",
+            ">;"
+        }
+    .end annotation
+
+    invoke-virtual {p0}, Landroid/service/notification/NotificationListenerService;->isBound()Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    const/4 v1, 0x0
+
+    return-object v1
+
+    :cond_0
+    :try_start_0
+    invoke-virtual {p0}, Landroid/service/notification/NotificationListenerService;->getNotificationInterface()Landroid/app/INotificationManager;
+
+    move-result-object v1
+
+    iget-object v2, p0, Landroid/service/notification/NotificationListenerService;->mWrapper:Landroid/service/notification/NotificationListenerService$NotificationListenerWrapper;
+
+    invoke-interface {v1, v2, p1, p2}, Landroid/app/INotificationManager;->getNotificationChannelGroupsFromPrivilegedListener(Landroid/service/notification/INotificationListener;Ljava/lang/String;Landroid/os/UserHandle;)Landroid/content/pm/ParceledListSlice;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/content/pm/ParceledListSlice;->getList()Ljava/util/List;
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result-object v1
+
+    return-object v1
+
+    :catch_0
+    move-exception v0
+
+    iget-object v1, p0, Landroid/service/notification/NotificationListenerService;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v2, "Unable to contact notification manager"
+
+    invoke-static {v1, v2, v0}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+
+    move-result-object v1
+
+    throw v1
+.end method
+
+.method public final getNotificationChannels(Ljava/lang/String;Landroid/os/UserHandle;)Ljava/util/List;
+    .locals 3
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/lang/String;",
+            "Landroid/os/UserHandle;",
+            ")",
+            "Ljava/util/List",
+            "<",
+            "Landroid/app/NotificationChannel;",
+            ">;"
+        }
+    .end annotation
+
+    invoke-virtual {p0}, Landroid/service/notification/NotificationListenerService;->isBound()Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    const/4 v1, 0x0
+
+    return-object v1
+
+    :cond_0
+    :try_start_0
+    invoke-virtual {p0}, Landroid/service/notification/NotificationListenerService;->getNotificationInterface()Landroid/app/INotificationManager;
+
+    move-result-object v1
+
+    iget-object v2, p0, Landroid/service/notification/NotificationListenerService;->mWrapper:Landroid/service/notification/NotificationListenerService$NotificationListenerWrapper;
+
+    invoke-interface {v1, v2, p1, p2}, Landroid/app/INotificationManager;->getNotificationChannelsFromPrivilegedListener(Landroid/service/notification/INotificationListener;Ljava/lang/String;Landroid/os/UserHandle;)Landroid/content/pm/ParceledListSlice;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/content/pm/ParceledListSlice;->getList()Ljava/util/List;
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result-object v1
+
+    return-object v1
+
+    :catch_0
+    move-exception v0
+
+    iget-object v1, p0, Landroid/service/notification/NotificationListenerService;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v2, "Unable to contact notification manager"
+
+    invoke-static {v1, v2, v0}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+
+    move-result-object v1
+
+    throw v1
+.end method
+
 .method protected final getNotificationInterface()Landroid/app/INotificationManager;
     .locals 1
 
@@ -845,6 +1022,44 @@
     iget-object v0, p0, Landroid/service/notification/NotificationListenerService;->mNoMan:Landroid/app/INotificationManager;
 
     return-object v0
+.end method
+
+.method public final getSnoozedNotifications()[Landroid/service/notification/StatusBarNotification;
+    .locals 5
+
+    :try_start_0
+    invoke-virtual {p0}, Landroid/service/notification/NotificationListenerService;->getNotificationInterface()Landroid/app/INotificationManager;
+
+    move-result-object v2
+
+    iget-object v3, p0, Landroid/service/notification/NotificationListenerService;->mWrapper:Landroid/service/notification/NotificationListenerService$NotificationListenerWrapper;
+
+    const/4 v4, 0x0
+
+    invoke-interface {v2, v3, v4}, Landroid/app/INotificationManager;->getSnoozedNotificationsFromListener(Landroid/service/notification/INotificationListener;I)Landroid/content/pm/ParceledListSlice;
+
+    move-result-object v1
+
+    invoke-direct {p0, v1}, Landroid/service/notification/NotificationListenerService;->cleanUpNotificationList(Landroid/content/pm/ParceledListSlice;)[Landroid/service/notification/StatusBarNotification;
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result-object v2
+
+    return-object v2
+
+    :catch_0
+    move-exception v0
+
+    iget-object v2, p0, Landroid/service/notification/NotificationListenerService;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v3, "Unable to contact notification manager"
+
+    invoke-static {v2, v3, v0}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    const/4 v2, 0x0
+
+    return-object v2
 .end method
 
 .method protected isBound()Z
@@ -935,6 +1150,18 @@
     return-void
 .end method
 
+.method public onNotificationChannelGroupModified(Ljava/lang/String;Landroid/os/UserHandle;Landroid/app/NotificationChannelGroup;I)V
+    .locals 0
+
+    return-void
+.end method
+
+.method public onNotificationChannelModified(Ljava/lang/String;Landroid/os/UserHandle;Landroid/app/NotificationChannel;I)V
+    .locals 0
+
+    return-void
+.end method
+
 .method public onNotificationPosted(Landroid/service/notification/StatusBarNotification;)V
     .locals 0
 
@@ -965,6 +1192,14 @@
     .locals 0
 
     invoke-virtual {p0, p1}, Landroid/service/notification/NotificationListenerService;->onNotificationRemoved(Landroid/service/notification/StatusBarNotification;)V
+
+    return-void
+.end method
+
+.method public onNotificationRemoved(Landroid/service/notification/StatusBarNotification;Landroid/service/notification/NotificationListenerService$RankingMap;I)V
+    .locals 0
+
+    invoke-virtual {p0, p1, p2}, Landroid/service/notification/NotificationListenerService;->onNotificationRemoved(Landroid/service/notification/StatusBarNotification;Landroid/service/notification/NotificationListenerService$RankingMap;)V
 
     return-void
 .end method
@@ -1200,6 +1435,82 @@
     goto :goto_0
 .end method
 
+.method public final snoozeNotification(Ljava/lang/String;J)V
+    .locals 4
+
+    invoke-virtual {p0}, Landroid/service/notification/NotificationListenerService;->isBound()Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    return-void
+
+    :cond_0
+    :try_start_0
+    invoke-virtual {p0}, Landroid/service/notification/NotificationListenerService;->getNotificationInterface()Landroid/app/INotificationManager;
+
+    move-result-object v1
+
+    iget-object v2, p0, Landroid/service/notification/NotificationListenerService;->mWrapper:Landroid/service/notification/NotificationListenerService$NotificationListenerWrapper;
+
+    invoke-interface {v1, v2, p1, p2, p3}, Landroid/app/INotificationManager;->snoozeNotificationUntilFromListener(Landroid/service/notification/INotificationListener;Ljava/lang/String;J)V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    :goto_0
+    return-void
+
+    :catch_0
+    move-exception v0
+
+    iget-object v1, p0, Landroid/service/notification/NotificationListenerService;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v2, "Unable to contact notification manager"
+
+    invoke-static {v1, v2, v0}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    goto :goto_0
+.end method
+
+.method public final snoozeNotification(Ljava/lang/String;Ljava/lang/String;)V
+    .locals 3
+
+    invoke-virtual {p0}, Landroid/service/notification/NotificationListenerService;->isBound()Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    return-void
+
+    :cond_0
+    :try_start_0
+    invoke-virtual {p0}, Landroid/service/notification/NotificationListenerService;->getNotificationInterface()Landroid/app/INotificationManager;
+
+    move-result-object v1
+
+    iget-object v2, p0, Landroid/service/notification/NotificationListenerService;->mWrapper:Landroid/service/notification/NotificationListenerService$NotificationListenerWrapper;
+
+    invoke-interface {v1, v2, p1, p2}, Landroid/app/INotificationManager;->snoozeNotificationUntilContextFromListener(Landroid/service/notification/INotificationListener;Ljava/lang/String;Ljava/lang/String;)V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    :goto_0
+    return-void
+
+    :catch_0
+    move-exception v0
+
+    iget-object v1, p0, Landroid/service/notification/NotificationListenerService;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v2, "Unable to contact notification manager"
+
+    invoke-static {v1, v2, v0}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    goto :goto_0
+.end method
+
 .method public unregisterAsSystemService()V
     .locals 3
     .annotation system Ldalvik/annotation/Throws;
@@ -1224,4 +1535,45 @@
 
     :cond_0
     return-void
+.end method
+
+.method public final updateNotificationChannel(Ljava/lang/String;Landroid/os/UserHandle;Landroid/app/NotificationChannel;)V
+    .locals 3
+
+    invoke-virtual {p0}, Landroid/service/notification/NotificationListenerService;->isBound()Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    return-void
+
+    :cond_0
+    :try_start_0
+    invoke-virtual {p0}, Landroid/service/notification/NotificationListenerService;->getNotificationInterface()Landroid/app/INotificationManager;
+
+    move-result-object v1
+
+    iget-object v2, p0, Landroid/service/notification/NotificationListenerService;->mWrapper:Landroid/service/notification/NotificationListenerService$NotificationListenerWrapper;
+
+    invoke-interface {v1, v2, p1, p2, p3}, Landroid/app/INotificationManager;->updateNotificationChannelFromPrivilegedListener(Landroid/service/notification/INotificationListener;Ljava/lang/String;Landroid/os/UserHandle;Landroid/app/NotificationChannel;)V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    return-void
+
+    :catch_0
+    move-exception v0
+
+    iget-object v1, p0, Landroid/service/notification/NotificationListenerService;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v2, "Unable to contact notification manager"
+
+    invoke-static {v1, v2, v0}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+
+    move-result-object v1
+
+    throw v1
 .end method

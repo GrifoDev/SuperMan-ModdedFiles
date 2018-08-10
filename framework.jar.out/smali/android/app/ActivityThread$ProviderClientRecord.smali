@@ -15,7 +15,7 @@
 
 
 # instance fields
-.field final mHolder:Landroid/app/IActivityManager$ContentProviderHolder;
+.field final mHolder:Landroid/app/ContentProviderHolder;
 
 .field final mLocalProvider:Landroid/content/ContentProvider;
 
@@ -27,7 +27,7 @@
 
 
 # direct methods
-.method constructor <init>(Landroid/app/ActivityThread;[Ljava/lang/String;Landroid/content/IContentProvider;Landroid/content/ContentProvider;Landroid/app/IActivityManager$ContentProviderHolder;)V
+.method constructor <init>(Landroid/app/ActivityThread;[Ljava/lang/String;Landroid/content/IContentProvider;Landroid/content/ContentProvider;Landroid/app/ContentProviderHolder;)V
     .locals 0
 
     iput-object p1, p0, Landroid/app/ActivityThread$ProviderClientRecord;->this$0:Landroid/app/ActivityThread;
@@ -40,7 +40,7 @@
 
     iput-object p4, p0, Landroid/app/ActivityThread$ProviderClientRecord;->mLocalProvider:Landroid/content/ContentProvider;
 
-    iput-object p5, p0, Landroid/app/ActivityThread$ProviderClientRecord;->mHolder:Landroid/app/IActivityManager$ContentProviderHolder;
+    iput-object p5, p0, Landroid/app/ActivityThread$ProviderClientRecord;->mHolder:Landroid/app/ContentProviderHolder;
 
     return-void
 .end method

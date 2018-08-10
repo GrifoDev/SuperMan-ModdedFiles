@@ -340,7 +340,9 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    xor-int/lit8 v1, v1, 0x1
+
+    if-nez v1, :cond_0
 
     new-instance v0, Landroid/renderscript/ScriptGroup;
 

@@ -26,11 +26,11 @@
 
 .field public static final AUDIO_STATUS_SERVER_DIED:I = 0x64
 
-.field public static final AUDIO_STATUS_STOP_RECORDING:I = 0xc8
-
 .field public static final BAD_VALUE:I = -0x2
 
 .field public static final BOOT_SOUND:I = 0x8
+
+.field public static final BURSTSHOT:I = 0x9
 
 .field public static final CALL_ACTIVE:I = 0x2
 
@@ -64,7 +64,7 @@
 
 .field public static final DEVICE_BIT_IN:I = -0x80000000
 
-.field public static final DEVICE_IN_ALL:I = -0x3c000001
+.field public static final DEVICE_IN_ALL:I = -0x38600001
 
 .field public static final DEVICE_IN_ALL_SCO:I = -0x7ffffff8
 
@@ -112,13 +112,13 @@
 
 .field public static final DEVICE_IN_DGTL_DOCK_HEADSET_NAME:Ljava/lang/String; = "digital_dock"
 
-.field public static final DEVICE_IN_EXTERNAL_TMS:I = -0x7fc00000
+.field public static final DEVICE_IN_EXTERNAL_TMS:I = -0x7f000000
 
 .field public static final DEVICE_IN_FM:I = -0x7fffe000
 
-.field public static final DEVICE_IN_FM_RX:I = -0x7f000000
+.field public static final DEVICE_IN_FM_RX:I = -0x7e000000
 
-.field public static final DEVICE_IN_FM_RX_A2DP:I = -0x7e000000
+.field public static final DEVICE_IN_FM_RX_A2DP:I = -0x7c000000
 
 .field public static final DEVICE_IN_FM_TUNER:I = -0x7fffe000
 
@@ -138,7 +138,9 @@
 
 .field public static final DEVICE_IN_LOOPBACK_NAME:Ljava/lang/String; = "loopback"
 
-.field public static final DEVICE_IN_PROXY:I = -0x7f800000
+.field public static final DEVICE_IN_PROXY:I = -0x7f000000
+
+.field public static final DEVICE_IN_PROXY_NAME:Ljava/lang/String; = "proxy"
 
 .field public static final DEVICE_IN_REMOTE_SUBMIX:I = -0x7fffff00
 
@@ -152,7 +154,7 @@
 
 .field public static final DEVICE_IN_TELEPHONY_RX_NAME:Ljava/lang/String; = "telephony_rx"
 
-.field public static final DEVICE_IN_THIRD_MIC:I = -0x7fe00000
+.field public static final DEVICE_IN_THIRD_MIC:I = -0x7f800000
 
 .field public static final DEVICE_IN_TV_TUNER:I = -0x7fffc000
 
@@ -166,6 +168,10 @@
 
 .field public static final DEVICE_IN_USB_DEVICE_NAME:Ljava/lang/String; = "usb_device"
 
+.field public static final DEVICE_IN_USB_HEADSET:I = -0x7e000000
+
+.field public static final DEVICE_IN_USB_HEADSET_NAME:Ljava/lang/String; = "usb_headset"
+
 .field public static final DEVICE_IN_VOICE_CALL:I = -0x7fffffc0
 
 .field public static final DEVICE_IN_WIRED_HEADSET:I = -0x7ffffff0
@@ -174,7 +180,7 @@
 
 .field public static final DEVICE_NONE:I = 0x0
 
-.field public static final DEVICE_OUT_ALL:I = 0x5fffffff
+.field public static final DEVICE_OUT_ALL:I = 0x7fffffff
 
 .field public static final DEVICE_OUT_ALL_A2DP:I = 0x380
 
@@ -234,11 +240,11 @@
 
 .field public static final DEVICE_OUT_EARPIECE_NAME:Ljava/lang/String; = "earpiece"
 
-.field public static final DEVICE_OUT_EXTERNAL_TMS:I = 0x4000000
+.field public static final DEVICE_OUT_EXTERNAL_TMS:I = 0x10000000
 
 .field public static final DEVICE_OUT_EXTERNAL_TMS_NAME:Ljava/lang/String; = "external_tms"
 
-.field public static final DEVICE_OUT_EXTERNAL_WIFI:I = 0x2000000
+.field public static final DEVICE_OUT_EXTERNAL_WIFI:I = 0x8000000
 
 .field public static final DEVICE_OUT_EXTERNAL_WIFI_NAME:Ljava/lang/String; = "external_wifi"
 
@@ -246,7 +252,7 @@
 
 .field public static final DEVICE_OUT_FM_NAME:Ljava/lang/String; = "fm_transmitter"
 
-.field public static final DEVICE_OUT_FM_TX:I = 0x10000000
+.field public static final DEVICE_OUT_FM_TX:I = 0x20000000
 
 .field public static final DEVICE_OUT_FM_TX_NAME:Ljava/lang/String; = "fm_tx"
 
@@ -266,7 +272,7 @@
 
 .field public static final DEVICE_OUT_LINE_NAME:Ljava/lang/String; = "line"
 
-.field public static final DEVICE_OUT_PROXY:I = 0x8000000
+.field public static final DEVICE_OUT_PROXY:I = 0x2000000
 
 .field public static final DEVICE_OUT_PROXY_NAME:Ljava/lang/String; = "proxy"
 
@@ -297,6 +303,10 @@
 .field public static final DEVICE_OUT_USB_DEVICE:I = 0x4000
 
 .field public static final DEVICE_OUT_USB_DEVICE_NAME:Ljava/lang/String; = "usb_device"
+
+.field public static final DEVICE_OUT_USB_HEADSET:I = 0x4000000
+
+.field public static final DEVICE_OUT_USB_HEADSET_NAME:Ljava/lang/String; = "usb_headset"
 
 .field public static final DEVICE_OUT_WIRED_HEADPHONE:I = 0x8
 
@@ -368,6 +378,8 @@
 
 .field public static final HEADSET_VOLUME:I = 0x2
 
+.field public static final HMT:I = 0xa
+
 .field public static final IMPLICIT_VOLUME:I = 0x0
 
 .field public static final IMS_VSID:J = 0x10c02000L
@@ -382,6 +394,8 @@
 
 .field public static final LOCK_SCREEN:I = 0x4
 
+.field public static final LOW_BATTERY:I = 0xb
+
 .field public static final MIDI:I = 0x6
 
 .field public static final MODE_CURRENT:I = -0x1
@@ -391,8 +405,6 @@
 .field public static final MODE_IN_CALL:I = 0x2
 
 .field public static final MODE_IN_COMMUNICATION:I = 0x3
-
-.field public static final MODE_IN_VIDEOCALL:I = 0x4
 
 .field public static final MODE_NORMAL:I = 0x0
 
@@ -416,11 +428,11 @@
 
 .field private static final NUM_FORCE_USE:I = 0x8
 
-.field public static final NUM_MODES:I = 0x5
+.field public static final NUM_MODES:I = 0x4
 
 .field public static final NUM_STREAMS:I = 0x5
 
-.field private static final NUM_STREAM_TYPES:I = 0xe
+.field private static final NUM_STREAM_TYPES:I = 0xf
 
 .field public static final OFFSET_FOR_SAMSUNG_AUDIO:I = 0x2710
 
@@ -479,6 +491,8 @@
 
 .field public static final SPEAKER_VOLUME:I = 0x1
 
+.field public static final STREAM_ACCESSIBILITY:I = 0xa
+
 .field public static final STREAM_ALARM:I = 0x4
 
 .field public static final STREAM_BLUETOOTH_SCO:I = 0x6
@@ -487,7 +501,7 @@
 
 .field public static final STREAM_DTMF:I = 0x8
 
-.field public static final STREAM_FM_RADIO:I = 0xa
+.field public static final STREAM_FM_RADIO:I = 0xb
 
 .field public static final STREAM_MUSIC:I = 0x3
 
@@ -497,7 +511,7 @@
 
 .field public static final STREAM_RING:I = 0x2
 
-.field public static final STREAM_SEC_VOICE_COMMUNICATION:I = 0xc
+.field public static final STREAM_SEC_VOICE_COMMUNICATION:I = 0xd
 
 .field public static final STREAM_SYSTEM:I = 0x1
 
@@ -505,9 +519,9 @@
 
 .field public static final STREAM_TTS:I = 0x9
 
-.field public static final STREAM_VIDEO_CALL:I = 0xb
+.field public static final STREAM_VIDEO_CALL:I = 0xc
 
-.field public static final STREAM_VOICENOTE:I = 0xd
+.field public static final STREAM_VOICENOTE:I = 0xe
 
 .field public static final STREAM_VOICE_CALL:I = 0x0
 
@@ -520,6 +534,8 @@
 .field private static final TAG:Ljava/lang/String; = "AudioSystem"
 
 .field public static final TOUCH_TONE:I = 0x1
+
+.field public static final UNLOCK_SCREEN:I = 0x7
 
 .field public static final VIDEO:I = 0x7
 
@@ -542,7 +558,7 @@
 .method static constructor <clinit>()V
     .locals 4
 
-    const/16 v3, 0xe
+    const/16 v3, 0xf
 
     new-array v0, v3, [Ljava/lang/String;
 
@@ -606,27 +622,33 @@
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "STREAM_FM_RADIO"
+    const-string/jumbo v1, "STREAM_ACCESSIBILITY"
 
     const/16 v2, 0xa
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "STREAM_VIDEO_CALL"
+    const-string/jumbo v1, "STREAM_FM_RADIO"
 
     const/16 v2, 0xb
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "STREAM_SEC_COMMUNICATION"
+    const-string/jumbo v1, "STREAM_VIDEO_CALL"
 
     const/16 v2, 0xc
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "STREAM_VOICENOTE"
+    const-string/jumbo v1, "STREAM_SEC_COMMUNICATION"
 
     const/16 v2, 0xd
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "STREAM_VOICENOTE"
+
+    const/16 v2, 0xe
 
     aput-object v1, v0, v2
 
@@ -640,6 +662,8 @@
 
     return-void
 
+    nop
+
     :array_0
     .array-data 4
         0x4
@@ -650,6 +674,7 @@
         0xb
         0x7
         0xe
+        0xb
         0xb
         0xb
         0x7
@@ -916,6 +941,16 @@
 
     return-object v0
 
+    :sswitch_15
+    const-string/jumbo v0, "proxy"
+
+    return-object v0
+
+    :sswitch_16
+    const-string/jumbo v0, "usb_headset"
+
+    return-object v0
+
     :sswitch_data_0
     .sparse-switch
         -0x7fffffff -> :sswitch_0
@@ -939,6 +974,8 @@
         -0x7ffc0000 -> :sswitch_12
         -0x7ff80000 -> :sswitch_13
         -0x7ff00000 -> :sswitch_14
+        -0x7f000000 -> :sswitch_15
+        -0x7e000000 -> :sswitch_16
     .end sparse-switch
 .end method
 
@@ -954,7 +991,7 @@
 .method public static final getNumStreamTypes()I
     .locals 1
 
-    const/16 v0, 0xe
+    const/16 v0, 0xf
 
     return v0
 .end method
@@ -1096,22 +1133,27 @@
     return-object v0
 
     :sswitch_19
-    const-string/jumbo v0, "external_wifi"
+    const-string/jumbo v0, "proxy"
 
     return-object v0
 
     :sswitch_1a
-    const-string/jumbo v0, "external_tms"
+    const-string/jumbo v0, "usb_headset"
 
     return-object v0
 
     :sswitch_1b
-    const-string/jumbo v0, "fm_tx"
+    const-string/jumbo v0, "external_wifi"
 
     return-object v0
 
     :sswitch_1c
-    const-string/jumbo v0, "proxy"
+    const-string/jumbo v0, "external_tms"
+
+    return-object v0
+
+    :sswitch_1d
+    const-string/jumbo v0, "fm_tx"
 
     return-object v0
 
@@ -1144,8 +1186,9 @@
         0x1000000 -> :sswitch_18
         0x2000000 -> :sswitch_19
         0x4000000 -> :sswitch_1a
-        0x8000000 -> :sswitch_1c
-        0x10000000 -> :sswitch_1b
+        0x8000000 -> :sswitch_1b
+        0x10000000 -> :sswitch_1c
+        0x20000000 -> :sswitch_1d
     .end sparse-switch
 .end method
 
@@ -1172,7 +1215,7 @@
 
     move-result-object v1
 
-    const v2, 0x112005c
+    const v2, 0x11200c1
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -1249,6 +1292,9 @@
     return p0
 .end method
 
+.method public static native handleDeviceConfigChange(ILjava/lang/String;Ljava/lang/String;)I
+.end method
+
 .method public static native initStreamVolume(III)I
 .end method
 
@@ -1256,6 +1302,36 @@
 .end method
 
 .method public static native isMicrophoneMuted()Z
+.end method
+
+.method public static isSingleVolume(Landroid/content/Context;)Z
+    .locals 3
+
+    invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v1
+
+    const v2, 0x1120097
+
+    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getBoolean(I)Z
+
+    move-result v0
+
+    invoke-static {p0}, Landroid/media/AudioSystem;->getPlatformType(Landroid/content/Context;)I
+
+    move-result v1
+
+    const/4 v2, 0x2
+
+    if-eq v1, v2, :cond_0
+
+    :goto_0
+    return v0
+
+    :cond_0
+    const/4 v0, 0x1
+
+    goto :goto_0
 .end method
 
 .method public static native isSourceActive(I)Z
@@ -1298,6 +1374,9 @@
 .end method
 
 .method private static final native native_register_recording_callback()V
+.end method
+
+.method public static native newAudioPlayerId()I
 .end method
 
 .method public static native newAudioSessionId()I

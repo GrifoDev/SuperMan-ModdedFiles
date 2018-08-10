@@ -63,6 +63,22 @@
     .end annotation
 .end method
 
+.method public abstract onRttInitiationFailure(Ljava/lang/String;I)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract onRttUpgradeRequest(Ljava/lang/String;I)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract setInCallAdapter(Lcom/android/internal/telecom/IInCallAdapter;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {

@@ -24,6 +24,9 @@
 .method public abstract dispatchOnError(I)V
 .end method
 
+.method public abstract dispatchOnRangeStart(III)V
+.end method
+
 .method public abstract dispatchOnStart()V
 .end method
 

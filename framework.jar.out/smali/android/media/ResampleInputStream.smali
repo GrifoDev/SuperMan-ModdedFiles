@@ -60,6 +60,10 @@
     throw v0
 
     :cond_0
+    const/4 p2, 0x2
+
+    const/4 p3, 0x1
+
     iput-object p1, p0, Landroid/media/ResampleInputStream;->mInputStream:Ljava/io/InputStream;
 
     iput v2, p0, Landroid/media/ResampleInputStream;->mRateIn:I

@@ -58,11 +58,8 @@
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    xor-int/lit8 v0, v3, 0x1
 
-    const/4 v0, 0x0
-
-    :goto_1
     iget-object v3, p0, Landroid/widget/DayPickerView$2;->this$0:Landroid/widget/DayPickerView;
 
     invoke-static {v3}, Landroid/widget/DayPickerView;->-get4(Landroid/widget/DayPickerView;)Lcom/android/internal/widget/ViewPager;
@@ -100,9 +97,4 @@
 
     :cond_1
     return-void
-
-    :cond_2
-    const/4 v0, 0x1
-
-    goto :goto_1
 .end method

@@ -35,19 +35,17 @@
 
 # virtual methods
 .method public onViewAttachedToWindow(Landroid/view/View;)V
-    .locals 0
+    .locals 1
+
+    iget-object v0, p0, Landroid/widget/PopupWindow$1;->this$0:Landroid/widget/PopupWindow;
+
+    invoke-static {v0}, Landroid/widget/PopupWindow;->-wrap0(Landroid/widget/PopupWindow;)V
 
     return-void
 .end method
 
 .method public onViewDetachedFromWindow(Landroid/view/View;)V
-    .locals 2
-
-    iget-object v0, p0, Landroid/widget/PopupWindow$1;->this$0:Landroid/widget/PopupWindow;
-
-    const/4 v1, 0x0
-
-    invoke-static {v0, v1}, Landroid/widget/PopupWindow;->-set0(Landroid/widget/PopupWindow;Z)Z
+    .locals 0
 
     return-void
 .end method

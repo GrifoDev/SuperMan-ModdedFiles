@@ -95,7 +95,7 @@
 .method public getCaptionStyle()Landroid/view/accessibility/CaptioningManager$CaptionStyle;
     .locals 1
 
-    iget-object v0, p0, Landroid/media/ClosedCaptionWidget;->mCaptionStyle:Landroid/view/accessibility/CaptioningManager$CaptionStyle;
+    iget-object v0, p0, Landroid/media/Cea608CCWidget;->mCaptionStyle:Landroid/view/accessibility/CaptioningManager$CaptionStyle;
 
     return-object v0
 .end method
@@ -103,17 +103,17 @@
 .method public onDisplayChanged([Landroid/text/SpannableStringBuilder;)V
     .locals 1
 
-    iget-object v0, p0, Landroid/media/ClosedCaptionWidget;->mClosedCaptionLayout:Landroid/media/ClosedCaptionWidget$ClosedCaptionLayout;
+    iget-object v0, p0, Landroid/media/Cea608CCWidget;->mClosedCaptionLayout:Landroid/media/ClosedCaptionWidget$ClosedCaptionLayout;
 
     check-cast v0, Landroid/media/Cea608CCWidget$CCLayout;
 
     invoke-virtual {v0, p1}, Landroid/media/Cea608CCWidget$CCLayout;->update([Landroid/text/SpannableStringBuilder;)V
 
-    iget-object v0, p0, Landroid/media/ClosedCaptionWidget;->mListener:Landroid/media/SubtitleTrack$RenderingWidget$OnChangedListener;
+    iget-object v0, p0, Landroid/media/Cea608CCWidget;->mListener:Landroid/media/SubtitleTrack$RenderingWidget$OnChangedListener;
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Landroid/media/ClosedCaptionWidget;->mListener:Landroid/media/SubtitleTrack$RenderingWidget$OnChangedListener;
+    iget-object v0, p0, Landroid/media/Cea608CCWidget;->mListener:Landroid/media/SubtitleTrack$RenderingWidget$OnChangedListener;
 
     invoke-interface {v0, p0}, Landroid/media/SubtitleTrack$RenderingWidget$OnChangedListener;->onChanged(Landroid/media/SubtitleTrack$RenderingWidget;)V
 

@@ -312,20 +312,20 @@
     :catchall_2
     move-exception v5
 
-    move-object v6, v7
-
     move-object v1, v2
+
+    move-object v6, v7
 
     goto :goto_4
 
     :catchall_3
     move-exception v5
 
-    move-object v6, v7
-
     move-object v3, v4
 
     move-object v1, v2
+
+    move-object v6, v7
 
     goto :goto_4
 
@@ -624,20 +624,20 @@
     :catchall_2
     move-exception v9
 
-    move-object v10, v11
-
     move-object v1, v2
+
+    move-object v10, v11
 
     goto :goto_7
 
     :catchall_3
     move-exception v9
 
-    move-object v10, v11
-
     move-object v7, v8
 
     move-object v1, v2
+
+    move-object v10, v11
 
     goto :goto_7
 

@@ -15,6 +15,22 @@
 
 
 # virtual methods
+.method public abstract notifyMediaError(ILjava/lang/String;IILjava/lang/String;)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract notifyMediaInfo(ILjava/lang/String;IIJ)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract notifyResourceGranted(II)V
     .annotation system Ldalvik/annotation/Throws;
         value = {

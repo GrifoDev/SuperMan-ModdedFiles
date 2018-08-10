@@ -53,7 +53,7 @@
 
     const-string/jumbo v0, "android.app.IBackupAgent"
 
-    invoke-virtual {p0, p0, v0}, Landroid/os/Binder;->attachInterface(Landroid/os/IInterface;Ljava/lang/String;)V
+    invoke-virtual {p0, p0, v0}, Landroid/app/IBackupAgent$Stub;->attachInterface(Landroid/os/IInterface;Ljava/lang/String;)V
 
     return-void
 .end method
@@ -101,7 +101,7 @@
 .end method
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    .locals 36
+    .locals 48
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -185,9 +185,13 @@
     check-cast v9, Landroid/os/ParcelFileDescriptor;
 
     :goto_2
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readLong()J
+
+    move-result-wide v10
+
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v10
+    move-result v12
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
@@ -195,11 +199,11 @@
 
     invoke-static {v6}, Landroid/app/backup/IBackupManager$Stub;->asInterface(Landroid/os/IBinder;)Landroid/app/backup/IBackupManager;
 
-    move-result-object v11
+    move-result-object v13
 
     move-object/from16 v6, p0
 
-    invoke-virtual/range {v6 .. v11}, Landroid/app/IBackupAgent$Stub;->doBackup(Landroid/os/ParcelFileDescriptor;Landroid/os/ParcelFileDescriptor;Landroid/os/ParcelFileDescriptor;ILandroid/app/backup/IBackupManager;)V
+    invoke-virtual/range {v6 .. v13}, Landroid/app/IBackupAgent$Stub;->doBackup(Landroid/os/ParcelFileDescriptor;Landroid/os/ParcelFileDescriptor;Landroid/os/ParcelFileDescriptor;JILandroid/app/backup/IBackupManager;)V
 
     const/4 v6, 0x1
 
@@ -246,7 +250,7 @@
     :goto_3
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v14
+    move-result v16
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
@@ -267,7 +271,7 @@
     :goto_4
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v10
+    move-result v18
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
@@ -275,19 +279,15 @@
 
     invoke-static {v6}, Landroid/app/backup/IBackupManager$Stub;->asInterface(Landroid/os/IBinder;)Landroid/app/backup/IBackupManager;
 
-    move-result-object v11
+    move-result-object v19
 
-    move-object/from16 v12, p0
+    move-object/from16 v14, p0
 
-    move-object v13, v7
+    move-object v15, v7
 
-    move-object v15, v9
+    move-object/from16 v17, v9
 
-    move/from16 v16, v10
-
-    move-object/from16 v17, v11
-
-    invoke-virtual/range {v12 .. v17}, Landroid/app/IBackupAgent$Stub;->doRestore(Landroid/os/ParcelFileDescriptor;ILandroid/os/ParcelFileDescriptor;ILandroid/app/backup/IBackupManager;)V
+    invoke-virtual/range {v14 .. v19}, Landroid/app/IBackupAgent$Stub;->doRestore(Landroid/os/ParcelFileDescriptor;ILandroid/os/ParcelFileDescriptor;ILandroid/app/backup/IBackupManager;)V
 
     const/4 v6, 0x1
 
@@ -327,9 +327,13 @@
     check-cast v7, Landroid/os/ParcelFileDescriptor;
 
     :goto_5
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readLong()J
+
+    move-result-wide v22
+
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v14
+    move-result v24
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
@@ -337,13 +341,13 @@
 
     invoke-static {v6}, Landroid/app/backup/IBackupManager$Stub;->asInterface(Landroid/os/IBinder;)Landroid/app/backup/IBackupManager;
 
-    move-result-object v33
+    move-result-object v25
 
-    move-object/from16 v0, p0
+    move-object/from16 v20, p0
 
-    move-object/from16 v1, v33
+    move-object/from16 v21, v7
 
-    invoke-virtual {v0, v7, v14, v1}, Landroid/app/IBackupAgent$Stub;->doFullBackup(Landroid/os/ParcelFileDescriptor;ILandroid/app/backup/IBackupManager;)V
+    invoke-virtual/range {v20 .. v25}, Landroid/app/IBackupAgent$Stub;->doFullBackup(Landroid/os/ParcelFileDescriptor;JILandroid/app/backup/IBackupManager;)V
 
     const/4 v6, 0x1
 
@@ -361,9 +365,13 @@
 
     invoke-virtual {v0, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readLong()J
+
+    move-result-wide v40
+
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v28
+    move-result v16
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
@@ -371,15 +379,17 @@
 
     invoke-static {v6}, Landroid/app/backup/IBackupManager$Stub;->asInterface(Landroid/os/IBinder;)Landroid/app/backup/IBackupManager;
 
-    move-result-object v32
+    move-result-object v44
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v28
+    move-wide/from16 v1, v40
 
-    move-object/from16 v2, v32
+    move/from16 v3, v16
 
-    invoke-virtual {v0, v1, v2}, Landroid/app/IBackupAgent$Stub;->doMeasureFullBackup(ILandroid/app/backup/IBackupManager;)V
+    move-object/from16 v4, v44
+
+    invoke-virtual {v0, v1, v2, v3, v4}, Landroid/app/IBackupAgent$Stub;->doMeasureFullBackup(JILandroid/app/backup/IBackupManager;)V
 
     const/4 v6, 0x1
 
@@ -394,17 +404,17 @@
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readLong()J
 
-    move-result-wide v30
+    move-result-wide v40
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readLong()J
 
-    move-result-wide v17
+    move-result-wide v22
 
     move-object/from16 v0, p0
 
-    move-wide/from16 v1, v30
+    move-wide/from16 v1, v40
 
-    move-wide/from16 v3, v17
+    move-wide/from16 v3, v22
 
     invoke-virtual {v0, v1, v2, v3, v4}, Landroid/app/IBackupAgent$Stub;->doQuotaExceeded(JJ)V
 
@@ -440,31 +450,31 @@
     :goto_6
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readLong()J
 
-    move-result-wide v17
-
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v19
-
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v20
-
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v21
-
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readLong()J
-
     move-result-wide v22
 
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v24
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v32
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v33
+
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readLong()J
 
-    move-result-wide v24
+    move-result-wide v34
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readLong()J
+
+    move-result-wide v36
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v26
+    move-result v38
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
@@ -472,13 +482,17 @@
 
     invoke-static {v6}, Landroid/app/backup/IBackupManager$Stub;->asInterface(Landroid/os/IBinder;)Landroid/app/backup/IBackupManager;
 
-    move-result-object v27
+    move-result-object v39
 
-    move-object/from16 v15, p0
+    move-object/from16 v27, p0
 
-    move-object/from16 v16, v7
+    move-object/from16 v28, v7
 
-    invoke-virtual/range {v15 .. v27}, Landroid/app/IBackupAgent$Stub;->doRestoreFile(Landroid/os/ParcelFileDescriptor;JILjava/lang/String;Ljava/lang/String;JJILandroid/app/backup/IBackupManager;)V
+    move-wide/from16 v29, v22
+
+    move/from16 v31, v24
+
+    invoke-virtual/range {v27 .. v39}, Landroid/app/IBackupAgent$Stub;->doRestoreFile(Landroid/os/ParcelFileDescriptor;JILjava/lang/String;Ljava/lang/String;JJILandroid/app/backup/IBackupManager;)V
 
     const/4 v6, 0x1
 
@@ -498,7 +512,7 @@
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v28
+    move-result v26
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
@@ -506,13 +520,13 @@
 
     invoke-static {v6}, Landroid/app/backup/IBackupManager$Stub;->asInterface(Landroid/os/IBinder;)Landroid/app/backup/IBackupManager;
 
-    move-result-object v32
+    move-result-object v43
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v28
+    move/from16 v1, v26
 
-    move-object/from16 v2, v32
+    move-object/from16 v2, v43
 
     invoke-virtual {v0, v1, v2}, Landroid/app/IBackupAgent$Stub;->doRestoreFinished(ILandroid/app/backup/IBackupManager;)V
 
@@ -529,11 +543,11 @@
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
-    move-result-object v29
+    move-result-object v42
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v29
+    move-object/from16 v1, v42
 
     invoke-virtual {v0, v1}, Landroid/app/IBackupAgent$Stub;->fail(Ljava/lang/String;)V
 
@@ -550,21 +564,19 @@
 
     invoke-virtual/range {p0 .. p0}, Landroid/app/IBackupAgent$Stub;->getBackupDataSize()J
 
-    move-result-wide v34
+    move-result-wide v46
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     move-object/from16 v0, p3
 
-    move-wide/from16 v1, v34
+    move-wide/from16 v1, v46
 
     invoke-virtual {v0, v1, v2}, Landroid/os/Parcel;->writeLong(J)V
 
     const/4 v6, 0x1
 
     return v6
-
-    nop
 
     :sswitch_data_0
     .sparse-switch

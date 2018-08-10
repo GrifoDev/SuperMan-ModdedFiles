@@ -143,7 +143,7 @@
 
     iget-object v4, p0, Lcom/android/internal/inputmethod/InputMethodUtils$InputMethodListBuilder;->mInputMethodSet:Ljava/util/LinkedHashSet;
 
-    invoke-virtual {v4, v2}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v4, v2}, Ljava/util/LinkedHashSet;->add(Ljava/lang/Object;)Z
 
     const/4 v0, 0x1
 
@@ -183,7 +183,7 @@
 
     iget-object v4, p0, Lcom/android/internal/inputmethod/InputMethodUtils$InputMethodListBuilder;->mInputMethodSet:Ljava/util/LinkedHashSet;
 
-    invoke-virtual {v4, v2}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v4, v2}, Ljava/util/LinkedHashSet;->add(Ljava/lang/Object;)Z
 
     :cond_5
     add-int/lit8 v1, v1, 0x1
@@ -246,7 +246,7 @@
 
     iget-object v1, p0, Lcom/android/internal/inputmethod/InputMethodUtils$InputMethodListBuilder;->mInputMethodSet:Ljava/util/LinkedHashSet;
 
-    invoke-virtual {v1, v0}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v0}, Ljava/util/LinkedHashSet;->add(Ljava/lang/Object;)Z
 
     :cond_0
     add-int/lit8 v6, v6, 0x1
@@ -262,7 +262,7 @@
 
     iget-object v0, p0, Lcom/android/internal/inputmethod/InputMethodUtils$InputMethodListBuilder;->mInputMethodSet:Ljava/util/LinkedHashSet;
 
-    invoke-virtual {v0}, Ljava/util/HashSet;->isEmpty()Z
+    invoke-virtual {v0}, Ljava/util/LinkedHashSet;->isEmpty()Z
 
     move-result v0
 

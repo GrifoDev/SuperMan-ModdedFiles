@@ -19,6 +19,8 @@
 # static fields
 .field private static final ACTION_STR:Ljava/lang/String; = "action"
 
+.field private static final AGLOB_STR:Ljava/lang/String; = "aglob"
+
 .field private static final AUTH_STR:Ljava/lang/String; = "auth"
 
 .field private static final AUTO_VERIFY_STR:Ljava/lang/String; = "autoVerify"
@@ -99,6 +101,12 @@
 .field public static final SYSTEM_LOW_PRIORITY:I = -0x3e8
 
 .field private static final TYPE_STR:Ljava/lang/String; = "type"
+
+.field public static final VISIBILITY_EXPLICIT:I = 0x1
+
+.field public static final VISIBILITY_IMPLICIT:I = 0x2
+
+.field public static final VISIBILITY_NONE:I
 
 
 # instance fields
@@ -181,6 +189,10 @@
 
 .field private mHasPartialTypes:Z
 
+.field private mInstantAppVisibility:I
+
+.field private mOrder:I
+
 .field private mPriority:I
 
 .field private mVerifyState:I
@@ -259,6 +271,10 @@
     iget v0, p1, Landroid/content/IntentFilter;->mPriority:I
 
     iput v0, p0, Landroid/content/IntentFilter;->mPriority:I
+
+    iget v0, p1, Landroid/content/IntentFilter;->mOrder:I
+
+    iput v0, p0, Landroid/content/IntentFilter;->mOrder:I
 
     new-instance v0, Ljava/util/ArrayList;
 
@@ -354,10 +370,14 @@
 
     iput v0, p0, Landroid/content/IntentFilter;->mVerifyState:I
 
+    iget v0, p1, Landroid/content/IntentFilter;->mInstantAppVisibility:I
+
+    iput v0, p0, Landroid/content/IntentFilter;->mInstantAppVisibility:I
+
     return-void
 .end method
 
-.method private constructor <init>(Landroid/os/Parcel;)V
+.method public constructor <init>(Landroid/os/Parcel;)V
     .locals 6
 
     const/4 v3, 0x1
@@ -559,6 +579,12 @@
     :goto_4
     invoke-virtual {p0, v3}, Landroid/content/IntentFilter;->setAutoVerify(Z)V
 
+    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
+
+    move-result v2
+
+    invoke-virtual {p0, v2}, Landroid/content/IntentFilter;->setVisibilityToInstantApp(I)V
+
     return-void
 
     :cond_6
@@ -570,14 +596,6 @@
     move v3, v4
 
     goto :goto_4
-.end method
-
-.method synthetic constructor <init>(Landroid/os/Parcel;Landroid/content/IntentFilter;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Landroid/content/IntentFilter;-><init>(Landroid/os/Parcel;)V
-
-    return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/String;)V
@@ -751,110 +769,104 @@
 .method private final findMimeType(Ljava/lang/String;)Z
     .locals 10
 
-    const/4 v7, 0x1
+    const/4 v9, 0x1
 
-    const/4 v6, 0x0
+    const/4 v8, 0x0
 
     iget-object v3, p0, Landroid/content/IntentFilter;->mDataTypes:Ljava/util/ArrayList;
 
     if-nez p1, :cond_0
 
-    return v6
+    return v8
 
     :cond_0
     invoke-virtual {v3, p1}, Ljava/util/ArrayList;->contains(Ljava/lang/Object;)Z
 
-    move-result v8
+    move-result v6
 
-    if-eqz v8, :cond_1
+    if-eqz v6, :cond_1
 
-    return v7
+    return v9
 
     :cond_1
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
     move-result v4
 
-    const/4 v8, 0x3
+    const/4 v6, 0x3
 
-    if-ne v4, v8, :cond_3
+    if-ne v4, v6, :cond_2
 
-    const-string/jumbo v8, "*/*"
+    const-string/jumbo v6, "*/*"
 
-    invoke-virtual {p1, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v8
+    move-result v6
 
-    if-eqz v8, :cond_3
+    if-eqz v6, :cond_2
 
     invoke-virtual {v3}, Ljava/util/ArrayList;->isEmpty()Z
 
-    move-result v8
+    move-result v6
 
-    if-eqz v8, :cond_2
+    xor-int/lit8 v6, v6, 0x1
 
-    :goto_0
     return v6
 
     :cond_2
-    move v6, v7
+    iget-boolean v6, p0, Landroid/content/IntentFilter;->mHasPartialTypes:Z
 
-    goto :goto_0
+    if-eqz v6, :cond_3
+
+    const-string/jumbo v6, "*"
+
+    invoke-virtual {v3, v6}, Ljava/util/ArrayList;->contains(Ljava/lang/Object;)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_3
+
+    return v9
 
     :cond_3
-    iget-boolean v8, p0, Landroid/content/IntentFilter;->mHasPartialTypes:Z
+    const/16 v6, 0x2f
 
-    if-eqz v8, :cond_4
-
-    const-string/jumbo v8, "*"
-
-    invoke-virtual {v3, v8}, Ljava/util/ArrayList;->contains(Ljava/lang/Object;)Z
-
-    move-result v8
-
-    if-eqz v8, :cond_4
-
-    return v7
-
-    :cond_4
-    const/16 v8, 0x2f
-
-    invoke-virtual {p1, v8}, Ljava/lang/String;->indexOf(I)I
+    invoke-virtual {p1, v6}, Ljava/lang/String;->indexOf(I)I
 
     move-result v2
 
-    if-lez v2, :cond_7
+    if-lez v2, :cond_6
 
-    iget-boolean v8, p0, Landroid/content/IntentFilter;->mHasPartialTypes:Z
+    iget-boolean v6, p0, Landroid/content/IntentFilter;->mHasPartialTypes:Z
 
-    if-eqz v8, :cond_5
+    if-eqz v6, :cond_4
 
-    invoke-virtual {p1, v6, v2}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+    invoke-virtual {p1, v8, v2}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
-    move-result-object v8
+    move-result-object v6
 
-    invoke-virtual {v3, v8}, Ljava/util/ArrayList;->contains(Ljava/lang/Object;)Z
+    invoke-virtual {v3, v6}, Ljava/util/ArrayList;->contains(Ljava/lang/Object;)Z
 
-    move-result v8
+    move-result v6
 
-    if-eqz v8, :cond_5
+    if-eqz v6, :cond_4
 
-    return v7
+    return v9
 
-    :cond_5
-    add-int/lit8 v8, v2, 0x2
+    :cond_4
+    add-int/lit8 v6, v2, 0x2
 
-    if-ne v4, v8, :cond_7
+    if-ne v4, v6, :cond_6
 
-    add-int/lit8 v8, v2, 0x1
+    add-int/lit8 v6, v2, 0x1
 
-    invoke-virtual {p1, v8}, Ljava/lang/String;->charAt(I)C
+    invoke-virtual {p1, v6}, Ljava/lang/String;->charAt(I)C
 
-    move-result v8
+    move-result v6
 
-    const/16 v9, 0x2a
+    const/16 v7, 0x2a
 
-    if-ne v8, v9, :cond_7
+    if-ne v6, v7, :cond_6
 
     invoke-virtual {v3}, Ljava/util/ArrayList;->size()I
 
@@ -862,8 +874,8 @@
 
     const/4 v0, 0x0
 
-    :goto_1
-    if-ge v0, v1, :cond_7
+    :goto_0
+    if-ge v0, v1, :cond_6
 
     invoke-virtual {v3, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
@@ -871,23 +883,23 @@
 
     check-cast v5, Ljava/lang/String;
 
-    add-int/lit8 v8, v2, 0x1
+    add-int/lit8 v6, v2, 0x1
 
-    invoke-virtual {p1, v6, v5, v6, v8}, Ljava/lang/String;->regionMatches(ILjava/lang/String;II)Z
+    invoke-virtual {p1, v8, v5, v8, v6}, Ljava/lang/String;->regionMatches(ILjava/lang/String;II)Z
 
-    move-result v8
+    move-result v6
 
-    if-eqz v8, :cond_6
+    if-eqz v6, :cond_5
 
-    return v7
+    return v9
 
-    :cond_6
+    :cond_5
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_1
+    goto :goto_0
 
-    :cond_7
-    return v6
+    :cond_6
+    return v8
 .end method
 
 .method private static findStringInSet([Ljava/lang/String;Ljava/lang/String;[II)I
@@ -1951,6 +1963,12 @@
     invoke-interface {p1, v6}, Landroid/util/Printer;->println(Ljava/lang/String;)V
 
     :cond_9
+    invoke-virtual {p0}, Landroid/content/IntentFilter;->getAutoVerify()Z
+
+    move-result v6
+
+    if-eqz v6, :cond_a
+
     invoke-virtual {v5, v7}, Ljava/lang/StringBuilder;->setLength(I)V
 
     invoke-virtual {v5, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -1971,6 +1989,7 @@
 
     invoke-interface {p1, v6}, Landroid/util/Printer;->println(Ljava/lang/String;)V
 
+    :cond_a
     return-void
 .end method
 
@@ -2161,10 +2180,26 @@
     return-object v2
 .end method
 
+.method public final getOrder()I
+    .locals 1
+
+    iget v0, p0, Landroid/content/IntentFilter;->mOrder:I
+
+    return v0
+.end method
+
 .method public final getPriority()I
     .locals 1
 
     iget v0, p0, Landroid/content/IntentFilter;->mPriority:I
+
+    return v0
+.end method
+
+.method public getVisibilityToInstantApp()I
+    .locals 1
+
+    iget v0, p0, Landroid/content/IntentFilter;->mInstantAppVisibility:I
 
     return v0
 .end method
@@ -2225,7 +2260,9 @@
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    xor-int/lit8 v4, v4, 0x1
+
+    if-nez v4, :cond_0
 
     iget-object v4, p0, Landroid/content/IntentFilter;->mDataSchemes:Ljava/util/ArrayList;
 
@@ -2713,6 +2750,44 @@
     goto :goto_0
 .end method
 
+.method public isExplicitlyVisibleToInstantApp()Z
+    .locals 2
+
+    const/4 v0, 0x1
+
+    iget v1, p0, Landroid/content/IntentFilter;->mInstantAppVisibility:I
+
+    if-ne v1, v0, :cond_0
+
+    :goto_0
+    return v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
+.method public isImplicitlyVisibleToInstantApp()Z
+    .locals 2
+
+    iget v0, p0, Landroid/content/IntentFilter;->mInstantAppVisibility:I
+
+    const/4 v1, 0x2
+
+    if-ne v0, v1, :cond_0
+
+    const/4 v0, 0x1
+
+    :goto_0
+    return v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
 .method public final isVerified()Z
     .locals 3
 
@@ -2740,6 +2815,21 @@
     return v0
 
     :cond_1
+    return v0
+.end method
+
+.method public isVisibleToInstantApp()Z
+    .locals 2
+
+    const/4 v0, 0x0
+
+    iget v1, p0, Landroid/content/IntentFilter;->mInstantAppVisibility:I
+
+    if-eqz v1, :cond_0
+
+    const/4 v0, 0x1
+
+    :cond_0
     return v0
 .end method
 
@@ -2811,34 +2901,35 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    xor-int/lit8 v2, v2, 0x1
+
+    if-eqz v2, :cond_0
+
+    const/4 v2, -0x3
+
+    return v2
 
     :cond_0
     invoke-virtual {p0, p2, p3, p4}, Landroid/content/IntentFilter;->matchData(Ljava/lang/String;Ljava/lang/String;Landroid/net/Uri;)I
 
     move-result v1
 
-    if-gez v1, :cond_2
+    if-gez v1, :cond_1
 
     return v1
 
     :cond_1
-    const/4 v2, -0x3
-
-    return v2
-
-    :cond_2
     invoke-virtual {p0, p5}, Landroid/content/IntentFilter;->matchCategories(Ljava/util/Set;)Ljava/lang/String;
 
     move-result-object v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_2
 
     const/4 v2, -0x4
 
     return v2
 
-    :cond_3
+    :cond_2
     return v1
 .end method
 
@@ -3051,16 +3142,40 @@
 
     move-result v8
 
-    if-eqz v8, :cond_d
+    xor-int/lit8 v8, v8, 0x1
+
+    if-eqz v8, :cond_b
+
+    const-string/jumbo v8, "content"
+
+    invoke-virtual {v8, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v8
+
+    xor-int/lit8 v8, v8, 0x1
+
+    if-eqz v8, :cond_b
+
+    const-string/jumbo v8, "file"
+
+    invoke-virtual {v8, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v8
+
+    xor-int/lit8 v8, v8, 0x1
+
+    if-eqz v8, :cond_b
+
+    return v7
 
     :cond_b
-    if-eqz v6, :cond_f
+    if-eqz v6, :cond_e
 
     invoke-direct {p0, p1}, Landroid/content/IntentFilter;->findMimeType(Ljava/lang/String;)Z
 
     move-result v7
 
-    if-eqz v7, :cond_e
+    if-eqz v7, :cond_d
 
     const/high16 v2, 0x600000
 
@@ -3072,28 +3187,9 @@
     return v7
 
     :cond_d
-    const-string/jumbo v8, "content"
-
-    invoke-virtual {v8, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v8
-
-    if-nez v8, :cond_b
-
-    const-string/jumbo v8, "file"
-
-    invoke-virtual {v8, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v8
-
-    if-nez v8, :cond_b
-
-    return v7
-
-    :cond_e
     return v9
 
-    :cond_f
+    :cond_e
     if-eqz p1, :cond_c
 
     return v9
@@ -3242,7 +3338,7 @@
 
     const/4 v10, 0x1
 
-    if-eq v9, v10, :cond_f
+    if-eq v9, v10, :cond_11
 
     const/4 v10, 0x3
 
@@ -3252,7 +3348,7 @@
 
     move-result v10
 
-    if-le v10, v4, :cond_f
+    if-le v10, v4, :cond_11
 
     :cond_1
     const/4 v10, 0x3
@@ -3384,7 +3480,7 @@
 
     move-result v10
 
-    if-eqz v10, :cond_a
+    if-eqz v10, :cond_b
 
     const-string/jumbo v10, "literal"
 
@@ -3428,7 +3524,7 @@
 
     move-result-object v7
 
-    if-eqz v7, :cond_2
+    if-eqz v7, :cond_a
 
     const/4 v10, 0x2
 
@@ -3437,13 +3533,30 @@
     goto/16 :goto_2
 
     :cond_a
+    const-string/jumbo v10, "aglob"
+
+    const/4 v11, 0x0
+
+    invoke-interface {p1, v11, v10}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v7
+
+    if-eqz v7, :cond_2
+
+    const/4 v10, 0x3
+
+    invoke-virtual {p0, v7, v10}, Landroid/content/IntentFilter;->addDataSchemeSpecificPart(Ljava/lang/String;I)V
+
+    goto/16 :goto_2
+
+    :cond_b
     const-string/jumbo v10, "auth"
 
     invoke-virtual {v8, v10}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v10
 
-    if-eqz v10, :cond_b
+    if-eqz v10, :cond_c
 
     const-string/jumbo v10, "host"
 
@@ -3467,14 +3580,14 @@
 
     goto/16 :goto_2
 
-    :cond_b
+    :cond_c
     const-string/jumbo v10, "path"
 
     invoke-virtual {v8, v10}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v10
 
-    if-eqz v10, :cond_e
+    if-eqz v10, :cond_10
 
     const-string/jumbo v10, "literal"
 
@@ -3484,7 +3597,7 @@
 
     move-result-object v5
 
-    if-eqz v5, :cond_c
+    if-eqz v5, :cond_d
 
     const/4 v10, 0x0
 
@@ -3492,7 +3605,7 @@
 
     goto/16 :goto_2
 
-    :cond_c
+    :cond_d
     const-string/jumbo v10, "prefix"
 
     const/4 v11, 0x0
@@ -3501,7 +3614,7 @@
 
     move-result-object v5
 
-    if-eqz v5, :cond_d
+    if-eqz v5, :cond_e
 
     const/4 v10, 0x1
 
@@ -3509,8 +3622,25 @@
 
     goto/16 :goto_2
 
-    :cond_d
+    :cond_e
     const-string/jumbo v10, "sglob"
+
+    const/4 v11, 0x0
+
+    invoke-interface {p1, v11, v10}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v5
+
+    if-eqz v5, :cond_f
+
+    const/4 v10, 0x2
+
+    invoke-virtual {p0, v5, v10}, Landroid/content/IntentFilter;->addDataPath(Ljava/lang/String;I)V
+
+    goto/16 :goto_2
+
+    :cond_f
+    const-string/jumbo v10, "aglob"
 
     const/4 v11, 0x0
 
@@ -3520,13 +3650,13 @@
 
     if-eqz v5, :cond_2
 
-    const/4 v10, 0x2
+    const/4 v10, 0x3
 
     invoke-virtual {p0, v5, v10}, Landroid/content/IntentFilter;->addDataPath(Ljava/lang/String;I)V
 
     goto/16 :goto_2
 
-    :cond_e
+    :cond_10
     const-string/jumbo v10, "IntentFilter"
 
     new-instance v11, Ljava/lang/StringBuilder;
@@ -3551,7 +3681,7 @@
 
     goto/16 :goto_2
 
-    :cond_f
+    :cond_11
     return-void
 .end method
 
@@ -3632,6 +3762,14 @@
     return-void
 .end method
 
+.method public final setOrder(I)V
+    .locals 0
+
+    iput p1, p0, Landroid/content/IntentFilter;->mOrder:I
+
+    return-void
+.end method
+
 .method public final setPriority(I)V
     .locals 0
 
@@ -3664,6 +3802,14 @@
     iput v0, p0, Landroid/content/IntentFilter;->mVerifyState:I
 
     :cond_0
+    return-void
+.end method
+
+.method public setVisibilityToInstantApp(I)V
+    .locals 0
+
+    iput p1, p0, Landroid/content/IntentFilter;->mInstantAppVisibility:I
+
     return-void
 .end method
 
@@ -3880,6 +4026,10 @@
 
     :goto_7
     invoke-virtual {p1, v3}, Landroid/os/Parcel;->writeInt(I)V
+
+    iget v2, p0, Landroid/content/IntentFilter;->mInstantAppVisibility:I
+
+    invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeInt(I)V
 
     return-void
 
@@ -4153,6 +4303,17 @@
 
     goto :goto_5
 
+    :pswitch_3
+    const-string/jumbo v5, "aglob"
+
+    invoke-virtual {v3}, Landroid/os/PatternMatcher;->getPath()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-interface {p1, v7, v5, v6}, Lorg/xmlpull/v1/XmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+
+    goto :goto_5
+
     :cond_6
     invoke-virtual {p0}, Landroid/content/IntentFilter;->countDataAuthorities()I
 
@@ -4247,7 +4408,7 @@
 
     goto :goto_7
 
-    :pswitch_3
+    :pswitch_4
     const-string/jumbo v5, "literal"
 
     invoke-virtual {v3}, Landroid/os/PatternMatcher;->getPath()Ljava/lang/String;
@@ -4258,7 +4419,7 @@
 
     goto :goto_8
 
-    :pswitch_4
+    :pswitch_5
     const-string/jumbo v5, "prefix"
 
     invoke-virtual {v3}, Landroid/os/PatternMatcher;->getPath()Ljava/lang/String;
@@ -4269,8 +4430,19 @@
 
     goto :goto_8
 
-    :pswitch_5
+    :pswitch_6
     const-string/jumbo v5, "sglob"
+
+    invoke-virtual {v3}, Landroid/os/PatternMatcher;->getPath()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-interface {p1, v7, v5, v6}, Lorg/xmlpull/v1/XmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+
+    goto :goto_8
+
+    :pswitch_7
+    const-string/jumbo v5, "aglob"
 
     invoke-virtual {v3}, Landroid/os/PatternMatcher;->getPath()Ljava/lang/String;
 
@@ -4290,12 +4462,14 @@
         :pswitch_0
         :pswitch_1
         :pswitch_2
+        :pswitch_3
     .end packed-switch
 
     :pswitch_data_1
     .packed-switch 0x0
-        :pswitch_3
         :pswitch_4
         :pswitch_5
+        :pswitch_6
+        :pswitch_7
     .end packed-switch
 .end method

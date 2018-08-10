@@ -108,32 +108,29 @@
 .end method
 
 .method public static isAudioOnly(I)Z
-    .locals 3
+    .locals 1
 
-    const/4 v1, 0x1
+    const/4 v0, 0x1
 
-    const/4 v0, 0x0
+    invoke-static {p0, v0}, Landroid/telecom/VideoProfile;->hasState(II)Z
 
-    invoke-static {p0, v1}, Landroid/telecom/VideoProfile;->hasState(II)Z
+    move-result v0
 
-    move-result v2
+    if-nez v0, :cond_0
 
-    if-nez v2, :cond_0
+    const/4 v0, 0x2
 
-    const/4 v2, 0x2
+    invoke-static {p0, v0}, Landroid/telecom/VideoProfile;->hasState(II)Z
 
-    invoke-static {p0, v2}, Landroid/telecom/VideoProfile;->hasState(II)Z
+    move-result v0
 
-    move-result v2
+    xor-int/lit8 v0, v0, 0x1
 
-    if-eqz v2, :cond_1
-
-    :cond_0
     :goto_0
     return v0
 
-    :cond_1
-    move v0, v1
+    :cond_0
+    const/4 v0, 0x0
 
     goto :goto_0
 .end method
@@ -226,11 +223,7 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-static {p0}, Landroid/telecom/VideoProfile;->isAudioOnly(I)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_1
+    if-nez p0, :cond_1
 
     const-string/jumbo v1, " Only"
 

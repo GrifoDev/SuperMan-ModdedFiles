@@ -15,6 +15,30 @@
 
 
 # static fields
+.field public static final ATTR_ADMIN_LOCKED:I = 0x8
+
+.field public static final ATTR_DEVICE_COMPROMISED:I = 0x4
+
+.field public static final ATTR_EXT_SDCARD:I = 0x80
+
+.field public static final ATTR_FS_ERROR_STATE:I = 0x200
+
+.field public static final ATTR_LICENSE_LOCKED:I = 0x10
+
+.field public static final ATTR_NEED_SETUP_CREDENTIAL:I = 0x20000000
+
+.field public static final ATTR_NONE:I = 0x0
+
+.field public static final ATTR_PREMIUM_CONTAINER:I = 0x10000000
+
+.field public static final ATTR_PWD_EXPIRED:I = 0x20
+
+.field public static final ATTR_RESET_ON_BOOT:I = 0x40
+
+.field public static final ATTR_SUPER_LOCKED:I = 0x1c
+
+.field public static final ATTR_TRUST_AGENT_UI_ENABLED:I = 0x100
+
 .field public static final CREATOR:Landroid/os/Parcelable$Creator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -28,21 +52,39 @@
 
 .field public static final FLAG_ADMIN:I = 0x2
 
+.field public static final FLAG_BBC_CONTAINER:I = 0x4000000
+
 .field public static final FLAG_BMODE:I = 0x10000
+
+.field public static final FLAG_CL_CONTAINER:I = 0x400000
+
+.field public static final FLAG_DEMO:I = 0x200
 
 .field public static final FLAG_DISABLED:I = 0x40
 
+.field public static final FLAG_DUALAPP_PROFILE:I = 0x20000000
+
 .field public static final FLAG_EPHEMERAL:I = 0x100
+
+.field public static final FLAG_FIRST_CONTAINER:I = 0x100000
 
 .field public static final FLAG_GUEST:I = 0x4
 
 .field public static final FLAG_INITIALIZED:I = 0x10
 
+.field public static final FLAG_KIOSK_MODE:I = 0x8000000
+
 .field public static final FLAG_KNOX_WORKSPACE:I = 0x10000000
+
+.field public static final FLAG_LEGACY_ENCRYPTION:I = 0x40000000
+
+.field public static final FLAG_LIGHT_WEIGHT_CONTAINER:I = 0x1000000
 
 .field public static final FLAG_MANAGED_PROFILE:I = 0x20
 
-.field public static final FLAG_MASK_USER_TYPE:I = 0xff
+.field public static final FLAG_MASK_USER_TYPE:I = 0xffff
+
+.field public static final FLAG_MY_KNOX:I = 0x2000000
 
 .field public static final FLAG_PRIMARY:I = 0x1
 
@@ -50,10 +92,24 @@
 
 .field public static final FLAG_RESTRICTED:I = 0x8
 
+.field public static final FLAG_SECOND_CONTAINER:I = 0x200000
+
+.field public static final FLAG_SECURE_FOLDER:I = 0x20000
+
+.field public static final FLAG_THIRD_CONTAINER:I = 0x800000
+
+.field public static final FLAG_VIRTUAL_USER:I = -0x80000000
+
 .field public static final NO_PROFILE_GROUP_ID:I = -0x2710
+
+.field public static final VOLT_LEGACY_RESET_CREDENTIAL_REQUESTED:I = 0x1
+
+.field public static final VOLT_NONE:I
 
 
 # instance fields
+.field public attributes:I
+
 .field public creationTime:J
 
 .field public flags:I
@@ -74,11 +130,15 @@
 
 .field public partial:Z
 
+.field public profileBadge:I
+
 .field public profileGroupId:I
 
 .field public restrictedProfileParentId:I
 
 .field public serialNumber:I
+
+.field public volatiles:I
 
 
 # direct methods
@@ -113,7 +173,9 @@
 .end method
 
 .method public constructor <init>(ILjava/lang/String;Ljava/lang/String;I)V
-    .locals 1
+    .locals 2
+
+    const/4 v1, 0x0
 
     const/16 v0, -0x2710
 
@@ -130,6 +192,10 @@
     iput v0, p0, Landroid/content/pm/UserInfo;->profileGroupId:I
 
     iput v0, p0, Landroid/content/pm/UserInfo;->restrictedProfileParentId:I
+
+    iput v1, p0, Landroid/content/pm/UserInfo;->attributes:I
+
+    iput v1, p0, Landroid/content/pm/UserInfo;->volatiles:I
 
     return-void
 .end method
@@ -187,9 +253,21 @@
 
     iput-boolean v0, p0, Landroid/content/pm/UserInfo;->guestToRemove:Z
 
+    iget v0, p1, Landroid/content/pm/UserInfo;->profileBadge:I
+
+    iput v0, p0, Landroid/content/pm/UserInfo;->profileBadge:I
+
     iget-boolean v0, p1, Landroid/content/pm/UserInfo;->hasCCMBeenProvisioned:Z
 
     iput-boolean v0, p0, Landroid/content/pm/UserInfo;->hasCCMBeenProvisioned:Z
+
+    iget v0, p1, Landroid/content/pm/UserInfo;->attributes:I
+
+    iput v0, p0, Landroid/content/pm/UserInfo;->attributes:I
+
+    iget v0, p1, Landroid/content/pm/UserInfo;->volatiles:I
+
+    iput v0, p0, Landroid/content/pm/UserInfo;->volatiles:I
 
     return-void
 .end method
@@ -289,10 +367,28 @@
 
     move-result v0
 
+    iput v0, p0, Landroid/content/pm/UserInfo;->profileBadge:I
+
+    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
+
+    move-result v0
+
     if-eqz v0, :cond_2
 
     :goto_2
     iput-boolean v1, p0, Landroid/content/pm/UserInfo;->hasCCMBeenProvisioned:Z
+
+    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
+
+    move-result v0
+
+    iput v0, p0, Landroid/content/pm/UserInfo;->attributes:I
+
+    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
+
+    move-result v0
+
+    iput v0, p0, Landroid/content/pm/UserInfo;->volatiles:I
 
     return-void
 
@@ -440,10 +536,132 @@
     goto :goto_0
 .end method
 
+.method public isAdminLocked()Z
+    .locals 2
+
+    const/4 v0, 0x0
+
+    iget v1, p0, Landroid/content/pm/UserInfo;->attributes:I
+
+    and-int/lit8 v1, v1, 0x8
+
+    if-lez v1, :cond_0
+
+    const/4 v0, 0x1
+
+    :cond_0
+    return v0
+.end method
+
+.method public isBBCContainer()Z
+    .locals 2
+
+    const/high16 v1, 0x4000000
+
+    iget v0, p0, Landroid/content/pm/UserInfo;->flags:I
+
+    and-int/2addr v0, v1
+
+    if-ne v0, v1, :cond_0
+
+    const/4 v0, 0x1
+
+    :goto_0
+    return v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
 .method public isBMode()Z
     .locals 2
 
     const/high16 v1, 0x10000
+
+    iget v0, p0, Landroid/content/pm/UserInfo;->flags:I
+
+    and-int/2addr v0, v1
+
+    if-ne v0, v1, :cond_0
+
+    const/4 v0, 0x1
+
+    :goto_0
+    return v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
+.method public isCLContainer()Z
+    .locals 2
+
+    const/high16 v1, 0x400000
+
+    iget v0, p0, Landroid/content/pm/UserInfo;->flags:I
+
+    and-int/2addr v0, v1
+
+    if-ne v0, v1, :cond_0
+
+    const/4 v0, 0x1
+
+    :goto_0
+    return v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
+.method public isDemo()Z
+    .locals 2
+
+    iget v0, p0, Landroid/content/pm/UserInfo;->flags:I
+
+    and-int/lit16 v0, v0, 0x200
+
+    const/16 v1, 0x200
+
+    if-ne v0, v1, :cond_0
+
+    const/4 v0, 0x1
+
+    :goto_0
+    return v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
+.method public isDeviceCompromised()Z
+    .locals 2
+
+    const/4 v0, 0x0
+
+    iget v1, p0, Landroid/content/pm/UserInfo;->attributes:I
+
+    and-int/lit8 v1, v1, 0x4
+
+    if-lez v1, :cond_0
+
+    const/4 v0, 0x1
+
+    :cond_0
+    return v0
+.end method
+
+.method public isDualAppProfile()Z
+    .locals 2
+
+    const/high16 v1, 0x20000000
 
     iget v0, p0, Landroid/content/pm/UserInfo;->flags:I
 
@@ -506,6 +724,28 @@
     goto :goto_0
 .end method
 
+.method public isFirstContainer()Z
+    .locals 2
+
+    const/high16 v1, 0x100000
+
+    iget v0, p0, Landroid/content/pm/UserInfo;->flags:I
+
+    and-int/2addr v0, v1
+
+    if-ne v0, v1, :cond_0
+
+    const/4 v0, 0x1
+
+    :goto_0
+    return v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
 .method public isGuest()Z
     .locals 2
 
@@ -550,10 +790,113 @@
     goto :goto_0
 .end method
 
+.method public isKioskModeEnabled()Z
+    .locals 2
+
+    const/high16 v1, 0x8000000
+
+    iget v0, p0, Landroid/content/pm/UserInfo;->flags:I
+
+    and-int/2addr v0, v1
+
+    if-ne v0, v1, :cond_0
+
+    const/4 v0, 0x1
+
+    :goto_0
+    return v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
 .method public isKnoxWorkspace()Z
     .locals 2
 
     const/high16 v1, 0x10000000
+
+    iget v0, p0, Landroid/content/pm/UserInfo;->flags:I
+
+    and-int/2addr v0, v1
+
+    if-ne v0, v1, :cond_0
+
+    const/4 v0, 0x1
+
+    :goto_0
+    return v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
+.method public isLegacyEncryption()Z
+    .locals 2
+
+    const/high16 v1, 0x40000000    # 2.0f
+
+    iget v0, p0, Landroid/content/pm/UserInfo;->flags:I
+
+    and-int/2addr v0, v1
+
+    if-ne v0, v1, :cond_0
+
+    const/4 v0, 0x1
+
+    :goto_0
+    return v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
+.method public isLegacyResetCredentialRequested()Z
+    .locals 2
+
+    const/4 v0, 0x1
+
+    iget v1, p0, Landroid/content/pm/UserInfo;->volatiles:I
+
+    and-int/lit8 v1, v1, 0x1
+
+    if-ne v1, v0, :cond_0
+
+    :goto_0
+    return v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
+.method public isLicenseLocked()Z
+    .locals 2
+
+    const/4 v0, 0x0
+
+    iget v1, p0, Landroid/content/pm/UserInfo;->attributes:I
+
+    and-int/lit8 v1, v1, 0x10
+
+    if-lez v1, :cond_0
+
+    const/4 v0, 0x1
+
+    :cond_0
+    return v0
+.end method
+
+.method public isLightWeightContainer()Z
+    .locals 2
+
+    const/high16 v1, 0x1000000
 
     iget v0, p0, Landroid/content/pm/UserInfo;->flags:I
 
@@ -594,6 +937,72 @@
     goto :goto_0
 .end method
 
+.method public isMyKnox()Z
+    .locals 2
+
+    const/high16 v1, 0x2000000
+
+    iget v0, p0, Landroid/content/pm/UserInfo;->flags:I
+
+    and-int/2addr v0, v1
+
+    if-ne v0, v1, :cond_0
+
+    const/4 v0, 0x1
+
+    :goto_0
+    return v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
+.method public isPWDExpired()Z
+    .locals 2
+
+    iget v0, p0, Landroid/content/pm/UserInfo;->attributes:I
+
+    and-int/lit8 v0, v0, 0x20
+
+    const/16 v1, 0x20
+
+    if-ne v0, v1, :cond_0
+
+    const/4 v0, 0x1
+
+    :goto_0
+    return v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
+.method public isPremiumContainer()Z
+    .locals 2
+
+    const/high16 v1, 0x10000000
+
+    iget v0, p0, Landroid/content/pm/UserInfo;->attributes:I
+
+    and-int/2addr v0, v1
+
+    if-ne v0, v1, :cond_0
+
+    const/4 v0, 0x1
+
+    :goto_0
+    return v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
 .method public isPrimary()Z
     .locals 2
 
@@ -612,6 +1021,14 @@
     const/4 v0, 0x0
 
     goto :goto_0
+.end method
+
+.method public isPwdChangeRequested()Z
+    .locals 1
+
+    const/4 v0, 0x0
+
+    return v0
 .end method
 
 .method public isQuietModeEnabled()Z
@@ -658,6 +1075,67 @@
     goto :goto_0
 .end method
 
+.method public isSecondContainer()Z
+    .locals 2
+
+    const/high16 v1, 0x200000
+
+    iget v0, p0, Landroid/content/pm/UserInfo;->flags:I
+
+    and-int/2addr v0, v1
+
+    if-ne v0, v1, :cond_0
+
+    const/4 v0, 0x1
+
+    :goto_0
+    return v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
+.method public isSecureFolder()Z
+    .locals 2
+
+    const/high16 v1, 0x20000
+
+    iget v0, p0, Landroid/content/pm/UserInfo;->flags:I
+
+    and-int/2addr v0, v1
+
+    if-ne v0, v1, :cond_0
+
+    const/4 v0, 0x1
+
+    :goto_0
+    return v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
+.method public isSuperLocked()Z
+    .locals 2
+
+    const/4 v0, 0x0
+
+    iget v1, p0, Landroid/content/pm/UserInfo;->attributes:I
+
+    and-int/lit8 v1, v1, 0x1c
+
+    if-lez v1, :cond_0
+
+    const/4 v0, 0x1
+
+    :cond_0
+    return v0
+.end method
+
 .method public isSystemOnly()Z
     .locals 1
 
@@ -668,6 +1146,101 @@
     move-result v0
 
     return v0
+.end method
+
+.method public isThirdContainer()Z
+    .locals 2
+
+    const/high16 v1, 0x800000
+
+    iget v0, p0, Landroid/content/pm/UserInfo;->flags:I
+
+    and-int/2addr v0, v1
+
+    if-ne v0, v1, :cond_0
+
+    const/4 v0, 0x1
+
+    :goto_0
+    return v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
+.method public isTrustAgentUIEnabled()Z
+    .locals 2
+
+    iget v0, p0, Landroid/content/pm/UserInfo;->attributes:I
+
+    and-int/lit16 v0, v0, 0x100
+
+    const/16 v1, 0x100
+
+    if-ne v0, v1, :cond_0
+
+    const/4 v0, 0x1
+
+    :goto_0
+    return v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
+.method public isVirtualUser()Z
+    .locals 2
+
+    const/high16 v1, -0x80000000
+
+    iget v0, p0, Landroid/content/pm/UserInfo;->flags:I
+
+    and-int/2addr v0, v1
+
+    if-ne v0, v1, :cond_0
+
+    const/4 v0, 0x1
+
+    :goto_0
+    return v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
+.method public needSetupCredential()Z
+    .locals 3
+
+    const/high16 v2, 0x20000000
+
+    const/4 v0, 0x1
+
+    iget v1, p0, Landroid/content/pm/UserInfo;->attributes:I
+
+    and-int/2addr v1, v2
+
+    if-eq v1, v2, :cond_0
+
+    iget v1, p0, Landroid/content/pm/UserInfo;->volatiles:I
+
+    and-int/lit8 v1, v1, 0x1
+
+    if-ne v1, v0, :cond_1
+
+    :cond_0
+    :goto_0
+    return v0
+
+    :cond_1
+    const/4 v0, 0x0
+
+    goto :goto_0
 .end method
 
 .method public supportsSwitchTo()Z
@@ -685,14 +1258,18 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    xor-int/lit8 v0, v0, 0x1
+
+    if-eqz v0, :cond_0
+
+    return v1
 
     :cond_0
     invoke-virtual {p0}, Landroid/content/pm/UserInfo;->isManagedProfile()Z
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_1
 
     const-string/jumbo v0, "fw.show_hidden_users"
 
@@ -704,9 +1281,6 @@
     return v0
 
     :cond_1
-    return v1
-
-    :cond_2
     const/4 v0, 0x1
 
     goto :goto_0
@@ -861,12 +1435,24 @@
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
+    iget v0, p0, Landroid/content/pm/UserInfo;->profileBadge:I
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
+
     iget-boolean v0, p0, Landroid/content/pm/UserInfo;->hasCCMBeenProvisioned:Z
 
     if-eqz v0, :cond_2
 
     :goto_2
     invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeInt(I)V
+
+    iget v0, p0, Landroid/content/pm/UserInfo;->attributes:I
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
+
+    iget v0, p0, Landroid/content/pm/UserInfo;->volatiles:I
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
     return-void
 

@@ -79,7 +79,7 @@
     .end annotation
 .end method
 
-.method public abstract uninstall(Ljava/lang/String;Ljava/lang/String;ILandroid/content/IntentSender;I)V
+.method public abstract uninstall(Landroid/content/pm/VersionedPackage;Ljava/lang/String;ILandroid/content/IntentSender;I)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

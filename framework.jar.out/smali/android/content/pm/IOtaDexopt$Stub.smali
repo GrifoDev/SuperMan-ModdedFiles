@@ -28,9 +28,13 @@
 
 .field static final TRANSACTION_cleanup:I = 0x2
 
-.field static final TRANSACTION_dexoptNextPackage:I = 0x4
+.field static final TRANSACTION_dexoptNextPackage:I = 0x5
+
+.field static final TRANSACTION_getProgress:I = 0x4
 
 .field static final TRANSACTION_isDone:I = 0x3
+
+.field static final TRANSACTION_nextDexoptCommand:I = 0x6
 
 .field static final TRANSACTION_prepare:I = 0x1
 
@@ -91,87 +95,117 @@
 .end method
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    .locals 3
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    const/4 v2, 0x1
+    const/4 v4, 0x1
 
     sparse-switch p1, :sswitch_data_0
 
     invoke-super {p0, p1, p2, p3, p4}, Landroid/os/Binder;->onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    move-result v1
+    move-result v3
 
-    return v1
+    return v3
 
     :sswitch_0
-    const-string/jumbo v1, "android.content.pm.IOtaDexopt"
+    const-string/jumbo v3, "android.content.pm.IOtaDexopt"
 
-    invoke-virtual {p3, v1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p3, v3}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    return v2
+    return v4
 
     :sswitch_1
-    const-string/jumbo v1, "android.content.pm.IOtaDexopt"
+    const-string/jumbo v3, "android.content.pm.IOtaDexopt"
 
-    invoke-virtual {p2, v1}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p0}, Landroid/content/pm/IOtaDexopt$Stub;->prepare()V
 
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    return v2
+    return v4
 
     :sswitch_2
-    const-string/jumbo v1, "android.content.pm.IOtaDexopt"
+    const-string/jumbo v3, "android.content.pm.IOtaDexopt"
 
-    invoke-virtual {p2, v1}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p0}, Landroid/content/pm/IOtaDexopt$Stub;->cleanup()V
 
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    return v2
+    return v4
 
     :sswitch_3
-    const-string/jumbo v1, "android.content.pm.IOtaDexopt"
+    const-string/jumbo v3, "android.content.pm.IOtaDexopt"
 
-    invoke-virtual {p2, v1}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p0}, Landroid/content/pm/IOtaDexopt$Stub;->isDone()Z
+
+    move-result v2
+
+    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+
+    if-eqz v2, :cond_0
+
+    move v3, v4
+
+    :goto_0
+    invoke-virtual {p3, v3}, Landroid/os/Parcel;->writeInt(I)V
+
+    return v4
+
+    :cond_0
+    const/4 v3, 0x0
+
+    goto :goto_0
+
+    :sswitch_4
+    const-string/jumbo v3, "android.content.pm.IOtaDexopt"
+
+    invoke-virtual {p2, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual {p0}, Landroid/content/pm/IOtaDexopt$Stub;->getProgress()F
 
     move-result v0
 
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v0, :cond_0
+    invoke-virtual {p3, v0}, Landroid/os/Parcel;->writeFloat(F)V
 
-    move v1, v2
+    return v4
 
-    :goto_0
-    invoke-virtual {p3, v1}, Landroid/os/Parcel;->writeInt(I)V
+    :sswitch_5
+    const-string/jumbo v3, "android.content.pm.IOtaDexopt"
 
-    return v2
-
-    :cond_0
-    const/4 v1, 0x0
-
-    goto :goto_0
-
-    :sswitch_4
-    const-string/jumbo v1, "android.content.pm.IOtaDexopt"
-
-    invoke-virtual {p2, v1}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p0}, Landroid/content/pm/IOtaDexopt$Stub;->dexoptNextPackage()V
 
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    return v2
+    return v4
+
+    :sswitch_6
+    const-string/jumbo v3, "android.content.pm.IOtaDexopt"
+
+    invoke-virtual {p2, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual {p0}, Landroid/content/pm/IOtaDexopt$Stub;->nextDexoptCommand()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+
+    invoke-virtual {p3, v1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+
+    return v4
 
     nop
 
@@ -181,6 +215,8 @@
         0x2 -> :sswitch_2
         0x3 -> :sswitch_3
         0x4 -> :sswitch_4
+        0x5 -> :sswitch_5
+        0x6 -> :sswitch_6
         0x5f4e5446 -> :sswitch_0
     .end sparse-switch
 .end method

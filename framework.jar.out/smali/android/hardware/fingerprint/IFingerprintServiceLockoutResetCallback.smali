@@ -15,7 +15,7 @@
 
 
 # virtual methods
-.method public abstract onLockoutReset(J)V
+.method public abstract onLockoutReset(JLandroid/os/IRemoteCallback;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

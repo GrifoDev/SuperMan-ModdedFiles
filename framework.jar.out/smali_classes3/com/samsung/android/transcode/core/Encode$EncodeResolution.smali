@@ -23,7 +23,11 @@
 
 .field public static final QCIF:I = 0x1
 
+.field public static final QHD:I = 0x7
+
 .field public static final QVGA:I = 0x2
+
+.field public static final UHD:I = 0x8
 
 .field public static final VGA:I = 0x3
 

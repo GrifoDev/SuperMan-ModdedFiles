@@ -26,23 +26,25 @@
 # static fields
 .field private static final DESCRIPTOR:Ljava/lang/String; = "android.app.trust.ITrustManager"
 
-.field static final TRANSACTION_isDeviceLocked:I = 0x7
+.field static final TRANSACTION_isDeviceLocked:I = 0x8
 
-.field static final TRANSACTION_isDeviceSecure:I = 0x8
+.field static final TRANSACTION_isDeviceSecure:I = 0x9
 
-.field static final TRANSACTION_isTrustUsuallyManaged:I = 0x9
+.field static final TRANSACTION_isTrustUsuallyManaged:I = 0xa
 
-.field static final TRANSACTION_registerTrustListener:I = 0x3
+.field static final TRANSACTION_registerTrustListener:I = 0x4
 
-.field static final TRANSACTION_reportEnabledTrustAgentsChanged:I = 0x2
+.field static final TRANSACTION_reportEnabledTrustAgentsChanged:I = 0x3
 
-.field static final TRANSACTION_reportKeyguardShowingChanged:I = 0x5
+.field static final TRANSACTION_reportKeyguardShowingChanged:I = 0x6
 
 .field static final TRANSACTION_reportUnlockAttempt:I = 0x1
 
-.field static final TRANSACTION_setDeviceLockedForUser:I = 0x6
+.field static final TRANSACTION_reportUnlockLockout:I = 0x2
 
-.field static final TRANSACTION_unregisterTrustListener:I = 0x4
+.field static final TRANSACTION_setDeviceLockedForUser:I = 0x7
+
+.field static final TRANSACTION_unregisterTrustListener:I = 0x5
 
 
 # direct methods
@@ -101,16 +103,16 @@
 .end method
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    .locals 8
+    .locals 9
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    const/4 v4, 0x0
+    const/4 v6, 0x0
 
-    const/4 v6, 0x1
+    const/4 v7, 0x1
 
     sparse-switch p1, :sswitch_data_0
 
@@ -121,22 +123,22 @@
     return v6
 
     :sswitch_0
-    const-string/jumbo v7, "android.app.trust.ITrustManager"
+    const-string/jumbo v6, "android.app.trust.ITrustManager"
 
-    invoke-virtual {p3, v7}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p3, v6}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    return v6
+    return v7
 
     :sswitch_1
-    const-string/jumbo v7, "android.app.trust.ITrustManager"
+    const-string/jumbo v6, "android.app.trust.ITrustManager"
 
-    invoke-virtual {p2, v7}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v7
+    move-result v6
 
-    if-eqz v7, :cond_0
+    if-eqz v6, :cond_0
 
     const/4 v2, 0x1
 
@@ -149,7 +151,7 @@
 
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    return v6
+    return v7
 
     :cond_0
     const/4 v2, 0x0
@@ -157,9 +159,28 @@
     goto :goto_0
 
     :sswitch_2
-    const-string/jumbo v7, "android.app.trust.ITrustManager"
+    const-string/jumbo v6, "android.app.trust.ITrustManager"
 
-    invoke-virtual {p2, v7}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v0
+
+    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v3
+
+    invoke-virtual {p0, v0, v3}, Landroid/app/trust/ITrustManager$Stub;->reportUnlockLockout(II)V
+
+    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+
+    return v7
+
+    :sswitch_3
+    const-string/jumbo v6, "android.app.trust.ITrustManager"
+
+    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
@@ -169,18 +190,18 @@
 
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    return v6
+    return v7
 
-    :sswitch_3
-    const-string/jumbo v7, "android.app.trust.ITrustManager"
+    :sswitch_4
+    const-string/jumbo v6, "android.app.trust.ITrustManager"
 
-    invoke-virtual {p2, v7}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
-    move-result-object v7
+    move-result-object v6
 
-    invoke-static {v7}, Landroid/app/trust/ITrustListener$Stub;->asInterface(Landroid/os/IBinder;)Landroid/app/trust/ITrustListener;
+    invoke-static {v6}, Landroid/app/trust/ITrustListener$Stub;->asInterface(Landroid/os/IBinder;)Landroid/app/trust/ITrustListener;
 
     move-result-object v1
 
@@ -188,18 +209,18 @@
 
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    return v6
+    return v7
 
-    :sswitch_4
-    const-string/jumbo v7, "android.app.trust.ITrustManager"
+    :sswitch_5
+    const-string/jumbo v6, "android.app.trust.ITrustManager"
 
-    invoke-virtual {p2, v7}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
-    move-result-object v7
+    move-result-object v6
 
-    invoke-static {v7}, Landroid/app/trust/ITrustListener$Stub;->asInterface(Landroid/os/IBinder;)Landroid/app/trust/ITrustListener;
+    invoke-static {v6}, Landroid/app/trust/ITrustListener$Stub;->asInterface(Landroid/os/IBinder;)Landroid/app/trust/ITrustListener;
 
     move-result-object v1
 
@@ -207,23 +228,23 @@
 
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    return v6
+    return v7
 
-    :sswitch_5
-    const-string/jumbo v7, "android.app.trust.ITrustManager"
+    :sswitch_6
+    const-string/jumbo v6, "android.app.trust.ITrustManager"
 
-    invoke-virtual {p2, v7}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p0}, Landroid/app/trust/ITrustManager$Stub;->reportKeyguardShowingChanged()V
 
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    return v6
+    return v7
 
-    :sswitch_6
-    const-string/jumbo v7, "android.app.trust.ITrustManager"
+    :sswitch_7
+    const-string/jumbo v6, "android.app.trust.ITrustManager"
 
-    invoke-virtual {p2, v7}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
@@ -231,23 +252,28 @@
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v7
+    move-result v6
 
-    if-eqz v7, :cond_1
+    if-eqz v6, :cond_1
 
-    move v4, v6
+    const/4 v4, 0x1
 
-    :cond_1
+    :goto_1
     invoke-virtual {p0, v0, v4}, Landroid/app/trust/ITrustManager$Stub;->setDeviceLockedForUser(IZ)V
 
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    return v6
+    return v7
 
-    :sswitch_7
-    const-string/jumbo v7, "android.app.trust.ITrustManager"
+    :cond_1
+    const/4 v4, 0x0
 
-    invoke-virtual {p2, v7}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    goto :goto_1
+
+    :sswitch_8
+    const-string/jumbo v8, "android.app.trust.ITrustManager"
+
+    invoke-virtual {p2, v8}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
@@ -261,17 +287,17 @@
 
     if-eqz v5, :cond_2
 
-    move v4, v6
+    move v6, v7
 
     :cond_2
-    invoke-virtual {p3, v4}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p3, v6}, Landroid/os/Parcel;->writeInt(I)V
 
-    return v6
+    return v7
 
-    :sswitch_8
-    const-string/jumbo v7, "android.app.trust.ITrustManager"
+    :sswitch_9
+    const-string/jumbo v8, "android.app.trust.ITrustManager"
 
-    invoke-virtual {p2, v7}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v8}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
@@ -285,17 +311,17 @@
 
     if-eqz v5, :cond_3
 
-    move v4, v6
+    move v6, v7
 
     :cond_3
-    invoke-virtual {p3, v4}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p3, v6}, Landroid/os/Parcel;->writeInt(I)V
 
-    return v6
+    return v7
 
-    :sswitch_9
-    const-string/jumbo v7, "android.app.trust.ITrustManager"
+    :sswitch_a
+    const-string/jumbo v8, "android.app.trust.ITrustManager"
 
-    invoke-virtual {p2, v7}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v8}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
@@ -309,14 +335,12 @@
 
     if-eqz v5, :cond_4
 
-    move v4, v6
+    move v6, v7
 
     :cond_4
-    invoke-virtual {p3, v4}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p3, v6}, Landroid/os/Parcel;->writeInt(I)V
 
-    return v6
-
-    nop
+    return v7
 
     :sswitch_data_0
     .sparse-switch
@@ -329,6 +353,7 @@
         0x7 -> :sswitch_7
         0x8 -> :sswitch_8
         0x9 -> :sswitch_9
+        0xa -> :sswitch_a
         0x5f4e5446 -> :sswitch_0
     .end sparse-switch
 .end method

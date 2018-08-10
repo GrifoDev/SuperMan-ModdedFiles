@@ -808,9 +808,7 @@
 
     move-object v0, v1
 
-    nop
-
-    nop
+    check-cast v0, Ljava/net/Inet6Address;
 
     move-object v11, v0
 

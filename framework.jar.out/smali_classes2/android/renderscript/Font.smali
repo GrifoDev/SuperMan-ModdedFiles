@@ -58,7 +58,7 @@
     :try_start_0
     sget-object v1, Landroid/renderscript/Font$Style;->BOLD:Landroid/renderscript/Font$Style;
 
-    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
+    invoke-virtual {v1}, Landroid/renderscript/Font$Style;->ordinal()I
 
     move-result v1
 
@@ -72,7 +72,7 @@
     :try_start_1
     sget-object v1, Landroid/renderscript/Font$Style;->BOLD_ITALIC:Landroid/renderscript/Font$Style;
 
-    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
+    invoke-virtual {v1}, Landroid/renderscript/Font$Style;->ordinal()I
 
     move-result v1
 
@@ -86,7 +86,7 @@
     :try_start_2
     sget-object v1, Landroid/renderscript/Font$Style;->ITALIC:Landroid/renderscript/Font$Style;
 
-    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
+    invoke-virtual {v1}, Landroid/renderscript/Font$Style;->ordinal()I
 
     move-result v1
 
@@ -100,7 +100,7 @@
     :try_start_3
     sget-object v1, Landroid/renderscript/Font$Style;->NORMAL:Landroid/renderscript/Font$Style;
 
-    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
+    invoke-virtual {v1}, Landroid/renderscript/Font$Style;->ordinal()I
 
     move-result v1
 
@@ -261,7 +261,7 @@
 
     invoke-direct {p0, p1, p2, p3}, Landroid/renderscript/BaseObj;-><init>(JLandroid/renderscript/RenderScript;)V
 
-    iget-object v0, p0, Landroid/renderscript/BaseObj;->guard:Ldalvik/system/CloseGuard;
+    iget-object v0, p0, Landroid/renderscript/Font;->guard:Ldalvik/system/CloseGuard;
 
     const-string/jumbo v1, "destroy"
 
@@ -514,9 +514,7 @@
 
     if-eqz v2, :cond_0
 
-    nop
-
-    nop
+    check-cast v9, Landroid/content/res/AssetManager$AssetInputStream;
 
     invoke-virtual {v9}, Landroid/content/res/AssetManager$AssetInputStream;->getNativeAsset()J
 
@@ -627,7 +625,7 @@
 
     move-result-object v1
 
-    invoke-virtual {p1}, Ljava/lang/Enum;->ordinal()I
+    invoke-virtual {p1}, Landroid/renderscript/Font$Style;->ordinal()I
 
     move-result v2
 

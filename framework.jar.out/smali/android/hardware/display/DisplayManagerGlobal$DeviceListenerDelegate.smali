@@ -54,179 +54,103 @@
 
     const/4 v0, 0x0
 
-    invoke-virtual {p0, v0}, Landroid/os/Handler;->removeCallbacksAndMessages(Ljava/lang/Object;)V
+    invoke-virtual {p0, v0}, Landroid/hardware/display/DisplayManagerGlobal$DeviceListenerDelegate;->removeCallbacksAndMessages(Ljava/lang/Object;)V
 
     return-void
 .end method
 
 .method public handleMessage(Landroid/os/Message;)V
-    .locals 7
-
-    const/4 v5, 0x0
+    .locals 5
 
     invoke-virtual {p1}, Landroid/os/Message;->getData()Landroid/os/Bundle;
 
-    move-result-object v1
+    move-result-object v0
 
-    iget v4, p1, Landroid/os/Message;->what:I
+    iget v2, p1, Landroid/os/Message;->what:I
 
-    packed-switch v4, :pswitch_data_0
+    packed-switch v2, :pswitch_data_0
 
     :goto_0
-    :pswitch_0
     return-void
 
+    :pswitch_0
+    const-string/jumbo v2, "status"
+
+    const/4 v3, 0x0
+
+    invoke-virtual {v0, v2, v3}, Landroid/os/Bundle;->getInt(Ljava/lang/String;I)I
+
+    move-result v1
+
+    const-string/jumbo v2, "DisplayManager"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "handleMessage EVENT_CONNECTIONSTATUS_CHANGED= "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v2, p0, Landroid/hardware/display/DisplayManagerGlobal$DeviceListenerDelegate;->mListener:Landroid/hardware/display/SemDeviceStatusListener;
+
+    invoke-interface {v2, v1}, Landroid/hardware/display/SemDeviceStatusListener;->onConnectionStatusChanged(I)V
+
+    goto :goto_0
+
     :pswitch_1
-    const-string/jumbo v4, "status"
+    const-string/jumbo v2, "status"
 
-    invoke-virtual {v1, v4, v5}, Landroid/os/BaseBundle;->getInt(Ljava/lang/String;I)I
+    const/4 v3, 0x6
 
-    move-result v3
+    invoke-virtual {v0, v2, v3}, Landroid/os/Bundle;->getInt(Ljava/lang/String;I)I
 
-    const-string/jumbo v4, "DisplayManager"
+    move-result v1
 
-    new-instance v5, Ljava/lang/StringBuilder;
+    const-string/jumbo v2, "DisplayManager"
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    const-string/jumbo v6, "handleMessage EVENT_CONNECTIONSTATUS_CHANGED= "
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string/jumbo v4, "handleMessage EVENT_REMOTE_DISPLAY_STATE_CHANGED= "
 
-    move-result-object v5
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-result-object v3
 
-    move-result-object v5
+    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v3
 
-    move-result-object v5
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    move-result-object v3
 
-    iget-object v4, p0, Landroid/hardware/display/DisplayManagerGlobal$DeviceListenerDelegate;->mListener:Landroid/hardware/display/SemDeviceStatusListener;
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-interface {v4, v3}, Landroid/hardware/display/SemDeviceStatusListener;->onConnectionStatusChanged(I)V
+    iget-object v2, p0, Landroid/hardware/display/DisplayManagerGlobal$DeviceListenerDelegate;->mListener:Landroid/hardware/display/SemDeviceStatusListener;
 
-    goto :goto_0
-
-    :pswitch_2
-    const-string/jumbo v4, "level"
-
-    invoke-virtual {v1, v4, v5}, Landroid/os/BaseBundle;->getInt(Ljava/lang/String;I)I
-
-    move-result v2
-
-    const-string/jumbo v4, "DisplayManager"
-
-    new-instance v5, Ljava/lang/StringBuilder;
-
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v6, "handleMessage EVENT_QOSLEVEL_CHANGED= "
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget-object v4, p0, Landroid/hardware/display/DisplayManagerGlobal$DeviceListenerDelegate;->mListener:Landroid/hardware/display/SemDeviceStatusListener;
-
-    invoke-interface {v4, v2}, Landroid/hardware/display/SemDeviceStatusListener;->onQosLevelChanged(I)V
+    invoke-interface {v2, v1}, Landroid/hardware/display/SemDeviceStatusListener;->onScreenSharingStatusChanged(I)V
 
     goto :goto_0
-
-    :pswitch_3
-    const-string/jumbo v4, "status"
-
-    invoke-virtual {v1, v4, v5}, Landroid/os/BaseBundle;->getBoolean(Ljava/lang/String;Z)Z
-
-    move-result v0
-
-    const-string/jumbo v4, "DisplayManager"
-
-    new-instance v5, Ljava/lang/StringBuilder;
-
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v6, "handleMessage EVENT_DLNA_CONNECTIONSTATUS_CHANGED= "
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget-object v4, p0, Landroid/hardware/display/DisplayManagerGlobal$DeviceListenerDelegate;->mListener:Landroid/hardware/display/SemDeviceStatusListener;
-
-    invoke-interface {v4, v0}, Landroid/hardware/display/SemDeviceStatusListener;->onDlnaConnectionStatusChanged(Z)V
-
-    goto :goto_0
-
-    :pswitch_4
-    const-string/jumbo v4, "status"
-
-    const/4 v5, 0x6
-
-    invoke-virtual {v1, v4, v5}, Landroid/os/BaseBundle;->getInt(Ljava/lang/String;I)I
-
-    move-result v3
-
-    const-string/jumbo v4, "DisplayManager"
-
-    new-instance v5, Ljava/lang/StringBuilder;
-
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v6, "handleMessage EVENT_SCREENSHARING_CONNECTIONSTATUS_CHANGED= "
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget-object v4, p0, Landroid/hardware/display/DisplayManagerGlobal$DeviceListenerDelegate;->mListener:Landroid/hardware/display/SemDeviceStatusListener;
-
-    invoke-interface {v4, v3}, Landroid/hardware/display/SemDeviceStatusListener;->onScreenSharingStatusChanged(I)V
-
-    goto/16 :goto_0
-
-    nop
 
     :pswitch_data_0
     .packed-switch 0x4
-        :pswitch_1
-        :pswitch_2
         :pswitch_0
-        :pswitch_3
-        :pswitch_4
+        :pswitch_1
     .end packed-switch
 .end method
 
@@ -239,7 +163,7 @@
 
     invoke-virtual {v0, p1}, Landroid/os/Message;->setData(Landroid/os/Bundle;)V
 
-    invoke-virtual {p0, v0}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
+    invoke-virtual {p0, v0}, Landroid/hardware/display/DisplayManagerGlobal$DeviceListenerDelegate;->sendMessage(Landroid/os/Message;)Z
 
     return-void
 .end method

@@ -45,8 +45,25 @@
 
 # virtual methods
 .method onResultSent(Landroid/media/browse/MediaBrowser$MediaItem;I)V
-    .locals 3
+    .locals 4
 
+    const/4 v2, 0x0
+
+    and-int/lit8 v1, p2, 0x2
+
+    if-eqz v1, :cond_0
+
+    iget-object v1, p0, Landroid/service/media/MediaBrowserService$4;->val$receiver:Landroid/os/ResultReceiver;
+
+    const/4 v2, -0x1
+
+    const/4 v3, 0x0
+
+    invoke-virtual {v1, v2, v3}, Landroid/os/ResultReceiver;->send(ILandroid/os/Bundle;)V
+
+    return-void
+
+    :cond_0
     new-instance v0, Landroid/os/Bundle;
 
     invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
@@ -56,8 +73,6 @@
     invoke-virtual {v0, v1, p1}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
 
     iget-object v1, p0, Landroid/service/media/MediaBrowserService$4;->val$receiver:Landroid/os/ResultReceiver;
-
-    const/4 v2, 0x0
 
     invoke-virtual {v1, v2, v0}, Landroid/os/ResultReceiver;->send(ILandroid/os/Bundle;)V
 

@@ -674,7 +674,9 @@
 
     move-result v4
 
-    if-eqz v4, :cond_9
+    xor-int/lit8 v4, v4, 0x1
+
+    if-nez v4, :cond_9
 
     :cond_8
     if-nez v45, :cond_a
@@ -1421,6 +1423,8 @@
 
 .method public setReparent(Z)V
     .locals 0
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 
     iput-boolean p1, p0, Landroid/transition/ChangeBounds;->mReparent:Z
 

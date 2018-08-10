@@ -33,7 +33,9 @@
 
 # direct methods
 .method public constructor <init>(FFFFIILandroid/graphics/Shader$TileMode;)V
-    .locals 8
+    .locals 2
+
+    const/4 v1, 0x0
 
     invoke-direct {p0}, Landroid/graphics/Shader;-><init>()V
 
@@ -53,43 +55,27 @@
 
     iput p6, p0, Landroid/graphics/LinearGradient;->mColor1:I
 
+    iput-object v1, p0, Landroid/graphics/LinearGradient;->mColors:[I
+
+    iput-object v1, p0, Landroid/graphics/LinearGradient;->mPositions:[F
+
     iput-object p7, p0, Landroid/graphics/LinearGradient;->mTileMode:Landroid/graphics/Shader$TileMode;
-
-    iget v7, p7, Landroid/graphics/Shader$TileMode;->nativeInt:I
-
-    move-object v0, p0
-
-    move v1, p1
-
-    move v2, p2
-
-    move v3, p3
-
-    move v4, p4
-
-    move v5, p5
-
-    move v6, p6
-
-    invoke-direct/range {v0 .. v7}, Landroid/graphics/LinearGradient;->nativeCreate2(FFFFIII)J
-
-    move-result-wide v0
-
-    invoke-virtual {p0, v0, v1}, Landroid/graphics/LinearGradient;->init(J)V
 
     return-void
 .end method
 
 .method public constructor <init>(FFFF[I[FLandroid/graphics/Shader$TileMode;)V
-    .locals 8
+    .locals 3
+
+    const/4 v1, 0x0
 
     invoke-direct {p0}, Landroid/graphics/Shader;-><init>()V
 
     array-length v0, p5
 
-    const/4 v1, 0x2
+    const/4 v2, 0x2
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v2, :cond_0
 
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
@@ -104,9 +90,9 @@
 
     array-length v0, p5
 
-    array-length v1, p6
+    array-length v2, p6
 
-    if-eq v0, v1, :cond_1
+    if-eq v0, v2, :cond_1
 
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
@@ -129,41 +115,39 @@
 
     iput p4, p0, Landroid/graphics/LinearGradient;->mY1:F
 
-    iput-object p5, p0, Landroid/graphics/LinearGradient;->mColors:[I
+    invoke-virtual {p5}, Ljava/lang/Object;->clone()Ljava/lang/Object;
 
-    iput-object p6, p0, Landroid/graphics/LinearGradient;->mPositions:[F
+    move-result-object v0
+
+    check-cast v0, [I
+
+    iput-object v0, p0, Landroid/graphics/LinearGradient;->mColors:[I
+
+    if-eqz p6, :cond_2
+
+    invoke-virtual {p6}, Ljava/lang/Object;->clone()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, [F
+
+    :goto_0
+    iput-object v0, p0, Landroid/graphics/LinearGradient;->mPositions:[F
 
     iput-object p7, p0, Landroid/graphics/LinearGradient;->mTileMode:Landroid/graphics/Shader$TileMode;
 
-    iget v7, p7, Landroid/graphics/Shader$TileMode;->nativeInt:I
-
-    move-object v0, p0
-
-    move v1, p1
-
-    move v2, p2
-
-    move v3, p3
-
-    move v4, p4
-
-    move-object v5, p5
-
-    move-object v6, p6
-
-    invoke-direct/range {v0 .. v7}, Landroid/graphics/LinearGradient;->nativeCreate1(FFFF[I[FI)J
-
-    move-result-wide v0
-
-    invoke-virtual {p0, v0, v1}, Landroid/graphics/LinearGradient;->init(J)V
-
     return-void
+
+    :cond_2
+    move-object v0, v1
+
+    goto :goto_0
 .end method
 
-.method private native nativeCreate1(FFFF[I[FI)J
+.method private native nativeCreate1(JFFFF[I[FI)J
 .end method
 
-.method private native nativeCreate2(FFFFIII)J
+.method private native nativeCreate2(JFFFFIII)J
 .end method
 
 
@@ -175,17 +159,10 @@
 
     iget v1, p0, Landroid/graphics/LinearGradient;->mType:I
 
-    packed-switch v1, :pswitch_data_0
+    const/4 v2, 0x1
 
-    new-instance v1, Ljava/lang/IllegalArgumentException;
+    if-ne v1, v2, :cond_1
 
-    const-string/jumbo v2, "LinearGradient should be created with either colors and positions or start color and end color"
-
-    invoke-direct {v1, v2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
-
-    throw v1
-
-    :pswitch_0
     new-instance v0, Landroid/graphics/LinearGradient;
 
     iget v1, p0, Landroid/graphics/LinearGradient;->mX0:F
@@ -226,7 +203,7 @@
 
     return-object v0
 
-    :pswitch_1
+    :cond_1
     new-instance v0, Landroid/graphics/LinearGradient;
 
     iget v1, p0, Landroid/graphics/LinearGradient;->mX0:F
@@ -246,10 +223,67 @@
     invoke-direct/range {v0 .. v7}, Landroid/graphics/LinearGradient;-><init>(FFFFIILandroid/graphics/Shader$TileMode;)V
 
     goto :goto_0
+.end method
 
-    :pswitch_data_0
-    .packed-switch 0x1
-        :pswitch_0
-        :pswitch_1
-    .end packed-switch
+.method createNativeInstance(J)J
+    .locals 11
+
+    iget v0, p0, Landroid/graphics/LinearGradient;->mType:I
+
+    const/4 v1, 0x1
+
+    if-ne v0, v1, :cond_0
+
+    iget v4, p0, Landroid/graphics/LinearGradient;->mX0:F
+
+    iget v5, p0, Landroid/graphics/LinearGradient;->mY0:F
+
+    iget v6, p0, Landroid/graphics/LinearGradient;->mX1:F
+
+    iget v7, p0, Landroid/graphics/LinearGradient;->mY1:F
+
+    iget-object v8, p0, Landroid/graphics/LinearGradient;->mColors:[I
+
+    iget-object v9, p0, Landroid/graphics/LinearGradient;->mPositions:[F
+
+    iget-object v0, p0, Landroid/graphics/LinearGradient;->mTileMode:Landroid/graphics/Shader$TileMode;
+
+    iget v10, v0, Landroid/graphics/Shader$TileMode;->nativeInt:I
+
+    move-object v1, p0
+
+    move-wide v2, p1
+
+    invoke-direct/range {v1 .. v10}, Landroid/graphics/LinearGradient;->nativeCreate1(JFFFF[I[FI)J
+
+    move-result-wide v0
+
+    return-wide v0
+
+    :cond_0
+    iget v4, p0, Landroid/graphics/LinearGradient;->mX0:F
+
+    iget v5, p0, Landroid/graphics/LinearGradient;->mY0:F
+
+    iget v6, p0, Landroid/graphics/LinearGradient;->mX1:F
+
+    iget v7, p0, Landroid/graphics/LinearGradient;->mY1:F
+
+    iget v8, p0, Landroid/graphics/LinearGradient;->mColor0:I
+
+    iget v9, p0, Landroid/graphics/LinearGradient;->mColor1:I
+
+    iget-object v0, p0, Landroid/graphics/LinearGradient;->mTileMode:Landroid/graphics/Shader$TileMode;
+
+    iget v10, v0, Landroid/graphics/Shader$TileMode;->nativeInt:I
+
+    move-object v1, p0
+
+    move-wide v2, p1
+
+    invoke-direct/range {v1 .. v10}, Landroid/graphics/LinearGradient;->nativeCreate2(JFFFFIII)J
+
+    move-result-wide v0
+
+    return-wide v0
 .end method

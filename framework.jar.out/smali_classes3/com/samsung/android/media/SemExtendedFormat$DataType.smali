@@ -29,9 +29,25 @@
 
 .field public static final BURST_SHOT_INFO:I = 0x9e0
 
+.field public static final CAMERA_STICKER_INFO:I = 0xb30
+
 .field public static final CLIP_MOVIE_INFO:I = 0x9c0
 
 .field public static final DUAL_CAMERA_INFO:I = 0x930
+
+.field public static final DUAL_SHOT_BOKEH_INFO:I = 0xae0
+
+.field public static final DUAL_SHOT_DEPTHMAP:I = 0xab1
+
+.field public static final DUAL_SHOT_EXTRA_INFO:I = 0xab3
+
+.field public static final DUAL_SHOT_INFO:I = 0xab0
+
+.field public static final DUAL_SHOT_ONLY:I = 0xad0
+
+.field public static final DUAL_SHOT_ZOOMINOUT:I = 0xab2
+
+.field public static final DUAL_SHOT_ZOOMINOUT_INFO:I = 0xac0
 
 .field public static final DUBBING_SHOT_FACIAL_FEATURE_DATA:I = 0x822
 
@@ -121,7 +137,17 @@
 
 .field public static final INVALID_TYPE:I = -0x1
 
+.field public static final JPEG_180_2D:I = 0xb10
+
+.field public static final JPEG_180_HDR:I = 0xa70
+
 .field public static final JPEG_360_2D_INFO:I = 0xa50
+
+.field public static final JPEG_360_2D_NOTSTITCHED:I = 0xa60
+
+.field public static final JPEG_360_HDR_NOTSTITCHED:I = 0xa90
+
+.field public static final JPEG_360_HDR_STITCHED:I = 0xa80
 
 .field public static final MAGIC_SHOT_BEST_FACE_INFO:I = 0x832
 
@@ -134,6 +160,10 @@
 .field public static final MAGIC_SHOT_INFO:I = 0x830
 
 .field public static final MAGIC_SHOT_PICTURE_MOTION_INFO:I = 0x835
+
+.field public static final MESSAGE_STICKER_INFO:I = 0xaf0
+
+.field public static final MOBILE_COUNTRY_CODE_DATA:I = 0xaa1
 
 .field public static final MOTION_PHOTO_DATA:I = 0xa30
 
@@ -163,6 +193,8 @@
 
 .field public static final SAMSUNG_SPECIFIC_DATA_TYPE_START:I = 0x800
 
+.field public static final SAMSUNG_THEMES_INFO:I = 0xb20
+
 .field public static final SEQUENCE_SHOT_DATA:I = 0x870
 
 .field public static final SLOW_MOTION_DATA:I = 0x890
@@ -180,6 +212,10 @@
 .field public static final SOUND_SHOT_INFO:I = 0x800
 
 .field public static final SPORTS_SHOT_INFO:I = 0x8f0
+
+.field public static final SUPER_SLOW_MOTION_BGM:I = 0xb01
+
+.field public static final SUPER_SLOW_MOTION_DATA:I = 0xb00
 
 .field public static final SURROUND_SHOT_INFO:I = 0x950
 

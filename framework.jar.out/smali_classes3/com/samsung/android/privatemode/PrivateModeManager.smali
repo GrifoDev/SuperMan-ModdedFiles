@@ -31,8 +31,6 @@
 
 .field public static final UNMOUNTED:I = 0x2
 
-.field private static levelPrivatemode:I
-
 .field private static mContext:Landroid/content/Context;
 
 .field private static mHandler:Landroid/os/Handler;
@@ -44,6 +42,8 @@
 .field private static mService:Lcom/samsung/android/privatemode/IPrivateModeManager;
 
 .field private static sInstance:Lcom/samsung/android/privatemode/PrivateModeManager;
+
+.field private static versionPrivatemode:I
 
 
 # instance fields
@@ -116,7 +116,7 @@
 
     const/4 v0, -0x1
 
-    sput v0, Lcom/samsung/android/privatemode/PrivateModeManager;->levelPrivatemode:I
+    sput v0, Lcom/samsung/android/privatemode/PrivateModeManager;->versionPrivatemode:I
 
     return-void
 .end method
@@ -452,7 +452,7 @@
 
     const-string/jumbo v6, "version"
 
-    invoke-virtual {v0, v6}, Landroid/os/BaseBundle;->getString(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v0, v6}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v6
 
@@ -466,7 +466,7 @@
 
     const-string/jumbo v6, "isKnoxMode"
 
-    invoke-virtual {v0, v6}, Landroid/os/BaseBundle;->getString(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v0, v6}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v6
 
@@ -837,7 +837,7 @@
     :catch_0
     move-exception v0
 
-    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
 
     goto :goto_0
 .end method
@@ -888,7 +888,7 @@
 
     move-result-object v3
 
-    invoke-virtual {v1, v2, v3}, Landroid/os/BaseBundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v1, v2, v3}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
     sget-object v2, Lcom/samsung/android/privatemode/PrivateModeManager;->mService:Lcom/samsung/android/privatemode/IPrivateModeManager;
 

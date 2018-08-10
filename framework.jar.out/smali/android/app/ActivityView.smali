@@ -278,9 +278,7 @@
 
     move-object v3, p1
 
-    nop
-
-    nop
+    check-cast v3, Landroid/app/Activity;
 
     iput-object v3, p0, Landroid/app/ActivityView;->mActivity:Landroid/app/Activity;
 
@@ -298,9 +296,7 @@
     throw v3
 
     :cond_1
-    nop
-
-    nop
+    check-cast p1, Landroid/content/ContextWrapper;
 
     invoke-virtual {p1}, Landroid/content/ContextWrapper;->getBaseContext()Landroid/content/Context;
 
@@ -312,7 +308,7 @@
     :try_start_0
     new-instance v3, Landroid/app/ActivityView$ActivityContainerWrapper;
 
-    invoke-static {}, Landroid/app/ActivityManagerNative;->getDefault()Landroid/app/IActivityManager;
+    invoke-static {}, Landroid/app/ActivityManager;->getService()Landroid/app/IActivityManager;
 
     move-result-object v4
 
@@ -352,7 +348,7 @@
 
     iget-object v3, p0, Landroid/app/ActivityView;->mTextureView:Landroid/view/TextureView;
 
-    invoke-virtual {p0, v3}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
+    invoke-virtual {p0, v3}, Landroid/app/ActivityView;->addView(Landroid/view/View;)V
 
     iget-object v3, p0, Landroid/app/ActivityView;->mActivity:Landroid/app/Activity;
 
@@ -378,7 +374,7 @@
 
     iput v3, p0, Landroid/app/ActivityView;->mDensityDpi:I
 
-    invoke-virtual {p0}, Landroid/view/View;->getVisibility()I
+    invoke-virtual {p0}, Landroid/app/ActivityView;->getVisibility()I
 
     move-result v3
 
@@ -499,7 +495,7 @@
 
     const/4 v0, 0x2
 
-    invoke-virtual {p1, v0}, Landroid/view/InputEvent;->isFromSource(I)Z
+    invoke-virtual {p1, v0}, Landroid/view/MotionEvent;->isFromSource(I)Z
 
     move-result v0
 
@@ -534,7 +530,7 @@
 
     sub-int v2, p5, p3
 
-    invoke-virtual {v0, v3, v3, v1, v2}, Landroid/view/View;->layout(IIII)V
+    invoke-virtual {v0, v3, v3, v1, v2}, Landroid/view/TextureView;->layout(IIII)V
 
     return-void
 .end method
@@ -723,7 +719,7 @@
 
     move-result v1
 
-    const/4 v2, -0x6
+    const/16 v2, -0x60
 
     if-ne v1, v2, :cond_2
 
@@ -772,7 +768,7 @@
 
     move-result v0
 
-    const/4 v1, -0x6
+    const/16 v1, -0x60
 
     if-ne v0, v1, :cond_2
 
@@ -825,7 +821,7 @@
 
     move-result v1
 
-    const/4 v2, -0x6
+    const/16 v2, -0x60
 
     if-ne v1, v2, :cond_2
 

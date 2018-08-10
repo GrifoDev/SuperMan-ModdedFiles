@@ -101,6 +101,8 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    if-eqz p1, :cond_0
+
     sget-object v0, Landroid/net/WifiKey;->SSID_PATTERN:Ljava/util/regex/Pattern;
 
     invoke-virtual {v0, p1}, Ljava/util/regex/Pattern;->matcher(Ljava/lang/CharSequence;)Ljava/util/regex/Matcher;
@@ -111,8 +113,11 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    xor-int/lit8 v0, v0, 0x1
 
+    if-eqz v0, :cond_1
+
+    :cond_0
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -137,7 +142,9 @@
 
     throw v0
 
-    :cond_0
+    :cond_1
+    if-eqz p2, :cond_2
+
     sget-object v0, Landroid/net/WifiKey;->BSSID_PATTERN:Ljava/util/regex/Pattern;
 
     invoke-virtual {v0, p2}, Ljava/util/regex/Pattern;->matcher(Ljava/lang/CharSequence;)Ljava/util/regex/Matcher;
@@ -148,8 +155,11 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    xor-int/lit8 v0, v0, 0x1
 
+    if-eqz v0, :cond_3
+
+    :cond_2
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -174,7 +184,7 @@
 
     throw v0
 
-    :cond_1
+    :cond_3
     iput-object p1, p0, Landroid/net/WifiKey;->ssid:Ljava/lang/String;
 
     iput-object p2, p0, Landroid/net/WifiKey;->bssid:Ljava/lang/String;

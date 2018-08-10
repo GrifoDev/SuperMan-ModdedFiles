@@ -186,6 +186,8 @@
 
     const/16 v0, 0x1f
 
+    const/4 v1, 0x1
+
     iget-object v2, p0, Landroid/hardware/soundtrigger/SoundTrigger$SoundModelEvent;->data:[B
 
     invoke-static {v2}, Ljava/util/Arrays;->hashCode([B)I

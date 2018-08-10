@@ -10,7 +10,7 @@
 
 .field public static final Str_NoTag:Ljava/lang/String; = ""
 
-.field public static final TAG_CSCFEATURE_AOD_CONFIGDEFAULTCLOCKSTYLE:Ljava/lang/String; = "CscFeature_AOD_ConfigDefaultClockStyle"
+.field public static final TAG_CSCFEATURE_AOD_CONFIGADDITIONALHOMEDOUBLEKEYACTION:Ljava/lang/String; = "CscFeature_AOD_ConfigAdditionalHomeDoubleKeyAction"
 
 .field public static final TAG_CSCFEATURE_AOD_CONFIGDEFSTATUS:Ljava/lang/String; = "CscFeature_AOD_ConfigDefStatus"
 

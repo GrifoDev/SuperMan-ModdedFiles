@@ -51,7 +51,7 @@
 .end method
 
 .method public onDownloadProgress(Ljava/lang/String;III)V
-    .locals 5
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -67,9 +67,9 @@
     move-result-object v2
 
     :try_start_0
-    const-string/jumbo v0, "com.absolute.android.persistence.IABTDownloadReceiver"
+    const-string/jumbo v3, "com.absolute.android.persistence.IABTDownloadReceiver"
 
-    invoke-virtual {v1, v0}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+    invoke-virtual {v1, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     invoke-virtual {v1, p1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
@@ -79,13 +79,13 @@
 
     invoke-virtual {v1, p4}, Landroid/os/Parcel;->writeInt(I)V
 
-    iget-object v0, p0, Lcom/absolute/android/persistence/IABTDownloadReceiver$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+    iget-object v3, p0, Lcom/absolute/android/persistence/IABTDownloadReceiver$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/4 v3, 0x1
+    const/4 v4, 0x1
 
-    const/4 v4, 0x0
+    const/4 v5, 0x0
 
-    invoke-interface {v0, v3, v1, v2, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+    invoke-interface {v3, v4, v1, v2, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
     invoke-virtual {v2}, Landroid/os/Parcel;->readException()V
     :try_end_0
@@ -108,14 +108,14 @@
 .end method
 
 .method public onDownloadResult(ZLjava/lang/String;ILjava/lang/String;Ljava/lang/String;)V
-    .locals 5
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    const/4 v0, 0x0
+    const/4 v3, 0x0
 
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
@@ -126,14 +126,14 @@
     move-result-object v2
 
     :try_start_0
-    const-string/jumbo v3, "com.absolute.android.persistence.IABTDownloadReceiver"
+    const-string/jumbo v4, "com.absolute.android.persistence.IABTDownloadReceiver"
 
-    invoke-virtual {v1, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+    invoke-virtual {v1, v4}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     if-nez p1, :cond_0
 
     :goto_0
-    invoke-virtual {v1, v0}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {v1, v3}, Landroid/os/Parcel;->writeInt(I)V
 
     invoke-virtual {v1, p2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
@@ -143,13 +143,13 @@
 
     invoke-virtual {v1, p5}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    iget-object v0, p0, Lcom/absolute/android/persistence/IABTDownloadReceiver$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+    iget-object v3, p0, Lcom/absolute/android/persistence/IABTDownloadReceiver$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/4 v3, 0x2
+    const/4 v4, 0x2
 
-    const/4 v4, 0x0
+    const/4 v5, 0x0
 
-    invoke-interface {v0, v3, v1, v2, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+    invoke-interface {v3, v4, v1, v2, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
     invoke-virtual {v2}, Landroid/os/Parcel;->readException()V
     :try_end_0
@@ -162,7 +162,7 @@
     return-void
 
     :cond_0
-    const/4 v0, 0x1
+    const/4 v3, 0x1
 
     goto :goto_0
 

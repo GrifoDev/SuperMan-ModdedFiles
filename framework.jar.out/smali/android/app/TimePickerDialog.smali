@@ -36,16 +36,22 @@
 
 
 # direct methods
-.method public constructor <init>(Landroid/content/Context;ILandroid/app/TimePickerDialog$OnTimeSetListener;IIZ)V
-    .locals 7
+.method static synthetic -get0(Landroid/app/TimePickerDialog;)Landroid/widget/TimePicker;
+    .locals 1
 
-    const/4 v6, 0x1
+    iget-object v0, p0, Landroid/app/TimePickerDialog;->mTimePicker:Landroid/widget/TimePicker;
+
+    return-object v0
+.end method
+
+.method public constructor <init>(Landroid/content/Context;ILandroid/app/TimePickerDialog$OnTimeSetListener;IIZ)V
+    .locals 5
 
     invoke-static {p1, p2}, Landroid/app/TimePickerDialog;->resolveDialogTheme(Landroid/content/Context;I)I
 
-    move-result v4
+    move-result v3
 
-    invoke-direct {p0, p1, v4}, Landroid/app/AlertDialog;-><init>(Landroid/content/Context;I)V
+    invoke-direct {p0, p1, v3}, Landroid/app/AlertDialog;-><init>(Landroid/content/Context;I)V
 
     iput-object p3, p0, Landroid/app/TimePickerDialog;->mTimeSetListener:Landroid/app/TimePickerDialog$OnTimeSetListener;
 
@@ -57,99 +63,89 @@
 
     invoke-virtual {p0}, Landroid/app/TimePickerDialog;->getContext()Landroid/content/Context;
 
-    move-result-object v2
+    move-result-object v1
 
-    new-instance v1, Landroid/util/TypedValue;
-
-    invoke-direct {v1}, Landroid/util/TypedValue;-><init>()V
-
-    invoke-virtual {p1}, Landroid/content/Context;->getTheme()Landroid/content/res/Resources$Theme;
-
-    move-result-object v4
-
-    const v5, 0x101049e
-
-    invoke-virtual {v4, v5, v1, v6}, Landroid/content/res/Resources$Theme;->resolveAttribute(ILandroid/util/TypedValue;Z)Z
-
-    invoke-static {v2}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
+    invoke-static {v1}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
 
     move-result-object v0
 
-    const v4, 0x1090135
+    const v3, 0x1090133
 
-    const/4 v5, 0x0
+    const/4 v4, 0x0
 
-    invoke-virtual {v0, v4, v5}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
+    invoke-virtual {v0, v3, v4}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
+
+    move-result-object v2
+
+    invoke-virtual {p0, v2}, Landroid/app/TimePickerDialog;->setView(Landroid/view/View;)V
+
+    const v3, 0x104000a
+
+    invoke-virtual {v1, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v3
 
-    invoke-virtual {p0, v3}, Landroid/app/TimePickerDialog;->setView(Landroid/view/View;)V
+    const/4 v4, -0x1
 
-    const v4, 0x104000a
+    invoke-virtual {p0, v4, v3, p0}, Landroid/app/TimePickerDialog;->setButton(ILjava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)V
 
-    invoke-virtual {v2, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+    const/high16 v3, 0x1040000
+
+    invoke-virtual {v1, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v3
+
+    const/4 v4, -0x2
+
+    invoke-virtual {p0, v4, v3, p0}, Landroid/app/TimePickerDialog;->setButton(ILjava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)V
+
+    const/4 v3, 0x1
+
+    invoke-virtual {p0, v3}, Landroid/app/TimePickerDialog;->setButtonPanelLayoutHint(I)V
+
+    const v3, 0x1020522
+
+    invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v3
+
+    check-cast v3, Landroid/widget/TimePicker;
+
+    iput-object v3, p0, Landroid/app/TimePickerDialog;->mTimePicker:Landroid/widget/TimePicker;
+
+    iget-object v3, p0, Landroid/app/TimePickerDialog;->mTimePicker:Landroid/widget/TimePicker;
+
+    iget-boolean v4, p0, Landroid/app/TimePickerDialog;->mIs24HourView:Z
+
+    invoke-static {v4}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v4
 
-    const/4 v5, -0x1
+    invoke-virtual {v3, v4}, Landroid/widget/TimePicker;->setIs24HourView(Ljava/lang/Boolean;)V
 
-    invoke-virtual {p0, v5, v4, p0}, Landroid/app/TimePickerDialog;->setButton(ILjava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)V
+    iget-object v3, p0, Landroid/app/TimePickerDialog;->mTimePicker:Landroid/widget/TimePicker;
 
-    const/high16 v4, 0x1040000
+    iget v4, p0, Landroid/app/TimePickerDialog;->mInitialHourOfDay:I
 
-    invoke-virtual {v2, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
-
-    move-result-object v4
-
-    const/4 v5, -0x2
-
-    invoke-virtual {p0, v5, v4, p0}, Landroid/app/TimePickerDialog;->setButton(ILjava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)V
-
-    invoke-virtual {p0, v6}, Landroid/app/TimePickerDialog;->setButtonPanelLayoutHint(I)V
-
-    const v4, 0x10204cd
-
-    invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v4
 
-    check-cast v4, Landroid/widget/TimePicker;
+    invoke-virtual {v3, v4}, Landroid/widget/TimePicker;->setCurrentHour(Ljava/lang/Integer;)V
 
-    iput-object v4, p0, Landroid/app/TimePickerDialog;->mTimePicker:Landroid/widget/TimePicker;
+    iget-object v3, p0, Landroid/app/TimePickerDialog;->mTimePicker:Landroid/widget/TimePicker;
 
-    iget-object v4, p0, Landroid/app/TimePickerDialog;->mTimePicker:Landroid/widget/TimePicker;
+    iget v4, p0, Landroid/app/TimePickerDialog;->mInitialMinute:I
 
-    iget-boolean v5, p0, Landroid/app/TimePickerDialog;->mIs24HourView:Z
+    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-static {v5}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+    move-result-object v4
 
-    move-result-object v5
+    invoke-virtual {v3, v4}, Landroid/widget/TimePicker;->setCurrentMinute(Ljava/lang/Integer;)V
 
-    invoke-virtual {v4, v5}, Landroid/widget/TimePicker;->setIs24HourView(Ljava/lang/Boolean;)V
+    iget-object v3, p0, Landroid/app/TimePickerDialog;->mTimePicker:Landroid/widget/TimePicker;
 
-    iget-object v4, p0, Landroid/app/TimePickerDialog;->mTimePicker:Landroid/widget/TimePicker;
-
-    iget v5, p0, Landroid/app/TimePickerDialog;->mInitialHourOfDay:I
-
-    invoke-static {v5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v5
-
-    invoke-virtual {v4, v5}, Landroid/widget/TimePicker;->setCurrentHour(Ljava/lang/Integer;)V
-
-    iget-object v4, p0, Landroid/app/TimePickerDialog;->mTimePicker:Landroid/widget/TimePicker;
-
-    iget v5, p0, Landroid/app/TimePickerDialog;->mInitialMinute:I
-
-    invoke-static {v5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v5
-
-    invoke-virtual {v4, v5}, Landroid/widget/TimePicker;->setCurrentMinute(Ljava/lang/Integer;)V
-
-    iget-object v4, p0, Landroid/app/TimePickerDialog;->mTimePicker:Landroid/widget/TimePicker;
-
-    invoke-virtual {v4, p0}, Landroid/widget/TimePicker;->setOnTimeChangedListener(Landroid/widget/TimePicker$OnTimeChangedListener;)V
+    invoke-virtual {v3, p0}, Landroid/widget/TimePicker;->setOnTimeChangedListener(Landroid/widget/TimePicker$OnTimeChangedListener;)V
 
     return-void
 .end method
@@ -205,6 +201,14 @@
 
 
 # virtual methods
+.method public getTimePicker()Landroid/widget/TimePicker;
+    .locals 1
+
+    iget-object v0, p0, Landroid/app/TimePickerDialog;->mTimePicker:Landroid/widget/TimePicker;
+
+    return-object v0
+.end method
+
 .method public onClick(Landroid/content/DialogInterface;I)V
     .locals 4
 
@@ -359,6 +363,26 @@
 
 .method public onTimeChanged(Landroid/widget/TimePicker;II)V
     .locals 0
+
+    return-void
+.end method
+
+.method public show()V
+    .locals 2
+
+    invoke-super {p0}, Landroid/app/AlertDialog;->show()V
+
+    const/4 v0, -0x1
+
+    invoke-virtual {p0, v0}, Landroid/app/TimePickerDialog;->getButton(I)Landroid/widget/Button;
+
+    move-result-object v0
+
+    new-instance v1, Landroid/app/TimePickerDialog$1;
+
+    invoke-direct {v1, p0}, Landroid/app/TimePickerDialog$1;-><init>(Landroid/app/TimePickerDialog;)V
+
+    invoke-virtual {v0, v1}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     return-void
 .end method

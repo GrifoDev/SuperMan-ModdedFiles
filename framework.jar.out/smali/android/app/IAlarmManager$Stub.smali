@@ -26,21 +26,19 @@
 # static fields
 .field private static final DESCRIPTOR:Ljava/lang/String; = "android.app.IAlarmManager"
 
-.field static final TRANSACTION_getNextAlarmClock:I = 0x7
+.field static final TRANSACTION_getNextAlarmClock:I = 0x6
 
-.field static final TRANSACTION_getNextWakeFromIdleTime:I = 0x6
+.field static final TRANSACTION_getNextWakeFromIdleTime:I = 0x5
 
-.field static final TRANSACTION_remove:I = 0x5
+.field static final TRANSACTION_remove:I = 0x4
 
 .field static final TRANSACTION_set:I = 0x1
 
-.field static final TRANSACTION_setAutoPowerUp:I = 0x4
+.field static final TRANSACTION_setAutoPowerUp:I = 0x7
 
 .field static final TRANSACTION_setTime:I = 0x2
 
 .field static final TRANSACTION_setTimeZone:I = 0x3
-
-.field static final TRANSACTION_updateBlockedUids:I = 0x8
 
 
 # direct methods
@@ -99,7 +97,7 @@
 .end method
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    .locals 29
+    .locals 28
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -261,11 +259,11 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/app/IAlarmManager$Stub;->setTime(J)Z
 
-    move-result v28
+    move-result v27
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v28, :cond_3
+    if-eqz v27, :cond_3
 
     const/4 v5, 0x1
 
@@ -305,27 +303,6 @@
     return v5
 
     :sswitch_4
-    const-string/jumbo v5, "android.app.IAlarmManager"
-
-    move-object/from16 v0, p2
-
-    invoke-virtual {v0, v5}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v6
-
-    move-object/from16 v0, p0
-
-    invoke-virtual {v0, v6}, Landroid/app/IAlarmManager$Stub;->setAutoPowerUp(Ljava/lang/String;)V
-
-    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
-
-    const/4 v5, 0x1
-
-    return v5
-
-    :sswitch_5
     const-string/jumbo v5, "android.app.IAlarmManager"
 
     move-object/from16 v0, p2
@@ -376,7 +353,7 @@
 
     goto :goto_4
 
-    :sswitch_6
+    :sswitch_5
     const-string/jumbo v5, "android.app.IAlarmManager"
 
     move-object/from16 v0, p2
@@ -385,13 +362,13 @@
 
     invoke-virtual/range {p0 .. p0}, Landroid/app/IAlarmManager$Stub;->getNextWakeFromIdleTime()J
 
-    move-result-wide v26
+    move-result-wide v24
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     move-object/from16 v0, p3
 
-    move-wide/from16 v1, v26
+    move-wide/from16 v1, v24
 
     invoke-virtual {v0, v1, v2}, Landroid/os/Parcel;->writeLong(J)V
 
@@ -399,7 +376,7 @@
 
     return v5
 
-    :sswitch_7
+    :sswitch_6
     const-string/jumbo v5, "android.app.IAlarmManager"
 
     move-object/from16 v0, p2
@@ -414,11 +391,11 @@
 
     invoke-virtual {v0, v4}, Landroid/app/IAlarmManager$Stub;->getNextAlarmClock(I)Landroid/app/AlarmManager$AlarmClockInfo;
 
-    move-result-object v25
+    move-result-object v26
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v25, :cond_5
+    if-eqz v26, :cond_5
 
     const/4 v5, 0x1
 
@@ -428,7 +405,7 @@
 
     const/4 v5, 0x1
 
-    move-object/from16 v0, v25
+    move-object/from16 v0, v26
 
     move-object/from16 v1, p3
 
@@ -448,44 +425,26 @@
 
     goto :goto_5
 
-    :sswitch_8
+    :sswitch_7
     const-string/jumbo v5, "android.app.IAlarmManager"
 
     move-object/from16 v0, p2
 
     invoke-virtual {v0, v5}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
-    move-result v4
+    move-result-object v6
 
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v5
-
-    if-eqz v5, :cond_6
-
-    const/16 v24, 0x1
-
-    :goto_6
     move-object/from16 v0, p0
 
-    move/from16 v1, v24
-
-    invoke-virtual {v0, v4, v1}, Landroid/app/IAlarmManager$Stub;->updateBlockedUids(IZ)V
+    invoke-virtual {v0, v6}, Landroid/app/IAlarmManager$Stub;->setAutoPowerUp(Ljava/lang/String;)V
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     const/4 v5, 0x1
 
     return v5
-
-    :cond_6
-    const/16 v24, 0x0
-
-    goto :goto_6
-
-    nop
 
     :sswitch_data_0
     .sparse-switch
@@ -496,7 +455,6 @@
         0x5 -> :sswitch_5
         0x6 -> :sswitch_6
         0x7 -> :sswitch_7
-        0x8 -> :sswitch_8
         0x5f4e5446 -> :sswitch_0
     .end sparse-switch
 .end method

@@ -271,7 +271,9 @@
     :try_start_0
     iget-object v1, p0, Lcom/samsung/android/location/SemLocationManager;->mService:Lcom/samsung/android/location/ISLocationManager;
 
-    invoke-interface {v1, p1}, Lcom/samsung/android/location/ISLocationManager;->addGeofence(Lcom/samsung/android/location/SemGeofence;)I
+    const/4 v2, 0x0
+
+    invoke-interface {v1, p1, v2}, Lcom/samsung/android/location/ISLocationManager;->addGeofence(Lcom/samsung/android/location/SemGeofence;Ljava/lang/String;)I
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -294,7 +296,81 @@
 
     move-result-object v2
 
-    invoke-virtual {v0}, Ljava/lang/Throwable;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Landroid/os/RemoteException;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 v1, -0x4
+
+    return v1
+.end method
+
+.method public addGeofence(Lcom/samsung/android/location/SemGeofence;Ljava/lang/String;)I
+    .locals 4
+
+    iget-object v1, p0, Lcom/samsung/android/location/SemLocationManager;->mService:Lcom/samsung/android/location/ISLocationManager;
+
+    if-nez v1, :cond_0
+
+    const-string/jumbo v1, "SemLocationManager"
+
+    const-string/jumbo v2, "SLocationService is not supported"
+
+    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 v1, -0x1
+
+    return v1
+
+    :cond_0
+    invoke-direct {p0, p1}, Lcom/samsung/android/location/SemLocationManager;->isArgumentsValid(Lcom/samsung/android/location/SemGeofence;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_1
+
+    const/4 v1, -0x2
+
+    return v1
+
+    :cond_1
+    :try_start_0
+    iget-object v1, p0, Lcom/samsung/android/location/SemLocationManager;->mService:Lcom/samsung/android/location/ISLocationManager;
+
+    invoke-interface {v1, p1, p2}, Lcom/samsung/android/location/ISLocationManager;->addGeofence(Lcom/samsung/android/location/SemGeofence;Ljava/lang/String;)I
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v1
+
+    return v1
+
+    :catch_0
+    move-exception v0
+
+    const-string/jumbo v1, "SemLocationManager"
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "getGeofenceId : RemoteException "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v0}, Landroid/os/RemoteException;->toString()Ljava/lang/String;
 
     move-result-object v3
 
@@ -363,7 +439,7 @@
 
     move-result-object v2
 
-    invoke-virtual {v0}, Ljava/lang/Throwable;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Landroid/os/RemoteException;->toString()Ljava/lang/String;
 
     move-result-object v3
 
@@ -378,6 +454,106 @@
     invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     return v4
+.end method
+
+.method public getGeofenceIdList(Ljava/lang/String;)Ljava/util/List;
+    .locals 8
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/lang/String;",
+            ")",
+            "Ljava/util/List",
+            "<",
+            "Ljava/lang/Integer;",
+            ">;"
+        }
+    .end annotation
+
+    const/4 v7, 0x0
+
+    iget-object v4, p0, Lcom/samsung/android/location/SemLocationManager;->mService:Lcom/samsung/android/location/ISLocationManager;
+
+    if-nez v4, :cond_0
+
+    const-string/jumbo v4, "SemLocationManager"
+
+    const-string/jumbo v5, "SLocationService is not supported"
+
+    invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-object v7
+
+    :cond_0
+    const/4 v3, 0x0
+
+    new-instance v2, Ljava/util/ArrayList;
+
+    invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
+
+    :try_start_0
+    iget-object v4, p0, Lcom/samsung/android/location/SemLocationManager;->mService:Lcom/samsung/android/location/ISLocationManager;
+
+    invoke-interface {v4, p1}, Lcom/samsung/android/location/ISLocationManager;->getGeofenceIdList(Ljava/lang/String;)[I
+
+    move-result-object v3
+
+    if-eqz v3, :cond_1
+
+    const/4 v1, 0x0
+
+    :goto_0
+    array-length v4, v3
+
+    if-ge v1, v4, :cond_1
+
+    aget v4, v3, v1
+
+    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v4
+
+    invoke-interface {v2, v4}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_0
+
+    :cond_1
+    return-object v2
+
+    :catch_0
+    move-exception v0
+
+    const-string/jumbo v4, "SemLocationManager"
+
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v6, "getGeofenceIdList: RemoteException "
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v0}, Landroid/os/RemoteException;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-object v7
 .end method
 
 .method public removeCurrentLocation(ILcom/samsung/android/location/SCurrentLocListener;)I
@@ -507,7 +683,7 @@
 
     move-result-object v3
 
-    invoke-virtual {v0}, Ljava/lang/Throwable;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Landroid/os/RemoteException;->toString()Ljava/lang/String;
 
     move-result-object v4
 
@@ -545,7 +721,9 @@
     :try_start_0
     iget-object v1, p0, Lcom/samsung/android/location/SemLocationManager;->mService:Lcom/samsung/android/location/ISLocationManager;
 
-    invoke-interface {v1, p1}, Lcom/samsung/android/location/ISLocationManager;->removeGeofence(I)I
+    const/4 v2, 0x0
+
+    invoke-interface {v1, p1, v2}, Lcom/samsung/android/location/ISLocationManager;->removeGeofence(ILjava/lang/String;)I
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -568,7 +746,70 @@
 
     move-result-object v2
 
-    invoke-virtual {v0}, Ljava/lang/Throwable;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Landroid/os/RemoteException;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 v1, -0x4
+
+    return v1
+.end method
+
+.method public removeGeofence(ILjava/lang/String;)I
+    .locals 4
+
+    iget-object v1, p0, Lcom/samsung/android/location/SemLocationManager;->mService:Lcom/samsung/android/location/ISLocationManager;
+
+    if-nez v1, :cond_0
+
+    const-string/jumbo v1, "SemLocationManager"
+
+    const-string/jumbo v2, "SLocationService is not supported"
+
+    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 v1, -0x1
+
+    return v1
+
+    :cond_0
+    :try_start_0
+    iget-object v1, p0, Lcom/samsung/android/location/SemLocationManager;->mService:Lcom/samsung/android/location/ISLocationManager;
+
+    invoke-interface {v1, p1, p2}, Lcom/samsung/android/location/ISLocationManager;->removeGeofence(ILjava/lang/String;)I
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v1
+
+    return v1
+
+    :catch_0
+    move-exception v0
+
+    const-string/jumbo v1, "SemLocationManager"
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "removeGeofence: RemoteException "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v0}, Landroid/os/RemoteException;->toString()Ljava/lang/String;
 
     move-result-object v3
 
@@ -665,7 +906,7 @@
 
     move-result-object v3
 
-    invoke-virtual {v0}, Ljava/lang/Throwable;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Landroid/os/RemoteException;->toString()Ljava/lang/String;
 
     move-result-object v4
 
@@ -718,7 +959,9 @@
     :try_start_0
     iget-object v1, p0, Lcom/samsung/android/location/SemLocationManager;->mService:Lcom/samsung/android/location/ISLocationManager;
 
-    invoke-interface {v1, p1}, Lcom/samsung/android/location/ISLocationManager;->removeSingleLocation(Landroid/app/PendingIntent;)I
+    const/4 v2, 0x0
+
+    invoke-interface {v1, p1, v2}, Lcom/samsung/android/location/ISLocationManager;->removeSingleLocation(Landroid/app/PendingIntent;Lcom/samsung/android/location/ISLocationListener;)I
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -741,7 +984,7 @@
 
     move-result-object v2
 
-    invoke-virtual {v0}, Ljava/lang/Throwable;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Landroid/os/RemoteException;->toString()Ljava/lang/String;
 
     move-result-object v3
 
@@ -758,6 +1001,105 @@
     const/4 v1, -0x4
 
     return v1
+.end method
+
+.method public removeSingleLocation(Lcom/samsung/android/location/SemLocationListener;)I
+    .locals 5
+
+    iget-object v2, p0, Lcom/samsung/android/location/SemLocationManager;->mService:Lcom/samsung/android/location/ISLocationManager;
+
+    if-nez v2, :cond_0
+
+    const-string/jumbo v2, "SemLocationManager"
+
+    const-string/jumbo v3, "SLocationService is not supported"
+
+    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 v2, -0x1
+
+    return v2
+
+    :cond_0
+    if-nez p1, :cond_1
+
+    const-string/jumbo v2, "SemLocationManager"
+
+    const-string/jumbo v3, "parameters are not vaild"
+
+    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 v2, -0x2
+
+    return v2
+
+    :cond_1
+    :try_start_0
+    iget-object v2, p0, Lcom/samsung/android/location/SemLocationManager;->mLocListeners:Ljava/util/HashMap;
+
+    invoke-virtual {v2, p1}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/samsung/android/location/SemLocationManager$LocListenerTransport;
+
+    if-nez v1, :cond_2
+
+    const-string/jumbo v2, "SemLocationManager"
+
+    const-string/jumbo v3, "Already stopped location"
+
+    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 v2, -0x3
+
+    return v2
+
+    :cond_2
+    iget-object v2, p0, Lcom/samsung/android/location/SemLocationManager;->mService:Lcom/samsung/android/location/ISLocationManager;
+
+    const/4 v3, 0x0
+
+    invoke-interface {v2, v3, v1}, Lcom/samsung/android/location/ISLocationManager;->removeSingleLocation(Landroid/app/PendingIntent;Lcom/samsung/android/location/ISLocationListener;)I
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v2
+
+    return v2
+
+    :catch_0
+    move-exception v0
+
+    const-string/jumbo v2, "SemLocationManager"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "removeSingleLocation: RemoteException "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v0}, Landroid/os/RemoteException;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 v2, -0x4
+
+    return v2
 .end method
 
 .method public requestAddressFromLocation([D[DLandroid/app/PendingIntent;)I
@@ -817,7 +1159,7 @@
 
     move-result-object v2
 
-    invoke-virtual {v0}, Ljava/lang/Throwable;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Landroid/os/RemoteException;->toString()Ljava/lang/String;
 
     move-result-object v3
 
@@ -886,7 +1228,7 @@
 
     move-result-object v2
 
-    invoke-virtual {v0}, Ljava/lang/Throwable;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Landroid/os/RemoteException;->toString()Ljava/lang/String;
 
     move-result-object v3
 
@@ -1006,7 +1348,7 @@
 
     move-result-object v3
 
-    invoke-virtual {v0}, Ljava/lang/Throwable;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Landroid/os/RemoteException;->toString()Ljava/lang/String;
 
     move-result-object v4
 
@@ -1120,7 +1462,7 @@
 
     move-result-object v3
 
-    invoke-virtual {v0}, Ljava/lang/Throwable;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Landroid/os/RemoteException;->toString()Ljava/lang/String;
 
     move-result-object v4
 
@@ -1140,79 +1482,211 @@
 .end method
 
 .method public requestSingleLocation(IIZLandroid/app/PendingIntent;)I
-    .locals 4
+    .locals 7
 
-    iget-object v1, p0, Lcom/samsung/android/location/SemLocationManager;->mService:Lcom/samsung/android/location/ISLocationManager;
+    iget-object v0, p0, Lcom/samsung/android/location/SemLocationManager;->mService:Lcom/samsung/android/location/ISLocationManager;
 
-    if-nez v1, :cond_0
+    if-nez v0, :cond_0
 
-    const-string/jumbo v1, "SemLocationManager"
+    const-string/jumbo v0, "SemLocationManager"
 
-    const-string/jumbo v2, "SLocationService is not supported"
+    const-string/jumbo v1, "SLocationService is not supported"
 
-    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    const/4 v1, -0x1
+    const/4 v0, -0x1
 
-    return v1
+    return v0
 
     :cond_0
     if-nez p4, :cond_1
 
-    const-string/jumbo v1, "SemLocationManager"
+    const-string/jumbo v0, "SemLocationManager"
 
-    const-string/jumbo v2, "parameters are not vaild"
+    const-string/jumbo v1, "parameters are not vaild"
 
-    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    const/4 v1, -0x2
+    const/4 v0, -0x2
 
-    return v1
+    return v0
 
     :cond_1
     :try_start_0
-    iget-object v1, p0, Lcom/samsung/android/location/SemLocationManager;->mService:Lcom/samsung/android/location/ISLocationManager;
+    iget-object v0, p0, Lcom/samsung/android/location/SemLocationManager;->mService:Lcom/samsung/android/location/ISLocationManager;
 
-    invoke-interface {v1, p1, p2, p3, p4}, Lcom/samsung/android/location/ISLocationManager;->requestSingleLocation(IIZLandroid/app/PendingIntent;)I
+    const/4 v5, 0x0
+
+    move v1, p1
+
+    move v2, p2
+
+    move v3, p3
+
+    move-object v4, p4
+
+    invoke-interface/range {v0 .. v5}, Lcom/samsung/android/location/ISLocationManager;->requestSingleLocation(IIZLandroid/app/PendingIntent;Lcom/samsung/android/location/ISLocationListener;)I
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    move-result v1
+    move-result v0
 
-    return v1
+    return v0
 
     :catch_0
+    move-exception v6
+
+    const-string/jumbo v0, "SemLocationManager"
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "requestSingleLocation: RemoteException "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v6}, Landroid/os/RemoteException;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 v0, -0x4
+
+    return v0
+.end method
+
+.method public requestSingleLocation(IIZLcom/samsung/android/location/SemLocationListener;)I
+    .locals 8
+
+    iget-object v0, p0, Lcom/samsung/android/location/SemLocationManager;->mService:Lcom/samsung/android/location/ISLocationManager;
+
+    if-nez v0, :cond_0
+
+    const-string/jumbo v0, "SemLocationManager"
+
+    const-string/jumbo v1, "SLocationService is not supported"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 v0, -0x1
+
+    return v0
+
+    :cond_0
+    if-nez p4, :cond_1
+
+    const-string/jumbo v0, "SemLocationManager"
+
+    const-string/jumbo v1, "parameters are not vaild"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 v0, -0x2
+
+    return v0
+
+    :cond_1
+    :try_start_0
+    iget-object v7, p0, Lcom/samsung/android/location/SemLocationManager;->mLocListeners:Ljava/util/HashMap;
+
+    monitor-enter v7
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    :try_start_1
+    iget-object v0, p0, Lcom/samsung/android/location/SemLocationManager;->mLocListeners:Ljava/util/HashMap;
+
+    invoke-virtual {v0, p4}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v5
+
+    check-cast v5, Lcom/samsung/android/location/SemLocationManager$LocListenerTransport;
+
+    if-nez v5, :cond_2
+
+    new-instance v5, Lcom/samsung/android/location/SemLocationManager$LocListenerTransport;
+
+    invoke-direct {v5, p0, p4}, Lcom/samsung/android/location/SemLocationManager$LocListenerTransport;-><init>(Lcom/samsung/android/location/SemLocationManager;Lcom/samsung/android/location/SemLocationListener;)V
+
+    :cond_2
+    iget-object v0, p0, Lcom/samsung/android/location/SemLocationManager;->mLocListeners:Ljava/util/HashMap;
+
+    invoke-virtual {v0, p4, v5}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    iget-object v0, p0, Lcom/samsung/android/location/SemLocationManager;->mService:Lcom/samsung/android/location/ISLocationManager;
+
+    const/4 v4, 0x0
+
+    move v1, p1
+
+    move v2, p2
+
+    move v3, p3
+
+    invoke-interface/range {v0 .. v5}, Lcom/samsung/android/location/ISLocationManager;->requestSingleLocation(IIZLandroid/app/PendingIntent;Lcom/samsung/android/location/ISLocationListener;)I
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    move-result v0
+
+    :try_start_2
+    monitor-exit v7
+
+    return v0
+
+    :catchall_0
     move-exception v0
 
-    const-string/jumbo v1, "SemLocationManager"
+    monitor-exit v7
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    throw v0
+    :try_end_2
+    .catch Landroid/os/RemoteException; {:try_start_2 .. :try_end_2} :catch_0
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    :catch_0
+    move-exception v6
 
-    const-string/jumbo v3, "requestSingleLocation: RemoteException "
+    const-string/jumbo v0, "SemLocationManager"
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "requestSingleLocation: RemoteException "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v6}, Landroid/os/RemoteException;->toString()Ljava/lang/String;
 
     move-result-object v2
 
-    invoke-virtual {v0}, Ljava/lang/Throwable;->toString()Ljava/lang/String;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    move-result-object v1
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    move-result-object v2
+    const/4 v0, -0x4
 
-    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    const/4 v1, -0x4
-
-    return v1
+    return v0
 .end method
 
 .method public startGeofenceMonitoring(ILandroid/app/PendingIntent;)I
@@ -1272,7 +1746,7 @@
 
     move-result-object v2
 
-    invoke-virtual {v0}, Ljava/lang/Throwable;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Landroid/os/RemoteException;->toString()Ljava/lang/String;
 
     move-result-object v3
 
@@ -1335,7 +1809,7 @@
 
     move-result-object v2
 
-    invoke-virtual {v0}, Ljava/lang/Throwable;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Landroid/os/RemoteException;->toString()Ljava/lang/String;
 
     move-result-object v3
 
@@ -1452,7 +1926,7 @@
 
     move-result-object v3
 
-    invoke-virtual {v0}, Ljava/lang/Throwable;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Landroid/os/RemoteException;->toString()Ljava/lang/String;
 
     move-result-object v4
 
@@ -1528,7 +2002,7 @@
 
     move-result-object v2
 
-    invoke-virtual {v0}, Ljava/lang/Throwable;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Landroid/os/RemoteException;->toString()Ljava/lang/String;
 
     move-result-object v3
 
@@ -1591,7 +2065,7 @@
 
     move-result-object v2
 
-    invoke-virtual {v0}, Ljava/lang/Throwable;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Landroid/os/RemoteException;->toString()Ljava/lang/String;
 
     move-result-object v3
 
@@ -1691,7 +2165,7 @@
 
     move-result-object v3
 
-    invoke-virtual {v0}, Ljava/lang/Throwable;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Landroid/os/RemoteException;->toString()Ljava/lang/String;
 
     move-result-object v4
 
@@ -1785,7 +2259,9 @@
     :try_start_0
     iget-object v3, p0, Lcom/samsung/android/location/SemLocationManager;->mService:Lcom/samsung/android/location/ISLocationManager;
 
-    invoke-interface {v3, v2}, Lcom/samsung/android/location/ISLocationManager;->syncGeofence([I)I
+    const/4 v4, 0x0
+
+    invoke-interface {v3, v2, v4}, Lcom/samsung/android/location/ISLocationManager;->syncGeofence([ILjava/lang/String;)I
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -1808,7 +2284,126 @@
 
     move-result-object v4
 
-    invoke-virtual {v0}, Ljava/lang/Throwable;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Landroid/os/RemoteException;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v3, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 v3, -0x4
+
+    return v3
+.end method
+
+.method public syncGeofence(Ljava/util/List;Ljava/lang/String;)I
+    .locals 6
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/List",
+            "<",
+            "Ljava/lang/Integer;",
+            ">;",
+            "Ljava/lang/String;",
+            ")I"
+        }
+    .end annotation
+
+    iget-object v3, p0, Lcom/samsung/android/location/SemLocationManager;->mService:Lcom/samsung/android/location/ISLocationManager;
+
+    if-nez v3, :cond_0
+
+    const-string/jumbo v3, "SemLocationManager"
+
+    const-string/jumbo v4, "SLocationService is not supported"
+
+    invoke-static {v3, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 v3, -0x1
+
+    return v3
+
+    :cond_0
+    if-nez p1, :cond_1
+
+    const-string/jumbo v3, "SemLocationManager"
+
+    const-string/jumbo v4, "geofenceIdList is null"
+
+    invoke-static {v3, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 v3, -0x2
+
+    return v3
+
+    :cond_1
+    invoke-interface {p1}, Ljava/util/List;->size()I
+
+    move-result v3
+
+    new-array v2, v3, [I
+
+    const/4 v1, 0x0
+
+    :goto_0
+    invoke-interface {p1}, Ljava/util/List;->size()I
+
+    move-result v3
+
+    if-ge v1, v3, :cond_2
+
+    invoke-interface {p1, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Ljava/lang/Integer;
+
+    invoke-virtual {v3}, Ljava/lang/Integer;->intValue()I
+
+    move-result v3
+
+    aput v3, v2, v1
+
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_0
+
+    :cond_2
+    :try_start_0
+    iget-object v3, p0, Lcom/samsung/android/location/SemLocationManager;->mService:Lcom/samsung/android/location/ISLocationManager;
+
+    invoke-interface {v3, v2, p2}, Lcom/samsung/android/location/ISLocationManager;->syncGeofence([ILjava/lang/String;)I
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v3
+
+    return v3
+
+    :catch_0
+    move-exception v0
+
+    const-string/jumbo v3, "SemLocationManager"
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v5, "syncGeofence: RemoteException "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v0}, Landroid/os/RemoteException;->toString()Ljava/lang/String;
 
     move-result-object v5
 
@@ -1887,7 +2482,7 @@
 
     move-result-object v2
 
-    invoke-virtual {v0}, Ljava/lang/Throwable;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Landroid/os/RemoteException;->toString()Ljava/lang/String;
 
     move-result-object v3
 

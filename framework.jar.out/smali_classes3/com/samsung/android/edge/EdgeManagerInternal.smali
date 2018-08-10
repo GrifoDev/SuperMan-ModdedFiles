@@ -3,6 +3,16 @@
 .source "EdgeManagerInternal.java"
 
 
+# static fields
+.field public static final NOTIFICATION_KEY_IS_HEAD_UP:Ljava/lang/String; = "isHeadUp"
+
+.field public static final NOTIFICATION_KEY_IS_INTERRUPT:Ljava/lang/String; = "isInterrupt"
+
+.field public static final NOTIFICATION_KEY_IS_UPDATE:Ljava/lang/String; = "isUpdate"
+
+.field public static final NOTIFICATION_KEY_VISIBILITY:Ljava/lang/String; = "visibility"
+
+
 # direct methods
 .method public constructor <init>()V
     .locals 0
@@ -14,20 +24,38 @@
 
 
 # virtual methods
-.method public abstract cancelEdgeLightingForNotification(Landroid/service/notification/StatusBarNotification;)V
+.method public abstract hideForNotification(Landroid/service/notification/StatusBarNotification;)Z
 .end method
 
-.method public abstract edgeLightingForNotification(Landroid/service/notification/StatusBarNotification;)V
+.method public abstract hideForWakeLock(Ljava/lang/String;I)V
 .end method
 
-.method public abstract excludePackageFromRunningEdgeLightingForNotification(Ljava/lang/String;)V
+.method public abstract hideForWakeLockByWindow(Ljava/lang/String;Ljava/lang/String;)V
 .end method
 
-.method public abstract isRunningEdgeLightingForNotificationFromPackage(Ljava/lang/String;)Z
+.method public abstract setSuppressed(I)V
 .end method
 
-.method public abstract putOnGoingEventNotification(Ljava/lang/String;Ljava/lang/String;)V
+.method public abstract showForNotification(Landroid/service/notification/StatusBarNotification;Landroid/os/Bundle;)Z
 .end method
 
-.method public abstract removeOnGoingEventNotification(Ljava/lang/String;)V
+.method public abstract showForResumedActivity(Landroid/content/ComponentName;)V
+.end method
+
+.method public abstract showForToast(Ljava/lang/String;Ljava/lang/String;)Z
+.end method
+
+.method public abstract showForWakeLock(Ljava/lang/String;I)Z
+.end method
+
+.method public abstract showForWakeLockByWindow(Ljava/lang/String;Ljava/lang/String;)Z
+.end method
+
+.method public abstract showForWakeUp(Ljava/lang/String;I)Z
+.end method
+
+.method public abstract showForWakeUpByWindow(Ljava/lang/String;Ljava/lang/String;I)Z
+.end method
+
+.method public abstract statusBarDisabled(II)V
 .end method

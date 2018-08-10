@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/internal/os/ZygoteInit;->preload()V
+    value = Lcom/android/internal/os/ZygoteInit;->preload(Landroid/util/BootTimingsTraceLog;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -33,11 +33,11 @@
 
     const/4 v3, 0x0
 
-    const/16 v5, 0x7530
+    const/16 v5, 0x1388
 
     const/16 v2, 0x28
 
-    const/16 v0, 0x2ee
+    const/16 v0, 0x7d
 
     :goto_0
     sget-boolean v6, Lcom/android/internal/os/ZygoteInit;->isPreloadComplete:Z
@@ -54,7 +54,7 @@
     :goto_1
     add-int/lit8 v4, v3, 0x1
 
-    const/16 v6, 0x2ee
+    const/16 v6, 0x7d
 
     if-le v3, v6, :cond_1
 
@@ -63,6 +63,12 @@
     const-string/jumbo v7, "!@TOPrldRstrtZgt"
 
     invoke-static {v6, v7}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    const-string/jumbo v6, "persist.sys.ppr"
+
+    const-string/jumbo v7, "false"
+
+    invoke-static {v6, v7}, Landroid/os/SystemProperties;->set(Ljava/lang/String;Ljava/lang/String;)V
 
     invoke-static {}, Landroid/os/Process;->myPid()I
 

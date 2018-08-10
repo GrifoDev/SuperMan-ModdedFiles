@@ -1,5 +1,5 @@
 .class Landroid/transition/ChangeBounds$9;
-.super Landroid/transition/Transition$TransitionListenerAdapter;
+.super Landroid/transition/TransitionListenerAdapter;
 .source "ChangeBounds.java"
 
 
@@ -30,7 +30,7 @@
 
     iput-object p2, p0, Landroid/transition/ChangeBounds$9;->val$parent:Landroid/view/ViewGroup;
 
-    invoke-direct {p0}, Landroid/transition/Transition$TransitionListenerAdapter;-><init>()V
+    invoke-direct {p0}, Landroid/transition/TransitionListenerAdapter;-><init>()V
 
     const/4 v0, 0x0
 
@@ -71,6 +71,8 @@
     invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->suppressLayout(Z)V
 
     :cond_0
+    invoke-virtual {p1, p0}, Landroid/transition/Transition;->removeListener(Landroid/transition/Transition$TransitionListener;)Landroid/transition/Transition;
+
     return-void
 .end method
 

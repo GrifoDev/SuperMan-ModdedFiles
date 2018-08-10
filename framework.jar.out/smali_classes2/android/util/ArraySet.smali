@@ -31,13 +31,13 @@
 
 .field private static final TAG:Ljava/lang/String; = "ArraySet"
 
-.field static mBaseCache:[Ljava/lang/Object;
+.field static sBaseCache:[Ljava/lang/Object;
 
-.field static mBaseCacheSize:I
+.field static sBaseCacheSize:I
 
-.field static mTwiceBaseCache:[Ljava/lang/Object;
+.field static sTwiceBaseCache:[Ljava/lang/Object;
 
-.field static mTwiceBaseCacheSize:I
+.field static sTwiceBaseCacheSize:I
 
 
 # instance fields
@@ -162,11 +162,11 @@
     monitor-enter v3
 
     :try_start_0
-    sget-object v2, Landroid/util/ArraySet;->mTwiceBaseCache:[Ljava/lang/Object;
+    sget-object v2, Landroid/util/ArraySet;->sTwiceBaseCache:[Ljava/lang/Object;
 
     if-eqz v2, :cond_0
 
-    sget-object v0, Landroid/util/ArraySet;->mTwiceBaseCache:[Ljava/lang/Object;
+    sget-object v0, Landroid/util/ArraySet;->sTwiceBaseCache:[Ljava/lang/Object;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -179,7 +179,7 @@
 
     check-cast v2, [Ljava/lang/Object;
 
-    sput-object v2, Landroid/util/ArraySet;->mTwiceBaseCache:[Ljava/lang/Object;
+    sput-object v2, Landroid/util/ArraySet;->sTwiceBaseCache:[Ljava/lang/Object;
 
     const/4 v2, 0x1
 
@@ -201,11 +201,11 @@
 
     aput-object v2, v0, v4
 
-    sget v2, Landroid/util/ArraySet;->mTwiceBaseCacheSize:I
+    sget v2, Landroid/util/ArraySet;->sTwiceBaseCacheSize:I
 
     add-int/lit8 v2, v2, -0x1
 
-    sput v2, Landroid/util/ArraySet;->mTwiceBaseCacheSize:I
+    sput v2, Landroid/util/ArraySet;->sTwiceBaseCacheSize:I
     :try_end_1
     .catch Ljava/lang/ClassCastException; {:try_start_1 .. :try_end_1} :catch_0
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
@@ -260,11 +260,11 @@
 
     const/4 v2, 0x0
 
-    sput-object v2, Landroid/util/ArraySet;->mTwiceBaseCache:[Ljava/lang/Object;
+    sput-object v2, Landroid/util/ArraySet;->sTwiceBaseCache:[Ljava/lang/Object;
 
     const/4 v2, 0x0
 
-    sput v2, Landroid/util/ArraySet;->mTwiceBaseCacheSize:I
+    sput v2, Landroid/util/ArraySet;->sTwiceBaseCacheSize:I
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
@@ -300,11 +300,11 @@
     monitor-enter v3
 
     :try_start_3
-    sget-object v2, Landroid/util/ArraySet;->mBaseCache:[Ljava/lang/Object;
+    sget-object v2, Landroid/util/ArraySet;->sBaseCache:[Ljava/lang/Object;
 
     if-eqz v2, :cond_0
 
-    sget-object v0, Landroid/util/ArraySet;->mBaseCache:[Ljava/lang/Object;
+    sget-object v0, Landroid/util/ArraySet;->sBaseCache:[Ljava/lang/Object;
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_1
 
@@ -317,7 +317,7 @@
 
     check-cast v2, [Ljava/lang/Object;
 
-    sput-object v2, Landroid/util/ArraySet;->mBaseCache:[Ljava/lang/Object;
+    sput-object v2, Landroid/util/ArraySet;->sBaseCache:[Ljava/lang/Object;
 
     const/4 v2, 0x1
 
@@ -339,11 +339,11 @@
 
     aput-object v2, v0, v4
 
-    sget v2, Landroid/util/ArraySet;->mBaseCacheSize:I
+    sget v2, Landroid/util/ArraySet;->sBaseCacheSize:I
 
     add-int/lit8 v2, v2, -0x1
 
-    sput v2, Landroid/util/ArraySet;->mBaseCacheSize:I
+    sput v2, Landroid/util/ArraySet;->sBaseCacheSize:I
     :try_end_4
     .catch Ljava/lang/ClassCastException; {:try_start_4 .. :try_end_4} :catch_1
     .catchall {:try_start_4 .. :try_end_4} :catchall_1
@@ -398,11 +398,11 @@
 
     const/4 v2, 0x0
 
-    sput-object v2, Landroid/util/ArraySet;->mBaseCache:[Ljava/lang/Object;
+    sput-object v2, Landroid/util/ArraySet;->sBaseCache:[Ljava/lang/Object;
 
     const/4 v2, 0x0
 
-    sput v2, Landroid/util/ArraySet;->mBaseCacheSize:I
+    sput v2, Landroid/util/ArraySet;->sBaseCacheSize:I
     :try_end_5
     .catchall {:try_start_5 .. :try_end_5} :catchall_1
 
@@ -434,11 +434,11 @@
     monitor-enter v2
 
     :try_start_0
-    sget v1, Landroid/util/ArraySet;->mTwiceBaseCacheSize:I
+    sget v1, Landroid/util/ArraySet;->sTwiceBaseCacheSize:I
 
     if-ge v1, v3, :cond_1
 
-    sget-object v1, Landroid/util/ArraySet;->mTwiceBaseCache:[Ljava/lang/Object;
+    sget-object v1, Landroid/util/ArraySet;->sTwiceBaseCache:[Ljava/lang/Object;
 
     const/4 v3, 0x0
 
@@ -462,13 +462,13 @@
     goto :goto_0
 
     :cond_0
-    sput-object p1, Landroid/util/ArraySet;->mTwiceBaseCache:[Ljava/lang/Object;
+    sput-object p1, Landroid/util/ArraySet;->sTwiceBaseCache:[Ljava/lang/Object;
 
-    sget v1, Landroid/util/ArraySet;->mTwiceBaseCacheSize:I
+    sget v1, Landroid/util/ArraySet;->sTwiceBaseCacheSize:I
 
     add-int/lit8 v1, v1, 0x1
 
-    sput v1, Landroid/util/ArraySet;->mTwiceBaseCacheSize:I
+    sput v1, Landroid/util/ArraySet;->sTwiceBaseCacheSize:I
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -498,11 +498,11 @@
     monitor-enter v2
 
     :try_start_1
-    sget v1, Landroid/util/ArraySet;->mBaseCacheSize:I
+    sget v1, Landroid/util/ArraySet;->sBaseCacheSize:I
 
     if-ge v1, v3, :cond_1
 
-    sget-object v1, Landroid/util/ArraySet;->mBaseCache:[Ljava/lang/Object;
+    sget-object v1, Landroid/util/ArraySet;->sBaseCache:[Ljava/lang/Object;
 
     const/4 v3, 0x0
 
@@ -526,13 +526,13 @@
     goto :goto_2
 
     :cond_4
-    sput-object p1, Landroid/util/ArraySet;->mBaseCache:[Ljava/lang/Object;
+    sput-object p1, Landroid/util/ArraySet;->sBaseCache:[Ljava/lang/Object;
 
-    sget v1, Landroid/util/ArraySet;->mBaseCacheSize:I
+    sget v1, Landroid/util/ArraySet;->sBaseCacheSize:I
 
     add-int/lit8 v1, v1, 0x1
 
-    sput v1, Landroid/util/ArraySet;->mBaseCacheSize:I
+    sput v1, Landroid/util/ArraySet;->sBaseCacheSize:I
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_1
 

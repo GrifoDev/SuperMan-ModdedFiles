@@ -38,8 +38,6 @@
 
 
 # instance fields
-.field bIsPerfBoostEnabled:Z
-
 .field private mCurrVelocity:F
 
 .field private mCurrX:I
@@ -80,8 +78,6 @@
 
 .field private mMode:I
 
-.field private mPerf:Landroid/util/BoostFramework;
-
 .field private mPhysicalCoeff:F
 
 .field private final mPpi:F
@@ -93,12 +89,6 @@
 .field private mStartY:I
 
 .field private mVelocity:F
-
-.field private sBoostParamVal:[I
-
-.field private sBoostTimeOut:I
-
-.field private scrollBoostTimeOut:I
 
 
 # direct methods
@@ -399,119 +389,68 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/view/animation/Interpolator;Z)V
-    .locals 4
-
-    const/4 v3, 0x0
-
-    const/4 v2, 0x0
+    .locals 2
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     invoke-static {}, Landroid/view/ViewConfiguration;->getScrollFriction()F
 
-    move-result v1
+    move-result v0
 
-    iput v1, p0, Landroid/widget/Scroller;->mFlingFriction:F
+    iput v0, p0, Landroid/widget/Scroller;->mFlingFriction:F
 
-    iput-object v3, p0, Landroid/widget/Scroller;->mPerf:Landroid/util/BoostFramework;
+    const/4 v0, 0x1
 
-    iput-boolean v2, p0, Landroid/widget/Scroller;->bIsPerfBoostEnabled:Z
+    iput-boolean v0, p0, Landroid/widget/Scroller;->mFinished:Z
 
-    iput v2, p0, Landroid/widget/Scroller;->sBoostTimeOut:I
+    if-nez p2, :cond_0
 
-    iput v2, p0, Landroid/widget/Scroller;->scrollBoostTimeOut:I
+    new-instance v0, Landroid/widget/Scroller$ViscousFluidInterpolator;
 
-    const/4 v0, 0x0
+    invoke-direct {v0}, Landroid/widget/Scroller$ViscousFluidInterpolator;-><init>()V
 
-    const/4 v1, 0x1
-
-    iput-boolean v1, p0, Landroid/widget/Scroller;->mFinished:Z
-
-    if-nez p2, :cond_1
-
-    new-instance v1, Landroid/widget/Scroller$ViscousFluidInterpolator;
-
-    invoke-direct {v1}, Landroid/widget/Scroller$ViscousFluidInterpolator;-><init>()V
-
-    iput-object v1, p0, Landroid/widget/Scroller;->mInterpolator:Landroid/view/animation/Interpolator;
+    iput-object v0, p0, Landroid/widget/Scroller;->mInterpolator:Landroid/view/animation/Interpolator;
 
     :goto_0
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-virtual {v1}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
+    invoke-virtual {v0}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
 
-    move-result-object v1
+    move-result-object v0
 
-    iget v1, v1, Landroid/util/DisplayMetrics;->density:F
+    iget v0, v0, Landroid/util/DisplayMetrics;->density:F
 
-    const/high16 v2, 0x43200000    # 160.0f
+    const/high16 v1, 0x43200000    # 160.0f
 
-    mul-float/2addr v1, v2
+    mul-float/2addr v0, v1
 
-    iput v1, p0, Landroid/widget/Scroller;->mPpi:F
+    iput v0, p0, Landroid/widget/Scroller;->mPpi:F
 
     invoke-static {}, Landroid/view/ViewConfiguration;->getScrollFriction()F
 
-    move-result v1
+    move-result v0
 
-    invoke-direct {p0, v1}, Landroid/widget/Scroller;->computeDeceleration(F)F
-
-    move-result v1
-
-    iput v1, p0, Landroid/widget/Scroller;->mDeceleration:F
-
-    iput-boolean p3, p0, Landroid/widget/Scroller;->mFlywheel:Z
-
-    const v1, 0x3f570a3d    # 0.84f
-
-    invoke-direct {p0, v1}, Landroid/widget/Scroller;->computeDeceleration(F)F
-
-    move-result v1
-
-    iput v1, p0, Landroid/widget/Scroller;->mPhysicalCoeff:F
-
-    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v1
-
-    const v2, 0x11200b9
-
-    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getBoolean(I)Z
+    invoke-direct {p0, v0}, Landroid/widget/Scroller;->computeDeceleration(F)F
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    iput v0, p0, Landroid/widget/Scroller;->mDeceleration:F
 
-    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    iput-boolean p3, p0, Landroid/widget/Scroller;->mFlywheel:Z
 
-    move-result-object v1
+    const v0, 0x3f570a3d    # 0.84f
 
-    const v2, 0x10e00a9
+    invoke-direct {p0, v0}, Landroid/widget/Scroller;->computeDeceleration(F)F
 
-    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getInteger(I)I
+    move-result v0
 
-    move-result v1
+    iput v0, p0, Landroid/widget/Scroller;->mPhysicalCoeff:F
 
-    iput v1, p0, Landroid/widget/Scroller;->sBoostTimeOut:I
-
-    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v1
-
-    const v2, 0x107006e
-
-    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getIntArray(I)[I
-
-    move-result-object v1
-
-    iput-object v1, p0, Landroid/widget/Scroller;->sBoostParamVal:[I
-
-    :cond_0
     return-void
 
-    :cond_1
+    :cond_0
     iput-object p2, p0, Landroid/widget/Scroller;->mInterpolator:Landroid/view/animation/Interpolator;
 
     goto :goto_0
@@ -973,10 +912,139 @@
 
     move/from16 v17, v0
 
-    if-eqz v17, :cond_1
+    xor-int/lit8 v17, v17, 0x1
+
+    if-eqz v17, :cond_0
+
+    invoke-virtual/range {p0 .. p0}, Landroid/widget/Scroller;->getCurrVelocity()F
+
+    move-result v11
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Landroid/widget/Scroller;->mFinalX:I
+
+    move/from16 v17, v0
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Landroid/widget/Scroller;->mStartX:I
+
+    move/from16 v18, v0
+
+    sub-int v17, v17, v18
+
+    move/from16 v0, v17
+
+    int-to-float v6, v0
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Landroid/widget/Scroller;->mFinalY:I
+
+    move/from16 v17, v0
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Landroid/widget/Scroller;->mStartY:I
+
+    move/from16 v18, v0
+
+    sub-int v17, v17, v18
+
+    move/from16 v0, v17
+
+    int-to-float v7, v0
+
+    float-to-double v0, v6
+
+    move-wide/from16 v18, v0
+
+    float-to-double v0, v7
+
+    move-wide/from16 v20, v0
+
+    invoke-static/range {v18 .. v21}, Ljava/lang/Math;->hypot(DD)D
+
+    move-result-wide v18
+
+    move-wide/from16 v0, v18
+
+    double-to-float v8, v0
+
+    div-float v9, v6, v8
+
+    div-float v10, v7, v8
+
+    mul-float v12, v9, v11
+
+    mul-float v13, v10, v11
+
+    move/from16 v0, p3
+
+    int-to-float v0, v0
+
+    move/from16 v17, v0
+
+    invoke-static/range {v17 .. v17}, Ljava/lang/Math;->signum(F)F
+
+    move-result v17
+
+    invoke-static {v12}, Ljava/lang/Math;->signum(F)F
+
+    move-result v18
+
+    cmpl-float v17, v17, v18
+
+    if-nez v17, :cond_0
+
+    move/from16 v0, p4
+
+    int-to-float v0, v0
+
+    move/from16 v17, v0
+
+    invoke-static/range {v17 .. v17}, Ljava/lang/Math;->signum(F)F
+
+    move-result v17
+
+    invoke-static {v13}, Ljava/lang/Math;->signum(F)F
+
+    move-result v18
+
+    cmpl-float v17, v17, v18
+
+    if-nez v17, :cond_0
+
+    move/from16 v0, p3
+
+    int-to-float v0, v0
+
+    move/from16 v17, v0
+
+    add-float v17, v17, v12
+
+    move/from16 v0, v17
+
+    float-to-int v0, v0
+
+    move/from16 p3, v0
+
+    move/from16 v0, p4
+
+    int-to-float v0, v0
+
+    move/from16 v17, v0
+
+    add-float v17, v17, v13
+
+    move/from16 v0, v17
+
+    float-to-int v0, v0
+
+    move/from16 p4, v0
 
     :cond_0
-    :goto_0
     const/16 v17, 0x1
 
     move/from16 v0, v17
@@ -1061,20 +1129,20 @@
 
     cmpl-float v17, v16, v17
 
-    if-nez v17, :cond_2
+    if-nez v17, :cond_1
 
     const/high16 v4, 0x3f800000    # 1.0f
 
-    :goto_1
+    :goto_0
     const/16 v17, 0x0
 
     cmpl-float v17, v16, v17
 
-    if-nez v17, :cond_3
+    if-nez v17, :cond_2
 
     const/high16 v5, 0x3f800000    # 1.0f
 
-    :goto_2
+    :goto_1
     move-object/from16 v0, p0
 
     move/from16 v1, v16
@@ -1270,137 +1338,6 @@
     return-void
 
     :cond_1
-    invoke-virtual/range {p0 .. p0}, Landroid/widget/Scroller;->getCurrVelocity()F
-
-    move-result v11
-
-    move-object/from16 v0, p0
-
-    iget v0, v0, Landroid/widget/Scroller;->mFinalX:I
-
-    move/from16 v17, v0
-
-    move-object/from16 v0, p0
-
-    iget v0, v0, Landroid/widget/Scroller;->mStartX:I
-
-    move/from16 v18, v0
-
-    sub-int v17, v17, v18
-
-    move/from16 v0, v17
-
-    int-to-float v6, v0
-
-    move-object/from16 v0, p0
-
-    iget v0, v0, Landroid/widget/Scroller;->mFinalY:I
-
-    move/from16 v17, v0
-
-    move-object/from16 v0, p0
-
-    iget v0, v0, Landroid/widget/Scroller;->mStartY:I
-
-    move/from16 v18, v0
-
-    sub-int v17, v17, v18
-
-    move/from16 v0, v17
-
-    int-to-float v7, v0
-
-    float-to-double v0, v6
-
-    move-wide/from16 v18, v0
-
-    float-to-double v0, v7
-
-    move-wide/from16 v20, v0
-
-    invoke-static/range {v18 .. v21}, Ljava/lang/Math;->hypot(DD)D
-
-    move-result-wide v18
-
-    move-wide/from16 v0, v18
-
-    double-to-float v8, v0
-
-    div-float v9, v6, v8
-
-    div-float v10, v7, v8
-
-    mul-float v12, v9, v11
-
-    mul-float v13, v10, v11
-
-    move/from16 v0, p3
-
-    int-to-float v0, v0
-
-    move/from16 v17, v0
-
-    invoke-static/range {v17 .. v17}, Ljava/lang/Math;->signum(F)F
-
-    move-result v17
-
-    invoke-static {v12}, Ljava/lang/Math;->signum(F)F
-
-    move-result v18
-
-    cmpl-float v17, v17, v18
-
-    if-nez v17, :cond_0
-
-    move/from16 v0, p4
-
-    int-to-float v0, v0
-
-    move/from16 v17, v0
-
-    invoke-static/range {v17 .. v17}, Ljava/lang/Math;->signum(F)F
-
-    move-result v17
-
-    invoke-static {v13}, Ljava/lang/Math;->signum(F)F
-
-    move-result v18
-
-    cmpl-float v17, v17, v18
-
-    if-nez v17, :cond_0
-
-    move/from16 v0, p3
-
-    int-to-float v0, v0
-
-    move/from16 v17, v0
-
-    add-float v17, v17, v12
-
-    move/from16 v0, v17
-
-    float-to-int v0, v0
-
-    move/from16 p3, v0
-
-    move/from16 v0, p4
-
-    int-to-float v0, v0
-
-    move/from16 v17, v0
-
-    add-float v17, v17, v13
-
-    move/from16 v0, v17
-
-    float-to-int v0, v0
-
-    move/from16 p4, v0
-
-    goto/16 :goto_0
-
-    :cond_2
     move/from16 v0, p3
 
     int-to-float v0, v0
@@ -1409,9 +1346,9 @@
 
     div-float v4, v17, v16
 
-    goto/16 :goto_1
+    goto/16 :goto_0
 
-    :cond_3
+    :cond_2
     move/from16 v0, p4
 
     int-to-float v0, v0
@@ -1420,7 +1357,7 @@
 
     div-float v5, v17, v16
 
-    goto/16 :goto_2
+    goto/16 :goto_1
 .end method
 
 .method public final forceFinished(Z)V

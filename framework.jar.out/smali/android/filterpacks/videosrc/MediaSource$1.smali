@@ -137,7 +137,7 @@
 
     iget-object v0, p0, Landroid/filterpacks/videosrc/MediaSource$1;->this$0:Landroid/filterpacks/videosrc/MediaSource;
 
-    invoke-virtual {v0}, Ljava/lang/Object;->notify()V
+    invoke-virtual {v0}, Landroid/filterpacks/videosrc/MediaSource;->notify()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -163,7 +163,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/filterfw/core/FrameFormat;->getWidth()I
+    invoke-virtual {v0}, Landroid/filterfw/core/MutableFrameFormat;->getWidth()I
 
     move-result v0
 
@@ -175,7 +175,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/filterfw/core/FrameFormat;->getHeight()I
+    invoke-virtual {v0}, Landroid/filterfw/core/MutableFrameFormat;->getHeight()I
 
     move-result v0
 

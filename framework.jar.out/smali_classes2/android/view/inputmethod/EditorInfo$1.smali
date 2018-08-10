@@ -160,6 +160,12 @@
     :cond_0
     iput-object v0, v1, Landroid/view/inputmethod/EditorInfo;->hintLocales:Landroid/os/LocaleList;
 
+    invoke-virtual {p1}, Landroid/os/Parcel;->readStringArray()[Ljava/lang/String;
+
+    move-result-object v2
+
+    iput-object v2, v1, Landroid/view/inputmethod/EditorInfo;->contentMimeTypes:[Ljava/lang/String;
+
     return-object v1
 .end method
 

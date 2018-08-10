@@ -6,6 +6,7 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
+        Lcom/android/internal/policy/DividerSnapAlgorithm$MultiWindowTuner;,
         Lcom/android/internal/policy/DividerSnapAlgorithm$SnapTarget;
     }
 .end annotation
@@ -21,6 +22,8 @@
 .field private static final SNAP_FIXED_RATIO:I = 0x1
 
 .field private static final SNAP_MODE_16_9:I = 0x0
+
+.field private static final SNAP_MODE_MINIMIZED:I = 0x3
 
 .field private static final SNAP_ONLY_1_1:I = 0x2
 
@@ -67,12 +70,36 @@
     .end annotation
 .end field
 
+.field private final mTaskHeightInMinimizedMode:I
+
 
 # direct methods
 .method public constructor <init>(Landroid/content/res/Resources;IIIZLandroid/graphics/Rect;)V
-    .locals 4
+    .locals 8
 
-    const/4 v3, 0x0
+    const/4 v7, 0x0
+
+    move-object v0, p0
+
+    move-object v1, p1
+
+    move v2, p2
+
+    move v3, p3
+
+    move v4, p4
+
+    move v5, p5
+
+    move-object v6, p6
+
+    invoke-direct/range {v0 .. v7}, Lcom/android/internal/policy/DividerSnapAlgorithm;-><init>(Landroid/content/res/Resources;IIIZLandroid/graphics/Rect;Z)V
+
+    return-void
+.end method
+
+.method public constructor <init>(Landroid/content/res/Resources;IIIZLandroid/graphics/Rect;Z)V
+    .locals 3
 
     const/4 v2, 0x1
 
@@ -114,7 +141,11 @@
 
     iput v0, p0, Lcom/android/internal/policy/DividerSnapAlgorithm;->mMinDismissVelocityPxPerSecond:F
 
-    iput p4, p0, Lcom/android/internal/policy/DividerSnapAlgorithm;->mDividerSize:I
+    invoke-static {p4}, Lcom/android/internal/policy/DividerSnapAlgorithm$MultiWindowTuner;->getDividerSize(I)I
+
+    move-result v0
+
+    iput v0, p0, Lcom/android/internal/policy/DividerSnapAlgorithm;->mDividerSize:I
 
     iput p2, p0, Lcom/android/internal/policy/DividerSnapAlgorithm;->mDisplayWidth:I
 
@@ -124,21 +155,20 @@
 
     iget-object v0, p0, Lcom/android/internal/policy/DividerSnapAlgorithm;->mInsets:Landroid/graphics/Rect;
 
-    invoke-virtual {v0, p6}, Landroid/graphics/Rect;->set(Landroid/graphics/Rect;)V
+    invoke-static {p6}, Lcom/android/internal/policy/DividerSnapAlgorithm$MultiWindowTuner;->-wrap0(Landroid/graphics/Rect;)Landroid/graphics/Rect;
 
-    iget-object v0, p0, Lcom/android/internal/policy/DividerSnapAlgorithm;->mInsets:Landroid/graphics/Rect;
+    move-result-object v1
 
-    iput v3, v0, Landroid/graphics/Rect;->top:I
+    invoke-virtual {v0, v1}, Landroid/graphics/Rect;->set(Landroid/graphics/Rect;)V
 
-    sget v0, Lcom/samsung/android/framework/res/R$integer;->config_dockedStackDividerSnapMode:I
+    if-eqz p7, :cond_0
 
-    invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getInteger(I)I
+    const/4 v0, 0x3
 
-    move-result v0
-
+    :goto_0
     iput v0, p0, Lcom/android/internal/policy/DividerSnapAlgorithm;->mSnapMode:I
 
-    const v0, 0x1130005
+    const v0, 0x1130004
 
     invoke-virtual {p1, v0, v2, v2}, Landroid/content/res/Resources;->getFraction(III)F
 
@@ -146,13 +176,21 @@
 
     iput v0, p0, Lcom/android/internal/policy/DividerSnapAlgorithm;->mFixedRatio:F
 
-    const v0, 0x10500c0
+    const v0, 0x1050078
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v0
 
     iput v0, p0, Lcom/android/internal/policy/DividerSnapAlgorithm;->mMinimalSizeResizableTask:I
+
+    const v0, 0x10502c1
+
+    invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v0
+
+    iput v0, p0, Lcom/android/internal/policy/DividerSnapAlgorithm;->mTaskHeightInMinimizedMode:I
 
     invoke-direct {p0, p5}, Lcom/android/internal/policy/DividerSnapAlgorithm;->calculateTargets(Z)V
 
@@ -186,7 +224,9 @@
 
     iget-object v0, p0, Lcom/android/internal/policy/DividerSnapAlgorithm;->mTargets:Ljava/util/ArrayList;
 
-    invoke-virtual {v0, v3}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -231,6 +271,13 @@
     iput-object v0, p0, Lcom/android/internal/policy/DividerSnapAlgorithm;->mMiddleTarget:Lcom/android/internal/policy/DividerSnapAlgorithm$SnapTarget;
 
     return-void
+
+    :cond_0
+    invoke-static {p1}, Lcom/android/internal/policy/DividerSnapAlgorithm$MultiWindowTuner;->-wrap1(Landroid/content/res/Resources;)I
+
+    move-result v0
+
+    goto :goto_0
 .end method
 
 .method private addAssureDefaultTargets(ZI)V
@@ -383,29 +430,56 @@
     return-void
 .end method
 
+.method private addMinimizedTarget(Z)V
+    .locals 4
+
+    iget v1, p0, Lcom/android/internal/policy/DividerSnapAlgorithm;->mTaskHeightInMinimizedMode:I
+
+    iget-object v2, p0, Lcom/android/internal/policy/DividerSnapAlgorithm;->mInsets:Landroid/graphics/Rect;
+
+    iget v2, v2, Landroid/graphics/Rect;->top:I
+
+    add-int v0, v1, v2
+
+    if-nez p1, :cond_0
+
+    iget-object v1, p0, Lcom/android/internal/policy/DividerSnapAlgorithm;->mInsets:Landroid/graphics/Rect;
+
+    iget v1, v1, Landroid/graphics/Rect;->left:I
+
+    add-int/2addr v0, v1
+
+    :cond_0
+    iget-object v1, p0, Lcom/android/internal/policy/DividerSnapAlgorithm;->mTargets:Ljava/util/ArrayList;
+
+    new-instance v2, Lcom/android/internal/policy/DividerSnapAlgorithm$SnapTarget;
+
+    const/4 v3, 0x0
+
+    invoke-direct {v2, v0, v0, v3}, Lcom/android/internal/policy/DividerSnapAlgorithm$SnapTarget;-><init>(III)V
+
+    invoke-virtual {v1, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    return-void
+.end method
+
 .method private addNonDismissingTargets(ZIII)V
     .locals 2
-
-    if-eqz p1, :cond_0
 
     iget-object v0, p0, Lcom/android/internal/policy/DividerSnapAlgorithm;->mInsets:Landroid/graphics/Rect;
 
     iget v0, v0, Landroid/graphics/Rect;->top:I
 
-    :goto_0
     sub-int v0, p2, v0
 
     invoke-direct {p0, p2, v0}, Lcom/android/internal/policy/DividerSnapAlgorithm;->maybeAddTarget(II)V
 
     invoke-direct {p0, p1}, Lcom/android/internal/policy/DividerSnapAlgorithm;->addMiddleTarget(Z)V
 
-    if-eqz p1, :cond_1
-
     iget-object v0, p0, Lcom/android/internal/policy/DividerSnapAlgorithm;->mInsets:Landroid/graphics/Rect;
 
     iget v0, v0, Landroid/graphics/Rect;->bottom:I
 
-    :goto_1
     sub-int v0, p4, v0
 
     iget v1, p0, Lcom/android/internal/policy/DividerSnapAlgorithm;->mDividerSize:I
@@ -417,20 +491,6 @@
     invoke-direct {p0, p3, v0}, Lcom/android/internal/policy/DividerSnapAlgorithm;->maybeAddTarget(II)V
 
     return-void
-
-    :cond_0
-    iget-object v0, p0, Lcom/android/internal/policy/DividerSnapAlgorithm;->mInsets:Landroid/graphics/Rect;
-
-    iget v0, v0, Landroid/graphics/Rect;->left:I
-
-    goto :goto_0
-
-    :cond_1
-    iget-object v0, p0, Lcom/android/internal/policy/DividerSnapAlgorithm;->mInsets:Landroid/graphics/Rect;
-
-    iget v0, v0, Landroid/graphics/Rect;->right:I
-
-    goto :goto_1
 .end method
 
 .method private addRatio16_9Targets(ZI)V
@@ -551,6 +611,13 @@
     iget v0, p0, Lcom/android/internal/policy/DividerSnapAlgorithm;->mDisplayHeight:I
 
     :goto_0
+    if-eqz p1, :cond_1
+
+    iget-object v2, p0, Lcom/android/internal/policy/DividerSnapAlgorithm;->mInsets:Landroid/graphics/Rect;
+
+    iget v1, v2, Landroid/graphics/Rect;->bottom:I
+
+    :goto_1
     iget-object v2, p0, Lcom/android/internal/policy/DividerSnapAlgorithm;->mTargets:Ljava/util/ArrayList;
 
     new-instance v3, Lcom/android/internal/policy/DividerSnapAlgorithm$SnapTarget;
@@ -571,16 +638,10 @@
 
     iget v2, p0, Lcom/android/internal/policy/DividerSnapAlgorithm;->mSnapMode:I
 
-    sparse-switch v2, :sswitch_data_0
-
-    :goto_1
-    if-eqz p1, :cond_1
-
-    iget-object v2, p0, Lcom/android/internal/policy/DividerSnapAlgorithm;->mInsets:Landroid/graphics/Rect;
-
-    iget v1, v2, Landroid/graphics/Rect;->bottom:I
+    packed-switch v2, :pswitch_data_0
 
     :goto_2
+    :pswitch_0
     iget-object v2, p0, Lcom/android/internal/policy/DividerSnapAlgorithm;->mTargets:Ljava/util/ArrayList;
 
     new-instance v3, Lcom/android/internal/policy/DividerSnapAlgorithm$SnapTarget;
@@ -600,40 +661,52 @@
 
     goto :goto_0
 
-    :sswitch_0
-    invoke-direct {p0, p1, v0}, Lcom/android/internal/policy/DividerSnapAlgorithm;->addRatio16_9Targets(ZI)V
-
-    goto :goto_1
-
-    :sswitch_1
-    invoke-direct {p0, p1, v0}, Lcom/android/internal/policy/DividerSnapAlgorithm;->addFixedDivisionTargets(ZI)V
-
-    goto :goto_1
-
-    :sswitch_2
-    invoke-direct {p0, p1}, Lcom/android/internal/policy/DividerSnapAlgorithm;->addMiddleTarget(Z)V
-
-    goto :goto_1
-
-    :sswitch_3
-    invoke-direct {p0, p1, v0}, Lcom/android/internal/policy/DividerSnapAlgorithm;->addAssureDefaultTargets(ZI)V
-
-    goto :goto_1
-
     :cond_1
     iget-object v2, p0, Lcom/android/internal/policy/DividerSnapAlgorithm;->mInsets:Landroid/graphics/Rect;
 
     iget v1, v2, Landroid/graphics/Rect;->right:I
 
+    goto :goto_1
+
+    :pswitch_1
+    invoke-direct {p0, p1, v0}, Lcom/android/internal/policy/DividerSnapAlgorithm;->addRatio16_9Targets(ZI)V
+
     goto :goto_2
 
-    :sswitch_data_0
-    .sparse-switch
-        0x0 -> :sswitch_0
-        0x1 -> :sswitch_1
-        0x2 -> :sswitch_2
-        0xa -> :sswitch_3
-    .end sparse-switch
+    :pswitch_2
+    invoke-direct {p0, p1, v0}, Lcom/android/internal/policy/DividerSnapAlgorithm;->addFixedDivisionTargets(ZI)V
+
+    goto :goto_2
+
+    :pswitch_3
+    invoke-direct {p0, p1}, Lcom/android/internal/policy/DividerSnapAlgorithm;->addMiddleTarget(Z)V
+
+    goto :goto_2
+
+    :pswitch_4
+    invoke-direct {p0, p1}, Lcom/android/internal/policy/DividerSnapAlgorithm;->addMinimizedTarget(Z)V
+
+    goto :goto_2
+
+    :pswitch_5
+    invoke-direct {p0, p1, v0}, Lcom/android/internal/policy/DividerSnapAlgorithm;->addAssureDefaultTargets(ZI)V
+
+    goto :goto_2
+
+    :pswitch_data_0
+    .packed-switch 0x0
+        :pswitch_1
+        :pswitch_2
+        :pswitch_3
+        :pswitch_4
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_5
+    .end packed-switch
 .end method
 
 .method public static create(Landroid/content/Context;Landroid/graphics/Rect;)Lcom/android/internal/policy/DividerSnapAlgorithm;
@@ -665,7 +738,7 @@
 
     move-result-object v0
 
-    const v1, 0x1050021
+    const v1, 0x1050089
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -675,7 +748,7 @@
 
     move-result-object v0
 
-    sget v1, Lcom/samsung/android/framework/res/R$dimen;->docked_stack_divider_insets:I
+    const v1, 0x1050088
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -722,6 +795,27 @@
     move v5, v6
 
     goto :goto_0
+.end method
+
+.method private getEndInset()I
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/android/internal/policy/DividerSnapAlgorithm;->mIsHorizontalDivision:Z
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/internal/policy/DividerSnapAlgorithm;->mInsets:Landroid/graphics/Rect;
+
+    iget v0, v0, Landroid/graphics/Rect;->bottom:I
+
+    return v0
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/internal/policy/DividerSnapAlgorithm;->mInsets:Landroid/graphics/Rect;
+
+    iget v0, v0, Landroid/graphics/Rect;->right:I
+
+    return v0
 .end method
 
 .method private getStartInset()I
@@ -1156,27 +1250,6 @@
     iget-object v0, p0, Lcom/android/internal/policy/DividerSnapAlgorithm;->mDismissStartTarget:Lcom/android/internal/policy/DividerSnapAlgorithm$SnapTarget;
 
     return-object v0
-.end method
-
-.method public getEndInset()I
-    .locals 1
-
-    iget-boolean v0, p0, Lcom/android/internal/policy/DividerSnapAlgorithm;->mIsHorizontalDivision:Z
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/internal/policy/DividerSnapAlgorithm;->mInsets:Landroid/graphics/Rect;
-
-    iget v0, v0, Landroid/graphics/Rect;->bottom:I
-
-    return v0
-
-    :cond_0
-    iget-object v0, p0, Lcom/android/internal/policy/DividerSnapAlgorithm;->mInsets:Landroid/graphics/Rect;
-
-    iget v0, v0, Landroid/graphics/Rect;->right:I
-
-    return v0
 .end method
 
 .method public getFirstSplitTarget()Lcom/android/internal/policy/DividerSnapAlgorithm$SnapTarget;

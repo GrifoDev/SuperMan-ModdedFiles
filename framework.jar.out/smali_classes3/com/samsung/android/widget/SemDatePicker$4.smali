@@ -41,7 +41,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/widget/SemDatePicker$4;->this$0:Lcom/samsung/android/widget/SemDatePicker;
 
-    invoke-static {v0}, Lcom/samsung/android/widget/SemDatePicker;->-get21(Lcom/samsung/android/widget/SemDatePicker;)Z
+    invoke-static {v0}, Lcom/samsung/android/widget/SemDatePicker;->-get19(Lcom/samsung/android/widget/SemDatePicker;)Z
 
     move-result v0
 
@@ -49,7 +49,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/widget/SemDatePicker$4;->this$0:Lcom/samsung/android/widget/SemDatePicker;
 
-    invoke-static {v0, v2}, Lcom/samsung/android/widget/SemDatePicker;->-set2(Lcom/samsung/android/widget/SemDatePicker;Z)Z
+    invoke-static {v0, v2}, Lcom/samsung/android/widget/SemDatePicker;->-set1(Lcom/samsung/android/widget/SemDatePicker;Z)Z
 
     :cond_0
     invoke-virtual {p3}, Landroid/view/KeyEvent;->getAction()I

@@ -60,12 +60,52 @@
     return-void
 .end method
 
+.method public onAccessibilityButtonAvailabilityChanged(Z)V
+    .locals 1
+
+    iget-object v0, p0, Landroid/accessibilityservice/AccessibilityService$2;->this$0:Landroid/accessibilityservice/AccessibilityService;
+
+    invoke-static {v0, p1}, Landroid/accessibilityservice/AccessibilityService;->-wrap1(Landroid/accessibilityservice/AccessibilityService;Z)V
+
+    return-void
+.end method
+
+.method public onAccessibilityButtonClicked()V
+    .locals 1
+
+    iget-object v0, p0, Landroid/accessibilityservice/AccessibilityService$2;->this$0:Landroid/accessibilityservice/AccessibilityService;
+
+    invoke-static {v0}, Landroid/accessibilityservice/AccessibilityService;->-wrap2(Landroid/accessibilityservice/AccessibilityService;)V
+
+    return-void
+.end method
+
 .method public onAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)V
     .locals 1
 
     iget-object v0, p0, Landroid/accessibilityservice/AccessibilityService$2;->this$0:Landroid/accessibilityservice/AccessibilityService;
 
     invoke-virtual {v0, p1}, Landroid/accessibilityservice/AccessibilityService;->onAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)V
+
+    return-void
+.end method
+
+.method public onFingerprintCapturingGesturesChanged(Z)V
+    .locals 1
+
+    iget-object v0, p0, Landroid/accessibilityservice/AccessibilityService$2;->this$0:Landroid/accessibilityservice/AccessibilityService;
+
+    invoke-static {v0, p1}, Landroid/accessibilityservice/AccessibilityService;->-wrap3(Landroid/accessibilityservice/AccessibilityService;Z)V
+
+    return-void
+.end method
+
+.method public onFingerprintGesture(I)V
+    .locals 1
+
+    iget-object v0, p0, Landroid/accessibilityservice/AccessibilityService$2;->this$0:Landroid/accessibilityservice/AccessibilityService;
+
+    invoke-static {v0, p1}, Landroid/accessibilityservice/AccessibilityService;->-wrap4(Landroid/accessibilityservice/AccessibilityService;I)V
 
     return-void
 .end method
@@ -109,7 +149,7 @@
 
     iget-object v0, p0, Landroid/accessibilityservice/AccessibilityService$2;->this$0:Landroid/accessibilityservice/AccessibilityService;
 
-    invoke-static {v0, p1, p2, p3, p4}, Landroid/accessibilityservice/AccessibilityService;->-wrap1(Landroid/accessibilityservice/AccessibilityService;Landroid/graphics/Region;FFF)V
+    invoke-static {v0, p1, p2, p3, p4}, Landroid/accessibilityservice/AccessibilityService;->-wrap5(Landroid/accessibilityservice/AccessibilityService;Landroid/graphics/Region;FFF)V
 
     return-void
 .end method
@@ -139,7 +179,7 @@
 
     iget-object v0, p0, Landroid/accessibilityservice/AccessibilityService$2;->this$0:Landroid/accessibilityservice/AccessibilityService;
 
-    invoke-static {v0, p1}, Landroid/accessibilityservice/AccessibilityService;->-wrap2(Landroid/accessibilityservice/AccessibilityService;I)V
+    invoke-static {v0, p1}, Landroid/accessibilityservice/AccessibilityService;->-wrap6(Landroid/accessibilityservice/AccessibilityService;I)V
 
     return-void
 .end method

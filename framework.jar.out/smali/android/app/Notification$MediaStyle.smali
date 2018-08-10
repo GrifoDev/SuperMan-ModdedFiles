@@ -60,7 +60,7 @@
 
     const/4 v3, -0x1
 
-    const v1, 0x1020424
+    const v1, 0x10201ae
 
     iget-object v2, p1, Landroid/app/Notification$Action;->actionIntent:Landroid/app/PendingIntent;
 
@@ -81,7 +81,7 @@
 
     move-result-object v2
 
-    const v4, 0x1090099
+    const v4, 0x109009d
 
     invoke-direct {v0, v2, v4}, Landroid/app/Notification$BuilderRemoteViews;-><init>(Landroid/content/pm/ApplicationInfo;I)V
 
@@ -120,6 +120,18 @@
     goto :goto_0
 .end method
 
+.method private getPrimaryHighlightColor()I
+    .locals 1
+
+    iget-object v0, p0, Landroid/app/Notification$MediaStyle;->mBuilder:Landroid/app/Notification$Builder;
+
+    invoke-static {v0}, Landroid/app/Notification$Builder;->-wrap13(Landroid/app/Notification$Builder;)I
+
+    move-result v0
+
+    return v0
+.end method
+
 .method private handleImage(Landroid/widget/RemoteViews;)V
     .locals 2
 
@@ -137,11 +149,11 @@
 
     if-eqz v0, :cond_0
 
-    const v0, 0x1020444
+    const v0, 0x1020355
 
     invoke-virtual {p1, v0, v1}, Landroid/widget/RemoteViews;->setViewLayoutMarginEndDimen(II)V
 
-    const v0, 0x1020090
+    const v0, 0x1020504
 
     invoke-virtual {p1, v0, v1}, Landroid/widget/RemoteViews;->setViewLayoutMarginEndDimen(II)V
 
@@ -154,7 +166,7 @@
 
     const/4 v9, 0x0
 
-    const v8, 0x1020438
+    const v8, 0x1020372
 
     const/4 v7, 0x0
 
@@ -213,9 +225,9 @@
     :cond_1
     iget-object v5, p0, Landroid/app/Notification$MediaStyle;->mBuilder:Landroid/app/Notification$Builder;
 
-    const v6, 0x109009e
+    const v6, 0x10900a4
 
-    invoke-static {v5, v6, v7}, Landroid/app/Notification$Builder;->-wrap3(Landroid/app/Notification$Builder;IZ)Landroid/widget/RemoteViews;
+    invoke-static {v5, v6, v7}, Landroid/app/Notification$Builder;->-wrap4(Landroid/app/Notification$Builder;IZ)Landroid/widget/RemoteViews;
 
     move-result-object v2
 
@@ -240,9 +252,7 @@
 
     check-cast v5, Landroid/app/Notification$Action;
 
-    iget-object v6, p0, Landroid/app/Notification$MediaStyle;->mBuilder:Landroid/app/Notification$Builder;
-
-    invoke-virtual {v6}, Landroid/app/Notification$Builder;->resolveContrastColor()I
+    invoke-direct {p0}, Landroid/app/Notification$MediaStyle;->getPrimaryHighlightColor()I
 
     move-result v6
 
@@ -265,38 +275,38 @@
 .method private makeMediaContentView()Landroid/widget/RemoteViews;
     .locals 12
 
-    const v10, 0x1020438
+    const v9, 0x1020372
 
-    const/4 v7, 0x0
+    const/4 v11, 0x0
 
-    iget-object v8, p0, Landroid/app/Notification$MediaStyle;->mBuilder:Landroid/app/Notification$Builder;
+    iget-object v7, p0, Landroid/app/Notification$MediaStyle;->mBuilder:Landroid/app/Notification$Builder;
 
-    const v9, 0x10900a2
+    const v8, 0x10900a8
 
-    invoke-static {v8, v9, v7}, Landroid/app/Notification$Builder;->-wrap3(Landroid/app/Notification$Builder;IZ)Landroid/widget/RemoteViews;
+    invoke-static {v7, v8, v11}, Landroid/app/Notification$Builder;->-wrap4(Landroid/app/Notification$Builder;IZ)Landroid/widget/RemoteViews;
 
     move-result-object v6
 
-    iget-object v8, p0, Landroid/app/Notification$MediaStyle;->mBuilder:Landroid/app/Notification$Builder;
+    iget-object v7, p0, Landroid/app/Notification$MediaStyle;->mBuilder:Landroid/app/Notification$Builder;
 
-    invoke-static {v8}, Landroid/app/Notification$Builder;->-get0(Landroid/app/Notification$Builder;)Ljava/util/ArrayList;
+    invoke-static {v7}, Landroid/app/Notification$Builder;->-get0(Landroid/app/Notification$Builder;)Ljava/util/ArrayList;
 
-    move-result-object v8
+    move-result-object v7
 
-    invoke-virtual {v8}, Ljava/util/ArrayList;->size()I
+    invoke-virtual {v7}, Ljava/util/ArrayList;->size()I
 
     move-result v5
 
-    iget-object v8, p0, Landroid/app/Notification$MediaStyle;->mActionsToShowInCompact:[I
+    iget-object v7, p0, Landroid/app/Notification$MediaStyle;->mActionsToShowInCompact:[I
 
-    if-nez v8, :cond_0
+    if-nez v7, :cond_0
 
-    move v0, v7
+    const/4 v0, 0x0
 
     :goto_0
     if-lez v0, :cond_2
 
-    invoke-virtual {v6, v10}, Landroid/widget/RemoteViews;->removeAllViews(I)V
+    invoke-virtual {v6, v9}, Landroid/widget/RemoteViews;->removeAllViews(I)V
 
     const/4 v4, 0x0
 
@@ -305,79 +315,77 @@
 
     if-lt v4, v5, :cond_1
 
-    new-instance v8, Ljava/lang/IllegalArgumentException;
+    new-instance v7, Ljava/lang/IllegalArgumentException;
 
-    const-string/jumbo v9, "setShowActionsInCompactView: action %d out of bounds (max %d)"
+    const-string/jumbo v8, "setShowActionsInCompactView: action %d out of bounds (max %d)"
 
-    const/4 v10, 0x2
+    const/4 v9, 0x2
 
-    new-array v10, v10, [Ljava/lang/Object;
+    new-array v9, v9, [Ljava/lang/Object;
 
     invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v11
+    move-result-object v10
 
-    aput-object v11, v10, v7
+    aput-object v10, v9, v11
 
-    add-int/lit8 v7, v5, -0x1
+    add-int/lit8 v10, v5, -0x1
 
-    invoke-static {v7}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v10}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v7
+    move-result-object v10
 
     const/4 v11, 0x1
 
-    aput-object v7, v10, v11
+    aput-object v10, v9, v11
 
-    invoke-static {v9, v10}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v8, v9}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v7
+    move-result-object v8
 
-    invoke-direct {v8, v7}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v7, v8}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v8
+    throw v7
 
     :cond_0
-    iget-object v8, p0, Landroid/app/Notification$MediaStyle;->mActionsToShowInCompact:[I
+    iget-object v7, p0, Landroid/app/Notification$MediaStyle;->mActionsToShowInCompact:[I
 
-    array-length v8, v8
+    array-length v7, v7
 
-    const/4 v9, 0x3
+    const/4 v8, 0x3
 
-    invoke-static {v8, v9}, Ljava/lang/Math;->min(II)I
+    invoke-static {v7, v8}, Ljava/lang/Math;->min(II)I
 
     move-result v0
 
     goto :goto_0
 
     :cond_1
-    iget-object v8, p0, Landroid/app/Notification$MediaStyle;->mBuilder:Landroid/app/Notification$Builder;
+    iget-object v7, p0, Landroid/app/Notification$MediaStyle;->mBuilder:Landroid/app/Notification$Builder;
 
-    invoke-static {v8}, Landroid/app/Notification$Builder;->-get0(Landroid/app/Notification$Builder;)Ljava/util/ArrayList;
+    invoke-static {v7}, Landroid/app/Notification$Builder;->-get0(Landroid/app/Notification$Builder;)Ljava/util/ArrayList;
 
-    move-result-object v8
+    move-result-object v7
 
-    iget-object v9, p0, Landroid/app/Notification$MediaStyle;->mActionsToShowInCompact:[I
+    iget-object v8, p0, Landroid/app/Notification$MediaStyle;->mActionsToShowInCompact:[I
 
-    aget v9, v9, v4
+    aget v8, v8, v4
 
-    invoke-virtual {v8, v9}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    invoke-virtual {v7, v8}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v1
 
     check-cast v1, Landroid/app/Notification$Action;
 
-    iget-object v8, p0, Landroid/app/Notification$MediaStyle;->mBuilder:Landroid/app/Notification$Builder;
+    invoke-direct {p0}, Landroid/app/Notification$MediaStyle;->getPrimaryHighlightColor()I
 
-    invoke-virtual {v8}, Landroid/app/Notification$Builder;->resolveContrastColor()I
+    move-result v7
 
-    move-result v8
-
-    invoke-direct {p0, v1, v8}, Landroid/app/Notification$MediaStyle;->generateMediaActionButton(Landroid/app/Notification$Action;I)Landroid/widget/RemoteViews;
+    invoke-direct {p0, v1, v7}, Landroid/app/Notification$MediaStyle;->generateMediaActionButton(Landroid/app/Notification$Action;I)Landroid/widget/RemoteViews;
 
     move-result-object v2
 
-    invoke-virtual {v6, v10, v2}, Landroid/widget/RemoteViews;->addView(ILandroid/widget/RemoteViews;)V
+    invoke-virtual {v6, v9, v2}, Landroid/widget/RemoteViews;->addView(ILandroid/widget/RemoteViews;)V
 
     add-int/lit8 v4, v4, 0x1
 
@@ -386,7 +394,7 @@
     :cond_2
     invoke-direct {p0, v6}, Landroid/app/Notification$MediaStyle;->handleImage(Landroid/widget/RemoteViews;)V
 
-    const v3, 0x1050040
+    const v3, 0x1050165
 
     iget-object v7, p0, Landroid/app/Notification$MediaStyle;->mBuilder:Landroid/app/Notification$Builder;
 
@@ -400,10 +408,10 @@
 
     if-eqz v7, :cond_3
 
-    const v3, 0x1050042
+    const v3, 0x1050169
 
     :cond_3
-    const v7, 0x1020436
+    const v7, 0x10203be
 
     invoke-virtual {v6, v7, v3}, Landroid/widget/RemoteViews;->setViewLayoutMarginEndDimen(II)V
 
@@ -477,7 +485,7 @@
     return-object v0
 .end method
 
-.method public makeContentView()Landroid/widget/RemoteViews;
+.method public makeContentView(Z)Landroid/widget/RemoteViews;
     .locals 1
 
     invoke-direct {p0}, Landroid/app/Notification$MediaStyle;->makeMediaContentView()Landroid/widget/RemoteViews;
@@ -487,7 +495,7 @@
     return-object v0
 .end method
 
-.method public makeHeadsUpContentView()Landroid/widget/RemoteViews;
+.method public makeHeadsUpContentView(Z)Landroid/widget/RemoteViews;
     .locals 1
 
     invoke-direct {p0}, Landroid/app/Notification$MediaStyle;->makeMediaBigContentView()Landroid/widget/RemoteViews;

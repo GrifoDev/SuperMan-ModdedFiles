@@ -39,7 +39,7 @@
 
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroid/hardware/display/WifiDisplay;
-    .locals 14
+    .locals 10
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
@@ -55,27 +55,27 @@
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
-    move-result v13
+    move-result v9
 
-    if-eqz v13, :cond_0
+    if-eqz v9, :cond_0
 
     const/4 v4, 0x1
 
     :goto_0
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
-    move-result v13
+    move-result v9
 
-    if-eqz v13, :cond_1
+    if-eqz v9, :cond_1
 
     const/4 v5, 0x1
 
     :goto_1
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
-    move-result v13
+    move-result v9
 
-    if-eqz v13, :cond_2
+    if-eqz v9, :cond_2
 
     const/4 v6, 0x1
 
@@ -96,37 +96,26 @@
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
-    move-result v8
+    move-result v9
 
-    invoke-virtual {v0, v8}, Landroid/hardware/display/WifiDisplay;->setDeviceInfo(I)V
+    invoke-virtual {v0, v9}, Landroid/hardware/display/WifiDisplay;->setDeviceInfo(I)V
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
-    move-result-object v12
+    move-result-object v9
 
-    invoke-virtual {v0, v12}, Landroid/hardware/display/WifiDisplay;->setUri(Ljava/lang/String;)V
+    invoke-virtual {v0, v9}, Landroid/hardware/display/WifiDisplay;->setUri(Ljava/lang/String;)V
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
-    move-result v13
+    move-result v9
 
-    if-eqz v13, :cond_3
+    if-eqz v9, :cond_3
 
-    const/4 v10, 0x1
+    const/4 v8, 0x1
 
     :goto_3
-    invoke-virtual {v0, v10}, Landroid/hardware/display/WifiDisplay;->setEmptySurface(Z)V
-
-    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
-
-    move-result v13
-
-    if-eqz v13, :cond_4
-
-    const/4 v11, 0x1
-
-    :goto_4
-    invoke-virtual {v0, v11}, Landroid/hardware/display/WifiDisplay;->setOnlySupportsAudio(Z)V
+    invoke-virtual {v0, v8}, Landroid/hardware/display/WifiDisplay;->setEmptySurface(Z)V
 
     return-object v0
 
@@ -146,14 +135,9 @@
     goto :goto_2
 
     :cond_3
-    const/4 v10, 0x0
+    const/4 v8, 0x0
 
     goto :goto_3
-
-    :cond_4
-    const/4 v11, 0x0
-
-    goto :goto_4
 .end method
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;

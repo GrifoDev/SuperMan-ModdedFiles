@@ -158,11 +158,11 @@
     :cond_5
     aput-byte v6, v3, v6
 
-    invoke-virtual {p0, v1, v3}, Landroid/media/audiofx/AudioEffect;->setParameter([B[B)I
+    invoke-virtual {p0, v1, v3}, Landroid/media/audiofx/SemMySound;->setParameter([B[B)I
 
     move-result v4
 
-    invoke-virtual {p0, v4}, Landroid/media/audiofx/AudioEffect;->checkStatus(I)V
+    invoke-virtual {p0, v4}, Landroid/media/audiofx/SemMySound;->checkStatus(I)V
 
     return v2
 .end method
@@ -256,11 +256,11 @@
     :cond_5
     aput-byte v6, v3, v6
 
-    invoke-virtual {p0, v1, v3}, Landroid/media/audiofx/AudioEffect;->setParameter([B[B)I
+    invoke-virtual {p0, v1, v3}, Landroid/media/audiofx/SemMySound;->setParameter([B[B)I
 
     move-result v4
 
-    invoke-virtual {p0, v4}, Landroid/media/audiofx/AudioEffect;->checkStatus(I)V
+    invoke-virtual {p0, v4}, Landroid/media/audiofx/SemMySound;->checkStatus(I)V
 
     return v2
 .end method

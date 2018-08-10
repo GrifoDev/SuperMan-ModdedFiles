@@ -85,7 +85,7 @@
 
     move-result-object v6
 
-    const/16 v0, 0x10
+    const/16 v0, 0xd
 
     const/4 v1, 0x0
 
@@ -237,6 +237,18 @@
     move-result-object v0
 
     return-object v0
+.end method
+
+.method public getBoundsForDate(JLandroid/graphics/Rect;)Z
+    .locals 1
+
+    iget-object v0, p0, Landroid/widget/CalendarView;->mDelegate:Landroid/widget/CalendarView$CalendarViewDelegate;
+
+    invoke-interface {v0, p1, p2, p3}, Landroid/widget/CalendarView$CalendarViewDelegate;->getBoundsForDate(JLandroid/graphics/Rect;)Z
+
+    move-result v0
+
+    return v0
 .end method
 
 .method public getDate()J

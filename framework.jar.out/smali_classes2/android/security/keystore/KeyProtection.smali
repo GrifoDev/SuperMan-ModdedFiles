@@ -17,6 +17,10 @@
 # instance fields
 .field private final mBlockModes:[Ljava/lang/String;
 
+.field private final mBoundToSecureUserId:J
+
+.field private final mCriticalToDeviceEncryption:Z
+
 .field private final mDigests:[Ljava/lang/String;
 
 .field private final mEncryptionPaddings:[Ljava/lang/String;
@@ -43,66 +47,66 @@
 
 
 # direct methods
-.method private constructor <init>(Ljava/util/Date;Ljava/util/Date;Ljava/util/Date;I[Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;ZZIZZ)V
-    .locals 1
+.method private constructor <init>(Ljava/util/Date;Ljava/util/Date;Ljava/util/Date;I[Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;ZZIZZJZ)V
+    .locals 4
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     invoke-static {p1}, Landroid/security/keystore/Utils;->cloneIfNotNull(Ljava/util/Date;)Ljava/util/Date;
 
-    move-result-object v0
+    move-result-object v2
 
-    iput-object v0, p0, Landroid/security/keystore/KeyProtection;->mKeyValidityStart:Ljava/util/Date;
+    iput-object v2, p0, Landroid/security/keystore/KeyProtection;->mKeyValidityStart:Ljava/util/Date;
 
     invoke-static {p2}, Landroid/security/keystore/Utils;->cloneIfNotNull(Ljava/util/Date;)Ljava/util/Date;
 
-    move-result-object v0
+    move-result-object v2
 
-    iput-object v0, p0, Landroid/security/keystore/KeyProtection;->mKeyValidityForOriginationEnd:Ljava/util/Date;
+    iput-object v2, p0, Landroid/security/keystore/KeyProtection;->mKeyValidityForOriginationEnd:Ljava/util/Date;
 
     invoke-static {p3}, Landroid/security/keystore/Utils;->cloneIfNotNull(Ljava/util/Date;)Ljava/util/Date;
 
-    move-result-object v0
+    move-result-object v2
 
-    iput-object v0, p0, Landroid/security/keystore/KeyProtection;->mKeyValidityForConsumptionEnd:Ljava/util/Date;
+    iput-object v2, p0, Landroid/security/keystore/KeyProtection;->mKeyValidityForConsumptionEnd:Ljava/util/Date;
 
     iput p4, p0, Landroid/security/keystore/KeyProtection;->mPurposes:I
 
     invoke-static {p5}, Landroid/security/keystore/ArrayUtils;->nullToEmpty([Ljava/lang/String;)[Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v2
 
-    invoke-static {v0}, Landroid/security/keystore/ArrayUtils;->cloneIfNotEmpty([Ljava/lang/String;)[Ljava/lang/String;
+    invoke-static {v2}, Landroid/security/keystore/ArrayUtils;->cloneIfNotEmpty([Ljava/lang/String;)[Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v2
 
-    iput-object v0, p0, Landroid/security/keystore/KeyProtection;->mEncryptionPaddings:[Ljava/lang/String;
+    iput-object v2, p0, Landroid/security/keystore/KeyProtection;->mEncryptionPaddings:[Ljava/lang/String;
 
     invoke-static {p6}, Landroid/security/keystore/ArrayUtils;->nullToEmpty([Ljava/lang/String;)[Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v2
 
-    invoke-static {v0}, Landroid/security/keystore/ArrayUtils;->cloneIfNotEmpty([Ljava/lang/String;)[Ljava/lang/String;
+    invoke-static {v2}, Landroid/security/keystore/ArrayUtils;->cloneIfNotEmpty([Ljava/lang/String;)[Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v2
 
-    iput-object v0, p0, Landroid/security/keystore/KeyProtection;->mSignaturePaddings:[Ljava/lang/String;
+    iput-object v2, p0, Landroid/security/keystore/KeyProtection;->mSignaturePaddings:[Ljava/lang/String;
 
     invoke-static {p7}, Landroid/security/keystore/ArrayUtils;->cloneIfNotEmpty([Ljava/lang/String;)[Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v2
 
-    iput-object v0, p0, Landroid/security/keystore/KeyProtection;->mDigests:[Ljava/lang/String;
+    iput-object v2, p0, Landroid/security/keystore/KeyProtection;->mDigests:[Ljava/lang/String;
 
     invoke-static {p8}, Landroid/security/keystore/ArrayUtils;->nullToEmpty([Ljava/lang/String;)[Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v2
 
-    invoke-static {v0}, Landroid/security/keystore/ArrayUtils;->cloneIfNotEmpty([Ljava/lang/String;)[Ljava/lang/String;
+    invoke-static {v2}, Landroid/security/keystore/ArrayUtils;->cloneIfNotEmpty([Ljava/lang/String;)[Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v2
 
-    iput-object v0, p0, Landroid/security/keystore/KeyProtection;->mBlockModes:[Ljava/lang/String;
+    iput-object v2, p0, Landroid/security/keystore/KeyProtection;->mBlockModes:[Ljava/lang/String;
 
     iput-boolean p9, p0, Landroid/security/keystore/KeyProtection;->mRandomizedEncryptionRequired:Z
 
@@ -110,17 +114,29 @@
 
     iput p11, p0, Landroid/security/keystore/KeyProtection;->mUserAuthenticationValidityDurationSeconds:I
 
-    iput-boolean p12, p0, Landroid/security/keystore/KeyProtection;->mUserAuthenticationValidWhileOnBody:Z
+    move/from16 v0, p12
 
-    iput-boolean p13, p0, Landroid/security/keystore/KeyProtection;->mInvalidatedByBiometricEnrollment:Z
+    iput-boolean v0, p0, Landroid/security/keystore/KeyProtection;->mUserAuthenticationValidWhileOnBody:Z
+
+    move/from16 v0, p13
+
+    iput-boolean v0, p0, Landroid/security/keystore/KeyProtection;->mInvalidatedByBiometricEnrollment:Z
+
+    move-wide/from16 v0, p14
+
+    iput-wide v0, p0, Landroid/security/keystore/KeyProtection;->mBoundToSecureUserId:J
+
+    move/from16 v0, p16
+
+    iput-boolean v0, p0, Landroid/security/keystore/KeyProtection;->mCriticalToDeviceEncryption:Z
 
     return-void
 .end method
 
-.method synthetic constructor <init>(Ljava/util/Date;Ljava/util/Date;Ljava/util/Date;I[Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;ZZIZZLandroid/security/keystore/KeyProtection;)V
+.method synthetic constructor <init>(Ljava/util/Date;Ljava/util/Date;Ljava/util/Date;I[Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;ZZIZZJZLandroid/security/keystore/KeyProtection;)V
     .locals 0
 
-    invoke-direct/range {p0 .. p13}, Landroid/security/keystore/KeyProtection;-><init>(Ljava/util/Date;Ljava/util/Date;Ljava/util/Date;I[Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;ZZIZZ)V
+    invoke-direct/range {p0 .. p16}, Landroid/security/keystore/KeyProtection;-><init>(Ljava/util/Date;Ljava/util/Date;Ljava/util/Date;I[Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;ZZIZZJZ)V
 
     return-void
 .end method
@@ -137,6 +153,14 @@
     move-result-object v0
 
     return-object v0
+.end method
+
+.method public getBoundToSpecificSecureUserId()J
+    .locals 2
+
+    iget-wide v0, p0, Landroid/security/keystore/KeyProtection;->mBoundToSecureUserId:J
+
+    return-wide v0
 .end method
 
 .method public getDigests()[Ljava/lang/String;
@@ -236,6 +260,14 @@
     .locals 1
 
     iget v0, p0, Landroid/security/keystore/KeyProtection;->mUserAuthenticationValidityDurationSeconds:I
+
+    return v0
+.end method
+
+.method public isCriticalToDeviceEncryption()Z
+    .locals 1
+
+    iget-boolean v0, p0, Landroid/security/keystore/KeyProtection;->mCriticalToDeviceEncryption:Z
 
     return v0
 .end method

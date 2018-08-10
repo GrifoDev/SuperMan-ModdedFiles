@@ -116,13 +116,13 @@
 
     iget v2, p0, Lcom/samsung/android/hardware/context/SemContextCarryingDetectionAttribute;->mMode:I
 
-    invoke-virtual {v0, v1, v2}, Landroid/os/BaseBundle;->putInt(Ljava/lang/String;I)V
+    invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
     const-string/jumbo v1, "dpcm_data"
 
     iget v2, p0, Lcom/samsung/android/hardware/context/SemContextCarryingDetectionAttribute;->mData:I
 
-    invoke-virtual {v0, v1, v2}, Landroid/os/BaseBundle;->putInt(Ljava/lang/String;I)V
+    invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
     const/16 v1, 0x33
 
@@ -136,13 +136,13 @@
 .method public checkAttribute()Z
     .locals 4
 
-    const/4 v3, 0x0
+    const/4 v3, 0x1
 
-    const/4 v2, 0x1
+    const/4 v2, 0x0
 
     iget v0, p0, Lcom/samsung/android/hardware/context/SemContextCarryingDetectionAttribute;->mMode:I
 
-    if-lt v0, v2, :cond_0
+    if-lt v0, v3, :cond_0
 
     iget v0, p0, Lcom/samsung/android/hardware/context/SemContextCarryingDetectionAttribute;->mMode:I
 
@@ -157,57 +157,28 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    return v3
+    return v2
 
     :cond_1
     iget v0, p0, Lcom/samsung/android/hardware/context/SemContextCarryingDetectionAttribute;->mData:I
 
-    if-eq v0, v2, :cond_2
+    if-lez v0, :cond_2
 
     iget v0, p0, Lcom/samsung/android/hardware/context/SemContextCarryingDetectionAttribute;->mData:I
 
-    const/4 v1, 0x2
+    const/16 v1, 0x7f
 
-    if-eq v0, v1, :cond_2
+    if-le v0, v1, :cond_3
 
-    iget v0, p0, Lcom/samsung/android/hardware/context/SemContextCarryingDetectionAttribute;->mData:I
-
-    const/4 v1, 0x4
-
-    if-eq v0, v1, :cond_2
-
-    iget v0, p0, Lcom/samsung/android/hardware/context/SemContextCarryingDetectionAttribute;->mData:I
-
-    const/16 v1, 0x8
-
-    if-eq v0, v1, :cond_2
-
-    iget v0, p0, Lcom/samsung/android/hardware/context/SemContextCarryingDetectionAttribute;->mData:I
-
-    const/16 v1, 0x10
-
-    if-eq v0, v1, :cond_2
-
-    iget v0, p0, Lcom/samsung/android/hardware/context/SemContextCarryingDetectionAttribute;->mData:I
-
-    const/16 v1, 0x20
-
-    if-eq v0, v1, :cond_2
-
-    iget v0, p0, Lcom/samsung/android/hardware/context/SemContextCarryingDetectionAttribute;->mData:I
-
-    const/16 v1, 0x40
-
-    if-eq v0, v1, :cond_2
-
+    :cond_2
     const-string/jumbo v0, "SemContextCarryingDetection"
 
     const-string/jumbo v1, "Data value is wrong!!"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    return v3
-
-    :cond_2
     return v2
+
+    :cond_3
+    return v3
 .end method

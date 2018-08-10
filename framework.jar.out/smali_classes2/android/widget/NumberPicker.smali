@@ -22,7 +22,7 @@
 
 
 # static fields
-.field private static final DEFAULT_LAYOUT_RESOURCE_ID:I = 0x10900ac
+.field private static final DEFAULT_LAYOUT_RESOURCE_ID:I = 0x10900b0
 
 .field private static final DEFAULT_LONG_PRESS_UPDATE_INTERVAL:J = 0x12cL
 
@@ -239,7 +239,15 @@
     return v0
 .end method
 
-.method static synthetic -get16(Landroid/widget/NumberPicker;)I
+.method static synthetic -get16(Landroid/widget/NumberPicker;)Landroid/widget/NumberPicker$SetSelectionCommand;
+    .locals 1
+
+    iget-object v0, p0, Landroid/widget/NumberPicker;->mSetSelectionCommand:Landroid/widget/NumberPicker$SetSelectionCommand;
+
+    return-object v0
+.end method
+
+.method static synthetic -get17(Landroid/widget/NumberPicker;)I
     .locals 1
 
     iget v0, p0, Landroid/widget/NumberPicker;->mTop:I
@@ -247,7 +255,7 @@
     return v0
 .end method
 
-.method static synthetic -get17(Landroid/widget/NumberPicker;)I
+.method static synthetic -get18(Landroid/widget/NumberPicker;)I
     .locals 1
 
     iget v0, p0, Landroid/widget/NumberPicker;->mTopSelectionDividerTop:I
@@ -255,18 +263,10 @@
     return v0
 .end method
 
-.method static synthetic -get18(Landroid/widget/NumberPicker;)I
+.method static synthetic -get19(Landroid/widget/NumberPicker;)I
     .locals 1
 
     iget v0, p0, Landroid/widget/NumberPicker;->mValue:I
-
-    return v0
-.end method
-
-.method static synthetic -get19(Landroid/widget/NumberPicker;)Z
-    .locals 1
-
-    iget-boolean v0, p0, Landroid/widget/NumberPicker;->mWrapSelectorWheel:Z
 
     return v0
 .end method
@@ -275,6 +275,14 @@
     .locals 1
 
     iget v0, p0, Landroid/widget/NumberPicker;->mBottomSelectionDividerBottom:I
+
+    return v0
+.end method
+
+.method static synthetic -get20(Landroid/widget/NumberPicker;)Z
+    .locals 1
+
+    iget-boolean v0, p0, Landroid/widget/NumberPicker;->mWrapSelectorWheel:Z
 
     return v0
 .end method
@@ -642,9 +650,9 @@
 
     move-result-object v6
 
-    const/16 v18, 0x1
+    const/16 v18, 0x2
 
-    const v19, 0x10900ac
+    const v19, 0x10900b0
 
     move/from16 v0, v18
 
@@ -654,7 +662,7 @@
 
     move-result v13
 
-    const v18, 0x10900ac
+    const v18, 0x10900b0
 
     move/from16 v0, v18
 
@@ -669,7 +677,7 @@
 
     iput-boolean v0, v1, Landroid/widget/NumberPicker;->mHasSelectorWheel:Z
 
-    const/16 v18, 0xa
+    const/16 v18, 0x1
 
     const/16 v19, 0x0
 
@@ -705,7 +713,7 @@
 
     iput v0, v1, Landroid/widget/NumberPicker;->mSolidColor:I
 
-    const/16 v18, 0x2
+    const/16 v18, 0x7
 
     move/from16 v0, v18
 
@@ -772,7 +780,7 @@
 
     float-to-int v11, v0
 
-    const/16 v18, 0x3
+    const/16 v18, 0x8
 
     move/from16 v0, v18
 
@@ -812,7 +820,7 @@
 
     float-to-int v10, v0
 
-    const/16 v18, 0x4
+    const/16 v18, 0x9
 
     move/from16 v0, v18
 
@@ -844,7 +852,7 @@
 
     iput v0, v1, Landroid/widget/NumberPicker;->mMinHeight:I
 
-    const/16 v18, 0x6
+    const/16 v18, 0x3
 
     const/16 v19, -0x1
 
@@ -922,7 +930,7 @@
     goto/16 :goto_0
 
     :cond_2
-    const/16 v18, 0x7
+    const/16 v18, 0x6
 
     const/16 v19, -0x1
 
@@ -940,7 +948,7 @@
 
     iput v0, v1, Landroid/widget/NumberPicker;->mMinWidth:I
 
-    const/16 v18, 0x8
+    const/16 v18, 0x4
 
     const/16 v19, -0x1
 
@@ -1036,7 +1044,7 @@
 
     iput-boolean v0, v1, Landroid/widget/NumberPicker;->mComputeMaxWidth:Z
 
-    const/16 v18, 0x9
+    const/16 v18, 0xa
 
     move/from16 v0, v18
 
@@ -1072,11 +1080,8 @@
 
     move/from16 v18, v0
 
-    if-eqz v18, :cond_6
+    xor-int/lit8 v18, v18, 0x1
 
-    const/16 v18, 0x0
-
-    :goto_2
     move-object/from16 v0, p0
 
     move/from16 v1, v18
@@ -1121,9 +1126,9 @@
 
     move/from16 v18, v0
 
-    if-nez v18, :cond_7
+    if-nez v18, :cond_6
 
-    const v18, 0x102044a
+    const v18, 0x1020318
 
     move-object/from16 v0, p0
 
@@ -1161,16 +1166,16 @@
 
     invoke-virtual {v0, v15}, Landroid/widget/ImageButton;->setOnLongClickListener(Landroid/view/View$OnLongClickListener;)V
 
-    :goto_3
+    :goto_2
     move-object/from16 v0, p0
 
     iget-boolean v0, v0, Landroid/widget/NumberPicker;->mHasSelectorWheel:Z
 
     move/from16 v18, v0
 
-    if-nez v18, :cond_8
+    if-nez v18, :cond_7
 
-    const v18, 0x102044c
+    const v18, 0x102026c
 
     move-object/from16 v0, p0
 
@@ -1208,8 +1213,8 @@
 
     invoke-virtual {v0, v15}, Landroid/widget/ImageButton;->setOnLongClickListener(Landroid/view/View$OnLongClickListener;)V
 
-    :goto_4
-    const v18, 0x102044b
+    :goto_3
+    const v18, 0x10203ca
 
     move-object/from16 v0, p0
 
@@ -1498,7 +1503,13 @@
     goto/16 :goto_1
 
     :cond_6
-    const/16 v18, 0x1
+    const/16 v18, 0x0
+
+    move-object/from16 v0, v18
+
+    move-object/from16 v1, p0
+
+    iput-object v0, v1, Landroid/widget/NumberPicker;->mIncrementButton:Landroid/widget/ImageButton;
 
     goto/16 :goto_2
 
@@ -1509,20 +1520,9 @@
 
     move-object/from16 v1, p0
 
-    iput-object v0, v1, Landroid/widget/NumberPicker;->mIncrementButton:Landroid/widget/ImageButton;
-
-    goto/16 :goto_3
-
-    :cond_8
-    const/16 v18, 0x0
-
-    move-object/from16 v0, v18
-
-    move-object/from16 v1, p0
-
     iput-object v0, v1, Landroid/widget/NumberPicker;->mDecrementButton:Landroid/widget/ImageButton;
 
-    goto/16 :goto_4
+    goto/16 :goto_3
 .end method
 
 .method private changeValueByOne(Z)V
@@ -2550,7 +2550,7 @@
 .end method
 
 .method private postSetSelectionCommand(II)V
-    .locals 1
+    .locals 2
 
     iget-object v0, p0, Landroid/widget/NumberPicker;->mSetSelectionCommand:Landroid/widget/NumberPicker$SetSelectionCommand;
 
@@ -2558,31 +2558,18 @@
 
     new-instance v0, Landroid/widget/NumberPicker$SetSelectionCommand;
 
-    invoke-direct {v0, p0}, Landroid/widget/NumberPicker$SetSelectionCommand;-><init>(Landroid/widget/NumberPicker;)V
+    iget-object v1, p0, Landroid/widget/NumberPicker;->mInputText:Landroid/widget/EditText;
+
+    invoke-direct {v0, v1}, Landroid/widget/NumberPicker$SetSelectionCommand;-><init>(Landroid/widget/EditText;)V
 
     iput-object v0, p0, Landroid/widget/NumberPicker;->mSetSelectionCommand:Landroid/widget/NumberPicker$SetSelectionCommand;
-
-    :goto_0
-    iget-object v0, p0, Landroid/widget/NumberPicker;->mSetSelectionCommand:Landroid/widget/NumberPicker$SetSelectionCommand;
-
-    invoke-static {v0, p1}, Landroid/widget/NumberPicker$SetSelectionCommand;->-set1(Landroid/widget/NumberPicker$SetSelectionCommand;I)I
-
-    iget-object v0, p0, Landroid/widget/NumberPicker;->mSetSelectionCommand:Landroid/widget/NumberPicker$SetSelectionCommand;
-
-    invoke-static {v0, p2}, Landroid/widget/NumberPicker$SetSelectionCommand;->-set0(Landroid/widget/NumberPicker$SetSelectionCommand;I)I
-
-    iget-object v0, p0, Landroid/widget/NumberPicker;->mSetSelectionCommand:Landroid/widget/NumberPicker$SetSelectionCommand;
-
-    invoke-virtual {p0, v0}, Landroid/widget/NumberPicker;->post(Ljava/lang/Runnable;)Z
-
-    return-void
 
     :cond_0
     iget-object v0, p0, Landroid/widget/NumberPicker;->mSetSelectionCommand:Landroid/widget/NumberPicker$SetSelectionCommand;
 
-    invoke-virtual {p0, v0}, Landroid/widget/NumberPicker;->removeCallbacks(Ljava/lang/Runnable;)Z
+    invoke-virtual {v0, p1, p2}, Landroid/widget/NumberPicker$SetSelectionCommand;->post(II)V
 
-    goto :goto_0
+    return-void
 .end method
 
 .method private removeAllCallbacks()V
@@ -2603,7 +2590,7 @@
 
     iget-object v0, p0, Landroid/widget/NumberPicker;->mSetSelectionCommand:Landroid/widget/NumberPicker$SetSelectionCommand;
 
-    invoke-virtual {p0, v0}, Landroid/widget/NumberPicker;->removeCallbacks(Ljava/lang/Runnable;)Z
+    invoke-virtual {v0}, Landroid/widget/NumberPicker$SetSelectionCommand;->cancel()V
 
     :cond_1
     iget-object v0, p0, Landroid/widget/NumberPicker;->mBeginSoftInputOnLongPressCommand:Landroid/widget/NumberPicker$BeginSoftInputOnLongPressCommand;
@@ -2905,7 +2892,7 @@
 
     iget-object v1, p0, Landroid/widget/NumberPicker;->mDisplayedValues:[Ljava/lang/String;
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_0
 
     iget v1, p0, Landroid/widget/NumberPicker;->mValue:I
 
@@ -2918,7 +2905,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_1
 
     iget-object v1, p0, Landroid/widget/NumberPicker;->mInputText:Landroid/widget/EditText;
 
@@ -2934,14 +2921,19 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    xor-int/lit8 v1, v1, 0x1
 
-    :cond_0
-    const/4 v1, 0x0
+    if-eqz v1, :cond_1
+
+    iget-object v1, p0, Landroid/widget/NumberPicker;->mInputText:Landroid/widget/EditText;
+
+    invoke-virtual {v1, v0}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
+
+    const/4 v1, 0x1
 
     return v1
 
-    :cond_1
+    :cond_0
     iget-object v1, p0, Landroid/widget/NumberPicker;->mDisplayedValues:[Ljava/lang/String;
 
     iget v2, p0, Landroid/widget/NumberPicker;->mValue:I
@@ -2954,49 +2946,48 @@
 
     goto :goto_0
 
-    :cond_2
-    iget-object v1, p0, Landroid/widget/NumberPicker;->mInputText:Landroid/widget/EditText;
-
-    invoke-virtual {v1, v0}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
-
-    const/4 v1, 0x1
+    :cond_1
+    const/4 v1, 0x0
 
     return v1
 .end method
 
 .method private updateWrapSelectorWheel()V
-    .locals 4
+    .locals 3
 
-    const/4 v1, 0x0
+    iget v1, p0, Landroid/widget/NumberPicker;->mMaxValue:I
 
-    iget v2, p0, Landroid/widget/NumberPicker;->mMaxValue:I
+    iget v2, p0, Landroid/widget/NumberPicker;->mMinValue:I
 
-    iget v3, p0, Landroid/widget/NumberPicker;->mMinValue:I
+    sub-int/2addr v1, v2
 
-    sub-int/2addr v2, v3
+    iget-object v2, p0, Landroid/widget/NumberPicker;->mSelectorIndices:[I
 
-    iget-object v3, p0, Landroid/widget/NumberPicker;->mSelectorIndices:[I
+    array-length v2, v2
 
-    array-length v3, v3
-
-    if-lt v2, v3, :cond_1
+    if-lt v1, v2, :cond_0
 
     const/4 v0, 0x1
 
     :goto_0
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1
 
     iget-boolean v1, p0, Landroid/widget/NumberPicker;->mWrapSelectorWheelPreferred:Z
 
-    :cond_0
+    :goto_1
     iput-boolean v1, p0, Landroid/widget/NumberPicker;->mWrapSelectorWheel:Z
 
     return-void
 
-    :cond_1
-    move v0, v1
+    :cond_0
+    const/4 v0, 0x0
 
     goto :goto_0
+
+    :cond_1
+    const/4 v1, 0x0
+
+    goto :goto_1
 .end method
 
 .method private validateInputTextView(Landroid/view/View;)V
@@ -3530,10 +3521,20 @@
     return v0
 .end method
 
-.method public getDecrementButton()Landroid/widget/ImageButton;
-    .locals 1
+.method public getDisplayedValueForCurrentSelection()Ljava/lang/CharSequence;
+    .locals 2
 
-    iget-object v0, p0, Landroid/widget/NumberPicker;->mDecrementButton:Landroid/widget/ImageButton;
+    iget-object v0, p0, Landroid/widget/NumberPicker;->mSelectorIndexToStringCache:Landroid/util/SparseArray;
+
+    invoke-virtual {p0}, Landroid/widget/NumberPicker;->getValue()I
+
+    move-result v1
+
+    invoke-virtual {v0, v1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/CharSequence;
 
     return-object v0
 .end method
@@ -3542,14 +3543,6 @@
     .locals 1
 
     iget-object v0, p0, Landroid/widget/NumberPicker;->mDisplayedValues:[Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method public getIncrementButton()Landroid/widget/ImageButton;
-    .locals 1
-
-    iget-object v0, p0, Landroid/widget/NumberPicker;->mIncrementButton:Landroid/widget/ImageButton;
 
     return-object v0
 .end method
@@ -3989,17 +3982,20 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    xor-int/lit8 v1, v1, 0x1
 
+    if-eqz v1, :cond_1
+
+    :cond_0
+    return v5
+
+    :cond_1
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getActionMasked()I
 
     move-result v0
 
     packed-switch v0, :pswitch_data_0
 
-    return v5
-
-    :cond_0
     return v5
 
     :pswitch_0
@@ -4037,11 +4033,11 @@
 
     cmpg-float v1, v1, v2
 
-    if-gez v1, :cond_2
+    if-gez v1, :cond_3
 
     iget v1, p0, Landroid/widget/NumberPicker;->mScrollState:I
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_2
 
     iget-object v1, p0, Landroid/widget/NumberPicker;->mPressedStateHelper:Landroid/widget/NumberPicker$PressedStateHelper;
 
@@ -4049,7 +4045,7 @@
 
     invoke-virtual {v1, v2}, Landroid/widget/NumberPicker$PressedStateHelper;->buttonPressDelayed(I)V
 
-    :cond_1
+    :cond_2
     :goto_0
     invoke-virtual {p0}, Landroid/widget/NumberPicker;->getParent()Landroid/view/ViewParent;
 
@@ -4058,49 +4054,6 @@
     invoke-interface {v1, v4}, Landroid/view/ViewParent;->requestDisallowInterceptTouchEvent(Z)V
 
     iget-object v1, p0, Landroid/widget/NumberPicker;->mFlingScroller:Landroid/widget/Scroller;
-
-    invoke-virtual {v1}, Landroid/widget/Scroller;->isFinished()Z
-
-    move-result v1
-
-    if-nez v1, :cond_3
-
-    iget-object v1, p0, Landroid/widget/NumberPicker;->mFlingScroller:Landroid/widget/Scroller;
-
-    invoke-virtual {v1, v4}, Landroid/widget/Scroller;->forceFinished(Z)V
-
-    iget-object v1, p0, Landroid/widget/NumberPicker;->mAdjustScroller:Landroid/widget/Scroller;
-
-    invoke-virtual {v1, v4}, Landroid/widget/Scroller;->forceFinished(Z)V
-
-    invoke-direct {p0, v5}, Landroid/widget/NumberPicker;->onScrollStateChange(I)V
-
-    :goto_1
-    return v4
-
-    :cond_2
-    iget v1, p0, Landroid/widget/NumberPicker;->mLastDownEventY:F
-
-    iget v2, p0, Landroid/widget/NumberPicker;->mBottomSelectionDividerBottom:I
-
-    int-to-float v2, v2
-
-    cmpl-float v1, v1, v2
-
-    if-lez v1, :cond_1
-
-    iget v1, p0, Landroid/widget/NumberPicker;->mScrollState:I
-
-    if-nez v1, :cond_1
-
-    iget-object v1, p0, Landroid/widget/NumberPicker;->mPressedStateHelper:Landroid/widget/NumberPicker$PressedStateHelper;
-
-    invoke-virtual {v1, v4}, Landroid/widget/NumberPicker$PressedStateHelper;->buttonPressDelayed(I)V
-
-    goto :goto_0
-
-    :cond_3
-    iget-object v1, p0, Landroid/widget/NumberPicker;->mAdjustScroller:Landroid/widget/Scroller;
 
     invoke-virtual {v1}, Landroid/widget/Scroller;->isFinished()Z
 
@@ -4116,9 +4069,52 @@
 
     invoke-virtual {v1, v4}, Landroid/widget/Scroller;->forceFinished(Z)V
 
-    goto :goto_1
+    invoke-direct {p0, v5}, Landroid/widget/NumberPicker;->onScrollStateChange(I)V
+
+    :goto_1
+    return v4
+
+    :cond_3
+    iget v1, p0, Landroid/widget/NumberPicker;->mLastDownEventY:F
+
+    iget v2, p0, Landroid/widget/NumberPicker;->mBottomSelectionDividerBottom:I
+
+    int-to-float v2, v2
+
+    cmpl-float v1, v1, v2
+
+    if-lez v1, :cond_2
+
+    iget v1, p0, Landroid/widget/NumberPicker;->mScrollState:I
+
+    if-nez v1, :cond_2
+
+    iget-object v1, p0, Landroid/widget/NumberPicker;->mPressedStateHelper:Landroid/widget/NumberPicker$PressedStateHelper;
+
+    invoke-virtual {v1, v4}, Landroid/widget/NumberPicker$PressedStateHelper;->buttonPressDelayed(I)V
+
+    goto :goto_0
 
     :cond_4
+    iget-object v1, p0, Landroid/widget/NumberPicker;->mAdjustScroller:Landroid/widget/Scroller;
+
+    invoke-virtual {v1}, Landroid/widget/Scroller;->isFinished()Z
+
+    move-result v1
+
+    if-nez v1, :cond_5
+
+    iget-object v1, p0, Landroid/widget/NumberPicker;->mFlingScroller:Landroid/widget/Scroller;
+
+    invoke-virtual {v1, v4}, Landroid/widget/Scroller;->forceFinished(Z)V
+
+    iget-object v1, p0, Landroid/widget/NumberPicker;->mAdjustScroller:Landroid/widget/Scroller;
+
+    invoke-virtual {v1, v4}, Landroid/widget/Scroller;->forceFinished(Z)V
+
+    goto :goto_1
+
+    :cond_5
     iget v1, p0, Landroid/widget/NumberPicker;->mLastDownEventY:F
 
     iget v2, p0, Landroid/widget/NumberPicker;->mTopSelectionDividerTop:I
@@ -4127,7 +4123,7 @@
 
     cmpg-float v1, v1, v2
 
-    if-gez v1, :cond_5
+    if-gez v1, :cond_6
 
     invoke-direct {p0}, Landroid/widget/NumberPicker;->hideSoftInput()V
 
@@ -4141,7 +4137,7 @@
 
     goto :goto_1
 
-    :cond_5
+    :cond_6
     iget v1, p0, Landroid/widget/NumberPicker;->mLastDownEventY:F
 
     iget v2, p0, Landroid/widget/NumberPicker;->mBottomSelectionDividerBottom:I
@@ -4150,7 +4146,7 @@
 
     cmpl-float v1, v1, v2
 
-    if-lez v1, :cond_6
+    if-lez v1, :cond_7
 
     invoke-direct {p0}, Landroid/widget/NumberPicker;->hideSoftInput()V
 
@@ -4164,7 +4160,7 @@
 
     goto :goto_1
 
-    :cond_6
+    :cond_7
     iput-boolean v4, p0, Landroid/widget/NumberPicker;->mPerformClickOnTap:Z
 
     invoke-direct {p0}, Landroid/widget/NumberPicker;->postBeginSoftInputOnLongPressCommand()V
@@ -4340,15 +4336,23 @@
 
     move-result v10
 
-    if-eqz v10, :cond_2
+    if-eqz v10, :cond_0
 
     iget-boolean v10, p0, Landroid/widget/NumberPicker;->mHasSelectorWheel:Z
 
-    if-eqz v10, :cond_2
+    xor-int/lit8 v10, v10, 0x1
 
+    if-eqz v10, :cond_1
+
+    :cond_0
+    const/4 v10, 0x0
+
+    return v10
+
+    :cond_1
     iget-object v10, p0, Landroid/widget/NumberPicker;->mVelocityTracker:Landroid/view/VelocityTracker;
 
-    if-nez v10, :cond_0
+    if-nez v10, :cond_2
 
     invoke-static {}, Landroid/view/VelocityTracker;->obtain()Landroid/view/VelocityTracker;
 
@@ -4356,7 +4360,7 @@
 
     iput-object v10, p0, Landroid/widget/NumberPicker;->mVelocityTracker:Landroid/view/VelocityTracker;
 
-    :cond_0
+    :cond_2
     iget-object v10, p0, Landroid/widget/NumberPicker;->mVelocityTracker:Landroid/view/VelocityTracker;
 
     invoke-virtual {v10, p1}, Landroid/view/VelocityTracker;->addMovement(Landroid/view/MotionEvent;)V
@@ -4367,21 +4371,16 @@
 
     packed-switch v0, :pswitch_data_0
 
-    :cond_1
+    :cond_3
     :goto_0
     const/4 v10, 0x1
-
-    return v10
-
-    :cond_2
-    const/4 v10, 0x0
 
     return v10
 
     :pswitch_0
     iget-boolean v10, p0, Landroid/widget/NumberPicker;->mIgnoreMoveEvents:Z
 
-    if-nez v10, :cond_1
+    if-nez v10, :cond_3
 
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getY()F
 
@@ -4391,7 +4390,7 @@
 
     const/4 v11, 0x1
 
-    if-eq v10, v11, :cond_4
+    if-eq v10, v11, :cond_5
 
     iget v10, p0, Landroid/widget/NumberPicker;->mLastDownEventY:F
 
@@ -4405,7 +4404,7 @@
 
     iget v10, p0, Landroid/widget/NumberPicker;->mTouchSlop:I
 
-    if-le v2, v10, :cond_3
+    if-le v2, v10, :cond_4
 
     invoke-direct {p0}, Landroid/widget/NumberPicker;->removeAllCallbacks()V
 
@@ -4413,13 +4412,13 @@
 
     invoke-direct {p0, v10}, Landroid/widget/NumberPicker;->onScrollStateChange(I)V
 
-    :cond_3
+    :cond_4
     :goto_1
     iput v1, p0, Landroid/widget/NumberPicker;->mLastDownOrMoveEventY:F
 
     goto :goto_0
 
-    :cond_4
+    :cond_5
     iget v10, p0, Landroid/widget/NumberPicker;->mLastDownOrMoveEventY:F
 
     sub-float v10, v1, v10
@@ -4465,7 +4464,7 @@
 
     iget v11, p0, Landroid/widget/NumberPicker;->mMinimumFlingVelocity:I
 
-    if-le v10, v11, :cond_5
+    if-le v10, v11, :cond_6
 
     invoke-direct {p0, v7}, Landroid/widget/NumberPicker;->fling(I)V
 
@@ -4484,7 +4483,7 @@
 
     goto :goto_0
 
-    :cond_5
+    :cond_6
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getY()F
 
     move-result v10
@@ -4513,7 +4512,7 @@
 
     iget v10, p0, Landroid/widget/NumberPicker;->mTouchSlop:I
 
-    if-gt v3, v10, :cond_9
+    if-gt v3, v10, :cond_a
 
     invoke-static {}, Landroid/view/ViewConfiguration;->getTapTimeout()I
 
@@ -4523,11 +4522,11 @@
 
     cmp-long v10, v4, v10
 
-    if-gez v10, :cond_9
+    if-gez v10, :cond_a
 
     iget-boolean v10, p0, Landroid/widget/NumberPicker;->mPerformClickOnTap:Z
 
-    if-eqz v10, :cond_7
+    if-eqz v10, :cond_8
 
     const/4 v10, 0x0
 
@@ -4535,7 +4534,7 @@
 
     invoke-virtual {p0}, Landroid/widget/NumberPicker;->performClick()Z
 
-    :cond_6
+    :cond_7
     :goto_3
     const/4 v10, 0x0
 
@@ -4543,14 +4542,14 @@
 
     goto :goto_2
 
-    :cond_7
+    :cond_8
     iget v10, p0, Landroid/widget/NumberPicker;->mSelectorElementHeight:I
 
     div-int v10, v6, v10
 
     add-int/lit8 v8, v10, -0x1
 
-    if-lez v8, :cond_8
+    if-lez v8, :cond_9
 
     const/4 v10, 0x1
 
@@ -4564,8 +4563,8 @@
 
     goto :goto_3
 
-    :cond_8
-    if-gez v8, :cond_6
+    :cond_9
+    if-gez v8, :cond_7
 
     const/4 v10, 0x0
 
@@ -4579,7 +4578,7 @@
 
     goto :goto_3
 
-    :cond_9
+    :cond_a
     invoke-direct {p0}, Landroid/widget/NumberPicker;->ensureScrollWheelAdjusted()Z
 
     goto :goto_3
@@ -5016,24 +5015,6 @@
     iput-boolean p1, p0, Landroid/widget/NumberPicker;->mWrapSelectorWheelPreferred:Z
 
     invoke-direct {p0}, Landroid/widget/NumberPicker;->updateWrapSelectorWheel()V
-
-    return-void
-.end method
-
-.method public twSetMaxInputLength(I)V
-    .locals 0
-
-    return-void
-.end method
-
-.method public twSetMonthInputMode()V
-    .locals 0
-
-    return-void
-.end method
-
-.method public twSetYearDateTimeInputMode()V
-    .locals 0
 
     return-void
 .end method

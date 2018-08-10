@@ -34,136 +34,138 @@
 .method public handleMessage(Landroid/os/Message;)V
     .locals 14
 
-    const-wide/16 v12, 0x0
+    iget-object v9, p0, Landroid/os/CountDownTimer$1;->this$0:Landroid/os/CountDownTimer;
 
-    iget-object v7, p0, Landroid/os/CountDownTimer$1;->this$0:Landroid/os/CountDownTimer;
-
-    monitor-enter v7
+    monitor-enter v9
 
     :try_start_0
-    iget-object v6, p0, Landroid/os/CountDownTimer$1;->this$0:Landroid/os/CountDownTimer;
+    iget-object v8, p0, Landroid/os/CountDownTimer$1;->this$0:Landroid/os/CountDownTimer;
 
-    invoke-static {v6}, Landroid/os/CountDownTimer;->-get0(Landroid/os/CountDownTimer;)Z
+    invoke-static {v8}, Landroid/os/CountDownTimer;->-get0(Landroid/os/CountDownTimer;)Z
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    move-result v6
+    move-result v8
 
-    if-eqz v6, :cond_0
+    if-eqz v8, :cond_0
 
-    monitor-exit v7
+    monitor-exit v9
 
     return-void
 
     :cond_0
     :try_start_1
-    iget-object v6, p0, Landroid/os/CountDownTimer$1;->this$0:Landroid/os/CountDownTimer;
+    iget-object v8, p0, Landroid/os/CountDownTimer$1;->this$0:Landroid/os/CountDownTimer;
 
-    invoke-static {v6}, Landroid/os/CountDownTimer;->-get2(Landroid/os/CountDownTimer;)J
-
-    move-result-wide v8
-
-    invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
+    invoke-static {v8}, Landroid/os/CountDownTimer;->-get2(Landroid/os/CountDownTimer;)J
 
     move-result-wide v10
 
-    sub-long v4, v8, v10
+    invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
-    cmp-long v6, v4, v12
+    move-result-wide v12
 
-    if-gtz v6, :cond_1
+    sub-long v6, v10, v12
 
-    iget-object v6, p0, Landroid/os/CountDownTimer$1;->this$0:Landroid/os/CountDownTimer;
+    const-wide/16 v10, 0x0
 
-    invoke-virtual {v6}, Landroid/os/CountDownTimer;->onFinish()V
+    cmp-long v8, v6, v10
+
+    if-gtz v8, :cond_1
+
+    iget-object v8, p0, Landroid/os/CountDownTimer$1;->this$0:Landroid/os/CountDownTimer;
+
+    invoke-virtual {v8}, Landroid/os/CountDownTimer;->onFinish()V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     :goto_0
-    monitor-exit v7
+    monitor-exit v9
 
     return-void
 
     :cond_1
     :try_start_2
-    iget-object v6, p0, Landroid/os/CountDownTimer$1;->this$0:Landroid/os/CountDownTimer;
+    invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
-    invoke-static {v6}, Landroid/os/CountDownTimer;->-get1(Landroid/os/CountDownTimer;)J
+    move-result-wide v4
 
-    move-result-wide v8
+    iget-object v8, p0, Landroid/os/CountDownTimer$1;->this$0:Landroid/os/CountDownTimer;
 
-    cmp-long v6, v4, v8
+    invoke-virtual {v8, v6, v7}, Landroid/os/CountDownTimer;->onTick(J)V
 
-    if-gez v6, :cond_2
+    invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
-    const/4 v6, 0x1
+    move-result-wide v10
 
-    invoke-virtual {p0, v6}, Landroid/os/CountDownTimer$1;->obtainMessage(I)Landroid/os/Message;
+    sub-long v2, v10, v4
 
-    move-result-object v6
+    iget-object v8, p0, Landroid/os/CountDownTimer$1;->this$0:Landroid/os/CountDownTimer;
 
-    invoke-virtual {p0, v6, v4, v5}, Landroid/os/CountDownTimer$1;->sendMessageDelayed(Landroid/os/Message;J)Z
+    invoke-static {v8}, Landroid/os/CountDownTimer;->-get1(Landroid/os/CountDownTimer;)J
+
+    move-result-wide v10
+
+    cmp-long v8, v6, v10
+
+    if-gez v8, :cond_3
+
+    sub-long v0, v6, v2
+
+    const-wide/16 v10, 0x0
+
+    cmp-long v8, v0, v10
+
+    if-gez v8, :cond_2
+
+    const-wide/16 v0, 0x0
+
+    :cond_2
+    const/4 v8, 0x1
+
+    invoke-virtual {p0, v8}, Landroid/os/CountDownTimer$1;->obtainMessage(I)Landroid/os/Message;
+
+    move-result-object v8
+
+    invoke-virtual {p0, v8, v0, v1}, Landroid/os/CountDownTimer$1;->sendMessageDelayed(Landroid/os/Message;J)Z
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     goto :goto_0
 
     :catchall_0
-    move-exception v6
+    move-exception v8
 
-    monitor-exit v7
+    monitor-exit v9
 
-    throw v6
+    throw v8
 
-    :cond_2
+    :cond_3
     :try_start_3
-    invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
+    iget-object v8, p0, Landroid/os/CountDownTimer$1;->this$0:Landroid/os/CountDownTimer;
 
-    move-result-wide v2
-
-    iget-object v6, p0, Landroid/os/CountDownTimer$1;->this$0:Landroid/os/CountDownTimer;
-
-    invoke-virtual {v6, v4, v5}, Landroid/os/CountDownTimer;->onTick(J)V
-
-    iget-object v6, p0, Landroid/os/CountDownTimer$1;->this$0:Landroid/os/CountDownTimer;
-
-    invoke-static {v6}, Landroid/os/CountDownTimer;->-get1(Landroid/os/CountDownTimer;)J
-
-    move-result-wide v8
-
-    add-long/2addr v8, v2
-
-    invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
+    invoke-static {v8}, Landroid/os/CountDownTimer;->-get1(Landroid/os/CountDownTimer;)J
 
     move-result-wide v10
 
-    sub-long v0, v8, v10
+    sub-long v0, v10, v2
 
     :goto_1
-    cmp-long v6, v0, v12
+    const-wide/16 v10, 0x0
 
-    if-gez v6, :cond_3
+    cmp-long v8, v0, v10
 
-    iget-object v6, p0, Landroid/os/CountDownTimer$1;->this$0:Landroid/os/CountDownTimer;
+    if-gez v8, :cond_2
 
-    invoke-static {v6}, Landroid/os/CountDownTimer;->-get1(Landroid/os/CountDownTimer;)J
+    iget-object v8, p0, Landroid/os/CountDownTimer$1;->this$0:Landroid/os/CountDownTimer;
 
-    move-result-wide v8
-
-    add-long/2addr v0, v8
-
-    goto :goto_1
-
-    :cond_3
-    const/4 v6, 0x1
-
-    invoke-virtual {p0, v6}, Landroid/os/CountDownTimer$1;->obtainMessage(I)Landroid/os/Message;
-
-    move-result-object v6
-
-    invoke-virtual {p0, v6, v0, v1}, Landroid/os/CountDownTimer$1;->sendMessageDelayed(Landroid/os/Message;J)Z
+    invoke-static {v8}, Landroid/os/CountDownTimer;->-get1(Landroid/os/CountDownTimer;)J
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
-    goto :goto_0
+    move-result-wide v10
+
+    add-long/2addr v0, v10
+
+    goto :goto_1
 .end method

@@ -17,6 +17,8 @@
 
 .field private mFrameAvailableListener:J
 
+.field private mIsSingleBuffered:Z
+
 .field private mOnFrameAvailableHandler:Landroid/os/Handler;
 
 .field private mProducer:J
@@ -25,14 +27,6 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 0
-
-    invoke-static {}, Landroid/graphics/SurfaceTexture;->nativeClassInit()V
-
-    return-void
-.end method
-
 .method public constructor <init>(I)V
     .locals 1
 
@@ -53,6 +47,8 @@
     move-result-object v0
 
     iput-object v0, p0, Landroid/graphics/SurfaceTexture;->mCreatorLooper:Landroid/os/Looper;
+
+    iput-boolean p2, p0, Landroid/graphics/SurfaceTexture;->mIsSingleBuffered:Z
 
     new-instance v0, Ljava/lang/ref/WeakReference;
 
@@ -76,6 +72,8 @@
 
     iput-object v0, p0, Landroid/graphics/SurfaceTexture;->mCreatorLooper:Landroid/os/Looper;
 
+    iput-boolean p1, p0, Landroid/graphics/SurfaceTexture;->mIsSingleBuffered:Z
+
     new-instance v0, Ljava/lang/ref/WeakReference;
 
     invoke-direct {v0, p0}, Ljava/lang/ref/WeakReference;-><init>(Ljava/lang/Object;)V
@@ -92,16 +90,10 @@
 .method private native nativeAttachToGLContext(I)I
 .end method
 
-.method private static native nativeClassInit()V
-.end method
-
 .method private native nativeDetachFromGLContext()I
 .end method
 
 .method private native nativeFinalize()V
-.end method
-
-.method private native nativeGetQueuedCount()I
 .end method
 
 .method private native nativeGetTimestamp()J
@@ -281,6 +273,14 @@
     invoke-direct {p0}, Landroid/graphics/SurfaceTexture;->nativeIsReleased()Z
 
     move-result v0
+
+    return v0
+.end method
+
+.method public isSingleBuffered()Z
+    .locals 1
+
+    iget-boolean v0, p0, Landroid/graphics/SurfaceTexture;->mIsSingleBuffered:Z
 
     return v0
 .end method

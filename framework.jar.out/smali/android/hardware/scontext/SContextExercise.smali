@@ -128,7 +128,7 @@
 
     const-string/jumbo v2, "LatitudeArray"
 
-    invoke-virtual {v1, v2}, Landroid/os/BaseBundle;->getDoubleArray(Ljava/lang/String;)[D
+    invoke-virtual {v1, v2}, Landroid/os/Bundle;->getDoubleArray(Ljava/lang/String;)[D
 
     move-result-object v0
 
@@ -149,7 +149,7 @@
 
     const-string/jumbo v2, "DataCount"
 
-    invoke-virtual {v1, v2}, Landroid/os/BaseBundle;->getInt(Ljava/lang/String;)I
+    invoke-virtual {v1, v2}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
 
     move-result v0
 
@@ -170,7 +170,7 @@
 
     const-string/jumbo v2, "LongitudeArray"
 
-    invoke-virtual {v1, v2}, Landroid/os/BaseBundle;->getDoubleArray(Ljava/lang/String;)[D
+    invoke-virtual {v1, v2}, Landroid/os/Bundle;->getDoubleArray(Ljava/lang/String;)[D
 
     move-result-object v0
 
@@ -185,7 +185,7 @@
 
     const-string/jumbo v1, "Mode"
 
-    invoke-virtual {v0, v1}, Landroid/os/BaseBundle;->getInt(Ljava/lang/String;)I
+    invoke-virtual {v0, v1}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
 
     move-result v0
 
@@ -205,7 +205,7 @@
 
     const-string/jumbo v2, "PedoDistanceDiffArray"
 
-    invoke-virtual {v1, v2}, Landroid/os/BaseBundle;->getDoubleArray(Ljava/lang/String;)[D
+    invoke-virtual {v1, v2}, Landroid/os/Bundle;->getDoubleArray(Ljava/lang/String;)[D
 
     move-result-object v0
 
@@ -226,7 +226,7 @@
 
     const-string/jumbo v2, "PedoSpeedArray"
 
-    invoke-virtual {v1, v2}, Landroid/os/BaseBundle;->getDoubleArray(Ljava/lang/String;)[D
+    invoke-virtual {v1, v2}, Landroid/os/Bundle;->getDoubleArray(Ljava/lang/String;)[D
 
     move-result-object v0
 
@@ -291,7 +291,7 @@
 
     const-string/jumbo v2, "GpsStatus"
 
-    invoke-virtual {v1, v2}, Landroid/os/BaseBundle;->getInt(Ljava/lang/String;)I
+    invoke-virtual {v1, v2}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
 
     move-result v0
 
@@ -312,7 +312,7 @@
 
     const-string/jumbo v2, "StepCountDiffArray"
 
-    invoke-virtual {v1, v2}, Landroid/os/BaseBundle;->getLongArray(Ljava/lang/String;)[J
+    invoke-virtual {v1, v2}, Landroid/os/Bundle;->getLongArray(Ljava/lang/String;)[J
 
     move-result-object v0
 
@@ -333,7 +333,7 @@
 
     const-string/jumbo v2, "TimeStampArray"
 
-    invoke-virtual {v1, v2}, Landroid/os/BaseBundle;->getLongArray(Ljava/lang/String;)[J
+    invoke-virtual {v1, v2}, Landroid/os/Bundle;->getLongArray(Ljava/lang/String;)[J
 
     move-result-object v0
 
@@ -348,7 +348,7 @@
 
     const-string/jumbo v0, "Mode"
 
-    invoke-virtual {p1, v0}, Landroid/os/BaseBundle;->getInt(Ljava/lang/String;)I
+    invoke-virtual {p1, v0}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
 
     move-result v0
 

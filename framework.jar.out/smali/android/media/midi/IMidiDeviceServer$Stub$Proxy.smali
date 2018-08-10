@@ -142,7 +142,7 @@
     throw v2
 .end method
 
-.method public connectPorts(Landroid/os/IBinder;Landroid/os/ParcelFileDescriptor;I)I
+.method public connectPorts(Landroid/os/IBinder;Ljava/io/FileDescriptor;I)I
     .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -165,17 +165,8 @@
 
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    if-eqz p2, :cond_0
+    invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeRawFileDescriptor(Ljava/io/FileDescriptor;)V
 
-    const/4 v3, 0x1
-
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
-
-    const/4 v3, 0x0
-
-    invoke-virtual {p2, v0, v3}, Landroid/os/ParcelFileDescriptor;->writeToParcel(Landroid/os/Parcel;I)V
-
-    :goto_0
     invoke-virtual {v0, p3}, Landroid/os/Parcel;->writeInt(I)V
 
     iget-object v3, p0, Landroid/media/midi/IMidiDeviceServer$Stub$Proxy;->mRemote:Landroid/os/IBinder;
@@ -199,16 +190,6 @@
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
     return v2
-
-    :cond_0
-    const/4 v3, 0x0
-
-    :try_start_1
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    goto :goto_0
 
     :catchall_0
     move-exception v3
@@ -297,7 +278,7 @@
     return-object v0
 .end method
 
-.method public openInputPort(Landroid/os/IBinder;I)Landroid/os/ParcelFileDescriptor;
+.method public openInputPort(Landroid/os/IBinder;I)Ljava/io/FileDescriptor;
     .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -332,33 +313,17 @@
 
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-
-    move-result v3
-
-    if-eqz v3, :cond_0
-
-    sget-object v3, Landroid/os/ParcelFileDescriptor;->CREATOR:Landroid/os/Parcelable$Creator;
-
-    invoke-interface {v3, v1}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Landroid/os/ParcelFileDescriptor;
+    invoke-virtual {v1}, Landroid/os/Parcel;->readRawFileDescriptor()Ljava/io/FileDescriptor;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    :goto_0
+    move-result-object v2
+
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
     return-object v2
-
-    :cond_0
-    const/4 v2, 0x0
-
-    goto :goto_0
 
     :catchall_0
     move-exception v3
@@ -370,7 +335,7 @@
     throw v3
 .end method
 
-.method public openOutputPort(Landroid/os/IBinder;I)Landroid/os/ParcelFileDescriptor;
+.method public openOutputPort(Landroid/os/IBinder;I)Ljava/io/FileDescriptor;
     .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -405,33 +370,17 @@
 
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-
-    move-result v3
-
-    if-eqz v3, :cond_0
-
-    sget-object v3, Landroid/os/ParcelFileDescriptor;->CREATOR:Landroid/os/Parcelable$Creator;
-
-    invoke-interface {v3, v1}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Landroid/os/ParcelFileDescriptor;
+    invoke-virtual {v1}, Landroid/os/Parcel;->readRawFileDescriptor()Ljava/io/FileDescriptor;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    :goto_0
+    move-result-object v2
+
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
     return-object v2
-
-    :cond_0
-    const/4 v2, 0x0
-
-    goto :goto_0
 
     :catchall_0
     move-exception v3

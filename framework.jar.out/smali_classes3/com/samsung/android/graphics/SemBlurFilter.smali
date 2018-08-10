@@ -11,13 +11,25 @@
 .field public static final TYPE_SGI:I = 0x2
 
 
+# instance fields
+.field private mOptimization:I
+
+.field private mRadius:F
+
+
 # direct methods
 .method public constructor <init>()V
     .locals 1
 
-    const/16 v0, 0x36
+    invoke-direct {p0}, Lcom/samsung/android/graphics/SemImageFilter;-><init>()V
 
-    invoke-direct {p0, v0}, Lcom/samsung/android/graphics/SemImageFilter;-><init>(I)V
+    const-string/jumbo v0, "#ifdef GL_ES\nprecision mediump float;\n#endif\nattribute vec2 texCoords;\nattribute vec4 position;\nvarying vec2 outTexCoords;\nuniform mat4 projection;\nvoid main() {\n   outTexCoords = texCoords;\n   gl_Position = projection * position;\n}\n"
+
+    invoke-virtual {p0, v0}, Lcom/samsung/android/graphics/SemBlurFilter;->setVertexShader(Ljava/lang/String;)V
+
+    const-string/jumbo v0, "#ifdef GL_ES\nprecision mediump float;\n#endif\nvarying vec2 outTexCoords;\nuniform sampler2D baseSampler;\nuniform sampler2D originalSampler;\nuniform sampler2D maskSampler;\nuniform float filterParams[16];\n\n\nvoid main(void) {\n     vec4 colorBase = texture2D(baseSampler, outTexCoords);\n     gl_FragColor = colorBase;\n}\n\n"
+
+    invoke-virtual {p0, v0}, Lcom/samsung/android/graphics/SemBlurFilter;->setFragmentShader(Ljava/lang/String;)V
 
     return-void
 .end method
@@ -25,7 +37,7 @@
 
 # virtual methods
 .method public clone()Lcom/samsung/android/graphics/SemBlurFilter;
-    .locals 1
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/CloneNotSupportedException;
@@ -37,6 +49,14 @@
     move-result-object v0
 
     check-cast v0, Lcom/samsung/android/graphics/SemBlurFilter;
+
+    iget v1, p0, Lcom/samsung/android/graphics/SemBlurFilter;->mRadius:F
+
+    iput v1, v0, Lcom/samsung/android/graphics/SemBlurFilter;->mRadius:F
+
+    iget v1, p0, Lcom/samsung/android/graphics/SemBlurFilter;->mOptimization:I
+
+    iput v1, v0, Lcom/samsung/android/graphics/SemBlurFilter;->mOptimization:I
 
     return-object v0
 .end method
@@ -56,14 +76,27 @@
     return-object v0
 .end method
 
+.method public bridge synthetic clone()Ljava/lang/Object;
+    .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/lang/CloneNotSupportedException;
+        }
+    .end annotation
+
+    invoke-virtual {p0}, Lcom/samsung/android/graphics/SemBlurFilter;->clone()Lcom/samsung/android/graphics/SemBlurFilter;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
 .method public getOptimization()F
     .locals 1
 
-    const/4 v0, 0x1
+    iget v0, p0, Lcom/samsung/android/graphics/SemBlurFilter;->mOptimization:I
 
-    invoke-super {p0, v0}, Lcom/samsung/android/graphics/SemImageFilter;->getValue(I)F
-
-    move-result v0
+    int-to-float v0, v0
 
     return v0
 .end method
@@ -71,45 +104,23 @@
 .method public getRadius()F
     .locals 1
 
-    const/4 v0, 0x0
-
-    invoke-super {p0, v0}, Lcom/samsung/android/graphics/SemImageFilter;->getValue(I)F
-
-    move-result v0
+    iget v0, p0, Lcom/samsung/android/graphics/SemBlurFilter;->mRadius:F
 
     return v0
 .end method
 
 .method public setOptimization(I)V
-    .locals 2
+    .locals 0
 
-    int-to-float v0, p1
-
-    const/4 v1, 0x1
-
-    invoke-super {p0, v1, v0}, Lcom/samsung/android/graphics/SemImageFilter;->setValue(IF)V
+    iput p1, p0, Lcom/samsung/android/graphics/SemBlurFilter;->mOptimization:I
 
     return-void
 .end method
 
 .method public setRadius(F)V
-    .locals 2
+    .locals 0
 
-    const/high16 v0, 0x437a0000    # 250.0f
-
-    invoke-static {p1, v0}, Ljava/lang/Math;->min(FF)F
-
-    move-result v0
-
-    const/4 v1, 0x0
-
-    invoke-static {v1, v0}, Ljava/lang/Math;->max(FF)F
-
-    move-result v0
-
-    const/4 v1, 0x0
-
-    invoke-super {p0, v1, v0}, Lcom/samsung/android/graphics/SemImageFilter;->setValue(IF)V
+    iput p1, p0, Lcom/samsung/android/graphics/SemBlurFilter;->mRadius:F
 
     return-void
 .end method

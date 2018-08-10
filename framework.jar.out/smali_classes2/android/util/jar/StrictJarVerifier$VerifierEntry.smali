@@ -84,11 +84,7 @@
 
     iget-object v1, p0, Landroid/util/jar/StrictJarVerifier$VerifierEntry;->hash:[B
 
-    invoke-static {v1}, Llibcore/io/Base64;->decode([B)[B
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Ljava/security/MessageDigest;->isEqual([B[B)Z
+    invoke-static {v0, v1}, Landroid/util/jar/StrictJarVerifier;->-wrap0([B[B)Z
 
     move-result v1
 
@@ -100,7 +96,7 @@
 
     iget-object v3, p0, Landroid/util/jar/StrictJarVerifier$VerifierEntry;->name:Ljava/lang/String;
 
-    invoke-static {v1, v2, v3}, Landroid/util/jar/StrictJarVerifier;->-wrap0(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/SecurityException;
+    invoke-static {v1, v2, v3}, Landroid/util/jar/StrictJarVerifier;->-wrap1(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/SecurityException;
 
     move-result-object v1
 

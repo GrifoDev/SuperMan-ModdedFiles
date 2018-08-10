@@ -338,7 +338,7 @@
     return-object v0
 
     :cond_5
-    const-string/jumbo v0, "color"
+    const-string/jumbo v0, "adaptive-icon"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -346,14 +346,14 @@
 
     if-eqz v0, :cond_6
 
-    new-instance v0, Landroid/graphics/drawable/ColorDrawable;
+    new-instance v0, Landroid/graphics/drawable/AdaptiveIconDrawable;
 
-    invoke-direct {v0}, Landroid/graphics/drawable/ColorDrawable;-><init>()V
+    invoke-direct {v0}, Landroid/graphics/drawable/AdaptiveIconDrawable;-><init>()V
 
     return-object v0
 
     :cond_6
-    const-string/jumbo v0, "shape"
+    const-string/jumbo v0, "color"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -361,14 +361,14 @@
 
     if-eqz v0, :cond_7
 
-    new-instance v0, Landroid/graphics/drawable/GradientDrawable;
+    new-instance v0, Landroid/graphics/drawable/ColorDrawable;
 
-    invoke-direct {v0}, Landroid/graphics/drawable/GradientDrawable;-><init>()V
+    invoke-direct {v0}, Landroid/graphics/drawable/ColorDrawable;-><init>()V
 
     return-object v0
 
     :cond_7
-    const-string/jumbo v0, "vector"
+    const-string/jumbo v0, "shape"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -376,14 +376,14 @@
 
     if-eqz v0, :cond_8
 
-    new-instance v0, Landroid/graphics/drawable/VectorDrawable;
+    new-instance v0, Landroid/graphics/drawable/GradientDrawable;
 
-    invoke-direct {v0}, Landroid/graphics/drawable/VectorDrawable;-><init>()V
+    invoke-direct {v0}, Landroid/graphics/drawable/GradientDrawable;-><init>()V
 
     return-object v0
 
     :cond_8
-    const-string/jumbo v0, "animated-vector"
+    const-string/jumbo v0, "vector"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -391,14 +391,14 @@
 
     if-eqz v0, :cond_9
 
-    new-instance v0, Landroid/graphics/drawable/AnimatedVectorDrawable;
+    new-instance v0, Landroid/graphics/drawable/VectorDrawable;
 
-    invoke-direct {v0}, Landroid/graphics/drawable/AnimatedVectorDrawable;-><init>()V
+    invoke-direct {v0}, Landroid/graphics/drawable/VectorDrawable;-><init>()V
 
     return-object v0
 
     :cond_9
-    const-string/jumbo v0, "scale"
+    const-string/jumbo v0, "animated-vector"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -406,14 +406,14 @@
 
     if-eqz v0, :cond_a
 
-    new-instance v0, Landroid/graphics/drawable/ScaleDrawable;
+    new-instance v0, Landroid/graphics/drawable/AnimatedVectorDrawable;
 
-    invoke-direct {v0}, Landroid/graphics/drawable/ScaleDrawable;-><init>()V
+    invoke-direct {v0}, Landroid/graphics/drawable/AnimatedVectorDrawable;-><init>()V
 
     return-object v0
 
     :cond_a
-    const-string/jumbo v0, "clip"
+    const-string/jumbo v0, "scale"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -421,14 +421,14 @@
 
     if-eqz v0, :cond_b
 
-    new-instance v0, Landroid/graphics/drawable/ClipDrawable;
+    new-instance v0, Landroid/graphics/drawable/ScaleDrawable;
 
-    invoke-direct {v0}, Landroid/graphics/drawable/ClipDrawable;-><init>()V
+    invoke-direct {v0}, Landroid/graphics/drawable/ScaleDrawable;-><init>()V
 
     return-object v0
 
     :cond_b
-    const-string/jumbo v0, "rotate"
+    const-string/jumbo v0, "clip"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -436,14 +436,14 @@
 
     if-eqz v0, :cond_c
 
-    new-instance v0, Landroid/graphics/drawable/RotateDrawable;
+    new-instance v0, Landroid/graphics/drawable/ClipDrawable;
 
-    invoke-direct {v0}, Landroid/graphics/drawable/RotateDrawable;-><init>()V
+    invoke-direct {v0}, Landroid/graphics/drawable/ClipDrawable;-><init>()V
 
     return-object v0
 
     :cond_c
-    const-string/jumbo v0, "animated-rotate"
+    const-string/jumbo v0, "rotate"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -451,14 +451,14 @@
 
     if-eqz v0, :cond_d
 
-    new-instance v0, Landroid/graphics/drawable/AnimatedRotateDrawable;
+    new-instance v0, Landroid/graphics/drawable/RotateDrawable;
 
-    invoke-direct {v0}, Landroid/graphics/drawable/AnimatedRotateDrawable;-><init>()V
+    invoke-direct {v0}, Landroid/graphics/drawable/RotateDrawable;-><init>()V
 
     return-object v0
 
     :cond_d
-    const-string/jumbo v0, "animation-list"
+    const-string/jumbo v0, "animated-rotate"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -466,14 +466,14 @@
 
     if-eqz v0, :cond_e
 
-    new-instance v0, Landroid/graphics/drawable/AnimationDrawable;
+    new-instance v0, Landroid/graphics/drawable/AnimatedRotateDrawable;
 
-    invoke-direct {v0}, Landroid/graphics/drawable/AnimationDrawable;-><init>()V
+    invoke-direct {v0}, Landroid/graphics/drawable/AnimatedRotateDrawable;-><init>()V
 
     return-object v0
 
     :cond_e
-    const-string/jumbo v0, "inset"
+    const-string/jumbo v0, "animation-list"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -481,14 +481,14 @@
 
     if-eqz v0, :cond_f
 
-    new-instance v0, Landroid/graphics/drawable/InsetDrawable;
+    new-instance v0, Landroid/graphics/drawable/AnimationDrawable;
 
-    invoke-direct {v0}, Landroid/graphics/drawable/InsetDrawable;-><init>()V
+    invoke-direct {v0}, Landroid/graphics/drawable/AnimationDrawable;-><init>()V
 
     return-object v0
 
     :cond_f
-    const-string/jumbo v0, "bitmap"
+    const-string/jumbo v0, "inset"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -496,14 +496,14 @@
 
     if-eqz v0, :cond_10
 
-    new-instance v0, Landroid/graphics/drawable/BitmapDrawable;
+    new-instance v0, Landroid/graphics/drawable/InsetDrawable;
 
-    invoke-direct {v0}, Landroid/graphics/drawable/BitmapDrawable;-><init>()V
+    invoke-direct {v0}, Landroid/graphics/drawable/InsetDrawable;-><init>()V
 
     return-object v0
 
     :cond_10
-    const-string/jumbo v0, "nine-patch"
+    const-string/jumbo v0, "bitmap"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -511,13 +511,28 @@
 
     if-eqz v0, :cond_11
 
+    new-instance v0, Landroid/graphics/drawable/BitmapDrawable;
+
+    invoke-direct {v0}, Landroid/graphics/drawable/BitmapDrawable;-><init>()V
+
+    return-object v0
+
+    :cond_11
+    const-string/jumbo v0, "nine-patch"
+
+    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_12
+
     new-instance v0, Landroid/graphics/drawable/NinePatchDrawable;
 
     invoke-direct {v0}, Landroid/graphics/drawable/NinePatchDrawable;-><init>()V
 
     return-object v0
 
-    :cond_11
+    :cond_12
     const/4 v0, 0x0
 
     return-object v0
@@ -706,6 +721,34 @@
 
 # virtual methods
 .method public inflateFromXml(Ljava/lang/String;Lorg/xmlpull/v1/XmlPullParser;Landroid/util/AttributeSet;Landroid/content/res/Resources$Theme;)Landroid/graphics/drawable/Drawable;
+    .locals 6
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lorg/xmlpull/v1/XmlPullParserException;,
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    const/4 v4, 0x0
+
+    move-object v0, p0
+
+    move-object v1, p1
+
+    move-object v2, p2
+
+    move-object v3, p3
+
+    move-object v5, p4
+
+    invoke-virtual/range {v0 .. v5}, Landroid/graphics/drawable/DrawableInflater;->inflateFromXmlForDensity(Ljava/lang/String;Lorg/xmlpull/v1/XmlPullParser;Landroid/util/AttributeSet;ILandroid/content/res/Resources$Theme;)Landroid/graphics/drawable/Drawable;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method inflateFromXmlForDensity(Ljava/lang/String;Lorg/xmlpull/v1/XmlPullParser;Landroid/util/AttributeSet;ILandroid/content/res/Resources$Theme;)Landroid/graphics/drawable/Drawable;
     .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -759,9 +802,11 @@
     move-result-object v0
 
     :cond_2
+    invoke-virtual {v0, p4}, Landroid/graphics/drawable/Drawable;->setSrcDensityOverride(I)V
+
     iget-object v1, p0, Landroid/graphics/drawable/DrawableInflater;->mRes:Landroid/content/res/Resources;
 
-    invoke-virtual {v0, v1, p2, p3, p4}, Landroid/graphics/drawable/Drawable;->inflate(Landroid/content/res/Resources;Lorg/xmlpull/v1/XmlPullParser;Landroid/util/AttributeSet;Landroid/content/res/Resources$Theme;)V
+    invoke-virtual {v0, v1, p2, p3, p5}, Landroid/graphics/drawable/Drawable;->inflate(Landroid/content/res/Resources;Lorg/xmlpull/v1/XmlPullParser;Landroid/util/AttributeSet;Landroid/content/res/Resources$Theme;)V
 
     return-object v0
 .end method

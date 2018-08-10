@@ -76,15 +76,15 @@
 .method public dispatchDraw(Landroid/graphics/Canvas;)V
     .locals 10
 
-    invoke-virtual {p0}, Landroid/view/View;->getPaddingLeft()I
+    invoke-virtual {p0}, Landroid/media/Cea708CCWidget$ScaledLayout;->getPaddingLeft()I
 
     move-result v5
 
-    invoke-virtual {p0}, Landroid/view/View;->getPaddingTop()I
+    invoke-virtual {p0}, Landroid/media/Cea708CCWidget$ScaledLayout;->getPaddingTop()I
 
     move-result v6
 
-    invoke-virtual {p0}, Landroid/view/ViewGroup;->getChildCount()I
+    invoke-virtual {p0}, Landroid/media/Cea708CCWidget$ScaledLayout;->getChildCount()I
 
     move-result v3
 
@@ -93,7 +93,7 @@
     :goto_0
     if-ge v4, v3, :cond_0
 
-    invoke-virtual {p0, v4}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {p0, v4}, Landroid/media/Cea708CCWidget$ScaledLayout;->getChildAt(I)Landroid/view/View;
 
     move-result-object v0
 
@@ -156,7 +156,7 @@
 
     new-instance v0, Landroid/media/Cea708CCWidget$ScaledLayout$ScaledLayoutParams;
 
-    invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
+    invoke-virtual {p0}, Landroid/media/Cea708CCWidget$ScaledLayout;->getContext()Landroid/content/Context;
 
     move-result-object v1
 
@@ -168,15 +168,15 @@
 .method protected onLayout(ZIIII)V
     .locals 11
 
-    invoke-virtual {p0}, Landroid/view/View;->getPaddingLeft()I
+    invoke-virtual {p0}, Landroid/media/Cea708CCWidget$ScaledLayout;->getPaddingLeft()I
 
     move-result v7
 
-    invoke-virtual {p0}, Landroid/view/View;->getPaddingTop()I
+    invoke-virtual {p0}, Landroid/media/Cea708CCWidget$ScaledLayout;->getPaddingTop()I
 
     move-result v8
 
-    invoke-virtual {p0}, Landroid/view/ViewGroup;->getChildCount()I
+    invoke-virtual {p0}, Landroid/media/Cea708CCWidget$ScaledLayout;->getChildCount()I
 
     move-result v5
 
@@ -185,7 +185,7 @@
     :goto_0
     if-ge v6, v5, :cond_1
 
-    invoke-virtual {p0, v6}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {p0, v6}, Landroid/media/Cea708CCWidget$ScaledLayout;->getChildAt(I)Landroid/view/View;
 
     move-result-object v0
 
@@ -251,31 +251,31 @@
 
     move-result v9
 
-    invoke-virtual/range {p0 .. p0}, Landroid/view/View;->getPaddingLeft()I
+    invoke-virtual/range {p0 .. p0}, Landroid/media/Cea708CCWidget$ScaledLayout;->getPaddingLeft()I
 
     move-result v23
 
     sub-int v23, v22, v23
 
-    invoke-virtual/range {p0 .. p0}, Landroid/view/View;->getPaddingRight()I
+    invoke-virtual/range {p0 .. p0}, Landroid/media/Cea708CCWidget$ScaledLayout;->getPaddingRight()I
 
     move-result v24
 
     sub-int v21, v23, v24
 
-    invoke-virtual/range {p0 .. p0}, Landroid/view/View;->getPaddingTop()I
+    invoke-virtual/range {p0 .. p0}, Landroid/media/Cea708CCWidget$ScaledLayout;->getPaddingTop()I
 
     move-result v23
 
     sub-int v23, v9, v23
 
-    invoke-virtual/range {p0 .. p0}, Landroid/view/View;->getPaddingBottom()I
+    invoke-virtual/range {p0 .. p0}, Landroid/media/Cea708CCWidget$ScaledLayout;->getPaddingBottom()I
 
     move-result v24
 
     sub-int v8, v23, v24
 
-    invoke-virtual/range {p0 .. p0}, Landroid/view/ViewGroup;->getChildCount()I
+    invoke-virtual/range {p0 .. p0}, Landroid/media/Cea708CCWidget$ScaledLayout;->getChildCount()I
 
     move-result v7
 
@@ -296,7 +296,7 @@
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v10}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {v0, v10}, Landroid/media/Cea708CCWidget$ScaledLayout;->getChildAt(I)Landroid/view/View;
 
     move-result-object v4
 
@@ -801,7 +801,7 @@
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v10}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {v0, v10}, Landroid/media/Cea708CCWidget$ScaledLayout;->getChildAt(I)Landroid/view/View;
 
     move-result-object v23
 
@@ -1027,7 +1027,7 @@
 
     move/from16 v1, v22
 
-    invoke-virtual {v0, v1, v9}, Landroid/view/View;->setMeasuredDimension(II)V
+    invoke-virtual {v0, v1, v9}, Landroid/media/Cea708CCWidget$ScaledLayout;->setMeasuredDimension(II)V
 
     return-void
 .end method

@@ -174,7 +174,7 @@
 
     iget-object v0, p0, Landroid/telecom/ConnectionService$3;->this$0:Landroid/telecom/ConnectionService;
 
-    invoke-static {v0, p1}, Landroid/telecom/ConnectionService;->-wrap19(Landroid/telecom/ConnectionService;Landroid/telecom/Conference;)V
+    invoke-static {v0, p1}, Landroid/telecom/ConnectionService;->-wrap22(Landroid/telecom/ConnectionService;Landroid/telecom/Conference;)V
 
     return-void
 .end method

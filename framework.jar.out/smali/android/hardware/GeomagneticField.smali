@@ -57,9 +57,9 @@
 
     const/4 v5, 0x2
 
-    const/4 v1, 0x0
+    const/4 v4, 0x0
 
-    const/4 v2, 0x1
+    const/4 v3, 0x1
 
     const-class v0, Landroid/hardware/GeomagneticField;
 
@@ -67,130 +67,127 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    xor-int/lit8 v0, v0, 0x1
 
-    move v0, v1
-
-    :goto_0
     sput-boolean v0, Landroid/hardware/GeomagneticField;->-assertionsDisabled:Z
 
     const/16 v0, 0xd
 
     new-array v0, v0, [[F
 
-    new-array v3, v2, [F
+    new-array v1, v3, [F
 
-    const/4 v4, 0x0
+    const/4 v2, 0x0
 
-    aput v4, v3, v1
+    aput v2, v1, v4
 
-    aput-object v3, v0, v1
+    aput-object v1, v0, v4
 
-    new-array v3, v5, [F
+    new-array v1, v5, [F
 
-    fill-array-data v3, :array_0
+    fill-array-data v1, :array_0
 
-    aput-object v3, v0, v2
+    aput-object v1, v0, v3
 
-    new-array v3, v6, [F
+    new-array v1, v6, [F
 
-    fill-array-data v3, :array_1
+    fill-array-data v1, :array_1
 
-    aput-object v3, v0, v5
+    aput-object v1, v0, v5
 
-    new-array v3, v7, [F
+    new-array v1, v7, [F
 
-    fill-array-data v3, :array_2
+    fill-array-data v1, :array_2
 
-    aput-object v3, v0, v6
+    aput-object v1, v0, v6
 
-    const/4 v3, 0x5
+    const/4 v1, 0x5
 
-    new-array v3, v3, [F
+    new-array v1, v1, [F
 
-    fill-array-data v3, :array_3
+    fill-array-data v1, :array_3
 
-    aput-object v3, v0, v7
+    aput-object v1, v0, v7
 
-    const/4 v3, 0x6
+    const/4 v1, 0x6
 
-    new-array v3, v3, [F
+    new-array v1, v1, [F
 
-    fill-array-data v3, :array_4
+    fill-array-data v1, :array_4
 
-    const/4 v4, 0x5
+    const/4 v2, 0x5
 
-    aput-object v3, v0, v4
+    aput-object v1, v0, v2
 
-    const/4 v3, 0x7
+    const/4 v1, 0x7
 
-    new-array v3, v3, [F
+    new-array v1, v1, [F
 
-    fill-array-data v3, :array_5
+    fill-array-data v1, :array_5
 
-    const/4 v4, 0x6
+    const/4 v2, 0x6
 
-    aput-object v3, v0, v4
+    aput-object v1, v0, v2
 
-    const/16 v3, 0x8
+    const/16 v1, 0x8
 
-    new-array v3, v3, [F
+    new-array v1, v1, [F
 
-    fill-array-data v3, :array_6
+    fill-array-data v1, :array_6
 
-    const/4 v4, 0x7
+    const/4 v2, 0x7
 
-    aput-object v3, v0, v4
+    aput-object v1, v0, v2
 
-    const/16 v3, 0x9
+    const/16 v1, 0x9
 
-    new-array v3, v3, [F
+    new-array v1, v1, [F
 
-    fill-array-data v3, :array_7
+    fill-array-data v1, :array_7
 
-    const/16 v4, 0x8
+    const/16 v2, 0x8
 
-    aput-object v3, v0, v4
+    aput-object v1, v0, v2
 
-    const/16 v3, 0xa
+    const/16 v1, 0xa
 
-    new-array v3, v3, [F
+    new-array v1, v1, [F
 
-    fill-array-data v3, :array_8
+    fill-array-data v1, :array_8
 
-    const/16 v4, 0x9
+    const/16 v2, 0x9
 
-    aput-object v3, v0, v4
+    aput-object v1, v0, v2
 
-    const/16 v3, 0xb
+    const/16 v1, 0xb
 
-    new-array v3, v3, [F
+    new-array v1, v1, [F
 
-    fill-array-data v3, :array_9
+    fill-array-data v1, :array_9
 
-    const/16 v4, 0xa
+    const/16 v2, 0xa
 
-    aput-object v3, v0, v4
+    aput-object v1, v0, v2
 
-    const/16 v3, 0xc
+    const/16 v1, 0xc
 
-    new-array v3, v3, [F
+    new-array v1, v1, [F
 
-    fill-array-data v3, :array_a
+    fill-array-data v1, :array_a
 
-    const/16 v4, 0xb
+    const/16 v2, 0xb
 
-    aput-object v3, v0, v4
+    aput-object v1, v0, v2
 
-    const/16 v3, 0xd
+    const/16 v1, 0xd
 
-    new-array v3, v3, [F
+    new-array v1, v1, [F
 
-    fill-array-data v3, :array_b
+    fill-array-data v1, :array_b
 
-    const/16 v4, 0xc
+    const/16 v2, 0xc
 
-    aput-object v3, v0, v4
+    aput-object v1, v0, v2
 
     sput-object v0, Landroid/hardware/GeomagneticField;->G_COEFF:[[F
 
@@ -198,119 +195,119 @@
 
     new-array v0, v0, [[F
 
-    new-array v3, v2, [F
+    new-array v1, v3, [F
 
-    const/4 v4, 0x0
+    const/4 v2, 0x0
 
-    aput v4, v3, v1
+    aput v2, v1, v4
 
-    aput-object v3, v0, v1
+    aput-object v1, v0, v4
 
-    new-array v3, v5, [F
+    new-array v1, v5, [F
 
-    fill-array-data v3, :array_c
+    fill-array-data v1, :array_c
 
-    aput-object v3, v0, v2
+    aput-object v1, v0, v3
 
-    new-array v3, v6, [F
+    new-array v1, v6, [F
 
-    fill-array-data v3, :array_d
+    fill-array-data v1, :array_d
 
-    aput-object v3, v0, v5
+    aput-object v1, v0, v5
 
-    new-array v3, v7, [F
+    new-array v1, v7, [F
 
-    fill-array-data v3, :array_e
+    fill-array-data v1, :array_e
 
-    aput-object v3, v0, v6
+    aput-object v1, v0, v6
 
-    const/4 v3, 0x5
+    const/4 v1, 0x5
 
-    new-array v3, v3, [F
+    new-array v1, v1, [F
 
-    fill-array-data v3, :array_f
+    fill-array-data v1, :array_f
 
-    aput-object v3, v0, v7
+    aput-object v1, v0, v7
 
-    const/4 v3, 0x6
+    const/4 v1, 0x6
 
-    new-array v3, v3, [F
+    new-array v1, v1, [F
 
-    fill-array-data v3, :array_10
+    fill-array-data v1, :array_10
 
-    const/4 v4, 0x5
+    const/4 v2, 0x5
 
-    aput-object v3, v0, v4
+    aput-object v1, v0, v2
 
-    const/4 v3, 0x7
+    const/4 v1, 0x7
 
-    new-array v3, v3, [F
+    new-array v1, v1, [F
 
-    fill-array-data v3, :array_11
+    fill-array-data v1, :array_11
 
-    const/4 v4, 0x6
+    const/4 v2, 0x6
 
-    aput-object v3, v0, v4
+    aput-object v1, v0, v2
 
-    const/16 v3, 0x8
+    const/16 v1, 0x8
 
-    new-array v3, v3, [F
+    new-array v1, v1, [F
 
-    fill-array-data v3, :array_12
+    fill-array-data v1, :array_12
 
-    const/4 v4, 0x7
+    const/4 v2, 0x7
 
-    aput-object v3, v0, v4
+    aput-object v1, v0, v2
 
-    const/16 v3, 0x9
+    const/16 v1, 0x9
 
-    new-array v3, v3, [F
+    new-array v1, v1, [F
 
-    fill-array-data v3, :array_13
+    fill-array-data v1, :array_13
 
-    const/16 v4, 0x8
+    const/16 v2, 0x8
 
-    aput-object v3, v0, v4
+    aput-object v1, v0, v2
 
-    const/16 v3, 0xa
+    const/16 v1, 0xa
 
-    new-array v3, v3, [F
+    new-array v1, v1, [F
 
-    fill-array-data v3, :array_14
+    fill-array-data v1, :array_14
 
-    const/16 v4, 0x9
+    const/16 v2, 0x9
 
-    aput-object v3, v0, v4
+    aput-object v1, v0, v2
 
-    const/16 v3, 0xb
+    const/16 v1, 0xb
 
-    new-array v3, v3, [F
+    new-array v1, v1, [F
 
-    fill-array-data v3, :array_15
+    fill-array-data v1, :array_15
 
-    const/16 v4, 0xa
+    const/16 v2, 0xa
 
-    aput-object v3, v0, v4
+    aput-object v1, v0, v2
 
-    const/16 v3, 0xc
+    const/16 v1, 0xc
 
-    new-array v3, v3, [F
+    new-array v1, v1, [F
 
-    fill-array-data v3, :array_16
+    fill-array-data v1, :array_16
 
-    const/16 v4, 0xb
+    const/16 v2, 0xb
 
-    aput-object v3, v0, v4
+    aput-object v1, v0, v2
 
-    const/16 v3, 0xd
+    const/16 v1, 0xd
 
-    new-array v3, v3, [F
+    new-array v1, v1, [F
 
-    fill-array-data v3, :array_17
+    fill-array-data v1, :array_17
 
-    const/16 v4, 0xc
+    const/16 v2, 0xc
 
-    aput-object v3, v0, v4
+    aput-object v1, v0, v2
 
     sput-object v0, Landroid/hardware/GeomagneticField;->H_COEFF:[[F
 
@@ -318,119 +315,119 @@
 
     new-array v0, v0, [[F
 
-    new-array v3, v2, [F
+    new-array v1, v3, [F
 
-    const/4 v4, 0x0
+    const/4 v2, 0x0
 
-    aput v4, v3, v1
+    aput v2, v1, v4
 
-    aput-object v3, v0, v1
+    aput-object v1, v0, v4
 
-    new-array v3, v5, [F
+    new-array v1, v5, [F
 
-    fill-array-data v3, :array_18
+    fill-array-data v1, :array_18
 
-    aput-object v3, v0, v2
+    aput-object v1, v0, v3
 
-    new-array v3, v6, [F
+    new-array v1, v6, [F
 
-    fill-array-data v3, :array_19
+    fill-array-data v1, :array_19
 
-    aput-object v3, v0, v5
+    aput-object v1, v0, v5
 
-    new-array v3, v7, [F
+    new-array v1, v7, [F
 
-    fill-array-data v3, :array_1a
+    fill-array-data v1, :array_1a
 
-    aput-object v3, v0, v6
+    aput-object v1, v0, v6
 
-    const/4 v3, 0x5
+    const/4 v1, 0x5
 
-    new-array v3, v3, [F
+    new-array v1, v1, [F
 
-    fill-array-data v3, :array_1b
+    fill-array-data v1, :array_1b
 
-    aput-object v3, v0, v7
+    aput-object v1, v0, v7
 
-    const/4 v3, 0x6
+    const/4 v1, 0x6
 
-    new-array v3, v3, [F
+    new-array v1, v1, [F
 
-    fill-array-data v3, :array_1c
+    fill-array-data v1, :array_1c
 
-    const/4 v4, 0x5
+    const/4 v2, 0x5
 
-    aput-object v3, v0, v4
+    aput-object v1, v0, v2
 
-    const/4 v3, 0x7
+    const/4 v1, 0x7
 
-    new-array v3, v3, [F
+    new-array v1, v1, [F
 
-    fill-array-data v3, :array_1d
+    fill-array-data v1, :array_1d
 
-    const/4 v4, 0x6
+    const/4 v2, 0x6
 
-    aput-object v3, v0, v4
+    aput-object v1, v0, v2
 
-    const/16 v3, 0x8
+    const/16 v1, 0x8
 
-    new-array v3, v3, [F
+    new-array v1, v1, [F
 
-    fill-array-data v3, :array_1e
+    fill-array-data v1, :array_1e
 
-    const/4 v4, 0x7
+    const/4 v2, 0x7
 
-    aput-object v3, v0, v4
+    aput-object v1, v0, v2
 
-    const/16 v3, 0x9
+    const/16 v1, 0x9
 
-    new-array v3, v3, [F
+    new-array v1, v1, [F
 
-    fill-array-data v3, :array_1f
+    fill-array-data v1, :array_1f
 
-    const/16 v4, 0x8
+    const/16 v2, 0x8
 
-    aput-object v3, v0, v4
+    aput-object v1, v0, v2
 
-    const/16 v3, 0xa
+    const/16 v1, 0xa
 
-    new-array v3, v3, [F
+    new-array v1, v1, [F
 
-    fill-array-data v3, :array_20
+    fill-array-data v1, :array_20
 
-    const/16 v4, 0x9
+    const/16 v2, 0x9
 
-    aput-object v3, v0, v4
+    aput-object v1, v0, v2
 
-    const/16 v3, 0xb
+    const/16 v1, 0xb
 
-    new-array v3, v3, [F
+    new-array v1, v1, [F
 
-    fill-array-data v3, :array_21
+    fill-array-data v1, :array_21
 
-    const/16 v4, 0xa
+    const/16 v2, 0xa
 
-    aput-object v3, v0, v4
+    aput-object v1, v0, v2
 
-    const/16 v3, 0xc
+    const/16 v1, 0xc
 
-    new-array v3, v3, [F
+    new-array v1, v1, [F
 
-    fill-array-data v3, :array_22
+    fill-array-data v1, :array_22
 
-    const/16 v4, 0xb
+    const/16 v2, 0xb
 
-    aput-object v3, v0, v4
+    aput-object v1, v0, v2
 
-    const/16 v3, 0xd
+    const/16 v1, 0xd
 
-    new-array v3, v3, [F
+    new-array v1, v1, [F
 
-    fill-array-data v3, :array_23
+    fill-array-data v1, :array_23
 
-    const/16 v4, 0xc
+    const/16 v2, 0xc
 
-    aput-object v3, v0, v4
+    aput-object v1, v0, v2
 
     sput-object v0, Landroid/hardware/GeomagneticField;->DELTA_G:[[F
 
@@ -438,19 +435,19 @@
 
     new-array v0, v0, [[F
 
-    new-array v3, v2, [F
+    new-array v1, v3, [F
 
-    const/4 v4, 0x0
+    const/4 v2, 0x0
 
-    aput v4, v3, v1
+    aput v2, v1, v4
 
-    aput-object v3, v0, v1
+    aput-object v1, v0, v4
 
     new-array v1, v5, [F
 
     fill-array-data v1, :array_24
 
-    aput-object v1, v0, v2
+    aput-object v1, v0, v3
 
     new-array v1, v6, [F
 
@@ -478,9 +475,9 @@
 
     fill-array-data v1, :array_28
 
-    const/4 v3, 0x5
+    const/4 v2, 0x5
 
-    aput-object v1, v0, v3
+    aput-object v1, v0, v2
 
     const/4 v1, 0x7
 
@@ -488,9 +485,9 @@
 
     fill-array-data v1, :array_29
 
-    const/4 v3, 0x6
+    const/4 v2, 0x6
 
-    aput-object v1, v0, v3
+    aput-object v1, v0, v2
 
     const/16 v1, 0x8
 
@@ -498,9 +495,9 @@
 
     fill-array-data v1, :array_2a
 
-    const/4 v3, 0x7
+    const/4 v2, 0x7
 
-    aput-object v1, v0, v3
+    aput-object v1, v0, v2
 
     const/16 v1, 0x9
 
@@ -508,9 +505,9 @@
 
     fill-array-data v1, :array_2b
 
-    const/16 v3, 0x8
+    const/16 v2, 0x8
 
-    aput-object v1, v0, v3
+    aput-object v1, v0, v2
 
     const/16 v1, 0xa
 
@@ -518,9 +515,9 @@
 
     fill-array-data v1, :array_2c
 
-    const/16 v3, 0x9
+    const/16 v2, 0x9
 
-    aput-object v1, v0, v3
+    aput-object v1, v0, v2
 
     const/16 v1, 0xb
 
@@ -528,9 +525,9 @@
 
     fill-array-data v1, :array_2d
 
-    const/16 v3, 0xa
+    const/16 v2, 0xa
 
-    aput-object v1, v0, v3
+    aput-object v1, v0, v2
 
     const/16 v1, 0xc
 
@@ -538,9 +535,9 @@
 
     fill-array-data v1, :array_2e
 
-    const/16 v3, 0xb
+    const/16 v2, 0xb
 
-    aput-object v1, v0, v3
+    aput-object v1, v0, v2
 
     const/16 v1, 0xd
 
@@ -548,9 +545,9 @@
 
     fill-array-data v1, :array_2f
 
-    const/16 v3, 0xc
+    const/16 v2, 0xc
 
-    aput-object v1, v0, v3
+    aput-object v1, v0, v2
 
     sput-object v0, Landroid/hardware/GeomagneticField;->DELTA_H:[[F
 
@@ -558,9 +555,9 @@
 
     const/16 v1, 0x7da
 
-    invoke-direct {v0, v1, v2, v2}, Ljava/util/GregorianCalendar;-><init>(III)V
+    invoke-direct {v0, v1, v3, v3}, Ljava/util/GregorianCalendar;-><init>(III)V
 
-    invoke-virtual {v0}, Ljava/util/Calendar;->getTimeInMillis()J
+    invoke-virtual {v0}, Ljava/util/GregorianCalendar;->getTimeInMillis()J
 
     move-result-wide v0
 
@@ -577,11 +574,6 @@
     sput-object v0, Landroid/hardware/GeomagneticField;->SCHMIDT_QUASI_NORM_FACTORS:[[F
 
     return-void
-
-    :cond_0
-    move v0, v2
-
-    goto/16 :goto_0
 
     :array_0
     .array-data 4
@@ -1171,7 +1163,7 @@
 
     sget-boolean v20, Landroid/hardware/GeomagneticField;->-assertionsDisabled:Z
 
-    if-nez v20, :cond_1
+    if-nez v20, :cond_0
 
     sget-object v20, Landroid/hardware/GeomagneticField;->G_COEFF:[[F
 
@@ -1193,12 +1185,7 @@
 
     move/from16 v1, v21
 
-    if-ne v0, v1, :cond_0
-
-    const/16 v20, 0x1
-
-    :goto_0
-    if-nez v20, :cond_1
+    if-eq v0, v1, :cond_0
 
     new-instance v20, Ljava/lang/AssertionError;
 
@@ -1207,11 +1194,6 @@
     throw v20
 
     :cond_0
-    const/16 v20, 0x0
-
-    goto :goto_0
-
-    :cond_1
     new-instance v11, Landroid/hardware/GeomagneticField$LegendreTable;
 
     add-int/lit8 v20, v2, -0x1
@@ -1274,7 +1256,7 @@
 
     const/4 v9, 0x2
 
-    :goto_1
+    :goto_0
     move-object/from16 v0, v16
 
     array-length v0, v0
@@ -1283,7 +1265,7 @@
 
     move/from16 v0, v20
 
-    if-ge v9, v0, :cond_2
+    if-ge v9, v0, :cond_1
 
     add-int/lit8 v20, v9, -0x1
 
@@ -1299,9 +1281,9 @@
 
     add-int/lit8 v9, v9, 0x1
 
-    goto :goto_1
+    goto :goto_0
 
-    :cond_2
+    :cond_1
     new-array v0, v2, [F
 
     move-object/from16 v17, v0
@@ -1374,8 +1356,8 @@
 
     const/4 v14, 0x2
 
-    :goto_2
-    if-ge v14, v2, :cond_3
+    :goto_1
+    if-ge v14, v2, :cond_2
 
     shr-int/lit8 v18, v14, 0x1
 
@@ -1421,9 +1403,9 @@
 
     add-int/lit8 v14, v14, 0x1
 
-    goto :goto_2
+    goto :goto_1
 
-    :cond_3
+    :cond_2
     move-object/from16 v0, p0
 
     iget v0, v0, Landroid/hardware/GeomagneticField;->mGcLatitudeRad:F
@@ -1472,13 +1454,13 @@
 
     const/4 v15, 0x1
 
-    :goto_3
-    if-ge v15, v2, :cond_5
+    :goto_2
+    if-ge v15, v2, :cond_4
 
     const/4 v14, 0x0
 
-    :goto_4
-    if-gt v14, v15, :cond_4
+    :goto_3
+    if-gt v14, v15, :cond_3
 
     sget-object v20, Landroid/hardware/GeomagneticField;->G_COEFF:[[F
 
@@ -1640,14 +1622,14 @@
 
     add-int/lit8 v14, v14, 0x1
 
-    goto/16 :goto_4
-
-    :cond_4
-    add-int/lit8 v15, v15, 0x1
-
     goto/16 :goto_3
 
-    :cond_5
+    :cond_3
+    add-int/lit8 v15, v15, 0x1
+
+    goto/16 :goto_2
+
+    :cond_4
     move/from16 v0, p1
 
     float-to-double v0, v0
@@ -1754,163 +1736,177 @@
 .end method
 
 .method private computeGeocentricCoordinates(FFF)V
-    .locals 12
+    .locals 16
 
-    const/high16 v8, 0x447a0000    # 1000.0f
+    const/high16 v12, 0x447a0000    # 1000.0f
 
-    div-float v0, p3, v8
+    div-float v3, p3, v12
 
-    float-to-double v8, p1
+    const v2, 0x4c1b2f2f    # 4.0680636E7f
 
-    invoke-static {v8, v9}, Ljava/lang/Math;->toRadians(D)D
+    const v4, 0x4c1a253b    # 4.04083E7f
 
-    move-result-wide v2
+    move/from16 v0, p1
 
-    invoke-static {v2, v3}, Ljava/lang/Math;->cos(D)D
+    float-to-double v12, v0
 
-    move-result-wide v8
+    invoke-static {v12, v13}, Ljava/lang/Math;->toRadians(D)D
 
-    double-to-float v1, v8
+    move-result-wide v6
 
-    invoke-static {v2, v3}, Ljava/lang/Math;->sin(D)D
+    invoke-static {v6, v7}, Ljava/lang/Math;->cos(D)D
 
-    move-result-wide v8
+    move-result-wide v12
 
-    double-to-float v6, v8
+    double-to-float v5, v12
 
-    div-float v7, v6, v1
+    invoke-static {v6, v7}, Ljava/lang/Math;->sin(D)D
 
-    const v8, 0x4c1b2f2f    # 4.0680636E7f
+    move-result-wide v12
 
-    mul-float/2addr v8, v1
+    double-to-float v10, v12
 
-    mul-float/2addr v8, v1
+    div-float v11, v10, v5
 
-    const v9, 0x4c1a253b    # 4.04083E7f
+    const v12, 0x4c1b2f2f    # 4.0680636E7f
 
-    mul-float/2addr v9, v6
+    mul-float/2addr v12, v5
 
-    mul-float/2addr v9, v6
+    mul-float/2addr v12, v5
 
-    add-float/2addr v8, v9
+    const v13, 0x4c1a253b    # 4.04083E7f
 
-    float-to-double v8, v8
+    mul-float/2addr v13, v10
 
-    invoke-static {v8, v9}, Ljava/lang/Math;->sqrt(D)D
+    mul-float/2addr v13, v10
 
-    move-result-wide v8
+    add-float/2addr v12, v13
 
-    double-to-float v4, v8
+    float-to-double v12, v12
 
-    mul-float v8, v4, v0
+    invoke-static {v12, v13}, Ljava/lang/Math;->sqrt(D)D
 
-    const v9, 0x4c1a253b    # 4.04083E7f
+    move-result-wide v12
 
-    add-float/2addr v8, v9
+    double-to-float v8, v12
 
-    mul-float/2addr v8, v7
+    mul-float v12, v8, v3
 
-    mul-float v9, v4, v0
+    const v13, 0x4c1a253b    # 4.04083E7f
 
-    const v10, 0x4c1b2f2f    # 4.0680636E7f
+    add-float/2addr v12, v13
 
-    add-float/2addr v9, v10
+    mul-float/2addr v12, v11
 
-    div-float/2addr v8, v9
+    mul-float v13, v8, v3
 
-    float-to-double v8, v8
+    const v14, 0x4c1b2f2f    # 4.0680636E7f
 
-    invoke-static {v8, v9}, Ljava/lang/Math;->atan(D)D
+    add-float/2addr v13, v14
 
-    move-result-wide v8
+    div-float/2addr v12, v13
 
-    double-to-float v8, v8
+    float-to-double v12, v12
 
-    iput v8, p0, Landroid/hardware/GeomagneticField;->mGcLatitudeRad:F
+    invoke-static {v12, v13}, Ljava/lang/Math;->atan(D)D
 
-    float-to-double v8, p2
+    move-result-wide v12
 
-    invoke-static {v8, v9}, Ljava/lang/Math;->toRadians(D)D
+    double-to-float v12, v12
 
-    move-result-wide v8
+    move-object/from16 v0, p0
 
-    double-to-float v8, v8
+    iput v12, v0, Landroid/hardware/GeomagneticField;->mGcLatitudeRad:F
 
-    iput v8, p0, Landroid/hardware/GeomagneticField;->mGcLongitudeRad:F
+    move/from16 v0, p2
 
-    mul-float v8, v0, v0
+    float-to-double v12, v0
 
-    const/high16 v9, 0x40000000    # 2.0f
+    invoke-static {v12, v13}, Ljava/lang/Math;->toRadians(D)D
 
-    mul-float/2addr v9, v0
+    move-result-wide v12
 
-    const v10, 0x4c1b2f2f    # 4.0680636E7f
+    double-to-float v12, v12
 
-    mul-float/2addr v10, v1
+    move-object/from16 v0, p0
 
-    mul-float/2addr v10, v1
+    iput v12, v0, Landroid/hardware/GeomagneticField;->mGcLongitudeRad:F
 
-    const v11, 0x4c1a253b    # 4.04083E7f
+    mul-float v12, v3, v3
 
-    mul-float/2addr v11, v6
+    const/high16 v13, 0x40000000    # 2.0f
 
-    mul-float/2addr v11, v6
+    mul-float/2addr v13, v3
 
-    add-float/2addr v10, v11
+    const v14, 0x4c1b2f2f    # 4.0680636E7f
 
-    float-to-double v10, v10
+    mul-float/2addr v14, v5
 
-    invoke-static {v10, v11}, Ljava/lang/Math;->sqrt(D)D
+    mul-float/2addr v14, v5
 
-    move-result-wide v10
+    const v15, 0x4c1a253b    # 4.04083E7f
 
-    double-to-float v10, v10
+    mul-float/2addr v15, v10
 
-    mul-float/2addr v9, v10
+    mul-float/2addr v15, v10
 
-    add-float/2addr v8, v9
+    add-float/2addr v14, v15
 
-    const v9, 0x58bc2457
+    float-to-double v14, v14
 
-    mul-float/2addr v9, v1
+    invoke-static {v14, v15}, Ljava/lang/Math;->sqrt(D)D
 
-    mul-float/2addr v9, v1
+    move-result-wide v14
 
-    const v10, 0x58b9a1a1
+    double-to-float v14, v14
 
-    mul-float/2addr v10, v6
+    mul-float/2addr v13, v14
 
-    mul-float/2addr v10, v6
+    add-float/2addr v12, v13
 
-    add-float/2addr v9, v10
+    const v13, 0x58bc2457
 
-    const v10, 0x4c1b2f2f    # 4.0680636E7f
+    mul-float/2addr v13, v5
 
-    mul-float/2addr v10, v1
+    mul-float/2addr v13, v5
 
-    mul-float/2addr v10, v1
+    const v14, 0x58b9a1a1
 
-    const v11, 0x4c1a253b    # 4.04083E7f
+    mul-float/2addr v14, v10
 
-    mul-float/2addr v11, v6
+    mul-float/2addr v14, v10
 
-    mul-float/2addr v11, v6
+    add-float/2addr v13, v14
 
-    add-float/2addr v10, v11
+    const v14, 0x4c1b2f2f    # 4.0680636E7f
 
-    div-float/2addr v9, v10
+    mul-float/2addr v14, v5
 
-    add-float v5, v8, v9
+    mul-float/2addr v14, v5
 
-    float-to-double v8, v5
+    const v15, 0x4c1a253b    # 4.04083E7f
 
-    invoke-static {v8, v9}, Ljava/lang/Math;->sqrt(D)D
+    mul-float/2addr v15, v10
 
-    move-result-wide v8
+    mul-float/2addr v15, v10
 
-    double-to-float v8, v8
+    add-float/2addr v14, v15
 
-    iput v8, p0, Landroid/hardware/GeomagneticField;->mGcRadiusKm:F
+    div-float/2addr v13, v14
+
+    add-float v9, v12, v13
+
+    float-to-double v12, v9
+
+    invoke-static {v12, v13}, Ljava/lang/Math;->sqrt(D)D
+
+    move-result-wide v12
+
+    double-to-float v12, v12
+
+    move-object/from16 v0, p0
+
+    iput v12, v0, Landroid/hardware/GeomagneticField;->mGcRadiusKm:F
 
     return-void
 .end method

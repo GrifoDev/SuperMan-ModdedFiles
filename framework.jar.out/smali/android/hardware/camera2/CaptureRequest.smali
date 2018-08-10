@@ -310,6 +310,20 @@
     .end annotation
 .end field
 
+.field public static final CONTROL_ENABLE_ZSL:Landroid/hardware/camera2/CaptureRequest$Key;
+    .annotation runtime Landroid/hardware/camera2/impl/PublicKey;
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Landroid/hardware/camera2/CaptureRequest$Key",
+            "<",
+            "Ljava/lang/Boolean;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 .field public static final CONTROL_MODE:Landroid/hardware/camera2/CaptureRequest$Key;
     .annotation runtime Landroid/hardware/camera2/impl/PublicKey;
     .end annotation
@@ -867,8 +881,21 @@
     .end annotation
 .end field
 
+.field private static final mEmptySurfaceSet:Landroid/util/ArraySet;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Landroid/util/ArraySet",
+            "<",
+            "Landroid/view/Surface;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 
 # instance fields
+.field private final TAG:Ljava/lang/String;
+
 .field private mIsPartOfCHSRequestList:Z
 
 .field private mIsReprocess:Z
@@ -877,16 +904,24 @@
 
 .field private final mSettings:Landroid/hardware/camera2/impl/CameraMetadataNative;
 
-.field private final mSurfaceSet:Ljava/util/HashSet;
+.field private mStreamIdxArray:[I
+
+.field private mSurfaceConverted:Z
+
+.field private mSurfaceIdxArray:[I
+
+.field private final mSurfaceSet:Landroid/util/ArraySet;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/HashSet",
+            "Landroid/util/ArraySet",
             "<",
             "Landroid/view/Surface;",
             ">;"
         }
     .end annotation
 .end field
+
+.field private final mSurfacesLock:Ljava/lang/Object;
 
 .field private mUserTag:Ljava/lang/Object;
 
@@ -900,10 +935,10 @@
     return-object v0
 .end method
 
-.method static synthetic -get1(Landroid/hardware/camera2/CaptureRequest;)Ljava/util/HashSet;
+.method static synthetic -get1(Landroid/hardware/camera2/CaptureRequest;)Landroid/util/ArraySet;
     .locals 1
 
-    iget-object v0, p0, Landroid/hardware/camera2/CaptureRequest;->mSurfaceSet:Ljava/util/HashSet;
+    iget-object v0, p0, Landroid/hardware/camera2/CaptureRequest;->mSurfaceSet:Landroid/util/ArraySet;
 
     return-object v0
 .end method
@@ -934,6 +969,12 @@
 
 .method static constructor <clinit>()V
     .locals 3
+
+    new-instance v0, Landroid/util/ArraySet;
+
+    invoke-direct {v0}, Landroid/util/ArraySet;-><init>()V
+
+    sput-object v0, Landroid/hardware/camera2/CaptureRequest;->mEmptySurfaceSet:Landroid/util/ArraySet;
 
     new-instance v0, Landroid/hardware/camera2/CaptureRequest$1;
 
@@ -1172,6 +1213,16 @@
     invoke-direct {v0, v1, v2}, Landroid/hardware/camera2/CaptureRequest$Key;-><init>(Ljava/lang/String;Ljava/lang/Class;)V
 
     sput-object v0, Landroid/hardware/camera2/CaptureRequest;->CONTROL_POST_RAW_SENSITIVITY_BOOST:Landroid/hardware/camera2/CaptureRequest$Key;
+
+    new-instance v0, Landroid/hardware/camera2/CaptureRequest$Key;
+
+    const-string/jumbo v1, "android.control.enableZsl"
+
+    sget-object v2, Ljava/lang/Boolean;->TYPE:Ljava/lang/Class;
+
+    invoke-direct {v0, v1, v2}, Landroid/hardware/camera2/CaptureRequest$Key;-><init>(Ljava/lang/String;Ljava/lang/Class;)V
+
+    sput-object v0, Landroid/hardware/camera2/CaptureRequest;->CONTROL_ENABLE_ZSL:Landroid/hardware/camera2/CaptureRequest$Key;
 
     new-instance v0, Landroid/hardware/camera2/CaptureRequest$Key;
 
@@ -1563,6 +1614,24 @@
 
     invoke-direct {p0}, Landroid/hardware/camera2/CameraMetadata;-><init>()V
 
+    const-string/jumbo v0, "CaptureRequest-JV"
+
+    iput-object v0, p0, Landroid/hardware/camera2/CaptureRequest;->TAG:Ljava/lang/String;
+
+    new-instance v0, Landroid/util/ArraySet;
+
+    invoke-direct {v0}, Landroid/util/ArraySet;-><init>()V
+
+    iput-object v0, p0, Landroid/hardware/camera2/CaptureRequest;->mSurfaceSet:Landroid/util/ArraySet;
+
+    new-instance v0, Ljava/lang/Object;
+
+    invoke-direct {v0}, Ljava/lang/Object;-><init>()V
+
+    iput-object v0, p0, Landroid/hardware/camera2/CaptureRequest;->mSurfacesLock:Ljava/lang/Object;
+
+    iput-boolean v1, p0, Landroid/hardware/camera2/CaptureRequest;->mSurfaceConverted:Z
+
     iput-boolean v1, p0, Landroid/hardware/camera2/CaptureRequest;->mIsPartOfCHSRequestList:Z
 
     new-instance v0, Landroid/hardware/camera2/impl/CameraMetadataNative;
@@ -1571,11 +1640,9 @@
 
     iput-object v0, p0, Landroid/hardware/camera2/CaptureRequest;->mSettings:Landroid/hardware/camera2/impl/CameraMetadataNative;
 
-    new-instance v0, Ljava/util/HashSet;
+    iget-object v0, p0, Landroid/hardware/camera2/CaptureRequest;->mSettings:Landroid/hardware/camera2/impl/CameraMetadataNative;
 
-    invoke-direct {v0}, Ljava/util/HashSet;-><init>()V
-
-    iput-object v0, p0, Landroid/hardware/camera2/CaptureRequest;->mSurfaceSet:Ljava/util/HashSet;
+    invoke-virtual {p0, v0}, Landroid/hardware/camera2/CaptureRequest;->setNativeInstance(Landroid/hardware/camera2/impl/CameraMetadataNative;)V
 
     iput-boolean v1, p0, Landroid/hardware/camera2/CaptureRequest;->mIsReprocess:Z
 
@@ -1589,11 +1656,29 @@
 .method private constructor <init>(Landroid/hardware/camera2/CaptureRequest;)V
     .locals 2
 
+    const/4 v1, 0x0
+
     invoke-direct {p0}, Landroid/hardware/camera2/CameraMetadata;-><init>()V
 
-    const/4 v0, 0x0
+    const-string/jumbo v0, "CaptureRequest-JV"
 
-    iput-boolean v0, p0, Landroid/hardware/camera2/CaptureRequest;->mIsPartOfCHSRequestList:Z
+    iput-object v0, p0, Landroid/hardware/camera2/CaptureRequest;->TAG:Ljava/lang/String;
+
+    new-instance v0, Landroid/util/ArraySet;
+
+    invoke-direct {v0}, Landroid/util/ArraySet;-><init>()V
+
+    iput-object v0, p0, Landroid/hardware/camera2/CaptureRequest;->mSurfaceSet:Landroid/util/ArraySet;
+
+    new-instance v0, Ljava/lang/Object;
+
+    invoke-direct {v0}, Ljava/lang/Object;-><init>()V
+
+    iput-object v0, p0, Landroid/hardware/camera2/CaptureRequest;->mSurfacesLock:Ljava/lang/Object;
+
+    iput-boolean v1, p0, Landroid/hardware/camera2/CaptureRequest;->mSurfaceConverted:Z
+
+    iput-boolean v1, p0, Landroid/hardware/camera2/CaptureRequest;->mIsPartOfCHSRequestList:Z
 
     new-instance v0, Landroid/hardware/camera2/impl/CameraMetadataNative;
 
@@ -1603,15 +1688,15 @@
 
     iput-object v0, p0, Landroid/hardware/camera2/CaptureRequest;->mSettings:Landroid/hardware/camera2/impl/CameraMetadataNative;
 
-    iget-object v0, p1, Landroid/hardware/camera2/CaptureRequest;->mSurfaceSet:Ljava/util/HashSet;
+    iget-object v0, p0, Landroid/hardware/camera2/CaptureRequest;->mSettings:Landroid/hardware/camera2/impl/CameraMetadataNative;
 
-    invoke-virtual {v0}, Ljava/util/HashSet;->clone()Ljava/lang/Object;
+    invoke-virtual {p0, v0}, Landroid/hardware/camera2/CaptureRequest;->setNativeInstance(Landroid/hardware/camera2/impl/CameraMetadataNative;)V
 
-    move-result-object v0
+    iget-object v0, p0, Landroid/hardware/camera2/CaptureRequest;->mSurfaceSet:Landroid/util/ArraySet;
 
-    check-cast v0, Ljava/util/HashSet;
+    iget-object v1, p1, Landroid/hardware/camera2/CaptureRequest;->mSurfaceSet:Landroid/util/ArraySet;
 
-    iput-object v0, p0, Landroid/hardware/camera2/CaptureRequest;->mSurfaceSet:Ljava/util/HashSet;
+    invoke-virtual {v0, v1}, Landroid/util/ArraySet;->addAll(Landroid/util/ArraySet;)V
 
     iget-boolean v0, p1, Landroid/hardware/camera2/CaptureRequest;->mIsReprocess:Z
 
@@ -1651,13 +1736,31 @@
 .method private constructor <init>(Landroid/hardware/camera2/impl/CameraMetadataNative;ZI)V
     .locals 3
 
+    const/4 v2, 0x0
+
     const/4 v1, -0x1
 
     invoke-direct {p0}, Landroid/hardware/camera2/CameraMetadata;-><init>()V
 
-    const/4 v0, 0x0
+    const-string/jumbo v0, "CaptureRequest-JV"
 
-    iput-boolean v0, p0, Landroid/hardware/camera2/CaptureRequest;->mIsPartOfCHSRequestList:Z
+    iput-object v0, p0, Landroid/hardware/camera2/CaptureRequest;->TAG:Ljava/lang/String;
+
+    new-instance v0, Landroid/util/ArraySet;
+
+    invoke-direct {v0}, Landroid/util/ArraySet;-><init>()V
+
+    iput-object v0, p0, Landroid/hardware/camera2/CaptureRequest;->mSurfaceSet:Landroid/util/ArraySet;
+
+    new-instance v0, Ljava/lang/Object;
+
+    invoke-direct {v0}, Ljava/lang/Object;-><init>()V
+
+    iput-object v0, p0, Landroid/hardware/camera2/CaptureRequest;->mSurfacesLock:Ljava/lang/Object;
+
+    iput-boolean v2, p0, Landroid/hardware/camera2/CaptureRequest;->mSurfaceConverted:Z
+
+    iput-boolean v2, p0, Landroid/hardware/camera2/CaptureRequest;->mIsPartOfCHSRequestList:Z
 
     invoke-static {p1}, Landroid/hardware/camera2/impl/CameraMetadataNative;->move(Landroid/hardware/camera2/impl/CameraMetadataNative;)Landroid/hardware/camera2/impl/CameraMetadataNative;
 
@@ -1665,11 +1768,9 @@
 
     iput-object v0, p0, Landroid/hardware/camera2/CaptureRequest;->mSettings:Landroid/hardware/camera2/impl/CameraMetadataNative;
 
-    new-instance v0, Ljava/util/HashSet;
+    iget-object v0, p0, Landroid/hardware/camera2/CaptureRequest;->mSettings:Landroid/hardware/camera2/impl/CameraMetadataNative;
 
-    invoke-direct {v0}, Ljava/util/HashSet;-><init>()V
-
-    iput-object v0, p0, Landroid/hardware/camera2/CaptureRequest;->mSurfaceSet:Ljava/util/HashSet;
+    invoke-virtual {p0, v0}, Landroid/hardware/camera2/CaptureRequest;->setNativeInstance(Landroid/hardware/camera2/impl/CameraMetadataNative;)V
 
     iput-boolean p2, p0, Landroid/hardware/camera2/CaptureRequest;->mIsReprocess:Z
 
@@ -1738,11 +1839,11 @@
 
     if-eqz v1, :cond_0
 
-    iget-object v1, p0, Landroid/hardware/camera2/CaptureRequest;->mSurfaceSet:Ljava/util/HashSet;
+    iget-object v1, p0, Landroid/hardware/camera2/CaptureRequest;->mSurfaceSet:Landroid/util/ArraySet;
 
-    iget-object v2, p1, Landroid/hardware/camera2/CaptureRequest;->mSurfaceSet:Ljava/util/HashSet;
+    iget-object v2, p1, Landroid/hardware/camera2/CaptureRequest;->mSurfaceSet:Landroid/util/ArraySet;
 
-    invoke-virtual {v1, v2}, Ljava/util/HashSet;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v2}, Landroid/util/ArraySet;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
@@ -1777,51 +1878,77 @@
 .end method
 
 .method private readFromParcel(Landroid/os/Parcel;)V
-    .locals 7
+    .locals 9
 
-    const/4 v3, 0x0
+    const/4 v6, 0x0
 
-    iget-object v4, p0, Landroid/hardware/camera2/CaptureRequest;->mSettings:Landroid/hardware/camera2/impl/CameraMetadataNative;
+    iget-object v5, p0, Landroid/hardware/camera2/CaptureRequest;->mSettings:Landroid/hardware/camera2/impl/CameraMetadataNative;
 
-    invoke-virtual {v4, p1}, Landroid/hardware/camera2/impl/CameraMetadataNative;->readFromParcel(Landroid/os/Parcel;)V
+    invoke-virtual {v5, p1}, Landroid/hardware/camera2/impl/CameraMetadataNative;->readFromParcel(Landroid/os/Parcel;)V
 
-    iget-object v4, p0, Landroid/hardware/camera2/CaptureRequest;->mSurfaceSet:Ljava/util/HashSet;
+    iget-object v5, p0, Landroid/hardware/camera2/CaptureRequest;->mSettings:Landroid/hardware/camera2/impl/CameraMetadataNative;
 
-    invoke-virtual {v4}, Ljava/util/HashSet;->clear()V
+    invoke-virtual {p0, v5}, Landroid/hardware/camera2/CaptureRequest;->setNativeInstance(Landroid/hardware/camera2/impl/CameraMetadataNative;)V
 
-    const-class v4, Landroid/view/Surface;
+    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
-    invoke-virtual {v4}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+    move-result v5
 
-    move-result-object v4
+    if-nez v5, :cond_0
 
-    invoke-virtual {p1, v4}, Landroid/os/Parcel;->readParcelableArray(Ljava/lang/ClassLoader;)[Landroid/os/Parcelable;
-
-    move-result-object v1
-
-    if-nez v1, :cond_0
-
-    return-void
-
-    :cond_0
-    array-length v5, v1
-
-    move v4, v3
+    move v5, v6
 
     :goto_0
-    if-ge v4, v5, :cond_1
+    iput-boolean v5, p0, Landroid/hardware/camera2/CaptureRequest;->mIsReprocess:Z
 
-    aget-object v0, v1, v4
+    const/4 v5, -0x1
 
-    move-object v2, v0
+    iput v5, p0, Landroid/hardware/camera2/CaptureRequest;->mReprocessableSessionId:I
 
-    check-cast v2, Landroid/view/Surface;
+    iget-object v7, p0, Landroid/hardware/camera2/CaptureRequest;->mSurfacesLock:Ljava/lang/Object;
 
-    iget-object v6, p0, Landroid/hardware/camera2/CaptureRequest;->mSurfaceSet:Ljava/util/HashSet;
+    monitor-enter v7
 
-    invoke-virtual {v6, v2}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
+    :try_start_0
+    iget-object v5, p0, Landroid/hardware/camera2/CaptureRequest;->mSurfaceSet:Landroid/util/ArraySet;
 
-    add-int/lit8 v4, v4, 0x1
+    invoke-virtual {v5}, Landroid/util/ArraySet;->clear()V
+
+    const-class v5, Landroid/view/Surface;
+
+    invoke-virtual {v5}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+
+    move-result-object v5
+
+    invoke-virtual {p1, v5}, Landroid/os/Parcel;->readParcelableArray(Ljava/lang/ClassLoader;)[Landroid/os/Parcelable;
+
+    move-result-object v2
+
+    if-eqz v2, :cond_1
+
+    array-length v5, v2
+
+    :goto_1
+    if-ge v6, v5, :cond_1
+
+    aget-object v1, v2, v6
+
+    move-object v0, v1
+
+    check-cast v0, Landroid/view/Surface;
+
+    move-object v3, v0
+
+    iget-object v8, p0, Landroid/hardware/camera2/CaptureRequest;->mSurfaceSet:Landroid/util/ArraySet;
+
+    invoke-virtual {v8, v3}, Landroid/util/ArraySet;->add(Ljava/lang/Object;)Z
+
+    add-int/lit8 v6, v6, 0x1
+
+    goto :goto_1
+
+    :cond_0
+    const/4 v5, 0x1
 
     goto :goto_0
 
@@ -1830,21 +1957,29 @@
 
     move-result v4
 
-    if-nez v4, :cond_2
+    if-eqz v4, :cond_2
 
-    :goto_1
-    iput-boolean v3, p0, Landroid/hardware/camera2/CaptureRequest;->mIsReprocess:Z
+    new-instance v5, Ljava/lang/RuntimeException;
 
-    const/4 v3, -0x1
+    const-string/jumbo v6, "Reading cached CaptureRequest is not supported"
 
-    iput v3, p0, Landroid/hardware/camera2/CaptureRequest;->mReprocessableSessionId:I
+    invoke-direct {v5, v6}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
-    return-void
+    throw v5
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    :catchall_0
+    move-exception v5
+
+    monitor-exit v7
+
+    throw v5
 
     :cond_2
-    const/4 v3, 0x1
+    monitor-exit v7
 
-    goto :goto_1
+    return-void
 .end method
 
 
@@ -1852,13 +1987,201 @@
 .method public containsTarget(Landroid/view/Surface;)Z
     .locals 1
 
-    iget-object v0, p0, Landroid/hardware/camera2/CaptureRequest;->mSurfaceSet:Ljava/util/HashSet;
+    iget-object v0, p0, Landroid/hardware/camera2/CaptureRequest;->mSurfaceSet:Landroid/util/ArraySet;
 
-    invoke-virtual {v0, p1}, Ljava/util/HashSet;->contains(Ljava/lang/Object;)Z
+    invoke-virtual {v0, p1}, Landroid/util/ArraySet;->contains(Ljava/lang/Object;)Z
 
     move-result v0
 
     return v0
+.end method
+
+.method public convertSurfaceToStreamId(Landroid/util/SparseArray;)V
+    .locals 13
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Landroid/util/SparseArray",
+            "<",
+            "Landroid/hardware/camera2/params/OutputConfiguration;",
+            ">;)V"
+        }
+    .end annotation
+
+    iget-object v11, p0, Landroid/hardware/camera2/CaptureRequest;->mSurfacesLock:Ljava/lang/Object;
+
+    monitor-enter v11
+
+    :try_start_0
+    iget-boolean v10, p0, Landroid/hardware/camera2/CaptureRequest;->mSurfaceConverted:Z
+
+    if-eqz v10, :cond_0
+
+    const-string/jumbo v10, "CaptureRequest-JV"
+
+    const-string/jumbo v12, "Cannot convert already converted surfaces!"
+
+    invoke-static {v10, v12}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit v11
+
+    return-void
+
+    :cond_0
+    :try_start_1
+    iget-object v10, p0, Landroid/hardware/camera2/CaptureRequest;->mSurfaceSet:Landroid/util/ArraySet;
+
+    invoke-virtual {v10}, Landroid/util/ArraySet;->size()I
+
+    move-result v10
+
+    new-array v10, v10, [I
+
+    iput-object v10, p0, Landroid/hardware/camera2/CaptureRequest;->mStreamIdxArray:[I
+
+    iget-object v10, p0, Landroid/hardware/camera2/CaptureRequest;->mSurfaceSet:Landroid/util/ArraySet;
+
+    invoke-virtual {v10}, Landroid/util/ArraySet;->size()I
+
+    move-result v10
+
+    new-array v10, v10, [I
+
+    iput-object v10, p0, Landroid/hardware/camera2/CaptureRequest;->mSurfaceIdxArray:[I
+
+    const/4 v0, 0x0
+
+    iget-object v10, p0, Landroid/hardware/camera2/CaptureRequest;->mSurfaceSet:Landroid/util/ArraySet;
+
+    invoke-interface {v10}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+
+    move-result-object v6
+
+    :cond_1
+    invoke-interface {v6}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v10
+
+    if-eqz v10, :cond_6
+
+    invoke-interface {v6}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v5
+
+    check-cast v5, Landroid/view/Surface;
+
+    const/4 v7, 0x0
+
+    const/4 v1, 0x0
+
+    :goto_0
+    invoke-virtual {p1}, Landroid/util/SparseArray;->size()I
+
+    move-result v10
+
+    if-ge v1, v10, :cond_3
+
+    invoke-virtual {p1, v1}, Landroid/util/SparseArray;->keyAt(I)I
+
+    move-result v8
+
+    invoke-virtual {p1, v1}, Landroid/util/SparseArray;->valueAt(I)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Landroid/hardware/camera2/params/OutputConfiguration;
+
+    const/4 v9, 0x0
+
+    invoke-virtual {v2}, Landroid/hardware/camera2/params/OutputConfiguration;->getSurfaces()Ljava/util/List;
+
+    move-result-object v10
+
+    invoke-interface {v10}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+
+    move-result-object v4
+
+    :goto_1
+    invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v10
+
+    if-eqz v10, :cond_2
+
+    invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Landroid/view/Surface;
+
+    if-ne v5, v3, :cond_4
+
+    const/4 v7, 0x1
+
+    iget-object v10, p0, Landroid/hardware/camera2/CaptureRequest;->mStreamIdxArray:[I
+
+    aput v8, v10, v0
+
+    iget-object v10, p0, Landroid/hardware/camera2/CaptureRequest;->mSurfaceIdxArray:[I
+
+    aput v9, v10, v0
+
+    add-int/lit8 v0, v0, 0x1
+
+    :cond_2
+    if-eqz v7, :cond_5
+
+    :cond_3
+    if-nez v7, :cond_1
+
+    const/4 v10, 0x0
+
+    iput-object v10, p0, Landroid/hardware/camera2/CaptureRequest;->mStreamIdxArray:[I
+
+    const/4 v10, 0x0
+
+    iput-object v10, p0, Landroid/hardware/camera2/CaptureRequest;->mSurfaceIdxArray:[I
+
+    new-instance v10, Ljava/lang/IllegalArgumentException;
+
+    const-string/jumbo v12, "CaptureRequest contains unconfigured Input/Output Surface!"
+
+    invoke-direct {v10, v12}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v10
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    :catchall_0
+    move-exception v10
+
+    monitor-exit v11
+
+    throw v10
+
+    :cond_4
+    add-int/lit8 v9, v9, 0x1
+
+    goto :goto_1
+
+    :cond_5
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_0
+
+    :cond_6
+    const/4 v10, 0x1
+
+    :try_start_2
+    iput-boolean v10, p0, Landroid/hardware/camera2/CaptureRequest;->mSurfaceConverted:Z
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+
+    monitor-exit v11
+
+    return-void
 .end method
 
 .method public describeContents()I
@@ -2043,7 +2366,7 @@
         }
     .end annotation
 
-    iget-object v0, p0, Landroid/hardware/camera2/CaptureRequest;->mSurfaceSet:Ljava/util/HashSet;
+    iget-object v0, p0, Landroid/hardware/camera2/CaptureRequest;->mSurfaceSet:Landroid/util/ArraySet;
 
     invoke-static {v0}, Ljava/util/Collections;->unmodifiableCollection(Ljava/util/Collection;)Ljava/util/Collection;
 
@@ -2065,7 +2388,7 @@
 
     aput-object v1, v0, v2
 
-    iget-object v1, p0, Landroid/hardware/camera2/CaptureRequest;->mSurfaceSet:Ljava/util/HashSet;
+    iget-object v1, p0, Landroid/hardware/camera2/CaptureRequest;->mSurfaceSet:Landroid/util/ArraySet;
 
     const/4 v2, 0x1
 
@@ -2100,44 +2423,158 @@
     return v0
 .end method
 
-.method public writeToParcel(Landroid/os/Parcel;I)V
-    .locals 2
+.method public recoverStreamIdToSurface()V
+    .locals 3
 
-    iget-object v0, p0, Landroid/hardware/camera2/CaptureRequest;->mSettings:Landroid/hardware/camera2/impl/CameraMetadataNative;
+    iget-object v1, p0, Landroid/hardware/camera2/CaptureRequest;->mSurfacesLock:Ljava/lang/Object;
 
-    invoke-virtual {v0, p1, p2}, Landroid/hardware/camera2/impl/CameraMetadataNative;->writeToParcel(Landroid/os/Parcel;I)V
+    monitor-enter v1
 
-    iget-object v0, p0, Landroid/hardware/camera2/CaptureRequest;->mSurfaceSet:Ljava/util/HashSet;
+    :try_start_0
+    iget-boolean v0, p0, Landroid/hardware/camera2/CaptureRequest;->mSurfaceConverted:Z
 
-    iget-object v1, p0, Landroid/hardware/camera2/CaptureRequest;->mSurfaceSet:Ljava/util/HashSet;
+    if-nez v0, :cond_0
 
-    invoke-virtual {v1}, Ljava/util/HashSet;->size()I
+    const-string/jumbo v0, "CaptureRequest-JV"
 
-    move-result v1
+    const-string/jumbo v2, "Cannot convert already converted surfaces!"
 
-    new-array v1, v1, [Landroid/view/Surface;
+    invoke-static {v0, v2}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    invoke-virtual {v0, v1}, Ljava/util/HashSet;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, [Landroid/view/Surface;
-
-    invoke-virtual {p1, v0, p2}, Landroid/os/Parcel;->writeParcelableArray([Landroid/os/Parcelable;I)V
-
-    iget-boolean v0, p0, Landroid/hardware/camera2/CaptureRequest;->mIsReprocess:Z
-
-    if-eqz v0, :cond_0
-
-    const/4 v0, 0x1
-
-    :goto_0
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
+    monitor-exit v1
 
     return-void
 
     :cond_0
     const/4 v0, 0x0
 
+    :try_start_1
+    iput-object v0, p0, Landroid/hardware/camera2/CaptureRequest;->mStreamIdxArray:[I
+
+    const/4 v0, 0x0
+
+    iput-object v0, p0, Landroid/hardware/camera2/CaptureRequest;->mSurfaceIdxArray:[I
+
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Landroid/hardware/camera2/CaptureRequest;->mSurfaceConverted:Z
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    monitor-exit v1
+
+    return-void
+
+    :catchall_0
+    move-exception v0
+
+    monitor-exit v1
+
+    throw v0
+.end method
+
+.method public writeToParcel(Landroid/os/Parcel;I)V
+    .locals 4
+
+    const/4 v2, 0x0
+
+    iget-object v3, p0, Landroid/hardware/camera2/CaptureRequest;->mSettings:Landroid/hardware/camera2/impl/CameraMetadataNative;
+
+    invoke-virtual {v3, p1, p2}, Landroid/hardware/camera2/impl/CameraMetadataNative;->writeToParcel(Landroid/os/Parcel;I)V
+
+    iget-boolean v3, p0, Landroid/hardware/camera2/CaptureRequest;->mIsReprocess:Z
+
+    if-eqz v3, :cond_0
+
+    const/4 v2, 0x1
+
+    :cond_0
+    invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeInt(I)V
+
+    iget-object v3, p0, Landroid/hardware/camera2/CaptureRequest;->mSurfacesLock:Ljava/lang/Object;
+
+    monitor-enter v3
+
+    :try_start_0
+    iget-boolean v2, p0, Landroid/hardware/camera2/CaptureRequest;->mSurfaceConverted:Z
+
+    if-eqz v2, :cond_1
+
+    sget-object v1, Landroid/hardware/camera2/CaptureRequest;->mEmptySurfaceSet:Landroid/util/ArraySet;
+
+    :goto_0
+    invoke-virtual {v1}, Landroid/util/ArraySet;->size()I
+
+    move-result v2
+
+    new-array v2, v2, [Landroid/view/Surface;
+
+    invoke-virtual {v1, v2}, Landroid/util/ArraySet;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, [Landroid/view/Surface;
+
+    invoke-virtual {p1, v2, p2}, Landroid/os/Parcel;->writeParcelableArray([Landroid/os/Parcelable;I)V
+
+    iget-boolean v2, p0, Landroid/hardware/camera2/CaptureRequest;->mSurfaceConverted:Z
+
+    if-eqz v2, :cond_2
+
+    iget-object v2, p0, Landroid/hardware/camera2/CaptureRequest;->mStreamIdxArray:[I
+
+    array-length v2, v2
+
+    invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeInt(I)V
+
+    const/4 v0, 0x0
+
+    :goto_1
+    iget-object v2, p0, Landroid/hardware/camera2/CaptureRequest;->mStreamIdxArray:[I
+
+    array-length v2, v2
+
+    if-ge v0, v2, :cond_3
+
+    iget-object v2, p0, Landroid/hardware/camera2/CaptureRequest;->mStreamIdxArray:[I
+
+    aget v2, v2, v0
+
+    invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeInt(I)V
+
+    iget-object v2, p0, Landroid/hardware/camera2/CaptureRequest;->mSurfaceIdxArray:[I
+
+    aget v2, v2, v0
+
+    invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeInt(I)V
+
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_1
+
+    :cond_1
+    iget-object v1, p0, Landroid/hardware/camera2/CaptureRequest;->mSurfaceSet:Landroid/util/ArraySet;
+
     goto :goto_0
+
+    :cond_2
+    const/4 v2, 0x0
+
+    invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeInt(I)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    :cond_3
+    monitor-exit v3
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    monitor-exit v3
+
+    throw v2
 .end method

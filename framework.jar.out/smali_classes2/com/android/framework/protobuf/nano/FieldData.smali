@@ -446,9 +446,7 @@
     :cond_1
     move-object v1, p1
 
-    nop
-
-    nop
+    check-cast v1, Lcom/android/framework/protobuf/nano/FieldData;
 
     iget-object v2, p0, Lcom/android/framework/protobuf/nano/FieldData;->value:Ljava/lang/Object;
 
@@ -781,6 +779,8 @@
 
 .method public hashCode()I
     .locals 3
+
+    const/16 v1, 0x11
 
     :try_start_0
     invoke-direct {p0}, Lcom/android/framework/protobuf/nano/FieldData;->toByteArray()[B

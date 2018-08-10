@@ -11,11 +11,13 @@
 
 
 # instance fields
-.field private mIterator:Landroid/icu/text/BreakIterator;
+.field private mCharSeq:Ljava/lang/CharSequence;
 
-.field private mOffsetShift:I
+.field private mEnd:I
 
-.field private mString:Ljava/lang/String;
+.field private final mIterator:Landroid/icu/text/BreakIterator;
+
+.field private mStart:I
 
 
 # direct methods
@@ -46,15 +48,13 @@
 .end method
 
 .method private checkOffsetIsValid(I)V
-    .locals 4
+    .locals 3
 
-    if-ltz p1, :cond_0
+    iget v0, p0, Landroid/text/method/WordIterator;->mStart:I
 
-    iget-object v0, p0, Landroid/text/method/WordIterator;->mString:Ljava/lang/String;
+    if-gt v0, p1, :cond_0
 
-    invoke-virtual {v0}, Ljava/lang/String;->length()I
-
-    move-result v0
+    iget v0, p0, Landroid/text/method/WordIterator;->mEnd:I
 
     if-le p1, v0, :cond_1
 
@@ -71,11 +71,7 @@
 
     move-result-object v1
 
-    iget v2, p0, Landroid/text/method/WordIterator;->mOffsetShift:I
-
-    add-int/2addr v2, p1
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
@@ -85,7 +81,7 @@
 
     move-result-object v1
 
-    iget v2, p0, Landroid/text/method/WordIterator;->mOffsetShift:I
+    iget v2, p0, Landroid/text/method/WordIterator;->mStart:I
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
@@ -97,15 +93,7 @@
 
     move-result-object v1
 
-    iget-object v2, p0, Landroid/text/method/WordIterator;->mString:Ljava/lang/String;
-
-    invoke-virtual {v2}, Ljava/lang/String;->length()I
-
-    move-result v2
-
-    iget v3, p0, Landroid/text/method/WordIterator;->mOffsetShift:I
-
-    add-int/2addr v2, v3
+    iget v2, p0, Landroid/text/method/WordIterator;->mEnd:I
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
@@ -130,175 +118,143 @@
 .end method
 
 .method private getBeginning(IZ)I
-    .locals 3
+    .locals 1
 
-    iget v1, p0, Landroid/text/method/WordIterator;->mOffsetShift:I
+    invoke-direct {p0, p1}, Landroid/text/method/WordIterator;->checkOffsetIsValid(I)V
 
-    sub-int v0, p1, v1
+    invoke-direct {p0, p1}, Landroid/text/method/WordIterator;->isOnLetterOrDigit(I)Z
 
-    invoke-direct {p0, v0}, Landroid/text/method/WordIterator;->checkOffsetIsValid(I)V
+    move-result v0
 
-    invoke-direct {p0, v0}, Landroid/text/method/WordIterator;->isOnLetterOrDigit(I)Z
+    if-eqz v0, :cond_2
 
-    move-result v1
+    iget-object v0, p0, Landroid/text/method/WordIterator;->mIterator:Landroid/icu/text/BreakIterator;
 
-    if-eqz v1, :cond_2
+    invoke-virtual {v0, p1}, Landroid/icu/text/BreakIterator;->isBoundary(I)Z
 
-    iget-object v1, p0, Landroid/text/method/WordIterator;->mIterator:Landroid/icu/text/BreakIterator;
+    move-result v0
 
-    invoke-virtual {v1, v0}, Landroid/icu/text/BreakIterator;->isBoundary(I)Z
+    if-eqz v0, :cond_1
 
-    move-result v1
+    invoke-direct {p0, p1}, Landroid/text/method/WordIterator;->isAfterLetterOrDigit(I)Z
 
-    if-eqz v1, :cond_0
+    move-result v0
 
-    invoke-direct {p0, v0}, Landroid/text/method/WordIterator;->isAfterLetterOrDigit(I)Z
+    if-eqz v0, :cond_0
 
-    move-result v1
+    xor-int/lit8 v0, p2, 0x1
 
-    if-eqz v1, :cond_1
-
-    if-eqz p2, :cond_1
+    if-eqz v0, :cond_1
 
     :cond_0
-    iget-object v1, p0, Landroid/text/method/WordIterator;->mIterator:Landroid/icu/text/BreakIterator;
-
-    invoke-virtual {v1, v0}, Landroid/icu/text/BreakIterator;->preceding(I)I
-
-    move-result v1
-
-    iget v2, p0, Landroid/text/method/WordIterator;->mOffsetShift:I
-
-    add-int/2addr v1, v2
-
-    return v1
+    return p1
 
     :cond_1
-    iget v1, p0, Landroid/text/method/WordIterator;->mOffsetShift:I
+    iget-object v0, p0, Landroid/text/method/WordIterator;->mIterator:Landroid/icu/text/BreakIterator;
 
-    add-int/2addr v1, v0
+    invoke-virtual {v0, p1}, Landroid/icu/text/BreakIterator;->preceding(I)I
 
-    return v1
+    move-result v0
+
+    return v0
 
     :cond_2
-    invoke-direct {p0, v0}, Landroid/text/method/WordIterator;->isAfterLetterOrDigit(I)Z
+    invoke-direct {p0, p1}, Landroid/text/method/WordIterator;->isAfterLetterOrDigit(I)Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_3
+    if-eqz v0, :cond_3
 
-    iget-object v1, p0, Landroid/text/method/WordIterator;->mIterator:Landroid/icu/text/BreakIterator;
+    iget-object v0, p0, Landroid/text/method/WordIterator;->mIterator:Landroid/icu/text/BreakIterator;
 
-    invoke-virtual {v1, v0}, Landroid/icu/text/BreakIterator;->preceding(I)I
+    invoke-virtual {v0, p1}, Landroid/icu/text/BreakIterator;->preceding(I)I
 
-    move-result v1
+    move-result v0
 
-    iget v2, p0, Landroid/text/method/WordIterator;->mOffsetShift:I
-
-    add-int/2addr v1, v2
-
-    return v1
+    return v0
 
     :cond_3
-    const/4 v1, -0x1
+    const/4 v0, -0x1
 
-    return v1
+    return v0
 .end method
 
 .method private getEnd(IZ)I
-    .locals 3
+    .locals 1
 
-    iget v1, p0, Landroid/text/method/WordIterator;->mOffsetShift:I
+    invoke-direct {p0, p1}, Landroid/text/method/WordIterator;->checkOffsetIsValid(I)V
 
-    sub-int v0, p1, v1
+    invoke-direct {p0, p1}, Landroid/text/method/WordIterator;->isAfterLetterOrDigit(I)Z
 
-    invoke-direct {p0, v0}, Landroid/text/method/WordIterator;->checkOffsetIsValid(I)V
+    move-result v0
 
-    invoke-direct {p0, v0}, Landroid/text/method/WordIterator;->isAfterLetterOrDigit(I)Z
+    if-eqz v0, :cond_2
 
-    move-result v1
+    iget-object v0, p0, Landroid/text/method/WordIterator;->mIterator:Landroid/icu/text/BreakIterator;
 
-    if-eqz v1, :cond_2
+    invoke-virtual {v0, p1}, Landroid/icu/text/BreakIterator;->isBoundary(I)Z
 
-    iget-object v1, p0, Landroid/text/method/WordIterator;->mIterator:Landroid/icu/text/BreakIterator;
+    move-result v0
 
-    invoke-virtual {v1, v0}, Landroid/icu/text/BreakIterator;->isBoundary(I)Z
+    if-eqz v0, :cond_1
 
-    move-result v1
+    invoke-direct {p0, p1}, Landroid/text/method/WordIterator;->isOnLetterOrDigit(I)Z
 
-    if-eqz v1, :cond_0
+    move-result v0
 
-    invoke-direct {p0, v0}, Landroid/text/method/WordIterator;->isOnLetterOrDigit(I)Z
+    if-eqz v0, :cond_0
 
-    move-result v1
+    xor-int/lit8 v0, p2, 0x1
 
-    if-eqz v1, :cond_1
-
-    if-eqz p2, :cond_1
+    if-eqz v0, :cond_1
 
     :cond_0
-    iget-object v1, p0, Landroid/text/method/WordIterator;->mIterator:Landroid/icu/text/BreakIterator;
-
-    invoke-virtual {v1, v0}, Landroid/icu/text/BreakIterator;->following(I)I
-
-    move-result v1
-
-    iget v2, p0, Landroid/text/method/WordIterator;->mOffsetShift:I
-
-    add-int/2addr v1, v2
-
-    return v1
+    return p1
 
     :cond_1
-    iget v1, p0, Landroid/text/method/WordIterator;->mOffsetShift:I
+    iget-object v0, p0, Landroid/text/method/WordIterator;->mIterator:Landroid/icu/text/BreakIterator;
 
-    add-int/2addr v1, v0
+    invoke-virtual {v0, p1}, Landroid/icu/text/BreakIterator;->following(I)I
 
-    return v1
+    move-result v0
+
+    return v0
 
     :cond_2
-    invoke-direct {p0, v0}, Landroid/text/method/WordIterator;->isOnLetterOrDigit(I)Z
+    invoke-direct {p0, p1}, Landroid/text/method/WordIterator;->isOnLetterOrDigit(I)Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_3
+    if-eqz v0, :cond_3
 
-    iget-object v1, p0, Landroid/text/method/WordIterator;->mIterator:Landroid/icu/text/BreakIterator;
+    iget-object v0, p0, Landroid/text/method/WordIterator;->mIterator:Landroid/icu/text/BreakIterator;
 
-    invoke-virtual {v1, v0}, Landroid/icu/text/BreakIterator;->following(I)I
+    invoke-virtual {v0, p1}, Landroid/icu/text/BreakIterator;->following(I)I
 
-    move-result v1
+    move-result v0
 
-    iget v2, p0, Landroid/text/method/WordIterator;->mOffsetShift:I
-
-    add-int/2addr v1, v2
-
-    return v1
+    return v0
 
     :cond_3
-    const/4 v1, -0x1
+    const/4 v0, -0x1
 
-    return v1
+    return v0
 .end method
 
 .method private isAfterLetterOrDigit(I)Z
-    .locals 3
+    .locals 2
 
-    const/4 v2, 0x1
+    iget v1, p0, Landroid/text/method/WordIterator;->mStart:I
 
-    if-lt p1, v2, :cond_0
+    if-ge v1, p1, :cond_0
 
-    iget-object v1, p0, Landroid/text/method/WordIterator;->mString:Ljava/lang/String;
-
-    invoke-virtual {v1}, Ljava/lang/String;->length()I
-
-    move-result v1
+    iget v1, p0, Landroid/text/method/WordIterator;->mEnd:I
 
     if-gt p1, v1, :cond_0
 
-    iget-object v1, p0, Landroid/text/method/WordIterator;->mString:Ljava/lang/String;
+    iget-object v1, p0, Landroid/text/method/WordIterator;->mCharSeq:Ljava/lang/CharSequence;
 
-    invoke-virtual {v1, p1}, Ljava/lang/String;->codePointBefore(I)I
+    invoke-static {v1, p1}, Ljava/lang/Character;->codePointBefore(Ljava/lang/CharSequence;I)I
 
     move-result v0
 
@@ -308,7 +264,9 @@
 
     if-eqz v1, :cond_0
 
-    return v2
+    const/4 v1, 0x1
+
+    return v1
 
     :cond_0
     const/4 v1, 0x0
@@ -316,24 +274,53 @@
     return v1
 .end method
 
-.method private isOnLetterOrDigit(I)Z
+.method public static isMidWordPunctuation(Ljava/util/Locale;I)Z
     .locals 3
 
-    const/4 v2, 0x0
+    const/4 v1, 0x1
 
-    if-ltz p1, :cond_0
+    const/16 v2, 0x1014
 
-    iget-object v1, p0, Landroid/text/method/WordIterator;->mString:Ljava/lang/String;
+    invoke-static {p1, v2}, Landroid/icu/lang/UCharacter;->getIntPropertyValue(II)I
 
-    invoke-virtual {v1}, Ljava/lang/String;->length()I
+    move-result v0
 
-    move-result v1
+    const/4 v2, 0x4
+
+    if-eq v0, v2, :cond_0
+
+    const/16 v2, 0xb
+
+    if-ne v0, v2, :cond_1
+
+    :cond_0
+    :goto_0
+    return v1
+
+    :cond_1
+    const/16 v2, 0xf
+
+    if-eq v0, v2, :cond_0
+
+    const/4 v1, 0x0
+
+    goto :goto_0
+.end method
+
+.method private isOnLetterOrDigit(I)Z
+    .locals 2
+
+    iget v1, p0, Landroid/text/method/WordIterator;->mStart:I
+
+    if-gt v1, p1, :cond_0
+
+    iget v1, p0, Landroid/text/method/WordIterator;->mEnd:I
 
     if-ge p1, v1, :cond_0
 
-    iget-object v1, p0, Landroid/text/method/WordIterator;->mString:Ljava/lang/String;
+    iget-object v1, p0, Landroid/text/method/WordIterator;->mCharSeq:Ljava/lang/CharSequence;
 
-    invoke-virtual {v1, p1}, Ljava/lang/String;->codePointAt(I)I
+    invoke-static {v1, p1}, Ljava/lang/Character;->codePointAt(Ljava/lang/CharSequence;I)I
 
     move-result v0
 
@@ -348,15 +335,17 @@
     return v1
 
     :cond_0
-    return v2
+    const/4 v1, 0x0
+
+    return v1
 .end method
 
-.method private isPunctuation(I)Z
+.method private static isPunctuation(I)Z
     .locals 3
 
     const/4 v1, 0x1
 
-    invoke-static {p1}, Ljava/lang/Character;->getType(I)I
+    invoke-static {p0}, Ljava/lang/Character;->getType(I)I
 
     move-result v0
 
@@ -421,28 +410,25 @@
 .end method
 
 .method private isPunctuationStartBoundary(I)Z
-    .locals 2
-
-    const/4 v0, 0x0
+    .locals 1
 
     invoke-virtual {p0, p1}, Landroid/text/method/WordIterator;->isOnPunctuation(I)Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
     invoke-virtual {p0, p1}, Landroid/text/method/WordIterator;->isAfterPunctuation(I)Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_1
+    xor-int/lit8 v0, v0, 0x1
 
-    :cond_0
     :goto_0
     return v0
 
-    :cond_1
-    const/4 v0, 0x1
+    :cond_0
+    const/4 v0, 0x0
 
     goto :goto_0
 .end method
@@ -450,37 +436,29 @@
 
 # virtual methods
 .method public following(I)I
-    .locals 3
+    .locals 1
 
-    const/4 v2, -0x1
-
-    iget v1, p0, Landroid/text/method/WordIterator;->mOffsetShift:I
-
-    sub-int v0, p1, v1
+    invoke-direct {p0, p1}, Landroid/text/method/WordIterator;->checkOffsetIsValid(I)V
 
     :cond_0
-    iget-object v1, p0, Landroid/text/method/WordIterator;->mIterator:Landroid/icu/text/BreakIterator;
+    iget-object v0, p0, Landroid/text/method/WordIterator;->mIterator:Landroid/icu/text/BreakIterator;
 
-    invoke-virtual {v1, v0}, Landroid/icu/text/BreakIterator;->following(I)I
+    invoke-virtual {v0, p1}, Landroid/icu/text/BreakIterator;->following(I)I
+
+    move-result p1
+
+    const/4 v0, -0x1
+
+    if-eq p1, v0, :cond_1
+
+    invoke-direct {p0, p1}, Landroid/text/method/WordIterator;->isAfterLetterOrDigit(I)Z
 
     move-result v0
 
-    if-ne v0, v2, :cond_1
-
-    return v2
+    if-eqz v0, :cond_0
 
     :cond_1
-    invoke-direct {p0, v0}, Landroid/text/method/WordIterator;->isAfterLetterOrDigit(I)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    iget v1, p0, Landroid/text/method/WordIterator;->mOffsetShift:I
-
-    add-int/2addr v1, v0
-
-    return v1
+    return p1
 .end method
 
 .method public getBeginning(I)I
@@ -534,6 +512,8 @@
 .method public getPunctuationBeginning(I)I
     .locals 1
 
+    invoke-direct {p0, p1}, Landroid/text/method/WordIterator;->checkOffsetIsValid(I)V
+
     :goto_0
     const/4 v0, -0x1
 
@@ -543,21 +523,24 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    xor-int/lit8 v0, v0, 0x1
 
-    :cond_0
-    return p1
+    if-eqz v0, :cond_0
 
-    :cond_1
     invoke-virtual {p0, p1}, Landroid/text/method/WordIterator;->prevBoundary(I)I
 
     move-result p1
 
     goto :goto_0
+
+    :cond_0
+    return p1
 .end method
 
 .method public getPunctuationEnd(I)I
     .locals 1
+
+    invoke-direct {p0, p1}, Landroid/text/method/WordIterator;->checkOffsetIsValid(I)V
 
     :goto_0
     const/4 v0, -0x1
@@ -568,255 +551,201 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    xor-int/lit8 v0, v0, 0x1
 
-    :cond_0
-    return p1
+    if-eqz v0, :cond_0
 
-    :cond_1
     invoke-virtual {p0, p1}, Landroid/text/method/WordIterator;->nextBoundary(I)I
 
     move-result p1
 
     goto :goto_0
+
+    :cond_0
+    return p1
 .end method
 
 .method public isAfterPunctuation(I)Z
-    .locals 3
+    .locals 2
 
-    iget v2, p0, Landroid/text/method/WordIterator;->mOffsetShift:I
+    iget v1, p0, Landroid/text/method/WordIterator;->mStart:I
 
-    sub-int v1, p1, v2
+    if-ge v1, p1, :cond_0
 
-    const/4 v2, 0x1
+    iget v1, p0, Landroid/text/method/WordIterator;->mEnd:I
 
-    if-lt v1, v2, :cond_0
+    if-gt p1, v1, :cond_0
 
-    iget-object v2, p0, Landroid/text/method/WordIterator;->mString:Ljava/lang/String;
+    iget-object v1, p0, Landroid/text/method/WordIterator;->mCharSeq:Ljava/lang/CharSequence;
 
-    invoke-virtual {v2}, Ljava/lang/String;->length()I
-
-    move-result v2
-
-    if-gt v1, v2, :cond_0
-
-    iget-object v2, p0, Landroid/text/method/WordIterator;->mString:Ljava/lang/String;
-
-    invoke-virtual {v2, v1}, Ljava/lang/String;->codePointBefore(I)I
+    invoke-static {v1, p1}, Ljava/lang/Character;->codePointBefore(Ljava/lang/CharSequence;I)I
 
     move-result v0
 
-    invoke-direct {p0, v0}, Landroid/text/method/WordIterator;->isPunctuation(I)Z
+    invoke-static {v0}, Landroid/text/method/WordIterator;->isPunctuation(I)Z
 
-    move-result v2
+    move-result v1
 
-    return v2
+    return v1
 
     :cond_0
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    return v2
+    return v1
 .end method
 
 .method public isBoundary(I)Z
-    .locals 2
+    .locals 1
 
-    iget v1, p0, Landroid/text/method/WordIterator;->mOffsetShift:I
+    invoke-direct {p0, p1}, Landroid/text/method/WordIterator;->checkOffsetIsValid(I)V
 
-    sub-int v0, p1, v1
+    iget-object v0, p0, Landroid/text/method/WordIterator;->mIterator:Landroid/icu/text/BreakIterator;
 
-    invoke-direct {p0, v0}, Landroid/text/method/WordIterator;->checkOffsetIsValid(I)V
+    invoke-virtual {v0, p1}, Landroid/icu/text/BreakIterator;->isBoundary(I)Z
 
-    iget-object v1, p0, Landroid/text/method/WordIterator;->mIterator:Landroid/icu/text/BreakIterator;
+    move-result v0
 
-    invoke-virtual {v1, v0}, Landroid/icu/text/BreakIterator;->isBoundary(I)Z
-
-    move-result v1
-
-    return v1
+    return v0
 .end method
 
 .method public isOnPunctuation(I)Z
-    .locals 4
+    .locals 2
 
-    const/4 v3, 0x0
+    iget v1, p0, Landroid/text/method/WordIterator;->mStart:I
 
-    iget v2, p0, Landroid/text/method/WordIterator;->mOffsetShift:I
+    if-gt v1, p1, :cond_0
 
-    sub-int v1, p1, v2
+    iget v1, p0, Landroid/text/method/WordIterator;->mEnd:I
 
-    if-ltz v1, :cond_0
+    if-ge p1, v1, :cond_0
 
-    iget-object v2, p0, Landroid/text/method/WordIterator;->mString:Ljava/lang/String;
+    iget-object v1, p0, Landroid/text/method/WordIterator;->mCharSeq:Ljava/lang/CharSequence;
 
-    invoke-virtual {v2}, Ljava/lang/String;->length()I
-
-    move-result v2
-
-    if-ge v1, v2, :cond_0
-
-    iget-object v2, p0, Landroid/text/method/WordIterator;->mString:Ljava/lang/String;
-
-    invoke-virtual {v2, v1}, Ljava/lang/String;->codePointAt(I)I
+    invoke-static {v1, p1}, Ljava/lang/Character;->codePointAt(Ljava/lang/CharSequence;I)I
 
     move-result v0
 
-    invoke-direct {p0, v0}, Landroid/text/method/WordIterator;->isPunctuation(I)Z
+    invoke-static {v0}, Landroid/text/method/WordIterator;->isPunctuation(I)Z
 
-    move-result v2
+    move-result v1
 
-    return v2
+    return v1
 
     :cond_0
-    return v3
+    const/4 v1, 0x0
+
+    return v1
 .end method
 
 .method public nextBoundary(I)I
-    .locals 3
+    .locals 1
 
-    const/4 v2, -0x1
+    invoke-direct {p0, p1}, Landroid/text/method/WordIterator;->checkOffsetIsValid(I)V
 
-    iget v1, p0, Landroid/text/method/WordIterator;->mOffsetShift:I
+    iget-object v0, p0, Landroid/text/method/WordIterator;->mIterator:Landroid/icu/text/BreakIterator;
 
-    sub-int v0, p1, v1
-
-    iget-object v1, p0, Landroid/text/method/WordIterator;->mIterator:Landroid/icu/text/BreakIterator;
-
-    invoke-virtual {v1, v0}, Landroid/icu/text/BreakIterator;->following(I)I
+    invoke-virtual {v0, p1}, Landroid/icu/text/BreakIterator;->following(I)I
 
     move-result v0
 
-    if-ne v0, v2, :cond_0
-
-    return v2
-
-    :cond_0
-    iget v1, p0, Landroid/text/method/WordIterator;->mOffsetShift:I
-
-    add-int/2addr v1, v0
-
-    return v1
+    return v0
 .end method
 
 .method public preceding(I)I
-    .locals 3
+    .locals 1
 
-    const/4 v2, -0x1
-
-    iget v1, p0, Landroid/text/method/WordIterator;->mOffsetShift:I
-
-    sub-int v0, p1, v1
+    invoke-direct {p0, p1}, Landroid/text/method/WordIterator;->checkOffsetIsValid(I)V
 
     :cond_0
-    iget-object v1, p0, Landroid/text/method/WordIterator;->mIterator:Landroid/icu/text/BreakIterator;
+    iget-object v0, p0, Landroid/text/method/WordIterator;->mIterator:Landroid/icu/text/BreakIterator;
 
-    invoke-virtual {v1, v0}, Landroid/icu/text/BreakIterator;->preceding(I)I
+    invoke-virtual {v0, p1}, Landroid/icu/text/BreakIterator;->preceding(I)I
+
+    move-result p1
+
+    const/4 v0, -0x1
+
+    if-eq p1, v0, :cond_1
+
+    invoke-direct {p0, p1}, Landroid/text/method/WordIterator;->isOnLetterOrDigit(I)Z
 
     move-result v0
 
-    if-ne v0, v2, :cond_1
-
-    return v2
+    if-eqz v0, :cond_0
 
     :cond_1
-    invoke-direct {p0, v0}, Landroid/text/method/WordIterator;->isOnLetterOrDigit(I)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    iget v1, p0, Landroid/text/method/WordIterator;->mOffsetShift:I
-
-    add-int/2addr v1, v0
-
-    return v1
+    return p1
 .end method
 
 .method public prevBoundary(I)I
-    .locals 3
+    .locals 1
 
-    const/4 v2, -0x1
+    invoke-direct {p0, p1}, Landroid/text/method/WordIterator;->checkOffsetIsValid(I)V
 
-    iget v1, p0, Landroid/text/method/WordIterator;->mOffsetShift:I
+    iget-object v0, p0, Landroid/text/method/WordIterator;->mIterator:Landroid/icu/text/BreakIterator;
 
-    sub-int v0, p1, v1
-
-    iget-object v1, p0, Landroid/text/method/WordIterator;->mIterator:Landroid/icu/text/BreakIterator;
-
-    invoke-virtual {v1, v0}, Landroid/icu/text/BreakIterator;->preceding(I)I
+    invoke-virtual {v0, p1}, Landroid/icu/text/BreakIterator;->preceding(I)I
 
     move-result v0
 
-    if-ne v0, v2, :cond_0
-
-    return v2
-
-    :cond_0
-    iget v1, p0, Landroid/text/method/WordIterator;->mOffsetShift:I
-
-    add-int/2addr v1, v0
-
-    return v1
+    return v0
 .end method
 
 .method public setCharSequence(Ljava/lang/CharSequence;II)V
-    .locals 3
+    .locals 4
 
-    add-int/lit8 v1, p2, -0x32
+    const/4 v1, 0x0
 
-    const/4 v2, 0x0
-
-    invoke-static {v2, v1}, Ljava/lang/Math;->max(II)I
-
-    move-result v1
-
-    iput v1, p0, Landroid/text/method/WordIterator;->mOffsetShift:I
+    if-ltz p2, :cond_0
 
     invoke-interface {p1}, Ljava/lang/CharSequence;->length()I
 
-    move-result v1
+    move-result v0
 
-    add-int/lit8 v2, p3, 0x32
+    if-gt p3, v0, :cond_0
 
-    invoke-static {v1, v2}, Ljava/lang/Math;->min(II)I
+    iput-object p1, p0, Landroid/text/method/WordIterator;->mCharSeq:Ljava/lang/CharSequence;
+
+    add-int/lit8 v0, p2, -0x32
+
+    invoke-static {v1, v0}, Ljava/lang/Math;->max(II)I
 
     move-result v0
 
-    instance-of v1, p1, Landroid/text/SpannableStringBuilder;
+    iput v0, p0, Landroid/text/method/WordIterator;->mStart:I
 
-    if-eqz v1, :cond_0
+    invoke-interface {p1}, Ljava/lang/CharSequence;->length()I
 
-    check-cast p1, Landroid/text/SpannableStringBuilder;
+    move-result v0
 
-    iget v1, p0, Landroid/text/method/WordIterator;->mOffsetShift:I
+    add-int/lit8 v1, p3, 0x32
 
-    invoke-virtual {p1, v1, v0}, Landroid/text/SpannableStringBuilder;->substring(II)Ljava/lang/String;
+    invoke-static {v0, v1}, Ljava/lang/Math;->min(II)I
 
-    move-result-object v1
+    move-result v0
 
-    iput-object v1, p0, Landroid/text/method/WordIterator;->mString:Ljava/lang/String;
+    iput v0, p0, Landroid/text/method/WordIterator;->mEnd:I
 
-    :goto_0
-    iget-object v1, p0, Landroid/text/method/WordIterator;->mIterator:Landroid/icu/text/BreakIterator;
+    iget-object v0, p0, Landroid/text/method/WordIterator;->mIterator:Landroid/icu/text/BreakIterator;
 
-    iget-object v2, p0, Landroid/text/method/WordIterator;->mString:Ljava/lang/String;
+    new-instance v1, Landroid/text/CharSequenceCharacterIterator;
 
-    invoke-virtual {v1, v2}, Landroid/icu/text/BreakIterator;->setText(Ljava/lang/String;)V
+    iget v2, p0, Landroid/text/method/WordIterator;->mStart:I
+
+    iget v3, p0, Landroid/text/method/WordIterator;->mEnd:I
+
+    invoke-direct {v1, p1, v2, v3}, Landroid/text/CharSequenceCharacterIterator;-><init>(Ljava/lang/CharSequence;II)V
+
+    invoke-virtual {v0, v1}, Landroid/icu/text/BreakIterator;->setText(Ljava/text/CharacterIterator;)V
 
     return-void
 
     :cond_0
-    iget v1, p0, Landroid/text/method/WordIterator;->mOffsetShift:I
+    new-instance v0, Ljava/lang/IndexOutOfBoundsException;
 
-    invoke-interface {p1, v1, v0}, Ljava/lang/CharSequence;->subSequence(II)Ljava/lang/CharSequence;
+    const-string/jumbo v1, "input indexes are outside the CharSequence"
 
-    move-result-object v1
+    invoke-direct {v0, v1}, Ljava/lang/IndexOutOfBoundsException;-><init>(Ljava/lang/String;)V
 
-    invoke-interface {v1}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    iput-object v1, p0, Landroid/text/method/WordIterator;->mString:Ljava/lang/String;
-
-    goto :goto_0
+    throw v0
 .end method

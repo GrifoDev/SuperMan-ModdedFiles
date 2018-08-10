@@ -135,7 +135,7 @@
 
     const/4 v1, 0x0
 
-    invoke-virtual {p0, v1, v0}, Landroid/os/Handler;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
+    invoke-virtual {p0, v1, v0}, Landroid/hardware/input/InputManager$OnTabletModeChangedListenerDelegate;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
 
     move-result-object v1
 

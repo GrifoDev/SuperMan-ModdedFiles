@@ -57,7 +57,7 @@
 
     iget-object v0, p0, Landroid/accounts/AccountManager$11;->this$0:Landroid/accounts/AccountManager;
 
-    invoke-static {v0}, Landroid/accounts/AccountManager;->-get3(Landroid/accounts/AccountManager;)Landroid/accounts/IAccountManager;
+    invoke-static {v0}, Landroid/accounts/AccountManager;->-get4(Landroid/accounts/AccountManager;)Landroid/accounts/IAccountManager;
 
     move-result-object v0
 

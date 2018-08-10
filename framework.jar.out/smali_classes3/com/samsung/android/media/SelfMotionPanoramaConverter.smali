@@ -108,7 +108,7 @@
     :try_start_0
     sget-object v1, Lcom/samsung/android/media/SelfMotionPanoramaConverter$ENCODER;->ANDROID_ENCODER:Lcom/samsung/android/media/SelfMotionPanoramaConverter$ENCODER;
 
-    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
+    invoke-virtual {v1}, Lcom/samsung/android/media/SelfMotionPanoramaConverter$ENCODER;->ordinal()I
 
     move-result v1
 
@@ -122,7 +122,7 @@
     :try_start_1
     sget-object v1, Lcom/samsung/android/media/SelfMotionPanoramaConverter$ENCODER;->MP4_CONVERTER:Lcom/samsung/android/media/SelfMotionPanoramaConverter$ENCODER;
 
-    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
+    invoke-virtual {v1}, Lcom/samsung/android/media/SelfMotionPanoramaConverter$ENCODER;->ordinal()I
 
     move-result v1
 
@@ -136,7 +136,7 @@
     :try_start_2
     sget-object v1, Lcom/samsung/android/media/SelfMotionPanoramaConverter$ENCODER;->NATIVE:Lcom/samsung/android/media/SelfMotionPanoramaConverter$ENCODER;
 
-    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
+    invoke-virtual {v1}, Lcom/samsung/android/media/SelfMotionPanoramaConverter$ENCODER;->ordinal()I
 
     move-result v1
 
@@ -252,345 +252,341 @@
 .end method
 
 .method private decodeMp4(Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/SelfMotionPanoramaInfo;)V
-    .locals 28
+    .locals 26
 
-    const-string/jumbo v24, "SelfMotionPanoramaConverter"
+    const-string/jumbo v22, "SelfMotionPanoramaConverter"
 
-    const-string/jumbo v25, "decodeMp4 entry"
+    const-string/jumbo v23, "decodeMp4 entry"
 
-    invoke-static/range {v24 .. v25}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v22 .. v23}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
-    move-result-wide v24
+    move-result-wide v22
 
-    move-wide/from16 v0, v24
+    move-wide/from16 v0, v22
 
     move-object/from16 v2, p0
 
     iput-wide v0, v2, Lcom/samsung/android/media/SelfMotionPanoramaConverter;->mDecodeTime:J
 
-    new-instance v9, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/DecoderInterfaceFHD;
+    new-instance v7, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/DecoderInterfaceFHD;
 
     move-object/from16 v0, p1
 
     iget-object v0, v0, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/SelfMotionPanoramaInfo;->mVideoPath:Ljava/lang/String;
 
-    move-object/from16 v24, v0
+    move-object/from16 v22, v0
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v22
 
-    invoke-direct {v9, v0}, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/DecoderInterfaceFHD;-><init>(Ljava/lang/String;)V
+    invoke-direct {v7, v0}, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/DecoderInterfaceFHD;-><init>(Ljava/lang/String;)V
 
-    const/16 v24, 0x1
+    const/16 v22, 0x1
 
-    move/from16 v0, v24
+    move/from16 v0, v22
 
-    invoke-virtual {v9, v0}, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/DecoderInterfaceFHD;->init(Z)V
+    invoke-virtual {v7, v0}, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/DecoderInterfaceFHD;->init(Z)V
 
     move-object/from16 v0, p1
 
     iget v0, v0, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/SelfMotionPanoramaInfo;->mFirstFrame:I
 
-    move/from16 v24, v0
+    move/from16 v22, v0
 
-    move/from16 v0, v24
+    move/from16 v0, v22
 
-    invoke-virtual {v9, v0}, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/DecoderInterfaceFHD;->seekToRequiredGOP(I)Z
+    invoke-virtual {v7, v0}, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/DecoderInterfaceFHD;->seekToRequiredGOP(I)Z
 
-    invoke-virtual {v9}, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/DecoderInterfaceFHD;->getContentMetaData()Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/DecoderInterfaceFHD$ContentMetaData;
+    invoke-virtual {v7}, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/DecoderInterfaceFHD;->getContentMetaData()Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/DecoderInterfaceFHD$ContentMetaData;
 
-    move-result-object v17
+    move-result-object v15
 
-    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
-
-    move-result-wide v24
-
-    move-object/from16 v0, p0
-
-    iget-wide v0, v0, Lcom/samsung/android/media/SelfMotionPanoramaConverter;->mDecodeTime:J
-
-    move-wide/from16 v26, v0
-
-    sub-long v24, v24, v26
-
-    move-wide/from16 v0, v24
-
-    move-object/from16 v2, p0
-
-    iput-wide v0, v2, Lcom/samsung/android/media/SelfMotionPanoramaConverter;->mDecodeTime:J
-
-    const-string/jumbo v24, "SelfMotionPanoramaConverter"
-
-    new-instance v25, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v25 .. v25}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v26, "share decoder  mp4 width : "
-
-    invoke-virtual/range {v25 .. v26}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v25
-
-    move-object/from16 v0, v17
-
-    iget v0, v0, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/DecoderInterfaceFHD$ContentMetaData;->mWidth:I
-
-    move/from16 v26, v0
-
-    invoke-virtual/range {v25 .. v26}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v25
-
-    const-string/jumbo v26, " mp4 height: "
-
-    invoke-virtual/range {v25 .. v26}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v25
-
-    move-object/from16 v0, v17
-
-    iget v0, v0, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/DecoderInterfaceFHD$ContentMetaData;->mHeight:I
-
-    move/from16 v26, v0
-
-    invoke-virtual/range {v25 .. v26}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v25
-
-    const-string/jumbo v26, "decode init time: "
-
-    invoke-virtual/range {v25 .. v26}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v25
-
-    move-object/from16 v0, p0
-
-    iget-wide v0, v0, Lcom/samsung/android/media/SelfMotionPanoramaConverter;->mDecodeTime:J
-
-    move-wide/from16 v26, v0
-
-    invoke-virtual/range {v25 .. v27}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
-
-    move-result-object v25
-
-    invoke-virtual/range {v25 .. v25}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v25
-
-    invoke-static/range {v24 .. v25}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
-
-    const/4 v13, 0x0
-
-    invoke-virtual/range {p1 .. p1}, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/SelfMotionPanoramaInfo;->getResize()Z
-
-    move-result v24
-
-    if-eqz v24, :cond_1
-
-    sget-object v24, Ljava/lang/Byte;->TYPE:Ljava/lang/Class;
-
-    const/16 v25, 0x4
-
-    const v26, 0x151800
-
-    filled-new-array/range {v25 .. v26}, [I
-
-    move-result-object v25
-
-    invoke-static/range {v24 .. v25}, Ljava/lang/reflect/Array;->newInstance(Ljava/lang/Class;[I)Ljava/lang/Object;
-
-    move-result-object v16
-
-    check-cast v16, [[B
-
-    :goto_0
-    const/4 v15, 0x0
-
-    const/4 v8, 0x0
-
-    move-object/from16 v0, p1
-
-    iget v0, v0, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/SelfMotionPanoramaInfo;->mFirstFrame:I
-
-    move/from16 v24, v0
-
-    move-object/from16 v0, p1
-
-    iget v0, v0, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/SelfMotionPanoramaInfo;->mFirstFrame:I
-
-    move/from16 v25, v0
-
-    invoke-virtual {v9}, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/DecoderInterfaceFHD;->getGOPInterval()I
-
-    move-result v26
-
-    rem-int v25, v25, v26
-
-    sub-int v11, v24, v25
-
-    new-instance v7, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/DecoderInterfaceFHD$BufferData;
-
-    invoke-virtual {v9}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
-
-    invoke-direct {v7, v9}, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/DecoderInterfaceFHD$BufferData;-><init>(Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/DecoderInterfaceFHD;)V
-
-    const/16 v24, 0x1
-
-    move/from16 v0, v24
-
-    new-array v0, v0, [B
-
-    move-object/from16 v20, v0
-
-    move-object/from16 v0, p1
-
-    iget v0, v0, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/SelfMotionPanoramaInfo;->mLastFrame:I
-
-    move/from16 v21, v0
-
-    move v14, v13
-
-    :goto_1
-    :try_start_0
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v22
 
-    const/16 v24, 0x0
-
-    move/from16 v0, v24
-
-    iput-boolean v0, v7, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/DecoderInterfaceFHD$BufferData;->bDirty:Z
-    :try_end_0
-    .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_1
-
-    add-int/lit8 v13, v14, 0x1
-
-    :try_start_1
-    aget-object v24, v16, v14
-
-    move-object/from16 v0, v24
-
-    iput-object v0, v7, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/DecoderInterfaceFHD$BufferData;->mBuffer:[B
-
-    const/16 v24, 0x4
-
-    move/from16 v0, v24
-
-    if-ne v13, v0, :cond_0
-
-    const/4 v13, 0x0
-
-    :cond_0
-    move/from16 v0, v21
-
-    if-le v11, v0, :cond_2
-
-    const/4 v15, 0x0
-
-    :goto_2
     move-object/from16 v0, p0
 
     iget-wide v0, v0, Lcom/samsung/android/media/SelfMotionPanoramaConverter;->mDecodeTime:J
 
     move-wide/from16 v24, v0
 
-    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
+    sub-long v22, v22, v24
 
-    move-result-wide v26
-
-    sub-long v26, v26, v22
-
-    add-long v24, v24, v26
-
-    move-wide/from16 v0, v24
+    move-wide/from16 v0, v22
 
     move-object/from16 v2, p0
 
     iput-wide v0, v2, Lcom/samsung/android/media/SelfMotionPanoramaConverter;->mDecodeTime:J
 
-    const-string/jumbo v24, "SelfMotionPanoramaConverter"
+    const-string/jumbo v22, "SelfMotionPanoramaConverter"
 
-    new-instance v25, Ljava/lang/StringBuilder;
+    new-instance v23, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v25 .. v25}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v23 .. v23}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v26, "share decode isDecode= "
+    const-string/jumbo v24, "share decoder  mp4 width : "
 
-    invoke-virtual/range {v25 .. v26}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v23 .. v24}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v25
+    move-result-object v23
 
-    move-object/from16 v0, v25
-
-    invoke-virtual {v0, v15}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v25
-
-    invoke-virtual/range {v25 .. v25}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v25
-
-    invoke-static/range {v24 .. v25}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
-
-    if-eqz v15, :cond_8
-
-    add-int/lit8 v8, v8, 0x1
-
-    const-string/jumbo v24, "SelfMotionPanoramaConverter"
-
-    new-instance v25, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v25 .. v25}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v26, "share decode nextframe done "
-
-    invoke-virtual/range {v25 .. v26}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v25
-
-    move-object/from16 v0, v25
-
-    invoke-virtual {v0, v8}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v25
-
-    invoke-virtual/range {v25 .. v25}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v25
-
-    invoke-static/range {v24 .. v25}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget-boolean v0, v7, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/DecoderInterfaceFHD$BufferData;->bDirty:Z
+    iget v0, v15, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/DecoderInterfaceFHD$ContentMetaData;->mWidth:I
 
     move/from16 v24, v0
 
-    if-eqz v24, :cond_6
+    invoke-virtual/range {v23 .. v24}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v23
+
+    const-string/jumbo v24, " mp4 height: "
+
+    invoke-virtual/range {v23 .. v24}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v23
+
+    iget v0, v15, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/DecoderInterfaceFHD$ContentMetaData;->mHeight:I
+
+    move/from16 v24, v0
+
+    invoke-virtual/range {v23 .. v24}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v23
+
+    const-string/jumbo v24, "decode init time: "
+
+    invoke-virtual/range {v23 .. v24}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v23
+
+    move-object/from16 v0, p0
+
+    iget-wide v0, v0, Lcom/samsung/android/media/SelfMotionPanoramaConverter;->mDecodeTime:J
+
+    move-wide/from16 v24, v0
+
+    invoke-virtual/range {v23 .. v25}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+
+    move-result-object v23
+
+    invoke-virtual/range {v23 .. v23}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v23
+
+    invoke-static/range {v22 .. v23}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 v11, 0x0
+
+    invoke-virtual/range {p1 .. p1}, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/SelfMotionPanoramaInfo;->getResize()Z
+
+    move-result v22
+
+    if-eqz v22, :cond_1
+
+    sget-object v22, Ljava/lang/Byte;->TYPE:Ljava/lang/Class;
+
+    const/16 v23, 0x4
+
+    const v24, 0x151800
+
+    filled-new-array/range {v23 .. v24}, [I
+
+    move-result-object v23
+
+    invoke-static/range {v22 .. v23}, Ljava/lang/reflect/Array;->newInstance(Ljava/lang/Class;[I)Ljava/lang/Object;
+
+    move-result-object v14
+
+    check-cast v14, [[B
+
+    :goto_0
+    const/4 v13, 0x0
+
+    const/4 v6, 0x0
 
     move-object/from16 v0, p1
 
     iget v0, v0, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/SelfMotionPanoramaInfo;->mFirstFrame:I
 
-    move/from16 v24, v0
+    move/from16 v22, v0
 
-    move/from16 v0, v24
+    move-object/from16 v0, p1
 
-    if-lt v11, v0, :cond_5
+    iget v0, v0, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/SelfMotionPanoramaInfo;->mFirstFrame:I
+
+    move/from16 v23, v0
+
+    invoke-virtual {v7}, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/DecoderInterfaceFHD;->getGOPInterval()I
+
+    move-result v24
+
+    rem-int v23, v23, v24
+
+    sub-int v9, v22, v23
+
+    new-instance v5, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/DecoderInterfaceFHD$BufferData;
+
+    invoke-virtual {v7}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    invoke-direct {v5, v7}, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/DecoderInterfaceFHD$BufferData;-><init>(Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/DecoderInterfaceFHD;)V
+
+    const/16 v22, 0x1
+
+    move/from16 v0, v22
+
+    new-array v0, v0, [B
+
+    move-object/from16 v18, v0
+
+    move-object/from16 v0, p1
+
+    iget v0, v0, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/SelfMotionPanoramaInfo;->mLastFrame:I
+
+    move/from16 v19, v0
+
+    move v12, v11
+
+    :goto_1
+    :try_start_0
+    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
+
+    move-result-wide v20
+
+    const/16 v22, 0x0
+
+    move/from16 v0, v22
+
+    iput-boolean v0, v5, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/DecoderInterfaceFHD$BufferData;->bDirty:Z
+    :try_end_0
+    .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_1
+
+    add-int/lit8 v11, v12, 0x1
+
+    :try_start_1
+    aget-object v22, v14, v12
+
+    move-object/from16 v0, v22
+
+    iput-object v0, v5, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/DecoderInterfaceFHD$BufferData;->mBuffer:[B
+
+    const/16 v22, 0x4
+
+    move/from16 v0, v22
+
+    if-ne v11, v0, :cond_0
+
+    const/4 v11, 0x0
+
+    :cond_0
+    move/from16 v0, v19
+
+    if-le v9, v0, :cond_2
+
+    const/4 v13, 0x0
+
+    :goto_2
+    move-object/from16 v0, p0
+
+    iget-wide v0, v0, Lcom/samsung/android/media/SelfMotionPanoramaConverter;->mDecodeTime:J
+
+    move-wide/from16 v22, v0
+
+    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
+
+    move-result-wide v24
+
+    sub-long v24, v24, v20
+
+    add-long v22, v22, v24
+
+    move-wide/from16 v0, v22
+
+    move-object/from16 v2, p0
+
+    iput-wide v0, v2, Lcom/samsung/android/media/SelfMotionPanoramaConverter;->mDecodeTime:J
+
+    const-string/jumbo v22, "SelfMotionPanoramaConverter"
+
+    new-instance v23, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v23 .. v23}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v24, "share decode isDecode= "
+
+    invoke-virtual/range {v23 .. v24}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v23
+
+    move-object/from16 v0, v23
+
+    invoke-virtual {v0, v13}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v23
+
+    invoke-virtual/range {v23 .. v23}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v23
+
+    invoke-static/range {v22 .. v23}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
+
+    if-eqz v13, :cond_7
+
+    add-int/lit8 v6, v6, 0x1
+
+    const-string/jumbo v22, "SelfMotionPanoramaConverter"
+
+    new-instance v23, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v23 .. v23}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v24, "share decode nextframe done "
+
+    invoke-virtual/range {v23 .. v24}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v23
+
+    move-object/from16 v0, v23
+
+    invoke-virtual {v0, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v23
+
+    invoke-virtual/range {v23 .. v23}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v23
+
+    invoke-static/range {v22 .. v23}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-boolean v0, v5, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/DecoderInterfaceFHD$BufferData;->bDirty:Z
+
+    move/from16 v22, v0
+
+    if-eqz v22, :cond_6
+
+    move-object/from16 v0, p1
+
+    iget v0, v0, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/SelfMotionPanoramaInfo;->mFirstFrame:I
+
+    move/from16 v22, v0
+
+    move/from16 v0, v22
+
+    if-lt v9, v0, :cond_5
 
     move-object/from16 v0, p1
 
     iget-object v0, v0, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/SelfMotionPanoramaInfo;->mFrameRendererFlag:[I
 
-    move-object/from16 v24, v0
+    move-object/from16 v22, v0
 
-    aget v24, v24, v11
+    aget v22, v22, v9
 
-    const/16 v25, 0x1
+    const/16 v23, 0x1
 
-    move/from16 v0, v24
+    move/from16 v0, v22
 
-    move/from16 v1, v25
+    move/from16 v1, v23
 
     if-ne v0, v1, :cond_5
 
@@ -598,433 +594,416 @@
 
     iget v0, v0, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/SelfMotionPanoramaInfo;->mFirstFrame:I
 
-    move/from16 v24, v0
+    move/from16 v22, v0
 
-    move/from16 v0, v24
+    move/from16 v0, v22
 
-    if-ne v11, v0, :cond_3
+    if-ne v9, v0, :cond_3
 
-    const/4 v12, 0x0
+    const/4 v10, 0x0
 
     :goto_3
     move-object/from16 v0, p1
 
     iget v0, v0, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/SelfMotionPanoramaInfo;->mNumExtraFramesStart:I
 
-    move/from16 v24, v0
+    move/from16 v22, v0
 
-    move/from16 v0, v24
+    move/from16 v0, v22
 
-    if-ge v12, v0, :cond_3
+    if-ge v10, v0, :cond_3
 
-    const-string/jumbo v24, "SelfMotionPanoramaConverter"
+    const-string/jumbo v22, "SelfMotionPanoramaConverter"
 
-    new-instance v25, Ljava/lang/StringBuilder;
+    new-instance v23, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v25 .. v25}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v23 .. v23}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v26, "share decode framesDecoded sent to encode = "
+    const-string/jumbo v24, "share decode framesDecoded sent to encode = "
 
-    invoke-virtual/range {v25 .. v26}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v23 .. v24}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v25
+    move-result-object v23
 
-    move-object/from16 v0, v25
+    move-object/from16 v0, v23
 
-    invoke-virtual {v0, v11}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v9}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v25
+    move-result-object v23
 
-    invoke-virtual/range {v25 .. v25}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v23 .. v23}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v25
+    move-result-object v23
 
-    invoke-static/range {v24 .. v25}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v22 .. v23}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    new-instance v19, Lcom/samsung/android/media/SelfMotionPanoramaConverter$DecodedBuffer;
+    new-instance v17, Lcom/samsung/android/media/SelfMotionPanoramaConverter$DecodedBuffer;
 
-    iget-object v0, v7, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/DecoderInterfaceFHD$BufferData;->mBuffer:[B
+    iget-object v0, v5, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/DecoderInterfaceFHD$BufferData;->mBuffer:[B
 
-    move-object/from16 v24, v0
+    move-object/from16 v22, v0
 
     move-object/from16 v0, p1
 
     iget-object v0, v0, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/SelfMotionPanoramaInfo;->mExtraFramesStartMatrix:[[F
 
-    move-object/from16 v25, v0
+    move-object/from16 v23, v0
 
-    aget-object v25, v25, v12
+    aget-object v23, v23, v10
 
-    move-object/from16 v0, v19
+    move-object/from16 v0, v17
 
-    move-object/from16 v1, p0
+    move-object/from16 v1, v22
 
-    move-object/from16 v2, v24
+    move-object/from16 v2, v23
 
-    move-object/from16 v3, v25
-
-    invoke-direct {v0, v1, v2, v11, v3}, Lcom/samsung/android/media/SelfMotionPanoramaConverter$DecodedBuffer;-><init>(Lcom/samsung/android/media/SelfMotionPanoramaConverter;[BI[F)V
+    invoke-direct {v0, v1, v9, v2}, Lcom/samsung/android/media/SelfMotionPanoramaConverter$DecodedBuffer;-><init>([BI[F)V
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/samsung/android/media/SelfMotionPanoramaConverter;->mDecoderGLQueue:Ljava/util/concurrent/BlockingQueue;
 
-    move-object/from16 v24, v0
+    move-object/from16 v22, v0
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v22
 
-    move-object/from16 v1, v19
+    move-object/from16 v1, v17
 
     invoke-interface {v0, v1}, Ljava/util/concurrent/BlockingQueue;->put(Ljava/lang/Object;)V
 
-    const-wide/16 v24, 0x19
+    const-wide/16 v22, 0x19
 
-    invoke-static/range {v24 .. v25}, Ljava/lang/Thread;->sleep(J)V
+    invoke-static/range {v22 .. v23}, Ljava/lang/Thread;->sleep(J)V
     :try_end_1
     .catch Ljava/lang/InterruptedException; {:try_start_1 .. :try_end_1} :catch_0
 
-    add-int/lit8 v12, v12, 0x1
+    add-int/lit8 v10, v10, 0x1
 
     goto :goto_3
 
     :cond_1
-    sget-object v24, Ljava/lang/Byte;->TYPE:Ljava/lang/Class;
+    sget-object v22, Ljava/lang/Byte;->TYPE:Ljava/lang/Class;
 
-    const/16 v25, 0x2
+    const/16 v23, 0x2
 
-    move/from16 v0, v25
+    move/from16 v0, v23
 
     new-array v0, v0, [I
 
-    move-object/from16 v25, v0
+    move-object/from16 v23, v0
 
-    const/16 v26, 0x4
+    const/16 v24, 0x4
 
-    const/16 v27, 0x0
+    const/16 v25, 0x0
 
-    aput v26, v25, v27
+    aput v24, v23, v25
 
-    move-object/from16 v0, v17
+    iget v0, v15, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/DecoderInterfaceFHD$ContentMetaData;->mWidth:I
 
-    iget v0, v0, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/DecoderInterfaceFHD$ContentMetaData;->mWidth:I
+    move/from16 v24, v0
 
-    move/from16 v26, v0
+    iget v0, v15, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/DecoderInterfaceFHD$ContentMetaData;->mHeight:I
 
-    move-object/from16 v0, v17
+    move/from16 v25, v0
 
-    iget v0, v0, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/DecoderInterfaceFHD$ContentMetaData;->mHeight:I
+    mul-int v24, v24, v25
 
-    move/from16 v27, v0
+    mul-int/lit8 v24, v24, 0x3
 
-    mul-int v26, v26, v27
+    div-int/lit8 v24, v24, 0x2
 
-    mul-int/lit8 v26, v26, 0x3
+    const/16 v25, 0x1
 
-    div-int/lit8 v26, v26, 0x2
+    aput v24, v23, v25
 
-    const/16 v27, 0x1
+    invoke-static/range {v22 .. v23}, Ljava/lang/reflect/Array;->newInstance(Ljava/lang/Class;[I)Ljava/lang/Object;
 
-    aput v26, v25, v27
+    move-result-object v14
 
-    invoke-static/range {v24 .. v25}, Ljava/lang/reflect/Array;->newInstance(Ljava/lang/Class;[I)Ljava/lang/Object;
-
-    move-result-object v16
-
-    check-cast v16, [[B
+    check-cast v14, [[B
 
     goto/16 :goto_0
 
     :cond_2
     :try_start_2
-    invoke-virtual {v9, v7}, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/DecoderInterfaceFHD;->nextframe(Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/DecoderInterfaceFHD$BufferData;)Z
+    invoke-virtual {v7, v5}, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/DecoderInterfaceFHD;->nextframe(Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/DecoderInterfaceFHD$BufferData;)Z
 
-    move-result v15
+    move-result v13
 
     goto/16 :goto_2
 
     :cond_3
-    new-instance v6, Lcom/samsung/android/media/SelfMotionPanoramaConverter$DecodedBuffer;
+    new-instance v4, Lcom/samsung/android/media/SelfMotionPanoramaConverter$DecodedBuffer;
 
-    iget-object v0, v7, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/DecoderInterfaceFHD$BufferData;->mBuffer:[B
+    iget-object v0, v5, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/DecoderInterfaceFHD$BufferData;->mBuffer:[B
 
-    move-object/from16 v24, v0
+    move-object/from16 v22, v0
 
     move-object/from16 v0, p1
 
     iget-object v0, v0, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/SelfMotionPanoramaInfo;->mSRCMatrix:[[F
 
-    move-object/from16 v25, v0
+    move-object/from16 v23, v0
 
-    aget-object v25, v25, v11
+    aget-object v23, v23, v9
 
-    move-object/from16 v0, p0
+    move-object/from16 v0, v22
 
-    move-object/from16 v1, v24
+    move-object/from16 v1, v23
 
-    move-object/from16 v2, v25
-
-    invoke-direct {v6, v0, v1, v11, v2}, Lcom/samsung/android/media/SelfMotionPanoramaConverter$DecodedBuffer;-><init>(Lcom/samsung/android/media/SelfMotionPanoramaConverter;[BI[F)V
+    invoke-direct {v4, v0, v9, v1}, Lcom/samsung/android/media/SelfMotionPanoramaConverter$DecodedBuffer;-><init>([BI[F)V
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/samsung/android/media/SelfMotionPanoramaConverter;->mDecoderGLQueue:Ljava/util/concurrent/BlockingQueue;
 
-    move-object/from16 v24, v0
+    move-object/from16 v22, v0
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v22
 
-    invoke-interface {v0, v6}, Ljava/util/concurrent/BlockingQueue;->put(Ljava/lang/Object;)V
+    invoke-interface {v0, v4}, Ljava/util/concurrent/BlockingQueue;->put(Ljava/lang/Object;)V
 
     move-object/from16 v0, p1
 
     iget v0, v0, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/SelfMotionPanoramaInfo;->mLastFrame:I
 
-    move/from16 v24, v0
+    move/from16 v22, v0
 
-    move/from16 v0, v24
+    move/from16 v0, v22
 
-    if-ne v11, v0, :cond_4
+    if-ne v9, v0, :cond_4
 
-    const/4 v12, 0x0
+    const/4 v10, 0x0
 
     :goto_4
     move-object/from16 v0, p1
 
     iget v0, v0, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/SelfMotionPanoramaInfo;->mNumExtraFramesEnd:I
 
-    move/from16 v24, v0
+    move/from16 v22, v0
 
-    move/from16 v0, v24
+    move/from16 v0, v22
 
-    if-ge v12, v0, :cond_4
+    if-ge v10, v0, :cond_4
 
-    const-string/jumbo v24, "SelfMotionPanoramaConverter"
+    const-string/jumbo v22, "SelfMotionPanoramaConverter"
 
-    new-instance v25, Ljava/lang/StringBuilder;
+    new-instance v23, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v25 .. v25}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v23 .. v23}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v26, "share decode framesDecoded sent to encode = "
+    const-string/jumbo v24, "share decode framesDecoded sent to encode = "
 
-    invoke-virtual/range {v25 .. v26}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v23 .. v24}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v25
+    move-result-object v23
 
-    move-object/from16 v0, v25
+    move-object/from16 v0, v23
 
-    invoke-virtual {v0, v11}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v9}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v25
+    move-result-object v23
 
-    invoke-virtual/range {v25 .. v25}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v23 .. v23}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v25
+    move-result-object v23
 
-    invoke-static/range {v24 .. v25}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v22 .. v23}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    new-instance v18, Lcom/samsung/android/media/SelfMotionPanoramaConverter$DecodedBuffer;
+    new-instance v16, Lcom/samsung/android/media/SelfMotionPanoramaConverter$DecodedBuffer;
 
-    iget-object v0, v7, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/DecoderInterfaceFHD$BufferData;->mBuffer:[B
+    iget-object v0, v5, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/DecoderInterfaceFHD$BufferData;->mBuffer:[B
 
-    move-object/from16 v24, v0
+    move-object/from16 v22, v0
 
     move-object/from16 v0, p1
 
     iget-object v0, v0, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/SelfMotionPanoramaInfo;->mExtraFramesEndMatrix:[[F
 
-    move-object/from16 v25, v0
+    move-object/from16 v23, v0
 
-    aget-object v25, v25, v12
+    aget-object v23, v23, v10
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v16
 
-    move-object/from16 v1, p0
+    move-object/from16 v1, v22
 
-    move-object/from16 v2, v24
+    move-object/from16 v2, v23
 
-    move-object/from16 v3, v25
-
-    invoke-direct {v0, v1, v2, v11, v3}, Lcom/samsung/android/media/SelfMotionPanoramaConverter$DecodedBuffer;-><init>(Lcom/samsung/android/media/SelfMotionPanoramaConverter;[BI[F)V
+    invoke-direct {v0, v1, v9, v2}, Lcom/samsung/android/media/SelfMotionPanoramaConverter$DecodedBuffer;-><init>([BI[F)V
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/samsung/android/media/SelfMotionPanoramaConverter;->mDecoderGLQueue:Ljava/util/concurrent/BlockingQueue;
 
-    move-object/from16 v24, v0
+    move-object/from16 v22, v0
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v22
 
-    move-object/from16 v1, v18
+    move-object/from16 v1, v16
 
     invoke-interface {v0, v1}, Ljava/util/concurrent/BlockingQueue;->put(Ljava/lang/Object;)V
 
-    const-wide/16 v24, 0x19
+    const-wide/16 v22, 0x19
 
-    invoke-static/range {v24 .. v25}, Ljava/lang/Thread;->sleep(J)V
+    invoke-static/range {v22 .. v23}, Ljava/lang/Thread;->sleep(J)V
 
-    add-int/lit8 v12, v12, 0x1
+    add-int/lit8 v10, v10, 0x1
 
     goto :goto_4
 
     :cond_4
-    const-string/jumbo v24, "SelfMotionPanoramaConverter"
+    const-string/jumbo v22, "SelfMotionPanoramaConverter"
 
-    new-instance v25, Ljava/lang/StringBuilder;
+    new-instance v23, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v25 .. v25}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v23 .. v23}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v26, "share decode framesDecoded sent to encode = "
+    const-string/jumbo v24, "share decode framesDecoded sent to encode = "
 
-    invoke-virtual/range {v25 .. v26}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v23 .. v24}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v25
+    move-result-object v23
 
-    move-object/from16 v0, v25
+    move-object/from16 v0, v23
 
-    invoke-virtual {v0, v11}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v9}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v25
+    move-result-object v23
 
-    invoke-virtual/range {v25 .. v25}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v23 .. v23}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v25
+    move-result-object v23
 
-    invoke-static/range {v24 .. v25}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v22 .. v23}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_5
-    add-int/lit8 v11, v11, 0x1
+    add-int/lit8 v9, v9, 0x1
 
-    const-string/jumbo v24, "SelfMotionPanoramaConverter"
+    const-string/jumbo v22, "SelfMotionPanoramaConverter"
 
-    new-instance v25, Ljava/lang/StringBuilder;
+    new-instance v23, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v25 .. v25}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v23 .. v23}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v26, "share decode framesDecoded = "
+    const-string/jumbo v24, "share decode framesDecoded = "
 
-    invoke-virtual/range {v25 .. v26}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v23 .. v24}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v25
+    move-result-object v23
 
-    move-object/from16 v0, v25
+    move-object/from16 v0, v23
 
-    invoke-virtual {v0, v11}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v9}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v25
+    move-result-object v23
 
-    invoke-virtual/range {v25 .. v25}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v23 .. v23}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v25
+    move-result-object v23
 
-    invoke-static/range {v24 .. v25}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v22 .. v23}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    const/16 v24, 0x0
+    const/16 v22, 0x0
 
-    move/from16 v0, v24
+    move/from16 v0, v22
 
-    iput-boolean v0, v7, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/DecoderInterfaceFHD$BufferData;->bDirty:Z
+    iput-boolean v0, v5, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/DecoderInterfaceFHD$BufferData;->bDirty:Z
 
     :cond_6
     :goto_5
-    if-eqz v15, :cond_7
+    if-eqz v13, :cond_8
 
     move-object/from16 v0, p0
 
     iget-boolean v0, v0, Lcom/samsung/android/media/SelfMotionPanoramaConverter;->bStopRequested:Z
 
-    move/from16 v24, v0
+    move/from16 v22, v0
+
+    xor-int/lit8 v22, v22, 0x1
+
+    if-eqz v22, :cond_8
+
+    move v12, v11
+
+    goto/16 :goto_1
+
+    :cond_7
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/samsung/android/media/SelfMotionPanoramaConverter;->mDecoderGLQueue:Ljava/util/concurrent/BlockingQueue;
+
+    move-object/from16 v22, v0
+
+    new-instance v23, Lcom/samsung/android/media/SelfMotionPanoramaConverter$DecodedBuffer;
+
+    sget-object v24, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/ImageRenderer3d;->IDENTITY_MATRIX:[F
+
+    const/16 v25, -0x1
+
+    move-object/from16 v0, v23
+
+    move-object/from16 v1, v18
+
+    move/from16 v2, v25
+
+    move-object/from16 v3, v24
+
+    invoke-direct {v0, v1, v2, v3}, Lcom/samsung/android/media/SelfMotionPanoramaConverter$DecodedBuffer;-><init>([BI[F)V
+
+    invoke-interface/range {v22 .. v23}, Ljava/util/concurrent/BlockingQueue;->put(Ljava/lang/Object;)V
     :try_end_2
     .catch Ljava/lang/InterruptedException; {:try_start_2 .. :try_end_2} :catch_0
 
-    if-eqz v24, :cond_9
+    goto :goto_5
 
-    :cond_7
+    :catch_0
+    move-exception v8
+
     :goto_6
+    invoke-virtual {v8}, Ljava/lang/InterruptedException;->printStackTrace()V
+
+    :cond_8
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
-    move-result-wide v22
+    move-result-wide v20
 
-    invoke-virtual {v9}, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/DecoderInterfaceFHD;->deInit()V
+    invoke-virtual {v7}, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/DecoderInterfaceFHD;->deInit()V
 
     move-object/from16 v0, p0
 
     iget-wide v0, v0, Lcom/samsung/android/media/SelfMotionPanoramaConverter;->mDecodeTime:J
 
-    move-wide/from16 v24, v0
+    move-wide/from16 v22, v0
 
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
-    move-result-wide v26
+    move-result-wide v24
 
-    sub-long v26, v26, v22
+    sub-long v24, v24, v20
 
-    add-long v24, v24, v26
+    add-long v22, v22, v24
 
-    move-wide/from16 v0, v24
+    move-wide/from16 v0, v22
 
     move-object/from16 v2, p0
 
     iput-wide v0, v2, Lcom/samsung/android/media/SelfMotionPanoramaConverter;->mDecodeTime:J
 
-    const-string/jumbo v24, "SelfMotionPanoramaConverter"
+    const-string/jumbo v22, "SelfMotionPanoramaConverter"
 
-    const-string/jumbo v25, "decodeMp4 completed"
+    const-string/jumbo v23, "decodeMp4 completed"
 
-    invoke-static/range {v24 .. v25}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v22 .. v23}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 
-    :cond_8
-    :try_start_3
-    move-object/from16 v0, p0
+    :catch_1
+    move-exception v8
 
-    iget-object v0, v0, Lcom/samsung/android/media/SelfMotionPanoramaConverter;->mDecoderGLQueue:Ljava/util/concurrent/BlockingQueue;
-
-    move-object/from16 v24, v0
-
-    new-instance v25, Lcom/samsung/android/media/SelfMotionPanoramaConverter$DecodedBuffer;
-
-    sget-object v26, Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/ImageRenderer3d;->IDENTITY_MATRIX:[F
-
-    const/16 v27, -0x1
-
-    move-object/from16 v0, v25
-
-    move-object/from16 v1, p0
-
-    move-object/from16 v2, v20
-
-    move/from16 v3, v27
-
-    move-object/from16 v4, v26
-
-    invoke-direct {v0, v1, v2, v3, v4}, Lcom/samsung/android/media/SelfMotionPanoramaConverter$DecodedBuffer;-><init>(Lcom/samsung/android/media/SelfMotionPanoramaConverter;[BI[F)V
-
-    invoke-interface/range {v24 .. v25}, Ljava/util/concurrent/BlockingQueue;->put(Ljava/lang/Object;)V
-    :try_end_3
-    .catch Ljava/lang/InterruptedException; {:try_start_3 .. :try_end_3} :catch_0
-
-    goto :goto_5
-
-    :catch_0
-    move-exception v10
-
-    :goto_7
-    invoke-virtual {v10}, Ljava/lang/Throwable;->printStackTrace()V
+    move v11, v12
 
     goto :goto_6
-
-    :cond_9
-    move v14, v13
-
-    goto/16 :goto_1
-
-    :catch_1
-    move-exception v10
-
-    move v13, v14
-
-    goto :goto_7
 .end method
 
 .method private encodeMp4(Ljava/lang/String;Lcom/samsung/android/app/interactivepanoramaviewer/sharevia/SelfMotionPanoramaInfo;)V
@@ -1066,7 +1045,7 @@
 
     iget-object v5, v0, Lcom/samsung/android/media/SelfMotionPanoramaConverter;->mEncoder:Lcom/samsung/android/media/SelfMotionPanoramaConverter$ENCODER;
 
-    invoke-virtual {v5}, Ljava/lang/Enum;->ordinal()I
+    invoke-virtual {v5}, Lcom/samsung/android/media/SelfMotionPanoramaConverter$ENCODER;->ordinal()I
 
     move-result v5
 
@@ -1233,7 +1212,7 @@
 
     iget-object v5, v0, Lcom/samsung/android/media/SelfMotionPanoramaConverter;->mEncoder:Lcom/samsung/android/media/SelfMotionPanoramaConverter$ENCODER;
 
-    invoke-virtual {v5}, Ljava/lang/Enum;->ordinal()I
+    invoke-virtual {v5}, Lcom/samsung/android/media/SelfMotionPanoramaConverter$ENCODER;->ordinal()I
 
     move-result v5
 
@@ -1374,7 +1353,7 @@
 
     iget-object v5, v0, Lcom/samsung/android/media/SelfMotionPanoramaConverter;->mEncoder:Lcom/samsung/android/media/SelfMotionPanoramaConverter$ENCODER;
 
-    invoke-virtual {v5}, Ljava/lang/Enum;->ordinal()I
+    invoke-virtual {v5}, Lcom/samsung/android/media/SelfMotionPanoramaConverter$ENCODER;->ordinal()I
 
     move-result v5
 
@@ -1417,7 +1396,7 @@
 
     iget-object v5, v0, Lcom/samsung/android/media/SelfMotionPanoramaConverter;->mEncoder:Lcom/samsung/android/media/SelfMotionPanoramaConverter$ENCODER;
 
-    invoke-virtual {v5}, Ljava/lang/Enum;->ordinal()I
+    invoke-virtual {v5}, Lcom/samsung/android/media/SelfMotionPanoramaConverter$ENCODER;->ordinal()I
 
     move-result v5
 
@@ -1472,7 +1451,7 @@
     :catch_0
     move-exception v16
 
-    invoke-virtual/range {v16 .. v16}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual/range {v16 .. v16}, Ljava/lang/InterruptedException;->printStackTrace()V
 
     goto/16 :goto_2
 
@@ -1526,13 +1505,13 @@
 
     const/4 v4, 0x0
 
-    invoke-virtual {v12, v4}, Ljava/nio/Buffer;->position(I)Ljava/nio/Buffer;
+    invoke-virtual {v12, v4}, Ljava/nio/ByteBuffer;->position(I)Ljava/nio/Buffer;
 
     const/4 v4, 0x0
 
     move-object/from16 v0, v21
 
-    invoke-virtual {v0, v4}, Ljava/nio/Buffer;->position(I)Ljava/nio/Buffer;
+    invoke-virtual {v0, v4}, Ljava/nio/ByteBuffer;->position(I)Ljava/nio/Buffer;
 
     sget v4, Lcom/samsung/android/media/SelfMotionPanoramaConverter;->TARGET_ENCODE_WIDTH:I
 
@@ -1544,13 +1523,13 @@
 
     const/4 v4, 0x0
 
-    invoke-virtual {v12, v4}, Ljava/nio/Buffer;->position(I)Ljava/nio/Buffer;
+    invoke-virtual {v12, v4}, Ljava/nio/ByteBuffer;->position(I)Ljava/nio/Buffer;
 
     const/4 v4, 0x0
 
     move-object/from16 v0, v21
 
-    invoke-virtual {v0, v4}, Ljava/nio/Buffer;->position(I)Ljava/nio/Buffer;
+    invoke-virtual {v0, v4}, Ljava/nio/ByteBuffer;->position(I)Ljava/nio/Buffer;
 
     invoke-virtual/range {v21 .. v22}, Ljava/nio/ByteBuffer;->get([B)Ljava/nio/ByteBuffer;
 
@@ -1562,7 +1541,7 @@
 
     iget-object v5, v0, Lcom/samsung/android/media/SelfMotionPanoramaConverter;->mEncoder:Lcom/samsung/android/media/SelfMotionPanoramaConverter$ENCODER;
 
-    invoke-virtual {v5}, Ljava/lang/Enum;->ordinal()I
+    invoke-virtual {v5}, Lcom/samsung/android/media/SelfMotionPanoramaConverter$ENCODER;->ordinal()I
 
     move-result v5
 
@@ -2055,7 +2034,7 @@
     move/from16 v18, v19
 
     :goto_2
-    invoke-virtual/range {v17 .. v17}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual/range {v17 .. v17}, Ljava/lang/InterruptedException;->printStackTrace()V
 
     goto :goto_1
 
@@ -2778,7 +2757,7 @@
     move-exception v2
 
     :try_start_9
-    invoke-virtual {v2}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v2}, Ljava/lang/InterruptedException;->printStackTrace()V
     :try_end_9
     .catchall {:try_start_9 .. :try_end_9} :catchall_0
 

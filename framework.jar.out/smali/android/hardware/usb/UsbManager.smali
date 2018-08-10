@@ -58,6 +58,8 @@
 
 .field public static final USB_CONFIGURED:Ljava/lang/String; = "configured"
 
+.field public static final USB_CONFIG_CHANGED:Ljava/lang/String; = "config_changed"
+
 .field public static final USB_CONNECTED:Ljava/lang/String; = "connected"
 
 .field public static final USB_DATA_UNLOCKED:Ljava/lang/String; = "unlocked"
@@ -690,16 +692,24 @@
 .end method
 
 .method public grantPermission(Landroid/hardware/usb/UsbDevice;)V
-    .locals 3
+    .locals 1
+
+    invoke-static {}, Landroid/os/Process;->myUid()I
+
+    move-result v0
+
+    invoke-virtual {p0, p1, v0}, Landroid/hardware/usb/UsbManager;->grantPermission(Landroid/hardware/usb/UsbDevice;I)V
+
+    return-void
+.end method
+
+.method public grantPermission(Landroid/hardware/usb/UsbDevice;I)V
+    .locals 2
 
     :try_start_0
     iget-object v1, p0, Landroid/hardware/usb/UsbManager;->mService:Landroid/hardware/usb/IUsbManager;
 
-    invoke-static {}, Landroid/os/Process;->myUid()I
-
-    move-result v2
-
-    invoke-interface {v1, p1, v2}, Landroid/hardware/usb/IUsbManager;->grantDevicePermission(Landroid/hardware/usb/UsbDevice;I)V
+    invoke-interface {v1, p1, p2}, Landroid/hardware/usb/IUsbManager;->grantDevicePermission(Landroid/hardware/usb/UsbDevice;I)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -713,6 +723,67 @@
     move-result-object v1
 
     throw v1
+.end method
+
+.method public grantPermission(Landroid/hardware/usb/UsbDevice;Ljava/lang/String;)V
+    .locals 5
+
+    :try_start_0
+    iget-object v2, p0, Landroid/hardware/usb/UsbManager;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v2}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+
+    move-result-object v2
+
+    iget-object v3, p0, Landroid/hardware/usb/UsbManager;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v3}, Landroid/content/Context;->getUserId()I
+
+    move-result v3
+
+    invoke-virtual {v2, p2, v3}, Landroid/content/pm/PackageManager;->getPackageUidAsUser(Ljava/lang/String;I)I
+
+    move-result v1
+
+    invoke-virtual {p0, p1, v1}, Landroid/hardware/usb/UsbManager;->grantPermission(Landroid/hardware/usb/UsbDevice;I)V
+    :try_end_0
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+
+    :goto_0
+    return-void
+
+    :catch_0
+    move-exception v0
+
+    const-string/jumbo v2, "UsbManager"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "Package "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    const-string/jumbo v4, " not found."
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    goto :goto_0
 .end method
 
 .method public hasPermission(Landroid/hardware/usb/UsbAccessory;)Z
@@ -785,6 +856,34 @@
     move-result-object v1
 
     throw v1
+.end method
+
+.method public isSupportDexRestrict()Z
+    .locals 3
+
+    :try_start_0
+    iget-object v1, p0, Landroid/hardware/usb/UsbManager;->mService:Landroid/hardware/usb/IUsbManager;
+
+    invoke-interface {v1}, Landroid/hardware/usb/IUsbManager;->isSupportDexRestrict()Z
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v1
+
+    return v1
+
+    :catch_0
+    move-exception v0
+
+    const-string/jumbo v1, "UsbManager"
+
+    const-string/jumbo v2, "RemoteException in isSupportDexRestrict"
+
+    invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    const/4 v1, 0x0
+
+    return v1
 .end method
 
 .method public isUsb30Available()Z
@@ -989,7 +1088,9 @@
 
     invoke-direct {v0, p1}, Landroid/hardware/usb/UsbDeviceConnection;-><init>(Landroid/hardware/usb/UsbDevice;)V
 
-    invoke-virtual {v0, v1, v3}, Landroid/hardware/usb/UsbDeviceConnection;->open(Ljava/lang/String;Landroid/os/ParcelFileDescriptor;)Z
+    iget-object v5, p0, Landroid/hardware/usb/UsbManager;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v0, v1, v3, v5}, Landroid/hardware/usb/UsbDeviceConnection;->open(Ljava/lang/String;Landroid/os/ParcelFileDescriptor;Landroid/content/Context;)Z
 
     move-result v4
 
@@ -1070,6 +1171,51 @@
     throw v1
 .end method
 
+.method public restrictUsbHostInterface(ZLjava/lang/String;)I
+    .locals 3
+
+    invoke-static {}, Landroid/os/Binder;->getCallingUid()I
+
+    move-result v1
+
+    const/16 v2, 0x3e8
+
+    if-eq v1, v2, :cond_0
+
+    new-instance v1, Ljava/lang/SecurityException;
+
+    const-string/jumbo v2, "no permission to call finishMediaUpdate()"
+
+    invoke-direct {v1, v2}, Ljava/lang/SecurityException;-><init>(Ljava/lang/String;)V
+
+    throw v1
+
+    :cond_0
+    :try_start_0
+    iget-object v1, p0, Landroid/hardware/usb/UsbManager;->mService:Landroid/hardware/usb/IUsbManager;
+
+    invoke-interface {v1, p1, p2}, Landroid/hardware/usb/IUsbManager;->restrictUsbHostInterface(ZLjava/lang/String;)I
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v1
+
+    return v1
+
+    :catch_0
+    move-exception v0
+
+    const-string/jumbo v1, "UsbManager"
+
+    const-string/jumbo v2, "RemoteException in restrictUsbHostInterface"
+
+    invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    const/4 v1, -0x1
+
+    return v1
+.end method
+
 .method public semSetMode(I)V
     .locals 3
 
@@ -1095,7 +1241,7 @@
     goto :goto_0
 .end method
 
-.method public setCurrentFunction(Ljava/lang/String;)V
+.method public setCurrentFunction(Ljava/lang/String;Z)V
     .locals 5
 
     :try_start_0
@@ -1135,7 +1281,9 @@
 
     iget-object v1, p0, Landroid/hardware/usb/UsbManager;->mService:Landroid/hardware/usb/IUsbManager;
 
-    invoke-interface {v1, p1}, Landroid/hardware/usb/IUsbManager;->setCurrentFunction(Ljava/lang/String;)V
+    const/4 v2, 0x1
+
+    invoke-interface {v1, p1, v2}, Landroid/hardware/usb/IUsbManager;->setCurrentFunction(Ljava/lang/String;Z)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -1152,7 +1300,7 @@
 .end method
 
 .method public setPortRoles(Landroid/hardware/usb/UsbPort;II)V
-    .locals 4
+    .locals 5
 
     const-string/jumbo v1, "UsbManager"
 
@@ -1207,6 +1355,18 @@
     invoke-static {p2, p3}, Landroid/hardware/usb/UsbPort;->checkRoles(II)V
 
     :try_start_0
+    const-string/jumbo v1, "SystemFW"
+
+    const-string/jumbo v2, "setPortRoles"
+
+    new-instance v3, Ljava/lang/Exception;
+
+    const-string/jumbo v4, "who\'s calling?"
+
+    invoke-direct {v3, v4}, Ljava/lang/Exception;-><init>(Ljava/lang/String;)V
+
+    invoke-static {v1, v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
     iget-object v1, p0, Landroid/hardware/usb/UsbManager;->mService:Landroid/hardware/usb/IUsbManager;
 
     invoke-virtual {p1}, Landroid/hardware/usb/UsbPort;->getId()Ljava/lang/String;
@@ -1290,13 +1450,13 @@
     goto :goto_0
 .end method
 
-.method public setUsbDataUnlocked(Z)V
+.method public setUsbDeviceConnectionHandler(Landroid/content/ComponentName;)V
     .locals 2
 
     :try_start_0
     iget-object v1, p0, Landroid/hardware/usb/UsbManager;->mService:Landroid/hardware/usb/IUsbManager;
 
-    invoke-interface {v1, p1}, Landroid/hardware/usb/IUsbManager;->setUsbDataUnlocked(Z)V
+    invoke-interface {v1, p1}, Landroid/hardware/usb/IUsbManager;->setUsbDeviceConnectionHandler(Landroid/content/ComponentName;)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 

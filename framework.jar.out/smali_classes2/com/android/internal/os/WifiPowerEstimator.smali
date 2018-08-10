@@ -67,8 +67,6 @@
 .method private static getWifiPowerPerPacket(Lcom/android/internal/os/PowerProfile;)D
     .locals 8
 
-    const-wide v6, 0x40ac200000000000L    # 3600.0
-
     const-wide/32 v0, 0xf4240
 
     const-string/jumbo v4, "wifi.active"
@@ -77,13 +75,13 @@
 
     move-result-wide v4
 
+    const-wide v6, 0x40ac200000000000L    # 3600.0
+
     div-double v2, v4, v6
 
     const-wide v4, 0x404e848000000000L    # 61.03515625
 
     div-double v4, v2, v4
-
-    div-double/2addr v4, v6
 
     return-wide v4
 .end method

@@ -30,7 +30,7 @@
 
 
 # direct methods
-.method public constructor <init>(Lcom/samsung/android/widget/SemDatePicker;)V
+.method constructor <init>(Lcom/samsung/android/widget/SemDatePicker;)V
     .locals 1
 
     iput-object p1, p0, Lcom/samsung/android/widget/SemDatePicker$CalendarPagerAdapter;->this$0:Lcom/samsung/android/widget/SemDatePicker;
@@ -137,11 +137,11 @@
 
     add-int/2addr v2, v3
 
-    invoke-static {v1, v2}, Lcom/samsung/android/widget/SemDatePicker;->-set17(Lcom/samsung/android/widget/SemDatePicker;I)I
+    invoke-static {v1, v2}, Lcom/samsung/android/widget/SemDatePicker;->-set16(Lcom/samsung/android/widget/SemDatePicker;I)I
 
     iget-object v1, p0, Lcom/samsung/android/widget/SemDatePicker$CalendarPagerAdapter;->this$0:Lcom/samsung/android/widget/SemDatePicker;
 
-    invoke-static {v1}, Lcom/samsung/android/widget/SemDatePicker;->-get19(Lcom/samsung/android/widget/SemDatePicker;)Z
+    invoke-static {v1}, Lcom/samsung/android/widget/SemDatePicker;->-get17(Lcom/samsung/android/widget/SemDatePicker;)Z
 
     move-result v1
 
@@ -161,12 +161,12 @@
 
     move-result v2
 
-    invoke-static {v1, v2}, Lcom/samsung/android/widget/SemDatePicker;->-set17(Lcom/samsung/android/widget/SemDatePicker;I)I
+    invoke-static {v1, v2}, Lcom/samsung/android/widget/SemDatePicker;->-set16(Lcom/samsung/android/widget/SemDatePicker;I)I
 
     :cond_0
     iget-object v1, p0, Lcom/samsung/android/widget/SemDatePicker$CalendarPagerAdapter;->this$0:Lcom/samsung/android/widget/SemDatePicker;
 
-    invoke-static {v1}, Lcom/samsung/android/widget/SemDatePicker;->-get38(Lcom/samsung/android/widget/SemDatePicker;)I
+    invoke-static {v1}, Lcom/samsung/android/widget/SemDatePicker;->-get35(Lcom/samsung/android/widget/SemDatePicker;)I
 
     move-result v1
 
@@ -190,7 +190,7 @@
 
     iget-object v5, v0, Lcom/samsung/android/widget/SemDatePicker$CalendarPagerAdapter;->this$0:Lcom/samsung/android/widget/SemDatePicker;
 
-    invoke-static {v5}, Lcom/samsung/android/widget/SemDatePicker;->-get6(Lcom/samsung/android/widget/SemDatePicker;)Landroid/content/Context;
+    invoke-static {v5}, Lcom/samsung/android/widget/SemDatePicker;->-get5(Lcom/samsung/android/widget/SemDatePicker;)Landroid/content/Context;
 
     move-result-object v5
 
@@ -224,7 +224,7 @@
 
     const/4 v5, 0x1
 
-    invoke-virtual {v1, v5}, Landroid/view/View;->setClickable(Z)V
+    invoke-virtual {v1, v5}, Lcom/samsung/android/widget/SemSimpleMonthView;->setClickable(Z)V
 
     move-object/from16 v0, p0
 
@@ -236,11 +236,9 @@
 
     iget-object v5, v0, Lcom/samsung/android/widget/SemDatePicker$CalendarPagerAdapter;->this$0:Lcom/samsung/android/widget/SemDatePicker;
 
-    invoke-static {v5}, Lcom/samsung/android/widget/SemDatePicker;->-get4(Lcom/samsung/android/widget/SemDatePicker;)Landroid/content/res/ColorStateList;
+    invoke-virtual {v1, v5}, Lcom/samsung/android/widget/SemSimpleMonthView;->setOnDeactivatedDayClickListener(Lcom/samsung/android/widget/SemSimpleMonthView$OnDeactivatedDayClickListener;)V
 
-    move-result-object v5
-
-    invoke-virtual {v1, v5}, Lcom/samsung/android/widget/SemSimpleMonthView;->setTextColor(Landroid/content/res/ColorStateList;)V
+    invoke-virtual {v1}, Lcom/samsung/android/widget/SemSimpleMonthView;->setTextColor()V
 
     move-object/from16 v0, p0
 
@@ -272,7 +270,7 @@
 
     iget-object v5, v0, Lcom/samsung/android/widget/SemDatePicker$CalendarPagerAdapter;->this$0:Lcom/samsung/android/widget/SemDatePicker;
 
-    invoke-static {v5}, Lcom/samsung/android/widget/SemDatePicker;->-get19(Lcom/samsung/android/widget/SemDatePicker;)Z
+    invoke-static {v5}, Lcom/samsung/android/widget/SemDatePicker;->-get17(Lcom/samsung/android/widget/SemDatePicker;)Z
 
     move-result v5
 
@@ -309,7 +307,7 @@
 
     iget-object v5, v0, Lcom/samsung/android/widget/SemDatePicker$CalendarPagerAdapter;->this$0:Lcom/samsung/android/widget/SemDatePicker;
 
-    invoke-static {v5}, Lcom/samsung/android/widget/SemDatePicker;->-get7(Lcom/samsung/android/widget/SemDatePicker;)Ljava/util/Calendar;
+    invoke-static {v5}, Lcom/samsung/android/widget/SemDatePicker;->-get6(Lcom/samsung/android/widget/SemDatePicker;)Ljava/util/Calendar;
 
     move-result-object v5
 
@@ -325,7 +323,7 @@
 
     iget-object v5, v0, Lcom/samsung/android/widget/SemDatePicker$CalendarPagerAdapter;->this$0:Lcom/samsung/android/widget/SemDatePicker;
 
-    invoke-static {v5}, Lcom/samsung/android/widget/SemDatePicker;->-get7(Lcom/samsung/android/widget/SemDatePicker;)Ljava/util/Calendar;
+    invoke-static {v5}, Lcom/samsung/android/widget/SemDatePicker;->-get6(Lcom/samsung/android/widget/SemDatePicker;)Ljava/util/Calendar;
 
     move-result-object v5
 
@@ -341,7 +339,7 @@
 
     iget-object v5, v0, Lcom/samsung/android/widget/SemDatePicker$CalendarPagerAdapter;->this$0:Lcom/samsung/android/widget/SemDatePicker;
 
-    invoke-static {v5}, Lcom/samsung/android/widget/SemDatePicker;->-get7(Lcom/samsung/android/widget/SemDatePicker;)Ljava/util/Calendar;
+    invoke-static {v5}, Lcom/samsung/android/widget/SemDatePicker;->-get6(Lcom/samsung/android/widget/SemDatePicker;)Ljava/util/Calendar;
 
     move-result-object v5
 
@@ -356,7 +354,7 @@
 
     iget-object v5, v0, Lcom/samsung/android/widget/SemDatePicker$CalendarPagerAdapter;->this$0:Lcom/samsung/android/widget/SemDatePicker;
 
-    invoke-static {v5}, Lcom/samsung/android/widget/SemDatePicker;->-get19(Lcom/samsung/android/widget/SemDatePicker;)Z
+    invoke-static {v5}, Lcom/samsung/android/widget/SemDatePicker;->-get17(Lcom/samsung/android/widget/SemDatePicker;)Z
 
     move-result v5
 
@@ -368,7 +366,7 @@
 
     iget-object v5, v0, Lcom/samsung/android/widget/SemDatePicker$CalendarPagerAdapter;->this$0:Lcom/samsung/android/widget/SemDatePicker;
 
-    invoke-static {v5}, Lcom/samsung/android/widget/SemDatePicker;->-get25(Lcom/samsung/android/widget/SemDatePicker;)I
+    invoke-static {v5}, Lcom/samsung/android/widget/SemDatePicker;->-get22(Lcom/samsung/android/widget/SemDatePicker;)I
 
     move-result v5
 
@@ -378,7 +376,7 @@
 
     iget-object v5, v0, Lcom/samsung/android/widget/SemDatePicker$CalendarPagerAdapter;->this$0:Lcom/samsung/android/widget/SemDatePicker;
 
-    invoke-static {v5}, Lcom/samsung/android/widget/SemDatePicker;->-get24(Lcom/samsung/android/widget/SemDatePicker;)I
+    invoke-static {v5}, Lcom/samsung/android/widget/SemDatePicker;->-get21(Lcom/samsung/android/widget/SemDatePicker;)I
 
     move-result v5
 
@@ -388,7 +386,7 @@
 
     iget-object v5, v0, Lcom/samsung/android/widget/SemDatePicker$CalendarPagerAdapter;->this$0:Lcom/samsung/android/widget/SemDatePicker;
 
-    invoke-static {v5}, Lcom/samsung/android/widget/SemDatePicker;->-get23(Lcom/samsung/android/widget/SemDatePicker;)I
+    invoke-static {v5}, Lcom/samsung/android/widget/SemDatePicker;->-get20(Lcom/samsung/android/widget/SemDatePicker;)I
 
     move-result v2
 
@@ -397,7 +395,7 @@
 
     iget-object v5, v0, Lcom/samsung/android/widget/SemDatePicker$CalendarPagerAdapter;->this$0:Lcom/samsung/android/widget/SemDatePicker;
 
-    invoke-static {v5}, Lcom/samsung/android/widget/SemDatePicker;->-get20(Lcom/samsung/android/widget/SemDatePicker;)Z
+    invoke-static {v5}, Lcom/samsung/android/widget/SemDatePicker;->-get18(Lcom/samsung/android/widget/SemDatePicker;)Z
 
     move-result v5
 
@@ -407,7 +405,7 @@
 
     iget-object v5, v0, Lcom/samsung/android/widget/SemDatePicker$CalendarPagerAdapter;->this$0:Lcom/samsung/android/widget/SemDatePicker;
 
-    invoke-static {v5}, Lcom/samsung/android/widget/SemDatePicker;->-get19(Lcom/samsung/android/widget/SemDatePicker;)Z
+    invoke-static {v5}, Lcom/samsung/android/widget/SemDatePicker;->-get17(Lcom/samsung/android/widget/SemDatePicker;)Z
 
     move-result v5
 
@@ -426,7 +424,7 @@
 
     iget-object v5, v0, Lcom/samsung/android/widget/SemDatePicker$CalendarPagerAdapter;->this$0:Lcom/samsung/android/widget/SemDatePicker;
 
-    invoke-static {v5}, Lcom/samsung/android/widget/SemDatePicker;->-get40(Lcom/samsung/android/widget/SemDatePicker;)Ljava/util/Calendar;
+    invoke-static {v5}, Lcom/samsung/android/widget/SemDatePicker;->-get37(Lcom/samsung/android/widget/SemDatePicker;)Ljava/util/Calendar;
 
     move-result-object v5
 
@@ -440,7 +438,7 @@
 
     iget-object v5, v0, Lcom/samsung/android/widget/SemDatePicker$CalendarPagerAdapter;->this$0:Lcom/samsung/android/widget/SemDatePicker;
 
-    invoke-static {v5}, Lcom/samsung/android/widget/SemDatePicker;->-get40(Lcom/samsung/android/widget/SemDatePicker;)Ljava/util/Calendar;
+    invoke-static {v5}, Lcom/samsung/android/widget/SemDatePicker;->-get37(Lcom/samsung/android/widget/SemDatePicker;)Ljava/util/Calendar;
 
     move-result-object v5
 
@@ -454,7 +452,7 @@
 
     iget-object v5, v0, Lcom/samsung/android/widget/SemDatePicker$CalendarPagerAdapter;->this$0:Lcom/samsung/android/widget/SemDatePicker;
 
-    invoke-static {v5}, Lcom/samsung/android/widget/SemDatePicker;->-get40(Lcom/samsung/android/widget/SemDatePicker;)Ljava/util/Calendar;
+    invoke-static {v5}, Lcom/samsung/android/widget/SemDatePicker;->-get37(Lcom/samsung/android/widget/SemDatePicker;)Ljava/util/Calendar;
 
     move-result-object v5
 
@@ -468,7 +466,7 @@
 
     iget-object v5, v0, Lcom/samsung/android/widget/SemDatePicker$CalendarPagerAdapter;->this$0:Lcom/samsung/android/widget/SemDatePicker;
 
-    invoke-static {v5}, Lcom/samsung/android/widget/SemDatePicker;->-get14(Lcom/samsung/android/widget/SemDatePicker;)Ljava/util/Calendar;
+    invoke-static {v5}, Lcom/samsung/android/widget/SemDatePicker;->-get12(Lcom/samsung/android/widget/SemDatePicker;)Ljava/util/Calendar;
 
     move-result-object v5
 
@@ -482,7 +480,7 @@
 
     iget-object v5, v0, Lcom/samsung/android/widget/SemDatePicker$CalendarPagerAdapter;->this$0:Lcom/samsung/android/widget/SemDatePicker;
 
-    invoke-static {v5}, Lcom/samsung/android/widget/SemDatePicker;->-get14(Lcom/samsung/android/widget/SemDatePicker;)Ljava/util/Calendar;
+    invoke-static {v5}, Lcom/samsung/android/widget/SemDatePicker;->-get12(Lcom/samsung/android/widget/SemDatePicker;)Ljava/util/Calendar;
 
     move-result-object v5
 
@@ -496,7 +494,7 @@
 
     iget-object v5, v0, Lcom/samsung/android/widget/SemDatePicker$CalendarPagerAdapter;->this$0:Lcom/samsung/android/widget/SemDatePicker;
 
-    invoke-static {v5}, Lcom/samsung/android/widget/SemDatePicker;->-get14(Lcom/samsung/android/widget/SemDatePicker;)Ljava/util/Calendar;
+    invoke-static {v5}, Lcom/samsung/android/widget/SemDatePicker;->-get12(Lcom/samsung/android/widget/SemDatePicker;)Ljava/util/Calendar;
 
     move-result-object v5
 
@@ -510,7 +508,7 @@
 
     iget-object v5, v0, Lcom/samsung/android/widget/SemDatePicker$CalendarPagerAdapter;->this$0:Lcom/samsung/android/widget/SemDatePicker;
 
-    invoke-static {v5}, Lcom/samsung/android/widget/SemDatePicker;->-get19(Lcom/samsung/android/widget/SemDatePicker;)Z
+    invoke-static {v5}, Lcom/samsung/android/widget/SemDatePicker;->-get17(Lcom/samsung/android/widget/SemDatePicker;)Z
 
     move-result v5
 
@@ -520,7 +518,7 @@
 
     iget-object v5, v0, Lcom/samsung/android/widget/SemDatePicker$CalendarPagerAdapter;->this$0:Lcom/samsung/android/widget/SemDatePicker;
 
-    invoke-static {v5}, Lcom/samsung/android/widget/SemDatePicker;->-get31(Lcom/samsung/android/widget/SemDatePicker;)I
+    invoke-static {v5}, Lcom/samsung/android/widget/SemDatePicker;->-get28(Lcom/samsung/android/widget/SemDatePicker;)I
 
     move-result v10
 
@@ -528,7 +526,7 @@
 
     iget-object v5, v0, Lcom/samsung/android/widget/SemDatePicker$CalendarPagerAdapter;->this$0:Lcom/samsung/android/widget/SemDatePicker;
 
-    invoke-static {v5}, Lcom/samsung/android/widget/SemDatePicker;->-get30(Lcom/samsung/android/widget/SemDatePicker;)I
+    invoke-static {v5}, Lcom/samsung/android/widget/SemDatePicker;->-get27(Lcom/samsung/android/widget/SemDatePicker;)I
 
     move-result v11
 
@@ -536,7 +534,7 @@
 
     iget-object v5, v0, Lcom/samsung/android/widget/SemDatePicker$CalendarPagerAdapter;->this$0:Lcom/samsung/android/widget/SemDatePicker;
 
-    invoke-static {v5}, Lcom/samsung/android/widget/SemDatePicker;->-get29(Lcom/samsung/android/widget/SemDatePicker;)I
+    invoke-static {v5}, Lcom/samsung/android/widget/SemDatePicker;->-get26(Lcom/samsung/android/widget/SemDatePicker;)I
 
     move-result v12
 
@@ -544,7 +542,7 @@
 
     iget-object v5, v0, Lcom/samsung/android/widget/SemDatePicker$CalendarPagerAdapter;->this$0:Lcom/samsung/android/widget/SemDatePicker;
 
-    invoke-static {v5}, Lcom/samsung/android/widget/SemDatePicker;->-get28(Lcom/samsung/android/widget/SemDatePicker;)I
+    invoke-static {v5}, Lcom/samsung/android/widget/SemDatePicker;->-get25(Lcom/samsung/android/widget/SemDatePicker;)I
 
     move-result v14
 
@@ -552,7 +550,7 @@
 
     iget-object v5, v0, Lcom/samsung/android/widget/SemDatePicker$CalendarPagerAdapter;->this$0:Lcom/samsung/android/widget/SemDatePicker;
 
-    invoke-static {v5}, Lcom/samsung/android/widget/SemDatePicker;->-get27(Lcom/samsung/android/widget/SemDatePicker;)I
+    invoke-static {v5}, Lcom/samsung/android/widget/SemDatePicker;->-get24(Lcom/samsung/android/widget/SemDatePicker;)I
 
     move-result v15
 
@@ -560,7 +558,7 @@
 
     iget-object v5, v0, Lcom/samsung/android/widget/SemDatePicker$CalendarPagerAdapter;->this$0:Lcom/samsung/android/widget/SemDatePicker;
 
-    invoke-static {v5}, Lcom/samsung/android/widget/SemDatePicker;->-get26(Lcom/samsung/android/widget/SemDatePicker;)I
+    invoke-static {v5}, Lcom/samsung/android/widget/SemDatePicker;->-get23(Lcom/samsung/android/widget/SemDatePicker;)I
 
     move-result v16
 
@@ -577,7 +575,7 @@
 
     iget-object v6, v0, Lcom/samsung/android/widget/SemDatePicker$CalendarPagerAdapter;->this$0:Lcom/samsung/android/widget/SemDatePicker;
 
-    invoke-static {v6}, Lcom/samsung/android/widget/SemDatePicker;->-get33(Lcom/samsung/android/widget/SemDatePicker;)Ljava/util/Calendar;
+    invoke-static {v6}, Lcom/samsung/android/widget/SemDatePicker;->-get30(Lcom/samsung/android/widget/SemDatePicker;)Ljava/util/Calendar;
 
     move-result-object v8
 
@@ -585,7 +583,7 @@
 
     iget-object v6, v0, Lcom/samsung/android/widget/SemDatePicker$CalendarPagerAdapter;->this$0:Lcom/samsung/android/widget/SemDatePicker;
 
-    invoke-static {v6}, Lcom/samsung/android/widget/SemDatePicker;->-get32(Lcom/samsung/android/widget/SemDatePicker;)Ljava/util/Calendar;
+    invoke-static {v6}, Lcom/samsung/android/widget/SemDatePicker;->-get29(Lcom/samsung/android/widget/SemDatePicker;)Ljava/util/Calendar;
 
     move-result-object v9
 
@@ -593,7 +591,7 @@
 
     iget-object v6, v0, Lcom/samsung/android/widget/SemDatePicker$CalendarPagerAdapter;->this$0:Lcom/samsung/android/widget/SemDatePicker;
 
-    invoke-static {v6}, Lcom/samsung/android/widget/SemDatePicker;->-get18(Lcom/samsung/android/widget/SemDatePicker;)I
+    invoke-static {v6}, Lcom/samsung/android/widget/SemDatePicker;->-get16(Lcom/samsung/android/widget/SemDatePicker;)I
 
     move-result v13
 
@@ -601,7 +599,7 @@
 
     iget-object v6, v0, Lcom/samsung/android/widget/SemDatePicker$CalendarPagerAdapter;->this$0:Lcom/samsung/android/widget/SemDatePicker;
 
-    invoke-static {v6}, Lcom/samsung/android/widget/SemDatePicker;->-get17(Lcom/samsung/android/widget/SemDatePicker;)I
+    invoke-static {v6}, Lcom/samsung/android/widget/SemDatePicker;->-get15(Lcom/samsung/android/widget/SemDatePicker;)I
 
     move-result v17
 
@@ -609,7 +607,7 @@
 
     iget-object v6, v0, Lcom/samsung/android/widget/SemDatePicker$CalendarPagerAdapter;->this$0:Lcom/samsung/android/widget/SemDatePicker;
 
-    invoke-static {v6}, Lcom/samsung/android/widget/SemDatePicker;->-get34(Lcom/samsung/android/widget/SemDatePicker;)I
+    invoke-static {v6}, Lcom/samsung/android/widget/SemDatePicker;->-get31(Lcom/samsung/android/widget/SemDatePicker;)I
 
     move-result v18
 
@@ -619,6 +617,76 @@
 
     invoke-virtual/range {v1 .. v18}, Lcom/samsung/android/widget/SemSimpleMonthView;->setMonthParams(IIIIIILjava/util/Calendar;Ljava/util/Calendar;IIIIIIIII)V
 
+    if-nez p2, :cond_8
+
+    invoke-virtual {v1}, Lcom/samsung/android/widget/SemSimpleMonthView;->setFirstMonth()V
+
+    :cond_5
+    :goto_0
+    move-object/from16 v0, p0
+
+    iget-object v5, v0, Lcom/samsung/android/widget/SemDatePicker$CalendarPagerAdapter;->this$0:Lcom/samsung/android/widget/SemDatePicker;
+
+    invoke-static {v5}, Lcom/samsung/android/widget/SemDatePicker;->-get17(Lcom/samsung/android/widget/SemDatePicker;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_7
+
+    if-eqz p2, :cond_6
+
+    move-object/from16 v0, p0
+
+    iget-object v5, v0, Lcom/samsung/android/widget/SemDatePicker$CalendarPagerAdapter;->this$0:Lcom/samsung/android/widget/SemDatePicker;
+
+    add-int/lit8 v6, p2, -0x1
+
+    invoke-static {v5, v6}, Lcom/samsung/android/widget/SemDatePicker;->-wrap0(Lcom/samsung/android/widget/SemDatePicker;I)Lcom/samsung/android/widget/SemDatePicker$LunarDate;
+
+    move-result-object v21
+
+    move-object/from16 v0, v21
+
+    iget-boolean v5, v0, Lcom/samsung/android/widget/SemDatePicker$LunarDate;->isLeapMonth:Z
+
+    if-eqz v5, :cond_6
+
+    invoke-virtual {v1}, Lcom/samsung/android/widget/SemSimpleMonthView;->setPrevMonthLeap()V
+
+    :cond_6
+    move-object/from16 v0, p0
+
+    iget-object v5, v0, Lcom/samsung/android/widget/SemDatePicker$CalendarPagerAdapter;->this$0:Lcom/samsung/android/widget/SemDatePicker;
+
+    invoke-static {v5}, Lcom/samsung/android/widget/SemDatePicker;->-get35(Lcom/samsung/android/widget/SemDatePicker;)I
+
+    move-result v5
+
+    add-int/lit8 v5, v5, -0x1
+
+    move/from16 v0, p2
+
+    if-eq v0, v5, :cond_7
+
+    move-object/from16 v0, p0
+
+    iget-object v5, v0, Lcom/samsung/android/widget/SemDatePicker$CalendarPagerAdapter;->this$0:Lcom/samsung/android/widget/SemDatePicker;
+
+    add-int/lit8 v6, p2, 0x1
+
+    invoke-static {v5, v6}, Lcom/samsung/android/widget/SemDatePicker;->-wrap0(Lcom/samsung/android/widget/SemDatePicker;I)Lcom/samsung/android/widget/SemDatePicker$LunarDate;
+
+    move-result-object v21
+
+    move-object/from16 v0, v21
+
+    iget-boolean v5, v0, Lcom/samsung/android/widget/SemDatePicker$LunarDate;->isLeapMonth:Z
+
+    if-eqz v5, :cond_7
+
+    invoke-virtual {v1}, Lcom/samsung/android/widget/SemSimpleMonthView;->setNextMonthLeap()V
+
+    :cond_7
     move-object/from16 v0, p0
 
     iget-object v5, v0, Lcom/samsung/android/widget/SemDatePicker$CalendarPagerAdapter;->this$0:Lcom/samsung/android/widget/SemDatePicker;
@@ -627,7 +695,7 @@
 
     move-result v6
 
-    invoke-static {v5, v6}, Lcom/samsung/android/widget/SemDatePicker;->-set16(Lcom/samsung/android/widget/SemDatePicker;I)I
+    invoke-static {v5, v6}, Lcom/samsung/android/widget/SemDatePicker;->-set15(Lcom/samsung/android/widget/SemDatePicker;I)I
 
     move-object/from16 v0, p0
 
@@ -637,7 +705,7 @@
 
     move-result v6
 
-    invoke-static {v5, v6}, Lcom/samsung/android/widget/SemDatePicker;->-set18(Lcom/samsung/android/widget/SemDatePicker;I)I
+    invoke-static {v5, v6}, Lcom/samsung/android/widget/SemDatePicker;->-set17(Lcom/samsung/android/widget/SemDatePicker;I)I
 
     check-cast p1, Lcom/android/internal/widget/ViewPager;
 
@@ -645,7 +713,7 @@
 
     move-object/from16 v0, p1
 
-    invoke-virtual {v0, v1, v5}, Landroid/view/ViewGroup;->addView(Landroid/view/View;I)V
+    invoke-virtual {v0, v1, v5}, Lcom/android/internal/widget/ViewPager;->addView(Landroid/view/View;I)V
 
     move-object/from16 v0, p0
 
@@ -656,56 +724,43 @@
     invoke-virtual {v5, v0, v1}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
     return-object v1
+
+    :cond_8
+    move-object/from16 v0, p0
+
+    iget-object v5, v0, Lcom/samsung/android/widget/SemDatePicker$CalendarPagerAdapter;->this$0:Lcom/samsung/android/widget/SemDatePicker;
+
+    invoke-static {v5}, Lcom/samsung/android/widget/SemDatePicker;->-get35(Lcom/samsung/android/widget/SemDatePicker;)I
+
+    move-result v5
+
+    add-int/lit8 v5, v5, -0x1
+
+    move/from16 v0, p2
+
+    if-ne v0, v5, :cond_5
+
+    invoke-virtual {v1}, Lcom/samsung/android/widget/SemSimpleMonthView;->setLastMonth()V
+
+    goto :goto_0
 .end method
 
 .method public isViewFromObject(Landroid/view/View;Ljava/lang/Object;)Z
-    .locals 5
+    .locals 1
 
-    const/4 v1, 0x1
+    if-eqz p1, :cond_0
 
-    const/4 v2, 0x0
+    invoke-virtual {p1, p2}, Landroid/view/View;->equals(Ljava/lang/Object;)Z
 
-    iget-object v3, p0, Lcom/samsung/android/widget/SemDatePicker$CalendarPagerAdapter;->this$0:Lcom/samsung/android/widget/SemDatePicker;
-
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v4, "isViewFromObject : "
-
-    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    if-ne p1, p2, :cond_0
-
-    move v0, v1
+    move-result v0
 
     :goto_0
-    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-static {v3, v0}, Lcom/samsung/android/widget/SemDatePicker;->-wrap5(Lcom/samsung/android/widget/SemDatePicker;Ljava/lang/String;)V
-
-    if-ne p1, p2, :cond_1
-
-    :goto_1
-    return v1
+    return v0
 
     :cond_0
-    move v0, v2
+    const/4 v0, 0x0
 
     goto :goto_0
-
-    :cond_1
-    move v1, v2
-
-    goto :goto_1
 .end method
 
 .method public saveState()Landroid/os/Parcelable;

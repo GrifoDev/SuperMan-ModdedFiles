@@ -15,24 +15,6 @@
 
 
 # virtual methods
-.method public abstract DataCollection(J)Ljava/util/List;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(J)",
-            "Ljava/util/List",
-            "<",
-            "Lcom/android/internal/app/procstats/ProcStatsCollection;",
-            ">;"
-        }
-    .end annotation
-
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
 .method public abstract getCurrentMemoryState()I
     .annotation system Ldalvik/annotation/Throws;
         value = {

@@ -61,7 +61,7 @@
 
     move-result-object v1
 
-    invoke-virtual {v1, v0}, Landroid/view/View;->setAlpha(F)V
+    invoke-virtual {v1, v0}, Landroid/widget/ImageButton;->setAlpha(F)V
 
     iget-object v1, p0, Landroid/widget/DayPickerView$1;->this$0:Landroid/widget/DayPickerView;
 
@@ -69,7 +69,7 @@
 
     move-result-object v1
 
-    invoke-virtual {v1, v0}, Landroid/view/View;->setAlpha(F)V
+    invoke-virtual {v1, v0}, Landroid/widget/ImageButton;->setAlpha(F)V
 
     return-void
 .end method

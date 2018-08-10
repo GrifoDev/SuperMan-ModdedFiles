@@ -97,11 +97,33 @@
     .end annotation
 .end field
 
+.field public allowedSecureFolderApps:Ljava/util/List;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/List",
+            "<",
+            "Ljava/lang/String;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 .field public blocking:Z
 
 .field public configureIntent:Landroid/app/PendingIntent;
 
 .field public disallowedApplications:Ljava/util/List;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/List",
+            "<",
+            "Ljava/lang/String;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field public disallowedSecureFolderApps:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/List",
@@ -230,7 +252,7 @@
 
     move-result-object v2
 
-    const v3, 0x1040065
+    const v3, 0x10401ed
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1297,6 +1319,14 @@
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeStringList(Ljava/util/List;)V
 
     iget-object v0, p0, Lcom/android/internal/net/VpnConfig;->disallowedApplications:Ljava/util/List;
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeStringList(Ljava/util/List;)V
+
+    iget-object v0, p0, Lcom/android/internal/net/VpnConfig;->allowedSecureFolderApps:Ljava/util/List;
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeStringList(Ljava/util/List;)V
+
+    iget-object v0, p0, Lcom/android/internal/net/VpnConfig;->disallowedSecureFolderApps:Ljava/util/List;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeStringList(Ljava/util/List;)V
 

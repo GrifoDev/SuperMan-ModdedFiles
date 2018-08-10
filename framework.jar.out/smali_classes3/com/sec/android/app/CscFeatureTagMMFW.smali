@@ -12,6 +12,8 @@
 
 .field public static final TAG_CSCFEATURE_MMFW_CONFIGFILEEXTENSION:Ljava/lang/String; = "CscFeature_MMFW_ConfigFileExtension"
 
+.field public static final TAG_CSCFEATURE_MMFW_SUPPORTSAMSUNGDASH:Ljava/lang/String; = "CscFeature_MMFW_SupportSamsungDash"
+
 
 # direct methods
 .method public constructor <init>()V

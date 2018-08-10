@@ -31,11 +31,11 @@
 
     const-string/jumbo v0, "com.android.chrome"
 
-    invoke-virtual {p0, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {p0, v0}, Landroid/sec/enterprise/proxy/EnterpriseProxyConstants$1;->add(Ljava/lang/Object;)Z
 
     const-string/jumbo v0, "com.sec.android.app.sbrowser"
 
-    invoke-virtual {p0, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {p0, v0}, Landroid/sec/enterprise/proxy/EnterpriseProxyConstants$1;->add(Ljava/lang/Object;)Z
 
     return-void
 .end method

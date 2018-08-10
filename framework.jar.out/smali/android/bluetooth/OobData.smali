@@ -28,6 +28,12 @@
 
 
 # instance fields
+.field private leBluetoothDeviceAddress:[B
+
+.field private leSecureConnectionsConfirmation:[B
+
+.field private leSecureConnectionsRandom:[B
+
 .field private securityManagerTk:[B
 
 
@@ -61,7 +67,25 @@
 
     move-result-object v0
 
+    iput-object v0, p0, Landroid/bluetooth/OobData;->leBluetoothDeviceAddress:[B
+
+    invoke-virtual {p1}, Landroid/os/Parcel;->createByteArray()[B
+
+    move-result-object v0
+
     iput-object v0, p0, Landroid/bluetooth/OobData;->securityManagerTk:[B
+
+    invoke-virtual {p1}, Landroid/os/Parcel;->createByteArray()[B
+
+    move-result-object v0
+
+    iput-object v0, p0, Landroid/bluetooth/OobData;->leSecureConnectionsConfirmation:[B
+
+    invoke-virtual {p1}, Landroid/os/Parcel;->createByteArray()[B
+
+    move-result-object v0
+
+    iput-object v0, p0, Landroid/bluetooth/OobData;->leSecureConnectionsRandom:[B
 
     return-void
 .end method
@@ -84,12 +108,60 @@
     return v0
 .end method
 
+.method public getLeBluetoothDeviceAddress()[B
+    .locals 1
+
+    iget-object v0, p0, Landroid/bluetooth/OobData;->leBluetoothDeviceAddress:[B
+
+    return-object v0
+.end method
+
+.method public getLeSecureConnectionsConfirmation()[B
+    .locals 1
+
+    iget-object v0, p0, Landroid/bluetooth/OobData;->leSecureConnectionsConfirmation:[B
+
+    return-object v0
+.end method
+
+.method public getLeSecureConnectionsRandom()[B
+    .locals 1
+
+    iget-object v0, p0, Landroid/bluetooth/OobData;->leSecureConnectionsRandom:[B
+
+    return-object v0
+.end method
+
 .method public getSecurityManagerTk()[B
     .locals 1
 
     iget-object v0, p0, Landroid/bluetooth/OobData;->securityManagerTk:[B
 
     return-object v0
+.end method
+
+.method public setLeBluetoothDeviceAddress([B)V
+    .locals 0
+
+    iput-object p1, p0, Landroid/bluetooth/OobData;->leBluetoothDeviceAddress:[B
+
+    return-void
+.end method
+
+.method public setLeSecureConnectionsConfirmation([B)V
+    .locals 0
+
+    iput-object p1, p0, Landroid/bluetooth/OobData;->leSecureConnectionsConfirmation:[B
+
+    return-void
+.end method
+
+.method public setLeSecureConnectionsRandom([B)V
+    .locals 0
+
+    iput-object p1, p0, Landroid/bluetooth/OobData;->leSecureConnectionsRandom:[B
+
+    return-void
 .end method
 
 .method public setSecurityManagerTk([B)V
@@ -103,7 +175,19 @@
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
 
+    iget-object v0, p0, Landroid/bluetooth/OobData;->leBluetoothDeviceAddress:[B
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeByteArray([B)V
+
     iget-object v0, p0, Landroid/bluetooth/OobData;->securityManagerTk:[B
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeByteArray([B)V
+
+    iget-object v0, p0, Landroid/bluetooth/OobData;->leSecureConnectionsConfirmation:[B
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeByteArray([B)V
+
+    iget-object v0, p0, Landroid/bluetooth/OobData;->leSecureConnectionsRandom:[B
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeByteArray([B)V
 

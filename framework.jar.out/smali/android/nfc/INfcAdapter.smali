@@ -23,14 +23,6 @@
     .end annotation
 .end method
 
-.method public abstract SetWcControl(I)Z
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
 .method public abstract SetWirelessChargeEnabled(Z)Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -80,6 +72,14 @@
 .end method
 
 .method public abstract addNfcUnlockHandler(Landroid/nfc/INfcUnlockHandler;[I)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract apcCommand(I[B)[B
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -149,6 +149,14 @@
     .end annotation
 .end method
 
+.method public abstract doNciLogDump(I)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract enable()Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -174,6 +182,14 @@
 .end method
 
 .method public abstract enableNdefPush()Z
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract getBigDataNciLog()V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -301,6 +317,14 @@
     .end annotation
 .end method
 
+.method public abstract isNFCAllowed(I)Z
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract isNdefPushEnabled()Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -310,6 +334,14 @@
 .end method
 
 .method public abstract isSimLocked()Z
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract isSupportFastBootMode()Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -382,6 +414,14 @@
 .end method
 
 .method public abstract resumePolling()V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract rfUpdateImage([B)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

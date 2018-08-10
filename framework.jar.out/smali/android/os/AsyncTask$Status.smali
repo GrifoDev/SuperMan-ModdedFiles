@@ -27,10 +27,28 @@
 .field private static final synthetic $VALUES:[Landroid/os/AsyncTask$Status;
 
 .field public static final enum FINISHED:Landroid/os/AsyncTask$Status;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Landroid/os/AsyncTask$Status;"
+        }
+    .end annotation
+.end field
 
 .field public static final enum PENDING:Landroid/os/AsyncTask$Status;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Landroid/os/AsyncTask$Status;"
+        }
+    .end annotation
+.end field
 
 .field public static final enum RUNNING:Landroid/os/AsyncTask$Status;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Landroid/os/AsyncTask$Status;"
+        }
+    .end annotation
+.end field
 
 
 # direct methods

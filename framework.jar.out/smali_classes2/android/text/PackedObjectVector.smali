@@ -323,9 +323,6 @@
 
     mul-int/lit8 v1, v1, 0x2
 
-    if-le v0, v1, :cond_0
-
-    :cond_0
     return-void
 .end method
 

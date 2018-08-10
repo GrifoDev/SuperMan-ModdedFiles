@@ -35,7 +35,7 @@
 
 
 # direct methods
-.method public constructor <init>(Lcom/samsung/android/widget/SemDatePicker;Landroid/content/Context;)V
+.method public constructor <init>(Lcom/samsung/android/widget/SemDatePicker;Landroid/content/Context;Landroid/content/res/TypedArray;)V
     .locals 7
 
     const/4 v6, 0x0
@@ -64,29 +64,13 @@
 
     move-result-object v2
 
-    const v3, 0x10405b3
+    const v3, 0x10408e8
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v0
 
-    const v3, 0x1060179
-
-    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getColor(I)I
-
-    move-result v3
-
-    iput v3, p0, Lcom/samsung/android/widget/SemDatePicker$DayOfTheWeekView;->mNormalDayTextColor:I
-
-    const v3, 0x106017a
-
-    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getColor(I)I
-
-    move-result v3
-
-    iput v3, p0, Lcom/samsung/android/widget/SemDatePicker$DayOfTheWeekView;->mSundayTextColor:I
-
-    const v3, 0x106017b
+    const v3, 0x1060167
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -94,7 +78,35 @@
 
     iput v3, p0, Lcom/samsung/android/widget/SemDatePicker$DayOfTheWeekView;->mSaturdayTextColor:I
 
-    const v3, 0x1050301
+    const v3, 0x1060164
+
+    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getColor(I)I
+
+    move-result v3
+
+    const/4 v4, 0x2
+
+    invoke-virtual {p3, v4, v3}, Landroid/content/res/TypedArray;->getColor(II)I
+
+    move-result v3
+
+    iput v3, p0, Lcom/samsung/android/widget/SemDatePicker$DayOfTheWeekView;->mNormalDayTextColor:I
+
+    const v3, 0x106016b
+
+    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getColor(I)I
+
+    move-result v3
+
+    const/4 v4, 0x4
+
+    invoke-virtual {p3, v4, v3}, Landroid/content/res/TypedArray;->getColor(II)I
+
+    move-result v3
+
+    iput v3, p0, Lcom/samsung/android/widget/SemDatePicker$DayOfTheWeekView;->mSundayTextColor:I
+
+    const v3, 0x105021c
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -174,7 +186,7 @@
 
     iget-object v9, p0, Lcom/samsung/android/widget/SemDatePicker$DayOfTheWeekView;->this$0:Lcom/samsung/android/widget/SemDatePicker;
 
-    invoke-static {v9}, Lcom/samsung/android/widget/SemDatePicker;->-get36(Lcom/samsung/android/widget/SemDatePicker;)I
+    invoke-static {v9}, Lcom/samsung/android/widget/SemDatePicker;->-get33(Lcom/samsung/android/widget/SemDatePicker;)I
 
     move-result v9
 
@@ -185,17 +197,7 @@
     :cond_0
     iget-object v9, p0, Lcom/samsung/android/widget/SemDatePicker$DayOfTheWeekView;->this$0:Lcom/samsung/android/widget/SemDatePicker;
 
-    iget-object v10, p0, Lcom/samsung/android/widget/SemDatePicker$DayOfTheWeekView;->this$0:Lcom/samsung/android/widget/SemDatePicker;
-
-    invoke-static {v10}, Lcom/samsung/android/widget/SemDatePicker;->-get12(Lcom/samsung/android/widget/SemDatePicker;)I
-
-    move-result v10
-
-    invoke-static {v9, v10}, Lcom/samsung/android/widget/SemDatePicker;->-set1(Lcom/samsung/android/widget/SemDatePicker;I)I
-
-    iget-object v9, p0, Lcom/samsung/android/widget/SemDatePicker$DayOfTheWeekView;->this$0:Lcom/samsung/android/widget/SemDatePicker;
-
-    invoke-static {v9}, Lcom/samsung/android/widget/SemDatePicker;->-get11(Lcom/samsung/android/widget/SemDatePicker;)I
+    invoke-static {v9}, Lcom/samsung/android/widget/SemDatePicker;->-get10(Lcom/samsung/android/widget/SemDatePicker;)I
 
     move-result v9
 
@@ -205,13 +207,13 @@
 
     iget-object v9, p0, Lcom/samsung/android/widget/SemDatePicker$DayOfTheWeekView;->this$0:Lcom/samsung/android/widget/SemDatePicker;
 
-    invoke-static {v9}, Lcom/samsung/android/widget/SemDatePicker;->-get13(Lcom/samsung/android/widget/SemDatePicker;)I
+    invoke-static {v9}, Lcom/samsung/android/widget/SemDatePicker;->-get11(Lcom/samsung/android/widget/SemDatePicker;)I
 
     move-result v9
 
     iget-object v10, p0, Lcom/samsung/android/widget/SemDatePicker$DayOfTheWeekView;->this$0:Lcom/samsung/android/widget/SemDatePicker;
 
-    invoke-static {v10}, Lcom/samsung/android/widget/SemDatePicker;->-get36(Lcom/samsung/android/widget/SemDatePicker;)I
+    invoke-static {v10}, Lcom/samsung/android/widget/SemDatePicker;->-get33(Lcom/samsung/android/widget/SemDatePicker;)I
 
     move-result v10
 
@@ -224,7 +226,7 @@
     :goto_0
     iget-object v9, p0, Lcom/samsung/android/widget/SemDatePicker$DayOfTheWeekView;->this$0:Lcom/samsung/android/widget/SemDatePicker;
 
-    invoke-static {v9}, Lcom/samsung/android/widget/SemDatePicker;->-get36(Lcom/samsung/android/widget/SemDatePicker;)I
+    invoke-static {v9}, Lcom/samsung/android/widget/SemDatePicker;->-get33(Lcom/samsung/android/widget/SemDatePicker;)I
 
     move-result v9
 
@@ -240,7 +242,7 @@
 
     iget-object v10, p0, Lcom/samsung/android/widget/SemDatePicker$DayOfTheWeekView;->this$0:Lcom/samsung/android/widget/SemDatePicker;
 
-    invoke-static {v10}, Lcom/samsung/android/widget/SemDatePicker;->-get36(Lcom/samsung/android/widget/SemDatePicker;)I
+    invoke-static {v10}, Lcom/samsung/android/widget/SemDatePicker;->-get33(Lcom/samsung/android/widget/SemDatePicker;)I
 
     move-result v10
 
@@ -289,7 +291,7 @@
     :goto_2
     iget-object v9, p0, Lcom/samsung/android/widget/SemDatePicker$DayOfTheWeekView;->this$0:Lcom/samsung/android/widget/SemDatePicker;
 
-    invoke-static {v9}, Lcom/samsung/android/widget/SemDatePicker;->-get36(Lcom/samsung/android/widget/SemDatePicker;)I
+    invoke-static {v9}, Lcom/samsung/android/widget/SemDatePicker;->-get33(Lcom/samsung/android/widget/SemDatePicker;)I
 
     move-result v9
 
@@ -297,7 +299,7 @@
 
     iget-object v9, p0, Lcom/samsung/android/widget/SemDatePicker$DayOfTheWeekView;->this$0:Lcom/samsung/android/widget/SemDatePicker;
 
-    invoke-static {v9}, Lcom/samsung/android/widget/SemDatePicker;->-get42(Lcom/samsung/android/widget/SemDatePicker;)I
+    invoke-static {v9}, Lcom/samsung/android/widget/SemDatePicker;->-get39(Lcom/samsung/android/widget/SemDatePicker;)I
 
     move-result v9
 
@@ -305,7 +307,7 @@
 
     iget-object v10, p0, Lcom/samsung/android/widget/SemDatePicker$DayOfTheWeekView;->this$0:Lcom/samsung/android/widget/SemDatePicker;
 
-    invoke-static {v10}, Lcom/samsung/android/widget/SemDatePicker;->-get36(Lcom/samsung/android/widget/SemDatePicker;)I
+    invoke-static {v10}, Lcom/samsung/android/widget/SemDatePicker;->-get33(Lcom/samsung/android/widget/SemDatePicker;)I
 
     move-result v10
 
@@ -319,7 +321,7 @@
 
     iget-object v9, p0, Lcom/samsung/android/widget/SemDatePicker$DayOfTheWeekView;->this$0:Lcom/samsung/android/widget/SemDatePicker;
 
-    invoke-static {v9}, Lcom/samsung/android/widget/SemDatePicker;->-get10(Lcom/samsung/android/widget/SemDatePicker;)Ljava/text/SimpleDateFormat;
+    invoke-static {v9}, Lcom/samsung/android/widget/SemDatePicker;->-get9(Lcom/samsung/android/widget/SemDatePicker;)Ljava/text/SimpleDateFormat;
 
     move-result-object v9
 
@@ -329,7 +331,7 @@
 
     move-result-object v10
 
-    invoke-virtual {v9, v10}, Ljava/text/DateFormat;->format(Ljava/util/Date;)Ljava/lang/String;
+    invoke-virtual {v9, v10}, Ljava/text/SimpleDateFormat;->format(Ljava/util/Date;)Ljava/lang/String;
 
     move-result-object v9
 
@@ -339,7 +341,7 @@
 
     iget-object v9, p0, Lcom/samsung/android/widget/SemDatePicker$DayOfTheWeekView;->this$0:Lcom/samsung/android/widget/SemDatePicker;
 
-    invoke-static {v9}, Lcom/samsung/android/widget/SemDatePicker;->-get21(Lcom/samsung/android/widget/SemDatePicker;)Z
+    invoke-static {v9}, Lcom/samsung/android/widget/SemDatePicker;->-get19(Lcom/samsung/android/widget/SemDatePicker;)Z
 
     move-result v9
 
@@ -347,7 +349,7 @@
 
     iget-object v9, p0, Lcom/samsung/android/widget/SemDatePicker$DayOfTheWeekView;->this$0:Lcom/samsung/android/widget/SemDatePicker;
 
-    invoke-static {v9}, Lcom/samsung/android/widget/SemDatePicker;->-get36(Lcom/samsung/android/widget/SemDatePicker;)I
+    invoke-static {v9}, Lcom/samsung/android/widget/SemDatePicker;->-get33(Lcom/samsung/android/widget/SemDatePicker;)I
 
     move-result v9
 
@@ -363,7 +365,7 @@
 
     iget-object v10, p0, Lcom/samsung/android/widget/SemDatePicker$DayOfTheWeekView;->this$0:Lcom/samsung/android/widget/SemDatePicker;
 
-    invoke-static {v10}, Lcom/samsung/android/widget/SemDatePicker;->-get37(Lcom/samsung/android/widget/SemDatePicker;)I
+    invoke-static {v10}, Lcom/samsung/android/widget/SemDatePicker;->-get34(Lcom/samsung/android/widget/SemDatePicker;)I
 
     move-result v10
 
@@ -399,7 +401,7 @@
 
     iget-object v10, p0, Lcom/samsung/android/widget/SemDatePicker$DayOfTheWeekView;->this$0:Lcom/samsung/android/widget/SemDatePicker;
 
-    invoke-static {v10}, Lcom/samsung/android/widget/SemDatePicker;->-get37(Lcom/samsung/android/widget/SemDatePicker;)I
+    invoke-static {v10}, Lcom/samsung/android/widget/SemDatePicker;->-get34(Lcom/samsung/android/widget/SemDatePicker;)I
 
     move-result v10
 

@@ -31,6 +31,8 @@
 
 .field private mDozeScreenBrightness:I
 
+.field private mDozeScreenMode:I
+
 .field private mDozeScreenState:I
 
 .field private mDozing:Z
@@ -109,10 +111,10 @@
     return p1
 .end method
 
-.method static synthetic -wrap0(Landroid/service/dreams/DreamService;Landroid/os/IBinder;Z)V
+.method static synthetic -wrap0(Landroid/service/dreams/DreamService;Landroid/os/IBinder;ZLandroid/os/IRemoteCallback;)V
     .locals 0
 
-    invoke-direct {p0, p1, p2}, Landroid/service/dreams/DreamService;->attach(Landroid/os/IBinder;Z)V
+    invoke-direct {p0, p1, p2, p3}, Landroid/service/dreams/DreamService;->attach(Landroid/os/IBinder;ZLandroid/os/IRemoteCallback;)V
 
     return-void
 .end method
@@ -202,6 +204,8 @@
 
     iput v0, p0, Landroid/service/dreams/DreamService;->mDozeScreenBrightness:I
 
+    iput v2, p0, Landroid/service/dreams/DreamService;->mDozeScreenMode:I
+
     iput-boolean v2, p0, Landroid/service/dreams/DreamService;->mDebug:Z
 
     const-string/jumbo v0, "dreams"
@@ -236,11 +240,11 @@
 .method private applySystemUiVisibilityFlags(II)V
     .locals 2
 
-    const/4 v0, 0x0
-
     iget-object v1, p0, Landroid/service/dreams/DreamService;->mWindow:Landroid/view/Window;
 
     if-nez v1, :cond_1
+
+    const/4 v0, 0x0
 
     :goto_0
     if-eqz v0, :cond_0
@@ -311,16 +315,18 @@
     return-void
 .end method
 
-.method private final attach(Landroid/os/IBinder;Z)V
-    .locals 11
+.method private final attach(Landroid/os/IBinder;ZLandroid/os/IRemoteCallback;)V
+    .locals 12
 
-    const/16 v10, 0x7e7
+    const/16 v11, 0x7e7
+
+    const/4 v10, -0x3
 
     const/4 v9, 0x0
 
-    const/4 v4, 0x0
-
     const/4 v5, 0x1
+
+    const/4 v4, 0x0
 
     iget-object v3, p0, Landroid/service/dreams/DreamService;->mWindowToken:Landroid/os/IBinder;
 
@@ -391,7 +397,17 @@
 
     iget-boolean v3, p0, Landroid/service/dreams/DreamService;->mCanDoze:Z
 
-    if-eqz v3, :cond_7
+    xor-int/lit8 v3, v3, 0x1
+
+    if-eqz v3, :cond_3
+
+    new-instance v3, Ljava/lang/IllegalStateException;
+
+    const-string/jumbo v4, "Only doze dreams can be windowless"
+
+    invoke-direct {v3, v4}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+
+    throw v3
 
     :cond_3
     iget-boolean v3, p0, Landroid/service/dreams/DreamService;->mWindowless:Z
@@ -442,7 +458,7 @@
 
     aput-object p1, v7, v4
 
-    invoke-static {v10}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v11}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v8
 
@@ -461,11 +477,11 @@
 
     move-result-object v2
 
-    iput v10, v2, Landroid/view/WindowManager$LayoutParams;->type:I
+    iput v11, v2, Landroid/view/WindowManager$LayoutParams;->type:I
 
     iput-object p1, v2, Landroid/view/WindowManager$LayoutParams;->token:Landroid/os/IBinder;
 
-    const v3, 0x10302f8
+    const v3, 0x10302f1
 
     iput v3, v2, Landroid/view/WindowManager$LayoutParams;->windowAnimations:I
 
@@ -473,7 +489,7 @@
 
     iget-boolean v3, p0, Landroid/service/dreams/DreamService;->mFullscreen:Z
 
-    if-eqz v3, :cond_8
+    if-eqz v3, :cond_7
 
     const/16 v3, 0x400
 
@@ -484,7 +500,7 @@
 
     iget-boolean v3, p0, Landroid/service/dreams/DreamService;->mScreenBright:Z
 
-    if-eqz v3, :cond_9
+    if-eqz v3, :cond_8
 
     const/16 v3, 0x80
 
@@ -513,13 +529,76 @@
 
     iget-boolean v3, p0, Landroid/service/dreams/DreamService;->mLowProfile:Z
 
+    if-eqz v3, :cond_9
+
+    move v3, v5
+
+    :goto_3
+    invoke-direct {p0, v3, v5}, Landroid/service/dreams/DreamService;->applySystemUiVisibilityFlags(II)V
+
+    iget-boolean v3, p0, Landroid/service/dreams/DreamService;->mCanDoze:Z
+
     if-eqz v3, :cond_5
 
-    move v4, v5
+    iput v4, v2, Landroid/view/WindowManager$LayoutParams;->windowAnimations:I
+
+    iget-object v3, p0, Landroid/service/dreams/DreamService;->mWindow:Landroid/view/Window;
+
+    new-instance v5, Landroid/graphics/drawable/ColorDrawable;
+
+    invoke-direct {v5, v4}, Landroid/graphics/drawable/ColorDrawable;-><init>(I)V
+
+    invoke-virtual {v3, v5}, Landroid/view/Window;->setBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V
+
+    iget-object v3, p0, Landroid/service/dreams/DreamService;->mWindow:Landroid/view/Window;
+
+    invoke-virtual {v3, v10}, Landroid/view/Window;->setFormat(I)V
+
+    iget-object v3, p0, Landroid/service/dreams/DreamService;->mWindow:Landroid/view/Window;
+
+    const/high16 v4, 0x10000
+
+    invoke-virtual {v3, v4}, Landroid/view/Window;->clearFlags(I)V
+
+    const/16 v3, 0x96a
+
+    iput v3, v2, Landroid/view/WindowManager$LayoutParams;->type:I
+
+    iput v10, v2, Landroid/view/WindowManager$LayoutParams;->format:I
+
+    iget v3, v2, Landroid/view/WindowManager$LayoutParams;->flags:I
+
+    const v4, -0x400001
+
+    and-int/2addr v3, v4
+
+    iput v3, v2, Landroid/view/WindowManager$LayoutParams;->flags:I
+
+    iget v3, v2, Landroid/view/WindowManager$LayoutParams;->flags:I
+
+    or-int/lit8 v3, v3, 0x8
+
+    iput v3, v2, Landroid/view/WindowManager$LayoutParams;->flags:I
+
+    iget v3, v2, Landroid/view/WindowManager$LayoutParams;->samsungFlags:I
+
+    const/high16 v4, 0x40000
+
+    or-int/2addr v3, v4
+
+    iput v3, v2, Landroid/view/WindowManager$LayoutParams;->samsungFlags:I
+
+    iget-object v3, p0, Landroid/service/dreams/DreamService;->mWindow:Landroid/view/Window;
+
+    invoke-virtual {v3, v2}, Landroid/view/Window;->setAttributes(Landroid/view/WindowManager$LayoutParams;)V
+
+    const/high16 v3, 0x1600000
+
+    const/high16 v4, 0x1600000
+
+    invoke-direct {p0, v3, v4}, Landroid/service/dreams/DreamService;->applySystemUiVisibilityFlags(II)V
 
     :cond_5
-    invoke-direct {p0, v4, v5}, Landroid/service/dreams/DreamService;->applySystemUiVisibilityFlags(II)V
-
     :try_start_1
     invoke-virtual {p0}, Landroid/service/dreams/DreamService;->getWindowManager()Landroid/view/WindowManager;
 
@@ -546,30 +625,26 @@
 
     new-instance v4, Landroid/service/dreams/DreamService$1;
 
-    invoke-direct {v4, p0}, Landroid/service/dreams/DreamService$1;-><init>(Landroid/service/dreams/DreamService;)V
+    invoke-direct {v4, p0, p3}, Landroid/service/dreams/DreamService$1;-><init>(Landroid/service/dreams/DreamService;Landroid/os/IRemoteCallback;)V
 
     invoke-virtual {v3, v4}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
     return-void
 
     :cond_7
-    new-instance v3, Ljava/lang/IllegalStateException;
+    move v3, v4
 
-    const-string/jumbo v4, "Only doze dreams can be windowless"
-
-    invoke-direct {v3, v4}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
-
-    throw v3
+    goto/16 :goto_1
 
     :cond_8
     move v3, v4
 
-    goto :goto_1
+    goto/16 :goto_2
 
     :cond_9
     move v3, v4
 
-    goto :goto_2
+    goto :goto_3
 
     :catch_0
     move-exception v1
@@ -698,11 +773,11 @@
 
     const/4 v1, 0x0
 
-    const/4 v0, 0x0
-
     iget-object v2, p0, Landroid/service/dreams/DreamService;->mWindow:Landroid/view/Window;
 
     if-nez v2, :cond_0
+
+    const/4 v0, 0x0
 
     :goto_0
     if-nez v0, :cond_1
@@ -774,7 +849,7 @@
 .end method
 
 .method private updateDoze()V
-    .locals 5
+    .locals 6
 
     iget-boolean v1, p0, Landroid/service/dreams/DreamService;->mDozing:Z
 
@@ -787,9 +862,11 @@
 
     iget v3, p0, Landroid/service/dreams/DreamService;->mDozeScreenState:I
 
-    iget v4, p0, Landroid/service/dreams/DreamService;->mDozeScreenBrightness:I
+    iget v4, p0, Landroid/service/dreams/DreamService;->mDozeScreenMode:I
 
-    invoke-interface {v1, v2, v3, v4}, Landroid/service/dreams/IDreamManager;->startDozing(Landroid/os/IBinder;II)V
+    iget v5, p0, Landroid/service/dreams/DreamService;->mDozeScreenBrightness:I
+
+    invoke-interface {v1, v2, v3, v4, v5}, Landroid/service/dreams/IDreamManager;->semStartDozing(Landroid/os/IBinder;III)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -863,13 +940,10 @@
 
     iget-boolean v1, p0, Landroid/service/dreams/DreamService;->mFinished:Z
 
-    if-eqz v1, :cond_2
+    xor-int/lit8 v1, v1, 0x1
 
-    :cond_1
-    :goto_0
-    return-void
+    if-eqz v1, :cond_1
 
-    :cond_2
     const/4 v1, 0x1
 
     iput-boolean v1, p0, Landroid/service/dreams/DreamService;->mWaking:Z
@@ -880,11 +954,13 @@
 
     iget-boolean v1, p0, Landroid/service/dreams/DreamService;->mFinished:Z
 
-    if-nez v1, :cond_1
+    xor-int/lit8 v1, v1, 0x1
+
+    if-eqz v1, :cond_1
 
     iget-object v1, p0, Landroid/service/dreams/DreamService;->mWindowToken:Landroid/os/IBinder;
 
-    if-nez v1, :cond_3
+    if-nez v1, :cond_2
 
     iget-object v1, p0, Landroid/service/dreams/DreamService;->TAG:Ljava/lang/String;
 
@@ -892,9 +968,11 @@
 
     invoke-static {v1, v2}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_0
+    :cond_1
+    :goto_0
+    return-void
 
-    :cond_3
+    :cond_2
     :try_start_0
     iget-object v1, p0, Landroid/service/dreams/DreamService;->mSandman:Landroid/service/dreams/IDreamManager;
 
@@ -1391,6 +1469,13 @@
 
 .method public findViewById(I)Landroid/view/View;
     .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "<T:",
+            "Landroid/view/View;",
+            ">(I)TT;"
+        }
+    .end annotation
 
     invoke-virtual {p0}, Landroid/service/dreams/DreamService;->getWindow()Landroid/view/Window;
 
@@ -1825,6 +1910,46 @@
     return-object v0
 .end method
 
+.method public semSetDozeScreenBrightness(II)V
+    .locals 2
+
+    const/4 v1, -0x1
+
+    if-eq p2, v1, :cond_0
+
+    invoke-static {p2}, Landroid/service/dreams/DreamService;->clampAbsoluteBrightness(I)I
+
+    move-result p2
+
+    :cond_0
+    const/4 v0, 0x0
+
+    iget v1, p0, Landroid/service/dreams/DreamService;->mDozeScreenBrightness:I
+
+    if-eq v1, p2, :cond_1
+
+    iput p2, p0, Landroid/service/dreams/DreamService;->mDozeScreenBrightness:I
+
+    const/4 v0, 0x1
+
+    :cond_1
+    iget v1, p0, Landroid/service/dreams/DreamService;->mDozeScreenMode:I
+
+    if-eq v1, p1, :cond_2
+
+    iput p1, p0, Landroid/service/dreams/DreamService;->mDozeScreenMode:I
+
+    const/4 v0, 0x1
+
+    :cond_2
+    if-eqz v0, :cond_3
+
+    invoke-direct {p0}, Landroid/service/dreams/DreamService;->updateDoze()V
+
+    :cond_3
+    return-void
+.end method
+
 .method public setContentView(I)V
     .locals 1
 
@@ -2020,20 +2145,18 @@
 
     iget-boolean v0, p0, Landroid/service/dreams/DreamService;->mDozing:Z
 
-    if-eqz v0, :cond_1
+    xor-int/lit8 v0, v0, 0x1
 
-    :cond_0
-    :goto_0
-    return-void
+    if-eqz v0, :cond_0
 
-    :cond_1
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Landroid/service/dreams/DreamService;->mDozing:Z
 
     invoke-direct {p0}, Landroid/service/dreams/DreamService;->updateDoze()V
 
-    goto :goto_0
+    :cond_0
+    return-void
 .end method
 
 .method public stopDozing()V

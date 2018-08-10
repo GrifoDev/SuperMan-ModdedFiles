@@ -78,7 +78,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/cover/CoverStateListenerDelegate;->mListener:Lcom/samsung/android/cover/CoverManager$CoverStateListener;
 
-    invoke-virtual {v0}, Ljava/lang/Object;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Lcom/samsung/android/cover/CoverManager$CoverStateListener;->toString()Ljava/lang/String;
 
     move-result-object v0
 

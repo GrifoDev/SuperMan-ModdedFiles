@@ -416,7 +416,7 @@
 
     iget-object v1, p0, Landroid/media/tv/ITvInputSessionWrapper;->mReceiver:Landroid/media/tv/ITvInputSessionWrapper$TvInputEventReceiver;
 
-    invoke-virtual {v1}, Landroid/view/InputEventReceiver;->dispose()V
+    invoke-virtual {v1}, Landroid/media/tv/ITvInputSessionWrapper$TvInputEventReceiver;->dispose()V
 
     iput-object v6, p0, Landroid/media/tv/ITvInputSessionWrapper;->mReceiver:Landroid/media/tv/ITvInputSessionWrapper$TvInputEventReceiver;
 

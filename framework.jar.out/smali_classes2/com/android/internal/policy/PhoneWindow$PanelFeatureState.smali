@@ -173,7 +173,7 @@
 
     iget-object v1, p0, Lcom/android/internal/policy/PhoneWindow$PanelFeatureState;->iconMenuPresenter:Lcom/android/internal/view/menu/IconMenuPresenter;
 
-    const v2, 0x102004d
+    const v2, 0x10202fd
 
     invoke-virtual {v1, v2}, Lcom/android/internal/view/menu/IconMenuPresenter;->setId(I)V
 
@@ -222,7 +222,7 @@
 
     iget v2, p0, Lcom/android/internal/policy/PhoneWindow$PanelFeatureState;->listPresenterTheme:I
 
-    const v3, 0x109008b
+    const v3, 0x109008e
 
     invoke-direct {v1, v3, v2}, Lcom/android/internal/view/menu/ListMenuPresenter;-><init>(II)V
 
@@ -234,7 +234,7 @@
 
     iget-object v1, p0, Lcom/android/internal/policy/PhoneWindow$PanelFeatureState;->listMenuPresenter:Lcom/android/internal/view/menu/ListMenuPresenter;
 
-    const v2, 0x102004e
+    const v2, 0x102035b
 
     invoke-virtual {v1, v2}, Lcom/android/internal/view/menu/ListMenuPresenter;->setId(I)V
 
@@ -523,7 +523,7 @@
 
     iput v1, p0, Lcom/android/internal/policy/PhoneWindow$PanelFeatureState;->windowAnimations:I
 
-    const/16 v1, 0x127
+    const/16 v1, 0x136
 
     invoke-virtual {v0, v1, v2}, Landroid/content/res/TypedArray;->getBoolean(IZ)Z
 
@@ -531,9 +531,9 @@
 
     iput-boolean v1, p0, Lcom/android/internal/policy/PhoneWindow$PanelFeatureState;->isCompact:Z
 
-    const/16 v1, 0x129
+    const/16 v1, 0x137
 
-    const v2, 0x1030483
+    const v2, 0x103040b
 
     invoke-virtual {v0, v1, v2}, Landroid/content/res/TypedArray;->getResourceId(II)I
 

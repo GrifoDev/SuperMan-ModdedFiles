@@ -55,7 +55,7 @@
 
     iget-object v1, p0, Landroid/filterpacks/base/FrameSource;->mFrame:Landroid/filterfw/core/Frame;
 
-    invoke-virtual {p0, v0, v1}, Landroid/filterfw/core/Filter;->pushOutput(Ljava/lang/String;Landroid/filterfw/core/Frame;)V
+    invoke-virtual {p0, v0, v1}, Landroid/filterpacks/base/FrameSource;->pushOutput(Ljava/lang/String;Landroid/filterfw/core/Frame;)V
 
     :cond_0
     iget-boolean v0, p0, Landroid/filterpacks/base/FrameSource;->mRepeatFrame:Z
@@ -64,7 +64,7 @@
 
     const-string/jumbo v0, "frame"
 
-    invoke-virtual {p0, v0}, Landroid/filterfw/core/Filter;->closeOutputPort(Ljava/lang/String;)V
+    invoke-virtual {p0, v0}, Landroid/filterpacks/base/FrameSource;->closeOutputPort(Ljava/lang/String;)V
 
     :cond_1
     return-void
@@ -77,7 +77,7 @@
 
     iget-object v1, p0, Landroid/filterpacks/base/FrameSource;->mFormat:Landroid/filterfw/core/FrameFormat;
 
-    invoke-virtual {p0, v0, v1}, Landroid/filterfw/core/Filter;->addOutputPort(Ljava/lang/String;Landroid/filterfw/core/FrameFormat;)V
+    invoke-virtual {p0, v0, v1}, Landroid/filterpacks/base/FrameSource;->addOutputPort(Ljava/lang/String;Landroid/filterfw/core/FrameFormat;)V
 
     return-void
 .end method

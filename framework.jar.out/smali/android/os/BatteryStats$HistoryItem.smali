@@ -40,13 +40,11 @@
 
 .field public static final EVENT_ALARM_START:I = 0x800d
 
-.field public static final EVENT_CHECKIN_COUNT:I = 0x13
-
 .field public static final EVENT_COLLECT_EXTERNAL_STATS:I = 0xe
 
 .field public static final EVENT_CONNECTIVITY_CHANGED:I = 0x9
 
-.field public static final EVENT_COUNT:I = 0x14
+.field public static final EVENT_COUNT:I = 0x16
 
 .field public static final EVENT_FLAG_FINISH:I = 0x4000
 
@@ -63,6 +61,12 @@
 .field public static final EVENT_JOB_FINISH:I = 0x4006
 
 .field public static final EVENT_JOB_START:I = 0x8006
+
+.field public static final EVENT_LONG_WAKE_LOCK:I = 0x14
+
+.field public static final EVENT_LONG_WAKE_LOCK_FINISH:I = 0x4014
+
+.field public static final EVENT_LONG_WAKE_LOCK_START:I = 0x8014
 
 .field public static final EVENT_NONE:I = 0x0
 
@@ -220,7 +224,11 @@
 
 .field public batteryPlugType:B
 
-.field public batterySecEvent:B
+.field public batterySecCurrentEvent:I
+
+.field public batterySecEvent:I
+
+.field public batterySecOnline:B
 
 .field public batteryStatus:B
 
@@ -389,9 +397,17 @@
 
     iput-byte v0, p0, Landroid/os/BatteryStats$HistoryItem;->pa_temp:B
 
-    iget-byte v0, p1, Landroid/os/BatteryStats$HistoryItem;->batterySecEvent:B
+    iget v0, p1, Landroid/os/BatteryStats$HistoryItem;->batterySecEvent:I
 
-    iput-byte v0, p0, Landroid/os/BatteryStats$HistoryItem;->batterySecEvent:B
+    iput v0, p0, Landroid/os/BatteryStats$HistoryItem;->batterySecEvent:I
+
+    iget-byte v0, p1, Landroid/os/BatteryStats$HistoryItem;->batterySecOnline:B
+
+    iput-byte v0, p0, Landroid/os/BatteryStats$HistoryItem;->batterySecOnline:B
+
+    iget v0, p1, Landroid/os/BatteryStats$HistoryItem;->batterySecCurrentEvent:I
+
+    iput v0, p0, Landroid/os/BatteryStats$HistoryItem;->batterySecCurrentEvent:I
 
     iget v0, p1, Landroid/os/BatteryStats$HistoryItem;->batteryChargeUAh:I
 
@@ -517,7 +533,11 @@
 
     iput-byte v2, p0, Landroid/os/BatteryStats$HistoryItem;->pa_temp:B
 
-    iput-byte v2, p0, Landroid/os/BatteryStats$HistoryItem;->batterySecEvent:B
+    iput v2, p0, Landroid/os/BatteryStats$HistoryItem;->batterySecEvent:I
+
+    iput-byte v2, p0, Landroid/os/BatteryStats$HistoryItem;->batterySecOnline:B
+
+    iput v2, p0, Landroid/os/BatteryStats$HistoryItem;->batterySecCurrentEvent:I
 
     iput v2, p0, Landroid/os/BatteryStats$HistoryItem;->batteryChargeUAh:I
 
@@ -688,11 +708,25 @@
 
     move-result v4
 
-    and-int/lit16 v6, v4, 0xff
+    const v6, 0xffffff
+
+    and-int/2addr v6, v4
+
+    iput v6, p0, Landroid/os/BatteryStats$HistoryItem;->batterySecEvent:I
+
+    shr-int/lit8 v6, v4, 0x18
+
+    and-int/lit16 v6, v6, 0xff
 
     int-to-byte v6, v6
 
-    iput-byte v6, p0, Landroid/os/BatteryStats$HistoryItem;->batterySecEvent:B
+    iput-byte v6, p0, Landroid/os/BatteryStats$HistoryItem;->batterySecOnline:B
+
+    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
+
+    move-result v6
+
+    iput v6, p0, Landroid/os/BatteryStats$HistoryItem;->batterySecCurrentEvent:I
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
@@ -1020,9 +1054,21 @@
 
     if-ne v1, v2, :cond_0
 
-    iget-byte v1, p0, Landroid/os/BatteryStats$HistoryItem;->batterySecEvent:B
+    iget v1, p0, Landroid/os/BatteryStats$HistoryItem;->batterySecEvent:I
 
-    iget-byte v2, p1, Landroid/os/BatteryStats$HistoryItem;->batterySecEvent:B
+    iget v2, p1, Landroid/os/BatteryStats$HistoryItem;->batterySecEvent:I
+
+    if-ne v1, v2, :cond_0
+
+    iget-byte v1, p0, Landroid/os/BatteryStats$HistoryItem;->batterySecOnline:B
+
+    iget-byte v2, p1, Landroid/os/BatteryStats$HistoryItem;->batterySecOnline:B
+
+    if-ne v1, v2, :cond_0
+
+    iget v1, p0, Landroid/os/BatteryStats$HistoryItem;->batterySecCurrentEvent:I
+
+    iget v2, p1, Landroid/os/BatteryStats$HistoryItem;->batterySecCurrentEvent:I
 
     if-ne v1, v2, :cond_0
 
@@ -1089,11 +1135,11 @@
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 9
 
-    const/high16 v8, 0xff0000
+    const v8, 0xffff
 
-    const v7, 0xffff
+    const v7, 0xff00
 
-    const v6, 0xff00
+    const/high16 v6, -0x1000000
 
     const/4 v2, 0x0
 
@@ -1109,7 +1155,7 @@
 
     shl-int/lit8 v3, v3, 0x8
 
-    and-int/2addr v3, v6
+    and-int/2addr v3, v7
 
     or-int/2addr v1, v3
 
@@ -1174,7 +1220,7 @@
 
     iget-short v1, p0, Landroid/os/BatteryStats$HistoryItem;->batteryTemperature:S
 
-    and-int/2addr v1, v7
+    and-int/2addr v1, v8
 
     iget-char v2, p0, Landroid/os/BatteryStats$HistoryItem;->batteryVoltage:C
 
@@ -1190,13 +1236,15 @@
 
     iget-short v1, p0, Landroid/os/BatteryStats$HistoryItem;->current:S
 
-    and-int/2addr v1, v7
+    and-int/2addr v1, v8
 
     iget-byte v2, p0, Landroid/os/BatteryStats$HistoryItem;->ap_temp:B
 
     shl-int/lit8 v2, v2, 0x10
 
-    and-int/2addr v2, v8
+    const/high16 v3, 0xff0000
+
+    and-int/2addr v2, v3
 
     or-int/2addr v1, v2
 
@@ -1204,9 +1252,7 @@
 
     shl-int/lit8 v2, v2, 0x18
 
-    const/high16 v3, -0x1000000
-
-    and-int/2addr v2, v3
+    and-int/2addr v2, v6
 
     or-int v0, v1, v2
 
@@ -1220,7 +1266,7 @@
 
     shl-int/lit8 v2, v2, 0x8
 
-    and-int/2addr v2, v6
+    and-int/2addr v2, v7
 
     or-int/2addr v1, v2
 
@@ -1228,17 +1274,33 @@
 
     shl-int/lit8 v2, v2, 0x10
 
-    and-int/2addr v2, v8
+    const/high16 v3, 0xff0000
+
+    and-int/2addr v2, v3
 
     or-int v0, v1, v2
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    iget-byte v1, p0, Landroid/os/BatteryStats$HistoryItem;->batterySecEvent:B
+    iget v1, p0, Landroid/os/BatteryStats$HistoryItem;->batterySecEvent:I
 
-    and-int/lit16 v0, v1, 0xff
+    const v2, 0xffffff
+
+    and-int/2addr v1, v2
+
+    iget-byte v2, p0, Landroid/os/BatteryStats$HistoryItem;->batterySecOnline:B
+
+    shl-int/lit8 v2, v2, 0x18
+
+    and-int/2addr v2, v6
+
+    or-int v0, v1, v2
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
+
+    iget v1, p0, Landroid/os/BatteryStats$HistoryItem;->batterySecCurrentEvent:I
+
+    invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeInt(I)V
 
     iget v1, p0, Landroid/os/BatteryStats$HistoryItem;->batteryChargeUAh:I
 

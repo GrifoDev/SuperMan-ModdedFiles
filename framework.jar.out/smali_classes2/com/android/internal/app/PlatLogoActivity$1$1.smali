@@ -62,7 +62,7 @@
 
     iget-object v2, v2, Lcom/android/internal/app/PlatLogoActivity$1;->this$0:Lcom/android/internal/app/PlatLogoActivity;
 
-    invoke-virtual {v2}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v2}, Lcom/android/internal/app/PlatLogoActivity;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
@@ -95,7 +95,7 @@
 
     invoke-direct {v3, p0}, Lcom/android/internal/app/PlatLogoActivity$1$1$1;-><init>(Lcom/android/internal/app/PlatLogoActivity$1$1;)V
 
-    invoke-virtual {v2, v3}, Landroid/view/View;->post(Ljava/lang/Runnable;)Z
+    invoke-virtual {v2, v3}, Landroid/widget/ImageView;->post(Ljava/lang/Runnable;)Z
 
     const/4 v2, 0x1
 

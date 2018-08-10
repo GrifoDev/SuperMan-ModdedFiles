@@ -62,9 +62,7 @@
 
     move-result-object v0
 
-    nop
-
-    nop
+    check-cast p1, Ljava/lang/Boolean;
 
     invoke-virtual {p1}, Ljava/lang/Boolean;->booleanValue()Z
 

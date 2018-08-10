@@ -37,7 +37,11 @@
 
 .field public static final VIDEO_MPEG:Ljava/lang/String; = "video/mpeg"
 
+.field public static final VIDEO_MPEG2TS:Ljava/lang/String; = "video/mp2ts"
+
 .field public static final VIDEO_UNSPECIFIED:Ljava/lang/String; = "video/*"
+
+.field public static final VIDEO_WEBM:Ljava/lang/String; = "video/webm"
 
 .field public static final VIDEO_WMV:Ljava/lang/String; = "video/x-ms-wmv"
 
@@ -132,6 +136,18 @@
     sget-object v0, Lcom/samsung/android/transcode/core/Encode$ContentType;->sSupportedVideoTypes:Ljava/util/ArrayList;
 
     const-string/jumbo v1, "video/flv"
+
+    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v0, Lcom/samsung/android/transcode/core/Encode$ContentType;->sSupportedVideoTypes:Ljava/util/ArrayList;
+
+    const-string/jumbo v1, "video/mp2ts"
+
+    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v0, Lcom/samsung/android/transcode/core/Encode$ContentType;->sSupportedVideoTypes:Ljava/util/ArrayList;
+
+    const-string/jumbo v1, "video/webm"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 

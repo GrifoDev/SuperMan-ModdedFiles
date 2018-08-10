@@ -28,6 +28,12 @@
 
 .field public static final DOCKED_TOP:I = 0x2
 
+.field public static final INPUT_CONSUMER_NAVIGATION:Ljava/lang/String; = "nav_input_consumer"
+
+.field public static final INPUT_CONSUMER_PIP:Ljava/lang/String; = "pip_input_consumer"
+
+.field public static final INPUT_CONSUMER_WALLPAPER:Ljava/lang/String; = "wallpaper_input_consumer"
+
 .field public static final PARCEL_KEY_SHORTCUTS_ARRAY:Ljava/lang/String; = "shortcuts_array"
 
 .field public static final TAKE_SCREENSHOT_FULLSCREEN:I = 0x1
@@ -43,10 +49,4 @@
 .end method
 
 .method public abstract requestAppKeyboardShortcuts(Landroid/view/WindowManager$KeyboardShortcutsReceiver;I)V
-.end method
-
-.method public abstract startSurfaceAnimation(Landroid/os/IBinder;[I)V
-.end method
-
-.method public abstract startSurfaceAnimation(Landroid/os/IBinder;[I[F)V
 .end method

@@ -26,13 +26,15 @@
 # static fields
 .field private static final DESCRIPTOR:Ljava/lang/String; = "android.net.wifi.p2p.IWifiP2pManager"
 
+.field static final TRANSACTION_checkConfigureWifiDisplayPermission:I = 0x4
+
 .field static final TRANSACTION_getMessenger:I = 0x1
 
 .field static final TRANSACTION_getP2pStateMachineMessenger:I = 0x2
 
-.field static final TRANSACTION_getWifiP2pState:I = 0x5
+.field static final TRANSACTION_getWifiP2pState:I = 0x6
 
-.field static final TRANSACTION_isInactiveState:I = 0x4
+.field static final TRANSACTION_isInactiveState:I = 0x5
 
 .field static final TRANSACTION_setMiracastMode:I = 0x3
 
@@ -185,6 +187,17 @@
     return v5
 
     :sswitch_4
+    const-string/jumbo v4, "android.net.wifi.p2p.IWifiP2pManager"
+
+    invoke-virtual {p2, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual {p0}, Landroid/net/wifi/p2p/IWifiP2pManager$Stub;->checkConfigureWifiDisplayPermission()V
+
+    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+
+    return v5
+
+    :sswitch_5
     const-string/jumbo v6, "android.net.wifi.p2p.IWifiP2pManager"
 
     invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -204,7 +217,7 @@
 
     return v5
 
-    :sswitch_5
+    :sswitch_6
     const-string/jumbo v4, "android.net.wifi.p2p.IWifiP2pManager"
 
     invoke-virtual {p2, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -219,8 +232,6 @@
 
     return v5
 
-    nop
-
     :sswitch_data_0
     .sparse-switch
         0x1 -> :sswitch_1
@@ -228,6 +239,7 @@
         0x3 -> :sswitch_3
         0x4 -> :sswitch_4
         0x5 -> :sswitch_5
+        0x6 -> :sswitch_6
         0x5f4e5446 -> :sswitch_0
     .end sparse-switch
 .end method

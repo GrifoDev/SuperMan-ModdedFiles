@@ -1,9 +1,6 @@
 .class Landroid/telecom/ConnectionService$2$1;
-.super Ljava/lang/Object;
+.super Landroid/telecom/Logging/Runnable;
 .source "ConnectionService.java"
-
-# interfaces
-.implements Ljava/lang/Runnable;
 
 
 # annotations
@@ -32,29 +29,29 @@
 
 
 # direct methods
-.method constructor <init>(Landroid/telecom/ConnectionService$2;Landroid/telecom/PhoneAccountHandle;Ljava/lang/String;Landroid/telecom/ConnectionRequest;ZZ)V
+.method constructor <init>(Landroid/telecom/ConnectionService$2;Ljava/lang/String;Ljava/lang/Object;Landroid/telecom/PhoneAccountHandle;Ljava/lang/String;Landroid/telecom/ConnectionRequest;ZZ)V
     .locals 0
 
     iput-object p1, p0, Landroid/telecom/ConnectionService$2$1;->this$1:Landroid/telecom/ConnectionService$2;
 
-    iput-object p2, p0, Landroid/telecom/ConnectionService$2$1;->val$connectionManagerPhoneAccount:Landroid/telecom/PhoneAccountHandle;
+    iput-object p4, p0, Landroid/telecom/ConnectionService$2$1;->val$connectionManagerPhoneAccount:Landroid/telecom/PhoneAccountHandle;
 
-    iput-object p3, p0, Landroid/telecom/ConnectionService$2$1;->val$id:Ljava/lang/String;
+    iput-object p5, p0, Landroid/telecom/ConnectionService$2$1;->val$id:Ljava/lang/String;
 
-    iput-object p4, p0, Landroid/telecom/ConnectionService$2$1;->val$request:Landroid/telecom/ConnectionRequest;
+    iput-object p6, p0, Landroid/telecom/ConnectionService$2$1;->val$request:Landroid/telecom/ConnectionRequest;
 
-    iput-boolean p5, p0, Landroid/telecom/ConnectionService$2$1;->val$isIncoming:Z
+    iput-boolean p7, p0, Landroid/telecom/ConnectionService$2$1;->val$isIncoming:Z
 
-    iput-boolean p6, p0, Landroid/telecom/ConnectionService$2$1;->val$isUnknown:Z
+    iput-boolean p8, p0, Landroid/telecom/ConnectionService$2$1;->val$isUnknown:Z
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0, p2, p3}, Landroid/telecom/Logging/Runnable;-><init>(Ljava/lang/String;Ljava/lang/Object;)V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public run()V
+.method public loggedRun()V
     .locals 6
 
     iget-object v0, p0, Landroid/telecom/ConnectionService$2$1;->this$1:Landroid/telecom/ConnectionService$2;
@@ -71,7 +68,7 @@
 
     iget-boolean v5, p0, Landroid/telecom/ConnectionService$2$1;->val$isUnknown:Z
 
-    invoke-static/range {v0 .. v5}, Landroid/telecom/ConnectionService;->-wrap6(Landroid/telecom/ConnectionService;Landroid/telecom/PhoneAccountHandle;Ljava/lang/String;Landroid/telecom/ConnectionRequest;ZZ)V
+    invoke-static/range {v0 .. v5}, Landroid/telecom/ConnectionService;->-wrap7(Landroid/telecom/ConnectionService;Landroid/telecom/PhoneAccountHandle;Ljava/lang/String;Landroid/telecom/ConnectionRequest;ZZ)V
 
     return-void
 .end method

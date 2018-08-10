@@ -68,6 +68,52 @@
 
 
 # virtual methods
+.method public equals(Ljava/lang/Object;)Z
+    .locals 5
+
+    const/4 v4, 0x0
+
+    instance-of v2, p1, Landroid/graphics/ColorMatrix;
+
+    if-nez v2, :cond_0
+
+    return v4
+
+    :cond_0
+    check-cast p1, Landroid/graphics/ColorMatrix;
+
+    iget-object v1, p1, Landroid/graphics/ColorMatrix;->mArray:[F
+
+    const/4 v0, 0x0
+
+    :goto_0
+    const/16 v2, 0x14
+
+    if-ge v0, v2, :cond_2
+
+    aget v2, v1, v0
+
+    iget-object v3, p0, Landroid/graphics/ColorMatrix;->mArray:[F
+
+    aget v3, v3, v0
+
+    cmpl-float v2, v2, v3
+
+    if-eqz v2, :cond_1
+
+    return v4
+
+    :cond_1
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_0
+
+    :cond_2
+    const/4 v2, 0x1
+
+    return v2
+.end method
+
 .method public final getArray()[F
     .locals 1
 

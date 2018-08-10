@@ -24,6 +24,8 @@
 # instance fields
 .field private bigIndex:I
 
+.field private core_num:I
+
 .field private littleIndex:I
 
 
@@ -41,11 +43,8 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    xor-int/lit8 v0, v0, 0x1
 
-    const/4 v0, 0x0
-
-    :goto_0
     sput-boolean v0, Lcom/samsung/android/os/SemAffinityControl;->DEBUG:Z
 
     sput-object v2, Lcom/samsung/android/os/SemAffinityControl;->strHmpCore:[Ljava/lang/String;
@@ -55,11 +54,6 @@
     sput-object v2, Lcom/samsung/android/os/SemAffinityControl;->nBig:[I
 
     return-void
-
-    :cond_0
-    const/4 v0, 0x1
-
-    goto :goto_0
 .end method
 
 .method public constructor <init>()V
@@ -67,17 +61,19 @@
 
     const/4 v8, 0x2
 
-    const/4 v4, -0x1
-
     const/4 v7, 0x1
 
     const/4 v6, 0x0
+
+    const/4 v4, -0x1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput v4, p0, Lcom/samsung/android/os/SemAffinityControl;->littleIndex:I
 
     iput v4, p0, Lcom/samsung/android/os/SemAffinityControl;->bigIndex:I
+
+    iput v4, p0, Lcom/samsung/android/os/SemAffinityControl;->core_num:I
 
     const-string/jumbo v4, "SemAffinityControl"
 
@@ -157,6 +153,56 @@
     new-array v4, v4, [I
 
     sput-object v4, Lcom/samsung/android/os/SemAffinityControl;->nBig:[I
+
+    sget-object v4, Lcom/samsung/android/os/SemAffinityControl;->strHmpCore:[Ljava/lang/String;
+
+    iget v5, p0, Lcom/samsung/android/os/SemAffinityControl;->littleIndex:I
+
+    aget-object v4, v4, v5
+
+    invoke-static {v4}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+
+    move-result v4
+
+    sget-object v5, Lcom/samsung/android/os/SemAffinityControl;->strHmpCore:[Ljava/lang/String;
+
+    iget v6, p0, Lcom/samsung/android/os/SemAffinityControl;->bigIndex:I
+
+    aget-object v5, v5, v6
+
+    invoke-static {v5}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+
+    move-result v5
+
+    add-int/2addr v4, v5
+
+    add-int/lit8 v4, v4, -0x1
+
+    iput v4, p0, Lcom/samsung/android/os/SemAffinityControl;->core_num:I
+
+    const-string/jumbo v4, "SemAffinityControl"
+
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v6, "[Java Side], SemAffinityControl Class Initialized core_num : "
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    iget v6, p0, Lcom/samsung/android/os/SemAffinityControl;->core_num:I
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v4, v5}, Lcom/samsung/android/os/SemAffinityControl;->logOnEng(Ljava/lang/String;Ljava/lang/String;)V
 
     const/4 v3, 0x0
 
@@ -257,7 +303,7 @@
 
     invoke-direct {v5, p1}, Ljava/io/FileInputStream;-><init>(Ljava/lang/String;)V
 
-    const-string/jumbo v6, "UTF-16"
+    const-string/jumbo v6, "UTF-8"
 
     invoke-direct {v4, v5, v6}, Ljava/io/InputStreamReader;-><init>(Ljava/io/InputStream;Ljava/lang/String;)V
 
@@ -285,7 +331,7 @@
 
     move-result-object v4
 
-    const-string/jumbo v5, ", result = "
+    const-string/jumbo v5, ", strTemp result = "
 
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -332,7 +378,7 @@
 
     move-result-object v4
 
-    invoke-virtual {v2}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/io/IOException;->getMessage()Ljava/lang/String;
 
     move-result-object v5
 
@@ -363,7 +409,7 @@
 
     move-result-object v4
 
-    invoke-virtual {v2}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/io/IOException;->getMessage()Ljava/lang/String;
 
     move-result-object v5
 
@@ -401,7 +447,7 @@
 
     move-result-object v4
 
-    invoke-virtual {v2}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/io/IOException;->getMessage()Ljava/lang/String;
 
     move-result-object v5
 
@@ -445,7 +491,7 @@
 
     move-result-object v5
 
-    invoke-virtual {v2}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/io/IOException;->getMessage()Ljava/lang/String;
 
     move-result-object v6
 
@@ -479,32 +525,83 @@
 
 # virtual methods
 .method public clearAffinity(I)I
-    .locals 7
+    .locals 8
 
-    const/4 v6, 0x1
+    const/4 v7, 0x1
 
-    const-string/jumbo v4, "SemAffinityControl"
+    const/4 v6, 0x0
 
-    const-string/jumbo v5, "/sys/devices/system/cpu/kernel_max"
+    iget v3, p0, Lcom/samsung/android/os/SemAffinityControl;->core_num:I
 
-    invoke-static {v4, v5}, Lcom/samsung/android/os/SemAffinityControl;->readSysfs(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    if-gez v3, :cond_0
 
-    move-result-object v3
+    const-string/jumbo v3, "SemAffinityControl"
 
-    if-eqz v3, :cond_2
+    const-string/jumbo v4, "/sys/devices/system/cpu/kernel_max"
 
-    invoke-static {v3}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+    invoke-static {v3, v4}, Lcom/samsung/android/os/SemAffinityControl;->readSysfs(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result v2
+    move-result-object v2
 
-    add-int/lit8 v4, v2, 0x1
+    if-eqz v2, :cond_1
 
-    new-array v1, v4, [I
+    invoke-static {v2}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+
+    move-result v3
+
+    iput v3, p0, Lcom/samsung/android/os/SemAffinityControl;->core_num:I
+
+    const-string/jumbo v3, "SemAffinityControl"
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v5, "[Java Side], clearAffinity num_of_core : "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    const-string/jumbo v5, ", core_num : "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    iget v5, p0, Lcom/samsung/android/os/SemAffinityControl;->core_num:I
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v3, v4}, Lcom/samsung/android/os/SemAffinityControl;->logOnEng(Ljava/lang/String;Ljava/lang/String;)V
+
+    :cond_0
+    iget v3, p0, Lcom/samsung/android/os/SemAffinityControl;->core_num:I
+
+    if-lez v3, :cond_4
+
+    iget v3, p0, Lcom/samsung/android/os/SemAffinityControl;->core_num:I
+
+    add-int/lit8 v3, v3, 0x1
+
+    new-array v1, v3, [I
 
     const/4 v0, 0x0
 
     :goto_0
-    if-gt v0, v2, :cond_0
+    iget v3, p0, Lcom/samsung/android/os/SemAffinityControl;->core_num:I
+
+    if-gt v0, v3, :cond_2
 
     aput v0, v1, v0
 
@@ -512,40 +609,49 @@
 
     goto :goto_0
 
-    :cond_0
-    invoke-direct {p0, p1, v1}, Lcom/samsung/android/os/SemAffinityControl;->native_set_affinity(I[I)I
-
-    move-result v4
-
-    if-ne v4, v6, :cond_1
-
-    const-string/jumbo v4, "SemAffinityControl"
-
-    const-string/jumbo v5, "clear_affinity_failed"
-
-    invoke-static {v4, v5}, Lcom/samsung/android/os/SemAffinityControl;->logOnEng(Ljava/lang/String;Ljava/lang/String;)V
-
-    return v6
-
     :cond_1
-    const-string/jumbo v4, "SemAffinityControl"
+    const-string/jumbo v3, "SemAffinityControl"
 
-    const-string/jumbo v5, "clear_affinity_success"
+    const-string/jumbo v4, "clear_affinity_failed. It can\'t read the num of core"
 
-    invoke-static {v4, v5}, Lcom/samsung/android/os/SemAffinityControl;->logOnEng(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v3, v4}, Lcom/samsung/android/os/SemAffinityControl;->logOnEng(Ljava/lang/String;Ljava/lang/String;)V
 
-    const/4 v4, 0x0
+    const/4 v3, -0x1
 
-    return v4
+    return v3
 
     :cond_2
-    const-string/jumbo v4, "SemAffinityControl"
+    invoke-direct {p0, p1, v1}, Lcom/samsung/android/os/SemAffinityControl;->native_set_affinity(I[I)I
 
-    const-string/jumbo v5, "clear_affinity_failed"
+    move-result v3
 
-    invoke-static {v4, v5}, Lcom/samsung/android/os/SemAffinityControl;->logOnEng(Ljava/lang/String;Ljava/lang/String;)V
+    if-ne v3, v7, :cond_3
+
+    const-string/jumbo v3, "SemAffinityControl"
+
+    const-string/jumbo v4, "clear_affinity_failed"
+
+    invoke-static {v3, v4}, Lcom/samsung/android/os/SemAffinityControl;->logOnEng(Ljava/lang/String;Ljava/lang/String;)V
+
+    return v7
+
+    :cond_3
+    const-string/jumbo v3, "SemAffinityControl"
+
+    const-string/jumbo v4, "clear_affinity_success"
+
+    invoke-static {v3, v4}, Lcom/samsung/android/os/SemAffinityControl;->logOnEng(Ljava/lang/String;Ljava/lang/String;)V
 
     return v6
+
+    :cond_4
+    const-string/jumbo v3, "SemAffinityControl"
+
+    const-string/jumbo v4, "clear_affinity_failed"
+
+    invoke-static {v3, v4}, Lcom/samsung/android/os/SemAffinityControl;->logOnEng(Ljava/lang/String;Ljava/lang/String;)V
+
+    return v7
 .end method
 
 .method public varargs setAffinity(I[I)I

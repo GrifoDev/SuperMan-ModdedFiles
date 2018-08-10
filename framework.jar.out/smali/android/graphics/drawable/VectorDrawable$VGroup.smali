@@ -15,7 +15,15 @@
 
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Landroid/graphics/drawable/VectorDrawable$VGroup$1;
+        Landroid/graphics/drawable/VectorDrawable$VGroup$1;,
+        Landroid/graphics/drawable/VectorDrawable$VGroup$2;,
+        Landroid/graphics/drawable/VectorDrawable$VGroup$3;,
+        Landroid/graphics/drawable/VectorDrawable$VGroup$4;,
+        Landroid/graphics/drawable/VectorDrawable$VGroup$5;,
+        Landroid/graphics/drawable/VectorDrawable$VGroup$6;,
+        Landroid/graphics/drawable/VectorDrawable$VGroup$7;,
+        Landroid/graphics/drawable/VectorDrawable$VGroup$8;,
+        Landroid/graphics/drawable/VectorDrawable$VGroup$9;
     }
 .end annotation
 
@@ -23,21 +31,117 @@
 # static fields
 .field private static final NATIVE_ALLOCATION_SIZE:I = 0x64
 
+.field private static final PIVOT_X:Landroid/util/Property;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Landroid/util/Property",
+            "<",
+            "Landroid/graphics/drawable/VectorDrawable$VGroup;",
+            "Ljava/lang/Float;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 .field private static final PIVOT_X_INDEX:I = 0x1
+
+.field private static final PIVOT_Y:Landroid/util/Property;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Landroid/util/Property",
+            "<",
+            "Landroid/graphics/drawable/VectorDrawable$VGroup;",
+            "Ljava/lang/Float;",
+            ">;"
+        }
+    .end annotation
+.end field
 
 .field private static final PIVOT_Y_INDEX:I = 0x2
 
-.field private static final ROTATE_INDEX:I = 0x0
+.field private static final ROTATION:Landroid/util/Property;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Landroid/util/Property",
+            "<",
+            "Landroid/graphics/drawable/VectorDrawable$VGroup;",
+            "Ljava/lang/Float;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field private static final ROTATION_INDEX:I = 0x0
+
+.field private static final SCALE_X:Landroid/util/Property;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Landroid/util/Property",
+            "<",
+            "Landroid/graphics/drawable/VectorDrawable$VGroup;",
+            "Ljava/lang/Float;",
+            ">;"
+        }
+    .end annotation
+.end field
 
 .field private static final SCALE_X_INDEX:I = 0x3
+
+.field private static final SCALE_Y:Landroid/util/Property;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Landroid/util/Property",
+            "<",
+            "Landroid/graphics/drawable/VectorDrawable$VGroup;",
+            "Ljava/lang/Float;",
+            ">;"
+        }
+    .end annotation
+.end field
 
 .field private static final SCALE_Y_INDEX:I = 0x4
 
 .field private static final TRANSFORM_PROPERTY_COUNT:I = 0x7
 
+.field private static final TRANSLATE_X:Landroid/util/Property;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Landroid/util/Property",
+            "<",
+            "Landroid/graphics/drawable/VectorDrawable$VGroup;",
+            "Ljava/lang/Float;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 .field private static final TRANSLATE_X_INDEX:I = 0x5
 
+.field private static final TRANSLATE_Y:Landroid/util/Property;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Landroid/util/Property",
+            "<",
+            "Landroid/graphics/drawable/VectorDrawable$VGroup;",
+            "Ljava/lang/Float;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 .field private static final TRANSLATE_Y_INDEX:I = 0x6
+
+.field private static final sPropertyIndexMap:Ljava/util/HashMap;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/HashMap",
+            "<",
+            "Ljava/lang/String;",
+            "Ljava/lang/Integer;",
+            ">;"
+        }
+    .end annotation
+.end field
 
 .field private static final sPropertyMap:Ljava/util/HashMap;
     .annotation system Ldalvik/annotation/Signature;
@@ -45,7 +149,7 @@
             "Ljava/util/HashMap",
             "<",
             "Ljava/lang/String;",
-            "Ljava/lang/Integer;",
+            "Landroid/util/Property;",
             ">;"
         }
     .end annotation
@@ -78,7 +182,63 @@
 
 
 # direct methods
-.method static synthetic -get0(Landroid/graphics/drawable/VectorDrawable$VGroup;)I
+.method static synthetic -get0()Landroid/util/Property;
+    .locals 1
+
+    sget-object v0, Landroid/graphics/drawable/VectorDrawable$VGroup;->PIVOT_X:Landroid/util/Property;
+
+    return-object v0
+.end method
+
+.method static synthetic -get1()Landroid/util/Property;
+    .locals 1
+
+    sget-object v0, Landroid/graphics/drawable/VectorDrawable$VGroup;->PIVOT_Y:Landroid/util/Property;
+
+    return-object v0
+.end method
+
+.method static synthetic -get2()Landroid/util/Property;
+    .locals 1
+
+    sget-object v0, Landroid/graphics/drawable/VectorDrawable$VGroup;->ROTATION:Landroid/util/Property;
+
+    return-object v0
+.end method
+
+.method static synthetic -get3()Landroid/util/Property;
+    .locals 1
+
+    sget-object v0, Landroid/graphics/drawable/VectorDrawable$VGroup;->SCALE_X:Landroid/util/Property;
+
+    return-object v0
+.end method
+
+.method static synthetic -get4()Landroid/util/Property;
+    .locals 1
+
+    sget-object v0, Landroid/graphics/drawable/VectorDrawable$VGroup;->SCALE_Y:Landroid/util/Property;
+
+    return-object v0
+.end method
+
+.method static synthetic -get5()Landroid/util/Property;
+    .locals 1
+
+    sget-object v0, Landroid/graphics/drawable/VectorDrawable$VGroup;->TRANSLATE_X:Landroid/util/Property;
+
+    return-object v0
+.end method
+
+.method static synthetic -get6()Landroid/util/Property;
+    .locals 1
+
+    sget-object v0, Landroid/graphics/drawable/VectorDrawable$VGroup;->TRANSLATE_Y:Landroid/util/Property;
+
+    return-object v0
+.end method
+
+.method static synthetic -get7(Landroid/graphics/drawable/VectorDrawable$VGroup;)I
     .locals 1
 
     iget v0, p0, Landroid/graphics/drawable/VectorDrawable$VGroup;->mChangingConfigurations:I
@@ -86,7 +246,7 @@
     return v0
 .end method
 
-.method static synthetic -get1(Landroid/graphics/drawable/VectorDrawable$VGroup;)J
+.method static synthetic -get8(Landroid/graphics/drawable/VectorDrawable$VGroup;)J
     .locals 2
 
     iget-wide v0, p0, Landroid/graphics/drawable/VectorDrawable$VGroup;->mNativePtr:J
@@ -95,11 +255,73 @@
 .end method
 
 .method static constructor <clinit>()V
-    .locals 1
+    .locals 2
 
     new-instance v0, Landroid/graphics/drawable/VectorDrawable$VGroup$1;
 
     invoke-direct {v0}, Landroid/graphics/drawable/VectorDrawable$VGroup$1;-><init>()V
+
+    sput-object v0, Landroid/graphics/drawable/VectorDrawable$VGroup;->sPropertyIndexMap:Ljava/util/HashMap;
+
+    new-instance v0, Landroid/graphics/drawable/VectorDrawable$VGroup$2;
+
+    const-string/jumbo v1, "translateX"
+
+    invoke-direct {v0, v1}, Landroid/graphics/drawable/VectorDrawable$VGroup$2;-><init>(Ljava/lang/String;)V
+
+    sput-object v0, Landroid/graphics/drawable/VectorDrawable$VGroup;->TRANSLATE_X:Landroid/util/Property;
+
+    new-instance v0, Landroid/graphics/drawable/VectorDrawable$VGroup$3;
+
+    const-string/jumbo v1, "translateY"
+
+    invoke-direct {v0, v1}, Landroid/graphics/drawable/VectorDrawable$VGroup$3;-><init>(Ljava/lang/String;)V
+
+    sput-object v0, Landroid/graphics/drawable/VectorDrawable$VGroup;->TRANSLATE_Y:Landroid/util/Property;
+
+    new-instance v0, Landroid/graphics/drawable/VectorDrawable$VGroup$4;
+
+    const-string/jumbo v1, "scaleX"
+
+    invoke-direct {v0, v1}, Landroid/graphics/drawable/VectorDrawable$VGroup$4;-><init>(Ljava/lang/String;)V
+
+    sput-object v0, Landroid/graphics/drawable/VectorDrawable$VGroup;->SCALE_X:Landroid/util/Property;
+
+    new-instance v0, Landroid/graphics/drawable/VectorDrawable$VGroup$5;
+
+    const-string/jumbo v1, "scaleY"
+
+    invoke-direct {v0, v1}, Landroid/graphics/drawable/VectorDrawable$VGroup$5;-><init>(Ljava/lang/String;)V
+
+    sput-object v0, Landroid/graphics/drawable/VectorDrawable$VGroup;->SCALE_Y:Landroid/util/Property;
+
+    new-instance v0, Landroid/graphics/drawable/VectorDrawable$VGroup$6;
+
+    const-string/jumbo v1, "pivotX"
+
+    invoke-direct {v0, v1}, Landroid/graphics/drawable/VectorDrawable$VGroup$6;-><init>(Ljava/lang/String;)V
+
+    sput-object v0, Landroid/graphics/drawable/VectorDrawable$VGroup;->PIVOT_X:Landroid/util/Property;
+
+    new-instance v0, Landroid/graphics/drawable/VectorDrawable$VGroup$7;
+
+    const-string/jumbo v1, "pivotY"
+
+    invoke-direct {v0, v1}, Landroid/graphics/drawable/VectorDrawable$VGroup$7;-><init>(Ljava/lang/String;)V
+
+    sput-object v0, Landroid/graphics/drawable/VectorDrawable$VGroup;->PIVOT_Y:Landroid/util/Property;
+
+    new-instance v0, Landroid/graphics/drawable/VectorDrawable$VGroup$8;
+
+    const-string/jumbo v1, "rotation"
+
+    invoke-direct {v0, v1}, Landroid/graphics/drawable/VectorDrawable$VGroup$8;-><init>(Ljava/lang/String;)V
+
+    sput-object v0, Landroid/graphics/drawable/VectorDrawable$VGroup;->ROTATION:Landroid/util/Property;
+
+    new-instance v0, Landroid/graphics/drawable/VectorDrawable$VGroup$9;
+
+    invoke-direct {v0}, Landroid/graphics/drawable/VectorDrawable$VGroup$9;-><init>()V
 
     sput-object v0, Landroid/graphics/drawable/VectorDrawable$VGroup;->sPropertyMap:Ljava/util/HashMap;
 
@@ -279,7 +501,7 @@
 .method static getPropertyIndex(Ljava/lang/String;)I
     .locals 1
 
-    sget-object v0, Landroid/graphics/drawable/VectorDrawable$VGroup;->sPropertyMap:Ljava/util/HashMap;
+    sget-object v0, Landroid/graphics/drawable/VectorDrawable$VGroup;->sPropertyIndexMap:Ljava/util/HashMap;
 
     invoke-virtual {v0, p0}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z
 
@@ -287,7 +509,7 @@
 
     if-eqz v0, :cond_0
 
-    sget-object v0, Landroid/graphics/drawable/VectorDrawable$VGroup;->sPropertyMap:Ljava/util/HashMap;
+    sget-object v0, Landroid/graphics/drawable/VectorDrawable$VGroup;->sPropertyIndexMap:Ljava/util/HashMap;
 
     invoke-virtual {v0, p0}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -551,6 +773,33 @@
     goto :goto_0
 .end method
 
+.method getProperty(Ljava/lang/String;)Landroid/util/Property;
+    .locals 1
+
+    sget-object v0, Landroid/graphics/drawable/VectorDrawable$VGroup;->sPropertyMap:Ljava/util/HashMap;
+
+    invoke-virtual {v0, p1}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    sget-object v0, Landroid/graphics/drawable/VectorDrawable$VGroup;->sPropertyMap:Ljava/util/HashMap;
+
+    invoke-virtual {v0, p1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/util/Property;
+
+    return-object v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    return-object v0
+.end method
+
 .method public getRotation()F
     .locals 2
 
@@ -669,6 +918,49 @@
     const/4 v0, 0x0
 
     goto :goto_0
+.end method
+
+.method public hasFocusStateSpecified()Z
+    .locals 6
+
+    const/4 v4, 0x0
+
+    iget-object v1, p0, Landroid/graphics/drawable/VectorDrawable$VGroup;->mChildren:Ljava/util/ArrayList;
+
+    const/4 v3, 0x0
+
+    invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
+
+    move-result v2
+
+    :goto_0
+    if-ge v3, v2, :cond_1
+
+    invoke-virtual {v1, v3}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/graphics/drawable/VectorDrawable$VObject;
+
+    invoke-virtual {v0}, Landroid/graphics/drawable/VectorDrawable$VObject;->isStateful()Z
+
+    move-result v5
+
+    if-eqz v5, :cond_0
+
+    invoke-virtual {v0}, Landroid/graphics/drawable/VectorDrawable$VObject;->hasFocusStateSpecified()Z
+
+    move-result v5
+
+    or-int/2addr v4, v5
+
+    :cond_0
+    add-int/lit8 v3, v3, 0x1
+
+    goto :goto_0
+
+    :cond_1
+    return v4
 .end method
 
 .method public inflate(Landroid/content/res/Resources;Landroid/util/AttributeSet;Landroid/content/res/Resources$Theme;)V

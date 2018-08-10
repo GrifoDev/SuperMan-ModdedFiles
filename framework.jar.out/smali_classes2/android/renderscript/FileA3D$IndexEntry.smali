@@ -56,7 +56,7 @@
     :try_start_0
     sget-object v1, Landroid/renderscript/FileA3D$EntryType;->MESH:Landroid/renderscript/FileA3D$EntryType;
 
-    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
+    invoke-virtual {v1}, Landroid/renderscript/FileA3D$EntryType;->ordinal()I
 
     move-result v1
 
@@ -70,7 +70,7 @@
     :try_start_1
     sget-object v1, Landroid/renderscript/FileA3D$EntryType;->UNKNOWN:Landroid/renderscript/FileA3D$EntryType;
 
-    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
+    invoke-virtual {v1}, Landroid/renderscript/FileA3D$EntryType;->ordinal()I
 
     move-result v1
 
@@ -184,7 +184,7 @@
 
     iget-object v4, p1, Landroid/renderscript/FileA3D$IndexEntry;->mEntryType:Landroid/renderscript/FileA3D$EntryType;
 
-    invoke-virtual {v4}, Ljava/lang/Enum;->ordinal()I
+    invoke-virtual {v4}, Landroid/renderscript/FileA3D$EntryType;->ordinal()I
 
     move-result v4
 

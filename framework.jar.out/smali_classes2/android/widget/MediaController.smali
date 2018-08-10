@@ -380,10 +380,17 @@
 
     move-result v1
 
-    if-eqz v1, :cond_4
+    xor-int/lit8 v1, v1, 0x1
+
+    if-eqz v1, :cond_0
+
+    iget-object v1, p0, Landroid/widget/MediaController;->mPauseButton:Landroid/widget/ImageButton;
+
+    const/4 v2, 0x0
+
+    invoke-virtual {v1, v2}, Landroid/widget/ImageButton;->setEnabled(Z)V
 
     :cond_0
-    :goto_0
     iget-object v1, p0, Landroid/widget/MediaController;->mRewButton:Landroid/widget/ImageButton;
 
     if-eqz v1, :cond_1
@@ -394,10 +401,17 @@
 
     move-result v1
 
-    if-eqz v1, :cond_5
+    xor-int/lit8 v1, v1, 0x1
+
+    if-eqz v1, :cond_1
+
+    iget-object v1, p0, Landroid/widget/MediaController;->mRewButton:Landroid/widget/ImageButton;
+
+    const/4 v2, 0x0
+
+    invoke-virtual {v1, v2}, Landroid/widget/ImageButton;->setEnabled(Z)V
 
     :cond_1
-    :goto_1
     iget-object v1, p0, Landroid/widget/MediaController;->mFfwdButton:Landroid/widget/ImageButton;
 
     if-eqz v1, :cond_2
@@ -408,10 +422,17 @@
 
     move-result v1
 
-    if-eqz v1, :cond_6
+    xor-int/lit8 v1, v1, 0x1
+
+    if-eqz v1, :cond_2
+
+    iget-object v1, p0, Landroid/widget/MediaController;->mFfwdButton:Landroid/widget/ImageButton;
+
+    const/4 v2, 0x0
+
+    invoke-virtual {v1, v2}, Landroid/widget/ImageButton;->setEnabled(Z)V
 
     :cond_2
-    :goto_2
     iget-object v1, p0, Landroid/widget/MediaController;->mProgress:Landroid/widget/ProgressBar;
 
     if-eqz v1, :cond_3
@@ -422,52 +443,19 @@
 
     move-result v1
 
-    if-eqz v1, :cond_7
+    xor-int/lit8 v1, v1, 0x1
 
-    :cond_3
-    :goto_3
-    return-void
+    if-eqz v1, :cond_3
 
-    :cond_4
-    iget-object v1, p0, Landroid/widget/MediaController;->mPauseButton:Landroid/widget/ImageButton;
-
-    const/4 v2, 0x0
-
-    invoke-virtual {v1, v2}, Landroid/widget/ImageButton;->setEnabled(Z)V
-
-    goto :goto_0
-
-    :catch_0
-    move-exception v0
-
-    goto :goto_3
-
-    :cond_5
-    iget-object v1, p0, Landroid/widget/MediaController;->mRewButton:Landroid/widget/ImageButton;
-
-    const/4 v2, 0x0
-
-    invoke-virtual {v1, v2}, Landroid/widget/ImageButton;->setEnabled(Z)V
-
-    goto :goto_1
-
-    :cond_6
-    iget-object v1, p0, Landroid/widget/MediaController;->mFfwdButton:Landroid/widget/ImageButton;
-
-    const/4 v2, 0x0
-
-    invoke-virtual {v1, v2}, Landroid/widget/ImageButton;->setEnabled(Z)V
-
-    goto :goto_2
-
-    :cond_7
     iget-object v1, p0, Landroid/widget/MediaController;->mPlayer:Landroid/widget/MediaController$MediaPlayerControl;
 
     invoke-interface {v1}, Landroid/widget/MediaController$MediaPlayerControl;->canSeekForward()Z
 
     move-result v1
 
-    if-nez v1, :cond_3
+    xor-int/lit8 v1, v1, 0x1
+
+    if-eqz v1, :cond_3
 
     iget-object v1, p0, Landroid/widget/MediaController;->mProgress:Landroid/widget/ProgressBar;
 
@@ -477,7 +465,14 @@
     :try_end_0
     .catch Ljava/lang/IncompatibleClassChangeError; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_3
+    :cond_3
+    :goto_0
+    return-void
+
+    :catch_0
+    move-exception v0
+
+    goto :goto_0
 .end method
 
 .method private doPauseResume()V
@@ -521,7 +516,7 @@
 
     move-result-object v0
 
-    const v2, 0x10402ad
+    const v2, 0x10404df
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -529,7 +524,7 @@
 
     iput-object v2, p0, Landroid/widget/MediaController;->mPlayDescription:Ljava/lang/CharSequence;
 
-    const v2, 0x10402ac
+    const v2, 0x10404de
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -537,7 +532,7 @@
 
     iput-object v2, p0, Landroid/widget/MediaController;->mPauseDescription:Ljava/lang/CharSequence;
 
-    const v2, 0x102040c
+    const v2, 0x10203ea
 
     invoke-virtual {p1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -562,7 +557,7 @@
     invoke-virtual {v2, v5}, Landroid/widget/ImageButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     :cond_0
-    const v2, 0x102040d
+    const v2, 0x1020299
 
     invoke-virtual {p1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -598,7 +593,7 @@
     invoke-virtual {v5, v2}, Landroid/widget/ImageButton;->setVisibility(I)V
 
     :cond_1
-    const v2, 0x102040b
+    const v2, 0x102043a
 
     invoke-virtual {p1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -632,7 +627,7 @@
     invoke-virtual {v2, v3}, Landroid/widget/ImageButton;->setVisibility(I)V
 
     :cond_2
-    const v2, 0x10203be
+    const v2, 0x10203aa
 
     invoke-virtual {p1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -648,11 +643,22 @@
 
     iget-boolean v2, p0, Landroid/widget/MediaController;->mFromXml:Z
 
-    if-eqz v2, :cond_9
+    xor-int/lit8 v2, v2, 0x1
+
+    if-eqz v2, :cond_3
+
+    iget-boolean v2, p0, Landroid/widget/MediaController;->mListenersSet:Z
+
+    xor-int/lit8 v2, v2, 0x1
+
+    if-eqz v2, :cond_3
+
+    iget-object v2, p0, Landroid/widget/MediaController;->mNextButton:Landroid/widget/ImageButton;
+
+    invoke-virtual {v2, v4}, Landroid/widget/ImageButton;->setVisibility(I)V
 
     :cond_3
-    :goto_2
-    const v2, 0x10203b2
+    const v2, 0x1020414
 
     invoke-virtual {p1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -668,11 +674,22 @@
 
     iget-boolean v2, p0, Landroid/widget/MediaController;->mFromXml:Z
 
-    if-eqz v2, :cond_a
+    xor-int/lit8 v2, v2, 0x1
+
+    if-eqz v2, :cond_4
+
+    iget-boolean v2, p0, Landroid/widget/MediaController;->mListenersSet:Z
+
+    xor-int/lit8 v2, v2, 0x1
+
+    if-eqz v2, :cond_4
+
+    iget-object v2, p0, Landroid/widget/MediaController;->mPrevButton:Landroid/widget/ImageButton;
+
+    invoke-virtual {v2, v4}, Landroid/widget/ImageButton;->setVisibility(I)V
 
     :cond_4
-    :goto_3
-    const v2, 0x102040f
+    const v2, 0x1020378
 
     invoke-virtual {p1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -708,7 +725,7 @@
     invoke-virtual {v2, v3}, Landroid/widget/ProgressBar;->setMax(I)V
 
     :cond_6
-    const v2, 0x10200a7
+    const v2, 0x1020521
 
     invoke-virtual {p1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -718,7 +735,7 @@
 
     iput-object v2, p0, Landroid/widget/MediaController;->mEndTime:Landroid/widget/TextView;
 
-    const v2, 0x102040e
+    const v2, 0x1020524
 
     invoke-virtual {p1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -758,29 +775,7 @@
     :cond_8
     move v3, v4
 
-    goto :goto_1
-
-    :cond_9
-    iget-boolean v2, p0, Landroid/widget/MediaController;->mListenersSet:Z
-
-    if-nez v2, :cond_3
-
-    iget-object v2, p0, Landroid/widget/MediaController;->mNextButton:Landroid/widget/ImageButton;
-
-    invoke-virtual {v2, v4}, Landroid/widget/ImageButton;->setVisibility(I)V
-
-    goto :goto_2
-
-    :cond_a
-    iget-boolean v2, p0, Landroid/widget/MediaController;->mListenersSet:Z
-
-    if-nez v2, :cond_4
-
-    iget-object v2, p0, Landroid/widget/MediaController;->mPrevButton:Landroid/widget/ImageButton;
-
-    invoke-virtual {v2, v4}, Landroid/widget/ImageButton;->setVisibility(I)V
-
-    goto :goto_3
+    goto/16 :goto_1
 .end method
 
 .method private initFloatingWindow()V
@@ -1375,7 +1370,7 @@
 
     const/16 v2, 0x7e
 
-    if-ne v0, v2, :cond_7
+    if-ne v0, v2, :cond_6
 
     if-eqz v1, :cond_5
 
@@ -1385,13 +1380,10 @@
 
     move-result v2
 
-    if-eqz v2, :cond_6
+    xor-int/lit8 v2, v2, 0x1
 
-    :cond_5
-    :goto_1
-    return v3
+    if-eqz v2, :cond_5
 
-    :cond_6
     iget-object v2, p0, Landroid/widget/MediaController;->mPlayer:Landroid/widget/MediaController$MediaPlayerControl;
 
     invoke-interface {v2}, Landroid/widget/MediaController$MediaPlayerControl;->start()V
@@ -1400,19 +1392,20 @@
 
     invoke-virtual {p0, v4}, Landroid/widget/MediaController;->show(I)V
 
-    goto :goto_1
+    :cond_5
+    return v3
 
-    :cond_7
+    :cond_6
     const/16 v2, 0x56
 
-    if-eq v0, v2, :cond_8
+    if-eq v0, v2, :cond_7
 
     const/16 v2, 0x7f
 
-    if-ne v0, v2, :cond_a
+    if-ne v0, v2, :cond_9
 
-    :cond_8
-    if-eqz v1, :cond_9
+    :cond_7
+    if-eqz v1, :cond_8
 
     iget-object v2, p0, Landroid/widget/MediaController;->mPlayer:Landroid/widget/MediaController$MediaPlayerControl;
 
@@ -1420,7 +1413,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_9
+    if-eqz v2, :cond_8
 
     iget-object v2, p0, Landroid/widget/MediaController;->mPlayer:Landroid/widget/MediaController$MediaPlayerControl;
 
@@ -1430,51 +1423,51 @@
 
     invoke-virtual {p0, v4}, Landroid/widget/MediaController;->show(I)V
 
-    :cond_9
+    :cond_8
     return v3
 
-    :cond_a
+    :cond_9
     const/16 v2, 0x19
 
-    if-eq v0, v2, :cond_b
+    if-eq v0, v2, :cond_a
 
     const/16 v2, 0x18
 
-    if-ne v0, v2, :cond_c
+    if-ne v0, v2, :cond_b
 
-    :cond_b
+    :cond_a
     invoke-super {p0, p1}, Landroid/widget/FrameLayout;->dispatchKeyEvent(Landroid/view/KeyEvent;)Z
 
     move-result v2
 
     return v2
 
-    :cond_c
+    :cond_b
     const/16 v2, 0xa4
 
-    if-eq v0, v2, :cond_b
+    if-eq v0, v2, :cond_a
 
     const/16 v2, 0x1b
 
-    if-eq v0, v2, :cond_b
+    if-eq v0, v2, :cond_a
 
     const/4 v2, 0x4
 
-    if-eq v0, v2, :cond_d
+    if-eq v0, v2, :cond_c
 
     const/16 v2, 0x52
 
-    if-ne v0, v2, :cond_f
+    if-ne v0, v2, :cond_e
 
-    :cond_d
-    if-eqz v1, :cond_e
+    :cond_c
+    if-eqz v1, :cond_d
 
     invoke-virtual {p0}, Landroid/widget/MediaController;->hide()V
 
-    :cond_e
+    :cond_d
     return v3
 
-    :cond_f
+    :cond_e
     invoke-virtual {p0, v4}, Landroid/widget/MediaController;->show(I)V
 
     invoke-super {p0, p1}, Landroid/widget/FrameLayout;->dispatchKeyEvent(Landroid/view/KeyEvent;)Z
@@ -1564,7 +1557,7 @@
 
     check-cast v0, Landroid/view/LayoutInflater;
 
-    const v1, 0x109008e
+    const v1, 0x1090091
 
     const/4 v2, 0x0
 
@@ -1823,35 +1816,31 @@
 
     iget-boolean v0, p0, Landroid/widget/MediaController;->mFromXml:Z
 
-    if-eqz v0, :cond_2
+    xor-int/lit8 v0, v0, 0x1
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Landroid/widget/MediaController;->mNextButton:Landroid/widget/ImageButton;
+
+    invoke-virtual {v0, v1}, Landroid/widget/ImageButton;->setVisibility(I)V
 
     :cond_0
-    :goto_0
     iget-object v0, p0, Landroid/widget/MediaController;->mPrevButton:Landroid/widget/ImageButton;
 
     if-eqz v0, :cond_1
 
     iget-boolean v0, p0, Landroid/widget/MediaController;->mFromXml:Z
 
-    if-eqz v0, :cond_3
+    xor-int/lit8 v0, v0, 0x1
 
-    :cond_1
-    :goto_1
-    return-void
+    if-eqz v0, :cond_1
 
-    :cond_2
-    iget-object v0, p0, Landroid/widget/MediaController;->mNextButton:Landroid/widget/ImageButton;
-
-    invoke-virtual {v0, v1}, Landroid/widget/ImageButton;->setVisibility(I)V
-
-    goto :goto_0
-
-    :cond_3
     iget-object v0, p0, Landroid/widget/MediaController;->mPrevButton:Landroid/widget/ImageButton;
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageButton;->setVisibility(I)V
 
-    goto :goto_1
+    :cond_1
+    return-void
 .end method
 
 .method public show()V
@@ -1917,13 +1906,10 @@
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    xor-int/lit8 v0, v0, 0x1
 
-    :cond_2
-    :goto_0
-    return-void
+    if-eqz v0, :cond_2
 
-    :cond_3
     iget-object v0, p0, Landroid/widget/MediaController;->mFadeOut:Ljava/lang/Runnable;
 
     invoke-virtual {p0, v0}, Landroid/widget/MediaController;->removeCallbacks(Ljava/lang/Runnable;)Z
@@ -1934,5 +1920,6 @@
 
     invoke-virtual {p0, v0, v2, v3}, Landroid/widget/MediaController;->postDelayed(Ljava/lang/Runnable;J)Z
 
-    goto :goto_0
+    :cond_2
+    return-void
 .end method

@@ -515,7 +515,7 @@
             "()",
             "Ljava/util/List",
             "<",
-            "Ljava/lang/String;",
+            "Landroid/bluetooth/BluetoothDevice;",
             ">;"
         }
     .end annotation
@@ -549,7 +549,9 @@
 
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    invoke-virtual {v1}, Landroid/os/Parcel;->createStringArrayList()Ljava/util/ArrayList;
+    sget-object v3, Landroid/bluetooth/BluetoothDevice;->CREATOR:Landroid/os/Parcelable$Creator;
+
+    invoke-virtual {v1, v3}, Landroid/os/Parcel;->createTypedArrayList(Landroid/os/Parcelable$Creator;)Ljava/util/ArrayList;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 

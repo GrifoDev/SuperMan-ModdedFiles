@@ -60,7 +60,7 @@
 
     invoke-super {p0, p1, p2}, Landroid/widget/LinearLayout;->onMeasure(II)V
 
-    invoke-virtual {p0}, Landroid/view/ViewGroup;->getChildCount()I
+    invoke-virtual {p0}, Lcom/android/internal/app/AlertController$ButtonBarLayout;->getChildCount()I
 
     move-result v3
 
@@ -72,13 +72,13 @@
 
     move-result v7
 
-    invoke-virtual {p0}, Landroid/view/View;->getPaddingRight()I
+    invoke-virtual {p0}, Lcom/android/internal/app/AlertController$ButtonBarLayout;->getPaddingRight()I
 
     move-result v8
 
     sub-int/2addr v7, v8
 
-    invoke-virtual {p0}, Landroid/view/View;->getPaddingLeft()I
+    invoke-virtual {p0}, Lcom/android/internal/app/AlertController$ButtonBarLayout;->getPaddingLeft()I
 
     move-result v8
 
@@ -88,13 +88,13 @@
 
     move-result v7
 
-    invoke-virtual {p0}, Landroid/view/View;->getPaddingTop()I
+    invoke-virtual {p0}, Lcom/android/internal/app/AlertController$ButtonBarLayout;->getPaddingTop()I
 
     move-result v8
 
     sub-int/2addr v7, v8
 
-    invoke-virtual {p0}, Landroid/view/View;->getPaddingBottom()I
+    invoke-virtual {p0}, Lcom/android/internal/app/AlertController$ButtonBarLayout;->getPaddingBottom()I
 
     move-result v8
 
@@ -103,9 +103,9 @@
     const/4 v5, 0x0
 
     :goto_0
-    if-ge v5, v3, :cond_2
+    if-ge v5, v3, :cond_1
 
-    invoke-virtual {p0, v5}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {p0, v5}, Lcom/android/internal/app/AlertController$ButtonBarLayout;->getChildAt(I)Landroid/view/View;
 
     move-result-object v2
 
@@ -119,15 +119,10 @@
 
     instance-of v7, v2, Landroid/widget/Space;
 
-    if-eqz v7, :cond_1
+    xor-int/lit8 v7, v7, 0x1
 
-    :cond_0
-    :goto_1
-    add-int/lit8 v5, v5, 0x1
+    if-eqz v7, :cond_0
 
-    goto :goto_0
-
-    :cond_1
     invoke-virtual {v2}, Landroid/view/View;->getMeasuredWidth()I
 
     move-result v7
@@ -150,36 +145,39 @@
 
     add-int/2addr v0, v7
 
-    goto :goto_1
+    :cond_0
+    add-int/lit8 v5, v5, 0x1
+
+    goto :goto_0
+
+    :cond_1
+    if-lt v1, v0, :cond_2
+
+    if-ge v6, v0, :cond_4
 
     :cond_2
-    if-lt v1, v0, :cond_3
-
-    if-ge v6, v0, :cond_5
-
-    :cond_3
-    invoke-virtual {p0}, Landroid/widget/LinearLayout;->getOrientation()I
+    invoke-virtual {p0}, Lcom/android/internal/app/AlertController$ButtonBarLayout;->getOrientation()I
 
     move-result v7
 
-    if-eq v7, v11, :cond_4
+    if-eq v7, v11, :cond_3
 
-    invoke-virtual {p0, v11}, Landroid/widget/LinearLayout;->setOrientation(I)V
+    invoke-virtual {p0, v11}, Lcom/android/internal/app/AlertController$ButtonBarLayout;->setOrientation(I)V
 
-    :cond_4
-    :goto_2
+    :cond_3
+    :goto_1
     invoke-super {p0, p1, p2}, Landroid/widget/LinearLayout;->onMeasure(II)V
 
     return-void
 
-    :cond_5
-    invoke-virtual {p0}, Landroid/widget/LinearLayout;->getOrientation()I
+    :cond_4
+    invoke-virtual {p0}, Lcom/android/internal/app/AlertController$ButtonBarLayout;->getOrientation()I
 
     move-result v7
 
-    if-eqz v7, :cond_4
+    if-eqz v7, :cond_3
 
-    invoke-virtual {p0, v10}, Landroid/widget/LinearLayout;->setOrientation(I)V
+    invoke-virtual {p0, v10}, Lcom/android/internal/app/AlertController$ButtonBarLayout;->setOrientation(I)V
 
-    goto :goto_2
+    goto :goto_1
 .end method

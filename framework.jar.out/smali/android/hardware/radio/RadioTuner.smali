@@ -53,6 +53,20 @@
 .method public abstract getProgramInformation([Landroid/hardware/radio/RadioManager$ProgramInfo;)I
 .end method
 
+.method public abstract getProgramList(Ljava/lang/String;)Ljava/util/List;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/lang/String;",
+            ")",
+            "Ljava/util/List",
+            "<",
+            "Landroid/hardware/radio/RadioManager$ProgramInfo;",
+            ">;"
+        }
+    .end annotation
+.end method
+
 .method public abstract hasControl()Z
 .end method
 

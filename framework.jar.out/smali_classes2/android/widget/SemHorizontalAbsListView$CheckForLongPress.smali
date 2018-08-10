@@ -57,11 +57,11 @@
 
     iget-object v7, p0, Landroid/widget/SemHorizontalAbsListView$CheckForLongPress;->this$0:Landroid/widget/SemHorizontalAbsListView;
 
-    iget v7, v7, Landroid/widget/AdapterView;->mFirstPosition:I
+    iget v7, v7, Landroid/widget/SemHorizontalAbsListView;->mFirstPosition:I
 
     sub-int v7, v5, v7
 
-    invoke-virtual {v6, v7}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {v6, v7}, Landroid/widget/SemHorizontalAbsListView;->getChildAt(I)Landroid/view/View;
 
     move-result-object v0
 
@@ -85,7 +85,7 @@
 
     const/4 v1, 0x0
 
-    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView$WindowRunnnable;->sameWindow()Z
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView$CheckForLongPress;->sameWindow()Z
 
     move-result v6
 
@@ -93,13 +93,20 @@
 
     iget-object v6, p0, Landroid/widget/SemHorizontalAbsListView$CheckForLongPress;->this$0:Landroid/widget/SemHorizontalAbsListView;
 
-    iget-boolean v6, v6, Landroid/widget/AdapterView;->mDataChanged:Z
+    iget-boolean v6, v6, Landroid/widget/SemHorizontalAbsListView;->mDataChanged:Z
 
-    if-eqz v6, :cond_2
+    xor-int/lit8 v6, v6, 0x1
+
+    if-eqz v6, :cond_0
+
+    iget-object v6, p0, Landroid/widget/SemHorizontalAbsListView$CheckForLongPress;->this$0:Landroid/widget/SemHorizontalAbsListView;
+
+    invoke-virtual {v6, v0, v4, v2, v3}, Landroid/widget/SemHorizontalAbsListView;->performLongPress(Landroid/view/View;IJ)Z
+
+    move-result v1
 
     :cond_0
-    :goto_0
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_2
 
     iget-object v6, p0, Landroid/widget/SemHorizontalAbsListView$CheckForLongPress;->this$0:Landroid/widget/SemHorizontalAbsListView;
 
@@ -109,29 +116,20 @@
 
     iget-object v6, p0, Landroid/widget/SemHorizontalAbsListView$CheckForLongPress;->this$0:Landroid/widget/SemHorizontalAbsListView;
 
-    invoke-virtual {v6, v8}, Landroid/view/View;->setPressed(Z)V
+    invoke-virtual {v6, v8}, Landroid/widget/SemHorizontalAbsListView;->setPressed(Z)V
 
     invoke-virtual {v0, v8}, Landroid/view/View;->setPressed(Z)V
 
     :cond_1
-    :goto_1
+    :goto_0
     return-void
 
     :cond_2
-    iget-object v6, p0, Landroid/widget/SemHorizontalAbsListView$CheckForLongPress;->this$0:Landroid/widget/SemHorizontalAbsListView;
-
-    invoke-virtual {v6, v0, v4, v2, v3}, Landroid/widget/SemHorizontalAbsListView;->performLongPress(Landroid/view/View;IJ)Z
-
-    move-result v1
-
-    goto :goto_0
-
-    :cond_3
     iget-object v6, p0, Landroid/widget/SemHorizontalAbsListView$CheckForLongPress;->this$0:Landroid/widget/SemHorizontalAbsListView;
 
     const/4 v7, 0x2
 
     iput v7, v6, Landroid/widget/SemHorizontalAbsListView;->mTouchMode:I
 
-    goto :goto_1
+    goto :goto_0
 .end method

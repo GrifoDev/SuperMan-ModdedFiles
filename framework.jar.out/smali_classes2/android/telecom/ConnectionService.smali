@@ -15,6 +15,8 @@
 
 
 # static fields
+.field static final LOG_TAG:Ljava/lang/String; = "Telecom-ConnectionService"
+
 .field private static final MSG_ABORT:I = 0x3
 
 .field private static final MSG_ADD_CONNECTION_SERVICE_ADAPTER:I = 0x1
@@ -26,6 +28,10 @@
 .field private static final MSG_CONFERENCE:I = 0xc
 
 .field private static final MSG_CREATE_CONNECTION:I = 0x2
+
+.field private static final MSG_CREATE_CONNECTION_COMPLETE:I = 0x1d
+
+.field private static final MSG_CREATE_CONNECTION_FAILED:I = 0x19
 
 .field private static final MSG_DISCONNECT:I = 0x6
 
@@ -39,6 +45,10 @@
 
 .field private static final MSG_ON_POST_DIAL_CONTINUE:I = 0xe
 
+.field private static final MSG_ON_START_RTT:I = 0x1a
+
+.field private static final MSG_ON_STOP_RTT:I = 0x1b
+
 .field private static final MSG_PLAY_DTMF_TONE:I = 0xa
 
 .field private static final MSG_PULL_EXTERNAL_CALL:I = 0x16
@@ -48,6 +58,8 @@
 .field private static final MSG_REJECT_WITH_MESSAGE:I = 0x14
 
 .field private static final MSG_REMOVE_CONNECTION_SERVICE_ADAPTER:I = 0x10
+
+.field private static final MSG_RTT_UPGRADE_RESPONSE:I = 0x1c
 
 .field private static final MSG_SEND_CALL_EVENT:I = 0x17
 
@@ -64,6 +76,64 @@
 .field private static final PII_DEBUG:Z
 
 .field public static final SERVICE_INTERFACE:Ljava/lang/String; = "android.telecom.ConnectionService"
+
+.field private static final SESSION_ABORT:Ljava/lang/String; = "CS.ab"
+
+.field private static final SESSION_ADD_CS_ADAPTER:Ljava/lang/String; = "CS.aCSA"
+
+.field private static final SESSION_ANSWER:Ljava/lang/String; = "CS.an"
+
+.field private static final SESSION_ANSWER_VIDEO:Ljava/lang/String; = "CS.anV"
+
+.field private static final SESSION_CALL_AUDIO_SC:Ljava/lang/String; = "CS.cASC"
+
+.field private static final SESSION_CONFERENCE:Ljava/lang/String; = "CS.c"
+
+.field private static final SESSION_CREATE_CONN:Ljava/lang/String; = "CS.crCo"
+
+.field private static final SESSION_CREATE_CONN_COMPLETE:Ljava/lang/String; = "CS.crCoC"
+
+.field private static final SESSION_CREATE_CONN_FAILED:Ljava/lang/String; = "CS.crCoF"
+
+.field private static final SESSION_DISCONNECT:Ljava/lang/String; = "CS.d"
+
+.field private static final SESSION_EXTRAS_CHANGED:Ljava/lang/String; = "CS.oEC"
+
+.field private static final SESSION_HANDLER:Ljava/lang/String; = "H."
+
+.field private static final SESSION_HOLD:Ljava/lang/String; = "CS.h"
+
+.field private static final SESSION_MERGE_CONFERENCE:Ljava/lang/String; = "CS.mC"
+
+.field private static final SESSION_PLAY_DTMF:Ljava/lang/String; = "CS.pDT"
+
+.field private static final SESSION_POST_DIAL_CONT:Ljava/lang/String; = "CS.oPDC"
+
+.field private static final SESSION_PULL_EXTERNAL_CALL:Ljava/lang/String; = "CS.pEC"
+
+.field private static final SESSION_REJECT:Ljava/lang/String; = "CS.r"
+
+.field private static final SESSION_REJECT_MESSAGE:Ljava/lang/String; = "CS.rWM"
+
+.field private static final SESSION_REMOVE_CS_ADAPTER:Ljava/lang/String; = "CS.rCSA"
+
+.field private static final SESSION_RTT_UPGRADE_RESPONSE:Ljava/lang/String; = "CS.rTRUR"
+
+.field private static final SESSION_SEND_CALL_EVENT:Ljava/lang/String; = "CS.sCE"
+
+.field private static final SESSION_SILENCE:Ljava/lang/String; = "CS.s"
+
+.field private static final SESSION_SPLIT_CONFERENCE:Ljava/lang/String; = "CS.sFC"
+
+.field private static final SESSION_START_RTT:Ljava/lang/String; = "CS.+RTT"
+
+.field private static final SESSION_STOP_DTMF:Ljava/lang/String; = "CS.sDT"
+
+.field private static final SESSION_STOP_RTT:Ljava/lang/String; = "CS.-RTT"
+
+.field private static final SESSION_SWAP_CONFERENCE:Ljava/lang/String; = "CS.sC"
+
+.field private static final SESSION_UNHOLD:Ljava/lang/String; = "CS.u"
 
 .field private static sNullConnection:Landroid/telecom/Connection;
 
@@ -234,7 +304,23 @@
     return-object v0
 .end method
 
-.method static synthetic -wrap10(Landroid/telecom/ConnectionService;Ljava/lang/String;)V
+.method static synthetic -wrap10(Landroid/telecom/ConnectionService;Ljava/lang/String;Landroid/telecom/Connection$RttTextStream;)V
+    .locals 0
+
+    invoke-direct {p0, p1, p2}, Landroid/telecom/ConnectionService;->handleRttUpgradeResponse(Ljava/lang/String;Landroid/telecom/Connection$RttTextStream;)V
+
+    return-void
+.end method
+
+.method static synthetic -wrap11(Landroid/telecom/ConnectionService;Ljava/lang/String;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Landroid/telecom/ConnectionService;->hold(Ljava/lang/String;)V
+
+    return-void
+.end method
+
+.method static synthetic -wrap12(Landroid/telecom/ConnectionService;Ljava/lang/String;)V
     .locals 0
 
     invoke-direct {p0, p1}, Landroid/telecom/ConnectionService;->mergeConference(Ljava/lang/String;)V
@@ -242,7 +328,15 @@
     return-void
 .end method
 
-.method static synthetic -wrap11(Landroid/telecom/ConnectionService;)V
+.method static synthetic -wrap13(Landroid/telecom/ConnectionService;Ljava/lang/String;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Landroid/telecom/ConnectionService;->notifyCreateConnectionComplete(Ljava/lang/String;)V
+
+    return-void
+.end method
+
+.method static synthetic -wrap14(Landroid/telecom/ConnectionService;)V
     .locals 0
 
     invoke-direct {p0}, Landroid/telecom/ConnectionService;->onAccountsInitialized()V
@@ -250,7 +344,7 @@
     return-void
 .end method
 
-.method static synthetic -wrap12(Landroid/telecom/ConnectionService;)V
+.method static synthetic -wrap15(Landroid/telecom/ConnectionService;)V
     .locals 0
 
     invoke-direct {p0}, Landroid/telecom/ConnectionService;->onAdapterAttached()V
@@ -258,7 +352,7 @@
     return-void
 .end method
 
-.method static synthetic -wrap13(Landroid/telecom/ConnectionService;Ljava/lang/String;Landroid/telecom/CallAudioState;)V
+.method static synthetic -wrap16(Landroid/telecom/ConnectionService;Ljava/lang/String;Landroid/telecom/CallAudioState;)V
     .locals 0
 
     invoke-direct {p0, p1, p2}, Landroid/telecom/ConnectionService;->onCallAudioStateChanged(Ljava/lang/String;Landroid/telecom/CallAudioState;)V
@@ -266,7 +360,7 @@
     return-void
 .end method
 
-.method static synthetic -wrap14(Landroid/telecom/ConnectionService;Ljava/lang/String;Z)V
+.method static synthetic -wrap17(Landroid/telecom/ConnectionService;Ljava/lang/String;Z)V
     .locals 0
 
     invoke-direct {p0, p1, p2}, Landroid/telecom/ConnectionService;->onPostDialContinue(Ljava/lang/String;Z)V
@@ -274,7 +368,7 @@
     return-void
 .end method
 
-.method static synthetic -wrap15(Landroid/telecom/ConnectionService;Ljava/lang/String;C)V
+.method static synthetic -wrap18(Landroid/telecom/ConnectionService;Ljava/lang/String;C)V
     .locals 0
 
     invoke-direct {p0, p1, p2}, Landroid/telecom/ConnectionService;->playDtmfTone(Ljava/lang/String;C)V
@@ -282,34 +376,10 @@
     return-void
 .end method
 
-.method static synthetic -wrap16(Landroid/telecom/ConnectionService;Ljava/lang/String;)V
+.method static synthetic -wrap19(Landroid/telecom/ConnectionService;Ljava/lang/String;)V
     .locals 0
 
     invoke-direct {p0, p1}, Landroid/telecom/ConnectionService;->pullExternalCall(Ljava/lang/String;)V
-
-    return-void
-.end method
-
-.method static synthetic -wrap17(Landroid/telecom/ConnectionService;Ljava/lang/String;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Landroid/telecom/ConnectionService;->reject(Ljava/lang/String;)V
-
-    return-void
-.end method
-
-.method static synthetic -wrap18(Landroid/telecom/ConnectionService;Ljava/lang/String;Ljava/lang/String;)V
-    .locals 0
-
-    invoke-direct {p0, p1, p2}, Landroid/telecom/ConnectionService;->reject(Ljava/lang/String;Ljava/lang/String;)V
-
-    return-void
-.end method
-
-.method static synthetic -wrap19(Landroid/telecom/ConnectionService;Landroid/telecom/Conference;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Landroid/telecom/ConnectionService;->removeConference(Landroid/telecom/Conference;)V
 
     return-void
 .end method
@@ -322,7 +392,31 @@
     return-void
 .end method
 
-.method static synthetic -wrap20(Landroid/telecom/ConnectionService;Ljava/lang/String;Ljava/lang/String;Landroid/os/Bundle;)V
+.method static synthetic -wrap20(Landroid/telecom/ConnectionService;Ljava/lang/String;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Landroid/telecom/ConnectionService;->reject(Ljava/lang/String;)V
+
+    return-void
+.end method
+
+.method static synthetic -wrap21(Landroid/telecom/ConnectionService;Ljava/lang/String;Ljava/lang/String;)V
+    .locals 0
+
+    invoke-direct {p0, p1, p2}, Landroid/telecom/ConnectionService;->reject(Ljava/lang/String;Ljava/lang/String;)V
+
+    return-void
+.end method
+
+.method static synthetic -wrap22(Landroid/telecom/ConnectionService;Landroid/telecom/Conference;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Landroid/telecom/ConnectionService;->removeConference(Landroid/telecom/Conference;)V
+
+    return-void
+.end method
+
+.method static synthetic -wrap23(Landroid/telecom/ConnectionService;Ljava/lang/String;Ljava/lang/String;Landroid/os/Bundle;)V
     .locals 0
 
     invoke-direct {p0, p1, p2, p3}, Landroid/telecom/ConnectionService;->sendCallEvent(Ljava/lang/String;Ljava/lang/String;Landroid/os/Bundle;)V
@@ -330,7 +424,7 @@
     return-void
 .end method
 
-.method static synthetic -wrap21(Landroid/telecom/ConnectionService;Ljava/lang/String;)V
+.method static synthetic -wrap24(Landroid/telecom/ConnectionService;Ljava/lang/String;)V
     .locals 0
 
     invoke-direct {p0, p1}, Landroid/telecom/ConnectionService;->silence(Ljava/lang/String;)V
@@ -338,7 +432,7 @@
     return-void
 .end method
 
-.method static synthetic -wrap22(Landroid/telecom/ConnectionService;Ljava/lang/String;)V
+.method static synthetic -wrap25(Landroid/telecom/ConnectionService;Ljava/lang/String;)V
     .locals 0
 
     invoke-direct {p0, p1}, Landroid/telecom/ConnectionService;->splitFromConference(Ljava/lang/String;)V
@@ -346,7 +440,15 @@
     return-void
 .end method
 
-.method static synthetic -wrap23(Landroid/telecom/ConnectionService;Ljava/lang/String;)V
+.method static synthetic -wrap26(Landroid/telecom/ConnectionService;Ljava/lang/String;Landroid/telecom/Connection$RttTextStream;)V
+    .locals 0
+
+    invoke-direct {p0, p1, p2}, Landroid/telecom/ConnectionService;->startRtt(Ljava/lang/String;Landroid/telecom/Connection$RttTextStream;)V
+
+    return-void
+.end method
+
+.method static synthetic -wrap27(Landroid/telecom/ConnectionService;Ljava/lang/String;)V
     .locals 0
 
     invoke-direct {p0, p1}, Landroid/telecom/ConnectionService;->stopDtmfTone(Ljava/lang/String;)V
@@ -354,18 +456,18 @@
     return-void
 .end method
 
-.method static synthetic -wrap24(Landroid/telecom/ConnectionService;Ljava/lang/String;)V
+.method static synthetic -wrap28(Landroid/telecom/ConnectionService;Ljava/lang/String;)V
     .locals 0
 
-    invoke-direct {p0, p1}, Landroid/telecom/ConnectionService;->swapConference(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Landroid/telecom/ConnectionService;->stopRtt(Ljava/lang/String;)V
 
     return-void
 .end method
 
-.method static synthetic -wrap25(Landroid/telecom/ConnectionService;Ljava/lang/String;)V
+.method static synthetic -wrap29(Landroid/telecom/ConnectionService;Ljava/lang/String;)V
     .locals 0
 
-    invoke-direct {p0, p1}, Landroid/telecom/ConnectionService;->unhold(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Landroid/telecom/ConnectionService;->swapConference(Ljava/lang/String;)V
 
     return-void
 .end method
@@ -374,6 +476,14 @@
     .locals 0
 
     invoke-direct {p0, p1, p2}, Landroid/telecom/ConnectionService;->answerVideo(Ljava/lang/String;I)V
+
+    return-void
+.end method
+
+.method static synthetic -wrap30(Landroid/telecom/ConnectionService;Ljava/lang/String;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Landroid/telecom/ConnectionService;->unhold(Ljava/lang/String;)V
 
     return-void
 .end method
@@ -394,7 +504,15 @@
     return-void
 .end method
 
-.method static synthetic -wrap6(Landroid/telecom/ConnectionService;Landroid/telecom/PhoneAccountHandle;Ljava/lang/String;Landroid/telecom/ConnectionRequest;ZZ)V
+.method static synthetic -wrap6(Landroid/telecom/ConnectionService;Landroid/telecom/PhoneAccountHandle;Ljava/lang/String;Landroid/telecom/ConnectionRequest;Z)V
+    .locals 0
+
+    invoke-direct {p0, p1, p2, p3, p4}, Landroid/telecom/ConnectionService;->createConnectionFailed(Landroid/telecom/PhoneAccountHandle;Ljava/lang/String;Landroid/telecom/ConnectionRequest;Z)V
+
+    return-void
+.end method
+
+.method static synthetic -wrap7(Landroid/telecom/ConnectionService;Landroid/telecom/PhoneAccountHandle;Ljava/lang/String;Landroid/telecom/ConnectionRequest;ZZ)V
     .locals 0
 
     invoke-direct/range {p0 .. p5}, Landroid/telecom/ConnectionService;->createConnection(Landroid/telecom/PhoneAccountHandle;Ljava/lang/String;Landroid/telecom/ConnectionRequest;ZZ)V
@@ -402,7 +520,7 @@
     return-void
 .end method
 
-.method static synthetic -wrap7(Landroid/telecom/ConnectionService;Ljava/lang/String;)V
+.method static synthetic -wrap8(Landroid/telecom/ConnectionService;Ljava/lang/String;)V
     .locals 0
 
     invoke-direct {p0, p1}, Landroid/telecom/ConnectionService;->disconnect(Ljava/lang/String;)V
@@ -410,18 +528,10 @@
     return-void
 .end method
 
-.method static synthetic -wrap8(Landroid/telecom/ConnectionService;Ljava/lang/String;Landroid/os/Bundle;)V
+.method static synthetic -wrap9(Landroid/telecom/ConnectionService;Ljava/lang/String;Landroid/os/Bundle;)V
     .locals 0
 
     invoke-direct {p0, p1, p2}, Landroid/telecom/ConnectionService;->handleExtrasChanged(Ljava/lang/String;Landroid/os/Bundle;)V
-
-    return-void
-.end method
-
-.method static synthetic -wrap9(Landroid/telecom/ConnectionService;Ljava/lang/String;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Landroid/telecom/ConnectionService;->hold(Ljava/lang/String;)V
 
     return-void
 .end method
@@ -557,61 +667,208 @@
 .end method
 
 .method private addConferenceInternal(Landroid/telecom/Conference;)Ljava/lang/String;
-    .locals 5
+    .locals 8
 
-    const/4 v4, 0x0
+    const/4 v7, 0x1
 
-    iget-object v1, p0, Landroid/telecom/ConnectionService;->mIdByConference:Ljava/util/Map;
+    const/4 v6, 0x0
 
-    invoke-interface {v1, p1}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
+    const/4 v5, 0x0
 
-    move-result v1
+    const/4 v1, 0x0
 
-    if-eqz v1, :cond_1
+    invoke-virtual {p1}, Landroid/telecom/Conference;->getExtras()Landroid/os/Bundle;
 
-    const-string/jumbo v1, "Re-adding an existing conference: %s."
+    move-result-object v2
 
-    const/4 v2, 0x1
+    if-eqz v2, :cond_0
 
-    new-array v2, v2, [Ljava/lang/Object;
+    invoke-virtual {p1}, Landroid/telecom/Conference;->getExtras()Landroid/os/Bundle;
 
-    const/4 v3, 0x0
+    move-result-object v2
 
-    aput-object p1, v2, v3
+    const-string/jumbo v3, "android.telecom.extra.ORIGINAL_CONNECTION_ID"
 
-    invoke-static {p0, v1, v2}, Landroid/telecom/Log;->w(Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-virtual {v2, v3}, Landroid/os/Bundle;->containsKey(Ljava/lang/String;)Z
 
-    :cond_0
-    return-object v4
+    move-result v2
 
-    :cond_1
-    if-eqz p1, :cond_0
+    if-eqz v2, :cond_0
 
-    invoke-static {}, Ljava/util/UUID;->randomUUID()Ljava/util/UUID;
+    invoke-virtual {p1}, Landroid/telecom/Conference;->getExtras()Landroid/os/Bundle;
+
+    move-result-object v2
+
+    const-string/jumbo v3, "android.telecom.extra.ORIGINAL_CONNECTION_ID"
+
+    invoke-virtual {v2, v3}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
-    invoke-virtual {v1}, Ljava/util/UUID;->toString()Ljava/lang/String;
+    const-string/jumbo v2, "addConferenceInternal: conf %s reusing original id %s"
+
+    const/4 v3, 0x2
+
+    new-array v3, v3, [Ljava/lang/Object;
+
+    invoke-virtual {p1}, Landroid/telecom/Conference;->getTelecomCallId()Ljava/lang/String;
+
+    move-result-object v4
+
+    aput-object v4, v3, v6
+
+    aput-object v1, v3, v7
+
+    invoke-static {p0, v2, v3}, Landroid/telecom/Log;->d(Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Object;)V
+
+    :cond_0
+    iget-object v2, p0, Landroid/telecom/ConnectionService;->mIdByConference:Ljava/util/Map;
+
+    invoke-interface {v2, p1}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_2
+
+    const-string/jumbo v2, "Re-adding an existing conference: %s."
+
+    new-array v3, v7, [Ljava/lang/Object;
+
+    aput-object p1, v3, v6
+
+    invoke-static {p0, v2, v3}, Landroid/telecom/Log;->w(Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Object;)V
+
+    :cond_1
+    return-object v5
+
+    :cond_2
+    if-eqz p1, :cond_1
+
+    if-nez v1, :cond_3
+
+    invoke-static {}, Ljava/util/UUID;->randomUUID()Ljava/util/UUID;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/util/UUID;->toString()Ljava/lang/String;
 
     move-result-object v0
 
-    iget-object v1, p0, Landroid/telecom/ConnectionService;->mConferenceById:Ljava/util/Map;
+    :goto_0
+    const-string/jumbo v2, "Telecom-ConnectionService"
 
-    invoke-interface {v1, v0, p1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    iget-object v1, p0, Landroid/telecom/ConnectionService;->mIdByConference:Ljava/util/Map;
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-interface {v1, p1, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    const-string/jumbo v4, "addConferenceInternal - id: "
 
-    iget-object v1, p0, Landroid/telecom/ConnectionService;->mConferenceListener:Landroid/telecom/Conference$Listener;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p1, v1}, Landroid/telecom/Conference;->addListener(Landroid/telecom/Conference$Listener;)Landroid/telecom/Conference;
+    move-result-object v3
+
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    const-string/jumbo v4, ", conference: "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    const-string/jumbo v4, ", mConferenceListener: "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    iget-object v4, p0, Landroid/telecom/ConnectionService;->mConferenceListener:Landroid/telecom/Conference$Listener;
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v2, p0, Landroid/telecom/ConnectionService;->mConferenceById:Ljava/util/Map;
+
+    invoke-interface {v2, v0, p1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    iget-object v2, p0, Landroid/telecom/ConnectionService;->mIdByConference:Ljava/util/Map;
+
+    invoke-interface {v2, p1, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    iget-object v2, p0, Landroid/telecom/ConnectionService;->mConferenceListener:Landroid/telecom/Conference$Listener;
+
+    invoke-virtual {p1, v2}, Landroid/telecom/Conference;->addListener(Landroid/telecom/Conference$Listener;)Landroid/telecom/Conference;
 
     return-object v0
+
+    :cond_3
+    move-object v0, v1
+
+    goto :goto_0
 .end method
 
 .method private addConnection(Ljava/lang/String;Landroid/telecom/Connection;)V
-    .locals 1
+    .locals 3
+
+    const-string/jumbo v0, "Telecom-ConnectionService"
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "addConnection - callId: "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string/jumbo v2, ", connection: "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-static {p2}, Landroid/telecom/ConnectionService;->connectionToString(Landroid/telecom/Connection;)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string/jumbo v2, ", mConnectionListener: "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    iget-object v2, p0, Landroid/telecom/ConnectionService;->mConnectionListener:Landroid/telecom/Connection$Listener;
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     invoke-virtual {p2, p1}, Landroid/telecom/Connection;->setTelecomCallId(Ljava/lang/String;)V
 
@@ -633,9 +890,63 @@
 .end method
 
 .method private addExistingConnectionInternal(Landroid/telecom/PhoneAccountHandle;Landroid/telecom/Connection;)Ljava/lang/String;
-    .locals 3
+    .locals 5
 
-    if-nez p1, :cond_0
+    invoke-virtual {p2}, Landroid/telecom/Connection;->getExtras()Landroid/os/Bundle;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_0
+
+    invoke-virtual {p2}, Landroid/telecom/Connection;->getExtras()Landroid/os/Bundle;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "android.telecom.extra.ORIGINAL_CONNECTION_ID"
+
+    invoke-virtual {v1, v2}, Landroid/os/Bundle;->containsKey(Ljava/lang/String;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    invoke-virtual {p2}, Landroid/telecom/Connection;->getExtras()Landroid/os/Bundle;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "android.telecom.extra.ORIGINAL_CONNECTION_ID"
+
+    invoke-virtual {v1, v2}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string/jumbo v1, "addExistingConnectionInternal - conn %s reusing original id %s"
+
+    const/4 v2, 0x2
+
+    new-array v2, v2, [Ljava/lang/Object;
+
+    invoke-virtual {p2}, Landroid/telecom/Connection;->getTelecomCallId()Ljava/lang/String;
+
+    move-result-object v3
+
+    const/4 v4, 0x0
+
+    aput-object v3, v2, v4
+
+    const/4 v3, 0x1
+
+    aput-object v0, v2, v3
+
+    invoke-static {p0, v1, v2}, Landroid/telecom/Log;->d(Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Object;)V
+
+    :goto_0
+    invoke-direct {p0, v0, p2}, Landroid/telecom/ConnectionService;->addConnection(Ljava/lang/String;Landroid/telecom/Connection;)V
+
+    return-object v0
+
+    :cond_0
+    if-nez p1, :cond_1
 
     invoke-static {}, Ljava/util/UUID;->randomUUID()Ljava/util/UUID;
 
@@ -645,12 +956,9 @@
 
     move-result-object v0
 
-    :goto_0
-    invoke-direct {p0, v0, p2}, Landroid/telecom/ConnectionService;->addConnection(Ljava/lang/String;Landroid/telecom/Connection;)V
+    goto :goto_0
 
-    return-object v0
-
-    :cond_0
+    :cond_1
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -870,48 +1178,100 @@
     goto :goto_0
 .end method
 
+.method private static connectionToString(Landroid/telecom/Connection;)Ljava/lang/String;
+    .locals 2
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    if-nez p0, :cond_0
+
+    const-string/jumbo v1, "[null conn]"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    :goto_0
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    return-object v1
+
+    :cond_0
+    const-string/jumbo v1, "[telecomCallId: "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p0}, Landroid/telecom/Connection;->getTelecomCallId()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string/jumbo v1, ", state: "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p0}, Landroid/telecom/Connection;->getState()I
+
+    move-result v1
+
+    invoke-static {v1}, Landroid/telecom/Connection;->stateToString(I)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string/jumbo v1, "]"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    goto :goto_0
+.end method
+
 .method private createConnection(Landroid/telecom/PhoneAccountHandle;Ljava/lang/String;Landroid/telecom/ConnectionRequest;ZZ)V
-    .locals 27
+    .locals 28
 
-    const-string/jumbo v5, "createConnection, callManagerAccount: %s, callId: %s, request: %s, isIncoming: %b, isUnknown: %b"
+    const-string/jumbo v4, "createConnection, callManagerAccount: %s, callId: %s, request: %s, isIncoming: %b, isUnknown: %b"
 
-    const/4 v6, 0x5
+    const/4 v5, 0x5
 
-    new-array v6, v6, [Ljava/lang/Object;
+    new-array v5, v5, [Ljava/lang/Object;
 
-    const/4 v7, 0x0
+    const/4 v6, 0x0
 
-    aput-object p1, v6, v7
+    aput-object p1, v5, v6
 
-    const/4 v7, 0x1
+    const/4 v6, 0x1
 
-    aput-object p2, v6, v7
+    aput-object p2, v5, v6
 
-    const/4 v7, 0x2
+    const/4 v6, 0x2
 
-    aput-object p3, v6, v7
+    aput-object p3, v5, v6
 
     invoke-static/range {p4 .. p4}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    move-result-object v7
+    move-result-object v6
 
-    const/4 v8, 0x3
+    const/4 v7, 0x3
 
-    aput-object v7, v6, v8
+    aput-object v6, v5, v7
 
     invoke-static/range {p5 .. p5}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    move-result-object v7
+    move-result-object v6
 
-    const/4 v8, 0x4
+    const/4 v7, 0x4
 
-    aput-object v7, v6, v8
+    aput-object v6, v5, v7
 
     move-object/from16 v0, p0
 
-    invoke-static {v0, v5, v6}, Landroid/telecom/Log;->d(Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-static {v0, v4, v5}, Landroid/telecom/Log;->d(Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Object;)V
 
-    if-eqz p5, :cond_3
+    if-eqz p5, :cond_4
 
     move-object/from16 v0, p0
 
@@ -921,210 +1281,252 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/telecom/ConnectionService;->onCreateUnknownConnection(Landroid/telecom/PhoneAccountHandle;Landroid/telecom/ConnectionRequest;)Landroid/telecom/Connection;
 
-    move-result-object v24
+    move-result-object v25
 
     :goto_0
-    const-string/jumbo v5, "createConnection, connection: %s"
+    const-string/jumbo v4, "createConnection, connection: %s"
 
-    const/4 v6, 0x1
+    const/4 v5, 0x1
 
-    new-array v6, v6, [Ljava/lang/Object;
+    new-array v5, v5, [Ljava/lang/Object;
 
-    const/4 v7, 0x0
+    const/4 v6, 0x0
 
-    aput-object v24, v6, v7
+    aput-object v25, v5, v6
 
     move-object/from16 v0, p0
 
-    invoke-static {v0, v5, v6}, Landroid/telecom/Log;->d(Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-static {v0, v4, v5}, Landroid/telecom/Log;->d(Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Object;)V
 
-    if-nez v24, :cond_0
+    const-string/jumbo v4, "Telecom-ConnectionService"
 
-    new-instance v5, Landroid/telecom/DisconnectCause;
+    new-instance v5, Ljava/lang/StringBuilder;
 
-    const/4 v6, 0x1
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v5, v6}, Landroid/telecom/DisconnectCause;-><init>(I)V
+    const-string/jumbo v6, "createConnection - callId: "
 
-    invoke-static {v5}, Landroid/telecom/Connection;->createFailedConnection(Landroid/telecom/DisconnectCause;)Landroid/telecom/Connection;
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v24
+    move-result-object v5
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    const-string/jumbo v6, ", connection: "
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-static/range {v25 .. v25}, Landroid/telecom/ConnectionService;->connectionToString(Landroid/telecom/Connection;)Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v4, v5}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    if-nez v25, :cond_0
+
+    new-instance v4, Landroid/telecom/DisconnectCause;
+
+    const/4 v5, 0x1
+
+    invoke-direct {v4, v5}, Landroid/telecom/DisconnectCause;-><init>(I)V
+
+    invoke-static {v4}, Landroid/telecom/Connection;->createFailedConnection(Landroid/telecom/DisconnectCause;)Landroid/telecom/Connection;
+
+    move-result-object v25
 
     :cond_0
-    move-object/from16 v0, v24
+    move-object/from16 v0, v25
 
     move-object/from16 v1, p2
 
     invoke-virtual {v0, v1}, Landroid/telecom/Connection;->setTelecomCallId(Ljava/lang/String;)V
 
-    invoke-virtual/range {v24 .. v24}, Landroid/telecom/Connection;->getState()I
+    invoke-virtual/range {v25 .. v25}, Landroid/telecom/Connection;->getState()I
 
-    move-result v5
+    move-result v4
 
-    const/4 v6, 0x6
+    const/4 v5, 0x6
 
-    if-eq v5, v6, :cond_1
+    if-eq v4, v5, :cond_1
 
     move-object/from16 v0, p0
 
     move-object/from16 v1, p2
 
-    move-object/from16 v2, v24
+    move-object/from16 v2, v25
 
     invoke-direct {v0, v1, v2}, Landroid/telecom/ConnectionService;->addConnection(Ljava/lang/String;Landroid/telecom/Connection;)V
 
     :cond_1
-    invoke-virtual/range {v24 .. v24}, Landroid/telecom/Connection;->getAddress()Landroid/net/Uri;
+    invoke-virtual/range {v25 .. v25}, Landroid/telecom/Connection;->getAddress()Landroid/net/Uri;
 
-    move-result-object v4
+    move-result-object v24
 
-    if-nez v4, :cond_5
+    if-nez v24, :cond_6
 
-    const-string/jumbo v25, "null"
+    const-string/jumbo v26, "null"
 
     :goto_1
-    const-string/jumbo v5, "createConnection, number: %s, state: %s, capabilities: %s, properties: %s"
+    const-string/jumbo v4, "createConnection, number: %s, state: %s, capabilities: %s, properties: %s"
 
-    const/4 v6, 0x4
+    const/4 v5, 0x4
 
-    new-array v6, v6, [Ljava/lang/Object;
+    new-array v5, v5, [Ljava/lang/Object;
 
-    invoke-static/range {v25 .. v25}, Landroid/telecom/Connection;->toLogSafePhoneNumber(Ljava/lang/String;)Ljava/lang/String;
+    invoke-static/range {v26 .. v26}, Landroid/telecom/Connection;->toLogSafePhoneNumber(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v7
-
-    const/4 v8, 0x0
-
-    aput-object v7, v6, v8
-
-    invoke-virtual/range {v24 .. v24}, Landroid/telecom/Connection;->getState()I
-
-    move-result v7
-
-    invoke-static {v7}, Landroid/telecom/Connection;->stateToString(I)Ljava/lang/String;
-
-    move-result-object v7
-
-    const/4 v8, 0x1
-
-    aput-object v7, v6, v8
-
-    invoke-virtual/range {v24 .. v24}, Landroid/telecom/Connection;->getConnectionCapabilities()I
-
-    move-result v7
-
-    invoke-static {v7}, Landroid/telecom/Connection;->capabilitiesToString(I)Ljava/lang/String;
-
-    move-result-object v7
-
-    const/4 v8, 0x2
-
-    aput-object v7, v6, v8
-
-    invoke-virtual/range {v24 .. v24}, Landroid/telecom/Connection;->getConnectionProperties()I
-
-    move-result v7
-
-    invoke-static {v7}, Landroid/telecom/Connection;->propertiesToString(I)Ljava/lang/String;
-
-    move-result-object v7
-
-    const/4 v8, 0x3
-
-    aput-object v7, v6, v8
-
-    move-object/from16 v0, p0
-
-    invoke-static {v0, v5, v6}, Landroid/telecom/Log;->v(Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Object;)V
-
-    const-string/jumbo v5, "createConnection, calling handleCreateConnectionSuccessful %s"
-
-    const/4 v6, 0x1
-
-    new-array v6, v6, [Ljava/lang/Object;
+    move-result-object v6
 
     const/4 v7, 0x0
 
-    aput-object p2, v6, v7
+    aput-object v6, v5, v7
+
+    invoke-virtual/range {v25 .. v25}, Landroid/telecom/Connection;->getState()I
+
+    move-result v6
+
+    invoke-static {v6}, Landroid/telecom/Connection;->stateToString(I)Ljava/lang/String;
+
+    move-result-object v6
+
+    const/4 v7, 0x1
+
+    aput-object v6, v5, v7
+
+    invoke-virtual/range {v25 .. v25}, Landroid/telecom/Connection;->getConnectionCapabilities()I
+
+    move-result v6
+
+    invoke-static {v6}, Landroid/telecom/Connection;->capabilitiesToString(I)Ljava/lang/String;
+
+    move-result-object v6
+
+    const/4 v7, 0x2
+
+    aput-object v6, v5, v7
+
+    invoke-virtual/range {v25 .. v25}, Landroid/telecom/Connection;->getConnectionProperties()I
+
+    move-result v6
+
+    invoke-static {v6}, Landroid/telecom/Connection;->propertiesToString(I)Ljava/lang/String;
+
+    move-result-object v6
+
+    const/4 v7, 0x3
+
+    aput-object v6, v5, v7
 
     move-object/from16 v0, p0
 
-    invoke-static {v0, v5, v6}, Landroid/telecom/Log;->d(Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-static {v0, v4, v5}, Landroid/telecom/Log;->v(Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Object;)V
+
+    const-string/jumbo v4, "createConnection, calling handleCreateConnectionSuccessful %s"
+
+    const/4 v5, 0x1
+
+    new-array v5, v5, [Ljava/lang/Object;
+
+    const/4 v6, 0x0
+
+    aput-object p2, v5, v6
+
+    move-object/from16 v0, p0
+
+    invoke-static {v0, v4, v5}, Landroid/telecom/Log;->d(Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Object;)V
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/telecom/ConnectionService;->mAdapter:Landroid/telecom/ConnectionServiceAdapter;
 
-    move-object/from16 v26, v0
+    move-object/from16 v27, v0
 
-    new-instance v5, Landroid/telecom/ParcelableConnection;
+    new-instance v4, Landroid/telecom/ParcelableConnection;
 
     invoke-virtual/range {p3 .. p3}, Landroid/telecom/ConnectionRequest;->getAccountHandle()Landroid/telecom/PhoneAccountHandle;
 
-    move-result-object v6
+    move-result-object v5
 
-    invoke-virtual/range {v24 .. v24}, Landroid/telecom/Connection;->getState()I
+    invoke-virtual/range {v25 .. v25}, Landroid/telecom/Connection;->getState()I
+
+    move-result v6
+
+    invoke-virtual/range {v25 .. v25}, Landroid/telecom/Connection;->getConnectionCapabilities()I
 
     move-result v7
 
-    invoke-virtual/range {v24 .. v24}, Landroid/telecom/Connection;->getConnectionCapabilities()I
+    invoke-virtual/range {v25 .. v25}, Landroid/telecom/Connection;->getConnectionProperties()I
 
     move-result v8
 
-    invoke-virtual/range {v24 .. v24}, Landroid/telecom/Connection;->getConnectionProperties()I
+    invoke-virtual/range {v25 .. v25}, Landroid/telecom/Connection;->getSupportedAudioRoutes()I
 
     move-result v9
 
-    invoke-virtual/range {v24 .. v24}, Landroid/telecom/Connection;->getAddress()Landroid/net/Uri;
+    invoke-virtual/range {v25 .. v25}, Landroid/telecom/Connection;->getAddress()Landroid/net/Uri;
 
     move-result-object v10
 
-    invoke-virtual/range {v24 .. v24}, Landroid/telecom/Connection;->getAddressPresentation()I
+    invoke-virtual/range {v25 .. v25}, Landroid/telecom/Connection;->getAddressPresentation()I
 
     move-result v11
 
-    invoke-virtual/range {v24 .. v24}, Landroid/telecom/Connection;->getCallerDisplayName()Ljava/lang/String;
+    invoke-virtual/range {v25 .. v25}, Landroid/telecom/Connection;->getCallerDisplayName()Ljava/lang/String;
 
     move-result-object v12
 
-    invoke-virtual/range {v24 .. v24}, Landroid/telecom/Connection;->getCallerDisplayNamePresentation()I
+    invoke-virtual/range {v25 .. v25}, Landroid/telecom/Connection;->getCallerDisplayNamePresentation()I
 
     move-result v13
 
-    invoke-virtual/range {v24 .. v24}, Landroid/telecom/Connection;->getVideoProvider()Landroid/telecom/Connection$VideoProvider;
+    invoke-virtual/range {v25 .. v25}, Landroid/telecom/Connection;->getVideoProvider()Landroid/telecom/Connection$VideoProvider;
 
     move-result-object v14
 
-    if-nez v14, :cond_6
+    if-nez v14, :cond_7
 
     const/4 v14, 0x0
 
     :goto_2
-    invoke-virtual/range {v24 .. v24}, Landroid/telecom/Connection;->getVideoState()I
+    invoke-virtual/range {v25 .. v25}, Landroid/telecom/Connection;->getVideoState()I
 
     move-result v15
 
-    invoke-virtual/range {v24 .. v24}, Landroid/telecom/Connection;->isRingbackRequested()Z
+    invoke-virtual/range {v25 .. v25}, Landroid/telecom/Connection;->isRingbackRequested()Z
 
     move-result v16
 
-    invoke-virtual/range {v24 .. v24}, Landroid/telecom/Connection;->getAudioModeIsVoip()Z
+    invoke-virtual/range {v25 .. v25}, Landroid/telecom/Connection;->getAudioModeIsVoip()Z
 
     move-result v17
 
-    invoke-virtual/range {v24 .. v24}, Landroid/telecom/Connection;->getConnectTimeMillis()J
+    invoke-virtual/range {v25 .. v25}, Landroid/telecom/Connection;->getConnectTimeMillis()J
 
     move-result-wide v18
 
-    invoke-virtual/range {v24 .. v24}, Landroid/telecom/Connection;->getStatusHints()Landroid/telecom/StatusHints;
+    invoke-virtual/range {v25 .. v25}, Landroid/telecom/Connection;->getStatusHints()Landroid/telecom/StatusHints;
 
     move-result-object v20
 
-    invoke-virtual/range {v24 .. v24}, Landroid/telecom/Connection;->getDisconnectCause()Landroid/telecom/DisconnectCause;
+    invoke-virtual/range {v25 .. v25}, Landroid/telecom/Connection;->getDisconnectCause()Landroid/telecom/DisconnectCause;
 
     move-result-object v21
 
-    invoke-virtual/range {v24 .. v24}, Landroid/telecom/Connection;->getConferenceables()Ljava/util/List;
+    invoke-virtual/range {v25 .. v25}, Landroid/telecom/Connection;->getConferenceables()Ljava/util/List;
 
     move-result-object v22
 
@@ -1136,29 +1538,50 @@
 
     move-result-object v22
 
-    invoke-virtual/range {v24 .. v24}, Landroid/telecom/Connection;->getExtras()Landroid/os/Bundle;
+    invoke-virtual/range {v25 .. v25}, Landroid/telecom/Connection;->getExtras()Landroid/os/Bundle;
 
     move-result-object v23
 
-    invoke-direct/range {v5 .. v23}, Landroid/telecom/ParcelableConnection;-><init>(Landroid/telecom/PhoneAccountHandle;IIILandroid/net/Uri;ILjava/lang/String;ILcom/android/internal/telecom/IVideoProvider;IZZJLandroid/telecom/StatusHints;Landroid/telecom/DisconnectCause;Ljava/util/List;Landroid/os/Bundle;)V
+    invoke-direct/range {v4 .. v23}, Landroid/telecom/ParcelableConnection;-><init>(Landroid/telecom/PhoneAccountHandle;IIIILandroid/net/Uri;ILjava/lang/String;ILcom/android/internal/telecom/IVideoProvider;IZZJLandroid/telecom/StatusHints;Landroid/telecom/DisconnectCause;Ljava/util/List;Landroid/os/Bundle;)V
 
-    move-object/from16 v0, v26
+    move-object/from16 v0, v27
 
     move-object/from16 v1, p2
 
     move-object/from16 v2, p3
 
-    invoke-virtual {v0, v1, v2, v5}, Landroid/telecom/ConnectionServiceAdapter;->handleCreateConnectionComplete(Ljava/lang/String;Landroid/telecom/ConnectionRequest;Landroid/telecom/ParcelableConnection;)V
+    invoke-virtual {v0, v1, v2, v4}, Landroid/telecom/ConnectionServiceAdapter;->handleCreateConnectionComplete(Ljava/lang/String;Landroid/telecom/ConnectionRequest;Landroid/telecom/ParcelableConnection;)V
 
-    if-eqz p5, :cond_2
+    if-eqz p4, :cond_2
+
+    invoke-virtual/range {p3 .. p3}, Landroid/telecom/ConnectionRequest;->shouldShowIncomingCallUi()Z
+
+    move-result v4
+
+    if-eqz v4, :cond_2
+
+    invoke-virtual/range {v25 .. v25}, Landroid/telecom/Connection;->getConnectionProperties()I
+
+    move-result v4
+
+    and-int/lit16 v4, v4, 0x80
+
+    const/16 v5, 0x80
+
+    if-ne v4, v5, :cond_2
+
+    invoke-virtual/range {v25 .. v25}, Landroid/telecom/Connection;->onShowIncomingCallUi()V
+
+    :cond_2
+    if-eqz p5, :cond_3
 
     invoke-virtual/range {p0 .. p0}, Landroid/telecom/ConnectionService;->triggerConferenceRecalculate()V
 
-    :cond_2
+    :cond_3
     return-void
 
-    :cond_3
-    if-eqz p4, :cond_4
+    :cond_4
+    if-eqz p4, :cond_5
 
     move-object/from16 v0, p0
 
@@ -1168,11 +1591,11 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/telecom/ConnectionService;->onCreateIncomingConnection(Landroid/telecom/PhoneAccountHandle;Landroid/telecom/ConnectionRequest;)Landroid/telecom/Connection;
 
-    move-result-object v24
+    move-result-object v25
 
     goto/16 :goto_0
 
-    :cond_4
+    :cond_5
     move-object/from16 v0, p0
 
     move-object/from16 v1, p1
@@ -1181,19 +1604,19 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/telecom/ConnectionService;->onCreateOutgoingConnection(Landroid/telecom/PhoneAccountHandle;Landroid/telecom/ConnectionRequest;)Landroid/telecom/Connection;
 
-    move-result-object v24
+    move-result-object v25
 
     goto/16 :goto_0
 
-    :cond_5
-    invoke-virtual {v4}, Landroid/net/Uri;->getSchemeSpecificPart()Ljava/lang/String;
+    :cond_6
+    invoke-virtual/range {v24 .. v24}, Landroid/net/Uri;->getSchemeSpecificPart()Ljava/lang/String;
 
-    move-result-object v25
+    move-result-object v26
 
     goto/16 :goto_1
 
-    :cond_6
-    invoke-virtual/range {v24 .. v24}, Landroid/telecom/Connection;->getVideoProvider()Landroid/telecom/Connection$VideoProvider;
+    :cond_7
+    invoke-virtual/range {v25 .. v25}, Landroid/telecom/Connection;->getVideoProvider()Landroid/telecom/Connection$VideoProvider;
 
     move-result-object v14
 
@@ -1202,6 +1625,34 @@
     move-result-object v14
 
     goto :goto_2
+.end method
+
+.method private createConnectionFailed(Landroid/telecom/PhoneAccountHandle;Ljava/lang/String;Landroid/telecom/ConnectionRequest;Z)V
+    .locals 3
+
+    const-string/jumbo v0, "createConnectionFailed %s"
+
+    const/4 v1, 0x1
+
+    new-array v1, v1, [Ljava/lang/Object;
+
+    const/4 v2, 0x0
+
+    aput-object p2, v1, v2
+
+    invoke-static {p0, v0, v1}, Landroid/telecom/Log;->i(Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Object;)V
+
+    if-eqz p4, :cond_0
+
+    invoke-virtual {p0, p1, p3}, Landroid/telecom/ConnectionService;->onCreateIncomingConnectionFailed(Landroid/telecom/PhoneAccountHandle;Landroid/telecom/ConnectionRequest;)V
+
+    :goto_0
+    return-void
+
+    :cond_0
+    invoke-virtual {p0, p1, p3}, Landroid/telecom/ConnectionService;->onCreateOutgoingConnectionFailed(Landroid/telecom/PhoneAccountHandle;Landroid/telecom/ConnectionRequest;)V
+
+    goto :goto_0
 .end method
 
 .method private createConnectionIdList(Ljava/util/List;)Ljava/util/List;
@@ -1717,6 +2168,77 @@
     goto :goto_0
 .end method
 
+.method private handleRttUpgradeResponse(Ljava/lang/String;Landroid/telecom/Connection$RttTextStream;)V
+    .locals 5
+
+    const/4 v1, 0x1
+
+    const/4 v2, 0x0
+
+    const-string/jumbo v3, "handleRttUpgradeResponse(%s, %s)"
+
+    const/4 v0, 0x2
+
+    new-array v4, v0, [Ljava/lang/Object;
+
+    aput-object p1, v4, v2
+
+    if-nez p2, :cond_1
+
+    move v0, v1
+
+    :goto_0
+    invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v0
+
+    aput-object v0, v4, v1
+
+    invoke-static {p0, v3, v4}, Landroid/telecom/Log;->d(Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Object;)V
+
+    iget-object v0, p0, Landroid/telecom/ConnectionService;->mConnectionById:Ljava/util/Map;
+
+    invoke-interface {v0, p1}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    const-string/jumbo v0, "handleRttUpgradeResponse"
+
+    invoke-direct {p0, p1, v0}, Landroid/telecom/ConnectionService;->findConnectionForAction(Ljava/lang/String;Ljava/lang/String;)Landroid/telecom/Connection;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p2}, Landroid/telecom/Connection;->handleRttUpgradeResponse(Landroid/telecom/Connection$RttTextStream;)V
+
+    :cond_0
+    :goto_1
+    return-void
+
+    :cond_1
+    move v0, v2
+
+    goto :goto_0
+
+    :cond_2
+    iget-object v0, p0, Landroid/telecom/ConnectionService;->mConferenceById:Ljava/util/Map;
+
+    invoke-interface {v0, p1}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    const-string/jumbo v0, "handleRttUpgradeResponse called on a conference."
+
+    new-array v1, v2, [Ljava/lang/Object;
+
+    invoke-static {p0, v0, v1}, Landroid/telecom/Log;->w(Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Object;)V
+
+    goto :goto_1
+.end method
+
 .method private hold(Ljava/lang/String;)V
     .locals 3
 
@@ -1789,6 +2311,32 @@
     invoke-virtual {v0}, Landroid/telecom/Conference;->onMerge()V
 
     :cond_0
+    return-void
+.end method
+
+.method private notifyCreateConnectionComplete(Ljava/lang/String;)V
+    .locals 3
+
+    const-string/jumbo v0, "notifyCreateConnectionComplete %s"
+
+    const/4 v1, 0x1
+
+    new-array v1, v1, [Ljava/lang/Object;
+
+    const/4 v2, 0x0
+
+    aput-object p1, v1, v2
+
+    invoke-static {p0, v0, v1}, Landroid/telecom/Log;->i(Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Object;)V
+
+    const-string/jumbo v0, "notifyCreateConnectionComplete"
+
+    invoke-direct {p0, p1, v0}, Landroid/telecom/ConnectionService;->findConnectionForAction(Ljava/lang/String;Ljava/lang/String;)Landroid/telecom/Connection;
+
+    move-result-object v0
+
+    invoke-virtual {p0, v0}, Landroid/telecom/ConnectionService;->onCreateConnectionComplete(Landroid/telecom/Connection;)V
+
     return-void
 .end method
 
@@ -2063,7 +2611,7 @@
 .end method
 
 .method private removeConference(Landroid/telecom/Conference;)V
-    .locals 2
+    .locals 4
 
     iget-object v1, p0, Landroid/telecom/ConnectionService;->mIdByConference:Ljava/util/Map;
 
@@ -2084,6 +2632,38 @@
     move-result-object v0
 
     check-cast v0, Ljava/lang/String;
+
+    const-string/jumbo v1, "Telecom-ConnectionService"
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "removeConference - id: "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string/jumbo v3, ", conference: "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     iget-object v1, p0, Landroid/telecom/ConnectionService;->mConferenceById:Ljava/util/Map;
 
@@ -2210,6 +2790,59 @@
     return-void
 .end method
 
+.method private startRtt(Ljava/lang/String;Landroid/telecom/Connection$RttTextStream;)V
+    .locals 3
+
+    const/4 v2, 0x0
+
+    const-string/jumbo v0, "startRtt(%s)"
+
+    const/4 v1, 0x1
+
+    new-array v1, v1, [Ljava/lang/Object;
+
+    aput-object p1, v1, v2
+
+    invoke-static {p0, v0, v1}, Landroid/telecom/Log;->d(Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Object;)V
+
+    iget-object v0, p0, Landroid/telecom/ConnectionService;->mConnectionById:Ljava/util/Map;
+
+    invoke-interface {v0, p1}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    const-string/jumbo v0, "startRtt"
+
+    invoke-direct {p0, p1, v0}, Landroid/telecom/ConnectionService;->findConnectionForAction(Ljava/lang/String;Ljava/lang/String;)Landroid/telecom/Connection;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p2}, Landroid/telecom/Connection;->onStartRtt(Landroid/telecom/Connection$RttTextStream;)V
+
+    :cond_0
+    :goto_0
+    return-void
+
+    :cond_1
+    iget-object v0, p0, Landroid/telecom/ConnectionService;->mConferenceById:Ljava/util/Map;
+
+    invoke-interface {v0, p1}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    const-string/jumbo v0, "startRtt called on a conference."
+
+    new-array v1, v2, [Ljava/lang/Object;
+
+    invoke-static {p0, v0, v1}, Landroid/telecom/Log;->w(Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Object;)V
+
+    goto :goto_0
+.end method
+
 .method private stopDtmfTone(Ljava/lang/String;)V
     .locals 3
 
@@ -2252,6 +2885,59 @@
     move-result-object v0
 
     invoke-virtual {v0}, Landroid/telecom/Conference;->onStopDtmfTone()V
+
+    goto :goto_0
+.end method
+
+.method private stopRtt(Ljava/lang/String;)V
+    .locals 3
+
+    const/4 v2, 0x0
+
+    const-string/jumbo v0, "stopRtt(%s)"
+
+    const/4 v1, 0x1
+
+    new-array v1, v1, [Ljava/lang/Object;
+
+    aput-object p1, v1, v2
+
+    invoke-static {p0, v0, v1}, Landroid/telecom/Log;->d(Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Object;)V
+
+    iget-object v0, p0, Landroid/telecom/ConnectionService;->mConnectionById:Ljava/util/Map;
+
+    invoke-interface {v0, p1}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    const-string/jumbo v0, "stopRtt"
+
+    invoke-direct {p0, p1, v0}, Landroid/telecom/ConnectionService;->findConnectionForAction(Ljava/lang/String;Ljava/lang/String;)Landroid/telecom/Connection;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/telecom/Connection;->onStopRtt()V
+
+    :cond_0
+    :goto_0
+    return-void
+
+    :cond_1
+    iget-object v0, p0, Landroid/telecom/ConnectionService;->mConferenceById:Ljava/util/Map;
+
+    invoke-interface {v0, p1}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    const-string/jumbo v0, "stopRtt called on a conference."
+
+    new-array v1, v2, [Ljava/lang/Object;
+
+    invoke-static {p0, v0, v1}, Landroid/telecom/Log;->w(Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Object;)V
 
     goto :goto_0
 .end method
@@ -2554,33 +3240,64 @@
 .end method
 
 .method public final addExistingConnection(Landroid/telecom/PhoneAccountHandle;Landroid/telecom/Connection;)V
-    .locals 22
+    .locals 1
+
+    const/4 v0, 0x0
+
+    invoke-virtual {p0, p1, p2, v0}, Landroid/telecom/ConnectionService;->addExistingConnection(Landroid/telecom/PhoneAccountHandle;Landroid/telecom/Connection;Landroid/telecom/Conference;)V
+
+    return-void
+.end method
+
+.method public final addExistingConnection(Landroid/telecom/PhoneAccountHandle;Landroid/telecom/Connection;Landroid/telecom/Conference;)V
+    .locals 24
 
     invoke-direct/range {p0 .. p2}, Landroid/telecom/ConnectionService;->addExistingConnectionInternal(Landroid/telecom/PhoneAccountHandle;Landroid/telecom/Connection;)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v23
 
-    if-eqz v2, :cond_0
+    if-eqz v23, :cond_1
 
     new-instance v20, Ljava/util/ArrayList;
 
-    const/4 v4, 0x0
+    const/4 v3, 0x0
 
     move-object/from16 v0, v20
 
-    invoke-direct {v0, v4}, Ljava/util/ArrayList;-><init>(I)V
+    invoke-direct {v0, v3}, Ljava/util/ArrayList;-><init>(I)V
 
-    new-instance v3, Landroid/telecom/ParcelableConnection;
+    const/16 v22, 0x0
+
+    if-eqz p3, :cond_0
+
+    move-object/from16 v0, p0
+
+    iget-object v3, v0, Landroid/telecom/ConnectionService;->mIdByConference:Ljava/util/Map;
+
+    move-object/from16 v0, p3
+
+    invoke-interface {v3, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v22
+
+    check-cast v22, Ljava/lang/String;
+
+    :cond_0
+    new-instance v2, Landroid/telecom/ParcelableConnection;
 
     invoke-virtual/range {p2 .. p2}, Landroid/telecom/Connection;->getState()I
 
-    move-result v5
+    move-result v4
 
     invoke-virtual/range {p2 .. p2}, Landroid/telecom/Connection;->getConnectionCapabilities()I
 
-    move-result v6
+    move-result v5
 
     invoke-virtual/range {p2 .. p2}, Landroid/telecom/Connection;->getConnectionProperties()I
+
+    move-result v6
+
+    invoke-virtual/range {p2 .. p2}, Landroid/telecom/Connection;->getSupportedAudioRoutes()I
 
     move-result v7
 
@@ -2602,9 +3319,9 @@
 
     invoke-virtual/range {p2 .. p2}, Landroid/telecom/Connection;->getVideoProvider()Landroid/telecom/Connection$VideoProvider;
 
-    move-result-object v4
+    move-result-object v3
 
-    if-nez v4, :cond_1
+    if-nez v3, :cond_2
 
     const/4 v12, 0x0
 
@@ -2637,25 +3354,27 @@
 
     move-result-object v21
 
-    move-object/from16 v4, p1
+    move-object/from16 v3, p1
 
-    invoke-direct/range {v3 .. v21}, Landroid/telecom/ParcelableConnection;-><init>(Landroid/telecom/PhoneAccountHandle;IIILandroid/net/Uri;ILjava/lang/String;ILcom/android/internal/telecom/IVideoProvider;IZZJLandroid/telecom/StatusHints;Landroid/telecom/DisconnectCause;Ljava/util/List;Landroid/os/Bundle;)V
+    invoke-direct/range {v2 .. v22}, Landroid/telecom/ParcelableConnection;-><init>(Landroid/telecom/PhoneAccountHandle;IIIILandroid/net/Uri;ILjava/lang/String;ILcom/android/internal/telecom/IVideoProvider;IZZJLandroid/telecom/StatusHints;Landroid/telecom/DisconnectCause;Ljava/util/List;Landroid/os/Bundle;Ljava/lang/String;)V
 
     move-object/from16 v0, p0
 
-    iget-object v4, v0, Landroid/telecom/ConnectionService;->mAdapter:Landroid/telecom/ConnectionServiceAdapter;
+    iget-object v3, v0, Landroid/telecom/ConnectionService;->mAdapter:Landroid/telecom/ConnectionServiceAdapter;
 
-    invoke-virtual {v4, v2, v3}, Landroid/telecom/ConnectionServiceAdapter;->addExistingConnection(Ljava/lang/String;Landroid/telecom/ParcelableConnection;)V
+    move-object/from16 v0, v23
 
-    :cond_0
-    return-void
+    invoke-virtual {v3, v0, v2}, Landroid/telecom/ConnectionServiceAdapter;->addExistingConnection(Ljava/lang/String;Landroid/telecom/ParcelableConnection;)V
 
     :cond_1
+    return-void
+
+    :cond_2
     invoke-virtual/range {p2 .. p2}, Landroid/telecom/Connection;->getVideoProvider()Landroid/telecom/Connection$VideoProvider;
 
-    move-result-object v4
+    move-result-object v3
 
-    invoke-virtual {v4}, Landroid/telecom/Connection$VideoProvider;->getInterface()Lcom/android/internal/telecom/IVideoProvider;
+    invoke-virtual {v3}, Landroid/telecom/Connection$VideoProvider;->getInterface()Lcom/android/internal/telecom/IVideoProvider;
 
     move-result-object v12
 
@@ -2784,6 +3503,12 @@
     return-void
 .end method
 
+.method public onCreateConnectionComplete(Landroid/telecom/Connection;)V
+    .locals 0
+
+    return-void
+.end method
+
 .method public onCreateIncomingConnection(Landroid/telecom/PhoneAccountHandle;Landroid/telecom/ConnectionRequest;)Landroid/telecom/Connection;
     .locals 1
 
@@ -2792,12 +3517,24 @@
     return-object v0
 .end method
 
+.method public onCreateIncomingConnectionFailed(Landroid/telecom/PhoneAccountHandle;Landroid/telecom/ConnectionRequest;)V
+    .locals 0
+
+    return-void
+.end method
+
 .method public onCreateOutgoingConnection(Landroid/telecom/PhoneAccountHandle;Landroid/telecom/ConnectionRequest;)Landroid/telecom/Connection;
     .locals 1
 
     const/4 v0, 0x0
 
     return-object v0
+.end method
+
+.method public onCreateOutgoingConnectionFailed(Landroid/telecom/PhoneAccountHandle;Landroid/telecom/ConnectionRequest;)V
+    .locals 0
+
+    return-void
 .end method
 
 .method public onCreateUnknownConnection(Landroid/telecom/PhoneAccountHandle;Landroid/telecom/ConnectionRequest;)Landroid/telecom/Connection;
@@ -2833,7 +3570,7 @@
 .end method
 
 .method protected removeConnection(Landroid/telecom/Connection;)V
-    .locals 2
+    .locals 4
 
     invoke-virtual {p1, p0}, Landroid/telecom/Connection;->unsetConnectionService(Landroid/telecom/ConnectionService;)V
 
@@ -2850,6 +3587,42 @@
     check-cast v0, Ljava/lang/String;
 
     if-eqz v0, :cond_0
+
+    const-string/jumbo v1, "Telecom-ConnectionService"
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "removeConnection - id: "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string/jumbo v3, ", connection: "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-static {p1}, Landroid/telecom/ConnectionService;->connectionToString(Landroid/telecom/Connection;)Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     iget-object v1, p0, Landroid/telecom/ConnectionService;->mConnectionById:Ljava/util/Map;
 

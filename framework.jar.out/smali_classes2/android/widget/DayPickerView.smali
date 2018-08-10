@@ -18,7 +18,7 @@
 
 .field private static final DEFAULT_END_YEAR:I = 0x834
 
-.field private static final DEFAULT_LAYOUT:I = 0x109004e
+.field private static final DEFAULT_LAYOUT:I = 0x1090052
 
 .field private static final DEFAULT_START_YEAR:I = 0x76c
 
@@ -255,9 +255,9 @@
 
     move-result-object v18
 
-    const/16 v4, 0xd
+    const/16 v4, 0x10
 
-    const v5, 0x1030420
+    const v5, 0x10303d1
 
     invoke-virtual {v10, v4, v5}, Landroid/content/res/TypedArray;->getResourceId(II)I
 
@@ -265,7 +265,7 @@
 
     const/16 v4, 0xb
 
-    const v5, 0x103041f
+    const v5, 0x10303d0
 
     invoke-virtual {v10, v4, v5}, Landroid/content/res/TypedArray;->getResourceId(II)I
 
@@ -273,13 +273,13 @@
 
     const/16 v4, 0xc
 
-    const v5, 0x103041e
+    const v5, 0x10303cf
 
     invoke-virtual {v10, v4, v5}, Landroid/content/res/TypedArray;->getResourceId(II)I
 
     move-result v15
 
-    const/16 v4, 0xe
+    const/16 v4, 0xf
 
     invoke-virtual {v10, v4}, Landroid/content/res/TypedArray;->getColorStateList(I)Landroid/content/res/ColorStateList;
 
@@ -289,9 +289,9 @@
 
     new-instance v4, Landroid/widget/DayPickerPagerAdapter;
 
-    const v5, 0x109004c
+    const v5, 0x1090050
 
-    const v26, 0x10203b9
+    const v26, 0x102038d
 
     move-object/from16 v0, p1
 
@@ -333,7 +333,7 @@
 
     move-result-object v17
 
-    const v4, 0x109004e
+    const v4, 0x1090052
 
     const/4 v5, 0x0
 
@@ -366,16 +366,16 @@
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v11}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
+    invoke-virtual {v0, v11}, Landroid/widget/DayPickerView;->addView(Landroid/view/View;)V
 
     goto :goto_0
 
     :cond_0
-    const v4, 0x10203b2
+    const v4, 0x1020414
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v0, v4}, Landroid/widget/DayPickerView;->findViewById(I)Landroid/view/View;
 
     move-result-object v4
 
@@ -393,13 +393,13 @@
 
     iget-object v5, v0, Landroid/widget/DayPickerView;->mOnClickListener:Landroid/view/View$OnClickListener;
 
-    invoke-virtual {v4, v5}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v4, v5}, Landroid/widget/ImageButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    const v4, 0x10203be
+    const v4, 0x10203aa
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v0, v4}, Landroid/widget/DayPickerView;->findViewById(I)Landroid/view/View;
 
     move-result-object v4
 
@@ -417,13 +417,13 @@
 
     iget-object v5, v0, Landroid/widget/DayPickerView;->mOnClickListener:Landroid/view/View$OnClickListener;
 
-    invoke-virtual {v4, v5}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v4, v5}, Landroid/widget/ImageButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    const v4, 0x10203bd
+    const v4, 0x1020269
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v0, v4}, Landroid/widget/DayPickerView;->findViewById(I)Landroid/view/View;
 
     move-result-object v4
 
@@ -457,7 +457,7 @@
 
     move-object/from16 v0, p0
 
-    iget-object v4, v0, Landroid/view/View;->mContext:Landroid/content/Context;
+    iget-object v4, v0, Landroid/widget/DayPickerView;->mContext:Landroid/content/Context;
 
     sget-object v5, Landroid/widget/DayPickerView;->ATTRS_TEXT_COLOR:[I
 
@@ -491,7 +491,7 @@
 
     move-object/from16 v0, v20
 
-    invoke-virtual {v4, v0}, Landroid/widget/ImageView;->setImageTintList(Landroid/content/res/ColorStateList;)V
+    invoke-virtual {v4, v0}, Landroid/widget/ImageButton;->setImageTintList(Landroid/content/res/ColorStateList;)V
 
     move-object/from16 v0, p0
 
@@ -499,7 +499,7 @@
 
     move-object/from16 v0, v20
 
-    invoke-virtual {v4, v0}, Landroid/widget/ImageView;->setImageTintList(Landroid/content/res/ColorStateList;)V
+    invoke-virtual {v4, v0}, Landroid/widget/ImageButton;->setImageTintList(Landroid/content/res/ColorStateList;)V
 
     :cond_1
     invoke-virtual/range {v24 .. v24}, Landroid/content/res/TypedArray;->recycle()V
@@ -709,43 +709,87 @@
 .end method
 
 .method private setDate(JZZ)V
-    .locals 3
+    .locals 5
 
-    if-eqz p4, :cond_0
+    const/4 v0, 0x0
 
-    iget-object v1, p0, Landroid/widget/DayPickerView;->mSelectedDay:Landroid/icu/util/Calendar;
+    iget-object v2, p0, Landroid/widget/DayPickerView;->mMinDate:Landroid/icu/util/Calendar;
 
-    invoke-virtual {v1, p1, p2}, Landroid/icu/util/Calendar;->setTimeInMillis(J)V
+    invoke-virtual {v2}, Landroid/icu/util/Calendar;->getTimeInMillis()J
+
+    move-result-wide v2
+
+    cmp-long v2, p1, v2
+
+    if-gez v2, :cond_4
+
+    iget-object v2, p0, Landroid/widget/DayPickerView;->mMinDate:Landroid/icu/util/Calendar;
+
+    invoke-virtual {v2}, Landroid/icu/util/Calendar;->getTimeInMillis()J
+
+    move-result-wide p1
+
+    const/4 v0, 0x1
 
     :cond_0
+    :goto_0
+    invoke-direct {p0, p1, p2}, Landroid/widget/DayPickerView;->getTempCalendarForTime(J)Landroid/icu/util/Calendar;
+
+    if-nez p4, :cond_1
+
+    if-eqz v0, :cond_2
+
+    :cond_1
+    iget-object v2, p0, Landroid/widget/DayPickerView;->mSelectedDay:Landroid/icu/util/Calendar;
+
+    invoke-virtual {v2, p1, p2}, Landroid/icu/util/Calendar;->setTimeInMillis(J)V
+
+    :cond_2
     invoke-direct {p0, p1, p2}, Landroid/widget/DayPickerView;->getPositionFromDay(J)I
-
-    move-result v0
-
-    iget-object v1, p0, Landroid/widget/DayPickerView;->mViewPager:Lcom/android/internal/widget/ViewPager;
-
-    invoke-virtual {v1}, Lcom/android/internal/widget/ViewPager;->getCurrentItem()I
 
     move-result v1
 
-    if-eq v0, v1, :cond_1
+    iget-object v2, p0, Landroid/widget/DayPickerView;->mViewPager:Lcom/android/internal/widget/ViewPager;
 
-    iget-object v1, p0, Landroid/widget/DayPickerView;->mViewPager:Lcom/android/internal/widget/ViewPager;
+    invoke-virtual {v2}, Lcom/android/internal/widget/ViewPager;->getCurrentItem()I
 
-    invoke-virtual {v1, v0, p3}, Lcom/android/internal/widget/ViewPager;->setCurrentItem(IZ)V
+    move-result v2
 
-    :cond_1
-    iget-object v1, p0, Landroid/widget/DayPickerView;->mTempCalendar:Landroid/icu/util/Calendar;
+    if-eq v1, v2, :cond_3
 
-    invoke-virtual {v1, p1, p2}, Landroid/icu/util/Calendar;->setTimeInMillis(J)V
+    iget-object v2, p0, Landroid/widget/DayPickerView;->mViewPager:Lcom/android/internal/widget/ViewPager;
 
-    iget-object v1, p0, Landroid/widget/DayPickerView;->mAdapter:Landroid/widget/DayPickerPagerAdapter;
+    invoke-virtual {v2, v1, p3}, Lcom/android/internal/widget/ViewPager;->setCurrentItem(IZ)V
 
-    iget-object v2, p0, Landroid/widget/DayPickerView;->mTempCalendar:Landroid/icu/util/Calendar;
+    :cond_3
+    iget-object v2, p0, Landroid/widget/DayPickerView;->mAdapter:Landroid/widget/DayPickerPagerAdapter;
 
-    invoke-virtual {v1, v2}, Landroid/widget/DayPickerPagerAdapter;->setSelectedDay(Landroid/icu/util/Calendar;)V
+    iget-object v3, p0, Landroid/widget/DayPickerView;->mTempCalendar:Landroid/icu/util/Calendar;
+
+    invoke-virtual {v2, v3}, Landroid/widget/DayPickerPagerAdapter;->setSelectedDay(Landroid/icu/util/Calendar;)V
 
     return-void
+
+    :cond_4
+    iget-object v2, p0, Landroid/widget/DayPickerView;->mMaxDate:Landroid/icu/util/Calendar;
+
+    invoke-virtual {v2}, Landroid/icu/util/Calendar;->getTimeInMillis()J
+
+    move-result-wide v2
+
+    cmp-long v2, p1, v2
+
+    if-lez v2, :cond_0
+
+    iget-object v2, p0, Landroid/widget/DayPickerView;->mMaxDate:Landroid/icu/util/Calendar;
+
+    invoke-virtual {v2}, Landroid/icu/util/Calendar;->getTimeInMillis()J
+
+    move-result-wide p1
+
+    const/4 v0, 0x1
+
+    goto :goto_0
 .end method
 
 .method private updateButtonVisibility(I)V
@@ -780,14 +824,14 @@
     move v2, v3
 
     :goto_2
-    invoke-virtual {v5, v2}, Landroid/view/View;->setVisibility(I)V
+    invoke-virtual {v5, v2}, Landroid/widget/ImageButton;->setVisibility(I)V
 
     iget-object v2, p0, Landroid/widget/DayPickerView;->mNextButton:Landroid/widget/ImageButton;
 
     if-eqz v0, :cond_3
 
     :goto_3
-    invoke-virtual {v2, v3}, Landroid/view/View;->setVisibility(I)V
+    invoke-virtual {v2, v3}, Landroid/widget/ImageButton;->setVisibility(I)V
 
     return-void
 
@@ -814,6 +858,41 @@
 
 
 # virtual methods
+.method public getBoundsForDate(JLandroid/graphics/Rect;)Z
+    .locals 3
+
+    invoke-direct {p0, p1, p2}, Landroid/widget/DayPickerView;->getPositionFromDay(J)I
+
+    move-result v0
+
+    iget-object v1, p0, Landroid/widget/DayPickerView;->mViewPager:Lcom/android/internal/widget/ViewPager;
+
+    invoke-virtual {v1}, Lcom/android/internal/widget/ViewPager;->getCurrentItem()I
+
+    move-result v1
+
+    if-eq v0, v1, :cond_0
+
+    const/4 v1, 0x0
+
+    return v1
+
+    :cond_0
+    iget-object v1, p0, Landroid/widget/DayPickerView;->mTempCalendar:Landroid/icu/util/Calendar;
+
+    invoke-virtual {v1, p1, p2}, Landroid/icu/util/Calendar;->setTimeInMillis(J)V
+
+    iget-object v1, p0, Landroid/widget/DayPickerView;->mAdapter:Landroid/widget/DayPickerPagerAdapter;
+
+    iget-object v2, p0, Landroid/widget/DayPickerView;->mTempCalendar:Landroid/icu/util/Calendar;
+
+    invoke-virtual {v1, v2, p3}, Landroid/widget/DayPickerPagerAdapter;->getBoundsForDate(Landroid/icu/util/Calendar;Landroid/graphics/Rect;)Z
+
+    move-result v1
+
+    return v1
+.end method
+
 .method public getDate()J
     .locals 2
 
@@ -901,7 +980,7 @@
 .method protected onLayout(ZIIII)V
     .locals 22
 
-    invoke-virtual/range {p0 .. p0}, Landroid/view/View;->isLayoutRtl()Z
+    invoke-virtual/range {p0 .. p0}, Landroid/widget/DayPickerView;->isLayoutRtl()Z
 
     move-result v19
 
@@ -938,7 +1017,7 @@
 
     move/from16 v3, v18
 
-    invoke-virtual {v0, v1, v2, v3, v5}, Landroid/view/ViewGroup;->layout(IIII)V
+    invoke-virtual {v0, v1, v2, v3, v5}, Lcom/android/internal/widget/ViewPager;->layout(IIII)V
 
     move-object/from16 v0, p0
 
@@ -948,7 +1027,7 @@
 
     const/16 v20, 0x0
 
-    invoke-virtual/range {v19 .. v20}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual/range {v19 .. v20}, Lcom/android/internal/widget/ViewPager;->getChildAt(I)Landroid/view/View;
 
     move-result-object v12
 
@@ -962,15 +1041,15 @@
 
     move-result v4
 
-    invoke-virtual {v6}, Landroid/view/View;->getMeasuredWidth()I
+    invoke-virtual {v6}, Landroid/widget/ImageButton;->getMeasuredWidth()I
 
     move-result v8
 
-    invoke-virtual {v6}, Landroid/view/View;->getMeasuredHeight()I
+    invoke-virtual {v6}, Landroid/widget/ImageButton;->getMeasuredHeight()I
 
     move-result v7
 
-    invoke-virtual {v12}, Landroid/view/View;->getPaddingTop()I
+    invoke-virtual {v12}, Landroid/widget/SimpleMonthView;->getPaddingTop()I
 
     move-result v19
 
@@ -980,7 +1059,7 @@
 
     add-int v10, v19, v20
 
-    invoke-virtual {v12}, Landroid/view/View;->getPaddingLeft()I
+    invoke-virtual {v12}, Landroid/widget/SimpleMonthView;->getPaddingLeft()I
 
     move-result v19
 
@@ -998,17 +1077,17 @@
 
     move/from16 v1, v20
 
-    invoke-virtual {v6, v9, v10, v0, v1}, Landroid/view/View;->layout(IIII)V
+    invoke-virtual {v6, v9, v10, v0, v1}, Landroid/widget/ImageButton;->layout(IIII)V
 
-    invoke-virtual {v13}, Landroid/view/View;->getMeasuredWidth()I
+    invoke-virtual {v13}, Landroid/widget/ImageButton;->getMeasuredWidth()I
 
     move-result v15
 
-    invoke-virtual {v13}, Landroid/view/View;->getMeasuredHeight()I
+    invoke-virtual {v13}, Landroid/widget/ImageButton;->getMeasuredHeight()I
 
     move-result v14
 
-    invoke-virtual {v12}, Landroid/view/View;->getPaddingTop()I
+    invoke-virtual {v12}, Landroid/widget/SimpleMonthView;->getPaddingTop()I
 
     move-result v19
 
@@ -1018,7 +1097,7 @@
 
     add-int v17, v19, v20
 
-    invoke-virtual {v12}, Landroid/view/View;->getPaddingRight()I
+    invoke-virtual {v12}, Landroid/widget/SimpleMonthView;->getPaddingRight()I
 
     move-result v19
 
@@ -1042,7 +1121,7 @@
 
     move/from16 v3, v20
 
-    invoke-virtual {v13, v0, v1, v2, v3}, Landroid/view/View;->layout(IIII)V
+    invoke-virtual {v13, v0, v1, v2, v3}, Landroid/widget/ImageButton;->layout(IIII)V
 
     return-void
 
@@ -1065,23 +1144,23 @@
 
     iget-object v6, p0, Landroid/widget/DayPickerView;->mViewPager:Lcom/android/internal/widget/ViewPager;
 
-    invoke-virtual {p0, v6, p1, p2}, Landroid/view/ViewGroup;->measureChild(Landroid/view/View;II)V
+    invoke-virtual {p0, v6, p1, p2}, Landroid/widget/DayPickerView;->measureChild(Landroid/view/View;II)V
 
-    invoke-virtual {v6}, Landroid/view/View;->getMeasuredWidthAndState()I
+    invoke-virtual {v6}, Lcom/android/internal/widget/ViewPager;->getMeasuredWidthAndState()I
 
     move-result v3
 
-    invoke-virtual {v6}, Landroid/view/View;->getMeasuredHeightAndState()I
+    invoke-virtual {v6}, Lcom/android/internal/widget/ViewPager;->getMeasuredHeightAndState()I
 
     move-result v2
 
-    invoke-virtual {p0, v3, v2}, Landroid/view/View;->setMeasuredDimension(II)V
+    invoke-virtual {p0, v3, v2}, Landroid/widget/DayPickerView;->setMeasuredDimension(II)V
 
-    invoke-virtual {v6}, Landroid/view/View;->getMeasuredWidth()I
+    invoke-virtual {v6}, Lcom/android/internal/widget/ViewPager;->getMeasuredWidth()I
 
     move-result v5
 
-    invoke-virtual {v6}, Landroid/view/View;->getMeasuredHeight()I
+    invoke-virtual {v6}, Lcom/android/internal/widget/ViewPager;->getMeasuredHeight()I
 
     move-result v4
 
@@ -1095,11 +1174,11 @@
 
     iget-object v7, p0, Landroid/widget/DayPickerView;->mPrevButton:Landroid/widget/ImageButton;
 
-    invoke-virtual {v7, v1, v0}, Landroid/view/View;->measure(II)V
+    invoke-virtual {v7, v1, v0}, Landroid/widget/ImageButton;->measure(II)V
 
     iget-object v7, p0, Landroid/widget/DayPickerView;->mNextButton:Landroid/widget/ImageButton;
 
-    invoke-virtual {v7, v1, v0}, Landroid/view/View;->measure(II)V
+    invoke-virtual {v7, v1, v0}, Landroid/widget/ImageButton;->measure(II)V
 
     return-void
 .end method
@@ -1141,7 +1220,7 @@
 
     invoke-super {p0, p1}, Landroid/view/ViewGroup;->onRtlPropertiesChanged(I)V
 
-    invoke-virtual {p0}, Landroid/view/View;->requestLayout()V
+    invoke-virtual {p0}, Landroid/widget/DayPickerView;->requestLayout()V
 
     return-void
 .end method

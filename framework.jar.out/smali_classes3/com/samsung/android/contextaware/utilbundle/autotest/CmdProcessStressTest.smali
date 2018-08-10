@@ -36,7 +36,7 @@
 
     :cond_0
     :try_start_0
-    invoke-virtual {p0}, Lcom/samsung/android/contextaware/utilbundle/autotest/CaAutoTest;->getDelayTime()I
+    invoke-virtual {p0}, Lcom/samsung/android/contextaware/utilbundle/autotest/CmdProcessStressTest;->getDelayTime()I
 
     move-result v1
 

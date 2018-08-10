@@ -279,6 +279,8 @@
 
     if-nez v0, :cond_0
 
+    const/16 v0, 0x11
+
     iget-object v1, p0, Landroid/location/Country;->mCountryIso:Ljava/lang/String;
 
     invoke-virtual {v1}, Ljava/lang/String;->hashCode()I

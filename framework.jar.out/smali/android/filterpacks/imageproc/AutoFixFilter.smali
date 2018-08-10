@@ -1106,89 +1106,83 @@
 .end method
 
 .method private createHistogramFrame(Landroid/filterfw/core/FilterContext;II[I)V
-    .locals 22
+    .locals 24
 
-    const/16 v7, 0x2fe
+    const/16 v8, 0x2fe
 
-    new-array v6, v7, [I
+    new-array v7, v8, [I
+
+    const v4, 0x3d4ccccd    # 0.05f
 
     move/from16 v0, p3
 
     int-to-float v0, v0
 
-    move/from16 v18, v0
+    move/from16 v19, v0
 
-    const v19, 0x3d4ccccd    # 0.05f
+    const v20, 0x3d4ccccd    # 0.05f
 
-    mul-float v18, v18, v19
+    mul-float v19, v19, v20
 
-    move/from16 v0, v18
+    move/from16 v0, v19
 
     float-to-int v0, v0
 
-    move/from16 v17, v0
+    move/from16 v18, v0
 
     move/from16 v0, p2
 
     int-to-float v0, v0
 
-    move/from16 v18, v0
+    move/from16 v19, v0
 
-    const v19, 0x3d4ccccd    # 0.05f
+    const v20, 0x3d4ccccd    # 0.05f
 
-    mul-float v18, v18, v19
+    mul-float v19, v19, v20
 
-    move/from16 v0, v18
+    move/from16 v0, v19
 
-    float-to-int v15, v0
+    float-to-int v0, v0
 
-    mul-int/lit8 v18, v15, 0x2
+    move/from16 v16, v0
 
-    sub-int v18, p2, v18
+    mul-int/lit8 v19, v16, 0x2
 
-    mul-int/lit8 v19, v17, 0x2
+    sub-int v19, p2, v19
 
-    sub-int v19, p3, v19
+    mul-int/lit8 v20, v18, 0x2
 
-    mul-int v10, v18, v19
+    sub-int v20, p3, v20
 
-    const/4 v4, 0x0
+    mul-int v11, v19, v20
 
-    move/from16 v16, v17
+    const/4 v5, 0x0
+
+    move/from16 v17, v18
 
     :goto_0
-    sub-int v18, p3, v17
+    sub-int v19, p3, v18
 
-    move/from16 v0, v16
+    move/from16 v0, v17
 
-    move/from16 v1, v18
+    move/from16 v1, v19
 
     if-ge v0, v1, :cond_1
 
-    move v14, v15
+    move/from16 v13, v16
 
     :goto_1
-    sub-int v18, p2, v15
+    sub-int v19, p2, v16
 
-    move/from16 v0, v18
+    move/from16 v0, v19
 
-    if-ge v14, v0, :cond_0
+    if-ge v13, v0, :cond_0
 
-    mul-int v18, v16, p2
+    mul-int v19, v17, p2
 
-    add-int v9, v18, v14
+    add-int v10, v19, v13
 
-    aget v18, p4, v9
-
-    move/from16 v0, v18
-
-    and-int/lit16 v0, v0, 0xff
-
-    move/from16 v18, v0
-
-    aget v19, p4, v9
-
-    shr-int/lit8 v19, v19, 0x8
+    aget v19, p4, v10
 
     move/from16 v0, v19
 
@@ -1196,142 +1190,152 @@
 
     move/from16 v19, v0
 
-    add-int v18, v18, v19
+    aget v20, p4, v10
 
-    aget v19, p4, v9
+    shr-int/lit8 v20, v20, 0x8
 
-    shr-int/lit8 v19, v19, 0x10
-
-    move/from16 v0, v19
+    move/from16 v0, v20
 
     and-int/lit16 v0, v0, 0xff
 
-    move/from16 v19, v0
+    move/from16 v20, v0
 
-    add-int v5, v18, v19
+    add-int v19, v19, v20
 
-    aget v18, v6, v5
+    aget v20, p4, v10
 
-    add-int/lit8 v18, v18, 0x1
+    shr-int/lit8 v20, v20, 0x10
 
-    aput v18, v6, v5
+    move/from16 v0, v20
 
-    add-int/lit8 v14, v14, 0x1
+    and-int/lit16 v0, v0, 0xff
+
+    move/from16 v20, v0
+
+    add-int v6, v19, v20
+
+    aget v19, v7, v6
+
+    add-int/lit8 v19, v19, 0x1
+
+    aput v19, v7, v6
+
+    add-int/lit8 v13, v13, 0x1
 
     goto :goto_1
 
     :cond_0
-    add-int/lit8 v16, v16, 0x1
+    add-int/lit8 v17, v17, 0x1
 
     goto :goto_0
 
     :cond_1
-    const/4 v8, 0x1
+    const/4 v9, 0x1
 
     :goto_2
-    const/16 v18, 0x2fe
+    const/16 v19, 0x2fe
 
-    move/from16 v0, v18
+    move/from16 v0, v19
 
-    if-ge v8, v0, :cond_2
+    if-ge v9, v0, :cond_2
 
-    aget v18, v6, v8
+    aget v19, v7, v9
 
-    add-int/lit8 v19, v8, -0x1
+    add-int/lit8 v20, v9, -0x1
 
-    aget v19, v6, v19
+    aget v20, v7, v20
 
-    add-int v18, v18, v19
+    add-int v19, v19, v20
 
-    aput v18, v6, v8
+    aput v19, v7, v9
 
-    add-int/lit8 v8, v8, 0x1
+    add-int/lit8 v9, v9, 0x1
 
     goto :goto_2
 
     :cond_2
-    const/4 v8, 0x0
+    const/4 v9, 0x0
 
     :goto_3
-    const/16 v18, 0x2fe
+    const/16 v19, 0x2fe
 
-    move/from16 v0, v18
+    move/from16 v0, v19
 
-    if-ge v8, v0, :cond_3
+    if-ge v9, v0, :cond_3
 
-    aget v18, v6, v8
+    aget v19, v7, v9
 
-    move/from16 v0, v18
+    move/from16 v0, v19
 
     int-to-long v0, v0
 
-    move-wide/from16 v18, v0
-
-    const-wide/32 v20, 0xffff
-
-    mul-long v18, v18, v20
-
-    int-to-long v0, v10
-
     move-wide/from16 v20, v0
 
-    div-long v12, v18, v20
+    const-wide/32 v22, 0xffff
 
-    long-to-int v0, v12
+    mul-long v20, v20, v22
 
-    move/from16 v18, v0
+    int-to-long v0, v11
 
-    aput v18, v6, v8
+    move-wide/from16 v22, v0
 
-    add-int/lit8 v8, v8, 0x1
+    div-long v14, v20, v22
+
+    long-to-int v0, v14
+
+    move/from16 v19, v0
+
+    aput v19, v7, v9
+
+    add-int/lit8 v9, v9, 0x1
 
     goto :goto_3
 
     :cond_3
-    const/16 v18, 0x1
-
-    const/16 v19, 0x3
+    const/16 v19, 0x1
 
     const/16 v20, 0x3
 
-    move/from16 v0, v18
+    const/16 v21, 0x3
 
-    move/from16 v1, v19
+    move/from16 v0, v19
 
-    move/from16 v2, v20
+    move/from16 v1, v20
 
-    invoke-static {v7, v0, v1, v2}, Landroid/filterfw/format/ImageFormat;->create(IIII)Landroid/filterfw/core/MutableFrameFormat;
+    move/from16 v2, v21
 
-    move-result-object v11
+    invoke-static {v8, v0, v1, v2}, Landroid/filterfw/format/ImageFormat;->create(IIII)Landroid/filterfw/core/MutableFrameFormat;
 
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/filterpacks/imageproc/AutoFixFilter;->mHistFrame:Landroid/filterfw/core/Frame;
-
-    move-object/from16 v18, v0
-
-    if-eqz v18, :cond_4
+    move-result-object v12
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/filterpacks/imageproc/AutoFixFilter;->mHistFrame:Landroid/filterfw/core/Frame;
 
-    move-object/from16 v18, v0
+    move-object/from16 v19, v0
 
-    invoke-virtual/range {v18 .. v18}, Landroid/filterfw/core/Frame;->release()Landroid/filterfw/core/Frame;
+    if-eqz v19, :cond_4
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Landroid/filterpacks/imageproc/AutoFixFilter;->mHistFrame:Landroid/filterfw/core/Frame;
+
+    move-object/from16 v19, v0
+
+    invoke-virtual/range {v19 .. v19}, Landroid/filterfw/core/Frame;->release()Landroid/filterfw/core/Frame;
 
     :cond_4
     invoke-virtual/range {p1 .. p1}, Landroid/filterfw/core/FilterContext;->getFrameManager()Landroid/filterfw/core/FrameManager;
 
-    move-result-object v18
+    move-result-object v19
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
-    invoke-virtual {v0, v11}, Landroid/filterfw/core/FrameManager;->newFrame(Landroid/filterfw/core/FrameFormat;)Landroid/filterfw/core/Frame;
+    invoke-virtual {v0, v12}, Landroid/filterfw/core/FrameManager;->newFrame(Landroid/filterfw/core/FrameFormat;)Landroid/filterfw/core/Frame;
 
-    move-result-object v18
+    move-result-object v19
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
     move-object/from16 v1, p0
 
@@ -1341,11 +1345,11 @@
 
     iget-object v0, v0, Landroid/filterpacks/imageproc/AutoFixFilter;->mHistFrame:Landroid/filterfw/core/Frame;
 
-    move-object/from16 v18, v0
+    move-object/from16 v19, v0
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
-    invoke-virtual {v0, v6}, Landroid/filterfw/core/Frame;->setInts([I)V
+    invoke-virtual {v0, v7}, Landroid/filterfw/core/Frame;->setInts([I)V
 
     return-void
 .end method
@@ -1518,63 +1522,69 @@
 .end method
 
 .method protected prepare(Landroid/filterfw/core/FilterContext;)V
-    .locals 11
-
-    const/4 v10, 0x3
+    .locals 14
 
     const/16 v0, 0x400
 
+    const/16 v3, 0x2fe
+
+    const-wide/32 v6, 0xffff
+
     new-array v2, v0, [I
 
-    const/4 v3, 0x0
+    const/4 v4, 0x0
 
     :goto_0
-    const/16 v6, 0x400
+    const/16 v5, 0x400
 
-    if-ge v3, v6, :cond_0
+    if-ge v4, v5, :cond_0
 
-    sget-object v6, Landroid/filterpacks/imageproc/AutoFixFilter;->normal_cdf:[I
+    sget-object v5, Landroid/filterpacks/imageproc/AutoFixFilter;->normal_cdf:[I
 
-    aget v6, v6, v3
+    aget v5, v5, v4
 
-    int-to-long v6, v6
+    int-to-long v10, v5
 
-    const-wide/32 v8, 0xffff
+    const-wide/32 v12, 0xffff
 
-    mul-long/2addr v6, v8
+    mul-long/2addr v10, v12
 
-    const-wide/16 v8, 0x2fe
+    const-wide/16 v12, 0x2fe
 
-    div-long v4, v6, v8
+    div-long v8, v10, v12
 
-    long-to-int v6, v4
+    long-to-int v5, v8
 
-    aput v6, v2, v3
+    aput v5, v2, v4
 
-    add-int/lit8 v3, v3, 0x1
+    add-int/lit8 v4, v4, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v6, 0x1
+    const/4 v5, 0x1
 
-    invoke-static {v0, v6, v10, v10}, Landroid/filterfw/format/ImageFormat;->create(IIII)Landroid/filterfw/core/MutableFrameFormat;
+    const/4 v10, 0x3
+
+    const/4 v11, 0x3
+
+    invoke-static {v0, v5, v10, v11}, Landroid/filterfw/format/ImageFormat;->create(IIII)Landroid/filterfw/core/MutableFrameFormat;
 
     move-result-object v1
 
     invoke-virtual {p1}, Landroid/filterfw/core/FilterContext;->getFrameManager()Landroid/filterfw/core/FrameManager;
 
-    move-result-object v6
+    move-result-object v5
 
-    invoke-virtual {v6, v1}, Landroid/filterfw/core/FrameManager;->newFrame(Landroid/filterfw/core/FrameFormat;)Landroid/filterfw/core/Frame;
+    invoke-virtual {v5, v1}, Landroid/filterfw/core/FrameManager;->newFrame(Landroid/filterfw/core/FrameFormat;)Landroid/filterfw/core/Frame;
 
-    move-result-object v6
+    move-result-object v5
 
-    iput-object v6, p0, Landroid/filterpacks/imageproc/AutoFixFilter;->mDensityFrame:Landroid/filterfw/core/Frame;
+    iput-object v5, p0, Landroid/filterpacks/imageproc/AutoFixFilter;->mDensityFrame:Landroid/filterfw/core/Frame;
 
-    iget-object v6, p0, Landroid/filterpacks/imageproc/AutoFixFilter;->mDensityFrame:Landroid/filterfw/core/Frame;
+    iget-object v5, p0, Landroid/filterpacks/imageproc/AutoFixFilter;->mDensityFrame:Landroid/filterfw/core/Frame;
 
-    invoke-virtual {v6, v2}, Landroid/filterfw/core/Frame;->setInts([I)V
+    invoke-virtual {v5, v2}, Landroid/filterfw/core/Frame;->setInts([I)V
 
     return-void
 .end method
@@ -1584,7 +1594,7 @@
 
     const-string/jumbo v4, "image"
 
-    invoke-virtual {p0, v4}, Landroid/filterfw/core/Filter;->pullInput(Ljava/lang/String;)Landroid/filterfw/core/Frame;
+    invoke-virtual {p0, v4}, Landroid/filterpacks/imageproc/AutoFixFilter;->pullInput(Ljava/lang/String;)Landroid/filterfw/core/Frame;
 
     move-result-object v0
 
@@ -1688,7 +1698,7 @@
 
     const-string/jumbo v4, "image"
 
-    invoke-virtual {p0, v4, v3}, Landroid/filterfw/core/Filter;->pushOutput(Ljava/lang/String;Landroid/filterfw/core/Frame;)V
+    invoke-virtual {p0, v4, v3}, Landroid/filterpacks/imageproc/AutoFixFilter;->pushOutput(Ljava/lang/String;Landroid/filterfw/core/Frame;)V
 
     invoke-virtual {v3}, Landroid/filterfw/core/Frame;->release()Landroid/filterfw/core/Frame;
 
@@ -1706,13 +1716,13 @@
 
     move-result-object v1
 
-    invoke-virtual {p0, v0, v1}, Landroid/filterfw/core/Filter;->addMaskedInputPort(Ljava/lang/String;Landroid/filterfw/core/FrameFormat;)V
+    invoke-virtual {p0, v0, v1}, Landroid/filterpacks/imageproc/AutoFixFilter;->addMaskedInputPort(Ljava/lang/String;Landroid/filterfw/core/FrameFormat;)V
 
     const-string/jumbo v0, "image"
 
     const-string/jumbo v1, "image"
 
-    invoke-virtual {p0, v0, v1}, Landroid/filterfw/core/Filter;->addOutputBasedOnInput(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {p0, v0, v1}, Landroid/filterpacks/imageproc/AutoFixFilter;->addOutputBasedOnInput(Ljava/lang/String;Ljava/lang/String;)V
 
     return-void
 .end method

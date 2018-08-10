@@ -90,7 +90,7 @@
 
     aput-object v1, v0, v5
 
-    invoke-virtual {p0, v0}, Landroid/animation/ValueAnimator;->setValues([Landroid/animation/PropertyValuesHolder;)V
+    invoke-virtual {p0, v0}, Lcom/samsung/android/graphics/spr/document/animator/SprAnimatorTranslate;->setValues([Landroid/animation/PropertyValuesHolder;)V
 
     return-void
 .end method
@@ -218,7 +218,7 @@
     :cond_0
     const-string/jumbo v0, "x"
 
-    invoke-virtual {p0, v0}, Landroid/animation/ValueAnimator;->getAnimatedValue(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {p0, v0}, Lcom/samsung/android/graphics/spr/document/animator/SprAnimatorTranslate;->getAnimatedValue(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -232,7 +232,7 @@
 
     const-string/jumbo v0, "y"
 
-    invoke-virtual {p0, v0}, Landroid/animation/ValueAnimator;->getAnimatedValue(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {p0, v0}, Lcom/samsung/android/graphics/spr/document/animator/SprAnimatorTranslate;->getAnimatedValue(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v0
 

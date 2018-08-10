@@ -71,6 +71,14 @@
     .end annotation
 .end method
 
+.method public abstract semGetDetailViewSettingButtonName()Ljava/lang/CharSequence;
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract semGetDetailViewTitle()Ljava/lang/CharSequence;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -96,14 +104,6 @@
 .end method
 
 .method public abstract semIsToggleButtonExists()Z
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract semRefreshConnection(Landroid/content/Intent;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

@@ -37,10 +37,6 @@
 .method public run()Ljava/lang/Object;
     .locals 1
 
-    iget-object v0, p0, Landroid/net/wifi/hs20/WifiHs20OCSPStaplingProvider$1;->this$0:Landroid/net/wifi/hs20/WifiHs20OCSPStaplingProvider;
-
-    invoke-static {v0}, Landroid/net/wifi/hs20/WifiHs20OCSPStaplingProvider;->-wrap0(Landroid/net/wifi/hs20/WifiHs20OCSPStaplingProvider;)V
-
     const/4 v0, 0x0
 
     return-object v0

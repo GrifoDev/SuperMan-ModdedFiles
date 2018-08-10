@@ -50,6 +50,8 @@
 .end method
 
 .method public abstract onCreateActionView()Landroid/view/View;
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 .end method
 
 .method public onCreateActionView(Landroid/view/MenuItem;)Landroid/view/View;

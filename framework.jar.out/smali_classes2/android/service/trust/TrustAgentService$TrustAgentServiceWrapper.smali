@@ -124,6 +124,122 @@
     return-void
 .end method
 
+.method public onEscrowTokenAdded([BJLandroid/os/UserHandle;)V
+    .locals 4
+
+    iget-object v1, p0, Landroid/service/trust/TrustAgentService$TrustAgentServiceWrapper;->this$0:Landroid/service/trust/TrustAgentService;
+
+    invoke-static {v1}, Landroid/service/trust/TrustAgentService;->-get1(Landroid/service/trust/TrustAgentService;)Landroid/os/Handler;
+
+    move-result-object v1
+
+    const/4 v2, 0x7
+
+    invoke-virtual {v1, v2}, Landroid/os/Handler;->obtainMessage(I)Landroid/os/Message;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/os/Message;->getData()Landroid/os/Bundle;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "token"
+
+    invoke-virtual {v1, v2, p1}, Landroid/os/Bundle;->putByteArray(Ljava/lang/String;[B)V
+
+    invoke-virtual {v0}, Landroid/os/Message;->getData()Landroid/os/Bundle;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "token_handle"
+
+    invoke-virtual {v1, v2, p2, p3}, Landroid/os/Bundle;->putLong(Ljava/lang/String;J)V
+
+    invoke-virtual {v0}, Landroid/os/Message;->getData()Landroid/os/Bundle;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "user_handle"
+
+    invoke-virtual {v1, v2, p4}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
+
+    invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
+
+    return-void
+.end method
+
+.method public onEscrowTokenRemoved(JZ)V
+    .locals 3
+
+    iget-object v1, p0, Landroid/service/trust/TrustAgentService$TrustAgentServiceWrapper;->this$0:Landroid/service/trust/TrustAgentService;
+
+    invoke-static {v1}, Landroid/service/trust/TrustAgentService;->-get1(Landroid/service/trust/TrustAgentService;)Landroid/os/Handler;
+
+    move-result-object v1
+
+    const/16 v2, 0x9
+
+    invoke-virtual {v1, v2}, Landroid/os/Handler;->obtainMessage(I)Landroid/os/Message;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/os/Message;->getData()Landroid/os/Bundle;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "token_handle"
+
+    invoke-virtual {v1, v2, p1, p2}, Landroid/os/Bundle;->putLong(Ljava/lang/String;J)V
+
+    invoke-virtual {v0}, Landroid/os/Message;->getData()Landroid/os/Bundle;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "token_removed_result"
+
+    invoke-virtual {v1, v2, p3}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
+
+    invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
+
+    return-void
+.end method
+
+.method public onTokenStateReceived(JI)V
+    .locals 3
+
+    iget-object v1, p0, Landroid/service/trust/TrustAgentService$TrustAgentServiceWrapper;->this$0:Landroid/service/trust/TrustAgentService;
+
+    invoke-static {v1}, Landroid/service/trust/TrustAgentService;->-get1(Landroid/service/trust/TrustAgentService;)Landroid/os/Handler;
+
+    move-result-object v1
+
+    const/16 v2, 0x8
+
+    invoke-virtual {v1, v2}, Landroid/os/Handler;->obtainMessage(I)Landroid/os/Message;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/os/Message;->getData()Landroid/os/Bundle;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "token_handle"
+
+    invoke-virtual {v1, v2, p1, p2}, Landroid/os/Bundle;->putLong(Ljava/lang/String;J)V
+
+    invoke-virtual {v0}, Landroid/os/Message;->getData()Landroid/os/Bundle;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "token_state"
+
+    invoke-virtual {v1, v2, p3}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
+
+    invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
+
+    return-void
+.end method
+
 .method public onTrustTimeout()V
     .locals 2
 
@@ -170,6 +286,28 @@
     move v0, v2
 
     goto :goto_0
+.end method
+
+.method public onUnlockLockout(I)V
+    .locals 3
+
+    iget-object v0, p0, Landroid/service/trust/TrustAgentService$TrustAgentServiceWrapper;->this$0:Landroid/service/trust/TrustAgentService;
+
+    invoke-static {v0}, Landroid/service/trust/TrustAgentService;->-get1(Landroid/service/trust/TrustAgentService;)Landroid/os/Handler;
+
+    move-result-object v0
+
+    const/4 v1, 0x6
+
+    const/4 v2, 0x0
+
+    invoke-virtual {v0, v1, p1, v2}, Landroid/os/Handler;->obtainMessage(III)Landroid/os/Message;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
+
+    return-void
 .end method
 
 .method public setCallback(Landroid/service/trust/ITrustAgentServiceCallback;)V

@@ -74,13 +74,13 @@
 
     invoke-virtual {v1, v2}, Landroid/graphics/Paint;->setColor(I)V
 
-    iget-object v2, p0, Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable;->mDocument:Lcom/samsung/android/graphics/spr/document/SprDocument;
+    iget-object v2, p0, Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable$1;->mDocument:Lcom/samsung/android/graphics/spr/document/SprDocument;
 
     iget-object v2, v2, Lcom/samsung/android/graphics/spr/document/SprDocument;->mName:Ljava/lang/String;
 
     invoke-virtual {p1, v2, v3, v5, v0}, Landroid/graphics/Canvas;->drawText(Ljava/lang/String;FFLandroid/graphics/Paint;)V
 
-    iget-object v2, p0, Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable;->mDocument:Lcom/samsung/android/graphics/spr/document/SprDocument;
+    iget-object v2, p0, Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable$1;->mDocument:Lcom/samsung/android/graphics/spr/document/SprDocument;
 
     iget-object v2, v2, Lcom/samsung/android/graphics/spr/document/SprDocument;->mName:Ljava/lang/String;
 

@@ -56,18 +56,37 @@
 .end method
 
 .method public constructor <init>(Landroid/view/ViewGroup$LayoutParams;)V
-    .locals 0
+    .locals 1
 
     invoke-direct {p0, p1}, Landroid/widget/LinearLayout$LayoutParams;-><init>(Landroid/view/ViewGroup$LayoutParams;)V
+
+    const/4 v0, -0x1
+
+    iput v0, p0, Landroid/widget/TableLayout$LayoutParams;->width:I
 
     return-void
 .end method
 
 .method public constructor <init>(Landroid/view/ViewGroup$MarginLayoutParams;)V
-    .locals 0
+    .locals 1
 
     invoke-direct {p0, p1}, Landroid/widget/LinearLayout$LayoutParams;-><init>(Landroid/view/ViewGroup$MarginLayoutParams;)V
 
+    const/4 v0, -0x1
+
+    iput v0, p0, Landroid/widget/TableLayout$LayoutParams;->width:I
+
+    instance-of v0, p1, Landroid/widget/TableLayout$LayoutParams;
+
+    if-eqz v0, :cond_0
+
+    check-cast p1, Landroid/widget/TableLayout$LayoutParams;
+
+    iget v0, p1, Landroid/widget/TableLayout$LayoutParams;->weight:F
+
+    iput v0, p0, Landroid/widget/TableLayout$LayoutParams;->weight:F
+
+    :cond_0
     return-void
 .end method
 

@@ -31,8 +31,6 @@
 
 .field public static final IME_ACTION_GO:I = 0x2
 
-.field public static final IME_ACTION_IMAGE:I = 0x37f
-
 .field public static final IME_ACTION_NEXT:I = 0x5
 
 .field public static final IME_ACTION_NONE:I = 0x1
@@ -59,6 +57,8 @@
 
 .field public static final IME_FLAG_NO_FULLSCREEN:I = 0x2000000
 
+.field public static final IME_FLAG_NO_PERSONALIZED_LEARNING:I = 0x1000000
+
 .field public static final IME_MASK_ACTION:I = 0xff
 
 .field public static final IME_NULL:I
@@ -68,6 +68,8 @@
 .field public actionId:I
 
 .field public actionLabel:Ljava/lang/CharSequence;
+
+.field public contentMimeTypes:[Ljava/lang/String;
 
 .field public extras:Landroid/os/Bundle;
 
@@ -137,6 +139,8 @@
     iput v0, p0, Landroid/view/inputmethod/EditorInfo;->initialCapsMode:I
 
     iput-object v1, p0, Landroid/view/inputmethod/EditorInfo;->hintLocales:Landroid/os/LocaleList;
+
+    iput-object v1, p0, Landroid/view/inputmethod/EditorInfo;->contentMimeTypes:[Ljava/lang/String;
 
     return-void
 .end method
@@ -444,6 +448,36 @@
 
     invoke-interface {p1, v0}, Landroid/util/Printer;->println(Ljava/lang/String;)V
 
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string/jumbo v1, "contentMimeTypes="
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    iget-object v1, p0, Landroid/view/inputmethod/EditorInfo;->contentMimeTypes:[Ljava/lang/String;
+
+    invoke-static {v1}, Ljava/util/Arrays;->toString([Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-interface {p1, v0}, Landroid/util/Printer;->println(Ljava/lang/String;)V
+
     return-void
 .end method
 
@@ -578,6 +612,10 @@
     invoke-virtual {v0, p1, p2}, Landroid/os/LocaleList;->writeToParcel(Landroid/os/Parcel;I)V
 
     :goto_0
+    iget-object v0, p0, Landroid/view/inputmethod/EditorInfo;->contentMimeTypes:[Ljava/lang/String;
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeStringArray([Ljava/lang/String;)V
+
     return-void
 
     :cond_0

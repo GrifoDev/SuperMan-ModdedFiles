@@ -44,6 +44,8 @@
 
 
 # instance fields
+.field private final mCreationElapsedMilli:J
+
 .field private final mDevice:Landroid/bluetooth/BluetoothDevice;
 
 .field private final mId:I
@@ -99,7 +101,7 @@
 .end method
 
 .method public constructor <init>(Landroid/bluetooth/BluetoothDevice;ILjava/util/UUID;ILjava/lang/String;ZZ)V
-    .locals 0
+    .locals 2
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -120,6 +122,12 @@
 
     iput-boolean p7, p0, Landroid/bluetooth/BluetoothHeadsetClientCall;->mOutgoing:Z
 
+    invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
+
+    move-result-wide v0
+
+    iput-wide v0, p0, Landroid/bluetooth/BluetoothHeadsetClientCall;->mCreationElapsedMilli:J
+
     return-void
 
     :cond_0
@@ -136,6 +144,14 @@
     const/4 v0, 0x0
 
     return v0
+.end method
+
+.method public getCreationElapsedMilli()J
+    .locals 2
+
+    iget-wide v0, p0, Landroid/bluetooth/BluetoothHeadsetClientCall;->mCreationElapsedMilli:J
+
+    return-wide v0
 .end method
 
 .method public getDevice()Landroid/bluetooth/BluetoothDevice;

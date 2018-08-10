@@ -89,6 +89,71 @@
     throw v3
 .end method
 
+.method public addAccessorToPrivilegedList(Ljava/lang/String;)Z
+    .locals 6
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v1
+
+    :try_start_0
+    const-string/jumbo v3, "android.security.IKeystoreService"
+
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+
+    iget-object v3, p0, Landroid/security/IKeystoreServiceMDFPP$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+
+    const/16 v4, 0x29
+
+    const/4 v5, 0x0
+
+    invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result v3
+
+    if-eqz v3, :cond_0
+
+    const/4 v2, 0x1
+
+    :goto_0
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    return v2
+
+    :cond_0
+    const/4 v2, 0x0
+
+    goto :goto_0
+
+    :catchall_0
+    move-exception v3
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    throw v3
+.end method
+
 .method public addAuthToken([B)I
     .locals 6
     .annotation system Ldalvik/annotation/Throws;
@@ -205,6 +270,89 @@
     iget-object v0, p0, Landroid/security/IKeystoreServiceMDFPP$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     return-object v0
+.end method
+
+.method public attestDeviceIds(Landroid/security/keymaster/KeymasterArguments;Landroid/security/keymaster/KeymasterCertificateChain;)I
+    .locals 6
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v1
+
+    :try_start_0
+    const-string/jumbo v3, "android.security.IKeystoreService"
+
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    if-eqz p1, :cond_1
+
+    const/4 v3, 0x1
+
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
+
+    const/4 v3, 0x0
+
+    invoke-virtual {p1, v0, v3}, Landroid/security/keymaster/KeymasterArguments;->writeToParcel(Landroid/os/Parcel;I)V
+
+    :goto_0
+    iget-object v3, p0, Landroid/security/IKeystoreServiceMDFPP$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+
+    const/16 v4, 0x25
+
+    const/4 v5, 0x0
+
+    invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
+
+    move-result v2
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
+
+    move-result v3
+
+    if-eqz v3, :cond_0
+
+    invoke-virtual {p2, v1}, Landroid/security/keymaster/KeymasterCertificateChain;->readFromParcel(Landroid/os/Parcel;)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    :cond_0
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    return v2
+
+    :cond_1
+    const/4 v3, 0x0
+
+    :try_start_1
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    goto :goto_0
+
+    :catchall_0
+    move-exception v3
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    throw v3
 .end method
 
 .method public attestKey(Ljava/lang/String;Landroid/security/keymaster/KeymasterArguments;Landroid/security/keymaster/KeymasterCertificateChain;)I
@@ -1252,61 +1400,6 @@
     throw v3
 .end method
 
-.method public getState_MDFPP(I)I
-    .locals 6
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    :try_start_0
-    const-string/jumbo v3, "android.security.IKeystoreService"
-
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
-
-    iget-object v3, p0, Landroid/security/IKeystoreServiceMDFPP$Stub$Proxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v4, 0x26
-
-    const/4 v5, 0x0
-
-    invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    move-result v2
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    return v2
-
-    :catchall_0
-    move-exception v3
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    throw v3
-.end method
-
 .method public get_pubkey(Ljava/lang/String;)[B
     .locals 6
     .annotation system Ldalvik/annotation/Throws;
@@ -1802,6 +1895,63 @@
     throw v3
 .end method
 
+.method public isEmptyWithOption(II)I
+    .locals 6
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v1
+
+    :try_start_0
+    const-string/jumbo v3, "android.security.IKeystoreService"
+
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
+
+    invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeInt(I)V
+
+    iget-object v3, p0, Landroid/security/IKeystoreServiceMDFPP$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+
+    const/16 v4, 0x27
+
+    const/4 v5, 0x0
+
+    invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result v2
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    return v2
+
+    :catchall_0
+    move-exception v3
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    throw v3
+.end method
+
 .method public isOperationAuthorized(Landroid/os/IBinder;)Z
     .locals 6
     .annotation system Ldalvik/annotation/Throws;
@@ -1979,6 +2129,173 @@
     throw v3
 .end method
 
+.method public listAccessorsFromDb(Ljava/lang/String;Ljava/lang/String;)[Ljava/lang/String;
+    .locals 6
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v1
+
+    :try_start_0
+    const-string/jumbo v3, "android.security.IKeystoreService"
+
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+
+    invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+
+    iget-object v3, p0, Landroid/security/IKeystoreServiceMDFPP$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+
+    const/16 v4, 0x2d
+
+    const/4 v5, 0x0
+
+    invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->createStringArray()[Ljava/lang/String;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result-object v2
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    return-object v2
+
+    :catchall_0
+    move-exception v3
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    throw v3
+.end method
+
+.method public listFromDb(Ljava/lang/String;Ljava/lang/String;)[Ljava/lang/String;
+    .locals 6
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v1
+
+    :try_start_0
+    const-string/jumbo v3, "android.security.IKeystoreService"
+
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+
+    invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+
+    iget-object v3, p0, Landroid/security/IKeystoreServiceMDFPP$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+
+    const/16 v4, 0x28
+
+    const/4 v5, 0x0
+
+    invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->createStringArray()[Ljava/lang/String;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result-object v2
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    return-object v2
+
+    :catchall_0
+    move-exception v3
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    throw v3
+.end method
+
+.method public listPrivilegedAccessors()[Ljava/lang/String;
+    .locals 6
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v1
+
+    :try_start_0
+    const-string/jumbo v3, "android.security.IKeystoreService"
+
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    iget-object v3, p0, Landroid/security/IKeystoreServiceMDFPP$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+
+    const/16 v4, 0x28
+
+    const/4 v5, 0x0
+
+    invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->createStringArray()[Ljava/lang/String;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result-object v2
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    return-object v2
+
+    :catchall_0
+    move-exception v3
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    throw v3
+.end method
+
 .method public lock(I)I
     .locals 6
     .annotation system Ldalvik/annotation/Throws;
@@ -2034,8 +2351,8 @@
     throw v3
 .end method
 
-.method public migrate_MDFPP_keystore(Ljava/lang/String;II)I
-    .locals 8
+.method public modifyCcmCsrAccessorsBasedOnUSRPKEY(Ljava/lang/String;Ljava/lang/String;)I
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -2048,87 +2365,100 @@
 
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
-    move-result-object v2
+    move-result-object v1
 
-    const/4 v1, 0x0
-
-    if-nez p1, :cond_0
-
-    const/4 v4, 0x0
-
-    :goto_0
     :try_start_0
-    const-string/jumbo v5, "android.security.IKeystoreService"
+    const-string/jumbo v3, "android.security.IKeystoreService"
 
-    invoke-virtual {v0, v5}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    invoke-virtual {v0}, Landroid/os/Parcel;->dataPosition()I
-
-    move-result v1
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    invoke-virtual {v0, p3}, Landroid/os/Parcel;->writeInt(I)V
+    iget-object v3, p0, Landroid/security/IKeystoreServiceMDFPP$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    iget-object v5, p0, Landroid/security/IKeystoreServiceMDFPP$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+    const/16 v4, 0x2c
 
-    const/16 v6, 0x25
+    const/4 v5, 0x0
 
-    const/4 v7, 0x0
+    invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    invoke-interface {v5, v6, v0, v2, v7}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    invoke-virtual {v2}, Landroid/os/Parcel;->readException()V
-
-    invoke-virtual {v2}, Landroid/os/Parcel;->readInt()I
+    invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    move-result v3
+    move-result v2
 
-    invoke-virtual {v2}, Landroid/os/Parcel;->recycle()V
-
-    invoke-virtual {v0, v1}, Landroid/os/Parcel;->setDataPosition(I)V
-
-    new-array v5, v4, [B
-
-    invoke-virtual {v0, v5}, Landroid/os/Parcel;->writeByteArray([B)V
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    iget-object v5, p0, Landroid/security/IKeystoreServiceMDFPP$Stub$Proxy;->mRemote:Landroid/os/IBinder;
-
-    const-string/jumbo v6, "android.security.IKeystoreService"
-
-    const/4 v7, 0x1
-
-    invoke-static {v5, v6, v7, v4}, Lcom/samsung/android/security/MemoryWipeUtils;->clear(Landroid/os/IBinder;Ljava/lang/String;II)V
-
-    return v3
-
-    :cond_0
-    invoke-virtual {p1}, Ljava/lang/String;->length()I
-
-    move-result v4
-
-    goto :goto_0
+    return v2
 
     :catchall_0
-    move-exception v5
+    move-exception v3
 
-    invoke-virtual {v2}, Landroid/os/Parcel;->recycle()V
-
-    invoke-virtual {v0, v1}, Landroid/os/Parcel;->setDataPosition(I)V
-
-    new-array v6, v4, [B
-
-    invoke-virtual {v0, v6}, Landroid/os/Parcel;->writeByteArray([B)V
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    throw v5
+    throw v3
+.end method
+
+.method public onDeviceOffBody()I
+    .locals 6
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v1
+
+    :try_start_0
+    const-string/jumbo v3, "android.security.IKeystoreService"
+
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    iget-object v3, p0, Landroid/security/IKeystoreServiceMDFPP$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+
+    const/16 v4, 0x26
+
+    const/4 v5, 0x0
+
+    invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result v2
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    return v2
+
+    :catchall_0
+    move-exception v3
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    throw v3
 .end method
 
 .method public onUserAdded(II)I
@@ -2188,63 +2518,6 @@
     throw v3
 .end method
 
-.method public onUserAdded_MDFPP(II)I
-    .locals 6
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    :try_start_0
-    const-string/jumbo v3, "android.security.IKeystoreService"
-
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
-
-    invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeInt(I)V
-
-    iget-object v3, p0, Landroid/security/IKeystoreServiceMDFPP$Stub$Proxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v4, 0x28
-
-    const/4 v5, 0x0
-
-    invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    move-result v2
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    return v2
-
-    :catchall_0
-    move-exception v3
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    throw v3
-.end method
-
 .method public onUserPasswordChanged(ILjava/lang/String;)I
     .locals 8
     .annotation system Ldalvik/annotation/Throws;
@@ -2263,7 +2536,7 @@
 
     const/4 v1, 0x0
 
-    if-nez p2, :cond_0
+    if-nez p2, :cond_3
 
     const/4 v4, 0x0
 
@@ -2275,10 +2548,15 @@
 
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
 
+    if-eqz p2, :cond_0
+
+    if-eqz v4, :cond_0
+
     invoke-virtual {v0}, Landroid/os/Parcel;->dataPosition()I
 
     move-result v1
 
+    :cond_0
     invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
     iget-object v5, p0, Landroid/security/IKeystoreServiceMDFPP$Stub$Proxy;->mRemote:Landroid/os/IBinder;
@@ -2299,13 +2577,22 @@
 
     invoke-virtual {v2}, Landroid/os/Parcel;->recycle()V
 
+    if-eqz p2, :cond_1
+
+    if-eqz v4, :cond_1
+
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->setDataPosition(I)V
 
     new-array v5, v4, [B
 
     invoke-virtual {v0, v5}, Landroid/os/Parcel;->writeByteArray([B)V
 
+    :cond_1
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    if-eqz p2, :cond_2
+
+    if-eqz v4, :cond_2
 
     iget-object v5, p0, Landroid/security/IKeystoreServiceMDFPP$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
@@ -2315,9 +2602,10 @@
 
     invoke-static {v5, v6, v7, v4}, Lcom/samsung/android/security/MemoryWipeUtils;->clear(Landroid/os/IBinder;Ljava/lang/String;II)V
 
+    :cond_2
     return v3
 
-    :cond_0
+    :cond_3
     invoke-virtual {p2}, Ljava/lang/String;->length()I
 
     move-result v4
@@ -2329,12 +2617,17 @@
 
     invoke-virtual {v2}, Landroid/os/Parcel;->recycle()V
 
+    if-eqz p2, :cond_4
+
+    if-eqz v4, :cond_4
+
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->setDataPosition(I)V
 
     new-array v6, v4, [B
 
     invoke-virtual {v0, v6}, Landroid/os/Parcel;->writeByteArray([B)V
 
+    :cond_4
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
     throw v5
@@ -2395,6 +2688,71 @@
     throw v3
 .end method
 
+.method public removeAccessorFromPrivilegedList(Ljava/lang/String;)Z
+    .locals 6
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v1
+
+    :try_start_0
+    const-string/jumbo v3, "android.security.IKeystoreService"
+
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+
+    iget-object v3, p0, Landroid/security/IKeystoreServiceMDFPP$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+
+    const/16 v4, 0x2a
+
+    const/4 v5, 0x0
+
+    invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result v3
+
+    if-eqz v3, :cond_0
+
+    const/4 v2, 0x1
+
+    :goto_0
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    return v2
+
+    :cond_0
+    const/4 v2, 0x0
+
+    goto :goto_0
+
+    :catchall_0
+    move-exception v3
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    throw v3
+.end method
+
 .method public reset()I
     .locals 6
     .annotation system Ldalvik/annotation/Throws;
@@ -2419,61 +2777,6 @@
     iget-object v3, p0, Landroid/security/IKeystoreServiceMDFPP$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/4 v4, 0x7
-
-    const/4 v5, 0x0
-
-    invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    move-result v2
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    return v2
-
-    :catchall_0
-    move-exception v3
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    throw v3
-.end method
-
-.method public reset_MDFPP(I)I
-    .locals 6
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    :try_start_0
-    const-string/jumbo v3, "android.security.IKeystoreService"
-
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
-
-    iget-object v3, p0, Landroid/security/IKeystoreServiceMDFPP$Stub$Proxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v4, 0x27
 
     const/4 v5, 0x0
 
@@ -2635,7 +2938,7 @@
 
     const/4 v1, 0x0
 
-    if-nez p2, :cond_0
+    if-nez p2, :cond_3
 
     const/4 v4, 0x0
 
@@ -2647,10 +2950,15 @@
 
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
 
+    if-eqz p2, :cond_0
+
+    if-eqz v4, :cond_0
+
     invoke-virtual {v0}, Landroid/os/Parcel;->dataPosition()I
 
     move-result v1
 
+    :cond_0
     invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
     iget-object v5, p0, Landroid/security/IKeystoreServiceMDFPP$Stub$Proxy;->mRemote:Landroid/os/IBinder;
@@ -2671,13 +2979,22 @@
 
     invoke-virtual {v2}, Landroid/os/Parcel;->recycle()V
 
+    if-eqz p2, :cond_1
+
+    if-eqz v4, :cond_1
+
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->setDataPosition(I)V
 
     new-array v5, v4, [B
 
     invoke-virtual {v0, v5}, Landroid/os/Parcel;->writeByteArray([B)V
 
+    :cond_1
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    if-eqz p2, :cond_2
+
+    if-eqz v4, :cond_2
 
     iget-object v5, p0, Landroid/security/IKeystoreServiceMDFPP$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
@@ -2687,9 +3004,10 @@
 
     invoke-static {v5, v6, v7, v4}, Lcom/samsung/android/security/MemoryWipeUtils;->clear(Landroid/os/IBinder;Ljava/lang/String;II)V
 
+    :cond_2
     return v3
 
-    :cond_0
+    :cond_3
     invoke-virtual {p2}, Ljava/lang/String;->length()I
 
     move-result v4
@@ -2701,12 +3019,17 @@
 
     invoke-virtual {v2}, Landroid/os/Parcel;->recycle()V
 
+    if-eqz p2, :cond_4
+
+    if-eqz v4, :cond_4
+
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->setDataPosition(I)V
 
     new-array v6, v4, [B
 
     invoke-virtual {v0, v6}, Landroid/os/Parcel;->writeByteArray([B)V
 
+    :cond_4
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
     throw v5

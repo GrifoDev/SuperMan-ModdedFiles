@@ -72,6 +72,18 @@
     throw v0
 .end method
 
+.method public onAccessibilityButtonAvailabilityChanged(Z)V
+    .locals 0
+
+    return-void
+.end method
+
+.method public onAccessibilityButtonClicked()V
+    .locals 0
+
+    return-void
+.end method
+
 .method public onAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)V
     .locals 6
 
@@ -148,6 +160,18 @@
     monitor-exit v2
 
     throw v1
+.end method
+
+.method public onFingerprintCapturingGesturesChanged(Z)V
+    .locals 0
+
+    return-void
+.end method
+
+.method public onFingerprintGesture(I)V
+    .locals 0
+
+    return-void
 .end method
 
 .method public onGesture(I)Z

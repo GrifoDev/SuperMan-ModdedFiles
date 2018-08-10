@@ -130,8 +130,6 @@
 
     invoke-virtual {p0, v2}, Landroid/hardware/location/IFusedLocationHardwareSink$Stub;->onLocationAvailable([Landroid/location/Location;)V
 
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
     return v4
 
     :sswitch_2
@@ -144,8 +142,6 @@
     move-result-object v1
 
     invoke-virtual {p0, v1}, Landroid/hardware/location/IFusedLocationHardwareSink$Stub;->onDiagnosticDataAvailable(Ljava/lang/String;)V
-
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     return v4
 
@@ -160,8 +156,6 @@
 
     invoke-virtual {p0, v0}, Landroid/hardware/location/IFusedLocationHardwareSink$Stub;->onCapabilities(I)V
 
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
     return v4
 
     :sswitch_4
@@ -174,8 +168,6 @@
     move-result v0
 
     invoke-virtual {p0, v0}, Landroid/hardware/location/IFusedLocationHardwareSink$Stub;->onStatusChanged(I)V
-
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     return v4
 

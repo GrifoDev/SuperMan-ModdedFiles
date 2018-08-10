@@ -26,29 +26,31 @@
 # static fields
 .field private static final DESCRIPTOR:Ljava/lang/String; = "android.bluetooth.IBluetoothGattServerCallback"
 
-.field static final TRANSACTION_onCharacteristicReadRequest:I = 0x5
+.field static final TRANSACTION_onCharacteristicReadRequest:I = 0x4
 
-.field static final TRANSACTION_onCharacteristicWriteRequest:I = 0x7
+.field static final TRANSACTION_onCharacteristicWriteRequest:I = 0x6
 
-.field static final TRANSACTION_onDescriptorReadRequest:I = 0x6
+.field static final TRANSACTION_onConnectionUpdated:I = 0xd
 
-.field static final TRANSACTION_onDescriptorWriteRequest:I = 0x8
+.field static final TRANSACTION_onDescriptorReadRequest:I = 0x5
 
-.field static final TRANSACTION_onExecuteWrite:I = 0x9
+.field static final TRANSACTION_onDescriptorWriteRequest:I = 0x7
 
-.field static final TRANSACTION_onMtuChanged:I = 0xb
+.field static final TRANSACTION_onExecuteWrite:I = 0x8
 
-.field static final TRANSACTION_onNotificationSent:I = 0xa
+.field static final TRANSACTION_onMtuChanged:I = 0xa
 
-.field static final TRANSACTION_onScanResult:I = 0x2
+.field static final TRANSACTION_onNotificationSent:I = 0x9
 
-.field static final TRANSACTION_onServerConnParamsChanged:I = 0xc
+.field static final TRANSACTION_onPhyRead:I = 0xc
 
-.field static final TRANSACTION_onServerConnectionState:I = 0x3
+.field static final TRANSACTION_onPhyUpdate:I = 0xb
+
+.field static final TRANSACTION_onServerConnectionState:I = 0x2
 
 .field static final TRANSACTION_onServerRegistered:I = 0x1
 
-.field static final TRANSACTION_onServiceAdded:I = 0x4
+.field static final TRANSACTION_onServiceAdded:I = 0x3
 
 
 # direct methods
@@ -59,7 +61,7 @@
 
     const-string/jumbo v0, "android.bluetooth.IBluetoothGattServerCallback"
 
-    invoke-virtual {p0, p0, v0}, Landroid/os/Binder;->attachInterface(Landroid/os/IInterface;Ljava/lang/String;)V
+    invoke-virtual {p0, p0, v0}, Landroid/bluetooth/IBluetoothGattServerCallback$Stub;->attachInterface(Landroid/os/IInterface;Ljava/lang/String;)V
 
     return-void
 .end method
@@ -107,7 +109,7 @@
 .end method
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    .locals 47
+    .locals 29
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -142,7 +144,7 @@
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v42
+    move-result v25
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
@@ -150,7 +152,7 @@
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v42
+    move/from16 v1, v25
 
     invoke-virtual {v0, v1, v6}, Landroid/bluetooth/IBluetoothGattServerCallback$Stub;->onServerRegistered(II)V
 
@@ -165,38 +167,9 @@
 
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v5
-
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v6
-
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->createByteArray()[B
-
-    move-result-object v44
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v44
-
-    invoke-virtual {v0, v5, v6, v1}, Landroid/bluetooth/IBluetoothGattServerCallback$Stub;->onScanResult(Ljava/lang/String;I[B)V
-
-    const/4 v4, 0x1
-
-    return v4
-
-    :sswitch_3
-    const-string/jumbo v4, "android.bluetooth.IBluetoothGattServerCallback"
-
-    move-object/from16 v0, p2
-
-    invoke-virtual {v0, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v42
+    move-result v25
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
@@ -208,20 +181,20 @@
 
     if-eqz v4, :cond_0
 
-    const/16 v43, 0x1
+    const/16 v27, 0x1
 
     :goto_0
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
-    move-result-object v46
+    move-result-object v28
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v42
+    move/from16 v1, v25
 
-    move/from16 v2, v43
+    move/from16 v2, v27
 
-    move-object/from16 v3, v46
+    move-object/from16 v3, v28
 
     invoke-virtual {v0, v1, v6, v2, v3}, Landroid/bluetooth/IBluetoothGattServerCallback$Stub;->onServerConnectionState(IIZLjava/lang/String;)V
 
@@ -230,11 +203,11 @@
     return v4
 
     :cond_0
-    const/16 v43, 0x0
+    const/16 v27, 0x0
 
     goto :goto_0
 
-    :sswitch_4
+    :sswitch_3
     const-string/jumbo v4, "android.bluetooth.IBluetoothGattServerCallback"
 
     move-object/from16 v0, p2
@@ -243,15 +216,7 @@
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v42
-
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v6
-
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v7
+    move-result v25
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
@@ -259,35 +224,35 @@
 
     if-eqz v4, :cond_1
 
-    sget-object v4, Landroid/os/ParcelUuid;->CREATOR:Landroid/os/Parcelable$Creator;
+    sget-object v4, Landroid/bluetooth/BluetoothGattService;->CREATOR:Landroid/os/Parcelable$Creator;
 
     move-object/from16 v0, p2
 
     invoke-interface {v4, v0}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
 
-    move-result-object v45
+    move-result-object v26
 
-    check-cast v45, Landroid/os/ParcelUuid;
+    check-cast v26, Landroid/bluetooth/BluetoothGattService;
 
     :goto_1
     move-object/from16 v0, p0
 
-    move/from16 v1, v42
+    move/from16 v1, v25
 
-    move-object/from16 v2, v45
+    move-object/from16 v2, v26
 
-    invoke-virtual {v0, v1, v6, v7, v2}, Landroid/bluetooth/IBluetoothGattServerCallback$Stub;->onServiceAdded(IIILandroid/os/ParcelUuid;)V
+    invoke-virtual {v0, v1, v2}, Landroid/bluetooth/IBluetoothGattServerCallback$Stub;->onServiceAdded(ILandroid/bluetooth/BluetoothGattService;)V
 
     const/4 v4, 0x1
 
     return v4
 
     :cond_1
-    const/16 v45, 0x0
+    const/16 v26, 0x0
 
     goto :goto_1
 
-    :sswitch_5
+    :sswitch_4
     const-string/jumbo v4, "android.bluetooth.IBluetoothGattServerCallback"
 
     move-object/from16 v0, p2
@@ -319,51 +284,9 @@
 
     move-result v9
 
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v10
-
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v4
-
-    if-eqz v4, :cond_3
-
-    sget-object v4, Landroid/os/ParcelUuid;->CREATOR:Landroid/os/Parcelable$Creator;
-
-    move-object/from16 v0, p2
-
-    invoke-interface {v4, v0}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-
-    move-result-object v11
-
-    check-cast v11, Landroid/os/ParcelUuid;
-
-    :goto_3
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v12
-
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v4
-
-    if-eqz v4, :cond_4
-
-    sget-object v4, Landroid/os/ParcelUuid;->CREATOR:Landroid/os/Parcelable$Creator;
-
-    move-object/from16 v0, p2
-
-    invoke-interface {v4, v0}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-
-    move-result-object v13
-
-    check-cast v13, Landroid/os/ParcelUuid;
-
-    :goto_4
     move-object/from16 v4, p0
 
-    invoke-virtual/range {v4 .. v13}, Landroid/bluetooth/IBluetoothGattServerCallback$Stub;->onCharacteristicReadRequest(Ljava/lang/String;IIZIILandroid/os/ParcelUuid;ILandroid/os/ParcelUuid;)V
+    invoke-virtual/range {v4 .. v9}, Landroid/bluetooth/IBluetoothGattServerCallback$Stub;->onCharacteristicReadRequest(Ljava/lang/String;IIZI)V
 
     const/4 v4, 0x1
 
@@ -374,15 +297,50 @@
 
     goto :goto_2
 
+    :sswitch_5
+    const-string/jumbo v4, "android.bluetooth.IBluetoothGattServerCallback"
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v6
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v7
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v4
+
+    if-eqz v4, :cond_3
+
+    const/4 v8, 0x1
+
+    :goto_3
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v9
+
+    move-object/from16 v4, p0
+
+    invoke-virtual/range {v4 .. v9}, Landroid/bluetooth/IBluetoothGattServerCallback$Stub;->onDescriptorReadRequest(Ljava/lang/String;IIZI)V
+
+    const/4 v4, 0x1
+
+    return v4
+
     :cond_3
-    const/4 v11, 0x0
+    const/4 v8, 0x0
 
     goto :goto_3
-
-    :cond_4
-    const/4 v13, 0x0
-
-    goto :goto_4
 
     :sswitch_6
     const-string/jumbo v4, "android.bluetooth.IBluetoothGattServerCallback"
@@ -405,103 +363,57 @@
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
+    move-result v14
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v4
+
+    if-eqz v4, :cond_4
+
+    const/4 v15, 0x1
+
+    :goto_4
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
+
     move-result v4
 
     if-eqz v4, :cond_5
 
-    const/4 v8, 0x1
+    const/16 v16, 0x1
 
     :goto_5
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v9
+    move-result v17
 
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->createByteArray()[B
 
-    move-result v10
+    move-result-object v18
 
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
+    move-object/from16 v10, p0
 
-    move-result v4
+    move-object v11, v5
 
-    if-eqz v4, :cond_6
+    move v12, v6
 
-    sget-object v4, Landroid/os/ParcelUuid;->CREATOR:Landroid/os/Parcelable$Creator;
+    move v13, v7
 
-    move-object/from16 v0, p2
-
-    invoke-interface {v4, v0}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-
-    move-result-object v11
-
-    check-cast v11, Landroid/os/ParcelUuid;
-
-    :goto_6
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v12
-
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v4
-
-    if-eqz v4, :cond_7
-
-    sget-object v4, Landroid/os/ParcelUuid;->CREATOR:Landroid/os/Parcelable$Creator;
-
-    move-object/from16 v0, p2
-
-    invoke-interface {v4, v0}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-
-    move-result-object v13
-
-    check-cast v13, Landroid/os/ParcelUuid;
-
-    :goto_7
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v4
-
-    if-eqz v4, :cond_8
-
-    sget-object v4, Landroid/os/ParcelUuid;->CREATOR:Landroid/os/Parcelable$Creator;
-
-    move-object/from16 v0, p2
-
-    invoke-interface {v4, v0}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-
-    move-result-object v14
-
-    check-cast v14, Landroid/os/ParcelUuid;
-
-    :goto_8
-    move-object/from16 v4, p0
-
-    invoke-virtual/range {v4 .. v14}, Landroid/bluetooth/IBluetoothGattServerCallback$Stub;->onDescriptorReadRequest(Ljava/lang/String;IIZIILandroid/os/ParcelUuid;ILandroid/os/ParcelUuid;Landroid/os/ParcelUuid;)V
+    invoke-virtual/range {v10 .. v18}, Landroid/bluetooth/IBluetoothGattServerCallback$Stub;->onCharacteristicWriteRequest(Ljava/lang/String;IIIZZI[B)V
 
     const/4 v4, 0x1
 
     return v4
 
+    :cond_4
+    const/4 v15, 0x0
+
+    goto :goto_4
+
     :cond_5
-    const/4 v8, 0x0
+    const/16 v16, 0x0
 
     goto :goto_5
-
-    :cond_6
-    const/4 v11, 0x0
-
-    goto :goto_6
-
-    :cond_7
-    const/4 v13, 0x0
-
-    goto :goto_7
-
-    :cond_8
-    const/4 v14, 0x0
-
-    goto :goto_8
 
     :sswitch_7
     const-string/jumbo v4, "android.bluetooth.IBluetoothGattServerCallback"
@@ -524,113 +436,57 @@
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v19
+    move-result v14
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v4
 
-    if-eqz v4, :cond_9
+    if-eqz v4, :cond_6
 
-    const/16 v20, 0x1
+    const/4 v15, 0x1
 
-    :goto_9
+    :goto_6
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v4
 
-    if-eqz v4, :cond_a
+    if-eqz v4, :cond_7
 
-    const/16 v21, 0x1
+    const/16 v16, 0x1
 
-    :goto_a
+    :goto_7
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v22
+    move-result v17
 
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v12
-
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v4
-
-    if-eqz v4, :cond_b
-
-    sget-object v4, Landroid/os/ParcelUuid;->CREATOR:Landroid/os/Parcelable$Creator;
-
-    move-object/from16 v0, p2
-
-    invoke-interface {v4, v0}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-
-    move-result-object v13
-
-    check-cast v13, Landroid/os/ParcelUuid;
-
-    :goto_b
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v25
-
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v4
-
-    if-eqz v4, :cond_c
-
-    sget-object v4, Landroid/os/ParcelUuid;->CREATOR:Landroid/os/Parcelable$Creator;
-
-    move-object/from16 v0, p2
-
-    invoke-interface {v4, v0}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-
-    move-result-object v26
-
-    check-cast v26, Landroid/os/ParcelUuid;
-
-    :goto_c
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->createByteArray()[B
 
-    move-result-object v27
+    move-result-object v18
 
-    move-object/from16 v15, p0
+    move-object/from16 v10, p0
 
-    move-object/from16 v16, v5
+    move-object v11, v5
 
-    move/from16 v17, v6
+    move v12, v6
 
-    move/from16 v18, v7
+    move v13, v7
 
-    move/from16 v23, v12
-
-    move-object/from16 v24, v13
-
-    invoke-virtual/range {v15 .. v27}, Landroid/bluetooth/IBluetoothGattServerCallback$Stub;->onCharacteristicWriteRequest(Ljava/lang/String;IIIZZIILandroid/os/ParcelUuid;ILandroid/os/ParcelUuid;[B)V
+    invoke-virtual/range {v10 .. v18}, Landroid/bluetooth/IBluetoothGattServerCallback$Stub;->onDescriptorWriteRequest(Ljava/lang/String;IIIZZI[B)V
 
     const/4 v4, 0x1
 
     return v4
 
-    :cond_9
-    const/16 v20, 0x0
+    :cond_6
+    const/4 v15, 0x0
 
-    goto :goto_9
+    goto :goto_6
 
-    :cond_a
-    const/16 v21, 0x0
+    :cond_7
+    const/16 v16, 0x0
 
-    goto :goto_a
-
-    :cond_b
-    const/4 v13, 0x0
-
-    goto :goto_b
-
-    :cond_c
-    const/16 v26, 0x0
-
-    goto :goto_c
+    goto :goto_7
 
     :sswitch_8
     const-string/jumbo v4, "android.bluetooth.IBluetoothGattServerCallback"
@@ -649,179 +505,16 @@
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v7
-
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v19
-
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
-
     move-result v4
 
-    if-eqz v4, :cond_d
+    if-eqz v4, :cond_8
 
-    const/16 v20, 0x1
+    const/16 v27, 0x1
 
-    :goto_d
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v4
-
-    if-eqz v4, :cond_e
-
-    const/16 v21, 0x1
-
-    :goto_e
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v22
-
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v12
-
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v4
-
-    if-eqz v4, :cond_f
-
-    sget-object v4, Landroid/os/ParcelUuid;->CREATOR:Landroid/os/Parcelable$Creator;
-
-    move-object/from16 v0, p2
-
-    invoke-interface {v4, v0}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-
-    move-result-object v13
-
-    check-cast v13, Landroid/os/ParcelUuid;
-
-    :goto_f
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v25
-
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v4
-
-    if-eqz v4, :cond_10
-
-    sget-object v4, Landroid/os/ParcelUuid;->CREATOR:Landroid/os/Parcelable$Creator;
-
-    move-object/from16 v0, p2
-
-    invoke-interface {v4, v0}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-
-    move-result-object v26
-
-    check-cast v26, Landroid/os/ParcelUuid;
-
-    :goto_10
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v4
-
-    if-eqz v4, :cond_11
-
-    sget-object v4, Landroid/os/ParcelUuid;->CREATOR:Landroid/os/Parcelable$Creator;
-
-    move-object/from16 v0, p2
-
-    invoke-interface {v4, v0}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-
-    move-result-object v40
-
-    check-cast v40, Landroid/os/ParcelUuid;
-
-    :goto_11
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->createByteArray()[B
-
-    move-result-object v41
-
-    move-object/from16 v28, p0
-
-    move-object/from16 v29, v5
-
-    move/from16 v30, v6
-
-    move/from16 v31, v7
-
-    move/from16 v32, v19
-
-    move/from16 v33, v20
-
-    move/from16 v34, v21
-
-    move/from16 v35, v22
-
-    move/from16 v36, v12
-
-    move-object/from16 v37, v13
-
-    move/from16 v38, v25
-
-    move-object/from16 v39, v26
-
-    invoke-virtual/range {v28 .. v41}, Landroid/bluetooth/IBluetoothGattServerCallback$Stub;->onDescriptorWriteRequest(Ljava/lang/String;IIIZZIILandroid/os/ParcelUuid;ILandroid/os/ParcelUuid;Landroid/os/ParcelUuid;[B)V
-
-    const/4 v4, 0x1
-
-    return v4
-
-    :cond_d
-    const/16 v20, 0x0
-
-    goto :goto_d
-
-    :cond_e
-    const/16 v21, 0x0
-
-    goto :goto_e
-
-    :cond_f
-    const/4 v13, 0x0
-
-    goto :goto_f
-
-    :cond_10
-    const/16 v26, 0x0
-
-    goto :goto_10
-
-    :cond_11
-    const/16 v40, 0x0
-
-    goto :goto_11
-
-    :sswitch_9
-    const-string/jumbo v4, "android.bluetooth.IBluetoothGattServerCallback"
-
-    move-object/from16 v0, p2
-
-    invoke-virtual {v0, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v6
-
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v4
-
-    if-eqz v4, :cond_12
-
-    const/16 v43, 0x1
-
-    :goto_12
+    :goto_8
     move-object/from16 v0, p0
 
-    move/from16 v1, v43
+    move/from16 v1, v27
 
     invoke-virtual {v0, v5, v6, v1}, Landroid/bluetooth/IBluetoothGattServerCallback$Stub;->onExecuteWrite(Ljava/lang/String;IZ)V
 
@@ -829,12 +522,12 @@
 
     return v4
 
-    :cond_12
-    const/16 v43, 0x0
+    :cond_8
+    const/16 v27, 0x0
 
-    goto :goto_12
+    goto :goto_8
 
-    :sswitch_a
+    :sswitch_9
     const-string/jumbo v4, "android.bluetooth.IBluetoothGattServerCallback"
 
     move-object/from16 v0, p2
@@ -857,7 +550,7 @@
 
     return v4
 
-    :sswitch_b
+    :sswitch_a
     const-string/jumbo v4, "android.bluetooth.IBluetoothGattServerCallback"
 
     move-object/from16 v0, p2
@@ -875,6 +568,37 @@
     move-object/from16 v0, p0
 
     invoke-virtual {v0, v5, v6}, Landroid/bluetooth/IBluetoothGattServerCallback$Stub;->onMtuChanged(Ljava/lang/String;I)V
+
+    const/4 v4, 0x1
+
+    return v4
+
+    :sswitch_b
+    const-string/jumbo v4, "android.bluetooth.IBluetoothGattServerCallback"
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v6
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v7
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v14
+
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v5, v6, v7, v14}, Landroid/bluetooth/IBluetoothGattServerCallback$Stub;->onPhyUpdate(Ljava/lang/String;III)V
 
     const/4 v4, 0x1
 
@@ -899,9 +623,58 @@
 
     move-result v7
 
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v14
+
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v5, v6, v7}, Landroid/bluetooth/IBluetoothGattServerCallback$Stub;->onServerConnParamsChanged(Ljava/lang/String;II)V
+    invoke-virtual {v0, v5, v6, v7, v14}, Landroid/bluetooth/IBluetoothGattServerCallback$Stub;->onPhyRead(Ljava/lang/String;III)V
+
+    const/4 v4, 0x1
+
+    return v4
+
+    :sswitch_d
+    const-string/jumbo v4, "android.bluetooth.IBluetoothGattServerCallback"
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v6
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v7
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v14
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v9
+
+    move-object/from16 v19, p0
+
+    move-object/from16 v20, v5
+
+    move/from16 v21, v6
+
+    move/from16 v22, v7
+
+    move/from16 v23, v14
+
+    move/from16 v24, v9
+
+    invoke-virtual/range {v19 .. v24}, Landroid/bluetooth/IBluetoothGattServerCallback$Stub;->onConnectionUpdated(Ljava/lang/String;IIII)V
 
     const/4 v4, 0x1
 
@@ -921,6 +694,7 @@
         0xa -> :sswitch_a
         0xb -> :sswitch_b
         0xc -> :sswitch_c
+        0xd -> :sswitch_d
         0x5f4e5446 -> :sswitch_0
     .end sparse-switch
 .end method

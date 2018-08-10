@@ -59,12 +59,22 @@
     return-void
 .end method
 
-.method public onDisplayVolumeEvent(Landroid/os/Bundle;I)V
+.method public onDisplayVolumeEvent(ILandroid/os/Bundle;)V
     .locals 1
 
     iget-object v0, p0, Landroid/hardware/display/DisplayManagerGlobal$DisplayManagerCallback;->this$0:Landroid/hardware/display/DisplayManagerGlobal;
 
-    invoke-static {v0, p1, p2}, Landroid/hardware/display/DisplayManagerGlobal;->-wrap2(Landroid/hardware/display/DisplayManagerGlobal;Landroid/os/Bundle;I)V
+    invoke-static {v0, p1, p2}, Landroid/hardware/display/DisplayManagerGlobal;->-wrap2(Landroid/hardware/display/DisplayManagerGlobal;ILandroid/os/Bundle;)V
+
+    return-void
+.end method
+
+.method public onDisplayVolumeKeyEvent(I)V
+    .locals 1
+
+    iget-object v0, p0, Landroid/hardware/display/DisplayManagerGlobal$DisplayManagerCallback;->this$0:Landroid/hardware/display/DisplayManagerGlobal;
+
+    invoke-static {v0, p1}, Landroid/hardware/display/DisplayManagerGlobal;->-wrap3(Landroid/hardware/display/DisplayManagerGlobal;I)V
 
     return-void
 .end method

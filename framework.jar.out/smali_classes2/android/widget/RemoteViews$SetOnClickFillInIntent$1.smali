@@ -48,16 +48,35 @@
     check-cast v0, Landroid/view/View;
 
     :goto_0
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1
 
     instance-of v3, v0, Landroid/widget/AdapterView;
+
+    xor-int/lit8 v3, v3, 0x1
+
+    if-eqz v3, :cond_1
+
+    instance-of v3, v0, Landroid/appwidget/AppWidgetHostView;
+
+    if-eqz v3, :cond_0
+
+    instance-of v3, v0, Landroid/widget/RemoteViewsAdapter$RemoteViewsFrameLayout;
 
     if-eqz v3, :cond_1
 
     :cond_0
+    invoke-virtual {v0}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/view/View;
+
+    goto :goto_0
+
+    :cond_1
     instance-of v3, v0, Landroid/widget/AdapterView;
 
-    if-nez v3, :cond_3
+    if-nez v3, :cond_2
 
     const-string/jumbo v3, "RemoteViews"
 
@@ -67,32 +86,14 @@
 
     return-void
 
-    :cond_1
-    instance-of v3, v0, Landroid/appwidget/AppWidgetHostView;
-
-    if-eqz v3, :cond_2
-
-    instance-of v3, v0, Landroid/widget/RemoteViewsAdapter$RemoteViewsFrameLayout;
-
-    if-eqz v3, :cond_0
-
     :cond_2
-    invoke-virtual {v0}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/view/View;
-
-    goto :goto_0
-
-    :cond_3
     invoke-virtual {v0}, Landroid/view/View;->getTag()Ljava/lang/Object;
 
     move-result-object v3
 
     instance-of v3, v3, Landroid/app/PendingIntent;
 
-    if-nez v3, :cond_4
+    if-nez v3, :cond_3
 
     const-string/jumbo v3, "RemoteViews"
 
@@ -102,7 +103,7 @@
 
     return-void
 
-    :cond_4
+    :cond_3
     invoke-virtual {v0}, Landroid/view/View;->getTag()Ljava/lang/Object;
 
     move-result-object v1

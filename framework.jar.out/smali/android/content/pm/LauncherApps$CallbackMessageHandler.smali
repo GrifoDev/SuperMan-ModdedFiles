@@ -78,8 +78,14 @@
 
     instance-of v1, v1, Landroid/content/pm/LauncherApps$CallbackMessageHandler$CallbackInfo;
 
-    if-eqz v1, :cond_0
+    xor-int/lit8 v1, v1, 0x1
 
+    if-eqz v1, :cond_1
+
+    :cond_0
+    return-void
+
+    :cond_1
     iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v0, Landroid/content/pm/LauncherApps$CallbackMessageHandler$CallbackInfo;
@@ -89,9 +95,6 @@
     packed-switch v1, :pswitch_data_0
 
     :goto_0
-    return-void
-
-    :cond_0
     return-void
 
     :pswitch_0

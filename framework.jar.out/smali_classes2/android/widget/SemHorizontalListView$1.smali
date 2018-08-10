@@ -39,7 +39,7 @@
 
     iget-object v0, p0, Landroid/widget/SemHorizontalListView$1;->this$0:Landroid/widget/SemHorizontalListView;
 
-    invoke-virtual {v0, p1, p1}, Landroid/widget/SemHorizontalAbsListView;->trackMotionScroll(II)Z
+    invoke-virtual {v0, p1, p1}, Landroid/widget/SemHorizontalListView;->trackMotionScroll(II)Z
 
     return-void
 .end method

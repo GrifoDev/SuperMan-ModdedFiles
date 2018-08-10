@@ -175,13 +175,10 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    xor-int/lit8 v0, v0, 0x1
 
-    :cond_0
-    :goto_0
-    return-void
+    if-eqz v0, :cond_0
 
-    :cond_1
     iget-object v0, p0, Landroid/sec/clipboard/data/file/FileManager$ConnectFileSystem;->fileHelper:Landroid/sec/clipboard/util/FileHelper;
 
     invoke-virtual {p2}, Ljava/io/File;->getParentFile()Ljava/io/File;
@@ -190,7 +187,8 @@
 
     invoke-virtual {v0, v1}, Landroid/sec/clipboard/util/FileHelper;->makeDir(Ljava/io/File;)V
 
-    goto :goto_0
+    :cond_0
+    return-void
 .end method
 
 .method private getInvalidFileList([Ljava/io/File;)[Ljava/io/File;
@@ -509,7 +507,7 @@
 
     move-object/from16 v0, v17
 
-    invoke-virtual {v3, v0}, Lcom/samsung/android/content/clipboard/data/SemClipData;->setParcelFileDescriptor(Landroid/os/ParcelFileDescriptor;)V
+    invoke-virtual {v3, v0}, Lcom/samsung/android/content/clipboard/data/SemImageClipData;->setParcelFileDescriptor(Landroid/os/ParcelFileDescriptor;)V
 
     invoke-virtual {v4}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
 
@@ -565,7 +563,7 @@
 
     move-result-object v19
 
-    const v20, 0x10501e9
+    const v20, 0x1050301
 
     invoke-virtual/range {v19 .. v20}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -591,7 +589,7 @@
 
     move-result-object v20
 
-    const v21, 0x10501e8
+    const v21, 0x1050300
 
     invoke-virtual/range {v20 .. v21}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -859,7 +857,7 @@
 
     move-object/from16 v0, v17
 
-    invoke-virtual {v10, v0}, Lcom/samsung/android/content/clipboard/data/SemClipData;->setParcelFileDescriptor(Landroid/os/ParcelFileDescriptor;)V
+    invoke-virtual {v10, v0}, Lcom/samsung/android/content/clipboard/data/SemHtmlClipData;->setParcelFileDescriptor(Landroid/os/ParcelFileDescriptor;)V
 
     invoke-virtual {v4}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
 
@@ -925,7 +923,7 @@
 
     move-result-object v19
 
-    const v20, 0x10501e9
+    const v20, 0x1050301
 
     invoke-virtual/range {v19 .. v20}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -951,7 +949,7 @@
 
     move-result-object v20
 
-    const v21, 0x10501e8
+    const v21, 0x1050300
 
     invoke-virtual/range {v20 .. v21}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1098,7 +1096,7 @@
 
     const/16 v17, 0x0
 
-    invoke-virtual/range {v16 .. v17}, Lcom/samsung/android/content/clipboard/data/SemClipData;->setParcelFileDescriptor(Landroid/os/ParcelFileDescriptor;)V
+    invoke-virtual/range {v16 .. v17}, Lcom/samsung/android/content/clipboard/data/SemUriClipData;->setParcelFileDescriptor(Landroid/os/ParcelFileDescriptor;)V
 
     invoke-virtual {v4}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
 
@@ -1214,7 +1212,7 @@
     :catch_0
     move-exception v0
 
-    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
 
     const/4 v1, 0x0
 
@@ -1265,7 +1263,7 @@
     :catch_0
     move-exception v0
 
-    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
 
     const/4 v1, 0x0
 
@@ -1356,7 +1354,7 @@
 
     move-result-object v3
 
-    invoke-virtual {v3}, Ljava/lang/Object;->toString()Ljava/lang/String;
+    invoke-virtual {v3}, Lcom/samsung/android/content/clipboard/data/SemClipData;->toString()Ljava/lang/String;
 
     move-result-object v3
 
@@ -1628,14 +1626,18 @@
     .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_2
 
     :goto_2
-    iget-object v2, p0, Landroid/sec/clipboard/data/file/FileManager$ConnectFileSystem;->dataList:Ljava/util/ArrayList;
+    new-instance v2, Ljava/util/ArrayList;
+
+    iget-object v3, p0, Landroid/sec/clipboard/data/file/FileManager$ConnectFileSystem;->dataList:Ljava/util/ArrayList;
+
+    invoke-direct {v2, v3}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
 
     return-object v2
 
     :catch_0
     move-exception v0
 
-    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
 
     const/4 v1, 0x0
 
@@ -1644,7 +1646,7 @@
     :catch_1
     move-exception v0
 
-    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
 
     const/4 v1, 0x0
 
@@ -1659,7 +1661,7 @@
 
     iput-object v2, p0, Landroid/sec/clipboard/data/file/FileManager$ConnectFileSystem;->dataList:Ljava/util/ArrayList;
 
-    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
 
     goto :goto_2
 .end method
@@ -1843,7 +1845,7 @@
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    invoke-virtual {p1}, Ljava/lang/Object;->hashCode()I
+    invoke-virtual {p1}, Landroid/sec/clipboard/data/file/WrapFileClipData;->hashCode()I
 
     move-result v4
 
@@ -1977,8 +1979,34 @@
     throw v4
 .end method
 
-.method public update()V
+.method public update(Ljava/util/ArrayList;)V
     .locals 2
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/ArrayList",
+            "<",
+            "Landroid/sec/clipboard/data/file/WrapFileClipData;",
+            ">;)V"
+        }
+    .end annotation
+
+    iget-object v1, p0, Landroid/sec/clipboard/data/file/FileManager$ConnectFileSystem;->dataList:Ljava/util/ArrayList;
+
+    monitor-enter v1
+
+    :try_start_0
+    iget-object v0, p0, Landroid/sec/clipboard/data/file/FileManager$ConnectFileSystem;->dataList:Ljava/util/ArrayList;
+
+    invoke-virtual {v0}, Ljava/util/ArrayList;->clear()V
+
+    iget-object v0, p0, Landroid/sec/clipboard/data/file/FileManager$ConnectFileSystem;->dataList:Ljava/util/ArrayList;
+
+    invoke-virtual {v0, p1}, Ljava/util/ArrayList;->addAll(Ljava/util/Collection;)Z
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit v1
 
     iget-object v0, p0, Landroid/sec/clipboard/data/file/FileManager$ConnectFileSystem;->mHandler:Landroid/os/Handler;
 
@@ -1993,16 +2021,49 @@
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
     return-void
+
+    :catchall_0
+    move-exception v0
+
+    monitor-exit v1
+
+    throw v0
 .end method
 
-.method public updateForced()V
+.method public updateForced(Ljava/util/ArrayList;)V
     .locals 3
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/ArrayList",
+            "<",
+            "Landroid/sec/clipboard/data/file/WrapFileClipData;",
+            ">;)V"
+        }
+    .end annotation
 
     const-string/jumbo v0, "Clipboard.FileManager"
 
     const-string/jumbo v1, "updateForced()"
 
     invoke-static {v0, v1}, Landroid/sec/clipboard/util/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v1, p0, Landroid/sec/clipboard/data/file/FileManager$ConnectFileSystem;->dataList:Ljava/util/ArrayList;
+
+    monitor-enter v1
+
+    :try_start_0
+    iget-object v0, p0, Landroid/sec/clipboard/data/file/FileManager$ConnectFileSystem;->dataList:Ljava/util/ArrayList;
+
+    invoke-virtual {v0}, Ljava/util/ArrayList;->clear()V
+
+    iget-object v0, p0, Landroid/sec/clipboard/data/file/FileManager$ConnectFileSystem;->dataList:Ljava/util/ArrayList;
+
+    invoke-virtual {v0, p1}, Ljava/util/ArrayList;->addAll(Ljava/util/Collection;)Z
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit v1
 
     invoke-direct {p0}, Landroid/sec/clipboard/data/file/FileManager$ConnectFileSystem;->saveInfoFile()Z
 
@@ -2045,4 +2106,11 @@
 
     :cond_1
     return-void
+
+    :catchall_0
+    move-exception v0
+
+    monitor-exit v1
+
+    throw v0
 .end method

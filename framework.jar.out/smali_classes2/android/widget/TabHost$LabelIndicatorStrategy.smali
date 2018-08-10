@@ -51,7 +51,7 @@
 
     iget-object v4, p0, Landroid/widget/TabHost$LabelIndicatorStrategy;->this$0:Landroid/widget/TabHost;
 
-    invoke-virtual {v4}, Landroid/view/View;->getContext()Landroid/content/Context;
+    invoke-virtual {v4}, Landroid/widget/TabHost;->getContext()Landroid/content/Context;
 
     move-result-object v0
 
@@ -103,11 +103,11 @@
 
     if-gt v4, v5, :cond_0
 
-    const v4, 0x108091a
+    const v4, 0x10809c7
 
     invoke-virtual {v2, v4}, Landroid/view/View;->setBackgroundResource(I)V
 
-    const v4, 0x10601f5
+    const v4, 0x10601c0
 
     invoke-virtual {v0, v4}, Landroid/content/Context;->getColorStateList(I)Landroid/content/res/ColorStateList;
 

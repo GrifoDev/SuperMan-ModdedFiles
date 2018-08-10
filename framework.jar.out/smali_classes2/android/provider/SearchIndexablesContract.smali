@@ -33,6 +33,10 @@
 
 .field public static final COLUMN_INDEX_RAW_KEYWORDS:I = 0x5
 
+.field public static final COLUMN_INDEX_RAW_PAYLOAD:I = 0xf
+
+.field public static final COLUMN_INDEX_RAW_PAYLOAD_TYPE:I = 0xe
+
 .field public static final COLUMN_INDEX_RAW_RANK:I = 0x0
 
 .field public static final COLUMN_INDEX_RAW_SCREEN_TITLE:I = 0x6
@@ -134,7 +138,7 @@
 
     sput-object v0, Landroid/provider/SearchIndexablesContract;->INDEXABLES_XML_RES_COLUMNS:[Ljava/lang/String;
 
-    const/16 v0, 0xe
+    const/16 v0, 0x10
 
     new-array v0, v0, [Ljava/lang/String;
 
@@ -209,6 +213,18 @@
     const-string/jumbo v1, "user_id"
 
     const/16 v2, 0xd
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "payload_type"
+
+    const/16 v2, 0xe
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "payload"
+
+    const/16 v2, 0xf
 
     aput-object v1, v0, v2
 

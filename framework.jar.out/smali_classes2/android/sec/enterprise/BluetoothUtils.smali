@@ -271,6 +271,148 @@
     return-void
 .end method
 
+.method public static bluetoothLog(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Landroid/net/Uri;Ljava/lang/String;)V
+    .locals 4
+
+    const/16 v3, 0xa
+
+    invoke-static {}, Landroid/bluetooth/BluetoothAdapter;->getDefaultAdapter()Landroid/bluetooth/BluetoothAdapter;
+
+    move-result-object v0
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {p3}, Ljava/lang/String;->length()I
+
+    move-result v2
+
+    if-lez v2, :cond_0
+
+    const-string/jumbo v2, "Profile: "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    :cond_0
+    if-eqz p4, :cond_1
+
+    invoke-virtual {p4}, Landroid/net/Uri;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/String;->length()I
+
+    move-result v2
+
+    if-lez v2, :cond_1
+
+    const-string/jumbo v2, "URI: "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, p4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    :cond_1
+    if-eqz p5, :cond_2
+
+    invoke-virtual {p5}, Ljava/lang/String;->length()I
+
+    move-result v2
+
+    if-lez v2, :cond_2
+
+    const-string/jumbo v2, "Filename: "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, p5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    :cond_2
+    if-eqz v0, :cond_3
+
+    const-string/jumbo v2, "Local Name: "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Landroid/bluetooth/BluetoothAdapter;->getName()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    const-string/jumbo v2, "Local Address: "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Landroid/bluetooth/BluetoothAdapter;->getAddress()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    :cond_3
+    if-eqz p1, :cond_4
+
+    invoke-virtual {p1}, Ljava/lang/String;->length()I
+
+    move-result v2
+
+    if-lez v2, :cond_4
+
+    const-string/jumbo v2, "Remote Name: "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    :cond_4
+    if-eqz p2, :cond_5
+
+    invoke-virtual {p2}, Ljava/lang/String;->length()I
+
+    move-result v2
+
+    if-lez v2, :cond_5
+
+    const-string/jumbo v2, "Remote Address: "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    :cond_5
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {p0, v2}, Landroid/sec/enterprise/BluetoothUtils;->bluetoothLog(Ljava/lang/String;Ljava/lang/String;)V
+
+    return-void
+.end method
+
 .method public static bluetoothSocketLog(Ljava/lang/String;Landroid/bluetooth/BluetoothDevice;II)V
     .locals 4
 
@@ -818,7 +960,17 @@
 
     move-result v0
 
-    if-eqz v0, :cond_9
+    xor-int/lit8 v0, v0, 0x1
+
+    if-eqz v0, :cond_0
+
+    const-string/jumbo v0, "BluetoothUtils"
+
+    const-string/jumbo v1, "MDM: Outgoing Call is Disabled"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    return v10
 
     :cond_0
     invoke-static {p0}, Landroid/bluetooth/BluetoothUuid;->isAudioSource(Landroid/os/ParcelUuid;)Z
@@ -831,7 +983,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_3
 
     :cond_1
     const/16 v0, 0x8
@@ -840,168 +992,17 @@
 
     move-result v0
 
-    if-eqz v0, :cond_a
+    if-eqz v0, :cond_2
 
     invoke-virtual {v7, v1}, Landroid/sec/enterprise/BluetoothPolicy;->isProfileEnabled(I)Z
 
     move-result v0
 
-    if-eqz v0, :cond_a
+    xor-int/lit8 v0, v0, 0x1
+
+    if-eqz v0, :cond_3
 
     :cond_2
-    invoke-static {p0}, Landroid/bluetooth/BluetoothUuid;->isAvrcpTarget(Landroid/os/ParcelUuid;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_3
-
-    invoke-static {p0}, Landroid/bluetooth/BluetoothUuid;->isAvrcpController(Landroid/os/ParcelUuid;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_4
-
-    :cond_3
-    const/16 v0, 0x10
-
-    invoke-virtual {v7, v0}, Landroid/sec/enterprise/BluetoothPolicy;->isProfileEnabled(I)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_b
-
-    invoke-virtual {v7, v1}, Landroid/sec/enterprise/BluetoothPolicy;->isProfileEnabled(I)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_b
-
-    :cond_4
-    sget-object v0, Landroid/bluetooth/BluetoothUuid;->ObexObjectPush:Landroid/os/ParcelUuid;
-
-    invoke-virtual {p0, v0}, Landroid/os/ParcelUuid;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_5
-
-    invoke-virtual {v7, v11}, Landroid/sec/enterprise/BluetoothPolicy;->getAllowBluetoothDataTransfer(Z)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_c
-
-    invoke-virtual {v7, v1}, Landroid/sec/enterprise/BluetoothPolicy;->isProfileEnabled(I)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_c
-
-    :cond_5
-    invoke-static {p0}, Landroid/bluetooth/BluetoothUuid;->isMap(Landroid/os/ParcelUuid;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_6
-
-    invoke-virtual {v7, v1}, Landroid/sec/enterprise/BluetoothPolicy;->isProfileEnabled(I)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_d
-
-    :cond_6
-    invoke-static {p0}, Landroid/bluetooth/BluetoothUuid;->isSap(Landroid/os/ParcelUuid;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_7
-
-    const/16 v0, 0x100
-
-    invoke-virtual {v7, v0}, Landroid/sec/enterprise/BluetoothPolicy;->isProfileEnabled(I)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_e
-
-    invoke-virtual {v7, v1}, Landroid/sec/enterprise/BluetoothPolicy;->isProfileEnabled(I)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_e
-
-    :cond_7
-    invoke-virtual {p0}, Landroid/os/ParcelUuid;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-virtual {v7, v0}, Landroid/sec/enterprise/BluetoothPolicy;->isBluetoothUUIDAllowed(Ljava/lang/String;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_f
-
-    invoke-static {p0}, Landroid/sec/enterprise/BluetoothUtils;->getBluetoothProfileEnabled(Landroid/os/ParcelUuid;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_f
-
-    sget-object v0, Landroid/bluetooth/BluetoothUuid;->ObexObjectPush:Landroid/os/ParcelUuid;
-
-    invoke-virtual {p0, v0}, Landroid/os/ParcelUuid;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_8
-
-    invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
-
-    move-result-wide v8
-
-    :try_start_0
-    invoke-static {}, Landroid/os/Process;->myPid()I
-
-    move-result v3
-
-    const-string/jumbo v4, "BluetoothUtils"
-
-    const-string/jumbo v5, "Exchanging data via bluetooth succeeded."
-
-    invoke-static {}, Landroid/os/Binder;->getCallingUid()I
-
-    move-result v0
-
-    invoke-static {v0}, Landroid/os/UserHandle;->getUserId(I)I
-
-    move-result v6
-
-    const/4 v0, 0x5
-
-    const/4 v1, 0x5
-
-    const/4 v2, 0x1
-
-    invoke-static/range {v0 .. v6}, Landroid/sec/enterprise/auditlog/AuditLog;->logAsUser(IIZILjava/lang/String;Ljava/lang/String;I)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_1
-
-    invoke-static {v8, v9}, Landroid/os/Binder;->restoreCallingIdentity(J)V
-
-    :cond_8
-    return v11
-
-    :cond_9
-    const-string/jumbo v0, "BluetoothUtils"
-
-    const-string/jumbo v1, "MDM: Outgoing Call is Disabled"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    return v10
-
-    :cond_a
     const-string/jumbo v0, "BluetoothUtils"
 
     const-string/jumbo v1, "MDM: SPP or A2DP profile is disabled"
@@ -1010,7 +1011,37 @@
 
     return v10
 
-    :cond_b
+    :cond_3
+    invoke-static {p0}, Landroid/bluetooth/BluetoothUuid;->isAvrcpTarget(Landroid/os/ParcelUuid;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_4
+
+    invoke-static {p0}, Landroid/bluetooth/BluetoothUuid;->isAvrcpController(Landroid/os/ParcelUuid;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_6
+
+    :cond_4
+    const/16 v0, 0x10
+
+    invoke-virtual {v7, v0}, Landroid/sec/enterprise/BluetoothPolicy;->isProfileEnabled(I)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_5
+
+    invoke-virtual {v7, v1}, Landroid/sec/enterprise/BluetoothPolicy;->isProfileEnabled(I)Z
+
+    move-result v0
+
+    xor-int/lit8 v0, v0, 0x1
+
+    if-eqz v0, :cond_6
+
+    :cond_5
     const-string/jumbo v0, "BluetoothUtils"
 
     const-string/jumbo v1, "MDM: AVRCP profile is disabled"
@@ -1019,7 +1050,30 @@
 
     return v10
 
-    :cond_c
+    :cond_6
+    sget-object v0, Landroid/bluetooth/BluetoothUuid;->ObexObjectPush:Landroid/os/ParcelUuid;
+
+    invoke-virtual {p0, v0}, Landroid/os/ParcelUuid;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_8
+
+    invoke-virtual {v7, v11}, Landroid/sec/enterprise/BluetoothPolicy;->getAllowBluetoothDataTransfer(Z)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_7
+
+    invoke-virtual {v7, v1}, Landroid/sec/enterprise/BluetoothPolicy;->isProfileEnabled(I)Z
+
+    move-result v0
+
+    xor-int/lit8 v0, v0, 0x1
+
+    if-eqz v0, :cond_8
+
+    :cond_7
     const-string/jumbo v0, "BluetoothUtils"
 
     const-string/jumbo v1, "MDM: OPP profile is disabled"
@@ -1030,7 +1084,7 @@
 
     move-result-wide v8
 
-    :try_start_1
+    :try_start_0
     invoke-static {}, Landroid/os/Process;->myPid()I
 
     move-result v3
@@ -1054,8 +1108,8 @@
     const/4 v2, 0x0
 
     invoke-static/range {v0 .. v6}, Landroid/sec/enterprise/auditlog/AuditLog;->logAsUser(IIZILjava/lang/String;Ljava/lang/String;I)V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     invoke-static {v8, v9}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
@@ -1068,7 +1122,21 @@
 
     throw v0
 
-    :cond_d
+    :cond_8
+    invoke-static {p0}, Landroid/bluetooth/BluetoothUuid;->isMap(Landroid/os/ParcelUuid;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_9
+
+    invoke-virtual {v7, v1}, Landroid/sec/enterprise/BluetoothPolicy;->isProfileEnabled(I)Z
+
+    move-result v0
+
+    xor-int/lit8 v0, v0, 0x1
+
+    if-eqz v0, :cond_9
+
     const-string/jumbo v0, "BluetoothUtils"
 
     const-string/jumbo v1, "MDM: MAP profile is disabled"
@@ -1077,7 +1145,30 @@
 
     return v10
 
-    :cond_e
+    :cond_9
+    invoke-static {p0}, Landroid/bluetooth/BluetoothUuid;->isSap(Landroid/os/ParcelUuid;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_b
+
+    const/16 v0, 0x100
+
+    invoke-virtual {v7, v0}, Landroid/sec/enterprise/BluetoothPolicy;->isProfileEnabled(I)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_a
+
+    invoke-virtual {v7, v1}, Landroid/sec/enterprise/BluetoothPolicy;->isProfileEnabled(I)Z
+
+    move-result v0
+
+    xor-int/lit8 v0, v0, 0x1
+
+    if-eqz v0, :cond_b
+
+    :cond_a
     const-string/jumbo v0, "BluetoothUtils"
 
     const-string/jumbo v1, "MDM: SAP profile is disabled"
@@ -1086,7 +1177,26 @@
 
     return v10
 
-    :cond_f
+    :cond_b
+    invoke-virtual {p0}, Landroid/os/ParcelUuid;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {v7, v0}, Landroid/sec/enterprise/BluetoothPolicy;->isBluetoothUUIDAllowed(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_c
+
+    invoke-static {p0}, Landroid/sec/enterprise/BluetoothUtils;->getBluetoothProfileEnabled(Landroid/os/ParcelUuid;)Z
+
+    move-result v0
+
+    xor-int/lit8 v0, v0, 0x1
+
+    if-eqz v0, :cond_d
+
+    :cond_c
     const-string/jumbo v0, "BluetoothUtils"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -1121,6 +1231,51 @@
 
     return v10
 
+    :cond_d
+    sget-object v0, Landroid/bluetooth/BluetoothUuid;->ObexObjectPush:Landroid/os/ParcelUuid;
+
+    invoke-virtual {p0, v0}, Landroid/os/ParcelUuid;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_e
+
+    invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
+
+    move-result-wide v8
+
+    :try_start_1
+    invoke-static {}, Landroid/os/Process;->myPid()I
+
+    move-result v3
+
+    const-string/jumbo v4, "BluetoothUtils"
+
+    const-string/jumbo v5, "Exchanging data via bluetooth succeeded."
+
+    invoke-static {}, Landroid/os/Binder;->getCallingUid()I
+
+    move-result v0
+
+    invoke-static {v0}, Landroid/os/UserHandle;->getUserId(I)I
+
+    move-result v6
+
+    const/4 v0, 0x5
+
+    const/4 v1, 0x5
+
+    const/4 v2, 0x1
+
+    invoke-static/range {v0 .. v6}, Landroid/sec/enterprise/auditlog/AuditLog;->logAsUser(IIZILjava/lang/String;Ljava/lang/String;I)V
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+
+    invoke-static {v8, v9}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    :cond_e
+    return v11
+
     :catchall_1
     move-exception v0
 
@@ -1142,7 +1297,7 @@
 
     const/4 v0, 0x1
 
-    if-ne v0, p2, :cond_0
+    if-ne v0, p2, :cond_1
 
     const/4 v0, 0x1
 
@@ -1150,7 +1305,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_0
 
     const/16 v0, 0x80
 
@@ -1158,44 +1313,11 @@
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    xor-int/lit8 v0, v0, 0x1
+
+    if-eqz v0, :cond_1
 
     :cond_0
-    if-eqz p3, :cond_1
-
-    invoke-virtual {p3}, Landroid/os/ParcelUuid;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-virtual {v9, v0}, Landroid/sec/enterprise/BluetoothPolicy;->isBluetoothUUIDAllowed(Ljava/lang/String;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_4
-
-    invoke-static {p3}, Landroid/sec/enterprise/BluetoothUtils;->getBluetoothProfileEnabled(Landroid/os/ParcelUuid;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_4
-
-    :cond_1
-    if-eqz p0, :cond_2
-
-    if-gez p1, :cond_5
-
-    :cond_2
-    const-string/jumbo v0, "BluetoothUtils"
-
-    const-string/jumbo v1, "isSocketAllowedBySecurityPolicy start : device null"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    const/4 v0, 0x1
-
-    return v0
-
-    :cond_3
     const-string/jumbo v0, "BluetoothUtils"
 
     const-string/jumbo v1, "isSocketAllowedBySecurityPolicy : device requesting for spp, block it"
@@ -1246,7 +1368,28 @@
 
     throw v0
 
-    :cond_4
+    :cond_1
+    if-eqz p3, :cond_3
+
+    invoke-virtual {p3}, Landroid/os/ParcelUuid;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {v9, v0}, Landroid/sec/enterprise/BluetoothPolicy;->isBluetoothUUIDAllowed(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    invoke-static {p3}, Landroid/sec/enterprise/BluetoothUtils;->getBluetoothProfileEnabled(Landroid/os/ParcelUuid;)Z
+
+    move-result v0
+
+    xor-int/lit8 v0, v0, 0x1
+
+    if-eqz v0, :cond_3
+
+    :cond_2
     const-string/jumbo v0, "BluetoothUtils"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -1280,6 +1423,22 @@
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     const/4 v0, 0x0
+
+    return v0
+
+    :cond_3
+    if-eqz p0, :cond_4
+
+    if-gez p1, :cond_5
+
+    :cond_4
+    const-string/jumbo v0, "BluetoothUtils"
+
+    const-string/jumbo v1, "isSocketAllowedBySecurityPolicy start : device null"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 v0, 0x1
 
     return v0
 
@@ -1441,7 +1600,7 @@
     :goto_0
     array-length v7, v0
 
-    if-ge v2, v7, :cond_3
+    if-ge v2, v7, :cond_2
 
     aget-object v7, v0, v2
 
@@ -1465,14 +1624,10 @@
 
     move-result v7
 
-    if-eqz v7, :cond_2
+    xor-int/lit8 v7, v7, 0x1
 
-    :cond_1
-    add-int/lit8 v2, v2, 0x1
+    if-eqz v7, :cond_1
 
-    goto :goto_0
-
-    :cond_2
     const-string/jumbo v7, "BluetoothUtils"
 
     new-instance v8, Ljava/lang/StringBuilder;
@@ -1505,17 +1660,22 @@
 
     return v10
 
+    :cond_1
+    add-int/lit8 v2, v2, 0x1
+
+    goto :goto_0
+
     :catch_0
     move-exception v1
 
     const-string/jumbo v7, "BluetoothUtils"
 
-    invoke-virtual {v1}, Ljava/lang/Throwable;->toString()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/Exception;->toString()Ljava/lang/String;
 
     move-result-object v8
 
     invoke-static {v7, v8}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_3
+    :cond_2
     return v4
 .end method

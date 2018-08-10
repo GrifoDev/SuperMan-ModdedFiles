@@ -128,13 +128,10 @@
 
     iget-boolean v2, p0, Landroid/speech/tts/BlockingAudioTrack;->mStopped:Z
 
-    if-eqz v2, :cond_1
+    xor-int/lit8 v2, v2, 0x1
 
-    :cond_0
-    :goto_1
-    return-void
+    if-eqz v2, :cond_0
 
-    :cond_1
     sub-int v2, v10, v8
 
     mul-int/lit16 v2, v2, 0x3e8
@@ -153,13 +150,13 @@
 
     move-result-wide v12
 
-    if-ne v8, v11, :cond_2
+    if-ne v8, v11, :cond_1
 
     add-long/2addr v6, v12
 
     cmp-long v2, v6, v4
 
-    if-lez v2, :cond_3
+    if-lez v2, :cond_2
 
     const-string/jumbo v2, "TTS.BlockingAudioTrack"
 
@@ -167,12 +164,14 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_1
+    :cond_0
+    :goto_1
+    return-void
 
-    :cond_2
+    :cond_1
     const-wide/16 v6, 0x0
 
-    :cond_3
+    :cond_2
     move v11, v8
 
     :try_start_0
@@ -568,6 +567,68 @@
     return v1
 .end method
 
+.method public setNotificationMarkerPosition(I)V
+    .locals 2
+
+    iget-object v1, p0, Landroid/speech/tts/BlockingAudioTrack;->mAudioTrackLock:Ljava/lang/Object;
+
+    monitor-enter v1
+
+    :try_start_0
+    iget-object v0, p0, Landroid/speech/tts/BlockingAudioTrack;->mAudioTrack:Landroid/media/AudioTrack;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Landroid/speech/tts/BlockingAudioTrack;->mAudioTrack:Landroid/media/AudioTrack;
+
+    invoke-virtual {v0, p1}, Landroid/media/AudioTrack;->setNotificationMarkerPosition(I)I
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    :cond_0
+    monitor-exit v1
+
+    return-void
+
+    :catchall_0
+    move-exception v0
+
+    monitor-exit v1
+
+    throw v0
+.end method
+
+.method public setPlaybackPositionUpdateListener(Landroid/media/AudioTrack$OnPlaybackPositionUpdateListener;)V
+    .locals 2
+
+    iget-object v1, p0, Landroid/speech/tts/BlockingAudioTrack;->mAudioTrackLock:Ljava/lang/Object;
+
+    monitor-enter v1
+
+    :try_start_0
+    iget-object v0, p0, Landroid/speech/tts/BlockingAudioTrack;->mAudioTrack:Landroid/media/AudioTrack;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Landroid/speech/tts/BlockingAudioTrack;->mAudioTrack:Landroid/media/AudioTrack;
+
+    invoke-virtual {v0, p1}, Landroid/media/AudioTrack;->setPlaybackPositionUpdateListener(Landroid/media/AudioTrack$OnPlaybackPositionUpdateListener;)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    :cond_0
+    monitor-exit v1
+
+    return-void
+
+    :catchall_0
+    move-exception v0
+
+    monitor-exit v1
+
+    throw v0
+.end method
+
 .method public stop()V
     .locals 2
 
@@ -639,10 +700,17 @@
 
     iget-boolean v1, p0, Landroid/speech/tts/BlockingAudioTrack;->mStopped:Z
 
-    if-eqz v1, :cond_3
+    xor-int/lit8 v1, v1, 0x1
+
+    if-eqz v1, :cond_1
+
+    const/4 v1, 0x1
+
+    iput-boolean v1, p0, Landroid/speech/tts/BlockingAudioTrack;->mIsShortUtterance:Z
+
+    invoke-virtual {v0}, Landroid/media/AudioTrack;->stop()V
 
     :cond_1
-    :goto_0
     iget-boolean v1, p0, Landroid/speech/tts/BlockingAudioTrack;->mStopped:Z
 
     if-nez v1, :cond_2
@@ -668,15 +736,6 @@
     invoke-virtual {v0}, Landroid/media/AudioTrack;->release()V
 
     return-void
-
-    :cond_3
-    const/4 v1, 0x1
-
-    iput-boolean v1, p0, Landroid/speech/tts/BlockingAudioTrack;->mIsShortUtterance:Z
-
-    invoke-virtual {v0}, Landroid/media/AudioTrack;->stop()V
-
-    goto :goto_0
 
     :catchall_1
     move-exception v2

@@ -27,6 +27,8 @@
 
 .field samplingInterval:I
 
+.field streamingOutput:Z
+
 
 # direct methods
 .method constructor <init>()V
@@ -92,6 +94,10 @@
 
     iput-boolean v2, p0, Landroid/app/ActivityThread$Profiler;->autoStopProfiler:Z
 
+    iget-boolean v2, p1, Landroid/app/ProfilerInfo;->streamingOutput:Z
+
+    iput-boolean v2, p0, Landroid/app/ActivityThread$Profiler;->streamingOutput:Z
+
     return-void
 
     :catch_1
@@ -101,7 +107,7 @@
 .end method
 
 .method public startProfiling()V
-    .locals 9
+    .locals 10
 
     const/4 v4, 0x1
 
@@ -126,7 +132,7 @@
 
     invoke-static {v0, v1}, Landroid/os/SystemProperties;->getInt(Ljava/lang/String;I)I
 
-    move-result v6
+    move-result v7
 
     iget-object v0, p0, Landroid/app/ActivityThread$Profiler;->profileFile:Ljava/lang/String;
 
@@ -136,7 +142,7 @@
 
     move-result-object v1
 
-    mul-int/lit16 v2, v6, 0x400
+    mul-int/lit16 v2, v7, 0x400
 
     mul-int/lit16 v2, v2, 0x400
 
@@ -147,9 +153,11 @@
     :goto_0
     iget v5, p0, Landroid/app/ActivityThread$Profiler;->samplingInterval:I
 
+    iget-boolean v6, p0, Landroid/app/ActivityThread$Profiler;->streamingOutput:Z
+
     const/4 v3, 0x0
 
-    invoke-static/range {v0 .. v5}, Ldalvik/system/VMDebug;->startMethodTracing(Ljava/lang/String;Ljava/io/FileDescriptor;IIZI)V
+    invoke-static/range {v0 .. v6}, Ldalvik/system/VMDebug;->startMethodTracing(Ljava/lang/String;Ljava/io/FileDescriptor;IIZIZ)V
 
     const/4 v0, 0x1
 
@@ -166,7 +174,7 @@
     goto :goto_0
 
     :catch_0
-    move-exception v7
+    move-exception v8
 
     const-string/jumbo v0, "ActivityThread"
 
@@ -206,13 +214,13 @@
     goto :goto_1
 
     :catch_1
-    move-exception v8
+    move-exception v9
 
     const-string/jumbo v0, "ActivityThread"
 
     const-string/jumbo v1, "Failure closing profile fd"
 
-    invoke-static {v0, v1, v8}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v0, v1, v9}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     goto :goto_1
 .end method

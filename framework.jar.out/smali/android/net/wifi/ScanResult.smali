@@ -26,6 +26,14 @@
 
 .field public static final CHANNEL_WIDTH_80MHZ_PLUS_MHZ:I = 0x4
 
+.field public static final CIPHER_CCMP:I = 0x3
+
+.field public static final CIPHER_NONE:I = 0x0
+
+.field public static final CIPHER_NO_GROUP_ADDRESSED:I = 0x1
+
+.field public static final CIPHER_TKIP:I = 0x2
+
 .field public static final CREATOR:Landroid/os/Parcelable$Creator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -41,13 +49,43 @@
 
 .field public static final FLAG_PASSPOINT_NETWORK:J = 0x1L
 
+.field public static final KEY_MGMT_CCKM:I = 0xe
+
+.field public static final KEY_MGMT_EAP:I = 0x2
+
+.field public static final KEY_MGMT_EAP_SHA256:I = 0x6
+
+.field public static final KEY_MGMT_FT_EAP:I = 0x4
+
+.field public static final KEY_MGMT_FT_PSK:I = 0x3
+
+.field public static final KEY_MGMT_NONE:I = 0x0
+
+.field public static final KEY_MGMT_OSEN:I = 0x7
+
+.field public static final KEY_MGMT_PSK:I = 0x1
+
+.field public static final KEY_MGMT_PSK_SHA256:I = 0x5
+
+.field public static final KEY_MGMT_WAPI_CERT:I = 0xd
+
+.field public static final KEY_MGMT_WAPI_PSK:I = 0xc
+
+.field public static final PROTOCOL_NONE:I = 0x0
+
+.field public static final PROTOCOL_OSEN:I = 0x3
+
+.field public static final PROTOCOL_WAPI:I = 0x4
+
+.field public static final PROTOCOL_WPA:I = 0x1
+
+.field public static final PROTOCOL_WPA2:I = 0x2
+
 .field public static final UNSPECIFIED:I = -0x1
 
 
 # instance fields
 .field public BSSID:Ljava/lang/String;
-
-.field public BSSLoadElement:Ljava/lang/String;
 
 .field public ChannelMode:Ljava/lang/String;
 
@@ -92,11 +130,7 @@
 
 .field public informationElements:[Landroid/net/wifi/ScanResult$InformationElement;
 
-.field public is5GHzVsi:Z
-
 .field public is80211McRTTResponder:Z
-
-.field public isAutoJoinCandidate:I
 
 .field public level:I
 
@@ -109,6 +143,10 @@
 .field public operatorFriendlyName:Ljava/lang/CharSequence;
 
 .field public seen:J
+
+.field public semBssLoadElement:Ljava/lang/String;
+
+.field public semKtVendorSpecificInfo:Ljava/lang/String;
 
 .field public semVendorSpecificInfo:Ljava/lang/String;
 
@@ -233,10 +271,6 @@
 
     iput v0, p0, Landroid/net/wifi/ScanResult;->numIpConfigFailures:I
 
-    iget v0, p1, Landroid/net/wifi/ScanResult;->isAutoJoinCandidate:I
-
-    iput v0, p0, Landroid/net/wifi/ScanResult;->isAutoJoinCandidate:I
-
     iget-object v0, p1, Landroid/net/wifi/ScanResult;->venueName:Ljava/lang/CharSequence;
 
     iput-object v0, p0, Landroid/net/wifi/ScanResult;->venueName:Ljava/lang/CharSequence;
@@ -249,21 +283,21 @@
 
     iput-wide v0, p0, Landroid/net/wifi/ScanResult;->flags:J
 
-    iget-boolean v0, p1, Landroid/net/wifi/ScanResult;->is5GHzVsi:Z
-
-    iput-boolean v0, p0, Landroid/net/wifi/ScanResult;->is5GHzVsi:Z
-
     iget-object v0, p1, Landroid/net/wifi/ScanResult;->ChannelMode:Ljava/lang/String;
 
     iput-object v0, p0, Landroid/net/wifi/ScanResult;->ChannelMode:Ljava/lang/String;
 
-    iget-object v0, p1, Landroid/net/wifi/ScanResult;->BSSLoadElement:Ljava/lang/String;
-
-    iput-object v0, p0, Landroid/net/wifi/ScanResult;->BSSLoadElement:Ljava/lang/String;
-
     iget-object v0, p1, Landroid/net/wifi/ScanResult;->semVendorSpecificInfo:Ljava/lang/String;
 
     iput-object v0, p0, Landroid/net/wifi/ScanResult;->semVendorSpecificInfo:Ljava/lang/String;
+
+    iget-object v0, p1, Landroid/net/wifi/ScanResult;->semBssLoadElement:Ljava/lang/String;
+
+    iput-object v0, p0, Landroid/net/wifi/ScanResult;->semBssLoadElement:Ljava/lang/String;
+
+    iget-object v0, p1, Landroid/net/wifi/ScanResult;->semKtVendorSpecificInfo:Ljava/lang/String;
+
+    iput-object v0, p0, Landroid/net/wifi/ScanResult;->semKtVendorSpecificInfo:Ljava/lang/String;
 
     :cond_0
     return-void
@@ -779,16 +813,14 @@
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    move-result-object v3
+    move-result-object v2
 
-    iget-object v2, p0, Landroid/net/wifi/ScanResult;->capabilities:Ljava/lang/String;
+    iget-object v3, p0, Landroid/net/wifi/ScanResult;->capabilities:Ljava/lang/String;
 
-    if-nez v2, :cond_2
-
-    move-object v2, v0
+    if-nez v3, :cond_2
 
     :goto_2
-    invoke-virtual {v3, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
     move-result-object v2
 
@@ -944,33 +976,35 @@
     :goto_6
     invoke-virtual {v1, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    const-string/jumbo v2, ", ChannelMode: "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
-
-    move-result-object v3
-
-    iget-object v2, p0, Landroid/net/wifi/ScanResult;->ChannelMode:Ljava/lang/String;
-
-    if-nez v2, :cond_7
-
-    move-object v2, v0
-
-    :goto_7
-    invoke-virtual {v3, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
-
-    const-string/jumbo v2, ", BSSLoadElement: "
+    const-string/jumbo v2, ", semVendorSpecificInfo: "
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
     move-result-object v2
 
-    iget-object v3, p0, Landroid/net/wifi/ScanResult;->BSSLoadElement:Ljava/lang/String;
+    iget-object v3, p0, Landroid/net/wifi/ScanResult;->semVendorSpecificInfo:Ljava/lang/String;
 
-    if-nez v3, :cond_8
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    :goto_8
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    const-string/jumbo v2, ", semBssLoadElement: "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
+    move-result-object v2
+
+    iget-object v3, p0, Landroid/net/wifi/ScanResult;->semBssLoadElement:Ljava/lang/String;
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
+    const-string/jumbo v2, ", semKtVendorSpecificInfo: "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
+    move-result-object v2
+
+    iget-object v3, p0, Landroid/net/wifi/ScanResult;->semKtVendorSpecificInfo:Ljava/lang/String;
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
     invoke-virtual {v1}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
@@ -989,7 +1023,7 @@
     goto/16 :goto_1
 
     :cond_2
-    iget-object v2, p0, Landroid/net/wifi/ScanResult;->capabilities:Ljava/lang/String;
+    iget-object v0, p0, Landroid/net/wifi/ScanResult;->capabilities:Ljava/lang/String;
 
     goto/16 :goto_2
 
@@ -1012,97 +1046,85 @@
     const-string/jumbo v2, "is not supported"
 
     goto :goto_6
-
-    :cond_7
-    iget-object v2, p0, Landroid/net/wifi/ScanResult;->ChannelMode:Ljava/lang/String;
-
-    goto :goto_7
-
-    :cond_8
-    iget-object v0, p0, Landroid/net/wifi/ScanResult;->BSSLoadElement:Ljava/lang/String;
-
-    goto :goto_8
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .locals 8
+    .locals 6
 
-    const/4 v3, 0x1
+    const/4 v2, 0x1
 
-    const/4 v4, 0x0
+    const/4 v3, 0x0
 
-    iget-object v2, p0, Landroid/net/wifi/ScanResult;->wifiSsid:Landroid/net/wifi/WifiSsid;
+    iget-object v4, p0, Landroid/net/wifi/ScanResult;->wifiSsid:Landroid/net/wifi/WifiSsid;
 
-    if-eqz v2, :cond_0
+    if-eqz v4, :cond_0
 
-    invoke-virtual {p1, v3}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeInt(I)V
 
-    iget-object v2, p0, Landroid/net/wifi/ScanResult;->wifiSsid:Landroid/net/wifi/WifiSsid;
+    iget-object v4, p0, Landroid/net/wifi/ScanResult;->wifiSsid:Landroid/net/wifi/WifiSsid;
 
-    invoke-virtual {v2, p1, p2}, Landroid/net/wifi/WifiSsid;->writeToParcel(Landroid/os/Parcel;I)V
+    invoke-virtual {v4, p1, p2}, Landroid/net/wifi/WifiSsid;->writeToParcel(Landroid/os/Parcel;I)V
 
     :goto_0
-    iget-object v2, p0, Landroid/net/wifi/ScanResult;->SSID:Ljava/lang/String;
+    iget-object v4, p0, Landroid/net/wifi/ScanResult;->SSID:Ljava/lang/String;
 
-    invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p1, v4}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    iget-object v2, p0, Landroid/net/wifi/ScanResult;->BSSID:Ljava/lang/String;
+    iget-object v4, p0, Landroid/net/wifi/ScanResult;->BSSID:Ljava/lang/String;
 
-    invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p1, v4}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    iget-wide v6, p0, Landroid/net/wifi/ScanResult;->hessid:J
+    iget-wide v4, p0, Landroid/net/wifi/ScanResult;->hessid:J
 
-    invoke-virtual {p1, v6, v7}, Landroid/os/Parcel;->writeLong(J)V
+    invoke-virtual {p1, v4, v5}, Landroid/os/Parcel;->writeLong(J)V
 
-    iget v2, p0, Landroid/net/wifi/ScanResult;->anqpDomainId:I
+    iget v4, p0, Landroid/net/wifi/ScanResult;->anqpDomainId:I
 
-    invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p1, v4}, Landroid/os/Parcel;->writeInt(I)V
 
-    iget-object v2, p0, Landroid/net/wifi/ScanResult;->capabilities:Ljava/lang/String;
+    iget-object v4, p0, Landroid/net/wifi/ScanResult;->capabilities:Ljava/lang/String;
 
-    invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p1, v4}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    iget v2, p0, Landroid/net/wifi/ScanResult;->level:I
+    iget v4, p0, Landroid/net/wifi/ScanResult;->level:I
 
-    invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p1, v4}, Landroid/os/Parcel;->writeInt(I)V
 
-    iget v2, p0, Landroid/net/wifi/ScanResult;->frequency:I
+    iget v4, p0, Landroid/net/wifi/ScanResult;->frequency:I
 
-    invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p1, v4}, Landroid/os/Parcel;->writeInt(I)V
 
-    iget-wide v6, p0, Landroid/net/wifi/ScanResult;->timestamp:J
+    iget-wide v4, p0, Landroid/net/wifi/ScanResult;->timestamp:J
 
-    invoke-virtual {p1, v6, v7}, Landroid/os/Parcel;->writeLong(J)V
+    invoke-virtual {p1, v4, v5}, Landroid/os/Parcel;->writeLong(J)V
 
-    iget v2, p0, Landroid/net/wifi/ScanResult;->distanceCm:I
+    iget v4, p0, Landroid/net/wifi/ScanResult;->distanceCm:I
 
-    invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p1, v4}, Landroid/os/Parcel;->writeInt(I)V
 
-    iget v2, p0, Landroid/net/wifi/ScanResult;->distanceSdCm:I
+    iget v4, p0, Landroid/net/wifi/ScanResult;->distanceSdCm:I
 
-    invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p1, v4}, Landroid/os/Parcel;->writeInt(I)V
 
-    iget v2, p0, Landroid/net/wifi/ScanResult;->channelWidth:I
+    iget v4, p0, Landroid/net/wifi/ScanResult;->channelWidth:I
 
-    invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p1, v4}, Landroid/os/Parcel;->writeInt(I)V
 
-    iget v2, p0, Landroid/net/wifi/ScanResult;->centerFreq0:I
+    iget v4, p0, Landroid/net/wifi/ScanResult;->centerFreq0:I
 
-    invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p1, v4}, Landroid/os/Parcel;->writeInt(I)V
 
-    iget v2, p0, Landroid/net/wifi/ScanResult;->centerFreq1:I
+    iget v4, p0, Landroid/net/wifi/ScanResult;->centerFreq1:I
 
-    invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p1, v4}, Landroid/os/Parcel;->writeInt(I)V
 
-    iget-wide v6, p0, Landroid/net/wifi/ScanResult;->seen:J
+    iget-wide v4, p0, Landroid/net/wifi/ScanResult;->seen:J
 
-    invoke-virtual {p1, v6, v7}, Landroid/os/Parcel;->writeLong(J)V
+    invoke-virtual {p1, v4, v5}, Landroid/os/Parcel;->writeLong(J)V
 
-    iget-boolean v2, p0, Landroid/net/wifi/ScanResult;->untrusted:Z
+    iget-boolean v4, p0, Landroid/net/wifi/ScanResult;->untrusted:Z
 
-    if-eqz v2, :cond_1
-
-    move v2, v3
+    if-eqz v4, :cond_1
 
     :goto_1
     invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeInt(I)V
@@ -1116,10 +1138,6 @@
     invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeInt(I)V
 
     iget v2, p0, Landroid/net/wifi/ScanResult;->numIpConfigFailures:I
-
-    invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeInt(I)V
-
-    iget v2, p0, Landroid/net/wifi/ScanResult;->isAutoJoinCandidate:I
 
     invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeInt(I)V
 
@@ -1149,59 +1167,13 @@
     :goto_3
     invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    iget-wide v6, p0, Landroid/net/wifi/ScanResult;->flags:J
+    iget-wide v4, p0, Landroid/net/wifi/ScanResult;->flags:J
 
-    invoke-virtual {p1, v6, v7}, Landroid/os/Parcel;->writeLong(J)V
-
-    iget-boolean v2, p0, Landroid/net/wifi/ScanResult;->is5GHzVsi:Z
-
-    if-eqz v2, :cond_4
-
-    :goto_4
-    invoke-virtual {p1, v3}, Landroid/os/Parcel;->writeInt(I)V
-
-    iget-object v2, p0, Landroid/net/wifi/ScanResult;->ChannelMode:Ljava/lang/String;
-
-    if-eqz v2, :cond_5
-
-    iget-object v2, p0, Landroid/net/wifi/ScanResult;->ChannelMode:Ljava/lang/String;
-
-    invoke-virtual {v2}, Ljava/lang/String;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    :goto_5
-    invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
-
-    iget-object v2, p0, Landroid/net/wifi/ScanResult;->BSSLoadElement:Ljava/lang/String;
-
-    if-eqz v2, :cond_6
-
-    iget-object v2, p0, Landroid/net/wifi/ScanResult;->BSSLoadElement:Ljava/lang/String;
-
-    invoke-virtual {v2}, Ljava/lang/String;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    :goto_6
-    invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
-
-    iget-object v2, p0, Landroid/net/wifi/ScanResult;->semVendorSpecificInfo:Ljava/lang/String;
-
-    if-eqz v2, :cond_7
-
-    iget-object v2, p0, Landroid/net/wifi/ScanResult;->semVendorSpecificInfo:Ljava/lang/String;
-
-    invoke-virtual {v2}, Ljava/lang/String;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    :goto_7
-    invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p1, v4, v5}, Landroid/os/Parcel;->writeLong(J)V
 
     iget-object v2, p0, Landroid/net/wifi/ScanResult;->informationElements:[Landroid/net/wifi/ScanResult$InformationElement;
 
-    if-eqz v2, :cond_8
+    if-eqz v2, :cond_4
 
     iget-object v2, p0, Landroid/net/wifi/ScanResult;->informationElements:[Landroid/net/wifi/ScanResult$InformationElement;
 
@@ -1211,12 +1183,12 @@
 
     const/4 v1, 0x0
 
-    :goto_8
+    :goto_4
     iget-object v2, p0, Landroid/net/wifi/ScanResult;->informationElements:[Landroid/net/wifi/ScanResult$InformationElement;
 
     array-length v2, v2
 
-    if-ge v1, v2, :cond_9
+    if-ge v1, v2, :cond_5
 
     iget-object v2, p0, Landroid/net/wifi/ScanResult;->informationElements:[Landroid/net/wifi/ScanResult$InformationElement;
 
@@ -1246,17 +1218,17 @@
 
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_8
+    goto :goto_4
 
     :cond_0
-    invoke-virtual {p1, v4}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p1, v3}, Landroid/os/Parcel;->writeInt(I)V
 
     goto/16 :goto_0
 
     :cond_1
-    move v2, v4
+    move v2, v3
 
-    goto/16 :goto_1
+    goto :goto_1
 
     :cond_2
     const-string/jumbo v2, ""
@@ -1269,32 +1241,12 @@
     goto :goto_3
 
     :cond_4
-    move v3, v4
-
-    goto :goto_4
+    invoke-virtual {p1, v3}, Landroid/os/Parcel;->writeInt(I)V
 
     :cond_5
-    const-string/jumbo v2, ""
-
-    goto :goto_5
-
-    :cond_6
-    const-string/jumbo v2, ""
-
-    goto :goto_6
-
-    :cond_7
-    const-string/jumbo v2, ""
-
-    goto :goto_7
-
-    :cond_8
-    invoke-virtual {p1, v4}, Landroid/os/Parcel;->writeInt(I)V
-
-    :cond_9
     iget-object v2, p0, Landroid/net/wifi/ScanResult;->anqpLines:Ljava/util/List;
 
-    if-eqz v2, :cond_a
+    if-eqz v2, :cond_6
 
     iget-object v2, p0, Landroid/net/wifi/ScanResult;->anqpLines:Ljava/util/List;
 
@@ -1306,14 +1258,14 @@
 
     const/4 v1, 0x0
 
-    :goto_9
+    :goto_5
     iget-object v2, p0, Landroid/net/wifi/ScanResult;->anqpLines:Ljava/util/List;
 
     invoke-interface {v2}, Ljava/util/List;->size()I
 
     move-result v2
 
-    if-ge v1, v2, :cond_b
+    if-ge v1, v2, :cond_7
 
     iget-object v2, p0, Landroid/net/wifi/ScanResult;->anqpLines:Ljava/util/List;
 
@@ -1327,15 +1279,15 @@
 
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_9
+    goto :goto_5
 
-    :cond_a
-    invoke-virtual {p1, v4}, Landroid/os/Parcel;->writeInt(I)V
+    :cond_6
+    invoke-virtual {p1, v3}, Landroid/os/Parcel;->writeInt(I)V
 
-    :cond_b
+    :cond_7
     iget-object v2, p0, Landroid/net/wifi/ScanResult;->anqpElements:[Landroid/net/wifi/AnqpInformationElement;
 
-    if-eqz v2, :cond_c
+    if-eqz v2, :cond_8
 
     iget-object v2, p0, Landroid/net/wifi/ScanResult;->anqpElements:[Landroid/net/wifi/AnqpInformationElement;
 
@@ -1345,12 +1297,12 @@
 
     iget-object v2, p0, Landroid/net/wifi/ScanResult;->anqpElements:[Landroid/net/wifi/AnqpInformationElement;
 
-    array-length v3, v2
+    array-length v4, v2
 
-    :goto_a
-    if-ge v4, v3, :cond_d
+    :goto_6
+    if-ge v3, v4, :cond_9
 
-    aget-object v0, v2, v4
+    aget-object v0, v2, v3
 
     invoke-virtual {v0}, Landroid/net/wifi/AnqpInformationElement;->getVendorId()I
 
@@ -1378,13 +1330,85 @@
 
     invoke-virtual {p1, v5}, Landroid/os/Parcel;->writeByteArray([B)V
 
-    add-int/lit8 v4, v4, 0x1
+    add-int/lit8 v3, v3, 0x1
 
-    goto :goto_a
+    goto :goto_6
+
+    :cond_8
+    invoke-virtual {p1, v3}, Landroid/os/Parcel;->writeInt(I)V
+
+    :cond_9
+    iget-object v2, p0, Landroid/net/wifi/ScanResult;->ChannelMode:Ljava/lang/String;
+
+    if-eqz v2, :cond_a
+
+    iget-object v2, p0, Landroid/net/wifi/ScanResult;->ChannelMode:Ljava/lang/String;
+
+    invoke-virtual {v2}, Ljava/lang/String;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    :goto_7
+    invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+
+    iget-object v2, p0, Landroid/net/wifi/ScanResult;->semVendorSpecificInfo:Ljava/lang/String;
+
+    if-eqz v2, :cond_b
+
+    iget-object v2, p0, Landroid/net/wifi/ScanResult;->semVendorSpecificInfo:Ljava/lang/String;
+
+    invoke-virtual {v2}, Ljava/lang/String;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    :goto_8
+    invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+
+    iget-object v2, p0, Landroid/net/wifi/ScanResult;->semBssLoadElement:Ljava/lang/String;
+
+    if-eqz v2, :cond_c
+
+    iget-object v2, p0, Landroid/net/wifi/ScanResult;->semBssLoadElement:Ljava/lang/String;
+
+    invoke-virtual {v2}, Ljava/lang/String;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    :goto_9
+    invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+
+    iget-object v2, p0, Landroid/net/wifi/ScanResult;->semKtVendorSpecificInfo:Ljava/lang/String;
+
+    if-eqz v2, :cond_d
+
+    iget-object v2, p0, Landroid/net/wifi/ScanResult;->semKtVendorSpecificInfo:Ljava/lang/String;
+
+    invoke-virtual {v2}, Ljava/lang/String;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    :goto_a
+    invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+
+    return-void
+
+    :cond_a
+    const-string/jumbo v2, ""
+
+    goto :goto_7
+
+    :cond_b
+    const-string/jumbo v2, ""
+
+    goto :goto_8
 
     :cond_c
-    invoke-virtual {p1, v4}, Landroid/os/Parcel;->writeInt(I)V
+    const-string/jumbo v2, ""
+
+    goto :goto_9
 
     :cond_d
-    return-void
+    const-string/jumbo v2, ""
+
+    goto :goto_a
 .end method

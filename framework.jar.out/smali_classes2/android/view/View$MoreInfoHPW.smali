@@ -17,6 +17,8 @@
 # static fields
 .field private static final DEBUG:Z = true
 
+.field private static final HOVER_DETECT_TIME_MS:I = 0x12c
+
 .field private static final ID_INFOVIEW:I = 0x7011214
 
 .field private static final TAG:Ljava/lang/String; = "MoreInfoHPW_View"
@@ -52,13 +54,13 @@
 
     iput-object v0, p0, Landroid/view/View$MoreInfoHPW;->mParentTextView:Landroid/widget/TextView;
 
-    iget-object v0, p0, Lcom/samsung/android/widget/SemHoverPopupWindow;->mParentView:Landroid/view/View;
+    iget-object v0, p0, Landroid/view/View$MoreInfoHPW;->mParentView:Landroid/view/View;
 
     instance-of v0, v0, Landroid/widget/TextView;
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/samsung/android/widget/SemHoverPopupWindow;->mParentView:Landroid/view/View;
+    iget-object v0, p0, Landroid/view/View$MoreInfoHPW;->mParentView:Landroid/view/View;
 
     check-cast v0, Landroid/widget/TextView;
 
@@ -88,15 +90,13 @@
 
 # virtual methods
 .method public isHoverPopupPossible()Z
-    .locals 3
+    .locals 2
 
-    const/4 v0, 0x1
+    iget-object v0, p0, Landroid/view/View$MoreInfoHPW;->this$0:Landroid/view/View;
 
-    iget-object v1, p0, Landroid/view/View$MoreInfoHPW;->this$0:Landroid/view/View;
+    iget-object v1, p0, Landroid/view/View$MoreInfoHPW;->mParentView:Landroid/view/View;
 
-    iget-object v2, p0, Lcom/samsung/android/widget/SemHoverPopupWindow;->mParentView:Landroid/view/View;
-
-    invoke-virtual {v1, v2}, Landroid/view/View;->findEllipsizedTextView(Landroid/view/View;)Z
+    invoke-virtual {v0, v1}, Landroid/view/View;->findEllipsizedTextView(Landroid/view/View;)Z
 
     move-result v0
 
@@ -106,8 +106,13 @@
 
     move-result v0
 
-    :cond_0
+    :goto_0
     return v0
+
+    :cond_0
+    const/4 v0, 0x1
+
+    goto :goto_0
 .end method
 
 .method protected makeDefaultContentView()V
@@ -133,11 +138,11 @@
 
     iget v2, v5, Landroid/content/res/Configuration;->orientation:I
 
-    iget-object v5, p0, Lcom/samsung/android/widget/SemHoverPopupWindow;->mContentView:Landroid/view/View;
+    iget-object v5, p0, Landroid/view/View$MoreInfoHPW;->mContentView:Landroid/view/View;
 
     if-eqz v5, :cond_0
 
-    iget-object v5, p0, Lcom/samsung/android/widget/SemHoverPopupWindow;->mContentView:Landroid/view/View;
+    iget-object v5, p0, Landroid/view/View$MoreInfoHPW;->mContentView:Landroid/view/View;
 
     invoke-virtual {v5}, Landroid/view/View;->getId()I
 
@@ -154,7 +159,7 @@
 
     move-result-object v1
 
-    const v5, 0x1090076
+    const v5, 0x1090079
 
     invoke-virtual {v1, v5, v7}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -164,9 +169,9 @@
 
     const/4 v5, 0x0
 
-    invoke-virtual {v4, v5}, Landroid/view/View;->semSetHoverPopupType(I)V
+    invoke-virtual {v4, v5}, Landroid/widget/TextView;->semSetHoverPopupType(I)V
 
-    invoke-virtual {v4, v6}, Landroid/view/View;->setId(I)V
+    invoke-virtual {v4, v6}, Landroid/widget/TextView;->setId(I)V
 
     invoke-virtual {v4}, Landroid/widget/TextView;->getMaxLines()I
 
@@ -177,7 +182,7 @@
     iput v2, p0, Landroid/view/View$MoreInfoHPW;->mLastOrientation:I
 
     :goto_0
-    iget-object v5, p0, Lcom/samsung/android/widget/SemHoverPopupWindow;->mContentText:Ljava/lang/CharSequence;
+    iget-object v5, p0, Landroid/view/View$MoreInfoHPW;->mContentText:Ljava/lang/CharSequence;
 
     invoke-static {v5}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
@@ -185,7 +190,7 @@
 
     if-nez v5, :cond_3
 
-    iget-object v3, p0, Lcom/samsung/android/widget/SemHoverPopupWindow;->mContentText:Ljava/lang/CharSequence;
+    iget-object v3, p0, Landroid/view/View$MoreInfoHPW;->mContentText:Ljava/lang/CharSequence;
 
     :goto_1
     invoke-static {v3}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
@@ -236,7 +241,7 @@
 
     :cond_1
     :goto_2
-    iput-object v4, p0, Lcom/samsung/android/widget/SemHoverPopupWindow;->mContentView:Landroid/view/View;
+    iput-object v4, p0, Landroid/view/View$MoreInfoHPW;->mContentView:Landroid/view/View;
 
     return-void
 
@@ -245,7 +250,7 @@
 
     if-ne v2, v5, :cond_0
 
-    iget-object v4, p0, Lcom/samsung/android/widget/SemHoverPopupWindow;->mContentView:Landroid/view/View;
+    iget-object v4, p0, Landroid/view/View$MoreInfoHPW;->mContentView:Landroid/view/View;
 
     check-cast v4, Landroid/widget/TextView;
 
@@ -267,7 +272,7 @@
 .end method
 
 .method protected setInstanceByType(I)V
-    .locals 2
+    .locals 1
 
     invoke-super {p0, p1}, Lcom/samsung/android/widget/SemHoverPopupWindow;->setInstanceByType(I)V
 
@@ -277,29 +282,15 @@
 
     const/16 v0, 0x3231
 
-    iput v0, p0, Lcom/samsung/android/widget/SemHoverPopupWindow;->mPopupGravity:I
+    iput v0, p0, Landroid/view/View$MoreInfoHPW;->mPopupGravity:I
 
-    const v0, 0x1030513
+    const v0, 0x10302f7
 
-    iput v0, p0, Lcom/samsung/android/widget/SemHoverPopupWindow;->mAnimationStyle:I
+    iput v0, p0, Landroid/view/View$MoreInfoHPW;->mAnimationStyle:I
 
     const/16 v0, 0x12c
 
-    iput v0, p0, Lcom/samsung/android/widget/SemHoverPopupWindow;->mHoverDetectTimeMS:I
-
-    const/4 v0, 0x1
-
-    iput-boolean v0, p0, Lcom/samsung/android/widget/SemHoverPopupWindow;->mIsGuideLineEnabled:Z
-
-    const/high16 v0, 0x40c00000    # 6.0f
-
-    const/4 v1, 0x0
-
-    invoke-virtual {p0, v0, v1}, Lcom/samsung/android/widget/SemHoverPopupWindow;->convertDPtoPX(FLandroid/util/DisplayMetrics;)I
-
-    move-result v0
-
-    iput v0, p0, Lcom/samsung/android/widget/SemHoverPopupWindow;->mGuideLineFadeOffset:I
+    iput v0, p0, Landroid/view/View$MoreInfoHPW;->mHoverDetectTimeMS:I
 
     :cond_0
     return-void

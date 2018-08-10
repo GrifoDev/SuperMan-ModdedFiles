@@ -94,6 +94,8 @@
 
 .field public static final TAG_CSCFEATURE_MESSAGE_CONFIGLCDACTIONFORNEWMSG:Ljava/lang/String; = "CscFeature_Message_ConfigLcdActionForNewMsg"
 
+.field public static final TAG_CSCFEATURE_MESSAGE_CONFIGLISTDISABLEMMS:Ljava/lang/String; = "CscFeature_Message_ConfigListDisableMms"
+
 .field public static final TAG_CSCFEATURE_MESSAGE_CONFIGMINMATCHNUMBER:Ljava/lang/String; = "CscFeature_Message_ConfigMinMatchNumber"
 
 .field public static final TAG_CSCFEATURE_MESSAGE_CONFIGMMSFROMFIELD:Ljava/lang/String; = "CscFeature_Message_ConfigMmsFromField"
@@ -396,8 +398,6 @@
 
 .field public static final TAG_CSCFEATURE_MESSAGE_ENABLESPEEDDIAL:Ljava/lang/String; = "CscFeature_Message_EnableSpeedDial"
 
-.field public static final TAG_CSCFEATURE_MESSAGE_ENABLESTAGEFLIGHTLIB:Ljava/lang/String; = "CscFeature_Message_EnableStageFlightLib"
-
 .field public static final TAG_CSCFEATURE_MESSAGE_ENABLESTRICTIMAGERESIZING:Ljava/lang/String; = "CscFeature_Message_EnableStrictImageResizing"
 
 .field public static final TAG_CSCFEATURE_MESSAGE_ENABLETEXTFIELDCOLOR:Ljava/lang/String; = "CscFeature_Message_EnableTextFieldColor"
@@ -460,6 +460,8 @@
 
 .field public static final TAG_CSCFEATURE_MESSAGE_SMSMAXBYTE:Ljava/lang/String; = "CscFeature_Message_SmsMaxByte"
 
+.field public static final TAG_CSCFEATURE_MESSAGE_SUPPORTANTIPHISHING:Ljava/lang/String; = "CscFeature_Message_SupportAntiPhishing"
+
 .field public static final TAG_CSCFEATURE_MESSAGE_SUPPORTAUTODELETESPAM:Ljava/lang/String; = "CscFeature_Message_SupportAutoDeleteSpam"
 
 .field public static final TAG_CSCFEATURE_MESSAGE_SUPPORTBCDALPHABETINSMSADDRESS:Ljava/lang/String; = "CscFeature_Message_SupportBcdAlphabetInSMSAddress"
@@ -479,6 +481,8 @@
 .field public static final TAG_CSCFEATURE_MESSAGE_SUPPORTMMSTHROUGHWIFI:Ljava/lang/String; = "CscFeature_Message_SupportMmsThroughWifi"
 
 .field public static final TAG_CSCFEATURE_MESSAGE_SUPPORTPRIORTHREAD:Ljava/lang/String; = "CscFeature_Message_SupportPriorThread"
+
+.field public static final TAG_CSCFEATURE_MESSAGE_SUPPORTSPAMFILTERINGENGINE:Ljava/lang/String; = "CscFeature_Message_SupportSpamFilteringEngine"
 
 .field public static final TAG_CSCFEATURE_MESSAGE_UAPROFURL:Ljava/lang/String; = "CscFeature_Message_UaProfUrl"
 

@@ -15,14 +15,6 @@
 
 
 # virtual methods
-.method public abstract checkFlag()J
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
 .method public abstract connect(Ljava/lang/String;Ljava/lang/String;)Landroid/os/IBinder;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -47,22 +39,6 @@
     .end annotation
 .end method
 
-.method public abstract getProperties(I)J
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract getResponseHeaderByName(Ljava/lang/String;)Ljava/lang/String;
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
 .method public abstract getSize()J
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -80,14 +56,6 @@
 .end method
 
 .method public abstract readAt(JI)I
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract setProxy(Ljava/lang/String;I)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

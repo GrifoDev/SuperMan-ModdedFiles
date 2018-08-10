@@ -32,7 +32,7 @@
 
     const/4 v0, 0x2
 
-    invoke-virtual {p0, v0}, Landroid/security/keystore/AndroidKeyStoreCipherSpiBase;->setKeymasterPurposeOverride(I)V
+    invoke-virtual {p0, v0}, Landroid/security/keystore/AndroidKeyStoreRSACipherSpi$NoPadding;->setKeymasterPurposeOverride(I)V
 
     const/4 v0, 0x1
 

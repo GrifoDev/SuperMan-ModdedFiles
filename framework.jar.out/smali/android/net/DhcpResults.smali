@@ -23,10 +23,6 @@
     .end annotation
 .end field
 
-.field public static final RESPONSE_DHCP_REQUEST:I = 0x2
-
-.field public static final RESTART_DHCP_DISCOVER:I = 0x4
-
 .field private static final TAG:Ljava/lang/String; = "DhcpResults"
 
 
@@ -34,8 +30,6 @@
 .field public leaseDuration:I
 
 .field public mtu:I
-
-.field public resultAfterRoaming:I
 
 .field public serverAddress:Ljava/net/Inet4Address;
 
@@ -93,10 +87,6 @@
     iget v0, p1, Landroid/net/DhcpResults;->mtu:I
 
     iput v0, p0, Landroid/net/DhcpResults;->mtu:I
-
-    iget v0, p1, Landroid/net/DhcpResults;->resultAfterRoaming:I
-
-    iput v0, p0, Landroid/net/DhcpResults;->resultAfterRoaming:I
 
     :cond_0
     return-void
@@ -216,8 +206,6 @@
 
     iput v1, p0, Landroid/net/DhcpResults;->mtu:I
 
-    iput v1, p0, Landroid/net/DhcpResults;->resultAfterRoaming:I
-
     return-void
 .end method
 
@@ -281,12 +269,6 @@
     iget v3, p0, Landroid/net/DhcpResults;->mtu:I
 
     iget v4, v0, Landroid/net/DhcpResults;->mtu:I
-
-    if-ne v3, v4, :cond_3
-
-    iget v3, p0, Landroid/net/DhcpResults;->resultAfterRoaming:I
-
-    iget v4, v0, Landroid/net/DhcpResults;->resultAfterRoaming:I
 
     if-ne v3, v4, :cond_2
 
@@ -452,14 +434,6 @@
     return-void
 .end method
 
-.method public setRoamingResult(I)V
-    .locals 0
-
-    iput p1, p0, Landroid/net/DhcpResults;->resultAfterRoaming:I
-
-    return-void
-.end method
-
 .method public setServerAddress(Ljava/lang/String;)Z
     .locals 4
 
@@ -579,17 +553,6 @@
     invoke-virtual {v1, v2}, Ljava/lang/StringBuffer;->append(I)Ljava/lang/StringBuffer;
 
     :cond_0
-    iget v1, p0, Landroid/net/DhcpResults;->resultAfterRoaming:I
-
-    const/4 v2, 0x2
-
-    if-ne v1, v2, :cond_1
-
-    const-string/jumbo v1, " - Server responded to REQUEST at last DHCP process"
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
-
-    :cond_1
     invoke-virtual {v0}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
     move-result-object v1
@@ -617,10 +580,6 @@
     iget-object v0, p0, Landroid/net/DhcpResults;->vendorInfo:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
-
-    iget v0, p0, Landroid/net/DhcpResults;->resultAfterRoaming:I
-
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
     return-void
 .end method

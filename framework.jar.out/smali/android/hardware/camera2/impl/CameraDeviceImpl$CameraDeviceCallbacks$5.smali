@@ -24,9 +24,9 @@
 
 .field final synthetic val$holder:Landroid/hardware/camera2/impl/CameraDeviceImpl$CaptureCallbackHolder;
 
-.field final synthetic val$outputSurface:Landroid/view/Surface;
-
 .field final synthetic val$request:Landroid/hardware/camera2/CaptureRequest;
+
+.field final synthetic val$surface:Landroid/view/Surface;
 
 
 # direct methods
@@ -39,7 +39,7 @@
 
     iput-object p3, p0, Landroid/hardware/camera2/impl/CameraDeviceImpl$CameraDeviceCallbacks$5;->val$request:Landroid/hardware/camera2/CaptureRequest;
 
-    iput-object p4, p0, Landroid/hardware/camera2/impl/CameraDeviceImpl$CameraDeviceCallbacks$5;->val$outputSurface:Landroid/view/Surface;
+    iput-object p4, p0, Landroid/hardware/camera2/impl/CameraDeviceImpl$CameraDeviceCallbacks$5;->val$surface:Landroid/view/Surface;
 
     iput-wide p5, p0, Landroid/hardware/camera2/impl/CameraDeviceImpl$CameraDeviceCallbacks$5;->val$frameNumber:J
 
@@ -75,11 +75,11 @@
 
     iget-object v2, p0, Landroid/hardware/camera2/impl/CameraDeviceImpl$CameraDeviceCallbacks$5;->val$request:Landroid/hardware/camera2/CaptureRequest;
 
-    iget-object v3, p0, Landroid/hardware/camera2/impl/CameraDeviceImpl$CameraDeviceCallbacks$5;->val$outputSurface:Landroid/view/Surface;
+    iget-object v3, p0, Landroid/hardware/camera2/impl/CameraDeviceImpl$CameraDeviceCallbacks$5;->val$surface:Landroid/view/Surface;
 
     iget-wide v4, p0, Landroid/hardware/camera2/impl/CameraDeviceImpl$CameraDeviceCallbacks$5;->val$frameNumber:J
 
-    invoke-virtual/range {v0 .. v5}, Landroid/hardware/camera2/impl/CameraDeviceImpl$CaptureCallback;->onCaptureBufferLost(Landroid/hardware/camera2/CameraDevice;Landroid/hardware/camera2/CaptureRequest;Landroid/view/Surface;J)V
+    invoke-interface/range {v0 .. v5}, Landroid/hardware/camera2/impl/CameraDeviceImpl$CaptureCallback;->onCaptureBufferLost(Landroid/hardware/camera2/CameraDevice;Landroid/hardware/camera2/CaptureRequest;Landroid/view/Surface;J)V
 
     :cond_0
     return-void

@@ -45,7 +45,17 @@
 .method public run()V
     .locals 3
 
-    invoke-static {}, Landroid/media/RemoteDisplay;->-get1()Landroid/media/RemoteDisplayCallback;
+    iget-object v0, p0, Landroid/media/RemoteDisplay$4;->this$0:Landroid/media/RemoteDisplay;
+
+    invoke-static {v0}, Landroid/media/RemoteDisplay;->-get1(Landroid/media/RemoteDisplay;)Landroid/media/RemoteDisplay$NativeListener;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Landroid/media/RemoteDisplay$4;->this$0:Landroid/media/RemoteDisplay;
+
+    invoke-static {v0}, Landroid/media/RemoteDisplay;->-get1(Landroid/media/RemoteDisplay;)Landroid/media/RemoteDisplay$NativeListener;
 
     move-result-object v0
 
@@ -53,7 +63,8 @@
 
     iget-object v2, p0, Landroid/media/RemoteDisplay$4;->val$data:Ljava/lang/String;
 
-    invoke-virtual {v0, v1, v2}, Landroid/media/RemoteDisplayCallback;->onNoti(ILjava/lang/String;)V
+    invoke-interface {v0, v1, v2}, Landroid/media/RemoteDisplay$NativeListener;->onNotify(ILjava/lang/String;)V
 
+    :cond_0
     return-void
 .end method

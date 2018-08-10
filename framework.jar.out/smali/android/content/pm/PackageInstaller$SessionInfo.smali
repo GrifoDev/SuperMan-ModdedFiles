@@ -45,6 +45,8 @@
 
 .field public appPackageName:Ljava/lang/String;
 
+.field public installReason:I
+
 .field public installerPackageName:Ljava/lang/String;
 
 .field public mode:I
@@ -139,6 +141,12 @@
     move-result v0
 
     iput v0, p0, Landroid/content/pm/PackageInstaller$SessionInfo;->mode:I
+
+    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
+
+    move-result v0
+
+    iput v0, p0, Landroid/content/pm/PackageInstaller$SessionInfo;->installReason:I
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readLong()J
 
@@ -253,6 +261,14 @@
     return-object v0
 .end method
 
+.method public getInstallReason()I
+    .locals 1
+
+    iget v0, p0, Landroid/content/pm/PackageInstaller$SessionInfo;->installReason:I
+
+    return v0
+.end method
+
 .method public getInstallerPackageName()Ljava/lang/String;
     .locals 1
 
@@ -293,6 +309,14 @@
     invoke-virtual {p0}, Landroid/content/pm/PackageInstaller$SessionInfo;->isActive()Z
 
     move-result v0
+
+    return v0
+.end method
+
+.method public isSealed()Z
+    .locals 1
+
+    iget-boolean v0, p0, Landroid/content/pm/PackageInstaller$SessionInfo;->sealed:Z
 
     return v0
 .end method
@@ -339,6 +363,10 @@
     invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeInt(I)V
 
     iget v0, p0, Landroid/content/pm/PackageInstaller$SessionInfo;->mode:I
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
+
+    iget v0, p0, Landroid/content/pm/PackageInstaller$SessionInfo;->installReason:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 

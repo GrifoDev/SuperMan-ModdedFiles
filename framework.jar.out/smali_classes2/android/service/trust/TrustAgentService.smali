@@ -16,6 +16,16 @@
 # static fields
 .field private static final DEBUG:Z = false
 
+.field private static final EXTRA_TOKEN:Ljava/lang/String; = "token"
+
+.field private static final EXTRA_TOKEN_HANDLE:Ljava/lang/String; = "token_handle"
+
+.field private static final EXTRA_TOKEN_REMOVED_RESULT:Ljava/lang/String; = "token_removed_result"
+
+.field private static final EXTRA_TOKEN_STATE:Ljava/lang/String; = "token_state"
+
+.field private static final EXTRA_USER_HANDLE:Ljava/lang/String; = "user_handle"
+
 .field public static final FLAG_GRANT_TRUST_DISMISS_KEYGUARD:I = 0x2
 
 .field public static final FLAG_GRANT_TRUST_INITIATED_BY_USER:I = 0x1
@@ -26,11 +36,23 @@
 
 .field private static final MSG_DEVICE_UNLOCKED:I = 0x5
 
+.field private static final MSG_ESCROW_TOKEN_ADDED:I = 0x7
+
+.field private static final MSG_ESCROW_TOKEN_REMOVED:I = 0x9
+
+.field private static final MSG_ESCROW_TOKEN_STATE_RECEIVED:I = 0x8
+
 .field private static final MSG_TRUST_TIMEOUT:I = 0x3
 
 .field private static final MSG_UNLOCK_ATTEMPT:I = 0x1
 
+.field private static final MSG_UNLOCK_LOCKOUT:I = 0x6
+
 .field public static final SERVICE_INTERFACE:Ljava/lang/String; = "android.service.trust.TrustAgentService"
+
+.field public static final TOKEN_STATE_ACTIVE:I = 0x1
+
+.field public static final TOKEN_STATE_INACTIVE:I = 0x0
 
 .field public static final TRUST_AGENT_META_DATA:Ljava/lang/String; = "android.service.trust.trustagent"
 
@@ -208,6 +230,72 @@
 
 
 # virtual methods
+.method public final addEscrowToken([BLandroid/os/UserHandle;)V
+    .locals 4
+
+    iget-object v2, p0, Landroid/service/trust/TrustAgentService;->mLock:Ljava/lang/Object;
+
+    monitor-enter v2
+
+    :try_start_0
+    iget-object v1, p0, Landroid/service/trust/TrustAgentService;->mCallback:Landroid/service/trust/ITrustAgentServiceCallback;
+
+    if-nez v1, :cond_0
+
+    iget-object v1, p0, Landroid/service/trust/TrustAgentService;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v3, "Cannot add escrow token if the agent is not connecting to framework"
+
+    invoke-static {v1, v3}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    new-instance v1, Ljava/lang/IllegalStateException;
+
+    const-string/jumbo v3, "Trust agent is not connected"
+
+    invoke-direct {v1, v3}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+
+    throw v1
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    :catchall_0
+    move-exception v1
+
+    monitor-exit v2
+
+    throw v1
+
+    :cond_0
+    :try_start_1
+    iget-object v1, p0, Landroid/service/trust/TrustAgentService;->mCallback:Landroid/service/trust/ITrustAgentServiceCallback;
+
+    invoke-virtual {p2}, Landroid/os/UserHandle;->getIdentifier()I
+
+    move-result v3
+
+    invoke-interface {v1, p1, v3}, Landroid/service/trust/ITrustAgentServiceCallback;->addEscrowToken([BI)V
+    :try_end_1
+    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    :goto_0
+    monitor-exit v2
+
+    return-void
+
+    :catch_0
+    move-exception v0
+
+    :try_start_2
+    const-string/jumbo v1, "calling addEscrowToken"
+
+    invoke-direct {p0, v1}, Landroid/service/trust/TrustAgentService;->onError(Ljava/lang/String;)V
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+
+    goto :goto_0
+.end method
+
 .method public final grantTrust(Ljava/lang/CharSequence;JI)V
     .locals 8
 
@@ -308,6 +396,72 @@
 
     :cond_0
     const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
+.method public final isEscrowTokenActive(JLandroid/os/UserHandle;)V
+    .locals 5
+
+    iget-object v2, p0, Landroid/service/trust/TrustAgentService;->mLock:Ljava/lang/Object;
+
+    monitor-enter v2
+
+    :try_start_0
+    iget-object v1, p0, Landroid/service/trust/TrustAgentService;->mCallback:Landroid/service/trust/ITrustAgentServiceCallback;
+
+    if-nez v1, :cond_0
+
+    iget-object v1, p0, Landroid/service/trust/TrustAgentService;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v3, "Cannot add escrow token if the agent is not connecting to framework"
+
+    invoke-static {v1, v3}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    new-instance v1, Ljava/lang/IllegalStateException;
+
+    const-string/jumbo v3, "Trust agent is not connected"
+
+    invoke-direct {v1, v3}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+
+    throw v1
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    :catchall_0
+    move-exception v1
+
+    monitor-exit v2
+
+    throw v1
+
+    :cond_0
+    :try_start_1
+    iget-object v1, p0, Landroid/service/trust/TrustAgentService;->mCallback:Landroid/service/trust/ITrustAgentServiceCallback;
+
+    invoke-virtual {p3}, Landroid/os/UserHandle;->getIdentifier()I
+
+    move-result v3
+
+    invoke-interface {v1, p1, p2, v3}, Landroid/service/trust/ITrustAgentServiceCallback;->isEscrowTokenActive(JI)V
+    :try_end_1
+    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    :goto_0
+    monitor-exit v2
+
+    return-void
+
+    :catch_0
+    move-exception v0
+
+    :try_start_2
+    const-string/jumbo v1, "calling isEscrowTokenActive"
+
+    invoke-direct {p0, v1}, Landroid/service/trust/TrustAgentService;->onError(Ljava/lang/String;)V
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     goto :goto_0
 .end method
@@ -462,7 +616,31 @@
     return-void
 .end method
 
+.method public onDeviceUnlockLockout(J)V
+    .locals 0
+
+    return-void
+.end method
+
 .method public onDeviceUnlocked()V
+    .locals 0
+
+    return-void
+.end method
+
+.method public onEscrowTokenAdded([BJLandroid/os/UserHandle;)V
+    .locals 0
+
+    return-void
+.end method
+
+.method public onEscrowTokenRemoved(JZ)V
+    .locals 0
+
+    return-void
+.end method
+
+.method public onEscrowTokenStateReceived(JI)V
     .locals 0
 
     return-void
@@ -478,6 +656,72 @@
     .locals 0
 
     return-void
+.end method
+
+.method public final removeEscrowToken(JLandroid/os/UserHandle;)V
+    .locals 5
+
+    iget-object v2, p0, Landroid/service/trust/TrustAgentService;->mLock:Ljava/lang/Object;
+
+    monitor-enter v2
+
+    :try_start_0
+    iget-object v1, p0, Landroid/service/trust/TrustAgentService;->mCallback:Landroid/service/trust/ITrustAgentServiceCallback;
+
+    if-nez v1, :cond_0
+
+    iget-object v1, p0, Landroid/service/trust/TrustAgentService;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v3, "Cannot add escrow token if the agent is not connecting to framework"
+
+    invoke-static {v1, v3}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    new-instance v1, Ljava/lang/IllegalStateException;
+
+    const-string/jumbo v3, "Trust agent is not connected"
+
+    invoke-direct {v1, v3}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+
+    throw v1
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    :catchall_0
+    move-exception v1
+
+    monitor-exit v2
+
+    throw v1
+
+    :cond_0
+    :try_start_1
+    iget-object v1, p0, Landroid/service/trust/TrustAgentService;->mCallback:Landroid/service/trust/ITrustAgentServiceCallback;
+
+    invoke-virtual {p3}, Landroid/os/UserHandle;->getIdentifier()I
+
+    move-result v3
+
+    invoke-interface {v1, p1, p2, v3}, Landroid/service/trust/ITrustAgentServiceCallback;->removeEscrowToken(JI)V
+    :try_end_1
+    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    :goto_0
+    monitor-exit v2
+
+    return-void
+
+    :catch_0
+    move-exception v0
+
+    :try_start_2
+    const-string/jumbo v1, "callling removeEscrowToken"
+
+    invoke-direct {p0, v1}, Landroid/service/trust/TrustAgentService;->onError(Ljava/lang/String;)V
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+
+    goto :goto_0
 .end method
 
 .method public final revokeTrust()V
@@ -589,4 +833,93 @@
     monitor-exit v2
 
     throw v1
+.end method
+
+.method public final unlockUserWithToken(J[BLandroid/os/UserHandle;)V
+    .locals 5
+
+    const-string/jumbo v2, "user"
+
+    invoke-virtual {p0, v2}, Landroid/service/trust/TrustAgentService;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/os/UserManager;
+
+    invoke-virtual {v1}, Landroid/os/UserManager;->isUserUnlocked()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    iget-object v2, p0, Landroid/service/trust/TrustAgentService;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v3, "User already unlocked"
+
+    invoke-static {v2, v3}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
+
+    :cond_0
+    iget-object v3, p0, Landroid/service/trust/TrustAgentService;->mLock:Ljava/lang/Object;
+
+    monitor-enter v3
+
+    :try_start_0
+    iget-object v2, p0, Landroid/service/trust/TrustAgentService;->mCallback:Landroid/service/trust/ITrustAgentServiceCallback;
+
+    if-nez v2, :cond_1
+
+    iget-object v2, p0, Landroid/service/trust/TrustAgentService;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v4, "Cannot add escrow token if the agent is not connecting to framework"
+
+    invoke-static {v2, v4}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    new-instance v2, Ljava/lang/IllegalStateException;
+
+    const-string/jumbo v4, "Trust agent is not connected"
+
+    invoke-direct {v2, v4}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+
+    throw v2
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    :catchall_0
+    move-exception v2
+
+    monitor-exit v3
+
+    throw v2
+
+    :cond_1
+    :try_start_1
+    iget-object v2, p0, Landroid/service/trust/TrustAgentService;->mCallback:Landroid/service/trust/ITrustAgentServiceCallback;
+
+    invoke-virtual {p4}, Landroid/os/UserHandle;->getIdentifier()I
+
+    move-result v4
+
+    invoke-interface {v2, p1, p2, p3, v4}, Landroid/service/trust/ITrustAgentServiceCallback;->unlockUserWithToken(J[BI)V
+    :try_end_1
+    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    :goto_0
+    monitor-exit v3
+
+    return-void
+
+    :catch_0
+    move-exception v0
+
+    :try_start_2
+    const-string/jumbo v2, "calling unlockUserWithToken"
+
+    invoke-direct {p0, v2}, Landroid/service/trust/TrustAgentService;->onError(Ljava/lang/String;)V
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+
+    goto :goto_0
 .end method

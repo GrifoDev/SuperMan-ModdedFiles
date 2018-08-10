@@ -16,6 +16,9 @@
     name = "WifiChangeListener"
 .end annotation
 
+.annotation runtime Ljava/lang/Deprecated;
+.end annotation
+
 
 # virtual methods
 .method public abstract onChanging([Landroid/net/wifi/ScanResult;)V

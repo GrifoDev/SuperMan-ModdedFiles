@@ -88,9 +88,7 @@
 
     iget v1, p0, Landroid/bluetooth/BluetoothMasInstance;->mId:I
 
-    nop
-
-    nop
+    check-cast p1, Landroid/bluetooth/BluetoothMasInstance;
 
     iget v2, p1, Landroid/bluetooth/BluetoothMasInstance;->mId:I
 

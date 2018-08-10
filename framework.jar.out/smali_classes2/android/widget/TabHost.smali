@@ -39,8 +39,6 @@
 
 .field private mCurrentView:Landroid/view/View;
 
-.field private mIsDeviceDefaultLight:Z
-
 .field protected mLocalActivityManager:Landroid/app/LocalActivityManager;
 
 .field private mOnTabChangeListener:Landroid/widget/TabHost$OnTabChangeListener;
@@ -113,10 +111,6 @@
 
     iput-object v2, p0, Landroid/widget/TabHost;->mLocalActivityManager:Landroid/app/LocalActivityManager;
 
-    const/4 v0, 0x0
-
-    iput-boolean v0, p0, Landroid/widget/TabHost;->mIsDeviceDefaultLight:Z
-
     invoke-direct {p0}, Landroid/widget/TabHost;->initTabHost()V
 
     return-void
@@ -143,94 +137,55 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;II)V
-    .locals 8
+    .locals 5
 
-    const/4 v7, 0x0
+    const/4 v4, 0x0
 
-    const/4 v6, 0x1
-
-    const/4 v5, 0x0
+    const/4 v3, 0x0
 
     invoke-direct {p0, p1, p2}, Landroid/widget/FrameLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
-    new-instance v3, Ljava/util/ArrayList;
+    new-instance v1, Ljava/util/ArrayList;
 
-    const/4 v4, 0x2
+    const/4 v2, 0x2
 
-    invoke-direct {v3, v4}, Ljava/util/ArrayList;-><init>(I)V
+    invoke-direct {v1, v2}, Ljava/util/ArrayList;-><init>(I)V
 
-    iput-object v3, p0, Landroid/widget/TabHost;->mTabSpecs:Ljava/util/List;
+    iput-object v1, p0, Landroid/widget/TabHost;->mTabSpecs:Ljava/util/List;
 
-    const/4 v3, -0x1
+    const/4 v1, -0x1
 
-    iput v3, p0, Landroid/widget/TabHost;->mCurrentTab:I
+    iput v1, p0, Landroid/widget/TabHost;->mCurrentTab:I
 
-    iput-object v7, p0, Landroid/widget/TabHost;->mCurrentView:Landroid/view/View;
+    iput-object v4, p0, Landroid/widget/TabHost;->mCurrentView:Landroid/view/View;
 
-    iput-object v7, p0, Landroid/widget/TabHost;->mLocalActivityManager:Landroid/app/LocalActivityManager;
+    iput-object v4, p0, Landroid/widget/TabHost;->mLocalActivityManager:Landroid/app/LocalActivityManager;
 
-    iput-boolean v5, p0, Landroid/widget/TabHost;->mIsDeviceDefaultLight:Z
+    sget-object v1, Lcom/android/internal/R$styleable;->TabWidget:[I
 
-    sget-object v3, Lcom/android/internal/R$styleable;->TabWidget:[I
-
-    invoke-virtual {p1, p2, v3, p3, p4}, Landroid/content/Context;->obtainStyledAttributes(Landroid/util/AttributeSet;[III)Landroid/content/res/TypedArray;
+    invoke-virtual {p1, p2, v1, p3, p4}, Landroid/content/Context;->obtainStyledAttributes(Landroid/util/AttributeSet;[III)Landroid/content/res/TypedArray;
 
     move-result-object v0
 
-    const/4 v3, 0x4
+    const/4 v1, 0x4
 
-    invoke-virtual {v0, v3, v5}, Landroid/content/res/TypedArray;->getResourceId(II)I
+    invoke-virtual {v0, v1, v3}, Landroid/content/res/TypedArray;->getResourceId(II)I
 
-    move-result v3
+    move-result v1
 
-    iput v3, p0, Landroid/widget/TabHost;->mTabLayoutId:I
+    iput v1, p0, Landroid/widget/TabHost;->mTabLayoutId:I
 
     invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
 
-    iget v3, p0, Landroid/widget/TabHost;->mTabLayoutId:I
+    iget v1, p0, Landroid/widget/TabHost;->mTabLayoutId:I
 
-    if-nez v3, :cond_0
+    if-nez v1, :cond_0
 
-    const v3, 0x1090127
+    const v1, 0x1090125
 
-    iput v3, p0, Landroid/widget/TabHost;->mTabLayoutId:I
+    iput v1, p0, Landroid/widget/TabHost;->mTabLayoutId:I
 
     :cond_0
-    new-instance v2, Landroid/util/TypedValue;
-
-    invoke-direct {v2}, Landroid/util/TypedValue;-><init>()V
-
-    new-instance v1, Landroid/util/TypedValue;
-
-    invoke-direct {v1}, Landroid/util/TypedValue;-><init>()V
-
-    invoke-virtual {p1}, Landroid/content/Context;->getTheme()Landroid/content/res/Resources$Theme;
-
-    move-result-object v3
-
-    const v4, 0x11600cb
-
-    invoke-virtual {v3, v4, v2, v5}, Landroid/content/res/Resources$Theme;->resolveAttribute(ILandroid/util/TypedValue;Z)Z
-
-    invoke-virtual {p1}, Landroid/content/Context;->getTheme()Landroid/content/res/Resources$Theme;
-
-    move-result-object v3
-
-    const v4, 0x11600cd
-
-    invoke-virtual {v3, v4, v1, v6}, Landroid/content/res/Resources$Theme;->resolveAttribute(ILandroid/util/TypedValue;Z)Z
-
-    iget v3, v2, Landroid/util/TypedValue;->data:I
-
-    if-eqz v3, :cond_1
-
-    iget v3, v1, Landroid/util/TypedValue;->data:I
-
-    if-nez v3, :cond_1
-
-    iput-boolean v6, p0, Landroid/widget/TabHost;->mIsDeviceDefaultLight:Z
-
-    :cond_1
     invoke-direct {p0}, Landroid/widget/TabHost;->initTabHost()V
 
     return-void
@@ -712,9 +667,20 @@
 .method public newTabSpec(Ljava/lang/String;)Landroid/widget/TabHost$TabSpec;
     .locals 2
 
-    new-instance v0, Landroid/widget/TabHost$TabSpec;
-
     const/4 v1, 0x0
+
+    if-nez p1, :cond_0
+
+    new-instance v0, Ljava/lang/IllegalArgumentException;
+
+    const-string/jumbo v1, "tag must be non-null"
+
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+
+    :cond_0
+    new-instance v0, Landroid/widget/TabHost$TabSpec;
 
     invoke-direct {v0, p0, p1, v1}, Landroid/widget/TabHost$TabSpec;-><init>(Landroid/widget/TabHost;Ljava/lang/String;Landroid/widget/TabHost$TabSpec;)V
 
@@ -844,44 +810,44 @@
 .end method
 
 .method public setCurrentTabByTag(Ljava/lang/String;)V
-    .locals 2
+    .locals 3
 
-    const/4 v0, 0x0
+    const/4 v1, 0x0
+
+    iget-object v2, p0, Landroid/widget/TabHost;->mTabSpecs:Ljava/util/List;
+
+    invoke-interface {v2}, Ljava/util/List;->size()I
+
+    move-result v0
 
     :goto_0
-    iget-object v1, p0, Landroid/widget/TabHost;->mTabSpecs:Ljava/util/List;
+    if-ge v1, v0, :cond_0
 
-    invoke-interface {v1}, Ljava/util/List;->size()I
+    iget-object v2, p0, Landroid/widget/TabHost;->mTabSpecs:Ljava/util/List;
 
-    move-result v1
+    invoke-interface {v2, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    if-ge v0, v1, :cond_0
+    move-result-object v2
 
-    iget-object v1, p0, Landroid/widget/TabHost;->mTabSpecs:Ljava/util/List;
+    check-cast v2, Landroid/widget/TabHost$TabSpec;
 
-    invoke-interface {v1, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-virtual {v2}, Landroid/widget/TabHost$TabSpec;->getTag()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v2
 
-    check-cast v1, Landroid/widget/TabHost$TabSpec;
+    invoke-virtual {v2, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    invoke-virtual {v1}, Landroid/widget/TabHost$TabSpec;->getTag()Ljava/lang/String;
+    move-result v2
 
-    move-result-object v1
+    if-eqz v2, :cond_1
 
-    invoke-virtual {v1, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_1
-
-    invoke-virtual {p0, v0}, Landroid/widget/TabHost;->setCurrentTab(I)V
+    invoke-virtual {p0, v1}, Landroid/widget/TabHost;->setCurrentTab(I)V
 
     :cond_0
     return-void
 
     :cond_1
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 .end method

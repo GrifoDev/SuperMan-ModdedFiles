@@ -19,20 +19,16 @@
 
     iput p2, p0, Landroid/graphics/LightingColorFilter;->mAdd:I
 
-    invoke-direct {p0}, Landroid/graphics/LightingColorFilter;->update()V
-
     return-void
 .end method
 
 .method private static native native_CreateLightingFilter(II)J
 .end method
 
-.method private update()V
+
+# virtual methods
+.method createNativeInstance()J
     .locals 2
-
-    iget-wide v0, p0, Landroid/graphics/LightingColorFilter;->native_instance:J
-
-    invoke-static {v0, v1}, Landroid/graphics/LightingColorFilter;->destroyFilter(J)V
 
     iget v0, p0, Landroid/graphics/LightingColorFilter;->mMul:I
 
@@ -42,13 +38,9 @@
 
     move-result-wide v0
 
-    iput-wide v0, p0, Landroid/graphics/LightingColorFilter;->native_instance:J
-
-    return-void
+    return-wide v0
 .end method
 
-
-# virtual methods
 .method public getColorAdd()I
     .locals 1
 
@@ -66,21 +58,31 @@
 .end method
 
 .method public setColorAdd(I)V
-    .locals 0
+    .locals 1
+
+    iget v0, p0, Landroid/graphics/LightingColorFilter;->mAdd:I
+
+    if-eq v0, p1, :cond_0
 
     iput p1, p0, Landroid/graphics/LightingColorFilter;->mAdd:I
 
-    invoke-direct {p0}, Landroid/graphics/LightingColorFilter;->update()V
+    invoke-virtual {p0}, Landroid/graphics/LightingColorFilter;->discardNativeInstance()V
 
+    :cond_0
     return-void
 .end method
 
 .method public setColorMultiply(I)V
-    .locals 0
+    .locals 1
+
+    iget v0, p0, Landroid/graphics/LightingColorFilter;->mMul:I
+
+    if-eq v0, p1, :cond_0
 
     iput p1, p0, Landroid/graphics/LightingColorFilter;->mMul:I
 
-    invoke-direct {p0}, Landroid/graphics/LightingColorFilter;->update()V
+    invoke-virtual {p0}, Landroid/graphics/LightingColorFilter;->discardNativeInstance()V
 
+    :cond_0
     return-void
 .end method

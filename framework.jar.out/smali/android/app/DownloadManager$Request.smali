@@ -95,19 +95,11 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    xor-int/lit8 v0, v0, 0x1
 
-    const/4 v0, 0x0
-
-    :goto_0
     sput-boolean v0, Landroid/app/DownloadManager$Request;->-assertionsDisabled:Z
 
     return-void
-
-    :cond_0
-    const/4 v0, 0x1
-
-    goto :goto_0
 .end method
 
 .method public constructor <init>(Landroid/net/Uri;)V
@@ -158,7 +150,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_1
 
     const-string/jumbo v1, "http"
 
@@ -166,7 +158,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_2
 
     const-string/jumbo v1, "https"
 
@@ -174,14 +166,11 @@
 
     move-result v1
 
+    xor-int/lit8 v1, v1, 0x1
+
     if-eqz v1, :cond_2
 
     :cond_1
-    iput-object p1, p0, Landroid/app/DownloadManager$Request;->mUri:Landroid/net/Uri;
-
-    return-void
-
-    :cond_2
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -205,6 +194,11 @@
     invoke-direct {v1, v2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v1
+
+    :cond_2
+    iput-object p1, p0, Landroid/app/DownloadManager$Request;->mUri:Landroid/net/Uri;
+
+    return-void
 .end method
 
 .method constructor <init>(Ljava/lang/String;)V
@@ -435,28 +429,19 @@
 .end method
 
 .method sectoContentValues(Ljava/lang/String;)Landroid/content/ContentValues;
-    .locals 5
-
-    const/4 v3, 0x1
-
-    const/4 v1, 0x0
+    .locals 3
 
     new-instance v0, Landroid/content/ContentValues;
 
     invoke-direct {v0}, Landroid/content/ContentValues;-><init>()V
 
-    sget-boolean v2, Landroid/app/DownloadManager$Request;->-assertionsDisabled:Z
+    sget-boolean v1, Landroid/app/DownloadManager$Request;->-assertionsDisabled:Z
 
-    if-nez v2, :cond_1
+    if-nez v1, :cond_0
 
-    iget-object v2, p0, Landroid/app/DownloadManager$Request;->mUri:Landroid/net/Uri;
+    iget-object v1, p0, Landroid/app/DownloadManager$Request;->mUri:Landroid/net/Uri;
 
-    if-eqz v2, :cond_0
-
-    move v2, v3
-
-    :goto_0
-    if-nez v2, :cond_1
+    if-nez v1, :cond_0
 
     new-instance v1, Ljava/lang/AssertionError;
 
@@ -465,55 +450,54 @@
     throw v1
 
     :cond_0
-    move v2, v1
+    const-string/jumbo v1, "uri"
 
-    goto :goto_0
+    iget-object v2, p0, Landroid/app/DownloadManager$Request;->mUri:Landroid/net/Uri;
 
-    :cond_1
-    const-string/jumbo v2, "uri"
+    invoke-virtual {v2}, Landroid/net/Uri;->toString()Ljava/lang/String;
 
-    iget-object v4, p0, Landroid/app/DownloadManager$Request;->mUri:Landroid/net/Uri;
+    move-result-object v2
 
-    invoke-virtual {v4}, Landroid/net/Uri;->toString()Ljava/lang/String;
+    invoke-virtual {v0, v1, v2}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
-    move-result-object v4
+    const-string/jumbo v1, "is_public_api"
 
-    invoke-virtual {v0, v2, v4}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
+    const/4 v2, 0x1
 
-    const-string/jumbo v2, "is_public_api"
+    invoke-static {v2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    invoke-static {v3}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+    move-result-object v2
 
-    move-result-object v3
+    invoke-virtual {v0, v1, v2}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Boolean;)V
 
-    invoke-virtual {v0, v2, v3}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Boolean;)V
+    const-string/jumbo v1, "notificationpackage"
 
-    const-string/jumbo v2, "notificationpackage"
+    invoke-virtual {v0, v1, p1}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
-    invoke-virtual {v0, v2, p1}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
+    iget-object v1, p0, Landroid/app/DownloadManager$Request;->mDestinationUri:Landroid/net/Uri;
+
+    if-eqz v1, :cond_1
+
+    const-string/jumbo v1, "hint"
 
     iget-object v2, p0, Landroid/app/DownloadManager$Request;->mDestinationUri:Landroid/net/Uri;
 
-    if-eqz v2, :cond_2
+    invoke-virtual {v2}, Landroid/net/Uri;->toString()Ljava/lang/String;
 
-    const-string/jumbo v2, "hint"
+    move-result-object v2
 
-    iget-object v3, p0, Landroid/app/DownloadManager$Request;->mDestinationUri:Landroid/net/Uri;
+    invoke-virtual {v0, v1, v2}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
-    invoke-virtual {v3}, Landroid/net/Uri;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-virtual {v0, v2, v3}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
-
-    :cond_2
+    :cond_1
     const-string/jumbo v2, "scanned"
 
-    iget-boolean v3, p0, Landroid/app/DownloadManager$Request;->mScannable:Z
+    iget-boolean v1, p0, Landroid/app/DownloadManager$Request;->mScannable:Z
 
-    if-eqz v3, :cond_4
+    if-eqz v1, :cond_3
 
-    :goto_1
+    const/4 v1, 0x0
+
+    :goto_0
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v1
@@ -526,11 +510,11 @@
 
     move-result v1
 
-    if-nez v1, :cond_3
+    if-nez v1, :cond_2
 
     invoke-direct {p0, v0}, Landroid/app/DownloadManager$Request;->encodeHttpHeaders(Landroid/content/ContentValues;)V
 
-    :cond_3
+    :cond_2
     const-string/jumbo v1, "title"
 
     iget-object v2, p0, Landroid/app/DownloadManager$Request;->mTitle:Ljava/lang/CharSequence;
@@ -611,10 +595,10 @@
 
     return-object v0
 
-    :cond_4
+    :cond_3
     const/4 v1, 0x2
 
-    goto :goto_1
+    goto :goto_0
 .end method
 
 .method public setAllowedNetworkTypes(I)Landroid/app/DownloadManager$Request;
@@ -980,13 +964,9 @@
 .end method
 
 .method toContentValues(Ljava/lang/String;)Landroid/content/ContentValues;
-    .locals 6
+    .locals 4
 
     const/4 v2, 0x2
-
-    const/4 v4, 0x1
-
-    const/4 v3, 0x0
 
     new-instance v0, Landroid/content/ContentValues;
 
@@ -994,16 +974,11 @@
 
     sget-boolean v1, Landroid/app/DownloadManager$Request;->-assertionsDisabled:Z
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_0
 
     iget-object v1, p0, Landroid/app/DownloadManager$Request;->mUri:Landroid/net/Uri;
 
-    if-eqz v1, :cond_0
-
-    move v1, v4
-
-    :goto_0
-    if-nez v1, :cond_1
+    if-nez v1, :cond_0
 
     new-instance v1, Ljava/lang/AssertionError;
 
@@ -1012,28 +987,25 @@
     throw v1
 
     :cond_0
-    move v1, v3
-
-    goto :goto_0
-
-    :cond_1
     const-string/jumbo v1, "uri"
 
-    iget-object v5, p0, Landroid/app/DownloadManager$Request;->mUri:Landroid/net/Uri;
+    iget-object v3, p0, Landroid/app/DownloadManager$Request;->mUri:Landroid/net/Uri;
 
-    invoke-virtual {v5}, Landroid/net/Uri;->toString()Ljava/lang/String;
+    invoke-virtual {v3}, Landroid/net/Uri;->toString()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v3
 
-    invoke-virtual {v0, v1, v5}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v0, v1, v3}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
     const-string/jumbo v1, "is_public_api"
 
-    invoke-static {v4}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+    const/4 v3, 0x1
 
-    move-result-object v4
+    invoke-static {v3}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    invoke-virtual {v0, v1, v4}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Boolean;)V
+    move-result-object v3
+
+    invoke-virtual {v0, v1, v3}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Boolean;)V
 
     const-string/jumbo v1, "notificationpackage"
 
@@ -1041,38 +1013,38 @@
 
     iget-object v1, p0, Landroid/app/DownloadManager$Request;->mDestinationUri:Landroid/net/Uri;
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_3
 
     const-string/jumbo v1, "destination"
 
-    const/4 v4, 0x4
+    const/4 v3, 0x4
 
-    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v4
+    move-result-object v3
 
-    invoke-virtual {v0, v1, v4}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
+    invoke-virtual {v0, v1, v3}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
 
     const-string/jumbo v1, "hint"
 
-    iget-object v4, p0, Landroid/app/DownloadManager$Request;->mDestinationUri:Landroid/net/Uri;
+    iget-object v3, p0, Landroid/app/DownloadManager$Request;->mDestinationUri:Landroid/net/Uri;
 
-    invoke-virtual {v4}, Landroid/net/Uri;->toString()Ljava/lang/String;
+    invoke-virtual {v3}, Landroid/net/Uri;->toString()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v3
 
-    invoke-virtual {v0, v1, v4}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v0, v1, v3}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
-    :goto_1
+    :goto_0
     const-string/jumbo v1, "scanned"
 
-    iget-boolean v4, p0, Landroid/app/DownloadManager$Request;->mScannable:Z
+    iget-boolean v3, p0, Landroid/app/DownloadManager$Request;->mScannable:Z
 
-    if-eqz v4, :cond_2
+    if-eqz v3, :cond_1
 
-    move v2, v3
+    const/4 v2, 0x0
 
-    :cond_2
+    :cond_1
     invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v2
@@ -1085,11 +1057,11 @@
 
     move-result v1
 
-    if-nez v1, :cond_3
+    if-nez v1, :cond_2
 
     invoke-direct {p0, v0}, Landroid/app/DownloadManager$Request;->encodeHttpHeaders(Landroid/content/ContentValues;)V
 
-    :cond_3
+    :cond_2
     const-string/jumbo v1, "title"
 
     iget-object v2, p0, Landroid/app/DownloadManager$Request;->mTitle:Ljava/lang/CharSequence;
@@ -1170,26 +1142,26 @@
 
     return-object v0
 
-    :cond_4
-    const-string/jumbo v4, "destination"
+    :cond_3
+    const-string/jumbo v3, "destination"
 
     iget-boolean v1, p0, Landroid/app/DownloadManager$Request;->mUseSystemCache:Z
 
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_4
 
     const/4 v1, 0x5
 
-    :goto_2
+    :goto_1
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v1
 
-    invoke-virtual {v0, v4, v1}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
+    invoke-virtual {v0, v3, v1}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
 
-    goto/16 :goto_1
+    goto/16 :goto_0
 
-    :cond_5
+    :cond_4
     move v1, v2
 
-    goto :goto_2
+    goto :goto_1
 .end method

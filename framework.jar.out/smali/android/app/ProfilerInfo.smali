@@ -36,6 +36,8 @@
 
 .field public final samplingInterval:I
 
+.field public final streamingOutput:Z
+
 
 # direct methods
 .method static constructor <clinit>()V
@@ -51,9 +53,11 @@
 .end method
 
 .method private constructor <init>(Landroid/os/Parcel;)V
-    .locals 2
+    .locals 3
 
-    const/4 v1, 0x0
+    const/4 v1, 0x1
+
+    const/4 v2, 0x0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -92,10 +96,19 @@
 
     if-eqz v0, :cond_1
 
-    const/4 v0, 0x1
+    move v0, v1
 
     :goto_1
     iput-boolean v0, p0, Landroid/app/ProfilerInfo;->autoStopProfiler:Z
+
+    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    :goto_2
+    iput-boolean v1, p0, Landroid/app/ProfilerInfo;->streamingOutput:Z
 
     return-void
 
@@ -105,9 +118,14 @@
     goto :goto_0
 
     :cond_1
-    move v0, v1
+    move v0, v2
 
     goto :goto_1
+
+    :cond_2
+    move v1, v2
+
+    goto :goto_2
 .end method
 
 .method synthetic constructor <init>(Landroid/os/Parcel;Landroid/app/ProfilerInfo;)V
@@ -118,7 +136,7 @@
     return-void
 .end method
 
-.method public constructor <init>(Ljava/lang/String;Landroid/os/ParcelFileDescriptor;IZ)V
+.method public constructor <init>(Ljava/lang/String;Landroid/os/ParcelFileDescriptor;IZZ)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -130,6 +148,8 @@
     iput p3, p0, Landroid/app/ProfilerInfo;->samplingInterval:I
 
     iput-boolean p4, p0, Landroid/app/ProfilerInfo;->autoStopProfiler:Z
+
+    iput-boolean p5, p0, Landroid/app/ProfilerInfo;->streamingOutput:Z
 
     return-void
 .end method
@@ -160,45 +180,59 @@
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 3
 
-    const/4 v0, 0x1
+    const/4 v1, 0x1
 
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
-    iget-object v2, p0, Landroid/app/ProfilerInfo;->profileFile:Ljava/lang/String;
+    iget-object v0, p0, Landroid/app/ProfilerInfo;->profileFile:Ljava/lang/String;
 
-    invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    iget-object v2, p0, Landroid/app/ProfilerInfo;->profileFd:Landroid/os/ParcelFileDescriptor;
+    iget-object v0, p0, Landroid/app/ProfilerInfo;->profileFd:Landroid/os/ParcelFileDescriptor;
 
-    if-eqz v2, :cond_0
+    if-eqz v0, :cond_0
+
+    invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeInt(I)V
+
+    iget-object v0, p0, Landroid/app/ProfilerInfo;->profileFd:Landroid/os/ParcelFileDescriptor;
+
+    invoke-virtual {v0, p1, p2}, Landroid/os/ParcelFileDescriptor;->writeToParcel(Landroid/os/Parcel;I)V
+
+    :goto_0
+    iget v0, p0, Landroid/app/ProfilerInfo;->samplingInterval:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    iget-object v2, p0, Landroid/app/ProfilerInfo;->profileFd:Landroid/os/ParcelFileDescriptor;
+    iget-boolean v0, p0, Landroid/app/ProfilerInfo;->autoStopProfiler:Z
 
-    invoke-virtual {v2, p1, p2}, Landroid/os/ParcelFileDescriptor;->writeToParcel(Landroid/os/Parcel;I)V
+    if-eqz v0, :cond_1
 
-    :goto_0
-    iget v2, p0, Landroid/app/ProfilerInfo;->samplingInterval:I
-
-    invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeInt(I)V
-
-    iget-boolean v2, p0, Landroid/app/ProfilerInfo;->autoStopProfiler:Z
-
-    if-eqz v2, :cond_1
+    move v0, v1
 
     :goto_1
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
+    iget-boolean v0, p0, Landroid/app/ProfilerInfo;->streamingOutput:Z
+
+    if-eqz v0, :cond_2
+
+    :goto_2
+    invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeInt(I)V
+
     return-void
 
     :cond_0
-    invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeInt(I)V
 
     goto :goto_0
 
     :cond_1
-    move v0, v1
+    move v0, v2
 
     goto :goto_1
+
+    :cond_2
+    move v1, v2
+
+    goto :goto_2
 .end method

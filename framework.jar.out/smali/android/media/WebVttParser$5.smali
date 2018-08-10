@@ -35,19 +35,11 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    xor-int/lit8 v0, v0, 0x1
 
-    const/4 v0, 0x0
-
-    :goto_0
     sput-boolean v0, Landroid/media/WebVttParser$5;->-assertionsDisabled:Z
 
     return-void
-
-    :cond_0
-    const/4 v0, 0x1
-
-    goto :goto_0
 .end method
 
 .method constructor <init>(Landroid/media/WebVttParser;)V
@@ -172,7 +164,7 @@
 
     move-result-wide v14
 
-    iput-wide v14, v12, Landroid/media/SubtitleTrack$Cue;->mStartTimeMs:J
+    iput-wide v14, v12, Landroid/media/TextTrackCue;->mStartTimeMs:J
 
     move-object/from16 v0, p0
 
@@ -186,28 +178,26 @@
 
     move-result-wide v14
 
-    iput-wide v14, v12, Landroid/media/SubtitleTrack$Cue;->mEndTimeMs:J
+    iput-wide v14, v12, Landroid/media/TextTrackCue;->mEndTimeMs:J
 
     const-string/jumbo v12, " +"
 
     invoke-virtual {v7, v12}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
 
-    move-result-object v14
+    move-result-object v13
 
     const/4 v12, 0x0
 
-    array-length v15, v14
-
-    move v13, v12
+    array-length v14, v13
 
     :goto_2
-    if-ge v13, v15, :cond_15
+    if-ge v12, v14, :cond_14
 
-    aget-object v8, v14, v13
+    aget-object v8, v13, v12
 
-    const/16 v12, 0x3a
+    const/16 v15, 0x3a
 
-    invoke-virtual {v8, v12}, Ljava/lang/String;->indexOf(I)I
+    invoke-virtual {v8, v15}, Ljava/lang/String;->indexOf(I)I
 
     move-result v3
 
@@ -215,17 +205,15 @@
 
     invoke-virtual {v8}, Ljava/lang/String;->length()I
 
-    move-result v12
+    move-result v15
 
-    add-int/lit8 v12, v12, -0x1
+    add-int/lit8 v15, v15, -0x1
 
-    if-ne v3, v12, :cond_4
+    if-ne v3, v15, :cond_4
 
     :cond_1
     :goto_3
-    add-int/lit8 v12, v13, 0x1
-
-    move v13, v12
+    add-int/lit8 v12, v12, 0x1
 
     goto :goto_2
 
@@ -240,100 +228,100 @@
     goto :goto_1
 
     :cond_4
-    const/4 v12, 0x0
+    const/4 v15, 0x0
 
-    invoke-virtual {v8, v12, v3}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+    invoke-virtual {v8, v15, v3}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
     move-result-object v6
 
-    add-int/lit8 v12, v3, 0x1
+    add-int/lit8 v15, v3, 0x1
 
-    invoke-virtual {v8, v12}, Ljava/lang/String;->substring(I)Ljava/lang/String;
+    invoke-virtual {v8, v15}, Ljava/lang/String;->substring(I)Ljava/lang/String;
 
     move-result-object v11
 
-    const-string/jumbo v12, "region"
+    const-string/jumbo v15, "region"
 
-    invoke-virtual {v6, v12}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v6, v15}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v12
+    move-result v15
 
-    if-eqz v12, :cond_5
+    if-eqz v15, :cond_5
 
     move-object/from16 v0, p0
 
-    iget-object v12, v0, Landroid/media/WebVttParser$5;->this$0:Landroid/media/WebVttParser;
+    iget-object v15, v0, Landroid/media/WebVttParser$5;->this$0:Landroid/media/WebVttParser;
 
-    invoke-static {v12}, Landroid/media/WebVttParser;->-get0(Landroid/media/WebVttParser;)Landroid/media/TextTrackCue;
+    invoke-static {v15}, Landroid/media/WebVttParser;->-get0(Landroid/media/WebVttParser;)Landroid/media/TextTrackCue;
 
-    move-result-object v12
+    move-result-object v15
 
-    iput-object v11, v12, Landroid/media/TextTrackCue;->mRegionId:Ljava/lang/String;
+    iput-object v11, v15, Landroid/media/TextTrackCue;->mRegionId:Ljava/lang/String;
 
     goto :goto_3
 
     :cond_5
-    const-string/jumbo v12, "vertical"
+    const-string/jumbo v15, "vertical"
 
-    invoke-virtual {v6, v12}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v6, v15}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v12
+    move-result v15
 
-    if-eqz v12, :cond_8
+    if-eqz v15, :cond_8
 
-    const-string/jumbo v12, "rl"
+    const-string/jumbo v15, "rl"
 
-    invoke-virtual {v11, v12}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v11, v15}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v12
+    move-result v15
 
-    if-eqz v12, :cond_6
+    if-eqz v15, :cond_6
 
     move-object/from16 v0, p0
 
-    iget-object v12, v0, Landroid/media/WebVttParser$5;->this$0:Landroid/media/WebVttParser;
+    iget-object v15, v0, Landroid/media/WebVttParser$5;->this$0:Landroid/media/WebVttParser;
 
-    invoke-static {v12}, Landroid/media/WebVttParser;->-get0(Landroid/media/WebVttParser;)Landroid/media/TextTrackCue;
+    invoke-static {v15}, Landroid/media/WebVttParser;->-get0(Landroid/media/WebVttParser;)Landroid/media/TextTrackCue;
 
-    move-result-object v12
+    move-result-object v15
 
     const/16 v16, 0x65
 
     move/from16 v0, v16
 
-    iput v0, v12, Landroid/media/TextTrackCue;->mWritingDirection:I
+    iput v0, v15, Landroid/media/TextTrackCue;->mWritingDirection:I
 
     goto :goto_3
 
     :cond_6
-    const-string/jumbo v12, "lr"
+    const-string/jumbo v15, "lr"
 
-    invoke-virtual {v11, v12}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v11, v15}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v12
+    move-result v15
 
-    if-eqz v12, :cond_7
+    if-eqz v15, :cond_7
 
     move-object/from16 v0, p0
 
-    iget-object v12, v0, Landroid/media/WebVttParser$5;->this$0:Landroid/media/WebVttParser;
+    iget-object v15, v0, Landroid/media/WebVttParser$5;->this$0:Landroid/media/WebVttParser;
 
-    invoke-static {v12}, Landroid/media/WebVttParser;->-get0(Landroid/media/WebVttParser;)Landroid/media/TextTrackCue;
+    invoke-static {v15}, Landroid/media/WebVttParser;->-get0(Landroid/media/WebVttParser;)Landroid/media/TextTrackCue;
 
-    move-result-object v12
+    move-result-object v15
 
     const/16 v16, 0x66
 
     move/from16 v0, v16
 
-    iput v0, v12, Landroid/media/TextTrackCue;->mWritingDirection:I
+    iput v0, v15, Landroid/media/TextTrackCue;->mWritingDirection:I
 
     goto :goto_3
 
     :cond_7
     move-object/from16 v0, p0
 
-    iget-object v12, v0, Landroid/media/WebVttParser$5;->this$0:Landroid/media/WebVttParser;
+    iget-object v15, v0, Landroid/media/WebVttParser$5;->this$0:Landroid/media/WebVttParser;
 
     const-string/jumbo v16, "cue setting"
 
@@ -343,42 +331,37 @@
 
     move-object/from16 v1, v17
 
-    invoke-static {v12, v0, v6, v1, v11}, Landroid/media/WebVttParser;->-wrap2(Landroid/media/WebVttParser;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v15, v0, v6, v1, v11}, Landroid/media/WebVttParser;->-wrap2(Landroid/media/WebVttParser;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
     goto :goto_3
 
     :cond_8
-    const-string/jumbo v12, "line"
+    const-string/jumbo v15, "line"
 
-    invoke-virtual {v6, v12}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v6, v15}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v12
+    move-result v15
 
-    if-eqz v12, :cond_d
+    if-eqz v15, :cond_c
 
     :try_start_0
-    sget-boolean v12, Landroid/media/WebVttParser$5;->-assertionsDisabled:Z
+    sget-boolean v15, Landroid/media/WebVttParser$5;->-assertionsDisabled:Z
 
-    if-nez v12, :cond_a
+    if-nez v15, :cond_9
 
-    const/16 v12, 0x20
+    const/16 v15, 0x20
 
-    invoke-virtual {v11, v12}, Ljava/lang/String;->indexOf(I)I
+    invoke-virtual {v11, v15}, Ljava/lang/String;->indexOf(I)I
 
-    move-result v12
+    move-result v15
 
-    if-gez v12, :cond_9
+    if-ltz v15, :cond_9
 
-    const/4 v12, 0x1
+    new-instance v15, Ljava/lang/AssertionError;
 
-    :goto_4
-    if-nez v12, :cond_a
+    invoke-direct {v15}, Ljava/lang/AssertionError;-><init>()V
 
-    new-instance v12, Ljava/lang/AssertionError;
-
-    invoke-direct {v12}, Ljava/lang/AssertionError;-><init>()V
-
-    throw v12
+    throw v15
     :try_end_0
     .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -387,7 +370,7 @@
 
     move-object/from16 v0, p0
 
-    iget-object v12, v0, Landroid/media/WebVttParser$5;->this$0:Landroid/media/WebVttParser;
+    iget-object v15, v0, Landroid/media/WebVttParser$5;->this$0:Landroid/media/WebVttParser;
 
     const-string/jumbo v16, "cue setting"
 
@@ -397,46 +380,41 @@
 
     move-object/from16 v1, v17
 
-    invoke-static {v12, v0, v6, v1, v11}, Landroid/media/WebVttParser;->-wrap2(Landroid/media/WebVttParser;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v15, v0, v6, v1, v11}, Landroid/media/WebVttParser;->-wrap2(Landroid/media/WebVttParser;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
     goto/16 :goto_3
 
     :cond_9
-    const/4 v12, 0x0
-
-    goto :goto_4
-
-    :cond_a
     :try_start_1
-    const-string/jumbo v12, "%"
+    const-string/jumbo v15, "%"
 
-    invoke-virtual {v11, v12}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
+    invoke-virtual {v11, v15}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
 
-    move-result v12
+    move-result v15
 
-    if-eqz v12, :cond_b
+    if-eqz v15, :cond_a
 
     move-object/from16 v0, p0
 
-    iget-object v12, v0, Landroid/media/WebVttParser$5;->this$0:Landroid/media/WebVttParser;
+    iget-object v15, v0, Landroid/media/WebVttParser$5;->this$0:Landroid/media/WebVttParser;
 
-    invoke-static {v12}, Landroid/media/WebVttParser;->-get0(Landroid/media/WebVttParser;)Landroid/media/TextTrackCue;
+    invoke-static {v15}, Landroid/media/WebVttParser;->-get0(Landroid/media/WebVttParser;)Landroid/media/TextTrackCue;
 
-    move-result-object v12
+    move-result-object v15
 
     const/16 v16, 0x0
 
     move/from16 v0, v16
 
-    iput-boolean v0, v12, Landroid/media/TextTrackCue;->mSnapToLines:Z
+    iput-boolean v0, v15, Landroid/media/TextTrackCue;->mSnapToLines:Z
 
     move-object/from16 v0, p0
 
-    iget-object v12, v0, Landroid/media/WebVttParser$5;->this$0:Landroid/media/WebVttParser;
+    iget-object v15, v0, Landroid/media/WebVttParser$5;->this$0:Landroid/media/WebVttParser;
 
-    invoke-static {v12}, Landroid/media/WebVttParser;->-get0(Landroid/media/WebVttParser;)Landroid/media/TextTrackCue;
+    invoke-static {v15}, Landroid/media/WebVttParser;->-get0(Landroid/media/WebVttParser;)Landroid/media/TextTrackCue;
 
-    move-result-object v12
+    move-result-object v15
 
     invoke-static {v11}, Landroid/media/WebVttParser;->parseIntPercentage(Ljava/lang/String;)I
 
@@ -448,22 +426,22 @@
 
     move-object/from16 v0, v16
 
-    iput-object v0, v12, Landroid/media/TextTrackCue;->mLinePosition:Ljava/lang/Integer;
+    iput-object v0, v15, Landroid/media/TextTrackCue;->mLinePosition:Ljava/lang/Integer;
 
     goto/16 :goto_3
 
-    :cond_b
-    const-string/jumbo v12, ".*[^0-9].*"
+    :cond_a
+    const-string/jumbo v15, ".*[^0-9].*"
 
-    invoke-virtual {v11, v12}, Ljava/lang/String;->matches(Ljava/lang/String;)Z
+    invoke-virtual {v11, v15}, Ljava/lang/String;->matches(Ljava/lang/String;)Z
 
-    move-result v12
+    move-result v15
 
-    if-eqz v12, :cond_c
+    if-eqz v15, :cond_b
 
     move-object/from16 v0, p0
 
-    iget-object v12, v0, Landroid/media/WebVttParser$5;->this$0:Landroid/media/WebVttParser;
+    iget-object v15, v0, Landroid/media/WebVttParser$5;->this$0:Landroid/media/WebVttParser;
 
     const-string/jumbo v16, "cue setting"
 
@@ -473,32 +451,32 @@
 
     move-object/from16 v1, v17
 
-    invoke-static {v12, v0, v6, v1, v11}, Landroid/media/WebVttParser;->-wrap2(Landroid/media/WebVttParser;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v15, v0, v6, v1, v11}, Landroid/media/WebVttParser;->-wrap2(Landroid/media/WebVttParser;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
     goto/16 :goto_3
 
-    :cond_c
+    :cond_b
     move-object/from16 v0, p0
 
-    iget-object v12, v0, Landroid/media/WebVttParser$5;->this$0:Landroid/media/WebVttParser;
+    iget-object v15, v0, Landroid/media/WebVttParser$5;->this$0:Landroid/media/WebVttParser;
 
-    invoke-static {v12}, Landroid/media/WebVttParser;->-get0(Landroid/media/WebVttParser;)Landroid/media/TextTrackCue;
+    invoke-static {v15}, Landroid/media/WebVttParser;->-get0(Landroid/media/WebVttParser;)Landroid/media/TextTrackCue;
 
-    move-result-object v12
+    move-result-object v15
 
     const/16 v16, 0x1
 
     move/from16 v0, v16
 
-    iput-boolean v0, v12, Landroid/media/TextTrackCue;->mSnapToLines:Z
+    iput-boolean v0, v15, Landroid/media/TextTrackCue;->mSnapToLines:Z
 
     move-object/from16 v0, p0
 
-    iget-object v12, v0, Landroid/media/WebVttParser$5;->this$0:Landroid/media/WebVttParser;
+    iget-object v15, v0, Landroid/media/WebVttParser$5;->this$0:Landroid/media/WebVttParser;
 
-    invoke-static {v12}, Landroid/media/WebVttParser;->-get0(Landroid/media/WebVttParser;)Landroid/media/TextTrackCue;
+    invoke-static {v15}, Landroid/media/WebVttParser;->-get0(Landroid/media/WebVttParser;)Landroid/media/TextTrackCue;
 
-    move-result-object v12
+    move-result-object v15
 
     invoke-static {v11}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
@@ -510,29 +488,29 @@
 
     move-object/from16 v0, v16
 
-    iput-object v0, v12, Landroid/media/TextTrackCue;->mLinePosition:Ljava/lang/Integer;
+    iput-object v0, v15, Landroid/media/TextTrackCue;->mLinePosition:Ljava/lang/Integer;
     :try_end_1
     .catch Ljava/lang/NumberFormatException; {:try_start_1 .. :try_end_1} :catch_0
 
     goto/16 :goto_3
 
-    :cond_d
-    const-string/jumbo v12, "position"
+    :cond_c
+    const-string/jumbo v15, "position"
 
-    invoke-virtual {v6, v12}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v6, v15}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v12
+    move-result v15
 
-    if-eqz v12, :cond_e
+    if-eqz v15, :cond_d
 
     :try_start_2
     move-object/from16 v0, p0
 
-    iget-object v12, v0, Landroid/media/WebVttParser$5;->this$0:Landroid/media/WebVttParser;
+    iget-object v15, v0, Landroid/media/WebVttParser$5;->this$0:Landroid/media/WebVttParser;
 
-    invoke-static {v12}, Landroid/media/WebVttParser;->-get0(Landroid/media/WebVttParser;)Landroid/media/TextTrackCue;
+    invoke-static {v15}, Landroid/media/WebVttParser;->-get0(Landroid/media/WebVttParser;)Landroid/media/TextTrackCue;
 
-    move-result-object v12
+    move-result-object v15
 
     invoke-static {v11}, Landroid/media/WebVttParser;->parseIntPercentage(Ljava/lang/String;)I
 
@@ -540,7 +518,7 @@
 
     move/from16 v0, v16
 
-    iput v0, v12, Landroid/media/TextTrackCue;->mTextPosition:I
+    iput v0, v15, Landroid/media/TextTrackCue;->mTextPosition:I
     :try_end_2
     .catch Ljava/lang/NumberFormatException; {:try_start_2 .. :try_end_2} :catch_1
 
@@ -551,7 +529,7 @@
 
     move-object/from16 v0, p0
 
-    iget-object v12, v0, Landroid/media/WebVttParser$5;->this$0:Landroid/media/WebVttParser;
+    iget-object v15, v0, Landroid/media/WebVttParser$5;->this$0:Landroid/media/WebVttParser;
 
     const-string/jumbo v16, "cue setting"
 
@@ -561,27 +539,27 @@
 
     move-object/from16 v1, v17
 
-    invoke-static {v12, v0, v6, v1, v11}, Landroid/media/WebVttParser;->-wrap2(Landroid/media/WebVttParser;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v15, v0, v6, v1, v11}, Landroid/media/WebVttParser;->-wrap2(Landroid/media/WebVttParser;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
     goto/16 :goto_3
 
-    :cond_e
-    const-string/jumbo v12, "size"
+    :cond_d
+    const-string/jumbo v15, "size"
 
-    invoke-virtual {v6, v12}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v6, v15}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v12
+    move-result v15
 
-    if-eqz v12, :cond_f
+    if-eqz v15, :cond_e
 
     :try_start_3
     move-object/from16 v0, p0
 
-    iget-object v12, v0, Landroid/media/WebVttParser$5;->this$0:Landroid/media/WebVttParser;
+    iget-object v15, v0, Landroid/media/WebVttParser$5;->this$0:Landroid/media/WebVttParser;
 
-    invoke-static {v12}, Landroid/media/WebVttParser;->-get0(Landroid/media/WebVttParser;)Landroid/media/TextTrackCue;
+    invoke-static {v15}, Landroid/media/WebVttParser;->-get0(Landroid/media/WebVttParser;)Landroid/media/TextTrackCue;
 
-    move-result-object v12
+    move-result-object v15
 
     invoke-static {v11}, Landroid/media/WebVttParser;->parseIntPercentage(Ljava/lang/String;)I
 
@@ -589,7 +567,7 @@
 
     move/from16 v0, v16
 
-    iput v0, v12, Landroid/media/TextTrackCue;->mSize:I
+    iput v0, v15, Landroid/media/TextTrackCue;->mSize:I
     :try_end_3
     .catch Ljava/lang/NumberFormatException; {:try_start_3 .. :try_end_3} :catch_2
 
@@ -600,7 +578,7 @@
 
     move-object/from16 v0, p0
 
-    iget-object v12, v0, Landroid/media/WebVttParser$5;->this$0:Landroid/media/WebVttParser;
+    iget-object v15, v0, Landroid/media/WebVttParser$5;->this$0:Landroid/media/WebVttParser;
 
     const-string/jumbo v16, "cue setting"
 
@@ -610,147 +588,147 @@
 
     move-object/from16 v1, v17
 
-    invoke-static {v12, v0, v6, v1, v11}, Landroid/media/WebVttParser;->-wrap2(Landroid/media/WebVttParser;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v15, v0, v6, v1, v11}, Landroid/media/WebVttParser;->-wrap2(Landroid/media/WebVttParser;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
     goto/16 :goto_3
 
-    :cond_f
-    const-string/jumbo v12, "align"
+    :cond_e
+    const-string/jumbo v15, "align"
 
-    invoke-virtual {v6, v12}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v6, v15}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v12
+    move-result v15
 
-    if-eqz v12, :cond_1
+    if-eqz v15, :cond_1
 
-    const-string/jumbo v12, "start"
+    const-string/jumbo v15, "start"
 
-    invoke-virtual {v11, v12}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v11, v15}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v12
+    move-result v15
 
-    if-eqz v12, :cond_10
+    if-eqz v15, :cond_f
 
     move-object/from16 v0, p0
 
-    iget-object v12, v0, Landroid/media/WebVttParser$5;->this$0:Landroid/media/WebVttParser;
+    iget-object v15, v0, Landroid/media/WebVttParser$5;->this$0:Landroid/media/WebVttParser;
 
-    invoke-static {v12}, Landroid/media/WebVttParser;->-get0(Landroid/media/WebVttParser;)Landroid/media/TextTrackCue;
+    invoke-static {v15}, Landroid/media/WebVttParser;->-get0(Landroid/media/WebVttParser;)Landroid/media/TextTrackCue;
 
-    move-result-object v12
+    move-result-object v15
 
     const/16 v16, 0xc9
 
     move/from16 v0, v16
 
-    iput v0, v12, Landroid/media/TextTrackCue;->mAlignment:I
+    iput v0, v15, Landroid/media/TextTrackCue;->mAlignment:I
 
     goto/16 :goto_3
 
-    :cond_10
-    const-string/jumbo v12, "middle"
+    :cond_f
+    const-string/jumbo v15, "middle"
 
-    invoke-virtual {v11, v12}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v11, v15}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v12
+    move-result v15
 
-    if-eqz v12, :cond_11
+    if-eqz v15, :cond_10
 
     move-object/from16 v0, p0
 
-    iget-object v12, v0, Landroid/media/WebVttParser$5;->this$0:Landroid/media/WebVttParser;
+    iget-object v15, v0, Landroid/media/WebVttParser$5;->this$0:Landroid/media/WebVttParser;
 
-    invoke-static {v12}, Landroid/media/WebVttParser;->-get0(Landroid/media/WebVttParser;)Landroid/media/TextTrackCue;
+    invoke-static {v15}, Landroid/media/WebVttParser;->-get0(Landroid/media/WebVttParser;)Landroid/media/TextTrackCue;
 
-    move-result-object v12
+    move-result-object v15
 
     const/16 v16, 0xc8
 
     move/from16 v0, v16
 
-    iput v0, v12, Landroid/media/TextTrackCue;->mAlignment:I
+    iput v0, v15, Landroid/media/TextTrackCue;->mAlignment:I
 
     goto/16 :goto_3
 
-    :cond_11
-    const-string/jumbo v12, "end"
+    :cond_10
+    const-string/jumbo v15, "end"
 
-    invoke-virtual {v11, v12}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v11, v15}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v12
+    move-result v15
 
-    if-eqz v12, :cond_12
+    if-eqz v15, :cond_11
 
     move-object/from16 v0, p0
 
-    iget-object v12, v0, Landroid/media/WebVttParser$5;->this$0:Landroid/media/WebVttParser;
+    iget-object v15, v0, Landroid/media/WebVttParser$5;->this$0:Landroid/media/WebVttParser;
 
-    invoke-static {v12}, Landroid/media/WebVttParser;->-get0(Landroid/media/WebVttParser;)Landroid/media/TextTrackCue;
+    invoke-static {v15}, Landroid/media/WebVttParser;->-get0(Landroid/media/WebVttParser;)Landroid/media/TextTrackCue;
 
-    move-result-object v12
+    move-result-object v15
 
     const/16 v16, 0xca
 
     move/from16 v0, v16
 
-    iput v0, v12, Landroid/media/TextTrackCue;->mAlignment:I
+    iput v0, v15, Landroid/media/TextTrackCue;->mAlignment:I
 
     goto/16 :goto_3
 
-    :cond_12
-    const-string/jumbo v12, "left"
+    :cond_11
+    const-string/jumbo v15, "left"
 
-    invoke-virtual {v11, v12}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v11, v15}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v12
+    move-result v15
 
-    if-eqz v12, :cond_13
+    if-eqz v15, :cond_12
 
     move-object/from16 v0, p0
 
-    iget-object v12, v0, Landroid/media/WebVttParser$5;->this$0:Landroid/media/WebVttParser;
+    iget-object v15, v0, Landroid/media/WebVttParser$5;->this$0:Landroid/media/WebVttParser;
 
-    invoke-static {v12}, Landroid/media/WebVttParser;->-get0(Landroid/media/WebVttParser;)Landroid/media/TextTrackCue;
+    invoke-static {v15}, Landroid/media/WebVttParser;->-get0(Landroid/media/WebVttParser;)Landroid/media/TextTrackCue;
 
-    move-result-object v12
+    move-result-object v15
 
     const/16 v16, 0xcb
 
     move/from16 v0, v16
 
-    iput v0, v12, Landroid/media/TextTrackCue;->mAlignment:I
+    iput v0, v15, Landroid/media/TextTrackCue;->mAlignment:I
 
     goto/16 :goto_3
 
-    :cond_13
-    const-string/jumbo v12, "right"
+    :cond_12
+    const-string/jumbo v15, "right"
 
-    invoke-virtual {v11, v12}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v11, v15}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v12
+    move-result v15
 
-    if-eqz v12, :cond_14
+    if-eqz v15, :cond_13
 
     move-object/from16 v0, p0
 
-    iget-object v12, v0, Landroid/media/WebVttParser$5;->this$0:Landroid/media/WebVttParser;
+    iget-object v15, v0, Landroid/media/WebVttParser$5;->this$0:Landroid/media/WebVttParser;
 
-    invoke-static {v12}, Landroid/media/WebVttParser;->-get0(Landroid/media/WebVttParser;)Landroid/media/TextTrackCue;
+    invoke-static {v15}, Landroid/media/WebVttParser;->-get0(Landroid/media/WebVttParser;)Landroid/media/TextTrackCue;
 
-    move-result-object v12
+    move-result-object v15
 
     const/16 v16, 0xcc
 
     move/from16 v0, v16
 
-    iput v0, v12, Landroid/media/TextTrackCue;->mAlignment:I
+    iput v0, v15, Landroid/media/TextTrackCue;->mAlignment:I
 
     goto/16 :goto_3
 
-    :cond_14
+    :cond_13
     move-object/from16 v0, p0
 
-    iget-object v12, v0, Landroid/media/WebVttParser$5;->this$0:Landroid/media/WebVttParser;
+    iget-object v15, v0, Landroid/media/WebVttParser$5;->this$0:Landroid/media/WebVttParser;
 
     const-string/jumbo v16, "cue setting"
 
@@ -760,11 +738,11 @@
 
     move-object/from16 v1, v17
 
-    invoke-static {v12, v0, v6, v1, v11}, Landroid/media/WebVttParser;->-wrap2(Landroid/media/WebVttParser;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v15, v0, v6, v1, v11}, Landroid/media/WebVttParser;->-wrap2(Landroid/media/WebVttParser;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
     goto/16 :goto_3
 
-    :cond_15
+    :cond_14
     move-object/from16 v0, p0
 
     iget-object v12, v0, Landroid/media/WebVttParser$5;->this$0:Landroid/media/WebVttParser;
@@ -775,7 +753,7 @@
 
     iget-object v12, v12, Landroid/media/TextTrackCue;->mLinePosition:Ljava/lang/Integer;
 
-    if-nez v12, :cond_16
+    if-nez v12, :cond_15
 
     move-object/from16 v0, p0
 
@@ -789,10 +767,10 @@
 
     const/16 v13, 0x64
 
-    if-eq v12, v13, :cond_18
+    if-eq v12, v13, :cond_17
 
-    :cond_16
-    :goto_5
+    :cond_15
+    :goto_4
     move-object/from16 v0, p0
 
     iget-object v12, v0, Landroid/media/WebVttParser$5;->this$0:Landroid/media/WebVttParser;
@@ -805,7 +783,7 @@
 
     iput-object v13, v12, Landroid/media/TextTrackCue;->mRegionId:Ljava/lang/String;
 
-    :cond_17
+    :cond_16
     move-object/from16 v0, p0
 
     iget-object v12, v0, Landroid/media/WebVttParser$5;->this$0:Landroid/media/WebVttParser;
@@ -822,7 +800,7 @@
 
     return-void
 
-    :cond_18
+    :cond_17
     move-object/from16 v0, p0
 
     iget-object v12, v0, Landroid/media/WebVttParser$5;->this$0:Landroid/media/WebVttParser;
@@ -835,7 +813,7 @@
 
     const/16 v13, 0x64
 
-    if-eq v12, v13, :cond_17
+    if-eq v12, v13, :cond_16
 
-    goto :goto_5
+    goto :goto_4
 .end method

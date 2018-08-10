@@ -1,5 +1,5 @@
 .class Landroid/media/AudioManager$2;
-.super Landroid/media/IRecordingConfigDispatcher$Stub;
+.super Landroid/media/IPlaybackConfigDispatcher$Stub;
 .source "AudioManager.java"
 
 
@@ -24,28 +24,28 @@
 
     iput-object p1, p0, Landroid/media/AudioManager$2;->this$0:Landroid/media/AudioManager;
 
-    invoke-direct {p0}, Landroid/media/IRecordingConfigDispatcher$Stub;-><init>()V
+    invoke-direct {p0}, Landroid/media/IPlaybackConfigDispatcher$Stub;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public dispatchRecordingConfigChange(Ljava/util/List;)V
+.method public dispatchPlaybackConfigChange(Ljava/util/List;)V
     .locals 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Ljava/util/List",
             "<",
-            "Landroid/media/AudioRecordingConfiguration;",
+            "Landroid/media/AudioPlaybackConfiguration;",
             ">;)V"
         }
     .end annotation
 
     iget-object v3, p0, Landroid/media/AudioManager$2;->this$0:Landroid/media/AudioManager;
 
-    invoke-static {v3}, Landroid/media/AudioManager;->-get3(Landroid/media/AudioManager;)Ljava/lang/Object;
+    invoke-static {v3}, Landroid/media/AudioManager;->-get1(Landroid/media/AudioManager;)Ljava/lang/Object;
 
     move-result-object v4
 
@@ -54,7 +54,7 @@
     :try_start_0
     iget-object v3, p0, Landroid/media/AudioManager$2;->this$0:Landroid/media/AudioManager;
 
-    invoke-static {v3}, Landroid/media/AudioManager;->-get2(Landroid/media/AudioManager;)Ljava/util/List;
+    invoke-static {v3}, Landroid/media/AudioManager;->-get0(Landroid/media/AudioManager;)Ljava/util/List;
 
     move-result-object v3
 
@@ -65,7 +65,7 @@
     :goto_0
     iget-object v3, p0, Landroid/media/AudioManager$2;->this$0:Landroid/media/AudioManager;
 
-    invoke-static {v3}, Landroid/media/AudioManager;->-get2(Landroid/media/AudioManager;)Ljava/util/List;
+    invoke-static {v3}, Landroid/media/AudioManager;->-get0(Landroid/media/AudioManager;)Ljava/util/List;
 
     move-result-object v3
 
@@ -77,7 +77,7 @@
 
     iget-object v3, p0, Landroid/media/AudioManager$2;->this$0:Landroid/media/AudioManager;
 
-    invoke-static {v3}, Landroid/media/AudioManager;->-get2(Landroid/media/AudioManager;)Ljava/util/List;
+    invoke-static {v3}, Landroid/media/AudioManager;->-get0(Landroid/media/AudioManager;)Ljava/util/List;
 
     move-result-object v3
 
@@ -85,27 +85,27 @@
 
     move-result-object v0
 
-    check-cast v0, Landroid/media/AudioManager$AudioRecordingCallbackInfo;
+    check-cast v0, Landroid/media/AudioManager$AudioPlaybackCallbackInfo;
 
-    iget-object v3, v0, Landroid/media/AudioManager$AudioRecordingCallbackInfo;->mHandler:Landroid/os/Handler;
+    iget-object v3, v0, Landroid/media/AudioManager$AudioPlaybackCallbackInfo;->mHandler:Landroid/os/Handler;
 
     if-eqz v3, :cond_0
 
-    iget-object v3, v0, Landroid/media/AudioManager$AudioRecordingCallbackInfo;->mHandler:Landroid/os/Handler;
+    iget-object v3, v0, Landroid/media/AudioManager$AudioPlaybackCallbackInfo;->mHandler:Landroid/os/Handler;
 
-    new-instance v5, Landroid/media/AudioManager$RecordConfigChangeCallbackData;
+    new-instance v5, Landroid/media/AudioManager$PlaybackConfigChangeCallbackData;
 
-    iget-object v6, v0, Landroid/media/AudioManager$AudioRecordingCallbackInfo;->mCb:Landroid/media/AudioManager$AudioRecordingCallback;
+    iget-object v6, v0, Landroid/media/AudioManager$AudioPlaybackCallbackInfo;->mCb:Landroid/media/AudioManager$AudioPlaybackCallback;
 
-    invoke-direct {v5, v6, p1}, Landroid/media/AudioManager$RecordConfigChangeCallbackData;-><init>(Landroid/media/AudioManager$AudioRecordingCallback;Ljava/util/List;)V
+    invoke-direct {v5, v6, p1}, Landroid/media/AudioManager$PlaybackConfigChangeCallbackData;-><init>(Landroid/media/AudioManager$AudioPlaybackCallback;Ljava/util/List;)V
 
-    const/4 v6, 0x1
+    const/4 v6, 0x2
 
     invoke-virtual {v3, v6, v5}, Landroid/os/Handler;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
 
     move-result-object v2
 
-    iget-object v3, v0, Landroid/media/AudioManager$AudioRecordingCallbackInfo;->mHandler:Landroid/os/Handler;
+    iget-object v3, v0, Landroid/media/AudioManager$AudioPlaybackCallbackInfo;->mHandler:Landroid/os/Handler;
 
     invoke-virtual {v3, v2}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
     :try_end_0

@@ -15,7 +15,7 @@
 
 
 # virtual methods
-.method public abstract acceptRingingCall()V
+.method public abstract acceptRingingCall(Ljava/lang/String;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -23,7 +23,7 @@
     .end annotation
 .end method
 
-.method public abstract acceptRingingCallWithVideoState(I)V
+.method public abstract acceptRingingCallWithVideoState(Ljava/lang/String;I)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -71,17 +71,7 @@
     .end annotation
 .end method
 
-.method public abstract dumpCallAnalytics()Ljava/util/List;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/util/List",
-            "<",
-            "Landroid/telecom/ParcelableCallAnalytics;",
-            ">;"
-        }
-    .end annotation
-
+.method public abstract dumpCallAnalytics()Landroid/telecom/TelecomAnalytics;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -274,6 +264,26 @@
     .end annotation
 .end method
 
+.method public abstract getSelfManagedPhoneAccounts(Ljava/lang/String;)Ljava/util/List;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/lang/String;",
+            ")",
+            "Ljava/util/List",
+            "<",
+            "Landroid/telecom/PhoneAccountHandle;",
+            ">;"
+        }
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract getSimCallManager()Landroid/telecom/PhoneAccountHandle;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -331,6 +341,30 @@
 .end method
 
 .method public abstract isInCall(Ljava/lang/String;)Z
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract isInManagedCall(Ljava/lang/String;)Z
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract isIncomingCallPermitted(Landroid/telecom/PhoneAccountHandle;)Z
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract isOutgoingCallPermitted(Landroid/telecom/PhoneAccountHandle;)Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -411,6 +445,14 @@
 .end method
 
 .method public abstract unregisterPhoneAccount(Landroid/telecom/PhoneAccountHandle;)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract waitOnHandlers()V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

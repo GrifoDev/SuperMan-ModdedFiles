@@ -113,9 +113,7 @@
     const/4 v14, 0x0
 
     :try_start_0
-    nop
-
-    nop
+    check-cast v14, [Ljava/lang/Class;
 
     move-object/from16 v0, p1
 
@@ -220,9 +218,7 @@
     const/4 v14, 0x0
 
     :try_start_1
-    nop
-
-    nop
+    check-cast v14, [Ljava/lang/Class;
 
     move-object/from16 v0, p1
 
@@ -533,9 +529,7 @@
 
     const/4 v2, 0x0
 
-    nop
-
-    nop
+    check-cast v2, [Ljava/lang/Object;
 
     invoke-virtual {v3, p1, v2}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
     :try_end_0
@@ -709,7 +703,7 @@
 
     move-result-object v3
 
-    invoke-virtual {p0}, Landroid/util/Property;->getName()Ljava/lang/String;
+    invoke-virtual {p0}, Landroid/util/ReflectiveProperty;->getName()Ljava/lang/String;
 
     move-result-object v4
 

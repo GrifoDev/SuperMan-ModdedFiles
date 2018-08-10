@@ -299,14 +299,6 @@
 
     iput-boolean v6, p0, Landroid/widget/LinearLayout;->mUseLargestChild:Z
 
-    const/4 v6, 0x5
-
-    invoke-virtual {v0, v6}, Landroid/content/res/TypedArray;->getDrawable(I)Landroid/graphics/drawable/Drawable;
-
-    move-result-object v6
-
-    invoke-virtual {p0, v6}, Landroid/widget/LinearLayout;->setDividerDrawable(Landroid/graphics/drawable/Drawable;)V
-
     const/4 v6, 0x7
 
     invoke-virtual {v0, v6, v5}, Landroid/content/res/TypedArray;->getInt(II)I
@@ -322,6 +314,14 @@
     move-result v6
 
     iput v6, p0, Landroid/widget/LinearLayout;->mDividerPadding:I
+
+    const/4 v6, 0x5
+
+    invoke-virtual {v0, v6}, Landroid/content/res/TypedArray;->getDrawable(I)Landroid/graphics/drawable/Drawable;
+
+    move-result-object v6
+
+    invoke-virtual {p0, v6}, Landroid/widget/LinearLayout;->setDividerDrawable(Landroid/graphics/drawable/Drawable;)V
 
     invoke-virtual {p1}, Landroid/content/Context;->getApplicationInfo()Landroid/content/pm/ApplicationInfo;
 
@@ -566,6 +566,25 @@
 
     :cond_1
     return-object v4
+.end method
+
+.method private isShowingDividers()Z
+    .locals 2
+
+    const/4 v0, 0x0
+
+    iget v1, p0, Landroid/widget/LinearLayout;->mShowDividers:I
+
+    if-eqz v1, :cond_0
+
+    iget-object v1, p0, Landroid/widget/LinearLayout;->mDivider:Landroid/graphics/drawable/Drawable;
+
+    if-eqz v1, :cond_0
+
+    const/4 v0, 0x1
+
+    :cond_0
+    return v0
 .end method
 
 .method private setChildFrame(Landroid/view/View;IIII)V
@@ -1070,6 +1089,10 @@
 
 .method protected generateLayoutParams(Landroid/view/ViewGroup$LayoutParams;)Landroid/widget/LinearLayout$LayoutParams;
     .locals 1
+
+    sget-boolean v0, Landroid/widget/LinearLayout;->sPreserveMarginParamsInLayoutParamConversion:Z
+
+    if-eqz v0, :cond_1
 
     instance-of v0, p1, Landroid/widget/LinearLayout$LayoutParams;
 
@@ -2102,7 +2125,7 @@
 .end method
 
 .method measureHorizontal(II)V
-    .locals 51
+    .locals 52
 
     const/4 v3, 0x0
 
@@ -2116,11 +2139,11 @@
 
     const/4 v11, 0x0
 
-    const/16 v47, 0x0
+    const/16 v48, 0x0
 
     const/4 v10, 0x1
 
-    const/16 v43, 0x0
+    const/16 v44, 0x0
 
     invoke-virtual/range {p0 .. p0}, Landroid/widget/LinearLayout;->getVirtualChildCount()I
 
@@ -2128,7 +2151,7 @@
 
     invoke-static/range {p1 .. p1}, Landroid/view/View$MeasureSpec;->getMode(I)I
 
-    move-result v48
+    move-result v49
 
     invoke-static/range {p2 .. p2}, Landroid/view/View$MeasureSpec;->getMode(I)I
 
@@ -2136,7 +2159,7 @@
 
     const/16 v33, 0x0
 
-    const/16 v41, 0x0
+    const/16 v42, 0x0
 
     move-object/from16 v0, p0
 
@@ -2236,11 +2259,11 @@
 
     iget-boolean v0, v0, Landroid/widget/LinearLayout;->mUseLargestChild:Z
 
-    move/from16 v45, v0
+    move/from16 v46, v0
 
     const/high16 v3, 0x40000000    # 2.0f
 
-    move/from16 v0, v48
+    move/from16 v0, v49
 
     if-ne v0, v3, :cond_2
 
@@ -2249,7 +2272,9 @@
     :goto_0
     const/high16 v30, -0x80000000
 
-    const/16 v46, 0x0
+    const/16 v47, 0x0
+
+    const/16 v38, 0x0
 
     const/4 v5, 0x0
 
@@ -2312,6 +2337,8 @@
     goto :goto_2
 
     :cond_4
+    add-int/lit8 v38, v38, 0x1
+
     move-object/from16 v0, p0
 
     invoke-virtual {v0, v5}, Landroid/widget/LinearLayout;->hasDividerBeforeChildAt(I)Z
@@ -2345,7 +2372,7 @@
 
     iget v3, v0, Landroid/widget/LinearLayout$LayoutParams;->weight:F
 
-    add-float v43, v43, v3
+    add-float v44, v44, v3
 
     move-object/from16 v0, v31
 
@@ -2363,16 +2390,16 @@
 
     if-lez v3, :cond_9
 
-    const/16 v44, 0x1
+    const/16 v45, 0x1
 
     :goto_3
     const/high16 v3, 0x40000000    # 2.0f
 
-    move/from16 v0, v48
+    move/from16 v0, v49
 
     if-ne v0, v3, :cond_c
 
-    if-eqz v44, :cond_c
+    if-eqz v45, :cond_c
 
     if-eqz v29, :cond_a
 
@@ -2556,13 +2583,13 @@
     if-eqz v34, :cond_13
 
     :goto_8
-    move/from16 v0, v47
+    move/from16 v0, v48
 
     move/from16 v1, v32
 
     invoke-static {v0, v1}, Ljava/lang/Math;->max(II)I
 
-    move-result v47
+    move-result v48
 
     :goto_9
     move-object/from16 v0, p0
@@ -2576,7 +2603,7 @@
     goto/16 :goto_2
 
     :cond_9
-    const/16 v44, 0x0
+    const/16 v45, 0x0
 
     goto/16 :goto_3
 
@@ -2585,13 +2612,13 @@
 
     iget v0, v0, Landroid/widget/LinearLayout;->mTotalLength:I
 
-    move/from16 v42, v0
+    move/from16 v43, v0
 
     move-object/from16 v0, v31
 
     iget v3, v0, Landroid/widget/LinearLayout$LayoutParams;->leftMargin:I
 
-    add-int v3, v3, v42
+    add-int v3, v3, v43
 
     move-object/from16 v0, v31
 
@@ -2599,7 +2626,7 @@
 
     add-int/2addr v3, v6
 
-    move/from16 v0, v42
+    move/from16 v0, v43
 
     invoke-static {v0, v3}, Ljava/lang/Math;->max(II)I
 
@@ -2612,12 +2639,12 @@
     goto/16 :goto_4
 
     :cond_b
-    const/16 v41, 0x1
+    const/16 v42, 0x1
 
     goto/16 :goto_5
 
     :cond_c
-    if-eqz v44, :cond_d
+    if-eqz v45, :cond_d
 
     const/4 v3, -0x2
 
@@ -2628,7 +2655,7 @@
     :cond_d
     const/4 v3, 0x0
 
-    cmpl-float v3, v43, v3
+    cmpl-float v3, v44, v3
 
     if-nez v3, :cond_f
 
@@ -2651,7 +2678,7 @@
 
     move-result v20
 
-    if-eqz v44, :cond_e
+    if-eqz v45, :cond_e
 
     const/4 v3, 0x0
 
@@ -2659,7 +2686,7 @@
 
     iput v3, v0, Landroid/widget/LinearLayout$LayoutParams;->width:I
 
-    add-int v46, v46, v20
+    add-int v47, v47, v20
 
     :cond_e
     if-eqz v29, :cond_10
@@ -2695,7 +2722,7 @@
     iput v3, v0, Landroid/widget/LinearLayout;->mTotalLength:I
 
     :goto_b
-    if-eqz v45, :cond_6
+    if-eqz v46, :cond_6
 
     move/from16 v0, v20
 
@@ -2717,9 +2744,9 @@
 
     iget v0, v0, Landroid/widget/LinearLayout;->mTotalLength:I
 
-    move/from16 v42, v0
+    move/from16 v43, v0
 
-    add-int v3, v42, v20
+    add-int v3, v43, v20
 
     move-object/from16 v0, v31
 
@@ -2741,7 +2768,7 @@
 
     add-int/2addr v3, v6
 
-    move/from16 v0, v42
+    move/from16 v0, v43
 
     invoke-static {v0, v3}, Ljava/lang/Math;->max(II)I
 
@@ -2788,11 +2815,7 @@
     goto :goto_c
 
     :cond_16
-    move-object/from16 v0, p0
-
-    iget v3, v0, Landroid/widget/LinearLayout;->mTotalLength:I
-
-    if-lez v3, :cond_17
+    if-lez v38, :cond_17
 
     move-object/from16 v0, p0
 
@@ -2902,15 +2925,15 @@
     move-result v37
 
     :cond_19
-    if-eqz v45, :cond_1f
+    if-eqz v46, :cond_1f
 
     const/high16 v3, -0x80000000
 
-    move/from16 v0, v48
+    move/from16 v0, v49
 
     if-eq v0, v3, :cond_1a
 
-    if-nez v48, :cond_1f
+    if-nez v49, :cond_1f
 
     :cond_1a
     const/4 v3, 0x0
@@ -3039,9 +3062,9 @@
 
     iget v0, v0, Landroid/widget/LinearLayout;->mTotalLength:I
 
-    move/from16 v42, v0
+    move/from16 v43, v0
 
-    add-int v3, v42, v30
+    add-int v3, v43, v30
 
     move-object/from16 v0, v31
 
@@ -3063,7 +3086,7 @@
 
     add-int/2addr v3, v6
 
-    move/from16 v0, v42
+    move/from16 v0, v43
 
     invoke-static {v0, v3}, Ljava/lang/Math;->max(II)I
 
@@ -3100,37 +3123,37 @@
 
     iget v0, v0, Landroid/widget/LinearLayout;->mTotalLength:I
 
-    move/from16 v49, v0
+    move/from16 v50, v0
 
     invoke-virtual/range {p0 .. p0}, Landroid/widget/LinearLayout;->getSuggestedMinimumWidth()I
 
     move-result v3
 
-    move/from16 v0, v49
+    move/from16 v0, v50
 
     invoke-static {v0, v3}, Ljava/lang/Math;->max(II)I
 
-    move-result v49
+    move-result v50
 
     const/4 v3, 0x0
 
-    move/from16 v0, v49
+    move/from16 v0, v50
 
     move/from16 v1, p1
 
     invoke-static {v0, v1, v3}, Landroid/widget/LinearLayout;->resolveSizeAndState(III)I
 
-    move-result v50
+    move-result v51
 
     const v3, 0xffffff
 
-    and-int v49, v50, v3
+    and-int v50, v51, v3
 
     move-object/from16 v0, p0
 
     iget v3, v0, Landroid/widget/LinearLayout;->mTotalLength:I
 
-    sub-int v3, v49, v3
+    sub-int v3, v50, v3
 
     move-object/from16 v0, p0
 
@@ -3138,18 +3161,18 @@
 
     if-eqz v6, :cond_20
 
-    const/16 v46, 0x0
+    const/16 v47, 0x0
 
     :cond_20
-    add-int v38, v3, v46
+    add-int v39, v3, v47
 
-    if-nez v41, :cond_21
+    if-nez v42, :cond_21
 
-    if-eqz v38, :cond_35
+    if-eqz v39, :cond_35
 
     const/4 v3, 0x0
 
-    cmpl-float v3, v43, v3
+    cmpl-float v3, v44, v3
 
     if-lez v3, :cond_35
 
@@ -3168,7 +3191,7 @@
 
     iget v0, v0, Landroid/widget/LinearLayout;->mWeightSum:F
 
-    move/from16 v39, v0
+    move/from16 v40, v0
 
     :goto_10
     const/4 v3, -0x1
@@ -3257,7 +3280,7 @@
     goto :goto_11
 
     :cond_23
-    move/from16 v39, v43
+    move/from16 v40, v44
 
     goto :goto_10
 
@@ -3280,21 +3303,21 @@
 
     if-lez v3, :cond_25
 
-    move/from16 v0, v38
+    move/from16 v0, v39
 
     int-to-float v3, v0
 
     mul-float v3, v3, v19
 
-    div-float v3, v3, v39
+    div-float v3, v3, v40
 
     float-to-int v0, v3
 
-    move/from16 v40, v0
+    move/from16 v41, v0
 
-    sub-int v38, v38, v40
+    sub-int v39, v39, v41
 
-    sub-float v39, v39, v19
+    sub-float v40, v40, v19
 
     move-object/from16 v0, p0
 
@@ -3304,7 +3327,7 @@
 
     const/high16 v3, 0x40000000    # 2.0f
 
-    move/from16 v0, v48
+    move/from16 v0, v49
 
     if-eq v0, v3, :cond_26
 
@@ -3542,12 +3565,12 @@
 
     const/high16 v3, 0x40000000    # 2.0f
 
-    move/from16 v0, v48
+    move/from16 v0, v49
 
     if-ne v0, v3, :cond_28
 
     :cond_27
-    move/from16 v20, v40
+    move/from16 v20, v41
 
     goto/16 :goto_13
 
@@ -3556,7 +3579,7 @@
 
     move-result v3
 
-    add-int v20, v3, v40
+    add-int v20, v3, v41
 
     goto/16 :goto_13
 
@@ -3565,13 +3588,13 @@
 
     iget v0, v0, Landroid/widget/LinearLayout;->mTotalLength:I
 
-    move/from16 v42, v0
+    move/from16 v43, v0
 
     invoke-virtual {v4}, Landroid/view/View;->getMeasuredWidth()I
 
     move-result v3
 
-    add-int v3, v3, v42
+    add-int v3, v3, v43
 
     move-object/from16 v0, v31
 
@@ -3593,7 +3616,7 @@
 
     add-int/2addr v3, v6
 
-    move/from16 v0, v42
+    move/from16 v0, v43
 
     invoke-static {v0, v3}, Ljava/lang/Math;->max(II)I
 
@@ -3773,7 +3796,7 @@
 
     and-int v3, v3, v18
 
-    or-int v3, v3, v50
+    or-int v3, v3, v51
 
     shl-int/lit8 v6, v18, 0x10
 
@@ -3822,17 +3845,17 @@
     goto/16 :goto_19
 
     :cond_35
-    move/from16 v0, v47
+    move/from16 v0, v48
 
     invoke-static {v11, v0}, Ljava/lang/Math;->max(II)I
 
     move-result v11
 
-    if-eqz v45, :cond_31
+    if-eqz v46, :cond_31
 
     const/high16 v3, 0x40000000    # 2.0f
 
-    move/from16 v0, v48
+    move/from16 v0, v49
 
     if-eq v0, v3, :cond_31
 
@@ -3914,7 +3937,7 @@
 .end method
 
 .method measureVertical(II)V
-    .locals 41
+    .locals 42
 
     const/4 v3, 0x0
 
@@ -3928,11 +3951,11 @@
 
     const/4 v11, 0x0
 
-    const/16 v39, 0x0
+    const/16 v40, 0x0
 
     const/4 v10, 0x1
 
-    const/16 v36, 0x0
+    const/16 v37, 0x0
 
     invoke-virtual/range {p0 .. p0}, Landroid/widget/LinearLayout;->getVirtualChildCount()I
 
@@ -3940,7 +3963,7 @@
 
     invoke-static/range {p1 .. p1}, Landroid/view/View$MeasureSpec;->getMode(I)I
 
-    move-result v40
+    move-result v41
 
     invoke-static/range {p2 .. p2}, Landroid/view/View$MeasureSpec;->getMode(I)I
 
@@ -3948,7 +3971,7 @@
 
     const/16 v27, 0x0
 
-    const/16 v34, 0x0
+    const/16 v35, 0x0
 
     move-object/from16 v0, p0
 
@@ -3958,11 +3981,13 @@
 
     iget-boolean v0, v0, Landroid/widget/LinearLayout;->mUseLargestChild:Z
 
-    move/from16 v38, v0
+    move/from16 v39, v0
 
     const/high16 v24, -0x80000000
 
     const/16 v19, 0x0
+
+    const/16 v31, 0x0
 
     const/4 v5, 0x0
 
@@ -4020,6 +4045,8 @@
     goto :goto_1
 
     :cond_1
+    add-int/lit8 v31, v31, 0x1
+
     move-object/from16 v0, p0
 
     invoke-virtual {v0, v5}, Landroid/widget/LinearLayout;->hasDividerBeforeChildAt(I)Z
@@ -4053,7 +4080,7 @@
 
     iget v3, v0, Landroid/widget/LinearLayout$LayoutParams;->weight:F
 
-    add-float v36, v36, v3
+    add-float v37, v37, v3
 
     move-object/from16 v0, v25
 
@@ -4071,7 +4098,7 @@
 
     if-lez v3, :cond_5
 
-    const/16 v37, 0x1
+    const/16 v38, 0x1
 
     :goto_2
     const/high16 v3, 0x40000000    # 2.0f
@@ -4080,19 +4107,19 @@
 
     if-ne v0, v3, :cond_6
 
-    if-eqz v37, :cond_6
+    if-eqz v38, :cond_6
 
     move-object/from16 v0, p0
 
     iget v0, v0, Landroid/widget/LinearLayout;->mTotalLength:I
 
-    move/from16 v35, v0
+    move/from16 v36, v0
 
     move-object/from16 v0, v25
 
     iget v3, v0, Landroid/widget/LinearLayout$LayoutParams;->topMargin:I
 
-    add-int v3, v3, v35
+    add-int v3, v3, v36
 
     move-object/from16 v0, v25
 
@@ -4100,7 +4127,7 @@
 
     add-int/2addr v3, v6
 
-    move/from16 v0, v35
+    move/from16 v0, v36
 
     invoke-static {v0, v3}, Ljava/lang/Math;->max(II)I
 
@@ -4110,7 +4137,7 @@
 
     iput v3, v0, Landroid/widget/LinearLayout;->mTotalLength:I
 
-    const/16 v34, 0x1
+    const/16 v35, 0x1
 
     :cond_3
     :goto_3
@@ -4150,12 +4177,12 @@
     throw v3
 
     :cond_5
-    const/16 v37, 0x0
+    const/16 v38, 0x0
 
     goto :goto_2
 
     :cond_6
-    if-eqz v37, :cond_7
+    if-eqz v38, :cond_7
 
     const/4 v3, -0x2
 
@@ -4166,7 +4193,7 @@
     :cond_7
     const/4 v3, 0x0
 
-    cmpl-float v3, v36, v3
+    cmpl-float v3, v37, v3
 
     if-nez v3, :cond_9
 
@@ -4189,7 +4216,7 @@
 
     move-result v14
 
-    if-eqz v37, :cond_8
+    if-eqz v38, :cond_8
 
     const/4 v3, 0x0
 
@@ -4204,9 +4231,9 @@
 
     iget v0, v0, Landroid/widget/LinearLayout;->mTotalLength:I
 
-    move/from16 v35, v0
+    move/from16 v36, v0
 
-    add-int v3, v35, v14
+    add-int v3, v36, v14
 
     move-object/from16 v0, v25
 
@@ -4228,7 +4255,7 @@
 
     add-int/2addr v3, v6
 
-    move/from16 v0, v35
+    move/from16 v0, v36
 
     invoke-static {v0, v3}, Ljava/lang/Math;->max(II)I
 
@@ -4238,7 +4265,7 @@
 
     iput v3, v0, Landroid/widget/LinearLayout;->mTotalLength:I
 
-    if-eqz v38, :cond_3
+    if-eqz v39, :cond_3
 
     move/from16 v0, v24
 
@@ -4258,7 +4285,7 @@
 
     const/high16 v3, 0x40000000    # 2.0f
 
-    move/from16 v0, v40
+    move/from16 v0, v41
 
     if-eq v0, v3, :cond_b
 
@@ -4331,13 +4358,13 @@
     if-eqz v28, :cond_d
 
     :goto_6
-    move/from16 v0, v39
+    move/from16 v0, v40
 
     move/from16 v1, v26
 
     invoke-static {v0, v1}, Ljava/lang/Math;->max(II)I
 
-    move-result v39
+    move-result v40
 
     :goto_7
     move-object/from16 v0, p0
@@ -4378,11 +4405,7 @@
     goto :goto_8
 
     :cond_10
-    move-object/from16 v0, p0
-
-    iget v3, v0, Landroid/widget/LinearLayout;->mTotalLength:I
-
-    if-lez v3, :cond_11
+    if-lez v31, :cond_11
 
     move-object/from16 v0, p0
 
@@ -4409,7 +4432,7 @@
     iput v3, v0, Landroid/widget/LinearLayout;->mTotalLength:I
 
     :cond_11
-    if-eqz v38, :cond_15
+    if-eqz v39, :cond_15
 
     const/high16 v3, -0x80000000
 
@@ -4492,9 +4515,9 @@
 
     iget v0, v0, Landroid/widget/LinearLayout;->mTotalLength:I
 
-    move/from16 v35, v0
+    move/from16 v36, v0
 
-    add-int v3, v35, v24
+    add-int v3, v36, v24
 
     move-object/from16 v0, v25
 
@@ -4516,7 +4539,7 @@
 
     add-int/2addr v3, v6
 
-    move/from16 v0, v35
+    move/from16 v0, v36
 
     invoke-static {v0, v3}, Ljava/lang/Math;->max(II)I
 
@@ -4594,15 +4617,15 @@
     const/16 v19, 0x0
 
     :cond_16
-    add-int v31, v3, v19
+    add-int v32, v3, v19
 
-    if-nez v34, :cond_17
+    if-nez v35, :cond_17
 
-    if-eqz v31, :cond_27
+    if-eqz v32, :cond_27
 
     const/4 v3, 0x0
 
-    cmpl-float v3, v36, v3
+    cmpl-float v3, v37, v3
 
     if-lez v3, :cond_27
 
@@ -4621,7 +4644,7 @@
 
     iget v0, v0, Landroid/widget/LinearLayout;->mWeightSum:F
 
-    move/from16 v32, v0
+    move/from16 v33, v0
 
     :goto_b
     const/4 v3, 0x0
@@ -4660,7 +4683,7 @@
     goto :goto_c
 
     :cond_19
-    move/from16 v32, v36
+    move/from16 v33, v37
 
     goto :goto_b
 
@@ -4683,21 +4706,21 @@
 
     if-lez v3, :cond_1b
 
-    move/from16 v0, v31
+    move/from16 v0, v32
 
     int-to-float v3, v0
 
     mul-float v3, v3, v17
 
-    div-float v3, v3, v32
+    div-float v3, v3, v33
 
     float-to-int v0, v3
 
-    move/from16 v33, v0
+    move/from16 v34, v0
 
-    sub-int v31, v31, v33
+    sub-int v32, v32, v34
 
-    sub-float v32, v32, v17
+    sub-float v33, v33, v17
 
     move-object/from16 v0, p0
 
@@ -4797,7 +4820,7 @@
 
     const/high16 v3, 0x40000000    # 2.0f
 
-    move/from16 v0, v40
+    move/from16 v0, v41
 
     if-eq v0, v3, :cond_20
 
@@ -4838,13 +4861,13 @@
 
     iget v0, v0, Landroid/widget/LinearLayout;->mTotalLength:I
 
-    move/from16 v35, v0
+    move/from16 v36, v0
 
     invoke-virtual {v4}, Landroid/view/View;->getMeasuredHeight()I
 
     move-result v3
 
-    add-int v3, v3, v35
+    add-int v3, v3, v36
 
     move-object/from16 v0, v25
 
@@ -4866,7 +4889,7 @@
 
     add-int/2addr v3, v6
 
-    move/from16 v0, v35
+    move/from16 v0, v36
 
     invoke-static {v0, v3}, Ljava/lang/Math;->max(II)I
 
@@ -4898,7 +4921,7 @@
     if-ne v0, v3, :cond_1e
 
     :cond_1d
-    move/from16 v14, v33
+    move/from16 v14, v34
 
     goto/16 :goto_e
 
@@ -4907,7 +4930,7 @@
 
     move-result v3
 
-    add-int v14, v3, v33
+    add-int v14, v3, v34
 
     goto/16 :goto_e
 
@@ -4957,7 +4980,7 @@
 
     const/high16 v3, 0x40000000    # 2.0f
 
-    move/from16 v0, v40
+    move/from16 v0, v41
 
     if-eq v0, v3, :cond_25
 
@@ -5016,13 +5039,13 @@
     return-void
 
     :cond_27
-    move/from16 v0, v39
+    move/from16 v0, v40
 
     invoke-static {v11, v0}, Ljava/lang/Math;->max(II)I
 
     move-result v11
 
-    if-eqz v38, :cond_24
+    if-eqz v39, :cond_24
 
     const/high16 v3, 0x40000000    # 2.0f
 
@@ -5254,56 +5277,75 @@
 .method public setDividerDrawable(Landroid/graphics/drawable/Drawable;)V
     .locals 2
 
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
-    iget-object v1, p0, Landroid/widget/LinearLayout;->mDivider:Landroid/graphics/drawable/Drawable;
+    iget-object v0, p0, Landroid/widget/LinearLayout;->mDivider:Landroid/graphics/drawable/Drawable;
 
-    if-ne p1, v1, :cond_0
+    if-ne p1, v0, :cond_0
 
     return-void
 
     :cond_0
     iput-object p1, p0, Landroid/widget/LinearLayout;->mDivider:Landroid/graphics/drawable/Drawable;
 
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_1
 
     invoke-virtual {p1}, Landroid/graphics/drawable/Drawable;->getIntrinsicWidth()I
 
-    move-result v1
+    move-result v0
 
-    iput v1, p0, Landroid/widget/LinearLayout;->mDividerWidth:I
+    iput v0, p0, Landroid/widget/LinearLayout;->mDividerWidth:I
 
     invoke-virtual {p1}, Landroid/graphics/drawable/Drawable;->getIntrinsicHeight()I
 
-    move-result v1
+    move-result v0
 
-    iput v1, p0, Landroid/widget/LinearLayout;->mDividerHeight:I
+    iput v0, p0, Landroid/widget/LinearLayout;->mDividerHeight:I
 
     :goto_0
-    if-nez p1, :cond_1
+    invoke-direct {p0}, Landroid/widget/LinearLayout;->isShowingDividers()Z
 
-    const/4 v0, 0x1
+    move-result v0
 
-    :cond_1
+    xor-int/lit8 v0, v0, 0x1
+
     invoke-virtual {p0, v0}, Landroid/widget/LinearLayout;->setWillNotDraw(Z)V
 
     invoke-virtual {p0}, Landroid/widget/LinearLayout;->requestLayout()V
 
     return-void
 
-    :cond_2
-    iput v0, p0, Landroid/widget/LinearLayout;->mDividerWidth:I
+    :cond_1
+    iput v1, p0, Landroid/widget/LinearLayout;->mDividerWidth:I
 
-    iput v0, p0, Landroid/widget/LinearLayout;->mDividerHeight:I
+    iput v1, p0, Landroid/widget/LinearLayout;->mDividerHeight:I
 
     goto :goto_0
 .end method
 
 .method public setDividerPadding(I)V
-    .locals 0
+    .locals 1
 
+    iget v0, p0, Landroid/widget/LinearLayout;->mDividerPadding:I
+
+    if-ne p1, v0, :cond_0
+
+    return-void
+
+    :cond_0
     iput p1, p0, Landroid/widget/LinearLayout;->mDividerPadding:I
 
+    invoke-direct {p0}, Landroid/widget/LinearLayout;->isShowingDividers()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    invoke-virtual {p0}, Landroid/widget/LinearLayout;->requestLayout()V
+
+    invoke-virtual {p0}, Landroid/widget/LinearLayout;->invalidate()V
+
+    :cond_1
     return-void
 .end method
 
@@ -5403,12 +5445,22 @@
 
     iget v0, p0, Landroid/widget/LinearLayout;->mShowDividers:I
 
-    if-eq p1, v0, :cond_0
+    if-ne p1, v0, :cond_0
 
-    invoke-virtual {p0}, Landroid/widget/LinearLayout;->requestLayout()V
+    return-void
 
     :cond_0
     iput p1, p0, Landroid/widget/LinearLayout;->mShowDividers:I
+
+    invoke-direct {p0}, Landroid/widget/LinearLayout;->isShowingDividers()Z
+
+    move-result v0
+
+    xor-int/lit8 v0, v0, 0x1
+
+    invoke-virtual {p0, v0}, Landroid/widget/LinearLayout;->setWillNotDraw(Z)V
+
+    invoke-virtual {p0}, Landroid/widget/LinearLayout;->requestLayout()V
 
     return-void
 .end method

@@ -35,7 +35,7 @@
 
 
 # virtual methods
-.method public abstract onStatusChanged(II)V
+.method public abstract onStatusChanged(ILjava/lang/String;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

@@ -15,7 +15,7 @@
 
 
 # virtual methods
-.method public abstract onMultiWindowAppTransitionFinished()V
+.method public abstract onAutoResizeStateChanged(ILandroid/graphics/Rect;Landroid/graphics/Rect;Z)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -23,7 +23,7 @@
     .end annotation
 .end method
 
-.method public abstract onMultiWindowDockedMinimizedChanged(ZZLandroid/content/ComponentName;I)V
+.method public abstract onDockedStackMinimizedChanged(ZZLandroid/content/pm/ActivityInfo;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -31,7 +31,7 @@
     .end annotation
 .end method
 
-.method public abstract onMultiWindowFocusChanged(Landroid/graphics/Rect;Landroid/graphics/Rect;IILjava/lang/String;Landroid/os/Bundle;)V
+.method public abstract onFocusStackChanged(I)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -39,7 +39,7 @@
     .end annotation
 .end method
 
-.method public abstract onMultiWindowScreenFreezeAnimationFinished()V
+.method public abstract onMultiWindowEnableChanged(Z)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -47,7 +47,15 @@
     .end annotation
 .end method
 
-.method public abstract onMultiWindowSettingChanged(Z)V
+.method public abstract onScreenFreezeAnimationFinished()V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract onSnapWindowDismissed(Ljava/lang/String;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

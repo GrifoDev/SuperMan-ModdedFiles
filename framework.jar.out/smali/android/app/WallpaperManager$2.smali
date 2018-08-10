@@ -3,12 +3,12 @@
 .source "WallpaperManager.java"
 
 # interfaces
-.implements Ljava/io/FilenameFilter;
+.implements Landroid/app/WallpaperManager$SubUserWallpaperChecker;
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroid/app/WallpaperManager;
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Landroid/app/WallpaperManager;->getDefaultWallpaperFile()Ljava/io/File;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -28,48 +28,31 @@
 
 
 # virtual methods
-.method public accept(Ljava/io/File;Ljava/lang/String;)Z
+.method public checkSubUserCSCFile(I)Ljava/io/File;
     .locals 2
 
-    invoke-virtual {p2}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
+    if-eqz p1, :cond_0
+
+    invoke-static {p1}, Lcom/samsung/android/knox/SemPersonaManager;->isKnoxId(I)Z
+
+    move-result v0
+
+    xor-int/lit8 v0, v0, 0x1
+
+    if-eqz v0, :cond_0
+
+    const-string/jumbo v0, "/system/wallpaper/default_wallpaper/"
+
+    const-string/jumbo v1, "default_wallpaper_10"
+
+    invoke-static {v0, v1}, Landroid/app/WallpaperManager;->-wrap0(Ljava/lang/String;Ljava/lang/String;)Ljava/io/File;
 
     move-result-object v0
 
-    const-string/jumbo v1, "keyguard_default_wallpaper.png"
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-nez v1, :cond_0
-
-    const-string/jumbo v1, "keyguard_default_wallpaper.jpg"
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-nez v1, :cond_0
-
-    const-string/jumbo v1, "lockscreen_default_wallpaper.png"
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-nez v1, :cond_0
-
-    const-string/jumbo v1, "lockscreen_default_wallpaper.jpg"
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    :goto_0
-    return v1
+    return-object v0
 
     :cond_0
-    const/4 v1, 0x1
+    const/4 v0, 0x0
 
-    goto :goto_0
+    return-object v0
 .end method

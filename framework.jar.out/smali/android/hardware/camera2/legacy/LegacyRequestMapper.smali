@@ -557,7 +557,7 @@
 
     check-cast v13, Ljava/lang/Integer;
 
-    if-eqz v13, :cond_19
+    if-eqz v13, :cond_18
 
     invoke-virtual {v13}, Ljava/lang/Integer;->intValue()I
 
@@ -794,7 +794,7 @@
     move-object/from16 v44, v42
 
     :cond_7
-    if-eqz v44, :cond_1a
+    if-eqz v44, :cond_19
 
     const/16 v53, 0x0
 
@@ -987,7 +987,7 @@
 
     move-result-object v53
 
-    if-eqz v53, :cond_1b
+    if-eqz v53, :cond_1a
 
     const/16 v53, 0x1
 
@@ -1114,7 +1114,7 @@
 
     move/from16 v1, v53
 
-    if-eq v0, v1, :cond_1c
+    if-eq v0, v1, :cond_1b
 
     const/16 v53, 0x4
 
@@ -1122,7 +1122,7 @@
 
     move/from16 v1, v53
 
-    if-ne v0, v1, :cond_1d
+    if-ne v0, v1, :cond_1c
 
     const/16 v53, 0x1
 
@@ -1179,7 +1179,7 @@
 
     move/from16 v1, v54
 
-    if-ne v0, v1, :cond_1e
+    if-ne v0, v1, :cond_1d
 
     const/16 v53, 0x1
 
@@ -1385,7 +1385,7 @@
 
     move-result-object v29
 
-    if-eqz v29, :cond_20
+    if-eqz v29, :cond_1f
 
     move-object/from16 v0, v40
 
@@ -1466,13 +1466,13 @@
 
     check-cast v33, Landroid/location/Location;
 
-    if-eqz v33, :cond_22
+    if-eqz v33, :cond_21
 
     invoke-static/range {v33 .. v33}, Landroid/hardware/camera2/legacy/LegacyRequestMapper;->checkForCompleteGpsData(Landroid/location/Location;)Z
 
     move-result v53
 
-    if-eqz v53, :cond_21
+    if-eqz v53, :cond_20
 
     invoke-virtual/range {v33 .. v33}, Landroid/location/Location;->getAltitude()D
 
@@ -1543,7 +1543,7 @@
 
     sget-object v54, Landroid/hardware/camera2/CaptureRequest;->JPEG_ORIENTATION:Landroid/hardware/camera2/CaptureRequest$Key;
 
-    if-nez v39, :cond_23
+    if-nez v39, :cond_22
 
     const/16 v53, 0x0
 
@@ -1650,13 +1650,13 @@
 
     move-result-object v48
 
-    if-eqz v48, :cond_17
+    if-eqz v48, :cond_16
 
     invoke-interface/range {v48 .. v48}, Ljava/util/List;->size()I
 
     move-result v53
 
-    if-lez v53, :cond_17
+    if-lez v53, :cond_16
 
     sget-object v53, Landroid/hardware/camera2/CaptureRequest;->JPEG_THUMBNAIL_SIZE:Landroid/hardware/camera2/CaptureRequest$Key;
 
@@ -1670,13 +1670,12 @@
 
     check-cast v46, Landroid/util/Size;
 
-    if-nez v46, :cond_24
+    if-nez v46, :cond_23
 
-    :cond_14
     const/16 v28, 0x0
 
     :goto_9
-    if-eqz v28, :cond_15
+    if-eqz v28, :cond_14
 
     const-string/jumbo v53, "LegacyRequestMapper"
 
@@ -1710,12 +1709,12 @@
 
     invoke-static/range {v53 .. v54}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
+    :cond_14
+    if-eqz v46, :cond_15
+
+    if-eqz v28, :cond_24
+
     :cond_15
-    if-eqz v46, :cond_16
-
-    if-eqz v28, :cond_25
-
-    :cond_16
     const/16 v53, 0x0
 
     const/16 v54, 0x0
@@ -1728,7 +1727,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/hardware/Camera$Parameters;->setJpegThumbnailSize(II)V
 
-    :cond_17
+    :cond_16
     :goto_a
     sget-object v53, Landroid/hardware/camera2/CaptureRequest;->NOISE_REDUCTION_MODE:Landroid/hardware/camera2/CaptureRequest$Key;
 
@@ -1760,7 +1759,7 @@
 
     move/from16 v1, v53
 
-    if-eq v0, v1, :cond_18
+    if-eq v0, v1, :cond_17
 
     const/16 v53, 0x2
 
@@ -1768,7 +1767,7 @@
 
     move/from16 v1, v53
 
-    if-eq v0, v1, :cond_18
+    if-eq v0, v1, :cond_17
 
     const-string/jumbo v53, "LegacyRequestMapper"
 
@@ -1796,10 +1795,10 @@
 
     invoke-static/range {v53 .. v54}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_18
+    :cond_17
     return-void
 
-    :cond_19
+    :cond_18
     invoke-virtual/range {v40 .. v40}, Landroid/hardware/Camera$Parameters;->getSupportedAntibanding()Ljava/util/List;
 
     move-result-object v53
@@ -1844,7 +1843,7 @@
 
     goto/16 :goto_0
 
-    :cond_1a
+    :cond_19
     const-string/jumbo v53, "LegacyRequestMapper"
 
     new-instance v54, Ljava/lang/StringBuilder;
@@ -1893,22 +1892,22 @@
 
     goto/16 :goto_1
 
-    :cond_1b
+    :cond_1a
     const/16 v53, 0x0
 
     goto/16 :goto_2
 
-    :cond_1c
+    :cond_1b
     const/16 v53, 0x1
 
     goto/16 :goto_3
 
-    :cond_1d
+    :cond_1c
     const/16 v53, 0x0
 
     goto/16 :goto_3
 
-    :cond_1e
+    :cond_1d
     const/16 v53, 0x0
 
     goto/16 :goto_4
@@ -1942,13 +1941,13 @@
 
     move-result-object v32
 
-    if-eqz v32, :cond_1f
+    if-eqz v32, :cond_1e
 
     move-object/from16 v38, v32
 
     goto/16 :goto_5
 
-    :cond_1f
+    :cond_1e
     const-string/jumbo v38, "auto"
 
     const-string/jumbo v53, "LegacyRequestMapper"
@@ -1984,7 +1983,7 @@
 
     goto/16 :goto_5
 
-    :cond_20
+    :cond_1f
     const-string/jumbo v53, "none"
 
     move-object/from16 v0, v40
@@ -2021,7 +2020,7 @@
 
     goto/16 :goto_6
 
-    :cond_21
+    :cond_20
     const-string/jumbo v53, "LegacyRequestMapper"
 
     new-instance v54, Ljava/lang/StringBuilder;
@@ -2050,19 +2049,19 @@
 
     goto/16 :goto_7
 
-    :cond_22
+    :cond_21
     invoke-virtual/range {v40 .. v40}, Landroid/hardware/Camera$Parameters;->removeGpsData()V
 
     goto/16 :goto_7
 
-    :cond_23
+    :cond_22
     invoke-virtual/range {v39 .. v39}, Ljava/lang/Integer;->intValue()I
 
     move-result v53
 
     goto/16 :goto_8
 
-    :cond_24
+    :cond_23
     invoke-virtual/range {v46 .. v46}, Landroid/util/Size;->getWidth()I
 
     move-result v53
@@ -2081,13 +2080,11 @@
 
     move-result v53
 
-    if-nez v53, :cond_14
-
-    const/16 v28, 0x1
+    xor-int/lit8 v28, v53, 0x1
 
     goto/16 :goto_9
 
-    :cond_25
+    :cond_24
     invoke-virtual/range {v46 .. v46}, Landroid/util/Size;->getWidth()I
 
     move-result v53

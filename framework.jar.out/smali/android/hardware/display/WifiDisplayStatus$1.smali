@@ -39,7 +39,7 @@
 
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroid/hardware/display/WifiDisplayStatus;
-    .locals 11
+    .locals 10
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
@@ -57,72 +57,70 @@
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
-    move-result v0
+    move-result v8
 
-    if-eqz v0, :cond_0
+    if-eqz v8, :cond_0
 
-    sget-object v0, Landroid/hardware/display/WifiDisplay;->CREATOR:Landroid/os/Parcelable$Creator;
+    sget-object v8, Landroid/hardware/display/WifiDisplay;->CREATOR:Landroid/os/Parcelable$Creator;
 
-    invoke-interface {v0, p1}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+    invoke-interface {v8, p1}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
 
     move-result-object v4
 
     check-cast v4, Landroid/hardware/display/WifiDisplay;
 
     :cond_0
-    sget-object v0, Landroid/hardware/display/WifiDisplay;->CREATOR:Landroid/os/Parcelable$Creator;
+    sget-object v8, Landroid/hardware/display/WifiDisplay;->CREATOR:Landroid/os/Parcelable$Creator;
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
-    move-result v10
+    move-result v9
 
-    invoke-interface {v0, v10}, Landroid/os/Parcelable$Creator;->newArray(I)[Ljava/lang/Object;
+    invoke-interface {v8, v9}, Landroid/os/Parcelable$Creator;->newArray(I)[Ljava/lang/Object;
 
     move-result-object v5
 
     check-cast v5, [Landroid/hardware/display/WifiDisplay;
 
-    const/4 v9, 0x0
+    const/4 v7, 0x0
 
     :goto_0
-    array-length v0, v5
+    array-length v8, v5
 
-    if-ge v9, v0, :cond_1
+    if-ge v7, v8, :cond_1
 
-    sget-object v0, Landroid/hardware/display/WifiDisplay;->CREATOR:Landroid/os/Parcelable$Creator;
+    sget-object v8, Landroid/hardware/display/WifiDisplay;->CREATOR:Landroid/os/Parcelable$Creator;
 
-    invoke-interface {v0, p1}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+    invoke-interface {v8, p1}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v8
 
-    check-cast v0, Landroid/hardware/display/WifiDisplay;
+    check-cast v8, Landroid/hardware/display/WifiDisplay;
 
-    aput-object v0, v5, v9
+    aput-object v8, v5, v7
 
-    add-int/lit8 v9, v9, 0x1
+    add-int/lit8 v7, v7, 0x1
 
     goto :goto_0
 
     :cond_1
-    sget-object v0, Landroid/hardware/display/WifiDisplaySessionInfo;->CREATOR:Landroid/os/Parcelable$Creator;
+    sget-object v8, Landroid/hardware/display/WifiDisplaySessionInfo;->CREATOR:Landroid/os/Parcelable$Creator;
 
-    invoke-interface {v0, p1}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+    invoke-interface {v8, p1}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
 
     move-result-object v6
 
     check-cast v6, Landroid/hardware/display/WifiDisplaySessionInfo;
 
-    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
+    new-instance v0, Landroid/hardware/display/WifiDisplayStatus;
 
-    move-result v7
+    invoke-direct/range {v0 .. v6}, Landroid/hardware/display/WifiDisplayStatus;-><init>(IIILandroid/hardware/display/WifiDisplay;[Landroid/hardware/display/WifiDisplay;Landroid/hardware/display/WifiDisplaySessionInfo;)V
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v8
 
-    new-instance v0, Landroid/hardware/display/WifiDisplayStatus;
-
-    invoke-direct/range {v0 .. v8}, Landroid/hardware/display/WifiDisplayStatus;-><init>(IIILandroid/hardware/display/WifiDisplay;[Landroid/hardware/display/WifiDisplay;Landroid/hardware/display/WifiDisplaySessionInfo;II)V
+    invoke-virtual {v0, v8}, Landroid/hardware/display/WifiDisplayStatus;->setConnectedState(I)V
 
     return-object v0
 .end method

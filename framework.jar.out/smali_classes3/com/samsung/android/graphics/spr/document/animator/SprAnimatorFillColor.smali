@@ -58,13 +58,13 @@
 
     aput v1, v0, v2
 
-    invoke-virtual {p0, v0}, Landroid/animation/ValueAnimator;->setIntValues([I)V
+    invoke-virtual {p0, v0}, Lcom/samsung/android/graphics/spr/document/animator/SprAnimatorFillColor;->setIntValues([I)V
 
     new-instance v0, Landroid/animation/ArgbEvaluator;
 
     invoke-direct {v0}, Landroid/animation/ArgbEvaluator;-><init>()V
 
-    invoke-virtual {p0, v0}, Landroid/animation/ValueAnimator;->setEvaluator(Landroid/animation/TypeEvaluator;)V
+    invoke-virtual {p0, v0}, Lcom/samsung/android/graphics/spr/document/animator/SprAnimatorFillColor;->setEvaluator(Landroid/animation/TypeEvaluator;)V
 
     return-void
 .end method
@@ -160,7 +160,7 @@
     return v1
 
     :cond_0
-    invoke-virtual {p0}, Landroid/animation/ValueAnimator;->getAnimatedValue()Ljava/lang/Object;
+    invoke-virtual {p0}, Lcom/samsung/android/graphics/spr/document/animator/SprAnimatorFillColor;->getAnimatedValue()Ljava/lang/Object;
 
     move-result-object v0
 

@@ -53,9 +53,7 @@
 
     move-object v1, p1
 
-    nop
-
-    nop
+    check-cast v1, Landroid/view/ViewGroup;
 
     invoke-virtual {v1}, Landroid/view/ViewGroup;->getChildCount()I
 

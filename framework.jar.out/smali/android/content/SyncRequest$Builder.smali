@@ -424,11 +424,9 @@
 .end method
 
 .method public setRequiresCharging(Z)Landroid/content/SyncRequest$Builder;
-    .locals 1
+    .locals 0
 
-    const/4 v0, 0x1
-
-    iput-boolean v0, p0, Landroid/content/SyncRequest$Builder;->mRequiresCharging:Z
+    iput-boolean p1, p0, Landroid/content/SyncRequest$Builder;->mRequiresCharging:Z
 
     return-object p0
 .end method

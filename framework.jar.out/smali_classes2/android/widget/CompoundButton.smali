@@ -21,6 +21,8 @@
 # static fields
 .field private static final CHECKED_STATE_SET:[I
 
+.field private static final LOG_TAG:Ljava/lang/String;
+
 
 # instance fields
 .field private mBroadcasting:Z
@@ -32,6 +34,8 @@
 .field private mButtonTintMode:Landroid/graphics/PorterDuff$Mode;
 
 .field private mChecked:Z
+
+.field private mCheckedFromResource:Z
 
 .field private mHasButtonTint:Z
 
@@ -51,6 +55,14 @@
 # direct methods
 .method static constructor <clinit>()V
     .locals 3
+
+    const-class v0, Landroid/widget/CompoundButton;
+
+    invoke-virtual {v0}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
+
+    move-result-object v0
+
+    sput-object v0, Landroid/widget/CompoundButton;->LOG_TAG:Ljava/lang/String;
 
     const/4 v0, 0x1
 
@@ -122,6 +134,8 @@
 
     iput-boolean v5, p0, Landroid/widget/CompoundButton;->mResizeCompoundButton:Z
 
+    iput-boolean v5, p0, Landroid/widget/CompoundButton;->mCheckedFromResource:Z
+
     sget-object v3, Lcom/android/internal/R$styleable;->CompoundButton:[I
 
     invoke-virtual {p1, p2, v3, p3, p4}, Landroid/content/Context;->obtainStyledAttributes(Landroid/util/AttributeSet;[III)Landroid/content/res/TypedArray;
@@ -180,6 +194,8 @@
     move-result v1
 
     invoke-virtual {p0, v1}, Landroid/widget/CompoundButton;->setChecked(Z)V
+
+    iput-boolean v6, p0, Landroid/widget/CompoundButton;->mCheckedFromResource:Z
 
     invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
 
@@ -256,6 +272,62 @@
 
 
 # virtual methods
+.method public autofill(Landroid/view/autofill/AutofillValue;)V
+    .locals 3
+
+    invoke-virtual {p0}, Landroid/widget/CompoundButton;->isEnabled()Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    return-void
+
+    :cond_0
+    invoke-virtual {p1}, Landroid/view/autofill/AutofillValue;->isToggle()Z
+
+    move-result v0
+
+    if-nez v0, :cond_1
+
+    sget-object v0, Landroid/widget/CompoundButton;->LOG_TAG:Ljava/lang/String;
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string/jumbo v2, " could not be autofilled into "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
+
+    :cond_1
+    invoke-virtual {p1}, Landroid/view/autofill/AutofillValue;->getToggleValue()Z
+
+    move-result v0
+
+    invoke-virtual {p0, v0}, Landroid/widget/CompoundButton;->setChecked(Z)V
+
+    return-void
+.end method
+
 .method public drawableHotspotChanged(FF)V
     .locals 1
 
@@ -330,6 +402,52 @@
     move-result-object v0
 
     return-object v0
+.end method
+
+.method public getAutofillType()I
+    .locals 1
+
+    invoke-virtual {p0}, Landroid/widget/CompoundButton;->isEnabled()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x2
+
+    :goto_0
+    return v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
+.method public getAutofillValue()Landroid/view/autofill/AutofillValue;
+    .locals 1
+
+    invoke-virtual {p0}, Landroid/widget/CompoundButton;->isEnabled()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {p0}, Landroid/widget/CompoundButton;->isChecked()Z
+
+    move-result v0
+
+    invoke-static {v0}, Landroid/view/autofill/AutofillValue;->forToggle(Z)Landroid/view/autofill/AutofillValue;
+
+    move-result-object v0
+
+    :goto_0
+    return-object v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
 .end method
 
 .method public getButtonDrawable()Landroid/graphics/drawable/Drawable;
@@ -537,10 +655,6 @@
 
     iget v4, p0, Landroid/widget/CompoundButton;->mResizeCompoundButtonWidth:I
 
-    iget v11, p0, Landroid/widget/CompoundButton;->mResizeCompoundButtonHeight:I
-
-    invoke-virtual {p0, v11}, Landroid/widget/CompoundButton;->setMinHeight(I)V
-
     :goto_0
     sparse-switch v10, :sswitch_data_0
 
@@ -664,6 +778,8 @@
 
     goto :goto_4
 
+    nop
+
     :sswitch_data_0
     .sparse-switch
         0x10 -> :sswitch_1
@@ -695,6 +811,20 @@
     iget-boolean v0, p0, Landroid/widget/CompoundButton;->mChecked:Z
 
     invoke-virtual {p1, v0}, Landroid/view/accessibility/AccessibilityNodeInfo;->setChecked(Z)V
+
+    return-void
+.end method
+
+.method public onProvideAutofillStructure(Landroid/view/ViewStructure;I)V
+    .locals 1
+
+    invoke-super {p0, p1, p2}, Landroid/widget/Button;->onProvideAutofillStructure(Landroid/view/ViewStructure;I)V
+
+    iget-boolean v0, p0, Landroid/widget/CompoundButton;->mCheckedFromResource:Z
+
+    xor-int/lit8 v0, v0, 0x1
+
+    invoke-virtual {p1, v0}, Landroid/view/ViewStructure;->setDataIsSensitive(Z)V
 
     return-void
 .end method
@@ -787,6 +917,10 @@
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Landroid/widget/CompoundButton;->mResizeCompoundButton:Z
+
+    iget v0, p0, Landroid/widget/CompoundButton;->mResizeCompoundButtonHeight:I
+
+    invoke-virtual {p0, v0}, Landroid/widget/CompoundButton;->setMinHeight(I)V
 
     return-void
 .end method
@@ -921,59 +1055,76 @@
 .end method
 
 .method public setChecked(Z)V
-    .locals 3
+    .locals 4
     .annotation runtime Landroid/view/RemotableViewMethod;
         asyncImpl = "setCheckedAsync"
     .end annotation
 
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
-    iget-boolean v0, p0, Landroid/widget/CompoundButton;->mChecked:Z
+    iget-boolean v1, p0, Landroid/widget/CompoundButton;->mChecked:Z
 
-    if-eq v0, p1, :cond_3
+    if-eq v1, p1, :cond_4
+
+    iput-boolean v3, p0, Landroid/widget/CompoundButton;->mCheckedFromResource:Z
 
     iput-boolean p1, p0, Landroid/widget/CompoundButton;->mChecked:Z
 
     invoke-virtual {p0}, Landroid/widget/CompoundButton;->refreshDrawableState()V
 
-    invoke-virtual {p0, v2}, Landroid/widget/CompoundButton;->notifyViewAccessibilityStateChangedIfNeeded(I)V
+    invoke-virtual {p0, v3}, Landroid/widget/CompoundButton;->notifyViewAccessibilityStateChangedIfNeeded(I)V
 
-    iget-boolean v0, p0, Landroid/widget/CompoundButton;->mBroadcasting:Z
+    iget-boolean v1, p0, Landroid/widget/CompoundButton;->mBroadcasting:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v1, :cond_0
 
     return-void
 
     :cond_0
-    const/4 v0, 0x1
+    const/4 v1, 0x1
 
-    iput-boolean v0, p0, Landroid/widget/CompoundButton;->mBroadcasting:Z
+    iput-boolean v1, p0, Landroid/widget/CompoundButton;->mBroadcasting:Z
 
-    iget-object v0, p0, Landroid/widget/CompoundButton;->mOnCheckedChangeListener:Landroid/widget/CompoundButton$OnCheckedChangeListener;
+    iget-object v1, p0, Landroid/widget/CompoundButton;->mOnCheckedChangeListener:Landroid/widget/CompoundButton$OnCheckedChangeListener;
 
-    if-eqz v0, :cond_1
+    if-eqz v1, :cond_1
 
-    iget-object v0, p0, Landroid/widget/CompoundButton;->mOnCheckedChangeListener:Landroid/widget/CompoundButton$OnCheckedChangeListener;
+    iget-object v1, p0, Landroid/widget/CompoundButton;->mOnCheckedChangeListener:Landroid/widget/CompoundButton$OnCheckedChangeListener;
 
-    iget-boolean v1, p0, Landroid/widget/CompoundButton;->mChecked:Z
+    iget-boolean v2, p0, Landroid/widget/CompoundButton;->mChecked:Z
 
-    invoke-interface {v0, p0, v1}, Landroid/widget/CompoundButton$OnCheckedChangeListener;->onCheckedChanged(Landroid/widget/CompoundButton;Z)V
+    invoke-interface {v1, p0, v2}, Landroid/widget/CompoundButton$OnCheckedChangeListener;->onCheckedChanged(Landroid/widget/CompoundButton;Z)V
 
     :cond_1
-    iget-object v0, p0, Landroid/widget/CompoundButton;->mOnCheckedChangeWidgetListener:Landroid/widget/CompoundButton$OnCheckedChangeListener;
+    iget-object v1, p0, Landroid/widget/CompoundButton;->mOnCheckedChangeWidgetListener:Landroid/widget/CompoundButton$OnCheckedChangeListener;
 
-    if-eqz v0, :cond_2
+    if-eqz v1, :cond_2
 
-    iget-object v0, p0, Landroid/widget/CompoundButton;->mOnCheckedChangeWidgetListener:Landroid/widget/CompoundButton$OnCheckedChangeListener;
+    iget-object v1, p0, Landroid/widget/CompoundButton;->mOnCheckedChangeWidgetListener:Landroid/widget/CompoundButton$OnCheckedChangeListener;
 
-    iget-boolean v1, p0, Landroid/widget/CompoundButton;->mChecked:Z
+    iget-boolean v2, p0, Landroid/widget/CompoundButton;->mChecked:Z
 
-    invoke-interface {v0, p0, v1}, Landroid/widget/CompoundButton$OnCheckedChangeListener;->onCheckedChanged(Landroid/widget/CompoundButton;Z)V
+    invoke-interface {v1, p0, v2}, Landroid/widget/CompoundButton$OnCheckedChangeListener;->onCheckedChanged(Landroid/widget/CompoundButton;Z)V
 
     :cond_2
-    iput-boolean v2, p0, Landroid/widget/CompoundButton;->mBroadcasting:Z
+    iget-object v1, p0, Landroid/widget/CompoundButton;->mContext:Landroid/content/Context;
+
+    const-class v2, Landroid/view/autofill/AutofillManager;
+
+    invoke-virtual {v1, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/view/autofill/AutofillManager;
+
+    if-eqz v0, :cond_3
+
+    invoke-virtual {v0, p0}, Landroid/view/autofill/AutofillManager;->notifyValueChanged(Landroid/view/View;)V
 
     :cond_3
+    iput-boolean v3, p0, Landroid/widget/CompoundButton;->mBroadcasting:Z
+
+    :cond_4
     return-void
 .end method
 
@@ -998,19 +1149,11 @@
 
     iget-boolean v0, p0, Landroid/widget/CompoundButton;->mChecked:Z
 
-    if-eqz v0, :cond_0
+    xor-int/lit8 v0, v0, 0x1
 
-    const/4 v0, 0x0
-
-    :goto_0
     invoke-virtual {p0, v0}, Landroid/widget/CompoundButton;->setChecked(Z)V
 
     return-void
-
-    :cond_0
-    const/4 v0, 0x1
-
-    goto :goto_0
 .end method
 
 .method protected verifyDrawable(Landroid/graphics/drawable/Drawable;)Z

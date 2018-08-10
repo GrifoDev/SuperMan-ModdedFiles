@@ -1,14 +1,11 @@
 .class Landroid/app/EnterTransitionCoordinator$4;
-.super Ljava/lang/Object;
+.super Landroid/transition/TransitionListenerAdapter;
 .source "EnterTransitionCoordinator.java"
-
-# interfaces
-.implements Ljava/lang/Runnable;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Landroid/app/EnterTransitionCoordinator;->startSharedElementTransition(Landroid/os/Bundle;)V
+    value = Landroid/app/EnterTransitionCoordinator;->beginTransition(Landroid/view/ViewGroup;ZZ)Landroid/transition/Transition;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -18,8 +15,6 @@
 
 
 # instance fields
-.field mAnimations:I
-
 .field final synthetic this$0:Landroid/app/EnterTransitionCoordinator;
 
 
@@ -29,60 +24,31 @@
 
     iput-object p1, p0, Landroid/app/EnterTransitionCoordinator$4;->this$0:Landroid/app/EnterTransitionCoordinator;
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Landroid/transition/TransitionListenerAdapter;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public run()V
-    .locals 4
+.method public onTransitionEnd(Landroid/transition/Transition;)V
+    .locals 1
 
-    const/4 v3, 0x0
+    invoke-virtual {p1, p0}, Landroid/transition/Transition;->removeListener(Landroid/transition/Transition$TransitionListener;)Landroid/transition/Transition;
 
-    iget v1, p0, Landroid/app/EnterTransitionCoordinator$4;->mAnimations:I
+    iget-object v0, p0, Landroid/app/EnterTransitionCoordinator$4;->this$0:Landroid/app/EnterTransitionCoordinator;
 
-    add-int/lit8 v2, v1, 0x1
+    invoke-virtual {v0}, Landroid/app/EnterTransitionCoordinator;->sharedElementTransitionComplete()V
 
-    iput v2, p0, Landroid/app/EnterTransitionCoordinator$4;->mAnimations:I
-
-    const/4 v2, 0x2
-
-    if-ge v1, v2, :cond_1
-
-    iget-object v1, p0, Landroid/app/EnterTransitionCoordinator$4;->this$0:Landroid/app/EnterTransitionCoordinator;
-
-    invoke-virtual {v1}, Landroid/app/EnterTransitionCoordinator;->getDecor()Landroid/view/ViewGroup;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_0
-
-    invoke-virtual {v0, p0}, Landroid/view/View;->postOnAnimation(Ljava/lang/Runnable;)V
-
-    :cond_0
-    :goto_0
     return-void
+.end method
 
-    :cond_1
-    iget-object v1, p0, Landroid/app/EnterTransitionCoordinator$4;->this$0:Landroid/app/EnterTransitionCoordinator;
+.method public onTransitionStart(Landroid/transition/Transition;)V
+    .locals 1
 
-    iget-object v1, v1, Landroid/app/EnterTransitionCoordinator;->mResultReceiver:Landroid/os/ResultReceiver;
+    iget-object v0, p0, Landroid/app/EnterTransitionCoordinator$4;->this$0:Landroid/app/EnterTransitionCoordinator;
 
-    if-eqz v1, :cond_0
+    invoke-static {v0}, Landroid/app/EnterTransitionCoordinator;->-wrap2(Landroid/app/EnterTransitionCoordinator;)V
 
-    iget-object v1, p0, Landroid/app/EnterTransitionCoordinator$4;->this$0:Landroid/app/EnterTransitionCoordinator;
-
-    iget-object v1, v1, Landroid/app/EnterTransitionCoordinator;->mResultReceiver:Landroid/os/ResultReceiver;
-
-    const/16 v2, 0x65
-
-    invoke-virtual {v1, v2, v3}, Landroid/os/ResultReceiver;->send(ILandroid/os/Bundle;)V
-
-    iget-object v1, p0, Landroid/app/EnterTransitionCoordinator$4;->this$0:Landroid/app/EnterTransitionCoordinator;
-
-    iput-object v3, v1, Landroid/app/EnterTransitionCoordinator;->mResultReceiver:Landroid/os/ResultReceiver;
-
-    goto :goto_0
+    return-void
 .end method

@@ -10,9 +10,9 @@
 
 .field private mScaleY:F
 
-.field private mStdHeight:F
+.field private final mStdHeight:F
 
-.field private mStdWidth:F
+.field private final mStdWidth:F
 
 
 # direct methods
@@ -58,6 +58,21 @@
 .end method
 
 .method public bridge synthetic clone()Landroid/graphics/drawable/shapes/Shape;
+    .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/lang/CloneNotSupportedException;
+        }
+    .end annotation
+
+    invoke-virtual {p0}, Landroid/graphics/drawable/shapes/PathShape;->clone()Landroid/graphics/drawable/shapes/PathShape;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public bridge synthetic clone()Ljava/lang/Object;
     .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {

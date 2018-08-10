@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(IZZI)V
-    .locals 8
+    .locals 9
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -30,6 +30,8 @@
     .end annotation
 
     const/4 v5, 0x0
+
+    const/4 v8, 0x1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -59,11 +61,20 @@
 
     iget-object v0, p0, Landroid/bluetooth/BluetoothServerSocket;->mSocket:Landroid/bluetooth/BluetoothSocket;
 
-    const/4 v1, 0x1
-
-    invoke-virtual {v0, v1}, Landroid/bluetooth/BluetoothSocket;->setExcludeSdp(Z)V
+    invoke-virtual {v0, v8}, Landroid/bluetooth/BluetoothSocket;->setExcludeSdp(Z)V
 
     :cond_0
+    if-ne p1, v8, :cond_1
+
+    const/16 v0, 0xc
+
+    if-ne p4, v0, :cond_1
+
+    iget-object v0, p0, Landroid/bluetooth/BluetoothServerSocket;->mSocket:Landroid/bluetooth/BluetoothSocket;
+
+    invoke-virtual {v0, v8}, Landroid/bluetooth/BluetoothSocket;->setExcludeSdp(Z)V
+
+    :cond_1
     return-void
 .end method
 

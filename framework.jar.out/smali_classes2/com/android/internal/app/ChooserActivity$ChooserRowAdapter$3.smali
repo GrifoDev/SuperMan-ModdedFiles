@@ -69,7 +69,15 @@
 
     move-result-object v1
 
-    invoke-virtual {v0, v1}, Lcom/android/internal/app/ChooserActivity;->showTargetDetails(Landroid/content/pm/ResolveInfo;)V
+    iget-object v2, p0, Lcom/android/internal/app/ChooserActivity$ChooserRowAdapter$3;->val$holder:Lcom/android/internal/app/ChooserActivity$RowViewHolder;
+
+    iget-object v2, v2, Lcom/android/internal/app/ChooserActivity$RowViewHolder;->itemIndices:[I
+
+    iget v3, p0, Lcom/android/internal/app/ChooserActivity$ChooserRowAdapter$3;->val$column:I
+
+    aget v2, v2, v3
+
+    invoke-virtual {v0, v1, v2}, Lcom/android/internal/app/ChooserActivity;->showTargetDetails(Landroid/content/pm/ResolveInfo;I)V
 
     return v4
 .end method

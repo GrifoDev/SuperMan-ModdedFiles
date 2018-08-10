@@ -77,7 +77,11 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    xor-int/lit8 v1, v1, 0x1
+
+    if-eqz v1, :cond_0
+
+    return-object p2
 
     :cond_0
     invoke-static {p1}, Landroid/provider/ContactsContract$CommonDataKinds$Im;->getProtocolLabelResource(I)I
@@ -89,9 +93,6 @@
     move-result-object v1
 
     return-object v1
-
-    :cond_1
-    return-object p2
 .end method
 
 .method public static final getProtocolLabelResource(I)I
@@ -99,62 +100,62 @@
 
     packed-switch p0, :pswitch_data_0
 
-    const v0, 0x104026e
+    const v0, 0x104040b
 
     return v0
 
     :pswitch_0
-    const v0, 0x104026f
+    const v0, 0x104040a
 
     return v0
 
     :pswitch_1
-    const v0, 0x1040270
+    const v0, 0x1040410
 
     return v0
 
     :pswitch_2
-    const v0, 0x1040271
+    const v0, 0x1040415
 
     return v0
 
     :pswitch_3
-    const v0, 0x1040272
+    const v0, 0x1040413
 
     return v0
 
     :pswitch_4
-    const v0, 0x1040273
+    const v0, 0x1040412
 
     return v0
 
     :pswitch_5
-    const v0, 0x1040274
+    const v0, 0x104040d
 
     return v0
 
     :pswitch_6
-    const v0, 0x1040275
+    const v0, 0x104040e
 
     return v0
 
     :pswitch_7
-    const v0, 0x1040276
+    const v0, 0x104040f
 
     return v0
 
     :pswitch_8
-    const v0, 0x1040277
+    const v0, 0x1040411
 
     return v0
 
     :pswitch_9
-    const v0, 0x10408c6
+    const v0, 0x1040414
 
     return v0
 
     :pswitch_a
-    const v0, 0x10408c7
+    const v0, 0x104040c
 
     return v0
 
@@ -185,7 +186,11 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    xor-int/lit8 v1, v1, 0x1
+
+    if-eqz v1, :cond_0
+
+    return-object p2
 
     :cond_0
     invoke-static {p1}, Landroid/provider/ContactsContract$CommonDataKinds$Im;->getTypeLabelResource(I)I
@@ -197,9 +202,6 @@
     move-result-object v1
 
     return-object v1
-
-    :cond_1
-    return-object p2
 .end method
 
 .method public static final getTypeLabelResource(I)I
@@ -207,22 +209,22 @@
 
     packed-switch p0, :pswitch_data_0
 
-    const v0, 0x104026a
+    const v0, 0x1040416
 
     return v0
 
     :pswitch_0
-    const v0, 0x104026b
+    const v0, 0x1040417
 
     return v0
 
     :pswitch_1
-    const v0, 0x104026c
+    const v0, 0x1040419
 
     return v0
 
     :pswitch_2
-    const v0, 0x104026d
+    const v0, 0x1040418
 
     return v0
 

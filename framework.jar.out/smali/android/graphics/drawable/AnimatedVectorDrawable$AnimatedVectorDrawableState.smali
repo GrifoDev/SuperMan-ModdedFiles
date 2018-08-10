@@ -45,6 +45,8 @@
     .end annotation
 .end field
 
+.field private final mShouldIgnoreInvalidAnim:Z
+
 .field mTargetNameMap:Landroid/util/ArrayMap;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -61,10 +63,24 @@
 
 
 # direct methods
+.method static synthetic -get0(Landroid/graphics/drawable/AnimatedVectorDrawable$AnimatedVectorDrawableState;)Z
+    .locals 1
+
+    iget-boolean v0, p0, Landroid/graphics/drawable/AnimatedVectorDrawable$AnimatedVectorDrawableState;->mShouldIgnoreInvalidAnim:Z
+
+    return v0
+.end method
+
 .method public constructor <init>(Landroid/graphics/drawable/AnimatedVectorDrawable$AnimatedVectorDrawableState;Landroid/graphics/drawable/Drawable$Callback;Landroid/content/res/Resources;)V
     .locals 3
 
     invoke-direct {p0}, Landroid/graphics/drawable/Drawable$ConstantState;-><init>()V
+
+    invoke-static {}, Landroid/graphics/drawable/AnimatedVectorDrawable;->-wrap0()Z
+
+    move-result v1
+
+    iput-boolean v1, p0, Landroid/graphics/drawable/AnimatedVectorDrawable$AnimatedVectorDrawableState;->mShouldIgnoreInvalidAnim:Z
 
     if-eqz p1, :cond_5
 
@@ -198,7 +214,7 @@
 .end method
 
 .method private prepareLocalAnimator(I)Landroid/animation/Animator;
-    .locals 5
+    .locals 7
 
     iget-object v4, p0, Landroid/graphics/drawable/AnimatedVectorDrawable$AnimatedVectorDrawableState;->mAnimators:Ljava/util/ArrayList;
 
@@ -226,6 +242,88 @@
 
     move-result-object v2
 
+    iget-boolean v4, p0, Landroid/graphics/drawable/AnimatedVectorDrawable$AnimatedVectorDrawableState;->mShouldIgnoreInvalidAnim:Z
+
+    if-nez v4, :cond_1
+
+    if-nez v2, :cond_0
+
+    new-instance v4, Ljava/lang/IllegalStateException;
+
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v6, "Target with the name \""
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    const-string/jumbo v6, "\" cannot be found in the VectorDrawable to be animated."
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-direct {v4, v5}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+
+    throw v4
+
+    :cond_0
+    instance-of v4, v2, Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;
+
+    if-nez v4, :cond_1
+
+    instance-of v4, v2, Landroid/graphics/drawable/VectorDrawable$VObject;
+
+    xor-int/lit8 v4, v4, 0x1
+
+    if-eqz v4, :cond_1
+
+    new-instance v4, Ljava/lang/UnsupportedOperationException;
+
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v6, "Target should be either VGroup, VPath, or ConstantState, "
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v2}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    const-string/jumbo v6, " is not supported"
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-direct {v4, v5}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
+
+    throw v4
+
+    :cond_1
     invoke-virtual {v1, v2}, Landroid/animation/Animator;->setTarget(Ljava/lang/Object;)V
 
     return-object v1
@@ -336,7 +434,7 @@
 .end method
 
 .method public inflatePendingAnimators(Landroid/content/res/Resources;Landroid/content/res/Resources$Theme;)V
-    .locals 6
+    .locals 8
 
     const/4 v5, 0x0
 
@@ -346,16 +444,16 @@
 
     iput-object v5, p0, Landroid/graphics/drawable/AnimatedVectorDrawable$AnimatedVectorDrawableState;->mPendingAnims:Ljava/util/ArrayList;
 
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
     invoke-virtual {v4}, Ljava/util/ArrayList;->size()I
 
-    move-result v0
+    move-result v1
 
     :goto_0
-    if-ge v1, v0, :cond_0
+    if-ge v2, v1, :cond_0
 
-    invoke-virtual {v4, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    invoke-virtual {v4, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v3
 
@@ -363,13 +461,21 @@
 
     invoke-virtual {v3, p1, p2}, Landroid/graphics/drawable/AnimatedVectorDrawable$AnimatedVectorDrawableState$PendingAnimator;->newInstance(Landroid/content/res/Resources;Landroid/content/res/Resources$Theme;)Landroid/animation/Animator;
 
-    move-result-object v2
+    move-result-object v0
 
     iget-object v5, v3, Landroid/graphics/drawable/AnimatedVectorDrawable$AnimatedVectorDrawableState$PendingAnimator;->target:Ljava/lang/String;
 
-    invoke-virtual {p0, v5, v2}, Landroid/graphics/drawable/AnimatedVectorDrawable$AnimatedVectorDrawableState;->addTargetAnimator(Ljava/lang/String;Landroid/animation/Animator;)V
+    iget-object v6, p0, Landroid/graphics/drawable/AnimatedVectorDrawable$AnimatedVectorDrawableState;->mVectorDrawable:Landroid/graphics/drawable/VectorDrawable;
 
-    add-int/lit8 v1, v1, 0x1
+    iget-boolean v7, p0, Landroid/graphics/drawable/AnimatedVectorDrawable$AnimatedVectorDrawableState;->mShouldIgnoreInvalidAnim:Z
+
+    invoke-static {v0, v5, v6, v7}, Landroid/graphics/drawable/AnimatedVectorDrawable;->-wrap15(Landroid/animation/Animator;Ljava/lang/String;Landroid/graphics/drawable/VectorDrawable;Z)V
+
+    iget-object v5, v3, Landroid/graphics/drawable/AnimatedVectorDrawable$AnimatedVectorDrawableState$PendingAnimator;->target:Ljava/lang/String;
+
+    invoke-virtual {p0, v5, v0}, Landroid/graphics/drawable/AnimatedVectorDrawable$AnimatedVectorDrawableState;->addTargetAnimator(Ljava/lang/String;Landroid/animation/Animator;)V
+
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
@@ -404,32 +510,32 @@
 .method public prepareLocalAnimators(Landroid/animation/AnimatorSet;Landroid/content/res/Resources;)V
     .locals 9
 
-    const/4 v5, 0x0
-
     const/4 v8, 0x0
 
-    iget-object v6, p0, Landroid/graphics/drawable/AnimatedVectorDrawable$AnimatedVectorDrawableState;->mPendingAnims:Ljava/util/ArrayList;
+    const/4 v7, 0x0
 
-    if-eqz v6, :cond_0
+    iget-object v5, p0, Landroid/graphics/drawable/AnimatedVectorDrawable$AnimatedVectorDrawableState;->mPendingAnims:Ljava/util/ArrayList;
+
+    if-eqz v5, :cond_0
 
     if-eqz p2, :cond_1
 
-    invoke-virtual {p0, p2, v8}, Landroid/graphics/drawable/AnimatedVectorDrawable$AnimatedVectorDrawableState;->inflatePendingAnimators(Landroid/content/res/Resources;Landroid/content/res/Resources$Theme;)V
+    invoke-virtual {p0, p2, v7}, Landroid/graphics/drawable/AnimatedVectorDrawable$AnimatedVectorDrawableState;->inflatePendingAnimators(Landroid/content/res/Resources;Landroid/content/res/Resources$Theme;)V
 
     :goto_0
-    iput-object v8, p0, Landroid/graphics/drawable/AnimatedVectorDrawable$AnimatedVectorDrawableState;->mPendingAnims:Ljava/util/ArrayList;
+    iput-object v7, p0, Landroid/graphics/drawable/AnimatedVectorDrawable$AnimatedVectorDrawableState;->mPendingAnims:Ljava/util/ArrayList;
 
     :cond_0
-    iget-object v6, p0, Landroid/graphics/drawable/AnimatedVectorDrawable$AnimatedVectorDrawableState;->mAnimators:Ljava/util/ArrayList;
+    iget-object v5, p0, Landroid/graphics/drawable/AnimatedVectorDrawable$AnimatedVectorDrawableState;->mAnimators:Ljava/util/ArrayList;
 
-    if-nez v6, :cond_2
+    if-nez v5, :cond_2
 
-    move v1, v5
+    const/4 v1, 0x0
 
     :goto_1
     if-lez v1, :cond_3
 
-    invoke-direct {p0, v5}, Landroid/graphics/drawable/AnimatedVectorDrawable$AnimatedVectorDrawableState;->prepareLocalAnimator(I)Landroid/animation/Animator;
+    invoke-direct {p0, v8}, Landroid/graphics/drawable/AnimatedVectorDrawable$AnimatedVectorDrawableState;->prepareLocalAnimator(I)Landroid/animation/Animator;
 
     move-result-object v2
 
@@ -453,18 +559,18 @@
     goto :goto_2
 
     :cond_1
-    const-string/jumbo v6, "AnimatedVectorDrawable"
+    const-string/jumbo v5, "AnimatedVectorDrawable"
 
-    const-string/jumbo v7, "Failed to load animators. Either the AnimatedVectorDrawable must be created using a Resources object or applyTheme() must be called with a non-null Theme object."
+    const-string/jumbo v6, "Failed to load animators. Either the AnimatedVectorDrawable must be created using a Resources object or applyTheme() must be called with a non-null Theme object."
 
-    invoke-static {v6, v7}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v5, v6}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 
     :cond_2
-    iget-object v6, p0, Landroid/graphics/drawable/AnimatedVectorDrawable$AnimatedVectorDrawableState;->mAnimators:Ljava/util/ArrayList;
+    iget-object v5, p0, Landroid/graphics/drawable/AnimatedVectorDrawable$AnimatedVectorDrawableState;->mAnimators:Ljava/util/ArrayList;
 
-    invoke-virtual {v6}, Ljava/util/ArrayList;->size()I
+    invoke-virtual {v5}, Ljava/util/ArrayList;->size()I
 
     move-result v1
 

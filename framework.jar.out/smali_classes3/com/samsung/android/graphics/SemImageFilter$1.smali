@@ -3,12 +3,12 @@
 .source "SemImageFilter.java"
 
 # interfaces
-.implements Ljava/lang/Runnable;
+.implements Landroid/view/View$OnAttachStateChangeListener;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/samsung/android/graphics/SemImageFilter;->addAnimation(Lcom/samsung/android/graphics/SemImageFilter$IAnimationListener;JJLandroid/animation/TimeInterpolator;)I
+    value = Lcom/samsung/android/graphics/SemImageFilter;->postDelayedAnimationTask(Ljava/lang/Runnable;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,32 +20,16 @@
 # instance fields
 .field final synthetic this$0:Lcom/samsung/android/graphics/SemImageFilter;
 
-.field final synthetic val$delay:J
-
-.field final synthetic val$duration:J
-
-.field final synthetic val$id:I
-
-.field final synthetic val$interpolator:Landroid/animation/TimeInterpolator;
-
-.field final synthetic val$listener:Lcom/samsung/android/graphics/SemImageFilter$IAnimationListener;
+.field final synthetic val$task:Ljava/lang/Runnable;
 
 
 # direct methods
-.method constructor <init>(Lcom/samsung/android/graphics/SemImageFilter;Lcom/samsung/android/graphics/SemImageFilter$IAnimationListener;Landroid/animation/TimeInterpolator;IJJ)V
-    .locals 1
+.method constructor <init>(Lcom/samsung/android/graphics/SemImageFilter;Ljava/lang/Runnable;)V
+    .locals 0
 
     iput-object p1, p0, Lcom/samsung/android/graphics/SemImageFilter$1;->this$0:Lcom/samsung/android/graphics/SemImageFilter;
 
-    iput-object p2, p0, Lcom/samsung/android/graphics/SemImageFilter$1;->val$listener:Lcom/samsung/android/graphics/SemImageFilter$IAnimationListener;
-
-    iput-object p3, p0, Lcom/samsung/android/graphics/SemImageFilter$1;->val$interpolator:Landroid/animation/TimeInterpolator;
-
-    iput p4, p0, Lcom/samsung/android/graphics/SemImageFilter$1;->val$id:I
-
-    iput-wide p5, p0, Lcom/samsung/android/graphics/SemImageFilter$1;->val$duration:J
-
-    iput-wide p7, p0, Lcom/samsung/android/graphics/SemImageFilter$1;->val$delay:J
+    iput-object p2, p0, Lcom/samsung/android/graphics/SemImageFilter$1;->val$task:Ljava/lang/Runnable;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -54,28 +38,24 @@
 
 
 # virtual methods
-.method public run()V
-    .locals 8
+.method public onViewAttachedToWindow(Landroid/view/View;)V
+    .locals 1
+
+    iget-object v0, p0, Lcom/samsung/android/graphics/SemImageFilter$1;->val$task:Ljava/lang/Runnable;
+
+    invoke-interface {v0}, Ljava/lang/Runnable;->run()V
 
     iget-object v0, p0, Lcom/samsung/android/graphics/SemImageFilter$1;->this$0:Lcom/samsung/android/graphics/SemImageFilter;
 
-    iget-wide v0, v0, Lcom/samsung/android/graphics/SemImageFilter;->mNativeImageFilter:J
+    iget-object v0, v0, Lcom/samsung/android/graphics/SemImageFilter;->mView:Landroid/view/View;
 
-    new-instance v2, Lcom/samsung/android/graphics/SemImageFilter$ImageFilterAnimator;
+    invoke-virtual {v0, p0}, Landroid/view/View;->removeOnAttachStateChangeListener(Landroid/view/View$OnAttachStateChangeListener;)V
 
-    iget-object v3, p0, Lcom/samsung/android/graphics/SemImageFilter$1;->val$listener:Lcom/samsung/android/graphics/SemImageFilter$IAnimationListener;
+    return-void
+.end method
 
-    iget-object v4, p0, Lcom/samsung/android/graphics/SemImageFilter$1;->val$interpolator:Landroid/animation/TimeInterpolator;
-
-    invoke-direct {v2, v3, v4}, Lcom/samsung/android/graphics/SemImageFilter$ImageFilterAnimator;-><init>(Lcom/samsung/android/graphics/SemImageFilter$IAnimationListener;Landroid/animation/TimeInterpolator;)V
-
-    iget v3, p0, Lcom/samsung/android/graphics/SemImageFilter$1;->val$id:I
-
-    iget-wide v4, p0, Lcom/samsung/android/graphics/SemImageFilter$1;->val$duration:J
-
-    iget-wide v6, p0, Lcom/samsung/android/graphics/SemImageFilter$1;->val$delay:J
-
-    invoke-static/range {v0 .. v7}, Lcom/samsung/android/graphics/SemImageFilter;->-wrap0(JLcom/samsung/android/graphics/SemImageFilter$ImageFilterAnimator;IJJ)V
+.method public onViewDetachedFromWindow(Landroid/view/View;)V
+    .locals 0
 
     return-void
 .end method

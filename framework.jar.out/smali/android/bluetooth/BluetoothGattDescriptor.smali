@@ -266,6 +266,14 @@
     return-void
 .end method
 
+.method public setInstanceId(I)V
+    .locals 0
+
+    iput p1, p0, Landroid/bluetooth/BluetoothGattDescriptor;->mInstance:I
+
+    return-void
+.end method
+
 .method public setValue([B)Z
     .locals 1
 

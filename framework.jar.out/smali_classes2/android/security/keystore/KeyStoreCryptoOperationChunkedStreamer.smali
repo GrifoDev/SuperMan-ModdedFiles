@@ -396,7 +396,7 @@
     :try_start_0
     iget-object v5, v3, Landroid/security/keymaster/OperationResult;->output:[B
 
-    invoke-virtual {v0, v5}, Ljava/io/OutputStream;->write([B)V
+    invoke-virtual {v0, v5}, Ljava/io/ByteArrayOutputStream;->write([B)V
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -628,7 +628,7 @@
     :try_start_0
     iget-object v0, v9, Landroid/security/keymaster/OperationResult;->output:[B
 
-    invoke-virtual {v6, v0}, Ljava/io/OutputStream;->write([B)V
+    invoke-virtual {v6, v0}, Ljava/io/ByteArrayOutputStream;->write([B)V
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -785,7 +785,7 @@
     :try_start_1
     iget-object v0, v9, Landroid/security/keymaster/OperationResult;->output:[B
 
-    invoke-virtual {v6, v0}, Ljava/io/OutputStream;->write([B)V
+    invoke-virtual {v6, v0}, Ljava/io/ByteArrayOutputStream;->write([B)V
     :try_end_1
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_1
 

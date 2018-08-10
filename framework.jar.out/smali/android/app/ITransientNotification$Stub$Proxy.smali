@@ -91,7 +91,7 @@
     throw v1
 .end method
 
-.method public show()V
+.method public show(Landroid/os/IBinder;)V
     .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -107,6 +107,8 @@
     const-string/jumbo v1, "android.app.ITransientNotification"
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
     iget-object v1, p0, Landroid/app/ITransientNotification$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 

@@ -36,7 +36,7 @@
 .method private getTextForAccessibility()Ljava/lang/CharSequence;
     .locals 3
 
-    invoke-virtual {p0}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
+    invoke-virtual {p0}, Lcom/samsung/android/widget/SemNumberPicker$CustomEditText;->getText()Landroid/text/Editable;
 
     move-result-object v0
 
@@ -139,7 +139,7 @@
 
     if-ne p1, v0, :cond_0
 
-    invoke-virtual {p0}, Landroid/view/View;->clearFocus()V
+    invoke-virtual {p0}, Lcom/samsung/android/widget/SemNumberPicker$CustomEditText;->clearFocus()V
 
     :cond_0
     return-void
@@ -162,7 +162,7 @@
 .method public onPopulateAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)V
     .locals 6
 
-    invoke-virtual {p1}, Landroid/view/accessibility/AccessibilityRecord;->getText()Ljava/util/List;
+    invoke-virtual {p1}, Landroid/view/accessibility/AccessibilityEvent;->getText()Ljava/util/List;
 
     move-result-object v4
 
@@ -172,7 +172,7 @@
 
     invoke-super {p0, p1}, Landroid/widget/EditText;->onPopulateAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)V
 
-    invoke-virtual {p1}, Landroid/view/accessibility/AccessibilityRecord;->getText()Ljava/util/List;
+    invoke-virtual {p1}, Landroid/view/accessibility/AccessibilityEvent;->getText()Ljava/util/List;
 
     move-result-object v4
 
@@ -182,7 +182,7 @@
 
     if-le v1, v2, :cond_0
 
-    invoke-virtual {p1}, Landroid/view/accessibility/AccessibilityRecord;->getText()Ljava/util/List;
+    invoke-virtual {p1}, Landroid/view/accessibility/AccessibilityEvent;->getText()Ljava/util/List;
 
     move-result-object v4
 
@@ -204,7 +204,7 @@
     if-ne v0, v4, :cond_3
 
     :cond_1
-    invoke-virtual {p0}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
+    invoke-virtual {p0}, Lcom/samsung/android/widget/SemNumberPicker$CustomEditText;->getText()Landroid/text/Editable;
 
     move-result-object v3
 
@@ -215,7 +215,7 @@
 
     if-nez v4, :cond_2
 
-    invoke-virtual {p1}, Landroid/view/accessibility/AccessibilityRecord;->getText()Ljava/util/List;
+    invoke-virtual {p1}, Landroid/view/accessibility/AccessibilityEvent;->getText()Ljava/util/List;
 
     move-result-object v4
 

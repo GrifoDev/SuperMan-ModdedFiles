@@ -81,7 +81,7 @@
     :try_start_0
     iget-object v0, p0, Landroid/security/keystore/AndroidKeyStoreAuthenticatedAESCipherSpi$BufferAllOutputUntilDoFinalStreamer;->mBufferedOutput:Ljava/io/ByteArrayOutputStream;
 
-    invoke-virtual {v0, v7}, Ljava/io/OutputStream;->write([B)V
+    invoke-virtual {v0, v7}, Ljava/io/ByteArrayOutputStream;->write([B)V
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -159,7 +159,7 @@
     :try_start_0
     iget-object v2, p0, Landroid/security/keystore/AndroidKeyStoreAuthenticatedAESCipherSpi$BufferAllOutputUntilDoFinalStreamer;->mBufferedOutput:Ljava/io/ByteArrayOutputStream;
 
-    invoke-virtual {v2, v1}, Ljava/io/OutputStream;->write([B)V
+    invoke-virtual {v2, v1}, Ljava/io/ByteArrayOutputStream;->write([B)V
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 

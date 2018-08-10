@@ -23,24 +23,9 @@
 
 .field fragment:Landroid/app/Fragment;
 
-.field next:Landroid/app/BackStackRecord$Op;
-
 .field popEnterAnim:I
 
 .field popExitAnim:I
-
-.field prev:Landroid/app/BackStackRecord$Op;
-
-.field removed:Ljava/util/ArrayList;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/ArrayList",
-            "<",
-            "Landroid/app/Fragment;",
-            ">;"
-        }
-    .end annotation
-.end field
 
 
 # direct methods
@@ -48,6 +33,18 @@
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    return-void
+.end method
+
+.method constructor <init>(ILandroid/app/Fragment;)V
+    .locals 0
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput p1, p0, Landroid/app/BackStackRecord$Op;->cmd:I
+
+    iput-object p2, p0, Landroid/app/BackStackRecord$Op;->fragment:Landroid/app/Fragment;
 
     return-void
 .end method

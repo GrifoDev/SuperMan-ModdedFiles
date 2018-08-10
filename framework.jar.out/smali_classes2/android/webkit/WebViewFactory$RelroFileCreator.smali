@@ -246,9 +246,6 @@
 
     move-result v2
 
-    if-eqz v2, :cond_5
-
-    :cond_5
     :try_start_5
     invoke-static {}, Landroid/webkit/WebViewFactory;->getUpdateService()Landroid/webkit/IWebViewUpdateService;
 
@@ -259,7 +256,7 @@
     .catch Landroid/os/RemoteException; {:try_start_5 .. :try_end_5} :catch_2
 
     :goto_2
-    if-nez v2, :cond_6
+    if-nez v2, :cond_5
 
     const-string/jumbo v3, "WebViewFactory"
 
@@ -267,7 +264,7 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_6
+    :cond_5
     invoke-static {v7}, Ljava/lang/System;->exit(I)V
 
     return-void
@@ -296,7 +293,7 @@
     .catch Landroid/os/RemoteException; {:try_start_6 .. :try_end_6} :catch_3
 
     :goto_3
-    if-nez v2, :cond_7
+    if-nez v2, :cond_6
 
     const-string/jumbo v4, "WebViewFactory"
 
@@ -304,7 +301,7 @@
 
     invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_7
+    :cond_6
     invoke-static {v7}, Ljava/lang/System;->exit(I)V
 
     throw v3

@@ -61,6 +61,8 @@
     throw v1
 
     :cond_1
+    invoke-static {p3}, Landroid/graphics/BitmapFactory$Options;->validate(Landroid/graphics/BitmapFactory$Options;)V
+
     const-string/jumbo v1, "decodeBitmap"
 
     invoke-static {v4, v5, v1}, Landroid/os/Trace;->traceBegin(JLjava/lang/String;)V
@@ -120,6 +122,8 @@
 
 .method public static decodeFile(Ljava/lang/String;Landroid/graphics/BitmapFactory$Options;)Landroid/graphics/Bitmap;
     .locals 19
+
+    invoke-static/range {p1 .. p1}, Landroid/graphics/BitmapFactory$Options;->validate(Landroid/graphics/BitmapFactory$Options;)V
 
     const/4 v2, 0x0
 
@@ -533,6 +537,8 @@
 
     const-wide/16 v6, 0x2
 
+    invoke-static {p2}, Landroid/graphics/BitmapFactory$Options;->validate(Landroid/graphics/BitmapFactory$Options;)V
+
     const-string/jumbo v3, "decodeFileDescriptor"
 
     invoke-static {v6, v7, v3}, Landroid/os/Trace;->traceBegin(JLjava/lang/String;)V
@@ -645,6 +651,8 @@
 .method public static decodeResource(Landroid/content/res/Resources;ILandroid/graphics/BitmapFactory$Options;)Landroid/graphics/Bitmap;
     .locals 7
 
+    invoke-static {p2}, Landroid/graphics/BitmapFactory$Options;->validate(Landroid/graphics/BitmapFactory$Options;)V
+
     const/4 v0, 0x0
 
     const/4 v3, 0x0
@@ -740,6 +748,8 @@
 .method public static decodeResourceStream(Landroid/content/res/Resources;Landroid/util/TypedValue;Ljava/io/InputStream;Landroid/graphics/Rect;Landroid/graphics/BitmapFactory$Options;)Landroid/graphics/Bitmap;
     .locals 2
 
+    invoke-static {p4}, Landroid/graphics/BitmapFactory$Options;->validate(Landroid/graphics/BitmapFactory$Options;)V
+
     if-nez p4, :cond_0
 
     new-instance p4, Landroid/graphics/BitmapFactory$Options;
@@ -818,6 +828,8 @@
     return-object v3
 
     :cond_0
+    invoke-static {p2}, Landroid/graphics/BitmapFactory$Options;->validate(Landroid/graphics/BitmapFactory$Options;)V
+
     const/4 v2, 0x0
 
     const-string/jumbo v3, "decodeBitmap"

@@ -37,7 +37,7 @@
 
     const-string/jumbo v0, "android.security.IKeyChainAliasCallback"
 
-    invoke-virtual {p0, p0, v0}, Landroid/os/Binder;->attachInterface(Landroid/os/IInterface;Ljava/lang/String;)V
+    invoke-virtual {p0, p0, v0}, Landroid/security/IKeyChainAliasCallback$Stub;->attachInterface(Landroid/os/IInterface;Ljava/lang/String;)V
 
     return-void
 .end method
@@ -120,11 +120,7 @@
 
     invoke-virtual {p0, v0}, Landroid/security/IKeyChainAliasCallback$Stub;->alias(Ljava/lang/String;)V
 
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
     return v2
-
-    nop
 
     :sswitch_data_0
     .sparse-switch

@@ -49,7 +49,25 @@
 
     move-result v1
 
+    invoke-static {v0, v1}, Landroid/location/GnssMeasurement;->-set10(Landroid/location/GnssMeasurement;I)I
+
+    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
+
+    move-result v1
+
+    invoke-static {v0, v1}, Landroid/location/GnssMeasurement;->-set18(Landroid/location/GnssMeasurement;I)I
+
+    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
+
+    move-result v1
+
     invoke-static {v0, v1}, Landroid/location/GnssMeasurement;->-set9(Landroid/location/GnssMeasurement;I)I
+
+    invoke-virtual {p1}, Landroid/os/Parcel;->readDouble()D
+
+    move-result-wide v2
+
+    invoke-static {v0, v2, v3}, Landroid/location/GnssMeasurement;->-set19(Landroid/location/GnssMeasurement;D)D
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
@@ -57,53 +75,35 @@
 
     invoke-static {v0, v1}, Landroid/location/GnssMeasurement;->-set17(Landroid/location/GnssMeasurement;I)I
 
-    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
-
-    move-result v1
-
-    invoke-static {v0, v1}, Landroid/location/GnssMeasurement;->-set8(Landroid/location/GnssMeasurement;I)I
-
-    invoke-virtual {p1}, Landroid/os/Parcel;->readDouble()D
-
-    move-result-wide v2
-
-    invoke-static {v0, v2, v3}, Landroid/location/GnssMeasurement;->-set18(Landroid/location/GnssMeasurement;D)D
-
-    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
-
-    move-result v1
-
-    invoke-static {v0, v1}, Landroid/location/GnssMeasurement;->-set16(Landroid/location/GnssMeasurement;I)I
-
-    invoke-virtual {p1}, Landroid/os/Parcel;->readLong()J
-
-    move-result-wide v2
-
-    invoke-static {v0, v2, v3}, Landroid/location/GnssMeasurement;->-set13(Landroid/location/GnssMeasurement;J)J
-
     invoke-virtual {p1}, Landroid/os/Parcel;->readLong()J
 
     move-result-wide v2
 
     invoke-static {v0, v2, v3}, Landroid/location/GnssMeasurement;->-set14(Landroid/location/GnssMeasurement;J)J
 
+    invoke-virtual {p1}, Landroid/os/Parcel;->readLong()J
+
+    move-result-wide v2
+
+    invoke-static {v0, v2, v3}, Landroid/location/GnssMeasurement;->-set15(Landroid/location/GnssMeasurement;J)J
+
     invoke-virtual {p1}, Landroid/os/Parcel;->readDouble()D
 
     move-result-wide v2
 
-    invoke-static {v0, v2, v3}, Landroid/location/GnssMeasurement;->-set7(Landroid/location/GnssMeasurement;D)D
-
-    invoke-virtual {p1}, Landroid/os/Parcel;->readDouble()D
-
-    move-result-wide v2
-
-    invoke-static {v0, v2, v3}, Landroid/location/GnssMeasurement;->-set11(Landroid/location/GnssMeasurement;D)D
+    invoke-static {v0, v2, v3}, Landroid/location/GnssMeasurement;->-set8(Landroid/location/GnssMeasurement;D)D
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readDouble()D
 
     move-result-wide v2
 
     invoke-static {v0, v2, v3}, Landroid/location/GnssMeasurement;->-set12(Landroid/location/GnssMeasurement;D)D
+
+    invoke-virtual {p1}, Landroid/os/Parcel;->readDouble()D
+
+    move-result-wide v2
+
+    invoke-static {v0, v2, v3}, Landroid/location/GnssMeasurement;->-set13(Landroid/location/GnssMeasurement;D)D
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
@@ -127,19 +127,13 @@
 
     move-result v1
 
-    invoke-static {v0, v1}, Landroid/location/GnssMeasurement;->-set4(Landroid/location/GnssMeasurement;F)F
+    invoke-static {v0, v1}, Landroid/location/GnssMeasurement;->-set5(Landroid/location/GnssMeasurement;F)F
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readLong()J
 
     move-result-wide v2
 
-    invoke-static {v0, v2, v3}, Landroid/location/GnssMeasurement;->-set3(Landroid/location/GnssMeasurement;J)J
-
-    invoke-virtual {p1}, Landroid/os/Parcel;->readDouble()D
-
-    move-result-wide v2
-
-    invoke-static {v0, v2, v3}, Landroid/location/GnssMeasurement;->-set5(Landroid/location/GnssMeasurement;D)D
+    invoke-static {v0, v2, v3}, Landroid/location/GnssMeasurement;->-set4(Landroid/location/GnssMeasurement;J)J
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readDouble()D
 
@@ -147,17 +141,29 @@
 
     invoke-static {v0, v2, v3}, Landroid/location/GnssMeasurement;->-set6(Landroid/location/GnssMeasurement;D)D
 
+    invoke-virtual {p1}, Landroid/os/Parcel;->readDouble()D
+
+    move-result-wide v2
+
+    invoke-static {v0, v2, v3}, Landroid/location/GnssMeasurement;->-set7(Landroid/location/GnssMeasurement;D)D
+
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
 
-    invoke-static {v0, v1}, Landroid/location/GnssMeasurement;->-set10(Landroid/location/GnssMeasurement;I)I
+    invoke-static {v0, v1}, Landroid/location/GnssMeasurement;->-set11(Landroid/location/GnssMeasurement;I)I
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readDouble()D
 
     move-result-wide v2
 
-    invoke-static {v0, v2, v3}, Landroid/location/GnssMeasurement;->-set15(Landroid/location/GnssMeasurement;D)D
+    invoke-static {v0, v2, v3}, Landroid/location/GnssMeasurement;->-set16(Landroid/location/GnssMeasurement;D)D
+
+    invoke-virtual {p1}, Landroid/os/Parcel;->readDouble()D
+
+    move-result-wide v2
+
+    invoke-static {v0, v2, v3}, Landroid/location/GnssMeasurement;->-set3(Landroid/location/GnssMeasurement;D)D
 
     return-object v0
 .end method

@@ -54,26 +54,31 @@
 .method private processImageFilter(Lcom/samsung/android/graphics/SemImageFilter;)V
     .locals 9
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_2
 
-    instance-of v0, p1, Lcom/samsung/android/graphics/SemImageFilterSet;
+    const/4 v7, 0x0
+
+    instance-of v0, p1, Lcom/samsung/android/graphics/SemGenericImageFilter;
 
     if-eqz v0, :cond_0
 
-    move-object v7, p1
+    check-cast p1, Lcom/samsung/android/graphics/SemGenericImageFilter;
 
-    nop
+    invoke-virtual {p1}, Lcom/samsung/android/graphics/SemGenericImageFilter;->getFiltersSet()Lcom/samsung/android/graphics/SemImageFilterSet;
 
-    nop
+    move-result-object v7
+
+    :goto_0
+    if-eqz v7, :cond_2
 
     const/4 v8, 0x0
 
-    :goto_0
+    :goto_1
     invoke-virtual {v7}, Lcom/samsung/android/graphics/SemImageFilterSet;->getFilterCount()I
 
     move-result v0
 
-    if-ge v8, v0, :cond_1
+    if-ge v8, v0, :cond_2
 
     invoke-virtual {v7, v8}, Lcom/samsung/android/graphics/SemImageFilterSet;->getFilterAt(I)Lcom/samsung/android/graphics/SemImageFilter;
 
@@ -83,9 +88,20 @@
 
     add-int/lit8 v8, v8, 0x1
 
-    goto :goto_0
+    goto :goto_1
 
     :cond_0
+    instance-of v0, p1, Lcom/samsung/android/graphics/SemImageFilterSet;
+
+    if-eqz v0, :cond_1
+
+    move-object v7, p1
+
+    check-cast v7, Lcom/samsung/android/graphics/SemImageFilterSet;
+
+    goto :goto_0
+
+    :cond_1
     iget-object v0, p0, Landroid/view/ImageFilterBridge;->mHwuiBridge:Landroid/view/HwuiBridge;
 
     invoke-virtual {v0}, Landroid/view/HwuiBridge;->getNativeRenderNode()J
@@ -106,7 +122,9 @@
 
     invoke-static/range {v0 .. v6}, Landroid/view/ImageFilterBridge;->nSetImageFilter(JJJI)V
 
-    :cond_1
+    return-void
+
+    :cond_2
     return-void
 .end method
 
@@ -163,13 +181,28 @@
 .end method
 
 .method draw(Landroid/graphics/Canvas;)V
-    .locals 1
+    .locals 2
+
+    invoke-virtual {p1}, Landroid/graphics/Canvas;->isHardwareAccelerated()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Landroid/view/ImageFilterBridge;->mHwuiBridge:Landroid/view/HwuiBridge;
 
     invoke-virtual {v0, p1}, Landroid/view/HwuiBridge;->draw(Landroid/graphics/Canvas;)V
 
     return-void
+
+    :cond_0
+    new-instance v0, Ljava/lang/IllegalStateException;
+
+    const-string/jumbo v1, "Can\'t run on non-hardware accelerated canvas. Canvas must be instance of DisplayListCanvas!"
+
+    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+
+    throw v0
 .end method
 
 .method setImageFilter(Lcom/samsung/android/graphics/SemImageFilter;)V

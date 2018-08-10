@@ -37,6 +37,12 @@
     return-void
 .end method
 
+.method public onAudioRouteChanged(Landroid/telecom/Connection;I)V
+    .locals 0
+
+    return-void
+.end method
+
 .method public onCallerDisplayNameChanged(Landroid/telecom/Connection;Ljava/lang/String;I)V
     .locals 0
 
@@ -72,6 +78,12 @@
 .end method
 
 .method public onConferenceStarted()V
+    .locals 0
+
+    return-void
+.end method
+
+.method public onConferenceSupportedChanged(Landroid/telecom/Connection;Z)V
     .locals 0
 
     return-void
@@ -157,7 +169,31 @@
     return-void
 .end method
 
+.method public onRemoteRttRequest(Landroid/telecom/Connection;)V
+    .locals 0
+
+    return-void
+.end method
+
 .method public onRingbackRequested(Landroid/telecom/Connection;Z)V
+    .locals 0
+
+    return-void
+.end method
+
+.method public onRttInitiationFailure(Landroid/telecom/Connection;I)V
+    .locals 0
+
+    return-void
+.end method
+
+.method public onRttInitiationSuccess(Landroid/telecom/Connection;)V
+    .locals 0
+
+    return-void
+.end method
+
+.method public onRttSessionRemotelyTerminated(Landroid/telecom/Connection;)V
     .locals 0
 
     return-void
@@ -170,6 +206,12 @@
 .end method
 
 .method public onStatusHintsChanged(Landroid/telecom/Connection;Landroid/telecom/StatusHints;)V
+    .locals 0
+
+    return-void
+.end method
+
+.method public onSupportedAudioRoutesChanged(Landroid/telecom/Connection;I)V
     .locals 0
 
     return-void

@@ -85,46 +85,50 @@
 .end method
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    .locals 4
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    const/4 v3, 0x1
+    const/4 v4, 0x1
 
     sparse-switch p1, :sswitch_data_0
 
     invoke-super {p0, p1, p2, p3, p4}, Landroid/os/Binder;->onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    move-result v2
-
-    return v2
-
-    :sswitch_0
-    const-string/jumbo v2, "android.hardware.fingerprint.IFingerprintServiceLockoutResetCallback"
-
-    invoke-virtual {p3, v2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    move-result v3
 
     return v3
 
-    :sswitch_1
-    const-string/jumbo v2, "android.hardware.fingerprint.IFingerprintServiceLockoutResetCallback"
+    :sswitch_0
+    const-string/jumbo v3, "android.hardware.fingerprint.IFingerprintServiceLockoutResetCallback"
 
-    invoke-virtual {p2, v2}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p3, v3}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+
+    return v4
+
+    :sswitch_1
+    const-string/jumbo v3, "android.hardware.fingerprint.IFingerprintServiceLockoutResetCallback"
+
+    invoke-virtual {p2, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readLong()J
 
     move-result-wide v0
 
-    invoke-virtual {p0, v0, v1}, Landroid/hardware/fingerprint/IFingerprintServiceLockoutResetCallback$Stub;->onLockoutReset(J)V
+    invoke-virtual {p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+    move-result-object v3
 
-    return v3
+    invoke-static {v3}, Landroid/os/IRemoteCallback$Stub;->asInterface(Landroid/os/IBinder;)Landroid/os/IRemoteCallback;
 
-    nop
+    move-result-object v2
+
+    invoke-virtual {p0, v0, v1, v2}, Landroid/hardware/fingerprint/IFingerprintServiceLockoutResetCallback$Stub;->onLockoutReset(JLandroid/os/IRemoteCallback;)V
+
+    return v4
 
     :sswitch_data_0
     .sparse-switch

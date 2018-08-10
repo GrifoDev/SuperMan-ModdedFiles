@@ -1,11 +1,11 @@
 .class Landroid/app/EnterTransitionCoordinator$6;
-.super Landroid/transition/Transition$TransitionListenerAdapter;
+.super Landroid/animation/AnimatorListenerAdapter;
 .source "EnterTransitionCoordinator.java"
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Landroid/app/EnterTransitionCoordinator;->beginTransition(Landroid/view/ViewGroup;ZZ)Landroid/transition/Transition;
+    value = Landroid/app/EnterTransitionCoordinator;->startEnterTransition(Landroid/transition/Transition;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -24,31 +24,23 @@
 
     iput-object p1, p0, Landroid/app/EnterTransitionCoordinator$6;->this$0:Landroid/app/EnterTransitionCoordinator;
 
-    invoke-direct {p0}, Landroid/transition/Transition$TransitionListenerAdapter;-><init>()V
+    invoke-direct {p0}, Landroid/animation/AnimatorListenerAdapter;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onTransitionEnd(Landroid/transition/Transition;)V
-    .locals 1
-
-    invoke-virtual {p1, p0}, Landroid/transition/Transition;->removeListener(Landroid/transition/Transition$TransitionListener;)Landroid/transition/Transition;
-
-    iget-object v0, p0, Landroid/app/EnterTransitionCoordinator$6;->this$0:Landroid/app/EnterTransitionCoordinator;
-
-    invoke-virtual {v0}, Landroid/app/EnterTransitionCoordinator;->sharedElementTransitionComplete()V
-
-    return-void
-.end method
-
-.method public onTransitionStart(Landroid/transition/Transition;)V
+.method public onAnimationEnd(Landroid/animation/Animator;)V
     .locals 1
 
     iget-object v0, p0, Landroid/app/EnterTransitionCoordinator$6;->this$0:Landroid/app/EnterTransitionCoordinator;
 
-    invoke-static {v0}, Landroid/app/EnterTransitionCoordinator;->-wrap2(Landroid/app/EnterTransitionCoordinator;)V
+    invoke-static {v0}, Landroid/app/EnterTransitionCoordinator;->-wrap1(Landroid/app/EnterTransitionCoordinator;)V
+
+    iget-object v0, p0, Landroid/app/EnterTransitionCoordinator$6;->this$0:Landroid/app/EnterTransitionCoordinator;
+
+    invoke-virtual {v0}, Landroid/app/EnterTransitionCoordinator;->backgroundAnimatorComplete()V
 
     return-void
 .end method

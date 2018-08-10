@@ -99,6 +99,9 @@
 .method public abstract onFocusChanged(ZILandroid/graphics/Rect;)V
 .end method
 
+.method public abstract onGenericMotionEvent(Landroid/view/MotionEvent;)Z
+.end method
+
 .method public abstract onInitializeAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)V
 .end method
 

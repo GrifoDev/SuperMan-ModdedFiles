@@ -7,8 +7,8 @@
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroid/widget/ScrollView;
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Landroid/widget/ScrollView;->dispatchTouchEvent(Landroid/view/MotionEvent;)Z
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -35,11 +35,13 @@
 
 # virtual methods
 .method public run()V
-    .locals 1
+    .locals 2
+
+    const/4 v1, 0x0
 
     iget-object v0, p0, Landroid/widget/ScrollView$4;->this$0:Landroid/widget/ScrollView;
 
-    invoke-static {v0}, Landroid/widget/ScrollView;->-wrap1(Landroid/widget/ScrollView;)V
+    invoke-virtual {v0, v1, v1}, Landroid/widget/ScrollView;->smoothScrollTo(II)V
 
     return-void
 .end method

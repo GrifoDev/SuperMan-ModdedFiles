@@ -205,10 +205,6 @@
 
     iput v5, p0, Landroid/view/MotionEvent$PointerCoords;->palm:F
 
-    iget v5, p1, Landroid/view/MotionEvent$PointerCoords;->grip:F
-
-    iput v5, p0, Landroid/view/MotionEvent$PointerCoords;->grip:F
-
     return-void
 .end method
 

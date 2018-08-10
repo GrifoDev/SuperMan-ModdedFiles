@@ -17,7 +17,7 @@
     value = {
         "Landroid/app/SystemServiceRegistry$CachedServiceFetcher",
         "<",
-        "Landroid/nfc/NfcManager;",
+        "Landroid/app/DownloadManager;",
         ">;"
     }
 .end annotation
@@ -34,20 +34,25 @@
 
 
 # virtual methods
-.method public createService(Landroid/app/ContextImpl;)Landroid/nfc/NfcManager;
+.method public createService(Landroid/app/ContextImpl;)Landroid/app/DownloadManager;
     .locals 1
 
-    new-instance v0, Landroid/nfc/NfcManager;
+    new-instance v0, Landroid/app/DownloadManager;
 
-    invoke-direct {v0, p1}, Landroid/nfc/NfcManager;-><init>(Landroid/content/Context;)V
+    invoke-direct {v0, p1}, Landroid/app/DownloadManager;-><init>(Landroid/content/Context;)V
 
     return-object v0
 .end method
 
 .method public bridge synthetic createService(Landroid/app/ContextImpl;)Ljava/lang/Object;
     .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/ServiceManager$ServiceNotFoundException;
+        }
+    .end annotation
 
-    invoke-virtual {p0, p1}, Landroid/app/SystemServiceRegistry$18;->createService(Landroid/app/ContextImpl;)Landroid/nfc/NfcManager;
+    invoke-virtual {p0, p1}, Landroid/app/SystemServiceRegistry$18;->createService(Landroid/app/ContextImpl;)Landroid/app/DownloadManager;
 
     move-result-object v0
 

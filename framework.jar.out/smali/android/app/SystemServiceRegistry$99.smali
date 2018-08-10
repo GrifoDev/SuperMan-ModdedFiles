@@ -17,7 +17,7 @@
     value = {
         "Landroid/app/SystemServiceRegistry$CachedServiceFetcher",
         "<",
-        "Landroid/os/SemHqmManager;",
+        "Lcom/samsung/android/contextaware/ContextAwareManager;",
         ">;"
     }
 .end annotation
@@ -34,45 +34,35 @@
 
 
 # virtual methods
-.method public createService(Landroid/app/ContextImpl;)Landroid/os/SemHqmManager;
-    .locals 4
+.method public createService(Landroid/app/ContextImpl;)Lcom/samsung/android/contextaware/ContextAwareManager;
+    .locals 2
 
-    const-string/jumbo v2, "HqmManagerService"
+    new-instance v0, Lcom/samsung/android/contextaware/ContextAwareManager;
 
-    invoke-static {v2}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
+    iget-object v1, p1, Landroid/app/ContextImpl;->mMainThread:Landroid/app/ActivityThread;
 
-    move-result-object v0
-
-    invoke-static {v0}, Landroid/os/ISemHqmManager$Stub;->asInterface(Landroid/os/IBinder;)Landroid/os/ISemHqmManager;
+    invoke-virtual {v1}, Landroid/app/ActivityThread;->getHandler()Landroid/os/Handler;
 
     move-result-object v1
 
-    if-nez v1, :cond_0
+    invoke-virtual {v1}, Landroid/os/Handler;->getLooper()Landroid/os/Looper;
 
-    const-string/jumbo v2, "SystemServiceRegistry"
+    move-result-object v1
 
-    const-string/jumbo v3, "Failed to get Hqm manager service."
+    invoke-direct {v0, v1}, Lcom/samsung/android/contextaware/ContextAwareManager;-><init>(Landroid/os/Looper;)V
 
-    invoke-static {v2, v3}, Landroid/util/Log;->wtf(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_0
-    new-instance v2, Landroid/os/SemHqmManager;
-
-    iget-object v3, p1, Landroid/app/ContextImpl;->mMainThread:Landroid/app/ActivityThread;
-
-    invoke-virtual {v3}, Landroid/app/ActivityThread;->getHandler()Landroid/os/Handler;
-
-    move-result-object v3
-
-    invoke-direct {v2, v1, v3}, Landroid/os/SemHqmManager;-><init>(Landroid/os/ISemHqmManager;Landroid/os/Handler;)V
-
-    return-object v2
+    return-object v0
 .end method
 
 .method public bridge synthetic createService(Landroid/app/ContextImpl;)Ljava/lang/Object;
     .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/ServiceManager$ServiceNotFoundException;
+        }
+    .end annotation
 
-    invoke-virtual {p0, p1}, Landroid/app/SystemServiceRegistry$99;->createService(Landroid/app/ContextImpl;)Landroid/os/SemHqmManager;
+    invoke-virtual {p0, p1}, Landroid/app/SystemServiceRegistry$99;->createService(Landroid/app/ContextImpl;)Lcom/samsung/android/contextaware/ContextAwareManager;
 
     move-result-object v0
 

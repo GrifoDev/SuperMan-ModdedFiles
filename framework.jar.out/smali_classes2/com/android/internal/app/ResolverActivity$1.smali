@@ -31,20 +31,26 @@
 
 
 # virtual methods
+.method public onPackageChanged(Ljava/lang/String;I[Ljava/lang/String;)Z
+    .locals 1
+
+    const/4 v0, 0x1
+
+    return v0
+.end method
+
 .method public onSomePackagesChanged()V
     .locals 1
 
     iget-object v0, p0, Lcom/android/internal/app/ResolverActivity$1;->this$0:Lcom/android/internal/app/ResolverActivity;
 
-    invoke-static {v0}, Lcom/android/internal/app/ResolverActivity;->-get1(Lcom/android/internal/app/ResolverActivity;)Lcom/android/internal/app/ResolverActivity$ResolveListAdapter;
-
-    move-result-object v0
+    iget-object v0, v0, Lcom/android/internal/app/ResolverActivity;->mAdapter:Lcom/android/internal/app/ResolverActivity$ResolveListAdapter;
 
     invoke-virtual {v0}, Lcom/android/internal/app/ResolverActivity$ResolveListAdapter;->handlePackagesChanged()V
 
     iget-object v0, p0, Lcom/android/internal/app/ResolverActivity$1;->this$0:Lcom/android/internal/app/ResolverActivity;
 
-    invoke-static {v0}, Lcom/android/internal/app/ResolverActivity;->-get15(Lcom/android/internal/app/ResolverActivity;)Landroid/view/View;
+    invoke-static {v0}, Lcom/android/internal/app/ResolverActivity;->-get8(Lcom/android/internal/app/ResolverActivity;)Landroid/view/View;
 
     move-result-object v0
 

@@ -12,6 +12,14 @@
 
 .field private static final DATA_INJECTION_SHIFT:I = 0x4
 
+.field private static final DIRECT_CHANNEL_MASK:I = 0xc00
+
+.field private static final DIRECT_CHANNEL_SHIFT:I = 0xa
+
+.field private static final DIRECT_REPORT_MASK:I = 0x380
+
+.field private static final DIRECT_REPORT_SHIFT:I = 0x7
+
 .field private static final DYNAMIC_SENSOR_MASK:I = 0x20
 
 .field private static final DYNAMIC_SENSOR_SHIFT:I = 0x5
@@ -30,6 +38,8 @@
 
 .field public static final SEM_TYPE_HEART_RATE:I = 0x1001a
 
+.field public static final SEM_TYPE_LIGHT_CCT:I = 0x10033
+
 .field private static final SENSOR_FLAG_WAKE_UP_SENSOR:I = 0x1
 
 .field public static final SENSOR_STRING_TYPE_TILT_DETECTOR:Ljava/lang/String; = "android.sensor.tilt_detector"
@@ -39,6 +49,8 @@
 .field public static final SENSOR_TYPE_DEVICE_PRIVATE_BASE:I = 0x10000
 
 .field public static final STRING_TYPE_ACCELEROMETER:Ljava/lang/String; = "android.sensor.accelerometer"
+
+.field public static final STRING_TYPE_ACCELEROMETER_UNCALIBRATED:Ljava/lang/String; = "android.sensor.accelerometer_uncalibrated"
 
 .field public static final STRING_TYPE_AMBIENT_TEMPERATURE:Ljava/lang/String; = "android.sensor.ambient_temperature"
 
@@ -65,6 +77,8 @@
 .field public static final STRING_TYPE_LIGHT:Ljava/lang/String; = "android.sensor.light"
 
 .field public static final STRING_TYPE_LINEAR_ACCELERATION:Ljava/lang/String; = "android.sensor.linear_acceleration"
+
+.field public static final STRING_TYPE_LOW_LATENCY_OFFBODY_DETECT:Ljava/lang/String; = "android.sensor.low_latency_offbody_detect"
 
 .field public static final STRING_TYPE_MAGNETIC_FIELD:Ljava/lang/String; = "android.sensor.magnetic_field"
 
@@ -108,11 +122,15 @@
 
 .field public static final TYPE_ACCELEROMETER:I = 0x1
 
+.field public static final TYPE_ACCELEROMETER_UNCALIBRATED:I = 0x23
+
 .field public static final TYPE_ALL:I = -0x1
 
 .field public static final TYPE_AMBIENT_TEMPERATURE:I = 0xd
 
 .field public static final TYPE_BIO:I = 0x10019
+
+.field public static final TYPE_BIO_ALC:I = 0x10029
 
 .field public static final TYPE_BIO_LED_GREEN:I = 0x10025
 
@@ -132,6 +150,8 @@
 
 .field public static final TYPE_DYNAMIC_SENSOR_META:I = 0x20
 
+.field public static final TYPE_ELECTROCARDIOGRAM:I = 0x10022
+
 .field public static final TYPE_GAME_ROTATION_VECTOR:I = 0xf
 
 .field public static final TYPE_GEOMAGNETIC_ROTATION_VECTOR:I = 0x14
@@ -142,7 +162,7 @@
 
 .field public static final TYPE_GRIP:I = 0x10018
 
-.field public static final TYPE_GRIP_WIFI:I = 0x10022
+.field public static final TYPE_GRIP_WIFI:I = 0x10027
 
 .field public static final TYPE_GYROSCOPE:I = 0x4
 
@@ -152,13 +172,17 @@
 
 .field public static final TYPE_HEART_RATE:I = 0x15
 
-.field public static final TYPE_IR_STROBE1:I = 0x1002f
-
-.field public static final TYPE_IR_STROBE2:I = 0x10030
+.field public static final TYPE_INTERRUPT_GYRO:I = 0x1002b
 
 .field public static final TYPE_LIGHT:I = 0x5
 
+.field public static final TYPE_LIGHT_CCT:I = 0x10033
+
+.field public static final TYPE_LIGHT_IR:I = 0x1002a
+
 .field public static final TYPE_LINEAR_ACCELERATION:I = 0xa
+
+.field public static final TYPE_LOW_LATENCY_OFFBODY_DETECT:I = 0x22
 
 .field public static final TYPE_MAGNETIC_FIELD:I = 0x2
 
@@ -167,6 +191,8 @@
 .field public static final TYPE_MOTIONRECOGNITION:I = 0x10017
 
 .field public static final TYPE_MOTION_DETECT:I = 0x1e
+
+.field public static final TYPE_MOTOR_TEST:I = 0x1002d
 
 .field public static final TYPE_ORIENTATION:I = 0x3
     .annotation runtime Ljava/lang/Deprecated;
@@ -187,9 +213,17 @@
 
 .field public static final TYPE_PROXIMITY_ALERT:I = 0x1002e
 
+.field public static final TYPE_PROXIMITY_FLICKER:I = 0x1002f
+
+.field public static final TYPE_PROXIMITY_POCKET:I = 0x10035
+
+.field public static final TYPE_REAR_PROX_DETECT:I = 0x1002c
+
 .field public static final TYPE_RELATIVE_HUMIDITY:I = 0xc
 
 .field public static final TYPE_ROTATION_VECTOR:I = 0xb
+
+.field public static final TYPE_SCONTEXT:I = 0x10032
 
 .field public static final TYPE_SCREEN_ORIENTATION:I = 0x10016
 
@@ -208,17 +242,19 @@
     .end annotation
 .end field
 
+.field public static final TYPE_THERMISTOR:I = 0x10034
+
 .field public static final TYPE_TILT_DETECTOR:I = 0x16
 
 .field public static final TYPE_ULTRAVIOLET:I = 0x10015
 
 .field public static final TYPE_UV_RAY:I = 0x1001d
 
-.field public static final TYPE_VR_IN_USE_CAL:I = 0x10031
-
 .field public static final TYPE_WAKE_GESTURE:I = 0x17
 
 .field public static final TYPE_WRIST_TILT_GESTURE:I = 0x1a
+
+.field private static final sSamsungSensorReportingModes:[I
 
 .field private static final sSensorReportingModes:[I
 
@@ -261,7 +297,7 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    const/16 v0, 0x33
+    const/16 v0, 0x24
 
     new-array v0, v0, [I
 
@@ -269,7 +305,17 @@
 
     sput-object v0, Landroid/hardware/Sensor;->sSensorReportingModes:[I
 
+    const/16 v0, 0x1f
+
+    new-array v0, v0, [I
+
+    fill-array-data v0, :array_1
+
+    sput-object v0, Landroid/hardware/Sensor;->sSamsungSensorReportingModes:[I
+
     return-void
+
+    nop
 
     :array_0
     .array-data 4
@@ -278,15 +324,15 @@
         0x3
         0x3
         0x3
-        0x3
-        0x3
-        0x3
-        0x3
+        0x1
+        0x1
+        0x1
+        0x1
         0x3
         0x3
         0x5
-        0x3
-        0x3
+        0x1
+        0x1
         0x6
         0x4
         0x6
@@ -306,6 +352,13 @@
         0x1
         0x1
         0x2
+        0x10
+        0x1
+        0x6
+    .end array-data
+
+    :array_1
+    .array-data 4
         0x3
         0x2
         0x3
@@ -319,10 +372,23 @@
         0x5
         0x2
         0xd
+        0x10
         0x3
         0x3
         0x3
         0x3
+        0x3
+        0x10
+        0x10
+        0x10
+        0x3
+        0x10
+        0x10
+        0x10
+        0x10
+        0x10
+        0x10
+        0x10
         0x3
     .end array-data
 .end method
@@ -336,7 +402,11 @@
 .end method
 
 .method static getMaxLengthValuesArray(Landroid/hardware/Sensor;I)I
-    .locals 3
+    .locals 5
+
+    const v4, 0x10015
+
+    const/16 v3, 0x10
 
     iget v1, p0, Landroid/hardware/Sensor;->mType:I
 
@@ -361,16 +431,40 @@
 
     if-lt v0, v1, :cond_1
 
-    const/16 v1, 0x10
+    if-ge v0, v4, :cond_1
 
-    return v1
+    return v3
 
     :cond_1
+    sget-object v1, Landroid/hardware/Sensor;->sSensorReportingModes:[I
+
+    array-length v1, v1
+
+    if-ge v0, v1, :cond_2
+
     sget-object v1, Landroid/hardware/Sensor;->sSensorReportingModes:[I
 
     aget v1, v1, v0
 
     return v1
+
+    :cond_2
+    sub-int/2addr v0, v4
+
+    sget-object v1, Landroid/hardware/Sensor;->sSamsungSensorReportingModes:[I
+
+    array-length v1, v1
+
+    if-ge v0, v1, :cond_3
+
+    sget-object v1, Landroid/hardware/Sensor;->sSamsungSensorReportingModes:[I
+
+    aget v1, v1, v0
+
+    return v1
+
+    :cond_3
+    return v3
 .end method
 
 .method private setType(I)Z
@@ -578,6 +672,20 @@
 
     return v1
 
+    :pswitch_1c
+    const-string/jumbo v0, "android.sensor.low_latency_offbody_detect"
+
+    iput-object v0, p0, Landroid/hardware/Sensor;->mStringType:Ljava/lang/String;
+
+    return v1
+
+    :pswitch_1d
+    const-string/jumbo v0, "android.sensor.accelerometer_uncalibrated"
+
+    iput-object v0, p0, Landroid/hardware/Sensor;->mStringType:Ljava/lang/String;
+
+    return v1
+
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_1
@@ -612,6 +720,9 @@
         :pswitch_0
         :pswitch_0
         :pswitch_1b
+        :pswitch_0
+        :pswitch_1c
+        :pswitch_1d
     .end packed-switch
 .end method
 
@@ -649,6 +760,28 @@
     iget v0, p0, Landroid/hardware/Sensor;->mHandle:I
 
     return v0
+.end method
+
+.method public getHighestDirectReportRateLevel()I
+    .locals 3
+
+    const/4 v1, 0x3
+
+    iget v2, p0, Landroid/hardware/Sensor;->mFlags:I
+
+    and-int/lit16 v2, v2, 0x380
+
+    shr-int/lit8 v0, v2, 0x7
+
+    if-gt v0, v1, :cond_0
+
+    :goto_0
+    return v0
+
+    :cond_0
+    move v0, v1
+
+    goto :goto_0
 .end method
 
 .method public getId()I
@@ -803,6 +936,54 @@
 
     :cond_0
     return v0
+.end method
+
+.method public isDirectChannelTypeSupported(I)Z
+    .locals 3
+
+    const/4 v0, 0x1
+
+    const/4 v1, 0x0
+
+    packed-switch p1, :pswitch_data_0
+
+    return v1
+
+    :pswitch_0
+    iget v2, p0, Landroid/hardware/Sensor;->mFlags:I
+
+    and-int/lit16 v2, v2, 0x400
+
+    if-lez v2, :cond_0
+
+    :goto_0
+    return v0
+
+    :cond_0
+    move v0, v1
+
+    goto :goto_0
+
+    :pswitch_1
+    iget v2, p0, Landroid/hardware/Sensor;->mFlags:I
+
+    and-int/lit16 v2, v2, 0x800
+
+    if-lez v2, :cond_1
+
+    :goto_1
+    return v0
+
+    :cond_1
+    move v0, v1
+
+    goto :goto_1
+
+    :pswitch_data_0
+    .packed-switch 0x1
+        :pswitch_0
+        :pswitch_1
+    .end packed-switch
 .end method
 
 .method public isDynamicSensor()Z

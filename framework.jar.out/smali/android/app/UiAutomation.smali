@@ -621,28 +621,28 @@
 
     move-object/from16 v0, p0
 
-    iget-object v13, v0, Landroid/app/UiAutomation;->mLock:Ljava/lang/Object;
+    iget-object v14, v0, Landroid/app/UiAutomation;->mLock:Ljava/lang/Object;
 
-    monitor-enter v13
+    monitor-enter v14
 
     :try_start_0
     invoke-direct/range {p0 .. p0}, Landroid/app/UiAutomation;->throwIfNotConnectedLocked()V
 
     move-object/from16 v0, p0
 
-    iget-object v12, v0, Landroid/app/UiAutomation;->mEventQueue:Ljava/util/ArrayList;
+    iget-object v9, v0, Landroid/app/UiAutomation;->mEventQueue:Ljava/util/ArrayList;
 
-    invoke-virtual {v12}, Ljava/util/ArrayList;->clear()V
+    invoke-virtual {v9}, Ljava/util/ArrayList;->clear()V
 
-    const/4 v12, 0x1
+    const/4 v9, 0x1
 
     move-object/from16 v0, p0
 
-    iput-boolean v12, v0, Landroid/app/UiAutomation;->mWaitingForEventDelivery:Z
+    iput-boolean v9, v0, Landroid/app/UiAutomation;->mWaitingForEventDelivery:Z
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    monitor-exit v13
+    monitor-exit v14
 
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
@@ -650,36 +650,53 @@
 
     invoke-interface/range {p1 .. p1}, Ljava/lang/Runnable;->run()V
 
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Landroid/app/UiAutomation;->mLock:Ljava/lang/Object;
-
-    monitor-enter v13
-
     :try_start_1
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
-    move-result-wide v10
+    move-result-wide v12
+
+    :goto_0
+    new-instance v8, Ljava/util/ArrayList;
+
+    invoke-direct {v8}, Ljava/util/ArrayList;-><init>()V
+
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Landroid/app/UiAutomation;->mLock:Ljava/lang/Object;
+
+    monitor-enter v14
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_2
+
+    :try_start_2
+    move-object/from16 v0, p0
+
+    iget-object v9, v0, Landroid/app/UiAutomation;->mEventQueue:Ljava/util/ArrayList;
+
+    invoke-interface {v8, v9}, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
+
+    move-object/from16 v0, p0
+
+    iget-object v9, v0, Landroid/app/UiAutomation;->mEventQueue:Ljava/util/ArrayList;
+
+    invoke-virtual {v9}, Ljava/util/ArrayList;->clear()V
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_1
+
+    :try_start_3
+    monitor-exit v14
 
     :cond_0
-    :goto_0
-    move-object/from16 v0, p0
+    :goto_1
+    invoke-interface {v8}, Ljava/util/List;->isEmpty()Z
 
-    iget-object v12, v0, Landroid/app/UiAutomation;->mEventQueue:Ljava/util/ArrayList;
+    move-result v9
 
-    invoke-virtual {v12}, Ljava/util/ArrayList;->isEmpty()Z
+    if-nez v9, :cond_2
 
-    move-result v12
+    const/4 v9, 0x0
 
-    if-nez v12, :cond_2
-
-    move-object/from16 v0, p0
-
-    iget-object v12, v0, Landroid/app/UiAutomation;->mEventQueue:Ljava/util/ArrayList;
-
-    const/4 v14, 0x0
-
-    invoke-virtual {v12, v14}, Ljava/util/ArrayList;->remove(I)Ljava/lang/Object;
+    invoke-interface {v8, v9}, Ljava/util/List;->remove(I)Ljava/lang/Object;
 
     move-result-object v4
 
@@ -689,110 +706,131 @@
 
     move-result-wide v14
 
-    cmp-long v12, v14, v6
+    cmp-long v9, v14, v6
 
-    if-ltz v12, :cond_0
+    if-ltz v9, :cond_0
 
     move-object/from16 v0, p2
 
     invoke-interface {v0, v4}, Landroid/app/UiAutomation$AccessibilityEventFilter;->accept(Landroid/view/accessibility/AccessibilityEvent;)Z
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
-
-    move-result v12
-
-    if-eqz v12, :cond_1
-
-    const/4 v12, 0x0
-
-    :try_start_2
-    move-object/from16 v0, p0
-
-    iput-boolean v12, v0, Landroid/app/UiAutomation;->mWaitingForEventDelivery:Z
-
-    move-object/from16 v0, p0
-
-    iget-object v12, v0, Landroid/app/UiAutomation;->mEventQueue:Ljava/util/ArrayList;
-
-    invoke-virtual {v12}, Ljava/util/ArrayList;->clear()V
-
-    move-object/from16 v0, p0
-
-    iget-object v12, v0, Landroid/app/UiAutomation;->mLock:Ljava/lang/Object;
-
-    invoke-virtual {v12}, Ljava/lang/Object;->notifyAll()V
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_2
-
-    monitor-exit v13
-
-    return-object v4
-
-    :catchall_0
-    move-exception v12
-
-    monitor-exit v13
-
-    throw v12
-
-    :cond_1
-    :try_start_3
-    invoke-virtual {v4}, Landroid/view/accessibility/AccessibilityEvent;->recycle()V
     :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_1
+    .catchall {:try_start_3 .. :try_end_3} :catchall_2
 
-    goto :goto_0
+    move-result v9
 
-    :catchall_1
-    move-exception v12
-
-    const/4 v14, 0x0
-
-    :try_start_4
-    move-object/from16 v0, p0
-
-    iput-boolean v14, v0, Landroid/app/UiAutomation;->mWaitingForEventDelivery:Z
-
-    move-object/from16 v0, p0
-
-    iget-object v14, v0, Landroid/app/UiAutomation;->mEventQueue:Ljava/util/ArrayList;
-
-    invoke-virtual {v14}, Ljava/util/ArrayList;->clear()V
+    if-eqz v9, :cond_1
 
     move-object/from16 v0, p0
 
     iget-object v14, v0, Landroid/app/UiAutomation;->mLock:Ljava/lang/Object;
 
-    invoke-virtual {v14}, Ljava/lang/Object;->notifyAll()V
+    monitor-enter v14
 
-    throw v12
+    const/4 v9, 0x0
+
+    :try_start_4
+    move-object/from16 v0, p0
+
+    iput-boolean v9, v0, Landroid/app/UiAutomation;->mWaitingForEventDelivery:Z
+
+    move-object/from16 v0, p0
+
+    iget-object v9, v0, Landroid/app/UiAutomation;->mEventQueue:Ljava/util/ArrayList;
+
+    invoke-virtual {v9}, Ljava/util/ArrayList;->clear()V
+
+    move-object/from16 v0, p0
+
+    iget-object v9, v0, Landroid/app/UiAutomation;->mLock:Ljava/lang/Object;
+
+    invoke-virtual {v9}, Ljava/lang/Object;->notifyAll()V
     :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_2
+    .catchall {:try_start_4 .. :try_end_4} :catchall_3
+
+    monitor-exit v14
+
+    return-object v4
+
+    :catchall_0
+    move-exception v9
+
+    monitor-exit v14
+
+    throw v9
+
+    :catchall_1
+    move-exception v9
+
+    :try_start_5
+    monitor-exit v14
+
+    throw v9
+    :try_end_5
+    .catchall {:try_start_5 .. :try_end_5} :catchall_2
 
     :catchall_2
-    move-exception v12
+    move-exception v9
 
-    monitor-exit v13
+    move-object/from16 v0, p0
 
-    throw v12
+    iget-object v14, v0, Landroid/app/UiAutomation;->mLock:Ljava/lang/Object;
+
+    monitor-enter v14
+
+    const/4 v15, 0x0
+
+    :try_start_6
+    move-object/from16 v0, p0
+
+    iput-boolean v15, v0, Landroid/app/UiAutomation;->mWaitingForEventDelivery:Z
+
+    move-object/from16 v0, p0
+
+    iget-object v15, v0, Landroid/app/UiAutomation;->mEventQueue:Ljava/util/ArrayList;
+
+    invoke-virtual {v15}, Ljava/util/ArrayList;->clear()V
+
+    move-object/from16 v0, p0
+
+    iget-object v15, v0, Landroid/app/UiAutomation;->mLock:Ljava/lang/Object;
+
+    invoke-virtual {v15}, Ljava/lang/Object;->notifyAll()V
+    :try_end_6
+    .catchall {:try_start_6 .. :try_end_6} :catchall_5
+
+    monitor-exit v14
+
+    throw v9
+
+    :catchall_3
+    move-exception v9
+
+    monitor-exit v14
+
+    throw v9
+
+    :cond_1
+    :try_start_7
+    invoke-virtual {v4}, Landroid/view/accessibility/AccessibilityEvent;->recycle()V
+
+    goto :goto_1
 
     :cond_2
-    :try_start_5
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
     move-result-wide v14
 
-    sub-long v2, v14, v10
+    sub-long v2, v14, v12
 
-    sub-long v8, p3, v2
+    sub-long v10, p3, v2
 
     const-wide/16 v14, 0x0
 
-    cmp-long v12, v8, v14
+    cmp-long v9, v10, v14
 
-    if-gtz v12, :cond_3
+    if-gtz v9, :cond_3
 
-    new-instance v12, Ljava/util/concurrent/TimeoutException;
+    new-instance v9, Ljava/util/concurrent/TimeoutException;
 
     new-instance v14, Ljava/lang/StringBuilder;
 
@@ -820,29 +858,69 @@
 
     move-result-object v14
 
-    invoke-direct {v12, v14}, Ljava/util/concurrent/TimeoutException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v9, v14}, Ljava/util/concurrent/TimeoutException;-><init>(Ljava/lang/String;)V
 
-    throw v12
-    :try_end_5
-    .catchall {:try_start_5 .. :try_end_5} :catchall_1
+    throw v9
 
     :cond_3
-    :try_start_6
     move-object/from16 v0, p0
 
-    iget-object v12, v0, Landroid/app/UiAutomation;->mLock:Ljava/lang/Object;
+    iget-object v14, v0, Landroid/app/UiAutomation;->mLock:Ljava/lang/Object;
 
-    invoke-virtual {v12, v8, v9}, Ljava/lang/Object;->wait(J)V
-    :try_end_6
-    .catch Ljava/lang/InterruptedException; {:try_start_6 .. :try_end_6} :catch_0
-    .catchall {:try_start_6 .. :try_end_6} :catchall_1
+    monitor-enter v14
+    :try_end_7
+    .catchall {:try_start_7 .. :try_end_7} :catchall_2
+
+    :try_start_8
+    move-object/from16 v0, p0
+
+    iget-object v9, v0, Landroid/app/UiAutomation;->mEventQueue:Ljava/util/ArrayList;
+
+    invoke-virtual {v9}, Ljava/util/ArrayList;->isEmpty()Z
+    :try_end_8
+    .catchall {:try_start_8 .. :try_end_8} :catchall_4
+
+    move-result v9
+
+    if-eqz v9, :cond_4
+
+    :try_start_9
+    move-object/from16 v0, p0
+
+    iget-object v9, v0, Landroid/app/UiAutomation;->mLock:Ljava/lang/Object;
+
+    invoke-virtual {v9, v10, v11}, Ljava/lang/Object;->wait(J)V
+    :try_end_9
+    .catch Ljava/lang/InterruptedException; {:try_start_9 .. :try_end_9} :catch_0
+    .catchall {:try_start_9 .. :try_end_9} :catchall_4
+
+    :cond_4
+    :goto_2
+    :try_start_a
+    monitor-exit v14
 
     goto/16 :goto_0
+
+    :catchall_4
+    move-exception v9
+
+    monitor-exit v14
+
+    throw v9
+    :try_end_a
+    .catchall {:try_start_a .. :try_end_a} :catchall_2
+
+    :catchall_5
+    move-exception v9
+
+    monitor-exit v14
+
+    throw v9
 
     :catch_0
     move-exception v5
 
-    goto/16 :goto_0
+    goto :goto_2
 .end method
 
 .method public executeShellCommand(Ljava/lang/String;)Landroid/os/ParcelFileDescriptor;
@@ -1535,7 +1613,7 @@
     monitor-exit v1
 
     :try_start_1
-    invoke-static {}, Landroid/app/ActivityManagerNative;->getDefault()Landroid/app/IActivityManager;
+    invoke-static {}, Landroid/app/ActivityManager;->getService()Landroid/app/IActivityManager;
 
     move-result-object v1
 

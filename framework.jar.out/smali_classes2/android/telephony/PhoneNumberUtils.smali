@@ -14,13 +14,11 @@
 # static fields
 .field private static final CCC_LENGTH:I
 
-.field private static final CLIDIGITS_KEY:Ljava/lang/String; = "Clidigits"
-
-.field private static final CLIDIGITS_PREFERENCES_NAME:Ljava/lang/String; = "clidigits.preferences_name"
-
 .field private static final CLIR_OFF:Ljava/lang/String; = "#31#"
 
 .field private static final CLIR_ON:Ljava/lang/String; = "*31#"
+
+.field private static final CONVERT_TO_EMERGENCY_MAP:[Ljava/lang/String;
 
 .field private static final COUNTRY_CALLING_CALL:[Z
 
@@ -63,6 +61,8 @@
 .field public static final FORMAT_UNKNOWN:I = 0x0
 
 .field private static final GLOBAL_PHONE_NUMBER_PATTERN:Ljava/util/regex/Pattern;
+
+.field private static final JAPAN_ISO_COUNTRY_CODE:Ljava/lang/String; = "JP"
 
 .field private static final KEYPAD_MAP:Landroid/util/SparseIntArray;
 
@@ -108,6 +108,24 @@
 
 .field private static final NANP_STATE_PLUS:I = 0x2
 
+.field private static final OTALOOKUP_INDEX_AREA_CITY_CODE:I = 0x8
+
+.field private static final OTALOOKUP_INDEX_COUNTRY_CODE:I = 0x6
+
+.field private static final OTALOOKUP_INDEX_COUNTRY_NAME:I = 0x1
+
+.field private static final OTALOOKUP_INDEX_IDD:I = 0x3
+
+.field private static final OTALOOKUP_INDEX_MCC:I = 0x2
+
+.field private static final OTALOOKUP_INDEX_NANP:I = 0x5
+
+.field private static final OTALOOKUP_INDEX_NATIONAL_NUMBER_LENGTH:I = 0x9
+
+.field private static final OTALOOKUP_INDEX_NBPCD:I = 0x7
+
+.field private static final OTALOOKUP_INDEX_NDD:I = 0x4
+
 .field public static final OTA_COUNTRY_MCC_KEY:Ljava/lang/String; = "otaCountryMccKey"
 
 .field private static final OTA_COUNTRY_URI:Landroid/net/Uri;
@@ -136,17 +154,13 @@
 
 .field private static isNANPCountry:Z
 
-.field private static isNBPCDSupported:Z
-
 .field private static isNetRoaming:Z
 
 .field private static isOTANANPCountry:Z
 
-.field private static isOTANBPCDSupported:Z
-
 .field private static mCursor:Landroid/database/Cursor;
 
-.field private static mCursorContry:Landroid/database/Cursor;
+.field private static mCursorCountry:Landroid/database/Cursor;
 
 .field private static numberLength:I
 
@@ -159,8 +173,6 @@
 .field private static otaCountryNDDPrefix:Ljava/lang/String;
 
 .field private static otaCountryName:Ljava/lang/String;
-
-.field private static phoneType:I
 
 .field private static refCountryAreaCode:Ljava/lang/String;
 
@@ -213,8 +225,6 @@
 
     sput-boolean v2, Landroid/telephony/PhoneNumberUtils;->isNANPCountry:Z
 
-    sput-boolean v2, Landroid/telephony/PhoneNumberUtils;->isNBPCDSupported:Z
-
     const-string/jumbo v0, ""
 
     sput-object v0, Landroid/telephony/PhoneNumberUtils;->refCountryAreaCode:Ljava/lang/String;
@@ -245,15 +255,11 @@
 
     sput-boolean v2, Landroid/telephony/PhoneNumberUtils;->isOTANANPCountry:Z
 
-    sput-boolean v2, Landroid/telephony/PhoneNumberUtils;->isOTANBPCDSupported:Z
-
     invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v0
 
     sput-object v0, Landroid/telephony/PhoneNumberUtils;->refCountryNationalNumberLength:Ljava/lang/Integer;
-
-    sput v2, Landroid/telephony/PhoneNumberUtils;->phoneType:I
 
     sput v2, Landroid/telephony/PhoneNumberUtils;->numberLength:I
 
@@ -821,9 +827,19 @@
 
     sput v0, Landroid/telephony/PhoneNumberUtils;->CCC_LENGTH:I
 
-    return-void
+    invoke-static {}, Landroid/content/res/Resources;->getSystem()Landroid/content/res/Resources;
 
-    nop
+    move-result-object v0
+
+    const v1, 0x107003a
+
+    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
+
+    move-result-object v0
+
+    sput-object v0, Landroid/telephony/PhoneNumberUtils;->CONVERT_TO_EMERGENCY_MAP:[Ljava/lang/String;
+
+    return-void
 
     :array_0
     .array-data 1
@@ -1260,6 +1276,16 @@
     .end packed-switch
 .end method
 
+.method private static adLog(Ljava/lang/String;)V
+    .locals 1
+
+    const-string/jumbo v0, "AssistedDialing"
+
+    invoke-static {v0, p0}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
+.end method
+
 .method public static addTtsSpan(Landroid/text/Spannable;II)V
     .locals 2
 
@@ -1326,11 +1352,29 @@
     .locals 34
 
     :try_start_0
-    const-string/jumbo v5, "PhoneNumberUtils"
+    new-instance v5, Ljava/lang/StringBuilder;
 
-    const-string/jumbo v6, "Called assistedDialFromContactList : "
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-static {v5, v6}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    const-string/jumbo v6, "Called assistedDialFromContactList: "
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-static/range {p0 .. p0}, Landroid/telephony/PhoneNumberUtils;->maskPhoneNumber(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v5}, Landroid/telephony/PhoneNumberUtils;->adLog(Ljava/lang/String;)V
 
     if-eqz p0, :cond_0
 
@@ -1372,36 +1416,38 @@
 
     const/16 v5, 0x2b
 
-    if-ne v5, v11, :cond_3
+    if-ne v11, v5, :cond_3
 
     :cond_2
-    const-string/jumbo v5, "PhoneNumberUtils"
+    new-instance v5, Ljava/lang/StringBuilder;
 
-    new-instance v6, Ljava/lang/StringBuilder;
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+    const-string/jumbo v6, "Assisted Dialing PhoneNumber is OK: "
 
-    const-string/jumbo v7, "Assisted Dialing PhoneNumber is OK: "
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v5
 
-    move-result-object v6
+    invoke-virtual {v5, v11}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v6, v11}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    move-result-object v5
 
-    move-result-object v6
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v5
 
-    move-result-object v6
-
-    invoke-static {v5, v6}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v5}, Landroid/telephony/PhoneNumberUtils;->adLog(Ljava/lang/String;)V
 
     invoke-static/range {p0 .. p1}, Landroid/telephony/PhoneNumberUtils;->retrieveAssistedParams(Ljava/lang/String;Landroid/content/Context;)Z
 
     move-result v5
 
     if-nez v5, :cond_4
+
+    const-string/jumbo v5, "retrieveAssistedParams fail. Returning original number"
+
+    invoke-static {v5}, Landroid/telephony/PhoneNumberUtils;->adLog(Ljava/lang/String;)V
 
     const/4 v5, 0x0
 
@@ -1410,27 +1456,25 @@
     return-object p0
 
     :cond_3
-    const-string/jumbo v5, "PhoneNumberUtils"
+    new-instance v5, Ljava/lang/StringBuilder;
 
-    new-instance v6, Ljava/lang/StringBuilder;
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+    const-string/jumbo v6, "Assisted Dialing PhoneNumber is FAILED: "
 
-    const-string/jumbo v7, "Assisted Dialing PhoneNumber is FAILED: "
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v5
 
-    move-result-object v6
+    invoke-virtual {v5, v11}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v6, v11}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    move-result-object v5
 
-    move-result-object v6
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v5
 
-    move-result-object v6
-
-    invoke-static {v5, v6}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v5}, Landroid/telephony/PhoneNumberUtils;->adLog(Ljava/lang/String;)V
 
     const/4 v5, 0x0
 
@@ -1471,11 +1515,8 @@
 
     move-result v5
 
-    if-eqz v5, :cond_d
+    xor-int/lit8 v25, v5, 0x1
 
-    const/16 v25, 0x0
-
-    :goto_0
     sget-object v5, Landroid/telephony/PhoneNumberUtils;->otaCountryIDDPrefix:Ljava/lang/String;
 
     move-object/from16 v0, p0
@@ -1500,31 +1541,14 @@
 
     move-result v10
 
-    invoke-static/range {p1 .. p1}, Landroid/telephony/PhoneNumberUtils;->checkAssistedDialingTestmode(Landroid/content/Context;)V
-
     sget-boolean v32, Landroid/telephony/PhoneNumberUtils;->isCDMARegistered:Z
 
     sget-boolean v33, Landroid/telephony/PhoneNumberUtils;->isGSMRegistered:Z
 
+    const/4 v15, 0x0
+
     if-eqz v33, :cond_8
 
-    const/16 v5, 0xc
-
-    invoke-static {v5}, Lcom/android/internal/telephony/TelephonyFeatures;->getNtcFeature(I)Z
-
-    move-result v5
-
-    if-nez v5, :cond_5
-
-    const/16 v5, 0xd
-
-    invoke-static {v5}, Lcom/android/internal/telephony/TelephonyFeatures;->getNtcFeature(I)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_8
-
-    :cond_5
     const-string/jumbo v5, "phone"
 
     move-object/from16 v0, p1
@@ -1537,81 +1561,69 @@
 
     if-eqz v31, :cond_8
 
-    invoke-virtual/range {v31 .. v31}, Landroid/telephony/TelephonyManager;->isVolteAvailable()Z
+    invoke-virtual/range {v31 .. v31}, Landroid/telephony/TelephonyManager;->getDataNetworkType()I
 
-    move-result v15
+    move-result v12
 
-    invoke-virtual/range {v31 .. v31}, Landroid/telephony/TelephonyManager;->isWifiCallingAvailable()Z
+    invoke-virtual/range {v31 .. v31}, Landroid/telephony/TelephonyManager;->getNetworkCountryIso()Ljava/lang/String;
 
-    move-result v17
+    move-result-object v19
 
-    const/16 v16, 0x0
+    invoke-virtual/range {v31 .. v31}, Landroid/telephony/TelephonyManager;->isNetworkRoaming()Z
 
-    invoke-virtual/range {v31 .. v31}, Landroid/telephony/TelephonyManager;->getNetworkOperator()Ljava/lang/String;
+    move-result v20
 
-    move-result-object v20
+    const-string/jumbo v5, "us"
 
-    invoke-static/range {v20 .. v20}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    move-object/from16 v0, v19
 
-    move-result v5
-
-    if-nez v5, :cond_6
-
-    const-string/jumbo v5, "31148"
-
-    move-object/from16 v0, v20
-
-    invoke-virtual {v0, v5}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+    invoke-virtual {v5, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_6
+    if-nez v5, :cond_5
 
-    const/16 v16, 0x1
+    const-string/jumbo v5, "vi"
+
+    move-object/from16 v0, v19
+
+    invoke-virtual {v5, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_7
+
+    :cond_5
+    const/16 v5, 0xd
+
+    if-eq v12, v5, :cond_6
+
+    const/16 v5, 0x13
+
+    if-ne v12, v5, :cond_d
 
     :cond_6
-    if-nez v15, :cond_7
+    :goto_0
+    xor-int/lit8 v5, v20, 0x1
 
-    if-nez v17, :cond_7
+    if-eqz v5, :cond_7
 
-    if-eqz v16, :cond_8
+    const/4 v15, 0x1
 
     :cond_7
+    if-eqz v15, :cond_8
+
     new-instance v5, Ljava/lang/StringBuilder;
 
     invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v6, "Use CDMA policy (VolteAvail: "
+    const-string/jumbo v6, "Use CDMA policy (forceVzwHomePolicy: "
 
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v5
 
     invoke-virtual {v5, v15}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    const-string/jumbo v6, ", WifiCallingAvail: "
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    move/from16 v0, v17
-
-    invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    const-string/jumbo v6, ", isVzwNetwork: "
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    move/from16 v0, v16
-
-    invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
     move-result-object v5
 
@@ -1625,20 +1637,20 @@
 
     move-result-object v5
 
-    invoke-static {v5}, Landroid/telephony/PhoneNumberUtils;->log(Ljava/lang/String;)V
+    invoke-static {v5}, Landroid/telephony/PhoneNumberUtils;->adLog(Ljava/lang/String;)V
 
     const/16 v33, 0x0
 
     const/16 v32, 0x1
 
     :cond_8
-    if-eqz v32, :cond_29
+    if-eqz v32, :cond_2c
 
     invoke-static {v10}, Landroid/telephony/PhoneNumberUtils;->isISODigit(C)Z
 
     move-result v5
 
-    if-eqz v5, :cond_28
+    if-eqz v5, :cond_23
 
     sget-boolean v5, Landroid/telephony/PhoneNumberUtils;->isNetRoaming:Z
 
@@ -1646,24 +1658,26 @@
 
     sget-boolean v5, Landroid/telephony/PhoneNumberUtils;->isOTANANPCountry:Z
 
-    if-eqz v5, :cond_16
+    if-nez v5, :cond_9
+
+    if-eqz v15, :cond_16
 
     :cond_9
-    if-eqz v25, :cond_11
+    if-eqz v25, :cond_13
 
     sget v5, Landroid/telephony/PhoneNumberUtils;->numberLength:I
 
     const/16 v6, 0xb
 
-    if-lt v5, v6, :cond_11
+    if-lt v5, v6, :cond_13
 
     const/16 v5, 0x31
 
-    if-eq v5, v10, :cond_11
+    if-eq v10, v5, :cond_13
 
-    const/16 v18, 0x0
+    const/16 v17, 0x0
 
-    const/4 v13, 0x0
+    const/4 v14, 0x0
 
     invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
@@ -1703,21 +1717,21 @@
 
     move-result-object v5
 
-    sput-object v5, Landroid/telephony/PhoneNumberUtils;->mCursorContry:Landroid/database/Cursor;
+    sput-object v5, Landroid/telephony/PhoneNumberUtils;->mCursorCountry:Landroid/database/Cursor;
 
     sget-object v5, Landroid/telephony/PhoneNumberUtils;->mCursor:Landroid/database/Cursor;
 
-    if-eqz v5, :cond_c
+    if-eqz v5, :cond_10
 
-    sget-object v5, Landroid/telephony/PhoneNumberUtils;->mCursorContry:Landroid/database/Cursor;
+    sget-object v5, Landroid/telephony/PhoneNumberUtils;->mCursorCountry:Landroid/database/Cursor;
 
-    if-eqz v5, :cond_c
+    if-eqz v5, :cond_10
 
     sget-object v5, Landroid/telephony/PhoneNumberUtils;->mCursor:Landroid/database/Cursor;
 
     invoke-interface {v5}, Landroid/database/Cursor;->moveToFirst()Z
 
-    sget-object v5, Landroid/telephony/PhoneNumberUtils;->mCursorContry:Landroid/database/Cursor;
+    sget-object v5, Landroid/telephony/PhoneNumberUtils;->mCursorCountry:Landroid/database/Cursor;
 
     invoke-interface {v5}, Landroid/database/Cursor;->moveToFirst()Z
 
@@ -1730,12 +1744,12 @@
 
     if-nez v5, :cond_b
 
-    sget-object v5, Landroid/telephony/PhoneNumberUtils;->mCursorContry:Landroid/database/Cursor;
+    sget-object v5, Landroid/telephony/PhoneNumberUtils;->mCursorCountry:Landroid/database/Cursor;
 
     invoke-interface {v5}, Landroid/database/Cursor;->moveToFirst()Z
 
     :goto_2
-    sget-object v5, Landroid/telephony/PhoneNumberUtils;->mCursorContry:Landroid/database/Cursor;
+    sget-object v5, Landroid/telephony/PhoneNumberUtils;->mCursorCountry:Landroid/database/Cursor;
 
     invoke-interface {v5}, Landroid/database/Cursor;->isAfterLast()Z
 
@@ -1759,7 +1773,7 @@
 
     move-result-object v5
 
-    sget-object v6, Landroid/telephony/PhoneNumberUtils;->mCursorContry:Landroid/database/Cursor;
+    sget-object v6, Landroid/telephony/PhoneNumberUtils;->mCursorCountry:Landroid/database/Cursor;
 
     const/4 v7, 0x6
 
@@ -1793,15 +1807,15 @@
 
     invoke-virtual {v5}, Ljava/lang/String;->length()I
 
-    move-result v13
+    move-result v14
 
-    const/16 v18, 0x1
+    const/16 v17, 0x1
 
     :cond_a
-    if-eqz v18, :cond_f
+    if-eqz v17, :cond_f
 
     :cond_b
-    sget-object v5, Landroid/telephony/PhoneNumberUtils;->mCursorContry:Landroid/database/Cursor;
+    sget-object v5, Landroid/telephony/PhoneNumberUtils;->mCursorCountry:Landroid/database/Cursor;
 
     invoke-interface {v5}, Landroid/database/Cursor;->close()V
 
@@ -1810,7 +1824,8 @@
     invoke-interface {v5}, Landroid/database/Cursor;->close()V
 
     :cond_c
-    if-nez v18, :cond_10
+    :goto_3
+    if-nez v17, :cond_12
 
     const-string/jumbo v5, "011"
 
@@ -1824,11 +1839,33 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v5, "PhoneNumberUtils"
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
     const-string/jumbo v6, "[AssistDialing1-1] "
 
-    invoke-static {v5, v6}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual/range {v21 .. v21}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v6}, Landroid/telephony/PhoneNumberUtils;->maskPhoneNumber(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v5}, Landroid/telephony/PhoneNumberUtils;->adLog(Ljava/lang/String;)V
 
     const/4 v5, 0x1
 
@@ -1841,43 +1878,43 @@
     return-object v5
 
     :cond_d
-    const/16 v25, 0x1
+    const/16 v5, 0x12
+
+    if-ne v12, v5, :cond_7
 
     goto/16 :goto_0
 
     :cond_e
-    sget-object v5, Landroid/telephony/PhoneNumberUtils;->mCursorContry:Landroid/database/Cursor;
+    sget-object v5, Landroid/telephony/PhoneNumberUtils;->mCursorCountry:Landroid/database/Cursor;
 
     invoke-interface {v5}, Landroid/database/Cursor;->moveToNext()Z
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_2
+    goto/16 :goto_2
 
     :catch_0
-    move-exception v12
+    move-exception v13
 
-    const-string/jumbo v5, "PhoneNumberUtils"
+    new-instance v5, Ljava/lang/StringBuilder;
 
-    new-instance v6, Ljava/lang/StringBuilder;
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+    const-string/jumbo v6, "Cannot assist: "
 
-    const-string/jumbo v7, "Cannot assist: "
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v5
 
-    move-result-object v6
+    invoke-virtual {v5, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v6, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    move-result-object v5
 
-    move-result-object v6
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v5
 
-    move-result-object v6
-
-    invoke-static {v5, v6}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v5}, Landroid/telephony/PhoneNumberUtils;->adLog(Ljava/lang/String;)V
 
     const/4 v5, 0x0
 
@@ -1894,6 +1931,28 @@
     goto/16 :goto_1
 
     :cond_10
+    sget-object v5, Landroid/telephony/PhoneNumberUtils;->mCursor:Landroid/database/Cursor;
+
+    if-eqz v5, :cond_11
+
+    sget-object v5, Landroid/telephony/PhoneNumberUtils;->mCursor:Landroid/database/Cursor;
+
+    invoke-interface {v5}, Landroid/database/Cursor;->close()V
+
+    goto :goto_3
+
+    :cond_11
+    sget-object v5, Landroid/telephony/PhoneNumberUtils;->mCursorCountry:Landroid/database/Cursor;
+
+    if-eqz v5, :cond_c
+
+    sget-object v5, Landroid/telephony/PhoneNumberUtils;->mCursorCountry:Landroid/database/Cursor;
+
+    invoke-interface {v5}, Landroid/database/Cursor;->close()V
+
+    goto :goto_3
+
+    :cond_12
     move-object/from16 v0, v21
 
     move-object/from16 v1, p0
@@ -1906,13 +1965,35 @@
 
     move-object/from16 v0, v21
 
-    invoke-virtual {v0, v6, v13, v5}, Ljava/lang/StringBuilder;->replace(IILjava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v6, v14, v5}, Ljava/lang/StringBuilder;->replace(IILjava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v5, "PhoneNumberUtils"
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
     const-string/jumbo v6, "[AssistDialing1-2] "
 
-    invoke-static {v5, v6}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual/range {v21 .. v21}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v6}, Landroid/telephony/PhoneNumberUtils;->maskPhoneNumber(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v5}, Landroid/telephony/PhoneNumberUtils;->adLog(Ljava/lang/String;)V
 
     const/4 v5, 0x1
 
@@ -1924,7 +2005,7 @@
 
     return-object v5
 
-    :cond_11
+    :cond_13
     sget v5, Landroid/telephony/PhoneNumberUtils;->numberLength:I
 
     sget-object v6, Landroid/telephony/PhoneNumberUtils;->refCountryNationalNumberLength:Ljava/lang/Integer;
@@ -1943,54 +2024,31 @@
 
     if-ne v5, v6, :cond_15
 
-    if-eqz v29, :cond_13
+    if-eqz v29, :cond_14
 
-    sget-boolean v5, Landroid/telephony/PhoneNumberUtils;->isNBPCDSupported:Z
+    new-instance v5, Ljava/lang/StringBuilder;
 
-    if-eqz v5, :cond_12
-
-    move-object/from16 v0, v21
-
-    move-object/from16 v1, p0
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    sget-object v5, Landroid/telephony/PhoneNumberUtils;->refCountryNDDPrefix:Ljava/lang/String;
-
-    invoke-virtual {v5}, Ljava/lang/String;->length()I
-
-    move-result v5
-
-    const-string/jumbo v6, "+"
-
-    const/4 v7, 0x0
-
-    move-object/from16 v0, v21
-
-    invoke-virtual {v0, v7, v5, v6}, Ljava/lang/StringBuilder;->replace(IILjava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-string/jumbo v5, "PhoneNumberUtils"
-
-    const-string/jumbo v6, "[AssistDialing4-1] "
-
-    invoke-static {v5, v6}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    const/4 v5, 0x1
-
-    sput-boolean v5, Landroid/telephony/PhoneNumberUtils;->isAssistedDialingNumber:Z
-
-    invoke-virtual/range {v21 .. v21}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    return-object v5
-
-    :cond_12
-    const-string/jumbo v5, "PhoneNumberUtils"
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
     const-string/jumbo v6, "[AssistDialing4-2] "
 
-    invoke-static {v5, v6}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-static/range {p0 .. p0}, Landroid/telephony/PhoneNumberUtils;->maskPhoneNumber(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v5}, Landroid/telephony/PhoneNumberUtils;->adLog(Ljava/lang/String;)V
 
     const/4 v5, 0x0
 
@@ -1998,55 +2056,32 @@
 
     return-object p0
 
-    :cond_13
+    :cond_14
     if-eqz v27, :cond_15
 
-    sget-boolean v5, Landroid/telephony/PhoneNumberUtils;->isNBPCDSupported:Z
+    new-instance v5, Ljava/lang/StringBuilder;
 
-    if-eqz v5, :cond_14
-
-    move-object/from16 v0, v21
-
-    move-object/from16 v1, p0
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    sget-object v5, Landroid/telephony/PhoneNumberUtils;->otaCountryNDDPrefix:Ljava/lang/String;
-
-    invoke-virtual {v5}, Ljava/lang/String;->length()I
-
-    move-result v5
-
-    const-string/jumbo v6, "+"
-
-    const/4 v7, 0x0
-
-    move-object/from16 v0, v21
-
-    invoke-virtual {v0, v7, v5, v6}, Ljava/lang/StringBuilder;->replace(IILjava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-string/jumbo v5, "PhoneNumberUtils"
-
-    const-string/jumbo v6, "[AssistDialing4-3] "
-
-    invoke-static {v5, v6}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    const/4 v5, 0x1
-
-    sput-boolean v5, Landroid/telephony/PhoneNumberUtils;->isAssistedDialingNumber:Z
-
-    invoke-virtual/range {v21 .. v21}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    return-object v5
-
-    :cond_14
-    const-string/jumbo v5, "PhoneNumberUtils"
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
     const-string/jumbo v6, "[AssistDialing4-4] "
 
-    invoke-static {v5, v6}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-static/range {p0 .. p0}, Landroid/telephony/PhoneNumberUtils;->maskPhoneNumber(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v5}, Landroid/telephony/PhoneNumberUtils;->adLog(Ljava/lang/String;)V
 
     const/4 v5, 0x0
 
@@ -2055,29 +2090,51 @@
     return-object p0
 
     :cond_15
-    if-eqz v28, :cond_28
+    if-eqz v28, :cond_23
 
-    sget-object v5, Landroid/telephony/PhoneNumberUtils;->refCountryCountryCode:Ljava/lang/String;
+    const-string/jumbo v5, "1"
 
-    const-string/jumbo v6, "1"
+    sget-object v6, Landroid/telephony/PhoneNumberUtils;->refCountryCountryCode:Ljava/lang/String;
 
     invoke-virtual {v5, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_28
+    if-eqz v5, :cond_23
 
-    sget-object v5, Landroid/telephony/PhoneNumberUtils;->refCountryIDDPrefix:Ljava/lang/String;
+    const-string/jumbo v5, "011"
 
-    const-string/jumbo v6, "011"
+    sget-object v6, Landroid/telephony/PhoneNumberUtils;->refCountryIDDPrefix:Ljava/lang/String;
 
-    if-ne v5, v6, :cond_28
+    invoke-virtual {v5, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    const-string/jumbo v5, "PhoneNumberUtils"
+    move-result v5
+
+    if-eqz v5, :cond_23
+
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
     const-string/jumbo v6, "[AssistDialing5-1] "
 
-    invoke-static {v5, v6}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-static/range {p0 .. p0}, Landroid/telephony/PhoneNumberUtils;->maskPhoneNumber(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v5}, Landroid/telephony/PhoneNumberUtils;->adLog(Ljava/lang/String;)V
 
     const/4 v5, 0x0
 
@@ -2094,7 +2151,7 @@
 
     move-result v6
 
-    if-gt v5, v6, :cond_1c
+    if-gt v5, v6, :cond_1a
 
     sget v5, Landroid/telephony/PhoneNumberUtils;->numberLength:I
 
@@ -2104,7 +2161,7 @@
 
     move-result v6
 
-    if-ne v5, v6, :cond_19
+    if-ne v5, v6, :cond_18
 
     sget-object v5, Landroid/telephony/PhoneNumberUtils;->refCountryCountryCode:Ljava/lang/String;
 
@@ -2114,47 +2171,8 @@
 
     move-result v5
 
-    if-nez v5, :cond_18
+    if-nez v5, :cond_17
 
-    sget-boolean v5, Landroid/telephony/PhoneNumberUtils;->isNBPCDSupported:Z
-
-    if-eqz v5, :cond_17
-
-    const-string/jumbo v5, "+"
-
-    move-object/from16 v0, v21
-
-    invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    sget-object v5, Landroid/telephony/PhoneNumberUtils;->refCountryCountryCode:Ljava/lang/String;
-
-    move-object/from16 v0, v21
-
-    invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-object/from16 v0, v21
-
-    move-object/from16 v1, p0
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-string/jumbo v5, "PhoneNumberUtils"
-
-    const-string/jumbo v6, "[AssistDialing2-1] "
-
-    invoke-static {v5, v6}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    const/4 v5, 0x1
-
-    sput-boolean v5, Landroid/telephony/PhoneNumberUtils;->isAssistedDialingNumber:Z
-
-    invoke-virtual/range {v21 .. v21}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    return-object v5
-
-    :cond_17
     sget-object v5, Landroid/telephony/PhoneNumberUtils;->otaCountryIDDPrefix:Ljava/lang/String;
 
     move-object/from16 v0, v21
@@ -2173,11 +2191,33 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v5, "PhoneNumberUtils"
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
     const-string/jumbo v6, "[AssistDialing2-2] "
 
-    invoke-static {v5, v6}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual/range {v21 .. v21}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v6}, Landroid/telephony/PhoneNumberUtils;->maskPhoneNumber(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v5}, Landroid/telephony/PhoneNumberUtils;->adLog(Ljava/lang/String;)V
 
     const/4 v5, 0x1
 
@@ -2189,12 +2229,30 @@
 
     return-object v5
 
-    :cond_18
-    const-string/jumbo v5, "PhoneNumberUtils"
+    :cond_17
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
     const-string/jumbo v6, "[AssistDialing2-3] "
 
-    invoke-static {v5, v6}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-static/range {p0 .. p0}, Landroid/telephony/PhoneNumberUtils;->maskPhoneNumber(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v5}, Landroid/telephony/PhoneNumberUtils;->adLog(Ljava/lang/String;)V
 
     const/4 v5, 0x0
 
@@ -2202,7 +2260,7 @@
 
     return-object p0
 
-    :cond_19
+    :cond_18
     sget v5, Landroid/telephony/PhoneNumberUtils;->numberLength:I
 
     sget-object v6, Landroid/telephony/PhoneNumberUtils;->refCountryNationalNumberLength:Ljava/lang/Integer;
@@ -2219,7 +2277,7 @@
 
     sub-int/2addr v6, v7
 
-    if-ne v5, v6, :cond_1c
+    if-ne v5, v6, :cond_1a
 
     sget-object v5, Landroid/telephony/PhoneNumberUtils;->refCountryCountryCode:Ljava/lang/String;
 
@@ -2229,53 +2287,8 @@
 
     move-result v5
 
-    if-nez v5, :cond_1b
+    if-nez v5, :cond_19
 
-    sget-boolean v5, Landroid/telephony/PhoneNumberUtils;->isNBPCDSupported:Z
-
-    if-eqz v5, :cond_1a
-
-    const-string/jumbo v5, "+"
-
-    move-object/from16 v0, v21
-
-    invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    sget-object v5, Landroid/telephony/PhoneNumberUtils;->refCountryCountryCode:Ljava/lang/String;
-
-    move-object/from16 v0, v21
-
-    invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    sget-object v5, Landroid/telephony/PhoneNumberUtils;->refCountryAreaCode:Ljava/lang/String;
-
-    move-object/from16 v0, v21
-
-    invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-object/from16 v0, v21
-
-    move-object/from16 v1, p0
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-string/jumbo v5, "PhoneNumberUtils"
-
-    const-string/jumbo v6, "[AssistDialing3-1] "
-
-    invoke-static {v5, v6}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    const/4 v5, 0x1
-
-    sput-boolean v5, Landroid/telephony/PhoneNumberUtils;->isAssistedDialingNumber:Z
-
-    invoke-virtual/range {v21 .. v21}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    return-object v5
-
-    :cond_1a
     sget-object v5, Landroid/telephony/PhoneNumberUtils;->otaCountryIDDPrefix:Ljava/lang/String;
 
     move-object/from16 v0, v21
@@ -2300,11 +2313,33 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v5, "PhoneNumberUtils"
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
     const-string/jumbo v6, "[AssistDialing3-2] "
 
-    invoke-static {v5, v6}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual/range {v21 .. v21}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v6}, Landroid/telephony/PhoneNumberUtils;->maskPhoneNumber(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v5}, Landroid/telephony/PhoneNumberUtils;->adLog(Ljava/lang/String;)V
 
     const/4 v5, 0x1
 
@@ -2316,12 +2351,30 @@
 
     return-object v5
 
-    :cond_1b
-    const-string/jumbo v5, "PhoneNumberUtils"
+    :cond_19
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
     const-string/jumbo v6, "[AssistDialing3-3] "
 
-    invoke-static {v5, v6}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-static/range {p0 .. p0}, Landroid/telephony/PhoneNumberUtils;->maskPhoneNumber(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v5}, Landroid/telephony/PhoneNumberUtils;->adLog(Ljava/lang/String;)V
 
     const/4 v5, 0x0
 
@@ -2329,19 +2382,19 @@
 
     return-object p0
 
-    :cond_1c
-    const/4 v14, 0x0
+    :cond_1a
+    const/16 v16, 0x0
 
     const/16 v22, 0x0
 
-    if-nez v28, :cond_1d
+    if-nez v28, :cond_1b
 
-    if-eqz v26, :cond_23
+    if-eqz v26, :cond_1f
 
-    :cond_1d
-    if-eqz v28, :cond_1e
+    :cond_1b
+    if-eqz v28, :cond_1c
 
-    sget-object v14, Landroid/telephony/PhoneNumberUtils;->refCountryIDDPrefix:Ljava/lang/String;
+    sget-object v16, Landroid/telephony/PhoneNumberUtils;->refCountryIDDPrefix:Ljava/lang/String;
 
     sget-object v5, Landroid/telephony/PhoneNumberUtils;->refCountryIDDPrefix:Ljava/lang/String;
 
@@ -2359,7 +2412,7 @@
 
     move-result-object v22
 
-    :goto_3
+    :goto_4
     sget-object v5, Landroid/telephony/PhoneNumberUtils;->otaCountryCountryCode:Ljava/lang/String;
 
     move-object/from16 v0, v22
@@ -2368,11 +2421,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_20
-
-    sget-boolean v5, Landroid/telephony/PhoneNumberUtils;->isNBPCDSupported:Z
-
-    if-eqz v5, :cond_1f
+    if-eqz v5, :cond_1d
 
     move-object/from16 v0, v21
 
@@ -2380,71 +2429,7 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v14}, Ljava/lang/String;->length()I
-
-    move-result v5
-
-    sget-object v6, Landroid/telephony/PhoneNumberUtils;->otaCountryCountryCode:Ljava/lang/String;
-
-    invoke-virtual {v6}, Ljava/lang/String;->length()I
-
-    move-result v6
-
-    add-int/2addr v5, v6
-
-    const-string/jumbo v6, "+"
-
-    const/4 v7, 0x0
-
-    move-object/from16 v0, v21
-
-    invoke-virtual {v0, v7, v5, v6}, Ljava/lang/StringBuilder;->replace(IILjava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-string/jumbo v5, "PhoneNumberUtils"
-
-    const-string/jumbo v6, "[AssistDialing6-1] "
-
-    invoke-static {v5, v6}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    const/4 v5, 0x1
-
-    sput-boolean v5, Landroid/telephony/PhoneNumberUtils;->isAssistedDialingNumber:Z
-
-    invoke-virtual/range {v21 .. v21}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    return-object v5
-
-    :cond_1e
-    sget-object v14, Landroid/telephony/PhoneNumberUtils;->otaCountryIDDPrefix:Ljava/lang/String;
-
-    sget-object v5, Landroid/telephony/PhoneNumberUtils;->otaCountryIDDPrefix:Ljava/lang/String;
-
-    invoke-virtual {v5}, Ljava/lang/String;->length()I
-
-    move-result v5
-
-    invoke-virtual/range {p0 .. p0}, Ljava/lang/String;->length()I
-
-    move-result v6
-
-    move-object/from16 v0, p0
-
-    invoke-virtual {v0, v5, v6}, Ljava/lang/String;->substring(II)Ljava/lang/String;
-
-    move-result-object v22
-
-    goto :goto_3
-
-    :cond_1f
-    move-object/from16 v0, v21
-
-    move-object/from16 v1, p0
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v14}, Ljava/lang/String;->length()I
+    invoke-virtual/range {v16 .. v16}, Ljava/lang/String;->length()I
 
     move-result v5
 
@@ -2464,11 +2449,33 @@
 
     invoke-virtual {v0, v7, v5, v6}, Ljava/lang/StringBuilder;->replace(IILjava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v5, "PhoneNumberUtils"
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
     const-string/jumbo v6, "[AssistDialing6-2] "
 
-    invoke-static {v5, v6}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual/range {v21 .. v21}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v6}, Landroid/telephony/PhoneNumberUtils;->maskPhoneNumber(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v5}, Landroid/telephony/PhoneNumberUtils;->adLog(Ljava/lang/String;)V
 
     const/4 v5, 0x1
 
@@ -2480,47 +2487,29 @@
 
     return-object v5
 
-    :cond_20
-    sget-boolean v5, Landroid/telephony/PhoneNumberUtils;->isNBPCDSupported:Z
+    :cond_1c
+    sget-object v16, Landroid/telephony/PhoneNumberUtils;->otaCountryIDDPrefix:Ljava/lang/String;
 
-    if-eqz v5, :cond_21
+    sget-object v5, Landroid/telephony/PhoneNumberUtils;->otaCountryIDDPrefix:Ljava/lang/String;
 
-    move-object/from16 v0, v21
-
-    move-object/from16 v1, p0
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v14}, Ljava/lang/String;->length()I
+    invoke-virtual {v5}, Ljava/lang/String;->length()I
 
     move-result v5
 
-    const-string/jumbo v6, "+"
+    invoke-virtual/range {p0 .. p0}, Ljava/lang/String;->length()I
 
-    const/4 v7, 0x0
+    move-result v6
 
-    move-object/from16 v0, v21
+    move-object/from16 v0, p0
 
-    invoke-virtual {v0, v7, v5, v6}, Ljava/lang/StringBuilder;->replace(IILjava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v5, v6}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
-    const-string/jumbo v5, "PhoneNumberUtils"
+    move-result-object v22
 
-    const-string/jumbo v6, "[AssistDialing6-3] "
+    goto :goto_4
 
-    invoke-static {v5, v6}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    const/4 v5, 0x1
-
-    sput-boolean v5, Landroid/telephony/PhoneNumberUtils;->isAssistedDialingNumber:Z
-
-    invoke-virtual/range {v21 .. v21}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    return-object v5
-
-    :cond_21
-    if-eqz v28, :cond_22
+    :cond_1d
+    if-eqz v28, :cond_1e
 
     move-object/from16 v0, v21
 
@@ -2542,11 +2531,33 @@
 
     invoke-virtual {v0, v7, v5, v6}, Ljava/lang/StringBuilder;->replace(IILjava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v5, "PhoneNumberUtils"
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
     const-string/jumbo v6, "[AssistDialing6-4] "
 
-    invoke-static {v5, v6}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual/range {v21 .. v21}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v6}, Landroid/telephony/PhoneNumberUtils;->maskPhoneNumber(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v5}, Landroid/telephony/PhoneNumberUtils;->adLog(Ljava/lang/String;)V
 
     const/4 v5, 0x1
 
@@ -2558,14 +2569,32 @@
 
     return-object v5
 
-    :cond_22
-    if-eqz v26, :cond_28
+    :cond_1e
+    if-eqz v26, :cond_23
 
-    const-string/jumbo v5, "PhoneNumberUtils"
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
     const-string/jumbo v6, "[AssistDialing6-5] "
 
-    invoke-static {v5, v6}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-static/range {p0 .. p0}, Landroid/telephony/PhoneNumberUtils;->maskPhoneNumber(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v5}, Landroid/telephony/PhoneNumberUtils;->adLog(Ljava/lang/String;)V
 
     const/4 v5, 0x0
 
@@ -2573,12 +2602,12 @@
 
     return-object p0
 
-    :cond_23
-    if-nez v29, :cond_24
+    :cond_1f
+    if-nez v29, :cond_20
 
-    if-eqz v27, :cond_28
+    if-eqz v27, :cond_23
 
-    :cond_24
+    :cond_20
     sget v5, Landroid/telephony/PhoneNumberUtils;->numberLength:I
 
     sget-object v6, Landroid/telephony/PhoneNumberUtils;->refCountryNationalNumberLength:Ljava/lang/Integer;
@@ -2595,7 +2624,7 @@
 
     add-int/2addr v6, v7
 
-    if-ne v5, v6, :cond_28
+    if-ne v5, v6, :cond_23
 
     sget-object v5, Landroid/telephony/PhoneNumberUtils;->refCountryCountryCode:Ljava/lang/String;
 
@@ -2605,59 +2634,15 @@
 
     move-result v5
 
-    if-nez v5, :cond_27
+    if-nez v5, :cond_22
 
-    const/16 v19, 0x0
+    const/16 v18, 0x0
 
-    if-eqz v29, :cond_25
+    if-eqz v29, :cond_21
 
-    sget-object v19, Landroid/telephony/PhoneNumberUtils;->refCountryNDDPrefix:Ljava/lang/String;
+    sget-object v18, Landroid/telephony/PhoneNumberUtils;->refCountryNDDPrefix:Ljava/lang/String;
 
-    :goto_4
-    sget-boolean v5, Landroid/telephony/PhoneNumberUtils;->isNBPCDSupported:Z
-
-    if-eqz v5, :cond_26
-
-    move-object/from16 v0, v21
-
-    move-object/from16 v1, p0
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual/range {v19 .. v19}, Ljava/lang/String;->length()I
-
-    move-result v5
-
-    const-string/jumbo v6, "+"
-
-    const/4 v7, 0x0
-
-    move-object/from16 v0, v21
-
-    invoke-virtual {v0, v7, v5, v6}, Ljava/lang/StringBuilder;->replace(IILjava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-string/jumbo v5, "PhoneNumberUtils"
-
-    const-string/jumbo v6, "[AssistDialing7-1] "
-
-    invoke-static {v5, v6}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    const/4 v5, 0x1
-
-    sput-boolean v5, Landroid/telephony/PhoneNumberUtils;->isAssistedDialingNumber:Z
-
-    invoke-virtual/range {v21 .. v21}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    return-object v5
-
-    :cond_25
-    sget-object v19, Landroid/telephony/PhoneNumberUtils;->otaCountryNDDPrefix:Ljava/lang/String;
-
-    goto :goto_4
-
-    :cond_26
+    :goto_5
     new-instance v5, Ljava/lang/StringBuffer;
 
     invoke-direct {v5}, Ljava/lang/StringBuffer;-><init>()V
@@ -2684,7 +2669,7 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual/range {v19 .. v19}, Ljava/lang/String;->length()I
+    invoke-virtual/range {v18 .. v18}, Ljava/lang/String;->length()I
 
     move-result v5
 
@@ -2696,11 +2681,33 @@
 
     invoke-virtual {v0, v6, v5, v1}, Ljava/lang/StringBuilder;->replace(IILjava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v5, "PhoneNumberUtils"
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
     const-string/jumbo v6, "[AssistDialing7-2] "
 
-    invoke-static {v5, v6}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual/range {v21 .. v21}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v6}, Landroid/telephony/PhoneNumberUtils;->maskPhoneNumber(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v5}, Landroid/telephony/PhoneNumberUtils;->adLog(Ljava/lang/String;)V
 
     const/4 v5, 0x1
 
@@ -2712,12 +2719,35 @@
 
     return-object v5
 
-    :cond_27
-    const-string/jumbo v5, "PhoneNumberUtils"
+    :cond_21
+    sget-object v18, Landroid/telephony/PhoneNumberUtils;->otaCountryNDDPrefix:Ljava/lang/String;
+
+    goto :goto_5
+
+    :cond_22
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
     const-string/jumbo v6, "[AssistDialing7-3] "
 
-    invoke-static {v5, v6}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-static/range {p0 .. p0}, Landroid/telephony/PhoneNumberUtils;->maskPhoneNumber(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v5}, Landroid/telephony/PhoneNumberUtils;->adLog(Ljava/lang/String;)V
 
     const/4 v5, 0x0
 
@@ -2725,79 +2755,11 @@
 
     return-object p0
 
-    :cond_28
+    :cond_23
     const/16 v5, 0x2b
 
-    if-ne v5, v10, :cond_29
+    if-ne v10, v5, :cond_2c
 
-    sget-boolean v5, Landroid/telephony/PhoneNumberUtils;->isNBPCDSupported:Z
-
-    if-eqz v5, :cond_2a
-
-    :cond_29
-    if-eqz v33, :cond_37
-
-    invoke-static {v10}, Landroid/telephony/PhoneNumberUtils;->isISODigit(C)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_36
-
-    sget v5, Landroid/telephony/PhoneNumberUtils;->numberLength:I
-
-    sget-object v6, Landroid/telephony/PhoneNumberUtils;->refCountryNationalNumberLength:Ljava/lang/Integer;
-
-    invoke-virtual {v6}, Ljava/lang/Integer;->intValue()I
-
-    move-result v6
-
-    if-gt v5, v6, :cond_34
-
-    sget v5, Landroid/telephony/PhoneNumberUtils;->numberLength:I
-
-    sget-object v6, Landroid/telephony/PhoneNumberUtils;->refCountryNationalNumberLength:Ljava/lang/Integer;
-
-    invoke-virtual {v6}, Ljava/lang/Integer;->intValue()I
-
-    move-result v6
-
-    if-ne v5, v6, :cond_33
-
-    const-string/jumbo v5, "+"
-
-    move-object/from16 v0, v21
-
-    invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    sget-object v5, Landroid/telephony/PhoneNumberUtils;->refCountryCountryCode:Ljava/lang/String;
-
-    move-object/from16 v0, v21
-
-    invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-object/from16 v0, v21
-
-    move-object/from16 v1, p0
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-string/jumbo v5, "PhoneNumberUtils"
-
-    const-string/jumbo v6, "[AssistDialing10-1] "
-
-    invoke-static {v5, v6}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    const/4 v5, 0x1
-
-    sput-boolean v5, Landroid/telephony/PhoneNumberUtils;->isAssistedDialingNumber:Z
-
-    invoke-virtual/range {v21 .. v21}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    return-object v5
-
-    :cond_2a
     invoke-virtual/range {p0 .. p0}, Ljava/lang/String;->length()I
 
     move-result v5
@@ -2820,55 +2782,19 @@
 
     sget-boolean v5, Landroid/telephony/PhoneNumberUtils;->isNetRoaming:Z
 
-    if-eqz v5, :cond_2b
+    if-eqz v5, :cond_25
 
     sget-boolean v5, Landroid/telephony/PhoneNumberUtils;->isOTANANPCountry:Z
 
-    if-eqz v5, :cond_2c
+    xor-int/lit8 v5, v5, 0x1
 
-    :cond_2b
-    invoke-virtual/range {v23 .. v23}, Ljava/lang/String;->length()I
+    if-eqz v5, :cond_25
 
-    move-result v5
+    xor-int/lit8 v5, v15, 0x1
 
-    const/16 v6, 0xb
+    if-eqz v5, :cond_25
 
-    if-lt v5, v6, :cond_29
-
-    invoke-virtual/range {v23 .. v23}, Ljava/lang/String;->length()I
-
-    move-result v5
-
-    const/16 v6, 0xb
-
-    if-ne v6, v5, :cond_2e
-
-    const/4 v5, 0x1
-
-    move-object/from16 v0, p0
-
-    invoke-virtual {v0, v5}, Ljava/lang/String;->charAt(I)C
-
-    move-result v5
-
-    const/16 v6, 0x31
-
-    if-ne v6, v5, :cond_2e
-
-    const-string/jumbo v5, "PhoneNumberUtils"
-
-    const-string/jumbo v6, "[AssistDialing9-1] "
-
-    invoke-static {v5, v6}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    const/4 v5, 0x0
-
-    sput-boolean v5, Landroid/telephony/PhoneNumberUtils;->isAssistedDialingNumber:Z
-
-    return-object p0
-
-    :cond_2c
-    if-eqz v24, :cond_2d
+    if-eqz v24, :cond_24
 
     move-object/from16 v0, v21
 
@@ -2892,11 +2818,33 @@
 
     invoke-virtual {v0, v7, v5, v6}, Ljava/lang/StringBuilder;->replace(IILjava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v5, "PhoneNumberUtils"
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
     const-string/jumbo v6, "[AssistDialing8-1] "
 
-    invoke-static {v5, v6}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual/range {v21 .. v21}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v6}, Landroid/telephony/PhoneNumberUtils;->maskPhoneNumber(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v5}, Landroid/telephony/PhoneNumberUtils;->adLog(Ljava/lang/String;)V
 
     const/4 v5, 0x0
 
@@ -2908,7 +2856,7 @@
 
     return-object v5
 
-    :cond_2d
+    :cond_24
     move-object/from16 v0, v21
 
     move-object/from16 v1, p0
@@ -2925,11 +2873,33 @@
 
     invoke-virtual {v0, v6, v7, v5}, Ljava/lang/StringBuilder;->replace(IILjava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v5, "PhoneNumberUtils"
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
     const-string/jumbo v6, "[AssistDialing8-2] "
 
-    invoke-static {v5, v6}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual/range {v21 .. v21}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v6}, Landroid/telephony/PhoneNumberUtils;->maskPhoneNumber(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v5}, Landroid/telephony/PhoneNumberUtils;->adLog(Ljava/lang/String;)V
 
     const/4 v5, 0x0
 
@@ -2941,12 +2911,71 @@
 
     return-object v5
 
-    :cond_2e
+    :cond_25
+    invoke-virtual/range {v23 .. v23}, Ljava/lang/String;->length()I
+
+    move-result v5
+
+    const/16 v6, 0xb
+
+    if-lt v5, v6, :cond_2c
+
+    invoke-virtual/range {v23 .. v23}, Ljava/lang/String;->length()I
+
+    move-result v5
+
+    const/16 v6, 0xb
+
+    if-ne v5, v6, :cond_26
+
+    const/4 v5, 0x1
+
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v5}, Ljava/lang/String;->charAt(I)C
+
+    move-result v5
+
+    const/16 v6, 0x31
+
+    if-ne v5, v6, :cond_26
+
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v6, "[AssistDialing9-1] "
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-static/range {p0 .. p0}, Landroid/telephony/PhoneNumberUtils;->maskPhoneNumber(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v5}, Landroid/telephony/PhoneNumberUtils;->adLog(Ljava/lang/String;)V
+
+    const/4 v5, 0x0
+
+    sput-boolean v5, Landroid/telephony/PhoneNumberUtils;->isAssistedDialingNumber:Z
+
+    return-object p0
+
+    :cond_26
     invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v4
 
-    const/16 v18, 0x0
+    const/16 v17, 0x0
 
     sget-object v5, Landroid/telephony/PhoneNumberUtils;->MCC_OTA_URI:Landroid/net/Uri;
 
@@ -2966,12 +2995,17 @@
 
     sget-object v5, Landroid/telephony/PhoneNumberUtils;->mCursor:Landroid/database/Cursor;
 
-    invoke-interface {v5}, Landroid/database/Cursor;->moveToFirst()Z
+    if-eqz v5, :cond_27
 
-    :goto_5
     sget-object v5, Landroid/telephony/PhoneNumberUtils;->mCursor:Landroid/database/Cursor;
 
-    if-eqz v5, :cond_2f
+    invoke-interface {v5}, Landroid/database/Cursor;->moveToFirst()Z
+
+    :cond_27
+    :goto_6
+    sget-object v5, Landroid/telephony/PhoneNumberUtils;->mCursor:Landroid/database/Cursor;
+
+    if-eqz v5, :cond_28
 
     sget-object v5, Landroid/telephony/PhoneNumberUtils;->mCursor:Landroid/database/Cursor;
 
@@ -2979,25 +3013,10 @@
 
     move-result v5
 
-    if-eqz v5, :cond_30
+    xor-int/lit8 v5, v5, 0x1
 
-    :cond_2f
-    :goto_6
-    if-nez v18, :cond_32
+    if-eqz v5, :cond_28
 
-    const-string/jumbo v5, "PhoneNumberUtils"
-
-    const-string/jumbo v6, "[AssistDialing9-2] "
-
-    invoke-static {v5, v6}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    const/4 v5, 0x0
-
-    sput-boolean v5, Landroid/telephony/PhoneNumberUtils;->isAssistedDialingNumber:Z
-
-    return-object p0
-
-    :cond_30
     sget-object v5, Landroid/telephony/PhoneNumberUtils;->mCursor:Landroid/database/Cursor;
 
     const/4 v6, 0x6
@@ -3012,20 +3031,82 @@
 
     move-result v5
 
-    if-eqz v5, :cond_31
+    if-eqz v5, :cond_2a
 
-    const/16 v18, 0x1
+    const/16 v17, 0x1
 
-    goto :goto_6
+    :cond_28
+    if-nez v17, :cond_2b
 
-    :cond_31
+    sget-object v5, Landroid/telephony/PhoneNumberUtils;->mCursor:Landroid/database/Cursor;
+
+    if-eqz v5, :cond_29
+
+    sget-object v5, Landroid/telephony/PhoneNumberUtils;->mCursor:Landroid/database/Cursor;
+
+    invoke-interface {v5}, Landroid/database/Cursor;->close()V
+
+    :cond_29
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v6, "Number does not start with Country Code, match: "
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    move/from16 v0, v17
+
+    invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v5}, Landroid/telephony/PhoneNumberUtils;->adLog(Ljava/lang/String;)V
+
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v6, "[AssistDialing9-2] "
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-static/range {p0 .. p0}, Landroid/telephony/PhoneNumberUtils;->maskPhoneNumber(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v5}, Landroid/telephony/PhoneNumberUtils;->adLog(Ljava/lang/String;)V
+
+    const/4 v5, 0x0
+
+    sput-boolean v5, Landroid/telephony/PhoneNumberUtils;->isAssistedDialingNumber:Z
+
+    return-object p0
+
+    :cond_2a
     sget-object v5, Landroid/telephony/PhoneNumberUtils;->mCursor:Landroid/database/Cursor;
 
     invoke-interface {v5}, Landroid/database/Cursor;->moveToNext()Z
 
-    goto :goto_5
+    goto :goto_6
 
-    :cond_32
+    :cond_2b
     invoke-virtual/range {v23 .. v23}, Ljava/lang/String;->length()I
 
     move-result v5
@@ -3050,7 +3131,7 @@
 
     move-result v6
 
-    if-ne v5, v6, :cond_29
+    if-ne v5, v6, :cond_2c
 
     sget-object v5, Landroid/telephony/PhoneNumberUtils;->mCursor:Landroid/database/Cursor;
 
@@ -3072,11 +3153,33 @@
 
     invoke-virtual {v0, v6, v7, v5}, Ljava/lang/StringBuilder;->replace(IILjava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v5, "PhoneNumberUtils"
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
     const-string/jumbo v6, "[AssistDialing9-3] "
 
-    invoke-static {v5, v6}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual/range {v21 .. v21}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v6}, Landroid/telephony/PhoneNumberUtils;->maskPhoneNumber(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v5}, Landroid/telephony/PhoneNumberUtils;->adLog(Ljava/lang/String;)V
 
     const/4 v5, 0x0
 
@@ -3088,7 +3191,92 @@
 
     return-object v5
 
-    :cond_33
+    :cond_2c
+    if-eqz v33, :cond_31
+
+    invoke-static {v10}, Landroid/telephony/PhoneNumberUtils;->isISODigit(C)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_30
+
+    sget v5, Landroid/telephony/PhoneNumberUtils;->numberLength:I
+
+    sget-object v6, Landroid/telephony/PhoneNumberUtils;->refCountryNationalNumberLength:Ljava/lang/Integer;
+
+    invoke-virtual {v6}, Ljava/lang/Integer;->intValue()I
+
+    move-result v6
+
+    if-gt v5, v6, :cond_2e
+
+    sget v5, Landroid/telephony/PhoneNumberUtils;->numberLength:I
+
+    sget-object v6, Landroid/telephony/PhoneNumberUtils;->refCountryNationalNumberLength:Ljava/lang/Integer;
+
+    invoke-virtual {v6}, Ljava/lang/Integer;->intValue()I
+
+    move-result v6
+
+    if-ne v5, v6, :cond_2d
+
+    const-string/jumbo v5, "+"
+
+    move-object/from16 v0, v21
+
+    invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    sget-object v5, Landroid/telephony/PhoneNumberUtils;->refCountryCountryCode:Ljava/lang/String;
+
+    move-object/from16 v0, v21
+
+    invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-object/from16 v0, v21
+
+    move-object/from16 v1, p0
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v6, "[AssistDialing10-1] "
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual/range {v21 .. v21}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v6}, Landroid/telephony/PhoneNumberUtils;->maskPhoneNumber(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v5}, Landroid/telephony/PhoneNumberUtils;->adLog(Ljava/lang/String;)V
+
+    const/4 v5, 0x1
+
+    sput-boolean v5, Landroid/telephony/PhoneNumberUtils;->isAssistedDialingNumber:Z
+
+    invoke-virtual/range {v21 .. v21}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    return-object v5
+
+    :cond_2d
     sget v5, Landroid/telephony/PhoneNumberUtils;->numberLength:I
 
     sget-object v6, Landroid/telephony/PhoneNumberUtils;->refCountryNationalNumberLength:Ljava/lang/Integer;
@@ -3105,7 +3293,7 @@
 
     sub-int/2addr v6, v7
 
-    if-ne v5, v6, :cond_37
+    if-ne v5, v6, :cond_31
 
     const-string/jumbo v5, "+"
 
@@ -3131,11 +3319,33 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v5, "PhoneNumberUtils"
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
     const-string/jumbo v6, "[AssistDialing10-2] "
 
-    invoke-static {v5, v6}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual/range {v21 .. v21}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v6}, Landroid/telephony/PhoneNumberUtils;->maskPhoneNumber(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v5}, Landroid/telephony/PhoneNumberUtils;->adLog(Ljava/lang/String;)V
 
     const/4 v5, 0x1
 
@@ -3147,8 +3357,8 @@
 
     return-object v5
 
-    :cond_34
-    if-eqz v28, :cond_35
+    :cond_2e
+    if-eqz v28, :cond_2f
 
     move-object/from16 v0, v21
 
@@ -3170,11 +3380,33 @@
 
     invoke-virtual {v0, v7, v5, v6}, Ljava/lang/StringBuilder;->replace(IILjava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v5, "PhoneNumberUtils"
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
     const-string/jumbo v6, "[AssistDialing11-1] "
 
-    invoke-static {v5, v6}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual/range {v21 .. v21}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v6}, Landroid/telephony/PhoneNumberUtils;->maskPhoneNumber(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v5}, Landroid/telephony/PhoneNumberUtils;->adLog(Ljava/lang/String;)V
 
     const/4 v5, 0x1
 
@@ -3186,8 +3418,8 @@
 
     return-object v5
 
-    :cond_35
-    if-eqz v29, :cond_37
+    :cond_2f
+    if-eqz v29, :cond_31
 
     sget v5, Landroid/telephony/PhoneNumberUtils;->numberLength:I
 
@@ -3205,7 +3437,7 @@
 
     add-int/2addr v6, v7
 
-    if-ne v5, v6, :cond_37
+    if-ne v5, v6, :cond_31
 
     new-instance v5, Ljava/lang/StringBuffer;
 
@@ -3247,11 +3479,33 @@
 
     invoke-virtual {v0, v6, v5, v1}, Ljava/lang/StringBuilder;->replace(IILjava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v5, "PhoneNumberUtils"
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
     const-string/jumbo v6, "[AssistDialing11-2] "
 
-    invoke-static {v5, v6}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual/range {v21 .. v21}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v6}, Landroid/telephony/PhoneNumberUtils;->maskPhoneNumber(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v5}, Landroid/telephony/PhoneNumberUtils;->adLog(Ljava/lang/String;)V
 
     const/4 v5, 0x1
 
@@ -3263,7 +3517,7 @@
 
     return-object v5
 
-    :cond_36
+    :cond_30
     const-string/jumbo v5, "+011"
 
     move-object/from16 v0, p0
@@ -3272,7 +3526,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_37
+    if-eqz v5, :cond_31
 
     const-string/jumbo v5, "+"
 
@@ -3302,12 +3556,30 @@
 
     return-object v5
 
-    :cond_37
-    const-string/jumbo v5, "PhoneNumberUtils"
+    :cond_31
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
     const-string/jumbo v6, "[AssistDialing13-1] "
 
-    invoke-static {v5, v6}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-static/range {p0 .. p0}, Landroid/telephony/PhoneNumberUtils;->maskPhoneNumber(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v5}, Landroid/telephony/PhoneNumberUtils;->adLog(Ljava/lang/String;)V
 
     const/4 v5, 0x0
 
@@ -3319,27 +3591,45 @@
 .end method
 
 .method public static assistedDialFromDialPad(Ljava/lang/String;Landroid/content/Context;)Ljava/lang/String;
-    .locals 25
+    .locals 29
 
     :try_start_0
-    const-string/jumbo v22, "PhoneNumberUtils"
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    const-string/jumbo v23, "Called assistedDialFromDialPad : "
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-static/range {v22 .. v23}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    const-string/jumbo v4, "Called assistedDialFromDialPad: "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-static/range {p0 .. p0}, Landroid/telephony/PhoneNumberUtils;->maskPhoneNumber(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v3}, Landroid/telephony/PhoneNumberUtils;->adLog(Ljava/lang/String;)V
 
     if-eqz p0, :cond_0
 
     invoke-static/range {p0 .. p0}, Landroid/telephony/PhoneNumberUtils;->isUriNumber(Ljava/lang/String;)Z
 
-    move-result v22
+    move-result v3
 
-    if-eqz v22, :cond_1
+    if-eqz v3, :cond_1
 
     :cond_0
-    const/16 v22, 0x0
+    const/4 v3, 0x0
 
-    sput-boolean v22, Landroid/telephony/PhoneNumberUtils;->isAssistedDialingNumber:Z
+    sput-boolean v3, Landroid/telephony/PhoneNumberUtils;->isAssistedDialingNumber:Z
 
     return-object p0
 
@@ -3352,953 +3642,1163 @@
 
     move-result-object p0
 
-    const/16 v22, 0x0
+    const/4 v3, 0x0
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v22
+    invoke-virtual {v0, v3}, Ljava/lang/String;->charAt(I)C
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->charAt(I)C
+    move-result v9
 
-    move-result v4
+    invoke-static {v9}, Landroid/telephony/PhoneNumberUtils;->isISODigit(C)Z
 
-    invoke-static {v4}, Landroid/telephony/PhoneNumberUtils;->isISODigit(C)Z
+    move-result v3
 
-    move-result v22
+    if-nez v3, :cond_2
 
-    if-nez v22, :cond_2
+    const/16 v3, 0x2b
 
-    const/16 v22, 0x2b
-
-    move/from16 v0, v22
-
-    if-ne v0, v4, :cond_3
+    if-ne v9, v3, :cond_3
 
     :cond_2
-    const-string/jumbo v22, "PhoneNumberUtils"
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    new-instance v23, Ljava/lang/StringBuilder;
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct/range {v23 .. v23}, Ljava/lang/StringBuilder;-><init>()V
+    const-string/jumbo v4, "Assisted Dialing PhoneNumber is OK: "
 
-    const-string/jumbo v24, "Assisted Dialing PhoneNumber is OK: "
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual/range {v23 .. v24}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v3
 
-    move-result-object v23
+    invoke-virtual {v3, v9}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    move-object/from16 v0, v23
+    move-result-object v3
 
-    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v23
+    move-result-object v3
 
-    invoke-virtual/range {v23 .. v23}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v23
-
-    invoke-static/range {v22 .. v23}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v3}, Landroid/telephony/PhoneNumberUtils;->adLog(Ljava/lang/String;)V
 
     invoke-static/range {p0 .. p1}, Landroid/telephony/PhoneNumberUtils;->retrieveAssistedParams(Ljava/lang/String;Landroid/content/Context;)Z
 
-    move-result v22
+    move-result v3
 
-    if-nez v22, :cond_4
+    if-nez v3, :cond_4
 
-    const-string/jumbo v22, "PhoneNumberUtils"
+    const-string/jumbo v3, "retrieveAssistedParams fail. Returning original number"
 
-    const-string/jumbo v23, "Problem in retrieving Assisted db params, Returning original number"
+    invoke-static {v3}, Landroid/telephony/PhoneNumberUtils;->adLog(Ljava/lang/String;)V
 
-    invoke-static/range {v22 .. v23}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    const/4 v3, 0x0
 
-    const/16 v22, 0x0
-
-    sput-boolean v22, Landroid/telephony/PhoneNumberUtils;->isAssistedDialingNumber:Z
+    sput-boolean v3, Landroid/telephony/PhoneNumberUtils;->isAssistedDialingNumber:Z
 
     return-object p0
 
     :cond_3
-    const-string/jumbo v22, "PhoneNumberUtils"
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    new-instance v23, Ljava/lang/StringBuilder;
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct/range {v23 .. v23}, Ljava/lang/StringBuilder;-><init>()V
+    const-string/jumbo v4, "Assisted Dialing PhoneNumber is FAILED: "
 
-    const-string/jumbo v24, "Assisted Dialing PhoneNumber is FAILED: "
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual/range {v23 .. v24}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v3
 
-    move-result-object v23
+    invoke-virtual {v3, v9}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    move-object/from16 v0, v23
+    move-result-object v3
 
-    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v23
+    move-result-object v3
 
-    invoke-virtual/range {v23 .. v23}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-static {v3}, Landroid/telephony/PhoneNumberUtils;->adLog(Ljava/lang/String;)V
 
-    move-result-object v23
+    const/4 v3, 0x0
 
-    invoke-static/range {v22 .. v23}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    const/16 v22, 0x0
-
-    sput-boolean v22, Landroid/telephony/PhoneNumberUtils;->isAssistedDialingNumber:Z
+    sput-boolean v3, Landroid/telephony/PhoneNumberUtils;->isAssistedDialingNumber:Z
 
     return-object p0
 
     :cond_4
-    new-instance v12, Ljava/lang/StringBuilder;
+    new-instance v18, Ljava/lang/StringBuilder;
 
-    const/16 v22, 0x80
+    const/16 v3, 0x80
 
-    move/from16 v0, v22
+    move-object/from16 v0, v18
 
-    invoke-direct {v12, v0}, Ljava/lang/StringBuilder;-><init>(I)V
+    invoke-direct {v0, v3}, Ljava/lang/StringBuilder;-><init>(I)V
 
     invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v22
+    move-result-object v3
 
-    const-string/jumbo v23, "assisted_dialing"
+    const-string/jumbo v4, "assisted_dialing"
 
-    const/16 v24, 0x0
+    const/4 v5, 0x0
 
-    invoke-static/range {v22 .. v24}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
-
-    move-result v22
-
-    const/16 v23, 0x1
-
-    move/from16 v0, v22
-
-    move/from16 v1, v23
-
-    if-ne v0, v1, :cond_a
-
-    const/4 v6, 0x1
-
-    :goto_0
-    if-eqz v6, :cond_b
-
-    sget-object v22, Landroid/telephony/PhoneNumberUtils;->refCountryIDDPrefix:Ljava/lang/String;
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v22
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
-
-    move-result v18
-
-    :goto_1
-    sget-object v22, Landroid/telephony/PhoneNumberUtils;->otaCountryIDDPrefix:Ljava/lang/String;
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v22
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
-
-    move-result v17
-
-    const-string/jumbo v22, "PhoneNumberUtils"
-
-    new-instance v23, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v23 .. v23}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v24, "enableAssistedDialing: "
-
-    invoke-virtual/range {v23 .. v24}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v23
-
-    move-object/from16 v0, v23
-
-    invoke-virtual {v0, v6}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v23
-
-    const-string/jumbo v24, ", numberBeginsWithRefCountryIDDPrefixWithAdEnabled: "
-
-    invoke-virtual/range {v23 .. v24}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v23
-
-    move-object/from16 v0, v23
-
-    move/from16 v1, v18
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v23
-
-    const-string/jumbo v24, ", numberBeginsWithOTAIDDPrefix: "
-
-    invoke-virtual/range {v23 .. v24}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v23
-
-    move-object/from16 v0, v23
-
-    move/from16 v1, v17
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v23
-
-    invoke-virtual/range {v23 .. v23}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v23
-
-    invoke-static/range {v22 .. v23}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    invoke-static/range {p1 .. p1}, Landroid/telephony/PhoneNumberUtils;->checkAssistedDialingTestmode(Landroid/content/Context;)V
-
-    sget-boolean v20, Landroid/telephony/PhoneNumberUtils;->isCDMARegistered:Z
-
-    sget-boolean v21, Landroid/telephony/PhoneNumberUtils;->isGSMRegistered:Z
-
-    if-eqz v21, :cond_8
-
-    const/16 v22, 0xc
-
-    invoke-static/range {v22 .. v22}, Lcom/android/internal/telephony/TelephonyFeatures;->getNtcFeature(I)Z
-
-    move-result v22
-
-    if-nez v22, :cond_5
-
-    const/16 v22, 0xd
-
-    invoke-static/range {v22 .. v22}, Lcom/android/internal/telephony/TelephonyFeatures;->getNtcFeature(I)Z
-
-    move-result v22
-
-    if-eqz v22, :cond_8
-
-    :cond_5
-    const-string/jumbo v22, "phone"
-
-    move-object/from16 v0, p1
-
-    move-object/from16 v1, v22
-
-    invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v19
-
-    check-cast v19, Landroid/telephony/TelephonyManager;
-
-    if-eqz v19, :cond_8
-
-    invoke-virtual/range {v19 .. v19}, Landroid/telephony/TelephonyManager;->isVolteAvailable()Z
-
-    move-result v8
-
-    invoke-virtual/range {v19 .. v19}, Landroid/telephony/TelephonyManager;->isWifiCallingAvailable()Z
-
-    move-result v10
-
-    const/4 v9, 0x0
-
-    invoke-virtual/range {v19 .. v19}, Landroid/telephony/TelephonyManager;->getNetworkOperator()Ljava/lang/String;
-
-    move-result-object v11
-
-    invoke-static {v11}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v22
-
-    if-nez v22, :cond_6
-
-    const-string/jumbo v22, "31148"
-
-    move-object/from16 v0, v22
-
-    invoke-virtual {v11, v0}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
-
-    move-result v22
-
-    if-eqz v22, :cond_6
-
-    const/4 v9, 0x1
-
-    :cond_6
-    if-nez v8, :cond_7
-
-    if-nez v10, :cond_7
-
-    if-eqz v9, :cond_8
-
-    :cond_7
-    new-instance v22, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v22 .. v22}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v23, "Use CDMA policy (VolteAvail: "
-
-    invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v22
-
-    move-object/from16 v0, v22
-
-    invoke-virtual {v0, v8}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v22
-
-    const-string/jumbo v23, ", WifiCallingAvail: "
-
-    invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v22
-
-    move-object/from16 v0, v22
-
-    invoke-virtual {v0, v10}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v22
-
-    const-string/jumbo v23, ", isVzwNetwork: "
-
-    invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v22
-
-    move-object/from16 v0, v22
-
-    invoke-virtual {v0, v9}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v22
-
-    const-string/jumbo v23, ")"
-
-    invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v22
-
-    invoke-virtual/range {v22 .. v22}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v22
-
-    invoke-static/range {v22 .. v22}, Landroid/telephony/PhoneNumberUtils;->log(Ljava/lang/String;)V
-
-    const/16 v21, 0x0
-
-    const/16 v20, 0x1
-
-    :cond_8
-    if-eqz v20, :cond_1b
-
-    sget-boolean v22, Landroid/telephony/PhoneNumberUtils;->isNetRoaming:Z
-
-    if-eqz v22, :cond_9
-
-    sget-boolean v22, Landroid/telephony/PhoneNumberUtils;->isOTANANPCountry:Z
-
-    if-eqz v22, :cond_d
-
-    :cond_9
-    const-string/jumbo v22, "011"
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v22
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
-
-    move-result v22
-
-    if-eqz v22, :cond_c
-
-    const/16 v16, 0x0
-
-    :goto_2
-    const/16 v22, 0x0
-
-    move-object/from16 v0, p0
-
-    move/from16 v1, v22
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->charAt(I)C
+    invoke-static {v3, v4, v5}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
     move-result v3
 
-    invoke-static {v3}, Landroid/telephony/PhoneNumberUtils;->isISODigit(C)Z
+    const/4 v4, 0x1
 
-    move-result v22
+    if-ne v3, v4, :cond_a
 
-    if-eqz v22, :cond_1b
+    const/4 v12, 0x1
 
-    if-eqz v16, :cond_1b
+    :goto_0
+    if-eqz v12, :cond_b
 
-    sget v22, Landroid/telephony/PhoneNumberUtils;->numberLength:I
-
-    const/16 v23, 0xb
-
-    move/from16 v0, v22
-
-    move/from16 v1, v23
-
-    if-lt v0, v1, :cond_1b
-
-    const/16 v22, 0x31
-
-    move/from16 v0, v22
-
-    if-eq v0, v3, :cond_1b
-
-    const-string/jumbo v22, "011"
-
-    move-object/from16 v0, v22
-
-    invoke-virtual {v12, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    sget-object v3, Landroid/telephony/PhoneNumberUtils;->refCountryIDDPrefix:Ljava/lang/String;
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v12, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v3}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
-    const-string/jumbo v22, "PhoneNumberUtils"
+    move-result v25
 
-    const-string/jumbo v23, "[AssistDialingA-1] "
+    :goto_1
+    sget-object v3, Landroid/telephony/PhoneNumberUtils;->otaCountryIDDPrefix:Ljava/lang/String;
 
-    invoke-static/range {v22 .. v23}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    move-object/from16 v0, p0
 
-    const/16 v22, 0x1
+    invoke-virtual {v0, v3}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
-    sput-boolean v22, Landroid/telephony/PhoneNumberUtils;->isAssistedDialingNumber:Z
+    move-result v24
 
-    invoke-virtual {v12}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    move-result-object v22
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    return-object v22
+    const-string/jumbo v4, "enable: "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v12}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    const-string/jumbo v4, ", numberBeginsWithRefCountryIDDPrefixWithAdEnabled: "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    move/from16 v0, v25
+
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    const-string/jumbo v4, ", numberBeginsWithOTAIDDPrefix: "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    move/from16 v0, v24
+
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v3}, Landroid/telephony/PhoneNumberUtils;->adLog(Ljava/lang/String;)V
+
+    sget-boolean v27, Landroid/telephony/PhoneNumberUtils;->isCDMARegistered:Z
+
+    sget-boolean v28, Landroid/telephony/PhoneNumberUtils;->isGSMRegistered:Z
+
+    const/4 v13, 0x0
+
+    if-eqz v28, :cond_8
+
+    const-string/jumbo v3, "phone"
+
+    move-object/from16 v0, p1
+
+    invoke-virtual {v0, v3}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v26
+
+    check-cast v26, Landroid/telephony/TelephonyManager;
+
+    if-eqz v26, :cond_8
+
+    invoke-virtual/range {v26 .. v26}, Landroid/telephony/TelephonyManager;->getDataNetworkType()I
+
+    move-result v10
+
+    invoke-virtual/range {v26 .. v26}, Landroid/telephony/TelephonyManager;->getNetworkCountryIso()Ljava/lang/String;
+
+    move-result-object v16
+
+    invoke-virtual/range {v26 .. v26}, Landroid/telephony/TelephonyManager;->isNetworkRoaming()Z
+
+    move-result v17
+
+    const-string/jumbo v3, "us"
+
+    move-object/from16 v0, v16
+
+    invoke-virtual {v3, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_5
+
+    const-string/jumbo v3, "vi"
+
+    move-object/from16 v0, v16
+
+    invoke-virtual {v3, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_7
+
+    :cond_5
+    const/16 v3, 0xd
+
+    if-eq v10, v3, :cond_6
+
+    const/16 v3, 0x13
+
+    if-ne v10, v3, :cond_c
+
+    :cond_6
+    :goto_2
+    xor-int/lit8 v3, v17, 0x1
+
+    if-eqz v3, :cond_7
+
+    const/4 v13, 0x1
+
+    :cond_7
+    if-eqz v13, :cond_8
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "Use CDMA policy (forceVzwHomePolicy: "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v13}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    const-string/jumbo v4, ")"
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v3}, Landroid/telephony/PhoneNumberUtils;->adLog(Ljava/lang/String;)V
+
+    const/16 v28, 0x0
+
+    const/16 v27, 0x1
+
+    :cond_8
+    if-eqz v27, :cond_18
+
+    sget-boolean v3, Landroid/telephony/PhoneNumberUtils;->isNetRoaming:Z
+
+    if-eqz v3, :cond_9
+
+    sget-boolean v3, Landroid/telephony/PhoneNumberUtils;->isOTANANPCountry:Z
+
+    if-nez v3, :cond_9
+
+    if-eqz v13, :cond_d
+
+    :cond_9
+    const-string/jumbo v3, "011"
+
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v3}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v3
+
+    xor-int/lit8 v23, v3, 0x1
+
+    const/4 v3, 0x0
+
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v3}, Ljava/lang/String;->charAt(I)C
+
+    move-result v8
+
+    invoke-static {v8}, Landroid/telephony/PhoneNumberUtils;->isISODigit(C)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_18
+
+    if-eqz v23, :cond_18
+
+    sget v3, Landroid/telephony/PhoneNumberUtils;->numberLength:I
+
+    const/16 v4, 0xb
+
+    if-lt v3, v4, :cond_18
+
+    const/16 v3, 0x31
+
+    if-eq v8, v3, :cond_18
+
+    const-string/jumbo v3, "011"
+
+    move-object/from16 v0, v18
+
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-object/from16 v0, v18
+
+    move-object/from16 v1, p0
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "[AssistDialingA-1] "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v4}, Landroid/telephony/PhoneNumberUtils;->maskPhoneNumber(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v3}, Landroid/telephony/PhoneNumberUtils;->adLog(Ljava/lang/String;)V
+
+    const/4 v3, 0x1
+
+    sput-boolean v3, Landroid/telephony/PhoneNumberUtils;->isAssistedDialingNumber:Z
+
+    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    return-object v3
 
     :cond_a
-    const/4 v6, 0x0
+    const/4 v12, 0x0
 
     goto/16 :goto_0
 
     :cond_b
-    const/16 v18, 0x0
+    const/16 v25, 0x0
 
     goto/16 :goto_1
 
     :cond_c
-    const/16 v16, 0x1
+    const/16 v3, 0x12
 
-    goto :goto_2
+    if-ne v10, v3, :cond_7
+
+    goto/16 :goto_2
 
     :cond_d
-    const/16 v22, 0x0
+    const/4 v3, 0x0
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v22
+    invoke-virtual {v0, v3}, Ljava/lang/String;->charAt(I)C
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->charAt(I)C
+    move-result v8
+
+    invoke-static {v8}, Landroid/telephony/PhoneNumberUtils;->isISODigit(C)Z
 
     move-result v3
 
-    invoke-static {v3}, Landroid/telephony/PhoneNumberUtils;->isISODigit(C)Z
+    if-nez v3, :cond_e
 
-    move-result v22
+    const/16 v3, 0x2b
 
-    if-nez v22, :cond_e
-
-    const/16 v22, 0x2b
-
-    move/from16 v0, v22
-
-    if-ne v0, v3, :cond_1b
+    if-ne v8, v3, :cond_18
 
     :cond_e
-    sget v22, Landroid/telephony/PhoneNumberUtils;->numberLength:I
+    sget v3, Landroid/telephony/PhoneNumberUtils;->numberLength:I
 
-    const/16 v23, 0xb
+    const/16 v4, 0xb
 
-    move/from16 v0, v22
+    if-lt v3, v4, :cond_18
 
-    move/from16 v1, v23
+    sget v3, Landroid/telephony/PhoneNumberUtils;->numberLength:I
 
-    if-lt v0, v1, :cond_1b
+    const/16 v4, 0xb
 
-    sget v22, Landroid/telephony/PhoneNumberUtils;->numberLength:I
+    if-ne v3, v4, :cond_f
 
-    const/16 v23, 0xb
+    const/16 v3, 0x31
 
-    move/from16 v0, v22
-
-    move/from16 v1, v23
-
-    if-ne v0, v1, :cond_f
-
-    const/16 v22, 0x31
-
-    move/from16 v0, v22
-
-    if-eq v0, v3, :cond_1b
+    if-eq v8, v3, :cond_18
 
     :cond_f
-    const/4 v7, 0x0
+    const/4 v14, 0x0
 
-    const/4 v13, 0x0
+    const/16 v19, 0x0
 
-    if-nez v18, :cond_10
+    if-nez v25, :cond_10
 
-    if-eqz v17, :cond_11
+    if-eqz v24, :cond_11
 
     :cond_10
-    if-eqz v18, :cond_14
+    if-eqz v25, :cond_12
 
-    sget-object v7, Landroid/telephony/PhoneNumberUtils;->refCountryIDDPrefix:Ljava/lang/String;
+    sget-object v14, Landroid/telephony/PhoneNumberUtils;->refCountryIDDPrefix:Ljava/lang/String;
 
-    sget-object v22, Landroid/telephony/PhoneNumberUtils;->refCountryIDDPrefix:Ljava/lang/String;
+    sget-object v3, Landroid/telephony/PhoneNumberUtils;->refCountryIDDPrefix:Ljava/lang/String;
 
-    invoke-virtual/range {v22 .. v22}, Ljava/lang/String;->length()I
+    invoke-virtual {v3}, Ljava/lang/String;->length()I
 
-    move-result v22
+    move-result v3
 
     invoke-virtual/range {p0 .. p0}, Ljava/lang/String;->length()I
 
-    move-result v23
+    move-result v4
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v22
+    invoke-virtual {v0, v3, v4}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
-    move/from16 v2, v23
-
-    invoke-virtual {v0, v1, v2}, Ljava/lang/String;->substring(II)Ljava/lang/String;
-
-    move-result-object v13
+    move-result-object v19
 
     :cond_11
     :goto_3
-    const/16 v22, 0x2b
+    const/16 v3, 0x2b
 
-    move/from16 v0, v22
-
-    if-ne v0, v3, :cond_12
-
-    sget-boolean v22, Landroid/telephony/PhoneNumberUtils;->isNBPCDSupported:Z
-
-    if-eqz v22, :cond_15
-
-    :cond_12
-    if-nez v18, :cond_13
-
-    if-eqz v17, :cond_1b
-
-    :cond_13
-    sget-object v22, Landroid/telephony/PhoneNumberUtils;->otaCountryCountryCode:Ljava/lang/String;
-
-    move-object/from16 v0, v22
-
-    invoke-virtual {v13, v0}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
-
-    move-result v22
-
-    if-eqz v22, :cond_1a
-
-    sget-boolean v22, Landroid/telephony/PhoneNumberUtils;->isNBPCDSupported:Z
-
-    if-eqz v22, :cond_18
-
-    move-object/from16 v0, p0
-
-    invoke-virtual {v12, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v7}, Ljava/lang/String;->length()I
-
-    move-result v22
-
-    sget-object v23, Landroid/telephony/PhoneNumberUtils;->otaCountryCountryCode:Ljava/lang/String;
-
-    invoke-virtual/range {v23 .. v23}, Ljava/lang/String;->length()I
-
-    move-result v23
-
-    add-int v22, v22, v23
-
-    const-string/jumbo v23, "+"
-
-    const/16 v24, 0x0
-
-    move/from16 v0, v24
-
-    move/from16 v1, v22
-
-    move-object/from16 v2, v23
-
-    invoke-virtual {v12, v0, v1, v2}, Ljava/lang/StringBuilder;->replace(IILjava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-string/jumbo v22, "PhoneNumberUtils"
-
-    const-string/jumbo v23, "[AssistDialingC-1] "
-
-    invoke-static/range {v22 .. v23}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    if-eqz v17, :cond_17
-
-    const/16 v22, 0x0
-
-    sput-boolean v22, Landroid/telephony/PhoneNumberUtils;->isAssistedDialingNumber:Z
-
-    :goto_4
-    invoke-virtual {v12}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v22
-
-    return-object v22
-
-    :cond_14
-    sget-object v7, Landroid/telephony/PhoneNumberUtils;->otaCountryIDDPrefix:Ljava/lang/String;
-
-    sget-object v22, Landroid/telephony/PhoneNumberUtils;->otaCountryIDDPrefix:Ljava/lang/String;
-
-    invoke-virtual/range {v22 .. v22}, Ljava/lang/String;->length()I
-
-    move-result v22
+    if-ne v8, v3, :cond_14
 
     invoke-virtual/range {p0 .. p0}, Ljava/lang/String;->length()I
 
-    move-result v23
+    move-result v3
+
+    const/4 v4, 0x1
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v22
+    invoke-virtual {v0, v4, v3}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
-    move/from16 v2, v23
+    move-result-object v21
 
-    invoke-virtual {v0, v1, v2}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+    sget-object v3, Landroid/telephony/PhoneNumberUtils;->otaCountryCountryCode:Ljava/lang/String;
 
-    move-result-object v13
+    move-object/from16 v0, v21
+
+    invoke-virtual {v0, v3}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v22
+
+    if-eqz v22, :cond_13
+
+    move-object/from16 v0, v18
+
+    move-object/from16 v1, p0
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    sget-object v3, Landroid/telephony/PhoneNumberUtils;->otaCountryCountryCode:Ljava/lang/String;
+
+    invoke-virtual {v3}, Ljava/lang/String;->length()I
+
+    move-result v3
+
+    add-int/lit8 v3, v3, 0x1
+
+    sget-object v4, Landroid/telephony/PhoneNumberUtils;->otaCountryNDDPrefix:Ljava/lang/String;
+
+    const/4 v5, 0x0
+
+    move-object/from16 v0, v18
+
+    invoke-virtual {v0, v5, v3, v4}, Ljava/lang/StringBuilder;->replace(IILjava/lang/String;)Ljava/lang/StringBuilder;
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "[AssistDialingB-2] "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v4}, Landroid/telephony/PhoneNumberUtils;->maskPhoneNumber(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v3}, Landroid/telephony/PhoneNumberUtils;->adLog(Ljava/lang/String;)V
+
+    const/4 v3, 0x0
+
+    sput-boolean v3, Landroid/telephony/PhoneNumberUtils;->isAssistedDialingNumber:Z
+
+    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    return-object v3
+
+    :cond_12
+    sget-object v14, Landroid/telephony/PhoneNumberUtils;->otaCountryIDDPrefix:Ljava/lang/String;
+
+    sget-object v3, Landroid/telephony/PhoneNumberUtils;->otaCountryIDDPrefix:Ljava/lang/String;
+
+    invoke-virtual {v3}, Ljava/lang/String;->length()I
+
+    move-result v3
+
+    invoke-virtual/range {p0 .. p0}, Ljava/lang/String;->length()I
+
+    move-result v4
+
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v3, v4}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+
+    move-result-object v19
 
     goto :goto_3
 
+    :cond_13
+    move-object/from16 v0, v18
+
+    move-object/from16 v1, p0
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    sget-object v3, Landroid/telephony/PhoneNumberUtils;->otaCountryIDDPrefix:Ljava/lang/String;
+
+    const/4 v4, 0x0
+
+    const/4 v5, 0x1
+
+    move-object/from16 v0, v18
+
+    invoke-virtual {v0, v4, v5, v3}, Ljava/lang/StringBuilder;->replace(IILjava/lang/String;)Ljava/lang/StringBuilder;
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "[AssistDialingB-3] "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v4}, Landroid/telephony/PhoneNumberUtils;->maskPhoneNumber(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v3}, Landroid/telephony/PhoneNumberUtils;->adLog(Ljava/lang/String;)V
+
+    const/4 v3, 0x0
+
+    sput-boolean v3, Landroid/telephony/PhoneNumberUtils;->isAssistedDialingNumber:Z
+
+    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    return-object v3
+
+    :cond_14
+    if-nez v25, :cond_15
+
+    if-eqz v24, :cond_18
+
     :cond_15
-    invoke-virtual/range {p0 .. p0}, Ljava/lang/String;->length()I
+    sget-object v3, Landroid/telephony/PhoneNumberUtils;->otaCountryCountryCode:Ljava/lang/String;
 
-    move-result v22
+    move-object/from16 v0, v19
 
-    const/16 v23, 0x1
+    invoke-virtual {v0, v3}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
-    move-object/from16 v0, p0
+    move-result v3
 
-    move/from16 v1, v23
+    if-eqz v3, :cond_17
 
-    move/from16 v2, v22
+    move-object/from16 v0, v18
 
-    invoke-virtual {v0, v1, v2}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+    move-object/from16 v1, p0
 
-    move-result-object v14
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    sget-object v22, Landroid/telephony/PhoneNumberUtils;->otaCountryCountryCode:Ljava/lang/String;
+    invoke-virtual {v14}, Ljava/lang/String;->length()I
 
-    move-object/from16 v0, v22
+    move-result v3
 
-    invoke-virtual {v14, v0}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+    sget-object v4, Landroid/telephony/PhoneNumberUtils;->otaCountryCountryCode:Ljava/lang/String;
 
-    move-result v15
+    invoke-virtual {v4}, Ljava/lang/String;->length()I
 
-    if-eqz v15, :cond_16
+    move-result v4
 
-    move-object/from16 v0, p0
+    add-int/2addr v3, v4
 
-    invoke-virtual {v12, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    sget-object v4, Landroid/telephony/PhoneNumberUtils;->otaCountryNDDPrefix:Ljava/lang/String;
 
-    sget-object v22, Landroid/telephony/PhoneNumberUtils;->otaCountryCountryCode:Ljava/lang/String;
+    const/4 v5, 0x0
 
-    invoke-virtual/range {v22 .. v22}, Ljava/lang/String;->length()I
+    move-object/from16 v0, v18
 
-    move-result v22
+    invoke-virtual {v0, v5, v3, v4}, Ljava/lang/StringBuilder;->replace(IILjava/lang/String;)Ljava/lang/StringBuilder;
 
-    add-int/lit8 v22, v22, 0x1
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    sget-object v23, Landroid/telephony/PhoneNumberUtils;->otaCountryNDDPrefix:Ljava/lang/String;
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const/16 v24, 0x0
+    const-string/jumbo v4, "[AssistDialingC-2] "
 
-    move/from16 v0, v24
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move/from16 v1, v22
+    move-result-object v3
 
-    move-object/from16 v2, v23
+    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v12, v0, v1, v2}, Ljava/lang/StringBuilder;->replace(IILjava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v4
 
-    const-string/jumbo v22, "PhoneNumberUtils"
+    invoke-static {v4}, Landroid/telephony/PhoneNumberUtils;->maskPhoneNumber(Ljava/lang/String;)Ljava/lang/String;
 
-    const-string/jumbo v23, "[AssistDialingB-2] "
+    move-result-object v4
 
-    invoke-static/range {v22 .. v23}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const/16 v22, 0x0
+    move-result-object v3
 
-    sput-boolean v22, Landroid/telephony/PhoneNumberUtils;->isAssistedDialingNumber:Z
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v12}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v3
 
-    move-result-object v22
+    invoke-static {v3}, Landroid/telephony/PhoneNumberUtils;->adLog(Ljava/lang/String;)V
 
-    return-object v22
+    if-eqz v24, :cond_16
+
+    const/4 v3, 0x0
+
+    sput-boolean v3, Landroid/telephony/PhoneNumberUtils;->isAssistedDialingNumber:Z
+
+    :goto_4
+    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    return-object v3
 
     :cond_16
-    move-object/from16 v0, p0
+    const/4 v3, 0x1
 
-    invoke-virtual {v12, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    sget-object v22, Landroid/telephony/PhoneNumberUtils;->otaCountryIDDPrefix:Ljava/lang/String;
-
-    const/16 v23, 0x0
-
-    const/16 v24, 0x1
-
-    move/from16 v0, v23
-
-    move/from16 v1, v24
-
-    move-object/from16 v2, v22
-
-    invoke-virtual {v12, v0, v1, v2}, Ljava/lang/StringBuilder;->replace(IILjava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-string/jumbo v22, "PhoneNumberUtils"
-
-    const-string/jumbo v23, "[AssistDialingB-3] "
-
-    invoke-static/range {v22 .. v23}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    const/16 v22, 0x0
-
-    sput-boolean v22, Landroid/telephony/PhoneNumberUtils;->isAssistedDialingNumber:Z
-
-    invoke-virtual {v12}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v22
-
-    return-object v22
-
-    :cond_17
-    const/16 v22, 0x1
-
-    sput-boolean v22, Landroid/telephony/PhoneNumberUtils;->isAssistedDialingNumber:Z
+    sput-boolean v3, Landroid/telephony/PhoneNumberUtils;->isAssistedDialingNumber:Z
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto/16 :goto_4
+    goto :goto_4
 
     :catch_0
-    move-exception v5
+    move-exception v11
 
-    const-string/jumbo v22, "PhoneNumberUtils"
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    new-instance v23, Ljava/lang/StringBuilder;
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct/range {v23 .. v23}, Ljava/lang/StringBuilder;-><init>()V
+    const-string/jumbo v4, "Cannot assist: "
 
-    const-string/jumbo v24, "Cannot assist: "
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual/range {v23 .. v24}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v3
 
-    move-result-object v23
+    invoke-virtual {v3, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    move-object/from16 v0, v23
+    move-result-object v3
 
-    invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v23
+    move-result-object v3
 
-    invoke-virtual/range {v23 .. v23}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-static {v3}, Landroid/telephony/PhoneNumberUtils;->adLog(Ljava/lang/String;)V
 
-    move-result-object v23
+    const/4 v3, 0x0
 
-    invoke-static/range {v22 .. v23}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    const/16 v22, 0x0
-
-    sput-boolean v22, Landroid/telephony/PhoneNumberUtils;->isAssistedDialingNumber:Z
+    sput-boolean v3, Landroid/telephony/PhoneNumberUtils;->isAssistedDialingNumber:Z
 
     return-object p0
 
-    :cond_18
+    :cond_17
+    if-eqz v25, :cond_18
+
     :try_start_1
-    move-object/from16 v0, p0
+    sget-object v3, Landroid/telephony/PhoneNumberUtils;->otaCountryIDDPrefix:Ljava/lang/String;
 
-    invoke-virtual {v12, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-object/from16 v0, v18
 
-    invoke-virtual {v7}, Ljava/lang/String;->length()I
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result v22
+    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    sget-object v23, Landroid/telephony/PhoneNumberUtils;->otaCountryCountryCode:Ljava/lang/String;
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    invoke-virtual/range {v23 .. v23}, Ljava/lang/String;->length()I
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    move-result v23
+    const-string/jumbo v4, "[AssistDialingC-3] "
 
-    add-int v22, v22, v23
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    sget-object v23, Landroid/telephony/PhoneNumberUtils;->otaCountryNDDPrefix:Ljava/lang/String;
+    move-result-object v3
 
-    const/16 v24, 0x0
+    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move/from16 v0, v24
+    move-result-object v4
 
-    move/from16 v1, v22
+    invoke-static {v4}, Landroid/telephony/PhoneNumberUtils;->maskPhoneNumber(Ljava/lang/String;)Ljava/lang/String;
 
-    move-object/from16 v2, v23
+    move-result-object v4
 
-    invoke-virtual {v12, v0, v1, v2}, Ljava/lang/StringBuilder;->replace(IILjava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v22, "PhoneNumberUtils"
+    move-result-object v3
 
-    const-string/jumbo v23, "[AssistDialingC-2] "
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-static/range {v22 .. v23}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    move-result-object v3
 
-    if-eqz v17, :cond_19
+    invoke-static {v3}, Landroid/telephony/PhoneNumberUtils;->adLog(Ljava/lang/String;)V
 
-    const/16 v22, 0x0
+    const/4 v3, 0x1
 
-    sput-boolean v22, Landroid/telephony/PhoneNumberUtils;->isAssistedDialingNumber:Z
+    sput-boolean v3, Landroid/telephony/PhoneNumberUtils;->isAssistedDialingNumber:Z
 
-    :goto_5
-    invoke-virtual {v12}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v22
+    move-result-object v3
 
-    return-object v22
+    return-object v3
+
+    :cond_18
+    if-eqz v28, :cond_1f
+
+    if-eqz v25, :cond_19
+
+    move-object/from16 v0, v18
+
+    move-object/from16 v1, p0
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    sget-object v3, Landroid/telephony/PhoneNumberUtils;->refCountryIDDPrefix:Ljava/lang/String;
+
+    invoke-virtual {v3}, Ljava/lang/String;->length()I
+
+    move-result v3
+
+    const-string/jumbo v4, "+"
+
+    const/4 v5, 0x0
+
+    move-object/from16 v0, v18
+
+    invoke-virtual {v0, v5, v3, v4}, Ljava/lang/StringBuilder;->replace(IILjava/lang/String;)Ljava/lang/StringBuilder;
+
+    const/4 v3, 0x1
+
+    sput-boolean v3, Landroid/telephony/PhoneNumberUtils;->isAssistedDialingNumber:Z
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "Convert reference country IDD prefix to +: "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v4}, Landroid/telephony/PhoneNumberUtils;->maskPhoneNumber(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v3}, Landroid/telephony/PhoneNumberUtils;->adLog(Ljava/lang/String;)V
+
+    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    return-object v3
 
     :cond_19
-    const/16 v22, 0x1
+    if-eqz v12, :cond_1a
 
-    sput-boolean v22, Landroid/telephony/PhoneNumberUtils;->isAssistedDialingNumber:Z
+    const-string/jumbo v3, "+011"
+
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v3}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_1a
+
+    const-string/jumbo v3, "+"
+
+    move-object/from16 v0, v18
+
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const/4 v3, 0x4
+
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v3}, Ljava/lang/String;->substring(I)Ljava/lang/String;
+
+    move-result-object v3
+
+    move-object/from16 v0, v18
+
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const/4 v3, 0x1
+
+    sput-boolean v3, Landroid/telephony/PhoneNumberUtils;->isAssistedDialingNumber:Z
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "Convert +011 prefix to +: "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v4}, Landroid/telephony/PhoneNumberUtils;->maskPhoneNumber(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v3}, Landroid/telephony/PhoneNumberUtils;->adLog(Ljava/lang/String;)V
+
+    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    return-object v3
+
+    :cond_1a
+    if-eqz v24, :cond_1f
+
+    sget-object v3, Landroid/telephony/PhoneNumberUtils;->otaCountryIDDPrefix:Ljava/lang/String;
+
+    invoke-virtual {v3}, Ljava/lang/String;->length()I
+
+    move-result v3
+
+    invoke-virtual/range {p0 .. p0}, Ljava/lang/String;->length()I
+
+    move-result v4
+
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v3, v4}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+
+    move-result-object v20
+
+    invoke-static/range {v20 .. v20}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_1f
+
+    sget-object v3, Landroid/telephony/PhoneNumberUtils;->otaCountryCountryCode:Ljava/lang/String;
+
+    move-object/from16 v0, v20
+
+    invoke-virtual {v0, v3}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v3
+
+    xor-int/lit8 v3, v3, 0x1
+
+    if-eqz v3, :cond_1f
+
+    invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v2
+
+    const/4 v15, 0x0
+
+    sget-object v3, Landroid/telephony/PhoneNumberUtils;->MCC_OTA_URI:Landroid/net/Uri;
+
+    const/4 v4, 0x0
+
+    const/4 v5, 0x0
+
+    const/4 v6, 0x0
+
+    const/4 v7, 0x0
+
+    invoke-virtual/range {v2 .. v7}, Landroid/content/ContentResolver;->query(Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;
+
+    move-result-object v3
+
+    sput-object v3, Landroid/telephony/PhoneNumberUtils;->mCursor:Landroid/database/Cursor;
+
+    sget-object v3, Landroid/telephony/PhoneNumberUtils;->mCursor:Landroid/database/Cursor;
+
+    if-eqz v3, :cond_1b
+
+    sget-object v3, Landroid/telephony/PhoneNumberUtils;->mCursor:Landroid/database/Cursor;
+
+    invoke-interface {v3}, Landroid/database/Cursor;->moveToFirst()Z
+
+    :cond_1b
+    :goto_5
+    sget-object v3, Landroid/telephony/PhoneNumberUtils;->mCursor:Landroid/database/Cursor;
+
+    if-eqz v3, :cond_1c
+
+    sget-object v3, Landroid/telephony/PhoneNumberUtils;->mCursor:Landroid/database/Cursor;
+
+    invoke-interface {v3}, Landroid/database/Cursor;->isAfterLast()Z
+
+    move-result v3
+
+    xor-int/lit8 v3, v3, 0x1
+
+    if-eqz v3, :cond_1c
+
+    sget-object v3, Landroid/telephony/PhoneNumberUtils;->mCursor:Landroid/database/Cursor;
+
+    const/4 v4, 0x6
+
+    invoke-interface {v3, v4}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
+
+    move-result-object v3
+
+    move-object/from16 v0, v20
+
+    invoke-virtual {v0, v3}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_1d
+
+    const/4 v15, 0x1
+
+    :cond_1c
+    if-eqz v15, :cond_1e
+
+    invoke-virtual/range {v20 .. v20}, Ljava/lang/String;->length()I
+
+    move-result v3
+
+    sget-object v4, Landroid/telephony/PhoneNumberUtils;->mCursor:Landroid/database/Cursor;
+
+    const/4 v5, 0x6
+
+    invoke-interface {v4, v5}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/String;->length()I
+
+    move-result v4
+
+    sub-int/2addr v3, v4
+
+    const/4 v4, 0x6
+
+    if-lt v3, v4, :cond_1e
+
+    sget-object v3, Landroid/telephony/PhoneNumberUtils;->mCursor:Landroid/database/Cursor;
+
+    invoke-interface {v3}, Landroid/database/Cursor;->close()V
+
+    move-object/from16 v0, v18
+
+    move-object/from16 v1, p0
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    sget-object v3, Landroid/telephony/PhoneNumberUtils;->otaCountryIDDPrefix:Ljava/lang/String;
+
+    invoke-virtual {v3}, Ljava/lang/String;->length()I
+
+    move-result v3
+
+    const-string/jumbo v4, "+"
+
+    const/4 v5, 0x0
+
+    move-object/from16 v0, v18
+
+    invoke-virtual {v0, v5, v3, v4}, Ljava/lang/StringBuilder;->replace(IILjava/lang/String;)Ljava/lang/StringBuilder;
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "Convert local IDD prefix to +: "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v4}, Landroid/telephony/PhoneNumberUtils;->maskPhoneNumber(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v3}, Landroid/telephony/PhoneNumberUtils;->adLog(Ljava/lang/String;)V
+
+    const/4 v3, 0x0
+
+    sput-boolean v3, Landroid/telephony/PhoneNumberUtils;->isAssistedDialingNumber:Z
+
+    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    return-object v3
+
+    :cond_1d
+    sget-object v3, Landroid/telephony/PhoneNumberUtils;->mCursor:Landroid/database/Cursor;
+
+    invoke-interface {v3}, Landroid/database/Cursor;->moveToNext()Z
 
     goto :goto_5
 
-    :cond_1a
-    if-eqz v18, :cond_1b
+    :cond_1e
+    sget-object v3, Landroid/telephony/PhoneNumberUtils;->mCursor:Landroid/database/Cursor;
 
-    sget-object v22, Landroid/telephony/PhoneNumberUtils;->otaCountryIDDPrefix:Ljava/lang/String;
+    if-eqz v3, :cond_1f
 
-    move-object/from16 v0, v22
+    sget-object v3, Landroid/telephony/PhoneNumberUtils;->mCursor:Landroid/database/Cursor;
 
-    invoke-virtual {v12, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-interface {v3}, Landroid/database/Cursor;->close()V
 
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    :cond_1f
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    const-string/jumbo v22, "PhoneNumberUtils"
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v23, "[AssistDialingC-3] "
+    const-string/jumbo v4, "[AssistDialingD-1] "
 
-    invoke-static/range {v22 .. v23}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const/16 v22, 0x1
+    move-result-object v3
 
-    sput-boolean v22, Landroid/telephony/PhoneNumberUtils;->isAssistedDialingNumber:Z
+    invoke-static/range {p0 .. p0}, Landroid/telephony/PhoneNumberUtils;->maskPhoneNumber(Ljava/lang/String;)Ljava/lang/String;
 
-    invoke-virtual {v12}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v4
 
-    move-result-object v22
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    return-object v22
+    move-result-object v3
 
-    :cond_1b
-    if-eqz v21, :cond_1d
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    if-eqz v18, :cond_1c
+    move-result-object v3
 
-    move-object/from16 v0, p0
+    invoke-static {v3}, Landroid/telephony/PhoneNumberUtils;->adLog(Ljava/lang/String;)V
 
-    invoke-virtual {v12, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const/4 v3, 0x0
 
-    sget-object v22, Landroid/telephony/PhoneNumberUtils;->refCountryIDDPrefix:Ljava/lang/String;
-
-    invoke-virtual/range {v22 .. v22}, Ljava/lang/String;->length()I
-
-    move-result v22
-
-    const-string/jumbo v23, "+"
-
-    const/16 v24, 0x0
-
-    move/from16 v0, v24
-
-    move/from16 v1, v22
-
-    move-object/from16 v2, v23
-
-    invoke-virtual {v12, v0, v1, v2}, Ljava/lang/StringBuilder;->replace(IILjava/lang/String;)Ljava/lang/StringBuilder;
-
-    const/16 v22, 0x1
-
-    sput-boolean v22, Landroid/telephony/PhoneNumberUtils;->isAssistedDialingNumber:Z
-
-    invoke-virtual {v12}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v22
-
-    return-object v22
-
-    :cond_1c
-    if-eqz v6, :cond_1d
-
-    const-string/jumbo v22, "+011"
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v22
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
-
-    move-result v22
-
-    if-eqz v22, :cond_1d
-
-    const-string/jumbo v22, "+"
-
-    move-object/from16 v0, v22
-
-    invoke-virtual {v12, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const/16 v22, 0x4
-
-    move-object/from16 v0, p0
-
-    move/from16 v1, v22
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->substring(I)Ljava/lang/String;
-
-    move-result-object v22
-
-    move-object/from16 v0, v22
-
-    invoke-virtual {v12, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const/16 v22, 0x1
-
-    sput-boolean v22, Landroid/telephony/PhoneNumberUtils;->isAssistedDialingNumber:Z
-
-    invoke-virtual {v12}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v22
-
-    return-object v22
-
-    :cond_1d
-    const-string/jumbo v22, "PhoneNumberUtils"
-
-    const-string/jumbo v23, "[AssistDialingD-1] "
-
-    invoke-static/range {v22 .. v23}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    const/16 v22, 0x0
-
-    sput-boolean v22, Landroid/telephony/PhoneNumberUtils;->isAssistedDialingNumber:Z
+    sput-boolean v3, Landroid/telephony/PhoneNumberUtils;->isAssistedDialingNumber:Z
     :try_end_1
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
 
@@ -4623,7 +5123,7 @@
 
     move-result v5
 
-    if-nez v5, :cond_2
+    if-nez v5, :cond_3
 
     const/4 v5, 0x0
 
@@ -4635,13 +5135,13 @@
 
     move-result v5
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_3
 
     invoke-static {p0}, Landroid/telephony/PhoneNumberUtils;->isNonSeparator(Ljava/lang/String;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_3
 
     invoke-static {}, Landroid/telephony/TelephonyManager;->getDefault()Landroid/telephony/TelephonyManager;
 
@@ -4659,19 +5159,19 @@
 
     move-result-object v3
 
-    const-string/jumbo v5, "VZW"
+    sget-boolean v5, Lcom/android/internal/telephony/TelephonyFeatures;->SHIP_BUILD:Z
 
-    invoke-static {}, Lcom/android/internal/telephony/TelephonyFeatures;->getMainOperatorName()Ljava/lang/String;
+    if-nez v5, :cond_1
 
-    move-result-object v6
-
-    invoke-virtual {v5, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v5
+    sget-boolean v5, Landroid/os/Build;->IS_DEBUGGABLE:Z
 
     if-eqz v5, :cond_1
 
-    const-string/jumbo v5, "persist.radio.test-assisteddial"
+    sget-boolean v5, Landroid/os/Build;->IS_ENG:Z
+
+    if-eqz v5, :cond_1
+
+    const-string/jumbo v5, "telephony.test.assisteddial"
 
     const-string/jumbo v6, "false"
 
@@ -4709,7 +5209,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_3
+    if-eqz v5, :cond_2
 
     const-string/jumbo v4, "gb"
 
@@ -4776,18 +5276,31 @@
 
     move-result v5
 
-    if-nez v5, :cond_2
+    if-nez v5, :cond_3
 
     invoke-static {v3}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_4
+    xor-int/lit8 v5, v5, 0x1
+
+    if-eqz v5, :cond_3
+
+    invoke-static {v2}, Landroid/telephony/PhoneNumberUtils;->getFormatTypeFromCountryCode(Ljava/lang/String;)I
+
+    move-result v5
+
+    invoke-static {v3}, Landroid/telephony/PhoneNumberUtils;->getFormatTypeFromCountryCode(Ljava/lang/String;)I
+
+    move-result v6
+
+    invoke-static {p0, v5, v6}, Landroid/telephony/PhoneNumberUtils;->cdmaCheckAndProcessPlusCodeByNumberFormat(Ljava/lang/String;II)Ljava/lang/String;
+
+    move-result-object v5
+
+    return-object v5
 
     :cond_2
-    return-object p0
-
-    :cond_3
     const-string/jumbo v5, "460"
 
     aget-object v6, v1, v7
@@ -4802,20 +5315,8 @@
 
     goto :goto_0
 
-    :cond_4
-    invoke-static {v2}, Landroid/telephony/PhoneNumberUtils;->getFormatTypeFromCountryCode(Ljava/lang/String;)I
-
-    move-result v5
-
-    invoke-static {v3}, Landroid/telephony/PhoneNumberUtils;->getFormatTypeFromCountryCode(Ljava/lang/String;)I
-
-    move-result v6
-
-    invoke-static {p0, v5, v6}, Landroid/telephony/PhoneNumberUtils;->cdmaCheckAndProcessPlusCodeByNumberFormat(Ljava/lang/String;II)Ljava/lang/String;
-
-    move-result-object v5
-
-    return-object v5
+    :cond_3
+    return-object p0
 .end method
 
 .method public static cdmaCheckAndProcessPlusCode(Ljava/lang/String;Landroid/content/Context;)Ljava/lang/String;
@@ -4871,12 +5372,10 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    xor-int/lit8 v2, v2, 0x1
 
-    :cond_0
-    return-object p0
+    if-eqz v2, :cond_0
 
-    :cond_1
     invoke-static {v0}, Landroid/telephony/PhoneNumberUtils;->getFormatTypeFromCountryCode(Ljava/lang/String;)I
 
     move-result v2
@@ -4890,6 +5389,9 @@
     move-result-object v2
 
     return-object v2
+
+    :cond_0
+    return-object p0
 .end method
 
 .method public static cdmaCheckAndProcessPlusCodeByNumberFormat(Ljava/lang/String;II)Ljava/lang/String;
@@ -4899,14 +5401,14 @@
 
     move-object v3, p0
 
-    if-ne p1, p2, :cond_6
+    if-ne p1, p2, :cond_4
 
-    if-ne p1, v9, :cond_6
+    if-ne p1, v9, :cond_4
 
     const/4 v5, 0x1
 
     :goto_0
-    if-eqz p0, :cond_5
+    if-eqz p0, :cond_3
 
     const-string/jumbo v6, "+"
 
@@ -4916,7 +5418,7 @@
 
     const/4 v7, -0x1
 
-    if-eq v6, v7, :cond_5
+    if-eq v6, v7, :cond_3
 
     const/4 v2, 0x0
 
@@ -4925,42 +5427,14 @@
     const/4 v3, 0x0
 
     :cond_0
-    if-eqz v5, :cond_7
+    if-eqz v5, :cond_5
 
     invoke-static {v4}, Landroid/telephony/PhoneNumberUtils;->extractNetworkPortion(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
     :goto_1
-    invoke-static {}, Lcom/samsung/android/feature/SemCscFeature;->getInstance()Lcom/samsung/android/feature/SemCscFeature;
-
-    move-result-object v6
-
-    const-string/jumbo v7, "CscFeature_RIL_SupportAllRat"
-
-    invoke-virtual {v6, v7}, Lcom/samsung/android/feature/SemCscFeature;->getBoolean(Ljava/lang/String;)Z
-
-    move-result v6
-
-    if-nez v6, :cond_1
-
-    const-string/jumbo v6, "CTC"
-
-    invoke-static {}, Lcom/android/internal/telephony/TelephonyFeatures;->getMainOperatorName()Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-virtual {v6, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v6
-
-    if-nez v6, :cond_1
-
-    const-string/jumbo v6, "KDI"
-
-    sget-object v7, Lcom/android/internal/telephony/TelephonyFeatures;->SALES_CODE:Ljava/lang/String;
-
-    invoke-virtual {v6, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-static {}, Lcom/android/internal/telephony/TelephonyFeatures;->isChnGlobalModel()Z
 
     move-result v6
 
@@ -4974,7 +5448,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_2
+    if-eqz v6, :cond_6
 
     const-string/jumbo v6, "domestic"
 
@@ -4990,7 +5464,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_2
+    if-eqz v6, :cond_6
 
     const-string/jumbo v6, "+82"
 
@@ -4998,28 +5472,25 @@
 
     move-result v6
 
-    if-eqz v6, :cond_2
+    if-eqz v6, :cond_6
 
     :cond_1
-    if-eqz v5, :cond_3
+    xor-int/lit8 v6, v5, 0x1
 
-    :cond_2
-    invoke-static {v1, v5}, Landroid/telephony/PhoneNumberUtils;->processPlusCode(Ljava/lang/String;Z)Ljava/lang/String;
+    if-eqz v6, :cond_6
 
-    move-result-object v1
-
-    :cond_3
+    :goto_2
     invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v6
 
-    if-nez v6, :cond_9
+    if-nez v6, :cond_8
 
-    if-nez v3, :cond_8
+    if-nez v3, :cond_7
 
     move-object v3, v1
 
-    :goto_2
+    :goto_3
     invoke-static {v4}, Landroid/telephony/PhoneNumberUtils;->extractPostDialPortion(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v2
@@ -5028,13 +5499,13 @@
 
     move-result v6
 
-    if-nez v6, :cond_4
+    if-nez v6, :cond_2
 
     invoke-static {v2}, Landroid/telephony/PhoneNumberUtils;->findDialableIndexFromPostDialStr(Ljava/lang/String;)I
 
     move-result v0
 
-    if-lt v0, v9, :cond_a
+    if-lt v0, v9, :cond_9
 
     invoke-static {v0, v3, v2}, Landroid/telephony/PhoneNumberUtils;->appendPwCharBackToOrigDialStr(ILjava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
@@ -5044,77 +5515,86 @@
 
     move-result-object v4
 
-    :cond_4
-    :goto_3
+    :cond_2
+    :goto_4
     invoke-static {v2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v6
 
-    if-nez v6, :cond_5
+    if-nez v6, :cond_3
 
     invoke-static {v4}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v6
 
-    if-eqz v6, :cond_0
+    xor-int/lit8 v6, v6, 0x1
 
-    :cond_5
+    if-nez v6, :cond_0
+
+    :cond_3
     return-object v3
 
-    :cond_6
+    :cond_4
     const/4 v5, 0x0
 
-    goto/16 :goto_0
+    goto :goto_0
 
-    :cond_7
+    :cond_5
     invoke-static {v4}, Landroid/telephony/PhoneNumberUtils;->extractNetworkPortionAlt(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
-    goto/16 :goto_1
+    goto :goto_1
 
-    :cond_8
+    :cond_6
+    invoke-static {v1, v5}, Landroid/telephony/PhoneNumberUtils;->processPlusCode(Ljava/lang/String;Z)Ljava/lang/String;
+
+    move-result-object v1
+
+    goto :goto_2
+
+    :cond_7
     invoke-virtual {v3, v1}, Ljava/lang/String;->concat(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v3
 
-    goto :goto_2
+    goto :goto_3
 
-    :cond_9
+    :cond_8
     const-string/jumbo v6, "checkAndProcessPlusCode: null newDialStr"
 
     invoke-static {v6, v1}, Landroid/telephony/Rlog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     return-object p0
 
-    :cond_a
-    if-gez v0, :cond_b
+    :cond_9
+    if-gez v0, :cond_a
 
     const-string/jumbo v2, ""
 
-    :cond_b
+    :cond_a
     const-string/jumbo v6, "wrong postDialStr="
 
     invoke-static {v6, v2}, Landroid/telephony/Rlog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_3
+    goto :goto_4
 .end method
 
 .method public static cdmaCheckAndProcessPlusCodeByNumberFormat(Ljava/lang/String;IILandroid/content/Context;)Ljava/lang/String;
-    .locals 10
+    .locals 9
 
-    const/4 v9, 0x1
+    const/4 v8, 0x1
 
     move-object v3, p0
 
-    if-ne p1, p2, :cond_6
+    if-ne p1, p2, :cond_3
 
-    if-ne p1, v9, :cond_6
+    if-ne p1, v8, :cond_3
 
     const/4 v5, 0x1
 
     :goto_0
-    const/4 v6, 0x4
+    const/4 v6, 0x3
 
     invoke-static {v6}, Lcom/android/internal/telephony/TelephonyFeatures;->getNtcFeature(I)Z
 
@@ -5122,7 +5602,7 @@
 
     or-int/2addr v5, v6
 
-    if-eqz p0, :cond_5
+    if-eqz p0, :cond_2
 
     const-string/jumbo v6, "+"
 
@@ -5132,7 +5612,7 @@
 
     const/4 v7, -0x1
 
-    if-eq v6, v7, :cond_5
+    if-eq v6, v7, :cond_2
 
     const/4 v2, 0x0
 
@@ -5141,87 +5621,24 @@
     const/4 v3, 0x0
 
     :cond_0
-    if-eqz v5, :cond_7
+    if-eqz v5, :cond_4
 
     invoke-static {v4}, Landroid/telephony/PhoneNumberUtils;->extractNetworkPortion(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
     :goto_1
-    const-string/jumbo v6, "CTC"
-
-    invoke-static {}, Lcom/android/internal/telephony/TelephonyFeatures;->getMainOperatorName()Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-virtual {v6, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v6
-
-    if-nez v6, :cond_1
-
-    invoke-static {}, Lcom/samsung/android/feature/SemCscFeature;->getInstance()Lcom/samsung/android/feature/SemCscFeature;
-
-    move-result-object v6
-
-    const-string/jumbo v7, "CscFeature_RIL_SupportAllRat"
-
-    invoke-virtual {v6, v7}, Lcom/samsung/android/feature/SemCscFeature;->getBoolean(Ljava/lang/String;)Z
-
-    move-result v6
-
-    if-nez v6, :cond_1
-
-    const-string/jumbo v6, "LGT"
-
-    sget-object v7, Lcom/android/internal/telephony/TelephonyFeatures;->SALES_CODE:Ljava/lang/String;
-
-    invoke-virtual {v6, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v6
-
-    if-eqz v6, :cond_2
-
-    const-string/jumbo v6, "domestic"
-
-    const-string/jumbo v7, "ril.currentplmn"
-
-    const-string/jumbo v8, "domestic"
-
-    invoke-static {v7, v8}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-virtual {v6, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v6
-
-    if-eqz v6, :cond_2
-
-    const-string/jumbo v6, "+82"
-
-    invoke-virtual {v1, v6}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
-
-    move-result v6
-
-    if-eqz v6, :cond_2
-
-    :cond_1
-    if-eqz v5, :cond_3
-
-    :cond_2
     invoke-static {v1, v5, p3}, Landroid/telephony/PhoneNumberUtils;->processPlusCode(Ljava/lang/String;ZLandroid/content/Context;)Ljava/lang/String;
 
     move-result-object v1
 
-    :cond_3
     invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v6
 
-    if-nez v6, :cond_9
+    if-nez v6, :cond_6
 
-    if-nez v3, :cond_8
+    if-nez v3, :cond_5
 
     move-object v3, v1
 
@@ -5234,13 +5651,13 @@
 
     move-result v6
 
-    if-nez v6, :cond_4
+    if-nez v6, :cond_1
 
     invoke-static {v2}, Landroid/telephony/PhoneNumberUtils;->findDialableIndexFromPostDialStr(Ljava/lang/String;)I
 
     move-result v0
 
-    if-lt v0, v9, :cond_a
+    if-lt v0, v8, :cond_7
 
     invoke-static {v0, v3, v2}, Landroid/telephony/PhoneNumberUtils;->appendPwCharBackToOrigDialStr(ILjava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
@@ -5250,55 +5667,57 @@
 
     move-result-object v4
 
-    :cond_4
+    :cond_1
     :goto_3
     invoke-static {v2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v6
 
-    if-nez v6, :cond_5
+    if-nez v6, :cond_2
 
     invoke-static {v4}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v6
 
-    if-eqz v6, :cond_0
+    xor-int/lit8 v6, v6, 0x1
 
-    :cond_5
+    if-nez v6, :cond_0
+
+    :cond_2
     return-object v3
 
-    :cond_6
+    :cond_3
     const/4 v5, 0x0
 
-    goto/16 :goto_0
+    goto :goto_0
 
-    :cond_7
+    :cond_4
     invoke-static {v4}, Landroid/telephony/PhoneNumberUtils;->extractNetworkPortionAlt(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
     goto :goto_1
 
-    :cond_8
+    :cond_5
     invoke-virtual {v3, v1}, Ljava/lang/String;->concat(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v3
 
     goto :goto_2
 
-    :cond_9
+    :cond_6
     const-string/jumbo v6, "checkAndProcessPlusCode: null newDialStr"
 
     invoke-static {v6, v1}, Landroid/telephony/Rlog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     return-object p0
 
-    :cond_a
-    if-gez v0, :cond_b
+    :cond_7
+    if-gez v0, :cond_8
 
     const-string/jumbo v2, ""
 
-    :cond_b
+    :cond_8
     const-string/jumbo v6, "wrong postDialStr="
 
     invoke-static {v6, v2}, Landroid/telephony/Rlog;->e(Ljava/lang/String;Ljava/lang/String;)I
@@ -5452,13 +5871,33 @@
 
     const/4 v12, 0x2
 
-    const/4 v2, 0x0
-
     const/4 v11, 0x0
+
+    const/4 v2, 0x0
 
     const/4 v10, 0x1
 
-    const-string/jumbo v1, "persist.radio.test-assisteddial"
+    sget-boolean v1, Lcom/android/internal/telephony/TelephonyFeatures;->SHIP_BUILD:Z
+
+    if-nez v1, :cond_0
+
+    sget-boolean v1, Landroid/os/Build;->IS_DEBUGGABLE:Z
+
+    xor-int/lit8 v1, v1, 0x1
+
+    if-nez v1, :cond_0
+
+    sget-boolean v1, Landroid/os/Build;->IS_ENG:Z
+
+    xor-int/lit8 v1, v1, 0x1
+
+    if-eqz v1, :cond_1
+
+    :cond_0
+    return-void
+
+    :cond_1
+    const-string/jumbo v1, "telephony.test.assisteddial"
 
     const-string/jumbo v3, "false"
 
@@ -5472,7 +5911,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_4
 
     const-string/jumbo v1, ":"
 
@@ -5485,50 +5924,48 @@
     :goto_0
     array-length v1, v7
 
-    if-ge v9, v1, :cond_0
+    if-ge v9, v1, :cond_2
 
-    const-string/jumbo v1, "PhoneNumberUtils"
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    const-string/jumbo v3, "Assisted Dialing Testmode Parameter["
 
-    const-string/jumbo v4, "Assisted Dialing Testmode Parameter["
+    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v1
 
-    move-result-object v3
+    invoke-virtual {v1, v9}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v9}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-result-object v1
 
-    move-result-object v3
+    const-string/jumbo v3, "] : "
 
-    const-string/jumbo v4, "] : "
+    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v1
 
-    move-result-object v3
+    aget-object v3, v7, v9
 
-    aget-object v4, v7, v9
+    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v1
 
-    move-result-object v3
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v1
 
-    move-result-object v3
-
-    invoke-static {v1, v3}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1}, Landroid/telephony/PhoneNumberUtils;->adLog(Ljava/lang/String;)V
 
     add-int/lit8 v9, v9, 0x1
 
     goto :goto_0
 
-    :cond_0
+    :cond_2
     array-length v1, v7
 
-    if-lez v1, :cond_2
+    if-lez v1, :cond_4
 
     const-string/jumbo v1, "gsm"
 
@@ -5538,7 +5975,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_5
 
     move v1, v10
 
@@ -5547,16 +5984,13 @@
 
     sget-boolean v1, Landroid/telephony/PhoneNumberUtils;->isGSMRegistered:Z
 
-    if-eqz v1, :cond_4
+    xor-int/lit8 v1, v1, 0x1
 
-    move v1, v11
-
-    :goto_2
     sput-boolean v1, Landroid/telephony/PhoneNumberUtils;->isCDMARegistered:Z
 
     array-length v1, v7
 
-    if-le v1, v10, :cond_1
+    if-le v1, v10, :cond_3
 
     const-string/jumbo v1, "roam"
 
@@ -5566,16 +6000,16 @@
 
     move-result v1
 
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_6
 
     move v1, v10
 
-    :goto_3
+    :goto_2
     sput-boolean v1, Landroid/telephony/PhoneNumberUtils;->isNetRoaming:Z
 
     array-length v1, v7
 
-    if-le v1, v12, :cond_1
+    if-le v1, v12, :cond_3
 
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
@@ -5589,7 +6023,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_6
+    if-eqz v1, :cond_7
 
     sget-object v1, Landroid/telephony/PhoneNumberUtils;->MCC_OTA_URI:Landroid/net/Uri;
 
@@ -5607,50 +6041,41 @@
 
     move-result-object v8
 
-    :goto_4
+    :goto_3
     sput-object v2, Landroid/telephony/PhoneNumberUtils;->otaCountryMCC:Ljava/lang/String;
 
-    if-nez v8, :cond_7
+    if-nez v8, :cond_8
 
-    const-string/jumbo v1, "PhoneNumberUtils"
+    const-string/jumbo v1, "Assisted Dialing Testmode - cursor is null"
 
-    const-string/jumbo v2, "Assisted Dialing Testmode - cursor is null"
+    invoke-static {v1}, Landroid/telephony/PhoneNumberUtils;->adLog(Ljava/lang/String;)V
 
-    invoke-static {v1, v2}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :goto_5
-    if-eqz v8, :cond_1
+    :goto_4
+    if-eqz v8, :cond_3
 
     invoke-interface {v8}, Landroid/database/Cursor;->close()V
 
-    :cond_1
-    const-string/jumbo v1, "PhoneNumberUtils"
+    :cond_3
+    const-string/jumbo v1, "========== Assisted Dialing Parameter for Testmode =========="
 
-    const-string/jumbo v2, "========== Assisted Dialing Parameter for Testmode =========="
-
-    invoke-static {v1, v2}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1}, Landroid/telephony/PhoneNumberUtils;->adLog(Ljava/lang/String;)V
 
     invoke-static {}, Landroid/telephony/PhoneNumberUtils;->displayAssistedParams()V
 
-    :cond_2
-    return-void
-
-    :cond_3
-    move v1, v11
-
-    goto :goto_1
-
     :cond_4
-    move v1, v10
-
-    goto :goto_2
+    return-void
 
     :cond_5
     move v1, v11
 
-    goto :goto_3
+    goto :goto_1
 
     :cond_6
+    move v1, v11
+
+    goto :goto_2
+
+    :cond_7
     sget-object v1, Landroid/telephony/PhoneNumberUtils;->MCC_OTA_URI:Landroid/net/Uri;
 
     const-string/jumbo v3, "mcc=?"
@@ -5667,30 +6092,22 @@
 
     move-result-object v8
 
-    goto :goto_4
+    goto :goto_3
 
-    :cond_7
+    :cond_8
     invoke-interface {v8}, Landroid/database/Cursor;->moveToFirst()Z
 
     move-result v1
 
-    if-nez v1, :cond_8
+    if-nez v1, :cond_9
 
-    const-string/jumbo v1, "PhoneNumberUtils"
+    const-string/jumbo v1, "Assisted Dialing Testmode - cursor is empty"
 
-    const-string/jumbo v2, "Assisted Dialing Testmode - cursor is empty"
+    invoke-static {v1}, Landroid/telephony/PhoneNumberUtils;->adLog(Ljava/lang/String;)V
 
-    invoke-static {v1, v2}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    goto :goto_4
 
-    goto :goto_5
-
-    :cond_8
-    const-string/jumbo v1, "PhoneNumberUtils"
-
-    const-string/jumbo v2, "Assisted Dialing Testmode - find cursor"
-
-    invoke-static {v1, v2}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
+    :cond_9
     invoke-interface {v8, v10}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
 
     move-result-object v1
@@ -5721,13 +6138,13 @@
 
     sget-object v1, Landroid/telephony/PhoneNumberUtils;->otaCountryNDDPrefix:Ljava/lang/String;
 
-    if-nez v1, :cond_9
+    if-nez v1, :cond_a
 
     const-string/jumbo v1, ""
 
     sput-object v1, Landroid/telephony/PhoneNumberUtils;->otaCountryNDDPrefix:Ljava/lang/String;
 
-    :cond_9
+    :cond_a
     const/4 v1, 0x5
 
     invoke-interface {v8, v1}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
@@ -5740,9 +6157,9 @@
 
     move-result v1
 
-    if-eqz v1, :cond_a
+    if-eqz v1, :cond_b
 
-    :goto_6
+    :goto_5
     sput-boolean v10, Landroid/telephony/PhoneNumberUtils;->isOTANANPCountry:Z
 
     const/4 v1, 0x6
@@ -5753,18 +6170,6 @@
 
     sput-object v1, Landroid/telephony/PhoneNumberUtils;->otaCountryCountryCode:Ljava/lang/String;
 
-    const/4 v1, 0x7
-
-    invoke-interface {v8, v1}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v1}, Ljava/lang/Boolean;->parseBoolean(Ljava/lang/String;)Z
-
-    move-result v1
-
-    sput-boolean v1, Landroid/telephony/PhoneNumberUtils;->isOTANBPCDSupported:Z
-
     sget-object v1, Landroid/telephony/PhoneNumberUtils;->otaCountryMCC:Ljava/lang/String;
 
     const-string/jumbo v2, "310 to 316"
@@ -5773,21 +6178,21 @@
 
     move-result v1
 
-    if-eqz v1, :cond_b
+    if-eqz v1, :cond_c
 
     const-string/jumbo v1, "310"
 
-    :goto_7
+    :goto_6
     sput-object v1, Landroid/telephony/PhoneNumberUtils;->otaCountryMCC:Ljava/lang/String;
 
-    goto/16 :goto_5
-
-    :cond_a
-    move v10, v11
-
-    goto :goto_6
+    goto :goto_4
 
     :cond_b
+    move v10, v11
+
+    goto :goto_5
+
+    :cond_c
     sget-object v1, Landroid/telephony/PhoneNumberUtils;->otaCountryMCC:Ljava/lang/String;
 
     const-string/jumbo v2, "430 to 431"
@@ -5796,16 +6201,16 @@
 
     move-result v1
 
-    if-eqz v1, :cond_c
+    if-eqz v1, :cond_d
 
     const-string/jumbo v1, "430"
 
-    goto :goto_7
+    goto :goto_6
 
-    :cond_c
+    :cond_d
     sget-object v1, Landroid/telephony/PhoneNumberUtils;->otaCountryMCC:Ljava/lang/String;
 
-    goto :goto_7
+    goto :goto_6
 .end method
 
 .method private static checkPrefixIsIgnorable(Ljava/lang/String;II)Z
@@ -5866,7 +6271,7 @@
 
     move-result-object v1
 
-    const v2, 0x1120042
+    const v2, 0x11200bd
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -6399,7 +6804,9 @@
 
     move-result v18
 
-    if-eqz v18, :cond_10
+    xor-int/lit8 v18, v18, 0x1
+
+    if-nez v18, :cond_10
 
     if-eqz v17, :cond_14
 
@@ -6434,7 +6841,9 @@
 
     move-result v18
 
-    if-eqz v18, :cond_12
+    xor-int/lit8 v18, v18, 0x1
+
+    if-nez v18, :cond_12
 
     :cond_15
     const/16 v18, 0x1
@@ -6447,12 +6856,10 @@
     return v18
 
     :cond_17
-    if-eqz v5, :cond_19
-
-    const/4 v12, 0x0
+    xor-int/lit8 v12, v5, 0x1
 
     :goto_4
-    if-lt v3, v10, :cond_1b
+    if-lt v3, v10, :cond_1a
 
     move-object/from16 v0, p0
 
@@ -6466,7 +6873,7 @@
 
     if-eqz v18, :cond_18
 
-    if-eqz v12, :cond_1a
+    if-eqz v12, :cond_19
 
     invoke-static {v8}, Landroid/telephony/PhoneNumberUtils;->tryGetISODigit(C)I
 
@@ -6478,7 +6885,7 @@
 
     move/from16 v1, v19
 
-    if-ne v0, v1, :cond_1a
+    if-ne v0, v1, :cond_19
 
     const/4 v12, 0x0
 
@@ -6488,16 +6895,11 @@
     goto :goto_4
 
     :cond_19
-    const/4 v12, 0x1
-
-    goto :goto_4
-
-    :cond_1a
     const/16 v18, 0x0
 
     return v18
 
-    :cond_1b
+    :cond_1a
     :goto_5
     if-lt v4, v11, :cond_15
 
@@ -6511,9 +6913,9 @@
 
     move-result v18
 
-    if-eqz v18, :cond_1c
+    if-eqz v18, :cond_1b
 
-    if-eqz v12, :cond_1d
+    if-eqz v12, :cond_1c
 
     invoke-static {v9}, Landroid/telephony/PhoneNumberUtils;->tryGetISODigit(C)I
 
@@ -6525,16 +6927,16 @@
 
     move/from16 v1, v19
 
-    if-ne v0, v1, :cond_1d
+    if-ne v0, v1, :cond_1c
 
     const/4 v12, 0x0
 
-    :cond_1c
+    :cond_1b
     add-int/lit8 v4, v4, -0x1
 
     goto :goto_5
 
-    :cond_1d
+    :cond_1c
     const/16 v18, 0x0
 
     return v18
@@ -6784,11 +7186,8 @@
 
     move-result v17
 
-    if-eqz v17, :cond_4
+    xor-int/lit8 v13, v17, 0x1
 
-    const/4 v13, 0x0
-
-    :goto_0
     const/16 v17, 0x0
 
     const/16 v18, 0x5
@@ -6877,17 +7276,17 @@
 
     packed-switch p2, :pswitch_data_0
 
-    :goto_1
+    :goto_0
     :pswitch_0
     const/4 v6, 0x0
 
     sget-boolean v17, Landroid/telephony/PhoneNumberUtils;->isCDMARegistered:Z
 
-    if-eqz v17, :cond_11
+    if-eqz v17, :cond_f
 
     sget-boolean v17, Landroid/telephony/PhoneNumberUtils;->isNetRoaming:Z
 
-    if-nez v17, :cond_6
+    if-nez v17, :cond_5
 
     const-string/jumbo v17, "PhoneNumberUtils"
 
@@ -6899,15 +7298,15 @@
 
     move-result v17
 
-    if-eqz v17, :cond_5
+    if-eqz v17, :cond_4
 
-    if-eqz v13, :cond_5
+    if-eqz v13, :cond_4
 
     const/16 v17, 0xb
 
     move/from16 v0, v17
 
-    if-lt v15, v0, :cond_5
+    if-lt v15, v0, :cond_4
 
     const/16 v17, 0xb
 
@@ -6919,7 +7318,7 @@
 
     move/from16 v0, v17
 
-    if-eq v0, v3, :cond_5
+    if-eq v0, v3, :cond_4
 
     :cond_3
     move-object/from16 v0, v16
@@ -6930,7 +7329,7 @@
 
     move-result v17
 
-    if-eqz v17, :cond_5
+    if-eqz v17, :cond_4
 
     const-string/jumbo v17, "011"
 
@@ -6948,11 +7347,6 @@
 
     return-object v17
 
-    :cond_4
-    const/4 v13, 0x1
-
-    goto/16 :goto_0
-
     :pswitch_1
     const/16 v17, 0x1
 
@@ -6968,7 +7362,7 @@
     :try_end_1
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
 
-    goto :goto_1
+    goto :goto_0
 
     :catch_0
     move-exception v5
@@ -7013,7 +7407,7 @@
 
     sput-boolean v17, Landroid/telephony/PhoneNumberUtils;->isNetRoaming:Z
 
-    goto/16 :goto_1
+    goto :goto_0
 
     :pswitch_3
     const/16 v17, 0x0
@@ -7024,9 +7418,9 @@
 
     sput-boolean v17, Landroid/telephony/PhoneNumberUtils;->isGSMRegistered:Z
 
-    goto/16 :goto_1
+    goto/16 :goto_0
 
-    :cond_5
+    :cond_4
     const/16 v17, 0x1
 
     const/16 v18, 0x1
@@ -7037,7 +7431,7 @@
 
     return-object v17
 
-    :cond_6
+    :cond_5
     const-string/jumbo v17, "PhoneNumberUtils"
 
     const-string/jumbo v18, "Address Rule in CDMA Internatinal Roaming"
@@ -7048,34 +7442,34 @@
 
     move-result v17
 
-    if-nez v17, :cond_7
+    if-nez v17, :cond_6
 
     const/16 v17, 0x2b
 
     move/from16 v0, v17
 
-    if-ne v0, v3, :cond_11
+    if-ne v0, v3, :cond_f
 
-    :cond_7
+    :cond_6
     const/16 v17, 0xb
 
     move/from16 v0, v17
 
-    if-lt v15, v0, :cond_11
+    if-lt v15, v0, :cond_f
 
     const/16 v17, 0xb
 
     move/from16 v0, v17
 
-    if-ne v15, v0, :cond_8
+    if-ne v15, v0, :cond_7
 
     const/16 v17, 0x31
 
     move/from16 v0, v17
 
-    if-eq v0, v3, :cond_11
+    if-eq v0, v3, :cond_f
 
-    :cond_8
+    :cond_7
     add-int/lit8 v17, v15, -0xb
 
     invoke-virtual/range {v16 .. v17}, Ljava/lang/String;->substring(I)Ljava/lang/String;
@@ -7086,7 +7480,7 @@
 
     const/4 v12, 0x0
 
-    if-eqz v14, :cond_9
+    if-eqz v14, :cond_8
 
     sget-object v7, Landroid/telephony/PhoneNumberUtils;->otaCountryIDDPrefix:Ljava/lang/String;
 
@@ -7104,8 +7498,8 @@
 
     move-result-object v12
 
-    :cond_9
-    if-eqz v14, :cond_c
+    :cond_8
+    if-eqz v14, :cond_b
 
     sget-object v17, Landroid/telephony/PhoneNumberUtils;->otaCountryIDDPrefix:Ljava/lang/String;
 
@@ -7123,7 +7517,7 @@
 
     move-result v17
 
-    if-eqz v17, :cond_a
+    if-eqz v17, :cond_9
 
     invoke-virtual/range {v16 .. v16}, Ljava/lang/String;->length()I
 
@@ -7135,25 +7529,25 @@
 
     move/from16 v1, v18
 
-    if-ne v0, v1, :cond_a
+    if-ne v0, v1, :cond_9
 
     invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    :goto_2
+    :goto_1
     invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v17
 
     return-object v17
 
-    :cond_a
+    :cond_9
     move-object/from16 v0, p1
 
     invoke-static {v12, v0}, Landroid/telephony/PhoneNumberUtils;->startWithCountryCode(Ljava/lang/String;Landroid/content/Context;)Z
 
     move-result v17
 
-    if-eqz v17, :cond_b
+    if-eqz v17, :cond_a
 
     const-string/jumbo v17, "PhoneNumberUtils"
 
@@ -7175,9 +7569,9 @@
 
     invoke-virtual {v10, v0, v6, v1}, Ljava/lang/StringBuilder;->replace(IILjava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_2
+    goto :goto_1
 
-    :cond_b
+    :cond_a
     const-string/jumbo v17, "PhoneNumberUtils"
 
     const-string/jumbo v18, "No Condition"
@@ -7188,47 +7582,15 @@
 
     invoke-virtual {v10, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_2
+    goto :goto_1
 
-    :cond_c
+    :cond_b
     const/16 v17, 0x2b
 
     move/from16 v0, v17
 
-    if-ne v0, v3, :cond_d
+    if-ne v0, v3, :cond_e
 
-    sget-boolean v17, Landroid/telephony/PhoneNumberUtils;->isNBPCDSupported:Z
-
-    if-eqz v17, :cond_e
-
-    :cond_d
-    move-object/from16 v0, v16
-
-    move-object/from16 v1, p1
-
-    invoke-static {v0, v1}, Landroid/telephony/PhoneNumberUtils;->startWithCountryCode(Ljava/lang/String;Landroid/content/Context;)Z
-
-    move-result v17
-
-    if-eqz v17, :cond_11
-
-    const-string/jumbo v17, "011"
-
-    move-object/from16 v0, v17
-
-    invoke-virtual {v10, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-object/from16 v0, v16
-
-    invoke-virtual {v10, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v17
-
-    return-object v17
-
-    :cond_e
     const/16 v17, 0x1
 
     invoke-virtual/range {v16 .. v17}, Ljava/lang/String;->substring(I)Ljava/lang/String;
@@ -7239,7 +7601,7 @@
 
     move-result v17
 
-    if-eqz v17, :cond_f
+    if-eqz v17, :cond_c
 
     invoke-virtual/range {v16 .. v16}, Ljava/lang/String;->length()I
 
@@ -7251,25 +7613,25 @@
 
     move/from16 v1, v18
 
-    if-ne v0, v1, :cond_f
+    if-ne v0, v1, :cond_c
 
     invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    :goto_3
+    :goto_2
     invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v17
 
     return-object v17
 
-    :cond_f
+    :cond_c
     move-object/from16 v0, p1
 
     invoke-static {v11, v0}, Landroid/telephony/PhoneNumberUtils;->startWithCountryCode(Ljava/lang/String;Landroid/content/Context;)Z
 
     move-result v17
 
-    if-eqz v17, :cond_10
+    if-eqz v17, :cond_d
 
     const-string/jumbo v17, "011"
 
@@ -7279,9 +7641,9 @@
 
     invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_3
+    goto :goto_2
 
-    :cond_10
+    :cond_d
     const-string/jumbo v17, "PhoneNumberUtils"
 
     const-string/jumbo v18, "1NANP is not matched"
@@ -7292,12 +7654,39 @@
 
     invoke-virtual {v10, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_3
+    goto :goto_2
 
-    :cond_11
+    :cond_e
+    move-object/from16 v0, v16
+
+    move-object/from16 v1, p1
+
+    invoke-static {v0, v1}, Landroid/telephony/PhoneNumberUtils;->startWithCountryCode(Ljava/lang/String;Landroid/content/Context;)Z
+
+    move-result v17
+
+    if-eqz v17, :cond_f
+
+    const-string/jumbo v17, "011"
+
+    move-object/from16 v0, v17
+
+    invoke-virtual {v10, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-object/from16 v0, v16
+
+    invoke-virtual {v10, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v17
+
+    return-object v17
+
+    :cond_f
     sget-boolean v17, Landroid/telephony/PhoneNumberUtils;->isGSMRegistered:Z
 
-    if-eqz v17, :cond_1c
+    if-eqz v17, :cond_1a
 
     const-string/jumbo v17, "PhoneNumberUtils"
 
@@ -7309,34 +7698,34 @@
 
     move-result v17
 
-    if-nez v17, :cond_12
+    if-nez v17, :cond_10
 
     const/16 v17, 0x2b
 
     move/from16 v0, v17
 
-    if-ne v0, v3, :cond_1c
+    if-ne v0, v3, :cond_1a
 
-    :cond_12
+    :cond_10
     const/16 v17, 0xb
 
     move/from16 v0, v17
 
-    if-lt v15, v0, :cond_1c
+    if-lt v15, v0, :cond_1a
 
     const/16 v17, 0xb
 
     move/from16 v0, v17
 
-    if-ne v15, v0, :cond_13
+    if-ne v15, v0, :cond_11
 
     const/16 v17, 0x31
 
     move/from16 v0, v17
 
-    if-eq v0, v3, :cond_1c
+    if-eq v0, v3, :cond_1a
 
-    :cond_13
+    :cond_11
     add-int/lit8 v17, v15, -0xb
 
     invoke-virtual/range {v16 .. v17}, Ljava/lang/String;->substring(I)Ljava/lang/String;
@@ -7347,7 +7736,7 @@
 
     const/4 v12, 0x0
 
-    if-eqz v14, :cond_14
+    if-eqz v14, :cond_12
 
     sget-object v7, Landroid/telephony/PhoneNumberUtils;->otaCountryIDDPrefix:Ljava/lang/String;
 
@@ -7365,8 +7754,8 @@
 
     move-result-object v12
 
-    :cond_14
-    if-eqz v14, :cond_17
+    :cond_12
+    if-eqz v14, :cond_15
 
     sget-object v17, Landroid/telephony/PhoneNumberUtils;->otaCountryIDDPrefix:Ljava/lang/String;
 
@@ -7384,7 +7773,7 @@
 
     move-result v17
 
-    if-eqz v17, :cond_15
+    if-eqz v17, :cond_13
 
     invoke-virtual/range {v16 .. v16}, Ljava/lang/String;->length()I
 
@@ -7396,7 +7785,7 @@
 
     move/from16 v1, v18
 
-    if-ne v0, v1, :cond_15
+    if-ne v0, v1, :cond_13
 
     move-object/from16 v0, v16
 
@@ -7426,14 +7815,14 @@
 
     return-object v17
 
-    :cond_15
+    :cond_13
     move-object/from16 v0, p1
 
     invoke-static {v12, v0}, Landroid/telephony/PhoneNumberUtils;->startWithCountryCode(Ljava/lang/String;Landroid/content/Context;)Z
 
     move-result v17
 
-    if-eqz v17, :cond_16
+    if-eqz v17, :cond_14
 
     move-object/from16 v0, v16
 
@@ -7463,7 +7852,7 @@
 
     return-object v17
 
-    :cond_16
+    :cond_14
     const-string/jumbo v17, "PhoneNumberUtils"
 
     const-string/jumbo v18, "No condition is matched in IDD"
@@ -7480,12 +7869,12 @@
 
     return-object v17
 
-    :cond_17
+    :cond_15
     const/16 v17, 0x2b
 
     move/from16 v0, v17
 
-    if-ne v0, v3, :cond_1b
+    if-ne v0, v3, :cond_19
 
     const/16 v17, 0x1
 
@@ -7497,7 +7886,7 @@
 
     move-result v17
 
-    if-eqz v17, :cond_18
+    if-eqz v17, :cond_16
 
     invoke-virtual/range {v16 .. v16}, Ljava/lang/String;->length()I
 
@@ -7509,27 +7898,27 @@
 
     move/from16 v1, v18
 
-    if-ne v0, v1, :cond_18
+    if-ne v0, v1, :cond_16
 
     move-object/from16 v0, v16
 
     invoke-virtual {v10, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    :goto_4
+    :goto_3
     invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v17
 
     return-object v17
 
-    :cond_18
+    :cond_16
     move-object/from16 v0, p1
 
     invoke-static {v8, v0}, Landroid/telephony/PhoneNumberUtils;->startWithCountryCode(Ljava/lang/String;Landroid/content/Context;)Z
 
     move-result v17
 
-    if-eqz v17, :cond_19
+    if-eqz v17, :cond_17
 
     const/16 v17, 0x1
 
@@ -7545,9 +7934,9 @@
 
     invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_4
+    goto :goto_3
 
-    :cond_19
+    :cond_17
     const-string/jumbo v17, "011"
 
     move-object/from16 v0, v17
@@ -7556,13 +7945,13 @@
 
     move-result v17
 
-    if-eqz v17, :cond_1a
+    if-eqz v17, :cond_18
 
     invoke-virtual {v10, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_4
+    goto :goto_3
 
-    :cond_1a
+    :cond_18
     const-string/jumbo v17, "PhoneNumberUtils"
 
     const-string/jumbo v18, "No condition is matched in \'+\'"
@@ -7573,9 +7962,9 @@
 
     invoke-virtual {v10, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_4
+    goto :goto_3
 
-    :cond_1b
+    :cond_19
     move-object/from16 v0, v16
 
     move-object/from16 v1, p1
@@ -7584,7 +7973,7 @@
 
     move-result v17
 
-    if-eqz v17, :cond_1c
+    if-eqz v17, :cond_1a
 
     const-string/jumbo v17, "011"
 
@@ -7602,7 +7991,7 @@
 
     return-object v17
 
-    :cond_1c
+    :cond_1a
     const-string/jumbo v17, "PhoneNumberUtils"
 
     const-string/jumbo v18, "Can\'t find any match in this number"
@@ -7613,6 +8002,8 @@
 
     return-object v16
 
+    nop
+
     :pswitch_data_0
     .packed-switch 0x0
         :pswitch_0
@@ -7620,6 +8011,194 @@
         :pswitch_2
         :pswitch_3
     .end packed-switch
+.end method
+
+.method public static convertSipUriToTelUri(Landroid/net/Uri;)Landroid/net/Uri;
+    .locals 5
+
+    const/4 v4, 0x0
+
+    invoke-virtual {p0}, Landroid/net/Uri;->getScheme()Ljava/lang/String;
+
+    move-result-object v2
+
+    const-string/jumbo v3, "sip"
+
+    invoke-virtual {v3, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_0
+
+    return-object p0
+
+    :cond_0
+    invoke-virtual {p0}, Landroid/net/Uri;->getSchemeSpecificPart()Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string/jumbo v3, "[@;:]"
+
+    invoke-virtual {v0, v3}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
+
+    move-result-object v1
+
+    array-length v3, v1
+
+    if-nez v3, :cond_1
+
+    return-object p0
+
+    :cond_1
+    aget-object v0, v1, v4
+
+    const-string/jumbo v3, "tel"
+
+    const/4 v4, 0x0
+
+    invoke-static {v3, v0, v4}, Landroid/net/Uri;->fromParts(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v3
+
+    return-object v3
+.end method
+
+.method public static convertToEmergencyNumber(Ljava/lang/String;)Ljava/lang/String;
+    .locals 13
+
+    const/4 v7, 0x0
+
+    invoke-static {p0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_0
+
+    return-object p0
+
+    :cond_0
+    invoke-static {p0}, Landroid/telephony/PhoneNumberUtils;->normalizeNumber(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v5}, Landroid/telephony/PhoneNumberUtils;->isEmergencyNumber(Ljava/lang/String;)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_1
+
+    return-object p0
+
+    :cond_1
+    sget-object v9, Landroid/telephony/PhoneNumberUtils;->CONVERT_TO_EMERGENCY_MAP:[Ljava/lang/String;
+
+    array-length v10, v9
+
+    move v8, v7
+
+    :goto_0
+    if-ge v8, v10, :cond_7
+
+    aget-object v0, v9, v8
+
+    const/4 v2, 0x0
+
+    const/4 v4, 0x0
+
+    const/4 v1, 0x0
+
+    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v6
+
+    if-nez v6, :cond_2
+
+    const-string/jumbo v6, ":"
+
+    invoke-virtual {v0, v6}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
+
+    move-result-object v2
+
+    :cond_2
+    if-eqz v2, :cond_3
+
+    array-length v6, v2
+
+    const/4 v11, 0x2
+
+    if-ne v6, v11, :cond_3
+
+    const/4 v6, 0x1
+
+    aget-object v1, v2, v6
+
+    aget-object v6, v2, v7
+
+    invoke-static {v6}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v6
+
+    if-nez v6, :cond_3
+
+    aget-object v6, v2, v7
+
+    const-string/jumbo v11, ","
+
+    invoke-virtual {v6, v11}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
+
+    move-result-object v4
+
+    :cond_3
+    invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v6
+
+    if-nez v6, :cond_4
+
+    if-nez v4, :cond_5
+
+    :cond_4
+    add-int/lit8 v6, v8, 0x1
+
+    move v8, v6
+
+    goto :goto_0
+
+    :cond_5
+    array-length v6, v4
+
+    if-eqz v6, :cond_4
+
+    array-length v11, v4
+
+    move v6, v7
+
+    :goto_1
+    if-ge v6, v11, :cond_4
+
+    aget-object v3, v4, v6
+
+    invoke-static {v3}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v12
+
+    if-nez v12, :cond_6
+
+    invoke-virtual {v3, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v12
+
+    if-eqz v12, :cond_6
+
+    return-object v1
+
+    :cond_6
+    add-int/lit8 v6, v6, 0x1
+
+    goto :goto_1
+
+    :cond_7
+    return-object p0
 .end method
 
 .method public static createTtsSpan(Ljava/lang/String;)Landroid/text/style/TtsSpan;
@@ -7733,271 +8312,243 @@
 .end method
 
 .method private static displayAssistedParams()V
-    .locals 3
+    .locals 2
 
-    const-string/jumbo v0, "PhoneNumberUtils"
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    const-string/jumbo v1, "refCountryName: ("
 
-    const-string/jumbo v2, " refCountryName: "
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
-    move-result-object v1
+    sget-object v1, Landroid/telephony/PhoneNumberUtils;->refCountryName:Ljava/lang/String;
 
-    sget-object v2, Landroid/telephony/PhoneNumberUtils;->refCountryName:Ljava/lang/String;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
-    move-result-object v1
+    const-string/jumbo v1, "), refCountryMCC: "
 
-    const-string/jumbo v2, " refCountryMCC: "
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
-    move-result-object v1
+    sget-object v1, Landroid/telephony/PhoneNumberUtils;->refCountryMCC:Ljava/lang/String;
 
-    sget-object v2, Landroid/telephony/PhoneNumberUtils;->refCountryMCC:Ljava/lang/String;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
-    move-result-object v1
+    const-string/jumbo v1, ", refCountryIDDPrefix: "
 
-    const-string/jumbo v2, " refCountryIDDPrefix: "
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
-    move-result-object v1
+    sget-object v1, Landroid/telephony/PhoneNumberUtils;->refCountryIDDPrefix:Ljava/lang/String;
 
-    sget-object v2, Landroid/telephony/PhoneNumberUtils;->refCountryIDDPrefix:Ljava/lang/String;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
-    move-result-object v1
+    const-string/jumbo v1, ", refCountryNDDPrefix: "
 
-    const-string/jumbo v2, " refCountryNDDPrefix: "
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
-    move-result-object v1
+    sget-object v1, Landroid/telephony/PhoneNumberUtils;->refCountryNDDPrefix:Ljava/lang/String;
 
-    sget-object v2, Landroid/telephony/PhoneNumberUtils;->refCountryNDDPrefix:Ljava/lang/String;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
-    move-result-object v1
+    const-string/jumbo v1, ", refCountryAreaCode: "
 
-    const-string/jumbo v2, " refCountryAreaCode: "
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
-    move-result-object v1
+    sget-object v1, Landroid/telephony/PhoneNumberUtils;->refCountryAreaCode:Ljava/lang/String;
 
-    sget-object v2, Landroid/telephony/PhoneNumberUtils;->refCountryAreaCode:Ljava/lang/String;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
-    move-result-object v1
+    const-string/jumbo v1, ", refCountryNationalNumberLength: "
 
-    const-string/jumbo v2, " refCountryNationalNumberLength: "
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
-    move-result-object v1
+    sget-object v1, Landroid/telephony/PhoneNumberUtils;->refCountryNationalNumberLength:Ljava/lang/Integer;
 
-    sget-object v2, Landroid/telephony/PhoneNumberUtils;->refCountryNationalNumberLength:Ljava/lang/Integer;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
-    move-result-object v1
+    const-string/jumbo v1, ", isNANPCountry: "
 
-    const-string/jumbo v2, " isNANPCountry: "
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
-    move-result-object v1
+    sget-boolean v1, Landroid/telephony/PhoneNumberUtils;->isNANPCountry:Z
 
-    sget-boolean v2, Landroid/telephony/PhoneNumberUtils;->isNANPCountry:Z
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    move-result-object v0
 
-    move-result-object v1
+    const-string/jumbo v1, ", refCountryCountryCode: "
 
-    const-string/jumbo v2, " refCountryCountryCode: "
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
-    move-result-object v1
+    sget-object v1, Landroid/telephony/PhoneNumberUtils;->refCountryCountryCode:Ljava/lang/String;
 
-    sget-object v2, Landroid/telephony/PhoneNumberUtils;->refCountryCountryCode:Ljava/lang/String;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
-    move-result-object v1
+    const-string/jumbo v1, ", isGSMRegistered: "
 
-    const-string/jumbo v2, " isNBPCDSupported: "
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
-    move-result-object v1
+    sget-boolean v1, Landroid/telephony/PhoneNumberUtils;->isGSMRegistered:Z
 
-    sget-boolean v2, Landroid/telephony/PhoneNumberUtils;->isNBPCDSupported:Z
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    move-result-object v0
 
-    move-result-object v1
+    const-string/jumbo v1, ", isCDMARegistered: "
 
-    const-string/jumbo v2, " isGSMRegistered: "
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
-    move-result-object v1
+    sget-boolean v1, Landroid/telephony/PhoneNumberUtils;->isCDMARegistered:Z
 
-    sget-boolean v2, Landroid/telephony/PhoneNumberUtils;->isGSMRegistered:Z
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    move-result-object v0
 
-    move-result-object v1
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    const-string/jumbo v2, " isCDMARegistered: "
+    move-result-object v0
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-static {v0}, Landroid/telephony/PhoneNumberUtils;->adLog(Ljava/lang/String;)V
 
-    move-result-object v1
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    sget-boolean v2, Landroid/telephony/PhoneNumberUtils;->isCDMARegistered:Z
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    const-string/jumbo v1, "isNetRoaming: "
 
-    move-result-object v1
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v0
 
-    move-result-object v1
+    sget-boolean v1, Landroid/telephony/PhoneNumberUtils;->isNetRoaming:Z
 
-    invoke-static {v0, v1}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v0, "PhoneNumberUtils"
+    move-result-object v0
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    const-string/jumbo v1, ", numberLength: "
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v2, " isNetRoaming: "
+    move-result-object v0
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    sget v1, Landroid/telephony/PhoneNumberUtils;->numberLength:I
 
-    move-result-object v1
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    sget-boolean v2, Landroid/telephony/PhoneNumberUtils;->isNetRoaming:Z
+    move-result-object v0
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    const-string/jumbo v1, ", otaCountryName: ("
 
-    move-result-object v1
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v2, " numberLength: "
+    move-result-object v0
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    sget-object v1, Landroid/telephony/PhoneNumberUtils;->otaCountryName:Ljava/lang/String;
 
-    move-result-object v1
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    sget v2, Landroid/telephony/PhoneNumberUtils;->numberLength:I
+    move-result-object v0
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    const-string/jumbo v1, "), otaCountryMCC: "
 
-    move-result-object v1
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v2, " otaCountryName: "
+    move-result-object v0
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    sget-object v1, Landroid/telephony/PhoneNumberUtils;->otaCountryMCC:Ljava/lang/String;
 
-    move-result-object v1
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    sget-object v2, Landroid/telephony/PhoneNumberUtils;->otaCountryName:Ljava/lang/String;
+    move-result-object v0
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string/jumbo v1, ", otaCountryIDDPrefix: "
 
-    move-result-object v1
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v2, " otaCountryMCC: "
+    move-result-object v0
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    sget-object v1, Landroid/telephony/PhoneNumberUtils;->otaCountryIDDPrefix:Ljava/lang/String;
 
-    move-result-object v1
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    sget-object v2, Landroid/telephony/PhoneNumberUtils;->otaCountryMCC:Ljava/lang/String;
+    move-result-object v0
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string/jumbo v1, ", otaCountryNDDPrefix: "
 
-    move-result-object v1
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v2, " otaCountryIDDPrefix: "
+    move-result-object v0
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    sget-object v1, Landroid/telephony/PhoneNumberUtils;->otaCountryNDDPrefix:Ljava/lang/String;
 
-    move-result-object v1
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    sget-object v2, Landroid/telephony/PhoneNumberUtils;->otaCountryIDDPrefix:Ljava/lang/String;
+    move-result-object v0
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string/jumbo v1, ", isOTANANPCountry: "
 
-    move-result-object v1
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v2, " otaCountryNDDPrefix: "
+    move-result-object v0
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    sget-boolean v1, Landroid/telephony/PhoneNumberUtils;->isOTANANPCountry:Z
 
-    move-result-object v1
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    sget-object v2, Landroid/telephony/PhoneNumberUtils;->otaCountryNDDPrefix:Ljava/lang/String;
+    move-result-object v0
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string/jumbo v1, ", otaCountryCountryCode: "
 
-    move-result-object v1
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v2, " isOTANANPCountry: "
+    move-result-object v0
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    sget-object v1, Landroid/telephony/PhoneNumberUtils;->otaCountryCountryCode:Ljava/lang/String;
 
-    move-result-object v1
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    sget-boolean v2, Landroid/telephony/PhoneNumberUtils;->isOTANANPCountry:Z
+    move-result-object v0
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
-    const-string/jumbo v2, " otaCountryCountryCode: "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    sget-object v2, Landroid/telephony/PhoneNumberUtils;->otaCountryCountryCode:Ljava/lang/String;
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    const-string/jumbo v2, " isOTANBPCDSupported: "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    sget-boolean v2, Landroid/telephony/PhoneNumberUtils;->isOTANBPCDSupported:Z
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0}, Landroid/telephony/PhoneNumberUtils;->adLog(Ljava/lang/String;)V
 
     return-void
 .end method
@@ -9397,23 +9948,29 @@
 .end method
 
 .method public static formatNumber(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-    .locals 7
+    .locals 14
 
-    const-string/jumbo v4, "#"
+    const/4 v13, 0x4
 
-    invoke-virtual {p0, v4}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+    const/4 v12, 0x3
 
-    move-result v4
+    const/4 v11, 0x0
 
-    if-nez v4, :cond_0
+    const-string/jumbo v8, "#"
 
-    const-string/jumbo v4, "*"
+    invoke-virtual {p0, v8}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
-    invoke-virtual {p0, v4}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+    move-result v8
 
-    move-result v4
+    if-nez v8, :cond_0
 
-    if-eqz v4, :cond_1
+    const-string/jumbo v8, "*"
+
+    invoke-virtual {p0, v8}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v8
+
+    if-eqz v8, :cond_1
 
     :cond_0
     return-object p0
@@ -9421,180 +9978,295 @@
     :cond_1
     invoke-static {}, Lcom/android/i18n/phonenumbers/PhoneNumberUtil;->getInstance()Lcom/android/i18n/phonenumbers/PhoneNumberUtil;
 
-    move-result-object v3
-
-    const/4 v2, 0x0
-
-    const/4 v4, 0x4
-
-    new-array v4, v4, [Ljava/lang/String;
-
-    const-string/jumbo v5, "SKT"
+    move-result-object v7
 
     const/4 v6, 0x0
 
-    aput-object v5, v4, v6
+    new-array v8, v13, [Ljava/lang/String;
 
-    const-string/jumbo v5, "KTT"
+    const-string/jumbo v9, "SKT"
 
-    const/4 v6, 0x1
+    aput-object v9, v8, v11
 
-    aput-object v5, v4, v6
+    const-string/jumbo v9, "KTT"
 
-    const-string/jumbo v5, "LGT"
+    const/4 v10, 0x1
 
-    const/4 v6, 0x2
+    aput-object v9, v8, v10
 
-    aput-object v5, v4, v6
+    const-string/jumbo v9, "LGT"
 
-    const-string/jumbo v5, "KOO"
+    const/4 v10, 0x2
 
-    const/4 v6, 0x3
+    aput-object v9, v8, v10
 
-    aput-object v5, v4, v6
+    const-string/jumbo v9, "KOO"
 
-    invoke-static {v4}, Lcom/android/internal/telephony/TelephonyFeatures;->isMainOperatorSpecific([Ljava/lang/String;)Z
+    aput-object v9, v8, v12
 
-    move-result v4
+    invoke-static {v8}, Lcom/android/internal/telephony/TelephonyFeatures;->isMainOperatorSpecific([Ljava/lang/String;)Z
 
-    if-eqz v4, :cond_4
+    move-result v8
 
-    const-string/jumbo v4, "+"
+    if-eqz v8, :cond_7
 
-    invoke-virtual {p0, v4}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+    const-string/jumbo v2, "000"
 
-    move-result v4
+    const-string/jumbo v8, "gsm.operator.numeric"
 
-    if-nez v4, :cond_2
+    invoke-static {v8}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v4
 
     invoke-static {}, Ljava/util/Locale;->getDefault()Ljava/util/Locale;
 
-    move-result-object v4
+    move-result-object v1
 
-    invoke-static {v4}, Landroid/telephony/PhoneNumberUtils;->getFormatTypeForLocale(Ljava/util/Locale;)I
+    if-eqz v4, :cond_2
 
-    move-result v4
+    invoke-virtual {v4}, Ljava/lang/String;->length()I
 
-    invoke-static {p0, v4}, Landroid/telephony/PhoneNumberUtils;->formatNumber(Ljava/lang/String;I)Ljava/lang/String;
+    move-result v8
+
+    if-le v8, v13, :cond_2
+
+    invoke-virtual {v4, v11, v12}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
     move-result-object v2
-
-    :goto_0
-    return-object v2
 
     :cond_2
-    :try_start_0
-    invoke-virtual {v3, p0, p1}, Lcom/android/i18n/phonenumbers/PhoneNumberUtil;->parseAndKeepRawInput(Ljava/lang/String;Ljava/lang/String;)Lcom/android/i18n/phonenumbers/Phonenumber$PhoneNumber;
+    const-string/jumbo v8, "+"
 
-    move-result-object v1
+    invoke-virtual {p0, v8}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
-    const-string/jumbo v4, "KR"
+    move-result v8
 
-    invoke-virtual {v4, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    if-nez v8, :cond_5
 
-    move-result v4
+    const-string/jumbo v8, "ko"
 
-    if-eqz v4, :cond_3
+    invoke-virtual {v1}, Ljava/util/Locale;->getLanguage()Ljava/lang/String;
 
-    invoke-virtual {v1}, Lcom/android/i18n/phonenumbers/Phonenumber$PhoneNumber;->getCountryCode()I
+    move-result-object v9
 
-    move-result v4
+    invoke-virtual {v8, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    const-string/jumbo v5, "KR"
+    move-result v8
 
-    invoke-virtual {v3, v5}, Lcom/android/i18n/phonenumbers/PhoneNumberUtil;->getCountryCodeForRegion(Ljava/lang/String;)I
+    if-nez v8, :cond_3
 
-    move-result v5
+    const-string/jumbo v8, "050"
 
-    if-ne v4, v5, :cond_3
+    invoke-virtual {p0, v8}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
-    invoke-virtual {v1}, Lcom/android/i18n/phonenumbers/Phonenumber$PhoneNumber;->getCountryCodeSource()Lcom/android/i18n/phonenumbers/Phonenumber$PhoneNumber$CountryCodeSource;
+    move-result v8
 
-    move-result-object v4
+    if-eqz v8, :cond_4
 
-    sget-object v5, Lcom/android/i18n/phonenumbers/Phonenumber$PhoneNumber$CountryCodeSource;->FROM_NUMBER_WITH_PLUS_SIGN:Lcom/android/i18n/phonenumbers/Phonenumber$PhoneNumber$CountryCodeSource;
+    const-string/jumbo v8, "450"
 
-    if-ne v4, v5, :cond_3
+    invoke-virtual {v8, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    sget-object v4, Lcom/android/i18n/phonenumbers/PhoneNumberUtil$PhoneNumberFormat;->NATIONAL:Lcom/android/i18n/phonenumbers/PhoneNumberUtil$PhoneNumberFormat;
+    move-result v8
 
-    invoke-virtual {v3, v1, v4}, Lcom/android/i18n/phonenumbers/PhoneNumberUtil;->format(Lcom/android/i18n/phonenumbers/Phonenumber$PhoneNumber;Lcom/android/i18n/phonenumbers/PhoneNumberUtil$PhoneNumberFormat;)Ljava/lang/String;
-
-    move-result-object v2
-
-    goto :goto_0
+    if-eqz v8, :cond_4
 
     :cond_3
-    invoke-virtual {v3, v1, p1}, Lcom/android/i18n/phonenumbers/PhoneNumberUtil;->formatInOriginalFormat(Lcom/android/i18n/phonenumbers/Phonenumber$PhoneNumber;Ljava/lang/String;)Ljava/lang/String;
-    :try_end_0
-    .catch Lcom/android/i18n/phonenumbers/NumberParseException; {:try_start_0 .. :try_end_0} :catch_1
+    const-string/jumbo v8, "KR"
 
-    move-result-object v2
+    invoke-static {v8}, Landroid/telephony/PhoneNumberUtils;->getFormatTypeFromCountryCode(Ljava/lang/String;)I
+
+    move-result v8
+
+    invoke-static {p0, v8}, Landroid/telephony/PhoneNumberUtils;->formatNumber(Ljava/lang/String;I)Ljava/lang/String;
+
+    move-result-object v6
+
+    :goto_0
+    return-object v6
+
+    :cond_4
+    :try_start_0
+    invoke-virtual {v7, p0, p1}, Lcom/android/i18n/phonenumbers/PhoneNumberUtil;->parseAndKeepRawInput(Ljava/lang/String;Ljava/lang/String;)Lcom/android/i18n/phonenumbers/Phonenumber$PhoneNumber;
+
+    move-result-object v5
+
+    invoke-virtual {v7, v5, p1}, Lcom/android/i18n/phonenumbers/PhoneNumberUtil;->formatInOriginalFormat(Lcom/android/i18n/phonenumbers/Phonenumber$PhoneNumber;Ljava/lang/String;)Ljava/lang/String;
+    :try_end_0
+    .catch Lcom/android/i18n/phonenumbers/NumberParseException; {:try_start_0 .. :try_end_0} :catch_2
+
+    move-result-object v6
 
     goto :goto_0
 
-    :cond_4
-    :try_start_1
-    invoke-virtual {v3, p0, p1}, Lcom/android/i18n/phonenumbers/PhoneNumberUtil;->parseAndKeepRawInput(Ljava/lang/String;Ljava/lang/String;)Lcom/android/i18n/phonenumbers/Phonenumber$PhoneNumber;
-
-    move-result-object v1
-
-    invoke-static {}, Lcom/android/internal/telephony/TelephonyFeatures;->isUsaCdmaModel()Z
-
-    move-result v4
-
-    if-eqz v4, :cond_5
-
-    const-string/jumbo v4, "US"
-
-    invoke-virtual {v4, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_6
-
     :cond_5
-    :goto_1
-    invoke-virtual {v3, v1, p1}, Lcom/android/i18n/phonenumbers/PhoneNumberUtil;->formatInOriginalFormat(Lcom/android/i18n/phonenumbers/Phonenumber$PhoneNumber;Ljava/lang/String;)Ljava/lang/String;
+    :try_start_1
+    invoke-virtual {v7, p0, p1}, Lcom/android/i18n/phonenumbers/PhoneNumberUtil;->parseAndKeepRawInput(Ljava/lang/String;Ljava/lang/String;)Lcom/android/i18n/phonenumbers/Phonenumber$PhoneNumber;
 
-    move-result-object v2
+    move-result-object v5
+
+    const-string/jumbo v8, "KR"
+
+    invoke-virtual {v8, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v8
+
+    if-eqz v8, :cond_6
+
+    invoke-virtual {v5}, Lcom/android/i18n/phonenumbers/Phonenumber$PhoneNumber;->getCountryCode()I
+
+    move-result v8
+
+    const-string/jumbo v9, "KR"
+
+    invoke-virtual {v7, v9}, Lcom/android/i18n/phonenumbers/PhoneNumberUtil;->getCountryCodeForRegion(Ljava/lang/String;)I
+
+    move-result v9
+
+    if-ne v8, v9, :cond_6
+
+    invoke-virtual {v5}, Lcom/android/i18n/phonenumbers/Phonenumber$PhoneNumber;->getCountryCodeSource()Lcom/android/i18n/phonenumbers/Phonenumber$PhoneNumber$CountryCodeSource;
+
+    move-result-object v8
+
+    sget-object v9, Lcom/android/i18n/phonenumbers/Phonenumber$PhoneNumber$CountryCodeSource;->FROM_NUMBER_WITH_PLUS_SIGN:Lcom/android/i18n/phonenumbers/Phonenumber$PhoneNumber$CountryCodeSource;
+
+    if-ne v8, v9, :cond_6
+
+    sget-object v8, Lcom/android/i18n/phonenumbers/PhoneNumberUtil$PhoneNumberFormat;->NATIONAL:Lcom/android/i18n/phonenumbers/PhoneNumberUtil$PhoneNumberFormat;
+
+    invoke-virtual {v7, v5, v8}, Lcom/android/i18n/phonenumbers/PhoneNumberUtil;->format(Lcom/android/i18n/phonenumbers/Phonenumber$PhoneNumber;Lcom/android/i18n/phonenumbers/PhoneNumberUtil$PhoneNumberFormat;)Ljava/lang/String;
+
+    move-result-object v6
 
     goto :goto_0
 
     :cond_6
-    new-instance v4, Ljava/lang/StringBuilder;
-
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v5, "formatNumber - ISO: "
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-static {v4}, Landroid/telephony/PhoneNumberUtils;->log(Ljava/lang/String;)V
+    invoke-virtual {v7, v5, p1}, Lcom/android/i18n/phonenumbers/PhoneNumberUtil;->formatInOriginalFormat(Lcom/android/i18n/phonenumbers/Phonenumber$PhoneNumber;Ljava/lang/String;)Ljava/lang/String;
     :try_end_1
-    .catch Lcom/android/i18n/phonenumbers/NumberParseException; {:try_start_1 .. :try_end_1} :catch_0
+    .catch Lcom/android/i18n/phonenumbers/NumberParseException; {:try_start_1 .. :try_end_1} :catch_1
 
-    goto :goto_1
+    move-result-object v6
+
+    goto :goto_0
+
+    :cond_7
+    :try_start_2
+    invoke-virtual {v7, p0, p1}, Lcom/android/i18n/phonenumbers/PhoneNumberUtil;->parseAndKeepRawInput(Ljava/lang/String;Ljava/lang/String;)Lcom/android/i18n/phonenumbers/Phonenumber$PhoneNumber;
+
+    move-result-object v5
+
+    const-string/jumbo v8, "JP"
+
+    invoke-virtual {v8, p1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v8
+
+    if-eqz v8, :cond_8
+
+    invoke-virtual {v5}, Lcom/android/i18n/phonenumbers/Phonenumber$PhoneNumber;->getCountryCode()I
+
+    move-result v8
+
+    const-string/jumbo v9, "JP"
+
+    invoke-virtual {v7, v9}, Lcom/android/i18n/phonenumbers/PhoneNumberUtil;->getCountryCodeForRegion(Ljava/lang/String;)I
+
+    move-result v9
+
+    if-ne v8, v9, :cond_8
+
+    invoke-virtual {v5}, Lcom/android/i18n/phonenumbers/Phonenumber$PhoneNumber;->getCountryCodeSource()Lcom/android/i18n/phonenumbers/Phonenumber$PhoneNumber$CountryCodeSource;
+
+    move-result-object v8
+
+    sget-object v9, Lcom/android/i18n/phonenumbers/Phonenumber$PhoneNumber$CountryCodeSource;->FROM_NUMBER_WITH_PLUS_SIGN:Lcom/android/i18n/phonenumbers/Phonenumber$PhoneNumber$CountryCodeSource;
+
+    if-ne v8, v9, :cond_8
+
+    sget-object v8, Lcom/android/i18n/phonenumbers/PhoneNumberUtil$PhoneNumberFormat;->NATIONAL:Lcom/android/i18n/phonenumbers/PhoneNumberUtil$PhoneNumberFormat;
+
+    invoke-virtual {v7, v5, v8}, Lcom/android/i18n/phonenumbers/PhoneNumberUtil;->format(Lcom/android/i18n/phonenumbers/Phonenumber$PhoneNumber;Lcom/android/i18n/phonenumbers/PhoneNumberUtil$PhoneNumberFormat;)Ljava/lang/String;
+
+    move-result-object v6
+
+    goto :goto_0
+
+    :cond_8
+    invoke-static {}, Landroid/telephony/TelephonyManager;->getDefault()Landroid/telephony/TelephonyManager;
+
+    move-result-object v8
+
+    invoke-virtual {v8}, Landroid/telephony/TelephonyManager;->getNetworkCountryIso()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v8
+
+    if-nez v8, :cond_9
+
+    invoke-virtual {p1, v3}, Ljava/lang/String;->compareToIgnoreCase(Ljava/lang/String;)I
+
+    move-result v8
+
+    if-eqz v8, :cond_a
+
+    :cond_9
+    new-instance v8, Ljava/lang/StringBuilder;
+
+    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v9, "formatNumber - ISO: "
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-virtual {v8, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    const-string/jumbo v9, ", NetworkIso: "
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-virtual {v8, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-static {v8}, Landroid/telephony/PhoneNumberUtils;->log(Ljava/lang/String;)V
+
+    :cond_a
+    invoke-virtual {v7, v5, p1}, Lcom/android/i18n/phonenumbers/PhoneNumberUtil;->formatInOriginalFormat(Lcom/android/i18n/phonenumbers/Phonenumber$PhoneNumber;Ljava/lang/String;)Ljava/lang/String;
+    :try_end_2
+    .catch Lcom/android/i18n/phonenumbers/NumberParseException; {:try_start_2 .. :try_end_2} :catch_0
+
+    move-result-object v6
+
+    goto/16 :goto_0
 
     :catch_0
     move-exception v0
 
-    goto :goto_0
+    goto/16 :goto_0
 
     :catch_1
     move-exception v0
 
-    goto :goto_0
+    goto/16 :goto_0
+
+    :catch_2
+    move-exception v0
+
+    goto/16 :goto_0
 .end method
 
 .method public static formatNumber(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
@@ -10104,306 +10776,253 @@
 .end method
 
 .method public static getEmergencyServiceCategory(ILjava/lang/String;Z)Ljava/lang/String;
-    .locals 23
-
-    const-string/jumbo v18, "SKT"
-
-    invoke-static {}, Lcom/android/internal/telephony/TelephonyFeatures;->getMainOperatorName()Ljava/lang/String;
-
-    move-result-object v19
-
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v18
-
-    if-nez v18, :cond_0
-
-    const-string/jumbo v18, "KTT"
-
-    invoke-static {}, Lcom/android/internal/telephony/TelephonyFeatures;->getMainOperatorName()Ljava/lang/String;
-
-    move-result-object v19
-
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v18
-
-    if-nez v18, :cond_0
-
-    const-string/jumbo v18, "LGT"
-
-    invoke-static {}, Lcom/android/internal/telephony/TelephonyFeatures;->getMainOperatorName()Ljava/lang/String;
-
-    move-result-object v19
-
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v18
-
-    if-nez v18, :cond_0
-
-    const-string/jumbo v18, "KOO"
-
-    invoke-static {}, Lcom/android/internal/telephony/TelephonyFeatures;->getMainOperatorName()Ljava/lang/String;
-
-    move-result-object v19
-
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v18
-
-    if-eqz v18, :cond_1
-
-    :cond_0
-    invoke-static/range {p0 .. p1}, Landroid/telephony/PhoneNumberUtils;->getEmergencyServiceCategoryforkor(ILjava/lang/String;)Ljava/lang/String;
-
-    move-result-object v18
-
-    return-object v18
-
-    :cond_1
-    const-string/jumbo v13, ""
-
-    if-nez p1, :cond_2
-
-    const/16 v18, 0x0
-
-    return-object v18
-
-    :cond_2
-    invoke-virtual/range {p1 .. p1}, Ljava/lang/String;->isEmpty()Z
-
-    move-result v18
-
-    if-eqz v18, :cond_3
-
-    const/16 v18, 0x0
-
-    return-object v18
-
-    :cond_3
-    const/16 v18, 0x0
-
-    move-object/from16 v0, p1
-
-    move/from16 v1, v18
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->charAt(I)C
-
-    move-result v18
-
-    const/16 v19, 0x2f
-
-    move/from16 v0, v18
-
-    move/from16 v1, v19
-
-    if-ne v0, v1, :cond_4
-
-    const/16 v18, 0x0
-
-    return-object v18
-
-    :cond_4
-    invoke-static/range {p0 .. p0}, Landroid/telephony/SubscriptionManager;->getSlotId(I)I
-
-    move-result v16
+    .locals 24
 
     invoke-static/range {p0 .. p0}, Landroid/telephony/SubscriptionManager;->getPhoneId(I)I
 
-    move-result v14
+    move-result v15
 
-    if-gtz v16, :cond_5
+    const/16 v19, 0x4
 
-    const/16 v16, 0x0
+    move/from16 v0, v19
+
+    new-array v0, v0, [Ljava/lang/String;
+
+    move-object/from16 v19, v0
+
+    const-string/jumbo v20, "SKT"
+
+    const/16 v21, 0x0
+
+    aput-object v20, v19, v21
+
+    const-string/jumbo v20, "KTT"
+
+    const/16 v21, 0x1
+
+    aput-object v20, v19, v21
+
+    const-string/jumbo v20, "LGT"
+
+    const/16 v21, 0x2
+
+    aput-object v20, v19, v21
+
+    const-string/jumbo v20, "KOO"
+
+    const/16 v21, 0x3
+
+    aput-object v20, v19, v21
+
+    move-object/from16 v0, v19
+
+    invoke-static {v15, v0}, Lcom/android/internal/telephony/TelephonyFeatures;->isMainOperatorSpecific(I[Ljava/lang/String;)Z
+
+    move-result v19
+
+    if-eqz v19, :cond_0
+
+    invoke-static/range {p0 .. p1}, Landroid/telephony/PhoneNumberUtils;->getEmergencyServiceCategoryforkor(ILjava/lang/String;)Ljava/lang/String;
+
+    move-result-object v19
+
+    return-object v19
+
+    :cond_0
+    if-eqz p1, :cond_1
+
+    invoke-virtual/range {p1 .. p1}, Ljava/lang/String;->isEmpty()Z
+
+    move-result v19
+
+    if-nez v19, :cond_1
+
+    const/16 v19, 0x0
+
+    move-object/from16 v0, p1
+
+    move/from16 v1, v19
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->charAt(I)C
+
+    move-result v19
+
+    const/16 v20, 0x2f
+
+    move/from16 v0, v19
+
+    move/from16 v1, v20
+
+    if-ne v0, v1, :cond_2
+
+    :cond_1
+    const/16 v19, 0x0
+
+    return-object v19
+
+    :cond_2
+    const-string/jumbo v19, "KDI"
+
+    invoke-static {v15}, Lcom/android/internal/telephony/TelephonyFeatures;->getMainOperatorName(I)Ljava/lang/String;
+
+    move-result-object v20
+
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v19
+
+    if-eqz v19, :cond_5
+
+    const-string/jumbo v19, "184"
+
+    move-object/from16 v0, p1
+
+    move-object/from16 v1, v19
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v19
+
+    if-nez v19, :cond_3
+
+    const-string/jumbo v19, "186"
+
+    move-object/from16 v0, p1
+
+    move-object/from16 v1, v19
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v19
+
+    if-eqz v19, :cond_5
+
+    :cond_3
+    const/16 v19, 0x3
+
+    move-object/from16 v0, p1
+
+    move/from16 v1, v19
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->substring(I)Ljava/lang/String;
+
+    move-result-object v18
+
+    const-string/jumbo v19, "110"
+
+    invoke-virtual/range {v18 .. v19}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v19
+
+    if-nez v19, :cond_4
+
+    const-string/jumbo v19, "118"
+
+    invoke-virtual/range {v18 .. v19}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v19
+
+    if-nez v19, :cond_4
+
+    const-string/jumbo v19, "119"
+
+    invoke-virtual/range {v18 .. v19}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v19
+
+    if-eqz v19, :cond_5
+
+    :cond_4
+    const-string/jumbo v19, "jp"
+
+    const-string/jumbo v20, "gsm.operator.iso-country"
+
+    invoke-static/range {v20 .. v20}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v20
+
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v19
+
+    if-eqz v19, :cond_5
+
+    move-object/from16 p1, v18
 
     :cond_5
-    new-instance v18, Ljava/lang/StringBuilder;
+    const-string/jumbo v13, ""
 
-    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
+    if-lez v15, :cond_c
 
-    const-string/jumbo v19, "ril.ecclist_net"
+    new-instance v19, Ljava/lang/StringBuilder;
 
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct/range {v19 .. v19}, Ljava/lang/StringBuilder;-><init>()V
 
-    move-result-object v18
+    const-string/jumbo v20, "getEmergencyServiceCategory - phoneId: "
 
-    move-object/from16 v0, v18
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move/from16 v1, v16
+    move-result-object v19
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-object/from16 v0, v19
 
-    move-result-object v18
+    invoke-virtual {v0, v15}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v19
 
-    move-result-object v4
+    invoke-virtual/range {v19 .. v19}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    new-instance v18, Ljava/lang/StringBuilder;
+    move-result-object v19
 
-    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-static/range {v19 .. v19}, Landroid/telephony/PhoneNumberUtils;->log(Ljava/lang/String;)V
 
-    const-string/jumbo v19, "getEmergencyServiceCategory slodId = "
-
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    move-object/from16 v0, v18
-
-    move/from16 v1, v16
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v18
-
-    invoke-static/range {v18 .. v18}, Landroid/telephony/PhoneNumberUtils;->log(Ljava/lang/String;)V
-
+    :goto_0
     invoke-static {}, Landroid/telephony/TelephonyManager;->getDefault()Landroid/telephony/TelephonyManager;
 
-    move-result-object v18
+    move-result-object v19
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
     move/from16 v1, p0
 
     invoke-virtual {v0, v1}, Landroid/telephony/TelephonyManager;->getCurrentPhoneType(I)I
 
-    move-result v18
+    move-result v16
 
-    sput v18, Landroid/telephony/PhoneNumberUtils;->phoneType:I
+    invoke-static {v15}, Lcom/android/internal/telephony/TelephonyFeatures;->isUsaGlobalModel(I)Z
 
-    invoke-static {}, Landroid/telephony/TelephonyManager;->getDefault()Landroid/telephony/TelephonyManager;
+    move-result v19
 
-    const-string/jumbo v18, "gsm.sim.operator.numeric"
-
-    const-string/jumbo v19, "0"
-
-    move-object/from16 v0, v18
-
-    move-object/from16 v1, v19
-
-    invoke-static {v14, v0, v1}, Landroid/telephony/TelephonyManager;->getTelephonyProperty(ILjava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v15
-
-    new-instance v18, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v19, "getEmergencyServiceCategory simOperator = "
-
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    move-object/from16 v0, v18
-
-    invoke-virtual {v0, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v18
-
-    invoke-static/range {v18 .. v18}, Landroid/telephony/PhoneNumberUtils;->log(Ljava/lang/String;)V
-
-    const-string/jumbo v18, "KDI"
-
-    invoke-static {}, Lcom/android/internal/telephony/TelephonyFeatures;->getMainOperatorName()Ljava/lang/String;
-
-    move-result-object v19
-
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v18
-
-    if-eqz v18, :cond_7
-
-    const-string/jumbo v18, "184"
-
-    move-object/from16 v0, p1
-
-    move-object/from16 v1, v18
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
-
-    move-result v18
-
-    if-nez v18, :cond_6
-
-    const-string/jumbo v18, "186"
-
-    move-object/from16 v0, p1
-
-    move-object/from16 v1, v18
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
-
-    move-result v18
-
-    if-eqz v18, :cond_7
-
-    :cond_6
-    const/16 v18, 0x3
-
-    move-object/from16 v0, p1
-
-    move/from16 v1, v18
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->substring(I)Ljava/lang/String;
-
-    move-result-object p1
-
-    :cond_7
-    invoke-static {}, Lcom/android/internal/telephony/TelephonyFeatures;->isUsaGlobalModel()Z
-
-    move-result v18
-
-    if-eqz v18, :cond_11
-
-    const-string/jumbo v18, "ro.ril.ecclist"
-
-    invoke-static/range {v18 .. v18}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v5
+    if-eqz v19, :cond_f
 
     const/4 v10, 0x0
 
-    :goto_0
-    new-instance v18, Ljava/lang/StringBuilder;
+    :goto_1
+    new-instance v19, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v19 .. v19}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v19, "ril.ecclist"
+    const-string/jumbo v20, "ril.ecclist"
 
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    move-object/from16 v0, v18
-
-    move/from16 v1, v16
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    invoke-static {v10}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v19
 
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-object/from16 v0, v19
 
-    move-result-object v18
+    invoke-virtual {v0, v15}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v19
+
+    invoke-static {v10}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+
+    move-result-object v20
+
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
+    invoke-virtual/range {v19 .. v19}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v11
 
@@ -10413,707 +11032,740 @@
 
     invoke-virtual {v12}, Ljava/lang/String;->length()I
 
-    move-result v18
+    move-result v19
 
-    if-nez v18, :cond_f
+    if-nez v19, :cond_d
+
+    const-string/jumbo v19, "ro.ril.ecclist"
+
+    invoke-static/range {v19 .. v19}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v5
 
     invoke-virtual {v5}, Ljava/lang/String;->length()I
 
-    move-result v18
+    move-result v19
 
-    if-lez v18, :cond_8
+    if-lez v19, :cond_6
 
-    new-instance v18, Ljava/lang/StringBuilder;
+    new-instance v19, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v19 .. v19}, Ljava/lang/StringBuilder;-><init>()V
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
     invoke-virtual {v0, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v18
+    move-result-object v19
 
-    const-string/jumbo v19, ","
+    const-string/jumbo v20, ","
 
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v18
+    move-result-object v19
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
     invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v18
+    move-result-object v19
 
-    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v19 .. v19}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v13
 
-    :cond_8
-    :goto_1
+    :cond_6
+    :goto_2
+    new-instance v19, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v19 .. v19}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v20, "ril.ecclist_net"
+
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
+    move-object/from16 v0, v19
+
+    invoke-virtual {v0, v15}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
+    invoke-virtual/range {v19 .. v19}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
     invoke-static {v4}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v6
 
     invoke-virtual {v6}, Ljava/lang/String;->length()I
 
-    move-result v18
+    move-result v19
 
-    if-lez v18, :cond_9
+    if-lez v19, :cond_7
 
-    new-instance v18, Ljava/lang/StringBuilder;
+    new-instance v19, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v19 .. v19}, Ljava/lang/StringBuilder;-><init>()V
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
     invoke-virtual {v0, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v18
+    move-result-object v19
 
-    const-string/jumbo v19, ","
+    const-string/jumbo v20, ","
 
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v18
+    move-result-object v19
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
     invoke-virtual {v0, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v18
+    move-result-object v19
 
-    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v19 .. v19}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v13
 
-    :cond_9
-    const-string/jumbo v18, "persist.radio.test_emer_num"
+    :cond_7
+    const-string/jumbo v19, "persist.radio.test_emer_num"
 
-    invoke-static/range {v18 .. v18}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+    invoke-static/range {v19 .. v19}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v8
 
     invoke-virtual {v8}, Ljava/lang/String;->length()I
 
-    move-result v18
+    move-result v19
 
-    if-lez v18, :cond_a
+    if-lez v19, :cond_8
 
-    new-instance v18, Ljava/lang/StringBuilder;
+    new-instance v19, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v19 .. v19}, Ljava/lang/StringBuilder;-><init>()V
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
     invoke-virtual {v0, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v18
+    move-result-object v19
 
-    const-string/jumbo v19, ","
+    const-string/jumbo v20, ","
 
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v18
+    move-result-object v19
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
     invoke-virtual {v0, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v18
+    move-result-object v19
 
-    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v19 .. v19}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v13
 
-    :cond_a
-    invoke-static {}, Lcom/android/internal/telephony/TelephonyFeatures;->isUsaCdmaModel()Z
+    :cond_8
+    invoke-static {v15}, Lcom/android/internal/telephony/TelephonyFeatures;->isUsaGlobalModel(I)Z
 
-    move-result v18
+    move-result v19
 
-    if-eqz v18, :cond_c
+    if-nez v19, :cond_9
 
-    new-instance v18, Ljava/lang/StringBuilder;
+    const/16 v19, 0x3
 
-    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
+    move/from16 v0, v19
 
-    const-string/jumbo v19, "ril.ecclist"
+    new-array v0, v0, [Ljava/lang/String;
 
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-object/from16 v19, v0
 
-    move-result-object v18
+    const-string/jumbo v20, "VZW"
 
-    move-object/from16 v0, v18
+    const/16 v21, 0x0
 
-    move/from16 v1, v16
+    aput-object v20, v19, v21
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    const-string/jumbo v20, "SPR"
 
-    move-result-object v18
+    const/16 v21, 0x1
 
-    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    aput-object v20, v19, v21
 
-    move-result-object v18
+    const-string/jumbo v20, "USC"
 
-    invoke-static/range {v18 .. v18}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+    const/16 v21, 0x2
+
+    aput-object v20, v19, v21
+
+    move-object/from16 v0, v19
+
+    invoke-static {v15, v0}, Lcom/android/internal/telephony/TelephonyFeatures;->isMainOperatorSpecific(I[Ljava/lang/String;)Z
+
+    move-result v19
+
+    if-eqz v19, :cond_a
+
+    :cond_9
+    new-instance v19, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v19 .. v19}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v20, "ril.ecclist"
+
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
+    move-object/from16 v0, v19
+
+    invoke-virtual {v0, v15}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
+    invoke-virtual/range {v19 .. v19}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v19
+
+    invoke-static/range {v19 .. v19}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v7
 
     invoke-virtual {v7}, Ljava/lang/String;->length()I
 
-    move-result v18
+    move-result v19
 
-    if-lez v18, :cond_b
+    if-lez v19, :cond_a
 
-    new-instance v18, Ljava/lang/StringBuilder;
+    new-instance v19, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
-
-    move-object/from16 v0, v18
-
-    invoke-virtual {v0, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    const-string/jumbo v19, ","
-
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    move-object/from16 v0, v18
-
-    invoke-virtual {v0, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v13
-
-    :cond_b
-    new-instance v18, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v19, "ECC List: "
-
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    move-object/from16 v0, v18
-
-    invoke-virtual {v0, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v18
-
-    invoke-static/range {v18 .. v18}, Landroid/telephony/PhoneNumberUtils;->log(Ljava/lang/String;)V
-
-    :cond_c
-    invoke-static {v13}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v18
-
-    if-nez v18, :cond_1e
-
-    const-string/jumbo v18, ","
-
-    move-object/from16 v0, v18
-
-    invoke-virtual {v13, v0}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
-
-    move-result-object v19
-
-    const/16 v18, 0x0
+    invoke-direct/range {v19 .. v19}, Ljava/lang/StringBuilder;-><init>()V
 
     move-object/from16 v0, v19
 
-    array-length v0, v0
+    invoke-virtual {v0, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move/from16 v20, v0
+    move-result-object v19
 
-    :goto_2
-    move/from16 v0, v18
+    const-string/jumbo v20, ","
 
-    move/from16 v1, v20
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    if-ge v0, v1, :cond_1d
+    move-result-object v19
 
-    aget-object v9, v19, v18
+    move-object/from16 v0, v19
 
-    const-string/jumbo v21, "/"
+    invoke-virtual {v0, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-object/from16 v0, v21
+    move-result-object v19
 
-    invoke-virtual {v9, v0}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
+    invoke-virtual/range {v19 .. v19}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v17
+    move-result-object v13
 
-    const/16 v21, 0x0
+    :cond_a
+    new-instance v19, Ljava/lang/StringBuilder;
 
-    aget-object v3, v17, v21
+    invoke-direct/range {v19 .. v19}, Ljava/lang/StringBuilder;-><init>()V
 
-    move-object/from16 v0, v17
+    const-string/jumbo v20, "ECC List: "
+
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
+    move-object/from16 v0, v19
+
+    invoke-virtual {v0, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
+    invoke-virtual/range {v19 .. v19}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v19
+
+    invoke-static/range {v19 .. v19}, Landroid/telephony/PhoneNumberUtils;->log(Ljava/lang/String;)V
+
+    invoke-static {v13}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v19
+
+    if-nez v19, :cond_1f
+
+    const-string/jumbo v19, ","
+
+    move-object/from16 v0, v19
+
+    invoke-virtual {v13, v0}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
+
+    move-result-object v20
+
+    const/16 v19, 0x0
+
+    move-object/from16 v0, v20
 
     array-length v0, v0
 
     move/from16 v21, v0
 
+    :goto_3
+    move/from16 v0, v19
+
+    move/from16 v1, v21
+
+    if-ge v0, v1, :cond_1e
+
+    aget-object v9, v20, v19
+
+    const-string/jumbo v22, "/"
+
+    move-object/from16 v0, v22
+
+    invoke-virtual {v9, v0}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
+
+    move-result-object v17
+
+    const/16 v22, 0x0
+
+    aget-object v3, v17, v22
+
+    move-object/from16 v0, v17
+
+    array-length v0, v0
+
+    move/from16 v22, v0
+
+    const/16 v23, 0x1
+
+    move/from16 v0, v22
+
+    move/from16 v1, v23
+
+    if-le v0, v1, :cond_15
+
     const/16 v22, 0x1
 
-    move/from16 v0, v21
+    aget-object v2, v17, v22
 
-    move/from16 v1, v22
-
-    if-le v0, v1, :cond_18
-
-    const/16 v21, 0x1
-
-    aget-object v2, v17, v21
-
-    :goto_3
-    if-nez p2, :cond_d
+    :goto_4
+    if-nez p2, :cond_b
 
     move-object/from16 v0, p1
 
     invoke-virtual {v0, v3}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
-    move-result v21
+    move-result v22
 
-    if-eqz v21, :cond_d
+    if-eqz v22, :cond_b
 
     move-object/from16 p1, v3
 
-    :cond_d
+    :cond_b
     move-object/from16 v0, p1
 
     invoke-virtual {v3, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v21
+    move-result v22
 
-    if-eqz v21, :cond_1c
+    if-eqz v22, :cond_1d
 
-    const-string/jumbo v18, "46605"
+    invoke-static {}, Landroid/telephony/TelephonyManager;->getDefault()Landroid/telephony/TelephonyManager;
 
-    move-object/from16 v0, v18
+    const-string/jumbo v19, "gsm.operator.numeric"
 
-    invoke-virtual {v0, v15}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    const-string/jumbo v20, "00000"
 
-    move-result v18
+    move-object/from16 v0, v19
 
-    if-nez v18, :cond_e
+    move-object/from16 v1, v20
 
-    const-string/jumbo v18, "46011"
+    invoke-static {v15, v0, v1}, Landroid/telephony/TelephonyManager;->getTelephonyProperty(ILjava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    move-object/from16 v0, v18
+    move-result-object v14
 
-    invoke-virtual {v0, v15}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    new-instance v19, Ljava/lang/StringBuilder;
 
-    move-result v18
+    invoke-direct/range {v19 .. v19}, Ljava/lang/StringBuilder;-><init>()V
 
-    if-eqz v18, :cond_1b
+    const-string/jumbo v20, "getEmergencyServiceCategory - opNumeric: "
 
-    :cond_e
-    const-string/jumbo v18, "119"
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-object/from16 v0, v18
+    move-result-object v19
+
+    move-object/from16 v0, v19
+
+    invoke-virtual {v0, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
+    invoke-virtual/range {v19 .. v19}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v19
+
+    invoke-static/range {v19 .. v19}, Landroid/telephony/PhoneNumberUtils;->log(Ljava/lang/String;)V
+
+    const-string/jumbo v19, "46605"
+
+    move-object/from16 v0, v19
+
+    invoke-virtual {v0, v14}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v19
+
+    if-eqz v19, :cond_18
+
+    const-string/jumbo v19, "119"
+
+    move-object/from16 v0, v19
 
     move-object/from16 v1, p1
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v18
+    move-result v19
 
-    if-eqz v18, :cond_19
+    if-eqz v19, :cond_16
 
-    const/16 v18, 0x2
+    const/16 v19, 0x2
 
-    invoke-static/range {v18 .. v18}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+    invoke-static/range {v19 .. v19}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
 
-    move-result-object v18
+    move-result-object v19
 
-    return-object v18
+    return-object v19
 
-    :cond_f
-    new-instance v18, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
-
-    move-object/from16 v0, v18
-
-    invoke-virtual {v0, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    const-string/jumbo v19, " "
-
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    move-object/from16 v0, v18
-
-    invoke-virtual {v0, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v18
-
-    invoke-static/range {v18 .. v18}, Landroid/telephony/PhoneNumberUtils;->log(Ljava/lang/String;)V
-
-    invoke-virtual {v13}, Ljava/lang/String;->length()I
-
-    move-result v18
-
-    if-lez v18, :cond_10
-
-    new-instance v18, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
-
-    move-object/from16 v0, v18
-
-    invoke-virtual {v0, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    const-string/jumbo v19, ","
-
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    move-object/from16 v0, v18
-
-    invoke-virtual {v0, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v13
-
-    :goto_4
-    add-int/lit8 v10, v10, 0x1
+    :cond_c
+    const/4 v15, 0x0
 
     goto/16 :goto_0
 
-    :cond_10
-    new-instance v18, Ljava/lang/StringBuilder;
+    :cond_d
+    invoke-virtual {v13}, Ljava/lang/String;->length()I
 
-    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
+    move-result v19
 
-    move-object/from16 v0, v18
+    if-lez v19, :cond_e
+
+    new-instance v19, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v19 .. v19}, Ljava/lang/StringBuilder;-><init>()V
+
+    move-object/from16 v0, v19
 
     invoke-virtual {v0, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v18
+    move-result-object v19
 
-    move-object/from16 v0, v18
+    const-string/jumbo v20, ","
+
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
+    move-object/from16 v0, v19
 
     invoke-virtual {v0, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v18
-
-    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v13
-
-    goto :goto_4
-
-    :cond_11
-    const-string/jumbo v18, "CTC"
-
-    invoke-static {}, Lcom/android/internal/telephony/TelephonyFeatures;->getMainOperatorName()Ljava/lang/String;
-
     move-result-object v19
 
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v18
-
-    if-nez v18, :cond_12
-
-    invoke-static {}, Lcom/samsung/android/feature/SemCscFeature;->getInstance()Lcom/samsung/android/feature/SemCscFeature;
-
-    move-result-object v18
-
-    const-string/jumbo v19, "CscFeature_RIL_SupportAllRat"
-
-    invoke-virtual/range {v18 .. v19}, Lcom/samsung/android/feature/SemCscFeature;->getBoolean(Ljava/lang/String;)Z
-
-    move-result v18
-
-    if-eqz v18, :cond_15
-
-    :cond_12
-    sget v18, Landroid/telephony/PhoneNumberUtils;->phoneType:I
-
-    const/16 v19, 0x2
-
-    move/from16 v0, v18
-
-    move/from16 v1, v19
-
-    if-ne v0, v1, :cond_15
-
-    const-string/jumbo v18, "ro.ril.ecclist"
-
-    invoke-static/range {v18 .. v18}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v5
-
-    new-instance v18, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v19, ":: ecclist for UIM"
-
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    move-object/from16 v0, v18
-
-    move/from16 v1, v16
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    const-string/jumbo v19, " :: "
-
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    move-object/from16 v0, v18
-
-    invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v18
-
-    invoke-static/range {v18 .. v18}, Landroid/telephony/PhoneNumberUtils;->log(Ljava/lang/String;)V
-
-    invoke-virtual {v5}, Ljava/lang/String;->length()I
-
-    move-result v18
-
-    if-lez v18, :cond_13
-
-    new-instance v18, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
-
-    move-object/from16 v0, v18
-
-    invoke-virtual {v0, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    const-string/jumbo v19, ","
-
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    move-object/from16 v0, v18
-
-    invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v19 .. v19}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v13
 
-    :cond_13
-    const-string/jumbo v18, "110"
-
-    move-object/from16 v0, v18
-
-    move-object/from16 v1, p1
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v18
-
-    if-nez v18, :cond_14
-
-    const-string/jumbo v18, "112"
-
-    move-object/from16 v0, v18
-
-    move-object/from16 v1, p1
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v18
-
-    if-nez v18, :cond_14
-
-    const-string/jumbo v18, "119"
-
-    move-object/from16 v0, v18
-
-    move-object/from16 v1, p1
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v18
-
-    if-nez v18, :cond_14
-
-    const-string/jumbo v18, "120"
-
-    move-object/from16 v0, v18
-
-    move-object/from16 v1, p1
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v18
-
-    if-nez v18, :cond_14
-
-    const-string/jumbo v18, "911"
-
-    move-object/from16 v0, v18
-
-    move-object/from16 v1, p1
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v18
-
-    if-nez v18, :cond_14
-
-    const-string/jumbo v18, "999"
-
-    move-object/from16 v0, v18
-
-    move-object/from16 v1, p1
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v18
-
-    if-nez v18, :cond_14
-
-    const-string/jumbo v18, "122"
-
-    move-object/from16 v0, v18
-
-    move-object/from16 v1, p1
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v18
-
-    if-nez v18, :cond_14
-
-    const-string/jumbo v18, "000"
-
-    move-object/from16 v0, v18
-
-    move-object/from16 v1, p1
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v18
-
-    if-nez v18, :cond_14
-
-    const-string/jumbo v18, "118"
-
-    move-object/from16 v0, v18
-
-    move-object/from16 v1, p1
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v18
-
-    if-nez v18, :cond_14
-
-    const-string/jumbo v18, "08"
-
-    move-object/from16 v0, v18
-
-    move-object/from16 v1, p1
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v18
-
-    if-eqz v18, :cond_8
-
-    :cond_14
-    const-string/jumbo v18, ""
-
-    return-object v18
-
-    :cond_15
-    sget v18, Landroid/telephony/PhoneNumberUtils;->phoneType:I
-
-    const/16 v19, 0x2
-
-    move/from16 v0, v18
-
-    move/from16 v1, v19
-
-    if-ne v0, v1, :cond_16
-
-    const-string/jumbo v18, "ro.ril.ecclist"
-
-    invoke-static/range {v18 .. v18}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v13
+    :goto_5
+    add-int/lit8 v10, v10, 0x1
 
     goto/16 :goto_1
 
-    :cond_16
-    const/4 v10, 0x0
+    :cond_e
+    new-instance v19, Ljava/lang/StringBuilder;
 
-    :goto_5
-    new-instance v18, Ljava/lang/StringBuilder;
+    invoke-direct/range {v19 .. v19}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
+    move-object/from16 v0, v19
 
-    const-string/jumbo v19, "ril.ecclist"
-
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    move-object/from16 v0, v18
-
-    move/from16 v1, v16
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    invoke-static {v10}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+    invoke-virtual {v0, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v19
 
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-object/from16 v0, v19
 
-    move-result-object v18
+    invoke-virtual {v0, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v19
+
+    invoke-virtual/range {v19 .. v19}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v13
+
+    goto :goto_5
+
+    :cond_f
+    invoke-static {v15}, Lcom/android/internal/telephony/TelephonyFeatures;->isChnGlobalModel(I)Z
+
+    move-result v19
+
+    if-eqz v19, :cond_12
+
+    const/16 v19, 0x2
+
+    move/from16 v0, v16
+
+    move/from16 v1, v19
+
+    if-ne v0, v1, :cond_12
+
+    const-string/jumbo v19, "ro.ril.ecclist"
+
+    invoke-static/range {v19 .. v19}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v5
+
+    new-instance v19, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v19 .. v19}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v20, ":: ecclist for UIM"
+
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
+    move-object/from16 v0, v19
+
+    invoke-virtual {v0, v15}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
+    const-string/jumbo v20, " :: "
+
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
+    move-object/from16 v0, v19
+
+    invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
+    invoke-virtual/range {v19 .. v19}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v19
+
+    invoke-static/range {v19 .. v19}, Landroid/telephony/PhoneNumberUtils;->log(Ljava/lang/String;)V
+
+    invoke-virtual {v5}, Ljava/lang/String;->length()I
+
+    move-result v19
+
+    if-lez v19, :cond_10
+
+    new-instance v19, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v19 .. v19}, Ljava/lang/StringBuilder;-><init>()V
+
+    move-object/from16 v0, v19
+
+    invoke-virtual {v0, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
+    const-string/jumbo v20, ","
+
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
+    move-object/from16 v0, v19
+
+    invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
+    invoke-virtual/range {v19 .. v19}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v13
+
+    :cond_10
+    const-string/jumbo v19, "110"
+
+    move-object/from16 v0, v19
+
+    move-object/from16 v1, p1
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v19
+
+    if-nez v19, :cond_11
+
+    const-string/jumbo v19, "112"
+
+    move-object/from16 v0, v19
+
+    move-object/from16 v1, p1
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v19
+
+    if-nez v19, :cond_11
+
+    const-string/jumbo v19, "119"
+
+    move-object/from16 v0, v19
+
+    move-object/from16 v1, p1
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v19
+
+    if-nez v19, :cond_11
+
+    const-string/jumbo v19, "120"
+
+    move-object/from16 v0, v19
+
+    move-object/from16 v1, p1
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v19
+
+    if-nez v19, :cond_11
+
+    const-string/jumbo v19, "911"
+
+    move-object/from16 v0, v19
+
+    move-object/from16 v1, p1
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v19
+
+    if-nez v19, :cond_11
+
+    const-string/jumbo v19, "999"
+
+    move-object/from16 v0, v19
+
+    move-object/from16 v1, p1
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v19
+
+    if-nez v19, :cond_11
+
+    const-string/jumbo v19, "122"
+
+    move-object/from16 v0, v19
+
+    move-object/from16 v1, p1
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v19
+
+    if-nez v19, :cond_11
+
+    const-string/jumbo v19, "000"
+
+    move-object/from16 v0, v19
+
+    move-object/from16 v1, p1
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v19
+
+    if-nez v19, :cond_11
+
+    const-string/jumbo v19, "118"
+
+    move-object/from16 v0, v19
+
+    move-object/from16 v1, p1
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v19
+
+    if-nez v19, :cond_11
+
+    const-string/jumbo v19, "08"
+
+    move-object/from16 v0, v19
+
+    move-object/from16 v1, p1
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v19
+
+    if-eqz v19, :cond_6
+
+    :cond_11
+    const-string/jumbo v19, ""
+
+    return-object v19
+
+    :cond_12
+    const/16 v19, 0x2
+
+    move/from16 v0, v16
+
+    move/from16 v1, v19
+
+    if-ne v0, v1, :cond_13
+
+    const-string/jumbo v19, "ro.ril.ecclist"
+
+    invoke-static/range {v19 .. v19}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v13
+
+    goto/16 :goto_2
+
+    :cond_13
+    const/4 v10, 0x0
+
+    :goto_6
+    new-instance v19, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v19 .. v19}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v20, "ril.ecclist"
+
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
+    move-object/from16 v0, v19
+
+    invoke-virtual {v0, v15}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
+    invoke-static {v10}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+
+    move-result-object v20
+
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
+    invoke-virtual/range {v19 .. v19}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v11
 
@@ -11123,184 +11775,258 @@
 
     invoke-virtual {v12}, Ljava/lang/String;->length()I
 
-    move-result v18
+    move-result v19
 
-    if-eqz v18, :cond_8
-
-    new-instance v18, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
-
-    move-object/from16 v0, v18
-
-    invoke-virtual {v0, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    const-string/jumbo v19, " "
-
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    move-object/from16 v0, v18
-
-    invoke-virtual {v0, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v18
-
-    invoke-static/range {v18 .. v18}, Landroid/telephony/PhoneNumberUtils;->log(Ljava/lang/String;)V
+    if-eqz v19, :cond_6
 
     invoke-virtual {v13}, Ljava/lang/String;->length()I
 
-    move-result v18
+    move-result v19
 
-    if-lez v18, :cond_17
+    if-lez v19, :cond_14
 
-    new-instance v18, Ljava/lang/StringBuilder;
+    new-instance v19, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v19 .. v19}, Ljava/lang/StringBuilder;-><init>()V
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
     invoke-virtual {v0, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v18
+    move-result-object v19
 
-    const-string/jumbo v19, ","
+    const-string/jumbo v20, ","
 
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v18
+    move-result-object v19
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
     invoke-virtual {v0, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v18
+    move-result-object v19
 
-    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v19 .. v19}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v13
 
-    :goto_6
+    :goto_7
     add-int/lit8 v10, v10, 0x1
-
-    goto :goto_5
-
-    :cond_17
-    new-instance v18, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
-
-    move-object/from16 v0, v18
-
-    invoke-virtual {v0, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    move-object/from16 v0, v18
-
-    invoke-virtual {v0, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v13
 
     goto :goto_6
 
-    :cond_18
+    :cond_14
+    new-instance v19, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v19 .. v19}, Ljava/lang/StringBuilder;-><init>()V
+
+    move-object/from16 v0, v19
+
+    invoke-virtual {v0, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
+    move-object/from16 v0, v19
+
+    invoke-virtual {v0, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
+    invoke-virtual/range {v19 .. v19}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v13
+
+    goto :goto_7
+
+    :cond_15
     const-string/jumbo v2, ""
+
+    goto/16 :goto_4
+
+    :cond_16
+    const-string/jumbo v19, "110"
+
+    move-object/from16 v0, v19
+
+    move-object/from16 v1, p1
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v19
+
+    if-eqz v19, :cond_17
+
+    const/16 v19, 0x1
+
+    invoke-static/range {v19 .. v19}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+
+    move-result-object v19
+
+    return-object v19
+
+    :cond_17
+    const-string/jumbo v19, "112"
+
+    move-object/from16 v0, v19
+
+    move-object/from16 v1, p1
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v19
+
+    if-eqz v19, :cond_1c
+
+    const/16 v19, 0x4
+
+    invoke-static/range {v19 .. v19}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+
+    move-result-object v19
+
+    return-object v19
+
+    :cond_18
+    const-string/jumbo v19, "46011"
+
+    move-object/from16 v0, v19
+
+    invoke-virtual {v0, v14}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v19
+
+    if-eqz v19, :cond_1c
+
+    const-string/jumbo v19, "110"
+
+    move-object/from16 v0, v19
+
+    move-object/from16 v1, p1
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v19
+
+    if-eqz v19, :cond_19
+
+    const/16 v19, 0x1
+
+    invoke-static/range {v19 .. v19}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+
+    move-result-object v19
+
+    return-object v19
+
+    :cond_19
+    const-string/jumbo v19, "119"
+
+    move-object/from16 v0, v19
+
+    move-object/from16 v1, p1
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v19
+
+    if-eqz v19, :cond_1a
+
+    const/16 v19, 0x4
+
+    invoke-static/range {v19 .. v19}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+
+    move-result-object v19
+
+    return-object v19
+
+    :cond_1a
+    const-string/jumbo v19, "120"
+
+    move-object/from16 v0, v19
+
+    move-object/from16 v1, p1
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v19
+
+    if-eqz v19, :cond_1b
+
+    const/16 v19, 0x2
+
+    invoke-static/range {v19 .. v19}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+
+    move-result-object v19
+
+    return-object v19
+
+    :cond_1b
+    const-string/jumbo v19, "122"
+
+    move-object/from16 v0, v19
+
+    move-object/from16 v1, p1
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v19
+
+    if-eqz v19, :cond_1c
+
+    const/16 v19, 0x0
+
+    invoke-static/range {v19 .. v19}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+
+    move-result-object v19
+
+    return-object v19
+
+    :cond_1c
+    return-object v2
+
+    :cond_1d
+    add-int/lit8 v19, v19, 0x1
 
     goto/16 :goto_3
 
-    :cond_19
-    const-string/jumbo v18, "110"
-
-    move-object/from16 v0, v18
-
-    move-object/from16 v1, p1
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v18
-
-    if-nez v18, :cond_1a
-
-    const-string/jumbo v18, "112"
-
-    move-object/from16 v0, v18
-
-    move-object/from16 v1, p1
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v18
-
-    if-eqz v18, :cond_1b
-
-    :cond_1a
-    const/16 v18, 0x1
-
-    invoke-static/range {v18 .. v18}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
-
-    move-result-object v18
-
-    return-object v18
-
-    :cond_1b
-    return-object v2
-
-    :cond_1c
-    add-int/lit8 v18, v18, 0x1
-
-    goto/16 :goto_2
-
-    :cond_1d
-    const/16 v18, 0x0
-
-    return-object v18
-
     :cond_1e
-    const-string/jumbo v18, "112"
+    const/16 v19, 0x0
 
-    move-object/from16 v0, p1
-
-    move-object/from16 v1, v18
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v18
-
-    if-nez v18, :cond_1f
-
-    const-string/jumbo v18, "911"
-
-    move-object/from16 v0, p1
-
-    move-object/from16 v1, v18
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v18
-
-    if-eqz v18, :cond_20
+    return-object v19
 
     :cond_1f
-    const-string/jumbo v18, ""
+    const-string/jumbo v19, "112"
 
-    return-object v18
+    move-object/from16 v0, p1
+
+    move-object/from16 v1, v19
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v19
+
+    if-nez v19, :cond_20
+
+    const-string/jumbo v19, "911"
+
+    move-object/from16 v0, p1
+
+    move-object/from16 v1, v19
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v19
+
+    if-eqz v19, :cond_21
 
     :cond_20
-    const/16 v18, 0x0
+    const-string/jumbo v19, ""
 
-    return-object v18
+    return-object v19
+
+    :cond_21
+    const/16 v19, 0x0
+
+    return-object v19
 .end method
 
 .method public static getEmergencyServiceCategory(Ljava/lang/String;)Ljava/lang/String;
@@ -11318,2828 +12044,1597 @@
 .end method
 
 .method public static getEmergencyServiceCategoryforkor(ILjava/lang/String;)Ljava/lang/String;
-    .locals 36
+    .locals 32
 
-    const-string/jumbo v3, "112,911,999,000,08,110,119,122"
+    invoke-static/range {p0 .. p0}, Landroid/telephony/SubscriptionManager;->getPhoneId(I)I
 
-    const-string/jumbo v19, "112,911,999,000,08,110,118,119,122,113,125,111,117"
+    move-result v23
 
-    invoke-static/range {p0 .. p0}, Landroid/telephony/SubscriptionManager;->getSlotId(I)I
+    const/16 v26, 0x4
 
-    move-result v29
+    move/from16 v0, v26
 
-    new-instance v31, Ljava/lang/StringBuilder;
+    new-array v0, v0, [[Ljava/lang/String;
 
-    invoke-direct/range {v31 .. v31}, Ljava/lang/StringBuilder;-><init>()V
+    move-object/from16 v21, v0
 
-    const-string/jumbo v32, "ril.ecclist_net"
+    const/16 v26, 0x2
 
-    invoke-virtual/range {v31 .. v32}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move/from16 v0, v26
 
-    move-result-object v31
+    new-array v0, v0, [Ljava/lang/String;
 
-    move-object/from16 v0, v31
+    move-object/from16 v26, v0
 
-    move/from16 v1, v29
+    const-string/jumbo v27, "112"
+
+    const/16 v28, 0x0
+
+    aput-object v27, v26, v28
+
+    const-string/jumbo v27, "1"
+
+    const/16 v28, 0x1
+
+    aput-object v27, v26, v28
+
+    const/16 v27, 0x0
+
+    aput-object v26, v21, v27
+
+    const/16 v26, 0x2
+
+    move/from16 v0, v26
+
+    new-array v0, v0, [Ljava/lang/String;
+
+    move-object/from16 v26, v0
+
+    const-string/jumbo v27, "911"
+
+    const/16 v28, 0x0
+
+    aput-object v27, v26, v28
+
+    const-string/jumbo v27, "4"
+
+    const/16 v28, 0x1
+
+    aput-object v27, v26, v28
+
+    const/16 v27, 0x1
+
+    aput-object v26, v21, v27
+
+    const/16 v26, 0x2
+
+    move/from16 v0, v26
+
+    new-array v0, v0, [Ljava/lang/String;
+
+    move-object/from16 v26, v0
+
+    const-string/jumbo v27, "119"
+
+    const/16 v28, 0x0
+
+    aput-object v27, v26, v28
+
+    const-string/jumbo v27, "4"
+
+    const/16 v28, 0x1
+
+    aput-object v27, v26, v28
+
+    const/16 v27, 0x2
+
+    aput-object v26, v21, v27
+
+    const/16 v26, 0x2
+
+    move/from16 v0, v26
+
+    new-array v0, v0, [Ljava/lang/String;
+
+    move-object/from16 v26, v0
+
+    const-string/jumbo v27, "122"
+
+    const/16 v28, 0x0
+
+    aput-object v27, v26, v28
+
+    const-string/jumbo v27, "8"
+
+    const/16 v28, 0x1
+
+    aput-object v27, v26, v28
+
+    const/16 v27, 0x3
+
+    aput-object v26, v21, v27
+
+    const/16 v26, 0x9
+
+    move/from16 v0, v26
+
+    new-array v0, v0, [[Ljava/lang/String;
+
+    move-object/from16 v16, v0
+
+    const/16 v26, 0x2
+
+    move/from16 v0, v26
+
+    new-array v0, v0, [Ljava/lang/String;
+
+    move-object/from16 v26, v0
+
+    const-string/jumbo v27, "112"
+
+    const/16 v28, 0x0
+
+    aput-object v27, v26, v28
+
+    const-string/jumbo v27, "1"
+
+    const/16 v28, 0x1
+
+    aput-object v27, v26, v28
+
+    const/16 v27, 0x0
+
+    aput-object v26, v16, v27
+
+    const/16 v26, 0x2
+
+    move/from16 v0, v26
+
+    new-array v0, v0, [Ljava/lang/String;
+
+    move-object/from16 v26, v0
+
+    const-string/jumbo v27, "911"
+
+    const/16 v28, 0x0
+
+    aput-object v27, v26, v28
+
+    const-string/jumbo v27, "4"
+
+    const/16 v28, 0x1
+
+    aput-object v27, v26, v28
+
+    const/16 v27, 0x1
+
+    aput-object v26, v16, v27
+
+    const/16 v26, 0x2
+
+    move/from16 v0, v26
+
+    new-array v0, v0, [Ljava/lang/String;
+
+    move-object/from16 v26, v0
+
+    const-string/jumbo v27, "118"
+
+    const/16 v28, 0x0
+
+    aput-object v27, v26, v28
+
+    const-string/jumbo v27, "19"
+
+    const/16 v28, 0x1
+
+    aput-object v27, v26, v28
+
+    const/16 v27, 0x2
+
+    aput-object v26, v16, v27
+
+    const/16 v26, 0x2
+
+    move/from16 v0, v26
+
+    new-array v0, v0, [Ljava/lang/String;
+
+    move-object/from16 v26, v0
+
+    const-string/jumbo v27, "119"
+
+    const/16 v28, 0x0
+
+    aput-object v27, v26, v28
+
+    const-string/jumbo v27, "4"
+
+    const/16 v28, 0x1
+
+    aput-object v27, v26, v28
+
+    const/16 v27, 0x3
+
+    aput-object v26, v16, v27
+
+    const/16 v26, 0x2
+
+    move/from16 v0, v26
+
+    new-array v0, v0, [Ljava/lang/String;
+
+    move-object/from16 v26, v0
+
+    const-string/jumbo v27, "122"
+
+    const/16 v28, 0x0
+
+    aput-object v27, v26, v28
+
+    const-string/jumbo v27, "8"
+
+    const/16 v28, 0x1
+
+    aput-object v27, v26, v28
+
+    const/16 v27, 0x4
+
+    aput-object v26, v16, v27
+
+    const/16 v26, 0x2
+
+    move/from16 v0, v26
+
+    new-array v0, v0, [Ljava/lang/String;
+
+    move-object/from16 v26, v0
+
+    const-string/jumbo v27, "113"
+
+    const/16 v28, 0x0
+
+    aput-object v27, v26, v28
+
+    const-string/jumbo v27, "3"
+
+    const/16 v28, 0x1
+
+    aput-object v27, v26, v28
+
+    const/16 v27, 0x5
+
+    aput-object v26, v16, v27
+
+    const/16 v26, 0x2
+
+    move/from16 v0, v26
+
+    new-array v0, v0, [Ljava/lang/String;
+
+    move-object/from16 v26, v0
+
+    const-string/jumbo v27, "125"
+
+    const/16 v28, 0x0
+
+    aput-object v27, v26, v28
+
+    const-string/jumbo v27, "9"
+
+    const/16 v28, 0x1
+
+    aput-object v27, v26, v28
+
+    const/16 v27, 0x6
+
+    aput-object v26, v16, v27
+
+    const/16 v26, 0x2
+
+    move/from16 v0, v26
+
+    new-array v0, v0, [Ljava/lang/String;
+
+    move-object/from16 v26, v0
+
+    const-string/jumbo v27, "111"
+
+    const/16 v28, 0x0
+
+    aput-object v27, v26, v28
+
+    const-string/jumbo v27, "7"
+
+    const/16 v28, 0x1
+
+    aput-object v27, v26, v28
+
+    const/16 v27, 0x7
+
+    aput-object v26, v16, v27
+
+    const/16 v26, 0x2
+
+    move/from16 v0, v26
+
+    new-array v0, v0, [Ljava/lang/String;
+
+    move-object/from16 v26, v0
+
+    const-string/jumbo v27, "117"
+
+    const/16 v28, 0x0
+
+    aput-object v27, v26, v28
+
+    const-string/jumbo v27, "18"
+
+    const/16 v28, 0x1
+
+    aput-object v27, v26, v28
+
+    const/16 v27, 0x8
+
+    aput-object v26, v16, v27
+
+    const/16 v26, 0x5
+
+    move/from16 v0, v26
+
+    new-array v0, v0, [[Ljava/lang/String;
+
+    move-object/from16 v22, v0
+
+    const/16 v26, 0x2
+
+    move/from16 v0, v26
+
+    new-array v0, v0, [Ljava/lang/String;
+
+    move-object/from16 v26, v0
+
+    const-string/jumbo v27, "000"
+
+    const/16 v28, 0x0
+
+    aput-object v27, v26, v28
+
+    const-string/jumbo v27, "4"
+
+    const/16 v28, 0x1
+
+    aput-object v27, v26, v28
+
+    const/16 v27, 0x0
+
+    aput-object v26, v22, v27
+
+    const/16 v26, 0x2
+
+    move/from16 v0, v26
+
+    new-array v0, v0, [Ljava/lang/String;
+
+    move-object/from16 v26, v0
+
+    const-string/jumbo v27, "08"
+
+    const/16 v28, 0x0
+
+    aput-object v27, v26, v28
+
+    const-string/jumbo v27, "4"
+
+    const/16 v28, 0x1
+
+    aput-object v27, v26, v28
+
+    const/16 v27, 0x1
+
+    aput-object v26, v22, v27
+
+    const/16 v26, 0x2
+
+    move/from16 v0, v26
+
+    new-array v0, v0, [Ljava/lang/String;
+
+    move-object/from16 v26, v0
+
+    const-string/jumbo v27, "110"
+
+    const/16 v28, 0x0
+
+    aput-object v27, v26, v28
+
+    const-string/jumbo v27, "4"
+
+    const/16 v28, 0x1
+
+    aput-object v27, v26, v28
+
+    const/16 v27, 0x2
+
+    aput-object v26, v22, v27
+
+    const/16 v26, 0x2
+
+    move/from16 v0, v26
+
+    new-array v0, v0, [Ljava/lang/String;
+
+    move-object/from16 v26, v0
+
+    const-string/jumbo v27, "999"
+
+    const/16 v28, 0x0
+
+    aput-object v27, v26, v28
+
+    const-string/jumbo v27, "4"
+
+    const/16 v28, 0x1
+
+    aput-object v27, v26, v28
+
+    const/16 v27, 0x3
+
+    aput-object v26, v22, v27
+
+    const/16 v26, 0x2
+
+    move/from16 v0, v26
+
+    new-array v0, v0, [Ljava/lang/String;
+
+    move-object/from16 v26, v0
+
+    const-string/jumbo v27, "118"
+
+    const/16 v28, 0x0
+
+    aput-object v27, v26, v28
+
+    const-string/jumbo v27, "4"
+
+    const/16 v28, 0x1
+
+    aput-object v27, v26, v28
+
+    const/16 v27, 0x4
+
+    aput-object v26, v22, v27
+
+    new-instance v13, Ljava/util/HashMap;
+
+    invoke-direct {v13}, Ljava/util/HashMap;-><init>()V
+
+    new-instance v26, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v26 .. v26}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v27, "ril.ecclist_net"
+
+    invoke-virtual/range {v26 .. v27}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v26
+
+    move-object/from16 v0, v26
+
+    move/from16 v1, v23
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v31
+    move-result-object v26
 
-    invoke-virtual/range {v31 .. v31}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v26 .. v26}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v11
+    move-result-object v9
 
     if-nez p1, :cond_0
 
-    const/16 v31, 0x0
+    const/16 v26, 0x0
 
-    return-object v31
+    return-object v26
 
     :cond_0
     invoke-static/range {p1 .. p1}, Landroid/telephony/PhoneNumberUtils;->extractNetworkPortionAlt(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v5
 
-    const-string/jumbo v23, ""
+    const-string/jumbo v19, ""
 
-    const-string/jumbo v20, "000"
+    const-string/jumbo v17, "000"
 
-    const-string/jumbo v31, "gsm.operator.numeric"
+    const-string/jumbo v26, "gsm.operator.numeric"
 
-    invoke-static/range {v31 .. v31}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v24
-
-    if-eqz v24, :cond_1
-
-    invoke-virtual/range {v24 .. v24}, Ljava/lang/String;->length()I
-
-    move-result v31
-
-    const/16 v32, 0x4
-
-    move/from16 v0, v31
-
-    move/from16 v1, v32
-
-    if-le v0, v1, :cond_1
-
-    const-string/jumbo v31, "PhoneNumberUtils"
-
-    new-instance v32, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v32 .. v32}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v33, "numeric = "
-
-    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v32
-
-    move-object/from16 v0, v32
-
-    move-object/from16 v1, v24
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v32
-
-    invoke-virtual/range {v32 .. v32}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v32
-
-    invoke-static/range {v31 .. v32}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    const/16 v31, 0x0
-
-    const/16 v32, 0x3
-
-    move-object/from16 v0, v24
-
-    move/from16 v1, v31
-
-    move/from16 v2, v32
-
-    invoke-virtual {v0, v1, v2}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+    invoke-static/range {v26 .. v26}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v20
 
+    if-eqz v20, :cond_1
+
+    invoke-virtual/range {v20 .. v20}, Ljava/lang/String;->length()I
+
+    move-result v26
+
+    const/16 v27, 0x4
+
+    move/from16 v0, v26
+
+    move/from16 v1, v27
+
+    if-le v0, v1, :cond_1
+
+    const-string/jumbo v26, "PhoneNumberUtils"
+
+    new-instance v27, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v27 .. v27}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v28, "numeric = "
+
+    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v27
+
+    move-object/from16 v0, v27
+
+    move-object/from16 v1, v20
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v27
+
+    invoke-virtual/range {v27 .. v27}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v27
+
+    invoke-static/range {v26 .. v27}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/16 v26, 0x0
+
+    const/16 v27, 0x3
+
+    move-object/from16 v0, v20
+
+    move/from16 v1, v26
+
+    move/from16 v2, v27
+
+    invoke-virtual {v0, v1, v2}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+
+    move-result-object v17
+
     :cond_1
+    const-string/jumbo v26, "ABSENT"
+
+    const-string/jumbo v27, "gsm.sim.state"
+
+    const-string/jumbo v28, "UNKNOWN"
+
+    invoke-static/range {v27 .. v28}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v27
+
+    invoke-virtual/range {v26 .. v27}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v26
+
+    if-nez v26, :cond_2
+
     const/4 v14, 0x0
 
     :goto_0
-    new-instance v31, Ljava/lang/StringBuilder;
+    new-instance v26, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v31 .. v31}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v26 .. v26}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v32, "ril.ecclist"
+    const-string/jumbo v27, "ril.ecclist"
 
-    invoke-virtual/range {v31 .. v32}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v26 .. v27}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v31
+    move-result-object v26
 
-    move-object/from16 v0, v31
+    move-object/from16 v0, v26
 
-    move/from16 v1, v29
+    move/from16 v1, v23
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v31
+    move-result-object v26
 
     invoke-static {v14}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
 
-    move-result-object v32
+    move-result-object v27
 
-    invoke-virtual/range {v31 .. v32}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v26 .. v27}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v31
+    move-result-object v26
 
-    invoke-virtual/range {v31 .. v31}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v26 .. v26}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v15
+
+    invoke-static {v15}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v18
 
-    invoke-static/range {v18 .. v18}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual/range {v18 .. v18}, Ljava/lang/String;->length()I
 
-    move-result-object v21
+    move-result v26
 
-    invoke-virtual/range {v21 .. v21}, Ljava/lang/String;->length()I
-
-    move-result v31
-
-    if-nez v31, :cond_3
-
-    const-string/jumbo v31, "450"
-
-    move-object/from16 v0, v31
-
-    move-object/from16 v1, v20
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v31
-
-    if-nez v31, :cond_2
-
-    const-string/jumbo v31, "000"
-
-    move-object/from16 v0, v31
-
-    move-object/from16 v1, v20
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v31
-
-    if-nez v31, :cond_2
-
-    const/16 v31, 0x1
-
-    move/from16 v0, v31
-
-    new-array v0, v0, [Ljava/lang/String;
-
-    move-object/from16 v31, v0
-
-    const-string/jumbo v32, "KTT"
-
-    const/16 v33, 0x0
-
-    aput-object v32, v31, v33
-
-    invoke-static/range {v31 .. v31}, Lcom/android/internal/telephony/TelephonyFeatures;->isMainOperatorSpecific([Ljava/lang/String;)Z
-
-    move-result v31
-
-    if-eqz v31, :cond_5
+    if-nez v26, :cond_4
 
     :cond_2
-    invoke-static/range {v23 .. v23}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    const-string/jumbo v26, "ril.airplane.mode"
 
-    move-result v31
+    const-string/jumbo v27, "0"
 
-    if-eqz v31, :cond_4
+    invoke-static/range {v26 .. v27}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    move-object/from16 v23, v19
+    move-result-object v3
 
-    :goto_1
-    invoke-static/range {v23 .. v23}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    const-string/jumbo v26, "1"
 
-    move-result v31
+    move-object/from16 v0, v26
 
-    if-nez v31, :cond_6f
+    invoke-virtual {v0, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    const-string/jumbo v31, "ril.currentplmn"
+    move-result v26
 
-    const-string/jumbo v32, "domestic"
+    if-nez v26, :cond_3
 
-    invoke-static/range {v31 .. v32}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    const-string/jumbo v26, "000"
 
-    move-result-object v5
+    move-object/from16 v0, v26
 
-    const-string/jumbo v31, "domestic"
+    move-object/from16 v1, v17
 
-    move-object/from16 v0, v31
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    move-result v26
 
-    move-result v31
+    if-eqz v26, :cond_6
 
-    if-nez v31, :cond_7
+    :cond_3
+    const/16 v26, 0x1
 
-    const-string/jumbo v31, "unknown"
-
-    move-object/from16 v0, v31
-
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v31
-
-    if-nez v31, :cond_7
-
-    invoke-static {v5}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v16
-
-    :goto_2
-    const/16 v31, 0x1
-
-    move/from16 v0, v31
+    move/from16 v0, v26
 
     new-array v0, v0, [Ljava/lang/String;
 
-    move-object/from16 v31, v0
+    move-object/from16 v26, v0
 
-    const-string/jumbo v32, "SKT"
+    const-string/jumbo v27, "LGT"
 
-    const/16 v33, 0x0
+    const/16 v28, 0x0
 
-    aput-object v32, v31, v33
+    aput-object v27, v26, v28
 
-    invoke-static/range {v31 .. v31}, Lcom/android/internal/telephony/TelephonyFeatures;->isMainOperatorSpecific([Ljava/lang/String;)Z
+    move/from16 v0, v23
 
-    move-result v31
+    move-object/from16 v1, v26
 
-    if-eqz v31, :cond_1e
+    invoke-static {v0, v1}, Lcom/android/internal/telephony/TelephonyFeatures;->isMainOperatorSpecific(I[Ljava/lang/String;)Z
 
-    const-string/jumbo v31, ","
+    move-result v26
 
-    move-object/from16 v0, v23
+    if-eqz v26, :cond_6
 
-    move-object/from16 v1, v31
+    move-object/from16 v4, v21
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
+    :goto_1
+    const/16 v26, 0x0
 
-    move-result-object v32
+    array-length v0, v4
 
-    const/16 v31, 0x0
+    move/from16 v27, v0
 
-    move-object/from16 v0, v32
+    :goto_2
+    move/from16 v0, v26
 
-    array-length v0, v0
+    move/from16 v1, v27
 
-    move/from16 v33, v0
+    if-ge v0, v1, :cond_9
 
-    :goto_3
-    move/from16 v0, v31
+    aget-object v12, v4, v26
 
-    move/from16 v1, v33
+    const/16 v28, 0x0
 
-    if-ge v0, v1, :cond_6f
+    aget-object v28, v12, v28
 
-    aget-object v13, v32, v31
+    const/16 v29, 0x1
 
-    const-string/jumbo v34, "/"
+    aget-object v29, v12, v29
 
-    move-object/from16 v0, v34
+    move-object/from16 v0, v28
 
-    invoke-virtual {v13, v0}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
+    move-object/from16 v1, v29
 
-    move-result-object v30
+    invoke-interface {v13, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    const/16 v34, 0x0
+    add-int/lit8 v26, v26, 0x1
 
-    aget-object v10, v30, v34
+    goto :goto_2
 
-    move-object/from16 v0, v30
+    :cond_4
+    new-instance v26, Ljava/lang/StringBuilder;
 
-    array-length v0, v0
+    invoke-direct/range {v26 .. v26}, Ljava/lang/StringBuilder;-><init>()V
 
-    move/from16 v34, v0
+    move-object/from16 v0, v26
 
-    const/16 v35, 0x1
+    invoke-virtual {v0, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move/from16 v0, v34
+    move-result-object v26
 
-    move/from16 v1, v35
+    const-string/jumbo v27, " "
 
-    if-le v0, v1, :cond_8
+    invoke-virtual/range {v26 .. v27}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const/16 v34, 0x1
+    move-result-object v26
 
-    aget-object v9, v30, v34
-
-    :goto_4
-    invoke-virtual {v10, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v34
-
-    if-eqz v34, :cond_1d
-
-    const-string/jumbo v31, "112"
-
-    move-object/from16 v0, v31
-
-    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v31
-
-    if-eqz v31, :cond_9
-
-    const/16 v31, 0x1
-
-    invoke-static/range {v31 .. v31}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
-
-    move-result-object v31
-
-    return-object v31
-
-    :cond_3
-    new-instance v31, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v31 .. v31}, Ljava/lang/StringBuilder;-><init>()V
-
-    move-object/from16 v0, v31
+    move-object/from16 v0, v26
 
     move-object/from16 v1, v18
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v31
+    move-result-object v26
 
-    const-string/jumbo v32, " "
+    invoke-virtual/range {v26 .. v26}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual/range {v31 .. v32}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v26
 
-    move-result-object v31
+    invoke-static/range {v26 .. v26}, Landroid/telephony/PhoneNumberUtils;->log(Ljava/lang/String;)V
 
-    move-object/from16 v0, v31
+    invoke-virtual/range {v19 .. v19}, Ljava/lang/String;->length()I
 
-    move-object/from16 v1, v21
+    move-result v26
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    if-lez v26, :cond_5
 
-    move-result-object v31
+    new-instance v26, Ljava/lang/StringBuilder;
 
-    invoke-virtual/range {v31 .. v31}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-direct/range {v26 .. v26}, Ljava/lang/StringBuilder;-><init>()V
 
-    move-result-object v31
-
-    invoke-static/range {v31 .. v31}, Landroid/telephony/PhoneNumberUtils;->log(Ljava/lang/String;)V
-
-    new-instance v31, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v31 .. v31}, Ljava/lang/StringBuilder;-><init>()V
-
-    move-object/from16 v0, v31
-
-    move-object/from16 v1, v23
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v31
-
-    move-object/from16 v0, v31
-
-    move-object/from16 v1, v21
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v31
-
-    invoke-virtual/range {v31 .. v31}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v23
-
-    add-int/lit8 v14, v14, 0x1
-
-    goto/16 :goto_0
-
-    :cond_4
-    new-instance v31, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v31 .. v31}, Ljava/lang/StringBuilder;-><init>()V
-
-    move-object/from16 v0, v31
-
-    move-object/from16 v1, v23
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v31
-
-    const-string/jumbo v32, ","
-
-    invoke-virtual/range {v31 .. v32}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v31
-
-    move-object/from16 v0, v31
+    move-object/from16 v0, v26
 
     move-object/from16 v1, v19
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v31
+    move-result-object v26
 
-    invoke-virtual/range {v31 .. v31}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    const-string/jumbo v27, ","
 
-    move-result-object v23
+    invoke-virtual/range {v26 .. v27}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto/16 :goto_1
+    move-result-object v26
 
-    :cond_5
-    invoke-static/range {v23 .. v23}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    move-object/from16 v0, v26
 
-    move-result v31
-
-    if-eqz v31, :cond_6
-
-    move-object/from16 v23, v3
-
-    goto/16 :goto_1
-
-    :cond_6
-    new-instance v31, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v31 .. v31}, Ljava/lang/StringBuilder;-><init>()V
-
-    move-object/from16 v0, v31
-
-    move-object/from16 v1, v23
+    move-object/from16 v1, v18
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v31
+    move-result-object v26
 
-    const-string/jumbo v32, ","
+    invoke-virtual/range {v26 .. v26}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual/range {v31 .. v32}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v19
 
-    move-result-object v31
+    :goto_3
+    add-int/lit8 v14, v14, 0x1
 
-    move-object/from16 v0, v31
+    goto/16 :goto_0
 
-    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    :cond_5
+    new-instance v26, Ljava/lang/StringBuilder;
 
-    move-result-object v31
+    invoke-direct/range {v26 .. v26}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual/range {v31 .. v31}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-object/from16 v0, v26
 
-    move-result-object v23
+    move-object/from16 v1, v19
 
-    goto/16 :goto_1
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    :cond_7
-    const/16 v16, 0x1
+    move-result-object v26
 
-    goto/16 :goto_2
+    move-object/from16 v0, v26
 
-    :cond_8
-    const-string/jumbo v9, ""
+    move-object/from16 v1, v18
 
-    goto/16 :goto_4
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    :cond_9
-    const-string/jumbo v31, "119"
+    move-result-object v26
 
-    move-object/from16 v0, v31
+    invoke-virtual/range {v26 .. v26}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    move-result-object v19
 
-    move-result v31
+    goto :goto_3
 
-    if-eqz v31, :cond_c
+    :cond_6
+    const-string/jumbo v26, "450"
 
-    const-string/jumbo v31, "ril.skt119Cat"
+    move-object/from16 v0, v26
 
-    invoke-static/range {v31 .. v31}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+    move-object/from16 v1, v17
 
-    move-result-object v8
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    invoke-virtual {v8}, Ljava/lang/String;->length()I
+    move-result v26
 
-    move-result v31
+    if-nez v26, :cond_7
 
-    if-lez v31, :cond_a
+    const-string/jumbo v26, "000"
 
-    return-object v8
+    move-object/from16 v0, v26
 
-    :cond_a
-    invoke-virtual {v9}, Ljava/lang/String;->length()I
+    move-object/from16 v1, v17
 
-    move-result v31
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    if-lez v31, :cond_b
+    move-result v26
 
-    return-object v9
+    if-nez v26, :cond_7
 
-    :cond_b
-    const/16 v31, 0x4
-
-    invoke-static/range {v31 .. v31}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
-
-    move-result-object v31
-
-    return-object v31
-
-    :cond_c
-    const-string/jumbo v31, "911"
-
-    move-object/from16 v0, v31
-
-    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v31
-
-    if-eqz v31, :cond_d
-
-    const/16 v31, 0x4
-
-    invoke-static/range {v31 .. v31}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
-
-    move-result-object v31
-
-    return-object v31
-
-    :cond_d
-    const-string/jumbo v31, "122"
-
-    move-object/from16 v0, v31
-
-    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v31
-
-    if-eqz v31, :cond_e
-
-    const/16 v31, 0x8
-
-    invoke-static/range {v31 .. v31}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
-
-    move-result-object v31
-
-    return-object v31
-
-    :cond_e
-    const-string/jumbo v31, "113"
-
-    move-object/from16 v0, v31
-
-    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v31
-
-    if-eqz v31, :cond_10
-
-    if-eqz v16, :cond_f
-
-    const/16 v31, 0x3
-
-    invoke-static/range {v31 .. v31}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
-
-    move-result-object v31
-
-    :goto_5
-    return-object v31
-
-    :cond_f
-    const/16 v31, 0x0
-
-    goto :goto_5
-
-    :cond_10
-    const-string/jumbo v31, "125"
-
-    move-object/from16 v0, v31
-
-    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v31
-
-    if-eqz v31, :cond_12
-
-    if-eqz v16, :cond_11
-
-    const/16 v31, 0x9
-
-    invoke-static/range {v31 .. v31}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
-
-    move-result-object v31
-
-    :goto_6
-    return-object v31
-
-    :cond_11
-    const/16 v31, 0x0
-
-    goto :goto_6
-
-    :cond_12
-    const-string/jumbo v31, "117"
-
-    move-object/from16 v0, v31
-
-    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v31
-
-    if-eqz v31, :cond_14
-
-    if-eqz v16, :cond_13
-
-    const/16 v31, 0x12
-
-    invoke-static/range {v31 .. v31}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
-
-    move-result-object v31
-
-    :goto_7
-    return-object v31
-
-    :cond_13
-    const/16 v31, 0x0
-
-    goto :goto_7
-
-    :cond_14
-    const-string/jumbo v31, "118"
-
-    move-object/from16 v0, v31
-
-    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v31
-
-    if-eqz v31, :cond_16
-
-    if-eqz v16, :cond_15
-
-    const/16 v31, 0x13
-
-    invoke-static/range {v31 .. v31}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
-
-    move-result-object v31
-
-    :goto_8
-    return-object v31
-
-    :cond_15
-    const/16 v31, 0x4
-
-    invoke-static/range {v31 .. v31}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
-
-    move-result-object v31
-
-    goto :goto_8
-
-    :cond_16
-    const-string/jumbo v31, "111"
-
-    move-object/from16 v0, v31
-
-    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v31
-
-    if-eqz v31, :cond_18
-
-    if-eqz v16, :cond_17
-
-    const/16 v31, 0x6
-
-    invoke-static/range {v31 .. v31}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
-
-    move-result-object v31
-
-    :goto_9
-    return-object v31
-
-    :cond_17
-    const/16 v31, 0x0
-
-    goto :goto_9
-
-    :cond_18
-    const-string/jumbo v31, "127"
-
-    move-object/from16 v0, v31
-
-    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v31
-
-    if-eqz v31, :cond_19
-
-    const/16 v31, 0x0
-
-    return-object v31
-
-    :cond_19
-    const-string/jumbo v31, "000"
-
-    move-object/from16 v0, v31
-
-    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v31
-
-    if-nez v31, :cond_1a
-
-    const-string/jumbo v31, "08"
-
-    move-object/from16 v0, v31
-
-    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v31
-
-    if-nez v31, :cond_1a
-
-    const-string/jumbo v31, "110"
-
-    move-object/from16 v0, v31
-
-    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v31
-
-    if-nez v31, :cond_1a
-
-    const-string/jumbo v31, "999"
-
-    move-object/from16 v0, v31
-
-    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v31
-
-    if-eqz v31, :cond_1c
-
-    :cond_1a
-    if-nez v16, :cond_1b
-
-    const/16 v31, 0x4
-
-    invoke-static/range {v31 .. v31}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
-
-    move-result-object v31
-
-    :goto_a
-    return-object v31
-
-    :cond_1b
-    const/16 v31, 0x0
-
-    goto :goto_a
-
-    :cond_1c
-    return-object v9
-
-    :cond_1d
-    add-int/lit8 v31, v31, 0x1
-
-    goto/16 :goto_3
-
-    :cond_1e
-    const/16 v31, 0x1
-
-    move/from16 v0, v31
-
-    new-array v0, v0, [Ljava/lang/String;
-
-    move-object/from16 v31, v0
-
-    const-string/jumbo v32, "KTT"
-
-    const/16 v33, 0x0
-
-    aput-object v32, v31, v33
-
-    invoke-static/range {v31 .. v31}, Lcom/android/internal/telephony/TelephonyFeatures;->isMainOperatorSpecific([Ljava/lang/String;)Z
-
-    move-result v31
-
-    if-eqz v31, :cond_2f
-
-    const-string/jumbo v31, ","
-
-    move-object/from16 v0, v23
-
-    move-object/from16 v1, v31
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
-
-    move-result-object v32
-
-    const/16 v31, 0x0
-
-    move-object/from16 v0, v32
-
-    array-length v0, v0
-
-    move/from16 v33, v0
-
-    :goto_b
-    move/from16 v0, v31
-
-    move/from16 v1, v33
-
-    if-ge v0, v1, :cond_6f
-
-    aget-object v13, v32, v31
-
-    const-string/jumbo v34, "/"
-
-    move-object/from16 v0, v34
-
-    invoke-virtual {v13, v0}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
-
-    move-result-object v30
-
-    const/16 v34, 0x0
-
-    aget-object v10, v30, v34
-
-    move-object/from16 v0, v30
-
-    array-length v0, v0
-
-    move/from16 v34, v0
-
-    const/16 v35, 0x1
-
-    move/from16 v0, v34
-
-    move/from16 v1, v35
-
-    if-le v0, v1, :cond_1f
-
-    const/16 v34, 0x1
-
-    aget-object v9, v30, v34
-
-    :goto_c
-    const-string/jumbo v34, "112"
-
-    move-object/from16 v0, v34
-
-    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v34
-
-    if-eqz v34, :cond_20
-
-    const/16 v31, 0x1
-
-    invoke-static/range {v31 .. v31}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
-
-    move-result-object v31
-
-    return-object v31
-
-    :cond_1f
-    const-string/jumbo v9, ""
-
-    goto :goto_c
-
-    :cond_20
-    const-string/jumbo v34, "119"
-
-    move-object/from16 v0, v34
-
-    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v34
-
-    if-eqz v34, :cond_21
-
-    const/16 v31, 0x4
-
-    invoke-static/range {v31 .. v31}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
-
-    move-result-object v31
-
-    return-object v31
-
-    :cond_21
-    const-string/jumbo v34, "911"
-
-    move-object/from16 v0, v34
-
-    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v34
-
-    if-eqz v34, :cond_22
-
-    const/16 v31, 0x4
-
-    invoke-static/range {v31 .. v31}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
-
-    move-result-object v31
-
-    return-object v31
-
-    :cond_22
-    const-string/jumbo v34, "122"
-
-    move-object/from16 v0, v34
-
-    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v34
-
-    if-eqz v34, :cond_23
-
-    const/16 v31, 0x8
-
-    invoke-static/range {v31 .. v31}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
-
-    move-result-object v31
-
-    return-object v31
-
-    :cond_23
-    const-string/jumbo v34, "113"
-
-    move-object/from16 v0, v34
-
-    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v34
-
-    if-eqz v34, :cond_24
-
-    const/16 v31, 0x3
-
-    invoke-static/range {v31 .. v31}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
-
-    move-result-object v31
-
-    return-object v31
-
-    :cond_24
-    const-string/jumbo v34, "125"
-
-    move-object/from16 v0, v34
-
-    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v34
-
-    if-eqz v34, :cond_25
-
-    const/16 v31, 0x9
-
-    invoke-static/range {v31 .. v31}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
-
-    move-result-object v31
-
-    return-object v31
-
-    :cond_25
-    const-string/jumbo v34, "117"
-
-    move-object/from16 v0, v34
-
-    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v34
-
-    if-eqz v34, :cond_26
-
-    const/16 v31, 0x12
-
-    invoke-static/range {v31 .. v31}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
-
-    move-result-object v31
-
-    return-object v31
-
-    :cond_26
-    const-string/jumbo v34, "118"
-
-    move-object/from16 v0, v34
-
-    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v34
-
-    if-eqz v34, :cond_27
-
-    const/16 v31, 0x13
-
-    invoke-static/range {v31 .. v31}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
-
-    move-result-object v31
-
-    return-object v31
-
-    :cond_27
-    const-string/jumbo v34, "111"
-
-    move-object/from16 v0, v34
-
-    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v34
-
-    if-eqz v34, :cond_28
-
-    const/16 v31, 0x7
-
-    invoke-static/range {v31 .. v31}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
-
-    move-result-object v31
-
-    return-object v31
-
-    :cond_28
-    const-string/jumbo v34, "127"
-
-    move-object/from16 v0, v34
-
-    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v34
-
-    if-eqz v34, :cond_29
-
-    const/16 v31, 0x0
-
-    return-object v31
-
-    :cond_29
-    invoke-virtual {v10, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v34
-
-    if-eqz v34, :cond_2a
-
-    invoke-static {v9}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v34
-
-    if-eqz v34, :cond_2b
-
-    :cond_2a
-    invoke-virtual {v10, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v34
-
-    if-eqz v34, :cond_2c
-
-    invoke-static {v9}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v34
-
-    if-eqz v34, :cond_2c
-
-    const/16 v31, 0x0
-
-    invoke-static/range {v31 .. v31}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
-
-    move-result-object v31
-
-    return-object v31
-
-    :cond_2b
-    return-object v9
-
-    :cond_2c
-    const-string/jumbo v34, "000"
-
-    move-object/from16 v0, v34
-
-    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v34
-
-    if-nez v34, :cond_2d
-
-    const-string/jumbo v34, "08"
-
-    move-object/from16 v0, v34
-
-    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v34
-
-    if-nez v34, :cond_2d
-
-    const-string/jumbo v34, "110"
-
-    move-object/from16 v0, v34
-
-    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v34
-
-    if-nez v34, :cond_2d
-
-    const-string/jumbo v34, "999"
-
-    move-object/from16 v0, v34
-
-    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v34
-
-    if-eqz v34, :cond_2e
-
-    :cond_2d
-    const/16 v31, 0x0
-
-    return-object v31
-
-    :cond_2e
-    add-int/lit8 v31, v31, 0x1
-
-    goto/16 :goto_b
-
-    :cond_2f
-    const/16 v31, 0x1
-
-    move/from16 v0, v31
-
-    new-array v0, v0, [Ljava/lang/String;
-
-    move-object/from16 v31, v0
-
-    const-string/jumbo v32, "LGT"
-
-    const/16 v33, 0x0
-
-    aput-object v32, v31, v33
-
-    invoke-static/range {v31 .. v31}, Lcom/android/internal/telephony/TelephonyFeatures;->isMainOperatorSpecific([Ljava/lang/String;)Z
-
-    move-result v31
-
-    if-eqz v31, :cond_58
-
-    const-string/jumbo v31, "ril.currentplmn"
-
-    const-string/jumbo v32, "domestic"
-
-    invoke-static/range {v31 .. v32}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v4
-
-    const-string/jumbo v31, "gsm.sim.state"
-
-    const-string/jumbo v32, ""
-
-    invoke-static/range {v31 .. v32}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v27
-
-    const-string/jumbo v31, "gsm.network.type"
-
-    const-string/jumbo v32, ""
-
-    invoke-static/range {v31 .. v32}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v22
-
-    const-string/jumbo v31, "ril.simtype"
-
-    const-string/jumbo v32, ""
-
-    invoke-static/range {v31 .. v32}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v28
-
-    const/4 v15, 0x0
-
-    const/16 v17, 0x0
-
-    const/16 v26, 0x0
-
-    :try_start_0
-    const-string/jumbo v31, "phone"
-
-    invoke-static/range {v31 .. v31}, Landroid/os/ServiceManager;->checkService(Ljava/lang/String;)Landroid/os/IBinder;
-
-    move-result-object v31
-
-    invoke-static/range {v31 .. v31}, Lcom/android/internal/telephony/ITelephony$Stub;->asInterface(Landroid/os/IBinder;)Lcom/android/internal/telephony/ITelephony;
-
-    move-result-object v25
-
-    if-eqz v25, :cond_30
-
-    invoke-interface/range {v25 .. v25}, Lcom/android/internal/telephony/ITelephony;->getActivePhoneType()I
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    move-result v31
-
-    const/16 v32, 0x2
-
-    move/from16 v0, v31
-
-    move/from16 v1, v32
-
-    if-ne v0, v1, :cond_34
-
-    const/4 v15, 0x1
-
-    :goto_d
     const/16 v26, 0x1
-
-    :cond_30
-    :goto_e
-    invoke-static {}, Lcom/samsung/android/feature/SemCscFeature;->getInstance()Lcom/samsung/android/feature/SemCscFeature;
-
-    move-result-object v31
-
-    const-string/jumbo v32, "CscFeature_RIL_CallLteSinglemodeSupport"
-
-    invoke-virtual/range {v31 .. v32}, Lcom/samsung/android/feature/SemCscFeature;->getBoolean(Ljava/lang/String;)Z
-
-    move-result v31
-
-    if-eqz v31, :cond_31
-
-    new-instance v31, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v31 .. v31}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v32, "isLteOnly is serviceState : "
-
-    invoke-virtual/range {v31 .. v32}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v31
-
-    move-object/from16 v0, v31
-
-    move/from16 v1, v26
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v31
-
-    invoke-virtual/range {v31 .. v31}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v31
-
-    invoke-static/range {v31 .. v31}, Landroid/telephony/PhoneNumberUtils;->log(Ljava/lang/String;)V
-
-    const/16 v31, 0x1
 
     move/from16 v0, v26
 
-    move/from16 v1, v31
+    new-array v0, v0, [Ljava/lang/String;
 
-    if-eq v0, v1, :cond_31
+    move-object/from16 v26, v0
 
-    const/16 v17, 0x1
+    const-string/jumbo v27, "KTT"
 
-    :cond_31
-    new-instance v31, Ljava/lang/StringBuilder;
+    const/16 v28, 0x0
 
-    invoke-direct/range {v31 .. v31}, Ljava/lang/StringBuilder;-><init>()V
+    aput-object v27, v26, v28
 
-    const-string/jumbo v32, "isCdma = "
+    move/from16 v0, v23
 
-    invoke-virtual/range {v31 .. v32}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-object/from16 v1, v26
 
-    move-result-object v31
+    invoke-static {v0, v1}, Lcom/android/internal/telephony/TelephonyFeatures;->isMainOperatorSpecific(I[Ljava/lang/String;)Z
 
-    move-object/from16 v0, v31
+    move-result v26
 
-    invoke-virtual {v0, v15}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    if-eqz v26, :cond_8
 
-    move-result-object v31
+    :cond_7
+    move-object/from16 v4, v16
 
-    invoke-virtual/range {v31 .. v31}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    goto/16 :goto_1
 
-    move-result-object v31
+    :cond_8
+    move-object/from16 v4, v21
 
-    invoke-static/range {v31 .. v31}, Landroid/telephony/PhoneNumberUtils;->log(Ljava/lang/String;)V
+    goto/16 :goto_1
 
-    if-eqz v15, :cond_36
+    :cond_9
+    const/16 v26, 0x3
 
-    const-string/jumbo v31, "domestic"
-
-    move-object/from16 v0, v31
-
-    invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v31
-
-    if-eqz v31, :cond_36
-
-    const-string/jumbo v31, "3"
-
-    move-object/from16 v0, v31
-
-    move-object/from16 v1, v28
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v31
-
-    if-nez v31, :cond_32
-
-    const-string/jumbo v31, "18"
-
-    move-object/from16 v0, v31
-
-    move-object/from16 v1, v28
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v31
-
-    if-eqz v31, :cond_36
-
-    :cond_32
-    const-string/jumbo v31, "112"
-
-    move-object/from16 v0, v31
-
-    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v31
-
-    if-nez v31, :cond_33
-
-    const-string/jumbo v31, "119"
-
-    move-object/from16 v0, v31
-
-    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v31
-
-    if-nez v31, :cond_33
-
-    const-string/jumbo v31, "122"
-
-    move-object/from16 v0, v31
-
-    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v31
-
-    if-nez v31, :cond_33
-
-    const-string/jumbo v31, "113"
-
-    move-object/from16 v0, v31
-
-    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v31
-
-    if-nez v31, :cond_33
-
-    const-string/jumbo v31, "125"
-
-    move-object/from16 v0, v31
-
-    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v31
-
-    if-nez v31, :cond_33
-
-    const-string/jumbo v31, "117"
-
-    move-object/from16 v0, v31
-
-    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v31
-
-    if-nez v31, :cond_33
-
-    const-string/jumbo v31, "111"
-
-    move-object/from16 v0, v31
-
-    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v31
-
-    if-nez v31, :cond_33
-
-    const-string/jumbo v31, "114"
-
-    move-object/from16 v0, v31
-
-    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v31
-
-    if-nez v31, :cond_33
-
-    const-string/jumbo v31, "118"
-
-    move-object/from16 v0, v31
-
-    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v31
-
-    if-eqz v31, :cond_35
-
-    :cond_33
-    const-string/jumbo v31, ""
-
-    return-object v31
-
-    :cond_34
-    const/4 v15, 0x0
-
-    goto/16 :goto_d
-
-    :catch_0
-    move-exception v7
-
-    const-string/jumbo v31, "PhoneNumberUtils"
-
-    const-string/jumbo v32, "phone.getActivePhoneType() failed"
-
-    move-object/from16 v0, v31
-
-    move-object/from16 v1, v32
-
-    invoke-static {v0, v1, v7}, Landroid/telephony/Rlog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    goto/16 :goto_e
-
-    :cond_35
-    const/16 v31, 0x0
-
-    return-object v31
-
-    :cond_36
-    const-string/jumbo v31, "450"
-
-    move-object/from16 v0, v31
-
-    move-object/from16 v1, v20
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v31
-
-    if-eqz v31, :cond_40
-
-    new-instance v31, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v31 .. v31}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v32, "isLteOnly emergency in domestic, dialNumber = "
-
-    invoke-virtual/range {v31 .. v32}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v31
-
-    move-object/from16 v0, v31
-
-    invoke-virtual {v0, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v31
-
-    invoke-virtual/range {v31 .. v31}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v31
-
-    invoke-static/range {v31 .. v31}, Landroid/telephony/PhoneNumberUtils;->log(Ljava/lang/String;)V
-
-    const-string/jumbo v31, "112"
-
-    move-object/from16 v0, v31
-
-    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v31
-
-    if-eqz v31, :cond_37
-
-    const/16 v31, 0x1
-
-    invoke-static/range {v31 .. v31}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
-
-    move-result-object v31
-
-    return-object v31
-
-    :cond_37
-    const-string/jumbo v31, "119"
-
-    move-object/from16 v0, v31
-
-    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v31
-
-    if-eqz v31, :cond_38
-
-    const/16 v31, 0x4
-
-    invoke-static/range {v31 .. v31}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
-
-    move-result-object v31
-
-    return-object v31
-
-    :cond_38
-    const-string/jumbo v31, "911"
-
-    move-object/from16 v0, v31
-
-    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v31
-
-    if-eqz v31, :cond_39
-
-    const/16 v31, 0x4
-
-    invoke-static/range {v31 .. v31}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
-
-    move-result-object v31
-
-    return-object v31
-
-    :cond_39
-    const-string/jumbo v31, "122"
-
-    move-object/from16 v0, v31
-
-    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v31
-
-    if-eqz v31, :cond_3a
-
-    const/16 v31, 0x8
-
-    invoke-static/range {v31 .. v31}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
-
-    move-result-object v31
-
-    return-object v31
-
-    :cond_3a
-    const-string/jumbo v31, "113"
-
-    move-object/from16 v0, v31
-
-    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v31
-
-    if-eqz v31, :cond_3b
-
-    const/16 v31, 0x3
-
-    invoke-static/range {v31 .. v31}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
-
-    move-result-object v31
-
-    return-object v31
-
-    :cond_3b
-    const-string/jumbo v31, "125"
-
-    move-object/from16 v0, v31
-
-    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v31
-
-    if-eqz v31, :cond_3c
-
-    const/16 v31, 0x9
-
-    invoke-static/range {v31 .. v31}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
-
-    move-result-object v31
-
-    return-object v31
-
-    :cond_3c
-    const-string/jumbo v31, "117"
-
-    move-object/from16 v0, v31
-
-    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v31
-
-    if-eqz v31, :cond_3d
-
-    const/16 v31, 0x12
-
-    invoke-static/range {v31 .. v31}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
-
-    move-result-object v31
-
-    return-object v31
-
-    :cond_3d
-    const-string/jumbo v31, "111"
-
-    move-object/from16 v0, v31
-
-    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v31
-
-    if-eqz v31, :cond_3e
-
-    const/16 v31, 0x6
-
-    invoke-static/range {v31 .. v31}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
-
-    move-result-object v31
-
-    return-object v31
-
-    :cond_3e
-    const-string/jumbo v31, "118"
-
-    move-object/from16 v0, v31
-
-    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v31
-
-    if-eqz v31, :cond_3f
-
-    const/16 v31, 0x13
-
-    invoke-static/range {v31 .. v31}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
-
-    move-result-object v31
-
-    return-object v31
-
-    :cond_3f
-    const/16 v31, 0x0
-
-    return-object v31
-
-    :cond_40
-    const-string/jumbo v31, "450"
-
-    move-object/from16 v0, v31
-
-    move-object/from16 v1, v20
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v31
-
-    if-nez v31, :cond_41
-
-    const-string/jumbo v31, "000"
-
-    move-object/from16 v0, v31
-
-    move-object/from16 v1, v20
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v31
-
-    if-eqz v31, :cond_42
-
-    :cond_41
-    const-string/jumbo v31, "112"
-
-    move-object/from16 v0, v31
-
-    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v31
-
-    if-eqz v31, :cond_4e
-
-    const/16 v31, 0x1
-
-    invoke-static/range {v31 .. v31}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
-
-    move-result-object v31
-
-    return-object v31
-
-    :cond_42
-    invoke-static {v11}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v12
-
-    const/16 v31, 0x1
-
-    move/from16 v0, v31
+    move/from16 v0, v26
 
     new-array v0, v0, [Ljava/lang/String;
 
-    move-object/from16 v31, v0
+    move-object/from16 v26, v0
 
-    const-string/jumbo v32, "LGT"
+    const-string/jumbo v27, "SKT"
 
-    const/16 v33, 0x0
+    const/16 v28, 0x0
 
-    aput-object v32, v31, v33
+    aput-object v27, v26, v28
 
-    invoke-static/range {v31 .. v31}, Lcom/android/internal/telephony/TelephonyFeatures;->isMainOperatorSpecific([Ljava/lang/String;)Z
+    const-string/jumbo v27, "KTT"
 
-    move-result v31
+    const/16 v28, 0x1
 
-    if-eqz v31, :cond_43
+    aput-object v27, v26, v28
 
-    invoke-virtual {v12}, Ljava/lang/String;->length()I
+    const-string/jumbo v27, "KOO"
 
-    move-result v31
+    const/16 v28, 0x2
 
-    if-lez v31, :cond_43
+    aput-object v27, v26, v28
 
-    new-instance v31, Ljava/lang/StringBuilder;
+    move/from16 v0, v23
 
-    invoke-direct/range {v31 .. v31}, Ljava/lang/StringBuilder;-><init>()V
+    move-object/from16 v1, v26
 
-    move-object/from16 v0, v31
+    invoke-static {v0, v1}, Lcom/android/internal/telephony/TelephonyFeatures;->isMainOperatorSpecific(I[Ljava/lang/String;)Z
 
-    invoke-virtual {v0, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result v26
 
-    move-result-object v31
+    if-eqz v26, :cond_f
 
-    const-string/jumbo v32, ","
+    invoke-static/range {v19 .. v19}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    invoke-virtual/range {v31 .. v32}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result v26
 
-    move-result-object v31
+    if-nez v26, :cond_e
 
-    move-object/from16 v0, v31
+    const-string/jumbo v26, ","
 
-    move-object/from16 v1, v23
+    move-object/from16 v0, v19
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v31
-
-    invoke-virtual/range {v31 .. v31}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v23
-
-    :cond_43
-    const-string/jumbo v31, ","
-
-    move-object/from16 v0, v23
-
-    move-object/from16 v1, v31
+    move-object/from16 v1, v26
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
 
-    move-result-object v32
+    move-result-object v27
 
-    const/16 v31, 0x0
+    const/16 v26, 0x0
 
-    move-object/from16 v0, v32
-
-    array-length v0, v0
-
-    move/from16 v33, v0
-
-    :goto_f
-    move/from16 v0, v31
-
-    move/from16 v1, v33
-
-    if-ge v0, v1, :cond_6f
-
-    aget-object v13, v32, v31
-
-    const-string/jumbo v34, "/"
-
-    move-object/from16 v0, v34
-
-    invoke-virtual {v13, v0}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
-
-    move-result-object v30
-
-    const/16 v34, 0x0
-
-    aget-object v10, v30, v34
-
-    move-object/from16 v0, v30
+    move-object/from16 v0, v27
 
     array-length v0, v0
 
-    move/from16 v34, v0
+    move/from16 v28, v0
 
-    const/16 v35, 0x1
+    :goto_4
+    move/from16 v0, v26
 
-    move/from16 v0, v34
+    move/from16 v1, v28
 
-    move/from16 v1, v35
+    if-ge v0, v1, :cond_e
 
-    if-le v0, v1, :cond_44
+    aget-object v11, v27, v26
 
-    const/16 v34, 0x1
+    const-string/jumbo v29, "/"
 
-    aget-object v9, v30, v34
+    move-object/from16 v0, v29
 
-    :goto_10
-    invoke-virtual {v10, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v11, v0}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
 
-    move-result v34
+    move-result-object v25
 
-    if-eqz v34, :cond_4b
+    const/16 v29, 0x0
 
-    invoke-static {v9}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    aget-object v8, v25, v29
 
-    move-result v31
+    move-object/from16 v0, v25
 
-    if-nez v31, :cond_45
+    array-length v0, v0
 
-    return-object v9
+    move/from16 v29, v0
 
-    :cond_44
-    const-string/jumbo v9, ""
+    const/16 v30, 0x1
 
-    goto :goto_10
+    move/from16 v0, v29
 
-    :cond_45
-    const-string/jumbo v31, "112"
+    move/from16 v1, v30
 
-    move-object/from16 v0, v31
+    if-le v0, v1, :cond_b
 
-    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    const/16 v29, 0x1
 
-    move-result v31
+    aget-object v7, v25, v29
 
-    if-eqz v31, :cond_46
+    :goto_5
+    const/16 v29, 0x2
 
-    const/16 v31, 0x1
-
-    invoke-static/range {v31 .. v31}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
-
-    move-result-object v31
-
-    return-object v31
-
-    :cond_46
-    const-string/jumbo v31, "122"
-
-    move-object/from16 v0, v31
-
-    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v31
-
-    if-eqz v31, :cond_47
-
-    const/16 v31, 0x8
-
-    invoke-static/range {v31 .. v31}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
-
-    move-result-object v31
-
-    return-object v31
-
-    :cond_47
-    const-string/jumbo v31, "911"
-
-    move-object/from16 v0, v31
-
-    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v31
-
-    if-eqz v31, :cond_48
-
-    const/16 v31, 0x4
-
-    invoke-static/range {v31 .. v31}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
-
-    move-result-object v31
-
-    return-object v31
-
-    :cond_48
-    const-string/jumbo v31, "119"
-
-    move-object/from16 v0, v31
-
-    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v31
-
-    if-eqz v31, :cond_4a
-
-    const-string/jumbo v31, "ril.skt119Cat"
-
-    invoke-static/range {v31 .. v31}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-virtual {v8}, Ljava/lang/String;->length()I
-
-    move-result v31
-
-    if-lez v31, :cond_49
-
-    return-object v8
-
-    :cond_49
-    const/16 v31, 0x4
-
-    invoke-static/range {v31 .. v31}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
-
-    move-result-object v31
-
-    return-object v31
-
-    :cond_4a
-    return-object v9
-
-    :cond_4b
-    const-string/jumbo v34, "000"
-
-    move-object/from16 v0, v34
-
-    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v34
-
-    if-nez v34, :cond_4c
-
-    const-string/jumbo v34, "08"
-
-    move-object/from16 v0, v34
-
-    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v34
-
-    if-nez v34, :cond_4c
-
-    const-string/jumbo v34, "110"
-
-    move-object/from16 v0, v34
-
-    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v34
-
-    if-nez v34, :cond_4c
-
-    const-string/jumbo v34, "999"
-
-    move-object/from16 v0, v34
-
-    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v34
-
-    if-nez v34, :cond_4c
-
-    const-string/jumbo v34, "118"
-
-    move-object/from16 v0, v34
-
-    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v34
-
-    if-eqz v34, :cond_4d
-
-    :cond_4c
-    const/16 v31, 0x0
-
-    return-object v31
-
-    :cond_4d
-    add-int/lit8 v31, v31, 0x1
-
-    goto/16 :goto_f
-
-    :cond_4e
-    const-string/jumbo v31, "119"
-
-    move-object/from16 v0, v31
-
-    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v31
-
-    if-eqz v31, :cond_4f
-
-    const/16 v31, 0x4
-
-    invoke-static/range {v31 .. v31}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
-
-    move-result-object v31
-
-    return-object v31
-
-    :cond_4f
-    const-string/jumbo v31, "911"
-
-    move-object/from16 v0, v31
-
-    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v31
-
-    if-eqz v31, :cond_50
-
-    const/16 v31, 0x4
-
-    invoke-static/range {v31 .. v31}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
-
-    move-result-object v31
-
-    return-object v31
-
-    :cond_50
-    const-string/jumbo v31, "122"
-
-    move-object/from16 v0, v31
-
-    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v31
-
-    if-eqz v31, :cond_51
-
-    const/16 v31, 0x8
-
-    invoke-static/range {v31 .. v31}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
-
-    move-result-object v31
-
-    return-object v31
-
-    :cond_51
-    const-string/jumbo v31, "113"
-
-    move-object/from16 v0, v31
-
-    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v31
-
-    if-eqz v31, :cond_52
-
-    const/16 v31, 0x3
-
-    invoke-static/range {v31 .. v31}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
-
-    move-result-object v31
-
-    return-object v31
-
-    :cond_52
-    const-string/jumbo v31, "125"
-
-    move-object/from16 v0, v31
-
-    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v31
-
-    if-eqz v31, :cond_53
-
-    const/16 v31, 0x9
-
-    invoke-static/range {v31 .. v31}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
-
-    move-result-object v31
-
-    return-object v31
-
-    :cond_53
-    const-string/jumbo v31, "117"
-
-    move-object/from16 v0, v31
-
-    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v31
-
-    if-eqz v31, :cond_54
-
-    const/16 v31, 0x12
-
-    invoke-static/range {v31 .. v31}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
-
-    move-result-object v31
-
-    return-object v31
-
-    :cond_54
-    const-string/jumbo v31, "118"
-
-    move-object/from16 v0, v31
-
-    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v31
-
-    if-eqz v31, :cond_55
-
-    const/16 v31, 0x13
-
-    invoke-static/range {v31 .. v31}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
-
-    move-result-object v31
-
-    return-object v31
-
-    :cond_55
-    const-string/jumbo v31, "111"
-
-    move-object/from16 v0, v31
-
-    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v31
-
-    if-eqz v31, :cond_56
-
-    const/16 v31, 0x6
-
-    invoke-static/range {v31 .. v31}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
-
-    move-result-object v31
-
-    return-object v31
-
-    :cond_56
-    if-eqz v15, :cond_57
-
-    const-string/jumbo v31, "114"
-
-    move-object/from16 v0, v31
-
-    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v31
-
-    if-eqz v31, :cond_57
-
-    const-string/jumbo v31, ""
-
-    return-object v31
-
-    :cond_57
-    const/16 v31, 0x0
-
-    return-object v31
-
-    :cond_58
-    const/16 v31, 0x1
-
-    move/from16 v0, v31
+    move/from16 v0, v29
 
     new-array v0, v0, [Ljava/lang/String;
 
-    move-object/from16 v31, v0
+    move-object/from16 v29, v0
 
-    const-string/jumbo v32, "KOO"
-
-    const/16 v33, 0x0
-
-    aput-object v32, v31, v33
-
-    invoke-static/range {v31 .. v31}, Lcom/android/internal/telephony/TelephonyFeatures;->isMainOperatorSpecific([Ljava/lang/String;)Z
-
-    move-result v31
-
-    if-eqz v31, :cond_6f
-
-    const-string/jumbo v31, ","
-
-    move-object/from16 v0, v23
-
-    move-object/from16 v1, v31
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
-
-    move-result-object v32
+    const-string/jumbo v30, "SKT"
 
     const/16 v31, 0x0
 
-    move-object/from16 v0, v32
+    aput-object v30, v29, v31
 
-    array-length v0, v0
-
-    move/from16 v33, v0
-
-    :goto_11
-    move/from16 v0, v31
-
-    move/from16 v1, v33
-
-    if-ge v0, v1, :cond_6f
-
-    aget-object v13, v32, v31
-
-    const-string/jumbo v34, "/"
-
-    move-object/from16 v0, v34
-
-    invoke-virtual {v13, v0}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
-
-    move-result-object v30
-
-    const/16 v34, 0x0
-
-    aget-object v10, v30, v34
-
-    move-object/from16 v0, v30
-
-    array-length v0, v0
-
-    move/from16 v34, v0
-
-    const/16 v35, 0x1
-
-    move/from16 v0, v34
-
-    move/from16 v1, v35
-
-    if-le v0, v1, :cond_59
-
-    const/16 v34, 0x1
-
-    aget-object v9, v30, v34
-
-    :goto_12
-    invoke-virtual {v10, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v34
-
-    if-eqz v34, :cond_6e
-
-    const-string/jumbo v31, "112"
-
-    move-object/from16 v0, v31
-
-    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v31
-
-    if-eqz v31, :cond_5a
+    const-string/jumbo v30, "KOO"
 
     const/16 v31, 0x1
 
-    invoke-static/range {v31 .. v31}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+    aput-object v30, v29, v31
 
-    move-result-object v31
+    move/from16 v0, v23
 
-    return-object v31
+    move-object/from16 v1, v29
 
-    :cond_59
-    const-string/jumbo v9, ""
+    invoke-static {v0, v1}, Lcom/android/internal/telephony/TelephonyFeatures;->isMainOperatorSpecific(I[Ljava/lang/String;)Z
 
-    goto :goto_12
+    move-result v29
 
-    :cond_5a
-    const-string/jumbo v31, "119"
+    if-eqz v29, :cond_d
 
-    move-object/from16 v0, v31
+    invoke-interface {v13, v8}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    move-result-object v29
 
-    move-result v31
+    if-eqz v29, :cond_c
 
-    if-eqz v31, :cond_5d
+    invoke-virtual {v7}, Ljava/lang/String;->length()I
 
-    const-string/jumbo v31, "ril.skt119Cat"
+    move-result v29
 
-    invoke-static/range {v31 .. v31}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+    if-lez v29, :cond_a
 
-    move-result-object v8
+    const-string/jumbo v29, "0"
 
-    invoke-virtual {v8}, Ljava/lang/String;->length()I
+    move-object/from16 v0, v29
 
-    move-result v31
+    invoke-virtual {v0, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    if-lez v31, :cond_5b
+    move-result v29
 
-    return-object v8
+    xor-int/lit8 v29, v29, 0x1
 
-    :cond_5b
-    invoke-virtual {v9}, Ljava/lang/String;->length()I
+    if-eqz v29, :cond_a
 
-    move-result v31
+    invoke-interface {v13, v8, v7}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    if-lez v31, :cond_5c
+    :cond_a
+    :goto_6
+    add-int/lit8 v26, v26, 0x1
 
-    return-object v9
+    goto :goto_4
 
-    :cond_5c
-    const/16 v31, 0x4
+    :cond_b
+    const-string/jumbo v7, ""
 
-    invoke-static/range {v31 .. v31}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+    goto :goto_5
 
-    move-result-object v31
+    :cond_c
+    invoke-interface {v13, v8, v7}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    return-object v31
+    goto :goto_6
 
-    :cond_5d
-    const-string/jumbo v31, "911"
+    :cond_d
+    invoke-interface {v13, v8}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-object/from16 v0, v31
+    move-result-object v29
 
-    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    if-nez v29, :cond_a
 
-    move-result v31
+    invoke-interface {v13, v8, v7}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    if-eqz v31, :cond_5e
+    goto :goto_6
 
-    const/16 v31, 0x4
+    :cond_e
+    const-string/jumbo v26, "450"
 
-    invoke-static/range {v31 .. v31}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+    move-object/from16 v0, v26
 
-    move-result-object v31
-
-    return-object v31
-
-    :cond_5e
-    const-string/jumbo v31, "122"
-
-    move-object/from16 v0, v31
-
-    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v31
-
-    if-eqz v31, :cond_5f
-
-    const/16 v31, 0x8
-
-    invoke-static/range {v31 .. v31}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
-
-    move-result-object v31
-
-    return-object v31
-
-    :cond_5f
-    const-string/jumbo v31, "113"
-
-    move-object/from16 v0, v31
-
-    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v31
-
-    if-eqz v31, :cond_61
-
-    if-eqz v16, :cond_60
-
-    const/16 v31, 0x3
-
-    invoke-static/range {v31 .. v31}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
-
-    move-result-object v31
-
-    :goto_13
-    return-object v31
-
-    :cond_60
-    const/16 v31, 0x0
-
-    goto :goto_13
-
-    :cond_61
-    const-string/jumbo v31, "125"
-
-    move-object/from16 v0, v31
-
-    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v31
-
-    if-eqz v31, :cond_63
-
-    if-eqz v16, :cond_62
-
-    const/16 v31, 0x9
-
-    invoke-static/range {v31 .. v31}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
-
-    move-result-object v31
-
-    :goto_14
-    return-object v31
-
-    :cond_62
-    const/16 v31, 0x0
-
-    goto :goto_14
-
-    :cond_63
-    const-string/jumbo v31, "127"
-
-    move-object/from16 v0, v31
-
-    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v31
-
-    if-eqz v31, :cond_64
-
-    const/16 v31, 0x0
-
-    return-object v31
-
-    :cond_64
-    const-string/jumbo v31, "111"
-
-    move-object/from16 v0, v31
-
-    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v31
-
-    if-eqz v31, :cond_66
-
-    if-eqz v16, :cond_65
-
-    const/16 v31, 0x6
-
-    invoke-static/range {v31 .. v31}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
-
-    move-result-object v31
-
-    :goto_15
-    return-object v31
-
-    :cond_65
-    const/16 v31, 0x0
-
-    goto :goto_15
-
-    :cond_66
-    const-string/jumbo v31, "117"
-
-    move-object/from16 v0, v31
-
-    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v31
-
-    if-eqz v31, :cond_68
-
-    if-eqz v16, :cond_67
-
-    const/16 v31, 0x12
-
-    invoke-static/range {v31 .. v31}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
-
-    move-result-object v31
-
-    :goto_16
-    return-object v31
-
-    :cond_67
-    const/16 v31, 0x0
-
-    goto :goto_16
-
-    :cond_68
-    const-string/jumbo v31, "118"
-
-    move-object/from16 v0, v31
-
-    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v31
-
-    if-eqz v31, :cond_6a
-
-    if-eqz v16, :cond_69
-
-    const/16 v31, 0x13
-
-    invoke-static/range {v31 .. v31}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
-
-    move-result-object v31
-
-    :goto_17
-    return-object v31
-
-    :cond_69
-    const/16 v31, 0x4
-
-    invoke-static/range {v31 .. v31}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
-
-    move-result-object v31
-
-    goto :goto_17
-
-    :cond_6a
-    const-string/jumbo v31, "000"
-
-    move-object/from16 v0, v31
-
-    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v31
-
-    if-nez v31, :cond_6b
-
-    const-string/jumbo v31, "08"
-
-    move-object/from16 v0, v31
-
-    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v31
-
-    if-nez v31, :cond_6b
-
-    const-string/jumbo v31, "110"
-
-    move-object/from16 v0, v31
-
-    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v31
-
-    if-nez v31, :cond_6b
-
-    const-string/jumbo v31, "999"
-
-    move-object/from16 v0, v31
-
-    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v31
-
-    if-eqz v31, :cond_6d
-
-    :cond_6b
-    if-nez v16, :cond_6c
-
-    const/16 v31, 0x4
-
-    invoke-static/range {v31 .. v31}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
-
-    move-result-object v31
-
-    :goto_18
-    return-object v31
-
-    :cond_6c
-    const/16 v31, 0x0
-
-    goto :goto_18
-
-    :cond_6d
-    return-object v9
-
-    :cond_6e
-    add-int/lit8 v31, v31, 0x1
-
-    goto/16 :goto_11
-
-    :cond_6f
-    const-string/jumbo v31, "ril.currentplmn"
-
-    const-string/jumbo v32, "domestic"
-
-    invoke-static/range {v31 .. v32}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v4
-
-    const-string/jumbo v31, "450"
-
-    move-object/from16 v0, v31
-
-    move-object/from16 v1, v20
+    move-object/from16 v1, v17
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v31
+    move-result v26
 
-    if-nez v31, :cond_70
+    if-nez v26, :cond_17
 
-    const-string/jumbo v31, "000"
+    const-string/jumbo v26, "000"
 
-    move-object/from16 v0, v31
+    move-object/from16 v0, v26
 
-    move-object/from16 v1, v20
+    move-object/from16 v1, v17
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v31
+    move-result v26
 
-    if-eqz v31, :cond_73
+    xor-int/lit8 v26, v26, 0x1
 
-    :cond_70
-    const-string/jumbo v31, "112"
+    if-eqz v26, :cond_17
 
-    move-object/from16 v0, v31
+    const/16 v26, 0x0
 
-    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    move-object/from16 v0, v22
 
-    move-result v31
+    array-length v0, v0
 
-    if-nez v31, :cond_71
+    move/from16 v27, v0
 
-    const-string/jumbo v31, "119"
+    :goto_7
+    move/from16 v0, v26
 
-    move-object/from16 v0, v31
+    move/from16 v1, v27
 
-    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    if-ge v0, v1, :cond_17
 
-    move-result v31
+    aget-object v12, v22, v26
 
-    if-nez v31, :cond_71
+    const/16 v28, 0x0
 
-    const-string/jumbo v31, "122"
+    aget-object v28, v12, v28
 
-    move-object/from16 v0, v31
+    const/16 v29, 0x1
 
-    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    aget-object v29, v12, v29
 
-    move-result v31
+    move-object/from16 v0, v28
 
-    if-nez v31, :cond_71
+    move-object/from16 v1, v29
 
-    const-string/jumbo v31, "113"
+    invoke-interface {v13, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-object/from16 v0, v31
+    add-int/lit8 v26, v26, 0x1
 
-    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    goto :goto_7
 
-    move-result v31
+    :cond_f
+    const/16 v26, 0x1
 
-    if-nez v31, :cond_71
+    move/from16 v0, v26
 
-    const-string/jumbo v31, "125"
+    new-array v0, v0, [Ljava/lang/String;
 
-    move-object/from16 v0, v31
+    move-object/from16 v26, v0
 
-    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    const-string/jumbo v27, "LGT"
 
-    move-result v31
+    const/16 v28, 0x0
 
-    if-nez v31, :cond_71
+    aput-object v27, v26, v28
 
-    const-string/jumbo v31, "117"
+    move/from16 v0, v23
 
-    move-object/from16 v0, v31
+    move-object/from16 v1, v26
 
-    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-static {v0, v1}, Lcom/android/internal/telephony/TelephonyFeatures;->isMainOperatorSpecific(I[Ljava/lang/String;)Z
 
-    move-result v31
+    move-result v26
 
-    if-nez v31, :cond_71
+    if-eqz v26, :cond_17
 
-    const-string/jumbo v31, "111"
+    const-string/jumbo v26, "450"
 
-    move-object/from16 v0, v31
+    move-object/from16 v0, v26
 
-    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    move-object/from16 v1, v17
 
-    move-result v31
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    if-nez v31, :cond_71
+    move-result v26
 
-    const-string/jumbo v31, "118"
+    if-nez v26, :cond_17
 
-    move-object/from16 v0, v31
+    const-string/jumbo v26, "000"
 
-    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    move-object/from16 v0, v26
 
-    move-result v31
+    move-object/from16 v1, v17
 
-    if-eqz v31, :cond_72
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    :cond_71
-    const-string/jumbo v31, ""
+    move-result v26
 
-    return-object v31
+    xor-int/lit8 v26, v26, 0x1
 
-    :cond_72
-    const/16 v31, 0x0
+    if-eqz v26, :cond_17
 
-    return-object v31
+    invoke-static/range {v19 .. v19}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    :cond_73
-    const-string/jumbo v31, "000"
+    move-result v26
 
-    move-object/from16 v0, v31
+    if-nez v26, :cond_13
 
-    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    const-string/jumbo v26, ","
 
-    move-result v31
+    move-object/from16 v0, v19
 
-    if-nez v31, :cond_74
+    move-object/from16 v1, v26
 
-    const-string/jumbo v31, "08"
+    invoke-virtual {v0, v1}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
 
-    move-object/from16 v0, v31
+    move-result-object v27
 
-    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    const/16 v26, 0x0
 
-    move-result v31
+    move-object/from16 v0, v27
 
-    if-nez v31, :cond_74
+    array-length v0, v0
 
-    const-string/jumbo v31, "110"
+    move/from16 v28, v0
 
-    move-object/from16 v0, v31
+    :goto_8
+    move/from16 v0, v26
 
-    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    move/from16 v1, v28
 
-    move-result v31
+    if-ge v0, v1, :cond_13
 
-    if-nez v31, :cond_74
+    aget-object v11, v27, v26
 
-    const-string/jumbo v31, "999"
+    const-string/jumbo v29, "/"
 
-    move-object/from16 v0, v31
+    move-object/from16 v0, v29
 
-    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v11, v0}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
 
-    move-result v31
+    move-result-object v25
 
-    if-nez v31, :cond_74
+    const/16 v29, 0x0
 
-    const-string/jumbo v31, "118"
+    aget-object v8, v25, v29
 
-    move-object/from16 v0, v31
+    move-object/from16 v0, v25
 
-    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    array-length v0, v0
 
-    move-result v31
+    move/from16 v29, v0
 
-    if-nez v31, :cond_74
+    const/16 v30, 0x1
 
-    const-string/jumbo v31, "112"
+    move/from16 v0, v29
 
-    move-object/from16 v0, v31
+    move/from16 v1, v30
 
-    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    if-le v0, v1, :cond_11
 
-    move-result v31
+    const/16 v29, 0x1
 
-    if-nez v31, :cond_74
+    aget-object v7, v25, v29
 
-    const-string/jumbo v31, "911"
+    :goto_9
+    invoke-interface {v13, v8}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-object/from16 v0, v31
+    move-result-object v29
 
-    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    if-eqz v29, :cond_12
 
-    move-result v31
+    invoke-virtual {v7}, Ljava/lang/String;->length()I
 
-    if-nez v31, :cond_74
+    move-result v29
 
-    const-string/jumbo v31, "119"
+    if-lez v29, :cond_10
 
-    move-object/from16 v0, v31
+    const-string/jumbo v29, "0"
 
-    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    move-object/from16 v0, v29
 
-    move-result v31
+    invoke-virtual {v0, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    if-nez v31, :cond_74
+    move-result v29
 
-    const-string/jumbo v31, "122"
+    xor-int/lit8 v29, v29, 0x1
 
-    move-object/from16 v0, v31
+    if-eqz v29, :cond_10
 
-    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-interface {v13, v8, v7}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result v31
+    :cond_10
+    :goto_a
+    add-int/lit8 v26, v26, 0x1
 
-    if-eqz v31, :cond_75
+    goto :goto_8
 
-    :cond_74
-    const-string/jumbo v31, ""
+    :cond_11
+    const-string/jumbo v7, ""
 
-    return-object v31
+    goto :goto_9
 
-    :cond_75
-    const/16 v31, 0x0
+    :cond_12
+    invoke-interface {v13, v8, v7}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    return-object v31
+    goto :goto_a
+
+    :cond_13
+    invoke-static {v9}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-virtual {v10}, Ljava/lang/String;->length()I
+
+    move-result v26
+
+    if-lez v26, :cond_17
+
+    const-string/jumbo v26, ","
+
+    move-object/from16 v0, v26
+
+    invoke-virtual {v10, v0}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
+
+    move-result-object v27
+
+    const/16 v26, 0x0
+
+    move-object/from16 v0, v27
+
+    array-length v0, v0
+
+    move/from16 v28, v0
+
+    :goto_b
+    move/from16 v0, v26
+
+    move/from16 v1, v28
+
+    if-ge v0, v1, :cond_17
+
+    aget-object v11, v27, v26
+
+    const-string/jumbo v29, "/"
+
+    move-object/from16 v0, v29
+
+    invoke-virtual {v11, v0}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
+
+    move-result-object v25
+
+    const/16 v29, 0x0
+
+    aget-object v8, v25, v29
+
+    move-object/from16 v0, v25
+
+    array-length v0, v0
+
+    move/from16 v29, v0
+
+    const/16 v30, 0x1
+
+    move/from16 v0, v29
+
+    move/from16 v1, v30
+
+    if-le v0, v1, :cond_15
+
+    const/16 v29, 0x1
+
+    aget-object v7, v25, v29
+
+    :goto_c
+    invoke-interface {v13, v8}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v29
+
+    if-eqz v29, :cond_16
+
+    invoke-virtual {v7}, Ljava/lang/String;->length()I
+
+    move-result v29
+
+    if-lez v29, :cond_14
+
+    const-string/jumbo v29, "0"
+
+    move-object/from16 v0, v29
+
+    invoke-virtual {v0, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v29
+
+    xor-int/lit8 v29, v29, 0x1
+
+    if-eqz v29, :cond_14
+
+    invoke-interface {v13, v8, v7}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    :cond_14
+    :goto_d
+    add-int/lit8 v26, v26, 0x1
+
+    goto :goto_b
+
+    :cond_15
+    const-string/jumbo v7, ""
+
+    goto :goto_c
+
+    :cond_16
+    invoke-interface {v13, v8, v7}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    goto :goto_d
+
+    :cond_17
+    const-string/jumbo v26, "127"
+
+    move-object/from16 v0, v26
+
+    invoke-interface {v13, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v26
+
+    if-eqz v26, :cond_18
+
+    const-string/jumbo v26, "127"
+
+    move-object/from16 v0, v26
+
+    invoke-interface {v13, v0}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+
+    :cond_18
+    const-string/jumbo v26, "119"
+
+    move-object/from16 v0, v26
+
+    invoke-interface {v13, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v26
+
+    if-eqz v26, :cond_19
+
+    const-string/jumbo v26, "ril.skt119Cat"
+
+    invoke-static/range {v26 .. v26}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/String;->length()I
+
+    move-result v26
+
+    if-lez v26, :cond_19
+
+    const-string/jumbo v26, "119"
+
+    move-object/from16 v0, v26
+
+    invoke-interface {v13, v0, v6}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    :cond_19
+    const-string/jumbo v26, "PhoneNumberUtils"
+
+    new-instance v27, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v27 .. v27}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v28, "finalEccList: "
+
+    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v27
+
+    invoke-static {v13}, Landroid/telephony/PhoneNumberUtils;->mapToString(Ljava/util/Map;)Ljava/lang/String;
+
+    move-result-object v28
+
+    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v27
+
+    invoke-virtual/range {v27 .. v27}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v27
+
+    invoke-static/range {v26 .. v27}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    const-string/jumbo v24, ""
+
+    invoke-interface {v13, v5}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v24
+
+    check-cast v24, Ljava/lang/String;
+
+    if-eqz v24, :cond_1a
+
+    return-object v24
+
+    :cond_1a
+    const-string/jumbo v26, "450"
+
+    move-object/from16 v0, v26
+
+    move-object/from16 v1, v17
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v26
+
+    if-nez v26, :cond_1d
+
+    const-string/jumbo v26, "000"
+
+    move-object/from16 v0, v26
+
+    move-object/from16 v1, v17
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v26
+
+    xor-int/lit8 v26, v26, 0x1
+
+    if-eqz v26, :cond_1d
+
+    const-string/jumbo v26, "ABSENT"
+
+    const-string/jumbo v27, "gsm.sim.state"
+
+    const-string/jumbo v28, "UNKNOWN"
+
+    invoke-static/range {v27 .. v28}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v27
+
+    invoke-virtual/range {v26 .. v27}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v26
+
+    if-eqz v26, :cond_1d
+
+    const-string/jumbo v26, "000"
+
+    move-object/from16 v0, v26
+
+    invoke-virtual {v0, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v26
+
+    if-nez v26, :cond_1b
+
+    const-string/jumbo v26, "08"
+
+    move-object/from16 v0, v26
+
+    invoke-virtual {v0, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v26
+
+    if-nez v26, :cond_1b
+
+    const-string/jumbo v26, "110"
+
+    move-object/from16 v0, v26
+
+    invoke-virtual {v0, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v26
+
+    if-nez v26, :cond_1b
+
+    const-string/jumbo v26, "999"
+
+    move-object/from16 v0, v26
+
+    invoke-virtual {v0, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v26
+
+    if-nez v26, :cond_1b
+
+    const-string/jumbo v26, "119"
+
+    move-object/from16 v0, v26
+
+    invoke-virtual {v0, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v26
+
+    if-nez v26, :cond_1b
+
+    const-string/jumbo v26, "118"
+
+    move-object/from16 v0, v26
+
+    invoke-virtual {v0, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v26
+
+    if-eqz v26, :cond_1c
+
+    :cond_1b
+    const/16 v26, 0x4
+
+    invoke-static/range {v26 .. v26}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+
+    move-result-object v26
+
+    return-object v26
+
+    :cond_1c
+    const/16 v26, 0x0
+
+    return-object v26
+
+    :cond_1d
+    const/16 v26, 0x0
+
+    return-object v26
 .end method
 
 .method public static getFormatTypeForLocale(Ljava/util/Locale;)I
@@ -14250,15 +13745,15 @@
 .end method
 
 .method public static getLTNContactsMatchLength(Landroid/content/Context;)I
-    .locals 9
+    .locals 10
 
-    const/4 v8, 0x5
+    const/4 v9, 0x5
 
-    const/4 v7, 0x1
+    const/4 v8, 0x1
 
-    const/4 v6, 0x0
+    const/4 v7, 0x0
 
-    const/4 v5, 0x3
+    const/4 v6, 0x3
 
     const/4 v1, 0x7
 
@@ -14270,21 +13765,13 @@
 
     invoke-static {}, Landroid/telephony/TelephonyManager;->getDefault()Landroid/telephony/TelephonyManager;
 
-    move-result-object v4
+    move-result-object v5
 
-    invoke-virtual {v4}, Landroid/telephony/TelephonyManager;->getSimState()I
-
-    move-result v4
-
-    if-eq v4, v7, :cond_0
-
-    invoke-static {}, Landroid/telephony/TelephonyManager;->getDefault()Landroid/telephony/TelephonyManager;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Landroid/telephony/TelephonyManager;->getSimState()I
+    invoke-virtual {v5}, Landroid/telephony/TelephonyManager;->getSimState()I
 
     move-result v4
+
+    if-eq v4, v8, :cond_0
 
     if-nez v4, :cond_1
 
@@ -14294,9 +13781,9 @@
     :cond_1
     invoke-static {}, Landroid/telephony/TelephonyManager;->getDefault()Landroid/telephony/TelephonyManager;
 
-    move-result-object v4
+    move-result-object v5
 
-    invoke-virtual {v4}, Landroid/telephony/TelephonyManager;->getSimOperator()Ljava/lang/String;
+    invoke-virtual {v5}, Landroid/telephony/TelephonyManager;->getSimOperator()Ljava/lang/String;
 
     move-result-object v0
 
@@ -14304,23 +13791,23 @@
 
     invoke-virtual {v0}, Ljava/lang/String;->length()I
 
-    move-result v4
+    move-result v5
 
-    if-lez v4, :cond_2
+    if-lez v5, :cond_2
 
-    invoke-virtual {v0, v6, v5}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+    invoke-virtual {v0, v7, v6}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v5
 
-    invoke-static {v4}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+    invoke-static {v5}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
     move-result v2
 
-    invoke-virtual {v0, v5, v8}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+    invoke-virtual {v0, v6, v9}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v5
 
-    invoke-static {v4}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+    invoke-static {v5}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
     move-result v3
 
@@ -14360,7 +13847,7 @@
     goto :goto_0
 
     :sswitch_5
-    if-ne v3, v7, :cond_3
+    if-ne v3, v8, :cond_3
 
     const/16 v1, 0x8
 
@@ -14372,11 +13859,11 @@
     goto :goto_0
 
     :sswitch_6
-    if-eq v3, v7, :cond_4
+    if-eq v3, v8, :cond_4
 
-    const/4 v4, 0x2
+    const/4 v5, 0x2
 
-    if-ne v3, v4, :cond_5
+    if-ne v3, v5, :cond_5
 
     :cond_4
     const/4 v1, 0x7
@@ -14384,18 +13871,18 @@
     goto :goto_0
 
     :cond_5
-    if-eq v3, v5, :cond_4
+    if-eq v3, v6, :cond_4
 
     const/16 v1, 0xa
 
     goto :goto_0
 
     :sswitch_7
-    const/16 v4, 0x32
+    const/16 v5, 0x32
 
-    if-eq v3, v4, :cond_6
+    if-eq v3, v5, :cond_6
 
-    if-ne v3, v8, :cond_7
+    if-ne v3, v9, :cond_7
 
     :cond_6
     const/4 v1, 0x7
@@ -14403,21 +13890,40 @@
     goto :goto_0
 
     :cond_7
-    const/16 v4, 0x1e
-
-    if-eq v3, v4, :cond_6
+    const/16 v5, 0x1e
 
     if-eq v3, v5, :cond_6
 
-    const/16 v4, 0x9
+    if-eq v3, v6, :cond_6
 
-    if-eq v3, v4, :cond_6
+    const/16 v5, 0x9
+
+    if-eq v3, v5, :cond_6
 
     const/16 v1, 0x8
 
     goto :goto_0
 
-    nop
+    :sswitch_8
+    if-ne v3, v9, :cond_8
+
+    const/16 v1, 0x8
+
+    goto :goto_0
+
+    :cond_8
+    const/4 v5, 0x4
+
+    if-ne v3, v5, :cond_9
+
+    const/16 v1, 0x9
+
+    goto :goto_0
+
+    :cond_9
+    const/4 v1, 0x7
+
+    goto :goto_0
 
     :sswitch_data_0
     .sparse-switch
@@ -14447,7 +13953,7 @@
         0x2de -> :sswitch_6
         0x2e0 -> :sswitch_1
         0x2e4 -> :sswitch_1
-        0x2e8 -> :sswitch_0
+        0x2e8 -> :sswitch_8
         0x2ec -> :sswitch_5
     .end sparse-switch
 .end method
@@ -15062,6 +14568,27 @@
     goto :goto_0
 .end method
 
+.method public static isConvertToEmergencyNumberEnabled()Z
+    .locals 2
+
+    const/4 v0, 0x0
+
+    sget-object v1, Landroid/telephony/PhoneNumberUtils;->CONVERT_TO_EMERGENCY_MAP:[Ljava/lang/String;
+
+    if-eqz v1, :cond_0
+
+    sget-object v1, Landroid/telephony/PhoneNumberUtils;->CONVERT_TO_EMERGENCY_MAP:[Ljava/lang/String;
+
+    array-length v1, v1
+
+    if-lez v1, :cond_0
+
+    const/4 v0, 0x1
+
+    :cond_0
+    return v0
+.end method
+
 .method private static isCountryCallingCode(I)Z
     .locals 2
 
@@ -15210,15 +14737,13 @@
 .end method
 
 .method private static isEmergencyNumberInternal(ILjava/lang/String;Ljava/lang/String;Z)Z
-    .locals 6
+    .locals 4
 
-    const/4 v5, 0x1
-
-    const/4 v4, 0x0
+    const/4 v3, 0x0
 
     if-nez p1, :cond_0
 
-    return v4
+    return v3
 
     :cond_0
     invoke-static {p1}, Landroid/telephony/PhoneNumberUtils;->isUriNumber(Ljava/lang/String;)Z
@@ -15227,22 +14752,20 @@
 
     if-eqz v1, :cond_1
 
-    return v4
+    return v3
 
     :cond_1
     invoke-static {p1}, Landroid/telephony/PhoneNumberUtils;->extractNetworkPortionAlt(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object p1
 
-    const-string/jumbo v2, "PhoneNumberUtils"
-
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v3, "subId:"
+    const-string/jumbo v2, "subId: "
 
-    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
@@ -15250,18 +14773,13 @@
 
     move-result-object v1
 
-    const-string/jumbo v3, ", defaultCountryIso:"
+    const-string/jumbo v2, ", defaultCountryIso: "
 
-    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    move-result-object v1
 
-    if-nez p2, :cond_2
-
-    const-string/jumbo v1, "NULL"
-
-    :goto_0
-    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
@@ -15269,7 +14787,7 @@
 
     move-result-object v1
 
-    invoke-static {v2, v1}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1}, Landroid/telephony/PhoneNumberUtils;->log(Ljava/lang/String;)V
 
     const-string/jumbo v1, "BR"
 
@@ -15277,22 +14795,25 @@
 
     move-result v1
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_2
 
-    const-string/jumbo v1, "isEmergencyNumber defaultConutryIso is BR"
+    const/4 p3, 0x1
 
-    invoke-static {v1}, Landroid/telephony/PhoneNumberUtils;->log(Ljava/lang/String;)V
-
-    invoke-static {p0, p1, v5}, Landroid/telephony/PhoneNumberUtils;->getEmergencyServiceCategory(ILjava/lang/String;Z)Ljava/lang/String;
+    :cond_2
+    invoke-static {p0, p1, p3}, Landroid/telephony/PhoneNumberUtils;->getEmergencyServiceCategory(ILjava/lang/String;Z)Ljava/lang/String;
 
     move-result-object v0
 
-    :goto_1
+    if-nez v0, :cond_3
+
+    return v3
+
+    :cond_3
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v2, "isEmergencyNumber cat = "
+    const-string/jumbo v2, "isEmergencyNumberInternal cat: "
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -15308,24 +14829,9 @@
 
     invoke-static {v1}, Landroid/telephony/PhoneNumberUtils;->log(Ljava/lang/String;)V
 
-    if-nez v0, :cond_4
+    const/4 v1, 0x1
 
-    return v4
-
-    :cond_2
-    move-object v1, p2
-
-    goto :goto_0
-
-    :cond_3
-    invoke-static {p0, p1, p3}, Landroid/telephony/PhoneNumberUtils;->getEmergencyServiceCategory(ILjava/lang/String;Z)Ljava/lang/String;
-
-    move-result-object v0
-
-    goto :goto_1
-
-    :cond_4
-    return v5
+    return v1
 .end method
 
 .method private static isEmergencyNumberInternal(ILjava/lang/String;Z)Z
@@ -15412,6 +14918,72 @@
 
     :cond_0
     return v0
+.end method
+
+.method public static isInternationalNumber(Ljava/lang/String;Ljava/lang/String;)Z
+    .locals 6
+
+    const/4 v3, 0x0
+
+    invoke-static {p0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_0
+
+    return v3
+
+    :cond_0
+    const-string/jumbo v4, "#"
+
+    invoke-virtual {p0, v4}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v4
+
+    if-nez v4, :cond_1
+
+    const-string/jumbo v4, "*"
+
+    invoke-virtual {p0, v4}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_2
+
+    :cond_1
+    return v3
+
+    :cond_2
+    invoke-static {}, Lcom/android/i18n/phonenumbers/PhoneNumberUtil;->getInstance()Lcom/android/i18n/phonenumbers/PhoneNumberUtil;
+
+    move-result-object v2
+
+    :try_start_0
+    invoke-virtual {v2, p0, p1}, Lcom/android/i18n/phonenumbers/PhoneNumberUtil;->parseAndKeepRawInput(Ljava/lang/String;Ljava/lang/String;)Lcom/android/i18n/phonenumbers/Phonenumber$PhoneNumber;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Lcom/android/i18n/phonenumbers/Phonenumber$PhoneNumber;->getCountryCode()I
+
+    move-result v4
+
+    invoke-virtual {v2, p1}, Lcom/android/i18n/phonenumbers/PhoneNumberUtil;->getCountryCodeForRegion(Ljava/lang/String;)I
+    :try_end_0
+    .catch Lcom/android/i18n/phonenumbers/NumberParseException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v5
+
+    if-eq v4, v5, :cond_3
+
+    const/4 v3, 0x1
+
+    :cond_3
+    return v3
+
+    :catch_0
+    move-exception v0
+
+    return v3
 .end method
 
 .method public static isLTNSpecialNumber(Ljava/lang/String;)Z
@@ -16107,53 +15679,55 @@
 .end method
 
 .method public static isVoiceMailNumber(Landroid/content/Context;ILjava/lang/String;)Z
-    .locals 6
+    .locals 12
 
-    const/4 v3, 0x0
+    const/4 v8, 0x1
+
+    const/4 v11, 0x0
 
     if-nez p0, :cond_0
 
     :try_start_0
     invoke-static {}, Landroid/telephony/TelephonyManager;->getDefault()Landroid/telephony/TelephonyManager;
 
-    move-result-object v1
+    move-result-object v6
 
     :goto_0
-    invoke-virtual {v1, p1}, Landroid/telephony/TelephonyManager;->getVoiceMailNumber(I)Ljava/lang/String;
+    invoke-virtual {v6, p1}, Landroid/telephony/TelephonyManager;->getVoiceMailNumber(I)Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-virtual {v6, p1}, Landroid/telephony/TelephonyManager;->getLine1Number(I)Ljava/lang/String;
     :try_end_0
     .catch Ljava/lang/SecurityException; {:try_start_0 .. :try_end_0} :catch_0
 
-    move-result-object v2
+    move-result-object v4
 
-    invoke-static {}, Lcom/android/internal/telephony/TelephonyFeatures;->isUsaGlobalModel()Z
+    invoke-static {p1}, Landroid/telephony/SubscriptionManager;->getPhoneId(I)I
 
-    move-result v4
+    move-result v5
 
-    if-eqz v4, :cond_1
+    const-string/jumbo v9, "VZW"
 
-    const-string/jumbo v4, "VZW"
+    invoke-static {v5}, Lcom/android/internal/telephony/TelephonyFeatures;->getMainOperatorName(I)Ljava/lang/String;
 
-    invoke-static {}, Lcom/android/internal/telephony/TelephonyFeatures;->getMainOperatorName()Ljava/lang/String;
+    move-result-object v10
 
-    move-result-object v5
+    invoke-virtual {v9, v10}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    move-result v9
 
-    move-result v4
+    if-eqz v9, :cond_1
 
-    if-eqz v4, :cond_1
+    const-string/jumbo v9, "*86"
 
-    const-string/jumbo v4, "*86"
+    invoke-virtual {v9, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    invoke-virtual {v4, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    move-result v9
 
-    move-result v4
+    if-eqz v9, :cond_1
 
-    if-eqz v4, :cond_1
-
-    const/4 v3, 0x1
-
-    return v3
+    return v8
 
     :cond_0
     :try_start_1
@@ -16161,14 +15735,14 @@
     :try_end_1
     .catch Ljava/lang/SecurityException; {:try_start_1 .. :try_end_1} :catch_0
 
-    move-result-object v1
+    move-result-object v6
 
     goto :goto_0
 
     :catch_0
-    move-exception v0
+    move-exception v3
 
-    return v3
+    return v11
 
     :cond_1
     invoke-static {p2}, Landroid/telephony/PhoneNumberUtils;->extractNetworkPortionAlt(Ljava/lang/String;)Ljava/lang/String;
@@ -16177,16 +15751,61 @@
 
     invoke-static {p2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    move-result v4
+    move-result v9
 
-    if-nez v4, :cond_2
+    if-eqz v9, :cond_2
 
-    invoke-static {p2, v2}, Landroid/telephony/PhoneNumberUtils;->compare(Ljava/lang/String;Ljava/lang/String;)Z
-
-    move-result v3
+    return v11
 
     :cond_2
-    return v3
+    const/4 v1, 0x0
+
+    if-eqz p0, :cond_3
+
+    const-string/jumbo v9, "carrier_config"
+
+    invoke-virtual {p0, v9}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Landroid/telephony/CarrierConfigManager;
+
+    if-eqz v2, :cond_3
+
+    invoke-virtual {v2, p1}, Landroid/telephony/CarrierConfigManager;->getConfigForSubId(I)Landroid/os/PersistableBundle;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_3
+
+    const-string/jumbo v9, "mdn_is_additional_voicemail_number_bool"
+
+    invoke-virtual {v0, v9}, Landroid/os/PersistableBundle;->getBoolean(Ljava/lang/String;)Z
+
+    move-result v1
+
+    :cond_3
+    if-eqz v1, :cond_5
+
+    invoke-static {p2, v7}, Landroid/telephony/PhoneNumberUtils;->compare(Ljava/lang/String;Ljava/lang/String;)Z
+
+    move-result v9
+
+    if-nez v9, :cond_4
+
+    invoke-static {p2, v4}, Landroid/telephony/PhoneNumberUtils;->compare(Ljava/lang/String;Ljava/lang/String;)Z
+
+    move-result v8
+
+    :cond_4
+    return v8
+
+    :cond_5
+    invoke-static {p2, v7}, Landroid/telephony/PhoneNumberUtils;->compare(Ljava/lang/String;Ljava/lang/String;)Z
+
+    move-result v8
+
+    return v8
 .end method
 
 .method public static isVoiceMailNumber(Ljava/lang/String;)Z
@@ -16251,6 +15870,108 @@
     invoke-static {v0, p0}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
+.end method
+
+.method static mapToString(Ljava/util/Map;)Ljava/lang/String;
+    .locals 5
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/Map",
+            "<",
+            "Ljava/lang/String;",
+            "Ljava/lang/String;",
+            ">;)",
+            "Ljava/lang/String;"
+        }
+    .end annotation
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-interface {p0}, Ljava/util/Map;->entrySet()Ljava/util/Set;
+
+    move-result-object v3
+
+    invoke-interface {v3}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+
+    move-result-object v1
+
+    :goto_0
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_0
+
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/util/Map$Entry;
+
+    invoke-interface {v0}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Ljava/lang/String;
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    const-string/jumbo v4, " = "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-interface {v0}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Ljava/lang/String;
+
+    invoke-virtual {v4, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    const-string/jumbo v4, "|"
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    goto :goto_0
+
+    :cond_0
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->length()I
+
+    move-result v3
+
+    add-int/lit8 v3, v3, -0x1
+
+    const/4 v4, 0x0
+
+    invoke-virtual {v2, v4, v3}, Ljava/lang/StringBuilder;->substring(II)Ljava/lang/String;
+
+    move-result-object v3
+
+    return-object v3
+.end method
+
+.method private static maskPhoneNumber(Ljava/lang/String;)Ljava/lang/String;
+    .locals 1
+
+    sget-boolean v0, Lcom/android/internal/telephony/TelephonyFeatures;->SHIP_BUILD:Z
+
+    if-eqz v0, :cond_0
+
+    const-string/jumbo v0, "<MASKED>"
+
+    return-object v0
+
+    :cond_0
+    return-object p0
 .end method
 
 .method private static matchIntlPrefix(Ljava/lang/String;I)Z
@@ -16569,7 +16290,7 @@
     const/4 v2, 0x0
 
     :goto_0
-    if-ge v2, p1, :cond_3
+    if-ge v2, p1, :cond_2
 
     invoke-virtual {p0, v2}, Ljava/lang/String;->charAt(I)C
 
@@ -16577,30 +16298,31 @@
 
     const/16 v3, 0x30
 
-    if-ne v0, v3, :cond_0
+    if-ne v0, v3, :cond_1
 
-    if-eqz v1, :cond_1
+    xor-int/lit8 v3, v1, 0x1
+
+    if-eqz v3, :cond_1
+
+    const/4 v1, 0x1
 
     :cond_0
+    add-int/lit8 v2, v2, 0x1
+
+    goto :goto_0
+
+    :cond_1
     invoke-static {v0}, Landroid/telephony/PhoneNumberUtils;->isNonSeparator(C)Z
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_0
 
     const/4 v3, 0x0
 
     return v3
 
-    :cond_1
-    const/4 v1, 0x1
-
     :cond_2
-    add-int/lit8 v2, v2, 0x1
-
-    goto :goto_0
-
-    :cond_3
     return v1
 .end method
 
@@ -16996,26 +16718,19 @@
 
     move-result-object v2
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_2
 
-    if-eqz v1, :cond_2
+    xor-int/lit8 v5, v1, 0x1
 
-    :cond_0
-    return-object p1
+    if-eqz v5, :cond_2
 
-    :cond_1
-    const/4 v0, 0x0
-
-    goto :goto_0
-
-    :cond_2
     const-string/jumbo v5, "jp"
 
     invoke-virtual {v5, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_2
 
     const-string/jumbo v5, "184"
 
@@ -17023,7 +16738,7 @@
 
     move-result v5
 
-    if-nez v5, :cond_3
+    if-nez v5, :cond_0
 
     const-string/jumbo v4, "186"
 
@@ -17031,8 +16746,8 @@
 
     move-result v4
 
-    :cond_3
-    if-nez v4, :cond_0
+    :cond_0
+    if-nez v4, :cond_2
 
     new-instance v4, Ljava/lang/StringBuilder;
 
@@ -17059,34 +16774,42 @@
     invoke-static {v4, v5}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     return-object v3
+
+    :cond_1
+    const/4 v0, 0x0
+
+    goto :goto_0
+
+    :cond_2
+    return-object p1
 .end method
 
 .method private static processPlusCode(Ljava/lang/String;Z)Ljava/lang/String;
-    .locals 6
+    .locals 5
 
-    const/4 v5, 0x1
+    const/4 v4, 0x1
 
     move-object v1, p0
 
     if-eqz p0, :cond_0
 
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
-    invoke-virtual {p0, v3}, Ljava/lang/String;->charAt(I)C
+    invoke-virtual {p0, v2}, Ljava/lang/String;->charAt(I)C
 
-    move-result v3
+    move-result v2
 
-    const/16 v4, 0x2b
+    const/16 v3, 0x2b
 
-    if-ne v3, v4, :cond_0
+    if-ne v2, v3, :cond_0
 
     invoke-virtual {p0}, Ljava/lang/String;->length()I
 
-    move-result v3
+    move-result v2
 
-    if-le v3, v5, :cond_0
+    if-le v2, v4, :cond_0
 
-    invoke-virtual {p0, v5}, Ljava/lang/String;->substring(I)Ljava/lang/String;
+    invoke-virtual {p0, v4}, Ljava/lang/String;->substring(I)Ljava/lang/String;
 
     move-result-object v0
 
@@ -17094,116 +16817,70 @@
 
     invoke-static {v0}, Landroid/telephony/PhoneNumberUtils;->isOneNanp(Ljava/lang/String;)Z
 
-    move-result v3
+    move-result v2
 
-    if-eqz v3, :cond_1
+    if-eqz v2, :cond_1
 
     move-object v1, v0
 
-    const-string/jumbo v3, "processPlusCode - Remove the leading plus sign"
+    const-string/jumbo v2, "processPlusCode - Remove the leading plus sign"
 
-    invoke-static {v3}, Landroid/telephony/PhoneNumberUtils;->log(Ljava/lang/String;)V
+    invoke-static {v2}, Landroid/telephony/PhoneNumberUtils;->log(Ljava/lang/String;)V
 
     :cond_0
     :goto_0
     return-object v1
 
     :cond_1
-    const-string/jumbo v3, "[+]"
+    const-string/jumbo v2, "[+]"
 
     invoke-static {p1}, Landroid/telephony/PhoneNumberUtils;->getCurrentIdp(Z)Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v3
 
-    invoke-virtual {p0, v3, v4}, Ljava/lang/String;->replaceFirst(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {p0, v2, v3}, Ljava/lang/String;->replaceFirst(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v4, "processPlusCode - Replaces the plus sign with the default IDP (useNanp: "
+    const-string/jumbo v3, "processPlusCode - Replaces the plus sign with the default IDP (useNanp: "
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    const-string/jumbo v4, ", current IDP: "
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-static {p1}, Landroid/telephony/PhoneNumberUtils;->getCurrentIdp(Z)Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    const-string/jumbo v4, ")"
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-static {v3}, Landroid/telephony/PhoneNumberUtils;->log(Ljava/lang/String;)V
-
-    const-string/jumbo v3, "KDI"
-
-    invoke-static {}, Lcom/android/internal/telephony/TelephonyFeatures;->getMainOperatorName()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_0
-
-    const-string/jumbo v3, "gsm.operator.iso-country"
-
-    invoke-static {v3}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v2
 
-    const-string/jumbo v3, "01081"
+    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v3}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+    move-result-object v2
 
-    move-result v3
+    const-string/jumbo v3, ", current IDP: "
 
-    if-eqz v3, :cond_0
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v3, "jp"
+    move-result-object v2
 
-    invoke-virtual {v3, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-static {p1}, Landroid/telephony/PhoneNumberUtils;->getCurrentIdp(Z)Ljava/lang/String;
 
-    move-result v3
+    move-result-object v3
 
-    if-eqz v3, :cond_0
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v3, "replace +81 code change in jpn area"
+    move-result-object v2
 
-    invoke-static {v3}, Landroid/telephony/PhoneNumberUtils;->log(Ljava/lang/String;)V
+    const-string/jumbo v3, ")"
 
-    const-string/jumbo v3, "01081"
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v4, "0"
+    move-result-object v2
 
-    invoke-virtual {v1, v3, v4}, Ljava/lang/String;->replaceFirst(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v2
+
+    invoke-static {v2}, Landroid/telephony/PhoneNumberUtils;->log(Ljava/lang/String;)V
 
     goto :goto_0
 .end method
@@ -17239,7 +16916,7 @@
 
     move-result-object v3
 
-    const/4 v7, 0x4
+    const/4 v7, 0x3
 
     invoke-static {v7}, Lcom/android/internal/telephony/TelephonyFeatures;->getNtcFeature(I)Z
 
@@ -17267,7 +16944,7 @@
 
     const-string/jumbo v1, ""
 
-    const/4 v7, 0x6
+    const/4 v7, 0x5
 
     invoke-static {v7}, Lcom/android/internal/telephony/TelephonyFeatures;->getNtcFeature(I)Z
 
@@ -17573,25 +17250,40 @@
 .end method
 
 .method private static retrieveAssistedParams(Ljava/lang/String;Landroid/content/Context;)Z
-    .locals 12
+    .locals 13
 
-    const/4 v11, 0x2
+    const/4 v12, 0x2
 
-    const/4 v10, 0x3
+    const/4 v11, 0x3
 
-    const/4 v8, 0x1
+    const/4 v9, 0x1
 
-    const/4 v9, 0x0
+    const/4 v10, 0x0
 
-    const/4 v2, 0x0
+    const-string/jumbo v1, "LRA"
 
-    const-string/jumbo v1, "gsm.current.phone-type"
+    invoke-static {}, Lcom/android/internal/telephony/TelephonyFeatures;->getSubOperatorName()Ljava/lang/String;
 
-    invoke-static {v1, v11}, Landroid/os/SystemProperties;->getInt(Ljava/lang/String;I)I
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    sput v1, Landroid/telephony/PhoneNumberUtils;->phoneType:I
+    if-eqz v1, :cond_0
+
+    const-string/jumbo v1, "Assisted Dial not supported"
+
+    invoke-static {v1}, Landroid/telephony/PhoneNumberUtils;->adLog(Ljava/lang/String;)V
+
+    return v10
+
+    :cond_0
+    const-string/jumbo v1, "gsm.current.phone-type"
+
+    invoke-static {v1, v12}, Landroid/os/SystemProperties;->getInt(Ljava/lang/String;I)I
+
+    move-result v7
 
     invoke-static {p0}, Landroid/telephony/PhoneNumberUtils;->extractNetworkPortionAlt(Ljava/lang/String;)Ljava/lang/String;
 
@@ -17617,25 +17309,6 @@
 
     sput-boolean v1, Landroid/telephony/PhoneNumberUtils;->isNetRoaming:Z
 
-    const-string/jumbo v1, "LRA"
-
-    sget-object v3, Lcom/android/internal/telephony/TelephonyFeatures;->SALES_CODE:Ljava/lang/String;
-
-    invoke-virtual {v1, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    const-string/jumbo v1, "PhoneNumberUtils"
-
-    const-string/jumbo v2, "Assisted Dial not supported in LRA. Return original number"
-
-    invoke-static {v1, v2}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    return v9
-
-    :cond_0
     const-string/jumbo v1, "phone"
 
     invoke-virtual {p1, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
@@ -17648,8 +17321,6 @@
 
     move-result-object v6
 
-    if-eqz v6, :cond_2
-
     invoke-static {v6}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v1
@@ -17660,23 +17331,30 @@
 
     move-result v1
 
-    if-ge v1, v10, :cond_2
+    if-ge v1, v11, :cond_2
 
     :cond_1
-    return v9
+    const-string/jumbo v1, "Wrong MDN"
+
+    invoke-static {v1}, Landroid/telephony/PhoneNumberUtils;->adLog(Ljava/lang/String;)V
+
+    return v10
 
     :cond_2
+    :try_start_0
     invoke-virtual {p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
     sget-object v1, Landroid/telephony/PhoneNumberUtils;->REF_COUNTRY_SHARED_PREF:Landroid/net/Uri;
 
-    move-object v3, v2
+    const/4 v2, 0x0
 
-    move-object v4, v2
+    const/4 v3, 0x0
 
-    move-object v5, v2
+    const/4 v4, 0x0
+
+    const/4 v5, 0x0
 
     invoke-virtual/range {v0 .. v5}, Landroid/content/ContentResolver;->query(Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;
 
@@ -17686,18 +17364,36 @@
 
     sget-object v1, Landroid/telephony/PhoneNumberUtils;->mCursor:Landroid/database/Cursor;
 
-    if-nez v1, :cond_3
+    if-nez v1, :cond_4
 
-    return v9
+    const-string/jumbo v1, "Invalid Reference Country"
+
+    invoke-static {v1}, Landroid/telephony/PhoneNumberUtils;->adLog(Ljava/lang/String;)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    sget-object v1, Landroid/telephony/PhoneNumberUtils;->mCursor:Landroid/database/Cursor;
+
+    if-eqz v1, :cond_3
+
+    sget-object v1, Landroid/telephony/PhoneNumberUtils;->mCursor:Landroid/database/Cursor;
+
+    invoke-interface {v1}, Landroid/database/Cursor;->close()V
 
     :cond_3
+    return v10
+
+    :cond_4
+    :try_start_1
     sget-object v1, Landroid/telephony/PhoneNumberUtils;->mCursor:Landroid/database/Cursor;
 
     invoke-interface {v1}, Landroid/database/Cursor;->moveToFirst()Z
 
     sget-object v1, Landroid/telephony/PhoneNumberUtils;->mCursor:Landroid/database/Cursor;
 
-    invoke-interface {v1, v8}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
+    const/4 v2, 0x1
+
+    invoke-interface {v1, v2}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
 
     move-result-object v1
 
@@ -17705,27 +17401,31 @@
 
     sget-object v1, Landroid/telephony/PhoneNumberUtils;->mCursor:Landroid/database/Cursor;
 
-    invoke-interface {v1, v11}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
+    const/4 v2, 0x2
 
-    move-result-object v7
+    invoke-interface {v1, v2}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
+
+    move-result-object v8
 
     const-string/jumbo v1, "310 to 316"
 
-    invoke-virtual {v7, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v8, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_a
+    if-eqz v1, :cond_c
 
-    const-string/jumbo v7, "310"
+    const-string/jumbo v8, "310"
 
-    :cond_4
+    :cond_5
     :goto_0
-    sput-object v7, Landroid/telephony/PhoneNumberUtils;->refCountryMCC:Ljava/lang/String;
+    sput-object v8, Landroid/telephony/PhoneNumberUtils;->refCountryMCC:Ljava/lang/String;
 
     sget-object v1, Landroid/telephony/PhoneNumberUtils;->mCursor:Landroid/database/Cursor;
 
-    invoke-interface {v1, v10}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
+    const/4 v2, 0x3
+
+    invoke-interface {v1, v2}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
 
     move-result-object v1
 
@@ -17733,9 +17433,9 @@
 
     sget-object v1, Landroid/telephony/PhoneNumberUtils;->mCursor:Landroid/database/Cursor;
 
-    const/4 v3, 0x4
+    const/4 v2, 0x4
 
-    invoke-interface {v1, v3}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
+    invoke-interface {v1, v2}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
 
     move-result-object v1
 
@@ -17743,30 +17443,30 @@
 
     sget-object v1, Landroid/telephony/PhoneNumberUtils;->mCursor:Landroid/database/Cursor;
 
-    const/4 v3, 0x5
+    const/4 v2, 0x5
 
-    invoke-interface {v1, v3}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
+    invoke-interface {v1, v2}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
 
     move-result-object v1
 
-    const-string/jumbo v3, "NANP"
+    const-string/jumbo v2, "NANP"
 
-    invoke-virtual {v1, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_b
+    if-eqz v1, :cond_d
 
-    move v1, v8
+    move v1, v9
 
     :goto_1
     sput-boolean v1, Landroid/telephony/PhoneNumberUtils;->isNANPCountry:Z
 
     sget-object v1, Landroid/telephony/PhoneNumberUtils;->mCursor:Landroid/database/Cursor;
 
-    const/4 v3, 0x6
+    const/4 v2, 0x6
 
-    invoke-interface {v1, v3}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
+    invoke-interface {v1, v2}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
 
     move-result-object v1
 
@@ -17774,23 +17474,9 @@
 
     sget-object v1, Landroid/telephony/PhoneNumberUtils;->mCursor:Landroid/database/Cursor;
 
-    const/4 v3, 0x7
+    const/16 v2, 0x8
 
-    invoke-interface {v1, v3}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v1}, Ljava/lang/Boolean;->parseBoolean(Ljava/lang/String;)Z
-
-    move-result v1
-
-    sput-boolean v1, Landroid/telephony/PhoneNumberUtils;->isNBPCDSupported:Z
-
-    sget-object v1, Landroid/telephony/PhoneNumberUtils;->mCursor:Landroid/database/Cursor;
-
-    const/16 v3, 0x8
-
-    invoke-interface {v1, v3}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
+    invoke-interface {v1, v2}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
 
     move-result-object v1
 
@@ -17798,9 +17484,9 @@
 
     sget-object v1, Landroid/telephony/PhoneNumberUtils;->mCursor:Landroid/database/Cursor;
 
-    const/16 v3, 0x9
+    const/16 v2, 0x9
 
-    invoke-interface {v1, v3}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
+    invoke-interface {v1, v2}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
 
     move-result-object v1
 
@@ -17812,35 +17498,35 @@
 
     sget-object v1, Landroid/telephony/PhoneNumberUtils;->refCountryAreaCode:Ljava/lang/String;
 
-    if-nez v1, :cond_5
-
-    if-eqz v6, :cond_c
+    if-nez v1, :cond_6
 
     invoke-virtual {v6}, Ljava/lang/String;->length()I
 
     move-result v1
 
-    if-lt v1, v10, :cond_c
+    if-lt v1, v11, :cond_e
 
-    invoke-virtual {v6, v9, v10}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+    const/4 v1, 0x0
+
+    const/4 v2, 0x3
+
+    invoke-virtual {v6, v1, v2}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
     move-result-object v1
 
     sput-object v1, Landroid/telephony/PhoneNumberUtils;->refCountryAreaCode:Ljava/lang/String;
 
-    :cond_5
+    :cond_6
     :goto_2
     sget-object v1, Landroid/telephony/PhoneNumberUtils;->refCountryNationalNumberLength:Ljava/lang/Integer;
 
-    if-nez v1, :cond_6
-
-    if-eqz v6, :cond_d
+    if-nez v1, :cond_7
 
     invoke-virtual {v6}, Ljava/lang/String;->length()I
 
     move-result v1
 
-    if-lt v1, v10, :cond_d
+    if-lt v1, v11, :cond_10
 
     invoke-virtual {v6}, Ljava/lang/String;->length()I
 
@@ -17852,65 +17538,71 @@
 
     sput-object v1, Landroid/telephony/PhoneNumberUtils;->refCountryNationalNumberLength:Ljava/lang/Integer;
 
-    :cond_6
+    :cond_7
     :goto_3
-    const-string/jumbo v1, "PhoneNumberUtils"
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    const-string/jumbo v2, "refCountryMCC: "
 
-    const-string/jumbo v4, "refCountryMCC: "
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v1
 
-    move-result-object v3
+    sget-object v2, Landroid/telephony/PhoneNumberUtils;->refCountryMCC:Ljava/lang/String;
 
-    sget-object v4, Landroid/telephony/PhoneNumberUtils;->refCountryMCC:Ljava/lang/String;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v1
 
-    move-result-object v3
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v1
 
-    move-result-object v3
+    invoke-static {v1}, Landroid/telephony/PhoneNumberUtils;->adLog(Ljava/lang/String;)V
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    invoke-static {v1, v3}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    sget-object v1, Landroid/telephony/PhoneNumberUtils;->mCursor:Landroid/database/Cursor;
+
+    if-eqz v1, :cond_8
 
     sget-object v1, Landroid/telephony/PhoneNumberUtils;->mCursor:Landroid/database/Cursor;
 
     invoke-interface {v1}, Landroid/database/Cursor;->close()V
 
-    sget v1, Landroid/telephony/PhoneNumberUtils;->phoneType:I
+    :cond_8
+    if-ne v7, v9, :cond_11
 
-    if-ne v1, v8, :cond_e
-
-    move v1, v8
+    move v1, v9
 
     :goto_4
     sput-boolean v1, Landroid/telephony/PhoneNumberUtils;->isGSMRegistered:Z
 
-    sget v1, Landroid/telephony/PhoneNumberUtils;->phoneType:I
+    if-ne v7, v12, :cond_12
 
-    if-ne v1, v11, :cond_f
-
-    move v1, v8
+    move v1, v9
 
     :goto_5
     sput-boolean v1, Landroid/telephony/PhoneNumberUtils;->isCDMARegistered:Z
 
-    invoke-static {p1, v8}, Landroid/telephony/PhoneNumberUtils;->getOtaCountry(Landroid/content/Context;Z)Landroid/database/Cursor;
+    const/4 v1, 0x1
+
+    :try_start_2
+    invoke-static {p1, v1}, Landroid/telephony/PhoneNumberUtils;->getOtaCountry(Landroid/content/Context;Z)Landroid/database/Cursor;
 
     move-result-object v1
 
     sput-object v1, Landroid/telephony/PhoneNumberUtils;->mCursor:Landroid/database/Cursor;
 
-    sput-object v2, Landroid/telephony/PhoneNumberUtils;->otaCountryMCC:Ljava/lang/String;
+    const/4 v1, 0x0
+
+    sput-object v1, Landroid/telephony/PhoneNumberUtils;->otaCountryMCC:Ljava/lang/String;
 
     sget-object v1, Landroid/telephony/PhoneNumberUtils;->mCursor:Landroid/database/Cursor;
 
-    if-eqz v1, :cond_8
+    if-eqz v1, :cond_a
 
     sget-object v1, Landroid/telephony/PhoneNumberUtils;->mCursor:Landroid/database/Cursor;
 
@@ -17918,11 +17610,13 @@
 
     move-result v1
 
-    if-eqz v1, :cond_8
+    if-eqz v1, :cond_a
 
     sget-object v1, Landroid/telephony/PhoneNumberUtils;->mCursor:Landroid/database/Cursor;
 
-    invoke-interface {v1, v8}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
+    const/4 v2, 0x1
+
+    invoke-interface {v1, v2}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
 
     move-result-object v1
 
@@ -17930,7 +17624,9 @@
 
     sget-object v1, Landroid/telephony/PhoneNumberUtils;->mCursor:Landroid/database/Cursor;
 
-    invoke-interface {v1, v11}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
+    const/4 v2, 0x2
+
+    invoke-interface {v1, v2}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
 
     move-result-object v1
 
@@ -17938,7 +17634,9 @@
 
     sget-object v1, Landroid/telephony/PhoneNumberUtils;->mCursor:Landroid/database/Cursor;
 
-    invoke-interface {v1, v10}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
+    const/4 v2, 0x3
+
+    invoke-interface {v1, v2}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
 
     move-result-object v1
 
@@ -17956,13 +17654,13 @@
 
     sget-object v1, Landroid/telephony/PhoneNumberUtils;->otaCountryNDDPrefix:Ljava/lang/String;
 
-    if-nez v1, :cond_7
+    if-nez v1, :cond_9
 
     const-string/jumbo v1, ""
 
     sput-object v1, Landroid/telephony/PhoneNumberUtils;->otaCountryNDDPrefix:Ljava/lang/String;
 
-    :cond_7
+    :cond_9
     sget-object v1, Landroid/telephony/PhoneNumberUtils;->mCursor:Landroid/database/Cursor;
 
     const/4 v2, 0x5
@@ -17977,9 +17675,9 @@
 
     move-result v1
 
-    if-eqz v1, :cond_10
+    if-eqz v1, :cond_13
 
-    move v1, v8
+    move v1, v9
 
     :goto_6
     sput-boolean v1, Landroid/telephony/PhoneNumberUtils;->isOTANANPCountry:Z
@@ -17994,20 +17692,6 @@
 
     sput-object v1, Landroid/telephony/PhoneNumberUtils;->otaCountryCountryCode:Ljava/lang/String;
 
-    sget-object v1, Landroid/telephony/PhoneNumberUtils;->mCursor:Landroid/database/Cursor;
-
-    const/4 v2, 0x7
-
-    invoke-interface {v1, v2}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v1}, Ljava/lang/Boolean;->parseBoolean(Ljava/lang/String;)Z
-
-    move-result v1
-
-    sput-boolean v1, Landroid/telephony/PhoneNumberUtils;->isOTANBPCDSupported:Z
-
     sget-object v1, Landroid/telephony/PhoneNumberUtils;->otaCountryMCC:Ljava/lang/String;
 
     const-string/jumbo v2, "310 to 316"
@@ -18016,61 +17700,87 @@
 
     move-result v1
 
-    if-eqz v1, :cond_11
+    if-eqz v1, :cond_14
 
     const-string/jumbo v1, "310"
 
     :goto_7
     sput-object v1, Landroid/telephony/PhoneNumberUtils;->otaCountryMCC:Ljava/lang/String;
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
-    :cond_8
+    :cond_a
     sget-object v1, Landroid/telephony/PhoneNumberUtils;->mCursor:Landroid/database/Cursor;
 
-    if-eqz v1, :cond_9
+    if-eqz v1, :cond_b
 
     sget-object v1, Landroid/telephony/PhoneNumberUtils;->mCursor:Landroid/database/Cursor;
 
     invoke-interface {v1}, Landroid/database/Cursor;->close()V
 
-    :cond_9
+    :cond_b
     sget-object v1, Landroid/telephony/PhoneNumberUtils;->otaCountryMCC:Ljava/lang/String;
 
-    if-nez v1, :cond_13
+    if-nez v1, :cond_17
 
-    const-string/jumbo v1, "PhoneNumberUtils"
+    const-string/jumbo v1, "OTA country not found"
 
-    const-string/jumbo v2, "OTA country not found"
+    invoke-static {v1}, Landroid/telephony/PhoneNumberUtils;->adLog(Ljava/lang/String;)V
 
-    invoke-static {v1, v2}, Landroid/telephony/Rlog;->e(Ljava/lang/String;Ljava/lang/String;)I
+    return v10
 
-    return v9
-
-    :cond_a
+    :cond_c
+    :try_start_3
     const-string/jumbo v1, "430 to 431"
 
-    invoke-virtual {v7, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v8, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_5
 
-    const-string/jumbo v7, "430"
+    const-string/jumbo v8, "430"
 
     goto/16 :goto_0
 
-    :cond_b
-    move v1, v9
+    :cond_d
+    move v1, v10
 
     goto/16 :goto_1
 
-    :cond_c
+    :cond_e
+    const-string/jumbo v1, "Wrong MDN. Use default reference country area code"
+
+    invoke-static {v1}, Landroid/telephony/PhoneNumberUtils;->adLog(Ljava/lang/String;)V
+
     const-string/jumbo v1, "123"
 
     sput-object v1, Landroid/telephony/PhoneNumberUtils;->refCountryAreaCode:Ljava/lang/String;
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
     goto/16 :goto_2
 
-    :cond_d
+    :catchall_0
+    move-exception v1
+
+    sget-object v2, Landroid/telephony/PhoneNumberUtils;->mCursor:Landroid/database/Cursor;
+
+    if-eqz v2, :cond_f
+
+    sget-object v2, Landroid/telephony/PhoneNumberUtils;->mCursor:Landroid/database/Cursor;
+
+    invoke-interface {v2}, Landroid/database/Cursor;->close()V
+
+    :cond_f
+    throw v1
+
+    :cond_10
+    :try_start_4
+    const-string/jumbo v1, "Wrong MDN. Use default reference country national number length"
+
+    invoke-static {v1}, Landroid/telephony/PhoneNumberUtils;->adLog(Ljava/lang/String;)V
+
     const/16 v1, 0xa
 
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -18078,25 +17788,28 @@
     move-result-object v1
 
     sput-object v1, Landroid/telephony/PhoneNumberUtils;->refCountryNationalNumberLength:Ljava/lang/Integer;
+    :try_end_4
+    .catchall {:try_start_4 .. :try_end_4} :catchall_0
 
     goto/16 :goto_3
 
-    :cond_e
-    move v1, v9
+    :cond_11
+    move v1, v10
 
     goto/16 :goto_4
 
-    :cond_f
-    move v1, v9
+    :cond_12
+    move v1, v10
 
     goto/16 :goto_5
 
-    :cond_10
-    move v1, v9
+    :cond_13
+    move v1, v10
 
     goto :goto_6
 
-    :cond_11
+    :cond_14
+    :try_start_5
     sget-object v1, Landroid/telephony/PhoneNumberUtils;->otaCountryMCC:Ljava/lang/String;
 
     const-string/jumbo v2, "430 to 431"
@@ -18105,21 +17818,39 @@
 
     move-result v1
 
-    if-eqz v1, :cond_12
+    if-eqz v1, :cond_15
 
     const-string/jumbo v1, "430"
 
     goto :goto_7
 
-    :cond_12
+    :cond_15
     sget-object v1, Landroid/telephony/PhoneNumberUtils;->otaCountryMCC:Ljava/lang/String;
+    :try_end_5
+    .catchall {:try_start_5 .. :try_end_5} :catchall_1
 
     goto :goto_7
 
-    :cond_13
+    :catchall_1
+    move-exception v1
+
+    sget-object v2, Landroid/telephony/PhoneNumberUtils;->mCursor:Landroid/database/Cursor;
+
+    if-eqz v2, :cond_16
+
+    sget-object v2, Landroid/telephony/PhoneNumberUtils;->mCursor:Landroid/database/Cursor;
+
+    invoke-interface {v2}, Landroid/database/Cursor;->close()V
+
+    :cond_16
+    throw v1
+
+    :cond_17
     invoke-static {}, Landroid/telephony/PhoneNumberUtils;->displayAssistedParams()V
 
-    return v8
+    invoke-static {p1}, Landroid/telephony/PhoneNumberUtils;->checkAssistedDialingTestmode(Landroid/content/Context;)V
+
+    return v9
 .end method
 
 .method public static semCompareStrictly(Ljava/lang/String;Ljava/lang/String;Z)Z
@@ -18260,11 +17991,9 @@
     if-eqz v1, :cond_1
 
     :cond_0
-    const-string/jumbo v1, "PhoneNumberUtils"
+    const-string/jumbo v1, "length 12 - 7,20,65,90 is detected"
 
-    const-string/jumbo v2, "length 12 - 7,20,65,90 is detected"
-
-    invoke-static {v1, v2}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1}, Landroid/telephony/PhoneNumberUtils;->log(Ljava/lang/String;)V
 
     return v6
 
@@ -18285,11 +18014,9 @@
 
     if-eqz v1, :cond_2
 
-    const-string/jumbo v1, "PhoneNumberUtils"
+    const-string/jumbo v1, "US country code is detected with more than 11 digits"
 
-    const-string/jumbo v2, "US country code is detected with more than 11 digits"
-
-    invoke-static {v1, v2}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1}, Landroid/telephony/PhoneNumberUtils;->log(Ljava/lang/String;)V
 
     return v6
 
@@ -18310,18 +18037,18 @@
 
     move-result-object v1
 
-    sput-object v1, Landroid/telephony/PhoneNumberUtils;->mCursorContry:Landroid/database/Cursor;
+    sput-object v1, Landroid/telephony/PhoneNumberUtils;->mCursorCountry:Landroid/database/Cursor;
 
-    sget-object v1, Landroid/telephony/PhoneNumberUtils;->mCursorContry:Landroid/database/Cursor;
+    sget-object v1, Landroid/telephony/PhoneNumberUtils;->mCursorCountry:Landroid/database/Cursor;
 
     if-eqz v1, :cond_5
 
-    sget-object v1, Landroid/telephony/PhoneNumberUtils;->mCursorContry:Landroid/database/Cursor;
+    sget-object v1, Landroid/telephony/PhoneNumberUtils;->mCursorCountry:Landroid/database/Cursor;
 
     invoke-interface {v1}, Landroid/database/Cursor;->moveToFirst()Z
 
     :goto_0
-    sget-object v1, Landroid/telephony/PhoneNumberUtils;->mCursorContry:Landroid/database/Cursor;
+    sget-object v1, Landroid/telephony/PhoneNumberUtils;->mCursorCountry:Landroid/database/Cursor;
 
     invoke-interface {v1}, Landroid/database/Cursor;->isAfterLast()Z
 
@@ -18329,7 +18056,7 @@
 
     if-nez v1, :cond_4
 
-    sget-object v1, Landroid/telephony/PhoneNumberUtils;->mCursorContry:Landroid/database/Cursor;
+    sget-object v1, Landroid/telephony/PhoneNumberUtils;->mCursorCountry:Landroid/database/Cursor;
 
     const/4 v2, 0x6
 
@@ -18343,13 +18070,11 @@
 
     if-eqz v1, :cond_3
 
-    const-string/jumbo v1, "PhoneNumberUtils"
+    const-string/jumbo v1, "contry code is detected"
 
-    const-string/jumbo v2, "contry code is detected"
+    invoke-static {v1}, Landroid/telephony/PhoneNumberUtils;->log(Ljava/lang/String;)V
 
-    invoke-static {v1, v2}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    sget-object v1, Landroid/telephony/PhoneNumberUtils;->mCursorContry:Landroid/database/Cursor;
+    sget-object v1, Landroid/telephony/PhoneNumberUtils;->mCursorCountry:Landroid/database/Cursor;
 
     invoke-interface {v1}, Landroid/database/Cursor;->close()V
 
@@ -18358,14 +18083,14 @@
     return v1
 
     :cond_3
-    sget-object v1, Landroid/telephony/PhoneNumberUtils;->mCursorContry:Landroid/database/Cursor;
+    sget-object v1, Landroid/telephony/PhoneNumberUtils;->mCursorCountry:Landroid/database/Cursor;
 
     invoke-interface {v1}, Landroid/database/Cursor;->moveToNext()Z
 
     goto :goto_0
 
     :cond_4
-    sget-object v1, Landroid/telephony/PhoneNumberUtils;->mCursorContry:Landroid/database/Cursor;
+    sget-object v1, Landroid/telephony/PhoneNumberUtils;->mCursorCountry:Landroid/database/Cursor;
 
     invoke-interface {v1}, Landroid/database/Cursor;->close()V
 

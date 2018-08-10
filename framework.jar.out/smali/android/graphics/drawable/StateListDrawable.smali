@@ -129,7 +129,9 @@
 
     move-result v7
 
-    if-eqz v7, :cond_0
+    xor-int/lit8 v7, v7, 0x1
+
+    if-nez v7, :cond_0
 
     sget-object v7, Lcom/android/internal/R$styleable;->StateListDrawableItem:[I
 
@@ -493,6 +495,18 @@
     aget-object v0, v0, p1
 
     return-object v0
+.end method
+
+.method public hasFocusStateSpecified()Z
+    .locals 1
+
+    iget-object v0, p0, Landroid/graphics/drawable/StateListDrawable;->mStateListState:Landroid/graphics/drawable/StateListDrawable$StateListState;
+
+    invoke-virtual {v0}, Landroid/graphics/drawable/StateListDrawable$StateListState;->hasFocusStateSpecified()Z
+
+    move-result v0
+
+    return v0
 .end method
 
 .method public inflate(Landroid/content/res/Resources;Lorg/xmlpull/v1/XmlPullParser;Landroid/util/AttributeSet;Landroid/content/res/Resources$Theme;)V

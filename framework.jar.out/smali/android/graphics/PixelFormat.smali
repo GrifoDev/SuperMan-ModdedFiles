@@ -26,6 +26,8 @@
 
 .field public static final OPAQUE:I = -0x1
 
+.field public static final RGBA_1010102:I = 0x2b
+
 .field public static final RGBA_4444:I = 0x7
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -37,6 +39,8 @@
 .end field
 
 .field public static final RGBA_8888:I = 0x1
+
+.field public static final RGBA_F16:I = 0x16
 
 .field public static final RGBX_8888:I = 0x2
 
@@ -89,37 +93,31 @@
 .method public static formatHasAlpha(I)Z
     .locals 1
 
-    packed-switch p0, :pswitch_data_0
+    sparse-switch p0, :sswitch_data_0
 
-    :pswitch_0
     const/4 v0, 0x0
 
     return v0
 
-    :pswitch_1
+    :sswitch_0
     const/4 v0, 0x1
 
     return v0
 
     nop
 
-    :pswitch_data_0
-    .packed-switch -0x3
-        :pswitch_1
-        :pswitch_1
-        :pswitch_0
-        :pswitch_0
-        :pswitch_1
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_1
-        :pswitch_1
-        :pswitch_1
-        :pswitch_0
-        :pswitch_1
-    .end packed-switch
+    :sswitch_data_0
+    .sparse-switch
+        -0x3 -> :sswitch_0
+        -0x2 -> :sswitch_0
+        0x1 -> :sswitch_0
+        0x6 -> :sswitch_0
+        0x7 -> :sswitch_0
+        0x8 -> :sswitch_0
+        0xa -> :sswitch_0
+        0x16 -> :sswitch_0
+        0x2b -> :sswitch_0
+    .end sparse-switch
 .end method
 
 .method public static getPixelFormatInfo(ILandroid/graphics/PixelFormat;)V
@@ -127,11 +125,12 @@
 
     const/16 v0, 0x10
 
+    const/16 v2, 0x8
+
     const/4 v1, 0x1
 
-    packed-switch p0, :pswitch_data_0
+    sparse-switch p0, :sswitch_data_0
 
-    :pswitch_0
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -156,7 +155,7 @@
 
     throw v0
 
-    :pswitch_1
+    :sswitch_0
     const/16 v0, 0x20
 
     iput v0, p1, Landroid/graphics/PixelFormat;->bitsPerPixel:I
@@ -168,7 +167,7 @@
     :goto_0
     return-void
 
-    :pswitch_2
+    :sswitch_1
     const/16 v0, 0x18
 
     iput v0, p1, Landroid/graphics/PixelFormat;->bitsPerPixel:I
@@ -179,7 +178,7 @@
 
     goto :goto_0
 
-    :pswitch_3
+    :sswitch_2
     iput v0, p1, Landroid/graphics/PixelFormat;->bitsPerPixel:I
 
     const/4 v0, 0x2
@@ -188,23 +187,21 @@
 
     goto :goto_0
 
-    :pswitch_4
-    const/16 v0, 0x8
+    :sswitch_3
+    iput v2, p1, Landroid/graphics/PixelFormat;->bitsPerPixel:I
 
+    iput v1, p1, Landroid/graphics/PixelFormat;->bytesPerPixel:I
+
+    goto :goto_0
+
+    :sswitch_4
     iput v0, p1, Landroid/graphics/PixelFormat;->bitsPerPixel:I
 
     iput v1, p1, Landroid/graphics/PixelFormat;->bytesPerPixel:I
 
     goto :goto_0
 
-    :pswitch_5
-    iput v0, p1, Landroid/graphics/PixelFormat;->bitsPerPixel:I
-
-    iput v1, p1, Landroid/graphics/PixelFormat;->bytesPerPixel:I
-
-    goto :goto_0
-
-    :pswitch_6
+    :sswitch_5
     const/16 v0, 0xc
 
     iput v0, p1, Landroid/graphics/PixelFormat;->bitsPerPixel:I
@@ -213,54 +210,58 @@
 
     goto :goto_0
 
-    nop
+    :sswitch_6
+    const/16 v0, 0x40
 
-    :pswitch_data_0
-    .packed-switch 0x1
-        :pswitch_1
-        :pswitch_1
-        :pswitch_2
-        :pswitch_3
-        :pswitch_0
-        :pswitch_3
-        :pswitch_3
-        :pswitch_4
-        :pswitch_4
-        :pswitch_3
-        :pswitch_4
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_5
-        :pswitch_6
-        :pswitch_0
-        :pswitch_0
-        :pswitch_5
-    .end packed-switch
+    iput v0, p1, Landroid/graphics/PixelFormat;->bitsPerPixel:I
+
+    iput v2, p1, Landroid/graphics/PixelFormat;->bytesPerPixel:I
+
+    goto :goto_0
+
+    :sswitch_data_0
+    .sparse-switch
+        0x1 -> :sswitch_0
+        0x2 -> :sswitch_0
+        0x3 -> :sswitch_1
+        0x4 -> :sswitch_2
+        0x6 -> :sswitch_2
+        0x7 -> :sswitch_2
+        0x8 -> :sswitch_3
+        0x9 -> :sswitch_3
+        0xa -> :sswitch_2
+        0xb -> :sswitch_3
+        0x10 -> :sswitch_4
+        0x11 -> :sswitch_5
+        0x14 -> :sswitch_4
+        0x16 -> :sswitch_6
+        0x2b -> :sswitch_0
+    .end sparse-switch
 .end method
 
 .method public static isPublicFormat(I)Z
     .locals 1
 
-    packed-switch p0, :pswitch_data_0
+    sparse-switch p0, :sswitch_data_0
 
     const/4 v0, 0x0
 
     return v0
 
-    :pswitch_0
+    :sswitch_0
     const/4 v0, 0x1
 
     return v0
 
     nop
 
-    :pswitch_data_0
-    .packed-switch 0x1
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-    .end packed-switch
+    :sswitch_data_0
+    .sparse-switch
+        0x1 -> :sswitch_0
+        0x2 -> :sswitch_0
+        0x3 -> :sswitch_0
+        0x4 -> :sswitch_0
+        0x16 -> :sswitch_0
+        0x2b -> :sswitch_0
+    .end sparse-switch
 .end method

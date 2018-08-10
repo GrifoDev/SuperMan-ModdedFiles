@@ -80,6 +80,8 @@
 
 .field static final TRANSACTION_setProhibitMode:I = 0x12
 
+.field static final TRANSACTION_setStandbyMode:I = 0x22
+
 .field static final TRANSACTION_setSystemAudioMode:I = 0xe
 
 .field static final TRANSACTION_setSystemAudioMute:I = 0x14
@@ -1208,6 +1210,39 @@
 
     return v26
 
+    :sswitch_22
+    const-string/jumbo v26, "android.hardware.hdmi.IHdmiControlService"
+
+    move-object/from16 v0, p2
+
+    move-object/from16 v1, v26
+
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v26
+
+    if-eqz v26, :cond_9
+
+    const/4 v12, 0x1
+
+    :goto_9
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v12}, Landroid/hardware/hdmi/IHdmiControlService$Stub;->setStandbyMode(Z)V
+
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    const/16 v26, 0x1
+
+    return v26
+
+    :cond_9
+    const/4 v12, 0x0
+
+    goto :goto_9
+
     nop
 
     :sswitch_data_0
@@ -1245,6 +1280,7 @@
         0x1f -> :sswitch_1f
         0x20 -> :sswitch_20
         0x21 -> :sswitch_21
+        0x22 -> :sswitch_22
         0x5f4e5446 -> :sswitch_0
     .end sparse-switch
 .end method

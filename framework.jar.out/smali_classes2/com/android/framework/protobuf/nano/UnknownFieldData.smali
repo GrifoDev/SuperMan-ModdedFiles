@@ -27,6 +27,8 @@
 .method computeSerializedSize()I
     .locals 2
 
+    const/4 v0, 0x0
+
     iget v1, p0, Lcom/android/framework/protobuf/nano/UnknownFieldData;->tag:I
 
     invoke-static {v1}, Lcom/android/framework/protobuf/nano/CodedOutputByteBufferNano;->computeRawVarint32Size(I)I
@@ -65,9 +67,7 @@
     :cond_1
     move-object v0, p1
 
-    nop
-
-    nop
+    check-cast v0, Lcom/android/framework/protobuf/nano/UnknownFieldData;
 
     iget v2, p0, Lcom/android/framework/protobuf/nano/UnknownFieldData;->tag:I
 
@@ -89,6 +89,8 @@
 
 .method public hashCode()I
     .locals 3
+
+    const/16 v0, 0x11
 
     iget v1, p0, Lcom/android/framework/protobuf/nano/UnknownFieldData;->tag:I
 

@@ -48,10 +48,9 @@
     packed-switch v0, :pswitch_data_0
 
     :goto_0
-    :pswitch_0
     return-void
 
-    :pswitch_1
+    :pswitch_0
     iget-object v0, p0, Landroid/widget/DatePickerCalendarDelegate$3;->this$0:Landroid/widget/DatePickerCalendarDelegate;
 
     const/4 v1, 0x1
@@ -60,7 +59,7 @@
 
     goto :goto_0
 
-    :pswitch_2
+    :pswitch_1
     iget-object v0, p0, Landroid/widget/DatePickerCalendarDelegate$3;->this$0:Landroid/widget/DatePickerCalendarDelegate;
 
     const/4 v1, 0x0
@@ -72,9 +71,8 @@
     nop
 
     :pswitch_data_0
-    .packed-switch 0x10203b1
+    .packed-switch 0x1020263
         :pswitch_1
         :pswitch_0
-        :pswitch_2
     .end packed-switch
 .end method

@@ -283,7 +283,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_3
+    if-eqz v4, :cond_2
 
     invoke-interface {v3, v2}, Landroid/nfc/INfcTag;->ndefRead(I)Landroid/nfc/NdefMessage;
 
@@ -295,24 +295,25 @@
 
     move-result v4
 
-    if-eqz v4, :cond_2
+    xor-int/lit8 v4, v4, 0x1
 
-    :cond_1
-    return-object v1
+    if-eqz v4, :cond_1
 
-    :cond_2
     new-instance v4, Landroid/nfc/TagLostException;
 
     invoke-direct {v4}, Landroid/nfc/TagLostException;-><init>()V
 
     throw v4
 
-    :cond_3
+    :cond_1
+    return-object v1
+
+    :cond_2
     invoke-interface {v3, v2}, Landroid/nfc/INfcTag;->isPresent(I)Z
 
     move-result v4
 
-    if-nez v4, :cond_4
+    if-nez v4, :cond_3
 
     new-instance v4, Landroid/nfc/TagLostException;
 
@@ -322,7 +323,7 @@
     :try_end_1
     .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
 
-    :cond_4
+    :cond_3
     return-object v6
 .end method
 

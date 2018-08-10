@@ -14,11 +14,15 @@
 # static fields
 .field private static final DEBUG:Z = false
 
+.field public static final EXTRA_CAN_SELECT_PRINTER:Ljava/lang/String; = "android.printservice.extra.CAN_SELECT_PRINTER"
+
 .field public static final EXTRA_PRINTER_INFO:Ljava/lang/String; = "android.intent.extra.print.EXTRA_PRINTER_INFO"
 
 .field public static final EXTRA_PRINT_DOCUMENT_INFO:Ljava/lang/String; = "android.printservice.extra.PRINT_DOCUMENT_INFO"
 
 .field public static final EXTRA_PRINT_JOB_INFO:Ljava/lang/String; = "android.intent.extra.print.PRINT_JOB_INFO"
+
+.field public static final EXTRA_SELECT_PRINTER:Ljava/lang/String; = "android.printservice.extra.SELECT_PRINTER"
 
 .field private static final LOG_TAG:Ljava/lang/String; = "PrintService"
 
@@ -168,11 +172,11 @@
 
     new-instance v1, Landroid/content/ComponentName;
 
-    invoke-virtual {p0}, Landroid/content/ContextWrapper;->getPackageName()Ljava/lang/String;
+    invoke-virtual {p0}, Landroid/printservice/PrintService;->getPackageName()Ljava/lang/String;
 
     move-result-object v2
 
-    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+    invoke-virtual {p0}, Landroid/printservice/PrintService;->getClass()Ljava/lang/Class;
 
     move-result-object v3
 

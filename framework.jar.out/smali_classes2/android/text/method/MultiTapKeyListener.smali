@@ -163,7 +163,7 @@
 .method public static getInstance(ZLandroid/text/method/TextKeyListener$Capitalize;)Landroid/text/method/MultiTapKeyListener;
     .locals 3
 
-    invoke-virtual {p1}, Ljava/lang/Enum;->ordinal()I
+    invoke-virtual {p1}, Landroid/text/method/TextKeyListener$Capitalize;->ordinal()I
 
     move-result v1
 
@@ -229,7 +229,7 @@
 
     aget-object v1, v2, v0
 
-    invoke-virtual {v1, v1}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
+    invoke-virtual {v1, v1}, Landroid/text/method/MultiTapKeyListener$Timeout;->removeCallbacks(Ljava/lang/Runnable;)V
 
     const/4 v3, 0x0
 

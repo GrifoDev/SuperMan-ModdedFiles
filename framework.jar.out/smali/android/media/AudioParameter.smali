@@ -6,6 +6,8 @@
 # static fields
 .field public static final AUDIO_PARAMETER_KEY_AUDIOCORE_LOGGING:Ljava/lang/String; = "logging"
 
+.field public static final AUDIO_PARAMETER_KEY_BT_OFFLOAD_ENABLE:Ljava/lang/String; = "bt_offload_enable"
+
 .field public static final AUDIO_PARAMETER_KEY_FINEVOLUME:Ljava/lang/String; = "fine_volume"
 
 .field public static final AUDIO_PARAMETER_KEY_FINEVOLUME_V2:Ljava/lang/String; = "fine_volume_v2"
@@ -36,6 +38,12 @@
 
 .field public static final AUDIO_PARAMETER_KEY_IS_USE_AUDIO_FOR_UID:Ljava/lang/String; = "isUseAudioForUid"
 
+.field public static final AUDIO_PARAMETER_KEY_MULTISOUND_GET_ACTIVE_DEVICE_NAME:Ljava/lang/String; = "multisound_get_active_bt_device_name"
+
+.field public static final AUDIO_PARAMETER_KEY_MULTISOUND_MAX_LIMITED_SPK_VOLUME_STATE:Ljava/lang/String; = "multisound_max_limited_spk_volume_state"
+
+.field public static final AUDIO_PARAMETER_KEY_MULTISOUND_MAX_LIMITED_SPK_VOLUME_UID:Ljava/lang/String; = "multisound_max_limited_spk_volume_uid"
+
 .field public static final AUDIO_PARAMETER_KEY_MULTISOUND_ON:Ljava/lang/String; = "multisound_on"
 
 .field public static final AUDIO_PARAMETER_KEY_MULTISOUND_PREFIX:Ljava/lang/String; = "multisound"
@@ -47,6 +55,8 @@
 .field public static final AUDIO_PARAMETER_KEY_MULTISOUND_SETVOLUME_UID:Ljava/lang/String; = "multisound_setvolume_uid"
 
 .field public static final AUDIO_PARAMETER_KEY_MULTISOUND_SETVOLUME_VOLUME:Ljava/lang/String; = "multisound_setvolume_volume"
+
+.field public static final AUDIO_PARAMETER_KEY_PACKAGENAME:Ljava/lang/String; = "package_name"
 
 .field public static final AUDIO_PARAMETER_KEY_PIN_APP_NAME:Ljava/lang/String; = "multisound_pinappname"
 
@@ -194,12 +204,10 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    xor-int/lit8 v0, v0, 0x1
 
-    :cond_0
-    return-object v1
+    if-eqz v0, :cond_0
 
-    :cond_1
     iget-object v0, p0, Landroid/media/AudioParameter;->mAudioParams:Ljava/util/Hashtable;
 
     invoke-virtual {v0, p1}, Ljava/util/Hashtable;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -209,6 +217,9 @@
     check-cast v0, Ljava/lang/String;
 
     return-object v0
+
+    :cond_0
+    return-object v1
 .end method
 
 .method public toString()Ljava/lang/String;
@@ -218,7 +229,7 @@
 
     iget-object v3, p0, Landroid/media/AudioParameter;->mAudioParams:Ljava/util/Hashtable;
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_1
 
     iget-object v3, p0, Landroid/media/AudioParameter;->mAudioParams:Ljava/util/Hashtable;
 
@@ -226,12 +237,10 @@
 
     move-result v3
 
+    xor-int/lit8 v3, v3, 0x1
+
     if-eqz v3, :cond_1
 
-    :cond_0
-    return-object v2
-
-    :cond_1
     iget-object v3, p0, Landroid/media/AudioParameter;->mAudioParams:Ljava/util/Hashtable;
 
     invoke-virtual {v3}, Ljava/util/Hashtable;->entrySet()Ljava/util/Set;
@@ -242,13 +251,13 @@
 
     move-result-object v0
 
-    :cond_2
+    :cond_0
     :goto_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_1
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -322,7 +331,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_0
 
     new-instance v3, Ljava/lang/StringBuilder;
 
@@ -343,4 +352,7 @@
     move-result-object v2
 
     goto :goto_0
+
+    :cond_1
+    return-object v2
 .end method

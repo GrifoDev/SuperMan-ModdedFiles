@@ -40,8 +40,6 @@
 
 .field public static final BUTTON_BRIGHTNESS_CHANGED:I = 0x2000
 
-.field public static final BUTTON_LIGHT_TIMEOUT_CHANGED:I = 0x8000000
-
 .field public static final COVER_MODE_CHANGED:I = 0x20000000
 
 .field public static final COVER_MODE_HIDE_SVIEW_ONCE:I = 0x2
@@ -87,6 +85,9 @@
 .field public static final FLAG_DIM_BEHIND:I = 0x2
 
 .field public static final FLAG_DISMISS_KEYGUARD:I = 0x400000
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
 
 .field public static final FLAG_DITHER:I = 0x1000
     .annotation runtime Ljava/lang/Deprecated;
@@ -158,6 +159,8 @@
 
 .field public static final INPUT_FEATURE_NO_INPUT_CHANNEL:I = 0x2
 
+.field public static final INVALID_WINDOW_TYPE:I = -0x1
+
 .field public static final LAST_APPLICATION_WINDOW:I = 0x63
 
 .field public static final LAST_SUB_WINDOW:I = 0x7cf
@@ -228,7 +231,7 @@
 
 .field public static final PRIVATE_FLAG_PRESERVE_GEOMETRY:I = 0x2000
 
-.field public static final PRIVATE_FLAG_SHARED_DEVICE_KEYGUARD:I = 0x80000
+.field public static final PRIVATE_FLAG_SHARED_DEVICE_KEYGUARD:I = 0x800000
 
 .field public static final PRIVATE_FLAG_SHOW_FOR_ALL_USERS:I = 0x10
 
@@ -248,51 +251,13 @@
 
 .field public static final ROTATION_ANIMATION_ROTATE:I = 0x0
 
+.field public static final ROTATION_ANIMATION_SEAMLESS:I = 0x3
+
 .field public static final SAMSUNG_FLAGS_CHANGED:I = 0x10000000
 
-.field public static final SAMSUNG_FLAG_CHANGE_DIM_EFFECT_TO_BLUR:I = 0x40
-
-.field public static final SAMSUNG_FLAG_CONTENT_RESIZE_ANIMATION:I = 0x4000
-
-.field public static final SAMSUNG_FLAG_DEFER_SURFACE_DESTROY:I = 0x1000
-
-.field public static final SAMSUNG_FLAG_DISABLE_LAYOUT_INSETS_BY_SOFT_INPUT:I = 0x400
-
-.field public static final SAMSUNG_FLAG_DISABLE_TRANSIENT_COCKTAIL_BAR:I = 0x40000000
-
-.field public static final SAMSUNG_FLAG_DONT_NEED_SURFACE_BUFFER:I = 0x80
-
-.field public static final SAMSUNG_FLAG_ENABLE_STATUSBAR_OPEN_BY_NOTIFICATION:I = 0x2
-
-.field public static final SAMSUNG_FLAG_FAKE_FOCUSABLE:I = 0x10000
-
-.field public static final SAMSUNG_FLAG_FIXED_ORIENTATION_LANDSCAPE:I = 0x4
-
-.field public static final SAMSUNG_FLAG_FIXED_ORIENTATION_PORTRAIT:I = 0x8
+.field public static final SAMSUNG_FLAG_DECOR_CAPTION_WINDOW:I = 0x100
 
 .field public static final SAMSUNG_FLAG_FORCE_HIDE_FLOATING_MULTIWINDOW:I = 0x4000000
-
-.field public static final SAMSUNG_FLAG_FORCE_TRUSTED_OVERLAY:I = 0x20000
-
-.field public static final SAMSUNG_FLAG_FULLSCREEN_COCKTAIL:I = 0x20000000
-
-.field public static final SAMSUNG_FLAG_INCLUDE_IN_PARTIAL_MIRROR:I = 0x8000
-
-.field public static final SAMSUNG_FLAG_INTERNAL_PRESENTATION:I = -0x80000000
-
-.field public static final SAMSUNG_FLAG_MOBILE_KEYBOARD_INPUT_METHOD:I = 0x800
-
-.field public static final SAMSUNG_FLAG_NOT_SELECTABLE:I = 0x2000
-
-.field public static final SAMSUNG_FLAG_NO_RESIZE_ANIMATION_INCLUDE_CHILD:I = 0x10
-
-.field public static final SAMSUNG_FLAG_OVERRIDE_SYSTEM_UI_POLICY:I = 0x20
-
-.field public static final SAMSUNG_FLAG_SOFT_INPUT_ADJUST_RESIZE_FULLSCREEN:I = 0x1
-
-.field public static final SAMSUNG_FLAG_SOFT_INPUT_DELAYED_ADJUST_RESIZE:I = 0x200
-
-.field public static final SAMSUNG_FLAG_SVIEW_COVER:I = 0x10000000
 
 .field public static final SCREEN_BRIGHTNESS_CHANGED:I = 0x800
 
@@ -308,11 +273,15 @@
 
 .field public static final SEM_EXTENSION_FLAG_DELIVER_OUTSIDE_TOUCH:I = 0x8000000
 
+.field public static final SEM_EXTENSION_FLAG_DOZE_MODE:I = 0x40000
+
 .field public static final SEM_EXTENSION_FLAG_FAKE_FOCUS:I = 0x10000
 
 .field public static final SEM_EXTENSION_FLAG_FIXED_ORIENTATION_LANDSCAPE:I = 0x4
 
 .field public static final SEM_EXTENSION_FLAG_FIXED_ORIENTATION_PORTRAIT:I = 0x8
+
+.field public static final SEM_EXTENSION_FLAG_FORCE_HIDE_DEX_LOADING_SCREEN:I = 0x1000
 
 .field public static final SEM_EXTENSION_FLAG_FORCE_HIDE_FLOATING_MULTIWINDOW:I = 0x4000000
 
@@ -320,11 +289,25 @@
 
 .field public static final SEM_EXTENSION_FLAG_INTERNAL_PRESENTATION_ONLY:I = -0x80000000
 
+.field public static final SEM_EXTENSION_FLAG_MOBILE_KEYBOARD_INPUT_METHOD:I = 0x800
+
+.field public static final SEM_EXTENSION_FLAG_NO_RESIZE_ANIMATION_INCLUDE_CHILD:I = 0x10
+
 .field public static final SEM_EXTENSION_FLAG_NO_SURFACE_BUFFER:I = 0x80
 
 .field public static final SEM_EXTENSION_FLAG_OVERRIDE_SYSTEM_UI_POLICY:I = 0x20
 
 .field public static final SEM_EXTENSION_FLAG_RESIZE_FULLSCREEN_WINDOW_ON_SOFT_INPUT:I = 0x1
+
+.field public static final SEM_EXTENSION_FLAG_SVIEW_COVER:I = 0x10000000
+
+.field public static final SEM_INPUT_FEATURE_ENABLE_PARTIAL_TOUCH:I = 0x40000000
+
+.field public static final SEM_INPUT_FEATURE_ROTATE_COORDINATE_180_DEGREE:I = 0x20000000
+
+.field public static final SEM_INPUT_FEATURE_ROTATE_COORDINATE_90_DEGREE:I = 0x10000000
+
+.field public static final SEM_PRIVATE_FLAG_FORCE_LIGHT_NAVIGATION_BAR:I = 0x1000000
 
 .field public static final SEM_PRIVATE_FLAG_NO_MOVE_ANIMATION:I = 0x40
 
@@ -332,23 +315,81 @@
 
 .field public static final SEM_TYPE_AIR_COMMAND:I = 0x961
 
+.field public static final SEM_TYPE_AIR_TRANSLATOR:I = 0x98a
+
+.field public static final SEM_TYPE_AOD:I = 0x8b1
+
+.field public static final SEM_TYPE_BIXBY_CLIENT:I = 0x96e
+
 .field public static final SEM_TYPE_CARMODE_BAR:I = 0x8de
 
 .field public static final SEM_TYPE_CARMODE_BAR_OVERLAY:I = 0x8df
 
+.field public static final SEM_TYPE_CLIPBOARD:I = 0x960
+
+.field public static final SEM_TYPE_COCKTAIL_BAR:I = 0x8ac
+
+.field public static final SEM_TYPE_COCKTAIL_BAR_BACKGROUND:I = 0x8ad
+
 .field public static final SEM_TYPE_COCKTAIL_BAR_OVERLAY:I = 0x8ae
 
+.field public static final SEM_TYPE_CONVENTIONAL_RATIO_CHANGE_GUIDE:I = 0x8e0
+
+.field public static final SEM_TYPE_DEX_INTERNAL_PRESENTATION:I = 0x975
+
+.field public static final SEM_TYPE_DOZE_DREAM:I = 0x96a
+
+.field public static final SEM_TYPE_EDGE_OVERLAY:I = 0x8b2
+
+.field public static final SEM_TYPE_FLOATING_APPLICATION_WINDOW:I = 0x96d
+
+.field public static final SEM_TYPE_GAME_TOOL:I = 0x97e
+
+.field public static final SEM_TYPE_GAME_TOOL_OVERLAY:I = 0x97f
+
+.field public static final SEM_TYPE_GLOBAL_ACTION:I = 0x96b
+
+.field public static final SEM_TYPE_INPUT_METHOD_PANEL:I = 0x44c
+
 .field public static final SEM_TYPE_INTERNAL_PRESENTATION:I = 0x967
+
+.field public static final SEM_TYPE_KNOX_KEYGUARD:I = 0x964
+
+.field public static final SEM_TYPE_NAVIBAR_TOUCH_INTERCEPT_OVERLAY:I = 0x8e1
+
+.field public static final SEM_TYPE_NAVIGATION_BAR_OVERLAY:I = 0x7e8
+
+.field public static final SEM_TYPE_NIGHT_CLOCK_BACKGROUND:I = 0x8b4
+
+.field public static final SEM_TYPE_NIGHT_CLOCK_OVERLAY:I = 0x8b3
+
+.field public static final SEM_TYPE_PENTASTIC_ANIM:I = 0x963
+
+.field public static final SEM_TYPE_PENTASTIC_ICON:I = 0x962
 
 .field public static final SEM_TYPE_POPUP_PLAYER:I = 0x966
 
 .field public static final SEM_TYPE_SCREENSHOT_EFFECT:I = 0x968
 
-.field public static final SEM_TYPE_STATUS_BAR_OVERLAY:I = 0x831
+.field public static final SEM_TYPE_SCROLL_CAPTURE:I = 0x989
 
-.field public static final SEM_TYPE_STATUS_BAR_PANEL_USER:I = 0x830
+.field public static final SEM_TYPE_SHARED_DEVICE_KEYGUARD:I = 0x969
+
+.field public static final SEM_TYPE_SMART_SELECT:I = 0x988
+
+.field public static final SEM_TYPE_STATUS_BAR_OVERLAY:I = 0x8e8
+
+.field public static final SEM_TYPE_STATUS_BAR_PANEL_USER:I = 0x8e9
+
+.field public static final SEM_TYPE_STATUS_BAR_WIDGET:I = 0x96f
 
 .field public static final SEM_TYPE_SVIEW_COVER_DIALOG:I = 0x833
+
+.field public static final SEM_TYPE_SYSTEM_DIALOG:I = 0x96c
+
+.field public static final SEM_TYPE_TOUCH_PAD:I = 0x974
+
+.field public static final SEM_TYPE_WINDOW_FOR_UNIVERSAL_VIEW:I = 0x965
 
 .field public static final SOFT_INPUT_ADJUST_NOTHING:I = 0x30
 
@@ -390,19 +431,17 @@
 
 .field public static final TYPE_ACCESSIBILITY_OVERLAY:I = 0x7f0
 
-.field public static final TYPE_AIRCOMMAND:I = 0x961
-
 .field public static final TYPE_APPLICATION:I = 0x2
 
 .field public static final TYPE_APPLICATION_ABOVE_SUB_PANEL:I = 0x3ed
 
 .field public static final TYPE_APPLICATION_ATTACHED_DIALOG:I = 0x3eb
 
-.field public static final TYPE_APPLICATION_COCKTAIL:I = 0x62
-
 .field public static final TYPE_APPLICATION_MEDIA:I = 0x3e9
 
 .field public static final TYPE_APPLICATION_MEDIA_OVERLAY:I = 0x3ec
+
+.field public static final TYPE_APPLICATION_OVERLAY:I = 0x7f6
 
 .field public static final TYPE_APPLICATION_PANEL:I = 0x3e8
 
@@ -414,19 +453,7 @@
 
 .field public static final TYPE_BOOT_PROGRESS:I = 0x7e5
 
-.field public static final TYPE_CARMODE_BAR:I = 0x8de
-
-.field public static final TYPE_CARMODE_BAR_OVERLAY:I = 0x8df
-
 .field public static final TYPE_CHANGED:I = 0x2
-
-.field public static final TYPE_CLIPBOARD:I = 0x960
-
-.field public static final TYPE_COCKTAIL_BAR:I = 0x8ac
-
-.field public static final TYPE_COCKTAIL_BAR_BACKGROUND:I = 0x8ad
-
-.field public static final TYPE_COCKTAIL_BAR_OVERLAY:I = 0x8ae
 
 .field public static final TYPE_DISPLAY_OVERLAY:I = 0x7ea
 
@@ -434,15 +461,13 @@
 
 .field public static final TYPE_DRAG:I = 0x7e0
 
-.field public static final TYPE_DREAM:I = 0x7e7
+.field public static final TYPE_DRAWN_APPLICATION:I = 0x4
 
-.field public static final TYPE_EASYONEHAND_BACKGROUND:I = 0x8cf
+.field public static final TYPE_DREAM:I = 0x7e7
 
 .field public static final TYPE_EASYONEHAND_CONTROLLER:I = 0x8ca
 
 .field public static final TYPE_EASYONEHAND_HANDLER:I = 0x8ce
-
-.field public static final TYPE_EDGE_OVERLAY:I = 0x8b2
 
 .field public static final TYPE_INPUT_CONSUMER:I = 0x7e6
 
@@ -450,27 +475,17 @@
 
 .field public static final TYPE_INPUT_METHOD_DIALOG:I = 0x7dc
 
-.field public static final TYPE_INPUT_METHOD_PANEL:I = 0x44c
-
 .field public static final TYPE_KEYGUARD:I = 0x7d4
 
 .field public static final TYPE_KEYGUARD_DIALOG:I = 0x7d9
 
-.field public static final TYPE_KEYGUARD_EFFECT:I = 0x832
-
-.field public static final TYPE_KEYGUARD_SCRIM:I = 0x7ed
-
-.field public static final TYPE_KNOX_KEYGUARD:I = 0x964
-
 .field public static final TYPE_MAGNIFICATION_OVERLAY:I = 0x7eb
 
-.field public static final TYPE_MINI_APP:I = 0x898
-
-.field public static final TYPE_MINI_APP_ON_KEYGUARD:I = 0x899
+.field public static final TYPE_MULTIWINDOW_DOCK_DIVIDER_CLOSE_PANEL:I = 0x902
 
 .field public static final TYPE_MULTIWINDOW_DOCK_DIVIDER_PANEL:I = 0x8fe
 
-.field public static final TYPE_MULTIWINDOW_FOCUSED_FRAME:I = 0x8fc
+.field public static final TYPE_MULTIWINDOW_DOCK_DIVIDER_PANEL_DIM_LAYER:I = 0x903
 
 .field public static final TYPE_MULTIWINDOW_GESTURE_GUIDE:I = 0x8fd
 
@@ -482,19 +497,23 @@
 
 .field public static final TYPE_NAVIGATION_BAR:I = 0x7e3
 
+.field public static final TYPE_NAVIGATION_BAR_ON_SECONDARY_DISPLAY:I = 0x904
+
 .field public static final TYPE_NAVIGATION_BAR_PANEL:I = 0x7e8
 
-.field public static final TYPE_NIGHT_CLOCK:I = 0x8b1
-
-.field public static final TYPE_PENTASTIC_ANIM:I = 0x963
-
-.field public static final TYPE_PENTASTIC_ICON:I = 0x962
-
 .field public static final TYPE_PHONE:I = 0x7d2
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
 
 .field public static final TYPE_POINTER:I = 0x7e2
 
+.field public static final TYPE_PRESENTATION:I = 0x7f5
+
 .field public static final TYPE_PRIORITY_PHONE:I = 0x7d7
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
 
 .field public static final TYPE_PRIVATE_PRESENTATION:I = 0x7ee
 
@@ -508,37 +527,39 @@
 
 .field public static final TYPE_SECURE_SYSTEM_OVERLAY:I = 0x7df
 
-.field public static final TYPE_SIDE_SYNC_OVERLAY:I = 0x8b6
-
 .field public static final TYPE_STATUS_BAR:I = 0x7d0
-
-.field public static final TYPE_STATUS_BAR_OVERLAY:I = 0x831
 
 .field public static final TYPE_STATUS_BAR_PANEL:I = 0x7de
 
-.field public static final TYPE_STATUS_BAR_PANEL_USER:I = 0x830
-
 .field public static final TYPE_STATUS_BAR_SUB_PANEL:I = 0x7e1
 
-.field public static final TYPE_SVIEW_COVER_DIALOG:I = 0x833
-
 .field public static final TYPE_SYSTEM_ALERT:I = 0x7d3
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
 
 .field public static final TYPE_SYSTEM_DIALOG:I = 0x7d8
 
 .field public static final TYPE_SYSTEM_ERROR:I = 0x7da
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
 
 .field public static final TYPE_SYSTEM_OVERLAY:I = 0x7d6
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
 
 .field public static final TYPE_TOAST:I = 0x7d5
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
 
 .field public static final TYPE_VOICE_INTERACTION:I = 0x7ef
 
 .field public static final TYPE_VOICE_INTERACTION_STARTING:I = 0x7f1
 
 .field public static final TYPE_VOLUME_OVERLAY:I = 0x7e4
-
-.field public static final TYPE_VR_APPLICATION:I = 0x61
 
 .field public static final TYPE_VR_BACKGROUND:I = 0x836
 
@@ -547,8 +568,6 @@
 .field public static final TYPE_VR_POPUP:I = 0x834
 
 .field public static final TYPE_WALLPAPER:I = 0x7dd
-
-.field public static final TYPE_WINDOW_FOR_UNIVERSAL_VIEW:I = 0x965
 
 .field public static final USER_ACTIVITY_TIMEOUT_CHANGED:I = 0x40000
 
@@ -561,8 +580,6 @@
 .field public alpha:F
 
 .field public buttonBrightness:F
-
-.field public buttonLightTimeout:J
 
 .field public coverMode:I
 
@@ -731,6 +748,8 @@
 
 .field public hasSystemUiListeners:Z
 
+.field public hideTimeoutMilliseconds:J
+
 .field public horizontalMargin:F
 
 .field public horizontalWeight:F
@@ -739,6 +758,8 @@
 .end field
 
 .field public inputFeatures:I
+
+.field private mColorMode:I
 
 .field private mCompatibilityParamsBackup:[I
 
@@ -765,8 +786,6 @@
 .field public preservePreviousSurfaceInsets:Z
 
 .field public privateFlags:I
-
-.field public removeTimeoutMilliseconds:J
 
 .field public rotationAnimation:I
 
@@ -802,6 +821,10 @@
             .subannotation Landroid/view/ViewDebug$IntToString;
                 from = 0x3
                 to = "TYPE_APPLICATION_STARTING"
+            .end subannotation,
+            .subannotation Landroid/view/ViewDebug$IntToString;
+                from = 0x4
+                to = "TYPE_DRAWN_APPLICATION"
             .end subannotation,
             .subannotation Landroid/view/ViewDebug$IntToString;
                 from = 0x3e8
@@ -932,6 +955,10 @@
                 to = "TYPE_MAGNIFICATION_OVERLAY"
             .end subannotation,
             .subannotation Landroid/view/ViewDebug$IntToString;
+                from = 0x7f5
+                to = "TYPE_PRESENTATION"
+            .end subannotation,
+            .subannotation Landroid/view/ViewDebug$IntToString;
                 from = 0x7ee
                 to = "TYPE_PRIVATE_PRESENTATION"
             .end subannotation,
@@ -956,16 +983,8 @@
                 to = "TYPE_SCREENSHOT"
             .end subannotation,
             .subannotation Landroid/view/ViewDebug$IntToString;
-                from = 0x8fc
-                to = "TYPE_MULTIWINDOW_FOCUSED_TASK_FRAME"
-            .end subannotation,
-            .subannotation Landroid/view/ViewDebug$IntToString;
-                from = 0x8fe
-                to = "TYPE_MULTIWINDOW_DOCK_DIVIDER_PANEL"
-            .end subannotation,
-            .subannotation Landroid/view/ViewDebug$IntToString;
-                from = 0x833
-                to = "TYPE_SVIEW_COVER_DIALOG"
+                from = 0x7f6
+                to = "TYPE_APPLICATION_OVERLAY"
             .end subannotation
         }
     .end annotation
@@ -1011,17 +1030,17 @@
 
     const/high16 v6, -0x40800000    # -1.0f
 
-    const/4 v5, 0x0
+    const-wide/16 v4, -0x1
 
-    const/4 v4, 0x0
+    const/4 v3, 0x0
 
-    const-wide/16 v2, -0x1
+    const/4 v2, 0x0
 
     const/4 v1, -0x1
 
     invoke-direct {p0, v1, v1}, Landroid/view/ViewGroup$LayoutParams;-><init>(II)V
 
-    iput v4, p0, Landroid/view/WindowManager$LayoutParams;->needsMenuKey:I
+    iput v2, p0, Landroid/view/WindowManager$LayoutParams;->needsMenuKey:I
 
     new-instance v0, Landroid/graphics/Rect;
 
@@ -1041,37 +1060,37 @@
 
     iput v0, p0, Landroid/view/WindowManager$LayoutParams;->dimAmount:F
 
-    iput-wide v2, p0, Landroid/view/WindowManager$LayoutParams;->dimDuration:J
-
     iput v6, p0, Landroid/view/WindowManager$LayoutParams;->screenBrightness:F
 
     iput v6, p0, Landroid/view/WindowManager$LayoutParams;->buttonBrightness:F
 
-    iput v4, p0, Landroid/view/WindowManager$LayoutParams;->rotationAnimation:I
+    iput v2, p0, Landroid/view/WindowManager$LayoutParams;->rotationAnimation:I
 
-    iput-object v5, p0, Landroid/view/WindowManager$LayoutParams;->token:Landroid/os/IBinder;
+    iput-object v3, p0, Landroid/view/WindowManager$LayoutParams;->token:Landroid/os/IBinder;
 
-    iput-object v5, p0, Landroid/view/WindowManager$LayoutParams;->packageName:Ljava/lang/String;
+    iput-object v3, p0, Landroid/view/WindowManager$LayoutParams;->packageName:Ljava/lang/String;
 
     iput v1, p0, Landroid/view/WindowManager$LayoutParams;->screenOrientation:I
 
-    iput-wide v2, p0, Landroid/view/WindowManager$LayoutParams;->userActivityTimeout:J
-
-    iput-wide v2, p0, Landroid/view/WindowManager$LayoutParams;->screenDimDuration:J
-
-    iput-wide v2, p0, Landroid/view/WindowManager$LayoutParams;->buttonLightTimeout:J
-
-    iput v4, p0, Landroid/view/WindowManager$LayoutParams;->navigationBarIconColor:I
+    iput-wide v4, p0, Landroid/view/WindowManager$LayoutParams;->userActivityTimeout:J
 
     iput v1, p0, Landroid/view/WindowManager$LayoutParams;->accessibilityIdOfAnchor:I
 
-    iput-wide v2, p0, Landroid/view/WindowManager$LayoutParams;->removeTimeoutMilliseconds:J
+    iput-wide v4, p0, Landroid/view/WindowManager$LayoutParams;->hideTimeoutMilliseconds:J
 
-    iput v4, p0, Landroid/view/WindowManager$LayoutParams;->coverMode:I
+    iput v2, p0, Landroid/view/WindowManager$LayoutParams;->mColorMode:I
 
-    iput-object v5, p0, Landroid/view/WindowManager$LayoutParams;->mCompatibilityParamsBackup:[I
+    iput-wide v4, p0, Landroid/view/WindowManager$LayoutParams;->dimDuration:J
 
-    iput-object v5, p0, Landroid/view/WindowManager$LayoutParams;->mTitle:Ljava/lang/CharSequence;
+    iput-wide v4, p0, Landroid/view/WindowManager$LayoutParams;->screenDimDuration:J
+
+    iput v2, p0, Landroid/view/WindowManager$LayoutParams;->navigationBarIconColor:I
+
+    iput v2, p0, Landroid/view/WindowManager$LayoutParams;->coverMode:I
+
+    iput-object v3, p0, Landroid/view/WindowManager$LayoutParams;->mCompatibilityParamsBackup:[I
+
+    iput-object v3, p0, Landroid/view/WindowManager$LayoutParams;->mTitle:Ljava/lang/CharSequence;
 
     const/4 v0, 0x2
 
@@ -1087,17 +1106,17 @@
 
     const/high16 v6, -0x40800000    # -1.0f
 
-    const/4 v5, 0x0
+    const-wide/16 v4, -0x1
 
-    const/4 v4, 0x0
+    const/4 v3, 0x0
 
-    const-wide/16 v2, -0x1
+    const/4 v2, 0x0
 
     const/4 v1, -0x1
 
     invoke-direct {p0, v1, v1}, Landroid/view/ViewGroup$LayoutParams;-><init>(II)V
 
-    iput v4, p0, Landroid/view/WindowManager$LayoutParams;->needsMenuKey:I
+    iput v2, p0, Landroid/view/WindowManager$LayoutParams;->needsMenuKey:I
 
     new-instance v0, Landroid/graphics/Rect;
 
@@ -1117,37 +1136,37 @@
 
     iput v0, p0, Landroid/view/WindowManager$LayoutParams;->dimAmount:F
 
-    iput-wide v2, p0, Landroid/view/WindowManager$LayoutParams;->dimDuration:J
-
     iput v6, p0, Landroid/view/WindowManager$LayoutParams;->screenBrightness:F
 
     iput v6, p0, Landroid/view/WindowManager$LayoutParams;->buttonBrightness:F
 
-    iput v4, p0, Landroid/view/WindowManager$LayoutParams;->rotationAnimation:I
+    iput v2, p0, Landroid/view/WindowManager$LayoutParams;->rotationAnimation:I
 
-    iput-object v5, p0, Landroid/view/WindowManager$LayoutParams;->token:Landroid/os/IBinder;
+    iput-object v3, p0, Landroid/view/WindowManager$LayoutParams;->token:Landroid/os/IBinder;
 
-    iput-object v5, p0, Landroid/view/WindowManager$LayoutParams;->packageName:Ljava/lang/String;
+    iput-object v3, p0, Landroid/view/WindowManager$LayoutParams;->packageName:Ljava/lang/String;
 
     iput v1, p0, Landroid/view/WindowManager$LayoutParams;->screenOrientation:I
 
-    iput-wide v2, p0, Landroid/view/WindowManager$LayoutParams;->userActivityTimeout:J
-
-    iput-wide v2, p0, Landroid/view/WindowManager$LayoutParams;->screenDimDuration:J
-
-    iput-wide v2, p0, Landroid/view/WindowManager$LayoutParams;->buttonLightTimeout:J
-
-    iput v4, p0, Landroid/view/WindowManager$LayoutParams;->navigationBarIconColor:I
+    iput-wide v4, p0, Landroid/view/WindowManager$LayoutParams;->userActivityTimeout:J
 
     iput v1, p0, Landroid/view/WindowManager$LayoutParams;->accessibilityIdOfAnchor:I
 
-    iput-wide v2, p0, Landroid/view/WindowManager$LayoutParams;->removeTimeoutMilliseconds:J
+    iput-wide v4, p0, Landroid/view/WindowManager$LayoutParams;->hideTimeoutMilliseconds:J
 
-    iput v4, p0, Landroid/view/WindowManager$LayoutParams;->coverMode:I
+    iput v2, p0, Landroid/view/WindowManager$LayoutParams;->mColorMode:I
 
-    iput-object v5, p0, Landroid/view/WindowManager$LayoutParams;->mCompatibilityParamsBackup:[I
+    iput-wide v4, p0, Landroid/view/WindowManager$LayoutParams;->dimDuration:J
 
-    iput-object v5, p0, Landroid/view/WindowManager$LayoutParams;->mTitle:Ljava/lang/CharSequence;
+    iput-wide v4, p0, Landroid/view/WindowManager$LayoutParams;->screenDimDuration:J
+
+    iput v2, p0, Landroid/view/WindowManager$LayoutParams;->navigationBarIconColor:I
+
+    iput v2, p0, Landroid/view/WindowManager$LayoutParams;->coverMode:I
+
+    iput-object v3, p0, Landroid/view/WindowManager$LayoutParams;->mCompatibilityParamsBackup:[I
+
+    iput-object v3, p0, Landroid/view/WindowManager$LayoutParams;->mTitle:Ljava/lang/CharSequence;
 
     iput p1, p0, Landroid/view/WindowManager$LayoutParams;->type:I
 
@@ -1161,17 +1180,17 @@
 
     const/high16 v6, -0x40800000    # -1.0f
 
-    const/4 v5, 0x0
+    const-wide/16 v4, -0x1
 
-    const/4 v4, 0x0
+    const/4 v3, 0x0
 
-    const-wide/16 v2, -0x1
+    const/4 v2, 0x0
 
     const/4 v1, -0x1
 
     invoke-direct {p0, v1, v1}, Landroid/view/ViewGroup$LayoutParams;-><init>(II)V
 
-    iput v4, p0, Landroid/view/WindowManager$LayoutParams;->needsMenuKey:I
+    iput v2, p0, Landroid/view/WindowManager$LayoutParams;->needsMenuKey:I
 
     new-instance v0, Landroid/graphics/Rect;
 
@@ -1191,37 +1210,37 @@
 
     iput v0, p0, Landroid/view/WindowManager$LayoutParams;->dimAmount:F
 
-    iput-wide v2, p0, Landroid/view/WindowManager$LayoutParams;->dimDuration:J
-
     iput v6, p0, Landroid/view/WindowManager$LayoutParams;->screenBrightness:F
 
     iput v6, p0, Landroid/view/WindowManager$LayoutParams;->buttonBrightness:F
 
-    iput v4, p0, Landroid/view/WindowManager$LayoutParams;->rotationAnimation:I
+    iput v2, p0, Landroid/view/WindowManager$LayoutParams;->rotationAnimation:I
 
-    iput-object v5, p0, Landroid/view/WindowManager$LayoutParams;->token:Landroid/os/IBinder;
+    iput-object v3, p0, Landroid/view/WindowManager$LayoutParams;->token:Landroid/os/IBinder;
 
-    iput-object v5, p0, Landroid/view/WindowManager$LayoutParams;->packageName:Ljava/lang/String;
+    iput-object v3, p0, Landroid/view/WindowManager$LayoutParams;->packageName:Ljava/lang/String;
 
     iput v1, p0, Landroid/view/WindowManager$LayoutParams;->screenOrientation:I
 
-    iput-wide v2, p0, Landroid/view/WindowManager$LayoutParams;->userActivityTimeout:J
-
-    iput-wide v2, p0, Landroid/view/WindowManager$LayoutParams;->screenDimDuration:J
-
-    iput-wide v2, p0, Landroid/view/WindowManager$LayoutParams;->buttonLightTimeout:J
-
-    iput v4, p0, Landroid/view/WindowManager$LayoutParams;->navigationBarIconColor:I
+    iput-wide v4, p0, Landroid/view/WindowManager$LayoutParams;->userActivityTimeout:J
 
     iput v1, p0, Landroid/view/WindowManager$LayoutParams;->accessibilityIdOfAnchor:I
 
-    iput-wide v2, p0, Landroid/view/WindowManager$LayoutParams;->removeTimeoutMilliseconds:J
+    iput-wide v4, p0, Landroid/view/WindowManager$LayoutParams;->hideTimeoutMilliseconds:J
 
-    iput v4, p0, Landroid/view/WindowManager$LayoutParams;->coverMode:I
+    iput v2, p0, Landroid/view/WindowManager$LayoutParams;->mColorMode:I
 
-    iput-object v5, p0, Landroid/view/WindowManager$LayoutParams;->mCompatibilityParamsBackup:[I
+    iput-wide v4, p0, Landroid/view/WindowManager$LayoutParams;->dimDuration:J
 
-    iput-object v5, p0, Landroid/view/WindowManager$LayoutParams;->mTitle:Ljava/lang/CharSequence;
+    iput-wide v4, p0, Landroid/view/WindowManager$LayoutParams;->screenDimDuration:J
+
+    iput v2, p0, Landroid/view/WindowManager$LayoutParams;->navigationBarIconColor:I
+
+    iput v2, p0, Landroid/view/WindowManager$LayoutParams;->coverMode:I
+
+    iput-object v3, p0, Landroid/view/WindowManager$LayoutParams;->mCompatibilityParamsBackup:[I
+
+    iput-object v3, p0, Landroid/view/WindowManager$LayoutParams;->mTitle:Ljava/lang/CharSequence;
 
     iput p1, p0, Landroid/view/WindowManager$LayoutParams;->type:I
 
@@ -1237,17 +1256,17 @@
 
     const/high16 v6, -0x40800000    # -1.0f
 
-    const/4 v5, 0x0
+    const-wide/16 v4, -0x1
 
-    const/4 v4, 0x0
+    const/4 v3, 0x0
 
-    const/4 v1, -0x1
+    const/4 v2, -0x1
 
-    const-wide/16 v2, -0x1
+    const/4 v1, 0x0
 
-    invoke-direct {p0, v1, v1}, Landroid/view/ViewGroup$LayoutParams;-><init>(II)V
+    invoke-direct {p0, v2, v2}, Landroid/view/ViewGroup$LayoutParams;-><init>(II)V
 
-    iput v4, p0, Landroid/view/WindowManager$LayoutParams;->needsMenuKey:I
+    iput v1, p0, Landroid/view/WindowManager$LayoutParams;->needsMenuKey:I
 
     new-instance v0, Landroid/graphics/Rect;
 
@@ -1267,37 +1286,37 @@
 
     iput v0, p0, Landroid/view/WindowManager$LayoutParams;->dimAmount:F
 
-    iput-wide v2, p0, Landroid/view/WindowManager$LayoutParams;->dimDuration:J
-
     iput v6, p0, Landroid/view/WindowManager$LayoutParams;->screenBrightness:F
 
     iput v6, p0, Landroid/view/WindowManager$LayoutParams;->buttonBrightness:F
 
-    iput v4, p0, Landroid/view/WindowManager$LayoutParams;->rotationAnimation:I
+    iput v1, p0, Landroid/view/WindowManager$LayoutParams;->rotationAnimation:I
 
-    iput-object v5, p0, Landroid/view/WindowManager$LayoutParams;->token:Landroid/os/IBinder;
+    iput-object v3, p0, Landroid/view/WindowManager$LayoutParams;->token:Landroid/os/IBinder;
 
-    iput-object v5, p0, Landroid/view/WindowManager$LayoutParams;->packageName:Ljava/lang/String;
+    iput-object v3, p0, Landroid/view/WindowManager$LayoutParams;->packageName:Ljava/lang/String;
 
-    iput v1, p0, Landroid/view/WindowManager$LayoutParams;->screenOrientation:I
+    iput v2, p0, Landroid/view/WindowManager$LayoutParams;->screenOrientation:I
 
-    iput-wide v2, p0, Landroid/view/WindowManager$LayoutParams;->userActivityTimeout:J
+    iput-wide v4, p0, Landroid/view/WindowManager$LayoutParams;->userActivityTimeout:J
 
-    iput-wide v2, p0, Landroid/view/WindowManager$LayoutParams;->screenDimDuration:J
+    iput v2, p0, Landroid/view/WindowManager$LayoutParams;->accessibilityIdOfAnchor:I
 
-    iput-wide v2, p0, Landroid/view/WindowManager$LayoutParams;->buttonLightTimeout:J
+    iput-wide v4, p0, Landroid/view/WindowManager$LayoutParams;->hideTimeoutMilliseconds:J
 
-    iput v4, p0, Landroid/view/WindowManager$LayoutParams;->navigationBarIconColor:I
+    iput v1, p0, Landroid/view/WindowManager$LayoutParams;->mColorMode:I
 
-    iput v1, p0, Landroid/view/WindowManager$LayoutParams;->accessibilityIdOfAnchor:I
+    iput-wide v4, p0, Landroid/view/WindowManager$LayoutParams;->dimDuration:J
 
-    iput-wide v2, p0, Landroid/view/WindowManager$LayoutParams;->removeTimeoutMilliseconds:J
+    iput-wide v4, p0, Landroid/view/WindowManager$LayoutParams;->screenDimDuration:J
 
-    iput v4, p0, Landroid/view/WindowManager$LayoutParams;->coverMode:I
+    iput v1, p0, Landroid/view/WindowManager$LayoutParams;->navigationBarIconColor:I
 
-    iput-object v5, p0, Landroid/view/WindowManager$LayoutParams;->mCompatibilityParamsBackup:[I
+    iput v1, p0, Landroid/view/WindowManager$LayoutParams;->coverMode:I
 
-    iput-object v5, p0, Landroid/view/WindowManager$LayoutParams;->mTitle:Ljava/lang/CharSequence;
+    iput-object v3, p0, Landroid/view/WindowManager$LayoutParams;->mCompatibilityParamsBackup:[I
+
+    iput-object v3, p0, Landroid/view/WindowManager$LayoutParams;->mTitle:Ljava/lang/CharSequence;
 
     iput p1, p0, Landroid/view/WindowManager$LayoutParams;->type:I
 
@@ -1313,13 +1332,13 @@
 
     const/high16 v6, 0x3f800000    # 1.0f
 
-    const/high16 v5, -0x40800000    # -1.0f
+    const/high16 v3, -0x40800000    # -1.0f
 
-    const/4 v4, 0x0
+    const-wide/16 v4, -0x1
+
+    const/4 v2, 0x0
 
     const/4 v1, 0x0
-
-    const-wide/16 v2, -0x1
 
     invoke-direct {p0, p1, p2}, Landroid/view/ViewGroup$LayoutParams;-><init>(II)V
 
@@ -1339,41 +1358,41 @@
 
     iput v6, p0, Landroid/view/WindowManager$LayoutParams;->dimAmount:F
 
-    iput-wide v2, p0, Landroid/view/WindowManager$LayoutParams;->dimDuration:J
+    iput v3, p0, Landroid/view/WindowManager$LayoutParams;->screenBrightness:F
 
-    iput v5, p0, Landroid/view/WindowManager$LayoutParams;->screenBrightness:F
-
-    iput v5, p0, Landroid/view/WindowManager$LayoutParams;->buttonBrightness:F
+    iput v3, p0, Landroid/view/WindowManager$LayoutParams;->buttonBrightness:F
 
     iput v1, p0, Landroid/view/WindowManager$LayoutParams;->rotationAnimation:I
 
-    iput-object v4, p0, Landroid/view/WindowManager$LayoutParams;->token:Landroid/os/IBinder;
+    iput-object v2, p0, Landroid/view/WindowManager$LayoutParams;->token:Landroid/os/IBinder;
 
-    iput-object v4, p0, Landroid/view/WindowManager$LayoutParams;->packageName:Ljava/lang/String;
+    iput-object v2, p0, Landroid/view/WindowManager$LayoutParams;->packageName:Ljava/lang/String;
 
     const/4 v0, -0x1
 
     iput v0, p0, Landroid/view/WindowManager$LayoutParams;->screenOrientation:I
 
-    iput-wide v2, p0, Landroid/view/WindowManager$LayoutParams;->userActivityTimeout:J
-
-    iput-wide v2, p0, Landroid/view/WindowManager$LayoutParams;->screenDimDuration:J
-
-    iput-wide v2, p0, Landroid/view/WindowManager$LayoutParams;->buttonLightTimeout:J
-
-    iput v1, p0, Landroid/view/WindowManager$LayoutParams;->navigationBarIconColor:I
+    iput-wide v4, p0, Landroid/view/WindowManager$LayoutParams;->userActivityTimeout:J
 
     const/4 v0, -0x1
 
     iput v0, p0, Landroid/view/WindowManager$LayoutParams;->accessibilityIdOfAnchor:I
 
-    iput-wide v2, p0, Landroid/view/WindowManager$LayoutParams;->removeTimeoutMilliseconds:J
+    iput-wide v4, p0, Landroid/view/WindowManager$LayoutParams;->hideTimeoutMilliseconds:J
+
+    iput v1, p0, Landroid/view/WindowManager$LayoutParams;->mColorMode:I
+
+    iput-wide v4, p0, Landroid/view/WindowManager$LayoutParams;->dimDuration:J
+
+    iput-wide v4, p0, Landroid/view/WindowManager$LayoutParams;->screenDimDuration:J
+
+    iput v1, p0, Landroid/view/WindowManager$LayoutParams;->navigationBarIconColor:I
 
     iput v1, p0, Landroid/view/WindowManager$LayoutParams;->coverMode:I
 
-    iput-object v4, p0, Landroid/view/WindowManager$LayoutParams;->mCompatibilityParamsBackup:[I
+    iput-object v2, p0, Landroid/view/WindowManager$LayoutParams;->mCompatibilityParamsBackup:[I
 
-    iput-object v4, p0, Landroid/view/WindowManager$LayoutParams;->mTitle:Ljava/lang/CharSequence;
+    iput-object v2, p0, Landroid/view/WindowManager$LayoutParams;->mTitle:Ljava/lang/CharSequence;
 
     iput p3, p0, Landroid/view/WindowManager$LayoutParams;->type:I
 
@@ -1389,13 +1408,13 @@
 
     const/high16 v6, 0x3f800000    # 1.0f
 
-    const/high16 v5, -0x40800000    # -1.0f
+    const/high16 v3, -0x40800000    # -1.0f
 
-    const/4 v4, 0x0
+    const-wide/16 v4, -0x1
+
+    const/4 v2, 0x0
 
     const/4 v1, 0x0
-
-    const-wide/16 v2, -0x1
 
     invoke-direct {p0, p1, p2}, Landroid/view/ViewGroup$LayoutParams;-><init>(II)V
 
@@ -1415,41 +1434,41 @@
 
     iput v6, p0, Landroid/view/WindowManager$LayoutParams;->dimAmount:F
 
-    iput-wide v2, p0, Landroid/view/WindowManager$LayoutParams;->dimDuration:J
+    iput v3, p0, Landroid/view/WindowManager$LayoutParams;->screenBrightness:F
 
-    iput v5, p0, Landroid/view/WindowManager$LayoutParams;->screenBrightness:F
-
-    iput v5, p0, Landroid/view/WindowManager$LayoutParams;->buttonBrightness:F
+    iput v3, p0, Landroid/view/WindowManager$LayoutParams;->buttonBrightness:F
 
     iput v1, p0, Landroid/view/WindowManager$LayoutParams;->rotationAnimation:I
 
-    iput-object v4, p0, Landroid/view/WindowManager$LayoutParams;->token:Landroid/os/IBinder;
+    iput-object v2, p0, Landroid/view/WindowManager$LayoutParams;->token:Landroid/os/IBinder;
 
-    iput-object v4, p0, Landroid/view/WindowManager$LayoutParams;->packageName:Ljava/lang/String;
+    iput-object v2, p0, Landroid/view/WindowManager$LayoutParams;->packageName:Ljava/lang/String;
 
     const/4 v0, -0x1
 
     iput v0, p0, Landroid/view/WindowManager$LayoutParams;->screenOrientation:I
 
-    iput-wide v2, p0, Landroid/view/WindowManager$LayoutParams;->userActivityTimeout:J
-
-    iput-wide v2, p0, Landroid/view/WindowManager$LayoutParams;->screenDimDuration:J
-
-    iput-wide v2, p0, Landroid/view/WindowManager$LayoutParams;->buttonLightTimeout:J
-
-    iput v1, p0, Landroid/view/WindowManager$LayoutParams;->navigationBarIconColor:I
+    iput-wide v4, p0, Landroid/view/WindowManager$LayoutParams;->userActivityTimeout:J
 
     const/4 v0, -0x1
 
     iput v0, p0, Landroid/view/WindowManager$LayoutParams;->accessibilityIdOfAnchor:I
 
-    iput-wide v2, p0, Landroid/view/WindowManager$LayoutParams;->removeTimeoutMilliseconds:J
+    iput-wide v4, p0, Landroid/view/WindowManager$LayoutParams;->hideTimeoutMilliseconds:J
+
+    iput v1, p0, Landroid/view/WindowManager$LayoutParams;->mColorMode:I
+
+    iput-wide v4, p0, Landroid/view/WindowManager$LayoutParams;->dimDuration:J
+
+    iput-wide v4, p0, Landroid/view/WindowManager$LayoutParams;->screenDimDuration:J
+
+    iput v1, p0, Landroid/view/WindowManager$LayoutParams;->navigationBarIconColor:I
 
     iput v1, p0, Landroid/view/WindowManager$LayoutParams;->coverMode:I
 
-    iput-object v4, p0, Landroid/view/WindowManager$LayoutParams;->mCompatibilityParamsBackup:[I
+    iput-object v2, p0, Landroid/view/WindowManager$LayoutParams;->mCompatibilityParamsBackup:[I
 
-    iput-object v4, p0, Landroid/view/WindowManager$LayoutParams;->mTitle:Ljava/lang/CharSequence;
+    iput-object v2, p0, Landroid/view/WindowManager$LayoutParams;->mTitle:Ljava/lang/CharSequence;
 
     iput p3, p0, Landroid/view/WindowManager$LayoutParams;->x:I
 
@@ -1469,11 +1488,11 @@
 
     const/high16 v6, -0x40800000    # -1.0f
 
+    const-wide/16 v4, -0x1
+
     const/4 v3, 0x0
 
     const/4 v1, 0x1
-
-    const-wide/16 v4, -0x1
 
     const/4 v2, 0x0
 
@@ -1497,8 +1516,6 @@
 
     iput v0, p0, Landroid/view/WindowManager$LayoutParams;->dimAmount:F
 
-    iput-wide v4, p0, Landroid/view/WindowManager$LayoutParams;->dimDuration:J
-
     iput v6, p0, Landroid/view/WindowManager$LayoutParams;->screenBrightness:F
 
     iput v6, p0, Landroid/view/WindowManager$LayoutParams;->buttonBrightness:F
@@ -1515,17 +1532,19 @@
 
     iput-wide v4, p0, Landroid/view/WindowManager$LayoutParams;->userActivityTimeout:J
 
-    iput-wide v4, p0, Landroid/view/WindowManager$LayoutParams;->screenDimDuration:J
-
-    iput-wide v4, p0, Landroid/view/WindowManager$LayoutParams;->buttonLightTimeout:J
-
-    iput v2, p0, Landroid/view/WindowManager$LayoutParams;->navigationBarIconColor:I
-
     const/4 v0, -0x1
 
     iput v0, p0, Landroid/view/WindowManager$LayoutParams;->accessibilityIdOfAnchor:I
 
-    iput-wide v4, p0, Landroid/view/WindowManager$LayoutParams;->removeTimeoutMilliseconds:J
+    iput-wide v4, p0, Landroid/view/WindowManager$LayoutParams;->hideTimeoutMilliseconds:J
+
+    iput v2, p0, Landroid/view/WindowManager$LayoutParams;->mColorMode:I
+
+    iput-wide v4, p0, Landroid/view/WindowManager$LayoutParams;->dimDuration:J
+
+    iput-wide v4, p0, Landroid/view/WindowManager$LayoutParams;->screenDimDuration:J
+
+    iput v2, p0, Landroid/view/WindowManager$LayoutParams;->navigationBarIconColor:I
 
     iput v2, p0, Landroid/view/WindowManager$LayoutParams;->coverMode:I
 
@@ -1794,7 +1813,7 @@
 
     move-result-wide v0
 
-    iput-wide v0, p0, Landroid/view/WindowManager$LayoutParams;->removeTimeoutMilliseconds:J
+    iput-wide v0, p0, Landroid/view/WindowManager$LayoutParams;->hideTimeoutMilliseconds:J
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readLong()J
 
@@ -1807,12 +1826,6 @@
     move-result-wide v0
 
     iput-wide v0, p0, Landroid/view/WindowManager$LayoutParams;->screenDimDuration:J
-
-    invoke-virtual {p1}, Landroid/os/Parcel;->readLong()J
-
-    move-result-wide v0
-
-    iput-wide v0, p0, Landroid/view/WindowManager$LayoutParams;->buttonLightTimeout:J
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
@@ -1837,7 +1850,7 @@
     :cond_0
     move v0, v2
 
-    goto/16 :goto_0
+    goto :goto_0
 
     :cond_1
     move v0, v2
@@ -1853,32 +1866,29 @@
 .method public static isSystemAlertWindowType(I)Z
     .locals 1
 
-    packed-switch p0, :pswitch_data_0
+    sparse-switch p0, :sswitch_data_0
 
-    :pswitch_0
     const/4 v0, 0x0
 
     return v0
 
-    :pswitch_1
+    :sswitch_0
     const/4 v0, 0x1
 
     return v0
 
     nop
 
-    :pswitch_data_0
-    .packed-switch 0x7d2
-        :pswitch_1
-        :pswitch_1
-        :pswitch_0
-        :pswitch_0
-        :pswitch_1
-        :pswitch_1
-        :pswitch_0
-        :pswitch_0
-        :pswitch_1
-    .end packed-switch
+    :sswitch_data_0
+    .sparse-switch
+        0x7d2 -> :sswitch_0
+        0x7d3 -> :sswitch_0
+        0x7d6 -> :sswitch_0
+        0x7d7 -> :sswitch_0
+        0x7da -> :sswitch_0
+        0x7f6 -> :sswitch_0
+        0x833 -> :sswitch_0
+    .end sparse-switch
 .end method
 
 .method public static mayUseInputMethod(I)Z
@@ -1952,7 +1962,11 @@
 .end method
 
 .method public final copyFrom(Landroid/view/WindowManager$LayoutParams;)I
-    .locals 7
+    .locals 8
+
+    const/high16 v7, 0x1000000
+
+    const/high16 v4, 0x80000
 
     const/high16 v6, 0x100000
 
@@ -2101,9 +2115,7 @@
 
     if-eqz v2, :cond_9
 
-    const/high16 v2, 0x80000
-
-    or-int/2addr v0, v2
+    or-int/2addr v0, v4
 
     :cond_9
     iget v2, p1, Landroid/view/WindowManager$LayoutParams;->flags:I
@@ -2117,8 +2129,21 @@
 
     iget v3, p1, Landroid/view/WindowManager$LayoutParams;->privateFlags:I
 
-    if-eq v2, v3, :cond_b
+    if-eq v2, v3, :cond_c
 
+    iget v2, p0, Landroid/view/WindowManager$LayoutParams;->privateFlags:I
+
+    iget v3, p1, Landroid/view/WindowManager$LayoutParams;->privateFlags:I
+
+    xor-int v1, v2, v3
+
+    and-int v2, v1, v7
+
+    if-eqz v2, :cond_b
+
+    or-int/2addr v0, v4
+
+    :cond_b
     iget v2, p1, Landroid/view/WindowManager$LayoutParams;->privateFlags:I
 
     iput v2, p0, Landroid/view/WindowManager$LayoutParams;->privateFlags:I
@@ -2127,12 +2152,12 @@
 
     or-int/2addr v0, v2
 
-    :cond_b
+    :cond_c
     iget v2, p0, Landroid/view/WindowManager$LayoutParams;->softInputMode:I
 
     iget v3, p1, Landroid/view/WindowManager$LayoutParams;->softInputMode:I
 
-    if-eq v2, v3, :cond_c
+    if-eq v2, v3, :cond_d
 
     iget v2, p1, Landroid/view/WindowManager$LayoutParams;->softInputMode:I
 
@@ -2140,12 +2165,12 @@
 
     or-int/lit16 v0, v0, 0x200
 
-    :cond_c
+    :cond_d
     iget v2, p0, Landroid/view/WindowManager$LayoutParams;->gravity:I
 
     iget v3, p1, Landroid/view/WindowManager$LayoutParams;->gravity:I
 
-    if-eq v2, v3, :cond_d
+    if-eq v2, v3, :cond_e
 
     iget v2, p1, Landroid/view/WindowManager$LayoutParams;->gravity:I
 
@@ -2153,12 +2178,12 @@
 
     or-int/lit8 v0, v0, 0x1
 
-    :cond_d
+    :cond_e
     iget v2, p0, Landroid/view/WindowManager$LayoutParams;->format:I
 
     iget v3, p1, Landroid/view/WindowManager$LayoutParams;->format:I
 
-    if-eq v2, v3, :cond_e
+    if-eq v2, v3, :cond_f
 
     iget v2, p1, Landroid/view/WindowManager$LayoutParams;->format:I
 
@@ -2166,12 +2191,12 @@
 
     or-int/lit8 v0, v0, 0x8
 
-    :cond_e
+    :cond_f
     iget v2, p0, Landroid/view/WindowManager$LayoutParams;->windowAnimations:I
 
     iget v3, p1, Landroid/view/WindowManager$LayoutParams;->windowAnimations:I
 
-    if-eq v2, v3, :cond_f
+    if-eq v2, v3, :cond_10
 
     iget v2, p1, Landroid/view/WindowManager$LayoutParams;->windowAnimations:I
 
@@ -2179,25 +2204,25 @@
 
     or-int/lit8 v0, v0, 0x10
 
-    :cond_f
+    :cond_10
     iget-object v2, p0, Landroid/view/WindowManager$LayoutParams;->token:Landroid/os/IBinder;
 
-    if-nez v2, :cond_10
+    if-nez v2, :cond_11
 
     iget-object v2, p1, Landroid/view/WindowManager$LayoutParams;->token:Landroid/os/IBinder;
 
     iput-object v2, p0, Landroid/view/WindowManager$LayoutParams;->token:Landroid/os/IBinder;
 
-    :cond_10
+    :cond_11
     iget-object v2, p0, Landroid/view/WindowManager$LayoutParams;->packageName:Ljava/lang/String;
 
-    if-nez v2, :cond_11
+    if-nez v2, :cond_12
 
     iget-object v2, p1, Landroid/view/WindowManager$LayoutParams;->packageName:Ljava/lang/String;
 
     iput-object v2, p0, Landroid/view/WindowManager$LayoutParams;->packageName:Ljava/lang/String;
 
-    :cond_11
+    :cond_12
     iget-object v2, p0, Landroid/view/WindowManager$LayoutParams;->mTitle:Ljava/lang/CharSequence;
 
     iget-object v3, p1, Landroid/view/WindowManager$LayoutParams;->mTitle:Ljava/lang/CharSequence;
@@ -2206,11 +2231,11 @@
 
     move-result v2
 
-    if-nez v2, :cond_12
+    if-nez v2, :cond_13
 
     iget-object v2, p1, Landroid/view/WindowManager$LayoutParams;->mTitle:Ljava/lang/CharSequence;
 
-    if-eqz v2, :cond_12
+    if-eqz v2, :cond_13
 
     iget-object v2, p1, Landroid/view/WindowManager$LayoutParams;->mTitle:Ljava/lang/CharSequence;
 
@@ -2218,14 +2243,14 @@
 
     or-int/lit8 v0, v0, 0x40
 
-    :cond_12
+    :cond_13
     iget v2, p0, Landroid/view/WindowManager$LayoutParams;->alpha:F
 
     iget v3, p1, Landroid/view/WindowManager$LayoutParams;->alpha:F
 
     cmpl-float v2, v2, v3
 
-    if-eqz v2, :cond_13
+    if-eqz v2, :cond_14
 
     iget v2, p1, Landroid/view/WindowManager$LayoutParams;->alpha:F
 
@@ -2233,14 +2258,14 @@
 
     or-int/lit16 v0, v0, 0x80
 
-    :cond_13
+    :cond_14
     iget v2, p0, Landroid/view/WindowManager$LayoutParams;->dimAmount:F
 
     iget v3, p1, Landroid/view/WindowManager$LayoutParams;->dimAmount:F
 
     cmpl-float v2, v2, v3
 
-    if-eqz v2, :cond_14
+    if-eqz v2, :cond_15
 
     iget v2, p1, Landroid/view/WindowManager$LayoutParams;->dimAmount:F
 
@@ -2248,14 +2273,14 @@
 
     or-int/lit8 v0, v0, 0x20
 
-    :cond_14
+    :cond_15
     iget v2, p0, Landroid/view/WindowManager$LayoutParams;->screenBrightness:F
 
     iget v3, p1, Landroid/view/WindowManager$LayoutParams;->screenBrightness:F
 
     cmpl-float v2, v2, v3
 
-    if-eqz v2, :cond_15
+    if-eqz v2, :cond_16
 
     iget v2, p1, Landroid/view/WindowManager$LayoutParams;->screenBrightness:F
 
@@ -2263,14 +2288,14 @@
 
     or-int/lit16 v0, v0, 0x800
 
-    :cond_15
+    :cond_16
     iget v2, p0, Landroid/view/WindowManager$LayoutParams;->buttonBrightness:F
 
     iget v3, p1, Landroid/view/WindowManager$LayoutParams;->buttonBrightness:F
 
     cmpl-float v2, v2, v3
 
-    if-eqz v2, :cond_16
+    if-eqz v2, :cond_17
 
     iget v2, p1, Landroid/view/WindowManager$LayoutParams;->buttonBrightness:F
 
@@ -2278,12 +2303,12 @@
 
     or-int/lit16 v0, v0, 0x2000
 
-    :cond_16
+    :cond_17
     iget v2, p0, Landroid/view/WindowManager$LayoutParams;->rotationAnimation:I
 
     iget v3, p1, Landroid/view/WindowManager$LayoutParams;->rotationAnimation:I
 
-    if-eq v2, v3, :cond_17
+    if-eq v2, v3, :cond_18
 
     iget v2, p1, Landroid/view/WindowManager$LayoutParams;->rotationAnimation:I
 
@@ -2291,12 +2316,12 @@
 
     or-int/lit16 v0, v0, 0x1000
 
-    :cond_17
+    :cond_18
     iget v2, p0, Landroid/view/WindowManager$LayoutParams;->screenOrientation:I
 
     iget v3, p1, Landroid/view/WindowManager$LayoutParams;->screenOrientation:I
 
-    if-eq v2, v3, :cond_18
+    if-eq v2, v3, :cond_19
 
     iget v2, p1, Landroid/view/WindowManager$LayoutParams;->screenOrientation:I
 
@@ -2304,14 +2329,14 @@
 
     or-int/lit16 v0, v0, 0x400
 
-    :cond_18
+    :cond_19
     iget v2, p0, Landroid/view/WindowManager$LayoutParams;->preferredRefreshRate:F
 
     iget v3, p1, Landroid/view/WindowManager$LayoutParams;->preferredRefreshRate:F
 
     cmpl-float v2, v2, v3
 
-    if-eqz v2, :cond_19
+    if-eqz v2, :cond_1a
 
     iget v2, p1, Landroid/view/WindowManager$LayoutParams;->preferredRefreshRate:F
 
@@ -2321,12 +2346,12 @@
 
     or-int/2addr v0, v2
 
-    :cond_19
+    :cond_1a
     iget v2, p0, Landroid/view/WindowManager$LayoutParams;->preferredDisplayModeId:I
 
     iget v3, p1, Landroid/view/WindowManager$LayoutParams;->preferredDisplayModeId:I
 
-    if-eq v2, v3, :cond_1a
+    if-eq v2, v3, :cond_1b
 
     iget v2, p1, Landroid/view/WindowManager$LayoutParams;->preferredDisplayModeId:I
 
@@ -2336,20 +2361,20 @@
 
     or-int/2addr v0, v2
 
-    :cond_1a
+    :cond_1b
     iget v2, p0, Landroid/view/WindowManager$LayoutParams;->systemUiVisibility:I
 
     iget v3, p1, Landroid/view/WindowManager$LayoutParams;->systemUiVisibility:I
 
-    if-ne v2, v3, :cond_1b
+    if-ne v2, v3, :cond_1c
 
     iget v2, p0, Landroid/view/WindowManager$LayoutParams;->subtreeSystemUiVisibility:I
 
     iget v3, p1, Landroid/view/WindowManager$LayoutParams;->subtreeSystemUiVisibility:I
 
-    if-eq v2, v3, :cond_1c
+    if-eq v2, v3, :cond_1d
 
-    :cond_1b
+    :cond_1c
     iget v2, p1, Landroid/view/WindowManager$LayoutParams;->systemUiVisibility:I
 
     iput v2, p0, Landroid/view/WindowManager$LayoutParams;->systemUiVisibility:I
@@ -2360,12 +2385,12 @@
 
     or-int/lit16 v0, v0, 0x4000
 
-    :cond_1c
+    :cond_1d
     iget-boolean v2, p0, Landroid/view/WindowManager$LayoutParams;->hasSystemUiListeners:Z
 
     iget-boolean v3, p1, Landroid/view/WindowManager$LayoutParams;->hasSystemUiListeners:Z
 
-    if-eq v2, v3, :cond_1d
+    if-eq v2, v3, :cond_1e
 
     iget-boolean v2, p1, Landroid/view/WindowManager$LayoutParams;->hasSystemUiListeners:Z
 
@@ -2375,12 +2400,12 @@
 
     or-int/2addr v0, v2
 
-    :cond_1d
+    :cond_1e
     iget v2, p0, Landroid/view/WindowManager$LayoutParams;->inputFeatures:I
 
     iget v3, p1, Landroid/view/WindowManager$LayoutParams;->inputFeatures:I
 
-    if-eq v2, v3, :cond_1e
+    if-eq v2, v3, :cond_1f
 
     iget v2, p1, Landroid/view/WindowManager$LayoutParams;->inputFeatures:I
 
@@ -2390,14 +2415,14 @@
 
     or-int/2addr v0, v2
 
-    :cond_1e
+    :cond_1f
     iget-wide v2, p0, Landroid/view/WindowManager$LayoutParams;->userActivityTimeout:J
 
     iget-wide v4, p1, Landroid/view/WindowManager$LayoutParams;->userActivityTimeout:J
 
     cmp-long v2, v2, v4
 
-    if-eqz v2, :cond_1f
+    if-eqz v2, :cond_20
 
     iget-wide v2, p1, Landroid/view/WindowManager$LayoutParams;->userActivityTimeout:J
 
@@ -2407,7 +2432,7 @@
 
     or-int/2addr v0, v2
 
-    :cond_1f
+    :cond_20
     iget-object v2, p0, Landroid/view/WindowManager$LayoutParams;->surfaceInsets:Landroid/graphics/Rect;
 
     iget-object v3, p1, Landroid/view/WindowManager$LayoutParams;->surfaceInsets:Landroid/graphics/Rect;
@@ -2416,7 +2441,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_20
+    if-nez v2, :cond_21
 
     iget-object v2, p0, Landroid/view/WindowManager$LayoutParams;->surfaceInsets:Landroid/graphics/Rect;
 
@@ -2426,12 +2451,12 @@
 
     or-int/2addr v0, v6
 
-    :cond_20
+    :cond_21
     iget-boolean v2, p0, Landroid/view/WindowManager$LayoutParams;->hasManualSurfaceInsets:Z
 
     iget-boolean v3, p1, Landroid/view/WindowManager$LayoutParams;->hasManualSurfaceInsets:Z
 
-    if-eq v2, v3, :cond_21
+    if-eq v2, v3, :cond_22
 
     iget-boolean v2, p1, Landroid/view/WindowManager$LayoutParams;->hasManualSurfaceInsets:Z
 
@@ -2439,12 +2464,12 @@
 
     or-int/2addr v0, v6
 
-    :cond_21
+    :cond_22
     iget-boolean v2, p0, Landroid/view/WindowManager$LayoutParams;->preservePreviousSurfaceInsets:Z
 
     iget-boolean v3, p1, Landroid/view/WindowManager$LayoutParams;->preservePreviousSurfaceInsets:Z
 
-    if-eq v2, v3, :cond_22
+    if-eq v2, v3, :cond_23
 
     iget-boolean v2, p1, Landroid/view/WindowManager$LayoutParams;->preservePreviousSurfaceInsets:Z
 
@@ -2452,12 +2477,12 @@
 
     or-int/2addr v0, v6
 
-    :cond_22
+    :cond_23
     iget v2, p0, Landroid/view/WindowManager$LayoutParams;->needsMenuKey:I
 
     iget v3, p1, Landroid/view/WindowManager$LayoutParams;->needsMenuKey:I
 
-    if-eq v2, v3, :cond_23
+    if-eq v2, v3, :cond_24
 
     iget v2, p1, Landroid/view/WindowManager$LayoutParams;->needsMenuKey:I
 
@@ -2467,22 +2492,20 @@
 
     or-int/2addr v0, v2
 
-    :cond_23
+    :cond_24
     iget v2, p0, Landroid/view/WindowManager$LayoutParams;->accessibilityIdOfAnchor:I
 
     iget v3, p1, Landroid/view/WindowManager$LayoutParams;->accessibilityIdOfAnchor:I
 
-    if-eq v2, v3, :cond_24
+    if-eq v2, v3, :cond_25
 
     iget v2, p1, Landroid/view/WindowManager$LayoutParams;->accessibilityIdOfAnchor:I
 
     iput v2, p0, Landroid/view/WindowManager$LayoutParams;->accessibilityIdOfAnchor:I
 
-    const/high16 v2, 0x1000000
+    or-int/2addr v0, v7
 
-    or-int/2addr v0, v2
-
-    :cond_24
+    :cond_25
     iget-object v2, p0, Landroid/view/WindowManager$LayoutParams;->accessibilityTitle:Ljava/lang/CharSequence;
 
     iget-object v3, p1, Landroid/view/WindowManager$LayoutParams;->accessibilityTitle:Ljava/lang/CharSequence;
@@ -2491,11 +2514,11 @@
 
     move-result v2
 
-    if-nez v2, :cond_25
+    if-nez v2, :cond_26
 
     iget-object v2, p1, Landroid/view/WindowManager$LayoutParams;->accessibilityTitle:Ljava/lang/CharSequence;
 
-    if-eqz v2, :cond_25
+    if-eqz v2, :cond_26
 
     iget-object v2, p1, Landroid/view/WindowManager$LayoutParams;->accessibilityTitle:Ljava/lang/CharSequence;
 
@@ -2505,10 +2528,10 @@
 
     or-int/2addr v0, v2
 
-    :cond_25
-    iget-wide v2, p1, Landroid/view/WindowManager$LayoutParams;->removeTimeoutMilliseconds:J
+    :cond_26
+    iget-wide v2, p1, Landroid/view/WindowManager$LayoutParams;->hideTimeoutMilliseconds:J
 
-    iput-wide v2, p0, Landroid/view/WindowManager$LayoutParams;->removeTimeoutMilliseconds:J
+    iput-wide v2, p0, Landroid/view/WindowManager$LayoutParams;->hideTimeoutMilliseconds:J
 
     iget-wide v2, p0, Landroid/view/WindowManager$LayoutParams;->dimDuration:J
 
@@ -2516,7 +2539,7 @@
 
     cmp-long v2, v2, v4
 
-    if-eqz v2, :cond_26
+    if-eqz v2, :cond_27
 
     iget-wide v2, p1, Landroid/view/WindowManager$LayoutParams;->dimDuration:J
 
@@ -2524,37 +2547,20 @@
 
     or-int/lit8 v0, v0, 0x20
 
-    :cond_26
+    :cond_27
     iget-wide v2, p0, Landroid/view/WindowManager$LayoutParams;->screenDimDuration:J
 
     iget-wide v4, p1, Landroid/view/WindowManager$LayoutParams;->screenDimDuration:J
 
     cmp-long v2, v2, v4
 
-    if-eqz v2, :cond_27
+    if-eqz v2, :cond_28
 
     iget-wide v2, p1, Landroid/view/WindowManager$LayoutParams;->screenDimDuration:J
 
     iput-wide v2, p0, Landroid/view/WindowManager$LayoutParams;->screenDimDuration:J
 
     const/high16 v2, 0x4000000
-
-    or-int/2addr v0, v2
-
-    :cond_27
-    iget-wide v2, p0, Landroid/view/WindowManager$LayoutParams;->buttonLightTimeout:J
-
-    iget-wide v4, p1, Landroid/view/WindowManager$LayoutParams;->buttonLightTimeout:J
-
-    cmp-long v2, v2, v4
-
-    if-eqz v2, :cond_28
-
-    iget-wide v2, p1, Landroid/view/WindowManager$LayoutParams;->buttonLightTimeout:J
-
-    iput-wide v2, p0, Landroid/view/WindowManager$LayoutParams;->buttonLightTimeout:J
-
-    const/high16 v2, 0x8000000
 
     or-int/2addr v0, v2
 
@@ -2732,6 +2738,14 @@
     invoke-virtual {p1, v0, v1}, Landroid/view/ViewHierarchyEncoder;->addProperty(Ljava/lang/String;I)V
 
     return-void
+.end method
+
+.method public getColorMode()I
+    .locals 1
+
+    iget v0, p0, Landroid/view/WindowManager$LayoutParams;->mColorMode:I
+
+    return v0
 .end method
 
 .method public final getTitle()Ljava/lang/CharSequence;
@@ -2945,6 +2959,14 @@
     return-void
 .end method
 
+.method public setColorMode(I)V
+    .locals 0
+
+    iput p1, p0, Landroid/view/WindowManager$LayoutParams;->mColorMode:I
+
+    return-void
+.end method
+
 .method public final setSurfaceInsets(Landroid/view/View;ZZ)V
     .locals 6
 
@@ -3047,11 +3069,11 @@
 .method public toString()Ljava/lang/String;
     .locals 8
 
-    const/high16 v7, -0x40800000    # -1.0f
+    const/high16 v5, -0x40800000    # -1.0f
 
-    const/4 v6, 0x0
+    const-wide/16 v6, 0x0
 
-    const-wide/16 v4, 0x0
+    const/4 v4, 0x0
 
     const/4 v3, -0x1
 
@@ -3087,12 +3109,12 @@
 
     iget v1, p0, Landroid/view/WindowManager$LayoutParams;->width:I
 
-    if-ne v1, v3, :cond_1e
+    if-ne v1, v3, :cond_1d
 
     const-string/jumbo v1, "fill"
 
     :goto_0
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     const/16 v1, 0x78
 
@@ -3100,12 +3122,12 @@
 
     iget v1, p0, Landroid/view/WindowManager$LayoutParams;->height:I
 
-    if-ne v1, v3, :cond_20
+    if-ne v1, v3, :cond_1f
 
     const-string/jumbo v1, "fill"
 
     :goto_1
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     const-string/jumbo v1, ")"
 
@@ -3113,7 +3135,7 @@
 
     iget v1, p0, Landroid/view/WindowManager$LayoutParams;->horizontalMargin:F
 
-    cmpl-float v1, v1, v6
+    cmpl-float v1, v1, v4
 
     if-eqz v1, :cond_0
 
@@ -3128,7 +3150,7 @@
     :cond_0
     iget v1, p0, Landroid/view/WindowManager$LayoutParams;->verticalMargin:F
 
-    cmpl-float v1, v1, v6
+    cmpl-float v1, v1, v4
 
     if-eqz v1, :cond_1
 
@@ -3287,7 +3309,7 @@
     :cond_9
     iget v1, p0, Landroid/view/WindowManager$LayoutParams;->screenBrightness:F
 
-    cmpl-float v1, v1, v7
+    cmpl-float v1, v1, v5
 
     if-eqz v1, :cond_a
 
@@ -3302,7 +3324,7 @@
     :cond_a
     iget v1, p0, Landroid/view/WindowManager$LayoutParams;->buttonBrightness:F
 
-    cmpl-float v1, v1, v7
+    cmpl-float v1, v1, v5
 
     if-eqz v1, :cond_b
 
@@ -3330,7 +3352,7 @@
     :cond_c
     iget v1, p0, Landroid/view/WindowManager$LayoutParams;->preferredRefreshRate:F
 
-    cmpl-float v1, v1, v6
+    cmpl-float v1, v1, v4
 
     if-eqz v1, :cond_d
 
@@ -3424,7 +3446,7 @@
     :cond_12
     iget-wide v2, p0, Landroid/view/WindowManager$LayoutParams;->userActivityTimeout:J
 
-    cmp-long v1, v2, v4
+    cmp-long v1, v2, v6
 
     if-ltz v1, :cond_13
 
@@ -3449,9 +3471,10 @@
 
     iget v1, v1, Landroid/graphics/Rect;->top:I
 
-    if-eqz v1, :cond_22
+    if-eqz v1, :cond_21
 
     :cond_14
+    :goto_2
     const-string/jumbo v1, " surfaceInsets="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -3480,7 +3503,6 @@
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     :cond_16
-    :goto_2
     iget v1, p0, Landroid/view/WindowManager$LayoutParams;->needsMenuKey:I
 
     if-eqz v1, :cond_17
@@ -3494,9 +3516,19 @@
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     :cond_17
+    const-string/jumbo v1, " colorMode="
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    iget v2, p0, Landroid/view/WindowManager$LayoutParams;->mColorMode:I
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
     iget-wide v2, p0, Landroid/view/WindowManager$LayoutParams;->dimDuration:J
 
-    cmp-long v1, v2, v4
+    cmp-long v1, v2, v6
 
     if-ltz v1, :cond_18
 
@@ -3513,7 +3545,7 @@
     :cond_18
     iget-wide v2, p0, Landroid/view/WindowManager$LayoutParams;->screenDimDuration:J
 
-    cmp-long v1, v2, v4
+    cmp-long v1, v2, v6
 
     if-ltz v1, :cond_19
 
@@ -3528,26 +3560,9 @@
     invoke-virtual {v1, v2, v3}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
     :cond_19
-    iget-wide v2, p0, Landroid/view/WindowManager$LayoutParams;->buttonLightTimeout:J
-
-    cmp-long v1, v2, v4
-
-    if-ltz v1, :cond_1a
-
-    const-string/jumbo v1, " buttonLightTimeout="
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    iget-wide v2, p0, Landroid/view/WindowManager$LayoutParams;->buttonLightTimeout:J
-
-    invoke-virtual {v1, v2, v3}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
-
-    :cond_1a
     iget v1, p0, Landroid/view/WindowManager$LayoutParams;->navigationBarIconColor:I
 
-    if-ltz v1, :cond_1b
+    if-ltz v1, :cond_1a
 
     const-string/jumbo v1, " naviIconColor="
 
@@ -3559,10 +3574,10 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    :cond_1b
+    :cond_1a
     iget v1, p0, Landroid/view/WindowManager$LayoutParams;->samsungFlags:I
 
-    if-eqz v1, :cond_1c
+    if-eqz v1, :cond_1b
 
     const-string/jumbo v1, " sfl=0x"
 
@@ -3576,10 +3591,10 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    :cond_1c
+    :cond_1b
     iget v1, p0, Landroid/view/WindowManager$LayoutParams;->coverMode:I
 
-    if-eqz v1, :cond_1d
+    if-eqz v1, :cond_1c
 
     const-string/jumbo v1, " cm="
 
@@ -3591,7 +3606,7 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    :cond_1d
+    :cond_1c
     const/16 v1, 0x7d
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
@@ -3602,47 +3617,47 @@
 
     return-object v1
 
-    :cond_1e
+    :cond_1d
     iget v1, p0, Landroid/view/WindowManager$LayoutParams;->width:I
 
     const/4 v2, -0x2
 
-    if-ne v1, v2, :cond_1f
+    if-ne v1, v2, :cond_1e
 
     const-string/jumbo v1, "wrap"
+
+    goto/16 :goto_0
+
+    :cond_1e
+    iget v1, p0, Landroid/view/WindowManager$LayoutParams;->width:I
+
+    invoke-static {v1}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+
+    move-result-object v1
 
     goto/16 :goto_0
 
     :cond_1f
-    iget v1, p0, Landroid/view/WindowManager$LayoutParams;->width:I
-
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v1
-
-    goto/16 :goto_0
-
-    :cond_20
     iget v1, p0, Landroid/view/WindowManager$LayoutParams;->height:I
 
     const/4 v2, -0x2
 
-    if-ne v1, v2, :cond_21
+    if-ne v1, v2, :cond_20
 
     const-string/jumbo v1, "wrap"
 
     goto/16 :goto_1
 
-    :cond_21
+    :cond_20
     iget v1, p0, Landroid/view/WindowManager$LayoutParams;->height:I
 
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v1}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
     move-result-object v1
 
     goto/16 :goto_1
 
-    :cond_22
+    :cond_21
     iget-object v1, p0, Landroid/view/WindowManager$LayoutParams;->surfaceInsets:Landroid/graphics/Rect;
 
     iget v1, v1, Landroid/graphics/Rect;->right:I
@@ -3661,7 +3676,9 @@
 
     iget-boolean v1, p0, Landroid/view/WindowManager$LayoutParams;->preservePreviousSurfaceInsets:Z
 
-    if-eqz v1, :cond_14
+    xor-int/lit8 v1, v1, 0x1
+
+    if-eqz v1, :cond_16
 
     goto/16 :goto_2
 .end method
@@ -3846,7 +3863,7 @@
 
     invoke-static {v0, p1, p2}, Landroid/text/TextUtils;->writeToParcel(Ljava/lang/CharSequence;Landroid/os/Parcel;I)V
 
-    iget-wide v0, p0, Landroid/view/WindowManager$LayoutParams;->removeTimeoutMilliseconds:J
+    iget-wide v0, p0, Landroid/view/WindowManager$LayoutParams;->hideTimeoutMilliseconds:J
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Parcel;->writeLong(J)V
 
@@ -3855,10 +3872,6 @@
     invoke-virtual {p1, v0, v1}, Landroid/os/Parcel;->writeLong(J)V
 
     iget-wide v0, p0, Landroid/view/WindowManager$LayoutParams;->screenDimDuration:J
-
-    invoke-virtual {p1, v0, v1}, Landroid/os/Parcel;->writeLong(J)V
-
-    iget-wide v0, p0, Landroid/view/WindowManager$LayoutParams;->buttonLightTimeout:J
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Parcel;->writeLong(J)V
 

@@ -45,7 +45,7 @@
 
     iget-object v0, p0, Landroid/widget/ActionMenuPresenter$2;->this$0:Landroid/widget/ActionMenuPresenter;
 
-    invoke-static {v0}, Landroid/widget/ActionMenuPresenter;->-get4(Landroid/widget/ActionMenuPresenter;)Lcom/android/internal/view/menu/MenuView;
+    invoke-static {v0}, Landroid/widget/ActionMenuPresenter;->-get5(Landroid/widget/ActionMenuPresenter;)Lcom/android/internal/view/menu/MenuView;
 
     move-result-object v0
 
@@ -57,7 +57,7 @@
 
     iget-object v1, p0, Landroid/widget/ActionMenuPresenter$2;->this$0:Landroid/widget/ActionMenuPresenter;
 
-    invoke-static {v1}, Landroid/widget/ActionMenuPresenter;->-get2(Landroid/widget/ActionMenuPresenter;)Landroid/view/ViewTreeObserver$OnPreDrawListener;
+    invoke-static {v1}, Landroid/widget/ActionMenuPresenter;->-get3(Landroid/widget/ActionMenuPresenter;)Landroid/view/ViewTreeObserver$OnPreDrawListener;
 
     move-result-object v1
 
@@ -65,7 +65,7 @@
 
     iget-object v0, p0, Landroid/widget/ActionMenuPresenter$2;->this$0:Landroid/widget/ActionMenuPresenter;
 
-    invoke-static {v0}, Landroid/widget/ActionMenuPresenter;->-get7(Landroid/widget/ActionMenuPresenter;)Landroid/util/SparseArray;
+    invoke-static {v0}, Landroid/widget/ActionMenuPresenter;->-get8(Landroid/widget/ActionMenuPresenter;)Landroid/util/SparseArray;
 
     move-result-object v0
 
@@ -73,7 +73,7 @@
 
     iget-object v0, p0, Landroid/widget/ActionMenuPresenter$2;->this$0:Landroid/widget/ActionMenuPresenter;
 
-    invoke-static {v0}, Landroid/widget/ActionMenuPresenter;->-get6(Landroid/widget/ActionMenuPresenter;)Landroid/util/SparseArray;
+    invoke-static {v0}, Landroid/widget/ActionMenuPresenter;->-get7(Landroid/widget/ActionMenuPresenter;)Landroid/util/SparseArray;
 
     move-result-object v0
 

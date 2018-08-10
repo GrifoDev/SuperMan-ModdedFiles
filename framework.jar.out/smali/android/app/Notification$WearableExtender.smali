@@ -44,6 +44,8 @@
 
 .field private static final KEY_BACKGROUND:Ljava/lang/String; = "background"
 
+.field private static final KEY_BRIDGE_TAG:Ljava/lang/String; = "bridgeTag"
+
 .field private static final KEY_CONTENT_ACTION_INDEX:Ljava/lang/String; = "contentActionIndex"
 
 .field private static final KEY_CONTENT_ICON:Ljava/lang/String; = "contentIcon"
@@ -98,6 +100,8 @@
 .end field
 
 .field private mBackground:Landroid/graphics/Bitmap;
+
+.field private mBridgeTag:Ljava/lang/String;
 
 .field private mContentActionIndex:I
 
@@ -339,6 +343,14 @@
 
     iput-object v3, p0, Landroid/app/Notification$WearableExtender;->mDismissalId:Ljava/lang/String;
 
+    const-string/jumbo v3, "bridgeTag"
+
+    invoke-virtual {v2, v3}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v3
+
+    iput-object v3, p0, Landroid/app/Notification$WearableExtender;->mBridgeTag:Ljava/lang/String;
+
     :cond_2
     return-void
 .end method
@@ -517,6 +529,10 @@
     iget-object v1, p0, Landroid/app/Notification$WearableExtender;->mDismissalId:Ljava/lang/String;
 
     iput-object v1, v0, Landroid/app/Notification$WearableExtender;->mDismissalId:Ljava/lang/String;
+
+    iget-object v1, p0, Landroid/app/Notification$WearableExtender;->mBridgeTag:Ljava/lang/String;
+
+    iput-object v1, v0, Landroid/app/Notification$WearableExtender;->mBridgeTag:Ljava/lang/String;
 
     return-object v0
 .end method
@@ -716,6 +732,17 @@
     invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
     :cond_c
+    iget-object v1, p0, Landroid/app/Notification$WearableExtender;->mBridgeTag:Ljava/lang/String;
+
+    if-eqz v1, :cond_d
+
+    const-string/jumbo v1, "bridgeTag"
+
+    iget-object v2, p0, Landroid/app/Notification$WearableExtender;->mBridgeTag:Ljava/lang/String;
+
+    invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+
+    :cond_d
     invoke-virtual {p1}, Landroid/app/Notification$Builder;->getExtras()Landroid/os/Bundle;
 
     move-result-object v1
@@ -748,6 +775,14 @@
     .locals 1
 
     iget-object v0, p0, Landroid/app/Notification$WearableExtender;->mBackground:Landroid/graphics/Bitmap;
+
+    return-object v0
+.end method
+
+.method public getBridgeTag()Ljava/lang/String;
+    .locals 1
+
+    iget-object v0, p0, Landroid/app/Notification$WearableExtender;->mBridgeTag:Ljava/lang/String;
 
     return-object v0
 .end method
@@ -964,6 +999,14 @@
     .locals 0
 
     iput-object p1, p0, Landroid/app/Notification$WearableExtender;->mBackground:Landroid/graphics/Bitmap;
+
+    return-object p0
+.end method
+
+.method public setBridgeTag(Ljava/lang/String;)Landroid/app/Notification$WearableExtender;
+    .locals 0
+
+    iput-object p1, p0, Landroid/app/Notification$WearableExtender;->mBridgeTag:Ljava/lang/String;
 
     return-object p0
 .end method

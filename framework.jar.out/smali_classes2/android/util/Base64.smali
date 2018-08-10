@@ -39,19 +39,11 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    xor-int/lit8 v0, v0, 0x1
 
-    const/4 v0, 0x0
-
-    :goto_0
     sput-boolean v0, Landroid/util/Base64;->-assertionsDisabled:Z
 
     return-void
-
-    :cond_0
-    const/4 v0, 0x1
-
-    goto :goto_0
 .end method
 
 .method private constructor <init>()V
@@ -163,11 +155,9 @@
 .end method
 
 .method public static encode([BIII)[B
-    .locals 6
+    .locals 5
 
     const/4 v3, 0x1
-
-    const/4 v4, 0x0
 
     new-instance v0, Landroid/util/Base64$Encoder;
 
@@ -202,7 +192,7 @@
 
     div-int/lit8 v2, v2, 0x39
 
-    add-int/lit8 v5, v2, 0x1
+    add-int/lit8 v4, v2, 0x1
 
     iget-boolean v2, v0, Landroid/util/Base64$Encoder;->do_cr:Z
 
@@ -211,7 +201,7 @@
     const/4 v2, 0x2
 
     :goto_1
-    mul-int/2addr v2, v5
+    mul-int/2addr v2, v4
 
     add-int/2addr v1, v2
 
@@ -224,14 +214,11 @@
 
     sget-boolean v2, Landroid/util/Base64;->-assertionsDisabled:Z
 
-    if-nez v2, :cond_5
+    if-nez v2, :cond_4
 
     iget v2, v0, Landroid/util/Base64$Encoder;->op:I
 
-    if-ne v2, v1, :cond_4
-
-    :goto_2
-    if-nez v3, :cond_5
+    if-eq v2, v1, :cond_4
 
     new-instance v2, Ljava/lang/AssertionError;
 
@@ -262,16 +249,9 @@
     goto :goto_1
 
     :cond_4
-    move v3, v4
-
-    goto :goto_2
-
-    :cond_5
     iget-object v2, v0, Landroid/util/Base64$Encoder;->output:[B
 
     return-object v2
-
-    nop
 
     :pswitch_data_0
     .packed-switch 0x0

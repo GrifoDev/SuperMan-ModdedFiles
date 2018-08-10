@@ -1984,7 +1984,7 @@
     goto :goto_2
 .end method
 
-.method public notifyChange(Landroid/net/Uri;Landroid/database/IContentObserver;ZII)V
+.method public notifyChange(Landroid/net/Uri;Landroid/database/IContentObserver;ZIII)V
     .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -2039,6 +2039,8 @@
     invoke-virtual {v0, p4}, Landroid/os/Parcel;->writeInt(I)V
 
     invoke-virtual {v0, p5}, Landroid/os/Parcel;->writeInt(I)V
+
+    invoke-virtual {v0, p6}, Landroid/os/Parcel;->writeInt(I)V
 
     iget-object v2, p0, Landroid/content/IContentService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
@@ -2178,7 +2180,7 @@
     goto :goto_1
 .end method
 
-.method public registerContentObserver(Landroid/net/Uri;ZLandroid/database/IContentObserver;I)V
+.method public registerContentObserver(Landroid/net/Uri;ZLandroid/database/IContentObserver;II)V
     .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -2231,6 +2233,8 @@
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
     invoke-virtual {v0, p4}, Landroid/os/Parcel;->writeInt(I)V
+
+    invoke-virtual {v0, p5}, Landroid/os/Parcel;->writeInt(I)V
 
     iget-object v2, p0, Landroid/content/IContentService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 

@@ -66,6 +66,10 @@
     :try_start_0
     iget-object v1, p0, Lcom/samsung/android/service/vaultkeeper/VaultKeeperManager;->mService:Lcom/samsung/android/service/vaultkeeper/IVaultKeeperService;
 
+    if-eqz v1, :cond_0
+
+    iget-object v1, p0, Lcom/samsung/android/service/vaultkeeper/VaultKeeperManager;->mService:Lcom/samsung/android/service/vaultkeeper/IVaultKeeperService;
+
     iget-object v2, p0, Lcom/samsung/android/service/vaultkeeper/VaultKeeperManager;->mVaultName:Ljava/lang/String;
 
     invoke-interface {v1, v2}, Lcom/samsung/android/service/vaultkeeper/IVaultKeeperService;->getPackageName(Ljava/lang/String;)Ljava/lang/String;
@@ -73,16 +77,25 @@
     move-result-object v1
 
     iput-object v1, p0, Lcom/samsung/android/service/vaultkeeper/VaultKeeperManager;->mClientPkgName:Ljava/lang/String;
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     :goto_0
     return-void
 
+    :cond_0
+    const-string/jumbo v1, "VaultKeeperManager"
+
+    const-string/jumbo v2, "VaultKeeperService is null"
+
+    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    goto :goto_0
+
     :catch_0
     move-exception v0
 
-    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
 
     goto :goto_0
 .end method
@@ -186,31 +199,75 @@
 
 # virtual methods
 .method public destroy([B)I
-    .locals 4
+    .locals 8
 
     :try_start_0
-    iget-object v1, p0, Lcom/samsung/android/service/vaultkeeper/VaultKeeperManager;->mService:Lcom/samsung/android/service/vaultkeeper/IVaultKeeperService;
+    iget-object v0, p0, Lcom/samsung/android/service/vaultkeeper/VaultKeeperManager;->mService:Lcom/samsung/android/service/vaultkeeper/IVaultKeeperService;
 
-    iget-object v2, p0, Lcom/samsung/android/service/vaultkeeper/VaultKeeperManager;->mClientPkgName:Ljava/lang/String;
+    iget-object v1, p0, Lcom/samsung/android/service/vaultkeeper/VaultKeeperManager;->mClientPkgName:Ljava/lang/String;
 
-    iget-object v3, p0, Lcom/samsung/android/service/vaultkeeper/VaultKeeperManager;->mVaultName:Ljava/lang/String;
+    iget-object v2, p0, Lcom/samsung/android/service/vaultkeeper/VaultKeeperManager;->mVaultName:Ljava/lang/String;
 
-    invoke-interface {v1, v2, v3, p1}, Lcom/samsung/android/service/vaultkeeper/IVaultKeeperService;->destroy(Ljava/lang/String;Ljava/lang/String;[B)I
+    const/4 v4, 0x0
+
+    const/4 v5, 0x0
+
+    const/4 v6, 0x0
+
+    move-object v3, p1
+
+    invoke-interface/range {v0 .. v6}, Lcom/samsung/android/service/vaultkeeper/IVaultKeeperService;->destroy(Ljava/lang/String;Ljava/lang/String;[B[B[BLjava/lang/String;)I
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    move-result v1
+    move-result v0
 
-    return v1
+    return v0
 
     :catch_0
-    move-exception v0
+    move-exception v7
 
-    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v7}, Ljava/lang/Exception;->printStackTrace()V
 
-    const/4 v1, -0x3
+    const/4 v0, -0x3
 
-    return v1
+    return v0
+.end method
+
+.method public destroy([B[BLjava/lang/String;)I
+    .locals 8
+
+    :try_start_0
+    iget-object v0, p0, Lcom/samsung/android/service/vaultkeeper/VaultKeeperManager;->mService:Lcom/samsung/android/service/vaultkeeper/IVaultKeeperService;
+
+    iget-object v1, p0, Lcom/samsung/android/service/vaultkeeper/VaultKeeperManager;->mClientPkgName:Ljava/lang/String;
+
+    iget-object v2, p0, Lcom/samsung/android/service/vaultkeeper/VaultKeeperManager;->mVaultName:Ljava/lang/String;
+
+    const/4 v3, 0x0
+
+    move-object v4, p1
+
+    move-object v5, p2
+
+    move-object v6, p3
+
+    invoke-interface/range {v0 .. v6}, Lcom/samsung/android/service/vaultkeeper/IVaultKeeperService;->destroy(Ljava/lang/String;Ljava/lang/String;[B[B[BLjava/lang/String;)I
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v0
+
+    return v0
+
+    :catch_0
+    move-exception v7
+
+    invoke-virtual {v7}, Ljava/lang/Exception;->printStackTrace()V
+
+    const/4 v0, -0x3
+
+    return v0
 .end method
 
 .method public getNonce()[B
@@ -234,7 +291,7 @@
     :catch_0
     move-exception v0
 
-    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
 
     const/4 v1, 0x0
 
@@ -272,7 +329,7 @@
     :catch_0
     move-exception v8
 
-    invoke-virtual {v8}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v8}, Ljava/lang/Exception;->printStackTrace()V
 
     const/4 v0, -0x3
 
@@ -310,7 +367,7 @@
     :catch_0
     move-exception v8
 
-    invoke-virtual {v8}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v8}, Ljava/lang/Exception;->printStackTrace()V
 
     const/4 v0, -0x3
 
@@ -354,7 +411,7 @@
     :catch_0
     move-exception v8
 
-    invoke-virtual {v8}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v8}, Ljava/lang/Exception;->printStackTrace()V
 
     const/4 v0, -0x3
 
@@ -382,7 +439,7 @@
     :catch_0
     move-exception v0
 
-    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
 
     const/4 v1, 0x0
 
@@ -410,7 +467,7 @@
     :catch_0
     move-exception v0
 
-    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
 
     const/4 v1, 0x0
 
@@ -438,7 +495,7 @@
     :catch_0
     move-exception v0
 
-    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
 
     const/4 v1, 0x0
 
@@ -466,7 +523,7 @@
     :catch_0
     move-exception v0
 
-    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
 
     const/4 v1, 0x0
 
@@ -500,7 +557,7 @@
     :catch_0
     move-exception v6
 
-    invoke-virtual {v6}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v6}, Ljava/lang/Exception;->printStackTrace()V
 
     const/4 v0, -0x3
 
@@ -528,7 +585,7 @@
     :catch_0
     move-exception v0
 
-    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
 
     const/4 v1, 0x0
 
@@ -564,7 +621,7 @@
     :catch_0
     move-exception v7
 
-    invoke-virtual {v7}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v7}, Ljava/lang/Exception;->printStackTrace()V
 
     const/4 v0, -0x3
 
@@ -600,7 +657,7 @@
     :catch_0
     move-exception v7
 
-    invoke-virtual {v7}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v7}, Ljava/lang/Exception;->printStackTrace()V
 
     const/4 v0, -0x3
 
@@ -636,7 +693,7 @@
     :catch_0
     move-exception v7
 
-    invoke-virtual {v7}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v7}, Ljava/lang/Exception;->printStackTrace()V
 
     const/4 v0, -0x3
 

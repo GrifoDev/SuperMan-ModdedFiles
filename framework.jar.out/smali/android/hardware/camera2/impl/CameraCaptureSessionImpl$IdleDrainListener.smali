@@ -96,7 +96,7 @@
 
     const/4 v7, 0x0
 
-    invoke-virtual {v2, v5, v6, v7}, Landroid/hardware/camera2/impl/CameraDeviceImpl;->configureStreamsChecked(Landroid/hardware/camera2/params/InputConfiguration;Ljava/util/List;Z)Z
+    invoke-virtual {v2, v5, v6, v7}, Landroid/hardware/camera2/impl/CameraDeviceImpl;->configureStreamsChecked(Landroid/hardware/camera2/params/InputConfiguration;Ljava/util/List;I)Z
     :try_end_3
     .catch Landroid/hardware/camera2/CameraAccessException; {:try_start_3 .. :try_end_3} :catch_0
     .catch Ljava/lang/IllegalStateException; {:try_start_3 .. :try_end_3} :catch_1

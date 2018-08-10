@@ -43,7 +43,7 @@
 
 # virtual methods
 .method public onAnimationUpdate(Landroid/animation/ValueAnimator;)V
-    .locals 4
+    .locals 5
 
     invoke-virtual {p1}, Landroid/animation/ValueAnimator;->getAnimatedValue()Ljava/lang/Object;
 
@@ -61,29 +61,9 @@
 
     iget v3, p0, Landroid/transition/ChangeText$4;->val$endColor:I
 
-    invoke-static {v3}, Landroid/graphics/Color;->red(I)I
+    const v4, 0xffffff
 
-    move-result v3
-
-    shl-int/lit8 v3, v3, 0x10
-
-    or-int/2addr v2, v3
-
-    iget v3, p0, Landroid/transition/ChangeText$4;->val$endColor:I
-
-    invoke-static {v3}, Landroid/graphics/Color;->green(I)I
-
-    move-result v3
-
-    shl-int/lit8 v3, v3, 0x8
-
-    or-int/2addr v2, v3
-
-    iget v3, p0, Landroid/transition/ChangeText$4;->val$endColor:I
-
-    invoke-static {v3}, Landroid/graphics/Color;->red(I)I
-
-    move-result v3
+    and-int/2addr v3, v4
 
     or-int/2addr v2, v3
 

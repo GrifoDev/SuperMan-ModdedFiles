@@ -15,6 +15,10 @@
 
 
 # static fields
+.field public static final ACTIVE_WINDOW_ID:I = 0x7fffffff
+
+.field public static final ANY_WINDOW_ID:I = -0x2
+
 .field private static final BOOLEAN_PROPERTY_ACCESSIBILITY_FOCUSED:I = 0x4
 
 .field private static final BOOLEAN_PROPERTY_ACTIVE:I = 0x1
@@ -36,6 +40,8 @@
 
 .field private static final MAX_POOL_SIZE:I = 0xa
 
+.field public static final PICTURE_IN_PICTURE_ACTION_REPLACER_WINDOW_ID:I = -0x3
+
 .field public static final TYPE_ACCESSIBILITY_OVERLAY:I = 0x4
 
 .field public static final TYPE_APPLICATION:I = 0x1
@@ -46,7 +52,9 @@
 
 .field public static final TYPE_SYSTEM:I = 0x3
 
-.field private static final UNDEFINED:I = -0x1
+.field public static final UNDEFINED_WINDOW_ID:I = -0x1
+
+.field private static sNumInstancesInUse:Ljava/util/concurrent/atomic/AtomicInteger;
 
 .field private static final sPool:Landroid/util/Pools$SynchronizedPool;
     .annotation system Ldalvik/annotation/Signature;
@@ -72,6 +80,8 @@
 .field private mConnectionId:I
 
 .field private mId:I
+
+.field private mInPictureInPicture:Z
 
 .field private mLayer:I
 
@@ -140,7 +150,9 @@
 .end method
 
 .method private clear()V
-    .locals 3
+    .locals 4
+
+    const/4 v3, 0x0
 
     const/4 v2, 0x0
 
@@ -150,9 +162,7 @@
 
     iput v1, p0, Landroid/view/accessibility/AccessibilityWindowInfo;->mLayer:I
 
-    const/4 v0, 0x0
-
-    iput v0, p0, Landroid/view/accessibility/AccessibilityWindowInfo;->mBooleanProperties:I
+    iput v2, p0, Landroid/view/accessibility/AccessibilityWindowInfo;->mBooleanProperties:I
 
     iput v1, p0, Landroid/view/accessibility/AccessibilityWindowInfo;->mId:I
 
@@ -175,7 +185,9 @@
 
     iput v1, p0, Landroid/view/accessibility/AccessibilityWindowInfo;->mAnchorId:I
 
-    iput-object v2, p0, Landroid/view/accessibility/AccessibilityWindowInfo;->mTitle:Ljava/lang/CharSequence;
+    iput-boolean v2, p0, Landroid/view/accessibility/AccessibilityWindowInfo;->mInPictureInPicture:Z
+
+    iput-object v3, p0, Landroid/view/accessibility/AccessibilityWindowInfo;->mTitle:Ljava/lang/CharSequence;
 
     return-void
 .end method
@@ -200,57 +212,70 @@
 .method private initFromParcel(Landroid/os/Parcel;)V
     .locals 6
 
-    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
+    const/4 v3, 0x1
 
-    move-result v3
-
-    iput v3, p0, Landroid/view/accessibility/AccessibilityWindowInfo;->mType:I
+    const/4 v4, 0x0
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
-    move-result v3
+    move-result v5
 
-    iput v3, p0, Landroid/view/accessibility/AccessibilityWindowInfo;->mLayer:I
-
-    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
-
-    move-result v3
-
-    iput v3, p0, Landroid/view/accessibility/AccessibilityWindowInfo;->mBooleanProperties:I
+    iput v5, p0, Landroid/view/accessibility/AccessibilityWindowInfo;->mType:I
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
-    move-result v3
+    move-result v5
 
-    iput v3, p0, Landroid/view/accessibility/AccessibilityWindowInfo;->mId:I
+    iput v5, p0, Landroid/view/accessibility/AccessibilityWindowInfo;->mLayer:I
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
-    move-result v3
+    move-result v5
 
-    iput v3, p0, Landroid/view/accessibility/AccessibilityWindowInfo;->mParentId:I
+    iput v5, p0, Landroid/view/accessibility/AccessibilityWindowInfo;->mBooleanProperties:I
 
-    iget-object v3, p0, Landroid/view/accessibility/AccessibilityWindowInfo;->mBoundsInScreen:Landroid/graphics/Rect;
+    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
-    invoke-virtual {v3, p1}, Landroid/graphics/Rect;->readFromParcel(Landroid/os/Parcel;)V
+    move-result v5
+
+    iput v5, p0, Landroid/view/accessibility/AccessibilityWindowInfo;->mId:I
+
+    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
+
+    move-result v5
+
+    iput v5, p0, Landroid/view/accessibility/AccessibilityWindowInfo;->mParentId:I
+
+    iget-object v5, p0, Landroid/view/accessibility/AccessibilityWindowInfo;->mBoundsInScreen:Landroid/graphics/Rect;
+
+    invoke-virtual {v5, p1}, Landroid/graphics/Rect;->readFromParcel(Landroid/os/Parcel;)V
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readCharSequence()Ljava/lang/CharSequence;
 
-    move-result-object v3
+    move-result-object v5
 
-    iput-object v3, p0, Landroid/view/accessibility/AccessibilityWindowInfo;->mTitle:Ljava/lang/CharSequence;
+    iput-object v5, p0, Landroid/view/accessibility/AccessibilityWindowInfo;->mTitle:Ljava/lang/CharSequence;
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
-    move-result v3
+    move-result v5
 
-    iput v3, p0, Landroid/view/accessibility/AccessibilityWindowInfo;->mAnchorId:I
+    iput v5, p0, Landroid/view/accessibility/AccessibilityWindowInfo;->mAnchorId:I
+
+    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
+
+    move-result v5
+
+    if-ne v5, v3, :cond_1
+
+    :goto_0
+    iput-boolean v3, p0, Landroid/view/accessibility/AccessibilityWindowInfo;->mInPictureInPicture:Z
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
-    if-lez v0, :cond_1
+    if-lez v0, :cond_2
 
     iget-object v3, p0, Landroid/view/accessibility/AccessibilityWindowInfo;->mChildIds:Landroid/util/LongArray;
 
@@ -265,8 +290,8 @@
     :cond_0
     const/4 v2, 0x0
 
-    :goto_0
-    if-ge v2, v0, :cond_1
+    :goto_1
+    if-ge v2, v0, :cond_2
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
@@ -280,9 +305,14 @@
 
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_1
 
     :cond_1
+    move v3, v4
+
+    goto :goto_0
+
+    :cond_2
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
@@ -310,6 +340,15 @@
     invoke-direct {v0}, Landroid/view/accessibility/AccessibilityWindowInfo;-><init>()V
 
     :cond_0
+    sget-object v1, Landroid/view/accessibility/AccessibilityWindowInfo;->sNumInstancesInUse:Ljava/util/concurrent/atomic/AtomicInteger;
+
+    if-eqz v1, :cond_1
+
+    sget-object v1, Landroid/view/accessibility/AccessibilityWindowInfo;->sNumInstancesInUse:Ljava/util/concurrent/atomic/AtomicInteger;
+
+    invoke-virtual {v1}, Ljava/util/concurrent/atomic/AtomicInteger;->incrementAndGet()I
+
+    :cond_1
     return-object v0
 .end method
 
@@ -353,6 +392,10 @@
     iget v1, p0, Landroid/view/accessibility/AccessibilityWindowInfo;->mAnchorId:I
 
     iput v1, v0, Landroid/view/accessibility/AccessibilityWindowInfo;->mAnchorId:I
+
+    iget-boolean v1, p0, Landroid/view/accessibility/AccessibilityWindowInfo;->mInPictureInPicture:Z
+
+    iput-boolean v1, v0, Landroid/view/accessibility/AccessibilityWindowInfo;->mInPictureInPicture:Z
 
     iget-object v1, p0, Landroid/view/accessibility/AccessibilityWindowInfo;->mChildIds:Landroid/util/LongArray;
 
@@ -420,6 +463,19 @@
     iput v0, p0, Landroid/view/accessibility/AccessibilityWindowInfo;->mBooleanProperties:I
 
     goto :goto_0
+.end method
+
+.method public static setNumInstancesInUseCounter(Ljava/util/concurrent/atomic/AtomicInteger;)V
+    .locals 1
+
+    sget-object v0, Landroid/view/accessibility/AccessibilityWindowInfo;->sNumInstancesInUse:Ljava/util/concurrent/atomic/AtomicInteger;
+
+    if-eqz v0, :cond_0
+
+    sput-object p0, Landroid/view/accessibility/AccessibilityWindowInfo;->sNumInstancesInUse:Ljava/util/concurrent/atomic/AtomicInteger;
+
+    :cond_0
+    return-void
 .end method
 
 .method private static typeToString(I)Ljava/lang/String;
@@ -583,7 +639,7 @@
 
     iget-object v1, p1, Landroid/view/accessibility/AccessibilityWindowInfo;->mChildIds:Landroid/util/LongArray;
 
-    invoke-virtual {v0, v1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v1}, Landroid/util/LongArray;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
@@ -622,7 +678,7 @@
     return v2
 
     :cond_1
-    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+    invoke-virtual {p0}, Landroid/view/accessibility/AccessibilityWindowInfo;->getClass()Ljava/lang/Class;
 
     move-result-object v3
 
@@ -655,7 +711,9 @@
 .end method
 
 .method public getAnchor()Landroid/view/accessibility/AccessibilityNodeInfo;
-    .locals 8
+    .locals 9
+
+    const/4 v8, 0x0
 
     const/4 v2, -0x1
 
@@ -668,9 +726,7 @@
     if-ne v0, v2, :cond_1
 
     :cond_0
-    const/4 v0, 0x0
-
-    return-object v0
+    return-object v8
 
     :cond_1
     iget v0, p0, Landroid/view/accessibility/AccessibilityWindowInfo;->mParentId:I
@@ -693,7 +749,7 @@
 
     const/4 v7, 0x0
 
-    invoke-virtual/range {v1 .. v7}, Landroid/view/accessibility/AccessibilityInteractionClient;->findAccessibilityNodeInfoByAccessibilityId(IIJZI)Landroid/view/accessibility/AccessibilityNodeInfo;
+    invoke-virtual/range {v1 .. v8}, Landroid/view/accessibility/AccessibilityInteractionClient;->findAccessibilityNodeInfoByAccessibilityId(IIJZILandroid/os/Bundle;)Landroid/view/accessibility/AccessibilityNodeInfo;
 
     move-result-object v0
 
@@ -829,7 +885,9 @@
 .end method
 
 .method public getRoot()Landroid/view/accessibility/AccessibilityNodeInfo;
-    .locals 8
+    .locals 9
+
+    const/4 v8, 0x0
 
     iget v0, p0, Landroid/view/accessibility/AccessibilityWindowInfo;->mConnectionId:I
 
@@ -837,9 +895,7 @@
 
     if-ne v0, v2, :cond_0
 
-    const/4 v0, 0x0
-
-    return-object v0
+    return-object v8
 
     :cond_0
     invoke-static {}, Landroid/view/accessibility/AccessibilityInteractionClient;->getInstance()Landroid/view/accessibility/AccessibilityInteractionClient;
@@ -856,7 +912,7 @@
 
     const/4 v7, 0x4
 
-    invoke-virtual/range {v1 .. v7}, Landroid/view/accessibility/AccessibilityInteractionClient;->findAccessibilityNodeInfoByAccessibilityId(IIJZI)Landroid/view/accessibility/AccessibilityNodeInfo;
+    invoke-virtual/range {v1 .. v8}, Landroid/view/accessibility/AccessibilityInteractionClient;->findAccessibilityNodeInfoByAccessibilityId(IIJZILandroid/os/Bundle;)Landroid/view/accessibility/AccessibilityNodeInfo;
 
     move-result-object v0
 
@@ -883,6 +939,16 @@
     .locals 1
 
     iget v0, p0, Landroid/view/accessibility/AccessibilityWindowInfo;->mId:I
+
+    return v0
+.end method
+
+.method public inPictureInPicture()Z
+    .locals 1
+
+    invoke-virtual {p0}, Landroid/view/accessibility/AccessibilityWindowInfo;->isInPictureInPictureMode()Z
+
+    move-result v0
 
     return v0
 .end method
@@ -923,6 +989,14 @@
     return v0
 .end method
 
+.method public isInPictureInPictureMode()Z
+    .locals 1
+
+    iget-boolean v0, p0, Landroid/view/accessibility/AccessibilityWindowInfo;->mInPictureInPicture:Z
+
+    return v0
+.end method
+
 .method public recycle()V
     .locals 1
 
@@ -932,6 +1006,15 @@
 
     invoke-virtual {v0, p0}, Landroid/util/Pools$SynchronizedPool;->release(Ljava/lang/Object;)Z
 
+    sget-object v0, Landroid/view/accessibility/AccessibilityWindowInfo;->sNumInstancesInUse:Ljava/util/concurrent/atomic/AtomicInteger;
+
+    if-eqz v0, :cond_0
+
+    sget-object v0, Landroid/view/accessibility/AccessibilityWindowInfo;->sNumInstancesInUse:Ljava/util/concurrent/atomic/AtomicInteger;
+
+    invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicInteger;->decrementAndGet()I
+
+    :cond_0
     return-void
 .end method
 
@@ -1011,6 +1094,14 @@
     .locals 0
 
     iput p1, p0, Landroid/view/accessibility/AccessibilityWindowInfo;->mParentId:I
+
+    return-void
+.end method
+
+.method public setPictureInPicture(Z)V
+    .locals 0
+
+    iput-boolean p1, p0, Landroid/view/accessibility/AccessibilityWindowInfo;->mInPictureInPicture:Z
 
     return-void
 .end method
@@ -1126,6 +1217,18 @@
 
     invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
+    const-string/jumbo v1, ", pictureInPicture="
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {p0}, Landroid/view/accessibility/AccessibilityWindowInfo;->inPictureInPicture()Z
+
+    move-result v4
+
+    invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
     const-string/jumbo v1, ", hasParent="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -1203,6 +1306,8 @@
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 6
 
+    const/4 v4, 0x0
+
     iget v3, p0, Landroid/view/accessibility/AccessibilityWindowInfo;->mType:I
 
     invoke-virtual {p1, v3}, Landroid/os/Parcel;->writeInt(I)V
@@ -1235,13 +1340,20 @@
 
     invoke-virtual {p1, v3}, Landroid/os/Parcel;->writeInt(I)V
 
+    iget-boolean v3, p0, Landroid/view/accessibility/AccessibilityWindowInfo;->mInPictureInPicture:Z
+
+    if-eqz v3, :cond_1
+
+    const/4 v3, 0x1
+
+    :goto_0
+    invoke-virtual {p1, v3}, Landroid/os/Parcel;->writeInt(I)V
+
     iget-object v1, p0, Landroid/view/accessibility/AccessibilityWindowInfo;->mChildIds:Landroid/util/LongArray;
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_2
 
-    const/4 v3, 0x0
-
-    invoke-virtual {p1, v3}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p1, v4}, Landroid/os/Parcel;->writeInt(I)V
 
     :cond_0
     iget v3, p0, Landroid/view/accessibility/AccessibilityWindowInfo;->mConnectionId:I
@@ -1251,6 +1363,11 @@
     return-void
 
     :cond_1
+    move v3, v4
+
+    goto :goto_0
+
+    :cond_2
     invoke-virtual {v1}, Landroid/util/LongArray;->size()I
 
     move-result v0
@@ -1259,7 +1376,7 @@
 
     const/4 v2, 0x0
 
-    :goto_0
+    :goto_1
     if-ge v2, v0, :cond_0
 
     invoke-virtual {v1, v2}, Landroid/util/LongArray;->get(I)J
@@ -1272,5 +1389,5 @@
 
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_1
 .end method

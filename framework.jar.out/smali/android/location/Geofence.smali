@@ -396,6 +396,8 @@
 
     const/16 v0, 0x1f
 
+    const/4 v1, 0x1
+
     iget-wide v4, p0, Landroid/location/Geofence;->mLatitude:D
 
     invoke-static {v4, v5}, Ljava/lang/Double;->doubleToLongBits(D)J

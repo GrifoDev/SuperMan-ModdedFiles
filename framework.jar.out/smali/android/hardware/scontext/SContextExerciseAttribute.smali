@@ -169,7 +169,7 @@
 
     const-string/jumbo v5, "required_data_type"
 
-    invoke-virtual {v0, v5, v3}, Landroid/os/BaseBundle;->putInt(Ljava/lang/String;I)V
+    invoke-virtual {v0, v5, v3}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
     const/16 v5, 0x28
 

@@ -15,11 +15,11 @@
 
 
 # static fields
-.field public static final CCKM:I = 0x8
+.field public static final CCKM:I = 0xa
 
-.field public static final FT_EAP:I = 0xa
+.field public static final FT_EAP:I = 0x7
 
-.field public static final FT_PSK:I = 0x9
+.field public static final FT_PSK:I = 0x6
 
 .field public static final IEEE8021X:I = 0x3
 
@@ -27,9 +27,9 @@
 
 .field public static final OSEN:I = 0x5
 
-.field public static final WAPI_CERT:I = 0x7
+.field public static final WAPI_CERT:I = 0x9
 
-.field public static final WAPI_PSK:I = 0x6
+.field public static final WAPI_PSK:I = 0x8
 
 .field public static final WPA2_PSK:I = 0x4
 
@@ -86,31 +86,31 @@
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "WAPI_PSK"
+    const-string/jumbo v1, "FT_PSK"
 
     const/4 v2, 0x6
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "WAPI_CERT"
+    const-string/jumbo v1, "FT_EAP"
 
     const/4 v2, 0x7
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "CCKM"
+    const-string/jumbo v1, "WAPI_PSK"
 
     const/16 v2, 0x8
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "FT_PSK"
+    const-string/jumbo v1, "WAPI_CERT"
 
     const/16 v2, 0x9
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "FT_EAP"
+    const-string/jumbo v1, "CCKM"
 
     const/16 v2, 0xa
 

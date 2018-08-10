@@ -1,5 +1,5 @@
 .class Lcom/samsung/android/desktopmode/SemDesktopModeManager$EventListenerDelegate;
-.super Lcom/samsung/android/desktopmode/IDesktopModeCallback$Stub;
+.super Lcom/samsung/android/desktopmode/IEventListener$Stub;
 .source "SemDesktopModeManager.java"
 
 
@@ -15,184 +15,142 @@
 
 
 # instance fields
-.field private final mEventListenerRef:Ljava/lang/ref/WeakReference;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/lang/ref/WeakReference",
-            "<",
-            "Lcom/samsung/android/desktopmode/SemDesktopModeManager$EventListener;",
-            ">;"
-        }
-    .end annotation
-.end field
+.field private mListener:Lcom/samsung/android/desktopmode/SemDesktopModeManager$EventListener;
 
 
 # direct methods
 .method constructor <init>(Lcom/samsung/android/desktopmode/SemDesktopModeManager$EventListener;)V
-    .locals 1
+    .locals 0
 
-    invoke-direct {p0}, Lcom/samsung/android/desktopmode/IDesktopModeCallback$Stub;-><init>()V
+    invoke-direct {p0}, Lcom/samsung/android/desktopmode/IEventListener$Stub;-><init>()V
 
-    new-instance v0, Ljava/lang/ref/WeakReference;
-
-    invoke-direct {v0, p1}, Ljava/lang/ref/WeakReference;-><init>(Ljava/lang/Object;)V
-
-    iput-object v0, p0, Lcom/samsung/android/desktopmode/SemDesktopModeManager$EventListenerDelegate;->mEventListenerRef:Ljava/lang/ref/WeakReference;
+    iput-object p1, p0, Lcom/samsung/android/desktopmode/SemDesktopModeManager$EventListenerDelegate;->mListener:Lcom/samsung/android/desktopmode/SemDesktopModeManager$EventListener;
 
     return-void
 .end method
 
 
 # virtual methods
-.method destroy()V
+.method nullOutListener()V
     .locals 1
 
-    iget-object v0, p0, Lcom/samsung/android/desktopmode/SemDesktopModeManager$EventListenerDelegate;->mEventListenerRef:Ljava/lang/ref/WeakReference;
+    const/4 v0, 0x0
 
-    invoke-virtual {v0}, Ljava/lang/ref/Reference;->clear()V
+    iput-object v0, p0, Lcom/samsung/android/desktopmode/SemDesktopModeManager$EventListenerDelegate;->mListener:Lcom/samsung/android/desktopmode/SemDesktopModeManager$EventListener;
 
     return-void
 .end method
 
 .method public onDesktopDockConnectionChanged(Z)V
-    .locals 4
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    iget-object v1, p0, Lcom/samsung/android/desktopmode/SemDesktopModeManager$EventListenerDelegate;->mEventListenerRef:Ljava/lang/ref/WeakReference;
-
-    invoke-virtual {v1}, Ljava/lang/ref/Reference;->get()Ljava/lang/Object;
+    invoke-static {}, Lcom/samsung/android/desktopmode/SemDesktopModeManager;->-get0()Ljava/lang/String;
 
     move-result-object v0
 
-    check-cast v0, Lcom/samsung/android/desktopmode/SemDesktopModeManager$EventListener;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    if-eqz v0, :cond_0
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-static {}, Lcom/samsung/android/desktopmode/SemDesktopModeManager;->-get0()Ljava/lang/String;
+    const-string/jumbo v2, "onDesktopDockConnectionChanged() connected="
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    move-result-object v1
 
-    const-string/jumbo v3, "onDesktopDockConnectionChanged() connected="
+    const-string/jumbo v2, ", listener="
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    iget-object v2, p0, Lcom/samsung/android/desktopmode/SemDesktopModeManager$EventListenerDelegate;->mListener:Lcom/samsung/android/desktopmode/SemDesktopModeManager$EventListener;
 
-    move-result-object v2
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v3, ", listener="
+    move-result-object v1
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    iget-object v0, p0, Lcom/samsung/android/desktopmode/SemDesktopModeManager$EventListenerDelegate;->mListener:Lcom/samsung/android/desktopmode/SemDesktopModeManager$EventListener;
 
     invoke-interface {v0, p1}, Lcom/samsung/android/desktopmode/SemDesktopModeManager$EventListener;->onDesktopDockConnectionChanged(Z)V
 
-    :cond_0
     return-void
 .end method
 
 .method public onDesktopModeChanged(Z)V
-    .locals 4
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    iget-object v1, p0, Lcom/samsung/android/desktopmode/SemDesktopModeManager$EventListenerDelegate;->mEventListenerRef:Ljava/lang/ref/WeakReference;
-
-    invoke-virtual {v1}, Ljava/lang/ref/Reference;->get()Ljava/lang/Object;
+    invoke-static {}, Lcom/samsung/android/desktopmode/SemDesktopModeManager;->-get0()Ljava/lang/String;
 
     move-result-object v0
 
-    check-cast v0, Lcom/samsung/android/desktopmode/SemDesktopModeManager$EventListener;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    if-eqz v0, :cond_0
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-static {}, Lcom/samsung/android/desktopmode/SemDesktopModeManager;->-get0()Ljava/lang/String;
+    const-string/jumbo v2, "onDesktopModeChanged() enabled="
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    move-result-object v1
 
-    const-string/jumbo v3, "onDesktopModeChanged() enabled="
+    const-string/jumbo v2, ", listener="
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    iget-object v2, p0, Lcom/samsung/android/desktopmode/SemDesktopModeManager$EventListenerDelegate;->mListener:Lcom/samsung/android/desktopmode/SemDesktopModeManager$EventListener;
 
-    move-result-object v2
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v3, ", listener="
+    move-result-object v1
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    iget-object v0, p0, Lcom/samsung/android/desktopmode/SemDesktopModeManager$EventListenerDelegate;->mListener:Lcom/samsung/android/desktopmode/SemDesktopModeManager$EventListener;
 
     invoke-interface {v0, p1}, Lcom/samsung/android/desktopmode/SemDesktopModeManager$EventListener;->onDesktopModeChanged(Z)V
 
-    :cond_0
     return-void
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .locals 1
 
-    iget-object v1, p0, Lcom/samsung/android/desktopmode/SemDesktopModeManager$EventListenerDelegate;->mEventListenerRef:Ljava/lang/ref/WeakReference;
-
-    invoke-virtual {v1}, Ljava/lang/ref/Reference;->get()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/samsung/android/desktopmode/SemDesktopModeManager$EventListener;
-
-    if-eqz v0, :cond_0
+    iget-object v0, p0, Lcom/samsung/android/desktopmode/SemDesktopModeManager$EventListenerDelegate;->mListener:Lcom/samsung/android/desktopmode/SemDesktopModeManager$EventListener;
 
     invoke-virtual {v0}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
-    return-object v1
-
-    :cond_0
-    invoke-super {p0}, Lcom/samsung/android/desktopmode/IDesktopModeCallback$Stub;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    return-object v1
+    return-object v0
 .end method

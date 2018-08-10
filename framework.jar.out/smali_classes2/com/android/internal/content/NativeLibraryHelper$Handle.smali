@@ -20,6 +20,8 @@
 # instance fields
 .field final apkHandles:[J
 
+.field final debuggable:Z
+
 .field final extractNativeLibs:Z
 
 .field private volatile mClosed:Z
@@ -30,7 +32,7 @@
 
 
 # direct methods
-.method constructor <init>([JZZ)V
+.method constructor <init>([JZZZ)V
     .locals 2
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -46,6 +48,8 @@
     iput-boolean p2, p0, Lcom/android/internal/content/NativeLibraryHelper$Handle;->multiArch:Z
 
     iput-boolean p3, p0, Lcom/android/internal/content/NativeLibraryHelper$Handle;->extractNativeLibs:Z
+
+    iput-boolean p4, p0, Lcom/android/internal/content/NativeLibraryHelper$Handle;->debuggable:Z
 
     iget-object v0, p0, Lcom/android/internal/content/NativeLibraryHelper$Handle;->mGuard:Ldalvik/system/CloseGuard;
 
@@ -70,33 +74,44 @@
 
     invoke-virtual {p0}, Landroid/content/pm/PackageParser$Package;->getAllCodePaths()Ljava/util/List;
 
-    move-result-object v3
+    move-result-object v4
 
     iget-object v0, p0, Landroid/content/pm/PackageParser$Package;->applicationInfo:Landroid/content/pm/ApplicationInfo;
 
     iget v0, v0, Landroid/content/pm/ApplicationInfo;->flags:I
 
-    const/high16 v4, -0x80000000
+    const/high16 v3, -0x80000000
 
-    and-int/2addr v0, v4
+    and-int/2addr v0, v3
 
     if-eqz v0, :cond_0
 
     move v0, v1
 
     :goto_0
-    iget-object v4, p0, Landroid/content/pm/PackageParser$Package;->applicationInfo:Landroid/content/pm/ApplicationInfo;
+    iget-object v3, p0, Landroid/content/pm/PackageParser$Package;->applicationInfo:Landroid/content/pm/ApplicationInfo;
 
-    iget v4, v4, Landroid/content/pm/ApplicationInfo;->flags:I
+    iget v3, v3, Landroid/content/pm/ApplicationInfo;->flags:I
 
     const/high16 v5, 0x10000000
 
-    and-int/2addr v4, v5
+    and-int/2addr v3, v5
 
-    if-eqz v4, :cond_1
+    if-eqz v3, :cond_1
+
+    move v3, v1
 
     :goto_1
-    invoke-static {v3, v0, v1}, Lcom/android/internal/content/NativeLibraryHelper$Handle;->create(Ljava/util/List;ZZ)Lcom/android/internal/content/NativeLibraryHelper$Handle;
+    iget-object v5, p0, Landroid/content/pm/PackageParser$Package;->applicationInfo:Landroid/content/pm/ApplicationInfo;
+
+    iget v5, v5, Landroid/content/pm/ApplicationInfo;->flags:I
+
+    and-int/lit8 v5, v5, 0x2
+
+    if-eqz v5, :cond_2
+
+    :goto_2
+    invoke-static {v4, v0, v3, v1}, Lcom/android/internal/content/NativeLibraryHelper$Handle;->create(Ljava/util/List;ZZZ)Lcom/android/internal/content/NativeLibraryHelper$Handle;
 
     move-result-object v0
 
@@ -108,13 +123,18 @@
     goto :goto_0
 
     :cond_1
-    move v1, v2
+    move v3, v2
 
     goto :goto_1
+
+    :cond_2
+    move v1, v2
+
+    goto :goto_2
 .end method
 
 .method public static create(Landroid/content/pm/PackageParser$PackageLite;)Lcom/android/internal/content/NativeLibraryHelper$Handle;
-    .locals 3
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -129,7 +149,9 @@
 
     iget-boolean v2, p0, Landroid/content/pm/PackageParser$PackageLite;->extractNativeLibs:Z
 
-    invoke-static {v0, v1, v2}, Lcom/android/internal/content/NativeLibraryHelper$Handle;->create(Ljava/util/List;ZZ)Lcom/android/internal/content/NativeLibraryHelper$Handle;
+    iget-boolean v3, p0, Landroid/content/pm/PackageParser$PackageLite;->debuggable:Z
+
+    invoke-static {v0, v1, v2, v3}, Lcom/android/internal/content/NativeLibraryHelper$Handle;->create(Ljava/util/List;ZZZ)Lcom/android/internal/content/NativeLibraryHelper$Handle;
 
     move-result-object v0
 
@@ -187,7 +209,7 @@
     throw v2
 .end method
 
-.method private static create(Ljava/util/List;ZZ)Lcom/android/internal/content/NativeLibraryHelper$Handle;
+.method private static create(Ljava/util/List;ZZZ)Lcom/android/internal/content/NativeLibraryHelper$Handle;
     .locals 10
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -195,7 +217,7 @@
             "Ljava/util/List",
             "<",
             "Ljava/lang/String;",
-            ">;ZZ)",
+            ">;ZZZ)",
             "Lcom/android/internal/content/NativeLibraryHelper$Handle;"
         }
     .end annotation
@@ -283,7 +305,7 @@
     :cond_2
     new-instance v5, Lcom/android/internal/content/NativeLibraryHelper$Handle;
 
-    invoke-direct {v5, v0, p1, p2}, Lcom/android/internal/content/NativeLibraryHelper$Handle;-><init>([JZZ)V
+    invoke-direct {v5, v0, p1, p2, p3}, Lcom/android/internal/content/NativeLibraryHelper$Handle;-><init>([JZZZ)V
 
     return-object v5
 .end method

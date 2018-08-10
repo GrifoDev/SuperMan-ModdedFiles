@@ -171,7 +171,7 @@
 
     iget-object v1, p1, Landroid/view/ViewRootImpl;->mHandler:Landroid/view/ViewRootImpl$ViewRootHandler;
 
-    invoke-virtual {v1}, Landroid/os/Handler;->getLooper()Landroid/os/Looper;
+    invoke-virtual {v1}, Landroid/view/ViewRootImpl$ViewRootHandler;->getLooper()Landroid/os/Looper;
 
     move-result-object v0
 
@@ -286,303 +286,361 @@
     return-void
 .end method
 
-.method private applyAppScaleAndMagnificationSpecIfNeeded(Landroid/graphics/Point;Landroid/view/MagnificationSpec;)V
-    .locals 3
-
-    iget-object v1, p0, Landroid/view/AccessibilityInteractionController;->mViewRootImpl:Landroid/view/ViewRootImpl;
-
-    iget-object v1, v1, Landroid/view/ViewRootImpl;->mAttachInfo:Landroid/view/View$AttachInfo;
-
-    iget v0, v1, Landroid/view/View$AttachInfo;->mApplicationScale:F
-
-    invoke-direct {p0, v0, p2}, Landroid/view/AccessibilityInteractionController;->shouldApplyAppScaleAndMagnificationSpec(FLandroid/view/MagnificationSpec;)Z
-
-    move-result v1
-
-    if-nez v1, :cond_0
-
-    return-void
-
-    :cond_0
-    const/high16 v1, 0x3f800000    # 1.0f
-
-    cmpl-float v1, v0, v1
-
-    if-eqz v1, :cond_1
-
-    iget v1, p1, Landroid/graphics/Point;->x:I
-
-    int-to-float v1, v1
-
-    mul-float/2addr v1, v0
-
-    float-to-int v1, v1
-
-    iput v1, p1, Landroid/graphics/Point;->x:I
-
-    iget v1, p1, Landroid/graphics/Point;->y:I
-
-    int-to-float v1, v1
-
-    mul-float/2addr v1, v0
-
-    float-to-int v1, v1
-
-    iput v1, p1, Landroid/graphics/Point;->y:I
-
-    :cond_1
-    if-eqz p2, :cond_2
-
-    iget v1, p1, Landroid/graphics/Point;->x:I
-
-    int-to-float v1, v1
-
-    iget v2, p2, Landroid/view/MagnificationSpec;->scale:F
-
-    mul-float/2addr v1, v2
-
-    float-to-int v1, v1
-
-    iput v1, p1, Landroid/graphics/Point;->x:I
-
-    iget v1, p1, Landroid/graphics/Point;->y:I
-
-    int-to-float v1, v1
-
-    iget v2, p2, Landroid/view/MagnificationSpec;->scale:F
-
-    mul-float/2addr v1, v2
-
-    float-to-int v1, v1
-
-    iput v1, p1, Landroid/graphics/Point;->y:I
-
-    iget v1, p1, Landroid/graphics/Point;->x:I
-
-    iget v2, p2, Landroid/view/MagnificationSpec;->offsetX:F
-
-    float-to-int v2, v2
-
-    add-int/2addr v1, v2
-
-    iput v1, p1, Landroid/graphics/Point;->x:I
-
-    iget v1, p1, Landroid/graphics/Point;->y:I
-
-    iget v2, p2, Landroid/view/MagnificationSpec;->offsetY:F
-
-    float-to-int v2, v2
-
-    add-int/2addr v1, v2
-
-    iput v1, p1, Landroid/graphics/Point;->y:I
-
-    :cond_2
-    return-void
-.end method
-
 .method private applyAppScaleAndMagnificationSpecIfNeeded(Landroid/view/accessibility/AccessibilityNodeInfo;Landroid/view/MagnificationSpec;)V
-    .locals 13
+    .locals 19
 
     if-nez p1, :cond_0
 
     return-void
 
     :cond_0
-    iget-object v9, p0, Landroid/view/AccessibilityInteractionController;->mViewRootImpl:Landroid/view/ViewRootImpl;
+    move-object/from16 v0, p0
 
-    iget-object v9, v9, Landroid/view/ViewRootImpl;->mAttachInfo:Landroid/view/View$AttachInfo;
+    iget-object v15, v0, Landroid/view/AccessibilityInteractionController;->mViewRootImpl:Landroid/view/ViewRootImpl;
 
-    iget v0, v9, Landroid/view/View$AttachInfo;->mApplicationScale:F
+    iget-object v15, v15, Landroid/view/ViewRootImpl;->mAttachInfo:Landroid/view/View$AttachInfo;
 
-    invoke-direct {p0, v0, p2}, Landroid/view/AccessibilityInteractionController;->shouldApplyAppScaleAndMagnificationSpec(FLandroid/view/MagnificationSpec;)Z
+    iget v2, v15, Landroid/view/View$AttachInfo;->mApplicationScale:F
 
-    move-result v9
+    move-object/from16 v0, p0
 
-    if-nez v9, :cond_1
+    move-object/from16 v1, p2
+
+    invoke-direct {v0, v2, v1}, Landroid/view/AccessibilityInteractionController;->shouldApplyAppScaleAndMagnificationSpec(FLandroid/view/MagnificationSpec;)Z
+
+    move-result v15
+
+    if-nez v15, :cond_1
 
     return-void
 
     :cond_1
-    iget-object v2, p0, Landroid/view/AccessibilityInteractionController;->mTempRect:Landroid/graphics/Rect;
+    move-object/from16 v0, p0
 
-    iget-object v3, p0, Landroid/view/AccessibilityInteractionController;->mTempRect1:Landroid/graphics/Rect;
+    iget-object v4, v0, Landroid/view/AccessibilityInteractionController;->mTempRect:Landroid/graphics/Rect;
 
-    invoke-virtual {p1, v2}, Landroid/view/accessibility/AccessibilityNodeInfo;->getBoundsInParent(Landroid/graphics/Rect;)V
+    move-object/from16 v0, p0
 
-    invoke-virtual {p1, v3}, Landroid/view/accessibility/AccessibilityNodeInfo;->getBoundsInScreen(Landroid/graphics/Rect;)V
+    iget-object v5, v0, Landroid/view/AccessibilityInteractionController;->mTempRect1:Landroid/graphics/Rect;
 
-    const/high16 v9, 0x3f800000    # 1.0f
+    move-object/from16 v0, p1
 
-    cmpl-float v9, v0, v9
+    invoke-virtual {v0, v4}, Landroid/view/accessibility/AccessibilityNodeInfo;->getBoundsInParent(Landroid/graphics/Rect;)V
 
-    if-eqz v9, :cond_2
+    move-object/from16 v0, p1
 
-    invoke-virtual {v2, v0}, Landroid/graphics/Rect;->scale(F)V
+    invoke-virtual {v0, v5}, Landroid/view/accessibility/AccessibilityNodeInfo;->getBoundsInScreen(Landroid/graphics/Rect;)V
 
-    invoke-virtual {v3, v0}, Landroid/graphics/Rect;->scale(F)V
+    const/high16 v15, 0x3f800000    # 1.0f
+
+    cmpl-float v15, v2, v15
+
+    if-eqz v15, :cond_2
+
+    invoke-virtual {v4, v2}, Landroid/graphics/Rect;->scale(F)V
+
+    invoke-virtual {v5, v2}, Landroid/graphics/Rect;->scale(F)V
 
     :cond_2
     if-eqz p2, :cond_3
 
-    iget v9, p2, Landroid/view/MagnificationSpec;->scale:F
+    move-object/from16 v0, p2
 
-    invoke-virtual {v2, v9}, Landroid/graphics/Rect;->scale(F)V
+    iget v15, v0, Landroid/view/MagnificationSpec;->scale:F
 
-    iget v9, p2, Landroid/view/MagnificationSpec;->scale:F
+    invoke-virtual {v4, v15}, Landroid/graphics/Rect;->scale(F)V
 
-    invoke-virtual {v3, v9}, Landroid/graphics/Rect;->scale(F)V
+    move-object/from16 v0, p2
 
-    iget v9, p2, Landroid/view/MagnificationSpec;->offsetX:F
+    iget v15, v0, Landroid/view/MagnificationSpec;->scale:F
 
-    float-to-int v9, v9
+    invoke-virtual {v5, v15}, Landroid/graphics/Rect;->scale(F)V
 
-    iget v10, p2, Landroid/view/MagnificationSpec;->offsetY:F
+    move-object/from16 v0, p2
 
-    float-to-int v10, v10
+    iget v15, v0, Landroid/view/MagnificationSpec;->offsetX:F
 
-    invoke-virtual {v3, v9, v10}, Landroid/graphics/Rect;->offset(II)V
+    float-to-int v15, v15
+
+    move-object/from16 v0, p2
+
+    iget v0, v0, Landroid/view/MagnificationSpec;->offsetY:F
+
+    move/from16 v16, v0
+
+    move/from16 v0, v16
+
+    float-to-int v0, v0
+
+    move/from16 v16, v0
+
+    move/from16 v0, v16
+
+    invoke-virtual {v5, v15, v0}, Landroid/graphics/Rect;->offset(II)V
 
     :cond_3
-    invoke-virtual {p1, v2}, Landroid/view/accessibility/AccessibilityNodeInfo;->setBoundsInParent(Landroid/graphics/Rect;)V
+    move-object/from16 v0, p1
 
-    invoke-virtual {p1, v3}, Landroid/view/accessibility/AccessibilityNodeInfo;->setBoundsInScreen(Landroid/graphics/Rect;)V
+    invoke-virtual {v0, v4}, Landroid/view/accessibility/AccessibilityNodeInfo;->setBoundsInParent(Landroid/graphics/Rect;)V
 
-    if-eqz p2, :cond_6
+    move-object/from16 v0, p1
 
-    iget-object v9, p0, Landroid/view/AccessibilityInteractionController;->mViewRootImpl:Landroid/view/ViewRootImpl;
+    invoke-virtual {v0, v5}, Landroid/view/accessibility/AccessibilityNodeInfo;->setBoundsInScreen(Landroid/graphics/Rect;)V
 
-    iget-object v1, v9, Landroid/view/ViewRootImpl;->mAttachInfo:Landroid/view/View$AttachInfo;
+    invoke-virtual/range {p1 .. p1}, Landroid/view/accessibility/AccessibilityNodeInfo;->hasExtras()Z
 
-    iget-object v9, v1, Landroid/view/View$AttachInfo;->mDisplay:Landroid/view/Display;
+    move-result v15
 
-    if-nez v9, :cond_4
+    if-eqz v15, :cond_5
+
+    invoke-virtual/range {p1 .. p1}, Landroid/view/accessibility/AccessibilityNodeInfo;->getExtras()Landroid/os/Bundle;
+
+    move-result-object v8
+
+    const-string/jumbo v15, "android.view.accessibility.extra.DATA_TEXT_CHARACTER_LOCATION_KEY"
+
+    invoke-virtual {v8, v15}, Landroid/os/Bundle;->getParcelableArray(Ljava/lang/String;)[Landroid/os/Parcelable;
+
+    move-result-object v12
+
+    if-eqz v12, :cond_5
+
+    const/4 v9, 0x0
+
+    :goto_0
+    array-length v15, v12
+
+    if-ge v9, v15, :cond_5
+
+    aget-object v11, v12, v9
+
+    check-cast v11, Landroid/graphics/RectF;
+
+    invoke-virtual {v11, v2}, Landroid/graphics/RectF;->scale(F)V
+
+    if-eqz p2, :cond_4
+
+    move-object/from16 v0, p2
+
+    iget v15, v0, Landroid/view/MagnificationSpec;->scale:F
+
+    invoke-virtual {v11, v15}, Landroid/graphics/RectF;->scale(F)V
+
+    move-object/from16 v0, p2
+
+    iget v15, v0, Landroid/view/MagnificationSpec;->offsetX:F
+
+    move-object/from16 v0, p2
+
+    iget v0, v0, Landroid/view/MagnificationSpec;->offsetY:F
+
+    move/from16 v16, v0
+
+    move/from16 v0, v16
+
+    invoke-virtual {v11, v15, v0}, Landroid/graphics/RectF;->offset(FF)V
+
+    :cond_4
+    add-int/lit8 v9, v9, 0x1
+
+    goto :goto_0
+
+    :cond_5
+    if-eqz p2, :cond_8
+
+    move-object/from16 v0, p0
+
+    iget-object v15, v0, Landroid/view/AccessibilityInteractionController;->mViewRootImpl:Landroid/view/ViewRootImpl;
+
+    iget-object v3, v15, Landroid/view/ViewRootImpl;->mAttachInfo:Landroid/view/View$AttachInfo;
+
+    iget-object v15, v3, Landroid/view/View$AttachInfo;->mDisplay:Landroid/view/Display;
+
+    if-nez v15, :cond_6
 
     return-void
 
-    :cond_4
-    iget v9, v1, Landroid/view/View$AttachInfo;->mApplicationScale:F
-
-    iget v10, p2, Landroid/view/MagnificationSpec;->scale:F
-
-    mul-float v6, v9, v10
-
-    iget-object v8, p0, Landroid/view/AccessibilityInteractionController;->mTempRect1:Landroid/graphics/Rect;
-
-    iget v9, v1, Landroid/view/View$AttachInfo;->mWindowLeft:I
-
-    int-to-float v9, v9
-
-    mul-float/2addr v9, v6
-
-    iget v10, p2, Landroid/view/MagnificationSpec;->offsetX:F
-
-    add-float/2addr v9, v10
-
-    float-to-int v9, v9
-
-    iput v9, v8, Landroid/graphics/Rect;->left:I
-
-    iget v9, v1, Landroid/view/View$AttachInfo;->mWindowTop:I
-
-    int-to-float v9, v9
-
-    mul-float/2addr v9, v6
-
-    iget v10, p2, Landroid/view/MagnificationSpec;->offsetY:F
-
-    add-float/2addr v9, v10
-
-    float-to-int v9, v9
-
-    iput v9, v8, Landroid/graphics/Rect;->top:I
-
-    iget v9, v8, Landroid/graphics/Rect;->left:I
-
-    int-to-float v9, v9
-
-    iget-object v10, p0, Landroid/view/AccessibilityInteractionController;->mViewRootImpl:Landroid/view/ViewRootImpl;
-
-    iget v10, v10, Landroid/view/ViewRootImpl;->mWidth:I
-
-    int-to-float v10, v10
-
-    mul-float/2addr v10, v6
-
-    add-float/2addr v9, v10
-
-    float-to-int v9, v9
-
-    iput v9, v8, Landroid/graphics/Rect;->right:I
-
-    iget v9, v8, Landroid/graphics/Rect;->top:I
-
-    int-to-float v9, v9
-
-    iget-object v10, p0, Landroid/view/AccessibilityInteractionController;->mViewRootImpl:Landroid/view/ViewRootImpl;
-
-    iget v10, v10, Landroid/view/ViewRootImpl;->mHeight:I
-
-    int-to-float v10, v10
-
-    mul-float/2addr v10, v6
-
-    add-float/2addr v9, v10
-
-    float-to-int v9, v9
-
-    iput v9, v8, Landroid/graphics/Rect;->bottom:I
-
-    iget-object v9, v1, Landroid/view/View$AttachInfo;->mDisplay:Landroid/view/Display;
-
-    iget-object v10, p0, Landroid/view/AccessibilityInteractionController;->mTempPoint:Landroid/graphics/Point;
-
-    invoke-virtual {v9, v10}, Landroid/view/Display;->getRealSize(Landroid/graphics/Point;)V
-
-    iget-object v9, p0, Landroid/view/AccessibilityInteractionController;->mTempPoint:Landroid/graphics/Point;
-
-    iget v5, v9, Landroid/graphics/Point;->x:I
-
-    iget-object v9, p0, Landroid/view/AccessibilityInteractionController;->mTempPoint:Landroid/graphics/Point;
-
-    iget v4, v9, Landroid/graphics/Point;->y:I
-
-    iget-object v7, p0, Landroid/view/AccessibilityInteractionController;->mTempRect2:Landroid/graphics/Rect;
-
-    const/4 v9, 0x0
-
-    const/4 v10, 0x0
-
-    invoke-virtual {v7, v9, v10, v5, v4}, Landroid/graphics/Rect;->set(IIII)V
-
-    invoke-virtual {v8, v7}, Landroid/graphics/Rect;->intersect(Landroid/graphics/Rect;)Z
-
-    move-result v9
-
-    if-nez v9, :cond_5
-
-    invoke-virtual {v7}, Landroid/graphics/Rect;->setEmpty()V
-
-    :cond_5
-    iget v9, v3, Landroid/graphics/Rect;->left:I
-
-    iget v10, v3, Landroid/graphics/Rect;->top:I
-
-    iget v11, v3, Landroid/graphics/Rect;->right:I
-
-    iget v12, v3, Landroid/graphics/Rect;->bottom:I
-
-    invoke-virtual {v8, v9, v10, v11, v12}, Landroid/graphics/Rect;->intersects(IIII)Z
-
-    move-result v9
-
-    if-nez v9, :cond_6
-
-    const/4 v9, 0x0
-
-    invoke-virtual {p1, v9}, Landroid/view/accessibility/AccessibilityNodeInfo;->setVisibleToUser(Z)V
-
     :cond_6
+    iget v15, v3, Landroid/view/View$AttachInfo;->mApplicationScale:F
+
+    move-object/from16 v0, p2
+
+    iget v0, v0, Landroid/view/MagnificationSpec;->scale:F
+
+    move/from16 v16, v0
+
+    mul-float v10, v15, v16
+
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Landroid/view/AccessibilityInteractionController;->mTempRect1:Landroid/graphics/Rect;
+
+    iget v15, v3, Landroid/view/View$AttachInfo;->mWindowLeft:I
+
+    int-to-float v15, v15
+
+    mul-float/2addr v15, v10
+
+    move-object/from16 v0, p2
+
+    iget v0, v0, Landroid/view/MagnificationSpec;->offsetX:F
+
+    move/from16 v16, v0
+
+    add-float v15, v15, v16
+
+    float-to-int v15, v15
+
+    iput v15, v14, Landroid/graphics/Rect;->left:I
+
+    iget v15, v3, Landroid/view/View$AttachInfo;->mWindowTop:I
+
+    int-to-float v15, v15
+
+    mul-float/2addr v15, v10
+
+    move-object/from16 v0, p2
+
+    iget v0, v0, Landroid/view/MagnificationSpec;->offsetY:F
+
+    move/from16 v16, v0
+
+    add-float v15, v15, v16
+
+    float-to-int v15, v15
+
+    iput v15, v14, Landroid/graphics/Rect;->top:I
+
+    iget v15, v14, Landroid/graphics/Rect;->left:I
+
+    int-to-float v15, v15
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Landroid/view/AccessibilityInteractionController;->mViewRootImpl:Landroid/view/ViewRootImpl;
+
+    move-object/from16 v16, v0
+
+    move-object/from16 v0, v16
+
+    iget v0, v0, Landroid/view/ViewRootImpl;->mWidth:I
+
+    move/from16 v16, v0
+
+    move/from16 v0, v16
+
+    int-to-float v0, v0
+
+    move/from16 v16, v0
+
+    mul-float v16, v16, v10
+
+    add-float v15, v15, v16
+
+    float-to-int v15, v15
+
+    iput v15, v14, Landroid/graphics/Rect;->right:I
+
+    iget v15, v14, Landroid/graphics/Rect;->top:I
+
+    int-to-float v15, v15
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Landroid/view/AccessibilityInteractionController;->mViewRootImpl:Landroid/view/ViewRootImpl;
+
+    move-object/from16 v16, v0
+
+    move-object/from16 v0, v16
+
+    iget v0, v0, Landroid/view/ViewRootImpl;->mHeight:I
+
+    move/from16 v16, v0
+
+    move/from16 v0, v16
+
+    int-to-float v0, v0
+
+    move/from16 v16, v0
+
+    mul-float v16, v16, v10
+
+    add-float v15, v15, v16
+
+    float-to-int v15, v15
+
+    iput v15, v14, Landroid/graphics/Rect;->bottom:I
+
+    iget-object v15, v3, Landroid/view/View$AttachInfo;->mDisplay:Landroid/view/Display;
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Landroid/view/AccessibilityInteractionController;->mTempPoint:Landroid/graphics/Point;
+
+    move-object/from16 v16, v0
+
+    invoke-virtual/range {v15 .. v16}, Landroid/view/Display;->getRealSize(Landroid/graphics/Point;)V
+
+    move-object/from16 v0, p0
+
+    iget-object v15, v0, Landroid/view/AccessibilityInteractionController;->mTempPoint:Landroid/graphics/Point;
+
+    iget v7, v15, Landroid/graphics/Point;->x:I
+
+    move-object/from16 v0, p0
+
+    iget-object v15, v0, Landroid/view/AccessibilityInteractionController;->mTempPoint:Landroid/graphics/Point;
+
+    iget v6, v15, Landroid/graphics/Point;->y:I
+
+    move-object/from16 v0, p0
+
+    iget-object v13, v0, Landroid/view/AccessibilityInteractionController;->mTempRect2:Landroid/graphics/Rect;
+
+    const/4 v15, 0x0
+
+    const/16 v16, 0x0
+
+    move/from16 v0, v16
+
+    invoke-virtual {v13, v15, v0, v7, v6}, Landroid/graphics/Rect;->set(IIII)V
+
+    invoke-virtual {v14, v13}, Landroid/graphics/Rect;->intersect(Landroid/graphics/Rect;)Z
+
+    move-result v15
+
+    if-nez v15, :cond_7
+
+    invoke-virtual {v13}, Landroid/graphics/Rect;->setEmpty()V
+
+    :cond_7
+    iget v15, v5, Landroid/graphics/Rect;->left:I
+
+    iget v0, v5, Landroid/graphics/Rect;->top:I
+
+    move/from16 v16, v0
+
+    iget v0, v5, Landroid/graphics/Rect;->right:I
+
+    move/from16 v17, v0
+
+    iget v0, v5, Landroid/graphics/Rect;->bottom:I
+
+    move/from16 v18, v0
+
+    invoke-virtual/range {v14 .. v18}, Landroid/graphics/Rect;->intersects(IIII)Z
+
+    move-result v15
+
+    if-nez v15, :cond_8
+
+    const/4 v15, 0x0
+
+    move-object/from16 v0, p1
+
+    invoke-virtual {v0, v15}, Landroid/view/accessibility/AccessibilityNodeInfo;->setVisibleToUser(Z)V
+
+    :cond_8
     return-void
 .end method
 
@@ -645,1718 +703,793 @@
 .method private findAccessibilityNodeInfoByAccessibilityIdUiThread(Landroid/os/Message;)V
     .locals 14
 
-    iget v3, p1, Landroid/os/Message;->arg1:I
+    iget v9, p1, Landroid/os/Message;->arg1:I
 
-    iget-object v1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
+    iget-object v13, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    check-cast v1, Lcom/android/internal/os/SomeArgs;
+    check-cast v13, Lcom/android/internal/os/SomeArgs;
 
-    iget v0, v1, Lcom/android/internal/os/SomeArgs;->argi1:I
+    iget v12, v13, Lcom/android/internal/os/SomeArgs;->argi1:I
 
-    iget v10, v1, Lcom/android/internal/os/SomeArgs;->argi2:I
+    iget v8, v13, Lcom/android/internal/os/SomeArgs;->argi2:I
 
-    iget v5, v1, Lcom/android/internal/os/SomeArgs;->argi3:I
+    iget v3, v13, Lcom/android/internal/os/SomeArgs;->argi3:I
 
-    iget-object v2, v1, Lcom/android/internal/os/SomeArgs;->arg1:Ljava/lang/Object;
+    iget-object v2, v13, Lcom/android/internal/os/SomeArgs;->arg1:Ljava/lang/Object;
 
     check-cast v2, Landroid/view/accessibility/IAccessibilityInteractionConnectionCallback;
 
-    iget-object v9, v1, Lcom/android/internal/os/SomeArgs;->arg2:Ljava/lang/Object;
+    iget-object v4, v13, Lcom/android/internal/os/SomeArgs;->arg2:Ljava/lang/Object;
 
-    check-cast v9, Landroid/view/MagnificationSpec;
+    check-cast v4, Landroid/view/MagnificationSpec;
 
-    iget-object v6, v1, Lcom/android/internal/os/SomeArgs;->arg3:Ljava/lang/Object;
+    iget-object v5, v13, Lcom/android/internal/os/SomeArgs;->arg3:Ljava/lang/Object;
 
-    check-cast v6, Landroid/graphics/Region;
+    check-cast v5, Landroid/graphics/Region;
 
-    invoke-virtual {v1}, Lcom/android/internal/os/SomeArgs;->recycle()V
+    iget-object v11, v13, Lcom/android/internal/os/SomeArgs;->arg4:Ljava/lang/Object;
 
-    iget-object v4, p0, Landroid/view/AccessibilityInteractionController;->mTempAccessibilityNodeInfoList:Ljava/util/ArrayList;
+    check-cast v11, Landroid/os/Bundle;
 
-    invoke-interface {v4}, Ljava/util/List;->clear()V
+    invoke-virtual {v13}, Lcom/android/internal/os/SomeArgs;->recycle()V
+
+    iget-object v1, p0, Landroid/view/AccessibilityInteractionController;->mTempAccessibilityNodeInfoList:Ljava/util/ArrayList;
+
+    invoke-interface {v1}, Ljava/util/List;->clear()V
 
     :try_start_0
-    iget-object v11, p0, Landroid/view/AccessibilityInteractionController;->mViewRootImpl:Landroid/view/ViewRootImpl;
+    iget-object v0, p0, Landroid/view/AccessibilityInteractionController;->mViewRootImpl:Landroid/view/ViewRootImpl;
 
-    iget-object v11, v11, Landroid/view/ViewRootImpl;->mView:Landroid/view/View;
+    iget-object v0, v0, Landroid/view/ViewRootImpl;->mView:Landroid/view/View;
 
-    if-eqz v11, :cond_0
+    if-eqz v0, :cond_0
 
-    iget-object v11, p0, Landroid/view/AccessibilityInteractionController;->mViewRootImpl:Landroid/view/ViewRootImpl;
+    iget-object v0, p0, Landroid/view/AccessibilityInteractionController;->mViewRootImpl:Landroid/view/ViewRootImpl;
 
-    iget-object v11, v11, Landroid/view/ViewRootImpl;->mAttachInfo:Landroid/view/View$AttachInfo;
+    iget-object v0, v0, Landroid/view/ViewRootImpl;->mAttachInfo:Landroid/view/View$AttachInfo;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    if-nez v11, :cond_3
+    if-nez v0, :cond_1
 
     :cond_0
-    :try_start_1
-    iget-object v11, p0, Landroid/view/AccessibilityInteractionController;->mViewRootImpl:Landroid/view/ViewRootImpl;
+    move-object v0, p0
 
-    iget-object v11, v11, Landroid/view/ViewRootImpl;->mAttachInfo:Landroid/view/View$AttachInfo;
+    invoke-direct/range {v0 .. v5}, Landroid/view/AccessibilityInteractionController;->updateInfosForViewportAndReturnFindNodeResult(Ljava/util/List;Landroid/view/accessibility/IAccessibilityInteractionConnectionCallback;ILandroid/view/MagnificationSpec;Landroid/graphics/Region;)V
 
-    const/4 v12, 0x0
-
-    iput v12, v11, Landroid/view/View$AttachInfo;->mAccessibilityFetchFlags:I
-
-    invoke-direct {p0, v4, v9}, Landroid/view/AccessibilityInteractionController;->applyAppScaleAndMagnificationSpecIfNeeded(Ljava/util/List;Landroid/view/MagnificationSpec;)V
-
-    if-eqz v9, :cond_1
-
-    invoke-static {}, Landroid/os/Process;->myPid()I
-
-    move-result v11
-
-    invoke-static {}, Landroid/os/Binder;->getCallingPid()I
-
-    move-result v12
-
-    if-eq v11, v12, :cond_1
-
-    invoke-virtual {v9}, Landroid/view/MagnificationSpec;->recycle()V
+    return-void
 
     :cond_1
-    invoke-direct {p0, v4, v6}, Landroid/view/AccessibilityInteractionController;->adjustIsVisibleToUserIfNeeded(Ljava/util/List;Landroid/graphics/Region;)V
+    :try_start_1
+    iget-object v0, p0, Landroid/view/AccessibilityInteractionController;->mViewRootImpl:Landroid/view/ViewRootImpl;
 
-    invoke-interface {v2, v4, v5}, Landroid/view/accessibility/IAccessibilityInteractionConnectionCallback;->setFindAccessibilityNodeInfosResult(Ljava/util/List;I)V
+    iget-object v0, v0, Landroid/view/ViewRootImpl;->mAttachInfo:Landroid/view/View$AttachInfo;
 
-    invoke-interface {v4}, Ljava/util/List;->clear()V
-    :try_end_1
-    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_2
+    iput v9, v0, Landroid/view/View$AttachInfo;->mAccessibilityFetchFlags:I
+
+    const/4 v7, 0x0
+
+    const v0, 0x7ffffffe
+
+    if-ne v12, v0, :cond_3
+
+    iget-object v0, p0, Landroid/view/AccessibilityInteractionController;->mViewRootImpl:Landroid/view/ViewRootImpl;
+
+    iget-object v7, v0, Landroid/view/ViewRootImpl;->mView:Landroid/view/View;
 
     :goto_0
-    if-eqz v6, :cond_2
+    if-eqz v7, :cond_2
 
-    invoke-static {}, Landroid/os/Process;->myPid()I
+    invoke-direct {p0, v7}, Landroid/view/AccessibilityInteractionController;->isShown(Landroid/view/View;)Z
 
-    move-result v11
+    move-result v0
 
-    invoke-static {}, Landroid/os/Binder;->getCallingPid()I
+    if-eqz v0, :cond_2
 
-    move-result v12
+    iget-object v6, p0, Landroid/view/AccessibilityInteractionController;->mPrefetcher:Landroid/view/AccessibilityInteractionController$AccessibilityNodePrefetcher;
 
-    if-ne v11, v12, :cond_2
+    move-object v10, v1
 
-    invoke-virtual {v6}, Landroid/graphics/Region;->recycle()V
+    invoke-virtual/range {v6 .. v11}, Landroid/view/AccessibilityInteractionController$AccessibilityNodePrefetcher;->prefetchAccessibilityNodeInfos(Landroid/view/View;IILjava/util/List;Landroid/os/Bundle;)V
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     :cond_2
+    move-object v0, p0
+
+    invoke-direct/range {v0 .. v5}, Landroid/view/AccessibilityInteractionController;->updateInfosForViewportAndReturnFindNodeResult(Ljava/util/List;Landroid/view/accessibility/IAccessibilityInteractionConnectionCallback;ILandroid/view/MagnificationSpec;Landroid/graphics/Region;)V
+
     return-void
 
     :cond_3
     :try_start_2
-    iget-object v11, p0, Landroid/view/AccessibilityInteractionController;->mViewRootImpl:Landroid/view/ViewRootImpl;
-
-    iget-object v11, v11, Landroid/view/ViewRootImpl;->mAttachInfo:Landroid/view/View$AttachInfo;
-
-    iput v3, v11, Landroid/view/View$AttachInfo;->mAccessibilityFetchFlags:I
-
-    const/4 v8, 0x0
-
-    const v11, 0x7fffffff
-
-    if-ne v0, v11, :cond_7
-
-    iget-object v11, p0, Landroid/view/AccessibilityInteractionController;->mViewRootImpl:Landroid/view/ViewRootImpl;
-
-    iget-object v8, v11, Landroid/view/ViewRootImpl;->mView:Landroid/view/View;
-
-    :goto_1
-    if-eqz v8, :cond_4
-
-    invoke-direct {p0, v8}, Landroid/view/AccessibilityInteractionController;->isShown(Landroid/view/View;)Z
-
-    move-result v11
-
-    if-eqz v11, :cond_4
-
-    iget-object v11, p0, Landroid/view/AccessibilityInteractionController;->mPrefetcher:Landroid/view/AccessibilityInteractionController$AccessibilityNodePrefetcher;
-
-    invoke-virtual {v11, v8, v10, v3, v4}, Landroid/view/AccessibilityInteractionController$AccessibilityNodePrefetcher;->prefetchAccessibilityNodeInfos(Landroid/view/View;IILjava/util/List;)V
+    invoke-direct {p0, v12}, Landroid/view/AccessibilityInteractionController;->findViewByAccessibilityId(I)Landroid/view/View;
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    :cond_4
-    :try_start_3
-    iget-object v11, p0, Landroid/view/AccessibilityInteractionController;->mViewRootImpl:Landroid/view/ViewRootImpl;
+    move-result-object v7
 
-    iget-object v11, v11, Landroid/view/ViewRootImpl;->mAttachInfo:Landroid/view/View$AttachInfo;
-
-    const/4 v12, 0x0
-
-    iput v12, v11, Landroid/view/View$AttachInfo;->mAccessibilityFetchFlags:I
-
-    invoke-direct {p0, v4, v9}, Landroid/view/AccessibilityInteractionController;->applyAppScaleAndMagnificationSpecIfNeeded(Ljava/util/List;Landroid/view/MagnificationSpec;)V
-
-    if-eqz v9, :cond_5
-
-    invoke-static {}, Landroid/os/Process;->myPid()I
-
-    move-result v11
-
-    invoke-static {}, Landroid/os/Binder;->getCallingPid()I
-
-    move-result v12
-
-    if-eq v11, v12, :cond_5
-
-    invoke-virtual {v9}, Landroid/view/MagnificationSpec;->recycle()V
-
-    :cond_5
-    invoke-direct {p0, v4, v6}, Landroid/view/AccessibilityInteractionController;->adjustIsVisibleToUserIfNeeded(Ljava/util/List;Landroid/graphics/Region;)V
-
-    invoke-interface {v2, v4, v5}, Landroid/view/accessibility/IAccessibilityInteractionConnectionCallback;->setFindAccessibilityNodeInfosResult(Ljava/util/List;I)V
-
-    invoke-interface {v4}, Ljava/util/List;->clear()V
-    :try_end_3
-    .catch Landroid/os/RemoteException; {:try_start_3 .. :try_end_3} :catch_1
-
-    :goto_2
-    if-eqz v6, :cond_6
-
-    invoke-static {}, Landroid/os/Process;->myPid()I
-
-    move-result v11
-
-    invoke-static {}, Landroid/os/Binder;->getCallingPid()I
-
-    move-result v12
-
-    if-ne v11, v12, :cond_6
-
-    invoke-virtual {v6}, Landroid/graphics/Region;->recycle()V
-
-    :cond_6
-    return-void
-
-    :cond_7
-    :try_start_4
-    invoke-direct {p0, v0}, Landroid/view/AccessibilityInteractionController;->findViewByAccessibilityId(I)Landroid/view/View;
-    :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_0
-
-    move-result-object v8
-
-    goto :goto_1
+    goto :goto_0
 
     :catchall_0
-    move-exception v11
+    move-exception v0
 
-    :try_start_5
-    iget-object v12, p0, Landroid/view/AccessibilityInteractionController;->mViewRootImpl:Landroid/view/ViewRootImpl;
+    move-object v6, v0
 
-    iget-object v12, v12, Landroid/view/ViewRootImpl;->mAttachInfo:Landroid/view/View$AttachInfo;
+    move-object v0, p0
 
-    const/4 v13, 0x0
+    invoke-direct/range {v0 .. v5}, Landroid/view/AccessibilityInteractionController;->updateInfosForViewportAndReturnFindNodeResult(Ljava/util/List;Landroid/view/accessibility/IAccessibilityInteractionConnectionCallback;ILandroid/view/MagnificationSpec;Landroid/graphics/Region;)V
 
-    iput v13, v12, Landroid/view/View$AttachInfo;->mAccessibilityFetchFlags:I
-
-    invoke-direct {p0, v4, v9}, Landroid/view/AccessibilityInteractionController;->applyAppScaleAndMagnificationSpecIfNeeded(Ljava/util/List;Landroid/view/MagnificationSpec;)V
-
-    if-eqz v9, :cond_8
-
-    invoke-static {}, Landroid/os/Process;->myPid()I
-
-    move-result v12
-
-    invoke-static {}, Landroid/os/Binder;->getCallingPid()I
-
-    move-result v13
-
-    if-eq v12, v13, :cond_8
-
-    invoke-virtual {v9}, Landroid/view/MagnificationSpec;->recycle()V
-
-    :cond_8
-    invoke-direct {p0, v4, v6}, Landroid/view/AccessibilityInteractionController;->adjustIsVisibleToUserIfNeeded(Ljava/util/List;Landroid/graphics/Region;)V
-
-    invoke-interface {v2, v4, v5}, Landroid/view/accessibility/IAccessibilityInteractionConnectionCallback;->setFindAccessibilityNodeInfosResult(Ljava/util/List;I)V
-
-    invoke-interface {v4}, Ljava/util/List;->clear()V
-    :try_end_5
-    .catch Landroid/os/RemoteException; {:try_start_5 .. :try_end_5} :catch_0
-
-    :goto_3
-    if-eqz v6, :cond_9
-
-    invoke-static {}, Landroid/os/Process;->myPid()I
-
-    move-result v12
-
-    invoke-static {}, Landroid/os/Binder;->getCallingPid()I
-
-    move-result v13
-
-    if-ne v12, v13, :cond_9
-
-    invoke-virtual {v6}, Landroid/graphics/Region;->recycle()V
-
-    :cond_9
-    throw v11
-
-    :catch_0
-    move-exception v7
-
-    goto :goto_3
-
-    :catch_1
-    move-exception v7
-
-    goto :goto_2
-
-    :catch_2
-    move-exception v7
-
-    goto/16 :goto_0
+    throw v6
 .end method
 
 .method private findAccessibilityNodeInfosByTextUiThread(Landroid/os/Message;)V
-    .locals 23
+    .locals 21
 
     move-object/from16 v0, p1
 
-    iget v5, v0, Landroid/os/Message;->arg1:I
+    iget v10, v0, Landroid/os/Message;->arg1:I
 
     move-object/from16 v0, p1
 
-    iget-object v3, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
+    iget-object v9, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    check-cast v3, Lcom/android/internal/os/SomeArgs;
+    check-cast v9, Lcom/android/internal/os/SomeArgs;
 
-    iget-object v0, v3, Lcom/android/internal/os/SomeArgs;->arg1:Ljava/lang/Object;
+    iget-object v0, v9, Lcom/android/internal/os/SomeArgs;->arg1:Ljava/lang/Object;
 
     move-object/from16 v17, v0
 
     check-cast v17, Ljava/lang/String;
 
-    iget-object v4, v3, Lcom/android/internal/os/SomeArgs;->arg2:Ljava/lang/Object;
+    iget-object v4, v9, Lcom/android/internal/os/SomeArgs;->arg2:Ljava/lang/Object;
 
     check-cast v4, Landroid/view/accessibility/IAccessibilityInteractionConnectionCallback;
 
-    iget-object v0, v3, Lcom/android/internal/os/SomeArgs;->arg3:Ljava/lang/Object;
+    iget-object v6, v9, Lcom/android/internal/os/SomeArgs;->arg3:Ljava/lang/Object;
 
-    move-object/from16 v16, v0
+    check-cast v6, Landroid/view/MagnificationSpec;
 
-    check-cast v16, Landroid/view/MagnificationSpec;
+    iget v8, v9, Lcom/android/internal/os/SomeArgs;->argi1:I
 
-    iget v2, v3, Lcom/android/internal/os/SomeArgs;->argi1:I
-
-    iget v0, v3, Lcom/android/internal/os/SomeArgs;->argi2:I
+    iget v0, v9, Lcom/android/internal/os/SomeArgs;->argi2:I
 
     move/from16 v19, v0
 
-    iget v11, v3, Lcom/android/internal/os/SomeArgs;->argi3:I
+    iget v5, v9, Lcom/android/internal/os/SomeArgs;->argi3:I
 
-    iget-object v12, v3, Lcom/android/internal/os/SomeArgs;->arg4:Ljava/lang/Object;
+    iget-object v7, v9, Lcom/android/internal/os/SomeArgs;->arg4:Ljava/lang/Object;
 
-    check-cast v12, Landroid/graphics/Region;
+    check-cast v7, Landroid/graphics/Region;
 
-    invoke-virtual {v3}, Lcom/android/internal/os/SomeArgs;->recycle()V
+    invoke-virtual {v9}, Lcom/android/internal/os/SomeArgs;->recycle()V
 
-    const/4 v9, 0x0
+    const/4 v3, 0x0
 
     :try_start_0
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Landroid/view/AccessibilityInteractionController;->mViewRootImpl:Landroid/view/ViewRootImpl;
+    iget-object v2, v0, Landroid/view/AccessibilityInteractionController;->mViewRootImpl:Landroid/view/ViewRootImpl;
 
-    move-object/from16 v20, v0
+    iget-object v2, v2, Landroid/view/ViewRootImpl;->mView:Landroid/view/View;
 
-    move-object/from16 v0, v20
-
-    iget-object v0, v0, Landroid/view/ViewRootImpl;->mView:Landroid/view/View;
-
-    move-object/from16 v20, v0
-
-    if-eqz v20, :cond_0
+    if-eqz v2, :cond_0
 
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Landroid/view/AccessibilityInteractionController;->mViewRootImpl:Landroid/view/ViewRootImpl;
+    iget-object v2, v0, Landroid/view/AccessibilityInteractionController;->mViewRootImpl:Landroid/view/ViewRootImpl;
 
-    move-object/from16 v20, v0
-
-    move-object/from16 v0, v20
-
-    iget-object v0, v0, Landroid/view/ViewRootImpl;->mAttachInfo:Landroid/view/View$AttachInfo;
-
-    move-object/from16 v20, v0
+    iget-object v2, v2, Landroid/view/ViewRootImpl;->mAttachInfo:Landroid/view/View$AttachInfo;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    if-nez v20, :cond_3
+    if-nez v2, :cond_1
 
     :cond_0
+    move-object/from16 v2, p0
+
+    invoke-direct/range {v2 .. v7}, Landroid/view/AccessibilityInteractionController;->updateInfosForViewportAndReturnFindNodeResult(Ljava/util/List;Landroid/view/accessibility/IAccessibilityInteractionConnectionCallback;ILandroid/view/MagnificationSpec;Landroid/graphics/Region;)V
+
+    return-void
+
+    :cond_1
     :try_start_1
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Landroid/view/AccessibilityInteractionController;->mViewRootImpl:Landroid/view/ViewRootImpl;
+    iget-object v2, v0, Landroid/view/AccessibilityInteractionController;->mViewRootImpl:Landroid/view/ViewRootImpl;
 
-    move-object/from16 v20, v0
+    iget-object v2, v2, Landroid/view/ViewRootImpl;->mAttachInfo:Landroid/view/View$AttachInfo;
 
-    move-object/from16 v0, v20
+    iput v10, v2, Landroid/view/View$AttachInfo;->mAccessibilityFetchFlags:I
 
-    iget-object v0, v0, Landroid/view/ViewRootImpl;->mAttachInfo:Landroid/view/View$AttachInfo;
+    const/16 v16, 0x0
 
-    move-object/from16 v20, v0
+    const v2, 0x7ffffffe
 
-    const/16 v21, 0x0
+    if-eq v8, v2, :cond_3
 
-    move/from16 v0, v21
+    move-object/from16 v0, p0
 
-    move-object/from16 v1, v20
+    invoke-direct {v0, v8}, Landroid/view/AccessibilityInteractionController;->findViewByAccessibilityId(I)Landroid/view/View;
 
-    iput v0, v1, Landroid/view/View$AttachInfo;->mAccessibilityFetchFlags:I
+    move-result-object v16
+
+    :goto_0
+    if-eqz v16, :cond_2
 
     move-object/from16 v0, p0
 
     move-object/from16 v1, v16
 
-    invoke-direct {v0, v9, v1}, Landroid/view/AccessibilityInteractionController;->applyAppScaleAndMagnificationSpecIfNeeded(Ljava/util/List;Landroid/view/MagnificationSpec;)V
+    invoke-direct {v0, v1}, Landroid/view/AccessibilityInteractionController;->isShown(Landroid/view/View;)Z
 
-    if-eqz v16, :cond_1
+    move-result v2
 
-    invoke-static {}, Landroid/os/Process;->myPid()I
+    if-eqz v2, :cond_2
 
-    move-result v20
-
-    invoke-static {}, Landroid/os/Binder;->getCallingPid()I
-
-    move-result v21
-
-    move/from16 v0, v20
-
-    move/from16 v1, v21
-
-    if-eq v0, v1, :cond_1
-
-    invoke-virtual/range {v16 .. v16}, Landroid/view/MagnificationSpec;->recycle()V
-
-    :cond_1
-    move-object/from16 v0, p0
-
-    invoke-direct {v0, v9, v12}, Landroid/view/AccessibilityInteractionController;->adjustIsVisibleToUserIfNeeded(Ljava/util/List;Landroid/graphics/Region;)V
-
-    invoke-interface {v4, v9, v11}, Landroid/view/accessibility/IAccessibilityInteractionConnectionCallback;->setFindAccessibilityNodeInfosResult(Ljava/util/List;I)V
-    :try_end_1
-    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_2
-
-    :goto_0
-    if-eqz v12, :cond_2
-
-    invoke-static {}, Landroid/os/Process;->myPid()I
-
-    move-result v20
-
-    invoke-static {}, Landroid/os/Binder;->getCallingPid()I
-
-    move-result v21
-
-    move/from16 v0, v20
-
-    move/from16 v1, v21
-
-    if-ne v0, v1, :cond_2
-
-    invoke-virtual {v12}, Landroid/graphics/Region;->recycle()V
-
-    :cond_2
-    return-void
-
-    :cond_3
-    :try_start_2
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/view/AccessibilityInteractionController;->mViewRootImpl:Landroid/view/ViewRootImpl;
-
-    move-object/from16 v20, v0
-
-    move-object/from16 v0, v20
-
-    iget-object v0, v0, Landroid/view/ViewRootImpl;->mAttachInfo:Landroid/view/View$AttachInfo;
-
-    move-object/from16 v20, v0
-
-    move-object/from16 v0, v20
-
-    iput v5, v0, Landroid/view/View$AttachInfo;->mAccessibilityFetchFlags:I
-
-    const/4 v15, 0x0
-
-    const v20, 0x7fffffff
-
-    move/from16 v0, v20
-
-    if-eq v2, v0, :cond_7
-
-    move-object/from16 v0, p0
-
-    invoke-direct {v0, v2}, Landroid/view/AccessibilityInteractionController;->findViewByAccessibilityId(I)Landroid/view/View;
+    invoke-virtual/range {v16 .. v16}, Landroid/view/View;->getAccessibilityNodeProvider()Landroid/view/accessibility/AccessibilityNodeProvider;
 
     move-result-object v15
 
-    :goto_1
     if-eqz v15, :cond_4
-
-    move-object/from16 v0, p0
-
-    invoke-direct {v0, v15}, Landroid/view/AccessibilityInteractionController;->isShown(Landroid/view/View;)Z
-
-    move-result v20
-
-    if-eqz v20, :cond_4
-
-    invoke-virtual {v15}, Landroid/view/View;->getAccessibilityNodeProvider()Landroid/view/accessibility/AccessibilityNodeProvider;
-
-    move-result-object v13
-
-    if-eqz v13, :cond_9
-
-    const v20, 0x7fffffff
-
-    move/from16 v0, v19
-
-    move/from16 v1, v20
-
-    if-eq v0, v1, :cond_8
 
     move-object/from16 v0, v17
 
     move/from16 v1, v19
 
-    invoke-virtual {v13, v0, v1}, Landroid/view/accessibility/AccessibilityNodeProvider;->findAccessibilityNodeInfosByText(Ljava/lang/String;I)Ljava/util/List;
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    invoke-virtual {v15, v0, v1}, Landroid/view/accessibility/AccessibilityNodeProvider;->findAccessibilityNodeInfosByText(Ljava/lang/String;I)Ljava/util/List;
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    move-result-object v9
+    move-result-object v3
 
-    :cond_4
-    :goto_2
-    :try_start_3
-    move-object/from16 v0, p0
+    :cond_2
+    move-object/from16 v2, p0
 
-    iget-object v0, v0, Landroid/view/AccessibilityInteractionController;->mViewRootImpl:Landroid/view/ViewRootImpl;
+    invoke-direct/range {v2 .. v7}, Landroid/view/AccessibilityInteractionController;->updateInfosForViewportAndReturnFindNodeResult(Ljava/util/List;Landroid/view/accessibility/IAccessibilityInteractionConnectionCallback;ILandroid/view/MagnificationSpec;Landroid/graphics/Region;)V
 
-    move-object/from16 v20, v0
-
-    move-object/from16 v0, v20
-
-    iget-object v0, v0, Landroid/view/ViewRootImpl;->mAttachInfo:Landroid/view/View$AttachInfo;
-
-    move-object/from16 v20, v0
-
-    const/16 v21, 0x0
-
-    move/from16 v0, v21
-
-    move-object/from16 v1, v20
-
-    iput v0, v1, Landroid/view/View$AttachInfo;->mAccessibilityFetchFlags:I
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v16
-
-    invoke-direct {v0, v9, v1}, Landroid/view/AccessibilityInteractionController;->applyAppScaleAndMagnificationSpecIfNeeded(Ljava/util/List;Landroid/view/MagnificationSpec;)V
-
-    if-eqz v16, :cond_5
-
-    invoke-static {}, Landroid/os/Process;->myPid()I
-
-    move-result v20
-
-    invoke-static {}, Landroid/os/Binder;->getCallingPid()I
-
-    move-result v21
-
-    move/from16 v0, v20
-
-    move/from16 v1, v21
-
-    if-eq v0, v1, :cond_5
-
-    invoke-virtual/range {v16 .. v16}, Landroid/view/MagnificationSpec;->recycle()V
-
-    :cond_5
-    move-object/from16 v0, p0
-
-    invoke-direct {v0, v9, v12}, Landroid/view/AccessibilityInteractionController;->adjustIsVisibleToUserIfNeeded(Ljava/util/List;Landroid/graphics/Region;)V
-
-    invoke-interface {v4, v9, v11}, Landroid/view/accessibility/IAccessibilityInteractionConnectionCallback;->setFindAccessibilityNodeInfosResult(Ljava/util/List;I)V
-    :try_end_3
-    .catch Landroid/os/RemoteException; {:try_start_3 .. :try_end_3} :catch_1
-
-    :goto_3
-    if-eqz v12, :cond_6
-
-    invoke-static {}, Landroid/os/Process;->myPid()I
-
-    move-result v20
-
-    invoke-static {}, Landroid/os/Binder;->getCallingPid()I
-
-    move-result v21
-
-    move/from16 v0, v20
-
-    move/from16 v1, v21
-
-    if-ne v0, v1, :cond_6
-
-    invoke-virtual {v12}, Landroid/graphics/Region;->recycle()V
-
-    :cond_6
     return-void
 
-    :cond_7
-    :try_start_4
+    :cond_3
+    :try_start_2
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Landroid/view/AccessibilityInteractionController;->mViewRootImpl:Landroid/view/ViewRootImpl;
+    iget-object v2, v0, Landroid/view/AccessibilityInteractionController;->mViewRootImpl:Landroid/view/ViewRootImpl;
 
-    move-object/from16 v20, v0
+    iget-object v0, v2, Landroid/view/ViewRootImpl;->mView:Landroid/view/View;
 
-    move-object/from16 v0, v20
+    move-object/from16 v16, v0
 
-    iget-object v15, v0, Landroid/view/ViewRootImpl;->mView:Landroid/view/View;
+    goto :goto_0
 
-    goto :goto_1
-
-    :cond_8
-    const/16 v20, -0x1
-
-    move-object/from16 v0, v17
-
-    move/from16 v1, v20
-
-    invoke-virtual {v13, v0, v1}, Landroid/view/accessibility/AccessibilityNodeProvider;->findAccessibilityNodeInfosByText(Ljava/lang/String;I)Ljava/util/List;
-
-    move-result-object v9
-
-    goto :goto_2
-
-    :cond_9
-    const v20, 0x7fffffff
+    :cond_4
+    const/4 v2, -0x1
 
     move/from16 v0, v19
 
-    move/from16 v1, v20
-
-    if-ne v0, v1, :cond_4
+    if-ne v0, v2, :cond_2
 
     move-object/from16 v0, p0
 
-    iget-object v7, v0, Landroid/view/AccessibilityInteractionController;->mTempArrayList:Ljava/util/ArrayList;
+    iget-object v12, v0, Landroid/view/AccessibilityInteractionController;->mTempArrayList:Ljava/util/ArrayList;
 
-    invoke-virtual {v7}, Ljava/util/ArrayList;->clear()V
+    invoke-virtual {v12}, Ljava/util/ArrayList;->clear()V
 
-    const/16 v20, 0x7
+    const/4 v2, 0x7
 
-    move-object/from16 v0, v17
-
-    move/from16 v1, v20
-
-    invoke-virtual {v15, v7, v0, v1}, Landroid/view/View;->findViewsWithText(Ljava/util/ArrayList;Ljava/lang/CharSequence;I)V
-
-    invoke-virtual {v7}, Ljava/util/ArrayList;->isEmpty()Z
-
-    move-result v20
-
-    if-nez v20, :cond_4
-
-    move-object/from16 v0, p0
-
-    iget-object v9, v0, Landroid/view/AccessibilityInteractionController;->mTempAccessibilityNodeInfoList:Ljava/util/ArrayList;
-
-    invoke-interface {v9}, Ljava/util/List;->clear()V
-
-    invoke-virtual {v7}, Ljava/util/ArrayList;->size()I
-
-    move-result v18
-
-    const/4 v8, 0x0
-
-    :goto_4
-    move/from16 v0, v18
-
-    if-ge v8, v0, :cond_4
-
-    invoke-virtual {v7, v8}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v6
-
-    check-cast v6, Landroid/view/View;
-
-    move-object/from16 v0, p0
-
-    invoke-direct {v0, v6}, Landroid/view/AccessibilityInteractionController;->isShown(Landroid/view/View;)Z
-
-    move-result v20
-
-    if-eqz v20, :cond_a
-
-    invoke-virtual {v6}, Landroid/view/View;->getAccessibilityNodeProvider()Landroid/view/accessibility/AccessibilityNodeProvider;
-
-    move-result-object v13
-
-    if-eqz v13, :cond_b
-
-    const/16 v20, -0x1
-
-    move-object/from16 v0, v17
-
-    move/from16 v1, v20
-
-    invoke-virtual {v13, v0, v1}, Landroid/view/accessibility/AccessibilityNodeProvider;->findAccessibilityNodeInfosByText(Ljava/lang/String;I)Ljava/util/List;
-
-    move-result-object v10
-
-    if-eqz v10, :cond_a
-
-    invoke-interface {v9, v10}, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
-
-    :cond_a
-    :goto_5
-    add-int/lit8 v8, v8, 0x1
-
-    goto :goto_4
-
-    :cond_b
-    invoke-virtual {v6}, Landroid/view/View;->createAccessibilityNodeInfo()Landroid/view/accessibility/AccessibilityNodeInfo;
-
-    move-result-object v20
-
-    move-object/from16 v0, v20
-
-    invoke-interface {v9, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-    :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_0
-
-    goto :goto_5
-
-    :catchall_0
-    move-exception v20
-
-    :try_start_5
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/view/AccessibilityInteractionController;->mViewRootImpl:Landroid/view/ViewRootImpl;
-
-    move-object/from16 v21, v0
-
-    move-object/from16 v0, v21
-
-    iget-object v0, v0, Landroid/view/ViewRootImpl;->mAttachInfo:Landroid/view/View$AttachInfo;
-
-    move-object/from16 v21, v0
-
-    const/16 v22, 0x0
-
-    move/from16 v0, v22
-
-    move-object/from16 v1, v21
-
-    iput v0, v1, Landroid/view/View$AttachInfo;->mAccessibilityFetchFlags:I
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v16
-
-    invoke-direct {v0, v9, v1}, Landroid/view/AccessibilityInteractionController;->applyAppScaleAndMagnificationSpecIfNeeded(Ljava/util/List;Landroid/view/MagnificationSpec;)V
-
-    if-eqz v16, :cond_c
-
-    invoke-static {}, Landroid/os/Process;->myPid()I
-
-    move-result v21
-
-    invoke-static {}, Landroid/os/Binder;->getCallingPid()I
-
-    move-result v22
-
-    move/from16 v0, v21
-
-    move/from16 v1, v22
-
-    if-eq v0, v1, :cond_c
-
-    invoke-virtual/range {v16 .. v16}, Landroid/view/MagnificationSpec;->recycle()V
-
-    :cond_c
-    move-object/from16 v0, p0
-
-    invoke-direct {v0, v9, v12}, Landroid/view/AccessibilityInteractionController;->adjustIsVisibleToUserIfNeeded(Ljava/util/List;Landroid/graphics/Region;)V
-
-    invoke-interface {v4, v9, v11}, Landroid/view/accessibility/IAccessibilityInteractionConnectionCallback;->setFindAccessibilityNodeInfosResult(Ljava/util/List;I)V
-    :try_end_5
-    .catch Landroid/os/RemoteException; {:try_start_5 .. :try_end_5} :catch_0
-
-    :goto_6
-    if-eqz v12, :cond_d
-
-    invoke-static {}, Landroid/os/Process;->myPid()I
-
-    move-result v21
-
-    invoke-static {}, Landroid/os/Binder;->getCallingPid()I
-
-    move-result v22
-
-    move/from16 v0, v21
-
-    move/from16 v1, v22
-
-    if-ne v0, v1, :cond_d
-
-    invoke-virtual {v12}, Landroid/graphics/Region;->recycle()V
-
-    :cond_d
-    throw v20
-
-    :catch_0
-    move-exception v14
-
-    goto :goto_6
-
-    :catch_1
-    move-exception v14
-
-    goto/16 :goto_3
-
-    :catch_2
-    move-exception v14
-
-    goto/16 :goto_0
-.end method
-
-.method private findAccessibilityNodeInfosByViewIdUiThread(Landroid/os/Message;)V
-    .locals 16
-
-    move-object/from16 v0, p1
-
-    iget v4, v0, Landroid/os/Message;->arg1:I
-
-    move-object/from16 v0, p1
-
-    iget v1, v0, Landroid/os/Message;->arg2:I
-
-    move-object/from16 v0, p1
-
-    iget-object v2, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
-
-    check-cast v2, Lcom/android/internal/os/SomeArgs;
-
-    iget v6, v2, Lcom/android/internal/os/SomeArgs;->argi1:I
-
-    iget-object v3, v2, Lcom/android/internal/os/SomeArgs;->arg1:Ljava/lang/Object;
-
-    check-cast v3, Landroid/view/accessibility/IAccessibilityInteractionConnectionCallback;
-
-    iget-object v11, v2, Lcom/android/internal/os/SomeArgs;->arg2:Ljava/lang/Object;
-
-    check-cast v11, Landroid/view/MagnificationSpec;
-
-    iget-object v12, v2, Lcom/android/internal/os/SomeArgs;->arg3:Ljava/lang/Object;
-
-    check-cast v12, Ljava/lang/String;
-
-    iget-object v7, v2, Lcom/android/internal/os/SomeArgs;->arg4:Ljava/lang/Object;
-
-    check-cast v7, Landroid/graphics/Region;
-
-    invoke-virtual {v2}, Lcom/android/internal/os/SomeArgs;->recycle()V
-
-    move-object/from16 v0, p0
-
-    iget-object v5, v0, Landroid/view/AccessibilityInteractionController;->mTempAccessibilityNodeInfoList:Ljava/util/ArrayList;
-
-    invoke-interface {v5}, Ljava/util/List;->clear()V
-
-    :try_start_0
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Landroid/view/AccessibilityInteractionController;->mViewRootImpl:Landroid/view/ViewRootImpl;
-
-    iget-object v13, v13, Landroid/view/ViewRootImpl;->mView:Landroid/view/View;
-
-    if-eqz v13, :cond_0
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Landroid/view/AccessibilityInteractionController;->mViewRootImpl:Landroid/view/ViewRootImpl;
-
-    iget-object v13, v13, Landroid/view/ViewRootImpl;->mAttachInfo:Landroid/view/View$AttachInfo;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    if-nez v13, :cond_3
-
-    :cond_0
-    :try_start_1
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Landroid/view/AccessibilityInteractionController;->mViewRootImpl:Landroid/view/ViewRootImpl;
-
-    iget-object v13, v13, Landroid/view/ViewRootImpl;->mAttachInfo:Landroid/view/View$AttachInfo;
-
-    const/4 v14, 0x0
-
-    iput v14, v13, Landroid/view/View$AttachInfo;->mAccessibilityFetchFlags:I
-
-    move-object/from16 v0, p0
-
-    invoke-direct {v0, v5, v11}, Landroid/view/AccessibilityInteractionController;->applyAppScaleAndMagnificationSpecIfNeeded(Ljava/util/List;Landroid/view/MagnificationSpec;)V
-
-    if-eqz v11, :cond_1
-
-    invoke-static {}, Landroid/os/Process;->myPid()I
-
-    move-result v13
-
-    invoke-static {}, Landroid/os/Binder;->getCallingPid()I
-
-    move-result v14
-
-    if-eq v13, v14, :cond_1
-
-    invoke-virtual {v11}, Landroid/view/MagnificationSpec;->recycle()V
-
-    :cond_1
-    move-object/from16 v0, p0
-
-    invoke-direct {v0, v5, v7}, Landroid/view/AccessibilityInteractionController;->adjustIsVisibleToUserIfNeeded(Ljava/util/List;Landroid/graphics/Region;)V
-
-    invoke-interface {v3, v5, v6}, Landroid/view/accessibility/IAccessibilityInteractionConnectionCallback;->setFindAccessibilityNodeInfosResult(Ljava/util/List;I)V
-    :try_end_1
-    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_3
-
-    :goto_0
-    if-eqz v7, :cond_2
-
-    invoke-static {}, Landroid/os/Process;->myPid()I
-
-    move-result v13
-
-    invoke-static {}, Landroid/os/Binder;->getCallingPid()I
-
-    move-result v14
-
-    if-ne v13, v14, :cond_2
-
-    invoke-virtual {v7}, Landroid/graphics/Region;->recycle()V
-
-    :cond_2
-    return-void
-
-    :cond_3
-    :try_start_2
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Landroid/view/AccessibilityInteractionController;->mViewRootImpl:Landroid/view/ViewRootImpl;
-
-    iget-object v13, v13, Landroid/view/ViewRootImpl;->mAttachInfo:Landroid/view/View$AttachInfo;
-
-    iput v4, v13, Landroid/view/View$AttachInfo;->mAccessibilityFetchFlags:I
-
-    const/4 v10, 0x0
-
-    const v13, 0x7fffffff
-
-    if-eq v1, v13, :cond_6
-
-    move-object/from16 v0, p0
-
-    invoke-direct {v0, v1}, Landroid/view/AccessibilityInteractionController;->findViewByAccessibilityId(I)Landroid/view/View;
-
-    move-result-object v10
-
-    :goto_1
-    if-eqz v10, :cond_9
-
-    invoke-virtual {v10}, Landroid/view/View;->getContext()Landroid/content/Context;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v13
-
-    const/4 v14, 0x0
-
-    const/4 v15, 0x0
-
-    invoke-virtual {v13, v12, v14, v15}, Landroid/content/res/Resources;->getIdentifier(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
-
-    move-result v9
-
-    if-gtz v9, :cond_7
-
-    :try_start_3
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Landroid/view/AccessibilityInteractionController;->mViewRootImpl:Landroid/view/ViewRootImpl;
-
-    iget-object v13, v13, Landroid/view/ViewRootImpl;->mAttachInfo:Landroid/view/View$AttachInfo;
-
-    const/4 v14, 0x0
-
-    iput v14, v13, Landroid/view/View$AttachInfo;->mAccessibilityFetchFlags:I
-
-    move-object/from16 v0, p0
-
-    invoke-direct {v0, v5, v11}, Landroid/view/AccessibilityInteractionController;->applyAppScaleAndMagnificationSpecIfNeeded(Ljava/util/List;Landroid/view/MagnificationSpec;)V
-
-    if-eqz v11, :cond_4
-
-    invoke-static {}, Landroid/os/Process;->myPid()I
-
-    move-result v13
-
-    invoke-static {}, Landroid/os/Binder;->getCallingPid()I
-
-    move-result v14
-
-    if-eq v13, v14, :cond_4
-
-    invoke-virtual {v11}, Landroid/view/MagnificationSpec;->recycle()V
-
-    :cond_4
-    move-object/from16 v0, p0
-
-    invoke-direct {v0, v5, v7}, Landroid/view/AccessibilityInteractionController;->adjustIsVisibleToUserIfNeeded(Ljava/util/List;Landroid/graphics/Region;)V
-
-    invoke-interface {v3, v5, v6}, Landroid/view/accessibility/IAccessibilityInteractionConnectionCallback;->setFindAccessibilityNodeInfosResult(Ljava/util/List;I)V
-    :try_end_3
-    .catch Landroid/os/RemoteException; {:try_start_3 .. :try_end_3} :catch_2
-
-    :goto_2
-    if-eqz v7, :cond_5
-
-    invoke-static {}, Landroid/os/Process;->myPid()I
-
-    move-result v13
-
-    invoke-static {}, Landroid/os/Binder;->getCallingPid()I
-
-    move-result v14
-
-    if-ne v13, v14, :cond_5
-
-    invoke-virtual {v7}, Landroid/graphics/Region;->recycle()V
-
-    :cond_5
-    return-void
-
-    :cond_6
-    :try_start_4
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Landroid/view/AccessibilityInteractionController;->mViewRootImpl:Landroid/view/ViewRootImpl;
-
-    iget-object v10, v13, Landroid/view/ViewRootImpl;->mView:Landroid/view/View;
-
-    goto :goto_1
-
-    :cond_7
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Landroid/view/AccessibilityInteractionController;->mAddNodeInfosForViewId:Landroid/view/AccessibilityInteractionController$AddNodeInfosForViewId;
-
-    if-nez v13, :cond_8
-
-    new-instance v13, Landroid/view/AccessibilityInteractionController$AddNodeInfosForViewId;
-
-    const/4 v14, 0x0
-
-    move-object/from16 v0, p0
-
-    invoke-direct {v13, v0, v14}, Landroid/view/AccessibilityInteractionController$AddNodeInfosForViewId;-><init>(Landroid/view/AccessibilityInteractionController;Landroid/view/AccessibilityInteractionController$AddNodeInfosForViewId;)V
-
-    move-object/from16 v0, p0
-
-    iput-object v13, v0, Landroid/view/AccessibilityInteractionController;->mAddNodeInfosForViewId:Landroid/view/AccessibilityInteractionController$AddNodeInfosForViewId;
-
-    :cond_8
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Landroid/view/AccessibilityInteractionController;->mAddNodeInfosForViewId:Landroid/view/AccessibilityInteractionController$AddNodeInfosForViewId;
-
-    invoke-virtual {v13, v9, v5}, Landroid/view/AccessibilityInteractionController$AddNodeInfosForViewId;->init(ILjava/util/List;)V
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Landroid/view/AccessibilityInteractionController;->mAddNodeInfosForViewId:Landroid/view/AccessibilityInteractionController$AddNodeInfosForViewId;
-
-    invoke-virtual {v10, v13}, Landroid/view/View;->findViewByPredicate(Lcom/android/internal/util/Predicate;)Landroid/view/View;
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Landroid/view/AccessibilityInteractionController;->mAddNodeInfosForViewId:Landroid/view/AccessibilityInteractionController$AddNodeInfosForViewId;
-
-    invoke-virtual {v13}, Landroid/view/AccessibilityInteractionController$AddNodeInfosForViewId;->reset()V
-    :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_0
-
-    :cond_9
-    :try_start_5
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Landroid/view/AccessibilityInteractionController;->mViewRootImpl:Landroid/view/ViewRootImpl;
-
-    iget-object v13, v13, Landroid/view/ViewRootImpl;->mAttachInfo:Landroid/view/View$AttachInfo;
-
-    const/4 v14, 0x0
-
-    iput v14, v13, Landroid/view/View$AttachInfo;->mAccessibilityFetchFlags:I
-
-    move-object/from16 v0, p0
-
-    invoke-direct {v0, v5, v11}, Landroid/view/AccessibilityInteractionController;->applyAppScaleAndMagnificationSpecIfNeeded(Ljava/util/List;Landroid/view/MagnificationSpec;)V
-
-    if-eqz v11, :cond_a
-
-    invoke-static {}, Landroid/os/Process;->myPid()I
-
-    move-result v13
-
-    invoke-static {}, Landroid/os/Binder;->getCallingPid()I
-
-    move-result v14
-
-    if-eq v13, v14, :cond_a
-
-    invoke-virtual {v11}, Landroid/view/MagnificationSpec;->recycle()V
-
-    :cond_a
-    move-object/from16 v0, p0
-
-    invoke-direct {v0, v5, v7}, Landroid/view/AccessibilityInteractionController;->adjustIsVisibleToUserIfNeeded(Ljava/util/List;Landroid/graphics/Region;)V
-
-    invoke-interface {v3, v5, v6}, Landroid/view/accessibility/IAccessibilityInteractionConnectionCallback;->setFindAccessibilityNodeInfosResult(Ljava/util/List;I)V
-    :try_end_5
-    .catch Landroid/os/RemoteException; {:try_start_5 .. :try_end_5} :catch_1
-
-    :goto_3
-    if-eqz v7, :cond_b
-
-    invoke-static {}, Landroid/os/Process;->myPid()I
-
-    move-result v13
-
-    invoke-static {}, Landroid/os/Binder;->getCallingPid()I
-
-    move-result v14
-
-    if-ne v13, v14, :cond_b
-
-    invoke-virtual {v7}, Landroid/graphics/Region;->recycle()V
-
-    :cond_b
-    return-void
-
-    :catchall_0
-    move-exception v13
-
-    :try_start_6
-    move-object/from16 v0, p0
-
-    iget-object v14, v0, Landroid/view/AccessibilityInteractionController;->mViewRootImpl:Landroid/view/ViewRootImpl;
-
-    iget-object v14, v14, Landroid/view/ViewRootImpl;->mAttachInfo:Landroid/view/View$AttachInfo;
-
-    const/4 v15, 0x0
-
-    iput v15, v14, Landroid/view/View$AttachInfo;->mAccessibilityFetchFlags:I
-
-    move-object/from16 v0, p0
-
-    invoke-direct {v0, v5, v11}, Landroid/view/AccessibilityInteractionController;->applyAppScaleAndMagnificationSpecIfNeeded(Ljava/util/List;Landroid/view/MagnificationSpec;)V
-
-    if-eqz v11, :cond_c
-
-    invoke-static {}, Landroid/os/Process;->myPid()I
-
-    move-result v14
-
-    invoke-static {}, Landroid/os/Binder;->getCallingPid()I
-
-    move-result v15
-
-    if-eq v14, v15, :cond_c
-
-    invoke-virtual {v11}, Landroid/view/MagnificationSpec;->recycle()V
-
-    :cond_c
-    move-object/from16 v0, p0
-
-    invoke-direct {v0, v5, v7}, Landroid/view/AccessibilityInteractionController;->adjustIsVisibleToUserIfNeeded(Ljava/util/List;Landroid/graphics/Region;)V
-
-    invoke-interface {v3, v5, v6}, Landroid/view/accessibility/IAccessibilityInteractionConnectionCallback;->setFindAccessibilityNodeInfosResult(Ljava/util/List;I)V
-    :try_end_6
-    .catch Landroid/os/RemoteException; {:try_start_6 .. :try_end_6} :catch_0
-
-    :goto_4
-    if-eqz v7, :cond_d
-
-    invoke-static {}, Landroid/os/Process;->myPid()I
-
-    move-result v14
-
-    invoke-static {}, Landroid/os/Binder;->getCallingPid()I
-
-    move-result v15
-
-    if-ne v14, v15, :cond_d
-
-    invoke-virtual {v7}, Landroid/graphics/Region;->recycle()V
-
-    :cond_d
-    throw v13
-
-    :catch_0
-    move-exception v8
-
-    goto :goto_4
-
-    :catch_1
-    move-exception v8
-
-    goto :goto_3
-
-    :catch_2
-    move-exception v8
-
-    goto/16 :goto_2
-
-    :catch_3
-    move-exception v8
-
-    goto/16 :goto_0
-.end method
-
-.method private findFocusUiThread(Landroid/os/Message;)V
-    .locals 20
-
-    move-object/from16 v0, p1
-
-    iget v5, v0, Landroid/os/Message;->arg1:I
-
-    move-object/from16 v0, p1
-
-    iget v6, v0, Landroid/os/Message;->arg2:I
-
-    move-object/from16 v0, p1
-
-    iget-object v3, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
-
-    check-cast v3, Lcom/android/internal/os/SomeArgs;
-
-    iget v9, v3, Lcom/android/internal/os/SomeArgs;->argi1:I
-
-    iget v2, v3, Lcom/android/internal/os/SomeArgs;->argi2:I
-
-    iget v0, v3, Lcom/android/internal/os/SomeArgs;->argi3:I
-
-    move/from16 v16, v0
-
-    iget-object v4, v3, Lcom/android/internal/os/SomeArgs;->arg1:Ljava/lang/Object;
-
-    check-cast v4, Landroid/view/accessibility/IAccessibilityInteractionConnectionCallback;
-
-    iget-object v14, v3, Lcom/android/internal/os/SomeArgs;->arg2:Ljava/lang/Object;
-
-    check-cast v14, Landroid/view/MagnificationSpec;
-
-    iget-object v10, v3, Lcom/android/internal/os/SomeArgs;->arg3:Ljava/lang/Object;
-
-    check-cast v10, Landroid/graphics/Region;
-
-    invoke-virtual {v3}, Lcom/android/internal/os/SomeArgs;->recycle()V
-
-    const/4 v7, 0x0
-
-    :try_start_0
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/view/AccessibilityInteractionController;->mViewRootImpl:Landroid/view/ViewRootImpl;
-
-    move-object/from16 v17, v0
-
-    move-object/from16 v0, v17
-
-    iget-object v0, v0, Landroid/view/ViewRootImpl;->mView:Landroid/view/View;
-
-    move-object/from16 v17, v0
-
-    if-eqz v17, :cond_0
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/view/AccessibilityInteractionController;->mViewRootImpl:Landroid/view/ViewRootImpl;
-
-    move-object/from16 v17, v0
-
-    move-object/from16 v0, v17
-
-    iget-object v0, v0, Landroid/view/ViewRootImpl;->mAttachInfo:Landroid/view/View$AttachInfo;
-
-    move-object/from16 v17, v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    if-nez v17, :cond_3
-
-    :cond_0
-    :try_start_1
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/view/AccessibilityInteractionController;->mViewRootImpl:Landroid/view/ViewRootImpl;
-
-    move-object/from16 v17, v0
-
-    move-object/from16 v0, v17
-
-    iget-object v0, v0, Landroid/view/ViewRootImpl;->mAttachInfo:Landroid/view/View$AttachInfo;
-
-    move-object/from16 v17, v0
-
-    const/16 v18, 0x0
-
-    move/from16 v0, v18
+    move-object/from16 v0, v16
 
     move-object/from16 v1, v17
 
-    iput v0, v1, Landroid/view/View$AttachInfo;->mAccessibilityFetchFlags:I
+    invoke-virtual {v0, v12, v1, v2}, Landroid/view/View;->findViewsWithText(Ljava/util/ArrayList;Ljava/lang/CharSequence;I)V
+
+    invoke-virtual {v12}, Ljava/util/ArrayList;->isEmpty()Z
+
+    move-result v2
+
+    if-nez v2, :cond_2
 
     move-object/from16 v0, p0
 
-    invoke-direct {v0, v7, v14}, Landroid/view/AccessibilityInteractionController;->applyAppScaleAndMagnificationSpecIfNeeded(Landroid/view/accessibility/AccessibilityNodeInfo;Landroid/view/MagnificationSpec;)V
+    iget-object v3, v0, Landroid/view/AccessibilityInteractionController;->mTempAccessibilityNodeInfoList:Ljava/util/ArrayList;
 
-    if-eqz v14, :cond_1
+    invoke-interface {v3}, Ljava/util/List;->clear()V
 
-    invoke-static {}, Landroid/os/Process;->myPid()I
-
-    move-result v17
-
-    invoke-static {}, Landroid/os/Binder;->getCallingPid()I
+    invoke-virtual {v12}, Ljava/util/ArrayList;->size()I
 
     move-result v18
-
-    move/from16 v0, v17
-
-    move/from16 v1, v18
-
-    if-eq v0, v1, :cond_1
-
-    invoke-virtual {v14}, Landroid/view/MagnificationSpec;->recycle()V
-
-    :cond_1
-    move-object/from16 v0, p0
-
-    invoke-direct {v0, v7, v10}, Landroid/view/AccessibilityInteractionController;->adjustIsVisibleToUserIfNeeded(Landroid/view/accessibility/AccessibilityNodeInfo;Landroid/graphics/Region;)V
-
-    invoke-interface {v4, v7, v9}, Landroid/view/accessibility/IAccessibilityInteractionConnectionCallback;->setFindAccessibilityNodeInfoResult(Landroid/view/accessibility/AccessibilityNodeInfo;I)V
-    :try_end_1
-    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_2
-
-    :goto_0
-    if-eqz v10, :cond_2
-
-    invoke-static {}, Landroid/os/Process;->myPid()I
-
-    move-result v17
-
-    invoke-static {}, Landroid/os/Binder;->getCallingPid()I
-
-    move-result v18
-
-    move/from16 v0, v17
-
-    move/from16 v1, v18
-
-    if-ne v0, v1, :cond_2
-
-    invoke-virtual {v10}, Landroid/graphics/Region;->recycle()V
-
-    :cond_2
-    return-void
-
-    :cond_3
-    :try_start_2
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/view/AccessibilityInteractionController;->mViewRootImpl:Landroid/view/ViewRootImpl;
-
-    move-object/from16 v17, v0
-
-    move-object/from16 v0, v17
-
-    iget-object v0, v0, Landroid/view/ViewRootImpl;->mAttachInfo:Landroid/view/View$AttachInfo;
-
-    move-object/from16 v17, v0
-
-    move-object/from16 v0, v17
-
-    iput v5, v0, Landroid/view/View$AttachInfo;->mAccessibilityFetchFlags:I
 
     const/4 v13, 0x0
 
-    const v17, 0x7fffffff
+    :goto_1
+    move/from16 v0, v18
 
-    move/from16 v0, v17
+    if-ge v13, v0, :cond_2
 
-    if-eq v2, v0, :cond_6
+    invoke-virtual {v12, v13}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v11
+
+    check-cast v11, Landroid/view/View;
 
     move-object/from16 v0, p0
 
-    invoke-direct {v0, v2}, Landroid/view/AccessibilityInteractionController;->findViewByAccessibilityId(I)Landroid/view/View;
+    invoke-direct {v0, v11}, Landroid/view/AccessibilityInteractionController;->isShown(Landroid/view/View;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_5
+
+    invoke-virtual {v11}, Landroid/view/View;->getAccessibilityNodeProvider()Landroid/view/accessibility/AccessibilityNodeProvider;
+
+    move-result-object v15
+
+    if-eqz v15, :cond_6
+
+    const/4 v2, -0x1
+
+    move-object/from16 v0, v17
+
+    invoke-virtual {v15, v0, v2}, Landroid/view/accessibility/AccessibilityNodeProvider;->findAccessibilityNodeInfosByText(Ljava/lang/String;I)Ljava/util/List;
+
+    move-result-object v14
+
+    if-eqz v14, :cond_5
+
+    invoke-interface {v3, v14}, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
+
+    :cond_5
+    :goto_2
+    add-int/lit8 v13, v13, 0x1
+
+    goto :goto_1
+
+    :cond_6
+    invoke-virtual {v11}, Landroid/view/View;->createAccessibilityNodeInfo()Landroid/view/accessibility/AccessibilityNodeInfo;
+
+    move-result-object v2
+
+    invoke-interface {v3, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+
+    goto :goto_2
+
+    :catchall_0
+    move-exception v2
+
+    move-object/from16 v20, v2
+
+    move-object/from16 v2, p0
+
+    invoke-direct/range {v2 .. v7}, Landroid/view/AccessibilityInteractionController;->updateInfosForViewportAndReturnFindNodeResult(Ljava/util/List;Landroid/view/accessibility/IAccessibilityInteractionConnectionCallback;ILandroid/view/MagnificationSpec;Landroid/graphics/Region;)V
+
+    throw v20
+.end method
+
+.method private findAccessibilityNodeInfosByViewIdUiThread(Landroid/os/Message;)V
+    .locals 14
+
+    iget v8, p1, Landroid/os/Message;->arg1:I
+
+    iget v6, p1, Landroid/os/Message;->arg2:I
+
+    iget-object v7, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
+
+    check-cast v7, Lcom/android/internal/os/SomeArgs;
+
+    iget v3, v7, Lcom/android/internal/os/SomeArgs;->argi1:I
+
+    iget-object v2, v7, Lcom/android/internal/os/SomeArgs;->arg1:Ljava/lang/Object;
+
+    check-cast v2, Landroid/view/accessibility/IAccessibilityInteractionConnectionCallback;
+
+    iget-object v4, v7, Lcom/android/internal/os/SomeArgs;->arg2:Ljava/lang/Object;
+
+    check-cast v4, Landroid/view/MagnificationSpec;
+
+    iget-object v11, v7, Lcom/android/internal/os/SomeArgs;->arg3:Ljava/lang/Object;
+
+    check-cast v11, Ljava/lang/String;
+
+    iget-object v5, v7, Lcom/android/internal/os/SomeArgs;->arg4:Ljava/lang/Object;
+
+    check-cast v5, Landroid/graphics/Region;
+
+    invoke-virtual {v7}, Lcom/android/internal/os/SomeArgs;->recycle()V
+
+    iget-object v1, p0, Landroid/view/AccessibilityInteractionController;->mTempAccessibilityNodeInfoList:Ljava/util/ArrayList;
+
+    invoke-interface {v1}, Ljava/util/List;->clear()V
+
+    :try_start_0
+    iget-object v0, p0, Landroid/view/AccessibilityInteractionController;->mViewRootImpl:Landroid/view/ViewRootImpl;
+
+    iget-object v0, v0, Landroid/view/ViewRootImpl;->mView:Landroid/view/View;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Landroid/view/AccessibilityInteractionController;->mViewRootImpl:Landroid/view/ViewRootImpl;
+
+    iget-object v0, v0, Landroid/view/ViewRootImpl;->mAttachInfo:Landroid/view/View$AttachInfo;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    if-nez v0, :cond_1
+
+    :cond_0
+    move-object v0, p0
+
+    invoke-direct/range {v0 .. v5}, Landroid/view/AccessibilityInteractionController;->updateInfosForViewportAndReturnFindNodeResult(Ljava/util/List;Landroid/view/accessibility/IAccessibilityInteractionConnectionCallback;ILandroid/view/MagnificationSpec;Landroid/graphics/Region;)V
+
+    return-void
+
+    :cond_1
+    :try_start_1
+    iget-object v0, p0, Landroid/view/AccessibilityInteractionController;->mViewRootImpl:Landroid/view/ViewRootImpl;
+
+    iget-object v0, v0, Landroid/view/ViewRootImpl;->mAttachInfo:Landroid/view/View$AttachInfo;
+
+    iput v8, v0, Landroid/view/View$AttachInfo;->mAccessibilityFetchFlags:I
+
+    const/4 v10, 0x0
+
+    const v0, 0x7ffffffe
+
+    if-eq v6, v0, :cond_2
+
+    invoke-direct {p0, v6}, Landroid/view/AccessibilityInteractionController;->findViewByAccessibilityId(I)Landroid/view/View;
+
+    move-result-object v10
+
+    :goto_0
+    if-eqz v10, :cond_5
+
+    invoke-virtual {v10}, Landroid/view/View;->getContext()Landroid/content/Context;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    const/4 v12, 0x0
+
+    const/4 v13, 0x0
+
+    invoke-virtual {v0, v11, v12, v13}, Landroid/content/res/Resources;->getIdentifier(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    move-result v9
+
+    if-gtz v9, :cond_3
+
+    move-object v0, p0
+
+    invoke-direct/range {v0 .. v5}, Landroid/view/AccessibilityInteractionController;->updateInfosForViewportAndReturnFindNodeResult(Ljava/util/List;Landroid/view/accessibility/IAccessibilityInteractionConnectionCallback;ILandroid/view/MagnificationSpec;Landroid/graphics/Region;)V
+
+    return-void
+
+    :cond_2
+    :try_start_2
+    iget-object v0, p0, Landroid/view/AccessibilityInteractionController;->mViewRootImpl:Landroid/view/ViewRootImpl;
+
+    iget-object v10, v0, Landroid/view/ViewRootImpl;->mView:Landroid/view/View;
+
+    goto :goto_0
+
+    :cond_3
+    iget-object v0, p0, Landroid/view/AccessibilityInteractionController;->mAddNodeInfosForViewId:Landroid/view/AccessibilityInteractionController$AddNodeInfosForViewId;
+
+    if-nez v0, :cond_4
+
+    new-instance v0, Landroid/view/AccessibilityInteractionController$AddNodeInfosForViewId;
+
+    const/4 v12, 0x0
+
+    invoke-direct {v0, p0, v12}, Landroid/view/AccessibilityInteractionController$AddNodeInfosForViewId;-><init>(Landroid/view/AccessibilityInteractionController;Landroid/view/AccessibilityInteractionController$AddNodeInfosForViewId;)V
+
+    iput-object v0, p0, Landroid/view/AccessibilityInteractionController;->mAddNodeInfosForViewId:Landroid/view/AccessibilityInteractionController$AddNodeInfosForViewId;
+
+    :cond_4
+    iget-object v0, p0, Landroid/view/AccessibilityInteractionController;->mAddNodeInfosForViewId:Landroid/view/AccessibilityInteractionController$AddNodeInfosForViewId;
+
+    invoke-virtual {v0, v9, v1}, Landroid/view/AccessibilityInteractionController$AddNodeInfosForViewId;->init(ILjava/util/List;)V
+
+    iget-object v0, p0, Landroid/view/AccessibilityInteractionController;->mAddNodeInfosForViewId:Landroid/view/AccessibilityInteractionController$AddNodeInfosForViewId;
+
+    invoke-virtual {v10, v0}, Landroid/view/View;->findViewByPredicate(Ljava/util/function/Predicate;)Landroid/view/View;
+
+    iget-object v0, p0, Landroid/view/AccessibilityInteractionController;->mAddNodeInfosForViewId:Landroid/view/AccessibilityInteractionController$AddNodeInfosForViewId;
+
+    invoke-virtual {v0}, Landroid/view/AccessibilityInteractionController$AddNodeInfosForViewId;->reset()V
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+
+    :cond_5
+    move-object v0, p0
+
+    invoke-direct/range {v0 .. v5}, Landroid/view/AccessibilityInteractionController;->updateInfosForViewportAndReturnFindNodeResult(Ljava/util/List;Landroid/view/accessibility/IAccessibilityInteractionConnectionCallback;ILandroid/view/MagnificationSpec;Landroid/graphics/Region;)V
+
+    return-void
+
+    :catchall_0
+    move-exception v0
+
+    move-object v12, v0
+
+    move-object v0, p0
+
+    invoke-direct/range {v0 .. v5}, Landroid/view/AccessibilityInteractionController;->updateInfosForViewportAndReturnFindNodeResult(Ljava/util/List;Landroid/view/accessibility/IAccessibilityInteractionConnectionCallback;ILandroid/view/MagnificationSpec;Landroid/graphics/Region;)V
+
+    throw v12
+.end method
+
+.method private findFocusUiThread(Landroid/os/Message;)V
+    .locals 18
+
+    move-object/from16 v0, p1
+
+    iget v9, v0, Landroid/os/Message;->arg1:I
+
+    move-object/from16 v0, p1
+
+    iget v10, v0, Landroid/os/Message;->arg2:I
+
+    move-object/from16 v0, p1
+
+    iget-object v8, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
+
+    check-cast v8, Lcom/android/internal/os/SomeArgs;
+
+    iget v4, v8, Lcom/android/internal/os/SomeArgs;->argi1:I
+
+    iget v7, v8, Lcom/android/internal/os/SomeArgs;->argi2:I
+
+    iget v15, v8, Lcom/android/internal/os/SomeArgs;->argi3:I
+
+    iget-object v3, v8, Lcom/android/internal/os/SomeArgs;->arg1:Ljava/lang/Object;
+
+    check-cast v3, Landroid/view/accessibility/IAccessibilityInteractionConnectionCallback;
+
+    iget-object v5, v8, Lcom/android/internal/os/SomeArgs;->arg2:Ljava/lang/Object;
+
+    check-cast v5, Landroid/view/MagnificationSpec;
+
+    iget-object v6, v8, Lcom/android/internal/os/SomeArgs;->arg3:Ljava/lang/Object;
+
+    check-cast v6, Landroid/graphics/Region;
+
+    invoke-virtual {v8}, Lcom/android/internal/os/SomeArgs;->recycle()V
+
+    const/4 v2, 0x0
+
+    :try_start_0
+    move-object/from16 v0, p0
+
+    iget-object v1, v0, Landroid/view/AccessibilityInteractionController;->mViewRootImpl:Landroid/view/ViewRootImpl;
+
+    iget-object v1, v1, Landroid/view/ViewRootImpl;->mView:Landroid/view/View;
+
+    if-eqz v1, :cond_0
+
+    move-object/from16 v0, p0
+
+    iget-object v1, v0, Landroid/view/AccessibilityInteractionController;->mViewRootImpl:Landroid/view/ViewRootImpl;
+
+    iget-object v1, v1, Landroid/view/ViewRootImpl;->mAttachInfo:Landroid/view/View$AttachInfo;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    if-nez v1, :cond_1
+
+    :cond_0
+    move-object/from16 v1, p0
+
+    invoke-direct/range {v1 .. v6}, Landroid/view/AccessibilityInteractionController;->updateInfoForViewportAndReturnFindNodeResult(Landroid/view/accessibility/AccessibilityNodeInfo;Landroid/view/accessibility/IAccessibilityInteractionConnectionCallback;ILandroid/view/MagnificationSpec;Landroid/graphics/Region;)V
+
+    return-void
+
+    :cond_1
+    :try_start_1
+    move-object/from16 v0, p0
+
+    iget-object v1, v0, Landroid/view/AccessibilityInteractionController;->mViewRootImpl:Landroid/view/ViewRootImpl;
+
+    iget-object v1, v1, Landroid/view/ViewRootImpl;->mAttachInfo:Landroid/view/View$AttachInfo;
+
+    iput v9, v1, Landroid/view/View$AttachInfo;->mAccessibilityFetchFlags:I
+
+    const/4 v13, 0x0
+
+    const v1, 0x7ffffffe
+
+    if-eq v7, v1, :cond_2
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v7}, Landroid/view/AccessibilityInteractionController;->findViewByAccessibilityId(I)Landroid/view/View;
 
     move-result-object v13
 
-    :goto_1
-    if-eqz v13, :cond_7
+    :goto_0
+    if-eqz v13, :cond_3
 
     move-object/from16 v0, p0
 
     invoke-direct {v0, v13}, Landroid/view/AccessibilityInteractionController;->isShown(Landroid/view/View;)Z
 
-    move-result v17
+    move-result v1
 
-    if-eqz v17, :cond_7
+    if-eqz v1, :cond_3
 
-    packed-switch v6, :pswitch_data_0
+    packed-switch v10, :pswitch_data_0
 
-    new-instance v17, Ljava/lang/IllegalArgumentException;
+    new-instance v1, Ljava/lang/IllegalArgumentException;
 
-    new-instance v18, Ljava/lang/StringBuilder;
+    new-instance v16, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v16 .. v16}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v19, "Unknown focus type: "
+    const-string/jumbo v17, "Unknown focus type: "
 
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v16 .. v17}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v18
+    move-result-object v16
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v16
 
-    invoke-virtual {v0, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v10}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v18
+    move-result-object v16
 
-    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v16 .. v16}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v18
+    move-result-object v16
 
-    invoke-direct/range {v17 .. v18}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    move-object/from16 v0, v16
 
-    throw v17
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    invoke-direct {v1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v1
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     :catchall_0
-    move-exception v17
+    move-exception v1
 
-    :try_start_3
+    move-object/from16 v16, v1
+
+    move-object/from16 v1, p0
+
+    invoke-direct/range {v1 .. v6}, Landroid/view/AccessibilityInteractionController;->updateInfoForViewportAndReturnFindNodeResult(Landroid/view/accessibility/AccessibilityNodeInfo;Landroid/view/accessibility/IAccessibilityInteractionConnectionCallback;ILandroid/view/MagnificationSpec;Landroid/graphics/Region;)V
+
+    throw v16
+
+    :cond_2
+    :try_start_2
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Landroid/view/AccessibilityInteractionController;->mViewRootImpl:Landroid/view/ViewRootImpl;
+    iget-object v1, v0, Landroid/view/AccessibilityInteractionController;->mViewRootImpl:Landroid/view/ViewRootImpl;
 
-    move-object/from16 v18, v0
+    iget-object v13, v1, Landroid/view/ViewRootImpl;->mView:Landroid/view/View;
 
-    move-object/from16 v0, v18
-
-    iget-object v0, v0, Landroid/view/ViewRootImpl;->mAttachInfo:Landroid/view/View$AttachInfo;
-
-    move-object/from16 v18, v0
-
-    const/16 v19, 0x0
-
-    move/from16 v0, v19
-
-    move-object/from16 v1, v18
-
-    iput v0, v1, Landroid/view/View$AttachInfo;->mAccessibilityFetchFlags:I
-
-    move-object/from16 v0, p0
-
-    invoke-direct {v0, v7, v14}, Landroid/view/AccessibilityInteractionController;->applyAppScaleAndMagnificationSpecIfNeeded(Landroid/view/accessibility/AccessibilityNodeInfo;Landroid/view/MagnificationSpec;)V
-
-    if-eqz v14, :cond_4
-
-    invoke-static {}, Landroid/os/Process;->myPid()I
-
-    move-result v18
-
-    invoke-static {}, Landroid/os/Binder;->getCallingPid()I
-
-    move-result v19
-
-    move/from16 v0, v18
-
-    move/from16 v1, v19
-
-    if-eq v0, v1, :cond_4
-
-    invoke-virtual {v14}, Landroid/view/MagnificationSpec;->recycle()V
-
-    :cond_4
-    move-object/from16 v0, p0
-
-    invoke-direct {v0, v7, v10}, Landroid/view/AccessibilityInteractionController;->adjustIsVisibleToUserIfNeeded(Landroid/view/accessibility/AccessibilityNodeInfo;Landroid/graphics/Region;)V
-
-    invoke-interface {v4, v7, v9}, Landroid/view/accessibility/IAccessibilityInteractionConnectionCallback;->setFindAccessibilityNodeInfoResult(Landroid/view/accessibility/AccessibilityNodeInfo;I)V
-    :try_end_3
-    .catch Landroid/os/RemoteException; {:try_start_3 .. :try_end_3} :catch_0
-
-    :goto_2
-    if-eqz v10, :cond_5
-
-    invoke-static {}, Landroid/os/Process;->myPid()I
-
-    move-result v18
-
-    invoke-static {}, Landroid/os/Binder;->getCallingPid()I
-
-    move-result v19
-
-    move/from16 v0, v18
-
-    move/from16 v1, v19
-
-    if-ne v0, v1, :cond_5
-
-    invoke-virtual {v10}, Landroid/graphics/Region;->recycle()V
-
-    :cond_5
-    throw v17
-
-    :cond_6
-    :try_start_4
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/view/AccessibilityInteractionController;->mViewRootImpl:Landroid/view/ViewRootImpl;
-
-    move-object/from16 v17, v0
-
-    move-object/from16 v0, v17
-
-    iget-object v13, v0, Landroid/view/ViewRootImpl;->mView:Landroid/view/View;
-
-    goto :goto_1
+    goto :goto_0
 
     :pswitch_0
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Landroid/view/AccessibilityInteractionController;->mViewRootImpl:Landroid/view/ViewRootImpl;
+    iget-object v1, v0, Landroid/view/AccessibilityInteractionController;->mViewRootImpl:Landroid/view/ViewRootImpl;
 
-    move-object/from16 v17, v0
+    iget-object v11, v1, Landroid/view/ViewRootImpl;->mAccessibilityFocusedHost:Landroid/view/View;
 
-    move-object/from16 v0, v17
+    if-eqz v11, :cond_3
 
-    iget-object v8, v0, Landroid/view/ViewRootImpl;->mAccessibilityFocusedHost:Landroid/view/View;
+    invoke-static {v11, v13}, Landroid/view/ViewRootImpl;->isViewDescendantOf(Landroid/view/View;Landroid/view/View;)Z
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    if-eqz v8, :cond_7
+    move-result v1
 
-    invoke-static {v8, v13}, Landroid/view/ViewRootImpl;->isViewDescendantOf(Landroid/view/View;Landroid/view/View;)Z
+    xor-int/lit8 v1, v1, 0x1
 
-    move-result v17
+    if-eqz v1, :cond_4
 
-    if-eqz v17, :cond_7
+    :cond_3
+    :goto_1
+    move-object/from16 v1, p0
 
-    move-object/from16 v0, p0
+    invoke-direct/range {v1 .. v6}, Landroid/view/AccessibilityInteractionController;->updateInfoForViewportAndReturnFindNodeResult(Landroid/view/accessibility/AccessibilityNodeInfo;Landroid/view/accessibility/IAccessibilityInteractionConnectionCallback;ILandroid/view/MagnificationSpec;Landroid/graphics/Region;)V
 
-    invoke-direct {v0, v8}, Landroid/view/AccessibilityInteractionController;->isShown(Landroid/view/View;)Z
-    :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_0
-
-    move-result v17
-
-    if-nez v17, :cond_a
-
-    :cond_7
-    :goto_3
-    :try_start_5
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/view/AccessibilityInteractionController;->mViewRootImpl:Landroid/view/ViewRootImpl;
-
-    move-object/from16 v17, v0
-
-    move-object/from16 v0, v17
-
-    iget-object v0, v0, Landroid/view/ViewRootImpl;->mAttachInfo:Landroid/view/View$AttachInfo;
-
-    move-object/from16 v17, v0
-
-    const/16 v18, 0x0
-
-    move/from16 v0, v18
-
-    move-object/from16 v1, v17
-
-    iput v0, v1, Landroid/view/View$AttachInfo;->mAccessibilityFetchFlags:I
-
-    move-object/from16 v0, p0
-
-    invoke-direct {v0, v7, v14}, Landroid/view/AccessibilityInteractionController;->applyAppScaleAndMagnificationSpecIfNeeded(Landroid/view/accessibility/AccessibilityNodeInfo;Landroid/view/MagnificationSpec;)V
-
-    if-eqz v14, :cond_8
-
-    invoke-static {}, Landroid/os/Process;->myPid()I
-
-    move-result v17
-
-    invoke-static {}, Landroid/os/Binder;->getCallingPid()I
-
-    move-result v18
-
-    move/from16 v0, v17
-
-    move/from16 v1, v18
-
-    if-eq v0, v1, :cond_8
-
-    invoke-virtual {v14}, Landroid/view/MagnificationSpec;->recycle()V
-
-    :cond_8
-    move-object/from16 v0, p0
-
-    invoke-direct {v0, v7, v10}, Landroid/view/AccessibilityInteractionController;->adjustIsVisibleToUserIfNeeded(Landroid/view/accessibility/AccessibilityNodeInfo;Landroid/graphics/Region;)V
-
-    invoke-interface {v4, v7, v9}, Landroid/view/accessibility/IAccessibilityInteractionConnectionCallback;->setFindAccessibilityNodeInfoResult(Landroid/view/accessibility/AccessibilityNodeInfo;I)V
-    :try_end_5
-    .catch Landroid/os/RemoteException; {:try_start_5 .. :try_end_5} :catch_1
-
-    :goto_4
-    if-eqz v10, :cond_9
-
-    invoke-static {}, Landroid/os/Process;->myPid()I
-
-    move-result v17
-
-    invoke-static {}, Landroid/os/Binder;->getCallingPid()I
-
-    move-result v18
-
-    move/from16 v0, v17
-
-    move/from16 v1, v18
-
-    if-ne v0, v1, :cond_9
-
-    invoke-virtual {v10}, Landroid/graphics/Region;->recycle()V
-
-    :cond_9
     return-void
 
-    :cond_a
-    :try_start_6
-    invoke-virtual {v8}, Landroid/view/View;->getAccessibilityNodeProvider()Landroid/view/accessibility/AccessibilityNodeProvider;
+    :cond_4
+    :try_start_3
+    move-object/from16 v0, p0
 
-    move-result-object v11
+    invoke-direct {v0, v11}, Landroid/view/AccessibilityInteractionController;->isShown(Landroid/view/View;)Z
 
-    if-eqz v11, :cond_b
+    move-result v1
+
+    if-eqz v1, :cond_3
+
+    invoke-virtual {v11}, Landroid/view/View;->getAccessibilityNodeProvider()Landroid/view/accessibility/AccessibilityNodeProvider;
+
+    move-result-object v12
+
+    if-eqz v12, :cond_5
 
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Landroid/view/AccessibilityInteractionController;->mViewRootImpl:Landroid/view/ViewRootImpl;
+    iget-object v1, v0, Landroid/view/AccessibilityInteractionController;->mViewRootImpl:Landroid/view/ViewRootImpl;
 
-    move-object/from16 v17, v0
+    iget-object v1, v1, Landroid/view/ViewRootImpl;->mAccessibilityFocusedVirtualView:Landroid/view/accessibility/AccessibilityNodeInfo;
 
-    move-object/from16 v0, v17
-
-    iget-object v0, v0, Landroid/view/ViewRootImpl;->mAccessibilityFocusedVirtualView:Landroid/view/accessibility/AccessibilityNodeInfo;
-
-    move-object/from16 v17, v0
-
-    if-eqz v17, :cond_7
+    if-eqz v1, :cond_3
 
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Landroid/view/AccessibilityInteractionController;->mViewRootImpl:Landroid/view/ViewRootImpl;
+    iget-object v1, v0, Landroid/view/AccessibilityInteractionController;->mViewRootImpl:Landroid/view/ViewRootImpl;
 
-    move-object/from16 v17, v0
+    iget-object v1, v1, Landroid/view/ViewRootImpl;->mAccessibilityFocusedVirtualView:Landroid/view/accessibility/AccessibilityNodeInfo;
 
-    move-object/from16 v0, v17
+    invoke-static {v1}, Landroid/view/accessibility/AccessibilityNodeInfo;->obtain(Landroid/view/accessibility/AccessibilityNodeInfo;)Landroid/view/accessibility/AccessibilityNodeInfo;
 
-    iget-object v0, v0, Landroid/view/ViewRootImpl;->mAccessibilityFocusedVirtualView:Landroid/view/accessibility/AccessibilityNodeInfo;
+    move-result-object v2
 
-    move-object/from16 v17, v0
+    goto :goto_1
 
-    invoke-static/range {v17 .. v17}, Landroid/view/accessibility/AccessibilityNodeInfo;->obtain(Landroid/view/accessibility/AccessibilityNodeInfo;)Landroid/view/accessibility/AccessibilityNodeInfo;
+    :cond_5
+    const/4 v1, -0x1
 
-    move-result-object v7
+    if-ne v15, v1, :cond_3
 
-    goto :goto_3
+    invoke-virtual {v11}, Landroid/view/View;->createAccessibilityNodeInfo()Landroid/view/accessibility/AccessibilityNodeInfo;
 
-    :cond_b
-    const v17, 0x7fffffff
+    move-result-object v2
 
-    move/from16 v0, v16
-
-    move/from16 v1, v17
-
-    if-ne v0, v1, :cond_7
-
-    invoke-virtual {v8}, Landroid/view/View;->createAccessibilityNodeInfo()Landroid/view/accessibility/AccessibilityNodeInfo;
-
-    move-result-object v7
-
-    goto :goto_3
+    goto :goto_1
 
     :pswitch_1
     invoke-virtual {v13}, Landroid/view/View;->findFocus()Landroid/view/View;
 
-    move-result-object v15
+    move-result-object v14
 
-    if-eqz v15, :cond_7
+    if-eqz v14, :cond_3
 
     move-object/from16 v0, p0
 
-    invoke-direct {v0, v15}, Landroid/view/AccessibilityInteractionController;->isShown(Landroid/view/View;)Z
+    invoke-direct {v0, v14}, Landroid/view/AccessibilityInteractionController;->isShown(Landroid/view/View;)Z
 
-    move-result v17
+    move-result v1
 
-    if-eqz v17, :cond_7
+    xor-int/lit8 v1, v1, 0x1
 
-    invoke-virtual {v15}, Landroid/view/View;->getAccessibilityNodeProvider()Landroid/view/accessibility/AccessibilityNodeProvider;
+    if-nez v1, :cond_3
 
-    move-result-object v11
+    invoke-virtual {v14}, Landroid/view/View;->getAccessibilityNodeProvider()Landroid/view/accessibility/AccessibilityNodeProvider;
 
-    if-eqz v11, :cond_c
+    move-result-object v12
 
-    invoke-virtual {v11, v6}, Landroid/view/accessibility/AccessibilityNodeProvider;->findFocus(I)Landroid/view/accessibility/AccessibilityNodeInfo;
+    if-eqz v12, :cond_6
 
-    move-result-object v7
+    invoke-virtual {v12, v10}, Landroid/view/accessibility/AccessibilityNodeProvider;->findFocus(I)Landroid/view/accessibility/AccessibilityNodeInfo;
 
-    :cond_c
-    if-nez v7, :cond_7
+    move-result-object v2
 
-    invoke-virtual {v15}, Landroid/view/View;->createAccessibilityNodeInfo()Landroid/view/accessibility/AccessibilityNodeInfo;
-    :try_end_6
-    .catchall {:try_start_6 .. :try_end_6} :catchall_0
+    :cond_6
+    if-nez v2, :cond_3
 
-    move-result-object v7
+    invoke-virtual {v14}, Landroid/view/View;->createAccessibilityNodeInfo()Landroid/view/accessibility/AccessibilityNodeInfo;
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
-    goto/16 :goto_3
+    move-result-object v2
 
-    :catch_0
-    move-exception v12
+    goto :goto_1
 
-    goto/16 :goto_2
-
-    :catch_1
-    move-exception v12
-
-    goto :goto_4
-
-    :catch_2
-    move-exception v12
-
-    goto/16 :goto_0
+    nop
 
     :pswitch_data_0
     .packed-switch 0x1
@@ -2389,315 +1522,205 @@
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    xor-int/lit8 v2, v2, 0x1
+
+    if-eqz v2, :cond_1
+
+    return-object v3
 
     :cond_1
     return-object v0
-
-    :cond_2
-    return-object v3
 .end method
 
 .method private focusSearchUiThread(Landroid/os/Message;)V
-    .locals 16
+    .locals 13
 
-    move-object/from16 v0, p1
+    iget v9, p1, Landroid/os/Message;->arg1:I
 
-    iget v5, v0, Landroid/os/Message;->arg1:I
+    iget v6, p1, Landroid/os/Message;->arg2:I
 
-    move-object/from16 v0, p1
+    iget-object v7, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    iget v1, v0, Landroid/os/Message;->arg2:I
+    check-cast v7, Lcom/android/internal/os/SomeArgs;
 
-    move-object/from16 v0, p1
+    iget v8, v7, Lcom/android/internal/os/SomeArgs;->argi2:I
 
-    iget-object v2, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
+    iget v3, v7, Lcom/android/internal/os/SomeArgs;->argi3:I
 
-    check-cast v2, Lcom/android/internal/os/SomeArgs;
+    iget-object v2, v7, Lcom/android/internal/os/SomeArgs;->arg1:Ljava/lang/Object;
 
-    iget v4, v2, Lcom/android/internal/os/SomeArgs;->argi2:I
+    check-cast v2, Landroid/view/accessibility/IAccessibilityInteractionConnectionCallback;
 
-    iget v6, v2, Lcom/android/internal/os/SomeArgs;->argi3:I
+    iget-object v4, v7, Lcom/android/internal/os/SomeArgs;->arg2:Ljava/lang/Object;
 
-    iget-object v3, v2, Lcom/android/internal/os/SomeArgs;->arg1:Ljava/lang/Object;
+    check-cast v4, Landroid/view/MagnificationSpec;
 
-    check-cast v3, Landroid/view/accessibility/IAccessibilityInteractionConnectionCallback;
+    iget-object v5, v7, Lcom/android/internal/os/SomeArgs;->arg3:Ljava/lang/Object;
 
-    iget-object v12, v2, Lcom/android/internal/os/SomeArgs;->arg2:Ljava/lang/Object;
+    check-cast v5, Landroid/graphics/Region;
 
-    check-cast v12, Landroid/view/MagnificationSpec;
+    invoke-virtual {v7}, Lcom/android/internal/os/SomeArgs;->recycle()V
 
-    iget-object v7, v2, Lcom/android/internal/os/SomeArgs;->arg3:Ljava/lang/Object;
-
-    check-cast v7, Landroid/graphics/Region;
-
-    invoke-virtual {v2}, Lcom/android/internal/os/SomeArgs;->recycle()V
-
-    const/4 v8, 0x0
+    const/4 v1, 0x0
 
     :try_start_0
-    move-object/from16 v0, p0
+    iget-object v0, p0, Landroid/view/AccessibilityInteractionController;->mViewRootImpl:Landroid/view/ViewRootImpl;
 
-    iget-object v13, v0, Landroid/view/AccessibilityInteractionController;->mViewRootImpl:Landroid/view/ViewRootImpl;
+    iget-object v0, v0, Landroid/view/ViewRootImpl;->mView:Landroid/view/View;
 
-    iget-object v13, v13, Landroid/view/ViewRootImpl;->mView:Landroid/view/View;
+    if-eqz v0, :cond_0
 
-    if-eqz v13, :cond_0
+    iget-object v0, p0, Landroid/view/AccessibilityInteractionController;->mViewRootImpl:Landroid/view/ViewRootImpl;
 
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Landroid/view/AccessibilityInteractionController;->mViewRootImpl:Landroid/view/ViewRootImpl;
-
-    iget-object v13, v13, Landroid/view/ViewRootImpl;->mAttachInfo:Landroid/view/View$AttachInfo;
+    iget-object v0, v0, Landroid/view/ViewRootImpl;->mAttachInfo:Landroid/view/View$AttachInfo;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    if-nez v13, :cond_3
+    if-nez v0, :cond_1
 
     :cond_0
-    :try_start_1
-    move-object/from16 v0, p0
+    move-object v0, p0
 
-    iget-object v13, v0, Landroid/view/AccessibilityInteractionController;->mViewRootImpl:Landroid/view/ViewRootImpl;
+    invoke-direct/range {v0 .. v5}, Landroid/view/AccessibilityInteractionController;->updateInfoForViewportAndReturnFindNodeResult(Landroid/view/accessibility/AccessibilityNodeInfo;Landroid/view/accessibility/IAccessibilityInteractionConnectionCallback;ILandroid/view/MagnificationSpec;Landroid/graphics/Region;)V
 
-    iget-object v13, v13, Landroid/view/ViewRootImpl;->mAttachInfo:Landroid/view/View$AttachInfo;
-
-    const/4 v14, 0x0
-
-    iput v14, v13, Landroid/view/View$AttachInfo;->mAccessibilityFetchFlags:I
-
-    move-object/from16 v0, p0
-
-    invoke-direct {v0, v8, v12}, Landroid/view/AccessibilityInteractionController;->applyAppScaleAndMagnificationSpecIfNeeded(Landroid/view/accessibility/AccessibilityNodeInfo;Landroid/view/MagnificationSpec;)V
-
-    if-eqz v12, :cond_1
-
-    invoke-static {}, Landroid/os/Process;->myPid()I
-
-    move-result v13
-
-    invoke-static {}, Landroid/os/Binder;->getCallingPid()I
-
-    move-result v14
-
-    if-eq v13, v14, :cond_1
-
-    invoke-virtual {v12}, Landroid/view/MagnificationSpec;->recycle()V
+    return-void
 
     :cond_1
-    move-object/from16 v0, p0
+    :try_start_1
+    iget-object v0, p0, Landroid/view/AccessibilityInteractionController;->mViewRootImpl:Landroid/view/ViewRootImpl;
 
-    invoke-direct {v0, v8, v7}, Landroid/view/AccessibilityInteractionController;->adjustIsVisibleToUserIfNeeded(Landroid/view/accessibility/AccessibilityNodeInfo;Landroid/graphics/Region;)V
+    iget-object v0, v0, Landroid/view/ViewRootImpl;->mAttachInfo:Landroid/view/View$AttachInfo;
 
-    invoke-interface {v3, v8, v6}, Landroid/view/accessibility/IAccessibilityInteractionConnectionCallback;->setFindAccessibilityNodeInfoResult(Landroid/view/accessibility/AccessibilityNodeInfo;I)V
-    :try_end_1
-    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_2
+    iput v9, v0, Landroid/view/View$AttachInfo;->mAccessibilityFetchFlags:I
+
+    const/4 v11, 0x0
+
+    const v0, 0x7ffffffe
+
+    if-eq v6, v0, :cond_3
+
+    invoke-direct {p0, v6}, Landroid/view/AccessibilityInteractionController;->findViewByAccessibilityId(I)Landroid/view/View;
+
+    move-result-object v11
 
     :goto_0
-    if-eqz v7, :cond_2
+    if-eqz v11, :cond_2
 
-    invoke-static {}, Landroid/os/Process;->myPid()I
+    invoke-direct {p0, v11}, Landroid/view/AccessibilityInteractionController;->isShown(Landroid/view/View;)Z
 
-    move-result v13
+    move-result v0
 
-    invoke-static {}, Landroid/os/Binder;->getCallingPid()I
+    if-eqz v0, :cond_2
 
-    move-result v14
+    invoke-virtual {v11, v8}, Landroid/view/View;->focusSearch(I)Landroid/view/View;
 
-    if-ne v13, v14, :cond_2
+    move-result-object v10
 
-    invoke-virtual {v7}, Landroid/graphics/Region;->recycle()V
+    if-eqz v10, :cond_2
+
+    invoke-virtual {v10}, Landroid/view/View;->createAccessibilityNodeInfo()Landroid/view/accessibility/AccessibilityNodeInfo;
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    move-result-object v1
 
     :cond_2
+    move-object v0, p0
+
+    invoke-direct/range {v0 .. v5}, Landroid/view/AccessibilityInteractionController;->updateInfoForViewportAndReturnFindNodeResult(Landroid/view/accessibility/AccessibilityNodeInfo;Landroid/view/accessibility/IAccessibilityInteractionConnectionCallback;ILandroid/view/MagnificationSpec;Landroid/graphics/Region;)V
+
     return-void
 
     :cond_3
     :try_start_2
-    move-object/from16 v0, p0
+    iget-object v0, p0, Landroid/view/AccessibilityInteractionController;->mViewRootImpl:Landroid/view/ViewRootImpl;
 
-    iget-object v13, v0, Landroid/view/AccessibilityInteractionController;->mViewRootImpl:Landroid/view/ViewRootImpl;
-
-    iget-object v13, v13, Landroid/view/ViewRootImpl;->mAttachInfo:Landroid/view/View$AttachInfo;
-
-    iput v5, v13, Landroid/view/View$AttachInfo;->mAccessibilityFetchFlags:I
-
-    const/4 v11, 0x0
-
-    const v13, 0x7fffffff
-
-    if-eq v1, v13, :cond_7
-
-    move-object/from16 v0, p0
-
-    invoke-direct {v0, v1}, Landroid/view/AccessibilityInteractionController;->findViewByAccessibilityId(I)Landroid/view/View;
-
-    move-result-object v11
-
-    :goto_1
-    if-eqz v11, :cond_4
-
-    move-object/from16 v0, p0
-
-    invoke-direct {v0, v11}, Landroid/view/AccessibilityInteractionController;->isShown(Landroid/view/View;)Z
-
-    move-result v13
-
-    if-eqz v13, :cond_4
-
-    invoke-virtual {v11, v4}, Landroid/view/View;->focusSearch(I)Landroid/view/View;
-
-    move-result-object v9
-
-    if-eqz v9, :cond_4
-
-    invoke-virtual {v9}, Landroid/view/View;->createAccessibilityNodeInfo()Landroid/view/accessibility/AccessibilityNodeInfo;
+    iget-object v11, v0, Landroid/view/ViewRootImpl;->mView:Landroid/view/View;
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    move-result-object v8
-
-    :cond_4
-    :try_start_3
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Landroid/view/AccessibilityInteractionController;->mViewRootImpl:Landroid/view/ViewRootImpl;
-
-    iget-object v13, v13, Landroid/view/ViewRootImpl;->mAttachInfo:Landroid/view/View$AttachInfo;
-
-    const/4 v14, 0x0
-
-    iput v14, v13, Landroid/view/View$AttachInfo;->mAccessibilityFetchFlags:I
-
-    move-object/from16 v0, p0
-
-    invoke-direct {v0, v8, v12}, Landroid/view/AccessibilityInteractionController;->applyAppScaleAndMagnificationSpecIfNeeded(Landroid/view/accessibility/AccessibilityNodeInfo;Landroid/view/MagnificationSpec;)V
-
-    if-eqz v12, :cond_5
-
-    invoke-static {}, Landroid/os/Process;->myPid()I
-
-    move-result v13
-
-    invoke-static {}, Landroid/os/Binder;->getCallingPid()I
-
-    move-result v14
-
-    if-eq v13, v14, :cond_5
-
-    invoke-virtual {v12}, Landroid/view/MagnificationSpec;->recycle()V
-
-    :cond_5
-    move-object/from16 v0, p0
-
-    invoke-direct {v0, v8, v7}, Landroid/view/AccessibilityInteractionController;->adjustIsVisibleToUserIfNeeded(Landroid/view/accessibility/AccessibilityNodeInfo;Landroid/graphics/Region;)V
-
-    invoke-interface {v3, v8, v6}, Landroid/view/accessibility/IAccessibilityInteractionConnectionCallback;->setFindAccessibilityNodeInfoResult(Landroid/view/accessibility/AccessibilityNodeInfo;I)V
-    :try_end_3
-    .catch Landroid/os/RemoteException; {:try_start_3 .. :try_end_3} :catch_1
-
-    :goto_2
-    if-eqz v7, :cond_6
-
-    invoke-static {}, Landroid/os/Process;->myPid()I
-
-    move-result v13
-
-    invoke-static {}, Landroid/os/Binder;->getCallingPid()I
-
-    move-result v14
-
-    if-ne v13, v14, :cond_6
-
-    invoke-virtual {v7}, Landroid/graphics/Region;->recycle()V
-
-    :cond_6
-    return-void
-
-    :cond_7
-    :try_start_4
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Landroid/view/AccessibilityInteractionController;->mViewRootImpl:Landroid/view/ViewRootImpl;
-
-    iget-object v11, v13, Landroid/view/ViewRootImpl;->mView:Landroid/view/View;
-    :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_0
-
-    goto :goto_1
+    goto :goto_0
 
     :catchall_0
-    move-exception v13
+    move-exception v0
 
-    :try_start_5
-    move-object/from16 v0, p0
+    move-object v12, v0
 
-    iget-object v14, v0, Landroid/view/AccessibilityInteractionController;->mViewRootImpl:Landroid/view/ViewRootImpl;
+    move-object v0, p0
 
-    iget-object v14, v14, Landroid/view/ViewRootImpl;->mAttachInfo:Landroid/view/View$AttachInfo;
+    invoke-direct/range {v0 .. v5}, Landroid/view/AccessibilityInteractionController;->updateInfoForViewportAndReturnFindNodeResult(Landroid/view/accessibility/AccessibilityNodeInfo;Landroid/view/accessibility/IAccessibilityInteractionConnectionCallback;ILandroid/view/MagnificationSpec;Landroid/graphics/Region;)V
 
-    const/4 v15, 0x0
+    throw v12
+.end method
 
-    iput v15, v14, Landroid/view/View$AttachInfo;->mAccessibilityFetchFlags:I
+.method private handleClickableSpanActionUiThread(Landroid/view/View;ILandroid/os/Bundle;)Z
+    .locals 6
 
-    move-object/from16 v0, p0
+    const/4 v5, 0x0
 
-    invoke-direct {v0, v8, v12}, Landroid/view/AccessibilityInteractionController;->applyAppScaleAndMagnificationSpecIfNeeded(Landroid/view/accessibility/AccessibilityNodeInfo;Landroid/view/MagnificationSpec;)V
+    const-string/jumbo v4, "android.view.accessibility.action.ACTION_ARGUMENT_ACCESSIBLE_CLICKABLE_SPAN"
 
-    if-eqz v12, :cond_8
+    invoke-virtual {p3, v4}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
 
-    invoke-static {}, Landroid/os/Process;->myPid()I
+    move-result-object v3
 
-    move-result v14
+    instance-of v4, v3, Landroid/text/style/AccessibilityClickableSpan;
 
-    invoke-static {}, Landroid/os/Binder;->getCallingPid()I
+    if-nez v4, :cond_0
 
-    move-result v15
+    return v5
 
-    if-eq v14, v15, :cond_8
+    :cond_0
+    const/4 v1, 0x0
 
-    invoke-virtual {v12}, Landroid/view/MagnificationSpec;->recycle()V
+    invoke-virtual {p1}, Landroid/view/View;->getAccessibilityNodeProvider()Landroid/view/accessibility/AccessibilityNodeProvider;
 
-    :cond_8
-    move-object/from16 v0, p0
+    move-result-object v2
 
-    invoke-direct {v0, v8, v7}, Landroid/view/AccessibilityInteractionController;->adjustIsVisibleToUserIfNeeded(Landroid/view/accessibility/AccessibilityNodeInfo;Landroid/graphics/Region;)V
+    if-eqz v2, :cond_2
 
-    invoke-interface {v3, v8, v6}, Landroid/view/accessibility/IAccessibilityInteractionConnectionCallback;->setFindAccessibilityNodeInfoResult(Landroid/view/accessibility/AccessibilityNodeInfo;I)V
-    :try_end_5
-    .catch Landroid/os/RemoteException; {:try_start_5 .. :try_end_5} :catch_0
+    invoke-virtual {v2, p2}, Landroid/view/accessibility/AccessibilityNodeProvider;->createAccessibilityNodeInfo(I)Landroid/view/accessibility/AccessibilityNodeInfo;
 
-    :goto_3
-    if-eqz v7, :cond_9
+    move-result-object v1
 
-    invoke-static {}, Landroid/os/Process;->myPid()I
+    :cond_1
+    :goto_0
+    if-nez v1, :cond_3
 
-    move-result v14
+    return v5
 
-    invoke-static {}, Landroid/os/Binder;->getCallingPid()I
+    :cond_2
+    const/4 v4, -0x1
 
-    move-result v15
+    if-ne p2, v4, :cond_1
 
-    if-ne v14, v15, :cond_9
+    invoke-virtual {p1}, Landroid/view/View;->createAccessibilityNodeInfo()Landroid/view/accessibility/AccessibilityNodeInfo;
 
-    invoke-virtual {v7}, Landroid/graphics/Region;->recycle()V
+    move-result-object v1
 
-    :cond_9
-    throw v13
+    goto :goto_0
 
-    :catch_0
-    move-exception v10
+    :cond_3
+    check-cast v3, Landroid/text/style/AccessibilityClickableSpan;
 
-    goto :goto_3
+    invoke-virtual {v1}, Landroid/view/accessibility/AccessibilityNodeInfo;->getOriginalText()Ljava/lang/CharSequence;
 
-    :catch_1
-    move-exception v10
+    move-result-object v4
 
-    goto :goto_2
+    invoke-virtual {v3, v4}, Landroid/text/style/AccessibilityClickableSpan;->findClickableSpan(Ljava/lang/CharSequence;)Landroid/text/style/ClickableSpan;
 
-    :catch_2
-    move-exception v10
+    move-result-object v0
 
-    goto/16 :goto_0
+    if-eqz v0, :cond_4
+
+    invoke-virtual {v0, p1}, Landroid/text/style/ClickableSpan;->onClick(Landroid/view/View;)V
+
+    const/4 v4, 0x1
+
+    return v4
+
+    :cond_4
+    return v5
 .end method
 
 .method private isShown(Landroid/view/View;)Z
@@ -2824,7 +1847,7 @@
 
     const/4 v11, 0x0
 
-    const v13, 0x7fffffff
+    const v13, 0x7ffffffe
 
     if-eq v1, v13, :cond_3
 
@@ -2845,17 +1868,13 @@
 
     if-eqz v13, :cond_2
 
-    invoke-virtual {v11}, Landroid/view/View;->getAccessibilityNodeProvider()Landroid/view/accessibility/AccessibilityNodeProvider;
+    const v13, 0x10201a4
 
-    move-result-object v8
+    if-ne v2, v13, :cond_4
 
-    if-eqz v8, :cond_5
+    move-object/from16 v0, p0
 
-    const v13, 0x7fffffff
-
-    if-eq v12, v13, :cond_4
-
-    invoke-virtual {v8, v12, v2, v4}, Landroid/view/accessibility/AccessibilityNodeProvider;->performAction(IILandroid/os/Bundle;)Z
+    invoke-direct {v0, v11, v12, v4}, Landroid/view/AccessibilityInteractionController;->handleClickableSpanActionUiThread(Landroid/view/View;ILandroid/os/Bundle;)Z
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
@@ -2892,16 +1911,20 @@
     goto :goto_1
 
     :cond_4
-    const/4 v13, -0x1
+    invoke-virtual {v11}, Landroid/view/View;->getAccessibilityNodeProvider()Landroid/view/accessibility/AccessibilityNodeProvider;
 
-    invoke-virtual {v8, v13, v2, v4}, Landroid/view/accessibility/AccessibilityNodeProvider;->performAction(IILandroid/os/Bundle;)Z
+    move-result-object v8
+
+    if-eqz v8, :cond_5
+
+    invoke-virtual {v8, v12, v2, v4}, Landroid/view/accessibility/AccessibilityNodeProvider;->performAction(IILandroid/os/Bundle;)Z
 
     move-result v10
 
     goto :goto_2
 
     :cond_5
-    const v13, 0x7fffffff
+    const/4 v13, -0x1
 
     if-ne v12, v13, :cond_2
 
@@ -2950,38 +1973,201 @@
     goto :goto_0
 .end method
 
-.method private shouldApplyAppScaleAndMagnificationSpec(FLandroid/view/MagnificationSpec;)Z
+.method private recycleMagnificationSpecAndRegionIfNeeded(Landroid/view/MagnificationSpec;Landroid/graphics/Region;)V
+    .locals 2
+
+    invoke-static {}, Landroid/os/Process;->myPid()I
+
+    move-result v0
+
+    invoke-static {}, Landroid/os/Binder;->getCallingPid()I
+
+    move-result v1
+
+    if-eq v0, v1, :cond_1
+
+    if-eqz p1, :cond_0
+
+    invoke-virtual {p1}, Landroid/view/MagnificationSpec;->recycle()V
+
+    :cond_0
+    :goto_0
+    return-void
+
+    :cond_1
+    if-eqz p2, :cond_0
+
+    invoke-virtual {p2}, Landroid/graphics/Region;->recycle()V
+
+    goto :goto_0
+.end method
+
+.method private scheduleMessage(Landroid/os/Message;IJ)V
     .locals 3
 
-    const/4 v0, 0x1
+    iget v0, p0, Landroid/view/AccessibilityInteractionController;->mMyProcessId:I
 
-    const/4 v1, 0x0
+    if-ne p2, v0, :cond_0
 
-    const/high16 v2, 0x3f800000    # 1.0f
+    iget-wide v0, p0, Landroid/view/AccessibilityInteractionController;->mMyLooperThreadId:J
 
-    cmpl-float v2, p1, v2
+    cmp-long v0, p3, v0
 
-    if-nez v2, :cond_1
+    if-nez v0, :cond_0
 
-    if-eqz p2, :cond_0
+    invoke-static {p3, p4}, Landroid/view/accessibility/AccessibilityInteractionClient;->getInstanceForThread(J)Landroid/view/accessibility/AccessibilityInteractionClient;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p1}, Landroid/view/accessibility/AccessibilityInteractionClient;->setSameThreadMessage(Landroid/os/Message;)V
+
+    :goto_0
+    return-void
+
+    :cond_0
+    iget-object v0, p0, Landroid/view/AccessibilityInteractionController;->mHandler:Landroid/os/Handler;
+
+    invoke-virtual {v0, p1}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
+
+    goto :goto_0
+.end method
+
+.method private shouldApplyAppScaleAndMagnificationSpec(FLandroid/view/MagnificationSpec;)Z
+    .locals 1
+
+    const/high16 v0, 0x3f800000    # 1.0f
+
+    cmpl-float v0, p1, v0
+
+    if-nez v0, :cond_0
+
+    if-eqz p2, :cond_1
 
     invoke-virtual {p2}, Landroid/view/MagnificationSpec;->isNop()Z
 
-    move-result v2
+    move-result v0
 
-    if-eqz v2, :cond_1
+    xor-int/lit8 v0, v0, 0x1
+
+    :goto_0
+    return v0
 
     :cond_0
-    move v0, v1
+    const/4 v0, 0x1
+
+    goto :goto_0
 
     :cond_1
-    return v0
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
+.method private updateInfoForViewportAndReturnFindNodeResult(Landroid/view/accessibility/AccessibilityNodeInfo;Landroid/view/accessibility/IAccessibilityInteractionConnectionCallback;ILandroid/view/MagnificationSpec;Landroid/graphics/Region;)V
+    .locals 3
+
+    :try_start_0
+    iget-object v1, p0, Landroid/view/AccessibilityInteractionController;->mViewRootImpl:Landroid/view/ViewRootImpl;
+
+    iget-object v1, v1, Landroid/view/ViewRootImpl;->mAttachInfo:Landroid/view/View$AttachInfo;
+
+    const/4 v2, 0x0
+
+    iput v2, v1, Landroid/view/View$AttachInfo;->mAccessibilityFetchFlags:I
+
+    invoke-direct {p0, p1, p4}, Landroid/view/AccessibilityInteractionController;->applyAppScaleAndMagnificationSpecIfNeeded(Landroid/view/accessibility/AccessibilityNodeInfo;Landroid/view/MagnificationSpec;)V
+
+    invoke-direct {p0, p1, p5}, Landroid/view/AccessibilityInteractionController;->adjustIsVisibleToUserIfNeeded(Landroid/view/accessibility/AccessibilityNodeInfo;Landroid/graphics/Region;)V
+
+    invoke-interface {p2, p1, p3}, Landroid/view/accessibility/IAccessibilityInteractionConnectionCallback;->setFindAccessibilityNodeInfoResult(Landroid/view/accessibility/AccessibilityNodeInfo;I)V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-direct {p0, p4, p5}, Landroid/view/AccessibilityInteractionController;->recycleMagnificationSpecAndRegionIfNeeded(Landroid/view/MagnificationSpec;Landroid/graphics/Region;)V
+
+    :goto_0
+    return-void
+
+    :catch_0
+    move-exception v0
+
+    invoke-direct {p0, p4, p5}, Landroid/view/AccessibilityInteractionController;->recycleMagnificationSpecAndRegionIfNeeded(Landroid/view/MagnificationSpec;Landroid/graphics/Region;)V
+
+    goto :goto_0
+
+    :catchall_0
+    move-exception v1
+
+    invoke-direct {p0, p4, p5}, Landroid/view/AccessibilityInteractionController;->recycleMagnificationSpecAndRegionIfNeeded(Landroid/view/MagnificationSpec;Landroid/graphics/Region;)V
+
+    throw v1
+.end method
+
+.method private updateInfosForViewportAndReturnFindNodeResult(Ljava/util/List;Landroid/view/accessibility/IAccessibilityInteractionConnectionCallback;ILandroid/view/MagnificationSpec;Landroid/graphics/Region;)V
+    .locals 3
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/List",
+            "<",
+            "Landroid/view/accessibility/AccessibilityNodeInfo;",
+            ">;",
+            "Landroid/view/accessibility/IAccessibilityInteractionConnectionCallback;",
+            "I",
+            "Landroid/view/MagnificationSpec;",
+            "Landroid/graphics/Region;",
+            ")V"
+        }
+    .end annotation
+
+    :try_start_0
+    iget-object v1, p0, Landroid/view/AccessibilityInteractionController;->mViewRootImpl:Landroid/view/ViewRootImpl;
+
+    iget-object v1, v1, Landroid/view/ViewRootImpl;->mAttachInfo:Landroid/view/View$AttachInfo;
+
+    const/4 v2, 0x0
+
+    iput v2, v1, Landroid/view/View$AttachInfo;->mAccessibilityFetchFlags:I
+
+    invoke-direct {p0, p1, p4}, Landroid/view/AccessibilityInteractionController;->applyAppScaleAndMagnificationSpecIfNeeded(Ljava/util/List;Landroid/view/MagnificationSpec;)V
+
+    invoke-direct {p0, p1, p5}, Landroid/view/AccessibilityInteractionController;->adjustIsVisibleToUserIfNeeded(Ljava/util/List;Landroid/graphics/Region;)V
+
+    invoke-interface {p2, p1, p3}, Landroid/view/accessibility/IAccessibilityInteractionConnectionCallback;->setFindAccessibilityNodeInfosResult(Ljava/util/List;I)V
+
+    if-eqz p1, :cond_0
+
+    invoke-interface {p1}, Ljava/util/List;->clear()V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    :cond_0
+    invoke-direct {p0, p4, p5}, Landroid/view/AccessibilityInteractionController;->recycleMagnificationSpecAndRegionIfNeeded(Landroid/view/MagnificationSpec;Landroid/graphics/Region;)V
+
+    :goto_0
+    return-void
+
+    :catch_0
+    move-exception v0
+
+    invoke-direct {p0, p4, p5}, Landroid/view/AccessibilityInteractionController;->recycleMagnificationSpecAndRegionIfNeeded(Landroid/view/MagnificationSpec;Landroid/graphics/Region;)V
+
+    goto :goto_0
+
+    :catchall_0
+    move-exception v1
+
+    invoke-direct {p0, p4, p5}, Landroid/view/AccessibilityInteractionController;->recycleMagnificationSpecAndRegionIfNeeded(Landroid/view/MagnificationSpec;Landroid/graphics/Region;)V
+
+    throw v1
 .end method
 
 
 # virtual methods
-.method public findAccessibilityNodeInfoByAccessibilityIdClientThread(JLandroid/graphics/Region;ILandroid/view/accessibility/IAccessibilityInteractionConnectionCallback;IIJLandroid/view/MagnificationSpec;)V
-    .locals 4
+.method public findAccessibilityNodeInfoByAccessibilityIdClientThread(JLandroid/graphics/Region;ILandroid/view/accessibility/IAccessibilityInteractionConnectionCallback;IIJLandroid/view/MagnificationSpec;Landroid/os/Bundle;)V
+    .locals 3
 
     iget-object v2, p0, Landroid/view/AccessibilityInteractionController;->mHandler:Landroid/os/Handler;
 
@@ -3019,309 +2205,193 @@
 
     iput-object p3, v0, Lcom/android/internal/os/SomeArgs;->arg3:Ljava/lang/Object;
 
+    iput-object p11, v0, Lcom/android/internal/os/SomeArgs;->arg4:Ljava/lang/Object;
+
     iput-object v0, v1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    iget v2, p0, Landroid/view/AccessibilityInteractionController;->mMyProcessId:I
+    invoke-direct {p0, v1, p7, p8, p9}, Landroid/view/AccessibilityInteractionController;->scheduleMessage(Landroid/os/Message;IJ)V
 
-    if-ne p7, v2, :cond_0
-
-    iget-wide v2, p0, Landroid/view/AccessibilityInteractionController;->mMyLooperThreadId:J
-
-    cmp-long v2, p8, v2
-
-    if-nez v2, :cond_0
-
-    invoke-static {p8, p9}, Landroid/view/accessibility/AccessibilityInteractionClient;->getInstanceForThread(J)Landroid/view/accessibility/AccessibilityInteractionClient;
-
-    move-result-object v2
-
-    invoke-virtual {v2, v1}, Landroid/view/accessibility/AccessibilityInteractionClient;->setSameThreadMessage(Landroid/os/Message;)V
-
-    :goto_0
     return-void
-
-    :cond_0
-    iget-object v2, p0, Landroid/view/AccessibilityInteractionController;->mHandler:Landroid/os/Handler;
-
-    invoke-virtual {v2, v1}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
-
-    goto :goto_0
 .end method
 
 .method public findAccessibilityNodeInfosByTextClientThread(JLjava/lang/String;Landroid/graphics/Region;ILandroid/view/accessibility/IAccessibilityInteractionConnectionCallback;IIJLandroid/view/MagnificationSpec;)V
-    .locals 7
+    .locals 3
 
-    iget-object v4, p0, Landroid/view/AccessibilityInteractionController;->mHandler:Landroid/os/Handler;
+    iget-object v2, p0, Landroid/view/AccessibilityInteractionController;->mHandler:Landroid/os/Handler;
 
-    invoke-virtual {v4}, Landroid/os/Handler;->obtainMessage()Landroid/os/Message;
+    invoke-virtual {v2}, Landroid/os/Handler;->obtainMessage()Landroid/os/Message;
 
-    move-result-object v3
+    move-result-object v1
 
-    const/4 v4, 0x4
+    const/4 v2, 0x4
 
-    iput v4, v3, Landroid/os/Message;->what:I
+    iput v2, v1, Landroid/os/Message;->what:I
 
-    iput p7, v3, Landroid/os/Message;->arg1:I
+    iput p7, v1, Landroid/os/Message;->arg1:I
 
     invoke-static {}, Lcom/android/internal/os/SomeArgs;->obtain()Lcom/android/internal/os/SomeArgs;
 
-    move-result-object v2
+    move-result-object v0
 
-    iput-object p3, v2, Lcom/android/internal/os/SomeArgs;->arg1:Ljava/lang/Object;
+    iput-object p3, v0, Lcom/android/internal/os/SomeArgs;->arg1:Ljava/lang/Object;
 
-    iput-object p6, v2, Lcom/android/internal/os/SomeArgs;->arg2:Ljava/lang/Object;
+    iput-object p6, v0, Lcom/android/internal/os/SomeArgs;->arg2:Ljava/lang/Object;
 
-    move-object/from16 v0, p11
-
-    iput-object v0, v2, Lcom/android/internal/os/SomeArgs;->arg3:Ljava/lang/Object;
+    iput-object p11, v0, Lcom/android/internal/os/SomeArgs;->arg3:Ljava/lang/Object;
 
     invoke-static {p1, p2}, Landroid/view/accessibility/AccessibilityNodeInfo;->getAccessibilityViewId(J)I
 
-    move-result v4
+    move-result v2
 
-    iput v4, v2, Lcom/android/internal/os/SomeArgs;->argi1:I
+    iput v2, v0, Lcom/android/internal/os/SomeArgs;->argi1:I
 
     invoke-static {p1, p2}, Landroid/view/accessibility/AccessibilityNodeInfo;->getVirtualDescendantId(J)I
 
-    move-result v4
+    move-result v2
 
-    iput v4, v2, Lcom/android/internal/os/SomeArgs;->argi2:I
+    iput v2, v0, Lcom/android/internal/os/SomeArgs;->argi2:I
 
-    iput p5, v2, Lcom/android/internal/os/SomeArgs;->argi3:I
+    iput p5, v0, Lcom/android/internal/os/SomeArgs;->argi3:I
 
-    iput-object p4, v2, Lcom/android/internal/os/SomeArgs;->arg4:Ljava/lang/Object;
+    iput-object p4, v0, Lcom/android/internal/os/SomeArgs;->arg4:Ljava/lang/Object;
 
-    iput-object v2, v3, Landroid/os/Message;->obj:Ljava/lang/Object;
+    iput-object v0, v1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    iget v4, p0, Landroid/view/AccessibilityInteractionController;->mMyProcessId:I
+    invoke-direct {p0, v1, p8, p9, p10}, Landroid/view/AccessibilityInteractionController;->scheduleMessage(Landroid/os/Message;IJ)V
 
-    if-ne p8, v4, :cond_0
-
-    iget-wide v4, p0, Landroid/view/AccessibilityInteractionController;->mMyLooperThreadId:J
-
-    cmp-long v4, p9, v4
-
-    if-nez v4, :cond_0
-
-    invoke-static/range {p9 .. p10}, Landroid/view/accessibility/AccessibilityInteractionClient;->getInstanceForThread(J)Landroid/view/accessibility/AccessibilityInteractionClient;
-
-    move-result-object v4
-
-    invoke-virtual {v4, v3}, Landroid/view/accessibility/AccessibilityInteractionClient;->setSameThreadMessage(Landroid/os/Message;)V
-
-    :goto_0
     return-void
-
-    :cond_0
-    iget-object v4, p0, Landroid/view/AccessibilityInteractionController;->mHandler:Landroid/os/Handler;
-
-    invoke-virtual {v4, v3}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
-
-    goto :goto_0
 .end method
 
 .method public findAccessibilityNodeInfosByViewIdClientThread(JLjava/lang/String;Landroid/graphics/Region;ILandroid/view/accessibility/IAccessibilityInteractionConnectionCallback;IIJLandroid/view/MagnificationSpec;)V
-    .locals 7
+    .locals 3
 
-    iget-object v4, p0, Landroid/view/AccessibilityInteractionController;->mHandler:Landroid/os/Handler;
+    iget-object v2, p0, Landroid/view/AccessibilityInteractionController;->mHandler:Landroid/os/Handler;
 
-    invoke-virtual {v4}, Landroid/os/Handler;->obtainMessage()Landroid/os/Message;
+    invoke-virtual {v2}, Landroid/os/Handler;->obtainMessage()Landroid/os/Message;
 
-    move-result-object v3
+    move-result-object v1
 
-    const/4 v4, 0x3
+    const/4 v2, 0x3
 
-    iput v4, v3, Landroid/os/Message;->what:I
+    iput v2, v1, Landroid/os/Message;->what:I
 
-    iput p7, v3, Landroid/os/Message;->arg1:I
+    iput p7, v1, Landroid/os/Message;->arg1:I
 
     invoke-static {p1, p2}, Landroid/view/accessibility/AccessibilityNodeInfo;->getAccessibilityViewId(J)I
 
-    move-result v4
+    move-result v2
 
-    iput v4, v3, Landroid/os/Message;->arg2:I
+    iput v2, v1, Landroid/os/Message;->arg2:I
 
     invoke-static {}, Lcom/android/internal/os/SomeArgs;->obtain()Lcom/android/internal/os/SomeArgs;
 
-    move-result-object v2
+    move-result-object v0
 
-    iput p5, v2, Lcom/android/internal/os/SomeArgs;->argi1:I
+    iput p5, v0, Lcom/android/internal/os/SomeArgs;->argi1:I
 
-    iput-object p6, v2, Lcom/android/internal/os/SomeArgs;->arg1:Ljava/lang/Object;
+    iput-object p6, v0, Lcom/android/internal/os/SomeArgs;->arg1:Ljava/lang/Object;
 
-    move-object/from16 v0, p11
+    iput-object p11, v0, Lcom/android/internal/os/SomeArgs;->arg2:Ljava/lang/Object;
 
-    iput-object v0, v2, Lcom/android/internal/os/SomeArgs;->arg2:Ljava/lang/Object;
+    iput-object p3, v0, Lcom/android/internal/os/SomeArgs;->arg3:Ljava/lang/Object;
 
-    iput-object p3, v2, Lcom/android/internal/os/SomeArgs;->arg3:Ljava/lang/Object;
+    iput-object p4, v0, Lcom/android/internal/os/SomeArgs;->arg4:Ljava/lang/Object;
 
-    iput-object p4, v2, Lcom/android/internal/os/SomeArgs;->arg4:Ljava/lang/Object;
+    iput-object v0, v1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    iput-object v2, v3, Landroid/os/Message;->obj:Ljava/lang/Object;
+    invoke-direct {p0, v1, p8, p9, p10}, Landroid/view/AccessibilityInteractionController;->scheduleMessage(Landroid/os/Message;IJ)V
 
-    iget v4, p0, Landroid/view/AccessibilityInteractionController;->mMyProcessId:I
-
-    if-ne p8, v4, :cond_0
-
-    iget-wide v4, p0, Landroid/view/AccessibilityInteractionController;->mMyLooperThreadId:J
-
-    cmp-long v4, p9, v4
-
-    if-nez v4, :cond_0
-
-    invoke-static/range {p9 .. p10}, Landroid/view/accessibility/AccessibilityInteractionClient;->getInstanceForThread(J)Landroid/view/accessibility/AccessibilityInteractionClient;
-
-    move-result-object v4
-
-    invoke-virtual {v4, v3}, Landroid/view/accessibility/AccessibilityInteractionClient;->setSameThreadMessage(Landroid/os/Message;)V
-
-    :goto_0
     return-void
-
-    :cond_0
-    iget-object v4, p0, Landroid/view/AccessibilityInteractionController;->mHandler:Landroid/os/Handler;
-
-    invoke-virtual {v4, v3}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
-
-    goto :goto_0
 .end method
 
 .method public findFocusClientThread(JILandroid/graphics/Region;ILandroid/view/accessibility/IAccessibilityInteractionConnectionCallback;IIJLandroid/view/MagnificationSpec;)V
-    .locals 7
+    .locals 3
 
-    iget-object v4, p0, Landroid/view/AccessibilityInteractionController;->mHandler:Landroid/os/Handler;
+    iget-object v2, p0, Landroid/view/AccessibilityInteractionController;->mHandler:Landroid/os/Handler;
 
-    invoke-virtual {v4}, Landroid/os/Handler;->obtainMessage()Landroid/os/Message;
+    invoke-virtual {v2}, Landroid/os/Handler;->obtainMessage()Landroid/os/Message;
 
-    move-result-object v3
+    move-result-object v1
 
-    const/4 v4, 0x5
+    const/4 v2, 0x5
 
-    iput v4, v3, Landroid/os/Message;->what:I
+    iput v2, v1, Landroid/os/Message;->what:I
 
-    iput p7, v3, Landroid/os/Message;->arg1:I
+    iput p7, v1, Landroid/os/Message;->arg1:I
 
-    iput p3, v3, Landroid/os/Message;->arg2:I
+    iput p3, v1, Landroid/os/Message;->arg2:I
 
     invoke-static {}, Lcom/android/internal/os/SomeArgs;->obtain()Lcom/android/internal/os/SomeArgs;
 
-    move-result-object v2
+    move-result-object v0
 
-    iput p5, v2, Lcom/android/internal/os/SomeArgs;->argi1:I
+    iput p5, v0, Lcom/android/internal/os/SomeArgs;->argi1:I
 
     invoke-static {p1, p2}, Landroid/view/accessibility/AccessibilityNodeInfo;->getAccessibilityViewId(J)I
 
-    move-result v4
+    move-result v2
 
-    iput v4, v2, Lcom/android/internal/os/SomeArgs;->argi2:I
+    iput v2, v0, Lcom/android/internal/os/SomeArgs;->argi2:I
 
     invoke-static {p1, p2}, Landroid/view/accessibility/AccessibilityNodeInfo;->getVirtualDescendantId(J)I
 
-    move-result v4
+    move-result v2
 
-    iput v4, v2, Lcom/android/internal/os/SomeArgs;->argi3:I
+    iput v2, v0, Lcom/android/internal/os/SomeArgs;->argi3:I
 
-    iput-object p6, v2, Lcom/android/internal/os/SomeArgs;->arg1:Ljava/lang/Object;
+    iput-object p6, v0, Lcom/android/internal/os/SomeArgs;->arg1:Ljava/lang/Object;
 
-    move-object/from16 v0, p11
+    iput-object p11, v0, Lcom/android/internal/os/SomeArgs;->arg2:Ljava/lang/Object;
 
-    iput-object v0, v2, Lcom/android/internal/os/SomeArgs;->arg2:Ljava/lang/Object;
+    iput-object p4, v0, Lcom/android/internal/os/SomeArgs;->arg3:Ljava/lang/Object;
 
-    iput-object p4, v2, Lcom/android/internal/os/SomeArgs;->arg3:Ljava/lang/Object;
+    iput-object v0, v1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    iput-object v2, v3, Landroid/os/Message;->obj:Ljava/lang/Object;
+    invoke-direct {p0, v1, p8, p9, p10}, Landroid/view/AccessibilityInteractionController;->scheduleMessage(Landroid/os/Message;IJ)V
 
-    iget v4, p0, Landroid/view/AccessibilityInteractionController;->mMyProcessId:I
-
-    if-ne p8, v4, :cond_0
-
-    iget-wide v4, p0, Landroid/view/AccessibilityInteractionController;->mMyLooperThreadId:J
-
-    cmp-long v4, p9, v4
-
-    if-nez v4, :cond_0
-
-    invoke-static/range {p9 .. p10}, Landroid/view/accessibility/AccessibilityInteractionClient;->getInstanceForThread(J)Landroid/view/accessibility/AccessibilityInteractionClient;
-
-    move-result-object v4
-
-    invoke-virtual {v4, v3}, Landroid/view/accessibility/AccessibilityInteractionClient;->setSameThreadMessage(Landroid/os/Message;)V
-
-    :goto_0
     return-void
-
-    :cond_0
-    iget-object v4, p0, Landroid/view/AccessibilityInteractionController;->mHandler:Landroid/os/Handler;
-
-    invoke-virtual {v4, v3}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
-
-    goto :goto_0
 .end method
 
 .method public focusSearchClientThread(JILandroid/graphics/Region;ILandroid/view/accessibility/IAccessibilityInteractionConnectionCallback;IIJLandroid/view/MagnificationSpec;)V
-    .locals 7
+    .locals 3
 
-    iget-object v4, p0, Landroid/view/AccessibilityInteractionController;->mHandler:Landroid/os/Handler;
+    iget-object v2, p0, Landroid/view/AccessibilityInteractionController;->mHandler:Landroid/os/Handler;
 
-    invoke-virtual {v4}, Landroid/os/Handler;->obtainMessage()Landroid/os/Message;
+    invoke-virtual {v2}, Landroid/os/Handler;->obtainMessage()Landroid/os/Message;
 
-    move-result-object v3
+    move-result-object v1
 
-    const/4 v4, 0x6
+    const/4 v2, 0x6
 
-    iput v4, v3, Landroid/os/Message;->what:I
+    iput v2, v1, Landroid/os/Message;->what:I
 
-    iput p7, v3, Landroid/os/Message;->arg1:I
+    iput p7, v1, Landroid/os/Message;->arg1:I
 
     invoke-static {p1, p2}, Landroid/view/accessibility/AccessibilityNodeInfo;->getAccessibilityViewId(J)I
 
-    move-result v4
+    move-result v2
 
-    iput v4, v3, Landroid/os/Message;->arg2:I
+    iput v2, v1, Landroid/os/Message;->arg2:I
 
     invoke-static {}, Lcom/android/internal/os/SomeArgs;->obtain()Lcom/android/internal/os/SomeArgs;
 
-    move-result-object v2
+    move-result-object v0
 
-    iput p3, v2, Lcom/android/internal/os/SomeArgs;->argi2:I
+    iput p3, v0, Lcom/android/internal/os/SomeArgs;->argi2:I
 
-    iput p5, v2, Lcom/android/internal/os/SomeArgs;->argi3:I
+    iput p5, v0, Lcom/android/internal/os/SomeArgs;->argi3:I
 
-    iput-object p6, v2, Lcom/android/internal/os/SomeArgs;->arg1:Ljava/lang/Object;
+    iput-object p6, v0, Lcom/android/internal/os/SomeArgs;->arg1:Ljava/lang/Object;
 
-    move-object/from16 v0, p11
+    iput-object p11, v0, Lcom/android/internal/os/SomeArgs;->arg2:Ljava/lang/Object;
 
-    iput-object v0, v2, Lcom/android/internal/os/SomeArgs;->arg2:Ljava/lang/Object;
+    iput-object p4, v0, Lcom/android/internal/os/SomeArgs;->arg3:Ljava/lang/Object;
 
-    iput-object p4, v2, Lcom/android/internal/os/SomeArgs;->arg3:Ljava/lang/Object;
+    iput-object v0, v1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    iput-object v2, v3, Landroid/os/Message;->obj:Ljava/lang/Object;
+    invoke-direct {p0, v1, p8, p9, p10}, Landroid/view/AccessibilityInteractionController;->scheduleMessage(Landroid/os/Message;IJ)V
 
-    iget v4, p0, Landroid/view/AccessibilityInteractionController;->mMyProcessId:I
-
-    if-ne p8, v4, :cond_0
-
-    iget-wide v4, p0, Landroid/view/AccessibilityInteractionController;->mMyLooperThreadId:J
-
-    cmp-long v4, p9, v4
-
-    if-nez v4, :cond_0
-
-    invoke-static/range {p9 .. p10}, Landroid/view/accessibility/AccessibilityInteractionClient;->getInstanceForThread(J)Landroid/view/accessibility/AccessibilityInteractionClient;
-
-    move-result-object v4
-
-    invoke-virtual {v4, v3}, Landroid/view/accessibility/AccessibilityInteractionClient;->setSameThreadMessage(Landroid/os/Message;)V
-
-    :goto_0
     return-void
-
-    :cond_0
-    iget-object v4, p0, Landroid/view/AccessibilityInteractionController;->mHandler:Landroid/os/Handler;
-
-    invoke-virtual {v4, v3}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
-
-    goto :goto_0
 .end method
 
 .method public getFragmentBoundsOnTopActivityByAccessibilityIdClientThread(ILandroid/view/accessibility/IAccessibilityInteractionConnectionCallback;IJ)V
@@ -3347,31 +2417,9 @@
 
     iput-object v0, v1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    iget v2, p0, Landroid/view/AccessibilityInteractionController;->mMyProcessId:I
+    invoke-direct {p0, v1, p3, p4, p5}, Landroid/view/AccessibilityInteractionController;->scheduleMessage(Landroid/os/Message;IJ)V
 
-    if-ne p3, v2, :cond_0
-
-    iget-wide v2, p0, Landroid/view/AccessibilityInteractionController;->mMyLooperThreadId:J
-
-    cmp-long v2, p4, v2
-
-    if-nez v2, :cond_0
-
-    invoke-static {p4, p5}, Landroid/view/accessibility/AccessibilityInteractionClient;->getInstanceForThread(J)Landroid/view/accessibility/AccessibilityInteractionClient;
-
-    move-result-object v2
-
-    invoke-virtual {v2, v1}, Landroid/view/accessibility/AccessibilityInteractionClient;->setSameThreadMessage(Landroid/os/Message;)V
-
-    :goto_0
     return-void
-
-    :cond_0
-    iget-object v2, p0, Landroid/view/AccessibilityInteractionController;->mHandler:Landroid/os/Handler;
-
-    invoke-virtual {v2, v1}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
-
-    goto :goto_0
 .end method
 
 .method public getFragmentBoundsOnTopActivityByAccessibilityIdUiThread(Landroid/os/Message;)V
@@ -3468,31 +2516,9 @@
 
     iput-object v0, v1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    iget v2, p0, Landroid/view/AccessibilityInteractionController;->mMyProcessId:I
+    invoke-direct {p0, v1, p3, p4, p5}, Landroid/view/AccessibilityInteractionController;->scheduleMessage(Landroid/os/Message;IJ)V
 
-    if-ne p3, v2, :cond_0
-
-    iget-wide v2, p0, Landroid/view/AccessibilityInteractionController;->mMyLooperThreadId:J
-
-    cmp-long v2, p4, v2
-
-    if-nez v2, :cond_0
-
-    invoke-static {p4, p5}, Landroid/view/accessibility/AccessibilityInteractionClient;->getInstanceForThread(J)Landroid/view/accessibility/AccessibilityInteractionClient;
-
-    move-result-object v2
-
-    invoke-virtual {v2, v1}, Landroid/view/accessibility/AccessibilityInteractionClient;->setSameThreadMessage(Landroid/os/Message;)V
-
-    :goto_0
     return-void
-
-    :cond_0
-    iget-object v2, p0, Landroid/view/AccessibilityInteractionController;->mHandler:Landroid/os/Handler;
-
-    invoke-virtual {v2, v1}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
-
-    goto :goto_0
 .end method
 
 .method public isTopActivityCoveredByAccessibilityIdUiThread(Landroid/os/Message;)V
@@ -3565,7 +2591,7 @@
 .end method
 
 .method public performAccessibilityActionClientThread(JILandroid/os/Bundle;ILandroid/view/accessibility/IAccessibilityInteractionConnectionCallback;IIJ)V
-    .locals 5
+    .locals 3
 
     iget-object v2, p0, Landroid/view/AccessibilityInteractionController;->mHandler:Landroid/os/Handler;
 
@@ -3605,29 +2631,7 @@
 
     iput-object v0, v1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    iget v2, p0, Landroid/view/AccessibilityInteractionController;->mMyProcessId:I
+    invoke-direct {p0, v1, p8, p9, p10}, Landroid/view/AccessibilityInteractionController;->scheduleMessage(Landroid/os/Message;IJ)V
 
-    if-ne p8, v2, :cond_0
-
-    iget-wide v2, p0, Landroid/view/AccessibilityInteractionController;->mMyLooperThreadId:J
-
-    cmp-long v2, p9, v2
-
-    if-nez v2, :cond_0
-
-    invoke-static {p9, p10}, Landroid/view/accessibility/AccessibilityInteractionClient;->getInstanceForThread(J)Landroid/view/accessibility/AccessibilityInteractionClient;
-
-    move-result-object v2
-
-    invoke-virtual {v2, v1}, Landroid/view/accessibility/AccessibilityInteractionClient;->setSameThreadMessage(Landroid/os/Message;)V
-
-    :goto_0
     return-void
-
-    :cond_0
-    iget-object v2, p0, Landroid/view/AccessibilityInteractionController;->mHandler:Landroid/os/Handler;
-
-    invoke-virtual {v2, v1}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
-
-    goto :goto_0
 .end method

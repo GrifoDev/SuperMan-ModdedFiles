@@ -73,7 +73,7 @@
 
     move-result-object v0
 
-    invoke-static {v0}, Landroid/media/AudioTrack;->-wrap0(Ljava/lang/String;)V
+    invoke-static {v0}, Landroid/media/AudioTrack;->-wrap1(Ljava/lang/String;)V
 
     :cond_1
     :goto_0

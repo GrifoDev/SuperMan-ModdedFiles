@@ -1,5 +1,5 @@
 .class final Landroid/app/SystemServiceRegistry$27;
-.super Landroid/app/SystemServiceRegistry$StaticServiceFetcher;
+.super Landroid/app/SystemServiceRegistry$CachedServiceFetcher;
 .source "SystemServiceRegistry.java"
 
 
@@ -15,9 +15,9 @@
 
 .annotation system Ldalvik/annotation/Signature;
     value = {
-        "Landroid/app/SystemServiceRegistry$StaticServiceFetcher",
+        "Landroid/app/SystemServiceRegistry$CachedServiceFetcher",
         "<",
-        "Lcom/samsung/android/location/SemLocationManager;",
+        "Landroid/view/LayoutInflater;",
         ">;"
     }
 .end annotation
@@ -27,88 +27,36 @@
 .method constructor <init>()V
     .locals 0
 
-    invoke-direct {p0}, Landroid/app/SystemServiceRegistry$StaticServiceFetcher;-><init>()V
+    invoke-direct {p0}, Landroid/app/SystemServiceRegistry$CachedServiceFetcher;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public createService()Lcom/samsung/android/location/SemLocationManager;
-    .locals 10
+.method public createService(Landroid/app/ContextImpl;)Landroid/view/LayoutInflater;
+    .locals 2
 
-    const-string/jumbo v6, "sec_location"
+    new-instance v0, Lcom/android/internal/policy/PhoneLayoutInflater;
 
-    invoke-static {v6}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
+    invoke-virtual {p1}, Landroid/app/ContextImpl;->getOuterContext()Landroid/content/Context;
 
     move-result-object v1
 
-    const/4 v5, 0x0
+    invoke-direct {v0, v1}, Lcom/android/internal/policy/PhoneLayoutInflater;-><init>(Landroid/content/Context;)V
 
-    :try_start_0
-    const-string/jumbo v6, "com.samsung.android.location.SLocationLoader"
-
-    invoke-static {v6}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
-
-    move-result-object v4
-
-    const-string/jumbo v6, "getSLocationManager"
-
-    const/4 v7, 0x1
-
-    new-array v7, v7, [Ljava/lang/Class;
-
-    const-class v8, Landroid/os/IBinder;
-
-    const/4 v9, 0x0
-
-    aput-object v8, v7, v9
-
-    invoke-virtual {v4, v6, v7}, Ljava/lang/Class;->getDeclaredMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
-
-    move-result-object v3
-
-    const/4 v6, 0x1
-
-    new-array v6, v6, [Ljava/lang/Object;
-
-    const/4 v7, 0x0
-
-    aput-object v1, v6, v7
-
-    const/4 v7, 0x0
-
-    invoke-virtual {v3, v7, v6}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v6
-
-    move-object v0, v6
-
-    check-cast v0, Lcom/samsung/android/location/SemLocationManager;
-
-    move-object v5, v0
-    :try_end_0
-    .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
-
-    :goto_0
-    return-object v5
-
-    :catch_0
-    move-exception v2
-
-    const-string/jumbo v6, "SystemServiceRegistry"
-
-    const-string/jumbo v7, "Getting SLocation has been failed, error or not support"
-
-    invoke-static {v6, v7}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_0
+    return-object v0
 .end method
 
-.method public bridge synthetic createService()Ljava/lang/Object;
+.method public bridge synthetic createService(Landroid/app/ContextImpl;)Ljava/lang/Object;
     .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/ServiceManager$ServiceNotFoundException;
+        }
+    .end annotation
 
-    invoke-virtual {p0}, Landroid/app/SystemServiceRegistry$27;->createService()Lcom/samsung/android/location/SemLocationManager;
+    invoke-virtual {p0, p1}, Landroid/app/SystemServiceRegistry$27;->createService(Landroid/app/ContextImpl;)Landroid/view/LayoutInflater;
 
     move-result-object v0
 

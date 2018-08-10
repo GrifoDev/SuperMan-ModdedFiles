@@ -17,6 +17,8 @@
 # instance fields
 .field public iface:Ljava/lang/String;
 
+.field public metered:I
+
 .field public operations:J
 
 .field public roaming:I
@@ -93,8 +95,8 @@
     return-void
 .end method
 
-.method public constructor <init>(Ljava/lang/String;IIIIJJJJJ)V
-    .locals 0
+.method public constructor <init>(Ljava/lang/String;IIIIIJJJJJ)V
+    .locals 3
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -106,47 +108,55 @@
 
     iput p4, p0, Landroid/net/NetworkStats$Entry;->tag:I
 
-    iput p5, p0, Landroid/net/NetworkStats$Entry;->roaming:I
+    iput p5, p0, Landroid/net/NetworkStats$Entry;->metered:I
 
-    iput-wide p6, p0, Landroid/net/NetworkStats$Entry;->rxBytes:J
+    iput p6, p0, Landroid/net/NetworkStats$Entry;->roaming:I
 
-    iput-wide p8, p0, Landroid/net/NetworkStats$Entry;->rxPackets:J
+    iput-wide p7, p0, Landroid/net/NetworkStats$Entry;->rxBytes:J
 
-    iput-wide p10, p0, Landroid/net/NetworkStats$Entry;->txBytes:J
+    iput-wide p9, p0, Landroid/net/NetworkStats$Entry;->rxPackets:J
 
-    iput-wide p12, p0, Landroid/net/NetworkStats$Entry;->txPackets:J
+    iput-wide p11, p0, Landroid/net/NetworkStats$Entry;->txBytes:J
 
-    iput-wide p14, p0, Landroid/net/NetworkStats$Entry;->operations:J
+    move-wide/from16 v0, p13
+
+    iput-wide v0, p0, Landroid/net/NetworkStats$Entry;->txPackets:J
+
+    move-wide/from16 v0, p15
+
+    iput-wide v0, p0, Landroid/net/NetworkStats$Entry;->operations:J
 
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/String;IIIJJJJJ)V
-    .locals 17
+    .locals 19
 
-    const/4 v5, 0x0
+    const/4 v6, 0x0
 
-    move-object/from16 v0, p0
+    const/4 v7, 0x0
 
-    move-object/from16 v1, p1
+    move-object/from16 v1, p0
 
-    move/from16 v2, p2
+    move-object/from16 v2, p1
 
-    move/from16 v3, p3
+    move/from16 v3, p2
 
-    move/from16 v4, p4
+    move/from16 v4, p3
 
-    move-wide/from16 v6, p5
+    move/from16 v5, p4
 
-    move-wide/from16 v8, p7
+    move-wide/from16 v8, p5
 
-    move-wide/from16 v10, p9
+    move-wide/from16 v10, p7
 
-    move-wide/from16 v12, p11
+    move-wide/from16 v12, p9
 
-    move-wide/from16 v14, p13
+    move-wide/from16 v14, p11
 
-    invoke-direct/range {v0 .. v15}, Landroid/net/NetworkStats$Entry;-><init>(Ljava/lang/String;IIIIJJJJJ)V
+    move-wide/from16 v16, p13
+
+    invoke-direct/range {v1 .. v17}, Landroid/net/NetworkStats$Entry;-><init>(Ljava/lang/String;IIIIIJJJJJ)V
 
     return-void
 .end method
@@ -230,6 +240,12 @@
 
     if-ne v2, v3, :cond_0
 
+    iget v2, p0, Landroid/net/NetworkStats$Entry;->metered:I
+
+    iget v3, v0, Landroid/net/NetworkStats$Entry;->metered:I
+
+    if-ne v2, v3, :cond_0
+
     iget v2, p0, Landroid/net/NetworkStats$Entry;->roaming:I
 
     iget v3, v0, Landroid/net/NetworkStats$Entry;->roaming:I
@@ -289,6 +305,76 @@
 
     :cond_1
     return v1
+.end method
+
+.method public hashCode()I
+    .locals 3
+
+    const/4 v0, 0x6
+
+    new-array v0, v0, [Ljava/lang/Object;
+
+    iget v1, p0, Landroid/net/NetworkStats$Entry;->uid:I
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    const/4 v2, 0x0
+
+    aput-object v1, v0, v2
+
+    iget v1, p0, Landroid/net/NetworkStats$Entry;->set:I
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    const/4 v2, 0x1
+
+    aput-object v1, v0, v2
+
+    iget v1, p0, Landroid/net/NetworkStats$Entry;->tag:I
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    const/4 v2, 0x2
+
+    aput-object v1, v0, v2
+
+    iget v1, p0, Landroid/net/NetworkStats$Entry;->metered:I
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    const/4 v2, 0x3
+
+    aput-object v1, v0, v2
+
+    iget v1, p0, Landroid/net/NetworkStats$Entry;->roaming:I
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    const/4 v2, 0x4
+
+    aput-object v1, v0, v2
+
+    iget-object v1, p0, Landroid/net/NetworkStats$Entry;->iface:Ljava/lang/String;
+
+    const/4 v2, 0x5
+
+    aput-object v1, v0, v2
+
+    invoke-static {v0}, Ljava/util/Objects;->hash([Ljava/lang/Object;)I
+
+    move-result v0
+
+    return v0
 .end method
 
 .method public isEmpty()Z
@@ -431,6 +517,20 @@
     iget v2, p0, Landroid/net/NetworkStats$Entry;->tag:I
 
     invoke-static {v2}, Landroid/net/NetworkStats;->tagToString(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string/jumbo v1, " metered="
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    iget v2, p0, Landroid/net/NetworkStats$Entry;->metered:I
+
+    invoke-static {v2}, Landroid/net/NetworkStats;->meteredToString(I)Ljava/lang/String;
 
     move-result-object v2
 

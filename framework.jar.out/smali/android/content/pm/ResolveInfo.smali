@@ -33,9 +33,7 @@
 # instance fields
 .field public activityInfo:Landroid/content/pm/ActivityInfo;
 
-.field public ephemeralInstaller:Landroid/content/pm/ResolveInfo;
-
-.field public ephemeralResolveInfo:Landroid/content/pm/EphemeralResolveInfo;
+.field public auxiliaryInfo:Landroid/content/pm/AuxiliaryResolveInfo;
 
 .field public filter:Landroid/content/IntentFilter;
 
@@ -45,7 +43,14 @@
 
 .field public iconResourceId:I
 
+.field public instantAppAvailable:Z
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
+
 .field public isDefault:Z
+
+.field public isInstantAppAvailable:Z
 
 .field public labelRes:I
 
@@ -177,6 +182,14 @@
     iget-boolean v0, p1, Landroid/content/pm/ResolveInfo;->handleAllWebDataURI:Z
 
     iput-boolean v0, p0, Landroid/content/pm/ResolveInfo;->handleAllWebDataURI:Z
+
+    iget-boolean v0, p1, Landroid/content/pm/ResolveInfo;->isInstantAppAvailable:Z
+
+    iput-boolean v0, p0, Landroid/content/pm/ResolveInfo;->isInstantAppAvailable:Z
+
+    iget-boolean v0, p0, Landroid/content/pm/ResolveInfo;->isInstantAppAvailable:Z
+
+    iput-boolean v0, p0, Landroid/content/pm/ResolveInfo;->instantAppAvailable:Z
 
     return-void
 .end method
@@ -324,8 +337,21 @@
 
     if-eqz v0, :cond_3
 
+    move v0, v1
+
     :goto_3
-    iput-boolean v1, p0, Landroid/content/pm/ResolveInfo;->handleAllWebDataURI:Z
+    iput-boolean v0, p0, Landroid/content/pm/ResolveInfo;->handleAllWebDataURI:Z
+
+    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
+
+    move-result v0
+
+    if-eqz v0, :cond_4
+
+    :goto_4
+    iput-boolean v1, p0, Landroid/content/pm/ResolveInfo;->isInstantAppAvailable:Z
+
+    iput-boolean v1, p0, Landroid/content/pm/ResolveInfo;->instantAppAvailable:Z
 
     return-void
 
@@ -353,7 +379,7 @@
 
     iput-object v0, p0, Landroid/content/pm/ResolveInfo;->serviceInfo:Landroid/content/pm/ServiceInfo;
 
-    goto :goto_0
+    goto/16 :goto_0
 
     :pswitch_2
     sget-object v0, Landroid/content/pm/ProviderInfo;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -379,9 +405,14 @@
     goto :goto_2
 
     :cond_3
-    move v1, v2
+    move v0, v2
 
     goto :goto_3
+
+    :cond_4
+    move v1, v2
+
+    goto :goto_4
 
     :pswitch_data_0
     .packed-switch 0x1
@@ -892,72 +923,114 @@
 .end method
 
 .method public loadIcon(Landroid/content/pm/PackageManager;)Landroid/graphics/drawable/Drawable;
-    .locals 6
+    .locals 8
 
-    const/4 v5, 0x0
+    const/4 v7, 0x0
 
-    const/4 v2, 0x0
+    const/4 v6, 0x0
 
-    iget-object v3, p0, Landroid/content/pm/ResolveInfo;->resolvePackageName:Ljava/lang/String;
+    const/4 v3, 0x0
 
-    if-eqz v3, :cond_0
+    iget-object v4, p0, Landroid/content/pm/ResolveInfo;->resolvePackageName:Ljava/lang/String;
 
-    iget v3, p0, Landroid/content/pm/ResolveInfo;->iconResourceId:I
-
-    if-eqz v3, :cond_0
-
-    iget-object v3, p0, Landroid/content/pm/ResolveInfo;->resolvePackageName:Ljava/lang/String;
+    if-eqz v4, :cond_0
 
     iget v4, p0, Landroid/content/pm/ResolveInfo;->iconResourceId:I
 
-    invoke-virtual {p1, v3, v4, v5}, Landroid/content/pm/PackageManager;->getDrawable(Ljava/lang/String;ILandroid/content/pm/ApplicationInfo;)Landroid/graphics/drawable/Drawable;
+    if-eqz v4, :cond_0
 
-    move-result-object v2
+    iget-object v4, p0, Landroid/content/pm/ResolveInfo;->resolvePackageName:Ljava/lang/String;
+
+    iget v5, p0, Landroid/content/pm/ResolveInfo;->iconResourceId:I
+
+    invoke-virtual {p1, v4, v5, v6}, Landroid/content/pm/PackageManager;->getDrawable(Ljava/lang/String;ILandroid/content/pm/ApplicationInfo;)Landroid/graphics/drawable/Drawable;
+
+    move-result-object v3
 
     :cond_0
     invoke-virtual {p0}, Landroid/content/pm/ResolveInfo;->getComponentInfo()Landroid/content/pm/ComponentInfo;
 
-    move-result-object v1
+    move-result-object v2
 
-    if-nez v2, :cond_1
-
-    iget v3, p0, Landroid/content/pm/ResolveInfo;->iconResourceId:I
-
-    if-eqz v3, :cond_1
-
-    iget-object v0, v1, Landroid/content/pm/ComponentInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
-
-    iget-object v3, v1, Landroid/content/pm/ComponentInfo;->packageName:Ljava/lang/String;
+    if-nez v3, :cond_1
 
     iget v4, p0, Landroid/content/pm/ResolveInfo;->iconResourceId:I
 
-    invoke-virtual {p1, v3, v4, v0}, Landroid/content/pm/PackageManager;->getDrawable(Ljava/lang/String;ILandroid/content/pm/ApplicationInfo;)Landroid/graphics/drawable/Drawable;
+    if-eqz v4, :cond_1
 
-    move-result-object v2
+    iget-object v0, v2, Landroid/content/pm/ComponentInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
+
+    iget-object v4, v2, Landroid/content/pm/ComponentInfo;->packageName:Ljava/lang/String;
+
+    iget v5, p0, Landroid/content/pm/ResolveInfo;->iconResourceId:I
+
+    invoke-virtual {p1, v4, v5, v0}, Landroid/content/pm/PackageManager;->getDrawable(Ljava/lang/String;ILandroid/content/pm/ApplicationInfo;)Landroid/graphics/drawable/Drawable;
+
+    move-result-object v3
 
     :cond_1
-    if-eqz v2, :cond_2
+    if-eqz v3, :cond_4
 
-    new-instance v3, Landroid/os/UserHandle;
+    iget-object v4, v2, Landroid/content/pm/ComponentInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
+
+    if-eqz v4, :cond_3
+
+    iget-object v4, v2, Landroid/content/pm/ComponentInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
+
+    iget v4, v4, Landroid/content/pm/ApplicationInfo;->uid:I
+
+    invoke-static {v4}, Landroid/os/UserHandle;->getUserId(I)I
+
+    move-result v1
 
     invoke-static {}, Landroid/os/UserHandle;->myUserId()I
 
     move-result v4
 
-    invoke-direct {v3, v4}, Landroid/os/UserHandle;-><init>(I)V
+    invoke-static {v4}, Lcom/samsung/android/app/SemDualAppManager;->isDualAppId(I)Z
 
-    invoke-virtual {p1, v2, v3}, Landroid/content/pm/PackageManager;->getUserBadgedIcon(Landroid/graphics/drawable/Drawable;Landroid/os/UserHandle;)Landroid/graphics/drawable/Drawable;
+    move-result v4
 
-    move-result-object v3
+    if-nez v4, :cond_2
 
-    return-object v3
+    invoke-static {v1}, Lcom/samsung/android/app/SemDualAppManager;->isDualAppId(I)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_3
 
     :cond_2
-    invoke-virtual {v1, p1}, Landroid/content/pm/ComponentInfo;->loadIcon(Landroid/content/pm/PackageManager;)Landroid/graphics/drawable/Drawable;
+    new-instance v4, Landroid/os/UserHandle;
 
-    move-result-object v3
+    invoke-direct {v4, v7}, Landroid/os/UserHandle;-><init>(I)V
 
-    return-object v3
+    invoke-virtual {p1, v3, v4}, Landroid/content/pm/PackageManager;->getUserBadgedIcon(Landroid/graphics/drawable/Drawable;Landroid/os/UserHandle;)Landroid/graphics/drawable/Drawable;
+
+    move-result-object v4
+
+    return-object v4
+
+    :cond_3
+    new-instance v4, Landroid/os/UserHandle;
+
+    invoke-static {}, Landroid/os/UserHandle;->myUserId()I
+
+    move-result v5
+
+    invoke-direct {v4, v5}, Landroid/os/UserHandle;-><init>(I)V
+
+    invoke-virtual {p1, v3, v4}, Landroid/content/pm/PackageManager;->getUserBadgedIcon(Landroid/graphics/drawable/Drawable;Landroid/os/UserHandle;)Landroid/graphics/drawable/Drawable;
+
+    move-result-object v4
+
+    return-object v4
+
+    :cond_4
+    invoke-virtual {v2, p1}, Landroid/content/pm/ComponentInfo;->loadIcon(Landroid/content/pm/PackageManager;)Landroid/graphics/drawable/Drawable;
+
+    move-result-object v4
+
+    return-object v4
 .end method
 
 .method public loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
@@ -1316,7 +1389,16 @@
 
     if-eqz v0, :cond_6
 
+    move v0, v1
+
     :goto_4
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
+
+    iget-boolean v0, p0, Landroid/content/pm/ResolveInfo;->isInstantAppAvailable:Z
+
+    if-eqz v0, :cond_7
+
+    :goto_5
     invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeInt(I)V
 
     return-void
@@ -1372,7 +1454,12 @@
     goto :goto_3
 
     :cond_6
-    move v1, v2
+    move v0, v2
 
     goto :goto_4
+
+    :cond_7
+    move v1, v2
+
+    goto :goto_5
 .end method

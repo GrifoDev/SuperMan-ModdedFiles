@@ -31,10 +31,10 @@
 
 
 # virtual methods
-.method protected updateWindow(ZZ)V
+.method protected updateSurface()V
     .locals 1
 
-    invoke-super {p0, p1, p2}, Landroid/view/SurfaceView;->updateWindow(ZZ)V
+    invoke-super {p0}, Landroid/view/SurfaceView;->updateSurface()V
 
     iget-object v0, p0, Landroid/media/tv/TvView$3;->this$0:Landroid/media/tv/TvView;
 

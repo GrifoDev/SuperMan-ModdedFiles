@@ -31,7 +31,7 @@
     .end annotation
 .end method
 
-.method public abstract connectPorts(Landroid/os/IBinder;Landroid/os/ParcelFileDescriptor;I)I
+.method public abstract connectPorts(Landroid/os/IBinder;Ljava/io/FileDescriptor;I)I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -47,7 +47,7 @@
     .end annotation
 .end method
 
-.method public abstract openInputPort(Landroid/os/IBinder;I)Landroid/os/ParcelFileDescriptor;
+.method public abstract openInputPort(Landroid/os/IBinder;I)Ljava/io/FileDescriptor;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -55,7 +55,7 @@
     .end annotation
 .end method
 
-.method public abstract openOutputPort(Landroid/os/IBinder;I)Landroid/os/ParcelFileDescriptor;
+.method public abstract openOutputPort(Landroid/os/IBinder;I)Ljava/io/FileDescriptor;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

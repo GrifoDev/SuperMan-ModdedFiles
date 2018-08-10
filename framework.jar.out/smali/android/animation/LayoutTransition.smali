@@ -2562,20 +2562,18 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    xor-int/lit8 v0, v0, 0x1
 
-    :cond_1
-    :goto_0
-    return-void
+    if-eqz v0, :cond_1
 
-    :cond_2
     const/4 v0, 0x0
 
     const/4 v1, 0x4
 
     invoke-direct {p0, p1, v0, v1}, Landroid/animation/LayoutTransition;->runChangeTransition(Landroid/view/ViewGroup;Landroid/view/View;I)V
 
-    goto :goto_0
+    :cond_1
+    return-void
 .end method
 
 .method public removeChild(Landroid/view/ViewGroup;Landroid/view/View;)V

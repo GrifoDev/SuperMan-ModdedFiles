@@ -14,6 +14,68 @@
 
 
 # virtual methods
+.method public clone()Landroid/graphics/drawable/shapes/OvalShape;
+    .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/lang/CloneNotSupportedException;
+        }
+    .end annotation
+
+    invoke-super {p0}, Landroid/graphics/drawable/shapes/RectShape;->clone()Landroid/graphics/drawable/shapes/RectShape;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/graphics/drawable/shapes/OvalShape;
+
+    return-object v0
+.end method
+
+.method public bridge synthetic clone()Landroid/graphics/drawable/shapes/RectShape;
+    .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/lang/CloneNotSupportedException;
+        }
+    .end annotation
+
+    invoke-virtual {p0}, Landroid/graphics/drawable/shapes/OvalShape;->clone()Landroid/graphics/drawable/shapes/OvalShape;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public bridge synthetic clone()Landroid/graphics/drawable/shapes/Shape;
+    .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/lang/CloneNotSupportedException;
+        }
+    .end annotation
+
+    invoke-virtual {p0}, Landroid/graphics/drawable/shapes/OvalShape;->clone()Landroid/graphics/drawable/shapes/OvalShape;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public bridge synthetic clone()Ljava/lang/Object;
+    .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/lang/CloneNotSupportedException;
+        }
+    .end annotation
+
+    invoke-virtual {p0}, Landroid/graphics/drawable/shapes/OvalShape;->clone()Landroid/graphics/drawable/shapes/OvalShape;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
 .method public draw(Landroid/graphics/Canvas;Landroid/graphics/Paint;)V
     .locals 1
 

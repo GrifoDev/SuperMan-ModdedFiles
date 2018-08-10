@@ -32,6 +32,8 @@
 
 .field static final TRANSACTION_onError:I = 0x4
 
+.field static final TRANSACTION_onRangeStart:I = 0x7
+
 .field static final TRANSACTION_onStart:I = 0x1
 
 .field static final TRANSACTION_onStop:I = 0x3
@@ -102,9 +104,7 @@
         }
     .end annotation
 
-    const/4 v2, 0x0
-
-    const/4 v6, 0x1
+    const/4 v7, 0x1
 
     sparse-switch p1, :sswitch_data_0
 
@@ -115,16 +115,16 @@
     return v6
 
     :sswitch_0
-    const-string/jumbo v7, "android.speech.tts.ITextToSpeechCallback"
+    const-string/jumbo v6, "android.speech.tts.ITextToSpeechCallback"
 
-    invoke-virtual {p3, v7}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p3, v6}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    return v6
+    return v7
 
     :sswitch_1
-    const-string/jumbo v7, "android.speech.tts.ITextToSpeechCallback"
+    const-string/jumbo v6, "android.speech.tts.ITextToSpeechCallback"
 
-    invoke-virtual {p2, v7}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
@@ -132,12 +132,12 @@
 
     invoke-virtual {p0, v0}, Landroid/speech/tts/ITextToSpeechCallback$Stub;->onStart(Ljava/lang/String;)V
 
-    return v6
+    return v7
 
     :sswitch_2
-    const-string/jumbo v7, "android.speech.tts.ITextToSpeechCallback"
+    const-string/jumbo v6, "android.speech.tts.ITextToSpeechCallback"
 
-    invoke-virtual {p2, v7}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
@@ -145,12 +145,12 @@
 
     invoke-virtual {p0, v0}, Landroid/speech/tts/ITextToSpeechCallback$Stub;->onSuccess(Ljava/lang/String;)V
 
-    return v6
+    return v7
 
     :sswitch_3
-    const-string/jumbo v7, "android.speech.tts.ITextToSpeechCallback"
+    const-string/jumbo v6, "android.speech.tts.ITextToSpeechCallback"
 
-    invoke-virtual {p2, v7}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
@@ -158,21 +158,26 @@
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v7
+    move-result v6
 
-    if-eqz v7, :cond_0
+    if-eqz v6, :cond_0
 
-    move v2, v6
+    const/4 v2, 0x1
 
-    :cond_0
+    :goto_0
     invoke-virtual {p0, v0, v2}, Landroid/speech/tts/ITextToSpeechCallback$Stub;->onStop(Ljava/lang/String;Z)V
 
-    return v6
+    return v7
+
+    :cond_0
+    const/4 v2, 0x0
+
+    goto :goto_0
 
     :sswitch_4
-    const-string/jumbo v7, "android.speech.tts.ITextToSpeechCallback"
+    const-string/jumbo v6, "android.speech.tts.ITextToSpeechCallback"
 
-    invoke-virtual {p2, v7}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
@@ -184,12 +189,12 @@
 
     invoke-virtual {p0, v0, v1}, Landroid/speech/tts/ITextToSpeechCallback$Stub;->onError(Ljava/lang/String;I)V
 
-    return v6
+    return v7
 
     :sswitch_5
-    const-string/jumbo v7, "android.speech.tts.ITextToSpeechCallback"
+    const-string/jumbo v6, "android.speech.tts.ITextToSpeechCallback"
 
-    invoke-virtual {p2, v7}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
@@ -209,12 +214,12 @@
 
     invoke-virtual {p0, v0, v1, v4, v5}, Landroid/speech/tts/ITextToSpeechCallback$Stub;->onBeginSynthesis(Ljava/lang/String;III)V
 
-    return v6
+    return v7
 
     :sswitch_6
-    const-string/jumbo v7, "android.speech.tts.ITextToSpeechCallback"
+    const-string/jumbo v6, "android.speech.tts.ITextToSpeechCallback"
 
-    invoke-virtual {p2, v7}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
@@ -226,7 +231,34 @@
 
     invoke-virtual {p0, v0, v3}, Landroid/speech/tts/ITextToSpeechCallback$Stub;->onAudioAvailable(Ljava/lang/String;[B)V
 
-    return v6
+    return v7
+
+    :sswitch_7
+    const-string/jumbo v6, "android.speech.tts.ITextToSpeechCallback"
+
+    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v1
+
+    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v4
+
+    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v5
+
+    invoke-virtual {p0, v0, v1, v4, v5}, Landroid/speech/tts/ITextToSpeechCallback$Stub;->onRangeStart(Ljava/lang/String;III)V
+
+    return v7
+
+    nop
 
     :sswitch_data_0
     .sparse-switch
@@ -236,6 +268,7 @@
         0x4 -> :sswitch_4
         0x5 -> :sswitch_5
         0x6 -> :sswitch_6
+        0x7 -> :sswitch_7
         0x5f4e5446 -> :sswitch_0
     .end sparse-switch
 .end method

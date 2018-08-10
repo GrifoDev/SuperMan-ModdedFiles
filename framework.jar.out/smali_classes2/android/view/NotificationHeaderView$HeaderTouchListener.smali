@@ -254,8 +254,21 @@
 .end method
 
 .method private isInside(FF)Z
-    .locals 4
+    .locals 5
 
+    const/4 v4, 0x1
+
+    iget-object v2, p0, Landroid/view/NotificationHeaderView$HeaderTouchListener;->this$0:Landroid/view/NotificationHeaderView;
+
+    invoke-static {v2}, Landroid/view/NotificationHeaderView;->-get0(Landroid/view/NotificationHeaderView;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    return v4
+
+    :cond_0
     const/4 v0, 0x0
 
     :goto_0
@@ -265,7 +278,7 @@
 
     move-result v2
 
-    if-ge v0, v2, :cond_1
+    if-ge v0, v2, :cond_2
 
     iget-object v2, p0, Landroid/view/NotificationHeaderView$HeaderTouchListener;->mTouchRects:Ljava/util/ArrayList;
 
@@ -283,22 +296,16 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1
 
-    iput p1, p0, Landroid/view/NotificationHeaderView$HeaderTouchListener;->mDownX:F
+    return v4
 
-    iput p2, p0, Landroid/view/NotificationHeaderView$HeaderTouchListener;->mDownY:F
-
-    const/4 v2, 0x1
-
-    return v2
-
-    :cond_0
+    :cond_1
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    :cond_1
+    :cond_2
     const/4 v2, 0x0
 
     return v2
@@ -315,7 +322,7 @@
 
     iget-object v0, p0, Landroid/view/NotificationHeaderView$HeaderTouchListener;->this$0:Landroid/view/NotificationHeaderView;
 
-    invoke-static {v0}, Landroid/view/NotificationHeaderView;->-get5(Landroid/view/NotificationHeaderView;)Landroid/view/View;
+    invoke-static {v0}, Landroid/view/NotificationHeaderView;->-get4(Landroid/view/NotificationHeaderView;)Lcom/android/internal/widget/CachingIconView;
 
     move-result-object v0
 
@@ -323,7 +330,7 @@
 
     iget-object v0, p0, Landroid/view/NotificationHeaderView$HeaderTouchListener;->this$0:Landroid/view/NotificationHeaderView;
 
-    invoke-static {v0}, Landroid/view/NotificationHeaderView;->-get1(Landroid/view/NotificationHeaderView;)Landroid/widget/ImageView;
+    invoke-static {v0}, Landroid/view/NotificationHeaderView;->-get2(Landroid/view/NotificationHeaderView;)Landroid/widget/ImageView;
 
     move-result-object v0
 
@@ -351,9 +358,9 @@
 .end method
 
 .method public onTouch(Landroid/view/View;Landroid/view/MotionEvent;)Z
-    .locals 5
+    .locals 6
 
-    const/4 v3, 0x1
+    const/4 v5, 0x1
 
     const/4 v4, 0x0
 
@@ -388,9 +395,32 @@
 
     if-eqz v2, :cond_0
 
-    iput-boolean v3, p0, Landroid/view/NotificationHeaderView$HeaderTouchListener;->mTrackGesture:Z
+    iput v0, p0, Landroid/view/NotificationHeaderView$HeaderTouchListener;->mDownX:F
 
-    return v3
+    iput v1, p0, Landroid/view/NotificationHeaderView$HeaderTouchListener;->mDownY:F
+
+    iput-boolean v5, p0, Landroid/view/NotificationHeaderView$HeaderTouchListener;->mTrackGesture:Z
+
+    const/16 v2, 0x2002
+
+    invoke-virtual {p2, v2}, Landroid/view/MotionEvent;->isFromSource(I)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    invoke-virtual {p2}, Landroid/view/MotionEvent;->getButtonState()I
+
+    move-result v2
+
+    const/4 v3, 0x2
+
+    if-ne v2, v3, :cond_1
+
+    iput-boolean v4, p0, Landroid/view/NotificationHeaderView$HeaderTouchListener;->mTrackGesture:Z
+
+    :cond_1
+    return v5
 
     :pswitch_1
     iget-boolean v2, p0, Landroid/view/NotificationHeaderView$HeaderTouchListener;->mTrackGesture:Z
@@ -411,7 +441,7 @@
 
     cmpl-float v2, v2, v3
 
-    if-gtz v2, :cond_1
+    if-gtz v2, :cond_2
 
     iget v2, p0, Landroid/view/NotificationHeaderView$HeaderTouchListener;->mDownY:F
 
@@ -429,7 +459,7 @@
 
     if-lez v2, :cond_0
 
-    :cond_1
+    :cond_2
     iput-boolean v4, p0, Landroid/view/NotificationHeaderView$HeaderTouchListener;->mTrackGesture:Z
 
     goto :goto_0
@@ -441,15 +471,15 @@
 
     iget-object v2, p0, Landroid/view/NotificationHeaderView$HeaderTouchListener;->this$0:Landroid/view/NotificationHeaderView;
 
-    invoke-static {v2}, Landroid/view/NotificationHeaderView;->-get2(Landroid/view/NotificationHeaderView;)Landroid/view/View$OnClickListener;
+    invoke-static {v2}, Landroid/view/NotificationHeaderView;->-get2(Landroid/view/NotificationHeaderView;)Landroid/widget/ImageView;
 
     move-result-object v2
 
-    iget-object v3, p0, Landroid/view/NotificationHeaderView$HeaderTouchListener;->this$0:Landroid/view/NotificationHeaderView;
-
-    invoke-interface {v2, v3}, Landroid/view/View$OnClickListener;->onClick(Landroid/view/View;)V
+    invoke-virtual {v2}, Landroid/widget/ImageView;->performClick()Z
 
     goto :goto_0
+
+    nop
 
     :pswitch_data_0
     .packed-switch 0x0

@@ -56,7 +56,7 @@
 
 .field private mMultiPackage:Z
 
-.field public final mName:Ljava/lang/String;
+.field private final mName:Ljava/lang/String;
 
 .field private mNumActiveServices:I
 
@@ -99,7 +99,7 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    const/16 v0, 0x11
+    const/16 v0, 0x12
 
     new-array v0, v0, [I
 
@@ -126,6 +126,7 @@
         0x2
         0x1
         0x2
+        0x3
         0x3
         0x4
         0x5
@@ -1240,10 +1241,35 @@
 
     if-gez v23, :cond_8
 
-    if-eqz v9, :cond_c
+    xor-int/lit8 v23, v9, 0x1
+
+    if-eqz v23, :cond_8
+
+    iget-wide v0, v11, Lcom/android/internal/app/procstats/ProcessState$PssAggr;->samples:J
+
+    move-wide/from16 v24, v0
+
+    const-wide/16 v26, 0x0
+
+    cmp-long v23, v24, v26
+
+    if-lez v23, :cond_8
+
+    iget-wide v0, v11, Lcom/android/internal/app/procstats/ProcessState$PssAggr;->pss:J
+
+    move-wide/from16 v24, v0
+
+    iget-wide v0, v11, Lcom/android/internal/app/procstats/ProcessState$PssAggr;->samples:J
+
+    move-wide/from16 v26, v0
+
+    move-wide/from16 v0, v24
+
+    move-wide/from16 v2, v26
+
+    invoke-virtual {v7, v0, v1, v2, v3}, Lcom/android/internal/app/procstats/ProcessState$PssAggr;->add(JJ)V
 
     :cond_8
-    :goto_2
     iget-wide v0, v8, Lcom/android/internal/app/procstats/ProcessState$PssAggr;->samples:J
 
     move-wide/from16 v24, v0
@@ -1254,10 +1280,35 @@
 
     if-gez v23, :cond_9
 
-    if-eqz v6, :cond_d
+    xor-int/lit8 v23, v6, 0x1
+
+    if-eqz v23, :cond_9
+
+    iget-wide v0, v7, Lcom/android/internal/app/procstats/ProcessState$PssAggr;->samples:J
+
+    move-wide/from16 v24, v0
+
+    const-wide/16 v26, 0x0
+
+    cmp-long v23, v24, v26
+
+    if-lez v23, :cond_9
+
+    iget-wide v0, v7, Lcom/android/internal/app/procstats/ProcessState$PssAggr;->pss:J
+
+    move-wide/from16 v24, v0
+
+    iget-wide v0, v7, Lcom/android/internal/app/procstats/ProcessState$PssAggr;->samples:J
+
+    move-wide/from16 v26, v0
+
+    move-wide/from16 v0, v24
+
+    move-wide/from16 v2, v26
+
+    invoke-virtual {v8, v0, v1, v2, v3}, Lcom/android/internal/app/procstats/ProcessState$PssAggr;->add(JJ)V
 
     :cond_9
-    :goto_3
     iget-wide v0, v8, Lcom/android/internal/app/procstats/ProcessState$PssAggr;->samples:J
 
     move-wide/from16 v24, v0
@@ -1268,13 +1319,38 @@
 
     if-gez v23, :cond_a
 
-    if-eqz v10, :cond_e
+    xor-int/lit8 v23, v10, 0x1
+
+    if-eqz v23, :cond_a
+
+    iget-wide v0, v11, Lcom/android/internal/app/procstats/ProcessState$PssAggr;->samples:J
+
+    move-wide/from16 v24, v0
+
+    const-wide/16 v26, 0x0
+
+    cmp-long v23, v24, v26
+
+    if-lez v23, :cond_a
+
+    iget-wide v0, v11, Lcom/android/internal/app/procstats/ProcessState$PssAggr;->pss:J
+
+    move-wide/from16 v24, v0
+
+    iget-wide v0, v11, Lcom/android/internal/app/procstats/ProcessState$PssAggr;->samples:J
+
+    move-wide/from16 v26, v0
+
+    move-wide/from16 v0, v24
+
+    move-wide/from16 v2, v26
+
+    invoke-virtual {v8, v0, v1, v2, v3}, Lcom/android/internal/app/procstats/ProcessState$PssAggr;->add(JJ)V
 
     :cond_a
-    :goto_4
     const/4 v13, 0x0
 
-    :goto_5
+    :goto_2
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/app/procstats/ProcessState;->mDurations:Lcom/android/internal/app/procstats/DurationsTable;
@@ -1287,7 +1363,7 @@
 
     move/from16 v0, v23
 
-    if-ge v13, v0, :cond_12
+    if-ge v13, v0, :cond_f
 
     move-object/from16 v0, p0
 
@@ -1366,7 +1442,7 @@
 
     cmp-long v23, v18, v24
 
-    if-lez v23, :cond_f
+    if-lez v23, :cond_c
 
     move-object/from16 v0, p0
 
@@ -1376,7 +1452,7 @@
 
     move-result-wide v4
 
-    :goto_6
+    :goto_3
     move-object/from16 v0, p1
 
     iget-object v0, v0, Lcom/android/internal/app/procstats/ProcessStats$TotalMemoryUseCollection;->processStatePss:[J
@@ -1509,95 +1585,14 @@
 
     add-int/lit8 v13, v13, 0x1
 
-    goto/16 :goto_5
-
-    :cond_c
-    iget-wide v0, v11, Lcom/android/internal/app/procstats/ProcessState$PssAggr;->samples:J
-
-    move-wide/from16 v24, v0
-
-    const-wide/16 v26, 0x0
-
-    cmp-long v23, v24, v26
-
-    if-lez v23, :cond_8
-
-    iget-wide v0, v11, Lcom/android/internal/app/procstats/ProcessState$PssAggr;->pss:J
-
-    move-wide/from16 v24, v0
-
-    iget-wide v0, v11, Lcom/android/internal/app/procstats/ProcessState$PssAggr;->samples:J
-
-    move-wide/from16 v26, v0
-
-    move-wide/from16 v0, v24
-
-    move-wide/from16 v2, v26
-
-    invoke-virtual {v7, v0, v1, v2, v3}, Lcom/android/internal/app/procstats/ProcessState$PssAggr;->add(JJ)V
-
     goto/16 :goto_2
 
-    :cond_d
-    iget-wide v0, v7, Lcom/android/internal/app/procstats/ProcessState$PssAggr;->samples:J
-
-    move-wide/from16 v24, v0
-
-    const-wide/16 v26, 0x0
-
-    cmp-long v23, v24, v26
-
-    if-lez v23, :cond_9
-
-    iget-wide v0, v7, Lcom/android/internal/app/procstats/ProcessState$PssAggr;->pss:J
-
-    move-wide/from16 v24, v0
-
-    iget-wide v0, v7, Lcom/android/internal/app/procstats/ProcessState$PssAggr;->samples:J
-
-    move-wide/from16 v26, v0
-
-    move-wide/from16 v0, v24
-
-    move-wide/from16 v2, v26
-
-    invoke-virtual {v8, v0, v1, v2, v3}, Lcom/android/internal/app/procstats/ProcessState$PssAggr;->add(JJ)V
-
-    goto/16 :goto_3
-
-    :cond_e
-    iget-wide v0, v11, Lcom/android/internal/app/procstats/ProcessState$PssAggr;->samples:J
-
-    move-wide/from16 v24, v0
-
-    const-wide/16 v26, 0x0
-
-    cmp-long v23, v24, v26
-
-    if-lez v23, :cond_a
-
-    iget-wide v0, v11, Lcom/android/internal/app/procstats/ProcessState$PssAggr;->pss:J
-
-    move-wide/from16 v24, v0
-
-    iget-wide v0, v11, Lcom/android/internal/app/procstats/ProcessState$PssAggr;->samples:J
-
-    move-wide/from16 v26, v0
-
-    move-wide/from16 v0, v24
-
-    move-wide/from16 v2, v26
-
-    invoke-virtual {v8, v0, v1, v2, v3}, Lcom/android/internal/app/procstats/ProcessState$PssAggr;->add(JJ)V
-
-    goto/16 :goto_4
-
-    :cond_f
+    :cond_c
     const/16 v23, 0x2
 
     move/from16 v0, v23
 
-    if-gt v15, v0, :cond_10
+    if-gt v15, v0, :cond_d
 
     iget-wide v0, v11, Lcom/android/internal/app/procstats/ProcessState$PssAggr;->samples:J
 
@@ -1605,14 +1600,14 @@
 
     iget-wide v4, v11, Lcom/android/internal/app/procstats/ProcessState$PssAggr;->pss:J
 
-    goto/16 :goto_6
+    goto/16 :goto_3
 
-    :cond_10
+    :cond_d
     const/16 v23, 0x8
 
     move/from16 v0, v23
 
-    if-gt v15, v0, :cond_11
+    if-gt v15, v0, :cond_e
 
     iget-wide v0, v7, Lcom/android/internal/app/procstats/ProcessState$PssAggr;->samples:J
 
@@ -1620,18 +1615,18 @@
 
     iget-wide v4, v7, Lcom/android/internal/app/procstats/ProcessState$PssAggr;->pss:J
 
-    goto/16 :goto_6
+    goto/16 :goto_3
 
-    :cond_11
+    :cond_e
     iget-wide v0, v8, Lcom/android/internal/app/procstats/ProcessState$PssAggr;->samples:J
 
     move-wide/from16 v18, v0
 
     iget-wide v4, v8, Lcom/android/internal/app/procstats/ProcessState$PssAggr;->pss:J
 
-    goto/16 :goto_6
+    goto/16 :goto_3
 
-    :cond_12
+    :cond_f
     return-void
 .end method
 
@@ -4409,40 +4404,6 @@
 
     invoke-direct/range {v1 .. v12}, Lcom/android/internal/app/procstats/ProcessState;->dumpProcessSummaryDetails(Ljava/io/PrintWriter;Ljava/lang/String;Ljava/lang/String;[I[I[IJJZ)V
 
-    const-string/jumbo v4, "      Bg TOTAL: "
-
-    const/16 v0, 0x9
-
-    const/16 v1, 0xa
-
-    const/16 v2, 0xb
-
-    const/16 v3, 0xc
-
-    const/16 v5, 0xd
-
-    filled-new-array {v0, v1, v2, v3, v5}, [I
-
-    move-result-object v7
-
-    const/4 v12, 0x1
-
-    move-object v1, p0
-
-    move-object v2, p1
-
-    move-object/from16 v3, p2
-
-    move-object/from16 v5, p3
-
-    move-object/from16 v6, p4
-
-    move-wide/from16 v8, p6
-
-    move-wide/from16 v10, p8
-
-    invoke-direct/range {v1 .. v12}, Lcom/android/internal/app/procstats/ProcessState;->dumpProcessSummaryDetails(Ljava/io/PrintWriter;Ljava/lang/String;Ljava/lang/String;[I[I[IJJZ)V
-
     const-string/jumbo v4, "        (Home): "
 
     const/4 v0, 0x1
@@ -5526,6 +5487,10 @@
     .locals 2
 
     invoke-direct {p0}, Lcom/android/internal/app/procstats/ProcessState;->ensureNotDead()V
+
+    iget-boolean v0, p0, Lcom/android/internal/app/procstats/ProcessState;->mDead:Z
+
+    if-nez v0, :cond_0
 
     iget v0, p0, Lcom/android/internal/app/procstats/ProcessState;->mCurState:I
 

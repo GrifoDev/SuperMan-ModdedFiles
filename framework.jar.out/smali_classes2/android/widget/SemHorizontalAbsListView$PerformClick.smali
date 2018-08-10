@@ -61,7 +61,7 @@
 
     iget-object v6, p0, Landroid/widget/SemHorizontalAbsListView$PerformClick;->this$0:Landroid/widget/SemHorizontalAbsListView;
 
-    iget-boolean v6, v6, Landroid/widget/AdapterView;->mDataChanged:Z
+    iget-boolean v6, v6, Landroid/widget/SemHorizontalAbsListView;->mDataChanged:Z
 
     if-eqz v6, :cond_0
 
@@ -82,7 +82,7 @@
 
     iget-object v6, p0, Landroid/widget/SemHorizontalAbsListView$PerformClick;->this$0:Landroid/widget/SemHorizontalAbsListView;
 
-    iget v6, v6, Landroid/widget/AdapterView;->mItemCount:I
+    iget v6, v6, Landroid/widget/SemHorizontalAbsListView;->mItemCount:I
 
     if-lez v6, :cond_4
 
@@ -94,7 +94,7 @@
 
     if-ge v4, v6, :cond_4
 
-    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView$WindowRunnnable;->sameWindow()Z
+    invoke-virtual {p0}, Landroid/widget/SemHorizontalAbsListView$PerformClick;->sameWindow()Z
 
     move-result v6
 
@@ -104,11 +104,11 @@
 
     iget-object v7, p0, Landroid/widget/SemHorizontalAbsListView$PerformClick;->this$0:Landroid/widget/SemHorizontalAbsListView;
 
-    iget v7, v7, Landroid/widget/AdapterView;->mFirstPosition:I
+    iget v7, v7, Landroid/widget/SemHorizontalAbsListView;->mFirstPosition:I
 
     sub-int v7, v4, v7
 
-    invoke-virtual {v6, v7}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {v6, v7}, Landroid/widget/SemHorizontalAbsListView;->getChildAt(I)Landroid/view/View;
 
     move-result-object v5
 
@@ -230,7 +230,7 @@
     :catch_0
     move-exception v1
 
-    invoke-virtual {v1}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v1}, Ljava/lang/IndexOutOfBoundsException;->printStackTrace()V
 
     goto :goto_0
 

@@ -59,6 +59,8 @@
     .end annotation
 .end field
 
+.field private mObjectsFromResources:Z
+
 .field private mOriginalValues:Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -139,7 +141,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;IILjava/util/List;)V
-    .locals 1
+    .locals 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -147,6 +149,35 @@
             "II",
             "Ljava/util/List",
             "<TT;>;)V"
+        }
+    .end annotation
+
+    const/4 v5, 0x0
+
+    move-object v0, p0
+
+    move-object v1, p1
+
+    move v2, p2
+
+    move v3, p3
+
+    move-object v4, p4
+
+    invoke-direct/range {v0 .. v5}, Landroid/widget/ArrayAdapter;-><init>(Landroid/content/Context;IILjava/util/List;Z)V
+
+    return-void
+.end method
+
+.method private constructor <init>(Landroid/content/Context;IILjava/util/List;Z)V
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Landroid/content/Context;",
+            "II",
+            "Ljava/util/List",
+            "<TT;>;Z)V"
         }
     .end annotation
 
@@ -179,6 +210,8 @@
     iput p2, p0, Landroid/widget/ArrayAdapter;->mResource:I
 
     iput-object p4, p0, Landroid/widget/ArrayAdapter;->mObjects:Ljava/util/List;
+
+    iput-boolean p5, p0, Landroid/widget/ArrayAdapter;->mObjectsFromResources:Z
 
     iput p3, p0, Landroid/widget/ArrayAdapter;->mFieldId:I
 
@@ -245,7 +278,7 @@
 .end method
 
 .method public static createFromResource(Landroid/content/Context;II)Landroid/widget/ArrayAdapter;
-    .locals 2
+    .locals 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -260,17 +293,29 @@
 
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v1
-
-    invoke-virtual {v1, p1}, Landroid/content/res/Resources;->getTextArray(I)[Ljava/lang/CharSequence;
-
     move-result-object v0
 
-    new-instance v1, Landroid/widget/ArrayAdapter;
+    invoke-virtual {v0, p1}, Landroid/content/res/Resources;->getTextArray(I)[Ljava/lang/CharSequence;
 
-    invoke-direct {v1, p0, p2, v0}, Landroid/widget/ArrayAdapter;-><init>(Landroid/content/Context;I[Ljava/lang/Object;)V
+    move-result-object v6
 
-    return-object v1
+    new-instance v0, Landroid/widget/ArrayAdapter;
+
+    invoke-static {v6}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
+
+    move-result-object v4
+
+    const/4 v3, 0x0
+
+    const/4 v5, 0x1
+
+    move-object v1, p0
+
+    move v2, p2
+
+    invoke-direct/range {v0 .. v5}, Landroid/widget/ArrayAdapter;-><init>(Landroid/content/Context;IILjava/util/List;Z)V
+
+    return-object v0
 .end method
 
 .method private createViewFromResource(Landroid/view/LayoutInflater;ILandroid/view/View;Landroid/view/ViewGroup;I)Landroid/view/View;
@@ -424,10 +469,14 @@
     iget-object v0, p0, Landroid/widget/ArrayAdapter;->mOriginalValues:Ljava/util/ArrayList;
 
     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    :goto_0
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Landroid/widget/ArrayAdapter;->mObjectsFromResources:Z
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    :goto_0
     monitor-exit v1
 
     iget-boolean v0, p0, Landroid/widget/ArrayAdapter;->mNotifyOnChange:Z
@@ -479,10 +528,14 @@
     iget-object v0, p0, Landroid/widget/ArrayAdapter;->mOriginalValues:Ljava/util/ArrayList;
 
     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->addAll(Ljava/util/Collection;)Z
+
+    :goto_0
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Landroid/widget/ArrayAdapter;->mObjectsFromResources:Z
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    :goto_0
     monitor-exit v1
 
     iget-boolean v0, p0, Landroid/widget/ArrayAdapter;->mNotifyOnChange:Z
@@ -532,10 +585,14 @@
     iget-object v0, p0, Landroid/widget/ArrayAdapter;->mOriginalValues:Ljava/util/ArrayList;
 
     invoke-static {v0, p1}, Ljava/util/Collections;->addAll(Ljava/util/Collection;[Ljava/lang/Object;)Z
+
+    :goto_0
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Landroid/widget/ArrayAdapter;->mObjectsFromResources:Z
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    :goto_0
     monitor-exit v1
 
     iget-boolean v0, p0, Landroid/widget/ArrayAdapter;->mNotifyOnChange:Z
@@ -580,10 +637,14 @@
     iget-object v0, p0, Landroid/widget/ArrayAdapter;->mOriginalValues:Ljava/util/ArrayList;
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->clear()V
+
+    :goto_0
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Landroid/widget/ArrayAdapter;->mObjectsFromResources:Z
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    :goto_0
     monitor-exit v1
 
     iget-boolean v0, p0, Landroid/widget/ArrayAdapter;->mNotifyOnChange:Z
@@ -611,6 +672,46 @@
     monitor-exit v1
 
     throw v0
+.end method
+
+.method public getAutofillOptions()[Ljava/lang/CharSequence;
+    .locals 4
+
+    const/4 v3, 0x0
+
+    iget-boolean v2, p0, Landroid/widget/ArrayAdapter;->mObjectsFromResources:Z
+
+    if-eqz v2, :cond_0
+
+    iget-object v2, p0, Landroid/widget/ArrayAdapter;->mObjects:Ljava/util/List;
+
+    if-nez v2, :cond_1
+
+    :cond_0
+    return-object v3
+
+    :cond_1
+    iget-object v2, p0, Landroid/widget/ArrayAdapter;->mObjects:Ljava/util/List;
+
+    invoke-interface {v2}, Ljava/util/List;->isEmpty()Z
+
+    move-result v2
+
+    if-nez v2, :cond_0
+
+    iget-object v2, p0, Landroid/widget/ArrayAdapter;->mObjects:Ljava/util/List;
+
+    invoke-interface {v2}, Ljava/util/List;->size()I
+
+    move-result v1
+
+    new-array v0, v1, [Ljava/lang/CharSequence;
+
+    iget-object v2, p0, Landroid/widget/ArrayAdapter;->mObjects:Ljava/util/List;
+
+    invoke-interface {v2, v0}, Ljava/util/List;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
+
+    return-object v0
 .end method
 
 .method public getContext()Landroid/content/Context;
@@ -796,10 +897,14 @@
     iget-object v0, p0, Landroid/widget/ArrayAdapter;->mOriginalValues:Ljava/util/ArrayList;
 
     invoke-virtual {v0, p2, p1}, Ljava/util/ArrayList;->add(ILjava/lang/Object;)V
+
+    :goto_0
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Landroid/widget/ArrayAdapter;->mObjectsFromResources:Z
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    :goto_0
     monitor-exit v1
 
     iget-boolean v0, p0, Landroid/widget/ArrayAdapter;->mNotifyOnChange:Z
@@ -861,10 +966,14 @@
     iget-object v0, p0, Landroid/widget/ArrayAdapter;->mOriginalValues:Ljava/util/ArrayList;
 
     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
+
+    :goto_0
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Landroid/widget/ArrayAdapter;->mObjectsFromResources:Z
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    :goto_0
     monitor-exit v1
 
     iget-boolean v0, p0, Landroid/widget/ArrayAdapter;->mNotifyOnChange:Z

@@ -87,7 +87,7 @@
 
     const-string/jumbo v0, "com.absolute.android.persistence.IABTPersistence"
 
-    invoke-virtual {p0, p0, v0}, Landroid/os/Binder;->attachInterface(Landroid/os/IInterface;Ljava/lang/String;)V
+    invoke-virtual {p0, p0, v0}, Lcom/absolute/android/persistence/IABTPersistence$Stub;->attachInterface(Landroid/os/IInterface;Ljava/lang/String;)V
 
     return-void
 .end method
@@ -95,27 +95,27 @@
 .method public static asInterface(Landroid/os/IBinder;)Lcom/absolute/android/persistence/IABTPersistence;
     .locals 2
 
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
     if-eqz p0, :cond_1
 
-    const-string/jumbo v0, "com.absolute.android.persistence.IABTPersistence"
+    const-string/jumbo v1, "com.absolute.android.persistence.IABTPersistence"
 
-    invoke-interface {p0, v0}, Landroid/os/IBinder;->queryLocalInterface(Ljava/lang/String;)Landroid/os/IInterface;
+    invoke-interface {p0, v1}, Landroid/os/IBinder;->queryLocalInterface(Ljava/lang/String;)Landroid/os/IInterface;
 
     move-result-object v0
 
     if-nez v0, :cond_2
 
     :cond_0
-    new-instance v0, Lcom/absolute/android/persistence/IABTPersistence$Stub$Proxy;
+    new-instance v1, Lcom/absolute/android/persistence/IABTPersistence$Stub$Proxy;
 
-    invoke-direct {v0, p0}, Lcom/absolute/android/persistence/IABTPersistence$Stub$Proxy;-><init>(Landroid/os/IBinder;)V
+    invoke-direct {v1, p0}, Lcom/absolute/android/persistence/IABTPersistence$Stub$Proxy;-><init>(Landroid/os/IBinder;)V
 
-    return-object v0
+    return-object v1
 
     :cond_1
-    return-object v0
+    return-object v1
 
     :cond_2
     instance-of v1, v0, Lcom/absolute/android/persistence/IABTPersistence;
@@ -136,741 +136,1003 @@
 .end method
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    .locals 10
+    .locals 49
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    const/4 v0, 0x0
-
-    const/4 v1, 0x0
-
-    const/4 v9, 0x1
-
     sparse-switch p1, :sswitch_data_0
 
-    invoke-super {p0, p1, p2, p3, p4}, Landroid/os/Binder;->onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+    invoke-super/range {p0 .. p4}, Landroid/os/Binder;->onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    move-result v0
+    move-result v3
 
-    return v0
+    return v3
 
     :sswitch_0
-    const-string/jumbo v0, "com.absolute.android.persistence.IABTPersistence"
+    const-string/jumbo v3, "com.absolute.android.persistence.IABTPersistence"
 
-    invoke-virtual {p3, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    move-object/from16 v0, p3
 
-    return v9
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+
+    const/4 v3, 0x1
+
+    return v3
 
     :sswitch_1
-    const-string/jumbo v0, "com.absolute.android.persistence.IABTPersistence"
+    const-string/jumbo v3, "com.absolute.android.persistence.IABTPersistence"
 
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    move-object/from16 v0, p2
 
-    invoke-virtual {p0}, Lcom/absolute/android/persistence/IABTPersistence$Stub;->getState()I
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    move-result v0
+    invoke-virtual/range {p0 .. p0}, Lcom/absolute/android/persistence/IABTPersistence$Stub;->getState()I
 
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+    move-result v43
 
-    invoke-virtual {p3, v0}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    return v9
+    move-object/from16 v0, p3
+
+    move/from16 v1, v43
+
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
+
+    const/4 v3, 0x1
+
+    return v3
 
     :sswitch_2
-    const-string/jumbo v0, "com.absolute.android.persistence.IABTPersistence"
+    const-string/jumbo v3, "com.absolute.android.persistence.IABTPersistence"
 
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    move-object/from16 v0, p2
 
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    move-result v0
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
-    invoke-virtual {p0, v0}, Lcom/absolute/android/persistence/IABTPersistence$Stub;->setState(I)V
+    move-result v33
 
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+    move-object/from16 v0, p0
 
-    return v9
+    move/from16 v1, v33
+
+    invoke-virtual {v0, v1}, Lcom/absolute/android/persistence/IABTPersistence$Stub;->setState(I)V
+
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    const/4 v3, 0x1
+
+    return v3
 
     :sswitch_3
-    const-string/jumbo v0, "com.absolute.android.persistence.IABTPersistence"
+    const-string/jumbo v3, "com.absolute.android.persistence.IABTPersistence"
 
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    move-object/from16 v0, p2
 
-    invoke-virtual {p0}, Lcom/absolute/android/persistence/IABTPersistence$Stub;->getVersion()I
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    move-result v0
+    invoke-virtual/range {p0 .. p0}, Lcom/absolute/android/persistence/IABTPersistence$Stub;->getVersion()I
 
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+    move-result v43
 
-    invoke-virtual {p3, v0}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    return v9
+    move-object/from16 v0, p3
+
+    move/from16 v1, v43
+
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
+
+    const/4 v3, 0x1
+
+    return v3
 
     :sswitch_4
-    const-string/jumbo v1, "com.absolute.android.persistence.IABTPersistence"
+    const-string/jumbo v3, "com.absolute.android.persistence.IABTPersistence"
 
-    invoke-virtual {p2, v1}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    move-object/from16 v0, p2
 
-    invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    move-result-object v1
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
-    invoke-virtual {p0, v1}, Lcom/absolute/android/persistence/IABTPersistence$Stub;->getLog(Ljava/lang/String;)Lcom/absolute/android/persistence/IABTPersistenceLog;
+    move-result-object v4
 
-    move-result-object v1
+    move-object/from16 v0, p0
 
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+    invoke-virtual {v0, v4}, Lcom/absolute/android/persistence/IABTPersistence$Stub;->getLog(Ljava/lang/String;)Lcom/absolute/android/persistence/IABTPersistenceLog;
 
-    if-nez v1, :cond_0
+    move-result-object v46
+
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    if-nez v46, :cond_0
+
+    const/4 v3, 0x0
 
     :goto_0
-    invoke-virtual {p3, v0}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
+    move-object/from16 v0, p3
 
-    return v9
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
+
+    const/4 v3, 0x1
+
+    return v3
 
     :cond_0
-    invoke-interface {v1}, Lcom/absolute/android/persistence/IABTPersistenceLog;->asBinder()Landroid/os/IBinder;
+    invoke-interface/range {v46 .. v46}, Lcom/absolute/android/persistence/IABTPersistenceLog;->asBinder()Landroid/os/IBinder;
 
-    move-result-object v0
+    move-result-object v3
 
     goto :goto_0
 
     :sswitch_5
-    const-string/jumbo v1, "com.absolute.android.persistence.IABTPersistence"
+    const-string/jumbo v3, "com.absolute.android.persistence.IABTPersistence"
 
-    invoke-virtual {p2, v1}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    move-object/from16 v0, p2
 
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    move-result v1
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
-    if-nez v1, :cond_1
+    move-result v3
+
+    if-nez v3, :cond_1
+
+    const/16 v34, 0x0
 
     :goto_1
-    invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v5
 
-    invoke-virtual {p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
-    move-result-object v2
+    move-result-object v3
 
-    invoke-static {v2}, Lcom/absolute/android/persistence/IABTResultReceiver$Stub;->asInterface(Landroid/os/IBinder;)Lcom/absolute/android/persistence/IABTResultReceiver;
+    invoke-static {v3}, Lcom/absolute/android/persistence/IABTResultReceiver$Stub;->asInterface(Landroid/os/IBinder;)Lcom/absolute/android/persistence/IABTResultReceiver;
 
-    move-result-object v2
+    move-result-object v41
 
-    invoke-virtual {p0, v0, v1, v2}, Lcom/absolute/android/persistence/IABTPersistence$Stub;->install(Lcom/absolute/android/persistence/AppProfile;Ljava/lang/String;Lcom/absolute/android/persistence/IABTResultReceiver;)V
+    move-object/from16 v0, p0
 
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+    move-object/from16 v1, v34
 
-    return v9
+    move-object/from16 v2, v41
+
+    invoke-virtual {v0, v1, v5, v2}, Lcom/absolute/android/persistence/IABTPersistence$Stub;->install(Lcom/absolute/android/persistence/AppProfile;Ljava/lang/String;Lcom/absolute/android/persistence/IABTResultReceiver;)V
+
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    const/4 v3, 0x1
+
+    return v3
 
     :cond_1
-    sget-object v0, Lcom/absolute/android/persistence/AppProfile;->CREATOR:Landroid/os/Parcelable$Creator;
+    sget-object v3, Lcom/absolute/android/persistence/AppProfile;->CREATOR:Landroid/os/Parcelable$Creator;
 
-    invoke-interface {v0, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+    move-object/from16 v0, p2
 
-    move-result-object v0
+    invoke-interface {v3, v0}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
 
-    check-cast v0, Lcom/absolute/android/persistence/AppProfile;
+    move-result-object v34
+
+    check-cast v34, Lcom/absolute/android/persistence/AppProfile;
 
     goto :goto_1
 
     :sswitch_6
-    const-string/jumbo v0, "com.absolute.android.persistence.IABTPersistence"
+    const-string/jumbo v3, "com.absolute.android.persistence.IABTPersistence"
 
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    move-object/from16 v0, p2
 
-    invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    move-result-object v2
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+    move-result-object v4
 
-    move-result v0
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
-    if-nez v0, :cond_2
+    move-result v3
 
-    move v0, v1
+    if-nez v3, :cond_2
+
+    const/16 v39, 0x0
 
     :goto_2
-    invoke-virtual {p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
-    move-result-object v1
+    move-result-object v3
 
-    invoke-static {v1}, Lcom/absolute/android/persistence/IABTResultReceiver$Stub;->asInterface(Landroid/os/IBinder;)Lcom/absolute/android/persistence/IABTResultReceiver;
+    invoke-static {v3}, Lcom/absolute/android/persistence/IABTResultReceiver$Stub;->asInterface(Landroid/os/IBinder;)Lcom/absolute/android/persistence/IABTResultReceiver;
 
-    move-result-object v1
+    move-result-object v41
 
-    invoke-virtual {p0, v2, v0, v1}, Lcom/absolute/android/persistence/IABTPersistence$Stub;->uninstall(Ljava/lang/String;ZLcom/absolute/android/persistence/IABTResultReceiver;)V
+    move-object/from16 v0, p0
 
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+    move/from16 v1, v39
 
-    return v9
+    move-object/from16 v2, v41
+
+    invoke-virtual {v0, v4, v1, v2}, Lcom/absolute/android/persistence/IABTPersistence$Stub;->uninstall(Ljava/lang/String;ZLcom/absolute/android/persistence/IABTResultReceiver;)V
+
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    const/4 v3, 0x1
+
+    return v3
 
     :cond_2
-    move v0, v9
+    const/16 v39, 0x1
 
     goto :goto_2
 
     :sswitch_7
-    const-string/jumbo v0, "com.absolute.android.persistence.IABTPersistence"
+    const-string/jumbo v3, "com.absolute.android.persistence.IABTPersistence"
 
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    move-object/from16 v0, p2
 
-    invoke-virtual {p0}, Lcom/absolute/android/persistence/IABTPersistence$Stub;->getAllApplicationProfiles()[Lcom/absolute/android/persistence/AppProfile;
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    move-result-object v0
+    invoke-virtual/range {p0 .. p0}, Lcom/absolute/android/persistence/IABTPersistence$Stub;->getAllApplicationProfiles()[Lcom/absolute/android/persistence/AppProfile;
 
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+    move-result-object v48
 
-    invoke-virtual {p3, v0, v9}, Landroid/os/Parcel;->writeTypedArray([Landroid/os/Parcelable;I)V
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    return v9
+    const/4 v3, 0x1
+
+    move-object/from16 v0, p3
+
+    move-object/from16 v1, v48
+
+    invoke-virtual {v0, v1, v3}, Landroid/os/Parcel;->writeTypedArray([Landroid/os/Parcelable;I)V
+
+    const/4 v3, 0x1
+
+    return v3
 
     :sswitch_8
-    const-string/jumbo v0, "com.absolute.android.persistence.IABTPersistence"
+    const-string/jumbo v3, "com.absolute.android.persistence.IABTPersistence"
 
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    move-object/from16 v0, p2
 
-    invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    move-result-object v0
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
-    invoke-virtual {p0, v0}, Lcom/absolute/android/persistence/IABTPersistence$Stub;->getApplicationProfile(Ljava/lang/String;)Lcom/absolute/android/persistence/AppProfile;
+    move-result-object v4
 
-    move-result-object v0
+    move-object/from16 v0, p0
 
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+    invoke-virtual {v0, v4}, Lcom/absolute/android/persistence/IABTPersistence$Stub;->getApplicationProfile(Ljava/lang/String;)Lcom/absolute/android/persistence/AppProfile;
 
-    if-nez v0, :cond_3
+    move-result-object v44
 
-    invoke-virtual {p3, v1}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    if-nez v44, :cond_3
+
+    const/4 v3, 0x0
+
+    move-object/from16 v0, p3
+
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
 
     :goto_3
-    return v9
+    const/4 v3, 0x1
+
+    return v3
 
     :cond_3
-    invoke-virtual {p3, v9}, Landroid/os/Parcel;->writeInt(I)V
+    const/4 v3, 0x1
 
-    invoke-virtual {v0, p3, v9}, Lcom/absolute/android/persistence/AppProfile;->writeToParcel(Landroid/os/Parcel;I)V
+    move-object/from16 v0, p3
+
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
+
+    const/4 v3, 0x1
+
+    move-object/from16 v0, v44
+
+    move-object/from16 v1, p3
+
+    invoke-virtual {v0, v1, v3}, Lcom/absolute/android/persistence/AppProfile;->writeToParcel(Landroid/os/Parcel;I)V
 
     goto :goto_3
 
     :sswitch_9
-    const-string/jumbo v1, "com.absolute.android.persistence.IABTPersistence"
+    const-string/jumbo v3, "com.absolute.android.persistence.IABTPersistence"
 
-    invoke-virtual {p2, v1}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    move-object/from16 v0, p2
 
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    move-result v1
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
-    if-nez v1, :cond_4
+    move-result v3
+
+    if-nez v3, :cond_4
+
+    const/16 v34, 0x0
 
     :goto_4
-    invoke-virtual {p0, v0}, Lcom/absolute/android/persistence/IABTPersistence$Stub;->setApplicationProfile(Lcom/absolute/android/persistence/AppProfile;)V
+    move-object/from16 v0, p0
 
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+    move-object/from16 v1, v34
 
-    return v9
+    invoke-virtual {v0, v1}, Lcom/absolute/android/persistence/IABTPersistence$Stub;->setApplicationProfile(Lcom/absolute/android/persistence/AppProfile;)V
+
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    const/4 v3, 0x1
+
+    return v3
 
     :cond_4
-    sget-object v0, Lcom/absolute/android/persistence/AppProfile;->CREATOR:Landroid/os/Parcelable$Creator;
+    sget-object v3, Lcom/absolute/android/persistence/AppProfile;->CREATOR:Landroid/os/Parcelable$Creator;
 
-    invoke-interface {v0, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+    move-object/from16 v0, p2
 
-    move-result-object v0
+    invoke-interface {v3, v0}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
 
-    check-cast v0, Lcom/absolute/android/persistence/AppProfile;
+    move-result-object v34
+
+    check-cast v34, Lcom/absolute/android/persistence/AppProfile;
 
     goto :goto_4
 
     :sswitch_a
-    const-string/jumbo v0, "com.absolute.android.persistence.IABTPersistence"
+    const-string/jumbo v3, "com.absolute.android.persistence.IABTPersistence"
 
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    move-object/from16 v0, p2
 
-    invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    move-result-object v0
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+    move-result-object v4
 
-    move-result v2
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
-    if-nez v2, :cond_5
+    move-result v3
+
+    if-nez v3, :cond_5
+
+    const/16 v39, 0x0
 
     :goto_5
-    invoke-virtual {p0, v0, v1}, Lcom/absolute/android/persistence/IABTPersistence$Stub;->setPersistence(Ljava/lang/String;Z)V
+    move-object/from16 v0, p0
 
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+    move/from16 v1, v39
 
-    return v9
+    invoke-virtual {v0, v4, v1}, Lcom/absolute/android/persistence/IABTPersistence$Stub;->setPersistence(Ljava/lang/String;Z)V
+
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    const/4 v3, 0x1
+
+    return v3
 
     :cond_5
-    move v1, v9
+    const/16 v39, 0x1
 
     goto :goto_5
 
     :sswitch_b
-    const-string/jumbo v0, "com.absolute.android.persistence.IABTPersistence"
+    const-string/jumbo v3, "com.absolute.android.persistence.IABTPersistence"
 
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    move-object/from16 v0, p2
 
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    move-result v0
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
-    if-nez v0, :cond_6
+    move-result v3
+
+    if-nez v3, :cond_6
+
+    const/16 v36, 0x0
 
     :goto_6
-    invoke-virtual {p0, v1}, Lcom/absolute/android/persistence/IABTPersistence$Stub;->setAllPersistence(Z)V
+    move-object/from16 v0, p0
 
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+    move/from16 v1, v36
 
-    return v9
+    invoke-virtual {v0, v1}, Lcom/absolute/android/persistence/IABTPersistence$Stub;->setAllPersistence(Z)V
+
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    const/4 v3, 0x1
+
+    return v3
 
     :cond_6
-    move v1, v9
+    const/16 v36, 0x1
 
     goto :goto_6
 
     :sswitch_c
-    const-string/jumbo v0, "com.absolute.android.persistence.IABTPersistence"
+    const-string/jumbo v3, "com.absolute.android.persistence.IABTPersistence"
 
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    move-object/from16 v0, p2
 
-    invoke-virtual {p0}, Lcom/absolute/android/persistence/IABTPersistence$Stub;->getPersistedAppCount()I
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    move-result v0
+    invoke-virtual/range {p0 .. p0}, Lcom/absolute/android/persistence/IABTPersistence$Stub;->getPersistedAppCount()I
 
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+    move-result v43
 
-    invoke-virtual {p3, v0}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    return v9
+    move-object/from16 v0, p3
+
+    move/from16 v1, v43
+
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
+
+    const/4 v3, 0x1
+
+    return v3
 
     :sswitch_d
-    const-string/jumbo v1, "com.absolute.android.persistence.IABTPersistence"
+    const-string/jumbo v3, "com.absolute.android.persistence.IABTPersistence"
 
-    invoke-virtual {p2, v1}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    move-object/from16 v0, p2
 
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    move-result v1
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
-    if-nez v1, :cond_7
+    move-result v3
+
+    if-nez v3, :cond_7
+
+    const/16 v35, 0x0
 
     :goto_7
-    invoke-virtual {p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
-    move-result-object v1
+    move-result-object v3
 
-    invoke-static {v1}, Lcom/absolute/android/persistence/IABTResultReceiver$Stub;->asInterface(Landroid/os/IBinder;)Lcom/absolute/android/persistence/IABTResultReceiver;
+    invoke-static {v3}, Lcom/absolute/android/persistence/IABTResultReceiver$Stub;->asInterface(Landroid/os/IBinder;)Lcom/absolute/android/persistence/IABTResultReceiver;
 
-    move-result-object v1
+    move-result-object v38
 
-    invoke-virtual {p0, v0, v1}, Lcom/absolute/android/persistence/IABTPersistence$Stub;->invokeMethodAsSystem(Lcom/absolute/android/persistence/MethodSpec;Lcom/absolute/android/persistence/IABTResultReceiver;)V
+    move-object/from16 v0, p0
 
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+    move-object/from16 v1, v35
 
-    return v9
+    move-object/from16 v2, v38
+
+    invoke-virtual {v0, v1, v2}, Lcom/absolute/android/persistence/IABTPersistence$Stub;->invokeMethodAsSystem(Lcom/absolute/android/persistence/MethodSpec;Lcom/absolute/android/persistence/IABTResultReceiver;)V
+
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    const/4 v3, 0x1
+
+    return v3
 
     :cond_7
-    sget-object v0, Lcom/absolute/android/persistence/MethodSpec;->CREATOR:Landroid/os/Parcelable$Creator;
+    sget-object v3, Lcom/absolute/android/persistence/MethodSpec;->CREATOR:Landroid/os/Parcelable$Creator;
 
-    invoke-interface {v0, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+    move-object/from16 v0, p2
 
-    move-result-object v0
+    invoke-interface {v3, v0}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
 
-    check-cast v0, Lcom/absolute/android/persistence/MethodSpec;
+    move-result-object v35
+
+    check-cast v35, Lcom/absolute/android/persistence/MethodSpec;
 
     goto :goto_7
 
     :sswitch_e
-    const-string/jumbo v0, "com.absolute.android.persistence.IABTPersistence"
+    const-string/jumbo v3, "com.absolute.android.persistence.IABTPersistence"
 
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    move-object/from16 v0, p2
 
-    invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    move-result-object v0
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
-    invoke-virtual {p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
+    move-result-object v4
 
-    move-result-object v1
-
-    invoke-static {v1}, Lcom/absolute/android/persistence/IABTPing$Stub;->asInterface(Landroid/os/IBinder;)Lcom/absolute/android/persistence/IABTPing;
-
-    move-result-object v1
-
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v2
-
-    invoke-virtual {p0, v0, v1, v2}, Lcom/absolute/android/persistence/IABTPersistence$Stub;->registerPing(Ljava/lang/String;Lcom/absolute/android/persistence/IABTPing;I)V
-
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
-    return v9
-
-    :sswitch_f
-    const-string/jumbo v0, "com.absolute.android.persistence.IABTPersistence"
-
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-virtual {p0, v0}, Lcom/absolute/android/persistence/IABTPersistence$Stub;->unregisterPing(Ljava/lang/String;)V
-
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
-    return v9
-
-    :sswitch_10
-    const-string/jumbo v2, "com.absolute.android.persistence.IABTPersistence"
-
-    invoke-virtual {p2, v2}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
     move-result-object v3
 
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+    invoke-static {v3}, Lcom/absolute/android/persistence/IABTPing$Stub;->asInterface(Landroid/os/IBinder;)Lcom/absolute/android/persistence/IABTPing;
 
-    move-result v4
+    move-result-object v37
 
-    if-nez v4, :cond_8
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v40
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v37
+
+    move/from16 v2, v40
+
+    invoke-virtual {v0, v4, v1, v2}, Lcom/absolute/android/persistence/IABTPersistence$Stub;->registerPing(Ljava/lang/String;Lcom/absolute/android/persistence/IABTPing;I)V
+
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    const/4 v3, 0x1
+
+    return v3
+
+    :sswitch_f
+    const-string/jumbo v3, "com.absolute.android.persistence.IABTPersistence"
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v4
+
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v4}, Lcom/absolute/android/persistence/IABTPersistence$Stub;->unregisterPing(Ljava/lang/String;)V
+
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    const/4 v3, 0x1
+
+    return v3
+
+    :sswitch_10
+    const-string/jumbo v3, "com.absolute.android.persistence.IABTPersistence"
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v3
+
+    if-nez v3, :cond_8
+
+    const/16 v42, 0x0
 
     :goto_8
-    invoke-virtual {p0, v2, v3, v1}, Lcom/absolute/android/persistence/IABTPersistence$Stub;->getPersistedFile(Ljava/lang/String;Ljava/lang/String;Z)Lcom/absolute/android/persistence/IABTPersistedFile;
+    move-object/from16 v0, p0
 
-    move-result-object v1
+    move/from16 v1, v42
 
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+    invoke-virtual {v0, v4, v5, v1}, Lcom/absolute/android/persistence/IABTPersistence$Stub;->getPersistedFile(Ljava/lang/String;Ljava/lang/String;Z)Lcom/absolute/android/persistence/IABTPersistedFile;
 
-    if-nez v1, :cond_9
+    move-result-object v45
+
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    if-nez v45, :cond_9
+
+    const/4 v3, 0x0
 
     :goto_9
-    invoke-virtual {p3, v0}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
+    move-object/from16 v0, p3
 
-    return v9
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
+
+    const/4 v3, 0x1
+
+    return v3
 
     :cond_8
-    move v1, v9
+    const/16 v42, 0x1
 
     goto :goto_8
 
     :cond_9
-    invoke-interface {v1}, Lcom/absolute/android/persistence/IABTPersistedFile;->asBinder()Landroid/os/IBinder;
+    invoke-interface/range {v45 .. v45}, Lcom/absolute/android/persistence/IABTPersistedFile;->asBinder()Landroid/os/IBinder;
 
-    move-result-object v0
+    move-result-object v3
 
     goto :goto_9
 
     :sswitch_11
-    const-string/jumbo v0, "com.absolute.android.persistence.IABTPersistence"
+    const-string/jumbo v3, "com.absolute.android.persistence.IABTPersistence"
 
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    move-object/from16 v0, p2
 
-    invoke-virtual {p0}, Lcom/absolute/android/persistence/IABTPersistence$Stub;->getDeviceId()Ljava/lang/String;
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    move-result-object v0
+    invoke-virtual/range {p0 .. p0}, Lcom/absolute/android/persistence/IABTPersistence$Stub;->getDeviceId()Ljava/lang/String;
 
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+    move-result-object v47
 
-    invoke-virtual {p3, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    return v9
+    move-object/from16 v0, p3
+
+    move-object/from16 v1, v47
+
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+
+    const/4 v3, 0x1
+
+    return v3
 
     :sswitch_12
-    const-string/jumbo v0, "com.absolute.android.persistence.IABTPersistence"
+    const-string/jumbo v3, "com.absolute.android.persistence.IABTPersistence"
 
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    move-object/from16 v0, p2
 
-    invoke-virtual {p0}, Lcom/absolute/android/persistence/IABTPersistence$Stub;->refreshDeviceId()V
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+    invoke-virtual/range {p0 .. p0}, Lcom/absolute/android/persistence/IABTPersistence$Stub;->refreshDeviceId()V
 
-    return v9
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    const/4 v3, 0x1
+
+    return v3
 
     :sswitch_13
-    const-string/jumbo v0, "com.absolute.android.persistence.IABTPersistence"
+    const-string/jumbo v3, "com.absolute.android.persistence.IABTPersistence"
 
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    move-object/from16 v0, p2
 
-    invoke-virtual {p0}, Lcom/absolute/android/persistence/IABTPersistence$Stub;->testFirmwareUpdate()V
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+    invoke-virtual/range {p0 .. p0}, Lcom/absolute/android/persistence/IABTPersistence$Stub;->testFirmwareUpdate()V
 
-    return v9
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    const/4 v3, 0x1
+
+    return v3
 
     :sswitch_14
-    const-string/jumbo v0, "com.absolute.android.persistence.IABTPersistence"
+    const-string/jumbo v3, "com.absolute.android.persistence.IABTPersistence"
 
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    move-object/from16 v0, p2
 
-    invoke-virtual {p0}, Lcom/absolute/android/persistence/IABTPersistence$Stub;->getDiagnostics()Ljava/lang/String;
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    move-result-object v0
+    invoke-virtual/range {p0 .. p0}, Lcom/absolute/android/persistence/IABTPersistence$Stub;->getDiagnostics()Ljava/lang/String;
 
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+    move-result-object v47
 
-    invoke-virtual {p3, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    return v9
+    move-object/from16 v0, p3
+
+    move-object/from16 v1, v47
+
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+
+    const/4 v3, 0x1
+
+    return v3
 
     :sswitch_15
-    const-string/jumbo v0, "com.absolute.android.persistence.IABTPersistence"
+    const-string/jumbo v3, "com.absolute.android.persistence.IABTPersistence"
 
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    move-object/from16 v0, p2
 
-    invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    move-result-object v1
-
-    invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v4
 
-    invoke-virtual {p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
-
-    move-result-object v0
-
-    invoke-static {v0}, Lcom/absolute/android/persistence/IABTGetAppInfoReceiver$Stub;->asInterface(Landroid/os/IBinder;)Lcom/absolute/android/persistence/IABTGetAppInfoReceiver;
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v5
 
-    move-object v0, p0
-
-    invoke-virtual/range {v0 .. v5}, Lcom/absolute/android/persistence/IABTPersistence$Stub;->getAppInfo(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/absolute/android/persistence/IABTGetAppInfoReceiver;)V
-
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
-    return v9
-
-    :sswitch_16
-    const-string/jumbo v0, "com.absolute.android.persistence.IABTPersistence"
-
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v2
-
-    invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-virtual {p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
-
-    move-result-object v0
-
-    invoke-static {v0}, Lcom/absolute/android/persistence/IABTDownloadReceiver$Stub;->asInterface(Landroid/os/IBinder;)Lcom/absolute/android/persistence/IABTDownloadReceiver;
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v6
 
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
-    move-result v7
+    move-result-object v7
 
-    move-object v0, p0
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
-    invoke-virtual/range {v0 .. v7}, Lcom/absolute/android/persistence/IABTPersistence$Stub;->downloadApk(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/absolute/android/persistence/IABTDownloadReceiver;I)V
+    move-result-object v3
 
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+    invoke-static {v3}, Lcom/absolute/android/persistence/IABTGetAppInfoReceiver$Stub;->asInterface(Landroid/os/IBinder;)Lcom/absolute/android/persistence/IABTGetAppInfoReceiver;
 
-    return v9
+    move-result-object v8
+
+    move-object/from16 v3, p0
+
+    invoke-virtual/range {v3 .. v8}, Lcom/absolute/android/persistence/IABTPersistence$Stub;->getAppInfo(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/absolute/android/persistence/IABTGetAppInfoReceiver;)V
+
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    const/4 v3, 0x1
+
+    return v3
+
+    :sswitch_16
+    const-string/jumbo v3, "com.absolute.android.persistence.IABTPersistence"
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v11
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v14
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
+
+    move-result-object v3
+
+    invoke-static {v3}, Lcom/absolute/android/persistence/IABTDownloadReceiver$Stub;->asInterface(Landroid/os/IBinder;)Lcom/absolute/android/persistence/IABTDownloadReceiver;
+
+    move-result-object v15
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v16
+
+    move-object/from16 v9, p0
+
+    move-object v10, v4
+
+    move-object v12, v6
+
+    move-object v13, v7
+
+    invoke-virtual/range {v9 .. v16}, Lcom/absolute/android/persistence/IABTPersistence$Stub;->downloadApk(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/absolute/android/persistence/IABTDownloadReceiver;I)V
+
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    const/4 v3, 0x1
+
+    return v3
 
     :sswitch_17
-    const-string/jumbo v1, "com.absolute.android.persistence.IABTPersistence"
+    const-string/jumbo v3, "com.absolute.android.persistence.IABTPersistence"
 
-    invoke-virtual {p2, v1}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    move-object/from16 v0, p2
 
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    move-result v1
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
-    if-nez v1, :cond_a
+    move-result v3
+
+    if-nez v3, :cond_a
+
+    const/16 v34, 0x0
 
     :goto_a
-    invoke-virtual {p0, v0}, Lcom/absolute/android/persistence/IABTPersistence$Stub;->persistApp(Lcom/absolute/android/persistence/AppProfile;)V
+    move-object/from16 v0, p0
 
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+    move-object/from16 v1, v34
 
-    return v9
+    invoke-virtual {v0, v1}, Lcom/absolute/android/persistence/IABTPersistence$Stub;->persistApp(Lcom/absolute/android/persistence/AppProfile;)V
+
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    const/4 v3, 0x1
+
+    return v3
 
     :cond_a
-    sget-object v0, Lcom/absolute/android/persistence/AppProfile;->CREATOR:Landroid/os/Parcelable$Creator;
+    sget-object v3, Lcom/absolute/android/persistence/AppProfile;->CREATOR:Landroid/os/Parcelable$Creator;
 
-    invoke-interface {v0, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+    move-object/from16 v0, p2
 
-    move-result-object v0
+    invoke-interface {v3, v0}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
 
-    check-cast v0, Lcom/absolute/android/persistence/AppProfile;
+    move-result-object v34
+
+    check-cast v34, Lcom/absolute/android/persistence/AppProfile;
 
     goto :goto_a
 
     :sswitch_18
-    const-string/jumbo v2, "com.absolute.android.persistence.IABTPersistence"
+    const-string/jumbo v3, "com.absolute.android.persistence.IABTPersistence"
 
-    invoke-virtual {p2, v2}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    move-object/from16 v0, p2
 
-    invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    move-result-object v2
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+    move-result-object v4
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
 
     if-nez v3, :cond_b
 
+    const/16 v39, 0x0
+
     :goto_b
-    invoke-virtual {p0, v2, v1}, Lcom/absolute/android/persistence/IABTPersistence$Stub;->getSystemFile(Ljava/lang/String;Z)Lcom/absolute/android/persistence/IABTPersistedFile;
+    move-object/from16 v0, p0
 
-    move-result-object v1
+    move/from16 v1, v39
 
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+    invoke-virtual {v0, v4, v1}, Lcom/absolute/android/persistence/IABTPersistence$Stub;->getSystemFile(Ljava/lang/String;Z)Lcom/absolute/android/persistence/IABTPersistedFile;
 
-    if-nez v1, :cond_c
+    move-result-object v45
+
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    if-nez v45, :cond_c
+
+    const/4 v3, 0x0
 
     :goto_c
-    invoke-virtual {p3, v0}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
+    move-object/from16 v0, p3
 
-    return v9
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
+
+    const/4 v3, 0x1
+
+    return v3
 
     :cond_b
-    move v1, v9
+    const/16 v39, 0x1
 
     goto :goto_b
 
     :cond_c
-    invoke-interface {v1}, Lcom/absolute/android/persistence/IABTPersistedFile;->asBinder()Landroid/os/IBinder;
+    invoke-interface/range {v45 .. v45}, Lcom/absolute/android/persistence/IABTPersistedFile;->asBinder()Landroid/os/IBinder;
 
-    move-result-object v0
+    move-result-object v3
 
     goto :goto_c
 
     :sswitch_19
-    const-string/jumbo v0, "com.absolute.android.persistence.IABTPersistence"
+    const-string/jumbo v3, "com.absolute.android.persistence.IABTPersistence"
 
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    move-object/from16 v0, p2
 
-    invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    move-result-object v1
-
-    invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v4
 
-    invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v5
 
-    invoke-virtual {p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
-
-    move-result-object v0
-
-    invoke-static {v0}, Lcom/absolute/android/persistence/IABTGetAppInfoReceiver$Stub;->asInterface(Landroid/os/IBinder;)Lcom/absolute/android/persistence/IABTGetAppInfoReceiver;
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v6
 
-    move-object v0, p0
-
-    invoke-virtual/range {v0 .. v6}, Lcom/absolute/android/persistence/IABTPersistence$Stub;->getAppInfo_v2(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/absolute/android/persistence/IABTGetAppInfoReceiver;)V
-
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
-    return v9
-
-    :sswitch_1a
-    const-string/jumbo v0, "com.absolute.android.persistence.IABTPersistence"
-
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v2
-
-    invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-virtual {p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
-
-    move-result-object v0
-
-    invoke-static {v0}, Lcom/absolute/android/persistence/IABTDownloadReceiver$Stub;->asInterface(Landroid/os/IBinder;)Lcom/absolute/android/persistence/IABTDownloadReceiver;
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v7
 
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
-    move-result v8
+    move-result-object v14
 
-    move-object v0, p0
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
-    invoke-virtual/range {v0 .. v8}, Lcom/absolute/android/persistence/IABTPersistence$Stub;->downloadApk_v2(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/absolute/android/persistence/IABTDownloadReceiver;I)V
+    move-result-object v3
 
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+    invoke-static {v3}, Lcom/absolute/android/persistence/IABTGetAppInfoReceiver$Stub;->asInterface(Landroid/os/IBinder;)Lcom/absolute/android/persistence/IABTGetAppInfoReceiver;
 
-    return v9
+    move-result-object v23
+
+    move-object/from16 v17, p0
+
+    move-object/from16 v18, v4
+
+    move-object/from16 v19, v5
+
+    move-object/from16 v20, v6
+
+    move-object/from16 v21, v7
+
+    move-object/from16 v22, v14
+
+    invoke-virtual/range {v17 .. v23}, Lcom/absolute/android/persistence/IABTPersistence$Stub;->getAppInfo_v2(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/absolute/android/persistence/IABTGetAppInfoReceiver;)V
+
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    const/4 v3, 0x1
+
+    return v3
+
+    :sswitch_1a
+    const-string/jumbo v3, "com.absolute.android.persistence.IABTPersistence"
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v11
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v14
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v30
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
+
+    move-result-object v3
+
+    invoke-static {v3}, Lcom/absolute/android/persistence/IABTDownloadReceiver$Stub;->asInterface(Landroid/os/IBinder;)Lcom/absolute/android/persistence/IABTDownloadReceiver;
+
+    move-result-object v31
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v32
+
+    move-object/from16 v24, p0
+
+    move-object/from16 v25, v4
+
+    move/from16 v26, v11
+
+    move-object/from16 v27, v6
+
+    move-object/from16 v28, v7
+
+    move-object/from16 v29, v14
+
+    invoke-virtual/range {v24 .. v32}, Lcom/absolute/android/persistence/IABTPersistence$Stub;->downloadApk_v2(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/absolute/android/persistence/IABTDownloadReceiver;I)V
+
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    const/4 v3, 0x1
+
+    return v3
 
     nop
 

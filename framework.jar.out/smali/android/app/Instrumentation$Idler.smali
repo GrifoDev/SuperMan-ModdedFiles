@@ -59,7 +59,7 @@
     :try_start_0
     iput-boolean v0, p0, Landroid/app/Instrumentation$Idler;->mIdle:Z
 
-    invoke-virtual {p0}, Ljava/lang/Object;->notifyAll()V
+    invoke-virtual {p0}, Landroid/app/Instrumentation$Idler;->notifyAll()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -91,7 +91,7 @@
     if-nez v1, :cond_0
 
     :try_start_1
-    invoke-virtual {p0}, Ljava/lang/Object;->wait()V
+    invoke-virtual {p0}, Landroid/app/Instrumentation$Idler;->wait()V
     :try_end_1
     .catch Ljava/lang/InterruptedException; {:try_start_1 .. :try_end_1} :catch_0
     .catchall {:try_start_1 .. :try_end_1} :catchall_0

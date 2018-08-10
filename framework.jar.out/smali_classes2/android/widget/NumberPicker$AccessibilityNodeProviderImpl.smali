@@ -128,7 +128,7 @@
     :cond_1
     iget-object v5, p0, Landroid/widget/NumberPicker$AccessibilityNodeProviderImpl;->this$0:Landroid/widget/NumberPicker;
 
-    invoke-virtual {v5}, Landroid/view/View;->getParentForAccessibility()Landroid/view/ViewParent;
+    invoke-virtual {v5}, Landroid/widget/NumberPicker;->getParentForAccessibility()Landroid/view/ViewParent;
 
     move-result-object v5
 
@@ -138,7 +138,7 @@
 
     iget-object v5, p0, Landroid/widget/NumberPicker$AccessibilityNodeProviderImpl;->this$0:Landroid/widget/NumberPicker;
 
-    invoke-virtual {v5}, Landroid/view/View;->isEnabled()Z
+    invoke-virtual {v5}, Landroid/widget/NumberPicker;->isEnabled()Z
 
     move-result v5
 
@@ -148,7 +148,7 @@
 
     iget-object v5, p0, Landroid/widget/NumberPicker$AccessibilityNodeProviderImpl;->this$0:Landroid/widget/NumberPicker;
 
-    invoke-virtual {v5}, Landroid/view/View;->getContext()Landroid/content/Context;
+    invoke-virtual {v5}, Landroid/widget/NumberPicker;->getContext()Landroid/content/Context;
 
     move-result-object v5
 
@@ -184,7 +184,7 @@
 
     iget-object v5, p0, Landroid/widget/NumberPicker$AccessibilityNodeProviderImpl;->this$0:Landroid/widget/NumberPicker;
 
-    invoke-virtual {v5, v4}, Landroid/view/View;->getLocationOnScreen([I)V
+    invoke-virtual {v5, v4}, Landroid/widget/NumberPicker;->getLocationOnScreen([I)V
 
     const/4 v5, 0x0
 
@@ -218,7 +218,7 @@
     :cond_3
     iget-object v5, p0, Landroid/widget/NumberPicker$AccessibilityNodeProviderImpl;->this$0:Landroid/widget/NumberPicker;
 
-    invoke-virtual {v5}, Landroid/view/View;->isEnabled()Z
+    invoke-virtual {v5}, Landroid/widget/NumberPicker;->isEnabled()Z
 
     move-result v5
 
@@ -328,7 +328,7 @@
 
     iget-object v4, p0, Landroid/widget/NumberPicker$AccessibilityNodeProviderImpl;->this$0:Landroid/widget/NumberPicker;
 
-    invoke-virtual {v4}, Landroid/view/View;->isEnabled()Z
+    invoke-virtual {v4}, Landroid/widget/NumberPicker;->isEnabled()Z
 
     move-result v4
 
@@ -354,7 +354,7 @@
 
     iget-object v4, p0, Landroid/widget/NumberPicker$AccessibilityNodeProviderImpl;->this$0:Landroid/widget/NumberPicker;
 
-    invoke-virtual {v4, v3}, Landroid/view/View;->getLocationOnScreen([I)V
+    invoke-virtual {v4, v3}, Landroid/widget/NumberPicker;->getLocationOnScreen([I)V
 
     const/4 v4, 0x0
 
@@ -386,7 +386,7 @@
     :cond_1
     iget-object v4, p0, Landroid/widget/NumberPicker$AccessibilityNodeProviderImpl;->this$0:Landroid/widget/NumberPicker;
 
-    invoke-virtual {v4}, Landroid/view/View;->isEnabled()Z
+    invoke-virtual {v4}, Landroid/widget/NumberPicker;->isEnabled()Z
 
     move-result v4
 
@@ -411,7 +411,7 @@
 
     move-result-object v4
 
-    invoke-virtual {v4}, Landroid/view/View;->createAccessibilityNodeInfo()Landroid/view/accessibility/AccessibilityNodeInfo;
+    invoke-virtual {v4}, Landroid/widget/EditText;->createAccessibilityNodeInfo()Landroid/view/accessibility/AccessibilityNodeInfo;
 
     move-result-object v2
 
@@ -457,7 +457,7 @@
 
     iget-object v4, p0, Landroid/widget/NumberPicker$AccessibilityNodeProviderImpl;->this$0:Landroid/widget/NumberPicker;
 
-    invoke-virtual {v4, v3}, Landroid/view/View;->getLocationOnScreen([I)V
+    invoke-virtual {v4, v3}, Landroid/widget/NumberPicker;->getLocationOnScreen([I)V
 
     const/4 v4, 0x0
 
@@ -662,7 +662,7 @@
 
     iget-object v1, p0, Landroid/widget/NumberPicker$AccessibilityNodeProviderImpl;->this$0:Landroid/widget/NumberPicker;
 
-    invoke-static {v1}, Landroid/widget/NumberPicker;->-get18(Landroid/widget/NumberPicker;)I
+    invoke-static {v1}, Landroid/widget/NumberPicker;->-get19(Landroid/widget/NumberPicker;)I
 
     move-result v1
 
@@ -670,7 +670,7 @@
 
     iget-object v1, p0, Landroid/widget/NumberPicker$AccessibilityNodeProviderImpl;->this$0:Landroid/widget/NumberPicker;
 
-    invoke-static {v1}, Landroid/widget/NumberPicker;->-get19(Landroid/widget/NumberPicker;)Z
+    invoke-static {v1}, Landroid/widget/NumberPicker;->-get20(Landroid/widget/NumberPicker;)Z
 
     move-result v1
 
@@ -738,7 +738,7 @@
 
     iget-object v1, p0, Landroid/widget/NumberPicker$AccessibilityNodeProviderImpl;->this$0:Landroid/widget/NumberPicker;
 
-    invoke-static {v1}, Landroid/widget/NumberPicker;->-get18(Landroid/widget/NumberPicker;)I
+    invoke-static {v1}, Landroid/widget/NumberPicker;->-get19(Landroid/widget/NumberPicker;)I
 
     move-result v1
 
@@ -746,7 +746,7 @@
 
     iget-object v1, p0, Landroid/widget/NumberPicker$AccessibilityNodeProviderImpl;->this$0:Landroid/widget/NumberPicker;
 
-    invoke-static {v1}, Landroid/widget/NumberPicker;->-get19(Landroid/widget/NumberPicker;)Z
+    invoke-static {v1}, Landroid/widget/NumberPicker;->-get20(Landroid/widget/NumberPicker;)Z
 
     move-result v1
 
@@ -910,7 +910,7 @@
 
     move-result-object v1
 
-    invoke-virtual {v0, v1}, Landroid/view/accessibility/AccessibilityRecord;->setClassName(Ljava/lang/CharSequence;)V
+    invoke-virtual {v0, v1}, Landroid/view/accessibility/AccessibilityEvent;->setClassName(Ljava/lang/CharSequence;)V
 
     iget-object v1, p0, Landroid/widget/NumberPicker$AccessibilityNodeProviderImpl;->this$0:Landroid/widget/NumberPicker;
 
@@ -924,7 +924,7 @@
 
     invoke-virtual {v0, v1}, Landroid/view/accessibility/AccessibilityEvent;->setPackageName(Ljava/lang/CharSequence;)V
 
-    invoke-virtual {v0}, Landroid/view/accessibility/AccessibilityRecord;->getText()Ljava/util/List;
+    invoke-virtual {v0}, Landroid/view/accessibility/AccessibilityEvent;->getText()Ljava/util/List;
 
     move-result-object v1
 
@@ -932,21 +932,21 @@
 
     iget-object v1, p0, Landroid/widget/NumberPicker$AccessibilityNodeProviderImpl;->this$0:Landroid/widget/NumberPicker;
 
-    invoke-virtual {v1}, Landroid/view/View;->isEnabled()Z
+    invoke-virtual {v1}, Landroid/widget/NumberPicker;->isEnabled()Z
 
     move-result v1
 
-    invoke-virtual {v0, v1}, Landroid/view/accessibility/AccessibilityRecord;->setEnabled(Z)V
+    invoke-virtual {v0, v1}, Landroid/view/accessibility/AccessibilityEvent;->setEnabled(Z)V
 
     iget-object v1, p0, Landroid/widget/NumberPicker$AccessibilityNodeProviderImpl;->this$0:Landroid/widget/NumberPicker;
 
-    invoke-virtual {v0, v1, p1}, Landroid/view/accessibility/AccessibilityRecord;->setSource(Landroid/view/View;I)V
+    invoke-virtual {v0, v1, p1}, Landroid/view/accessibility/AccessibilityEvent;->setSource(Landroid/view/View;I)V
 
     iget-object v1, p0, Landroid/widget/NumberPicker$AccessibilityNodeProviderImpl;->this$0:Landroid/widget/NumberPicker;
 
     iget-object v2, p0, Landroid/widget/NumberPicker$AccessibilityNodeProviderImpl;->this$0:Landroid/widget/NumberPicker;
 
-    invoke-virtual {v1, v2, v0}, Landroid/view/ViewGroup;->requestSendAccessibilityEvent(Landroid/view/View;Landroid/view/accessibility/AccessibilityEvent;)Z
+    invoke-virtual {v1, v2, v0}, Landroid/widget/NumberPicker;->requestSendAccessibilityEvent(Landroid/view/View;Landroid/view/accessibility/AccessibilityEvent;)Z
 
     :cond_0
     return-void
@@ -981,7 +981,7 @@
 
     move-result-object v1
 
-    invoke-virtual {v1, v0}, Landroid/view/View;->onInitializeAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)V
+    invoke-virtual {v1, v0}, Landroid/widget/EditText;->onInitializeAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)V
 
     iget-object v1, p0, Landroid/widget/NumberPicker$AccessibilityNodeProviderImpl;->this$0:Landroid/widget/NumberPicker;
 
@@ -989,19 +989,19 @@
 
     move-result-object v1
 
-    invoke-virtual {v1, v0}, Landroid/view/View;->onPopulateAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)V
+    invoke-virtual {v1, v0}, Landroid/widget/EditText;->onPopulateAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)V
 
     iget-object v1, p0, Landroid/widget/NumberPicker$AccessibilityNodeProviderImpl;->this$0:Landroid/widget/NumberPicker;
 
     const/4 v2, 0x2
 
-    invoke-virtual {v0, v1, v2}, Landroid/view/accessibility/AccessibilityRecord;->setSource(Landroid/view/View;I)V
+    invoke-virtual {v0, v1, v2}, Landroid/view/accessibility/AccessibilityEvent;->setSource(Landroid/view/View;I)V
 
     iget-object v1, p0, Landroid/widget/NumberPicker$AccessibilityNodeProviderImpl;->this$0:Landroid/widget/NumberPicker;
 
     iget-object v2, p0, Landroid/widget/NumberPicker$AccessibilityNodeProviderImpl;->this$0:Landroid/widget/NumberPicker;
 
-    invoke-virtual {v1, v2, v0}, Landroid/view/ViewGroup;->requestSendAccessibilityEvent(Landroid/view/View;Landroid/view/accessibility/AccessibilityEvent;)Z
+    invoke-virtual {v1, v2, v0}, Landroid/widget/NumberPicker;->requestSendAccessibilityEvent(Landroid/view/View;Landroid/view/accessibility/AccessibilityEvent;)Z
 
     :cond_0
     return-void
@@ -1070,7 +1070,7 @@
 
     iget-object v5, p0, Landroid/widget/NumberPicker$AccessibilityNodeProviderImpl;->this$0:Landroid/widget/NumberPicker;
 
-    invoke-static {v5}, Landroid/widget/NumberPicker;->-get16(Landroid/widget/NumberPicker;)I
+    invoke-static {v5}, Landroid/widget/NumberPicker;->-get17(Landroid/widget/NumberPicker;)I
 
     move-result v5
 
@@ -1125,7 +1125,7 @@
 
     iget-object v0, p0, Landroid/widget/NumberPicker$AccessibilityNodeProviderImpl;->this$0:Landroid/widget/NumberPicker;
 
-    invoke-static {v0}, Landroid/widget/NumberPicker;->-get17(Landroid/widget/NumberPicker;)I
+    invoke-static {v0}, Landroid/widget/NumberPicker;->-get18(Landroid/widget/NumberPicker;)I
 
     move-result v0
 
@@ -1156,7 +1156,7 @@
 
     iget-object v1, p0, Landroid/widget/NumberPicker$AccessibilityNodeProviderImpl;->this$0:Landroid/widget/NumberPicker;
 
-    invoke-static {v1}, Landroid/widget/NumberPicker;->-get17(Landroid/widget/NumberPicker;)I
+    invoke-static {v1}, Landroid/widget/NumberPicker;->-get18(Landroid/widget/NumberPicker;)I
 
     move-result v1
 
@@ -1271,7 +1271,7 @@
 
     iget-object v6, p0, Landroid/widget/NumberPicker$AccessibilityNodeProviderImpl;->this$0:Landroid/widget/NumberPicker;
 
-    invoke-static {v6}, Landroid/widget/NumberPicker;->-get16(Landroid/widget/NumberPicker;)I
+    invoke-static {v6}, Landroid/widget/NumberPicker;->-get17(Landroid/widget/NumberPicker;)I
 
     move-result v6
 
@@ -1414,7 +1414,7 @@
 
     iget-object v1, p0, Landroid/widget/NumberPicker$AccessibilityNodeProviderImpl;->this$0:Landroid/widget/NumberPicker;
 
-    invoke-virtual {v1}, Landroid/view/View;->requestAccessibilityFocus()Z
+    invoke-virtual {v1}, Landroid/widget/NumberPicker;->requestAccessibilityFocus()Z
 
     return v6
 
@@ -1430,7 +1430,7 @@
 
     iget-object v1, p0, Landroid/widget/NumberPicker$AccessibilityNodeProviderImpl;->this$0:Landroid/widget/NumberPicker;
 
-    invoke-virtual {v1}, Landroid/view/View;->clearAccessibilityFocus()V
+    invoke-virtual {v1}, Landroid/widget/NumberPicker;->clearAccessibilityFocus()V
 
     return v6
 
@@ -1440,7 +1440,7 @@
     :sswitch_2
     iget-object v1, p0, Landroid/widget/NumberPicker$AccessibilityNodeProviderImpl;->this$0:Landroid/widget/NumberPicker;
 
-    invoke-virtual {v1}, Landroid/view/View;->isEnabled()Z
+    invoke-virtual {v1}, Landroid/widget/NumberPicker;->isEnabled()Z
 
     move-result v1
 
@@ -1481,7 +1481,7 @@
     :sswitch_3
     iget-object v1, p0, Landroid/widget/NumberPicker$AccessibilityNodeProviderImpl;->this$0:Landroid/widget/NumberPicker;
 
-    invoke-virtual {v1}, Landroid/view/View;->isEnabled()Z
+    invoke-virtual {v1}, Landroid/widget/NumberPicker;->isEnabled()Z
 
     move-result v1
 
@@ -1528,7 +1528,7 @@
 
     move-result-object v1
 
-    invoke-virtual {v1, p2, p3}, Landroid/view/View;->performAccessibilityAction(ILandroid/os/Bundle;)Z
+    invoke-virtual {v1, p2, p3}, Landroid/widget/EditText;->performAccessibilityAction(ILandroid/os/Bundle;)Z
 
     move-result v1
 
@@ -1537,7 +1537,42 @@
     :sswitch_4
     iget-object v1, p0, Landroid/widget/NumberPicker$AccessibilityNodeProviderImpl;->this$0:Landroid/widget/NumberPicker;
 
-    invoke-virtual {v1}, Landroid/view/View;->isEnabled()Z
+    invoke-virtual {v1}, Landroid/widget/NumberPicker;->isEnabled()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_b
+
+    iget-object v1, p0, Landroid/widget/NumberPicker$AccessibilityNodeProviderImpl;->this$0:Landroid/widget/NumberPicker;
+
+    invoke-static {v1}, Landroid/widget/NumberPicker;->-get7(Landroid/widget/NumberPicker;)Landroid/widget/EditText;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/widget/EditText;->isFocused()Z
+
+    move-result v1
+
+    xor-int/lit8 v1, v1, 0x1
+
+    if-eqz v1, :cond_b
+
+    iget-object v1, p0, Landroid/widget/NumberPicker$AccessibilityNodeProviderImpl;->this$0:Landroid/widget/NumberPicker;
+
+    invoke-static {v1}, Landroid/widget/NumberPicker;->-get7(Landroid/widget/NumberPicker;)Landroid/widget/EditText;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/widget/EditText;->requestFocus()Z
+
+    move-result v1
+
+    return v1
+
+    :sswitch_5
+    iget-object v1, p0, Landroid/widget/NumberPicker$AccessibilityNodeProviderImpl;->this$0:Landroid/widget/NumberPicker;
+
+    invoke-virtual {v1}, Landroid/widget/NumberPicker;->isEnabled()Z
 
     move-result v1
 
@@ -1549,36 +1584,11 @@
 
     move-result-object v1
 
-    invoke-virtual {v1}, Landroid/view/View;->isFocused()Z
+    invoke-virtual {v1}, Landroid/widget/EditText;->isFocused()Z
 
     move-result v1
 
-    if-eqz v1, :cond_7
-
-    :cond_6
-    return v5
-
-    :cond_7
-    iget-object v1, p0, Landroid/widget/NumberPicker$AccessibilityNodeProviderImpl;->this$0:Landroid/widget/NumberPicker;
-
-    invoke-static {v1}, Landroid/widget/NumberPicker;->-get7(Landroid/widget/NumberPicker;)Landroid/widget/EditText;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Landroid/view/View;->requestFocus()Z
-
-    move-result v1
-
-    return v1
-
-    :sswitch_5
-    iget-object v1, p0, Landroid/widget/NumberPicker$AccessibilityNodeProviderImpl;->this$0:Landroid/widget/NumberPicker;
-
-    invoke-virtual {v1}, Landroid/view/View;->isEnabled()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_8
+    if-eqz v1, :cond_6
 
     iget-object v1, p0, Landroid/widget/NumberPicker$AccessibilityNodeProviderImpl;->this$0:Landroid/widget/NumberPicker;
 
@@ -1586,33 +1596,21 @@
 
     move-result-object v1
 
-    invoke-virtual {v1}, Landroid/view/View;->isFocused()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_8
-
-    iget-object v1, p0, Landroid/widget/NumberPicker$AccessibilityNodeProviderImpl;->this$0:Landroid/widget/NumberPicker;
-
-    invoke-static {v1}, Landroid/widget/NumberPicker;->-get7(Landroid/widget/NumberPicker;)Landroid/widget/EditText;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Landroid/view/View;->clearFocus()V
+    invoke-virtual {v1}, Landroid/widget/EditText;->clearFocus()V
 
     return v6
 
-    :cond_8
+    :cond_6
     return v5
 
     :sswitch_6
     iget-object v1, p0, Landroid/widget/NumberPicker$AccessibilityNodeProviderImpl;->this$0:Landroid/widget/NumberPicker;
 
-    invoke-virtual {v1}, Landroid/view/View;->isEnabled()Z
+    invoke-virtual {v1}, Landroid/widget/NumberPicker;->isEnabled()Z
 
     move-result v1
 
-    if-eqz v1, :cond_9
+    if-eqz v1, :cond_7
 
     iget-object v1, p0, Landroid/widget/NumberPicker$AccessibilityNodeProviderImpl;->this$0:Landroid/widget/NumberPicker;
 
@@ -1620,17 +1618,17 @@
 
     return v6
 
-    :cond_9
+    :cond_7
     return v5
 
     :sswitch_7
     iget-object v1, p0, Landroid/widget/NumberPicker$AccessibilityNodeProviderImpl;->this$0:Landroid/widget/NumberPicker;
 
-    invoke-virtual {v1}, Landroid/view/View;->isEnabled()Z
+    invoke-virtual {v1}, Landroid/widget/NumberPicker;->isEnabled()Z
 
     move-result v1
 
-    if-eqz v1, :cond_a
+    if-eqz v1, :cond_8
 
     iget-object v1, p0, Landroid/widget/NumberPicker$AccessibilityNodeProviderImpl;->this$0:Landroid/widget/NumberPicker;
 
@@ -1638,13 +1636,13 @@
 
     return v6
 
-    :cond_a
+    :cond_8
     return v5
 
     :sswitch_8
     iget v1, p0, Landroid/widget/NumberPicker$AccessibilityNodeProviderImpl;->mAccessibilityFocusedView:I
 
-    if-eq v1, p1, :cond_b
+    if-eq v1, p1, :cond_9
 
     iput p1, p0, Landroid/widget/NumberPicker$AccessibilityNodeProviderImpl;->mAccessibilityFocusedView:I
 
@@ -1656,17 +1654,17 @@
 
     move-result-object v1
 
-    invoke-virtual {v1}, Landroid/view/View;->invalidate()V
+    invoke-virtual {v1}, Landroid/widget/EditText;->invalidate()V
 
     return v6
 
-    :cond_b
+    :cond_9
     return v5
 
     :sswitch_9
     iget v1, p0, Landroid/widget/NumberPicker$AccessibilityNodeProviderImpl;->mAccessibilityFocusedView:I
 
-    if-ne v1, p1, :cond_c
+    if-ne v1, p1, :cond_a
 
     iput v2, p0, Landroid/widget/NumberPicker$AccessibilityNodeProviderImpl;->mAccessibilityFocusedView:I
 
@@ -1678,11 +1676,14 @@
 
     move-result-object v1
 
-    invoke-virtual {v1}, Landroid/view/View;->invalidate()V
+    invoke-virtual {v1}, Landroid/widget/EditText;->invalidate()V
 
     return v6
 
-    :cond_c
+    :cond_a
+    return v5
+
+    :cond_b
     return v5
 
     :pswitch_3
@@ -1693,11 +1694,11 @@
     :sswitch_a
     iget-object v1, p0, Landroid/widget/NumberPicker$AccessibilityNodeProviderImpl;->this$0:Landroid/widget/NumberPicker;
 
-    invoke-virtual {v1}, Landroid/view/View;->isEnabled()Z
+    invoke-virtual {v1}, Landroid/widget/NumberPicker;->isEnabled()Z
 
     move-result v1
 
-    if-eqz v1, :cond_d
+    if-eqz v1, :cond_c
 
     iget-object v1, p0, Landroid/widget/NumberPicker$AccessibilityNodeProviderImpl;->this$0:Landroid/widget/NumberPicker;
 
@@ -1707,13 +1708,13 @@
 
     return v6
 
-    :cond_d
+    :cond_c
     return v5
 
     :sswitch_b
     iget v1, p0, Landroid/widget/NumberPicker$AccessibilityNodeProviderImpl;->mAccessibilityFocusedView:I
 
-    if-eq v1, p1, :cond_e
+    if-eq v1, p1, :cond_d
 
     iput p1, p0, Landroid/widget/NumberPicker$AccessibilityNodeProviderImpl;->mAccessibilityFocusedView:I
 
@@ -1739,17 +1740,17 @@
 
     move-result v4
 
-    invoke-virtual {v1, v5, v2, v3, v4}, Landroid/view/View;->invalidate(IIII)V
+    invoke-virtual {v1, v5, v2, v3, v4}, Landroid/widget/NumberPicker;->invalidate(IIII)V
 
     return v6
 
-    :cond_e
+    :cond_d
     return v5
 
     :sswitch_c
     iget v1, p0, Landroid/widget/NumberPicker$AccessibilityNodeProviderImpl;->mAccessibilityFocusedView:I
 
-    if-ne v1, p1, :cond_f
+    if-ne v1, p1, :cond_e
 
     iput v2, p0, Landroid/widget/NumberPicker$AccessibilityNodeProviderImpl;->mAccessibilityFocusedView:I
 
@@ -1775,11 +1776,11 @@
 
     move-result v4
 
-    invoke-virtual {v1, v5, v2, v3, v4}, Landroid/view/View;->invalidate(IIII)V
+    invoke-virtual {v1, v5, v2, v3, v4}, Landroid/widget/NumberPicker;->invalidate(IIII)V
 
     return v6
 
-    :cond_f
+    :cond_e
     return v5
 
     :pswitch_4
@@ -1790,13 +1791,13 @@
     :sswitch_d
     iget-object v1, p0, Landroid/widget/NumberPicker$AccessibilityNodeProviderImpl;->this$0:Landroid/widget/NumberPicker;
 
-    invoke-virtual {v1}, Landroid/view/View;->isEnabled()Z
+    invoke-virtual {v1}, Landroid/widget/NumberPicker;->isEnabled()Z
 
     move-result v1
 
-    if-eqz v1, :cond_11
+    if-eqz v1, :cond_10
 
-    if-ne p1, v6, :cond_10
+    if-ne p1, v6, :cond_f
 
     const/4 v0, 0x1
 
@@ -1809,18 +1810,18 @@
 
     return v6
 
-    :cond_10
+    :cond_f
     const/4 v0, 0x0
 
     goto :goto_1
 
-    :cond_11
+    :cond_10
     return v5
 
     :sswitch_e
     iget v1, p0, Landroid/widget/NumberPicker$AccessibilityNodeProviderImpl;->mAccessibilityFocusedView:I
 
-    if-eq v1, p1, :cond_12
+    if-eq v1, p1, :cond_11
 
     iput p1, p0, Landroid/widget/NumberPicker$AccessibilityNodeProviderImpl;->mAccessibilityFocusedView:I
 
@@ -1836,21 +1837,21 @@
 
     iget-object v3, p0, Landroid/widget/NumberPicker$AccessibilityNodeProviderImpl;->this$0:Landroid/widget/NumberPicker;
 
-    invoke-static {v3}, Landroid/widget/NumberPicker;->-get17(Landroid/widget/NumberPicker;)I
+    invoke-static {v3}, Landroid/widget/NumberPicker;->-get18(Landroid/widget/NumberPicker;)I
 
     move-result v3
 
-    invoke-virtual {v1, v5, v5, v2, v3}, Landroid/view/View;->invalidate(IIII)V
+    invoke-virtual {v1, v5, v5, v2, v3}, Landroid/widget/NumberPicker;->invalidate(IIII)V
 
     return v6
 
-    :cond_12
+    :cond_11
     return v5
 
     :sswitch_f
     iget v1, p0, Landroid/widget/NumberPicker$AccessibilityNodeProviderImpl;->mAccessibilityFocusedView:I
 
-    if-ne v1, p1, :cond_13
+    if-ne v1, p1, :cond_12
 
     iput v2, p0, Landroid/widget/NumberPicker$AccessibilityNodeProviderImpl;->mAccessibilityFocusedView:I
 
@@ -1866,15 +1867,15 @@
 
     iget-object v3, p0, Landroid/widget/NumberPicker$AccessibilityNodeProviderImpl;->this$0:Landroid/widget/NumberPicker;
 
-    invoke-static {v3}, Landroid/widget/NumberPicker;->-get17(Landroid/widget/NumberPicker;)I
+    invoke-static {v3}, Landroid/widget/NumberPicker;->-get18(Landroid/widget/NumberPicker;)I
 
     move-result v3
 
-    invoke-virtual {v1, v5, v5, v2, v3}, Landroid/view/View;->invalidate(IIII)V
+    invoke-virtual {v1, v5, v5, v2, v3}, Landroid/widget/NumberPicker;->invalidate(IIII)V
 
     return v6
 
-    :cond_13
+    :cond_12
     return v5
 
     nop

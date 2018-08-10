@@ -75,7 +75,7 @@
 
     iget-object v3, p0, Landroid/app/ISearchManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/4 v4, 0x4
+    const/4 v4, 0x3
 
     const/4 v5, 0x0
 
@@ -130,7 +130,7 @@
 
     iget-object v3, p0, Landroid/app/ISearchManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/4 v4, 0x5
+    const/4 v4, 0x4
 
     const/4 v5, 0x0
 
@@ -381,7 +381,7 @@
 
     iget-object v3, p0, Landroid/app/ISearchManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/4 v4, 0x3
+    const/16 v4, 0x8
 
     const/4 v5, 0x0
 
@@ -436,7 +436,7 @@
 
     iget-object v3, p0, Landroid/app/ISearchManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/4 v4, 0x6
+    const/4 v4, 0x5
 
     const/4 v5, 0x0
 
@@ -516,7 +516,7 @@
     :goto_0
     iget-object v2, p0, Landroid/app/ISearchManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/4 v3, 0x7
+    const/4 v3, 0x6
 
     const/4 v4, 0x0
 
@@ -590,7 +590,7 @@
     :goto_0
     iget-object v3, p0, Landroid/app/ISearchManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x8
+    const/4 v4, 0x7
 
     const/4 v5, 0x0
 

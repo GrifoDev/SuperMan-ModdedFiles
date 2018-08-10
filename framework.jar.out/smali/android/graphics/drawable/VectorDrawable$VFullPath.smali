@@ -15,13 +15,46 @@
 
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Landroid/graphics/drawable/VectorDrawable$VFullPath$1;
+        Landroid/graphics/drawable/VectorDrawable$VFullPath$10;,
+        Landroid/graphics/drawable/VectorDrawable$VFullPath$1;,
+        Landroid/graphics/drawable/VectorDrawable$VFullPath$2;,
+        Landroid/graphics/drawable/VectorDrawable$VFullPath$3;,
+        Landroid/graphics/drawable/VectorDrawable$VFullPath$4;,
+        Landroid/graphics/drawable/VectorDrawable$VFullPath$5;,
+        Landroid/graphics/drawable/VectorDrawable$VFullPath$6;,
+        Landroid/graphics/drawable/VectorDrawable$VFullPath$7;,
+        Landroid/graphics/drawable/VectorDrawable$VFullPath$8;,
+        Landroid/graphics/drawable/VectorDrawable$VFullPath$9;
     }
 .end annotation
 
 
 # static fields
+.field private static final FILL_ALPHA:Landroid/util/Property;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Landroid/util/Property",
+            "<",
+            "Landroid/graphics/drawable/VectorDrawable$VFullPath;",
+            "Ljava/lang/Float;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 .field private static final FILL_ALPHA_INDEX:I = 0x4
+
+.field private static final FILL_COLOR:Landroid/util/Property;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Landroid/util/Property",
+            "<",
+            "Landroid/graphics/drawable/VectorDrawable$VFullPath;",
+            "Ljava/lang/Integer;",
+            ">;"
+        }
+    .end annotation
+.end field
 
 .field private static final FILL_COLOR_INDEX:I = 0x3
 
@@ -29,7 +62,31 @@
 
 .field private static final NATIVE_ALLOCATION_SIZE:I = 0x108
 
+.field private static final STROKE_ALPHA:Landroid/util/Property;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Landroid/util/Property",
+            "<",
+            "Landroid/graphics/drawable/VectorDrawable$VFullPath;",
+            "Ljava/lang/Float;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 .field private static final STROKE_ALPHA_INDEX:I = 0x2
+
+.field private static final STROKE_COLOR:Landroid/util/Property;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Landroid/util/Property",
+            "<",
+            "Landroid/graphics/drawable/VectorDrawable$VFullPath;",
+            "Ljava/lang/Integer;",
+            ">;"
+        }
+    .end annotation
+.end field
 
 .field private static final STROKE_COLOR_INDEX:I = 0x1
 
@@ -39,15 +96,75 @@
 
 .field private static final STROKE_MITER_LIMIT_INDEX:I = 0xa
 
+.field private static final STROKE_WIDTH:Landroid/util/Property;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Landroid/util/Property",
+            "<",
+            "Landroid/graphics/drawable/VectorDrawable$VFullPath;",
+            "Ljava/lang/Float;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 .field private static final STROKE_WIDTH_INDEX:I = 0x0
 
 .field private static final TOTAL_PROPERTY_COUNT:I = 0xc
 
+.field private static final TRIM_PATH_END:Landroid/util/Property;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Landroid/util/Property",
+            "<",
+            "Landroid/graphics/drawable/VectorDrawable$VFullPath;",
+            "Ljava/lang/Float;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 .field private static final TRIM_PATH_END_INDEX:I = 0x6
+
+.field private static final TRIM_PATH_OFFSET:Landroid/util/Property;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Landroid/util/Property",
+            "<",
+            "Landroid/graphics/drawable/VectorDrawable$VFullPath;",
+            "Ljava/lang/Float;",
+            ">;"
+        }
+    .end annotation
+.end field
 
 .field private static final TRIM_PATH_OFFSET_INDEX:I = 0x7
 
+.field private static final TRIM_PATH_START:Landroid/util/Property;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Landroid/util/Property",
+            "<",
+            "Landroid/graphics/drawable/VectorDrawable$VFullPath;",
+            "Ljava/lang/Float;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 .field private static final TRIM_PATH_START_INDEX:I = 0x5
+
+.field private static final sPropertyIndexMap:Ljava/util/HashMap;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/HashMap",
+            "<",
+            "Ljava/lang/String;",
+            "Ljava/lang/Integer;",
+            ">;"
+        }
+    .end annotation
+.end field
 
 .field private static final sPropertyMap:Ljava/util/HashMap;
     .annotation system Ldalvik/annotation/Signature;
@@ -55,7 +172,7 @@
             "Ljava/util/HashMap",
             "<",
             "Ljava/lang/String;",
-            "Ljava/lang/Integer;",
+            "Landroid/util/Property;",
             ">;"
         }
     .end annotation
@@ -75,12 +192,146 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method static synthetic -get0()Landroid/util/Property;
     .locals 1
+
+    sget-object v0, Landroid/graphics/drawable/VectorDrawable$VFullPath;->FILL_ALPHA:Landroid/util/Property;
+
+    return-object v0
+.end method
+
+.method static synthetic -get1()Landroid/util/Property;
+    .locals 1
+
+    sget-object v0, Landroid/graphics/drawable/VectorDrawable$VFullPath;->FILL_COLOR:Landroid/util/Property;
+
+    return-object v0
+.end method
+
+.method static synthetic -get2()Landroid/util/Property;
+    .locals 1
+
+    sget-object v0, Landroid/graphics/drawable/VectorDrawable$VFullPath;->STROKE_ALPHA:Landroid/util/Property;
+
+    return-object v0
+.end method
+
+.method static synthetic -get3()Landroid/util/Property;
+    .locals 1
+
+    sget-object v0, Landroid/graphics/drawable/VectorDrawable$VFullPath;->STROKE_COLOR:Landroid/util/Property;
+
+    return-object v0
+.end method
+
+.method static synthetic -get4()Landroid/util/Property;
+    .locals 1
+
+    sget-object v0, Landroid/graphics/drawable/VectorDrawable$VFullPath;->STROKE_WIDTH:Landroid/util/Property;
+
+    return-object v0
+.end method
+
+.method static synthetic -get5()Landroid/util/Property;
+    .locals 1
+
+    sget-object v0, Landroid/graphics/drawable/VectorDrawable$VFullPath;->TRIM_PATH_END:Landroid/util/Property;
+
+    return-object v0
+.end method
+
+.method static synthetic -get6()Landroid/util/Property;
+    .locals 1
+
+    sget-object v0, Landroid/graphics/drawable/VectorDrawable$VFullPath;->TRIM_PATH_OFFSET:Landroid/util/Property;
+
+    return-object v0
+.end method
+
+.method static synthetic -get7()Landroid/util/Property;
+    .locals 1
+
+    sget-object v0, Landroid/graphics/drawable/VectorDrawable$VFullPath;->TRIM_PATH_START:Landroid/util/Property;
+
+    return-object v0
+.end method
+
+.method static constructor <clinit>()V
+    .locals 2
 
     new-instance v0, Landroid/graphics/drawable/VectorDrawable$VFullPath$1;
 
     invoke-direct {v0}, Landroid/graphics/drawable/VectorDrawable$VFullPath$1;-><init>()V
+
+    sput-object v0, Landroid/graphics/drawable/VectorDrawable$VFullPath;->sPropertyIndexMap:Ljava/util/HashMap;
+
+    new-instance v0, Landroid/graphics/drawable/VectorDrawable$VFullPath$2;
+
+    const-string/jumbo v1, "strokeWidth"
+
+    invoke-direct {v0, v1}, Landroid/graphics/drawable/VectorDrawable$VFullPath$2;-><init>(Ljava/lang/String;)V
+
+    sput-object v0, Landroid/graphics/drawable/VectorDrawable$VFullPath;->STROKE_WIDTH:Landroid/util/Property;
+
+    new-instance v0, Landroid/graphics/drawable/VectorDrawable$VFullPath$3;
+
+    const-string/jumbo v1, "strokeColor"
+
+    invoke-direct {v0, v1}, Landroid/graphics/drawable/VectorDrawable$VFullPath$3;-><init>(Ljava/lang/String;)V
+
+    sput-object v0, Landroid/graphics/drawable/VectorDrawable$VFullPath;->STROKE_COLOR:Landroid/util/Property;
+
+    new-instance v0, Landroid/graphics/drawable/VectorDrawable$VFullPath$4;
+
+    const-string/jumbo v1, "strokeAlpha"
+
+    invoke-direct {v0, v1}, Landroid/graphics/drawable/VectorDrawable$VFullPath$4;-><init>(Ljava/lang/String;)V
+
+    sput-object v0, Landroid/graphics/drawable/VectorDrawable$VFullPath;->STROKE_ALPHA:Landroid/util/Property;
+
+    new-instance v0, Landroid/graphics/drawable/VectorDrawable$VFullPath$5;
+
+    const-string/jumbo v1, "fillColor"
+
+    invoke-direct {v0, v1}, Landroid/graphics/drawable/VectorDrawable$VFullPath$5;-><init>(Ljava/lang/String;)V
+
+    sput-object v0, Landroid/graphics/drawable/VectorDrawable$VFullPath;->FILL_COLOR:Landroid/util/Property;
+
+    new-instance v0, Landroid/graphics/drawable/VectorDrawable$VFullPath$6;
+
+    const-string/jumbo v1, "fillAlpha"
+
+    invoke-direct {v0, v1}, Landroid/graphics/drawable/VectorDrawable$VFullPath$6;-><init>(Ljava/lang/String;)V
+
+    sput-object v0, Landroid/graphics/drawable/VectorDrawable$VFullPath;->FILL_ALPHA:Landroid/util/Property;
+
+    new-instance v0, Landroid/graphics/drawable/VectorDrawable$VFullPath$7;
+
+    const-string/jumbo v1, "trimPathStart"
+
+    invoke-direct {v0, v1}, Landroid/graphics/drawable/VectorDrawable$VFullPath$7;-><init>(Ljava/lang/String;)V
+
+    sput-object v0, Landroid/graphics/drawable/VectorDrawable$VFullPath;->TRIM_PATH_START:Landroid/util/Property;
+
+    new-instance v0, Landroid/graphics/drawable/VectorDrawable$VFullPath$8;
+
+    const-string/jumbo v1, "trimPathEnd"
+
+    invoke-direct {v0, v1}, Landroid/graphics/drawable/VectorDrawable$VFullPath$8;-><init>(Ljava/lang/String;)V
+
+    sput-object v0, Landroid/graphics/drawable/VectorDrawable$VFullPath;->TRIM_PATH_END:Landroid/util/Property;
+
+    new-instance v0, Landroid/graphics/drawable/VectorDrawable$VFullPath$9;
+
+    const-string/jumbo v1, "trimPathOffset"
+
+    invoke-direct {v0, v1}, Landroid/graphics/drawable/VectorDrawable$VFullPath$9;-><init>(Ljava/lang/String;)V
+
+    sput-object v0, Landroid/graphics/drawable/VectorDrawable$VFullPath;->TRIM_PATH_OFFSET:Landroid/util/Property;
+
+    new-instance v0, Landroid/graphics/drawable/VectorDrawable$VFullPath$10;
+
+    invoke-direct {v0}, Landroid/graphics/drawable/VectorDrawable$VFullPath$10;-><init>()V
 
     sput-object v0, Landroid/graphics/drawable/VectorDrawable$VFullPath;->sPropertyMap:Ljava/util/HashMap;
 
@@ -909,10 +1160,46 @@
     return v0
 .end method
 
+.method getProperty(Ljava/lang/String;)Landroid/util/Property;
+    .locals 3
+
+    const/4 v2, 0x0
+
+    invoke-super {p0, p1}, Landroid/graphics/drawable/VectorDrawable$VPath;->getProperty(Ljava/lang/String;)Landroid/util/Property;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    return-object v0
+
+    :cond_0
+    sget-object v1, Landroid/graphics/drawable/VectorDrawable$VFullPath;->sPropertyMap:Ljava/util/HashMap;
+
+    invoke-virtual {v1, p1}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    sget-object v1, Landroid/graphics/drawable/VectorDrawable$VFullPath;->sPropertyMap:Ljava/util/HashMap;
+
+    invoke-virtual {v1, p1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/util/Property;
+
+    return-object v1
+
+    :cond_1
+    return-object v2
+.end method
+
 .method getPropertyIndex(Ljava/lang/String;)I
     .locals 1
 
-    sget-object v0, Landroid/graphics/drawable/VectorDrawable$VFullPath;->sPropertyMap:Ljava/util/HashMap;
+    sget-object v0, Landroid/graphics/drawable/VectorDrawable$VFullPath;->sPropertyIndexMap:Ljava/util/HashMap;
 
     invoke-virtual {v0, p1}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z
 
@@ -925,7 +1212,7 @@
     return v0
 
     :cond_0
-    sget-object v0, Landroid/graphics/drawable/VectorDrawable$VFullPath;->sPropertyMap:Ljava/util/HashMap;
+    sget-object v0, Landroid/graphics/drawable/VectorDrawable$VFullPath;->sPropertyIndexMap:Ljava/util/HashMap;
 
     invoke-virtual {v0, p1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -1080,6 +1367,63 @@
 
     :cond_0
     const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
+.method public hasFocusStateSpecified()Z
+    .locals 2
+
+    const/4 v1, 0x0
+
+    iget-object v0, p0, Landroid/graphics/drawable/VectorDrawable$VFullPath;->mStrokeColors:Landroid/content/res/ComplexColor;
+
+    if-eqz v0, :cond_1
+
+    iget-object v0, p0, Landroid/graphics/drawable/VectorDrawable$VFullPath;->mStrokeColors:Landroid/content/res/ComplexColor;
+
+    instance-of v0, v0, Landroid/content/res/ColorStateList;
+
+    if-eqz v0, :cond_1
+
+    iget-object v0, p0, Landroid/graphics/drawable/VectorDrawable$VFullPath;->mStrokeColors:Landroid/content/res/ComplexColor;
+
+    check-cast v0, Landroid/content/res/ColorStateList;
+
+    invoke-virtual {v0}, Landroid/content/res/ColorStateList;->hasFocusStateSpecified()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    iget-object v0, p0, Landroid/graphics/drawable/VectorDrawable$VFullPath;->mFillColors:Landroid/content/res/ComplexColor;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Landroid/graphics/drawable/VectorDrawable$VFullPath;->mFillColors:Landroid/content/res/ComplexColor;
+
+    instance-of v0, v0, Landroid/content/res/ColorStateList;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Landroid/graphics/drawable/VectorDrawable$VFullPath;->mFillColors:Landroid/content/res/ComplexColor;
+
+    check-cast v0, Landroid/content/res/ColorStateList;
+
+    invoke-virtual {v0}, Landroid/content/res/ColorStateList;->hasFocusStateSpecified()Z
+
+    move-result v0
+
+    :goto_0
+    return v0
+
+    :cond_0
+    move v0, v1
+
+    goto :goto_0
+
+    :cond_1
+    move v0, v1
 
     goto :goto_0
 .end method

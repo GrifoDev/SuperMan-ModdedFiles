@@ -50,6 +50,8 @@
     .end annotation
 .end field
 
+.field private mVendorId:J
+
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Landroid/hardware/camera2/utils/TypeReference;)V
@@ -64,6 +66,10 @@
     .end annotation
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    const-wide v0, 0x7fffffffffffffffL
+
+    iput-wide v0, p0, Landroid/hardware/camera2/impl/CameraMetadataNative$Key;->mVendorId:J
 
     if-nez p1, :cond_0
 
@@ -129,6 +135,10 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    const-wide v0, 0x7fffffffffffffffL
+
+    iput-wide v0, p0, Landroid/hardware/camera2/impl/CameraMetadataNative$Key;->mVendorId:J
+
     if-nez p1, :cond_0
 
     new-instance v0, Ljava/lang/NullPointerException;
@@ -154,6 +164,76 @@
     iput-object p1, p0, Landroid/hardware/camera2/impl/CameraMetadataNative$Key;->mName:Ljava/lang/String;
 
     iput-object p2, p0, Landroid/hardware/camera2/impl/CameraMetadataNative$Key;->mType:Ljava/lang/Class;
+
+    invoke-static {p2}, Landroid/hardware/camera2/utils/TypeReference;->createSpecializedTypeReference(Ljava/lang/Class;)Landroid/hardware/camera2/utils/TypeReference;
+
+    move-result-object v0
+
+    iput-object v0, p0, Landroid/hardware/camera2/impl/CameraMetadataNative$Key;->mTypeReference:Landroid/hardware/camera2/utils/TypeReference;
+
+    iget-object v0, p0, Landroid/hardware/camera2/impl/CameraMetadataNative$Key;->mName:Ljava/lang/String;
+
+    invoke-virtual {v0}, Ljava/lang/String;->hashCode()I
+
+    move-result v0
+
+    iget-object v1, p0, Landroid/hardware/camera2/impl/CameraMetadataNative$Key;->mTypeReference:Landroid/hardware/camera2/utils/TypeReference;
+
+    invoke-virtual {v1}, Landroid/hardware/camera2/utils/TypeReference;->hashCode()I
+
+    move-result v1
+
+    xor-int/2addr v0, v1
+
+    iput v0, p0, Landroid/hardware/camera2/impl/CameraMetadataNative$Key;->mHash:I
+
+    return-void
+.end method
+
+.method public constructor <init>(Ljava/lang/String;Ljava/lang/Class;J)V
+    .locals 3
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/lang/String;",
+            "Ljava/lang/Class",
+            "<TT;>;J)V"
+        }
+    .end annotation
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    const-wide v0, 0x7fffffffffffffffL
+
+    iput-wide v0, p0, Landroid/hardware/camera2/impl/CameraMetadataNative$Key;->mVendorId:J
+
+    if-nez p1, :cond_0
+
+    new-instance v0, Ljava/lang/NullPointerException;
+
+    const-string/jumbo v1, "Key needs a valid name"
+
+    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+
+    :cond_0
+    if-nez p2, :cond_1
+
+    new-instance v0, Ljava/lang/NullPointerException;
+
+    const-string/jumbo v1, "Type needs to be non-null"
+
+    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+
+    :cond_1
+    iput-object p1, p0, Landroid/hardware/camera2/impl/CameraMetadataNative$Key;->mName:Ljava/lang/String;
+
+    iput-object p2, p0, Landroid/hardware/camera2/impl/CameraMetadataNative$Key;->mType:Ljava/lang/Class;
+
+    iput-wide p3, p0, Landroid/hardware/camera2/impl/CameraMetadataNative$Key;->mVendorId:J
 
     invoke-static {p2}, Landroid/hardware/camera2/utils/TypeReference;->createSpecializedTypeReference(Ljava/lang/Class;)Landroid/hardware/camera2/utils/TypeReference;
 
@@ -292,7 +372,7 @@
 .end method
 
 .method public final getTag()I
-    .locals 1
+    .locals 4
 
     iget-boolean v0, p0, Landroid/hardware/camera2/impl/CameraMetadataNative$Key;->mHasTag:Z
 
@@ -300,7 +380,9 @@
 
     iget-object v0, p0, Landroid/hardware/camera2/impl/CameraMetadataNative$Key;->mName:Ljava/lang/String;
 
-    invoke-static {v0}, Landroid/hardware/camera2/impl/CameraMetadataNative;->getTag(Ljava/lang/String;)I
+    iget-wide v2, p0, Landroid/hardware/camera2/impl/CameraMetadataNative$Key;->mVendorId:J
+
+    invoke-static {v0, v2, v3}, Landroid/hardware/camera2/impl/CameraMetadataNative;->getTag(Ljava/lang/String;J)I
 
     move-result v0
 
@@ -344,6 +426,14 @@
     iget-object v0, p0, Landroid/hardware/camera2/impl/CameraMetadataNative$Key;->mTypeReference:Landroid/hardware/camera2/utils/TypeReference;
 
     return-object v0
+.end method
+
+.method public final getVendorId()J
+    .locals 2
+
+    iget-wide v0, p0, Landroid/hardware/camera2/impl/CameraMetadataNative$Key;->mVendorId:J
+
+    return-wide v0
 .end method
 
 .method public final hashCode()I

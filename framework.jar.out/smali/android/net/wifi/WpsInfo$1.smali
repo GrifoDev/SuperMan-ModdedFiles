@@ -63,24 +63,6 @@
 
     iput-object v1, v0, Landroid/net/wifi/WpsInfo;->pin:Ljava/lang/String;
 
-    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v1
-
-    iput-object v1, v0, Landroid/net/wifi/WpsInfo;->dev_nfc_hashkey:Ljava/lang/String;
-
-    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v1
-
-    iput-object v1, v0, Landroid/net/wifi/WpsInfo;->dev_pw_id:Ljava/lang/String;
-
-    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v1
-
-    iput-object v1, v0, Landroid/net/wifi/WpsInfo;->dev_pw:Ljava/lang/String;
-
     return-object v0
 .end method
 

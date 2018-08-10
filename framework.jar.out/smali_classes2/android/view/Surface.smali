@@ -37,10 +37,6 @@
 
 .field public static final ROTATION_90:I = 0x1
 
-.field public static final ROTATION_FIXED_ORIENTATION_LANDSCAPE:I = 0xb
-
-.field public static final ROTATION_FIXED_ORIENTATION_PORTRAIT:I = 0xa
-
 .field public static final SCALING_MODE_FREEZE:I = 0x0
 
 .field public static final SCALING_MODE_NO_SCALE_CROP:I = 0x3
@@ -66,6 +62,8 @@
 .field private mGenerationId:I
 
 .field private mHwuiContext:Landroid/view/Surface$HwuiContext;
+
+.field private mIsSingleBuffered:Z
 
 .field final mLock:Ljava/lang/Object;
 
@@ -241,6 +239,12 @@
     throw v0
 
     :cond_0
+    invoke-virtual {p1}, Landroid/graphics/SurfaceTexture;->isSingleBuffered()Z
+
+    move-result v0
+
+    iput-boolean v0, p0, Landroid/view/Surface;->mIsSingleBuffered:Z
+
     iget-object v1, p0, Landroid/view/Surface;->mLock:Ljava/lang/Object;
 
     monitor-enter v1
@@ -310,6 +314,9 @@
 .method private static native nativeAllocateBuffers(J)V
 .end method
 
+.method private static native nativeAttachAndQueueBuffer(JLandroid/graphics/GraphicBuffer;)I
+.end method
+
 .method private static native nativeCreateFromSurfaceControl(J)J
 .end method
 
@@ -319,6 +326,12 @@
             Landroid/view/Surface$OutOfResourcesException;
         }
     .end annotation
+.end method
+
+.method private static native nativeForceScopedDisconnect(J)I
+.end method
+
+.method private static native nativeGetFromSurfaceControl(J)J
 .end method
 
 .method private static native nativeGetHeight(J)I
@@ -348,6 +361,9 @@
 .end method
 
 .method private static native nativeRelease(J)V
+.end method
+
+.method private static native nativeSetBuffersTransform(JJ)V
 .end method
 
 .method private static native nativeSetDTSFactor(JD)V
@@ -640,6 +656,47 @@
     throw v0
 .end method
 
+.method public attachAndQueueBuffer(Landroid/graphics/GraphicBuffer;)V
+    .locals 6
+
+    iget-object v2, p0, Landroid/view/Surface;->mLock:Ljava/lang/Object;
+
+    monitor-enter v2
+
+    :try_start_0
+    invoke-direct {p0}, Landroid/view/Surface;->checkNotReleasedLocked()V
+
+    iget-wide v4, p0, Landroid/view/Surface;->mNativeObject:J
+
+    invoke-static {v4, v5, p1}, Landroid/view/Surface;->nativeAttachAndQueueBuffer(JLandroid/graphics/GraphicBuffer;)I
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    new-instance v1, Ljava/lang/RuntimeException;
+
+    const-string/jumbo v3, "Failed to attach and queue buffer to Surface (bad object?)"
+
+    invoke-direct {v1, v3}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+
+    throw v1
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    :catchall_0
+    move-exception v1
+
+    monitor-exit v2
+
+    throw v1
+
+    :cond_0
+    monitor-exit v2
+
+    return-void
+.end method
+
 .method public copyFrom(Landroid/view/SurfaceControl;)V
     .locals 10
 
@@ -664,7 +721,74 @@
 
     new-instance v4, Ljava/lang/NullPointerException;
 
-    const-string/jumbo v5, "SurfaceControl native object is null. Are you using a released SurfaceControl?"
+    const-string/jumbo v5, "null SurfaceControl native object. Are you using a released SurfaceControl?"
+
+    invoke-direct {v4, v5}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+
+    throw v4
+
+    :cond_1
+    invoke-static {v2, v3}, Landroid/view/Surface;->nativeGetFromSurfaceControl(J)J
+
+    move-result-wide v0
+
+    iget-object v5, p0, Landroid/view/Surface;->mLock:Ljava/lang/Object;
+
+    monitor-enter v5
+
+    :try_start_0
+    iget-wide v6, p0, Landroid/view/Surface;->mNativeObject:J
+
+    cmp-long v4, v6, v8
+
+    if-eqz v4, :cond_2
+
+    iget-wide v6, p0, Landroid/view/Surface;->mNativeObject:J
+
+    invoke-static {v6, v7}, Landroid/view/Surface;->nativeRelease(J)V
+
+    :cond_2
+    invoke-direct {p0, v0, v1}, Landroid/view/Surface;->setNativeObjectLocked(J)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit v5
+
+    return-void
+
+    :catchall_0
+    move-exception v4
+
+    monitor-exit v5
+
+    throw v4
+.end method
+
+.method public createFrom(Landroid/view/SurfaceControl;)V
+    .locals 10
+
+    const-wide/16 v8, 0x0
+
+    if-nez p1, :cond_0
+
+    new-instance v4, Ljava/lang/IllegalArgumentException;
+
+    const-string/jumbo v5, "other must not be null"
+
+    invoke-direct {v4, v5}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v4
+
+    :cond_0
+    iget-wide v2, p1, Landroid/view/SurfaceControl;->mNativeObject:J
+
+    cmp-long v4, v2, v8
+
+    if-nez v4, :cond_1
+
+    new-instance v4, Ljava/lang/NullPointerException;
+
+    const-string/jumbo v5, "null SurfaceControl native object. Are you using a released SurfaceControl?"
 
     invoke-direct {v4, v5}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
@@ -757,6 +881,47 @@
     throw v0
 .end method
 
+.method forceScopedDisconnect()V
+    .locals 6
+
+    iget-object v2, p0, Landroid/view/Surface;->mLock:Ljava/lang/Object;
+
+    monitor-enter v2
+
+    :try_start_0
+    invoke-direct {p0}, Landroid/view/Surface;->checkNotReleasedLocked()V
+
+    iget-wide v4, p0, Landroid/view/Surface;->mNativeObject:J
+
+    invoke-static {v4, v5}, Landroid/view/Surface;->nativeForceScopedDisconnect(J)I
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    new-instance v1, Ljava/lang/RuntimeException;
+
+    const-string/jumbo v3, "Failed to disconnect Surface instance (bad object?)"
+
+    invoke-direct {v1, v3}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+
+    throw v1
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    :catchall_0
+    move-exception v1
+
+    monitor-exit v2
+
+    throw v1
+
+    :cond_0
+    monitor-exit v2
+
+    return-void
+.end method
+
 .method public getGenerationId()I
     .locals 2
 
@@ -781,6 +946,36 @@
     throw v1
 .end method
 
+.method public getHeight()I
+    .locals 4
+
+    iget-object v1, p0, Landroid/view/Surface;->mLock:Ljava/lang/Object;
+
+    monitor-enter v1
+
+    :try_start_0
+    invoke-direct {p0}, Landroid/view/Surface;->checkNotReleasedLocked()V
+
+    iget-wide v2, p0, Landroid/view/Surface;->mNativeObject:J
+
+    invoke-static {v2, v3}, Landroid/view/Surface;->nativeGetHeight(J)I
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result v0
+
+    monitor-exit v1
+
+    return v0
+
+    :catchall_0
+    move-exception v0
+
+    monitor-exit v1
+
+    throw v0
+.end method
+
 .method public getNextFrameNumber()J
     .locals 4
 
@@ -800,6 +995,36 @@
     monitor-exit v1
 
     return-wide v2
+
+    :catchall_0
+    move-exception v0
+
+    monitor-exit v1
+
+    throw v0
+.end method
+
+.method public getWidth()I
+    .locals 4
+
+    iget-object v1, p0, Landroid/view/Surface;->mLock:Ljava/lang/Object;
+
+    monitor-enter v1
+
+    :try_start_0
+    invoke-direct {p0}, Landroid/view/Surface;->checkNotReleasedLocked()V
+
+    iget-wide v2, p0, Landroid/view/Surface;->mNativeObject:J
+
+    invoke-static {v2, v3}, Landroid/view/Surface;->nativeGetWidth(J)I
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result v0
+
+    monitor-exit v1
+
+    return v0
 
     :catchall_0
     move-exception v0
@@ -837,6 +1062,14 @@
     monitor-exit v1
 
     throw v0
+.end method
+
+.method public isSingleBuffered()Z
+    .locals 1
+
+    iget-boolean v0, p0, Landroid/view/Surface;->mIsSingleBuffered:Z
+
+    return v0
 .end method
 
 .method public isValid()Z
@@ -1003,6 +1236,8 @@
 .method public readFromParcel(Landroid/os/Parcel;)V
     .locals 4
 
+    const/4 v0, 0x0
+
     if-nez p1, :cond_0
 
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -1021,9 +1256,20 @@
     :try_start_0
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v2
 
-    iput-object v0, p0, Landroid/view/Surface;->mName:Ljava/lang/String;
+    iput-object v2, p0, Landroid/view/Surface;->mName:Ljava/lang/String;
+
+    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    const/4 v0, 0x1
+
+    :cond_1
+    iput-boolean v0, p0, Landroid/view/Surface;->mIsSingleBuffered:Z
 
     iget-wide v2, p0, Landroid/view/Surface;->mNativeObject:J
 
@@ -1431,6 +1677,8 @@
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 4
 
+    const/4 v0, 0x0
+
     if-nez p1, :cond_0
 
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -1447,9 +1695,18 @@
     monitor-enter v1
 
     :try_start_0
-    iget-object v0, p0, Landroid/view/Surface;->mName:Ljava/lang/String;
+    iget-object v2, p0, Landroid/view/Surface;->mName:Ljava/lang/String;
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+
+    iget-boolean v2, p0, Landroid/view/Surface;->mIsSingleBuffered:Z
+
+    if-eqz v2, :cond_1
+
+    const/4 v0, 0x1
+
+    :cond_1
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
     iget-wide v2, p0, Landroid/view/Surface;->mNativeObject:J
 
@@ -1461,11 +1718,11 @@
 
     and-int/lit8 v0, p2, 0x1
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2
 
     invoke-virtual {p0}, Landroid/view/Surface;->release()V
 
-    :cond_1
+    :cond_2
     return-void
 
     :catchall_0

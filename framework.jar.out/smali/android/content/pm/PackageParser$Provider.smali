@@ -2,6 +2,9 @@
 .super Landroid/content/pm/PackageParser$Component;
 .source "PackageParser.java"
 
+# interfaces
+.implements Landroid/os/Parcelable;
+
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingClass;
@@ -13,14 +16,25 @@
     name = "Provider"
 .end annotation
 
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Landroid/content/pm/PackageParser$Provider$1;
+    }
+.end annotation
+
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Landroid/content/pm/PackageParser$Component",
         "<",
         "Landroid/content/pm/PackageParser$ProviderIntentInfo;",
-        ">;"
+        ">;",
+        "Landroid/os/Parcelable;"
     }
 .end annotation
+
+
+# static fields
+.field public static final CREATOR:Landroid/os/Parcelable$Creator;
 
 
 # instance fields
@@ -30,6 +44,18 @@
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    new-instance v0, Landroid/content/pm/PackageParser$Provider$1;
+
+    invoke-direct {v0}, Landroid/content/pm/PackageParser$Provider$1;-><init>()V
+
+    sput-object v0, Landroid/content/pm/PackageParser$Provider;->CREATOR:Landroid/os/Parcelable$Creator;
+
+    return-void
+.end method
+
 .method public constructor <init>(Landroid/content/pm/PackageParser$ParseComponentArgs;Landroid/content/pm/ProviderInfo;)V
     .locals 2
 
@@ -68,8 +94,145 @@
     return-void
 .end method
 
+.method private constructor <init>(Landroid/os/Parcel;)V
+    .locals 4
+
+    const/4 v3, 0x1
+
+    invoke-direct {p0, p1}, Landroid/content/pm/PackageParser$Component;-><init>(Landroid/os/Parcel;)V
+
+    const-class v2, Ljava/lang/Object;
+
+    invoke-virtual {v2}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+
+    move-result-object v2
+
+    invoke-virtual {p1, v2}, Landroid/os/Parcel;->readParcelable(Ljava/lang/ClassLoader;)Landroid/os/Parcelable;
+
+    move-result-object v2
+
+    check-cast v2, Landroid/content/pm/ProviderInfo;
+
+    iput-object v2, p0, Landroid/content/pm/PackageParser$Provider;->info:Landroid/content/pm/ProviderInfo;
+
+    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
+
+    move-result v2
+
+    if-ne v2, v3, :cond_0
+
+    move v2, v3
+
+    :goto_0
+    iput-boolean v2, p0, Landroid/content/pm/PackageParser$Provider;->syncable:Z
+
+    iget-object v2, p0, Landroid/content/pm/PackageParser$Provider;->intents:Ljava/util/ArrayList;
+
+    invoke-interface {v2}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+
+    move-result-object v1
+
+    :goto_1
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/content/pm/PackageParser$ProviderIntentInfo;
+
+    iput-object p0, v0, Landroid/content/pm/PackageParser$ProviderIntentInfo;->provider:Landroid/content/pm/PackageParser$Provider;
+
+    goto :goto_1
+
+    :cond_0
+    const/4 v2, 0x0
+
+    goto :goto_0
+
+    :cond_1
+    iget-object v2, p0, Landroid/content/pm/PackageParser$Provider;->info:Landroid/content/pm/ProviderInfo;
+
+    iget-object v2, v2, Landroid/content/pm/ProviderInfo;->readPermission:Ljava/lang/String;
+
+    if-eqz v2, :cond_2
+
+    iget-object v2, p0, Landroid/content/pm/PackageParser$Provider;->info:Landroid/content/pm/ProviderInfo;
+
+    iget-object v3, p0, Landroid/content/pm/PackageParser$Provider;->info:Landroid/content/pm/ProviderInfo;
+
+    iget-object v3, v3, Landroid/content/pm/ProviderInfo;->readPermission:Ljava/lang/String;
+
+    invoke-virtual {v3}, Ljava/lang/String;->intern()Ljava/lang/String;
+
+    move-result-object v3
+
+    iput-object v3, v2, Landroid/content/pm/ProviderInfo;->readPermission:Ljava/lang/String;
+
+    :cond_2
+    iget-object v2, p0, Landroid/content/pm/PackageParser$Provider;->info:Landroid/content/pm/ProviderInfo;
+
+    iget-object v2, v2, Landroid/content/pm/ProviderInfo;->writePermission:Ljava/lang/String;
+
+    if-eqz v2, :cond_3
+
+    iget-object v2, p0, Landroid/content/pm/PackageParser$Provider;->info:Landroid/content/pm/ProviderInfo;
+
+    iget-object v3, p0, Landroid/content/pm/PackageParser$Provider;->info:Landroid/content/pm/ProviderInfo;
+
+    iget-object v3, v3, Landroid/content/pm/ProviderInfo;->writePermission:Ljava/lang/String;
+
+    invoke-virtual {v3}, Ljava/lang/String;->intern()Ljava/lang/String;
+
+    move-result-object v3
+
+    iput-object v3, v2, Landroid/content/pm/ProviderInfo;->writePermission:Ljava/lang/String;
+
+    :cond_3
+    iget-object v2, p0, Landroid/content/pm/PackageParser$Provider;->info:Landroid/content/pm/ProviderInfo;
+
+    iget-object v2, v2, Landroid/content/pm/ProviderInfo;->authority:Ljava/lang/String;
+
+    if-eqz v2, :cond_4
+
+    iget-object v2, p0, Landroid/content/pm/PackageParser$Provider;->info:Landroid/content/pm/ProviderInfo;
+
+    iget-object v3, p0, Landroid/content/pm/PackageParser$Provider;->info:Landroid/content/pm/ProviderInfo;
+
+    iget-object v3, v3, Landroid/content/pm/ProviderInfo;->authority:Ljava/lang/String;
+
+    invoke-virtual {v3}, Ljava/lang/String;->intern()Ljava/lang/String;
+
+    move-result-object v3
+
+    iput-object v3, v2, Landroid/content/pm/ProviderInfo;->authority:Ljava/lang/String;
+
+    :cond_4
+    return-void
+.end method
+
+.method synthetic constructor <init>(Landroid/os/Parcel;Landroid/content/pm/PackageParser$Provider;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Landroid/content/pm/PackageParser$Provider;-><init>(Landroid/os/Parcel;)V
+
+    return-void
+.end method
+
 
 # virtual methods
+.method public describeContents()I
+    .locals 1
+
+    const/4 v0, 0x0
+
+    return v0
+.end method
+
 .method public setPackageName(Ljava/lang/String;)V
     .locals 1
 
@@ -120,4 +283,32 @@
     move-result-object v1
 
     return-object v1
+.end method
+
+.method public writeToParcel(Landroid/os/Parcel;I)V
+    .locals 2
+
+    invoke-super {p0, p1, p2}, Landroid/content/pm/PackageParser$Component;->writeToParcel(Landroid/os/Parcel;I)V
+
+    iget-object v0, p0, Landroid/content/pm/PackageParser$Provider;->info:Landroid/content/pm/ProviderInfo;
+
+    or-int/lit8 v1, p2, 0x2
+
+    invoke-virtual {p1, v0, v1}, Landroid/os/Parcel;->writeParcelable(Landroid/os/Parcelable;I)V
+
+    iget-boolean v0, p0, Landroid/content/pm/PackageParser$Provider;->syncable:Z
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x1
+
+    :goto_0
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
+
+    return-void
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
 .end method

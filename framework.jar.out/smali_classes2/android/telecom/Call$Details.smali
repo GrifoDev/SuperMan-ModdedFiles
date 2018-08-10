@@ -81,11 +81,15 @@
 
 .field public static final PROPERTY_GENERIC_CONFERENCE:I = 0x2
 
+.field public static final PROPERTY_HAS_CDMA_VOICE_PRIVACY:I = 0x80
+
 .field public static final PROPERTY_HIGH_DEF_AUDIO:I = 0x10
 
 .field public static final PROPERTY_HIGH_DEF_PLUS_AUDIO:I = 0x10000
 
 .field public static final PROPERTY_IS_EXTERNAL_CALL:I = 0x40
+
+.field public static final PROPERTY_SELF_MANAGED:I = 0x100
 
 .field public static final PROPERTY_WIFI:I = 0x8
 
@@ -103,6 +107,8 @@
 
 .field private final mConnectTimeMillis:J
 
+.field private final mCreationTimeMillis:J
+
 .field private final mDisconnectCause:Landroid/telecom/DisconnectCause;
 
 .field private final mExtras:Landroid/os/Bundle;
@@ -117,16 +123,22 @@
 
 .field private final mStatusHints:Landroid/telecom/StatusHints;
 
+.field private final mSupportedAudioRoutes:I
+
 .field private final mTelecomCallId:Ljava/lang/String;
 
 .field private final mVideoState:I
 
 
 # direct methods
-.method public constructor <init>(Ljava/lang/String;Landroid/net/Uri;ILjava/lang/String;ILandroid/telecom/PhoneAccountHandle;IILandroid/telecom/DisconnectCause;JLandroid/telecom/GatewayInfo;ILandroid/telecom/StatusHints;Landroid/os/Bundle;Landroid/os/Bundle;)V
-    .locals 2
+.method public constructor <init>(Ljava/lang/String;Landroid/net/Uri;ILjava/lang/String;ILandroid/telecom/PhoneAccountHandle;IILandroid/telecom/DisconnectCause;JLandroid/telecom/GatewayInfo;ILandroid/telecom/StatusHints;Landroid/os/Bundle;Landroid/os/Bundle;J)V
+    .locals 3
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    const/16 v2, 0xf
+
+    iput v2, p0, Landroid/telecom/Call$Details;->mSupportedAudioRoutes:I
 
     iput-object p1, p0, Landroid/telecom/Call$Details;->mTelecomCallId:Ljava/lang/String;
 
@@ -150,7 +162,9 @@
 
     iput-object p12, p0, Landroid/telecom/Call$Details;->mGatewayInfo:Landroid/telecom/GatewayInfo;
 
-    iput p13, p0, Landroid/telecom/Call$Details;->mVideoState:I
+    move/from16 v0, p13
+
+    iput v0, p0, Landroid/telecom/Call$Details;->mVideoState:I
 
     move-object/from16 v0, p14
 
@@ -163,6 +177,10 @@
     move-object/from16 v0, p16
 
     iput-object v0, p0, Landroid/telecom/Call$Details;->mIntentExtras:Landroid/os/Bundle;
+
+    move-wide/from16 v0, p17
+
+    iput-wide v0, p0, Landroid/telecom/Call$Details;->mCreationTimeMillis:J
 
     return-void
 .end method
@@ -533,7 +551,7 @@
 .end method
 
 .method public static createFromParcelableCall(Landroid/telecom/ParcelableCall;)Landroid/telecom/Call$Details;
-    .locals 17
+    .locals 19
 
     new-instance v0, Landroid/telecom/Call$Details;
 
@@ -597,7 +615,11 @@
 
     move-result-object v16
 
-    invoke-direct/range {v0 .. v16}, Landroid/telecom/Call$Details;-><init>(Ljava/lang/String;Landroid/net/Uri;ILjava/lang/String;ILandroid/telecom/PhoneAccountHandle;IILandroid/telecom/DisconnectCause;JLandroid/telecom/GatewayInfo;ILandroid/telecom/StatusHints;Landroid/os/Bundle;Landroid/os/Bundle;)V
+    invoke-virtual/range {p0 .. p0}, Landroid/telecom/ParcelableCall;->getCreationTimeMillis()J
+
+    move-result-wide v17
+
+    invoke-direct/range {v0 .. v18}, Landroid/telecom/Call$Details;-><init>(Ljava/lang/String;Landroid/net/Uri;ILjava/lang/String;ILandroid/telecom/PhoneAccountHandle;IILandroid/telecom/DisconnectCause;JLandroid/telecom/GatewayInfo;ILandroid/telecom/StatusHints;Landroid/os/Bundle;Landroid/os/Bundle;J)V
 
     return-object v0
 .end method
@@ -709,7 +731,7 @@
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     :cond_5
-    const/high16 v1, 0x10000
+    const/16 v1, 0x80
 
     invoke-static {p0, v1}, Landroid/telecom/Call$Details;->hasProperty(II)Z
 
@@ -717,11 +739,24 @@
 
     if-eqz v1, :cond_6
 
-    const-string/jumbo v1, " PROPERTY_HIGH_DEF_PLUS_AUDIO"
+    const-string/jumbo v1, " PROPERTY_HAS_CDMA_VOICE_PRIVACY"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     :cond_6
+    const/high16 v1, 0x10000
+
+    invoke-static {p0, v1}, Landroid/telecom/Call$Details;->hasProperty(II)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_7
+
+    const-string/jumbo v1, " PROPERTY_HIGH_DEF_PLUS_AUDIO"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    :cond_7
     const-string/jumbo v1, "]"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -938,11 +973,29 @@
 
     if-eqz v2, :cond_0
 
-    iget-object v1, p0, Landroid/telecom/Call$Details;->mIntentExtras:Landroid/os/Bundle;
+    iget-object v2, p0, Landroid/telecom/Call$Details;->mIntentExtras:Landroid/os/Bundle;
 
-    iget-object v2, v0, Landroid/telecom/Call$Details;->mIntentExtras:Landroid/os/Bundle;
+    iget-object v3, v0, Landroid/telecom/Call$Details;->mIntentExtras:Landroid/os/Bundle;
 
-    invoke-static {v1, v2}, Landroid/telecom/Call;->-wrap0(Landroid/os/Bundle;Landroid/os/Bundle;)Z
+    invoke-static {v2, v3}, Landroid/telecom/Call;->-wrap0(Landroid/os/Bundle;Landroid/os/Bundle;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    iget-wide v2, p0, Landroid/telecom/Call$Details;->mCreationTimeMillis:J
+
+    invoke-static {v2, v3}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+
+    move-result-object v1
+
+    iget-wide v2, v0, Landroid/telecom/Call$Details;->mCreationTimeMillis:J
+
+    invoke-static {v2, v3}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Ljava/util/Objects;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v1
 
@@ -997,6 +1050,14 @@
     .locals 2
 
     iget-wide v0, p0, Landroid/telecom/Call$Details;->mConnectTimeMillis:J
+
+    return-wide v0
+.end method
+
+.method public getCreationTimeMillis()J
+    .locals 2
+
+    iget-wide v0, p0, Landroid/telecom/Call$Details;->mCreationTimeMillis:J
 
     return-wide v0
 .end method
@@ -1057,6 +1118,14 @@
     return-object v0
 .end method
 
+.method public getSupportedAudioRoutes()I
+    .locals 1
+
+    const/16 v0, 0xf
+
+    return v0
+.end method
+
 .method public getTelecomCallId()Ljava/lang/String;
     .locals 1
 
@@ -1088,11 +1157,15 @@
 .method public hashCode()I
     .locals 4
 
-    iget-object v0, p0, Landroid/telecom/Call$Details;->mHandle:Landroid/net/Uri;
+    const/16 v0, 0xf
 
-    invoke-static {v0}, Ljava/util/Objects;->hashCode(Ljava/lang/Object;)I
+    new-array v0, v0, [Ljava/lang/Object;
 
-    move-result v0
+    iget-object v1, p0, Landroid/telecom/Call$Details;->mHandle:Landroid/net/Uri;
+
+    const/4 v2, 0x0
+
+    aput-object v1, v0, v2
 
     iget v1, p0, Landroid/telecom/Call$Details;->mHandlePresentation:I
 
@@ -1100,19 +1173,15 @@
 
     move-result-object v1
 
-    invoke-static {v1}, Ljava/util/Objects;->hashCode(Ljava/lang/Object;)I
+    const/4 v2, 0x1
 
-    move-result v1
-
-    add-int/2addr v0, v1
+    aput-object v1, v0, v2
 
     iget-object v1, p0, Landroid/telecom/Call$Details;->mCallerDisplayName:Ljava/lang/String;
 
-    invoke-static {v1}, Ljava/util/Objects;->hashCode(Ljava/lang/Object;)I
+    const/4 v2, 0x2
 
-    move-result v1
-
-    add-int/2addr v0, v1
+    aput-object v1, v0, v2
 
     iget v1, p0, Landroid/telecom/Call$Details;->mCallerDisplayNamePresentation:I
 
@@ -1120,19 +1189,15 @@
 
     move-result-object v1
 
-    invoke-static {v1}, Ljava/util/Objects;->hashCode(Ljava/lang/Object;)I
+    const/4 v2, 0x3
 
-    move-result v1
-
-    add-int/2addr v0, v1
+    aput-object v1, v0, v2
 
     iget-object v1, p0, Landroid/telecom/Call$Details;->mAccountHandle:Landroid/telecom/PhoneAccountHandle;
 
-    invoke-static {v1}, Ljava/util/Objects;->hashCode(Ljava/lang/Object;)I
+    const/4 v2, 0x4
 
-    move-result v1
-
-    add-int/2addr v0, v1
+    aput-object v1, v0, v2
 
     iget v1, p0, Landroid/telecom/Call$Details;->mCallCapabilities:I
 
@@ -1140,11 +1205,9 @@
 
     move-result-object v1
 
-    invoke-static {v1}, Ljava/util/Objects;->hashCode(Ljava/lang/Object;)I
+    const/4 v2, 0x5
 
-    move-result v1
-
-    add-int/2addr v0, v1
+    aput-object v1, v0, v2
 
     iget v1, p0, Landroid/telecom/Call$Details;->mCallProperties:I
 
@@ -1152,19 +1215,15 @@
 
     move-result-object v1
 
-    invoke-static {v1}, Ljava/util/Objects;->hashCode(Ljava/lang/Object;)I
+    const/4 v2, 0x6
 
-    move-result v1
-
-    add-int/2addr v0, v1
+    aput-object v1, v0, v2
 
     iget-object v1, p0, Landroid/telecom/Call$Details;->mDisconnectCause:Landroid/telecom/DisconnectCause;
 
-    invoke-static {v1}, Ljava/util/Objects;->hashCode(Ljava/lang/Object;)I
+    const/4 v2, 0x7
 
-    move-result v1
-
-    add-int/2addr v0, v1
+    aput-object v1, v0, v2
 
     iget-wide v2, p0, Landroid/telecom/Call$Details;->mConnectTimeMillis:J
 
@@ -1172,19 +1231,15 @@
 
     move-result-object v1
 
-    invoke-static {v1}, Ljava/util/Objects;->hashCode(Ljava/lang/Object;)I
+    const/16 v2, 0x8
 
-    move-result v1
-
-    add-int/2addr v0, v1
+    aput-object v1, v0, v2
 
     iget-object v1, p0, Landroid/telecom/Call$Details;->mGatewayInfo:Landroid/telecom/GatewayInfo;
 
-    invoke-static {v1}, Ljava/util/Objects;->hashCode(Ljava/lang/Object;)I
+    const/16 v2, 0x9
 
-    move-result v1
-
-    add-int/2addr v0, v1
+    aput-object v1, v0, v2
 
     iget v1, p0, Landroid/telecom/Call$Details;->mVideoState:I
 
@@ -1192,37 +1247,53 @@
 
     move-result-object v1
 
-    invoke-static {v1}, Ljava/util/Objects;->hashCode(Ljava/lang/Object;)I
+    const/16 v2, 0xa
 
-    move-result v1
-
-    add-int/2addr v0, v1
+    aput-object v1, v0, v2
 
     iget-object v1, p0, Landroid/telecom/Call$Details;->mStatusHints:Landroid/telecom/StatusHints;
 
-    invoke-static {v1}, Ljava/util/Objects;->hashCode(Ljava/lang/Object;)I
+    const/16 v2, 0xb
 
-    move-result v1
-
-    add-int/2addr v0, v1
+    aput-object v1, v0, v2
 
     iget-object v1, p0, Landroid/telecom/Call$Details;->mExtras:Landroid/os/Bundle;
 
-    invoke-static {v1}, Ljava/util/Objects;->hashCode(Ljava/lang/Object;)I
+    const/16 v2, 0xc
 
-    move-result v1
-
-    add-int/2addr v0, v1
+    aput-object v1, v0, v2
 
     iget-object v1, p0, Landroid/telecom/Call$Details;->mIntentExtras:Landroid/os/Bundle;
 
-    invoke-static {v1}, Ljava/util/Objects;->hashCode(Ljava/lang/Object;)I
+    const/16 v2, 0xd
 
-    move-result v1
+    aput-object v1, v0, v2
 
-    add-int/2addr v0, v1
+    iget-wide v2, p0, Landroid/telecom/Call$Details;->mCreationTimeMillis:J
+
+    invoke-static {v2, v3}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+
+    move-result-object v1
+
+    const/16 v2, 0xe
+
+    aput-object v1, v0, v2
+
+    invoke-static {v0}, Ljava/util/Objects;->hash([Ljava/lang/Object;)I
+
+    move-result v0
 
     return v0
+.end method
+
+.method public semGetTelecomCallId()Ljava/lang/String;
+    .locals 1
+
+    invoke-virtual {p0}, Landroid/telecom/Call$Details;->getTelecomCallId()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
 .end method
 
 .method public toString()Ljava/lang/String;

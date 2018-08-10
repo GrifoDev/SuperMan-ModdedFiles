@@ -26,21 +26,17 @@
     .end annotation
 .end field
 
-.field public static final GROUP_KEY_OVERRIDE_KEY:Ljava/lang/String; = "group_key_override"
+.field public static final KEY_PEOPLE:Ljava/lang/String; = "key_people"
 
-.field public static final NEEDS_AUTOGROUPING_KEY:Ljava/lang/String; = "autogroup_needed"
+.field public static final KEY_SNOOZE_CRITERIA:Ljava/lang/String; = "key_snooze_criteria"
 
 
 # instance fields
 .field private final mExplanation:Ljava/lang/CharSequence;
 
-.field private final mImportance:I
-
 .field private final mKey:Ljava/lang/String;
 
 .field private final mPackage:Ljava/lang/String;
-
-.field private final mReference:Landroid/net/Uri;
 
 .field private final mSignals:Landroid/os/Bundle;
 
@@ -99,12 +95,6 @@
 
     move-result v0
 
-    iput v0, p0, Landroid/service/notification/Adjustment;->mImportance:I
-
-    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
-
-    move-result v0
-
     if-ne v0, v1, :cond_2
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readCharSequence()Ljava/lang/CharSequence;
@@ -114,20 +104,6 @@
     iput-object v0, p0, Landroid/service/notification/Adjustment;->mExplanation:Ljava/lang/CharSequence;
 
     :goto_2
-    const-class v0, Landroid/net/Uri;
-
-    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
-
-    move-result-object v0
-
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->readParcelable(Ljava/lang/ClassLoader;)Landroid/os/Parcelable;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/net/Uri;
-
-    iput-object v0, p0, Landroid/service/notification/Adjustment;->mReference:Landroid/net/Uri;
-
     invoke-virtual {p1}, Landroid/os/Parcel;->readBundle()Landroid/os/Bundle;
 
     move-result-object v0
@@ -158,7 +134,7 @@
     goto :goto_2
 .end method
 
-.method public constructor <init>(Ljava/lang/String;Ljava/lang/String;ILandroid/os/Bundle;Ljava/lang/CharSequence;Landroid/net/Uri;I)V
+.method public constructor <init>(Ljava/lang/String;Ljava/lang/String;Landroid/os/Bundle;Ljava/lang/CharSequence;I)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -167,15 +143,11 @@
 
     iput-object p2, p0, Landroid/service/notification/Adjustment;->mKey:Ljava/lang/String;
 
-    iput p3, p0, Landroid/service/notification/Adjustment;->mImportance:I
+    iput-object p3, p0, Landroid/service/notification/Adjustment;->mSignals:Landroid/os/Bundle;
 
-    iput-object p4, p0, Landroid/service/notification/Adjustment;->mSignals:Landroid/os/Bundle;
+    iput-object p4, p0, Landroid/service/notification/Adjustment;->mExplanation:Ljava/lang/CharSequence;
 
-    iput-object p5, p0, Landroid/service/notification/Adjustment;->mExplanation:Ljava/lang/CharSequence;
-
-    iput-object p6, p0, Landroid/service/notification/Adjustment;->mReference:Landroid/net/Uri;
-
-    iput p7, p0, Landroid/service/notification/Adjustment;->mUser:I
+    iput p5, p0, Landroid/service/notification/Adjustment;->mUser:I
 
     return-void
 .end method
@@ -198,14 +170,6 @@
     return-object v0
 .end method
 
-.method public getImportance()I
-    .locals 1
-
-    iget v0, p0, Landroid/service/notification/Adjustment;->mImportance:I
-
-    return v0
-.end method
-
 .method public getKey()Ljava/lang/String;
     .locals 1
 
@@ -218,14 +182,6 @@
     .locals 1
 
     iget-object v0, p0, Landroid/service/notification/Adjustment;->mPackage:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method public getReference()Landroid/net/Uri;
-    .locals 1
-
-    iget-object v0, p0, Landroid/service/notification/Adjustment;->mReference:Landroid/net/Uri;
 
     return-object v0
 .end method
@@ -275,10 +231,6 @@
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
     :goto_1
-    iget v0, p0, Landroid/service/notification/Adjustment;->mImportance:I
-
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
-
     iget-object v0, p0, Landroid/service/notification/Adjustment;->mExplanation:Ljava/lang/CharSequence;
 
     if-eqz v0, :cond_2
@@ -290,10 +242,6 @@
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeCharSequence(Ljava/lang/CharSequence;)V
 
     :goto_2
-    iget-object v0, p0, Landroid/service/notification/Adjustment;->mReference:Landroid/net/Uri;
-
-    invoke-virtual {p1, v0, p2}, Landroid/os/Parcel;->writeParcelable(Landroid/os/Parcelable;I)V
-
     iget-object v0, p0, Landroid/service/notification/Adjustment;->mSignals:Landroid/os/Bundle;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeBundle(Landroid/os/Bundle;)V

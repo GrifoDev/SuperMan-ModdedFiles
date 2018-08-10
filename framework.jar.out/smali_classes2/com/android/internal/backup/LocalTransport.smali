@@ -22,6 +22,8 @@
 
 .field private static final INCREMENTAL_DIR:Ljava/lang/String; = "_delta"
 
+.field private static final KEY_VALUE_BACKUP_SIZE_QUOTA:J = 0x500000L
+
 .field static final POSSIBLE_SETS:[J
 
 .field private static final TAG:Ljava/lang/String; = "LocalTransport"
@@ -441,18 +443,15 @@
 
     cmp-long v1, p1, v2
 
-    if-gtz v1, :cond_2
+    if-gtz v1, :cond_1
 
     const/16 v0, -0x3ea
 
     :cond_0
     :goto_0
-    if-eqz v0, :cond_1
-
-    :cond_1
     return v0
 
-    :cond_2
+    :cond_1
     const-wide/32 v2, 0x1900000
 
     cmp-long v1, p1, v2
@@ -704,7 +703,7 @@
     return-wide v0
 
     :cond_0
-    const-wide v0, 0x7fffffffffffffffL
+    const-wide/32 v0, 0x500000
 
     goto :goto_0
 .end method

@@ -577,6 +577,12 @@
     invoke-static {v4, v5}, Ljava/security/Security;->insertProviderAt(Ljava/security/Provider;I)I
 
     :goto_1
+    new-instance v5, Landroid/security/keystore/KnoxAndroidKeyStoreProvider;
+
+    invoke-direct {v5}, Landroid/security/keystore/KnoxAndroidKeyStoreProvider;-><init>()V
+
+    invoke-static {v5}, Ljava/security/Security;->addProvider(Ljava/security/Provider;)I
+
     return-void
 
     :cond_1
@@ -715,7 +721,11 @@
 
     invoke-direct {v4, v5}, Ljava/security/UnrecoverableKeyException;-><init>(Ljava/lang/String;)V
 
-    invoke-static/range {v17 .. v17}, Landroid/security/KeyStore;->getKeyStoreException(I)Landroid/security/KeyStoreException;
+    move-object/from16 v0, v18
+
+    iget v5, v0, Landroid/security/keymaster/ExportResult;->resultCode:I
+
+    invoke-static {v5}, Landroid/security/KeyStore;->getKeyStoreException(I)Landroid/security/KeyStoreException;
 
     move-result-object v5
 

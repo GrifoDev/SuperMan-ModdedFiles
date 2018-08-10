@@ -150,7 +150,7 @@
 
     move-result v3
 
-    invoke-virtual {v1, v0, v3}, Landroid/os/BaseBundle;->putInt(Ljava/lang/String;I)V
+    invoke-virtual {v1, v0, v3}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
     new-instance v6, Ljava/lang/StringBuilder;
 
@@ -193,7 +193,7 @@
 
     if-eqz p1, :cond_0
 
-    invoke-virtual {p1}, Landroid/os/BaseBundle;->isEmpty()Z
+    invoke-virtual {p1}, Landroid/os/Bundle;->isEmpty()Z
 
     move-result v3
 
@@ -220,7 +220,7 @@
 
     aget-object v0, v1, v3
 
-    invoke-virtual {p1, v0}, Landroid/os/BaseBundle;->getInt(Ljava/lang/String;)I
+    invoke-virtual {p1, v0}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
 
     move-result v2
 

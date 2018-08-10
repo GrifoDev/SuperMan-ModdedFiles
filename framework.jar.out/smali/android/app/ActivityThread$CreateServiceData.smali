@@ -15,11 +15,7 @@
 
 
 # instance fields
-.field callerActivityToken:Landroid/os/IBinder;
-
 .field compatInfo:Landroid/content/res/CompatibilityInfo;
-
-.field displayId:I
 
 .field info:Landroid/content/pm/ServiceInfo;
 
@@ -95,18 +91,6 @@
     iget-object v1, p0, Landroid/app/ActivityThread$CreateServiceData;->intent:Landroid/content/Intent;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    const-string/jumbo v1, " displayId="
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    iget v1, p0, Landroid/app/ActivityThread$CreateServiceData;->displayId:I
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     move-result-object v0
 

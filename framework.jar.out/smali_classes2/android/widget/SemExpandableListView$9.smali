@@ -63,7 +63,7 @@
 
     move-object/from16 v21, v0
 
-    invoke-virtual/range {v21 .. v21}, Landroid/view/View;->getViewTreeObserver()Landroid/view/ViewTreeObserver;
+    invoke-virtual/range {v21 .. v21}, Landroid/widget/SemExpandableListView;->getViewTreeObserver()Landroid/view/ViewTreeObserver;
 
     move-result-object v21
 
@@ -79,7 +79,7 @@
 
     move-object/from16 v21, v0
 
-    invoke-virtual/range {v21 .. v21}, Landroid/view/ViewGroup;->getChildCount()I
+    invoke-virtual/range {v21 .. v21}, Landroid/widget/SemExpandableListView;->getChildCount()I
 
     move-result v8
 
@@ -144,7 +144,7 @@
 
     move/from16 v1, v18
 
-    invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {v0, v1}, Landroid/widget/SemExpandableListView;->getChildAt(I)Landroid/view/View;
 
     move-result-object v23
 
@@ -164,7 +164,7 @@
 
     move-object/from16 v21, v0
 
-    invoke-virtual/range {v21 .. v21}, Landroid/widget/AdapterView;->getFirstVisiblePosition()I
+    invoke-virtual/range {v21 .. v21}, Landroid/widget/SemExpandableListView;->getFirstVisiblePosition()I
 
     move-result v9
 
@@ -173,7 +173,7 @@
     const/4 v11, 0x0
 
     :goto_0
-    if-ge v11, v8, :cond_6
+    if-ge v11, v8, :cond_5
 
     move-object/from16 v0, p0
 
@@ -195,7 +195,7 @@
 
     move-object/from16 v0, v21
 
-    invoke-virtual {v0, v11}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {v0, v11}, Landroid/widget/SemExpandableListView;->getChildAt(I)Landroid/view/View;
 
     move-result-object v7
 
@@ -217,7 +217,7 @@
 
     move-object/from16 v21, v0
 
-    invoke-static/range {v21 .. v21}, Landroid/widget/SemExpandableListView;->-get34(Landroid/widget/SemExpandableListView;)Landroid/util/LongSparseArray;
+    invoke-static/range {v21 .. v21}, Landroid/widget/SemExpandableListView;->-get39(Landroid/widget/SemExpandableListView;)Landroid/util/LongSparseArray;
 
     move-result-object v21
 
@@ -266,7 +266,7 @@
 
     move-object/from16 v21, v0
 
-    invoke-static/range {v21 .. v21}, Landroid/widget/SemExpandableListView;->-get14(Landroid/widget/SemExpandableListView;)[Landroid/widget/SemExpandableListView$CollapsingRect;
+    invoke-static/range {v21 .. v21}, Landroid/widget/SemExpandableListView;->-get15(Landroid/widget/SemExpandableListView;)[Landroid/widget/SemExpandableListView$CollapsingRect;
 
     move-result-object v21
 
@@ -285,7 +285,7 @@
 
     move-object/from16 v21, v0
 
-    invoke-static/range {v21 .. v21}, Landroid/widget/SemExpandableListView;->-get34(Landroid/widget/SemExpandableListView;)Landroid/util/LongSparseArray;
+    invoke-static/range {v21 .. v21}, Landroid/widget/SemExpandableListView;->-get39(Landroid/widget/SemExpandableListView;)Landroid/util/LongSparseArray;
 
     move-result-object v21
 
@@ -321,11 +321,8 @@
 
     aget-boolean v21, v21, v10
 
-    if-eqz v21, :cond_4
+    xor-int/lit8 v21, v21, 0x1
 
-    const/16 v21, 0x0
-
-    :goto_2
     and-int v4, v4, v21
 
     move-object/from16 v0, p0
@@ -353,9 +350,9 @@
     invoke-static {v0, v7, v1, v6}, Landroid/widget/SemExpandableListView;->-wrap11(Landroid/widget/SemExpandableListView;Landroid/view/View;ZI)V
 
     :cond_2
-    if-nez v14, :cond_5
+    if-nez v14, :cond_4
 
-    :goto_3
+    :goto_2
     add-int/lit8 v11, v11, 0x1
 
     goto/16 :goto_0
@@ -367,18 +364,13 @@
 
     move-object/from16 v21, v0
 
-    invoke-static/range {v21 .. v21}, Landroid/widget/SemExpandableListView;->-get33(Landroid/widget/SemExpandableListView;)I
+    invoke-static/range {v21 .. v21}, Landroid/widget/SemExpandableListView;->-get38(Landroid/widget/SemExpandableListView;)I
 
     move-result v14
 
     goto :goto_1
 
     :cond_4
-    const/16 v21, 0x1
-
-    goto :goto_2
-
-    :cond_5
     int-to-float v0, v14
 
     move/from16 v21, v0
@@ -423,9 +415,9 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto :goto_3
+    goto :goto_2
 
-    :cond_6
+    :cond_5
     new-instance v13, Landroid/widget/SemExpandableListView$9$1;
 
     move-object/from16 v0, p0
@@ -440,7 +432,7 @@
 
     invoke-direct {v13, v0, v1}, Landroid/widget/SemExpandableListView$9$1;-><init>(Landroid/widget/SemExpandableListView$9;Ljava/lang/Runnable;)V
 
-    if-eqz v4, :cond_7
+    if-eqz v4, :cond_6
 
     const/16 v21, 0x0
 
@@ -452,7 +444,7 @@
 
     return v21
 
-    :cond_7
+    :cond_6
     const/16 v21, 0x2
 
     move/from16 v0, v21
@@ -527,7 +519,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/animation/AnimatorSet;->setDuration(J)Landroid/animation/AnimatorSet;
 
-    invoke-static {}, Landroid/widget/SemExpandableListView;->-get1()Landroid/view/animation/Interpolator;
+    invoke-static {}, Landroid/widget/SemExpandableListView;->-get2()Landroid/view/animation/Interpolator;
 
     move-result-object v21
 
@@ -539,7 +531,7 @@
 
     move-object/from16 v0, v19
 
-    invoke-virtual {v0, v13}, Landroid/animation/Animator;->addListener(Landroid/animation/Animator$AnimatorListener;)V
+    invoke-virtual {v0, v13}, Landroid/animation/AnimatorSet;->addListener(Landroid/animation/Animator$AnimatorListener;)V
 
     invoke-virtual/range {v19 .. v19}, Landroid/animation/AnimatorSet;->start()V
 
@@ -549,7 +541,7 @@
 
     move-object/from16 v21, v0
 
-    invoke-static/range {v21 .. v21}, Landroid/widget/SemExpandableListView;->-get34(Landroid/widget/SemExpandableListView;)Landroid/util/LongSparseArray;
+    invoke-static/range {v21 .. v21}, Landroid/widget/SemExpandableListView;->-get39(Landroid/widget/SemExpandableListView;)Landroid/util/LongSparseArray;
 
     move-result-object v21
 

@@ -75,7 +75,7 @@
 .method public hasFocus()Z
     .locals 1
 
-    invoke-virtual {p0}, Landroid/view/View;->isEnabled()Z
+    invoke-virtual {p0}, Landroid/inputmethodservice/ExtractEditText;->isEnabled()Z
 
     move-result v0
 
@@ -85,11 +85,11 @@
 .method public hasVerticalScrollBar()Z
     .locals 2
 
-    invoke-virtual {p0}, Landroid/widget/TextView;->computeVerticalScrollRange()I
+    invoke-virtual {p0}, Landroid/inputmethodservice/ExtractEditText;->computeVerticalScrollRange()I
 
     move-result v0
 
-    invoke-virtual {p0}, Landroid/widget/TextView;->computeVerticalScrollExtent()I
+    invoke-virtual {p0}, Landroid/inputmethodservice/ExtractEditText;->computeVerticalScrollExtent()I
 
     move-result v1
 
@@ -109,7 +109,7 @@
 .method public hasWindowFocus()Z
     .locals 1
 
-    invoke-virtual {p0}, Landroid/view/View;->isEnabled()Z
+    invoke-virtual {p0}, Landroid/inputmethodservice/ExtractEditText;->isEnabled()Z
 
     move-result v0
 
@@ -119,15 +119,13 @@
 .method public hideCursorControllers()V
     .locals 0
 
-    invoke-super {p0}, Landroid/widget/EditText;->hideCursorControllers()V
-
     return-void
 .end method
 
 .method public isFocused()Z
     .locals 1
 
-    invoke-virtual {p0}, Landroid/view/View;->isEnabled()Z
+    invoke-virtual {p0}, Landroid/inputmethodservice/ExtractEditText;->isEnabled()Z
 
     move-result v0
 
@@ -238,10 +236,10 @@
     if-ne p1, v0, :cond_3
 
     :cond_2
-    invoke-virtual {p0}, Landroid/widget/TextView;->stopTextActionMode()V
+    invoke-virtual {p0}, Landroid/inputmethodservice/ExtractEditText;->stopTextActionMode()V
 
     :cond_3
-    const v0, 0x1020063
+    const v0, 0x1020544
 
     if-ne p1, v0, :cond_4
 

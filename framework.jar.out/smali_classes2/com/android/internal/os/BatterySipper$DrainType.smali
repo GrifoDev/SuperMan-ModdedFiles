@@ -26,6 +26,8 @@
 # static fields
 .field private static final synthetic $VALUES:[Lcom/android/internal/os/BatterySipper$DrainType;
 
+.field public static final enum AOD:Lcom/android/internal/os/BatterySipper$DrainType;
+
 .field public static final enum APP:Lcom/android/internal/os/BatterySipper$DrainType;
 
 .field public static final enum BLUETOOTH:Lcom/android/internal/os/BatterySipper$DrainType;
@@ -37,6 +39,8 @@
 .field public static final enum FLASHLIGHT:Lcom/android/internal/os/BatterySipper$DrainType;
 
 .field public static final enum IDLE:Lcom/android/internal/os/BatterySipper$DrainType;
+
+.field public static final enum MEMORY:Lcom/android/internal/os/BatterySipper$DrainType;
 
 .field public static final enum OVERCOUNTED:Lcom/android/internal/os/BatterySipper$DrainType;
 
@@ -175,7 +179,27 @@
 
     sput-object v0, Lcom/android/internal/os/BatterySipper$DrainType;->CAMERA:Lcom/android/internal/os/BatterySipper$DrainType;
 
-    const/16 v0, 0xc
+    new-instance v0, Lcom/android/internal/os/BatterySipper$DrainType;
+
+    const-string/jumbo v1, "MEMORY"
+
+    const/16 v2, 0xc
+
+    invoke-direct {v0, v1, v2}, Lcom/android/internal/os/BatterySipper$DrainType;-><init>(Ljava/lang/String;I)V
+
+    sput-object v0, Lcom/android/internal/os/BatterySipper$DrainType;->MEMORY:Lcom/android/internal/os/BatterySipper$DrainType;
+
+    new-instance v0, Lcom/android/internal/os/BatterySipper$DrainType;
+
+    const-string/jumbo v1, "AOD"
+
+    const/16 v2, 0xd
+
+    invoke-direct {v0, v1, v2}, Lcom/android/internal/os/BatterySipper$DrainType;-><init>(Ljava/lang/String;I)V
+
+    sput-object v0, Lcom/android/internal/os/BatterySipper$DrainType;->AOD:Lcom/android/internal/os/BatterySipper$DrainType;
+
+    const/16 v0, 0xe
 
     new-array v0, v0, [Lcom/android/internal/os/BatterySipper$DrainType;
 
@@ -238,6 +262,18 @@
     sget-object v1, Lcom/android/internal/os/BatterySipper$DrainType;->CAMERA:Lcom/android/internal/os/BatterySipper$DrainType;
 
     const/16 v2, 0xb
+
+    aput-object v1, v0, v2
+
+    sget-object v1, Lcom/android/internal/os/BatterySipper$DrainType;->MEMORY:Lcom/android/internal/os/BatterySipper$DrainType;
+
+    const/16 v2, 0xc
+
+    aput-object v1, v0, v2
+
+    sget-object v1, Lcom/android/internal/os/BatterySipper$DrainType;->AOD:Lcom/android/internal/os/BatterySipper$DrainType;
+
+    const/16 v2, 0xd
 
     aput-object v1, v0, v2
 

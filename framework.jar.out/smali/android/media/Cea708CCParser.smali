@@ -1431,17 +1431,7 @@
 
     iget v0, p0, Landroid/media/Cea708CCParser;->mCommand:I
 
-    sparse-switch v0, :sswitch_data_0
-
-    :sswitch_0
     return p2
-
-    :sswitch_data_0
-    .sparse-switch
-        0x20 -> :sswitch_0
-        0x21 -> :sswitch_0
-        0x30 -> :sswitch_0
-    .end sparse-switch
 .end method
 
 .method private parseG3([BI)I
@@ -1451,9 +1441,6 @@
 
     const/16 v1, 0xa0
 
-    if-ne v0, v1, :cond_0
-
-    :cond_0
     return p2
 .end method
 

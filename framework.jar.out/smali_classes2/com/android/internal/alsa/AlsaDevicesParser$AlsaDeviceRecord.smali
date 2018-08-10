@@ -247,8 +247,6 @@
 
     move-result v11
 
-    if-eqz v11, :cond_2
-
     goto :goto_1
 
     :pswitch_4

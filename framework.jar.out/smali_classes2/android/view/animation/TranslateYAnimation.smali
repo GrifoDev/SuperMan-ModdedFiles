@@ -69,11 +69,11 @@
 
     invoke-virtual {v1, v2}, Landroid/graphics/Matrix;->getValues([F)V
 
-    iget v2, p0, Landroid/view/animation/TranslateAnimation;->mFromYDelta:F
+    iget v2, p0, Landroid/view/animation/TranslateYAnimation;->mFromYDelta:F
 
-    iget v3, p0, Landroid/view/animation/TranslateAnimation;->mToYDelta:F
+    iget v3, p0, Landroid/view/animation/TranslateYAnimation;->mToYDelta:F
 
-    iget v4, p0, Landroid/view/animation/TranslateAnimation;->mFromYDelta:F
+    iget v4, p0, Landroid/view/animation/TranslateYAnimation;->mFromYDelta:F
 
     sub-float/2addr v3, v4
 

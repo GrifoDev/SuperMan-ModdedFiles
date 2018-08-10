@@ -54,6 +54,18 @@
 .method public abstract lockCanvas(Landroid/graphics/Rect;)Landroid/graphics/Canvas;
 .end method
 
+.method public lockHardwareCanvas()Landroid/graphics/Canvas;
+    .locals 2
+
+    new-instance v0, Ljava/lang/IllegalStateException;
+
+    const-string/jumbo v1, "This SurfaceHolder doesn\'t support lockHardwareCanvas"
+
+    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+.end method
+
 .method public abstract removeCallback(Landroid/view/SurfaceHolder$Callback;)V
 .end method
 

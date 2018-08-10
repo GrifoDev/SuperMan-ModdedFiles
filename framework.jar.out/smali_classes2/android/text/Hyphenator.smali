@@ -3,7 +3,25 @@
 .source "Hyphenator.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Landroid/text/Hyphenator$HyphenationData;
+    }
+.end annotation
+
+
 # static fields
+.field private static final AVAILABLE_LANGUAGES:[Landroid/text/Hyphenator$HyphenationData;
+
+.field private static final DEFAULT_MIN_PREFIX:I = 0x2
+
+.field private static final DEFAULT_MIN_SUFFIX:I = 0x2
+
+.field private static final INDIC_MIN_PREFIX:I = 0x2
+
+.field private static final INDIC_MIN_SUFFIX:I = 0x2
+
 .field private static final LOCALE_FALLBACK_DATA:[[Ljava/lang/String;
 
 .field private static TAG:Ljava/lang/String;
@@ -37,15 +55,17 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 7
+    .locals 9
 
-    const/4 v1, 0x0
+    const/4 v8, 0x4
 
-    const/4 v6, 0x2
+    const/4 v7, 0x3
+
+    const/4 v6, 0x0
 
     const/4 v5, 0x1
 
-    const/4 v4, 0x0
+    const/4 v4, 0x2
 
     const-string/jumbo v0, "Hyphenator"
 
@@ -65,9 +85,13 @@
 
     new-instance v0, Landroid/text/Hyphenator;
 
-    invoke-static {v1, v4}, Landroid/text/StaticLayout;->nLoadHyphenator(Ljava/nio/ByteBuffer;I)J
+    const/4 v1, 0x0
+
+    invoke-static {v1, v6, v4, v4}, Landroid/text/StaticLayout;->nLoadHyphenator(Ljava/nio/ByteBuffer;III)J
 
     move-result-wide v2
+
+    const/4 v1, 0x0
 
     invoke-direct {v0, v2, v3, v1}, Landroid/text/Hyphenator;-><init>(JLjava/nio/ByteBuffer;)V
 
@@ -77,35 +101,11 @@
 
     new-array v0, v0, [[Ljava/lang/String;
 
-    new-array v1, v6, [Ljava/lang/String;
+    new-array v1, v4, [Ljava/lang/String;
 
     const-string/jumbo v2, "en-AS"
 
-    aput-object v2, v1, v4
-
-    const-string/jumbo v2, "en-US"
-
-    aput-object v2, v1, v5
-
-    aput-object v1, v0, v4
-
-    new-array v1, v6, [Ljava/lang/String;
-
-    const-string/jumbo v2, "en-GU"
-
-    aput-object v2, v1, v4
-
-    const-string/jumbo v2, "en-US"
-
-    aput-object v2, v1, v5
-
-    aput-object v1, v0, v5
-
-    new-array v1, v6, [Ljava/lang/String;
-
-    const-string/jumbo v2, "en-MH"
-
-    aput-object v2, v1, v4
+    aput-object v2, v1, v6
 
     const-string/jumbo v2, "en-US"
 
@@ -113,39 +113,59 @@
 
     aput-object v1, v0, v6
 
-    new-array v1, v6, [Ljava/lang/String;
+    new-array v1, v4, [Ljava/lang/String;
+
+    const-string/jumbo v2, "en-GU"
+
+    aput-object v2, v1, v6
+
+    const-string/jumbo v2, "en-US"
+
+    aput-object v2, v1, v5
+
+    aput-object v1, v0, v5
+
+    new-array v1, v4, [Ljava/lang/String;
+
+    const-string/jumbo v2, "en-MH"
+
+    aput-object v2, v1, v6
+
+    const-string/jumbo v2, "en-US"
+
+    aput-object v2, v1, v5
+
+    aput-object v1, v0, v4
+
+    new-array v1, v4, [Ljava/lang/String;
 
     const-string/jumbo v2, "en-MP"
 
-    aput-object v2, v1, v4
+    aput-object v2, v1, v6
 
     const-string/jumbo v2, "en-US"
 
     aput-object v2, v1, v5
 
-    const/4 v2, 0x3
+    aput-object v1, v0, v7
 
-    aput-object v1, v0, v2
-
-    new-array v1, v6, [Ljava/lang/String;
+    new-array v1, v4, [Ljava/lang/String;
 
     const-string/jumbo v2, "en-PR"
 
-    aput-object v2, v1, v4
+    aput-object v2, v1, v6
 
     const-string/jumbo v2, "en-US"
 
     aput-object v2, v1, v5
 
-    const/4 v2, 0x4
+    aput-object v1, v0, v8
 
-    aput-object v1, v0, v2
-
-    new-array v1, v6, [Ljava/lang/String;
+    new-array v1, v4, [Ljava/lang/String;
 
     const-string/jumbo v2, "en-UM"
 
-    aput-object v2, v1, v4
+    aput-object v2, v1, v6
 
     const-string/jumbo v2, "en-US"
 
@@ -155,11 +175,11 @@
 
     aput-object v1, v0, v2
 
-    new-array v1, v6, [Ljava/lang/String;
+    new-array v1, v4, [Ljava/lang/String;
 
     const-string/jumbo v2, "en-VI"
 
-    aput-object v2, v1, v4
+    aput-object v2, v1, v6
 
     const-string/jumbo v2, "en-US"
 
@@ -169,11 +189,11 @@
 
     aput-object v1, v0, v2
 
-    new-array v1, v6, [Ljava/lang/String;
+    new-array v1, v4, [Ljava/lang/String;
 
     const-string/jumbo v2, "en"
 
-    aput-object v2, v1, v4
+    aput-object v2, v1, v6
 
     const-string/jumbo v2, "en-GB"
 
@@ -183,11 +203,11 @@
 
     aput-object v1, v0, v2
 
-    new-array v1, v6, [Ljava/lang/String;
+    new-array v1, v4, [Ljava/lang/String;
 
     const-string/jumbo v2, "de"
 
-    aput-object v2, v1, v4
+    aput-object v2, v1, v6
 
     const-string/jumbo v2, "de-1996"
 
@@ -197,11 +217,11 @@
 
     aput-object v1, v0, v2
 
-    new-array v1, v6, [Ljava/lang/String;
+    new-array v1, v4, [Ljava/lang/String;
 
     const-string/jumbo v2, "de-LI-1901"
 
-    aput-object v2, v1, v4
+    aput-object v2, v1, v6
 
     const-string/jumbo v2, "de-CH-1901"
 
@@ -211,11 +231,11 @@
 
     aput-object v1, v0, v2
 
-    new-array v1, v6, [Ljava/lang/String;
+    new-array v1, v4, [Ljava/lang/String;
 
     const-string/jumbo v2, "no"
 
-    aput-object v2, v1, v4
+    aput-object v2, v1, v6
 
     const-string/jumbo v2, "nb"
 
@@ -225,11 +245,11 @@
 
     aput-object v1, v0, v2
 
-    new-array v1, v6, [Ljava/lang/String;
+    new-array v1, v4, [Ljava/lang/String;
 
     const-string/jumbo v2, "mn"
 
-    aput-object v2, v1, v4
+    aput-object v2, v1, v6
 
     const-string/jumbo v2, "mn-Cyrl"
 
@@ -239,11 +259,11 @@
 
     aput-object v1, v0, v2
 
-    new-array v1, v6, [Ljava/lang/String;
+    new-array v1, v4, [Ljava/lang/String;
 
     const-string/jumbo v2, "am"
 
-    aput-object v2, v1, v4
+    aput-object v2, v1, v6
 
     const-string/jumbo v2, "und-Ethi"
 
@@ -253,11 +273,11 @@
 
     aput-object v1, v0, v2
 
-    new-array v1, v6, [Ljava/lang/String;
+    new-array v1, v4, [Ljava/lang/String;
 
     const-string/jumbo v2, "byn"
 
-    aput-object v2, v1, v4
+    aput-object v2, v1, v6
 
     const-string/jumbo v2, "und-Ethi"
 
@@ -267,11 +287,11 @@
 
     aput-object v1, v0, v2
 
-    new-array v1, v6, [Ljava/lang/String;
+    new-array v1, v4, [Ljava/lang/String;
 
     const-string/jumbo v2, "gez"
 
-    aput-object v2, v1, v4
+    aput-object v2, v1, v6
 
     const-string/jumbo v2, "und-Ethi"
 
@@ -281,11 +301,11 @@
 
     aput-object v1, v0, v2
 
-    new-array v1, v6, [Ljava/lang/String;
+    new-array v1, v4, [Ljava/lang/String;
 
     const-string/jumbo v2, "ti"
 
-    aput-object v2, v1, v4
+    aput-object v2, v1, v6
 
     const-string/jumbo v2, "und-Ethi"
 
@@ -295,11 +315,11 @@
 
     aput-object v1, v0, v2
 
-    new-array v1, v6, [Ljava/lang/String;
+    new-array v1, v4, [Ljava/lang/String;
 
     const-string/jumbo v2, "wal"
 
-    aput-object v2, v1, v4
+    aput-object v2, v1, v6
 
     const-string/jumbo v2, "und-Ethi"
 
@@ -310,6 +330,352 @@
     aput-object v1, v0, v2
 
     sput-object v0, Landroid/text/Hyphenator;->LOCALE_FALLBACK_DATA:[[Ljava/lang/String;
+
+    const/16 v0, 0x23
+
+    new-array v0, v0, [Landroid/text/Hyphenator$HyphenationData;
+
+    new-instance v1, Landroid/text/Hyphenator$HyphenationData;
+
+    const-string/jumbo v2, "as"
+
+    invoke-direct {v1, v2, v4, v4}, Landroid/text/Hyphenator$HyphenationData;-><init>(Ljava/lang/String;II)V
+
+    aput-object v1, v0, v6
+
+    new-instance v1, Landroid/text/Hyphenator$HyphenationData;
+
+    const-string/jumbo v2, "bg"
+
+    invoke-direct {v1, v2, v4, v4}, Landroid/text/Hyphenator$HyphenationData;-><init>(Ljava/lang/String;II)V
+
+    aput-object v1, v0, v5
+
+    new-instance v1, Landroid/text/Hyphenator$HyphenationData;
+
+    const-string/jumbo v2, "bn"
+
+    invoke-direct {v1, v2, v4, v4}, Landroid/text/Hyphenator$HyphenationData;-><init>(Ljava/lang/String;II)V
+
+    aput-object v1, v0, v4
+
+    new-instance v1, Landroid/text/Hyphenator$HyphenationData;
+
+    const-string/jumbo v2, "cu"
+
+    invoke-direct {v1, v2, v5, v4}, Landroid/text/Hyphenator$HyphenationData;-><init>(Ljava/lang/String;II)V
+
+    aput-object v1, v0, v7
+
+    new-instance v1, Landroid/text/Hyphenator$HyphenationData;
+
+    const-string/jumbo v2, "cy"
+
+    invoke-direct {v1, v2, v4, v7}, Landroid/text/Hyphenator$HyphenationData;-><init>(Ljava/lang/String;II)V
+
+    aput-object v1, v0, v8
+
+    new-instance v1, Landroid/text/Hyphenator$HyphenationData;
+
+    const-string/jumbo v2, "da"
+
+    invoke-direct {v1, v2, v4, v4}, Landroid/text/Hyphenator$HyphenationData;-><init>(Ljava/lang/String;II)V
+
+    const/4 v2, 0x5
+
+    aput-object v1, v0, v2
+
+    new-instance v1, Landroid/text/Hyphenator$HyphenationData;
+
+    const-string/jumbo v2, "de-1901"
+
+    invoke-direct {v1, v2, v4, v4}, Landroid/text/Hyphenator$HyphenationData;-><init>(Ljava/lang/String;II)V
+
+    const/4 v2, 0x6
+
+    aput-object v1, v0, v2
+
+    new-instance v1, Landroid/text/Hyphenator$HyphenationData;
+
+    const-string/jumbo v2, "de-1996"
+
+    invoke-direct {v1, v2, v4, v4}, Landroid/text/Hyphenator$HyphenationData;-><init>(Ljava/lang/String;II)V
+
+    const/4 v2, 0x7
+
+    aput-object v1, v0, v2
+
+    new-instance v1, Landroid/text/Hyphenator$HyphenationData;
+
+    const-string/jumbo v2, "de-CH-1901"
+
+    invoke-direct {v1, v2, v4, v4}, Landroid/text/Hyphenator$HyphenationData;-><init>(Ljava/lang/String;II)V
+
+    const/16 v2, 0x8
+
+    aput-object v1, v0, v2
+
+    new-instance v1, Landroid/text/Hyphenator$HyphenationData;
+
+    const-string/jumbo v2, "en-GB"
+
+    invoke-direct {v1, v2, v4, v7}, Landroid/text/Hyphenator$HyphenationData;-><init>(Ljava/lang/String;II)V
+
+    const/16 v2, 0x9
+
+    aput-object v1, v0, v2
+
+    new-instance v1, Landroid/text/Hyphenator$HyphenationData;
+
+    const-string/jumbo v2, "en-US"
+
+    invoke-direct {v1, v2, v4, v7}, Landroid/text/Hyphenator$HyphenationData;-><init>(Ljava/lang/String;II)V
+
+    const/16 v2, 0xa
+
+    aput-object v1, v0, v2
+
+    new-instance v1, Landroid/text/Hyphenator$HyphenationData;
+
+    const-string/jumbo v2, "es"
+
+    invoke-direct {v1, v2, v4, v4}, Landroid/text/Hyphenator$HyphenationData;-><init>(Ljava/lang/String;II)V
+
+    const/16 v2, 0xb
+
+    aput-object v1, v0, v2
+
+    new-instance v1, Landroid/text/Hyphenator$HyphenationData;
+
+    const-string/jumbo v2, "et"
+
+    invoke-direct {v1, v2, v4, v7}, Landroid/text/Hyphenator$HyphenationData;-><init>(Ljava/lang/String;II)V
+
+    const/16 v2, 0xc
+
+    aput-object v1, v0, v2
+
+    new-instance v1, Landroid/text/Hyphenator$HyphenationData;
+
+    const-string/jumbo v2, "eu"
+
+    invoke-direct {v1, v2, v4, v4}, Landroid/text/Hyphenator$HyphenationData;-><init>(Ljava/lang/String;II)V
+
+    const/16 v2, 0xd
+
+    aput-object v1, v0, v2
+
+    new-instance v1, Landroid/text/Hyphenator$HyphenationData;
+
+    const-string/jumbo v2, "fr"
+
+    invoke-direct {v1, v2, v4, v7}, Landroid/text/Hyphenator$HyphenationData;-><init>(Ljava/lang/String;II)V
+
+    const/16 v2, 0xe
+
+    aput-object v1, v0, v2
+
+    new-instance v1, Landroid/text/Hyphenator$HyphenationData;
+
+    const-string/jumbo v2, "ga"
+
+    invoke-direct {v1, v2, v4, v7}, Landroid/text/Hyphenator$HyphenationData;-><init>(Ljava/lang/String;II)V
+
+    const/16 v2, 0xf
+
+    aput-object v1, v0, v2
+
+    new-instance v1, Landroid/text/Hyphenator$HyphenationData;
+
+    const-string/jumbo v2, "gu"
+
+    invoke-direct {v1, v2, v4, v4}, Landroid/text/Hyphenator$HyphenationData;-><init>(Ljava/lang/String;II)V
+
+    const/16 v2, 0x10
+
+    aput-object v1, v0, v2
+
+    new-instance v1, Landroid/text/Hyphenator$HyphenationData;
+
+    const-string/jumbo v2, "hi"
+
+    invoke-direct {v1, v2, v4, v4}, Landroid/text/Hyphenator$HyphenationData;-><init>(Ljava/lang/String;II)V
+
+    const/16 v2, 0x11
+
+    aput-object v1, v0, v2
+
+    new-instance v1, Landroid/text/Hyphenator$HyphenationData;
+
+    const-string/jumbo v2, "hr"
+
+    invoke-direct {v1, v2, v4, v4}, Landroid/text/Hyphenator$HyphenationData;-><init>(Ljava/lang/String;II)V
+
+    const/16 v2, 0x12
+
+    aput-object v1, v0, v2
+
+    new-instance v1, Landroid/text/Hyphenator$HyphenationData;
+
+    const-string/jumbo v2, "hu"
+
+    invoke-direct {v1, v2, v4, v4}, Landroid/text/Hyphenator$HyphenationData;-><init>(Ljava/lang/String;II)V
+
+    const/16 v2, 0x13
+
+    aput-object v1, v0, v2
+
+    new-instance v1, Landroid/text/Hyphenator$HyphenationData;
+
+    const-string/jumbo v2, "hy"
+
+    invoke-direct {v1, v2, v4, v4}, Landroid/text/Hyphenator$HyphenationData;-><init>(Ljava/lang/String;II)V
+
+    const/16 v2, 0x14
+
+    aput-object v1, v0, v2
+
+    new-instance v1, Landroid/text/Hyphenator$HyphenationData;
+
+    const-string/jumbo v2, "kn"
+
+    invoke-direct {v1, v2, v4, v4}, Landroid/text/Hyphenator$HyphenationData;-><init>(Ljava/lang/String;II)V
+
+    const/16 v2, 0x15
+
+    aput-object v1, v0, v2
+
+    new-instance v1, Landroid/text/Hyphenator$HyphenationData;
+
+    const-string/jumbo v2, "ml"
+
+    invoke-direct {v1, v2, v4, v4}, Landroid/text/Hyphenator$HyphenationData;-><init>(Ljava/lang/String;II)V
+
+    const/16 v2, 0x16
+
+    aput-object v1, v0, v2
+
+    new-instance v1, Landroid/text/Hyphenator$HyphenationData;
+
+    const-string/jumbo v2, "mn-Cyrl"
+
+    invoke-direct {v1, v2, v4, v4}, Landroid/text/Hyphenator$HyphenationData;-><init>(Ljava/lang/String;II)V
+
+    const/16 v2, 0x17
+
+    aput-object v1, v0, v2
+
+    new-instance v1, Landroid/text/Hyphenator$HyphenationData;
+
+    const-string/jumbo v2, "mr"
+
+    invoke-direct {v1, v2, v4, v4}, Landroid/text/Hyphenator$HyphenationData;-><init>(Ljava/lang/String;II)V
+
+    const/16 v2, 0x18
+
+    aput-object v1, v0, v2
+
+    new-instance v1, Landroid/text/Hyphenator$HyphenationData;
+
+    const-string/jumbo v2, "nb"
+
+    invoke-direct {v1, v2, v4, v4}, Landroid/text/Hyphenator$HyphenationData;-><init>(Ljava/lang/String;II)V
+
+    const/16 v2, 0x19
+
+    aput-object v1, v0, v2
+
+    new-instance v1, Landroid/text/Hyphenator$HyphenationData;
+
+    const-string/jumbo v2, "nn"
+
+    invoke-direct {v1, v2, v4, v4}, Landroid/text/Hyphenator$HyphenationData;-><init>(Ljava/lang/String;II)V
+
+    const/16 v2, 0x1a
+
+    aput-object v1, v0, v2
+
+    new-instance v1, Landroid/text/Hyphenator$HyphenationData;
+
+    const-string/jumbo v2, "or"
+
+    invoke-direct {v1, v2, v4, v4}, Landroid/text/Hyphenator$HyphenationData;-><init>(Ljava/lang/String;II)V
+
+    const/16 v2, 0x1b
+
+    aput-object v1, v0, v2
+
+    new-instance v1, Landroid/text/Hyphenator$HyphenationData;
+
+    const-string/jumbo v2, "pa"
+
+    invoke-direct {v1, v2, v4, v4}, Landroid/text/Hyphenator$HyphenationData;-><init>(Ljava/lang/String;II)V
+
+    const/16 v2, 0x1c
+
+    aput-object v1, v0, v2
+
+    new-instance v1, Landroid/text/Hyphenator$HyphenationData;
+
+    const-string/jumbo v2, "pt"
+
+    invoke-direct {v1, v2, v4, v7}, Landroid/text/Hyphenator$HyphenationData;-><init>(Ljava/lang/String;II)V
+
+    const/16 v2, 0x1d
+
+    aput-object v1, v0, v2
+
+    new-instance v1, Landroid/text/Hyphenator$HyphenationData;
+
+    const-string/jumbo v2, "sl"
+
+    invoke-direct {v1, v2, v4, v4}, Landroid/text/Hyphenator$HyphenationData;-><init>(Ljava/lang/String;II)V
+
+    const/16 v2, 0x1e
+
+    aput-object v1, v0, v2
+
+    new-instance v1, Landroid/text/Hyphenator$HyphenationData;
+
+    const-string/jumbo v2, "ta"
+
+    invoke-direct {v1, v2, v4, v4}, Landroid/text/Hyphenator$HyphenationData;-><init>(Ljava/lang/String;II)V
+
+    const/16 v2, 0x1f
+
+    aput-object v1, v0, v2
+
+    new-instance v1, Landroid/text/Hyphenator$HyphenationData;
+
+    const-string/jumbo v2, "te"
+
+    invoke-direct {v1, v2, v4, v4}, Landroid/text/Hyphenator$HyphenationData;-><init>(Ljava/lang/String;II)V
+
+    const/16 v2, 0x20
+
+    aput-object v1, v0, v2
+
+    new-instance v1, Landroid/text/Hyphenator$HyphenationData;
+
+    const-string/jumbo v2, "tk"
+
+    invoke-direct {v1, v2, v4, v4}, Landroid/text/Hyphenator$HyphenationData;-><init>(Ljava/lang/String;II)V
+
+    const/16 v2, 0x21
+
+    aput-object v1, v0, v2
+
+    new-instance v1, Landroid/text/Hyphenator$HyphenationData;
+
+    const-string/jumbo v2, "und-Ethi"
+
+    invoke-direct {v1, v2, v5, v5}, Landroid/text/Hyphenator$HyphenationData;-><init>(Ljava/lang/String;II)V
+
+    const/16 v2, 0x22
+
+    aput-object v1, v0, v2
+
+    sput-object v0, Landroid/text/Hyphenator;->AVAILABLE_LANGUAGES:[Landroid/text/Hyphenator$HyphenationData;
 
     return-void
 .end method
@@ -511,238 +877,42 @@
 .end method
 
 .method public static init()V
-    .locals 12
+    .locals 9
 
-    const/4 v11, 0x1
+    const/4 v6, 0x0
 
-    const/4 v10, 0x0
+    sget-object v5, Landroid/text/Hyphenator;->sMap:Ljava/util/HashMap;
 
-    const/4 v7, 0x0
-
-    sget-object v6, Landroid/text/Hyphenator;->sMap:Ljava/util/HashMap;
-
-    invoke-virtual {v6, v7, v7}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    const/16 v6, 0x21
-
-    new-array v0, v6, [Ljava/lang/String;
-
-    const-string/jumbo v6, "as"
-
-    aput-object v6, v0, v10
-
-    const-string/jumbo v6, "bn"
-
-    aput-object v6, v0, v11
-
-    const-string/jumbo v6, "cy"
-
-    const/4 v7, 0x2
-
-    aput-object v6, v0, v7
-
-    const-string/jumbo v6, "da"
-
-    const/4 v7, 0x3
-
-    aput-object v6, v0, v7
-
-    const-string/jumbo v6, "de-1901"
-
-    const/4 v7, 0x4
-
-    aput-object v6, v0, v7
-
-    const-string/jumbo v6, "de-1996"
-
-    const/4 v7, 0x5
-
-    aput-object v6, v0, v7
-
-    const-string/jumbo v6, "de-CH-1901"
-
-    const/4 v7, 0x6
-
-    aput-object v6, v0, v7
-
-    const-string/jumbo v6, "en-GB"
-
-    const/4 v7, 0x7
-
-    aput-object v6, v0, v7
-
-    const-string/jumbo v6, "en-US"
-
-    const/16 v7, 0x8
-
-    aput-object v6, v0, v7
-
-    const-string/jumbo v6, "es"
-
-    const/16 v7, 0x9
-
-    aput-object v6, v0, v7
-
-    const-string/jumbo v6, "et"
-
-    const/16 v7, 0xa
-
-    aput-object v6, v0, v7
-
-    const-string/jumbo v6, "eu"
-
-    const/16 v7, 0xb
-
-    aput-object v6, v0, v7
-
-    const-string/jumbo v6, "fr"
-
-    const/16 v7, 0xc
-
-    aput-object v6, v0, v7
-
-    const-string/jumbo v6, "ga"
-
-    const/16 v7, 0xd
-
-    aput-object v6, v0, v7
-
-    const-string/jumbo v6, "gu"
-
-    const/16 v7, 0xe
-
-    aput-object v6, v0, v7
-
-    const-string/jumbo v6, "hi"
-
-    const/16 v7, 0xf
-
-    aput-object v6, v0, v7
-
-    const-string/jumbo v6, "hr"
-
-    const/16 v7, 0x10
-
-    aput-object v6, v0, v7
-
-    const-string/jumbo v6, "hu"
-
-    const/16 v7, 0x11
-
-    aput-object v6, v0, v7
-
-    const-string/jumbo v6, "hy"
-
-    const/16 v7, 0x12
-
-    aput-object v6, v0, v7
-
-    const-string/jumbo v6, "kn"
-
-    const/16 v7, 0x13
-
-    aput-object v6, v0, v7
-
-    const-string/jumbo v6, "ml"
-
-    const/16 v7, 0x14
-
-    aput-object v6, v0, v7
-
-    const-string/jumbo v6, "mn-Cyrl"
-
-    const/16 v7, 0x15
-
-    aput-object v6, v0, v7
-
-    const-string/jumbo v6, "mr"
-
-    const/16 v7, 0x16
-
-    aput-object v6, v0, v7
-
-    const-string/jumbo v6, "nb"
-
-    const/16 v7, 0x17
-
-    aput-object v6, v0, v7
-
-    const-string/jumbo v6, "nn"
-
-    const/16 v7, 0x18
-
-    aput-object v6, v0, v7
-
-    const-string/jumbo v6, "or"
-
-    const/16 v7, 0x19
-
-    aput-object v6, v0, v7
-
-    const-string/jumbo v6, "pa"
-
-    const/16 v7, 0x1a
-
-    aput-object v6, v0, v7
-
-    const-string/jumbo v6, "pt"
-
-    const/16 v7, 0x1b
-
-    aput-object v6, v0, v7
-
-    const-string/jumbo v6, "sl"
-
-    const/16 v7, 0x1c
-
-    aput-object v6, v0, v7
-
-    const-string/jumbo v6, "ta"
-
-    const/16 v7, 0x1d
-
-    aput-object v6, v0, v7
-
-    const-string/jumbo v6, "te"
-
-    const/16 v7, 0x1e
-
-    aput-object v6, v0, v7
-
-    const-string/jumbo v6, "tk"
-
-    const/16 v7, 0x1f
-
-    aput-object v6, v0, v7
-
-    const-string/jumbo v6, "und-Ethi"
-
-    const/16 v7, 0x20
-
-    aput-object v6, v0, v7
+    invoke-virtual {v5, v6, v6}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     const/4 v3, 0x0
 
     :goto_0
-    array-length v6, v0
+    sget-object v5, Landroid/text/Hyphenator;->AVAILABLE_LANGUAGES:[Landroid/text/Hyphenator$HyphenationData;
 
-    if-ge v3, v6, :cond_1
+    array-length v5, v5
 
-    aget-object v5, v0, v3
+    if-ge v3, v5, :cond_1
 
-    invoke-static {v5}, Landroid/text/Hyphenator;->loadHyphenator(Ljava/lang/String;)Landroid/text/Hyphenator;
+    sget-object v5, Landroid/text/Hyphenator;->AVAILABLE_LANGUAGES:[Landroid/text/Hyphenator$HyphenationData;
+
+    aget-object v0, v5, v3
+
+    invoke-static {v0}, Landroid/text/Hyphenator;->loadHyphenator(Landroid/text/Hyphenator$HyphenationData;)Landroid/text/Hyphenator;
 
     move-result-object v2
 
     if-eqz v2, :cond_0
 
-    sget-object v6, Landroid/text/Hyphenator;->sMap:Ljava/util/HashMap;
+    sget-object v5, Landroid/text/Hyphenator;->sMap:Ljava/util/HashMap;
 
-    invoke-static {v5}, Ljava/util/Locale;->forLanguageTag(Ljava/lang/String;)Ljava/util/Locale;
+    iget-object v6, v0, Landroid/text/Hyphenator$HyphenationData;->mLanguageTag:Ljava/lang/String;
 
-    move-result-object v7
+    invoke-static {v6}, Ljava/util/Locale;->forLanguageTag(Ljava/lang/String;)Ljava/util/Locale;
 
-    invoke-virtual {v6, v7, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    move-result-object v6
+
+    invoke-virtual {v5, v6, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     :cond_0
     add-int/lit8 v3, v3, 0x1
@@ -753,43 +923,47 @@
     const/4 v3, 0x0
 
     :goto_1
-    sget-object v6, Landroid/text/Hyphenator;->LOCALE_FALLBACK_DATA:[[Ljava/lang/String;
+    sget-object v5, Landroid/text/Hyphenator;->LOCALE_FALLBACK_DATA:[[Ljava/lang/String;
 
-    array-length v6, v6
+    array-length v5, v5
 
-    if-ge v3, v6, :cond_2
+    if-ge v3, v5, :cond_2
 
-    sget-object v6, Landroid/text/Hyphenator;->LOCALE_FALLBACK_DATA:[[Ljava/lang/String;
+    sget-object v5, Landroid/text/Hyphenator;->LOCALE_FALLBACK_DATA:[[Ljava/lang/String;
 
-    aget-object v6, v6, v3
+    aget-object v5, v5, v3
 
-    aget-object v4, v6, v10
+    const/4 v6, 0x0
 
-    sget-object v6, Landroid/text/Hyphenator;->LOCALE_FALLBACK_DATA:[[Ljava/lang/String;
+    aget-object v4, v5, v6
 
-    aget-object v6, v6, v3
+    sget-object v5, Landroid/text/Hyphenator;->LOCALE_FALLBACK_DATA:[[Ljava/lang/String;
 
-    aget-object v1, v6, v11
+    aget-object v5, v5, v3
 
-    sget-object v7, Landroid/text/Hyphenator;->sMap:Ljava/util/HashMap;
+    const/4 v6, 0x1
 
-    invoke-static {v4}, Ljava/util/Locale;->forLanguageTag(Ljava/lang/String;)Ljava/util/Locale;
-
-    move-result-object v8
+    aget-object v1, v5, v6
 
     sget-object v6, Landroid/text/Hyphenator;->sMap:Ljava/util/HashMap;
 
+    invoke-static {v4}, Ljava/util/Locale;->forLanguageTag(Ljava/lang/String;)Ljava/util/Locale;
+
+    move-result-object v7
+
+    sget-object v5, Landroid/text/Hyphenator;->sMap:Ljava/util/HashMap;
+
     invoke-static {v1}, Ljava/util/Locale;->forLanguageTag(Ljava/lang/String;)Ljava/util/Locale;
 
-    move-result-object v9
+    move-result-object v8
 
-    invoke-virtual {v6, v9}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v5, v8}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v6
+    move-result-object v5
 
-    check-cast v6, Landroid/text/Hyphenator;
+    check-cast v5, Landroid/text/Hyphenator;
 
-    invoke-virtual {v7, v8, v6}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v6, v7, v5}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     add-int/lit8 v3, v3, 0x1
 
@@ -799,8 +973,10 @@
     return-void
 .end method
 
-.method private static loadHyphenator(Ljava/lang/String;)Landroid/text/Hyphenator;
-    .locals 13
+.method private static loadHyphenator(Landroid/text/Hyphenator$HyphenationData;)Landroid/text/Hyphenator;
+    .locals 14
+
+    const/4 v13, 0x0
 
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -812,9 +988,11 @@
 
     move-result-object v1
 
-    sget-object v2, Ljava/util/Locale;->US:Ljava/util/Locale;
+    iget-object v2, p0, Landroid/text/Hyphenator$HyphenationData;->mLanguageTag:Ljava/lang/String;
 
-    invoke-virtual {p0, v2}, Ljava/lang/String;->toLowerCase(Ljava/util/Locale;)Ljava/lang/String;
+    sget-object v3, Ljava/util/Locale;->US:Ljava/util/Locale;
+
+    invoke-virtual {v2, v3}, Ljava/lang/String;->toLowerCase(Ljava/util/Locale;)Ljava/lang/String;
 
     move-result-object v2
 
@@ -840,6 +1018,43 @@
 
     invoke-direct {v9, v1, v12}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
+    invoke-virtual {v9}, Ljava/io/File;->canRead()Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    sget-object v1, Landroid/text/Hyphenator;->TAG:Ljava/lang/String;
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "hyphenation patterns for "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string/jumbo v3, " not found or unreadable"
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-object v13
+
+    :cond_0
     :try_start_0
     new-instance v8, Ljava/io/RandomAccessFile;
 
@@ -866,9 +1081,13 @@
 
     move-result-object v6
 
-    const/4 v1, 0x0
+    iget v1, p0, Landroid/text/Hyphenator$HyphenationData;->mMinPrefix:I
 
-    invoke-static {v6, v1}, Landroid/text/StaticLayout;->nLoadHyphenator(Ljava/nio/ByteBuffer;I)J
+    iget v2, p0, Landroid/text/Hyphenator$HyphenationData;->mMinSuffix:I
+
+    const/4 v3, 0x0
+
+    invoke-static {v6, v3, v1, v2}, Landroid/text/StaticLayout;->nLoadHyphenator(Ljava/nio/ByteBuffer;III)J
 
     move-result-wide v10
 
@@ -917,9 +1136,7 @@
 
     invoke-static {v1, v2, v7}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    const/4 v1, 0x0
-
-    return-object v1
+    return-object v13
 .end method
 
 

@@ -346,27 +346,31 @@
 .end method
 
 .method private static calculateJpegStallDuration(Landroid/hardware/Camera$Size;)J
-    .locals 6
+    .locals 10
 
-    iget v2, p0, Landroid/hardware/Camera$Size;->width:I
+    const-wide/32 v2, 0xbebc200
 
-    int-to-long v2, v2
+    iget v6, p0, Landroid/hardware/Camera$Size;->width:I
 
-    iget v4, p0, Landroid/hardware/Camera$Size;->height:I
+    int-to-long v6, v6
 
-    int-to-long v4, v4
+    iget v8, p0, Landroid/hardware/Camera$Size;->height:I
 
-    mul-long v0, v2, v4
+    int-to-long v8, v8
 
-    const-wide/16 v2, 0x47
+    mul-long v0, v6, v8
 
-    mul-long/2addr v2, v0
+    const-wide/16 v4, 0x47
 
-    const-wide/32 v4, 0xbebc200
+    const-wide/16 v6, 0x47
 
-    add-long/2addr v2, v4
+    mul-long/2addr v6, v0
 
-    return-wide v2
+    const-wide/32 v8, 0xbebc200
+
+    add-long/2addr v6, v8
+
+    return-wide v6
 .end method
 
 .method private static convertAeFpsRangeToLegacy(Landroid/util/Range;)[I
@@ -2367,9 +2371,15 @@
 
     move-result-object v11
 
+    check-cast v11, Ljava/lang/String;
+
     const-string/jumbo v12, "auto"
 
-    if-ne v11, v12, :cond_0
+    invoke-virtual {v11, v12}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v11
+
+    if-eqz v11, :cond_0
 
     const/4 v10, 0x0
 
@@ -2527,12 +2537,9 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
-
-    const/4 v0, 0x0
+    xor-int/lit8 v0, v2, 0x1
 
     :cond_0
-    :goto_0
     sget-object v2, Landroid/hardware/camera2/CameraCharacteristics;->FLASH_INFO_AVAILABLE:Landroid/hardware/camera2/CameraCharacteristics$Key;
 
     invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
@@ -2542,11 +2549,6 @@
     invoke-virtual {p0, v2, v3}, Landroid/hardware/camera2/impl/CameraMetadataNative;->set(Landroid/hardware/camera2/CameraCharacteristics$Key;Ljava/lang/Object;)V
 
     return-void
-
-    :cond_1
-    const/4 v0, 0x1
-
-    goto :goto_0
 .end method
 
 .method private static mapJpeg(Landroid/hardware/camera2/impl/CameraMetadataNative;Landroid/hardware/Camera$Parameters;)V

@@ -104,7 +104,7 @@
     return-void
 .end method
 
-.method constructor <init>(Landroid/graphics/drawable/DrawableContainer$DrawableContainerState;Landroid/graphics/drawable/DrawableContainer;Landroid/content/res/Resources;)V
+.method protected constructor <init>(Landroid/graphics/drawable/DrawableContainer$DrawableContainerState;Landroid/graphics/drawable/DrawableContainer;Landroid/content/res/Resources;)V
     .locals 9
 
     const/4 v6, 0x0
@@ -482,65 +482,19 @@
 
     invoke-virtual {p1, v0}, Landroid/graphics/drawable/Drawable;->setLayoutDirection(I)Z
 
-    iget-object v0, p0, Landroid/graphics/drawable/DrawableContainer$DrawableContainerState;->mOwner:Landroid/graphics/drawable/DrawableContainer;
-
-    invoke-virtual {p1, v0}, Landroid/graphics/drawable/Drawable;->setCallback(Landroid/graphics/drawable/Drawable$Callback;)V
-
     invoke-virtual {p1}, Landroid/graphics/drawable/Drawable;->mutate()Landroid/graphics/drawable/Drawable;
 
     move-result-object p1
+
+    iget-object v0, p0, Landroid/graphics/drawable/DrawableContainer$DrawableContainerState;->mOwner:Landroid/graphics/drawable/DrawableContainer;
+
+    invoke-virtual {p1, v0}, Landroid/graphics/drawable/Drawable;->setCallback(Landroid/graphics/drawable/Drawable$Callback;)V
 
     return-object p1
 .end method
 
 
 # virtual methods
-.method public addAtlasableBitmaps(Ljava/util/Collection;)I
-    .locals 5
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/Collection",
-            "<",
-            "Landroid/graphics/Bitmap;",
-            ">;)I"
-        }
-    .end annotation
-
-    iget v0, p0, Landroid/graphics/drawable/DrawableContainer$DrawableContainerState;->mNumChildren:I
-
-    const/4 v2, 0x0
-
-    const/4 v1, 0x0
-
-    :goto_0
-    if-ge v1, v0, :cond_1
-
-    invoke-virtual {p0, v1}, Landroid/graphics/drawable/DrawableContainer$DrawableContainerState;->getChild(I)Landroid/graphics/drawable/Drawable;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Landroid/graphics/drawable/Drawable;->getConstantState()Landroid/graphics/drawable/Drawable$ConstantState;
-
-    move-result-object v3
-
-    if-eqz v3, :cond_0
-
-    invoke-virtual {v3, p1}, Landroid/graphics/drawable/Drawable$ConstantState;->addAtlasableBitmaps(Ljava/util/Collection;)I
-
-    move-result v4
-
-    add-int/2addr v2, v4
-
-    :cond_0
-    add-int/lit8 v1, v1, 0x1
-
-    goto :goto_0
-
-    :cond_1
-    return v2
-.end method
-
 .method public final addChild(Landroid/graphics/drawable/Drawable;)I
     .locals 4
 
@@ -589,9 +543,7 @@
 
     iput v1, p0, Landroid/graphics/drawable/DrawableContainer$DrawableContainerState;->mChildrenChangingConfigurations:I
 
-    iput-boolean v3, p0, Landroid/graphics/drawable/DrawableContainer$DrawableContainerState;->mCheckedStateful:Z
-
-    iput-boolean v3, p0, Landroid/graphics/drawable/DrawableContainer$DrawableContainerState;->mCheckedOpacity:Z
+    invoke-virtual {p0}, Landroid/graphics/drawable/DrawableContainer$DrawableContainerState;->invalidateCache()V
 
     const/4 v1, 0x0
 
@@ -1240,10 +1192,6 @@
     :cond_0
     invoke-direct {p0}, Landroid/graphics/drawable/DrawableContainer$DrawableContainerState;->createAllFutures()V
 
-    const/4 v4, 0x1
-
-    iput-boolean v4, p0, Landroid/graphics/drawable/DrawableContainer$DrawableContainerState;->mCheckedOpacity:Z
-
     iget v0, p0, Landroid/graphics/drawable/DrawableContainer$DrawableContainerState;->mNumChildren:I
 
     iget-object v1, p0, Landroid/graphics/drawable/DrawableContainer$DrawableContainerState;->mDrawables:[Landroid/graphics/drawable/Drawable;
@@ -1284,6 +1232,10 @@
     :cond_2
     iput v3, p0, Landroid/graphics/drawable/DrawableContainer$DrawableContainerState;->mOpacity:I
 
+    const/4 v4, 0x1
+
+    iput-boolean v4, p0, Landroid/graphics/drawable/DrawableContainer$DrawableContainerState;->mCheckedOpacity:Z
+
     return v3
 .end method
 
@@ -1303,6 +1255,18 @@
     return-void
 .end method
 
+.method invalidateCache()V
+    .locals 1
+
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Landroid/graphics/drawable/DrawableContainer$DrawableContainerState;->mCheckedOpacity:Z
+
+    iput-boolean v0, p0, Landroid/graphics/drawable/DrawableContainer$DrawableContainerState;->mCheckedStateful:Z
+
+    return-void
+.end method
+
 .method public final isConstantSize()Z
     .locals 1
 
@@ -1312,55 +1276,53 @@
 .end method
 
 .method public final isStateful()Z
-    .locals 6
+    .locals 5
 
-    const/4 v5, 0x0
+    iget-boolean v4, p0, Landroid/graphics/drawable/DrawableContainer$DrawableContainerState;->mCheckedStateful:Z
 
-    const/4 v4, 0x1
+    if-eqz v4, :cond_0
 
-    iget-boolean v3, p0, Landroid/graphics/drawable/DrawableContainer$DrawableContainerState;->mCheckedStateful:Z
+    iget-boolean v4, p0, Landroid/graphics/drawable/DrawableContainer$DrawableContainerState;->mStateful:Z
 
-    if-eqz v3, :cond_0
-
-    iget-boolean v3, p0, Landroid/graphics/drawable/DrawableContainer$DrawableContainerState;->mStateful:Z
-
-    return v3
+    return v4
 
     :cond_0
     invoke-direct {p0}, Landroid/graphics/drawable/DrawableContainer$DrawableContainerState;->createAllFutures()V
-
-    iput-boolean v4, p0, Landroid/graphics/drawable/DrawableContainer$DrawableContainerState;->mCheckedStateful:Z
 
     iget v0, p0, Landroid/graphics/drawable/DrawableContainer$DrawableContainerState;->mNumChildren:I
 
     iget-object v1, p0, Landroid/graphics/drawable/DrawableContainer$DrawableContainerState;->mDrawables:[Landroid/graphics/drawable/Drawable;
 
+    const/4 v3, 0x0
+
     const/4 v2, 0x0
 
     :goto_0
-    if-ge v2, v0, :cond_2
+    if-ge v2, v0, :cond_1
 
-    aget-object v3, v1, v2
+    aget-object v4, v1, v2
 
-    invoke-virtual {v3}, Landroid/graphics/drawable/Drawable;->isStateful()Z
+    invoke-virtual {v4}, Landroid/graphics/drawable/Drawable;->isStateful()Z
 
-    move-result v3
+    move-result v4
 
-    if-eqz v3, :cond_1
+    if-eqz v4, :cond_2
 
-    iput-boolean v4, p0, Landroid/graphics/drawable/DrawableContainer$DrawableContainerState;->mStateful:Z
-
-    return v4
+    const/4 v3, 0x1
 
     :cond_1
+    iput-boolean v3, p0, Landroid/graphics/drawable/DrawableContainer$DrawableContainerState;->mStateful:Z
+
+    const/4 v4, 0x1
+
+    iput-boolean v4, p0, Landroid/graphics/drawable/DrawableContainer$DrawableContainerState;->mCheckedStateful:Z
+
+    return v3
+
+    :cond_2
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
-
-    :cond_2
-    iput-boolean v5, p0, Landroid/graphics/drawable/DrawableContainer$DrawableContainerState;->mStateful:Z
-
-    return v5
 .end method
 
 .method public final setConstantSize(Z)V

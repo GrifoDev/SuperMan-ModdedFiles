@@ -24,6 +24,8 @@
 
 .field private final SDK_23_MODELS:[Ljava/lang/String;
 
+.field private final SDK_24_MODELS:[Ljava/lang/String;
+
 .field private mIsEnabled:Z
 
 
@@ -59,7 +61,7 @@
 
     sput-object v0, Lcom/sec/tima/keystore/util/Utility;->INSTANCE:Lcom/sec/tima/keystore/util/Utility;
 
-    const/4 v0, 0x2
+    const/4 v0, 0x4
 
     new-array v0, v0, [Ljava/lang/String;
 
@@ -75,15 +77,29 @@
 
     aput-object v1, v0, v2
 
+    const-string/jumbo v1, "msm8998"
+
+    const/4 v2, 0x2
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "exynos8895"
+
+    const/4 v2, 0x3
+
+    aput-object v1, v0, v2
+
     sput-object v0, Lcom/sec/tima/keystore/util/Utility;->ECC_SUPPORT_CHIPSETS:[Ljava/lang/String;
 
     return-void
 .end method
 
 .method constructor <init>()V
-    .locals 6
+    .locals 8
 
-    const/4 v2, 0x3
+    const/4 v7, 0x4
+
+    const/4 v6, 0x3
 
     const/4 v5, 0x2
 
@@ -103,7 +119,7 @@
 
     iput-object v0, p0, Lcom/sec/tima/keystore/util/Utility;->SDK_21_MODELS:[Ljava/lang/String;
 
-    new-array v0, v2, [Ljava/lang/String;
+    new-array v0, v6, [Ljava/lang/String;
 
     const-string/jumbo v1, "ZERO"
 
@@ -137,13 +153,11 @@
 
     const-string/jumbo v1, "HERO"
 
-    aput-object v1, v0, v2
+    aput-object v1, v0, v6
 
     const-string/jumbo v1, "SC-02H"
 
-    const/4 v2, 0x4
-
-    aput-object v1, v0, v2
+    aput-object v1, v0, v7
 
     const-string/jumbo v1, "SCV33"
 
@@ -153,15 +167,67 @@
 
     iput-object v0, p0, Lcom/sec/tima/keystore/util/Utility;->SDK_23_MODELS:[Ljava/lang/String;
 
-    new-array v0, v5, [Ljava/lang/String;
+    const/4 v0, 0x6
 
-    const-string/jumbo v1, "MSM8996"
+    new-array v0, v0, [Ljava/lang/String;
+
+    const-string/jumbo v1, "ZERO"
 
     aput-object v1, v0, v3
 
-    const-string/jumbo v1, "exynos8890"
+    const-string/jumbo v1, "NOBLE"
 
     aput-object v1, v0, v4
+
+    const-string/jumbo v1, "ZEN"
+
+    aput-object v1, v0, v5
+
+    const-string/jumbo v1, "HERO"
+
+    aput-object v1, v0, v6
+
+    const-string/jumbo v1, "SC-02H"
+
+    aput-object v1, v0, v7
+
+    const-string/jumbo v1, "SCV33"
+
+    const/4 v2, 0x5
+
+    aput-object v1, v0, v2
+
+    iput-object v0, p0, Lcom/sec/tima/keystore/util/Utility;->SDK_24_MODELS:[Ljava/lang/String;
+
+    const/4 v0, 0x6
+
+    new-array v0, v0, [Ljava/lang/String;
+
+    const-string/jumbo v1, "MSM8998"
+
+    aput-object v1, v0, v3
+
+    const-string/jumbo v1, "MSM8996"
+
+    aput-object v1, v0, v4
+
+    const-string/jumbo v1, "exynos8890"
+
+    aput-object v1, v0, v5
+
+    const-string/jumbo v1, "exynos8895"
+
+    aput-object v1, v0, v6
+
+    const-string/jumbo v1, "exynos9810"
+
+    aput-object v1, v0, v7
+
+    const-string/jumbo v1, "SDM845"
+
+    const/4 v2, 0x5
+
+    aput-object v1, v0, v2
 
     iput-object v0, p0, Lcom/sec/tima/keystore/util/Utility;->FIPS_SUPPORT_CHIPSETS:[Ljava/lang/String;
 
@@ -228,9 +294,26 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_4
 
     iget-object v0, p0, Lcom/sec/tima/keystore/util/Utility;->SDK_23_MODELS:[Ljava/lang/String;
+
+    invoke-direct {p0, v0}, Lcom/sec/tima/keystore/util/Utility;->checkModels([Ljava/lang/String;)V
+
+    goto :goto_0
+
+    :cond_4
+    sget-object v0, Lcom/sec/tima/keystore/util/Utility;->SDK_VERSION:Ljava/lang/String;
+
+    const-string/jumbo v1, "24"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/sec/tima/keystore/util/Utility;->SDK_24_MODELS:[Ljava/lang/String;
 
     invoke-direct {p0, v0}, Lcom/sec/tima/keystore/util/Utility;->checkModels([Ljava/lang/String;)V
 

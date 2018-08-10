@@ -57,7 +57,7 @@
 
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
-    invoke-virtual {p0}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
+    invoke-virtual {p0}, Lcom/android/internal/app/ShutdownActivity;->getIntent()Landroid/content/Intent;
 
     move-result-object v1
 
@@ -121,7 +121,7 @@
 
     invoke-virtual {v2}, Ljava/lang/Thread;->start()V
 
-    invoke-virtual {p0}, Landroid/app/Activity;->finish()V
+    invoke-virtual {p0}, Lcom/android/internal/app/ShutdownActivity;->finish()V
 
     :try_start_0
     invoke-virtual {v2}, Ljava/lang/Thread;->join()V

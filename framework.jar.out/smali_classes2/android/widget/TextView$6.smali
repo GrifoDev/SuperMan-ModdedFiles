@@ -49,7 +49,12 @@
 
     iget-object v0, p0, Landroid/widget/TextView$6;->val$inputDevice:Landroid/view/InputDevice;
 
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Landroid/widget/TextView$6;->val$inputDevice:Landroid/view/InputDevice;
+
     invoke-virtual {v0, v1}, Landroid/view/InputDevice;->setPointerType(I)V
 
+    :cond_0
     return-void
 .end method

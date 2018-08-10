@@ -49,13 +49,13 @@
 
     const/4 v0, 0x0
 
-    invoke-virtual {p0}, Landroid/view/View;->isEnabled()Z
+    invoke-virtual {p0}, Landroid/inputmethodservice/ExtractButton;->isEnabled()Z
 
     move-result v1
 
     if-eqz v1, :cond_0
 
-    invoke-virtual {p0}, Landroid/view/View;->getVisibility()I
+    invoke-virtual {p0}, Landroid/inputmethodservice/ExtractButton;->getVisibility()I
 
     move-result v1
 

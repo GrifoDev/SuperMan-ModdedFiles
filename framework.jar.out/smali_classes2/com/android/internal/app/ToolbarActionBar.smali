@@ -189,6 +189,18 @@
     throw v0
 .end method
 
+.method public closeOptionsMenu()Z
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/internal/app/ToolbarActionBar;->mDecorToolbar:Lcom/android/internal/widget/DecorToolbar;
+
+    invoke-interface {v0}, Lcom/android/internal/widget/DecorToolbar;->hideOverflowMenu()Z
+
+    move-result v0
+
+    return v0
+.end method
+
 .method public collapseActionView()Z
     .locals 1
 
@@ -515,9 +527,9 @@
 .method public onKeyShortcut(ILandroid/view/KeyEvent;)Z
     .locals 5
 
-    const/4 v4, 0x0
-
     const/4 v3, 0x1
+
+    const/4 v4, 0x0
 
     iget-object v2, p0, Lcom/android/internal/app/ToolbarActionBar;->mDecorToolbar:Lcom/android/internal/widget/DecorToolbar;
 
@@ -525,9 +537,9 @@
 
     move-result-object v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_2
 
-    if-eqz p2, :cond_1
+    if-eqz p2, :cond_0
 
     invoke-virtual {p2}, Landroid/view/KeyEvent;->getDeviceId()I
 
@@ -542,7 +554,7 @@
 
     move-result v2
 
-    if-eq v2, v3, :cond_2
+    if-eq v2, v3, :cond_1
 
     move v2, v3
 
@@ -551,18 +563,22 @@
 
     invoke-interface {v1, p1, p2, v4}, Landroid/view/Menu;->performShortcut(ILandroid/view/KeyEvent;I)Z
 
-    :cond_0
-    return v3
+    move-result v2
 
-    :cond_1
+    return v2
+
+    :cond_0
     const/4 v2, -0x1
 
     goto :goto_0
 
-    :cond_2
+    :cond_1
     move v2, v4
 
     goto :goto_1
+
+    :cond_2
+    return v4
 .end method
 
 .method public onMenuKeyEvent(Landroid/view/KeyEvent;)Z
@@ -595,9 +611,9 @@
 .end method
 
 .method populateOptionsMenu()V
-    .locals 5
+    .locals 6
 
-    const/4 v0, 0x0
+    const/4 v5, 0x0
 
     iget-boolean v2, p0, Lcom/android/internal/app/ToolbarActionBar;->mMenuCallbackSet:Z
 
@@ -607,11 +623,11 @@
 
     new-instance v3, Lcom/android/internal/app/ToolbarActionBar$ActionMenuPresenterCallback;
 
-    invoke-direct {v3, p0, v0}, Lcom/android/internal/app/ToolbarActionBar$ActionMenuPresenterCallback;-><init>(Lcom/android/internal/app/ToolbarActionBar;Lcom/android/internal/app/ToolbarActionBar$ActionMenuPresenterCallback;)V
+    invoke-direct {v3, p0, v5}, Lcom/android/internal/app/ToolbarActionBar$ActionMenuPresenterCallback;-><init>(Lcom/android/internal/app/ToolbarActionBar;Lcom/android/internal/app/ToolbarActionBar$ActionMenuPresenterCallback;)V
 
     new-instance v4, Lcom/android/internal/app/ToolbarActionBar$MenuBuilderCallback;
 
-    invoke-direct {v4, p0, v0}, Lcom/android/internal/app/ToolbarActionBar$MenuBuilderCallback;-><init>(Lcom/android/internal/app/ToolbarActionBar;Lcom/android/internal/app/ToolbarActionBar$MenuBuilderCallback;)V
+    invoke-direct {v4, p0, v5}, Lcom/android/internal/app/ToolbarActionBar$MenuBuilderCallback;-><init>(Lcom/android/internal/app/ToolbarActionBar;Lcom/android/internal/app/ToolbarActionBar$MenuBuilderCallback;)V
 
     invoke-interface {v2, v3, v4}, Lcom/android/internal/widget/DecorToolbar;->setMenuCallbacks(Lcom/android/internal/view/menu/MenuPresenter$Callback;Lcom/android/internal/view/menu/MenuBuilder$Callback;)V
 
@@ -628,20 +644,18 @@
 
     instance-of v2, v1, Lcom/android/internal/view/menu/MenuBuilder;
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_5
 
-    move-object v2, v1
+    move-object v0, v1
 
-    check-cast v2, Lcom/android/internal/view/menu/MenuBuilder;
+    check-cast v0, Lcom/android/internal/view/menu/MenuBuilder;
 
-    move-object v0, v2
-
-    :cond_1
-    if-eqz v0, :cond_2
+    :goto_0
+    if-eqz v0, :cond_1
 
     invoke-virtual {v0}, Lcom/android/internal/view/menu/MenuBuilder;->stopDispatchingItemsChanged()V
 
-    :cond_2
+    :cond_1
     :try_start_0
     invoke-interface {v1}, Landroid/view/Menu;->clear()V
 
@@ -653,7 +667,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_2
 
     iget-object v2, p0, Lcom/android/internal/app/ToolbarActionBar;->mWindowCallback:Landroid/view/Window$Callback;
 
@@ -662,37 +676,39 @@
     const/4 v4, 0x0
 
     invoke-interface {v2, v3, v4, v1}, Landroid/view/Window$Callback;->onPreparePanel(ILandroid/view/View;Landroid/view/Menu;)Z
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v2
 
-    if-eqz v2, :cond_4
+    xor-int/lit8 v2, v2, 0x1
 
-    :goto_0
-    if-eqz v0, :cond_3
+    if-eqz v2, :cond_3
+
+    :cond_2
+    invoke-interface {v1}, Landroid/view/Menu;->clear()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    :cond_3
+    if-eqz v0, :cond_4
 
     invoke-virtual {v0}, Lcom/android/internal/view/menu/MenuBuilder;->startDispatchingItemsChanged()V
 
-    :cond_3
+    :cond_4
     return-void
 
-    :cond_4
-    :try_start_1
-    invoke-interface {v1}, Landroid/view/Menu;->clear()V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :cond_5
+    const/4 v0, 0x0
 
     goto :goto_0
 
     :catchall_0
     move-exception v2
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_6
 
     invoke-virtual {v0}, Lcom/android/internal/view/menu/MenuBuilder;->startDispatchingItemsChanged()V
 
-    :cond_5
+    :cond_6
     throw v2
 .end method
 
@@ -740,22 +756,6 @@
     invoke-direct {v0, v1}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
 
     throw v0
-.end method
-
-.method public requestFocus()Z
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/internal/app/ToolbarActionBar;->mDecorToolbar:Lcom/android/internal/widget/DecorToolbar;
-
-    invoke-interface {v0}, Lcom/android/internal/widget/DecorToolbar;->getViewGroup()Landroid/view/ViewGroup;
-
-    move-result-object v0
-
-    invoke-virtual {p0, v0}, Lcom/android/internal/app/ToolbarActionBar;->requestFocus(Landroid/view/ViewGroup;)Z
-
-    move-result v0
-
-    return v0
 .end method
 
 .method public selectTab(Landroid/app/ActionBar$Tab;)V

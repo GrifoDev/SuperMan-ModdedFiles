@@ -78,12 +78,6 @@
 
     invoke-static {v2, v3, v0}, Landroid/media/session/MediaSessionLegacyHelper;->-wrap0(Landroid/app/PendingIntent;Landroid/content/Context;Landroid/content/Intent;)V
 
-    invoke-static {}, Landroid/media/session/MediaSessionLegacyHelper;->-get0()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_0
-
     const-string/jumbo v2, "MediaSessionHelper"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -118,7 +112,6 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_0
     return-void
 .end method
 

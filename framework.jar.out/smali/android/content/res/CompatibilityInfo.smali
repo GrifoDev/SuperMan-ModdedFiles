@@ -36,6 +36,8 @@
 
 .field public static final MAXIMUM_ASPECT_RATIO:F = 1.7791667f
 
+.field private static final NEEDS_COMPAT_RES:I = 0x10
+
 .field private static final NEEDS_SCREEN_COMPAT:I = 0x8
 
 .field private static final NEVER_NEEDS_COMPAT:I = 0x4
@@ -109,48 +111,57 @@
 
     const/4 v5, 0x0
 
-    iget v9, p1, Landroid/content/pm/ApplicationInfo;->requiresSmallestWidthDp:I
+    iget v9, p1, Landroid/content/pm/ApplicationInfo;->targetSdkVersion:I
 
-    if-nez v9, :cond_0
+    const/16 v10, 0x1a
 
-    iget v9, p1, Landroid/content/pm/ApplicationInfo;->compatibleWidthLimitDp:I
+    if-ge v9, v10, :cond_0
 
-    if-eqz v9, :cond_4
+    const/16 v5, 0x10
 
     :cond_0
     iget v9, p1, Landroid/content/pm/ApplicationInfo;->requiresSmallestWidthDp:I
 
-    if-eqz v9, :cond_b
+    if-nez v9, :cond_1
+
+    iget v9, p1, Landroid/content/pm/ApplicationInfo;->compatibleWidthLimitDp:I
+
+    if-eqz v9, :cond_5
+
+    :cond_1
+    iget v9, p1, Landroid/content/pm/ApplicationInfo;->requiresSmallestWidthDp:I
+
+    if-eqz v9, :cond_c
 
     iget v7, p1, Landroid/content/pm/ApplicationInfo;->requiresSmallestWidthDp:I
 
     :goto_0
-    if-nez v7, :cond_1
+    if-nez v7, :cond_2
 
     iget v7, p1, Landroid/content/pm/ApplicationInfo;->largestWidthLimitDp:I
 
-    :cond_1
+    :cond_2
     iget v9, p1, Landroid/content/pm/ApplicationInfo;->compatibleWidthLimitDp:I
 
-    if-eqz v9, :cond_c
+    if-eqz v9, :cond_d
 
     iget v4, p1, Landroid/content/pm/ApplicationInfo;->compatibleWidthLimitDp:I
 
     :goto_1
-    if-ge v4, v7, :cond_2
+    if-ge v4, v7, :cond_3
 
     move v4, v7
 
-    :cond_2
+    :cond_3
     iget v6, p1, Landroid/content/pm/ApplicationInfo;->largestWidthLimitDp:I
 
     const/16 v9, 0x140
 
-    if-le v7, v9, :cond_d
+    if-le v7, v9, :cond_e
 
-    const/4 v5, 0x4
+    or-int/lit8 v5, v5, 0x4
 
-    :cond_3
+    :cond_4
     :goto_2
     sget v9, Landroid/util/DisplayMetrics;->DENSITY_DEVICE:I
 
@@ -169,10 +180,10 @@
 
     return-void
 
-    :cond_4
+    :cond_5
     iget v9, p1, Landroid/content/pm/ApplicationInfo;->largestWidthLimitDp:I
 
-    if-nez v9, :cond_0
+    if-nez v9, :cond_1
 
     const/4 v0, 0x2
 
@@ -188,24 +199,9 @@
 
     and-int/lit16 v9, v9, 0x800
 
-    if-eqz v9, :cond_5
+    if-eqz v9, :cond_6
 
     const/16 v8, 0x8
-
-    const/4 v3, 0x1
-
-    if-nez p4, :cond_5
-
-    or-int/lit8 v8, v8, 0x22
-
-    :cond_5
-    iget v9, p1, Landroid/content/pm/ApplicationInfo;->flags:I
-
-    const/high16 v10, 0x80000
-
-    and-int/2addr v9, v10
-
-    if-eqz v9, :cond_6
 
     const/4 v3, 0x1
 
@@ -216,47 +212,62 @@
     :cond_6
     iget v9, p1, Landroid/content/pm/ApplicationInfo;->flags:I
 
-    and-int/lit16 v9, v9, 0x1000
+    const/high16 v10, 0x80000
+
+    and-int/2addr v9, v10
 
     if-eqz v9, :cond_7
 
     const/4 v3, 0x1
 
-    or-int/lit8 v8, v8, 0x2
+    if-nez p4, :cond_7
+
+    or-int/lit8 v8, v8, 0x22
 
     :cond_7
-    if-eqz p4, :cond_8
+    iget v9, p1, Landroid/content/pm/ApplicationInfo;->flags:I
+
+    and-int/lit16 v9, v9, 0x1000
+
+    if-eqz v9, :cond_8
+
+    const/4 v3, 0x1
+
+    or-int/lit8 v8, v8, 0x2
+
+    :cond_8
+    if-eqz p4, :cond_9
 
     and-int/lit8 v8, v8, -0x3
 
-    :cond_8
-    const/16 v5, 0x8
+    :cond_9
+    or-int/lit8 v5, v5, 0x8
 
     and-int/lit8 v9, p2, 0xf
 
     packed-switch v9, :pswitch_data_0
 
-    :cond_9
+    :cond_a
     :goto_4
     const/high16 v9, 0x10000000
 
     and-int/2addr v9, p2
 
-    if-eqz v9, :cond_13
+    if-eqz v9, :cond_14
 
     and-int/lit8 v9, v8, 0x2
 
-    if-eqz v9, :cond_12
+    if-eqz v9, :cond_13
 
     and-int/lit8 v5, v5, -0x9
 
-    :cond_a
+    :cond_b
     :goto_5
     iget v9, p1, Landroid/content/pm/ApplicationInfo;->flags:I
 
     and-int/lit16 v9, v9, 0x2000
 
-    if-eqz v9, :cond_14
+    if-eqz v9, :cond_15
 
     sget v9, Landroid/util/DisplayMetrics;->DENSITY_DEVICE:I
 
@@ -272,61 +283,41 @@
 
     goto :goto_3
 
-    :cond_b
+    :cond_c
     iget v7, p1, Landroid/content/pm/ApplicationInfo;->compatibleWidthLimitDp:I
 
     goto :goto_0
 
-    :cond_c
+    :cond_d
     move v4, v7
 
     goto :goto_1
 
-    :cond_d
-    if-eqz v6, :cond_e
-
-    if-le p3, v6, :cond_e
-
-    const/16 v5, 0xa
-
-    goto :goto_2
-
     :cond_e
-    if-lt v4, p3, :cond_f
+    if-eqz v6, :cond_f
 
-    const/4 v5, 0x4
+    if-le p3, v6, :cond_f
+
+    or-int/lit8 v5, v5, 0xa
 
     goto :goto_2
 
     :cond_f
-    if-eqz p4, :cond_3
+    if-lt v4, p3, :cond_10
 
-    const/16 v5, 0x8
+    or-int/lit8 v5, v5, 0x4
+
+    goto :goto_2
+
+    :cond_10
+    if-eqz p4, :cond_4
+
+    or-int/lit8 v5, v5, 0x8
 
     goto :goto_2
 
     :pswitch_0
     and-int/lit8 v9, v8, 0x20
-
-    if-eqz v9, :cond_10
-
-    and-int/lit8 v5, v5, -0x9
-
-    :cond_10
-    iget v9, p1, Landroid/content/pm/ApplicationInfo;->flags:I
-
-    const/high16 v10, 0x80000
-
-    and-int/2addr v9, v10
-
-    if-eqz v9, :cond_9
-
-    or-int/lit8 v5, v5, 0x4
-
-    goto :goto_4
-
-    :pswitch_1
-    and-int/lit8 v9, v8, 0x8
 
     if-eqz v9, :cond_11
 
@@ -335,29 +326,49 @@
     :cond_11
     iget v9, p1, Landroid/content/pm/ApplicationInfo;->flags:I
 
-    and-int/lit16 v9, v9, 0x800
+    const/high16 v10, 0x80000
 
-    if-eqz v9, :cond_9
+    and-int/2addr v9, v10
+
+    if-eqz v9, :cond_a
 
     or-int/lit8 v5, v5, 0x4
 
     goto :goto_4
 
+    :pswitch_1
+    and-int/lit8 v9, v8, 0x8
+
+    if-eqz v9, :cond_12
+
+    and-int/lit8 v5, v5, -0x9
+
     :cond_12
-    if-nez v3, :cond_a
+    iget v9, p1, Landroid/content/pm/ApplicationInfo;->flags:I
+
+    and-int/lit16 v9, v9, 0x800
+
+    if-eqz v9, :cond_a
+
+    or-int/lit8 v5, v5, 0x4
+
+    goto :goto_4
+
+    :cond_13
+    if-nez v3, :cond_b
 
     or-int/lit8 v5, v5, 0x2
 
     goto :goto_5
 
-    :cond_13
+    :cond_14
     and-int/lit8 v5, v5, -0x9
 
     or-int/lit8 v5, v5, 0x4
 
     goto :goto_5
 
-    :cond_14
+    :cond_15
     const/16 v9, 0xa0
 
     iput v9, p0, Landroid/content/res/CompatibilityInfo;->applicationDensity:I
@@ -832,6 +843,8 @@
 .method public hashCode()I
     .locals 3
 
+    const/16 v0, 0x11
+
     iget v1, p0, Landroid/content/res/CompatibilityInfo;->mCompatibilityFlags:I
 
     add-int/lit16 v0, v1, 0x20f
@@ -873,6 +886,23 @@
     iget v1, p0, Landroid/content/res/CompatibilityInfo;->mCompatibilityFlags:I
 
     and-int/lit8 v1, v1, 0x1
+
+    if-eqz v1, :cond_0
+
+    const/4 v0, 0x1
+
+    :cond_0
+    return v0
+.end method
+
+.method public needsCompatResources()Z
+    .locals 2
+
+    const/4 v0, 0x0
+
+    iget v1, p0, Landroid/content/res/CompatibilityInfo;->mCompatibilityFlags:I
+
+    and-int/lit8 v1, v1, 0x10
 
     if-eqz v1, :cond_0
 

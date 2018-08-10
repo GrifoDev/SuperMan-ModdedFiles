@@ -68,15 +68,17 @@
 
 .field public static final FEATURES:Ljava/lang/String; = "features"
 
+.field public static final FEATURES_HD_CALL:I = 0x4
+
 .field public static final FEATURES_PULLED_EXTERNALLY:I = 0x2
 
 .field public static final FEATURES_VIDEO:I = 0x1
 
+.field public static final FEATURES_WIFI:I = 0x8
+
 .field public static final GEOCODED_LOCATION:Ljava/lang/String; = "geocoded_location"
 
 .field public static final INCOMING_TYPE:I = 0x1
-
-.field public static final INCOMING_WIFI_TYPE:I = 0x14
 
 .field public static final IS_READ:Ljava/lang/String; = "is_read"
 
@@ -86,11 +88,7 @@
 
 .field private static final MIN_DURATION_FOR_NORMALIZED_NUMBER_UPDATE_MS:I = 0x2710
 
-.field private static final MISSED_IMS_TYPE:I = 0xa
-
 .field public static final MISSED_TYPE:I = 0x3
-
-.field public static final MISSED_WIFI_TYPE:I = 0x16
 
 .field public static final NEW:Ljava/lang/String; = "new"
 
@@ -100,11 +98,7 @@
 
 .field public static final OFFSET_PARAM_KEY:Ljava/lang/String; = "offset"
 
-.field private static final OUTGOING_IMS_TYPE:I = 0x9
-
 .field public static final OUTGOING_TYPE:I = 0x2
-
-.field public static final OUTGOING_WIFI_TYPE:I = 0x15
 
 .field public static final PHONE_ACCOUNT_ADDRESS:Ljava/lang/String; = "phone_account_address"
 
@@ -131,6 +125,8 @@
 .field public static final SUB_ID:Ljava/lang/String; = "sub_id"
 
 .field public static final TRANSCRIPTION:Ljava/lang/String; = "transcription"
+
+.field public static final TRANSCRIPTION_STATE:Ljava/lang/String; = "transcription_state"
 
 .field public static final TYPE:Ljava/lang/String; = "type"
 
@@ -330,7 +326,7 @@
 
     move/from16 v0, p5
 
-    if-ne v0, v5, :cond_a
+    if-ne v0, v5, :cond_9
 
     const/16 v22, 0x2
 
@@ -501,7 +497,7 @@
 
     const-string/jumbo v6, "add_for_all_users"
 
-    if-eqz p13, :cond_d
+    if-eqz p13, :cond_c
 
     const/4 v5, 0x1
 
@@ -518,23 +514,15 @@
 
     move/from16 v0, p6
 
-    if-eq v0, v5, :cond_5
+    if-ne v0, v5, :cond_5
 
-    const/16 v5, 0xa
-
-    move/from16 v0, p6
-
-    if-ne v0, v5, :cond_e
-
-    :cond_5
-    :goto_3
     const-string/jumbo v6, "is_read"
 
-    if-eqz p15, :cond_f
+    if-eqz p15, :cond_d
 
     const/4 v5, 0x1
 
-    :goto_4
+    :goto_3
     invoke-static {v5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v5
@@ -543,8 +531,8 @@
 
     invoke-virtual {v0, v6, v5}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
 
-    :cond_6
-    if-eqz p0, :cond_8
+    :cond_5
+    if-eqz p0, :cond_7
 
     move-object/from16 v0, p0
 
@@ -554,13 +542,13 @@
 
     cmp-long v5, v6, v8
 
-    if-lez v5, :cond_8
+    if-lez v5, :cond_7
 
     move-object/from16 v0, p0
 
     iget-object v5, v0, Lcom/android/internal/telephony/CallerInfo;->normalizedNumber:Ljava/lang/String;
 
-    if-eqz v5, :cond_10
+    if-eqz v5, :cond_e
 
     move-object/from16 v0, p0
 
@@ -610,21 +598,21 @@
 
     move-result-object v17
 
-    :goto_5
-    if-eqz v17, :cond_8
+    :goto_4
+    if-eqz v17, :cond_7
 
     :try_start_1
     invoke-interface/range {v17 .. v17}, Landroid/database/Cursor;->getCount()I
 
     move-result v5
 
-    if-lez v5, :cond_7
+    if-lez v5, :cond_6
 
     invoke-interface/range {v17 .. v17}, Landroid/database/Cursor;->moveToFirst()Z
 
     move-result v5
 
-    if-eqz v5, :cond_7
+    if-eqz v5, :cond_6
 
     const/4 v5, 0x0
 
@@ -642,13 +630,13 @@
 
     move/from16 v0, p11
 
-    if-lt v0, v5, :cond_7
+    if-lt v0, v5, :cond_6
 
     const/4 v5, 0x2
 
     move/from16 v0, p6
 
-    if-ne v0, v5, :cond_7
+    if-ne v0, v5, :cond_6
 
     move-object/from16 v0, p0
 
@@ -658,7 +646,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_7
+    if-eqz v5, :cond_6
 
     move-object/from16 v0, p1
 
@@ -670,10 +658,10 @@
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    :cond_7
+    :cond_6
     invoke-interface/range {v17 .. v17}, Landroid/database/Cursor;->close()V
 
-    :cond_8
+    :cond_7
     const/16 v24, 0x0
 
     const-class v5, Landroid/os/UserManager;
@@ -690,7 +678,7 @@
 
     move-result v16
 
-    if-eqz p13, :cond_16
+    if-eqz p13, :cond_14
 
     sget-object v5, Landroid/os/UserHandle;->SYSTEM:Landroid/os/UserHandle;
 
@@ -704,7 +692,7 @@
 
     move-result-object v28
 
-    if-eqz v28, :cond_9
+    if-eqz v28, :cond_8
 
     const-string/jumbo v5, "call_log_shadow"
 
@@ -716,9 +704,9 @@
 
     move-result v5
 
-    if-eqz v5, :cond_12
+    if-eqz v5, :cond_10
 
-    :cond_9
+    :cond_8
     const/4 v5, 0x0
 
     return-object v5
@@ -728,23 +716,23 @@
 
     goto/16 :goto_0
 
-    :cond_a
+    :cond_9
     const/4 v5, 0x4
 
     move/from16 v0, p5
 
-    if-ne v0, v5, :cond_b
+    if-ne v0, v5, :cond_a
 
     const/16 v22, 0x4
 
     goto/16 :goto_1
 
-    :cond_b
+    :cond_a
     invoke-static/range {p2 .. p2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v5
 
-    if-nez v5, :cond_c
+    if-nez v5, :cond_b
 
     const/4 v5, 0x3
 
@@ -752,36 +740,27 @@
 
     if-ne v0, v5, :cond_1
 
-    :cond_c
+    :cond_b
     const/16 v22, 0x3
 
     goto/16 :goto_1
 
-    :cond_d
+    :cond_c
     const/4 v5, 0x0
 
     goto/16 :goto_2
 
-    :cond_e
-    const/16 v5, 0x16
-
-    move/from16 v0, p6
-
-    if-ne v0, v5, :cond_6
+    :cond_d
+    const/4 v5, 0x0
 
     goto/16 :goto_3
 
-    :cond_f
-    const/4 v5, 0x0
-
-    goto/16 :goto_4
-
-    :cond_10
+    :cond_e
     move-object/from16 v0, p0
 
     iget-object v5, v0, Lcom/android/internal/telephony/CallerInfo;->phoneNumber:Ljava/lang/String;
 
-    if-eqz v5, :cond_11
+    if-eqz v5, :cond_f
 
     move-object/from16 v0, p0
 
@@ -789,7 +768,7 @@
 
     move-object/from16 v23, v0
 
-    :goto_6
+    :goto_5
     sget-object v5, Landroid/provider/ContactsContract$CommonDataKinds$Callable;->CONTENT_FILTER_URI:Landroid/net/Uri;
 
     invoke-static/range {v23 .. v23}, Landroid/net/Uri;->encode(Ljava/lang/String;)Ljava/lang/String;
@@ -836,12 +815,12 @@
 
     move-result-object v17
 
-    goto/16 :goto_5
+    goto/16 :goto_4
 
-    :cond_11
+    :cond_f
     move-object/from16 v23, p2
 
-    goto :goto_6
+    goto :goto_5
 
     :catchall_0
     move-exception v5
@@ -850,12 +829,12 @@
 
     throw v5
 
-    :cond_12
-    if-nez v16, :cond_13
+    :cond_10
+    if-nez v16, :cond_11
 
     move-object/from16 v24, v28
 
-    :cond_13
+    :cond_11
     const/4 v5, 0x1
 
     move-object/from16 v0, v32
@@ -870,10 +849,10 @@
 
     const/16 v20, 0x0
 
-    :goto_7
+    :goto_6
     move/from16 v0, v20
 
-    if-ge v0, v15, :cond_17
+    if-ge v0, v15, :cond_15
 
     move-object/from16 v0, v33
 
@@ -897,15 +876,15 @@
 
     move-result v5
 
-    if-eqz v5, :cond_15
+    if-eqz v5, :cond_13
 
-    :cond_14
-    :goto_8
+    :cond_12
+    :goto_7
     add-int/lit8 v20, v20, 0x1
 
-    goto :goto_7
+    goto :goto_6
 
-    :cond_15
+    :cond_13
     move-object/from16 v0, p1
 
     move-object/from16 v1, v32
@@ -916,7 +895,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_14
+    if-eqz v5, :cond_12
 
     move-object/from16 v0, v32
 
@@ -926,7 +905,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_14
+    if-eqz v5, :cond_12
 
     move-object/from16 v0, v32
 
@@ -936,7 +915,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_14
+    if-eqz v5, :cond_12
 
     move-object/from16 v0, p1
 
@@ -954,18 +933,18 @@
 
     move/from16 v1, v16
 
-    if-ne v0, v1, :cond_14
+    if-ne v0, v1, :cond_12
 
     move-object/from16 v24, v27
 
-    goto :goto_8
+    goto :goto_7
 
-    :cond_16
-    if-eqz p14, :cond_18
+    :cond_14
+    if-eqz p14, :cond_16
 
     move-object/from16 v25, p14
 
-    :goto_9
+    :goto_8
     move-object/from16 v0, p1
 
     move-object/from16 v1, v32
@@ -978,15 +957,15 @@
 
     move-result-object v24
 
-    :cond_17
+    :cond_15
     return-object v24
 
-    :cond_18
+    :cond_16
     invoke-static/range {v16 .. v16}, Landroid/os/UserHandle;->of(I)Landroid/os/UserHandle;
 
     move-result-object v25
 
-    goto :goto_9
+    goto :goto_8
 .end method
 
 .method private static addEntryAndRemoveExpiredEntries(Landroid/content/Context;Landroid/os/UserManager;Landroid/os/UserHandle;Landroid/content/ContentValues;)Landroid/net/Uri;
@@ -1098,7 +1077,7 @@
 
     aput-object v3, v2, v4
 
-    const-string/jumbo v3, "type = 2 OR type = 9 OR type = 21"
+    const-string/jumbo v3, "type = 2"
 
     const-string/jumbo v5, "date DESC LIMIT 1"
 
@@ -1108,50 +1087,53 @@
 
     move-result-object v6
 
-    if-eqz v6, :cond_1
+    if-eqz v6, :cond_0
 
     invoke-interface {v6}, Landroid/database/Cursor;->moveToFirst()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    xor-int/lit8 v1, v1, 0x1
 
-    const/4 v1, 0x0
+    if-eqz v1, :cond_2
 
-    invoke-interface {v6, v1}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
+    :cond_0
+    const-string/jumbo v1, ""
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    move-result-object v1
-
-    if-eqz v6, :cond_0
+    if-eqz v6, :cond_1
 
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
-    :cond_0
+    :cond_1
     return-object v1
 
-    :cond_1
+    :cond_2
+    const/4 v1, 0x0
+
     :try_start_1
-    const-string/jumbo v1, ""
+    invoke-interface {v6, v1}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    if-eqz v6, :cond_2
-
-    invoke-interface {v6}, Landroid/database/Cursor;->close()V
-
-    :cond_2
-    return-object v1
-
-    :catchall_0
-    move-exception v1
+    move-result-object v1
 
     if-eqz v6, :cond_3
 
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
     :cond_3
+    return-object v1
+
+    :catchall_0
+    move-exception v1
+
+    if-eqz v6, :cond_4
+
+    invoke-interface {v6}, Landroid/database/Cursor;->close()V
+
+    :cond_4
     throw v1
 .end method
 
@@ -1183,18 +1165,12 @@
 
     invoke-virtual {v0}, Landroid/content/pm/UserInfo;->isManagedProfile()Z
 
-    move-result v2
+    move-result v1
 
-    if-eqz v2, :cond_2
+    xor-int/lit8 v1, v1, 0x1
 
     :cond_1
-    :goto_0
     return v1
-
-    :cond_2
-    const/4 v1, 0x1
-
-    goto :goto_0
 .end method
 
 .method private static updateDataUsageStatForData(Landroid/content/ContentResolver;Ljava/lang/String;)V

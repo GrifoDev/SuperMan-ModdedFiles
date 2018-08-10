@@ -39,7 +39,7 @@
 
     iget-object v0, p0, Landroid/widget/GridView$1;->this$0:Landroid/widget/GridView;
 
-    invoke-virtual {v0, p1, p1}, Landroid/widget/AbsListView;->trackMotionScroll(II)Z
+    invoke-virtual {v0, p1, p1}, Landroid/widget/GridView;->trackMotionScroll(II)Z
 
     return-void
 .end method

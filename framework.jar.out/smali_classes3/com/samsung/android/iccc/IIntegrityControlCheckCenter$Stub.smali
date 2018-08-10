@@ -26,6 +26,8 @@
 # static fields
 .field private static final DESCRIPTOR:Ljava/lang/String; = "com.samsung.android.iccc.IIntegrityControlCheckCenter"
 
+.field static final TRANSACTION_getDeviceStatus:I = 0x4
+
 .field static final TRANSACTION_getSecureData:I = 0x1
 
 .field static final TRANSACTION_getTrustedBootData:I = 0x3
@@ -41,7 +43,7 @@
 
     const-string/jumbo v0, "com.samsung.android.iccc.IIntegrityControlCheckCenter"
 
-    invoke-virtual {p0, p0, v0}, Landroid/os/Binder;->attachInterface(Landroid/os/IInterface;Ljava/lang/String;)V
+    invoke-virtual {p0, p0, v0}, Lcom/samsung/android/iccc/IIntegrityControlCheckCenter$Stub;->attachInterface(Landroid/os/IInterface;Ljava/lang/String;)V
 
     return-void
 .end method
@@ -89,34 +91,34 @@
 .end method
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    .locals 5
+    .locals 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    const/4 v4, 0x1
+    const/4 v6, 0x1
 
     sparse-switch p1, :sswitch_data_0
 
     invoke-super {p0, p1, p2, p3, p4}, Landroid/os/Binder;->onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    move-result v3
+    move-result v5
 
-    return v3
+    return v5
 
     :sswitch_0
-    const-string/jumbo v3, "com.samsung.android.iccc.IIntegrityControlCheckCenter"
+    const-string/jumbo v5, "com.samsung.android.iccc.IIntegrityControlCheckCenter"
 
-    invoke-virtual {p3, v3}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p3, v5}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    return v4
+    return v6
 
     :sswitch_1
-    const-string/jumbo v3, "com.samsung.android.iccc.IIntegrityControlCheckCenter"
+    const-string/jumbo v5, "com.samsung.android.iccc.IIntegrityControlCheckCenter"
 
-    invoke-virtual {p2, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v5}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
@@ -124,18 +126,18 @@
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/iccc/IIntegrityControlCheckCenter$Stub;->getSecureData(I)I
 
-    move-result v2
+    move-result v3
 
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    invoke-virtual {p3, v2}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p3, v3}, Landroid/os/Parcel;->writeInt(I)V
 
-    return v4
+    return v6
 
     :sswitch_2
-    const-string/jumbo v3, "com.samsung.android.iccc.IIntegrityControlCheckCenter"
+    const-string/jumbo v5, "com.samsung.android.iccc.IIntegrityControlCheckCenter"
 
-    invoke-virtual {p2, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v5}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
@@ -147,36 +149,58 @@
 
     invoke-virtual {p0, v0, v1}, Lcom/samsung/android/iccc/IIntegrityControlCheckCenter$Stub;->setSecureData(II)I
 
-    move-result v2
+    move-result v3
 
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    invoke-virtual {p3, v2}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p3, v3}, Landroid/os/Parcel;->writeInt(I)V
 
-    return v4
+    return v6
 
     :sswitch_3
-    const-string/jumbo v3, "com.samsung.android.iccc.IIntegrityControlCheckCenter"
+    const-string/jumbo v5, "com.samsung.android.iccc.IIntegrityControlCheckCenter"
 
-    invoke-virtual {p2, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v5}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p0}, Lcom/samsung/android/iccc/IIntegrityControlCheckCenter$Stub;->getTrustedBootData()I
 
-    move-result v2
+    move-result v3
 
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    invoke-virtual {p3, v2}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p3, v3}, Landroid/os/Parcel;->writeInt(I)V
 
-    return v4
+    return v6
 
-    nop
+    :sswitch_4
+    const-string/jumbo v5, "com.samsung.android.iccc.IIntegrityControlCheckCenter"
+
+    invoke-virtual {p2, v5}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v0
+
+    invoke-virtual {p2}, Landroid/os/Parcel;->createByteArray()[B
+
+    move-result-object v2
+
+    invoke-virtual {p0, v0, v2}, Lcom/samsung/android/iccc/IIntegrityControlCheckCenter$Stub;->getDeviceStatus(I[B)[B
+
+    move-result-object v4
+
+    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+
+    invoke-virtual {p3, v4}, Landroid/os/Parcel;->writeByteArray([B)V
+
+    return v6
 
     :sswitch_data_0
     .sparse-switch
         0x1 -> :sswitch_1
         0x2 -> :sswitch_2
         0x3 -> :sswitch_3
+        0x4 -> :sswitch_4
         0x5f4e5446 -> :sswitch_0
     .end sparse-switch
 .end method

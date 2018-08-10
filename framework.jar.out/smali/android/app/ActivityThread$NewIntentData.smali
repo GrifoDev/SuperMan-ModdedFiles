@@ -15,6 +15,8 @@
 
 
 # instance fields
+.field andPause:Z
+
 .field intents:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -68,6 +70,18 @@
     iget-object v1, p0, Landroid/app/ActivityThread$NewIntentData;->token:Landroid/os/IBinder;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string/jumbo v1, " andPause="
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    iget-boolean v1, p0, Landroid/app/ActivityThread$NewIntentData;->andPause:Z
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
     move-result-object v0
 

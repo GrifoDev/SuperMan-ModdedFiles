@@ -700,42 +700,10 @@
 
     iget-boolean v0, v0, Landroid/net/wifi/RttManager$RttCapabilities;->oneSidedRttSupported:Z
 
-    if-eqz v0, :cond_6
+    xor-int/lit8 v0, v0, 0x1
 
-    :cond_3
-    iget v0, p1, Landroid/net/wifi/RttManager$RttParams;->requestType:I
+    if-eqz v0, :cond_3
 
-    if-ne v0, v1, :cond_4
-
-    iget-object v0, p0, Landroid/net/wifi/RttManager;->mRttCapabilities:Landroid/net/wifi/RttManager$RttCapabilities;
-
-    iget-boolean v0, v0, Landroid/net/wifi/RttManager$RttCapabilities;->twoSided11McRttSupported:Z
-
-    if-eqz v0, :cond_7
-
-    :cond_4
-    iget-object v0, p1, Landroid/net/wifi/RttManager$RttParams;->bssid:Ljava/lang/String;
-
-    if-eqz v0, :cond_5
-
-    iget-object v0, p1, Landroid/net/wifi/RttManager$RttParams;->bssid:Ljava/lang/String;
-
-    invoke-virtual {v0}, Ljava/lang/String;->isEmpty()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_8
-
-    :cond_5
-    const-string/jumbo v0, "RttManager"
-
-    const-string/jumbo v1, "No BSSID in params"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    return v3
-
-    :cond_6
     const-string/jumbo v0, "RttManager"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -766,7 +734,19 @@
 
     return v3
 
-    :cond_7
+    :cond_3
+    iget v0, p1, Landroid/net/wifi/RttManager$RttParams;->requestType:I
+
+    if-ne v0, v1, :cond_4
+
+    iget-object v0, p0, Landroid/net/wifi/RttManager;->mRttCapabilities:Landroid/net/wifi/RttManager$RttCapabilities;
+
+    iget-boolean v0, v0, Landroid/net/wifi/RttManager$RttCapabilities;->twoSided11McRttSupported:Z
+
+    xor-int/lit8 v0, v0, 0x1
+
+    if-eqz v0, :cond_4
+
     const-string/jumbo v0, "RttManager"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -797,10 +777,32 @@
 
     return v3
 
-    :cond_8
+    :cond_4
+    iget-object v0, p1, Landroid/net/wifi/RttManager$RttParams;->bssid:Ljava/lang/String;
+
+    if-eqz v0, :cond_5
+
+    iget-object v0, p1, Landroid/net/wifi/RttManager$RttParams;->bssid:Ljava/lang/String;
+
+    invoke-virtual {v0}, Ljava/lang/String;->isEmpty()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_6
+
+    :cond_5
+    const-string/jumbo v0, "RttManager"
+
+    const-string/jumbo v1, "No BSSID in params"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    return v3
+
+    :cond_6
     iget v0, p1, Landroid/net/wifi/RttManager$RttParams;->numberBurst:I
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_7
 
     const-string/jumbo v0, "RttManager"
 
@@ -838,18 +840,18 @@
 
     return v3
 
-    :cond_9
+    :cond_7
     iget v0, p1, Landroid/net/wifi/RttManager$RttParams;->numSamplesPerBurst:I
 
-    if-lez v0, :cond_a
+    if-lez v0, :cond_8
 
     iget v0, p1, Landroid/net/wifi/RttManager$RttParams;->numSamplesPerBurst:I
 
     const/16 v1, 0x1f
 
-    if-le v0, v1, :cond_b
+    if-le v0, v1, :cond_9
 
-    :cond_a
+    :cond_8
     const-string/jumbo v0, "RttManager"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -886,16 +888,16 @@
 
     return v3
 
-    :cond_b
+    :cond_9
     iget v0, p1, Landroid/net/wifi/RttManager$RttParams;->numRetriesPerMeasurementFrame:I
 
-    if-ltz v0, :cond_c
+    if-ltz v0, :cond_a
 
     iget v0, p1, Landroid/net/wifi/RttManager$RttParams;->numRetriesPerMeasurementFrame:I
 
-    if-le v0, v4, :cond_d
+    if-le v0, v4, :cond_b
 
-    :cond_c
+    :cond_a
     const-string/jumbo v0, "RttManager"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -932,16 +934,16 @@
 
     return v3
 
-    :cond_d
+    :cond_b
     iget v0, p1, Landroid/net/wifi/RttManager$RttParams;->numRetriesPerFTMR:I
 
-    if-ltz v0, :cond_e
+    if-ltz v0, :cond_c
 
     iget v0, p1, Landroid/net/wifi/RttManager$RttParams;->numRetriesPerFTMR:I
 
-    if-le v0, v4, :cond_f
+    if-le v0, v4, :cond_d
 
-    :cond_e
+    :cond_c
     const-string/jumbo v0, "RttManager"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -978,46 +980,110 @@
 
     return v3
 
-    :cond_f
+    :cond_d
     iget-boolean v0, p1, Landroid/net/wifi/RttManager$RttParams;->LCIRequest:Z
 
-    if-eqz v0, :cond_10
+    if-eqz v0, :cond_e
 
     iget-object v0, p0, Landroid/net/wifi/RttManager;->mRttCapabilities:Landroid/net/wifi/RttManager$RttCapabilities;
 
     iget-boolean v0, v0, Landroid/net/wifi/RttManager$RttCapabilities;->lciSupported:Z
 
-    if-eqz v0, :cond_13
+    xor-int/lit8 v0, v0, 0x1
 
-    :cond_10
+    if-eqz v0, :cond_e
+
+    const-string/jumbo v0, "RttManager"
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "Request "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string/jumbo v2, ": LCI is not supported"
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    return v3
+
+    :cond_e
     iget-boolean v0, p1, Landroid/net/wifi/RttManager$RttParams;->LCRRequest:Z
 
-    if-eqz v0, :cond_11
+    if-eqz v0, :cond_f
 
     iget-object v0, p0, Landroid/net/wifi/RttManager;->mRttCapabilities:Landroid/net/wifi/RttManager$RttCapabilities;
 
     iget-boolean v0, v0, Landroid/net/wifi/RttManager$RttCapabilities;->lcrSupported:Z
 
-    if-eqz v0, :cond_14
+    xor-int/lit8 v0, v0, 0x1
 
-    :cond_11
+    if-eqz v0, :cond_f
+
+    const-string/jumbo v0, "RttManager"
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "Request "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string/jumbo v2, ": LCR is not supported"
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    return v3
+
+    :cond_f
     iget v0, p1, Landroid/net/wifi/RttManager$RttParams;->burstTimeout:I
 
-    if-lt v0, v2, :cond_12
+    if-lt v0, v2, :cond_10
 
     iget v0, p1, Landroid/net/wifi/RttManager$RttParams;->burstTimeout:I
 
     const/16 v1, 0xb
 
-    if-le v0, v1, :cond_15
+    if-le v0, v1, :cond_11
 
     iget v0, p1, Landroid/net/wifi/RttManager$RttParams;->burstTimeout:I
 
     const/16 v1, 0xf
 
-    if-eq v0, v1, :cond_15
+    if-eq v0, v1, :cond_11
 
-    :cond_12
+    :cond_10
     const-string/jumbo v0, "RttManager"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -1054,69 +1120,7 @@
 
     return v3
 
-    :cond_13
-    const-string/jumbo v0, "RttManager"
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v2, "Request "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    const-string/jumbo v2, ": LCI is not supported"
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    return v3
-
-    :cond_14
-    const-string/jumbo v0, "RttManager"
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v2, "Request "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    const-string/jumbo v2, ": LCR is not supported"
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    return v3
-
-    :cond_15
+    :cond_11
     iget v0, p1, Landroid/net/wifi/RttManager$RttParams;->preamble:I
 
     iget-object v1, p0, Landroid/net/wifi/RttManager;->mRttCapabilities:Landroid/net/wifi/RttManager$RttCapabilities;
@@ -1125,7 +1129,7 @@
 
     and-int/2addr v0, v1
 
-    if-nez v0, :cond_16
+    if-nez v0, :cond_12
 
     const-string/jumbo v0, "RttManager"
 
@@ -1163,7 +1167,7 @@
 
     return v3
 
-    :cond_16
+    :cond_12
     iget v0, p1, Landroid/net/wifi/RttManager$RttParams;->bandwidth:I
 
     iget-object v1, p0, Landroid/net/wifi/RttManager;->mRttCapabilities:Landroid/net/wifi/RttManager$RttCapabilities;
@@ -1172,7 +1176,7 @@
 
     and-int/2addr v0, v1
 
-    if-nez v0, :cond_17
+    if-nez v0, :cond_13
 
     const-string/jumbo v0, "RttManager"
 
@@ -1210,7 +1214,7 @@
 
     return v3
 
-    :cond_17
+    :cond_13
     return v2
 .end method
 
@@ -1310,6 +1314,12 @@
 
 .method public getCapabilities()Landroid/net/wifi/RttManager$Capabilities;
     .locals 1
+    .annotation build Landroid/annotation/SuppressLint;
+        value = {
+            "Doclava125"
+        }
+    .end annotation
+
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 

@@ -87,16 +87,16 @@
 .end method
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    .locals 4
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    const/4 v0, 0x0
+    const/4 v4, 0x0
 
-    const/4 v2, 0x1
+    const/4 v3, 0x1
 
     sparse-switch p1, :sswitch_data_0
 
@@ -107,16 +107,16 @@
     return v2
 
     :sswitch_0
-    const-string/jumbo v3, "android.net.nsd.INsdManager"
+    const-string/jumbo v2, "android.net.nsd.INsdManager"
 
-    invoke-virtual {p3, v3}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p3, v2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    return v2
+    return v3
 
     :sswitch_1
-    const-string/jumbo v3, "android.net.nsd.INsdManager"
+    const-string/jumbo v2, "android.net.nsd.INsdManager"
 
-    invoke-virtual {p2, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v2}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p0}, Landroid/net/nsd/INsdManager$Stub;->getMessenger()Landroid/os/Messenger;
 
@@ -126,37 +126,42 @@
 
     if-eqz v1, :cond_0
 
-    invoke-virtual {p3, v2}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p3, v3}, Landroid/os/Parcel;->writeInt(I)V
 
-    invoke-virtual {v1, p3, v2}, Landroid/os/Messenger;->writeToParcel(Landroid/os/Parcel;I)V
+    invoke-virtual {v1, p3, v3}, Landroid/os/Messenger;->writeToParcel(Landroid/os/Parcel;I)V
 
     :goto_0
-    return v2
+    return v3
 
     :cond_0
-    invoke-virtual {p3, v0}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p3, v4}, Landroid/os/Parcel;->writeInt(I)V
 
     goto :goto_0
 
     :sswitch_2
-    const-string/jumbo v3, "android.net.nsd.INsdManager"
+    const-string/jumbo v2, "android.net.nsd.INsdManager"
 
-    invoke-virtual {p2, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v2}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v3
+    move-result v2
 
-    if-eqz v3, :cond_1
+    if-eqz v2, :cond_1
 
-    move v0, v2
+    const/4 v0, 0x1
 
-    :cond_1
+    :goto_1
     invoke-virtual {p0, v0}, Landroid/net/nsd/INsdManager$Stub;->setEnabled(Z)V
 
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    return v2
+    return v3
+
+    :cond_1
+    const/4 v0, 0x0
+
+    goto :goto_1
 
     nop
 

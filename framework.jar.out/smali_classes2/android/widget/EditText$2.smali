@@ -42,7 +42,7 @@
 
     iget-object v1, p0, Landroid/widget/EditText$2;->this$0:Landroid/widget/EditText;
 
-    invoke-virtual {v1}, Landroid/view/View;->getContext()Landroid/content/Context;
+    invoke-virtual {v1}, Landroid/widget/EditText;->getContext()Landroid/content/Context;
 
     move-result-object v1
 
@@ -68,7 +68,7 @@
 
     move-result-object v1
 
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->addTextChangedListener(Landroid/text/TextWatcher;)V
+    invoke-virtual {v0, v1}, Landroid/widget/EditText;->addTextChangedListener(Landroid/text/TextWatcher;)V
 
     iget-object v0, p0, Landroid/widget/EditText$2;->this$0:Landroid/widget/EditText;
 
@@ -98,7 +98,7 @@
 
     move-result-object v1
 
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->removeTextChangedListener(Landroid/text/TextWatcher;)V
+    invoke-virtual {v0, v1}, Landroid/widget/EditText;->removeTextChangedListener(Landroid/text/TextWatcher;)V
 
     iget-object v0, p0, Landroid/widget/EditText$2;->this$0:Landroid/widget/EditText;
 

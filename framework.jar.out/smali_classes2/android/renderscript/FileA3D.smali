@@ -26,7 +26,7 @@
 
     iput-object p4, p0, Landroid/renderscript/FileA3D;->mInputStream:Ljava/io/InputStream;
 
-    iget-object v0, p0, Landroid/renderscript/BaseObj;->guard:Ldalvik/system/CloseGuard;
+    iget-object v0, p0, Landroid/renderscript/FileA3D;->guard:Ldalvik/system/CloseGuard;
 
     const-string/jumbo v1, "destroy"
 
@@ -171,9 +171,7 @@
 
     move-object v7, v6
 
-    nop
-
-    nop
+    check-cast v7, Landroid/content/res/AssetManager$AssetInputStream;
 
     invoke-virtual {v7}, Landroid/content/res/AssetManager$AssetInputStream;->getNativeAsset()J
 
@@ -262,11 +260,11 @@
 .method private initEntries()V
     .locals 14
 
-    iget-object v0, p0, Landroid/renderscript/BaseObj;->mRS:Landroid/renderscript/RenderScript;
+    iget-object v0, p0, Landroid/renderscript/FileA3D;->mRS:Landroid/renderscript/RenderScript;
 
-    iget-object v1, p0, Landroid/renderscript/BaseObj;->mRS:Landroid/renderscript/RenderScript;
+    iget-object v1, p0, Landroid/renderscript/FileA3D;->mRS:Landroid/renderscript/RenderScript;
 
-    invoke-virtual {p0, v1}, Landroid/renderscript/BaseObj;->getID(Landroid/renderscript/RenderScript;)J
+    invoke-virtual {p0, v1}, Landroid/renderscript/FileA3D;->getID(Landroid/renderscript/RenderScript;)J
 
     move-result-wide v2
 
@@ -287,11 +285,11 @@
 
     new-array v6, v4, [Ljava/lang/String;
 
-    iget-object v1, p0, Landroid/renderscript/BaseObj;->mRS:Landroid/renderscript/RenderScript;
+    iget-object v1, p0, Landroid/renderscript/FileA3D;->mRS:Landroid/renderscript/RenderScript;
 
-    iget-object v0, p0, Landroid/renderscript/BaseObj;->mRS:Landroid/renderscript/RenderScript;
+    iget-object v0, p0, Landroid/renderscript/FileA3D;->mRS:Landroid/renderscript/RenderScript;
 
-    invoke-virtual {p0, v0}, Landroid/renderscript/BaseObj;->getID(Landroid/renderscript/RenderScript;)J
+    invoke-virtual {p0, v0}, Landroid/renderscript/FileA3D;->getID(Landroid/renderscript/RenderScript;)J
 
     move-result-wide v2
 
@@ -306,11 +304,11 @@
 
     new-instance v7, Landroid/renderscript/FileA3D$IndexEntry;
 
-    iget-object v8, p0, Landroid/renderscript/BaseObj;->mRS:Landroid/renderscript/RenderScript;
+    iget-object v8, p0, Landroid/renderscript/FileA3D;->mRS:Landroid/renderscript/RenderScript;
 
-    iget-object v1, p0, Landroid/renderscript/BaseObj;->mRS:Landroid/renderscript/RenderScript;
+    iget-object v1, p0, Landroid/renderscript/FileA3D;->mRS:Landroid/renderscript/RenderScript;
 
-    invoke-virtual {p0, v1}, Landroid/renderscript/BaseObj;->getID(Landroid/renderscript/RenderScript;)J
+    invoke-virtual {p0, v1}, Landroid/renderscript/FileA3D;->getID(Landroid/renderscript/RenderScript;)J
 
     move-result-wide v10
 

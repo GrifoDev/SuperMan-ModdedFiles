@@ -48,15 +48,33 @@
 
 .field public static final SESSION_EVENT_CAMERA_FAILURE:I = 0x5
 
+.field private static final SESSION_EVENT_CAMERA_FAILURE_STR:Ljava/lang/String; = "CAMERA_FAIL"
+
+.field public static final SESSION_EVENT_CAMERA_PERMISSION_ERROR:I = 0x7
+
+.field private static final SESSION_EVENT_CAMERA_PERMISSION_ERROR_STR:Ljava/lang/String; = "CAMERA_PERMISSION_ERROR"
+
 .field public static final SESSION_EVENT_CAMERA_READY:I = 0x6
+
+.field private static final SESSION_EVENT_CAMERA_READY_STR:Ljava/lang/String; = "CAMERA_READY"
 
 .field public static final SESSION_EVENT_RX_PAUSE:I = 0x1
 
+.field private static final SESSION_EVENT_RX_PAUSE_STR:Ljava/lang/String; = "RX_PAUSE"
+
 .field public static final SESSION_EVENT_RX_RESUME:I = 0x2
+
+.field private static final SESSION_EVENT_RX_RESUME_STR:Ljava/lang/String; = "RX_RESUME"
 
 .field public static final SESSION_EVENT_TX_START:I = 0x3
 
+.field private static final SESSION_EVENT_TX_START_STR:Ljava/lang/String; = "TX_START"
+
 .field public static final SESSION_EVENT_TX_STOP:I = 0x4
+
+.field private static final SESSION_EVENT_TX_STOP_STR:Ljava/lang/String; = "TX_STOP"
+
+.field private static final SESSION_EVENT_UNKNOWN_STR:Ljava/lang/String; = "UNKNOWN"
 
 .field public static final SESSION_MODIFY_REQUEST_FAIL:I = 0x2
 
@@ -139,6 +157,40 @@
 
     iput-object v0, p0, Landroid/telecom/Connection$VideoProvider;->mMessageHandler:Landroid/telecom/Connection$VideoProvider$VideoProviderHandler;
 
+    const-string/jumbo v0, "Telecom-Connection"
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "New Connection.VideoProvider - this: "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string/jumbo v2, ", mBinder: "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    iget-object v2, p0, Landroid/telecom/Connection$VideoProvider;->mBinder:Landroid/telecom/Connection$VideoProvider$VideoProviderBinder;
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
     return-void
 .end method
 
@@ -173,7 +225,113 @@
 
     iput-object v0, p0, Landroid/telecom/Connection$VideoProvider;->mMessageHandler:Landroid/telecom/Connection$VideoProvider$VideoProviderHandler;
 
+    const-string/jumbo v0, "Telecom-Connection"
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "New Connection.VideoProvider with looper - this: "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string/jumbo v2, ", mBinder: "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    iget-object v2, p0, Landroid/telecom/Connection$VideoProvider;->mBinder:Landroid/telecom/Connection$VideoProvider$VideoProviderBinder;
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
     return-void
+.end method
+
+.method public static sessionEventToString(I)Ljava/lang/String;
+    .locals 2
+
+    packed-switch p0, :pswitch_data_0
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v1, "UNKNOWN "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+
+    :pswitch_0
+    const-string/jumbo v0, "CAMERA_FAIL"
+
+    return-object v0
+
+    :pswitch_1
+    const-string/jumbo v0, "CAMERA_READY"
+
+    return-object v0
+
+    :pswitch_2
+    const-string/jumbo v0, "RX_PAUSE"
+
+    return-object v0
+
+    :pswitch_3
+    const-string/jumbo v0, "RX_RESUME"
+
+    return-object v0
+
+    :pswitch_4
+    const-string/jumbo v0, "TX_START"
+
+    return-object v0
+
+    :pswitch_5
+    const-string/jumbo v0, "TX_STOP"
+
+    return-object v0
+
+    :pswitch_6
+    const-string/jumbo v0, "CAMERA_PERMISSION_ERROR"
+
+    return-object v0
+
+    :pswitch_data_0
+    .packed-switch 0x1
+        :pswitch_2
+        :pswitch_3
+        :pswitch_4
+        :pswitch_5
+        :pswitch_0
+        :pswitch_1
+        :pswitch_6
+    .end packed-switch
 .end method
 
 
@@ -439,6 +597,12 @@
 .end method
 
 .method public abstract onSetCamera(Ljava/lang/String;)V
+.end method
+
+.method public onSetCamera(Ljava/lang/String;Ljava/lang/String;III)V
+    .locals 0
+
+    return-void
 .end method
 
 .method public abstract onSetDeviceOrientation(I)V

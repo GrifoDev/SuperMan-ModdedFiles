@@ -66,6 +66,10 @@
 
 .field public static final EXTRA_INCOMING_CALL_EXTRAS:Ljava/lang/String; = "android.telecom.extra.INCOMING_CALL_EXTRAS"
 
+.field public static final EXTRA_INCOMING_VIDEO_STATE:Ljava/lang/String; = "android.telecom.extra.INCOMING_VIDEO_STATE"
+
+.field public static final EXTRA_NEW_OUTGOING_CALL_CANCEL_TIMEOUT:Ljava/lang/String; = "android.telecom.extra.NEW_OUTGOING_CALL_CANCEL_TIMEOUT"
+
 .field public static final EXTRA_NOTIFICATION_COUNT:Ljava/lang/String; = "android.telecom.extra.NOTIFICATION_COUNT"
 
 .field public static final EXTRA_NOTIFICATION_PHONE_NUMBER:Ljava/lang/String; = "android.telecom.extra.NOTIFICATION_PHONE_NUMBER"
@@ -73,6 +77,8 @@
 .field public static final EXTRA_OUTGOING_CALL_EXTRAS:Ljava/lang/String; = "android.telecom.extra.OUTGOING_CALL_EXTRAS"
 
 .field public static final EXTRA_PHONE_ACCOUNT_HANDLE:Ljava/lang/String; = "android.telecom.extra.PHONE_ACCOUNT_HANDLE"
+
+.field public static final EXTRA_START_CALL_WITH_RTT:Ljava/lang/String; = "android.telecom.extra.START_CALL_WITH_RTT"
 
 .field public static final EXTRA_START_CALL_WITH_SPEAKERPHONE:Ljava/lang/String; = "android.telecom.extra.START_CALL_WITH_SPEAKERPHONE"
 
@@ -88,6 +94,8 @@
 
 .field public static final METADATA_INCLUDE_EXTERNAL_CALLS:Ljava/lang/String; = "android.telecom.INCLUDE_EXTERNAL_CALLS"
 
+.field public static final METADATA_INCLUDE_SELF_MANAGED_CALLS:Ljava/lang/String; = "android.telecom.INCLUDE_SELF_MANAGED_CALLS"
+
 .field public static final METADATA_IN_CALL_SERVICE_CAR_MODE_UI:Ljava/lang/String; = "android.telecom.IN_CALL_SERVICE_CAR_MODE_UI"
 
 .field public static final METADATA_IN_CALL_SERVICE_RINGING:Ljava/lang/String; = "android.telecom.IN_CALL_SERVICE_RINGING"
@@ -101,6 +109,18 @@
 .field public static final PRESENTATION_RESTRICTED:I = 0x2
 
 .field public static final PRESENTATION_UNKNOWN:I = 0x3
+
+.field public static final SEM_ACTION_TTY_PREFERRED_MODE_CHANGED:Ljava/lang/String; = "android.telecom.action.TTY_PREFERRED_MODE_CHANGED"
+
+.field public static final SEM_EXTRA_TTY_PREFERRED_MODE:Ljava/lang/String; = "android.telecom.intent.extra.TTY_PREFERRED"
+
+.field public static final SEM_TTY_MODE_FULL:I = 0x1
+
+.field public static final SEM_TTY_MODE_HCO:I = 0x2
+
+.field public static final SEM_TTY_MODE_OFF:I = 0x0
+
+.field public static final SEM_TTY_MODE_VCO:I = 0x3
 
 .field private static final TAG:Ljava/lang/String; = "TelecomManager"
 
@@ -240,7 +260,13 @@
 
     move-result-object v1
 
-    invoke-interface {v1}, Lcom/android/internal/telecom/ITelecomService;->acceptRingingCall()V
+    iget-object v2, p0, Landroid/telecom/TelecomManager;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v2}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-interface {v1, v2}, Lcom/android/internal/telecom/ITelecomService;->acceptRingingCall(Ljava/lang/String;)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -274,7 +300,13 @@
 
     move-result-object v1
 
-    invoke-interface {v1, p1}, Lcom/android/internal/telecom/ITelecomService;->acceptRingingCallWithVideoState(I)V
+    iget-object v2, p0, Landroid/telecom/TelecomManager;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v2}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-interface {v1, v2, p1}, Lcom/android/internal/telecom/ITelecomService;->acceptRingingCallWithVideoState(Ljava/lang/String;I)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -446,6 +478,11 @@
 
 .method public clearAccounts()V
     .locals 3
+    .annotation build Landroid/annotation/SuppressLint;
+        value = {
+            "Doclava125"
+        }
+    .end annotation
 
     :try_start_0
     invoke-direct {p0}, Landroid/telecom/TelecomManager;->isServiceConnected()Z
@@ -498,13 +535,10 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    xor-int/lit8 v1, v1, 0x1
 
-    :cond_0
-    :goto_0
-    return-void
+    if-eqz v1, :cond_0
 
-    :cond_1
     invoke-direct {p0}, Landroid/telecom/TelecomManager;->getTelecomService()Lcom/android/internal/telecom/ITelecomService;
 
     move-result-object v1
@@ -513,7 +547,9 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_0
+    :cond_0
+    :goto_0
+    return-void
 
     :catch_0
     move-exception v0
@@ -529,6 +565,11 @@
 
 .method public clearPhoneAccounts()V
     .locals 0
+    .annotation build Landroid/annotation/SuppressLint;
+        value = {
+            "Doclava125"
+        }
+    .end annotation
 
     invoke-virtual {p0}, Landroid/telecom/TelecomManager;->clearAccounts()V
 
@@ -569,17 +610,8 @@
     goto :goto_0
 .end method
 
-.method public dumpAnalytics()Ljava/util/List;
+.method public dumpAnalytics()Landroid/telecom/TelecomAnalytics;
     .locals 5
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/util/List",
-            "<",
-            "Landroid/telecom/ParcelableCallAnalytics;",
-            ">;"
-        }
-    .end annotation
 
     invoke-direct {p0}, Landroid/telecom/TelecomManager;->getTelecomService()Lcom/android/internal/telecom/ITelecomService;
 
@@ -590,7 +622,7 @@
     if-eqz v2, :cond_0
 
     :try_start_0
-    invoke-interface {v2}, Lcom/android/internal/telecom/ITelecomService;->dumpCallAnalytics()Ljava/util/List;
+    invoke-interface {v2}, Lcom/android/internal/telecom/ITelecomService;->dumpCallAnalytics()Landroid/telecom/TelecomAnalytics;
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -1041,40 +1073,42 @@
 .end method
 
 .method public getDefaultDialerPackage()Ljava/lang/String;
-    .locals 3
+    .locals 5
+
+    const/4 v4, 0x0
 
     :try_start_0
     invoke-direct {p0}, Landroid/telecom/TelecomManager;->isServiceConnected()Z
 
-    move-result v1
+    move-result v2
 
-    if-eqz v1, :cond_0
+    if-eqz v2, :cond_0
 
     invoke-direct {p0}, Landroid/telecom/TelecomManager;->getTelecomService()Lcom/android/internal/telecom/ITelecomService;
 
     move-result-object v1
 
+    if-eqz v1, :cond_0
+
     invoke-interface {v1}, Lcom/android/internal/telecom/ITelecomService;->getDefaultDialerPackage()Ljava/lang/String;
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    move-result-object v1
+    move-result-object v2
 
-    return-object v1
+    return-object v2
 
     :catch_0
     move-exception v0
 
-    const-string/jumbo v1, "TelecomManager"
+    const-string/jumbo v2, "TelecomManager"
 
-    const-string/jumbo v2, "RemoteException attempting to get the default dialer package name."
+    const-string/jumbo v3, "RemoteException attempting to get the default dialer package name."
 
-    invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v2, v3, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     :cond_0
-    const/4 v1, 0x0
-
-    return-object v1
+    return-object v4
 .end method
 
 .method public getDefaultOutgoingPhoneAccount(Ljava/lang/String;)Landroid/telecom/PhoneAccountHandle;
@@ -1122,6 +1156,11 @@
 
 .method public getDefaultPhoneApp()Landroid/content/ComponentName;
     .locals 3
+    .annotation build Landroid/annotation/SuppressLint;
+        value = {
+            "Doclava125"
+        }
+    .end annotation
 
     :try_start_0
     invoke-direct {p0}, Landroid/telecom/TelecomManager;->isServiceConnected()Z
@@ -1239,6 +1278,12 @@
 
 .method public getPhoneAccountsForPackage()Ljava/util/List;
     .locals 3
+    .annotation build Landroid/annotation/SuppressLint;
+        value = {
+            "Doclava125"
+        }
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1334,6 +1379,60 @@
     const-string/jumbo v1, "TelecomManager"
 
     const-string/jumbo v2, "Error calling ITelecomService#getPhoneAccountsSupportingScheme"
+
+    invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    :cond_0
+    new-instance v1, Ljava/util/ArrayList;
+
+    invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
+
+    return-object v1
+.end method
+
+.method public getSelfManagedPhoneAccounts()Ljava/util/List;
+    .locals 3
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/List",
+            "<",
+            "Landroid/telecom/PhoneAccountHandle;",
+            ">;"
+        }
+    .end annotation
+
+    :try_start_0
+    invoke-direct {p0}, Landroid/telecom/TelecomManager;->isServiceConnected()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    invoke-direct {p0}, Landroid/telecom/TelecomManager;->getTelecomService()Lcom/android/internal/telecom/ITelecomService;
+
+    move-result-object v1
+
+    iget-object v2, p0, Landroid/telecom/TelecomManager;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v2}, Landroid/content/Context;->getOpPackageName()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-interface {v1, v2}, Lcom/android/internal/telecom/ITelecomService;->getSelfManagedPhoneAccounts(Ljava/lang/String;)Ljava/util/List;
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result-object v1
+
+    return-object v1
+
+    :catch_0
+    move-exception v0
+
+    const-string/jumbo v1, "TelecomManager"
+
+    const-string/jumbo v2, "Error calling ITelecomService#getSelfManagedPhoneAccounts()"
 
     invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
@@ -1655,6 +1754,120 @@
     const/4 v1, 0x0
 
     return v1
+.end method
+
+.method public isInManagedCall()Z
+    .locals 3
+
+    :try_start_0
+    invoke-direct {p0}, Landroid/telecom/TelecomManager;->isServiceConnected()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    invoke-direct {p0}, Landroid/telecom/TelecomManager;->getTelecomService()Lcom/android/internal/telecom/ITelecomService;
+
+    move-result-object v1
+
+    iget-object v2, p0, Landroid/telecom/TelecomManager;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v2}, Landroid/content/Context;->getOpPackageName()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-interface {v1, v2}, Lcom/android/internal/telecom/ITelecomService;->isInManagedCall(Ljava/lang/String;)Z
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v1
+
+    return v1
+
+    :catch_0
+    move-exception v0
+
+    const-string/jumbo v1, "TelecomManager"
+
+    const-string/jumbo v2, "RemoteException calling isInManagedCall()."
+
+    invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    :cond_0
+    const/4 v1, 0x0
+
+    return v1
+.end method
+
+.method public isIncomingCallPermitted(Landroid/telecom/PhoneAccountHandle;)Z
+    .locals 5
+
+    const/4 v4, 0x0
+
+    if-nez p1, :cond_0
+
+    return v4
+
+    :cond_0
+    invoke-direct {p0}, Landroid/telecom/TelecomManager;->getTelecomService()Lcom/android/internal/telecom/ITelecomService;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_1
+
+    :try_start_0
+    invoke-interface {v1, p1}, Lcom/android/internal/telecom/ITelecomService;->isIncomingCallPermitted(Landroid/telecom/PhoneAccountHandle;)Z
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v2
+
+    return v2
+
+    :catch_0
+    move-exception v0
+
+    const-string/jumbo v2, "TelecomManager"
+
+    const-string/jumbo v3, "Error isIncomingCallPermitted"
+
+    invoke-static {v2, v3, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    :cond_1
+    return v4
+.end method
+
+.method public isOutgoingCallPermitted(Landroid/telecom/PhoneAccountHandle;)Z
+    .locals 4
+
+    invoke-direct {p0}, Landroid/telecom/TelecomManager;->getTelecomService()Lcom/android/internal/telecom/ITelecomService;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_0
+
+    :try_start_0
+    invoke-interface {v1, p1}, Lcom/android/internal/telecom/ITelecomService;->isOutgoingCallPermitted(Landroid/telecom/PhoneAccountHandle;)Z
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v2
+
+    return v2
+
+    :catch_0
+    move-exception v0
+
+    const-string/jumbo v2, "TelecomManager"
+
+    const-string/jumbo v3, "Error isOutgoingCallPermitted"
+
+    invoke-static {v2, v3, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    :cond_0
+    const/4 v2, 0x0
+
+    return v2
 .end method
 
 .method public isRinging()Z

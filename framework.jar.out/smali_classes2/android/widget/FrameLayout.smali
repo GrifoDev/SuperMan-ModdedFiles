@@ -298,6 +298,10 @@
 .method protected generateLayoutParams(Landroid/view/ViewGroup$LayoutParams;)Landroid/view/ViewGroup$LayoutParams;
     .locals 1
 
+    sget-boolean v0, Landroid/widget/FrameLayout;->sPreserveMarginParamsInLayoutParamConversion:Z
+
+    if-eqz v0, :cond_1
+
     instance-of v0, p1, Landroid/widget/FrameLayout$LayoutParams;
 
     if-eqz v0, :cond_0

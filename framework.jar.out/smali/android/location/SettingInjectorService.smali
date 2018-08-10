@@ -71,7 +71,7 @@
 
     const-string/jumbo v4, "enabled"
 
-    invoke-virtual {v0, v4, p2}, Landroid/os/BaseBundle;->putBoolean(Ljava/lang/String;Z)V
+    invoke-virtual {v0, v4, p2}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
 
     invoke-virtual {v2, v0}, Landroid/os/Message;->setData(Landroid/os/Bundle;)V
 
@@ -142,8 +142,6 @@
 
     check-cast v3, Landroid/os/Messenger;
 
-    if-eqz v3, :cond_1
-
     :try_start_0
     invoke-virtual {v3, v2}, Landroid/os/Messenger;->send(Landroid/os/Message;)V
     :try_end_0
@@ -180,15 +178,6 @@
     invoke-static {v4, v5, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     goto :goto_0
-
-    :cond_1
-    const-string/jumbo v4, "SettingInjectorService"
-
-    const-string/jumbo v5, "messenger is null"
-
-    invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_0
 .end method
 
 
@@ -222,7 +211,7 @@
 
     invoke-direct {p0, p1}, Landroid/location/SettingInjectorService;->onHandleIntent(Landroid/content/Intent;)V
 
-    invoke-virtual {p0, p3}, Landroid/app/Service;->stopSelf(I)V
+    invoke-virtual {p0, p3}, Landroid/location/SettingInjectorService;->stopSelf(I)V
 
     const/4 v0, 0x2
 

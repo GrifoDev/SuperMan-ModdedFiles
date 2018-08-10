@@ -229,7 +229,7 @@
 
     iget-object v0, p0, Landroid/media/tv/TvView$MySessionCallback;->this$0:Landroid/media/tv/TvView;
 
-    invoke-virtual {v0}, Landroid/view/View;->requestLayout()V
+    invoke-virtual {v0}, Landroid/media/tv/TvView;->requestLayout()V
 
     return-void
 .end method
@@ -326,7 +326,7 @@
     :try_start_0
     iget-object v2, p0, Landroid/media/tv/TvView$MySessionCallback;->this$0:Landroid/media/tv/TvView;
 
-    invoke-virtual {v2}, Landroid/view/View;->hasWindowFocus()Z
+    invoke-virtual {v2}, Landroid/media/tv/TvView;->hasWindowFocus()Z
 
     move-result v2
 
@@ -338,7 +338,7 @@
 
     move-result-object v4
 
-    invoke-virtual {v4}, Ljava/lang/ref/Reference;->get()Ljava/lang/Object;
+    invoke-virtual {v4}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
 
     move-result-object v4
 

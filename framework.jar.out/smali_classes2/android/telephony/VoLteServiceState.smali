@@ -231,13 +231,15 @@
 .end method
 
 .method public hashCode()I
-    .locals 1
+    .locals 2
 
-    iget v0, p0, Landroid/telephony/VoLteServiceState;->mSrvccState:I
+    const/16 v0, 0x1f
 
-    mul-int/lit8 v0, v0, 0x1f
+    iget v1, p0, Landroid/telephony/VoLteServiceState;->mSrvccState:I
 
-    return v0
+    mul-int/lit8 v1, v1, 0x1f
+
+    return v1
 .end method
 
 .method public toString()Ljava/lang/String;

@@ -584,6 +584,34 @@
     return-wide v2
 .end method
 
+.method public getMediaButtonReceiver()Landroid/app/PendingIntent;
+    .locals 3
+
+    :try_start_0
+    iget-object v1, p0, Landroid/media/session/MediaController;->mSessionBinder:Landroid/media/session/ISessionController;
+
+    invoke-interface {v1}, Landroid/media/session/ISessionController;->getMediaButtonReceiver()Landroid/app/PendingIntent;
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result-object v1
+
+    return-object v1
+
+    :catch_0
+    move-exception v0
+
+    const-string/jumbo v1, "MediaController"
+
+    const-string/jumbo v2, "Error calling getMediaButtonReceiver"
+
+    invoke-static {v1, v2}, Landroid/util/Log;->wtf(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 v1, 0x0
+
+    return-object v1
+.end method
+
 .method public getMetadata()Landroid/media/MediaMetadata;
     .locals 3
 
@@ -1030,74 +1058,36 @@
 .end method
 
 .method public unregisterCallback(Landroid/media/session/MediaController$Callback;)V
-    .locals 3
+    .locals 2
 
     if-nez p1, :cond_0
 
-    new-instance v1, Ljava/lang/IllegalArgumentException;
+    new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    const-string/jumbo v2, "callback must not be null"
+    const-string/jumbo v1, "callback must not be null"
 
-    invoke-direct {v1, v2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v1
+    throw v0
 
     :cond_0
+    iget-object v0, p0, Landroid/media/session/MediaController;->mLock:Ljava/lang/Object;
+
+    monitor-enter v0
+
     :try_start_0
-    iget-object v1, p0, Landroid/media/session/MediaController;->mSessionBinder:Landroid/media/session/ISessionController;
-
-    invoke-interface {v1}, Landroid/media/session/ISessionController;->requestLock()V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    :goto_0
-    iget-object v1, p0, Landroid/media/session/MediaController;->mLock:Ljava/lang/Object;
-
-    monitor-enter v1
-
-    :try_start_1
     invoke-direct {p0, p1}, Landroid/media/session/MediaController;->removeCallbackLocked(Landroid/media/session/MediaController$Callback;)Z
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    monitor-exit v1
+    monitor-exit v0
 
-    :try_start_2
-    iget-object v1, p0, Landroid/media/session/MediaController;->mSessionBinder:Landroid/media/session/ISessionController;
-
-    invoke-interface {v1}, Landroid/media/session/ISessionController;->releaseLock()V
-    :try_end_2
-    .catch Landroid/os/RemoteException; {:try_start_2 .. :try_end_2} :catch_1
-
-    :goto_1
     return-void
 
-    :catch_0
-    move-exception v0
-
-    const-string/jumbo v1, "MediaController"
-
-    const-string/jumbo v2, "Dead object in requestLock"
-
-    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_0
-
     :catchall_0
-    move-exception v2
+    move-exception v1
 
-    monitor-exit v1
+    monitor-exit v0
 
-    throw v2
-
-    :catch_1
-    move-exception v0
-
-    const-string/jumbo v1, "MediaController"
-
-    const-string/jumbo v2, "Dead object in releaseLock"
-
-    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_1
+    throw v1
 .end method

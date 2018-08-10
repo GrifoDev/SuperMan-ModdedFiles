@@ -36,6 +36,126 @@
     return-void
 .end method
 
+.method public static allowDisablingAssistDisclosure(Landroid/content/Context;)Z
+    .locals 2
+
+    invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    const v1, 0x112000f
+
+    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method private static isDisclosureEnabled(Landroid/content/Context;)Z
+    .locals 3
+
+    const/4 v0, 0x0
+
+    invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "assist_disclosure_enabled"
+
+    invoke-static {v1, v2, v0}, Landroid/provider/Settings$Secure;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    const/4 v0, 0x1
+
+    :cond_0
+    return v0
+.end method
+
+.method public static isPreinstalledAssistant(Landroid/content/Context;Landroid/content/ComponentName;)Z
+    .locals 6
+
+    const/4 v5, 0x0
+
+    if-nez p1, :cond_0
+
+    return v5
+
+    :cond_0
+    :try_start_0
+    invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+
+    move-result-object v2
+
+    invoke-virtual {p1}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
+
+    move-result-object v3
+
+    const/4 v4, 0x0
+
+    invoke-virtual {v2, v3, v4}, Landroid/content/pm/PackageManager;->getApplicationInfo(Ljava/lang/String;I)Landroid/content/pm/ApplicationInfo;
+    :try_end_0
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/content/pm/ApplicationInfo;->isSystemApp()Z
+
+    move-result v2
+
+    if-nez v2, :cond_1
+
+    invoke-virtual {v0}, Landroid/content/pm/ApplicationInfo;->isUpdatedSystemApp()Z
+
+    move-result v2
+
+    :goto_0
+    return v2
+
+    :catch_0
+    move-exception v1
+
+    return v5
+
+    :cond_1
+    const/4 v2, 0x1
+
+    goto :goto_0
+.end method
+
+.method public static shouldDisclose(Landroid/content/Context;Landroid/content/ComponentName;)Z
+    .locals 2
+
+    const/4 v0, 0x1
+
+    invoke-static {p0}, Lcom/android/internal/app/AssistUtils;->allowDisablingAssistDisclosure(Landroid/content/Context;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    return v0
+
+    :cond_0
+    invoke-static {p0}, Lcom/android/internal/app/AssistUtils;->isDisclosureEnabled(Landroid/content/Context;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_1
+
+    invoke-static {p0, p1}, Lcom/android/internal/app/AssistUtils;->isPreinstalledAssistant(Landroid/content/Context;Landroid/content/ComponentName;)Z
+
+    move-result v0
+
+    xor-int/lit8 v0, v0, 0x1
+
+    :cond_1
+    return v0
+.end method
+
 
 # virtual methods
 .method public activeServiceSupportsAssistGesture()Z
@@ -345,6 +465,36 @@
     const-string/jumbo v1, "AssistUtils"
 
     const-string/jumbo v2, "Failed to call onLockscreenShown"
+
+    invoke-static {v1, v2, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    goto :goto_0
+.end method
+
+.method public registerVoiceInteractionSessionListener(Lcom/android/internal/app/IVoiceInteractionSessionListener;)V
+    .locals 3
+
+    :try_start_0
+    iget-object v1, p0, Lcom/android/internal/app/AssistUtils;->mVoiceInteractionManagerService:Lcom/android/internal/app/IVoiceInteractionManagerService;
+
+    if-eqz v1, :cond_0
+
+    iget-object v1, p0, Lcom/android/internal/app/AssistUtils;->mVoiceInteractionManagerService:Lcom/android/internal/app/IVoiceInteractionManagerService;
+
+    invoke-interface {v1, p1}, Lcom/android/internal/app/IVoiceInteractionManagerService;->registerVoiceInteractionSessionListener(Lcom/android/internal/app/IVoiceInteractionSessionListener;)V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    :cond_0
+    :goto_0
+    return-void
+
+    :catch_0
+    move-exception v0
+
+    const-string/jumbo v1, "AssistUtils"
+
+    const-string/jumbo v2, "Failed to register voice interaction listener"
 
     invoke-static {v1, v2, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 

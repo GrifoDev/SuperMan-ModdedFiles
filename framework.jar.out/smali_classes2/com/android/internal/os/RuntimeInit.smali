@@ -7,17 +7,16 @@
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Lcom/android/internal/os/RuntimeInit$Arguments;,
-        Lcom/android/internal/os/RuntimeInit$UncaughtHandler;
+        Lcom/android/internal/os/RuntimeInit$KillApplicationHandler;,
+        Lcom/android/internal/os/RuntimeInit$LoggingHandler;
     }
 .end annotation
 
 
 # static fields
-.field private static final DEBUG:Z = false
+.field static final DEBUG:Z = false
 
-.field private static final RESET_BLOCK_SIZE:I = 0x320
-
-.field private static final TAG:Ljava/lang/String; = "AndroidRuntime"
+.field static final TAG:Ljava/lang/String; = "AndroidRuntime"
 
 .field private static initialized:Z
 
@@ -93,25 +92,11 @@
     return v0
 .end method
 
-.method public static final __init__UncaughtHandler()V
-    .locals 2
-
-    new-instance v0, Lcom/android/internal/os/RuntimeInit$UncaughtHandler;
-
-    const/4 v1, 0x0
-
-    invoke-direct {v0, v1}, Lcom/android/internal/os/RuntimeInit$UncaughtHandler;-><init>(Lcom/android/internal/os/RuntimeInit$UncaughtHandler;)V
-
-    invoke-static {v0}, Ljava/lang/Thread;->setDefaultUncaughtExceptionHandler(Ljava/lang/Thread$UncaughtExceptionHandler;)V
-
-    return-void
-.end method
-
-.method private static applicationInit(I[Ljava/lang/String;Ljava/lang/ClassLoader;)V
+.method protected static applicationInit(I[Ljava/lang/String;Ljava/lang/ClassLoader;)V
     .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
-            Lcom/android/internal/os/ZygoteInit$MethodAndArgsCaller;
+            Lcom/android/internal/os/Zygote$MethodAndArgsCaller;
         }
     .end annotation
 
@@ -166,14 +151,20 @@
     return-void
 .end method
 
-.method private static final commonInit()V
+.method protected static final commonInit()V
     .locals 4
 
     const/4 v3, 0x0
 
-    new-instance v2, Lcom/android/internal/os/RuntimeInit$UncaughtHandler;
+    new-instance v2, Lcom/android/internal/os/RuntimeInit$LoggingHandler;
 
-    invoke-direct {v2, v3}, Lcom/android/internal/os/RuntimeInit$UncaughtHandler;-><init>(Lcom/android/internal/os/RuntimeInit$UncaughtHandler;)V
+    invoke-direct {v2, v3}, Lcom/android/internal/os/RuntimeInit$LoggingHandler;-><init>(Lcom/android/internal/os/RuntimeInit$LoggingHandler;)V
+
+    invoke-static {v2}, Ljava/lang/Thread;->setUncaughtExceptionPreHandler(Ljava/lang/Thread$UncaughtExceptionHandler;)V
+
+    new-instance v2, Lcom/android/internal/os/RuntimeInit$KillApplicationHandler;
+
+    invoke-direct {v2, v3}, Lcom/android/internal/os/RuntimeInit$KillApplicationHandler;-><init>(Lcom/android/internal/os/RuntimeInit$KillApplicationHandler;)V
 
     invoke-static {v2}, Ljava/lang/Thread;->setDefaultUncaughtExceptionHandler(Ljava/lang/Thread$UncaughtExceptionHandler;)V
 
@@ -347,7 +338,7 @@
     .locals 11
     .annotation system Ldalvik/annotation/Throws;
         value = {
-            Lcom/android/internal/os/ZygoteInit$MethodAndArgsCaller;
+            Lcom/android/internal/os/Zygote$MethodAndArgsCaller;
         }
     .end annotation
 
@@ -505,9 +496,9 @@
     throw v6
 
     :cond_1
-    new-instance v6, Lcom/android/internal/os/ZygoteInit$MethodAndArgsCaller;
+    new-instance v6, Lcom/android/internal/os/Zygote$MethodAndArgsCaller;
 
-    invoke-direct {v6, v4, p1}, Lcom/android/internal/os/ZygoteInit$MethodAndArgsCaller;-><init>(Ljava/lang/reflect/Method;[Ljava/lang/String;)V
+    invoke-direct {v6, v4, p1}, Lcom/android/internal/os/Zygote$MethodAndArgsCaller;-><init>(Ljava/lang/reflect/Method;[Ljava/lang/String;)V
 
     throw v6
 .end method
@@ -549,9 +540,6 @@
 .end method
 
 .method private static final native nativeSetExitWithoutCleanup(Z)V
-.end method
-
-.method private static final native nativeZygoteInit()V
 .end method
 
 .method public static redirectLogStreams()V
@@ -596,36 +584,21 @@
     return-void
 .end method
 
-.method public static wrapperInit(I[Ljava/lang/String;)V
-    .locals 1
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Lcom/android/internal/os/ZygoteInit$MethodAndArgsCaller;
-        }
-    .end annotation
-
-    const/4 v0, 0x0
-
-    invoke-static {p0, p1, v0}, Lcom/android/internal/os/RuntimeInit;->applicationInit(I[Ljava/lang/String;Ljava/lang/ClassLoader;)V
-
-    return-void
-.end method
-
 .method public static wtf(Ljava/lang/String;Ljava/lang/Throwable;Z)V
     .locals 4
 
     :try_start_0
-    invoke-static {}, Landroid/app/ActivityManagerNative;->getDefault()Landroid/app/IActivityManager;
+    invoke-static {}, Landroid/app/ActivityManager;->getService()Landroid/app/IActivityManager;
 
     move-result-object v1
 
     sget-object v2, Lcom/android/internal/os/RuntimeInit;->mApplicationObject:Landroid/os/IBinder;
 
-    new-instance v3, Landroid/app/ApplicationErrorReport$CrashInfo;
+    new-instance v3, Landroid/app/ApplicationErrorReport$ParcelableCrashInfo;
 
-    invoke-direct {v3, p1}, Landroid/app/ApplicationErrorReport$CrashInfo;-><init>(Ljava/lang/Throwable;)V
+    invoke-direct {v3, p1}, Landroid/app/ApplicationErrorReport$ParcelableCrashInfo;-><init>(Ljava/lang/Throwable;)V
 
-    invoke-interface {v1, v2, p0, p2, v3}, Landroid/app/IActivityManager;->handleApplicationWtf(Landroid/os/IBinder;Ljava/lang/String;ZLandroid/app/ApplicationErrorReport$CrashInfo;)Z
+    invoke-interface {v1, v2, p0, p2, v3}, Landroid/app/IActivityManager;->handleApplicationWtf(Landroid/os/IBinder;Ljava/lang/String;ZLandroid/app/ApplicationErrorReport$ParcelableCrashInfo;)Z
 
     move-result v1
 
@@ -667,29 +640,4 @@
     invoke-static {v1, v2, p1}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     goto :goto_0
-.end method
-
-.method public static final zygoteInit(I[Ljava/lang/String;Ljava/lang/ClassLoader;)V
-    .locals 4
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Lcom/android/internal/os/ZygoteInit$MethodAndArgsCaller;
-        }
-    .end annotation
-
-    const-string/jumbo v0, "RuntimeInit"
-
-    const-wide/16 v2, 0x40
-
-    invoke-static {v2, v3, v0}, Landroid/os/Trace;->traceBegin(JLjava/lang/String;)V
-
-    invoke-static {}, Lcom/android/internal/os/RuntimeInit;->redirectLogStreams()V
-
-    invoke-static {}, Lcom/android/internal/os/RuntimeInit;->commonInit()V
-
-    invoke-static {}, Lcom/android/internal/os/RuntimeInit;->nativeZygoteInit()V
-
-    invoke-static {p0, p1, p2}, Lcom/android/internal/os/RuntimeInit;->applicationInit(I[Ljava/lang/String;Ljava/lang/ClassLoader;)V
-
-    return-void
 .end method

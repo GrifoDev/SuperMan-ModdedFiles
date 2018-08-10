@@ -4,6 +4,8 @@
 
 
 # instance fields
+.field private final TAG:Ljava/lang/String;
+
 .field private mCurrentElement:Z
 
 .field private mCurrentValue:Ljava/lang/String;
@@ -24,220 +26,268 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Ljava/lang/String;)V
-    .locals 11
+    .locals 13
 
-    const/4 v10, 0x0
+    const/4 v11, 0x0
 
     invoke-direct {p0}, Lorg/xml/sax/helpers/DefaultHandler;-><init>()V
 
-    const/4 v9, 0x0
+    const-string/jumbo v10, "XmlParser"
 
-    iput-boolean v9, p0, Landroid/app/wallpaperbackup/XmlParser;->mCurrentElement:Z
+    iput-object v10, p0, Landroid/app/wallpaperbackup/XmlParser;->TAG:Ljava/lang/String;
 
-    const-string/jumbo v9, ""
+    const/4 v10, 0x0
 
-    iput-object v9, p0, Landroid/app/wallpaperbackup/XmlParser;->mCurrentValue:Ljava/lang/String;
+    iput-boolean v10, p0, Landroid/app/wallpaperbackup/XmlParser;->mCurrentElement:Z
 
-    iput-object v10, p0, Landroid/app/wallpaperbackup/XmlParser;->mItem:Landroid/app/wallpaperbackup/WallpaperUser;
+    const-string/jumbo v10, ""
 
-    new-instance v9, Ljava/util/ArrayList;
+    iput-object v10, p0, Landroid/app/wallpaperbackup/XmlParser;->mCurrentValue:Ljava/lang/String;
 
-    invoke-direct {v9}, Ljava/util/ArrayList;-><init>()V
+    iput-object v11, p0, Landroid/app/wallpaperbackup/XmlParser;->mItem:Landroid/app/wallpaperbackup/WallpaperUser;
 
-    iput-object v9, p0, Landroid/app/wallpaperbackup/XmlParser;->mItemsList:Ljava/util/ArrayList;
+    new-instance v10, Ljava/util/ArrayList;
+
+    invoke-direct {v10}, Ljava/util/ArrayList;-><init>()V
+
+    iput-object v10, p0, Landroid/app/wallpaperbackup/XmlParser;->mItemsList:Ljava/util/ArrayList;
 
     invoke-static {}, Ljavax/xml/parsers/SAXParserFactory;->newInstance()Ljavax/xml/parsers/SAXParserFactory;
 
-    move-result-object v7
-
-    const/4 v3, 0x0
-
-    :try_start_0
-    invoke-virtual {v7}, Ljavax/xml/parsers/SAXParserFactory;->newSAXParser()Ljavax/xml/parsers/SAXParser;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Ljavax/xml/parsers/SAXParser;->getXMLReader()Lorg/xml/sax/XMLReader;
-
     move-result-object v8
 
-    invoke-interface {v8, p0}, Lorg/xml/sax/XMLReader;->setContentHandler(Lorg/xml/sax/ContentHandler;)V
+    const/4 v4, 0x0
 
-    new-instance v4, Ljava/io/FileInputStream;
+    :try_start_0
+    invoke-virtual {v8}, Ljavax/xml/parsers/SAXParserFactory;->newSAXParser()Ljavax/xml/parsers/SAXParser;
 
-    new-instance v9, Ljava/io/File;
+    move-result-object v7
 
-    invoke-direct {v9, p2}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+    invoke-virtual {v7}, Ljavax/xml/parsers/SAXParser;->getXMLReader()Lorg/xml/sax/XMLReader;
 
-    invoke-direct {v4, v9}, Ljava/io/FileInputStream;-><init>(Ljava/io/File;)V
+    move-result-object v9
+
+    invoke-interface {v9, p0}, Lorg/xml/sax/XMLReader;->setContentHandler(Lorg/xml/sax/ContentHandler;)V
+
+    new-instance v3, Ljava/io/File;
+
+    invoke-direct {v3, p2}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+
+    if-eqz v3, :cond_1
+
+    invoke-virtual {v3}, Ljava/io/File;->exists()Z
+
+    move-result v10
+
+    if-eqz v10, :cond_1
+
+    invoke-virtual {v3}, Ljava/io/File;->canRead()Z
+
+    move-result v10
+
+    if-eqz v10, :cond_1
+
+    new-instance v5, Ljava/io/FileInputStream;
+
+    invoke-direct {v5, v3}, Ljava/io/FileInputStream;-><init>(Ljava/io/File;)V
     :try_end_0
-    .catch Ljavax/xml/parsers/ParserConfigurationException; {:try_start_0 .. :try_end_0} :catch_5
-    .catch Lorg/xml/sax/SAXException; {:try_start_0 .. :try_end_0} :catch_3
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_1
+    .catch Ljavax/xml/parsers/ParserConfigurationException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Lorg/xml/sax/SAXException; {:try_start_0 .. :try_end_0} :catch_5
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_3
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     :try_start_1
-    new-instance v5, Lorg/xml/sax/InputSource;
+    new-instance v6, Lorg/xml/sax/InputSource;
 
-    new-instance v9, Ljava/io/InputStreamReader;
+    new-instance v10, Ljava/io/InputStreamReader;
 
-    invoke-direct {v9, v4}, Ljava/io/InputStreamReader;-><init>(Ljava/io/InputStream;)V
+    invoke-direct {v10, v5}, Ljava/io/InputStreamReader;-><init>(Ljava/io/InputStream;)V
 
-    invoke-direct {v5, v9}, Lorg/xml/sax/InputSource;-><init>(Ljava/io/Reader;)V
+    invoke-direct {v6, v10}, Lorg/xml/sax/InputSource;-><init>(Ljava/io/Reader;)V
 
-    invoke-interface {v8, v5}, Lorg/xml/sax/XMLReader;->parse(Lorg/xml/sax/InputSource;)V
+    invoke-interface {v9, v6}, Lorg/xml/sax/XMLReader;->parse(Lorg/xml/sax/InputSource;)V
     :try_end_1
     .catch Ljavax/xml/parsers/ParserConfigurationException; {:try_start_1 .. :try_end_1} :catch_8
     .catch Lorg/xml/sax/SAXException; {:try_start_1 .. :try_end_1} :catch_9
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_a
     .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
+    move-object v4, v5
+
+    :goto_0
     if-eqz v4, :cond_0
 
     :try_start_2
     invoke-virtual {v4}, Ljava/io/FileInputStream;->close()V
     :try_end_2
-    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_0
+    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_2
 
     :cond_0
-    :goto_0
-    move-object v3, v4
-
-    :cond_1
     :goto_1
     return-void
 
-    :catch_0
-    move-exception v0
+    :cond_1
+    :try_start_3
+    const-string/jumbo v10, "XmlParser"
 
-    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
+    new-instance v11, Ljava/lang/StringBuilder;
+
+    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v12, "xml file is not exists. "
+
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v11
+
+    invoke-virtual {v11, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v11
+
+    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v11
+
+    invoke-static {v10, v11}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_3
+    .catch Ljavax/xml/parsers/ParserConfigurationException; {:try_start_3 .. :try_end_3} :catch_0
+    .catch Lorg/xml/sax/SAXException; {:try_start_3 .. :try_end_3} :catch_5
+    .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
     goto :goto_0
+
+    :catch_0
+    move-exception v1
+
+    :goto_2
+    :try_start_4
+    invoke-virtual {v1}, Ljavax/xml/parsers/ParserConfigurationException;->printStackTrace()V
+    :try_end_4
+    .catchall {:try_start_4 .. :try_end_4} :catchall_0
+
+    if-eqz v4, :cond_0
+
+    :try_start_5
+    invoke-virtual {v4}, Ljava/io/FileInputStream;->close()V
+    :try_end_5
+    .catch Ljava/io/IOException; {:try_start_5 .. :try_end_5} :catch_1
+
+    goto :goto_1
 
     :catch_1
     move-exception v0
 
-    :goto_2
-    :try_start_3
-    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
-
-    if-eqz v3, :cond_1
-
-    :try_start_4
-    invoke-virtual {v3}, Ljava/io/FileInputStream;->close()V
-    :try_end_4
-    .catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_2
+    invoke-virtual {v0}, Ljava/io/IOException;->printStackTrace()V
 
     goto :goto_1
 
     :catch_2
     move-exception v0
 
-    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/io/IOException;->printStackTrace()V
 
     goto :goto_1
 
     :catch_3
-    move-exception v2
+    move-exception v0
 
     :goto_3
-    :try_start_5
-    invoke-virtual {v2}, Ljava/lang/Throwable;->printStackTrace()V
-    :try_end_5
-    .catchall {:try_start_5 .. :try_end_5} :catchall_0
-
-    if-eqz v3, :cond_1
-
     :try_start_6
-    invoke-virtual {v3}, Ljava/io/FileInputStream;->close()V
+    invoke-virtual {v0}, Ljava/io/IOException;->printStackTrace()V
     :try_end_6
-    .catch Ljava/io/IOException; {:try_start_6 .. :try_end_6} :catch_4
+    .catchall {:try_start_6 .. :try_end_6} :catchall_0
+
+    if-eqz v4, :cond_0
+
+    :try_start_7
+    invoke-virtual {v4}, Ljava/io/FileInputStream;->close()V
+    :try_end_7
+    .catch Ljava/io/IOException; {:try_start_7 .. :try_end_7} :catch_4
 
     goto :goto_1
 
     :catch_4
     move-exception v0
 
-    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/io/IOException;->printStackTrace()V
 
     goto :goto_1
 
     :catch_5
-    move-exception v1
+    move-exception v2
 
     :goto_4
-    :try_start_7
-    invoke-virtual {v1}, Ljava/lang/Throwable;->printStackTrace()V
-    :try_end_7
-    .catchall {:try_start_7 .. :try_end_7} :catchall_0
-
-    if-eqz v3, :cond_1
-
     :try_start_8
-    invoke-virtual {v3}, Ljava/io/FileInputStream;->close()V
+    invoke-virtual {v2}, Lorg/xml/sax/SAXException;->printStackTrace()V
     :try_end_8
-    .catch Ljava/io/IOException; {:try_start_8 .. :try_end_8} :catch_6
+    .catchall {:try_start_8 .. :try_end_8} :catchall_0
+
+    if-eqz v4, :cond_0
+
+    :try_start_9
+    invoke-virtual {v4}, Ljava/io/FileInputStream;->close()V
+    :try_end_9
+    .catch Ljava/io/IOException; {:try_start_9 .. :try_end_9} :catch_6
 
     goto :goto_1
 
     :catch_6
     move-exception v0
 
-    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/io/IOException;->printStackTrace()V
 
     goto :goto_1
 
     :catchall_0
-    move-exception v9
+    move-exception v10
 
     :goto_5
-    if-eqz v3, :cond_2
+    if-eqz v4, :cond_2
 
-    :try_start_9
-    invoke-virtual {v3}, Ljava/io/FileInputStream;->close()V
-    :try_end_9
-    .catch Ljava/io/IOException; {:try_start_9 .. :try_end_9} :catch_7
+    :try_start_a
+    invoke-virtual {v4}, Ljava/io/FileInputStream;->close()V
+    :try_end_a
+    .catch Ljava/io/IOException; {:try_start_a .. :try_end_a} :catch_7
 
     :cond_2
     :goto_6
-    throw v9
+    throw v10
 
     :catch_7
     move-exception v0
 
-    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/io/IOException;->printStackTrace()V
 
     goto :goto_6
 
     :catchall_1
-    move-exception v9
+    move-exception v10
 
-    move-object v3, v4
+    move-object v4, v5
 
     goto :goto_5
 
     :catch_8
     move-exception v1
 
-    move-object v3, v4
+    move-object v4, v5
 
-    goto :goto_4
+    goto :goto_2
 
     :catch_9
     move-exception v2
 
-    move-object v3, v4
+    move-object v4, v5
 
-    goto :goto_3
+    goto :goto_4
 
     :catch_a
     move-exception v0
 
-    move-object v3, v4
+    move-object v4, v5
 
-    goto :goto_2
+    goto :goto_3
 .end method
 
 
@@ -362,7 +412,129 @@
     goto :goto_0
 
     :cond_4
+    const-string/jumbo v0, "tiltSetting"
+
+    invoke-virtual {p2, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_5
+
+    iget-object v0, p0, Landroid/app/wallpaperbackup/XmlParser;->mItem:Landroid/app/wallpaperbackup/WallpaperUser;
+
+    iget-object v1, p0, Landroid/app/wallpaperbackup/XmlParser;->mCurrentValue:Ljava/lang/String;
+
+    invoke-static {v1}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+
+    move-result v1
+
+    invoke-virtual {v0, v1}, Landroid/app/wallpaperbackup/WallpaperUser;->setTiltSettingValue(I)V
+
+    goto :goto_0
+
+    :cond_5
     const-string/jumbo v0, "image_path"
+
+    invoke-virtual {p2, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_6
+
+    iget-object v0, p0, Landroid/app/wallpaperbackup/XmlParser;->mItem:Landroid/app/wallpaperbackup/WallpaperUser;
+
+    iget-object v1, p0, Landroid/app/wallpaperbackup/XmlParser;->mCurrentValue:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Landroid/app/wallpaperbackup/WallpaperUser;->setImagePath(Ljava/lang/String;)V
+
+    goto :goto_0
+
+    :cond_6
+    const-string/jumbo v0, "left"
+
+    invoke-virtual {p2, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_7
+
+    iget-object v0, p0, Landroid/app/wallpaperbackup/XmlParser;->mItem:Landroid/app/wallpaperbackup/WallpaperUser;
+
+    iget-object v1, p0, Landroid/app/wallpaperbackup/XmlParser;->mCurrentValue:Ljava/lang/String;
+
+    invoke-static {v1}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+
+    move-result v1
+
+    invoke-virtual {v0, v1}, Landroid/app/wallpaperbackup/WallpaperUser;->setLeftValue(I)V
+
+    goto :goto_0
+
+    :cond_7
+    const-string/jumbo v0, "top"
+
+    invoke-virtual {p2, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_8
+
+    iget-object v0, p0, Landroid/app/wallpaperbackup/XmlParser;->mItem:Landroid/app/wallpaperbackup/WallpaperUser;
+
+    iget-object v1, p0, Landroid/app/wallpaperbackup/XmlParser;->mCurrentValue:Ljava/lang/String;
+
+    invoke-static {v1}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+
+    move-result v1
+
+    invoke-virtual {v0, v1}, Landroid/app/wallpaperbackup/WallpaperUser;->setTopValue(I)V
+
+    goto/16 :goto_0
+
+    :cond_8
+    const-string/jumbo v0, "right"
+
+    invoke-virtual {p2, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_9
+
+    iget-object v0, p0, Landroid/app/wallpaperbackup/XmlParser;->mItem:Landroid/app/wallpaperbackup/WallpaperUser;
+
+    iget-object v1, p0, Landroid/app/wallpaperbackup/XmlParser;->mCurrentValue:Ljava/lang/String;
+
+    invoke-static {v1}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+
+    move-result v1
+
+    invoke-virtual {v0, v1}, Landroid/app/wallpaperbackup/WallpaperUser;->setRightValue(I)V
+
+    goto/16 :goto_0
+
+    :cond_9
+    const-string/jumbo v0, "bottom"
+
+    invoke-virtual {p2, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_a
+
+    iget-object v0, p0, Landroid/app/wallpaperbackup/XmlParser;->mItem:Landroid/app/wallpaperbackup/WallpaperUser;
+
+    iget-object v1, p0, Landroid/app/wallpaperbackup/XmlParser;->mCurrentValue:Ljava/lang/String;
+
+    invoke-static {v1}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+
+    move-result v1
+
+    invoke-virtual {v0, v1}, Landroid/app/wallpaperbackup/WallpaperUser;->setBottomValue(I)V
+
+    goto/16 :goto_0
+
+    :cond_a
+    const-string/jumbo v0, "rotation"
 
     invoke-virtual {p2, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
@@ -374,9 +546,13 @@
 
     iget-object v1, p0, Landroid/app/wallpaperbackup/XmlParser;->mCurrentValue:Ljava/lang/String;
 
-    invoke-virtual {v0, v1}, Landroid/app/wallpaperbackup/WallpaperUser;->setImagePath(Ljava/lang/String;)V
+    invoke-static {v1}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
-    goto :goto_0
+    move-result v1
+
+    invoke-virtual {v0, v1}, Landroid/app/wallpaperbackup/WallpaperUser;->setRotationValue(I)V
+
+    goto/16 :goto_0
 .end method
 
 .method public getItemsList()Ljava/util/ArrayList;

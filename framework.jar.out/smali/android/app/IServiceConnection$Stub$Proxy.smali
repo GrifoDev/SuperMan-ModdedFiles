@@ -42,7 +42,7 @@
     return-object v0
 .end method
 
-.method public connected(Landroid/content/ComponentName;Landroid/os/IBinder;)V
+.method public connected(Landroid/content/ComponentName;Landroid/os/IBinder;Z)V
     .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -50,27 +50,36 @@
         }
     .end annotation
 
+    const/4 v2, 0x0
+
+    const/4 v1, 0x1
+
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
     :try_start_0
-    const-string/jumbo v1, "android.app.IServiceConnection"
+    const-string/jumbo v3, "android.app.IServiceConnection"
 
-    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     if-eqz p1, :cond_0
 
-    const/4 v1, 0x1
+    const/4 v3, 0x1
 
-    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
 
-    const/4 v1, 0x0
+    const/4 v3, 0x0
 
-    invoke-virtual {p1, v0, v1}, Landroid/content/ComponentName;->writeToParcel(Landroid/os/Parcel;I)V
+    invoke-virtual {p1, v0, v3}, Landroid/content/ComponentName;->writeToParcel(Landroid/os/Parcel;I)V
 
     :goto_0
     invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
+
+    if-eqz p3, :cond_1
+
+    :goto_1
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
 
     iget-object v1, p0, Landroid/app/IServiceConnection$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
@@ -89,10 +98,10 @@
     return-void
 
     :cond_0
-    const/4 v1, 0x0
+    const/4 v3, 0x0
 
     :try_start_1
-    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
@@ -104,6 +113,11 @@
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
     throw v1
+
+    :cond_1
+    move v1, v2
+
+    goto :goto_1
 .end method
 
 .method public getInterfaceDescriptor()Ljava/lang/String;

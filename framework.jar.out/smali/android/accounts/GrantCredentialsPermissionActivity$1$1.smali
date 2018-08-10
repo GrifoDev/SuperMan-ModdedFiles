@@ -49,7 +49,7 @@
 
     iget-object v0, v0, Landroid/accounts/GrantCredentialsPermissionActivity$1;->this$0:Landroid/accounts/GrantCredentialsPermissionActivity;
 
-    invoke-virtual {v0}, Landroid/app/Activity;->isFinishing()Z
+    invoke-virtual {v0}, Landroid/accounts/GrantCredentialsPermissionActivity;->isFinishing()Z
 
     move-result v0
 
@@ -65,7 +65,7 @@
 
     const/4 v1, 0x0
 
-    invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setVisibility(I)V
 
     :cond_0
     return-void

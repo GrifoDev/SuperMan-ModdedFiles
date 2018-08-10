@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/samsung/android/share/SShareShareLink;->setShareLinkView()V
+    value = Lcom/samsung/android/share/SShareShareLink;->setShareLinkView(Landroid/view/View;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;

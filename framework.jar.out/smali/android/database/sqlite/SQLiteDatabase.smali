@@ -40,15 +40,21 @@
 
 .field public static final NO_LOCALIZED_COLLATORS:I = 0x10
 
+.field public static final OPEN_FULLMUTEX:I = 0x100
+
 .field public static final OPEN_READONLY:I = 0x1
 
 .field public static final OPEN_READWRITE:I = 0x0
 
 .field private static final OPEN_READ_MASK:I = 0x1
 
+.field public static final OPEN_SECURE:I = 0x200
+
 .field public static final SQLITE_MAX_LIKE_PATTERN_LENGTH:I = 0xc350
 
 .field private static final TAG:Ljava/lang/String; = "SQLiteDatabase"
+
+.field private static final mSecureLock:Ljava/lang/Object;
 
 .field private static sActiveDatabases:Ljava/util/WeakHashMap;
     .annotation system Ldalvik/annotation/Signature;
@@ -70,7 +76,9 @@
 
 .field private mConnectionPoolLocked:Landroid/database/sqlite/SQLiteConnectionPool;
 
-.field private mCorrupt_code:I
+.field private mContext:Landroid/content/Context;
+
+.field private mCorruptCode:I
 
 .field private final mCursorFactory:Landroid/database/sqlite/SQLiteDatabase$CursorFactory;
 
@@ -104,11 +112,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 4
-
-    const/4 v2, 0x1
-
-    const/4 v1, 0x0
+    .locals 3
 
     const-class v0, Landroid/database/sqlite/SQLiteDatabase;
 
@@ -116,11 +120,8 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    xor-int/lit8 v0, v0, 0x1
 
-    move v0, v1
-
-    :goto_0
     sput-boolean v0, Landroid/database/sqlite/SQLiteDatabase;->-assertionsDisabled:Z
 
     new-instance v0, Ljava/util/WeakHashMap;
@@ -129,15 +130,25 @@
 
     sput-object v0, Landroid/database/sqlite/SQLiteDatabase;->sActiveDatabases:Ljava/util/WeakHashMap;
 
+    new-instance v0, Ljava/lang/Object;
+
+    invoke-direct {v0}, Ljava/lang/Object;-><init>()V
+
+    sput-object v0, Landroid/database/sqlite/SQLiteDatabase;->mSecureLock:Ljava/lang/Object;
+
     const/4 v0, 0x6
 
     new-array v0, v0, [Ljava/lang/String;
 
-    const-string/jumbo v3, ""
+    const-string/jumbo v1, ""
 
-    aput-object v3, v0, v1
+    const/4 v2, 0x0
+
+    aput-object v1, v0, v2
 
     const-string/jumbo v1, " OR ROLLBACK "
+
+    const/4 v2, 0x1
 
     aput-object v1, v0, v2
 
@@ -168,11 +179,6 @@
     sput-object v0, Landroid/database/sqlite/SQLiteDatabase;->CONFLICT_VALUES:[Ljava/lang/String;
 
     return-void
-
-    :cond_0
-    move v0, v2
-
-    goto :goto_0
 .end method
 
 .method private constructor <init>(Ljava/lang/String;ILandroid/database/sqlite/SQLiteDatabase$CursorFactory;Landroid/database/DatabaseErrorHandler;)V
@@ -210,7 +216,7 @@
 
     iput-object v3, p0, Landroid/database/sqlite/SQLiteDatabase;->mSdpHelper:Landroid/database/sqlite/SQLiteSdpHelper;
 
-    iput v1, p0, Landroid/database/sqlite/SQLiteDatabase;->mCorrupt_code:I
+    iput v1, p0, Landroid/database/sqlite/SQLiteDatabase;->mCorruptCode:I
 
     iput-object p3, p0, Landroid/database/sqlite/SQLiteDatabase;->mCursorFactory:Landroid/database/sqlite/SQLiteDatabase$CursorFactory;
 
@@ -259,7 +265,7 @@
     return v0
 
     :cond_1
-    invoke-static {p0, p1}, Landroid/database/sqlite/SQLiteConnection;->native_backup(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {p0, p1}, Landroid/database/sqlite/SQLiteConnection;->nativeBackup(Ljava/lang/String;Ljava/lang/String;)I
 
     move-result v0
 
@@ -441,173 +447,578 @@
 .end method
 
 .method public static convertToPlainDatabase(Ljava/io/File;Ljava/io/File;[B)V
-    .locals 7
+    .locals 12
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
         }
     .end annotation
 
-    const/4 v6, 0x0
+    if-eqz p0, :cond_0
 
-    const/4 v5, 0x0
+    if-nez p1, :cond_1
 
-    invoke-virtual {p0}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
+    :cond_0
+    const-string/jumbo v5, "SQLiteDatabase"
 
-    move-result-object v3
+    const-string/jumbo v6, "convertToPlainDatabase() parameters should not be null."
 
-    invoke-static {v3, v5, v6, v5, p2}, Landroid/database/sqlite/SQLiteDatabase;->openSecureDatabase(Ljava/lang/String;Landroid/database/sqlite/SQLiteDatabase$CursorFactory;ILandroid/database/DatabaseErrorHandler;[B)Landroid/database/sqlite/SQLiteDatabase;
+    invoke-static {v5, v6}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    move-result-object v1
+    new-instance v5, Ljava/lang/IllegalStateException;
 
-    if-eqz v1, :cond_0
+    const-string/jumbo v6, "parameters should not be null."
 
-    invoke-virtual {v1}, Landroid/database/sqlite/SQLiteDatabase;->getVersion()I
+    invoke-direct {v5, v6}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    move-result v2
+    throw v5
 
-    invoke-virtual {v1}, Landroid/database/sqlite/SQLiteDatabase;->close()V
+    :cond_1
+    if-eqz p2, :cond_0
 
-    invoke-virtual {p1}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
+    sget-object v6, Landroid/database/sqlite/SQLiteDatabase;->mSecureLock:Ljava/lang/Object;
 
-    move-result-object v3
+    monitor-enter v6
 
-    const v4, 0x10000010
+    :try_start_0
+    const-string/jumbo v5, "SQLiteDatabase"
 
-    invoke-static {v3, v5, v4, v5}, Landroid/database/sqlite/SQLiteDatabase;->openDatabase(Ljava/lang/String;Landroid/database/sqlite/SQLiteDatabase$CursorFactory;ILandroid/database/DatabaseErrorHandler;)Landroid/database/sqlite/SQLiteDatabase;
+    const-string/jumbo v7, "convertToPlainDatabase() start..."
 
-    move-result-object v0
+    invoke-static {v5, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const-string/jumbo v3, "attach database \'%s\' as secureDb key x\'%s\'"
+    invoke-virtual {p1}, Ljava/io/File;->exists()Z
 
-    const/4 v4, 0x2
+    move-result v5
 
-    new-array v4, v4, [Ljava/lang/Object;
+    if-eqz v5, :cond_2
+
+    invoke-virtual {p1}, Ljava/io/File;->length()J
+
+    move-result-wide v8
+
+    const-wide/16 v10, 0x0
+
+    cmp-long v5, v8, v10
+
+    if-lez v5, :cond_2
+
+    const-string/jumbo v5, "SQLiteDatabase"
+
+    const-string/jumbo v7, "convertToPlainDatabase() Destination file exists, so delete it"
+
+    invoke-static {v5, v7}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-static {p1}, Landroid/database/sqlite/SQLiteDatabase;->deleteDatabase(Ljava/io/File;)Z
+
+    :cond_2
+    const/4 v0, 0x0
 
     invoke-virtual {p0}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
 
     move-result-object v5
 
-    aput-object v5, v4, v6
+    const/4 v7, 0x0
+
+    const/16 v8, 0x10
+
+    const/4 v9, 0x0
+
+    invoke-static {v5, v7, v8, v9, p2}, Landroid/database/sqlite/SQLiteDatabase;->openSecureDatabase(Ljava/lang/String;Landroid/database/sqlite/SQLiteDatabase$CursorFactory;ILandroid/database/DatabaseErrorHandler;[B)Landroid/database/sqlite/SQLiteDatabase;
+
+    move-result-object v3
+
+    if-nez v3, :cond_3
+
+    const-string/jumbo v5, "SQLiteDatabase"
+
+    const-string/jumbo v7, "convertToPlainDatabase() Source DB open failed"
+
+    invoke-static {v5, v7}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    new-instance v5, Ljava/lang/IllegalStateException;
+
+    const-string/jumbo v7, "Source DB open failed"
+
+    invoke-direct {v5, v7}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+
+    throw v5
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    :catchall_0
+    move-exception v5
+
+    monitor-exit v6
+
+    throw v5
+
+    :cond_3
+    :try_start_1
+    invoke-virtual {v3}, Landroid/database/sqlite/SQLiteDatabase;->getVersion()I
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+
+    move-result v4
+
+    :try_start_2
+    invoke-virtual {v3}, Landroid/database/sqlite/SQLiteDatabase;->close()V
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+
+    :try_start_3
+    invoke-virtual {p1}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
+
+    move-result-object v5
+
+    const/4 v7, 0x0
+
+    const v8, 0x10000010
+
+    const/4 v9, 0x0
+
+    invoke-static {v5, v7, v8, v9}, Landroid/database/sqlite/SQLiteDatabase;->openDatabase(Ljava/lang/String;Landroid/database/sqlite/SQLiteDatabase$CursorFactory;ILandroid/database/DatabaseErrorHandler;)Landroid/database/sqlite/SQLiteDatabase;
+
+    move-result-object v0
+
+    const-string/jumbo v5, "attach database \'%s\' as secureDb key x\'%s\'"
+
+    const/4 v7, 0x2
+
+    new-array v7, v7, [Ljava/lang/Object;
+
+    invoke-virtual {p0}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
+
+    move-result-object v8
+
+    const/4 v9, 0x0
+
+    aput-object v8, v7, v9
 
     invoke-static {p2}, Landroid/database/sqlite/SQLiteDatabase;->convertByte2HexString([B)Ljava/lang/String;
 
+    move-result-object v8
+
+    const/4 v9, 0x1
+
+    aput-object v8, v7, v9
+
+    invoke-static {v5, v7}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
     move-result-object v5
 
-    const/4 v6, 0x1
+    invoke-virtual {v0, v5}, Landroid/database/sqlite/SQLiteDatabase;->execSQL(Ljava/lang/String;)V
 
-    aput-object v5, v4, v6
+    const-string/jumbo v5, "secureDb"
 
-    invoke-static {v3, v4}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-direct {v0, v5}, Landroid/database/sqlite/SQLiteDatabase;->exportDB(Ljava/lang/String;)V
 
-    move-result-object v3
+    const-string/jumbo v5, "detach database secureDb"
 
-    invoke-virtual {v0, v3}, Landroid/database/sqlite/SQLiteDatabase;->execSQL(Ljava/lang/String;)V
+    invoke-virtual {v0, v5}, Landroid/database/sqlite/SQLiteDatabase;->execSQL(Ljava/lang/String;)V
 
-    const-string/jumbo v3, "secureDb"
+    invoke-virtual {v0}, Landroid/database/sqlite/SQLiteDatabase;->getVersion()I
 
-    invoke-direct {v0, v3}, Landroid/database/sqlite/SQLiteDatabase;->exportDB(Ljava/lang/String;)V
+    move-result v1
 
-    const-string/jumbo v3, "detach database secureDb"
+    if-eq v1, v4, :cond_4
 
-    invoke-virtual {v0, v3}, Landroid/database/sqlite/SQLiteDatabase;->execSQL(Ljava/lang/String;)V
+    const-string/jumbo v5, "SQLiteDatabase"
 
-    invoke-virtual {v0, v2}, Landroid/database/sqlite/SQLiteDatabase;->setVersion(I)V
+    new-instance v7, Ljava/lang/StringBuilder;
+
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v8, "Note: sourceDb version was changed during conversion ("
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    const-string/jumbo v8, " -> "
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    const-string/jumbo v8, ")"
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-static {v5, v7}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_2
+
+    :cond_4
+    if-eqz v0, :cond_5
+
+    :try_start_4
+    invoke-virtual {v0}, Landroid/database/sqlite/SQLiteDatabase;->isOpen()Z
+
+    move-result v5
+
+    if-eqz v5, :cond_5
 
     invoke-virtual {v0}, Landroid/database/sqlite/SQLiteDatabase;->close()V
+    :try_end_4
+    .catch Landroid/database/sqlite/SQLiteException; {:try_start_4 .. :try_end_4} :catch_0
+    .catchall {:try_start_4 .. :try_end_4} :catchall_0
+
+    :cond_5
+    :try_start_5
+    const-string/jumbo v5, "SQLiteDatabase"
+
+    const-string/jumbo v7, "convertToPlainDatabase() finished"
+
+    invoke-static {v5, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_5
+    .catchall {:try_start_5 .. :try_end_5} :catchall_0
+
+    monitor-exit v6
 
     return-void
 
-    :cond_0
-    new-instance v3, Ljava/lang/IllegalStateException;
+    :catchall_1
+    move-exception v5
 
-    const-string/jumbo v4, "Source DB not found"
+    :try_start_6
+    invoke-virtual {v3}, Landroid/database/sqlite/SQLiteDatabase;->close()V
 
-    invoke-direct {v3, v4}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    throw v5
+    :try_end_6
+    .catchall {:try_start_6 .. :try_end_6} :catchall_0
 
-    throw v3
+    :catchall_2
+    move-exception v5
+
+    if-eqz v0, :cond_6
+
+    :try_start_7
+    invoke-virtual {v0}, Landroid/database/sqlite/SQLiteDatabase;->isOpen()Z
+
+    move-result v7
+
+    if-eqz v7, :cond_6
+
+    invoke-virtual {v0}, Landroid/database/sqlite/SQLiteDatabase;->close()V
+
+    :cond_6
+    throw v5
+    :try_end_7
+    .catch Landroid/database/sqlite/SQLiteException; {:try_start_7 .. :try_end_7} :catch_0
+    .catchall {:try_start_7 .. :try_end_7} :catchall_0
+
+    :catch_0
+    move-exception v2
+
+    :try_start_8
+    invoke-static {p1}, Landroid/database/sqlite/SQLiteDatabase;->deleteDatabase(Ljava/io/File;)Z
+
+    const-string/jumbo v5, "SQLiteDatabase"
+
+    const-string/jumbo v7, "convertToPlainDatabase() failed"
+
+    invoke-static {v5, v7, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    throw v2
+    :try_end_8
+    .catchall {:try_start_8 .. :try_end_8} :catchall_0
 .end method
 
 .method public static convertToSecureDatabase(Ljava/io/File;Ljava/io/File;[B)V
-    .locals 7
+    .locals 12
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
         }
     .end annotation
 
-    const/4 v5, 0x0
+    if-eqz p0, :cond_0
 
-    invoke-virtual {p0}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
+    if-nez p1, :cond_1
 
-    move-result-object v3
+    :cond_0
+    const-string/jumbo v5, "SQLiteDatabase"
 
-    const/16 v4, 0x10
+    const-string/jumbo v6, "convertToSecureDatabase() parameters should not be null."
 
-    invoke-static {v3, v5, v4, v5}, Landroid/database/sqlite/SQLiteDatabase;->openDatabase(Ljava/lang/String;Landroid/database/sqlite/SQLiteDatabase$CursorFactory;ILandroid/database/DatabaseErrorHandler;)Landroid/database/sqlite/SQLiteDatabase;
+    invoke-static {v5, v6}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    move-result-object v1
+    new-instance v5, Ljava/lang/IllegalStateException;
 
-    if-eqz v1, :cond_0
+    const-string/jumbo v6, "parameters should not be null."
 
-    invoke-virtual {v1}, Landroid/database/sqlite/SQLiteDatabase;->getVersion()I
+    invoke-direct {v5, v6}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    move-result v2
+    throw v5
 
-    invoke-virtual {v1}, Landroid/database/sqlite/SQLiteDatabase;->close()V
+    :cond_1
+    if-eqz p2, :cond_0
 
-    invoke-virtual {p1}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
+    sget-object v6, Landroid/database/sqlite/SQLiteDatabase;->mSecureLock:Ljava/lang/Object;
 
-    move-result-object v3
+    monitor-enter v6
 
-    const/high16 v4, 0x10000000
+    :try_start_0
+    const-string/jumbo v5, "SQLiteDatabase"
 
-    invoke-static {v3, v5, v4, v5, p2}, Landroid/database/sqlite/SQLiteDatabase;->openSecureDatabase(Ljava/lang/String;Landroid/database/sqlite/SQLiteDatabase$CursorFactory;ILandroid/database/DatabaseErrorHandler;[B)Landroid/database/sqlite/SQLiteDatabase;
+    const-string/jumbo v7, "convertToSecureDatabase() start..."
 
-    move-result-object v0
+    invoke-static {v5, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const-string/jumbo v3, "attach database \'%s\' as plainDb key \'\'"
+    invoke-virtual {p1}, Ljava/io/File;->exists()Z
 
-    const/4 v4, 0x1
+    move-result v5
 
-    new-array v4, v4, [Ljava/lang/Object;
+    if-eqz v5, :cond_2
+
+    invoke-virtual {p1}, Ljava/io/File;->length()J
+
+    move-result-wide v8
+
+    const-wide/16 v10, 0x0
+
+    cmp-long v5, v8, v10
+
+    if-lez v5, :cond_2
+
+    const-string/jumbo v5, "SQLiteDatabase"
+
+    const-string/jumbo v7, "convertToSecureDatabase() Destination file exists, so delete it"
+
+    invoke-static {v5, v7}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-static {p1}, Landroid/database/sqlite/SQLiteDatabase;->deleteDatabase(Ljava/io/File;)Z
+
+    :cond_2
+    const/4 v0, 0x0
 
     invoke-virtual {p0}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
 
     move-result-object v5
 
-    const/4 v6, 0x0
+    const/4 v7, 0x0
 
-    aput-object v5, v4, v6
+    const/16 v8, 0x10
 
-    invoke-static {v3, v4}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    const/4 v9, 0x0
+
+    invoke-static {v5, v7, v8, v9}, Landroid/database/sqlite/SQLiteDatabase;->openDatabase(Ljava/lang/String;Landroid/database/sqlite/SQLiteDatabase$CursorFactory;ILandroid/database/DatabaseErrorHandler;)Landroid/database/sqlite/SQLiteDatabase;
 
     move-result-object v3
 
-    invoke-virtual {v0, v3}, Landroid/database/sqlite/SQLiteDatabase;->execSQL(Ljava/lang/String;)V
+    if-nez v3, :cond_3
 
-    const-string/jumbo v3, "plainDb"
+    const-string/jumbo v5, "SQLiteDatabase"
 
-    invoke-direct {v0, v3}, Landroid/database/sqlite/SQLiteDatabase;->exportDB(Ljava/lang/String;)V
+    const-string/jumbo v7, "convertToSecureDatabase() Source DB open failed"
 
-    const-string/jumbo v3, "detach database plainDb"
+    invoke-static {v5, v7}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-virtual {v0, v3}, Landroid/database/sqlite/SQLiteDatabase;->execSQL(Ljava/lang/String;)V
+    new-instance v5, Ljava/lang/IllegalStateException;
 
-    invoke-virtual {v0, v2}, Landroid/database/sqlite/SQLiteDatabase;->setVersion(I)V
+    const-string/jumbo v7, "Source DB open failed"
+
+    invoke-direct {v5, v7}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+
+    throw v5
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    :catchall_0
+    move-exception v5
+
+    monitor-exit v6
+
+    throw v5
+
+    :cond_3
+    :try_start_1
+    invoke-virtual {v3}, Landroid/database/sqlite/SQLiteDatabase;->getVersion()I
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+
+    move-result v4
+
+    :try_start_2
+    invoke-virtual {v3}, Landroid/database/sqlite/SQLiteDatabase;->close()V
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+
+    :try_start_3
+    invoke-virtual {p1}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
+
+    move-result-object v5
+
+    const/4 v7, 0x0
+
+    const v8, 0x10000010
+
+    const/4 v9, 0x0
+
+    invoke-static {v5, v7, v8, v9, p2}, Landroid/database/sqlite/SQLiteDatabase;->openSecureDatabase(Ljava/lang/String;Landroid/database/sqlite/SQLiteDatabase$CursorFactory;ILandroid/database/DatabaseErrorHandler;[B)Landroid/database/sqlite/SQLiteDatabase;
+
+    move-result-object v0
+
+    const-string/jumbo v5, "attach database \'%s\' as plainDb key \'\'"
+
+    const/4 v7, 0x1
+
+    new-array v7, v7, [Ljava/lang/Object;
+
+    invoke-virtual {p0}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
+
+    move-result-object v8
+
+    const/4 v9, 0x0
+
+    aput-object v8, v7, v9
+
+    invoke-static {v5, v7}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-virtual {v0, v5}, Landroid/database/sqlite/SQLiteDatabase;->execSQL(Ljava/lang/String;)V
+
+    const-string/jumbo v5, "plainDb"
+
+    invoke-direct {v0, v5}, Landroid/database/sqlite/SQLiteDatabase;->exportDB(Ljava/lang/String;)V
+
+    const-string/jumbo v5, "detach database plainDb"
+
+    invoke-virtual {v0, v5}, Landroid/database/sqlite/SQLiteDatabase;->execSQL(Ljava/lang/String;)V
+
+    invoke-virtual {v0}, Landroid/database/sqlite/SQLiteDatabase;->getVersion()I
+
+    move-result v1
+
+    if-eq v1, v4, :cond_4
+
+    const-string/jumbo v5, "SQLiteDatabase"
+
+    new-instance v7, Ljava/lang/StringBuilder;
+
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v8, "Note: sourceDb version was changed during conversion ("
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    const-string/jumbo v8, " -> "
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    const-string/jumbo v8, ")"
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-static {v5, v7}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_2
+
+    :cond_4
+    if-eqz v0, :cond_5
+
+    :try_start_4
+    invoke-virtual {v0}, Landroid/database/sqlite/SQLiteDatabase;->isOpen()Z
+
+    move-result v5
+
+    if-eqz v5, :cond_5
 
     invoke-virtual {v0}, Landroid/database/sqlite/SQLiteDatabase;->close()V
+    :try_end_4
+    .catch Landroid/database/sqlite/SQLiteException; {:try_start_4 .. :try_end_4} :catch_0
+    .catchall {:try_start_4 .. :try_end_4} :catchall_0
+
+    :cond_5
+    monitor-exit v6
+
+    const-string/jumbo v5, "SQLiteDatabase"
+
+    const-string/jumbo v6, "convertToSecureDatabase() finished"
+
+    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 
-    :cond_0
-    new-instance v3, Ljava/lang/IllegalStateException;
+    :catchall_1
+    move-exception v5
 
-    const-string/jumbo v4, "Source DB not found"
+    :try_start_5
+    invoke-virtual {v3}, Landroid/database/sqlite/SQLiteDatabase;->close()V
 
-    invoke-direct {v3, v4}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    throw v5
+    :try_end_5
+    .catchall {:try_start_5 .. :try_end_5} :catchall_0
 
-    throw v3
+    :catchall_2
+    move-exception v5
+
+    if-eqz v0, :cond_6
+
+    :try_start_6
+    invoke-virtual {v0}, Landroid/database/sqlite/SQLiteDatabase;->isOpen()Z
+
+    move-result v7
+
+    if-eqz v7, :cond_6
+
+    invoke-virtual {v0}, Landroid/database/sqlite/SQLiteDatabase;->close()V
+
+    :cond_6
+    throw v5
+    :try_end_6
+    .catch Landroid/database/sqlite/SQLiteException; {:try_start_6 .. :try_end_6} :catch_0
+    .catchall {:try_start_6 .. :try_end_6} :catchall_0
+
+    :catch_0
+    move-exception v2
+
+    :try_start_7
+    invoke-static {p1}, Landroid/database/sqlite/SQLiteDatabase;->deleteDatabase(Ljava/io/File;)Z
+
+    const-string/jumbo v5, "SQLiteDatabase"
+
+    const-string/jumbo v7, "convertToSecureDatabase() failed"
+
+    invoke-static {v5, v7, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    throw v2
+    :try_end_7
+    .catchall {:try_start_7 .. :try_end_7} :catchall_0
 .end method
 
 .method public static create(Landroid/database/sqlite/SQLiteDatabase$CursorFactory;)Landroid/database/sqlite/SQLiteDatabase;
@@ -654,6 +1065,8 @@
     throw v5
 
     :cond_0
+    const/4 v0, 0x0
+
     invoke-virtual {p0}, Ljava/io/File;->delete()Z
 
     move-result v0
@@ -1022,6 +1435,10 @@
     const/4 v2, 0x0
 
     iput-object v2, p0, Landroid/database/sqlite/SQLiteDatabase;->mSdpHelper:Landroid/database/sqlite/SQLiteSdpHelper;
+
+    const/4 v2, 0x0
+
+    iput-object v2, p0, Landroid/database/sqlite/SQLiteDatabase;->mContext:Landroid/content/Context;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -1583,16 +2000,11 @@
     :try_start_0
     sget-boolean v0, Landroid/database/sqlite/SQLiteDatabase;->-assertionsDisabled:Z
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_0
 
     iget-object v0, p0, Landroid/database/sqlite/SQLiteDatabase;->mConnectionPoolLocked:Landroid/database/sqlite/SQLiteConnectionPool;
 
-    if-nez v0, :cond_0
-
-    const/4 v0, 0x1
-
-    :goto_0
-    if-nez v0, :cond_1
+    if-eqz v0, :cond_0
 
     new-instance v0, Ljava/lang/AssertionError;
 
@@ -1610,15 +2022,10 @@
     throw v0
 
     :cond_0
-    const/4 v0, 0x0
-
-    goto :goto_0
-
-    :cond_1
     :try_start_1
     iget-object v0, p0, Landroid/database/sqlite/SQLiteDatabase;->mConfigurationLocked:Landroid/database/sqlite/SQLiteDatabaseConfiguration;
 
-    invoke-static {v0}, Landroid/database/sqlite/SQLiteConnectionPool;->open(Landroid/database/sqlite/SQLiteDatabaseConfiguration;)Landroid/database/sqlite/SQLiteConnectionPool;
+    invoke-static {p0, v0}, Landroid/database/sqlite/SQLiteConnectionPool;->open(Landroid/database/sqlite/SQLiteDatabase;Landroid/database/sqlite/SQLiteDatabaseConfiguration;)Landroid/database/sqlite/SQLiteConnectionPool;
 
     move-result-object v0
 
@@ -1641,7 +2048,7 @@
     :try_start_2
     iget-object v0, p0, Landroid/database/sqlite/SQLiteDatabase;->mSdpHelper:Landroid/database/sqlite/SQLiteSdpHelper;
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_1
 
     new-instance v0, Landroid/database/sqlite/SQLiteSdpHelper;
 
@@ -1651,7 +2058,7 @@
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
-    :cond_2
+    :cond_1
     monitor-exit v1
 
     iget-object v0, p0, Landroid/database/sqlite/SQLiteDatabase;->mSdpHelper:Landroid/database/sqlite/SQLiteSdpHelper;
@@ -1700,16 +2107,11 @@
     :try_start_0
     sget-boolean v0, Landroid/database/sqlite/SQLiteDatabase;->-assertionsDisabled:Z
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_0
 
     iget-object v0, p0, Landroid/database/sqlite/SQLiteDatabase;->mConnectionPoolLocked:Landroid/database/sqlite/SQLiteConnectionPool;
 
-    if-nez v0, :cond_0
-
-    const/4 v0, 0x1
-
-    :goto_0
-    if-nez v0, :cond_1
+    if-eqz v0, :cond_0
 
     new-instance v0, Ljava/lang/AssertionError;
 
@@ -1727,15 +2129,10 @@
     throw v0
 
     :cond_0
-    const/4 v0, 0x0
-
-    goto :goto_0
-
-    :cond_1
     :try_start_1
     iget-object v0, p0, Landroid/database/sqlite/SQLiteDatabase;->mConfigurationLocked:Landroid/database/sqlite/SQLiteDatabaseConfiguration;
 
-    invoke-static {v0, p1}, Landroid/database/sqlite/SQLiteConnectionPool;->openSecure(Landroid/database/sqlite/SQLiteDatabaseConfiguration;[B)Landroid/database/sqlite/SQLiteConnectionPool;
+    invoke-static {p0, v0, p1}, Landroid/database/sqlite/SQLiteConnectionPool;->openSecure(Landroid/database/sqlite/SQLiteDatabase;Landroid/database/sqlite/SQLiteDatabaseConfiguration;[B)Landroid/database/sqlite/SQLiteConnectionPool;
 
     move-result-object v0
 
@@ -1817,7 +2214,45 @@
 .end method
 
 .method public static openSecureDatabase(Ljava/lang/String;Landroid/database/sqlite/SQLiteDatabase$CursorFactory;ILandroid/database/DatabaseErrorHandler;[B)Landroid/database/sqlite/SQLiteDatabase;
-    .locals 1
+    .locals 3
+
+    if-nez p4, :cond_0
+
+    const-string/jumbo v1, "SQLiteDatabase"
+
+    const-string/jumbo v2, "Could not open a secure database with null password."
+
+    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    new-instance v1, Ljava/lang/IllegalArgumentException;
+
+    const-string/jumbo v2, "Could not open a secure database with null password."
+
+    invoke-direct {v1, v2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v1
+
+    :cond_0
+    array-length v1, p4
+
+    if-nez v1, :cond_1
+
+    const-string/jumbo v1, "SQLiteDatabase"
+
+    const-string/jumbo v2, "Could not open a secure database with empty password."
+
+    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    new-instance v1, Ljava/lang/IllegalArgumentException;
+
+    const-string/jumbo v2, "Could not open a secure database with empty password."
+
+    invoke-direct {v1, v2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v1
+
+    :cond_1
+    or-int/lit16 p2, p2, 0x300
 
     new-instance v0, Landroid/database/sqlite/SQLiteDatabase;
 
@@ -1829,78 +2264,21 @@
 .end method
 
 .method private openSecureDatabase([B)V
-    .locals 6
-
-    iget-object v3, p0, Landroid/database/sqlite/SQLiteDatabase;->mLock:Ljava/lang/Object;
-
-    monitor-enter v3
-
-    if-eqz p1, :cond_0
+    .locals 5
 
     :try_start_0
-    iget-object v2, p0, Landroid/database/sqlite/SQLiteDatabase;->mConfigurationLocked:Landroid/database/sqlite/SQLiteDatabaseConfiguration;
-
-    iget v2, v2, Landroid/database/sqlite/SQLiteDatabaseConfiguration;->openFlags:I
-
-    const/high16 v4, 0x20000000
-
-    and-int/2addr v2, v4
-
-    if-eqz v2, :cond_0
-
-    iget-object v2, p0, Landroid/database/sqlite/SQLiteDatabase;->mConfigurationLocked:Landroid/database/sqlite/SQLiteDatabaseConfiguration;
-
-    iget v4, v2, Landroid/database/sqlite/SQLiteDatabaseConfiguration;->openFlags:I
-
-    const v5, -0x20000001
-
-    and-int/2addr v4, v5
-
-    iput v4, v2, Landroid/database/sqlite/SQLiteDatabaseConfiguration;->openFlags:I
-
-    iget-object v2, p0, Landroid/database/sqlite/SQLiteDatabase;->mConfigurationLocked:Landroid/database/sqlite/SQLiteDatabaseConfiguration;
-
-    const/4 v4, 0x0
-
-    iput-boolean v4, v2, Landroid/database/sqlite/SQLiteDatabaseConfiguration;->enableWALExplicitly:Z
-
-    iget-object v2, p0, Landroid/database/sqlite/SQLiteDatabase;->mConfigurationLocked:Landroid/database/sqlite/SQLiteDatabaseConfiguration;
-
-    const/4 v4, 0x0
-
-    iput-boolean v4, v2, Landroid/database/sqlite/SQLiteDatabaseConfiguration;->preloadWalDb:Z
-
-    iget-object v2, p0, Landroid/database/sqlite/SQLiteDatabase;->mConfigurationLocked:Landroid/database/sqlite/SQLiteDatabaseConfiguration;
-
-    const/4 v4, 0x0
-
-    iput-boolean v4, v2, Landroid/database/sqlite/SQLiteDatabaseConfiguration;->defaultWAL:Z
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    :cond_0
-    monitor-exit v3
-
-    :try_start_1
     invoke-direct {p0, p1}, Landroid/database/sqlite/SQLiteDatabase;->openInnerSecureDatabase([B)V
-    :try_end_1
-    .catch Landroid/database/sqlite/SQLiteDatabaseCorruptException; {:try_start_1 .. :try_end_1} :catch_0
-    .catch Landroid/database/sqlite/SQLiteException; {:try_start_1 .. :try_end_1} :catch_1
+    :try_end_0
+    .catch Landroid/database/sqlite/SQLiteDatabaseCorruptException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Landroid/database/sqlite/SQLiteException; {:try_start_0 .. :try_end_0} :catch_1
 
     :goto_0
     return-void
 
-    :catchall_0
-    move-exception v2
-
-    monitor-exit v3
-
-    throw v2
-
     :catch_0
     move-exception v0
 
-    :try_start_2
+    :try_start_1
     invoke-virtual {v0}, Landroid/database/sqlite/SQLiteDatabaseCorruptException;->getCorruptCode()I
 
     move-result v2
@@ -1908,8 +2286,8 @@
     invoke-virtual {p0, v2}, Landroid/database/sqlite/SQLiteDatabase;->onCorruption(I)V
 
     invoke-direct {p0, p1}, Landroid/database/sqlite/SQLiteDatabase;->openInnerSecureDatabase([B)V
-    :try_end_2
-    .catch Landroid/database/sqlite/SQLiteException; {:try_start_2 .. :try_end_2} :catch_1
+    :try_end_1
+    .catch Landroid/database/sqlite/SQLiteException; {:try_start_1 .. :try_end_1} :catch_1
 
     goto :goto_0
 
@@ -2157,7 +2535,7 @@
     return v0
 
     :cond_1
-    invoke-static {p0, p1}, Landroid/database/sqlite/SQLiteConnection;->native_backupDatabaseFile(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {p0, p1}, Landroid/database/sqlite/SQLiteConnection;->nativeBackupDatabaseFile(Ljava/lang/String;Ljava/lang/String;)I
 
     move-result v0
 
@@ -2165,31 +2543,47 @@
 .end method
 
 .method public static semBackupSecureDatabaseFile(Ljava/lang/String;Ljava/lang/String;[B)I
-    .locals 2
+    .locals 3
 
     if-eqz p0, :cond_0
 
     if-nez p1, :cond_1
 
     :cond_0
-    const-string/jumbo v0, "SQLiteDatabase"
+    const-string/jumbo v1, "SQLiteDatabase"
 
-    const-string/jumbo v1, "path and password should not be null."
+    const-string/jumbo v2, "path and password should not be null."
 
-    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    const/4 v0, -0x1
+    const/4 v1, -0x1
 
-    return v0
+    return v1
 
     :cond_1
     if-eqz p2, :cond_0
 
-    invoke-static {p0, p1, p2}, Landroid/database/sqlite/SQLiteConnection;->native_backupSecureDatabaseFile(Ljava/lang/String;Ljava/lang/String;[B)I
+    sget-object v1, Landroid/database/sqlite/SQLiteDatabase;->mSecureLock:Ljava/lang/Object;
+
+    monitor-enter v1
+
+    :try_start_0
+    invoke-static {p0, p1, p2}, Landroid/database/sqlite/SQLiteConnection;->nativeBackupSecureDatabaseFile(Ljava/lang/String;Ljava/lang/String;[B)I
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v0
 
+    monitor-exit v1
+
     return v0
+
+    :catchall_0
+    move-exception v2
+
+    monitor-exit v1
+
+    throw v2
 .end method
 
 .method public static semDeleteAllDatabases(Landroid/database/sqlite/SQLiteDatabase;)Z
@@ -2357,7 +2751,7 @@
     return v0
 
     :cond_1
-    invoke-static {p0, p1}, Landroid/database/sqlite/SQLiteConnection;->native_restoreDatabaseFile(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {p0, p1}, Landroid/database/sqlite/SQLiteConnection;->nativeRestoreDatabaseFile(Ljava/lang/String;Ljava/lang/String;)I
 
     move-result v0
 
@@ -2365,31 +2759,47 @@
 .end method
 
 .method public static semRestoreSecureDatabaseFile(Ljava/lang/String;Ljava/lang/String;[B)I
-    .locals 2
+    .locals 3
 
     if-eqz p0, :cond_0
 
     if-nez p1, :cond_1
 
     :cond_0
-    const-string/jumbo v0, "SQLiteDatabase"
+    const-string/jumbo v1, "SQLiteDatabase"
 
-    const-string/jumbo v1, "path and password should not be null."
+    const-string/jumbo v2, "path and password should not be null."
 
-    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    const/4 v0, -0x1
+    const/4 v1, -0x1
 
-    return v0
+    return v1
 
     :cond_1
     if-eqz p2, :cond_0
 
-    invoke-static {p0, p1, p2}, Landroid/database/sqlite/SQLiteConnection;->native_restoreSecureDatabaseFile(Ljava/lang/String;Ljava/lang/String;[B)I
+    sget-object v1, Landroid/database/sqlite/SQLiteDatabase;->mSecureLock:Ljava/lang/Object;
+
+    monitor-enter v1
+
+    :try_start_0
+    invoke-static {p0, p1, p2}, Landroid/database/sqlite/SQLiteConnection;->nativeRestoreSecureDatabaseFile(Ljava/lang/String;Ljava/lang/String;[B)I
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v0
 
+    monitor-exit v1
+
     return v0
+
+    :catchall_0
+    move-exception v2
+
+    monitor-exit v1
+
+    throw v2
 .end method
 
 .method private throwIfNotOpenLocked()V
@@ -2587,13 +2997,19 @@
 .end method
 
 .method public changeDBPassword([B)I
-    .locals 3
+    .locals 4
 
     invoke-virtual {p0}, Landroid/database/sqlite/SQLiteDatabase;->isOpen()Z
 
     move-result v1
 
     if-nez v1, :cond_0
+
+    const-string/jumbo v1, "SQLiteDatabase"
+
+    const-string/jumbo v2, "changeDBPassword() DB is not open"
+
+    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     new-instance v1, Ljava/lang/IllegalStateException;
 
@@ -2604,17 +3020,59 @@
     throw v1
 
     :cond_0
+    if-nez p1, :cond_1
+
+    const-string/jumbo v1, "SQLiteDatabase"
+
+    const-string/jumbo v2, "Could not use null password to a secure database."
+
+    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    new-instance v1, Ljava/lang/IllegalArgumentException;
+
+    const-string/jumbo v2, "Could not use null password to a secure database."
+
+    invoke-direct {v1, v2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v1
+
+    :cond_1
     invoke-virtual {p0}, Landroid/database/sqlite/SQLiteDatabase;->acquireReference()V
 
     :try_start_0
+    sget-object v2, Landroid/database/sqlite/SQLiteDatabase;->mSecureLock:Ljava/lang/Object;
+
+    monitor-enter v2
+    :try_end_0
+    .catch Landroid/database/sqlite/SQLiteDatabaseCorruptException; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_1
+
+    :try_start_1
+    const-string/jumbo v1, "SQLiteDatabase"
+
+    const-string/jumbo v3, "changeDBPassword() start..."
+
+    invoke-static {v1, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
     invoke-virtual {p0}, Landroid/database/sqlite/SQLiteDatabase;->getThreadSession()Landroid/database/sqlite/SQLiteSession;
 
     move-result-object v1
 
     invoke-virtual {v1, p1}, Landroid/database/sqlite/SQLiteSession;->changePassword([B)V
-    :try_end_0
-    .catch Landroid/database/sqlite/SQLiteDatabaseCorruptException; {:try_start_0 .. :try_end_0} :catch_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    const-string/jumbo v1, "SQLiteDatabase"
+
+    const-string/jumbo v3, "changeDBPassword() finished"
+
+    invoke-static {v1, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    :try_start_2
+    monitor-exit v2
+    :try_end_2
+    .catch Landroid/database/sqlite/SQLiteDatabaseCorruptException; {:try_start_2 .. :try_end_2} :catch_0
+    .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
     const/4 v1, 0x0
 
@@ -2622,10 +3080,21 @@
 
     return v1
 
+    :catchall_0
+    move-exception v1
+
+    :try_start_3
+    monitor-exit v2
+
+    throw v1
+    :try_end_3
+    .catch Landroid/database/sqlite/SQLiteDatabaseCorruptException; {:try_start_3 .. :try_end_3} :catch_0
+    .catchall {:try_start_3 .. :try_end_3} :catchall_1
+
     :catch_0
     move-exception v0
 
-    :try_start_1
+    :try_start_4
     invoke-virtual {v0}, Landroid/database/sqlite/SQLiteDatabaseCorruptException;->getCorruptCode()I
 
     move-result v1
@@ -2633,10 +3102,10 @@
     invoke-virtual {p0, v1}, Landroid/database/sqlite/SQLiteDatabase;->onCorruption(I)V
 
     throw v0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_4
+    .catchall {:try_start_4 .. :try_end_4} :catchall_1
 
-    :catchall_0
+    :catchall_1
     move-exception v1
 
     invoke-virtual {p0}, Landroid/database/sqlite/SQLiteDatabase;->releaseReference()V
@@ -3380,10 +3849,18 @@
     return-object v0
 .end method
 
+.method protected getContext()Landroid/content/Context;
+    .locals 1
+
+    iget-object v0, p0, Landroid/database/sqlite/SQLiteDatabase;->mContext:Landroid/content/Context;
+
+    return-object v0
+.end method
+
 .method public getCorruptCode()I
     .locals 1
 
-    iget v0, p0, Landroid/database/sqlite/SQLiteDatabase;->mCorrupt_code:I
+    iget v0, p0, Landroid/database/sqlite/SQLiteDatabase;->mCorruptCode:I
 
     return v0
 .end method
@@ -3420,6 +3897,34 @@
     monitor-exit v1
 
     throw v0
+.end method
+
+.method public getMaxConnectionPoolSize()I
+    .locals 3
+
+    iget-object v2, p0, Landroid/database/sqlite/SQLiteDatabase;->mLock:Ljava/lang/Object;
+
+    monitor-enter v2
+
+    :try_start_0
+    iget-object v1, p0, Landroid/database/sqlite/SQLiteDatabase;->mConnectionPoolLocked:Landroid/database/sqlite/SQLiteConnectionPool;
+
+    invoke-virtual {v1}, Landroid/database/sqlite/SQLiteConnectionPool;->getMaxConnectionPoolSize()I
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result v0
+
+    monitor-exit v2
+
+    return v0
+
+    :catchall_0
+    move-exception v1
+
+    monitor-exit v2
+
+    throw v1
 .end method
 
 .method public getMaximumSize()J
@@ -3660,8 +4165,6 @@
 .method public insertWithOnConflict(Ljava/lang/String;Ljava/lang/String;Landroid/content/ContentValues;I)J
     .locals 10
 
-    const/4 v5, 0x0
-
     invoke-virtual {p0}, Landroid/database/sqlite/SQLiteDatabase;->acquireReference()V
 
     :try_start_0
@@ -3693,17 +4196,19 @@
 
     if-eqz p3, :cond_0
 
-    invoke-virtual {p3}, Landroid/content/ContentValues;->size()I
+    invoke-virtual {p3}, Landroid/content/ContentValues;->isEmpty()Z
 
     move-result v8
 
-    if-lez v8, :cond_0
+    xor-int/lit8 v8, v8, 0x1
+
+    if-eqz v8, :cond_0
 
     invoke-virtual {p3}, Landroid/content/ContentValues;->size()I
 
     move-result v5
 
-    :cond_0
+    :goto_0
     if-lez v5, :cond_4
 
     new-array v0, v5, [Ljava/lang/Object;
@@ -3720,7 +4225,7 @@
 
     move v4, v3
 
-    :goto_0
+    :goto_1
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v8
@@ -3737,7 +4242,7 @@
 
     const-string/jumbo v8, ","
 
-    :goto_1
+    :goto_2
     invoke-virtual {v6, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v6, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -3752,12 +4257,17 @@
 
     move v4, v3
 
+    goto :goto_1
+
+    :cond_0
+    const/4 v5, 0x0
+
     goto :goto_0
 
     :cond_1
     const-string/jumbo v8, ""
 
-    goto :goto_1
+    goto :goto_2
 
     :cond_2
     const/16 v8, 0x29
@@ -3770,24 +4280,24 @@
 
     const/4 v3, 0x0
 
-    :goto_2
+    :goto_3
     if-ge v3, v5, :cond_5
 
     if-lez v3, :cond_3
 
     const-string/jumbo v8, ",?"
 
-    :goto_3
+    :goto_4
     invoke-virtual {v6, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_2
+    goto :goto_3
 
     :cond_3
     const-string/jumbo v8, "?"
 
-    goto :goto_3
+    goto :goto_4
 
     :cond_4
     invoke-virtual {v6, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -3954,7 +4464,7 @@
 
     move-result v8
 
-    if-ge v4, v8, :cond_8
+    if-ge v4, v8, :cond_7
 
     invoke-interface {v0, v4}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
@@ -3966,7 +4476,7 @@
 
     const/4 v6, 0x0
 
-    if-nez p1, :cond_3
+    if-nez p1, :cond_2
 
     :try_start_4
     new-instance v8, Ljava/lang/StringBuilder;
@@ -4010,69 +4520,18 @@
 
     iput-object v8, p0, Landroid/database/sqlite/SQLiteDatabase;->mIntegrityErrorString:Ljava/lang/String;
 
-    if-eqz v7, :cond_1
+    if-eqz v7, :cond_3
 
     const-string/jumbo v8, "ok"
 
     invoke-virtual {v7, v8}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-    :try_end_4
-    .catch Landroid/database/sqlite/SQLiteDatabaseCorruptException; {:try_start_4 .. :try_end_4} :catch_1
-    .catchall {:try_start_4 .. :try_end_4} :catchall_0
 
     move-result v8
 
-    if-eqz v8, :cond_4
+    xor-int/lit8 v8, v8, 0x1
 
-    :cond_1
-    if-eqz v6, :cond_2
+    if-eqz v8, :cond_3
 
-    :try_start_5
-    invoke-virtual {v6}, Landroid/database/sqlite/SQLiteStatement;->close()V
-    :try_end_5
-    .catchall {:try_start_5 .. :try_end_5} :catchall_1
-
-    :cond_2
-    add-int/lit8 v4, v4, 0x1
-
-    goto :goto_0
-
-    :cond_3
-    :try_start_6
-    new-instance v8, Ljava/lang/StringBuilder;
-
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v9, "PRAGMA "
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    iget-object v8, v5, Landroid/util/Pair;->first:Ljava/lang/Object;
-
-    check-cast v8, Ljava/lang/String;
-
-    invoke-virtual {v9, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    const-string/jumbo v9, ".extra_integrity_check(1);"
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-virtual {p0, v8}, Landroid/database/sqlite/SQLiteDatabase;->compileStatement(Ljava/lang/String;)Landroid/database/sqlite/SQLiteStatement;
-
-    move-result-object v6
-
-    goto :goto_1
-
-    :cond_4
     iput-object v7, p0, Landroid/database/sqlite/SQLiteDatabase;->mIntegrityErrorString:Ljava/lang/String;
 
     const-string/jumbo v9, "SQLiteDatabase"
@@ -4110,21 +4569,73 @@
     move-result-object v8
 
     invoke-static {v9, v8}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_4
+    .catch Landroid/database/sqlite/SQLiteDatabaseCorruptException; {:try_start_4 .. :try_end_4} :catch_1
+    .catchall {:try_start_4 .. :try_end_4} :catchall_0
+
+    if-eqz v6, :cond_1
+
+    :try_start_5
+    invoke-virtual {v6}, Landroid/database/sqlite/SQLiteStatement;->close()V
+    :try_end_5
+    .catchall {:try_start_5 .. :try_end_5} :catchall_1
+
+    :cond_1
+    invoke-virtual {p0}, Landroid/database/sqlite/SQLiteDatabase;->releaseReference()V
+
+    return v11
+
+    :cond_2
+    :try_start_6
+    new-instance v8, Ljava/lang/StringBuilder;
+
+    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v9, "PRAGMA "
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    iget-object v8, v5, Landroid/util/Pair;->first:Ljava/lang/Object;
+
+    check-cast v8, Ljava/lang/String;
+
+    invoke-virtual {v9, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    const-string/jumbo v9, ".extra_integrity_check(1);"
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-virtual {p0, v8}, Landroid/database/sqlite/SQLiteDatabase;->compileStatement(Ljava/lang/String;)Landroid/database/sqlite/SQLiteStatement;
     :try_end_6
     .catch Landroid/database/sqlite/SQLiteDatabaseCorruptException; {:try_start_6 .. :try_end_6} :catch_1
     .catchall {:try_start_6 .. :try_end_6} :catchall_0
 
-    if-eqz v6, :cond_5
+    move-result-object v6
+
+    goto :goto_1
+
+    :cond_3
+    if-eqz v6, :cond_4
 
     :try_start_7
     invoke-virtual {v6}, Landroid/database/sqlite/SQLiteStatement;->close()V
     :try_end_7
     .catchall {:try_start_7 .. :try_end_7} :catchall_1
 
-    :cond_5
-    invoke-virtual {p0}, Landroid/database/sqlite/SQLiteDatabase;->releaseReference()V
+    :cond_4
+    add-int/lit8 v4, v4, 0x1
 
-    return v11
+    goto/16 :goto_0
 
     :catch_1
     move-exception v3
@@ -4136,14 +4647,14 @@
     :try_end_8
     .catchall {:try_start_8 .. :try_end_8} :catchall_0
 
-    if-eqz v6, :cond_6
+    if-eqz v6, :cond_5
 
     :try_start_9
     invoke-virtual {v6}, Landroid/database/sqlite/SQLiteStatement;->close()V
     :try_end_9
     .catchall {:try_start_9 .. :try_end_9} :catchall_1
 
-    :cond_6
+    :cond_5
     invoke-virtual {p0}, Landroid/database/sqlite/SQLiteDatabase;->releaseReference()V
 
     return v11
@@ -4151,12 +4662,12 @@
     :catchall_0
     move-exception v8
 
-    if-eqz v6, :cond_7
+    if-eqz v6, :cond_6
 
     :try_start_a
     invoke-virtual {v6}, Landroid/database/sqlite/SQLiteStatement;->close()V
 
-    :cond_7
+    :cond_6
     throw v8
     :try_end_a
     .catchall {:try_start_a .. :try_end_a} :catchall_1
@@ -4169,7 +4680,7 @@
 
     throw v8
 
-    :cond_8
+    :cond_7
     invoke-virtual {p0}, Landroid/database/sqlite/SQLiteDatabase;->releaseReference()V
 
     const/4 v8, 0x1
@@ -4398,247 +4909,333 @@
 .end method
 
 .method onCorruption()V
-    .locals 3
+    .locals 4
 
-    iget-object v1, p0, Landroid/database/sqlite/SQLiteDatabase;->mLock:Ljava/lang/Object;
+    const/4 v0, 0x0
 
-    monitor-enter v1
+    iget-object v2, p0, Landroid/database/sqlite/SQLiteDatabase;->mLock:Ljava/lang/Object;
+
+    monitor-enter v2
 
     :try_start_0
-    iget-boolean v0, p0, Landroid/database/sqlite/SQLiteDatabase;->mInCorruptionHandling:Z
+    iget-boolean v1, p0, Landroid/database/sqlite/SQLiteDatabase;->mInCorruptionHandling:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v1, :cond_0
 
-    const-string/jumbo v0, "SQLiteDatabase"
+    const-string/jumbo v1, "SQLiteDatabase"
 
-    const-string/jumbo v2, "Database corruption is already handling."
+    const-string/jumbo v3, "Database corruption is already handling."
 
-    invoke-static {v0, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    monitor-exit v1
+    monitor-exit v2
 
     return-void
 
     :cond_0
-    const/4 v0, 0x1
+    const/4 v1, 0x1
 
     :try_start_1
-    iput-boolean v0, p0, Landroid/database/sqlite/SQLiteDatabase;->mInCorruptionHandling:Z
+    iput-boolean v1, p0, Landroid/database/sqlite/SQLiteDatabase;->mInCorruptionHandling:Z
+
+    invoke-virtual {p0}, Landroid/database/sqlite/SQLiteDatabase;->isOpen()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    invoke-virtual {p0}, Landroid/database/sqlite/SQLiteDatabase;->getMaxConnectionPoolSize()I
+
+    move-result v0
+
+    const/4 v1, 0x1
+
+    invoke-virtual {p0, v1}, Landroid/database/sqlite/SQLiteDatabase;->closeAndDiscardNonPrimaryConnections(Z)V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    monitor-exit v1
+    :cond_1
+    monitor-exit v2
 
     :try_start_2
     invoke-virtual {p0}, Landroid/database/sqlite/SQLiteDatabase;->getLabel()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v1
 
-    const v1, 0x124fc
+    const v2, 0x124fc
 
-    invoke-static {v1, v0}, Landroid/util/EventLog;->writeEvent(ILjava/lang/String;)I
+    invoke-static {v2, v1}, Landroid/util/EventLog;->writeEvent(ILjava/lang/String;)I
 
-    iget-object v0, p0, Landroid/database/sqlite/SQLiteDatabase;->mDefaultErrorHandler:Landroid/database/DatabaseErrorHandler;
+    iget-object v1, p0, Landroid/database/sqlite/SQLiteDatabase;->mDefaultErrorHandler:Landroid/database/DatabaseErrorHandler;
 
-    invoke-interface {v0, p0}, Landroid/database/DatabaseErrorHandler;->onCorruption(Landroid/database/sqlite/SQLiteDatabase;)V
+    invoke-interface {v1, p0}, Landroid/database/DatabaseErrorHandler;->onCorruption(Landroid/database/sqlite/SQLiteDatabase;)V
 
-    iget-object v0, p0, Landroid/database/sqlite/SQLiteDatabase;->mErrorHandler:Landroid/database/DatabaseErrorHandler;
+    iget-object v1, p0, Landroid/database/sqlite/SQLiteDatabase;->mErrorHandler:Landroid/database/DatabaseErrorHandler;
 
-    if-eqz v0, :cond_1
+    if-eqz v1, :cond_2
 
-    iget-object v0, p0, Landroid/database/sqlite/SQLiteDatabase;->mErrorHandler:Landroid/database/DatabaseErrorHandler;
+    iget-object v1, p0, Landroid/database/sqlite/SQLiteDatabase;->mErrorHandler:Landroid/database/DatabaseErrorHandler;
 
-    invoke-interface {v0, p0}, Landroid/database/DatabaseErrorHandler;->onCorruption(Landroid/database/sqlite/SQLiteDatabase;)V
+    invoke-interface {v1, p0}, Landroid/database/DatabaseErrorHandler;->onCorruption(Landroid/database/sqlite/SQLiteDatabase;)V
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_2
 
-    :cond_1
-    iget-object v1, p0, Landroid/database/sqlite/SQLiteDatabase;->mLock:Ljava/lang/Object;
+    :cond_2
+    iget-object v2, p0, Landroid/database/sqlite/SQLiteDatabase;->mLock:Ljava/lang/Object;
 
-    monitor-enter v1
+    monitor-enter v2
 
-    const/4 v0, 0x0
+    if-lez v0, :cond_3
 
     :try_start_3
-    iput-boolean v0, p0, Landroid/database/sqlite/SQLiteDatabase;->mInCorruptionHandling:Z
+    invoke-virtual {p0}, Landroid/database/sqlite/SQLiteDatabase;->isOpen()Z
 
-    const/4 v0, 0x0
+    move-result v1
 
-    iput-boolean v0, p0, Landroid/database/sqlite/SQLiteDatabase;->mIsDatabaseCorrupted:Z
+    if-eqz v1, :cond_3
+
+    iget-object v1, p0, Landroid/database/sqlite/SQLiteDatabase;->mConnectionPoolLocked:Landroid/database/sqlite/SQLiteConnectionPool;
+
+    invoke-virtual {v1, v0}, Landroid/database/sqlite/SQLiteConnectionPool;->setMaxConnectionPoolSize(I)V
+
+    :cond_3
+    const/4 v1, 0x0
+
+    iput-boolean v1, p0, Landroid/database/sqlite/SQLiteDatabase;->mInCorruptionHandling:Z
+
+    const/4 v1, 0x0
+
+    iput-boolean v1, p0, Landroid/database/sqlite/SQLiteDatabase;->mIsDatabaseCorrupted:Z
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_1
 
-    monitor-exit v1
+    monitor-exit v2
 
     return-void
 
     :catchall_0
-    move-exception v0
+    move-exception v1
 
-    monitor-exit v1
+    monitor-exit v2
 
-    throw v0
+    throw v1
 
     :catchall_1
-    move-exception v0
+    move-exception v1
 
-    monitor-exit v1
+    monitor-exit v2
 
-    throw v0
+    throw v1
 
     :catchall_2
-    move-exception v0
+    move-exception v1
 
-    iget-object v1, p0, Landroid/database/sqlite/SQLiteDatabase;->mLock:Ljava/lang/Object;
+    iget-object v2, p0, Landroid/database/sqlite/SQLiteDatabase;->mLock:Ljava/lang/Object;
 
-    monitor-enter v1
+    monitor-enter v2
 
-    const/4 v2, 0x0
+    if-lez v0, :cond_4
 
     :try_start_4
-    iput-boolean v2, p0, Landroid/database/sqlite/SQLiteDatabase;->mInCorruptionHandling:Z
+    invoke-virtual {p0}, Landroid/database/sqlite/SQLiteDatabase;->isOpen()Z
 
-    const/4 v2, 0x0
+    move-result v3
 
-    iput-boolean v2, p0, Landroid/database/sqlite/SQLiteDatabase;->mIsDatabaseCorrupted:Z
+    if-eqz v3, :cond_4
+
+    iget-object v3, p0, Landroid/database/sqlite/SQLiteDatabase;->mConnectionPoolLocked:Landroid/database/sqlite/SQLiteConnectionPool;
+
+    invoke-virtual {v3, v0}, Landroid/database/sqlite/SQLiteConnectionPool;->setMaxConnectionPoolSize(I)V
+
+    :cond_4
+    const/4 v3, 0x0
+
+    iput-boolean v3, p0, Landroid/database/sqlite/SQLiteDatabase;->mInCorruptionHandling:Z
+
+    const/4 v3, 0x0
+
+    iput-boolean v3, p0, Landroid/database/sqlite/SQLiteDatabase;->mIsDatabaseCorrupted:Z
     :try_end_4
     .catchall {:try_start_4 .. :try_end_4} :catchall_3
 
-    monitor-exit v1
+    monitor-exit v2
 
-    throw v0
+    throw v1
 
     :catchall_3
-    move-exception v0
+    move-exception v1
 
-    monitor-exit v1
+    monitor-exit v2
 
-    throw v0
+    throw v1
 .end method
 
 .method onCorruption(I)V
-    .locals 3
+    .locals 4
 
-    iget-object v1, p0, Landroid/database/sqlite/SQLiteDatabase;->mLock:Ljava/lang/Object;
+    const/4 v0, 0x0
 
-    monitor-enter v1
+    iget-object v2, p0, Landroid/database/sqlite/SQLiteDatabase;->mLock:Ljava/lang/Object;
+
+    monitor-enter v2
 
     :try_start_0
-    iget-boolean v0, p0, Landroid/database/sqlite/SQLiteDatabase;->mInCorruptionHandling:Z
+    iget-boolean v1, p0, Landroid/database/sqlite/SQLiteDatabase;->mInCorruptionHandling:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v1, :cond_0
 
-    const-string/jumbo v0, "SQLiteDatabase"
+    const-string/jumbo v1, "SQLiteDatabase"
 
-    const-string/jumbo v2, "Database corruption is already handling."
+    const-string/jumbo v3, "Database corruption is already handling."
 
-    invoke-static {v0, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    monitor-exit v1
+    monitor-exit v2
 
     return-void
 
     :cond_0
-    const/4 v0, 0x1
+    const/4 v1, 0x1
 
     :try_start_1
-    iput-boolean v0, p0, Landroid/database/sqlite/SQLiteDatabase;->mInCorruptionHandling:Z
+    iput-boolean v1, p0, Landroid/database/sqlite/SQLiteDatabase;->mInCorruptionHandling:Z
+
+    invoke-virtual {p0}, Landroid/database/sqlite/SQLiteDatabase;->isOpen()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    invoke-virtual {p0}, Landroid/database/sqlite/SQLiteDatabase;->getMaxConnectionPoolSize()I
+
+    move-result v0
+
+    const/4 v1, 0x1
+
+    invoke-virtual {p0, v1}, Landroid/database/sqlite/SQLiteDatabase;->closeAndDiscardNonPrimaryConnections(Z)V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    monitor-exit v1
+    :cond_1
+    monitor-exit v2
 
     :try_start_2
-    iput p1, p0, Landroid/database/sqlite/SQLiteDatabase;->mCorrupt_code:I
+    iput p1, p0, Landroid/database/sqlite/SQLiteDatabase;->mCorruptCode:I
 
-    iget-object v0, p0, Landroid/database/sqlite/SQLiteDatabase;->mDefaultErrorHandler:Landroid/database/DatabaseErrorHandler;
+    iget-object v1, p0, Landroid/database/sqlite/SQLiteDatabase;->mDefaultErrorHandler:Landroid/database/DatabaseErrorHandler;
 
-    invoke-interface {v0, p0}, Landroid/database/DatabaseErrorHandler;->onCorruption(Landroid/database/sqlite/SQLiteDatabase;)V
+    invoke-interface {v1, p0}, Landroid/database/DatabaseErrorHandler;->onCorruption(Landroid/database/sqlite/SQLiteDatabase;)V
 
     invoke-virtual {p0}, Landroid/database/sqlite/SQLiteDatabase;->getLabel()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v1
 
-    const v1, 0x124fc
+    const v2, 0x124fc
 
-    invoke-static {v1, v0}, Landroid/util/EventLog;->writeEvent(ILjava/lang/String;)I
+    invoke-static {v2, v1}, Landroid/util/EventLog;->writeEvent(ILjava/lang/String;)I
 
-    iget-object v0, p0, Landroid/database/sqlite/SQLiteDatabase;->mErrorHandler:Landroid/database/DatabaseErrorHandler;
+    iget-object v1, p0, Landroid/database/sqlite/SQLiteDatabase;->mErrorHandler:Landroid/database/DatabaseErrorHandler;
 
-    if-eqz v0, :cond_1
+    if-eqz v1, :cond_2
 
-    iget-object v0, p0, Landroid/database/sqlite/SQLiteDatabase;->mErrorHandler:Landroid/database/DatabaseErrorHandler;
+    iget-object v1, p0, Landroid/database/sqlite/SQLiteDatabase;->mErrorHandler:Landroid/database/DatabaseErrorHandler;
 
-    invoke-interface {v0, p0}, Landroid/database/DatabaseErrorHandler;->onCorruption(Landroid/database/sqlite/SQLiteDatabase;)V
+    invoke-interface {v1, p0}, Landroid/database/DatabaseErrorHandler;->onCorruption(Landroid/database/sqlite/SQLiteDatabase;)V
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_2
 
-    :cond_1
-    iget-object v1, p0, Landroid/database/sqlite/SQLiteDatabase;->mLock:Ljava/lang/Object;
+    :cond_2
+    iget-object v2, p0, Landroid/database/sqlite/SQLiteDatabase;->mLock:Ljava/lang/Object;
 
-    monitor-enter v1
+    monitor-enter v2
 
-    const/4 v0, 0x0
+    if-lez v0, :cond_3
 
     :try_start_3
-    iput-boolean v0, p0, Landroid/database/sqlite/SQLiteDatabase;->mInCorruptionHandling:Z
+    invoke-virtual {p0}, Landroid/database/sqlite/SQLiteDatabase;->isOpen()Z
 
-    const/4 v0, 0x0
+    move-result v1
 
-    iput-boolean v0, p0, Landroid/database/sqlite/SQLiteDatabase;->mIsDatabaseCorrupted:Z
+    if-eqz v1, :cond_3
+
+    iget-object v1, p0, Landroid/database/sqlite/SQLiteDatabase;->mConnectionPoolLocked:Landroid/database/sqlite/SQLiteConnectionPool;
+
+    invoke-virtual {v1, v0}, Landroid/database/sqlite/SQLiteConnectionPool;->setMaxConnectionPoolSize(I)V
+
+    :cond_3
+    const/4 v1, 0x0
+
+    iput-boolean v1, p0, Landroid/database/sqlite/SQLiteDatabase;->mInCorruptionHandling:Z
+
+    const/4 v1, 0x0
+
+    iput-boolean v1, p0, Landroid/database/sqlite/SQLiteDatabase;->mIsDatabaseCorrupted:Z
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_1
 
-    monitor-exit v1
+    monitor-exit v2
 
     return-void
 
     :catchall_0
-    move-exception v0
+    move-exception v1
 
-    monitor-exit v1
+    monitor-exit v2
 
-    throw v0
+    throw v1
 
     :catchall_1
-    move-exception v0
+    move-exception v1
 
-    monitor-exit v1
+    monitor-exit v2
 
-    throw v0
+    throw v1
 
     :catchall_2
-    move-exception v0
+    move-exception v1
 
-    iget-object v1, p0, Landroid/database/sqlite/SQLiteDatabase;->mLock:Ljava/lang/Object;
+    iget-object v2, p0, Landroid/database/sqlite/SQLiteDatabase;->mLock:Ljava/lang/Object;
 
-    monitor-enter v1
+    monitor-enter v2
 
-    const/4 v2, 0x0
+    if-lez v0, :cond_4
 
     :try_start_4
-    iput-boolean v2, p0, Landroid/database/sqlite/SQLiteDatabase;->mInCorruptionHandling:Z
+    invoke-virtual {p0}, Landroid/database/sqlite/SQLiteDatabase;->isOpen()Z
 
-    const/4 v2, 0x0
+    move-result v3
 
-    iput-boolean v2, p0, Landroid/database/sqlite/SQLiteDatabase;->mIsDatabaseCorrupted:Z
+    if-eqz v3, :cond_4
+
+    iget-object v3, p0, Landroid/database/sqlite/SQLiteDatabase;->mConnectionPoolLocked:Landroid/database/sqlite/SQLiteConnectionPool;
+
+    invoke-virtual {v3, v0}, Landroid/database/sqlite/SQLiteConnectionPool;->setMaxConnectionPoolSize(I)V
+
+    :cond_4
+    const/4 v3, 0x0
+
+    iput-boolean v3, p0, Landroid/database/sqlite/SQLiteDatabase;->mInCorruptionHandling:Z
+
+    const/4 v3, 0x0
+
+    iput-boolean v3, p0, Landroid/database/sqlite/SQLiteDatabase;->mIsDatabaseCorrupted:Z
     :try_end_4
     .catchall {:try_start_4 .. :try_end_4} :catchall_3
 
-    monitor-exit v1
+    monitor-exit v2
 
-    throw v0
+    throw v1
 
     :catchall_3
-    move-exception v0
+    move-exception v1
 
-    monitor-exit v1
+    monitor-exit v2
 
-    throw v0
+    throw v1
 .end method
 
 .method public query(Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;
@@ -4964,6 +5561,34 @@
     throw v1
 .end method
 
+.method public reOpen()V
+    .locals 2
+
+    iget-object v1, p0, Landroid/database/sqlite/SQLiteDatabase;->mLock:Ljava/lang/Object;
+
+    monitor-enter v1
+
+    :try_start_0
+    invoke-direct {p0}, Landroid/database/sqlite/SQLiteDatabase;->throwIfNotOpenLocked()V
+
+    iget-object v0, p0, Landroid/database/sqlite/SQLiteDatabase;->mConnectionPoolLocked:Landroid/database/sqlite/SQLiteConnectionPool;
+
+    invoke-virtual {v0}, Landroid/database/sqlite/SQLiteConnectionPool;->reOpen()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit v1
+
+    return-void
+
+    :catchall_0
+    move-exception v0
+
+    monitor-exit v1
+
+    throw v0
+.end method
+
 .method public reopenReadWrite()V
     .locals 5
 
@@ -5125,6 +5750,301 @@
     throw v1
 .end method
 
+.method public setAutomaticIndexEnabled(Z)V
+    .locals 4
+
+    iget-object v2, p0, Landroid/database/sqlite/SQLiteDatabase;->mLock:Ljava/lang/Object;
+
+    monitor-enter v2
+
+    :try_start_0
+    invoke-direct {p0}, Landroid/database/sqlite/SQLiteDatabase;->throwIfNotOpenLocked()V
+
+    iget-object v1, p0, Landroid/database/sqlite/SQLiteDatabase;->mConfigurationLocked:Landroid/database/sqlite/SQLiteDatabaseConfiguration;
+
+    iget-boolean v1, v1, Landroid/database/sqlite/SQLiteDatabaseConfiguration;->automaticIndexEnabled:Z
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    if-ne v1, p1, :cond_0
+
+    monitor-exit v2
+
+    return-void
+
+    :cond_0
+    :try_start_1
+    iget-object v1, p0, Landroid/database/sqlite/SQLiteDatabase;->mConfigurationLocked:Landroid/database/sqlite/SQLiteDatabaseConfiguration;
+
+    iput-boolean p1, v1, Landroid/database/sqlite/SQLiteDatabaseConfiguration;->automaticIndexEnabled:Z
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    :try_start_2
+    iget-object v1, p0, Landroid/database/sqlite/SQLiteDatabase;->mConnectionPoolLocked:Landroid/database/sqlite/SQLiteConnectionPool;
+
+    iget-object v3, p0, Landroid/database/sqlite/SQLiteDatabase;->mConfigurationLocked:Landroid/database/sqlite/SQLiteDatabaseConfiguration;
+
+    invoke-virtual {v1, v3}, Landroid/database/sqlite/SQLiteConnectionPool;->reconfigure(Landroid/database/sqlite/SQLiteDatabaseConfiguration;)V
+    :try_end_2
+    .catch Ljava/lang/RuntimeException; {:try_start_2 .. :try_end_2} :catch_0
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+
+    monitor-exit v2
+
+    return-void
+
+    :catch_0
+    move-exception v0
+
+    :try_start_3
+    iget-object v1, p0, Landroid/database/sqlite/SQLiteDatabase;->mConfigurationLocked:Landroid/database/sqlite/SQLiteDatabaseConfiguration;
+
+    xor-int/lit8 v3, p1, 0x1
+
+    iput-boolean v3, v1, Landroid/database/sqlite/SQLiteDatabaseConfiguration;->automaticIndexEnabled:Z
+
+    throw v0
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+
+    :catchall_0
+    move-exception v1
+
+    monitor-exit v2
+
+    throw v1
+.end method
+
+.method public setBusyTimeout(J)V
+    .locals 9
+
+    iget-object v4, p0, Landroid/database/sqlite/SQLiteDatabase;->mLock:Ljava/lang/Object;
+
+    monitor-enter v4
+
+    :try_start_0
+    invoke-direct {p0}, Landroid/database/sqlite/SQLiteDatabase;->throwIfNotOpenLocked()V
+
+    iget-object v3, p0, Landroid/database/sqlite/SQLiteDatabase;->mConfigurationLocked:Landroid/database/sqlite/SQLiteDatabaseConfiguration;
+
+    iget-wide v6, v3, Landroid/database/sqlite/SQLiteDatabaseConfiguration;->busyTimeout:J
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    cmp-long v3, v6, p1
+
+    if-nez v3, :cond_0
+
+    monitor-exit v4
+
+    return-void
+
+    :cond_0
+    :try_start_1
+    iget-object v3, p0, Landroid/database/sqlite/SQLiteDatabase;->mConfigurationLocked:Landroid/database/sqlite/SQLiteDatabaseConfiguration;
+
+    iget-wide v0, v3, Landroid/database/sqlite/SQLiteDatabaseConfiguration;->busyTimeout:J
+
+    iget-object v3, p0, Landroid/database/sqlite/SQLiteDatabase;->mConfigurationLocked:Landroid/database/sqlite/SQLiteDatabaseConfiguration;
+
+    iput-wide p1, v3, Landroid/database/sqlite/SQLiteDatabaseConfiguration;->busyTimeout:J
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    :try_start_2
+    iget-object v3, p0, Landroid/database/sqlite/SQLiteDatabase;->mConnectionPoolLocked:Landroid/database/sqlite/SQLiteConnectionPool;
+
+    iget-object v5, p0, Landroid/database/sqlite/SQLiteDatabase;->mConfigurationLocked:Landroid/database/sqlite/SQLiteDatabaseConfiguration;
+
+    invoke-virtual {v3, v5}, Landroid/database/sqlite/SQLiteConnectionPool;->reconfigure(Landroid/database/sqlite/SQLiteDatabaseConfiguration;)V
+    :try_end_2
+    .catch Ljava/lang/RuntimeException; {:try_start_2 .. :try_end_2} :catch_0
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+
+    monitor-exit v4
+
+    return-void
+
+    :catch_0
+    move-exception v2
+
+    :try_start_3
+    iget-object v3, p0, Landroid/database/sqlite/SQLiteDatabase;->mConfigurationLocked:Landroid/database/sqlite/SQLiteDatabaseConfiguration;
+
+    iput-wide v0, v3, Landroid/database/sqlite/SQLiteDatabaseConfiguration;->busyTimeout:J
+
+    throw v2
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+
+    :catchall_0
+    move-exception v3
+
+    monitor-exit v4
+
+    throw v3
+.end method
+
+.method public setCacheSize(I)V
+    .locals 5
+
+    iget-object v3, p0, Landroid/database/sqlite/SQLiteDatabase;->mLock:Ljava/lang/Object;
+
+    monitor-enter v3
+
+    :try_start_0
+    invoke-direct {p0}, Landroid/database/sqlite/SQLiteDatabase;->throwIfNotOpenLocked()V
+
+    iget-object v2, p0, Landroid/database/sqlite/SQLiteDatabase;->mConfigurationLocked:Landroid/database/sqlite/SQLiteDatabaseConfiguration;
+
+    iget v2, v2, Landroid/database/sqlite/SQLiteDatabaseConfiguration;->cacheSize:I
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    if-ne v2, p1, :cond_0
+
+    monitor-exit v3
+
+    return-void
+
+    :cond_0
+    :try_start_1
+    iget-object v2, p0, Landroid/database/sqlite/SQLiteDatabase;->mConfigurationLocked:Landroid/database/sqlite/SQLiteDatabaseConfiguration;
+
+    iget v0, v2, Landroid/database/sqlite/SQLiteDatabaseConfiguration;->cacheSize:I
+
+    iget-object v2, p0, Landroid/database/sqlite/SQLiteDatabase;->mConfigurationLocked:Landroid/database/sqlite/SQLiteDatabaseConfiguration;
+
+    iput p1, v2, Landroid/database/sqlite/SQLiteDatabaseConfiguration;->cacheSize:I
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    :try_start_2
+    iget-object v2, p0, Landroid/database/sqlite/SQLiteDatabase;->mConnectionPoolLocked:Landroid/database/sqlite/SQLiteConnectionPool;
+
+    iget-object v4, p0, Landroid/database/sqlite/SQLiteDatabase;->mConfigurationLocked:Landroid/database/sqlite/SQLiteDatabaseConfiguration;
+
+    invoke-virtual {v2, v4}, Landroid/database/sqlite/SQLiteConnectionPool;->reconfigure(Landroid/database/sqlite/SQLiteDatabaseConfiguration;)V
+    :try_end_2
+    .catch Ljava/lang/RuntimeException; {:try_start_2 .. :try_end_2} :catch_0
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+
+    monitor-exit v3
+
+    return-void
+
+    :catch_0
+    move-exception v1
+
+    :try_start_3
+    iget-object v2, p0, Landroid/database/sqlite/SQLiteDatabase;->mConfigurationLocked:Landroid/database/sqlite/SQLiteDatabaseConfiguration;
+
+    iput v0, v2, Landroid/database/sqlite/SQLiteDatabaseConfiguration;->cacheSize:I
+
+    throw v1
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+
+    :catchall_0
+    move-exception v2
+
+    monitor-exit v3
+
+    throw v2
+.end method
+
+.method public setCaseSensitiveLikeEnabled(Z)V
+    .locals 4
+
+    iget-object v2, p0, Landroid/database/sqlite/SQLiteDatabase;->mLock:Ljava/lang/Object;
+
+    monitor-enter v2
+
+    :try_start_0
+    invoke-direct {p0}, Landroid/database/sqlite/SQLiteDatabase;->throwIfNotOpenLocked()V
+
+    iget-object v1, p0, Landroid/database/sqlite/SQLiteDatabase;->mConfigurationLocked:Landroid/database/sqlite/SQLiteDatabaseConfiguration;
+
+    iget-boolean v1, v1, Landroid/database/sqlite/SQLiteDatabaseConfiguration;->caseSensitiveLikeEnabled:Z
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    if-ne v1, p1, :cond_0
+
+    monitor-exit v2
+
+    return-void
+
+    :cond_0
+    :try_start_1
+    iget-object v1, p0, Landroid/database/sqlite/SQLiteDatabase;->mConfigurationLocked:Landroid/database/sqlite/SQLiteDatabaseConfiguration;
+
+    iput-boolean p1, v1, Landroid/database/sqlite/SQLiteDatabaseConfiguration;->caseSensitiveLikeEnabled:Z
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    :try_start_2
+    iget-object v1, p0, Landroid/database/sqlite/SQLiteDatabase;->mConnectionPoolLocked:Landroid/database/sqlite/SQLiteConnectionPool;
+
+    iget-object v3, p0, Landroid/database/sqlite/SQLiteDatabase;->mConfigurationLocked:Landroid/database/sqlite/SQLiteDatabaseConfiguration;
+
+    invoke-virtual {v1, v3}, Landroid/database/sqlite/SQLiteConnectionPool;->reconfigure(Landroid/database/sqlite/SQLiteDatabaseConfiguration;)V
+    :try_end_2
+    .catch Ljava/lang/RuntimeException; {:try_start_2 .. :try_end_2} :catch_0
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+
+    monitor-exit v2
+
+    return-void
+
+    :catch_0
+    move-exception v0
+
+    :try_start_3
+    iget-object v1, p0, Landroid/database/sqlite/SQLiteDatabase;->mConfigurationLocked:Landroid/database/sqlite/SQLiteDatabaseConfiguration;
+
+    xor-int/lit8 v3, p1, 0x1
+
+    iput-boolean v3, v1, Landroid/database/sqlite/SQLiteDatabaseConfiguration;->caseSensitiveLikeEnabled:Z
+
+    throw v0
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+
+    :catchall_0
+    move-exception v1
+
+    monitor-exit v2
+
+    throw v1
+.end method
+
+.method public setContext(Landroid/content/Context;)V
+    .locals 2
+
+    :try_start_0
+    invoke-virtual {p1}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
+
+    move-result-object v1
+
+    iput-object v1, p0, Landroid/database/sqlite/SQLiteDatabase;->mContext:Landroid/content/Context;
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    :goto_0
+    return-void
+
+    :catch_0
+    move-exception v0
+
+    const/4 v1, 0x0
+
+    iput-object v1, p0, Landroid/database/sqlite/SQLiteDatabase;->mContext:Landroid/content/Context;
+
+    goto :goto_0
+.end method
+
 .method public setDatabaseIsCorrupted(Z)V
     .locals 2
 
@@ -5197,14 +6117,11 @@
     move-exception v0
 
     :try_start_3
-    iget-object v3, p0, Landroid/database/sqlite/SQLiteDatabase;->mConfigurationLocked:Landroid/database/sqlite/SQLiteDatabaseConfiguration;
+    iget-object v1, p0, Landroid/database/sqlite/SQLiteDatabase;->mConfigurationLocked:Landroid/database/sqlite/SQLiteDatabaseConfiguration;
 
-    if-eqz p1, :cond_1
+    xor-int/lit8 v3, p1, 0x1
 
-    const/4 v1, 0x0
-
-    :goto_0
-    iput-boolean v1, v3, Landroid/database/sqlite/SQLiteDatabaseConfiguration;->foreignKeyConstraintsEnabled:Z
+    iput-boolean v3, v1, Landroid/database/sqlite/SQLiteDatabaseConfiguration;->foreignKeyConstraintsEnabled:Z
 
     throw v0
     :try_end_3
@@ -5216,11 +6133,6 @@
     monitor-exit v2
 
     throw v1
-
-    :cond_1
-    const/4 v1, 0x1
-
-    goto :goto_0
 .end method
 
 .method public setLocale(Ljava/util/Locale;)V
@@ -5587,11 +6499,11 @@
 
     if-eqz p2, :cond_0
 
-    invoke-virtual {p2}, Landroid/content/ContentValues;->size()I
+    invoke-virtual {p2}, Landroid/content/ContentValues;->isEmpty()Z
 
     move-result v9
 
-    if-nez v9, :cond_1
+    if-eqz v9, :cond_1
 
     :cond_0
     new-instance v9, Ljava/lang/IllegalArgumentException;

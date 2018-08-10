@@ -103,17 +103,17 @@
 
     invoke-direct/range {p0 .. p2}, Landroid/widget/TimePicker$AbstractTimePickerDelegate;-><init>(Landroid/widget/TimePicker;Landroid/content/Context;)V
 
-    const/4 v12, 0x1
+    const/4 v13, 0x1
 
     move-object/from16 v0, p0
 
-    iput-boolean v12, v0, Landroid/widget/TimePickerSpinnerDelegate;->mIsEnabled:Z
+    iput-boolean v13, v0, Landroid/widget/TimePickerSpinnerDelegate;->mIsEnabled:Z
 
     move-object/from16 v0, p0
 
-    iget-object v12, v0, Landroid/widget/TimePicker$AbstractTimePickerDelegate;->mContext:Landroid/content/Context;
+    iget-object v13, v0, Landroid/widget/TimePickerSpinnerDelegate;->mContext:Landroid/content/Context;
 
-    sget-object v13, Lcom/android/internal/R$styleable;->TimePicker:[I
+    sget-object v14, Lcom/android/internal/R$styleable;->TimePicker:[I
 
     move-object/from16 v0, p3
 
@@ -121,15 +121,15 @@
 
     move/from16 v2, p5
 
-    invoke-virtual {v12, v0, v13, v1, v2}, Landroid/content/Context;->obtainStyledAttributes(Landroid/util/AttributeSet;[III)Landroid/content/res/TypedArray;
+    invoke-virtual {v13, v0, v14, v1, v2}, Landroid/content/Context;->obtainStyledAttributes(Landroid/util/AttributeSet;[III)Landroid/content/res/TypedArray;
 
     move-result-object v4
 
-    const/16 v12, 0xc
+    const/16 v13, 0xd
 
-    const v13, 0x1090137
+    const v14, 0x1090135
 
-    invoke-virtual {v4, v12, v13}, Landroid/content/res/TypedArray;->getResourceId(II)I
+    invoke-virtual {v4, v13, v14}, Landroid/content/res/TypedArray;->getResourceId(II)I
 
     move-result v9
 
@@ -137,249 +137,253 @@
 
     move-object/from16 v0, p0
 
-    iget-object v12, v0, Landroid/widget/TimePicker$AbstractTimePickerDelegate;->mContext:Landroid/content/Context;
+    iget-object v13, v0, Landroid/widget/TimePickerSpinnerDelegate;->mContext:Landroid/content/Context;
 
-    invoke-static {v12}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
+    invoke-static {v13}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
 
     move-result-object v8
 
     move-object/from16 v0, p0
 
-    iget-object v12, v0, Landroid/widget/TimePicker$AbstractTimePickerDelegate;->mDelegator:Landroid/widget/TimePicker;
+    iget-object v13, v0, Landroid/widget/TimePickerSpinnerDelegate;->mDelegator:Landroid/widget/TimePicker;
 
-    const/4 v13, 0x1
+    const/4 v14, 0x1
 
-    invoke-virtual {v8, v9, v12, v13}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
+    invoke-virtual {v8, v9, v13, v14}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
-    const v12, 0x10204c6
+    move-result-object v12
+
+    const/4 v13, 0x0
+
+    invoke-virtual {v12, v13}, Landroid/view/View;->setSaveFromParentEnabled(Z)V
+
+    const v13, 0x10202f8
 
     move-object/from16 v0, p1
 
-    invoke-virtual {v0, v12}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v0, v13}, Landroid/widget/TimePicker;->findViewById(I)Landroid/view/View;
 
-    move-result-object v12
+    move-result-object v13
 
-    check-cast v12, Landroid/widget/NumberPicker;
-
-    move-object/from16 v0, p0
-
-    iput-object v12, v0, Landroid/widget/TimePickerSpinnerDelegate;->mHourSpinner:Landroid/widget/NumberPicker;
+    check-cast v13, Landroid/widget/NumberPicker;
 
     move-object/from16 v0, p0
 
-    iget-object v12, v0, Landroid/widget/TimePickerSpinnerDelegate;->mHourSpinner:Landroid/widget/NumberPicker;
-
-    new-instance v13, Landroid/widget/TimePickerSpinnerDelegate$1;
+    iput-object v13, v0, Landroid/widget/TimePickerSpinnerDelegate;->mHourSpinner:Landroid/widget/NumberPicker;
 
     move-object/from16 v0, p0
 
-    invoke-direct {v13, v0}, Landroid/widget/TimePickerSpinnerDelegate$1;-><init>(Landroid/widget/TimePickerSpinnerDelegate;)V
+    iget-object v13, v0, Landroid/widget/TimePickerSpinnerDelegate;->mHourSpinner:Landroid/widget/NumberPicker;
 
-    invoke-virtual {v12, v13}, Landroid/widget/NumberPicker;->setOnValueChangedListener(Landroid/widget/NumberPicker$OnValueChangeListener;)V
-
-    move-object/from16 v0, p0
-
-    iget-object v12, v0, Landroid/widget/TimePickerSpinnerDelegate;->mHourSpinner:Landroid/widget/NumberPicker;
-
-    const v13, 0x102044b
-
-    invoke-virtual {v12, v13}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v12
-
-    check-cast v12, Landroid/widget/EditText;
+    new-instance v14, Landroid/widget/TimePickerSpinnerDelegate$1;
 
     move-object/from16 v0, p0
 
-    iput-object v12, v0, Landroid/widget/TimePickerSpinnerDelegate;->mHourSpinnerInput:Landroid/widget/EditText;
+    invoke-direct {v14, v0}, Landroid/widget/TimePickerSpinnerDelegate$1;-><init>(Landroid/widget/TimePickerSpinnerDelegate;)V
+
+    invoke-virtual {v13, v14}, Landroid/widget/NumberPicker;->setOnValueChangedListener(Landroid/widget/NumberPicker$OnValueChangeListener;)V
 
     move-object/from16 v0, p0
 
-    iget-object v12, v0, Landroid/widget/TimePickerSpinnerDelegate;->mHourSpinnerInput:Landroid/widget/EditText;
+    iget-object v13, v0, Landroid/widget/TimePickerSpinnerDelegate;->mHourSpinner:Landroid/widget/NumberPicker;
 
-    const/4 v13, 0x5
+    const v14, 0x10203ca
 
-    invoke-virtual {v12, v13}, Landroid/widget/TextView;->setImeOptions(I)V
+    invoke-virtual {v13, v14}, Landroid/widget/NumberPicker;->findViewById(I)Landroid/view/View;
 
-    move-object/from16 v0, p0
+    move-result-object v13
 
-    iget-object v12, v0, Landroid/widget/TimePicker$AbstractTimePickerDelegate;->mDelegator:Landroid/widget/TimePicker;
-
-    const v13, 0x10204c7
-
-    invoke-virtual {v12, v13}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v12
-
-    check-cast v12, Landroid/widget/TextView;
+    check-cast v13, Landroid/widget/EditText;
 
     move-object/from16 v0, p0
 
-    iput-object v12, v0, Landroid/widget/TimePickerSpinnerDelegate;->mDivider:Landroid/widget/TextView;
+    iput-object v13, v0, Landroid/widget/TimePickerSpinnerDelegate;->mHourSpinnerInput:Landroid/widget/EditText;
 
     move-object/from16 v0, p0
 
-    iget-object v12, v0, Landroid/widget/TimePickerSpinnerDelegate;->mDivider:Landroid/widget/TextView;
+    iget-object v13, v0, Landroid/widget/TimePickerSpinnerDelegate;->mHourSpinnerInput:Landroid/widget/EditText;
 
-    if-eqz v12, :cond_0
+    const/4 v14, 0x5
+
+    invoke-virtual {v13, v14}, Landroid/widget/EditText;->setImeOptions(I)V
+
+    move-object/from16 v0, p0
+
+    iget-object v13, v0, Landroid/widget/TimePickerSpinnerDelegate;->mDelegator:Landroid/widget/TimePicker;
+
+    const v14, 0x102027b
+
+    invoke-virtual {v13, v14}, Landroid/widget/TimePicker;->findViewById(I)Landroid/view/View;
+
+    move-result-object v13
+
+    check-cast v13, Landroid/widget/TextView;
+
+    move-object/from16 v0, p0
+
+    iput-object v13, v0, Landroid/widget/TimePickerSpinnerDelegate;->mDivider:Landroid/widget/TextView;
+
+    move-object/from16 v0, p0
+
+    iget-object v13, v0, Landroid/widget/TimePickerSpinnerDelegate;->mDivider:Landroid/widget/TextView;
+
+    if-eqz v13, :cond_0
 
     invoke-direct/range {p0 .. p0}, Landroid/widget/TimePickerSpinnerDelegate;->setDividerText()V
 
     :cond_0
     move-object/from16 v0, p0
 
-    iget-object v12, v0, Landroid/widget/TimePicker$AbstractTimePickerDelegate;->mDelegator:Landroid/widget/TimePicker;
+    iget-object v13, v0, Landroid/widget/TimePickerSpinnerDelegate;->mDelegator:Landroid/widget/TimePicker;
 
-    const v13, 0x10204c8
+    const v14, 0x102037f
 
-    invoke-virtual {v12, v13}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v12
-
-    check-cast v12, Landroid/widget/NumberPicker;
-
-    move-object/from16 v0, p0
-
-    iput-object v12, v0, Landroid/widget/TimePickerSpinnerDelegate;->mMinuteSpinner:Landroid/widget/NumberPicker;
-
-    move-object/from16 v0, p0
-
-    iget-object v12, v0, Landroid/widget/TimePickerSpinnerDelegate;->mMinuteSpinner:Landroid/widget/NumberPicker;
-
-    const/4 v13, 0x0
-
-    invoke-virtual {v12, v13}, Landroid/widget/NumberPicker;->setMinValue(I)V
-
-    move-object/from16 v0, p0
-
-    iget-object v12, v0, Landroid/widget/TimePickerSpinnerDelegate;->mMinuteSpinner:Landroid/widget/NumberPicker;
-
-    const/16 v13, 0x3b
-
-    invoke-virtual {v12, v13}, Landroid/widget/NumberPicker;->setMaxValue(I)V
-
-    move-object/from16 v0, p0
-
-    iget-object v12, v0, Landroid/widget/TimePickerSpinnerDelegate;->mMinuteSpinner:Landroid/widget/NumberPicker;
-
-    const-wide/16 v14, 0x64
-
-    invoke-virtual {v12, v14, v15}, Landroid/widget/NumberPicker;->setOnLongPressUpdateInterval(J)V
-
-    move-object/from16 v0, p0
-
-    iget-object v12, v0, Landroid/widget/TimePickerSpinnerDelegate;->mMinuteSpinner:Landroid/widget/NumberPicker;
-
-    invoke-static {}, Landroid/widget/NumberPicker;->getTwoDigitFormatter()Landroid/widget/NumberPicker$Formatter;
+    invoke-virtual {v13, v14}, Landroid/widget/TimePicker;->findViewById(I)Landroid/view/View;
 
     move-result-object v13
 
-    invoke-virtual {v12, v13}, Landroid/widget/NumberPicker;->setFormatter(Landroid/widget/NumberPicker$Formatter;)V
+    check-cast v13, Landroid/widget/NumberPicker;
 
     move-object/from16 v0, p0
 
-    iget-object v12, v0, Landroid/widget/TimePickerSpinnerDelegate;->mMinuteSpinner:Landroid/widget/NumberPicker;
-
-    new-instance v13, Landroid/widget/TimePickerSpinnerDelegate$2;
+    iput-object v13, v0, Landroid/widget/TimePickerSpinnerDelegate;->mMinuteSpinner:Landroid/widget/NumberPicker;
 
     move-object/from16 v0, p0
 
-    invoke-direct {v13, v0}, Landroid/widget/TimePickerSpinnerDelegate$2;-><init>(Landroid/widget/TimePickerSpinnerDelegate;)V
+    iget-object v13, v0, Landroid/widget/TimePickerSpinnerDelegate;->mMinuteSpinner:Landroid/widget/NumberPicker;
 
-    invoke-virtual {v12, v13}, Landroid/widget/NumberPicker;->setOnValueChangedListener(Landroid/widget/NumberPicker$OnValueChangeListener;)V
+    const/4 v14, 0x0
 
-    move-object/from16 v0, p0
-
-    iget-object v12, v0, Landroid/widget/TimePickerSpinnerDelegate;->mMinuteSpinner:Landroid/widget/NumberPicker;
-
-    const v13, 0x102044b
-
-    invoke-virtual {v12, v13}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v12
-
-    check-cast v12, Landroid/widget/EditText;
+    invoke-virtual {v13, v14}, Landroid/widget/NumberPicker;->setMinValue(I)V
 
     move-object/from16 v0, p0
 
-    iput-object v12, v0, Landroid/widget/TimePickerSpinnerDelegate;->mMinuteSpinnerInput:Landroid/widget/EditText;
+    iget-object v13, v0, Landroid/widget/TimePickerSpinnerDelegate;->mMinuteSpinner:Landroid/widget/NumberPicker;
+
+    const/16 v14, 0x3b
+
+    invoke-virtual {v13, v14}, Landroid/widget/NumberPicker;->setMaxValue(I)V
 
     move-object/from16 v0, p0
 
-    iget-object v12, v0, Landroid/widget/TimePickerSpinnerDelegate;->mMinuteSpinnerInput:Landroid/widget/EditText;
+    iget-object v13, v0, Landroid/widget/TimePickerSpinnerDelegate;->mMinuteSpinner:Landroid/widget/NumberPicker;
 
-    const/4 v13, 0x5
+    const-wide/16 v14, 0x64
 
-    invoke-virtual {v12, v13}, Landroid/widget/TextView;->setImeOptions(I)V
+    invoke-virtual {v13, v14, v15}, Landroid/widget/NumberPicker;->setOnLongPressUpdateInterval(J)V
+
+    move-object/from16 v0, p0
+
+    iget-object v13, v0, Landroid/widget/TimePickerSpinnerDelegate;->mMinuteSpinner:Landroid/widget/NumberPicker;
+
+    invoke-static {}, Landroid/widget/NumberPicker;->getTwoDigitFormatter()Landroid/widget/NumberPicker$Formatter;
+
+    move-result-object v14
+
+    invoke-virtual {v13, v14}, Landroid/widget/NumberPicker;->setFormatter(Landroid/widget/NumberPicker$Formatter;)V
+
+    move-object/from16 v0, p0
+
+    iget-object v13, v0, Landroid/widget/TimePickerSpinnerDelegate;->mMinuteSpinner:Landroid/widget/NumberPicker;
+
+    new-instance v14, Landroid/widget/TimePickerSpinnerDelegate$2;
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v14, v0}, Landroid/widget/TimePickerSpinnerDelegate$2;-><init>(Landroid/widget/TimePickerSpinnerDelegate;)V
+
+    invoke-virtual {v13, v14}, Landroid/widget/NumberPicker;->setOnValueChangedListener(Landroid/widget/NumberPicker$OnValueChangeListener;)V
+
+    move-object/from16 v0, p0
+
+    iget-object v13, v0, Landroid/widget/TimePickerSpinnerDelegate;->mMinuteSpinner:Landroid/widget/NumberPicker;
+
+    const v14, 0x10203ca
+
+    invoke-virtual {v13, v14}, Landroid/widget/NumberPicker;->findViewById(I)Landroid/view/View;
+
+    move-result-object v13
+
+    check-cast v13, Landroid/widget/EditText;
+
+    move-object/from16 v0, p0
+
+    iput-object v13, v0, Landroid/widget/TimePickerSpinnerDelegate;->mMinuteSpinnerInput:Landroid/widget/EditText;
+
+    move-object/from16 v0, p0
+
+    iget-object v13, v0, Landroid/widget/TimePickerSpinnerDelegate;->mMinuteSpinnerInput:Landroid/widget/EditText;
+
+    const/4 v14, 0x5
+
+    invoke-virtual {v13, v14}, Landroid/widget/EditText;->setImeOptions(I)V
 
     invoke-static/range {p2 .. p2}, Landroid/widget/TimePickerSpinnerDelegate;->getAmPmStrings(Landroid/content/Context;)[Ljava/lang/String;
 
-    move-result-object v12
+    move-result-object v13
 
     move-object/from16 v0, p0
 
-    iput-object v12, v0, Landroid/widget/TimePickerSpinnerDelegate;->mAmPmStrings:[Ljava/lang/String;
+    iput-object v13, v0, Landroid/widget/TimePickerSpinnerDelegate;->mAmPmStrings:[Ljava/lang/String;
 
     move-object/from16 v0, p0
 
-    iget-object v12, v0, Landroid/widget/TimePicker$AbstractTimePickerDelegate;->mDelegator:Landroid/widget/TimePicker;
+    iget-object v13, v0, Landroid/widget/TimePickerSpinnerDelegate;->mDelegator:Landroid/widget/TimePicker;
 
-    const v13, 0x10204ca
+    const v14, 0x10201e2
 
-    invoke-virtual {v12, v13}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v13, v14}, Landroid/widget/TimePicker;->findViewById(I)Landroid/view/View;
 
     move-result-object v6
 
-    instance-of v12, v6, Landroid/widget/Button;
+    instance-of v13, v6, Landroid/widget/Button;
 
-    if-eqz v12, :cond_4
+    if-eqz v13, :cond_4
 
-    const/4 v12, 0x0
-
-    move-object/from16 v0, p0
-
-    iput-object v12, v0, Landroid/widget/TimePickerSpinnerDelegate;->mAmPmSpinner:Landroid/widget/NumberPicker;
-
-    const/4 v12, 0x0
+    const/4 v13, 0x0
 
     move-object/from16 v0, p0
 
-    iput-object v12, v0, Landroid/widget/TimePickerSpinnerDelegate;->mAmPmSpinnerInput:Landroid/widget/EditText;
+    iput-object v13, v0, Landroid/widget/TimePickerSpinnerDelegate;->mAmPmSpinner:Landroid/widget/NumberPicker;
 
-    move-object v12, v6
-
-    nop
-
-    nop
+    const/4 v13, 0x0
 
     move-object/from16 v0, p0
 
-    iput-object v12, v0, Landroid/widget/TimePickerSpinnerDelegate;->mAmPmButton:Landroid/widget/Button;
+    iput-object v13, v0, Landroid/widget/TimePickerSpinnerDelegate;->mAmPmSpinnerInput:Landroid/widget/EditText;
+
+    move-object v13, v6
+
+    check-cast v13, Landroid/widget/Button;
 
     move-object/from16 v0, p0
 
-    iget-object v12, v0, Landroid/widget/TimePickerSpinnerDelegate;->mAmPmButton:Landroid/widget/Button;
-
-    new-instance v13, Landroid/widget/TimePickerSpinnerDelegate$3;
+    iput-object v13, v0, Landroid/widget/TimePickerSpinnerDelegate;->mAmPmButton:Landroid/widget/Button;
 
     move-object/from16 v0, p0
 
-    invoke-direct {v13, v0}, Landroid/widget/TimePickerSpinnerDelegate$3;-><init>(Landroid/widget/TimePickerSpinnerDelegate;)V
+    iget-object v13, v0, Landroid/widget/TimePickerSpinnerDelegate;->mAmPmButton:Landroid/widget/Button;
 
-    invoke-virtual {v12, v13}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    new-instance v14, Landroid/widget/TimePickerSpinnerDelegate$3;
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v14, v0}, Landroid/widget/TimePickerSpinnerDelegate$3;-><init>(Landroid/widget/TimePickerSpinnerDelegate;)V
+
+    invoke-virtual {v13, v14}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     :goto_0
     invoke-direct/range {p0 .. p0}, Landroid/widget/TimePickerSpinnerDelegate;->isAmPmAtStart()Z
 
-    move-result v12
+    move-result v13
 
-    if-eqz v12, :cond_1
+    if-eqz v13, :cond_1
 
-    const v12, 0x1020502
+    const v13, 0x1020523
 
     move-object/from16 v0, p1
 
-    invoke-virtual {v0, v12}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v0, v13}, Landroid/widget/TimePicker;->findViewById(I)Landroid/view/View;
 
     move-result-object v5
 
@@ -387,9 +391,9 @@
 
     invoke-virtual {v5, v6}, Landroid/view/ViewGroup;->removeView(Landroid/view/View;)V
 
-    const/4 v12, 0x0
+    const/4 v13, 0x0
 
-    invoke-virtual {v5, v6, v12}, Landroid/view/ViewGroup;->addView(Landroid/view/View;I)V
+    invoke-virtual {v5, v6, v13}, Landroid/view/ViewGroup;->addView(Landroid/view/View;I)V
 
     invoke-virtual {v6}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
@@ -422,156 +426,156 @@
 
     move-object/from16 v0, p0
 
-    iget-object v12, v0, Landroid/widget/TimePicker$AbstractTimePickerDelegate;->mLocale:Ljava/util/Locale;
+    iget-object v13, v0, Landroid/widget/TimePickerSpinnerDelegate;->mLocale:Ljava/util/Locale;
 
-    invoke-static {v12}, Ljava/util/Calendar;->getInstance(Ljava/util/Locale;)Ljava/util/Calendar;
+    invoke-static {v13}, Ljava/util/Calendar;->getInstance(Ljava/util/Locale;)Ljava/util/Calendar;
 
-    move-result-object v12
-
-    move-object/from16 v0, p0
-
-    iput-object v12, v0, Landroid/widget/TimePickerSpinnerDelegate;->mTempCalendar:Ljava/util/Calendar;
+    move-result-object v13
 
     move-object/from16 v0, p0
 
-    iget-object v12, v0, Landroid/widget/TimePickerSpinnerDelegate;->mTempCalendar:Ljava/util/Calendar;
-
-    const/16 v13, 0xb
-
-    invoke-virtual {v12, v13}, Ljava/util/Calendar;->get(I)I
-
-    move-result v12
+    iput-object v13, v0, Landroid/widget/TimePickerSpinnerDelegate;->mTempCalendar:Ljava/util/Calendar;
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v12}, Landroid/widget/TimePickerSpinnerDelegate;->setHour(I)V
+    iget-object v13, v0, Landroid/widget/TimePickerSpinnerDelegate;->mTempCalendar:Ljava/util/Calendar;
+
+    const/16 v14, 0xb
+
+    invoke-virtual {v13, v14}, Ljava/util/Calendar;->get(I)I
+
+    move-result v13
 
     move-object/from16 v0, p0
 
-    iget-object v12, v0, Landroid/widget/TimePickerSpinnerDelegate;->mTempCalendar:Ljava/util/Calendar;
-
-    const/16 v13, 0xc
-
-    invoke-virtual {v12, v13}, Ljava/util/Calendar;->get(I)I
-
-    move-result v12
+    invoke-virtual {v0, v13}, Landroid/widget/TimePickerSpinnerDelegate;->setHour(I)V
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v12}, Landroid/widget/TimePickerSpinnerDelegate;->setMinute(I)V
+    iget-object v13, v0, Landroid/widget/TimePickerSpinnerDelegate;->mTempCalendar:Ljava/util/Calendar;
+
+    const/16 v14, 0xc
+
+    invoke-virtual {v13, v14}, Ljava/util/Calendar;->get(I)I
+
+    move-result v13
+
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v13}, Landroid/widget/TimePickerSpinnerDelegate;->setMinute(I)V
 
     invoke-virtual/range {p0 .. p0}, Landroid/widget/TimePickerSpinnerDelegate;->isEnabled()Z
 
-    move-result v12
+    move-result v13
 
-    if-nez v12, :cond_2
+    if-nez v13, :cond_2
 
-    const/4 v12, 0x0
+    const/4 v13, 0x0
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v12}, Landroid/widget/TimePickerSpinnerDelegate;->setEnabled(Z)V
+    invoke-virtual {v0, v13}, Landroid/widget/TimePickerSpinnerDelegate;->setEnabled(Z)V
 
     :cond_2
     invoke-direct/range {p0 .. p0}, Landroid/widget/TimePickerSpinnerDelegate;->setContentDescriptions()V
 
     move-object/from16 v0, p0
 
-    iget-object v12, v0, Landroid/widget/TimePicker$AbstractTimePickerDelegate;->mDelegator:Landroid/widget/TimePicker;
+    iget-object v13, v0, Landroid/widget/TimePickerSpinnerDelegate;->mDelegator:Landroid/widget/TimePicker;
 
-    invoke-virtual {v12}, Landroid/view/View;->getImportantForAccessibility()I
+    invoke-virtual {v13}, Landroid/widget/TimePicker;->getImportantForAccessibility()I
 
-    move-result v12
+    move-result v13
 
-    if-nez v12, :cond_3
+    if-nez v13, :cond_3
 
     move-object/from16 v0, p0
 
-    iget-object v12, v0, Landroid/widget/TimePicker$AbstractTimePickerDelegate;->mDelegator:Landroid/widget/TimePicker;
+    iget-object v13, v0, Landroid/widget/TimePickerSpinnerDelegate;->mDelegator:Landroid/widget/TimePicker;
 
-    const/4 v13, 0x1
+    const/4 v14, 0x1
 
-    invoke-virtual {v12, v13}, Landroid/view/View;->setImportantForAccessibility(I)V
+    invoke-virtual {v13, v14}, Landroid/widget/TimePicker;->setImportantForAccessibility(I)V
 
     :cond_3
     return-void
 
     :cond_4
-    const/4 v12, 0x0
-
-    move-object/from16 v0, p0
-
-    iput-object v12, v0, Landroid/widget/TimePickerSpinnerDelegate;->mAmPmButton:Landroid/widget/Button;
-
-    move-object v12, v6
-
-    check-cast v12, Landroid/widget/NumberPicker;
-
-    move-object/from16 v0, p0
-
-    iput-object v12, v0, Landroid/widget/TimePickerSpinnerDelegate;->mAmPmSpinner:Landroid/widget/NumberPicker;
-
-    move-object/from16 v0, p0
-
-    iget-object v12, v0, Landroid/widget/TimePickerSpinnerDelegate;->mAmPmSpinner:Landroid/widget/NumberPicker;
-
     const/4 v13, 0x0
 
-    invoke-virtual {v12, v13}, Landroid/widget/NumberPicker;->setMinValue(I)V
+    move-object/from16 v0, p0
+
+    iput-object v13, v0, Landroid/widget/TimePickerSpinnerDelegate;->mAmPmButton:Landroid/widget/Button;
+
+    move-object v13, v6
+
+    check-cast v13, Landroid/widget/NumberPicker;
 
     move-object/from16 v0, p0
 
-    iget-object v12, v0, Landroid/widget/TimePickerSpinnerDelegate;->mAmPmSpinner:Landroid/widget/NumberPicker;
-
-    const/4 v13, 0x1
-
-    invoke-virtual {v12, v13}, Landroid/widget/NumberPicker;->setMaxValue(I)V
+    iput-object v13, v0, Landroid/widget/TimePickerSpinnerDelegate;->mAmPmSpinner:Landroid/widget/NumberPicker;
 
     move-object/from16 v0, p0
 
-    iget-object v12, v0, Landroid/widget/TimePickerSpinnerDelegate;->mAmPmSpinner:Landroid/widget/NumberPicker;
+    iget-object v13, v0, Landroid/widget/TimePickerSpinnerDelegate;->mAmPmSpinner:Landroid/widget/NumberPicker;
+
+    const/4 v14, 0x0
+
+    invoke-virtual {v13, v14}, Landroid/widget/NumberPicker;->setMinValue(I)V
 
     move-object/from16 v0, p0
 
-    iget-object v13, v0, Landroid/widget/TimePickerSpinnerDelegate;->mAmPmStrings:[Ljava/lang/String;
+    iget-object v13, v0, Landroid/widget/TimePickerSpinnerDelegate;->mAmPmSpinner:Landroid/widget/NumberPicker;
 
-    invoke-virtual {v12, v13}, Landroid/widget/NumberPicker;->setDisplayedValues([Ljava/lang/String;)V
+    const/4 v14, 0x1
 
-    move-object/from16 v0, p0
-
-    iget-object v12, v0, Landroid/widget/TimePickerSpinnerDelegate;->mAmPmSpinner:Landroid/widget/NumberPicker;
-
-    new-instance v13, Landroid/widget/TimePickerSpinnerDelegate$4;
+    invoke-virtual {v13, v14}, Landroid/widget/NumberPicker;->setMaxValue(I)V
 
     move-object/from16 v0, p0
 
-    invoke-direct {v13, v0}, Landroid/widget/TimePickerSpinnerDelegate$4;-><init>(Landroid/widget/TimePickerSpinnerDelegate;)V
-
-    invoke-virtual {v12, v13}, Landroid/widget/NumberPicker;->setOnValueChangedListener(Landroid/widget/NumberPicker$OnValueChangeListener;)V
+    iget-object v13, v0, Landroid/widget/TimePickerSpinnerDelegate;->mAmPmSpinner:Landroid/widget/NumberPicker;
 
     move-object/from16 v0, p0
 
-    iget-object v12, v0, Landroid/widget/TimePickerSpinnerDelegate;->mAmPmSpinner:Landroid/widget/NumberPicker;
+    iget-object v14, v0, Landroid/widget/TimePickerSpinnerDelegate;->mAmPmStrings:[Ljava/lang/String;
 
-    const v13, 0x102044b
-
-    invoke-virtual {v12, v13}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v12
-
-    check-cast v12, Landroid/widget/EditText;
+    invoke-virtual {v13, v14}, Landroid/widget/NumberPicker;->setDisplayedValues([Ljava/lang/String;)V
 
     move-object/from16 v0, p0
 
-    iput-object v12, v0, Landroid/widget/TimePickerSpinnerDelegate;->mAmPmSpinnerInput:Landroid/widget/EditText;
+    iget-object v13, v0, Landroid/widget/TimePickerSpinnerDelegate;->mAmPmSpinner:Landroid/widget/NumberPicker;
+
+    new-instance v14, Landroid/widget/TimePickerSpinnerDelegate$4;
 
     move-object/from16 v0, p0
 
-    iget-object v12, v0, Landroid/widget/TimePickerSpinnerDelegate;->mAmPmSpinnerInput:Landroid/widget/EditText;
+    invoke-direct {v14, v0}, Landroid/widget/TimePickerSpinnerDelegate$4;-><init>(Landroid/widget/TimePickerSpinnerDelegate;)V
 
-    const/4 v13, 0x6
+    invoke-virtual {v13, v14}, Landroid/widget/NumberPicker;->setOnValueChangedListener(Landroid/widget/NumberPicker$OnValueChangeListener;)V
 
-    invoke-virtual {v12, v13}, Landroid/widget/TextView;->setImeOptions(I)V
+    move-object/from16 v0, p0
+
+    iget-object v13, v0, Landroid/widget/TimePickerSpinnerDelegate;->mAmPmSpinner:Landroid/widget/NumberPicker;
+
+    const v14, 0x10203ca
+
+    invoke-virtual {v13, v14}, Landroid/widget/NumberPicker;->findViewById(I)Landroid/view/View;
+
+    move-result-object v13
+
+    check-cast v13, Landroid/widget/EditText;
+
+    move-object/from16 v0, p0
+
+    iput-object v13, v0, Landroid/widget/TimePickerSpinnerDelegate;->mAmPmSpinnerInput:Landroid/widget/EditText;
+
+    move-object/from16 v0, p0
+
+    iget-object v13, v0, Landroid/widget/TimePickerSpinnerDelegate;->mAmPmSpinnerInput:Landroid/widget/EditText;
+
+    const/4 v14, 0x6
+
+    invoke-virtual {v13, v14}, Landroid/widget/EditText;->setImeOptions(I)V
 
     goto/16 :goto_0
 .end method
@@ -653,7 +657,7 @@
 .method private getHourFormatData()V
     .locals 7
 
-    iget-object v6, p0, Landroid/widget/TimePicker$AbstractTimePickerDelegate;->mLocale:Ljava/util/Locale;
+    iget-object v6, p0, Landroid/widget/TimePickerSpinnerDelegate;->mLocale:Ljava/util/Locale;
 
     iget-boolean v5, p0, Landroid/widget/TimePickerSpinnerDelegate;->mIs24HourView:Z
 
@@ -737,7 +741,7 @@
 .method private isAmPmAtStart()Z
     .locals 3
 
-    iget-object v1, p0, Landroid/widget/TimePicker$AbstractTimePickerDelegate;->mLocale:Ljava/util/Locale;
+    iget-object v1, p0, Landroid/widget/TimePickerSpinnerDelegate;->mLocale:Ljava/util/Locale;
 
     const-string/jumbo v2, "hm"
 
@@ -757,19 +761,19 @@
 .method private onTimeChanged()V
     .locals 4
 
-    iget-object v0, p0, Landroid/widget/TimePicker$AbstractTimePickerDelegate;->mDelegator:Landroid/widget/TimePicker;
+    iget-object v0, p0, Landroid/widget/TimePickerSpinnerDelegate;->mDelegator:Landroid/widget/TimePicker;
 
     const/4 v1, 0x4
 
-    invoke-virtual {v0, v1}, Landroid/view/View;->sendAccessibilityEvent(I)V
+    invoke-virtual {v0, v1}, Landroid/widget/TimePicker;->sendAccessibilityEvent(I)V
 
-    iget-object v0, p0, Landroid/widget/TimePicker$AbstractTimePickerDelegate;->mOnTimeChangedListener:Landroid/widget/TimePicker$OnTimeChangedListener;
+    iget-object v0, p0, Landroid/widget/TimePickerSpinnerDelegate;->mOnTimeChangedListener:Landroid/widget/TimePicker$OnTimeChangedListener;
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Landroid/widget/TimePicker$AbstractTimePickerDelegate;->mOnTimeChangedListener:Landroid/widget/TimePicker$OnTimeChangedListener;
+    iget-object v0, p0, Landroid/widget/TimePickerSpinnerDelegate;->mOnTimeChangedListener:Landroid/widget/TimePicker$OnTimeChangedListener;
 
-    iget-object v1, p0, Landroid/widget/TimePicker$AbstractTimePickerDelegate;->mDelegator:Landroid/widget/TimePicker;
+    iget-object v1, p0, Landroid/widget/TimePickerSpinnerDelegate;->mDelegator:Landroid/widget/TimePicker;
 
     invoke-virtual {p0}, Landroid/widget/TimePickerSpinnerDelegate;->getHour()I
 
@@ -782,39 +786,58 @@
     invoke-interface {v0, v1, v2, v3}, Landroid/widget/TimePicker$OnTimeChangedListener;->onTimeChanged(Landroid/widget/TimePicker;II)V
 
     :cond_0
+    iget-object v0, p0, Landroid/widget/TimePickerSpinnerDelegate;->mAutoFillChangeListener:Landroid/widget/TimePicker$OnTimeChangedListener;
+
+    if-eqz v0, :cond_1
+
+    iget-object v0, p0, Landroid/widget/TimePickerSpinnerDelegate;->mAutoFillChangeListener:Landroid/widget/TimePicker$OnTimeChangedListener;
+
+    iget-object v1, p0, Landroid/widget/TimePickerSpinnerDelegate;->mDelegator:Landroid/widget/TimePicker;
+
+    invoke-virtual {p0}, Landroid/widget/TimePickerSpinnerDelegate;->getHour()I
+
+    move-result v2
+
+    invoke-virtual {p0}, Landroid/widget/TimePickerSpinnerDelegate;->getMinute()I
+
+    move-result v3
+
+    invoke-interface {v0, v1, v2, v3}, Landroid/widget/TimePicker$OnTimeChangedListener;->onTimeChanged(Landroid/widget/TimePicker;II)V
+
+    :cond_1
     return-void
 .end method
 
 .method private setContentDescriptions()V
     .locals 4
 
-    const v3, 0x102044c
+    const v3, 0x1020318
 
-    const v2, 0x102044a
-
-    iget-object v0, p0, Landroid/widget/TimePickerSpinnerDelegate;->mMinuteSpinner:Landroid/widget/NumberPicker;
-
-    const v1, 0x10404af
-
-    invoke-direct {p0, v0, v2, v1}, Landroid/widget/TimePickerSpinnerDelegate;->trySetContentDescription(Landroid/view/View;II)V
+    const v2, 0x102026c
 
     iget-object v0, p0, Landroid/widget/TimePickerSpinnerDelegate;->mMinuteSpinner:Landroid/widget/NumberPicker;
 
-    const v1, 0x10404b0
+    const v1, 0x1040a36
 
     invoke-direct {p0, v0, v3, v1}, Landroid/widget/TimePickerSpinnerDelegate;->trySetContentDescription(Landroid/view/View;II)V
 
-    iget-object v0, p0, Landroid/widget/TimePickerSpinnerDelegate;->mHourSpinner:Landroid/widget/NumberPicker;
+    iget-object v0, p0, Landroid/widget/TimePickerSpinnerDelegate;->mMinuteSpinner:Landroid/widget/NumberPicker;
 
-    const v1, 0x10404b1
+    const v1, 0x1040a30
 
     invoke-direct {p0, v0, v2, v1}, Landroid/widget/TimePickerSpinnerDelegate;->trySetContentDescription(Landroid/view/View;II)V
 
     iget-object v0, p0, Landroid/widget/TimePickerSpinnerDelegate;->mHourSpinner:Landroid/widget/NumberPicker;
 
-    const v1, 0x10404b2
+    const v1, 0x1040a35
 
     invoke-direct {p0, v0, v3, v1}, Landroid/widget/TimePickerSpinnerDelegate;->trySetContentDescription(Landroid/view/View;II)V
+
+    iget-object v0, p0, Landroid/widget/TimePickerSpinnerDelegate;->mHourSpinner:Landroid/widget/NumberPicker;
+
+    const v1, 0x1040a2f
+
+    invoke-direct {p0, v0, v2, v1}, Landroid/widget/TimePickerSpinnerDelegate;->trySetContentDescription(Landroid/view/View;II)V
 
     iget-object v0, p0, Landroid/widget/TimePickerSpinnerDelegate;->mAmPmSpinner:Landroid/widget/NumberPicker;
 
@@ -822,15 +845,15 @@
 
     iget-object v0, p0, Landroid/widget/TimePickerSpinnerDelegate;->mAmPmSpinner:Landroid/widget/NumberPicker;
 
-    const v1, 0x10404b3
+    const v1, 0x1040a37
 
-    invoke-direct {p0, v0, v2, v1}, Landroid/widget/TimePickerSpinnerDelegate;->trySetContentDescription(Landroid/view/View;II)V
+    invoke-direct {p0, v0, v3, v1}, Landroid/widget/TimePickerSpinnerDelegate;->trySetContentDescription(Landroid/view/View;II)V
 
     iget-object v0, p0, Landroid/widget/TimePickerSpinnerDelegate;->mAmPmSpinner:Landroid/widget/NumberPicker;
 
-    const v1, 0x10404b4
+    const v1, 0x1040a31
 
-    invoke-direct {p0, v0, v3, v1}, Landroid/widget/TimePickerSpinnerDelegate;->trySetContentDescription(Landroid/view/View;II)V
+    invoke-direct {p0, v0, v2, v1}, Landroid/widget/TimePickerSpinnerDelegate;->trySetContentDescription(Landroid/view/View;II)V
 
     :cond_0
     return-void
@@ -906,7 +929,7 @@
     const-string/jumbo v4, "Hm"
 
     :goto_0
-    iget-object v5, p0, Landroid/widget/TimePicker$AbstractTimePickerDelegate;->mLocale:Ljava/util/Locale;
+    iget-object v5, p0, Landroid/widget/TimePickerSpinnerDelegate;->mLocale:Ljava/util/Locale;
 
     invoke-static {v5, v4}, Landroid/text/format/DateFormat;->getBestDateTimePattern(Ljava/util/Locale;Ljava/lang/String;)Ljava/lang/String;
 
@@ -985,7 +1008,7 @@
 
     if-eqz v0, :cond_0
 
-    iget-object v1, p0, Landroid/widget/TimePicker$AbstractTimePickerDelegate;->mContext:Landroid/content/Context;
+    iget-object v1, p0, Landroid/widget/TimePickerSpinnerDelegate;->mContext:Landroid/content/Context;
 
     invoke-virtual {v1, p3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1016,21 +1039,21 @@
 
     iget-object v1, p0, Landroid/widget/TimePickerSpinnerDelegate;->mAmPmSpinner:Landroid/widget/NumberPicker;
 
-    invoke-virtual {v1, v2}, Landroid/view/View;->setVisibility(I)V
+    invoke-virtual {v1, v2}, Landroid/widget/NumberPicker;->setVisibility(I)V
 
     :goto_0
-    iget-object v1, p0, Landroid/widget/TimePicker$AbstractTimePickerDelegate;->mDelegator:Landroid/widget/TimePicker;
+    iget-object v1, p0, Landroid/widget/TimePickerSpinnerDelegate;->mDelegator:Landroid/widget/TimePicker;
 
     const/4 v2, 0x4
 
-    invoke-virtual {v1, v2}, Landroid/view/View;->sendAccessibilityEvent(I)V
+    invoke-virtual {v1, v2}, Landroid/widget/TimePicker;->sendAccessibilityEvent(I)V
 
     return-void
 
     :cond_0
     iget-object v1, p0, Landroid/widget/TimePickerSpinnerDelegate;->mAmPmButton:Landroid/widget/Button;
 
-    invoke-virtual {v1, v2}, Landroid/view/View;->setVisibility(I)V
+    invoke-virtual {v1, v2}, Landroid/widget/Button;->setVisibility(I)V
 
     goto :goto_0
 
@@ -1052,7 +1075,7 @@
 
     iget-object v1, p0, Landroid/widget/TimePickerSpinnerDelegate;->mAmPmSpinner:Landroid/widget/NumberPicker;
 
-    invoke-virtual {v1, v3}, Landroid/view/View;->setVisibility(I)V
+    invoke-virtual {v1, v3}, Landroid/widget/NumberPicker;->setVisibility(I)V
 
     goto :goto_0
 
@@ -1068,11 +1091,11 @@
 
     aget-object v2, v2, v0
 
-    invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+    invoke-virtual {v1, v2}, Landroid/widget/Button;->setText(Ljava/lang/CharSequence;)V
 
     iget-object v1, p0, Landroid/widget/TimePickerSpinnerDelegate;->mAmPmButton:Landroid/widget/Button;
 
-    invoke-virtual {v1, v3}, Landroid/view/View;->setVisibility(I)V
+    invoke-virtual {v1, v3}, Landroid/widget/Button;->setVisibility(I)V
 
     goto :goto_0
 .end method
@@ -1194,11 +1217,11 @@
 
     iget-object v1, p0, Landroid/widget/TimePickerSpinnerDelegate;->mHourSpinnerInput:Landroid/widget/EditText;
 
-    invoke-virtual {v1}, Landroid/view/View;->clearFocus()V
+    invoke-virtual {v1}, Landroid/widget/EditText;->clearFocus()V
 
-    iget-object v1, p0, Landroid/widget/TimePicker$AbstractTimePickerDelegate;->mDelegator:Landroid/widget/TimePicker;
+    iget-object v1, p0, Landroid/widget/TimePickerSpinnerDelegate;->mDelegator:Landroid/widget/TimePicker;
 
-    invoke-virtual {v1}, Landroid/view/View;->getWindowToken()Landroid/os/IBinder;
+    invoke-virtual {v1}, Landroid/widget/TimePicker;->getWindowToken()Landroid/os/IBinder;
 
     move-result-object v1
 
@@ -1219,11 +1242,11 @@
 
     iget-object v1, p0, Landroid/widget/TimePickerSpinnerDelegate;->mMinuteSpinnerInput:Landroid/widget/EditText;
 
-    invoke-virtual {v1}, Landroid/view/View;->clearFocus()V
+    invoke-virtual {v1}, Landroid/widget/EditText;->clearFocus()V
 
-    iget-object v1, p0, Landroid/widget/TimePicker$AbstractTimePickerDelegate;->mDelegator:Landroid/widget/TimePicker;
+    iget-object v1, p0, Landroid/widget/TimePickerSpinnerDelegate;->mDelegator:Landroid/widget/TimePicker;
 
-    invoke-virtual {v1}, Landroid/view/View;->getWindowToken()Landroid/os/IBinder;
+    invoke-virtual {v1}, Landroid/widget/TimePicker;->getWindowToken()Landroid/os/IBinder;
 
     move-result-object v1
 
@@ -1242,11 +1265,11 @@
 
     iget-object v1, p0, Landroid/widget/TimePickerSpinnerDelegate;->mAmPmSpinnerInput:Landroid/widget/EditText;
 
-    invoke-virtual {v1}, Landroid/view/View;->clearFocus()V
+    invoke-virtual {v1}, Landroid/widget/EditText;->clearFocus()V
 
-    iget-object v1, p0, Landroid/widget/TimePicker$AbstractTimePickerDelegate;->mDelegator:Landroid/widget/TimePicker;
+    iget-object v1, p0, Landroid/widget/TimePickerSpinnerDelegate;->mDelegator:Landroid/widget/TimePicker;
 
-    invoke-virtual {v1}, Landroid/view/View;->getWindowToken()Landroid/os/IBinder;
+    invoke-virtual {v1}, Landroid/widget/TimePicker;->getWindowToken()Landroid/os/IBinder;
 
     move-result-object v1
 
@@ -1268,7 +1291,7 @@
 
     const/4 v1, 0x6
 
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setImeOptions(I)V
+    invoke-virtual {v0, v1}, Landroid/widget/EditText;->setImeOptions(I)V
 
     :goto_0
     return-void
@@ -1278,7 +1301,7 @@
 
     const/4 v1, 0x5
 
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setImeOptions(I)V
+    invoke-virtual {v0, v1}, Landroid/widget/EditText;->setImeOptions(I)V
 
     goto :goto_0
 .end method
@@ -1295,12 +1318,20 @@
     return v0
 .end method
 
+.method public getAmView()Landroid/view/View;
+    .locals 1
+
+    iget-object v0, p0, Landroid/widget/TimePickerSpinnerDelegate;->mAmPmSpinnerInput:Landroid/widget/EditText;
+
+    return-object v0
+.end method
+
 .method public getBaseline()I
     .locals 1
 
     iget-object v0, p0, Landroid/widget/TimePickerSpinnerDelegate;->mHourSpinner:Landroid/widget/NumberPicker;
 
-    invoke-virtual {v0}, Landroid/widget/LinearLayout;->getBaseline()I
+    invoke-virtual {v0}, Landroid/widget/NumberPicker;->getBaseline()I
 
     move-result v0
 
@@ -1341,6 +1372,14 @@
     return v1
 .end method
 
+.method public getHourView()Landroid/view/View;
+    .locals 1
+
+    iget-object v0, p0, Landroid/widget/TimePickerSpinnerDelegate;->mHourSpinnerInput:Landroid/widget/EditText;
+
+    return-object v0
+.end method
+
 .method public getMinute()I
     .locals 1
 
@@ -1351,6 +1390,22 @@
     move-result v0
 
     return v0
+.end method
+
+.method public getMinuteView()Landroid/view/View;
+    .locals 1
+
+    iget-object v0, p0, Landroid/widget/TimePickerSpinnerDelegate;->mMinuteSpinnerInput:Landroid/widget/EditText;
+
+    return-object v0
+.end method
+
+.method public getPmView()Landroid/view/View;
+    .locals 1
+
+    iget-object v0, p0, Landroid/widget/TimePickerSpinnerDelegate;->mAmPmSpinnerInput:Landroid/widget/EditText;
+
+    return-object v0
 .end method
 
 .method public is24Hour()Z
@@ -1371,6 +1426,8 @@
 
 .method public onPopulateAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)V
     .locals 6
+
+    const/4 v0, 0x1
 
     iget-boolean v2, p0, Landroid/widget/TimePickerSpinnerDelegate;->mIs24HourView:Z
 
@@ -1399,7 +1456,7 @@
 
     invoke-virtual {v2, v4, v3}, Ljava/util/Calendar;->set(II)V
 
-    iget-object v2, p0, Landroid/widget/TimePicker$AbstractTimePickerDelegate;->mContext:Landroid/content/Context;
+    iget-object v2, p0, Landroid/widget/TimePickerSpinnerDelegate;->mContext:Landroid/content/Context;
 
     iget-object v3, p0, Landroid/widget/TimePickerSpinnerDelegate;->mTempCalendar:Ljava/util/Calendar;
 
@@ -1411,7 +1468,7 @@
 
     move-result-object v1
 
-    invoke-virtual {p1}, Landroid/view/accessibility/AccessibilityRecord;->getText()Ljava/util/List;
+    invoke-virtual {p1}, Landroid/view/accessibility/AccessibilityEvent;->getText()Ljava/util/List;
 
     move-result-object v2
 
@@ -1434,9 +1491,7 @@
 
     move-object v0, p1
 
-    nop
-
-    nop
+    check-cast v0, Landroid/widget/TimePicker$AbstractTimePickerDelegate$SavedState;
 
     invoke-virtual {v0}, Landroid/widget/TimePicker$AbstractTimePickerDelegate$SavedState;->getHour()I
 
@@ -1512,7 +1567,7 @@
     :cond_1
     iget-object v0, p0, Landroid/widget/TimePickerSpinnerDelegate;->mAmPmButton:Landroid/widget/Button;
 
-    invoke-virtual {v0, p1}, Landroid/widget/TextView;->setEnabled(Z)V
+    invoke-virtual {v0, p1}, Landroid/widget/Button;->setEnabled(Z)V
 
     goto :goto_0
 .end method
@@ -1579,10 +1634,10 @@
     return-void
 .end method
 
-.method public setOnTimeChangedListener(Landroid/widget/TimePicker$OnTimeChangedListener;)V
-    .locals 0
+.method public validateInput()Z
+    .locals 1
 
-    iput-object p1, p0, Landroid/widget/TimePicker$AbstractTimePickerDelegate;->mOnTimeChangedListener:Landroid/widget/TimePicker$OnTimeChangedListener;
+    const/4 v0, 0x1
 
-    return-void
+    return v0
 .end method

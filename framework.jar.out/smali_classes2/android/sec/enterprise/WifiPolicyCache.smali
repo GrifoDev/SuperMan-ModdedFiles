@@ -149,6 +149,20 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    const/4 v1, 0x0
+
+    iput v1, p0, Landroid/sec/enterprise/WifiPolicyCache;->mMinimumSecurityLevel:I
+
+    iput-boolean v2, p0, Landroid/sec/enterprise/WifiPolicyCache;->mWifiAllowed:Z
+
+    iput-boolean v2, p0, Landroid/sec/enterprise/WifiPolicyCache;->mAllowStateChange:Z
+
+    iput-boolean v2, p0, Landroid/sec/enterprise/WifiPolicyCache;->mAllowAutomaticConnections:Z
+
+    iput-boolean v2, p0, Landroid/sec/enterprise/WifiPolicyCache;->mAllowUserChanges:Z
+
+    iput-boolean v2, p0, Landroid/sec/enterprise/WifiPolicyCache;->mPromptCredentialsEnabled:Z
+
     new-instance v1, Ljava/util/ArrayList;
 
     invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
@@ -161,21 +175,11 @@
 
     iput-object v1, p0, Landroid/sec/enterprise/WifiPolicyCache;->mBlockedSsids:Ljava/util/List;
 
-    iput-boolean v2, p0, Landroid/sec/enterprise/WifiPolicyCache;->mAllowUserChanges:Z
-
-    iput-boolean v2, p0, Landroid/sec/enterprise/WifiPolicyCache;->mWifiAllowed:Z
-
     new-instance v1, Ljava/util/HashMap;
 
     invoke-direct {v1}, Ljava/util/HashMap;-><init>()V
 
     iput-object v1, p0, Landroid/sec/enterprise/WifiPolicyCache;->mAllowUserProfiles:Ljava/util/HashMap;
-
-    iput-boolean v2, p0, Landroid/sec/enterprise/WifiPolicyCache;->mPromptCredentialsEnabled:Z
-
-    const/4 v1, 0x0
-
-    iput v1, p0, Landroid/sec/enterprise/WifiPolicyCache;->mMinimumSecurityLevel:I
 
     new-instance v1, Ljava/util/ArrayList;
 
@@ -188,10 +192,6 @@
     invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v1, p0, Landroid/sec/enterprise/WifiPolicyCache;->mWhiteListedSSIDs:Ljava/util/List;
-
-    iput-boolean v2, p0, Landroid/sec/enterprise/WifiPolicyCache;->mAllowAutomaticConnections:Z
-
-    iput-boolean v2, p0, Landroid/sec/enterprise/WifiPolicyCache;->mAllowStateChange:Z
 
     invoke-static {}, Landroid/sec/enterprise/EnterpriseDeviceManager;->getInstance()Landroid/sec/enterprise/EnterpriseDeviceManager;
 
@@ -309,7 +309,7 @@
 
     iget-object v3, p0, Landroid/sec/enterprise/WifiPolicyCache;->mWifiPolicy:Landroid/sec/enterprise/WifiPolicy;
 
-    invoke-virtual {v3}, Landroid/sec/enterprise/WifiPolicy;->isWifiStateChangeAllowed()Z
+    invoke-virtual {v3}, Landroid/sec/enterprise/WifiPolicy;->isWifiAllowed()Z
 
     move-result v3
 
@@ -543,7 +543,7 @@
 
     iget-object v3, p0, Landroid/sec/enterprise/WifiPolicyCache;->mWifiPolicy:Landroid/sec/enterprise/WifiPolicy;
 
-    invoke-virtual {v3}, Landroid/sec/enterprise/WifiPolicy;->isWifiStateChangeAllowed()Z
+    invoke-virtual {v3}, Landroid/sec/enterprise/WifiPolicy;->isWifiAllowed()Z
 
     move-result v3
 
@@ -710,15 +710,25 @@
 .end method
 
 .method private showMessage(I)V
-    .locals 2
+    .locals 3
 
-    iget-object v0, p0, Landroid/sec/enterprise/WifiPolicyCache;->mContext:Landroid/content/Context;
+    iget-object v1, p0, Landroid/sec/enterprise/WifiPolicyCache;->mContext:Landroid/content/Context;
 
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
-    invoke-static {v0, p1, v1}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
+    invoke-static {v1, p1, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
     move-result-object v0
+
+    invoke-virtual {v0}, Landroid/widget/Toast;->getWindowParams()Landroid/view/WindowManager$LayoutParams;
+
+    move-result-object v1
+
+    iget v2, v1, Landroid/view/WindowManager$LayoutParams;->privateFlags:I
+
+    or-int/lit8 v2, v2, 0x10
+
+    iput v2, v1, Landroid/view/WindowManager$LayoutParams;->privateFlags:I
 
     invoke-virtual {v0}, Landroid/widget/Toast;->show()V
 
@@ -727,6 +737,126 @@
 
 
 # virtual methods
+.method public dump(Ljava/io/PrintWriter;Ljava/lang/String;)V
+    .locals 4
+
+    const/4 v3, 0x0
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string/jumbo v1, "  mWifiAllowed : "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {p0, v3}, Landroid/sec/enterprise/WifiPolicyCache;->isWifiAllowed(Z)Z
+
+    move-result v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-static {}, Ljava/lang/System;->lineSeparator()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string/jumbo v1, "  mAllowStateChange : "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {p0, v3}, Landroid/sec/enterprise/WifiPolicyCache;->isWifiStateChangeAllowed(Z)Z
+
+    move-result v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-static {}, Ljava/lang/System;->lineSeparator()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string/jumbo v1, "  mAllowAutomaticConnections : "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {p0}, Landroid/sec/enterprise/WifiPolicyCache;->getAutomaticConnectionToWifi()Z
+
+    move-result v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-static {}, Ljava/lang/System;->lineSeparator()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string/jumbo v1, "  mAllowUserChanges : "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {p0}, Landroid/sec/enterprise/WifiPolicyCache;->getAllowUserChanges()Z
+
+    move-result v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-static {}, Ljava/lang/System;->lineSeparator()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string/jumbo v1, "  mPromptCredentialsEnabled : "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {p0}, Landroid/sec/enterprise/WifiPolicyCache;->getPromptCredentialsEnabled()Z
+
+    move-result v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-static {}, Ljava/lang/System;->lineSeparator()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {p1, v1}, Ljava/io/PrintWriter;->write(Ljava/lang/String;)V
+
+    return-void
+.end method
+
 .method public declared-synchronized getAllowUserChanges()Z
     .locals 1
 
@@ -910,7 +1040,7 @@
 
     if-eqz p2, :cond_1
 
-    const v0, 0x1040912
+    const v0, 0x10402d0
 
     invoke-direct {p0, v0}, Landroid/sec/enterprise/WifiPolicyCache;->showMessage(I)V
     :try_end_0
@@ -941,7 +1071,7 @@
 
     if-eqz p2, :cond_3
 
-    const v0, 0x1040914
+    const v0, 0x10402d1
 
     invoke-direct {p0, v0}, Landroid/sec/enterprise/WifiPolicyCache;->showMessage(I)V
     :try_end_1
@@ -1003,7 +1133,7 @@
     :cond_6
     if-eqz p2, :cond_7
 
-    const v0, 0x1040912
+    const v0, 0x10402d0
 
     invoke-direct {p0, v0}, Landroid/sec/enterprise/WifiPolicyCache;->showMessage(I)V
     :try_end_3
@@ -1122,7 +1252,9 @@
 
     move-result v3
 
-    if-nez v3, :cond_2
+    xor-int/lit8 v3, v3, 0x1
+
+    if-eqz v3, :cond_2
 
     iget-object v3, p1, Landroid/net/wifi/WifiConfiguration;->preSharedKey:Ljava/lang/String;
 

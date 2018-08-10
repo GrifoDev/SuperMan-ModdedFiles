@@ -7,8 +7,8 @@
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Landroid/util/jar/StrictJarFile$EntryIterator;,
+        Landroid/util/jar/StrictJarFile$FDStream;,
         Landroid/util/jar/StrictJarFile$JarFileInputStream;,
-        Landroid/util/jar/StrictJarFile$RAFStream;,
         Landroid/util/jar/StrictJarFile$ZipInflaterInputStream;
     }
 .end annotation
@@ -17,6 +17,8 @@
 # instance fields
 .field private closed:Z
 
+.field private final fd:Ljava/io/FileDescriptor;
+
 .field private final guard:Ldalvik/system/CloseGuard;
 
 .field private final isSigned:Z
@@ -24,8 +26,6 @@
 .field private final manifest:Landroid/util/jar/StrictJarManifest;
 
 .field private final nativeHandle:J
-
-.field private final raf:Ljava/io/RandomAccessFile;
 
 .field private final verifier:Landroid/util/jar/StrictJarVerifier;
 
@@ -51,6 +51,64 @@
     return-wide v0
 .end method
 
+.method public constructor <init>(Ljava/io/FileDescriptor;)V
+    .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;,
+            Ljava/lang/SecurityException;
+        }
+    .end annotation
+
+    const/4 v0, 0x1
+
+    invoke-direct {p0, p1, v0, v0}, Landroid/util/jar/StrictJarFile;-><init>(Ljava/io/FileDescriptor;ZZ)V
+
+    return-void
+.end method
+
+.method public constructor <init>(Ljava/io/FileDescriptor;ZZ)V
+    .locals 2
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;,
+            Ljava/lang/SecurityException;
+        }
+    .end annotation
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v1, "[fd:"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {p1}, Ljava/io/FileDescriptor;->getInt$()I
+
+    move-result v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string/jumbo v1, "]"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-direct {p0, v0, p1, p2, p3}, Landroid/util/jar/StrictJarFile;-><init>(Ljava/lang/String;Ljava/io/FileDescriptor;ZZ)V
+
+    return-void
+.end method
+
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 1
     .annotation system Ldalvik/annotation/Throws;
@@ -67,14 +125,16 @@
     return-void
 .end method
 
-.method public constructor <init>(Ljava/lang/String;ZZ)V
-    .locals 10
+.method private constructor <init>(Ljava/lang/String;Ljava/io/FileDescriptor;ZZ)V
+    .locals 11
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
             Ljava/lang/SecurityException;
         }
     .end annotation
+
+    const/4 v10, 0x1
 
     const/4 v6, 0x0
 
@@ -86,21 +146,19 @@
 
     iput-object v5, p0, Landroid/util/jar/StrictJarFile;->guard:Ldalvik/system/CloseGuard;
 
-    invoke-static {p1}, Landroid/util/jar/StrictJarFile;->nativeOpenJarFile(Ljava/lang/String;)J
+    invoke-virtual {p2}, Ljava/io/FileDescriptor;->getInt$()I
+
+    move-result v5
+
+    invoke-static {p1, v5}, Landroid/util/jar/StrictJarFile;->nativeOpenJarFile(Ljava/lang/String;I)J
 
     move-result-wide v8
 
     iput-wide v8, p0, Landroid/util/jar/StrictJarFile;->nativeHandle:J
 
-    new-instance v5, Ljava/io/RandomAccessFile;
+    iput-object p2, p0, Landroid/util/jar/StrictJarFile;->fd:Ljava/io/FileDescriptor;
 
-    const-string/jumbo v7, "r"
-
-    invoke-direct {v5, p1, v7}, Ljava/io/RandomAccessFile;-><init>(Ljava/lang/String;Ljava/lang/String;)V
-
-    iput-object v5, p0, Landroid/util/jar/StrictJarFile;->raf:Ljava/io/RandomAccessFile;
-
-    if-eqz p2, :cond_3
+    if-eqz p3, :cond_3
 
     :try_start_0
     invoke-direct {p0}, Landroid/util/jar/StrictJarFile;->getMetaEntries()Ljava/util/HashMap;
@@ -127,7 +185,7 @@
 
     iget-object v7, p0, Landroid/util/jar/StrictJarFile;->manifest:Landroid/util/jar/StrictJarManifest;
 
-    invoke-direct {v5, p1, v7, v4, p3}, Landroid/util/jar/StrictJarVerifier;-><init>(Ljava/lang/String;Landroid/util/jar/StrictJarManifest;Ljava/util/HashMap;Z)V
+    invoke-direct {v5, p1, v7, v4, p4}, Landroid/util/jar/StrictJarVerifier;-><init>(Ljava/lang/String;Landroid/util/jar/StrictJarManifest;Ljava/util/HashMap;Z)V
 
     iput-object v5, p0, Landroid/util/jar/StrictJarFile;->verifier:Landroid/util/jar/StrictJarVerifier;
 
@@ -170,11 +228,7 @@
 
     invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v6, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    const-string/jumbo v7, ": File "
+    const-string/jumbo v7, "File "
 
     invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -208,9 +262,9 @@
 
     invoke-static {v6, v7}, Landroid/util/jar/StrictJarFile;->nativeClose(J)V
 
-    iget-object v5, p0, Landroid/util/jar/StrictJarFile;->raf:Ljava/io/RandomAccessFile;
+    invoke-static {p2}, Llibcore/io/IoUtils;->closeQuietly(Ljava/io/FileDescriptor;)V
 
-    invoke-static {v5}, Llibcore/io/IoUtils;->closeQuietly(Ljava/lang/AutoCloseable;)V
+    iput-boolean v10, p0, Landroid/util/jar/StrictJarFile;->closed:Z
 
     throw v0
 
@@ -268,6 +322,26 @@
     .catch Ljava/lang/SecurityException; {:try_start_2 .. :try_end_2} :catch_0
 
     goto :goto_1
+.end method
+
+.method public constructor <init>(Ljava/lang/String;ZZ)V
+    .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;,
+            Ljava/lang/SecurityException;
+        }
+    .end annotation
+
+    sget v0, Landroid/system/OsConstants;->O_RDONLY:I
+
+    invoke-static {p1, v0}, Llibcore/io/IoBridge;->open(Ljava/lang/String;I)Ljava/io/FileDescriptor;
+
+    move-result-object v0
+
+    invoke-direct {p0, p1, v0, p2, p3}, Landroid/util/jar/StrictJarFile;-><init>(Ljava/lang/String;Ljava/io/FileDescriptor;ZZ)V
+
+    return-void
 .end method
 
 .method private getMetaEntries()Ljava/util/HashMap;
@@ -342,9 +416,9 @@
 
     if-nez v1, :cond_0
 
-    new-instance v0, Landroid/util/jar/StrictJarFile$RAFStream;
+    new-instance v0, Landroid/util/jar/StrictJarFile$FDStream;
 
-    iget-object v1, p0, Landroid/util/jar/StrictJarFile;->raf:Ljava/io/RandomAccessFile;
+    iget-object v1, p0, Landroid/util/jar/StrictJarFile;->fd:Ljava/io/FileDescriptor;
 
     invoke-virtual {p1}, Ljava/util/zip/ZipEntry;->getDataOffset()J
 
@@ -360,14 +434,14 @@
 
     add-long/2addr v4, v8
 
-    invoke-direct/range {v0 .. v5}, Landroid/util/jar/StrictJarFile$RAFStream;-><init>(Ljava/io/RandomAccessFile;JJ)V
+    invoke-direct/range {v0 .. v5}, Landroid/util/jar/StrictJarFile$FDStream;-><init>(Ljava/io/FileDescriptor;JJ)V
 
     return-object v0
 
     :cond_0
-    new-instance v0, Landroid/util/jar/StrictJarFile$RAFStream;
+    new-instance v0, Landroid/util/jar/StrictJarFile$FDStream;
 
-    iget-object v1, p0, Landroid/util/jar/StrictJarFile;->raf:Ljava/io/RandomAccessFile;
+    iget-object v1, p0, Landroid/util/jar/StrictJarFile;->fd:Ljava/io/FileDescriptor;
 
     invoke-virtual {p1}, Ljava/util/zip/ZipEntry;->getDataOffset()J
 
@@ -383,7 +457,7 @@
 
     add-long/2addr v4, v8
 
-    invoke-direct/range {v0 .. v5}, Landroid/util/jar/StrictJarFile$RAFStream;-><init>(Ljava/io/RandomAccessFile;JJ)V
+    invoke-direct/range {v0 .. v5}, Landroid/util/jar/StrictJarFile$FDStream;-><init>(Ljava/io/FileDescriptor;JJ)V
 
     invoke-virtual {p1}, Ljava/util/zip/ZipEntry;->getSize()J
 
@@ -425,7 +499,7 @@
 .method private static native nativeNextEntry(J)Ljava/util/zip/ZipEntry;
 .end method
 
-.method private static native nativeOpenJarFile(Ljava/lang/String;)J
+.method private static native nativeOpenJarFile(Ljava/lang/String;I)J
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -448,26 +522,65 @@
 
     iget-boolean v0, p0, Landroid/util/jar/StrictJarFile;->closed:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1
+
+    iget-object v0, p0, Landroid/util/jar/StrictJarFile;->guard:Ldalvik/system/CloseGuard;
+
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Landroid/util/jar/StrictJarFile;->guard:Ldalvik/system/CloseGuard;
 
     invoke-virtual {v0}, Ldalvik/system/CloseGuard;->close()V
 
+    :cond_0
     iget-wide v0, p0, Landroid/util/jar/StrictJarFile;->nativeHandle:J
 
     invoke-static {v0, v1}, Landroid/util/jar/StrictJarFile;->nativeClose(J)V
 
-    iget-object v0, p0, Landroid/util/jar/StrictJarFile;->raf:Ljava/io/RandomAccessFile;
+    iget-object v0, p0, Landroid/util/jar/StrictJarFile;->fd:Ljava/io/FileDescriptor;
 
-    invoke-static {v0}, Llibcore/io/IoUtils;->closeQuietly(Ljava/lang/AutoCloseable;)V
+    invoke-static {v0}, Llibcore/io/IoUtils;->closeQuietly(Ljava/io/FileDescriptor;)V
 
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Landroid/util/jar/StrictJarFile;->closed:Z
 
-    :cond_0
+    :cond_1
     return-void
+.end method
+
+.method protected finalize()V
+    .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/lang/Throwable;
+        }
+    .end annotation
+
+    :try_start_0
+    iget-object v0, p0, Landroid/util/jar/StrictJarFile;->guard:Ldalvik/system/CloseGuard;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Landroid/util/jar/StrictJarFile;->guard:Ldalvik/system/CloseGuard;
+
+    invoke-virtual {v0}, Ldalvik/system/CloseGuard;->warnIfOpen()V
+
+    :cond_0
+    invoke-virtual {p0}, Landroid/util/jar/StrictJarFile;->close()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-super {p0}, Ljava/lang/Object;->finalize()V
+
+    return-void
+
+    :catchall_0
+    move-exception v0
+
+    invoke-super {p0}, Ljava/lang/Object;->finalize()V
+
+    throw v0
 .end method
 
 .method public findEntry(Ljava/lang/String;)Ljava/util/zip/ZipEntry;

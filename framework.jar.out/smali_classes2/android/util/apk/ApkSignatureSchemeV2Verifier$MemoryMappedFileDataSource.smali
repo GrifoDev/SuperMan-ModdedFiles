@@ -154,7 +154,7 @@
 
     const/4 v5, 0x0
 
-    invoke-virtual {v14, v5}, Ljava/nio/Buffer;->position(I)Ljava/nio/Buffer;
+    invoke-virtual {v14, v5}, Ljava/nio/ByteBuffer;->position(I)Ljava/nio/Buffer;
 
     move-object/from16 v0, v24
 

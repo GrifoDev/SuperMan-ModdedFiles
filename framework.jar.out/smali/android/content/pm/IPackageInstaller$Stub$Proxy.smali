@@ -575,7 +575,7 @@
     throw v2
 .end method
 
-.method public uninstall(Ljava/lang/String;Ljava/lang/String;ILandroid/content/IntentSender;I)V
+.method public uninstall(Landroid/content/pm/VersionedPackage;Ljava/lang/String;ILandroid/content/IntentSender;I)V
     .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -596,13 +596,22 @@
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    if-eqz p1, :cond_0
 
+    const/4 v2, 0x1
+
+    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
+
+    const/4 v2, 0x0
+
+    invoke-virtual {p1, v0, v2}, Landroid/content/pm/VersionedPackage;->writeToParcel(Landroid/os/Parcel;I)V
+
+    :goto_0
     invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
     invoke-virtual {v0, p3}, Landroid/os/Parcel;->writeInt(I)V
 
-    if-eqz p4, :cond_0
+    if-eqz p4, :cond_1
 
     const/4 v2, 0x1
 
@@ -612,7 +621,7 @@
 
     invoke-virtual {p4, v0, v2}, Landroid/content/IntentSender;->writeToParcel(Landroid/os/Parcel;I)V
 
-    :goto_0
+    :goto_1
     invoke-virtual {v0, p5}, Landroid/os/Parcel;->writeInt(I)V
 
     iget-object v2, p0, Landroid/content/pm/IPackageInstaller$Stub$Proxy;->mRemote:Landroid/os/IBinder;
@@ -651,6 +660,16 @@
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
     throw v2
+
+    :cond_1
+    const/4 v2, 0x0
+
+    :try_start_2
+    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+
+    goto :goto_1
 .end method
 
 .method public unregisterCallback(Landroid/content/pm/IPackageInstallerCallback;)V

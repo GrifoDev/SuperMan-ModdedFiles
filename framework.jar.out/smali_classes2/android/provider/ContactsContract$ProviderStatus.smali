@@ -19,6 +19,8 @@
 
 .field public static final CONTENT_URI:Landroid/net/Uri;
 
+.field public static final DATABASE_CREATION_TIMESTAMP:Ljava/lang/String; = "database_creation_timestamp"
+
 .field public static final STATUS:Ljava/lang/String; = "status"
 
 .field public static final STATUS_BUSY:I = 0x1

@@ -107,34 +107,34 @@
 .end method
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    .locals 10
+    .locals 11
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    const/4 v9, 0x1
-
     sparse-switch p1, :sswitch_data_0
 
     invoke-super {p0, p1, p2, p3, p4}, Landroid/os/Binder;->onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    move-result v8
+    move-result v10
 
-    return v8
+    return v10
 
     :sswitch_0
-    const-string/jumbo v8, "com.android.internal.telecom.IVideoProvider"
+    const-string/jumbo v10, "com.android.internal.telecom.IVideoProvider"
 
-    invoke-virtual {p3, v8}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p3, v10}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    return v9
+    const/4 v10, 0x1
+
+    return v10
 
     :sswitch_1
-    const-string/jumbo v8, "com.android.internal.telecom.IVideoProvider"
+    const-string/jumbo v10, "com.android.internal.telecom.IVideoProvider"
 
-    invoke-virtual {p2, v8}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v10}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
@@ -142,12 +142,14 @@
 
     invoke-virtual {p0, v3}, Lcom/android/internal/telecom/IVideoProvider$Stub;->addVideoCallback(Landroid/os/IBinder;)V
 
-    return v9
+    const/4 v10, 0x1
+
+    return v10
 
     :sswitch_2
-    const-string/jumbo v8, "com.android.internal.telecom.IVideoProvider"
+    const-string/jumbo v10, "com.android.internal.telecom.IVideoProvider"
 
-    invoke-virtual {p2, v8}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v10}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
@@ -155,35 +157,47 @@
 
     invoke-virtual {p0, v3}, Lcom/android/internal/telecom/IVideoProvider$Stub;->removeVideoCallback(Landroid/os/IBinder;)V
 
-    return v9
+    const/4 v10, 0x1
+
+    return v10
 
     :sswitch_3
-    const-string/jumbo v8, "com.android.internal.telecom.IVideoProvider"
+    const-string/jumbo v10, "com.android.internal.telecom.IVideoProvider"
 
-    invoke-virtual {p2, v8}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v10}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v6
 
-    invoke-virtual {p0, v6}, Lcom/android/internal/telecom/IVideoProvider$Stub;->setCamera(Ljava/lang/String;)V
+    invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
-    return v9
-
-    :sswitch_4
-    const-string/jumbo v8, "com.android.internal.telecom.IVideoProvider"
-
-    invoke-virtual {p2, v8}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    move-result-object v8
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v8
+    move-result v9
 
-    if-eqz v8, :cond_0
+    invoke-virtual {p0, v6, v8, v9}, Lcom/android/internal/telecom/IVideoProvider$Stub;->setCamera(Ljava/lang/String;Ljava/lang/String;I)V
 
-    sget-object v8, Landroid/view/Surface;->CREATOR:Landroid/os/Parcelable$Creator;
+    const/4 v10, 0x1
 
-    invoke-interface {v8, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+    return v10
+
+    :sswitch_4
+    const-string/jumbo v10, "com.android.internal.telecom.IVideoProvider"
+
+    invoke-virtual {p2, v10}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v10
+
+    if-eqz v10, :cond_0
+
+    sget-object v10, Landroid/view/Surface;->CREATOR:Landroid/os/Parcelable$Creator;
+
+    invoke-interface {v10, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
 
     move-result-object v5
 
@@ -192,7 +206,9 @@
     :goto_0
     invoke-virtual {p0, v5}, Lcom/android/internal/telecom/IVideoProvider$Stub;->setPreviewSurface(Landroid/view/Surface;)V
 
-    return v9
+    const/4 v10, 0x1
+
+    return v10
 
     :cond_0
     const/4 v5, 0x0
@@ -200,19 +216,19 @@
     goto :goto_0
 
     :sswitch_5
-    const-string/jumbo v8, "com.android.internal.telecom.IVideoProvider"
+    const-string/jumbo v10, "com.android.internal.telecom.IVideoProvider"
 
-    invoke-virtual {p2, v8}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v10}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v8
+    move-result v10
 
-    if-eqz v8, :cond_1
+    if-eqz v10, :cond_1
 
-    sget-object v8, Landroid/view/Surface;->CREATOR:Landroid/os/Parcelable$Creator;
+    sget-object v10, Landroid/view/Surface;->CREATOR:Landroid/os/Parcelable$Creator;
 
-    invoke-interface {v8, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+    invoke-interface {v10, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
 
     move-result-object v5
 
@@ -221,7 +237,9 @@
     :goto_1
     invoke-virtual {p0, v5}, Lcom/android/internal/telecom/IVideoProvider$Stub;->setDisplaySurface(Landroid/view/Surface;)V
 
-    return v9
+    const/4 v10, 0x1
+
+    return v10
 
     :cond_1
     const/4 v5, 0x0
@@ -229,9 +247,9 @@
     goto :goto_1
 
     :sswitch_6
-    const-string/jumbo v8, "com.android.internal.telecom.IVideoProvider"
+    const-string/jumbo v10, "com.android.internal.telecom.IVideoProvider"
 
-    invoke-virtual {p2, v8}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v10}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
@@ -239,12 +257,14 @@
 
     invoke-virtual {p0, v1}, Lcom/android/internal/telecom/IVideoProvider$Stub;->setDeviceOrientation(I)V
 
-    return v9
+    const/4 v10, 0x1
+
+    return v10
 
     :sswitch_7
-    const-string/jumbo v8, "com.android.internal.telecom.IVideoProvider"
+    const-string/jumbo v10, "com.android.internal.telecom.IVideoProvider"
 
-    invoke-virtual {p2, v8}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v10}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readFloat()F
 
@@ -252,22 +272,24 @@
 
     invoke-virtual {p0, v0}, Lcom/android/internal/telecom/IVideoProvider$Stub;->setZoom(F)V
 
-    return v9
+    const/4 v10, 0x1
+
+    return v10
 
     :sswitch_8
-    const-string/jumbo v8, "com.android.internal.telecom.IVideoProvider"
+    const-string/jumbo v10, "com.android.internal.telecom.IVideoProvider"
 
-    invoke-virtual {p2, v8}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v10}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v8
+    move-result v10
 
-    if-eqz v8, :cond_2
+    if-eqz v10, :cond_2
 
-    sget-object v8, Landroid/telecom/VideoProfile;->CREATOR:Landroid/os/Parcelable$Creator;
+    sget-object v10, Landroid/telecom/VideoProfile;->CREATOR:Landroid/os/Parcelable$Creator;
 
-    invoke-interface {v8, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+    invoke-interface {v10, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
 
     move-result-object v4
 
@@ -276,13 +298,13 @@
     :goto_2
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v8
+    move-result v10
 
-    if-eqz v8, :cond_3
+    if-eqz v10, :cond_3
 
-    sget-object v8, Landroid/telecom/VideoProfile;->CREATOR:Landroid/os/Parcelable$Creator;
+    sget-object v10, Landroid/telecom/VideoProfile;->CREATOR:Landroid/os/Parcelable$Creator;
 
-    invoke-interface {v8, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+    invoke-interface {v10, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
 
     move-result-object v7
 
@@ -291,7 +313,9 @@
     :goto_3
     invoke-virtual {p0, v4, v7}, Lcom/android/internal/telecom/IVideoProvider$Stub;->sendSessionModifyRequest(Landroid/telecom/VideoProfile;Landroid/telecom/VideoProfile;)V
 
-    return v9
+    const/4 v10, 0x1
+
+    return v10
 
     :cond_2
     const/4 v4, 0x0
@@ -304,19 +328,19 @@
     goto :goto_3
 
     :sswitch_9
-    const-string/jumbo v8, "com.android.internal.telecom.IVideoProvider"
+    const-string/jumbo v10, "com.android.internal.telecom.IVideoProvider"
 
-    invoke-virtual {p2, v8}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v10}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v8
+    move-result v10
 
-    if-eqz v8, :cond_4
+    if-eqz v10, :cond_4
 
-    sget-object v8, Landroid/telecom/VideoProfile;->CREATOR:Landroid/os/Parcelable$Creator;
+    sget-object v10, Landroid/telecom/VideoProfile;->CREATOR:Landroid/os/Parcelable$Creator;
 
-    invoke-interface {v8, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+    invoke-interface {v10, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
 
     move-result-object v4
 
@@ -325,7 +349,9 @@
     :goto_4
     invoke-virtual {p0, v4}, Lcom/android/internal/telecom/IVideoProvider$Stub;->sendSessionModifyResponse(Landroid/telecom/VideoProfile;)V
 
-    return v9
+    const/4 v10, 0x1
+
+    return v10
 
     :cond_4
     const/4 v4, 0x0
@@ -333,37 +359,41 @@
     goto :goto_4
 
     :sswitch_a
-    const-string/jumbo v8, "com.android.internal.telecom.IVideoProvider"
+    const-string/jumbo v10, "com.android.internal.telecom.IVideoProvider"
 
-    invoke-virtual {p2, v8}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v10}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p0}, Lcom/android/internal/telecom/IVideoProvider$Stub;->requestCameraCapabilities()V
 
-    return v9
+    const/4 v10, 0x1
+
+    return v10
 
     :sswitch_b
-    const-string/jumbo v8, "com.android.internal.telecom.IVideoProvider"
+    const-string/jumbo v10, "com.android.internal.telecom.IVideoProvider"
 
-    invoke-virtual {p2, v8}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v10}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p0}, Lcom/android/internal/telecom/IVideoProvider$Stub;->requestCallDataUsage()V
 
-    return v9
+    const/4 v10, 0x1
+
+    return v10
 
     :sswitch_c
-    const-string/jumbo v8, "com.android.internal.telecom.IVideoProvider"
+    const-string/jumbo v10, "com.android.internal.telecom.IVideoProvider"
 
-    invoke-virtual {p2, v8}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v10}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v8
+    move-result v10
 
-    if-eqz v8, :cond_5
+    if-eqz v10, :cond_5
 
-    sget-object v8, Landroid/net/Uri;->CREATOR:Landroid/os/Parcelable$Creator;
+    sget-object v10, Landroid/net/Uri;->CREATOR:Landroid/os/Parcelable$Creator;
 
-    invoke-interface {v8, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+    invoke-interface {v10, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
 
     move-result-object v2
 
@@ -372,7 +402,9 @@
     :goto_5
     invoke-virtual {p0, v2}, Lcom/android/internal/telecom/IVideoProvider$Stub;->setPauseImage(Landroid/net/Uri;)V
 
-    return v9
+    const/4 v10, 0x1
+
+    return v10
 
     :cond_5
     const/4 v2, 0x0

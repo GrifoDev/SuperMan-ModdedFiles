@@ -161,22 +161,6 @@
 
     aget-object v1, v1, v0
 
-    iget v1, v1, Landroid/net/wifi/WifiScanner$PnoSettings$PnoNetwork;->networkId:I
-
-    invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeInt(I)V
-
-    iget-object v1, p0, Landroid/net/wifi/WifiScanner$PnoSettings;->networkList:[Landroid/net/wifi/WifiScanner$PnoSettings$PnoNetwork;
-
-    aget-object v1, v1, v0
-
-    iget v1, v1, Landroid/net/wifi/WifiScanner$PnoSettings$PnoNetwork;->priority:I
-
-    invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeInt(I)V
-
-    iget-object v1, p0, Landroid/net/wifi/WifiScanner$PnoSettings;->networkList:[Landroid/net/wifi/WifiScanner$PnoSettings$PnoNetwork;
-
-    aget-object v1, v1, v0
-
     iget-byte v1, v1, Landroid/net/wifi/WifiScanner$PnoSettings$PnoNetwork;->flags:B
 
     invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeByte(B)V

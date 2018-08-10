@@ -66,7 +66,7 @@
     return v0
 .end method
 
-.method public drawText(Landroid/graphics/Canvas;IIFFLandroid/graphics/Paint;)V
+.method public drawText(Landroid/graphics/BaseCanvas;IIFFLandroid/graphics/Paint;)V
     .locals 7
 
     iget-object v1, p0, Landroid/widget/TextView$CharWrapper;->mChars:[C
@@ -85,12 +85,12 @@
 
     move-object v6, p6
 
-    invoke-virtual/range {v0 .. v6}, Landroid/graphics/Canvas;->drawText([CIIFFLandroid/graphics/Paint;)V
+    invoke-virtual/range {v0 .. v6}, Landroid/graphics/BaseCanvas;->drawText([CIIFFLandroid/graphics/Paint;)V
 
     return-void
 .end method
 
-.method public drawTextRun(Landroid/graphics/Canvas;IIIIFFZLandroid/graphics/Paint;)V
+.method public drawTextRun(Landroid/graphics/BaseCanvas;IIIIFFZLandroid/graphics/Paint;)V
     .locals 10
 
     sub-int v3, p3, p2
@@ -117,7 +117,7 @@
 
     move-object/from16 v9, p9
 
-    invoke-virtual/range {v0 .. v9}, Landroid/graphics/Canvas;->drawTextRun([CIIIIFFZLandroid/graphics/Paint;)V
+    invoke-virtual/range {v0 .. v9}, Landroid/graphics/BaseCanvas;->drawTextRun([CIIIIFFZLandroid/graphics/Paint;)V
 
     return-void
 .end method

@@ -650,20 +650,16 @@
     return v11
 
     :cond_4
-    if-eqz v7, :cond_5
+    if-eqz v7, :cond_8
 
     invoke-interface {v7}, Ljava/util/Map;->isEmpty()Z
 
     move-result v8
 
-    if-eqz v8, :cond_6
+    xor-int/lit8 v8, v8, 0x1
 
-    :cond_5
-    const/4 v8, 0x1
+    if-eqz v8, :cond_8
 
-    return v8
-
-    :cond_6
     const/4 v6, 0x0
 
     invoke-interface {v7}, Ljava/util/Map;->values()Ljava/util/Collection;
@@ -674,12 +670,12 @@
 
     move-result-object v3
 
-    :cond_7
+    :cond_5
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v8
 
-    if-eqz v8, :cond_8
+    if-eqz v8, :cond_6
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -693,10 +689,10 @@
 
     or-int/2addr v6, v8
 
-    if-eqz v6, :cond_7
+    if-eqz v6, :cond_5
 
-    :cond_8
-    if-nez v6, :cond_5
+    :cond_6
+    if-nez v6, :cond_8
 
     const-string/jumbo v8, "BackupXmlParserLogging"
 
@@ -704,7 +700,7 @@
 
     move-result v8
 
-    if-eqz v8, :cond_9
+    if-eqz v8, :cond_7
 
     const-string/jumbo v8, "BackupXmlParserLogging"
 
@@ -740,8 +736,13 @@
 
     invoke-static {v8, v9}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_9
+    :cond_7
     return v11
+
+    :cond_8
+    const/4 v8, 0x1
+
+    return v8
 .end method
 
 .method private isFileSpecifiedInPathList(Ljava/io/File;Ljava/util/Collection;)Z
@@ -1394,16 +1395,11 @@
 
     move-result-object v4
 
-    if-nez v4, :cond_1
-
-    if-nez p3, :cond_0
+    if-nez v4, :cond_0
 
     return-void
 
     :cond_0
-    move-object/from16 v4, p3
-
-    :cond_1
     new-instance v12, Ljava/io/File;
 
     move-object/from16 v0, p3
@@ -1414,7 +1410,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_8
+    if-eqz v1, :cond_7
 
     new-instance v13, Ljava/util/LinkedList;
 
@@ -1422,13 +1418,13 @@
 
     invoke-virtual {v13, v12}, Ljava/util/LinkedList;->add(Ljava/lang/Object;)Z
 
-    :cond_2
+    :cond_1
     :goto_0
     invoke-virtual {v13}, Ljava/util/LinkedList;->size()I
 
     move-result v1
 
-    if-lez v1, :cond_8
+    if-lez v1, :cond_7
 
     const/4 v1, 0x0
 
@@ -1449,11 +1445,21 @@
 
     iget v1, v14, Landroid/system/StructStat;->st_mode:I
 
-    invoke-static {v1}, Landroid/system/OsConstants;->S_ISLNK(I)Z
+    invoke-static {v1}, Landroid/system/OsConstants;->S_ISREG(I)Z
 
     move-result v1
 
-    if-eqz v1, :cond_3
+    if-nez v1, :cond_2
+
+    iget v1, v14, Landroid/system/StructStat;->st_mode:I
+
+    invoke-static {v1}, Landroid/system/OsConstants;->S_ISDIR(I)Z
+
+    move-result v1
+
+    xor-int/lit8 v1, v1, 0x1
+
+    if-eqz v1, :cond_2
 
     const-string/jumbo v1, "BackupAgent"
 
@@ -1461,7 +1467,7 @@
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v3, "Symlink (skipping)!: "
+    const-string/jumbo v3, "Not a file/dir (skipping)!: "
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1515,7 +1521,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_1
 
     const-string/jumbo v1, "BackupXmlParserLogging"
 
@@ -1539,9 +1545,9 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_0
+    goto/16 :goto_0
 
-    :cond_3
+    :cond_2
     :try_start_1
     iget v1, v14, Landroid/system/StructStat;->st_mode:I
 
@@ -1549,7 +1555,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_3
 
     const-string/jumbo v1, "BackupAgent"
 
@@ -1621,7 +1627,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_1
 
     const-string/jumbo v1, "BackupXmlParserLogging"
 
@@ -1657,13 +1663,13 @@
 
     goto/16 :goto_0
 
-    :cond_4
+    :cond_3
     :try_start_2
     invoke-virtual {v11}, Ljava/io/File;->getCanonicalPath()Ljava/lang/String;
 
     move-result-object v5
 
-    if-eqz p4, :cond_5
+    if-eqz p4, :cond_4
 
     move-object/from16 v0, p4
 
@@ -1671,10 +1677,10 @@
 
     move-result v1
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_1
 
-    :cond_5
-    if-eqz p5, :cond_6
+    :cond_4
+    if-eqz p5, :cond_5
 
     move-object/from16 v0, p5
 
@@ -1682,29 +1688,29 @@
 
     move-result v1
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_1
 
-    :cond_6
+    :cond_5
     iget v1, v14, Landroid/system/StructStat;->st_mode:I
 
     invoke-static {v1}, Landroid/system/OsConstants;->S_ISDIR(I)Z
 
     move-result v1
 
-    if-eqz v1, :cond_7
+    if-eqz v1, :cond_6
 
     invoke-virtual {v11}, Ljava/io/File;->listFiles()[Ljava/io/File;
 
     move-result-object v7
 
-    if-eqz v7, :cond_7
+    if-eqz v7, :cond_6
 
     const/4 v1, 0x0
 
     array-length v2, v7
 
     :goto_1
-    if-ge v1, v2, :cond_7
+    if-ge v1, v2, :cond_6
 
     aget-object v10, v7, v1
 
@@ -1719,7 +1725,7 @@
 
     goto :goto_1
 
-    :cond_7
+    :cond_6
     const/4 v3, 0x0
 
     move-object/from16 v1, p1
@@ -1732,7 +1738,7 @@
 
     goto/16 :goto_0
 
-    :cond_8
+    :cond_7
     return-void
 .end method
 

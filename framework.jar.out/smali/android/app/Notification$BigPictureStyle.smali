@@ -130,67 +130,17 @@
 .end method
 
 .method public makeBigContentView()Landroid/widget/RemoteViews;
-    .locals 5
+    .locals 6
 
-    const v4, 0x1020090
-
-    const/4 v1, 0x0
-
-    iget-boolean v2, p0, Landroid/app/Notification$BigPictureStyle;->mBigLargeIconSet:Z
-
-    if-eqz v2, :cond_0
-
-    iget-object v2, p0, Landroid/app/Notification$BigPictureStyle;->mBuilder:Landroid/app/Notification$Builder;
-
-    invoke-static {v2}, Landroid/app/Notification$Builder;->-get2(Landroid/app/Notification$Builder;)Landroid/app/Notification;
-
-    move-result-object v2
-
-    invoke-static {v2}, Landroid/app/Notification;->-get1(Landroid/app/Notification;)Landroid/graphics/drawable/Icon;
-
-    move-result-object v1
-
-    iget-object v2, p0, Landroid/app/Notification$BigPictureStyle;->mBuilder:Landroid/app/Notification$Builder;
-
-    invoke-static {v2}, Landroid/app/Notification$Builder;->-get2(Landroid/app/Notification$Builder;)Landroid/app/Notification;
-
-    move-result-object v2
-
-    iget-object v3, p0, Landroid/app/Notification$BigPictureStyle;->mBigLargeIcon:Landroid/graphics/drawable/Icon;
-
-    invoke-static {v2, v3}, Landroid/app/Notification;->-set2(Landroid/app/Notification;Landroid/graphics/drawable/Icon;)Landroid/graphics/drawable/Icon;
-
-    :cond_0
-    iget-object v2, p0, Landroid/app/Notification$BigPictureStyle;->mBuilder:Landroid/app/Notification$Builder;
-
-    invoke-static {v2}, Landroid/app/Notification$Builder;->-wrap8(Landroid/app/Notification$Builder;)I
-
-    move-result v2
-
-    invoke-virtual {p0, v2}, Landroid/app/Notification$BigPictureStyle;->getStandardView(I)Landroid/widget/RemoteViews;
-
-    move-result-object v0
-
-    iget-boolean v2, p0, Landroid/app/Notification$BigPictureStyle;->mSummaryTextSet:Z
-
-    if-eqz v2, :cond_1
-
-    iget-object v2, p0, Landroid/app/Notification$BigPictureStyle;->mBuilder:Landroid/app/Notification$Builder;
-
-    iget-object v3, p0, Landroid/app/Notification$BigPictureStyle;->mSummaryText:Ljava/lang/CharSequence;
-
-    invoke-static {v2, v3}, Landroid/app/Notification$Builder;->-wrap12(Landroid/app/Notification$Builder;Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
-
-    move-result-object v2
-
-    invoke-virtual {v0, v4, v2}, Landroid/widget/RemoteViews;->setTextViewText(ILjava/lang/CharSequence;)V
+    const v5, 0x1020504
 
     const/4 v2, 0x0
 
-    invoke-virtual {v0, v4, v2}, Landroid/widget/RemoteViews;->setViewVisibility(II)V
+    const/4 v1, 0x0
 
-    :cond_1
-    iget-object v2, p0, Landroid/app/Notification$BigPictureStyle;->mBuilder:Landroid/app/Notification$Builder;
+    iget-boolean v3, p0, Landroid/app/Notification$BigPictureStyle;->mBigLargeIconSet:Z
+
+    if-eqz v3, :cond_0
 
     iget-object v3, p0, Landroid/app/Notification$BigPictureStyle;->mBuilder:Landroid/app/Notification$Builder;
 
@@ -198,30 +148,112 @@
 
     move-result-object v3
 
-    invoke-static {v3}, Landroid/app/Notification;->-wrap1(Landroid/app/Notification;)Z
-
-    move-result v3
-
-    invoke-virtual {v2, v0, v3}, Landroid/app/Notification$Builder;->setContentMinHeight(Landroid/widget/RemoteViews;Z)V
-
-    iget-boolean v2, p0, Landroid/app/Notification$BigPictureStyle;->mBigLargeIconSet:Z
-
-    if-eqz v2, :cond_2
-
-    iget-object v2, p0, Landroid/app/Notification$BigPictureStyle;->mBuilder:Landroid/app/Notification$Builder;
-
-    invoke-static {v2}, Landroid/app/Notification$Builder;->-get2(Landroid/app/Notification$Builder;)Landroid/app/Notification;
+    invoke-static {v3}, Landroid/app/Notification;->-get1(Landroid/app/Notification;)Landroid/graphics/drawable/Icon;
 
     move-result-object v2
 
-    invoke-static {v2, v1}, Landroid/app/Notification;->-set2(Landroid/app/Notification;Landroid/graphics/drawable/Icon;)Landroid/graphics/drawable/Icon;
+    iget-object v3, p0, Landroid/app/Notification$BigPictureStyle;->mBuilder:Landroid/app/Notification$Builder;
+
+    invoke-static {v3}, Landroid/app/Notification$Builder;->-get2(Landroid/app/Notification$Builder;)Landroid/app/Notification;
+
+    move-result-object v3
+
+    iget-object v4, p0, Landroid/app/Notification$BigPictureStyle;->mBigLargeIcon:Landroid/graphics/drawable/Icon;
+
+    invoke-static {v3, v4}, Landroid/app/Notification;->-set5(Landroid/app/Notification;Landroid/graphics/drawable/Icon;)Landroid/graphics/drawable/Icon;
+
+    iget-object v3, p0, Landroid/app/Notification$BigPictureStyle;->mBuilder:Landroid/app/Notification$Builder;
+
+    invoke-static {v3}, Landroid/app/Notification$Builder;->-get2(Landroid/app/Notification$Builder;)Landroid/app/Notification;
+
+    move-result-object v3
+
+    iget-object v1, v3, Landroid/app/Notification;->largeIcon:Landroid/graphics/Bitmap;
+
+    iget-object v3, p0, Landroid/app/Notification$BigPictureStyle;->mBuilder:Landroid/app/Notification$Builder;
+
+    invoke-static {v3}, Landroid/app/Notification$Builder;->-get2(Landroid/app/Notification$Builder;)Landroid/app/Notification;
+
+    move-result-object v3
+
+    const/4 v4, 0x0
+
+    iput-object v4, v3, Landroid/app/Notification;->largeIcon:Landroid/graphics/Bitmap;
+
+    :cond_0
+    iget-object v3, p0, Landroid/app/Notification$BigPictureStyle;->mBuilder:Landroid/app/Notification$Builder;
+
+    invoke-static {v3}, Landroid/app/Notification$Builder;->-wrap9(Landroid/app/Notification$Builder;)I
+
+    move-result v3
+
+    invoke-virtual {p0, v3}, Landroid/app/Notification$BigPictureStyle;->getStandardView(I)Landroid/widget/RemoteViews;
+
+    move-result-object v0
+
+    iget-boolean v3, p0, Landroid/app/Notification$BigPictureStyle;->mSummaryTextSet:Z
+
+    if-eqz v3, :cond_1
+
+    iget-object v3, p0, Landroid/app/Notification$BigPictureStyle;->mBuilder:Landroid/app/Notification$Builder;
+
+    iget-object v4, p0, Landroid/app/Notification$BigPictureStyle;->mSummaryText:Ljava/lang/CharSequence;
+
+    invoke-static {v3, v4}, Landroid/app/Notification$Builder;->-wrap15(Landroid/app/Notification$Builder;Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
+
+    move-result-object v3
+
+    invoke-virtual {v0, v5, v3}, Landroid/widget/RemoteViews;->setTextViewText(ILjava/lang/CharSequence;)V
+
+    iget-object v3, p0, Landroid/app/Notification$BigPictureStyle;->mBuilder:Landroid/app/Notification$Builder;
+
+    invoke-static {v3, v0, v5}, Landroid/app/Notification$Builder;->-wrap16(Landroid/app/Notification$Builder;Landroid/widget/RemoteViews;I)V
+
+    const/4 v3, 0x0
+
+    invoke-virtual {v0, v5, v3}, Landroid/widget/RemoteViews;->setViewVisibility(II)V
+
+    :cond_1
+    iget-object v3, p0, Landroid/app/Notification$BigPictureStyle;->mBuilder:Landroid/app/Notification$Builder;
+
+    iget-object v4, p0, Landroid/app/Notification$BigPictureStyle;->mBuilder:Landroid/app/Notification$Builder;
+
+    invoke-static {v4}, Landroid/app/Notification$Builder;->-get2(Landroid/app/Notification$Builder;)Landroid/app/Notification;
+
+    move-result-object v4
+
+    invoke-static {v4}, Landroid/app/Notification;->-wrap1(Landroid/app/Notification;)Z
+
+    move-result v4
+
+    invoke-virtual {v3, v0, v4}, Landroid/app/Notification$Builder;->setContentMinHeight(Landroid/widget/RemoteViews;Z)V
+
+    iget-boolean v3, p0, Landroid/app/Notification$BigPictureStyle;->mBigLargeIconSet:Z
+
+    if-eqz v3, :cond_2
+
+    iget-object v3, p0, Landroid/app/Notification$BigPictureStyle;->mBuilder:Landroid/app/Notification$Builder;
+
+    invoke-static {v3}, Landroid/app/Notification$Builder;->-get2(Landroid/app/Notification$Builder;)Landroid/app/Notification;
+
+    move-result-object v3
+
+    invoke-static {v3, v2}, Landroid/app/Notification;->-set5(Landroid/app/Notification;Landroid/graphics/drawable/Icon;)Landroid/graphics/drawable/Icon;
+
+    iget-object v3, p0, Landroid/app/Notification$BigPictureStyle;->mBuilder:Landroid/app/Notification$Builder;
+
+    invoke-static {v3}, Landroid/app/Notification$Builder;->-get2(Landroid/app/Notification$Builder;)Landroid/app/Notification;
+
+    move-result-object v3
+
+    iput-object v1, v3, Landroid/app/Notification;->largeIcon:Landroid/graphics/Bitmap;
 
     :cond_2
-    iget-object v2, p0, Landroid/app/Notification$BigPictureStyle;->mPicture:Landroid/graphics/Bitmap;
+    iget-object v3, p0, Landroid/app/Notification$BigPictureStyle;->mPicture:Landroid/graphics/Bitmap;
 
-    const v3, 0x1020439
+    const v4, 0x1020204
 
-    invoke-virtual {v0, v3, v2}, Landroid/widget/RemoteViews;->setImageViewBitmap(ILandroid/graphics/Bitmap;)V
+    invoke-virtual {v0, v4, v3}, Landroid/widget/RemoteViews;->setImageViewBitmap(ILandroid/graphics/Bitmap;)V
 
     return-object v0
 .end method

@@ -9,7 +9,8 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Landroid/hardware/camera2/marshal/impl/MarshalQueryableString$MarshalerString;
+        Landroid/hardware/camera2/marshal/impl/MarshalQueryableString$MarshalerString;,
+        Landroid/hardware/camera2/marshal/impl/MarshalQueryableString$PreloadHolder;
     }
 .end annotation
 
@@ -31,18 +32,8 @@
 
 .field private static final TAG:Ljava/lang/String;
 
-.field private static final UTF8_CHARSET:Ljava/nio/charset/Charset;
-
 
 # direct methods
-.method static synthetic -get0()Ljava/nio/charset/Charset;
-    .locals 1
-
-    sget-object v0, Landroid/hardware/camera2/marshal/impl/MarshalQueryableString;->UTF8_CHARSET:Ljava/nio/charset/Charset;
-
-    return-object v0
-.end method
-
 .method static constructor <clinit>()V
     .locals 1
 
@@ -53,14 +44,6 @@
     move-result-object v0
 
     sput-object v0, Landroid/hardware/camera2/marshal/impl/MarshalQueryableString;->TAG:Ljava/lang/String;
-
-    const-string/jumbo v0, "UTF-8"
-
-    invoke-static {v0}, Ljava/nio/charset/Charset;->forName(Ljava/lang/String;)Ljava/nio/charset/Charset;
-
-    move-result-object v0
-
-    sput-object v0, Landroid/hardware/camera2/marshal/impl/MarshalQueryableString;->UTF8_CHARSET:Ljava/nio/charset/Charset;
 
     return-void
 .end method

@@ -171,7 +171,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/transcode/renderer/RenderTexture_GL_2d;->mVerticesFloatBuffer:Ljava/nio/FloatBuffer;
 
-    invoke-virtual {v0, v5}, Ljava/nio/Buffer;->position(I)Ljava/nio/Buffer;
+    invoke-virtual {v0, v5}, Ljava/nio/FloatBuffer;->position(I)Ljava/nio/Buffer;
 
     return-void
 .end method
@@ -213,21 +213,21 @@
 
     iget v0, p0, Lcom/samsung/android/transcode/renderer/RenderTexture_GL_2d;->mu_MatrixHandle:I
 
-    const/4 v5, 0x1
+    iget-object v5, p0, Lcom/samsung/android/transcode/renderer/RenderTexture_GL_2d;->projectionMatrix:[F
 
-    iget-object v6, p0, Lcom/samsung/android/transcode/renderer/RenderTexture_GL_2d;->projectionMatrix:[F
+    const/4 v6, 0x1
 
-    invoke-static {v0, v5, v3, v6, v3}, Landroid/opengl/GLES20;->glUniformMatrix4fv(IIZ[FI)V
+    invoke-static {v0, v6, v3, v5, v3}, Landroid/opengl/GLES20;->glUniformMatrix4fv(IIZ[FI)V
 
     const v0, 0x84c0
 
     invoke-static {v0}, Landroid/opengl/GLES20;->glActiveTexture(I)V
 
-    const/16 v0, 0xde1
+    iget v0, p0, Lcom/samsung/android/transcode/renderer/RenderTexture_GL_2d;->mTextureId:I
 
-    iget v5, p0, Lcom/samsung/android/transcode/renderer/RenderTexture_GL_2d;->mTextureId:I
+    const/16 v5, 0xde1
 
-    invoke-static {v0, v5}, Landroid/opengl/GLES20;->glBindTexture(II)V
+    invoke-static {v5, v0}, Landroid/opengl/GLES20;->glBindTexture(II)V
 
     iget v0, p0, Lcom/samsung/android/transcode/renderer/RenderTexture_GL_2d;->mu_TextureUnitHandle:I
 
@@ -235,7 +235,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/transcode/renderer/RenderTexture_GL_2d;->mVerticesFloatBuffer:Ljava/nio/FloatBuffer;
 
-    invoke-virtual {v0, v3}, Ljava/nio/Buffer;->position(I)Ljava/nio/Buffer;
+    invoke-virtual {v0, v3}, Ljava/nio/FloatBuffer;->position(I)Ljava/nio/Buffer;
 
     iget v0, p0, Lcom/samsung/android/transcode/renderer/RenderTexture_GL_2d;->ma_PositionHandle:I
 
@@ -253,7 +253,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/transcode/renderer/RenderTexture_GL_2d;->mVerticesFloatBuffer:Ljava/nio/FloatBuffer;
 
-    invoke-virtual {v0, v1}, Ljava/nio/Buffer;->position(I)Ljava/nio/Buffer;
+    invoke-virtual {v0, v1}, Ljava/nio/FloatBuffer;->position(I)Ljava/nio/Buffer;
 
     iget v0, p0, Lcom/samsung/android/transcode/renderer/RenderTexture_GL_2d;->ma_TextureCoordinatesHandle:I
 
@@ -303,88 +303,90 @@
 .end method
 
 .method public loadTexture(Landroid/graphics/Bitmap;II)I
-    .locals 5
+    .locals 8
 
-    const/high16 v1, 0x3f800000    # 1.0f
+    const/4 v7, 0x0
 
-    const/4 v4, 0x0
+    iget v5, p0, Lcom/samsung/android/transcode/renderer/RenderTexture_GL_2d;->mTextureId:I
 
-    iget v0, p0, Lcom/samsung/android/transcode/renderer/RenderTexture_GL_2d;->mTextureId:I
-
-    if-nez v0, :cond_0
+    if-nez v5, :cond_0
 
     :goto_0
-    new-instance v0, Landroid/graphics/Rect;
+    new-instance v2, Landroid/graphics/Rect;
 
-    invoke-direct {v0}, Landroid/graphics/Rect;-><init>()V
+    invoke-direct {v2}, Landroid/graphics/Rect;-><init>()V
 
-    iput v4, v0, Landroid/graphics/Rect;->left:I
+    iput v7, v2, Landroid/graphics/Rect;->left:I
 
-    iput v4, v0, Landroid/graphics/Rect;->top:I
+    iput v7, v2, Landroid/graphics/Rect;->top:I
 
     invoke-virtual {p1}, Landroid/graphics/Bitmap;->getWidth()I
 
-    move-result v2
+    move-result v5
 
-    iput v2, v0, Landroid/graphics/Rect;->right:I
+    iput v5, v2, Landroid/graphics/Rect;->right:I
 
     invoke-virtual {p1}, Landroid/graphics/Bitmap;->getHeight()I
 
-    move-result v2
+    move-result v5
 
-    iput v2, v0, Landroid/graphics/Rect;->bottom:I
+    iput v5, v2, Landroid/graphics/Rect;->bottom:I
 
     invoke-static {p1}, Lcom/samsung/android/transcode/util/OpenGlHelper;->loadTexture(Landroid/graphics/Bitmap;)I
 
-    move-result v2
+    move-result v5
 
-    iput v2, p0, Lcom/samsung/android/transcode/renderer/RenderTexture_GL_2d;->mTextureId:I
+    iput v5, p0, Lcom/samsung/android/transcode/renderer/RenderTexture_GL_2d;->mTextureId:I
 
-    iget v2, p0, Lcom/samsung/android/transcode/renderer/RenderTexture_GL_2d;->mTextureId:I
+    iget v5, p0, Lcom/samsung/android/transcode/renderer/RenderTexture_GL_2d;->mTextureId:I
 
-    if-eqz v2, :cond_1
+    if-eqz v5, :cond_1
 
     :goto_1
-    invoke-virtual {v0}, Landroid/graphics/Rect;->width()I
+    invoke-virtual {v2}, Landroid/graphics/Rect;->width()I
 
-    move-result v2
+    move-result v5
 
-    int-to-float v2, v2
+    int-to-float v5, v5
 
-    int-to-float v3, p2
+    int-to-float v6, p2
 
-    div-float/2addr v2, v3
+    div-float v1, v5, v6
 
-    invoke-virtual {v0}, Landroid/graphics/Rect;->height()I
+    invoke-virtual {v2}, Landroid/graphics/Rect;->height()I
 
-    move-result v0
+    move-result v5
 
-    int-to-float v0, v0
+    int-to-float v5, v5
 
-    int-to-float v3, p3
+    int-to-float v6, p3
 
-    div-float/2addr v0, v3
+    div-float v0, v5, v6
 
-    cmpl-float v3, v2, v0
+    const/high16 v3, 0x3f800000    # 1.0f
 
-    if-ltz v3, :cond_2
+    const/high16 v4, 0x3f800000    # 1.0f
 
-    div-float/2addr v0, v2
+    cmpl-float v5, v1, v0
 
-    move v2, v1
+    if-ltz v5, :cond_2
+
+    div-float v4, v0, v1
 
     :goto_2
-    iget-object v3, p0, Lcom/samsung/android/transcode/renderer/RenderTexture_GL_2d;->projectionMatrix:[F
+    iget-object v5, p0, Lcom/samsung/android/transcode/renderer/RenderTexture_GL_2d;->projectionMatrix:[F
 
-    invoke-static {v3, v4}, Landroid/opengl/Matrix;->setIdentityM([FI)V
+    invoke-static {v5, v7}, Landroid/opengl/Matrix;->setIdentityM([FI)V
 
-    iget-object v3, p0, Lcom/samsung/android/transcode/renderer/RenderTexture_GL_2d;->projectionMatrix:[F
+    iget-object v5, p0, Lcom/samsung/android/transcode/renderer/RenderTexture_GL_2d;->projectionMatrix:[F
 
-    invoke-static {v3, v4, v2, v0, v1}, Landroid/opengl/Matrix;->scaleM([FIFFF)V
+    const/high16 v6, 0x3f800000    # 1.0f
 
-    iget v0, p0, Lcom/samsung/android/transcode/renderer/RenderTexture_GL_2d;->mTextureId:I
+    invoke-static {v5, v7, v3, v4, v6}, Landroid/opengl/Matrix;->scaleM([FIFFF)V
 
-    return v0
+    iget v5, p0, Lcom/samsung/android/transcode/renderer/RenderTexture_GL_2d;->mTextureId:I
+
+    return v5
 
     :cond_0
     invoke-direct {p0}, Lcom/samsung/android/transcode/renderer/RenderTexture_GL_2d;->deleteTexture()V
@@ -392,96 +394,94 @@
     goto :goto_0
 
     :cond_1
-    const-string/jumbo v2, "TranscodeLib"
+    const-string/jumbo v5, "TranscodeLib"
 
-    const-string/jumbo v3, "not able to load new texture"
+    const-string/jumbo v6, "not able to load new texture"
 
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_1
 
     :cond_2
-    div-float v0, v2, v0
-
-    move v2, v0
-
-    move v0, v1
+    div-float v3, v1, v0
 
     goto :goto_2
 .end method
 
 .method public loadTexture(Ljava/lang/String;II)I
-    .locals 5
+    .locals 8
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    const/high16 v1, 0x3f800000    # 1.0f
+    const/4 v7, 0x0
 
-    const/4 v4, 0x0
+    iget v5, p0, Lcom/samsung/android/transcode/renderer/RenderTexture_GL_2d;->mTextureId:I
 
-    iget v0, p0, Lcom/samsung/android/transcode/renderer/RenderTexture_GL_2d;->mTextureId:I
-
-    if-nez v0, :cond_0
+    if-nez v5, :cond_0
 
     :goto_0
-    new-instance v0, Landroid/graphics/Rect;
+    new-instance v2, Landroid/graphics/Rect;
 
-    invoke-direct {v0}, Landroid/graphics/Rect;-><init>()V
+    invoke-direct {v2}, Landroid/graphics/Rect;-><init>()V
 
-    invoke-static {p1, p2, p3, v0}, Lcom/samsung/android/transcode/util/OpenGlHelper;->loadTexture(Ljava/lang/String;IILandroid/graphics/Rect;)I
+    invoke-static {p1, p2, p3, v2}, Lcom/samsung/android/transcode/util/OpenGlHelper;->loadTexture(Ljava/lang/String;IILandroid/graphics/Rect;)I
 
-    move-result v2
+    move-result v5
 
-    iput v2, p0, Lcom/samsung/android/transcode/renderer/RenderTexture_GL_2d;->mTextureId:I
+    iput v5, p0, Lcom/samsung/android/transcode/renderer/RenderTexture_GL_2d;->mTextureId:I
 
-    iget v2, p0, Lcom/samsung/android/transcode/renderer/RenderTexture_GL_2d;->mTextureId:I
+    iget v5, p0, Lcom/samsung/android/transcode/renderer/RenderTexture_GL_2d;->mTextureId:I
 
-    if-eqz v2, :cond_1
+    if-eqz v5, :cond_1
 
     :goto_1
-    invoke-virtual {v0}, Landroid/graphics/Rect;->width()I
+    invoke-virtual {v2}, Landroid/graphics/Rect;->width()I
 
-    move-result v2
+    move-result v5
 
-    int-to-float v2, v2
+    int-to-float v5, v5
 
-    int-to-float v3, p2
+    int-to-float v6, p2
 
-    div-float/2addr v2, v3
+    div-float v1, v5, v6
 
-    invoke-virtual {v0}, Landroid/graphics/Rect;->height()I
+    invoke-virtual {v2}, Landroid/graphics/Rect;->height()I
 
-    move-result v0
+    move-result v5
 
-    int-to-float v0, v0
+    int-to-float v5, v5
 
-    int-to-float v3, p3
+    int-to-float v6, p3
 
-    div-float/2addr v0, v3
+    div-float v0, v5, v6
 
-    cmpl-float v3, v2, v0
+    const/high16 v3, 0x3f800000    # 1.0f
 
-    if-ltz v3, :cond_2
+    const/high16 v4, 0x3f800000    # 1.0f
 
-    div-float/2addr v0, v2
+    cmpl-float v5, v1, v0
 
-    move v2, v1
+    if-ltz v5, :cond_2
+
+    div-float v4, v0, v1
 
     :goto_2
-    iget-object v3, p0, Lcom/samsung/android/transcode/renderer/RenderTexture_GL_2d;->projectionMatrix:[F
+    iget-object v5, p0, Lcom/samsung/android/transcode/renderer/RenderTexture_GL_2d;->projectionMatrix:[F
 
-    invoke-static {v3, v4}, Landroid/opengl/Matrix;->setIdentityM([FI)V
+    invoke-static {v5, v7}, Landroid/opengl/Matrix;->setIdentityM([FI)V
 
-    iget-object v3, p0, Lcom/samsung/android/transcode/renderer/RenderTexture_GL_2d;->projectionMatrix:[F
+    iget-object v5, p0, Lcom/samsung/android/transcode/renderer/RenderTexture_GL_2d;->projectionMatrix:[F
 
-    invoke-static {v3, v4, v2, v0, v1}, Landroid/opengl/Matrix;->scaleM([FIFFF)V
+    const/high16 v6, 0x3f800000    # 1.0f
 
-    iget v0, p0, Lcom/samsung/android/transcode/renderer/RenderTexture_GL_2d;->mTextureId:I
+    invoke-static {v5, v7, v3, v4, v6}, Landroid/opengl/Matrix;->scaleM([FIFFF)V
 
-    return v0
+    iget v5, p0, Lcom/samsung/android/transcode/renderer/RenderTexture_GL_2d;->mTextureId:I
+
+    return v5
 
     :cond_0
     invoke-direct {p0}, Lcom/samsung/android/transcode/renderer/RenderTexture_GL_2d;->deleteTexture()V
@@ -489,20 +489,16 @@
     goto :goto_0
 
     :cond_1
-    const-string/jumbo v2, "TranscodeLib"
+    const-string/jumbo v5, "TranscodeLib"
 
-    const-string/jumbo v3, "not able to load new texture"
+    const-string/jumbo v6, "not able to load new texture"
 
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_1
 
     :cond_2
-    div-float v0, v2, v0
-
-    move v2, v0
-
-    move v0, v1
+    div-float v3, v1, v0
 
     goto :goto_2
 .end method

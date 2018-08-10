@@ -3,13 +3,45 @@
 .source "AnimationUtils.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Landroid/view/animation/AnimationUtils$1;,
+        Landroid/view/animation/AnimationUtils$AnimationState;
+    }
+.end annotation
+
+
 # static fields
 .field private static final SEQUENTIALLY:I = 0x1
 
 .field private static final TOGETHER:I
 
+.field private static sAnimationState:Ljava/lang/ThreadLocal;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/lang/ThreadLocal",
+            "<",
+            "Landroid/view/animation/AnimationUtils$AnimationState;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    new-instance v0, Landroid/view/animation/AnimationUtils$1;
+
+    invoke-direct {v0}, Landroid/view/animation/AnimationUtils$1;-><init>()V
+
+    sput-object v0, Landroid/view/animation/AnimationUtils;->sAnimationState:Ljava/lang/ThreadLocal;
+
+    return-void
+.end method
+
 .method public constructor <init>()V
     .locals 0
 
@@ -640,130 +672,315 @@
 .end method
 
 .method public static currentAnimationTimeMillis()J
-    .locals 2
+    .locals 6
 
+    sget-object v1, Landroid/view/animation/AnimationUtils;->sAnimationState:Ljava/lang/ThreadLocal;
+
+    invoke-virtual {v1}, Ljava/lang/ThreadLocal;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/view/animation/AnimationUtils$AnimationState;
+
+    iget-boolean v1, v0, Landroid/view/animation/AnimationUtils$AnimationState;->animationClockLocked:Z
+
+    if-eqz v1, :cond_0
+
+    iget-wide v2, v0, Landroid/view/animation/AnimationUtils$AnimationState;->currentVsyncTimeMillis:J
+
+    iget-wide v4, v0, Landroid/view/animation/AnimationUtils$AnimationState;->lastReportedTimeMillis:J
+
+    invoke-static {v2, v3, v4, v5}, Ljava/lang/Math;->max(JJ)J
+
+    move-result-wide v2
+
+    return-wide v2
+
+    :cond_0
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
-    move-result-wide v0
+    move-result-wide v2
 
-    return-wide v0
+    iput-wide v2, v0, Landroid/view/animation/AnimationUtils$AnimationState;->lastReportedTimeMillis:J
+
+    iget-wide v2, v0, Landroid/view/animation/AnimationUtils$AnimationState;->lastReportedTimeMillis:J
+
+    return-wide v2
 .end method
 
 .method public static loadAnimation(Landroid/content/Context;I)Landroid/view/animation/Animation;
-    .locals 6
+    .locals 10
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/content/res/Resources$NotFoundException;
         }
     .end annotation
 
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
     :try_start_0
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v4
+    move-result-object v7
 
-    invoke-virtual {v4, p1}, Landroid/content/res/Resources;->getAnimation(I)Landroid/content/res/XmlResourceParser;
-
-    move-result-object v2
-
-    invoke-static {p0, v2}, Landroid/view/animation/AnimationUtils;->createAnimationFromXml(Landroid/content/Context;Lorg/xmlpull/v1/XmlPullParser;)Landroid/view/animation/Animation;
+    invoke-virtual {v7, p1}, Landroid/content/res/Resources;->getAnimation(I)Landroid/content/res/XmlResourceParser;
     :try_end_0
     .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_3
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    move-result-object v4
-
-    if-eqz v2, :cond_0
-
-    invoke-interface {v2}, Landroid/content/res/XmlResourceParser;->close()V
-
-    :cond_0
-    return-object v4
-
-    :catch_0
-    move-exception v0
+    move-result-object v3
 
     :try_start_1
-    new-instance v3, Landroid/content/res/Resources$NotFoundException;
-
-    new-instance v4, Ljava/lang/StringBuilder;
-
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v5, "Can\'t load animation resource ID #0x"
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-static {p1}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-direct {v3, v4}, Landroid/content/res/Resources$NotFoundException;-><init>(Ljava/lang/String;)V
-
-    invoke-virtual {v3, v0}, Landroid/content/res/Resources$NotFoundException;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
-
-    throw v3
+    invoke-static {p0, v3}, Landroid/view/animation/AnimationUtils;->createAnimationFromXml(Landroid/content/Context;Lorg/xmlpull/v1/XmlPullParser;)Landroid/view/animation/Animation;
     :try_end_1
+    .catch Ljava/lang/RuntimeException; {:try_start_1 .. :try_end_1} :catch_0
+    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_1 .. :try_end_1} :catch_1
+    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_3
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    :catchall_0
+    move-result-object v7
+
+    if-eqz v3, :cond_0
+
+    invoke-interface {v3}, Landroid/content/res/XmlResourceParser;->close()V
+
+    :cond_0
+    return-object v7
+
+    :catch_0
     move-exception v4
 
-    if-eqz v2, :cond_1
-
-    invoke-interface {v2}, Landroid/content/res/XmlResourceParser;->close()V
-
-    :cond_1
-    throw v4
-
-    :catch_1
-    move-exception v1
-
     :try_start_2
-    new-instance v3, Landroid/content/res/Resources$NotFoundException;
+    const-string/jumbo v7, "AnimationUtils"
 
-    new-instance v4, Ljava/lang/StringBuilder;
+    new-instance v8, Ljava/lang/StringBuilder;
 
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v5, "Can\'t load animation resource ID #0x"
+    const-string/jumbo v9, "RuntimeException for unknown animation name, resouce ID #0x"
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v4
+    move-result-object v8
 
     invoke-static {p1}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
 
+    move-result-object v9
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-static {v7, v8}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    const-string/jumbo v7, "AnimationUtils"
+
+    new-instance v8, Ljava/lang/StringBuilder;
+
+    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v9, "loadAnimation: getConfiguration = "
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v9
+
+    invoke-virtual {v9}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
+
+    move-result-object v9
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-static {v7, v8}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    const-string/jumbo v7, "AnimationUtils"
+
+    new-instance v8, Ljava/lang/StringBuilder;
+
+    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v9, "loadAnimation: getDisplayMetrics = "
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v9
+
+    invoke-virtual {v9}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
+
+    move-result-object v9
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-static {v7, v8}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_2
+    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_2 .. :try_end_2} :catch_1
+    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_3
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+
+    const/4 v5, 0x0
+
+    :try_start_3
+    invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v7
+
+    invoke-virtual {v7, p1}, Landroid/content/res/Resources;->getResourceName(I)Ljava/lang/String;
+    :try_end_3
+    .catch Landroid/content/res/Resources$NotFoundException; {:try_start_3 .. :try_end_3} :catch_2
+    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_3 .. :try_end_3} :catch_1
+    .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+
     move-result-object v5
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    :goto_0
+    :try_start_4
+    const-string/jumbo v7, "AnimationUtils"
 
-    move-result-object v4
+    new-instance v8, Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
 
-    move-result-object v4
+    const-string/jumbo v9, "loadAnimation: resourceName = "
 
-    invoke-direct {v3, v4}, Landroid/content/res/Resources$NotFoundException;-><init>(Ljava/lang/String;)V
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v1}, Landroid/content/res/Resources$NotFoundException;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+    move-result-object v8
 
-    throw v3
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    invoke-virtual {v8, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-static {v7, v8}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    throw v4
+    :try_end_4
+    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_4 .. :try_end_4} :catch_1
+    .catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_3
+    .catchall {:try_start_4 .. :try_end_4} :catchall_0
+
+    :catch_1
+    move-exception v2
+
+    :try_start_5
+    new-instance v6, Landroid/content/res/Resources$NotFoundException;
+
+    new-instance v7, Ljava/lang/StringBuilder;
+
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v8, "Can\'t load animation resource ID #0x"
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-static {p1}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-direct {v6, v7}, Landroid/content/res/Resources$NotFoundException;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v6, v2}, Landroid/content/res/Resources$NotFoundException;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+
+    throw v6
+    :try_end_5
+    .catchall {:try_start_5 .. :try_end_5} :catchall_0
+
+    :catchall_0
+    move-exception v7
+
+    if-eqz v3, :cond_1
+
+    invoke-interface {v3}, Landroid/content/res/XmlResourceParser;->close()V
+
+    :cond_1
+    throw v7
+
+    :catch_2
+    move-exception v0
+
+    :try_start_6
+    const-string/jumbo v5, "unknown"
+    :try_end_6
+    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_6 .. :try_end_6} :catch_1
+    .catch Ljava/io/IOException; {:try_start_6 .. :try_end_6} :catch_3
+    .catchall {:try_start_6 .. :try_end_6} :catchall_0
+
+    goto :goto_0
+
+    :catch_3
+    move-exception v1
+
+    :try_start_7
+    new-instance v6, Landroid/content/res/Resources$NotFoundException;
+
+    new-instance v7, Ljava/lang/StringBuilder;
+
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v8, "Can\'t load animation resource ID #0x"
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-static {p1}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-direct {v6, v7}, Landroid/content/res/Resources$NotFoundException;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v6, v1}, Landroid/content/res/Resources$NotFoundException;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+
+    throw v6
+    :try_end_7
+    .catchall {:try_start_7 .. :try_end_7} :catchall_0
 .end method
 
 .method public static loadInterpolator(Landroid/content/Context;I)Landroid/view/animation/Interpolator;
@@ -1121,6 +1338,26 @@
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 .end method
 
+.method public static lockAnimationClock(J)V
+    .locals 2
+
+    sget-object v1, Landroid/view/animation/AnimationUtils;->sAnimationState:Ljava/lang/ThreadLocal;
+
+    invoke-virtual {v1}, Ljava/lang/ThreadLocal;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/view/animation/AnimationUtils$AnimationState;
+
+    const/4 v1, 0x1
+
+    iput-boolean v1, v0, Landroid/view/animation/AnimationUtils$AnimationState;->animationClockLocked:Z
+
+    iput-wide p0, v0, Landroid/view/animation/AnimationUtils$AnimationState;->currentVsyncTimeMillis:J
+
+    return-void
+.end method
+
 .method public static makeInAnimation(Landroid/content/Context;Z)Landroid/view/animation/Animation;
     .locals 4
 
@@ -1148,7 +1385,7 @@
     return-object v0
 
     :cond_0
-    const v1, 0x10a00b8
+    const v1, 0x10a00bb
 
     invoke-static {p0, v1}, Landroid/view/animation/AnimationUtils;->loadAnimation(Landroid/content/Context;I)Landroid/view/animation/Animation;
 
@@ -1160,7 +1397,7 @@
 .method public static makeInChildBottomAnimation(Landroid/content/Context;)Landroid/view/animation/Animation;
     .locals 4
 
-    const v1, 0x10a00b5
+    const v1, 0x10a00b8
 
     invoke-static {p0, v1}, Landroid/view/animation/AnimationUtils;->loadAnimation(Landroid/content/Context;I)Landroid/view/animation/Animation;
 
@@ -1208,11 +1445,29 @@
     return-object v0
 
     :cond_0
-    const v1, 0x10a00bb
+    const v1, 0x10a00be
 
     invoke-static {p0, v1}, Landroid/view/animation/AnimationUtils;->loadAnimation(Landroid/content/Context;I)Landroid/view/animation/Animation;
 
     move-result-object v0
 
     goto :goto_0
+.end method
+
+.method public static unlockAnimationClock()V
+    .locals 2
+
+    sget-object v0, Landroid/view/animation/AnimationUtils;->sAnimationState:Ljava/lang/ThreadLocal;
+
+    invoke-virtual {v0}, Ljava/lang/ThreadLocal;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/view/animation/AnimationUtils$AnimationState;
+
+    const/4 v1, 0x0
+
+    iput-boolean v1, v0, Landroid/view/animation/AnimationUtils$AnimationState;->animationClockLocked:Z
+
+    return-void
 .end method

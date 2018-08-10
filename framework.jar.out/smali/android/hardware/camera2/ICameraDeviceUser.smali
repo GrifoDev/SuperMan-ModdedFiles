@@ -15,6 +15,10 @@
 
 
 # static fields
+.field public static final CONSTRAINED_HIGH_SPEED_MODE:I = 0x1
+
+.field public static final NORMAL_MODE:I = 0x0
+
 .field public static final NO_IN_FLIGHT_REPEATING_FRAMES:I = -0x1
 
 .field public static final TEMPLATE_MANUAL:I = 0x6
@@ -28,6 +32,8 @@
 .field public static final TEMPLATE_VIDEO_SNAPSHOT:I = 0x4
 
 .field public static final TEMPLATE_ZERO_SHUTTER_LAG:I = 0x5
+
+.field public static final VENDOR_MODE_START:I = 0x8000
 
 
 # virtual methods
@@ -87,7 +93,15 @@
     .end annotation
 .end method
 
-.method public abstract endConfigure(Z)V
+.method public abstract endConfigure(I)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract finalizeOutputConfigurations(ILandroid/hardware/camera2/params/OutputConfiguration;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -128,6 +142,14 @@
 .end method
 
 .method public abstract prepare2(II)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract setParameters(Ljava/lang/String;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

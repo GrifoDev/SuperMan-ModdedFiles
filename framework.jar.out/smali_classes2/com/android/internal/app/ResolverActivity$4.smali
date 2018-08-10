@@ -3,12 +3,12 @@
 .source "ResolverActivity.java"
 
 # interfaces
-.implements Lcom/android/internal/widget/ResolverDrawerLayout$OnDismissedListener;
+.implements Landroid/content/DialogInterface$OnClickListener;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/internal/app/ResolverActivity;->onCreate(Landroid/os/Bundle;Landroid/content/Intent;Ljava/lang/CharSequence;I[Landroid/content/Intent;Ljava/util/List;Z)V
+    value = Lcom/android/internal/app/ResolverActivity;->onTargetSelected(Lcom/android/internal/app/ResolverActivity$TargetInfo;Z)Z
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,12 +20,16 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/internal/app/ResolverActivity;
 
+.field final synthetic val$target:Lcom/android/internal/app/ResolverActivity$TargetInfo;
+
 
 # direct methods
-.method constructor <init>(Lcom/android/internal/app/ResolverActivity;)V
+.method constructor <init>(Lcom/android/internal/app/ResolverActivity;Lcom/android/internal/app/ResolverActivity$TargetInfo;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/internal/app/ResolverActivity$4;->this$0:Lcom/android/internal/app/ResolverActivity;
+
+    iput-object p2, p0, Lcom/android/internal/app/ResolverActivity$4;->val$target:Lcom/android/internal/app/ResolverActivity$TargetInfo;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -34,12 +38,23 @@
 
 
 # virtual methods
-.method public onDismissed()V
-    .locals 1
+.method public onClick(Landroid/content/DialogInterface;I)V
+    .locals 2
+
+    const/4 v0, -0x1
+
+    if-ne p2, v0, :cond_0
 
     iget-object v0, p0, Lcom/android/internal/app/ResolverActivity$4;->this$0:Lcom/android/internal/app/ResolverActivity;
 
-    invoke-static {v0}, Lcom/android/internal/app/ResolverActivity;->-wrap5(Lcom/android/internal/app/ResolverActivity;)V
+    iget-object v1, p0, Lcom/android/internal/app/ResolverActivity$4;->val$target:Lcom/android/internal/app/ResolverActivity$TargetInfo;
 
+    invoke-static {v0, v1}, Lcom/android/internal/app/ResolverActivity;->-wrap5(Lcom/android/internal/app/ResolverActivity;Lcom/android/internal/app/ResolverActivity$TargetInfo;)V
+
+    iget-object v0, p0, Lcom/android/internal/app/ResolverActivity$4;->this$0:Lcom/android/internal/app/ResolverActivity;
+
+    invoke-virtual {v0}, Lcom/android/internal/app/ResolverActivity;->finish()V
+
+    :cond_0
     return-void
 .end method

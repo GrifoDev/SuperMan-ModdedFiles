@@ -12,7 +12,10 @@
         Lcom/samsung/android/transcode/core/Encode$ContentType;,
         Lcom/samsung/android/transcode/core/Encode$EncodeEventListener;,
         Lcom/samsung/android/transcode/core/Encode$EncodeResolution;,
-        Lcom/samsung/android/transcode/core/Encode$Logo;
+        Lcom/samsung/android/transcode/core/Encode$Logo;,
+        Lcom/samsung/android/transcode/core/Encode$RecordingMode;,
+        Lcom/samsung/android/transcode/core/Encode$Region;,
+        Lcom/samsung/android/transcode/core/Encode$Speed;
     }
 .end annotation
 
@@ -21,8 +24,6 @@
 .field protected static final ENC_FULL_TRANSCODE:I = 0x0
 
 .field protected static final ENC_REWRITE:I = 0x1
-
-.field protected static final ENC_TRANS_REWRITE:I = 0x2
 
 .field protected static final ENC_UNABLE_TO_COMPLY:I = -0x1
 
@@ -36,7 +37,9 @@
 
 .field protected static final ORIENTATION_90:I = 0x5a
 
-.field private static final VERSION:Ljava/lang/String; = "1.41"
+.field protected static final SUPER_SLOW_SPEED_CANCEL:I = 0x9
+
+.field private static final VERSION:Ljava/lang/String; = "2.14"
 
 
 # instance fields
@@ -102,6 +105,8 @@
 
 .field protected mSkipFrames:Z
 
+.field protected mSourceFrameRate:I
+
 .field protected mTransRewritable:I
 
 .field protected volatile mUserStop:Z
@@ -111,7 +116,9 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 4
+    .locals 5
+
+    const/16 v4, 0x1e
 
     const/4 v3, 0x2
 
@@ -127,9 +134,7 @@
 
     iput-object v0, p0, Lcom/samsung/android/transcode/core/Encode;->mOutputVideoMimeType:Ljava/lang/String;
 
-    const/16 v0, 0x1e
-
-    iput v0, p0, Lcom/samsung/android/transcode/core/Encode;->mOutputVideoFrameRate:I
+    iput v4, p0, Lcom/samsung/android/transcode/core/Encode;->mOutputVideoFrameRate:I
 
     const/4 v0, 0x1
 
@@ -175,7 +180,158 @@
 
     iput-boolean v2, p0, Lcom/samsung/android/transcode/core/Encode;->mMMSMode:Z
 
+    iput v4, p0, Lcom/samsung/android/transcode/core/Encode;->mSourceFrameRate:I
+
     return-void
+.end method
+
+.method public static getSpeed(I)Lcom/samsung/android/transcode/core/Encode$Speed;
+    .locals 1
+
+    packed-switch p0, :pswitch_data_0
+
+    sget-object v0, Lcom/samsung/android/transcode/core/Encode$Speed;->NORMAL:Lcom/samsung/android/transcode/core/Encode$Speed;
+
+    return-object v0
+
+    :pswitch_0
+    sget-object v0, Lcom/samsung/android/transcode/core/Encode$Speed;->NORMAL:Lcom/samsung/android/transcode/core/Encode$Speed;
+
+    return-object v0
+
+    :pswitch_1
+    sget-object v0, Lcom/samsung/android/transcode/core/Encode$Speed;->HALF:Lcom/samsung/android/transcode/core/Encode$Speed;
+
+    return-object v0
+
+    :pswitch_2
+    sget-object v0, Lcom/samsung/android/transcode/core/Encode$Speed;->ONE_FOURTH:Lcom/samsung/android/transcode/core/Encode$Speed;
+
+    return-object v0
+
+    :pswitch_3
+    sget-object v0, Lcom/samsung/android/transcode/core/Encode$Speed;->ONE_EIGHTH:Lcom/samsung/android/transcode/core/Encode$Speed;
+
+    return-object v0
+
+    :pswitch_4
+    sget-object v0, Lcom/samsung/android/transcode/core/Encode$Speed;->TWO_TIMES:Lcom/samsung/android/transcode/core/Encode$Speed;
+
+    return-object v0
+
+    :pswitch_5
+    sget-object v0, Lcom/samsung/android/transcode/core/Encode$Speed;->FOUR_TIMES:Lcom/samsung/android/transcode/core/Encode$Speed;
+
+    return-object v0
+
+    :pswitch_6
+    sget-object v0, Lcom/samsung/android/transcode/core/Encode$Speed;->EIGHT_TIMES:Lcom/samsung/android/transcode/core/Encode$Speed;
+
+    return-object v0
+
+    :pswitch_7
+    sget-object v0, Lcom/samsung/android/transcode/core/Encode$Speed;->SIXTEEN_TIMES:Lcom/samsung/android/transcode/core/Encode$Speed;
+
+    return-object v0
+
+    :pswitch_8
+    sget-object v0, Lcom/samsung/android/transcode/core/Encode$Speed;->THIRTY_TWO_TIMES:Lcom/samsung/android/transcode/core/Encode$Speed;
+
+    return-object v0
+
+    nop
+
+    :pswitch_data_0
+    .packed-switch 0x1
+        :pswitch_0
+        :pswitch_1
+        :pswitch_2
+        :pswitch_3
+        :pswitch_4
+        :pswitch_5
+        :pswitch_6
+        :pswitch_7
+        :pswitch_8
+    .end packed-switch
+.end method
+
+.method public static getTimeScale(Lcom/samsung/android/transcode/core/Encode$Speed;)F
+    .locals 3
+
+    const/high16 v0, 0x3f800000    # 1.0f
+
+    sget-object v1, Lcom/samsung/android/transcode/core/Encode$1;->$SwitchMap$com$samsung$android$transcode$core$Encode$Speed:[I
+
+    invoke-virtual {p0}, Lcom/samsung/android/transcode/core/Encode$Speed;->ordinal()I
+
+    move-result v2
+
+    aget v1, v1, v2
+
+    packed-switch v1, :pswitch_data_0
+
+    :goto_0
+    return v0
+
+    :pswitch_0
+    const/high16 v0, 0x40800000    # 4.0f
+
+    goto :goto_0
+
+    :pswitch_1
+    const/high16 v0, 0x40000000    # 2.0f
+
+    goto :goto_0
+
+    :pswitch_2
+    const/high16 v0, 0x3f800000    # 1.0f
+
+    goto :goto_0
+
+    :pswitch_3
+    const/high16 v0, 0x41000000    # 8.0f
+
+    goto :goto_0
+
+    :pswitch_4
+    const/high16 v0, 0x3f000000    # 0.5f
+
+    goto :goto_0
+
+    :pswitch_5
+    const/high16 v0, 0x3e800000    # 0.25f
+
+    goto :goto_0
+
+    :pswitch_6
+    const/high16 v0, 0x3e000000    # 0.125f
+
+    goto :goto_0
+
+    :pswitch_7
+    const/high16 v0, 0x3d800000    # 0.0625f
+
+    goto :goto_0
+
+    :pswitch_8
+    const/high16 v0, 0x3d000000    # 0.03125f
+
+    goto :goto_0
+
+    nop
+
+    :pswitch_data_0
+    .packed-switch 0x1
+        :pswitch_0
+        :pswitch_1
+        :pswitch_2
+        :pswitch_3
+        :pswitch_4
+        :pswitch_5
+        :pswitch_6
+        :pswitch_7
+        :pswitch_8
+    .end packed-switch
 .end method
 
 .method private printVersionInfo()V
@@ -183,7 +339,7 @@
 
     const-string/jumbo v0, "TranscodeLib"
 
-    const-string/jumbo v1, "Transcode Framework v.1.41"
+    const-string/jumbo v1, "Transcode Framework v.2.14"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -249,133 +405,133 @@
 .end method
 
 .method public encode()V
-    .locals 12
+    .locals 14
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    const/4 v11, 0x1
+    const/4 v13, 0x1
+
+    const/4 v12, 0x0
+
+    const/4 v11, 0x2
 
     const/4 v10, 0x0
-
-    const/4 v9, 0x2
-
-    const/4 v8, 0x0
 
     invoke-direct {p0}, Lcom/samsung/android/transcode/core/Encode;->printVersionInfo()V
 
     :try_start_0
-    const-string/jumbo v0, "TranscodeLib"
+    const-string/jumbo v6, "TranscodeLib"
 
-    const-string/jumbo v1, "starting encoder prepartion"
+    const-string/jumbo v7, "starting encoder prepartion"
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     invoke-virtual {p0}, Lcom/samsung/android/transcode/core/Encode;->prepare()V
 
-    const-string/jumbo v0, "TranscodeLib"
+    const-string/jumbo v6, "TranscodeLib"
 
-    const-string/jumbo v1, "encoder preparation done."
+    const-string/jumbo v7, "encoder preparation done."
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    new-instance v0, Landroid/media/MediaMuxer;
+    new-instance v6, Landroid/media/MediaMuxer;
 
-    iget-object v1, p0, Lcom/samsung/android/transcode/core/Encode;->mOutputFilePath:Ljava/lang/String;
+    iget-object v7, p0, Lcom/samsung/android/transcode/core/Encode;->mOutputFilePath:Ljava/lang/String;
 
-    iget v2, p0, Lcom/samsung/android/transcode/core/Encode;->mOutputFormat:I
+    iget v8, p0, Lcom/samsung/android/transcode/core/Encode;->mOutputFormat:I
 
-    invoke-direct {v0, v1, v2}, Landroid/media/MediaMuxer;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v6, v7, v8}, Landroid/media/MediaMuxer;-><init>(Ljava/lang/String;I)V
 
-    iput-object v0, p0, Lcom/samsung/android/transcode/core/Encode;->mMuxer:Landroid/media/MediaMuxer;
+    iput-object v6, p0, Lcom/samsung/android/transcode/core/Encode;->mMuxer:Landroid/media/MediaMuxer;
 
-    const/4 v0, 0x0
+    const/4 v6, 0x0
 
-    iput-boolean v0, p0, Lcom/samsung/android/transcode/core/Encode;->mMuxerStarted:Z
+    iput-boolean v6, p0, Lcom/samsung/android/transcode/core/Encode;->mMuxerStarted:Z
 
-    const/4 v0, -0x1
+    const/4 v6, -0x1
 
-    iput v0, p0, Lcom/samsung/android/transcode/core/Encode;->mVideoTrackIndex:I
+    iput v6, p0, Lcom/samsung/android/transcode/core/Encode;->mVideoTrackIndex:I
 
-    const/4 v0, -0x1
+    const/4 v6, -0x1
 
-    iput v0, p0, Lcom/samsung/android/transcode/core/Encode;->mAudioTrackIndex:I
+    iput v6, p0, Lcom/samsung/android/transcode/core/Encode;->mAudioTrackIndex:I
 
-    const-string/jumbo v0, "TranscodeLib"
+    const-string/jumbo v6, "TranscodeLib"
 
-    const-string/jumbo v1, "starting to encode"
+    const-string/jumbo v7, "starting to encode"
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-object v0, p0, Lcom/samsung/android/transcode/core/Encode;->mEncodeEventListener:Lcom/samsung/android/transcode/core/Encode$EncodeEventListener;
+    iget-object v6, p0, Lcom/samsung/android/transcode/core/Encode;->mEncodeEventListener:Lcom/samsung/android/transcode/core/Encode$EncodeEventListener;
 
-    if-nez v0, :cond_1
+    if-nez v6, :cond_1
 
     :goto_0
     invoke-virtual {p0}, Lcom/samsung/android/transcode/core/Encode;->startEncoding()V
 
-    const-string/jumbo v0, "TranscodeLib"
+    const-string/jumbo v6, "TranscodeLib"
 
-    const-string/jumbo v1, "encoding finished."
+    const-string/jumbo v7, "encoding finished."
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     invoke-virtual {p0}, Lcom/samsung/android/transcode/core/Encode;->release()V
 
-    new-instance v0, Ljava/io/File;
+    new-instance v3, Ljava/io/File;
 
-    iget-object v1, p0, Lcom/samsung/android/transcode/core/Encode;->mOutputFilePath:Ljava/lang/String;
+    iget-object v6, p0, Lcom/samsung/android/transcode/core/Encode;->mOutputFilePath:Ljava/lang/String;
 
-    invoke-direct {v0, v1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+    invoke-direct {v3, v6}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v0}, Ljava/io/File;->length()J
+    invoke-virtual {v3}, Ljava/io/File;->length()J
 
-    move-result-wide v2
+    move-result-wide v4
 
-    const-string/jumbo v1, "TranscodeLib"
+    new-instance v6, Ljava/lang/StringBuilder;
 
-    new-instance v4, Ljava/lang/StringBuilder;
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+    const-string/jumbo v7, "generated output file size after muxer close "
 
-    const-string/jumbo v5, "generated output file size after muxer close "
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v6
 
-    move-result-object v4
+    invoke-virtual {v6, v4, v5}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4, v2, v3}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+    move-result-object v6
 
-    move-result-object v4
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v6
 
-    move-result-object v4
+    const-string/jumbo v7, "TranscodeLib"
 
-    invoke-static {v1, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v7, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-boolean v1, p0, Lcom/samsung/android/transcode/core/Encode;->mUserStop:Z
+    iget-boolean v6, p0, Lcom/samsung/android/transcode/core/Encode;->mUserStop:Z
 
-    if-eqz v1, :cond_2
+    if-eqz v6, :cond_2
 
     :cond_0
     :goto_1
-    iget-object v0, p0, Lcom/samsung/android/transcode/core/Encode;->mEncodeEventListener:Lcom/samsung/android/transcode/core/Encode$EncodeEventListener;
+    iget-object v6, p0, Lcom/samsung/android/transcode/core/Encode;->mEncodeEventListener:Lcom/samsung/android/transcode/core/Encode$EncodeEventListener;
 
-    if-nez v0, :cond_6
+    if-nez v6, :cond_6
 
     :goto_2
     return-void
 
     :cond_1
     :try_start_1
-    iget-object v0, p0, Lcom/samsung/android/transcode/core/Encode;->mEncodeEventListener:Lcom/samsung/android/transcode/core/Encode$EncodeEventListener;
+    iget-object v6, p0, Lcom/samsung/android/transcode/core/Encode;->mEncodeEventListener:Lcom/samsung/android/transcode/core/Encode$EncodeEventListener;
 
-    invoke-interface {v0}, Lcom/samsung/android/transcode/core/Encode$EncodeEventListener;->onStarted()V
+    invoke-interface {v6}, Lcom/samsung/android/transcode/core/Encode$EncodeEventListener;->onStarted()V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
@@ -389,260 +545,260 @@
     throw v0
 
     :cond_2
-    iget-wide v4, p0, Lcom/samsung/android/transcode/core/Encode;->mOutputMaxSizeKB:J
+    iget-wide v6, p0, Lcom/samsung/android/transcode/core/Encode;->mOutputMaxSizeKB:J
 
-    const-wide/16 v6, -0x1
+    const-wide/16 v8, -0x1
 
-    cmp-long v1, v4, v6
+    cmp-long v6, v6, v8
 
-    if-eqz v1, :cond_0
+    if-eqz v6, :cond_0
 
-    long-to-double v2, v2
+    long-to-double v6, v4
 
-    const-wide/high16 v4, 0x4090000000000000L    # 1024.0
+    const-wide/high16 v8, 0x4090000000000000L    # 1024.0
 
-    div-double/2addr v2, v4
+    div-double/2addr v6, v8
 
-    iget-wide v4, p0, Lcom/samsung/android/transcode/core/Encode;->mOutputMaxSizeKB:J
+    iget-wide v8, p0, Lcom/samsung/android/transcode/core/Encode;->mOutputMaxSizeKB:J
 
-    long-to-double v4, v4
+    long-to-double v8, v8
 
-    cmpl-double v1, v2, v4
+    cmpl-double v6, v6, v8
 
-    if-lez v1, :cond_0
+    if-lez v6, :cond_0
 
-    instance-of v1, p0, Lcom/samsung/android/transcode/core/EncodeVideo;
+    instance-of v6, p0, Lcom/samsung/android/transcode/core/EncodeVideo;
 
-    if-eqz v1, :cond_0
+    if-eqz v6, :cond_0
 
-    const-string/jumbo v1, "TranscodeLib"
+    new-instance v6, Ljava/lang/StringBuilder;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    const-string/jumbo v7, "file size exceeded the max size limit "
 
-    const-string/jumbo v3, "file size exceeded the max size limit "
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v6
 
-    move-result-object v2
+    iget-wide v8, p0, Lcom/samsung/android/transcode/core/Encode;->mOutputMaxSizeKB:J
 
-    iget-wide v4, p0, Lcom/samsung/android/transcode/core/Encode;->mOutputMaxSizeKB:J
+    invoke-virtual {v6, v8, v9}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v4, v5}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+    move-result-object v6
 
-    move-result-object v2
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v6
 
-    move-result-object v2
+    const-string/jumbo v7, "TranscodeLib"
 
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v7, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-virtual {v0}, Ljava/io/File;->delete()Z
+    invoke-virtual {v3}, Ljava/io/File;->delete()Z
 
-    move-result v1
+    move-result v2
 
-    if-eqz v1, :cond_3
+    if-eqz v2, :cond_3
 
     :goto_3
-    const v0, 0x3f333333    # 0.7f
+    const v6, 0x3f333333    # 0.7f
 
-    iput v0, p0, Lcom/samsung/android/transcode/core/Encode;->mSizeFraction:F
+    iput v6, p0, Lcom/samsung/android/transcode/core/Encode;->mSizeFraction:F
 
-    iput-boolean v11, p0, Lcom/samsung/android/transcode/core/Encode;->mSkipFrames:Z
+    iput-boolean v13, p0, Lcom/samsung/android/transcode/core/Encode;->mSkipFrames:Z
 
-    iget v0, p0, Lcom/samsung/android/transcode/core/Encode;->mFramesSkipInterval:I
+    iget v6, p0, Lcom/samsung/android/transcode/core/Encode;->mFramesSkipInterval:I
 
-    if-lt v0, v9, :cond_4
+    if-lt v6, v11, :cond_4
 
-    iget v0, p0, Lcom/samsung/android/transcode/core/Encode;->mFramesSkipInterval:I
+    iget v6, p0, Lcom/samsung/android/transcode/core/Encode;->mFramesSkipInterval:I
 
-    mul-int/lit8 v0, v0, 0x2
+    mul-int/lit8 v6, v6, 0x2
 
-    iput v0, p0, Lcom/samsung/android/transcode/core/Encode;->mFramesSkipInterval:I
+    iput v6, p0, Lcom/samsung/android/transcode/core/Encode;->mFramesSkipInterval:I
 
     :goto_4
-    iget v0, p0, Lcom/samsung/android/transcode/core/Encode;->mOutputWidth:I
+    iget v6, p0, Lcom/samsung/android/transcode/core/Encode;->mOutputWidth:I
 
-    const/16 v1, 0xb0
+    const/16 v7, 0xb0
 
-    if-eq v0, v1, :cond_5
+    if-eq v6, v7, :cond_5
 
     :goto_5
     :try_start_2
-    const-string/jumbo v0, "TranscodeLib"
+    const-string/jumbo v6, "TranscodeLib"
 
-    const-string/jumbo v1, "2nd time starting encoder preparation"
+    const-string/jumbo v7, "2nd time starting encoder preparation"
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const/4 v0, 0x1
+    const/4 v6, 0x1
 
-    iput-boolean v0, p0, Lcom/samsung/android/transcode/core/Encode;->m2ndTimeEncoding:Z
+    iput-boolean v6, p0, Lcom/samsung/android/transcode/core/Encode;->m2ndTimeEncoding:Z
 
-    invoke-virtual {p0}, Lcom/samsung/android/transcode/core/EncodeVideo;->prepare()V
+    invoke-virtual {p0}, Lcom/samsung/android/transcode/core/Encode;->prepare()V
 
-    const-string/jumbo v0, "TranscodeLib"
+    const-string/jumbo v6, "TranscodeLib"
 
-    const-string/jumbo v1, "2nd time encoder preparation done."
+    const-string/jumbo v7, "2nd time encoder preparation done."
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    new-instance v0, Landroid/media/MediaMuxer;
+    new-instance v6, Landroid/media/MediaMuxer;
 
-    iget-object v1, p0, Lcom/samsung/android/transcode/core/Encode;->mOutputFilePath:Ljava/lang/String;
+    iget-object v7, p0, Lcom/samsung/android/transcode/core/Encode;->mOutputFilePath:Ljava/lang/String;
 
-    iget v2, p0, Lcom/samsung/android/transcode/core/Encode;->mOutputFormat:I
+    iget v8, p0, Lcom/samsung/android/transcode/core/Encode;->mOutputFormat:I
 
-    invoke-direct {v0, v1, v2}, Landroid/media/MediaMuxer;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v6, v7, v8}, Landroid/media/MediaMuxer;-><init>(Ljava/lang/String;I)V
 
-    iput-object v0, p0, Lcom/samsung/android/transcode/core/Encode;->mMuxer:Landroid/media/MediaMuxer;
+    iput-object v6, p0, Lcom/samsung/android/transcode/core/Encode;->mMuxer:Landroid/media/MediaMuxer;
 
-    const/4 v0, 0x0
+    const/4 v6, 0x0
 
-    iput-boolean v0, p0, Lcom/samsung/android/transcode/core/Encode;->mMuxerStarted:Z
+    iput-boolean v6, p0, Lcom/samsung/android/transcode/core/Encode;->mMuxerStarted:Z
 
-    const/4 v0, -0x1
+    const/4 v6, -0x1
 
-    iput v0, p0, Lcom/samsung/android/transcode/core/Encode;->mVideoTrackIndex:I
+    iput v6, p0, Lcom/samsung/android/transcode/core/Encode;->mVideoTrackIndex:I
 
-    const/4 v0, -0x1
+    const/4 v6, -0x1
 
-    iput v0, p0, Lcom/samsung/android/transcode/core/Encode;->mAudioTrackIndex:I
+    iput v6, p0, Lcom/samsung/android/transcode/core/Encode;->mAudioTrackIndex:I
 
-    const-string/jumbo v0, "TranscodeLib"
+    const-string/jumbo v6, "TranscodeLib"
 
-    const-string/jumbo v1, "2nd time starting to encode"
+    const-string/jumbo v7, "2nd time starting to encode"
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-virtual {p0}, Lcom/samsung/android/transcode/core/EncodeVideo;->startEncoding()V
+    invoke-virtual {p0}, Lcom/samsung/android/transcode/core/Encode;->startEncoding()V
 
-    const-string/jumbo v0, "TranscodeLib"
+    const-string/jumbo v6, "TranscodeLib"
 
-    const-string/jumbo v1, "2nd time encoding finished."
+    const-string/jumbo v7, "2nd time encoding finished."
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
-    invoke-virtual {p0}, Lcom/samsung/android/transcode/core/EncodeVideo;->release()V
+    invoke-virtual {p0}, Lcom/samsung/android/transcode/core/Encode;->release()V
 
-    new-instance v0, Ljava/io/File;
+    new-instance v3, Ljava/io/File;
 
-    iget-object v1, p0, Lcom/samsung/android/transcode/core/Encode;->mOutputFilePath:Ljava/lang/String;
+    iget-object v6, p0, Lcom/samsung/android/transcode/core/Encode;->mOutputFilePath:Ljava/lang/String;
 
-    invoke-direct {v0, v1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+    invoke-direct {v3, v6}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v0}, Ljava/io/File;->length()J
+    invoke-virtual {v3}, Ljava/io/File;->length()J
 
-    move-result-wide v0
+    move-result-wide v4
 
-    const-string/jumbo v2, "TranscodeLib"
+    new-instance v6, Ljava/lang/StringBuilder;
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    const-string/jumbo v7, "2nd time generated output file size after muxer close "
 
-    const-string/jumbo v4, "2nd time generated output file size after muxer close "
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v6
 
-    move-result-object v3
+    invoke-virtual {v6, v4, v5}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v0, v1}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+    move-result-object v6
 
-    move-result-object v0
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v6
 
-    move-result-object v0
+    const-string/jumbo v7, "TranscodeLib"
 
-    invoke-static {v2, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v7, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    iput-boolean v8, p0, Lcom/samsung/android/transcode/core/Encode;->m2ndTimeEncoding:Z
+    iput-boolean v10, p0, Lcom/samsung/android/transcode/core/Encode;->m2ndTimeEncoding:Z
 
     goto/16 :goto_1
 
     :cond_3
-    const-string/jumbo v1, "TranscodeLib"
+    new-instance v6, Ljava/lang/StringBuilder;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    const-string/jumbo v7, "Could not clean up file: "
 
-    const-string/jumbo v3, "Could not clean up file: "
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v6
 
-    move-result-object v2
+    invoke-virtual {v3}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
 
-    invoke-virtual {v0}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
+    move-result-object v7
 
-    move-result-object v0
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v6
 
-    move-result-object v0
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v6
 
-    move-result-object v0
+    const-string/jumbo v7, "TranscodeLib"
 
-    invoke-static {v1, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v7, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     goto/16 :goto_3
 
     :cond_4
-    iput v9, p0, Lcom/samsung/android/transcode/core/Encode;->mFramesSkipInterval:I
+    iput v11, p0, Lcom/samsung/android/transcode/core/Encode;->mFramesSkipInterval:I
 
     goto/16 :goto_4
 
     :cond_5
-    const/16 v0, 0x80
+    const/16 v6, 0x80
 
-    iput v0, p0, Lcom/samsung/android/transcode/core/Encode;->mOutputWidth:I
+    iput v6, p0, Lcom/samsung/android/transcode/core/Encode;->mOutputWidth:I
 
-    const/16 v0, 0x60
+    const/16 v6, 0x60
 
-    iput v0, p0, Lcom/samsung/android/transcode/core/Encode;->mOutputHeight:I
+    iput v6, p0, Lcom/samsung/android/transcode/core/Encode;->mOutputHeight:I
 
     goto/16 :goto_5
 
     :catchall_1
-    move-exception v0
+    move-exception v1
 
-    invoke-virtual {p0}, Lcom/samsung/android/transcode/core/EncodeVideo;->release()V
+    invoke-virtual {p0}, Lcom/samsung/android/transcode/core/Encode;->release()V
 
-    throw v0
+    throw v1
 
     :cond_6
-    iget-boolean v0, p0, Lcom/samsung/android/transcode/core/Encode;->mUserStop:Z
+    iget-boolean v6, p0, Lcom/samsung/android/transcode/core/Encode;->mUserStop:Z
 
-    if-eqz v0, :cond_7
+    if-eqz v6, :cond_7
 
-    const-string/jumbo v0, "TranscodeLib"
+    const-string/jumbo v6, "TranscodeLib"
 
-    const-string/jumbo v1, "user stopped. Not calling onCompleted"
+    const-string/jumbo v7, "user stopped. Not calling onCompleted"
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :goto_6
-    iput-object v10, p0, Lcom/samsung/android/transcode/core/Encode;->mEncodeEventListener:Lcom/samsung/android/transcode/core/Encode$EncodeEventListener;
+    iput-object v12, p0, Lcom/samsung/android/transcode/core/Encode;->mEncodeEventListener:Lcom/samsung/android/transcode/core/Encode$EncodeEventListener;
 
     goto/16 :goto_2
 
     :cond_7
-    const-string/jumbo v0, "TranscodeLib"
+    const-string/jumbo v6, "TranscodeLib"
 
-    const-string/jumbo v1, "calling onCompleted"
+    const-string/jumbo v7, "calling onCompleted"
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-object v0, p0, Lcom/samsung/android/transcode/core/Encode;->mEncodeEventListener:Lcom/samsung/android/transcode/core/Encode$EncodeEventListener;
+    iget-object v6, p0, Lcom/samsung/android/transcode/core/Encode;->mEncodeEventListener:Lcom/samsung/android/transcode/core/Encode$EncodeEventListener;
 
-    invoke-interface {v0}, Lcom/samsung/android/transcode/core/Encode$EncodeEventListener;->onCompleted()V
+    invoke-interface {v6}, Lcom/samsung/android/transcode/core/Encode$EncodeEventListener;->onCompleted()V
 
     goto :goto_6
 .end method
@@ -667,7 +823,7 @@
 .end method
 
 .method public setLogo(Landroid/content/res/AssetManager;Ljava/lang/String;)V
-    .locals 3
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -690,33 +846,33 @@
     return-void
 
     :cond_0
-    iget v0, p0, Lcom/samsung/android/transcode/core/Encode;->mOutputWidth:I
+    iget v3, p0, Lcom/samsung/android/transcode/core/Encode;->mOutputWidth:I
 
-    int-to-float v0, v0
+    int-to-float v3, v3
 
-    const v2, 0x3d99999a    # 0.075f
+    const v4, 0x3d99999a    # 0.075f
 
-    mul-float/2addr v0, v2
+    mul-float/2addr v3, v4
 
-    float-to-int v0, v0
+    float-to-int v2, v3
 
-    invoke-direct {p0, v1, v0, v0}, Lcom/samsung/android/transcode/core/Encode;->setLogoData(Landroid/graphics/Bitmap;II)V
+    invoke-direct {p0, v1, v2, v2}, Lcom/samsung/android/transcode/core/Encode;->setLogoData(Landroid/graphics/Bitmap;II)V
 
     goto :goto_0
 .end method
 
 .method public setLogo(Landroid/graphics/Bitmap;)V
-    .locals 2
+    .locals 3
 
-    iget v0, p0, Lcom/samsung/android/transcode/core/Encode;->mOutputWidth:I
+    iget v1, p0, Lcom/samsung/android/transcode/core/Encode;->mOutputWidth:I
 
-    int-to-float v0, v0
+    int-to-float v1, v1
 
-    const v1, 0x3d99999a    # 0.075f
+    const v2, 0x3d99999a    # 0.075f
 
-    mul-float/2addr v0, v1
+    mul-float/2addr v1, v2
 
-    float-to-int v0, v0
+    float-to-int v0, v1
 
     invoke-direct {p0, p1, v0, v0}, Lcom/samsung/android/transcode/core/Encode;->setLogoData(Landroid/graphics/Bitmap;II)V
 
@@ -724,7 +880,7 @@
 .end method
 
 .method public setLogo(Ljava/lang/String;)V
-    .locals 3
+    .locals 4
 
     invoke-static {p1}, Landroid/graphics/BitmapFactory;->decodeFile(Ljava/lang/String;)Landroid/graphics/Bitmap;
 
@@ -736,15 +892,15 @@
     return-void
 
     :cond_0
-    iget v1, p0, Lcom/samsung/android/transcode/core/Encode;->mOutputWidth:I
+    iget v2, p0, Lcom/samsung/android/transcode/core/Encode;->mOutputWidth:I
 
-    int-to-float v1, v1
+    int-to-float v2, v2
 
-    const v2, 0x3d99999a    # 0.075f
+    const v3, 0x3d99999a    # 0.075f
 
-    mul-float/2addr v1, v2
+    mul-float/2addr v2, v3
 
-    float-to-int v1, v1
+    float-to-int v1, v2
 
     invoke-direct {p0, v0, v1, v1}, Lcom/samsung/android/transcode/core/Encode;->setLogoData(Landroid/graphics/Bitmap;II)V
 
@@ -778,146 +934,94 @@
 .method public abstract stop()V
 .end method
 
-.method public suggestBitRate(II)I
-    .locals 2
-
-    const/16 v1, 0x1388
-
-    const/16 v0, 0x780
-
-    if-ge p1, v0, :cond_0
-
-    const/16 v0, 0x500
-
-    if-ge p1, v0, :cond_1
-
-    const/16 v0, 0x2d0
-
-    if-ge p1, v0, :cond_2
-
-    const/16 v0, 0x280
-
-    if-ge p1, v0, :cond_3
-
-    const/16 v0, 0x140
-
-    if-ge p1, v0, :cond_4
-
-    const/16 v0, 0x118
-
-    return v0
-
-    :cond_0
-    const/16 v0, 0x2710
-
-    return v0
-
-    :cond_1
-    const/16 v0, 0x1f40
-
-    return v0
-
-    :cond_2
-    return v1
-
-    :cond_3
-    return v1
-
-    :cond_4
-    const/16 v0, 0x200
-
-    return v0
-.end method
-
 .method public transRewrite()V
-    .locals 4
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    const/4 v3, 0x0
+    const/4 v4, 0x0
 
     invoke-direct {p0}, Lcom/samsung/android/transcode/core/Encode;->printVersionInfo()V
 
     :try_start_0
-    const-string/jumbo v0, "TranscodeLib"
+    const-string/jumbo v1, "TranscodeLib"
 
-    const-string/jumbo v1, "starting transRewrite prepartion"
+    const-string/jumbo v2, "starting transRewrite prepartion"
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     invoke-virtual {p0}, Lcom/samsung/android/transcode/core/Encode;->prepare_for_transrewrite()V
 
-    const-string/jumbo v0, "TranscodeLib"
+    const-string/jumbo v1, "TranscodeLib"
 
-    const-string/jumbo v1, "transRewrite preparation done."
+    const-string/jumbo v2, "transRewrite preparation done."
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    new-instance v0, Landroid/media/MediaMuxer;
+    new-instance v1, Landroid/media/MediaMuxer;
 
-    iget-object v1, p0, Lcom/samsung/android/transcode/core/Encode;->mOutputFilePath:Ljava/lang/String;
+    iget-object v2, p0, Lcom/samsung/android/transcode/core/Encode;->mOutputFilePath:Ljava/lang/String;
 
-    iget v2, p0, Lcom/samsung/android/transcode/core/Encode;->mOutputFormat:I
+    iget v3, p0, Lcom/samsung/android/transcode/core/Encode;->mOutputFormat:I
 
-    invoke-direct {v0, v1, v2}, Landroid/media/MediaMuxer;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v1, v2, v3}, Landroid/media/MediaMuxer;-><init>(Ljava/lang/String;I)V
 
-    iput-object v0, p0, Lcom/samsung/android/transcode/core/Encode;->mMuxer:Landroid/media/MediaMuxer;
+    iput-object v1, p0, Lcom/samsung/android/transcode/core/Encode;->mMuxer:Landroid/media/MediaMuxer;
 
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
-    iput-boolean v0, p0, Lcom/samsung/android/transcode/core/Encode;->mMuxerStarted:Z
+    iput-boolean v1, p0, Lcom/samsung/android/transcode/core/Encode;->mMuxerStarted:Z
 
-    const/4 v0, -0x1
+    const/4 v1, -0x1
 
-    iput v0, p0, Lcom/samsung/android/transcode/core/Encode;->mVideoTrackIndex:I
+    iput v1, p0, Lcom/samsung/android/transcode/core/Encode;->mVideoTrackIndex:I
 
-    const/4 v0, -0x1
+    const/4 v1, -0x1
 
-    iput v0, p0, Lcom/samsung/android/transcode/core/Encode;->mAudioTrackIndex:I
+    iput v1, p0, Lcom/samsung/android/transcode/core/Encode;->mAudioTrackIndex:I
 
-    const-string/jumbo v0, "TranscodeLib"
+    const-string/jumbo v1, "TranscodeLib"
 
-    const-string/jumbo v1, "starting transRewrite"
+    const-string/jumbo v2, "starting transRewrite"
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-object v0, p0, Lcom/samsung/android/transcode/core/Encode;->mEncodeEventListener:Lcom/samsung/android/transcode/core/Encode$EncodeEventListener;
+    iget-object v1, p0, Lcom/samsung/android/transcode/core/Encode;->mEncodeEventListener:Lcom/samsung/android/transcode/core/Encode$EncodeEventListener;
 
-    if-nez v0, :cond_0
+    if-nez v1, :cond_0
 
     :goto_0
-    iget v0, p0, Lcom/samsung/android/transcode/core/Encode;->mTransRewritable:I
+    iget v1, p0, Lcom/samsung/android/transcode/core/Encode;->mTransRewritable:I
 
-    if-eqz v0, :cond_1
+    if-eqz v1, :cond_1
 
     invoke-virtual {p0}, Lcom/samsung/android/transcode/core/Encode;->startTransRewriting()V
 
-    :goto_1
-    const-string/jumbo v0, "TranscodeLib"
+    const-string/jumbo v1, "TranscodeLib"
 
-    const-string/jumbo v1, "transRewrite finished."
+    const-string/jumbo v2, "transRewrite finished."
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     invoke-virtual {p0}, Lcom/samsung/android/transcode/core/Encode;->release()V
 
-    iget-object v0, p0, Lcom/samsung/android/transcode/core/Encode;->mEncodeEventListener:Lcom/samsung/android/transcode/core/Encode$EncodeEventListener;
+    iget-object v1, p0, Lcom/samsung/android/transcode/core/Encode;->mEncodeEventListener:Lcom/samsung/android/transcode/core/Encode$EncodeEventListener;
 
-    if-nez v0, :cond_2
+    if-nez v1, :cond_2
 
-    :goto_2
+    :goto_1
     return-void
 
     :cond_0
     :try_start_1
-    iget-object v0, p0, Lcom/samsung/android/transcode/core/Encode;->mEncodeEventListener:Lcom/samsung/android/transcode/core/Encode$EncodeEventListener;
+    iget-object v1, p0, Lcom/samsung/android/transcode/core/Encode;->mEncodeEventListener:Lcom/samsung/android/transcode/core/Encode$EncodeEventListener;
 
-    invoke-interface {v0}, Lcom/samsung/android/transcode/core/Encode$EncodeEventListener;->onStarted()V
+    invoke-interface {v1}, Lcom/samsung/android/transcode/core/Encode$EncodeEventListener;->onStarted()V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
@@ -932,38 +1036,42 @@
 
     :cond_1
     :try_start_2
-    invoke-virtual {p0}, Lcom/samsung/android/transcode/core/Encode;->startEncoding()V
+    new-instance v1, Ljava/io/IOException;
+
+    const-string/jumbo v2, "Can\'t rewirte"
+
+    invoke-direct {v1, v2}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+
+    throw v1
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
+    :cond_2
+    iget-boolean v1, p0, Lcom/samsung/android/transcode/core/Encode;->mUserStop:Z
+
+    if-eqz v1, :cond_3
+
+    const-string/jumbo v1, "TranscodeLib"
+
+    const-string/jumbo v2, "user stopped. Not calling onCompleted"
+
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :goto_2
+    iput-object v4, p0, Lcom/samsung/android/transcode/core/Encode;->mEncodeEventListener:Lcom/samsung/android/transcode/core/Encode$EncodeEventListener;
+
     goto :goto_1
 
-    :cond_2
-    iget-boolean v0, p0, Lcom/samsung/android/transcode/core/Encode;->mUserStop:Z
+    :cond_3
+    const-string/jumbo v1, "TranscodeLib"
 
-    if-eqz v0, :cond_3
+    const-string/jumbo v2, "calling onCompleted"
 
-    const-string/jumbo v0, "TranscodeLib"
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const-string/jumbo v1, "user stopped. Not calling onCompleted"
+    iget-object v1, p0, Lcom/samsung/android/transcode/core/Encode;->mEncodeEventListener:Lcom/samsung/android/transcode/core/Encode$EncodeEventListener;
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :goto_3
-    iput-object v3, p0, Lcom/samsung/android/transcode/core/Encode;->mEncodeEventListener:Lcom/samsung/android/transcode/core/Encode$EncodeEventListener;
+    invoke-interface {v1}, Lcom/samsung/android/transcode/core/Encode$EncodeEventListener;->onCompleted()V
 
     goto :goto_2
-
-    :cond_3
-    const-string/jumbo v0, "TranscodeLib"
-
-    const-string/jumbo v1, "calling onCompleted"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget-object v0, p0, Lcom/samsung/android/transcode/core/Encode;->mEncodeEventListener:Lcom/samsung/android/transcode/core/Encode$EncodeEventListener;
-
-    invoke-interface {v0}, Lcom/samsung/android/transcode/core/Encode$EncodeEventListener;->onCompleted()V
-
-    goto :goto_3
 .end method

@@ -838,6 +838,10 @@
 
     iput-boolean v5, v4, Landroid/renderscript/RenderScript$MessageThread;->mRun:Z
 
+    iget-object v4, p0, Landroid/renderscript/RenderScript;->mMessageThread:Landroid/renderscript/RenderScript$MessageThread;
+
+    invoke-virtual {v4}, Landroid/renderscript/RenderScript$MessageThread;->interrupt()V
+
     const/4 v1, 0x0
 
     const/4 v2, 0x0

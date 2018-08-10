@@ -17,7 +17,7 @@
     value = {
         "Landroid/app/SystemServiceRegistry$CachedServiceFetcher",
         "<",
-        "Landroid/os/storage/StorageManager;",
+        "Landroid/os/RecoverySystem;",
         ">;"
     }
 .end annotation
@@ -34,30 +34,40 @@
 
 
 # virtual methods
-.method public createService(Landroid/app/ContextImpl;)Landroid/os/storage/StorageManager;
-    .locals 2
+.method public createService(Landroid/app/ContextImpl;)Landroid/os/RecoverySystem;
+    .locals 3
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/ServiceManager$ServiceNotFoundException;
+        }
+    .end annotation
 
-    new-instance v0, Landroid/os/storage/StorageManager;
+    const-string/jumbo v2, "recovery"
 
-    iget-object v1, p1, Landroid/app/ContextImpl;->mMainThread:Landroid/app/ActivityThread;
+    invoke-static {v2}, Landroid/os/ServiceManager;->getServiceOrThrow(Ljava/lang/String;)Landroid/os/IBinder;
 
-    invoke-virtual {v1}, Landroid/app/ActivityThread;->getHandler()Landroid/os/Handler;
+    move-result-object v0
+
+    invoke-static {v0}, Landroid/os/IRecoverySystem$Stub;->asInterface(Landroid/os/IBinder;)Landroid/os/IRecoverySystem;
 
     move-result-object v1
 
-    invoke-virtual {v1}, Landroid/os/Handler;->getLooper()Landroid/os/Looper;
+    new-instance v2, Landroid/os/RecoverySystem;
 
-    move-result-object v1
+    invoke-direct {v2, v1}, Landroid/os/RecoverySystem;-><init>(Landroid/os/IRecoverySystem;)V
 
-    invoke-direct {v0, p1, v1}, Landroid/os/storage/StorageManager;-><init>(Landroid/content/Context;Landroid/os/Looper;)V
-
-    return-object v0
+    return-object v2
 .end method
 
 .method public bridge synthetic createService(Landroid/app/ContextImpl;)Ljava/lang/Object;
     .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/ServiceManager$ServiceNotFoundException;
+        }
+    .end annotation
 
-    invoke-virtual {p0, p1}, Landroid/app/SystemServiceRegistry$39;->createService(Landroid/app/ContextImpl;)Landroid/os/storage/StorageManager;
+    invoke-virtual {p0, p1}, Landroid/app/SystemServiceRegistry$39;->createService(Landroid/app/ContextImpl;)Landroid/os/RecoverySystem;
 
     move-result-object v0
 

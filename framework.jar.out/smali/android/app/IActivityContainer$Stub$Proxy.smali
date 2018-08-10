@@ -34,15 +34,7 @@
 
 
 # virtual methods
-.method public asBinder()Landroid/os/IBinder;
-    .locals 1
-
-    iget-object v0, p0, Landroid/app/IActivityContainer$Stub$Proxy;->mRemote:Landroid/os/IBinder;
-
-    return-object v0
-.end method
-
-.method public attachToDisplay(I)V
+.method public addToDisplay(I)V
     .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -91,6 +83,14 @@
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
     throw v2
+.end method
+
+.method public asBinder()Landroid/os/IBinder;
+    .locals 1
+
+    iget-object v0, p0, Landroid/app/IActivityContainer$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+
+    return-object v0
 .end method
 
 .method public getDisplayId()I

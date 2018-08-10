@@ -119,8 +119,16 @@
 
     instance-of v1, p1, Landroid/media/AudioPort;
 
-    if-eqz v1, :cond_0
+    xor-int/lit8 v1, v1, 0x1
 
+    if-eqz v1, :cond_1
+
+    :cond_0
+    const/4 v1, 0x0
+
+    return v1
+
+    :cond_1
     move-object v0, p1
 
     check-cast v0, Landroid/media/AudioPort;
@@ -134,11 +142,6 @@
     invoke-virtual {v1, v2}, Landroid/media/AudioHandle;->equals(Ljava/lang/Object;)Z
 
     move-result v1
-
-    return v1
-
-    :cond_0
-    const/4 v1, 0x0
 
     return v1
 .end method

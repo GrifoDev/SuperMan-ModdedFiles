@@ -65,7 +65,7 @@
 
     const/4 v6, 0x0
 
-    iget-object v5, p0, Landroid/view/AccessibilityIterators$AbstractTextSegmentIterator;->mText:Ljava/lang/String;
+    iget-object v5, p0, Landroid/widget/AccessibilityIterators$LineTextSegmentIterator;->mText:Ljava/lang/String;
 
     invoke-virtual {v5}, Ljava/lang/String;->length()I
 
@@ -76,7 +76,7 @@
     return-object v7
 
     :cond_0
-    iget-object v5, p0, Landroid/view/AccessibilityIterators$AbstractTextSegmentIterator;->mText:Ljava/lang/String;
+    iget-object v5, p0, Landroid/widget/AccessibilityIterators$LineTextSegmentIterator;->mText:Ljava/lang/String;
 
     invoke-virtual {v5}, Ljava/lang/String;->length()I
 
@@ -141,7 +141,7 @@
 
     add-int/lit8 v1, v5, 0x1
 
-    invoke-virtual {p0, v3, v1}, Landroid/view/AccessibilityIterators$AbstractTextSegmentIterator;->getRange(II)[I
+    invoke-virtual {p0, v3, v1}, Landroid/widget/AccessibilityIterators$LineTextSegmentIterator;->getRange(II)[I
 
     move-result-object v5
 
@@ -188,7 +188,7 @@
 
     move-result-object v0
 
-    iput-object v0, p0, Landroid/view/AccessibilityIterators$AbstractTextSegmentIterator;->mText:Ljava/lang/String;
+    iput-object v0, p0, Landroid/widget/AccessibilityIterators$LineTextSegmentIterator;->mText:Ljava/lang/String;
 
     iput-object p2, p0, Landroid/widget/AccessibilityIterators$LineTextSegmentIterator;->mLayout:Landroid/text/Layout;
 
@@ -202,7 +202,7 @@
 
     const/4 v7, 0x0
 
-    iget-object v5, p0, Landroid/view/AccessibilityIterators$AbstractTextSegmentIterator;->mText:Ljava/lang/String;
+    iget-object v5, p0, Landroid/widget/AccessibilityIterators$LineTextSegmentIterator;->mText:Ljava/lang/String;
 
     invoke-virtual {v5}, Ljava/lang/String;->length()I
 
@@ -218,7 +218,7 @@
     return-object v7
 
     :cond_1
-    iget-object v5, p0, Landroid/view/AccessibilityIterators$AbstractTextSegmentIterator;->mText:Ljava/lang/String;
+    iget-object v5, p0, Landroid/widget/AccessibilityIterators$LineTextSegmentIterator;->mText:Ljava/lang/String;
 
     invoke-virtual {v5}, Ljava/lang/String;->length()I
 
@@ -228,7 +228,7 @@
 
     iget-object v5, p0, Landroid/widget/AccessibilityIterators$LineTextSegmentIterator;->mLayout:Landroid/text/Layout;
 
-    iget-object v6, p0, Landroid/view/AccessibilityIterators$AbstractTextSegmentIterator;->mText:Ljava/lang/String;
+    iget-object v6, p0, Landroid/widget/AccessibilityIterators$LineTextSegmentIterator;->mText:Ljava/lang/String;
 
     invoke-virtual {v6}, Ljava/lang/String;->length()I
 
@@ -280,7 +280,7 @@
 
     add-int/lit8 v1, v5, 0x1
 
-    invoke-virtual {p0, v3, v1}, Landroid/view/AccessibilityIterators$AbstractTextSegmentIterator;->getRange(II)[I
+    invoke-virtual {p0, v3, v1}, Landroid/widget/AccessibilityIterators$LineTextSegmentIterator;->getRange(II)[I
 
     move-result-object v5
 

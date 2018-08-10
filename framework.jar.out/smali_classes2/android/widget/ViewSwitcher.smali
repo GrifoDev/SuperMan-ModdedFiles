@@ -105,20 +105,23 @@
 .method public getNextView()Landroid/view/View;
     .locals 2
 
-    const/4 v0, 0x0
-
     iget v1, p0, Landroid/widget/ViewSwitcher;->mWhichChild:I
 
     if-nez v1, :cond_0
 
     const/4 v0, 0x1
 
-    :cond_0
+    :goto_0
     invoke-virtual {p0, v0}, Landroid/widget/ViewSwitcher;->getChildAt(I)Landroid/view/View;
 
     move-result-object v1
 
     return-object v1
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
 .end method
 
 .method public reset()V

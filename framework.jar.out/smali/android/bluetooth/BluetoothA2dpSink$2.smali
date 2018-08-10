@@ -52,7 +52,11 @@
     :cond_0
     iget-object v0, p0, Landroid/bluetooth/BluetoothA2dpSink$2;->this$0:Landroid/bluetooth/BluetoothA2dpSink;
 
-    invoke-static {p2}, Landroid/bluetooth/IBluetoothA2dpSink$Stub;->asInterface(Landroid/os/IBinder;)Landroid/bluetooth/IBluetoothA2dpSink;
+    invoke-static {p2}, Landroid/os/Binder;->allowBlocking(Landroid/os/IBinder;)Landroid/os/IBinder;
+
+    move-result-object v1
+
+    invoke-static {v1}, Landroid/bluetooth/IBluetoothA2dpSink$Stub;->asInterface(Landroid/os/IBinder;)Landroid/bluetooth/IBluetoothA2dpSink;
 
     move-result-object v1
 
@@ -60,7 +64,7 @@
 
     iget-object v0, p0, Landroid/bluetooth/BluetoothA2dpSink$2;->this$0:Landroid/bluetooth/BluetoothA2dpSink;
 
-    invoke-static {v0}, Landroid/bluetooth/BluetoothA2dpSink;->-get4(Landroid/bluetooth/BluetoothA2dpSink;)Landroid/bluetooth/BluetoothProfile$ServiceListener;
+    invoke-static {v0}, Landroid/bluetooth/BluetoothA2dpSink;->-get6(Landroid/bluetooth/BluetoothA2dpSink;)Landroid/bluetooth/BluetoothProfile$ServiceListener;
 
     move-result-object v0
 
@@ -68,7 +72,7 @@
 
     iget-object v0, p0, Landroid/bluetooth/BluetoothA2dpSink$2;->this$0:Landroid/bluetooth/BluetoothA2dpSink;
 
-    invoke-static {v0}, Landroid/bluetooth/BluetoothA2dpSink;->-get4(Landroid/bluetooth/BluetoothA2dpSink;)Landroid/bluetooth/BluetoothProfile$ServiceListener;
+    invoke-static {v0}, Landroid/bluetooth/BluetoothA2dpSink;->-get6(Landroid/bluetooth/BluetoothA2dpSink;)Landroid/bluetooth/BluetoothProfile$ServiceListener;
 
     move-result-object v0
 
@@ -106,7 +110,7 @@
 
     iget-object v0, p0, Landroid/bluetooth/BluetoothA2dpSink$2;->this$0:Landroid/bluetooth/BluetoothA2dpSink;
 
-    invoke-static {v0}, Landroid/bluetooth/BluetoothA2dpSink;->-get4(Landroid/bluetooth/BluetoothA2dpSink;)Landroid/bluetooth/BluetoothProfile$ServiceListener;
+    invoke-static {v0}, Landroid/bluetooth/BluetoothA2dpSink;->-get6(Landroid/bluetooth/BluetoothA2dpSink;)Landroid/bluetooth/BluetoothProfile$ServiceListener;
 
     move-result-object v0
 
@@ -114,7 +118,7 @@
 
     iget-object v0, p0, Landroid/bluetooth/BluetoothA2dpSink$2;->this$0:Landroid/bluetooth/BluetoothA2dpSink;
 
-    invoke-static {v0}, Landroid/bluetooth/BluetoothA2dpSink;->-get4(Landroid/bluetooth/BluetoothA2dpSink;)Landroid/bluetooth/BluetoothProfile$ServiceListener;
+    invoke-static {v0}, Landroid/bluetooth/BluetoothA2dpSink;->-get6(Landroid/bluetooth/BluetoothA2dpSink;)Landroid/bluetooth/BluetoothProfile$ServiceListener;
 
     move-result-object v0
 

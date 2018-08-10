@@ -37,7 +37,7 @@
 
     invoke-direct {v0}, Ljava/util/Vector;-><init>()V
 
-    invoke-virtual {p0}, Landroid/filterfw/core/Scheduler;->getGraph()Landroid/filterfw/core/FilterGraph;
+    invoke-virtual {p0}, Landroid/filterfw/core/RandomScheduler;->getGraph()Landroid/filterfw/core/FilterGraph;
 
     move-result-object v4
 

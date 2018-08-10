@@ -111,10 +111,11 @@
     if-nez v12, :cond_2
 
     :cond_0
+    :goto_1
     const/4 v11, 0x1
 
     :cond_1
-    :goto_1
+    :goto_2
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
@@ -136,7 +137,9 @@
 
     move-result v12
 
-    if-eqz v12, :cond_0
+    xor-int/lit8 v12, v12, 0x1
+
+    if-eqz v12, :cond_1
 
     goto :goto_1
 
@@ -165,7 +168,7 @@
 
     const/4 v11, 0x1
 
-    goto :goto_1
+    goto :goto_2
 
     :cond_4
     if-nez v11, :cond_5
@@ -182,7 +185,7 @@
     packed-switch v12, :pswitch_data_0
 
     :cond_6
-    :goto_2
+    :goto_3
     move-object/from16 v0, p0
 
     iget-object v12, v0, Landroid/animation/LayoutTransition$2;->val$anim:Landroid/animation/Animator;
@@ -376,7 +379,7 @@
 
     invoke-virtual {v12, v13}, Landroid/animation/Animator;->setInterpolator(Landroid/animation/TimeInterpolator;)V
 
-    goto/16 :goto_2
+    goto/16 :goto_3
 
     :pswitch_1
     move-object/from16 v0, p0
@@ -445,7 +448,7 @@
 
     invoke-virtual {v12, v13}, Landroid/animation/Animator;->setInterpolator(Landroid/animation/TimeInterpolator;)V
 
-    goto/16 :goto_2
+    goto/16 :goto_3
 
     :pswitch_2
     move-object/from16 v0, p0
@@ -514,7 +517,7 @@
 
     invoke-virtual {v12, v13}, Landroid/animation/Animator;->setInterpolator(Landroid/animation/TimeInterpolator;)V
 
-    goto/16 :goto_2
+    goto/16 :goto_3
 
     nop
 

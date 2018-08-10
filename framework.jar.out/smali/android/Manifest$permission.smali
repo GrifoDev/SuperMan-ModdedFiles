@@ -17,6 +17,8 @@
 # static fields
 .field public static final ACCESS:Ljava/lang/String; = "com.sec.knox.container.keyguard.ACCESS"
 
+.field public static final ACCESS_BRIDGE:Ljava/lang/String; = "com.att.iqi.permission.ACCESS_BRIDGE"
+
 .field public static final ACCESS_CACHE_FILESYSTEM:Ljava/lang/String; = "android.permission.ACCESS_CACHE_FILESYSTEM"
 
 .field public static final ACCESS_CHECKIN_PROPERTIES:Ljava/lang/String; = "android.permission.ACCESS_CHECKIN_PROPERTIES"
@@ -27,8 +29,6 @@
 
 .field public static final ACCESS_DRM_CERTIFICATES:Ljava/lang/String; = "android.permission.ACCESS_DRM_CERTIFICATES"
 
-.field public static final ACCESS_EPHEMERAL_APPS:Ljava/lang/String; = "android.permission.ACCESS_EPHEMERAL_APPS"
-
 .field public static final ACCESS_FINE_LOCATION:Ljava/lang/String; = "android.permission.ACCESS_FINE_LOCATION"
 
 .field public static final ACCESS_FM_RADIO:Ljava/lang/String; = "android.permission.ACCESS_FM_RADIO"
@@ -36,6 +36,8 @@
 .field public static final ACCESS_IMS_CALL_SERVICE:Ljava/lang/String; = "android.permission.ACCESS_IMS_CALL_SERVICE"
 
 .field public static final ACCESS_INPUT_FLINGER:Ljava/lang/String; = "android.permission.ACCESS_INPUT_FLINGER"
+
+.field public static final ACCESS_INSTANT_APPS:Ljava/lang/String; = "android.permission.ACCESS_INSTANT_APPS"
 
 .field public static final ACCESS_KEYGUARD_SECURE_STORAGE:Ljava/lang/String; = "android.permission.ACCESS_KEYGUARD_SECURE_STORAGE"
 
@@ -54,8 +56,6 @@
 .field public static final ACCESS_NOTIFICATION_POLICY:Ljava/lang/String; = "android.permission.ACCESS_NOTIFICATION_POLICY"
 
 .field public static final ACCESS_PDB_STATE:Ljava/lang/String; = "android.permission.ACCESS_PDB_STATE"
-
-.field public static final ACCESS_SAFE_MODE:Ljava/lang/String; = "com.samsung.android.permission.ACCESS_SAFE_MODE"
 
 .field public static final ACCESS_SURFACE_FLINGER:Ljava/lang/String; = "android.permission.ACCESS_SURFACE_FLINGER"
 
@@ -77,9 +77,19 @@
 
 .field public static final ACCOUNT_MANAGER:Ljava/lang/String; = "android.permission.ACCOUNT_MANAGER"
 
+.field public static final ADD_PAIR_APP_SHORTCUT:Ljava/lang/String; = "com.samsung.android.permission.ADD_PAIR_APP_SHORTCUT"
+
 .field public static final ADD_VOICEMAIL:Ljava/lang/String; = "com.android.voicemail.permission.ADD_VOICEMAIL"
 
+.field public static final AIRVIEW_APPS_INTERACTION:Ljava/lang/String; = "com.samsung.android.permission.AIRVIEW_APPS_INTERACTION"
+
+.field public static final ALLOCATE_AGGRESSIVE:Ljava/lang/String; = "android.permission.ALLOCATE_AGGRESSIVE"
+
 .field public static final ALLOW_ANY_CODEC_FOR_PLAYBACK:Ljava/lang/String; = "android.permission.ALLOW_ANY_CODEC_FOR_PLAYBACK"
+
+.field public static final ANSWER_PHONE_CALLS:Ljava/lang/String; = "android.permission.ANSWER_PHONE_CALLS"
+
+.field public static final APP_PERMISSION_MONITOR:Ljava/lang/String; = "com.samsung.android.intent.permission.APP_PERMISSION_MONITOR"
 
 .field public static final ASEC_ACCESS:Ljava/lang/String; = "android.permission.ASEC_ACCESS"
 
@@ -105,6 +115,12 @@
 
 .field public static final BIND_APPWIDGET:Ljava/lang/String; = "android.permission.BIND_APPWIDGET"
 
+.field public static final BIND_AUTOFILL:Ljava/lang/String; = "android.permission.BIND_AUTOFILL"
+
+.field public static final BIND_AUTOFILL_SERVICE:Ljava/lang/String; = "android.permission.BIND_AUTOFILL_SERVICE"
+
+.field public static final BIND_CACHE_QUOTA_SERVICE:Ljava/lang/String; = "android.permission.BIND_CACHE_QUOTA_SERVICE"
+
 .field public static final BIND_CARRIER_MESSAGING_SERVICE:Ljava/lang/String; = "android.permission.BIND_CARRIER_MESSAGING_SERVICE"
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -114,6 +130,8 @@
 
 .field public static final BIND_CHOOSER_TARGET_SERVICE:Ljava/lang/String; = "android.permission.BIND_CHOOSER_TARGET_SERVICE"
 
+.field public static final BIND_COMPANION_DEVICE_MANAGER_SERVICE:Ljava/lang/String; = "android.permission.BIND_COMPANION_DEVICE_MANAGER_SERVICE"
+
 .field public static final BIND_CONDITION_PROVIDER_SERVICE:Ljava/lang/String; = "android.permission.BIND_CONDITION_PROVIDER_SERVICE"
 
 .field public static final BIND_CONNECTION_SERVICE:Ljava/lang/String; = "android.permission.BIND_CONNECTION_SERVICE"
@@ -121,11 +139,15 @@
     .end annotation
 .end field
 
+.field public static final BIND_COVER_SERVICE:Ljava/lang/String; = "com.samsung.android.permission.BIND_COVER_SERVICE"
+
 .field public static final BIND_DEVICE_ADMIN:Ljava/lang/String; = "android.permission.BIND_DEVICE_ADMIN"
 
 .field public static final BIND_DIRECTORY_SEARCH:Ljava/lang/String; = "android.permission.BIND_DIRECTORY_SEARCH"
 
 .field public static final BIND_DREAM_SERVICE:Ljava/lang/String; = "android.permission.BIND_DREAM_SERVICE"
+
+.field public static final BIND_IMS_SERVICE:Ljava/lang/String; = "android.permission.BIND_IMS_SERVICE"
 
 .field public static final BIND_INCALL_SERVICE:Ljava/lang/String; = "android.permission.BIND_INCALL_SERVICE"
 
@@ -133,19 +155,25 @@
 
 .field public static final BIND_INTENT_FILTER_VERIFIER:Ljava/lang/String; = "android.permission.BIND_INTENT_FILTER_VERIFIER"
 
+.field public static final BIND_IQI_MANAGER:Ljava/lang/String; = "com.att.iqi.permission.BIND_IQI_MANAGER"
+
 .field public static final BIND_JOB_SERVICE:Ljava/lang/String; = "android.permission.BIND_JOB_SERVICE"
 
 .field public static final BIND_KEYGUARD_APPWIDGET:Ljava/lang/String; = "android.permission.BIND_KEYGUARD_APPWIDGET"
 
 .field public static final BIND_MIDI_DEVICE_SERVICE:Ljava/lang/String; = "android.permission.BIND_MIDI_DEVICE_SERVICE"
 
+.field public static final BIND_NETWORK_RECOMMENDATION_SERVICE:Ljava/lang/String; = "android.permission.BIND_NETWORK_RECOMMENDATION_SERVICE"
+
 .field public static final BIND_NFC_SERVICE:Ljava/lang/String; = "android.permission.BIND_NFC_SERVICE"
+
+.field public static final BIND_NOTIFICATION_ASSISTANT_SERVICE:Ljava/lang/String; = "android.permission.BIND_NOTIFICATION_ASSISTANT_SERVICE"
 
 .field public static final BIND_NOTIFICATION_LISTENER_SERVICE:Ljava/lang/String; = "android.permission.BIND_NOTIFICATION_LISTENER_SERVICE"
 
-.field public static final BIND_NOTIFICATION_RANKER_SERVICE:Ljava/lang/String; = "android.permission.BIND_NOTIFICATION_RANKER_SERVICE"
-
 .field public static final BIND_PACKAGE_VERIFIER:Ljava/lang/String; = "android.permission.BIND_PACKAGE_VERIFIER"
+
+.field public static final BIND_PACKAGE_VERIFIER2:Ljava/lang/String; = "com.samsung.android.permission.BIND_PACKAGE_VERIFIER2"
 
 .field public static final BIND_PRINT_RECOMMENDATION_SERVICE:Ljava/lang/String; = "android.permission.BIND_PRINT_RECOMMENDATION_SERVICE"
 
@@ -158,6 +186,8 @@
 .field public static final BIND_REMOTEVIEWS:Ljava/lang/String; = "android.permission.BIND_REMOTEVIEWS"
 
 .field public static final BIND_REMOTE_DISPLAY:Ljava/lang/String; = "android.permission.BIND_REMOTE_DISPLAY"
+
+.field public static final BIND_RESOLVER_RANKER_SERVICE:Ljava/lang/String; = "android.permission.BIND_RESOLVER_RANKER_SERVICE"
 
 .field public static final BIND_ROUTE_PROVIDER:Ljava/lang/String; = "android.permission.BIND_ROUTE_PROVIDER"
 
@@ -176,6 +206,8 @@
 .field public static final BIND_TV_INPUT:Ljava/lang/String; = "android.permission.BIND_TV_INPUT"
 
 .field public static final BIND_TV_REMOTE_SERVICE:Ljava/lang/String; = "android.permission.BIND_TV_REMOTE_SERVICE"
+
+.field public static final BIND_VISUAL_VOICEMAIL_SERVICE:Ljava/lang/String; = "android.permission.BIND_VISUAL_VOICEMAIL_SERVICE"
 
 .field public static final BIND_VOICE_INTERACTION:Ljava/lang/String; = "android.permission.BIND_VOICE_INTERACTION"
 
@@ -206,6 +238,9 @@
 .field public static final BRICK:Ljava/lang/String; = "android.permission.BRICK"
 
 .field public static final BROADCAST_NETWORK_PRIVILEGED:Ljava/lang/String; = "android.permission.BROADCAST_NETWORK_PRIVILEGED"
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
 
 .field public static final BROADCAST_PACKAGE_REMOVED:Ljava/lang/String; = "android.permission.BROADCAST_PACKAGE_REMOVED"
 
@@ -247,6 +282,8 @@
 
 .field public static final CARRIER_FILTER_SMS:Ljava/lang/String; = "android.permission.CARRIER_FILTER_SMS"
 
+.field public static final CHANGE_ACCESSIBILITY_VOLUME:Ljava/lang/String; = "android.permission.CHANGE_ACCESSIBILITY_VOLUME"
+
 .field public static final CHANGE_APP_IDLE_STATE:Ljava/lang/String; = "android.permission.CHANGE_APP_IDLE_STATE"
 
 .field public static final CHANGE_BACKGROUND_DATA_SETTING:Ljava/lang/String; = "android.permission.CHANGE_BACKGROUND_DATA_SETTING"
@@ -261,6 +298,8 @@
 
 .field public static final CHANGE_NETWORK_STATE:Ljava/lang/String; = "android.permission.CHANGE_NETWORK_STATE"
 
+.field public static final CHANGE_OVERLAY_PACKAGES:Ljava/lang/String; = "android.permission.CHANGE_OVERLAY_PACKAGES"
+
 .field public static final CHANGE_WIFI_MULTICAST_STATE:Ljava/lang/String; = "android.permission.CHANGE_WIFI_MULTICAST_STATE"
 
 .field public static final CHANGE_WIFI_STATE:Ljava/lang/String; = "android.permission.CHANGE_WIFI_STATE"
@@ -273,13 +312,15 @@
 
 .field public static final CLEAR_APP_USER_DATA:Ljava/lang/String; = "android.permission.CLEAR_APP_USER_DATA"
 
-.field public static final CONFIGURE_DISPLAY_COLOR_TRANSFORM:Ljava/lang/String; = "android.permission.CONFIGURE_DISPLAY_COLOR_TRANSFORM"
+.field public static final CONFIGURE_DISPLAY_COLOR_MODE:Ljava/lang/String; = "android.permission.CONFIGURE_DISPLAY_COLOR_MODE"
 
 .field public static final CONFIGURE_WIFI_DISPLAY:Ljava/lang/String; = "android.permission.CONFIGURE_WIFI_DISPLAY"
 
 .field public static final CONFIRM_FULL_BACKUP:Ljava/lang/String; = "android.permission.CONFIRM_FULL_BACKUP"
 
 .field public static final CONNECTIVITY_INTERNAL:Ljava/lang/String; = "android.permission.CONNECTIVITY_INTERNAL"
+
+.field public static final CONNECTIVITY_USE_RESTRICTED_NETWORKS:Ljava/lang/String; = "android.permission.CONNECTIVITY_USE_RESTRICTED_NETWORKS"
 
 .field public static final CONTAINER_BROADCAST:Ljava/lang/String; = "com.sec.enterprise.knox.permission.CONTAINER_BROADCAST"
 
@@ -294,6 +335,8 @@
 .field public static final CONTROL_WIFI_DISPLAY:Ljava/lang/String; = "android.permission.CONTROL_WIFI_DISPLAY"
 
 .field public static final COPY_PROTECTED_DATA:Ljava/lang/String; = "android.permission.COPY_PROTECTED_DATA"
+
+.field public static final COVER_AUTH:Ljava/lang/String; = "com.samsung.android.isag.issmanager.permission.COVER_AUTH"
 
 .field public static final CREATE_USERS:Ljava/lang/String; = "android.permission.CREATE_USERS"
 
@@ -323,6 +366,8 @@
 
 .field public static final DISPATCH_PROVISIONING_MESSAGE:Ljava/lang/String; = "android.permission.DISPATCH_PROVISIONING_MESSAGE"
 
+.field public static final DOUBLE_CLICK:Ljava/lang/String; = "com.samsung.android.permisson.DOUBLE_CLICK"
+
 .field public static final DUMP:Ljava/lang/String; = "android.permission.DUMP"
 
 .field public static final DVB_DEVICE:Ljava/lang/String; = "android.permission.DVB_DEVICE"
@@ -340,6 +385,8 @@
 .field public static final FACTORY_TEST:Ljava/lang/String; = "android.permission.FACTORY_TEST"
 
 .field public static final FILTER_EVENTS:Ljava/lang/String; = "android.permission.FILTER_EVENTS"
+
+.field public static final FINGERPRINT_PRIVILEGED:Ljava/lang/String; = "com.samsung.android.permission.FINGERPRINT_PRIVILEGED"
 
 .field public static final FLASHLIGHT:Ljava/lang/String; = "android.permission.FLASHLIGHT"
 
@@ -364,8 +411,6 @@
 .field public static final GET_DETAILED_TASKS:Ljava/lang/String; = "android.permission.GET_DETAILED_TASKS"
 
 .field public static final GET_INTENT_SENDER_INTENT:Ljava/lang/String; = "android.permission.GET_INTENT_SENDER_INTENT"
-
-.field public static final GET_PACKAGE_IMPORTANCE:Ljava/lang/String; = "android.permission.GET_PACKAGE_IMPORTANCE"
 
 .field public static final GET_PACKAGE_SIZE:Ljava/lang/String; = "android.permission.GET_PACKAGE_SIZE"
 
@@ -392,9 +437,9 @@
 
 .field public static final HIDE_NON_SYSTEM_OVERLAY_WINDOWS:Ljava/lang/String; = "android.permission.HIDE_NON_SYSTEM_OVERLAY_WINDOWS"
 
-.field public static final HOME_DOUBLE_CLICK:Ljava/lang/String; = "com.samsung.android.permisson.HOME_DOUBLE_CLICK"
-
 .field public static final HOME_TRIPLE_CLICK:Ljava/lang/String; = "com.samsung.permission.HOME_TRIPLE_CLICK"
+
+.field public static final HQM_NOTIFICATION_PERMISSION:Ljava/lang/String; = "com.samsung.permission.HQM_NOTIFICATION_PERMISSION"
 
 .field public static final HRM_EXT:Ljava/lang/String; = "com.samsung.permission.HRM_EXT"
 
@@ -406,7 +451,11 @@
 
 .field public static final INSTALL_PACKAGES:Ljava/lang/String; = "android.permission.INSTALL_PACKAGES"
 
+.field public static final INSTALL_PF:Ljava/lang/String; = "com.samsung.android.spay.permission.INSTALL_PF"
+
 .field public static final INSTALL_SHORTCUT:Ljava/lang/String; = "com.android.launcher.permission.INSTALL_SHORTCUT"
+
+.field public static final INSTANT_APP_FOREGROUND_SERVICE:Ljava/lang/String; = "android.permission.INSTANT_APP_FOREGROUND_SERVICE"
 
 .field public static final INTENT_FILTER_VERIFICATION_AGENT:Ljava/lang/String; = "android.permission.INTENT_FILTER_VERIFICATION_AGENT"
 
@@ -430,7 +479,11 @@
 
 .field public static final KNOX_ACTIVATE_DEVICE_PERMISSIONS_INTERNAL:Ljava/lang/String; = "com.samsung.android.knox.permission.KNOX_ACTIVATE_DEVICE_PERMISSIONS_INTERNAL"
 
+.field public static final KNOX_ADVANCED_APP_MGMT:Ljava/lang/String; = "com.samsung.android.knox.permission.KNOX_ADVANCED_APP_MGMT"
+
 .field public static final KNOX_ADVANCED_RESTRICTION:Ljava/lang/String; = "com.samsung.android.knox.permission.KNOX_ADVANCED_RESTRICTION"
+
+.field public static final KNOX_ADVANCED_SECURITY:Ljava/lang/String; = "com.samsung.android.knox.permission.KNOX_ADVANCED_SECURITY"
 
 .field public static final KNOX_APN:Ljava/lang/String; = "com.samsung.android.knox.permission.KNOX_APN"
 
@@ -452,7 +505,9 @@
 
 .field public static final KNOX_BROWSER_SETTINGS:Ljava/lang/String; = "com.samsung.android.knox.permission.KNOX_BROWSER_SETTINGS"
 
-.field public static final KNOX_CCM:Ljava/lang/String; = "com.samsung.android.knox.permission.KNOX_CCM"
+.field public static final KNOX_CCM:Ljava/lang/String; = "com.sec.enterprise.knox.permission.KNOX_CCM"
+
+.field public static final KNOX_CCM_KEYSTORE:Ljava/lang/String; = "com.samsung.android.knox.permission.KNOX_CCM_KEYSTORE"
 
 .field public static final KNOX_CERTENROLL:Ljava/lang/String; = "com.sec.enterprise.knox.permission.KNOX_CERTENROLL"
 
@@ -460,11 +515,19 @@
 
 .field public static final KNOX_CERTIFICATE:Ljava/lang/String; = "com.samsung.android.knox.permission.KNOX_CERTIFICATE"
 
+.field public static final KNOX_CERTIFICATE_ENROLLMENT:Ljava/lang/String; = "com.samsung.android.knox.permission.KNOX_CERTIFICATE_ENROLLMENT"
+
+.field public static final KNOX_CERT_PROVISIONING:Ljava/lang/String; = "com.samsung.android.knox.permission.KNOX_CERT_PROVISIONING"
+
+.field public static final KNOX_CLIPBOARD:Ljava/lang/String; = "com.samsung.android.knox.permission.KNOX_CLIPBOARD"
+
 .field public static final KNOX_CONTAINER:Ljava/lang/String; = "com.samsung.android.knox.permission.KNOX_CONTAINER"
 
 .field public static final KNOX_CONTAINER_RCP:Ljava/lang/String; = "com.samsung.android.knox.permission.KNOX_CONTAINER_RCP"
 
-.field public static final KNOX_CONTAINER_VPN:Ljava/lang/String; = "com.samsung.android.knox.permission.KNOX_CONTAINER_VPN"
+.field public static final KNOX_CONTAINER_VPN:Ljava/lang/String; = "com.sec.enterprise.knox.KNOX_CONTAINER_VPN"
+
+.field public static final KNOX_CUSTOM_DEX:Ljava/lang/String; = "com.samsung.android.knox.permission.KNOX_CUSTOM_DEX"
 
 .field public static final KNOX_CUSTOM_PROKIOSK:Ljava/lang/String; = "com.samsung.android.knox.permission.KNOX_CUSTOM_PROKIOSK"
 
@@ -478,17 +541,27 @@
 
 .field public static final KNOX_DEACTIVATE_LICENSE:Ljava/lang/String; = "com.sec.enterprise.knox.permission.KNOX_DEACTIVATE_LICENSE"
 
-.field public static final KNOX_DLP:Ljava/lang/String; = "com.samsung.android.knox.permission.KNOX_DLP"
+.field public static final KNOX_DEX:Ljava/lang/String; = "com.samsung.android.knox.permission.KNOX_DEX"
+
+.field public static final KNOX_DKS_INTERNAL:Ljava/lang/String; = "com.samsung.android.knox.permission.KNOX_DKS_INTERNAL"
+
+.field public static final KNOX_DLP:Ljava/lang/String; = "com.sec.enterprise.permission.KNOX_DLP"
+
+.field public static final KNOX_DLP_MGMT:Ljava/lang/String; = "com.samsung.android.knox.permission.KNOX_DLP_MGMT"
 
 .field public static final KNOX_DLP_SERVICE_INTERNAL:Ljava/lang/String; = "com.samsung.android.knox.permission.KNOX_DLP_SERVICE_INTERNAL"
 
 .field public static final KNOX_DUAL_SIM:Ljava/lang/String; = "com.samsung.android.knox.permission.KNOX_DUAL_SIM"
 
+.field public static final KNOX_EBILLING:Ljava/lang/String; = "com.samsung.android.knox.permission.KNOX_EBILLING"
+
+.field public static final KNOX_EBILLING_NOMDM:Ljava/lang/String; = "com.samsung.android.knox.permission.KNOX_EBILLING_NOMDM"
+
 .field public static final KNOX_EMAIL:Ljava/lang/String; = "com.samsung.android.knox.permission.KNOX_EMAIL"
 
-.field public static final KNOX_ENTERPRISE_BILLING:Ljava/lang/String; = "com.samsung.android.knox.permission.KNOX_ENTERPRISE_BILLING"
+.field public static final KNOX_ENTERPRISE_BILLING:Ljava/lang/String; = "com.sec.enterprise.knox.permission.KNOX_ENTERPRISE_BILLING"
 
-.field public static final KNOX_ENTERPRISE_BILLING_NOMDM:Ljava/lang/String; = "com.samsung.android.knox.permission.KNOX_ENTERPRISE_BILLING_NOMDM"
+.field public static final KNOX_ENTERPRISE_BILLING_NOMDM:Ljava/lang/String; = "com.sec.enterprise.knox.permission.KNOX_ENTERPRISE_BILLING_NOMDM"
 
 .field public static final KNOX_ENTERPRISE_DEVICE_ADMIN:Ljava/lang/String; = "com.samsung.android.knox.permission.KNOX_ENTERPRISE_DEVICE_ADMIN"
 
@@ -496,7 +569,7 @@
 
 .field public static final KNOX_FIREWALL:Ljava/lang/String; = "com.samsung.android.knox.permission.KNOX_FIREWALL"
 
-.field public static final KNOX_GENERIC_VPN:Ljava/lang/String; = "com.samsung.android.knox.permission.KNOX_GENERIC_VPN"
+.field public static final KNOX_GENERIC_VPN:Ljava/lang/String; = "com.sec.enterprise.knox.KNOX_GENERIC_VPN"
 
 .field public static final KNOX_GEOFENCING:Ljava/lang/String; = "com.samsung.android.knox.permission.KNOX_GEOFENCING"
 
@@ -508,7 +581,7 @@
 
 .field public static final KNOX_KEYSTORE:Ljava/lang/String; = "com.sec.enterprise.knox.permission.KNOX_KEYSTORE"
 
-.field public static final KNOX_KEYSTORE_PER_APP:Ljava/lang/String; = "com.samsung.android.knox.permission.KNOX_KEYSTORE_PER_APP"
+.field public static final KNOX_KEYSTORE_PER_APP:Ljava/lang/String; = "com.sec.enterprise.permission.KNOX_KEYSTORE_PER_APP"
 
 .field public static final KNOX_KIOSK_MODE:Ljava/lang/String; = "com.samsung.android.knox.permission.KNOX_KIOSK_MODE"
 
@@ -534,7 +607,7 @@
 
 .field public static final KNOX_NOTIFY_ICCID_AVAILABLE_INTERNAL:Ljava/lang/String; = "com.samsung.android.knox.permission.KNOX_NOTIFY_ICCID_AVAILABLE_INTERNAL"
 
-.field public static final KNOX_OTP_PROVISION:Ljava/lang/String; = "com.samsung.android.knox.permission.KNOX_OTP_PROVISION"
+.field public static final KNOX_NPA:Ljava/lang/String; = "com.samsung.android.knox.permission.KNOX_NPA"
 
 .field public static final KNOX_PHONE_RESTRICTION:Ljava/lang/String; = "com.samsung.android.knox.permission.KNOX_PHONE_RESTRICTION"
 
@@ -546,19 +619,29 @@
 
 .field public static final KNOX_REFRESH_CREDENTIAL_UI_INTERNAL:Ljava/lang/String; = "com.samsung.android.knox.permission.KNOX_REFRESH_CREDENTIAL_UI_INTERNAL"
 
+.field public static final KNOX_REMOTE_ATTESTATION:Ljava/lang/String; = "com.samsung.android.knox.permission.KNOX_REMOTE_ATTESTATION"
+
 .field public static final KNOX_REMOTE_CONTROL:Ljava/lang/String; = "com.samsung.android.knox.permission.KNOX_REMOTE_CONTROL"
 
-.field public static final KNOX_RESTRICTION:Ljava/lang/String; = "com.samsung.android.knox.permission.KNOX_RESTRICTION"
+.field public static final KNOX_RESTRICTION:Ljava/lang/String; = "com.sec.enterprise.knox.permission.KNOX_RESTRICTION"
+
+.field public static final KNOX_RESTRICTION_MGMT:Ljava/lang/String; = "com.samsung.android.knox.permission.KNOX_RESTRICTION_MGMT"
 
 .field public static final KNOX_ROAMING:Ljava/lang/String; = "com.samsung.android.knox.permission.KNOX_ROAMING"
 
-.field public static final KNOX_SDP:Ljava/lang/String; = "com.samsung.android.knox.permission.KNOX_SDP"
+.field public static final KNOX_SDP:Ljava/lang/String; = "com.sec.enterprise.permission.KNOX_SDP"
 
 .field public static final KNOX_SEAMS:Ljava/lang/String; = "com.sec.enterprise.knox.permission.KNOX_SEAMS"
 
+.field public static final KNOX_SEAMS_MGMT:Ljava/lang/String; = "com.samsung.android.knox.permission.KNOX_SEAMS_MGMT"
+
 .field public static final KNOX_SEAMS_SEPOLICY:Ljava/lang/String; = "com.sec.enterprise.knox.permission.KNOX_SEAMS_SEPOLICY"
 
+.field public static final KNOX_SEAMS_SEPOLICY_INTERNAL:Ljava/lang/String; = "com.samsung.android.knox.permission.KNOX_SEAMS_SEPOLICY_INTERNAL"
+
 .field public static final KNOX_SECURITY:Ljava/lang/String; = "com.samsung.android.knox.permission.KNOX_SECURITY"
+
+.field public static final KNOX_SENSITIVE_DATA_PROTECTION:Ljava/lang/String; = "com.samsung.android.knox.permission.KNOX_SENSITIVE_DATA_PROTECTION"
 
 .field public static final KNOX_SET_PROXY_CREDENTIAL_INTERNAL:Ljava/lang/String; = "com.samsung.android.knox.permission.KNOX_SET_PROXY_CREDENTIAL_INTERNAL"
 
@@ -574,31 +657,50 @@
 
 .field public static final KNOX_SYSTEM_APP_UPGRADE_PERMISSION:Ljava/lang/String; = "com.sec.knox.container.permission.KNOX_SYSTEM_APP_UPGRADE_PERMISSION"
 
+.field public static final KNOX_TIMA_KEYSTORE:Ljava/lang/String; = "com.samsung.android.knox.permission.KNOX_TIMA_KEYSTORE"
+
+.field public static final KNOX_TIMA_KEYSTORE_PER_APP:Ljava/lang/String; = "com.samsung.android.knox.permission.KNOX_TIMA_KEYSTORE_PER_APP"
+
 .field public static final KNOX_TRUSTED_PINPAD:Ljava/lang/String; = "com.sec.enterprise.knox.permission.KNOX_TRUSTED_PINPAD"
 
-.field public static final KNOX_UCM_BIND_PLUGIN:Ljava/lang/String; = "com.samsung.android.knox.permission.KNOX_UCM_BIND_PLUGIN"
+.field public static final KNOX_UCM_BIND_PLUGIN:Ljava/lang/String; = "com.sec.enterprise.permission.KNOX_UCM_BIND_PLUGIN"
 
-.field public static final KNOX_UCM_ESE:Ljava/lang/String; = "com.samsung.android.knox.permission.KNOX_UCM_ESE"
+.field public static final KNOX_UCM_BIND_PLUGIN_SERVICE:Ljava/lang/String; = "com.samsung.android.knox.permission.KNOX_UCM_BIND_PLUGIN_SERVICE"
 
-.field public static final KNOX_UCM_OTHER:Ljava/lang/String; = "com.samsung.android.knox.permission.KNOX_UCM_OTHER"
+.field public static final KNOX_UCM_ESE:Ljava/lang/String; = "com.sec.enterprise.permission.KNOX_UCM_ESE"
 
-.field public static final KNOX_UCM_PLUGIN:Ljava/lang/String; = "com.samsung.android.knox.permission.KNOX_UCM_PLUGIN"
+.field public static final KNOX_UCM_ESE_MGMT:Ljava/lang/String; = "com.samsung.android.knox.permission.KNOX_UCM_ESE_MGMT"
 
-.field public static final KNOX_UCM_PRIVILEGED:Ljava/lang/String; = "com.samsung.android.knox.permission.KNOX_UCM_PRIVILEGED"
+.field public static final KNOX_UCM_OTHER:Ljava/lang/String; = "com.sec.enterprise.permission.KNOX_UCM_OTHER"
+
+.field public static final KNOX_UCM_OTHER_MGMT:Ljava/lang/String; = "com.samsung.android.knox.permission.KNOX_UCM_OTHER_MGMT"
+
+.field public static final KNOX_UCM_PLUGIN:Ljava/lang/String; = "com.sec.enterprise.permission.KNOX_UCM_PLUGIN"
+
+.field public static final KNOX_UCM_PLUGIN_SERVICE:Ljava/lang/String; = "com.samsung.android.knox.permission.KNOX_UCM_PLUGIN_SERVICE"
+
+.field public static final KNOX_UCM_PRIVILEGED:Ljava/lang/String; = "com.sec.enterprise.permission.KNOX_UCM_PRIVILEGED"
+
+.field public static final KNOX_UCM_PRIVILEGED_MGMT:Ljava/lang/String; = "com.samsung.android.knox.permission.KNOX_UCM_PRIVILEGED_MGMT"
 
 .field public static final KNOX_VPN:Ljava/lang/String; = "com.samsung.android.knox.permission.KNOX_VPN"
+
+.field public static final KNOX_VPN_CONTAINER:Ljava/lang/String; = "com.samsung.android.knox.permission.KNOX_VPN_CONTAINER"
+
+.field public static final KNOX_VPN_GENERIC:Ljava/lang/String; = "com.samsung.android.knox.permission.KNOX_VPN_GENERIC"
 
 .field public static final KNOX_VPN_INTERNAL:Ljava/lang/String; = "com.samsung.android.knox.permission.KNOX_VPN_INTERNAL"
 
 .field public static final KNOX_WIFI:Ljava/lang/String; = "com.samsung.android.knox.permission.KNOX_WIFI"
-
-.field public static final LAUNCH_INFO:Ljava/lang/String; = "com.samsung.container.LAUNCH_INFO"
 
 .field public static final LAUNCH_SOFTWARE_UPDATE:Ljava/lang/String; = "com.samsung.permission.LAUNCH_SOFTWARE_UPDATE"
 
 .field public static final LAUNCH_TRUST_AGENT_SETTINGS:Ljava/lang/String; = "android.permission.LAUNCH_TRUST_AGENT_SETTINGS"
 
 .field public static final LGT_CONTENTS:Ljava/lang/String; = "android.permission.LGT_CONTENTS"
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
 
 .field public static final LOCAL_MAC_ADDRESS:Ljava/lang/String; = "android.permission.LOCAL_MAC_ADDRESS"
 
@@ -616,21 +718,31 @@
 
 .field public static final MANAGE_APP_TOKENS:Ljava/lang/String; = "android.permission.MANAGE_APP_TOKENS"
 
+.field public static final MANAGE_AUTO_FILL:Ljava/lang/String; = "android.permission.MANAGE_AUTO_FILL"
+
+.field public static final MANAGE_CARRIER_OEM_UNLOCK_STATE:Ljava/lang/String; = "android.permission.MANAGE_CARRIER_OEM_UNLOCK_STATE"
+
 .field public static final MANAGE_CA_CERTIFICATES:Ljava/lang/String; = "android.permission.MANAGE_CA_CERTIFICATES"
 
-.field public static final MANAGE_CUSTOM_STARTING_WINDOW:Ljava/lang/String; = "com.samsung.android.permission.MANAGE_CUSTOM_STARTING_WINDOW"
+.field public static final MANAGE_CPA:Ljava/lang/String; = "com.kddi.android.permission.MANAGE_CPA"
 
 .field public static final MANAGE_DEVICE_ADMINS:Ljava/lang/String; = "android.permission.MANAGE_DEVICE_ADMINS"
 
 .field public static final MANAGE_DOCUMENTS:Ljava/lang/String; = "android.permission.MANAGE_DOCUMENTS"
 
+.field public static final MANAGE_FACE:Ljava/lang/String; = "com.samsung.android.bio.face.permission.MANAGE_FACE"
+
 .field public static final MANAGE_FINGERPRINT:Ljava/lang/String; = "android.permission.MANAGE_FINGERPRINT"
+
+.field public static final MANAGE_MAXASPECT:Ljava/lang/String; = "com.samsung.android.permission.MANAGE_MAXASPECT"
 
 .field public static final MANAGE_MEDIA_PROJECTION:Ljava/lang/String; = "android.permission.MANAGE_MEDIA_PROJECTION"
 
 .field public static final MANAGE_NETWORK_POLICY:Ljava/lang/String; = "android.permission.MANAGE_NETWORK_POLICY"
 
 .field public static final MANAGE_NOTIFICATIONS:Ljava/lang/String; = "android.permission.MANAGE_NOTIFICATIONS"
+
+.field public static final MANAGE_OWN_CALLS:Ljava/lang/String; = "android.permission.MANAGE_OWN_CALLS"
 
 .field public static final MANAGE_PROFILE_AND_DEVICE_OWNERS:Ljava/lang/String; = "android.permission.MANAGE_PROFILE_AND_DEVICE_OWNERS"
 
@@ -639,6 +751,8 @@
 .field public static final MANAGE_USB:Ljava/lang/String; = "android.permission.MANAGE_USB"
 
 .field public static final MANAGE_USERS:Ljava/lang/String; = "android.permission.MANAGE_USERS"
+
+.field public static final MANAGE_USER_OEM_UNLOCK_STATE:Ljava/lang/String; = "android.permission.MANAGE_USER_OEM_UNLOCK_STATE"
 
 .field public static final MANAGE_VIRTUAL_SCREEN:Ljava/lang/String; = "com.samsung.android.virtualscreen.permission.MANAGE_VIRTUAL_SCREEN"
 
@@ -683,6 +797,9 @@
 .field public static final MDM_ENTERPRISE_ISL:Ljava/lang/String; = "android.permission.sec.MDM_ENTERPRISE_ISL"
 
 .field public static final MDM_ENTERPRISE_SSO:Ljava/lang/String; = "android.permission.sec.MDM_ENTERPRISE_SSO"
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
 
 .field public static final MDM_ENTERPRISE_TIMA_NOTIFICATION:Ljava/lang/String; = "com.sec.enterprise.knox.permission.MDM_ENTERPRISE_TIMA_NOTIFICATION"
 
@@ -743,6 +860,9 @@
 .field public static final MDM_SPDCONTROL:Ljava/lang/String; = "com.sec.enterprise.permission.MDM_SPDCONTROL"
 
 .field public static final MDM_SSO:Ljava/lang/String; = "com.sec.enterprise.mdm.permission.MDM_SSO"
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
 
 .field public static final MDM_UMC_INTERNAL:Ljava/lang/String; = "android.permission.sec.MDM_UMC_INTERNAL"
 
@@ -750,7 +870,11 @@
 
 .field public static final MDM_WIFI:Ljava/lang/String; = "android.permission.sec.MDM_WIFI"
 
+.field public static final MEDIA_CLOUD_CONTENTS:Ljava/lang/String; = "com.samsung.android.permission.MEDIA_CLOUD_CONTENTS"
+
 .field public static final MEDIA_CONTENT_CONTROL:Ljava/lang/String; = "android.permission.MEDIA_CONTENT_CONTROL"
+
+.field public static final MODIFY_ACCESSIBILITY_DATA:Ljava/lang/String; = "android.permission.MODIFY_ACCESSIBILITY_DATA"
 
 .field public static final MODIFY_APPWIDGET_BIND_PERMISSIONS:Ljava/lang/String; = "android.permission.MODIFY_APPWIDGET_BIND_PERMISSIONS"
 
@@ -770,6 +894,8 @@
 
 .field public static final MODIFY_THEME:Ljava/lang/String; = "com.samsung.android.permission.MODIFY_THEME"
 
+.field public static final MODIFY_THEME_OVERLAY:Ljava/lang/String; = "android.permission.MODIFY_THEME_OVERLAY"
+
 .field public static final MONITOR_INPUT:Ljava/lang/String; = "com.samsung.android.permission.MONITOR_INPUT"
 
 .field public static final MOUNT_FORMAT_FILESYSTEMS:Ljava/lang/String; = "android.permission.MOUNT_FORMAT_FILESYSTEMS"
@@ -780,6 +906,10 @@
 
 .field public static final MTP_DISABLED:Ljava/lang/String; = "com.sec.restriction.permission.MTP_DISABLED"
 
+.field public static final NETWORK_SETTINGS:Ljava/lang/String; = "android.permission.NETWORK_SETTINGS"
+
+.field public static final NETWORK_STACK:Ljava/lang/String; = "android.permission.NETWORK_STACK"
+
 .field public static final NET_ADMIN:Ljava/lang/String; = "android.permission.NET_ADMIN"
 
 .field public static final NET_TUNNELING:Ljava/lang/String; = "android.permission.NET_TUNNELING"
@@ -788,7 +918,11 @@
 
 .field public static final NFC_HANDOVER_STATUS:Ljava/lang/String; = "android.permission.NFC_HANDOVER_STATUS"
 
+.field public static final NOTIFICATION_DURING_SETUP:Ljava/lang/String; = "android.permission.NOTIFICATION_DURING_SETUP"
+
 .field public static final NOTIFY_PENDING_SYSTEM_UPDATE:Ljava/lang/String; = "android.permission.NOTIFY_PENDING_SYSTEM_UPDATE"
+
+.field public static final NOTIFY_TV_INPUTS:Ljava/lang/String; = "android.permission.NOTIFY_TV_INPUTS"
 
 .field public static final OBSERVER:Ljava/lang/String; = "com.samsung.container.OBSERVER"
 
@@ -796,13 +930,15 @@
 
 .field public static final OEM_UNLOCK_STATE:Ljava/lang/String; = "android.permission.OEM_UNLOCK_STATE"
 
-.field public static final OTP_PROVISION:Ljava/lang/String; = "android.permission.sec.OTP_PROVISION"
+.field public static final OTG_CHARGE_BLOCK:Ljava/lang/String; = "com.sec.permission.OTG_CHARGE_BLOCK"
 
 .field public static final OVERRIDE_WIFI_CONFIG:Ljava/lang/String; = "android.permission.OVERRIDE_WIFI_CONFIG"
 
 .field public static final PACKAGE_USAGE_STATS:Ljava/lang/String; = "android.permission.PACKAGE_USAGE_STATS"
 
 .field public static final PACKAGE_VERIFICATION_AGENT:Ljava/lang/String; = "android.permission.PACKAGE_VERIFICATION_AGENT"
+
+.field public static final PACKAGE_VERIFICATION_AGENT2:Ljava/lang/String; = "com.samsung.android.permission.PACKAGE_VERIFICATION_AGENT2"
 
 .field public static final PACKET_KEEPALIVE_OFFLOAD:Ljava/lang/String; = "android.permission.PACKET_KEEPALIVE_OFFLOAD"
 
@@ -825,6 +961,8 @@
 
 .field public static final PROCESS_OUTGOING_CALLS:Ljava/lang/String; = "android.permission.PROCESS_OUTGOING_CALLS"
 
+.field public static final PROVIDE_RESOLVER_RANKER_SERVICE:Ljava/lang/String; = "android.permission.PROVIDE_RESOLVER_RANKER_SERVICE"
+
 .field public static final PROVIDE_TRUST_AGENT:Ljava/lang/String; = "android.permission.PROVIDE_TRUST_AGENT"
 
 .field public static final PUSH:Ljava/lang/String; = "com.sec.android.fota.permission.PUSH"
@@ -834,6 +972,8 @@
 .field public static final RAM_BGCOMPACTION:Ljava/lang/String; = "com.samsung.permission.RAM_BGCOMPACTION"
 
 .field public static final READ:Ljava/lang/String; = "com.samsung.android.memo.READ"
+
+.field public static final READPROC:Ljava/lang/String; = "com.att.iqi.permission.READPROC"
 
 .field public static final READ_BLOCKED_NUMBERS:Ljava/lang/String; = "android.permission.READ_BLOCKED_NUMBERS"
 
@@ -845,6 +985,10 @@
 
 .field public static final READ_CONTACTS:Ljava/lang/String; = "android.permission.READ_CONTACTS"
 
+.field public static final READ_DATABASES:Ljava/lang/String; = "com.samsung.android.fota.permission.READ_DATABASES"
+
+.field public static final READ_DMF_DATA:Ljava/lang/String; = "com.samsung.permission.READ_DMF_DATA"
+
 .field public static final READ_DREAM_STATE:Ljava/lang/String; = "android.permission.READ_DREAM_STATE"
 
 .field public static final READ_EXTERNAL_STORAGE:Ljava/lang/String; = "android.permission.READ_EXTERNAL_STORAGE"
@@ -853,6 +997,8 @@
 
 .field public static final READ_HISTORY_BOOKMARKS:Ljava/lang/String; = "com.android.browser.permission.READ_HISTORY_BOOKMARKS"
 
+.field public static final READ_HQM_DATA:Ljava/lang/String; = "com.samsung.permission.READ_HQM_DATA"
+
 .field public static final READ_INPUT_STATE:Ljava/lang/String; = "android.permission.READ_INPUT_STATE"
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -860,11 +1006,15 @@
 
 .field public static final READ_INSTALL_SESSIONS:Ljava/lang/String; = "android.permission.READ_INSTALL_SESSIONS"
 
+.field public static final READ_KNOX_NOTIFICATION:Ljava/lang/String; = "com.samsung.permission.READ_KNOX_NOTIFICATION"
+
 .field public static final READ_LOGS:Ljava/lang/String; = "android.permission.READ_LOGS"
 
 .field public static final READ_NETWORK_USAGE_HISTORY:Ljava/lang/String; = "android.permission.READ_NETWORK_USAGE_HISTORY"
 
 .field public static final READ_OEM_UNLOCK_STATE:Ljava/lang/String; = "android.permission.READ_OEM_UNLOCK_STATE"
+
+.field public static final READ_PHONE_NUMBERS:Ljava/lang/String; = "android.permission.READ_PHONE_NUMBERS"
 
 .field public static final READ_PHONE_STATE:Ljava/lang/String; = "android.permission.READ_PHONE_STATE"
 
@@ -894,6 +1044,10 @@
 
 .field public static final REBOOT:Ljava/lang/String; = "android.permission.REBOOT"
 
+.field public static final RECEIVE_APP_STATE:Ljava/lang/String; = "com.att.iqi.permission.RECEIVE_APP_STATE"
+
+.field public static final RECEIVE_APP_STATE_BROADCASTER_STATE:Ljava/lang/String; = "com.att.iqi.permission.RECEIVE_APP_STATE_BROADCASTER_STATE"
+
 .field public static final RECEIVE_BLOCKED_SMS_MMS:Ljava/lang/String; = "android.permission.sec.RECEIVE_BLOCKED_SMS_MMS"
 
 .field public static final RECEIVE_BLUETOOTH_MAP:Ljava/lang/String; = "android.permission.RECEIVE_BLUETOOTH_MAP"
@@ -902,9 +1056,13 @@
 
 .field public static final RECEIVE_BT_GEAR:Ljava/lang/String; = "com.samsung.android.permission.RECEIVE_BT_GEAR"
 
+.field public static final RECEIVE_CHANGE_UNLOCK_KEYCODE:Ljava/lang/String; = "com.att.iqi.permission.RECEIVE_CHANGE_UNLOCK_KEYCODE"
+
 .field public static final RECEIVE_DATA_ACTIVITY_CHANGE:Ljava/lang/String; = "android.permission.RECEIVE_DATA_ACTIVITY_CHANGE"
 
 .field public static final RECEIVE_EMERGENCY_BROADCAST:Ljava/lang/String; = "android.permission.RECEIVE_EMERGENCY_BROADCAST"
+
+.field public static final RECEIVE_IQI_STATE_BROADCAST:Ljava/lang/String; = "com.att.iqi.permission.RECEIVE_IQI_STATE_BROADCAST"
 
 .field public static final RECEIVE_KNOX_APPS_UPDATE:Ljava/lang/String; = "com.sec.knox.container.permission.RECEIVE_KNOX_APPS_UPDATE"
 
@@ -912,7 +1070,7 @@
 
 .field public static final RECEIVE_MMS:Ljava/lang/String; = "android.permission.RECEIVE_MMS"
 
-.field public static final RECEIVE_SECURITY_SMS:Ljava/lang/String; = "android.permission.RECEIVE_SECURITY_SMS"
+.field public static final RECEIVE_SECURE_FOLDER_POLICY_UPDATE:Ljava/lang/String; = "com.samsung.knox.securefolder.permission.RECEIVE_SECURE_FOLDER_POLICY_UPDATE"
 
 .field public static final RECEIVE_SMS:Ljava/lang/String; = "android.permission.RECEIVE_SMS"
 
@@ -944,9 +1102,23 @@
 
 .field public static final REORDER_TASKS:Ljava/lang/String; = "android.permission.REORDER_TASKS"
 
+.field public static final REQUEST_AUTHNR_SERVICE:Ljava/lang/String; = "com.samsung.android.permission.REQUEST_AUTHNR_SERVICE"
+
+.field public static final REQUEST_COMPANION_RUN_IN_BACKGROUND:Ljava/lang/String; = "android.permission.REQUEST_COMPANION_RUN_IN_BACKGROUND"
+
+.field public static final REQUEST_COMPANION_USE_DATA_IN_BACKGROUND:Ljava/lang/String; = "android.permission.REQUEST_COMPANION_USE_DATA_IN_BACKGROUND"
+
+.field public static final REQUEST_DELETE_PACKAGES:Ljava/lang/String; = "android.permission.REQUEST_DELETE_PACKAGES"
+
 .field public static final REQUEST_IGNORE_BATTERY_OPTIMIZATIONS:Ljava/lang/String; = "android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS"
 
 .field public static final REQUEST_INSTALL_PACKAGES:Ljava/lang/String; = "android.permission.REQUEST_INSTALL_PACKAGES"
+
+.field public static final REQUEST_NETWORK_SCORES:Ljava/lang/String; = "android.permission.REQUEST_NETWORK_SCORES"
+
+.field public static final REQUEST_PROCESS_FIDO:Ljava/lang/String; = "com.samsung.android.permission.REQUEST_PROCESS_FIDO"
+
+.field public static final RESET_FACE_LOCKOUT:Ljava/lang/String; = "com.samsung.android.bio.face.permission.RESET_FACE_LOCKOUT"
 
 .field public static final RESET_FINGERPRINT_LOCKOUT:Ljava/lang/String; = "android.permission.RESET_FINGERPRINT_LOCKOUT"
 
@@ -957,11 +1129,18 @@
     .end annotation
 .end field
 
+.field public static final RESTRICTED_VR_ACCESS:Ljava/lang/String; = "android.permission.RESTRICTED_VR_ACCESS"
+
 .field public static final RETRIEVE_WINDOW_CONTENT:Ljava/lang/String; = "android.permission.RETRIEVE_WINDOW_CONTENT"
 
 .field public static final RETRIEVE_WINDOW_TOKEN:Ljava/lang/String; = "android.permission.RETRIEVE_WINDOW_TOKEN"
 
 .field public static final REVOKE_RUNTIME_PERMISSIONS:Ljava/lang/String; = "android.permission.REVOKE_RUNTIME_PERMISSIONS"
+
+.field public static final RUN_IN_BACKGROUND:Ljava/lang/String; = "android.permission.RUN_IN_BACKGROUND"
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
 
 .field public static final SAMSUNG_INTERNAL_SYSTEM_WINDOW:Ljava/lang/String; = "com.samsung.android.permission.SAMSUNG_INTERNAL_SYSTEM_WINDOW"
 
@@ -983,7 +1162,7 @@
 
 .field public static final SEM_PASS_B2C_USE_PASS:Ljava/lang/String; = "com.samsung.android.authfw.pass.permission.SEM_PASS_B2C_USE_PASS"
 
-.field public static final SEM_USE_M2M_SCALER:Ljava/lang/String; = "com.samsung.android.permission.SEM_USE_M2M_SCALER"
+.field public static final SEM_USE_VIRTUAL_SPACE:Ljava/lang/String; = "com.samsung.android.virtualspace.permission.SEM_USE_VIRTUAL_SPACE"
 
 .field public static final SEND_RESPOND_VIA_MESSAGE:Ljava/lang/String; = "android.permission.SEND_RESPOND_VIA_MESSAGE"
 
@@ -1005,9 +1184,13 @@
 
 .field public static final SET_DEBUG_APP:Ljava/lang/String; = "android.permission.SET_DEBUG_APP"
 
+.field public static final SET_DISPLAY_OFFSET:Ljava/lang/String; = "android.permission.SET_DISPLAY_OFFSET"
+
 .field public static final SET_INPUT_CALIBRATION:Ljava/lang/String; = "android.permission.SET_INPUT_CALIBRATION"
 
 .field public static final SET_KEYBOARD_LAYOUT:Ljava/lang/String; = "android.permission.SET_KEYBOARD_LAYOUT"
+
+.field public static final SET_MEDIA_KEY_LISTENER:Ljava/lang/String; = "android.permission.SET_MEDIA_KEY_LISTENER"
 
 .field public static final SET_ORIENTATION:Ljava/lang/String; = "android.permission.SET_ORIENTATION"
 
@@ -1025,6 +1208,8 @@
 .field public static final SET_TIME:Ljava/lang/String; = "android.permission.SET_TIME"
 
 .field public static final SET_TIME_ZONE:Ljava/lang/String; = "android.permission.SET_TIME_ZONE"
+
+.field public static final SET_VOLUME_KEY_LONG_PRESS_LISTENER:Ljava/lang/String; = "android.permission.SET_VOLUME_KEY_LONG_PRESS_LISTENER"
 
 .field public static final SET_WALLPAPER:Ljava/lang/String; = "android.permission.SET_WALLPAPER"
 
@@ -1070,8 +1255,6 @@
 
 .field public static final SYSTEM_ALERT_WINDOW:Ljava/lang/String; = "android.permission.SYSTEM_ALERT_WINDOW"
 
-.field public static final SYSTEM_FILE_ACCESS:Ljava/lang/String; = "com.sec.android.SYSTEM_FILE_ACCESS"
-
 .field public static final SYSTEM_TERMINAL:Ljava/lang/String; = "org.simalliance.openmobileapi.SYSTEM_TERMINAL"
 
 .field public static final TABLET_MODE:Ljava/lang/String; = "android.permission.TABLET_MODE"
@@ -1106,17 +1289,25 @@
 
 .field public static final USE_CREDENTIALS:Ljava/lang/String; = "android.permission.USE_CREDENTIALS"
 
+.field public static final USE_DATA_IN_BACKGROUND:Ljava/lang/String; = "android.permission.USE_DATA_IN_BACKGROUND"
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
+
+.field public static final USE_FACE:Ljava/lang/String; = "com.samsung.android.bio.face.permission.USE_FACE"
+
 .field public static final USE_FINGERPRINT:Ljava/lang/String; = "android.permission.USE_FINGERPRINT"
 
 .field public static final USE_GSCALER:Ljava/lang/String; = "com.sec.android.permission.USE_GSCALER"
-
-.field public static final USE_PLAYREADY:Ljava/lang/String; = "skplanet.permission.USE_PLAYREADY"
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
 
 .field public static final USE_SIP:Ljava/lang/String; = "android.permission.USE_SIP"
 
-.field public static final USE_VIRTUAL_SPACE:Ljava/lang/String; = "com.samsung.android.virtualspace.permission.USE_VIRTUAL_SPACE"
-
 .field public static final VIBRATE:Ljava/lang/String; = "android.permission.VIBRATE"
+
+.field public static final VIEW_INSTANT_APPS:Ljava/lang/String; = "android.permission.VIEW_INSTANT_APPS"
 
 .field public static final VOIP_INTERFACE:Ljava/lang/String; = "com.sec.android.permission.VOIP_INTERFACE"
 
@@ -1134,6 +1325,8 @@
 
 .field public static final WRITE_CONTACTS:Ljava/lang/String; = "android.permission.WRITE_CONTACTS"
 
+.field public static final WRITE_DMF_DATA:Ljava/lang/String; = "com.samsung.permission.WRITE_DMF_DATA"
+
 .field public static final WRITE_DREAM_STATE:Ljava/lang/String; = "android.permission.WRITE_DREAM_STATE"
 
 .field public static final WRITE_EXTERNAL_STORAGE:Ljava/lang/String; = "android.permission.WRITE_EXTERNAL_STORAGE"
@@ -1141,6 +1334,8 @@
 .field public static final WRITE_GSERVICES:Ljava/lang/String; = "android.permission.WRITE_GSERVICES"
 
 .field public static final WRITE_HISTORY_BOOKMARKS:Ljava/lang/String; = "com.android.browser.permission.WRITE_HISTORY_BOOKMARKS"
+
+.field public static final WRITE_HQM_DATA:Ljava/lang/String; = "com.samsung.permission.WRITE_HQM_DATA"
 
 .field public static final WRITE_MEDIA_STORAGE:Ljava/lang/String; = "android.permission.WRITE_MEDIA_STORAGE"
 

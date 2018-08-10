@@ -112,9 +112,7 @@
     :cond_1
     move-object v0, p1
 
-    nop
-
-    nop
+    check-cast v0, Landroid/security/net/config/Pin;
 
     invoke-virtual {v0}, Landroid/security/net/config/Pin;->hashCode()I
 

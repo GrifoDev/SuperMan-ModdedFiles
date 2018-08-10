@@ -66,6 +66,17 @@
 
 .field private mMtu:I
 
+.field private mPcscfs:Ljava/util/ArrayList;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/ArrayList",
+            "<",
+            "Ljava/net/InetAddress;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 .field private mRoutes:Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -126,6 +137,12 @@
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
+    iput-object v0, p0, Landroid/net/LinkProperties;->mPcscfs:Ljava/util/ArrayList;
+
+    new-instance v0, Ljava/util/ArrayList;
+
+    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+
     iput-object v0, p0, Landroid/net/LinkProperties;->mRoutes:Ljava/util/ArrayList;
 
     new-instance v0, Ljava/util/Hashtable;
@@ -160,6 +177,12 @@
 
     invoke-direct {v8}, Ljava/util/ArrayList;-><init>()V
 
+    iput-object v8, p0, Landroid/net/LinkProperties;->mPcscfs:Ljava/util/ArrayList;
+
+    new-instance v8, Ljava/util/ArrayList;
+
+    invoke-direct {v8}, Ljava/util/ArrayList;-><init>()V
+
     iput-object v8, p0, Landroid/net/LinkProperties;->mRoutes:Ljava/util/ArrayList;
 
     new-instance v8, Ljava/util/Hashtable;
@@ -168,7 +191,7 @@
 
     iput-object v8, p0, Landroid/net/LinkProperties;->mStackedLinks:Ljava/util/Hashtable;
 
-    if-eqz p1, :cond_5
+    if-eqz p1, :cond_6
 
     invoke-virtual {p1}, Landroid/net/LinkProperties;->getInterfaceName()Ljava/lang/String;
 
@@ -232,6 +255,34 @@
     goto :goto_1
 
     :cond_1
+    invoke-virtual {p1}, Landroid/net/LinkProperties;->getPcscfServers()Ljava/util/List;
+
+    move-result-object v8
+
+    invoke-interface {v8}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+
+    move-result-object v1
+
+    :goto_2
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v8
+
+    if-eqz v8, :cond_2
+
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/net/InetAddress;
+
+    iget-object v8, p0, Landroid/net/LinkProperties;->mPcscfs:Ljava/util/ArrayList;
+
+    invoke-virtual {v8, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto :goto_2
+
+    :cond_2
     invoke-virtual {p1}, Landroid/net/LinkProperties;->getDomains()Ljava/lang/String;
 
     move-result-object v8
@@ -246,12 +297,12 @@
 
     move-result-object v6
 
-    :goto_2
+    :goto_3
     invoke-interface {v6}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v8
 
-    if-eqz v8, :cond_2
+    if-eqz v8, :cond_3
 
     invoke-interface {v6}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -263,16 +314,16 @@
 
     invoke-virtual {v8, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto :goto_2
+    goto :goto_3
 
-    :cond_2
+    :cond_3
     invoke-virtual {p1}, Landroid/net/LinkProperties;->getHttpProxy()Landroid/net/ProxyInfo;
 
     move-result-object v8
 
-    if-nez v8, :cond_3
+    if-nez v8, :cond_4
 
-    :goto_3
+    :goto_4
     iput-object v7, p0, Landroid/net/LinkProperties;->mHttpProxy:Landroid/net/ProxyInfo;
 
     iget-object v7, p1, Landroid/net/LinkProperties;->mStackedLinks:Ljava/util/Hashtable;
@@ -285,12 +336,12 @@
 
     move-result-object v4
 
-    :goto_4
+    :goto_5
     invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v7
 
-    if-eqz v7, :cond_4
+    if-eqz v7, :cond_5
 
     invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -300,9 +351,9 @@
 
     invoke-virtual {p0, v3}, Landroid/net/LinkProperties;->addStackedLink(Landroid/net/LinkProperties;)Z
 
-    goto :goto_4
+    goto :goto_5
 
-    :cond_3
+    :cond_4
     new-instance v7, Landroid/net/ProxyInfo;
 
     invoke-virtual {p1}, Landroid/net/LinkProperties;->getHttpProxy()Landroid/net/ProxyInfo;
@@ -311,9 +362,9 @@
 
     invoke-direct {v7, v8}, Landroid/net/ProxyInfo;-><init>(Landroid/net/ProxyInfo;)V
 
-    goto :goto_3
+    goto :goto_4
 
-    :cond_4
+    :cond_5
     invoke-virtual {p1}, Landroid/net/LinkProperties;->getMtu()I
 
     move-result v7
@@ -324,7 +375,7 @@
 
     iput-object v7, p0, Landroid/net/LinkProperties;->mTcpBufferSizes:Ljava/lang/String;
 
-    :cond_5
+    :cond_6
     return-void
 .end method
 
@@ -353,28 +404,32 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    xor-int/lit8 v0, v0, 0x1
+
+    if-nez v0, :cond_1
 
     :cond_0
     invoke-virtual {p0}, Landroid/net/LinkProperties;->isIPv6Provisioned()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2
 
     invoke-virtual {p1}, Landroid/net/LinkProperties;->isIPv6Provisioned()Z
 
     move-result v0
 
+    xor-int/lit8 v0, v0, 0x1
+
     if-eqz v0, :cond_2
 
     :cond_1
-    sget-object v0, Landroid/net/LinkProperties$ProvisioningChange;->STILL_PROVISIONED:Landroid/net/LinkProperties$ProvisioningChange;
+    sget-object v0, Landroid/net/LinkProperties$ProvisioningChange;->LOST_PROVISIONING:Landroid/net/LinkProperties$ProvisioningChange;
 
     return-object v0
 
     :cond_2
-    sget-object v0, Landroid/net/LinkProperties$ProvisioningChange;->LOST_PROVISIONING:Landroid/net/LinkProperties$ProvisioningChange;
+    sget-object v0, Landroid/net/LinkProperties$ProvisioningChange;->STILL_PROVISIONED:Landroid/net/LinkProperties$ProvisioningChange;
 
     return-object v0
 
@@ -389,31 +444,32 @@
 
     move-result v0
 
-    if-eqz v0, :cond_5
+    xor-int/lit8 v0, v0, 0x1
+
+    if-eqz v0, :cond_4
+
+    sget-object v0, Landroid/net/LinkProperties$ProvisioningChange;->LOST_PROVISIONING:Landroid/net/LinkProperties$ProvisioningChange;
+
+    return-object v0
 
     :cond_4
     invoke-virtual {p0}, Landroid/net/LinkProperties;->isProvisioned()Z
 
     move-result v0
 
-    if-nez v0, :cond_6
+    if-nez v0, :cond_5
 
     invoke-virtual {p1}, Landroid/net/LinkProperties;->isProvisioned()Z
 
     move-result v0
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_5
 
     sget-object v0, Landroid/net/LinkProperties$ProvisioningChange;->GAINED_PROVISIONING:Landroid/net/LinkProperties$ProvisioningChange;
 
     return-object v0
 
     :cond_5
-    sget-object v0, Landroid/net/LinkProperties$ProvisioningChange;->LOST_PROVISIONING:Landroid/net/LinkProperties$ProvisioningChange;
-
-    return-object v0
-
-    :cond_6
     sget-object v0, Landroid/net/LinkProperties$ProvisioningChange;->STILL_NOT_PROVISIONED:Landroid/net/LinkProperties$ProvisioningChange;
 
     return-object v0
@@ -583,19 +639,20 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    xor-int/lit8 v0, v0, 0x1
 
-    :cond_0
-    const/4 v0, 0x0
+    if-eqz v0, :cond_0
 
-    return v0
-
-    :cond_1
     iget-object v0, p0, Landroid/net/LinkProperties;->mDnses:Ljava/util/ArrayList;
 
     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     const/4 v0, 0x1
+
+    return v0
+
+    :cond_0
+    const/4 v0, 0x0
 
     return v0
 .end method
@@ -649,10 +706,39 @@
     return v3
 .end method
 
+.method public addPcscfServer(Ljava/net/InetAddress;)Z
+    .locals 1
+
+    if-eqz p1, :cond_0
+
+    iget-object v0, p0, Landroid/net/LinkProperties;->mPcscfs:Ljava/util/ArrayList;
+
+    invoke-virtual {v0, p1}, Ljava/util/ArrayList;->contains(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    xor-int/lit8 v0, v0, 0x1
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Landroid/net/LinkProperties;->mPcscfs:Ljava/util/ArrayList;
+
+    invoke-virtual {v0, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    const/4 v0, 0x1
+
+    return v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    return v0
+.end method
+
 .method public addRoute(Landroid/net/RouteInfo;)Z
     .locals 4
 
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_1
 
     invoke-virtual {p1}, Landroid/net/RouteInfo;->getInterface()Ljava/lang/String;
 
@@ -666,30 +752,10 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    xor-int/lit8 v1, v1, 0x1
 
-    :cond_0
-    invoke-direct {p0, p1}, Landroid/net/LinkProperties;->routeWithInterface(Landroid/net/RouteInfo;)Landroid/net/RouteInfo;
+    if-eqz v1, :cond_0
 
-    move-result-object p1
-
-    iget-object v1, p0, Landroid/net/LinkProperties;->mRoutes:Ljava/util/ArrayList;
-
-    invoke-virtual {v1, p1}, Ljava/util/ArrayList;->contains(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-nez v1, :cond_2
-
-    iget-object v1, p0, Landroid/net/LinkProperties;->mRoutes:Ljava/util/ArrayList;
-
-    invoke-virtual {v1, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    const/4 v1, 0x1
-
-    return v1
-
-    :cond_1
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -726,7 +792,28 @@
 
     throw v1
 
-    :cond_2
+    :cond_0
+    invoke-direct {p0, p1}, Landroid/net/LinkProperties;->routeWithInterface(Landroid/net/RouteInfo;)Landroid/net/RouteInfo;
+
+    move-result-object p1
+
+    iget-object v1, p0, Landroid/net/LinkProperties;->mRoutes:Ljava/util/ArrayList;
+
+    invoke-virtual {v1, p1}, Ljava/util/ArrayList;->contains(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_1
+
+    iget-object v1, p0, Landroid/net/LinkProperties;->mRoutes:Ljava/util/ArrayList;
+
+    invoke-virtual {v1, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    const/4 v1, 0x1
+
+    return v1
+
+    :cond_1
     const/4 v1, 0x0
 
     return v1
@@ -773,6 +860,10 @@
     invoke-virtual {v0}, Ljava/util/ArrayList;->clear()V
 
     iget-object v0, p0, Landroid/net/LinkProperties;->mDnses:Ljava/util/ArrayList;
+
+    invoke-virtual {v0}, Ljava/util/ArrayList;->clear()V
+
+    iget-object v0, p0, Landroid/net/LinkProperties;->mPcscfs:Ljava/util/ArrayList;
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->clear()V
 
@@ -1089,6 +1180,44 @@
     return v0
 .end method
 
+.method public ensureDirectlyConnectedRoutes()V
+    .locals 5
+
+    iget-object v2, p0, Landroid/net/LinkProperties;->mLinkAddresses:Ljava/util/ArrayList;
+
+    invoke-interface {v2}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+
+    move-result-object v1
+
+    :goto_0
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/net/LinkAddress;
+
+    new-instance v2, Landroid/net/RouteInfo;
+
+    iget-object v3, p0, Landroid/net/LinkProperties;->mIfaceName:Ljava/lang/String;
+
+    const/4 v4, 0x0
+
+    invoke-direct {v2, v0, v4, v3}, Landroid/net/RouteInfo;-><init>(Landroid/net/LinkAddress;Ljava/net/InetAddress;Ljava/lang/String;)V
+
+    invoke-virtual {p0, v2}, Landroid/net/LinkProperties;->addRoute(Landroid/net/RouteInfo;)Z
+
+    goto :goto_0
+
+    :cond_0
+    return-void
+.end method
+
 .method public equals(Ljava/lang/Object;)Z
     .locals 3
 
@@ -1125,6 +1254,12 @@
     if-eqz v2, :cond_2
 
     invoke-virtual {p0, v0}, Landroid/net/LinkProperties;->isIdenticalDnses(Landroid/net/LinkProperties;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_2
+
+    invoke-virtual {p0, v0}, Landroid/net/LinkProperties;->isIdenticalPcscfs(Landroid/net/LinkProperties;)Z
 
     move-result v2
 
@@ -1569,6 +1704,48 @@
     return v0
 .end method
 
+.method public getPcscfServers()Ljava/util/List;
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/List",
+            "<",
+            "Ljava/net/InetAddress;",
+            ">;"
+        }
+    .end annotation
+
+    iget-object v0, p0, Landroid/net/LinkProperties;->mPcscfs:Ljava/util/ArrayList;
+
+    invoke-static {v0}, Ljava/util/Collections;->unmodifiableList(Ljava/util/List;)Ljava/util/List;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public getPcscfs()Ljava/util/Collection;
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/Collection",
+            "<",
+            "Ljava/net/InetAddress;",
+            ">;"
+        }
+    .end annotation
+
+    iget-object v0, p0, Landroid/net/LinkProperties;->mPcscfs:Ljava/util/ArrayList;
+
+    invoke-static {v0}, Ljava/util/Collections;->unmodifiableCollection(Ljava/util/Collection;)Ljava/util/Collection;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
 .method public getRoutes()Ljava/util/List;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
@@ -1826,6 +2003,42 @@
     return v2
 .end method
 
+.method public hasIPv4PcscfServer()Z
+    .locals 3
+
+    iget-object v2, p0, Landroid/net/LinkProperties;->mPcscfs:Ljava/util/ArrayList;
+
+    invoke-interface {v2}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+
+    move-result-object v1
+
+    :cond_0
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/net/InetAddress;
+
+    instance-of v2, v0, Ljava/net/Inet4Address;
+
+    if-eqz v2, :cond_0
+
+    const/4 v2, 0x1
+
+    return v2
+
+    :cond_1
+    const/4 v2, 0x0
+
+    return v2
+.end method
+
 .method public hasIPv6DefaultRoute()Z
     .locals 3
 
@@ -1900,6 +2113,42 @@
     return v2
 .end method
 
+.method public hasIPv6PcscfServer()Z
+    .locals 3
+
+    iget-object v2, p0, Landroid/net/LinkProperties;->mPcscfs:Ljava/util/ArrayList;
+
+    invoke-interface {v2}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+
+    move-result-object v1
+
+    :cond_0
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/net/InetAddress;
+
+    instance-of v2, v0, Ljava/net/Inet6Address;
+
+    if-eqz v2, :cond_0
+
+    const/4 v2, 0x1
+
+    return v2
+
+    :cond_1
+    const/4 v2, 0x0
+
+    return v2
+.end method
+
 .method public hashCode()I
     .locals 3
 
@@ -1915,6 +2164,16 @@
     iget v2, p0, Landroid/net/LinkProperties;->mMtu:I
 
     mul-int/lit8 v2, v2, 0x33
+
+    add-int/2addr v0, v2
+
+    iget-object v2, p0, Landroid/net/LinkProperties;->mPcscfs:Ljava/util/ArrayList;
+
+    invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
+
+    move-result v2
+
+    mul-int/lit8 v2, v2, 0x39
 
     add-int/2addr v0, v2
 
@@ -2250,6 +2509,42 @@
     goto :goto_0
 .end method
 
+.method public isIdenticalPcscfs(Landroid/net/LinkProperties;)Z
+    .locals 3
+
+    invoke-virtual {p1}, Landroid/net/LinkProperties;->getPcscfServers()Ljava/util/List;
+
+    move-result-object v0
+
+    iget-object v1, p0, Landroid/net/LinkProperties;->mPcscfs:Ljava/util/ArrayList;
+
+    invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
+
+    move-result v1
+
+    iget-object v2, p0, Landroid/net/LinkProperties;->mPcscfs:Ljava/util/ArrayList;
+
+    invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
+
+    move-result v2
+
+    if-ne v1, v2, :cond_0
+
+    iget-object v1, p0, Landroid/net/LinkProperties;->mPcscfs:Ljava/util/ArrayList;
+
+    invoke-virtual {v1, v0}, Ljava/util/ArrayList;->containsAll(Ljava/util/Collection;)Z
+
+    move-result v1
+
+    :goto_0
+    return v1
+
+    :cond_0
+    const/4 v1, 0x0
+
+    goto :goto_0
+.end method
+
 .method public isIdenticalRoutes(Landroid/net/LinkProperties;)Z
     .locals 3
 
@@ -2514,6 +2809,25 @@
     return v1
 .end method
 
+.method public removePcscfServer(Ljava/net/InetAddress;)Z
+    .locals 1
+
+    if-eqz p1, :cond_0
+
+    iget-object v0, p0, Landroid/net/LinkProperties;->mPcscfs:Ljava/util/ArrayList;
+
+    invoke-virtual {v0, p1}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    return v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    return v0
+.end method
+
 .method public removeRoute(Landroid/net/RouteInfo;)Z
     .locals 2
 
@@ -2726,6 +3040,47 @@
     return-void
 .end method
 
+.method public setPcscfServers(Ljava/util/Collection;)V
+    .locals 3
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/Collection",
+            "<",
+            "Ljava/net/InetAddress;",
+            ">;)V"
+        }
+    .end annotation
+
+    iget-object v2, p0, Landroid/net/LinkProperties;->mPcscfs:Ljava/util/ArrayList;
+
+    invoke-virtual {v2}, Ljava/util/ArrayList;->clear()V
+
+    invoke-interface {p1}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+
+    move-result-object v1
+
+    :goto_0
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/net/InetAddress;
+
+    invoke-virtual {p0, v0}, Landroid/net/LinkProperties;->addPcscfServer(Ljava/net/InetAddress;)Z
+
+    goto :goto_0
+
+    :cond_0
+    return-void
+.end method
+
 .method public setTcpBufferSizes(Ljava/lang/String;)V
     .locals 0
 
@@ -2735,15 +3090,15 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 20
+    .locals 21
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/net/LinkProperties;->mIfaceName:Ljava/lang/String;
 
-    move-object/from16 v18, v0
+    move-object/from16 v19, v0
 
-    if-nez v18, :cond_0
+    if-nez v19, :cond_0
 
     const-string/jumbo v7, ""
 
@@ -2754,18 +3109,18 @@
 
     iget-object v0, v0, Landroid/net/LinkProperties;->mLinkAddresses:Ljava/util/ArrayList;
 
-    move-object/from16 v18, v0
+    move-object/from16 v19, v0
 
-    invoke-interface/range {v18 .. v18}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+    invoke-interface/range {v19 .. v19}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v4
 
     :goto_1
     invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v18
+    move-result v19
 
-    if-eqz v18, :cond_1
+    if-eqz v19, :cond_1
 
     invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -2773,87 +3128,87 @@
 
     check-cast v2, Landroid/net/LinkAddress;
 
-    new-instance v18, Ljava/lang/StringBuilder;
+    new-instance v19, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v19 .. v19}, Ljava/lang/StringBuilder;-><init>()V
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
     invoke-virtual {v0, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v18
+    move-result-object v19
 
     invoke-virtual {v2}, Landroid/net/LinkAddress;->toString()Ljava/lang/String;
 
+    move-result-object v20
+
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
     move-result-object v19
 
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string/jumbo v20, ","
 
-    move-result-object v18
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v19, ","
+    move-result-object v19
 
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v19 .. v19}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v10
 
     goto :goto_1
 
     :cond_0
-    new-instance v18, Ljava/lang/StringBuilder;
+    new-instance v19, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v19 .. v19}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v19, "InterfaceName: "
+    const-string/jumbo v20, "InterfaceName: "
 
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v18
+    move-result-object v19
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/net/LinkProperties;->mIfaceName:Ljava/lang/String;
 
-    move-object/from16 v19, v0
+    move-object/from16 v20, v0
 
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v18
+    move-result-object v19
 
-    const-string/jumbo v19, " "
+    const-string/jumbo v20, " "
 
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v18
+    move-result-object v19
 
-    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v19 .. v19}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v7
 
     goto :goto_0
 
     :cond_1
-    new-instance v18, Ljava/lang/StringBuilder;
+    new-instance v19, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v19 .. v19}, Ljava/lang/StringBuilder;-><init>()V
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
     invoke-virtual {v0, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v18
+    move-result-object v19
 
-    const-string/jumbo v19, "] "
+    const-string/jumbo v20, "] "
 
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v18
+    move-result-object v19
 
-    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v19 .. v19}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v10
 
@@ -2863,18 +3218,18 @@
 
     iget-object v0, v0, Landroid/net/LinkProperties;->mDnses:Ljava/util/ArrayList;
 
-    move-object/from16 v18, v0
+    move-object/from16 v19, v0
 
-    invoke-interface/range {v18 .. v18}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+    invoke-interface/range {v19 .. v19}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v4
 
     :goto_2
     invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v18
+    move-result v19
 
-    if-eqz v18, :cond_2
+    if-eqz v19, :cond_2
 
     invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -2882,124 +3237,215 @@
 
     check-cast v3, Ljava/net/InetAddress;
 
-    new-instance v18, Ljava/lang/StringBuilder;
+    new-instance v19, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v19 .. v19}, Ljava/lang/StringBuilder;-><init>()V
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
     invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v18
+    move-result-object v19
 
     invoke-virtual {v3}, Ljava/net/InetAddress;->getHostAddress()Ljava/lang/String;
 
+    move-result-object v20
+
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
     move-result-object v19
 
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string/jumbo v20, ","
 
-    move-result-object v18
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v19, ","
+    move-result-object v19
 
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v19 .. v19}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v5
 
     goto :goto_2
 
     :cond_2
-    new-instance v18, Ljava/lang/StringBuilder;
+    new-instance v19, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v19 .. v19}, Ljava/lang/StringBuilder;-><init>()V
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
     invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v18
+    move-result-object v19
 
-    const-string/jumbo v19, "] "
+    const-string/jumbo v20, "] "
 
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v18
+    move-result-object v19
 
-    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v19 .. v19}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v5
 
-    new-instance v18, Ljava/lang/StringBuilder;
+    const-string/jumbo v12, ""
 
-    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
+    move-object/from16 v0, p0
 
-    const-string/jumbo v19, "Domains: "
+    iget-object v0, v0, Landroid/net/LinkProperties;->mPcscfs:Ljava/util/ArrayList;
 
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-object/from16 v19, v0
 
-    move-result-object v18
+    invoke-virtual/range {v19 .. v19}, Ljava/util/ArrayList;->size()I
+
+    move-result v19
+
+    if-lez v19, :cond_4
+
+    new-instance v19, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v19 .. v19}, Ljava/lang/StringBuilder;-><init>()V
+
+    move-object/from16 v0, v19
+
+    invoke-virtual {v0, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
+    const-string/jumbo v20, "PcscfAddresses: ["
+
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
+    invoke-virtual/range {v19 .. v19}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v12
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Landroid/net/LinkProperties;->mPcscfs:Ljava/util/ArrayList;
+
+    move-object/from16 v19, v0
+
+    invoke-interface/range {v19 .. v19}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+
+    move-result-object v4
+
+    :goto_3
+    invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v19
+
+    if-eqz v19, :cond_3
+
+    invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Ljava/net/InetAddress;
+
+    new-instance v19, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v19 .. v19}, Ljava/lang/StringBuilder;-><init>()V
+
+    move-object/from16 v0, v19
+
+    invoke-virtual {v0, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
+    invoke-virtual {v3}, Ljava/net/InetAddress;->getHostAddress()Ljava/lang/String;
+
+    move-result-object v20
+
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
+    const-string/jumbo v20, ","
+
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
+    invoke-virtual/range {v19 .. v19}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v12
+
+    goto :goto_3
+
+    :cond_3
+    new-instance v19, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v19 .. v19}, Ljava/lang/StringBuilder;-><init>()V
+
+    move-object/from16 v0, v19
+
+    invoke-virtual {v0, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
+    const-string/jumbo v20, "] "
+
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
+    invoke-virtual/range {v19 .. v19}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v12
+
+    :cond_4
+    new-instance v19, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v19 .. v19}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v20, "Domains: "
+
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v19
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/net/LinkProperties;->mDomains:Ljava/lang/String;
 
-    move-object/from16 v19, v0
+    move-object/from16 v20, v0
 
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v18
+    move-result-object v19
 
-    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v19 .. v19}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v6
 
-    new-instance v18, Ljava/lang/StringBuilder;
+    new-instance v19, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v19 .. v19}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v19, " MTU: "
+    const-string/jumbo v20, " MTU: "
 
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v18
+    move-result-object v19
 
     move-object/from16 v0, p0
 
     iget v0, v0, Landroid/net/LinkProperties;->mMtu:I
 
-    move/from16 v19, v0
+    move/from16 v20, v0
 
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v18
+    move-result-object v19
 
-    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v19 .. v19}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v11
 
-    const-string/jumbo v17, ""
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/net/LinkProperties;->mTcpBufferSizes:Ljava/lang/String;
-
-    move-object/from16 v18, v0
-
-    if-eqz v18, :cond_3
-
-    new-instance v18, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v19, " TcpBufferSizes: "
-
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v18
+    const-string/jumbo v18, ""
 
     move-object/from16 v0, p0
 
@@ -3007,162 +3453,184 @@
 
     move-object/from16 v19, v0
 
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    if-eqz v19, :cond_5
+
+    new-instance v19, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v19 .. v19}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v20, " TcpBufferSizes: "
+
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Landroid/net/LinkProperties;->mTcpBufferSizes:Ljava/lang/String;
+
+    move-object/from16 v20, v0
+
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
+    invoke-virtual/range {v19 .. v19}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v18
 
-    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v17
-
-    :cond_3
-    const-string/jumbo v15, " Routes: ["
+    :cond_5
+    const-string/jumbo v16, " Routes: ["
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/net/LinkProperties;->mRoutes:Ljava/util/ArrayList;
 
-    move-object/from16 v18, v0
+    move-object/from16 v19, v0
 
-    invoke-interface/range {v18 .. v18}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+    invoke-interface/range {v19 .. v19}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+
+    move-result-object v15
+
+    :goto_4
+    invoke-interface {v15}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v19
+
+    if-eqz v19, :cond_6
+
+    invoke-interface {v15}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v14
 
-    :goto_3
-    invoke-interface {v14}, Ljava/util/Iterator;->hasNext()Z
+    check-cast v14, Landroid/net/RouteInfo;
 
-    move-result v18
+    new-instance v19, Ljava/lang/StringBuilder;
 
-    if-eqz v18, :cond_4
+    invoke-direct/range {v19 .. v19}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-interface {v14}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v13
-
-    check-cast v13, Landroid/net/RouteInfo;
-
-    new-instance v18, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
-
-    move-object/from16 v0, v18
-
-    invoke-virtual {v0, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    invoke-virtual {v13}, Landroid/net/RouteInfo;->toString()Ljava/lang/String;
-
-    move-result-object v19
-
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    const-string/jumbo v19, ","
-
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v15
-
-    goto :goto_3
-
-    :cond_4
-    new-instance v18, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
-
-    move-object/from16 v0, v18
-
-    invoke-virtual {v0, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    const-string/jumbo v19, "] "
-
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v15
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/net/LinkProperties;->mHttpProxy:Landroid/net/ProxyInfo;
-
-    move-object/from16 v18, v0
-
-    if-nez v18, :cond_5
-
-    const-string/jumbo v12, ""
-
-    :goto_4
-    const-string/jumbo v16, ""
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/net/LinkProperties;->mStackedLinks:Ljava/util/Hashtable;
-
-    move-object/from16 v18, v0
-
-    invoke-virtual/range {v18 .. v18}, Ljava/util/Hashtable;->values()Ljava/util/Collection;
-
-    move-result-object v18
-
-    invoke-interface/range {v18 .. v18}, Ljava/util/Collection;->size()I
-
-    move-result v18
-
-    if-lez v18, :cond_7
-
-    new-instance v18, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
-
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
     move-object/from16 v1, v16
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v18
+    move-result-object v19
 
-    const-string/jumbo v19, " Stacked: ["
+    invoke-virtual {v14}, Landroid/net/RouteInfo;->toString()Ljava/lang/String;
 
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v20
 
-    move-result-object v18
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v19
+
+    const-string/jumbo v20, ","
+
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
+    invoke-virtual/range {v19 .. v19}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v16
+
+    goto :goto_4
+
+    :cond_6
+    new-instance v19, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v19 .. v19}, Ljava/lang/StringBuilder;-><init>()V
+
+    move-object/from16 v0, v19
+
+    move-object/from16 v1, v16
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
+    const-string/jumbo v20, "] "
+
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
+    invoke-virtual/range {v19 .. v19}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v16
 
     move-object/from16 v0, p0
 
+    iget-object v0, v0, Landroid/net/LinkProperties;->mHttpProxy:Landroid/net/ProxyInfo;
+
+    move-object/from16 v19, v0
+
+    if-nez v19, :cond_7
+
+    const-string/jumbo v13, ""
+
+    :goto_5
+    const-string/jumbo v17, ""
+
+    move-object/from16 v0, p0
+
     iget-object v0, v0, Landroid/net/LinkProperties;->mStackedLinks:Ljava/util/Hashtable;
 
-    move-object/from16 v18, v0
+    move-object/from16 v19, v0
 
-    invoke-virtual/range {v18 .. v18}, Ljava/util/Hashtable;->values()Ljava/util/Collection;
+    invoke-virtual/range {v19 .. v19}, Ljava/util/Hashtable;->values()Ljava/util/Collection;
 
-    move-result-object v18
+    move-result-object v19
 
-    invoke-interface/range {v18 .. v18}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+    invoke-interface/range {v19 .. v19}, Ljava/util/Collection;->size()I
+
+    move-result v19
+
+    if-lez v19, :cond_9
+
+    new-instance v19, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v19 .. v19}, Ljava/lang/StringBuilder;-><init>()V
+
+    move-object/from16 v0, v19
+
+    move-object/from16 v1, v17
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
+    const-string/jumbo v20, " Stacked: ["
+
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
+    invoke-virtual/range {v19 .. v19}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v17
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Landroid/net/LinkProperties;->mStackedLinks:Ljava/util/Hashtable;
+
+    move-object/from16 v19, v0
+
+    invoke-virtual/range {v19 .. v19}, Ljava/util/Hashtable;->values()Ljava/util/Collection;
+
+    move-result-object v19
+
+    invoke-interface/range {v19 .. v19}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v9
 
-    :goto_5
+    :goto_6
     invoke-interface {v9}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v18
+    move-result v19
 
-    if-eqz v18, :cond_6
+    if-eqz v19, :cond_8
 
     invoke-interface {v9}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -3170,184 +3638,192 @@
 
     check-cast v8, Landroid/net/LinkProperties;
 
-    new-instance v18, Ljava/lang/StringBuilder;
+    new-instance v19, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v19 .. v19}, Ljava/lang/StringBuilder;-><init>()V
 
-    move-object/from16 v0, v18
-
-    move-object/from16 v1, v16
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    const-string/jumbo v19, " ["
-
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    invoke-virtual {v8}, Landroid/net/LinkProperties;->toString()Ljava/lang/String;
-
-    move-result-object v19
-
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    const-string/jumbo v19, " ],"
-
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v16
-
-    goto :goto_5
-
-    :cond_5
-    new-instance v18, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v19, " HttpProxy: "
-
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/net/LinkProperties;->mHttpProxy:Landroid/net/ProxyInfo;
-
-    move-object/from16 v19, v0
-
-    invoke-virtual/range {v19 .. v19}, Landroid/net/ProxyInfo;->toString()Ljava/lang/String;
-
-    move-result-object v19
-
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    const-string/jumbo v19, " "
-
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v12
-
-    goto/16 :goto_4
-
-    :cond_6
-    new-instance v18, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
-
-    move-object/from16 v0, v18
-
-    move-object/from16 v1, v16
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    const-string/jumbo v19, "] "
-
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v16
-
-    :cond_7
-    new-instance v18, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v19, "{"
-
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    move-object/from16 v0, v18
-
-    invoke-virtual {v0, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    move-object/from16 v0, v18
-
-    invoke-virtual {v0, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    move-object/from16 v0, v18
-
-    invoke-virtual {v0, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    move-object/from16 v0, v18
-
-    invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    move-object/from16 v0, v18
-
-    invoke-virtual {v0, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    move-object/from16 v0, v18
-
-    invoke-virtual {v0, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
     move-object/from16 v1, v17
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v18
+    move-result-object v19
 
-    move-object/from16 v0, v18
+    const-string/jumbo v20, " ["
 
-    invoke-virtual {v0, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v18
+    move-result-object v19
 
-    move-object/from16 v0, v18
+    invoke-virtual {v8}, Landroid/net/LinkProperties;->toString()Ljava/lang/String;
+
+    move-result-object v20
+
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
+    const-string/jumbo v20, " ],"
+
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
+    invoke-virtual/range {v19 .. v19}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v17
+
+    goto :goto_6
+
+    :cond_7
+    new-instance v19, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v19 .. v19}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v20, " HttpProxy: "
+
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Landroid/net/LinkProperties;->mHttpProxy:Landroid/net/ProxyInfo;
+
+    move-object/from16 v20, v0
+
+    invoke-virtual/range {v20 .. v20}, Landroid/net/ProxyInfo;->toString()Ljava/lang/String;
+
+    move-result-object v20
+
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
+    const-string/jumbo v20, " "
+
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
+    invoke-virtual/range {v19 .. v19}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v13
+
+    goto/16 :goto_5
+
+    :cond_8
+    new-instance v19, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v19 .. v19}, Ljava/lang/StringBuilder;-><init>()V
+
+    move-object/from16 v0, v19
+
+    move-object/from16 v1, v17
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
+    const-string/jumbo v20, "] "
+
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
+    invoke-virtual/range {v19 .. v19}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v17
+
+    :cond_9
+    new-instance v19, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v19 .. v19}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v20, "{"
+
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
+    move-object/from16 v0, v19
+
+    invoke-virtual {v0, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
+    move-object/from16 v0, v19
+
+    invoke-virtual {v0, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
+    move-object/from16 v0, v19
 
     move-object/from16 v1, v16
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v18
+    move-result-object v19
 
-    const-string/jumbo v19, "}"
+    move-object/from16 v0, v19
 
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v18
+    move-result-object v19
 
-    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-object/from16 v0, v19
 
-    move-result-object v18
+    invoke-virtual {v0, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    return-object v18
+    move-result-object v19
+
+    move-object/from16 v0, v19
+
+    invoke-virtual {v0, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
+    move-object/from16 v0, v19
+
+    invoke-virtual {v0, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
+    move-object/from16 v0, v19
+
+    move-object/from16 v1, v18
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
+    move-object/from16 v0, v19
+
+    invoke-virtual {v0, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
+    move-object/from16 v0, v19
+
+    move-object/from16 v1, v17
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
+    const-string/jumbo v20, "}"
+
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
+    invoke-virtual/range {v19 .. v19}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v19
+
+    return-object v19
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
@@ -3427,6 +3903,42 @@
     goto :goto_1
 
     :cond_1
+    iget-object v7, p0, Landroid/net/LinkProperties;->mPcscfs:Ljava/util/ArrayList;
+
+    invoke-virtual {v7}, Ljava/util/ArrayList;->size()I
+
+    move-result v7
+
+    invoke-virtual {p1, v7}, Landroid/os/Parcel;->writeInt(I)V
+
+    iget-object v7, p0, Landroid/net/LinkProperties;->mPcscfs:Ljava/util/ArrayList;
+
+    invoke-interface {v7}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+
+    move-result-object v1
+
+    :goto_2
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v7
+
+    if-eqz v7, :cond_2
+
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/net/InetAddress;
+
+    invoke-virtual {v0}, Ljava/net/InetAddress;->getAddress()[B
+
+    move-result-object v7
+
+    invoke-virtual {p1, v7}, Landroid/os/Parcel;->writeByteArray([B)V
+
+    goto :goto_2
+
+    :cond_2
     iget-object v7, p0, Landroid/net/LinkProperties;->mDomains:Ljava/lang/String;
 
     invoke-virtual {p1, v7}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
@@ -3453,12 +3965,12 @@
 
     move-result-object v5
 
-    :goto_2
+    :goto_3
     invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v7
 
-    if-eqz v7, :cond_2
+    if-eqz v7, :cond_3
 
     invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -3468,12 +3980,12 @@
 
     invoke-virtual {p1, v4, p2}, Landroid/os/Parcel;->writeParcelable(Landroid/os/Parcelable;I)V
 
-    goto :goto_2
+    goto :goto_3
 
-    :cond_2
+    :cond_3
     iget-object v7, p0, Landroid/net/LinkProperties;->mHttpProxy:Landroid/net/ProxyInfo;
 
-    if-eqz v7, :cond_3
+    if-eqz v7, :cond_4
 
     const/4 v7, 0x1
 
@@ -3483,7 +3995,7 @@
 
     invoke-virtual {p1, v7, p2}, Landroid/os/Parcel;->writeParcelable(Landroid/os/Parcelable;I)V
 
-    :goto_3
+    :goto_4
     new-instance v6, Ljava/util/ArrayList;
 
     iget-object v7, p0, Landroid/net/LinkProperties;->mStackedLinks:Ljava/util/Hashtable;
@@ -3498,10 +4010,10 @@
 
     return-void
 
-    :cond_3
+    :cond_4
     const/4 v7, 0x0
 
     invoke-virtual {p1, v7}, Landroid/os/Parcel;->writeByte(B)V
 
-    goto :goto_3
+    goto :goto_4
 .end method

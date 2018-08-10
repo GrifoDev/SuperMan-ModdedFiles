@@ -43,7 +43,9 @@
 
 # virtual methods
 .method public run()V
-    .locals 8
+    .locals 10
+
+    const-wide/high16 v8, -0x8000000000000000L
 
     iget-object v4, p0, Landroid/media/tv/TvInputService$Session$TimeShiftPositionTrackingRunnable;->this$1:Landroid/media/tv/TvInputService$Session;
 
@@ -57,10 +59,21 @@
 
     move-result-wide v4
 
-    cmp-long v4, v4, v2
+    cmp-long v4, v4, v8
 
     if-eqz v4, :cond_0
 
+    iget-object v4, p0, Landroid/media/tv/TvInputService$Session$TimeShiftPositionTrackingRunnable;->this$1:Landroid/media/tv/TvInputService$Session;
+
+    invoke-static {v4}, Landroid/media/tv/TvInputService$Session;->-get4(Landroid/media/tv/TvInputService$Session;)J
+
+    move-result-wide v4
+
+    cmp-long v4, v4, v2
+
+    if-eqz v4, :cond_1
+
+    :cond_0
     iget-object v4, p0, Landroid/media/tv/TvInputService$Session$TimeShiftPositionTrackingRunnable;->this$1:Landroid/media/tv/TvInputService$Session;
 
     invoke-static {v4, v2, v3}, Landroid/media/tv/TvInputService$Session;->-set2(Landroid/media/tv/TvInputService$Session;J)J
@@ -69,7 +82,7 @@
 
     invoke-static {v4, v2, v3}, Landroid/media/tv/TvInputService$Session;->-wrap2(Landroid/media/tv/TvInputService$Session;J)V
 
-    :cond_0
+    :cond_1
     iget-object v4, p0, Landroid/media/tv/TvInputService$Session$TimeShiftPositionTrackingRunnable;->this$1:Landroid/media/tv/TvInputService$Session;
 
     invoke-virtual {v4}, Landroid/media/tv/TvInputService$Session;->onTimeShiftGetCurrentPosition()J
@@ -84,7 +97,7 @@
 
     cmp-long v4, v0, v4
 
-    if-gez v4, :cond_1
+    if-gez v4, :cond_2
 
     const-string/jumbo v4, "TvInputService"
 
@@ -148,7 +161,17 @@
 
     move-result-wide v0
 
-    :cond_1
+    :cond_2
+    iget-object v4, p0, Landroid/media/tv/TvInputService$Session$TimeShiftPositionTrackingRunnable;->this$1:Landroid/media/tv/TvInputService$Session;
+
+    invoke-static {v4}, Landroid/media/tv/TvInputService$Session;->-get0(Landroid/media/tv/TvInputService$Session;)J
+
+    move-result-wide v4
+
+    cmp-long v4, v4, v8
+
+    if-eqz v4, :cond_3
+
     iget-object v4, p0, Landroid/media/tv/TvInputService$Session$TimeShiftPositionTrackingRunnable;->this$1:Landroid/media/tv/TvInputService$Session;
 
     invoke-static {v4}, Landroid/media/tv/TvInputService$Session;->-get0(Landroid/media/tv/TvInputService$Session;)J
@@ -157,8 +180,9 @@
 
     cmp-long v4, v4, v0
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_4
 
+    :cond_3
     iget-object v4, p0, Landroid/media/tv/TvInputService$Session$TimeShiftPositionTrackingRunnable;->this$1:Landroid/media/tv/TvInputService$Session;
 
     invoke-static {v4, v0, v1}, Landroid/media/tv/TvInputService$Session;->-set0(Landroid/media/tv/TvInputService$Session;J)J
@@ -167,7 +191,7 @@
 
     invoke-static {v4, v0, v1}, Landroid/media/tv/TvInputService$Session;->-wrap1(Landroid/media/tv/TvInputService$Session;J)V
 
-    :cond_2
+    :cond_4
     iget-object v4, p0, Landroid/media/tv/TvInputService$Session$TimeShiftPositionTrackingRunnable;->this$1:Landroid/media/tv/TvInputService$Session;
 
     iget-object v4, v4, Landroid/media/tv/TvInputService$Session;->mHandler:Landroid/os/Handler;

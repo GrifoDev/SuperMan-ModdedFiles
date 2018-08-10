@@ -3,8 +3,19 @@
 .source "MediaExtractor.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Landroid/media/MediaExtractor$CasInfo;,
+        Landroid/media/MediaExtractor$MetricsConstants;
+    }
+.end annotation
+
+
 # static fields
 .field public static final SAMPLE_FLAG_ENCRYPTED:I = 0x2
+
+.field public static final SAMPLE_FLAG_PARTIAL_FRAME:I = 0x4
 
 .field public static final SAMPLE_FLAG_SYNC:I = 0x1
 
@@ -20,6 +31,8 @@
 
 
 # instance fields
+.field private mMediaCas:Landroid/media/MediaCas;
+
 .field private mNativeContext:J
 
 
@@ -80,7 +93,13 @@
     .end annotation
 .end method
 
+.method private final native nativeSetMediaCas(Landroid/os/IBinder;)V
+.end method
+
 .method private final native native_finalize()V
+.end method
+
+.method private native native_getMetrics()Landroid/os/PersistableBundle;
 .end method
 
 .method private static final native native_init()V
@@ -106,6 +125,84 @@
 .end method
 
 .method public native getCachedDuration()J
+.end method
+
+.method public getCasInfo(I)Landroid/media/MediaExtractor$CasInfo;
+    .locals 7
+
+    const/4 v6, 0x0
+
+    invoke-direct {p0, p1}, Landroid/media/MediaExtractor;->getTrackFormatNative(I)Ljava/util/Map;
+
+    move-result-object v1
+
+    const-string/jumbo v5, "ca-system-id"
+
+    invoke-interface {v1, v5}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_1
+
+    const-string/jumbo v5, "ca-system-id"
+
+    invoke-interface {v1, v5}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v5
+
+    check-cast v5, Ljava/lang/Integer;
+
+    invoke-virtual {v5}, Ljava/lang/Integer;->intValue()I
+
+    move-result v4
+
+    const/4 v2, 0x0
+
+    iget-object v5, p0, Landroid/media/MediaExtractor;->mMediaCas:Landroid/media/MediaCas;
+
+    if-eqz v5, :cond_0
+
+    const-string/jumbo v5, "ca-session-id"
+
+    invoke-interface {v1, v5}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_0
+
+    const-string/jumbo v5, "ca-session-id"
+
+    invoke-interface {v1, v5}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/nio/ByteBuffer;
+
+    invoke-virtual {v0}, Ljava/nio/ByteBuffer;->rewind()Ljava/nio/Buffer;
+
+    invoke-virtual {v0}, Ljava/nio/ByteBuffer;->remaining()I
+
+    move-result v5
+
+    new-array v3, v5, [B
+
+    invoke-virtual {v0, v3}, Ljava/nio/ByteBuffer;->get([B)Ljava/nio/ByteBuffer;
+
+    iget-object v5, p0, Landroid/media/MediaExtractor;->mMediaCas:Landroid/media/MediaCas;
+
+    invoke-virtual {v5, v3}, Landroid/media/MediaCas;->createFromSessionId([B)Landroid/media/MediaCas$Session;
+
+    move-result-object v2
+
+    :cond_0
+    new-instance v5, Landroid/media/MediaExtractor$CasInfo;
+
+    invoke-direct {v5, v4, v2}, Landroid/media/MediaExtractor$CasInfo;-><init>(ILandroid/media/MediaCas$Session;)V
+
+    return-object v5
+
+    :cond_1
+    return-object v6
 .end method
 
 .method public getDrmInitData()Landroid/media/DrmInitData;
@@ -241,6 +338,16 @@
 
     :cond_4
     return-object v12
+.end method
+
+.method public getMetrics()Landroid/os/PersistableBundle;
+    .locals 1
+
+    invoke-direct {p0}, Landroid/media/MediaExtractor;->native_getMetrics()Landroid/os/PersistableBundle;
+
+    move-result-object v0
+
+    return-object v0
 .end method
 
 .method public getPsshInfo()Ljava/util/Map;
@@ -748,6 +855,20 @@
     move-result-object v5
 
     invoke-direct {p0, v5, p1, v3, v4}, Landroid/media/MediaExtractor;->nativeSetDataSource(Landroid/os/IBinder;Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;)V
+
+    return-void
+.end method
+
+.method public final setMediaCas(Landroid/media/MediaCas;)V
+    .locals 1
+
+    iput-object p1, p0, Landroid/media/MediaExtractor;->mMediaCas:Landroid/media/MediaCas;
+
+    invoke-virtual {p1}, Landroid/media/MediaCas;->getBinder()Landroid/os/IBinder;
+
+    move-result-object v0
+
+    invoke-direct {p0, v0}, Landroid/media/MediaExtractor;->nativeSetMediaCas(Landroid/os/IBinder;)V
 
     return-void
 .end method

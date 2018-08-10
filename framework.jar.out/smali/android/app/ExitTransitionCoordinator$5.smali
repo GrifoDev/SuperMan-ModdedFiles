@@ -1,6 +1,9 @@
 .class Landroid/app/ExitTransitionCoordinator$5;
-.super Landroid/os/Handler;
+.super Ljava/lang/Object;
 .source "ExitTransitionCoordinator.java"
+
+# interfaces
+.implements Landroid/app/Activity$TranslucentConversionListener;
 
 
 # annotations
@@ -24,25 +27,28 @@
 
     iput-object p1, p0, Landroid/app/ExitTransitionCoordinator$5;->this$0:Landroid/app/ExitTransitionCoordinator;
 
-    invoke-direct {p0}, Landroid/os/Handler;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public handleMessage(Landroid/os/Message;)V
-    .locals 2
+.method public onTranslucentConversionComplete(Z)V
+    .locals 1
 
     iget-object v0, p0, Landroid/app/ExitTransitionCoordinator$5;->this$0:Landroid/app/ExitTransitionCoordinator;
 
-    const/4 v1, 0x1
+    invoke-static {v0}, Landroid/app/ExitTransitionCoordinator;->-get1(Landroid/app/ExitTransitionCoordinator;)Z
 
-    invoke-static {v0, v1}, Landroid/app/ExitTransitionCoordinator;->-set2(Landroid/app/ExitTransitionCoordinator;Z)Z
+    move-result v0
+
+    if-nez v0, :cond_0
 
     iget-object v0, p0, Landroid/app/ExitTransitionCoordinator$5;->this$0:Landroid/app/ExitTransitionCoordinator;
 
-    invoke-static {v0}, Landroid/app/ExitTransitionCoordinator;->-wrap3(Landroid/app/ExitTransitionCoordinator;)V
+    invoke-static {v0}, Landroid/app/ExitTransitionCoordinator;->-wrap2(Landroid/app/ExitTransitionCoordinator;)V
 
+    :cond_0
     return-void
 .end method

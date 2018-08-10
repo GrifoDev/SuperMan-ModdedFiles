@@ -82,13 +82,50 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/os/Handler;I)V
-    .locals 1
+    .locals 2
 
-    const/4 v0, 0x0
+    instance-of v0, p1, Landroid/app/Activity;
 
-    invoke-direct {p0, v0, p1, p2, p3}, Landroid/app/FragmentHostCallback;-><init>(Landroid/app/Activity;Landroid/content/Context;Landroid/os/Handler;I)V
+    if-eqz v0, :cond_0
+
+    move-object v0, p1
+
+    check-cast v0, Landroid/app/Activity;
+
+    :goto_0
+    invoke-static {p1, p2}, Landroid/app/FragmentHostCallback;->chooseHandler(Landroid/content/Context;Landroid/os/Handler;)Landroid/os/Handler;
+
+    move-result-object v1
+
+    invoke-direct {p0, v0, p1, v1, p3}, Landroid/app/FragmentHostCallback;-><init>(Landroid/app/Activity;Landroid/content/Context;Landroid/os/Handler;I)V
 
     return-void
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
+.method private static chooseHandler(Landroid/content/Context;Landroid/os/Handler;)Landroid/os/Handler;
+    .locals 2
+
+    if-nez p1, :cond_0
+
+    instance-of v1, p0, Landroid/app/Activity;
+
+    if-eqz v1, :cond_0
+
+    move-object v0, p0
+
+    check-cast v0, Landroid/app/Activity;
+
+    iget-object v1, v0, Landroid/app/Activity;->mHandler:Landroid/os/Handler;
+
+    return-object v1
+
+    :cond_0
+    return-object p1
 .end method
 
 
@@ -336,7 +373,7 @@
 
     if-nez v0, :cond_2
 
-    if-eqz p3, :cond_1
+    if-eqz p3, :cond_2
 
     new-instance v0, Landroid/app/LoaderManagerImpl;
 
@@ -351,7 +388,17 @@
     return-object v0
 
     :cond_2
-    invoke-virtual {v0, p0}, Landroid/app/LoaderManagerImpl;->updateHostController(Landroid/app/FragmentHostCallback;)V
+    if-eqz p2, :cond_1
+
+    if-eqz v0, :cond_1
+
+    iget-boolean v1, v0, Landroid/app/LoaderManagerImpl;->mStarted:Z
+
+    xor-int/lit8 v1, v1, 0x1
+
+    if-eqz v1, :cond_1
+
+    invoke-virtual {v0}, Landroid/app/LoaderManagerImpl;->doStart()V
 
     goto :goto_0
 .end method
@@ -414,20 +461,18 @@
 
     iget-boolean v1, v0, Landroid/app/LoaderManagerImpl;->mRetaining:Z
 
-    if-eqz v1, :cond_1
+    xor-int/lit8 v1, v1, 0x1
 
-    :cond_0
-    :goto_0
-    return-void
+    if-eqz v1, :cond_0
 
-    :cond_1
     invoke-virtual {v0}, Landroid/app/LoaderManagerImpl;->doDestroy()V
 
     iget-object v1, p0, Landroid/app/FragmentHostCallback;->mAllLoaderManagers:Landroid/util/ArrayMap;
 
     invoke-virtual {v1, p1}, Landroid/util/ArrayMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_0
+    :cond_0
+    return-void
 .end method
 
 .method public onAttachFragment(Landroid/app/Fragment;)V
@@ -444,6 +489,13 @@
 
 .method public onFindViewById(I)Landroid/view/View;
     .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "<T:",
+            "Landroid/view/View;",
+            ">(I)TT;"
+        }
+    .end annotation
 
     const/4 v0, 0x0
 
@@ -516,6 +568,29 @@
     const/4 v0, 0x1
 
     return v0
+.end method
+
+.method public onStartActivityAsUserFromFragment(Landroid/app/Fragment;Landroid/content/Intent;ILandroid/os/Bundle;Landroid/os/UserHandle;)V
+    .locals 2
+
+    const/4 v0, -0x1
+
+    if-eq p3, v0, :cond_0
+
+    new-instance v0, Ljava/lang/IllegalStateException;
+
+    const-string/jumbo v1, "Starting activity with a requestCode requires a FragmentActivity host"
+
+    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+
+    :cond_0
+    iget-object v0, p0, Landroid/app/FragmentHostCallback;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v0, p2, p5}, Landroid/content/Context;->startActivityAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)V
+
+    return-void
 .end method
 
 .method public onStartActivityFromFragment(Landroid/app/Fragment;Landroid/content/Intent;ILandroid/os/Bundle;)V
@@ -644,7 +719,7 @@
 .end method
 
 .method restoreLoaderNonConfig(Landroid/util/ArrayMap;)V
-    .locals 0
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -656,6 +731,30 @@
         }
     .end annotation
 
+    if-eqz p1, :cond_0
+
+    const/4 v1, 0x0
+
+    invoke-virtual {p1}, Landroid/util/ArrayMap;->size()I
+
+    move-result v0
+
+    :goto_0
+    if-ge v1, v0, :cond_0
+
+    invoke-virtual {p1, v1}, Landroid/util/ArrayMap;->valueAt(I)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Landroid/app/LoaderManagerImpl;
+
+    invoke-virtual {v2, p0}, Landroid/app/LoaderManagerImpl;->updateHostController(Landroid/app/FragmentHostCallback;)V
+
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_0
+
+    :cond_0
     iput-object p1, p0, Landroid/app/FragmentHostCallback;->mAllLoaderManagers:Landroid/util/ArrayMap;
 
     return-void

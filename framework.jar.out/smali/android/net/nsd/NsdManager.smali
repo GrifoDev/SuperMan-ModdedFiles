@@ -21,6 +21,8 @@
 
 .field private static final BUSY_LISTENER_KEY:I = -0x1
 
+.field private static final DBG:Z = false
+
 .field public static final DISABLE:I = 0x60019
 
 .field public static final DISCOVER_SERVICES:I = 0x60001
@@ -30,6 +32,17 @@
 .field public static final DISCOVER_SERVICES_STARTED:I = 0x60002
 
 .field public static final ENABLE:I = 0x60018
+
+.field private static final EVENT_NAMES:Landroid/util/SparseArray;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Landroid/util/SparseArray",
+            "<",
+            "Ljava/lang/String;",
+            ">;"
+        }
+    .end annotation
+.end field
 
 .field public static final EXTRA_NSD_STATE:Ljava/lang/String; = "nsd_state"
 
@@ -71,7 +84,7 @@
 
 .field public static final STOP_DISCOVERY_SUCCEEDED:I = 0x60008
 
-.field private static final TAG:Ljava/lang/String; = "NsdManager"
+.field private static final TAG:Ljava/lang/String;
 
 .field public static final UNREGISTER_SERVICE:I = 0x6000c
 
@@ -85,7 +98,7 @@
 
 .field private final mConnected:Ljava/util/concurrent/CountDownLatch;
 
-.field private mContext:Landroid/content/Context;
+.field private final mContext:Landroid/content/Context;
 
 .field private mHandler:Landroid/net/nsd/NsdManager$ServiceHandler;
 
@@ -95,7 +108,7 @@
 
 .field private final mMapLock:Ljava/lang/Object;
 
-.field mService:Landroid/net/nsd/INsdManager;
+.field private final mService:Landroid/net/nsd/INsdManager;
 
 .field private final mServiceMap:Landroid/util/SparseArray;
     .annotation system Ldalvik/annotation/Signature;
@@ -110,7 +123,15 @@
 
 
 # direct methods
-.method static synthetic -get0(Landroid/net/nsd/NsdManager;)Lcom/android/internal/util/AsyncChannel;
+.method static synthetic -get0()Ljava/lang/String;
+    .locals 1
+
+    sget-object v0, Landroid/net/nsd/NsdManager;->TAG:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method static synthetic -get1(Landroid/net/nsd/NsdManager;)Lcom/android/internal/util/AsyncChannel;
     .locals 1
 
     iget-object v0, p0, Landroid/net/nsd/NsdManager;->mAsyncChannel:Lcom/android/internal/util/AsyncChannel;
@@ -118,7 +139,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get1(Landroid/net/nsd/NsdManager;)Ljava/util/concurrent/CountDownLatch;
+.method static synthetic -get2(Landroid/net/nsd/NsdManager;)Ljava/util/concurrent/CountDownLatch;
     .locals 1
 
     iget-object v0, p0, Landroid/net/nsd/NsdManager;->mConnected:Ljava/util/concurrent/CountDownLatch;
@@ -160,6 +181,186 @@
     .locals 0
 
     invoke-direct {p0, p1}, Landroid/net/nsd/NsdManager;->removeListener(I)V
+
+    return-void
+.end method
+
+.method static constructor <clinit>()V
+    .locals 3
+
+    const-class v0, Landroid/net/nsd/NsdManager;
+
+    invoke-virtual {v0}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
+
+    move-result-object v0
+
+    sput-object v0, Landroid/net/nsd/NsdManager;->TAG:Ljava/lang/String;
+
+    new-instance v0, Landroid/util/SparseArray;
+
+    invoke-direct {v0}, Landroid/util/SparseArray;-><init>()V
+
+    sput-object v0, Landroid/net/nsd/NsdManager;->EVENT_NAMES:Landroid/util/SparseArray;
+
+    sget-object v0, Landroid/net/nsd/NsdManager;->EVENT_NAMES:Landroid/util/SparseArray;
+
+    const-string/jumbo v1, "DISCOVER_SERVICES"
+
+    const v2, 0x60001
+
+    invoke-virtual {v0, v2, v1}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
+
+    sget-object v0, Landroid/net/nsd/NsdManager;->EVENT_NAMES:Landroid/util/SparseArray;
+
+    const-string/jumbo v1, "DISCOVER_SERVICES_STARTED"
+
+    const v2, 0x60002
+
+    invoke-virtual {v0, v2, v1}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
+
+    sget-object v0, Landroid/net/nsd/NsdManager;->EVENT_NAMES:Landroid/util/SparseArray;
+
+    const-string/jumbo v1, "DISCOVER_SERVICES_FAILED"
+
+    const v2, 0x60003
+
+    invoke-virtual {v0, v2, v1}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
+
+    sget-object v0, Landroid/net/nsd/NsdManager;->EVENT_NAMES:Landroid/util/SparseArray;
+
+    const-string/jumbo v1, "SERVICE_FOUND"
+
+    const v2, 0x60004
+
+    invoke-virtual {v0, v2, v1}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
+
+    sget-object v0, Landroid/net/nsd/NsdManager;->EVENT_NAMES:Landroid/util/SparseArray;
+
+    const-string/jumbo v1, "SERVICE_LOST"
+
+    const v2, 0x60005
+
+    invoke-virtual {v0, v2, v1}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
+
+    sget-object v0, Landroid/net/nsd/NsdManager;->EVENT_NAMES:Landroid/util/SparseArray;
+
+    const-string/jumbo v1, "STOP_DISCOVERY"
+
+    const v2, 0x60006
+
+    invoke-virtual {v0, v2, v1}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
+
+    sget-object v0, Landroid/net/nsd/NsdManager;->EVENT_NAMES:Landroid/util/SparseArray;
+
+    const-string/jumbo v1, "STOP_DISCOVERY_FAILED"
+
+    const v2, 0x60007
+
+    invoke-virtual {v0, v2, v1}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
+
+    sget-object v0, Landroid/net/nsd/NsdManager;->EVENT_NAMES:Landroid/util/SparseArray;
+
+    const-string/jumbo v1, "STOP_DISCOVERY_SUCCEEDED"
+
+    const v2, 0x60008
+
+    invoke-virtual {v0, v2, v1}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
+
+    sget-object v0, Landroid/net/nsd/NsdManager;->EVENT_NAMES:Landroid/util/SparseArray;
+
+    const-string/jumbo v1, "REGISTER_SERVICE"
+
+    const v2, 0x60009
+
+    invoke-virtual {v0, v2, v1}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
+
+    sget-object v0, Landroid/net/nsd/NsdManager;->EVENT_NAMES:Landroid/util/SparseArray;
+
+    const-string/jumbo v1, "REGISTER_SERVICE_FAILED"
+
+    const v2, 0x6000a
+
+    invoke-virtual {v0, v2, v1}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
+
+    sget-object v0, Landroid/net/nsd/NsdManager;->EVENT_NAMES:Landroid/util/SparseArray;
+
+    const-string/jumbo v1, "REGISTER_SERVICE_SUCCEEDED"
+
+    const v2, 0x6000b
+
+    invoke-virtual {v0, v2, v1}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
+
+    sget-object v0, Landroid/net/nsd/NsdManager;->EVENT_NAMES:Landroid/util/SparseArray;
+
+    const-string/jumbo v1, "UNREGISTER_SERVICE"
+
+    const v2, 0x6000c
+
+    invoke-virtual {v0, v2, v1}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
+
+    sget-object v0, Landroid/net/nsd/NsdManager;->EVENT_NAMES:Landroid/util/SparseArray;
+
+    const-string/jumbo v1, "UNREGISTER_SERVICE_FAILED"
+
+    const v2, 0x6000d
+
+    invoke-virtual {v0, v2, v1}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
+
+    sget-object v0, Landroid/net/nsd/NsdManager;->EVENT_NAMES:Landroid/util/SparseArray;
+
+    const-string/jumbo v1, "UNREGISTER_SERVICE_SUCCEEDED"
+
+    const v2, 0x6000e
+
+    invoke-virtual {v0, v2, v1}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
+
+    sget-object v0, Landroid/net/nsd/NsdManager;->EVENT_NAMES:Landroid/util/SparseArray;
+
+    const-string/jumbo v1, "RESOLVE_SERVICE"
+
+    const v2, 0x60012
+
+    invoke-virtual {v0, v2, v1}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
+
+    sget-object v0, Landroid/net/nsd/NsdManager;->EVENT_NAMES:Landroid/util/SparseArray;
+
+    const-string/jumbo v1, "RESOLVE_SERVICE_FAILED"
+
+    const v2, 0x60013
+
+    invoke-virtual {v0, v2, v1}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
+
+    sget-object v0, Landroid/net/nsd/NsdManager;->EVENT_NAMES:Landroid/util/SparseArray;
+
+    const-string/jumbo v1, "RESOLVE_SERVICE_SUCCEEDED"
+
+    const v2, 0x60014
+
+    invoke-virtual {v0, v2, v1}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
+
+    sget-object v0, Landroid/net/nsd/NsdManager;->EVENT_NAMES:Landroid/util/SparseArray;
+
+    const-string/jumbo v1, "ENABLE"
+
+    const v2, 0x60018
+
+    invoke-virtual {v0, v2, v1}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
+
+    sget-object v0, Landroid/net/nsd/NsdManager;->EVENT_NAMES:Landroid/util/SparseArray;
+
+    const-string/jumbo v1, "DISABLE"
+
+    const v2, 0x60019
+
+    invoke-virtual {v0, v2, v1}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
+
+    sget-object v0, Landroid/net/nsd/NsdManager;->EVENT_NAMES:Landroid/util/SparseArray;
+
+    const-string/jumbo v1, "NATIVE_DAEMON_EVENT"
+
+    const v2, 0x6001a
+
+    invoke-virtual {v0, v2, v1}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
     return-void
 .end method
@@ -420,13 +621,36 @@
     :catch_0
     move-exception v0
 
-    const-string/jumbo v3, "NsdManager"
+    sget-object v3, Landroid/net/nsd/NsdManager;->TAG:Ljava/lang/String;
 
     const-string/jumbo v4, "interrupted wait at init"
 
     invoke-static {v3, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
+.end method
+
+.method public static nameOf(I)Ljava/lang/String;
+    .locals 2
+
+    sget-object v1, Landroid/net/nsd/NsdManager;->EVENT_NAMES:Landroid/util/SparseArray;
+
+    invoke-virtual {v1, p0}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    if-nez v0, :cond_0
+
+    invoke-static {p0}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+
+    move-result-object v1
+
+    return-object v1
+
+    :cond_0
+    return-object v0
 .end method
 
 .method private putListener(Ljava/lang/Object;Landroid/net/nsd/NsdServiceInfo;)I

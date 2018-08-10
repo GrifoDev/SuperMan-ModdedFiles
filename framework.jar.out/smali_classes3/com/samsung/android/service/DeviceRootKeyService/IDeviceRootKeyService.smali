@@ -23,6 +23,22 @@
     .end annotation
 .end method
 
+.method public abstract doSelfTestProvServiceBlob(Ljava/lang/String;ILcom/samsung/android/service/DeviceRootKeyService/Tlv;)[B
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract getDeviceRootKeyCertificate(I)[B
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract getDeviceRootKeyUID(I)Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -32,6 +48,14 @@
 .end method
 
 .method public abstract isExistDeviceRootKey(I)Z
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract isServiceReady()Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

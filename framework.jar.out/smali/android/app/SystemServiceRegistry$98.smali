@@ -17,7 +17,7 @@
     value = {
         "Landroid/app/SystemServiceRegistry$CachedServiceFetcher",
         "<",
-        "Lcom/samsung/android/allaroundsensing/SemAllAroundSensingManager;",
+        "Landroid/app/VrManager;",
         ">;"
     }
 .end annotation
@@ -34,30 +34,40 @@
 
 
 # virtual methods
-.method public createService(Landroid/app/ContextImpl;)Lcom/samsung/android/allaroundsensing/SemAllAroundSensingManager;
+.method public createService(Landroid/app/ContextImpl;)Landroid/app/VrManager;
     .locals 3
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/ServiceManager$ServiceNotFoundException;
+        }
+    .end annotation
 
-    const-string/jumbo v2, "AAS"
+    const-string/jumbo v1, "vrmanager"
 
-    invoke-static {v2}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
+    invoke-static {v1}, Landroid/os/ServiceManager;->getServiceOrThrow(Ljava/lang/String;)Landroid/os/IBinder;
 
     move-result-object v0
 
-    invoke-static {v0}, Lcom/samsung/android/allaroundsensing/ISemAllAroundSensingManager$Stub;->asInterface(Landroid/os/IBinder;)Lcom/samsung/android/allaroundsensing/ISemAllAroundSensingManager;
+    new-instance v1, Landroid/app/VrManager;
 
-    move-result-object v1
+    invoke-static {v0}, Landroid/service/vr/IVrManager$Stub;->asInterface(Landroid/os/IBinder;)Landroid/service/vr/IVrManager;
 
-    new-instance v2, Lcom/samsung/android/allaroundsensing/SemAllAroundSensingManager;
+    move-result-object v2
 
-    invoke-direct {v2, v1}, Lcom/samsung/android/allaroundsensing/SemAllAroundSensingManager;-><init>(Lcom/samsung/android/allaroundsensing/ISemAllAroundSensingManager;)V
+    invoke-direct {v1, v2}, Landroid/app/VrManager;-><init>(Landroid/service/vr/IVrManager;)V
 
-    return-object v2
+    return-object v1
 .end method
 
 .method public bridge synthetic createService(Landroid/app/ContextImpl;)Ljava/lang/Object;
     .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/ServiceManager$ServiceNotFoundException;
+        }
+    .end annotation
 
-    invoke-virtual {p0, p1}, Landroid/app/SystemServiceRegistry$98;->createService(Landroid/app/ContextImpl;)Lcom/samsung/android/allaroundsensing/SemAllAroundSensingManager;
+    invoke-virtual {p0, p1}, Landroid/app/SystemServiceRegistry$98;->createService(Landroid/app/ContextImpl;)Landroid/app/VrManager;
 
     move-result-object v0
 

@@ -66,6 +66,8 @@
 
 .field public static final EXTRA_CALL_RAT_TYPE:Ljava/lang/String; = "CallRadioTech"
 
+.field public static final EXTRA_CALL_RAT_TYPE_ALT:Ljava/lang/String; = "callRadioTech"
+
 .field public static final EXTRA_CHILD_NUMBER:Ljava/lang/String; = "ChildNum"
 
 .field public static final EXTRA_CNA:Ljava/lang/String; = "cna"
@@ -82,7 +84,11 @@
 
 .field public static final EXTRA_DISPLAY_TEXT:Ljava/lang/String; = "DisplayText"
 
+.field public static final EXTRA_EMERGENCY_SERVICE_CATEGORY:Ljava/lang/String; = "EccCat"
+
 .field public static final EXTRA_E_CALL:Ljava/lang/String; = "e_call"
+
+.field public static final EXTRA_IMS_EMERGENCY_CALL_RAT:Ljava/lang/String; = "imsEmergencyRat"
 
 .field public static final EXTRA_IS_CALL_PULL:Ljava/lang/String; = "CallPull"
 
@@ -280,30 +286,31 @@
     :cond_0
     if-eqz v2, :cond_1
 
-    if-eqz v1, :cond_2
+    xor-int/lit8 v3, v1, 0x1
+
+    if-eqz v3, :cond_1
+
+    const/4 v3, 0x5
+
+    return v3
 
     :cond_1
-    if-nez v2, :cond_3
+    if-nez v2, :cond_2
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_2
 
     const/4 v3, 0x6
 
     return v3
 
     :cond_2
-    const/4 v3, 0x5
+    if-eqz v2, :cond_3
 
-    return v3
-
-    :cond_3
-    if-eqz v2, :cond_4
-
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_3
 
     return v5
 
-    :cond_4
+    :cond_3
     return v4
 .end method
 
@@ -369,16 +376,17 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    xor-int/lit8 v1, v1, 0x1
 
-    :cond_0
-    and-int/lit8 v0, v0, -0x5
+    if-eqz v1, :cond_0
+
+    or-int/lit8 v0, v0, 0x4
 
     :goto_0
     return v0
 
-    :cond_1
-    or-int/lit8 v0, v0, 0x4
+    :cond_0
+    and-int/lit8 v0, v0, -0x5
 
     goto :goto_0
 .end method
@@ -574,6 +582,22 @@
     iget-object v0, p0, Lcom/android/ims/ImsCallProfile;->mCallExtras:Landroid/os/Bundle;
 
     invoke-virtual {v0, p1, p2}, Landroid/os/Bundle;->getInt(Ljava/lang/String;I)I
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public isVideoCall()Z
+    .locals 1
+
+    iget v0, p0, Lcom/android/ims/ImsCallProfile;->mCallType:I
+
+    invoke-static {v0}, Lcom/android/ims/ImsCallProfile;->getVideoStateFromCallType(I)I
+
+    move-result v0
+
+    invoke-static {v0}, Landroid/telecom/VideoProfile;->isVideo(I)Z
 
     move-result v0
 

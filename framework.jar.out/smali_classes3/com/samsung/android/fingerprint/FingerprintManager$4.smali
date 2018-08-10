@@ -5,7 +5,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/samsung/android/fingerprint/FingerprintManager;->startEnrollActivity(Landroid/content/Context;Lcom/samsung/android/fingerprint/FingerprintManager$EnrollFinishListener;Ljava/lang/String;I)Z
+    value = Lcom/samsung/android/fingerprint/FingerprintManager;->startEnrollActivityWithConfirm(Landroid/content/Context;Lcom/samsung/android/fingerprint/FingerprintManager$EnrollFinishListener;Ljava/lang/String;I)Z
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -17,12 +17,20 @@
 # instance fields
 .field final synthetic this$0:Lcom/samsung/android/fingerprint/FingerprintManager;
 
+.field final synthetic val$id:Ljava/lang/String;
+
+.field final synthetic val$index:I
+
 
 # direct methods
-.method constructor <init>(Lcom/samsung/android/fingerprint/FingerprintManager;)V
+.method constructor <init>(Lcom/samsung/android/fingerprint/FingerprintManager;Ljava/lang/String;I)V
     .locals 0
 
     iput-object p1, p0, Lcom/samsung/android/fingerprint/FingerprintManager$4;->this$0:Lcom/samsung/android/fingerprint/FingerprintManager;
+
+    iput-object p2, p0, Lcom/samsung/android/fingerprint/FingerprintManager$4;->val$id:Ljava/lang/String;
+
+    iput p3, p0, Lcom/samsung/android/fingerprint/FingerprintManager$4;->val$index:I
 
     invoke-direct {p0}, Lcom/samsung/android/fingerprint/IFingerprintClient$Stub;-><init>()V
 
@@ -32,7 +40,7 @@
 
 # virtual methods
 .method public onFingerprintEvent(Lcom/samsung/android/fingerprint/FingerprintEvent;)V
-    .locals 5
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -44,7 +52,7 @@
     :try_start_0
     iget-object v2, p0, Lcom/samsung/android/fingerprint/FingerprintManager$4;->this$0:Lcom/samsung/android/fingerprint/FingerprintManager;
 
-    invoke-static {v2}, Lcom/samsung/android/fingerprint/FingerprintManager;->-get4(Lcom/samsung/android/fingerprint/FingerprintManager;)Landroid/os/Handler;
+    invoke-static {v2}, Lcom/samsung/android/fingerprint/FingerprintManager;->-get5(Lcom/samsung/android/fingerprint/FingerprintManager;)Landroid/os/Handler;
 
     move-result-object v2
 
@@ -52,13 +60,17 @@
 
     iget-object v2, p0, Lcom/samsung/android/fingerprint/FingerprintManager$4;->this$0:Lcom/samsung/android/fingerprint/FingerprintManager;
 
-    invoke-static {v2}, Lcom/samsung/android/fingerprint/FingerprintManager;->-get4(Lcom/samsung/android/fingerprint/FingerprintManager;)Landroid/os/Handler;
+    invoke-static {v2}, Lcom/samsung/android/fingerprint/FingerprintManager;->-get5(Lcom/samsung/android/fingerprint/FingerprintManager;)Landroid/os/Handler;
 
     move-result-object v2
 
     new-instance v3, Lcom/samsung/android/fingerprint/FingerprintManager$4$1;
 
-    invoke-direct {v3, p0, p1}, Lcom/samsung/android/fingerprint/FingerprintManager$4$1;-><init>(Lcom/samsung/android/fingerprint/FingerprintManager$4;Lcom/samsung/android/fingerprint/FingerprintEvent;)V
+    iget-object v4, p0, Lcom/samsung/android/fingerprint/FingerprintManager$4;->val$id:Ljava/lang/String;
+
+    iget v5, p0, Lcom/samsung/android/fingerprint/FingerprintManager$4;->val$index:I
+
+    invoke-direct {v3, p0, p1, v4, v5}, Lcom/samsung/android/fingerprint/FingerprintManager$4$1;-><init>(Lcom/samsung/android/fingerprint/FingerprintManager$4;Lcom/samsung/android/fingerprint/FingerprintEvent;Ljava/lang/String;I)V
 
     invoke-virtual {v2, v3}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
     :try_end_0

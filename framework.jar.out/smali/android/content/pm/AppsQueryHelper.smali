@@ -181,7 +181,7 @@
 
     and-int v20, v20, p1
 
-    if-lez v20, :cond_3
+    if-lez v20, :cond_1
 
     const/4 v10, 0x1
 
@@ -190,7 +190,7 @@
 
     and-int v20, v20, p1
 
-    if-lez v20, :cond_4
+    if-lez v20, :cond_2
 
     const/4 v9, 0x1
 
@@ -199,7 +199,7 @@
 
     and-int v20, v20, p1
 
-    if-lez v20, :cond_5
+    if-lez v20, :cond_3
 
     const/4 v7, 0x1
 
@@ -208,7 +208,7 @@
 
     and-int v20, v20, p1
 
-    if-lez v20, :cond_6
+    if-lez v20, :cond_4
 
     const/4 v15, 0x1
 
@@ -244,7 +244,7 @@
 
     invoke-direct/range {v18 .. v18}, Ljava/util/ArrayList;-><init>()V
 
-    if-nez p1, :cond_8
+    if-nez p1, :cond_7
 
     move-object/from16 v0, p0
 
@@ -259,7 +259,7 @@
     const/4 v6, 0x0
 
     :goto_4
-    if-ge v6, v3, :cond_7
+    if-ge v6, v3, :cond_6
 
     move-object/from16 v0, p0
 
@@ -275,16 +275,43 @@
 
     check-cast v4, Landroid/content/pm/ApplicationInfo;
 
-    if-eqz p2, :cond_1
+    if-eqz p2, :cond_5
 
     invoke-virtual {v4}, Landroid/content/pm/ApplicationInfo;->isSystemApp()Z
 
     move-result v20
 
-    if-eqz v20, :cond_2
+    xor-int/lit8 v20, v20, 0x1
+
+    if-eqz v20, :cond_5
+
+    :goto_5
+    add-int/lit8 v6, v6, 0x1
+
+    goto :goto_4
 
     :cond_1
-    iget-object v0, v4, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
+    const/4 v10, 0x0
+
+    goto :goto_0
+
+    :cond_2
+    const/4 v9, 0x0
+
+    goto :goto_1
+
+    :cond_3
+    const/4 v7, 0x0
+
+    goto :goto_2
+
+    :cond_4
+    const/4 v15, 0x0
+
+    goto :goto_3
+
+    :cond_5
+    iget-object v0, v4, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
 
     move-object/from16 v20, v0
 
@@ -294,36 +321,13 @@
 
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    :cond_2
-    add-int/lit8 v6, v6, 0x1
-
-    goto :goto_4
-
-    :cond_3
-    const/4 v10, 0x0
-
-    goto :goto_0
-
-    :cond_4
-    const/4 v9, 0x0
-
-    goto :goto_1
-
-    :cond_5
-    const/4 v7, 0x0
-
-    goto :goto_2
+    goto :goto_5
 
     :cond_6
-    const/4 v15, 0x0
-
-    goto :goto_3
-
-    :cond_7
     return-object v18
 
-    :cond_8
-    if-eqz v10, :cond_c
+    :cond_7
+    if-eqz v10, :cond_b
 
     new-instance v20, Landroid/content/Intent;
 
@@ -359,10 +363,10 @@
 
     const/4 v6, 0x0
 
-    :goto_5
+    :goto_6
     move/from16 v0, v17
 
-    if-ge v6, v0, :cond_9
+    if-ge v6, v0, :cond_8
 
     move-object/from16 v0, v16
 
@@ -380,7 +384,7 @@
 
     move-object/from16 v0, v20
 
-    iget-object v0, v0, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
+    iget-object v0, v0, Landroid/content/pm/ActivityInfo;->packageName:Ljava/lang/String;
 
     move-object/from16 v20, v0
 
@@ -390,9 +394,9 @@
 
     add-int/lit8 v6, v6, 0x1
 
-    goto :goto_5
+    goto :goto_6
 
-    :cond_9
+    :cond_8
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/content/pm/AppsQueryHelper;->mAllApps:Ljava/util/List;
@@ -405,8 +409,8 @@
 
     const/4 v6, 0x0
 
-    :goto_6
-    if-ge v6, v3, :cond_c
+    :goto_7
+    if-ge v6, v3, :cond_b
 
     move-object/from16 v0, p0
 
@@ -428,28 +432,33 @@
 
     move-result v20
 
-    if-eqz v20, :cond_b
+    xor-int/lit8 v20, v20, 0x1
+
+    if-eqz v20, :cond_a
+
+    :cond_9
+    :goto_8
+    add-int/lit8 v6, v6, 0x1
+
+    goto :goto_7
 
     :cond_a
-    iget-object v12, v4, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
+    iget-object v12, v4, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
 
     invoke-virtual {v5, v12}, Landroid/util/ArraySet;->contains(Ljava/lang/Object;)Z
 
     move-result v20
 
-    if-nez v20, :cond_b
+    if-nez v20, :cond_9
 
     move-object/from16 v0, v18
 
     invoke-interface {v0, v12}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
+    goto :goto_8
+
     :cond_b
-    add-int/lit8 v6, v6, 0x1
-
-    goto :goto_6
-
-    :cond_c
-    if-eqz v9, :cond_f
+    if-eqz v9, :cond_e
 
     const-string/jumbo v20, "android.permission.INTERACT_ACROSS_USERS"
 
@@ -473,8 +482,8 @@
 
     const/4 v6, 0x0
 
-    :goto_7
-    if-ge v6, v14, :cond_f
+    :goto_9
+    if-ge v6, v14, :cond_e
 
     invoke-interface {v13, v6}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
@@ -492,7 +501,15 @@
 
     move-result v20
 
-    if-eqz v20, :cond_e
+    xor-int/lit8 v20, v20, 0x1
+
+    if-eqz v20, :cond_d
+
+    :cond_c
+    :goto_a
+    add-int/lit8 v6, v6, 0x1
+
+    goto :goto_9
 
     :cond_d
     iget-object v0, v11, Landroid/content/pm/PackageInfo;->packageName:Ljava/lang/String;
@@ -507,7 +524,7 @@
 
     move-result v20
 
-    if-nez v20, :cond_e
+    if-nez v20, :cond_c
 
     iget-object v0, v11, Landroid/content/pm/PackageInfo;->packageName:Ljava/lang/String;
 
@@ -519,13 +536,10 @@
 
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
+    goto :goto_a
+
     :cond_e
-    add-int/lit8 v6, v6, 0x1
-
-    goto :goto_7
-
-    :cond_f
-    if-eqz v7, :cond_12
+    if-eqz v7, :cond_11
 
     new-instance v20, Landroid/content/Intent;
 
@@ -553,10 +567,10 @@
 
     const/4 v6, 0x0
 
-    :goto_8
+    :goto_b
     move/from16 v0, v17
 
-    if-ge v6, v0, :cond_12
+    if-ge v6, v0, :cond_11
 
     move-object/from16 v0, v16
 
@@ -576,7 +590,7 @@
 
     move-object/from16 v0, v19
 
-    iget-object v0, v0, Landroid/content/pm/ComponentInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
+    iget-object v0, v0, Landroid/content/pm/ServiceInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
 
     move-object/from16 v20, v0
 
@@ -584,12 +598,20 @@
 
     move-result v20
 
-    if-eqz v20, :cond_11
+    xor-int/lit8 v20, v20, 0x1
+
+    if-eqz v20, :cond_10
+
+    :cond_f
+    :goto_c
+    add-int/lit8 v6, v6, 0x1
+
+    goto :goto_b
 
     :cond_10
     move-object/from16 v0, v19
 
-    iget-object v0, v0, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
+    iget-object v0, v0, Landroid/content/pm/ServiceInfo;->packageName:Ljava/lang/String;
 
     move-object/from16 v20, v0
 
@@ -601,11 +623,11 @@
 
     move-result v20
 
-    if-nez v20, :cond_11
+    if-nez v20, :cond_f
 
     move-object/from16 v0, v19
 
-    iget-object v0, v0, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
+    iget-object v0, v0, Landroid/content/pm/ServiceInfo;->packageName:Ljava/lang/String;
 
     move-object/from16 v20, v0
 
@@ -615,13 +637,10 @@
 
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
+    goto :goto_c
+
     :cond_11
-    add-int/lit8 v6, v6, 0x1
-
-    goto :goto_8
-
-    :cond_12
-    if-eqz v15, :cond_15
+    if-eqz v15, :cond_14
 
     move-object/from16 v0, p0
 
@@ -635,8 +654,8 @@
 
     const/4 v6, 0x0
 
-    :goto_9
-    if-ge v6, v3, :cond_15
+    :goto_d
+    if-ge v6, v3, :cond_14
 
     move-object/from16 v0, p0
 
@@ -658,16 +677,24 @@
 
     move-result v20
 
-    if-eqz v20, :cond_14
+    xor-int/lit8 v20, v20, 0x1
+
+    if-eqz v20, :cond_13
+
+    :cond_12
+    :goto_e
+    add-int/lit8 v6, v6, 0x1
+
+    goto :goto_d
 
     :cond_13
     invoke-virtual {v4}, Landroid/content/pm/ApplicationInfo;->isRequiredForSystemUser()Z
 
     move-result v20
 
-    if-eqz v20, :cond_14
+    if-eqz v20, :cond_12
 
-    iget-object v0, v4, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
+    iget-object v0, v4, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
 
     move-object/from16 v20, v0
 
@@ -677,12 +704,9 @@
 
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
+    goto :goto_e
+
     :cond_14
-    add-int/lit8 v6, v6, 0x1
-
-    goto :goto_9
-
-    :cond_15
     return-object v18
 .end method
 
@@ -705,7 +729,7 @@
 
     const/4 v2, 0x0
 
-    const/16 v3, 0x2200
+    const v3, 0xc2200
 
     invoke-interface {v1, p1, v2, v3, p2}, Landroid/content/pm/IPackageManager;->queryIntentActivities(Landroid/content/Intent;Ljava/lang/String;II)Landroid/content/pm/ParceledListSlice;
 
@@ -748,7 +772,7 @@
 
     const/4 v2, 0x0
 
-    const v3, 0x8080
+    const v3, 0xc8080
 
     invoke-interface {v1, p1, v2, v3, p2}, Landroid/content/pm/IPackageManager;->queryIntentServices(Landroid/content/Intent;Ljava/lang/String;II)Landroid/content/pm/ParceledListSlice;
 

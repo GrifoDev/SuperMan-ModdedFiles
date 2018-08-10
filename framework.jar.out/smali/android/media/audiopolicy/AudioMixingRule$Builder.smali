@@ -147,7 +147,9 @@
 
     move-result v3
 
-    if-eqz v3, :cond_5
+    xor-int/lit8 v3, v3, 0x1
+
+    if-nez v3, :cond_5
 
     :cond_4
     iget v3, p0, Landroid/media/audiopolicy/AudioMixingRule$Builder;->mTargetMixType:I
@@ -435,9 +437,7 @@
     throw v1
 
     :cond_2
-    nop
-
-    nop
+    check-cast p2, Landroid/media/AudioAttributes;
 
     invoke-direct {p0, p2, v2, p1}, Landroid/media/audiopolicy/AudioMixingRule$Builder;->addRuleInternal(Landroid/media/AudioAttributes;Ljava/lang/Integer;I)Landroid/media/audiopolicy/AudioMixingRule$Builder;
 
@@ -459,9 +459,7 @@
     throw v1
 
     :cond_4
-    nop
-
-    nop
+    check-cast p2, Ljava/lang/Integer;
 
     invoke-direct {p0, v2, p2, p1}, Landroid/media/audiopolicy/AudioMixingRule$Builder;->addRuleInternal(Landroid/media/AudioAttributes;Ljava/lang/Integer;I)Landroid/media/audiopolicy/AudioMixingRule$Builder;
 

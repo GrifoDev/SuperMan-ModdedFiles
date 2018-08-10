@@ -40,8 +40,6 @@
 
 .field public static final TYPE_LINE_DIGITAL:I = 0x6
 
-.field public static final TYPE_R_SUBMIX:I = 0x16
-
 .field public static final TYPE_TELEPHONY:I = 0x12
 
 .field public static final TYPE_TV_TUNER:I = 0x11
@@ -51,6 +49,8 @@
 .field public static final TYPE_USB_ACCESSORY:I = 0xc
 
 .field public static final TYPE_USB_DEVICE:I = 0xb
+
+.field public static final TYPE_USB_HEADSET:I = 0x16
 
 .field public static final TYPE_WIRED_HEADPHONES:I = 0x4
 
@@ -172,6 +172,14 @@
     const/16 v1, 0x4000
 
     const/16 v2, 0xb
+
+    invoke-virtual {v0, v1, v2}, Landroid/util/SparseIntArray;->put(II)V
+
+    sget-object v0, Landroid/media/AudioDeviceInfo;->INT_TO_EXT_DEVICE_MAPPING:Landroid/util/SparseIntArray;
+
+    const/high16 v1, 0x4000000
+
+    const/16 v2, 0x16
 
     invoke-virtual {v0, v1, v2}, Landroid/util/SparseIntArray;->put(II)V
 
@@ -323,6 +331,14 @@
 
     sget-object v0, Landroid/media/AudioDeviceInfo;->INT_TO_EXT_DEVICE_MAPPING:Landroid/util/SparseIntArray;
 
+    const/high16 v1, -0x7e000000
+
+    const/16 v2, 0x16
+
+    invoke-virtual {v0, v1, v2}, Landroid/util/SparseIntArray;->put(II)V
+
+    sget-object v0, Landroid/media/AudioDeviceInfo;->INT_TO_EXT_DEVICE_MAPPING:Landroid/util/SparseIntArray;
+
     const v1, -0x7fffe000
 
     const/16 v2, 0x10
@@ -457,6 +473,14 @@
 
     sget-object v0, Landroid/media/AudioDeviceInfo;->EXT_TO_INT_DEVICE_MAPPING:Landroid/util/SparseIntArray;
 
+    const/16 v1, 0x16
+
+    const/high16 v2, 0x4000000
+
+    invoke-virtual {v0, v1, v2}, Landroid/util/SparseIntArray;->put(II)V
+
+    sget-object v0, Landroid/media/AudioDeviceInfo;->EXT_TO_INT_DEVICE_MAPPING:Landroid/util/SparseIntArray;
+
     const/16 v1, 0xc
 
     const/16 v2, 0x2000
@@ -465,7 +489,7 @@
 
     sget-object v0, Landroid/media/AudioDeviceInfo;->EXT_TO_INT_DEVICE_MAPPING:Landroid/util/SparseIntArray;
 
-    const/16 v1, 0x1000
+    const/16 v1, 0x800
 
     invoke-virtual {v0, v5, v1}, Landroid/util/SparseIntArray;->put(II)V
 

@@ -113,7 +113,7 @@
 
     invoke-direct {v2, p0, v3}, Landroid/app/ActivityView$2$1;-><init>(Landroid/app/ActivityView$2;Landroid/view/Surface;)V
 
-    invoke-virtual {v1, v2}, Landroid/view/View;->post(Ljava/lang/Runnable;)Z
+    invoke-virtual {v1, v2}, Landroid/app/ActivityView;->post(Ljava/lang/Runnable;)Z
 
     :cond_1
     return-void

@@ -29,7 +29,7 @@
 
 
 # instance fields
-.field lac:I
+.field private mLac:I
 
 .field private mOperatorAlphaLong:Ljava/lang/String;
 
@@ -37,9 +37,9 @@
 
 .field private mOperatorNumeric:Ljava/lang/String;
 
-.field private mState:Lcom/android/internal/telephony/OperatorInfo$State;
+.field private mOperatorRat:Ljava/lang/String;
 
-.field operatorRat:Ljava/lang/String;
+.field private mState:Lcom/android/internal/telephony/OperatorInfo$State;
 
 
 # direct methods
@@ -76,7 +76,7 @@
 
     const-string/jumbo v0, "unknown"
 
-    iput-object v0, p0, Lcom/android/internal/telephony/OperatorInfo;->operatorRat:Ljava/lang/String;
+    iput-object v0, p0, Lcom/android/internal/telephony/OperatorInfo;->mOperatorRat:Ljava/lang/String;
 
     iput-object p1, p0, Lcom/android/internal/telephony/OperatorInfo;->mOperatorAlphaLong:Ljava/lang/String;
 
@@ -88,7 +88,7 @@
 
     const/16 v0, 0xff
 
-    iput v0, p0, Lcom/android/internal/telephony/OperatorInfo;->lac:I
+    iput v0, p0, Lcom/android/internal/telephony/OperatorInfo;->mLac:I
 
     return-void
 .end method
@@ -104,7 +104,7 @@
 
     const-string/jumbo v0, "unknown"
 
-    iput-object v0, p0, Lcom/android/internal/telephony/OperatorInfo;->operatorRat:Ljava/lang/String;
+    iput-object v0, p0, Lcom/android/internal/telephony/OperatorInfo;->mOperatorRat:Ljava/lang/String;
 
     iput-object p1, p0, Lcom/android/internal/telephony/OperatorInfo;->mOperatorAlphaLong:Ljava/lang/String;
 
@@ -143,13 +143,13 @@
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/android/internal/telephony/OperatorInfo;->operatorRat:Ljava/lang/String;
+    iput-object v0, p0, Lcom/android/internal/telephony/OperatorInfo;->mOperatorRat:Ljava/lang/String;
 
     :goto_0
     return-void
 
     :cond_1
-    iput p5, p0, Lcom/android/internal/telephony/OperatorInfo;->lac:I
+    iput p5, p0, Lcom/android/internal/telephony/OperatorInfo;->mLac:I
 
     goto :goto_0
 .end method
@@ -165,7 +165,7 @@
 
     const-string/jumbo v0, "unknown"
 
-    iput-object v0, p0, Lcom/android/internal/telephony/OperatorInfo;->operatorRat:Ljava/lang/String;
+    iput-object v0, p0, Lcom/android/internal/telephony/OperatorInfo;->mOperatorRat:Ljava/lang/String;
 
     iput-object p1, p0, Lcom/android/internal/telephony/OperatorInfo;->mOperatorAlphaLong:Ljava/lang/String;
 
@@ -175,7 +175,7 @@
 
     iput-object p4, p0, Lcom/android/internal/telephony/OperatorInfo;->mState:Lcom/android/internal/telephony/OperatorInfo$State;
 
-    iput-object p5, p0, Lcom/android/internal/telephony/OperatorInfo;->operatorRat:Ljava/lang/String;
+    iput-object p5, p0, Lcom/android/internal/telephony/OperatorInfo;->mOperatorRat:Ljava/lang/String;
 
     return-void
 .end method
@@ -229,7 +229,7 @@
 
     move-result v0
 
-    iput v0, p0, Lcom/android/internal/telephony/OperatorInfo;->lac:I
+    iput v0, p0, Lcom/android/internal/telephony/OperatorInfo;->mLac:I
 
     invoke-static {}, Lcom/samsung/android/feature/SemCscFeature;->getInstance()Lcom/samsung/android/feature/SemCscFeature;
 
@@ -261,7 +261,7 @@
 
     if-eqz v0, :cond_0
 
-    iput-object p5, p0, Lcom/android/internal/telephony/OperatorInfo;->operatorRat:Ljava/lang/String;
+    iput-object p5, p0, Lcom/android/internal/telephony/OperatorInfo;->mOperatorRat:Ljava/lang/String;
 
     :goto_0
     return-void
@@ -271,12 +271,12 @@
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/android/internal/telephony/OperatorInfo;->operatorRat:Ljava/lang/String;
+    iput-object v0, p0, Lcom/android/internal/telephony/OperatorInfo;->mOperatorRat:Ljava/lang/String;
 
     goto :goto_0
 
     :cond_1
-    iput-object p5, p0, Lcom/android/internal/telephony/OperatorInfo;->operatorRat:Ljava/lang/String;
+    iput-object p5, p0, Lcom/android/internal/telephony/OperatorInfo;->mOperatorRat:Ljava/lang/String;
 
     goto :goto_0
 .end method
@@ -497,7 +497,7 @@
 .method public getLac()I
     .locals 1
 
-    iget v0, p0, Lcom/android/internal/telephony/OperatorInfo;->lac:I
+    iget v0, p0, Lcom/android/internal/telephony/OperatorInfo;->mLac:I
 
     return v0
 .end method
@@ -529,7 +529,7 @@
 .method public getOperatorRat()Ljava/lang/String;
     .locals 1
 
-    iget-object v0, p0, Lcom/android/internal/telephony/OperatorInfo;->operatorRat:Ljava/lang/String;
+    iget-object v0, p0, Lcom/android/internal/telephony/OperatorInfo;->mOperatorRat:Ljava/lang/String;
 
     return-object v0
 .end method
@@ -640,7 +640,7 @@
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/android/internal/telephony/OperatorInfo;->operatorRat:Ljava/lang/String;
+    iget-object v1, p0, Lcom/android/internal/telephony/OperatorInfo;->mOperatorRat:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -711,7 +711,7 @@
 
     move-result-object v0
 
-    iget v1, p0, Lcom/android/internal/telephony/OperatorInfo;->lac:I
+    iget v1, p0, Lcom/android/internal/telephony/OperatorInfo;->mLac:I
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
@@ -743,7 +743,7 @@
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeSerializable(Ljava/io/Serializable;)V
 
-    iget v0, p0, Lcom/android/internal/telephony/OperatorInfo;->lac:I
+    iget v0, p0, Lcom/android/internal/telephony/OperatorInfo;->mLac:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 

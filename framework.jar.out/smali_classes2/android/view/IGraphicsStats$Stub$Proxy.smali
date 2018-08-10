@@ -50,13 +50,15 @@
     return-object v0
 .end method
 
-.method public requestBufferForProcess(Ljava/lang/String;Landroid/os/IBinder;)Landroid/os/ParcelFileDescriptor;
+.method public requestBufferForProcess(Ljava/lang/String;Landroid/view/IGraphicsStatsCallback;)Landroid/os/ParcelFileDescriptor;
     .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
+
+    const/4 v3, 0x0
 
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
@@ -67,13 +69,20 @@
     move-result-object v1
 
     :try_start_0
-    const-string/jumbo v3, "android.view.IGraphicsStats"
+    const-string/jumbo v4, "android.view.IGraphicsStats"
 
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+    invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
+    if-eqz p2, :cond_0
+
+    invoke-interface {p2}, Landroid/view/IGraphicsStatsCallback;->asBinder()Landroid/os/IBinder;
+
+    move-result-object v3
+
+    :cond_0
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
     iget-object v3, p0, Landroid/view/IGraphicsStats$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
@@ -89,7 +98,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_1
 
     sget-object v3, Landroid/os/ParcelFileDescriptor;->CREATOR:Landroid/os/Parcelable$Creator;
 
@@ -108,7 +117,7 @@
 
     return-object v2
 
-    :cond_0
+    :cond_1
     const/4 v2, 0x0
 
     goto :goto_0

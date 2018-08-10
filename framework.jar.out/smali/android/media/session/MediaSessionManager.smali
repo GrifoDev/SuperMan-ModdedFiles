@@ -6,17 +6,29 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
+        Landroid/media/session/MediaSessionManager$Callback;,
+        Landroid/media/session/MediaSessionManager$CallbackImpl;,
         Landroid/media/session/MediaSessionManager$OnActiveSessionsChangedListener;,
+        Landroid/media/session/MediaSessionManager$OnMediaKeyListener;,
+        Landroid/media/session/MediaSessionManager$OnMediaKeyListenerImpl;,
+        Landroid/media/session/MediaSessionManager$OnVolumeKeyLongPressListener;,
+        Landroid/media/session/MediaSessionManager$OnVolumeKeyLongPressListenerImpl;,
         Landroid/media/session/MediaSessionManager$SessionsChangedWrapper;
     }
 .end annotation
 
 
 # static fields
+.field public static final RESULT_MEDIA_KEY_HANDLED:I = 0x1
+
+.field public static final RESULT_MEDIA_KEY_NOT_HANDLED:I = 0x0
+
 .field private static final TAG:Ljava/lang/String; = "SessionManager"
 
 
 # instance fields
+.field private mCallback:Landroid/media/session/MediaSessionManager$CallbackImpl;
+
 .field private mContext:Landroid/content/Context;
 
 .field private final mListeners:Landroid/util/ArrayMap;
@@ -32,6 +44,10 @@
 .end field
 
 .field private final mLock:Ljava/lang/Object;
+
+.field private mOnMediaKeyListener:Landroid/media/session/MediaSessionManager$OnMediaKeyListenerImpl;
+
+.field private mOnVolumeKeyLongPressListener:Landroid/media/session/MediaSessionManager$OnVolumeKeyLongPressListenerImpl;
 
 .field private final mService:Landroid/media/session/ISessionManager;
 
@@ -277,6 +293,31 @@
     goto :goto_0
 .end method
 
+.method public dispatchVolumeKeyEvent(Landroid/view/KeyEvent;IZ)V
+    .locals 3
+
+    :try_start_0
+    iget-object v1, p0, Landroid/media/session/MediaSessionManager;->mService:Landroid/media/session/ISessionManager;
+
+    invoke-interface {v1, p1, p2, p3}, Landroid/media/session/ISessionManager;->dispatchVolumeKeyEvent(Landroid/view/KeyEvent;IZ)V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    :goto_0
+    return-void
+
+    :catch_0
+    move-exception v0
+
+    const-string/jumbo v1, "SessionManager"
+
+    const-string/jumbo v2, "Failed to send volume key event."
+
+    invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    goto :goto_0
+.end method
+
 .method public getActiveSessions(Landroid/content/ComponentName;)Ljava/util/List;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
@@ -490,6 +531,240 @@
     throw v2
     :try_end_5
     .catchall {:try_start_5 .. :try_end_5} :catchall_0
+.end method
+
+.method public setCallback(Landroid/media/session/MediaSessionManager$Callback;Landroid/os/Handler;)V
+    .locals 5
+
+    iget-object v3, p0, Landroid/media/session/MediaSessionManager;->mLock:Ljava/lang/Object;
+
+    monitor-enter v3
+
+    if-nez p1, :cond_0
+
+    const/4 v2, 0x0
+
+    :try_start_0
+    iput-object v2, p0, Landroid/media/session/MediaSessionManager;->mCallback:Landroid/media/session/MediaSessionManager$CallbackImpl;
+
+    iget-object v2, p0, Landroid/media/session/MediaSessionManager;->mService:Landroid/media/session/ISessionManager;
+
+    const/4 v4, 0x0
+
+    invoke-interface {v2, v4}, Landroid/media/session/ISessionManager;->setCallback(Landroid/media/session/ICallback;)V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    :goto_0
+    monitor-exit v3
+
+    return-void
+
+    :cond_0
+    if-nez p2, :cond_1
+
+    :try_start_1
+    new-instance v1, Landroid/os/Handler;
+
+    invoke-direct {v1}, Landroid/os/Handler;-><init>()V
+
+    move-object p2, v1
+
+    :cond_1
+    new-instance v2, Landroid/media/session/MediaSessionManager$CallbackImpl;
+
+    invoke-direct {v2, p1, p2}, Landroid/media/session/MediaSessionManager$CallbackImpl;-><init>(Landroid/media/session/MediaSessionManager$Callback;Landroid/os/Handler;)V
+
+    iput-object v2, p0, Landroid/media/session/MediaSessionManager;->mCallback:Landroid/media/session/MediaSessionManager$CallbackImpl;
+
+    iget-object v2, p0, Landroid/media/session/MediaSessionManager;->mService:Landroid/media/session/ISessionManager;
+
+    iget-object v4, p0, Landroid/media/session/MediaSessionManager;->mCallback:Landroid/media/session/MediaSessionManager$CallbackImpl;
+
+    invoke-interface {v2, v4}, Landroid/media/session/ISessionManager;->setCallback(Landroid/media/session/ICallback;)V
+    :try_end_1
+    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    goto :goto_0
+
+    :catch_0
+    move-exception v0
+
+    :try_start_2
+    const-string/jumbo v2, "SessionManager"
+
+    const-string/jumbo v4, "Failed to set media key callback"
+
+    invoke-static {v2, v4, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+
+    goto :goto_0
+
+    :catchall_0
+    move-exception v2
+
+    monitor-exit v3
+
+    throw v2
+.end method
+
+.method public setOnMediaKeyListener(Landroid/media/session/MediaSessionManager$OnMediaKeyListener;Landroid/os/Handler;)V
+    .locals 5
+
+    iget-object v3, p0, Landroid/media/session/MediaSessionManager;->mLock:Ljava/lang/Object;
+
+    monitor-enter v3
+
+    if-nez p1, :cond_0
+
+    const/4 v2, 0x0
+
+    :try_start_0
+    iput-object v2, p0, Landroid/media/session/MediaSessionManager;->mOnMediaKeyListener:Landroid/media/session/MediaSessionManager$OnMediaKeyListenerImpl;
+
+    iget-object v2, p0, Landroid/media/session/MediaSessionManager;->mService:Landroid/media/session/ISessionManager;
+
+    const/4 v4, 0x0
+
+    invoke-interface {v2, v4}, Landroid/media/session/ISessionManager;->setOnMediaKeyListener(Landroid/media/session/IOnMediaKeyListener;)V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    :goto_0
+    monitor-exit v3
+
+    return-void
+
+    :cond_0
+    if-nez p2, :cond_1
+
+    :try_start_1
+    new-instance v1, Landroid/os/Handler;
+
+    invoke-direct {v1}, Landroid/os/Handler;-><init>()V
+
+    move-object p2, v1
+
+    :cond_1
+    new-instance v2, Landroid/media/session/MediaSessionManager$OnMediaKeyListenerImpl;
+
+    invoke-direct {v2, p1, p2}, Landroid/media/session/MediaSessionManager$OnMediaKeyListenerImpl;-><init>(Landroid/media/session/MediaSessionManager$OnMediaKeyListener;Landroid/os/Handler;)V
+
+    iput-object v2, p0, Landroid/media/session/MediaSessionManager;->mOnMediaKeyListener:Landroid/media/session/MediaSessionManager$OnMediaKeyListenerImpl;
+
+    iget-object v2, p0, Landroid/media/session/MediaSessionManager;->mService:Landroid/media/session/ISessionManager;
+
+    iget-object v4, p0, Landroid/media/session/MediaSessionManager;->mOnMediaKeyListener:Landroid/media/session/MediaSessionManager$OnMediaKeyListenerImpl;
+
+    invoke-interface {v2, v4}, Landroid/media/session/ISessionManager;->setOnMediaKeyListener(Landroid/media/session/IOnMediaKeyListener;)V
+    :try_end_1
+    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    goto :goto_0
+
+    :catch_0
+    move-exception v0
+
+    :try_start_2
+    const-string/jumbo v2, "SessionManager"
+
+    const-string/jumbo v4, "Failed to set media key listener"
+
+    invoke-static {v2, v4, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+
+    goto :goto_0
+
+    :catchall_0
+    move-exception v2
+
+    monitor-exit v3
+
+    throw v2
+.end method
+
+.method public setOnVolumeKeyLongPressListener(Landroid/media/session/MediaSessionManager$OnVolumeKeyLongPressListener;Landroid/os/Handler;)V
+    .locals 5
+
+    iget-object v3, p0, Landroid/media/session/MediaSessionManager;->mLock:Ljava/lang/Object;
+
+    monitor-enter v3
+
+    if-nez p1, :cond_0
+
+    const/4 v2, 0x0
+
+    :try_start_0
+    iput-object v2, p0, Landroid/media/session/MediaSessionManager;->mOnVolumeKeyLongPressListener:Landroid/media/session/MediaSessionManager$OnVolumeKeyLongPressListenerImpl;
+
+    iget-object v2, p0, Landroid/media/session/MediaSessionManager;->mService:Landroid/media/session/ISessionManager;
+
+    const/4 v4, 0x0
+
+    invoke-interface {v2, v4}, Landroid/media/session/ISessionManager;->setOnVolumeKeyLongPressListener(Landroid/media/session/IOnVolumeKeyLongPressListener;)V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    :goto_0
+    monitor-exit v3
+
+    return-void
+
+    :cond_0
+    if-nez p2, :cond_1
+
+    :try_start_1
+    new-instance v1, Landroid/os/Handler;
+
+    invoke-direct {v1}, Landroid/os/Handler;-><init>()V
+
+    move-object p2, v1
+
+    :cond_1
+    new-instance v2, Landroid/media/session/MediaSessionManager$OnVolumeKeyLongPressListenerImpl;
+
+    invoke-direct {v2, p1, p2}, Landroid/media/session/MediaSessionManager$OnVolumeKeyLongPressListenerImpl;-><init>(Landroid/media/session/MediaSessionManager$OnVolumeKeyLongPressListener;Landroid/os/Handler;)V
+
+    iput-object v2, p0, Landroid/media/session/MediaSessionManager;->mOnVolumeKeyLongPressListener:Landroid/media/session/MediaSessionManager$OnVolumeKeyLongPressListenerImpl;
+
+    iget-object v2, p0, Landroid/media/session/MediaSessionManager;->mService:Landroid/media/session/ISessionManager;
+
+    iget-object v4, p0, Landroid/media/session/MediaSessionManager;->mOnVolumeKeyLongPressListener:Landroid/media/session/MediaSessionManager$OnVolumeKeyLongPressListenerImpl;
+
+    invoke-interface {v2, v4}, Landroid/media/session/ISessionManager;->setOnVolumeKeyLongPressListener(Landroid/media/session/IOnVolumeKeyLongPressListener;)V
+    :try_end_1
+    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    goto :goto_0
+
+    :catch_0
+    move-exception v0
+
+    :try_start_2
+    const-string/jumbo v2, "SessionManager"
+
+    const-string/jumbo v4, "Failed to set volume key long press listener"
+
+    invoke-static {v2, v4, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+
+    goto :goto_0
+
+    :catchall_0
+    move-exception v2
+
+    monitor-exit v3
+
+    throw v2
 .end method
 
 .method public setRemoteVolumeController(Landroid/media/IRemoteVolumeController;)V

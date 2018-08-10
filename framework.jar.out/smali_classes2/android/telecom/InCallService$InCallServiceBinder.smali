@@ -44,7 +44,7 @@
 
     if-eqz p1, :cond_0
 
-    const-string/jumbo v0, "InCallService"
+    const-string/jumbo v0, "Telecom-InCallService"
 
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -124,7 +124,7 @@
     return-void
 
     :cond_0
-    const-string/jumbo v0, "InCallService"
+    const-string/jumbo v0, "Telecom-InCallService"
 
     const-string/jumbo v1, "InCallServiceBinder - addCall: call is null"
 
@@ -230,7 +230,7 @@
 
     move-result-object v1
 
-    const/16 v2, 0xa
+    const/16 v2, 0x64
 
     invoke-virtual {v0, v2, v1}, Landroid/os/Handler;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
 
@@ -267,6 +267,50 @@
     move-result-object v1
 
     invoke-virtual {v1}, Landroid/os/Message;->sendToTarget()V
+
+    return-void
+.end method
+
+.method public onRttInitiationFailure(Ljava/lang/String;I)V
+    .locals 3
+
+    iget-object v0, p0, Landroid/telecom/InCallService$InCallServiceBinder;->this$0:Landroid/telecom/InCallService;
+
+    invoke-static {v0}, Landroid/telecom/InCallService;->-get0(Landroid/telecom/InCallService;)Landroid/os/Handler;
+
+    move-result-object v0
+
+    const/16 v1, 0xb
+
+    const/4 v2, 0x0
+
+    invoke-virtual {v0, v1, p2, v2, p1}, Landroid/os/Handler;->obtainMessage(IIILjava/lang/Object;)Landroid/os/Message;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
+
+    return-void
+.end method
+
+.method public onRttUpgradeRequest(Ljava/lang/String;I)V
+    .locals 3
+
+    iget-object v0, p0, Landroid/telecom/InCallService$InCallServiceBinder;->this$0:Landroid/telecom/InCallService;
+
+    invoke-static {v0}, Landroid/telecom/InCallService;->-get0(Landroid/telecom/InCallService;)Landroid/os/Handler;
+
+    move-result-object v0
+
+    const/16 v1, 0xa
+
+    const/4 v2, 0x0
+
+    invoke-virtual {v0, v1, p2, v2, p1}, Landroid/os/Handler;->obtainMessage(IIILjava/lang/Object;)Landroid/os/Message;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
 
     return-void
 .end method
@@ -350,7 +394,7 @@
 
     if-eqz p1, :cond_0
 
-    const-string/jumbo v0, "InCallService"
+    const-string/jumbo v0, "Telecom-InCallService"
 
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -430,7 +474,7 @@
     return-void
 
     :cond_0
-    const-string/jumbo v0, "InCallService"
+    const-string/jumbo v0, "Telecom-InCallService"
 
     const-string/jumbo v1, "InCallServiceBinder - updateCall: call is null"
 

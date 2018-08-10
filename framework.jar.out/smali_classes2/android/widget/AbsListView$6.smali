@@ -3,12 +3,12 @@
 .source "AbsListView.java"
 
 # interfaces
-.implements Ljava/lang/Runnable;
+.implements Landroid/animation/Animator$AnimatorListener;
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroid/widget/AbsListView;
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Landroid/widget/AbsListView;->semSetGoToTopEnabled(Z)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -34,162 +34,44 @@
 
 
 # virtual methods
-.method public run()V
-    .locals 6
+.method public onAnimationCancel(Landroid/animation/Animator;)V
+    .locals 0
 
-    iget-object v1, p0, Landroid/widget/AbsListView$6;->this$0:Landroid/widget/AbsListView;
-
-    invoke-static {v1}, Landroid/widget/AbsListView;->-get31(Landroid/widget/AbsListView;)I
-
-    move-result v1
-
-    iget-object v2, p0, Landroid/widget/AbsListView$6;->this$0:Landroid/widget/AbsListView;
-
-    invoke-static {v2}, Landroid/widget/AbsListView;->-get29(Landroid/widget/AbsListView;)I
-
-    move-result v2
-
-    sub-int/2addr v1, v2
-
-    invoke-static {v1}, Ljava/lang/Math;->abs(I)I
-
-    move-result v1
-
-    const/16 v2, 0x1e
-
-    if-ge v1, v2, :cond_0
-
-    iget-object v1, p0, Landroid/widget/AbsListView$6;->this$0:Landroid/widget/AbsListView;
-
-    iget-object v2, p0, Landroid/widget/AbsListView$6;->this$0:Landroid/widget/AbsListView;
-
-    invoke-static {v2}, Landroid/widget/AbsListView;->-get31(Landroid/widget/AbsListView;)I
-
-    move-result v2
-
-    invoke-virtual {v1, v2}, Landroid/widget/AbsListView;->smoothScrollToPosition(I)V
-
-    :goto_0
     return-void
+.end method
 
-    :cond_0
-    iget-object v1, p0, Landroid/widget/AbsListView$6;->this$0:Landroid/widget/AbsListView;
+.method public onAnimationEnd(Landroid/animation/Animator;)V
+    .locals 2
 
-    invoke-static {v1}, Landroid/widget/AbsListView;->-get31(Landroid/widget/AbsListView;)I
+    iget-object v0, p0, Landroid/widget/AbsListView$6;->this$0:Landroid/widget/AbsListView;
 
-    move-result v1
+    const/4 v1, 0x2
 
-    iget-object v2, p0, Landroid/widget/AbsListView$6;->this$0:Landroid/widget/AbsListView;
+    invoke-static {v0, v1}, Landroid/widget/AbsListView;->-set10(Landroid/widget/AbsListView;I)I
 
-    invoke-static {v2}, Landroid/widget/AbsListView;->-get28(Landroid/widget/AbsListView;)I
+    iget-object v0, p0, Landroid/widget/AbsListView$6;->this$0:Landroid/widget/AbsListView;
 
-    move-result v2
+    const/4 v1, 0x0
 
-    sub-int/2addr v1, v2
+    invoke-virtual {v0, v1}, Landroid/widget/AbsListView;->semSetupGoToTop(I)V
 
-    invoke-static {v1}, Ljava/lang/Math;->abs(I)I
+    return-void
+.end method
 
-    move-result v1
+.method public onAnimationRepeat(Landroid/animation/Animator;)V
+    .locals 0
 
-    int-to-float v1, v1
+    return-void
+.end method
 
-    iget-object v2, p0, Landroid/widget/AbsListView$6;->this$0:Landroid/widget/AbsListView;
+.method public onAnimationStart(Landroid/animation/Animator;)V
+    .locals 2
 
-    invoke-static {v2}, Landroid/widget/AbsListView;->-get33(Landroid/widget/AbsListView;)Landroid/view/animation/DecelerateInterpolator;
+    iget-object v0, p0, Landroid/widget/AbsListView$6;->this$0:Landroid/widget/AbsListView;
 
-    move-result-object v2
+    const/4 v1, 0x1
 
-    iget-object v3, p0, Landroid/widget/AbsListView$6;->this$0:Landroid/widget/AbsListView;
+    invoke-static {v0, v1}, Landroid/widget/AbsListView;->-set10(Landroid/widget/AbsListView;I)I
 
-    invoke-static {v3}, Landroid/widget/AbsListView;->-get32(Landroid/widget/AbsListView;)I
-
-    move-result v3
-
-    int-to-float v3, v3
-
-    const/high16 v4, 0x40a00000    # 5.0f
-
-    div-float/2addr v3, v4
-
-    invoke-virtual {v2, v3}, Landroid/view/animation/DecelerateInterpolator;->getInterpolation(F)F
-
-    move-result v2
-
-    mul-float/2addr v1, v2
-
-    float-to-int v0, v1
-
-    iget-object v1, p0, Landroid/widget/AbsListView$6;->this$0:Landroid/widget/AbsListView;
-
-    invoke-static {v1}, Landroid/widget/AbsListView;->-get32(Landroid/widget/AbsListView;)I
-
-    move-result v2
-
-    add-int/lit8 v2, v2, 0x1
-
-    invoke-static {v1, v2}, Landroid/widget/AbsListView;->-set9(Landroid/widget/AbsListView;I)I
-
-    iget-object v1, p0, Landroid/widget/AbsListView$6;->this$0:Landroid/widget/AbsListView;
-
-    invoke-static {v1}, Landroid/widget/AbsListView;->-get27(Landroid/widget/AbsListView;)I
-
-    move-result v1
-
-    const/4 v2, 0x2
-
-    if-ne v1, v2, :cond_1
-
-    iget-object v1, p0, Landroid/widget/AbsListView$6;->this$0:Landroid/widget/AbsListView;
-
-    invoke-static {v1, v0}, Landroid/widget/AbsListView;->-set8(Landroid/widget/AbsListView;I)I
-
-    iget-object v1, p0, Landroid/widget/AbsListView$6;->this$0:Landroid/widget/AbsListView;
-
-    iget-object v2, p0, Landroid/widget/AbsListView$6;->this$0:Landroid/widget/AbsListView;
-
-    invoke-static {v2}, Landroid/widget/AbsListView;->-get29(Landroid/widget/AbsListView;)I
-
-    move-result v2
-
-    invoke-virtual {v1, v2}, Landroid/widget/AdapterView;->setSelection(I)V
-
-    :goto_1
-    iget-object v1, p0, Landroid/widget/AbsListView$6;->this$0:Landroid/widget/AbsListView;
-
-    iget-object v2, p0, Landroid/widget/AbsListView$6;->this$0:Landroid/widget/AbsListView;
-
-    invoke-static {v2}, Landroid/widget/AbsListView;->-get30(Landroid/widget/AbsListView;)Ljava/lang/Runnable;
-
-    move-result-object v2
-
-    const-wide/16 v4, 0x28
-
-    invoke-virtual {v1, v2, v4, v5}, Landroid/view/View;->postDelayed(Ljava/lang/Runnable;J)Z
-
-    goto :goto_0
-
-    :cond_1
-    iget-object v1, p0, Landroid/widget/AbsListView$6;->this$0:Landroid/widget/AbsListView;
-
-    iget-object v2, p0, Landroid/widget/AbsListView$6;->this$0:Landroid/widget/AbsListView;
-
-    invoke-static {v2}, Landroid/widget/AbsListView;->-get28(Landroid/widget/AbsListView;)I
-
-    move-result v2
-
-    add-int/2addr v2, v0
-
-    invoke-static {v1, v2}, Landroid/widget/AbsListView;->-set8(Landroid/widget/AbsListView;I)I
-
-    iget-object v1, p0, Landroid/widget/AbsListView$6;->this$0:Landroid/widget/AbsListView;
-
-    iget-object v2, p0, Landroid/widget/AbsListView$6;->this$0:Landroid/widget/AbsListView;
-
-    invoke-static {v2}, Landroid/widget/AbsListView;->-get29(Landroid/widget/AbsListView;)I
-
-    move-result v2
-
-    invoke-virtual {v1, v2}, Landroid/widget/AdapterView;->setSelection(I)V
-
-    goto :goto_1
+    return-void
 .end method

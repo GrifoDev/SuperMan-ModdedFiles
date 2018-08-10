@@ -45,7 +45,7 @@
 
     invoke-direct {v2, p0, p1}, Landroid/widget/TextView$TextViewClipboardEventListener$1;-><init>(Landroid/widget/TextView$TextViewClipboardEventListener;Lcom/samsung/android/content/clipboard/data/SemClipData;)V
 
-    invoke-virtual {v1, v2}, Landroid/view/View;->post(Ljava/lang/Runnable;)Z
+    invoke-virtual {v1, v2}, Landroid/widget/TextView;->post(Ljava/lang/Runnable;)Z
 
     return-void
 .end method

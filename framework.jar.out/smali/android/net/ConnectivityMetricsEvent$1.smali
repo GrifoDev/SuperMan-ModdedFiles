@@ -39,31 +39,15 @@
 
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroid/net/ConnectivityMetricsEvent;
-    .locals 7
+    .locals 2
 
-    invoke-virtual {p1}, Landroid/os/Parcel;->readLong()J
+    new-instance v0, Landroid/net/ConnectivityMetricsEvent;
 
-    move-result-wide v2
+    const/4 v1, 0x0
 
-    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
+    invoke-direct {v0, p1, v1}, Landroid/net/ConnectivityMetricsEvent;-><init>(Landroid/os/Parcel;Landroid/net/ConnectivityMetricsEvent;)V
 
-    move-result v4
-
-    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
-
-    move-result v5
-
-    const/4 v0, 0x0
-
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->readParcelable(Ljava/lang/ClassLoader;)Landroid/os/Parcelable;
-
-    move-result-object v6
-
-    new-instance v1, Landroid/net/ConnectivityMetricsEvent;
-
-    invoke-direct/range {v1 .. v6}, Landroid/net/ConnectivityMetricsEvent;-><init>(JIILandroid/os/Parcelable;)V
-
-    return-object v1
+    return-object v0
 .end method
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;

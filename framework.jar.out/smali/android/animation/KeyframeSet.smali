@@ -322,31 +322,22 @@
     goto :goto_1
 
     :cond_2
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_4
 
-    if-eqz v2, :cond_5
+    xor-int/lit8 v7, v2, 0x1
 
-    :cond_3
-    if-eqz v2, :cond_4
+    if-eqz v7, :cond_4
 
-    if-eqz v1, :cond_7
+    xor-int/lit8 v7, v3, 0x1
 
-    :cond_4
-    new-instance v7, Landroid/animation/KeyframeSet;
-
-    invoke-direct {v7, p0}, Landroid/animation/KeyframeSet;-><init>([Landroid/animation/Keyframe;)V
-
-    return-object v7
-
-    :cond_5
-    if-nez v3, :cond_3
+    if-eqz v7, :cond_4
 
     new-array v0, v6, [Landroid/animation/Keyframe$FloatKeyframe;
 
     const/4 v4, 0x0
 
     :goto_2
-    if-ge v4, v6, :cond_6
+    if-ge v4, v6, :cond_3
 
     aget-object v7, p0, v4
 
@@ -358,22 +349,30 @@
 
     goto :goto_2
 
-    :cond_6
+    :cond_3
     new-instance v7, Landroid/animation/FloatKeyframeSet;
 
     invoke-direct {v7, v0}, Landroid/animation/FloatKeyframeSet;-><init>([Landroid/animation/Keyframe$FloatKeyframe;)V
 
     return-object v7
 
-    :cond_7
-    if-nez v3, :cond_4
+    :cond_4
+    if-eqz v2, :cond_6
+
+    xor-int/lit8 v7, v1, 0x1
+
+    if-eqz v7, :cond_6
+
+    xor-int/lit8 v7, v3, 0x1
+
+    if-eqz v7, :cond_6
 
     new-array v5, v6, [Landroid/animation/Keyframe$IntKeyframe;
 
     const/4 v4, 0x0
 
     :goto_3
-    if-ge v4, v6, :cond_8
+    if-ge v4, v6, :cond_5
 
     aget-object v7, p0, v4
 
@@ -385,10 +384,17 @@
 
     goto :goto_3
 
-    :cond_8
+    :cond_5
     new-instance v7, Landroid/animation/IntKeyframeSet;
 
     invoke-direct {v7, v5}, Landroid/animation/IntKeyframeSet;-><init>([Landroid/animation/Keyframe$IntKeyframe;)V
+
+    return-object v7
+
+    :cond_6
+    new-instance v7, Landroid/animation/KeyframeSet;
+
+    invoke-direct {v7, p0}, Landroid/animation/KeyframeSet;-><init>([Landroid/animation/Keyframe;)V
 
     return-object v7
 .end method
@@ -848,12 +854,6 @@
     move-result-object v6
 
     return-object v6
-.end method
-
-.method public invalidateCache()V
-    .locals 0
-
-    return-void
 .end method
 
 .method public setEvaluator(Landroid/animation/TypeEvaluator;)V

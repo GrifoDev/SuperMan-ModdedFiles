@@ -17,8 +17,6 @@
 # instance fields
 .field public appVsyncOffsetNanos:J
 
-.field public colorTransform:I
-
 .field public density:F
 
 .field public height:I
@@ -96,10 +94,6 @@
 
     iput-wide v0, p0, Landroid/view/SurfaceControl$PhysicalDisplayInfo;->presentationDeadlineNanos:J
 
-    iget v0, p1, Landroid/view/SurfaceControl$PhysicalDisplayInfo;->colorTransform:I
-
-    iput v0, p0, Landroid/view/SurfaceControl$PhysicalDisplayInfo;->colorTransform:I
-
     return-void
 .end method
 
@@ -175,12 +169,6 @@
     cmp-long v1, v2, v4
 
     if-nez v1, :cond_0
-
-    iget v1, p0, Landroid/view/SurfaceControl$PhysicalDisplayInfo;->colorTransform:I
-
-    iget v2, p1, Landroid/view/SurfaceControl$PhysicalDisplayInfo;->colorTransform:I
-
-    if-ne v1, v2, :cond_0
 
     const/4 v0, 0x1
 
@@ -336,18 +324,6 @@
     iget-wide v2, p0, Landroid/view/SurfaceControl$PhysicalDisplayInfo;->presentationDeadlineNanos:J
 
     invoke-virtual {v0, v2, v3}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    const-string/jumbo v1, ", colorTransform "
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    iget v1, p0, Landroid/view/SurfaceControl$PhysicalDisplayInfo;->colorTransform:I
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     move-result-object v0
 

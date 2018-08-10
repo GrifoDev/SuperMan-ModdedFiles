@@ -1,6 +1,9 @@
 .class Landroid/view/SurfaceView$1;
-.super Landroid/os/Handler;
+.super Ljava/lang/Object;
 .source "SurfaceView.java"
+
+# interfaces
+.implements Landroid/view/ViewTreeObserver$OnScrollChangedListener;
 
 
 # annotations
@@ -24,57 +27,19 @@
 
     iput-object p1, p0, Landroid/view/SurfaceView$1;->this$0:Landroid/view/SurfaceView;
 
-    invoke-direct {p0}, Landroid/os/Handler;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public handleMessage(Landroid/os/Message;)V
-    .locals 3
+.method public onScrollChanged()V
+    .locals 1
 
-    const/4 v0, 0x0
-
-    iget v1, p1, Landroid/os/Message;->what:I
-
-    packed-switch v1, :pswitch_data_0
-
-    :goto_0
-    return-void
-
-    :pswitch_0
-    iget-object v1, p0, Landroid/view/SurfaceView$1;->this$0:Landroid/view/SurfaceView;
-
-    iget v2, p1, Landroid/os/Message;->arg1:I
-
-    if-eqz v2, :cond_0
-
-    const/4 v0, 0x1
-
-    :cond_0
-    invoke-virtual {v1, v0}, Landroid/view/SurfaceView;->setKeepScreenOn(Z)V
-
-    goto :goto_0
-
-    :pswitch_1
     iget-object v0, p0, Landroid/view/SurfaceView$1;->this$0:Landroid/view/SurfaceView;
 
-    invoke-virtual {v0}, Landroid/view/SurfaceView;->handleGetNewSurface()V
+    invoke-virtual {v0}, Landroid/view/SurfaceView;->updateSurface()V
 
-    goto :goto_0
-
-    :pswitch_2
-    iget-object v1, p0, Landroid/view/SurfaceView$1;->this$0:Landroid/view/SurfaceView;
-
-    invoke-virtual {v1, v0, v0}, Landroid/view/SurfaceView;->updateWindow(ZZ)V
-
-    goto :goto_0
-
-    :pswitch_data_0
-    .packed-switch 0x1
-        :pswitch_0
-        :pswitch_1
-        :pswitch_2
-    .end packed-switch
+    return-void
 .end method

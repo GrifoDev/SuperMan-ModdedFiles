@@ -241,17 +241,17 @@
     return v5
 
     :sswitch_8
-    const-string/jumbo v6, "android.app.IUiModeManager"
+    const-string/jumbo v4, "android.app.IUiModeManager"
 
-    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v6
+    move-result v4
 
-    if-eqz v6, :cond_2
+    if-eqz v4, :cond_2
 
-    move v1, v5
+    const/4 v1, 0x1
 
     :goto_0
     invoke-virtual {p0, v1}, Landroid/app/IUiModeManager$Stub;->setDesktopMode(Z)V
@@ -261,7 +261,7 @@
     return v5
 
     :cond_2
-    move v1, v4
+    const/4 v1, 0x0
 
     goto :goto_0
 

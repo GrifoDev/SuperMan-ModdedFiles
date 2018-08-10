@@ -6,7 +6,6 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Landroid/app/ActionBar$FollowOutOfActionBar;,
         Landroid/app/ActionBar$LayoutParams;,
         Landroid/app/ActionBar$OnMenuVisibilityListener;,
         Landroid/app/ActionBar$OnNavigationListener;,
@@ -30,10 +29,19 @@
 .field public static final DISPLAY_USE_LOGO:I = 0x1
 
 .field public static final NAVIGATION_MODE_LIST:I = 0x1
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
 
 .field public static final NAVIGATION_MODE_STANDARD:I = 0x0
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
 
 .field public static final NAVIGATION_MODE_TABS:I = 0x2
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
 
 
 # direct methods
@@ -51,15 +59,31 @@
 .end method
 
 .method public abstract addTab(Landroid/app/ActionBar$Tab;)V
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 .end method
 
 .method public abstract addTab(Landroid/app/ActionBar$Tab;I)V
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 .end method
 
 .method public abstract addTab(Landroid/app/ActionBar$Tab;IZ)V
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 .end method
 
 .method public abstract addTab(Landroid/app/ActionBar$Tab;Z)V
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end method
+
+.method public closeOptionsMenu()Z
+    .locals 1
+
+    const/4 v0, 0x0
+
+    return v0
 .end method
 
 .method public collapseActionView()Z
@@ -102,24 +126,36 @@
 .end method
 
 .method public abstract getNavigationItemCount()I
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 .end method
 
 .method public abstract getNavigationMode()I
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 .end method
 
 .method public abstract getSelectedNavigationIndex()I
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 .end method
 
 .method public abstract getSelectedTab()Landroid/app/ActionBar$Tab;
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 .end method
 
 .method public abstract getSubtitle()Ljava/lang/CharSequence;
 .end method
 
 .method public abstract getTabAt(I)Landroid/app/ActionBar$Tab;
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 .end method
 
 .method public abstract getTabCount()I
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 .end method
 
 .method public getThemedContext()Landroid/content/Context;
@@ -164,6 +200,8 @@
 .end method
 
 .method public abstract newTab()Landroid/app/ActionBar$Tab;
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 .end method
 
 .method public onConfigurationChanged(Landroid/content/res/Configuration;)V
@@ -203,133 +241,26 @@
 .end method
 
 .method public abstract removeAllTabs()V
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 .end method
 
 .method public abstract removeOnMenuVisibilityListener(Landroid/app/ActionBar$OnMenuVisibilityListener;)V
 .end method
 
 .method public abstract removeTab(Landroid/app/ActionBar$Tab;)V
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 .end method
 
 .method public abstract removeTabAt(I)V
-.end method
-
-.method public requestFocus()Z
-    .locals 1
-
-    const/4 v0, 0x0
-
-    return v0
-.end method
-
-.method protected requestFocus(Landroid/view/ViewGroup;)Z
-    .locals 8
-
-    const/4 v7, 0x1
-
-    const/4 v6, 0x0
-
-    if-eqz p1, :cond_0
-
-    invoke-virtual {p1}, Landroid/view/ViewGroup;->hasFocus()Z
-
-    move-result v5
-
-    if-eqz v5, :cond_1
-
-    :cond_0
-    return v6
-
-    :cond_1
-    invoke-virtual {p1}, Landroid/view/ViewGroup;->getTouchscreenBlocksFocus()Z
-
-    move-result v5
-
-    if-eqz v5, :cond_6
-
-    move-object v3, p1
-
-    :goto_0
-    invoke-virtual {p1}, Landroid/view/ViewGroup;->getParent()Landroid/view/ViewParent;
-
-    move-result-object v2
-
-    const/4 v0, 0x0
-
-    :goto_1
-    if-eqz v2, :cond_2
-
-    instance-of v5, v2, Landroid/view/ViewGroup;
-
-    if-eqz v5, :cond_2
-
-    move-object v4, v2
-
-    check-cast v4, Landroid/view/ViewGroup;
-
-    invoke-virtual {v4}, Landroid/view/ViewGroup;->getTouchscreenBlocksFocus()Z
-
-    move-result v5
-
-    if-eqz v5, :cond_7
-
-    move-object v0, v4
-
-    :cond_2
-    if-eqz v0, :cond_3
-
-    invoke-virtual {v0, v6}, Landroid/view/ViewGroup;->setTouchscreenBlocksFocus(Z)V
-
-    :cond_3
-    if-eqz v3, :cond_4
-
-    invoke-virtual {v3, v6}, Landroid/view/ViewGroup;->setTouchscreenBlocksFocus(Z)V
-
-    :cond_4
-    invoke-virtual {p1}, Landroid/view/ViewGroup;->requestFocus()Z
-
-    invoke-virtual {p1}, Landroid/view/ViewGroup;->findFocus()Landroid/view/View;
-
-    move-result-object v1
-
-    if-eqz v1, :cond_8
-
-    new-instance v5, Landroid/app/ActionBar$FollowOutOfActionBar;
-
-    invoke-direct {v5, p1, v0, v3}, Landroid/app/ActionBar$FollowOutOfActionBar;-><init>(Landroid/view/ViewGroup;Landroid/view/ViewGroup;Landroid/view/ViewGroup;)V
-
-    invoke-virtual {v1, v5}, Landroid/view/View;->setOnFocusChangeListener(Landroid/view/View$OnFocusChangeListener;)V
-
-    :cond_5
-    :goto_2
-    return v7
-
-    :cond_6
-    const/4 v3, 0x0
-
-    goto :goto_0
-
-    :cond_7
-    invoke-virtual {v4}, Landroid/view/ViewGroup;->getParent()Landroid/view/ViewParent;
-
-    move-result-object v2
-
-    goto :goto_1
-
-    :cond_8
-    if-eqz v0, :cond_9
-
-    invoke-virtual {v0, v7}, Landroid/view/ViewGroup;->setTouchscreenBlocksFocus(Z)V
-
-    :cond_9
-    if-eqz v3, :cond_5
-
-    invoke-virtual {v3, v7}, Landroid/view/ViewGroup;->setTouchscreenBlocksFocus(Z)V
-
-    goto :goto_2
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 .end method
 
 .method public abstract selectTab(Landroid/app/ActionBar$Tab;)V
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 .end method
 
 .method public semInvalidateOverflowButtonBadge(I)V
@@ -469,6 +400,8 @@
 .end method
 
 .method public abstract setListNavigationCallbacks(Landroid/widget/SpinnerAdapter;Landroid/app/ActionBar$OnNavigationListener;)V
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 .end method
 
 .method public abstract setLogo(I)V
@@ -478,9 +411,13 @@
 .end method
 
 .method public abstract setNavigationMode(I)V
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 .end method
 
 .method public abstract setSelectedNavigationItem(I)V
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 .end method
 
 .method public setShowHideAnimationEnabled(Z)V
@@ -528,10 +465,4 @@
     const/4 v0, 0x0
 
     return-object v0
-.end method
-
-.method public twPutTabsOnTop(Z)V
-    .locals 0
-
-    return-void
 .end method

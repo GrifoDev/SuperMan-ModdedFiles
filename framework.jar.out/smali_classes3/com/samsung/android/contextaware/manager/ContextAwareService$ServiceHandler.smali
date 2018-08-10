@@ -144,7 +144,7 @@
 
     sget-object v4, Lcom/samsung/android/contextaware/ContextList$ContextType;->CMD_PROCESS_FAULT_DETECTION:Lcom/samsung/android/contextaware/ContextList$ContextType;
 
-    invoke-virtual {v4}, Ljava/lang/Enum;->ordinal()I
+    invoke-virtual {v4}, Lcom/samsung/android/contextaware/ContextList$ContextType;->ordinal()I
 
     move-result v4
 
@@ -193,7 +193,7 @@
 
     const-string/jumbo v4, "Service"
 
-    invoke-virtual {v1, v4}, Landroid/os/BaseBundle;->getInt(Ljava/lang/String;)I
+    invoke-virtual {v1, v4}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
 
     move-result v3
 
@@ -230,7 +230,7 @@
 
     const-string/jumbo v4, "CheckResult"
 
-    invoke-virtual {p2, v4}, Landroid/os/BaseBundle;->getInt(Ljava/lang/String;)I
+    invoke-virtual {p2, v4}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
 
     move-result v4
 
@@ -251,7 +251,7 @@
     :cond_5
     const-string/jumbo v4, "Service"
 
-    invoke-virtual {p2, v4}, Landroid/os/BaseBundle;->getInt(Ljava/lang/String;)I
+    invoke-virtual {p2, v4}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
 
     move-result v4
 
@@ -306,7 +306,7 @@
     invoke-direct {p0, v2, v0}, Lcom/samsung/android/contextaware/manager/ContextAwareService$ServiceHandler;->callback(ILandroid/os/Bundle;)V
 
     :goto_0
-    invoke-virtual {p0}, Ljava/lang/Object;->notifyAll()V
+    invoke-virtual {p0}, Lcom/samsung/android/contextaware/manager/ContextAwareService$ServiceHandler;->notifyAll()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 

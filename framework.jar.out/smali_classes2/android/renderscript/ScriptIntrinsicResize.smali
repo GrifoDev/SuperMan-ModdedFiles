@@ -66,9 +66,7 @@
 
     move-object v2, v4
 
-    nop
-
-    nop
+    check-cast v2, Landroid/renderscript/Allocation;
 
     const/4 v1, 0x0
 
@@ -78,7 +76,7 @@
 
     move-object v5, p2
 
-    invoke-virtual/range {v0 .. v5}, Landroid/renderscript/Script;->forEach(ILandroid/renderscript/Allocation;Landroid/renderscript/Allocation;Landroid/renderscript/FieldPacker;Landroid/renderscript/Script$LaunchOptions;)V
+    invoke-virtual/range {v0 .. v5}, Landroid/renderscript/ScriptIntrinsicResize;->forEach(ILandroid/renderscript/Allocation;Landroid/renderscript/Allocation;Landroid/renderscript/FieldPacker;Landroid/renderscript/Script$LaunchOptions;)V
 
     return-void
 .end method
@@ -90,7 +88,7 @@
 
     const/4 v1, 0x0
 
-    invoke-virtual {p0, v0, v1}, Landroid/renderscript/Script;->createFieldID(ILandroid/renderscript/Element;)Landroid/renderscript/Script$FieldID;
+    invoke-virtual {p0, v0, v1}, Landroid/renderscript/ScriptIntrinsicResize;->createFieldID(ILandroid/renderscript/Element;)Landroid/renderscript/Script$FieldID;
 
     move-result-object v0
 
@@ -106,7 +104,7 @@
 
     const/4 v1, 0x2
 
-    invoke-virtual {p0, v0, v1, v2, v2}, Landroid/renderscript/Script;->createKernelID(IILandroid/renderscript/Element;Landroid/renderscript/Element;)Landroid/renderscript/Script$KernelID;
+    invoke-virtual {p0, v0, v1, v2, v2}, Landroid/renderscript/ScriptIntrinsicResize;->createKernelID(IILandroid/renderscript/Element;Landroid/renderscript/Element;)Landroid/renderscript/Script$KernelID;
 
     move-result-object v0
 
@@ -120,7 +118,7 @@
 
     move-result-object v0
 
-    iget-object v1, p0, Landroid/renderscript/BaseObj;->mRS:Landroid/renderscript/RenderScript;
+    iget-object v1, p0, Landroid/renderscript/ScriptIntrinsicResize;->mRS:Landroid/renderscript/RenderScript;
 
     invoke-static {v1}, Landroid/renderscript/Element;->U8(Landroid/renderscript/RenderScript;)Landroid/renderscript/Element;
 
@@ -132,7 +130,7 @@
 
     if-nez v1, :cond_0
 
-    iget-object v1, p0, Landroid/renderscript/BaseObj;->mRS:Landroid/renderscript/RenderScript;
+    iget-object v1, p0, Landroid/renderscript/ScriptIntrinsicResize;->mRS:Landroid/renderscript/RenderScript;
 
     invoke-static {v1}, Landroid/renderscript/Element;->U8_2(Landroid/renderscript/RenderScript;)Landroid/renderscript/Element;
 
@@ -142,19 +140,11 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    xor-int/lit8 v1, v1, 0x1
 
-    :cond_0
-    iput-object p1, p0, Landroid/renderscript/ScriptIntrinsicResize;->mInput:Landroid/renderscript/Allocation;
+    if-eqz v1, :cond_0
 
-    const/4 v1, 0x0
-
-    invoke-virtual {p0, v1, p1}, Landroid/renderscript/Script;->setVar(ILandroid/renderscript/BaseObj;)V
-
-    return-void
-
-    :cond_1
-    iget-object v1, p0, Landroid/renderscript/BaseObj;->mRS:Landroid/renderscript/RenderScript;
+    iget-object v1, p0, Landroid/renderscript/ScriptIntrinsicResize;->mRS:Landroid/renderscript/RenderScript;
 
     invoke-static {v1}, Landroid/renderscript/Element;->U8_3(Landroid/renderscript/RenderScript;)Landroid/renderscript/Element;
 
@@ -164,9 +154,11 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    xor-int/lit8 v1, v1, 0x1
 
-    iget-object v1, p0, Landroid/renderscript/BaseObj;->mRS:Landroid/renderscript/RenderScript;
+    if-eqz v1, :cond_0
+
+    iget-object v1, p0, Landroid/renderscript/ScriptIntrinsicResize;->mRS:Landroid/renderscript/RenderScript;
 
     invoke-static {v1}, Landroid/renderscript/Element;->U8_4(Landroid/renderscript/RenderScript;)Landroid/renderscript/Element;
 
@@ -176,9 +168,11 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    xor-int/lit8 v1, v1, 0x1
 
-    iget-object v1, p0, Landroid/renderscript/BaseObj;->mRS:Landroid/renderscript/RenderScript;
+    if-eqz v1, :cond_0
+
+    iget-object v1, p0, Landroid/renderscript/ScriptIntrinsicResize;->mRS:Landroid/renderscript/RenderScript;
 
     invoke-static {v1}, Landroid/renderscript/Element;->F32(Landroid/renderscript/RenderScript;)Landroid/renderscript/Element;
 
@@ -188,9 +182,11 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    xor-int/lit8 v1, v1, 0x1
 
-    iget-object v1, p0, Landroid/renderscript/BaseObj;->mRS:Landroid/renderscript/RenderScript;
+    if-eqz v1, :cond_0
+
+    iget-object v1, p0, Landroid/renderscript/ScriptIntrinsicResize;->mRS:Landroid/renderscript/RenderScript;
 
     invoke-static {v1}, Landroid/renderscript/Element;->F32_2(Landroid/renderscript/RenderScript;)Landroid/renderscript/Element;
 
@@ -200,9 +196,11 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    xor-int/lit8 v1, v1, 0x1
 
-    iget-object v1, p0, Landroid/renderscript/BaseObj;->mRS:Landroid/renderscript/RenderScript;
+    if-eqz v1, :cond_0
+
+    iget-object v1, p0, Landroid/renderscript/ScriptIntrinsicResize;->mRS:Landroid/renderscript/RenderScript;
 
     invoke-static {v1}, Landroid/renderscript/Element;->F32_3(Landroid/renderscript/RenderScript;)Landroid/renderscript/Element;
 
@@ -212,9 +210,11 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    xor-int/lit8 v1, v1, 0x1
 
-    iget-object v1, p0, Landroid/renderscript/BaseObj;->mRS:Landroid/renderscript/RenderScript;
+    if-eqz v1, :cond_0
+
+    iget-object v1, p0, Landroid/renderscript/ScriptIntrinsicResize;->mRS:Landroid/renderscript/RenderScript;
 
     invoke-static {v1}, Landroid/renderscript/Element;->F32_4(Landroid/renderscript/RenderScript;)Landroid/renderscript/Element;
 
@@ -224,13 +224,24 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    xor-int/lit8 v1, v1, 0x1
+
+    if-eqz v1, :cond_0
 
     new-instance v1, Landroid/renderscript/RSIllegalArgumentException;
 
-    const-string/jumbo v2, "Unsuported element type."
+    const-string/jumbo v2, "Unsupported element type."
 
     invoke-direct {v1, v2}, Landroid/renderscript/RSIllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v1
+
+    :cond_0
+    iput-object p1, p0, Landroid/renderscript/ScriptIntrinsicResize;->mInput:Landroid/renderscript/Allocation;
+
+    const/4 v1, 0x0
+
+    invoke-virtual {p0, v1, p1}, Landroid/renderscript/ScriptIntrinsicResize;->setVar(ILandroid/renderscript/BaseObj;)V
+
+    return-void
 .end method

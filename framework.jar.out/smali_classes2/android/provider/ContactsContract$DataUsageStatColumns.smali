@@ -17,4 +17,12 @@
 # static fields
 .field public static final LAST_TIME_USED:Ljava/lang/String; = "last_time_used"
 
+.field public static final LR_LAST_TIME_USED:Ljava/lang/String; = "last_time_used"
+
+.field public static final LR_TIMES_USED:Ljava/lang/String; = "times_used"
+
+.field public static final RAW_LAST_TIME_USED:Ljava/lang/String; = "x_last_time_used"
+
+.field public static final RAW_TIMES_USED:Ljava/lang/String; = "x_times_used"
+
 .field public static final TIMES_USED:Ljava/lang/String; = "times_used"

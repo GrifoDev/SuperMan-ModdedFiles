@@ -34,6 +34,8 @@
 
 .field private static final TAG:Ljava/lang/String; = "Icon"
 
+.field public static final TYPE_ADAPTIVE_BITMAP:I = 0x5
+
 .field public static final TYPE_BITMAP:I = 0x1
 
 .field public static final TYPE_DATA:I = 0x3
@@ -284,6 +286,7 @@
         :pswitch_1
         :pswitch_2
         :pswitch_3
+        :pswitch_0
     .end packed-switch
 .end method
 
@@ -340,6 +343,17 @@
     return-object v8
 
     :pswitch_1
+    invoke-static {v1}, Landroid/graphics/BitmapFactory;->decodeStream(Ljava/io/InputStream;)Landroid/graphics/Bitmap;
+
+    move-result-object v8
+
+    invoke-static {v8}, Landroid/graphics/drawable/Icon;->createWithAdaptiveBitmap(Landroid/graphics/Bitmap;)Landroid/graphics/drawable/Icon;
+
+    move-result-object v8
+
+    return-object v8
+
+    :pswitch_2
     invoke-virtual {v1}, Ljava/io/DataInputStream;->readInt()I
 
     move-result v2
@@ -354,7 +368,7 @@
 
     return-object v8
 
-    :pswitch_2
+    :pswitch_3
     invoke-virtual {v1}, Ljava/io/DataInputStream;->readUTF()Ljava/lang/String;
 
     move-result-object v3
@@ -369,7 +383,7 @@
 
     return-object v8
 
-    :pswitch_3
+    :pswitch_4
     invoke-virtual {v1}, Ljava/io/DataInputStream;->readUTF()Ljava/lang/String;
 
     move-result-object v6
@@ -380,15 +394,39 @@
 
     return-object v8
 
-    nop
-
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0
-        :pswitch_2
-        :pswitch_1
         :pswitch_3
+        :pswitch_2
+        :pswitch_4
+        :pswitch_1
     .end packed-switch
+.end method
+
+.method public static createWithAdaptiveBitmap(Landroid/graphics/Bitmap;)Landroid/graphics/drawable/Icon;
+    .locals 3
+
+    if-nez p0, :cond_0
+
+    new-instance v1, Ljava/lang/IllegalArgumentException;
+
+    const-string/jumbo v2, "Bitmap must not be null."
+
+    invoke-direct {v1, v2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v1
+
+    :cond_0
+    new-instance v0, Landroid/graphics/drawable/Icon;
+
+    const/4 v1, 0x5
+
+    invoke-direct {v0, v1}, Landroid/graphics/drawable/Icon;-><init>(I)V
+
+    invoke-direct {v0, p0}, Landroid/graphics/drawable/Icon;->setBitmap(Landroid/graphics/Bitmap;)V
+
+    return-object v0
 .end method
 
 .method public static createWithBitmap(Landroid/graphics/Bitmap;)Landroid/graphics/drawable/Icon;
@@ -644,6 +682,27 @@
     return-object v12
 
     :pswitch_1
+    new-instance v12, Landroid/graphics/drawable/AdaptiveIconDrawable;
+
+    new-instance v13, Landroid/graphics/drawable/BitmapDrawable;
+
+    invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v14
+
+    invoke-virtual/range {p0 .. p0}, Landroid/graphics/drawable/Icon;->getBitmap()Landroid/graphics/Bitmap;
+
+    move-result-object v15
+
+    invoke-direct {v13, v14, v15}, Landroid/graphics/drawable/BitmapDrawable;-><init>(Landroid/content/res/Resources;Landroid/graphics/Bitmap;)V
+
+    const/4 v14, 0x0
+
+    invoke-direct {v12, v14, v13}, Landroid/graphics/drawable/AdaptiveIconDrawable;-><init>(Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;)V
+
+    return-object v12
+
+    :pswitch_2
     invoke-virtual/range {p0 .. p0}, Landroid/graphics/drawable/Icon;->getResources()Landroid/content/res/Resources;
 
     move-result-object v12
@@ -755,7 +814,7 @@
 
     invoke-static {v12, v13, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_0
+    goto/16 :goto_0
 
     :catch_1
     move-exception v5
@@ -796,7 +855,7 @@
 
     goto/16 :goto_0
 
-    :pswitch_2
+    :pswitch_3
     new-instance v12, Landroid/graphics/drawable/BitmapDrawable;
 
     invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
@@ -823,7 +882,7 @@
 
     return-object v12
 
-    :pswitch_3
+    :pswitch_4
     invoke-virtual/range {p0 .. p0}, Landroid/graphics/drawable/Icon;->getUri()Landroid/net/Uri;
 
     move-result-object v11
@@ -953,12 +1012,15 @@
 
     goto :goto_2
 
+    nop
+
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0
-        :pswitch_1
         :pswitch_2
         :pswitch_3
+        :pswitch_4
+        :pswitch_1
     .end packed-switch
 .end method
 
@@ -985,16 +1047,21 @@
     return-object v0
 
     :pswitch_1
-    const-string/jumbo v0, "DATA"
+    const-string/jumbo v0, "BITMAP_MASKABLE"
 
     return-object v0
 
     :pswitch_2
-    const-string/jumbo v0, "RESOURCE"
+    const-string/jumbo v0, "DATA"
 
     return-object v0
 
     :pswitch_3
+    const-string/jumbo v0, "RESOURCE"
+
+    return-object v0
+
+    :pswitch_4
     const-string/jumbo v0, "URI"
 
     return-object v0
@@ -1004,9 +1071,10 @@
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0
-        :pswitch_2
-        :pswitch_1
         :pswitch_3
+        :pswitch_2
+        :pswitch_4
+        :pswitch_1
     .end packed-switch
 .end method
 
@@ -1019,8 +1087,15 @@
 
     const/4 v1, 0x1
 
-    if-ne v0, v1, :cond_0
+    if-eq v0, v1, :cond_0
 
+    iget v0, p0, Landroid/graphics/drawable/Icon;->mType:I
+
+    const/4 v1, 0x5
+
+    if-ne v0, v1, :cond_1
+
+    :cond_0
     invoke-virtual {p0}, Landroid/graphics/drawable/Icon;->getBitmap()Landroid/graphics/Bitmap;
 
     move-result-object v0
@@ -1029,7 +1104,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1
 
     invoke-virtual {p0}, Landroid/graphics/drawable/Icon;->getBitmap()Landroid/graphics/Bitmap;
 
@@ -1041,7 +1116,7 @@
 
     const/high16 v1, 0x20000
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_1
 
     invoke-virtual {p0}, Landroid/graphics/drawable/Icon;->getBitmap()Landroid/graphics/Bitmap;
 
@@ -1053,7 +1128,7 @@
 
     invoke-direct {p0, v0}, Landroid/graphics/drawable/Icon;->setBitmap(Landroid/graphics/Bitmap;)V
 
-    :cond_0
+    :cond_1
     return-void
 .end method
 
@@ -1068,7 +1143,7 @@
 
     iget v1, p0, Landroid/graphics/drawable/Icon;->mType:I
 
-    const/4 v2, 0x3
+    const/4 v2, 0x5
 
     if-ne v1, v2, :cond_1
 
@@ -1077,6 +1152,12 @@
     return v0
 
     :cond_1
+    iget v1, p0, Landroid/graphics/drawable/Icon;->mType:I
+
+    const/4 v2, 0x3
+
+    if-eq v1, v2, :cond_0
+
     const/4 v0, 0x0
 
     goto :goto_0
@@ -1088,6 +1169,12 @@
     iget v0, p0, Landroid/graphics/drawable/Icon;->mType:I
 
     const/4 v1, 0x1
+
+    if-eq v0, v1, :cond_0
+
+    iget v0, p0, Landroid/graphics/drawable/Icon;->mType:I
+
+    const/4 v1, 0x5
 
     if-eq v0, v1, :cond_0
 
@@ -1563,17 +1650,10 @@
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    xor-int/lit8 v3, v3, 0x1
 
-    :cond_1
-    :goto_0
-    invoke-virtual {p0, p1}, Landroid/graphics/drawable/Icon;->loadDrawable(Landroid/content/Context;)Landroid/graphics/drawable/Drawable;
+    if-eqz v3, :cond_1
 
-    move-result-object v3
-
-    return-object v3
-
-    :cond_2
     invoke-virtual {p1}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v1
@@ -1587,7 +1667,13 @@
     :try_end_0
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_0
+    :cond_1
+    :goto_0
+    invoke-virtual {p0, p1}, Landroid/graphics/drawable/Icon;->loadDrawable(Landroid/content/Context;)Landroid/graphics/drawable/Drawable;
+
+    move-result-object v3
+
+    return-object v3
 
     :catch_0
     move-exception v0
@@ -1801,6 +1887,7 @@
         :pswitch_2
         :pswitch_1
         :pswitch_3
+        :pswitch_0
     .end packed-switch
 .end method
 
@@ -2076,6 +2163,7 @@
         :pswitch_1
         :pswitch_2
         :pswitch_3
+        :pswitch_0
     .end packed-switch
 .end method
 
@@ -2187,6 +2275,7 @@
         :pswitch_1
         :pswitch_2
         :pswitch_3
+        :pswitch_0
     .end packed-switch
 .end method
 
@@ -2283,5 +2372,6 @@
         :pswitch_2
         :pswitch_1
         :pswitch_3
+        :pswitch_0
     .end packed-switch
 .end method

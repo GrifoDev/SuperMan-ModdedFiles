@@ -37,8 +37,6 @@
 .method public onKey(Landroid/view/View;ILandroid/view/KeyEvent;)Z
     .locals 2
 
-    const/4 v0, 0x0
-
     sparse-switch p2, :sswitch_data_0
 
     iget-object v0, p0, Landroid/widget/TabHost$1;->this$0:Landroid/widget/TabHost;
@@ -64,64 +62,9 @@
     return v0
 
     :sswitch_0
-    return v0
-
-    :sswitch_1
-    invoke-virtual {p3}, Landroid/view/KeyEvent;->getAction()I
-
-    move-result v0
-
-    if-nez v0, :cond_1
-
-    iget-object v0, p0, Landroid/widget/TabHost$1;->this$0:Landroid/widget/TabHost;
-
-    iget v0, v0, Landroid/widget/TabHost;->mCurrentTab:I
-
-    add-int/lit8 v0, v0, 0x1
-
-    iget-object v1, p0, Landroid/widget/TabHost$1;->this$0:Landroid/widget/TabHost;
-
-    invoke-static {v1}, Landroid/widget/TabHost;->-get2(Landroid/widget/TabHost;)Landroid/widget/TabWidget;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Landroid/widget/TabWidget;->getTabCount()I
-
-    move-result v1
-
-    if-ge v0, v1, :cond_0
-
-    iget-object v0, p0, Landroid/widget/TabHost$1;->this$0:Landroid/widget/TabHost;
-
-    invoke-static {v0}, Landroid/widget/TabHost;->-get2(Landroid/widget/TabHost;)Landroid/widget/TabWidget;
-
-    move-result-object v0
-
-    iget-object v1, p0, Landroid/widget/TabHost$1;->this$0:Landroid/widget/TabHost;
-
-    iget v1, v1, Landroid/widget/TabHost;->mCurrentTab:I
-
-    add-int/lit8 v1, v1, 0x1
-
-    invoke-virtual {v0, v1}, Landroid/widget/TabWidget;->getChildTabViewAt(I)Landroid/view/View;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/view/View;->requestFocus()Z
-
-    :cond_0
-    iget-object v0, p0, Landroid/widget/TabHost$1;->this$0:Landroid/widget/TabHost;
-
-    const/4 v1, 0x4
-
-    invoke-virtual {v0, v1}, Landroid/widget/TabHost;->playSoundEffect(I)V
-
-    :cond_1
-    const/4 v0, 0x1
+    const/4 v0, 0x0
 
     return v0
-
-    nop
 
     :sswitch_data_0
     .sparse-switch
@@ -130,7 +73,6 @@
         0x15 -> :sswitch_0
         0x16 -> :sswitch_0
         0x17 -> :sswitch_0
-        0x3d -> :sswitch_1
         0x42 -> :sswitch_0
     .end sparse-switch
 .end method

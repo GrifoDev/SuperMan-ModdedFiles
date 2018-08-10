@@ -66,6 +66,8 @@
 
 .field public static final METADATA_KEY_AUTHOR:Ljava/lang/String; = "android.media.metadata.AUTHOR"
 
+.field public static final METADATA_KEY_BT_FOLDER_TYPE:Ljava/lang/String; = "android.media.metadata.BT_FOLDER_TYPE"
+
 .field public static final METADATA_KEY_COMPILATION:Ljava/lang/String; = "android.media.metadata.COMPILATION"
 
 .field public static final METADATA_KEY_COMPOSER:Ljava/lang/String; = "android.media.metadata.COMPOSER"
@@ -89,6 +91,8 @@
 .field public static final METADATA_KEY_GENRE:Ljava/lang/String; = "android.media.metadata.GENRE"
 
 .field public static final METADATA_KEY_MEDIA_ID:Ljava/lang/String; = "android.media.metadata.MEDIA_ID"
+
+.field public static final METADATA_KEY_MEDIA_URI:Ljava/lang/String; = "android.media.metadata.MEDIA_URI"
 
 .field public static final METADATA_KEY_NUM_TRACKS:Ljava/lang/String; = "android.media.metadata.NUM_TRACKS"
 
@@ -495,6 +499,36 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    sget-object v0, Landroid/media/MediaMetadata;->METADATA_KEYS_TYPE:Landroid/util/ArrayMap;
+
+    const-string/jumbo v1, "android.media.metadata.BT_FOLDER_TYPE"
+
+    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v2
+
+    invoke-virtual {v0, v1, v2}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    sget-object v0, Landroid/media/MediaMetadata;->METADATA_KEYS_TYPE:Landroid/util/ArrayMap;
+
+    const-string/jumbo v1, "android.media.metadata.MEDIA_ID"
+
+    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v2
+
+    invoke-virtual {v0, v1, v2}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    sget-object v0, Landroid/media/MediaMetadata;->METADATA_KEYS_TYPE:Landroid/util/ArrayMap;
+
+    const-string/jumbo v1, "android.media.metadata.MEDIA_URI"
+
+    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v2
+
+    invoke-virtual {v0, v1, v2}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
     new-instance v0, Landroid/util/SparseArray;
 
     invoke-direct {v0}, Landroid/util/SparseArray;-><init>()V
@@ -768,230 +802,352 @@
 .end method
 
 .method public getDescription()Landroid/media/MediaDescription;
-    .locals 17
+    .locals 24
 
     move-object/from16 v0, p0
 
-    iget-object v15, v0, Landroid/media/MediaMetadata;->mDescription:Landroid/media/MediaDescription;
+    iget-object v0, v0, Landroid/media/MediaMetadata;->mDescription:Landroid/media/MediaDescription;
 
-    if-eqz v15, :cond_0
+    move-object/from16 v21, v0
+
+    if-eqz v21, :cond_0
 
     move-object/from16 v0, p0
 
-    iget-object v15, v0, Landroid/media/MediaMetadata;->mDescription:Landroid/media/MediaDescription;
+    iget-object v0, v0, Landroid/media/MediaMetadata;->mDescription:Landroid/media/MediaDescription;
 
-    return-object v15
+    move-object/from16 v21, v0
+
+    return-object v21
 
     :cond_0
-    const-string/jumbo v15, "android.media.metadata.MEDIA_ID"
+    const-string/jumbo v21, "android.media.metadata.MEDIA_ID"
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v15}, Landroid/media/MediaMetadata;->getString(Ljava/lang/String;)Ljava/lang/String;
+    move-object/from16 v1, v21
 
-    move-result-object v8
+    invoke-virtual {v0, v1}, Landroid/media/MediaMetadata;->getString(Ljava/lang/String;)Ljava/lang/String;
 
-    const/4 v15, 0x3
+    move-result-object v12
 
-    new-array v12, v15, [Ljava/lang/CharSequence;
+    const/16 v21, 0x3
 
-    const/4 v4, 0x0
+    move/from16 v0, v21
 
-    const/4 v5, 0x0
+    new-array v0, v0, [Ljava/lang/CharSequence;
 
-    const-string/jumbo v15, "android.media.metadata.DISPLAY_TITLE"
+    move-object/from16 v18, v0
 
-    move-object/from16 v0, p0
+    const/4 v8, 0x0
 
-    invoke-virtual {v0, v15}, Landroid/media/MediaMetadata;->getText(Ljava/lang/String;)Ljava/lang/CharSequence;
+    const/4 v9, 0x0
 
-    move-result-object v2
-
-    invoke-static {v2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v15
-
-    if-nez v15, :cond_4
-
-    const/4 v15, 0x0
-
-    aput-object v2, v12, v15
-
-    const-string/jumbo v15, "android.media.metadata.DISPLAY_SUBTITLE"
+    const-string/jumbo v21, "android.media.metadata.DISPLAY_TITLE"
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v15}, Landroid/media/MediaMetadata;->getText(Ljava/lang/String;)Ljava/lang/CharSequence;
+    move-object/from16 v1, v21
 
-    move-result-object v15
+    invoke-virtual {v0, v1}, Landroid/media/MediaMetadata;->getText(Ljava/lang/String;)Ljava/lang/CharSequence;
 
-    const/16 v16, 0x1
+    move-result-object v6
 
-    aput-object v15, v12, v16
+    invoke-static {v6}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    const-string/jumbo v15, "android.media.metadata.DISPLAY_DESCRIPTION"
+    move-result v21
+
+    if-nez v21, :cond_6
+
+    const/16 v21, 0x0
+
+    aput-object v6, v18, v21
+
+    const-string/jumbo v21, "android.media.metadata.DISPLAY_SUBTITLE"
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v15}, Landroid/media/MediaMetadata;->getText(Ljava/lang/String;)Ljava/lang/CharSequence;
+    move-object/from16 v1, v21
 
-    move-result-object v15
+    invoke-virtual {v0, v1}, Landroid/media/MediaMetadata;->getText(Ljava/lang/String;)Ljava/lang/CharSequence;
 
-    const/16 v16, 0x2
+    move-result-object v21
 
-    aput-object v15, v12, v16
+    const/16 v22, 0x1
+
+    aput-object v21, v18, v22
+
+    const-string/jumbo v21, "android.media.metadata.DISPLAY_DESCRIPTION"
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v21
+
+    invoke-virtual {v0, v1}, Landroid/media/MediaMetadata;->getText(Ljava/lang/String;)Ljava/lang/CharSequence;
+
+    move-result-object v21
+
+    const/16 v22, 0x2
+
+    aput-object v21, v18, v22
 
     :cond_1
-    const/4 v3, 0x0
+    const/4 v7, 0x0
 
     :goto_0
-    sget-object v15, Landroid/media/MediaMetadata;->PREFERRED_BITMAP_ORDER:[Ljava/lang/String;
+    sget-object v21, Landroid/media/MediaMetadata;->PREFERRED_BITMAP_ORDER:[Ljava/lang/String;
 
-    array-length v15, v15
+    move-object/from16 v0, v21
 
-    if-ge v3, v15, :cond_2
+    array-length v0, v0
 
-    sget-object v15, Landroid/media/MediaMetadata;->PREFERRED_BITMAP_ORDER:[Ljava/lang/String;
+    move/from16 v21, v0
 
-    aget-object v15, v15, v3
+    move/from16 v0, v21
+
+    if-ge v7, v0, :cond_2
+
+    sget-object v21, Landroid/media/MediaMetadata;->PREFERRED_BITMAP_ORDER:[Ljava/lang/String;
+
+    aget-object v21, v21, v7
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v15}, Landroid/media/MediaMetadata;->getBitmap(Ljava/lang/String;)Landroid/graphics/Bitmap;
+    move-object/from16 v1, v21
+
+    invoke-virtual {v0, v1}, Landroid/media/MediaMetadata;->getBitmap(Ljava/lang/String;)Landroid/graphics/Bitmap;
+
+    move-result-object v15
+
+    if-eqz v15, :cond_8
+
+    move-object v8, v15
+
+    :cond_2
+    const/4 v7, 0x0
+
+    :goto_1
+    sget-object v21, Landroid/media/MediaMetadata;->PREFERRED_URI_ORDER:[Ljava/lang/String;
+
+    move-object/from16 v0, v21
+
+    array-length v0, v0
+
+    move/from16 v21, v0
+
+    move/from16 v0, v21
+
+    if-ge v7, v0, :cond_3
+
+    sget-object v21, Landroid/media/MediaMetadata;->PREFERRED_URI_ORDER:[Ljava/lang/String;
+
+    aget-object v21, v21, v7
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v21
+
+    invoke-virtual {v0, v1}, Landroid/media/MediaMetadata;->getString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v17
+
+    invoke-static/range {v17 .. v17}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v21
+
+    if-nez v21, :cond_9
+
+    invoke-static/range {v17 .. v17}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
 
     move-result-object v9
 
-    if-eqz v9, :cond_6
-
-    move-object v4, v9
-
-    :cond_2
-    const/4 v3, 0x0
-
-    :goto_1
-    sget-object v15, Landroid/media/MediaMetadata;->PREFERRED_URI_ORDER:[Ljava/lang/String;
-
-    array-length v15, v15
-
-    if-ge v3, v15, :cond_3
-
-    sget-object v15, Landroid/media/MediaMetadata;->PREFERRED_URI_ORDER:[Ljava/lang/String;
-
-    aget-object v15, v15, v3
-
-    move-object/from16 v0, p0
-
-    invoke-virtual {v0, v15}, Landroid/media/MediaMetadata;->getString(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v11
-
-    invoke-static {v11}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v15
-
-    if-nez v15, :cond_7
-
-    invoke-static {v11}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
-
-    move-result-object v5
-
     :cond_3
-    new-instance v1, Landroid/media/MediaDescription$Builder;
-
-    invoke-direct {v1}, Landroid/media/MediaDescription$Builder;-><init>()V
-
-    invoke-virtual {v1, v8}, Landroid/media/MediaDescription$Builder;->setMediaId(Ljava/lang/String;)Landroid/media/MediaDescription$Builder;
-
-    const/4 v15, 0x0
-
-    aget-object v15, v12, v15
-
-    invoke-virtual {v1, v15}, Landroid/media/MediaDescription$Builder;->setTitle(Ljava/lang/CharSequence;)Landroid/media/MediaDescription$Builder;
-
-    const/4 v15, 0x1
-
-    aget-object v15, v12, v15
-
-    invoke-virtual {v1, v15}, Landroid/media/MediaDescription$Builder;->setSubtitle(Ljava/lang/CharSequence;)Landroid/media/MediaDescription$Builder;
-
-    const/4 v15, 0x2
-
-    aget-object v15, v12, v15
-
-    invoke-virtual {v1, v15}, Landroid/media/MediaDescription$Builder;->setDescription(Ljava/lang/CharSequence;)Landroid/media/MediaDescription$Builder;
-
-    invoke-virtual {v1, v4}, Landroid/media/MediaDescription$Builder;->setIconBitmap(Landroid/graphics/Bitmap;)Landroid/media/MediaDescription$Builder;
-
-    invoke-virtual {v1, v5}, Landroid/media/MediaDescription$Builder;->setIconUri(Landroid/net/Uri;)Landroid/media/MediaDescription$Builder;
-
-    invoke-virtual {v1}, Landroid/media/MediaDescription$Builder;->build()Landroid/media/MediaDescription;
-
-    move-result-object v15
-
-    move-object/from16 v0, p0
-
-    iput-object v15, v0, Landroid/media/MediaMetadata;->mDescription:Landroid/media/MediaDescription;
-
-    move-object/from16 v0, p0
-
-    iget-object v15, v0, Landroid/media/MediaMetadata;->mDescription:Landroid/media/MediaDescription;
-
-    return-object v15
-
-    :cond_4
     const/4 v13, 0x0
 
-    const/4 v6, 0x0
-
-    :goto_2
-    array-length v15, v12
-
-    if-ge v13, v15, :cond_1
-
-    sget-object v15, Landroid/media/MediaMetadata;->PREFERRED_DESCRIPTION_ORDER:[Ljava/lang/String;
-
-    array-length v15, v15
-
-    if-ge v6, v15, :cond_1
-
-    sget-object v15, Landroid/media/MediaMetadata;->PREFERRED_DESCRIPTION_ORDER:[Ljava/lang/String;
-
-    add-int/lit8 v7, v6, 0x1
-
-    aget-object v15, v15, v6
+    const-string/jumbo v21, "android.media.metadata.MEDIA_URI"
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v15}, Landroid/media/MediaMetadata;->getText(Ljava/lang/String;)Ljava/lang/CharSequence;
+    move-object/from16 v1, v21
 
-    move-result-object v10
+    invoke-virtual {v0, v1}, Landroid/media/MediaMetadata;->getString(Ljava/lang/String;)Ljava/lang/String;
 
-    invoke-static {v10}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    move-result-object v14
 
-    move-result v15
+    invoke-static {v14}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    if-nez v15, :cond_5
+    move-result v21
 
-    add-int/lit8 v14, v13, 0x1
+    if-nez v21, :cond_4
 
-    aput-object v10, v12, v13
+    invoke-static {v14}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
 
-    move v13, v14
+    move-result-object v13
+
+    :cond_4
+    new-instance v4, Landroid/media/MediaDescription$Builder;
+
+    invoke-direct {v4}, Landroid/media/MediaDescription$Builder;-><init>()V
+
+    invoke-virtual {v4, v12}, Landroid/media/MediaDescription$Builder;->setMediaId(Ljava/lang/String;)Landroid/media/MediaDescription$Builder;
+
+    const/16 v21, 0x0
+
+    aget-object v21, v18, v21
+
+    move-object/from16 v0, v21
+
+    invoke-virtual {v4, v0}, Landroid/media/MediaDescription$Builder;->setTitle(Ljava/lang/CharSequence;)Landroid/media/MediaDescription$Builder;
+
+    const/16 v21, 0x1
+
+    aget-object v21, v18, v21
+
+    move-object/from16 v0, v21
+
+    invoke-virtual {v4, v0}, Landroid/media/MediaDescription$Builder;->setSubtitle(Ljava/lang/CharSequence;)Landroid/media/MediaDescription$Builder;
+
+    const/16 v21, 0x2
+
+    aget-object v21, v18, v21
+
+    move-object/from16 v0, v21
+
+    invoke-virtual {v4, v0}, Landroid/media/MediaDescription$Builder;->setDescription(Ljava/lang/CharSequence;)Landroid/media/MediaDescription$Builder;
+
+    invoke-virtual {v4, v8}, Landroid/media/MediaDescription$Builder;->setIconBitmap(Landroid/graphics/Bitmap;)Landroid/media/MediaDescription$Builder;
+
+    invoke-virtual {v4, v9}, Landroid/media/MediaDescription$Builder;->setIconUri(Landroid/net/Uri;)Landroid/media/MediaDescription$Builder;
+
+    invoke-virtual {v4, v13}, Landroid/media/MediaDescription$Builder;->setMediaUri(Landroid/net/Uri;)Landroid/media/MediaDescription$Builder;
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Landroid/media/MediaMetadata;->mBundle:Landroid/os/Bundle;
+
+    move-object/from16 v21, v0
+
+    const-string/jumbo v22, "android.media.metadata.BT_FOLDER_TYPE"
+
+    invoke-virtual/range {v21 .. v22}, Landroid/os/Bundle;->containsKey(Ljava/lang/String;)Z
+
+    move-result v21
+
+    if-eqz v21, :cond_5
+
+    new-instance v5, Landroid/os/Bundle;
+
+    invoke-direct {v5}, Landroid/os/Bundle;-><init>()V
+
+    const-string/jumbo v21, "android.media.extra.BT_FOLDER_TYPE"
+
+    const-string/jumbo v22, "android.media.metadata.BT_FOLDER_TYPE"
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v22
+
+    invoke-virtual {v0, v1}, Landroid/media/MediaMetadata;->getLong(Ljava/lang/String;)J
+
+    move-result-wide v22
+
+    move-object/from16 v0, v21
+
+    move-wide/from16 v1, v22
+
+    invoke-virtual {v5, v0, v1, v2}, Landroid/os/Bundle;->putLong(Ljava/lang/String;J)V
+
+    invoke-virtual {v4, v5}, Landroid/media/MediaDescription$Builder;->setExtras(Landroid/os/Bundle;)Landroid/media/MediaDescription$Builder;
 
     :cond_5
-    move v6, v7
+    invoke-virtual {v4}, Landroid/media/MediaDescription$Builder;->build()Landroid/media/MediaDescription;
+
+    move-result-object v21
+
+    move-object/from16 v0, v21
+
+    move-object/from16 v1, p0
+
+    iput-object v0, v1, Landroid/media/MediaMetadata;->mDescription:Landroid/media/MediaDescription;
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Landroid/media/MediaMetadata;->mDescription:Landroid/media/MediaDescription;
+
+    move-object/from16 v21, v0
+
+    return-object v21
+
+    :cond_6
+    const/16 v19, 0x0
+
+    const/4 v10, 0x0
+
+    :goto_2
+    move-object/from16 v0, v18
+
+    array-length v0, v0
+
+    move/from16 v21, v0
+
+    move/from16 v0, v19
+
+    move/from16 v1, v21
+
+    if-ge v0, v1, :cond_1
+
+    sget-object v21, Landroid/media/MediaMetadata;->PREFERRED_DESCRIPTION_ORDER:[Ljava/lang/String;
+
+    move-object/from16 v0, v21
+
+    array-length v0, v0
+
+    move/from16 v21, v0
+
+    move/from16 v0, v21
+
+    if-ge v10, v0, :cond_1
+
+    sget-object v21, Landroid/media/MediaMetadata;->PREFERRED_DESCRIPTION_ORDER:[Ljava/lang/String;
+
+    add-int/lit8 v11, v10, 0x1
+
+    aget-object v21, v21, v10
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v21
+
+    invoke-virtual {v0, v1}, Landroid/media/MediaMetadata;->getText(Ljava/lang/String;)Ljava/lang/CharSequence;
+
+    move-result-object v16
+
+    invoke-static/range {v16 .. v16}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v21
+
+    if-nez v21, :cond_7
+
+    add-int/lit8 v20, v19, 0x1
+
+    aput-object v16, v18, v19
+
+    move/from16 v19, v20
+
+    :cond_7
+    move v10, v11
 
     goto :goto_2
 
-    :cond_6
-    add-int/lit8 v3, v3, 0x1
+    :cond_8
+    add-int/lit8 v7, v7, 0x1
 
-    goto :goto_0
+    goto/16 :goto_0
 
-    :cond_7
-    add-int/lit8 v3, v3, 0x1
+    :cond_9
+    add-int/lit8 v7, v7, 0x1
 
-    goto :goto_1
+    goto/16 :goto_1
 .end method
 
 .method public getLong(Ljava/lang/String;)J

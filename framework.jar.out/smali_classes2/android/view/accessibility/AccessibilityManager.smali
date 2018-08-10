@@ -7,15 +7,18 @@
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Landroid/view/accessibility/AccessibilityManager$1;,
+        Landroid/view/accessibility/AccessibilityManager$AccessibilityServicesStateChangeListener;,
         Landroid/view/accessibility/AccessibilityManager$AccessibilityStateChangeListener;,
         Landroid/view/accessibility/AccessibilityManager$HighTextContrastChangeListener;,
-        Landroid/view/accessibility/AccessibilityManager$MyHandler;,
+        Landroid/view/accessibility/AccessibilityManager$MyCallback;,
         Landroid/view/accessibility/AccessibilityManager$TouchExplorationStateChangeListener;
     }
 .end annotation
 
 
 # static fields
+.field public static final ACTION_CHOOSE_ACCESSIBILITY_BUTTON:Ljava/lang/String; = "com.android.internal.intent.action.CHOOSE_ACCESSIBILITY_BUTTON"
+
 .field public static final AUTOCLICK_DELAY_DEFAULT:I = 0x258
 
 .field public static final DALTONIZER_CORRECT_DEUTERANOMALY:I = 0xc
@@ -27,6 +30,8 @@
 .field private static final DEBUG:Z = false
 
 .field private static final LOG_TAG:Ljava/lang/String; = "AccessibilityManager"
+
+.field public static final SEM_STATE_FLAG_BIXBY:I = 0x100
 
 .field public static final SEM_STATE_FLAG_GOOGLE_TALKBACK:I = 0x10
 
@@ -46,31 +51,61 @@
 
 
 # instance fields
-.field private final mAccessibilityStateChangeListeners:Ljava/util/concurrent/CopyOnWriteArrayList;
+.field public final SEM_COLOR_FILTER_TYPE_AZURE:I
+
+.field public final SEM_COLOR_FILTER_TYPE_BLUE:I
+
+.field public final SEM_COLOR_FILTER_TYPE_CHARTREUSE_GREEN:I
+
+.field public final SEM_COLOR_FILTER_TYPE_CYAN:I
+
+.field public final SEM_COLOR_FILTER_TYPE_GREEN:I
+
+.field public final SEM_COLOR_FILTER_TYPE_MAGENTA:I
+
+.field public final SEM_COLOR_FILTER_TYPE_ORANGE:I
+
+.field public final SEM_COLOR_FILTER_TYPE_RED:I
+
+.field public final SEM_COLOR_FILTER_TYPE_ROSE:I
+
+.field public final SEM_COLOR_FILTER_TYPE_SPRING_GREEN:I
+
+.field public final SEM_COLOR_FILTER_TYPE_VIOLET:I
+
+.field public final SEM_COLOR_FILTER_TYPE_YELLOW:I
+
+.field private final mAccessibilityStateChangeListeners:Landroid/util/ArrayMap;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/concurrent/CopyOnWriteArrayList",
+            "Landroid/util/ArrayMap",
             "<",
             "Landroid/view/accessibility/AccessibilityManager$AccessibilityStateChangeListener;",
+            "Landroid/os/Handler;",
             ">;"
         }
     .end annotation
 .end field
+
+.field final mCallback:Landroid/os/Handler$Callback;
 
 .field private final mClient:Landroid/view/accessibility/IAccessibilityManagerClient$Stub;
 
 .field final mHandler:Landroid/os/Handler;
 
-.field private final mHighTextContrastStateChangeListeners:Ljava/util/concurrent/CopyOnWriteArrayList;
+.field private final mHighTextContrastStateChangeListeners:Landroid/util/ArrayMap;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/concurrent/CopyOnWriteArrayList",
+            "Landroid/util/ArrayMap",
             "<",
             "Landroid/view/accessibility/AccessibilityManager$HighTextContrastChangeListener;",
+            "Landroid/os/Handler;",
             ">;"
         }
     .end annotation
 .end field
+
+.field mIsBixbyRunning:Z
 
 .field mIsEnabled:Z
 
@@ -80,14 +115,29 @@
 
 .field private final mLock:Ljava/lang/Object;
 
+.field mRelevantEventTypes:I
+
 .field private mService:Landroid/view/accessibility/IAccessibilityManager;
 
-.field private final mTouchExplorationStateChangeListeners:Ljava/util/concurrent/CopyOnWriteArrayList;
+.field private final mServicesStateChangeListeners:Landroid/util/ArrayMap;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/concurrent/CopyOnWriteArrayList",
+            "Landroid/util/ArrayMap",
+            "<",
+            "Landroid/view/accessibility/AccessibilityManager$AccessibilityServicesStateChangeListener;",
+            "Landroid/os/Handler;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field private final mTouchExplorationStateChangeListeners:Landroid/util/ArrayMap;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Landroid/util/ArrayMap",
             "<",
             "Landroid/view/accessibility/AccessibilityManager$TouchExplorationStateChangeListener;",
+            "Landroid/os/Handler;",
             ">;"
         }
     .end annotation
@@ -105,31 +155,15 @@
     return-object v0
 .end method
 
-.method static synthetic -wrap0(Landroid/view/accessibility/AccessibilityManager;)V
-    .locals 0
+.method static synthetic -get1(Landroid/view/accessibility/AccessibilityManager;)Landroid/util/ArrayMap;
+    .locals 1
 
-    invoke-direct {p0}, Landroid/view/accessibility/AccessibilityManager;->handleNotifyAccessibilityStateChanged()V
+    iget-object v0, p0, Landroid/view/accessibility/AccessibilityManager;->mServicesStateChangeListeners:Landroid/util/ArrayMap;
 
-    return-void
+    return-object v0
 .end method
 
-.method static synthetic -wrap1(Landroid/view/accessibility/AccessibilityManager;)V
-    .locals 0
-
-    invoke-direct {p0}, Landroid/view/accessibility/AccessibilityManager;->handleNotifyHighTextContrastStateChanged()V
-
-    return-void
-.end method
-
-.method static synthetic -wrap2(Landroid/view/accessibility/AccessibilityManager;)V
-    .locals 0
-
-    invoke-direct {p0}, Landroid/view/accessibility/AccessibilityManager;->handleNotifyTouchExplorationStateChanged()V
-
-    return-void
-.end method
-
-.method static synthetic -wrap3(Landroid/view/accessibility/AccessibilityManager;I)V
+.method static synthetic -wrap0(Landroid/view/accessibility/AccessibilityManager;I)V
     .locals 0
 
     invoke-direct {p0, p1}, Landroid/view/accessibility/AccessibilityManager;->setStateLocked(I)V
@@ -150,9 +184,57 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/view/accessibility/IAccessibilityManager;I)V
-    .locals 2
+    .locals 3
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    const/4 v0, 0x0
+
+    iput v0, p0, Landroid/view/accessibility/AccessibilityManager;->SEM_COLOR_FILTER_TYPE_BLUE:I
+
+    const/4 v0, 0x1
+
+    iput v0, p0, Landroid/view/accessibility/AccessibilityManager;->SEM_COLOR_FILTER_TYPE_AZURE:I
+
+    const/4 v0, 0x2
+
+    iput v0, p0, Landroid/view/accessibility/AccessibilityManager;->SEM_COLOR_FILTER_TYPE_CYAN:I
+
+    const/4 v0, 0x3
+
+    iput v0, p0, Landroid/view/accessibility/AccessibilityManager;->SEM_COLOR_FILTER_TYPE_SPRING_GREEN:I
+
+    const/4 v0, 0x4
+
+    iput v0, p0, Landroid/view/accessibility/AccessibilityManager;->SEM_COLOR_FILTER_TYPE_GREEN:I
+
+    const/4 v0, 0x5
+
+    iput v0, p0, Landroid/view/accessibility/AccessibilityManager;->SEM_COLOR_FILTER_TYPE_CHARTREUSE_GREEN:I
+
+    const/4 v0, 0x6
+
+    iput v0, p0, Landroid/view/accessibility/AccessibilityManager;->SEM_COLOR_FILTER_TYPE_YELLOW:I
+
+    const/4 v0, 0x7
+
+    iput v0, p0, Landroid/view/accessibility/AccessibilityManager;->SEM_COLOR_FILTER_TYPE_ORANGE:I
+
+    const/16 v0, 0x8
+
+    iput v0, p0, Landroid/view/accessibility/AccessibilityManager;->SEM_COLOR_FILTER_TYPE_RED:I
+
+    const/16 v0, 0x9
+
+    iput v0, p0, Landroid/view/accessibility/AccessibilityManager;->SEM_COLOR_FILTER_TYPE_ROSE:I
+
+    const/16 v0, 0xa
+
+    iput v0, p0, Landroid/view/accessibility/AccessibilityManager;->SEM_COLOR_FILTER_TYPE_MAGENTA:I
+
+    const/16 v0, 0xb
+
+    iput v0, p0, Landroid/view/accessibility/AccessibilityManager;->SEM_COLOR_FILTER_TYPE_VIOLET:I
 
     new-instance v0, Ljava/lang/Object;
 
@@ -160,23 +242,33 @@
 
     iput-object v0, p0, Landroid/view/accessibility/AccessibilityManager;->mLock:Ljava/lang/Object;
 
-    new-instance v0, Ljava/util/concurrent/CopyOnWriteArrayList;
+    const/4 v0, -0x1
 
-    invoke-direct {v0}, Ljava/util/concurrent/CopyOnWriteArrayList;-><init>()V
+    iput v0, p0, Landroid/view/accessibility/AccessibilityManager;->mRelevantEventTypes:I
 
-    iput-object v0, p0, Landroid/view/accessibility/AccessibilityManager;->mAccessibilityStateChangeListeners:Ljava/util/concurrent/CopyOnWriteArrayList;
+    new-instance v0, Landroid/util/ArrayMap;
 
-    new-instance v0, Ljava/util/concurrent/CopyOnWriteArrayList;
+    invoke-direct {v0}, Landroid/util/ArrayMap;-><init>()V
 
-    invoke-direct {v0}, Ljava/util/concurrent/CopyOnWriteArrayList;-><init>()V
+    iput-object v0, p0, Landroid/view/accessibility/AccessibilityManager;->mAccessibilityStateChangeListeners:Landroid/util/ArrayMap;
 
-    iput-object v0, p0, Landroid/view/accessibility/AccessibilityManager;->mTouchExplorationStateChangeListeners:Ljava/util/concurrent/CopyOnWriteArrayList;
+    new-instance v0, Landroid/util/ArrayMap;
 
-    new-instance v0, Ljava/util/concurrent/CopyOnWriteArrayList;
+    invoke-direct {v0}, Landroid/util/ArrayMap;-><init>()V
 
-    invoke-direct {v0}, Ljava/util/concurrent/CopyOnWriteArrayList;-><init>()V
+    iput-object v0, p0, Landroid/view/accessibility/AccessibilityManager;->mTouchExplorationStateChangeListeners:Landroid/util/ArrayMap;
 
-    iput-object v0, p0, Landroid/view/accessibility/AccessibilityManager;->mHighTextContrastStateChangeListeners:Ljava/util/concurrent/CopyOnWriteArrayList;
+    new-instance v0, Landroid/util/ArrayMap;
+
+    invoke-direct {v0}, Landroid/util/ArrayMap;-><init>()V
+
+    iput-object v0, p0, Landroid/view/accessibility/AccessibilityManager;->mHighTextContrastStateChangeListeners:Landroid/util/ArrayMap;
+
+    new-instance v0, Landroid/util/ArrayMap;
+
+    invoke-direct {v0}, Landroid/util/ArrayMap;-><init>()V
+
+    iput-object v0, p0, Landroid/view/accessibility/AccessibilityManager;->mServicesStateChangeListeners:Landroid/util/ArrayMap;
 
     new-instance v0, Landroid/view/accessibility/AccessibilityManager$1;
 
@@ -184,15 +276,151 @@
 
     iput-object v0, p0, Landroid/view/accessibility/AccessibilityManager;->mClient:Landroid/view/accessibility/IAccessibilityManagerClient$Stub;
 
-    new-instance v0, Landroid/view/accessibility/AccessibilityManager$MyHandler;
+    new-instance v0, Landroid/view/accessibility/AccessibilityManager$MyCallback;
+
+    const/4 v1, 0x0
+
+    invoke-direct {v0, p0, v1}, Landroid/view/accessibility/AccessibilityManager$MyCallback;-><init>(Landroid/view/accessibility/AccessibilityManager;Landroid/view/accessibility/AccessibilityManager$MyCallback;)V
+
+    iput-object v0, p0, Landroid/view/accessibility/AccessibilityManager;->mCallback:Landroid/os/Handler$Callback;
+
+    new-instance v0, Landroid/os/Handler;
 
     invoke-virtual {p1}, Landroid/content/Context;->getMainLooper()Landroid/os/Looper;
 
     move-result-object v1
 
-    invoke-direct {v0, p0, v1}, Landroid/view/accessibility/AccessibilityManager$MyHandler;-><init>(Landroid/view/accessibility/AccessibilityManager;Landroid/os/Looper;)V
+    iget-object v2, p0, Landroid/view/accessibility/AccessibilityManager;->mCallback:Landroid/os/Handler$Callback;
+
+    invoke-direct {v0, v1, v2}, Landroid/os/Handler;-><init>(Landroid/os/Looper;Landroid/os/Handler$Callback;)V
 
     iput-object v0, p0, Landroid/view/accessibility/AccessibilityManager;->mHandler:Landroid/os/Handler;
+
+    iput p3, p0, Landroid/view/accessibility/AccessibilityManager;->mUserId:I
+
+    iget-object v0, p0, Landroid/view/accessibility/AccessibilityManager;->mLock:Ljava/lang/Object;
+
+    monitor-enter v0
+
+    :try_start_0
+    invoke-direct {p0, p2}, Landroid/view/accessibility/AccessibilityManager;->tryConnectToServiceLocked(Landroid/view/accessibility/IAccessibilityManager;)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit v0
+
+    return-void
+
+    :catchall_0
+    move-exception v1
+
+    monitor-exit v0
+
+    throw v1
+.end method
+
+.method public constructor <init>(Landroid/os/Handler;Landroid/view/accessibility/IAccessibilityManager;I)V
+    .locals 2
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    const/4 v0, 0x0
+
+    iput v0, p0, Landroid/view/accessibility/AccessibilityManager;->SEM_COLOR_FILTER_TYPE_BLUE:I
+
+    const/4 v0, 0x1
+
+    iput v0, p0, Landroid/view/accessibility/AccessibilityManager;->SEM_COLOR_FILTER_TYPE_AZURE:I
+
+    const/4 v0, 0x2
+
+    iput v0, p0, Landroid/view/accessibility/AccessibilityManager;->SEM_COLOR_FILTER_TYPE_CYAN:I
+
+    const/4 v0, 0x3
+
+    iput v0, p0, Landroid/view/accessibility/AccessibilityManager;->SEM_COLOR_FILTER_TYPE_SPRING_GREEN:I
+
+    const/4 v0, 0x4
+
+    iput v0, p0, Landroid/view/accessibility/AccessibilityManager;->SEM_COLOR_FILTER_TYPE_GREEN:I
+
+    const/4 v0, 0x5
+
+    iput v0, p0, Landroid/view/accessibility/AccessibilityManager;->SEM_COLOR_FILTER_TYPE_CHARTREUSE_GREEN:I
+
+    const/4 v0, 0x6
+
+    iput v0, p0, Landroid/view/accessibility/AccessibilityManager;->SEM_COLOR_FILTER_TYPE_YELLOW:I
+
+    const/4 v0, 0x7
+
+    iput v0, p0, Landroid/view/accessibility/AccessibilityManager;->SEM_COLOR_FILTER_TYPE_ORANGE:I
+
+    const/16 v0, 0x8
+
+    iput v0, p0, Landroid/view/accessibility/AccessibilityManager;->SEM_COLOR_FILTER_TYPE_RED:I
+
+    const/16 v0, 0x9
+
+    iput v0, p0, Landroid/view/accessibility/AccessibilityManager;->SEM_COLOR_FILTER_TYPE_ROSE:I
+
+    const/16 v0, 0xa
+
+    iput v0, p0, Landroid/view/accessibility/AccessibilityManager;->SEM_COLOR_FILTER_TYPE_MAGENTA:I
+
+    const/16 v0, 0xb
+
+    iput v0, p0, Landroid/view/accessibility/AccessibilityManager;->SEM_COLOR_FILTER_TYPE_VIOLET:I
+
+    new-instance v0, Ljava/lang/Object;
+
+    invoke-direct {v0}, Ljava/lang/Object;-><init>()V
+
+    iput-object v0, p0, Landroid/view/accessibility/AccessibilityManager;->mLock:Ljava/lang/Object;
+
+    const/4 v0, -0x1
+
+    iput v0, p0, Landroid/view/accessibility/AccessibilityManager;->mRelevantEventTypes:I
+
+    new-instance v0, Landroid/util/ArrayMap;
+
+    invoke-direct {v0}, Landroid/util/ArrayMap;-><init>()V
+
+    iput-object v0, p0, Landroid/view/accessibility/AccessibilityManager;->mAccessibilityStateChangeListeners:Landroid/util/ArrayMap;
+
+    new-instance v0, Landroid/util/ArrayMap;
+
+    invoke-direct {v0}, Landroid/util/ArrayMap;-><init>()V
+
+    iput-object v0, p0, Landroid/view/accessibility/AccessibilityManager;->mTouchExplorationStateChangeListeners:Landroid/util/ArrayMap;
+
+    new-instance v0, Landroid/util/ArrayMap;
+
+    invoke-direct {v0}, Landroid/util/ArrayMap;-><init>()V
+
+    iput-object v0, p0, Landroid/view/accessibility/AccessibilityManager;->mHighTextContrastStateChangeListeners:Landroid/util/ArrayMap;
+
+    new-instance v0, Landroid/util/ArrayMap;
+
+    invoke-direct {v0}, Landroid/util/ArrayMap;-><init>()V
+
+    iput-object v0, p0, Landroid/view/accessibility/AccessibilityManager;->mServicesStateChangeListeners:Landroid/util/ArrayMap;
+
+    new-instance v0, Landroid/view/accessibility/AccessibilityManager$1;
+
+    invoke-direct {v0, p0}, Landroid/view/accessibility/AccessibilityManager$1;-><init>(Landroid/view/accessibility/AccessibilityManager;)V
+
+    iput-object v0, p0, Landroid/view/accessibility/AccessibilityManager;->mClient:Landroid/view/accessibility/IAccessibilityManagerClient$Stub;
+
+    new-instance v0, Landroid/view/accessibility/AccessibilityManager$MyCallback;
+
+    const/4 v1, 0x0
+
+    invoke-direct {v0, p0, v1}, Landroid/view/accessibility/AccessibilityManager$MyCallback;-><init>(Landroid/view/accessibility/AccessibilityManager;Landroid/view/accessibility/AccessibilityManager$MyCallback;)V
+
+    iput-object v0, p0, Landroid/view/accessibility/AccessibilityManager;->mCallback:Landroid/os/Handler$Callback;
+
+    iput-object p1, p0, Landroid/view/accessibility/AccessibilityManager;->mHandler:Landroid/os/Handler;
 
     iput p3, p0, Landroid/view/accessibility/AccessibilityManager;->mUserId:I
 
@@ -309,239 +537,383 @@
     return-object v0
 .end method
 
-.method private handleNotifyAccessibilityStateChanged()V
-    .locals 5
+.method public static isAccessibilityButtonSupported()Z
+    .locals 2
 
-    iget-object v3, p0, Landroid/view/accessibility/AccessibilityManager;->mLock:Ljava/lang/Object;
+    invoke-static {}, Landroid/content/res/Resources;->getSystem()Landroid/content/res/Resources;
 
-    monitor-enter v3
+    move-result-object v0
 
-    :try_start_0
-    iget-boolean v0, p0, Landroid/view/accessibility/AccessibilityManager;->mIsEnabled:Z
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    const v1, 0x1120096
 
-    monitor-exit v3
+    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
 
-    iget-object v3, p0, Landroid/view/accessibility/AccessibilityManager;->mAccessibilityStateChangeListeners:Ljava/util/concurrent/CopyOnWriteArrayList;
+    move-result v1
 
-    invoke-interface {v3}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+    return v1
+.end method
 
-    move-result-object v2
+.method static synthetic lambda$-android_view_accessibility_AccessibilityManager_40648(Landroid/view/accessibility/AccessibilityManager$AccessibilityStateChangeListener;Z)V
+    .locals 0
 
-    :goto_0
-    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {p0, p1}, Landroid/view/accessibility/AccessibilityManager$AccessibilityStateChangeListener;->onAccessibilityStateChanged(Z)V
 
-    move-result v3
-
-    if-eqz v3, :cond_0
-
-    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Landroid/view/accessibility/AccessibilityManager$AccessibilityStateChangeListener;
-
-    invoke-interface {v1, v0}, Landroid/view/accessibility/AccessibilityManager$AccessibilityStateChangeListener;->onAccessibilityStateChanged(Z)V
-
-    goto :goto_0
-
-    :catchall_0
-    move-exception v4
-
-    monitor-exit v3
-
-    throw v4
-
-    :cond_0
     return-void
 .end method
 
-.method private handleNotifyHighTextContrastStateChanged()V
-    .locals 5
+.method static synthetic lambda$-android_view_accessibility_AccessibilityManager_41607(Landroid/view/accessibility/AccessibilityManager$TouchExplorationStateChangeListener;Z)V
+    .locals 0
 
-    iget-object v3, p0, Landroid/view/accessibility/AccessibilityManager;->mLock:Ljava/lang/Object;
+    invoke-interface {p0, p1}, Landroid/view/accessibility/AccessibilityManager$TouchExplorationStateChangeListener;->onTouchExplorationStateChanged(Z)V
 
-    monitor-enter v3
-
-    :try_start_0
-    iget-boolean v0, p0, Landroid/view/accessibility/AccessibilityManager;->mIsHighTextContrastEnabled:Z
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    monitor-exit v3
-
-    iget-object v3, p0, Landroid/view/accessibility/AccessibilityManager;->mHighTextContrastStateChangeListeners:Ljava/util/concurrent/CopyOnWriteArrayList;
-
-    invoke-interface {v3}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
-
-    move-result-object v2
-
-    :goto_0
-    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v3
-
-    if-eqz v3, :cond_0
-
-    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Landroid/view/accessibility/AccessibilityManager$HighTextContrastChangeListener;
-
-    invoke-interface {v1, v0}, Landroid/view/accessibility/AccessibilityManager$HighTextContrastChangeListener;->onHighTextContrastStateChanged(Z)V
-
-    goto :goto_0
-
-    :catchall_0
-    move-exception v4
-
-    monitor-exit v3
-
-    throw v4
-
-    :cond_0
     return-void
 .end method
 
-.method private handleNotifyTouchExplorationStateChanged()V
-    .locals 5
+.method static synthetic lambda$-android_view_accessibility_AccessibilityManager_42570(Landroid/view/accessibility/AccessibilityManager$HighTextContrastChangeListener;Z)V
+    .locals 0
 
-    iget-object v3, p0, Landroid/view/accessibility/AccessibilityManager;->mLock:Ljava/lang/Object;
+    invoke-interface {p0, p1}, Landroid/view/accessibility/AccessibilityManager$HighTextContrastChangeListener;->onHighTextContrastStateChanged(Z)V
 
-    monitor-enter v3
+    return-void
+.end method
+
+.method private notifyAccessibilityStateChanged()V
+    .locals 7
+
+    iget-object v6, p0, Landroid/view/accessibility/AccessibilityManager;->mLock:Ljava/lang/Object;
+
+    monitor-enter v6
 
     :try_start_0
-    iget-boolean v0, p0, Landroid/view/accessibility/AccessibilityManager;->mIsTouchExplorationEnabled:Z
+    iget-object v5, p0, Landroid/view/accessibility/AccessibilityManager;->mAccessibilityStateChangeListeners:Landroid/util/ArrayMap;
+
+    invoke-virtual {v5}, Landroid/util/ArrayMap;->isEmpty()Z
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    monitor-exit v3
+    move-result v5
 
-    iget-object v3, p0, Landroid/view/accessibility/AccessibilityManager;->mTouchExplorationStateChangeListeners:Ljava/util/concurrent/CopyOnWriteArrayList;
+    if-eqz v5, :cond_0
 
-    invoke-interface {v3}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+    monitor-exit v6
+
+    return-void
+
+    :cond_0
+    :try_start_1
+    iget-boolean v1, p0, Landroid/view/accessibility/AccessibilityManager;->mIsEnabled:Z
+
+    new-instance v3, Landroid/util/ArrayMap;
+
+    iget-object v5, p0, Landroid/view/accessibility/AccessibilityManager;->mAccessibilityStateChangeListeners:Landroid/util/ArrayMap;
+
+    invoke-direct {v3, v5}, Landroid/util/ArrayMap;-><init>(Landroid/util/ArrayMap;)V
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    monitor-exit v6
+
+    invoke-virtual {v3}, Landroid/util/ArrayMap;->size()I
+
+    move-result v4
+
+    const/4 v0, 0x0
+
+    :goto_0
+    if-ge v0, v4, :cond_1
+
+    iget-object v5, p0, Landroid/view/accessibility/AccessibilityManager;->mAccessibilityStateChangeListeners:Landroid/util/ArrayMap;
+
+    invoke-virtual {v5, v0}, Landroid/util/ArrayMap;->keyAt(I)Ljava/lang/Object;
 
     move-result-object v2
 
-    :goto_0
-    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+    check-cast v2, Landroid/view/accessibility/AccessibilityManager$AccessibilityStateChangeListener;
 
-    move-result v3
+    iget-object v5, p0, Landroid/view/accessibility/AccessibilityManager;->mAccessibilityStateChangeListeners:Landroid/util/ArrayMap;
 
-    if-eqz v3, :cond_0
+    invoke-virtual {v5, v0}, Landroid/util/ArrayMap;->valueAt(I)Ljava/lang/Object;
 
-    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    move-result-object v5
 
-    move-result-object v1
+    check-cast v5, Landroid/os/Handler;
 
-    check-cast v1, Landroid/view/accessibility/AccessibilityManager$TouchExplorationStateChangeListener;
+    new-instance v6, Landroid/view/accessibility/-$Lambda$T3m_l9_RA18vCOcakSWp1lZCy5g$1;
 
-    invoke-interface {v1, v0}, Landroid/view/accessibility/AccessibilityManager$TouchExplorationStateChangeListener;->onTouchExplorationStateChanged(Z)V
+    invoke-direct {v6, v1, v2}, Landroid/view/accessibility/-$Lambda$T3m_l9_RA18vCOcakSWp1lZCy5g$1;-><init>(ZLjava/lang/Object;)V
+
+    invoke-virtual {v5, v6}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+
+    add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
     :catchall_0
-    move-exception v4
+    move-exception v5
 
-    monitor-exit v3
+    monitor-exit v6
 
-    throw v4
+    throw v5
+
+    :cond_1
+    return-void
+.end method
+
+.method private notifyHighTextContrastStateChanged()V
+    .locals 7
+
+    iget-object v6, p0, Landroid/view/accessibility/AccessibilityManager;->mLock:Ljava/lang/Object;
+
+    monitor-enter v6
+
+    :try_start_0
+    iget-object v5, p0, Landroid/view/accessibility/AccessibilityManager;->mHighTextContrastStateChangeListeners:Landroid/util/ArrayMap;
+
+    invoke-virtual {v5}, Landroid/util/ArrayMap;->isEmpty()Z
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result v5
+
+    if-eqz v5, :cond_0
+
+    monitor-exit v6
+
+    return-void
 
     :cond_0
+    :try_start_1
+    iget-boolean v1, p0, Landroid/view/accessibility/AccessibilityManager;->mIsHighTextContrastEnabled:Z
+
+    new-instance v3, Landroid/util/ArrayMap;
+
+    iget-object v5, p0, Landroid/view/accessibility/AccessibilityManager;->mHighTextContrastStateChangeListeners:Landroid/util/ArrayMap;
+
+    invoke-direct {v3, v5}, Landroid/util/ArrayMap;-><init>(Landroid/util/ArrayMap;)V
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    monitor-exit v6
+
+    invoke-virtual {v3}, Landroid/util/ArrayMap;->size()I
+
+    move-result v4
+
+    const/4 v0, 0x0
+
+    :goto_0
+    if-ge v0, v4, :cond_1
+
+    iget-object v5, p0, Landroid/view/accessibility/AccessibilityManager;->mHighTextContrastStateChangeListeners:Landroid/util/ArrayMap;
+
+    invoke-virtual {v5, v0}, Landroid/util/ArrayMap;->keyAt(I)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Landroid/view/accessibility/AccessibilityManager$HighTextContrastChangeListener;
+
+    iget-object v5, p0, Landroid/view/accessibility/AccessibilityManager;->mHighTextContrastStateChangeListeners:Landroid/util/ArrayMap;
+
+    invoke-virtual {v5, v0}, Landroid/util/ArrayMap;->valueAt(I)Ljava/lang/Object;
+
+    move-result-object v5
+
+    check-cast v5, Landroid/os/Handler;
+
+    new-instance v6, Landroid/view/accessibility/-$Lambda$T3m_l9_RA18vCOcakSWp1lZCy5g$2;
+
+    invoke-direct {v6, v1, v2}, Landroid/view/accessibility/-$Lambda$T3m_l9_RA18vCOcakSWp1lZCy5g$2;-><init>(ZLjava/lang/Object;)V
+
+    invoke-virtual {v5, v6}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_0
+
+    :catchall_0
+    move-exception v5
+
+    monitor-exit v6
+
+    throw v5
+
+    :cond_1
+    return-void
+.end method
+
+.method private notifyTouchExplorationStateChanged()V
+    .locals 7
+
+    iget-object v6, p0, Landroid/view/accessibility/AccessibilityManager;->mLock:Ljava/lang/Object;
+
+    monitor-enter v6
+
+    :try_start_0
+    iget-object v5, p0, Landroid/view/accessibility/AccessibilityManager;->mTouchExplorationStateChangeListeners:Landroid/util/ArrayMap;
+
+    invoke-virtual {v5}, Landroid/util/ArrayMap;->isEmpty()Z
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result v5
+
+    if-eqz v5, :cond_0
+
+    monitor-exit v6
+
+    return-void
+
+    :cond_0
+    :try_start_1
+    iget-boolean v1, p0, Landroid/view/accessibility/AccessibilityManager;->mIsTouchExplorationEnabled:Z
+
+    new-instance v3, Landroid/util/ArrayMap;
+
+    iget-object v5, p0, Landroid/view/accessibility/AccessibilityManager;->mTouchExplorationStateChangeListeners:Landroid/util/ArrayMap;
+
+    invoke-direct {v3, v5}, Landroid/util/ArrayMap;-><init>(Landroid/util/ArrayMap;)V
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    monitor-exit v6
+
+    invoke-virtual {v3}, Landroid/util/ArrayMap;->size()I
+
+    move-result v4
+
+    const/4 v0, 0x0
+
+    :goto_0
+    if-ge v0, v4, :cond_1
+
+    iget-object v5, p0, Landroid/view/accessibility/AccessibilityManager;->mTouchExplorationStateChangeListeners:Landroid/util/ArrayMap;
+
+    invoke-virtual {v5, v0}, Landroid/util/ArrayMap;->keyAt(I)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Landroid/view/accessibility/AccessibilityManager$TouchExplorationStateChangeListener;
+
+    iget-object v5, p0, Landroid/view/accessibility/AccessibilityManager;->mTouchExplorationStateChangeListeners:Landroid/util/ArrayMap;
+
+    invoke-virtual {v5, v0}, Landroid/util/ArrayMap;->valueAt(I)Ljava/lang/Object;
+
+    move-result-object v5
+
+    check-cast v5, Landroid/os/Handler;
+
+    new-instance v6, Landroid/view/accessibility/-$Lambda$T3m_l9_RA18vCOcakSWp1lZCy5g$3;
+
+    invoke-direct {v6, v1, v2}, Landroid/view/accessibility/-$Lambda$T3m_l9_RA18vCOcakSWp1lZCy5g$3;-><init>(ZLjava/lang/Object;)V
+
+    invoke-virtual {v5, v6}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_0
+
+    :catchall_0
+    move-exception v5
+
+    monitor-exit v6
+
+    throw v5
+
+    :cond_1
     return-void
 .end method
 
 .method private setStateLocked(I)V
     .locals 8
 
-    and-int/lit8 v6, p1, 0x1
+    and-int/lit8 v7, p1, 0x1
 
-    if-eqz v6, :cond_3
-
-    const/4 v0, 0x1
-
-    :goto_0
-    and-int/lit8 v6, p1, 0x2
-
-    if-eqz v6, :cond_4
-
-    const/4 v2, 0x1
-
-    :goto_1
-    and-int/lit8 v6, p1, 0x4
-
-    if-eqz v6, :cond_5
+    if-eqz v7, :cond_3
 
     const/4 v1, 0x1
 
+    :goto_0
+    and-int/lit8 v7, p1, 0x2
+
+    if-eqz v7, :cond_4
+
+    const/4 v3, 0x1
+
+    :goto_1
+    and-int/lit8 v7, p1, 0x4
+
+    if-eqz v7, :cond_5
+
+    const/4 v2, 0x1
+
     :goto_2
-    iget-boolean v3, p0, Landroid/view/accessibility/AccessibilityManager;->mIsEnabled:Z
+    and-int/lit16 v7, p1, 0x100
 
-    iget-boolean v5, p0, Landroid/view/accessibility/AccessibilityManager;->mIsTouchExplorationEnabled:Z
+    if-eqz v7, :cond_6
 
-    iget-boolean v4, p0, Landroid/view/accessibility/AccessibilityManager;->mIsHighTextContrastEnabled:Z
+    const/4 v0, 0x1
 
-    iput-boolean v0, p0, Landroid/view/accessibility/AccessibilityManager;->mIsEnabled:Z
+    :goto_3
+    iget-boolean v4, p0, Landroid/view/accessibility/AccessibilityManager;->mIsEnabled:Z
 
-    iput-boolean v2, p0, Landroid/view/accessibility/AccessibilityManager;->mIsTouchExplorationEnabled:Z
+    iget-boolean v6, p0, Landroid/view/accessibility/AccessibilityManager;->mIsTouchExplorationEnabled:Z
 
-    iput-boolean v1, p0, Landroid/view/accessibility/AccessibilityManager;->mIsHighTextContrastEnabled:Z
+    iget-boolean v5, p0, Landroid/view/accessibility/AccessibilityManager;->mIsHighTextContrastEnabled:Z
 
-    if-eq v3, v0, :cond_0
+    iput-boolean v1, p0, Landroid/view/accessibility/AccessibilityManager;->mIsEnabled:Z
 
-    iget-object v6, p0, Landroid/view/accessibility/AccessibilityManager;->mHandler:Landroid/os/Handler;
+    iput-boolean v3, p0, Landroid/view/accessibility/AccessibilityManager;->mIsTouchExplorationEnabled:Z
 
-    const/4 v7, 0x1
+    iput-boolean v2, p0, Landroid/view/accessibility/AccessibilityManager;->mIsHighTextContrastEnabled:Z
 
-    invoke-virtual {v6, v7}, Landroid/os/Handler;->sendEmptyMessage(I)Z
+    iput-boolean v0, p0, Landroid/view/accessibility/AccessibilityManager;->mIsBixbyRunning:Z
+
+    if-eq v4, v1, :cond_0
+
+    invoke-direct {p0}, Landroid/view/accessibility/AccessibilityManager;->notifyAccessibilityStateChanged()V
 
     :cond_0
-    if-eq v5, v2, :cond_1
+    if-eq v6, v3, :cond_1
 
-    iget-object v6, p0, Landroid/view/accessibility/AccessibilityManager;->mHandler:Landroid/os/Handler;
-
-    const/4 v7, 0x2
-
-    invoke-virtual {v6, v7}, Landroid/os/Handler;->sendEmptyMessage(I)Z
+    invoke-direct {p0}, Landroid/view/accessibility/AccessibilityManager;->notifyTouchExplorationStateChanged()V
 
     :cond_1
-    if-eq v4, v1, :cond_2
+    if-eq v5, v2, :cond_2
 
-    iget-object v6, p0, Landroid/view/accessibility/AccessibilityManager;->mHandler:Landroid/os/Handler;
-
-    const/4 v7, 0x3
-
-    invoke-virtual {v6, v7}, Landroid/os/Handler;->sendEmptyMessage(I)Z
+    invoke-direct {p0}, Landroid/view/accessibility/AccessibilityManager;->notifyHighTextContrastStateChanged()V
 
     :cond_2
     return-void
 
     :cond_3
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
     goto :goto_0
 
     :cond_4
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
     goto :goto_1
 
     :cond_5
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
     goto :goto_2
+
+    :cond_6
+    const/4 v0, 0x0
+
+    goto :goto_3
 .end method
 
 .method private tryConnectToServiceLocked(Landroid/view/accessibility/IAccessibilityManager;)V
-    .locals 5
+    .locals 6
 
     if-nez p1, :cond_1
 
-    const-string/jumbo v3, "accessibility"
+    const-string/jumbo v4, "accessibility"
 
-    invoke-static {v3}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
+    invoke-static {v4}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
 
     move-result-object v0
 
@@ -556,15 +928,25 @@
 
     :cond_1
     :try_start_0
-    iget-object v3, p0, Landroid/view/accessibility/AccessibilityManager;->mClient:Landroid/view/accessibility/IAccessibilityManagerClient$Stub;
+    iget-object v4, p0, Landroid/view/accessibility/AccessibilityManager;->mClient:Landroid/view/accessibility/IAccessibilityManagerClient$Stub;
 
-    iget v4, p0, Landroid/view/accessibility/AccessibilityManager;->mUserId:I
+    iget v5, p0, Landroid/view/accessibility/AccessibilityManager;->mUserId:I
 
-    invoke-interface {p1, v3, v4}, Landroid/view/accessibility/IAccessibilityManager;->addClient(Landroid/view/accessibility/IAccessibilityManagerClient;I)I
+    invoke-interface {p1, v4, v5}, Landroid/view/accessibility/IAccessibilityManager;->addClient(Landroid/view/accessibility/IAccessibilityManagerClient;I)J
 
-    move-result v2
+    move-result-wide v2
 
-    invoke-direct {p0, v2}, Landroid/view/accessibility/AccessibilityManager;->setStateLocked(I)V
+    invoke-static {v2, v3}, Lcom/android/internal/util/IntPair;->first(J)I
+
+    move-result v4
+
+    invoke-direct {p0, v4}, Landroid/view/accessibility/AccessibilityManager;->setStateLocked(I)V
+
+    invoke-static {v2, v3}, Lcom/android/internal/util/IntPair;->second(J)I
+
+    move-result v4
+
+    iput v4, p0, Landroid/view/accessibility/AccessibilityManager;->mRelevantEventTypes:I
 
     iput-object p1, p0, Landroid/view/accessibility/AccessibilityManager;->mService:Landroid/view/accessibility/IAccessibilityManager;
     :try_end_0
@@ -576,11 +958,11 @@
     :catch_0
     move-exception v1
 
-    const-string/jumbo v3, "AccessibilityManager"
+    const-string/jumbo v4, "AccessibilityManager"
 
-    const-string/jumbo v4, "AccessibilityManagerService is dead"
+    const-string/jumbo v5, "AccessibilityManagerService is dead"
 
-    invoke-static {v3, v4, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v4, v5, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     goto :goto_0
 .end method
@@ -703,38 +1085,150 @@
     return v5
 .end method
 
+.method public addAccessibilityServicesStateChangeListener(Landroid/view/accessibility/AccessibilityManager$AccessibilityServicesStateChangeListener;Landroid/os/Handler;)V
+    .locals 2
+
+    iget-object v1, p0, Landroid/view/accessibility/AccessibilityManager;->mLock:Ljava/lang/Object;
+
+    monitor-enter v1
+
+    :try_start_0
+    iget-object v0, p0, Landroid/view/accessibility/AccessibilityManager;->mServicesStateChangeListeners:Landroid/util/ArrayMap;
+
+    if-nez p2, :cond_0
+
+    iget-object p2, p0, Landroid/view/accessibility/AccessibilityManager;->mHandler:Landroid/os/Handler;
+
+    :cond_0
+    invoke-virtual {v0, p1, p2}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit v1
+
+    return-void
+
+    :catchall_0
+    move-exception v0
+
+    monitor-exit v1
+
+    throw v0
+.end method
+
+.method public addAccessibilityStateChangeListener(Landroid/view/accessibility/AccessibilityManager$AccessibilityStateChangeListener;Landroid/os/Handler;)V
+    .locals 2
+
+    iget-object v1, p0, Landroid/view/accessibility/AccessibilityManager;->mLock:Ljava/lang/Object;
+
+    monitor-enter v1
+
+    :try_start_0
+    iget-object v0, p0, Landroid/view/accessibility/AccessibilityManager;->mAccessibilityStateChangeListeners:Landroid/util/ArrayMap;
+
+    if-nez p2, :cond_0
+
+    iget-object p2, p0, Landroid/view/accessibility/AccessibilityManager;->mHandler:Landroid/os/Handler;
+
+    :cond_0
+    invoke-virtual {v0, p1, p2}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit v1
+
+    return-void
+
+    :catchall_0
+    move-exception v0
+
+    monitor-exit v1
+
+    throw v0
+.end method
+
 .method public addAccessibilityStateChangeListener(Landroid/view/accessibility/AccessibilityManager$AccessibilityStateChangeListener;)Z
     .locals 1
 
-    iget-object v0, p0, Landroid/view/accessibility/AccessibilityManager;->mAccessibilityStateChangeListeners:Ljava/util/concurrent/CopyOnWriteArrayList;
+    const/4 v0, 0x0
 
-    invoke-virtual {v0, p1}, Ljava/util/concurrent/CopyOnWriteArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {p0, p1, v0}, Landroid/view/accessibility/AccessibilityManager;->addAccessibilityStateChangeListener(Landroid/view/accessibility/AccessibilityManager$AccessibilityStateChangeListener;Landroid/os/Handler;)V
 
-    move-result v0
+    const/4 v0, 0x1
 
     return v0
 .end method
 
-.method public addHighTextContrastStateChangeListener(Landroid/view/accessibility/AccessibilityManager$HighTextContrastChangeListener;)Z
-    .locals 1
+.method public addHighTextContrastStateChangeListener(Landroid/view/accessibility/AccessibilityManager$HighTextContrastChangeListener;Landroid/os/Handler;)V
+    .locals 2
 
-    iget-object v0, p0, Landroid/view/accessibility/AccessibilityManager;->mHighTextContrastStateChangeListeners:Ljava/util/concurrent/CopyOnWriteArrayList;
+    iget-object v1, p0, Landroid/view/accessibility/AccessibilityManager;->mLock:Ljava/lang/Object;
 
-    invoke-virtual {v0, p1}, Ljava/util/concurrent/CopyOnWriteArrayList;->add(Ljava/lang/Object;)Z
+    monitor-enter v1
 
-    move-result v0
+    :try_start_0
+    iget-object v0, p0, Landroid/view/accessibility/AccessibilityManager;->mHighTextContrastStateChangeListeners:Landroid/util/ArrayMap;
 
-    return v0
+    if-nez p2, :cond_0
+
+    iget-object p2, p0, Landroid/view/accessibility/AccessibilityManager;->mHandler:Landroid/os/Handler;
+
+    :cond_0
+    invoke-virtual {v0, p1, p2}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit v1
+
+    return-void
+
+    :catchall_0
+    move-exception v0
+
+    monitor-exit v1
+
+    throw v0
+.end method
+
+.method public addTouchExplorationStateChangeListener(Landroid/view/accessibility/AccessibilityManager$TouchExplorationStateChangeListener;Landroid/os/Handler;)V
+    .locals 2
+
+    iget-object v1, p0, Landroid/view/accessibility/AccessibilityManager;->mLock:Ljava/lang/Object;
+
+    monitor-enter v1
+
+    :try_start_0
+    iget-object v0, p0, Landroid/view/accessibility/AccessibilityManager;->mTouchExplorationStateChangeListeners:Landroid/util/ArrayMap;
+
+    if-nez p2, :cond_0
+
+    iget-object p2, p0, Landroid/view/accessibility/AccessibilityManager;->mHandler:Landroid/os/Handler;
+
+    :cond_0
+    invoke-virtual {v0, p1, p2}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit v1
+
+    return-void
+
+    :catchall_0
+    move-exception v0
+
+    monitor-exit v1
+
+    throw v0
 .end method
 
 .method public addTouchExplorationStateChangeListener(Landroid/view/accessibility/AccessibilityManager$TouchExplorationStateChangeListener;)Z
     .locals 1
 
-    iget-object v0, p0, Landroid/view/accessibility/AccessibilityManager;->mTouchExplorationStateChangeListeners:Ljava/util/concurrent/CopyOnWriteArrayList;
+    const/4 v0, 0x0
 
-    invoke-virtual {v0, p1}, Ljava/util/concurrent/CopyOnWriteArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {p0, p1, v0}, Landroid/view/accessibility/AccessibilityManager;->addTouchExplorationStateChangeListener(Landroid/view/accessibility/AccessibilityManager$TouchExplorationStateChangeListener;Landroid/os/Handler;)V
 
-    move-result v0
+    const/4 v0, 0x1
 
     return v0
 .end method
@@ -795,6 +1289,14 @@
     move-result-object v5
 
     return-object v5
+.end method
+
+.method public getCallback()Landroid/os/Handler$Callback;
+    .locals 1
+
+    iget-object v0, p0, Landroid/view/accessibility/AccessibilityManager;->mCallback:Landroid/os/Handler$Callback;
+
+    return-object v0
 .end method
 
 .method public getClient()Landroid/view/accessibility/IAccessibilityManagerClient;
@@ -975,75 +1477,243 @@
     return-object v4
 .end method
 
+.method public getInstalledServiceInfoWithComponentName(Landroid/content/ComponentName;)Landroid/accessibilityservice/AccessibilityServiceInfo;
+    .locals 4
+
+    const/4 v3, 0x0
+
+    invoke-virtual {p0}, Landroid/view/accessibility/AccessibilityManager;->getInstalledAccessibilityServiceList()Ljava/util/List;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_0
+
+    if-nez p1, :cond_1
+
+    :cond_0
+    return-object v3
+
+    :cond_1
+    const/4 v0, 0x0
+
+    :goto_0
+    invoke-interface {v1}, Ljava/util/List;->size()I
+
+    move-result v2
+
+    if-ge v0, v2, :cond_3
+
+    invoke-interface {v1, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Landroid/accessibilityservice/AccessibilityServiceInfo;
+
+    invoke-virtual {v2}, Landroid/accessibilityservice/AccessibilityServiceInfo;->getComponentName()Landroid/content/ComponentName;
+
+    move-result-object v2
+
+    invoke-virtual {p1, v2}, Landroid/content/ComponentName;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_2
+
+    invoke-interface {v1, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Landroid/accessibilityservice/AccessibilityServiceInfo;
+
+    return-object v2
+
+    :cond_2
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_0
+
+    :cond_3
+    return-object v3
+.end method
+
 .method public interrupt()V
-    .locals 6
+    .locals 7
 
-    iget-object v4, p0, Landroid/view/accessibility/AccessibilityManager;->mLock:Ljava/lang/Object;
+    iget-object v5, p0, Landroid/view/accessibility/AccessibilityManager;->mLock:Ljava/lang/Object;
 
-    monitor-enter v4
+    monitor-enter v5
 
     :try_start_0
     invoke-direct {p0}, Landroid/view/accessibility/AccessibilityManager;->getServiceLocked()Landroid/view/accessibility/IAccessibilityManager;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    move-result-object v1
+    move-result-object v2
 
-    if-nez v1, :cond_0
+    if-nez v2, :cond_0
 
-    monitor-exit v4
+    monitor-exit v5
 
     return-void
 
     :cond_0
     :try_start_1
-    iget-boolean v3, p0, Landroid/view/accessibility/AccessibilityManager;->mIsEnabled:Z
+    iget-boolean v4, p0, Landroid/view/accessibility/AccessibilityManager;->mIsEnabled:Z
 
-    if-nez v3, :cond_1
+    if-nez v4, :cond_2
 
-    new-instance v3, Ljava/lang/IllegalStateException;
+    invoke-static {}, Landroid/os/Looper;->myLooper()Landroid/os/Looper;
 
-    const-string/jumbo v5, "Accessibility off. Did you forget to check that?"
+    move-result-object v0
 
-    invoke-direct {v3, v5}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-static {}, Landroid/os/Looper;->getMainLooper()Landroid/os/Looper;
 
-    throw v3
+    move-result-object v4
+
+    if-ne v0, v4, :cond_1
+
+    new-instance v4, Ljava/lang/IllegalStateException;
+
+    const-string/jumbo v6, "Accessibility off. Did you forget to check that?"
+
+    invoke-direct {v4, v6}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+
+    throw v4
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     :catchall_0
-    move-exception v3
+    move-exception v4
 
-    monitor-exit v4
+    monitor-exit v5
 
-    throw v3
+    throw v4
 
     :cond_1
     :try_start_2
-    iget v2, p0, Landroid/view/accessibility/AccessibilityManager;->mUserId:I
+    const-string/jumbo v4, "AccessibilityManager"
+
+    const-string/jumbo v6, "Interrupt called with accessibility disabled"
+
+    invoke-static {v4, v6}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    monitor-exit v4
+    monitor-exit v5
 
+    return-void
+
+    :cond_2
     :try_start_3
-    invoke-interface {v1, v2}, Landroid/view/accessibility/IAccessibilityManager;->interrupt(I)V
+    iget v3, p0, Landroid/view/accessibility/AccessibilityManager;->mUserId:I
     :try_end_3
-    .catch Landroid/os/RemoteException; {:try_start_3 .. :try_end_3} :catch_0
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+
+    monitor-exit v5
+
+    :try_start_4
+    invoke-interface {v2, v3}, Landroid/view/accessibility/IAccessibilityManager;->interrupt(I)V
+    :try_end_4
+    .catch Landroid/os/RemoteException; {:try_start_4 .. :try_end_4} :catch_0
 
     :goto_0
     return-void
 
     :catch_0
-    move-exception v0
+    move-exception v1
 
-    const-string/jumbo v3, "AccessibilityManager"
+    const-string/jumbo v4, "AccessibilityManager"
 
-    const-string/jumbo v4, "Error while requesting interrupt from all services. "
+    const-string/jumbo v5, "Error while requesting interrupt from all services. "
 
-    invoke-static {v3, v4, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v4, v5, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     goto :goto_0
+.end method
+
+.method public isAccessibilityVolumeStreamActive()Z
+    .locals 4
+
+    const/4 v3, 0x0
+
+    const/4 v2, -0x1
+
+    invoke-virtual {p0, v2}, Landroid/view/accessibility/AccessibilityManager;->getEnabledAccessibilityServiceList(I)Ljava/util/List;
+
+    move-result-object v1
+
+    const/4 v0, 0x0
+
+    :goto_0
+    invoke-interface {v1}, Ljava/util/List;->size()I
+
+    move-result v2
+
+    if-ge v0, v2, :cond_1
+
+    invoke-interface {v1, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Landroid/accessibilityservice/AccessibilityServiceInfo;
+
+    iget v2, v2, Landroid/accessibilityservice/AccessibilityServiceInfo;->flags:I
+
+    and-int/lit16 v2, v2, 0x80
+
+    if-eqz v2, :cond_0
+
+    const/4 v2, 0x1
+
+    return v2
+
+    :cond_0
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_0
+
+    :cond_1
+    return v3
+.end method
+
+.method public isBixbyRunning()Z
+    .locals 3
+
+    iget-object v2, p0, Landroid/view/accessibility/AccessibilityManager;->mLock:Ljava/lang/Object;
+
+    monitor-enter v2
+
+    :try_start_0
+    invoke-direct {p0}, Landroid/view/accessibility/AccessibilityManager;->getServiceLocked()Landroid/view/accessibility/IAccessibilityManager;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result-object v0
+
+    if-nez v0, :cond_0
+
+    const/4 v1, 0x0
+
+    monitor-exit v2
+
+    return v1
+
+    :cond_0
+    :try_start_1
+    iget-boolean v1, p0, Landroid/view/accessibility/AccessibilityManager;->mIsBixbyRunning:Z
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    monitor-exit v2
+
+    return v1
+
+    :catchall_0
+    move-exception v1
+
+    monitor-exit v2
+
+    throw v1
 .end method
 
 .method public isEnabled()Z
@@ -1224,33 +1894,152 @@
     goto :goto_0
 .end method
 
-.method public reboot(Z)V
-    .locals 3
+.method public notifyAccessibilityButtonClicked()V
+    .locals 4
+
+    iget-object v2, p0, Landroid/view/accessibility/AccessibilityManager;->mLock:Ljava/lang/Object;
+
+    monitor-enter v2
 
     :try_start_0
-    iget-object v1, p0, Landroid/view/accessibility/AccessibilityManager;->mService:Landroid/view/accessibility/IAccessibilityManager;
-
-    invoke-interface {v1, p1}, Landroid/view/accessibility/IAccessibilityManager;->reboot(Z)V
-
-    const-string/jumbo v1, "AccessibilityManager"
-
-    const-string/jumbo v2, "reboot from manager:"
-
-    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-direct {p0}, Landroid/view/accessibility/AccessibilityManager;->getServiceLocked()Landroid/view/accessibility/IAccessibilityManager;
     :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result-object v1
+
+    if-nez v1, :cond_0
+
+    monitor-exit v2
+
+    return-void
+
+    :cond_0
+    monitor-exit v2
+
+    :try_start_1
+    invoke-interface {v1}, Landroid/view/accessibility/IAccessibilityManager;->notifyAccessibilityButtonClicked()V
+    :try_end_1
+    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
 
     :goto_0
     return-void
 
+    :catchall_0
+    move-exception v3
+
+    monitor-exit v2
+
+    throw v3
+
     :catch_0
     move-exception v0
 
-    const-string/jumbo v1, "AccessibilityManager"
+    const-string/jumbo v2, "AccessibilityManager"
 
-    const-string/jumbo v2, "reboot Exception:"
+    const-string/jumbo v3, "Error while dispatching accessibility button click"
 
-    invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v2, v3, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    goto :goto_0
+.end method
+
+.method public notifyAccessibilityButtonVisibilityChanged(Z)V
+    .locals 4
+
+    iget-object v2, p0, Landroid/view/accessibility/AccessibilityManager;->mLock:Ljava/lang/Object;
+
+    monitor-enter v2
+
+    :try_start_0
+    invoke-direct {p0}, Landroid/view/accessibility/AccessibilityManager;->getServiceLocked()Landroid/view/accessibility/IAccessibilityManager;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result-object v1
+
+    if-nez v1, :cond_0
+
+    monitor-exit v2
+
+    return-void
+
+    :cond_0
+    monitor-exit v2
+
+    :try_start_1
+    invoke-interface {v1, p1}, Landroid/view/accessibility/IAccessibilityManager;->notifyAccessibilityButtonVisibilityChanged(Z)V
+    :try_end_1
+    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
+
+    :goto_0
+    return-void
+
+    :catchall_0
+    move-exception v3
+
+    monitor-exit v2
+
+    throw v3
+
+    :catch_0
+    move-exception v0
+
+    const-string/jumbo v2, "AccessibilityManager"
+
+    const-string/jumbo v3, "Error while dispatching accessibility button visibility change"
+
+    invoke-static {v2, v3, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    goto :goto_0
+.end method
+
+.method public performAccessibilityShortcut()V
+    .locals 4
+
+    iget-object v2, p0, Landroid/view/accessibility/AccessibilityManager;->mLock:Ljava/lang/Object;
+
+    monitor-enter v2
+
+    :try_start_0
+    invoke-direct {p0}, Landroid/view/accessibility/AccessibilityManager;->getServiceLocked()Landroid/view/accessibility/IAccessibilityManager;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result-object v1
+
+    if-nez v1, :cond_0
+
+    monitor-exit v2
+
+    return-void
+
+    :cond_0
+    monitor-exit v2
+
+    :try_start_1
+    invoke-interface {v1}, Landroid/view/accessibility/IAccessibilityManager;->performAccessibilityShortcut()V
+    :try_end_1
+    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
+
+    :goto_0
+    return-void
+
+    :catchall_0
+    move-exception v3
+
+    monitor-exit v2
+
+    throw v3
+
+    :catch_0
+    move-exception v0
+
+    const-string/jumbo v2, "AccessibilityManager"
+
+    const-string/jumbo v3, "Error performing accessibility shortcut. "
+
+    invoke-static {v2, v3, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     goto :goto_0
 .end method
@@ -1305,40 +2094,118 @@
     goto :goto_0
 .end method
 
-.method public removeAccessibilityStateChangeListener(Landroid/view/accessibility/AccessibilityManager$AccessibilityStateChangeListener;)Z
+.method public removeAccessibilityServicesStateChangeListener(Landroid/view/accessibility/AccessibilityManager$AccessibilityServicesStateChangeListener;)V
     .locals 1
 
-    iget-object v0, p0, Landroid/view/accessibility/AccessibilityManager;->mAccessibilityStateChangeListeners:Ljava/util/concurrent/CopyOnWriteArrayList;
+    iget-object v0, p0, Landroid/view/accessibility/AccessibilityManager;->mServicesStateChangeListeners:Landroid/util/ArrayMap;
 
-    invoke-virtual {v0, p1}, Ljava/util/concurrent/CopyOnWriteArrayList;->remove(Ljava/lang/Object;)Z
+    invoke-virtual {v0, p1}, Landroid/util/ArrayMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result v0
-
-    return v0
+    return-void
 .end method
 
-.method public removeHighTextContrastStateChangeListener(Landroid/view/accessibility/AccessibilityManager$HighTextContrastChangeListener;)Z
-    .locals 1
+.method public removeAccessibilityStateChangeListener(Landroid/view/accessibility/AccessibilityManager$AccessibilityStateChangeListener;)Z
+    .locals 4
 
-    iget-object v0, p0, Landroid/view/accessibility/AccessibilityManager;->mHighTextContrastStateChangeListeners:Ljava/util/concurrent/CopyOnWriteArrayList;
+    const/4 v1, 0x0
 
-    invoke-virtual {v0, p1}, Ljava/util/concurrent/CopyOnWriteArrayList;->remove(Ljava/lang/Object;)Z
+    iget-object v2, p0, Landroid/view/accessibility/AccessibilityManager;->mLock:Ljava/lang/Object;
+
+    monitor-enter v2
+
+    :try_start_0
+    iget-object v3, p0, Landroid/view/accessibility/AccessibilityManager;->mAccessibilityStateChangeListeners:Landroid/util/ArrayMap;
+
+    invoke-virtual {v3, p1}, Landroid/util/ArrayMap;->indexOfKey(Ljava/lang/Object;)I
 
     move-result v0
 
-    return v0
+    iget-object v3, p0, Landroid/view/accessibility/AccessibilityManager;->mAccessibilityStateChangeListeners:Landroid/util/ArrayMap;
+
+    invoke-virtual {v3, p1}, Landroid/util/ArrayMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    if-ltz v0, :cond_0
+
+    const/4 v1, 0x1
+
+    :cond_0
+    monitor-exit v2
+
+    return v1
+
+    :catchall_0
+    move-exception v1
+
+    monitor-exit v2
+
+    throw v1
+.end method
+
+.method public removeHighTextContrastStateChangeListener(Landroid/view/accessibility/AccessibilityManager$HighTextContrastChangeListener;)V
+    .locals 2
+
+    iget-object v1, p0, Landroid/view/accessibility/AccessibilityManager;->mLock:Ljava/lang/Object;
+
+    monitor-enter v1
+
+    :try_start_0
+    iget-object v0, p0, Landroid/view/accessibility/AccessibilityManager;->mHighTextContrastStateChangeListeners:Landroid/util/ArrayMap;
+
+    invoke-virtual {v0, p1}, Landroid/util/ArrayMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit v1
+
+    return-void
+
+    :catchall_0
+    move-exception v0
+
+    monitor-exit v1
+
+    throw v0
 .end method
 
 .method public removeTouchExplorationStateChangeListener(Landroid/view/accessibility/AccessibilityManager$TouchExplorationStateChangeListener;)Z
-    .locals 1
+    .locals 4
 
-    iget-object v0, p0, Landroid/view/accessibility/AccessibilityManager;->mTouchExplorationStateChangeListeners:Ljava/util/concurrent/CopyOnWriteArrayList;
+    const/4 v1, 0x0
 
-    invoke-virtual {v0, p1}, Ljava/util/concurrent/CopyOnWriteArrayList;->remove(Ljava/lang/Object;)Z
+    iget-object v2, p0, Landroid/view/accessibility/AccessibilityManager;->mLock:Ljava/lang/Object;
+
+    monitor-enter v2
+
+    :try_start_0
+    iget-object v3, p0, Landroid/view/accessibility/AccessibilityManager;->mTouchExplorationStateChangeListeners:Landroid/util/ArrayMap;
+
+    invoke-virtual {v3, p1}, Landroid/util/ArrayMap;->indexOfKey(Ljava/lang/Object;)I
 
     move-result v0
 
-    return v0
+    iget-object v3, p0, Landroid/view/accessibility/AccessibilityManager;->mTouchExplorationStateChangeListeners:Landroid/util/ArrayMap;
+
+    invoke-virtual {v3, p1}, Landroid/util/ArrayMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    if-ltz v0, :cond_0
+
+    const/4 v1, 0x1
+
+    :cond_0
+    monitor-exit v2
+
+    return v1
+
+    :catchall_0
+    move-exception v1
+
+    monitor-exit v2
+
+    throw v1
 .end method
 
 .method public semCheckMdnieColorBlind([I)Z
@@ -1395,6 +2262,64 @@
     goto :goto_0
 .end method
 
+.method public semDisableMdnieColorFilter()Z
+    .locals 4
+
+    const/4 v1, 0x0
+
+    :try_start_0
+    iget-object v2, p0, Landroid/view/accessibility/AccessibilityManager;->mService:Landroid/view/accessibility/IAccessibilityManager;
+
+    invoke-interface {v2}, Landroid/view/accessibility/IAccessibilityManager;->semDisableMdnieColorFilter()Z
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v1
+
+    :goto_0
+    return v1
+
+    :catch_0
+    move-exception v0
+
+    const-string/jumbo v2, "AccessibilityManager"
+
+    const-string/jumbo v3, "semDisableMdnieColorFilter Exception:"
+
+    invoke-static {v2, v3, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    goto :goto_0
+.end method
+
+.method public semDisableScreenNotificationEffect()Z
+    .locals 4
+
+    const/4 v1, 0x0
+
+    :try_start_0
+    iget-object v2, p0, Landroid/view/accessibility/AccessibilityManager;->mService:Landroid/view/accessibility/IAccessibilityManager;
+
+    invoke-interface {v2}, Landroid/view/accessibility/IAccessibilityManager;->semDisableScreenNotificationEffect()Z
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v1
+
+    :goto_0
+    return v1
+
+    :catch_0
+    move-exception v0
+
+    const-string/jumbo v2, "AccessibilityManager"
+
+    const-string/jumbo v3, "semDisableScreenNotificationEffect Exception:"
+
+    invoke-static {v2, v3, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    goto :goto_0
+.end method
+
 .method public semEnableMagnifier(IIF)V
     .locals 3
 
@@ -1441,6 +2366,64 @@
     const-string/jumbo v2, "semEnableMagnifier Exception:"
 
     invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    goto :goto_0
+.end method
+
+.method public semEnableMdnieColorFilter(II)Z
+    .locals 4
+
+    const/4 v1, 0x0
+
+    :try_start_0
+    iget-object v2, p0, Landroid/view/accessibility/AccessibilityManager;->mService:Landroid/view/accessibility/IAccessibilityManager;
+
+    invoke-interface {v2, p1, p2}, Landroid/view/accessibility/IAccessibilityManager;->semEnableMdnieColorFilter(II)Z
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v1
+
+    :goto_0
+    return v1
+
+    :catch_0
+    move-exception v0
+
+    const-string/jumbo v2, "AccessibilityManager"
+
+    const-string/jumbo v3, "semEnableMdnieColorFilter Exception:"
+
+    invoke-static {v2, v3, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    goto :goto_0
+.end method
+
+.method public semEnableScreenNotificationEffect()Z
+    .locals 4
+
+    const/4 v1, 0x0
+
+    :try_start_0
+    iget-object v2, p0, Landroid/view/accessibility/AccessibilityManager;->mService:Landroid/view/accessibility/IAccessibilityManager;
+
+    invoke-interface {v2}, Landroid/view/accessibility/IAccessibilityManager;->semEnableScreenNotificationEffect()Z
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v1
+
+    :goto_0
+    return v1
+
+    :catch_0
+    move-exception v0
+
+    const-string/jumbo v2, "AccessibilityManager"
+
+    const-string/jumbo v3, "semEnableScreenNotificationEffect Exception:"
+
+    invoke-static {v2, v3, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     goto :goto_0
 .end method
@@ -2020,7 +3003,17 @@
     :try_start_1
     iget-boolean v6, p0, Landroid/view/accessibility/AccessibilityManager;->mIsEnabled:Z
 
-    if-nez v6, :cond_1
+    if-nez v6, :cond_2
+
+    invoke-static {}, Landroid/os/Looper;->myLooper()Landroid/os/Looper;
+
+    move-result-object v2
+
+    invoke-static {}, Landroid/os/Looper;->getMainLooper()Landroid/os/Looper;
+
+    move-result-object v6
+
+    if-ne v2, v6, :cond_1
 
     new-instance v6, Ljava/lang/IllegalStateException;
 
@@ -2041,15 +3034,45 @@
 
     :cond_1
     :try_start_2
-    iget v5, p0, Landroid/view/accessibility/AccessibilityManager;->mUserId:I
+    const-string/jumbo v6, "AccessibilityManager"
+
+    const-string/jumbo v8, "AccessibilityEvent sent with accessibility disabled"
+
+    invoke-static {v6, v8}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     monitor-exit v7
 
-    const/4 v0, 0x0
+    return-void
 
+    :cond_2
     :try_start_3
+    invoke-virtual {p1}, Landroid/view/accessibility/AccessibilityEvent;->getEventType()I
+
+    move-result v6
+
+    iget v8, p0, Landroid/view/accessibility/AccessibilityManager;->mRelevantEventTypes:I
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+
+    and-int/2addr v6, v8
+
+    if-nez v6, :cond_3
+
+    monitor-exit v7
+
+    return-void
+
+    :cond_3
+    :try_start_4
+    iget v5, p0, Landroid/view/accessibility/AccessibilityManager;->mUserId:I
+    :try_end_4
+    .catchall {:try_start_4 .. :try_end_4} :catchall_0
+
+    monitor-exit v7
+
+    :try_start_5
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
     move-result-wide v6
@@ -2058,29 +3081,24 @@
 
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
-    move-result-wide v2
+    move-result-wide v0
 
-    invoke-interface {v4, p1, v5}, Landroid/view/accessibility/IAccessibilityManager;->sendAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;I)Z
+    invoke-interface {v4, p1, v5}, Landroid/view/accessibility/IAccessibilityManager;->sendAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;I)V
 
-    move-result v0
-
-    invoke-static {v2, v3}, Landroid/os/Binder;->restoreCallingIdentity(J)V
-    :try_end_3
-    .catch Landroid/os/RemoteException; {:try_start_3 .. :try_end_3} :catch_0
-    .catchall {:try_start_3 .. :try_end_3} :catchall_1
-
-    if-eqz v0, :cond_2
+    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    :try_end_5
+    .catch Landroid/os/RemoteException; {:try_start_5 .. :try_end_5} :catch_0
+    .catchall {:try_start_5 .. :try_end_5} :catchall_1
 
     invoke-virtual {p1}, Landroid/view/accessibility/AccessibilityEvent;->recycle()V
 
-    :cond_2
     :goto_0
     return-void
 
     :catch_0
-    move-exception v1
+    move-exception v3
 
-    :try_start_4
+    :try_start_6
     const-string/jumbo v6, "AccessibilityManager"
 
     new-instance v7, Ljava/lang/StringBuilder;
@@ -2107,11 +3125,9 @@
 
     move-result-object v7
 
-    invoke-static {v6, v7, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-    :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_1
-
-    if-eqz v0, :cond_2
+    invoke-static {v6, v7, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    :try_end_6
+    .catchall {:try_start_6 .. :try_end_6} :catchall_1
 
     invoke-virtual {p1}, Landroid/view/accessibility/AccessibilityEvent;->recycle()V
 
@@ -2120,41 +3136,104 @@
     :catchall_1
     move-exception v6
 
-    if-eqz v0, :cond_3
-
     invoke-virtual {p1}, Landroid/view/accessibility/AccessibilityEvent;->recycle()V
 
-    :cond_3
     throw v6
 .end method
 
-.method public shutdown(Z)V
-    .locals 3
+.method public sendFingerprintGesture(I)Z
+    .locals 4
+
+    const/4 v3, 0x0
+
+    iget-object v2, p0, Landroid/view/accessibility/AccessibilityManager;->mLock:Ljava/lang/Object;
+
+    monitor-enter v2
 
     :try_start_0
-    iget-object v1, p0, Landroid/view/accessibility/AccessibilityManager;->mService:Landroid/view/accessibility/IAccessibilityManager;
-
-    invoke-interface {v1, p1}, Landroid/view/accessibility/IAccessibilityManager;->shutdown(Z)V
-
-    const-string/jumbo v1, "AccessibilityManager"
-
-    const-string/jumbo v2, "shutdown from manager:"
-
-    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-direct {p0}, Landroid/view/accessibility/AccessibilityManager;->getServiceLocked()Landroid/view/accessibility/IAccessibilityManager;
     :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    :goto_0
-    return-void
+    move-result-object v1
+
+    if-nez v1, :cond_0
+
+    monitor-exit v2
+
+    return v3
+
+    :cond_0
+    monitor-exit v2
+
+    :try_start_1
+    invoke-interface {v1, p1}, Landroid/view/accessibility/IAccessibilityManager;->sendFingerprintGesture(I)Z
+    :try_end_1
+    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
+
+    move-result v2
+
+    return v2
+
+    :catchall_0
+    move-exception v3
+
+    monitor-exit v2
+
+    throw v3
 
     :catch_0
     move-exception v0
 
-    const-string/jumbo v1, "AccessibilityManager"
+    return v3
+.end method
 
-    const-string/jumbo v2, "shutdown Exception:"
+.method public setPictureInPictureActionReplacingConnection(Landroid/view/accessibility/IAccessibilityInteractionConnection;)V
+    .locals 4
 
-    invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    iget-object v2, p0, Landroid/view/accessibility/AccessibilityManager;->mLock:Ljava/lang/Object;
+
+    monitor-enter v2
+
+    :try_start_0
+    invoke-direct {p0}, Landroid/view/accessibility/AccessibilityManager;->getServiceLocked()Landroid/view/accessibility/IAccessibilityManager;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result-object v1
+
+    if-nez v1, :cond_0
+
+    monitor-exit v2
+
+    return-void
+
+    :cond_0
+    monitor-exit v2
+
+    :try_start_1
+    invoke-interface {v1, p1}, Landroid/view/accessibility/IAccessibilityManager;->setPictureInPictureActionReplacingConnection(Landroid/view/accessibility/IAccessibilityInteractionConnection;)V
+    :try_end_1
+    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
+
+    :goto_0
+    return-void
+
+    :catchall_0
+    move-exception v3
+
+    monitor-exit v2
+
+    throw v3
+
+    :catch_0
+    move-exception v0
+
+    const-string/jumbo v2, "AccessibilityManager"
+
+    const-string/jumbo v3, "Error setting picture in picture action replacement"
+
+    invoke-static {v2, v3, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     goto :goto_0
 .end method

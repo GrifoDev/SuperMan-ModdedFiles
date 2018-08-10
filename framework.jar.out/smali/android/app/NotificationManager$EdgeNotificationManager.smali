@@ -91,7 +91,7 @@
     :catch_0
     move-exception v6
 
-    invoke-virtual {v6}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v6}, Landroid/os/RemoteException;->printStackTrace()V
 
     goto :goto_0
 .end method
@@ -124,7 +124,7 @@
     :catch_0
     move-exception v0
 
-    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v0}, Landroid/os/RemoteException;->printStackTrace()V
 
     goto :goto_0
 .end method
@@ -160,7 +160,7 @@
 
     const-string/jumbo v0, "samsung.notification.type"
 
-    invoke-virtual {p2, v0}, Landroid/os/BaseBundle;->getString(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {p2, v0}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -214,7 +214,7 @@
 
     const-string/jumbo v2, "normal"
 
-    invoke-virtual {v0, v1, v2}, Landroid/os/BaseBundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
     const-string/jumbo v1, "samsung.notification.pendingIntent"
 
@@ -226,7 +226,7 @@
 
     iget-wide v2, p2, Landroid/app/Notification;->when:J
 
-    invoke-virtual {v0, v1, v2, v3}, Landroid/os/BaseBundle;->putLong(Ljava/lang/String;J)V
+    invoke-virtual {v0, v1, v2, v3}, Landroid/os/Bundle;->putLong(Ljava/lang/String;J)V
 
     iget-object v1, p2, Landroid/app/Notification;->extras:Landroid/os/Bundle;
 
@@ -299,7 +299,7 @@
 
     const-string/jumbo v0, "samsung.notification.type"
 
-    invoke-virtual {p2, v0}, Landroid/os/BaseBundle;->getString(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {p2, v0}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -330,13 +330,13 @@
 
     const-string/jumbo v2, "normal"
 
-    invoke-virtual {v0, v1, v2}, Landroid/os/BaseBundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
     const-string/jumbo v1, "samsung.notification.remove_all"
 
     const/4 v2, 0x1
 
-    invoke-virtual {v0, v1, v2}, Landroid/os/BaseBundle;->putBoolean(Ljava/lang/String;Z)V
+    invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
 
     const/4 v1, 0x0
 
@@ -356,7 +356,7 @@
 
     const-string/jumbo v2, "normal"
 
-    invoke-virtual {v0, v1, v2}, Landroid/os/BaseBundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
     invoke-direct {p0, p1, v0}, Landroid/app/NotificationManager$EdgeNotificationManager;->removeEdgeNotificationInternal(ILandroid/os/Bundle;)V
 

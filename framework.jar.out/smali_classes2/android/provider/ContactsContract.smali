@@ -78,6 +78,8 @@
 
 .field public static final DIRECTORY_PARAM_KEY:Ljava/lang/String; = "directory"
 
+.field public static final HIDDEN_COLUMN_PREFIX:Ljava/lang/String; = "x_"
+
 .field public static final LIMIT_PARAM_KEY:Ljava/lang/String; = "limit"
 
 .field public static final PRIMARY_ACCOUNT_NAME:Ljava/lang/String; = "name_for_primary_account"

@@ -99,99 +99,136 @@
     return-void
 .end method
 
-.method constructor <init>(Landroid/app/assist/AssistStructure;Landroid/view/ViewRootImpl;)V
-    .locals 6
+.method constructor <init>(Landroid/app/assist/AssistStructure;Landroid/view/ViewRootImpl;ZI)V
+    .locals 7
 
-    const/4 v5, 0x0
+    const/4 v6, 0x0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     invoke-virtual {p2}, Landroid/view/ViewRootImpl;->getView()Landroid/view/View;
 
-    move-result-object v2
+    move-result-object v3
 
-    new-instance v1, Landroid/graphics/Rect;
+    new-instance v2, Landroid/graphics/Rect;
 
-    invoke-direct {v1}, Landroid/graphics/Rect;-><init>()V
+    invoke-direct {v2}, Landroid/graphics/Rect;-><init>()V
 
-    invoke-virtual {v2, v1}, Landroid/view/View;->getBoundsOnScreen(Landroid/graphics/Rect;)V
+    invoke-virtual {v3, v2}, Landroid/view/View;->getBoundsOnScreen(Landroid/graphics/Rect;)V
 
-    iget v3, v1, Landroid/graphics/Rect;->left:I
+    iget v4, v2, Landroid/graphics/Rect;->left:I
 
-    invoke-virtual {v2}, Landroid/view/View;->getLeft()I
+    invoke-virtual {v3}, Landroid/view/View;->getLeft()I
+
+    move-result v5
+
+    sub-int/2addr v4, v5
+
+    iput v4, p0, Landroid/app/assist/AssistStructure$WindowNode;->mX:I
+
+    iget v4, v2, Landroid/graphics/Rect;->top:I
+
+    invoke-virtual {v3}, Landroid/view/View;->getTop()I
+
+    move-result v5
+
+    sub-int/2addr v4, v5
+
+    iput v4, p0, Landroid/app/assist/AssistStructure$WindowNode;->mY:I
+
+    invoke-virtual {v2}, Landroid/graphics/Rect;->width()I
 
     move-result v4
 
-    sub-int/2addr v3, v4
+    iput v4, p0, Landroid/app/assist/AssistStructure$WindowNode;->mWidth:I
 
-    iput v3, p0, Landroid/app/assist/AssistStructure$WindowNode;->mX:I
-
-    iget v3, v1, Landroid/graphics/Rect;->top:I
-
-    invoke-virtual {v2}, Landroid/view/View;->getTop()I
+    invoke-virtual {v2}, Landroid/graphics/Rect;->height()I
 
     move-result v4
 
-    sub-int/2addr v3, v4
-
-    iput v3, p0, Landroid/app/assist/AssistStructure$WindowNode;->mY:I
-
-    invoke-virtual {v1}, Landroid/graphics/Rect;->width()I
-
-    move-result v3
-
-    iput v3, p0, Landroid/app/assist/AssistStructure$WindowNode;->mWidth:I
-
-    invoke-virtual {v1}, Landroid/graphics/Rect;->height()I
-
-    move-result v3
-
-    iput v3, p0, Landroid/app/assist/AssistStructure$WindowNode;->mHeight:I
+    iput v4, p0, Landroid/app/assist/AssistStructure$WindowNode;->mHeight:I
 
     invoke-virtual {p2}, Landroid/view/ViewRootImpl;->getTitle()Ljava/lang/CharSequence;
 
-    move-result-object v3
+    move-result-object v4
 
-    iput-object v3, p0, Landroid/app/assist/AssistStructure$WindowNode;->mTitle:Ljava/lang/CharSequence;
+    iput-object v4, p0, Landroid/app/assist/AssistStructure$WindowNode;->mTitle:Ljava/lang/CharSequence;
 
     invoke-virtual {p2}, Landroid/view/ViewRootImpl;->getDisplayId()I
 
-    move-result v3
+    move-result v4
 
-    iput v3, p0, Landroid/app/assist/AssistStructure$WindowNode;->mDisplayId:I
+    iput v4, p0, Landroid/app/assist/AssistStructure$WindowNode;->mDisplayId:I
 
-    new-instance v3, Landroid/app/assist/AssistStructure$ViewNode;
+    new-instance v4, Landroid/app/assist/AssistStructure$ViewNode;
 
-    invoke-direct {v3}, Landroid/app/assist/AssistStructure$ViewNode;-><init>()V
+    invoke-direct {v4}, Landroid/app/assist/AssistStructure$ViewNode;-><init>()V
 
-    iput-object v3, p0, Landroid/app/assist/AssistStructure$WindowNode;->mRoot:Landroid/app/assist/AssistStructure$ViewNode;
+    iput-object v4, p0, Landroid/app/assist/AssistStructure$WindowNode;->mRoot:Landroid/app/assist/AssistStructure$ViewNode;
 
-    new-instance v0, Landroid/app/assist/AssistStructure$ViewNodeBuilder;
+    new-instance v1, Landroid/app/assist/AssistStructure$ViewNodeBuilder;
 
-    iget-object v3, p0, Landroid/app/assist/AssistStructure$WindowNode;->mRoot:Landroid/app/assist/AssistStructure$ViewNode;
+    iget-object v4, p0, Landroid/app/assist/AssistStructure$WindowNode;->mRoot:Landroid/app/assist/AssistStructure$ViewNode;
 
-    invoke-direct {v0, p1, v3, v5}, Landroid/app/assist/AssistStructure$ViewNodeBuilder;-><init>(Landroid/app/assist/AssistStructure;Landroid/app/assist/AssistStructure$ViewNode;Z)V
+    invoke-direct {v1, p1, v4, v6}, Landroid/app/assist/AssistStructure$ViewNodeBuilder;-><init>(Landroid/app/assist/AssistStructure;Landroid/app/assist/AssistStructure$ViewNode;Z)V
 
     invoke-virtual {p2}, Landroid/view/ViewRootImpl;->getWindowFlags()I
 
-    move-result v3
+    move-result v4
 
-    and-int/lit16 v3, v3, 0x2000
+    and-int/lit16 v4, v4, 0x2000
 
-    if-eqz v3, :cond_0
+    if-eqz v4, :cond_0
 
-    invoke-virtual {v2, v0}, Landroid/view/View;->onProvideStructure(Landroid/view/ViewStructure;)V
+    if-eqz p3, :cond_2
 
-    const/4 v3, 0x1
+    and-int/lit8 v4, p4, 0x1
 
-    invoke-virtual {v0, v3}, Landroid/app/assist/AssistStructure$ViewNodeBuilder;->setAssistBlocked(Z)V
+    if-eqz v4, :cond_1
 
-    return-void
+    const/4 v0, 0x1
+
+    :goto_0
+    invoke-virtual {v3, v1, v0}, Landroid/view/View;->onProvideAutofillStructure(Landroid/view/ViewStructure;I)V
 
     :cond_0
-    invoke-virtual {v2, v0}, Landroid/view/View;->dispatchProvideStructure(Landroid/view/ViewStructure;)V
+    if-eqz p3, :cond_4
+
+    and-int/lit8 v4, p4, 0x1
+
+    if-eqz v4, :cond_3
+
+    const/4 v0, 0x1
+
+    :goto_1
+    invoke-virtual {v3, v1, v0}, Landroid/view/View;->dispatchProvideAutofillStructure(Landroid/view/ViewStructure;I)V
+
+    :goto_2
+    return-void
+
+    :cond_1
+    const/4 v0, 0x0
+
+    goto :goto_0
+
+    :cond_2
+    invoke-virtual {v3, v1}, Landroid/view/View;->onProvideStructure(Landroid/view/ViewStructure;)V
+
+    const/4 v4, 0x1
+
+    invoke-virtual {v1, v4}, Landroid/app/assist/AssistStructure$ViewNodeBuilder;->setAssistBlocked(Z)V
 
     return-void
+
+    :cond_3
+    const/4 v0, 0x0
+
+    goto :goto_1
+
+    :cond_4
+    invoke-virtual {v3, v1}, Landroid/view/View;->dispatchProvideStructure(Landroid/view/ViewStructure;)V
+
+    goto :goto_2
 .end method
 
 

@@ -13,18 +13,36 @@
     name = "ProcessInitializer"
 .end annotation
 
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Landroid/view/ThreadedRenderer$ProcessInitializer$1;
+    }
+.end annotation
+
 
 # static fields
 .field static sInstance:Landroid/view/ThreadedRenderer$ProcessInitializer;
 
-.field private static sProcToken:Landroid/os/IBinder;
-
 
 # instance fields
+.field private mAppContext:Landroid/content/Context;
+
+.field private mGraphicsStatsCallback:Landroid/view/IGraphicsStatsCallback;
+
+.field private mGraphicsStatsService:Landroid/view/IGraphicsStats;
+
 .field private mInitialized:Z
 
 
 # direct methods
+.method static synthetic -wrap0(Landroid/view/ThreadedRenderer$ProcessInitializer;)V
+    .locals 0
+
+    invoke-direct {p0}, Landroid/view/ThreadedRenderer$ProcessInitializer;->rotateBuffer()V
+
+    return-void
+.end method
+
 .method static constructor <clinit>()V
     .locals 1
 
@@ -46,90 +64,22 @@
 
     iput-boolean v0, p0, Landroid/view/ThreadedRenderer$ProcessInitializer;->mInitialized:Z
 
+    new-instance v0, Landroid/view/ThreadedRenderer$ProcessInitializer$1;
+
+    invoke-direct {v0, p0}, Landroid/view/ThreadedRenderer$ProcessInitializer$1;-><init>(Landroid/view/ThreadedRenderer$ProcessInitializer;)V
+
+    iput-object v0, p0, Landroid/view/ThreadedRenderer$ProcessInitializer;->mGraphicsStatsCallback:Landroid/view/IGraphicsStatsCallback;
+
     return-void
 .end method
 
-.method private static initAssetAtlas(Landroid/content/Context;J)V
-    .locals 7
-
-    const-string/jumbo v5, "assetatlas"
-
-    invoke-static {v5}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
-
-    move-result-object v1
-
-    if-nez v1, :cond_0
-
-    return-void
-
-    :cond_0
-    invoke-static {v1}, Landroid/view/IAssetAtlas$Stub;->asInterface(Landroid/os/IBinder;)Landroid/view/IAssetAtlas;
-
-    move-result-object v0
+.method private initGraphicsStats()V
+    .locals 4
 
     :try_start_0
-    invoke-static {}, Landroid/os/Process;->myPpid()I
+    const-string/jumbo v2, "graphicsstats"
 
-    move-result v5
-
-    invoke-interface {v0, v5}, Landroid/view/IAssetAtlas;->isCompatible(I)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_2
-
-    invoke-interface {v0}, Landroid/view/IAssetAtlas;->getBuffer()Landroid/view/GraphicBuffer;
-
-    move-result-object v2
-
-    if-eqz v2, :cond_2
-
-    invoke-interface {v0}, Landroid/view/IAssetAtlas;->getMap()[J
-
-    move-result-object v4
-
-    if-eqz v4, :cond_1
-
-    invoke-static {p1, p2, v2, v4}, Landroid/view/ThreadedRenderer;->-wrap0(JLandroid/view/GraphicBuffer;[J)V
-
-    :cond_1
-    invoke-virtual {v0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
-
-    move-result-object v5
-
-    invoke-virtual {v1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
-
-    move-result-object v6
-
-    if-eq v5, v6, :cond_2
-
-    invoke-virtual {v2}, Landroid/view/GraphicBuffer;->destroy()V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    :cond_2
-    :goto_0
-    return-void
-
-    :catch_0
-    move-exception v3
-
-    const-string/jumbo v5, "ThreadedRenderer"
-
-    const-string/jumbo v6, "Could not acquire atlas"
-
-    invoke-static {v5, v6, v3}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    goto :goto_0
-.end method
-
-.method private static initGraphicsStats(Landroid/content/Context;J)V
-    .locals 7
-
-    :try_start_0
-    const-string/jumbo v5, "graphicsstats"
-
-    invoke-static {v5}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
+    invoke-static {v2}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
 
     move-result-object v0
 
@@ -140,33 +90,11 @@
     :cond_0
     invoke-static {v0}, Landroid/view/IGraphicsStats$Stub;->asInterface(Landroid/os/IBinder;)Landroid/view/IGraphicsStats;
 
-    move-result-object v1
-
-    new-instance v5, Landroid/os/Binder;
-
-    invoke-direct {v5}, Landroid/os/Binder;-><init>()V
-
-    sput-object v5, Landroid/view/ThreadedRenderer$ProcessInitializer;->sProcToken:Landroid/os/IBinder;
-
-    invoke-virtual {p0}, Landroid/content/Context;->getApplicationInfo()Landroid/content/pm/ApplicationInfo;
-
-    move-result-object v5
-
-    iget-object v3, v5, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
-
-    sget-object v5, Landroid/view/ThreadedRenderer$ProcessInitializer;->sProcToken:Landroid/os/IBinder;
-
-    invoke-interface {v1, v3, v5}, Landroid/view/IGraphicsStats;->requestBufferForProcess(Ljava/lang/String;Landroid/os/IBinder;)Landroid/os/ParcelFileDescriptor;
-
     move-result-object v2
 
-    invoke-virtual {v2}, Landroid/os/ParcelFileDescriptor;->getFd()I
+    iput-object v2, p0, Landroid/view/ThreadedRenderer$ProcessInitializer;->mGraphicsStatsService:Landroid/view/IGraphicsStats;
 
-    move-result v5
-
-    invoke-static {p1, p2, v5}, Landroid/view/ThreadedRenderer;->-wrap1(JI)V
-
-    invoke-virtual {v2}, Landroid/os/ParcelFileDescriptor;->close()V
+    invoke-direct {p0}, Landroid/view/ThreadedRenderer$ProcessInitializer;->requestBuffer()V
     :try_end_0
     .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -174,15 +102,101 @@
     return-void
 
     :catch_0
-    move-exception v4
+    move-exception v1
 
-    const-string/jumbo v5, "ThreadedRenderer"
+    const-string/jumbo v2, "ThreadedRenderer"
 
-    const-string/jumbo v6, "Could not acquire gfx stats buffer"
+    const-string/jumbo v3, "Could not acquire gfx stats buffer"
 
-    invoke-static {v5, v6, v4}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v2, v3, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     goto :goto_0
+.end method
+
+.method private initSched(Landroid/content/Context;J)V
+    .locals 4
+
+    :try_start_0
+    invoke-static {p2, p3}, Landroid/view/ThreadedRenderer;->-wrap0(J)I
+
+    move-result v1
+
+    invoke-static {}, Landroid/app/ActivityManager;->getService()Landroid/app/IActivityManager;
+
+    move-result-object v2
+
+    invoke-interface {v2, v1}, Landroid/app/IActivityManager;->setRenderThread(I)V
+    :try_end_0
+    .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
+
+    :goto_0
+    return-void
+
+    :catch_0
+    move-exception v0
+
+    const-string/jumbo v2, "ThreadedRenderer"
+
+    const-string/jumbo v3, "Failed to set scheduler for RenderThread"
+
+    invoke-static {v2, v3, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    goto :goto_0
+.end method
+
+.method private requestBuffer()V
+    .locals 5
+
+    :try_start_0
+    iget-object v3, p0, Landroid/view/ThreadedRenderer$ProcessInitializer;->mAppContext:Landroid/content/Context;
+
+    invoke-virtual {v3}, Landroid/content/Context;->getApplicationInfo()Landroid/content/pm/ApplicationInfo;
+
+    move-result-object v3
+
+    iget-object v1, v3, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
+
+    iget-object v3, p0, Landroid/view/ThreadedRenderer$ProcessInitializer;->mGraphicsStatsService:Landroid/view/IGraphicsStats;
+
+    iget-object v4, p0, Landroid/view/ThreadedRenderer$ProcessInitializer;->mGraphicsStatsCallback:Landroid/view/IGraphicsStatsCallback;
+
+    invoke-interface {v3, v1, v4}, Landroid/view/IGraphicsStats;->requestBufferForProcess(Ljava/lang/String;Landroid/view/IGraphicsStatsCallback;)Landroid/os/ParcelFileDescriptor;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/os/ParcelFileDescriptor;->getFd()I
+
+    move-result v3
+
+    invoke-static {v3}, Landroid/view/ThreadedRenderer;->-wrap2(I)V
+
+    invoke-virtual {v0}, Landroid/os/ParcelFileDescriptor;->close()V
+    :try_end_0
+    .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
+
+    :goto_0
+    return-void
+
+    :catch_0
+    move-exception v2
+
+    const-string/jumbo v3, "ThreadedRenderer"
+
+    const-string/jumbo v4, "Could not acquire gfx stats buffer"
+
+    invoke-static {v3, v4, v2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    goto :goto_0
+.end method
+
+.method private rotateBuffer()V
+    .locals 0
+
+    invoke-static {}, Landroid/view/ThreadedRenderer;->-wrap1()V
+
+    invoke-direct {p0}, Landroid/view/ThreadedRenderer$ProcessInitializer;->requestBuffer()V
+
+    return-void
 .end method
 
 
@@ -209,9 +223,15 @@
     :try_start_1
     iput-boolean v0, p0, Landroid/view/ThreadedRenderer$ProcessInitializer;->mInitialized:Z
 
-    invoke-static {p1, p2, p3}, Landroid/view/ThreadedRenderer$ProcessInitializer;->initGraphicsStats(Landroid/content/Context;J)V
+    invoke-virtual {p1}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
 
-    invoke-static {p1, p2, p3}, Landroid/view/ThreadedRenderer$ProcessInitializer;->initAssetAtlas(Landroid/content/Context;J)V
+    move-result-object v0
+
+    iput-object v0, p0, Landroid/view/ThreadedRenderer$ProcessInitializer;->mAppContext:Landroid/content/Context;
+
+    invoke-direct {p0, p1, p2, p3}, Landroid/view/ThreadedRenderer$ProcessInitializer;->initSched(Landroid/content/Context;J)V
+
+    invoke-direct {p0}, Landroid/view/ThreadedRenderer$ProcessInitializer;->initGraphicsStats()V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 

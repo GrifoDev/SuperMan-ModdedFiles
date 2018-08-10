@@ -35,6 +35,14 @@
 
 
 # direct methods
+.method static synthetic -set0(Landroid/media/ImageReader$SurfaceImage;[Landroid/media/ImageReader$SurfaceImage$SurfacePlane;)[Landroid/media/ImageReader$SurfaceImage$SurfacePlane;
+    .locals 0
+
+    iput-object p1, p0, Landroid/media/ImageReader$SurfaceImage;->mPlanes:[Landroid/media/ImageReader$SurfaceImage$SurfacePlane;
+
+    return-object p1
+.end method
+
 .method static synthetic -wrap0(Landroid/media/ImageReader$SurfaceImage;)V
     .locals 0
 

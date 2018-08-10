@@ -180,6 +180,21 @@
     return-object v0
 .end method
 
+.method public bridge synthetic clone()Ljava/lang/Object;
+    .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/lang/CloneNotSupportedException;
+        }
+    .end annotation
+
+    invoke-virtual {p0}, Landroid/animation/PropertyValuesHolder$FloatPropertyValuesHolder;->clone()Landroid/animation/PropertyValuesHolder$FloatPropertyValuesHolder;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
 .method getAnimatedValue()Ljava/lang/Object;
     .locals 1
 
@@ -311,6 +326,26 @@
     iput-object v0, p0, Landroid/animation/PropertyValuesHolder$FloatPropertyValuesHolder;->mFloatKeyframes:Landroid/animation/Keyframes$FloatKeyframes;
 
     return-void
+.end method
+
+.method public setProperty(Landroid/util/Property;)V
+    .locals 1
+
+    instance-of v0, p1, Landroid/util/FloatProperty;
+
+    if-eqz v0, :cond_0
+
+    check-cast p1, Landroid/util/FloatProperty;
+
+    iput-object p1, p0, Landroid/animation/PropertyValuesHolder$FloatPropertyValuesHolder;->mFloatProperty:Landroid/util/FloatProperty;
+
+    :goto_0
+    return-void
+
+    :cond_0
+    invoke-super {p0, p1}, Landroid/animation/PropertyValuesHolder;->setProperty(Landroid/util/Property;)V
+
+    goto :goto_0
 .end method
 
 .method setupSetter(Ljava/lang/Class;)V

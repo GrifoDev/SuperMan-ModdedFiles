@@ -30,11 +30,13 @@
 
 .field static final TRANSACTION_onCallStateChanged:I = 0x6
 
-.field static final TRANSACTION_onCarrierNetworkChange:I = 0x11
+.field static final TRANSACTION_onCarrierNetworkChange:I = 0x13
 
 .field static final TRANSACTION_onCellInfoChanged:I = 0xb
 
 .field static final TRANSACTION_onCellLocationChanged:I = 0x5
+
+.field static final TRANSACTION_onDataActivationStateChanged:I = 0x11
 
 .field static final TRANSACTION_onDataActivity:I = 0x8
 
@@ -42,15 +44,11 @@
 
 .field static final TRANSACTION_onDataConnectionStateChanged:I = 0x7
 
-.field static final TRANSACTION_onDunDataActivity:I = 0x13
-
-.field static final TRANSACTION_onDunDataConnectionStateChanged:I = 0x14
-
-.field static final TRANSACTION_onFdnUpdated:I = 0x12
+.field static final TRANSACTION_onFdnUpdated:I = 0x14
 
 .field static final TRANSACTION_onMessageWaitingIndicatorChanged:I = 0x3
 
-.field static final TRANSACTION_onOemHookRawEvent:I = 0x10
+.field static final TRANSACTION_onOemHookRawEvent:I = 0x12
 
 .field static final TRANSACTION_onOtaspChanged:I = 0xa
 
@@ -65,6 +63,8 @@
 .field static final TRANSACTION_onSignalStrengthsChanged:I = 0x9
 
 .field static final TRANSACTION_onVoLteServiceStateChanged:I = 0xf
+
+.field static final TRANSACTION_onVoiceActivationStateChanged:I = 0x10
 
 .field static final TRANSACTION_onVoiceRadioBearerHoStateChanged:I = 0x15
 
@@ -571,6 +571,40 @@
 
     invoke-virtual {v0, v14}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v1
+
+    invoke-virtual {p0, v1}, Lcom/android/internal/telephony/IPhoneStateListener$Stub;->onVoiceActivationStateChanged(I)V
+
+    const/4 v14, 0x1
+
+    return v14
+
+    :sswitch_11
+    const-string/jumbo v14, "com.android.internal.telephony.IPhoneStateListener"
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v14}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v1
+
+    invoke-virtual {p0, v1}, Lcom/android/internal/telephony/IPhoneStateListener$Stub;->onDataActivationStateChanged(I)V
+
+    const/4 v14, 0x1
+
+    return v14
+
+    :sswitch_12
+    const-string/jumbo v14, "com.android.internal.telephony.IPhoneStateListener"
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v14}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->createByteArray()[B
 
     move-result-object v11
@@ -581,7 +615,7 @@
 
     return v14
 
-    :sswitch_11
+    :sswitch_13
     const-string/jumbo v14, "com.android.internal.telephony.IPhoneStateListener"
 
     move-object/from16 v0, p2
@@ -608,36 +642,6 @@
 
     goto :goto_9
 
-    :sswitch_12
-    const-string/jumbo v14, "com.android.internal.telephony.IPhoneStateListener"
-
-    move-object/from16 v0, p2
-
-    invoke-virtual {v0, v14}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    invoke-virtual {p0}, Lcom/android/internal/telephony/IPhoneStateListener$Stub;->onFdnUpdated()V
-
-    const/4 v14, 0x1
-
-    return v14
-
-    :sswitch_13
-    const-string/jumbo v14, "com.android.internal.telephony.IPhoneStateListener"
-
-    move-object/from16 v0, p2
-
-    invoke-virtual {v0, v14}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v1
-
-    invoke-virtual {p0, v1}, Lcom/android/internal/telephony/IPhoneStateListener$Stub;->onDunDataActivity(I)V
-
-    const/4 v14, 0x1
-
-    return v14
-
     :sswitch_14
     const-string/jumbo v14, "com.android.internal.telephony.IPhoneStateListener"
 
@@ -645,15 +649,7 @@
 
     invoke-virtual {v0, v14}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v1
-
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v12
-
-    invoke-virtual {p0, v1, v12}, Lcom/android/internal/telephony/IPhoneStateListener$Stub;->onDunDataConnectionStateChanged(II)V
+    invoke-virtual {p0}, Lcom/android/internal/telephony/IPhoneStateListener$Stub;->onFdnUpdated()V
 
     const/4 v14, 0x1
 

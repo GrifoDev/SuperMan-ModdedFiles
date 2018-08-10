@@ -1279,3 +1279,146 @@
 
     goto :goto_0
 .end method
+
+.method public static uuidToBytes(Landroid/os/ParcelUuid;)[B
+    .locals 12
+
+    const v11, 0xff00
+
+    const/4 v10, 0x2
+
+    const/4 v8, 0x1
+
+    const/4 v9, 0x0
+
+    if-nez p0, :cond_0
+
+    new-instance v7, Ljava/lang/IllegalArgumentException;
+
+    const-string/jumbo v8, "uuid cannot be null"
+
+    invoke-direct {v7, v8}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v7
+
+    :cond_0
+    invoke-static {p0}, Landroid/bluetooth/BluetoothUuid;->is16BitUuid(Landroid/os/ParcelUuid;)Z
+
+    move-result v7
+
+    if-eqz v7, :cond_1
+
+    new-array v1, v10, [B
+
+    invoke-static {p0}, Landroid/bluetooth/BluetoothUuid;->getServiceIdentifierFromParcelUuid(Landroid/os/ParcelUuid;)I
+
+    move-result v6
+
+    and-int/lit16 v7, v6, 0xff
+
+    int-to-byte v7, v7
+
+    aput-byte v7, v1, v9
+
+    and-int v7, v6, v11
+
+    shr-int/lit8 v7, v7, 0x8
+
+    int-to-byte v7, v7
+
+    aput-byte v7, v1, v8
+
+    return-object v1
+
+    :cond_1
+    invoke-static {p0}, Landroid/bluetooth/BluetoothUuid;->is32BitUuid(Landroid/os/ParcelUuid;)Z
+
+    move-result v7
+
+    if-eqz v7, :cond_2
+
+    const/4 v7, 0x4
+
+    new-array v1, v7, [B
+
+    invoke-static {p0}, Landroid/bluetooth/BluetoothUuid;->getServiceIdentifierFromParcelUuid(Landroid/os/ParcelUuid;)I
+
+    move-result v6
+
+    and-int/lit16 v7, v6, 0xff
+
+    int-to-byte v7, v7
+
+    aput-byte v7, v1, v9
+
+    and-int v7, v6, v11
+
+    shr-int/lit8 v7, v7, 0x8
+
+    int-to-byte v7, v7
+
+    aput-byte v7, v1, v8
+
+    const/high16 v7, 0xff0000
+
+    and-int/2addr v7, v6
+
+    shr-int/lit8 v7, v7, 0x10
+
+    int-to-byte v7, v7
+
+    aput-byte v7, v1, v10
+
+    const/high16 v7, -0x1000000
+
+    and-int/2addr v7, v6
+
+    shr-int/lit8 v7, v7, 0x18
+
+    int-to-byte v7, v7
+
+    const/4 v8, 0x3
+
+    aput-byte v7, v1, v8
+
+    return-object v1
+
+    :cond_2
+    invoke-virtual {p0}, Landroid/os/ParcelUuid;->getUuid()Ljava/util/UUID;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Ljava/util/UUID;->getMostSignificantBits()J
+
+    move-result-wide v4
+
+    invoke-virtual {p0}, Landroid/os/ParcelUuid;->getUuid()Ljava/util/UUID;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Ljava/util/UUID;->getLeastSignificantBits()J
+
+    move-result-wide v2
+
+    const/16 v7, 0x10
+
+    new-array v1, v7, [B
+
+    invoke-static {v1}, Ljava/nio/ByteBuffer;->wrap([B)Ljava/nio/ByteBuffer;
+
+    move-result-object v7
+
+    sget-object v8, Ljava/nio/ByteOrder;->LITTLE_ENDIAN:Ljava/nio/ByteOrder;
+
+    invoke-virtual {v7, v8}, Ljava/nio/ByteBuffer;->order(Ljava/nio/ByteOrder;)Ljava/nio/ByteBuffer;
+
+    move-result-object v0
+
+    const/16 v7, 0x8
+
+    invoke-virtual {v0, v7, v4, v5}, Ljava/nio/ByteBuffer;->putLong(IJ)Ljava/nio/ByteBuffer;
+
+    invoke-virtual {v0, v9, v2, v3}, Ljava/nio/ByteBuffer;->putLong(IJ)Ljava/nio/ByteBuffer;
+
+    return-object v1
+.end method

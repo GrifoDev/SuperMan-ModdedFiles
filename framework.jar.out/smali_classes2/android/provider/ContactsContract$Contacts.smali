@@ -65,12 +65,20 @@
 
 .field public static final ENTERPRISE_CONTENT_FILTER_URI:Landroid/net/Uri;
 
+.field public static final KNOX_CONTACT_ID_BASE:J
+
+.field public static final KNOX_CONTACT_ID_OFFSET:J = 0x1dcd6500L
+
 .field public static final QUERY_PARAMETER_VCARD_NO_PHOTO:Ljava/lang/String; = "no_photo"
+
+.field public static final SECURE_FOLDER_CONTACT_ID_BASE:J
+
+.field public static final SECURE_FOLDER_CONTACT_ID_OFFSET:J = 0x29b92700L
 
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .locals 4
 
     sget-object v0, Landroid/provider/ContactsContract;->AUTHORITY_URI:Landroid/net/Uri;
 
@@ -185,6 +193,22 @@
     const-wide/32 v0, 0x3b9aca00
 
     sput-wide v0, Landroid/provider/ContactsContract$Contacts;->ENTERPRISE_CONTACT_ID_BASE:J
+
+    sget-wide v0, Landroid/provider/ContactsContract$Contacts;->ENTERPRISE_CONTACT_ID_BASE:J
+
+    const-wide/32 v2, 0x1dcd6500
+
+    add-long/2addr v0, v2
+
+    sput-wide v0, Landroid/provider/ContactsContract$Contacts;->KNOX_CONTACT_ID_BASE:J
+
+    sget-wide v0, Landroid/provider/ContactsContract$Contacts;->ENTERPRISE_CONTACT_ID_BASE:J
+
+    const-wide/32 v2, 0x29b92700
+
+    add-long/2addr v0, v2
+
+    sput-wide v0, Landroid/provider/ContactsContract$Contacts;->SECURE_FOLDER_CONTACT_ID_BASE:J
 
     const-string/jumbo v0, "c-"
 
@@ -314,6 +338,52 @@
     const/4 v0, 0x0
 
     sget-wide v2, Landroid/provider/ContactsContract$Contacts;->ENTERPRISE_CONTACT_ID_BASE:J
+
+    cmp-long v1, p0, v2
+
+    if-ltz v1, :cond_0
+
+    const-wide v2, 0x7fffffff80000000L
+
+    cmp-long v1, p0, v2
+
+    if-gez v1, :cond_0
+
+    const/4 v0, 0x1
+
+    :cond_0
+    return v0
+.end method
+
+.method public static isKnoxContactId(J)Z
+    .locals 4
+
+    const/4 v0, 0x0
+
+    sget-wide v2, Landroid/provider/ContactsContract$Contacts;->KNOX_CONTACT_ID_BASE:J
+
+    cmp-long v1, p0, v2
+
+    if-ltz v1, :cond_0
+
+    sget-wide v2, Landroid/provider/ContactsContract$Contacts;->SECURE_FOLDER_CONTACT_ID_BASE:J
+
+    cmp-long v1, p0, v2
+
+    if-gez v1, :cond_0
+
+    const/4 v0, 0x1
+
+    :cond_0
+    return v0
+.end method
+
+.method public static isSecureFolderContactId(J)Z
+    .locals 4
+
+    const/4 v0, 0x0
+
+    sget-wide v2, Landroid/provider/ContactsContract$Contacts;->SECURE_FOLDER_CONTACT_ID_BASE:J
 
     cmp-long v1, p0, v2
 
@@ -517,62 +587,68 @@
 
     move-result-object v6
 
-    if-eqz v6, :cond_3
+    if-eqz v6, :cond_2
 
     :try_start_1
     invoke-interface {v6}, Landroid/database/Cursor;->moveToNext()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_3
-
-    const/4 v0, 0x0
-
-    invoke-interface {v6, v0}, Landroid/database/Cursor;->getBlob(I)[B
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    move-result-object v7
+    move-result v0
 
-    if-nez v7, :cond_5
+    xor-int/lit8 v0, v0, 0x1
 
-    if-eqz v6, :cond_2
-
-    invoke-interface {v6}, Landroid/database/Cursor;->close()V
+    if-eqz v0, :cond_4
 
     :cond_2
-    return-object v3
-
-    :cond_3
-    if-eqz v6, :cond_4
+    if-eqz v6, :cond_3
 
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
-    :cond_4
+    :cond_3
     return-object v3
 
-    :cond_5
-    :try_start_2
-    new-instance v0, Ljava/io/ByteArrayInputStream;
+    :cond_4
+    const/4 v0, 0x0
 
-    invoke-direct {v0, v7}, Ljava/io/ByteArrayInputStream;-><init>([B)V
+    :try_start_2
+    invoke-interface {v6, v0}, Landroid/database/Cursor;->getBlob(I)[B
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    if-eqz v6, :cond_6
+    move-result-object v7
+
+    if-nez v7, :cond_6
+
+    if-eqz v6, :cond_5
 
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
-    :cond_6
-    return-object v0
+    :cond_5
+    return-object v3
 
-    :catchall_0
-    move-exception v0
+    :cond_6
+    :try_start_3
+    new-instance v0, Ljava/io/ByteArrayInputStream;
+
+    invoke-direct {v0, v7}, Ljava/io/ByteArrayInputStream;-><init>([B)V
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
     if-eqz v6, :cond_7
 
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
     :cond_7
+    return-object v0
+
+    :catchall_0
+    move-exception v0
+
+    if-eqz v6, :cond_8
+
+    invoke-interface {v6}, Landroid/database/Cursor;->close()V
+
+    :cond_8
     throw v0
 .end method

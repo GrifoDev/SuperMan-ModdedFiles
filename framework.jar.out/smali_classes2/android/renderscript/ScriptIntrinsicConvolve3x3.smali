@@ -51,10 +51,92 @@
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    xor-int/lit8 v4, v4, 0x1
+
+    if-eqz v4, :cond_0
+
+    invoke-static {p0}, Landroid/renderscript/Element;->U8_3(Landroid/renderscript/RenderScript;)Landroid/renderscript/Element;
+
+    move-result-object v4
+
+    invoke-virtual {p1, v4}, Landroid/renderscript/Element;->isCompatible(Landroid/renderscript/Element;)Z
+
+    move-result v4
+
+    xor-int/lit8 v4, v4, 0x1
+
+    if-eqz v4, :cond_0
+
+    invoke-static {p0}, Landroid/renderscript/Element;->U8_4(Landroid/renderscript/RenderScript;)Landroid/renderscript/Element;
+
+    move-result-object v4
+
+    invoke-virtual {p1, v4}, Landroid/renderscript/Element;->isCompatible(Landroid/renderscript/Element;)Z
+
+    move-result v4
+
+    xor-int/lit8 v4, v4, 0x1
+
+    if-eqz v4, :cond_0
+
+    invoke-static {p0}, Landroid/renderscript/Element;->F32(Landroid/renderscript/RenderScript;)Landroid/renderscript/Element;
+
+    move-result-object v4
+
+    invoke-virtual {p1, v4}, Landroid/renderscript/Element;->isCompatible(Landroid/renderscript/Element;)Z
+
+    move-result v4
+
+    xor-int/lit8 v4, v4, 0x1
+
+    if-eqz v4, :cond_0
+
+    invoke-static {p0}, Landroid/renderscript/Element;->F32_2(Landroid/renderscript/RenderScript;)Landroid/renderscript/Element;
+
+    move-result-object v4
+
+    invoke-virtual {p1, v4}, Landroid/renderscript/Element;->isCompatible(Landroid/renderscript/Element;)Z
+
+    move-result v4
+
+    xor-int/lit8 v4, v4, 0x1
+
+    if-eqz v4, :cond_0
+
+    invoke-static {p0}, Landroid/renderscript/Element;->F32_3(Landroid/renderscript/RenderScript;)Landroid/renderscript/Element;
+
+    move-result-object v4
+
+    invoke-virtual {p1, v4}, Landroid/renderscript/Element;->isCompatible(Landroid/renderscript/Element;)Z
+
+    move-result v4
+
+    xor-int/lit8 v4, v4, 0x1
+
+    if-eqz v4, :cond_0
+
+    invoke-static {p0}, Landroid/renderscript/Element;->F32_4(Landroid/renderscript/RenderScript;)Landroid/renderscript/Element;
+
+    move-result-object v4
+
+    invoke-virtual {p1, v4}, Landroid/renderscript/Element;->isCompatible(Landroid/renderscript/Element;)Z
+
+    move-result v4
+
+    xor-int/lit8 v4, v4, 0x1
+
+    if-eqz v4, :cond_0
+
+    new-instance v4, Landroid/renderscript/RSIllegalArgumentException;
+
+    const-string/jumbo v5, "Unsupported element type."
+
+    invoke-direct {v4, v5}, Landroid/renderscript/RSIllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v4
 
     :cond_0
-    invoke-virtual {p1, p0}, Landroid/renderscript/BaseObj;->getID(Landroid/renderscript/RenderScript;)J
+    invoke-virtual {p1, p0}, Landroid/renderscript/Element;->getID(Landroid/renderscript/RenderScript;)J
 
     move-result-wide v4
 
@@ -71,75 +153,6 @@
     invoke-virtual {v1, v0}, Landroid/renderscript/ScriptIntrinsicConvolve3x3;->setCoefficients([F)V
 
     return-object v1
-
-    :cond_1
-    invoke-static {p0}, Landroid/renderscript/Element;->U8_3(Landroid/renderscript/RenderScript;)Landroid/renderscript/Element;
-
-    move-result-object v4
-
-    invoke-virtual {p1, v4}, Landroid/renderscript/Element;->isCompatible(Landroid/renderscript/Element;)Z
-
-    move-result v4
-
-    if-nez v4, :cond_0
-
-    invoke-static {p0}, Landroid/renderscript/Element;->U8_4(Landroid/renderscript/RenderScript;)Landroid/renderscript/Element;
-
-    move-result-object v4
-
-    invoke-virtual {p1, v4}, Landroid/renderscript/Element;->isCompatible(Landroid/renderscript/Element;)Z
-
-    move-result v4
-
-    if-nez v4, :cond_0
-
-    invoke-static {p0}, Landroid/renderscript/Element;->F32(Landroid/renderscript/RenderScript;)Landroid/renderscript/Element;
-
-    move-result-object v4
-
-    invoke-virtual {p1, v4}, Landroid/renderscript/Element;->isCompatible(Landroid/renderscript/Element;)Z
-
-    move-result v4
-
-    if-nez v4, :cond_0
-
-    invoke-static {p0}, Landroid/renderscript/Element;->F32_2(Landroid/renderscript/RenderScript;)Landroid/renderscript/Element;
-
-    move-result-object v4
-
-    invoke-virtual {p1, v4}, Landroid/renderscript/Element;->isCompatible(Landroid/renderscript/Element;)Z
-
-    move-result v4
-
-    if-nez v4, :cond_0
-
-    invoke-static {p0}, Landroid/renderscript/Element;->F32_3(Landroid/renderscript/RenderScript;)Landroid/renderscript/Element;
-
-    move-result-object v4
-
-    invoke-virtual {p1, v4}, Landroid/renderscript/Element;->isCompatible(Landroid/renderscript/Element;)Z
-
-    move-result v4
-
-    if-nez v4, :cond_0
-
-    invoke-static {p0}, Landroid/renderscript/Element;->F32_4(Landroid/renderscript/RenderScript;)Landroid/renderscript/Element;
-
-    move-result-object v4
-
-    invoke-virtual {p1, v4}, Landroid/renderscript/Element;->isCompatible(Landroid/renderscript/Element;)Z
-
-    move-result v4
-
-    if-nez v4, :cond_0
-
-    new-instance v4, Landroid/renderscript/RSIllegalArgumentException;
-
-    const-string/jumbo v5, "Unsuported element type."
-
-    invoke-direct {v4, v5}, Landroid/renderscript/RSIllegalArgumentException;-><init>(Ljava/lang/String;)V
-
-    throw v4
 
     :array_0
     .array-data 4
@@ -164,13 +177,11 @@
 
     move-object v0, v1
 
-    nop
-
-    nop
+    check-cast v0, Landroid/renderscript/Allocation;
 
     const/4 v2, 0x0
 
-    invoke-virtual {p0, v2, v0, p1, v1}, Landroid/renderscript/Script;->forEach(ILandroid/renderscript/Allocation;Landroid/renderscript/Allocation;Landroid/renderscript/FieldPacker;)V
+    invoke-virtual {p0, v2, v0, p1, v1}, Landroid/renderscript/ScriptIntrinsicConvolve3x3;->forEach(ILandroid/renderscript/Allocation;Landroid/renderscript/Allocation;Landroid/renderscript/FieldPacker;)V
 
     return-void
 .end method
@@ -182,9 +193,7 @@
 
     move-object v2, v4
 
-    nop
-
-    nop
+    check-cast v2, Landroid/renderscript/Allocation;
 
     const/4 v1, 0x0
 
@@ -194,7 +203,7 @@
 
     move-object v5, p2
 
-    invoke-virtual/range {v0 .. v5}, Landroid/renderscript/Script;->forEach(ILandroid/renderscript/Allocation;Landroid/renderscript/Allocation;Landroid/renderscript/FieldPacker;Landroid/renderscript/Script$LaunchOptions;)V
+    invoke-virtual/range {v0 .. v5}, Landroid/renderscript/ScriptIntrinsicConvolve3x3;->forEach(ILandroid/renderscript/Allocation;Landroid/renderscript/Allocation;Landroid/renderscript/FieldPacker;Landroid/renderscript/Script$LaunchOptions;)V
 
     return-void
 .end method
@@ -206,7 +215,7 @@
 
     const/4 v1, 0x0
 
-    invoke-virtual {p0, v0, v1}, Landroid/renderscript/Script;->createFieldID(ILandroid/renderscript/Element;)Landroid/renderscript/Script$FieldID;
+    invoke-virtual {p0, v0, v1}, Landroid/renderscript/ScriptIntrinsicConvolve3x3;->createFieldID(ILandroid/renderscript/Element;)Landroid/renderscript/Script$FieldID;
 
     move-result-object v0
 
@@ -222,7 +231,7 @@
 
     const/4 v1, 0x2
 
-    invoke-virtual {p0, v0, v1, v2, v2}, Landroid/renderscript/Script;->createKernelID(IILandroid/renderscript/Element;Landroid/renderscript/Element;)Landroid/renderscript/Script$KernelID;
+    invoke-virtual {p0, v0, v1, v2, v2}, Landroid/renderscript/ScriptIntrinsicConvolve3x3;->createKernelID(IILandroid/renderscript/Element;Landroid/renderscript/Element;)Landroid/renderscript/Script$KernelID;
 
     move-result-object v0
 
@@ -266,7 +275,7 @@
     :cond_0
     const/4 v2, 0x0
 
-    invoke-virtual {p0, v2, v1}, Landroid/renderscript/Script;->setVar(ILandroid/renderscript/FieldPacker;)V
+    invoke-virtual {p0, v2, v1}, Landroid/renderscript/ScriptIntrinsicConvolve3x3;->setVar(ILandroid/renderscript/FieldPacker;)V
 
     return-void
 .end method
@@ -278,7 +287,7 @@
 
     const/4 v0, 0x1
 
-    invoke-virtual {p0, v0, p1}, Landroid/renderscript/Script;->setVar(ILandroid/renderscript/BaseObj;)V
+    invoke-virtual {p0, v0, p1}, Landroid/renderscript/ScriptIntrinsicConvolve3x3;->setVar(ILandroid/renderscript/BaseObj;)V
 
     return-void
 .end method

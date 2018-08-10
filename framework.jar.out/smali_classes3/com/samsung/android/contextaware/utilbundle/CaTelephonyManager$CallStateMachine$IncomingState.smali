@@ -48,7 +48,7 @@
     :try_start_0
     sget-object v1, Lcom/samsung/android/contextaware/utilbundle/CaTelephonyManager$Msg;->IDLE:Lcom/samsung/android/contextaware/utilbundle/CaTelephonyManager$Msg;
 
-    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
+    invoke-virtual {v1}, Lcom/samsung/android/contextaware/utilbundle/CaTelephonyManager$Msg;->ordinal()I
 
     move-result v1
 
@@ -62,7 +62,7 @@
     :try_start_1
     sget-object v1, Lcom/samsung/android/contextaware/utilbundle/CaTelephonyManager$Msg;->INCOMING_RINGING:Lcom/samsung/android/contextaware/utilbundle/CaTelephonyManager$Msg;
 
-    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
+    invoke-virtual {v1}, Lcom/samsung/android/contextaware/utilbundle/CaTelephonyManager$Msg;->ordinal()I
 
     move-result v1
 
@@ -76,7 +76,7 @@
     :try_start_2
     sget-object v1, Lcom/samsung/android/contextaware/utilbundle/CaTelephonyManager$Msg;->OFF_HOOK:Lcom/samsung/android/contextaware/utilbundle/CaTelephonyManager$Msg;
 
-    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
+    invoke-virtual {v1}, Lcom/samsung/android/contextaware/utilbundle/CaTelephonyManager$Msg;->ordinal()I
 
     move-result v1
 
@@ -132,7 +132,7 @@
 
     move-result-object v0
 
-    invoke-virtual {p0}, Lcom/android/internal/util/State;->getName()Ljava/lang/String;
+    invoke-virtual {p0}, Lcom/samsung/android/contextaware/utilbundle/CaTelephonyManager$CallStateMachine$IncomingState;->getName()Ljava/lang/String;
 
     move-result-object v1
 
@@ -180,7 +180,7 @@
 
     move-result-object v0
 
-    invoke-virtual {p0}, Lcom/android/internal/util/State;->getName()Ljava/lang/String;
+    invoke-virtual {p0}, Lcom/samsung/android/contextaware/utilbundle/CaTelephonyManager$CallStateMachine$IncomingState;->getName()Ljava/lang/String;
 
     move-result-object v1
 
@@ -206,7 +206,7 @@
 
     aget-object v1, v1, v2
 
-    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
+    invoke-virtual {v1}, Lcom/samsung/android/contextaware/utilbundle/CaTelephonyManager$Msg;->ordinal()I
 
     move-result v1
 
@@ -227,7 +227,7 @@
 
     move-result-object v1
 
-    invoke-static {v0, v1}, Lcom/samsung/android/contextaware/utilbundle/CaTelephonyManager$CallStateMachine;->-wrap0(Lcom/samsung/android/contextaware/utilbundle/CaTelephonyManager$CallStateMachine;Lcom/android/internal/util/IState;)V
+    invoke-virtual {v0, v1}, Lcom/samsung/android/contextaware/utilbundle/CaTelephonyManager$CallStateMachine;->transitionTo(Lcom/android/internal/util/IState;)V
 
     :goto_0
     const/4 v0, 0x1
@@ -243,7 +243,7 @@
 
     move-result-object v1
 
-    invoke-static {v0, v1}, Lcom/samsung/android/contextaware/utilbundle/CaTelephonyManager$CallStateMachine;->-wrap0(Lcom/samsung/android/contextaware/utilbundle/CaTelephonyManager$CallStateMachine;Lcom/android/internal/util/IState;)V
+    invoke-virtual {v0, v1}, Lcom/samsung/android/contextaware/utilbundle/CaTelephonyManager$CallStateMachine;->transitionTo(Lcom/android/internal/util/IState;)V
 
     goto :goto_0
 

@@ -1,9 +1,6 @@
 .class Landroid/telecom/ConnectionService$5$2;
-.super Ljava/lang/Object;
+.super Landroid/telecom/Logging/Runnable;
 .source "ConnectionService.java"
-
-# interfaces
-.implements Ljava/lang/Runnable;
 
 
 # annotations
@@ -22,19 +19,19 @@
 
 
 # direct methods
-.method constructor <init>(Landroid/telecom/ConnectionService$5;)V
+.method constructor <init>(Landroid/telecom/ConnectionService$5;Ljava/lang/String;Ljava/lang/Object;)V
     .locals 0
 
     iput-object p1, p0, Landroid/telecom/ConnectionService$5$2;->this$1:Landroid/telecom/ConnectionService$5;
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0, p2, p3}, Landroid/telecom/Logging/Runnable;-><init>(Ljava/lang/String;Ljava/lang/Object;)V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public run()V
+.method public loggedRun()V
     .locals 2
 
     iget-object v0, p0, Landroid/telecom/ConnectionService$5$2;->this$1:Landroid/telecom/ConnectionService$5;

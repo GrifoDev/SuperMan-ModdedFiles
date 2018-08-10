@@ -88,6 +88,8 @@
 
 .field public static final DATA_PROFILE_HIPRI:I = 0x7
 
+.field public static final DATA_PROFILE_IA:I = 0x3ee
+
 .field public static final DATA_PROFILE_IMS:I = 0x2
 
 .field public static final DATA_PROFILE_INVALID:I = -0x1
@@ -188,7 +190,7 @@
 
 .field public static final LTE_ON_CDMA_UNKNOWN:I = -0x1
 
-.field public static final MAC_ADDRESS_FAIL:I = 0x47
+.field public static final MAC_ADDRESS_FAIL:I = 0x1f6
 
 .field public static final MEMORY_ERROR:I = 0x3e9
 
@@ -209,8 +211,6 @@
 .field public static final NETWORK_MODE_GLOBAL:I = 0x7
 
 .field public static final NETWORK_MODE_GSM_ONLY:I = 0x1
-
-.field public static final NETWORK_MODE_GSM_PREF:I = 0x18
 
 .field public static final NETWORK_MODE_GSM_UMTS:I = 0x3
 
@@ -256,7 +256,7 @@
 
 .field public static final NOT_PROVISIONED:I = 0x3d
 
-.field public static final NOT_SUBCRIBED_USER:I = 0x49
+.field public static final NOT_SUBCRIBED_USER:I = 0x1f8
 
 .field public static final NO_MEMORY:I = 0x25
 
@@ -288,7 +288,11 @@
 
 .field public static final OEM_NET_GET_DRX:I = 0x2c
 
+.field public static final OEM_NET_GET_MODEM_CAP:I = 0x61
+
 .field public static final OEM_NET_SET_DRX:I = 0x2d
+
+.field public static final OEM_NET_UPDATE_SUB_BINDING:I = 0x62
 
 .field public static final OPERATION_NOT_ALLOWED:I = 0x36
 
@@ -398,8 +402,6 @@
 
 .field public static final RIL_REQUEST_DTMF_STOP:I = 0x32
 
-.field public static final RIL_REQUEST_ENABLE_UNSOL_RESPONSE:I = 0x2732
-
 .field public static final RIL_REQUEST_ENTER_NETWORK_DEPERSONALIZATION:I = 0x8
 
 .field public static final RIL_REQUEST_ENTER_SIM_PERSO:I = 0x2722
@@ -419,6 +421,8 @@
 .field public static final RIL_REQUEST_GET_ACB_INFO:I = 0x2728
 
 .field public static final RIL_REQUEST_GET_ACTIVITY_INFO:I = 0x87
+
+.field public static final RIL_REQUEST_GET_ALLOWED_CARRIERS:I = 0x89
 
 .field public static final RIL_REQUEST_GET_CELL_BROADCAST_CONFIG:I = 0x2718
 
@@ -486,8 +490,6 @@
 
 .field public static final RIL_REQUEST_LOCK_INFO:I = 0x271d
 
-.field public static final RIL_REQUEST_MODIFY_CALL_CONFIRM:I = 0x2714
-
 .field public static final RIL_REQUEST_MODIFY_CALL_INITIATE:I = 0x2713
 
 .field public static final RIL_REQUEST_NV_READ_ITEM:I = 0x76
@@ -498,9 +500,83 @@
 
 .field public static final RIL_REQUEST_NV_WRITE_ITEM:I = 0x77
 
+.field public static final RIL_REQUEST_OEM_ACCESS_PHONEBOOK_ENTRY:I = 0x271b
+
+.field public static final RIL_REQUEST_OEM_ACKNOWLEDGE_RIL_CONNECTED:I = 0x2735
+
+.field public static final RIL_REQUEST_OEM_CALL_DEFLECTION:I = 0x2712
+
+.field public static final RIL_REQUEST_OEM_CANCEL_TRANSFER_CALL:I = 0x2733
+
+.field public static final RIL_REQUEST_OEM_CDMA_SEND_SMS_EXPECT_MORE:I = 0x2724
+
+.field public static final RIL_REQUEST_OEM_CHANGE_SIM_PERSO:I = 0x2721
+
+.field public static final RIL_REQUEST_OEM_DIAL_EMERGENCY_CALL:I = 0x2711
+
+.field public static final RIL_REQUEST_OEM_EMERGENCY_CONTROL:I = 0x2737
+
+.field public static final RIL_REQUEST_OEM_EMERGENCY_SEARCH:I = 0x2736
+
+.field public static final RIL_REQUEST_OEM_ENABLE_UNSOL_RESPONSE:I = 0x2732
+
+.field public static final RIL_REQUEST_OEM_ENTER_SIM_PERSO:I = 0x2722
+
+.field public static final RIL_REQUEST_OEM_GET_ACB_INFO:I = 0x2728
+
+.field public static final RIL_REQUEST_OEM_GET_CELL_BROADCAST_CONFIG:I = 0x2718
+
+.field public static final RIL_REQUEST_OEM_GET_DISABLE_2G:I = 0x272f
+
+.field public static final RIL_REQUEST_OEM_GET_INCOMING_COMMUNICATION_BARRING:I = 0x272b
+
+.field public static final RIL_REQUEST_OEM_GET_PHONEBOOK_ENTRY:I = 0x271a
+
+.field public static final RIL_REQUEST_OEM_GET_PHONEBOOK_STORAGE_INFO:I = 0x2719
+
+.field public static final RIL_REQUEST_OEM_GET_PREFERRED_NETWORK_LIST:I = 0x2720
+
+.field public static final RIL_REQUEST_OEM_HOLD:I = 0x2726
+
 .field public static final RIL_REQUEST_OEM_HOOK_RAW:I = 0x3b
 
 .field public static final RIL_REQUEST_OEM_HOOK_STRINGS:I = 0x3c
+
+.field public static final RIL_REQUEST_OEM_LOCK_INFO:I = 0x271d
+
+.field public static final RIL_REQUEST_OEM_MODIFY_CALL_INITIATE:I = 0x2713
+
+.field public static final RIL_REQUEST_OEM_QUERY_CNAP:I = 0x272d
+
+.field public static final RIL_REQUEST_OEM_REFRESH_NITZ_TIME:I = 0x2731
+
+.field public static final RIL_REQUEST_OEM_SAFE_MODE:I = 0x2716
+
+.field public static final RIL_REQUEST_OEM_SEND_ENCODED_USSD:I = 0x2723
+
+.field public static final RIL_REQUEST_OEM_SET_DISABLE_2G:I = 0x2730
+
+.field public static final RIL_REQUEST_OEM_SET_IMS_CALL_LIST:I = 0x2714
+
+.field public static final RIL_REQUEST_OEM_SET_INCOMING_COMMUNICATION_BARRING:I = 0x272c
+
+.field public static final RIL_REQUEST_OEM_SET_PREFERRED_NETWORK_LIST:I = 0x271f
+
+.field public static final RIL_REQUEST_OEM_SET_SIM_POWER:I = 0x2727
+
+.field public static final RIL_REQUEST_OEM_SET_TRANSFER_CALL:I = 0x272e
+
+.field public static final RIL_REQUEST_OEM_SET_TRANSMIT_POWER:I = 0x2717
+
+.field public static final RIL_REQUEST_OEM_SIM_GET_ATR:I = 0x2738
+
+.field public static final RIL_REQUEST_OEM_STK_SIM_INIT_EVENT:I = 0x271e
+
+.field public static final RIL_REQUEST_OEM_UICC_GBA_AUTHENTICATE_BOOTSTRAP:I = 0x2729
+
+.field public static final RIL_REQUEST_OEM_UICC_GBA_AUTHENTICATE_NAF:I = 0x272a
+
+.field public static final RIL_REQUEST_OEM_USIM_PB_CAPA:I = 0x271c
 
 .field public static final RIL_REQUEST_OPERATOR:I = 0x16
 
@@ -538,6 +614,48 @@
 
 .field public static final RIL_REQUEST_SCREEN_STATE:I = 0x3d
 
+.field public static final RIL_REQUEST_SEC_ANSWER:I = 0x4e48
+
+.field public static final RIL_REQUEST_SEC_CDMA_SEND_SMS:I = 0x4e77
+
+.field public static final RIL_REQUEST_SEC_CHANGE_BARRING_PASSWORD:I = 0x4e4c
+
+.field public static final RIL_REQUEST_SEC_DATA_REGISTRATION_STATE:I = 0x4e35
+
+.field public static final RIL_REQUEST_SEC_DIAL:I = 0x4e2a
+
+.field public static final RIL_REQUEST_SEC_ENTER_NETWORK_DEPERSONALIZATION:I = 0x4e28
+
+.field public static final RIL_REQUEST_SEC_EXPLICIT_CALL_TRANSFER:I = 0x4e68
+
+.field public static final RIL_REQUEST_SEC_GET_CURRENT_CALLS:I = 0x4e29
+
+.field public static final RIL_REQUEST_SEC_GET_SIM_STATUS:I = 0x4e21
+
+.field public static final RIL_REQUEST_SEC_IMS_REGISTRATION_STATE:I = 0x4e90
+
+.field public static final RIL_REQUEST_SEC_IMS_SEND_SMS:I = 0x4e91
+
+.field public static final RIL_REQUEST_SEC_OPERATOR:I = 0x4e36
+
+.field public static final RIL_REQUEST_SEC_QUERY_AVAILABLE_NETWORKS:I = 0x4e50
+
+.field public static final RIL_REQUEST_SEC_QUERY_CALL_FORWARD_STATUS:I = 0x4e41
+
+.field public static final RIL_REQUEST_SEC_SEND_DEVICE_STATE:I = 0x4eaa
+
+.field public static final RIL_REQUEST_SEC_SEND_SMS:I = 0x4e39
+
+.field public static final RIL_REQUEST_SEC_SEND_SMS_EXPECT_MORE:I = 0x4e3a
+
+.field public static final RIL_REQUEST_SEC_SET_CALL_FORWARD:I = 0x4e42
+
+.field public static final RIL_REQUEST_SEC_SIGNAL_STRENGTH:I = 0x4e33
+
+.field public static final RIL_REQUEST_SEC_VOICE_REGISTRATION_STATE:I = 0x4e34
+
+.field public static final RIL_REQUEST_SEND_DEVICE_STATE:I = 0x8a
+
 .field public static final RIL_REQUEST_SEND_ENCODED_USSD:I = 0x2723
 
 .field public static final RIL_REQUEST_SEND_SMS:I = 0x19
@@ -549,6 +667,8 @@
 .field public static final RIL_REQUEST_SEPARATE_CONNECTION:I = 0x34
 
 .field public static final RIL_REQUEST_SETUP_DATA_CALL:I = 0x1b
+
+.field public static final RIL_REQUEST_SET_ALLOWED_CARRIERS:I = 0x88
 
 .field public static final RIL_REQUEST_SET_BAND_MODE:I = 0x41
 
@@ -565,6 +685,8 @@
 .field public static final RIL_REQUEST_SET_DISABLE_2G:I = 0x2730
 
 .field public static final RIL_REQUEST_SET_FACILITY_LOCK:I = 0x2b
+
+.field public static final RIL_REQUEST_SET_IMS_CALL_LIST:I = 0x2714
 
 .field public static final RIL_REQUEST_SET_INCOMING_COMMUNICATION_BARRING:I = 0x272c
 
@@ -584,6 +706,8 @@
 
 .field public static final RIL_REQUEST_SET_RADIO_CAPABILITY:I = 0x83
 
+.field public static final RIL_REQUEST_SET_SIM_CARD_POWER:I = 0x8c
+
 .field public static final RIL_REQUEST_SET_SIM_POWER:I = 0x2727
 
 .field public static final RIL_REQUEST_SET_SMSC_ADDRESS:I = 0x65
@@ -598,9 +722,9 @@
 
 .field public static final RIL_REQUEST_SET_UICC_SUBSCRIPTION:I = 0x7a
 
-.field public static final RIL_REQUEST_SET_UNSOL_CELL_INFO_LIST_RATE:I = 0x6e
+.field public static final RIL_REQUEST_SET_UNSOLICITED_RESPONSE_FILTER:I = 0x8b
 
-.field public static final RIL_REQUEST_SET_VOICE_DOMAIN_PREF:I = 0x2715
+.field public static final RIL_REQUEST_SET_UNSOL_CELL_INFO_LIST_RATE:I = 0x6e
 
 .field public static final RIL_REQUEST_SHUTDOWN:I = 0x81
 
@@ -609,8 +733,6 @@
 .field public static final RIL_REQUEST_SIM_AUTHENTICATION:I = 0x7d
 
 .field public static final RIL_REQUEST_SIM_CLOSE_CHANNEL:I = 0x74
-
-.field public static final RIL_REQUEST_SIM_GET_ATR:I = 0x88
 
 .field public static final RIL_REQUEST_SIM_IO:I = 0x1c
 
@@ -668,6 +790,10 @@
 
 .field public static final RIL_RESTRICTED_STATE_PS_ALL:I = 0x10
 
+.field public static final RIL_SEC_REQUEST_BASE:I = 0x4e20
+
+.field public static final RIL_SEC_UNSOL_RESPONSE_BASE:I = 0x5208
+
 .field public static final RIL_UNSOL_ACB_INFO_CHANGED:I = 0x2afd
 
 .field public static final RIL_UNSOL_AM:I = 0x2b02
@@ -698,8 +824,6 @@
 
 .field public static final RIL_UNSOL_DEVICE_READY_NOTI:I = 0x2b00
 
-.field public static final RIL_UNSOL_DUN:I = 0x2b34
-
 .field public static final RIL_UNSOL_ENTER_EMERGENCY_CALLBACK_MODE:I = 0x400
 
 .field public static final RIL_UNSOL_EXIT_EMERGENCY_CALLBACK_MODE:I = 0x409
@@ -724,11 +848,91 @@
 
 .field public static final RIL_UNSOL_MODEM_CAP:I = 0x2b30
 
-.field public static final RIL_UNSOL_MODIFY_CALL:I = 0x2b14
+.field public static final RIL_UNSOL_MODEM_RESTART:I = 0x417
 
 .field public static final RIL_UNSOL_NITZ_TIME_RECEIVED:I = 0x3f0
 
+.field public static final RIL_UNSOL_OEM_ACB_INFO_CHANGED:I = 0x2afd
+
+.field public static final RIL_UNSOL_OEM_AM:I = 0x2b02
+
+.field public static final RIL_UNSOL_OEM_CLM_NOTI:I = 0x2b39
+
+.field public static final RIL_UNSOL_OEM_CP_POSITION:I = 0x2b1e
+
+.field public static final RIL_UNSOL_OEM_CS_FALLBACK:I = 0x2b16
+
+.field public static final RIL_UNSOL_OEM_DEVICE_READY_NOTI:I = 0x2b00
+
+.field public static final RIL_UNSOL_OEM_FACTORY_AM:I = 0x2b12
+
+.field public static final RIL_UNSOL_OEM_GPS_NOTI:I = 0x2b01
+
+.field public static final RIL_UNSOL_OEM_HOME_NETWORK_NOTI:I = 0x2b23
+
 .field public static final RIL_UNSOL_OEM_HOOK_RAW:I = 0x404
+
+.field public static final RIL_UNSOL_OEM_HYSTERESIS_DCN:I = 0x2b1d
+
+.field public static final RIL_UNSOL_OEM_IMS_PREFERENCE_CHANGED:I = 0x2b35
+
+.field public static final RIL_UNSOL_OEM_IMS_RETRYOVER:I = 0x2b1a
+
+.field public static final RIL_UNSOL_OEM_MCPTT_NOTI:I = 0x2b3d
+
+.field public static final RIL_UNSOL_OEM_MODEM_CAP:I = 0x2b30
+
+.field public static final RIL_UNSOL_OEM_PB_INIT_COMPLETE:I = 0x2b1b
+
+.field public static final RIL_UNSOL_OEM_PROSE_NOTI:I = 0x2b3c
+
+.field public static final RIL_UNSOL_OEM_RELEASE_COMPLETE_MESSAGE:I = 0x2af9
+
+.field public static final RIL_UNSOL_OEM_RESPONSE_NEW_CB_MSG:I = 0x2af8
+
+.field public static final RIL_UNSOL_OEM_RMTUIM_CARD_POWER_DOWN:I = 0x2b42
+
+.field public static final RIL_UNSOL_OEM_RMTUIM_CARD_POWER_UP:I = 0x2b41
+
+.field public static final RIL_UNSOL_OEM_RMTUIM_CARD_RESET:I = 0x2b43
+
+.field public static final RIL_UNSOL_OEM_RMTUIM_CONNECT:I = 0x2b3f
+
+.field public static final RIL_UNSOL_OEM_RMTUIM_DISCONNECT:I = 0x2b40
+
+.field public static final RIL_UNSOL_OEM_RMTUIM_NEED_APDU:I = 0x2b3e
+
+.field public static final RIL_UNSOL_OEM_SAP:I = 0x2b05
+
+.field public static final RIL_UNSOL_OEM_SIM_APPLICATION_REFRESH:I = 0x2b36
+
+.field public static final RIL_UNSOL_OEM_SIM_COUNT_MISMATCHED:I = 0x2b32
+
+.field public static final RIL_UNSOL_OEM_SIM_ICCID_NOTI:I = 0x2b3a
+
+.field public static final RIL_UNSOL_OEM_SIM_PB_READY:I = 0x2b0d
+
+.field public static final RIL_UNSOL_OEM_SIM_SWAP_STATE_CHANGED:I = 0x2b31
+
+.field public static final RIL_UNSOL_OEM_SRVCC_HANDOVER:I = 0x2b15
+
+.field public static final RIL_UNSOL_OEM_STK_CALL_CONTROL_RESULT:I = 0x2afb
+
+.field public static final RIL_UNSOL_OEM_STK_CALL_STATUS:I = 0x2b2e
+
+.field public static final RIL_UNSOL_OEM_STK_SEND_SMS_RESULT:I = 0x2afa
+
+.field public static final RIL_UNSOL_OEM_TIMER_STATUS_CHANGED_NOTI:I = 0x2b3b
+
+.field public static final RIL_UNSOL_OEM_TURN_RADIO_ON:I = 0x2b44
+
+.field public static final RIL_UNSOL_OEM_UART:I = 0x2b0c
+
+.field public static final RIL_UNSOL_OEM_UICC_APPLICATION_STATUS:I = 0x2b37
+
+.field public static final RIL_UNSOL_OEM_VE:I = 0x2b10
+
+.field public static final RIL_UNSOL_OEM_VOICE_RADIO_BEARER_HO_STATUS:I = 0x2b38
 
 .field public static final RIL_UNSOL_ON_SS:I = 0x413
 
@@ -737,6 +941,8 @@
 .field public static final RIL_UNSOL_ON_USSD_REQUEST:I = 0x3ef
 
 .field public static final RIL_UNSOL_PB_INIT_COMPLETE:I = 0x2b1b
+
+.field public static final RIL_UNSOL_PCO_DATA:I = 0x416
 
 .field public static final RIL_UNSOL_PROSE_NOTI:I = 0x2b3c
 
@@ -754,6 +960,8 @@
 
 .field public static final RIL_UNSOL_RESPONSE_IMS_NETWORK_STATE_CHANGED:I = 0x40d
 
+.field public static final RIL_UNSOL_RESPONSE_NETWORK_STATE_CHANGED:I = 0x3ea
+
 .field public static final RIL_UNSOL_RESPONSE_NEW_BROADCAST_SMS:I = 0x3fd
 
 .field public static final RIL_UNSOL_RESPONSE_NEW_CB_MSG:I = 0x2af8
@@ -767,8 +975,6 @@
 .field public static final RIL_UNSOL_RESPONSE_RADIO_STATE_CHANGED:I = 0x3e8
 
 .field public static final RIL_UNSOL_RESPONSE_SIM_STATUS_CHANGED:I = 0x3fb
-
-.field public static final RIL_UNSOL_RESPONSE_VOICE_NETWORK_STATE_CHANGED:I = 0x3ea
 
 .field public static final RIL_UNSOL_RESTRICTED_STATE_CHANGED:I = 0x3ff
 
@@ -789,6 +995,12 @@
 .field public static final RIL_UNSOL_RMTUIM_NEED_APDU:I = 0x2b3e
 
 .field public static final RIL_UNSOL_SAP:I = 0x2b05
+
+.field public static final RIL_UNSOL_SEC_NITZ_TIME_RECEIVED:I = 0x55f8
+
+.field public static final RIL_UNSOL_SEC_RESPONSE_IMS_NETWORK_STATE_CHANGED:I = 0x5615
+
+.field public static final RIL_UNSOL_SEC_SIGNAL_STRENGTH:I = 0x55f9
 
 .field public static final RIL_UNSOL_SIGNAL_STRENGTH:I = 0x3f1
 
@@ -844,8 +1056,6 @@
 
 .field public static final RIL_UNSOL_VOICE_RADIO_TECH_CHANGED:I = 0x40b
 
-.field public static final RIL_UNSOL_VOICE_SYSTEM_ID:I = 0x2b18
-
 .field public static final RIL_UNSOl_CDMA_PRL_CHANGED:I = 0x408
 
 .field public static final SETUP_DATA_AUTH_CHAP:I = 0x2
@@ -894,9 +1104,7 @@
 
 .field public static final SIP_PHONE:I = 0x3
 
-.field public static final SMS_DSAC_FAILURE:I = 0x48
-
-.field public static final SMS_SEND_FAIL_DAN_RETRY:I = 0x4a
+.field public static final SMS_DSAC_FAILURE:I = 0x1f7
 
 .field public static final SMS_SEND_FAIL_RETRY:I = 0xa
 
@@ -922,7 +1130,7 @@
 
 .field public static final THIRD_PARTY_PHONE:I = 0x4
 
-.field public static final UICC_IO_ERROR:I = 0x46
+.field public static final UICC_IO_ERROR:I = 0x1f5
 
 .field public static final USSD_MODIFIED_TO_DIAL:I = 0x15
 
@@ -930,32 +1138,14 @@
 
 .field public static final USSD_MODIFIED_TO_USSD:I = 0x17
 
-.field public static final VOICE_DOMAIN_CS_ONLY:I = 0x0
-
-.field public static final VOICE_DOMAIN_CS_PREFERRED:I = 0x2
-
-.field public static final VOICE_DOMAIN_PS_ONLY:I = 0x1
-
-.field public static final VOICE_DOMAIN_PS_PREFERRED:I = 0x3
-
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .locals 1
 
-    const/4 v2, 0x0
+    const/4 v0, 0x0
 
-    const-string/jumbo v0, "ro.telephony.default_network"
-
-    invoke-static {v2}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v2, v0, v1}, Landroid/telephony/TelephonyManager;->getTelephonyProperty(ILjava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-static {v0}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+    invoke-static {v0}, Lcom/android/internal/telephony/TelephonyFeatures;->getNetworkType(I)I
 
     move-result v0
 

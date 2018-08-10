@@ -43,6 +43,18 @@
 .method public abstract prepareShutdown()V
 .end method
 
+.method public abstract queryUsageStatsForUser(IIJJZ)Ljava/util/List;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(IIJJZ)",
+            "Ljava/util/List",
+            "<",
+            "Landroid/app/usage/UsageStats;",
+            ">;"
+        }
+    .end annotation
+.end method
+
 .method public abstract removeAppIdleStateChangeListener(Landroid/app/usage/UsageStatsManagerInternal$AppIdleStateChangeListener;)V
 .end method
 
@@ -56,4 +68,7 @@
 .end method
 
 .method public abstract reportEvent(Ljava/lang/String;II)V
+.end method
+
+.method public abstract reportShortcutUsage(Ljava/lang/String;Ljava/lang/String;I)V
 .end method

@@ -17,7 +17,7 @@
     value = {
         "Landroid/app/SystemServiceRegistry$CachedServiceFetcher",
         "<",
-        "Landroid/telephony/SubscriptionManager;",
+        "Landroid/hardware/SensorManager;",
         ">;"
     }
 .end annotation
@@ -34,24 +34,39 @@
 
 
 # virtual methods
-.method public createService(Landroid/app/ContextImpl;)Landroid/telephony/SubscriptionManager;
-    .locals 2
+.method public createService(Landroid/app/ContextImpl;)Landroid/hardware/SensorManager;
+    .locals 3
 
-    new-instance v0, Landroid/telephony/SubscriptionManager;
+    new-instance v0, Landroid/hardware/SystemSensorManager;
 
     invoke-virtual {p1}, Landroid/app/ContextImpl;->getOuterContext()Landroid/content/Context;
 
     move-result-object v1
 
-    invoke-direct {v0, v1}, Landroid/telephony/SubscriptionManager;-><init>(Landroid/content/Context;)V
+    iget-object v2, p1, Landroid/app/ContextImpl;->mMainThread:Landroid/app/ActivityThread;
+
+    invoke-virtual {v2}, Landroid/app/ActivityThread;->getHandler()Landroid/os/Handler;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Landroid/os/Handler;->getLooper()Landroid/os/Looper;
+
+    move-result-object v2
+
+    invoke-direct {v0, v1, v2}, Landroid/hardware/SystemSensorManager;-><init>(Landroid/content/Context;Landroid/os/Looper;)V
 
     return-object v0
 .end method
 
 .method public bridge synthetic createService(Landroid/app/ContextImpl;)Ljava/lang/Object;
     .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/ServiceManager$ServiceNotFoundException;
+        }
+    .end annotation
 
-    invoke-virtual {p0, p1}, Landroid/app/SystemServiceRegistry$41;->createService(Landroid/app/ContextImpl;)Landroid/telephony/SubscriptionManager;
+    invoke-virtual {p0, p1}, Landroid/app/SystemServiceRegistry$41;->createService(Landroid/app/ContextImpl;)Landroid/hardware/SensorManager;
 
     move-result-object v0
 

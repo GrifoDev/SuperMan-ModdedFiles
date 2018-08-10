@@ -23,7 +23,7 @@
 .method public scheduleNextNode()Landroid/filterfw/core/Filter;
     .locals 3
 
-    invoke-virtual {p0}, Landroid/filterfw/core/Scheduler;->getGraph()Landroid/filterfw/core/FilterGraph;
+    invoke-virtual {p0}, Landroid/filterfw/core/SimpleScheduler;->getGraph()Landroid/filterfw/core/FilterGraph;
 
     move-result-object v2
 

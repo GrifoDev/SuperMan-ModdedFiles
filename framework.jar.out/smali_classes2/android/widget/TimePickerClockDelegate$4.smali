@@ -41,7 +41,7 @@
 
     iget-object v1, p0, Landroid/widget/TimePickerClockDelegate$4;->this$0:Landroid/widget/TimePickerClockDelegate;
 
-    invoke-static {v1}, Landroid/widget/TimePickerClockDelegate;->-get4(Landroid/widget/TimePickerClockDelegate;)Lcom/android/internal/widget/NumericTextView;
+    invoke-static {v1}, Landroid/widget/TimePickerClockDelegate;->-get3(Landroid/widget/TimePickerClockDelegate;)Lcom/android/internal/widget/NumericTextView;
 
     move-result-object v1
 
@@ -49,7 +49,7 @@
 
     move-result v1
 
-    invoke-virtual {v0, v1}, Landroid/widget/TimePickerClockDelegate;->setMinute(I)V
+    invoke-virtual {v0, v1}, Landroid/widget/TimePickerClockDelegate;->setHour(I)V
 
     return-void
 .end method

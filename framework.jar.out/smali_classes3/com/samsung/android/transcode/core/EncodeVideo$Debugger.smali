@@ -26,7 +26,7 @@
 .method public static isEnabled()Z
     .locals 1
 
-    const/4 v0, 0x0
+    const/4 v0, 0x1
 
     return v0
 .end method
@@ -44,13 +44,13 @@
     return-void
 
     :cond_0
-    const-string/jumbo v0, "TranscodeLib"
-
     invoke-virtual {p0}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    const-string/jumbo v1, "TranscodeLib"
+
+    invoke-static {v1, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 .end method

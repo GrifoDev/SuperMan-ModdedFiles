@@ -70,11 +70,11 @@
 
     invoke-virtual {p2, v2}, Landroid/graphics/Canvas;->save(I)I
 
-    iget v2, p0, Lcom/samsung/android/graphics/spr/document/shape/SprObjectBase;->alpha:F
+    iget v2, p0, Lcom/samsung/android/graphics/spr/document/shape/SprObjectShapeEllipse;->alpha:F
 
     mul-float v0, p5, v2
 
-    iget-object v2, p0, Lcom/samsung/android/graphics/spr/document/shape/SprObjectBase;->mAttributeList:Ljava/util/ArrayList;
+    iget-object v2, p0, Lcom/samsung/android/graphics/spr/document/shape/SprObjectShapeEllipse;->mAttributeList:Ljava/util/ArrayList;
 
     invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
 
@@ -82,7 +82,7 @@
 
     if-lez v2, :cond_0
 
-    invoke-virtual {p0, p1, p2, v0}, Lcom/samsung/android/graphics/spr/document/shape/SprObjectBase;->applyAttribute(Lcom/samsung/android/graphics/spr/document/SprDocument;Landroid/graphics/Canvas;F)V
+    invoke-virtual {p0, p1, p2, v0}, Lcom/samsung/android/graphics/spr/document/shape/SprObjectShapeEllipse;->applyAttribute(Lcom/samsung/android/graphics/spr/document/SprDocument;Landroid/graphics/Canvas;F)V
 
     :cond_0
     new-instance v1, Landroid/graphics/RectF;
@@ -97,27 +97,27 @@
 
     invoke-direct {v1, v2, v3, v4, v5}, Landroid/graphics/RectF;-><init>(FFFF)V
 
-    invoke-virtual {p0}, Lcom/samsung/android/graphics/spr/document/shape/SprObjectBase;->setShadowLayer()V
+    invoke-virtual {p0}, Lcom/samsung/android/graphics/spr/document/shape/SprObjectShapeEllipse;->setShadowLayer()V
 
-    iget-boolean v2, p0, Lcom/samsung/android/graphics/spr/document/shape/SprObjectBase;->isVisibleFill:Z
+    iget-boolean v2, p0, Lcom/samsung/android/graphics/spr/document/shape/SprObjectShapeEllipse;->isVisibleFill:Z
 
     if-eqz v2, :cond_1
 
-    iget-object v2, p0, Lcom/samsung/android/graphics/spr/document/shape/SprObjectBase;->fillPaint:Landroid/graphics/Paint;
+    iget-object v2, p0, Lcom/samsung/android/graphics/spr/document/shape/SprObjectShapeEllipse;->fillPaint:Landroid/graphics/Paint;
 
     invoke-virtual {p2, v1, v2}, Landroid/graphics/Canvas;->drawOval(Landroid/graphics/RectF;Landroid/graphics/Paint;)V
 
     :cond_1
-    iget-boolean v2, p0, Lcom/samsung/android/graphics/spr/document/shape/SprObjectBase;->isVisibleStroke:Z
+    iget-boolean v2, p0, Lcom/samsung/android/graphics/spr/document/shape/SprObjectShapeEllipse;->isVisibleStroke:Z
 
     if-eqz v2, :cond_2
 
-    iget-object v2, p0, Lcom/samsung/android/graphics/spr/document/shape/SprObjectBase;->strokePaint:Landroid/graphics/Paint;
+    iget-object v2, p0, Lcom/samsung/android/graphics/spr/document/shape/SprObjectShapeEllipse;->strokePaint:Landroid/graphics/Paint;
 
     invoke-virtual {p2, v1, v2}, Landroid/graphics/Canvas;->drawOval(Landroid/graphics/RectF;Landroid/graphics/Paint;)V
 
     :cond_2
-    invoke-virtual {p0}, Lcom/samsung/android/graphics/spr/document/shape/SprObjectBase;->clearShadowLayer()V
+    invoke-virtual {p0}, Lcom/samsung/android/graphics/spr/document/shape/SprObjectShapeEllipse;->clearShadowLayer()V
 
     invoke-virtual {p2}, Landroid/graphics/Canvas;->restore()V
 

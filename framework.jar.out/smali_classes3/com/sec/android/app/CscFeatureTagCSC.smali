@@ -14,6 +14,8 @@
 
 .field public static final TAG_CSCFEATURE_CSC_CONFIGDYNSVN:Ljava/lang/String; = "CscFeature_CSC_ConfigDynSvn"
 
+.field public static final TAG_CSCFEATURE_CSC_CONFIGOPLISTDATAROAMING:Ljava/lang/String; = "CscFeature_CSC_ConfigOpListDataRoaming"
+
 
 # direct methods
 .method public constructor <init>()V

@@ -39,7 +39,7 @@
 
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroid/media/midi/MidiDeviceInfo;
-    .locals 10
+    .locals 11
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
@@ -65,21 +65,25 @@
 
     move-result-object v6
 
-    invoke-virtual {p1}, Landroid/os/Parcel;->readBundle()Landroid/os/Bundle;
-
-    move-result-object v7
-
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
-    const/4 v9, 0x1
+    const/4 v10, 0x1
 
-    if-ne v0, v9, :cond_0
+    if-ne v0, v10, :cond_0
 
     const/4 v8, 0x1
 
     :goto_0
+    invoke-virtual {p1}, Landroid/os/Parcel;->readBundle()Landroid/os/Bundle;
+
+    move-result-object v9
+
+    invoke-virtual {p1}, Landroid/os/Parcel;->readBundle()Landroid/os/Bundle;
+
+    move-result-object v7
+
     new-instance v0, Landroid/media/midi/MidiDeviceInfo;
 
     invoke-direct/range {v0 .. v8}, Landroid/media/midi/MidiDeviceInfo;-><init>(IIII[Ljava/lang/String;[Ljava/lang/String;Landroid/os/Bundle;Z)V

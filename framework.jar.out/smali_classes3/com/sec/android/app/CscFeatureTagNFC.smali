@@ -12,8 +12,6 @@
 
 .field public static final TAG_CSCFEATURE_NFC_CONFIGADVANCEDSETTINGS:Ljava/lang/String; = "CscFeature_NFC_ConfigAdvancedSettings"
 
-.field public static final TAG_CSCFEATURE_NFC_CONFIGCARDMODE:Ljava/lang/String; = "CscFeature_NFC_ConfigCardMode"
-
 .field public static final TAG_CSCFEATURE_NFC_CONFIGCARDMODEROUTINGTYPEFORESE:Ljava/lang/String; = "CscFeature_NFC_ConfigCardModeRoutingTypeForEse"
 
 .field public static final TAG_CSCFEATURE_NFC_CONFIGCARDMODEROUTINGTYPEFORHCE:Ljava/lang/String; = "CscFeature_NFC_ConfigCardmodeRoutingTypeForHce"
@@ -21,6 +19,8 @@
 .field public static final TAG_CSCFEATURE_NFC_CONFIGCARDMODEROUTINGTYPEFORUICC:Ljava/lang/String; = "CscFeature_NFC_ConfigCardModeRoutingTypeForUicc"
 
 .field public static final TAG_CSCFEATURE_NFC_CONFIGCONTOLEVENTTYPEWITHGPAC:Ljava/lang/String; = "CscFeature_NFC_ConfigContolEventTypeWithGpac"
+
+.field public static final TAG_CSCFEATURE_NFC_CONFIGDEFAULTAIDROUTE:Ljava/lang/String; = "CscFeature_NFC_ConfigDefaultAidRoute"
 
 .field public static final TAG_CSCFEATURE_NFC_CONFIGDYNAMICFIRMWARELOADING:Ljava/lang/String; = "CscFeature_NFC_ConfigDynamicFirmwareLoading"
 
@@ -47,8 +47,6 @@
 .field public static final TAG_CSCFEATURE_NFC_ENABLEINVALIDTAGPOPUP:Ljava/lang/String; = "CscFeature_NFC_EnableInvalidTagPopup"
 
 .field public static final TAG_CSCFEATURE_NFC_FOLLOWTECHNOLOGYROUTETODEFROUTE:Ljava/lang/String; = "CscFeature_NFC_FollowTechnologyRouteToDefRoute"
-
-.field public static final TAG_CSCFEATURE_NFC_REPLACELABELSAS:Ljava/lang/String; = "CscFeature_NFC_ReplaceLabelsAs"
 
 .field public static final TAG_CSCFEATURE_NFC_SETSECUREEVENTTYPE:Ljava/lang/String; = "CscFeature_NFC_SetSecureEventType"
 

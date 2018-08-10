@@ -45,7 +45,7 @@
 
     iget-object v8, p0, Landroid/widget/SemExpandableListView$2;->this$0:Landroid/widget/SemExpandableListView;
 
-    invoke-static {v8}, Landroid/widget/SemExpandableListView;->-get20(Landroid/widget/SemExpandableListView;)Ljava/util/ArrayList;
+    invoke-static {v8}, Landroid/widget/SemExpandableListView;->-get22(Landroid/widget/SemExpandableListView;)Ljava/util/ArrayList;
 
     move-result-object v8
 
@@ -55,7 +55,7 @@
 
     iget-object v8, p0, Landroid/widget/SemExpandableListView$2;->this$0:Landroid/widget/SemExpandableListView;
 
-    invoke-static {v8}, Landroid/widget/SemExpandableListView;->-get19(Landroid/widget/SemExpandableListView;)Ljava/util/ArrayList;
+    invoke-static {v8}, Landroid/widget/SemExpandableListView;->-get21(Landroid/widget/SemExpandableListView;)Ljava/util/ArrayList;
 
     move-result-object v8
 
@@ -65,7 +65,7 @@
 
     iget-object v8, p0, Landroid/widget/SemExpandableListView$2;->this$0:Landroid/widget/SemExpandableListView;
 
-    invoke-static {v8}, Landroid/widget/SemExpandableListView;->-get6(Landroid/widget/SemExpandableListView;)I
+    invoke-static {v8}, Landroid/widget/SemExpandableListView;->-get7(Landroid/widget/SemExpandableListView;)I
 
     move-result v8
 
@@ -75,13 +75,13 @@
 
     iget-object v7, p0, Landroid/widget/SemExpandableListView$2;->this$0:Landroid/widget/SemExpandableListView;
 
-    invoke-static {v7}, Landroid/widget/SemExpandableListView;->-get21(Landroid/widget/SemExpandableListView;)Landroid/graphics/RectF;
+    invoke-static {v7}, Landroid/widget/SemExpandableListView;->-get23(Landroid/widget/SemExpandableListView;)Landroid/graphics/RectF;
 
     move-result-object v7
 
     iget-object v8, p0, Landroid/widget/SemExpandableListView$2;->this$0:Landroid/widget/SemExpandableListView;
 
-    invoke-static {v8}, Landroid/widget/SemExpandableListView;->-get21(Landroid/widget/SemExpandableListView;)Landroid/graphics/RectF;
+    invoke-static {v8}, Landroid/widget/SemExpandableListView;->-get23(Landroid/widget/SemExpandableListView;)Landroid/graphics/RectF;
 
     move-result-object v8
 
@@ -89,7 +89,7 @@
 
     iget-object v9, p0, Landroid/widget/SemExpandableListView$2;->this$0:Landroid/widget/SemExpandableListView;
 
-    invoke-static {v9}, Landroid/widget/SemExpandableListView;->-get33(Landroid/widget/SemExpandableListView;)I
+    invoke-static {v9}, Landroid/widget/SemExpandableListView;->-get38(Landroid/widget/SemExpandableListView;)I
 
     move-result v9
 
@@ -112,7 +112,7 @@
     :cond_1
     iget-object v8, p0, Landroid/widget/SemExpandableListView$2;->this$0:Landroid/widget/SemExpandableListView;
 
-    invoke-static {v8}, Landroid/widget/SemExpandableListView;->-get6(Landroid/widget/SemExpandableListView;)I
+    invoke-static {v8}, Landroid/widget/SemExpandableListView;->-get7(Landroid/widget/SemExpandableListView;)I
 
     move-result v8
 
@@ -122,13 +122,13 @@
 
     iget-object v7, p0, Landroid/widget/SemExpandableListView$2;->this$0:Landroid/widget/SemExpandableListView;
 
-    invoke-static {v7}, Landroid/widget/SemExpandableListView;->-get21(Landroid/widget/SemExpandableListView;)Landroid/graphics/RectF;
+    invoke-static {v7}, Landroid/widget/SemExpandableListView;->-get23(Landroid/widget/SemExpandableListView;)Landroid/graphics/RectF;
 
     move-result-object v7
 
     iget-object v8, p0, Landroid/widget/SemExpandableListView$2;->this$0:Landroid/widget/SemExpandableListView;
 
-    invoke-static {v8}, Landroid/widget/SemExpandableListView;->-get13(Landroid/widget/SemExpandableListView;)I
+    invoke-static {v8}, Landroid/widget/SemExpandableListView;->-get14(Landroid/widget/SemExpandableListView;)I
 
     move-result v8
 
@@ -136,13 +136,13 @@
 
     iget-object v9, p0, Landroid/widget/SemExpandableListView$2;->this$0:Landroid/widget/SemExpandableListView;
 
-    invoke-static {v9}, Landroid/widget/SemExpandableListView;->-get12(Landroid/widget/SemExpandableListView;)I
+    invoke-static {v9}, Landroid/widget/SemExpandableListView;->-get13(Landroid/widget/SemExpandableListView;)I
 
     move-result v9
 
     iget-object v10, p0, Landroid/widget/SemExpandableListView$2;->this$0:Landroid/widget/SemExpandableListView;
 
-    invoke-static {v10}, Landroid/widget/SemExpandableListView;->-get13(Landroid/widget/SemExpandableListView;)I
+    invoke-static {v10}, Landroid/widget/SemExpandableListView;->-get14(Landroid/widget/SemExpandableListView;)I
 
     move-result v10
 
@@ -158,13 +158,13 @@
 
     iget-object v7, p0, Landroid/widget/SemExpandableListView$2;->this$0:Landroid/widget/SemExpandableListView;
 
-    invoke-static {v7}, Landroid/widget/SemExpandableListView;->-get21(Landroid/widget/SemExpandableListView;)Landroid/graphics/RectF;
+    invoke-static {v7}, Landroid/widget/SemExpandableListView;->-get23(Landroid/widget/SemExpandableListView;)Landroid/graphics/RectF;
 
     move-result-object v7
 
     iget-object v8, p0, Landroid/widget/SemExpandableListView$2;->this$0:Landroid/widget/SemExpandableListView;
 
-    invoke-static {v8}, Landroid/widget/SemExpandableListView;->-get21(Landroid/widget/SemExpandableListView;)Landroid/graphics/RectF;
+    invoke-static {v8}, Landroid/widget/SemExpandableListView;->-get23(Landroid/widget/SemExpandableListView;)Landroid/graphics/RectF;
 
     move-result-object v8
 
@@ -172,7 +172,7 @@
 
     iget-object v9, p0, Landroid/widget/SemExpandableListView$2;->this$0:Landroid/widget/SemExpandableListView;
 
-    invoke-static {v9}, Landroid/widget/SemExpandableListView;->-get33(Landroid/widget/SemExpandableListView;)I
+    invoke-static {v9}, Landroid/widget/SemExpandableListView;->-get38(Landroid/widget/SemExpandableListView;)I
 
     move-result v9
 
@@ -193,7 +193,7 @@
     :cond_2
     iget-object v8, p0, Landroid/widget/SemExpandableListView$2;->this$0:Landroid/widget/SemExpandableListView;
 
-    invoke-static {v8}, Landroid/widget/SemExpandableListView;->-get6(Landroid/widget/SemExpandableListView;)I
+    invoke-static {v8}, Landroid/widget/SemExpandableListView;->-get7(Landroid/widget/SemExpandableListView;)I
 
     move-result v8
 
@@ -203,7 +203,7 @@
 
     iget-object v8, p0, Landroid/widget/SemExpandableListView$2;->this$0:Landroid/widget/SemExpandableListView;
 
-    invoke-static {v8}, Landroid/widget/SemExpandableListView;->-get18(Landroid/widget/SemExpandableListView;)[Landroid/widget/SemExpandableListView$ExpandingRect;
+    invoke-static {v8}, Landroid/widget/SemExpandableListView;->-get20(Landroid/widget/SemExpandableListView;)[Landroid/widget/SemExpandableListView$ExpandingRect;
 
     move-result-object v8
 
@@ -211,7 +211,7 @@
 
     iget-object v8, p0, Landroid/widget/SemExpandableListView$2;->this$0:Landroid/widget/SemExpandableListView;
 
-    invoke-static {v8}, Landroid/widget/SemExpandableListView;->-get18(Landroid/widget/SemExpandableListView;)[Landroid/widget/SemExpandableListView$ExpandingRect;
+    invoke-static {v8}, Landroid/widget/SemExpandableListView;->-get20(Landroid/widget/SemExpandableListView;)[Landroid/widget/SemExpandableListView$ExpandingRect;
 
     move-result-object v8
 
@@ -237,7 +237,7 @@
     :cond_4
     iget-object v8, p0, Landroid/widget/SemExpandableListView$2;->this$0:Landroid/widget/SemExpandableListView;
 
-    invoke-static {v8}, Landroid/widget/SemExpandableListView;->-get6(Landroid/widget/SemExpandableListView;)I
+    invoke-static {v8}, Landroid/widget/SemExpandableListView;->-get7(Landroid/widget/SemExpandableListView;)I
 
     move-result v8
 
@@ -247,7 +247,7 @@
 
     iget-object v8, p0, Landroid/widget/SemExpandableListView$2;->this$0:Landroid/widget/SemExpandableListView;
 
-    invoke-static {v8}, Landroid/widget/SemExpandableListView;->-get14(Landroid/widget/SemExpandableListView;)[Landroid/widget/SemExpandableListView$CollapsingRect;
+    invoke-static {v8}, Landroid/widget/SemExpandableListView;->-get15(Landroid/widget/SemExpandableListView;)[Landroid/widget/SemExpandableListView$CollapsingRect;
 
     move-result-object v8
 
@@ -255,7 +255,7 @@
 
     iget-object v8, p0, Landroid/widget/SemExpandableListView$2;->this$0:Landroid/widget/SemExpandableListView;
 
-    invoke-static {v8}, Landroid/widget/SemExpandableListView;->-get14(Landroid/widget/SemExpandableListView;)[Landroid/widget/SemExpandableListView$CollapsingRect;
+    invoke-static {v8}, Landroid/widget/SemExpandableListView;->-get15(Landroid/widget/SemExpandableListView;)[Landroid/widget/SemExpandableListView$CollapsingRect;
 
     move-result-object v8
 
@@ -281,7 +281,7 @@
     :cond_6
     iget-object v7, p0, Landroid/widget/SemExpandableListView$2;->this$0:Landroid/widget/SemExpandableListView;
 
-    invoke-static {v7}, Landroid/widget/SemExpandableListView;->-get7(Landroid/widget/SemExpandableListView;)Landroid/graphics/Rect;
+    invoke-static {v7}, Landroid/widget/SemExpandableListView;->-get8(Landroid/widget/SemExpandableListView;)Landroid/graphics/Rect;
 
     move-result-object v7
 
@@ -294,7 +294,7 @@
 
     iget-object v7, p0, Landroid/widget/SemExpandableListView$2;->this$0:Landroid/widget/SemExpandableListView;
 
-    invoke-static {v7}, Landroid/widget/SemExpandableListView;->-get20(Landroid/widget/SemExpandableListView;)Ljava/util/ArrayList;
+    invoke-static {v7}, Landroid/widget/SemExpandableListView;->-get22(Landroid/widget/SemExpandableListView;)Ljava/util/ArrayList;
 
     move-result-object v7
 
@@ -306,13 +306,13 @@
 
     iget-object v7, p0, Landroid/widget/SemExpandableListView$2;->this$0:Landroid/widget/SemExpandableListView;
 
-    invoke-static {v7}, Landroid/widget/SemExpandableListView;->-get7(Landroid/widget/SemExpandableListView;)Landroid/graphics/Rect;
+    invoke-static {v7}, Landroid/widget/SemExpandableListView;->-get8(Landroid/widget/SemExpandableListView;)Landroid/graphics/Rect;
 
     move-result-object v7
 
     iget-object v8, v6, Landroid/widget/SemExpandableListView$ViewInfo;->snapshot:Landroid/graphics/drawable/BitmapDrawable;
 
-    invoke-virtual {v8}, Landroid/graphics/drawable/Drawable;->getBounds()Landroid/graphics/Rect;
+    invoke-virtual {v8}, Landroid/graphics/drawable/BitmapDrawable;->getBounds()Landroid/graphics/Rect;
 
     move-result-object v8
 
@@ -330,7 +330,7 @@
 
     iget-object v7, p0, Landroid/widget/SemExpandableListView$2;->this$0:Landroid/widget/SemExpandableListView;
 
-    invoke-static {v7}, Landroid/widget/SemExpandableListView;->-get19(Landroid/widget/SemExpandableListView;)Ljava/util/ArrayList;
+    invoke-static {v7}, Landroid/widget/SemExpandableListView;->-get21(Landroid/widget/SemExpandableListView;)Ljava/util/ArrayList;
 
     move-result-object v7
 
@@ -342,13 +342,13 @@
 
     iget-object v7, p0, Landroid/widget/SemExpandableListView$2;->this$0:Landroid/widget/SemExpandableListView;
 
-    invoke-static {v7}, Landroid/widget/SemExpandableListView;->-get7(Landroid/widget/SemExpandableListView;)Landroid/graphics/Rect;
+    invoke-static {v7}, Landroid/widget/SemExpandableListView;->-get8(Landroid/widget/SemExpandableListView;)Landroid/graphics/Rect;
 
     move-result-object v7
 
     iget-object v8, v6, Landroid/widget/SemExpandableListView$ViewInfo;->snapshot:Landroid/graphics/drawable/BitmapDrawable;
 
-    invoke-virtual {v8}, Landroid/graphics/drawable/Drawable;->getBounds()Landroid/graphics/Rect;
+    invoke-virtual {v8}, Landroid/graphics/drawable/BitmapDrawable;->getBounds()Landroid/graphics/Rect;
 
     move-result-object v8
 
@@ -363,11 +363,11 @@
 
     iget-object v8, p0, Landroid/widget/SemExpandableListView$2;->this$0:Landroid/widget/SemExpandableListView;
 
-    invoke-static {v8}, Landroid/widget/SemExpandableListView;->-get7(Landroid/widget/SemExpandableListView;)Landroid/graphics/Rect;
+    invoke-static {v8}, Landroid/widget/SemExpandableListView;->-get8(Landroid/widget/SemExpandableListView;)Landroid/graphics/Rect;
 
     move-result-object v8
 
-    invoke-virtual {v7, v8}, Landroid/view/View;->invalidate(Landroid/graphics/Rect;)V
+    invoke-virtual {v7, v8}, Landroid/widget/SemExpandableListView;->invalidate(Landroid/graphics/Rect;)V
 
     return-void
 .end method

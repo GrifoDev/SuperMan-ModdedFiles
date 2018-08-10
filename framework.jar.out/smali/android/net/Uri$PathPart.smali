@@ -253,21 +253,17 @@
 .end method
 
 .method static makeAbsolute(Landroid/net/Uri$PathPart;)Landroid/net/Uri$PathPart;
-    .locals 8
+    .locals 7
 
-    const/4 v0, 0x1
-
-    const/4 v5, 0x0
-
-    iget-object v6, p0, Landroid/net/Uri$PathPart;->encoded:Ljava/lang/String;
+    iget-object v5, p0, Landroid/net/Uri$PathPart;->encoded:Ljava/lang/String;
 
     invoke-static {}, Landroid/net/Uri;->-get1()Ljava/lang/String;
 
-    move-result-object v7
+    move-result-object v6
 
-    if-eq v6, v7, :cond_1
+    if-eq v5, v6, :cond_1
 
-    move v1, v0
+    const/4 v1, 0x1
 
     :goto_0
     if-eqz v1, :cond_2
@@ -279,15 +275,15 @@
 
     invoke-virtual {v4}, Ljava/lang/String;->length()I
 
-    move-result v6
+    move-result v5
 
-    if-nez v6, :cond_3
+    if-nez v5, :cond_3
 
     :cond_0
     return-object p0
 
     :cond_1
-    move v1, v5
+    const/4 v1, 0x0
 
     goto :goto_0
 
@@ -297,44 +293,46 @@
     goto :goto_1
 
     :cond_3
-    const-string/jumbo v6, "/"
+    const-string/jumbo v5, "/"
 
-    invoke-virtual {v4, v6}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+    invoke-virtual {v4, v5}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
-    move-result v6
+    move-result v5
 
-    if-nez v6, :cond_0
+    if-nez v5, :cond_0
 
     if-eqz v1, :cond_4
 
-    new-instance v6, Ljava/lang/StringBuilder;
+    new-instance v5, Ljava/lang/StringBuilder;
 
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v7, "/"
+    const-string/jumbo v6, "/"
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v5
 
-    iget-object v7, p0, Landroid/net/Uri$PathPart;->encoded:Ljava/lang/String;
+    iget-object v6, p0, Landroid/net/Uri$PathPart;->encoded:Ljava/lang/String;
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v5
 
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v3
 
     :goto_2
-    iget-object v6, p0, Landroid/net/Uri$PathPart;->decoded:Ljava/lang/String;
+    iget-object v5, p0, Landroid/net/Uri$PathPart;->decoded:Ljava/lang/String;
 
     invoke-static {}, Landroid/net/Uri;->-get1()Ljava/lang/String;
 
-    move-result-object v7
+    move-result-object v6
 
-    if-eq v6, v7, :cond_5
+    if-eq v5, v6, :cond_5
+
+    const/4 v0, 0x1
 
     :goto_3
     if-eqz v0, :cond_6
@@ -374,7 +372,7 @@
     goto :goto_2
 
     :cond_5
-    move v0, v5
+    const/4 v0, 0x0
 
     goto :goto_3
 

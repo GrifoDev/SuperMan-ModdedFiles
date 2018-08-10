@@ -35,7 +35,7 @@
 
 
 # virtual methods
-.method public abstract addInputConsumer(Landroid/os/Looper;Landroid/view/InputEventReceiver$Factory;)Landroid/view/WindowManagerPolicy$InputConsumer;
+.method public abstract createInputConsumer(Landroid/os/Looper;Ljava/lang/String;Landroid/view/InputEventReceiver$Factory;)Landroid/view/WindowManagerPolicy$InputConsumer;
 .end method
 
 .method public abstract getCameraLensCoverState()I
@@ -44,13 +44,19 @@
 .method public abstract getDockedDividerInsetsLw()I
 .end method
 
-.method public abstract getFocusedAppTokenLw()Landroid/view/IApplicationToken;
+.method public abstract getInputMethodWindowLw()Landroid/view/WindowManagerPolicy$WindowState;
 .end method
 
 .method public abstract getLidState()I
 .end method
 
+.method public abstract getMultiWindowInternalFunc()Lcom/samsung/android/multiwindow/MultiWindowManagerInternalFuncs;
+.end method
+
 .method public abstract getPenState()I
+.end method
+
+.method public abstract getSecondaryDisplayId()I
 .end method
 
 .method public abstract getStackBounds(ILandroid/graphics/Rect;)V
@@ -62,7 +68,16 @@
 .method public abstract isConfirmDialog()Z
 .end method
 
+.method public abstract isDesktopModeLw()Z
+.end method
+
 .method public abstract lockDeviceNow()V
+.end method
+
+.method public abstract notifyKeyguardTrustedChanged()V
+.end method
+
+.method public abstract notifyShowingDreamChanged()V
 .end method
 
 .method public abstract reboot(Z)V
@@ -74,6 +89,9 @@
 .method public abstract rebootSafeMode(Z)V
 .end method
 
+.method public abstract rebootSafeModeByBixby()V
+.end method
+
 .method public abstract reconfigureDefaultDisplay()V
 .end method
 
@@ -81,6 +99,9 @@
 .end method
 
 .method public abstract registerPointerEventListener(Landroid/view/WindowManagerPolicy$PointerEventListener;)V
+.end method
+
+.method public abstract screenTurningOff(Landroid/view/WindowManagerPolicy$ScreenOffListener;)V
 .end method
 
 .method public abstract shutdown(Z)V

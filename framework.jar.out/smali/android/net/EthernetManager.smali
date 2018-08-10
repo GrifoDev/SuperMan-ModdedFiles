@@ -26,7 +26,11 @@
 
 .field public static final ETH_ENABLE_TRAFFIC_STATS_POLL:I = 0x0
 
+.field public static final ETH_STATE_CHANGED_ACTION:Ljava/lang/String; = "samsung.net.ethernet.ETH_STATE_CHANGED"
+
 .field public static final ETH_TRAFFIC_STATS_POLL:I = 0x1
+
+.field public static final EXTRA_ETH_STATE:Ljava/lang/String; = "eth_state"
 
 .field private static final MSG_AVAILABILITY_CHANGED:I = 0x3e8
 
@@ -104,12 +108,41 @@
 
 # virtual methods
 .method public UpdateEthDevInfo(Landroid/net/EthernetDevInfo;)V
+    .locals 4
+
+    :try_start_0
+    iget-object v1, p0, Landroid/net/EthernetManager;->mService:Landroid/net/IEthernetManager;
+
+    const/4 v2, 0x0
+
+    const/4 v3, 0x0
+
+    invoke-interface {v1, p1, v2, v3}, Landroid/net/IEthernetManager;->UpdateEthDevInfo(Landroid/net/EthernetDevInfo;ILandroid/net/ProxyInfo;)V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    :goto_0
+    return-void
+
+    :catch_0
+    move-exception v0
+
+    const-string/jumbo v1, "EthernetManager"
+
+    const-string/jumbo v2, "Can not update ethernet device info"
+
+    invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
+.end method
+
+.method public UpdateEthDevInfo(Landroid/net/EthernetDevInfo;ILandroid/net/ProxyInfo;)V
     .locals 3
 
     :try_start_0
     iget-object v1, p0, Landroid/net/EthernetManager;->mService:Landroid/net/IEthernetManager;
 
-    invoke-interface {v1, p1}, Landroid/net/IEthernetManager;->UpdateEthDevInfo(Landroid/net/EthernetDevInfo;)V
+    invoke-interface {v1, p1, p2, p3}, Landroid/net/IEthernetManager;->UpdateEthDevInfo(Landroid/net/EthernetDevInfo;ILandroid/net/ProxyInfo;)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -256,6 +289,62 @@
     const/4 v1, 0x0
 
     return-object v1
+.end method
+
+.method public getSavedProxyInfo()Landroid/net/ProxyInfo;
+    .locals 3
+
+    :try_start_0
+    iget-object v1, p0, Landroid/net/EthernetManager;->mService:Landroid/net/IEthernetManager;
+
+    invoke-interface {v1}, Landroid/net/IEthernetManager;->getSavedProxyInfo()Landroid/net/ProxyInfo;
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result-object v1
+
+    return-object v1
+
+    :catch_0
+    move-exception v0
+
+    const-string/jumbo v1, "EthernetManager"
+
+    const-string/jumbo v2, "Can not get proxyinfo"
+
+    invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 v1, 0x0
+
+    return-object v1
+.end method
+
+.method public getSavedProxySettings()I
+    .locals 3
+
+    :try_start_0
+    iget-object v1, p0, Landroid/net/EthernetManager;->mService:Landroid/net/IEthernetManager;
+
+    invoke-interface {v1}, Landroid/net/IEthernetManager;->getSavedProxySettings()I
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v1
+
+    return v1
+
+    :catch_0
+    move-exception v0
+
+    const-string/jumbo v1, "EthernetManager"
+
+    const-string/jumbo v2, "Can not get proxysettings"
+
+    invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 v1, 0x0
+
+    return v1
 .end method
 
 .method public getUserDisabled()Z

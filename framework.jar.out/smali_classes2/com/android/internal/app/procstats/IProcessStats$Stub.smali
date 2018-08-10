@@ -26,8 +26,6 @@
 # static fields
 .field private static final DESCRIPTOR:Ljava/lang/String; = "com.android.internal.app.procstats.IProcessStats"
 
-.field static final TRANSACTION_DataCollection:I = 0x4
-
 .field static final TRANSACTION_getCurrentMemoryState:I = 0x3
 
 .field static final TRANSACTION_getCurrentStats:I = 0x1
@@ -91,34 +89,34 @@
 .end method
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    .locals 9
+    .locals 8
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    const/4 v8, 0x1
+    const/4 v7, 0x1
 
     sparse-switch p1, :sswitch_data_0
 
     invoke-super {p0, p1, p2, p3, p4}, Landroid/os/Binder;->onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    move-result v7
+    move-result v6
+
+    return v6
+
+    :sswitch_0
+    const-string/jumbo v6, "com.android.internal.app.procstats.IProcessStats"
+
+    invoke-virtual {p3, v6}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
     return v7
 
-    :sswitch_0
-    const-string/jumbo v7, "com.android.internal.app.procstats.IProcessStats"
-
-    invoke-virtual {p3, v7}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
-
-    return v8
-
     :sswitch_1
-    const-string/jumbo v7, "com.android.internal.app.procstats.IProcessStats"
+    const-string/jumbo v6, "com.android.internal.app.procstats.IProcessStats"
 
-    invoke-virtual {p2, v7}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     new-instance v2, Ljava/util/ArrayList;
 
@@ -126,20 +124,20 @@
 
     invoke-virtual {p0, v2}, Lcom/android/internal/app/procstats/IProcessStats$Stub;->getCurrentStats(Ljava/util/List;)[B
 
-    move-result-object v6
+    move-result-object v5
 
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    invoke-virtual {p3, v6}, Landroid/os/Parcel;->writeByteArray([B)V
+    invoke-virtual {p3, v5}, Landroid/os/Parcel;->writeByteArray([B)V
 
     invoke-virtual {p3, v2}, Landroid/os/Parcel;->writeTypedList(Ljava/util/List;)V
 
-    return v8
+    return v7
 
     :sswitch_2
-    const-string/jumbo v7, "com.android.internal.app.procstats.IProcessStats"
+    const-string/jumbo v6, "com.android.internal.app.procstats.IProcessStats"
 
-    invoke-virtual {p2, v7}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readLong()J
 
@@ -153,24 +151,24 @@
 
     if-eqz v4, :cond_0
 
-    invoke-virtual {p3, v8}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p3, v7}, Landroid/os/Parcel;->writeInt(I)V
 
-    invoke-virtual {v4, p3, v8}, Landroid/os/ParcelFileDescriptor;->writeToParcel(Landroid/os/Parcel;I)V
+    invoke-virtual {v4, p3, v7}, Landroid/os/ParcelFileDescriptor;->writeToParcel(Landroid/os/Parcel;I)V
 
     :goto_0
-    return v8
+    return v7
 
     :cond_0
-    const/4 v7, 0x0
+    const/4 v6, 0x0
 
-    invoke-virtual {p3, v7}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p3, v6}, Landroid/os/Parcel;->writeInt(I)V
 
     goto :goto_0
 
     :sswitch_3
-    const-string/jumbo v7, "com.android.internal.app.procstats.IProcessStats"
+    const-string/jumbo v6, "com.android.internal.app.procstats.IProcessStats"
 
-    invoke-virtual {p2, v7}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p0}, Lcom/android/internal/app/procstats/IProcessStats$Stub;->getCurrentMemoryState()I
 
@@ -180,33 +178,15 @@
 
     invoke-virtual {p3, v3}, Landroid/os/Parcel;->writeInt(I)V
 
-    return v8
+    return v7
 
-    :sswitch_4
-    const-string/jumbo v7, "com.android.internal.app.procstats.IProcessStats"
-
-    invoke-virtual {p2, v7}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    invoke-virtual {p2}, Landroid/os/Parcel;->readLong()J
-
-    move-result-wide v0
-
-    invoke-virtual {p0, v0, v1}, Lcom/android/internal/app/procstats/IProcessStats$Stub;->DataCollection(J)Ljava/util/List;
-
-    move-result-object v5
-
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
-    invoke-virtual {p3, v5}, Landroid/os/Parcel;->writeTypedList(Ljava/util/List;)V
-
-    return v8
+    nop
 
     :sswitch_data_0
     .sparse-switch
         0x1 -> :sswitch_1
         0x2 -> :sswitch_2
         0x3 -> :sswitch_3
-        0x4 -> :sswitch_4
         0x5f4e5446 -> :sswitch_0
     .end sparse-switch
 .end method

@@ -15,6 +15,14 @@
 
 
 # virtual methods
+.method public abstract addRegistrationListener(IILcom/android/ims/internal/IImsRegistrationListener;)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract close(I)V
     .annotation system Ldalvik/annotation/Throws;
         value = {

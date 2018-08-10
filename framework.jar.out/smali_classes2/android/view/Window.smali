@@ -10,6 +10,7 @@
         Landroid/view/Window$OnFrameMetricsAvailableListener;,
         Landroid/view/Window$OnRestrictedCaptionAreaChangedListener;,
         Landroid/view/Window$OnWindowDismissedCallback;,
+        Landroid/view/Window$OnWindowSwipeDismissedCallback;,
         Landroid/view/Window$WindowControllerCallback;
     }
 .end annotation
@@ -121,6 +122,8 @@
 
 .field private mCallback:Landroid/view/Window$Callback;
 
+.field private mCloseOnSwipeEnabled:Z
+
 .field private mCloseOnTouchOutside:Z
 
 .field private mContainer:Landroid/view/Window;
@@ -152,6 +155,8 @@
 .field private mOnRestrictedCaptionAreaChangedListener:Landroid/view/Window$OnRestrictedCaptionAreaChangedListener;
 
 .field private mOnWindowDismissedCallback:Landroid/view/Window$OnWindowDismissedCallback;
+
+.field private mOnWindowSwipeDismissedCallback:Landroid/view/Window$OnWindowSwipeDismissedCallback;
 
 .field private mOverlayWithDecorCaptionEnabled:Z
 
@@ -198,6 +203,8 @@
 
     iput-boolean v1, p0, Landroid/view/Window;->mOverlayWithDecorCaptionEnabled:Z
 
+    iput-boolean v1, p0, Landroid/view/Window;->mCloseOnSwipeEnabled:Z
+
     new-instance v0, Landroid/view/WindowManager$LayoutParams;
 
     invoke-direct {v0}, Landroid/view/WindowManager$LayoutParams;-><init>()V
@@ -226,7 +233,7 @@
 
     move-result-object v1
 
-    const v2, 0x112009d
+    const v2, 0x112003d
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -237,7 +244,7 @@
     const/4 v0, 0x1
 
     :cond_0
-    const v2, 0x112009e
+    const v2, 0x112003c
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -710,7 +717,7 @@
     return-void
 .end method
 
-.method public final dispatchOnWindowDismissed(Z)V
+.method public final dispatchOnWindowDismissed(ZZ)V
     .locals 1
 
     iget-object v0, p0, Landroid/view/Window;->mOnWindowDismissedCallback:Landroid/view/Window$OnWindowDismissedCallback;
@@ -719,7 +726,22 @@
 
     iget-object v0, p0, Landroid/view/Window;->mOnWindowDismissedCallback:Landroid/view/Window$OnWindowDismissedCallback;
 
-    invoke-interface {v0, p1}, Landroid/view/Window$OnWindowDismissedCallback;->onWindowDismissed(Z)V
+    invoke-interface {v0, p1, p2}, Landroid/view/Window$OnWindowDismissedCallback;->onWindowDismissed(ZZ)V
+
+    :cond_0
+    return-void
+.end method
+
+.method public final dispatchOnWindowSwipeDismissed()V
+    .locals 1
+
+    iget-object v0, p0, Landroid/view/Window;->mOnWindowSwipeDismissedCallback:Landroid/view/Window$OnWindowSwipeDismissedCallback;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Landroid/view/Window;->mOnWindowSwipeDismissedCallback:Landroid/view/Window$OnWindowSwipeDismissedCallback;
+
+    invoke-interface {v0}, Landroid/view/Window$OnWindowSwipeDismissedCallback;->onWindowSwipeDismissed()V
 
     :cond_0
     return-void
@@ -740,8 +762,21 @@
     return-void
 .end method
 
+.method public dump(Ljava/lang/String;Ljava/io/PrintWriter;)V
+    .locals 0
+
+    return-void
+.end method
+
 .method public findViewById(I)Landroid/view/View;
     .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "<T:",
+            "Landroid/view/View;",
+            ">(I)TT;"
+        }
+    .end annotation
 
     invoke-virtual {p0}, Landroid/view/Window;->getDecorView()Landroid/view/View;
 
@@ -784,6 +819,20 @@
     iget-object v0, p0, Landroid/view/Window;->mCallback:Landroid/view/Window$Callback;
 
     return-object v0
+.end method
+
+.method public getColorMode()I
+    .locals 1
+
+    invoke-virtual {p0}, Landroid/view/Window;->getAttributes()Landroid/view/WindowManager$LayoutParams;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/view/WindowManager$LayoutParams;->getColorMode()I
+
+    move-result v0
+
+    return v0
 .end method
 
 .method public final getContainer()Landroid/view/Window;
@@ -1076,6 +1125,14 @@
     return v0
 .end method
 
+.method public isCloseOnSwipeEnabled()Z
+    .locals 1
+
+    iget-boolean v0, p0, Landroid/view/Window;->mCloseOnSwipeEnabled:Z
+
+    return v0
+.end method
+
 .method public final isDestroyed()Z
     .locals 1
 
@@ -1168,6 +1225,9 @@
 .end method
 
 .method public abstract onMultiWindowModeChanged()V
+.end method
+
+.method public abstract onPictureInPictureModeChanged(Z)V
 .end method
 
 .method public abstract openPanel(ILandroid/view/KeyEvent;)V
@@ -1371,6 +1431,14 @@
     return-void
 .end method
 
+.method public setCloseOnSwipeEnabled(Z)V
+    .locals 0
+
+    iput-boolean p1, p0, Landroid/view/Window;->mCloseOnSwipeEnabled:Z
+
+    return-void
+.end method
+
 .method public setCloseOnTouchOutside(Z)V
     .locals 1
 
@@ -1397,6 +1465,20 @@
     iput-boolean v0, p0, Landroid/view/Window;->mSetCloseOnTouchOutside:Z
 
     :cond_0
+    return-void
+.end method
+
+.method public setColorMode(I)V
+    .locals 1
+
+    invoke-virtual {p0}, Landroid/view/Window;->getAttributes()Landroid/view/WindowManager$LayoutParams;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p1}, Landroid/view/WindowManager$LayoutParams;->setColorMode(I)V
+
+    invoke-virtual {p0, v0}, Landroid/view/Window;->dispatchWindowAttributesChanged(Landroid/view/WindowManager$LayoutParams;)V
+
     return-void
 .end method
 
@@ -1684,6 +1766,14 @@
     return-void
 .end method
 
+.method public final setOnWindowSwipeDismissedCallback(Landroid/view/Window$OnWindowSwipeDismissedCallback;)V
+    .locals 0
+
+    iput-object p1, p0, Landroid/view/Window;->mOnWindowSwipeDismissedCallback:Landroid/view/Window$OnWindowSwipeDismissedCallback;
+
+    return-void
+.end method
+
 .method public setOverlayWithDecorCaptionEnabled(Z)V
     .locals 0
 
@@ -1899,7 +1989,7 @@
 .end method
 
 .method public setWindowManager(Landroid/view/WindowManager;Landroid/os/IBinder;Ljava/lang/String;Z)V
-    .locals 3
+    .locals 2
 
     iput-object p2, p0, Landroid/view/Window;->mAppToken:Landroid/os/IBinder;
 
@@ -1938,18 +2028,6 @@
     move-result-object v0
 
     iput-object v0, p0, Landroid/view/Window;->mWindowManager:Landroid/view/WindowManager;
-
-    invoke-static {}, Lcom/samsung/android/bridge/multiscreen/common/ContextRelationManagerBridge;->getInstance()Lcom/samsung/android/bridge/multiscreen/common/ContextRelationManagerBridge$IContextRelationManagerBridge;
-
-    move-result-object v1
-
-    iget-object v2, p0, Landroid/view/Window;->mContext:Landroid/content/Context;
-
-    iget-object v0, p0, Landroid/view/Window;->mWindowManager:Landroid/view/WindowManager;
-
-    check-cast v0, Landroid/view/WindowManagerImpl;
-
-    invoke-interface {v1, v2, v0}, Lcom/samsung/android/bridge/multiscreen/common/ContextRelationManagerBridge$IContextRelationManagerBridge;->createWindowManager(Landroid/content/Context;Landroid/view/WindowManagerImpl;)V
 
     return-void
 

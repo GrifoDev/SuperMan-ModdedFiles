@@ -8,8 +8,8 @@
     value = {
         Lcom/samsung/android/media/mediacapture/SemMediaCapture$EventHandler;,
         Lcom/samsung/android/media/mediacapture/SemMediaCapture$OnDecodingCompletionListener;,
+        Lcom/samsung/android/media/mediacapture/SemMediaCapture$OnDecodingUpdatedListener;,
         Lcom/samsung/android/media/mediacapture/SemMediaCapture$OnErrorListener;,
-        Lcom/samsung/android/media/mediacapture/SemMediaCapture$OnInfoListener;,
         Lcom/samsung/android/media/mediacapture/SemMediaCapture$OnPlaybackCompletionListener;,
         Lcom/samsung/android/media/mediacapture/SemMediaCapture$OnPreparedListener;,
         Lcom/samsung/android/media/mediacapture/SemMediaCapture$OnRecordingCompletionListener;,
@@ -25,7 +25,17 @@
 
 .field public static final DIRECTION_REVERSE:I = 0x1
 
+.field public static final DIRECTION_SUPER_SLOW_FORWARD:I = 0x3
+
+.field public static final DIRECTION_SUPER_SLOW_REVERSE:I = 0x4
+
+.field public static final DIRECTION_SUPER_SLOW_SWING:I = 0x5
+
+.field public static final KEY_PARAMETER_DECODING_UPDATED_INTERVAL:I = 0x3f0
+
 .field public static final KEY_PARAMETER_DIRECTION:I = 0x3eb
+
+.field public static final KEY_PARAMETER_ENABLE_ALL_SUPER_SLOW_REGION:I = 0x3f1
 
 .field public static final KEY_PARAMETER_FORMAT:I = 0x3ee
 
@@ -45,6 +55,8 @@
 
 .field private static final MEDIA_CAPTURE_DECODING_COMPLETE:I = 0x5
 
+.field private static final MEDIA_CAPTURE_DECODING_UPDATE:I = 0xa
+
 .field private static final MEDIA_CAPTURE_ERROR:I = 0x64
 
 .field private static final MEDIA_CAPTURE_INFO:I = 0xc8
@@ -60,6 +72,8 @@
 .field private static final MEDIA_CAPTURE_RECORDING_COMPLETE:I = 0x7
 
 .field private static final MEDIA_CAPTURE_RENDERING_STARTED:I = 0x8
+
+.field private static final MEDIA_CAPTURE_SEEK_COMPLETE:I = 0x9
 
 .field private static final MEDIA_CAPTURE_STARTED:I = 0x2
 
@@ -95,9 +109,9 @@
 
 .field private mOnDecodingCompletionListener:Lcom/samsung/android/media/mediacapture/SemMediaCapture$OnDecodingCompletionListener;
 
-.field private mOnErrorListener:Lcom/samsung/android/media/mediacapture/SemMediaCapture$OnErrorListener;
+.field private mOnDecodingUpdatedListener:Lcom/samsung/android/media/mediacapture/SemMediaCapture$OnDecodingUpdatedListener;
 
-.field private mOnInfoListener:Lcom/samsung/android/media/mediacapture/SemMediaCapture$OnInfoListener;
+.field private mOnErrorListener:Lcom/samsung/android/media/mediacapture/SemMediaCapture$OnErrorListener;
 
 .field private mOnPlaybackCompletionListener:Lcom/samsung/android/media/mediacapture/SemMediaCapture$OnPlaybackCompletionListener;
 
@@ -131,7 +145,15 @@
     return-object v0
 .end method
 
-.method static synthetic -get2(Lcom/samsung/android/media/mediacapture/SemMediaCapture;)Lcom/samsung/android/media/mediacapture/SemMediaCapture$OnErrorListener;
+.method static synthetic -get2(Lcom/samsung/android/media/mediacapture/SemMediaCapture;)Lcom/samsung/android/media/mediacapture/SemMediaCapture$OnDecodingUpdatedListener;
+    .locals 1
+
+    iget-object v0, p0, Lcom/samsung/android/media/mediacapture/SemMediaCapture;->mOnDecodingUpdatedListener:Lcom/samsung/android/media/mediacapture/SemMediaCapture$OnDecodingUpdatedListener;
+
+    return-object v0
+.end method
+
+.method static synthetic -get3(Lcom/samsung/android/media/mediacapture/SemMediaCapture;)Lcom/samsung/android/media/mediacapture/SemMediaCapture$OnErrorListener;
     .locals 1
 
     iget-object v0, p0, Lcom/samsung/android/media/mediacapture/SemMediaCapture;->mOnErrorListener:Lcom/samsung/android/media/mediacapture/SemMediaCapture$OnErrorListener;
@@ -139,7 +161,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get3(Lcom/samsung/android/media/mediacapture/SemMediaCapture;)Lcom/samsung/android/media/mediacapture/SemMediaCapture$OnPlaybackCompletionListener;
+.method static synthetic -get4(Lcom/samsung/android/media/mediacapture/SemMediaCapture;)Lcom/samsung/android/media/mediacapture/SemMediaCapture$OnPlaybackCompletionListener;
     .locals 1
 
     iget-object v0, p0, Lcom/samsung/android/media/mediacapture/SemMediaCapture;->mOnPlaybackCompletionListener:Lcom/samsung/android/media/mediacapture/SemMediaCapture$OnPlaybackCompletionListener;
@@ -147,7 +169,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get4(Lcom/samsung/android/media/mediacapture/SemMediaCapture;)Lcom/samsung/android/media/mediacapture/SemMediaCapture$OnPreparedListener;
+.method static synthetic -get5(Lcom/samsung/android/media/mediacapture/SemMediaCapture;)Lcom/samsung/android/media/mediacapture/SemMediaCapture$OnPreparedListener;
     .locals 1
 
     iget-object v0, p0, Lcom/samsung/android/media/mediacapture/SemMediaCapture;->mOnPreparedListener:Lcom/samsung/android/media/mediacapture/SemMediaCapture$OnPreparedListener;
@@ -155,7 +177,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get5(Lcom/samsung/android/media/mediacapture/SemMediaCapture;)Lcom/samsung/android/media/mediacapture/SemMediaCapture$OnRecordingCompletionListener;
+.method static synthetic -get6(Lcom/samsung/android/media/mediacapture/SemMediaCapture;)Lcom/samsung/android/media/mediacapture/SemMediaCapture$OnRecordingCompletionListener;
     .locals 1
 
     iget-object v0, p0, Lcom/samsung/android/media/mediacapture/SemMediaCapture;->mOnRecordingCompletionListener:Lcom/samsung/android/media/mediacapture/SemMediaCapture$OnRecordingCompletionListener;
@@ -163,7 +185,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get6(Lcom/samsung/android/media/mediacapture/SemMediaCapture;)Lcom/samsung/android/media/mediacapture/SemMediaCapture$OnRenderingStartedListener;
+.method static synthetic -get7(Lcom/samsung/android/media/mediacapture/SemMediaCapture;)Lcom/samsung/android/media/mediacapture/SemMediaCapture$OnRenderingStartedListener;
     .locals 1
 
     iget-object v0, p0, Lcom/samsung/android/media/mediacapture/SemMediaCapture;->mOnRenderingStartedListener:Lcom/samsung/android/media/mediacapture/SemMediaCapture$OnRenderingStartedListener;
@@ -232,6 +254,14 @@
     goto :goto_0
 .end method
 
+.method private native _getCaptureFrame(I)Landroid/graphics/Bitmap;
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/lang/IllegalStateException;
+        }
+    .end annotation
+.end method
+
 .method private native _getCurrentPosition()I
 .end method
 
@@ -259,6 +289,9 @@
 .end method
 
 .method private native _seekTo(I)V
+.end method
+
+.method private native _setCaptureRange(II)V
 .end method
 
 .method private native _setDataSource(Ljava/io/FileDescriptor;JJ)V
@@ -319,12 +352,12 @@
 .method private final native native_setup(Ljava/lang/Object;)V
 .end method
 
-.method private static postEventFromNative(Ljava/lang/Object;IILjava/lang/Object;)V
-    .locals 4
+.method private static postEventFromNative(Ljava/lang/Object;IIILjava/lang/Object;)V
+    .locals 3
 
     check-cast p0, Ljava/lang/ref/WeakReference;
 
-    invoke-virtual {p0}, Ljava/lang/ref/Reference;->get()Ljava/lang/Object;
+    invoke-virtual {p0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
 
     move-result-object v1
 
@@ -341,15 +374,13 @@
 
     iget-object v2, v1, Lcom/samsung/android/media/mediacapture/SemMediaCapture;->mEventHandler:Lcom/samsung/android/media/mediacapture/SemMediaCapture$EventHandler;
 
-    const/4 v3, 0x0
-
-    invoke-virtual {v2, p1, p2, v3, p3}, Landroid/os/Handler;->obtainMessage(IIILjava/lang/Object;)Landroid/os/Message;
+    invoke-virtual {v2, p1, p2, p3, p4}, Lcom/samsung/android/media/mediacapture/SemMediaCapture$EventHandler;->obtainMessage(IIILjava/lang/Object;)Landroid/os/Message;
 
     move-result-object v0
 
     iget-object v2, v1, Lcom/samsung/android/media/mediacapture/SemMediaCapture;->mEventHandler:Lcom/samsung/android/media/mediacapture/SemMediaCapture$EventHandler;
 
-    invoke-virtual {v2, v0}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
+    invoke-virtual {v2, v0}, Lcom/samsung/android/media/mediacapture/SemMediaCapture$EventHandler;->sendMessage(Landroid/os/Message;)Z
 
     :cond_1
     return-void
@@ -390,6 +421,21 @@
     invoke-direct {p0}, Lcom/samsung/android/media/mediacapture/SemMediaCapture;->native_finalize()V
 
     return-void
+.end method
+
+.method public getCaptureFrame(I)Landroid/graphics/Bitmap;
+    .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/lang/IllegalStateException;
+        }
+    .end annotation
+
+    invoke-direct {p0, p1}, Lcom/samsung/android/media/mediacapture/SemMediaCapture;->_getCaptureFrame(I)Landroid/graphics/Bitmap;
+
+    move-result-object v0
+
+    return-object v0
 .end method
 
 .method public getPositionForPreview()I
@@ -471,7 +517,7 @@
 
     const/4 v1, 0x0
 
-    invoke-virtual {v0, v1}, Landroid/os/Handler;->removeCallbacksAndMessages(Ljava/lang/Object;)V
+    invoke-virtual {v0, v1}, Lcom/samsung/android/media/mediacapture/SemMediaCapture$EventHandler;->removeCallbacksAndMessages(Ljava/lang/Object;)V
 
     return-void
 .end method
@@ -544,18 +590,18 @@
     return-void
 .end method
 
-.method public setOnErrorListener(Lcom/samsung/android/media/mediacapture/SemMediaCapture$OnErrorListener;)V
+.method public setOnDecodingUpdatedListener(Lcom/samsung/android/media/mediacapture/SemMediaCapture$OnDecodingUpdatedListener;)V
     .locals 0
 
-    iput-object p1, p0, Lcom/samsung/android/media/mediacapture/SemMediaCapture;->mOnErrorListener:Lcom/samsung/android/media/mediacapture/SemMediaCapture$OnErrorListener;
+    iput-object p1, p0, Lcom/samsung/android/media/mediacapture/SemMediaCapture;->mOnDecodingUpdatedListener:Lcom/samsung/android/media/mediacapture/SemMediaCapture$OnDecodingUpdatedListener;
 
     return-void
 .end method
 
-.method public setOnInfoListener(Lcom/samsung/android/media/mediacapture/SemMediaCapture$OnInfoListener;)V
+.method public setOnErrorListener(Lcom/samsung/android/media/mediacapture/SemMediaCapture$OnErrorListener;)V
     .locals 0
 
-    iput-object p1, p0, Lcom/samsung/android/media/mediacapture/SemMediaCapture;->mOnInfoListener:Lcom/samsung/android/media/mediacapture/SemMediaCapture$OnInfoListener;
+    iput-object p1, p0, Lcom/samsung/android/media/mediacapture/SemMediaCapture;->mOnErrorListener:Lcom/samsung/android/media/mediacapture/SemMediaCapture$OnErrorListener;
 
     return-void
 .end method
@@ -611,7 +657,8 @@
     .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
-            Ljava/lang/IllegalStateException;
+            Ljava/lang/IllegalStateException;,
+            Ljava/lang/IllegalArgumentException;
         }
     .end annotation
 
@@ -624,11 +671,26 @@
     .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
-            Ljava/lang/IllegalStateException;
+            Ljava/lang/IllegalStateException;,
+            Ljava/lang/IllegalArgumentException;
         }
     .end annotation
 
     invoke-direct {p0, p1, p2}, Lcom/samsung/android/media/mediacapture/SemMediaCapture;->_setStartEndTime(II)V
+
+    return-void
+.end method
+
+.method public setStartEndTimeForTrimming(II)V
+    .locals 0
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/lang/IllegalStateException;,
+            Ljava/lang/IllegalArgumentException;
+        }
+    .end annotation
+
+    invoke-direct {p0, p1, p2}, Lcom/samsung/android/media/mediacapture/SemMediaCapture;->_setCaptureRange(II)V
 
     return-void
 .end method

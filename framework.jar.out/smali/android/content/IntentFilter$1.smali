@@ -39,13 +39,11 @@
 
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroid/content/IntentFilter;
-    .locals 2
+    .locals 1
 
     new-instance v0, Landroid/content/IntentFilter;
 
-    const/4 v1, 0x0
-
-    invoke-direct {v0, p1, v1}, Landroid/content/IntentFilter;-><init>(Landroid/os/Parcel;Landroid/content/IntentFilter;)V
+    invoke-direct {v0, p1}, Landroid/content/IntentFilter;-><init>(Landroid/os/Parcel;)V
 
     return-object v0
 .end method

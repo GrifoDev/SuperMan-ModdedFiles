@@ -42,19 +42,11 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    xor-int/lit8 v0, v0, 0x1
 
-    const/4 v0, 0x0
-
-    :goto_0
     sput-boolean v0, Landroid/widget/GridLayout$Axis$1;->-assertionsDisabled:Z
 
     return-void
-
-    :cond_0
-    const/4 v0, 0x1
-
-    goto :goto_0
 .end method
 
 .method constructor <init>(Landroid/widget/GridLayout$Axis;[Landroid/widget/GridLayout$Arc;)V
@@ -130,18 +122,13 @@
     :cond_0
     sget-boolean v2, Landroid/widget/GridLayout$Axis$1;->-assertionsDisabled:Z
 
-    if-nez v2, :cond_2
+    if-nez v2, :cond_1
 
     iget v2, p0, Landroid/widget/GridLayout$Axis$1;->cursor:I
 
     const/4 v3, -0x1
 
-    if-ne v2, v3, :cond_1
-
-    const/4 v2, 0x1
-
-    :goto_1
-    if-nez v2, :cond_2
+    if-eq v2, v3, :cond_1
 
     new-instance v2, Ljava/lang/AssertionError;
 
@@ -150,11 +137,6 @@
     throw v2
 
     :cond_1
-    const/4 v2, 0x0
-
-    goto :goto_1
-
-    :cond_2
     iget-object v2, p0, Landroid/widget/GridLayout$Axis$1;->result:[Landroid/widget/GridLayout$Arc;
 
     return-object v2

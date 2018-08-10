@@ -21,11 +21,11 @@
 
 
 # instance fields
+.field private mCleanupAfterExit:Ljava/lang/Runnable;
+
 .field private mIsPenSelectionMode:Z
 
 .field private final mOnAnchorRootDetachedListener:Landroid/view/View$OnAttachStateChangeListener;
-
-.field private mPendingExitListener:Landroid/transition/Transition$TransitionListenerAdapter;
 
 .field private mSpenUspLevel:I
 
@@ -33,20 +33,12 @@
 
 
 # direct methods
-.method static synthetic -get0(Landroid/widget/PopupWindow$PopupDecorView;)Landroid/view/View$OnAttachStateChangeListener;
+.method static synthetic -get0(Landroid/widget/PopupWindow$PopupDecorView;)Ljava/lang/Runnable;
     .locals 1
 
-    iget-object v0, p0, Landroid/widget/PopupWindow$PopupDecorView;->mOnAnchorRootDetachedListener:Landroid/view/View$OnAttachStateChangeListener;
+    iget-object v0, p0, Landroid/widget/PopupWindow$PopupDecorView;->mCleanupAfterExit:Ljava/lang/Runnable;
 
     return-object v0
-.end method
-
-.method static synthetic -set0(Landroid/widget/PopupWindow$PopupDecorView;Landroid/transition/Transition$TransitionListenerAdapter;)Landroid/transition/Transition$TransitionListenerAdapter;
-    .locals 0
-
-    iput-object p1, p0, Landroid/widget/PopupWindow$PopupDecorView;->mPendingExitListener:Landroid/transition/Transition$TransitionListenerAdapter;
-
-    return-object p1
 .end method
 
 .method static synthetic -wrap0(Landroid/widget/PopupWindow$PopupDecorView;Landroid/transition/Transition;)V
@@ -134,19 +126,17 @@
 
 # virtual methods
 .method public cancelTransitions()V
-    .locals 2
-
-    const/4 v1, 0x0
+    .locals 1
 
     invoke-static {p0}, Landroid/transition/TransitionManager;->endTransitions(Landroid/view/ViewGroup;)V
 
-    iget-object v0, p0, Landroid/widget/PopupWindow$PopupDecorView;->mPendingExitListener:Landroid/transition/Transition$TransitionListenerAdapter;
+    iget-object v0, p0, Landroid/widget/PopupWindow$PopupDecorView;->mCleanupAfterExit:Ljava/lang/Runnable;
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Landroid/widget/PopupWindow$PopupDecorView;->mPendingExitListener:Landroid/transition/Transition$TransitionListenerAdapter;
+    iget-object v0, p0, Landroid/widget/PopupWindow$PopupDecorView;->mCleanupAfterExit:Ljava/lang/Runnable;
 
-    invoke-virtual {v0, v1}, Landroid/transition/Transition$TransitionListenerAdapter;->onTransitionEnd(Landroid/transition/Transition;)V
+    invoke-interface {v0}, Ljava/lang/Runnable;->run()V
 
     :cond_0
     return-void
@@ -163,7 +153,7 @@
 
     const/4 v2, 0x4
 
-    if-ne v1, v2, :cond_5
+    if-ne v1, v2, :cond_4
 
     invoke-virtual {p0}, Landroid/widget/PopupWindow$PopupDecorView;->getKeyDispatcherState()Landroid/view/KeyEvent$DispatcherState;
 
@@ -224,7 +214,15 @@
 
     move-result v1
 
-    if-eqz v1, :cond_4
+    xor-int/lit8 v1, v1, 0x1
+
+    if-eqz v1, :cond_3
+
+    iget-object v1, p0, Landroid/widget/PopupWindow$PopupDecorView;->this$0:Landroid/widget/PopupWindow;
+
+    invoke-virtual {v1}, Landroid/widget/PopupWindow;->dismiss()V
+
+    return v3
 
     :cond_3
     invoke-super {p0, p1}, Landroid/widget/FrameLayout;->dispatchKeyEvent(Landroid/view/KeyEvent;)Z
@@ -234,13 +232,6 @@
     return v1
 
     :cond_4
-    iget-object v1, p0, Landroid/widget/PopupWindow$PopupDecorView;->this$0:Landroid/widget/PopupWindow;
-
-    invoke-virtual {v1}, Landroid/widget/PopupWindow;->dismiss()V
-
-    return v3
-
-    :cond_5
     invoke-super {p0, p1}, Landroid/widget/FrameLayout;->dispatchKeyEvent(Landroid/view/KeyEvent;)Z
 
     move-result v1
@@ -279,7 +270,7 @@
     :goto_0
     iget-object v1, p0, Landroid/widget/PopupWindow$PopupDecorView;->this$0:Landroid/widget/PopupWindow;
 
-    invoke-static {v1}, Landroid/widget/PopupWindow;->-get7(Landroid/widget/PopupWindow;)Landroid/view/View$OnTouchListener;
+    invoke-static {v1}, Landroid/widget/PopupWindow;->-get3(Landroid/widget/PopupWindow;)Landroid/view/View$OnTouchListener;
 
     move-result-object v1
 
@@ -287,7 +278,7 @@
 
     iget-object v1, p0, Landroid/widget/PopupWindow$PopupDecorView;->this$0:Landroid/widget/PopupWindow;
 
-    invoke-static {v1}, Landroid/widget/PopupWindow;->-get7(Landroid/widget/PopupWindow;)Landroid/view/View$OnTouchListener;
+    invoke-static {v1}, Landroid/widget/PopupWindow;->-get3(Landroid/widget/PopupWindow;)Landroid/view/View$OnTouchListener;
 
     move-result-object v1
 
@@ -359,6 +350,25 @@
         :pswitch_2
         :pswitch_1
     .end packed-switch
+.end method
+
+.method synthetic lambda$-android_widget_PopupWindow$PopupDecorView_106237(Landroid/transition/Transition$TransitionListener;Landroid/transition/Transition;Landroid/view/View;)V
+    .locals 2
+
+    const/4 v1, 0x0
+
+    invoke-interface {p1, p2}, Landroid/transition/Transition$TransitionListener;->onTransitionEnd(Landroid/transition/Transition;)V
+
+    if-eqz p3, :cond_0
+
+    iget-object v0, p0, Landroid/widget/PopupWindow$PopupDecorView;->mOnAnchorRootDetachedListener:Landroid/view/View$OnAttachStateChangeListener;
+
+    invoke-virtual {p3, v0}, Landroid/view/View;->removeOnAttachStateChangeListener(Landroid/view/View$OnAttachStateChangeListener;)V
+
+    :cond_0
+    iput-object v1, p0, Landroid/widget/PopupWindow$PopupDecorView;->mCleanupAfterExit:Ljava/lang/Runnable;
+
+    return-void
 .end method
 
 .method public onTouchEvent(Landroid/view/MotionEvent;)Z
@@ -456,7 +466,47 @@
     return-void
 .end method
 
-.method public startExitTransition(Landroid/transition/Transition;Landroid/view/View;Landroid/transition/Transition$TransitionListener;)V
+.method public requestKeyboardShortcuts(Ljava/util/List;I)V
+    .locals 2
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/List",
+            "<",
+            "Landroid/view/KeyboardShortcutGroup;",
+            ">;I)V"
+        }
+    .end annotation
+
+    iget-object v1, p0, Landroid/widget/PopupWindow$PopupDecorView;->this$0:Landroid/widget/PopupWindow;
+
+    invoke-static {v1}, Landroid/widget/PopupWindow;->-get2(Landroid/widget/PopupWindow;)Ljava/lang/ref/WeakReference;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_0
+
+    iget-object v1, p0, Landroid/widget/PopupWindow$PopupDecorView;->this$0:Landroid/widget/PopupWindow;
+
+    invoke-static {v1}, Landroid/widget/PopupWindow;->-get2(Landroid/widget/PopupWindow;)Ljava/lang/ref/WeakReference;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/view/View;
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {v0, p1, p2}, Landroid/view/View;->requestKeyboardShortcuts(Ljava/util/List;I)V
+
+    :cond_0
+    return-void
+.end method
+
+.method public startExitTransition(Landroid/transition/Transition;Landroid/view/View;Landroid/graphics/Rect;Landroid/transition/Transition$TransitionListener;)V
     .locals 5
 
     if-nez p1, :cond_0
@@ -464,23 +514,34 @@
     return-void
 
     :cond_0
+    if-eqz p2, :cond_1
+
     iget-object v4, p0, Landroid/widget/PopupWindow$PopupDecorView;->mOnAnchorRootDetachedListener:Landroid/view/View$OnAttachStateChangeListener;
 
     invoke-virtual {p2, v4}, Landroid/view/View;->addOnAttachStateChangeListener(Landroid/view/View$OnAttachStateChangeListener;)V
 
-    new-instance v4, Landroid/widget/PopupWindow$PopupDecorView$3;
+    :cond_1
+    new-instance v4, Landroid/widget/-$Lambda$ISuHLqeK-K4pmesAfzlFglc3xF4$4;
 
-    invoke-direct {v4, p0, p2, p3}, Landroid/widget/PopupWindow$PopupDecorView$3;-><init>(Landroid/widget/PopupWindow$PopupDecorView;Landroid/view/View;Landroid/transition/Transition$TransitionListener;)V
+    invoke-direct {v4, p0, p4, p1, p2}, Landroid/widget/-$Lambda$ISuHLqeK-K4pmesAfzlFglc3xF4$4;-><init>(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V
 
-    iput-object v4, p0, Landroid/widget/PopupWindow$PopupDecorView;->mPendingExitListener:Landroid/transition/Transition$TransitionListenerAdapter;
+    iput-object v4, p0, Landroid/widget/PopupWindow$PopupDecorView;->mCleanupAfterExit:Ljava/lang/Runnable;
 
     invoke-virtual {p1}, Landroid/transition/Transition;->clone()Landroid/transition/Transition;
 
     move-result-object v2
 
-    iget-object v4, p0, Landroid/widget/PopupWindow$PopupDecorView;->mPendingExitListener:Landroid/transition/Transition$TransitionListenerAdapter;
+    new-instance v4, Landroid/widget/PopupWindow$PopupDecorView$3;
+
+    invoke-direct {v4, p0}, Landroid/widget/PopupWindow$PopupDecorView$3;-><init>(Landroid/widget/PopupWindow$PopupDecorView;)V
 
     invoke-virtual {v2, v4}, Landroid/transition/Transition;->addListener(Landroid/transition/Transition$TransitionListener;)Landroid/transition/Transition;
+
+    new-instance v4, Landroid/widget/PopupWindow$PopupDecorView$4;
+
+    invoke-direct {v4, p0, p3}, Landroid/widget/PopupWindow$PopupDecorView$4;-><init>(Landroid/widget/PopupWindow$PopupDecorView;Landroid/graphics/Rect;)V
+
+    invoke-virtual {v2, v4}, Landroid/transition/Transition;->setEpicenterCallback(Landroid/transition/Transition$EpicenterCallback;)V
 
     invoke-virtual {p0}, Landroid/widget/PopupWindow$PopupDecorView;->getChildCount()I
 
@@ -489,7 +550,7 @@
     const/4 v3, 0x0
 
     :goto_0
-    if-ge v3, v1, :cond_1
+    if-ge v3, v1, :cond_2
 
     invoke-virtual {p0, v3}, Landroid/widget/PopupWindow$PopupDecorView;->getChildAt(I)Landroid/view/View;
 
@@ -501,13 +562,13 @@
 
     goto :goto_0
 
-    :cond_1
+    :cond_2
     invoke-static {p0, v2}, Landroid/transition/TransitionManager;->beginDelayedTransition(Landroid/view/ViewGroup;Landroid/transition/Transition;)V
 
     const/4 v3, 0x0
 
     :goto_1
-    if-ge v3, v1, :cond_2
+    if-ge v3, v1, :cond_3
 
     invoke-virtual {p0, v3}, Landroid/widget/PopupWindow$PopupDecorView;->getChildAt(I)Landroid/view/View;
 
@@ -521,6 +582,6 @@
 
     goto :goto_1
 
-    :cond_2
+    :cond_3
     return-void
 .end method

@@ -310,6 +310,32 @@
     return-void
 .end method
 
+.method public isMultiProcessEnabled()Z
+    .locals 2
+
+    :try_start_0
+    invoke-static {}, Landroid/webkit/WebViewFactory;->getUpdateService()Landroid/webkit/IWebViewUpdateService;
+
+    move-result-object v1
+
+    invoke-interface {v1}, Landroid/webkit/IWebViewUpdateService;->isMultiProcessEnabled()Z
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v1
+
+    return v1
+
+    :catch_0
+    move-exception v0
+
+    invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+
+    move-result-object v1
+
+    throw v1
+.end method
+
 .method public isTraceTagEnabled()Z
     .locals 2
 

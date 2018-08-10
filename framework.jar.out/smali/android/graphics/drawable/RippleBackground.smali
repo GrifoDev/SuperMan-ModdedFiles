@@ -23,6 +23,10 @@
 
 .field private static final OPACITY_EXIT_DURATION:I = 0x1e0
 
+.field private static final OPACITY_HOVER_EXIT_DURATION:I = 0xf0
+
+.field private static sHoverExitDuration:I
+
 
 # instance fields
 .field private mIsBounded:Z
@@ -99,6 +103,10 @@
     invoke-direct {v0}, Landroid/view/animation/LinearInterpolator;-><init>()V
 
     sput-object v0, Landroid/graphics/drawable/RippleBackground;->LINEAR_INTERPOLATOR:Landroid/animation/TimeInterpolator;
+
+    const/16 v0, 0x1e0
+
+    sput v0, Landroid/graphics/drawable/RippleBackground;->sHoverExitDuration:I
 
     new-instance v0, Landroid/graphics/drawable/RippleBackground$1;
 
@@ -209,7 +217,9 @@
 
     invoke-virtual {v2, v6}, Landroid/view/RenderNodeAnimator;->setInterpolator(Landroid/animation/TimeInterpolator;)V
 
-    const-wide/16 v6, 0x1e0
+    sget v6, Landroid/graphics/drawable/RippleBackground;->sHoverExitDuration:I
+
+    int-to-long v6, v6
 
     invoke-virtual {v2, v6, v7}, Landroid/view/RenderNodeAnimator;->setDuration(J)Landroid/view/RenderNodeAnimator;
 
@@ -312,64 +322,66 @@
 
     const/high16 v10, 0x3f800000    # 1.0f
 
-    const/4 v9, 0x1
+    const/4 v9, 0x0
 
-    const/4 v5, 0x0
+    const/4 v8, 0x1
 
     new-instance v4, Landroid/animation/AnimatorSet;
 
     invoke-direct {v4}, Landroid/animation/AnimatorSet;-><init>()V
 
-    sget-object v6, Landroid/graphics/drawable/RippleBackground;->OPACITY:Landroid/graphics/drawable/RippleBackground$BackgroundProperty;
+    sget-object v5, Landroid/graphics/drawable/RippleBackground;->OPACITY:Landroid/graphics/drawable/RippleBackground$BackgroundProperty;
 
-    new-array v7, v9, [F
+    new-array v6, v8, [F
 
-    const/4 v8, 0x0
+    const/4 v7, 0x0
 
-    aput v8, v7, v5
+    aput v7, v6, v9
 
-    invoke-static {p0, v6, v7}, Landroid/animation/ObjectAnimator;->ofFloat(Ljava/lang/Object;Landroid/util/Property;[F)Landroid/animation/ObjectAnimator;
+    invoke-static {p0, v5, v6}, Landroid/animation/ObjectAnimator;->ofFloat(Ljava/lang/Object;Landroid/util/Property;[F)Landroid/animation/ObjectAnimator;
 
     move-result-object v2
 
-    sget-object v6, Landroid/graphics/drawable/RippleBackground;->LINEAR_INTERPOLATOR:Landroid/animation/TimeInterpolator;
+    sget-object v5, Landroid/graphics/drawable/RippleBackground;->LINEAR_INTERPOLATOR:Landroid/animation/TimeInterpolator;
 
-    invoke-virtual {v2, v6}, Landroid/animation/ObjectAnimator;->setInterpolator(Landroid/animation/TimeInterpolator;)V
+    invoke-virtual {v2, v5}, Landroid/animation/ObjectAnimator;->setInterpolator(Landroid/animation/TimeInterpolator;)V
 
-    const-wide/16 v6, 0x1e0
+    sget v5, Landroid/graphics/drawable/RippleBackground;->sHoverExitDuration:I
+
+    int-to-long v6, v5
 
     invoke-virtual {v2, v6, v7}, Landroid/animation/ObjectAnimator;->setDuration(J)Landroid/animation/ObjectAnimator;
 
-    invoke-virtual {v2, v9}, Landroid/animation/ObjectAnimator;->setAutoCancel(Z)V
+    invoke-virtual {v2, v8}, Landroid/animation/ObjectAnimator;->setAutoCancel(Z)V
 
     invoke-virtual {v4, v2}, Landroid/animation/AnimatorSet;->play(Landroid/animation/Animator;)Landroid/animation/AnimatorSet$Builder;
 
     move-result-object v0
 
-    iget-boolean v6, p0, Landroid/graphics/drawable/RippleBackground;->mIsBounded:Z
+    iget-boolean v5, p0, Landroid/graphics/drawable/RippleBackground;->mIsBounded:Z
 
-    if-eqz v6, :cond_1
+    if-eqz v5, :cond_1
 
-    iget v6, p0, Landroid/graphics/drawable/RippleBackground;->mOpacity:F
+    iget v5, p0, Landroid/graphics/drawable/RippleBackground;->mOpacity:F
 
-    sub-float v6, v10, v6
+    sub-float v5, v10, v5
 
-    const/high16 v7, 0x42f00000    # 120.0f
+    const/high16 v6, 0x42f00000    # 120.0f
 
-    mul-float/2addr v6, v7
+    mul-float/2addr v5, v6
 
-    float-to-int v3, v6
+    float-to-int v3, v5
 
     :goto_0
     if-lez v3, :cond_0
 
-    sget-object v6, Landroid/graphics/drawable/RippleBackground;->OPACITY:Landroid/graphics/drawable/RippleBackground$BackgroundProperty;
+    sget-object v5, Landroid/graphics/drawable/RippleBackground;->OPACITY:Landroid/graphics/drawable/RippleBackground$BackgroundProperty;
 
-    new-array v7, v9, [F
+    new-array v6, v8, [F
 
-    aput v10, v7, v5
+    aput v10, v6, v9
 
-    invoke-static {p0, v6, v7}, Landroid/animation/ObjectAnimator;->ofFloat(Ljava/lang/Object;Landroid/util/Property;[F)Landroid/animation/ObjectAnimator;
+    invoke-static {p0, v5, v6}, Landroid/animation/ObjectAnimator;->ofFloat(Ljava/lang/Object;Landroid/util/Property;[F)Landroid/animation/ObjectAnimator;
 
     move-result-object v1
 
@@ -381,7 +393,7 @@
 
     invoke-virtual {v1, v6, v7}, Landroid/animation/ObjectAnimator;->setDuration(J)Landroid/animation/ObjectAnimator;
 
-    invoke-virtual {v1, v9}, Landroid/animation/ObjectAnimator;->setAutoCancel(Z)V
+    invoke-virtual {v1, v8}, Landroid/animation/ObjectAnimator;->setAutoCancel(Z)V
 
     invoke-virtual {v0, v1}, Landroid/animation/AnimatorSet$Builder;->after(Landroid/animation/Animator;)Landroid/animation/AnimatorSet$Builder;
 
@@ -389,7 +401,7 @@
     return-object v4
 
     :cond_1
-    move v3, v5
+    const/4 v3, 0x0
 
     goto :goto_0
 .end method
@@ -483,4 +495,22 @@
     iput v0, p0, Landroid/graphics/drawable/RippleBackground;->mOpacity:F
 
     return-void
+.end method
+
+.method public setHoverExitDuration(Z)V
+    .locals 1
+
+    if-eqz p1, :cond_0
+
+    const/16 v0, 0xf0
+
+    :goto_0
+    sput v0, Landroid/graphics/drawable/RippleBackground;->sHoverExitDuration:I
+
+    return-void
+
+    :cond_0
+    const/16 v0, 0x1e0
+
+    goto :goto_0
 .end method

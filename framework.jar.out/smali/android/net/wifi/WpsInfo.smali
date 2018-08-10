@@ -34,8 +34,6 @@
 
 .field public static final LABEL:I = 0x3
 
-.field public static final NFC_INTERFACE:I = 0x6
-
 .field public static final PBC:I = 0x0
 
 .field public static final USERREJECT:I = 0x5
@@ -43,12 +41,6 @@
 
 # instance fields
 .field public BSSID:Ljava/lang/String;
-
-.field public dev_nfc_hashkey:Ljava/lang/String;
-
-.field public dev_pw:Ljava/lang/String;
-
-.field public dev_pw_id:Ljava/lang/String;
 
 .field public pin:Ljava/lang/String;
 
@@ -83,18 +75,6 @@
 
     iput-object v1, p0, Landroid/net/wifi/WpsInfo;->pin:Ljava/lang/String;
 
-    const-string/jumbo v0, ""
-
-    iput-object v0, p0, Landroid/net/wifi/WpsInfo;->dev_nfc_hashkey:Ljava/lang/String;
-
-    const-string/jumbo v0, ""
-
-    iput-object v0, p0, Landroid/net/wifi/WpsInfo;->dev_pw_id:Ljava/lang/String;
-
-    const-string/jumbo v0, ""
-
-    iput-object v0, p0, Landroid/net/wifi/WpsInfo;->dev_pw:Ljava/lang/String;
-
     return-void
 .end method
 
@@ -116,18 +96,6 @@
     iget-object v0, p1, Landroid/net/wifi/WpsInfo;->pin:Ljava/lang/String;
 
     iput-object v0, p0, Landroid/net/wifi/WpsInfo;->pin:Ljava/lang/String;
-
-    iget-object v0, p1, Landroid/net/wifi/WpsInfo;->dev_nfc_hashkey:Ljava/lang/String;
-
-    iput-object v0, p0, Landroid/net/wifi/WpsInfo;->dev_nfc_hashkey:Ljava/lang/String;
-
-    iget-object v0, p1, Landroid/net/wifi/WpsInfo;->dev_pw_id:Ljava/lang/String;
-
-    iput-object v0, p0, Landroid/net/wifi/WpsInfo;->dev_pw_id:Ljava/lang/String;
-
-    iget-object v0, p1, Landroid/net/wifi/WpsInfo;->dev_pw:Ljava/lang/String;
-
-    iput-object v0, p0, Landroid/net/wifi/WpsInfo;->dev_pw:Ljava/lang/String;
 
     :cond_0
     return-void
@@ -188,42 +156,6 @@
 
     invoke-virtual {v0, v3}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
 
-    const-string/jumbo v1, " hashkey: "
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
-
-    move-result-object v1
-
-    iget-object v2, p0, Landroid/net/wifi/WpsInfo;->dev_nfc_hashkey:Ljava/lang/String;
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
-
-    invoke-virtual {v0, v3}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
-
-    const-string/jumbo v1, " dev_pw_id: "
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
-
-    move-result-object v1
-
-    iget-object v2, p0, Landroid/net/wifi/WpsInfo;->dev_pw_id:Ljava/lang/String;
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
-
-    invoke-virtual {v0, v3}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
-
-    const-string/jumbo v1, " dev_pw: "
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
-
-    move-result-object v1
-
-    iget-object v2, p0, Landroid/net/wifi/WpsInfo;->dev_pw:Ljava/lang/String;
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
-
-    invoke-virtual {v0, v3}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
-
     invoke-virtual {v0}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
     move-result-object v1
@@ -243,18 +175,6 @@
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
     iget-object v0, p0, Landroid/net/wifi/WpsInfo;->pin:Ljava/lang/String;
-
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
-
-    iget-object v0, p0, Landroid/net/wifi/WpsInfo;->dev_nfc_hashkey:Ljava/lang/String;
-
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
-
-    iget-object v0, p0, Landroid/net/wifi/WpsInfo;->dev_pw_id:Ljava/lang/String;
-
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
-
-    iget-object v0, p0, Landroid/net/wifi/WpsInfo;->dev_pw:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 

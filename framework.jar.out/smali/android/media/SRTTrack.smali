@@ -192,7 +192,7 @@
 
     div-long/2addr v10, v12
 
-    iput-wide v10, v0, Landroid/media/SubtitleTrack$Cue;->mStartTimeMs:J
+    iput-wide v10, v0, Landroid/media/TextTrackCue;->mStartTimeMs:J
 
     invoke-virtual {p1}, Landroid/media/SubtitleData;->getStartTimeUs()J
 
@@ -208,7 +208,7 @@
 
     div-long/2addr v10, v12
 
-    iput-wide v10, v0, Landroid/media/SubtitleTrack$Cue;->mEndTimeMs:J
+    iput-wide v10, v0, Landroid/media/TextTrackCue;->mEndTimeMs:J
 
     new-instance v6, Ljava/lang/String;
 
@@ -270,7 +270,7 @@
     goto :goto_0
 
     :cond_0
-    invoke-virtual {p0, v0}, Landroid/media/SubtitleTrack;->addCue(Landroid/media/SubtitleTrack$Cue;)Z
+    invoke-virtual {p0, v0}, Landroid/media/SRTTrack;->addCue(Landroid/media/SubtitleTrack$Cue;)Z
     :try_end_0
     .catch Ljava/io/UnsupportedEncodingException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -371,7 +371,7 @@
 
     move-wide/from16 v0, v18
 
-    iput-wide v0, v5, Landroid/media/SubtitleTrack$Cue;->mStartTimeMs:J
+    iput-wide v0, v5, Landroid/media/TextTrackCue;->mStartTimeMs:J
 
     const/16 v18, 0x1
 
@@ -383,7 +383,7 @@
 
     move-wide/from16 v0, v18
 
-    iput-wide v0, v5, Landroid/media/SubtitleTrack$Cue;->mEndTimeMs:J
+    iput-wide v0, v5, Landroid/media/TextTrackCue;->mEndTimeMs:J
 
     new-instance v13, Ljava/util/ArrayList;
 
@@ -550,7 +550,7 @@
     :cond_4
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v5}, Landroid/media/SubtitleTrack;->addCue(Landroid/media/SubtitleTrack$Cue;)Z
+    invoke-virtual {v0, v5}, Landroid/media/SRTTrack;->addCue(Landroid/media/SubtitleTrack$Cue;)Z
     :try_end_1
     .catch Ljava/io/UnsupportedEncodingException; {:try_start_1 .. :try_end_1} :catch_0
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_1
@@ -562,7 +562,7 @@
 
     const-string/jumbo v18, "SRTTrack"
 
-    invoke-virtual {v10}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
+    invoke-virtual {v10}, Ljava/io/IOException;->getMessage()Ljava/lang/String;
 
     move-result-object v19
 
@@ -589,7 +589,7 @@
 
     const/4 v9, 0x0
 
-    invoke-virtual {p0}, Landroid/media/WebVttTrack;->getRenderingWidget()Landroid/media/WebVttRenderingWidget;
+    invoke-virtual {p0}, Landroid/media/SRTTrack;->getRenderingWidget()Landroid/media/WebVttRenderingWidget;
 
     move-result-object v8
 

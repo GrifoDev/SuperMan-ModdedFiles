@@ -38,6 +38,8 @@
 
 .field static final TRANSACTION_getThreadId:I = 0x12
 
+.field static final TRANSACTION_getVrRecentsMode:I = 0x1d
+
 .field static final TRANSACTION_isDock:I = 0x1
 
 .field static final TRANSACTION_isMount:I = 0x2
@@ -91,7 +93,7 @@
 
     const-string/jumbo v0, "com.samsung.android.vr.IGearVrManagerService"
 
-    invoke-virtual {p0, p0, v0}, Landroid/os/Binder;->attachInterface(Landroid/os/IInterface;Ljava/lang/String;)V
+    invoke-virtual {p0, p0, v0}, Lcom/samsung/android/vr/IGearVrManagerService$Stub;->attachInterface(Landroid/os/IInterface;Ljava/lang/String;)V
 
     return-void
 .end method
@@ -1161,6 +1163,31 @@
 
     return v19
 
+    :sswitch_1d
+    const-string/jumbo v19, "com.samsung.android.vr.IGearVrManagerService"
+
+    move-object/from16 v0, p2
+
+    move-object/from16 v1, v19
+
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual/range {p0 .. p0}, Lcom/samsung/android/vr/IGearVrManagerService$Stub;->getVrRecentsMode()I
+
+    move-result v15
+
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    move-object/from16 v0, p3
+
+    invoke-virtual {v0, v15}, Landroid/os/Parcel;->writeInt(I)V
+
+    const/16 v19, 0x1
+
+    return v19
+
+    nop
+
     :sswitch_data_0
     .sparse-switch
         0x1 -> :sswitch_1
@@ -1191,6 +1218,7 @@
         0x1a -> :sswitch_1a
         0x1b -> :sswitch_1b
         0x1c -> :sswitch_1c
+        0x1d -> :sswitch_1d
         0x5f4e5446 -> :sswitch_0
     .end sparse-switch
 .end method

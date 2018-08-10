@@ -3,7 +3,7 @@
 .source "Network.java"
 
 # interfaces
-.implements Lcom/android/okhttp/internal/Network;
+.implements Lcom/android/okhttp/Dns;
 
 
 # annotations
@@ -34,8 +34,20 @@
 
 
 # virtual methods
-.method public resolveInetAddresses(Ljava/lang/String;)[Ljava/net/InetAddress;
+.method public lookup(Ljava/lang/String;)Ljava/util/List;
     .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/lang/String;",
+            ")",
+            "Ljava/util/List",
+            "<",
+            "Ljava/net/InetAddress;",
+            ">;"
+        }
+    .end annotation
+
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/net/UnknownHostException;
@@ -45,6 +57,10 @@
     iget-object v0, p0, Landroid/net/Network$2;->this$0:Landroid/net/Network;
 
     invoke-virtual {v0, p1}, Landroid/net/Network;->getAllByName(Ljava/lang/String;)[Ljava/net/InetAddress;
+
+    move-result-object v0
+
+    invoke-static {v0}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
 
     move-result-object v0
 

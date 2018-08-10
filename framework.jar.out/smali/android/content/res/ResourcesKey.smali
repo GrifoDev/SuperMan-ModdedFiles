@@ -81,15 +81,21 @@
 
     iput p5, p0, Landroid/content/res/ResourcesKey;->mDisplayId:I
 
+    new-instance v1, Landroid/content/res/Configuration;
+
     if-eqz p6, :cond_0
 
     :goto_0
-    iput-object p6, p0, Landroid/content/res/ResourcesKey;->mOverrideConfiguration:Landroid/content/res/Configuration;
+    invoke-direct {v1, p6}, Landroid/content/res/Configuration;-><init>(Landroid/content/res/Configuration;)V
+
+    iput-object v1, p0, Landroid/content/res/ResourcesKey;->mOverrideConfiguration:Landroid/content/res/Configuration;
 
     if-eqz p7, :cond_1
 
     :goto_1
     iput-object p7, p0, Landroid/content/res/ResourcesKey;->mCompatInfo:Landroid/content/res/CompatibilityInfo;
+
+    const/16 v0, 0x11
 
     iget-object v1, p0, Landroid/content/res/ResourcesKey;->mResDir:Ljava/lang/String;
 
@@ -398,17 +404,9 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    xor-int/lit8 v0, v0, 0x1
 
-    const/4 v0, 0x0
-
-    :goto_0
     return v0
-
-    :cond_0
-    const/4 v0, 0x1
-
-    goto :goto_0
 .end method
 
 .method public hashCode()I
@@ -624,6 +622,16 @@
     iget-object v2, p0, Landroid/content/res/ResourcesKey;->mPackageName:Ljava/lang/String;
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string/jumbo v1, " mIsDesktopMode ?"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    iget-boolean v2, p0, Landroid/content/res/ResourcesKey;->mIsDesktopMode:Z
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
     const-string/jumbo v1, "}"
 

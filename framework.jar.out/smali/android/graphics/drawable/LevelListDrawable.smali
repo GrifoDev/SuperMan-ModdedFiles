@@ -110,7 +110,9 @@
 
     move-result v8
 
-    if-eqz v8, :cond_0
+    xor-int/lit8 v8, v8, 0x1
+
+    if-nez v8, :cond_0
 
     sget-object v8, Lcom/android/internal/R$styleable;->LevelListDrawableItem:[I
 

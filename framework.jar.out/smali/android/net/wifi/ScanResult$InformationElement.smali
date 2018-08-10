@@ -41,6 +41,8 @@
 
 .field public static final EID_VSA:I = 0xdd
 
+.field public static final EID_WAPI:I = 0x44
+
 
 # instance fields
 .field public bytes:[B

@@ -30,6 +30,8 @@
 
 .field static final TRANSACTION_getMessenger:I = 0x1
 
+.field static final TRANSACTION_semSetWifiState:I = 0x3
+
 
 # direct methods
 .method public constructor <init>()V
@@ -167,12 +169,26 @@
 
     goto :goto_1
 
-    nop
+    :sswitch_3
+    const-string/jumbo v3, "android.net.wifi.IWifiScanner"
+
+    invoke-virtual {p2, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v0
+
+    invoke-virtual {p0, v0}, Landroid/net/wifi/IWifiScanner$Stub;->semSetWifiState(I)V
+
+    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+
+    return v4
 
     :sswitch_data_0
     .sparse-switch
         0x1 -> :sswitch_1
         0x2 -> :sswitch_2
+        0x3 -> :sswitch_3
         0x5f4e5446 -> :sswitch_0
     .end sparse-switch
 .end method

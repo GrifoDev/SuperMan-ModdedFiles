@@ -44,7 +44,7 @@
     :pswitch_0
     iget-object v0, p0, Landroid/app/Presentation$2;->this$0:Landroid/app/Presentation;
 
-    invoke-virtual {v0}, Landroid/app/Dialog;->cancel()V
+    invoke-virtual {v0}, Landroid/app/Presentation;->cancel()V
 
     goto :goto_0
 

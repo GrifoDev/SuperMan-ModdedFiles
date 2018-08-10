@@ -70,8 +70,11 @@
 
     move-result-object v0
 
+    if-eqz v0, :cond_0
+
     invoke-virtual {v0}, Landroid/security/net/config/ApplicationConfig;->handleTrustStorageUpdate()V
 
+    :cond_0
     return-void
 .end method
 

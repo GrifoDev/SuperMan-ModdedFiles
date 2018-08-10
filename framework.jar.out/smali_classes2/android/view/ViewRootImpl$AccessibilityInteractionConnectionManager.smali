@@ -43,7 +43,7 @@
 
     iget v1, v1, Landroid/view/View$AttachInfo;->mAccessibilityWindowId:I
 
-    const v2, 0x7fffffff
+    const/4 v2, -0x1
 
     if-eq v1, v2, :cond_1
 
@@ -88,7 +88,7 @@
 .method public ensureNoConnection()V
     .locals 3
 
-    const v2, 0x7fffffff
+    const/4 v2, -0x1
 
     iget-object v1, p0, Landroid/view/ViewRootImpl$AccessibilityInteractionConnectionManager;->this$0:Landroid/view/ViewRootImpl;
 
@@ -140,6 +140,12 @@
     iget-object v1, v1, Landroid/view/ViewRootImpl;->mAttachInfo:Landroid/view/View$AttachInfo;
 
     iget-boolean v1, v1, Landroid/view/View$AttachInfo;->mHasWindowFocus:Z
+
+    if-eqz v1, :cond_0
+
+    iget-object v1, p0, Landroid/view/ViewRootImpl$AccessibilityInteractionConnectionManager;->this$0:Landroid/view/ViewRootImpl;
+
+    iget-object v1, v1, Landroid/view/ViewRootImpl;->mView:Landroid/view/View;
 
     if-eqz v1, :cond_0
 

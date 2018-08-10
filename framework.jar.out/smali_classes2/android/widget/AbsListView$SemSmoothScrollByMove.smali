@@ -43,7 +43,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 3
+    .locals 4
 
     iget-object v1, p0, Landroid/widget/AbsListView$SemSmoothScrollByMove;->this$0:Landroid/widget/AbsListView;
 
@@ -63,7 +63,7 @@
 
     iget-object v1, p0, Landroid/widget/AbsListView$SemSmoothScrollByMove;->this$0:Landroid/widget/AbsListView;
 
-    invoke-static {v1}, Landroid/widget/AbsListView;->-get41(Landroid/widget/AbsListView;)Ljava/util/LinkedList;
+    invoke-static {v1}, Landroid/widget/AbsListView;->-get33(Landroid/widget/AbsListView;)Ljava/util/LinkedList;
 
     move-result-object v1
 
@@ -71,11 +71,11 @@
 
     iget-object v1, p0, Landroid/widget/AbsListView$SemSmoothScrollByMove;->this$0:Landroid/widget/AbsListView;
 
-    invoke-static {v1}, Landroid/widget/AbsListView;->-get41(Landroid/widget/AbsListView;)Ljava/util/LinkedList;
+    invoke-static {v1}, Landroid/widget/AbsListView;->-get33(Landroid/widget/AbsListView;)Ljava/util/LinkedList;
 
     move-result-object v1
 
-    invoke-virtual {v1}, Ljava/util/AbstractCollection;->isEmpty()Z
+    invoke-virtual {v1}, Ljava/util/LinkedList;->isEmpty()Z
 
     move-result v1
 
@@ -87,30 +87,32 @@
     :cond_1
     iget-object v1, p0, Landroid/widget/AbsListView$SemSmoothScrollByMove;->this$0:Landroid/widget/AbsListView;
 
-    invoke-static {v1}, Landroid/widget/AbsListView;->-get41(Landroid/widget/AbsListView;)Ljava/util/LinkedList;
+    invoke-static {v1}, Landroid/widget/AbsListView;->-get33(Landroid/widget/AbsListView;)Ljava/util/LinkedList;
 
     move-result-object v1
 
     invoke-virtual {v1}, Ljava/util/LinkedList;->poll()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v0
 
-    check-cast v1, Ljava/lang/Integer;
+    check-cast v0, Ljava/lang/Integer;
 
-    invoke-virtual {v1}, Ljava/lang/Integer;->intValue()I
-
-    move-result v0
+    if-eqz v0, :cond_2
 
     iget-object v1, p0, Landroid/widget/AbsListView$SemSmoothScrollByMove;->this$0:Landroid/widget/AbsListView;
 
-    const/4 v2, 0x0
+    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
-    invoke-virtual {v1, v0, v2}, Landroid/widget/AbsListView;->smoothScrollBy(II)V
+    move-result v2
+
+    const/4 v3, 0x0
+
+    invoke-virtual {v1, v2, v3}, Landroid/widget/AbsListView;->smoothScrollBy(II)V
 
     :cond_2
     iget-object v1, p0, Landroid/widget/AbsListView$SemSmoothScrollByMove;->this$0:Landroid/widget/AbsListView;
 
-    invoke-virtual {v1, p0}, Landroid/view/View;->post(Ljava/lang/Runnable;)Z
+    invoke-virtual {v1, p0}, Landroid/widget/AbsListView;->post(Ljava/lang/Runnable;)Z
 
     return-void
 .end method

@@ -3,7 +3,7 @@
 .source "AccessibilityIterators.java"
 
 # interfaces
-.implements Landroid/content/ComponentCallbacks;
+.implements Landroid/view/ViewRootImpl$ConfigChangedCallback;
 
 
 # annotations
@@ -37,7 +37,7 @@
 
     invoke-virtual {p0, p1}, Landroid/view/AccessibilityIterators$CharacterTextSegmentIterator;->onLocaleChanged(Ljava/util/Locale;)V
 
-    invoke-static {p0}, Landroid/view/ViewRootImpl;->addConfigCallback(Landroid/content/ComponentCallbacks;)V
+    invoke-static {p0}, Landroid/view/ViewRootImpl;->addConfigCallback(Landroid/view/ViewRootImpl$ConfigChangedCallback;)V
 
     return-void
 .end method
@@ -78,7 +78,7 @@
 
     const/4 v4, 0x0
 
-    iget-object v3, p0, Landroid/view/AccessibilityIterators$AbstractTextSegmentIterator;->mText:Ljava/lang/String;
+    iget-object v3, p0, Landroid/view/AccessibilityIterators$CharacterTextSegmentIterator;->mText:Ljava/lang/String;
 
     invoke-virtual {v3}, Ljava/lang/String;->length()I
 
@@ -131,7 +131,7 @@
     return-object v4
 
     :cond_4
-    invoke-virtual {p0, v1, v0}, Landroid/view/AccessibilityIterators$AbstractTextSegmentIterator;->getRange(II)[I
+    invoke-virtual {p0, v1, v0}, Landroid/view/AccessibilityIterators$CharacterTextSegmentIterator;->getRange(II)[I
 
     move-result-object v3
 
@@ -151,9 +151,17 @@
 .end method
 
 .method public onConfigurationChanged(Landroid/content/res/Configuration;)V
-    .locals 2
+    .locals 3
 
-    iget-object v0, p1, Landroid/content/res/Configuration;->locale:Ljava/util/Locale;
+    invoke-virtual {p1}, Landroid/content/res/Configuration;->getLocales()Landroid/os/LocaleList;
+
+    move-result-object v1
+
+    const/4 v2, 0x0
+
+    invoke-virtual {v1, v2}, Landroid/os/LocaleList;->get(I)Ljava/util/Locale;
+
+    move-result-object v0
 
     iget-object v1, p0, Landroid/view/AccessibilityIterators$CharacterTextSegmentIterator;->mLocale:Ljava/util/Locale;
 
@@ -183,12 +191,6 @@
     return-void
 .end method
 
-.method public onLowMemory()V
-    .locals 0
-
-    return-void
-.end method
-
 .method public preceding(I)[I
     .locals 6
 
@@ -196,7 +198,7 @@
 
     const/4 v4, 0x0
 
-    iget-object v3, p0, Landroid/view/AccessibilityIterators$AbstractTextSegmentIterator;->mText:Ljava/lang/String;
+    iget-object v3, p0, Landroid/view/AccessibilityIterators$CharacterTextSegmentIterator;->mText:Ljava/lang/String;
 
     invoke-virtual {v3}, Ljava/lang/String;->length()I
 
@@ -249,7 +251,7 @@
     return-object v4
 
     :cond_4
-    invoke-virtual {p0, v1, v0}, Landroid/view/AccessibilityIterators$AbstractTextSegmentIterator;->getRange(II)[I
+    invoke-virtual {p0, v1, v0}, Landroid/view/AccessibilityIterators$CharacterTextSegmentIterator;->getRange(II)[I
 
     move-result-object v3
 

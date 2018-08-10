@@ -58,33 +58,31 @@
 .end method
 
 .method public constructor <init>(Landroid/widget/RemoteViews;Landroid/os/Parcel;)V
-    .locals 5
-
-    const/4 v4, 0x0
-
-    const/4 v2, 0x1
+    .locals 4
 
     const/4 v3, 0x0
 
+    const/4 v1, 0x0
+
     iput-object p1, p0, Landroid/widget/RemoteViews$SetDrawableParameters;->this$0:Landroid/widget/RemoteViews;
 
-    invoke-direct {p0, v4}, Landroid/widget/RemoteViews$Action;-><init>(Landroid/widget/RemoteViews$Action;)V
+    invoke-direct {p0, v3}, Landroid/widget/RemoteViews$Action;-><init>(Landroid/widget/RemoteViews$Action;)V
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v1
+    move-result v2
 
-    iput v1, p0, Landroid/widget/RemoteViews$SetDrawableParameters;->viewId:I
+    iput v2, p0, Landroid/widget/RemoteViews$SetDrawableParameters;->viewId:I
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v1
+    move-result v2
 
-    if-eqz v1, :cond_0
+    if-eqz v2, :cond_0
 
-    move v1, v2
+    const/4 v1, 0x1
 
-    :goto_0
+    :cond_0
     iput-boolean v1, p0, Landroid/widget/RemoteViews$SetDrawableParameters;->targetBackground:Z
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
@@ -105,9 +103,9 @@
 
     if-eqz v1, :cond_1
 
-    move v0, v2
+    const/4 v0, 0x1
 
-    :goto_1
+    :goto_0
     if-eqz v0, :cond_2
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
@@ -120,7 +118,7 @@
 
     iput-object v1, p0, Landroid/widget/RemoteViews$SetDrawableParameters;->filterMode:Landroid/graphics/PorterDuff$Mode;
 
-    :goto_2
+    :goto_1
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
@@ -129,20 +127,15 @@
 
     return-void
 
-    :cond_0
-    move v1, v3
+    :cond_1
+    const/4 v0, 0x0
 
     goto :goto_0
 
-    :cond_1
-    move v0, v3
+    :cond_2
+    iput-object v3, p0, Landroid/widget/RemoteViews$SetDrawableParameters;->filterMode:Landroid/graphics/PorterDuff$Mode;
 
     goto :goto_1
-
-    :cond_2
-    iput-object v4, p0, Landroid/widget/RemoteViews$SetDrawableParameters;->filterMode:Landroid/graphics/PorterDuff$Mode;
-
-    goto :goto_2
 .end method
 
 

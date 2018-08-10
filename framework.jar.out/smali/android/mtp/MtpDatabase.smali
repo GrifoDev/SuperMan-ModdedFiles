@@ -73,6 +73,8 @@
 
 .field private mDeviceProperties:Landroid/content/SharedPreferences;
 
+.field private mDeviceType:I
+
 .field private final mMediaProvider:Landroid/content/ContentProviderClient;
 
 .field private final mMediaScanner:Landroid/media/MediaScanner;
@@ -562,6 +564,16 @@
 
     :cond_2
     invoke-direct {p0, p1}, Landroid/mtp/MtpDatabase;->initDeviceProperties(Landroid/content/Context;)V
+
+    const-string/jumbo v6, "sys.usb.mtp.device_type"
+
+    const/4 v7, 0x0
+
+    invoke-static {v6, v7}, Landroid/os/SystemProperties;->getInt(Ljava/lang/String;I)I
+
+    move-result v6
+
+    iput v6, p0, Landroid/mtp/MtpDatabase;->mDeviceType:I
 
     iget-object v6, p0, Landroid/mtp/MtpDatabase;->mCloseGuard:Ldalvik/system/CloseGuard;
 
@@ -1693,6 +1705,15 @@
 
     return v10
 
+    :sswitch_2
+    iget v6, p0, Landroid/mtp/MtpDatabase;->mDeviceType:I
+
+    int-to-long v6, v6
+
+    aput-wide v6, p2, v9
+
+    return v10
+
     nop
 
     :sswitch_data_0
@@ -1700,6 +1721,7 @@
         0x5003 -> :sswitch_1
         0xd401 -> :sswitch_0
         0xd402 -> :sswitch_0
+        0xd407 -> :sswitch_2
     .end sparse-switch
 .end method
 
@@ -2600,7 +2622,7 @@
 .end method
 
 .method private getSupportedDeviceProperties()[I
-    .locals 4
+    .locals 5
 
     const v0, 0xd401
 
@@ -2610,7 +2632,9 @@
 
     const/16 v3, 0x5001
 
-    filled-new-array {v0, v1, v2, v3}, [I
+    const v4, 0xd407
+
+    filled-new-array {v0, v1, v2, v3, v4}, [I
 
     move-result-object v0
 
@@ -2792,14 +2816,12 @@
 
     array-length v5, v5
 
-    if-ge v1, v5, :cond_2
+    if-ge v1, v5, :cond_3
 
-    if-eqz v0, :cond_3
+    xor-int/lit8 v5, v0, 0x1
 
-    :cond_2
-    return v0
+    if-eqz v5, :cond_3
 
-    :cond_3
     iget-object v5, p0, Landroid/mtp/MtpDatabase;->mSubDirectories:[Ljava/lang/String;
 
     aget-object v3, v5, v1
@@ -2808,7 +2830,7 @@
 
     move-result v4
 
-    if-ge v4, v2, :cond_4
+    if-ge v4, v2, :cond_2
 
     invoke-virtual {p1, v4}, Ljava/lang/String;->charAt(I)C
 
@@ -2816,20 +2838,23 @@
 
     const/16 v6, 0x2f
 
-    if-ne v5, v6, :cond_4
+    if-ne v5, v6, :cond_2
 
     invoke-virtual {p1, v3}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_4
+    if-eqz v5, :cond_2
 
     const/4 v0, 0x1
 
-    :cond_4
+    :cond_2
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
+
+    :cond_3
+    return v0
 .end method
 
 .method private initDeviceProperties(Landroid/content/Context;)V
@@ -3375,7 +3400,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_b
+    if-eqz v1, :cond_a
 
     invoke-virtual {v13}, Ljava/io/File;->getName()Ljava/lang/String;
 
@@ -3395,15 +3420,10 @@
 
     move-result v1
 
-    if-eqz v1, :cond_a
+    xor-int/lit8 v1, v1, 0x1
 
-    :cond_9
-    :goto_1
-    const/16 v1, 0x2001
+    if-eqz v1, :cond_9
 
-    return v1
-
-    :cond_a
     :try_start_3
     move-object/from16 v0, p0
 
@@ -3417,7 +3437,11 @@
     :try_end_3
     .catch Landroid/os/RemoteException; {:try_start_3 .. :try_end_3} :catch_2
 
-    goto :goto_1
+    :cond_9
+    :goto_1
+    const/16 v1, 0x2001
+
+    return v1
 
     :catch_2
     move-exception v9
@@ -3446,7 +3470,7 @@
 
     goto :goto_1
 
-    :cond_b
+    :cond_a
     invoke-virtual {v13}, Ljava/io/File;->getName()Ljava/lang/String;
 
     move-result-object v1
@@ -3477,7 +3501,9 @@
 
     move-result v1
 
-    if-nez v1, :cond_9
+    xor-int/lit8 v1, v1, 0x1
+
+    if-eqz v1, :cond_9
 
     :try_start_4
     move-object/from16 v0, p0

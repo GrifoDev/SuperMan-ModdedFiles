@@ -9,13 +9,18 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Landroid/hardware/camera2/CameraDevice$StateCallback;,
-        Landroid/hardware/camera2/CameraDevice$StateListener;
+        Landroid/hardware/camera2/CameraDevice$StateCallback;
     }
 .end annotation
 
 
 # static fields
+.field public static final SESSION_OPERATION_MODE_CONSTRAINED_HIGH_SPEED:I = 0x1
+
+.field public static final SESSION_OPERATION_MODE_NORMAL:I = 0x0
+
+.field public static final SESSION_OPERATION_MODE_VENDOR_START:I = 0x8000
+
 .field public static final TEMPLATE_MANUAL:I = 0x6
 
 .field public static final TEMPLATE_PREVIEW:I = 0x1
@@ -114,6 +119,49 @@
     .end annotation
 .end method
 
+.method public abstract createConstrainedHighSpeedCaptureSessionByOutputConfigurations(Ljava/util/List;Landroid/hardware/camera2/CameraCaptureSession$StateCallback;Landroid/os/Handler;)V
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/List",
+            "<",
+            "Landroid/hardware/camera2/params/OutputConfiguration;",
+            ">;",
+            "Landroid/hardware/camera2/CameraCaptureSession$StateCallback;",
+            "Landroid/os/Handler;",
+            ")V"
+        }
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/hardware/camera2/CameraAccessException;
+        }
+    .end annotation
+.end method
+
+.method public abstract createCustomCaptureSession(Landroid/hardware/camera2/params/InputConfiguration;Ljava/util/List;ILandroid/hardware/camera2/CameraCaptureSession$StateCallback;Landroid/os/Handler;)V
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Landroid/hardware/camera2/params/InputConfiguration;",
+            "Ljava/util/List",
+            "<",
+            "Landroid/hardware/camera2/params/OutputConfiguration;",
+            ">;I",
+            "Landroid/hardware/camera2/CameraCaptureSession$StateCallback;",
+            "Landroid/os/Handler;",
+            ")V"
+        }
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/hardware/camera2/CameraAccessException;
+        }
+    .end annotation
+.end method
+
 .method public abstract createReprocessCaptureRequest(Landroid/hardware/camera2/TotalCaptureResult;)Landroid/hardware/camera2/CaptureRequest$Builder;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -167,4 +215,12 @@
 .end method
 
 .method public abstract getId()Ljava/lang/String;
+.end method
+
+.method public abstract setParameters(Ljava/lang/String;)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/hardware/camera2/CameraAccessException;
+        }
+    .end annotation
 .end method

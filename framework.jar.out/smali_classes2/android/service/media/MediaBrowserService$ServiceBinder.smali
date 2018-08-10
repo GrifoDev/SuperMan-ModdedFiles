@@ -167,18 +167,6 @@
 .method public getMediaItem(Ljava/lang/String;Landroid/os/ResultReceiver;Landroid/service/media/IMediaBrowserServiceCallbacks;)V
     .locals 2
 
-    invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    if-nez p2, :cond_1
-
-    :cond_0
-    return-void
-
-    :cond_1
     iget-object v0, p0, Landroid/service/media/MediaBrowserService$ServiceBinder;->this$0:Landroid/service/media/MediaBrowserService;
 
     invoke-static {v0}, Landroid/service/media/MediaBrowserService;->-get1(Landroid/service/media/MediaBrowserService;)Landroid/os/Handler;

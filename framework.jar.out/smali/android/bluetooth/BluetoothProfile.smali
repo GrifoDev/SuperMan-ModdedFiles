@@ -36,7 +36,13 @@
 
 .field public static final INPUT_DEVICE:I = 0x4
 
+.field public static final INPUT_HOST:I = 0x13
+
 .field public static final MAP:I = 0x9
+
+.field public static final MAP_CLIENT:I = 0x12
+
+.field public static final MAX_PROFILE_ID:I = 0x13
 
 .field public static final PAN:I = 0x5
 

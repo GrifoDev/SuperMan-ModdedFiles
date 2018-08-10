@@ -131,6 +131,96 @@
     goto :goto_1
 .end method
 
+.method private getBasicProperties([Ljava/lang/String;)Landroid/os/Bundle;
+    .locals 8
+
+    new-instance v0, Landroid/os/Bundle;
+
+    invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
+
+    const/4 v3, 0x0
+
+    array-length v4, p1
+
+    :goto_0
+    if-ge v3, v4, :cond_3
+
+    aget-object v1, p1, v3
+
+    iget-object v5, p0, Landroid/media/midi/MidiDeviceInfo;->mProperties:Landroid/os/Bundle;
+
+    invoke-virtual {v5, v1}, Landroid/os/Bundle;->get(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v2
+
+    if-eqz v2, :cond_0
+
+    instance-of v5, v2, Ljava/lang/String;
+
+    if-eqz v5, :cond_1
+
+    check-cast v2, Ljava/lang/String;
+
+    invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+
+    :cond_0
+    :goto_1
+    add-int/lit8 v3, v3, 0x1
+
+    goto :goto_0
+
+    :cond_1
+    instance-of v5, v2, Ljava/lang/Integer;
+
+    if-eqz v5, :cond_2
+
+    check-cast v2, Ljava/lang/Integer;
+
+    invoke-virtual {v2}, Ljava/lang/Integer;->intValue()I
+
+    move-result v5
+
+    invoke-virtual {v0, v1, v5}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
+
+    goto :goto_1
+
+    :cond_2
+    const-string/jumbo v5, "MidiDeviceInfo"
+
+    new-instance v6, Ljava/lang/StringBuilder;
+
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v7, "Unsupported property type: "
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v2}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Ljava/lang/Class;->getName()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v5, v6}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_1
+
+    :cond_3
+    return-object v0
+.end method
+
 
 # virtual methods
 .method public describeContents()I
@@ -376,7 +466,11 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .locals 1
+    .locals 4
+
+    const/4 v1, 0x1
+
+    const/4 v2, 0x0
 
     iget v0, p0, Landroid/media/midi/MidiDeviceInfo;->mType:I
 
@@ -402,23 +496,71 @@
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeStringArray([Ljava/lang/String;)V
 
-    iget-object v0, p0, Landroid/media/midi/MidiDeviceInfo;->mProperties:Landroid/os/Bundle;
-
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeBundle(Landroid/os/Bundle;)V
-
     iget-boolean v0, p0, Landroid/media/midi/MidiDeviceInfo;->mIsPrivate:Z
 
     if-eqz v0, :cond_0
 
-    const/4 v0, 0x1
+    move v0, v1
 
     :goto_0
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
+    const/4 v0, 0x7
+
+    new-array v0, v0, [Ljava/lang/String;
+
+    const-string/jumbo v3, "name"
+
+    aput-object v3, v0, v2
+
+    const-string/jumbo v2, "manufacturer"
+
+    aput-object v2, v0, v1
+
+    const-string/jumbo v1, "product"
+
+    const/4 v2, 0x2
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "version"
+
+    const/4 v2, 0x3
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "serial_number"
+
+    const/4 v2, 0x4
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "alsa_card"
+
+    const/4 v2, 0x5
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "alsa_device"
+
+    const/4 v2, 0x6
+
+    aput-object v1, v0, v2
+
+    invoke-direct {p0, v0}, Landroid/media/midi/MidiDeviceInfo;->getBasicProperties([Ljava/lang/String;)Landroid/os/Bundle;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeBundle(Landroid/os/Bundle;)V
+
+    iget-object v0, p0, Landroid/media/midi/MidiDeviceInfo;->mProperties:Landroid/os/Bundle;
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeBundle(Landroid/os/Bundle;)V
+
     return-void
 
     :cond_0
-    const/4 v0, 0x0
+    move v0, v2
 
     goto :goto_0
 .end method

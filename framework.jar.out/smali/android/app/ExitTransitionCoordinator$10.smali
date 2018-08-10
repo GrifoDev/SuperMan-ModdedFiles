@@ -1,11 +1,14 @@
 .class Landroid/app/ExitTransitionCoordinator$10;
-.super Landroid/app/ActivityTransitionCoordinator$ContinueTransitionListener;
+.super Ljava/lang/Object;
 .source "ExitTransitionCoordinator.java"
+
+# interfaces
+.implements Landroid/app/SharedElementCallback$OnSharedElementsReadyListener;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Landroid/app/ExitTransitionCoordinator;->getSharedElementExitTransition()Landroid/transition/Transition;
+    value = Landroid/app/ExitTransitionCoordinator;->notifyComplete()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -17,47 +20,42 @@
 # instance fields
 .field final synthetic this$0:Landroid/app/ExitTransitionCoordinator;
 
+.field final synthetic val$resultReceiver:Landroid/os/ResultReceiver;
+
+.field final synthetic val$sharedElementBundle:Landroid/os/Bundle;
+
 
 # direct methods
-.method constructor <init>(Landroid/app/ExitTransitionCoordinator;Landroid/app/ActivityTransitionCoordinator;)V
+.method constructor <init>(Landroid/app/ExitTransitionCoordinator;Landroid/os/ResultReceiver;Landroid/os/Bundle;)V
     .locals 0
 
     iput-object p1, p0, Landroid/app/ExitTransitionCoordinator$10;->this$0:Landroid/app/ExitTransitionCoordinator;
 
-    invoke-direct {p0, p2}, Landroid/app/ActivityTransitionCoordinator$ContinueTransitionListener;-><init>(Landroid/app/ActivityTransitionCoordinator;)V
+    iput-object p2, p0, Landroid/app/ExitTransitionCoordinator$10;->val$resultReceiver:Landroid/os/ResultReceiver;
+
+    iput-object p3, p0, Landroid/app/ExitTransitionCoordinator$10;->val$sharedElementBundle:Landroid/os/Bundle;
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onTransitionEnd(Landroid/transition/Transition;)V
+.method public onSharedElementsReady()V
     .locals 3
 
-    invoke-virtual {p1, p0}, Landroid/transition/Transition;->removeListener(Landroid/transition/Transition$TransitionListener;)Landroid/transition/Transition;
+    iget-object v0, p0, Landroid/app/ExitTransitionCoordinator$10;->val$resultReceiver:Landroid/os/ResultReceiver;
+
+    iget-object v1, p0, Landroid/app/ExitTransitionCoordinator$10;->val$sharedElementBundle:Landroid/os/Bundle;
+
+    const/16 v2, 0x67
+
+    invoke-virtual {v0, v2, v1}, Landroid/os/ResultReceiver;->send(ILandroid/os/Bundle;)V
 
     iget-object v0, p0, Landroid/app/ExitTransitionCoordinator$10;->this$0:Landroid/app/ExitTransitionCoordinator;
 
-    invoke-virtual {v0}, Landroid/app/ExitTransitionCoordinator;->sharedElementTransitionComplete()V
+    invoke-static {v0}, Landroid/app/ExitTransitionCoordinator;->-wrap4(Landroid/app/ExitTransitionCoordinator;)V
 
-    iget-object v0, p0, Landroid/app/ExitTransitionCoordinator$10;->this$0:Landroid/app/ExitTransitionCoordinator;
-
-    invoke-static {v0}, Landroid/app/ExitTransitionCoordinator;->-get2(Landroid/app/ExitTransitionCoordinator;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Landroid/app/ExitTransitionCoordinator$10;->this$0:Landroid/app/ExitTransitionCoordinator;
-
-    iget-object v1, p0, Landroid/app/ExitTransitionCoordinator$10;->this$0:Landroid/app/ExitTransitionCoordinator;
-
-    iget-object v1, v1, Landroid/app/ExitTransitionCoordinator;->mSharedElements:Ljava/util/ArrayList;
-
-    const/4 v2, 0x1
-
-    invoke-virtual {v0, v1, v2}, Landroid/app/ExitTransitionCoordinator;->showViews(Ljava/util/ArrayList;Z)V
-
-    :cond_0
     return-void
 .end method

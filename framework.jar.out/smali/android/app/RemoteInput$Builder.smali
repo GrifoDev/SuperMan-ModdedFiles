@@ -15,6 +15,17 @@
 
 
 # instance fields
+.field private final mAllowedDataTypes:Landroid/util/ArraySet;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Landroid/util/ArraySet",
+            "<",
+            "Ljava/lang/String;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 .field private mChoices:[Ljava/lang/CharSequence;
 
 .field private mExtras:Landroid/os/Bundle;
@@ -41,6 +52,12 @@
     invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
 
     iput-object v0, p0, Landroid/app/RemoteInput$Builder;->mExtras:Landroid/os/Bundle;
+
+    new-instance v0, Landroid/util/ArraySet;
+
+    invoke-direct {v0}, Landroid/util/ArraySet;-><init>()V
+
+    iput-object v0, p0, Landroid/app/RemoteInput$Builder;->mAllowedDataTypes:Landroid/util/ArraySet;
 
     if-nez p1, :cond_0
 
@@ -100,7 +117,7 @@
 .end method
 
 .method public build()Landroid/app/RemoteInput;
-    .locals 7
+    .locals 8
 
     new-instance v0, Landroid/app/RemoteInput;
 
@@ -114,9 +131,11 @@
 
     iget-object v5, p0, Landroid/app/RemoteInput$Builder;->mExtras:Landroid/os/Bundle;
 
-    const/4 v6, 0x0
+    iget-object v6, p0, Landroid/app/RemoteInput$Builder;->mAllowedDataTypes:Landroid/util/ArraySet;
 
-    invoke-direct/range {v0 .. v6}, Landroid/app/RemoteInput;-><init>(Ljava/lang/String;Ljava/lang/CharSequence;[Ljava/lang/CharSequence;ILandroid/os/Bundle;Landroid/app/RemoteInput;)V
+    const/4 v7, 0x0
+
+    invoke-direct/range {v0 .. v7}, Landroid/app/RemoteInput;-><init>(Ljava/lang/String;Ljava/lang/CharSequence;[Ljava/lang/CharSequence;ILandroid/os/Bundle;Landroid/util/ArraySet;Landroid/app/RemoteInput;)V
 
     return-object v0
 .end method
@@ -127,6 +146,26 @@
     iget-object v0, p0, Landroid/app/RemoteInput$Builder;->mExtras:Landroid/os/Bundle;
 
     return-object v0
+.end method
+
+.method public setAllowDataType(Ljava/lang/String;Z)Landroid/app/RemoteInput$Builder;
+    .locals 1
+
+    if-eqz p2, :cond_0
+
+    iget-object v0, p0, Landroid/app/RemoteInput$Builder;->mAllowedDataTypes:Landroid/util/ArraySet;
+
+    invoke-virtual {v0, p1}, Landroid/util/ArraySet;->add(Ljava/lang/Object;)Z
+
+    :goto_0
+    return-object p0
+
+    :cond_0
+    iget-object v0, p0, Landroid/app/RemoteInput$Builder;->mAllowedDataTypes:Landroid/util/ArraySet;
+
+    invoke-virtual {v0, p1}, Landroid/util/ArraySet;->remove(Ljava/lang/Object;)Z
+
+    goto :goto_0
 .end method
 
 .method public setAllowFreeFormInput(Z)Landroid/app/RemoteInput$Builder;

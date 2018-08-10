@@ -225,6 +225,35 @@
     return-object v0
 .end method
 
+.method public static setReceiverHandler(Landroid/os/Handler;)V
+    .locals 3
+
+    const/4 v2, 0x0
+
+    sget-object v1, Landroid/widget/DateTimeView;->sReceiverInfo:Ljava/lang/ThreadLocal;
+
+    invoke-virtual {v1}, Ljava/lang/ThreadLocal;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/widget/DateTimeView$ReceiverInfo;
+
+    if-nez v0, :cond_0
+
+    new-instance v0, Landroid/widget/DateTimeView$ReceiverInfo;
+
+    invoke-direct {v0, v2}, Landroid/widget/DateTimeView$ReceiverInfo;-><init>(Landroid/widget/DateTimeView$ReceiverInfo;)V
+
+    sget-object v1, Landroid/widget/DateTimeView;->sReceiverInfo:Ljava/lang/ThreadLocal;
+
+    invoke-virtual {v1, v0}, Ljava/lang/ThreadLocal;->set(Ljava/lang/Object;)V
+
+    :cond_0
+    invoke-virtual {v0, p0}, Landroid/widget/DateTimeView$ReceiverInfo;->setHandler(Landroid/os/Handler;)V
+
+    return-void
+.end method
+
 .method private updateNowText()V
     .locals 2
 
@@ -243,7 +272,7 @@
 
     move-result-object v0
 
-    const v1, 0x1040366
+    const v1, 0x104060d
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -330,7 +359,7 @@
 
     if-eqz v1, :cond_3
 
-    const v10, 0x1140007
+    const v10, 0x115000c
 
     :goto_1
     invoke-virtual {v11, v10, v0}, Landroid/content/res/Resources;->getQuantityString(II)Ljava/lang/String;
@@ -387,7 +416,7 @@
     return-void
 
     :cond_3
-    const v10, 0x114000b
+    const v10, 0x115000d
 
     goto :goto_1
 
@@ -414,7 +443,7 @@
 
     if-eqz v1, :cond_5
 
-    const v10, 0x1140008
+    const v10, 0x1150008
 
     :goto_4
     invoke-virtual {v11, v10, v0}, Landroid/content/res/Resources;->getQuantityString(II)Ljava/lang/String;
@@ -442,7 +471,7 @@
     goto :goto_2
 
     :cond_5
-    const v10, 0x114000c
+    const v10, 0x1150009
 
     goto :goto_4
 
@@ -483,7 +512,7 @@
 
     if-eqz v1, :cond_8
 
-    const v10, 0x1140009
+    const v10, 0x1150004
 
     :goto_5
     invoke-virtual {v11, v10, v0}, Landroid/content/res/Resources;->getQuantityString(II)Ljava/lang/String;
@@ -524,7 +553,7 @@
     goto/16 :goto_2
 
     :cond_8
-    const v10, 0x114000d
+    const v10, 0x1150005
 
     goto :goto_5
 
@@ -550,7 +579,7 @@
 
     if-eqz v1, :cond_b
 
-    const v10, 0x114000a
+    const v10, 0x1150010
 
     :goto_6
     invoke-virtual {v11, v10, v0}, Landroid/content/res/Resources;->getQuantityString(II)Ljava/lang/String;
@@ -578,7 +607,7 @@
     goto/16 :goto_2
 
     :cond_b
-    const v10, 0x114000e
+    const v10, 0x1150011
 
     goto :goto_6
 
@@ -750,7 +779,7 @@
 
     if-eqz v1, :cond_3
 
-    const v8, 0x114000f
+    const v8, 0x115000a
 
     :goto_2
     invoke-virtual {v9, v8, v0}, Landroid/content/res/Resources;->getQuantityString(II)Ljava/lang/String;
@@ -776,7 +805,7 @@
     goto :goto_1
 
     :cond_3
-    const v8, 0x1140013
+    const v8, 0x115000b
 
     goto :goto_2
 
@@ -803,7 +832,7 @@
 
     if-eqz v1, :cond_5
 
-    const v8, 0x1140010
+    const v8, 0x1150006
 
     :goto_3
     invoke-virtual {v9, v8, v0}, Landroid/content/res/Resources;->getQuantityString(II)Ljava/lang/String;
@@ -829,7 +858,7 @@
     goto :goto_1
 
     :cond_5
-    const v8, 0x1140014
+    const v8, 0x1150007
 
     goto :goto_3
 
@@ -870,7 +899,7 @@
 
     if-eqz v1, :cond_7
 
-    const v8, 0x1140011
+    const v8, 0x1150002
 
     :goto_4
     invoke-virtual {v9, v8, v0}, Landroid/content/res/Resources;->getQuantityString(II)Ljava/lang/String;
@@ -896,7 +925,7 @@
     goto/16 :goto_1
 
     :cond_7
-    const v8, 0x1140015
+    const v8, 0x1150003
 
     goto :goto_4
 
@@ -917,7 +946,7 @@
 
     if-eqz v1, :cond_9
 
-    const v8, 0x1140012
+    const v8, 0x115000e
 
     :goto_5
     invoke-virtual {v9, v8, v0}, Landroid/content/res/Resources;->getQuantityString(II)Ljava/lang/String;
@@ -943,7 +972,7 @@
     goto/16 :goto_1
 
     :cond_9
-    const v8, 0x1140016
+    const v8, 0x115000f
 
     goto :goto_5
 .end method

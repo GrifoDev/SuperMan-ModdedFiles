@@ -530,11 +530,11 @@
 .method public constructor <init>()V
     .locals 2
 
+    const/4 v1, 0x0
+
     new-instance v0, Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;
 
-    invoke-direct {v0}, Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;-><init>()V
-
-    const/4 v1, 0x0
+    invoke-direct {v0, v1}, Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;-><init>(Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;)V
 
     invoke-direct {p0, v0, v1}, Landroid/graphics/drawable/VectorDrawable;-><init>(Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;Landroid/content/res/Resources;)V
 
@@ -660,7 +660,7 @@
 .end method
 
 .method private inflateChildElements(Landroid/content/res/Resources;Lorg/xmlpull/v1/XmlPullParser;Landroid/util/AttributeSet;Landroid/content/res/Resources$Theme;)V
-    .locals 16
+    .locals 17
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lorg/xmlpull/v1/XmlPullParserException;,
@@ -670,34 +670,51 @@
 
     move-object/from16 v0, p0
 
-    iget-object v10, v0, Landroid/graphics/drawable/VectorDrawable;->mVectorState:Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;
+    iget-object v11, v0, Landroid/graphics/drawable/VectorDrawable;->mVectorState:Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;
 
-    const/4 v7, 0x1
+    const/4 v8, 0x1
 
     new-instance v5, Ljava/util/Stack;
 
     invoke-direct {v5}, Ljava/util/Stack;-><init>()V
 
-    iget-object v13, v10, Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;->mRootGroup:Landroid/graphics/drawable/VectorDrawable$VGroup;
+    iget-object v14, v11, Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;->mRootGroup:Landroid/graphics/drawable/VectorDrawable$VGroup;
 
-    invoke-virtual {v5, v13}, Ljava/util/Stack;->push(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v5, v14}, Ljava/util/Stack;->push(Ljava/lang/Object;)Ljava/lang/Object;
 
     invoke-interface/range {p2 .. p2}, Lorg/xmlpull/v1/XmlPullParser;->getEventType()I
 
     move-result v4
 
+    invoke-interface/range {p2 .. p2}, Lorg/xmlpull/v1/XmlPullParser;->getDepth()I
+
+    move-result v14
+
+    add-int/lit8 v6, v14, 0x1
+
     :goto_0
-    const/4 v13, 0x1
+    const/4 v14, 0x1
 
-    if-eq v4, v13, :cond_7
+    if-eq v4, v14, :cond_8
 
-    const/4 v13, 0x2
+    invoke-interface/range {p2 .. p2}, Lorg/xmlpull/v1/XmlPullParser;->getDepth()I
 
-    if-ne v4, v13, :cond_6
+    move-result v14
+
+    if-ge v14, v6, :cond_0
+
+    const/4 v14, 0x3
+
+    if-eq v4, v14, :cond_8
+
+    :cond_0
+    const/4 v14, 0x2
+
+    if-ne v4, v14, :cond_7
 
     invoke-interface/range {p2 .. p2}, Lorg/xmlpull/v1/XmlPullParser;->getName()Ljava/lang/String;
 
-    move-result-object v12
+    move-result-object v13
 
     invoke-virtual {v5}, Ljava/util/Stack;->peek()Ljava/lang/Object;
 
@@ -705,17 +722,17 @@
 
     check-cast v3, Landroid/graphics/drawable/VectorDrawable$VGroup;
 
-    const-string/jumbo v13, "path"
+    const-string/jumbo v14, "path"
 
-    invoke-virtual {v13, v12}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v14, v13}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v13
+    move-result v14
 
-    if-eqz v13, :cond_2
+    if-eqz v14, :cond_3
 
-    new-instance v9, Landroid/graphics/drawable/VectorDrawable$VFullPath;
+    new-instance v10, Landroid/graphics/drawable/VectorDrawable$VFullPath;
 
-    invoke-direct {v9}, Landroid/graphics/drawable/VectorDrawable$VFullPath;-><init>()V
+    invoke-direct {v10}, Landroid/graphics/drawable/VectorDrawable$VFullPath;-><init>()V
 
     move-object/from16 v0, p1
 
@@ -723,36 +740,36 @@
 
     move-object/from16 v2, p4
 
-    invoke-virtual {v9, v0, v1, v2}, Landroid/graphics/drawable/VectorDrawable$VFullPath;->inflate(Landroid/content/res/Resources;Landroid/util/AttributeSet;Landroid/content/res/Resources$Theme;)V
+    invoke-virtual {v10, v0, v1, v2}, Landroid/graphics/drawable/VectorDrawable$VFullPath;->inflate(Landroid/content/res/Resources;Landroid/util/AttributeSet;Landroid/content/res/Resources$Theme;)V
 
-    invoke-virtual {v3, v9}, Landroid/graphics/drawable/VectorDrawable$VGroup;->addChild(Landroid/graphics/drawable/VectorDrawable$VObject;)V
+    invoke-virtual {v3, v10}, Landroid/graphics/drawable/VectorDrawable$VGroup;->addChild(Landroid/graphics/drawable/VectorDrawable$VObject;)V
 
-    invoke-virtual {v9}, Landroid/graphics/drawable/VectorDrawable$VFullPath;->getPathName()Ljava/lang/String;
-
-    move-result-object v13
-
-    if-eqz v13, :cond_0
-
-    iget-object v13, v10, Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;->mVGTargetsMap:Landroid/util/ArrayMap;
-
-    invoke-virtual {v9}, Landroid/graphics/drawable/VectorDrawable$VFullPath;->getPathName()Ljava/lang/String;
+    invoke-virtual {v10}, Landroid/graphics/drawable/VectorDrawable$VFullPath;->getPathName()Ljava/lang/String;
 
     move-result-object v14
 
-    invoke-virtual {v13, v14, v9}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    if-eqz v14, :cond_1
 
-    :cond_0
-    const/4 v7, 0x0
+    iget-object v14, v11, Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;->mVGTargetsMap:Landroid/util/ArrayMap;
 
-    iget v13, v10, Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;->mChangingConfigurations:I
+    invoke-virtual {v10}, Landroid/graphics/drawable/VectorDrawable$VFullPath;->getPathName()Ljava/lang/String;
 
-    iget v14, v9, Landroid/graphics/drawable/VectorDrawable$VFullPath;->mChangingConfigurations:I
+    move-result-object v15
 
-    or-int/2addr v13, v14
-
-    iput v13, v10, Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;->mChangingConfigurations:I
+    invoke-virtual {v14, v15, v10}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     :cond_1
+    const/4 v8, 0x0
+
+    iget v14, v11, Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;->mChangingConfigurations:I
+
+    iget v15, v10, Landroid/graphics/drawable/VectorDrawable$VFullPath;->mChangingConfigurations:I
+
+    or-int/2addr v14, v15
+
+    iput v14, v11, Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;->mChangingConfigurations:I
+
+    :cond_2
     :goto_1
     invoke-interface/range {p2 .. p2}, Lorg/xmlpull/v1/XmlPullParser;->next()I
 
@@ -760,217 +777,239 @@
 
     goto :goto_0
 
-    :cond_2
-    const-string/jumbo v13, "clip-path"
-
-    invoke-virtual {v13, v12}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v13
-
-    if-eqz v13, :cond_4
-
-    new-instance v8, Landroid/graphics/drawable/VectorDrawable$VClipPath;
-
-    invoke-direct {v8}, Landroid/graphics/drawable/VectorDrawable$VClipPath;-><init>()V
-
-    move-object/from16 v0, p1
-
-    move-object/from16 v1, p3
-
-    move-object/from16 v2, p4
-
-    invoke-virtual {v8, v0, v1, v2}, Landroid/graphics/drawable/VectorDrawable$VClipPath;->inflate(Landroid/content/res/Resources;Landroid/util/AttributeSet;Landroid/content/res/Resources$Theme;)V
-
-    invoke-virtual {v3, v8}, Landroid/graphics/drawable/VectorDrawable$VGroup;->addChild(Landroid/graphics/drawable/VectorDrawable$VObject;)V
-
-    invoke-virtual {v8}, Landroid/graphics/drawable/VectorDrawable$VClipPath;->getPathName()Ljava/lang/String;
-
-    move-result-object v13
-
-    if-eqz v13, :cond_3
-
-    iget-object v13, v10, Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;->mVGTargetsMap:Landroid/util/ArrayMap;
-
-    invoke-virtual {v8}, Landroid/graphics/drawable/VectorDrawable$VClipPath;->getPathName()Ljava/lang/String;
-
-    move-result-object v14
-
-    invoke-virtual {v13, v14, v8}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
     :cond_3
-    iget v13, v10, Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;->mChangingConfigurations:I
+    const-string/jumbo v14, "clip-path"
 
-    iget v14, v8, Landroid/graphics/drawable/VectorDrawable$VClipPath;->mChangingConfigurations:I
-
-    or-int/2addr v13, v14
-
-    iput v13, v10, Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;->mChangingConfigurations:I
-
-    goto :goto_1
-
-    :cond_4
-    const-string/jumbo v13, "group"
-
-    invoke-virtual {v13, v12}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v13
-
-    if-eqz v13, :cond_1
-
-    new-instance v6, Landroid/graphics/drawable/VectorDrawable$VGroup;
-
-    invoke-direct {v6}, Landroid/graphics/drawable/VectorDrawable$VGroup;-><init>()V
-
-    move-object/from16 v0, p1
-
-    move-object/from16 v1, p3
-
-    move-object/from16 v2, p4
-
-    invoke-virtual {v6, v0, v1, v2}, Landroid/graphics/drawable/VectorDrawable$VGroup;->inflate(Landroid/content/res/Resources;Landroid/util/AttributeSet;Landroid/content/res/Resources$Theme;)V
-
-    invoke-virtual {v3, v6}, Landroid/graphics/drawable/VectorDrawable$VGroup;->addChild(Landroid/graphics/drawable/VectorDrawable$VObject;)V
-
-    invoke-virtual {v5, v6}, Ljava/util/Stack;->push(Ljava/lang/Object;)Ljava/lang/Object;
-
-    invoke-virtual {v6}, Landroid/graphics/drawable/VectorDrawable$VGroup;->getGroupName()Ljava/lang/String;
-
-    move-result-object v13
-
-    if-eqz v13, :cond_5
-
-    iget-object v13, v10, Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;->mVGTargetsMap:Landroid/util/ArrayMap;
-
-    invoke-virtual {v6}, Landroid/graphics/drawable/VectorDrawable$VGroup;->getGroupName()Ljava/lang/String;
-
-    move-result-object v14
-
-    invoke-virtual {v13, v14, v6}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    :cond_5
-    iget v13, v10, Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;->mChangingConfigurations:I
-
-    invoke-static {v6}, Landroid/graphics/drawable/VectorDrawable$VGroup;->-get0(Landroid/graphics/drawable/VectorDrawable$VGroup;)I
+    invoke-virtual {v14, v13}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v14
 
-    or-int/2addr v13, v14
+    if-eqz v14, :cond_5
 
-    iput v13, v10, Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;->mChangingConfigurations:I
+    new-instance v9, Landroid/graphics/drawable/VectorDrawable$VClipPath;
+
+    invoke-direct {v9}, Landroid/graphics/drawable/VectorDrawable$VClipPath;-><init>()V
+
+    move-object/from16 v0, p1
+
+    move-object/from16 v1, p3
+
+    move-object/from16 v2, p4
+
+    invoke-virtual {v9, v0, v1, v2}, Landroid/graphics/drawable/VectorDrawable$VClipPath;->inflate(Landroid/content/res/Resources;Landroid/util/AttributeSet;Landroid/content/res/Resources$Theme;)V
+
+    invoke-virtual {v3, v9}, Landroid/graphics/drawable/VectorDrawable$VGroup;->addChild(Landroid/graphics/drawable/VectorDrawable$VObject;)V
+
+    invoke-virtual {v9}, Landroid/graphics/drawable/VectorDrawable$VClipPath;->getPathName()Ljava/lang/String;
+
+    move-result-object v14
+
+    if-eqz v14, :cond_4
+
+    iget-object v14, v11, Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;->mVGTargetsMap:Landroid/util/ArrayMap;
+
+    invoke-virtual {v9}, Landroid/graphics/drawable/VectorDrawable$VClipPath;->getPathName()Ljava/lang/String;
+
+    move-result-object v15
+
+    invoke-virtual {v14, v15, v9}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    :cond_4
+    iget v14, v11, Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;->mChangingConfigurations:I
+
+    iget v15, v9, Landroid/graphics/drawable/VectorDrawable$VClipPath;->mChangingConfigurations:I
+
+    or-int/2addr v14, v15
+
+    iput v14, v11, Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;->mChangingConfigurations:I
 
     goto :goto_1
 
-    :cond_6
-    const/4 v13, 0x3
+    :cond_5
+    const-string/jumbo v14, "group"
 
-    if-ne v4, v13, :cond_1
+    invoke-virtual {v14, v13}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v14
+
+    if-eqz v14, :cond_2
+
+    new-instance v7, Landroid/graphics/drawable/VectorDrawable$VGroup;
+
+    invoke-direct {v7}, Landroid/graphics/drawable/VectorDrawable$VGroup;-><init>()V
+
+    move-object/from16 v0, p1
+
+    move-object/from16 v1, p3
+
+    move-object/from16 v2, p4
+
+    invoke-virtual {v7, v0, v1, v2}, Landroid/graphics/drawable/VectorDrawable$VGroup;->inflate(Landroid/content/res/Resources;Landroid/util/AttributeSet;Landroid/content/res/Resources$Theme;)V
+
+    invoke-virtual {v3, v7}, Landroid/graphics/drawable/VectorDrawable$VGroup;->addChild(Landroid/graphics/drawable/VectorDrawable$VObject;)V
+
+    invoke-virtual {v5, v7}, Ljava/util/Stack;->push(Ljava/lang/Object;)Ljava/lang/Object;
+
+    invoke-virtual {v7}, Landroid/graphics/drawable/VectorDrawable$VGroup;->getGroupName()Ljava/lang/String;
+
+    move-result-object v14
+
+    if-eqz v14, :cond_6
+
+    iget-object v14, v11, Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;->mVGTargetsMap:Landroid/util/ArrayMap;
+
+    invoke-virtual {v7}, Landroid/graphics/drawable/VectorDrawable$VGroup;->getGroupName()Ljava/lang/String;
+
+    move-result-object v15
+
+    invoke-virtual {v14, v15, v7}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    :cond_6
+    iget v14, v11, Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;->mChangingConfigurations:I
+
+    invoke-static {v7}, Landroid/graphics/drawable/VectorDrawable$VGroup;->-get7(Landroid/graphics/drawable/VectorDrawable$VGroup;)I
+
+    move-result v15
+
+    or-int/2addr v14, v15
+
+    iput v14, v11, Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;->mChangingConfigurations:I
+
+    goto :goto_1
+
+    :cond_7
+    const/4 v14, 0x3
+
+    if-ne v4, v14, :cond_2
 
     invoke-interface/range {p2 .. p2}, Lorg/xmlpull/v1/XmlPullParser;->getName()Ljava/lang/String;
 
-    move-result-object v12
+    move-result-object v13
 
-    const-string/jumbo v13, "group"
+    const-string/jumbo v14, "group"
 
-    invoke-virtual {v13, v12}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v14, v13}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v13
+    move-result v14
 
-    if-eqz v13, :cond_1
+    if-eqz v14, :cond_2
 
     invoke-virtual {v5}, Ljava/util/Stack;->pop()Ljava/lang/Object;
 
     goto :goto_1
 
-    :cond_7
-    if-eqz v7, :cond_9
-
-    new-instance v11, Ljava/lang/StringBuffer;
-
-    invoke-direct {v11}, Ljava/lang/StringBuffer;-><init>()V
-
-    invoke-virtual {v11}, Ljava/lang/StringBuffer;->length()I
-
-    move-result v13
-
-    if-lez v13, :cond_8
-
-    const-string/jumbo v13, " or "
-
-    invoke-virtual {v11, v13}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
-
     :cond_8
-    const-string/jumbo v13, "path"
+    if-eqz v8, :cond_a
 
-    invoke-virtual {v11, v13}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    new-instance v12, Ljava/lang/StringBuffer;
 
-    new-instance v13, Lorg/xmlpull/v1/XmlPullParserException;
+    invoke-direct {v12}, Ljava/lang/StringBuffer;-><init>()V
 
-    new-instance v14, Ljava/lang/StringBuilder;
+    invoke-virtual {v12}, Ljava/lang/StringBuffer;->length()I
 
-    invoke-direct {v14}, Ljava/lang/StringBuilder;-><init>()V
+    move-result v14
 
-    const-string/jumbo v15, "no "
+    if-lez v14, :cond_9
 
-    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string/jumbo v14, " or "
 
-    move-result-object v14
-
-    invoke-virtual {v14, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v14
-
-    const-string/jumbo v15, " defined"
-
-    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v14
-
-    invoke-virtual {v14}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v14
-
-    invoke-direct {v13, v14}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
-
-    throw v13
+    invoke-virtual {v12, v14}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
     :cond_9
+    const-string/jumbo v14, "path"
+
+    invoke-virtual {v12, v14}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
+    new-instance v14, Lorg/xmlpull/v1/XmlPullParserException;
+
+    new-instance v15, Ljava/lang/StringBuilder;
+
+    invoke-direct {v15}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v16, "no "
+
+    invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v15
+
+    invoke-virtual {v15, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v15
+
+    const-string/jumbo v16, " defined"
+
+    invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v15
+
+    invoke-virtual {v15}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v15
+
+    invoke-direct {v14, v15}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
+
+    throw v14
+
+    :cond_a
     return-void
 .end method
 
 .method private static native nAddChild(JJ)V
+    .annotation build Ldalvik/annotation/optimization/FastNative;
+    .end annotation
 .end method
 
 .method private static native nCreateClipPath()J
+    .annotation build Ldalvik/annotation/optimization/FastNative;
+    .end annotation
 .end method
 
 .method private static native nCreateClipPath(J)J
+    .annotation build Ldalvik/annotation/optimization/FastNative;
+    .end annotation
 .end method
 
 .method private static native nCreateFullPath()J
+    .annotation build Ldalvik/annotation/optimization/FastNative;
+    .end annotation
 .end method
 
 .method private static native nCreateFullPath(J)J
+    .annotation build Ldalvik/annotation/optimization/FastNative;
+    .end annotation
 .end method
 
 .method private static native nCreateGroup()J
+    .annotation build Ldalvik/annotation/optimization/FastNative;
+    .end annotation
 .end method
 
 .method private static native nCreateGroup(J)J
+    .annotation build Ldalvik/annotation/optimization/FastNative;
+    .end annotation
 .end method
 
 .method private static native nCreateTree(J)J
+    .annotation build Ldalvik/annotation/optimization/FastNative;
+    .end annotation
 .end method
 
 .method private static native nCreateTreeFromCopy(JJ)J
+    .annotation build Ldalvik/annotation/optimization/FastNative;
+    .end annotation
 .end method
 
 .method private static native nDraw(JJJLandroid/graphics/Rect;ZZ)I
 .end method
 
 .method private static native nGetFillAlpha(J)F
+    .annotation build Ldalvik/annotation/optimization/FastNative;
+    .end annotation
 .end method
 
 .method private static native nGetFillColor(J)I
+    .annotation build Ldalvik/annotation/optimization/FastNative;
+    .end annotation
 .end method
 
 .method private static native nGetFullPathProperties(J[BI)Z
@@ -980,120 +1019,194 @@
 .end method
 
 .method private static native nGetPivotX(J)F
+    .annotation build Ldalvik/annotation/optimization/FastNative;
+    .end annotation
 .end method
 
 .method private static native nGetPivotY(J)F
+    .annotation build Ldalvik/annotation/optimization/FastNative;
+    .end annotation
 .end method
 
 .method private static native nGetRootAlpha(J)F
+    .annotation build Ldalvik/annotation/optimization/FastNative;
+    .end annotation
 .end method
 
 .method private static native nGetRotation(J)F
+    .annotation build Ldalvik/annotation/optimization/FastNative;
+    .end annotation
 .end method
 
 .method private static native nGetScaleX(J)F
+    .annotation build Ldalvik/annotation/optimization/FastNative;
+    .end annotation
 .end method
 
 .method private static native nGetScaleY(J)F
+    .annotation build Ldalvik/annotation/optimization/FastNative;
+    .end annotation
 .end method
 
 .method private static native nGetStrokeAlpha(J)F
+    .annotation build Ldalvik/annotation/optimization/FastNative;
+    .end annotation
 .end method
 
 .method private static native nGetStrokeColor(J)I
+    .annotation build Ldalvik/annotation/optimization/FastNative;
+    .end annotation
 .end method
 
 .method private static native nGetStrokeWidth(J)F
+    .annotation build Ldalvik/annotation/optimization/FastNative;
+    .end annotation
 .end method
 
 .method private static native nGetTranslateX(J)F
+    .annotation build Ldalvik/annotation/optimization/FastNative;
+    .end annotation
 .end method
 
 .method private static native nGetTranslateY(J)F
+    .annotation build Ldalvik/annotation/optimization/FastNative;
+    .end annotation
 .end method
 
 .method private static native nGetTrimPathEnd(J)F
+    .annotation build Ldalvik/annotation/optimization/FastNative;
+    .end annotation
 .end method
 
 .method private static native nGetTrimPathOffset(J)F
+    .annotation build Ldalvik/annotation/optimization/FastNative;
+    .end annotation
 .end method
 
 .method private static native nGetTrimPathStart(J)F
+    .annotation build Ldalvik/annotation/optimization/FastNative;
+    .end annotation
 .end method
 
 .method private static native nSetAllowCaching(JZ)V
+    .annotation build Ldalvik/annotation/optimization/FastNative;
+    .end annotation
 .end method
 
 .method private static native nSetFillAlpha(JF)V
+    .annotation build Ldalvik/annotation/optimization/FastNative;
+    .end annotation
 .end method
 
 .method private static native nSetFillColor(JI)V
+    .annotation build Ldalvik/annotation/optimization/FastNative;
+    .end annotation
 .end method
 
 .method private static native nSetName(JLjava/lang/String;)V
 .end method
 
 .method private static native nSetPathData(JJ)V
+    .annotation build Ldalvik/annotation/optimization/FastNative;
+    .end annotation
 .end method
 
 .method private static native nSetPathString(JLjava/lang/String;I)V
 .end method
 
 .method private static native nSetPivotX(JF)V
+    .annotation build Ldalvik/annotation/optimization/FastNative;
+    .end annotation
 .end method
 
 .method private static native nSetPivotY(JF)V
+    .annotation build Ldalvik/annotation/optimization/FastNative;
+    .end annotation
 .end method
 
 .method private static native nSetRendererViewportSize(JFF)V
+    .annotation build Ldalvik/annotation/optimization/FastNative;
+    .end annotation
 .end method
 
 .method private static native nSetRootAlpha(JF)Z
+    .annotation build Ldalvik/annotation/optimization/FastNative;
+    .end annotation
 .end method
 
 .method private static native nSetRotation(JF)V
+    .annotation build Ldalvik/annotation/optimization/FastNative;
+    .end annotation
 .end method
 
 .method private static native nSetScaleX(JF)V
+    .annotation build Ldalvik/annotation/optimization/FastNative;
+    .end annotation
 .end method
 
 .method private static native nSetScaleY(JF)V
+    .annotation build Ldalvik/annotation/optimization/FastNative;
+    .end annotation
 .end method
 
 .method private static native nSetStrokeAlpha(JF)V
+    .annotation build Ldalvik/annotation/optimization/FastNative;
+    .end annotation
 .end method
 
 .method private static native nSetStrokeColor(JI)V
+    .annotation build Ldalvik/annotation/optimization/FastNative;
+    .end annotation
 .end method
 
 .method private static native nSetStrokeWidth(JF)V
+    .annotation build Ldalvik/annotation/optimization/FastNative;
+    .end annotation
 .end method
 
 .method private static native nSetTranslateX(JF)V
+    .annotation build Ldalvik/annotation/optimization/FastNative;
+    .end annotation
 .end method
 
 .method private static native nSetTranslateY(JF)V
+    .annotation build Ldalvik/annotation/optimization/FastNative;
+    .end annotation
 .end method
 
 .method private static native nSetTrimPathEnd(JF)V
+    .annotation build Ldalvik/annotation/optimization/FastNative;
+    .end annotation
 .end method
 
 .method private static native nSetTrimPathOffset(JF)V
+    .annotation build Ldalvik/annotation/optimization/FastNative;
+    .end annotation
 .end method
 
 .method private static native nSetTrimPathStart(JF)V
+    .annotation build Ldalvik/annotation/optimization/FastNative;
+    .end annotation
 .end method
 
 .method private static native nUpdateFullPathFillGradient(JJ)V
+    .annotation build Ldalvik/annotation/optimization/FastNative;
+    .end annotation
 .end method
 
 .method private static native nUpdateFullPathProperties(JFIFIFFFFFIII)V
+    .annotation build Ldalvik/annotation/optimization/FastNative;
+    .end annotation
 .end method
 
 .method private static native nUpdateFullPathStrokeGradient(JJ)V
+    .annotation build Ldalvik/annotation/optimization/FastNative;
+    .end annotation
 .end method
 
 .method private static native nUpdateGroupProperties(JFFFFFFF)V
+    .annotation build Ldalvik/annotation/optimization/FastNative;
+    .end annotation
 .end method
 
 .method private needMirroring()Z
@@ -1325,31 +1438,27 @@
     throw v11
 
     :cond_3
-    iget v11, v6, Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;->mBaseWidth:F
+    iget v11, v6, Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;->mBaseWidth:I
 
     const/4 v12, 0x3
 
-    invoke-virtual {p1, v12, v11}, Landroid/content/res/TypedArray;->getDimension(IF)F
+    invoke-virtual {p1, v12, v11}, Landroid/content/res/TypedArray;->getDimensionPixelSize(II)I
 
     move-result v11
 
-    iput v11, v6, Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;->mBaseWidth:F
+    iput v11, v6, Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;->mBaseWidth:I
 
-    iget v11, v6, Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;->mBaseHeight:F
+    iget v11, v6, Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;->mBaseHeight:I
 
     const/4 v12, 0x2
 
-    invoke-virtual {p1, v12, v11}, Landroid/content/res/TypedArray;->getDimension(IF)F
+    invoke-virtual {p1, v12, v11}, Landroid/content/res/TypedArray;->getDimensionPixelSize(II)I
 
     move-result v11
 
-    iput v11, v6, Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;->mBaseHeight:F
+    iput v11, v6, Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;->mBaseHeight:I
 
-    iget v11, v6, Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;->mBaseWidth:F
-
-    const/4 v12, 0x0
-
-    cmpg-float v11, v11, v12
+    iget v11, v6, Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;->mBaseWidth:I
 
     if-gtz v11, :cond_4
 
@@ -1382,11 +1491,7 @@
     throw v11
 
     :cond_4
-    iget v11, v6, Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;->mBaseHeight:F
-
-    const/4 v12, 0x0
-
-    cmpg-float v11, v11, v12
+    iget v11, v6, Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;->mBaseHeight:I
 
     if-gtz v11, :cond_5
 
@@ -1423,7 +1528,7 @@
 
     iget v11, v11, Landroid/graphics/Insets;->left:I
 
-    const/16 v12, 0x9
+    const/16 v12, 0xa
 
     invoke-virtual {p1, v12, v11}, Landroid/content/res/TypedArray;->getDimensionPixelOffset(II)I
 
@@ -1433,7 +1538,7 @@
 
     iget v11, v11, Landroid/graphics/Insets;->top:I
 
-    const/16 v12, 0xa
+    const/16 v12, 0xc
 
     invoke-virtual {p1, v12, v11}, Landroid/content/res/TypedArray;->getDimensionPixelOffset(II)I
 
@@ -1453,7 +1558,7 @@
 
     iget v11, v11, Landroid/graphics/Insets;->bottom:I
 
-    const/16 v12, 0xc
+    const/16 v12, 0x9
 
     invoke-virtual {p1, v12, v11}, Landroid/content/res/TypedArray;->getDimensionPixelOffset(II)I
 
@@ -1688,9 +1793,7 @@
 
     iget-object v7, p0, Landroid/graphics/drawable/VectorDrawable;->mVectorState:Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;
 
-    iget v7, v7, Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;->mBaseWidth:F
-
-    float-to-int v7, v7
+    iget v7, v7, Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;->mBaseWidth:I
 
     invoke-static {v7, v4, v5, v9}, Landroid/graphics/drawable/Drawable;->scaleFromDensity(IIIZ)I
 
@@ -1700,9 +1803,7 @@
 
     iget-object v7, p0, Landroid/graphics/drawable/VectorDrawable;->mVectorState:Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;
 
-    iget v7, v7, Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;->mBaseHeight:F
-
-    float-to-int v7, v7
+    iget v7, v7, Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;->mBaseHeight:I
 
     invoke-static {v7, v4, v5, v9}, Landroid/graphics/drawable/Drawable;->scaleFromDensity(IIIZ)I
 
@@ -1748,17 +1849,13 @@
     :cond_0
     iget-object v7, p0, Landroid/graphics/drawable/VectorDrawable;->mVectorState:Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;
 
-    iget v7, v7, Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;->mBaseWidth:F
-
-    float-to-int v7, v7
+    iget v7, v7, Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;->mBaseWidth:I
 
     iput v7, p0, Landroid/graphics/drawable/VectorDrawable;->mDpiScaledWidth:I
 
     iget-object v7, p0, Landroid/graphics/drawable/VectorDrawable;->mVectorState:Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;
 
-    iget v7, v7, Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;->mBaseHeight:F
-
-    float-to-int v7, v7
+    iget v7, v7, Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;->mBaseHeight:I
 
     iput v7, p0, Landroid/graphics/drawable/VectorDrawable;->mDpiScaledHeight:I
 
@@ -1842,7 +1939,9 @@
     goto :goto_0
 
     :cond_3
-    iget-wide v4, v9, Landroid/graphics/ColorFilter;->native_instance:J
+    invoke-virtual {v9}, Landroid/graphics/ColorFilter;->getNativeInstance()J
+
+    move-result-wide v4
 
     goto :goto_1
 
@@ -1997,6 +2096,18 @@
     return v0
 .end method
 
+.method public getNativeTree()J
+    .locals 2
+
+    iget-object v0, p0, Landroid/graphics/drawable/VectorDrawable;->mVectorState:Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;
+
+    invoke-virtual {v0}, Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;->getNativeRenderer()J
+
+    move-result-wide v0
+
+    return-wide v0
+.end method
+
 .method public getOpacity()I
     .locals 1
 
@@ -2043,9 +2154,7 @@
 
     iget-object v6, p0, Landroid/graphics/drawable/VectorDrawable;->mVectorState:Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;
 
-    iget v6, v6, Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;->mBaseWidth:F
-
-    cmpl-float v6, v6, v7
+    iget v6, v6, Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;->mBaseWidth:I
 
     if-nez v6, :cond_1
 
@@ -2057,9 +2166,7 @@
     :cond_1
     iget-object v6, p0, Landroid/graphics/drawable/VectorDrawable;->mVectorState:Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;
 
-    iget v6, v6, Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;->mBaseHeight:F
-
-    cmpl-float v6, v6, v7
+    iget v6, v6, Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;->mBaseHeight:I
 
     if-eqz v6, :cond_0
 
@@ -2081,11 +2188,15 @@
 
     iget-object v6, p0, Landroid/graphics/drawable/VectorDrawable;->mVectorState:Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;
 
-    iget v1, v6, Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;->mBaseWidth:F
+    iget v6, v6, Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;->mBaseWidth:I
+
+    int-to-float v1, v6
 
     iget-object v6, p0, Landroid/graphics/drawable/VectorDrawable;->mVectorState:Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;
 
-    iget v0, v6, Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;->mBaseHeight:F
+    iget v6, v6, Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;->mBaseHeight:I
+
+    int-to-float v0, v6
 
     iget-object v6, p0, Landroid/graphics/drawable/VectorDrawable;->mVectorState:Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;
 
@@ -2118,6 +2229,28 @@
     move-result-object v0
 
     return-object v0
+.end method
+
+.method public hasFocusStateSpecified()Z
+    .locals 1
+
+    iget-object v0, p0, Landroid/graphics/drawable/VectorDrawable;->mVectorState:Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Landroid/graphics/drawable/VectorDrawable;->mVectorState:Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;
+
+    invoke-virtual {v0}, Landroid/graphics/drawable/VectorDrawable$VectorDrawableState;->hasFocusStateSpecified()Z
+
+    move-result v0
+
+    :goto_0
+    return v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
 .end method
 
 .method public inflate(Landroid/content/res/Resources;Lorg/xmlpull/v1/XmlPullParser;Landroid/util/AttributeSet;Landroid/content/res/Resources$Theme;)V

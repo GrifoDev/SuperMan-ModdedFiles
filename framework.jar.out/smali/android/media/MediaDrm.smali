@@ -191,7 +191,7 @@
 .end method
 
 .method public constructor <init>(Ljava/util/UUID;)V
-    .locals 3
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/media/UnsupportedSchemeException;
@@ -223,7 +223,11 @@
 
     move-result-object v2
 
-    invoke-direct {p0, v1, v2}, Landroid/media/MediaDrm;->native_setup(Ljava/lang/Object;[B)V
+    invoke-static {}, Landroid/app/ActivityThread;->currentOpPackageName()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-direct {p0, v1, v2, v3}, Landroid/media/MediaDrm;->native_setup(Ljava/lang/Object;[BLjava/lang/String;)V
 
     return-void
 
@@ -403,7 +407,7 @@
 .method private static final native native_init()V
 .end method
 
-.method private final native native_setup(Ljava/lang/Object;[B)V
+.method private final native native_setup(Ljava/lang/Object;[BLjava/lang/String;)V
 .end method
 
 .method private static postEventFromNative(Ljava/lang/Object;IIILjava/lang/Object;)V

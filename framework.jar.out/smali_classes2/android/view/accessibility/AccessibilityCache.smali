@@ -1,9 +1,19 @@
-.class final Landroid/view/accessibility/AccessibilityCache;
+.class public final Landroid/view/accessibility/AccessibilityCache;
 .super Ljava/lang/Object;
 .source "AccessibilityCache.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Landroid/view/accessibility/AccessibilityCache$AccessibilityNodeRefresher;
+    }
+.end annotation
+
+
 # static fields
+.field public static final CACHE_CRITICAL_EVENTS_MASK:I = 0x41b83d
+
 .field private static final CHECK_INTEGRITY:Z
 
 .field private static final DEBUG:Z = false
@@ -13,6 +23,8 @@
 
 # instance fields
 .field private mAccessibilityFocus:J
+
+.field private final mAccessibilityNodeRefresher:Landroid/view/accessibility/AccessibilityCache$AccessibilityNodeRefresher;
 
 .field private mInputFocus:J
 
@@ -73,7 +85,7 @@
     return-void
 .end method
 
-.method constructor <init>()V
+.method public constructor <init>(Landroid/view/accessibility/AccessibilityCache$AccessibilityNodeRefresher;)V
     .locals 4
 
     const-wide/32 v2, 0x7fffffff
@@ -107,6 +119,8 @@
     invoke-direct {v0}, Landroid/util/SparseArray;-><init>()V
 
     iput-object v0, p0, Landroid/view/accessibility/AccessibilityCache;->mTempWindowArray:Landroid/util/SparseArray;
+
+    iput-object p1, p0, Landroid/view/accessibility/AccessibilityCache;->mAccessibilityNodeRefresher:Landroid/view/accessibility/AccessibilityCache$AccessibilityNodeRefresher;
 
     return-void
 .end method
@@ -222,6 +236,8 @@
     goto :goto_0
 
     :cond_1
+    invoke-virtual {v1}, Landroid/view/accessibility/AccessibilityNodeInfo;->recycle()V
+
     return-void
 .end method
 
@@ -292,9 +308,11 @@
     return-void
 
     :cond_1
-    const/4 v2, 0x1
+    iget-object v2, p0, Landroid/view/accessibility/AccessibilityCache;->mAccessibilityNodeRefresher:Landroid/view/accessibility/AccessibilityCache$AccessibilityNodeRefresher;
 
-    invoke-virtual {v0, v2}, Landroid/view/accessibility/AccessibilityNodeInfo;->refresh(Z)Z
+    const/4 v3, 0x1
+
+    invoke-virtual {v2, v0, v3}, Landroid/view/accessibility/AccessibilityCache$AccessibilityNodeRefresher;->refreshNode(Landroid/view/accessibility/AccessibilityNodeInfo;Z)Z
 
     move-result v2
 
@@ -359,7 +377,7 @@
 
     check-cast v7, Landroid/view/accessibility/AccessibilityNodeInfo;
 
-    if-eqz v7, :cond_4
+    if-eqz v7, :cond_5
 
     invoke-virtual/range {p1 .. p1}, Landroid/view/accessibility/AccessibilityNodeInfo;->getChildNodeIds()Landroid/util/LongArray;
 
@@ -372,31 +390,49 @@
     const/4 v3, 0x0
 
     :goto_0
-    if-ge v3, v6, :cond_3
+    if-ge v3, v6, :cond_4
 
+    invoke-virtual {v5, v12, v13}, Landroid/util/LongSparseArray;->get(J)Ljava/lang/Object;
+
+    move-result-object v15
+
+    if-nez v15, :cond_1
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v14}, Landroid/view/accessibility/AccessibilityCache;->clearNodesForWindowLocked(I)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit v16
+
+    return-void
+
+    :cond_1
+    :try_start_1
     invoke-virtual {v7, v3}, Landroid/view/accessibility/AccessibilityNodeInfo;->getChildId(I)J
 
     move-result-wide v8
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_2
 
     invoke-virtual {v4, v8, v9}, Landroid/util/LongArray;->indexOf(J)I
 
     move-result v15
 
-    if-gez v15, :cond_2
+    if-gez v15, :cond_3
 
-    :cond_1
+    :cond_2
     move-object/from16 v0, p0
 
     invoke-direct {v0, v14, v8, v9}, Landroid/view/accessibility/AccessibilityCache;->clearSubTreeLocked(IJ)V
 
-    :cond_2
+    :cond_3
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_0
 
-    :cond_3
+    :cond_4
     invoke-virtual {v7}, Landroid/view/accessibility/AccessibilityNodeInfo;->getParentNodeId()J
 
     move-result-wide v10
@@ -407,24 +443,55 @@
 
     cmp-long v15, v18, v10
 
-    if-eqz v15, :cond_4
+    if-eqz v15, :cond_8
 
     move-object/from16 v0, p0
 
     invoke-direct {v0, v14, v10, v11}, Landroid/view/accessibility/AccessibilityCache;->clearSubTreeLocked(IJ)V
 
-    :cond_4
+    :cond_5
+    :goto_1
     invoke-static/range {p1 .. p1}, Landroid/view/accessibility/AccessibilityNodeInfo;->obtain(Landroid/view/accessibility/AccessibilityNodeInfo;)Landroid/view/accessibility/AccessibilityNodeInfo;
 
     move-result-object v2
 
     invoke-virtual {v5, v12, v13, v2}, Landroid/util/LongSparseArray;->put(JLjava/lang/Object;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
+    invoke-virtual {v2}, Landroid/view/accessibility/AccessibilityNodeInfo;->isAccessibilityFocused()Z
+
+    move-result v15
+
+    if-eqz v15, :cond_6
+
+    move-object/from16 v0, p0
+
+    iput-wide v12, v0, Landroid/view/accessibility/AccessibilityCache;->mAccessibilityFocus:J
+
+    :cond_6
+    invoke-virtual {v2}, Landroid/view/accessibility/AccessibilityNodeInfo;->isFocused()Z
+
+    move-result v15
+
+    if-eqz v15, :cond_7
+
+    move-object/from16 v0, p0
+
+    iput-wide v12, v0, Landroid/view/accessibility/AccessibilityCache;->mInputFocus:J
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    :cond_7
     monitor-exit v16
 
     return-void
+
+    :cond_8
+    :try_start_2
+    invoke-virtual {v7}, Landroid/view/accessibility/AccessibilityNodeInfo;->recycle()V
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+
+    goto :goto_1
 
     :catchall_0
     move-exception v15
@@ -1403,7 +1470,7 @@
 
     if-eqz v4, :cond_2
 
-    invoke-virtual {p1}, Landroid/view/accessibility/AccessibilityRecord;->getWindowId()I
+    invoke-virtual {p1}, Landroid/view/accessibility/AccessibilityEvent;->getWindowId()I
 
     move-result v4
 
@@ -1412,13 +1479,13 @@
     invoke-direct {p0, v4, v6, v7}, Landroid/view/accessibility/AccessibilityCache;->refreshCachedNodeLocked(IJ)V
 
     :cond_2
-    invoke-virtual {p1}, Landroid/view/accessibility/AccessibilityRecord;->getSourceNodeId()J
+    invoke-virtual {p1}, Landroid/view/accessibility/AccessibilityEvent;->getSourceNodeId()J
 
     move-result-wide v6
 
     iput-wide v6, p0, Landroid/view/accessibility/AccessibilityCache;->mAccessibilityFocus:J
 
-    invoke-virtual {p1}, Landroid/view/accessibility/AccessibilityRecord;->getWindowId()I
+    invoke-virtual {p1}, Landroid/view/accessibility/AccessibilityEvent;->getWindowId()I
 
     move-result v4
 
@@ -1441,7 +1508,7 @@
     :try_start_2
     iget-wide v6, p0, Landroid/view/accessibility/AccessibilityCache;->mAccessibilityFocus:J
 
-    invoke-virtual {p1}, Landroid/view/accessibility/AccessibilityRecord;->getSourceNodeId()J
+    invoke-virtual {p1}, Landroid/view/accessibility/AccessibilityEvent;->getSourceNodeId()J
 
     move-result-wide v8
 
@@ -1449,7 +1516,7 @@
 
     if-nez v4, :cond_0
 
-    invoke-virtual {p1}, Landroid/view/accessibility/AccessibilityRecord;->getWindowId()I
+    invoke-virtual {p1}, Landroid/view/accessibility/AccessibilityEvent;->getWindowId()I
 
     move-result v4
 
@@ -1470,7 +1537,7 @@
 
     if-eqz v4, :cond_3
 
-    invoke-virtual {p1}, Landroid/view/accessibility/AccessibilityRecord;->getWindowId()I
+    invoke-virtual {p1}, Landroid/view/accessibility/AccessibilityEvent;->getWindowId()I
 
     move-result v4
 
@@ -1479,13 +1546,13 @@
     invoke-direct {p0, v4, v6, v7}, Landroid/view/accessibility/AccessibilityCache;->refreshCachedNodeLocked(IJ)V
 
     :cond_3
-    invoke-virtual {p1}, Landroid/view/accessibility/AccessibilityRecord;->getSourceNodeId()J
+    invoke-virtual {p1}, Landroid/view/accessibility/AccessibilityEvent;->getSourceNodeId()J
 
     move-result-wide v6
 
     iput-wide v6, p0, Landroid/view/accessibility/AccessibilityCache;->mInputFocus:J
 
-    invoke-virtual {p1}, Landroid/view/accessibility/AccessibilityRecord;->getWindowId()I
+    invoke-virtual {p1}, Landroid/view/accessibility/AccessibilityEvent;->getWindowId()I
 
     move-result v4
 
@@ -1496,11 +1563,11 @@
     goto :goto_0
 
     :sswitch_3
-    invoke-virtual {p1}, Landroid/view/accessibility/AccessibilityRecord;->getWindowId()I
+    invoke-virtual {p1}, Landroid/view/accessibility/AccessibilityEvent;->getWindowId()I
 
     move-result v4
 
-    invoke-virtual {p1}, Landroid/view/accessibility/AccessibilityRecord;->getSourceNodeId()J
+    invoke-virtual {p1}, Landroid/view/accessibility/AccessibilityEvent;->getSourceNodeId()J
 
     move-result-wide v6
 
@@ -1516,11 +1583,11 @@
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     :try_start_3
-    invoke-virtual {p1}, Landroid/view/accessibility/AccessibilityRecord;->getWindowId()I
+    invoke-virtual {p1}, Landroid/view/accessibility/AccessibilityEvent;->getWindowId()I
 
     move-result v1
 
-    invoke-virtual {p1}, Landroid/view/accessibility/AccessibilityRecord;->getSourceNodeId()J
+    invoke-virtual {p1}, Landroid/view/accessibility/AccessibilityEvent;->getSourceNodeId()J
 
     move-result-wide v2
 
@@ -1561,11 +1628,11 @@
     throw v4
 
     :sswitch_5
-    invoke-virtual {p1}, Landroid/view/accessibility/AccessibilityRecord;->getWindowId()I
+    invoke-virtual {p1}, Landroid/view/accessibility/AccessibilityEvent;->getWindowId()I
 
     move-result v4
 
-    invoke-virtual {p1}, Landroid/view/accessibility/AccessibilityRecord;->getSourceNodeId()J
+    invoke-virtual {p1}, Landroid/view/accessibility/AccessibilityEvent;->getSourceNodeId()J
 
     move-result-wide v6
 

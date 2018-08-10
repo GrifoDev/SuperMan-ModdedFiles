@@ -282,7 +282,7 @@
 
     invoke-direct {p0, v2, v2}, Landroid/widget/SemExpandableListConnector;->refreshExpGroupMetadataList(ZZ)V
 
-    invoke-virtual {p0}, Landroid/widget/BaseAdapter;->notifyDataSetChanged()V
+    invoke-virtual {p0}, Landroid/widget/SemExpandableListConnector;->notifyDataSetChanged()V
 
     iget-object v0, p0, Landroid/widget/SemExpandableListConnector;->mExpandableListAdapter:Landroid/widget/ExpandableListAdapter;
 
@@ -444,7 +444,7 @@
 
     invoke-direct {p0, v6, v6}, Landroid/widget/SemExpandableListConnector;->refreshExpGroupMetadataList(ZZ)V
 
-    invoke-virtual {p0}, Landroid/widget/BaseAdapter;->notifyDataSetChanged()V
+    invoke-virtual {p0}, Landroid/widget/SemExpandableListConnector;->notifyDataSetChanged()V
 
     iget-object v3, p0, Landroid/widget/SemExpandableListConnector;->mExpandableListAdapter:Landroid/widget/ExpandableListAdapter;
 
@@ -520,20 +520,29 @@
 
     move-result-object v2
 
-    if-nez v2, :cond_3
+    if-nez v2, :cond_4
 
     const/4 v11, -0x1
 
     return v11
 
     :cond_2
+    if-nez v7, :cond_3
+
+    if-eqz v10, :cond_9
+
+    xor-int/lit8 v11, v8, 0x1
+
+    if-eqz v11, :cond_9
+
+    :cond_3
     add-int/lit8 v9, v9, 0x1
 
     move/from16 p3, v9
 
     const/4 v10, 0x0
 
-    :cond_3
+    :cond_4
     :goto_0
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
@@ -541,7 +550,7 @@
 
     cmp-long v11, v14, v4
 
-    if-gtz v11, :cond_5
+    if-gtz v11, :cond_6
 
     move/from16 v0, p3
 
@@ -551,55 +560,50 @@
 
     cmp-long v11, v12, p1
 
-    if-nez v11, :cond_4
+    if-nez v11, :cond_5
 
     return p3
 
-    :cond_4
+    :cond_5
     add-int/lit8 v11, v3, -0x1
 
-    if-ne v9, v11, :cond_6
+    if-ne v9, v11, :cond_7
 
     const/4 v8, 0x1
 
     :goto_1
-    if-nez v6, :cond_7
+    if-nez v6, :cond_8
 
     const/4 v7, 0x1
 
     :goto_2
-    if-eqz v8, :cond_8
+    if-eqz v8, :cond_2
 
-    if-eqz v7, :cond_8
+    if-eqz v7, :cond_2
 
-    :cond_5
+    :cond_6
     const/4 v11, -0x1
 
     return v11
 
-    :cond_6
+    :cond_7
     const/4 v8, 0x0
 
     goto :goto_1
 
-    :cond_7
+    :cond_8
     const/4 v7, 0x0
 
     goto :goto_2
 
-    :cond_8
-    if-nez v7, :cond_2
-
-    if-eqz v10, :cond_9
-
-    if-eqz v8, :cond_2
-
     :cond_9
     if-nez v8, :cond_a
 
-    if-nez v10, :cond_3
+    if-nez v10, :cond_4
 
-    if-nez v7, :cond_3
+    xor-int/lit8 v11, v7, 0x1
+
+    if-eqz v11, :cond_4
 
     :cond_a
     add-int/lit8 v6, v6, -0x1
@@ -1660,13 +1664,10 @@
 
     iget-boolean v0, p0, Landroid/widget/SemExpandableListConnector;->mIsRegisteredObserver:Z
 
-    if-eqz v0, :cond_1
+    xor-int/lit8 v0, v0, 0x1
 
-    :cond_0
-    :goto_0
-    return-void
+    if-eqz v0, :cond_0
 
-    :cond_1
     iget-object v0, p0, Landroid/widget/SemExpandableListConnector;->mExpandableListAdapter:Landroid/widget/ExpandableListAdapter;
 
     iget-object v1, p0, Landroid/widget/SemExpandableListConnector;->mDataSetObserver:Landroid/database/DataSetObserver;
@@ -1677,7 +1678,8 @@
 
     iput-boolean v0, p0, Landroid/widget/SemExpandableListConnector;->mIsRegisteredObserver:Z
 
-    goto :goto_0
+    :cond_0
+    return-void
 .end method
 
 .method semUnregisterDataSetObserver()V

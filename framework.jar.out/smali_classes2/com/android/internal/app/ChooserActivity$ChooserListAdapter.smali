@@ -15,8 +15,6 @@
 
 
 # static fields
-.field private static final MAX_TARGETS_PER_SERVICE:I = 0x4
-
 .field public static final TARGET_BAD:I = -0x1
 
 .field public static final TARGET_CALLER:I = 0x0
@@ -28,6 +26,8 @@
 
 # instance fields
 .field private final MAX_SERVICE_TARGETS:I
+
+.field private final MAX_TARGETS_PER_SERVICE:I
 
 .field private final mBaseTargetComparator:Lcom/android/internal/app/ChooserActivity$BaseChooserTargetComparator;
 
@@ -61,8 +61,8 @@
 
 
 # direct methods
-.method public constructor <init>(Lcom/android/internal/app/ChooserActivity;Landroid/content/Context;Ljava/util/List;[Landroid/content/Intent;Ljava/util/List;IZ)V
-    .locals 18
+.method public constructor <init>(Lcom/android/internal/app/ChooserActivity;Landroid/content/Context;Ljava/util/List;[Landroid/content/Intent;Ljava/util/List;IZLcom/android/internal/app/ResolverListController;)V
+    .locals 21
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -75,7 +75,9 @@
             "Ljava/util/List",
             "<",
             "Landroid/content/pm/ResolveInfo;",
-            ">;IZ)V"
+            ">;IZ",
+            "Lcom/android/internal/app/ResolverListController;",
+            ")V"
         }
     .end annotation
 
@@ -101,7 +103,9 @@
 
     move/from16 v9, p7
 
-    invoke-direct/range {v2 .. v9}, Lcom/android/internal/app/ResolverActivity$ResolveListAdapter;-><init>(Lcom/android/internal/app/ResolverActivity;Landroid/content/Context;Ljava/util/List;[Landroid/content/Intent;Ljava/util/List;IZ)V
+    move-object/from16 v10, p8
+
+    invoke-direct/range {v2 .. v10}, Lcom/android/internal/app/ResolverActivity$ResolveListAdapter;-><init>(Lcom/android/internal/app/ResolverActivity;Landroid/content/Context;Ljava/util/List;[Landroid/content/Intent;Ljava/util/List;IZLcom/android/internal/app/ResolverListController;)V
 
     move-object/from16 v0, p0
 
@@ -111,7 +115,7 @@
 
     move-result-object v2
 
-    const v3, 0x10e0087
+    const v3, 0x10e007a
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -120,6 +124,16 @@
     move-object/from16 v0, p0
 
     iput v2, v0, Lcom/android/internal/app/ChooserActivity$ChooserListAdapter;->MAX_SERVICE_TARGETS:I
+
+    move-object/from16 v0, p0
+
+    iget v2, v0, Lcom/android/internal/app/ChooserActivity$ChooserListAdapter;->MAX_SERVICE_TARGETS:I
+
+    add-int/lit8 v2, v2, -0x1
+
+    move-object/from16 v0, p0
+
+    iput v2, v0, Lcom/android/internal/app/ChooserActivity$ChooserListAdapter;->MAX_TARGETS_PER_SERVICE:I
 
     new-instance v2, Ljava/util/ArrayList;
 
@@ -151,51 +165,51 @@
 
     iput-object v2, v0, Lcom/android/internal/app/ChooserActivity$ChooserListAdapter;->mBaseTargetComparator:Lcom/android/internal/app/ChooserActivity$BaseChooserTargetComparator;
 
-    if-eqz p4, :cond_b
-
-    invoke-virtual/range {p1 .. p1}, Lcom/android/internal/app/ChooserActivity;->getPackageManager()Landroid/content/pm/PackageManager;
-
-    move-result-object v15
-
-    move-object/from16 v0, p1
-
-    iget-object v2, v0, Lcom/android/internal/app/ChooserActivity;->mExtraIntentList:Ljava/util/List;
-
-    if-eqz v2, :cond_0
-
-    move-object/from16 v0, p1
-
-    iget-object v2, v0, Lcom/android/internal/app/ChooserActivity;->mExtraIntentList:Ljava/util/List;
-
-    invoke-interface {v2}, Ljava/util/List;->size()I
+    invoke-static {}, Lcom/samsung/android/app/SemDualAppManager;->getDualAppProfileId()I
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    invoke-static {v2}, Lcom/samsung/android/app/SemDualAppManager;->isDualAppId(I)Z
 
-    move-object/from16 v0, p1
+    move-result v15
 
-    iget-object v2, v0, Lcom/android/internal/app/ChooserActivity;->mExtraIntentList:Ljava/util/List;
+    const/16 v19, 0x0
 
-    invoke-interface {v2}, Ljava/util/List;->clear()V
+    if-eqz v15, :cond_0
+
+    invoke-virtual/range {p1 .. p1}, Lcom/android/internal/app/ChooserActivity;->getBaseContext()Landroid/content/Context;
+
+    move-result-object v2
+
+    invoke-static {v2}, Lcom/samsung/android/app/SemDualAppManager;->getInstance(Landroid/content/Context;)Lcom/samsung/android/app/SemDualAppManager;
+
+    move-result-object v19
+
+    invoke-virtual/range {v19 .. v19}, Lcom/samsung/android/app/SemDualAppManager;->clearDuplicateMaps()V
 
     :cond_0
-    const/4 v12, 0x0
+    if-eqz p4, :cond_9
+
+    invoke-virtual/range {p1 .. p1}, Lcom/android/internal/app/ChooserActivity;->getPackageManager()Landroid/content/pm/PackageManager;
+
+    move-result-object v17
+
+    const/4 v13, 0x0
 
     :goto_0
     move-object/from16 v0, p4
 
     array-length v2, v0
 
-    if-ge v12, v2, :cond_b
+    if-ge v13, v2, :cond_9
 
-    aget-object v4, p4, v12
+    aget-object v4, p4, v13
 
     if-nez v4, :cond_2
 
     :cond_1
     :goto_1
-    add-int/lit8 v12, v12, 0x1
+    add-int/lit8 v13, v13, 0x1
 
     goto :goto_0
 
@@ -206,9 +220,9 @@
 
     invoke-virtual {v4}, Landroid/content/Intent;->getComponent()Landroid/content/ComponentName;
 
-    move-result-object v11
+    move-result-object v12
 
-    if-eqz v11, :cond_3
+    if-eqz v12, :cond_3
 
     :try_start_0
     invoke-virtual {v4}, Landroid/content/Intent;->getComponent()Landroid/content/ComponentName;
@@ -217,24 +231,26 @@
 
     const/4 v3, 0x0
 
-    invoke-virtual {v15, v2, v3}, Landroid/content/pm/PackageManager;->getActivityInfo(Landroid/content/ComponentName;I)Landroid/content/pm/ActivityInfo;
+    move-object/from16 v0, v17
+
+    invoke-virtual {v0, v2, v3}, Landroid/content/pm/PackageManager;->getActivityInfo(Landroid/content/ComponentName;I)Landroid/content/pm/ActivityInfo;
 
     move-result-object v10
 
-    new-instance v16, Landroid/content/pm/ResolveInfo;
+    new-instance v18, Landroid/content/pm/ResolveInfo;
 
-    invoke-direct/range {v16 .. v16}, Landroid/content/pm/ResolveInfo;-><init>()V
+    invoke-direct/range {v18 .. v18}, Landroid/content/pm/ResolveInfo;-><init>()V
     :try_end_0
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
     :try_start_1
-    move-object/from16 v0, v16
+    move-object/from16 v0, v18
 
     iput-object v10, v0, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
     :try_end_1
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_1 .. :try_end_1} :catch_1
 
-    move-object/from16 v5, v16
+    move-object/from16 v5, v18
 
     :cond_3
     :goto_2
@@ -242,7 +258,9 @@
 
     const/high16 v2, 0x10000
 
-    invoke-virtual {v15, v4, v2}, Landroid/content/pm/PackageManager;->resolveActivity(Landroid/content/Intent;I)Landroid/content/pm/ResolveInfo;
+    move-object/from16 v0, v17
+
+    invoke-virtual {v0, v4, v2}, Landroid/content/pm/PackageManager;->resolveActivity(Landroid/content/Intent;I)Landroid/content/pm/ResolveInfo;
 
     move-result-object v5
 
@@ -284,23 +302,109 @@
     goto :goto_3
 
     :cond_6
-    const-string/jumbo v2, "application/vnd.samsung.android.memo"
-
-    invoke-virtual {v4}, Landroid/content/Intent;->getType()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_7
+    const-string/jumbo v2, "user"
 
     move-object/from16 v0, p1
 
-    iget-object v2, v0, Lcom/android/internal/app/ChooserActivity;->mExtraIntentList:Ljava/util/List;
+    invoke-virtual {v0, v2}, Lcom/android/internal/app/ChooserActivity;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v20
+
+    check-cast v20, Landroid/os/UserManager;
+
+    instance-of v2, v4, Landroid/content/pm/LabeledIntent;
 
     if-eqz v2, :cond_7
+
+    move-object/from16 v16, v4
+
+    check-cast v16, Landroid/content/pm/LabeledIntent;
+
+    invoke-virtual/range {v16 .. v16}, Landroid/content/pm/LabeledIntent;->getSourcePackage()Ljava/lang/String;
+
+    move-result-object v2
+
+    iput-object v2, v5, Landroid/content/pm/ResolveInfo;->resolvePackageName:Ljava/lang/String;
+
+    invoke-virtual/range {v16 .. v16}, Landroid/content/pm/LabeledIntent;->getLabelResource()I
+
+    move-result v2
+
+    iput v2, v5, Landroid/content/pm/ResolveInfo;->labelRes:I
+
+    invoke-virtual/range {v16 .. v16}, Landroid/content/pm/LabeledIntent;->getNonLocalizedLabel()Ljava/lang/CharSequence;
+
+    move-result-object v2
+
+    iput-object v2, v5, Landroid/content/pm/ResolveInfo;->nonLocalizedLabel:Ljava/lang/CharSequence;
+
+    invoke-virtual/range {v16 .. v16}, Landroid/content/pm/LabeledIntent;->getIconResource()I
+
+    move-result v2
+
+    iput v2, v5, Landroid/content/pm/ResolveInfo;->icon:I
+
+    iget v2, v5, Landroid/content/pm/ResolveInfo;->icon:I
+
+    iput v2, v5, Landroid/content/pm/ResolveInfo;->iconResourceId:I
+
+    :cond_7
+    invoke-virtual/range {v20 .. v20}, Landroid/os/UserManager;->isManagedProfile()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_8
+
+    const/4 v2, 0x1
+
+    iput-boolean v2, v5, Landroid/content/pm/ResolveInfo;->noResourceId:Z
+
+    const/4 v2, 0x0
+
+    iput v2, v5, Landroid/content/pm/ResolveInfo;->icon:I
+
+    :cond_8
+    move-object/from16 v0, p0
+
+    iget-object v9, v0, Lcom/android/internal/app/ChooserActivity$ChooserListAdapter;->mCallerTargets:Ljava/util/List;
+
+    new-instance v2, Lcom/android/internal/app/ResolverActivity$DisplayResolveInfo;
+
+    move-object/from16 v0, v17
+
+    invoke-virtual {v5, v0}, Landroid/content/pm/ResolveInfo;->loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
+
+    move-result-object v6
+
+    const/4 v7, 0x0
+
+    move-object/from16 v3, p1
+
+    move-object v8, v4
+
+    invoke-direct/range {v2 .. v8}, Lcom/android/internal/app/ResolverActivity$DisplayResolveInfo;-><init>(Lcom/android/internal/app/ResolverActivity;Landroid/content/Intent;Landroid/content/pm/ResolveInfo;Ljava/lang/CharSequence;Ljava/lang/CharSequence;Landroid/content/Intent;)V
+
+    invoke-interface {v9, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    if-eqz v15, :cond_1
+
+    move-object/from16 v0, p0
+
+    iget-object v9, v0, Lcom/android/internal/app/ChooserActivity$ChooserListAdapter;->mCallerTargets:Ljava/util/List;
+
+    move-object/from16 v6, v19
+
+    move-object/from16 v7, v17
+
+    move-object/from16 v8, p1
+
+    move-object v11, v4
+
+    invoke-virtual/range {v6 .. v11}, Lcom/samsung/android/app/SemDualAppManager;->isDuplicateEntry(Landroid/content/pm/PackageManager;Lcom/android/internal/app/ResolverActivity;Ljava/util/List;Landroid/content/pm/ActivityInfo;Landroid/content/Intent;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
 
     const-string/jumbo v2, "ChooserActivity"
 
@@ -308,7 +412,7 @@
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v6, "mExtraIntentList added: intent="
+    const-string/jumbo v6, "Duplicate activity found for "
 
     invoke-virtual {v3, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -324,146 +428,20 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    move-object/from16 v0, p1
-
-    iget-object v2, v0, Lcom/android/internal/app/ChooserActivity;->mExtraIntentList:Ljava/util/List;
-
-    invoke-interface {v2, v4}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    :cond_7
-    const-string/jumbo v2, "user"
-
-    move-object/from16 v0, p1
-
-    invoke-virtual {v0, v2}, Lcom/android/internal/app/ChooserActivity;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v17
-
-    check-cast v17, Landroid/os/UserManager;
-
-    instance-of v2, v4, Landroid/content/pm/LabeledIntent;
-
-    if-eqz v2, :cond_8
-
-    move-object v14, v4
-
-    check-cast v14, Landroid/content/pm/LabeledIntent;
-
-    invoke-virtual {v14}, Landroid/content/pm/LabeledIntent;->getSourcePackage()Ljava/lang/String;
-
-    move-result-object v2
-
-    iput-object v2, v5, Landroid/content/pm/ResolveInfo;->resolvePackageName:Ljava/lang/String;
-
-    invoke-virtual {v14}, Landroid/content/pm/LabeledIntent;->getLabelResource()I
-
-    move-result v2
-
-    iput v2, v5, Landroid/content/pm/ResolveInfo;->labelRes:I
-
-    invoke-virtual {v14}, Landroid/content/pm/LabeledIntent;->getNonLocalizedLabel()Ljava/lang/CharSequence;
-
-    move-result-object v2
-
-    iput-object v2, v5, Landroid/content/pm/ResolveInfo;->nonLocalizedLabel:Ljava/lang/CharSequence;
-
-    invoke-virtual {v14}, Landroid/content/pm/LabeledIntent;->getIconResource()I
-
-    move-result v2
-
-    iput v2, v5, Landroid/content/pm/ResolveInfo;->icon:I
-
-    iget v2, v5, Landroid/content/pm/ResolveInfo;->icon:I
-
-    iput v2, v5, Landroid/content/pm/ResolveInfo;->iconResourceId:I
-
-    :cond_8
-    invoke-virtual/range {v17 .. v17}, Landroid/os/UserManager;->isManagedProfile()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_9
-
-    const/4 v2, 0x1
-
-    iput-boolean v2, v5, Landroid/content/pm/ResolveInfo;->noResourceId:Z
-
-    const/4 v2, 0x0
-
-    iput v2, v5, Landroid/content/pm/ResolveInfo;->icon:I
+    goto/16 :goto_1
 
     :cond_9
-    const-string/jumbo v2, "com.samsung.android.app.simplesharing"
-
-    iget-object v3, v10, Landroid/content/pm/ActivityInfo;->packageName:Ljava/lang/String;
-
-    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_a
-
-    invoke-virtual/range {p1 .. p1}, Lcom/android/internal/app/ChooserActivity;->getSimpleSharingDri()Lcom/android/internal/app/ResolverActivity$DisplayResolveInfo;
-
-    move-result-object v2
-
-    if-nez v2, :cond_1
-
-    new-instance v2, Lcom/android/internal/app/ResolverActivity$DisplayResolveInfo;
-
-    invoke-virtual {v5, v15}, Landroid/content/pm/ResolveInfo;->loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
-
-    move-result-object v6
-
-    const/4 v7, 0x0
-
-    move-object/from16 v3, p1
-
-    move-object v8, v4
-
-    invoke-direct/range {v2 .. v8}, Lcom/android/internal/app/ResolverActivity$DisplayResolveInfo;-><init>(Lcom/android/internal/app/ResolverActivity;Landroid/content/Intent;Landroid/content/pm/ResolveInfo;Ljava/lang/CharSequence;Ljava/lang/CharSequence;Landroid/content/Intent;)V
-
-    move-object/from16 v0, p1
-
-    invoke-virtual {v0, v2}, Lcom/android/internal/app/ChooserActivity;->setSimpleSharingDri(Lcom/android/internal/app/ResolverActivity$DisplayResolveInfo;)V
-
-    goto/16 :goto_1
-
-    :cond_a
-    move-object/from16 v0, p0
-
-    iget-object v9, v0, Lcom/android/internal/app/ChooserActivity$ChooserListAdapter;->mCallerTargets:Ljava/util/List;
-
-    new-instance v2, Lcom/android/internal/app/ResolverActivity$DisplayResolveInfo;
-
-    invoke-virtual {v5, v15}, Landroid/content/pm/ResolveInfo;->loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
-
-    move-result-object v6
-
-    const/4 v7, 0x0
-
-    move-object/from16 v3, p1
-
-    move-object v8, v4
-
-    invoke-direct/range {v2 .. v8}, Lcom/android/internal/app/ResolverActivity$DisplayResolveInfo;-><init>(Lcom/android/internal/app/ResolverActivity;Landroid/content/Intent;Landroid/content/pm/ResolveInfo;Ljava/lang/CharSequence;Ljava/lang/CharSequence;Landroid/content/Intent;)V
-
-    invoke-interface {v9, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    goto/16 :goto_1
-
-    :cond_b
     return-void
 
     :catch_0
-    move-exception v13
+    move-exception v14
 
     goto/16 :goto_2
 
     :catch_1
-    move-exception v13
+    move-exception v14
 
-    move-object/from16 v5, v16
+    move-object/from16 v5, v18
 
     goto/16 :goto_2
 .end method
@@ -569,7 +547,7 @@
 
 # virtual methods
 .method public addServiceResults(Lcom/android/internal/app/ResolverActivity$DisplayResolveInfo;Ljava/util/List;)V
-    .locals 9
+    .locals 10
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -581,7 +559,7 @@
         }
     .end annotation
 
-    const v8, 0x3f733333    # 0.95f
+    const v9, 0x3f733333    # 0.95f
 
     invoke-virtual {p0, p1}, Lcom/android/internal/app/ChooserActivity$ChooserListAdapter;->getScore(Lcom/android/internal/app/ResolverActivity$DisplayResolveInfo;)F
 
@@ -599,7 +577,7 @@
 
     move-result v6
 
-    const/4 v7, 0x4
+    iget v7, p0, Lcom/android/internal/app/ChooserActivity$ChooserListAdapter;->MAX_TARGETS_PER_SERVICE:I
 
     invoke-static {v6, v7}, Ljava/lang/Math;->min(II)I
 
@@ -630,7 +608,7 @@
 
     if-ltz v6, :cond_0
 
-    mul-float v5, v2, v8
+    mul-float v5, v2, v9
 
     :cond_0
     new-instance v6, Lcom/android/internal/app/ChooserActivity$ChooserTargetInfo;
@@ -641,6 +619,40 @@
 
     invoke-direct {p0, v6}, Lcom/android/internal/app/ChooserActivity$ChooserListAdapter;->insertServiceTarget(Lcom/android/internal/app/ChooserActivity$ChooserTargetInfo;)V
 
+    const-string/jumbo v6, "ChooserActivity"
+
+    new-instance v7, Ljava/lang/StringBuilder;
+
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v8, " => score="
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7, v5}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    const-string/jumbo v8, " lateFee="
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    iget v8, p0, Lcom/android/internal/app/ChooserActivity$ChooserListAdapter;->mLateFee:F
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
     move v2, v5
 
     add-int/lit8 v1, v1, 0x1
@@ -650,54 +662,13 @@
     :cond_1
     iget v6, p0, Lcom/android/internal/app/ChooserActivity$ChooserListAdapter;->mLateFee:F
 
-    mul-float/2addr v6, v8
+    mul-float/2addr v6, v9
 
     iput v6, p0, Lcom/android/internal/app/ChooserActivity$ChooserListAdapter;->mLateFee:F
 
-    iget-object v6, p0, Lcom/android/internal/app/ChooserActivity$ChooserListAdapter;->this$0:Lcom/android/internal/app/ChooserActivity;
-
-    invoke-static {v6}, Lcom/android/internal/app/ChooserActivity;->-get6(Lcom/android/internal/app/ChooserActivity;)Landroid/widget/AbsListView;
-
-    move-result-object v6
-
-    if-eqz v6, :cond_2
-
-    iget-object v6, p0, Lcom/android/internal/app/ChooserActivity$ChooserListAdapter;->this$0:Lcom/android/internal/app/ChooserActivity;
-
-    invoke-virtual {v6}, Lcom/android/internal/app/ChooserActivity;->updateServiceTargetAdapter()V
-
-    :goto_1
-    return-void
-
-    :cond_2
-    iget-object v6, p0, Lcom/android/internal/app/ChooserActivity$ChooserListAdapter;->this$0:Lcom/android/internal/app/ChooserActivity;
-
-    invoke-virtual {v6}, Lcom/android/internal/app/ChooserActivity;->getPagerAdapter()Lcom/android/internal/app/ResolverActivity$ResolverPagerAdapter;
-
-    move-result-object v6
-
-    if-eqz v6, :cond_3
-
-    iget-object v6, p0, Lcom/android/internal/app/ChooserActivity$ChooserListAdapter;->this$0:Lcom/android/internal/app/ChooserActivity;
-
-    iget-object v7, p0, Lcom/android/internal/app/ChooserActivity$ChooserListAdapter;->this$0:Lcom/android/internal/app/ChooserActivity;
-
-    invoke-static {v7}, Lcom/android/internal/app/ChooserActivity;->-get1(Lcom/android/internal/app/ChooserActivity;)Lcom/android/internal/app/ChooserActivity$ChooserListAdapter;
-
-    move-result-object v7
-
-    invoke-virtual {v7}, Lcom/android/internal/app/ChooserActivity$ChooserListAdapter;->getCount()I
-
-    move-result v7
-
-    invoke-virtual {v6, v7}, Lcom/android/internal/app/ChooserActivity;->updatePagerAdapter(I)V
-
-    goto :goto_1
-
-    :cond_3
     invoke-virtual {p0}, Lcom/android/internal/app/ChooserActivity$ChooserListAdapter;->notifyDataSetChanged()V
 
-    goto :goto_1
+    return-void
 .end method
 
 .method public getCallerTargetCount()I
@@ -757,19 +728,34 @@
 .end method
 
 .method public getPositionTargetType(I)I
-    .locals 5
+    .locals 6
 
-    const/4 v4, 0x0
+    const/4 v5, 0x0
+
+    iget-object v4, p0, Lcom/android/internal/app/ChooserActivity$ChooserListAdapter;->this$0:Lcom/android/internal/app/ChooserActivity;
+
+    iget-boolean v4, v4, Lcom/android/internal/app/ChooserActivity;->mIsDeviceDefault:Z
+
+    if-eqz v4, :cond_0
+
+    invoke-virtual {p0, p1}, Lcom/android/internal/app/ChooserActivity$ChooserListAdapter;->semGetPositionTargetType(I)I
+
+    move-result v4
+
+    return v4
+
+    :cond_0
+    const/4 v1, 0x0
 
     invoke-virtual {p0}, Lcom/android/internal/app/ChooserActivity$ChooserListAdapter;->getCallerTargetCount()I
 
     move-result v0
 
-    if-ge p1, v0, :cond_0
+    if-ge p1, v0, :cond_1
 
-    return v4
+    return v5
 
-    :cond_0
+    :cond_1
     add-int/lit8 v1, v0, 0x0
 
     invoke-virtual {p0}, Lcom/android/internal/app/ChooserActivity$ChooserListAdapter;->getServiceTargetCount()I
@@ -778,13 +764,13 @@
 
     sub-int v4, p1, v1
 
-    if-ge v4, v2, :cond_1
+    if-ge v4, v2, :cond_2
 
     const/4 v4, 0x1
 
     return v4
 
-    :cond_1
+    :cond_2
     add-int/2addr v1, v2
 
     invoke-super {p0}, Lcom/android/internal/app/ResolverActivity$ResolveListAdapter;->getCount()I
@@ -793,60 +779,21 @@
 
     sub-int v4, p1, v1
 
-    if-ge v4, v3, :cond_2
+    if-ge v4, v3, :cond_3
 
     const/4 v4, 0x2
 
     return v4
 
-    :cond_2
+    :cond_3
     const/4 v4, -0x1
 
     return v4
 .end method
 
-.method public getScore(Lcom/android/internal/app/ResolverActivity$DisplayResolveInfo;)F
-    .locals 2
-
-    if-nez p1, :cond_0
-
-    const/high16 v1, 0x44610000    # 900.0f
-
-    return v1
-
-    :cond_0
-    invoke-super {p0, p1}, Lcom/android/internal/app/ResolverActivity$ResolveListAdapter;->getScore(Lcom/android/internal/app/ResolverActivity$DisplayResolveInfo;)F
-
-    move-result v0
-
-    invoke-virtual {p1}, Lcom/android/internal/app/ResolverActivity$DisplayResolveInfo;->isPinned()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_1
-
-    const/high16 v1, 0x447a0000    # 1000.0f
-
-    add-float/2addr v0, v1
-
-    :cond_1
-    return v0
-.end method
-
 .method public getServiceTargetCount()I
     .locals 2
 
-    iget-object v0, p0, Lcom/android/internal/app/ChooserActivity$ChooserListAdapter;->this$0:Lcom/android/internal/app/ChooserActivity;
-
-    iget-boolean v0, v0, Lcom/android/internal/app/ChooserActivity;->mIsDeviceDefault:Z
-
-    if-nez v0, :cond_0
-
-    iget-boolean v0, p0, Lcom/android/internal/app/ChooserActivity$ChooserListAdapter;->mShowServiceTargets:Z
-
-    if-eqz v0, :cond_1
-
-    :cond_0
     iget-object v0, p0, Lcom/android/internal/app/ChooserActivity$ChooserListAdapter;->mServiceTargets:Ljava/util/List;
 
     invoke-interface {v0}, Ljava/util/List;->size()I
@@ -858,11 +805,6 @@
     invoke-static {v0, v1}, Ljava/lang/Math;->min(II)I
 
     move-result v0
-
-    return v0
-
-    :cond_1
-    const/4 v0, 0x0
 
     return v0
 .end method
@@ -904,7 +846,7 @@
 
     iget-object v0, p0, Lcom/android/internal/app/ChooserActivity$ChooserListAdapter;->this$0:Lcom/android/internal/app/ChooserActivity;
 
-    invoke-static {v0}, Lcom/android/internal/app/ChooserActivity;->-get3(Lcom/android/internal/app/ChooserActivity;)Landroid/content/SharedPreferences;
+    invoke-static {v0}, Lcom/android/internal/app/ChooserActivity;->-get4(Lcom/android/internal/app/ChooserActivity;)Landroid/content/SharedPreferences;
 
     move-result-object v0
 
@@ -926,7 +868,7 @@
 
     iget-object v0, p0, Lcom/android/internal/app/ChooserActivity$ChooserListAdapter;->mInflater:Landroid/view/LayoutInflater;
 
-    const v1, 0x10900d7
+    const v1, 0x10900fd
 
     const/4 v2, 0x0
 
@@ -938,25 +880,189 @@
 .end method
 
 .method public onListRebuilt()V
-    .locals 1
+    .locals 2
 
-    iget-object v0, p0, Lcom/android/internal/app/ChooserActivity$ChooserListAdapter;->mServiceTargets:Ljava/util/List;
+    iget-object v0, p0, Lcom/android/internal/app/ChooserActivity$ChooserListAdapter;->this$0:Lcom/android/internal/app/ChooserActivity;
+
+    iget-object v0, v0, Lcom/android/internal/app/ChooserActivity;->mSShareCommon:Lcom/samsung/android/share/SShareCommon;
+
+    sget v1, Lcom/samsung/android/share/SShareConstants;->SUPPORT_DIRECT_SHARE:I
+
+    invoke-virtual {v0, v1}, Lcom/samsung/android/share/SShareCommon;->isFeatureSupported(I)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    iget-object v0, p0, Lcom/android/internal/app/ChooserActivity$ChooserListAdapter;->this$0:Lcom/android/internal/app/ChooserActivity;
+
+    invoke-virtual {v0}, Lcom/android/internal/app/ChooserActivity;->isDestroyed()Z
+
+    move-result v0
 
     if-eqz v0, :cond_0
 
-    invoke-direct {p0}, Lcom/android/internal/app/ChooserActivity$ChooserListAdapter;->pruneServiceTargets()V
+    return-void
 
     :cond_0
+    iget-object v0, p0, Lcom/android/internal/app/ChooserActivity$ChooserListAdapter;->mServiceTargets:Ljava/util/List;
+
+    if-eqz v0, :cond_1
+
+    invoke-direct {p0}, Lcom/android/internal/app/ChooserActivity$ChooserListAdapter;->pruneServiceTargets()V
+
+    :cond_1
+    iget-object v0, p0, Lcom/android/internal/app/ChooserActivity$ChooserListAdapter;->mServiceTargets:Ljava/util/List;
+
+    if-eqz v0, :cond_2
+
+    iget-object v0, p0, Lcom/android/internal/app/ChooserActivity$ChooserListAdapter;->mServiceTargets:Ljava/util/List;
+
+    invoke-interface {v0}, Ljava/util/List;->size()I
+
+    move-result v0
+
+    if-nez v0, :cond_2
+
+    iget-object v0, p0, Lcom/android/internal/app/ChooserActivity$ChooserListAdapter;->this$0:Lcom/android/internal/app/ChooserActivity;
+
+    invoke-virtual {v0, p0}, Lcom/android/internal/app/ChooserActivity;->queryTargetServices(Lcom/android/internal/app/ChooserActivity$ChooserListAdapter;)V
+
+    :cond_2
     return-void
 .end method
 
+.method public semGetPositionTargetType(I)I
+    .locals 6
+
+    const/4 v5, 0x0
+
+    const/4 v1, 0x0
+
+    invoke-virtual {p0}, Lcom/android/internal/app/ChooserActivity$ChooserListAdapter;->getServiceTargetCount()I
+
+    move-result v2
+
+    if-ge p1, v2, :cond_0
+
+    const/4 v4, 0x1
+
+    return v4
+
+    :cond_0
+    add-int/lit8 v1, v2, 0x0
+
+    invoke-virtual {p0}, Lcom/android/internal/app/ChooserActivity$ChooserListAdapter;->getCallerTargetCount()I
+
+    move-result v0
+
+    sub-int v4, p1, v1
+
+    if-ge v4, v0, :cond_1
+
+    return v5
+
+    :cond_1
+    add-int/2addr v1, v0
+
+    invoke-super {p0}, Lcom/android/internal/app/ResolverActivity$ResolveListAdapter;->getCount()I
+
+    move-result v3
+
+    sub-int v4, p1, v1
+
+    if-ge v4, v3, :cond_2
+
+    const/4 v4, 0x2
+
+    return v4
+
+    :cond_2
+    const/4 v4, -0x1
+
+    return v4
+.end method
+
+.method public semTargetInfoForPosition(IZ)Lcom/android/internal/app/ResolverActivity$TargetInfo;
+    .locals 5
+
+    const/4 v1, 0x0
+
+    invoke-virtual {p0}, Lcom/android/internal/app/ChooserActivity$ChooserListAdapter;->getServiceTargetCount()I
+
+    move-result v2
+
+    if-ge p1, v2, :cond_0
+
+    iget-object v3, p0, Lcom/android/internal/app/ChooserActivity$ChooserListAdapter;->mServiceTargets:Ljava/util/List;
+
+    invoke-interface {v3, p1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Lcom/android/internal/app/ResolverActivity$TargetInfo;
+
+    return-object v3
+
+    :cond_0
+    add-int/lit8 v1, v2, 0x0
+
+    invoke-virtual {p0}, Lcom/android/internal/app/ChooserActivity$ChooserListAdapter;->getCallerTargetCount()I
+
+    move-result v0
+
+    sub-int v3, p1, v1
+
+    if-ge v3, v0, :cond_1
+
+    iget-object v3, p0, Lcom/android/internal/app/ChooserActivity$ChooserListAdapter;->mCallerTargets:Ljava/util/List;
+
+    sub-int v4, p1, v1
+
+    invoke-interface {v3, v4}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Lcom/android/internal/app/ResolverActivity$TargetInfo;
+
+    return-object v3
+
+    :cond_1
+    add-int/2addr v1, v0
+
+    if-eqz p2, :cond_2
+
+    sub-int v3, p1, v1
+
+    invoke-super {p0, v3}, Lcom/android/internal/app/ResolverActivity$ResolveListAdapter;->getItem(I)Lcom/android/internal/app/ResolverActivity$TargetInfo;
+
+    move-result-object v3
+
+    :goto_0
+    return-object v3
+
+    :cond_2
+    sub-int v3, p1, v1
+
+    invoke-virtual {p0, v3}, Lcom/android/internal/app/ChooserActivity$ChooserListAdapter;->getDisplayInfoAt(I)Lcom/android/internal/app/ResolverActivity$DisplayResolveInfo;
+
+    move-result-object v3
+
+    goto :goto_0
+.end method
+
 .method public setShowServiceTargets(Z)V
-    .locals 0
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/android/internal/app/ChooserActivity$ChooserListAdapter;->mShowServiceTargets:Z
+
+    if-eq p1, v0, :cond_0
 
     iput-boolean p1, p0, Lcom/android/internal/app/ChooserActivity$ChooserListAdapter;->mShowServiceTargets:Z
 
     invoke-virtual {p0}, Lcom/android/internal/app/ChooserActivity$ChooserListAdapter;->notifyDataSetChanged()V
 
+    :cond_0
     return-void
 .end method
 
@@ -979,11 +1085,26 @@
 .method public targetInfoForPosition(IZ)Lcom/android/internal/app/ResolverActivity$TargetInfo;
     .locals 5
 
+    iget-object v3, p0, Lcom/android/internal/app/ChooserActivity$ChooserListAdapter;->this$0:Lcom/android/internal/app/ChooserActivity;
+
+    iget-boolean v3, v3, Lcom/android/internal/app/ChooserActivity;->mIsDeviceDefault:Z
+
+    if-eqz v3, :cond_0
+
+    invoke-virtual {p0, p1, p2}, Lcom/android/internal/app/ChooserActivity$ChooserListAdapter;->semTargetInfoForPosition(IZ)Lcom/android/internal/app/ResolverActivity$TargetInfo;
+
+    move-result-object v3
+
+    return-object v3
+
+    :cond_0
+    const/4 v1, 0x0
+
     invoke-virtual {p0}, Lcom/android/internal/app/ChooserActivity$ChooserListAdapter;->getCallerTargetCount()I
 
     move-result v0
 
-    if-ge p1, v0, :cond_0
+    if-ge p1, v0, :cond_1
 
     iget-object v3, p0, Lcom/android/internal/app/ChooserActivity$ChooserListAdapter;->mCallerTargets:Ljava/util/List;
 
@@ -995,7 +1116,7 @@
 
     return-object v3
 
-    :cond_0
+    :cond_1
     add-int/lit8 v1, v0, 0x0
 
     invoke-virtual {p0}, Lcom/android/internal/app/ChooserActivity$ChooserListAdapter;->getServiceTargetCount()I
@@ -1004,7 +1125,7 @@
 
     sub-int v3, p1, v1
 
-    if-ge v3, v2, :cond_1
+    if-ge v3, v2, :cond_2
 
     iget-object v3, p0, Lcom/android/internal/app/ChooserActivity$ChooserListAdapter;->mServiceTargets:Ljava/util/List;
 
@@ -1018,10 +1139,10 @@
 
     return-object v3
 
-    :cond_1
+    :cond_2
     add-int/2addr v1, v2
 
-    if-eqz p2, :cond_2
+    if-eqz p2, :cond_3
 
     sub-int v3, p1, v1
 
@@ -1032,7 +1153,7 @@
     :goto_0
     return-object v3
 
-    :cond_2
+    :cond_3
     sub-int v3, p1, v1
 
     invoke-virtual {p0, v3}, Lcom/android/internal/app/ChooserActivity$ChooserListAdapter;->getDisplayInfoAt(I)Lcom/android/internal/app/ResolverActivity$DisplayResolveInfo;

@@ -1,5 +1,5 @@
 .class final Landroid/app/SystemServiceRegistry$74;
-.super Landroid/app/SystemServiceRegistry$CachedServiceFetcher;
+.super Landroid/app/SystemServiceRegistry$StaticServiceFetcher;
 .source "SystemServiceRegistry.java"
 
 
@@ -15,9 +15,9 @@
 
 .annotation system Ldalvik/annotation/Signature;
     value = {
-        "Landroid/app/SystemServiceRegistry$CachedServiceFetcher",
+        "Landroid/app/SystemServiceRegistry$StaticServiceFetcher",
         "<",
-        "Landroid/net/NetworkScoreManager;",
+        "Landroid/media/tv/TvInputManager;",
         ">;"
     }
 .end annotation
@@ -27,27 +27,51 @@
 .method constructor <init>()V
     .locals 0
 
-    invoke-direct {p0}, Landroid/app/SystemServiceRegistry$CachedServiceFetcher;-><init>()V
+    invoke-direct {p0}, Landroid/app/SystemServiceRegistry$StaticServiceFetcher;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public createService(Landroid/app/ContextImpl;)Landroid/net/NetworkScoreManager;
-    .locals 1
+.method public createService()Landroid/media/tv/TvInputManager;
+    .locals 4
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/ServiceManager$ServiceNotFoundException;
+        }
+    .end annotation
 
-    new-instance v0, Landroid/net/NetworkScoreManager;
+    const-string/jumbo v2, "tv_input"
 
-    invoke-direct {v0, p1}, Landroid/net/NetworkScoreManager;-><init>(Landroid/content/Context;)V
+    invoke-static {v2}, Landroid/os/ServiceManager;->getServiceOrThrow(Ljava/lang/String;)Landroid/os/IBinder;
 
-    return-object v0
+    move-result-object v0
+
+    invoke-static {v0}, Landroid/media/tv/ITvInputManager$Stub;->asInterface(Landroid/os/IBinder;)Landroid/media/tv/ITvInputManager;
+
+    move-result-object v1
+
+    new-instance v2, Landroid/media/tv/TvInputManager;
+
+    invoke-static {}, Landroid/os/UserHandle;->myUserId()I
+
+    move-result v3
+
+    invoke-direct {v2, v1, v3}, Landroid/media/tv/TvInputManager;-><init>(Landroid/media/tv/ITvInputManager;I)V
+
+    return-object v2
 .end method
 
-.method public bridge synthetic createService(Landroid/app/ContextImpl;)Ljava/lang/Object;
+.method public bridge synthetic createService()Ljava/lang/Object;
     .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/ServiceManager$ServiceNotFoundException;
+        }
+    .end annotation
 
-    invoke-virtual {p0, p1}, Landroid/app/SystemServiceRegistry$74;->createService(Landroid/app/ContextImpl;)Landroid/net/NetworkScoreManager;
+    invoke-virtual {p0}, Landroid/app/SystemServiceRegistry$74;->createService()Landroid/media/tv/TvInputManager;
 
     move-result-object v0
 

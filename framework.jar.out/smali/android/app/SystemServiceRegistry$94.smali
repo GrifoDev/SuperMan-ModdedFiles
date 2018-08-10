@@ -1,5 +1,5 @@
 .class final Landroid/app/SystemServiceRegistry$94;
-.super Landroid/app/SystemServiceRegistry$StaticServiceFetcher;
+.super Landroid/app/SystemServiceRegistry$CachedServiceFetcher;
 .source "SystemServiceRegistry.java"
 
 
@@ -15,9 +15,9 @@
 
 .annotation system Ldalvik/annotation/Signature;
     value = {
-        "Landroid/app/SystemServiceRegistry$StaticServiceFetcher",
+        "Landroid/app/SystemServiceRegistry$CachedServiceFetcher",
         "<",
-        "Lcom/absolute/android/persistence/ABTPersistenceManager;",
+        "Lcom/samsung/android/app/SemExecutableManager;",
         ">;"
     }
 .end annotation
@@ -27,37 +27,36 @@
 .method constructor <init>()V
     .locals 0
 
-    invoke-direct {p0}, Landroid/app/SystemServiceRegistry$StaticServiceFetcher;-><init>()V
+    invoke-direct {p0}, Landroid/app/SystemServiceRegistry$CachedServiceFetcher;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public createService()Lcom/absolute/android/persistence/ABTPersistenceManager;
-    .locals 3
+.method public createService(Landroid/app/ContextImpl;)Lcom/samsung/android/app/SemExecutableManager;
+    .locals 2
 
-    const-string/jumbo v2, "ABTPersistenceService"
+    new-instance v0, Lcom/samsung/android/app/SemExecutableManager;
 
-    invoke-static {v2}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
-
-    move-result-object v0
-
-    invoke-static {v0}, Lcom/absolute/android/persistence/IABTPersistence$Stub;->asInterface(Landroid/os/IBinder;)Lcom/absolute/android/persistence/IABTPersistence;
+    invoke-virtual {p1}, Landroid/app/ContextImpl;->getOuterContext()Landroid/content/Context;
 
     move-result-object v1
 
-    new-instance v2, Lcom/absolute/android/persistence/ABTPersistenceManager;
+    invoke-direct {v0, v1}, Lcom/samsung/android/app/SemExecutableManager;-><init>(Landroid/content/Context;)V
 
-    invoke-direct {v2, v1}, Lcom/absolute/android/persistence/ABTPersistenceManager;-><init>(Lcom/absolute/android/persistence/IABTPersistence;)V
-
-    return-object v2
+    return-object v0
 .end method
 
-.method public bridge synthetic createService()Ljava/lang/Object;
+.method public bridge synthetic createService(Landroid/app/ContextImpl;)Ljava/lang/Object;
     .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/ServiceManager$ServiceNotFoundException;
+        }
+    .end annotation
 
-    invoke-virtual {p0}, Landroid/app/SystemServiceRegistry$94;->createService()Lcom/absolute/android/persistence/ABTPersistenceManager;
+    invoke-virtual {p0, p1}, Landroid/app/SystemServiceRegistry$94;->createService(Landroid/app/ContextImpl;)Lcom/samsung/android/app/SemExecutableManager;
 
     move-result-object v0
 

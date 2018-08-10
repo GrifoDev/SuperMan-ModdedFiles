@@ -24,6 +24,8 @@
 
 .field public static final APN_REQUEST_STARTED:I = 0x1
 
+.field public static final APN_TYPES:[Ljava/lang/String;
+
 .field public static final APN_TYPE_ALL:Ljava/lang/String; = "*"
 
 .field public static final APN_TYPE_BIP:Ljava/lang/String; = "bip"
@@ -107,6 +109,12 @@
 .field public static final BIP_PREF_USER:Ljava/lang/String; = "bip.pref.user"
 
 .field public static final CAPABILITY_3G:I = 0x1
+
+.field public static final CELL_OFF_DUE_TO_AIRPLANE_MODE_FLAG:I = 0x2
+
+.field public static final CELL_OFF_FLAG:I = 0x0
+
+.field public static final CELL_ON_FLAG:I = 0x1
 
 .field public static final DATA_APN_KEY:Ljava/lang/String; = "apn"
 
@@ -210,6 +218,10 @@
 
 .field public static final RIL_CARD_MAX_APPS:I = 0x8
 
+.field public static final SIM_ACTIVATION_TYPE_DATA:I = 0x1
+
+.field public static final SIM_ACTIVATION_TYPE_VOICE:I = 0x0
+
 .field public static final SIM_ID_1:I = 0x0
 
 .field public static final SIM_ID_2:I = 0x1
@@ -240,6 +252,78 @@
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 3
+
+    const/16 v0, 0xa
+
+    new-array v0, v0, [Ljava/lang/String;
+
+    const-string/jumbo v1, "default"
+
+    const/4 v2, 0x0
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "mms"
+
+    const/4 v2, 0x1
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "supl"
+
+    const/4 v2, 0x2
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "dun"
+
+    const/4 v2, 0x3
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "hipri"
+
+    const/4 v2, 0x4
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "fota"
+
+    const/4 v2, 0x5
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "ims"
+
+    const/4 v2, 0x6
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "cbs"
+
+    const/4 v2, 0x7
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "ia"
+
+    const/16 v2, 0x8
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "emergency"
+
+    const/16 v2, 0x9
+
+    aput-object v1, v0, v2
+
+    sput-object v0, Lcom/android/internal/telephony/PhoneConstants;->APN_TYPES:[Ljava/lang/String;
+
+    return-void
+.end method
+
 .method public constructor <init>()V
     .locals 0
 

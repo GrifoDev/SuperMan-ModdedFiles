@@ -72,13 +72,7 @@
 .end method
 
 .method public after(Landroid/animation/Animator;)Landroid/animation/AnimatorSet$Builder;
-    .locals 3
-
-    iget-object v1, p0, Landroid/animation/AnimatorSet$Builder;->this$0:Landroid/animation/AnimatorSet;
-
-    const/4 v2, 0x0
-
-    invoke-static {v1, v2}, Landroid/animation/AnimatorSet;->-set1(Landroid/animation/AnimatorSet;Z)Z
+    .locals 2
 
     iget-object v1, p0, Landroid/animation/AnimatorSet$Builder;->this$0:Landroid/animation/AnimatorSet;
 
@@ -94,13 +88,7 @@
 .end method
 
 .method public before(Landroid/animation/Animator;)Landroid/animation/AnimatorSet$Builder;
-    .locals 3
-
-    iget-object v1, p0, Landroid/animation/AnimatorSet$Builder;->this$0:Landroid/animation/AnimatorSet;
-
-    const/4 v2, 0x0
-
-    invoke-static {v1, v2}, Landroid/animation/AnimatorSet;->-set1(Landroid/animation/AnimatorSet;Z)Z
+    .locals 2
 
     iget-object v1, p0, Landroid/animation/AnimatorSet$Builder;->this$0:Landroid/animation/AnimatorSet;
 

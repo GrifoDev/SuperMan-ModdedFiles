@@ -86,6 +86,8 @@
 
 .method public constructor <init>(ILjava/lang/String;Ljava/lang/String;)V
     .locals 6
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 
     const-string/jumbo v3, ""
 

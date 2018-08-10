@@ -15,7 +15,7 @@
 
 
 # virtual methods
-.method public abstract activityPaused(Landroid/os/IBinder;Landroid/os/Bundle;)V
+.method public abstract addAppPairOnHomeScreen()I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -23,7 +23,7 @@
     .end annotation
 .end method
 
-.method public abstract changeFreeformMode()V
+.method public abstract addAppPairShortcut()I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -31,7 +31,7 @@
     .end annotation
 .end method
 
-.method public abstract completeToggleSplitScreen()V
+.method public abstract animatingDockedStackForResizableHome(Z)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -39,7 +39,23 @@
     .end annotation
 .end method
 
-.method public abstract enterFreeformTask(I)V
+.method public abstract canAnimateExpandDockedStack()Z
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract ensureDockedResize(Landroid/graphics/Rect;Z)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract exitDockedMode()Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -55,6 +71,14 @@
     .end annotation
 .end method
 
+.method public abstract getDexInfo(Landroid/os/IBinder;I)I
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract getFreeformTasks(I)Ljava/util/List;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -63,7 +87,7 @@
     .end annotation
 .end method
 
-.method public abstract getImeTargetFreeformTaskId()I
+.method public abstract getMaxMultiInstanceCnt()I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -79,7 +103,7 @@
     .end annotation
 .end method
 
-.method public abstract getTopRunningTaskInfo(I)Ljava/util/List;
+.method public abstract getRunningTasksInfo(II)Ljava/util/List;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -87,7 +111,31 @@
     .end annotation
 .end method
 
-.method public abstract hasDockedStack()Z
+.method public abstract getSnapTargetAspectRatioRect()Landroid/graphics/Rect;
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract getTargetStackRect(I)Landroid/graphics/Rect;
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract isAllActivitiesStoppedInStack(I)Z
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract isEnsureDockedMode()Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -103,7 +151,7 @@
     .end annotation
 .end method
 
-.method public abstract isForceResizable(Landroid/content/pm/ActivityInfo;)Z
+.method public abstract isLaunchableForMultiInstance(Landroid/content/pm/ActivityInfo;)Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -111,7 +159,7 @@
     .end annotation
 .end method
 
-.method public abstract isSnapViewRunning()Z
+.method public abstract isPairAppSupportLauncher()Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -119,7 +167,7 @@
     .end annotation
 .end method
 
-.method public abstract makeGhostFreeform(Landroid/os/IBinder;I)V
+.method public abstract isSnapTargetHideStatusbar()Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -127,7 +175,7 @@
     .end annotation
 .end method
 
-.method public abstract maximizeStackByDivider(Z)V
+.method public abstract isSnapWindowRunning()Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -135,7 +183,7 @@
     .end annotation
 .end method
 
-.method public abstract minimizeAllFreeform(I)V
+.method public abstract maximizeTopTask()Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -143,7 +191,7 @@
     .end annotation
 .end method
 
-.method public abstract minimizeOhterFreeforms(Landroid/os/IBinder;)V
+.method public abstract minimizeAllFreeformTasks(IZ)Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -151,7 +199,23 @@
     .end annotation
 .end method
 
-.method public abstract minimizeTask(I)V
+.method public abstract minimizeFreeformTask(I)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract minimizeSearchedTask(Ljava/lang/String;)I
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract minimizeTopTask()Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -167,7 +231,7 @@
     .end annotation
 .end method
 
-.method public abstract moveMultiWindowTasksToFullScreen()V
+.method public abstract moveDockedTasksToFullscreenStack(ZZ)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -175,7 +239,71 @@
     .end annotation
 .end method
 
-.method public abstract registerMultiWindowDividerPanelListener(Lcom/samsung/android/multiwindow/IMultiWindowDividerPanelListener;)V
+.method public abstract moveTaskToFreeformStack(ILandroid/graphics/Rect;)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract moveTopTaskToFreeformStack(I)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract notifyApplyFreeformMinimizePolicy(I)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract notifyDockedStackMinimizedChange(Z)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract notifyDockedTaskToBackTransitionFinished()V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract notifyFreeformMinimizeStateChanged(Landroid/graphics/Rect;ILandroid/content/ComponentName;II)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract notifyFreefromWindowAnimationEnd(IILandroid/graphics/Rect;)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract notifyProcessKillByClosingFreeform(I)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract notifyScreenFreezeAnimationFinished()V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -191,14 +319,6 @@
     .end annotation
 .end method
 
-.method public abstract registerMultiWindowFocusedFrameListener(Lcom/samsung/android/multiwindow/IMultiWindowFocusedFrameListener;)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
 .method public abstract registerMultiWindowServiceCallback(Lcom/samsung/android/multiwindow/IMultiWindowCallback;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -207,7 +327,7 @@
     .end annotation
 .end method
 
-.method public abstract removeFreeformTasks(I)V
+.method public abstract removeFocusedTask()Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -215,7 +335,15 @@
     .end annotation
 .end method
 
-.method public abstract removeTaskIfNeeded(Z)Z
+.method public abstract removeFreeformTasks(I)Z
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract removeSearchedTask(Ljava/lang/String;)Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -231,7 +359,7 @@
     .end annotation
 .end method
 
-.method public abstract setAutoResizingEnabled(Z)V
+.method public abstract resizeDockedStack(I)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -239,7 +367,7 @@
     .end annotation
 .end method
 
-.method public abstract setDividerButtonsDimLayer(ZFI)V
+.method public abstract resizeDockedStackWithDockSide(Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;I)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -247,7 +375,7 @@
     .end annotation
 .end method
 
-.method public abstract setDockedStackDividerButtonsTouchRegion(Landroid/graphics/Rect;)V
+.method public abstract rotateFreeformTask(Landroid/os/IBinder;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -255,7 +383,15 @@
     .end annotation
 .end method
 
-.method public abstract setLaunchBounds(ILandroid/graphics/Rect;)V
+.method public abstract setMaxVisibleFreeformCount(I)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract setMinimizeDockedStackDimLayer(ZIF)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -271,7 +407,7 @@
     .end annotation
 .end method
 
-.method public abstract setSlideMode(IZ)V
+.method public abstract setSnapWindow(ZLandroid/graphics/Rect;ILjava/lang/String;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -279,7 +415,7 @@
     .end annotation
 .end method
 
-.method public abstract setSnapView(ZLandroid/graphics/Rect;I)V
+.method public abstract showSnapWindowGuideView(I)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -287,7 +423,7 @@
     .end annotation
 .end method
 
-.method public abstract shouldLaunchAsMultiInstance(Landroid/content/pm/ActivityInfo;)Z
+.method public abstract startFreeform()I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -295,31 +431,7 @@
     .end annotation
 .end method
 
-.method public abstract showRecentApps()V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract slideFreeform(Landroid/os/IBinder;)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract slideOrUnslideAllFreeform(Z)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract startDividerDragging()V
+.method public abstract startPairActivitiesFromRecents(Ljava/lang/String;[I[Landroid/os/Bundle;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -335,7 +447,7 @@
     .end annotation
 .end method
 
-.method public abstract stopDividerDragging()V
+.method public abstract swapDockedAndFullscreenStack()V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -343,15 +455,7 @@
     .end annotation
 .end method
 
-.method public abstract swapSnapTasks()V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract unregisterMultiWindowDividerPanelListener(Lcom/samsung/android/multiwindow/IMultiWindowDividerPanelListener;)V
+.method public abstract unregisterMultiWindowEventListener(Lcom/samsung/android/multiwindow/IMultiWindowEventListener;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -360,6 +464,14 @@
 .end method
 
 .method public abstract unregisterMultiWindowServiceCallback(Lcom/samsung/android/multiwindow/IMultiWindowCallback;)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract updateTaskPositionInTaskBar(Ljava/util/Map;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

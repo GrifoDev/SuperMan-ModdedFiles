@@ -14,6 +14,7 @@
         Landroid/media/MediaCodec$CryptoInfo;,
         Landroid/media/MediaCodec$EventHandler;,
         Landroid/media/MediaCodec$MediaImage;,
+        Landroid/media/MediaCodec$MetricsConstants;,
         Landroid/media/MediaCodec$OnFrameRenderedListener;,
         Landroid/media/MediaCodec$PersistentSurface;
     }
@@ -26,6 +27,8 @@
 .field public static final BUFFER_FLAG_END_OF_STREAM:I = 0x4
 
 .field public static final BUFFER_FLAG_KEY_FRAME:I = 0x1
+
+.field public static final BUFFER_FLAG_PARTIAL_FRAME:I = 0x8
 
 .field public static final BUFFER_FLAG_SYNC_FRAME:I = 0x1
 
@@ -321,6 +324,171 @@
     goto :goto_0
 .end method
 
+.method private configure(Landroid/media/MediaFormat;Landroid/view/Surface;Landroid/media/MediaCrypto;Landroid/os/IBinder;I)V
+    .locals 13
+
+    if-eqz p3, :cond_0
+
+    if-eqz p4, :cond_0
+
+    new-instance v0, Ljava/lang/IllegalArgumentException;
+
+    const-string/jumbo v3, "Can\'t use crypto and descrambler together!"
+
+    invoke-direct {v0, v3}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+
+    :cond_0
+    const/4 v1, 0x0
+
+    const/4 v2, 0x0
+
+    if-eqz p1, :cond_2
+
+    invoke-virtual {p1}, Landroid/media/MediaFormat;->getMap()Ljava/util/Map;
+
+    move-result-object v10
+
+    invoke-interface {v10}, Ljava/util/Map;->size()I
+
+    move-result v0
+
+    new-array v1, v0, [Ljava/lang/String;
+
+    invoke-interface {v10}, Ljava/util/Map;->size()I
+
+    move-result v0
+
+    new-array v2, v0, [Ljava/lang/Object;
+
+    const/4 v11, 0x0
+
+    invoke-interface {v10}, Ljava/util/Map;->entrySet()Ljava/util/Set;
+
+    move-result-object v0
+
+    invoke-interface {v0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+
+    move-result-object v9
+
+    :goto_0
+    invoke-interface {v9}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    invoke-interface {v9}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v8
+
+    check-cast v8, Ljava/util/Map$Entry;
+
+    invoke-interface {v8}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    const-string/jumbo v3, "audio-session-id"
+
+    invoke-virtual {v0, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    const/4 v12, 0x0
+
+    :try_start_0
+    invoke-interface {v8}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/Integer;
+
+    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v12
+
+    const-string/jumbo v0, "audio-hw-sync"
+
+    aput-object v0, v1, v11
+
+    invoke-static {v12}, Landroid/media/AudioSystem;->getAudioHwSyncForSession(I)I
+
+    move-result v0
+
+    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v0
+
+    aput-object v0, v2, v11
+
+    :goto_1
+    add-int/lit8 v11, v11, 0x1
+
+    goto :goto_0
+
+    :catch_0
+    move-exception v7
+
+    new-instance v0, Ljava/lang/IllegalArgumentException;
+
+    const-string/jumbo v3, "Wrong Session ID Parameter!"
+
+    invoke-direct {v0, v3}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+
+    :cond_1
+    invoke-interface {v8}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    aput-object v0, v1, v11
+
+    invoke-interface {v8}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
+
+    move-result-object v0
+
+    aput-object v0, v2, v11
+
+    goto :goto_1
+
+    :cond_2
+    if-eqz p2, :cond_3
+
+    const/4 v0, 0x1
+
+    :goto_2
+    iput-boolean v0, p0, Landroid/media/MediaCodec;->mHasSurface:Z
+
+    move-object v0, p0
+
+    move-object v3, p2
+
+    move-object/from16 v4, p3
+
+    move-object/from16 v5, p4
+
+    move/from16 v6, p5
+
+    invoke-direct/range {v0 .. v6}, Landroid/media/MediaCodec;->native_configure([Ljava/lang/String;[Ljava/lang/Object;Landroid/view/Surface;Landroid/media/MediaCrypto;Landroid/os/IBinder;I)V
+
+    return-void
+
+    :cond_3
+    const/4 v0, 0x0
+
+    goto :goto_2
+.end method
+
 .method public static createByCodecName(Ljava/lang/String;)Landroid/media/MediaCodec;
     .locals 2
     .annotation system Ldalvik/annotation/Throws;
@@ -582,7 +750,7 @@
     return-void
 .end method
 
-.method private final native native_configure([Ljava/lang/String;[Ljava/lang/Object;Landroid/view/Surface;Landroid/media/MediaCrypto;I)V
+.method private final native native_configure([Ljava/lang/String;[Ljava/lang/Object;Landroid/view/Surface;Landroid/media/MediaCrypto;Landroid/os/IBinder;I)V
 .end method
 
 .method private static final native native_createPersistentInputSurface()Landroid/media/MediaCodec$PersistentSurface;
@@ -601,6 +769,9 @@
 .end method
 
 .method private final native native_flush()V
+.end method
+
+.method private native native_getMetrics()Landroid/os/PersistableBundle;
 .end method
 
 .method private static final native native_init()V
@@ -811,154 +982,54 @@
 
 
 # virtual methods
-.method public configure(Landroid/media/MediaFormat;Landroid/view/Surface;Landroid/media/MediaCrypto;I)V
-    .locals 12
+.method public configure(Landroid/media/MediaFormat;Landroid/view/Surface;ILandroid/media/MediaDescrambler;)V
+    .locals 6
 
-    const/4 v1, 0x0
+    const/4 v3, 0x0
 
-    const/4 v2, 0x0
+    if-eqz p4, :cond_0
 
-    if-eqz p1, :cond_1
+    invoke-virtual {p4}, Landroid/media/MediaDescrambler;->getBinder()Landroid/os/IBinder;
 
-    invoke-virtual {p1}, Landroid/media/MediaFormat;->getMap()Ljava/util/Map;
-
-    move-result-object v9
-
-    invoke-interface {v9}, Ljava/util/Map;->size()I
-
-    move-result v0
-
-    new-array v1, v0, [Ljava/lang/String;
-
-    invoke-interface {v9}, Ljava/util/Map;->size()I
-
-    move-result v0
-
-    new-array v2, v0, [Ljava/lang/Object;
-
-    const/4 v10, 0x0
-
-    invoke-interface {v9}, Ljava/util/Map;->entrySet()Ljava/util/Set;
-
-    move-result-object v0
-
-    invoke-interface {v0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
-
-    move-result-object v8
+    move-result-object v4
 
     :goto_0
-    invoke-interface {v8}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    invoke-interface {v8}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v7
-
-    check-cast v7, Ljava/util/Map$Entry;
-
-    invoke-interface {v7}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Ljava/lang/String;
-
-    const-string/jumbo v3, "audio-session-id"
-
-    invoke-virtual {v0, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    const/4 v11, 0x0
-
-    :try_start_0
-    invoke-interface {v7}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Ljava/lang/Integer;
-
-    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
-
-    move-result v11
-
-    const-string/jumbo v0, "audio-hw-sync"
-
-    aput-object v0, v1, v10
-
-    invoke-static {v11}, Landroid/media/AudioSystem;->getAudioHwSyncForSession(I)I
-
-    move-result v0
-
-    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v0
-
-    aput-object v0, v2, v10
-
-    :goto_1
-    add-int/lit8 v10, v10, 0x1
-
-    goto :goto_0
-
-    :catch_0
-    move-exception v6
-
-    new-instance v0, Ljava/lang/IllegalArgumentException;
-
-    const-string/jumbo v3, "Wrong Session ID Parameter!"
-
-    invoke-direct {v0, v3}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
-
-    throw v0
-
-    :cond_0
-    invoke-interface {v7}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Ljava/lang/String;
-
-    aput-object v0, v1, v10
-
-    invoke-interface {v7}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
-
-    move-result-object v0
-
-    aput-object v0, v2, v10
-
-    goto :goto_1
-
-    :cond_1
-    if-eqz p2, :cond_2
-
-    const/4 v0, 0x1
-
-    :goto_2
-    iput-boolean v0, p0, Landroid/media/MediaCodec;->mHasSurface:Z
-
     move-object v0, p0
 
-    move-object v3, p2
+    move-object v1, p1
 
-    move-object v4, p3
+    move-object v2, p2
 
-    move/from16 v5, p4
+    move v5, p3
 
-    invoke-direct/range {v0 .. v5}, Landroid/media/MediaCodec;->native_configure([Ljava/lang/String;[Ljava/lang/Object;Landroid/view/Surface;Landroid/media/MediaCrypto;I)V
+    invoke-direct/range {v0 .. v5}, Landroid/media/MediaCodec;->configure(Landroid/media/MediaFormat;Landroid/view/Surface;Landroid/media/MediaCrypto;Landroid/os/IBinder;I)V
 
     return-void
 
-    :cond_2
-    const/4 v0, 0x0
+    :cond_0
+    move-object v4, v3
 
-    goto :goto_2
+    goto :goto_0
+.end method
+
+.method public configure(Landroid/media/MediaFormat;Landroid/view/Surface;Landroid/media/MediaCrypto;I)V
+    .locals 6
+
+    const/4 v4, 0x0
+
+    move-object v0, p0
+
+    move-object v1, p1
+
+    move-object v2, p2
+
+    move-object v3, p3
+
+    move v5, p4
+
+    invoke-direct/range {v0 .. v5}, Landroid/media/MediaCodec;->configure(Landroid/media/MediaFormat;Landroid/view/Surface;Landroid/media/MediaCrypto;Landroid/os/IBinder;I)V
+
+    return-void
 .end method
 
 .method public final native createInputSurface()Landroid/view/Surface;
@@ -1228,6 +1299,16 @@
     monitor-exit v2
 
     throw v1
+.end method
+
+.method public getMetrics()Landroid/os/PersistableBundle;
+    .locals 1
+
+    invoke-direct {p0}, Landroid/media/MediaCodec;->native_getMetrics()Landroid/os/PersistableBundle;
+
+    move-result-object v0
+
+    return-object v0
 .end method
 
 .method public final native getName()Ljava/lang/String;

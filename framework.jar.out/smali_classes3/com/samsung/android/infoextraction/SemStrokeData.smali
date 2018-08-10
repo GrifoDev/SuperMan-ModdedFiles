@@ -6,6 +6,27 @@
 .implements Landroid/os/Parcelable;
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/samsung/android/infoextraction/SemStrokeData$1;
+    }
+.end annotation
+
+
+# static fields
+.field public static final CREATOR:Landroid/os/Parcelable$Creator;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Landroid/os/Parcelable$Creator",
+            "<",
+            "Lcom/samsung/android/infoextraction/SemStrokeData;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+
 # instance fields
 .field private mStroke:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
@@ -20,6 +41,18 @@
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    new-instance v0, Lcom/samsung/android/infoextraction/SemStrokeData$1;
+
+    invoke-direct {v0}, Lcom/samsung/android/infoextraction/SemStrokeData$1;-><init>()V
+
+    sput-object v0, Lcom/samsung/android/infoextraction/SemStrokeData;->CREATOR:Landroid/os/Parcelable$Creator;
+
+    return-void
+.end method
+
 .method public constructor <init>()V
     .locals 1
 

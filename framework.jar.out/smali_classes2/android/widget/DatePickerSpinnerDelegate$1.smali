@@ -51,15 +51,13 @@
 
     iget-object v1, p0, Landroid/widget/DatePickerSpinnerDelegate$1;->this$0:Landroid/widget/DatePickerSpinnerDelegate;
 
-    invoke-static {v1}, Landroid/widget/DatePickerSpinnerDelegate;->-get3(Landroid/widget/DatePickerSpinnerDelegate;)Landroid/icu/util/Calendar;
+    invoke-static {v1}, Landroid/widget/DatePickerSpinnerDelegate;->-get2(Landroid/widget/DatePickerSpinnerDelegate;)Landroid/icu/util/Calendar;
 
     move-result-object v1
 
     iget-object v2, p0, Landroid/widget/DatePickerSpinnerDelegate$1;->this$0:Landroid/widget/DatePickerSpinnerDelegate;
 
-    invoke-static {v2}, Landroid/widget/DatePickerSpinnerDelegate;->-get0(Landroid/widget/DatePickerSpinnerDelegate;)Landroid/icu/util/Calendar;
-
-    move-result-object v2
+    iget-object v2, v2, Landroid/widget/DatePickerSpinnerDelegate;->mCurrentDate:Landroid/icu/util/Calendar;
 
     invoke-virtual {v2}, Landroid/icu/util/Calendar;->getTimeInMillis()J
 
@@ -69,7 +67,7 @@
 
     iget-object v1, p0, Landroid/widget/DatePickerSpinnerDelegate$1;->this$0:Landroid/widget/DatePickerSpinnerDelegate;
 
-    invoke-static {v1}, Landroid/widget/DatePickerSpinnerDelegate;->-get1(Landroid/widget/DatePickerSpinnerDelegate;)Landroid/widget/NumberPicker;
+    invoke-static {v1}, Landroid/widget/DatePickerSpinnerDelegate;->-get0(Landroid/widget/DatePickerSpinnerDelegate;)Landroid/widget/NumberPicker;
 
     move-result-object v1
 
@@ -77,7 +75,7 @@
 
     iget-object v1, p0, Landroid/widget/DatePickerSpinnerDelegate$1;->this$0:Landroid/widget/DatePickerSpinnerDelegate;
 
-    invoke-static {v1}, Landroid/widget/DatePickerSpinnerDelegate;->-get3(Landroid/widget/DatePickerSpinnerDelegate;)Landroid/icu/util/Calendar;
+    invoke-static {v1}, Landroid/widget/DatePickerSpinnerDelegate;->-get2(Landroid/widget/DatePickerSpinnerDelegate;)Landroid/icu/util/Calendar;
 
     move-result-object v1
 
@@ -91,7 +89,7 @@
 
     iget-object v1, p0, Landroid/widget/DatePickerSpinnerDelegate$1;->this$0:Landroid/widget/DatePickerSpinnerDelegate;
 
-    invoke-static {v1}, Landroid/widget/DatePickerSpinnerDelegate;->-get3(Landroid/widget/DatePickerSpinnerDelegate;)Landroid/icu/util/Calendar;
+    invoke-static {v1}, Landroid/widget/DatePickerSpinnerDelegate;->-get2(Landroid/widget/DatePickerSpinnerDelegate;)Landroid/icu/util/Calendar;
 
     move-result-object v1
 
@@ -102,7 +100,7 @@
 
     iget-object v2, p0, Landroid/widget/DatePickerSpinnerDelegate$1;->this$0:Landroid/widget/DatePickerSpinnerDelegate;
 
-    invoke-static {v2}, Landroid/widget/DatePickerSpinnerDelegate;->-get3(Landroid/widget/DatePickerSpinnerDelegate;)Landroid/icu/util/Calendar;
+    invoke-static {v2}, Landroid/widget/DatePickerSpinnerDelegate;->-get2(Landroid/widget/DatePickerSpinnerDelegate;)Landroid/icu/util/Calendar;
 
     move-result-object v2
 
@@ -112,7 +110,7 @@
 
     iget-object v3, p0, Landroid/widget/DatePickerSpinnerDelegate$1;->this$0:Landroid/widget/DatePickerSpinnerDelegate;
 
-    invoke-static {v3}, Landroid/widget/DatePickerSpinnerDelegate;->-get3(Landroid/widget/DatePickerSpinnerDelegate;)Landroid/icu/util/Calendar;
+    invoke-static {v3}, Landroid/widget/DatePickerSpinnerDelegate;->-get2(Landroid/widget/DatePickerSpinnerDelegate;)Landroid/icu/util/Calendar;
 
     move-result-object v3
 
@@ -122,7 +120,7 @@
 
     iget-object v4, p0, Landroid/widget/DatePickerSpinnerDelegate$1;->this$0:Landroid/widget/DatePickerSpinnerDelegate;
 
-    invoke-static {v4}, Landroid/widget/DatePickerSpinnerDelegate;->-get3(Landroid/widget/DatePickerSpinnerDelegate;)Landroid/icu/util/Calendar;
+    invoke-static {v4}, Landroid/widget/DatePickerSpinnerDelegate;->-get2(Landroid/widget/DatePickerSpinnerDelegate;)Landroid/icu/util/Calendar;
 
     move-result-object v4
 
@@ -153,7 +151,7 @@
 
     iget-object v1, p0, Landroid/widget/DatePickerSpinnerDelegate$1;->this$0:Landroid/widget/DatePickerSpinnerDelegate;
 
-    invoke-static {v1}, Landroid/widget/DatePickerSpinnerDelegate;->-get3(Landroid/widget/DatePickerSpinnerDelegate;)Landroid/icu/util/Calendar;
+    invoke-static {v1}, Landroid/widget/DatePickerSpinnerDelegate;->-get2(Landroid/widget/DatePickerSpinnerDelegate;)Landroid/icu/util/Calendar;
 
     move-result-object v1
 
@@ -164,7 +162,7 @@
     :cond_1
     iget-object v1, p0, Landroid/widget/DatePickerSpinnerDelegate$1;->this$0:Landroid/widget/DatePickerSpinnerDelegate;
 
-    invoke-static {v1}, Landroid/widget/DatePickerSpinnerDelegate;->-get3(Landroid/widget/DatePickerSpinnerDelegate;)Landroid/icu/util/Calendar;
+    invoke-static {v1}, Landroid/widget/DatePickerSpinnerDelegate;->-get2(Landroid/widget/DatePickerSpinnerDelegate;)Landroid/icu/util/Calendar;
 
     move-result-object v1
 
@@ -177,7 +175,7 @@
     :cond_2
     iget-object v1, p0, Landroid/widget/DatePickerSpinnerDelegate$1;->this$0:Landroid/widget/DatePickerSpinnerDelegate;
 
-    invoke-static {v1}, Landroid/widget/DatePickerSpinnerDelegate;->-get2(Landroid/widget/DatePickerSpinnerDelegate;)Landroid/widget/NumberPicker;
+    invoke-static {v1}, Landroid/widget/DatePickerSpinnerDelegate;->-get1(Landroid/widget/DatePickerSpinnerDelegate;)Landroid/widget/NumberPicker;
 
     move-result-object v1
 
@@ -191,7 +189,7 @@
 
     iget-object v1, p0, Landroid/widget/DatePickerSpinnerDelegate$1;->this$0:Landroid/widget/DatePickerSpinnerDelegate;
 
-    invoke-static {v1}, Landroid/widget/DatePickerSpinnerDelegate;->-get3(Landroid/widget/DatePickerSpinnerDelegate;)Landroid/icu/util/Calendar;
+    invoke-static {v1}, Landroid/widget/DatePickerSpinnerDelegate;->-get2(Landroid/widget/DatePickerSpinnerDelegate;)Landroid/icu/util/Calendar;
 
     move-result-object v1
 
@@ -208,7 +206,7 @@
 
     iget-object v1, p0, Landroid/widget/DatePickerSpinnerDelegate$1;->this$0:Landroid/widget/DatePickerSpinnerDelegate;
 
-    invoke-static {v1}, Landroid/widget/DatePickerSpinnerDelegate;->-get3(Landroid/widget/DatePickerSpinnerDelegate;)Landroid/icu/util/Calendar;
+    invoke-static {v1}, Landroid/widget/DatePickerSpinnerDelegate;->-get2(Landroid/widget/DatePickerSpinnerDelegate;)Landroid/icu/util/Calendar;
 
     move-result-object v1
 
@@ -219,7 +217,7 @@
     :cond_4
     iget-object v1, p0, Landroid/widget/DatePickerSpinnerDelegate$1;->this$0:Landroid/widget/DatePickerSpinnerDelegate;
 
-    invoke-static {v1}, Landroid/widget/DatePickerSpinnerDelegate;->-get3(Landroid/widget/DatePickerSpinnerDelegate;)Landroid/icu/util/Calendar;
+    invoke-static {v1}, Landroid/widget/DatePickerSpinnerDelegate;->-get2(Landroid/widget/DatePickerSpinnerDelegate;)Landroid/icu/util/Calendar;
 
     move-result-object v1
 
@@ -232,7 +230,7 @@
     :cond_5
     iget-object v1, p0, Landroid/widget/DatePickerSpinnerDelegate$1;->this$0:Landroid/widget/DatePickerSpinnerDelegate;
 
-    invoke-static {v1}, Landroid/widget/DatePickerSpinnerDelegate;->-get4(Landroid/widget/DatePickerSpinnerDelegate;)Landroid/widget/NumberPicker;
+    invoke-static {v1}, Landroid/widget/DatePickerSpinnerDelegate;->-get3(Landroid/widget/DatePickerSpinnerDelegate;)Landroid/widget/NumberPicker;
 
     move-result-object v1
 
@@ -240,7 +238,7 @@
 
     iget-object v1, p0, Landroid/widget/DatePickerSpinnerDelegate$1;->this$0:Landroid/widget/DatePickerSpinnerDelegate;
 
-    invoke-static {v1}, Landroid/widget/DatePickerSpinnerDelegate;->-get3(Landroid/widget/DatePickerSpinnerDelegate;)Landroid/icu/util/Calendar;
+    invoke-static {v1}, Landroid/widget/DatePickerSpinnerDelegate;->-get2(Landroid/widget/DatePickerSpinnerDelegate;)Landroid/icu/util/Calendar;
 
     move-result-object v1
 

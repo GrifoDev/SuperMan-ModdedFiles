@@ -37,6 +37,8 @@
 
 .field private mDuration:J
 
+.field private mFirstFrameTime:J
+
 .field mInitialized:Z
 
 .field private mInterpolator:Landroid/animation/TimeInterpolator;
@@ -59,6 +61,8 @@
 
 .field mSeekFraction:F
 
+.field private mSelfPulse:Z
+
 .field private mStartDelay:J
 
 .field private mStartListenersCalled:Z
@@ -68,6 +72,8 @@
 .field mStartTimeCommitted:Z
 
 .field private mStarted:Z
+
+.field private mSuppressSelfPulseRequested:Z
 
 .field mUpdateListeners:Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
@@ -115,13 +121,17 @@
 .method public constructor <init>()V
     .locals 6
 
-    const-wide/16 v4, 0x0
+    const/4 v3, 0x1
 
     const/4 v1, 0x0
+
+    const-wide/16 v4, -0x1
 
     const/4 v2, 0x0
 
     invoke-direct {p0}, Landroid/animation/Animator;-><init>()V
+
+    iput-wide v4, p0, Landroid/animation/ValueAnimator;->mStartTime:J
 
     const/high16 v0, -0x40800000    # -1.0f
 
@@ -134,6 +144,8 @@
     iput v1, p0, Landroid/animation/ValueAnimator;->mCurrentFraction:F
 
     iput-wide v4, p0, Landroid/animation/ValueAnimator;->mLastFrameTime:J
+
+    iput-wide v4, p0, Landroid/animation/ValueAnimator;->mFirstFrameTime:J
 
     iput-boolean v2, p0, Landroid/animation/ValueAnimator;->mRunning:Z
 
@@ -149,13 +161,17 @@
 
     iput-wide v0, p0, Landroid/animation/ValueAnimator;->mDuration:J
 
-    iput-wide v4, p0, Landroid/animation/ValueAnimator;->mStartDelay:J
+    const-wide/16 v0, 0x0
+
+    iput-wide v0, p0, Landroid/animation/ValueAnimator;->mStartDelay:J
 
     iput v2, p0, Landroid/animation/ValueAnimator;->mRepeatCount:I
 
-    const/4 v0, 0x1
+    iput v3, p0, Landroid/animation/ValueAnimator;->mRepeatMode:I
 
-    iput v0, p0, Landroid/animation/ValueAnimator;->mRepeatMode:I
+    iput-boolean v3, p0, Landroid/animation/ValueAnimator;->mSelfPulse:Z
+
+    iput-boolean v2, p0, Landroid/animation/ValueAnimator;->mSuppressSelfPulseRequested:Z
 
     sget-object v0, Landroid/animation/ValueAnimator;->sDefaultInterpolator:Landroid/animation/TimeInterpolator;
 
@@ -166,6 +182,68 @@
     iput-object v0, p0, Landroid/animation/ValueAnimator;->mUpdateListeners:Ljava/util/ArrayList;
 
     return-void
+.end method
+
+.method private addAnimationCallback(J)V
+    .locals 1
+
+    iget-boolean v0, p0, Landroid/animation/ValueAnimator;->mSelfPulse:Z
+
+    if-nez v0, :cond_0
+
+    return-void
+
+    :cond_0
+    invoke-virtual {p0}, Landroid/animation/ValueAnimator;->getAnimationHandler()Landroid/animation/AnimationHandler;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p0, p1, p2}, Landroid/animation/AnimationHandler;->addAnimationFrameCallback(Landroid/animation/AnimationHandler$AnimationFrameCallback;J)V
+
+    return-void
+.end method
+
+.method private addOneShotCommitCallback()V
+    .locals 1
+
+    iget-boolean v0, p0, Landroid/animation/ValueAnimator;->mSelfPulse:Z
+
+    if-nez v0, :cond_0
+
+    return-void
+
+    :cond_0
+    invoke-virtual {p0}, Landroid/animation/ValueAnimator;->getAnimationHandler()Landroid/animation/AnimationHandler;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p0}, Landroid/animation/AnimationHandler;->addOneShotCommitCallback(Landroid/animation/AnimationHandler$AnimationFrameCallback;)V
+
+    return-void
+.end method
+
+.method public static areAnimatorsEnabled()Z
+    .locals 2
+
+    sget v0, Landroid/animation/ValueAnimator;->sDurationScale:F
+
+    const/4 v1, 0x0
+
+    cmpl-float v0, v0, v1
+
+    if-nez v0, :cond_0
+
+    const/4 v0, 0x1
+
+    :goto_0
+    xor-int/lit8 v0, v0, 0x1
+
+    return v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
 .end method
 
 .method private clampFraction(F)F
@@ -204,11 +282,13 @@
 .end method
 
 .method private endAnimation()V
-    .locals 8
+    .locals 12
 
-    const-wide/16 v6, 0x8
+    const-wide/16 v10, 0x8
 
-    const/4 v5, 0x0
+    const-wide/16 v8, -0x1
+
+    const/4 v6, 0x0
 
     iget-boolean v4, p0, Landroid/animation/ValueAnimator;->mAnimationEndRequested:Z
 
@@ -217,17 +297,13 @@
     return-void
 
     :cond_0
-    invoke-static {}, Landroid/animation/AnimationHandler;->getInstance()Landroid/animation/AnimationHandler;
-
-    move-result-object v0
-
-    invoke-virtual {v0, p0}, Landroid/animation/AnimationHandler;->removeCallback(Landroid/animation/AnimationHandler$AnimationFrameCallback;)V
+    invoke-direct {p0}, Landroid/animation/ValueAnimator;->removeAnimationCallback()V
 
     const/4 v4, 0x1
 
     iput-boolean v4, p0, Landroid/animation/ValueAnimator;->mAnimationEndRequested:Z
 
-    iput-boolean v5, p0, Landroid/animation/ValueAnimator;->mPaused:Z
+    iput-boolean v6, p0, Landroid/animation/ValueAnimator;->mPaused:Z
 
     iget-boolean v4, p0, Landroid/animation/ValueAnimator;->mStarted:Z
 
@@ -242,13 +318,38 @@
 
     if-eqz v4, :cond_3
 
+    const/4 v1, 0x1
+
+    :goto_0
+    if-eqz v1, :cond_2
+
     iget-boolean v4, p0, Landroid/animation/ValueAnimator;->mRunning:Z
 
-    if-nez v4, :cond_2
+    xor-int/lit8 v4, v4, 0x1
+
+    if-eqz v4, :cond_2
 
     invoke-direct {p0}, Landroid/animation/ValueAnimator;->notifyStartListeners()V
 
     :cond_2
+    iput-boolean v6, p0, Landroid/animation/ValueAnimator;->mRunning:Z
+
+    iput-boolean v6, p0, Landroid/animation/ValueAnimator;->mStarted:Z
+
+    iput-boolean v6, p0, Landroid/animation/ValueAnimator;->mStartListenersCalled:Z
+
+    iput-wide v8, p0, Landroid/animation/ValueAnimator;->mLastFrameTime:J
+
+    iput-wide v8, p0, Landroid/animation/ValueAnimator;->mFirstFrameTime:J
+
+    iput-wide v8, p0, Landroid/animation/ValueAnimator;->mStartTime:J
+
+    if-eqz v1, :cond_4
+
+    iget-object v4, p0, Landroid/animation/ValueAnimator;->mListeners:Ljava/util/ArrayList;
+
+    if-eqz v4, :cond_4
+
     iget-object v4, p0, Landroid/animation/ValueAnimator;->mListeners:Ljava/util/ArrayList;
 
     invoke-virtual {v4}, Ljava/util/ArrayList;->clone()Ljava/lang/Object;
@@ -261,41 +362,38 @@
 
     move-result v2
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    :goto_0
-    if-ge v1, v2, :cond_3
+    :goto_1
+    if-ge v0, v2, :cond_4
 
-    invoke-virtual {v3, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    invoke-virtual {v3, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v4
 
     check-cast v4, Landroid/animation/Animator$AnimatorListener;
 
-    invoke-interface {v4, p0}, Landroid/animation/Animator$AnimatorListener;->onAnimationEnd(Landroid/animation/Animator;)V
+    iget-boolean v5, p0, Landroid/animation/ValueAnimator;->mReversing:Z
 
-    add-int/lit8 v1, v1, 0x1
+    invoke-interface {v4, p0, v5}, Landroid/animation/Animator$AnimatorListener;->onAnimationEnd(Landroid/animation/Animator;Z)V
+
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_1
+
+    :cond_3
+    const/4 v1, 0x0
 
     goto :goto_0
 
-    :cond_3
-    iput-boolean v5, p0, Landroid/animation/ValueAnimator;->mRunning:Z
+    :cond_4
+    iput-boolean v6, p0, Landroid/animation/ValueAnimator;->mReversing:Z
 
-    iput-boolean v5, p0, Landroid/animation/ValueAnimator;->mStarted:Z
-
-    iput-boolean v5, p0, Landroid/animation/ValueAnimator;->mStartListenersCalled:Z
-
-    iput-boolean v5, p0, Landroid/animation/ValueAnimator;->mReversing:Z
-
-    const-wide/16 v4, 0x0
-
-    iput-wide v4, p0, Landroid/animation/ValueAnimator;->mLastFrameTime:J
-
-    invoke-static {v6, v7}, Landroid/os/Trace;->isTagEnabled(J)Z
+    invoke-static {v10, v11}, Landroid/os/Trace;->isTagEnabled(J)Z
 
     move-result v4
 
-    if-eqz v4, :cond_4
+    if-eqz v4, :cond_5
 
     invoke-virtual {p0}, Landroid/animation/ValueAnimator;->getNameForTrace()Ljava/lang/String;
 
@@ -305,9 +403,9 @@
 
     move-result v5
 
-    invoke-static {v6, v7, v4, v5}, Landroid/os/Trace;->asyncTraceEnd(JLjava/lang/String;I)V
+    invoke-static {v10, v11, v4, v5}, Landroid/os/Trace;->asyncTraceEnd(JLjava/lang/String;I)V
 
-    :cond_4
+    :cond_5
     return-void
 .end method
 
@@ -356,7 +454,7 @@
     return v2
 .end method
 
-.method private getCurrentIterationFraction(F)F
+.method private getCurrentIterationFraction(FZ)F
     .locals 3
 
     invoke-direct {p0, p1}, Landroid/animation/ValueAnimator;->clampFraction(F)F
@@ -371,7 +469,7 @@
 
     sub-float v0, p1, v2
 
-    invoke-direct {p0, v1}, Landroid/animation/ValueAnimator;->shouldPlayBackward(I)Z
+    invoke-direct {p0, v1, p2}, Landroid/animation/ValueAnimator;->shouldPlayBackward(IZ)Z
 
     move-result v2
 
@@ -430,7 +528,7 @@
 
     cmp-long v0, v0, v2
 
-    if-lez v0, :cond_0
+    if-ltz v0, :cond_0
 
     const/4 v0, 0x1
 
@@ -444,7 +542,7 @@
 .end method
 
 .method private notifyStartListeners()V
-    .locals 4
+    .locals 5
 
     iget-object v3, p0, Landroid/animation/ValueAnimator;->mListeners:Ljava/util/ArrayList;
 
@@ -452,16 +550,10 @@
 
     iget-boolean v3, p0, Landroid/animation/ValueAnimator;->mStartListenersCalled:Z
 
-    if-eqz v3, :cond_1
+    xor-int/lit8 v3, v3, 0x1
 
-    :cond_0
-    const/4 v3, 0x1
+    if-eqz v3, :cond_0
 
-    iput-boolean v3, p0, Landroid/animation/ValueAnimator;->mStartListenersCalled:Z
-
-    return-void
-
-    :cond_1
     iget-object v3, p0, Landroid/animation/ValueAnimator;->mListeners:Ljava/util/ArrayList;
 
     invoke-virtual {v3}, Ljava/util/ArrayList;->clone()Ljava/lang/Object;
@@ -485,11 +577,20 @@
 
     check-cast v3, Landroid/animation/Animator$AnimatorListener;
 
-    invoke-interface {v3, p0}, Landroid/animation/Animator$AnimatorListener;->onAnimationStart(Landroid/animation/Animator;)V
+    iget-boolean v4, p0, Landroid/animation/ValueAnimator;->mReversing:Z
+
+    invoke-interface {v3, p0, v4}, Landroid/animation/Animator$AnimatorListener;->onAnimationStart(Landroid/animation/Animator;Z)V
 
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
+
+    :cond_0
+    const/4 v3, 0x1
+
+    iput-boolean v3, p0, Landroid/animation/ValueAnimator;->mStartListenersCalled:Z
+
+    return-void
 .end method
 
 .method public static varargs ofArgb([I)Landroid/animation/ValueAnimator;
@@ -560,6 +661,25 @@
     return-object v0
 .end method
 
+.method private removeAnimationCallback()V
+    .locals 1
+
+    iget-boolean v0, p0, Landroid/animation/ValueAnimator;->mSelfPulse:Z
+
+    if-nez v0, :cond_0
+
+    return-void
+
+    :cond_0
+    invoke-virtual {p0}, Landroid/animation/ValueAnimator;->getAnimationHandler()Landroid/animation/AnimationHandler;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p0}, Landroid/animation/AnimationHandler;->removeCallback(Landroid/animation/AnimationHandler$AnimationFrameCallback;)V
+
+    return-void
+.end method
+
 .method public static setDurationScale(F)V
     .locals 0
 
@@ -578,7 +698,7 @@
     return-void
 .end method
 
-.method private shouldPlayBackward(I)Z
+.method private shouldPlayBackward(IZ)Z
     .locals 4
 
     const/4 v0, 0x1
@@ -606,9 +726,7 @@
     if-ne v2, v3, :cond_4
 
     :cond_0
-    iget-boolean v2, p0, Landroid/animation/ValueAnimator;->mReversing:Z
-
-    if-eqz v2, :cond_2
+    if-eqz p2, :cond_2
 
     rem-int/lit8 v2, p1, 0x2
 
@@ -636,68 +754,72 @@
     goto :goto_1
 
     :cond_4
-    iget-boolean v0, p0, Landroid/animation/ValueAnimator;->mReversing:Z
-
-    return v0
+    return p2
 .end method
 
 .method private start(Z)V
-    .locals 12
+    .locals 13
 
-    const/4 v11, 0x1
+    const/4 v12, 0x0
 
-    const/4 v10, 0x0
+    const/high16 v7, -0x40800000    # -1.0f
 
-    const/4 v9, 0x0
+    const-wide/16 v10, 0x0
 
-    const/high16 v8, -0x40800000    # -1.0f
+    const-wide/16 v8, -0x1
 
-    const-wide/16 v6, 0x0
+    const/4 v6, 0x0
 
     invoke-static {}, Landroid/os/Looper;->myLooper()Landroid/os/Looper;
 
-    move-result-object v2
+    move-result-object v1
 
-    if-nez v2, :cond_0
+    if-nez v1, :cond_0
 
-    new-instance v2, Landroid/util/AndroidRuntimeException;
+    new-instance v1, Landroid/util/AndroidRuntimeException;
 
-    const-string/jumbo v3, "Animators may only be run on Looper threads"
+    const-string/jumbo v2, "Animators may only be run on Looper threads"
 
-    invoke-direct {v2, v3}, Landroid/util/AndroidRuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v2}, Landroid/util/AndroidRuntimeException;-><init>(Ljava/lang/String;)V
 
-    throw v2
+    throw v1
 
     :cond_0
     iput-boolean p1, p0, Landroid/animation/ValueAnimator;->mReversing:Z
 
+    iget-boolean v1, p0, Landroid/animation/ValueAnimator;->mSuppressSelfPulseRequested:Z
+
+    xor-int/lit8 v1, v1, 0x1
+
+    iput-boolean v1, p0, Landroid/animation/ValueAnimator;->mSelfPulse:Z
+
     if-eqz p1, :cond_1
 
-    iget v2, p0, Landroid/animation/ValueAnimator;->mSeekFraction:F
+    iget v1, p0, Landroid/animation/ValueAnimator;->mSeekFraction:F
 
-    cmpl-float v2, v2, v8
+    cmpl-float v1, v1, v7
 
-    if-eqz v2, :cond_1
+    if-eqz v1, :cond_1
 
-    iget v2, p0, Landroid/animation/ValueAnimator;->mSeekFraction:F
+    iget v1, p0, Landroid/animation/ValueAnimator;->mSeekFraction:F
 
-    cmpl-float v2, v2, v9
+    cmpl-float v1, v1, v12
 
-    if-eqz v2, :cond_1
+    if-eqz v1, :cond_1
 
-    iget v2, p0, Landroid/animation/ValueAnimator;->mRepeatCount:I
+    iget v1, p0, Landroid/animation/ValueAnimator;->mRepeatCount:I
 
-    const/4 v3, -0x1
+    const/4 v2, -0x1
 
-    if-ne v2, v3, :cond_4
+    if-ne v1, v2, :cond_4
 
-    iget v2, p0, Landroid/animation/ValueAnimator;->mSeekFraction:F
+    iget v1, p0, Landroid/animation/ValueAnimator;->mSeekFraction:F
 
-    float-to-double v2, v2
+    float-to-double v2, v1
 
-    iget v4, p0, Landroid/animation/ValueAnimator;->mSeekFraction:F
+    iget v1, p0, Landroid/animation/ValueAnimator;->mSeekFraction:F
 
-    float-to-double v4, v4
+    float-to-double v4, v1
 
     invoke-static {v4, v5}, Ljava/lang/Math;->floor(D)D
 
@@ -705,88 +827,90 @@
 
     sub-double/2addr v2, v4
 
-    double-to-float v1, v2
+    double-to-float v0, v2
 
-    const/high16 v2, 0x3f800000    # 1.0f
+    const/high16 v1, 0x3f800000    # 1.0f
 
-    sub-float/2addr v2, v1
+    sub-float/2addr v1, v0
 
-    iput v2, p0, Landroid/animation/ValueAnimator;->mSeekFraction:F
+    iput v1, p0, Landroid/animation/ValueAnimator;->mSeekFraction:F
 
     :cond_1
     :goto_0
-    iput-boolean v11, p0, Landroid/animation/ValueAnimator;->mStarted:Z
+    const/4 v1, 0x1
 
-    iput-boolean v10, p0, Landroid/animation/ValueAnimator;->mPaused:Z
+    iput-boolean v1, p0, Landroid/animation/ValueAnimator;->mStarted:Z
 
-    iput-boolean v10, p0, Landroid/animation/ValueAnimator;->mRunning:Z
+    iput-boolean v6, p0, Landroid/animation/ValueAnimator;->mPaused:Z
 
-    iput-wide v6, p0, Landroid/animation/ValueAnimator;->mLastFrameTime:J
+    iput-boolean v6, p0, Landroid/animation/ValueAnimator;->mRunning:Z
 
-    invoke-static {}, Landroid/animation/AnimationHandler;->getInstance()Landroid/animation/AnimationHandler;
+    iput-boolean v6, p0, Landroid/animation/ValueAnimator;->mAnimationEndRequested:Z
 
-    move-result-object v0
+    iput-wide v8, p0, Landroid/animation/ValueAnimator;->mLastFrameTime:J
 
-    iget-wide v2, p0, Landroid/animation/ValueAnimator;->mStartDelay:J
+    iput-wide v8, p0, Landroid/animation/ValueAnimator;->mFirstFrameTime:J
 
-    long-to-float v2, v2
+    iput-wide v8, p0, Landroid/animation/ValueAnimator;->mStartTime:J
 
-    sget v3, Landroid/animation/ValueAnimator;->sDurationScale:F
-
-    mul-float/2addr v2, v3
-
-    float-to-long v2, v2
-
-    invoke-virtual {v0, p0, v2, v3}, Landroid/animation/AnimationHandler;->addAnimationFrameCallback(Landroid/animation/AnimationHandler$AnimationFrameCallback;J)V
+    invoke-direct {p0, v10, v11}, Landroid/animation/ValueAnimator;->addAnimationCallback(J)V
 
     iget-wide v2, p0, Landroid/animation/ValueAnimator;->mStartDelay:J
 
-    cmp-long v2, v2, v6
+    cmp-long v1, v2, v10
 
-    if-eqz v2, :cond_2
+    if-eqz v1, :cond_2
 
-    iget v2, p0, Landroid/animation/ValueAnimator;->mSeekFraction:F
+    iget v1, p0, Landroid/animation/ValueAnimator;->mSeekFraction:F
 
-    cmpl-float v2, v2, v9
+    cmpl-float v1, v1, v12
 
-    if-ltz v2, :cond_3
+    if-ltz v1, :cond_5
 
     :cond_2
+    :goto_1
     invoke-direct {p0}, Landroid/animation/ValueAnimator;->startAnimation()V
 
-    iget v2, p0, Landroid/animation/ValueAnimator;->mSeekFraction:F
+    iget v1, p0, Landroid/animation/ValueAnimator;->mSeekFraction:F
 
-    cmpl-float v2, v2, v8
+    cmpl-float v1, v1, v7
 
-    if-nez v2, :cond_5
+    if-nez v1, :cond_6
 
-    invoke-virtual {p0, v6, v7}, Landroid/animation/ValueAnimator;->setCurrentPlayTime(J)V
+    invoke-virtual {p0, v10, v11}, Landroid/animation/ValueAnimator;->setCurrentPlayTime(J)V
 
     :cond_3
-    :goto_1
+    :goto_2
     return-void
 
     :cond_4
-    iget v2, p0, Landroid/animation/ValueAnimator;->mRepeatCount:I
+    iget v1, p0, Landroid/animation/ValueAnimator;->mRepeatCount:I
 
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 v1, v1, 0x1
 
-    int-to-float v2, v2
+    int-to-float v1, v1
 
-    iget v3, p0, Landroid/animation/ValueAnimator;->mSeekFraction:F
+    iget v2, p0, Landroid/animation/ValueAnimator;->mSeekFraction:F
 
-    sub-float/2addr v2, v3
+    sub-float/2addr v1, v2
 
-    iput v2, p0, Landroid/animation/ValueAnimator;->mSeekFraction:F
+    iput v1, p0, Landroid/animation/ValueAnimator;->mSeekFraction:F
 
     goto :goto_0
 
     :cond_5
-    iget v2, p0, Landroid/animation/ValueAnimator;->mSeekFraction:F
+    iget-boolean v1, p0, Landroid/animation/ValueAnimator;->mReversing:Z
 
-    invoke-virtual {p0, v2}, Landroid/animation/ValueAnimator;->setCurrentFraction(F)V
+    if-eqz v1, :cond_3
 
     goto :goto_1
+
+    :cond_6
+    iget v1, p0, Landroid/animation/ValueAnimator;->mSeekFraction:F
+
+    invoke-virtual {p0, v1}, Landroid/animation/ValueAnimator;->setCurrentFraction(F)V
+
+    goto :goto_2
 .end method
 
 .method private startAnimation()V
@@ -872,6 +996,138 @@
     return-void
 .end method
 
+.method animateBasedOnPlayTime(JJZ)V
+    .locals 13
+
+    const-wide/16 v8, 0x0
+
+    cmp-long v7, p1, v8
+
+    if-ltz v7, :cond_0
+
+    cmp-long v7, p3, v8
+
+    if-gez v7, :cond_1
+
+    :cond_0
+    new-instance v7, Ljava/lang/UnsupportedOperationException;
+
+    const-string/jumbo v8, "Error: Play time should never be negative."
+
+    invoke-direct {v7, v8}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
+
+    throw v7
+
+    :cond_1
+    invoke-virtual {p0}, Landroid/animation/ValueAnimator;->initAnimation()V
+
+    iget v7, p0, Landroid/animation/ValueAnimator;->mRepeatCount:I
+
+    if-lez v7, :cond_2
+
+    iget-wide v8, p0, Landroid/animation/ValueAnimator;->mDuration:J
+
+    div-long v8, p1, v8
+
+    long-to-int v4, v8
+
+    iget-wide v8, p0, Landroid/animation/ValueAnimator;->mDuration:J
+
+    div-long v8, p3, v8
+
+    long-to-int v5, v8
+
+    iget v7, p0, Landroid/animation/ValueAnimator;->mRepeatCount:I
+
+    invoke-static {v4, v7}, Ljava/lang/Math;->min(II)I
+
+    move-result v4
+
+    iget v7, p0, Landroid/animation/ValueAnimator;->mRepeatCount:I
+
+    invoke-static {v5, v7}, Ljava/lang/Math;->min(II)I
+
+    move-result v5
+
+    if-eq v4, v5, :cond_2
+
+    iget-object v7, p0, Landroid/animation/ValueAnimator;->mListeners:Ljava/util/ArrayList;
+
+    if-eqz v7, :cond_2
+
+    iget-object v7, p0, Landroid/animation/ValueAnimator;->mListeners:Ljava/util/ArrayList;
+
+    invoke-virtual {v7}, Ljava/util/ArrayList;->size()I
+
+    move-result v6
+
+    const/4 v3, 0x0
+
+    :goto_0
+    if-ge v3, v6, :cond_2
+
+    iget-object v7, p0, Landroid/animation/ValueAnimator;->mListeners:Ljava/util/ArrayList;
+
+    invoke-virtual {v7, v3}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v7
+
+    check-cast v7, Landroid/animation/Animator$AnimatorListener;
+
+    invoke-interface {v7, p0}, Landroid/animation/Animator$AnimatorListener;->onAnimationRepeat(Landroid/animation/Animator;)V
+
+    add-int/lit8 v3, v3, 0x1
+
+    goto :goto_0
+
+    :cond_2
+    iget v7, p0, Landroid/animation/ValueAnimator;->mRepeatCount:I
+
+    const/4 v8, -0x1
+
+    if-eq v7, v8, :cond_3
+
+    iget v7, p0, Landroid/animation/ValueAnimator;->mRepeatCount:I
+
+    add-int/lit8 v7, v7, 0x1
+
+    int-to-long v8, v7
+
+    iget-wide v10, p0, Landroid/animation/ValueAnimator;->mDuration:J
+
+    mul-long/2addr v8, v10
+
+    cmp-long v7, p1, v8
+
+    if-ltz v7, :cond_3
+
+    move/from16 v0, p5
+
+    invoke-virtual {p0, v0}, Landroid/animation/ValueAnimator;->skipToEndValue(Z)V
+
+    :goto_1
+    return-void
+
+    :cond_3
+    long-to-float v7, p1
+
+    iget-wide v8, p0, Landroid/animation/ValueAnimator;->mDuration:J
+
+    long-to-float v8, v8
+
+    div-float v2, v7, v8
+
+    move/from16 v0, p5
+
+    invoke-direct {p0, v2, v0}, Landroid/animation/ValueAnimator;->getCurrentIterationFraction(FZ)F
+
+    move-result v2
+
+    invoke-virtual {p0, v2}, Landroid/animation/ValueAnimator;->animateValue(F)V
+
+    goto :goto_1
+.end method
+
 .method animateBasedOnTime(J)Z
     .locals 13
 
@@ -950,7 +1206,9 @@
 
     iget v10, p0, Landroid/animation/ValueAnimator;->mOverallFraction:F
 
-    invoke-direct {p0, v10}, Landroid/animation/ValueAnimator;->getCurrentIterationFraction(F)F
+    iget-boolean v11, p0, Landroid/animation/ValueAnimator;->mReversing:Z
+
+    invoke-direct {p0, v10, v11}, Landroid/animation/ValueAnimator;->getCurrentIterationFraction(FZ)F
 
     move-result v0
 
@@ -982,16 +1240,10 @@
     :cond_6
     if-eqz v6, :cond_7
 
-    if-eqz v5, :cond_8
+    xor-int/lit8 v10, v5, 0x1
 
-    :cond_7
-    if-eqz v5, :cond_0
+    if-eqz v10, :cond_7
 
-    const/4 v1, 0x1
-
-    goto :goto_3
-
-    :cond_8
     iget-object v10, p0, Landroid/animation/ValueAnimator;->mListeners:Ljava/util/ArrayList;
 
     if-eqz v10, :cond_0
@@ -1020,6 +1272,13 @@
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_4
+
+    :cond_7
+    if-eqz v5, :cond_0
+
+    const/4 v1, 0x1
+
+    goto :goto_3
 .end method
 
 .method animateValue(F)V
@@ -1189,7 +1448,7 @@
 
     const/4 v10, 0x0
 
-    const-wide/16 v8, 0x0
+    const-wide/16 v8, -0x1
 
     const/4 v7, 0x0
 
@@ -1240,9 +1499,17 @@
 
     iput-wide v8, v0, Landroid/animation/ValueAnimator;->mLastFrameTime:J
 
+    iput-wide v8, v0, Landroid/animation/ValueAnimator;->mFirstFrameTime:J
+
     iput v10, v0, Landroid/animation/ValueAnimator;->mOverallFraction:F
 
     iput v10, v0, Landroid/animation/ValueAnimator;->mCurrentFraction:F
+
+    const/4 v5, 0x1
+
+    iput-boolean v5, v0, Landroid/animation/ValueAnimator;->mSelfPulse:Z
+
+    iput-boolean v7, v0, Landroid/animation/ValueAnimator;->mSuppressSelfPulseRequested:Z
 
     iget-object v4, p0, Landroid/animation/ValueAnimator;->mValues:[Landroid/animation/PropertyValuesHolder;
 
@@ -1291,6 +1558,21 @@
     return-object v0
 .end method
 
+.method public bridge synthetic clone()Ljava/lang/Object;
+    .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/lang/CloneNotSupportedException;
+        }
+    .end annotation
+
+    invoke-virtual {p0}, Landroid/animation/ValueAnimator;->clone()Landroid/animation/ValueAnimator;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
 .method public commitAnimationFrame(J)V
     .locals 5
 
@@ -1322,95 +1604,70 @@
     return-void
 .end method
 
-.method public final doAnimationFrame(J)V
+.method public final doAnimationFrame(J)Z
     .locals 11
+
+    iget-wide v6, p0, Landroid/animation/ValueAnimator;->mStartTime:J
 
     const-wide/16 v8, 0x0
 
-    const/4 v10, 0x0
+    cmp-long v3, v6, v8
 
-    invoke-static {}, Landroid/animation/AnimationHandler;->getInstance()Landroid/animation/AnimationHandler;
+    if-gez v3, :cond_0
 
-    move-result-object v3
+    iget-boolean v3, p0, Landroid/animation/ValueAnimator;->mReversing:Z
 
-    iget-wide v6, p0, Landroid/animation/ValueAnimator;->mLastFrameTime:J
+    if-eqz v3, :cond_1
 
-    cmp-long v6, v6, v8
-
-    if-nez v6, :cond_1
-
-    invoke-virtual {v3, p0}, Landroid/animation/AnimationHandler;->addOneShotCommitCallback(Landroid/animation/AnimationHandler$AnimationFrameCallback;)V
-
-    iget-wide v6, p0, Landroid/animation/ValueAnimator;->mStartDelay:J
-
-    cmp-long v6, v6, v8
-
-    if-lez v6, :cond_0
-
-    invoke-direct {p0}, Landroid/animation/ValueAnimator;->startAnimation()V
-
-    :cond_0
-    iget v6, p0, Landroid/animation/ValueAnimator;->mSeekFraction:F
-
-    const/4 v7, 0x0
-
-    cmpg-float v6, v6, v7
-
-    if-gez v6, :cond_2
-
-    iput-wide p1, p0, Landroid/animation/ValueAnimator;->mStartTime:J
+    move-wide v6, p1
 
     :goto_0
-    iput-boolean v10, p0, Landroid/animation/ValueAnimator;->mStartTimeCommitted:Z
+    iput-wide v6, p0, Landroid/animation/ValueAnimator;->mStartTime:J
 
-    :cond_1
-    iput-wide p1, p0, Landroid/animation/ValueAnimator;->mLastFrameTime:J
+    :cond_0
+    iget-boolean v3, p0, Landroid/animation/ValueAnimator;->mPaused:Z
 
-    iget-boolean v6, p0, Landroid/animation/ValueAnimator;->mPaused:Z
-
-    if-eqz v6, :cond_3
+    if-eqz v3, :cond_2
 
     iput-wide p1, p0, Landroid/animation/ValueAnimator;->mPauseTime:J
 
-    invoke-virtual {v3, p0}, Landroid/animation/AnimationHandler;->removeCallback(Landroid/animation/AnimationHandler$AnimationFrameCallback;)V
+    invoke-direct {p0}, Landroid/animation/ValueAnimator;->removeAnimationCallback()V
 
-    return-void
+    const/4 v3, 0x0
 
-    :cond_2
-    invoke-direct {p0}, Landroid/animation/ValueAnimator;->getScaledDuration()J
+    return v3
 
-    move-result-wide v6
+    :cond_1
+    iget-wide v6, p0, Landroid/animation/ValueAnimator;->mStartDelay:J
 
-    long-to-float v6, v6
+    long-to-float v3, v6
 
-    iget v7, p0, Landroid/animation/ValueAnimator;->mSeekFraction:F
+    sget v6, Landroid/animation/ValueAnimator;->sDurationScale:F
 
-    mul-float/2addr v6, v7
+    mul-float/2addr v3, v6
 
-    float-to-long v4, v6
+    float-to-long v6, v3
 
-    sub-long v6, p1, v4
-
-    iput-wide v6, p0, Landroid/animation/ValueAnimator;->mStartTime:J
-
-    const/high16 v6, -0x40800000    # -1.0f
-
-    iput v6, p0, Landroid/animation/ValueAnimator;->mSeekFraction:F
+    add-long/2addr v6, p1
 
     goto :goto_0
 
-    :cond_3
-    iget-boolean v6, p0, Landroid/animation/ValueAnimator;->mResumed:Z
+    :cond_2
+    iget-boolean v3, p0, Landroid/animation/ValueAnimator;->mResumed:Z
 
-    if-eqz v6, :cond_5
+    if-eqz v3, :cond_3
 
-    iput-boolean v10, p0, Landroid/animation/ValueAnimator;->mResumed:Z
+    const/4 v3, 0x0
+
+    iput-boolean v3, p0, Landroid/animation/ValueAnimator;->mResumed:Z
 
     iget-wide v6, p0, Landroid/animation/ValueAnimator;->mPauseTime:J
 
-    cmp-long v6, v6, v8
+    const-wide/16 v8, 0x0
 
-    if-lez v6, :cond_4
+    cmp-long v3, v6, v8
+
+    if-lez v3, :cond_3
 
     iget-wide v6, p0, Landroid/animation/ValueAnimator;->mStartTime:J
 
@@ -1422,12 +1679,81 @@
 
     iput-wide v6, p0, Landroid/animation/ValueAnimator;->mStartTime:J
 
-    iput-boolean v10, p0, Landroid/animation/ValueAnimator;->mStartTimeCommitted:Z
+    :cond_3
+    iget-boolean v3, p0, Landroid/animation/ValueAnimator;->mRunning:Z
+
+    if-nez v3, :cond_5
+
+    iget-wide v6, p0, Landroid/animation/ValueAnimator;->mStartTime:J
+
+    cmp-long v3, v6, p1
+
+    if-lez v3, :cond_4
+
+    iget v3, p0, Landroid/animation/ValueAnimator;->mSeekFraction:F
+
+    const/high16 v6, -0x40800000    # -1.0f
+
+    cmpl-float v3, v3, v6
+
+    if-nez v3, :cond_4
+
+    const/4 v3, 0x0
+
+    return v3
 
     :cond_4
-    invoke-virtual {v3, p0}, Landroid/animation/AnimationHandler;->addOneShotCommitCallback(Landroid/animation/AnimationHandler$AnimationFrameCallback;)V
+    const/4 v3, 0x1
+
+    iput-boolean v3, p0, Landroid/animation/ValueAnimator;->mRunning:Z
+
+    invoke-direct {p0}, Landroid/animation/ValueAnimator;->startAnimation()V
 
     :cond_5
+    iget-wide v6, p0, Landroid/animation/ValueAnimator;->mLastFrameTime:J
+
+    const-wide/16 v8, 0x0
+
+    cmp-long v3, v6, v8
+
+    if-gez v3, :cond_7
+
+    iget v3, p0, Landroid/animation/ValueAnimator;->mSeekFraction:F
+
+    const/4 v6, 0x0
+
+    cmpl-float v3, v3, v6
+
+    if-ltz v3, :cond_6
+
+    invoke-direct {p0}, Landroid/animation/ValueAnimator;->getScaledDuration()J
+
+    move-result-wide v6
+
+    long-to-float v3, v6
+
+    iget v6, p0, Landroid/animation/ValueAnimator;->mSeekFraction:F
+
+    mul-float/2addr v3, v6
+
+    float-to-long v4, v3
+
+    sub-long v6, p1, v4
+
+    iput-wide v6, p0, Landroid/animation/ValueAnimator;->mStartTime:J
+
+    const/high16 v3, -0x40800000    # -1.0f
+
+    iput v3, p0, Landroid/animation/ValueAnimator;->mSeekFraction:F
+
+    :cond_6
+    const/4 v3, 0x0
+
+    iput-boolean v3, p0, Landroid/animation/ValueAnimator;->mStartTimeCommitted:Z
+
+    :cond_7
+    iput-wide p1, p0, Landroid/animation/ValueAnimator;->mLastFrameTime:J
+
     iget-wide v6, p0, Landroid/animation/ValueAnimator;->mStartTime:J
 
     invoke-static {p1, p2, v6, v7}, Ljava/lang/Math;->max(JJ)J
@@ -1438,12 +1764,12 @@
 
     move-result v2
 
-    if-eqz v2, :cond_6
+    if-eqz v2, :cond_8
 
     invoke-direct {p0}, Landroid/animation/ValueAnimator;->endAnimation()V
 
-    :cond_6
-    return-void
+    :cond_8
+    return v2
 .end method
 
 .method public end()V
@@ -1478,7 +1804,9 @@
     :goto_0
     iget v0, p0, Landroid/animation/ValueAnimator;->mRepeatCount:I
 
-    invoke-direct {p0, v0}, Landroid/animation/ValueAnimator;->shouldPlayBackward(I)Z
+    iget-boolean v1, p0, Landroid/animation/ValueAnimator;->mReversing:Z
+
+    invoke-direct {p0, v0, v1}, Landroid/animation/ValueAnimator;->shouldPlayBackward(IZ)Z
 
     move-result v0
 
@@ -1570,6 +1898,16 @@
 
     :cond_0
     return-object v2
+.end method
+
+.method public getAnimationHandler()Landroid/animation/AnimationHandler;
+    .locals 1
+
+    invoke-static {}, Landroid/animation/AnimationHandler;->getInstance()Landroid/animation/AnimationHandler;
+
+    move-result-object v0
+
+    return-object v0
 .end method
 
 .method public getCurrentPlayTime()J
@@ -1696,7 +2034,7 @@
 .end method
 
 .method public getTotalDuration()J
-    .locals 6
+    .locals 8
 
     iget v0, p0, Landroid/animation/ValueAnimator;->mRepeatCount:I
 
@@ -1715,9 +2053,11 @@
 
     iget v4, p0, Landroid/animation/ValueAnimator;->mRepeatCount:I
 
-    add-int/lit8 v4, v4, 0x1
-
     int-to-long v4, v4
+
+    const-wide/16 v6, 0x1
+
+    add-long/2addr v4, v6
 
     mul-long/2addr v2, v4
 
@@ -1769,6 +2109,14 @@
     return-void
 .end method
 
+.method isInitialized()Z
+    .locals 1
+
+    iget-boolean v0, p0, Landroid/animation/ValueAnimator;->mInitialized:Z
+
+    return v0
+.end method
+
 .method public isRunning()Z
     .locals 1
 
@@ -1808,6 +2156,25 @@
 
     :cond_0
     return-void
+.end method
+
+.method pulseAnimationFrame(J)Z
+    .locals 1
+
+    iget-boolean v0, p0, Landroid/animation/ValueAnimator;->mSelfPulse:Z
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x0
+
+    return v0
+
+    :cond_0
+    invoke-virtual {p0, p1, p2}, Landroid/animation/ValueAnimator;->doAnimationFrame(J)Z
+
+    move-result v0
+
+    return v0
 .end method
 
 .method public removeAllUpdateListeners()V
@@ -1862,132 +2229,112 @@
 .end method
 
 .method public resume()V
-    .locals 6
+    .locals 4
 
-    const-wide/16 v4, 0x0
+    const-wide/16 v2, 0x0
 
     invoke-static {}, Landroid/os/Looper;->myLooper()Landroid/os/Looper;
 
-    move-result-object v1
+    move-result-object v0
 
-    if-nez v1, :cond_0
+    if-nez v0, :cond_0
 
-    new-instance v1, Landroid/util/AndroidRuntimeException;
+    new-instance v0, Landroid/util/AndroidRuntimeException;
 
-    const-string/jumbo v2, "Animators may only be resumed from the same thread that the animator was started on"
+    const-string/jumbo v1, "Animators may only be resumed from the same thread that the animator was started on"
 
-    invoke-direct {v1, v2}, Landroid/util/AndroidRuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Landroid/util/AndroidRuntimeException;-><init>(Ljava/lang/String;)V
 
-    throw v1
+    throw v0
 
     :cond_0
-    iget-boolean v1, p0, Landroid/animation/ValueAnimator;->mPaused:Z
+    iget-boolean v0, p0, Landroid/animation/ValueAnimator;->mPaused:Z
 
-    if-eqz v1, :cond_1
+    if-eqz v0, :cond_1
 
-    iget-boolean v1, p0, Landroid/animation/ValueAnimator;->mResumed:Z
+    iget-boolean v0, p0, Landroid/animation/ValueAnimator;->mResumed:Z
 
-    if-eqz v1, :cond_2
+    xor-int/lit8 v0, v0, 0x1
+
+    if-eqz v0, :cond_1
+
+    const/4 v0, 0x1
+
+    iput-boolean v0, p0, Landroid/animation/ValueAnimator;->mResumed:Z
+
+    iget-wide v0, p0, Landroid/animation/ValueAnimator;->mPauseTime:J
+
+    cmp-long v0, v0, v2
+
+    if-lez v0, :cond_1
+
+    invoke-direct {p0, v2, v3}, Landroid/animation/ValueAnimator;->addAnimationCallback(J)V
 
     :cond_1
-    :goto_0
     invoke-super {p0}, Landroid/animation/Animator;->resume()V
 
     return-void
-
-    :cond_2
-    const/4 v1, 0x1
-
-    iput-boolean v1, p0, Landroid/animation/ValueAnimator;->mResumed:Z
-
-    iget-wide v2, p0, Landroid/animation/ValueAnimator;->mPauseTime:J
-
-    cmp-long v1, v2, v4
-
-    if-lez v1, :cond_1
-
-    invoke-static {}, Landroid/animation/AnimationHandler;->getInstance()Landroid/animation/AnimationHandler;
-
-    move-result-object v0
-
-    invoke-virtual {v0, p0, v4, v5}, Landroid/animation/AnimationHandler;->addAnimationFrameCallback(Landroid/animation/AnimationHandler$AnimationFrameCallback;J)V
-
-    goto :goto_0
 .end method
 
 .method public reverse()V
-    .locals 10
+    .locals 9
 
-    const/4 v6, 0x0
-
-    const/4 v7, 0x1
+    const/4 v8, 0x1
 
     invoke-direct {p0}, Landroid/animation/ValueAnimator;->isPulsingInternal()Z
 
-    move-result v8
+    move-result v6
 
-    if-eqz v8, :cond_1
+    if-eqz v6, :cond_0
 
     invoke-static {}, Landroid/view/animation/AnimationUtils;->currentAnimationTimeMillis()J
 
     move-result-wide v2
 
-    iget-wide v8, p0, Landroid/animation/ValueAnimator;->mStartTime:J
+    iget-wide v6, p0, Landroid/animation/ValueAnimator;->mStartTime:J
 
-    sub-long v0, v2, v8
+    sub-long v0, v2, v6
 
     invoke-direct {p0}, Landroid/animation/ValueAnimator;->getScaledDuration()J
 
-    move-result-wide v8
+    move-result-wide v6
 
-    sub-long v4, v8, v0
+    sub-long v4, v6, v0
 
-    sub-long v8, v2, v4
+    sub-long v6, v2, v4
 
-    iput-wide v8, p0, Landroid/animation/ValueAnimator;->mStartTime:J
+    iput-wide v6, p0, Landroid/animation/ValueAnimator;->mStartTime:J
 
-    iput-boolean v7, p0, Landroid/animation/ValueAnimator;->mStartTimeCommitted:Z
+    iput-boolean v8, p0, Landroid/animation/ValueAnimator;->mStartTimeCommitted:Z
 
-    iget-boolean v8, p0, Landroid/animation/ValueAnimator;->mReversing:Z
+    iget-boolean v6, p0, Landroid/animation/ValueAnimator;->mReversing:Z
 
-    if-eqz v8, :cond_0
+    xor-int/lit8 v6, v6, 0x1
 
-    :goto_0
     iput-boolean v6, p0, Landroid/animation/ValueAnimator;->mReversing:Z
 
-    :goto_1
+    :goto_0
     return-void
 
     :cond_0
-    move v6, v7
+    iget-boolean v6, p0, Landroid/animation/ValueAnimator;->mStarted:Z
 
-    goto :goto_0
+    if-eqz v6, :cond_1
 
-    :cond_1
-    iget-boolean v8, p0, Landroid/animation/ValueAnimator;->mStarted:Z
+    iget-boolean v6, p0, Landroid/animation/ValueAnimator;->mReversing:Z
 
-    if-eqz v8, :cond_3
+    xor-int/lit8 v6, v6, 0x1
 
-    iget-boolean v8, p0, Landroid/animation/ValueAnimator;->mReversing:Z
-
-    if-eqz v8, :cond_2
-
-    :goto_2
     iput-boolean v6, p0, Landroid/animation/ValueAnimator;->mReversing:Z
 
     invoke-virtual {p0}, Landroid/animation/ValueAnimator;->end()V
 
-    goto :goto_1
+    goto :goto_0
 
-    :cond_2
-    move v6, v7
+    :cond_1
+    invoke-direct {p0, v8}, Landroid/animation/ValueAnimator;->start(Z)V
 
-    goto :goto_2
-
-    :cond_3
-    invoke-direct {p0, v7}, Landroid/animation/ValueAnimator;->start(Z)V
-
-    goto :goto_1
+    goto :goto_0
 .end method
 
 .method public setAllowRunningAsynchronously(Z)V
@@ -2004,6 +2351,16 @@
     invoke-direct {p0, p1}, Landroid/animation/ValueAnimator;->clampFraction(F)F
 
     move-result p1
+
+    const/4 v1, 0x1
+
+    iput-boolean v1, p0, Landroid/animation/ValueAnimator;->mStartTimeCommitted:Z
+
+    invoke-direct {p0}, Landroid/animation/ValueAnimator;->isPulsingInternal()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
 
     invoke-direct {p0}, Landroid/animation/ValueAnimator;->getScaledDuration()J
 
@@ -2023,28 +2380,23 @@
 
     iput-wide v6, p0, Landroid/animation/ValueAnimator;->mStartTime:J
 
-    const/4 v1, 0x1
-
-    iput-boolean v1, p0, Landroid/animation/ValueAnimator;->mStartTimeCommitted:Z
-
-    invoke-direct {p0}, Landroid/animation/ValueAnimator;->isPulsingInternal()Z
-
-    move-result v1
-
-    if-nez v1, :cond_0
-
-    iput p1, p0, Landroid/animation/ValueAnimator;->mSeekFraction:F
-
-    :cond_0
+    :goto_0
     iput p1, p0, Landroid/animation/ValueAnimator;->mOverallFraction:F
 
-    invoke-direct {p0, p1}, Landroid/animation/ValueAnimator;->getCurrentIterationFraction(F)F
+    iget-boolean v1, p0, Landroid/animation/ValueAnimator;->mReversing:Z
+
+    invoke-direct {p0, p1, v1}, Landroid/animation/ValueAnimator;->getCurrentIterationFraction(FZ)F
 
     move-result v0
 
     invoke-virtual {p0, v0}, Landroid/animation/ValueAnimator;->animateValue(F)V
 
     return-void
+
+    :cond_0
+    iput p1, p0, Landroid/animation/ValueAnimator;->mSeekFraction:F
+
+    goto :goto_0
 .end method
 
 .method public setCurrentPlayTime(J)V
@@ -2419,6 +2771,43 @@
     return-void
 .end method
 
+.method skipToEndValue(Z)V
+    .locals 3
+
+    invoke-virtual {p0}, Landroid/animation/ValueAnimator;->initAnimation()V
+
+    if-eqz p1, :cond_1
+
+    const/4 v0, 0x0
+
+    :goto_0
+    iget v1, p0, Landroid/animation/ValueAnimator;->mRepeatCount:I
+
+    rem-int/lit8 v1, v1, 0x2
+
+    const/4 v2, 0x1
+
+    if-ne v1, v2, :cond_0
+
+    iget v1, p0, Landroid/animation/ValueAnimator;->mRepeatMode:I
+
+    const/4 v2, 0x2
+
+    if-ne v1, v2, :cond_0
+
+    const/4 v0, 0x0
+
+    :cond_0
+    invoke-virtual {p0, v0}, Landroid/animation/ValueAnimator;->animateValue(F)V
+
+    return-void
+
+    :cond_1
+    const/high16 v0, 0x3f800000    # 1.0f
+
+    goto :goto_0
+.end method
+
 .method public start()V
     .locals 1
 
@@ -2427,6 +2816,30 @@
     invoke-direct {p0, v0}, Landroid/animation/ValueAnimator;->start(Z)V
 
     return-void
+.end method
+
+.method startWithoutPulsing(Z)V
+    .locals 1
+
+    const/4 v0, 0x1
+
+    iput-boolean v0, p0, Landroid/animation/ValueAnimator;->mSuppressSelfPulseRequested:Z
+
+    if-eqz p1, :cond_0
+
+    invoke-virtual {p0}, Landroid/animation/ValueAnimator;->reverse()V
+
+    :goto_0
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Landroid/animation/ValueAnimator;->mSuppressSelfPulseRequested:Z
+
+    return-void
+
+    :cond_0
+    invoke-virtual {p0}, Landroid/animation/ValueAnimator;->start()V
+
+    goto :goto_0
 .end method
 
 .method public toString()Ljava/lang/String;

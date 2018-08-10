@@ -14,12 +14,6 @@
 .end annotation
 
 
-# static fields
-.field private static final LINES_CONSUMED_BY_ACTIONS:I = 0x4
-
-.field private static final MAX_LINES:I = 0xd
-
-
 # instance fields
 .field private mBigText:Ljava/lang/CharSequence;
 
@@ -46,46 +40,24 @@
 .end method
 
 .method static applyBigTextContentView(Landroid/app/Notification$Builder;Landroid/widget/RemoteViews;Ljava/lang/CharSequence;)V
-    .locals 4
+    .locals 3
 
-    sget v3, Landroid/app/Notification$Builder;->mAllowNotificationColorChange:I
+    const v2, 0x1020205
 
-    const v2, 0x102043a
-
-    if-eqz v3, :cond_0
-
-    invoke-interface {p2}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
-
-    move-result-object p2
-
-    :cond_0
     invoke-virtual {p1, v2, p2}, Landroid/widget/RemoteViews;->setTextViewText(ILjava/lang/CharSequence;)V
 
-    if-eqz v3, :cond_1
+    invoke-static {p0, p1, v2}, Landroid/app/Notification$Builder;->-wrap16(Landroid/app/Notification$Builder;Landroid/widget/RemoteViews;I)V
 
-    sget v3, Landroid/app/Notification$Builder;->mNotifSummaryTextColor:I
-
-    invoke-virtual {p1, v2, v3}, Landroid/widget/RemoteViews;->setTextColor(II)V
-
-    :cond_1
     invoke-static {p2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_0
 
     const/16 v0, 0x8
 
     :goto_0
     invoke-virtual {p1, v2, v0}, Landroid/widget/RemoteViews;->setViewVisibility(II)V
-
-    const-string/jumbo v0, "setMaxLines"
-
-    invoke-static {p0}, Landroid/app/Notification$BigTextStyle;->calculateMaxLines(Landroid/app/Notification$Builder;)I
-
-    move-result v1
-
-    invoke-virtual {p1, v2, v0, v1}, Landroid/widget/RemoteViews;->setInt(ILjava/lang/String;I)V
 
     const-string/jumbo v0, "setHasImage"
 
@@ -101,38 +73,10 @@
 
     return-void
 
-    :cond_2
+    :cond_0
     const/4 v0, 0x0
 
     goto :goto_0
-.end method
-
-.method private static calculateMaxLines(Landroid/app/Notification$Builder;)I
-    .locals 3
-
-    const/4 v0, 0x0
-
-    const/16 v1, 0xd
-
-    invoke-static {p0}, Landroid/app/Notification$Builder;->-get0(Landroid/app/Notification$Builder;)Ljava/util/ArrayList;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
-
-    move-result v2
-
-    if-lez v2, :cond_0
-
-    const/4 v0, 0x1
-
-    :cond_0
-    if-eqz v0, :cond_1
-
-    const/16 v1, 0x9
-
-    :cond_1
-    return v1
 .end method
 
 
@@ -192,7 +136,7 @@
 
     iget-object v3, p0, Landroid/app/Notification$BigTextStyle;->mBuilder:Landroid/app/Notification$Builder;
 
-    invoke-static {v3}, Landroid/app/Notification$Builder;->-wrap9(Landroid/app/Notification$Builder;)I
+    invoke-static {v3}, Landroid/app/Notification$Builder;->-wrap10(Landroid/app/Notification$Builder;)I
 
     move-result v3
 
@@ -214,7 +158,7 @@
 
     iget-object v4, p0, Landroid/app/Notification$BigTextStyle;->mBigText:Ljava/lang/CharSequence;
 
-    invoke-static {v3, v4}, Landroid/app/Notification$Builder;->-wrap12(Landroid/app/Notification$Builder;Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
+    invoke-static {v3, v4}, Landroid/app/Notification$Builder;->-wrap15(Landroid/app/Notification$Builder;Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
 
     move-result-object v0
 
@@ -226,7 +170,7 @@
 
     iget-object v3, p0, Landroid/app/Notification$BigTextStyle;->mBuilder:Landroid/app/Notification$Builder;
 
-    invoke-static {v3, v2}, Landroid/app/Notification$Builder;->-wrap12(Landroid/app/Notification$Builder;Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
+    invoke-static {v3, v2}, Landroid/app/Notification$Builder;->-wrap15(Landroid/app/Notification$Builder;Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
 
     move-result-object v0
 
@@ -236,6 +180,74 @@
     invoke-static {v3, v1, v0}, Landroid/app/Notification$BigTextStyle;->applyBigTextContentView(Landroid/app/Notification$Builder;Landroid/widget/RemoteViews;Ljava/lang/CharSequence;)V
 
     return-object v1
+.end method
+
+.method public makeContentView(Z)Landroid/widget/RemoteViews;
+    .locals 4
+
+    if-eqz p1, :cond_0
+
+    iget-object v2, p0, Landroid/app/Notification$BigTextStyle;->mBuilder:Landroid/app/Notification$Builder;
+
+    invoke-static {v2}, Landroid/app/Notification$Builder;->-get0(Landroid/app/Notification$Builder;)Ljava/util/ArrayList;
+
+    move-result-object v0
+
+    iget-object v2, p0, Landroid/app/Notification$BigTextStyle;->mBuilder:Landroid/app/Notification$Builder;
+
+    new-instance v3, Ljava/util/ArrayList;
+
+    invoke-direct {v3}, Ljava/util/ArrayList;-><init>()V
+
+    invoke-static {v2, v3}, Landroid/app/Notification$Builder;->-set0(Landroid/app/Notification$Builder;Ljava/util/ArrayList;)Ljava/util/ArrayList;
+
+    invoke-virtual {p0}, Landroid/app/Notification$BigTextStyle;->makeBigContentView()Landroid/widget/RemoteViews;
+
+    move-result-object v1
+
+    iget-object v2, p0, Landroid/app/Notification$BigTextStyle;->mBuilder:Landroid/app/Notification$Builder;
+
+    invoke-static {v2, v0}, Landroid/app/Notification$Builder;->-set0(Landroid/app/Notification$Builder;Ljava/util/ArrayList;)Ljava/util/ArrayList;
+
+    return-object v1
+
+    :cond_0
+    invoke-super {p0, p1}, Landroid/app/Notification$Style;->makeContentView(Z)Landroid/widget/RemoteViews;
+
+    move-result-object v2
+
+    return-object v2
+.end method
+
+.method public makeHeadsUpContentView(Z)Landroid/widget/RemoteViews;
+    .locals 1
+
+    if-eqz p1, :cond_0
+
+    iget-object v0, p0, Landroid/app/Notification$BigTextStyle;->mBuilder:Landroid/app/Notification$Builder;
+
+    invoke-static {v0}, Landroid/app/Notification$Builder;->-get0(Landroid/app/Notification$Builder;)Ljava/util/ArrayList;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
+
+    move-result v0
+
+    if-lez v0, :cond_0
+
+    invoke-virtual {p0}, Landroid/app/Notification$BigTextStyle;->makeBigContentView()Landroid/widget/RemoteViews;
+
+    move-result-object v0
+
+    return-object v0
+
+    :cond_0
+    invoke-super {p0, p1}, Landroid/app/Notification$Style;->makeHeadsUpContentView(Z)Landroid/widget/RemoteViews;
+
+    move-result-object v0
+
+    return-object v0
 .end method
 
 .method protected restoreFromExtras(Landroid/os/Bundle;)V

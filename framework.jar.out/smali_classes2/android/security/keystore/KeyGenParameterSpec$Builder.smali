@@ -64,122 +64,58 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;I)V
-    .locals 8
-
-    const/4 v3, 0x0
+    .locals 3
 
     const/4 v2, 0x0
 
-    const/4 v1, -0x1
+    const/4 v1, 0x1
 
-    const/4 v0, 0x1
+    const/4 v0, -0x1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput v1, p0, Landroid/security/keystore/KeyGenParameterSpec$Builder;->mUid:I
+    iput v0, p0, Landroid/security/keystore/KeyGenParameterSpec$Builder;->mUid:I
 
-    iput v1, p0, Landroid/security/keystore/KeyGenParameterSpec$Builder;->mKeySize:I
+    iput v0, p0, Landroid/security/keystore/KeyGenParameterSpec$Builder;->mKeySize:I
 
-    iput-boolean v0, p0, Landroid/security/keystore/KeyGenParameterSpec$Builder;->mRandomizedEncryptionRequired:Z
+    iput-boolean v1, p0, Landroid/security/keystore/KeyGenParameterSpec$Builder;->mRandomizedEncryptionRequired:Z
 
-    iput v1, p0, Landroid/security/keystore/KeyGenParameterSpec$Builder;->mUserAuthenticationValidityDurationSeconds:I
+    iput v0, p0, Landroid/security/keystore/KeyGenParameterSpec$Builder;->mUserAuthenticationValidityDurationSeconds:I
 
-    iput-object v3, p0, Landroid/security/keystore/KeyGenParameterSpec$Builder;->mAttestationChallenge:[B
+    iput-object v2, p0, Landroid/security/keystore/KeyGenParameterSpec$Builder;->mAttestationChallenge:[B
 
-    iput-boolean v2, p0, Landroid/security/keystore/KeyGenParameterSpec$Builder;->mUniqueIdIncluded:Z
+    const/4 v0, 0x0
 
-    iput-boolean v0, p0, Landroid/security/keystore/KeyGenParameterSpec$Builder;->mInvalidatedByBiometricEnrollment:Z
+    iput-boolean v0, p0, Landroid/security/keystore/KeyGenParameterSpec$Builder;->mUniqueIdIncluded:Z
 
-    if-nez p1, :cond_1
+    iput-boolean v1, p0, Landroid/security/keystore/KeyGenParameterSpec$Builder;->mInvalidatedByBiometricEnrollment:Z
 
-    :try_start_0
-    new-instance v1, Ljava/lang/NullPointerException;
+    if-nez p1, :cond_0
 
-    const-string/jumbo v3, "keystoreAlias == null"
+    new-instance v0, Ljava/lang/NullPointerException;
 
-    invoke-direct {v1, v3}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    const-string/jumbo v1, "keystoreAlias == null"
 
-    throw v1
-    :try_end_0
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
-    .catch Ljava/lang/NullPointerException; {:try_start_0 .. :try_end_0} :catch_0
+    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    :catch_0
-    move-exception v7
-
-    invoke-static {}, Lcom/samsung/android/security/CCManager;->isMdfEnforced()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    invoke-static {}, Landroid/os/Process;->myPid()I
-
-    move-result v3
-
-    const-class v1, Landroid/security/keystore/KeyGenParameterSpec;
-
-    invoke-virtual {v1}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
-
-    move-result-object v4
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v5, "Key generation failed: "
-
-    invoke-virtual {v1, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v7}, Ljava/lang/RuntimeException;->getMessage()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-virtual {v1, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-static {}, Landroid/os/Process;->myUid()I
-
-    move-result v1
-
-    invoke-static {v1, v0}, Landroid/security/keystore/Utils;->getUserId(IZ)I
-
-    move-result v6
-
-    move v1, v0
-
-    invoke-static/range {v0 .. v6}, Landroid/sec/enterprise/auditlog/AuditLog;->logPrivilegedAsUser(IIZILjava/lang/String;Ljava/lang/String;I)V
+    throw v0
 
     :cond_0
-    throw v7
-
-    :cond_1
-    :try_start_1
     invoke-virtual {p1}, Ljava/lang/String;->isEmpty()Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_2
+    if-eqz v0, :cond_1
 
-    new-instance v1, Ljava/lang/IllegalArgumentException;
+    new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    const-string/jumbo v3, "keystoreAlias must not be empty"
+    const-string/jumbo v1, "keystoreAlias must not be empty"
 
-    invoke-direct {v1, v3}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v1
-    :try_end_1
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_1 .. :try_end_1} :catch_0
-    .catch Ljava/lang/NullPointerException; {:try_start_1 .. :try_end_1} :catch_0
+    throw v0
 
-    :cond_2
+    :cond_1
     iput-object p1, p0, Landroid/security/keystore/KeyGenParameterSpec$Builder;->mKeystoreAlias:Ljava/lang/String;
 
     iput p2, p0, Landroid/security/keystore/KeyGenParameterSpec$Builder;->mPurposes:I
@@ -310,45 +246,10 @@
 .end method
 
 .method public setAlgorithmParameterSpec(Ljava/security/spec/AlgorithmParameterSpec;)Landroid/security/keystore/KeyGenParameterSpec$Builder;
-    .locals 7
+    .locals 2
 
-    const/4 v0, 0x1
+    if-nez p1, :cond_0
 
-    if-nez p1, :cond_1
-
-    invoke-static {}, Lcom/samsung/android/security/CCManager;->isMdfEnforced()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    invoke-static {}, Landroid/os/Process;->myPid()I
-
-    move-result v3
-
-    const-class v1, Landroid/security/keystore/KeyGenParameterSpec;
-
-    invoke-virtual {v1}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
-
-    move-result-object v4
-
-    const-string/jumbo v5, "Key generation failed: spec == null"
-
-    invoke-static {}, Landroid/os/Process;->myUid()I
-
-    move-result v1
-
-    invoke-static {v1, v0}, Landroid/security/keystore/Utils;->getUserId(IZ)I
-
-    move-result v6
-
-    const/4 v2, 0x0
-
-    move v1, v0
-
-    invoke-static/range {v0 .. v6}, Landroid/sec/enterprise/auditlog/AuditLog;->logPrivilegedAsUser(IIZILjava/lang/String;Ljava/lang/String;I)V
-
-    :cond_0
     new-instance v0, Ljava/lang/NullPointerException;
 
     const-string/jumbo v1, "spec == null"
@@ -357,7 +258,7 @@
 
     throw v0
 
-    :cond_1
+    :cond_0
     iput-object p1, p0, Landroid/security/keystore/KeyGenParameterSpec$Builder;->mSpec:Ljava/security/spec/AlgorithmParameterSpec;
 
     return-object p0
@@ -384,45 +285,10 @@
 .end method
 
 .method public setCertificateNotAfter(Ljava/util/Date;)Landroid/security/keystore/KeyGenParameterSpec$Builder;
-    .locals 7
+    .locals 2
 
-    const/4 v0, 0x1
+    if-nez p1, :cond_0
 
-    if-nez p1, :cond_1
-
-    invoke-static {}, Lcom/samsung/android/security/CCManager;->isMdfEnforced()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    invoke-static {}, Landroid/os/Process;->myPid()I
-
-    move-result v3
-
-    const-class v1, Landroid/security/keystore/KeyGenParameterSpec;
-
-    invoke-virtual {v1}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
-
-    move-result-object v4
-
-    const-string/jumbo v5, "Key generation failed: NotAfter date == null"
-
-    invoke-static {}, Landroid/os/Process;->myUid()I
-
-    move-result v1
-
-    invoke-static {v1, v0}, Landroid/security/keystore/Utils;->getUserId(IZ)I
-
-    move-result v6
-
-    const/4 v2, 0x0
-
-    move v1, v0
-
-    invoke-static/range {v0 .. v6}, Landroid/sec/enterprise/auditlog/AuditLog;->logPrivilegedAsUser(IIZILjava/lang/String;Ljava/lang/String;I)V
-
-    :cond_0
     new-instance v0, Ljava/lang/NullPointerException;
 
     const-string/jumbo v1, "date == null"
@@ -431,7 +297,7 @@
 
     throw v0
 
-    :cond_1
+    :cond_0
     invoke-static {p1}, Landroid/security/keystore/Utils;->cloneIfNotNull(Ljava/util/Date;)Ljava/util/Date;
 
     move-result-object v0
@@ -442,45 +308,10 @@
 .end method
 
 .method public setCertificateNotBefore(Ljava/util/Date;)Landroid/security/keystore/KeyGenParameterSpec$Builder;
-    .locals 7
+    .locals 2
 
-    const/4 v0, 0x1
+    if-nez p1, :cond_0
 
-    if-nez p1, :cond_1
-
-    invoke-static {}, Lcom/samsung/android/security/CCManager;->isMdfEnforced()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    invoke-static {}, Landroid/os/Process;->myPid()I
-
-    move-result v3
-
-    const-class v1, Landroid/security/keystore/KeyGenParameterSpec;
-
-    invoke-virtual {v1}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
-
-    move-result-object v4
-
-    const-string/jumbo v5, "Key generation failed: NotBefore date == null"
-
-    invoke-static {}, Landroid/os/Process;->myUid()I
-
-    move-result v1
-
-    invoke-static {v1, v0}, Landroid/security/keystore/Utils;->getUserId(IZ)I
-
-    move-result v6
-
-    const/4 v2, 0x0
-
-    move v1, v0
-
-    invoke-static/range {v0 .. v6}, Landroid/sec/enterprise/auditlog/AuditLog;->logPrivilegedAsUser(IIZILjava/lang/String;Ljava/lang/String;I)V
-
-    :cond_0
     new-instance v0, Ljava/lang/NullPointerException;
 
     const-string/jumbo v1, "date == null"
@@ -489,7 +320,7 @@
 
     throw v0
 
-    :cond_1
+    :cond_0
     invoke-static {p1}, Landroid/security/keystore/Utils;->cloneIfNotNull(Ljava/util/Date;)Ljava/util/Date;
 
     move-result-object v0
@@ -500,45 +331,10 @@
 .end method
 
 .method public setCertificateSerialNumber(Ljava/math/BigInteger;)Landroid/security/keystore/KeyGenParameterSpec$Builder;
-    .locals 7
+    .locals 2
 
-    const/4 v0, 0x1
+    if-nez p1, :cond_0
 
-    if-nez p1, :cond_1
-
-    invoke-static {}, Lcom/samsung/android/security/CCManager;->isMdfEnforced()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    invoke-static {}, Landroid/os/Process;->myPid()I
-
-    move-result v3
-
-    const-class v1, Landroid/security/keystore/KeyGenParameterSpec;
-
-    invoke-virtual {v1}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
-
-    move-result-object v4
-
-    const-string/jumbo v5, "Key generation failed: serialNumber == null"
-
-    invoke-static {}, Landroid/os/Process;->myUid()I
-
-    move-result v1
-
-    invoke-static {v1, v0}, Landroid/security/keystore/Utils;->getUserId(IZ)I
-
-    move-result v6
-
-    const/4 v2, 0x0
-
-    move v1, v0
-
-    invoke-static/range {v0 .. v6}, Landroid/sec/enterprise/auditlog/AuditLog;->logPrivilegedAsUser(IIZILjava/lang/String;Ljava/lang/String;I)V
-
-    :cond_0
     new-instance v0, Ljava/lang/NullPointerException;
 
     const-string/jumbo v1, "serialNumber == null"
@@ -547,52 +343,17 @@
 
     throw v0
 
-    :cond_1
+    :cond_0
     iput-object p1, p0, Landroid/security/keystore/KeyGenParameterSpec$Builder;->mCertificateSerialNumber:Ljava/math/BigInteger;
 
     return-object p0
 .end method
 
 .method public setCertificateSubject(Ljavax/security/auth/x500/X500Principal;)Landroid/security/keystore/KeyGenParameterSpec$Builder;
-    .locals 7
+    .locals 2
 
-    const/4 v0, 0x1
+    if-nez p1, :cond_0
 
-    if-nez p1, :cond_1
-
-    invoke-static {}, Lcom/samsung/android/security/CCManager;->isMdfEnforced()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    invoke-static {}, Landroid/os/Process;->myPid()I
-
-    move-result v3
-
-    const-class v1, Landroid/security/keystore/KeyGenParameterSpec;
-
-    invoke-virtual {v1}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
-
-    move-result-object v4
-
-    const-string/jumbo v5, "Key generation failed: subject == null"
-
-    invoke-static {}, Landroid/os/Process;->myUid()I
-
-    move-result v1
-
-    invoke-static {v1, v0}, Landroid/security/keystore/Utils;->getUserId(IZ)I
-
-    move-result v6
-
-    const/4 v2, 0x0
-
-    move v1, v0
-
-    invoke-static/range {v0 .. v6}, Landroid/sec/enterprise/auditlog/AuditLog;->logPrivilegedAsUser(IIZILjava/lang/String;Ljava/lang/String;I)V
-
-    :cond_0
     new-instance v0, Ljava/lang/NullPointerException;
 
     const-string/jumbo v1, "subject == null"
@@ -601,7 +362,7 @@
 
     throw v0
 
-    :cond_1
+    :cond_0
     iput-object p1, p0, Landroid/security/keystore/KeyGenParameterSpec$Builder;->mCertificateSubject:Ljavax/security/auth/x500/X500Principal;
 
     return-object p0
@@ -640,45 +401,10 @@
 .end method
 
 .method public setKeySize(I)Landroid/security/keystore/KeyGenParameterSpec$Builder;
-    .locals 7
+    .locals 2
 
-    const/4 v2, 0x0
+    if-gez p1, :cond_0
 
-    const/4 v0, 0x1
-
-    if-gez p1, :cond_1
-
-    invoke-static {}, Lcom/samsung/android/security/CCManager;->isMdfEnforced()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    invoke-static {}, Landroid/os/Process;->myPid()I
-
-    move-result v3
-
-    const-class v1, Landroid/security/keystore/KeyGenParameterSpec;
-
-    invoke-virtual {v1}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
-
-    move-result-object v4
-
-    const-string/jumbo v5, "Key generation failed: keySize < 0"
-
-    invoke-static {}, Landroid/os/Process;->myUid()I
-
-    move-result v1
-
-    invoke-static {v1, v0}, Landroid/security/keystore/Utils;->getUserId(IZ)I
-
-    move-result v6
-
-    move v1, v0
-
-    invoke-static/range {v0 .. v6}, Landroid/sec/enterprise/auditlog/AuditLog;->logPrivilegedAsUser(IIZILjava/lang/String;Ljava/lang/String;I)V
-
-    :cond_0
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v1, "keySize < 0"
@@ -687,7 +413,7 @@
 
     throw v0
 
-    :cond_1
+    :cond_0
     iput p1, p0, Landroid/security/keystore/KeyGenParameterSpec$Builder;->mKeySize:I
 
     return-object p0
@@ -792,47 +518,12 @@
 .end method
 
 .method public setUserAuthenticationValidityDurationSeconds(I)Landroid/security/keystore/KeyGenParameterSpec$Builder;
-    .locals 7
+    .locals 2
 
-    const/4 v0, 0x1
+    const/4 v0, -0x1
 
-    const/4 v1, -0x1
+    if-ge p1, v0, :cond_0
 
-    if-ge p1, v1, :cond_1
-
-    invoke-static {}, Lcom/samsung/android/security/CCManager;->isMdfEnforced()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    invoke-static {}, Landroid/os/Process;->myPid()I
-
-    move-result v3
-
-    const-class v1, Landroid/security/keystore/KeyGenParameterSpec;
-
-    invoke-virtual {v1}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
-
-    move-result-object v4
-
-    const-string/jumbo v5, "Key generation failed: seconds must be -1 or larger"
-
-    invoke-static {}, Landroid/os/Process;->myUid()I
-
-    move-result v1
-
-    invoke-static {v1, v0}, Landroid/security/keystore/Utils;->getUserId(IZ)I
-
-    move-result v6
-
-    const/4 v2, 0x0
-
-    move v1, v0
-
-    invoke-static/range {v0 .. v6}, Landroid/sec/enterprise/auditlog/AuditLog;->logPrivilegedAsUser(IIZILjava/lang/String;Ljava/lang/String;I)V
-
-    :cond_0
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v1, "seconds must be -1 or larger"
@@ -841,7 +532,7 @@
 
     throw v0
 
-    :cond_1
+    :cond_0
     iput p1, p0, Landroid/security/keystore/KeyGenParameterSpec$Builder;->mUserAuthenticationValidityDurationSeconds:I
 
     return-object p0

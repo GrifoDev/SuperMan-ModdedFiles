@@ -41,11 +41,7 @@
 
     const/4 v5, -0x1
 
-    iget-object v2, p0, Landroid/widget/VideoView$5;->this$0:Landroid/widget/VideoView;
-
-    invoke-static {v2}, Landroid/widget/VideoView;->-get0(Landroid/widget/VideoView;)Ljava/lang/String;
-
-    move-result-object v2
+    const-string/jumbo v2, "VideoView"
 
     new-instance v3, Ljava/lang/StringBuilder;
 
@@ -87,7 +83,7 @@
 
     iget-object v2, p0, Landroid/widget/VideoView$5;->this$0:Landroid/widget/VideoView;
 
-    invoke-static {v2}, Landroid/widget/VideoView;->-get2(Landroid/widget/VideoView;)Landroid/widget/MediaController;
+    invoke-static {v2}, Landroid/widget/VideoView;->-get3(Landroid/widget/VideoView;)Landroid/widget/MediaController;
 
     move-result-object v2
 
@@ -95,7 +91,7 @@
 
     iget-object v2, p0, Landroid/widget/VideoView$5;->this$0:Landroid/widget/VideoView;
 
-    invoke-static {v2}, Landroid/widget/VideoView;->-get2(Landroid/widget/VideoView;)Landroid/widget/MediaController;
+    invoke-static {v2}, Landroid/widget/VideoView;->-get3(Landroid/widget/VideoView;)Landroid/widget/MediaController;
 
     move-result-object v2
 
@@ -104,7 +100,7 @@
     :cond_0
     iget-object v2, p0, Landroid/widget/VideoView$5;->this$0:Landroid/widget/VideoView;
 
-    invoke-static {v2}, Landroid/widget/VideoView;->-get5(Landroid/widget/VideoView;)Landroid/media/MediaPlayer$OnErrorListener;
+    invoke-static {v2}, Landroid/widget/VideoView;->-get6(Landroid/widget/VideoView;)Landroid/media/MediaPlayer$OnErrorListener;
 
     move-result-object v2
 
@@ -112,13 +108,13 @@
 
     iget-object v2, p0, Landroid/widget/VideoView$5;->this$0:Landroid/widget/VideoView;
 
-    invoke-static {v2}, Landroid/widget/VideoView;->-get5(Landroid/widget/VideoView;)Landroid/media/MediaPlayer$OnErrorListener;
+    invoke-static {v2}, Landroid/widget/VideoView;->-get6(Landroid/widget/VideoView;)Landroid/media/MediaPlayer$OnErrorListener;
 
     move-result-object v2
 
     iget-object v3, p0, Landroid/widget/VideoView$5;->this$0:Landroid/widget/VideoView;
 
-    invoke-static {v3}, Landroid/widget/VideoView;->-get3(Landroid/widget/VideoView;)Landroid/media/MediaPlayer;
+    invoke-static {v3}, Landroid/widget/VideoView;->-get4(Landroid/widget/VideoView;)Landroid/media/MediaPlayer;
 
     move-result-object v3
 
@@ -141,7 +137,7 @@
 
     iget-object v2, p0, Landroid/widget/VideoView$5;->this$0:Landroid/widget/VideoView;
 
-    invoke-static {v2}, Landroid/widget/VideoView;->-get1(Landroid/widget/VideoView;)Landroid/content/Context;
+    invoke-static {v2}, Landroid/widget/VideoView;->-get2(Landroid/widget/VideoView;)Landroid/content/Context;
 
     move-result-object v2
 
@@ -160,7 +156,7 @@
 
     iget-object v3, p0, Landroid/widget/VideoView$5;->this$0:Landroid/widget/VideoView;
 
-    invoke-static {v3}, Landroid/widget/VideoView;->-get1(Landroid/widget/VideoView;)Landroid/content/Context;
+    invoke-static {v3}, Landroid/widget/VideoView;->-get2(Landroid/widget/VideoView;)Landroid/content/Context;
 
     move-result-object v3
 

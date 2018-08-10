@@ -6,6 +6,7 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
+        Landroid/net/SntpClient$DnsResolveTask;,
         Landroid/net/SntpClient$InvalidServerReplyException;
     }
 .end annotation
@@ -26,9 +27,17 @@
 
 .field private static final NTP_PORT:I = 0x7b
 
+.field public static final NTP_RESOLVE_FAIL:I = 0x1
+
+.field private static final NTP_RESOLVE_TIMEOUT:I = 0x32
+
+.field public static final NTP_RESULT_SUCCESS:I = 0x2
+
 .field private static final NTP_STRATUM_DEATH:I = 0x0
 
 .field private static final NTP_STRATUM_MAX:I = 0xf
+
+.field public static final NTP_TIME_FAIL:I = 0x0
 
 .field private static final NTP_VERSION:I = 0x3
 
@@ -484,101 +493,340 @@
     return-wide v0
 .end method
 
-.method public requestTime(Ljava/lang/String;I)Z
-    .locals 5
+.method public requestTime(Ljava/lang/String;IZ)I
+    .locals 12
 
-    const/4 v0, 0x0
+    const/4 v11, 0x0
 
-    :try_start_0
-    invoke-static {p1}, Ljava/net/InetAddress;->getByName(Ljava/lang/String;)Ljava/net/InetAddress;
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
-
-    move-result-object v0
-
-    const/16 v2, 0x7b
-
-    invoke-virtual {p0, v0, v2, p2}, Landroid/net/SntpClient;->requestTime(Ljava/net/InetAddress;II)Z
-
-    move-result v2
-
-    return v2
-
-    :catch_0
-    move-exception v1
-
-    const-string/jumbo v2, "SntpClient"
-
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v4, "request time failed: "
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    const/4 v10, 0x1
 
     const/4 v2, 0x0
 
-    return v2
+    :try_start_0
+    new-instance v7, Landroid/net/SntpClient$DnsResolveTask;
+
+    const/4 v8, 0x0
+
+    invoke-direct {v7, p0, v8}, Landroid/net/SntpClient$DnsResolveTask;-><init>(Landroid/net/SntpClient;Landroid/net/SntpClient$DnsResolveTask;)V
+
+    const/4 v8, 0x1
+
+    new-array v8, v8, [Ljava/lang/String;
+
+    const/4 v9, 0x0
+
+    aput-object p1, v8, v9
+
+    invoke-virtual {v7, v8}, Landroid/net/SntpClient$DnsResolveTask;->execute([Ljava/lang/Object;)Landroid/os/AsyncTask;
+
+    move-result-object v6
+
+    const-wide/16 v8, 0x32
+
+    sget-object v7, Ljava/util/concurrent/TimeUnit;->SECONDS:Ljava/util/concurrent/TimeUnit;
+
+    invoke-virtual {v6, v8, v9, v7}, Landroid/os/AsyncTask;->get(JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;
+
+    move-result-object v7
+
+    move-object v0, v7
+
+    check-cast v0, Ljava/net/InetAddress;
+
+    move-object v2, v0
+
+    if-nez v2, :cond_0
+
+    const-string/jumbo v7, "SntpClient"
+
+    const-string/jumbo v8, "[BigData] request resolve failed in DnsResolveTask()"
+
+    invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_0
+    .catch Ljava/util/concurrent/TimeoutException; {:try_start_0 .. :try_end_0} :catch_1
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    return v10
+
+    :catch_0
+    move-exception v3
+
+    const-string/jumbo v7, "SntpClient"
+
+    new-instance v8, Ljava/lang/StringBuilder;
+
+    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v9, "[BigData] request resolve failed: host = "
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-virtual {v8, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-virtual {v8, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    return v10
+
+    :catch_1
+    move-exception v4
+
+    const-string/jumbo v7, "SntpClient"
+
+    new-instance v8, Ljava/lang/StringBuilder;
+
+    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v9, "[BigData] request resolve timeout: host = "
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-virtual {v8, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-virtual {v8, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    return v10
+
+    :cond_0
+    const/16 v7, 0x7b
+
+    invoke-virtual {p0, v2, v7, p2}, Landroid/net/SntpClient;->requestTime(Ljava/net/InetAddress;II)Z
+
+    move-result v5
+
+    if-nez v5, :cond_1
+
+    const-string/jumbo v7, "SntpClient"
+
+    new-instance v8, Ljava/lang/StringBuilder;
+
+    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v9, "[BigData] request time failed : host = "
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-virtual {v8, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    return v11
+
+    :cond_1
+    const/4 v7, 0x2
+
+    return v7
+.end method
+
+.method public requestTime(Ljava/lang/String;I)Z
+    .locals 10
+
+    const/4 v9, 0x0
+
+    const/4 v2, 0x0
+
+    :try_start_0
+    new-instance v6, Landroid/net/SntpClient$DnsResolveTask;
+
+    const/4 v7, 0x0
+
+    invoke-direct {v6, p0, v7}, Landroid/net/SntpClient$DnsResolveTask;-><init>(Landroid/net/SntpClient;Landroid/net/SntpClient$DnsResolveTask;)V
+
+    const/4 v7, 0x1
+
+    new-array v7, v7, [Ljava/lang/String;
+
+    const/4 v8, 0x0
+
+    aput-object p1, v7, v8
+
+    invoke-virtual {v6, v7}, Landroid/net/SntpClient$DnsResolveTask;->execute([Ljava/lang/Object;)Landroid/os/AsyncTask;
+
+    move-result-object v5
+
+    const-wide/16 v6, 0x32
+
+    sget-object v8, Ljava/util/concurrent/TimeUnit;->SECONDS:Ljava/util/concurrent/TimeUnit;
+
+    invoke-virtual {v5, v6, v7, v8}, Landroid/os/AsyncTask;->get(JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;
+
+    move-result-object v6
+
+    move-object v0, v6
+
+    check-cast v0, Ljava/net/InetAddress;
+
+    move-object v2, v0
+
+    if-nez v2, :cond_0
+
+    const-string/jumbo v6, "SntpClient"
+
+    const-string/jumbo v7, "request time failed in DnsResolveTask()"
+
+    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_0
+    .catch Ljava/util/concurrent/TimeoutException; {:try_start_0 .. :try_end_0} :catch_1
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    return v9
+
+    :catch_0
+    move-exception v3
+
+    invoke-virtual {v3}, Ljava/lang/Exception;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {p1, v6}, Landroid/net/EventLogTags;->writeNtpFailure(Ljava/lang/String;Ljava/lang/String;)V
+
+    const-string/jumbo v6, "SntpClient"
+
+    new-instance v7, Ljava/lang/StringBuilder;
+
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v8, "request time failed: "
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    return v9
+
+    :catch_1
+    move-exception v4
+
+    const-string/jumbo v6, "SntpClient"
+
+    new-instance v7, Ljava/lang/StringBuilder;
+
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v8, "request resolve timeout: host = "
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    return v9
+
+    :cond_0
+    const/16 v6, 0x7b
+
+    invoke-virtual {p0, v2, v6, p2}, Landroid/net/SntpClient;->requestTime(Ljava/net/InetAddress;II)Z
+
+    move-result v6
+
+    return v6
 .end method
 
 .method public requestTime(Ljava/net/InetAddress;II)Z
     .locals 36
 
-    const/16 v26, 0x0
+    const/16 v21, 0x0
+
+    const/16 v32, -0xfa
+
+    invoke-static/range {v32 .. v32}, Landroid/net/TrafficStats;->getAndSetThreadStatsTag(I)I
+
+    move-result v10
 
     :try_start_0
-    new-instance v27, Ljava/net/DatagramSocket;
+    new-instance v28, Ljava/net/DatagramSocket;
 
-    invoke-direct/range {v27 .. v27}, Ljava/net/DatagramSocket;-><init>()V
+    invoke-direct/range {v28 .. v28}, Ljava/net/DatagramSocket;-><init>()V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     :try_start_1
-    move-object/from16 v0, v27
+    move-object/from16 v0, v28
 
     move/from16 v1, p3
 
     invoke-virtual {v0, v1}, Ljava/net/DatagramSocket;->setSoTimeout(I)V
 
-    const/16 v29, 0x30
+    const/16 v32, 0x30
 
-    move/from16 v0, v29
+    move/from16 v0, v32
 
     new-array v4, v0, [B
 
-    new-instance v14, Ljava/net/DatagramPacket;
+    new-instance v11, Ljava/net/DatagramPacket;
 
     array-length v0, v4
 
-    move/from16 v29, v0
+    move/from16 v32, v0
 
-    move/from16 v0, v29
+    move/from16 v0, v32
 
     move-object/from16 v1, p1
 
     move/from16 v2, p2
 
-    invoke-direct {v14, v4, v0, v1, v2}, Ljava/net/DatagramPacket;-><init>([BILjava/net/InetAddress;I)V
+    invoke-direct {v11, v4, v0, v1, v2}, Ljava/net/DatagramPacket;-><init>([BILjava/net/InetAddress;I)V
 
-    const/16 v29, 0x1b
+    const/16 v32, 0x1b
 
-    const/16 v32, 0x0
+    const/16 v33, 0x0
 
-    aput-byte v29, v4, v32
+    aput-byte v32, v4, v33
 
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
@@ -588,119 +836,123 @@
 
     move-result-wide v16
 
-    const/16 v29, 0x28
+    const/16 v32, 0x28
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v29
+    move/from16 v1, v32
 
     move-wide/from16 v2, v18
 
     invoke-direct {v0, v4, v1, v2, v3}, Landroid/net/SntpClient;->writeTimeStamp([BIJ)V
 
-    move-object/from16 v0, v27
+    move-object/from16 v0, v28
 
-    invoke-virtual {v0, v14}, Ljava/net/DatagramSocket;->send(Ljava/net/DatagramPacket;)V
+    invoke-virtual {v0, v11}, Ljava/net/DatagramSocket;->send(Ljava/net/DatagramPacket;)V
 
-    new-instance v15, Ljava/net/DatagramPacket;
+    new-instance v20, Ljava/net/DatagramPacket;
 
     array-length v0, v4
 
-    move/from16 v29, v0
+    move/from16 v32, v0
 
-    move/from16 v0, v29
+    move-object/from16 v0, v20
 
-    invoke-direct {v15, v4, v0}, Ljava/net/DatagramPacket;-><init>([BI)V
+    move/from16 v1, v32
 
-    move-object/from16 v0, v27
+    invoke-direct {v0, v4, v1}, Ljava/net/DatagramPacket;-><init>([BI)V
 
-    invoke-virtual {v0, v15}, Ljava/net/DatagramSocket;->receive(Ljava/net/DatagramPacket;)V
+    move-object/from16 v0, v28
+
+    move-object/from16 v1, v20
+
+    invoke-virtual {v0, v1}, Ljava/net/DatagramSocket;->receive(Ljava/net/DatagramPacket;)V
 
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
-    move-result-wide v20
+    move-result-wide v22
 
-    sub-long v32, v20, v16
+    sub-long v32, v22, v16
 
-    add-long v22, v18, v32
+    add-long v24, v18, v32
 
-    const/16 v29, 0x0
+    const/16 v32, 0x0
 
-    aget-byte v29, v4, v29
+    aget-byte v32, v4, v32
 
-    shr-int/lit8 v29, v29, 0x6
+    shr-int/lit8 v32, v32, 0x6
 
-    and-int/lit8 v29, v29, 0x3
+    and-int/lit8 v32, v32, 0x3
 
-    move/from16 v0, v29
+    move/from16 v0, v32
 
     int-to-byte v8, v0
 
-    const/16 v29, 0x0
+    const/16 v32, 0x0
 
-    aget-byte v29, v4, v29
+    aget-byte v32, v4, v32
 
-    and-int/lit8 v29, v29, 0x7
+    and-int/lit8 v32, v32, 0x7
 
-    move/from16 v0, v29
+    move/from16 v0, v32
 
     int-to-byte v9, v0
 
-    const/16 v29, 0x1
+    const/16 v32, 0x1
 
-    aget-byte v29, v4, v29
+    aget-byte v32, v4, v32
 
-    move/from16 v0, v29
+    move/from16 v0, v32
 
     and-int/lit16 v0, v0, 0xff
 
-    move/from16 v28, v0
+    move/from16 v29, v0
 
-    const/16 v29, 0x18
-
-    move-object/from16 v0, p0
-
-    move/from16 v1, v29
-
-    invoke-direct {v0, v4, v1}, Landroid/net/SntpClient;->readTimeStamp([BI)J
-
-    move-result-wide v10
-
-    const/16 v29, 0x20
+    const/16 v32, 0x18
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v29
+    move/from16 v1, v32
 
     invoke-direct {v0, v4, v1}, Landroid/net/SntpClient;->readTimeStamp([BI)J
 
     move-result-wide v12
 
-    const/16 v29, 0x28
+    const/16 v32, 0x20
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v29
+    move/from16 v1, v32
+
+    invoke-direct {v0, v4, v1}, Landroid/net/SntpClient;->readTimeStamp([BI)J
+
+    move-result-wide v14
+
+    const/16 v32, 0x28
+
+    move-object/from16 v0, p0
+
+    move/from16 v1, v32
 
     invoke-direct {v0, v4, v1}, Landroid/net/SntpClient;->readTimeStamp([BI)J
 
     move-result-wide v30
 
-    move/from16 v0, v28
+    move/from16 v0, v29
 
     move-wide/from16 v1, v30
 
     invoke-static {v8, v9, v0, v1, v2}, Landroid/net/SntpClient;->checkValidServerReply(BBIJ)V
 
-    sub-long v32, v20, v16
+    sub-long v32, v22, v16
 
-    sub-long v34, v30, v12
+    sub-long v34, v30, v14
 
-    sub-long v24, v32, v34
+    sub-long v26, v32, v34
 
-    sub-long v32, v12, v10
+    sub-long v32, v14, v12
 
-    sub-long v34, v30, v22
+    sub-long v34, v30, v24
 
     add-long v32, v32, v34
 
@@ -708,61 +960,67 @@
 
     div-long v6, v32, v34
 
-    const-string/jumbo v29, "SntpClient"
-
-    new-instance v32, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v32 .. v32}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v33, "round trip: "
-
-    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {p1 .. p1}, Ljava/net/InetAddress;->toString()Ljava/lang/String;
 
     move-result-object v32
 
     move-object/from16 v0, v32
 
-    move-wide/from16 v1, v24
+    move-wide/from16 v1, v26
+
+    invoke-static {v0, v1, v2, v6, v7}, Landroid/net/EventLogTags;->writeNtpSuccess(Ljava/lang/String;JJ)V
+
+    const-string/jumbo v32, "SntpClient"
+
+    new-instance v33, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v33 .. v33}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v34, "round trip: "
+
+    invoke-virtual/range {v33 .. v34}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v33
+
+    move-object/from16 v0, v33
+
+    move-wide/from16 v1, v26
 
     invoke-virtual {v0, v1, v2}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
-    move-result-object v32
+    move-result-object v33
 
-    const-string/jumbo v33, "ms, "
+    const-string/jumbo v34, "ms, "
 
-    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v33 .. v34}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v32
+    move-result-object v33
 
-    const-string/jumbo v33, "clock offset: "
+    const-string/jumbo v34, "clock offset: "
 
-    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v33 .. v34}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v32
+    move-result-object v33
 
-    move-object/from16 v0, v32
+    move-object/from16 v0, v33
 
     invoke-virtual {v0, v6, v7}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
-    move-result-object v32
+    move-result-object v33
 
-    const-string/jumbo v33, "ms"
+    const-string/jumbo v34, "ms"
 
-    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v33 .. v34}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v32
+    move-result-object v33
 
-    invoke-virtual/range {v32 .. v32}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v33 .. v33}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v32
+    move-result-object v33
 
-    move-object/from16 v0, v29
+    invoke-static/range {v32 .. v33}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    move-object/from16 v1, v32
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    add-long v32, v22, v6
+    add-long v32, v24, v6
 
     move-wide/from16 v0, v32
 
@@ -770,13 +1028,13 @@
 
     iput-wide v0, v2, Landroid/net/SntpClient;->mNtpTime:J
 
-    move-wide/from16 v0, v20
+    move-wide/from16 v0, v22
 
     move-object/from16 v2, p0
 
     iput-wide v0, v2, Landroid/net/SntpClient;->mNtpTimeReference:J
 
-    move-wide/from16 v0, v24
+    move-wide/from16 v0, v26
 
     move-object/from16 v2, p0
 
@@ -785,81 +1043,93 @@
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
-    if-eqz v27, :cond_0
+    if-eqz v28, :cond_0
 
-    invoke-virtual/range {v27 .. v27}, Ljava/net/DatagramSocket;->close()V
+    invoke-virtual/range {v28 .. v28}, Ljava/net/DatagramSocket;->close()V
 
     :cond_0
-    const/16 v29, 0x1
+    invoke-static {v10}, Landroid/net/TrafficStats;->setThreadStatsTag(I)V
 
-    return v29
+    const/16 v32, 0x1
+
+    return v32
 
     :catch_0
     move-exception v5
 
     :goto_0
     :try_start_2
-    const-string/jumbo v29, "SntpClient"
-
-    new-instance v32, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v32 .. v32}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v33, "request time failed: "
-
-    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {p1 .. p1}, Ljava/net/InetAddress;->toString()Ljava/lang/String;
 
     move-result-object v32
 
-    move-object/from16 v0, v32
+    invoke-virtual {v5}, Ljava/lang/Exception;->toString()Ljava/lang/String;
+
+    move-result-object v33
+
+    invoke-static/range {v32 .. v33}, Landroid/net/EventLogTags;->writeNtpFailure(Ljava/lang/String;Ljava/lang/String;)V
+
+    const-string/jumbo v32, "SntpClient"
+
+    new-instance v33, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v33 .. v33}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v34, "request time failed: "
+
+    invoke-virtual/range {v33 .. v34}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v33
+
+    move-object/from16 v0, v33
 
     invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    move-result-object v32
+    move-result-object v33
 
-    invoke-virtual/range {v32 .. v32}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v33 .. v33}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v32
+    move-result-object v33
 
-    move-object/from16 v0, v29
-
-    move-object/from16 v1, v32
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v32 .. v33}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    const/16 v29, 0x0
+    const/16 v32, 0x0
 
-    if-eqz v26, :cond_1
+    if-eqz v21, :cond_1
 
-    invoke-virtual/range {v26 .. v26}, Ljava/net/DatagramSocket;->close()V
+    invoke-virtual/range {v21 .. v21}, Ljava/net/DatagramSocket;->close()V
 
     :cond_1
-    return v29
+    invoke-static {v10}, Landroid/net/TrafficStats;->setThreadStatsTag(I)V
+
+    return v32
 
     :catchall_0
-    move-exception v29
+    move-exception v32
 
     :goto_1
-    if-eqz v26, :cond_2
+    if-eqz v21, :cond_2
 
-    invoke-virtual/range {v26 .. v26}, Ljava/net/DatagramSocket;->close()V
+    invoke-virtual/range {v21 .. v21}, Ljava/net/DatagramSocket;->close()V
 
     :cond_2
-    throw v29
+    invoke-static {v10}, Landroid/net/TrafficStats;->setThreadStatsTag(I)V
+
+    throw v32
 
     :catchall_1
-    move-exception v29
+    move-exception v32
 
-    move-object/from16 v26, v27
+    move-object/from16 v21, v28
 
     goto :goto_1
 
     :catch_1
     move-exception v5
 
-    move-object/from16 v26, v27
+    move-object/from16 v21, v28
 
     goto :goto_0
 .end method

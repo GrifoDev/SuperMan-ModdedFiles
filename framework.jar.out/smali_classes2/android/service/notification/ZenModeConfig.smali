@@ -12,9 +12,7 @@
         Landroid/service/notification/ZenModeConfig$1;,
         Landroid/service/notification/ZenModeConfig$Diff;,
         Landroid/service/notification/ZenModeConfig$EventInfo;,
-        Landroid/service/notification/ZenModeConfig$Migration;,
         Landroid/service/notification/ZenModeConfig$ScheduleInfo;,
-        Landroid/service/notification/ZenModeConfig$XmlV1;,
         Landroid/service/notification/ZenModeConfig$ZenRule;
     }
 .end annotation
@@ -22,8 +20,6 @@
 
 # static fields
 .field public static final ACTION_DND_CHANGED:Ljava/lang/String; = "android.intent.action.DND_CHANGED"
-
-.field private static final ALLOW_ATT_ALARMS:Ljava/lang/String; = "alarms"
 
 .field private static final ALLOW_ATT_CALLS:Ljava/lang/String; = "calls"
 
@@ -84,8 +80,6 @@
 
 .field private static final DAY_MINUTES:I = 0x5a0
 
-.field private static final DEFAULT_ALLOW_ALARMS:Z = true
-
 .field private static final DEFAULT_ALLOW_CALLS:Z = false
 
 .field private static final DEFAULT_ALLOW_EVENTS:Z = false
@@ -140,6 +134,8 @@
 
 .field private static final RULE_ATT_ENABLED:Ljava/lang/String; = "enabled"
 
+.field private static final RULE_ATT_ENABLER:Ljava/lang/String; = "enabler"
+
 .field private static final RULE_ATT_ID:Ljava/lang/String; = "ruleId"
 
 .field private static final RULE_ATT_NAME:Ljava/lang/String; = "name"
@@ -180,8 +176,6 @@
 
 
 # instance fields
-.field public allowAlarms:Z
-
 .field public allowCalls:Z
 
 .field public allowCallsFrom:I
@@ -218,57 +212,7 @@
 
 
 # direct methods
-.method static synthetic -wrap0(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;)Landroid/content/ComponentName;
-    .locals 1
-
-    invoke-static {p0, p1}, Landroid/service/notification/ZenModeConfig;->safeComponentName(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;)Landroid/content/ComponentName;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method static synthetic -wrap1(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;)Landroid/net/Uri;
-    .locals 1
-
-    invoke-static {p0, p1}, Landroid/service/notification/ZenModeConfig;->safeUri(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;)Landroid/net/Uri;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method static synthetic -wrap2(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;Z)Z
-    .locals 1
-
-    invoke-static {p0, p1, p2}, Landroid/service/notification/ZenModeConfig;->safeBoolean(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;Z)Z
-
-    move-result v0
-
-    return v0
-.end method
-
-.method static synthetic -wrap3(Ljava/lang/String;Ljava/lang/String;)[I
-    .locals 1
-
-    invoke-static {p0, p1}, Landroid/service/notification/ZenModeConfig;->tryParseDayList(Ljava/lang/String;Ljava/lang/String;)[I
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method static synthetic -wrap4(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;I)I
-    .locals 1
-
-    invoke-static {p0, p1, p2}, Landroid/service/notification/ZenModeConfig;->safeInt(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;I)I
-
-    move-result v0
-
-    return v0
-.end method
-
-.method static synthetic -wrap5([I)Ljava/lang/String;
+.method static synthetic -wrap0([I)Ljava/lang/String;
     .locals 1
 
     invoke-static {p0}, Landroid/service/notification/ZenModeConfig;->toDayList([I)Ljava/lang/String;
@@ -364,8 +308,6 @@
 
     iput-boolean v0, p0, Landroid/service/notification/ZenModeConfig;->allowEvents:Z
 
-    iput-boolean v1, p0, Landroid/service/notification/ZenModeConfig;->allowAlarms:Z
-
     iput v1, p0, Landroid/service/notification/ZenModeConfig;->allowCallsFrom:I
 
     iput v1, p0, Landroid/service/notification/ZenModeConfig;->allowMessagesFrom:I
@@ -403,8 +345,6 @@
     iput-boolean v6, p0, Landroid/service/notification/ZenModeConfig;->allowReminders:Z
 
     iput-boolean v6, p0, Landroid/service/notification/ZenModeConfig;->allowEvents:Z
-
-    iput-boolean v5, p0, Landroid/service/notification/ZenModeConfig;->allowAlarms:Z
 
     iput v5, p0, Landroid/service/notification/ZenModeConfig;->allowCallsFrom:I
 
@@ -481,17 +421,6 @@
 
     move-result v4
 
-    if-ne v4, v5, :cond_5
-
-    move v4, v5
-
-    :goto_5
-    iput-boolean v4, p0, Landroid/service/notification/ZenModeConfig;->allowAlarms:Z
-
-    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
-
-    move-result v4
-
     iput v4, p0, Landroid/service/notification/ZenModeConfig;->allowCallsFrom:I
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
@@ -520,7 +449,7 @@
 
     move-result v2
 
-    if-lez v2, :cond_6
+    if-lez v2, :cond_5
 
     new-array v1, v2, [Ljava/lang/String;
 
@@ -534,8 +463,8 @@
 
     const/4 v0, 0x0
 
-    :goto_6
-    if-ge v0, v2, :cond_6
+    :goto_5
+    if-ge v0, v2, :cond_5
 
     iget-object v4, p0, Landroid/service/notification/ZenModeConfig;->automaticRules:Landroid/util/ArrayMap;
 
@@ -547,7 +476,7 @@
 
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_6
+    goto :goto_5
 
     :cond_0
     move v4, v6
@@ -575,42 +504,37 @@
     goto :goto_4
 
     :cond_5
-    move v4, v6
-
-    goto :goto_5
-
-    :cond_6
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v4
 
-    if-ne v4, v5, :cond_7
+    if-ne v4, v5, :cond_6
 
     move v4, v5
 
-    :goto_7
+    :goto_6
     iput-boolean v4, p0, Landroid/service/notification/ZenModeConfig;->allowWhenScreenOff:Z
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v4
 
-    if-ne v4, v5, :cond_8
+    if-ne v4, v5, :cond_7
 
-    :goto_8
+    :goto_7
     iput-boolean v5, p0, Landroid/service/notification/ZenModeConfig;->allowWhenScreenOn:Z
 
     return-void
 
-    :cond_7
+    :cond_6
     move v4, v6
 
-    goto :goto_7
+    goto :goto_6
 
-    :cond_8
+    :cond_7
     move v5, v6
 
-    goto :goto_8
+    goto :goto_7
 .end method
 
 .method private static addKeys(Landroid/util/ArraySet;Landroid/util/ArrayMap;)V
@@ -655,9 +579,9 @@
 .method private diff(Landroid/service/notification/ZenModeConfig;)Landroid/service/notification/ZenModeConfig$Diff;
     .locals 11
 
-    new-instance v3, Landroid/service/notification/ZenModeConfig$Diff;
+    new-instance v2, Landroid/service/notification/ZenModeConfig$Diff;
 
-    invoke-direct {v3}, Landroid/service/notification/ZenModeConfig$Diff;-><init>()V
+    invoke-direct {v2}, Landroid/service/notification/ZenModeConfig$Diff;-><init>()V
 
     if-nez p1, :cond_0
 
@@ -665,15 +589,13 @@
 
     const-string/jumbo v9, "delete"
 
-    invoke-static {v3, v8, v9}, Landroid/service/notification/ZenModeConfig$Diff;->-wrap0(Landroid/service/notification/ZenModeConfig$Diff;Ljava/lang/String;Ljava/lang/String;)Landroid/service/notification/ZenModeConfig$Diff;
+    invoke-static {v2, v8, v9}, Landroid/service/notification/ZenModeConfig$Diff;->-wrap0(Landroid/service/notification/ZenModeConfig$Diff;Ljava/lang/String;Ljava/lang/String;)Landroid/service/notification/ZenModeConfig$Diff;
 
     move-result-object v8
 
     return-object v8
 
     :cond_0
-    const/4 v2, 0x0
-
     iget v8, p0, Landroid/service/notification/ZenModeConfig;->user:I
 
     iget v9, p1, Landroid/service/notification/ZenModeConfig;->user:I
@@ -694,7 +616,7 @@
 
     move-result-object v10
 
-    invoke-virtual {v3, v8, v9, v10}, Landroid/service/notification/ZenModeConfig$Diff;->addLine(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)Landroid/service/notification/ZenModeConfig$Diff;
+    invoke-virtual {v2, v8, v9, v10}, Landroid/service/notification/ZenModeConfig$Diff;->addLine(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)Landroid/service/notification/ZenModeConfig$Diff;
 
     :cond_1
     iget-boolean v8, p0, Landroid/service/notification/ZenModeConfig;->allowCalls:Z
@@ -702,8 +624,6 @@
     iget-boolean v9, p1, Landroid/service/notification/ZenModeConfig;->allowCalls:Z
 
     if-eq v8, v9, :cond_2
-
-    const/4 v2, 0x1
 
     const-string/jumbo v8, "allowCalls"
 
@@ -719,7 +639,7 @@
 
     move-result-object v10
 
-    invoke-virtual {v3, v8, v9, v10}, Landroid/service/notification/ZenModeConfig$Diff;->addLine(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)Landroid/service/notification/ZenModeConfig$Diff;
+    invoke-virtual {v2, v8, v9, v10}, Landroid/service/notification/ZenModeConfig$Diff;->addLine(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)Landroid/service/notification/ZenModeConfig$Diff;
 
     :cond_2
     iget-boolean v8, p0, Landroid/service/notification/ZenModeConfig;->allowRepeatCallers:Z
@@ -727,8 +647,6 @@
     iget-boolean v9, p1, Landroid/service/notification/ZenModeConfig;->allowRepeatCallers:Z
 
     if-eq v8, v9, :cond_3
-
-    const/4 v2, 0x1
 
     const-string/jumbo v8, "allowRepeatCallers"
 
@@ -744,7 +662,7 @@
 
     move-result-object v10
 
-    invoke-virtual {v3, v8, v9, v10}, Landroid/service/notification/ZenModeConfig$Diff;->addLine(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)Landroid/service/notification/ZenModeConfig$Diff;
+    invoke-virtual {v2, v8, v9, v10}, Landroid/service/notification/ZenModeConfig$Diff;->addLine(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)Landroid/service/notification/ZenModeConfig$Diff;
 
     :cond_3
     iget-boolean v8, p0, Landroid/service/notification/ZenModeConfig;->allowMessages:Z
@@ -752,8 +670,6 @@
     iget-boolean v9, p1, Landroid/service/notification/ZenModeConfig;->allowMessages:Z
 
     if-eq v8, v9, :cond_4
-
-    const/4 v2, 0x1
 
     const-string/jumbo v8, "allowMessages"
 
@@ -769,7 +685,7 @@
 
     move-result-object v10
 
-    invoke-virtual {v3, v8, v9, v10}, Landroid/service/notification/ZenModeConfig$Diff;->addLine(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)Landroid/service/notification/ZenModeConfig$Diff;
+    invoke-virtual {v2, v8, v9, v10}, Landroid/service/notification/ZenModeConfig$Diff;->addLine(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)Landroid/service/notification/ZenModeConfig$Diff;
 
     :cond_4
     iget v8, p0, Landroid/service/notification/ZenModeConfig;->allowCallsFrom:I
@@ -777,8 +693,6 @@
     iget v9, p1, Landroid/service/notification/ZenModeConfig;->allowCallsFrom:I
 
     if-eq v8, v9, :cond_5
-
-    const/4 v2, 0x1
 
     const-string/jumbo v8, "allowCallsFrom"
 
@@ -794,7 +708,7 @@
 
     move-result-object v10
 
-    invoke-virtual {v3, v8, v9, v10}, Landroid/service/notification/ZenModeConfig$Diff;->addLine(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)Landroid/service/notification/ZenModeConfig$Diff;
+    invoke-virtual {v2, v8, v9, v10}, Landroid/service/notification/ZenModeConfig$Diff;->addLine(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)Landroid/service/notification/ZenModeConfig$Diff;
 
     :cond_5
     iget v8, p0, Landroid/service/notification/ZenModeConfig;->allowMessagesFrom:I
@@ -802,8 +716,6 @@
     iget v9, p1, Landroid/service/notification/ZenModeConfig;->allowMessagesFrom:I
 
     if-eq v8, v9, :cond_6
-
-    const/4 v2, 0x1
 
     const-string/jumbo v8, "allowMessagesFrom"
 
@@ -819,7 +731,7 @@
 
     move-result-object v10
 
-    invoke-virtual {v3, v8, v9, v10}, Landroid/service/notification/ZenModeConfig$Diff;->addLine(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)Landroid/service/notification/ZenModeConfig$Diff;
+    invoke-virtual {v2, v8, v9, v10}, Landroid/service/notification/ZenModeConfig$Diff;->addLine(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)Landroid/service/notification/ZenModeConfig$Diff;
 
     :cond_6
     iget-boolean v8, p0, Landroid/service/notification/ZenModeConfig;->allowReminders:Z
@@ -827,8 +739,6 @@
     iget-boolean v9, p1, Landroid/service/notification/ZenModeConfig;->allowReminders:Z
 
     if-eq v8, v9, :cond_7
-
-    const/4 v2, 0x1
 
     const-string/jumbo v8, "allowReminders"
 
@@ -844,7 +754,7 @@
 
     move-result-object v10
 
-    invoke-virtual {v3, v8, v9, v10}, Landroid/service/notification/ZenModeConfig$Diff;->addLine(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)Landroid/service/notification/ZenModeConfig$Diff;
+    invoke-virtual {v2, v8, v9, v10}, Landroid/service/notification/ZenModeConfig$Diff;->addLine(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)Landroid/service/notification/ZenModeConfig$Diff;
 
     :cond_7
     iget-boolean v8, p0, Landroid/service/notification/ZenModeConfig;->allowEvents:Z
@@ -852,8 +762,6 @@
     iget-boolean v9, p1, Landroid/service/notification/ZenModeConfig;->allowEvents:Z
 
     if-eq v8, v9, :cond_8
-
-    const/4 v2, 0x1
 
     const-string/jumbo v8, "allowEvents"
 
@@ -869,41 +777,14 @@
 
     move-result-object v10
 
-    invoke-virtual {v3, v8, v9, v10}, Landroid/service/notification/ZenModeConfig$Diff;->addLine(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)Landroid/service/notification/ZenModeConfig$Diff;
+    invoke-virtual {v2, v8, v9, v10}, Landroid/service/notification/ZenModeConfig$Diff;->addLine(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)Landroid/service/notification/ZenModeConfig$Diff;
 
     :cond_8
-    iget-boolean v8, p0, Landroid/service/notification/ZenModeConfig;->allowAlarms:Z
-
-    iget-boolean v9, p1, Landroid/service/notification/ZenModeConfig;->allowAlarms:Z
-
-    if-eq v8, v9, :cond_9
-
-    const/4 v2, 0x1
-
-    const-string/jumbo v8, "allowAlarms"
-
-    iget-boolean v9, p0, Landroid/service/notification/ZenModeConfig;->allowAlarms:Z
-
-    invoke-static {v9}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
-
-    move-result-object v9
-
-    iget-boolean v10, p1, Landroid/service/notification/ZenModeConfig;->allowAlarms:Z
-
-    invoke-static {v10}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
-
-    move-result-object v10
-
-    invoke-virtual {v3, v8, v9, v10}, Landroid/service/notification/ZenModeConfig$Diff;->addLine(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)Landroid/service/notification/ZenModeConfig$Diff;
-
-    :cond_9
     iget-boolean v8, p0, Landroid/service/notification/ZenModeConfig;->allowWhenScreenOff:Z
 
     iget-boolean v9, p1, Landroid/service/notification/ZenModeConfig;->allowWhenScreenOff:Z
 
-    if-eq v8, v9, :cond_a
-
-    const/4 v2, 0x1
+    if-eq v8, v9, :cond_9
 
     const-string/jumbo v8, "allowWhenScreenOff"
 
@@ -919,16 +800,14 @@
 
     move-result-object v10
 
-    invoke-virtual {v3, v8, v9, v10}, Landroid/service/notification/ZenModeConfig$Diff;->addLine(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)Landroid/service/notification/ZenModeConfig$Diff;
+    invoke-virtual {v2, v8, v9, v10}, Landroid/service/notification/ZenModeConfig$Diff;->addLine(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)Landroid/service/notification/ZenModeConfig$Diff;
 
-    :cond_a
+    :cond_9
     iget-boolean v8, p0, Landroid/service/notification/ZenModeConfig;->allowWhenScreenOn:Z
 
     iget-boolean v9, p1, Landroid/service/notification/ZenModeConfig;->allowWhenScreenOn:Z
 
-    if-eq v8, v9, :cond_b
-
-    const/4 v2, 0x1
+    if-eq v8, v9, :cond_a
 
     const-string/jumbo v8, "allowWhenScreenOn"
 
@@ -944,18 +823,9 @@
 
     move-result-object v10
 
-    invoke-virtual {v3, v8, v9, v10}, Landroid/service/notification/ZenModeConfig$Diff;->addLine(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)Landroid/service/notification/ZenModeConfig$Diff;
+    invoke-virtual {v2, v8, v9, v10}, Landroid/service/notification/ZenModeConfig$Diff;->addLine(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)Landroid/service/notification/ZenModeConfig$Diff;
 
-    :cond_b
-    if-eqz v2, :cond_c
-
-    iget v8, v3, Landroid/service/notification/ZenModeConfig$Diff;->diffBit:I
-
-    or-int/lit16 v8, v8, 0x80
-
-    iput v8, v3, Landroid/service/notification/ZenModeConfig$Diff;->diffBit:I
-
-    :cond_c
+    :cond_a
     new-instance v1, Landroid/util/ArraySet;
 
     invoke-direct {v1}, Landroid/util/ArraySet;-><init>()V
@@ -972,12 +842,12 @@
 
     move-result v0
 
-    const/4 v5, 0x0
+    const/4 v4, 0x0
 
     :goto_0
-    if-ge v5, v0, :cond_f
+    if-ge v4, v0, :cond_11
 
-    invoke-virtual {v1, v5}, Landroid/util/ArraySet;->valueAt(I)Ljava/lang/Object;
+    invoke-virtual {v1, v4}, Landroid/util/ArraySet;->valueAt(I)Ljava/lang/Object;
 
     move-result-object v6
 
@@ -985,20 +855,20 @@
 
     iget-object v8, p0, Landroid/service/notification/ZenModeConfig;->automaticRules:Landroid/util/ArrayMap;
 
-    if-eqz v8, :cond_d
+    if-eqz v8, :cond_e
 
     iget-object v8, p0, Landroid/service/notification/ZenModeConfig;->automaticRules:Landroid/util/ArrayMap;
 
     invoke-virtual {v8, v6}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v4
+    move-result-object v3
 
-    check-cast v4, Landroid/service/notification/ZenModeConfig$ZenRule;
+    check-cast v3, Landroid/service/notification/ZenModeConfig$ZenRule;
 
     :goto_1
     iget-object v8, p1, Landroid/service/notification/ZenModeConfig;->automaticRules:Landroid/util/ArrayMap;
 
-    if-eqz v8, :cond_e
+    if-eqz v8, :cond_f
 
     iget-object v8, p1, Landroid/service/notification/ZenModeConfig;->automaticRules:Landroid/util/ArrayMap;
 
@@ -1033,32 +903,275 @@
 
     move-result-object v8
 
-    invoke-static {v3, v8, v4, v7}, Landroid/service/notification/ZenModeConfig$ZenRule;->-wrap0(Landroid/service/notification/ZenModeConfig$Diff;Ljava/lang/String;Landroid/service/notification/ZenModeConfig$ZenRule;Landroid/service/notification/ZenModeConfig$ZenRule;)V
+    invoke-static {v2, v8, v3, v7}, Landroid/service/notification/ZenModeConfig$ZenRule;->-wrap0(Landroid/service/notification/ZenModeConfig$Diff;Ljava/lang/String;Landroid/service/notification/ZenModeConfig$ZenRule;Landroid/service/notification/ZenModeConfig$ZenRule;)V
 
-    add-int/lit8 v5, v5, 0x1
+    if-eqz v7, :cond_d
 
-    goto :goto_0
+    if-eqz v3, :cond_d
+
+    const-string/jumbo v8, "twschedule"
+
+    iget-object v9, v7, Landroid/service/notification/ZenModeConfig$ZenRule;->name:Ljava/lang/String;
+
+    invoke-static {v8, v9}, Ljava/util/Objects;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
+
+    move-result v8
+
+    if-eqz v8, :cond_10
+
+    const-string/jumbo v8, "twschedule"
+
+    iget-object v9, v3, Landroid/service/notification/ZenModeConfig$ZenRule;->name:Ljava/lang/String;
+
+    invoke-static {v8, v9}, Ljava/util/Objects;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
+
+    move-result v5
+
+    :goto_3
+    if-eqz v5, :cond_d
+
+    sget-object v8, Landroid/service/notification/ZenModeConfig;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v9, "********************************"
+
+    invoke-static {v8, v9}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    sget-object v8, Landroid/service/notification/ZenModeConfig;->TAG:Ljava/lang/String;
+
+    new-instance v9, Ljava/lang/StringBuilder;
+
+    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v10, "auto:"
+
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    invoke-virtual {v2}, Landroid/service/notification/ZenModeConfig$Diff;->toString()Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-static {v8, v9}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    const-string/jumbo v8, "enabled"
+
+    invoke-virtual {v2, v8}, Landroid/service/notification/ZenModeConfig$Diff;->getLine(Ljava/lang/String;)Z
+
+    move-result v8
+
+    if-eqz v8, :cond_b
+
+    iget v8, v2, Landroid/service/notification/ZenModeConfig$Diff;->diffBit:I
+
+    or-int/lit8 v8, v8, 0x1
+
+    iput v8, v2, Landroid/service/notification/ZenModeConfig$Diff;->diffBit:I
+
+    :cond_b
+    const-string/jumbo v8, "zenMode"
+
+    invoke-virtual {v2, v8}, Landroid/service/notification/ZenModeConfig$Diff;->getLine(Ljava/lang/String;)Z
+
+    move-result v8
+
+    if-eqz v8, :cond_c
+
+    iget v8, v2, Landroid/service/notification/ZenModeConfig$Diff;->diffBit:I
+
+    or-int/lit8 v8, v8, 0x40
+
+    iput v8, v2, Landroid/service/notification/ZenModeConfig$Diff;->diffBit:I
+
+    :cond_c
+    const-string/jumbo v8, "conditionId"
+
+    invoke-virtual {v2, v8}, Landroid/service/notification/ZenModeConfig$Diff;->getLine(Ljava/lang/String;)Z
+
+    move-result v8
+
+    if-eqz v8, :cond_d
+
+    iget v8, v2, Landroid/service/notification/ZenModeConfig$Diff;->diffBit:I
+
+    or-int/lit8 v8, v8, 0x2
+
+    iput v8, v2, Landroid/service/notification/ZenModeConfig$Diff;->diffBit:I
 
     :cond_d
-    const/4 v4, 0x0
+    add-int/lit8 v4, v4, 0x1
 
-    goto :goto_1
+    goto/16 :goto_0
 
     :cond_e
-    const/4 v7, 0x0
+    const/4 v3, 0x0
 
-    goto :goto_2
+    goto/16 :goto_1
 
     :cond_f
+    const/4 v7, 0x0
+
+    goto/16 :goto_2
+
+    :cond_10
+    const/4 v5, 0x0
+
+    goto :goto_3
+
+    :cond_11
     const-string/jumbo v8, "manualRule"
 
     iget-object v9, p0, Landroid/service/notification/ZenModeConfig;->manualRule:Landroid/service/notification/ZenModeConfig$ZenRule;
 
     iget-object v10, p1, Landroid/service/notification/ZenModeConfig;->manualRule:Landroid/service/notification/ZenModeConfig$ZenRule;
 
-    invoke-static {v3, v8, v9, v10}, Landroid/service/notification/ZenModeConfig$ZenRule;->-wrap0(Landroid/service/notification/ZenModeConfig$Diff;Ljava/lang/String;Landroid/service/notification/ZenModeConfig$ZenRule;Landroid/service/notification/ZenModeConfig$ZenRule;)V
+    invoke-static {v2, v8, v9, v10}, Landroid/service/notification/ZenModeConfig$ZenRule;->-wrap0(Landroid/service/notification/ZenModeConfig$Diff;Ljava/lang/String;Landroid/service/notification/ZenModeConfig$ZenRule;Landroid/service/notification/ZenModeConfig$ZenRule;)V
 
-    return-object v3
+    sget-object v8, Landroid/service/notification/ZenModeConfig;->TAG:Ljava/lang/String;
+
+    new-instance v9, Ljava/lang/StringBuilder;
+
+    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v10, "allow:"
+
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    invoke-virtual {v2}, Landroid/service/notification/ZenModeConfig$Diff;->toString()Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-static {v8, v9}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    const-string/jumbo v8, "allowCalls"
+
+    invoke-virtual {v2, v8}, Landroid/service/notification/ZenModeConfig$Diff;->getLine(Ljava/lang/String;)Z
+
+    move-result v8
+
+    if-nez v8, :cond_12
+
+    const-string/jumbo v8, "allowRepeatCallers"
+
+    invoke-virtual {v2, v8}, Landroid/service/notification/ZenModeConfig$Diff;->getLine(Ljava/lang/String;)Z
+
+    move-result v8
+
+    if-nez v8, :cond_12
+
+    const-string/jumbo v8, "allowMessages"
+
+    invoke-virtual {v2, v8}, Landroid/service/notification/ZenModeConfig$Diff;->getLine(Ljava/lang/String;)Z
+
+    move-result v8
+
+    if-nez v8, :cond_12
+
+    const-string/jumbo v8, "allowCallsFrom"
+
+    invoke-virtual {v2, v8}, Landroid/service/notification/ZenModeConfig$Diff;->getLine(Ljava/lang/String;)Z
+
+    move-result v8
+
+    if-nez v8, :cond_12
+
+    const-string/jumbo v8, "allowMessagesFrom"
+
+    invoke-virtual {v2, v8}, Landroid/service/notification/ZenModeConfig$Diff;->getLine(Ljava/lang/String;)Z
+
+    move-result v8
+
+    if-nez v8, :cond_12
+
+    const-string/jumbo v8, "allowEvents"
+
+    invoke-virtual {v2, v8}, Landroid/service/notification/ZenModeConfig$Diff;->getLine(Ljava/lang/String;)Z
+
+    move-result v8
+
+    if-nez v8, :cond_12
+
+    const-string/jumbo v8, "allowReminders"
+
+    invoke-virtual {v2, v8}, Landroid/service/notification/ZenModeConfig$Diff;->getLine(Ljava/lang/String;)Z
+
+    move-result v8
+
+    if-nez v8, :cond_12
+
+    const-string/jumbo v8, "allowWhenScreenOff"
+
+    invoke-virtual {v2, v8}, Landroid/service/notification/ZenModeConfig$Diff;->getLine(Ljava/lang/String;)Z
+
+    move-result v8
+
+    if-nez v8, :cond_12
+
+    const-string/jumbo v8, "allowWhenScreenOn"
+
+    invoke-virtual {v2, v8}, Landroid/service/notification/ZenModeConfig$Diff;->getLine(Ljava/lang/String;)Z
+
+    move-result v8
+
+    if-eqz v8, :cond_13
+
+    :cond_12
+    iget v8, v2, Landroid/service/notification/ZenModeConfig$Diff;->diffBit:I
+
+    or-int/lit16 v8, v8, 0x80
+
+    iput v8, v2, Landroid/service/notification/ZenModeConfig$Diff;->diffBit:I
+
+    :cond_13
+    sget-object v8, Landroid/service/notification/ZenModeConfig;->TAG:Ljava/lang/String;
+
+    new-instance v9, Ljava/lang/StringBuilder;
+
+    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v10, "diffBit : "
+
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    iget v10, v2, Landroid/service/notification/ZenModeConfig$Diff;->diffBit:I
+
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-static {v8, v9}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    sget-object v8, Landroid/service/notification/ZenModeConfig;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v9, "********************************"
+
+    invoke-static {v8, v9}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-object v2
 .end method
 
 .method public static diff(Landroid/service/notification/ZenModeConfig;Landroid/service/notification/ZenModeConfig;)Landroid/service/notification/ZenModeConfig$Diff;
@@ -1145,11 +1258,13 @@
     return-object v3
 
     :cond_0
+    const-string/jumbo v15, ""
+
     move-object/from16 v0, p1
 
     iget-object v3, v0, Landroid/service/notification/ZenModeConfig;->manualRule:Landroid/service/notification/ZenModeConfig$ZenRule;
 
-    if-eqz v3, :cond_6
+    if-eqz v3, :cond_1
 
     move-object/from16 v0, p1
 
@@ -1157,19 +1272,84 @@
 
     iget-object v11, v3, Landroid/service/notification/ZenModeConfig$ZenRule;->conditionId:Landroid/net/Uri;
 
-    if-nez v11, :cond_1
+    move-object/from16 v0, p1
 
-    const v3, 0x10405c8
+    iget-object v3, v0, Landroid/service/notification/ZenModeConfig;->manualRule:Landroid/service/notification/ZenModeConfig$ZenRule;
+
+    iget-object v3, v3, Landroid/service/notification/ZenModeConfig$ZenRule;->enabler:Ljava/lang/String;
+
+    if-eqz v3, :cond_3
+
+    move-object/from16 v0, p1
+
+    iget-object v3, v0, Landroid/service/notification/ZenModeConfig;->manualRule:Landroid/service/notification/ZenModeConfig$ZenRule;
+
+    iget-object v3, v3, Landroid/service/notification/ZenModeConfig$ZenRule;->enabler:Ljava/lang/String;
+
+    move-object/from16 v0, p0
+
+    invoke-static {v0, v3}, Landroid/service/notification/ZenModeConfig;->getOwnerCaption(Landroid/content/Context;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v15
+
+    :cond_1
+    :goto_0
+    move-object/from16 v0, p1
+
+    iget-object v3, v0, Landroid/service/notification/ZenModeConfig;->automaticRules:Landroid/util/ArrayMap;
+
+    invoke-virtual {v3}, Landroid/util/ArrayMap;->values()Ljava/util/Collection;
+
+    move-result-object v3
+
+    invoke-interface {v3}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+
+    move-result-object v9
+
+    :cond_2
+    :goto_1
+    invoke-interface {v9}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_a
+
+    invoke-interface {v9}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Landroid/service/notification/ZenModeConfig$ZenRule;
+
+    invoke-virtual {v2}, Landroid/service/notification/ZenModeConfig$ZenRule;->isAutomaticActive()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_2
+
+    invoke-virtual {v15}, Ljava/lang/String;->isEmpty()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_9
+
+    iget-object v15, v2, Landroid/service/notification/ZenModeConfig$ZenRule;->name:Ljava/lang/String;
+
+    goto :goto_1
+
+    :cond_3
+    if-nez v11, :cond_4
+
+    const v3, 0x1040bc2
 
     move-object/from16 v0, p0
 
     invoke-virtual {v0, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v15
 
-    return-object v3
+    goto :goto_0
 
-    :cond_1
+    :cond_4
     invoke-static {v11}, Landroid/service/notification/ZenModeConfig;->tryParseCountdownConditionId(Landroid/net/Uri;)J
 
     move-result-wide v4
@@ -1184,7 +1364,7 @@
 
     cmp-long v3, v4, v6
 
-    if-lez v3, :cond_2
+    if-lez v3, :cond_5
 
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
@@ -1214,81 +1394,40 @@
 
     move-result-object v10
 
-    :cond_2
-    if-nez v10, :cond_4
-
-    const-string/jumbo v14, ""
-
-    :goto_0
-    invoke-static {v14}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_3
-
-    const-string/jumbo v14, ""
-
-    :cond_3
-    return-object v14
-
-    :cond_4
-    if-eqz p3, :cond_5
-
-    iget-object v14, v10, Landroid/service/notification/Condition;->line1:Ljava/lang/String;
-
-    goto :goto_0
-
     :cond_5
-    iget-object v14, v10, Landroid/service/notification/Condition;->summary:Ljava/lang/String;
+    if-nez v10, :cond_6
 
-    goto :goto_0
+    const-string/jumbo v14, ""
 
-    :cond_6
-    const-string/jumbo v15, ""
-
-    move-object/from16 v0, p1
-
-    iget-object v3, v0, Landroid/service/notification/ZenModeConfig;->automaticRules:Landroid/util/ArrayMap;
-
-    invoke-virtual {v3}, Landroid/util/ArrayMap;->values()Ljava/util/Collection;
-
-    move-result-object v3
-
-    invoke-interface {v3}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
-
-    move-result-object v9
-
-    :cond_7
-    :goto_1
-    invoke-interface {v9}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v3
-
-    if-eqz v3, :cond_9
-
-    invoke-interface {v9}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Landroid/service/notification/ZenModeConfig$ZenRule;
-
-    invoke-virtual {v2}, Landroid/service/notification/ZenModeConfig$ZenRule;->isAutomaticActive()Z
-
-    move-result v3
-
-    if-eqz v3, :cond_7
-
-    invoke-virtual {v15}, Ljava/lang/String;->isEmpty()Z
+    :goto_2
+    invoke-static {v14}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v3
 
     if-eqz v3, :cond_8
 
-    iget-object v15, v2, Landroid/service/notification/ZenModeConfig$ZenRule;->name:Ljava/lang/String;
+    const-string/jumbo v15, ""
 
-    goto :goto_1
+    goto :goto_0
+
+    :cond_6
+    if-eqz p3, :cond_7
+
+    iget-object v14, v10, Landroid/service/notification/Condition;->line1:Ljava/lang/String;
+
+    goto :goto_2
+
+    :cond_7
+    iget-object v14, v10, Landroid/service/notification/Condition;->summary:Ljava/lang/String;
+
+    goto :goto_2
 
     :cond_8
+    move-object v15, v14
+
+    goto :goto_0
+
+    :cond_9
     invoke-virtual/range {p0 .. p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v3
@@ -1307,15 +1446,15 @@
 
     aput-object v7, v6, v8
 
-    const v7, 0x10405ca
+    const v7, 0x1040bc4
 
     invoke-virtual {v3, v7, v6}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v15
 
-    goto :goto_1
+    goto/16 :goto_1
 
-    :cond_9
+    :cond_a
     return-object v15
 .end method
 
@@ -1456,6 +1595,61 @@
     goto :goto_1
 .end method
 
+.method private static getOwnerCaption(Landroid/content/Context;Ljava/lang/String;)Ljava/lang/String;
+    .locals 7
+
+    invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+
+    move-result-object v2
+
+    const/4 v5, 0x0
+
+    :try_start_0
+    invoke-virtual {v2, p1, v5}, Landroid/content/pm/PackageManager;->getApplicationInfo(Ljava/lang/String;I)Landroid/content/pm/ApplicationInfo;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_0
+
+    invoke-virtual {v1, v2}, Landroid/content/pm/ApplicationInfo;->loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
+
+    move-result-object v3
+
+    if-eqz v3, :cond_0
+
+    invoke-interface {v3}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/String;->trim()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/String;->length()I
+    :try_end_0
+    .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v5
+
+    if-lez v5, :cond_0
+
+    return-object v4
+
+    :catch_0
+    move-exception v0
+
+    sget-object v5, Landroid/service/notification/ZenModeConfig;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v6, "Error loading owner caption"
+
+    invoke-static {v5, v6, v0}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    :cond_0
+    const-string/jumbo v5, ""
+
+    return-object v5
+.end method
+
 .method public static getScheduleConditionProvider()Landroid/content/ComponentName;
     .locals 3
 
@@ -1481,15 +1675,10 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    xor-int/lit8 v0, v0, 0x1
 
-    :cond_0
-    const/4 v0, 0x0
+    if-eqz v0, :cond_0
 
-    :goto_0
-    return v0
-
-    :cond_1
     iget v0, p0, Landroid/service/notification/ZenModeConfig$ZenRule;->zenMode:I
 
     invoke-static {v0}, Landroid/provider/Settings$Global;->isValidZenMode(I)Z
@@ -1505,6 +1694,12 @@
     invoke-static {p0}, Landroid/service/notification/ZenModeConfig;->sameCondition(Landroid/service/notification/ZenModeConfig$ZenRule;)Z
 
     move-result v0
+
+    :goto_0
+    return v0
+
+    :cond_0
+    const/4 v0, 0x0
 
     goto :goto_0
 .end method
@@ -1783,11 +1978,11 @@
 .end method
 
 .method public static readRuleXml(Lorg/xmlpull/v1/XmlPullParser;)Landroid/service/notification/ZenModeConfig$ZenRule;
-    .locals 6
+    .locals 7
 
     const/4 v4, -0x1
 
-    const/4 v5, 0x0
+    const/4 v6, 0x0
 
     new-instance v0, Landroid/service/notification/ZenModeConfig$ZenRule;
 
@@ -1815,7 +2010,7 @@
 
     const-string/jumbo v2, "name"
 
-    invoke-interface {p0, v5, v2}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-interface {p0, v6, v2}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v2
 
@@ -1823,7 +2018,7 @@
 
     const-string/jumbo v2, "zen"
 
-    invoke-interface {p0, v5, v2}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-interface {p0, v6, v2}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
@@ -1859,7 +2054,7 @@
 
     invoke-static {v2, v3}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    return-object v5
+    return-object v6
 
     :cond_0
     const-string/jumbo v2, "conditionId"
@@ -1888,6 +2083,14 @@
 
     iput-wide v2, v0, Landroid/service/notification/ZenModeConfig$ZenRule;->creationTime:J
 
+    const-string/jumbo v2, "enabler"
+
+    invoke-interface {p0, v6, v2}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v2
+
+    iput-object v2, v0, Landroid/service/notification/ZenModeConfig$ZenRule;->enabler:Ljava/lang/String;
+
     invoke-static {p0}, Landroid/service/notification/ZenModeConfig;->readConditionXml(Lorg/xmlpull/v1/XmlPullParser;)Landroid/service/notification/Condition;
 
     move-result-object v2
@@ -1897,8 +2100,8 @@
     return-object v0
 .end method
 
-.method public static readXml(Lorg/xmlpull/v1/XmlPullParser;Landroid/service/notification/ZenModeConfig$Migration;)Landroid/service/notification/ZenModeConfig;
-    .locals 14
+.method public static readXml(Lorg/xmlpull/v1/XmlPullParser;)Landroid/service/notification/ZenModeConfig;
+    .locals 11
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lorg/xmlpull/v1/XmlPullParserException;,
@@ -1908,263 +2111,234 @@
 
     invoke-interface {p0}, Lorg/xmlpull/v1/XmlPullParser;->getEventType()I
 
-    move-result v8
+    move-result v7
 
-    const/4 v11, 0x2
+    const/4 v8, 0x2
 
-    if-eq v8, v11, :cond_0
+    if-eq v7, v8, :cond_0
 
-    const/4 v11, 0x0
+    const/4 v8, 0x0
 
-    return-object v11
+    return-object v8
 
     :cond_0
     invoke-interface {p0}, Lorg/xmlpull/v1/XmlPullParser;->getName()Ljava/lang/String;
 
-    move-result-object v7
+    move-result-object v6
 
-    const-string/jumbo v11, "zen"
+    const-string/jumbo v8, "zen"
 
-    invoke-virtual {v11, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v8, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v11
+    move-result v8
 
-    if-nez v11, :cond_1
+    if-nez v8, :cond_1
 
-    const/4 v11, 0x0
+    const/4 v8, 0x0
 
-    return-object v11
+    return-object v8
 
     :cond_1
     new-instance v5, Landroid/service/notification/ZenModeConfig;
 
     invoke-direct {v5}, Landroid/service/notification/ZenModeConfig;-><init>()V
 
-    const-string/jumbo v11, "version"
+    const-string/jumbo v8, "user"
 
-    const/4 v12, 0x2
+    iget v9, v5, Landroid/service/notification/ZenModeConfig;->user:I
 
-    invoke-static {p0, v11, v12}, Landroid/service/notification/ZenModeConfig;->safeInt(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;I)I
-
-    move-result v10
-
-    const/4 v11, 0x1
-
-    if-ne v10, v11, :cond_2
-
-    invoke-static {p0}, Landroid/service/notification/ZenModeConfig$XmlV1;->readXml(Lorg/xmlpull/v1/XmlPullParser;)Landroid/service/notification/ZenModeConfig$XmlV1;
-
-    move-result-object v9
-
-    invoke-interface {p1, v9}, Landroid/service/notification/ZenModeConfig$Migration;->migrate(Landroid/service/notification/ZenModeConfig$XmlV1;)Landroid/service/notification/ZenModeConfig;
-
-    move-result-object v11
-
-    return-object v11
-
-    :cond_2
-    const-string/jumbo v11, "user"
-
-    iget v12, v5, Landroid/service/notification/ZenModeConfig;->user:I
-
-    invoke-static {p0, v11, v12}, Landroid/service/notification/ZenModeConfig;->safeInt(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;I)I
-
-    move-result v11
-
-    iput v11, v5, Landroid/service/notification/ZenModeConfig;->user:I
-
-    const/4 v6, 0x0
-
-    :cond_3
-    :goto_0
-    invoke-interface {p0}, Lorg/xmlpull/v1/XmlPullParser;->next()I
+    invoke-static {p0, v8, v9}, Landroid/service/notification/ZenModeConfig;->safeInt(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;I)I
 
     move-result v8
 
-    const/4 v11, 0x1
+    iput v8, v5, Landroid/service/notification/ZenModeConfig;->user:I
 
-    if-eq v8, v11, :cond_c
+    :cond_2
+    :goto_0
+    invoke-interface {p0}, Lorg/xmlpull/v1/XmlPullParser;->next()I
+
+    move-result v7
+
+    const/4 v8, 0x1
+
+    if-eq v7, v8, :cond_9
 
     invoke-interface {p0}, Lorg/xmlpull/v1/XmlPullParser;->getName()Ljava/lang/String;
 
-    move-result-object v7
+    move-result-object v6
 
-    const/4 v11, 0x3
+    const/4 v8, 0x3
 
-    if-ne v8, v11, :cond_4
+    if-ne v7, v8, :cond_3
 
-    const-string/jumbo v11, "zen"
+    const-string/jumbo v8, "zen"
 
-    invoke-virtual {v11, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v8, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v11
+    move-result v8
 
-    if-eqz v11, :cond_4
+    if-eqz v8, :cond_3
 
     return-object v5
 
-    :cond_4
-    const/4 v11, 0x2
+    :cond_3
+    const/4 v8, 0x2
 
-    if-ne v8, v11, :cond_3
+    if-ne v7, v8, :cond_2
 
-    const-string/jumbo v11, "allow"
+    const-string/jumbo v8, "allow"
 
-    invoke-virtual {v11, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v8, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v11
+    move-result v8
 
-    if-eqz v11, :cond_7
+    if-eqz v8, :cond_6
 
-    const-string/jumbo v11, "calls"
+    const-string/jumbo v8, "calls"
 
-    const/4 v12, 0x0
+    const/4 v9, 0x0
 
-    invoke-static {p0, v11, v12}, Landroid/service/notification/ZenModeConfig;->safeBoolean(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;Z)Z
+    invoke-static {p0, v8, v9}, Landroid/service/notification/ZenModeConfig;->safeBoolean(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;Z)Z
 
-    move-result v11
+    move-result v8
 
-    iput-boolean v11, v5, Landroid/service/notification/ZenModeConfig;->allowCalls:Z
+    iput-boolean v8, v5, Landroid/service/notification/ZenModeConfig;->allowCalls:Z
 
-    const-string/jumbo v11, "repeatCallers"
+    const-string/jumbo v8, "repeatCallers"
 
-    const/4 v12, 0x0
+    const/4 v9, 0x0
 
-    invoke-static {p0, v11, v12}, Landroid/service/notification/ZenModeConfig;->safeBoolean(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;Z)Z
+    invoke-static {p0, v8, v9}, Landroid/service/notification/ZenModeConfig;->safeBoolean(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;Z)Z
 
-    move-result v11
+    move-result v8
 
-    iput-boolean v11, v5, Landroid/service/notification/ZenModeConfig;->allowRepeatCallers:Z
+    iput-boolean v8, v5, Landroid/service/notification/ZenModeConfig;->allowRepeatCallers:Z
 
-    const-string/jumbo v11, "messages"
+    const-string/jumbo v8, "messages"
 
-    const/4 v12, 0x0
+    const/4 v9, 0x0
 
-    invoke-static {p0, v11, v12}, Landroid/service/notification/ZenModeConfig;->safeBoolean(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;Z)Z
+    invoke-static {p0, v8, v9}, Landroid/service/notification/ZenModeConfig;->safeBoolean(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;Z)Z
 
-    move-result v11
+    move-result v8
 
-    iput-boolean v11, v5, Landroid/service/notification/ZenModeConfig;->allowMessages:Z
+    iput-boolean v8, v5, Landroid/service/notification/ZenModeConfig;->allowMessages:Z
 
-    const-string/jumbo v11, "reminders"
+    const-string/jumbo v8, "reminders"
 
-    const/4 v12, 0x0
+    const/4 v9, 0x0
 
-    invoke-static {p0, v11, v12}, Landroid/service/notification/ZenModeConfig;->safeBoolean(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;Z)Z
+    invoke-static {p0, v8, v9}, Landroid/service/notification/ZenModeConfig;->safeBoolean(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;Z)Z
 
-    move-result v11
+    move-result v8
 
-    iput-boolean v11, v5, Landroid/service/notification/ZenModeConfig;->allowReminders:Z
+    iput-boolean v8, v5, Landroid/service/notification/ZenModeConfig;->allowReminders:Z
 
-    const-string/jumbo v11, "events"
+    const-string/jumbo v8, "events"
 
-    const/4 v12, 0x0
+    const/4 v9, 0x0
 
-    invoke-static {p0, v11, v12}, Landroid/service/notification/ZenModeConfig;->safeBoolean(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;Z)Z
+    invoke-static {p0, v8, v9}, Landroid/service/notification/ZenModeConfig;->safeBoolean(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;Z)Z
 
-    move-result v11
+    move-result v8
 
-    iput-boolean v11, v5, Landroid/service/notification/ZenModeConfig;->allowEvents:Z
+    iput-boolean v8, v5, Landroid/service/notification/ZenModeConfig;->allowEvents:Z
 
-    const/4 v11, 0x1
+    const-string/jumbo v8, "from"
 
-    iput-boolean v11, v5, Landroid/service/notification/ZenModeConfig;->allowAlarms:Z
+    const/4 v9, -0x1
 
-    const-string/jumbo v11, "from"
-
-    const/4 v12, -0x1
-
-    invoke-static {p0, v11, v12}, Landroid/service/notification/ZenModeConfig;->safeInt(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;I)I
+    invoke-static {p0, v8, v9}, Landroid/service/notification/ZenModeConfig;->safeInt(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;I)I
 
     move-result v2
 
-    const-string/jumbo v11, "callsFrom"
+    const-string/jumbo v8, "callsFrom"
 
-    const/4 v12, -0x1
+    const/4 v9, -0x1
 
-    invoke-static {p0, v11, v12}, Landroid/service/notification/ZenModeConfig;->safeInt(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;I)I
+    invoke-static {p0, v8, v9}, Landroid/service/notification/ZenModeConfig;->safeInt(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;I)I
 
     move-result v1
 
-    const-string/jumbo v11, "messagesFrom"
+    const-string/jumbo v8, "messagesFrom"
 
-    const/4 v12, -0x1
+    const/4 v9, -0x1
 
-    invoke-static {p0, v11, v12}, Landroid/service/notification/ZenModeConfig;->safeInt(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;I)I
+    invoke-static {p0, v8, v9}, Landroid/service/notification/ZenModeConfig;->safeInt(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;I)I
 
     move-result v4
 
     invoke-static {v1}, Landroid/service/notification/ZenModeConfig;->isValidSource(I)Z
 
-    move-result v11
+    move-result v8
 
-    if-eqz v11, :cond_5
+    if-eqz v8, :cond_4
 
     invoke-static {v4}, Landroid/service/notification/ZenModeConfig;->isValidSource(I)Z
 
-    move-result v11
+    move-result v8
 
-    if-eqz v11, :cond_5
+    if-eqz v8, :cond_4
 
     iput v1, v5, Landroid/service/notification/ZenModeConfig;->allowCallsFrom:I
 
     iput v4, v5, Landroid/service/notification/ZenModeConfig;->allowMessagesFrom:I
 
     :goto_1
-    const-string/jumbo v11, "visualScreenOff"
+    const-string/jumbo v8, "visualScreenOff"
 
-    const/4 v12, 0x1
+    const/4 v9, 0x1
 
-    invoke-static {p0, v11, v12}, Landroid/service/notification/ZenModeConfig;->safeBoolean(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;Z)Z
+    invoke-static {p0, v8, v9}, Landroid/service/notification/ZenModeConfig;->safeBoolean(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;Z)Z
 
-    move-result v11
+    move-result v8
 
-    iput-boolean v11, v5, Landroid/service/notification/ZenModeConfig;->allowWhenScreenOff:Z
+    iput-boolean v8, v5, Landroid/service/notification/ZenModeConfig;->allowWhenScreenOff:Z
 
-    const-string/jumbo v11, "visualScreenOn"
+    const-string/jumbo v8, "visualScreenOn"
 
-    const/4 v12, 0x1
+    const/4 v9, 0x1
 
-    invoke-static {p0, v11, v12}, Landroid/service/notification/ZenModeConfig;->safeBoolean(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;Z)Z
+    invoke-static {p0, v8, v9}, Landroid/service/notification/ZenModeConfig;->safeBoolean(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;Z)Z
 
-    move-result v11
+    move-result v8
 
-    iput-boolean v11, v5, Landroid/service/notification/ZenModeConfig;->allowWhenScreenOn:Z
+    iput-boolean v8, v5, Landroid/service/notification/ZenModeConfig;->allowWhenScreenOn:Z
 
     goto/16 :goto_0
 
-    :cond_5
+    :cond_4
     invoke-static {v2}, Landroid/service/notification/ZenModeConfig;->isValidSource(I)Z
 
-    move-result v11
+    move-result v8
 
-    if-eqz v11, :cond_6
+    if-eqz v8, :cond_5
 
-    sget-object v11, Landroid/service/notification/ZenModeConfig;->TAG:Ljava/lang/String;
+    sget-object v8, Landroid/service/notification/ZenModeConfig;->TAG:Ljava/lang/String;
 
-    new-instance v12, Ljava/lang/StringBuilder;
+    new-instance v9, Ljava/lang/StringBuilder;
 
-    invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v13, "Migrating existing shared \'from\': "
+    const-string/jumbo v10, "Migrating existing shared \'from\': "
 
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v12
+    move-result-object v9
 
     invoke-static {v2}, Landroid/service/notification/ZenModeConfig;->sourceToString(I)Ljava/lang/String;
 
-    move-result-object v13
+    move-result-object v10
 
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v12
+    move-result-object v9
 
-    invoke-virtual {v12}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v12
+    move-result-object v9
 
-    invoke-static {v11, v12}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v8, v9}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     iput v2, v5, Landroid/service/notification/ZenModeConfig;->allowCallsFrom:I
 
@@ -2172,48 +2346,48 @@
 
     goto :goto_1
 
-    :cond_6
-    const/4 v11, 0x1
+    :cond_5
+    const/4 v8, 0x1
 
-    iput v11, v5, Landroid/service/notification/ZenModeConfig;->allowCallsFrom:I
+    iput v8, v5, Landroid/service/notification/ZenModeConfig;->allowCallsFrom:I
 
-    const/4 v11, 0x1
+    const/4 v8, 0x1
 
-    iput v11, v5, Landroid/service/notification/ZenModeConfig;->allowMessagesFrom:I
+    iput v8, v5, Landroid/service/notification/ZenModeConfig;->allowMessagesFrom:I
 
     goto :goto_1
 
-    :cond_7
-    const-string/jumbo v11, "manual"
+    :cond_6
+    const-string/jumbo v8, "manual"
 
-    invoke-virtual {v11, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v8, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v11
+    move-result v8
 
-    if-eqz v11, :cond_8
+    if-eqz v8, :cond_7
 
     invoke-static {p0}, Landroid/service/notification/ZenModeConfig;->readRuleXml(Lorg/xmlpull/v1/XmlPullParser;)Landroid/service/notification/ZenModeConfig$ZenRule;
 
-    move-result-object v11
+    move-result-object v8
 
-    iput-object v11, v5, Landroid/service/notification/ZenModeConfig;->manualRule:Landroid/service/notification/ZenModeConfig$ZenRule;
+    iput-object v8, v5, Landroid/service/notification/ZenModeConfig;->manualRule:Landroid/service/notification/ZenModeConfig$ZenRule;
 
     goto/16 :goto_0
 
-    :cond_8
-    const-string/jumbo v11, "automatic"
+    :cond_7
+    const-string/jumbo v8, "automatic"
 
-    invoke-virtual {v11, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v8, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v11
+    move-result v8
 
-    if-eqz v11, :cond_3
+    if-eqz v8, :cond_2
 
-    const-string/jumbo v11, "ruleId"
+    const-string/jumbo v8, "ruleId"
 
-    const/4 v12, 0x0
+    const/4 v9, 0x0
 
-    invoke-interface {p0, v12, v11}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-interface {p0, v9, v8}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v3
 
@@ -2221,78 +2395,57 @@
 
     move-result-object v0
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_2
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_2
 
-    iget-object v11, v0, Landroid/service/notification/ZenModeConfig$ZenRule;->component:Landroid/content/ComponentName;
+    iget-object v8, v0, Landroid/service/notification/ZenModeConfig$ZenRule;->component:Landroid/content/ComponentName;
 
-    if-nez v11, :cond_9
+    if-nez v8, :cond_8
 
-    sget-object v11, Landroid/service/notification/ZenModeConfig;->TAG:Ljava/lang/String;
+    sget-object v8, Landroid/service/notification/ZenModeConfig;->TAG:Ljava/lang/String;
 
-    new-instance v12, Ljava/lang/StringBuilder;
+    new-instance v9, Ljava/lang/StringBuilder;
 
-    invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v13, "Bad component in rule xml:"
+    const-string/jumbo v10, "Bad component in rule xml: "
 
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v12
+    move-result-object v9
 
-    iget-object v13, v0, Landroid/service/notification/ZenModeConfig$ZenRule;->name:Ljava/lang/String;
+    iget-object v10, v0, Landroid/service/notification/ZenModeConfig$ZenRule;->name:Ljava/lang/String;
 
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v12
+    move-result-object v9
 
-    invoke-virtual {v12}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v12
+    move-result-object v9
 
-    invoke-static {v11, v12}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v8, v9}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto/16 :goto_0
+
+    :cond_8
+    iput-object v3, v0, Landroid/service/notification/ZenModeConfig$ZenRule;->id:Ljava/lang/String;
+
+    iget-object v8, v5, Landroid/service/notification/ZenModeConfig;->automaticRules:Landroid/util/ArrayMap;
+
+    invoke-virtual {v8, v3, v0}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     goto/16 :goto_0
 
     :cond_9
-    iget-object v11, v0, Landroid/service/notification/ZenModeConfig$ZenRule;->conditionId:Landroid/net/Uri;
+    new-instance v8, Ljava/lang/IllegalStateException;
 
-    invoke-static {v11}, Landroid/service/notification/ZenModeConfig;->isValidScheduleConditionId(Landroid/net/Uri;)Z
+    const-string/jumbo v9, "Failed to reach END_DOCUMENT"
 
-    move-result v11
+    invoke-direct {v8, v9}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    if-eqz v11, :cond_a
-
-    if-eqz v6, :cond_b
-
-    :cond_a
-    :goto_2
-    iput-object v3, v0, Landroid/service/notification/ZenModeConfig$ZenRule;->id:Ljava/lang/String;
-
-    iget-object v11, v5, Landroid/service/notification/ZenModeConfig;->automaticRules:Landroid/util/ArrayMap;
-
-    invoke-virtual {v11, v3, v0}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    goto/16 :goto_0
-
-    :cond_b
-    const/4 v6, 0x1
-
-    const-string/jumbo v11, "twschedule"
-
-    iput-object v11, v0, Landroid/service/notification/ZenModeConfig$ZenRule;->name:Ljava/lang/String;
-
-    goto :goto_2
-
-    :cond_c
-    new-instance v11, Ljava/lang/IllegalStateException;
-
-    const-string/jumbo v12, "Failed to reach END_DOCUMENT"
-
-    invoke-direct {v11, v12}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
-
-    throw v11
+    throw v8
 .end method
 
 .method private static safeBoolean(Ljava/lang/String;Z)Z
@@ -2307,11 +2460,7 @@
     return p1
 
     :cond_0
-    invoke-static {p0}, Ljava/lang/Boolean;->valueOf(Ljava/lang/String;)Ljava/lang/Boolean;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z
+    invoke-static {p0}, Ljava/lang/Boolean;->parseBoolean(Ljava/lang/String;)Z
 
     move-result v0
 
@@ -2715,7 +2864,7 @@
 
     aput-object v11, v3, v8
 
-    const v5, 0x10405c7
+    const v5, 0x1040bbc
 
     invoke-virtual {v12, v5, v3}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -2935,7 +3084,7 @@
 
     if-eqz p5, :cond_0
 
-    const v16, 0x114001c
+    const v16, 0x1150022
 
     :goto_0
     const/4 v4, 0x2
@@ -2964,7 +3113,7 @@
 
     if-eqz p5, :cond_1
 
-    const v13, 0x1140020
+    const v13, 0x1150020
 
     :goto_1
     const/4 v4, 0x2
@@ -2997,7 +3146,7 @@
 
     aput-object v12, v4, v9
 
-    const v9, 0x10405c6
+    const v9, 0x1040bc5
 
     invoke-virtual {v15, v9, v4}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -3021,12 +3170,12 @@
     return-object v4
 
     :cond_0
-    const v16, 0x114001b
+    const v16, 0x1150021
 
     goto :goto_0
 
     :cond_1
-    const v13, 0x114001f
+    const v13, 0x115001f
 
     goto :goto_1
 
@@ -3051,7 +3200,7 @@
 
     if-eqz p5, :cond_3
 
-    const v16, 0x114001e
+    const v16, 0x115001e
 
     :goto_3
     const/4 v4, 0x2
@@ -3078,7 +3227,7 @@
 
     if-eqz p5, :cond_4
 
-    const v13, 0x1140022
+    const v13, 0x115001c
 
     :goto_4
     const/4 v4, 0x2
@@ -3109,7 +3258,7 @@
 
     aput-object v12, v4, v9
 
-    const v9, 0x10405c6
+    const v9, 0x1040bc5
 
     invoke-virtual {v15, v9, v4}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -3118,12 +3267,12 @@
     goto :goto_2
 
     :cond_3
-    const v16, 0x114001d
+    const v16, 0x115001d
 
     goto :goto_3
 
     :cond_4
-    const v13, 0x1140021
+    const v13, 0x115001b
 
     goto :goto_4
 
@@ -3136,7 +3285,7 @@
 
     aput-object v12, v4, v9
 
-    const v9, 0x10405c6
+    const v9, 0x1040bc5
 
     invoke-virtual {v15, v9, v4}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -3193,8 +3342,14 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    xor-int/lit8 v1, v1, 0x1
 
+    if-eqz v1, :cond_2
+
+    :cond_1
+    return-wide v4
+
+    :cond_2
     :try_start_0
     invoke-virtual {p0}, Landroid/net/Uri;->getPathSegments()Ljava/util/List;
 
@@ -3215,9 +3370,6 @@
     move-result-wide v2
 
     return-wide v2
-
-    :cond_1
-    return-wide v4
 
     :catch_0
     move-exception v0
@@ -3303,13 +3455,13 @@
 .end method
 
 .method public static tryParseEventConditionId(Landroid/net/Uri;)Landroid/service/notification/ZenModeConfig$EventInfo;
-    .locals 10
+    .locals 8
 
-    const-wide/16 v8, -0x1
+    const-wide/16 v6, -0x1
 
-    const/4 v6, 0x0
+    const/4 v5, 0x0
 
-    const/4 v3, 0x0
+    const/4 v4, 0x0
 
     if-eqz p0, :cond_0
 
@@ -3317,9 +3469,9 @@
 
     move-result-object v2
 
-    const-string/jumbo v4, "condition"
+    const-string/jumbo v3, "condition"
 
-    invoke-virtual {v2, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v2
 
@@ -3329,9 +3481,9 @@
 
     move-result-object v2
 
-    const-string/jumbo v4, "android"
+    const-string/jumbo v3, "android"
 
-    invoke-virtual {v2, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v2
 
@@ -3345,33 +3497,33 @@
 
     move-result v2
 
-    const/4 v4, 0x1
+    const/4 v3, 0x1
 
-    if-ne v2, v4, :cond_0
+    if-ne v2, v3, :cond_0
 
     invoke-virtual {p0}, Landroid/net/Uri;->getPathSegments()Ljava/util/List;
 
     move-result-object v2
 
-    invoke-interface {v2, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {v2, v5}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v2
 
     check-cast v2, Ljava/lang/String;
 
-    const-string/jumbo v4, "event"
+    const-string/jumbo v3, "event"
 
-    invoke-virtual {v2, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
     :goto_0
     if-nez v0, :cond_1
 
-    return-object v6
+    return-object v4
 
     :cond_0
-    move v0, v3
+    const/4 v0, 0x0
 
     goto :goto_0
 
@@ -3386,9 +3538,9 @@
 
     move-result-object v2
 
-    const/16 v4, -0x2710
+    const/16 v3, -0x2710
 
-    invoke-static {v2, v4}, Landroid/service/notification/ZenModeConfig;->tryParseInt(Ljava/lang/String;I)I
+    invoke-static {v2, v3}, Landroid/service/notification/ZenModeConfig;->tryParseInt(Ljava/lang/String;I)I
 
     move-result v2
 
@@ -3412,16 +3564,16 @@
 
     iget-object v2, v1, Landroid/service/notification/ZenModeConfig$EventInfo;->calendar:Ljava/lang/String;
 
-    invoke-static {v2, v8, v9}, Landroid/service/notification/ZenModeConfig;->tryParseLong(Ljava/lang/String;J)J
+    invoke-static {v2, v6, v7}, Landroid/service/notification/ZenModeConfig;->tryParseLong(Ljava/lang/String;J)J
 
-    move-result-wide v4
+    move-result-wide v2
 
-    cmp-long v2, v4, v8
+    cmp-long v2, v2, v6
 
     if-eqz v2, :cond_3
 
     :cond_2
-    iput-object v6, v1, Landroid/service/notification/ZenModeConfig$EventInfo;->calendar:Ljava/lang/String;
+    iput-object v4, v1, Landroid/service/notification/ZenModeConfig$EventInfo;->calendar:Ljava/lang/String;
 
     :cond_3
     const-string/jumbo v2, "reply"
@@ -3430,7 +3582,7 @@
 
     move-result-object v2
 
-    invoke-static {v2, v3}, Landroid/service/notification/ZenModeConfig;->tryParseInt(Ljava/lang/String;I)I
+    invoke-static {v2, v5}, Landroid/service/notification/ZenModeConfig;->tryParseInt(Ljava/lang/String;I)I
 
     move-result v2
 
@@ -3561,11 +3713,7 @@
 
     :cond_0
     :try_start_0
-    invoke-static {p0}, Ljava/lang/Long;->valueOf(Ljava/lang/String;)Ljava/lang/Long;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/Long;->longValue()J
+    invoke-static {p0}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
     :try_end_0
     .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -3586,7 +3734,7 @@
 
     const/4 v7, 0x0
 
-    const/4 v5, 0x0
+    const/4 v6, 0x0
 
     if-eqz p0, :cond_0
 
@@ -3594,9 +3742,9 @@
 
     move-result-object v4
 
-    const-string/jumbo v6, "condition"
+    const-string/jumbo v5, "condition"
 
-    invoke-virtual {v4, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v4
 
@@ -3606,9 +3754,9 @@
 
     move-result-object v4
 
-    const-string/jumbo v6, "android"
+    const-string/jumbo v5, "android"
 
-    invoke-virtual {v4, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v4
 
@@ -3628,25 +3776,25 @@
 
     move-result-object v4
 
-    invoke-interface {v4, v5}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {v4, v7}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v4
 
     check-cast v4, Ljava/lang/String;
 
-    const-string/jumbo v6, "schedule"
+    const-string/jumbo v5, "schedule"
 
-    invoke-virtual {v4, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
     :goto_0
     if-nez v1, :cond_1
 
-    return-object v7
+    return-object v6
 
     :cond_0
-    move v1, v5
+    const/4 v1, 0x0
 
     goto :goto_0
 
@@ -3676,7 +3824,7 @@
     if-nez v0, :cond_3
 
     :cond_2
-    return-object v7
+    return-object v6
 
     :cond_3
     new-instance v2, Landroid/service/notification/ZenModeConfig$ScheduleInfo;
@@ -3689,15 +3837,15 @@
 
     move-result-object v4
 
-    const-string/jumbo v6, "\\."
+    const-string/jumbo v5, "\\."
 
-    invoke-static {v4, v6}, Landroid/service/notification/ZenModeConfig;->tryParseDayList(Ljava/lang/String;Ljava/lang/String;)[I
+    invoke-static {v4, v5}, Landroid/service/notification/ZenModeConfig;->tryParseDayList(Ljava/lang/String;Ljava/lang/String;)[I
 
     move-result-object v4
 
     iput-object v4, v2, Landroid/service/notification/ZenModeConfig$ScheduleInfo;->days:[I
 
-    aget v4, v3, v5
+    aget v4, v3, v7
 
     iput v4, v2, Landroid/service/notification/ZenModeConfig$ScheduleInfo;->startHour:I
 
@@ -3705,7 +3853,7 @@
 
     iput v4, v2, Landroid/service/notification/ZenModeConfig$ScheduleInfo;->startMinute:I
 
-    aget v4, v0, v5
+    aget v4, v0, v7
 
     iput v4, v2, Landroid/service/notification/ZenModeConfig$ScheduleInfo;->endHour:I
 
@@ -3719,7 +3867,7 @@
 
     move-result-object v4
 
-    invoke-static {v4, v5}, Landroid/service/notification/ZenModeConfig;->safeBoolean(Ljava/lang/String;Z)Z
+    invoke-static {v4, v7}, Landroid/service/notification/ZenModeConfig;->safeBoolean(Ljava/lang/String;Z)Z
 
     move-result v4
 
@@ -3912,15 +4060,26 @@
 
     invoke-interface {p1, v4, v0, v1}, Lorg/xmlpull/v1/XmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    iget-object v0, p0, Landroid/service/notification/ZenModeConfig$ZenRule;->condition:Landroid/service/notification/Condition;
+    iget-object v0, p0, Landroid/service/notification/ZenModeConfig$ZenRule;->enabler:Ljava/lang/String;
 
     if-eqz v0, :cond_3
+
+    const-string/jumbo v0, "enabler"
+
+    iget-object v1, p0, Landroid/service/notification/ZenModeConfig$ZenRule;->enabler:Ljava/lang/String;
+
+    invoke-interface {p1, v4, v0, v1}, Lorg/xmlpull/v1/XmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+
+    :cond_3
+    iget-object v0, p0, Landroid/service/notification/ZenModeConfig$ZenRule;->condition:Landroid/service/notification/Condition;
+
+    if-eqz v0, :cond_4
 
     iget-object v0, p0, Landroid/service/notification/ZenModeConfig$ZenRule;->condition:Landroid/service/notification/Condition;
 
     invoke-static {v0, p1}, Landroid/service/notification/ZenModeConfig;->writeConditionXml(Landroid/service/notification/Condition;Lorg/xmlpull/v1/XmlSerializer;)V
 
-    :cond_3
+    :cond_4
     return-void
 .end method
 
@@ -3973,35 +4132,24 @@
 
     iget v0, p1, Landroid/app/NotificationManager$Policy;->priorityCategories:I
 
-    and-int/lit8 v0, v0, 0x20
+    and-int/lit8 v0, v0, 0x1
 
     if-eqz v0, :cond_5
 
     move v0, v1
 
     :goto_3
-    iput-boolean v0, p0, Landroid/service/notification/ZenModeConfig;->allowAlarms:Z
-
-    iget v0, p1, Landroid/app/NotificationManager$Policy;->priorityCategories:I
-
-    and-int/lit8 v0, v0, 0x1
-
-    if-eqz v0, :cond_6
-
-    move v0, v1
-
-    :goto_4
     iput-boolean v0, p0, Landroid/service/notification/ZenModeConfig;->allowReminders:Z
 
     iget v0, p1, Landroid/app/NotificationManager$Policy;->priorityCategories:I
 
     and-int/lit8 v0, v0, 0x10
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_6
 
     move v0, v1
 
-    :goto_5
+    :goto_4
     iput-boolean v0, p0, Landroid/service/notification/ZenModeConfig;->allowRepeatCallers:Z
 
     iget v0, p1, Landroid/app/NotificationManager$Policy;->priorityCallSenders:I
@@ -4034,20 +4182,20 @@
 
     and-int/lit8 v0, v0, 0x1
 
-    if-nez v0, :cond_8
+    if-nez v0, :cond_7
 
     move v0, v1
 
-    :goto_6
+    :goto_5
     iput-boolean v0, p0, Landroid/service/notification/ZenModeConfig;->allowWhenScreenOff:Z
 
     iget v0, p1, Landroid/app/NotificationManager$Policy;->suppressedVisualEffects:I
 
     and-int/lit8 v0, v0, 0x2
 
-    if-nez v0, :cond_9
+    if-nez v0, :cond_8
 
-    :goto_7
+    :goto_6
     iput-boolean v1, p0, Landroid/service/notification/ZenModeConfig;->allowWhenScreenOn:Z
 
     :cond_1
@@ -4084,14 +4232,9 @@
     goto :goto_5
 
     :cond_8
-    move v0, v2
-
-    goto :goto_6
-
-    :cond_9
     move v1, v2
 
-    goto :goto_7
+    goto :goto_6
 .end method
 
 .method public copy()Landroid/service/notification/ZenModeConfig;
@@ -4201,12 +4344,6 @@
 
     if-ne v2, v3, :cond_2
 
-    iget-boolean v2, v0, Landroid/service/notification/ZenModeConfig;->allowAlarms:Z
-
-    iget-boolean v3, p0, Landroid/service/notification/ZenModeConfig;->allowAlarms:Z
-
-    if-ne v2, v3, :cond_2
-
     iget-boolean v2, v0, Landroid/service/notification/ZenModeConfig;->allowWhenScreenOff:Z
 
     iget-boolean v3, p0, Landroid/service/notification/ZenModeConfig;->allowWhenScreenOff:Z
@@ -4250,7 +4387,7 @@
 .method public hashCode()I
     .locals 3
 
-    const/16 v0, 0xd
+    const/16 v0, 0xc
 
     new-array v0, v0, [Ljava/lang/Object;
 
@@ -4324,7 +4461,7 @@
 
     aput-object v1, v0, v2
 
-    iget-boolean v1, p0, Landroid/service/notification/ZenModeConfig;->allowAlarms:Z
+    iget-boolean v1, p0, Landroid/service/notification/ZenModeConfig;->allowWhenScreenOff:Z
 
     invoke-static {v1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
@@ -4334,7 +4471,7 @@
 
     aput-object v1, v0, v2
 
-    iget-boolean v1, p0, Landroid/service/notification/ZenModeConfig;->allowWhenScreenOff:Z
+    iget-boolean v1, p0, Landroid/service/notification/ZenModeConfig;->allowWhenScreenOn:Z
 
     invoke-static {v1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
@@ -4344,9 +4481,9 @@
 
     aput-object v1, v0, v2
 
-    iget-boolean v1, p0, Landroid/service/notification/ZenModeConfig;->allowWhenScreenOn:Z
+    iget v1, p0, Landroid/service/notification/ZenModeConfig;->user:I
 
-    invoke-static {v1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v1
 
@@ -4354,25 +4491,15 @@
 
     aput-object v1, v0, v2
 
-    iget v1, p0, Landroid/service/notification/ZenModeConfig;->user:I
-
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v1
+    iget-object v1, p0, Landroid/service/notification/ZenModeConfig;->automaticRules:Landroid/util/ArrayMap;
 
     const/16 v2, 0xa
 
     aput-object v1, v0, v2
 
-    iget-object v1, p0, Landroid/service/notification/ZenModeConfig;->automaticRules:Landroid/util/ArrayMap;
-
-    const/16 v2, 0xb
-
-    aput-object v1, v0, v2
-
     iget-object v1, p0, Landroid/service/notification/ZenModeConfig;->manualRule:Landroid/service/notification/ZenModeConfig$ZenRule;
 
-    const/16 v2, 0xc
+    const/16 v2, 0xb
 
     aput-object v1, v0, v2
 
@@ -4467,43 +4594,36 @@
     or-int/lit8 v1, v1, 0x2
 
     :cond_2
-    iget-boolean v4, p0, Landroid/service/notification/ZenModeConfig;->allowAlarms:Z
+    iget-boolean v4, p0, Landroid/service/notification/ZenModeConfig;->allowReminders:Z
 
     if-eqz v4, :cond_3
 
-    or-int/lit8 v1, v1, 0x20
+    or-int/lit8 v1, v1, 0x1
 
     :cond_3
-    iget-boolean v4, p0, Landroid/service/notification/ZenModeConfig;->allowReminders:Z
+    iget-boolean v4, p0, Landroid/service/notification/ZenModeConfig;->allowRepeatCallers:Z
 
     if-eqz v4, :cond_4
 
-    or-int/lit8 v1, v1, 0x1
-
-    :cond_4
-    iget-boolean v4, p0, Landroid/service/notification/ZenModeConfig;->allowRepeatCallers:Z
-
-    if-eqz v4, :cond_5
-
     or-int/lit8 v1, v1, 0x10
 
-    :cond_5
+    :cond_4
     const/4 v3, 0x0
 
     iget-boolean v4, p0, Landroid/service/notification/ZenModeConfig;->allowWhenScreenOff:Z
 
-    if-nez v4, :cond_6
+    if-nez v4, :cond_5
 
     const/4 v3, 0x1
 
-    :cond_6
+    :cond_5
     iget-boolean v4, p0, Landroid/service/notification/ZenModeConfig;->allowWhenScreenOn:Z
 
-    if-nez v4, :cond_7
+    if-nez v4, :cond_6
 
     or-int/lit8 v3, v3, 0x2
 
-    :cond_7
+    :cond_6
     iget v4, p0, Landroid/service/notification/ZenModeConfig;->allowCallsFrom:I
 
     invoke-static {v4, v0}, Landroid/service/notification/ZenModeConfig;->sourceToPrioritySenders(II)I
@@ -4646,18 +4766,6 @@
 
     move-result-object v0
 
-    const-string/jumbo v1, ",allowAlarms="
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    iget-boolean v1, p0, Landroid/service/notification/ZenModeConfig;->allowAlarms:Z
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
     const-string/jumbo v1, ",allowWhenScreenOff="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -4771,15 +4879,6 @@
     :goto_4
     invoke-virtual {p1, v4}, Landroid/os/Parcel;->writeInt(I)V
 
-    iget-boolean v4, p0, Landroid/service/notification/ZenModeConfig;->allowAlarms:Z
-
-    if-eqz v4, :cond_5
-
-    move v4, v5
-
-    :goto_5
-    invoke-virtual {p1, v4}, Landroid/os/Parcel;->writeInt(I)V
-
     iget v4, p0, Landroid/service/notification/ZenModeConfig;->allowCallsFrom:I
 
     invoke-virtual {p1, v4}, Landroid/os/Parcel;->writeInt(I)V
@@ -4802,7 +4901,7 @@
 
     move-result v4
 
-    if-nez v4, :cond_7
+    if-nez v4, :cond_6
 
     iget-object v4, p0, Landroid/service/notification/ZenModeConfig;->automaticRules:Landroid/util/ArrayMap;
 
@@ -4816,8 +4915,8 @@
 
     const/4 v0, 0x0
 
-    :goto_6
-    if-ge v0, v2, :cond_6
+    :goto_5
+    if-ge v0, v2, :cond_5
 
     iget-object v4, p0, Landroid/service/notification/ZenModeConfig;->automaticRules:Landroid/util/ArrayMap;
 
@@ -4841,7 +4940,7 @@
 
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_6
+    goto :goto_5
 
     :cond_0
     move v4, v6
@@ -4869,50 +4968,45 @@
     goto :goto_4
 
     :cond_5
-    move v4, v6
-
-    goto :goto_5
-
-    :cond_6
     invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeInt(I)V
 
     invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeStringArray([Ljava/lang/String;)V
 
     invoke-virtual {p1, v3, v6}, Landroid/os/Parcel;->writeTypedArray([Landroid/os/Parcelable;I)V
 
-    :goto_7
+    :goto_6
     iget-boolean v4, p0, Landroid/service/notification/ZenModeConfig;->allowWhenScreenOff:Z
 
-    if-eqz v4, :cond_8
+    if-eqz v4, :cond_7
 
     move v4, v5
 
-    :goto_8
+    :goto_7
     invoke-virtual {p1, v4}, Landroid/os/Parcel;->writeInt(I)V
 
     iget-boolean v4, p0, Landroid/service/notification/ZenModeConfig;->allowWhenScreenOn:Z
 
-    if-eqz v4, :cond_9
+    if-eqz v4, :cond_8
 
-    :goto_9
+    :goto_8
     invoke-virtual {p1, v5}, Landroid/os/Parcel;->writeInt(I)V
 
     return-void
 
-    :cond_7
+    :cond_6
     invoke-virtual {p1, v6}, Landroid/os/Parcel;->writeInt(I)V
+
+    goto :goto_6
+
+    :cond_7
+    move v4, v6
 
     goto :goto_7
 
     :cond_8
-    move v4, v6
-
-    goto :goto_8
-
-    :cond_9
     move v5, v6
 
-    goto :goto_9
+    goto :goto_8
 .end method
 
 .method public writeXml(Lorg/xmlpull/v1/XmlSerializer;)V
@@ -4996,16 +5090,6 @@
     const-string/jumbo v4, "events"
 
     iget-boolean v5, p0, Landroid/service/notification/ZenModeConfig;->allowEvents:Z
-
-    invoke-static {v5}, Ljava/lang/Boolean;->toString(Z)Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-interface {p1, v6, v4, v5}, Lorg/xmlpull/v1/XmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
-
-    const-string/jumbo v4, "alarms"
-
-    const/4 v5, 0x1
 
     invoke-static {v5}, Ljava/lang/Boolean;->toString(Z)Ljava/lang/String;
 

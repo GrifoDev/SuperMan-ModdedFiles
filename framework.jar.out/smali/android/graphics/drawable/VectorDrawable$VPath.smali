@@ -13,6 +13,26 @@
     name = "VPath"
 .end annotation
 
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Landroid/graphics/drawable/VectorDrawable$VPath$1;
+    }
+.end annotation
+
+
+# static fields
+.field private static final PATH_DATA:Landroid/util/Property;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Landroid/util/Property",
+            "<",
+            "Landroid/graphics/drawable/VectorDrawable$VPath;",
+            "Landroid/util/PathParser$PathData;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 
 # instance fields
 .field mChangingConfigurations:I
@@ -23,6 +43,22 @@
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 3
+
+    new-instance v0, Landroid/graphics/drawable/VectorDrawable$VPath$1;
+
+    const-class v1, Landroid/util/PathParser$PathData;
+
+    const-string/jumbo v2, "pathData"
+
+    invoke-direct {v0, v1, v2}, Landroid/graphics/drawable/VectorDrawable$VPath$1;-><init>(Ljava/lang/Class;Ljava/lang/String;)V
+
+    sput-object v0, Landroid/graphics/drawable/VectorDrawable$VPath;->PATH_DATA:Landroid/util/Property;
+
+    return-void
+.end method
+
 .method public constructor <init>()V
     .locals 1
 
@@ -85,6 +121,31 @@
     .locals 1
 
     iget-object v0, p0, Landroid/graphics/drawable/VectorDrawable$VPath;->mPathName:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method getProperty(Ljava/lang/String;)Landroid/util/Property;
+    .locals 1
+
+    sget-object v0, Landroid/graphics/drawable/VectorDrawable$VPath;->PATH_DATA:Landroid/util/Property;
+
+    invoke-virtual {v0}, Landroid/util/Property;->getName()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    sget-object v0, Landroid/graphics/drawable/VectorDrawable$VPath;->PATH_DATA:Landroid/util/Property;
+
+    return-object v0
+
+    :cond_0
+    const/4 v0, 0x0
 
     return-object v0
 .end method

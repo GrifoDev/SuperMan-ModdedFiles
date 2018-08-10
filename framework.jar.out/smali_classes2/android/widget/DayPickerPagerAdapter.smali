@@ -250,6 +250,45 @@
     return-void
 .end method
 
+.method public getBoundsForDate(Landroid/icu/util/Calendar;Landroid/graphics/Rect;)Z
+    .locals 5
+
+    const/4 v4, 0x0
+
+    invoke-direct {p0, p1}, Landroid/widget/DayPickerPagerAdapter;->getPositionForDay(Landroid/icu/util/Calendar;)I
+
+    move-result v2
+
+    iget-object v3, p0, Landroid/widget/DayPickerPagerAdapter;->mItems:Landroid/util/SparseArray;
+
+    invoke-virtual {v3, v2, v4}, Landroid/util/SparseArray;->get(ILjava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/widget/DayPickerPagerAdapter$ViewHolder;
+
+    if-nez v1, :cond_0
+
+    const/4 v3, 0x0
+
+    return v3
+
+    :cond_0
+    const/4 v3, 0x5
+
+    invoke-virtual {p1, v3}, Landroid/icu/util/Calendar;->get(I)I
+
+    move-result v0
+
+    iget-object v3, v1, Landroid/widget/DayPickerPagerAdapter$ViewHolder;->calendar:Landroid/widget/SimpleMonthView;
+
+    invoke-virtual {v3, v0, p2}, Landroid/widget/SimpleMonthView;->getBoundsForDay(ILandroid/graphics/Rect;)Z
+
+    move-result v3
+
+    return v3
+.end method
+
 .method public getCount()I
     .locals 1
 
@@ -560,7 +599,7 @@
 
     iput-object p1, p0, Landroid/widget/DayPickerPagerAdapter;->mCalendarTextColor:Landroid/content/res/ColorStateList;
 
-    invoke-virtual {p0}, Lcom/android/internal/widget/PagerAdapter;->notifyDataSetChanged()V
+    invoke-virtual {p0}, Landroid/widget/DayPickerPagerAdapter;->notifyDataSetChanged()V
 
     return-void
 .end method
@@ -570,7 +609,7 @@
 
     iput p1, p0, Landroid/widget/DayPickerPagerAdapter;->mDayOfWeekTextAppearance:I
 
-    invoke-virtual {p0}, Lcom/android/internal/widget/PagerAdapter;->notifyDataSetChanged()V
+    invoke-virtual {p0}, Landroid/widget/DayPickerPagerAdapter;->notifyDataSetChanged()V
 
     return-void
 .end method
@@ -580,7 +619,7 @@
 
     iput-object p1, p0, Landroid/widget/DayPickerPagerAdapter;->mDaySelectorColor:Landroid/content/res/ColorStateList;
 
-    invoke-virtual {p0}, Lcom/android/internal/widget/PagerAdapter;->notifyDataSetChanged()V
+    invoke-virtual {p0}, Landroid/widget/DayPickerPagerAdapter;->notifyDataSetChanged()V
 
     return-void
 .end method
@@ -590,7 +629,7 @@
 
     iput p1, p0, Landroid/widget/DayPickerPagerAdapter;->mDayTextAppearance:I
 
-    invoke-virtual {p0}, Lcom/android/internal/widget/PagerAdapter;->notifyDataSetChanged()V
+    invoke-virtual {p0}, Landroid/widget/DayPickerPagerAdapter;->notifyDataSetChanged()V
 
     return-void
 .end method
@@ -636,7 +675,7 @@
 
     iput p1, p0, Landroid/widget/DayPickerPagerAdapter;->mMonthTextAppearance:I
 
-    invoke-virtual {p0}, Lcom/android/internal/widget/PagerAdapter;->notifyDataSetChanged()V
+    invoke-virtual {p0}, Landroid/widget/DayPickerPagerAdapter;->notifyDataSetChanged()V
 
     return-void
 .end method
@@ -708,7 +747,7 @@
 
     iput v2, p0, Landroid/widget/DayPickerPagerAdapter;->mCount:I
 
-    invoke-virtual {p0}, Lcom/android/internal/widget/PagerAdapter;->notifyDataSetChanged()V
+    invoke-virtual {p0}, Landroid/widget/DayPickerPagerAdapter;->notifyDataSetChanged()V
 
     return-void
 .end method

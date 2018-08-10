@@ -28,6 +28,8 @@
 
 
 # instance fields
+.field private final mChannels:Landroid/os/Bundle;
+
 .field private final mImportance:[I
 
 .field private final mImportanceExplanation:Landroid/os/Bundle;
@@ -37,6 +39,14 @@
 .field private final mKeys:[Ljava/lang/String;
 
 .field private final mOverrideGroupKeys:Landroid/os/Bundle;
+
+.field private final mOverridePeople:Landroid/os/Bundle;
+
+.field private final mSecPinState:Landroid/os/Bundle;
+
+.field private final mShowBadge:Landroid/os/Bundle;
+
+.field private final mSnoozeCriteria:Landroid/os/Bundle;
 
 .field private final mSuppressedVisualEffects:Landroid/os/Bundle;
 
@@ -109,10 +119,40 @@
 
     iput-object v0, p0, Landroid/service/notification/NotificationRankingUpdate;->mOverrideGroupKeys:Landroid/os/Bundle;
 
+    invoke-virtual {p1}, Landroid/os/Parcel;->readBundle()Landroid/os/Bundle;
+
+    move-result-object v0
+
+    iput-object v0, p0, Landroid/service/notification/NotificationRankingUpdate;->mChannels:Landroid/os/Bundle;
+
+    invoke-virtual {p1}, Landroid/os/Parcel;->readBundle()Landroid/os/Bundle;
+
+    move-result-object v0
+
+    iput-object v0, p0, Landroid/service/notification/NotificationRankingUpdate;->mOverridePeople:Landroid/os/Bundle;
+
+    invoke-virtual {p1}, Landroid/os/Parcel;->readBundle()Landroid/os/Bundle;
+
+    move-result-object v0
+
+    iput-object v0, p0, Landroid/service/notification/NotificationRankingUpdate;->mSnoozeCriteria:Landroid/os/Bundle;
+
+    invoke-virtual {p1}, Landroid/os/Parcel;->readBundle()Landroid/os/Bundle;
+
+    move-result-object v0
+
+    iput-object v0, p0, Landroid/service/notification/NotificationRankingUpdate;->mShowBadge:Landroid/os/Bundle;
+
+    invoke-virtual {p1}, Landroid/os/Parcel;->readBundle()Landroid/os/Bundle;
+
+    move-result-object v0
+
+    iput-object v0, p0, Landroid/service/notification/NotificationRankingUpdate;->mSecPinState:Landroid/os/Bundle;
+
     return-void
 .end method
 
-.method public constructor <init>([Ljava/lang/String;[Ljava/lang/String;Landroid/os/Bundle;Landroid/os/Bundle;[ILandroid/os/Bundle;Landroid/os/Bundle;)V
+.method public constructor <init>([Ljava/lang/String;[Ljava/lang/String;Landroid/os/Bundle;Landroid/os/Bundle;[ILandroid/os/Bundle;Landroid/os/Bundle;Landroid/os/Bundle;Landroid/os/Bundle;Landroid/os/Bundle;Landroid/os/Bundle;Landroid/os/Bundle;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -131,6 +171,16 @@
 
     iput-object p7, p0, Landroid/service/notification/NotificationRankingUpdate;->mOverrideGroupKeys:Landroid/os/Bundle;
 
+    iput-object p8, p0, Landroid/service/notification/NotificationRankingUpdate;->mChannels:Landroid/os/Bundle;
+
+    iput-object p9, p0, Landroid/service/notification/NotificationRankingUpdate;->mOverridePeople:Landroid/os/Bundle;
+
+    iput-object p10, p0, Landroid/service/notification/NotificationRankingUpdate;->mSnoozeCriteria:Landroid/os/Bundle;
+
+    iput-object p11, p0, Landroid/service/notification/NotificationRankingUpdate;->mShowBadge:Landroid/os/Bundle;
+
+    iput-object p12, p0, Landroid/service/notification/NotificationRankingUpdate;->mSecPinState:Landroid/os/Bundle;
+
     return-void
 .end method
 
@@ -142,6 +192,14 @@
     const/4 v0, 0x0
 
     return v0
+.end method
+
+.method public getChannels()Landroid/os/Bundle;
+    .locals 1
+
+    iget-object v0, p0, Landroid/service/notification/NotificationRankingUpdate;->mChannels:Landroid/os/Bundle;
+
+    return-object v0
 .end method
 
 .method public getImportance()[I
@@ -180,6 +238,38 @@
     .locals 1
 
     iget-object v0, p0, Landroid/service/notification/NotificationRankingUpdate;->mOverrideGroupKeys:Landroid/os/Bundle;
+
+    return-object v0
+.end method
+
+.method public getOverridePeople()Landroid/os/Bundle;
+    .locals 1
+
+    iget-object v0, p0, Landroid/service/notification/NotificationRankingUpdate;->mOverridePeople:Landroid/os/Bundle;
+
+    return-object v0
+.end method
+
+.method public getSecPinState()Landroid/os/Bundle;
+    .locals 1
+
+    iget-object v0, p0, Landroid/service/notification/NotificationRankingUpdate;->mSecPinState:Landroid/os/Bundle;
+
+    return-object v0
+.end method
+
+.method public getShowBadge()Landroid/os/Bundle;
+    .locals 1
+
+    iget-object v0, p0, Landroid/service/notification/NotificationRankingUpdate;->mShowBadge:Landroid/os/Bundle;
+
+    return-object v0
+.end method
+
+.method public getSnoozeCriteria()Landroid/os/Bundle;
+    .locals 1
+
+    iget-object v0, p0, Landroid/service/notification/NotificationRankingUpdate;->mSnoozeCriteria:Landroid/os/Bundle;
 
     return-object v0
 .end method
@@ -228,6 +318,26 @@
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeBundle(Landroid/os/Bundle;)V
 
     iget-object v0, p0, Landroid/service/notification/NotificationRankingUpdate;->mOverrideGroupKeys:Landroid/os/Bundle;
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeBundle(Landroid/os/Bundle;)V
+
+    iget-object v0, p0, Landroid/service/notification/NotificationRankingUpdate;->mChannels:Landroid/os/Bundle;
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeBundle(Landroid/os/Bundle;)V
+
+    iget-object v0, p0, Landroid/service/notification/NotificationRankingUpdate;->mOverridePeople:Landroid/os/Bundle;
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeBundle(Landroid/os/Bundle;)V
+
+    iget-object v0, p0, Landroid/service/notification/NotificationRankingUpdate;->mSnoozeCriteria:Landroid/os/Bundle;
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeBundle(Landroid/os/Bundle;)V
+
+    iget-object v0, p0, Landroid/service/notification/NotificationRankingUpdate;->mShowBadge:Landroid/os/Bundle;
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeBundle(Landroid/os/Bundle;)V
+
+    iget-object v0, p0, Landroid/service/notification/NotificationRankingUpdate;->mSecPinState:Landroid/os/Bundle;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeBundle(Landroid/os/Bundle;)V
 

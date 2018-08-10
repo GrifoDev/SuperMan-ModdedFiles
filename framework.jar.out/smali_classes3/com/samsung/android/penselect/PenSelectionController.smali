@@ -62,9 +62,7 @@
 
     move-object v5, p2
 
-    nop
-
-    nop
+    check-cast v5, Landroid/widget/TextView;
 
     invoke-virtual {v5}, Landroid/widget/TextView;->hasMultiSelection()Z
 
@@ -142,9 +140,7 @@
 
     move-object v6, p2
 
-    nop
-
-    nop
+    check-cast v6, Landroid/view/ViewGroup;
 
     invoke-virtual {v6}, Landroid/view/ViewGroup;->getChildCount()I
 
@@ -270,9 +266,7 @@
 
     move-object v3, p2
 
-    nop
-
-    nop
+    check-cast v3, Landroid/widget/TextView;
 
     invoke-virtual {v3}, Landroid/widget/TextView;->hasMultiSelection()Z
 
@@ -294,9 +288,7 @@
 
     move-object v4, p2
 
-    nop
-
-    nop
+    check-cast v4, Landroid/view/ViewGroup;
 
     invoke-virtual {v4}, Landroid/view/ViewGroup;->getChildCount()I
 
@@ -337,9 +329,7 @@
 
     move-object v5, p2
 
-    nop
-
-    nop
+    check-cast v5, Landroid/view/ViewGroup;
 
     const/4 v4, 0x0
 
@@ -356,7 +346,7 @@
     return-object p2
 
     :cond_0
-    invoke-virtual {v5}, Landroid/view/View;->getBackground()Landroid/graphics/drawable/Drawable;
+    invoke-virtual {v5}, Landroid/view/ViewGroup;->getBackground()Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
 
@@ -436,9 +426,7 @@
 
     move-object v3, p2
 
-    nop
-
-    nop
+    check-cast v3, Landroid/widget/TextView;
 
     invoke-virtual {v3}, Landroid/widget/TextView;->hasMultiSelection()Z
 
@@ -461,9 +449,7 @@
 
     move-object v4, p2
 
-    nop
-
-    nop
+    check-cast v4, Landroid/view/ViewGroup;
 
     invoke-virtual {v4}, Landroid/view/ViewGroup;->getChildCount()I
 

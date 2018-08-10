@@ -26,34 +26,18 @@
     return v0
 .end method
 
-.method public static declared-synchronized getInstance()Landroid/webkit/CookieManager;
-    .locals 2
+.method public static getInstance()Landroid/webkit/CookieManager;
+    .locals 1
 
-    const-class v1, Landroid/webkit/CookieManager;
-
-    monitor-enter v1
-
-    :try_start_0
     invoke-static {}, Landroid/webkit/WebViewFactory;->getProvider()Landroid/webkit/WebViewFactoryProvider;
 
     move-result-object v0
 
     invoke-interface {v0}, Landroid/webkit/WebViewFactoryProvider;->getCookieManager()Landroid/webkit/CookieManager;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result-object v0
 
-    monitor-exit v1
-
     return-object v0
-
-    :catchall_0
-    move-exception v0
-
-    monitor-exit v1
-
-    throw v0
 .end method
 
 .method public static setAcceptFileSchemeCookies(Z)V
@@ -162,6 +146,8 @@
 .end method
 
 .method public abstract removeSessionCookie()V
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 .end method
 
 .method public abstract removeSessionCookies(Landroid/webkit/ValueCallback;)V

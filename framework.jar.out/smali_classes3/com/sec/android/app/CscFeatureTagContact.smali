@@ -60,13 +60,13 @@
 
 .field public static final TAG_CSCFEATURE_CONTACT_CONFIGLOGSCALLTIMETYPE:Ljava/lang/String; = "CscFeature_Contact_ConfigLogsCallTimeType"
 
-.field public static final TAG_CSCFEATURE_CONTACT_CONFIGLOGSOPSTYLEVARIATION:Ljava/lang/String; = "CscFeature_Contact_ConfigLogsOpStyleVariation"
-
 .field public static final TAG_CSCFEATURE_CONTACT_CONFIGLOGSTIMEBASE:Ljava/lang/String; = "CscFeature_Contact_ConfigLogsTimeBase"
 
 .field public static final TAG_CSCFEATURE_CONTACT_CONFIGMSGICONOPSTYLE:Ljava/lang/String; = "CscFeature_Contact_ConfigMsgIconOpStyle"
 
 .field public static final TAG_CSCFEATURE_CONTACT_CONFIGMULTICALLOPTION:Ljava/lang/String; = "CscFeature_Contact_ConfigMultiCallOption"
+
+.field public static final TAG_CSCFEATURE_CONTACT_CONFIGNEWORKIMSOPSTYLE:Ljava/lang/String; = "CscFeature_Contact_ConfigNeworkImsOpStyle"
 
 .field public static final TAG_CSCFEATURE_CONTACT_CONFIGOPCLOUDMENU:Ljava/lang/String; = "CscFeature_Contact_ConfigOpCloudMenu"
 
@@ -283,6 +283,8 @@
 .field public static final TAG_CSCFEATURE_CONTACT_SUPPORTUICCPROMPT:Ljava/lang/String; = "CscFeature_Contact_SupportUiccPrompt"
 
 .field public static final TAG_CSCFEATURE_CONTACT_SUPPORTUNIFIEDCERTIFICATE:Ljava/lang/String; = "CscFeature_Contact_SupportUnifiedCertificate"
+
+.field public static final TAG_CSCFEATURE_CONTACT_SUPPORTVVMBADGE:Ljava/lang/String; = "CscFeature_Contact_SupportVvmBadge"
 
 .field public static final TAG_CSCFEATURE_CONTACT_SUPPORTWHITEPAGES:Ljava/lang/String; = "CscFeature_Contact_SupportWhitePages"
 

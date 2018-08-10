@@ -12,6 +12,10 @@
 
 .field public static final TAG_CSCFEATURE_SYNCML_ACTIONOMACPAPN:Ljava/lang/String; = "CscFeature_SyncML_ActionOmaCpApn"
 
+.field public static final TAG_CSCFEATURE_SYNCML_CONFIGAPNTYPE:Ljava/lang/String; = "CscFeature_SyncML_ConfigApnType"
+
+.field public static final TAG_CSCFEATURE_SYNCML_CONFIGBACKGROUNDINSTALLCPMESSAGETYPE:Ljava/lang/String; = "CscFeature_SyncML_ConfigBackgroundInstallCpMessageType"
+
 .field public static final TAG_CSCFEATURE_SYNCML_CONFIGDEFSTATUSAUTODOWNLOAD:Ljava/lang/String; = "CscFeature_SyncML_ConfigDefStatusAutoDownload"
 
 .field public static final TAG_CSCFEATURE_SYNCML_CONFIGDEVICEPREID:Ljava/lang/String; = "CscFeature_SyncML_ConfigDevicePreId"
@@ -50,13 +54,11 @@
 
 .field public static final TAG_CSCFEATURE_SYNCML_DISCARDINVALIDNETWPINCP:Ljava/lang/String; = "CscFeature_SyncML_DiscardInvalidNetwpinCp"
 
-.field public static final TAG_CSCFEATURE_SYNCML_ENABLECPVALIDIATIONSECURITYTYPE4:Ljava/lang/String; = "CscFeature_SyncML_EnableCpValidiationSecurityType4"
-
-.field public static final TAG_CSCFEATURE_SYNCML_ENABLELIMITATIONDELTASIZEVIAMOBILENET:Ljava/lang/String; = "CscFeature_SyncML_EnableLimitationDeltaSizeViaMobileNet"
-
 .field public static final TAG_CSCFEATURE_SYNCML_ENABLENOTIDELTABINARYSIZEBEFOREDOWNLOAD:Ljava/lang/String; = "CscFeature_SyncML_EnableNotiDeltaBinarySizeBeforeDownload"
 
 .field public static final TAG_CSCFEATURE_SYNCML_ENABLESHOWVERSIONNAMEAFERSUCCESSFULUPDATE:Ljava/lang/String; = "CscFeature_SyncML_EnableShowVersionNameAferSuccessfulUpdate"
+
+.field public static final TAG_CSCFEATURE_SYNCML_HIDEOMCAPPDETAILPAGE:Ljava/lang/String; = "CscFeature_SyncML_HideOmcAppDetailPage"
 
 .field public static final TAG_CSCFEATURE_SYNCML_INTERVALTONOTIFYDISCLAIMER4SWUPDATE:Ljava/lang/String; = "CscFeature_SyncML_IntervalToNotifyDisclaimer4SwUpdate"
 
@@ -71,6 +73,8 @@
 .field public static final TAG_CSCFEATURE_SYNCML_SUPPORTKEEPINGAPNAFTERFACTORYRESET:Ljava/lang/String; = "CscFeature_SyncML_SupportKeepingApnAfterFactoryReset"
 
 .field public static final TAG_CSCFEATURE_SYNCML_SUPPORTMULTIGROUPTOONEID:Ljava/lang/String; = "CscFeature_SyncML_SupportMultiGroupToOneID"
+
+.field public static final TAG_CSCFEATURE_SYNCML_SUPPORTOMCAPPDATACHARGEPOPUP:Ljava/lang/String; = "CscFeature_SyncML_SupportOmcAppDataChargePopup"
 
 .field public static final TAG_CSCFEATURE_SYNCML_SWUPDATEACTIONDURINGROAMING:Ljava/lang/String; = "CscFeature_SyncML_SwUpdateActionDuringRoaming"
 

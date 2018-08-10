@@ -107,7 +107,7 @@
 .end method
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    .locals 18
+    .locals 19
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -169,13 +169,13 @@
 
     invoke-virtual {v0, v10, v4, v5}, Landroid/content/pm/IPackageInstaller$Stub;->createSession(Landroid/content/pm/PackageInstaller$SessionParams;Ljava/lang/String;I)I
 
-    move-result v14
+    move-result v15
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     move-object/from16 v0, p3
 
-    invoke-virtual {v0, v14}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {v0, v15}, Landroid/os/Parcel;->writeInt(I)V
 
     const/4 v2, 0x1
 
@@ -209,14 +209,14 @@
 
     invoke-interface {v2, v0}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
 
-    move-result-object v12
+    move-result-object v13
 
-    check-cast v12, Landroid/graphics/Bitmap;
+    check-cast v13, Landroid/graphics/Bitmap;
 
     :goto_1
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v8, v12}, Landroid/content/pm/IPackageInstaller$Stub;->updateSessionAppIcon(ILandroid/graphics/Bitmap;)V
+    invoke-virtual {v0, v8, v13}, Landroid/content/pm/IPackageInstaller$Stub;->updateSessionAppIcon(ILandroid/graphics/Bitmap;)V
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
@@ -225,7 +225,7 @@
     return v2
 
     :cond_1
-    const/4 v12, 0x0
+    const/4 v13, 0x0
 
     goto :goto_1
 
@@ -290,13 +290,13 @@
 
     invoke-virtual {v0, v8}, Landroid/content/pm/IPackageInstaller$Stub;->openSession(I)Landroid/content/pm/IPackageInstallerSession;
 
-    move-result-object v15
+    move-result-object v16
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v15, :cond_2
+    if-eqz v16, :cond_2
 
-    invoke-interface {v15}, Landroid/content/pm/IPackageInstallerSession;->asBinder()Landroid/os/IBinder;
+    invoke-interface/range {v16 .. v16}, Landroid/content/pm/IPackageInstallerSession;->asBinder()Landroid/os/IBinder;
 
     move-result-object v2
 
@@ -329,11 +329,11 @@
 
     invoke-virtual {v0, v8}, Landroid/content/pm/IPackageInstaller$Stub;->getSessionInfo(I)Landroid/content/pm/PackageInstaller$SessionInfo;
 
-    move-result-object v16
+    move-result-object v17
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v16, :cond_3
+    if-eqz v17, :cond_3
 
     const/4 v2, 0x1
 
@@ -343,7 +343,7 @@
 
     const/4 v2, 0x1
 
-    move-object/from16 v0, v16
+    move-object/from16 v0, v17
 
     move-object/from16 v1, p3
 
@@ -378,11 +378,11 @@
 
     invoke-virtual {v0, v8}, Landroid/content/pm/IPackageInstaller$Stub;->getAllSessions(I)Landroid/content/pm/ParceledListSlice;
 
-    move-result-object v17
+    move-result-object v18
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v17, :cond_4
+    if-eqz v18, :cond_4
 
     const/4 v2, 0x1
 
@@ -392,7 +392,7 @@
 
     const/4 v2, 0x1
 
-    move-object/from16 v0, v17
+    move-object/from16 v0, v18
 
     move-object/from16 v1, p3
 
@@ -421,21 +421,21 @@
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v11
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v11
+    move-result v12
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v3, v11}, Landroid/content/pm/IPackageInstaller$Stub;->getMySessions(Ljava/lang/String;I)Landroid/content/pm/ParceledListSlice;
+    invoke-virtual {v0, v11, v12}, Landroid/content/pm/IPackageInstaller$Stub;->getMySessions(Ljava/lang/String;I)Landroid/content/pm/ParceledListSlice;
 
-    move-result-object v17
+    move-result-object v18
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v17, :cond_5
+    if-eqz v18, :cond_5
 
     const/4 v2, 0x1
 
@@ -445,7 +445,7 @@
 
     const/4 v2, 0x1
 
-    move-object/from16 v0, v17
+    move-object/from16 v0, v18
 
     move-object/from16 v1, p3
 
@@ -482,11 +482,11 @@
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v11
+    move-result v12
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v9, v11}, Landroid/content/pm/IPackageInstaller$Stub;->registerCallback(Landroid/content/pm/IPackageInstallerCallback;I)V
+    invoke-virtual {v0, v9, v12}, Landroid/content/pm/IPackageInstaller$Stub;->registerCallback(Landroid/content/pm/IPackageInstallerCallback;I)V
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
@@ -526,10 +526,23 @@
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v2
+
+    if-eqz v2, :cond_6
+
+    sget-object v2, Landroid/content/pm/VersionedPackage;->CREATOR:Landroid/os/Parcelable$Creator;
+
+    move-object/from16 v0, p2
+
+    invoke-interface {v2, v0}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
 
     move-result-object v3
 
+    check-cast v3, Landroid/content/pm/VersionedPackage;
+
+    :goto_6
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v4
@@ -542,7 +555,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_6
+    if-eqz v2, :cond_7
 
     sget-object v2, Landroid/content/IntentSender;->CREATOR:Landroid/os/Parcelable$Creator;
 
@@ -554,14 +567,14 @@
 
     check-cast v6, Landroid/content/IntentSender;
 
-    :goto_6
+    :goto_7
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v7
 
     move-object/from16 v2, p0
 
-    invoke-virtual/range {v2 .. v7}, Landroid/content/pm/IPackageInstaller$Stub;->uninstall(Ljava/lang/String;Ljava/lang/String;ILandroid/content/IntentSender;I)V
+    invoke-virtual/range {v2 .. v7}, Landroid/content/pm/IPackageInstaller$Stub;->uninstall(Landroid/content/pm/VersionedPackage;Ljava/lang/String;ILandroid/content/IntentSender;I)V
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
@@ -570,9 +583,14 @@
     return v2
 
     :cond_6
-    const/4 v6, 0x0
+    const/4 v3, 0x0
 
     goto :goto_6
+
+    :cond_7
+    const/4 v6, 0x0
+
+    goto :goto_7
 
     :sswitch_c
     const-string/jumbo v2, "android.content.pm.IPackageInstaller"
@@ -589,14 +607,14 @@
 
     move-result v2
 
-    if-eqz v2, :cond_7
+    if-eqz v2, :cond_8
 
-    const/4 v13, 0x1
+    const/4 v14, 0x1
 
-    :goto_7
+    :goto_8
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v8, v13}, Landroid/content/pm/IPackageInstaller$Stub;->setPermissionsResult(IZ)V
+    invoke-virtual {v0, v8, v14}, Landroid/content/pm/IPackageInstaller$Stub;->setPermissionsResult(IZ)V
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
@@ -604,10 +622,10 @@
 
     return v2
 
-    :cond_7
-    const/4 v13, 0x0
+    :cond_8
+    const/4 v14, 0x0
 
-    goto :goto_7
+    goto :goto_8
 
     nop
 

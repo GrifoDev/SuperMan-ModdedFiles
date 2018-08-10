@@ -28,9 +28,11 @@
 
 
 # instance fields
-.field private mAttributes:Landroid/media/AudioAttributes;
+.field private final mAttributes:Landroid/media/AudioAttributes;
 
-.field private mClientId:Ljava/lang/String;
+.field private final mClientId:Ljava/lang/String;
+
+.field private final mClientUid:I
 
 .field private mFlags:I
 
@@ -38,7 +40,9 @@
 
 .field private mLossReceived:I
 
-.field private mPackageName:Ljava/lang/String;
+.field private final mPackageName:Ljava/lang/String;
+
+.field private final mSdkTarget:I
 
 
 # direct methods
@@ -54,7 +58,7 @@
     return-void
 .end method
 
-.method public constructor <init>(Landroid/media/AudioAttributes;Ljava/lang/String;Ljava/lang/String;III)V
+.method public constructor <init>(Landroid/media/AudioAttributes;ILjava/lang/String;Ljava/lang/String;IIII)V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -72,25 +76,29 @@
     :cond_0
     iput-object p1, p0, Landroid/media/AudioFocusInfo;->mAttributes:Landroid/media/AudioAttributes;
 
-    if-nez p2, :cond_1
+    iput p2, p0, Landroid/media/AudioFocusInfo;->mClientUid:I
 
-    const-string/jumbo p2, ""
-
-    :cond_1
-    iput-object p2, p0, Landroid/media/AudioFocusInfo;->mClientId:Ljava/lang/String;
-
-    if-nez p3, :cond_2
+    if-nez p3, :cond_1
 
     const-string/jumbo p3, ""
 
+    :cond_1
+    iput-object p3, p0, Landroid/media/AudioFocusInfo;->mClientId:Ljava/lang/String;
+
+    if-nez p4, :cond_2
+
+    const-string/jumbo p4, ""
+
     :cond_2
-    iput-object p3, p0, Landroid/media/AudioFocusInfo;->mPackageName:Ljava/lang/String;
+    iput-object p4, p0, Landroid/media/AudioFocusInfo;->mPackageName:Ljava/lang/String;
 
-    iput p4, p0, Landroid/media/AudioFocusInfo;->mGainRequest:I
+    iput p5, p0, Landroid/media/AudioFocusInfo;->mGainRequest:I
 
-    iput p5, p0, Landroid/media/AudioFocusInfo;->mLossReceived:I
+    iput p6, p0, Landroid/media/AudioFocusInfo;->mLossReceived:I
 
-    iput p6, p0, Landroid/media/AudioFocusInfo;->mFlags:I
+    iput p7, p0, Landroid/media/AudioFocusInfo;->mFlags:I
+
+    iput p8, p0, Landroid/media/AudioFocusInfo;->mSdkTarget:I
 
     return-void
 .end method
@@ -162,22 +170,18 @@
     return v3
 
     :cond_3
-    iget-object v1, p0, Landroid/media/AudioFocusInfo;->mClientId:Ljava/lang/String;
+    iget v1, p0, Landroid/media/AudioFocusInfo;->mClientUid:I
 
-    iget-object v2, v0, Landroid/media/AudioFocusInfo;->mClientId:Ljava/lang/String;
+    iget v2, v0, Landroid/media/AudioFocusInfo;->mClientUid:I
 
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-nez v1, :cond_4
+    if-eq v1, v2, :cond_4
 
     return v3
 
     :cond_4
-    iget-object v1, p0, Landroid/media/AudioFocusInfo;->mPackageName:Ljava/lang/String;
+    iget-object v1, p0, Landroid/media/AudioFocusInfo;->mClientId:Ljava/lang/String;
 
-    iget-object v2, v0, Landroid/media/AudioFocusInfo;->mPackageName:Ljava/lang/String;
+    iget-object v2, v0, Landroid/media/AudioFocusInfo;->mClientId:Ljava/lang/String;
 
     invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -188,33 +192,55 @@
     return v3
 
     :cond_5
-    iget v1, p0, Landroid/media/AudioFocusInfo;->mGainRequest:I
+    iget-object v1, p0, Landroid/media/AudioFocusInfo;->mPackageName:Ljava/lang/String;
 
-    iget v2, v0, Landroid/media/AudioFocusInfo;->mGainRequest:I
+    iget-object v2, v0, Landroid/media/AudioFocusInfo;->mPackageName:Ljava/lang/String;
 
-    if-eq v1, v2, :cond_6
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_6
 
     return v3
 
     :cond_6
-    iget v1, p0, Landroid/media/AudioFocusInfo;->mLossReceived:I
+    iget v1, p0, Landroid/media/AudioFocusInfo;->mGainRequest:I
 
-    iget v2, v0, Landroid/media/AudioFocusInfo;->mLossReceived:I
+    iget v2, v0, Landroid/media/AudioFocusInfo;->mGainRequest:I
 
     if-eq v1, v2, :cond_7
 
     return v3
 
     :cond_7
-    iget v1, p0, Landroid/media/AudioFocusInfo;->mFlags:I
+    iget v1, p0, Landroid/media/AudioFocusInfo;->mLossReceived:I
 
-    iget v2, v0, Landroid/media/AudioFocusInfo;->mFlags:I
+    iget v2, v0, Landroid/media/AudioFocusInfo;->mLossReceived:I
 
     if-eq v1, v2, :cond_8
 
     return v3
 
     :cond_8
+    iget v1, p0, Landroid/media/AudioFocusInfo;->mFlags:I
+
+    iget v2, v0, Landroid/media/AudioFocusInfo;->mFlags:I
+
+    if-eq v1, v2, :cond_9
+
+    return v3
+
+    :cond_9
+    iget v1, p0, Landroid/media/AudioFocusInfo;->mSdkTarget:I
+
+    iget v2, v0, Landroid/media/AudioFocusInfo;->mSdkTarget:I
+
+    if-eq v1, v2, :cond_a
+
+    return v3
+
+    :cond_a
     return v4
 .end method
 
@@ -232,6 +258,14 @@
     iget-object v0, p0, Landroid/media/AudioFocusInfo;->mClientId:Ljava/lang/String;
 
     return-object v0
+.end method
+
+.method public getClientUid()I
+    .locals 1
+
+    iget v0, p0, Landroid/media/AudioFocusInfo;->mClientUid:I
+
+    return v0
 .end method
 
 .method public getFlags()I
@@ -266,10 +300,18 @@
     return-object v0
 .end method
 
+.method public getSdkTarget()I
+    .locals 1
+
+    iget v0, p0, Landroid/media/AudioFocusInfo;->mSdkTarget:I
+
+    return v0
+.end method
+
 .method public hashCode()I
     .locals 3
 
-    const/4 v0, 0x5
+    const/4 v0, 0x6
 
     new-array v0, v0, [Ljava/lang/Object;
 
@@ -279,15 +321,25 @@
 
     aput-object v1, v0, v2
 
-    iget-object v1, p0, Landroid/media/AudioFocusInfo;->mClientId:Ljava/lang/String;
+    iget v1, p0, Landroid/media/AudioFocusInfo;->mClientUid:I
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
 
     const/4 v2, 0x1
 
     aput-object v1, v0, v2
 
-    iget-object v1, p0, Landroid/media/AudioFocusInfo;->mPackageName:Ljava/lang/String;
+    iget-object v1, p0, Landroid/media/AudioFocusInfo;->mClientId:Ljava/lang/String;
 
     const/4 v2, 0x2
+
+    aput-object v1, v0, v2
+
+    iget-object v1, p0, Landroid/media/AudioFocusInfo;->mPackageName:Ljava/lang/String;
+
+    const/4 v2, 0x3
 
     aput-object v1, v0, v2
 
@@ -297,7 +349,7 @@
 
     move-result-object v1
 
-    const/4 v2, 0x3
+    const/4 v2, 0x4
 
     aput-object v1, v0, v2
 
@@ -307,7 +359,7 @@
 
     move-result-object v1
 
-    const/4 v2, 0x4
+    const/4 v2, 0x5
 
     aput-object v1, v0, v2
 
@@ -324,6 +376,10 @@
     iget-object v0, p0, Landroid/media/AudioFocusInfo;->mAttributes:Landroid/media/AudioAttributes;
 
     invoke-virtual {v0, p1, p2}, Landroid/media/AudioAttributes;->writeToParcel(Landroid/os/Parcel;I)V
+
+    iget v0, p0, Landroid/media/AudioFocusInfo;->mClientUid:I
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
     iget-object v0, p0, Landroid/media/AudioFocusInfo;->mClientId:Ljava/lang/String;
 
@@ -342,6 +398,10 @@
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
     iget v0, p0, Landroid/media/AudioFocusInfo;->mFlags:I
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
+
+    iget v0, p0, Landroid/media/AudioFocusInfo;->mSdkTarget:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 

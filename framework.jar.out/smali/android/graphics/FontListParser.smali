@@ -3,24 +3,8 @@
 .source "FontListParser.java"
 
 
-# annotations
-.annotation system Ldalvik/annotation/MemberClasses;
-    value = {
-        Landroid/graphics/FontListParser$Alias;,
-        Landroid/graphics/FontListParser$Axis;,
-        Landroid/graphics/FontListParser$Config;,
-        Landroid/graphics/FontListParser$Family;,
-        Landroid/graphics/FontListParser$Font;
-    }
-.end annotation
-
-
 # static fields
 .field private static final FILENAME_WHITESPACE_PATTERN:Ljava/util/regex/Pattern;
-
-.field private static final STYLE_VALUE_PATTERN:Ljava/util/regex/Pattern;
-
-.field private static final TAG_PATTERN:Ljava/util/regex/Pattern;
 
 
 # direct methods
@@ -35,22 +19,6 @@
 
     sput-object v0, Landroid/graphics/FontListParser;->FILENAME_WHITESPACE_PATTERN:Ljava/util/regex/Pattern;
 
-    const-string/jumbo v0, "[\\x00-\\xFF]{4}"
-
-    invoke-static {v0}, Ljava/util/regex/Pattern;->compile(Ljava/lang/String;)Ljava/util/regex/Pattern;
-
-    move-result-object v0
-
-    sput-object v0, Landroid/graphics/FontListParser;->TAG_PATTERN:Ljava/util/regex/Pattern;
-
-    const-string/jumbo v0, "-?(([0-9]+(\\.[0-9]+)?)|(\\.[0-9]+))"
-
-    invoke-static {v0}, Ljava/util/regex/Pattern;->compile(Ljava/lang/String;)Ljava/util/regex/Pattern;
-
-    move-result-object v0
-
-    sput-object v0, Landroid/graphics/FontListParser;->STYLE_VALUE_PATTERN:Ljava/util/regex/Pattern;
-
     return-void
 .end method
 
@@ -62,7 +30,7 @@
     return-void
 .end method
 
-.method public static parse(Ljava/io/InputStream;)Landroid/graphics/FontListParser$Config;
+.method public static parse(Ljava/io/InputStream;)Landroid/text/FontConfig;
     .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -82,7 +50,7 @@
 
     invoke-interface {v0}, Lorg/xmlpull/v1/XmlPullParser;->nextTag()I
 
-    invoke-static {v0}, Landroid/graphics/FontListParser;->readFamilies(Lorg/xmlpull/v1/XmlPullParser;)Landroid/graphics/FontListParser$Config;
+    invoke-static {v0}, Landroid/graphics/FontListParser;->readFamilies(Lorg/xmlpull/v1/XmlPullParser;)Landroid/text/FontConfig;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -100,7 +68,57 @@
     throw v1
 .end method
 
-.method private static readAlias(Lorg/xmlpull/v1/XmlPullParser;)Landroid/graphics/FontListParser$Alias;
+.method private static readAlias(Lorg/xmlpull/v1/XmlPullParser;)Landroid/text/FontConfig$Alias;
+    .locals 6
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lorg/xmlpull/v1/XmlPullParserException;,
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    const/4 v5, 0x0
+
+    const-string/jumbo v4, "name"
+
+    invoke-interface {p0, v5, v4}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string/jumbo v4, "to"
+
+    invoke-interface {p0, v5, v4}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    const-string/jumbo v4, "weight"
+
+    invoke-interface {p0, v5, v4}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v3
+
+    if-nez v3, :cond_0
+
+    const/16 v2, 0x190
+
+    :goto_0
+    invoke-static {p0}, Landroid/graphics/FontListParser;->skip(Lorg/xmlpull/v1/XmlPullParser;)V
+
+    new-instance v4, Landroid/text/FontConfig$Alias;
+
+    invoke-direct {v4, v0, v1, v2}, Landroid/text/FontConfig$Alias;-><init>(Ljava/lang/String;Ljava/lang/String;I)V
+
+    return-object v4
+
+    :cond_0
+    invoke-static {v3}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+
+    move-result v2
+
+    goto :goto_0
+.end method
+
+.method private static readAxis(Lorg/xmlpull/v1/XmlPullParser;)Landroid/graphics/fonts/FontVariationAxis;
     .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -111,250 +129,106 @@
 
     const/4 v3, 0x0
 
-    new-instance v0, Landroid/graphics/FontListParser$Alias;
-
-    invoke-direct {v0}, Landroid/graphics/FontListParser$Alias;-><init>()V
-
-    const-string/jumbo v2, "name"
-
-    invoke-interface {p0, v3, v2}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v2
-
-    iput-object v2, v0, Landroid/graphics/FontListParser$Alias;->name:Ljava/lang/String;
-
-    const-string/jumbo v2, "to"
-
-    invoke-interface {p0, v3, v2}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v2
-
-    iput-object v2, v0, Landroid/graphics/FontListParser$Alias;->toName:Ljava/lang/String;
-
-    const-string/jumbo v2, "weight"
+    const-string/jumbo v2, "tag"
 
     invoke-interface {p0, v3, v2}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
-    if-nez v1, :cond_0
+    const-string/jumbo v2, "stylevalue"
 
-    const/16 v2, 0x190
+    invoke-interface {p0, v3, v2}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    iput v2, v0, Landroid/graphics/FontListParser$Alias;->weight:I
+    move-result-object v0
 
-    :goto_0
     invoke-static {p0}, Landroid/graphics/FontListParser;->skip(Lorg/xmlpull/v1/XmlPullParser;)V
 
-    return-object v0
+    new-instance v2, Landroid/graphics/fonts/FontVariationAxis;
 
-    :cond_0
-    invoke-static {v1}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+    invoke-static {v0}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
 
-    move-result v2
+    move-result v3
 
-    iput v2, v0, Landroid/graphics/FontListParser$Alias;->weight:I
+    invoke-direct {v2, v1, v3}, Landroid/graphics/fonts/FontVariationAxis;-><init>(Ljava/lang/String;F)V
 
-    goto :goto_0
+    return-object v2
 .end method
 
-.method private static readAxis(Lorg/xmlpull/v1/XmlPullParser;)Landroid/graphics/FontListParser$Axis;
-    .locals 7
+.method private static readFamilies(Lorg/xmlpull/v1/XmlPullParser;)Landroid/text/FontConfig;
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lorg/xmlpull/v1/XmlPullParserException;,
             Ljava/io/IOException;
         }
     .end annotation
-
-    const/4 v6, 0x0
-
-    const/4 v2, 0x0
-
-    const-string/jumbo v4, "tag"
-
-    invoke-interface {p0, v6, v4}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v3
-
-    if-eqz v3, :cond_0
-
-    sget-object v4, Landroid/graphics/FontListParser;->TAG_PATTERN:Ljava/util/regex/Pattern;
-
-    invoke-virtual {v4, v3}, Ljava/util/regex/Pattern;->matcher(Ljava/lang/CharSequence;)Ljava/util/regex/Matcher;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Ljava/util/regex/Matcher;->matches()Z
-
-    move-result v4
-
-    if-eqz v4, :cond_0
-
-    const/4 v4, 0x0
-
-    invoke-virtual {v3, v4}, Ljava/lang/String;->charAt(I)C
-
-    move-result v4
-
-    shl-int/lit8 v4, v4, 0x18
-
-    const/4 v5, 0x1
-
-    invoke-virtual {v3, v5}, Ljava/lang/String;->charAt(I)C
-
-    move-result v5
-
-    shl-int/lit8 v5, v5, 0x10
-
-    add-int/2addr v4, v5
 
     const/4 v5, 0x2
 
-    invoke-virtual {v3, v5}, Ljava/lang/String;->charAt(I)C
+    new-instance v1, Ljava/util/ArrayList;
 
-    move-result v5
+    invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
 
-    shl-int/lit8 v5, v5, 0x8
+    new-instance v0, Ljava/util/ArrayList;
 
-    add-int/2addr v4, v5
+    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
-    const/4 v5, 0x3
+    const-string/jumbo v3, "familyset"
 
-    invoke-virtual {v3, v5}, Ljava/lang/String;->charAt(I)C
+    const/4 v4, 0x0
 
-    move-result v5
-
-    add-int v2, v4, v5
-
-    const/4 v0, 0x0
-
-    const-string/jumbo v4, "stylevalue"
-
-    invoke-interface {p0, v6, v4}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v1
-
-    if-eqz v1, :cond_1
-
-    sget-object v4, Landroid/graphics/FontListParser;->STYLE_VALUE_PATTERN:Ljava/util/regex/Pattern;
-
-    invoke-virtual {v4, v1}, Ljava/util/regex/Pattern;->matcher(Ljava/lang/CharSequence;)Ljava/util/regex/Matcher;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Ljava/util/regex/Matcher;->matches()Z
-
-    move-result v4
-
-    if-eqz v4, :cond_1
-
-    invoke-static {v1}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
-
-    move-result v0
-
-    invoke-static {p0}, Landroid/graphics/FontListParser;->skip(Lorg/xmlpull/v1/XmlPullParser;)V
-
-    new-instance v4, Landroid/graphics/FontListParser$Axis;
-
-    invoke-direct {v4, v2, v0}, Landroid/graphics/FontListParser$Axis;-><init>(IF)V
-
-    return-object v4
-
-    :cond_0
-    new-instance v4, Lorg/xmlpull/v1/XmlPullParserException;
-
-    const-string/jumbo v5, "Invalid tag attribute value."
-
-    invoke-direct {v4, v5, p0, v6}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/Throwable;)V
-
-    throw v4
-
-    :cond_1
-    new-instance v4, Lorg/xmlpull/v1/XmlPullParserException;
-
-    const-string/jumbo v5, "Invalid styleValue attribute value."
-
-    invoke-direct {v4, v5, p0, v6}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/Throwable;)V
-
-    throw v4
-.end method
-
-.method private static readFamilies(Lorg/xmlpull/v1/XmlPullParser;)Landroid/graphics/FontListParser$Config;
-    .locals 5
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Lorg/xmlpull/v1/XmlPullParserException;,
-            Ljava/io/IOException;
-        }
-    .end annotation
-
-    const/4 v4, 0x2
-
-    new-instance v0, Landroid/graphics/FontListParser$Config;
-
-    invoke-direct {v0}, Landroid/graphics/FontListParser$Config;-><init>()V
-
-    const-string/jumbo v2, "familyset"
-
-    const/4 v3, 0x0
-
-    invoke-interface {p0, v4, v3, v2}, Lorg/xmlpull/v1/XmlPullParser;->require(ILjava/lang/String;Ljava/lang/String;)V
+    invoke-interface {p0, v5, v4, v3}, Lorg/xmlpull/v1/XmlPullParser;->require(ILjava/lang/String;Ljava/lang/String;)V
 
     :cond_0
     :goto_0
     invoke-interface {p0}, Lorg/xmlpull/v1/XmlPullParser;->next()I
 
-    move-result v2
+    move-result v3
 
-    const/4 v3, 0x3
+    const/4 v4, 0x3
 
-    if-eq v2, v3, :cond_3
+    if-eq v3, v4, :cond_3
 
     invoke-interface {p0}, Lorg/xmlpull/v1/XmlPullParser;->getEventType()I
 
-    move-result v2
+    move-result v3
 
-    if-ne v2, v4, :cond_0
+    if-ne v3, v5, :cond_0
 
     invoke-interface {p0}, Lorg/xmlpull/v1/XmlPullParser;->getName()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v2
 
-    const-string/jumbo v2, "family"
+    const-string/jumbo v3, "family"
 
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result v3
 
-    if-eqz v2, :cond_1
+    if-eqz v3, :cond_1
 
-    iget-object v2, v0, Landroid/graphics/FontListParser$Config;->families:Ljava/util/List;
-
-    invoke-static {p0}, Landroid/graphics/FontListParser;->readFamily(Lorg/xmlpull/v1/XmlPullParser;)Landroid/graphics/FontListParser$Family;
+    invoke-static {p0}, Landroid/graphics/FontListParser;->readFamily(Lorg/xmlpull/v1/XmlPullParser;)Landroid/text/FontConfig$Family;
 
     move-result-object v3
 
-    invoke-interface {v2, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v1, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     goto :goto_0
 
     :cond_1
-    const-string/jumbo v2, "alias"
+    const-string/jumbo v3, "alias"
 
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result v3
 
-    if-eqz v2, :cond_2
+    if-eqz v3, :cond_2
 
-    iget-object v2, v0, Landroid/graphics/FontListParser$Config;->aliases:Ljava/util/List;
-
-    invoke-static {p0}, Landroid/graphics/FontListParser;->readAlias(Lorg/xmlpull/v1/XmlPullParser;)Landroid/graphics/FontListParser$Alias;
+    invoke-static {p0}, Landroid/graphics/FontListParser;->readAlias(Lorg/xmlpull/v1/XmlPullParser;)Landroid/text/FontConfig$Alias;
 
     move-result-object v3
 
-    invoke-interface {v2, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v0, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     goto :goto_0
 
@@ -364,11 +238,39 @@
     goto :goto_0
 
     :cond_3
-    return-object v0
+    new-instance v5, Landroid/text/FontConfig;
+
+    invoke-interface {v1}, Ljava/util/List;->size()I
+
+    move-result v3
+
+    new-array v3, v3, [Landroid/text/FontConfig$Family;
+
+    invoke-interface {v1, v3}, Ljava/util/List;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, [Landroid/text/FontConfig$Family;
+
+    invoke-interface {v0}, Ljava/util/List;->size()I
+
+    move-result v4
+
+    new-array v4, v4, [Landroid/text/FontConfig$Alias;
+
+    invoke-interface {v0, v4}, Ljava/util/List;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
+
+    move-result-object v4
+
+    check-cast v4, [Landroid/text/FontConfig$Alias;
+
+    invoke-direct {v5, v3, v4}, Landroid/text/FontConfig;-><init>([Landroid/text/FontConfig$Family;[Landroid/text/FontConfig$Alias;)V
+
+    return-object v5
 .end method
 
-.method private static readFamily(Lorg/xmlpull/v1/XmlPullParser;)Landroid/graphics/FontListParser$Family;
-    .locals 7
+.method private static readFamily(Lorg/xmlpull/v1/XmlPullParser;)Landroid/text/FontConfig$Family;
+    .locals 8
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lorg/xmlpull/v1/XmlPullParserException;,
@@ -376,25 +278,25 @@
         }
     .end annotation
 
-    const/4 v6, 0x0
+    const/4 v7, 0x0
 
-    const-string/jumbo v5, "name"
+    const-string/jumbo v6, "name"
 
-    invoke-interface {p0, v6, v5}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-interface {p0, v7, v6}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v3
+
+    const-string/jumbo v6, "lang"
+
+    invoke-interface {p0, v7, v6}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v2
 
-    const-string/jumbo v5, "lang"
+    const-string/jumbo v6, "variant"
 
-    invoke-interface {p0, v6, v5}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-interface {p0, v7, v6}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v1
-
-    const-string/jumbo v5, "variant"
-
-    invoke-interface {p0, v6, v5}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v4
+    move-result-object v5
 
     new-instance v0, Ljava/util/ArrayList;
 
@@ -404,37 +306,37 @@
     :goto_0
     invoke-interface {p0}, Lorg/xmlpull/v1/XmlPullParser;->next()I
 
-    move-result v5
+    move-result v6
 
-    const/4 v6, 0x3
+    const/4 v7, 0x3
 
-    if-eq v5, v6, :cond_2
+    if-eq v6, v7, :cond_2
 
     invoke-interface {p0}, Lorg/xmlpull/v1/XmlPullParser;->getEventType()I
 
-    move-result v5
+    move-result v6
 
-    const/4 v6, 0x2
+    const/4 v7, 0x2
 
-    if-ne v5, v6, :cond_0
+    if-ne v6, v7, :cond_0
 
     invoke-interface {p0}, Lorg/xmlpull/v1/XmlPullParser;->getName()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v4
 
-    const-string/jumbo v5, "font"
+    const-string/jumbo v6, "font"
 
-    invoke-virtual {v3, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v4, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v5
+    move-result v6
 
-    if-eqz v5, :cond_1
+    if-eqz v6, :cond_1
 
-    invoke-static {p0}, Landroid/graphics/FontListParser;->readFont(Lorg/xmlpull/v1/XmlPullParser;)Landroid/graphics/FontListParser$Font;
+    invoke-static {p0}, Landroid/graphics/FontListParser;->readFont(Lorg/xmlpull/v1/XmlPullParser;)Landroid/text/FontConfig$Font;
 
-    move-result-object v5
+    move-result-object v6
 
-    invoke-interface {v0, v5}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v0, v6}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     goto :goto_0
 
@@ -444,14 +346,55 @@
     goto :goto_0
 
     :cond_2
-    new-instance v5, Landroid/graphics/FontListParser$Family;
+    const/4 v1, 0x0
 
-    invoke-direct {v5, v2, v0, v1, v4}, Landroid/graphics/FontListParser$Family;-><init>(Ljava/lang/String;Ljava/util/List;Ljava/lang/String;Ljava/lang/String;)V
+    if-eqz v5, :cond_3
 
-    return-object v5
+    const-string/jumbo v6, "compact"
+
+    invoke-virtual {v5, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_4
+
+    const/4 v1, 0x1
+
+    :cond_3
+    :goto_1
+    new-instance v7, Landroid/text/FontConfig$Family;
+
+    invoke-interface {v0}, Ljava/util/List;->size()I
+
+    move-result v6
+
+    new-array v6, v6, [Landroid/text/FontConfig$Font;
+
+    invoke-interface {v0, v6}, Ljava/util/List;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
+
+    move-result-object v6
+
+    check-cast v6, [Landroid/text/FontConfig$Font;
+
+    invoke-direct {v7, v3, v6, v2, v1}, Landroid/text/FontConfig$Family;-><init>(Ljava/lang/String;[Landroid/text/FontConfig$Font;Ljava/lang/String;I)V
+
+    return-object v7
+
+    :cond_4
+    const-string/jumbo v6, "elegant"
+
+    invoke-virtual {v5, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_3
+
+    const/4 v1, 0x2
+
+    goto :goto_1
 .end method
 
-.method private static readFont(Lorg/xmlpull/v1/XmlPullParser;)Landroid/graphics/FontListParser$Font;
+.method private static readFont(Lorg/xmlpull/v1/XmlPullParser;)Landroid/text/FontConfig$Font;
     .locals 12
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -466,43 +409,43 @@
 
     invoke-interface {p0, v11, v0}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v7
+    move-result-object v8
 
-    if-nez v7, :cond_2
+    if-nez v8, :cond_2
 
     const/4 v2, 0x0
 
     :goto_0
-    new-instance v3, Ljava/util/ArrayList;
+    new-instance v6, Ljava/util/ArrayList;
 
-    invoke-direct {v3}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {v6}, Ljava/util/ArrayList;-><init>()V
 
     const-string/jumbo v0, "weight"
 
     invoke-interface {p0, v11, v0}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v9
+    move-result-object v10
 
-    if-nez v9, :cond_3
+    if-nez v10, :cond_3
 
     const/16 v4, 0x190
 
     :goto_1
     const-string/jumbo v0, "italic"
 
-    const-string/jumbo v10, "style"
+    const-string/jumbo v3, "style"
 
-    invoke-interface {p0, v11, v10}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-interface {p0, v11, v3}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v10
+    move-result-object v3
 
-    invoke-virtual {v0, v10}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    new-instance v6, Ljava/lang/StringBuilder;
+    new-instance v7, Ljava/lang/StringBuilder;
 
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
 
     :cond_0
     :goto_2
@@ -510,62 +453,62 @@
 
     move-result v0
 
-    const/4 v10, 0x3
+    const/4 v3, 0x3
 
-    if-eq v0, v10, :cond_5
+    if-eq v0, v3, :cond_5
 
     invoke-interface {p0}, Lorg/xmlpull/v1/XmlPullParser;->getEventType()I
 
     move-result v0
 
-    const/4 v10, 0x4
+    const/4 v3, 0x4
 
-    if-ne v0, v10, :cond_1
+    if-ne v0, v3, :cond_1
 
     invoke-interface {p0}, Lorg/xmlpull/v1/XmlPullParser;->getText()Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-virtual {v6, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     :cond_1
     invoke-interface {p0}, Lorg/xmlpull/v1/XmlPullParser;->getEventType()I
 
     move-result v0
 
-    const/4 v10, 0x2
+    const/4 v3, 0x2
 
-    if-ne v0, v10, :cond_0
+    if-ne v0, v3, :cond_0
 
     invoke-interface {p0}, Lorg/xmlpull/v1/XmlPullParser;->getName()Ljava/lang/String;
 
-    move-result-object v8
+    move-result-object v9
 
     const-string/jumbo v0, "axis"
 
-    invoke-virtual {v8, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v9, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
     if-eqz v0, :cond_4
 
-    invoke-static {p0}, Landroid/graphics/FontListParser;->readAxis(Lorg/xmlpull/v1/XmlPullParser;)Landroid/graphics/FontListParser$Axis;
+    invoke-static {p0}, Landroid/graphics/FontListParser;->readAxis(Lorg/xmlpull/v1/XmlPullParser;)Landroid/graphics/fonts/FontVariationAxis;
 
     move-result-object v0
 
-    invoke-interface {v3, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v6, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     goto :goto_2
 
     :cond_2
-    invoke-static {v7}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+    invoke-static {v8}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
     move-result v2
 
     goto :goto_0
 
     :cond_3
-    invoke-static {v9}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+    invoke-static {v10}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
     move-result v4
 
@@ -577,39 +520,33 @@
     goto :goto_2
 
     :cond_5
-    new-instance v0, Ljava/lang/StringBuilder;
+    sget-object v0, Landroid/graphics/FontListParser;->FILENAME_WHITESPACE_PATTERN:Ljava/util/regex/Pattern;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v10, "/system/fonts/"
-
-    invoke-virtual {v0, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v7}, Ljava/util/regex/Pattern;->matcher(Ljava/lang/CharSequence;)Ljava/util/regex/Matcher;
 
     move-result-object v0
 
-    sget-object v10, Landroid/graphics/FontListParser;->FILENAME_WHITESPACE_PATTERN:Ljava/util/regex/Pattern;
+    const-string/jumbo v3, ""
 
-    invoke-virtual {v10, v6}, Ljava/util/regex/Pattern;->matcher(Ljava/lang/CharSequence;)Ljava/util/regex/Matcher;
-
-    move-result-object v10
-
-    const-string/jumbo v11, ""
-
-    invoke-virtual {v10, v11}, Ljava/util/regex/Matcher;->replaceAll(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v10
-
-    invoke-virtual {v0, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0, v3}, Ljava/util/regex/Matcher;->replaceAll(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
-    new-instance v0, Landroid/graphics/FontListParser$Font;
+    new-instance v0, Landroid/text/FontConfig$Font;
 
-    invoke-direct/range {v0 .. v5}, Landroid/graphics/FontListParser$Font;-><init>(Ljava/lang/String;ILjava/util/List;IZ)V
+    invoke-interface {v6}, Ljava/util/List;->size()I
+
+    move-result v3
+
+    new-array v3, v3, [Landroid/graphics/fonts/FontVariationAxis;
+
+    invoke-interface {v6, v3}, Ljava/util/List;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, [Landroid/graphics/fonts/FontVariationAxis;
+
+    invoke-direct/range {v0 .. v5}, Landroid/text/FontConfig$Font;-><init>(Ljava/lang/String;I[Landroid/graphics/fonts/FontVariationAxis;IZ)V
 
     return-object v0
 .end method

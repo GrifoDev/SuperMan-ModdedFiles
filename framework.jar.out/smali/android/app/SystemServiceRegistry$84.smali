@@ -17,7 +17,7 @@
     value = {
         "Landroid/app/SystemServiceRegistry$CachedServiceFetcher",
         "<",
-        "Lcom/samsung/android/cocktailbar/CocktailBarManager;",
+        "Landroid/hardware/radio/RadioManager;",
         ">;"
     }
 .end annotation
@@ -34,30 +34,25 @@
 
 
 # virtual methods
-.method public createService(Landroid/app/ContextImpl;)Lcom/samsung/android/cocktailbar/CocktailBarManager;
-    .locals 3
+.method public createService(Landroid/app/ContextImpl;)Landroid/hardware/radio/RadioManager;
+    .locals 1
 
-    const-string/jumbo v1, "CocktailBarService"
+    new-instance v0, Landroid/hardware/radio/RadioManager;
 
-    invoke-static {v1}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
+    invoke-direct {v0, p1}, Landroid/hardware/radio/RadioManager;-><init>(Landroid/content/Context;)V
 
-    move-result-object v0
-
-    new-instance v1, Lcom/samsung/android/cocktailbar/CocktailBarManager;
-
-    invoke-static {v0}, Lcom/samsung/android/cocktailbar/ICocktailBarService$Stub;->asInterface(Landroid/os/IBinder;)Lcom/samsung/android/cocktailbar/ICocktailBarService;
-
-    move-result-object v2
-
-    invoke-direct {v1, p1, v2}, Lcom/samsung/android/cocktailbar/CocktailBarManager;-><init>(Landroid/content/Context;Lcom/samsung/android/cocktailbar/ICocktailBarService;)V
-
-    return-object v1
+    return-object v0
 .end method
 
 .method public bridge synthetic createService(Landroid/app/ContextImpl;)Ljava/lang/Object;
     .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/ServiceManager$ServiceNotFoundException;
+        }
+    .end annotation
 
-    invoke-virtual {p0, p1}, Landroid/app/SystemServiceRegistry$84;->createService(Landroid/app/ContextImpl;)Lcom/samsung/android/cocktailbar/CocktailBarManager;
+    invoke-virtual {p0, p1}, Landroid/app/SystemServiceRegistry$84;->createService(Landroid/app/ContextImpl;)Landroid/hardware/radio/RadioManager;
 
     move-result-object v0
 

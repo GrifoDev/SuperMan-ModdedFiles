@@ -108,13 +108,10 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    xor-int/lit8 v1, v1, 0x1
 
-    :cond_0
-    :goto_0
-    return-void
+    if-eqz v1, :cond_0
 
-    :cond_1
     iget-object v1, p0, Landroid/content/pm/permission/RuntimePermissionPresenter$RemoteService;->mPendingWork:Ljava/util/List;
 
     const/4 v2, 0x0
@@ -125,9 +122,10 @@
 
     check-cast v0, Landroid/os/Message;
 
-    invoke-virtual {p0, v0}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
+    invoke-virtual {p0, v0}, Landroid/content/pm/permission/RuntimePermissionPresenter$RemoteService;->sendMessage(Landroid/os/Message;)Z
 
-    goto :goto_0
+    :cond_0
+    return-void
 .end method
 
 .method private scheduleUnbind()V
@@ -135,11 +133,11 @@
 
     const/4 v2, 0x3
 
-    invoke-virtual {p0, v2}, Landroid/os/Handler;->removeMessages(I)V
+    invoke-virtual {p0, v2}, Landroid/content/pm/permission/RuntimePermissionPresenter$RemoteService;->removeMessages(I)V
 
     const-wide/16 v0, 0x2710
 
-    invoke-virtual {p0, v2, v0, v1}, Landroid/os/Handler;->sendEmptyMessageDelayed(IJ)Z
+    invoke-virtual {p0, v2, v0, v1}, Landroid/content/pm/permission/RuntimePermissionPresenter$RemoteService;->sendEmptyMessageDelayed(IJ)Z
 
     return-void
 .end method
@@ -147,27 +145,28 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .locals 9
+    .locals 8
 
-    iget v7, p1, Landroid/os/Message;->what:I
+    iget v6, p1, Landroid/os/Message;->what:I
 
-    packed-switch v7, :pswitch_data_0
+    packed-switch v6, :pswitch_data_0
 
     :goto_0
-    iget-object v7, p0, Landroid/content/pm/permission/RuntimePermissionPresenter$RemoteService;->mLock:Ljava/lang/Object;
+    :pswitch_0
+    iget-object v6, p0, Landroid/content/pm/permission/RuntimePermissionPresenter$RemoteService;->mLock:Ljava/lang/Object;
 
-    monitor-enter v7
+    monitor-enter v6
 
     :try_start_0
     invoke-direct {p0}, Landroid/content/pm/permission/RuntimePermissionPresenter$RemoteService;->scheduleNextMessageIfNeededLocked()V
     :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_3
+    .catchall {:try_start_0 .. :try_end_0} :catchall_2
 
-    monitor-exit v7
+    monitor-exit v6
 
     return-void
 
-    :pswitch_0
+    :pswitch_1
     iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v0, Lcom/android/internal/os/SomeArgs;
@@ -186,39 +185,39 @@
 
     invoke-virtual {v0}, Lcom/android/internal/os/SomeArgs;->recycle()V
 
-    iget-object v7, p0, Landroid/content/pm/permission/RuntimePermissionPresenter$RemoteService;->mLock:Ljava/lang/Object;
+    iget-object v6, p0, Landroid/content/pm/permission/RuntimePermissionPresenter$RemoteService;->mLock:Ljava/lang/Object;
 
-    monitor-enter v7
+    monitor-enter v6
 
     :try_start_1
     iget-object v5, p0, Landroid/content/pm/permission/RuntimePermissionPresenter$RemoteService;->mRemoteInstance:Landroid/content/pm/permission/IRuntimePermissionPresenter;
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    monitor-exit v7
+    monitor-exit v6
 
     if-nez v5, :cond_0
 
     return-void
 
     :catchall_0
-    move-exception v8
+    move-exception v7
 
-    monitor-exit v7
+    monitor-exit v6
 
-    throw v8
+    throw v7
 
     :cond_0
     :try_start_2
-    new-instance v7, Landroid/os/RemoteCallback;
+    new-instance v6, Landroid/os/RemoteCallback;
 
-    new-instance v8, Landroid/content/pm/permission/RuntimePermissionPresenter$RemoteService$1;
+    new-instance v7, Landroid/content/pm/permission/RuntimePermissionPresenter$RemoteService$1;
 
-    invoke-direct {v8, p0, v2, v1}, Landroid/content/pm/permission/RuntimePermissionPresenter$RemoteService$1;-><init>(Landroid/content/pm/permission/RuntimePermissionPresenter$RemoteService;Landroid/os/Handler;Landroid/content/pm/permission/RuntimePermissionPresenter$OnResultCallback;)V
+    invoke-direct {v7, p0, v2, v1}, Landroid/content/pm/permission/RuntimePermissionPresenter$RemoteService$1;-><init>(Landroid/content/pm/permission/RuntimePermissionPresenter$RemoteService;Landroid/os/Handler;Landroid/content/pm/permission/RuntimePermissionPresenter$OnResultCallback;)V
 
-    invoke-direct {v7, v8, p0}, Landroid/os/RemoteCallback;-><init>(Landroid/os/RemoteCallback$OnResultListener;Landroid/os/Handler;)V
+    invoke-direct {v6, v7, p0}, Landroid/os/RemoteCallback;-><init>(Landroid/os/RemoteCallback$OnResultListener;Landroid/os/Handler;)V
 
-    invoke-interface {v5, v3, v7}, Landroid/content/pm/permission/IRuntimePermissionPresenter;->getAppPermissions(Ljava/lang/String;Landroid/os/RemoteCallback;)V
+    invoke-interface {v5, v3, v6}, Landroid/content/pm/permission/IRuntimePermissionPresenter;->getAppPermissions(Ljava/lang/String;Landroid/os/RemoteCallback;)V
     :try_end_2
     .catch Landroid/os/RemoteException; {:try_start_2 .. :try_end_2} :catch_0
 
@@ -230,142 +229,61 @@
     :catch_0
     move-exception v4
 
-    const-string/jumbo v7, "RuntimePermPresenter"
+    const-string/jumbo v6, "RuntimePermPresenter"
 
-    const-string/jumbo v8, "Error getting app permissions"
+    const-string/jumbo v7, "Error getting app permissions"
 
-    invoke-static {v7, v8, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v6, v7, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     goto :goto_1
 
-    :pswitch_1
-    iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
-
-    check-cast v0, Lcom/android/internal/os/SomeArgs;
-
-    iget-object v1, v0, Lcom/android/internal/os/SomeArgs;->arg1:Ljava/lang/Object;
-
-    check-cast v1, Landroid/content/pm/permission/RuntimePermissionPresenter$OnResultCallback;
-
-    iget-object v2, v0, Lcom/android/internal/os/SomeArgs;->arg2:Ljava/lang/Object;
-
-    check-cast v2, Landroid/os/Handler;
-
-    iget v7, v0, Lcom/android/internal/os/SomeArgs;->argi1:I
-
-    const/4 v8, 0x1
-
-    if-ne v7, v8, :cond_1
-
-    const/4 v6, 0x1
-
-    :goto_2
-    invoke-virtual {v0}, Lcom/android/internal/os/SomeArgs;->recycle()V
-
+    :pswitch_2
     iget-object v7, p0, Landroid/content/pm/permission/RuntimePermissionPresenter$RemoteService;->mLock:Ljava/lang/Object;
 
     monitor-enter v7
 
     :try_start_3
-    iget-object v5, p0, Landroid/content/pm/permission/RuntimePermissionPresenter$RemoteService;->mRemoteInstance:Landroid/content/pm/permission/IRuntimePermissionPresenter;
+    iget-boolean v6, p0, Landroid/content/pm/permission/RuntimePermissionPresenter$RemoteService;->mBound:Z
+
+    if-eqz v6, :cond_1
+
+    iget-object v6, p0, Landroid/content/pm/permission/RuntimePermissionPresenter$RemoteService;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v6, p0}, Landroid/content/Context;->unbindService(Landroid/content/ServiceConnection;)V
+
+    const/4 v6, 0x0
+
+    iput-boolean v6, p0, Landroid/content/pm/permission/RuntimePermissionPresenter$RemoteService;->mBound:Z
+
+    :cond_1
+    const/4 v6, 0x0
+
+    iput-object v6, p0, Landroid/content/pm/permission/RuntimePermissionPresenter$RemoteService;->mRemoteInstance:Landroid/content/pm/permission/IRuntimePermissionPresenter;
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_1
 
     monitor-exit v7
 
-    if-nez v5, :cond_2
-
-    return-void
-
-    :cond_1
-    const/4 v6, 0x0
-
-    goto :goto_2
+    goto :goto_0
 
     :catchall_1
-    move-exception v8
+    move-exception v6
 
     monitor-exit v7
 
-    throw v8
-
-    :cond_2
-    :try_start_4
-    new-instance v7, Landroid/os/RemoteCallback;
-
-    new-instance v8, Landroid/content/pm/permission/RuntimePermissionPresenter$RemoteService$2;
-
-    invoke-direct {v8, p0, v2, v1, v6}, Landroid/content/pm/permission/RuntimePermissionPresenter$RemoteService$2;-><init>(Landroid/content/pm/permission/RuntimePermissionPresenter$RemoteService;Landroid/os/Handler;Landroid/content/pm/permission/RuntimePermissionPresenter$OnResultCallback;Z)V
-
-    invoke-direct {v7, v8, p0}, Landroid/os/RemoteCallback;-><init>(Landroid/os/RemoteCallback$OnResultListener;Landroid/os/Handler;)V
-
-    invoke-interface {v5, v6, v7}, Landroid/content/pm/permission/IRuntimePermissionPresenter;->getAppsUsingPermissions(ZLandroid/os/RemoteCallback;)V
-    :try_end_4
-    .catch Landroid/os/RemoteException; {:try_start_4 .. :try_end_4} :catch_1
-
-    :goto_3
-    invoke-direct {p0}, Landroid/content/pm/permission/RuntimePermissionPresenter$RemoteService;->scheduleUnbind()V
-
-    goto :goto_0
-
-    :catch_1
-    move-exception v4
-
-    const-string/jumbo v7, "RuntimePermPresenter"
-
-    const-string/jumbo v8, "Error getting apps using permissions"
-
-    invoke-static {v7, v8, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    goto :goto_3
-
-    :pswitch_2
-    iget-object v8, p0, Landroid/content/pm/permission/RuntimePermissionPresenter$RemoteService;->mLock:Ljava/lang/Object;
-
-    monitor-enter v8
-
-    :try_start_5
-    iget-boolean v7, p0, Landroid/content/pm/permission/RuntimePermissionPresenter$RemoteService;->mBound:Z
-
-    if-eqz v7, :cond_3
-
-    iget-object v7, p0, Landroid/content/pm/permission/RuntimePermissionPresenter$RemoteService;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v7, p0}, Landroid/content/Context;->unbindService(Landroid/content/ServiceConnection;)V
-
-    const/4 v7, 0x0
-
-    iput-boolean v7, p0, Landroid/content/pm/permission/RuntimePermissionPresenter$RemoteService;->mBound:Z
-
-    :cond_3
-    const/4 v7, 0x0
-
-    iput-object v7, p0, Landroid/content/pm/permission/RuntimePermissionPresenter$RemoteService;->mRemoteInstance:Landroid/content/pm/permission/IRuntimePermissionPresenter;
-    :try_end_5
-    .catchall {:try_start_5 .. :try_end_5} :catchall_2
-
-    monitor-exit v8
-
-    goto/16 :goto_0
+    throw v6
 
     :catchall_2
     move-exception v7
 
-    monitor-exit v8
+    monitor-exit v6
 
     throw v7
 
-    :catchall_3
-    move-exception v8
-
-    monitor-exit v7
-
-    throw v8
-
     :pswitch_data_0
     .packed-switch 0x1
-        :pswitch_0
         :pswitch_1
+        :pswitch_0
         :pswitch_2
     .end packed-switch
 .end method

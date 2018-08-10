@@ -31,6 +31,22 @@
     .end annotation
 .end method
 
+.method public abstract completeWork(II)Z
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract dequeueWork(I)Landroid/app/job/JobWorkItem;
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract jobFinished(IZ)V
     .annotation system Ldalvik/annotation/Throws;
         value = {

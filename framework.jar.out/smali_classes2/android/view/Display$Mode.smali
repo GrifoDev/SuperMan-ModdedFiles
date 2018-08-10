@@ -203,6 +203,8 @@
 .method public hashCode()I
     .locals 3
 
+    const/4 v0, 0x1
+
     iget v1, p0, Landroid/view/Display$Mode;->mModeId:I
 
     add-int/lit8 v0, v1, 0x11

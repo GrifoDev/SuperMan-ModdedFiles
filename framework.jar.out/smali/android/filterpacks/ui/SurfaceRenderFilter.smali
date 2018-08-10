@@ -273,13 +273,13 @@
 
     iget-object v1, p0, Landroid/filterpacks/ui/SurfaceRenderFilter;->mSurfaceView:Landroid/filterfw/core/FilterSurfaceView;
 
-    invoke-virtual {v1}, Landroid/view/View;->getWidth()I
+    invoke-virtual {v1}, Landroid/filterfw/core/FilterSurfaceView;->getWidth()I
 
     move-result v1
 
     iget-object v2, p0, Landroid/filterpacks/ui/SurfaceRenderFilter;->mSurfaceView:Landroid/filterfw/core/FilterSurfaceView;
 
-    invoke-virtual {v2}, Landroid/view/View;->getHeight()I
+    invoke-virtual {v2}, Landroid/filterfw/core/FilterSurfaceView;->getHeight()I
 
     move-result v2
 
@@ -374,7 +374,7 @@
     :cond_2
     const-string/jumbo v6, "frame"
 
-    invoke-virtual {p0, v6}, Landroid/filterfw/core/Filter;->pullInput(Ljava/lang/String;)Landroid/filterfw/core/Frame;
+    invoke-virtual {p0, v6}, Landroid/filterpacks/ui/SurfaceRenderFilter;->pullInput(Ljava/lang/String;)Landroid/filterfw/core/Frame;
 
     move-result-object v4
 
@@ -518,7 +518,7 @@
 
     iget-object v7, p0, Landroid/filterpacks/ui/SurfaceRenderFilter;->mScreen:Landroid/filterfw/core/GLFrame;
 
-    invoke-virtual {v6, v3, v7}, Landroid/filterfw/core/Program;->process(Landroid/filterfw/core/Frame;Landroid/filterfw/core/Frame;)V
+    invoke-virtual {v6, v3, v7}, Landroid/filterfw/core/ShaderProgram;->process(Landroid/filterfw/core/Frame;Landroid/filterfw/core/Frame;)V
 
     invoke-virtual {v2}, Landroid/filterfw/core/GLEnvironment;->swapBuffers()V
 
@@ -559,7 +559,7 @@
 
     move-result-object v1
 
-    invoke-virtual {p0, v0, v1}, Landroid/filterfw/core/Filter;->addMaskedInputPort(Ljava/lang/String;Landroid/filterfw/core/FrameFormat;)V
+    invoke-virtual {p0, v0, v1}, Landroid/filterpacks/ui/SurfaceRenderFilter;->addMaskedInputPort(Ljava/lang/String;Landroid/filterfw/core/FrameFormat;)V
 
     return-void
 .end method
@@ -664,7 +664,7 @@
 
     iget-object v0, p0, Landroid/filterpacks/ui/SurfaceRenderFilter;->mScreen:Landroid/filterfw/core/GLFrame;
 
-    invoke-virtual {v0}, Landroid/filterfw/core/Frame;->release()Landroid/filterfw/core/Frame;
+    invoke-virtual {v0}, Landroid/filterfw/core/GLFrame;->release()Landroid/filterfw/core/Frame;
 
     :cond_0
     return-void

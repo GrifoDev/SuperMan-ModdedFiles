@@ -44,7 +44,11 @@
 
 .field public static final FLAG_FALLBACK:I = 0x400
 
+.field public static final FLAG_FORCE:I = 0x100000
+
 .field public static final FLAG_FROM_SYSTEM:I = 0x8
+
+.field public static final FLAG_FROM_WFD:I = 0x8000000
 
 .field public static final FLAG_KEEP_TOUCH_MODE:I = 0x4
 
@@ -639,6 +643,14 @@
 
 .field public static final KEYCODE_SYSRQ:I = 0x78
 
+.field public static final KEYCODE_SYSTEM_NAVIGATION_DOWN:I = 0x119
+
+.field public static final KEYCODE_SYSTEM_NAVIGATION_LEFT:I = 0x11a
+
+.field public static final KEYCODE_SYSTEM_NAVIGATION_RIGHT:I = 0x11b
+
+.field public static final KEYCODE_SYSTEM_NAVIGATION_UP:I = 0x118
+
 .field public static final KEYCODE_T:I = 0x30
 
 .field public static final KEYCODE_TAB:I = 0x3d
@@ -742,6 +754,9 @@
 .field public static final KEYCODE_WINDOW:I = 0xab
 
 .field public static final KEYCODE_WINK:I = 0x43a
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
 
 .field public static final KEYCODE_X:I = 0x34
 
@@ -759,7 +774,7 @@
 
 .field private static final LABEL_PREFIX:Ljava/lang/String; = "KEYCODE_"
 
-.field private static final LAST_KEYCODE:I = 0x117
+.field private static final LAST_KEYCODE:I = 0x11b
 
 .field public static final MAX_KEYCODE:I = 0x54
     .annotation runtime Ljava/lang/Deprecated;
@@ -836,6 +851,8 @@
 
 .field private static final SAMSUNG_START_KEYCODE:I = 0x3e8
 
+.field public static final SEM_FLAG_IGNORE_FAKE_FOCUS:I = 0x4000000
+
 .field public static final SEM_KEYCODE_ALT_GR:I = 0x3f2
 
 .field public static final SEM_KEYCODE_APPLICATION:I = 0x3ea
@@ -867,6 +884,8 @@
 .field public static final SEM_KEYCODE_USER:I = 0x3f7
 
 .field public static final SEM_KEYCODE_VOICE_SEARCH:I = 0x3ef
+
+.field public static final SEM_KEYCODE_WINK:I = 0x43a
 
 .field public static final SEM_KEYCODE_WPS_BUTTON:I = 0x412
 
@@ -1719,7 +1738,7 @@
 .method public static getMaxKeyCode()I
     .locals 1
 
-    const/16 v0, 0x117
+    const/16 v0, 0x11b
 
     return v0
 .end method
@@ -1981,11 +2000,17 @@
         0xdc -> :sswitch_0
         0xdd -> :sswitch_0
         0xde -> :sswitch_0
+        0x118 -> :sswitch_0
+        0x119 -> :sswitch_0
+        0x11a -> :sswitch_0
+        0x11b -> :sswitch_0
     .end sparse-switch
 .end method
 
 .method public static final isWakeKey(I)Z
     .locals 1
+
+    const/4 v0, 0x1
 
     sparse-switch p0, :sswitch_data_0
 
@@ -1994,11 +2019,10 @@
     return v0
 
     :sswitch_0
-    const/4 v0, 0x1
-
     return v0
 
-    nop
+    :sswitch_1
+    return v0
 
     :sswitch_data_0
     .sparse-switch
@@ -2011,7 +2035,7 @@
         0x109 -> :sswitch_0
         0x10a -> :sswitch_0
         0x10b -> :sswitch_0
-        0x3f7 -> :sswitch_0
+        0x3f7 -> :sswitch_1
         0x3f9 -> :sswitch_0
         0x3fa -> :sswitch_0
         0x419 -> :sswitch_0
@@ -2318,9 +2342,7 @@
 .end method
 
 .method public static metaStateToString(I)Ljava/lang/String;
-    .locals 6
-
-    const/4 v4, 0x0
+    .locals 5
 
     if-nez p0, :cond_0
 
@@ -2336,9 +2358,9 @@
     :goto_0
     if-eqz p0, :cond_5
 
-    and-int/lit8 v5, p0, 0x1
+    and-int/lit8 v4, p0, 0x1
 
-    if-eqz v5, :cond_1
+    if-eqz v4, :cond_1
 
     const/4 v1, 0x1
 
@@ -2347,9 +2369,9 @@
 
     if-eqz v1, :cond_3
 
-    sget-object v5, Landroid/view/KeyEvent;->META_SYMBOLIC_NAMES:[Ljava/lang/String;
+    sget-object v4, Landroid/view/KeyEvent;->META_SYMBOLIC_NAMES:[Ljava/lang/String;
 
-    aget-object v2, v5, v0
+    aget-object v2, v4, v0
 
     if-nez v3, :cond_4
 
@@ -2358,7 +2380,7 @@
     return-object v2
 
     :cond_1
-    move v1, v4
+    const/4 v1, 0x0
 
     goto :goto_1
 
@@ -2374,9 +2396,9 @@
     goto :goto_0
 
     :cond_4
-    const/16 v5, 0x7c
+    const/16 v4, 0x7c
 
-    invoke-virtual {v3, v5}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

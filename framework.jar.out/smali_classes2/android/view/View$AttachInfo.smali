@@ -32,6 +32,8 @@
 
 .field mApplicationScale:F
 
+.field mAutofilledDrawable:Landroid/graphics/drawable/Drawable;
+
 .field mCanvas:Landroid/graphics/Canvas;
 
 .field final mContentInsets:Landroid/graphics/Rect;
@@ -40,7 +42,7 @@
 
 .field mDisabledSystemUiVisibility:I
 
-.field final mDisplay:Landroid/view/Display;
+.field mDisplay:Landroid/view/Display;
 
 .field mDisplayState:I
 
@@ -75,8 +77,6 @@
 
 .field mHardwareAccelerationRequested:Z
 
-.field mHardwareRenderer:Landroid/view/ThreadedRenderer;
-
 .field mHasNonEmptyGivenInternalInsets:Z
 
 .field mHasSystemUiListeners:Z
@@ -88,6 +88,8 @@
 .field mIWindowId:Landroid/view/IWindowId;
 
 .field mIgnoreDirtyState:Z
+
+.field mInMouseStylusMode:Z
 
 .field mInTouchMode:Z
 
@@ -171,6 +173,8 @@
     .end annotation
 .end field
 
+.field mThreadedRenderer:Landroid/view/ThreadedRenderer;
+
 .field final mTmpInvalRect:Landroid/graphics/Rect;
 
 .field final mTmpLocation:[I
@@ -197,6 +201,8 @@
 .field final mTmpTransformRect1:Landroid/graphics/RectF;
 
 .field final mTmpTransformation:Landroid/view/animation/Transformation;
+
+.field mTooltipHost:Landroid/view/View;
 
 .field final mTransparentLocation:[I
 
@@ -230,10 +236,12 @@
 
 
 # direct methods
-.method constructor <init>(Landroid/view/IWindowSession;Landroid/view/IWindow;Landroid/view/Display;Landroid/view/ViewRootImpl;Landroid/os/Handler;Landroid/view/View$AttachInfo$Callbacks;)V
-    .locals 5
+.method constructor <init>(Landroid/view/IWindowSession;Landroid/view/IWindow;Landroid/view/Display;Landroid/view/ViewRootImpl;Landroid/os/Handler;Landroid/view/View$AttachInfo$Callbacks;Landroid/content/Context;)V
+    .locals 6
 
-    const/4 v4, 0x1
+    const/4 v5, 0x1
+
+    const/4 v4, -0x1
 
     const/4 v3, 0x0
 
@@ -243,7 +251,7 @@
 
     iput v3, p0, Landroid/view/View$AttachInfo;->mDisplayState:I
 
-    iput-boolean v4, p0, Landroid/view/View$AttachInfo;->mIsOpen:Z
+    iput-boolean v5, p0, Landroid/view/View$AttachInfo;->mIsOpen:Z
 
     new-instance v1, Landroid/graphics/Rect;
 
@@ -295,6 +303,8 @@
 
     iput-boolean v3, p0, Landroid/view/View$AttachInfo;->mSetIgnoreDirtyState:Z
 
+    iput v4, p0, Landroid/view/View$AttachInfo;->mGlobalSystemUiVisibility:I
+
     new-array v1, v2, [I
 
     iput-object v1, p0, Landroid/view/View$AttachInfo;->mTransparentLocation:[I
@@ -310,12 +320,6 @@
     new-array v1, v2, [F
 
     iput-object v1, p0, Landroid/view/View$AttachInfo;->mTmpTransformLocation:[F
-
-    new-instance v1, Landroid/view/ViewTreeObserver;
-
-    invoke-direct {v1}, Landroid/view/ViewTreeObserver;-><init>()V
-
-    iput-object v1, p0, Landroid/view/View$AttachInfo;->mTreeObserver:Landroid/view/ViewTreeObserver;
 
     new-instance v1, Landroid/graphics/Rect;
 
@@ -367,9 +371,7 @@
 
     iput-object v1, p0, Landroid/view/View$AttachInfo;->mTempArrayList:Ljava/util/ArrayList;
 
-    const v1, 0x7fffffff
-
-    iput v1, p0, Landroid/view/View$AttachInfo;->mAccessibilityWindowId:I
+    iput v4, p0, Landroid/view/View$AttachInfo;->mAccessibilityWindowId:I
 
     const-string/jumbo v1, "debug.layout"
 
@@ -426,12 +428,18 @@
 
     :cond_0
     :goto_0
+    new-instance v1, Landroid/view/ViewTreeObserver;
+
+    invoke-direct {v1, p7}, Landroid/view/ViewTreeObserver;-><init>(Landroid/content/Context;)V
+
+    iput-object v1, p0, Landroid/view/View$AttachInfo;->mTreeObserver:Landroid/view/ViewTreeObserver;
+
     return-void
 
     :catch_0
     move-exception v0
 
-    iput-boolean v4, p0, Landroid/view/View$AttachInfo;->mIsOpen:Z
+    iput-boolean v5, p0, Landroid/view/View$AttachInfo;->mIsOpen:Z
 
     goto :goto_0
 .end method

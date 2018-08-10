@@ -49,7 +49,7 @@
 
     const-string/jumbo v0, "android.media.midi.IMidiDeviceServer"
 
-    invoke-virtual {p0, p0, v0}, Landroid/os/Binder;->attachInterface(Landroid/os/IInterface;Ljava/lang/String;)V
+    invoke-virtual {p0, p0, v0}, Landroid/media/midi/IMidiDeviceServer$Stub;->attachInterface(Landroid/os/IInterface;Ljava/lang/String;)V
 
     return-void
 .end method
@@ -136,25 +136,15 @@
 
     move-result v2
 
-    invoke-virtual {p0, v1, v2}, Landroid/media/midi/IMidiDeviceServer$Stub;->openInputPort(Landroid/os/IBinder;I)Landroid/os/ParcelFileDescriptor;
+    invoke-virtual {p0, v1, v2}, Landroid/media/midi/IMidiDeviceServer$Stub;->openInputPort(Landroid/os/IBinder;I)Ljava/io/FileDescriptor;
 
     move-result-object v7
 
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v7, :cond_0
+    invoke-virtual {p3, v7}, Landroid/os/Parcel;->writeRawFileDescriptor(Ljava/io/FileDescriptor;)V
 
-    invoke-virtual {p3, v9}, Landroid/os/Parcel;->writeInt(I)V
-
-    invoke-virtual {v7, p3, v9}, Landroid/os/ParcelFileDescriptor;->writeToParcel(Landroid/os/Parcel;I)V
-
-    :goto_0
     return v9
-
-    :cond_0
-    invoke-virtual {p3, v10}, Landroid/os/Parcel;->writeInt(I)V
-
-    goto :goto_0
 
     :sswitch_2
     const-string/jumbo v8, "android.media.midi.IMidiDeviceServer"
@@ -169,25 +159,15 @@
 
     move-result v2
 
-    invoke-virtual {p0, v1, v2}, Landroid/media/midi/IMidiDeviceServer$Stub;->openOutputPort(Landroid/os/IBinder;I)Landroid/os/ParcelFileDescriptor;
+    invoke-virtual {p0, v1, v2}, Landroid/media/midi/IMidiDeviceServer$Stub;->openOutputPort(Landroid/os/IBinder;I)Ljava/io/FileDescriptor;
 
     move-result-object v7
 
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v7, :cond_1
+    invoke-virtual {p3, v7}, Landroid/os/Parcel;->writeRawFileDescriptor(Ljava/io/FileDescriptor;)V
 
-    invoke-virtual {p3, v9}, Landroid/os/Parcel;->writeInt(I)V
-
-    invoke-virtual {v7, p3, v9}, Landroid/os/ParcelFileDescriptor;->writeToParcel(Landroid/os/Parcel;I)V
-
-    :goto_1
     return v9
-
-    :cond_1
-    invoke-virtual {p3, v10}, Landroid/os/Parcel;->writeInt(I)V
-
-    goto :goto_1
 
     :sswitch_3
     const-string/jumbo v8, "android.media.midi.IMidiDeviceServer"
@@ -224,26 +204,15 @@
 
     move-result-object v1
 
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v8
-
-    if-eqz v8, :cond_2
-
-    sget-object v8, Landroid/os/ParcelFileDescriptor;->CREATOR:Landroid/os/Parcelable$Creator;
-
-    invoke-interface {v8, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+    invoke-virtual {p2}, Landroid/os/Parcel;->readRawFileDescriptor()Ljava/io/FileDescriptor;
 
     move-result-object v3
 
-    check-cast v3, Landroid/os/ParcelFileDescriptor;
-
-    :goto_2
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v4
 
-    invoke-virtual {p0, v1, v3, v4}, Landroid/media/midi/IMidiDeviceServer$Stub;->connectPorts(Landroid/os/IBinder;Landroid/os/ParcelFileDescriptor;I)I
+    invoke-virtual {p0, v1, v3, v4}, Landroid/media/midi/IMidiDeviceServer$Stub;->connectPorts(Landroid/os/IBinder;Ljava/io/FileDescriptor;I)I
 
     move-result v5
 
@@ -252,11 +221,6 @@
     invoke-virtual {p3, v5}, Landroid/os/Parcel;->writeInt(I)V
 
     return v9
-
-    :cond_2
-    const/4 v3, 0x0
-
-    goto :goto_2
 
     :sswitch_6
     const-string/jumbo v8, "android.media.midi.IMidiDeviceServer"
@@ -269,19 +233,19 @@
 
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v6, :cond_3
+    if-eqz v6, :cond_0
 
     invoke-virtual {p3, v9}, Landroid/os/Parcel;->writeInt(I)V
 
     invoke-virtual {v6, p3, v9}, Landroid/media/midi/MidiDeviceInfo;->writeToParcel(Landroid/os/Parcel;I)V
 
-    :goto_3
+    :goto_0
     return v9
 
-    :cond_3
+    :cond_0
     invoke-virtual {p3, v10}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto :goto_3
+    goto :goto_0
 
     :sswitch_7
     const-string/jumbo v8, "android.media.midi.IMidiDeviceServer"
@@ -292,7 +256,7 @@
 
     move-result v8
 
-    if-eqz v8, :cond_4
+    if-eqz v8, :cond_1
 
     sget-object v8, Landroid/media/midi/MidiDeviceInfo;->CREATOR:Landroid/os/Parcelable$Creator;
 
@@ -302,17 +266,17 @@
 
     check-cast v0, Landroid/media/midi/MidiDeviceInfo;
 
-    :goto_4
+    :goto_1
     invoke-virtual {p0, v0}, Landroid/media/midi/IMidiDeviceServer$Stub;->setDeviceInfo(Landroid/media/midi/MidiDeviceInfo;)V
 
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     return v9
 
-    :cond_4
+    :cond_1
     const/4 v0, 0x0
 
-    goto :goto_4
+    goto :goto_1
 
     nop
 

@@ -42,6 +42,8 @@
 
 .field static final TRANSACTION_sipResponseReceived:I = 0x6
 
+.field static final TRANSACTION_unpublishMessageSent:I = 0x9
+
 
 # direct methods
 .method public constructor <init>()V
@@ -51,7 +53,7 @@
 
     const-string/jumbo v0, "com.android.ims.internal.uce.presence.IPresenceListener"
 
-    invoke-virtual {p0, p0, v0}, Landroid/os/Binder;->attachInterface(Landroid/os/IInterface;Ljava/lang/String;)V
+    invoke-virtual {p0, p0, v0}, Lcom/android/ims/internal/uce/presence/IPresenceListener$Stub;->attachInterface(Landroid/os/IInterface;Ljava/lang/String;)V
 
     return-void
 .end method
@@ -355,6 +357,19 @@
 
     goto :goto_5
 
+    :sswitch_9
+    const-string/jumbo v8, "com.android.ims.internal.uce.presence.IPresenceListener"
+
+    invoke-virtual {p2, v8}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual {p0}, Lcom/android/ims/internal/uce/presence/IPresenceListener$Stub;->unpublishMessageSent()V
+
+    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+
+    return v9
+
+    nop
+
     :sswitch_data_0
     .sparse-switch
         0x1 -> :sswitch_1
@@ -365,6 +380,7 @@
         0x6 -> :sswitch_6
         0x7 -> :sswitch_7
         0x8 -> :sswitch_8
+        0x9 -> :sswitch_9
         0x5f4e5446 -> :sswitch_0
     .end sparse-switch
 .end method

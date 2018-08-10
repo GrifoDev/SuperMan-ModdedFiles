@@ -37,6 +37,12 @@
     return-void
 .end method
 
+.method public onLockedBootComplete(I)V
+    .locals 0
+
+    return-void
+.end method
+
 .method public onUserSwitchComplete(I)V
     .locals 2
     .annotation system Ldalvik/annotation/Throws;

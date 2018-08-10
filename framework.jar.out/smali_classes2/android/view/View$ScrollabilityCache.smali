@@ -54,6 +54,8 @@
 
 .field public mScrollBarDraggingState:I
 
+.field public final mScrollBarTouchBounds:Landroid/graphics/Rect;
+
 .field public final matrix:Landroid/graphics/Matrix;
 
 .field public final paint:Landroid/graphics/Paint;
@@ -65,6 +67,8 @@
 .field public scrollBarFadeDuration:I
 
 .field public final scrollBarInterpolator:Landroid/graphics/Interpolator;
+
+.field public scrollBarMinTouchTarget:I
 
 .field public scrollBarSize:I
 
@@ -127,6 +131,12 @@
 
     iput-object v0, p0, Landroid/view/View$ScrollabilityCache;->mScrollBarBounds:Landroid/graphics/Rect;
 
+    new-instance v0, Landroid/graphics/Rect;
+
+    invoke-direct {v0}, Landroid/graphics/Rect;-><init>()V
+
+    iput-object v0, p0, Landroid/view/View$ScrollabilityCache;->mScrollBarTouchBounds:Landroid/graphics/Rect;
+
     iput v6, p0, Landroid/view/View$ScrollabilityCache;->mScrollBarDraggingState:I
 
     iput v1, p0, Landroid/view/View$ScrollabilityCache;->mScrollBarDraggingPos:F
@@ -142,6 +152,12 @@
     move-result v0
 
     iput v0, p0, Landroid/view/View$ScrollabilityCache;->scrollBarSize:I
+
+    invoke-virtual {p1}, Landroid/view/ViewConfiguration;->getScaledMinScrollbarTouchTarget()I
+
+    move-result v0
+
+    iput v0, p0, Landroid/view/View$ScrollabilityCache;->scrollBarMinTouchTarget:I
 
     invoke-static {}, Landroid/view/ViewConfiguration;->getScrollDefaultDelay()I
 
@@ -220,6 +236,8 @@
     if-ltz v3, :cond_0
 
     long-to-int v2, v4
+
+    const/4 v0, 0x0
 
     iget-object v1, p0, Landroid/view/View$ScrollabilityCache;->scrollBarInterpolator:Landroid/graphics/Interpolator;
 

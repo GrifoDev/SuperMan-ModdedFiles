@@ -40,10 +40,23 @@
 .method public abstract createSession(Landroid/view/inputmethod/InputMethod$SessionCallback;)V
 .end method
 
-.method public abstract hideSoftInput(ILandroid/os/ResultReceiver;)V
+.method public dispatchStartInputWithToken(Landroid/view/inputmethod/InputConnection;Landroid/view/inputmethod/EditorInfo;ZLandroid/os/IBinder;)V
+    .locals 0
+
+    if-eqz p3, :cond_0
+
+    invoke-interface {p0, p1, p2}, Landroid/view/inputmethod/InputMethod;->restartInput(Landroid/view/inputmethod/InputConnection;Landroid/view/inputmethod/EditorInfo;)V
+
+    :goto_0
+    return-void
+
+    :cond_0
+    invoke-interface {p0, p1, p2}, Landroid/view/inputmethod/InputMethod;->startInput(Landroid/view/inputmethod/InputConnection;Landroid/view/inputmethod/EditorInfo;)V
+
+    goto :goto_0
 .end method
 
-.method public abstract minimizeSoftInput(I)V
+.method public abstract hideSoftInput(ILandroid/os/ResultReceiver;)V
 .end method
 
 .method public abstract restartInput(Landroid/view/inputmethod/InputConnection;Landroid/view/inputmethod/EditorInfo;)V
@@ -61,14 +74,5 @@
 .method public abstract startInput(Landroid/view/inputmethod/InputConnection;Landroid/view/inputmethod/EditorInfo;)V
 .end method
 
-.method public abstract unMinimizeSoftInput()V
-.end method
-
 .method public abstract unbindInput()V
-.end method
-
-.method public abstract updateFloatingState(I)V
-.end method
-
-.method public abstract updateWacomState(I)V
 .end method

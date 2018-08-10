@@ -1,5 +1,5 @@
 .class public final Landroid/net/metrics/IpManagerEvent;
-.super Landroid/net/metrics/IpConnectivityEvent;
+.super Ljava/lang/Object;
 .source "IpManagerEvent.java"
 
 # interfaces
@@ -29,6 +29,12 @@
     .end annotation
 .end field
 
+.field public static final ERROR_STARTING_IPREACHABILITYMONITOR:I = 0x6
+
+.field public static final ERROR_STARTING_IPV4:I = 0x4
+
+.field public static final ERROR_STARTING_IPV6:I = 0x5
+
 .field public static final PROVISIONING_FAIL:I = 0x2
 
 .field public static final PROVISIONING_OK:I = 0x1
@@ -38,8 +44,6 @@
 .field public final durationMs:J
 
 .field public final eventType:I
-
-.field public final ifName:Ljava/lang/String;
 
 
 # direct methods
@@ -55,16 +59,22 @@
     return-void
 .end method
 
+.method public constructor <init>(IJ)V
+    .locals 0
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput p1, p0, Landroid/net/metrics/IpManagerEvent;->eventType:I
+
+    iput-wide p2, p0, Landroid/net/metrics/IpManagerEvent;->durationMs:J
+
+    return-void
+.end method
+
 .method private constructor <init>(Landroid/os/Parcel;)V
     .locals 2
 
-    invoke-direct {p0}, Landroid/net/metrics/IpConnectivityEvent;-><init>()V
-
-    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v0
-
-    iput-object v0, p0, Landroid/net/metrics/IpManagerEvent;->ifName:Ljava/lang/String;
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
@@ -89,32 +99,6 @@
     return-void
 .end method
 
-.method private constructor <init>(Ljava/lang/String;IJ)V
-    .locals 1
-
-    invoke-direct {p0}, Landroid/net/metrics/IpConnectivityEvent;-><init>()V
-
-    iput-object p1, p0, Landroid/net/metrics/IpManagerEvent;->ifName:Ljava/lang/String;
-
-    iput p2, p0, Landroid/net/metrics/IpManagerEvent;->eventType:I
-
-    iput-wide p3, p0, Landroid/net/metrics/IpManagerEvent;->durationMs:J
-
-    return-void
-.end method
-
-.method public static logEvent(ILjava/lang/String;J)V
-    .locals 2
-
-    new-instance v0, Landroid/net/metrics/IpManagerEvent;
-
-    invoke-direct {v0, p1, p0, p2, p3}, Landroid/net/metrics/IpManagerEvent;-><init>(Ljava/lang/String;IJ)V
-
-    invoke-static {v0}, Landroid/net/metrics/IpManagerEvent;->logEvent(Landroid/net/metrics/IpConnectivityEvent;)V
-
-    return-void
-.end method
-
 
 # virtual methods
 .method public describeContents()I
@@ -128,17 +112,11 @@
 .method public toString()Ljava/lang/String;
     .locals 4
 
-    const-string/jumbo v0, "IpManagerEvent(%s, %s, %dms)"
+    const-string/jumbo v0, "IpManagerEvent(%s, %dms)"
 
-    const/4 v1, 0x3
+    const/4 v1, 0x2
 
     new-array v1, v1, [Ljava/lang/Object;
-
-    iget-object v2, p0, Landroid/net/metrics/IpManagerEvent;->ifName:Ljava/lang/String;
-
-    const/4 v3, 0x0
-
-    aput-object v2, v1, v3
 
     sget-object v2, Landroid/net/metrics/IpManagerEvent$Decoder;->constants:Landroid/util/SparseArray;
 
@@ -148,7 +126,7 @@
 
     move-result-object v2
 
-    const/4 v3, 0x1
+    const/4 v3, 0x0
 
     aput-object v2, v1, v3
 
@@ -158,7 +136,7 @@
 
     move-result-object v2
 
-    const/4 v3, 0x2
+    const/4 v3, 0x1
 
     aput-object v2, v1, v3
 
@@ -171,10 +149,6 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 2
-
-    iget-object v0, p0, Landroid/net/metrics/IpManagerEvent;->ifName:Ljava/lang/String;
-
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
     iget v0, p0, Landroid/net/metrics/IpManagerEvent;->eventType:I
 

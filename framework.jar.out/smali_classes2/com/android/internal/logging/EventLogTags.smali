@@ -10,6 +10,8 @@
 
 .field public static final SYSUI_HISTOGRAM:I = 0x80003
 
+.field public static final SYSUI_MULTI_ACTION:I = 0x80004
+
 .field public static final SYSUI_VIEW_VISIBILITY:I = 0x7ffff
 
 
@@ -96,6 +98,16 @@
     const v1, 0x80003
 
     invoke-static {v1, v0}, Landroid/util/EventLog;->writeEvent(I[Ljava/lang/Object;)I
+
+    return-void
+.end method
+
+.method public static writeSysuiMultiAction([Ljava/lang/Object;)V
+    .locals 1
+
+    const v0, 0x80004
+
+    invoke-static {v0, p0}, Landroid/util/EventLog;->writeEvent(I[Ljava/lang/Object;)I
 
     return-void
 .end method

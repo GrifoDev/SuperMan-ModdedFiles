@@ -74,7 +74,9 @@
 
     move-result-object v4
 
-    iget-object v5, p0, Landroid/media/MediaRouter$UserRouteInfo;->mName:Ljava/lang/CharSequence;
+    invoke-virtual {p0}, Landroid/media/MediaRouter$UserRouteInfo;->getName()Ljava/lang/CharSequence;
+
+    move-result-object v5
 
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/CharSequence;)Ljava/lang/StringBuilder;
 
@@ -335,7 +337,11 @@
 .end method
 
 .method public setName(Ljava/lang/CharSequence;)V
-    .locals 0
+    .locals 1
+
+    const/4 v0, 0x0
+
+    iput v0, p0, Landroid/media/MediaRouter$UserRouteInfo;->mNameResId:I
 
     iput-object p1, p0, Landroid/media/MediaRouter$UserRouteInfo;->mName:Ljava/lang/CharSequence;
 

@@ -36,6 +36,8 @@
     .end annotation
 .end field
 
+.field private static final HAS_AUTOMATIC_GAIN_CONTROL:I = 0x2000
+
 .field private static final HAS_CARRIER_CYCLES:I = 0x400
 
 .field private static final HAS_CARRIER_FREQUENCY:I = 0x200
@@ -51,8 +53,6 @@
 .field public static final MULTIPATH_INDICATOR_DETECTED:I = 0x1
 
 .field public static final MULTIPATH_INDICATOR_NOT_DETECTED:I = 0x2
-
-.field public static final MULTIPATH_INDICATOR_NOT_USED:I = 0x2
 
 .field public static final MULTIPATH_INDICATOR_UNKNOWN:I = 0x0
 
@@ -76,6 +76,8 @@
 
 .field public static final STATE_GLO_TOD_DECODED:I = 0x80
 
+.field public static final STATE_GLO_TOD_KNOWN:I = 0x8000
+
 .field public static final STATE_MSEC_AMBIGUOUS:I = 0x10
 
 .field public static final STATE_SBAS_SYNC:I = 0x2000
@@ -86,6 +88,8 @@
 
 .field public static final STATE_TOW_DECODED:I = 0x8
 
+.field public static final STATE_TOW_KNOWN:I = 0x4000
+
 .field public static final STATE_UNKNOWN:I
 
 
@@ -95,6 +99,8 @@
 .field private mAccumulatedDeltaRangeState:I
 
 .field private mAccumulatedDeltaRangeUncertaintyMeters:D
+
+.field private mAutomaticGainControlLevelInDb:D
 
 .field private mCarrierCycles:J
 
@@ -149,12 +155,20 @@
 .method static synthetic -set10(Landroid/location/GnssMeasurement;I)I
     .locals 0
 
+    iput p1, p0, Landroid/location/GnssMeasurement;->mFlags:I
+
+    return p1
+.end method
+
+.method static synthetic -set11(Landroid/location/GnssMeasurement;I)I
+    .locals 0
+
     iput p1, p0, Landroid/location/GnssMeasurement;->mMultipathIndicator:I
 
     return p1
 .end method
 
-.method static synthetic -set11(Landroid/location/GnssMeasurement;D)D
+.method static synthetic -set12(Landroid/location/GnssMeasurement;D)D
     .locals 1
 
     iput-wide p1, p0, Landroid/location/GnssMeasurement;->mPseudorangeRateMetersPerSecond:D
@@ -162,7 +176,7 @@
     return-wide p1
 .end method
 
-.method static synthetic -set12(Landroid/location/GnssMeasurement;D)D
+.method static synthetic -set13(Landroid/location/GnssMeasurement;D)D
     .locals 1
 
     iput-wide p1, p0, Landroid/location/GnssMeasurement;->mPseudorangeRateUncertaintyMetersPerSecond:D
@@ -170,7 +184,7 @@
     return-wide p1
 .end method
 
-.method static synthetic -set13(Landroid/location/GnssMeasurement;J)J
+.method static synthetic -set14(Landroid/location/GnssMeasurement;J)J
     .locals 1
 
     iput-wide p1, p0, Landroid/location/GnssMeasurement;->mReceivedSvTimeNanos:J
@@ -178,7 +192,7 @@
     return-wide p1
 .end method
 
-.method static synthetic -set14(Landroid/location/GnssMeasurement;J)J
+.method static synthetic -set15(Landroid/location/GnssMeasurement;J)J
     .locals 1
 
     iput-wide p1, p0, Landroid/location/GnssMeasurement;->mReceivedSvTimeUncertaintyNanos:J
@@ -186,7 +200,7 @@
     return-wide p1
 .end method
 
-.method static synthetic -set15(Landroid/location/GnssMeasurement;D)D
+.method static synthetic -set16(Landroid/location/GnssMeasurement;D)D
     .locals 1
 
     iput-wide p1, p0, Landroid/location/GnssMeasurement;->mSnrInDb:D
@@ -194,7 +208,7 @@
     return-wide p1
 .end method
 
-.method static synthetic -set16(Landroid/location/GnssMeasurement;I)I
+.method static synthetic -set17(Landroid/location/GnssMeasurement;I)I
     .locals 0
 
     iput p1, p0, Landroid/location/GnssMeasurement;->mState:I
@@ -202,7 +216,7 @@
     return p1
 .end method
 
-.method static synthetic -set17(Landroid/location/GnssMeasurement;I)I
+.method static synthetic -set18(Landroid/location/GnssMeasurement;I)I
     .locals 0
 
     iput p1, p0, Landroid/location/GnssMeasurement;->mSvid:I
@@ -210,7 +224,7 @@
     return p1
 .end method
 
-.method static synthetic -set18(Landroid/location/GnssMeasurement;D)D
+.method static synthetic -set19(Landroid/location/GnssMeasurement;D)D
     .locals 1
 
     iput-wide p1, p0, Landroid/location/GnssMeasurement;->mTimeOffsetNanos:D
@@ -226,7 +240,15 @@
     return-wide p1
 .end method
 
-.method static synthetic -set3(Landroid/location/GnssMeasurement;J)J
+.method static synthetic -set3(Landroid/location/GnssMeasurement;D)D
+    .locals 1
+
+    iput-wide p1, p0, Landroid/location/GnssMeasurement;->mAutomaticGainControlLevelInDb:D
+
+    return-wide p1
+.end method
+
+.method static synthetic -set4(Landroid/location/GnssMeasurement;J)J
     .locals 1
 
     iput-wide p1, p0, Landroid/location/GnssMeasurement;->mCarrierCycles:J
@@ -234,7 +256,7 @@
     return-wide p1
 .end method
 
-.method static synthetic -set4(Landroid/location/GnssMeasurement;F)F
+.method static synthetic -set5(Landroid/location/GnssMeasurement;F)F
     .locals 0
 
     iput p1, p0, Landroid/location/GnssMeasurement;->mCarrierFrequencyHz:F
@@ -242,7 +264,7 @@
     return p1
 .end method
 
-.method static synthetic -set5(Landroid/location/GnssMeasurement;D)D
+.method static synthetic -set6(Landroid/location/GnssMeasurement;D)D
     .locals 1
 
     iput-wide p1, p0, Landroid/location/GnssMeasurement;->mCarrierPhase:D
@@ -250,7 +272,7 @@
     return-wide p1
 .end method
 
-.method static synthetic -set6(Landroid/location/GnssMeasurement;D)D
+.method static synthetic -set7(Landroid/location/GnssMeasurement;D)D
     .locals 1
 
     iput-wide p1, p0, Landroid/location/GnssMeasurement;->mCarrierPhaseUncertainty:D
@@ -258,7 +280,7 @@
     return-wide p1
 .end method
 
-.method static synthetic -set7(Landroid/location/GnssMeasurement;D)D
+.method static synthetic -set8(Landroid/location/GnssMeasurement;D)D
     .locals 1
 
     iput-wide p1, p0, Landroid/location/GnssMeasurement;->mCn0DbHz:D
@@ -266,18 +288,10 @@
     return-wide p1
 .end method
 
-.method static synthetic -set8(Landroid/location/GnssMeasurement;I)I
-    .locals 0
-
-    iput p1, p0, Landroid/location/GnssMeasurement;->mConstellationType:I
-
-    return p1
-.end method
-
 .method static synthetic -set9(Landroid/location/GnssMeasurement;I)I
     .locals 0
 
-    iput p1, p0, Landroid/location/GnssMeasurement;->mFlags:I
+    iput p1, p0, Landroid/location/GnssMeasurement;->mConstellationType:I
 
     return p1
 .end method
@@ -441,7 +455,7 @@
     return-object v0
 
     :pswitch_2
-    const-string/jumbo v0, "NotUsed"
+    const-string/jumbo v0, "NotDetected"
 
     return-object v0
 
@@ -456,7 +470,7 @@
 .end method
 
 .method private getStateString()Ljava/lang/String;
-    .locals 3
+    .locals 4
 
     iget v2, p0, Landroid/location/GnssMeasurement;->mState:I
 
@@ -517,119 +531,143 @@
     :cond_4
     iget v2, p0, Landroid/location/GnssMeasurement;->mState:I
 
-    and-int/lit8 v2, v2, 0x10
+    and-int/lit16 v2, v2, 0x4000
 
     if-eqz v2, :cond_5
 
-    const-string/jumbo v2, "MsecAmbiguous|"
+    const-string/jumbo v2, "TowKnown|"
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     :cond_5
     iget v2, p0, Landroid/location/GnssMeasurement;->mState:I
 
-    and-int/lit8 v2, v2, 0x20
+    and-int/lit8 v2, v2, 0x10
 
     if-eqz v2, :cond_6
 
-    const-string/jumbo v2, "SymbolSync|"
+    const-string/jumbo v2, "MsecAmbiguous|"
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     :cond_6
     iget v2, p0, Landroid/location/GnssMeasurement;->mState:I
 
-    and-int/lit8 v2, v2, 0x40
+    and-int/lit8 v2, v2, 0x20
 
     if-eqz v2, :cond_7
 
-    const-string/jumbo v2, "GloStringSync|"
+    const-string/jumbo v2, "SymbolSync|"
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     :cond_7
     iget v2, p0, Landroid/location/GnssMeasurement;->mState:I
 
-    and-int/lit16 v2, v2, 0x80
+    and-int/lit8 v2, v2, 0x40
 
     if-eqz v2, :cond_8
 
-    const-string/jumbo v2, "GloTodDecoded|"
+    const-string/jumbo v2, "GloStringSync|"
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     :cond_8
     iget v2, p0, Landroid/location/GnssMeasurement;->mState:I
 
-    and-int/lit16 v2, v2, 0x100
+    and-int/lit16 v2, v2, 0x80
 
     if-eqz v2, :cond_9
 
-    const-string/jumbo v2, "BdsD2BitSync|"
+    const-string/jumbo v2, "GloTodDecoded|"
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     :cond_9
     iget v2, p0, Landroid/location/GnssMeasurement;->mState:I
 
-    and-int/lit16 v2, v2, 0x200
+    const v3, 0x8000
+
+    and-int/2addr v2, v3
 
     if-eqz v2, :cond_a
 
-    const-string/jumbo v2, "BdsD2SubframeSync|"
+    const-string/jumbo v2, "GloTodKnown|"
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     :cond_a
     iget v2, p0, Landroid/location/GnssMeasurement;->mState:I
 
-    and-int/lit16 v2, v2, 0x400
+    and-int/lit16 v2, v2, 0x100
 
     if-eqz v2, :cond_b
 
-    const-string/jumbo v2, "GalE1bcCodeLock|"
+    const-string/jumbo v2, "BdsD2BitSync|"
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     :cond_b
     iget v2, p0, Landroid/location/GnssMeasurement;->mState:I
 
-    and-int/lit16 v2, v2, 0x800
+    and-int/lit16 v2, v2, 0x200
 
     if-eqz v2, :cond_c
 
-    const-string/jumbo v2, "E1c2ndCodeLock|"
+    const-string/jumbo v2, "BdsD2SubframeSync|"
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     :cond_c
     iget v2, p0, Landroid/location/GnssMeasurement;->mState:I
 
-    and-int/lit16 v2, v2, 0x1000
+    and-int/lit16 v2, v2, 0x400
 
     if-eqz v2, :cond_d
 
-    const-string/jumbo v2, "GalE1bPageSync|"
+    const-string/jumbo v2, "GalE1bcCodeLock|"
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     :cond_d
     iget v2, p0, Landroid/location/GnssMeasurement;->mState:I
 
-    and-int/lit16 v2, v2, 0x2000
+    and-int/lit16 v2, v2, 0x800
 
     if-eqz v2, :cond_e
 
-    const-string/jumbo v2, "SbasSync|"
+    const-string/jumbo v2, "E1c2ndCodeLock|"
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     :cond_e
     iget v2, p0, Landroid/location/GnssMeasurement;->mState:I
 
+    and-int/lit16 v2, v2, 0x1000
+
+    if-eqz v2, :cond_f
+
+    const-string/jumbo v2, "GalE1bPageSync|"
+
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    :cond_f
+    iget v2, p0, Landroid/location/GnssMeasurement;->mState:I
+
+    and-int/lit16 v2, v2, 0x2000
+
+    if-eqz v2, :cond_10
+
+    const-string/jumbo v2, "SbasSync|"
+
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    :cond_10
+    iget v2, p0, Landroid/location/GnssMeasurement;->mState:I
+
     and-int/lit16 v1, v2, -0x4000
 
-    if-lez v1, :cond_f
+    if-lez v1, :cond_11
 
     const-string/jumbo v2, "Other("
 
@@ -645,7 +683,7 @@
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    :cond_f
+    :cond_11
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->length()I
 
     move-result v2
@@ -709,6 +747,8 @@
     invoke-virtual {p0, v4}, Landroid/location/GnssMeasurement;->setMultipathIndicator(I)V
 
     invoke-virtual {p0}, Landroid/location/GnssMeasurement;->resetSnrInDb()V
+
+    invoke-virtual {p0}, Landroid/location/GnssMeasurement;->resetAutomaticGainControlLevel()V
 
     return-void
 .end method
@@ -789,6 +829,14 @@
     .locals 2
 
     iget-wide v0, p0, Landroid/location/GnssMeasurement;->mAccumulatedDeltaRangeUncertaintyMeters:D
+
+    return-wide v0
+.end method
+
+.method public getAutomaticGainControlLevelDb()D
+    .locals 2
+
+    iget-wide v0, p0, Landroid/location/GnssMeasurement;->mAutomaticGainControlLevelInDb:D
 
     return-wide v0
 .end method
@@ -913,6 +961,18 @@
     return-wide v0
 .end method
 
+.method public hasAutomaticGainControlLevelDb()Z
+    .locals 1
+
+    const/16 v0, 0x2000
+
+    invoke-direct {p0, v0}, Landroid/location/GnssMeasurement;->isFlagSet(I)Z
+
+    move-result v0
+
+    return v0
+.end method
+
 .method public hasCarrierCycles()Z
     .locals 1
 
@@ -977,6 +1037,20 @@
     .locals 0
 
     invoke-direct {p0}, Landroid/location/GnssMeasurement;->initialize()V
+
+    return-void
+.end method
+
+.method public resetAutomaticGainControlLevel()V
+    .locals 2
+
+    const/16 v0, 0x2000
+
+    invoke-direct {p0, v0}, Landroid/location/GnssMeasurement;->resetFlag(I)V
+
+    const-wide/high16 v0, 0x7ff8000000000000L    # NaN
+
+    iput-wide v0, p0, Landroid/location/GnssMeasurement;->mAutomaticGainControlLevelInDb:D
 
     return-void
 .end method
@@ -1130,6 +1204,10 @@
 
     iput-wide v0, p0, Landroid/location/GnssMeasurement;->mSnrInDb:D
 
+    iget-wide v0, p1, Landroid/location/GnssMeasurement;->mAutomaticGainControlLevelInDb:D
+
+    iput-wide v0, p0, Landroid/location/GnssMeasurement;->mAutomaticGainControlLevelInDb:D
+
     return-void
 .end method
 
@@ -1153,6 +1231,18 @@
     .locals 1
 
     iput-wide p1, p0, Landroid/location/GnssMeasurement;->mAccumulatedDeltaRangeUncertaintyMeters:D
+
+    return-void
+.end method
+
+.method public setAutomaticGainControlLevelInDb(D)V
+    .locals 1
+
+    const/16 v0, 0x2000
+
+    invoke-direct {p0, v0}, Landroid/location/GnssMeasurement;->setFlag(I)V
+
+    iput-wide p1, p0, Landroid/location/GnssMeasurement;->mAutomaticGainControlLevelInDb:D
 
     return-void
 .end method
@@ -1684,21 +1774,50 @@
 
     invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    const-string/jumbo v5, "   %-29s = %s\n"
+
+    new-array v6, v12, [Ljava/lang/Object;
+
+    const-string/jumbo v3, "SnrInDb"
+
+    aput-object v3, v6, v10
+
+    invoke-virtual {p0}, Landroid/location/GnssMeasurement;->hasSnrInDb()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_5
+
+    iget-wide v8, p0, Landroid/location/GnssMeasurement;->mSnrInDb:D
+
+    invoke-static {v8, v9}, Ljava/lang/Double;->valueOf(D)Ljava/lang/Double;
+
+    move-result-object v3
+
+    :goto_4
+    aput-object v3, v6, v11
+
+    invoke-static {v5, v6}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
     const-string/jumbo v3, "   %-29s = %s\n"
 
     new-array v5, v12, [Ljava/lang/Object;
 
-    const-string/jumbo v6, "SnrInDb"
+    const-string/jumbo v6, "AgcLevelDb"
 
     aput-object v6, v5, v10
 
-    invoke-virtual {p0}, Landroid/location/GnssMeasurement;->hasSnrInDb()Z
+    invoke-virtual {p0}, Landroid/location/GnssMeasurement;->hasAutomaticGainControlLevelDb()Z
 
     move-result v6
 
     if-eqz v6, :cond_0
 
-    iget-wide v6, p0, Landroid/location/GnssMeasurement;->mSnrInDb:D
+    iget-wide v6, p0, Landroid/location/GnssMeasurement;->mAutomaticGainControlLevelInDb:D
 
     invoke-static {v6, v7}, Ljava/lang/Double;->valueOf(D)Ljava/lang/Double;
 
@@ -1727,7 +1846,7 @@
     :cond_2
     move-object v3, v4
 
-    goto :goto_1
+    goto/16 :goto_1
 
     :cond_3
     move-object v3, v4
@@ -1738,6 +1857,11 @@
     move-object v3, v4
 
     goto :goto_3
+
+    :cond_5
+    move-object v3, v4
+
+    goto :goto_4
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
@@ -1816,6 +1940,10 @@
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
     iget-wide v0, p0, Landroid/location/GnssMeasurement;->mSnrInDb:D
+
+    invoke-virtual {p1, v0, v1}, Landroid/os/Parcel;->writeDouble(D)V
+
+    iget-wide v0, p0, Landroid/location/GnssMeasurement;->mAutomaticGainControlLevelInDb:D
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Parcel;->writeDouble(D)V
 

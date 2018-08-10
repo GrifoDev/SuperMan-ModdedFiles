@@ -81,7 +81,7 @@
     new-array v0, v9, [B
 
     :goto_0
-    invoke-virtual {v5, v0}, Ljava/io/FileInputStream;->read([B)I
+    invoke-virtual {v5, v0}, Ljava/io/InputStream;->read([B)I
 
     move-result v6
 
@@ -89,7 +89,7 @@
 
     const/4 v9, 0x0
 
-    invoke-virtual {v8, v0, v9, v6}, Ljava/io/FileOutputStream;->write([BII)V
+    invoke-virtual {v8, v0, v9, v6}, Ljava/io/OutputStream;->write([BII)V
     :try_end_2
     .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_0
 
@@ -106,14 +106,14 @@
     if-eqz v4, :cond_0
 
     :try_start_3
-    invoke-virtual {v4}, Ljava/io/FileInputStream;->close()V
+    invoke-virtual {v4}, Ljava/io/InputStream;->close()V
 
     const/4 v4, 0x0
 
     :cond_0
     if-eqz v7, :cond_1
 
-    invoke-virtual {v7}, Ljava/io/FileOutputStream;->close()V
+    invoke-virtual {v7}, Ljava/io/OutputStream;->close()V
     :try_end_3
     .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_1
 
@@ -124,14 +124,14 @@
     if-eqz v4, :cond_2
 
     :try_start_4
-    invoke-virtual {v4}, Ljava/io/FileInputStream;->close()V
+    invoke-virtual {v4}, Ljava/io/InputStream;->close()V
 
     const/4 v4, 0x0
 
     :cond_2
     if-eqz v7, :cond_3
 
-    invoke-virtual {v7}, Ljava/io/FileOutputStream;->close()V
+    invoke-virtual {v7}, Ljava/io/OutputStream;->close()V
     :try_end_4
     .catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_2
 
@@ -243,7 +243,7 @@
 
     iput-object v3, p0, Landroid/content/pm/AMSLogger$AMSHandler;->printWriter:Ljava/io/PrintWriter;
     :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_2
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     :cond_0
     :goto_0
@@ -272,13 +272,42 @@
 
     iput-object v3, p0, Landroid/content/pm/AMSLogger$AMSHandler;->printWriter:Ljava/io/PrintWriter;
     :try_end_1
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_2
 
     :cond_1
     :goto_1
     iget-object v3, p0, Landroid/content/pm/AMSLogger$AMSHandler;->printWriter:Ljava/io/PrintWriter;
 
     return-object v3
+
+    :catch_0
+    move-exception v0
+
+    invoke-static {}, Landroid/content/pm/AMSLogger;->-get0()Ljava/lang/String;
+
+    move-result-object v3
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v5, "getPrintWriter Exception"
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v3, v4}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
 
     :cond_2
     :try_start_2
@@ -327,24 +356,67 @@
 
     iput-object v3, p0, Landroid/content/pm/AMSLogger$AMSHandler;->fileOutputStream:Ljava/io/FileOutputStream;
     :try_end_2
-    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_0
-
-    goto :goto_0
-
-    :catch_0
-    move-exception v0
+    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_1
 
     goto :goto_0
 
     :catch_1
     move-exception v0
 
-    goto :goto_1
+    invoke-static {}, Landroid/content/pm/AMSLogger;->-get0()Ljava/lang/String;
+
+    move-result-object v3
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v5, "getPrintWriter1 Exception"
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v3, v4}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto/16 :goto_0
 
     :catch_2
     move-exception v0
 
-    goto :goto_0
+    invoke-static {}, Landroid/content/pm/AMSLogger;->-get0()Ljava/lang/String;
+
+    move-result-object v3
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v5, "getPrintWriter2 Exception"
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v3, v4}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto/16 :goto_1
 .end method
 
 
@@ -384,7 +456,7 @@
     :catch_0
     move-exception v0
 
-    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/io/IOException;->printStackTrace()V
 
     goto :goto_0
 .end method
@@ -407,7 +479,7 @@
 .method public publish(Ljava/util/logging/LogRecord;)V
     .locals 2
 
-    invoke-virtual {p0, p1}, Ljava/util/logging/Handler;->isLoggable(Ljava/util/logging/LogRecord;)Z
+    invoke-virtual {p0, p1}, Landroid/content/pm/AMSLogger$AMSHandler;->isLoggable(Ljava/util/logging/LogRecord;)Z
 
     move-result v0
 
@@ -424,7 +496,7 @@
 
     iget-object v0, p0, Landroid/content/pm/AMSLogger$AMSHandler;->printWriter:Ljava/io/PrintWriter;
 
-    invoke-virtual {p0}, Ljava/util/logging/Handler;->getFormatter()Ljava/util/logging/Formatter;
+    invoke-virtual {p0}, Landroid/content/pm/AMSLogger$AMSHandler;->getFormatter()Ljava/util/logging/Formatter;
 
     move-result-object v1
 

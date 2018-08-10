@@ -610,17 +610,17 @@
     .locals 22
 
     :try_start_0
-    new-instance v12, Landroid/media/ExifInterface$ByteOrderAwarenessDataInputStream;
+    new-instance v12, Landroid/media/ExifInterface$ByteOrderedDataInputStream;
 
     move-object/from16 v0, p0
 
     iget-object v3, v0, Landroid/media/ExifInterface$ExifAttribute;->bytes:[B
 
-    invoke-direct {v12, v3}, Landroid/media/ExifInterface$ByteOrderAwarenessDataInputStream;-><init>([B)V
+    invoke-direct {v12, v3}, Landroid/media/ExifInterface$ByteOrderedDataInputStream;-><init>([B)V
 
     move-object/from16 v0, p1
 
-    invoke-virtual {v12, v0}, Landroid/media/ExifInterface$ByteOrderAwarenessDataInputStream;->setByteOrder(Ljava/nio/ByteOrder;)V
+    invoke-virtual {v12, v0}, Landroid/media/ExifInterface$ByteOrderedDataInputStream;->setByteOrder(Ljava/nio/ByteOrder;)V
 
     move-object/from16 v0, p0
 
@@ -854,7 +854,7 @@
 
     if-ge v10, v3, :cond_7
 
-    invoke-virtual {v12}, Landroid/media/ExifInterface$ByteOrderAwarenessDataInputStream;->readUnsignedShort()I
+    invoke-virtual {v12}, Landroid/media/ExifInterface$ByteOrderedDataInputStream;->readUnsignedShort()I
 
     move-result v3
 
@@ -885,7 +885,7 @@
 
     if-ge v10, v3, :cond_8
 
-    invoke-virtual {v12}, Landroid/media/ExifInterface$ByteOrderAwarenessDataInputStream;->readUnsignedInt()J
+    invoke-virtual {v12}, Landroid/media/ExifInterface$ByteOrderedDataInputStream;->readUnsignedInt()J
 
     move-result-wide v20
 
@@ -916,11 +916,11 @@
 
     if-ge v10, v3, :cond_9
 
-    invoke-virtual {v12}, Landroid/media/ExifInterface$ByteOrderAwarenessDataInputStream;->readUnsignedInt()J
+    invoke-virtual {v12}, Landroid/media/ExifInterface$ByteOrderedDataInputStream;->readUnsignedInt()J
 
     move-result-wide v4
 
-    invoke-virtual {v12}, Landroid/media/ExifInterface$ByteOrderAwarenessDataInputStream;->readUnsignedInt()J
+    invoke-virtual {v12}, Landroid/media/ExifInterface$ByteOrderedDataInputStream;->readUnsignedInt()J
 
     move-result-wide v6
 
@@ -957,7 +957,7 @@
 
     if-ge v10, v3, :cond_a
 
-    invoke-virtual {v12}, Landroid/media/ExifInterface$ByteOrderAwarenessDataInputStream;->readShort()S
+    invoke-virtual {v12}, Landroid/media/ExifInterface$ByteOrderedDataInputStream;->readShort()S
 
     move-result v3
 
@@ -988,7 +988,7 @@
 
     if-ge v10, v3, :cond_b
 
-    invoke-virtual {v12}, Landroid/media/ExifInterface$ByteOrderAwarenessDataInputStream;->readInt()I
+    invoke-virtual {v12}, Landroid/media/ExifInterface$ByteOrderedDataInputStream;->readInt()I
 
     move-result v3
 
@@ -1019,13 +1019,13 @@
 
     if-ge v10, v3, :cond_c
 
-    invoke-virtual {v12}, Landroid/media/ExifInterface$ByteOrderAwarenessDataInputStream;->readInt()I
+    invoke-virtual {v12}, Landroid/media/ExifInterface$ByteOrderedDataInputStream;->readInt()I
 
     move-result v3
 
     int-to-long v4, v3
 
-    invoke-virtual {v12}, Landroid/media/ExifInterface$ByteOrderAwarenessDataInputStream;->readInt()I
+    invoke-virtual {v12}, Landroid/media/ExifInterface$ByteOrderedDataInputStream;->readInt()I
 
     move-result v3
 
@@ -1062,7 +1062,7 @@
 
     if-ge v10, v3, :cond_d
 
-    invoke-virtual {v12}, Landroid/media/ExifInterface$ByteOrderAwarenessDataInputStream;->readFloat()F
+    invoke-virtual {v12}, Landroid/media/ExifInterface$ByteOrderedDataInputStream;->readFloat()F
 
     move-result v3
 
@@ -1095,7 +1095,7 @@
 
     if-ge v10, v3, :cond_e
 
-    invoke-virtual {v12}, Landroid/media/ExifInterface$ByteOrderAwarenessDataInputStream;->readDouble()D
+    invoke-virtual {v12}, Landroid/media/ExifInterface$ByteOrderedDataInputStream;->readDouble()D
 
     move-result-wide v20
 

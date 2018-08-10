@@ -36,13 +36,11 @@
 
     invoke-direct {v0}, Lcom/samsung/android/content/clipboard/data/SemTextClipData;-><init>()V
 
-    invoke-virtual {p0, v0}, Landroid/sec/clipboard/data/ClipboardData;->restoreBaseData(Lcom/samsung/android/content/clipboard/data/SemClipData;)V
+    invoke-virtual {p0, v0}, Landroid/sec/clipboard/data/list/ClipboardDataText;->restoreBaseData(Lcom/samsung/android/content/clipboard/data/SemClipData;)V
 
     move-object v1, v0
 
-    nop
-
-    nop
+    check-cast v1, Lcom/samsung/android/content/clipboard/data/SemTextClipData;
 
     iget-object v2, p0, Landroid/sec/clipboard/data/list/ClipboardDataText;->mValue:Ljava/lang/String;
 
@@ -50,9 +48,7 @@
 
     move-object v1, v0
 
-    nop
-
-    nop
+    check-cast v1, Lcom/samsung/android/content/clipboard/data/SemTextClipData;
 
     iget v2, p0, Landroid/sec/clipboard/data/list/ClipboardDataText;->mNumberOfTrailingWhiteLines:I
 
@@ -60,9 +56,7 @@
 
     move-object v1, v0
 
-    nop
-
-    nop
+    check-cast v1, Lcom/samsung/android/content/clipboard/data/SemTextClipData;
 
     invoke-virtual {v1}, Lcom/samsung/android/content/clipboard/data/SemTextClipData;->toLoad()V
 

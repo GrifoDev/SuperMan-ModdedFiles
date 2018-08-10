@@ -170,12 +170,26 @@
 
 .method public dispatchMultiWindowModeChanged(Z)V
     .locals 1
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 
     iget-object v0, p0, Landroid/app/FragmentController;->mHost:Landroid/app/FragmentHostCallback;
 
     iget-object v0, v0, Landroid/app/FragmentHostCallback;->mFragmentManager:Landroid/app/FragmentManagerImpl;
 
     invoke-virtual {v0, p1}, Landroid/app/FragmentManagerImpl;->dispatchMultiWindowModeChanged(Z)V
+
+    return-void
+.end method
+
+.method public dispatchMultiWindowModeChanged(ZLandroid/content/res/Configuration;)V
+    .locals 1
+
+    iget-object v0, p0, Landroid/app/FragmentController;->mHost:Landroid/app/FragmentHostCallback;
+
+    iget-object v0, v0, Landroid/app/FragmentHostCallback;->mFragmentManager:Landroid/app/FragmentManagerImpl;
+
+    invoke-virtual {v0, p1, p2}, Landroid/app/FragmentManagerImpl;->dispatchMultiWindowModeChanged(ZLandroid/content/res/Configuration;)V
 
     return-void
 .end method
@@ -220,12 +234,26 @@
 
 .method public dispatchPictureInPictureModeChanged(Z)V
     .locals 1
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 
     iget-object v0, p0, Landroid/app/FragmentController;->mHost:Landroid/app/FragmentHostCallback;
 
     iget-object v0, v0, Landroid/app/FragmentHostCallback;->mFragmentManager:Landroid/app/FragmentManagerImpl;
 
     invoke-virtual {v0, p1}, Landroid/app/FragmentManagerImpl;->dispatchPictureInPictureModeChanged(Z)V
+
+    return-void
+.end method
+
+.method public dispatchPictureInPictureModeChanged(ZLandroid/content/res/Configuration;)V
+    .locals 1
+
+    iget-object v0, p0, Landroid/app/FragmentController;->mHost:Landroid/app/FragmentHostCallback;
+
+    iget-object v0, v0, Landroid/app/FragmentHostCallback;->mFragmentManager:Landroid/app/FragmentManagerImpl;
+
+    invoke-virtual {v0, p1, p2}, Landroid/app/FragmentManagerImpl;->dispatchPictureInPictureModeChanged(ZLandroid/content/res/Configuration;)V
 
     return-void
 .end method
@@ -360,12 +388,12 @@
     return-object v0
 .end method
 
-.method public getActiveFragmentsOnTopActivity()Ljava/util/ArrayList;
+.method public getActiveFragmentsOnTopActivity()Landroid/util/SparseArray;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Ljava/util/ArrayList",
+            "Landroid/util/SparseArray",
             "<",
             "Landroid/app/Fragment;",
             ">;"
@@ -376,7 +404,7 @@
 
     iget-object v0, v0, Landroid/app/FragmentHostCallback;->mFragmentManager:Landroid/app/FragmentManagerImpl;
 
-    invoke-virtual {v0}, Landroid/app/FragmentManagerImpl;->getActiveFragmentsOnTopActivity()Ljava/util/ArrayList;
+    invoke-virtual {v0}, Landroid/app/FragmentManagerImpl;->getActiveFragmentsOnTopActivity()Landroid/util/SparseArray;
 
     move-result-object v0
 
@@ -468,6 +496,9 @@
         }
     .end annotation
 
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+
     iget-object v0, p0, Landroid/app/FragmentController;->mHost:Landroid/app/FragmentHostCallback;
 
     iget-object v0, v0, Landroid/app/FragmentHostCallback;->mFragmentManager:Landroid/app/FragmentManagerImpl;
@@ -549,6 +580,9 @@
             "Landroid/app/Fragment;",
             ">;"
         }
+    .end annotation
+
+    .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
     iget-object v0, p0, Landroid/app/FragmentController;->mHost:Landroid/app/FragmentHostCallback;

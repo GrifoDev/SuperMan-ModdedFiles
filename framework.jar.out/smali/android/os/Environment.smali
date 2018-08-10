@@ -111,6 +111,8 @@
 
 .field private static sCurrentUser:Landroid/os/Environment$UserEnvironment;
 
+.field private static sDualAppUser:Landroid/os/Environment$UserEnvironment;
+
 .field private static sUserRequired:Z
 
 
@@ -378,6 +380,29 @@
 
     invoke-static {}, Landroid/os/Environment;->throwIfUserRequired()V
 
+    sget-object v0, Landroid/os/Environment;->sDualAppUser:Landroid/os/Environment$UserEnvironment;
+
+    if-eqz v0, :cond_0
+
+    invoke-static {}, Landroid/os/UserHandle;->myUserId()I
+
+    move-result v0
+
+    invoke-static {v0}, Lcom/samsung/android/app/SemDualAppManager;->isDualAppId(I)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    sget-object v0, Landroid/os/Environment;->sDualAppUser:Landroid/os/Environment$UserEnvironment;
+
+    invoke-virtual {v0, p0}, Landroid/os/Environment$UserEnvironment;->buildExternalStorageAppMediaDirs(Ljava/lang/String;)[Ljava/io/File;
+
+    move-result-object v0
+
+    return-object v0
+
+    :cond_0
     sget-object v0, Landroid/os/Environment;->sCurrentUser:Landroid/os/Environment$UserEnvironment;
 
     invoke-virtual {v0, p0}, Landroid/os/Environment$UserEnvironment;->buildExternalStorageAppMediaDirs(Ljava/lang/String;)[Ljava/io/File;
@@ -392,6 +417,29 @@
 
     invoke-static {}, Landroid/os/Environment;->throwIfUserRequired()V
 
+    sget-object v0, Landroid/os/Environment;->sDualAppUser:Landroid/os/Environment$UserEnvironment;
+
+    if-eqz v0, :cond_0
+
+    invoke-static {}, Landroid/os/UserHandle;->myUserId()I
+
+    move-result v0
+
+    invoke-static {v0}, Lcom/samsung/android/app/SemDualAppManager;->isDualAppId(I)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    sget-object v0, Landroid/os/Environment;->sDualAppUser:Landroid/os/Environment$UserEnvironment;
+
+    invoke-virtual {v0, p0}, Landroid/os/Environment$UserEnvironment;->buildExternalStorageAppObbDirs(Ljava/lang/String;)[Ljava/io/File;
+
+    move-result-object v0
+
+    return-object v0
+
+    :cond_0
     sget-object v0, Landroid/os/Environment;->sCurrentUser:Landroid/os/Environment$UserEnvironment;
 
     invoke-virtual {v0, p0}, Landroid/os/Environment$UserEnvironment;->buildExternalStorageAppObbDirs(Ljava/lang/String;)[Ljava/io/File;
@@ -487,22 +535,6 @@
     return-object v0
 .end method
 
-.method public static getDataAppEphemeralDirectory(Ljava/lang/String;)Ljava/io/File;
-    .locals 3
-
-    new-instance v0, Ljava/io/File;
-
-    invoke-static {p0}, Landroid/os/Environment;->getDataDirectory(Ljava/lang/String;)Ljava/io/File;
-
-    move-result-object v1
-
-    const-string/jumbo v2, "app-ephemeral"
-
-    invoke-direct {v0, v1, v2}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
-
-    return-object v0
-.end method
-
 .method public static getDataDirectory()Ljava/io/File;
     .locals 1
 
@@ -550,6 +582,30 @@
     return-object v0
 .end method
 
+.method public static getDataMiscCeDirectory()Ljava/io/File;
+    .locals 4
+
+    invoke-static {}, Landroid/os/Environment;->getDataDirectory()Ljava/io/File;
+
+    move-result-object v0
+
+    const/4 v1, 0x1
+
+    new-array v1, v1, [Ljava/lang/String;
+
+    const-string/jumbo v2, "misc_ce"
+
+    const/4 v3, 0x0
+
+    aput-object v2, v1, v3
+
+    invoke-static {v0, v1}, Landroid/os/Environment;->buildPath(Ljava/io/File;[Ljava/lang/String;)Ljava/io/File;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
 .method public static getDataMiscCeDirectory(I)Ljava/io/File;
     .locals 4
 
@@ -572,6 +628,44 @@
     move-result-object v2
 
     const/4 v3, 0x1
+
+    aput-object v2, v1, v3
+
+    invoke-static {v0, v1}, Landroid/os/Environment;->buildPath(Ljava/io/File;[Ljava/lang/String;)Ljava/io/File;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public static getDataMiscCeLegacyKnoxDirectory(I)Ljava/io/File;
+    .locals 4
+
+    invoke-static {}, Landroid/os/Environment;->getDataDirectory()Ljava/io/File;
+
+    move-result-object v0
+
+    const/4 v1, 0x3
+
+    new-array v1, v1, [Ljava/lang/String;
+
+    const-string/jumbo v2, "knox"
+
+    const/4 v3, 0x0
+
+    aput-object v2, v1, v3
+
+    const-string/jumbo v2, "misc_ce"
+
+    const/4 v3, 0x1
+
+    aput-object v2, v1, v3
+
+    invoke-static {p0}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    const/4 v3, 0x2
 
     aput-object v2, v1, v3
 
@@ -614,6 +708,44 @@
     return-object v0
 .end method
 
+.method public static getDataMiscDeLegacyKnoxDirectory(I)Ljava/io/File;
+    .locals 4
+
+    invoke-static {}, Landroid/os/Environment;->getDataDirectory()Ljava/io/File;
+
+    move-result-object v0
+
+    const/4 v1, 0x3
+
+    new-array v1, v1, [Ljava/lang/String;
+
+    const-string/jumbo v2, "knox"
+
+    const/4 v3, 0x0
+
+    aput-object v2, v1, v3
+
+    const-string/jumbo v2, "misc_de"
+
+    const/4 v3, 0x1
+
+    aput-object v2, v1, v3
+
+    invoke-static {p0}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    const/4 v3, 0x2
+
+    aput-object v2, v1, v3
+
+    invoke-static {v0, v1}, Landroid/os/Environment;->buildPath(Ljava/io/File;[Ljava/lang/String;)Ljava/io/File;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
 .method public static getDataMiscDirectory()Ljava/io/File;
     .locals 3
 
@@ -624,6 +756,100 @@
     move-result-object v1
 
     const-string/jumbo v2, "misc"
+
+    invoke-direct {v0, v1, v2}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+
+    return-object v0
+.end method
+
+.method public static getDataPreloadsAppsDirectory()Ljava/io/File;
+    .locals 3
+
+    new-instance v0, Ljava/io/File;
+
+    invoke-static {}, Landroid/os/Environment;->getDataPreloadsDirectory()Ljava/io/File;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "apps"
+
+    invoke-direct {v0, v1, v2}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+
+    return-object v0
+.end method
+
+.method public static getDataPreloadsDemoDirectory()Ljava/io/File;
+    .locals 3
+
+    new-instance v0, Ljava/io/File;
+
+    invoke-static {}, Landroid/os/Environment;->getDataPreloadsDirectory()Ljava/io/File;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "demo"
+
+    invoke-direct {v0, v1, v2}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+
+    return-object v0
+.end method
+
+.method public static getDataPreloadsDirectory()Ljava/io/File;
+    .locals 3
+
+    new-instance v0, Ljava/io/File;
+
+    invoke-static {}, Landroid/os/Environment;->getDataDirectory()Ljava/io/File;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "preloads"
+
+    invoke-direct {v0, v1, v2}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+
+    return-object v0
+.end method
+
+.method public static getDataPreloadsFileCacheDirectory()Ljava/io/File;
+    .locals 3
+
+    new-instance v0, Ljava/io/File;
+
+    invoke-static {}, Landroid/os/Environment;->getDataPreloadsDirectory()Ljava/io/File;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "file_cache"
+
+    invoke-direct {v0, v1, v2}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+
+    return-object v0
+.end method
+
+.method public static getDataPreloadsFileCacheDirectory(Ljava/lang/String;)Ljava/io/File;
+    .locals 2
+
+    new-instance v0, Ljava/io/File;
+
+    invoke-static {}, Landroid/os/Environment;->getDataPreloadsFileCacheDirectory()Ljava/io/File;
+
+    move-result-object v1
+
+    invoke-direct {v0, v1, p0}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+
+    return-object v0
+.end method
+
+.method public static getDataPreloadsMediaDirectory()Ljava/io/File;
+    .locals 3
+
+    new-instance v0, Ljava/io/File;
+
+    invoke-static {}, Landroid/os/Environment;->getDataPreloadsDirectory()Ljava/io/File;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "media"
 
     invoke-direct {v0, v1, v2}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
@@ -664,30 +890,6 @@
     move-result-object v2
 
     const/4 v3, 0x3
-
-    aput-object v2, v1, v3
-
-    invoke-static {v0, v1}, Landroid/os/Environment;->buildPath(Ljava/io/File;[Ljava/lang/String;)Ljava/io/File;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public static getDataProfilesDeForeignDexDirectory(I)Ljava/io/File;
-    .locals 4
-
-    invoke-static {p0}, Landroid/os/Environment;->getDataProfilesDeDirectory(I)Ljava/io/File;
-
-    move-result-object v0
-
-    const/4 v1, 0x1
-
-    new-array v1, v1, [Ljava/lang/String;
-
-    const-string/jumbo v2, "foreign-dex"
-
-    const/4 v3, 0x0
 
     aput-object v2, v1, v3
 
@@ -776,6 +978,44 @@
     return-object v0
 .end method
 
+.method public static getDataSystemCeLegacyKnoxDirectory(I)Ljava/io/File;
+    .locals 4
+
+    invoke-static {}, Landroid/os/Environment;->getDataDirectory()Ljava/io/File;
+
+    move-result-object v0
+
+    const/4 v1, 0x3
+
+    new-array v1, v1, [Ljava/lang/String;
+
+    const-string/jumbo v2, "knox"
+
+    const/4 v3, 0x0
+
+    aput-object v2, v1, v3
+
+    const-string/jumbo v2, "system_ce"
+
+    const/4 v3, 0x1
+
+    aput-object v2, v1, v3
+
+    invoke-static {p0}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    const/4 v3, 0x2
+
+    aput-object v2, v1, v3
+
+    invoke-static {v0, v1}, Landroid/os/Environment;->buildPath(Ljava/io/File;[Ljava/lang/String;)Ljava/io/File;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
 .method public static getDataSystemDeDirectory()Ljava/io/File;
     .locals 4
 
@@ -822,6 +1062,44 @@
     move-result-object v2
 
     const/4 v3, 0x1
+
+    aput-object v2, v1, v3
+
+    invoke-static {v0, v1}, Landroid/os/Environment;->buildPath(Ljava/io/File;[Ljava/lang/String;)Ljava/io/File;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public static getDataSystemDeLegacyKnoxDirectory(I)Ljava/io/File;
+    .locals 4
+
+    invoke-static {}, Landroid/os/Environment;->getDataDirectory()Ljava/io/File;
+
+    move-result-object v0
+
+    const/4 v1, 0x3
+
+    new-array v1, v1, [Ljava/lang/String;
+
+    const-string/jumbo v2, "knox"
+
+    const/4 v3, 0x0
+
+    aput-object v2, v1, v3
+
+    const-string/jumbo v2, "system_de"
+
+    const/4 v3, 0x1
+
+    aput-object v2, v1, v3
+
+    invoke-static {p0}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    const/4 v3, 0x2
 
     aput-object v2, v1, v3
 
@@ -1043,7 +1321,9 @@
 .method public static getExternalStorageState(Ljava/io/File;)Ljava/lang/String;
     .locals 2
 
-    invoke-static {}, Landroid/os/UserHandle;->myUserId()I
+    sget-object v1, Landroid/os/Environment;->sCurrentUser:Landroid/os/Environment$UserEnvironment;
+
+    invoke-virtual {v1}, Landroid/os/Environment$UserEnvironment;->getUserId()I
 
     move-result v1
 
@@ -1123,6 +1403,46 @@
     .locals 1
 
     sget-object v0, Landroid/os/Environment;->DIR_OEM_ROOT:Ljava/io/File;
+
+    return-object v0
+.end method
+
+.method public static getReferenceProfile(Ljava/lang/String;)Ljava/io/File;
+    .locals 4
+
+    invoke-static {}, Landroid/os/Environment;->getDataDirectory()Ljava/io/File;
+
+    move-result-object v0
+
+    const/4 v1, 0x4
+
+    new-array v1, v1, [Ljava/lang/String;
+
+    const-string/jumbo v2, "misc"
+
+    const/4 v3, 0x0
+
+    aput-object v2, v1, v3
+
+    const-string/jumbo v2, "profiles"
+
+    const/4 v3, 0x1
+
+    aput-object v2, v1, v3
+
+    const-string/jumbo v2, "ref"
+
+    const/4 v3, 0x2
+
+    aput-object v2, v1, v3
+
+    const/4 v2, 0x3
+
+    aput-object p0, v1, v2
+
+    invoke-static {v0, v1}, Landroid/os/Environment;->buildPath(Ljava/io/File;[Ljava/lang/String;)Ljava/io/File;
+
+    move-result-object v0
 
     return-object v0
 .end method
@@ -1222,12 +1542,31 @@
 .end method
 
 .method public static initForCurrentUser()V
-    .locals 2
+    .locals 3
 
     invoke-static {}, Landroid/os/UserHandle;->myUserId()I
 
-    move-result v0
+    move-result v1
 
+    invoke-static {v1}, Lcom/samsung/android/app/SemDualAppManager;->isDualAppId(I)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    const/4 v0, 0x0
+
+    new-instance v1, Landroid/os/Environment$UserEnvironment;
+
+    invoke-static {}, Landroid/os/UserHandle;->myUserId()I
+
+    move-result v2
+
+    invoke-direct {v1, v2}, Landroid/os/Environment$UserEnvironment;-><init>(I)V
+
+    sput-object v1, Landroid/os/Environment;->sDualAppUser:Landroid/os/Environment$UserEnvironment;
+
+    :goto_0
     new-instance v1, Landroid/os/Environment$UserEnvironment;
 
     invoke-direct {v1, v0}, Landroid/os/Environment$UserEnvironment;-><init>(I)V
@@ -1235,6 +1574,13 @@
     sput-object v1, Landroid/os/Environment;->sCurrentUser:Landroid/os/Environment$UserEnvironment;
 
     return-void
+
+    :cond_0
+    invoke-static {}, Landroid/os/UserHandle;->myUserId()I
+
+    move-result v0
+
+    goto :goto_0
 .end method
 
 .method public static isExternalStorageEmulated()Z
@@ -1269,7 +1615,9 @@
 .method public static isExternalStorageEmulated(Ljava/io/File;)Z
     .locals 4
 
-    invoke-static {}, Landroid/os/UserHandle;->myUserId()I
+    sget-object v1, Landroid/os/Environment;->sCurrentUser:Landroid/os/Environment$UserEnvironment;
+
+    invoke-virtual {v1}, Landroid/os/Environment$UserEnvironment;->getUserId()I
 
     move-result v1
 
@@ -1343,7 +1691,9 @@
 .method public static isExternalStorageRemovable(Ljava/io/File;)Z
     .locals 4
 
-    invoke-static {}, Landroid/os/UserHandle;->myUserId()I
+    sget-object v1, Landroid/os/Environment;->sCurrentUser:Landroid/os/Environment$UserEnvironment;
+
+    invoke-virtual {v1}, Landroid/os/Environment$UserEnvironment;->getUserId()I
 
     move-result v1
 

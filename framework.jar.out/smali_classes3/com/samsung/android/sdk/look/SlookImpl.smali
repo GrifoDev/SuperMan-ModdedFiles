@@ -184,7 +184,7 @@
 
     if-eqz v2, :cond_6
 
-    iget-object v7, v2, Landroid/content/pm/PackageItemInfo;->metaData:Landroid/os/Bundle;
+    iget-object v7, v2, Landroid/content/pm/ApplicationInfo;->metaData:Landroid/os/Bundle;
 
     if-eqz v7, :cond_2
 
@@ -192,7 +192,7 @@
 
     const-string/jumbo v13, ""
 
-    invoke-virtual {v7, v12, v13}, Landroid/os/BaseBundle;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v7, v12, v13}, Landroid/os/Bundle;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v11
 
@@ -227,7 +227,7 @@
 
     move-result-object v12
 
-    invoke-virtual {v12}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v12}, Landroid/app/Application;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v12
 
@@ -237,7 +237,7 @@
 
     move-result-object v12
 
-    invoke-virtual {v12}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v12}, Landroid/app/Application;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v12
 
@@ -277,7 +277,7 @@
 
     iget-object v1, v10, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
 
-    iget-object v12, v1, Landroid/content/pm/ComponentInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
+    iget-object v12, v1, Landroid/content/pm/ActivityInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
 
     iget v12, v12, Landroid/content/pm/ApplicationInfo;->flags:I
 
@@ -300,7 +300,7 @@
     goto :goto_0
 
     :cond_5
-    iget-object v12, v1, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
+    iget-object v12, v1, Landroid/content/pm/ActivityInfo;->packageName:Ljava/lang/String;
 
     invoke-virtual {v8, v12}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -308,7 +308,7 @@
 
     if-eqz v12, :cond_3
 
-    iget-object v7, v1, Landroid/content/pm/PackageItemInfo;->metaData:Landroid/os/Bundle;
+    iget-object v7, v1, Landroid/content/pm/ActivityInfo;->metaData:Landroid/os/Bundle;
 
     if-eqz v7, :cond_3
 
@@ -316,7 +316,7 @@
 
     const-string/jumbo v13, ""
 
-    invoke-virtual {v7, v12, v13}, Landroid/os/BaseBundle;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v7, v12, v13}, Landroid/os/Bundle;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v11
 
@@ -343,7 +343,7 @@
     :catch_0
     move-exception v4
 
-    invoke-virtual {v4}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v4}, Landroid/os/RemoteException;->printStackTrace()V
 
     goto :goto_2
 .end method
@@ -392,8 +392,6 @@
     invoke-static {}, Landroid/app/ActivityThread;->getPackageManager()Landroid/content/pm/IPackageManager;
 
     move-result-object v0
-
-    if-eqz v0, :cond_1
 
     :cond_1
     if-ne p0, v1, :cond_3

@@ -157,9 +157,17 @@
 .end method
 
 .method public setEndpoints([Landroid/os/Parcelable;)V
-    .locals 0
+    .locals 1
 
-    iput-object p1, p0, Landroid/hardware/usb/UsbInterface;->mEndpoints:[Landroid/os/Parcelable;
+    const-string/jumbo v0, "endpoints"
+
+    invoke-static {p1, v0}, Lcom/android/internal/util/Preconditions;->checkArrayElementsNotNull([Ljava/lang/Object;Ljava/lang/String;)[Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, [Landroid/os/Parcelable;
+
+    iput-object v0, p0, Landroid/hardware/usb/UsbInterface;->mEndpoints:[Landroid/os/Parcelable;
 
     return-void
 .end method

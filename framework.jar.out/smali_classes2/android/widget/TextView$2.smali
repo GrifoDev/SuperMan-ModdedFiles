@@ -5,7 +5,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Landroid/widget/TextView;->initTextStrikeThroughAnim(Landroid/content/Context;)V
+    value = Landroid/widget/TextView;->initTextStrikeThroughAnim()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -38,7 +38,7 @@
 
     const/4 v1, 0x1
 
-    invoke-static {v0, v1}, Landroid/widget/TextView;->-set6(Landroid/widget/TextView;Z)Z
+    invoke-static {v0, v1}, Landroid/widget/TextView;->-set7(Landroid/widget/TextView;Z)Z
 
     return-void
 .end method

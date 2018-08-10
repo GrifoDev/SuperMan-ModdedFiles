@@ -128,9 +128,9 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    xor-int/lit8 v1, v1, 0x1
 
-    return-void
+    if-eqz v1, :cond_2
 
     :cond_0
     invoke-static {}, Landroid/filterfw/core/GLEnvironment;->isAnyContextActive()Z
@@ -155,6 +155,9 @@
     invoke-direct {v1, v2}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
     throw v1
+
+    :cond_2
+    return-void
 .end method
 
 .method public getFactory()Landroid/media/effect/EffectFactory;

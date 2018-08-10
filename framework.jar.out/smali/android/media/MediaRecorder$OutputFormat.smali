@@ -25,9 +25,9 @@
 
 .field public static final DEFAULT:I = 0x0
 
-.field public static final MPEG_4:I = 0x2
+.field public static final MPEG_2_TS:I = 0x8
 
-.field public static final OUTPUT_FORMAT_MPEG2TS:I = 0x8
+.field public static final MPEG_4:I = 0x2
 
 .field public static final OUTPUT_FORMAT_RTP_AVP:I = 0x7
 

@@ -46,23 +46,23 @@
 
 
 # instance fields
-.field private final mDlnaType:I
+.field private mDlnaType:I
 
-.field private final mIpAddress:Ljava/lang/String;
+.field private mIpAddress:Ljava/lang/String;
 
-.field private final mIsSwitchingDevice:Z
+.field private mIsSwitchingDevice:Z
 
-.field private final mMacAddressFromARP:Ljava/lang/String;
+.field private mMacAddressFromARP:Ljava/lang/String;
 
-.field private final mNICType:Ljava/lang/String;
+.field private mNICType:Ljava/lang/String;
 
 .field private mName:Ljava/lang/String;
 
-.field private final mP2pMacAddress:Ljava/lang/String;
+.field private mP2pMacAddress:Ljava/lang/String;
 
-.field private final mURI:Ljava/lang/String;
+.field private mURI:Ljava/lang/String;
 
-.field private final mUid:Ljava/lang/String;
+.field private mUid:Ljava/lang/String;
 
 
 # direct methods
@@ -80,6 +80,39 @@
     invoke-direct {v0}, Landroid/hardware/display/SemDlnaDevice$1;-><init>()V
 
     sput-object v0, Landroid/hardware/display/SemDlnaDevice;->CREATOR:Landroid/os/Parcelable$Creator;
+
+    return-void
+.end method
+
+.method public constructor <init>(Ljava/lang/String;Ljava/lang/String;IZ)V
+    .locals 2
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    if-nez p1, :cond_0
+
+    const-string/jumbo v0, "SemDlnaDevice"
+
+    const-string/jumbo v1, "SemDlnaDevice uid must not be null"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    new-instance v0, Ljava/lang/IllegalArgumentException;
+
+    const-string/jumbo v1, "uid must not be null"
+
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+
+    :cond_0
+    iput-object p1, p0, Landroid/hardware/display/SemDlnaDevice;->mUid:Ljava/lang/String;
+
+    iput-object p2, p0, Landroid/hardware/display/SemDlnaDevice;->mName:Ljava/lang/String;
+
+    iput p3, p0, Landroid/hardware/display/SemDlnaDevice;->mDlnaType:I
+
+    iput-boolean p4, p0, Landroid/hardware/display/SemDlnaDevice;->mIsSwitchingDevice:Z
 
     return-void
 .end method
@@ -165,6 +198,16 @@
 
     move-result-object v1
 
+    const-string/jumbo v2, ", isSwitchingDevice"
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p8}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v1
@@ -226,7 +269,7 @@
 
     iput-object p2, p0, Landroid/hardware/display/SemDlnaDevice;->mIpAddress:Ljava/lang/String;
 
-    if-eqz p3, :cond_5
+    if-eqz p3, :cond_4
 
     :goto_0
     iput-object p3, p0, Landroid/hardware/display/SemDlnaDevice;->mP2pMacAddress:Ljava/lang/String;
@@ -239,7 +282,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_5
 
     if-eqz p4, :cond_3
 
@@ -249,7 +292,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_5
 
     :cond_3
     const-string/jumbo v0, ""
@@ -258,36 +301,10 @@
 
     move-result v0
 
-    if-eqz v0, :cond_6
+    xor-int/lit8 v0, v0, 0x1
 
-    :cond_4
-    if-eqz p4, :cond_7
+    if-eqz v0, :cond_5
 
-    :goto_1
-    iput-object p4, p0, Landroid/hardware/display/SemDlnaDevice;->mMacAddressFromARP:Ljava/lang/String;
-
-    :goto_2
-    if-eqz p5, :cond_8
-
-    :goto_3
-    iput-object p5, p0, Landroid/hardware/display/SemDlnaDevice;->mNICType:Ljava/lang/String;
-
-    iput-object p6, p0, Landroid/hardware/display/SemDlnaDevice;->mUid:Ljava/lang/String;
-
-    iput p7, p0, Landroid/hardware/display/SemDlnaDevice;->mDlnaType:I
-
-    iput-boolean p8, p0, Landroid/hardware/display/SemDlnaDevice;->mIsSwitchingDevice:Z
-
-    iput-object p9, p0, Landroid/hardware/display/SemDlnaDevice;->mURI:Ljava/lang/String;
-
-    return-void
-
-    :cond_5
-    const-string/jumbo p3, ""
-
-    goto :goto_0
-
-    :cond_6
     invoke-static {p2}, Landroid/hardware/display/SemDlnaDevice;->getMacAddrFromArpTable(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
@@ -318,17 +335,44 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_2
+    :goto_1
+    if-eqz p5, :cond_7
 
-    :cond_7
-    const-string/jumbo p4, ""
+    :goto_2
+    iput-object p5, p0, Landroid/hardware/display/SemDlnaDevice;->mNICType:Ljava/lang/String;
+
+    iput-object p6, p0, Landroid/hardware/display/SemDlnaDevice;->mUid:Ljava/lang/String;
+
+    iput p7, p0, Landroid/hardware/display/SemDlnaDevice;->mDlnaType:I
+
+    iput-boolean p8, p0, Landroid/hardware/display/SemDlnaDevice;->mIsSwitchingDevice:Z
+
+    iput-object p9, p0, Landroid/hardware/display/SemDlnaDevice;->mURI:Ljava/lang/String;
+
+    return-void
+
+    :cond_4
+    const-string/jumbo p3, ""
+
+    goto :goto_0
+
+    :cond_5
+    if-eqz p4, :cond_6
+
+    :goto_3
+    iput-object p4, p0, Landroid/hardware/display/SemDlnaDevice;->mMacAddressFromARP:Ljava/lang/String;
 
     goto :goto_1
 
-    :cond_8
-    const-string/jumbo p5, ""
+    :cond_6
+    const-string/jumbo p4, ""
 
     goto :goto_3
+
+    :cond_7
+    const-string/jumbo p5, ""
+
+    goto :goto_2
 .end method
 
 .method public static getMacAddrFromArpTable(Ljava/lang/String;)Ljava/lang/String;
@@ -472,7 +516,7 @@
 
     move-result-object v7
 
-    invoke-virtual {v2}, Ljava/lang/Throwable;->toString()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/Exception;->toString()Ljava/lang/String;
 
     move-result-object v8
 
@@ -503,7 +547,7 @@
 
     move-result-object v8
 
-    invoke-virtual {v2}, Ljava/lang/Throwable;->toString()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/Exception;->toString()Ljava/lang/String;
 
     move-result-object v9
 
@@ -536,7 +580,7 @@
 
     move-result-object v7
 
-    invoke-virtual {v2}, Ljava/lang/Throwable;->toString()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/Exception;->toString()Ljava/lang/String;
 
     move-result-object v8
 
@@ -580,7 +624,7 @@
 
     move-result-object v7
 
-    invoke-virtual {v2}, Ljava/lang/Throwable;->toString()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/Exception;->toString()Ljava/lang/String;
 
     move-result-object v8
 
@@ -626,7 +670,7 @@
 
     move-result-object v8
 
-    invoke-virtual {v2}, Ljava/lang/Throwable;->toString()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/Exception;->toString()Ljava/lang/String;
 
     move-result-object v9
 
@@ -734,9 +778,7 @@
 
     if-eqz v0, :cond_0
 
-    nop
-
-    nop
+    check-cast p1, Landroid/hardware/display/SemDlnaDevice;
 
     invoke-virtual {p0, p1}, Landroid/hardware/display/SemDlnaDevice;->equals(Landroid/hardware/display/SemDlnaDevice;)Z
 

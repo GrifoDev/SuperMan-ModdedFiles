@@ -19,6 +19,8 @@
 
 .field public static final AACObjectERLC:I = 0x11
 
+.field public static final AACObjectERScalable:I = 0x14
+
 .field public static final AACObjectHE:I = 0x5
 
 .field public static final AACObjectHE_PS:I = 0x1d

@@ -126,9 +126,7 @@
 
     if-eqz v5, :cond_1
 
-    nop
-
-    nop
+    check-cast v4, Landroid/view/TextureView;
 
     invoke-virtual {v4}, Landroid/view/TextureView;->getBitmap()Landroid/graphics/Bitmap;
 
@@ -145,7 +143,7 @@
 
     invoke-direct {v3, v0}, Landroid/graphics/drawable/BitmapDrawable;-><init>(Landroid/graphics/Bitmap;)V
 
-    invoke-virtual {v3, v1}, Landroid/graphics/drawable/Drawable;->setBounds(Landroid/graphics/Rect;)V
+    invoke-virtual {v3, v1}, Landroid/graphics/drawable/BitmapDrawable;->setBounds(Landroid/graphics/Rect;)V
 
     iget-object v5, p1, Landroid/transition/TransitionValues;->values:Ljava/util/Map;
 
@@ -202,7 +200,7 @@
 
     const/4 v3, 0x1
 
-    if-eq v2, v3, :cond_3
+    if-eq v2, v3, :cond_6
 
     const/4 v4, 0x1
 
@@ -275,9 +273,9 @@
 
     check-cast v7, Landroid/graphics/drawable/BitmapDrawable;
 
-    if-eqz v6, :cond_2
+    if-eqz v6, :cond_a
 
-    if-eqz v7, :cond_2
+    if-eqz v7, :cond_a
 
     move-object/from16 v0, v17
 
@@ -285,20 +283,11 @@
 
     move-result v2
 
-    if-eqz v2, :cond_4
+    xor-int/lit8 v2, v2, 0x1
 
-    :cond_2
-    const/4 v2, 0x0
+    if-eqz v2, :cond_a
 
-    return-object v2
-
-    :cond_3
-    const/4 v4, 0x0
-
-    goto :goto_0
-
-    :cond_4
-    if-eqz v4, :cond_9
+    if-eqz v4, :cond_7
 
     invoke-virtual {v5}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
 
@@ -317,11 +306,11 @@
 
     const/4 v3, 0x1
 
-    if-ne v2, v3, :cond_5
+    if-ne v2, v3, :cond_2
 
     invoke-virtual {v15, v7}, Landroid/view/ViewOverlay;->add(Landroid/graphics/drawable/Drawable;)V
 
-    :cond_5
+    :cond_2
     invoke-virtual {v15, v6}, Landroid/view/ViewOverlay;->add(Landroid/graphics/drawable/Drawable;)V
 
     move-object/from16 v0, p0
@@ -330,7 +319,7 @@
 
     const/4 v3, 0x2
 
-    if-ne v2, v3, :cond_a
+    if-ne v2, v3, :cond_8
 
     const-string/jumbo v2, "alpha"
 
@@ -359,7 +348,7 @@
 
     invoke-direct {v2, v0, v5, v6}, Landroid/transition/Crossfade$1;-><init>(Landroid/transition/Crossfade;Landroid/view/View;Landroid/graphics/drawable/BitmapDrawable;)V
 
-    invoke-virtual {v8, v2}, Landroid/animation/ValueAnimator;->addUpdateListener(Landroid/animation/ValueAnimator$AnimatorUpdateListener;)V
+    invoke-virtual {v8, v2}, Landroid/animation/ObjectAnimator;->addUpdateListener(Landroid/animation/ValueAnimator$AnimatorUpdateListener;)V
 
     const/4 v9, 0x0
 
@@ -369,7 +358,7 @@
 
     const/4 v3, 0x2
 
-    if-ne v2, v3, :cond_b
+    if-ne v2, v3, :cond_9
 
     sget-object v2, Landroid/view/View;->ALPHA:Landroid/util/Property;
 
@@ -399,7 +388,7 @@
 
     move-result-object v9
 
-    :cond_6
+    :cond_3
     :goto_3
     new-instance v2, Landroid/transition/Crossfade$2;
 
@@ -407,7 +396,7 @@
 
     invoke-direct/range {v2 .. v7}, Landroid/transition/Crossfade$2;-><init>(Landroid/transition/Crossfade;ZLandroid/view/View;Landroid/graphics/drawable/BitmapDrawable;Landroid/graphics/drawable/BitmapDrawable;)V
 
-    invoke-virtual {v8, v2}, Landroid/animation/Animator;->addListener(Landroid/animation/Animator$AnimatorListener;)V
+    invoke-virtual {v8, v2}, Landroid/animation/ObjectAnimator;->addListener(Landroid/animation/Animator$AnimatorListener;)V
 
     new-instance v16, Landroid/animation/AnimatorSet;
 
@@ -425,7 +414,7 @@
 
     invoke-virtual {v0, v2}, Landroid/animation/AnimatorSet;->playTogether([Landroid/animation/Animator;)V
 
-    if-eqz v9, :cond_7
+    if-eqz v9, :cond_4
 
     const/4 v2, 0x1
 
@@ -439,14 +428,14 @@
 
     invoke-virtual {v0, v2}, Landroid/animation/AnimatorSet;->playTogether([Landroid/animation/Animator;)V
 
-    :cond_7
+    :cond_4
     move-object/from16 v0, p0
 
     iget v2, v0, Landroid/transition/Crossfade;->mResizeBehavior:I
 
     const/4 v3, 0x1
 
-    if-ne v2, v3, :cond_8
+    if-ne v2, v3, :cond_5
 
     move-object/from16 v0, v18
 
@@ -454,70 +443,10 @@
 
     move-result v2
 
-    if-eqz v2, :cond_c
+    xor-int/lit8 v2, v2, 0x1
 
-    :cond_8
-    :goto_4
-    return-object v16
+    if-eqz v2, :cond_5
 
-    :cond_9
-    invoke-virtual {v5}, Landroid/view/View;->getOverlay()Landroid/view/ViewOverlay;
-
-    move-result-object v15
-
-    goto/16 :goto_1
-
-    :cond_a
-    const-string/jumbo v2, "alpha"
-
-    const/4 v3, 0x1
-
-    new-array v3, v3, [I
-
-    const/16 v20, 0x0
-
-    const/16 v21, 0x0
-
-    aput v20, v3, v21
-
-    invoke-static {v6, v2, v3}, Landroid/animation/ObjectAnimator;->ofInt(Ljava/lang/Object;Ljava/lang/String;[I)Landroid/animation/ObjectAnimator;
-
-    move-result-object v8
-
-    goto :goto_2
-
-    :cond_b
-    move-object/from16 v0, p0
-
-    iget v2, v0, Landroid/transition/Crossfade;->mFadeBehavior:I
-
-    if-nez v2, :cond_6
-
-    sget-object v2, Landroid/view/View;->ALPHA:Landroid/util/Property;
-
-    const/4 v3, 0x2
-
-    new-array v3, v3, [F
-
-    const/16 v20, 0x0
-
-    const/16 v21, 0x0
-
-    aput v20, v3, v21
-
-    const/high16 v20, 0x3f800000    # 1.0f
-
-    const/16 v21, 0x1
-
-    aput v20, v3, v21
-
-    invoke-static {v5, v2, v3}, Landroid/animation/ObjectAnimator;->ofFloat(Ljava/lang/Object;Landroid/util/Property;[F)Landroid/animation/ObjectAnimator;
-
-    move-result-object v9
-
-    goto :goto_3
-
-    :cond_c
     const-string/jumbo v2, "bounds"
 
     sget-object v3, Landroid/transition/Crossfade;->sRectEvaluator:Landroid/animation/RectEvaluator;
@@ -562,7 +491,7 @@
 
     const/4 v3, 0x1
 
-    if-ne v2, v3, :cond_8
+    if-ne v2, v3, :cond_5
 
     const-string/jumbo v2, "bounds"
 
@@ -602,7 +531,75 @@
 
     invoke-virtual {v0, v2}, Landroid/animation/AnimatorSet;->playTogether([Landroid/animation/Animator;)V
 
-    goto/16 :goto_4
+    :cond_5
+    return-object v16
+
+    :cond_6
+    const/4 v4, 0x0
+
+    goto/16 :goto_0
+
+    :cond_7
+    invoke-virtual {v5}, Landroid/view/View;->getOverlay()Landroid/view/ViewOverlay;
+
+    move-result-object v15
+
+    goto/16 :goto_1
+
+    :cond_8
+    const-string/jumbo v2, "alpha"
+
+    const/4 v3, 0x1
+
+    new-array v3, v3, [I
+
+    const/16 v20, 0x0
+
+    const/16 v21, 0x0
+
+    aput v20, v3, v21
+
+    invoke-static {v6, v2, v3}, Landroid/animation/ObjectAnimator;->ofInt(Ljava/lang/Object;Ljava/lang/String;[I)Landroid/animation/ObjectAnimator;
+
+    move-result-object v8
+
+    goto/16 :goto_2
+
+    :cond_9
+    move-object/from16 v0, p0
+
+    iget v2, v0, Landroid/transition/Crossfade;->mFadeBehavior:I
+
+    if-nez v2, :cond_3
+
+    sget-object v2, Landroid/view/View;->ALPHA:Landroid/util/Property;
+
+    const/4 v3, 0x2
+
+    new-array v3, v3, [F
+
+    const/16 v20, 0x0
+
+    const/16 v21, 0x0
+
+    aput v20, v3, v21
+
+    const/high16 v20, 0x3f800000    # 1.0f
+
+    const/16 v21, 0x1
+
+    aput v20, v3, v21
+
+    invoke-static {v5, v2, v3}, Landroid/animation/ObjectAnimator;->ofFloat(Ljava/lang/Object;Landroid/util/Property;[F)Landroid/animation/ObjectAnimator;
+
+    move-result-object v9
+
+    goto/16 :goto_3
+
+    :cond_a
+    const/4 v2, 0x0
+
+    return-object v2
 .end method
 
 .method public getFadeBehavior()I

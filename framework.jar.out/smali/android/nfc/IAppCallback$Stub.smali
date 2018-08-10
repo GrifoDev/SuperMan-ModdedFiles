@@ -157,8 +157,6 @@
 
     invoke-virtual {p0, v0}, Landroid/nfc/IAppCallback$Stub;->onNdefPushComplete(B)V
 
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
     return v4
 
     :sswitch_3
@@ -182,8 +180,6 @@
 
     :goto_1
     invoke-virtual {p0, v1}, Landroid/nfc/IAppCallback$Stub;->onTagDiscovered(Landroid/nfc/Tag;)V
-
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     return v4
 

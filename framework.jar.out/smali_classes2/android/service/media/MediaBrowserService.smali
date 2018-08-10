@@ -19,7 +19,13 @@
 
 .field public static final KEY_MEDIA_ITEM:Ljava/lang/String; = "media_item"
 
+.field private static final RESULT_ERROR:I = -0x1
+
+.field private static final RESULT_FLAG_ON_LOAD_ITEM_NOT_IMPLEMENTED:I = 0x2
+
 .field private static final RESULT_FLAG_OPTION_NOT_HANDLED:I = 0x1
+
+.field private static final RESULT_OK:I = 0x0
 
 .field public static final SERVICE_INTERFACE:Ljava/lang/String; = "android.media.browse.MediaBrowserService"
 
@@ -494,39 +500,39 @@
 .end method
 
 .method private removeSubscription(Ljava/lang/String;Landroid/service/media/MediaBrowserService$ConnectionRecord;Landroid/os/IBinder;)Z
-    .locals 6
+    .locals 5
 
-    const/4 v4, 0x0
+    const/4 v3, 0x0
 
     if-nez p3, :cond_1
 
-    iget-object v5, p2, Landroid/service/media/MediaBrowserService$ConnectionRecord;->subscriptions:Ljava/util/HashMap;
-
-    invoke-virtual {v5, p1}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v5
-
-    if-eqz v5, :cond_0
-
-    const/4 v4, 0x1
-
-    :cond_0
-    return v4
-
-    :cond_1
-    const/4 v3, 0x0
-
     iget-object v4, p2, Landroid/service/media/MediaBrowserService$ConnectionRecord;->subscriptions:Ljava/util/HashMap;
 
-    invoke-virtual {v4, p1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v4, p1}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v4
 
-    check-cast v2, Ljava/util/List;
+    if-eqz v4, :cond_0
 
-    if-eqz v2, :cond_4
+    const/4 v3, 0x1
 
-    invoke-interface {v2}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+    :cond_0
+    return v3
+
+    :cond_1
+    const/4 v2, 0x0
+
+    iget-object v3, p2, Landroid/service/media/MediaBrowserService$ConnectionRecord;->subscriptions:Ljava/util/HashMap;
+
+    invoke-virtual {v3, p1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/util/List;
+
+    if-eqz v0, :cond_4
+
+    invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
 
@@ -534,39 +540,39 @@
     :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v4
+    move-result v3
 
-    if-eqz v4, :cond_3
+    if-eqz v3, :cond_3
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v3
 
-    check-cast v0, Landroid/util/Pair;
+    check-cast v3, Landroid/util/Pair;
 
-    iget-object v4, v0, Landroid/util/Pair;->first:Ljava/lang/Object;
+    iget-object v3, v3, Landroid/util/Pair;->first:Ljava/lang/Object;
 
-    if-ne p3, v4, :cond_2
+    if-ne p3, v3, :cond_2
 
-    const/4 v3, 0x1
+    const/4 v2, 0x1
 
-    invoke-interface {v2, v0}, Ljava/util/List;->remove(Ljava/lang/Object;)Z
+    invoke-interface {v1}, Ljava/util/Iterator;->remove()V
 
     goto :goto_0
 
     :cond_3
-    invoke-interface {v2}, Ljava/util/List;->size()I
+    invoke-interface {v0}, Ljava/util/List;->size()I
 
-    move-result v4
+    move-result v3
 
-    if-nez v4, :cond_4
+    if-nez v3, :cond_4
 
-    iget-object v4, p2, Landroid/service/media/MediaBrowserService$ConnectionRecord;->subscriptions:Ljava/util/HashMap;
+    iget-object v3, p2, Landroid/service/media/MediaBrowserService$ConnectionRecord;->subscriptions:Ljava/util/HashMap;
 
-    invoke-virtual {v4, p1}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v3, p1}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
     :cond_4
-    return v3
+    return v2
 .end method
 
 
@@ -750,6 +756,10 @@
             ">;)V"
         }
     .end annotation
+
+    const/4 v0, 0x2
+
+    invoke-virtual {p2, v0}, Landroid/service/media/MediaBrowserService$Result;->setFlags(I)V
 
     const/4 v0, 0x0
 

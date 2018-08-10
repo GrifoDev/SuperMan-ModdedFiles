@@ -25,5 +25,11 @@
 .method public abstract hasStarted()Z
 .end method
 
+.method public rangeStart(III)V
+    .locals 0
+
+    return-void
+.end method
+
 .method public abstract start(III)I
 .end method

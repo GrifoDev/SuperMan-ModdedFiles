@@ -232,9 +232,7 @@
     :cond_1
     move-object v0, p1
 
-    nop
-
-    nop
+    check-cast v0, Landroid/media/tv/TvTrackInfo;
 
     iget-object v3, p0, Landroid/media/tv/TvTrackInfo;->mId:Ljava/lang/String;
 

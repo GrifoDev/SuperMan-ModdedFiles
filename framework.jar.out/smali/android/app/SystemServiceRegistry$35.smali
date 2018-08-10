@@ -17,7 +17,7 @@
     value = {
         "Landroid/app/SystemServiceRegistry$CachedServiceFetcher",
         "<",
-        "Landroid/app/SearchManager;",
+        "Landroid/os/CustomFrequencyManager;",
         ">;"
     }
 .end annotation
@@ -34,30 +34,50 @@
 
 
 # virtual methods
-.method public createService(Landroid/app/ContextImpl;)Landroid/app/SearchManager;
-    .locals 3
+.method public createService(Landroid/app/ContextImpl;)Landroid/os/CustomFrequencyManager;
+    .locals 4
 
-    new-instance v0, Landroid/app/SearchManager;
+    const-string/jumbo v2, "CustomFrequencyManagerService"
 
-    invoke-virtual {p1}, Landroid/app/ContextImpl;->getOuterContext()Landroid/content/Context;
+    invoke-static {v2}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
+
+    move-result-object v0
+
+    invoke-static {v0}, Landroid/os/ICustomFrequencyManager$Stub;->asInterface(Landroid/os/IBinder;)Landroid/os/ICustomFrequencyManager;
 
     move-result-object v1
 
-    iget-object v2, p1, Landroid/app/ContextImpl;->mMainThread:Landroid/app/ActivityThread;
+    if-nez v1, :cond_0
 
-    invoke-virtual {v2}, Landroid/app/ActivityThread;->getHandler()Landroid/os/Handler;
+    const-string/jumbo v2, "SystemServiceRegistry"
 
-    move-result-object v2
+    const-string/jumbo v3, "Failed to get custom frequency manager service."
 
-    invoke-direct {v0, v1, v2}, Landroid/app/SearchManager;-><init>(Landroid/content/Context;Landroid/os/Handler;)V
+    invoke-static {v2, v3}, Landroid/util/Log;->wtf(Ljava/lang/String;Ljava/lang/String;)I
 
-    return-object v0
+    :cond_0
+    new-instance v2, Landroid/os/CustomFrequencyManager;
+
+    iget-object v3, p1, Landroid/app/ContextImpl;->mMainThread:Landroid/app/ActivityThread;
+
+    invoke-virtual {v3}, Landroid/app/ActivityThread;->getHandler()Landroid/os/Handler;
+
+    move-result-object v3
+
+    invoke-direct {v2, v1, v3}, Landroid/os/CustomFrequencyManager;-><init>(Landroid/os/ICustomFrequencyManager;Landroid/os/Handler;)V
+
+    return-object v2
 .end method
 
 .method public bridge synthetic createService(Landroid/app/ContextImpl;)Ljava/lang/Object;
     .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/ServiceManager$ServiceNotFoundException;
+        }
+    .end annotation
 
-    invoke-virtual {p0, p1}, Landroid/app/SystemServiceRegistry$35;->createService(Landroid/app/ContextImpl;)Landroid/app/SearchManager;
+    invoke-virtual {p0, p1}, Landroid/app/SystemServiceRegistry$35;->createService(Landroid/app/ContextImpl;)Landroid/os/CustomFrequencyManager;
 
     move-result-object v0
 

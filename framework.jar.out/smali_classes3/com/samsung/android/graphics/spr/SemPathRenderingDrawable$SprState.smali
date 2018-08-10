@@ -465,9 +465,7 @@
 .end method
 
 .method private createNinePatchRenderer()V
-    .locals 12
-
-    const/4 v4, 0x0
+    .locals 13
 
     iget-object v0, p0, Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable$SprState;->mNinePatchRenderer:Landroid/graphics/NinePatch;
 
@@ -477,6 +475,19 @@
 
     if-eqz v0, :cond_2
 
+    invoke-virtual {p0}, Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable$SprState;->getIntrinsicWidth()I
+
+    move-result v2
+
+    invoke-virtual {p0}, Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable$SprState;->getIntrinsicHeight()I
+
+    move-result v3
+
+    iget-object v12, p0, Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable$SprState;->mDocument:Lcom/samsung/android/graphics/spr/document/SprDocument;
+
+    monitor-enter v12
+
+    :try_start_0
     iget-object v0, p0, Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable$SprState;->mDocument:Lcom/samsung/android/graphics/spr/document/SprDocument;
 
     invoke-virtual {v0}, Lcom/samsung/android/graphics/spr/document/SprDocument;->isPredraw()Z
@@ -487,17 +498,11 @@
 
     iget-object v0, p0, Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable$SprState;->mDocument:Lcom/samsung/android/graphics/spr/document/SprDocument;
 
+    const/4 v4, 0x0
+
     invoke-virtual {v0, v4}, Lcom/samsung/android/graphics/spr/document/SprDocument;->preDraw(I)V
 
     :cond_0
-    invoke-virtual {p0}, Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable$SprState;->getIntrinsicWidth()I
-
-    move-result v2
-
-    invoke-virtual {p0}, Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable$SprState;->getIntrinsicHeight()I
-
-    move-result v3
-
     sget-object v0, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
 
     invoke-static {v2, v3, v0}, Landroid/graphics/Bitmap;->createBitmap(IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;
@@ -520,9 +525,15 @@
 
     iget v5, p0, Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable$SprState;->mDensityDpi:I
 
+    const/4 v4, 0x0
+
     invoke-virtual/range {v0 .. v5}, Lcom/samsung/android/graphics/spr/document/SprDocument;->draw(Landroid/graphics/Canvas;IIII)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     :cond_1
+    monitor-exit v12
+
     iget-boolean v0, p0, Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable$SprState;->mNinePatch:Z
 
     if-eqz v0, :cond_5
@@ -604,6 +615,13 @@
     :cond_2
     :goto_2
     return-void
+
+    :catchall_0
+    move-exception v0
+
+    monitor-exit v12
+
+    throw v0
 
     :cond_3
     add-int/lit8 v10, v9, 0x1
@@ -1276,13 +1294,13 @@
     :cond_0
     iget-object v3, p0, Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable$SprState;->mDocument:Lcom/samsung/android/graphics/spr/document/SprDocument;
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_1
 
     iget-object v3, p0, Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable$SprState;->mDocument:Lcom/samsung/android/graphics/spr/document/SprDocument;
 
     iget-object v3, v3, Lcom/samsung/android/graphics/spr/document/SprDocument;->mName:Ljava/lang/String;
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_6
 
     iget-object v3, p0, Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable$SprState;->mDocument:Lcom/samsung/android/graphics/spr/document/SprDocument;
 
@@ -1294,13 +1312,11 @@
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    xor-int/lit8 v3, v3, 0x1
+
+    if-eqz v3, :cond_6
 
     :cond_1
-    :goto_0
-    return-void
-
-    :cond_2
     iput-object p1, p0, Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable$SprState;->mDocument:Lcom/samsung/android/graphics/spr/document/SprDocument;
 
     iget-object v3, p0, Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable$SprState;->mDocument:Lcom/samsung/android/graphics/spr/document/SprDocument;
@@ -1309,7 +1325,7 @@
 
     cmpl-float v3, v3, v7
 
-    if-nez v3, :cond_3
+    if-nez v3, :cond_2
 
     iget-object v3, p0, Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable$SprState;->mDocument:Lcom/samsung/android/graphics/spr/document/SprDocument;
 
@@ -1319,22 +1335,22 @@
 
     if-eqz v3, :cond_7
 
-    :cond_3
+    :cond_2
     move v3, v4
 
-    :goto_1
+    :goto_0
     iput-boolean v3, p0, Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable$SprState;->mNinePatch:Z
 
     const/4 v1, 0x0
 
-    :goto_2
+    :goto_1
     iget-object v3, p0, Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable$SprState;->mDocument:Lcom/samsung/android/graphics/spr/document/SprDocument;
 
     invoke-virtual {v3}, Lcom/samsung/android/graphics/spr/document/SprDocument;->getFileAttributeSize()I
 
     move-result v3
 
-    if-ge v1, v3, :cond_4
+    if-ge v1, v3, :cond_3
 
     iget-object v3, p0, Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable$SprState;->mDocument:Lcom/samsung/android/graphics/spr/document/SprDocument;
 
@@ -1346,7 +1362,7 @@
 
     if-eqz v0, :cond_9
 
-    iget-byte v3, v0, Lcom/samsung/android/graphics/spr/document/fileAttribute/SprFileAttributeBase;->mType:B
+    iget-byte v3, v0, Lcom/samsung/android/graphics/spr/document/fileAttribute/SprFileAttributeNinePatch;->mType:B
 
     if-ne v3, v4, :cond_9
 
@@ -1354,7 +1370,7 @@
 
     iput-object v0, p0, Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable$SprState;->mMultiNinePatch:Lcom/samsung/android/graphics/spr/document/fileAttribute/SprFileAttributeNinePatch;
 
-    :cond_4
+    :cond_3
     invoke-static {v6}, Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable;->-wrap0(Landroid/content/res/Resources;)I
 
     move-result v3
@@ -1363,11 +1379,11 @@
 
     iget-object v3, p0, Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable$SprState;->mCacheManager:Lcom/samsung/android/graphics/spr/cache/SprCacheManager;
 
-    if-eqz v3, :cond_6
+    if-eqz v3, :cond_5
 
     sget-boolean v3, Lcom/samsung/android/graphics/spr/document/debug/SprDebug;->IsDebug:Z
 
-    if-eqz v3, :cond_5
+    if-eqz v3, :cond_4
 
     iget-object v3, p0, Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable$SprState;->mCacheManager:Lcom/samsung/android/graphics/spr/cache/SprCacheManager;
 
@@ -1377,12 +1393,12 @@
 
     invoke-direct {v2}, Ljava/lang/Exception;-><init>()V
 
-    invoke-virtual {v2}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v2}, Ljava/lang/Exception;->printStackTrace()V
 
-    :cond_5
+    :cond_4
     iput-object v6, p0, Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable$SprState;->mCacheManager:Lcom/samsung/android/graphics/spr/cache/SprCacheManager;
 
-    :cond_6
+    :cond_5
     new-instance v3, Lcom/samsung/android/graphics/spr/cache/SprCacheManager;
 
     iget-object v4, p0, Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable$SprState;->mDocument:Lcom/samsung/android/graphics/spr/document/SprDocument;
@@ -1391,7 +1407,7 @@
 
     iget-object v5, p0, Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable$SprState;->mDocument:Lcom/samsung/android/graphics/spr/document/SprDocument;
 
-    invoke-virtual {v5}, Ljava/lang/Object;->hashCode()I
+    invoke-virtual {v5}, Lcom/samsung/android/graphics/spr/document/SprDocument;->hashCode()I
 
     move-result v5
 
@@ -1399,7 +1415,8 @@
 
     iput-object v3, p0, Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable$SprState;->mCacheManager:Lcom/samsung/android/graphics/spr/cache/SprCacheManager;
 
-    goto :goto_0
+    :cond_6
+    return-void
 
     :cond_7
     iget-object v3, p0, Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable$SprState;->mDocument:Lcom/samsung/android/graphics/spr/document/SprDocument;
@@ -1408,7 +1425,7 @@
 
     cmpl-float v3, v3, v7
 
-    if-nez v3, :cond_3
+    if-nez v3, :cond_2
 
     iget-object v3, p0, Lcom/samsung/android/graphics/spr/SemPathRenderingDrawable$SprState;->mDocument:Lcom/samsung/android/graphics/spr/document/SprDocument;
 
@@ -1420,15 +1437,15 @@
 
     move v3, v4
 
-    goto :goto_1
+    goto :goto_0
 
     :cond_8
     const/4 v3, 0x0
 
-    goto :goto_1
+    goto :goto_0
 
     :cond_9
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_2
+    goto :goto_1
 .end method

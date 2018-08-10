@@ -18,7 +18,11 @@
 # static fields
 .field public static final ACTION_CONFIRM_PERMISSIONS:Ljava/lang/String; = "android.content.pm.action.CONFIRM_PERMISSIONS"
 
+.field public static final ACTION_SESSION_COMMITTED:Ljava/lang/String; = "android.content.pm.action.SESSION_COMMITTED"
+
 .field public static final ACTION_SESSION_DETAILS:Ljava/lang/String; = "android.content.pm.action.SESSION_DETAILS"
+
+.field public static final ENABLE_REVOCABLE_FD:Z
 
 .field public static final EXTRA_CALLBACK:Ljava/lang/String; = "android.content.pm.extra.CALLBACK"
 
@@ -34,6 +38,8 @@
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 .end field
+
+.field public static final EXTRA_SESSION:Ljava/lang/String; = "android.content.pm.extra.SESSION"
 
 .field public static final EXTRA_SESSION_ID:Ljava/lang/String; = "android.content.pm.extra.SESSION_ID"
 
@@ -65,8 +71,6 @@
 
 
 # instance fields
-.field private final mContext:Landroid/content/Context;
-
 .field private final mDelegates:Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -82,13 +86,27 @@
 
 .field private final mInstallerPackageName:Ljava/lang/String;
 
-.field private final mPm:Landroid/content/pm/PackageManager;
-
 .field private final mUserId:I
 
 
 # direct methods
-.method public constructor <init>(Landroid/content/Context;Landroid/content/pm/PackageManager;Landroid/content/pm/IPackageInstaller;Ljava/lang/String;I)V
+.method static constructor <clinit>()V
+    .locals 2
+
+    const-string/jumbo v0, "fw.revocable_fd"
+
+    const/4 v1, 0x0
+
+    invoke-static {v0, v1}, Landroid/os/SystemProperties;->getBoolean(Ljava/lang/String;Z)Z
+
+    move-result v0
+
+    sput-boolean v0, Landroid/content/pm/PackageInstaller;->ENABLE_REVOCABLE_FD:Z
+
+    return-void
+.end method
+
+.method public constructor <init>(Landroid/content/pm/IPackageInstaller;Ljava/lang/String;I)V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -99,15 +117,11 @@
 
     iput-object v0, p0, Landroid/content/pm/PackageInstaller;->mDelegates:Ljava/util/ArrayList;
 
-    iput-object p1, p0, Landroid/content/pm/PackageInstaller;->mContext:Landroid/content/Context;
+    iput-object p1, p0, Landroid/content/pm/PackageInstaller;->mInstaller:Landroid/content/pm/IPackageInstaller;
 
-    iput-object p2, p0, Landroid/content/pm/PackageInstaller;->mPm:Landroid/content/pm/PackageManager;
+    iput-object p2, p0, Landroid/content/pm/PackageInstaller;->mInstallerPackageName:Ljava/lang/String;
 
-    iput-object p3, p0, Landroid/content/pm/PackageInstaller;->mInstaller:Landroid/content/pm/IPackageInstaller;
-
-    iput-object p4, p0, Landroid/content/pm/PackageInstaller;->mInstallerPackageName:Ljava/lang/String;
-
-    iput p5, p0, Landroid/content/pm/PackageInstaller;->mUserId:I
+    iput p3, p0, Landroid/content/pm/PackageInstaller;->mUserId:I
 
     return-void
 .end method
@@ -445,8 +459,12 @@
     throw v1
 .end method
 
-.method public uninstall(Ljava/lang/String;Landroid/content/IntentSender;)V
+.method public uninstall(Landroid/content/pm/VersionedPackage;Landroid/content/IntentSender;)V
     .locals 7
+
+    const-string/jumbo v0, "versionedPackage cannot be null"
+
+    invoke-static {p1, v0}, Lcom/android/internal/util/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     :try_start_0
     iget-object v0, p0, Landroid/content/pm/PackageInstaller;->mInstaller:Landroid/content/pm/IPackageInstaller;
@@ -461,7 +479,7 @@
 
     move-object v4, p2
 
-    invoke-interface/range {v0 .. v5}, Landroid/content/pm/IPackageInstaller;->uninstall(Ljava/lang/String;Ljava/lang/String;ILandroid/content/IntentSender;I)V
+    invoke-interface/range {v0 .. v5}, Landroid/content/pm/IPackageInstaller;->uninstall(Landroid/content/pm/VersionedPackage;Ljava/lang/String;ILandroid/content/IntentSender;I)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -475,6 +493,20 @@
     move-result-object v0
 
     throw v0
+.end method
+
+.method public uninstall(Ljava/lang/String;Landroid/content/IntentSender;)V
+    .locals 2
+
+    new-instance v0, Landroid/content/pm/VersionedPackage;
+
+    const/4 v1, -0x1
+
+    invoke-direct {v0, p1, v1}, Landroid/content/pm/VersionedPackage;-><init>(Ljava/lang/String;I)V
+
+    invoke-virtual {p0, v0, p2}, Landroid/content/pm/PackageInstaller;->uninstall(Landroid/content/pm/VersionedPackage;Landroid/content/IntentSender;)V
+
+    return-void
 .end method
 
 .method public unregisterSessionCallback(Landroid/content/pm/PackageInstaller$SessionCallback;)V

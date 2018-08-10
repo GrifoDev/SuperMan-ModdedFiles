@@ -115,13 +115,13 @@
 
     iget-object v1, p0, Landroid/security/keystore/AndroidKeyStoreHmacSpi;->mKey:Landroid/security/keystore/AndroidKeyStoreSecretKey;
 
-    invoke-virtual {v1}, Landroid/security/keystore/AndroidKeyStoreKey;->getAlias()Ljava/lang/String;
+    invoke-virtual {v1}, Landroid/security/keystore/AndroidKeyStoreSecretKey;->getAlias()Ljava/lang/String;
 
     move-result-object v1
 
     iget-object v2, p0, Landroid/security/keystore/AndroidKeyStoreHmacSpi;->mKey:Landroid/security/keystore/AndroidKeyStoreSecretKey;
 
-    invoke-virtual {v2}, Landroid/security/keystore/AndroidKeyStoreKey;->getUid()I
+    invoke-virtual {v2}, Landroid/security/keystore/AndroidKeyStoreSecretKey;->getUid()I
 
     move-result v6
 
@@ -261,9 +261,7 @@
     throw v0
 
     :cond_1
-    nop
-
-    nop
+    check-cast p1, Landroid/security/keystore/AndroidKeyStoreSecretKey;
 
     iput-object p1, p0, Landroid/security/keystore/AndroidKeyStoreHmacSpi;->mKey:Landroid/security/keystore/AndroidKeyStoreSecretKey;
 

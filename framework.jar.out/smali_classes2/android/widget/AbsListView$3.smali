@@ -35,11 +35,13 @@
 
 # virtual methods
 .method public run()V
-    .locals 1
+    .locals 2
 
     iget-object v0, p0, Landroid/widget/AbsListView$3;->this$0:Landroid/widget/AbsListView;
 
-    invoke-static {v0}, Landroid/widget/AbsListView;->-wrap15(Landroid/widget/AbsListView;)V
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1}, Landroid/widget/AbsListView;->semSetupGoToTop(I)V
 
     return-void
 .end method

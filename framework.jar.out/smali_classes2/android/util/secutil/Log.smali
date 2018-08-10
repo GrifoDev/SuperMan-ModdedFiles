@@ -201,7 +201,7 @@
 
     invoke-virtual {p0, v0}, Ljava/lang/Throwable;->printStackTrace(Ljava/io/PrintWriter;)V
 
-    invoke-virtual {v0}, Lcom/android/internal/util/FastPrintWriter;->flush()V
+    invoke-virtual {v0}, Ljava/io/PrintWriter;->flush()V
 
     invoke-virtual {v1}, Ljava/io/StringWriter;->toString()Ljava/lang/String;
 
@@ -312,7 +312,7 @@
 
     invoke-direct {v1, v2, v0}, Lcom/android/internal/util/LineBreakBufferedWriter;-><init>(Ljava/io/Writer;I)V
 
-    invoke-virtual {v1, p3}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {v1, p3}, Lcom/android/internal/util/LineBreakBufferedWriter;->println(Ljava/lang/String;)V
 
     if-eqz p4, :cond_1
 
@@ -352,7 +352,7 @@
 
     const-string/jumbo v4, "DeadSystemException: The system died; earlier logs will point to the root cause"
 
-    invoke-virtual {v1, v4}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {v1, v4}, Lcom/android/internal/util/LineBreakBufferedWriter;->println(Ljava/lang/String;)V
 
     goto :goto_2
 

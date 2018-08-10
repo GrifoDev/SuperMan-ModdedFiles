@@ -31,6 +31,16 @@
 
 
 # virtual methods
+.method public bridge synthetic getUnderlying()Landroid/text/style/CharacterStyle;
+    .locals 1
+
+    invoke-virtual {p0}, Landroid/text/style/MetricAffectingSpan$Passthrough;->getUnderlying()Landroid/text/style/MetricAffectingSpan;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
 .method public getUnderlying()Landroid/text/style/MetricAffectingSpan;
     .locals 1
 

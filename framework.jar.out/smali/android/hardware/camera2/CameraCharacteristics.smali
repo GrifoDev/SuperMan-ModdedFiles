@@ -2430,6 +2430,10 @@
 
     iput-object v0, p0, Landroid/hardware/camera2/CameraCharacteristics;->mProperties:Landroid/hardware/camera2/impl/CameraMetadataNative;
 
+    iget-object v0, p0, Landroid/hardware/camera2/CameraCharacteristics;->mProperties:Landroid/hardware/camera2/impl/CameraMetadataNative;
+
+    invoke-virtual {p0, v0}, Landroid/hardware/camera2/CameraCharacteristics;->setNativeInstance(Landroid/hardware/camera2/impl/CameraMetadataNative;)V
+
     return-void
 .end method
 
@@ -2485,7 +2489,7 @@
     :cond_1
     const/4 v1, 0x0
 
-    invoke-static {p1, p2, v1, p3}, Landroid/hardware/camera2/CameraCharacteristics;->getKeysStatic(Ljava/lang/Class;Ljava/lang/Class;Landroid/hardware/camera2/CameraMetadata;[I)Ljava/util/ArrayList;
+    invoke-virtual {p0, p1, p2, v1, p3}, Landroid/hardware/camera2/CameraCharacteristics;->getKeys(Ljava/lang/Class;Ljava/lang/Class;Landroid/hardware/camera2/CameraMetadata;[I)Ljava/util/ArrayList;
 
     move-result-object v0
 
@@ -2696,7 +2700,7 @@
 
     move-result-object v2
 
-    invoke-static {v1, v2, p0, v0}, Landroid/hardware/camera2/CameraCharacteristics;->getKeysStatic(Ljava/lang/Class;Ljava/lang/Class;Landroid/hardware/camera2/CameraMetadata;[I)Ljava/util/ArrayList;
+    invoke-virtual {p0, v1, v2, p0, v0}, Landroid/hardware/camera2/CameraCharacteristics;->getKeys(Ljava/lang/Class;Ljava/lang/Class;Landroid/hardware/camera2/CameraMetadata;[I)Ljava/util/ArrayList;
 
     move-result-object v1
 

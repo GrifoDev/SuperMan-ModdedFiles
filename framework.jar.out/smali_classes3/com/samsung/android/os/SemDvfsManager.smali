@@ -4,9 +4,17 @@
 
 
 # static fields
+.field public static final HINT_AMS_ACT_LAZY:Ljava/lang/String; = "AMS_ACT_LAZY"
+
+.field public static final HINT_AMS_ACT_RESUME:Ljava/lang/String; = "AMS_ACT_RESUME"
+
+.field public static final HINT_AMS_ACT_START:Ljava/lang/String; = "AMS_ACT_START"
+
 .field public static final HINT_AMS_APP_HOME:Ljava/lang/String; = "AMS_APP_HOME"
 
 .field public static final HINT_AMS_APP_SWITCH:Ljava/lang/String; = "AMS_APP_SWITCH"
+
+.field public static final HINT_AMS_RELAUNCH_RESUME:Ljava/lang/String; = "AMS_RELAUNCH_RESUME"
 
 .field public static final HINT_AMS_RESUME:Ljava/lang/String; = "AMS_RESUME"
 
@@ -76,21 +84,25 @@
 
 .field public static final TYPE_HINT:I = 0x15
 
-.field public static final TYPE_MAX:I = 0x1d
+.field public static final TYPE_LPM_BIAS:I = 0x1e
+
+.field public static final TYPE_MAX:I = 0x1f
 
 .field public static final TYPE_NONE:I = 0xb
 
 .field public static final TYPE_PCIE_PSM_DISABLE:I = 0x1a
 
-.field static mToken:I
+.field public static final TYPE_SCHEDTUNE_POLICY:I = 0x1d
 
-.field static sDvfsPresets:Lcom/samsung/android/os/SemDvfsPresets;
+.field static mToken:I
 
 
 # instance fields
 .field final BASE_MODEL:Ljava/lang/String;
 
 .field BOARD_PLATFORM:Ljava/lang/String;
+
+.field final DVFS_FILENAME:Ljava/lang/String;
 
 .field LOG_TAG:Ljava/lang/String;
 
@@ -126,10 +138,6 @@
     const/4 v0, 0x0
 
     sput v0, Lcom/samsung/android/os/SemDvfsManager;->mToken:I
-
-    const/4 v0, 0x0
-
-    sput-object v0, Lcom/samsung/android/os/SemDvfsManager;->sDvfsPresets:Lcom/samsung/android/os/SemDvfsPresets;
 
     return-void
 .end method
@@ -172,6 +180,10 @@
     const-string/jumbo v0, "ssrm_hero2l_xx"
 
     iput-object v0, p0, Lcom/samsung/android/os/SemDvfsManager;->SIOP_MODEL:Ljava/lang/String;
+
+    const-string/jumbo v0, "dvfs_policy_jungfrau_xx"
+
+    iput-object v0, p0, Lcom/samsung/android/os/SemDvfsManager;->DVFS_FILENAME:Ljava/lang/String;
 
     const-string/jumbo v0, "ro.board.platform"
 
@@ -365,74 +377,61 @@
 .end method
 
 .method public static createInstance(Landroid/content/Context;Ljava/lang/String;I)Lcom/samsung/android/os/SemDvfsManager;
-    .locals 3
-
-    const/4 v2, 0x0
+    .locals 2
 
     const/16 v1, 0x15
 
-    sget-object v0, Lcom/samsung/android/os/SemDvfsManager;->sDvfsPresets:Lcom/samsung/android/os/SemDvfsPresets;
-
-    if-nez v0, :cond_0
-
-    new-instance v0, Lcom/samsung/android/os/SemDvfsPresets;
-
-    invoke-direct {v0, p0}, Lcom/samsung/android/os/SemDvfsPresets;-><init>(Landroid/content/Context;)V
-
-    sput-object v0, Lcom/samsung/android/os/SemDvfsManager;->sDvfsPresets:Lcom/samsung/android/os/SemDvfsPresets;
-
-    :cond_0
     const/16 v0, 0xc
 
-    if-eq p2, v0, :cond_1
+    if-eq p2, v0, :cond_0
 
     const/16 v0, 0xd
 
-    if-ne p2, v0, :cond_2
+    if-ne p2, v0, :cond_1
 
-    :cond_1
+    :cond_0
     new-instance v0, Lcom/samsung/android/os/SemDvfsCpuManager;
 
     invoke-direct {v0, p0, p1, p2}, Lcom/samsung/android/os/SemDvfsCpuManager;-><init>(Landroid/content/Context;Ljava/lang/String;I)V
 
     return-object v0
 
-    :cond_2
+    :cond_1
     const/16 v0, 0xe
 
-    if-eq p2, v0, :cond_3
+    if-eq p2, v0, :cond_2
 
     const/16 v0, 0xf
 
-    if-ne p2, v0, :cond_4
+    if-ne p2, v0, :cond_3
 
-    :cond_3
+    :cond_2
     new-instance v0, Lcom/samsung/android/os/SemDvfsCpuCoreManager;
 
     invoke-direct {v0, p0, p1, p2}, Lcom/samsung/android/os/SemDvfsCpuCoreManager;-><init>(Landroid/content/Context;Ljava/lang/String;I)V
 
     return-object v0
 
-    :cond_4
+    :cond_3
     const/16 v0, 0x10
 
-    if-eq p2, v0, :cond_5
+    if-eq p2, v0, :cond_4
 
     const/16 v0, 0x11
 
-    if-ne p2, v0, :cond_6
+    if-ne p2, v0, :cond_5
 
-    :cond_5
+    :cond_4
     new-instance v0, Lcom/samsung/android/os/SemDvfsGpuManager;
 
     invoke-direct {v0, p0, p1, p2}, Lcom/samsung/android/os/SemDvfsGpuManager;-><init>(Landroid/content/Context;Ljava/lang/String;I)V
 
     return-object v0
 
-    :cond_6
+    :cond_5
     const/16 v0, 0x12
 
-    if-ne p2, v0, :cond_7
+    if-ne p2, v0, :cond_6
 
     new-instance v0, Lcom/samsung/android/os/SemDvfsEmmcManager;
 
@@ -440,26 +439,26 @@
 
     return-object v0
 
-    :cond_7
+    :cond_6
     const/16 v0, 0x13
 
-    if-eq p2, v0, :cond_8
+    if-eq p2, v0, :cond_7
 
     const/16 v0, 0x14
 
-    if-ne p2, v0, :cond_9
+    if-ne p2, v0, :cond_8
 
-    :cond_8
+    :cond_7
     new-instance v0, Lcom/samsung/android/os/SemDvfsBusManager;
 
     invoke-direct {v0, p0, p1, p2}, Lcom/samsung/android/os/SemDvfsBusManager;-><init>(Landroid/content/Context;Ljava/lang/String;I)V
 
     return-object v0
 
-    :cond_9
+    :cond_8
     const/16 v0, 0x17
 
-    if-ne p2, v0, :cond_a
+    if-ne p2, v0, :cond_9
 
     new-instance v0, Lcom/samsung/android/os/SemDvfsPowerCollapseManager;
 
@@ -467,10 +466,10 @@
 
     return-object v0
 
-    :cond_a
+    :cond_9
     const/16 v0, 0x19
 
-    if-ne p2, v0, :cond_b
+    if-ne p2, v0, :cond_a
 
     new-instance v0, Lcom/samsung/android/os/SemDvfsCpuHotplugManager;
 
@@ -478,17 +477,41 @@
 
     return-object v0
 
+    :cond_a
+    const/16 v0, 0x1d
+
+    if-ne p2, v0, :cond_b
+
+    new-instance v0, Lcom/samsung/android/os/SemDvfsSchedTunePolicyManager;
+
+    invoke-direct {v0, p0, p1, p2}, Lcom/samsung/android/os/SemDvfsSchedTunePolicyManager;-><init>(Landroid/content/Context;Ljava/lang/String;I)V
+
+    return-object v0
+
     :cond_b
-    if-ne p2, v1, :cond_c
+    const/16 v0, 0x1e
 
-    new-instance v0, Lcom/samsung/android/os/SemDvfsHintManager;
+    if-ne p2, v0, :cond_c
 
-    invoke-direct {v0, p0, p1, p2}, Lcom/samsung/android/os/SemDvfsHintManager;-><init>(Landroid/content/Context;Ljava/lang/String;I)V
+    new-instance v0, Lcom/samsung/android/os/SemDvfsLpmBiasManager;
+
+    invoke-direct {v0, p0, p1, p2}, Lcom/samsung/android/os/SemDvfsLpmBiasManager;-><init>(Landroid/content/Context;Ljava/lang/String;I)V
 
     return-object v0
 
     :cond_c
-    if-le p2, v1, :cond_d
+    if-ne p2, v1, :cond_d
+
+    new-instance v0, Lcom/samsung/android/os/SemDvfsHintManager;
+
+    const/4 v1, 0x1
+
+    invoke-direct {v0, p0, p1, p2, v1}, Lcom/samsung/android/os/SemDvfsHintManager;-><init>(Landroid/content/Context;Ljava/lang/String;II)V
+
+    return-object v0
+
+    :cond_d
+    if-le p2, v1, :cond_e
 
     new-instance v0, Lcom/samsung/android/os/SemDvfsArrangedSetsManager;
 
@@ -496,14 +519,16 @@
 
     return-object v0
 
-    :cond_d
+    :cond_e
     sget v0, Lcom/samsung/android/os/SemDvfsManager;->mToken:I
 
     add-int/lit8 v0, v0, 0x1
 
     sput v0, Lcom/samsung/android/os/SemDvfsManager;->mToken:I
 
-    return-object v2
+    const/4 v0, 0x0
+
+    return-object v0
 .end method
 
 .method public static createInstance(Landroid/content/Context;Ljava/lang/String;II)Lcom/samsung/android/os/SemDvfsManager;
@@ -726,7 +751,7 @@
 
     double-to-int v1, v2
 
-    invoke-virtual {p0, v1}, Lcom/samsung/android/os/SemDvfsManager;->getApproximateFrequency(I)I
+    invoke-virtual {p0, v1}, Lcom/samsung/android/os/SemDvfsManager;->getApproximateFrequencyForSsrm(I)I
 
     move-result v1
 
@@ -1057,7 +1082,7 @@
     move-exception v0
 
     :try_start_2
-    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 

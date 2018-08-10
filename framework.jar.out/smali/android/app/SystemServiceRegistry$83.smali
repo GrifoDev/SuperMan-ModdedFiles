@@ -17,7 +17,7 @@
     value = {
         "Landroid/app/SystemServiceRegistry$CachedServiceFetcher",
         "<",
-        "Landroid/os/HardwarePropertiesManager;",
+        "Landroid/media/midi/MidiManager;",
         ">;"
     }
 .end annotation
@@ -34,43 +34,40 @@
 
 
 # virtual methods
-.method public createService(Landroid/app/ContextImpl;)Landroid/os/HardwarePropertiesManager;
-    .locals 5
+.method public createService(Landroid/app/ContextImpl;)Landroid/media/midi/MidiManager;
+    .locals 3
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/ServiceManager$ServiceNotFoundException;
+        }
+    .end annotation
 
-    const/4 v4, 0x0
+    const-string/jumbo v1, "midi"
 
-    const-string/jumbo v2, "hardware_properties"
-
-    invoke-static {v2}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
+    invoke-static {v1}, Landroid/os/ServiceManager;->getServiceOrThrow(Ljava/lang/String;)Landroid/os/IBinder;
 
     move-result-object v0
 
-    invoke-static {v0}, Landroid/os/IHardwarePropertiesManager$Stub;->asInterface(Landroid/os/IBinder;)Landroid/os/IHardwarePropertiesManager;
+    new-instance v1, Landroid/media/midi/MidiManager;
 
-    move-result-object v1
+    invoke-static {v0}, Landroid/media/midi/IMidiManager$Stub;->asInterface(Landroid/os/IBinder;)Landroid/media/midi/IMidiManager;
 
-    if-nez v1, :cond_0
+    move-result-object v2
 
-    const-string/jumbo v2, "SystemServiceRegistry"
+    invoke-direct {v1, v2}, Landroid/media/midi/MidiManager;-><init>(Landroid/media/midi/IMidiManager;)V
 
-    const-string/jumbo v3, "Failed to get hardwareproperties service."
-
-    invoke-static {v2, v3}, Landroid/util/Log;->wtf(Ljava/lang/String;Ljava/lang/String;)I
-
-    return-object v4
-
-    :cond_0
-    new-instance v2, Landroid/os/HardwarePropertiesManager;
-
-    invoke-direct {v2, p1, v1}, Landroid/os/HardwarePropertiesManager;-><init>(Landroid/content/Context;Landroid/os/IHardwarePropertiesManager;)V
-
-    return-object v2
+    return-object v1
 .end method
 
 .method public bridge synthetic createService(Landroid/app/ContextImpl;)Ljava/lang/Object;
     .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/ServiceManager$ServiceNotFoundException;
+        }
+    .end annotation
 
-    invoke-virtual {p0, p1}, Landroid/app/SystemServiceRegistry$83;->createService(Landroid/app/ContextImpl;)Landroid/os/HardwarePropertiesManager;
+    invoke-virtual {p0, p1}, Landroid/app/SystemServiceRegistry$83;->createService(Landroid/app/ContextImpl;)Landroid/media/midi/MidiManager;
 
     move-result-object v0
 

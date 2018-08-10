@@ -514,23 +514,23 @@
 .method private static getRccFlagForAction(J)I
     .locals 4
 
-    const/4 v1, 0x0
-
     const-wide/32 v2, 0x7fffffff
 
-    cmp-long v2, p0, v2
+    cmp-long v1, p0, v2
 
-    if-gez v2, :cond_0
+    if-gez v1, :cond_0
 
     long-to-int v0, p0
 
     :goto_0
     sparse-switch v0, :sswitch_data_0
 
+    const/4 v1, 0x0
+
     return v1
 
     :cond_0
-    move v0, v1
+    const/4 v0, 0x0
 
     goto :goto_0
 

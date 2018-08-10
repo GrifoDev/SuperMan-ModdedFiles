@@ -197,32 +197,30 @@
 .end method
 
 .method public hashCode()I
-    .locals 5
+    .locals 4
 
-    const/4 v1, 0x0
+    const/4 v3, 0x0
 
-    const/4 v4, 0x0
+    iget v1, p0, Landroid/graphics/PointF;->x:F
 
-    iget v2, p0, Landroid/graphics/PointF;->x:F
+    cmpl-float v1, v1, v3
 
-    cmpl-float v2, v2, v4
+    if-eqz v1, :cond_0
 
-    if-eqz v2, :cond_1
+    iget v1, p0, Landroid/graphics/PointF;->x:F
 
-    iget v2, p0, Landroid/graphics/PointF;->x:F
-
-    invoke-static {v2}, Ljava/lang/Float;->floatToIntBits(F)I
+    invoke-static {v1}, Ljava/lang/Float;->floatToIntBits(F)I
 
     move-result v0
 
     :goto_0
     mul-int/lit8 v2, v0, 0x1f
 
-    iget v3, p0, Landroid/graphics/PointF;->y:F
+    iget v1, p0, Landroid/graphics/PointF;->y:F
 
-    cmpl-float v3, v3, v4
+    cmpl-float v1, v1, v3
 
-    if-eqz v3, :cond_0
+    if-eqz v1, :cond_1
 
     iget v1, p0, Landroid/graphics/PointF;->y:F
 
@@ -230,15 +228,20 @@
 
     move-result v1
 
-    :cond_0
+    :goto_1
     add-int v0, v2, v1
 
     return v0
 
-    :cond_1
-    move v0, v1
+    :cond_0
+    const/4 v0, 0x0
 
     goto :goto_0
+
+    :cond_1
+    const/4 v1, 0x0
+
+    goto :goto_1
 .end method
 
 .method public final length()F

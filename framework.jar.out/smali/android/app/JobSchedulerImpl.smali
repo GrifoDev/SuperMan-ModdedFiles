@@ -58,6 +58,28 @@
     goto :goto_0
 .end method
 
+.method public enqueue(Landroid/app/job/JobInfo;Landroid/app/job/JobWorkItem;)I
+    .locals 2
+
+    :try_start_0
+    iget-object v1, p0, Landroid/app/JobSchedulerImpl;->mBinder:Landroid/app/job/IJobScheduler;
+
+    invoke-interface {v1, p1, p2}, Landroid/app/job/IJobScheduler;->enqueue(Landroid/app/job/JobInfo;Landroid/app/job/JobWorkItem;)I
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v1
+
+    return v1
+
+    :catch_0
+    move-exception v0
+
+    const/4 v1, 0x0
+
+    return v1
+.end method
+
 .method public getAllPendingJobs()Ljava/util/List;
     .locals 2
     .annotation system Ldalvik/annotation/Signature;

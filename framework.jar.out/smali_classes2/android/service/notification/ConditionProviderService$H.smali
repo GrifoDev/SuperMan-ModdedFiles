@@ -52,6 +52,17 @@
 
     const/4 v0, 0x0
 
+    iget-object v2, p0, Landroid/service/notification/ConditionProviderService$H;->this$0:Landroid/service/notification/ConditionProviderService;
+
+    invoke-static {v2}, Landroid/service/notification/ConditionProviderService;->-wrap0(Landroid/service/notification/ConditionProviderService;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_0
+
+    return-void
+
+    :cond_0
     :try_start_0
     iget v2, p1, Landroid/os/Message;->what:I
 
@@ -131,8 +142,6 @@
     .catch Ljava/lang/Throwable; {:try_start_1 .. :try_end_1} :catch_0
 
     goto :goto_0
-
-    nop
 
     :pswitch_data_0
     .packed-switch 0x1

@@ -1,61 +1,48 @@
-.class Lcom/android/internal/policy/DecorView$1;
-.super Ljava/lang/Object;
+.class final Lcom/android/internal/policy/DecorView$1;
+.super Landroid/view/ViewOutlineProvider;
 .source "DecorView.java"
-
-# interfaces
-.implements Ljava/lang/Runnable;
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/internal/policy/DecorView;->updateColorViewInt(Lcom/android/internal/policy/DecorView$ColorViewState;IIIZIZZ)V
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/android/internal/policy/DecorView;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x8
     name = null
 .end annotation
 
 
-# instance fields
-.field final synthetic this$0:Lcom/android/internal/policy/DecorView;
-
-.field final synthetic val$state:Lcom/android/internal/policy/DecorView$ColorViewState;
-
-
 # direct methods
-.method constructor <init>(Lcom/android/internal/policy/DecorView;Lcom/android/internal/policy/DecorView$ColorViewState;)V
+.method constructor <init>()V
     .locals 0
 
-    iput-object p1, p0, Lcom/android/internal/policy/DecorView$1;->this$0:Lcom/android/internal/policy/DecorView;
-
-    iput-object p2, p0, Lcom/android/internal/policy/DecorView$1;->val$state:Lcom/android/internal/policy/DecorView$ColorViewState;
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Landroid/view/ViewOutlineProvider;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public run()V
-    .locals 2
+.method public getOutline(Landroid/view/View;Landroid/graphics/Outline;)V
+    .locals 3
 
-    iget-object v0, p0, Lcom/android/internal/policy/DecorView$1;->val$state:Lcom/android/internal/policy/DecorView$ColorViewState;
+    const/4 v2, 0x0
 
-    iget-object v0, v0, Lcom/android/internal/policy/DecorView$ColorViewState;->view:Landroid/view/View;
+    invoke-virtual {p1}, Landroid/view/View;->getWidth()I
 
-    const/high16 v1, 0x3f800000    # 1.0f
+    move-result v0
 
-    invoke-virtual {v0, v1}, Landroid/view/View;->setAlpha(F)V
+    invoke-virtual {p1}, Landroid/view/View;->getHeight()I
 
-    iget-object v0, p0, Lcom/android/internal/policy/DecorView$1;->val$state:Lcom/android/internal/policy/DecorView$ColorViewState;
+    move-result v1
 
-    iget-object v0, v0, Lcom/android/internal/policy/DecorView$ColorViewState;->view:Landroid/view/View;
+    invoke-virtual {p2, v2, v2, v0, v1}, Landroid/graphics/Outline;->setRect(IIII)V
 
-    const/4 v1, 0x4
+    const/high16 v0, 0x3f800000    # 1.0f
 
-    invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
+    invoke-virtual {p2, v0}, Landroid/graphics/Outline;->setAlpha(F)V
 
     return-void
 .end method

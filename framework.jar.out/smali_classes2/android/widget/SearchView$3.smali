@@ -3,7 +3,7 @@
 .source "SearchView.java"
 
 # interfaces
-.implements Ljava/lang/Runnable;
+.implements Landroid/view/View$OnClickListener;
 
 
 # annotations
@@ -34,37 +34,82 @@
 
 
 # virtual methods
-.method public run()V
-    .locals 2
-
-    const/4 v1, 0x0
+.method public onClick(Landroid/view/View;)V
+    .locals 1
 
     iget-object v0, p0, Landroid/widget/SearchView$3;->this$0:Landroid/widget/SearchView;
 
-    invoke-static {v0}, Landroid/widget/SearchView;->-get7(Landroid/widget/SearchView;)Landroid/widget/CursorAdapter;
+    invoke-static {v0}, Landroid/widget/SearchView;->-get3(Landroid/widget/SearchView;)Landroid/widget/ImageView;
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-ne p1, v0, :cond_1
 
     iget-object v0, p0, Landroid/widget/SearchView$3;->this$0:Landroid/widget/SearchView;
 
-    invoke-static {v0}, Landroid/widget/SearchView;->-get7(Landroid/widget/SearchView;)Landroid/widget/CursorAdapter;
-
-    move-result-object v0
-
-    instance-of v0, v0, Landroid/widget/SuggestionsAdapter;
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Landroid/widget/SearchView$3;->this$0:Landroid/widget/SearchView;
-
-    invoke-static {v0}, Landroid/widget/SearchView;->-get7(Landroid/widget/SearchView;)Landroid/widget/CursorAdapter;
-
-    move-result-object v0
-
-    invoke-virtual {v0, v1}, Landroid/widget/CursorAdapter;->changeCursor(Landroid/database/Cursor;)V
+    invoke-static {v0}, Landroid/widget/SearchView;->-wrap7(Landroid/widget/SearchView;)V
 
     :cond_0
+    :goto_0
     return-void
+
+    :cond_1
+    iget-object v0, p0, Landroid/widget/SearchView$3;->this$0:Landroid/widget/SearchView;
+
+    invoke-static {v0}, Landroid/widget/SearchView;->-get0(Landroid/widget/SearchView;)Landroid/widget/ImageView;
+
+    move-result-object v0
+
+    if-ne p1, v0, :cond_2
+
+    iget-object v0, p0, Landroid/widget/SearchView$3;->this$0:Landroid/widget/SearchView;
+
+    invoke-static {v0}, Landroid/widget/SearchView;->-wrap6(Landroid/widget/SearchView;)V
+
+    goto :goto_0
+
+    :cond_2
+    iget-object v0, p0, Landroid/widget/SearchView$3;->this$0:Landroid/widget/SearchView;
+
+    invoke-static {v0}, Landroid/widget/SearchView;->-get1(Landroid/widget/SearchView;)Landroid/widget/ImageView;
+
+    move-result-object v0
+
+    if-ne p1, v0, :cond_3
+
+    iget-object v0, p0, Landroid/widget/SearchView$3;->this$0:Landroid/widget/SearchView;
+
+    invoke-static {v0}, Landroid/widget/SearchView;->-wrap8(Landroid/widget/SearchView;)V
+
+    goto :goto_0
+
+    :cond_3
+    iget-object v0, p0, Landroid/widget/SearchView$3;->this$0:Landroid/widget/SearchView;
+
+    invoke-static {v0}, Landroid/widget/SearchView;->-get8(Landroid/widget/SearchView;)Landroid/widget/ImageView;
+
+    move-result-object v0
+
+    if-ne p1, v0, :cond_4
+
+    iget-object v0, p0, Landroid/widget/SearchView$3;->this$0:Landroid/widget/SearchView;
+
+    invoke-static {v0}, Landroid/widget/SearchView;->-wrap10(Landroid/widget/SearchView;)V
+
+    goto :goto_0
+
+    :cond_4
+    iget-object v0, p0, Landroid/widget/SearchView$3;->this$0:Landroid/widget/SearchView;
+
+    invoke-static {v0}, Landroid/widget/SearchView;->-get4(Landroid/widget/SearchView;)Landroid/widget/SearchView$SearchAutoComplete;
+
+    move-result-object v0
+
+    if-ne p1, v0, :cond_0
+
+    iget-object v0, p0, Landroid/widget/SearchView$3;->this$0:Landroid/widget/SearchView;
+
+    invoke-static {v0}, Landroid/widget/SearchView;->-wrap4(Landroid/widget/SearchView;)V
+
+    goto :goto_0
 .end method

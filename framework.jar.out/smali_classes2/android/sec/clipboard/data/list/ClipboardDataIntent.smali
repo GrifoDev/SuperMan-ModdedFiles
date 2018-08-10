@@ -34,14 +34,12 @@
 
     invoke-direct {v1}, Lcom/samsung/android/content/clipboard/data/SemIntentClipData;-><init>()V
 
-    invoke-virtual {p0, v1}, Landroid/sec/clipboard/data/ClipboardData;->restoreBaseData(Lcom/samsung/android/content/clipboard/data/SemClipData;)V
+    invoke-virtual {p0, v1}, Landroid/sec/clipboard/data/list/ClipboardDataIntent;->restoreBaseData(Lcom/samsung/android/content/clipboard/data/SemClipData;)V
 
     :try_start_0
     move-object v0, v1
 
-    nop
-
-    nop
+    check-cast v0, Lcom/samsung/android/content/clipboard/data/SemIntentClipData;
 
     move-object v3, v0
 
@@ -62,7 +60,7 @@
     :catch_0
     move-exception v2
 
-    invoke-virtual {v2}, Ljava/lang/Throwable;->printStackTrace()V
+    invoke-virtual {v2}, Ljava/net/URISyntaxException;->printStackTrace()V
 
     const/4 v3, 0x0
 

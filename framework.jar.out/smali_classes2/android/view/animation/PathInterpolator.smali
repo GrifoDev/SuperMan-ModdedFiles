@@ -2,12 +2,32 @@
 .super Landroid/view/animation/BaseInterpolator;
 .source "PathInterpolator.java"
 
+# interfaces
+.implements Lcom/android/internal/view/animation/NativeInterpolatorFactory;
+
+
+# annotations
+.annotation runtime Lcom/android/internal/view/animation/HasNativeInterpolator;
+.end annotation
+
 
 # static fields
 .field private static final PRECISION:F = 0.002f
 
 
 # instance fields
+.field private mCubicSaved:Z
+
+.field private mCubicX:[F
+
+.field private mCubicY:[F
+
+.field private mQuadSaved:Z
+
+.field private mQuadX:F
+
+.field private mQuadY:F
+
 .field private mX:[F
 
 .field private mY:[F
@@ -15,9 +35,25 @@
 
 # direct methods
 .method public constructor <init>(FF)V
-    .locals 0
+    .locals 3
+
+    const/4 v2, 0x2
+
+    const/4 v1, 0x0
 
     invoke-direct {p0}, Landroid/view/animation/BaseInterpolator;-><init>()V
+
+    new-array v0, v2, [F
+
+    iput-object v0, p0, Landroid/view/animation/PathInterpolator;->mCubicX:[F
+
+    new-array v0, v2, [F
+
+    iput-object v0, p0, Landroid/view/animation/PathInterpolator;->mCubicY:[F
+
+    iput-boolean v1, p0, Landroid/view/animation/PathInterpolator;->mQuadSaved:Z
+
+    iput-boolean v1, p0, Landroid/view/animation/PathInterpolator;->mCubicSaved:Z
 
     invoke-direct {p0, p1, p2}, Landroid/view/animation/PathInterpolator;->initQuad(FF)V
 
@@ -25,9 +61,25 @@
 .end method
 
 .method public constructor <init>(FFFF)V
-    .locals 0
+    .locals 3
+
+    const/4 v2, 0x2
+
+    const/4 v1, 0x0
 
     invoke-direct {p0}, Landroid/view/animation/BaseInterpolator;-><init>()V
+
+    new-array v0, v2, [F
+
+    iput-object v0, p0, Landroid/view/animation/PathInterpolator;->mCubicX:[F
+
+    new-array v0, v2, [F
+
+    iput-object v0, p0, Landroid/view/animation/PathInterpolator;->mCubicY:[F
+
+    iput-boolean v1, p0, Landroid/view/animation/PathInterpolator;->mQuadSaved:Z
+
+    iput-boolean v1, p0, Landroid/view/animation/PathInterpolator;->mCubicSaved:Z
 
     invoke-direct {p0, p1, p2, p3, p4}, Landroid/view/animation/PathInterpolator;->initCubic(FFFF)V
 
@@ -51,11 +103,25 @@
 .end method
 
 .method public constructor <init>(Landroid/content/res/Resources;Landroid/content/res/Resources$Theme;Landroid/util/AttributeSet;)V
-    .locals 3
+    .locals 4
+
+    const/4 v3, 0x2
 
     const/4 v2, 0x0
 
     invoke-direct {p0}, Landroid/view/animation/BaseInterpolator;-><init>()V
+
+    new-array v1, v3, [F
+
+    iput-object v1, p0, Landroid/view/animation/PathInterpolator;->mCubicX:[F
+
+    new-array v1, v3, [F
+
+    iput-object v1, p0, Landroid/view/animation/PathInterpolator;->mCubicY:[F
+
+    iput-boolean v2, p0, Landroid/view/animation/PathInterpolator;->mQuadSaved:Z
+
+    iput-boolean v2, p0, Landroid/view/animation/PathInterpolator;->mCubicSaved:Z
 
     if-eqz p2, :cond_0
 
@@ -89,9 +155,25 @@
 .end method
 
 .method public constructor <init>(Landroid/graphics/Path;)V
-    .locals 0
+    .locals 3
+
+    const/4 v2, 0x2
+
+    const/4 v1, 0x0
 
     invoke-direct {p0}, Landroid/view/animation/BaseInterpolator;-><init>()V
+
+    new-array v0, v2, [F
+
+    iput-object v0, p0, Landroid/view/animation/PathInterpolator;->mCubicX:[F
+
+    new-array v0, v2, [F
+
+    iput-object v0, p0, Landroid/view/animation/PathInterpolator;->mCubicY:[F
+
+    iput-boolean v1, p0, Landroid/view/animation/PathInterpolator;->mQuadSaved:Z
+
+    iput-boolean v1, p0, Landroid/view/animation/PathInterpolator;->mCubicSaved:Z
 
     invoke-direct {p0, p1}, Landroid/view/animation/PathInterpolator;->initPath(Landroid/graphics/Path;)V
 
@@ -99,11 +181,15 @@
 .end method
 
 .method private initCubic(FFFF)V
-    .locals 7
+    .locals 9
+
+    const/4 v8, 0x0
 
     const/high16 v5, 0x3f800000    # 1.0f
 
     const/4 v1, 0x0
+
+    const/4 v7, 0x1
 
     new-instance v0, Landroid/graphics/Path;
 
@@ -123,17 +209,31 @@
 
     invoke-virtual/range {v0 .. v6}, Landroid/graphics/Path;->cubicTo(FFFFFF)V
 
+    iget-object v1, p0, Landroid/view/animation/PathInterpolator;->mCubicX:[F
+
+    aput p1, v1, v8
+
+    iget-object v1, p0, Landroid/view/animation/PathInterpolator;->mCubicY:[F
+
+    aput p2, v1, v8
+
+    iget-object v1, p0, Landroid/view/animation/PathInterpolator;->mCubicX:[F
+
+    aput p3, v1, v7
+
+    iget-object v1, p0, Landroid/view/animation/PathInterpolator;->mCubicY:[F
+
+    aput p4, v1, v7
+
+    iput-boolean v7, p0, Landroid/view/animation/PathInterpolator;->mCubicSaved:Z
+
     invoke-direct {p0, v0}, Landroid/view/animation/PathInterpolator;->initPath(Landroid/graphics/Path;)V
 
     return-void
 .end method
 
 .method private initPath(Landroid/graphics/Path;)V
-    .locals 13
-
-    const/high16 v12, 0x3f800000    # 1.0f
-
-    const/4 v11, 0x0
+    .locals 14
 
     const v10, 0x3b03126f    # 0.002f
 
@@ -149,6 +249,8 @@
 
     aget v10, v5, v10
 
+    const/4 v11, 0x0
+
     cmpl-float v10, v10, v11
 
     if-nez v10, :cond_0
@@ -157,18 +259,57 @@
 
     aget v10, v5, v10
 
+    const/4 v11, 0x0
+
     cmpl-float v10, v10, v11
 
     if-eqz v10, :cond_1
 
     :cond_0
-    new-instance v10, Ljava/lang/IllegalArgumentException;
+    const/4 v3, 0x0
 
-    const-string/jumbo v11, "The Path must start at (0,0) and end at (1,1)"
+    :goto_0
+    array-length v10, v5
 
-    invoke-direct {v10, v11}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    if-ge v3, v10, :cond_2
 
-    throw v10
+    const-string/jumbo v10, "PathInterpolator"
+
+    new-instance v11, Ljava/lang/StringBuilder;
+
+    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v12, "initPath: pointComponents["
+
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v11
+
+    invoke-virtual {v11, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v11
+
+    const-string/jumbo v12, "] = "
+
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v11
+
+    aget v12, v5, v3
+
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+
+    move-result-object v11
+
+    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v11
+
+    invoke-static {v10, v11}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    add-int/lit8 v3, v3, 0x1
+
+    goto :goto_0
 
     :cond_1
     array-length v10, v5
@@ -177,7 +318,9 @@
 
     aget v10, v5, v10
 
-    cmpl-float v10, v10, v12
+    const/high16 v11, 0x3f800000    # 1.0f
+
+    cmpl-float v10, v10, v11
 
     if-nez v10, :cond_0
 
@@ -187,7 +330,9 @@
 
     aget v10, v5, v10
 
-    cmpl-float v10, v10, v12
+    const/high16 v11, 0x3f800000    # 1.0f
+
+    cmpl-float v10, v10, v11
 
     if-nez v10, :cond_0
 
@@ -209,8 +354,8 @@
 
     move v1, v0
 
-    :goto_0
-    if-ge v3, v4, :cond_4
+    :goto_1
+    if-ge v3, v4, :cond_7
 
     add-int/lit8 v0, v1, 0x1
 
@@ -226,11 +371,11 @@
 
     cmpl-float v10, v2, v6
 
-    if-nez v10, :cond_2
+    if-nez v10, :cond_5
 
     cmpl-float v10, v8, v7
 
-    if-eqz v10, :cond_2
+    if-eqz v10, :cond_5
 
     new-instance v10, Ljava/lang/IllegalArgumentException;
 
@@ -241,9 +386,140 @@
     throw v10
 
     :cond_2
+    iget-boolean v10, p0, Landroid/view/animation/PathInterpolator;->mQuadSaved:Z
+
+    if-eqz v10, :cond_3
+
+    const-string/jumbo v10, "PathInterpolator"
+
+    new-instance v11, Ljava/lang/StringBuilder;
+
+    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v12, "initPath: mQuadX = "
+
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v11
+
+    iget v12, p0, Landroid/view/animation/PathInterpolator;->mQuadX:F
+
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+
+    move-result-object v11
+
+    const-string/jumbo v12, ", mQuadY = "
+
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v11
+
+    iget v12, p0, Landroid/view/animation/PathInterpolator;->mQuadY:F
+
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+
+    move-result-object v11
+
+    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v11
+
+    invoke-static {v10, v11}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_3
+    iget-boolean v10, p0, Landroid/view/animation/PathInterpolator;->mCubicSaved:Z
+
+    if-eqz v10, :cond_4
+
+    const-string/jumbo v10, "PathInterpolator"
+
+    new-instance v11, Ljava/lang/StringBuilder;
+
+    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v12, "initPath: mCubicX[0] = "
+
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v11
+
+    iget-object v12, p0, Landroid/view/animation/PathInterpolator;->mCubicX:[F
+
+    const/4 v13, 0x0
+
+    aget v12, v12, v13
+
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+
+    move-result-object v11
+
+    const-string/jumbo v12, ", mCubicY[0] = "
+
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v11
+
+    iget-object v12, p0, Landroid/view/animation/PathInterpolator;->mCubicY:[F
+
+    const/4 v13, 0x0
+
+    aget v12, v12, v13
+
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+
+    move-result-object v11
+
+    const-string/jumbo v12, ", mCubicX[1] = "
+
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v11
+
+    iget-object v12, p0, Landroid/view/animation/PathInterpolator;->mCubicX:[F
+
+    const/4 v13, 0x1
+
+    aget v12, v12, v13
+
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+
+    move-result-object v11
+
+    const-string/jumbo v12, ", mCubicY[1] = "
+
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v11
+
+    iget-object v12, p0, Landroid/view/animation/PathInterpolator;->mCubicY:[F
+
+    const/4 v13, 0x1
+
+    aget v12, v12, v13
+
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+
+    move-result-object v11
+
+    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v11
+
+    invoke-static {v10, v11}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_4
+    new-instance v10, Ljava/lang/IllegalArgumentException;
+
+    const-string/jumbo v11, "The Path must start at (0,0) and end at (1,1)"
+
+    invoke-direct {v10, v11}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v10
+
+    :cond_5
     cmpg-float v10, v8, v7
 
-    if-gez v10, :cond_3
+    if-gez v10, :cond_6
 
     new-instance v10, Ljava/lang/IllegalArgumentException;
 
@@ -253,7 +529,7 @@
 
     throw v10
 
-    :cond_3
+    :cond_6
     iget-object v10, p0, Landroid/view/animation/PathInterpolator;->mX:[F
 
     aput v8, v10, v3
@@ -270,9 +546,9 @@
 
     move v1, v0
 
-    goto :goto_0
+    goto/16 :goto_1
 
-    :cond_4
+    :cond_7
     return-void
 .end method
 
@@ -290,6 +566,14 @@
     invoke-virtual {v0, v1, v1}, Landroid/graphics/Path;->moveTo(FF)V
 
     invoke-virtual {v0, p1, p2, v2, v2}, Landroid/graphics/Path;->quadTo(FFFF)V
+
+    iput p1, p0, Landroid/view/animation/PathInterpolator;->mQuadX:F
+
+    iput p2, p0, Landroid/view/animation/PathInterpolator;->mQuadY:F
+
+    const/4 v1, 0x1
+
+    iput-boolean v1, p0, Landroid/view/animation/PathInterpolator;->mQuadSaved:Z
 
     invoke-direct {p0, v0}, Landroid/view/animation/PathInterpolator;->initPath(Landroid/graphics/Path;)V
 
@@ -439,6 +723,20 @@
 
 
 # virtual methods
+.method public createNativeInterpolator()J
+    .locals 2
+
+    iget-object v0, p0, Landroid/view/animation/PathInterpolator;->mX:[F
+
+    iget-object v1, p0, Landroid/view/animation/PathInterpolator;->mY:[F
+
+    invoke-static {v0, v1}, Lcom/android/internal/view/animation/NativeInterpolatorFactoryHelper;->createPathInterpolator([F[F)J
+
+    move-result-wide v0
+
+    return-wide v0
+.end method
+
 .method public getInterpolation(F)F
     .locals 11
 

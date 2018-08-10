@@ -223,7 +223,7 @@
 
     move-result-object v1
 
-    invoke-virtual {v1}, Landroid/content/ContextWrapper;->getApplicationContext()Landroid/content/Context;
+    invoke-virtual {v1}, Landroid/app/Application;->getApplicationContext()Landroid/content/Context;
 
     move-result-object v0
 
@@ -277,17 +277,30 @@
 
     move-result v1
 
-    if-ge v10, v1, :cond_6
+    if-ge v10, v1, :cond_5
 
     if-eqz v15, :cond_2
 
     const-string/jumbo v1, ""
 
-    if-ne v15, v1, :cond_5
+    invoke-virtual {v1, v15}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_2
+
+    const/4 v1, 0x1
+
+    if-ne v12, v1, :cond_3
 
     :cond_2
-    :goto_1
-    invoke-virtual {v13, v10}, Landroid/telephony/TelephonyManager;->getNetworkOperator(I)Ljava/lang/String;
+    move-object/from16 v0, p0
+
+    invoke-static {v0, v10}, Lcom/samsung/android/emergencymode/SemEmergencySettings;->getSubId(Landroid/content/Context;I)I
+
+    move-result v1
+
+    invoke-virtual {v13, v1}, Landroid/telephony/TelephonyManager;->getNetworkOperator(I)Ljava/lang/String;
 
     move-result-object v15
 
@@ -308,13 +321,6 @@
     goto :goto_0
 
     :cond_5
-    const/4 v1, 0x1
-
-    if-ne v12, v1, :cond_3
-
-    goto :goto_1
-
-    :cond_6
     const/4 v1, 0x0
 
     const/4 v2, 0x3
@@ -393,13 +399,13 @@
 
     move-result-object v8
 
-    if-eqz v8, :cond_7
+    if-eqz v8, :cond_6
 
     invoke-interface {v8}, Landroid/database/Cursor;->getCount()I
 
     move-result v1
 
-    if-lez v1, :cond_7
+    if-lez v1, :cond_6
 
     invoke-interface {v8}, Landroid/database/Cursor;->moveToFirst()Z
 
@@ -413,20 +419,22 @@
 
     move-result-object v1
 
-    invoke-static {v1, v11}, Lcom/samsung/android/emergencymode/SemEmergencySettings;->makeEmergencyNumber(Ljava/lang/String;Z)Ljava/lang/String;
+    move-object/from16 v0, p0
+
+    invoke-static {v0, v1, v11}, Lcom/samsung/android/emergencymode/SemEmergencySettings;->makeEmergencyNumber(Landroid/content/Context;Ljava/lang/String;Z)Ljava/lang/String;
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result-object v16
 
-    :cond_7
-    if-eqz v8, :cond_8
+    :cond_6
+    if-eqz v8, :cond_7
 
     invoke-interface {v8}, Landroid/database/Cursor;->close()V
 
-    :cond_8
-    if-nez v16, :cond_9
+    :cond_7
+    if-nez v16, :cond_8
 
     const-string/jumbo v1, "SemEmergencySettings"
 
@@ -446,18 +454,18 @@
 
     move-result v1
 
-    if-eqz v1, :cond_a
+    if-eqz v1, :cond_9
 
     const-string/jumbo v16, "119"
 
-    :cond_9
-    :goto_2
+    :cond_8
+    :goto_1
     return-object v16
 
-    :cond_a
+    :cond_9
     const-string/jumbo v16, "911"
 
-    goto :goto_2
+    goto :goto_1
 
     :catch_0
     move-exception v9
@@ -487,11 +495,11 @@
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    if-eqz v8, :cond_b
+    if-eqz v8, :cond_a
 
     invoke-interface {v8}, Landroid/database/Cursor;->close()V
 
-    :cond_b
+    :cond_a
     const-string/jumbo v1, "SemEmergencySettings"
 
     const-string/jumbo v2, "getEmergencyNumber not found emergency number!"
@@ -510,25 +518,25 @@
 
     move-result v1
 
-    if-eqz v1, :cond_c
+    if-eqz v1, :cond_b
 
     const-string/jumbo v16, "119"
 
-    goto :goto_2
+    goto :goto_1
 
-    :cond_c
+    :cond_b
     const-string/jumbo v16, "911"
 
-    goto :goto_2
+    goto :goto_1
 
     :catchall_0
     move-exception v1
 
-    if-eqz v8, :cond_d
+    if-eqz v8, :cond_c
 
     invoke-interface {v8}, Landroid/database/Cursor;->close()V
 
-    :cond_d
+    :cond_c
     const-string/jumbo v2, "SemEmergencySettings"
 
     const-string/jumbo v3, "getEmergencyNumber not found emergency number!"
@@ -547,17 +555,17 @@
 
     move-result v2
 
-    if-eqz v2, :cond_e
+    if-eqz v2, :cond_d
 
     const-string/jumbo v16, "119"
 
-    :goto_3
+    :goto_2
     throw v1
 
-    :cond_e
+    :cond_d
     const-string/jumbo v16, "911"
 
-    goto :goto_3
+    goto :goto_2
 .end method
 
 .method public static getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
@@ -663,92 +671,85 @@
     return-object v0
 .end method
 
-.method private static isPossibleNormalCall()Z
-    .locals 8
+.method private static getSubId(Landroid/content/Context;I)I
+    .locals 3
 
-    const/4 v3, 0x0
+    invoke-static {p0}, Landroid/telephony/SubscriptionManager;->from(Landroid/content/Context;)Landroid/telephony/SubscriptionManager;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_0
+
+    invoke-virtual {v1, p1}, Landroid/telephony/SubscriptionManager;->getActiveSubscriptionInfoForSimSlotIndex(I)Landroid/telephony/SubscriptionInfo;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {v0}, Landroid/telephony/SubscriptionInfo;->getSubscriptionId()I
+
+    move-result v2
+
+    return v2
+
+    :cond_0
+    const/4 v2, 0x0
+
+    return v2
+.end method
+
+.method private static isPossibleNormalCall(Landroid/content/Context;)Z
+    .locals 4
+
+    const/4 v1, 0x0
 
     :try_start_0
-    const-string/jumbo v5, "phone"
+    const-string/jumbo v3, "phone"
 
-    invoke-static {v5}, Landroid/os/ServiceManager;->checkService(Ljava/lang/String;)Landroid/os/IBinder;
-
-    move-result-object v5
-
-    invoke-static {v5}, Lcom/android/internal/telephony/ITelephony$Stub;->asInterface(Landroid/os/IBinder;)Lcom/android/internal/telephony/ITelephony;
+    invoke-virtual {p0, v3}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v2
 
-    if-eqz v2, :cond_0
+    check-cast v2, Landroid/telephony/TelephonyManager;
 
-    invoke-interface {v2}, Lcom/android/internal/telephony/ITelephony;->getServiceState()I
+    invoke-virtual {v2}, Landroid/telephony/TelephonyManager;->getServiceState()Landroid/telephony/ServiceState;
 
-    move-result v4
+    move-result-object v3
 
-    const-string/jumbo v5, "SemEmergencySettings"
-
-    new-instance v6, Ljava/lang/StringBuilder;
-
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v7, "serviceState : "
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-static {v5, v6}, Lcom/samsung/android/emergencymode/Elog;->d(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v3}, Landroid/telephony/ServiceState;->getState()I
     :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_1
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    if-nez v4, :cond_0
+    move-result v3
 
-    const/4 v3, 0x1
+    if-nez v3, :cond_0
+
+    const/4 v1, 0x1
 
     :cond_0
-    return v3
+    return v1
 
     :catch_0
-    move-exception v1
-
-    :try_start_1
-    invoke-virtual {v1}, Ljava/lang/Throwable;->printStackTrace()V
-
-    return v3
-
-    :catch_1
     move-exception v0
 
-    const-string/jumbo v5, "SemEmergencySettings"
-
-    const-string/jumbo v6, "Failed to clear missed calls notification due to remote exception"
-
-    invoke-static {v5, v6}, Lcom/samsung/android/emergencymode/Elog;->d(Ljava/lang/String;Ljava/lang/String;)V
+    :try_start_1
+    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    return v3
+    return v1
 
     :catchall_0
-    move-exception v5
+    move-exception v3
 
-    return v3
+    return v1
 .end method
 
-.method private static makeEmergencyNumber(Ljava/lang/String;Z)Ljava/lang/String;
+.method private static makeEmergencyNumber(Landroid/content/Context;Ljava/lang/String;Z)Ljava/lang/String;
     .locals 3
 
-    invoke-static {p0}, Landroid/telephony/PhoneNumberUtils;->isEmergencyNumber(Ljava/lang/String;)Z
+    invoke-static {p1}, Landroid/telephony/PhoneNumberUtils;->isEmergencyNumber(Ljava/lang/String;)Z
 
     move-result v0
 
@@ -760,12 +761,12 @@
 
     invoke-static {v0, v1}, Lcom/samsung/android/emergencymode/Elog;->d(Ljava/lang/String;Ljava/lang/String;)V
 
-    return-object p0
+    return-object p1
 
     :cond_0
-    if-eqz p1, :cond_1
+    if-eqz p2, :cond_1
 
-    invoke-static {}, Lcom/samsung/android/emergencymode/SemEmergencySettings;->isPossibleNormalCall()Z
+    invoke-static {p0}, Lcom/samsung/android/emergencymode/SemEmergencySettings;->isPossibleNormalCall(Landroid/content/Context;)Z
 
     move-result v0
 
@@ -777,7 +778,7 @@
 
     invoke-static {v0, v1}, Lcom/samsung/android/emergencymode/Elog;->d(Ljava/lang/String;Ljava/lang/String;)V
 
-    return-object p0
+    return-object p1
 
     :cond_1
     const-string/jumbo v0, "SemEmergencySettings"
@@ -792,7 +793,7 @@
 
     move-result-object v1
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
     move-result-object v1
 

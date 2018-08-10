@@ -151,6 +151,14 @@
     .end annotation
 .end method
 
+.method public abstract registerVoiceInteractionSessionListener(Lcom/android/internal/app/IVoiceInteractionSessionListener;)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract setDisabledShowContext(I)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -184,6 +192,14 @@
 .end method
 
 .method public abstract showSessionFromSession(Landroid/os/IBinder;Landroid/os/Bundle;I)Z
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract startAssistantActivity(Landroid/os/IBinder;Landroid/content/Intent;Ljava/lang/String;)I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

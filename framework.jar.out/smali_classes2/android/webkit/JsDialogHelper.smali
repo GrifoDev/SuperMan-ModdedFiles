@@ -76,7 +76,7 @@
 
     const-string/jumbo v1, "default"
 
-    invoke-virtual {v0, v1}, Landroid/os/BaseBundle;->getString(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v0, v1}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -88,7 +88,7 @@
 
     const-string/jumbo v1, "message"
 
-    invoke-virtual {v0, v1}, Landroid/os/BaseBundle;->getString(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v0, v1}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -100,7 +100,7 @@
 
     const-string/jumbo v1, "type"
 
-    invoke-virtual {v0, v1}, Landroid/os/BaseBundle;->getInt(Ljava/lang/String;)I
+    invoke-virtual {v0, v1}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
 
     move-result v0
 
@@ -112,7 +112,7 @@
 
     const-string/jumbo v1, "url"
 
-    invoke-virtual {v0, v1}, Landroid/os/BaseBundle;->getString(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v0, v1}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -142,7 +142,7 @@
 
     if-eqz v3, :cond_0
 
-    const v3, 0x10402f4
+    const v3, 0x104043b
 
     invoke-virtual {p1, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -197,7 +197,7 @@
 
     aput-object v4, v3, v5
 
-    const v4, 0x10402f3
+    const v4, 0x104043a
 
     invoke-virtual {p1, v4, v3}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
     :try_end_0
@@ -338,7 +338,7 @@
 
     iget-object v7, p0, Landroid/webkit/JsDialogHelper;->mResult:Landroid/webkit/JsPromptResult;
 
-    invoke-virtual {v7}, Landroid/webkit/JsResult;->cancel()V
+    invoke-virtual {v7}, Landroid/webkit/JsPromptResult;->cancel()V
 
     return-void
 
@@ -349,7 +349,7 @@
 
     if-ne v7, v8, :cond_2
 
-    const v7, 0x10402f5
+    const v7, 0x1040439
 
     invoke-virtual {p1, v7}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -363,15 +363,15 @@
 
     aput-object v8, v7, v9
 
-    const v8, 0x10402f8
+    const v8, 0x1040436
 
     invoke-virtual {p1, v8, v7}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v1
 
-    const v4, 0x10402f6
+    const v4, 0x1040438
 
-    const v3, 0x10402f7
+    const v3, 0x1040437
 
     :goto_0
     new-instance v0, Landroid/app/AlertDialog$Builder;
@@ -434,13 +434,13 @@
 
     move-result-object v7
 
-    const v8, 0x109007f
+    const v8, 0x1090082
 
     invoke-virtual {v7, v8, v10}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
     move-result-object v6
 
-    const v7, 0x1020400
+    const v7, 0x102057b
 
     invoke-virtual {v6, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -450,7 +450,7 @@
 
     iget-object v7, p0, Landroid/webkit/JsDialogHelper;->mDefaultValue:Ljava/lang/String;
 
-    invoke-virtual {v2, v7}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+    invoke-virtual {v2, v7}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
 
     new-instance v7, Landroid/webkit/JsDialogHelper$PositiveListener;
 

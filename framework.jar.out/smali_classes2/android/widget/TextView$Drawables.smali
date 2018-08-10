@@ -98,58 +98,59 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 4
-
-    const/4 v1, 0x1
-
-    const/4 v2, 0x0
+    .locals 2
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    new-instance v3, Landroid/graphics/Rect;
+    new-instance v1, Landroid/graphics/Rect;
 
-    invoke-direct {v3}, Landroid/graphics/Rect;-><init>()V
+    invoke-direct {v1}, Landroid/graphics/Rect;-><init>()V
 
-    iput-object v3, p0, Landroid/widget/TextView$Drawables;->mCompoundRect:Landroid/graphics/Rect;
+    iput-object v1, p0, Landroid/widget/TextView$Drawables;->mCompoundRect:Landroid/graphics/Rect;
 
-    const/4 v3, 0x4
+    const/4 v1, 0x4
 
-    new-array v3, v3, [Landroid/graphics/drawable/Drawable;
+    new-array v1, v1, [Landroid/graphics/drawable/Drawable;
 
-    iput-object v3, p0, Landroid/widget/TextView$Drawables;->mShowing:[Landroid/graphics/drawable/Drawable;
+    iput-object v1, p0, Landroid/widget/TextView$Drawables;->mShowing:[Landroid/graphics/drawable/Drawable;
 
-    const/4 v3, -0x1
+    const/4 v1, -0x1
 
-    iput v3, p0, Landroid/widget/TextView$Drawables;->mDrawableSaved:I
-
-    invoke-virtual {p1}, Landroid/content/Context;->getApplicationInfo()Landroid/content/pm/ApplicationInfo;
-
-    move-result-object v3
-
-    iget v0, v3, Landroid/content/pm/ApplicationInfo;->targetSdkVersion:I
-
-    const/16 v3, 0x11
-
-    if-lt v0, v3, :cond_0
+    iput v1, p0, Landroid/widget/TextView$Drawables;->mDrawableSaved:I
 
     invoke-virtual {p1}, Landroid/content/Context;->getApplicationInfo()Landroid/content/pm/ApplicationInfo;
 
-    move-result-object v3
+    move-result-object v1
 
-    invoke-virtual {v3}, Landroid/content/pm/ApplicationInfo;->hasRtlSupport()Z
+    iget v0, v1, Landroid/content/pm/ApplicationInfo;->targetSdkVersion:I
 
-    move-result v3
+    const/16 v1, 0x11
 
-    if-eqz v3, :cond_0
+    if-lt v0, v1, :cond_0
 
-    move v1, v2
+    invoke-virtual {p1}, Landroid/content/Context;->getApplicationInfo()Landroid/content/pm/ApplicationInfo;
 
-    :cond_0
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/content/pm/ApplicationInfo;->hasRtlSupport()Z
+
+    move-result v1
+
+    xor-int/lit8 v1, v1, 0x1
+
+    :goto_0
     iput-boolean v1, p0, Landroid/widget/TextView$Drawables;->mIsRtlCompatibilityMode:Z
 
-    iput-boolean v2, p0, Landroid/widget/TextView$Drawables;->mOverride:Z
+    const/4 v1, 0x0
+
+    iput-boolean v1, p0, Landroid/widget/TextView$Drawables;->mOverride:Z
 
     return-void
+
+    :cond_0
+    const/4 v1, 0x1
+
+    goto :goto_0
 .end method
 
 .method private applyErrorDrawableIfNeeded(I)V

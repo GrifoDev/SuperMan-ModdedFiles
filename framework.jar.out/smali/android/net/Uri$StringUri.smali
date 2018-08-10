@@ -343,6 +343,7 @@
         0x23 -> :sswitch_0
         0x2f -> :sswitch_0
         0x3f -> :sswitch_0
+        0x5c -> :sswitch_0
     .end sparse-switch
 .end method
 
@@ -512,6 +513,7 @@
         0x23 -> :sswitch_0
         0x2f -> :sswitch_1
         0x3f -> :sswitch_0
+        0x5c -> :sswitch_1
     .end sparse-switch
 
     :sswitch_data_1

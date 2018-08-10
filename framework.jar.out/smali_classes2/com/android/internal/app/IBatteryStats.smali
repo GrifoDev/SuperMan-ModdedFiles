@@ -71,7 +71,39 @@
     .end annotation
 .end method
 
-.method public abstract noteBleScanStarted(Landroid/os/WorkSource;)V
+.method public abstract noteAodService(Z)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract noteBleDutyScanStarted(Landroid/os/WorkSource;ZI)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract noteBleDutyScanStopped(Landroid/os/WorkSource;I)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract noteBleScanResults(Landroid/os/WorkSource;I)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract noteBleScanStarted(Landroid/os/WorkSource;Z)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -192,6 +224,22 @@
 .end method
 
 .method public abstract noteJobStart(Ljava/lang/String;I)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract noteLongPartialWakelockFinish(Ljava/lang/String;Ljava/lang/String;I)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract noteLongPartialWakelockStart(Ljava/lang/String;Ljava/lang/String;I)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -647,7 +695,7 @@
     .end annotation
 .end method
 
-.method public abstract setBatteryState(IIIIIIII)V
+.method public abstract setBatteryState(IIIIIIIIIII)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

@@ -10,6 +10,9 @@
 .annotation system Ldalvik/annotation/AnnotationDefault;
     value = .subannotation Landroid/annotation/IntDef;
         flag = false
+        prefix = {
+            ""
+        }
         value = {}
     .end subannotation
 .end annotation
@@ -27,6 +30,9 @@
 
 # virtual methods
 .method public abstract flag()Z
+.end method
+
+.method public abstract prefix()[Ljava/lang/String;
 .end method
 
 .method public abstract value()[J

@@ -37,7 +37,17 @@
 
 
 # direct methods
-.method static synthetic -wrap0(Lcom/android/internal/telephony/CallerInfoAsyncQuery;)V
+.method static synthetic -wrap0(Landroid/net/Uri;)Ljava/lang/String;
+    .locals 1
+
+    invoke-static {p0}, Lcom/android/internal/telephony/CallerInfoAsyncQuery;->sanitizeUriToString(Landroid/net/Uri;)Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method static synthetic -wrap1(Lcom/android/internal/telephony/CallerInfoAsyncQuery;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/internal/telephony/CallerInfoAsyncQuery;->release()V
@@ -432,7 +442,7 @@
     return-object v8
 
     :cond_0
-    invoke-static {p5, p2}, Landroid/telephony/PhoneNumberUtils;->isVoiceMailNumber(ILjava/lang/String;)Z
+    invoke-static {p1, p5, p2}, Landroid/telephony/PhoneNumberUtils;->isVoiceMailNumber(Landroid/content/Context;ILjava/lang/String;)Z
 
     move-result v0
 

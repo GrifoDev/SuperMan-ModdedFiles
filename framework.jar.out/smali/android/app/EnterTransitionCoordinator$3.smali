@@ -3,12 +3,12 @@
 .source "EnterTransitionCoordinator.java"
 
 # interfaces
-.implements Landroid/view/ViewTreeObserver$OnPreDrawListener;
+.implements Landroid/app/SharedElementCallback$OnSharedElementsReadyListener;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Landroid/app/EnterTransitionCoordinator;->sendSharedElementDestination()V
+    value = Landroid/app/EnterTransitionCoordinator;->onTakeSharedElements()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,16 +20,16 @@
 # instance fields
 .field final synthetic this$0:Landroid/app/EnterTransitionCoordinator;
 
-.field final synthetic val$decorView:Landroid/view/View;
+.field final synthetic val$sharedElementState:Landroid/os/Bundle;
 
 
 # direct methods
-.method constructor <init>(Landroid/app/EnterTransitionCoordinator;Landroid/view/View;)V
+.method constructor <init>(Landroid/app/EnterTransitionCoordinator;Landroid/os/Bundle;)V
     .locals 0
 
     iput-object p1, p0, Landroid/app/EnterTransitionCoordinator$3;->this$0:Landroid/app/EnterTransitionCoordinator;
 
-    iput-object p2, p0, Landroid/app/EnterTransitionCoordinator$3;->val$decorView:Landroid/view/View;
+    iput-object p2, p0, Landroid/app/EnterTransitionCoordinator$3;->val$sharedElementState:Landroid/os/Bundle;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -38,43 +38,53 @@
 
 
 # virtual methods
-.method public onPreDraw()Z
+.method synthetic lambda$-android_app_EnterTransitionCoordinator$3_18819(Landroid/os/Bundle;)V
+    .locals 2
+
+    iget-object v0, p0, Landroid/app/EnterTransitionCoordinator$3;->this$0:Landroid/app/EnterTransitionCoordinator;
+
+    new-instance v1, Landroid/app/-$Lambda$CsyQO--8YdRe5wlajUCi-L98enA$1;
+
+    invoke-direct {v1, p0, p1}, Landroid/app/-$Lambda$CsyQO--8YdRe5wlajUCi-L98enA$1;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
+
+    invoke-virtual {v0, v1}, Landroid/app/EnterTransitionCoordinator;->startTransition(Ljava/lang/Runnable;)V
+
+    return-void
+.end method
+
+.method synthetic lambda$-android_app_EnterTransitionCoordinator$3_18867(Landroid/os/Bundle;)V
+    .locals 1
+
+    iget-object v0, p0, Landroid/app/EnterTransitionCoordinator$3;->this$0:Landroid/app/EnterTransitionCoordinator;
+
+    invoke-static {v0, p1}, Landroid/app/EnterTransitionCoordinator;->-wrap4(Landroid/app/EnterTransitionCoordinator;Landroid/os/Bundle;)V
+
+    return-void
+.end method
+
+.method public onSharedElementsReady()V
     .locals 3
 
-    iget-object v1, p0, Landroid/app/EnterTransitionCoordinator$3;->val$decorView:Landroid/view/View;
-
-    invoke-virtual {v1}, Landroid/view/View;->getViewTreeObserver()Landroid/view/ViewTreeObserver;
-
-    move-result-object v1
-
-    invoke-virtual {v1, p0}, Landroid/view/ViewTreeObserver;->removeOnPreDrawListener(Landroid/view/ViewTreeObserver$OnPreDrawListener;)V
-
     iget-object v1, p0, Landroid/app/EnterTransitionCoordinator$3;->this$0:Landroid/app/EnterTransitionCoordinator;
 
-    iget-object v1, v1, Landroid/app/ActivityTransitionCoordinator;->mResultReceiver:Landroid/os/ResultReceiver;
-
-    if-eqz v1, :cond_0
-
-    iget-object v1, p0, Landroid/app/EnterTransitionCoordinator$3;->this$0:Landroid/app/EnterTransitionCoordinator;
-
-    invoke-virtual {v1}, Landroid/app/ActivityTransitionCoordinator;->captureSharedElementState()Landroid/os/Bundle;
+    invoke-virtual {v1}, Landroid/app/EnterTransitionCoordinator;->getDecor()Landroid/view/ViewGroup;
 
     move-result-object v0
 
-    iget-object v1, p0, Landroid/app/EnterTransitionCoordinator$3;->this$0:Landroid/app/EnterTransitionCoordinator;
+    if-eqz v0, :cond_0
 
-    invoke-virtual {v1}, Landroid/app/ActivityTransitionCoordinator;->moveSharedElementsToOverlay()V
+    new-instance v1, Landroid/app/-$Lambda$CsyQO--8YdRe5wlajUCi-L98enA$2;
 
-    iget-object v1, p0, Landroid/app/EnterTransitionCoordinator$3;->this$0:Landroid/app/EnterTransitionCoordinator;
+    iget-object v2, p0, Landroid/app/EnterTransitionCoordinator$3;->val$sharedElementState:Landroid/os/Bundle;
 
-    iget-object v1, v1, Landroid/app/ActivityTransitionCoordinator;->mResultReceiver:Landroid/os/ResultReceiver;
+    invoke-direct {v1, p0, v2}, Landroid/app/-$Lambda$CsyQO--8YdRe5wlajUCi-L98enA$2;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    const/16 v2, 0x6b
+    const/4 v2, 0x0
 
-    invoke-virtual {v1, v2, v0}, Landroid/os/ResultReceiver;->send(ILandroid/os/Bundle;)V
+    invoke-static {v0, v2, v1}, Lcom/android/internal/view/OneShotPreDrawListener;->add(Landroid/view/View;ZLjava/lang/Runnable;)Lcom/android/internal/view/OneShotPreDrawListener;
+
+    invoke-virtual {v0}, Landroid/view/View;->invalidate()V
 
     :cond_0
-    const/4 v1, 0x1
-
-    return v1
+    return-void
 .end method

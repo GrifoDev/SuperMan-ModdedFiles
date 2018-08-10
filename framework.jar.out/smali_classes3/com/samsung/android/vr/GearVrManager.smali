@@ -5,9 +5,20 @@
 # interfaces
 .implements Landroid/app/IVRManager;
 .implements Lcom/samsung/android/vr/IGearVrManagerLocal;
+.implements Lcom/samsung/android/vr/SemGearVrManager;
 
 
 # static fields
+.field public static final DEFAULT_GLOBAL_VR_DEVELOPER_MODE:I = 0x0
+
+.field public static final DEFAULT_GLOBAL_VR_LAUNCH_MODE:I = 0x0
+
+.field public static final DEFAULT_GLOBAL_VR_PLATFORM_MODE:I = 0x1
+
+.field public static final DEFAULT_GLOBAL_VR_RECENTS_MODE:I = 0x0
+
+.field public static final DEFAULT_GLOBAL_VR_SETUPWIZARD_COMPLETED:I = 0x0
+
 .field public static final FEATURE_HMT:Ljava/lang/String; = "com.samsung.feature.hmt"
 
 .field public static final HMT_EVENT_ABNORMAL:I = 0x4
@@ -26,13 +37,72 @@
 
 .field public static final HMT_EVENT_UNMOUNT:I = 0x20
 
+.field public static final HMT_EVENT_VR_ENTERED:I = 0x40
+
+.field public static final HMT_EVENT_VR_EXITED:I = 0x80
+
+.field public static final HMT_MASK_ALL:I = 0xfff
+
+.field public static final HMT_MASK_DOCK:I = 0xf
+
+.field public static final HMT_MASK_MOUNT:I = 0x30
+
+.field public static final HMT_MASK_TA:I = 0xf00
+
+.field public static final HMT_MASK_VR_MODE:I = 0xc0
+
+.field public static final HMT_TYPE_TETHERED:I = 0x1000
+
 .field public static final PACKAGENAME_VRSERVICE:Ljava/lang/String; = "com.samsung.android.hmt.vrsvc"
 
 .field public static final PACKAGENAME_VRSETUPWIZARD:Ljava/lang/String; = "com.samsung.android.app.vrsetupwizard"
 
 .field public static final PACKAGENAME_VRSETUPWIZARD_STUB:Ljava/lang/String; = "com.samsung.android.app.vrsetupwizardstub"
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
 
 .field public static final PACKAGENAME_VRSYSTEM:Ljava/lang/String; = "com.samsung.android.hmt.vrsystem"
+
+.field public static final SETTINGS_GLOBAL_VR_DEVELOPER_MODE:Ljava/lang/String; = "vrmode_developer_mode"
+
+.field public static final SETTINGS_GLOBAL_VR_LAUNCH_MODE:Ljava/lang/String; = "vr_launch_mode"
+
+.field public static final SETTINGS_GLOBAL_VR_PLATFORM_MODE:Ljava/lang/String; = "vr_platform_mode"
+
+.field public static final SETTINGS_GLOBAL_VR_RECENTS_MODE:Ljava/lang/String; = "vr_recents_mode"
+
+.field public static final SETTINGS_GLOBAL_VR_SETUPWIZARD_COMPLETED:Ljava/lang/String; = "vr_setupwizard_completed"
+
+.field public static final VR_ACTIVITY_ALLOW_BYPASS_SETUP_WIZARD:I = 0x14
+
+.field public static final VR_ACTIVITY_ALLOW_NON_VR_ACTIVITY:I = 0xa
+
+.field public static final VR_ACTIVITY_NONE:I = 0x0
+
+.field public static final VR_ACTIVITY_VR:I = 0x1
+
+.field public static final VR_LAUNCH_MODE_START_IMMEDIATELY:I = 0x1
+
+.field public static final VR_LAUNCH_MODE_START_INSERT_GEARVR:I = 0x0
+
+.field public static final VR_LAUNCH_MODE_START_SPLASH_SCREEN:I = 0x2
+
+.field public static final VR_PLATFORM_DAYDREAM:I = 0x2
+
+.field public static final VR_PLATFORM_GEARVR:I = 0x1
+
+.field public static final VR_PLATFORM_GEARVRF:I = 0x3
+
+.field public static final VR_PLATFORM_MIXED:I = 0x0
+
+.field public static final VR_RECENTS_ENABLED:I = 0x1
+
+.field public static final VR_RECENTS_INCLUDE_VR_TASK:I = 0x10
+
+.field public static final VR_RECENTS_OVERRIDE_RECENTS:I = 0x2
+
+.field public static final VR_RECENTS_USE_GEAR_VR_TRANSITION:I = 0x20
 
 
 # instance fields
@@ -299,6 +369,30 @@
     invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
     throw v0
+.end method
+
+.method public getVrRecentsMode()I
+    .locals 2
+
+    :try_start_0
+    iget-object v1, p0, Lcom/samsung/android/vr/GearVrManager;->mService:Lcom/samsung/android/vr/IGearVrManagerService;
+
+    invoke-interface {v1}, Lcom/samsung/android/vr/IGearVrManagerService;->getVrRecentsMode()I
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v1
+
+    return v1
+
+    :catch_0
+    move-exception v0
+
+    new-instance v1, Ljava/lang/RuntimeException;
+
+    invoke-direct {v1, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
+
+    throw v1
 .end method
 
 .method public isConnected()Z

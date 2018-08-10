@@ -61,7 +61,7 @@
 
     move-result-object v1
 
-    invoke-virtual {v1}, Landroid/view/View;->isFocused()Z
+    invoke-virtual {v1}, Landroid/widget/EditText;->isFocused()Z
 
     move-result v1
 

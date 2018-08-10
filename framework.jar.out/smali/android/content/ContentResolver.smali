@@ -26,11 +26,37 @@
 
 .field private static final ENABLE_CONTENT_SAMPLE:Z = false
 
+.field public static final EXTRA_HONORED_ARGS:Ljava/lang/String; = "android.content.extra.HONORED_ARGS"
+
+.field public static final EXTRA_REFRESH_SUPPORTED:Ljava/lang/String; = "android.content.extra.REFRESH_SUPPORTED"
+
 .field public static final EXTRA_SIZE:Ljava/lang/String; = "android.content.extra.SIZE"
+
+.field public static final EXTRA_TOTAL_COUNT:Ljava/lang/String; = "android.content.extra.TOTAL_COUNT"
 
 .field public static final NOTIFY_SKIP_NOTIFY_FOR_DESCENDANTS:I = 0x2
 
 .field public static final NOTIFY_SYNC_TO_NETWORK:I = 0x1
+
+.field public static final QUERY_ARG_LIMIT:Ljava/lang/String; = "android:query-arg-limit"
+
+.field public static final QUERY_ARG_OFFSET:Ljava/lang/String; = "android:query-arg-offset"
+
+.field public static final QUERY_ARG_SORT_COLLATION:Ljava/lang/String; = "android:query-arg-sort-collation"
+
+.field public static final QUERY_ARG_SORT_COLUMNS:Ljava/lang/String; = "android:query-arg-sort-columns"
+
+.field public static final QUERY_ARG_SORT_DIRECTION:Ljava/lang/String; = "android:query-arg-sort-direction"
+
+.field public static final QUERY_ARG_SQL_SELECTION:Ljava/lang/String; = "android:query-arg-sql-selection"
+
+.field public static final QUERY_ARG_SQL_SELECTION_ARGS:Ljava/lang/String; = "android:query-arg-sql-selection-args"
+
+.field public static final QUERY_ARG_SQL_SORT_ORDER:Ljava/lang/String; = "android:query-arg-sql-sort-order"
+
+.field public static final QUERY_SORT_DIRECTION_ASCENDING:I = 0x0
+
+.field public static final QUERY_SORT_DIRECTION_DESCENDING:I = 0x1
 
 .field public static final SCHEME_ANDROID_RESOURCE:Ljava/lang/String; = "android.resource"
 
@@ -119,6 +145,8 @@
 .field final mPackageName:Ljava/lang/String;
 
 .field private final mRandom:Ljava/util/Random;
+
+.field final mTargetSdkVersion:I
 
 
 # direct methods
@@ -213,6 +241,16 @@
     move-result-object v0
 
     iput-object v0, p0, Landroid/content/ContentResolver;->mPackageName:Ljava/lang/String;
+
+    iget-object v0, p0, Landroid/content/ContentResolver;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v0}, Landroid/content/Context;->getApplicationInfo()Landroid/content/pm/ApplicationInfo;
+
+    move-result-object v0
+
+    iget v0, v0, Landroid/content/pm/ApplicationInfo;->targetSdkVersion:I
+
+    iput v0, p0, Landroid/content/ContentResolver;->mTargetSdkVersion:I
 
     return-void
 
@@ -440,6 +478,184 @@
     move-exception v0
 
     goto :goto_0
+.end method
+
+.method public static createSqlQueryBundle(Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Landroid/os/Bundle;
+    .locals 2
+
+    const/4 v1, 0x0
+
+    if-nez p0, :cond_0
+
+    if-nez p1, :cond_0
+
+    if-nez p2, :cond_0
+
+    return-object v1
+
+    :cond_0
+    new-instance v0, Landroid/os/Bundle;
+
+    invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
+
+    if-eqz p0, :cond_1
+
+    const-string/jumbo v1, "android:query-arg-sql-selection"
+
+    invoke-virtual {v0, v1, p0}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+
+    :cond_1
+    if-eqz p1, :cond_2
+
+    const-string/jumbo v1, "android:query-arg-sql-selection-args"
+
+    invoke-virtual {v0, v1, p1}, Landroid/os/Bundle;->putStringArray(Ljava/lang/String;[Ljava/lang/String;)V
+
+    :cond_2
+    if-eqz p2, :cond_3
+
+    const-string/jumbo v1, "android:query-arg-sql-sort-order"
+
+    invoke-virtual {v0, v1, p2}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+
+    :cond_3
+    return-object v0
+.end method
+
+.method public static createSqlSortClause(Landroid/os/Bundle;)Ljava/lang/String;
+    .locals 7
+
+    const/high16 v6, -0x80000000
+
+    const-string/jumbo v4, "android:query-arg-sort-columns"
+
+    invoke-virtual {p0, v4}, Landroid/os/Bundle;->getStringArray(Ljava/lang/String;)[Ljava/lang/String;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_0
+
+    array-length v4, v1
+
+    if-nez v4, :cond_1
+
+    :cond_0
+    new-instance v4, Ljava/lang/IllegalArgumentException;
+
+    const-string/jumbo v5, "Can\'t create sort clause without columns."
+
+    invoke-direct {v4, v5}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v4
+
+    :cond_1
+    const-string/jumbo v4, ", "
+
+    invoke-static {v4, v1}, Landroid/text/TextUtils;->join(Ljava/lang/CharSequence;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v2
+
+    const-string/jumbo v4, "android:query-arg-sort-collation"
+
+    const/4 v5, 0x3
+
+    invoke-virtual {p0, v4, v5}, Landroid/os/Bundle;->getInt(Ljava/lang/String;I)I
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    const/4 v4, 0x1
+
+    if-ne v0, v4, :cond_3
+
+    :cond_2
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    const-string/jumbo v5, " COLLATE NOCASE"
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    :cond_3
+    const-string/jumbo v4, "android:query-arg-sort-direction"
+
+    invoke-virtual {p0, v4, v6}, Landroid/os/Bundle;->getInt(Ljava/lang/String;I)I
+
+    move-result v3
+
+    if-eq v3, v6, :cond_4
+
+    packed-switch v3, :pswitch_data_0
+
+    new-instance v4, Ljava/lang/IllegalArgumentException;
+
+    const-string/jumbo v5, "Unsupported sort direction value. See ContentResolver documentation for details."
+
+    invoke-direct {v4, v5}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v4
+
+    :pswitch_0
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    const-string/jumbo v5, " ASC"
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    :cond_4
+    :goto_0
+    return-object v2
+
+    :pswitch_1
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    const-string/jumbo v5, " DESC"
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    goto :goto_0
+
+    :pswitch_data_0
+    .packed-switch 0x0
+        :pswitch_0
+        :pswitch_1
+    .end packed-switch
 .end method
 
 .method public static getContentService()Landroid/content/IContentService;
@@ -1144,7 +1360,7 @@
     throw v1
 .end method
 
-.method private maybeLogQueryToEventLog(JLandroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+.method private maybeLogQueryToEventLog(JLandroid/net/Uri;[Ljava/lang/String;Landroid/os/Bundle;)V
     .locals 0
 
     return-void
@@ -1410,6 +1626,49 @@
     const-wide/16 v2, 0x0
 
     return-wide v2
+.end method
+
+.method public static semGetSyncStatusInfo(Landroid/accounts/Account;Ljava/lang/String;)Landroid/content/SemSyncStatusInfo;
+    .locals 5
+
+    const/4 v4, 0x0
+
+    const/4 v1, 0x0
+
+    :try_start_0
+    invoke-static {}, Landroid/content/ContentResolver;->getContentService()Landroid/content/IContentService;
+
+    move-result-object v2
+
+    const/4 v3, 0x0
+
+    invoke-interface {v2, p0, p1, v3}, Landroid/content/IContentService;->getSyncStatus(Landroid/accounts/Account;Ljava/lang/String;Landroid/content/ComponentName;)Landroid/content/SyncStatusInfo;
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result-object v1
+
+    if-eqz v1, :cond_0
+
+    new-instance v2, Landroid/content/SemSyncStatusInfo;
+
+    invoke-direct {v2, v1}, Landroid/content/SemSyncStatusInfo;-><init>(Landroid/content/SyncStatusInfo;)V
+
+    return-object v2
+
+    :catch_0
+    move-exception v0
+
+    new-instance v2, Ljava/lang/RuntimeException;
+
+    const-string/jumbo v3, "the ContentService should always be reachable"
+
+    invoke-direct {v2, v3, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+
+    throw v2
+
+    :cond_0
+    return-object v4
 .end method
 
 .method public static setIsSyncable(Landroid/accounts/Account;Ljava/lang/String;I)V
@@ -2532,7 +2791,7 @@
     .end annotation
 
     :try_start_0
-    invoke-static {}, Landroid/app/ActivityManagerNative;->getDefault()Landroid/app/IActivityManager;
+    invoke-static {}, Landroid/app/ActivityManager;->getService()Landroid/app/IActivityManager;
 
     move-result-object v1
 
@@ -2585,7 +2844,7 @@
     .end annotation
 
     :try_start_0
-    invoke-static {}, Landroid/app/ActivityManagerNative;->getDefault()Landroid/app/IActivityManager;
+    invoke-static {}, Landroid/app/ActivityManager;->getService()Landroid/app/IActivityManager;
 
     move-result-object v1
 
@@ -2919,6 +3178,14 @@
     throw v2
 .end method
 
+.method public getTargetSdkVersion()I
+    .locals 1
+
+    iget v0, p0, Landroid/content/ContentResolver;->mTargetSdkVersion:I
+
+    return v0
+.end method
+
 .method public final getType(Landroid/net/Uri;)Ljava/lang/String;
     .locals 8
 
@@ -3030,7 +3297,7 @@
 
     :cond_1
     :try_start_2
-    invoke-static {}, Landroid/app/ActivityManagerNative;->getDefault()Landroid/app/IActivityManager;
+    invoke-static {}, Landroid/app/ActivityManager;->getService()Landroid/app/IActivityManager;
 
     move-result-object v4
 
@@ -3102,6 +3369,18 @@
     move-exception v0
 
     return-object v7
+.end method
+
+.method public getTypeDrawable(Ljava/lang/String;)Landroid/graphics/drawable/Drawable;
+    .locals 1
+
+    iget-object v0, p0, Landroid/content/ContentResolver;->mContext:Landroid/content/Context;
+
+    invoke-static {v0, p1}, Lcom/android/internal/util/MimeIconUtils;->loadMimeIcon(Landroid/content/Context;Ljava/lang/String;)Landroid/graphics/drawable/Drawable;
+
+    move-result-object v0
+
+    return-object v0
 .end method
 
 .method public final insert(Landroid/net/Uri;Landroid/content/ContentValues;)Landroid/net/Uri;
@@ -3218,7 +3497,9 @@
 
     move-result-object v0
 
-    invoke-static {}, Landroid/os/UserHandle;->myUserId()I
+    iget-object v1, p0, Landroid/content/ContentResolver;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v1}, Landroid/content/Context;->getUserId()I
 
     move-result v1
 
@@ -3232,7 +3513,7 @@
 .end method
 
 .method public notifyChange(Landroid/net/Uri;Landroid/database/ContentObserver;II)V
-    .locals 7
+    .locals 8
 
     const/4 v2, 0x0
 
@@ -3251,13 +3532,15 @@
     move-result v3
 
     :goto_1
+    iget v6, p0, Landroid/content/ContentResolver;->mTargetSdkVersion:I
+
     move-object v1, p1
 
     move v4, p3
 
     move v5, p4
 
-    invoke-interface/range {v0 .. v5}, Landroid/content/IContentService;->notifyChange(Landroid/net/Uri;Landroid/database/IContentObserver;ZII)V
+    invoke-interface/range {v0 .. v6}, Landroid/content/IContentService;->notifyChange(Landroid/net/Uri;Landroid/database/IContentObserver;ZIII)V
 
     :goto_2
     return-void
@@ -3277,7 +3560,7 @@
     goto :goto_1
 
     :catch_0
-    move-exception v6
+    move-exception v7
 
     goto :goto_2
 .end method
@@ -3293,7 +3576,9 @@
 
     move-result-object v0
 
-    invoke-static {}, Landroid/os/UserHandle;->myUserId()I
+    iget-object v1, p0, Landroid/content/ContentResolver;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v1}, Landroid/content/Context;->getUserId()I
 
     move-result v1
 
@@ -3307,7 +3592,7 @@
 .end method
 
 .method public notifyChange(Landroid/net/Uri;Landroid/database/ContentObserver;ZI)V
-    .locals 7
+    .locals 8
 
     const/4 v4, 0x0
 
@@ -3333,11 +3618,13 @@
     const/4 v4, 0x1
 
     :cond_0
+    iget v6, p0, Landroid/content/ContentResolver;->mTargetSdkVersion:I
+
     move-object v1, p1
 
     move v5, p4
 
-    invoke-interface/range {v0 .. v5}, Landroid/content/IContentService;->notifyChange(Landroid/net/Uri;Landroid/database/IContentObserver;ZII)V
+    invoke-interface/range {v0 .. v6}, Landroid/content/IContentService;->notifyChange(Landroid/net/Uri;Landroid/database/IContentObserver;ZIII)V
 
     :goto_2
     return-void
@@ -3357,7 +3644,7 @@
     goto :goto_1
 
     :catch_0
-    move-exception v6
+    move-exception v7
 
     goto :goto_2
 .end method
@@ -4536,6 +4823,316 @@
     throw v1
 .end method
 
+.method public final query(Landroid/net/Uri;[Ljava/lang/String;Landroid/os/Bundle;Landroid/os/CancellationSignal;)Landroid/database/Cursor;
+    .locals 24
+    .param p1    # Landroid/net/Uri;
+        .annotation build Landroid/annotation/RequiresPermission$Read;
+        .end annotation
+    .end param
+
+    const-string/jumbo v5, "uri"
+
+    move-object/from16 v0, p1
+
+    invoke-static {v0, v5}, Lcom/android/internal/util/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    invoke-virtual/range {p0 .. p1}, Landroid/content/ContentResolver;->acquireUnstableProvider(Landroid/net/Uri;)Landroid/content/IContentProvider;
+
+    move-result-object v4
+
+    if-nez v4, :cond_0
+
+    const/4 v5, 0x0
+
+    return-object v5
+
+    :cond_0
+    const/4 v10, 0x0
+
+    const/16 v20, 0x0
+
+    :try_start_0
+    invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
+
+    move-result-wide v22
+
+    const/4 v9, 0x0
+
+    if-eqz p4, :cond_1
+
+    invoke-virtual/range {p4 .. p4}, Landroid/os/CancellationSignal;->throwIfCanceled()V
+
+    invoke-interface {v4}, Landroid/content/IContentProvider;->createCancellationSignal()Landroid/os/ICancellationSignal;
+
+    move-result-object v9
+
+    move-object/from16 v0, p4
+
+    invoke-virtual {v0, v9}, Landroid/os/CancellationSignal;->setRemote(Landroid/os/ICancellationSignal;)V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_1
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    :cond_1
+    :try_start_1
+    move-object/from16 v0, p0
+
+    iget-object v5, v0, Landroid/content/ContentResolver;->mPackageName:Ljava/lang/String;
+
+    move-object/from16 v6, p1
+
+    move-object/from16 v7, p2
+
+    move-object/from16 v8, p3
+
+    invoke-interface/range {v4 .. v9}, Landroid/content/IContentProvider;->query(Ljava/lang/String;Landroid/net/Uri;[Ljava/lang/String;Landroid/os/Bundle;Landroid/os/ICancellationSignal;)Landroid/database/Cursor;
+    :try_end_1
+    .catch Landroid/os/DeadObjectException; {:try_start_1 .. :try_end_1} :catch_0
+    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    move-result-object v20
+
+    :goto_0
+    if-nez v20, :cond_a
+
+    const/4 v5, 0x0
+
+    if-eqz v20, :cond_2
+
+    invoke-interface/range {v20 .. v20}, Landroid/database/Cursor;->close()V
+
+    :cond_2
+    if-eqz p4, :cond_3
+
+    const/4 v6, 0x0
+
+    move-object/from16 v0, p4
+
+    invoke-virtual {v0, v6}, Landroid/os/CancellationSignal;->setRemote(Landroid/os/ICancellationSignal;)V
+
+    :cond_3
+    if-eqz v4, :cond_4
+
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v4}, Landroid/content/ContentResolver;->releaseUnstableProvider(Landroid/content/IContentProvider;)Z
+
+    :cond_4
+    if-eqz v10, :cond_5
+
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v10}, Landroid/content/ContentResolver;->releaseProvider(Landroid/content/IContentProvider;)Z
+
+    :cond_5
+    return-object v5
+
+    :catch_0
+    move-exception v17
+
+    :try_start_2
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v4}, Landroid/content/ContentResolver;->unstableProviderDied(Landroid/content/IContentProvider;)V
+
+    invoke-virtual/range {p0 .. p1}, Landroid/content/ContentResolver;->acquireProvider(Landroid/net/Uri;)Landroid/content/IContentProvider;
+    :try_end_2
+    .catch Landroid/os/RemoteException; {:try_start_2 .. :try_end_2} :catch_1
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+
+    move-result-object v10
+
+    if-nez v10, :cond_9
+
+    const/4 v5, 0x0
+
+    if-eqz p4, :cond_6
+
+    const/4 v6, 0x0
+
+    move-object/from16 v0, p4
+
+    invoke-virtual {v0, v6}, Landroid/os/CancellationSignal;->setRemote(Landroid/os/ICancellationSignal;)V
+
+    :cond_6
+    if-eqz v4, :cond_7
+
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v4}, Landroid/content/ContentResolver;->releaseUnstableProvider(Landroid/content/IContentProvider;)Z
+
+    :cond_7
+    if-eqz v10, :cond_8
+
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v10}, Landroid/content/ContentResolver;->releaseProvider(Landroid/content/IContentProvider;)Z
+
+    :cond_8
+    return-object v5
+
+    :cond_9
+    :try_start_3
+    move-object/from16 v0, p0
+
+    iget-object v11, v0, Landroid/content/ContentResolver;->mPackageName:Ljava/lang/String;
+
+    move-object/from16 v12, p1
+
+    move-object/from16 v13, p2
+
+    move-object/from16 v14, p3
+
+    move-object v15, v9
+
+    invoke-interface/range {v10 .. v15}, Landroid/content/IContentProvider;->query(Ljava/lang/String;Landroid/net/Uri;[Ljava/lang/String;Landroid/os/Bundle;Landroid/os/ICancellationSignal;)Landroid/database/Cursor;
+
+    move-result-object v20
+
+    goto :goto_0
+
+    :cond_a
+    invoke-interface/range {v20 .. v20}, Landroid/database/Cursor;->getCount()I
+
+    invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
+
+    move-result-wide v6
+
+    sub-long v12, v6, v22
+
+    move-object/from16 v11, p0
+
+    move-object/from16 v14, p1
+
+    move-object/from16 v15, p2
+
+    move-object/from16 v16, p3
+
+    invoke-direct/range {v11 .. v16}, Landroid/content/ContentResolver;->maybeLogQueryToEventLog(JLandroid/net/Uri;[Ljava/lang/String;Landroid/os/Bundle;)V
+
+    if-eqz v10, :cond_d
+
+    move-object/from16 v19, v10
+
+    :goto_1
+    new-instance v21, Landroid/content/ContentResolver$CursorWrapperInner;
+
+    move-object/from16 v0, v21
+
+    move-object/from16 v1, p0
+
+    move-object/from16 v2, v20
+
+    move-object/from16 v3, v19
+
+    invoke-direct {v0, v1, v2, v3}, Landroid/content/ContentResolver$CursorWrapperInner;-><init>(Landroid/content/ContentResolver;Landroid/database/Cursor;Landroid/content/IContentProvider;)V
+    :try_end_3
+    .catch Landroid/os/RemoteException; {:try_start_3 .. :try_end_3} :catch_1
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+
+    const/4 v10, 0x0
+
+    const/16 v20, 0x0
+
+    if-eqz p4, :cond_b
+
+    const/4 v5, 0x0
+
+    move-object/from16 v0, p4
+
+    invoke-virtual {v0, v5}, Landroid/os/CancellationSignal;->setRemote(Landroid/os/ICancellationSignal;)V
+
+    :cond_b
+    if-eqz v4, :cond_c
+
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v4}, Landroid/content/ContentResolver;->releaseUnstableProvider(Landroid/content/IContentProvider;)Z
+
+    :cond_c
+    return-object v21
+
+    :cond_d
+    :try_start_4
+    invoke-virtual/range {p0 .. p1}, Landroid/content/ContentResolver;->acquireProvider(Landroid/net/Uri;)Landroid/content/IContentProvider;
+    :try_end_4
+    .catch Landroid/os/RemoteException; {:try_start_4 .. :try_end_4} :catch_1
+    .catchall {:try_start_4 .. :try_end_4} :catchall_0
+
+    move-result-object v19
+
+    goto :goto_1
+
+    :catch_1
+    move-exception v18
+
+    const/4 v5, 0x0
+
+    if-eqz v20, :cond_e
+
+    invoke-interface/range {v20 .. v20}, Landroid/database/Cursor;->close()V
+
+    :cond_e
+    if-eqz p4, :cond_f
+
+    const/4 v6, 0x0
+
+    move-object/from16 v0, p4
+
+    invoke-virtual {v0, v6}, Landroid/os/CancellationSignal;->setRemote(Landroid/os/ICancellationSignal;)V
+
+    :cond_f
+    if-eqz v4, :cond_10
+
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v4}, Landroid/content/ContentResolver;->releaseUnstableProvider(Landroid/content/IContentProvider;)Z
+
+    :cond_10
+    if-eqz v10, :cond_11
+
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v10}, Landroid/content/ContentResolver;->releaseProvider(Landroid/content/IContentProvider;)Z
+
+    :cond_11
+    return-object v5
+
+    :catchall_0
+    move-exception v5
+
+    if-eqz v20, :cond_12
+
+    invoke-interface/range {v20 .. v20}, Landroid/database/Cursor;->close()V
+
+    :cond_12
+    if-eqz p4, :cond_13
+
+    const/4 v6, 0x0
+
+    move-object/from16 v0, p4
+
+    invoke-virtual {v0, v6}, Landroid/os/CancellationSignal;->setRemote(Landroid/os/ICancellationSignal;)V
+
+    :cond_13
+    if-eqz v4, :cond_14
+
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v4}, Landroid/content/ContentResolver;->releaseUnstableProvider(Landroid/content/IContentProvider;)Z
+
+    :cond_14
+    if-eqz v10, :cond_15
+
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v10}, Landroid/content/ContentResolver;->releaseProvider(Landroid/content/IContentProvider;)Z
+
+    :cond_15
+    throw v5
+.end method
+
 .method public final query(Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;
     .locals 7
     .param p1    # Landroid/net/Uri;
@@ -4565,323 +5162,81 @@
 .end method
 
 .method public final query(Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;Landroid/os/CancellationSignal;)Landroid/database/Cursor;
-    .locals 27
+    .locals 2
     .param p1    # Landroid/net/Uri;
         .annotation build Landroid/annotation/RequiresPermission$Read;
         .end annotation
     .end param
 
-    const-string/jumbo v5, "uri"
+    invoke-static {p3, p4, p5}, Landroid/content/ContentResolver;->createSqlQueryBundle(Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Landroid/os/Bundle;
 
-    move-object/from16 v0, p1
+    move-result-object v0
 
-    invoke-static {v0, v5}, Lcom/android/internal/util/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, p1, p2, v0, p6}, Landroid/content/ContentResolver;->query(Landroid/net/Uri;[Ljava/lang/String;Landroid/os/Bundle;Landroid/os/CancellationSignal;)Landroid/database/Cursor;
 
-    invoke-virtual/range {p0 .. p1}, Landroid/content/ContentResolver;->acquireUnstableProvider(Landroid/net/Uri;)Landroid/content/IContentProvider;
+    move-result-object v1
 
-    move-result-object v4
+    return-object v1
+.end method
 
-    if-nez v4, :cond_0
+.method public final refresh(Landroid/net/Uri;Landroid/os/Bundle;Landroid/os/CancellationSignal;)Z
+    .locals 5
 
-    const/4 v5, 0x0
+    const/4 v4, 0x0
 
-    return-object v5
+    const-string/jumbo v3, "url"
+
+    invoke-static {p1, v3}, Lcom/android/internal/util/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    invoke-virtual {p0, p1}, Landroid/content/ContentResolver;->acquireProvider(Landroid/net/Uri;)Landroid/content/IContentProvider;
+
+    move-result-object v1
+
+    if-nez v1, :cond_0
+
+    return v4
 
     :cond_0
-    const/4 v12, 0x0
+    const/4 v2, 0x0
 
-    const/16 v23, 0x0
+    if-eqz p3, :cond_1
 
     :try_start_0
-    invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
+    invoke-virtual {p3}, Landroid/os/CancellationSignal;->throwIfCanceled()V
 
-    move-result-wide v24
+    invoke-interface {v1}, Landroid/content/IContentProvider;->createCancellationSignal()Landroid/os/ICancellationSignal;
 
-    const/4 v11, 0x0
+    move-result-object v2
 
-    if-eqz p6, :cond_1
-
-    invoke-virtual/range {p6 .. p6}, Landroid/os/CancellationSignal;->throwIfCanceled()V
-
-    invoke-interface {v4}, Landroid/content/IContentProvider;->createCancellationSignal()Landroid/os/ICancellationSignal;
-
-    move-result-object v11
-
-    move-object/from16 v0, p6
-
-    invoke-virtual {v0, v11}, Landroid/os/CancellationSignal;->setRemote(Landroid/os/ICancellationSignal;)V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_1
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    invoke-virtual {p3, v2}, Landroid/os/CancellationSignal;->setRemote(Landroid/os/ICancellationSignal;)V
 
     :cond_1
-    :try_start_1
-    move-object/from16 v0, p0
+    iget-object v3, p0, Landroid/content/ContentResolver;->mPackageName:Ljava/lang/String;
 
-    iget-object v5, v0, Landroid/content/ContentResolver;->mPackageName:Ljava/lang/String;
+    invoke-interface {v1, v3, p1, p2, v2}, Landroid/content/IContentProvider;->refresh(Ljava/lang/String;Landroid/net/Uri;Landroid/os/Bundle;Landroid/os/ICancellationSignal;)Z
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    move-object/from16 v6, p1
+    move-result v3
 
-    move-object/from16 v7, p2
+    invoke-virtual {p0, v1}, Landroid/content/ContentResolver;->releaseProvider(Landroid/content/IContentProvider;)Z
 
-    move-object/from16 v8, p3
-
-    move-object/from16 v9, p4
-
-    move-object/from16 v10, p5
-
-    invoke-interface/range {v4 .. v11}, Landroid/content/IContentProvider;->query(Ljava/lang/String;Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;Landroid/os/ICancellationSignal;)Landroid/database/Cursor;
-    :try_end_1
-    .catch Landroid/os/DeadObjectException; {:try_start_1 .. :try_end_1} :catch_0
-    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    move-result-object v23
-
-    :goto_0
-    if-nez v23, :cond_a
-
-    const/4 v5, 0x0
-
-    if-eqz v23, :cond_2
-
-    invoke-interface/range {v23 .. v23}, Landroid/database/Cursor;->close()V
-
-    :cond_2
-    if-eqz p6, :cond_3
-
-    const/4 v6, 0x0
-
-    move-object/from16 v0, p6
-
-    invoke-virtual {v0, v6}, Landroid/os/CancellationSignal;->setRemote(Landroid/os/ICancellationSignal;)V
-
-    :cond_3
-    if-eqz v4, :cond_4
-
-    move-object/from16 v0, p0
-
-    invoke-virtual {v0, v4}, Landroid/content/ContentResolver;->releaseUnstableProvider(Landroid/content/IContentProvider;)Z
-
-    :cond_4
-    if-eqz v12, :cond_5
-
-    move-object/from16 v0, p0
-
-    invoke-virtual {v0, v12}, Landroid/content/ContentResolver;->releaseProvider(Landroid/content/IContentProvider;)Z
-
-    :cond_5
-    return-object v5
+    return v3
 
     :catch_0
-    move-exception v20
+    move-exception v0
 
-    :try_start_2
-    move-object/from16 v0, p0
+    invoke-virtual {p0, v1}, Landroid/content/ContentResolver;->releaseProvider(Landroid/content/IContentProvider;)Z
 
-    invoke-virtual {v0, v4}, Landroid/content/ContentResolver;->unstableProviderDied(Landroid/content/IContentProvider;)V
-
-    invoke-virtual/range {p0 .. p1}, Landroid/content/ContentResolver;->acquireProvider(Landroid/net/Uri;)Landroid/content/IContentProvider;
-    :try_end_2
-    .catch Landroid/os/RemoteException; {:try_start_2 .. :try_end_2} :catch_1
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
-
-    move-result-object v12
-
-    if-nez v12, :cond_9
-
-    const/4 v5, 0x0
-
-    if-eqz p6, :cond_6
-
-    const/4 v6, 0x0
-
-    move-object/from16 v0, p6
-
-    invoke-virtual {v0, v6}, Landroid/os/CancellationSignal;->setRemote(Landroid/os/ICancellationSignal;)V
-
-    :cond_6
-    if-eqz v4, :cond_7
-
-    move-object/from16 v0, p0
-
-    invoke-virtual {v0, v4}, Landroid/content/ContentResolver;->releaseUnstableProvider(Landroid/content/IContentProvider;)Z
-
-    :cond_7
-    if-eqz v12, :cond_8
-
-    move-object/from16 v0, p0
-
-    invoke-virtual {v0, v12}, Landroid/content/ContentResolver;->releaseProvider(Landroid/content/IContentProvider;)Z
-
-    :cond_8
-    return-object v5
-
-    :cond_9
-    :try_start_3
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Landroid/content/ContentResolver;->mPackageName:Ljava/lang/String;
-
-    move-object/from16 v14, p1
-
-    move-object/from16 v15, p2
-
-    move-object/from16 v16, p3
-
-    move-object/from16 v17, p4
-
-    move-object/from16 v18, p5
-
-    move-object/from16 v19, v11
-
-    invoke-interface/range {v12 .. v19}, Landroid/content/IContentProvider;->query(Ljava/lang/String;Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;Landroid/os/ICancellationSignal;)Landroid/database/Cursor;
-
-    move-result-object v23
-
-    goto :goto_0
-
-    :cond_a
-    invoke-interface/range {v23 .. v23}, Landroid/database/Cursor;->getCount()I
-
-    invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
-
-    move-result-wide v6
-
-    sub-long v14, v6, v24
-
-    move-object/from16 v13, p0
-
-    move-object/from16 v16, p1
-
-    move-object/from16 v17, p2
-
-    move-object/from16 v18, p3
-
-    move-object/from16 v19, p5
-
-    invoke-direct/range {v13 .. v19}, Landroid/content/ContentResolver;->maybeLogQueryToEventLog(JLandroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-
-    if-eqz v12, :cond_d
-
-    move-object/from16 v22, v12
-
-    :goto_1
-    new-instance v26, Landroid/content/ContentResolver$CursorWrapperInner;
-
-    move-object/from16 v0, v26
-
-    move-object/from16 v1, p0
-
-    move-object/from16 v2, v23
-
-    move-object/from16 v3, v22
-
-    invoke-direct {v0, v1, v2, v3}, Landroid/content/ContentResolver$CursorWrapperInner;-><init>(Landroid/content/ContentResolver;Landroid/database/Cursor;Landroid/content/IContentProvider;)V
-    :try_end_3
-    .catch Landroid/os/RemoteException; {:try_start_3 .. :try_end_3} :catch_1
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
-
-    const/4 v12, 0x0
-
-    const/16 v23, 0x0
-
-    if-eqz p6, :cond_b
-
-    const/4 v5, 0x0
-
-    move-object/from16 v0, p6
-
-    invoke-virtual {v0, v5}, Landroid/os/CancellationSignal;->setRemote(Landroid/os/ICancellationSignal;)V
-
-    :cond_b
-    if-eqz v4, :cond_c
-
-    move-object/from16 v0, p0
-
-    invoke-virtual {v0, v4}, Landroid/content/ContentResolver;->releaseUnstableProvider(Landroid/content/IContentProvider;)Z
-
-    :cond_c
-    return-object v26
-
-    :cond_d
-    :try_start_4
-    invoke-virtual/range {p0 .. p1}, Landroid/content/ContentResolver;->acquireProvider(Landroid/net/Uri;)Landroid/content/IContentProvider;
-    :try_end_4
-    .catch Landroid/os/RemoteException; {:try_start_4 .. :try_end_4} :catch_1
-    .catchall {:try_start_4 .. :try_end_4} :catchall_0
-
-    move-result-object v22
-
-    goto :goto_1
-
-    :catch_1
-    move-exception v21
-
-    const/4 v5, 0x0
-
-    if-eqz v23, :cond_e
-
-    invoke-interface/range {v23 .. v23}, Landroid/database/Cursor;->close()V
-
-    :cond_e
-    if-eqz p6, :cond_f
-
-    const/4 v6, 0x0
-
-    move-object/from16 v0, p6
-
-    invoke-virtual {v0, v6}, Landroid/os/CancellationSignal;->setRemote(Landroid/os/ICancellationSignal;)V
-
-    :cond_f
-    if-eqz v4, :cond_10
-
-    move-object/from16 v0, p0
-
-    invoke-virtual {v0, v4}, Landroid/content/ContentResolver;->releaseUnstableProvider(Landroid/content/IContentProvider;)Z
-
-    :cond_10
-    if-eqz v12, :cond_11
-
-    move-object/from16 v0, p0
-
-    invoke-virtual {v0, v12}, Landroid/content/ContentResolver;->releaseProvider(Landroid/content/IContentProvider;)Z
-
-    :cond_11
-    return-object v5
+    return v4
 
     :catchall_0
-    move-exception v5
+    move-exception v3
 
-    if-eqz v23, :cond_12
+    invoke-virtual {p0, v1}, Landroid/content/ContentResolver;->releaseProvider(Landroid/content/IContentProvider;)Z
 
-    invoke-interface/range {v23 .. v23}, Landroid/database/Cursor;->close()V
-
-    :cond_12
-    if-eqz p6, :cond_13
-
-    const/4 v6, 0x0
-
-    move-object/from16 v0, p6
-
-    invoke-virtual {v0, v6}, Landroid/os/CancellationSignal;->setRemote(Landroid/os/ICancellationSignal;)V
-
-    :cond_13
-    if-eqz v4, :cond_14
-
-    move-object/from16 v0, p0
-
-    invoke-virtual {v0, v4}, Landroid/content/ContentResolver;->releaseUnstableProvider(Landroid/content/IContentProvider;)Z
-
-    :cond_14
-    if-eqz v12, :cond_15
-
-    move-object/from16 v0, p0
-
-    invoke-virtual {v0, v12}, Landroid/content/ContentResolver;->releaseProvider(Landroid/content/IContentProvider;)Z
-
-    :cond_15
-    throw v5
+    throw v3
 .end method
 
 .method public final registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
@@ -4899,7 +5254,9 @@
 
     move-result-object v0
 
-    invoke-static {}, Landroid/os/UserHandle;->myUserId()I
+    iget-object v1, p0, Landroid/content/ContentResolver;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v1}, Landroid/content/Context;->getUserId()I
 
     move-result v1
 
@@ -4913,18 +5270,26 @@
 .end method
 
 .method public final registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;I)V
-    .locals 3
+    .locals 7
 
     :try_start_0
     invoke-static {}, Landroid/content/ContentResolver;->getContentService()Landroid/content/IContentService;
 
-    move-result-object v1
+    move-result-object v0
 
     invoke-virtual {p3}, Landroid/database/ContentObserver;->getContentObserver()Landroid/database/IContentObserver;
 
-    move-result-object v2
+    move-result-object v3
 
-    invoke-interface {v1, p1, p2, v2, p4}, Landroid/content/IContentService;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/IContentObserver;I)V
+    iget v5, p0, Landroid/content/ContentResolver;->mTargetSdkVersion:I
+
+    move-object v1, p1
+
+    move v2, p2
+
+    move v4, p4
+
+    invoke-interface/range {v0 .. v5}, Landroid/content/IContentService;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/IContentObserver;II)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -4932,7 +5297,7 @@
     return-void
 
     :catch_0
-    move-exception v0
+    move-exception v6
 
     goto :goto_0
 .end method
@@ -4945,7 +5310,7 @@
     invoke-static {p1, v1}, Lcom/android/internal/util/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     :try_start_0
-    invoke-static {}, Landroid/app/ActivityManagerNative;->getDefault()Landroid/app/IActivityManager;
+    invoke-static {}, Landroid/app/ActivityManager;->getService()Landroid/app/IActivityManager;
 
     move-result-object v1
 
@@ -5047,7 +5412,7 @@
     invoke-static {p1, v1}, Lcom/android/internal/util/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     :try_start_0
-    invoke-static {}, Landroid/app/ActivityManagerNative;->getDefault()Landroid/app/IActivityManager;
+    invoke-static {}, Landroid/app/ActivityManager;->getService()Landroid/app/IActivityManager;
 
     move-result-object v1
 

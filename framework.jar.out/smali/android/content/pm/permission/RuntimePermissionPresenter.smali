@@ -115,7 +115,7 @@
 
     const/4 v3, 0x1
 
-    invoke-virtual {v2, v3, v0}, Landroid/os/Handler;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
+    invoke-virtual {v2, v3, v0}, Landroid/content/pm/permission/RuntimePermissionPresenter$RemoteService;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
 
     move-result-object v1
 
@@ -124,42 +124,4 @@
     invoke-virtual {v2, v1}, Landroid/content/pm/permission/RuntimePermissionPresenter$RemoteService;->processMessage(Landroid/os/Message;)V
 
     return-void
-.end method
-
-.method public getAppsUsingPermissions(ZLandroid/content/pm/permission/RuntimePermissionPresenter$OnResultCallback;Landroid/os/Handler;)V
-    .locals 4
-
-    invoke-static {}, Lcom/android/internal/os/SomeArgs;->obtain()Lcom/android/internal/os/SomeArgs;
-
-    move-result-object v0
-
-    iput-object p2, v0, Lcom/android/internal/os/SomeArgs;->arg1:Ljava/lang/Object;
-
-    iput-object p3, v0, Lcom/android/internal/os/SomeArgs;->arg2:Ljava/lang/Object;
-
-    if-eqz p1, :cond_0
-
-    const/4 v2, 0x1
-
-    :goto_0
-    iput v2, v0, Lcom/android/internal/os/SomeArgs;->argi1:I
-
-    iget-object v2, p0, Landroid/content/pm/permission/RuntimePermissionPresenter;->mRemoteService:Landroid/content/pm/permission/RuntimePermissionPresenter$RemoteService;
-
-    const/4 v3, 0x2
-
-    invoke-virtual {v2, v3, v0}, Landroid/os/Handler;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
-
-    move-result-object v1
-
-    iget-object v2, p0, Landroid/content/pm/permission/RuntimePermissionPresenter;->mRemoteService:Landroid/content/pm/permission/RuntimePermissionPresenter$RemoteService;
-
-    invoke-virtual {v2, v1}, Landroid/content/pm/permission/RuntimePermissionPresenter$RemoteService;->processMessage(Landroid/os/Message;)V
-
-    return-void
-
-    :cond_0
-    const/4 v2, 0x0
-
-    goto :goto_0
 .end method

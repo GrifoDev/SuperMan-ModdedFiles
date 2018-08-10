@@ -50,6 +50,8 @@
 
 .field public static final TYPE_ACTIVITY_NOTIFICATION_EX:I = 0x1e
 
+.field public static final TYPE_ACTIVITY_NOTIFICATION_FOR_LOCATION:I = 0x1e
+
 .field public static final TYPE_ACTIVITY_TRACKER:I = 0x19
 
 .field public static final TYPE_AIRMOTION:I = 0x7
@@ -62,11 +64,6 @@
 
 .field public static final TYPE_AUTO_ROTATION:I = 0x6
 
-.field public static final TYPE_BOTTOM_FLAT_DETECTOR:I = 0x26
-    .annotation runtime Ljava/lang/Deprecated;
-    .end annotation
-.end field
-
 .field public static final TYPE_BOUNCE_LONG_MOTION:I = 0x12
 
 .field public static final TYPE_BOUNCE_SHORT_MOTION:I = 0x11
@@ -75,35 +72,11 @@
 
 .field public static final TYPE_CALL_POSE:I = 0xb
 
-.field public static final TYPE_CAPTURE_MOTION:I = 0x1f
-    .annotation runtime Ljava/lang/Deprecated;
-    .end annotation
-.end field
-
 .field public static final TYPE_CARRYING_DETECTION:I = 0x33
-
-.field public static final TYPE_CARRYING_STATUS_MONITOR:I = 0x25
-    .annotation runtime Ljava/lang/Deprecated;
-    .end annotation
-.end field
-
-.field public static final TYPE_CURRENT_STATUS_FOR_POSITIONING:I = 0xa
-    .annotation runtime Ljava/lang/Deprecated;
-    .end annotation
-.end field
 
 .field public static final TYPE_DEVICE_POSITION:I = 0x16
 
-.field public static final TYPE_DUAL_DISPLAY_ANGLE:I = 0x2d
-
-.field public static final TYPE_ENVIRONMENT:I = 0x8
-    .annotation runtime Ljava/lang/Deprecated;
-    .end annotation
-.end field
-
 .field public static final TYPE_ENVIRONMENT_ADAPTIVE_DISPLAY:I = 0x2c
-
-.field public static final TYPE_EXERCISE:I = 0x28
 
 .field public static final TYPE_FLAT_MOTION:I = 0x14
 
@@ -112,6 +85,11 @@
 .field public static final TYPE_FLIP_COVER_ACTION:I = 0xd
 
 .field public static final TYPE_FLIP_MOTION:I = 0x31
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
+
+.field public static final TYPE_FREE_FALL_DETECTION:I = 0x37
 
 .field public static final TYPE_GYRO_TEMPERATURE:I = 0xe
 
@@ -119,21 +97,13 @@
 
 .field public static final TYPE_INTERRUPTED_GYRO:I = 0x30
 
-.field public static final TYPE_MAIN_SCREEN_DETECTION:I = 0x31
+.field public static final TYPE_LOCATION_CHANGE_TRIGGER:I = 0x36
 
-.field public static final TYPE_MOTION:I = 0x4
-    .annotation runtime Ljava/lang/Deprecated;
-    .end annotation
-.end field
+.field public static final TYPE_LOCATION_CORE:I = 0x2f
 
 .field public static final TYPE_MOVEMENT:I = 0x5
 
 .field public static final TYPE_MOVEMENT_ALERT:I = 0x15
-    .annotation runtime Ljava/lang/Deprecated;
-    .end annotation
-.end field
-
-.field public static final TYPE_MOVEMENT_FOR_POSITIONING:I = 0x9
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 .end field
@@ -148,12 +118,9 @@
 
 .field public static final TYPE_SENSOR_STATUS_CHECK:I = 0x34
 
-.field public static final TYPE_SHAKE_MOTION:I = 0xc
+.field public static final TYPE_SERVICE_ALL:I = -0x1
 
-.field public static final TYPE_SLEEP_MONITOR:I = 0x1d
-    .annotation runtime Ljava/lang/Deprecated;
-    .end annotation
-.end field
+.field public static final TYPE_SHAKE_MOTION:I = 0xc
 
 .field public static final TYPE_SLOCATION_CORE:I = 0x2f
 
@@ -162,16 +129,6 @@
 .field public static final TYPE_STEP_COUNT_ALERT:I = 0x3
 
 .field public static final TYPE_STEP_LEVEL_MONITOR:I = 0x21
-
-.field public static final TYPE_TEMPERATURE_ALERT:I = 0x17
-    .annotation runtime Ljava/lang/Deprecated;
-    .end annotation
-.end field
-
-.field public static final TYPE_TEST_FLAT_MOTION:I = 0x16
-    .annotation runtime Ljava/lang/Deprecated;
-    .end annotation
-.end field
 
 .field public static final TYPE_WAKE_UP_VOICE:I = 0x10
 
@@ -182,10 +139,6 @@
     .end annotation
 .end field
 
-.field private static final sServiceList:[Ljava/lang/String;
-
-.field private static final sServiceReportingModes:[I
-
 
 # instance fields
 .field private mType:I
@@ -193,9 +146,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 4
-
-    const/16 v3, 0x35
+    .locals 1
 
     new-instance v0, Lcom/samsung/android/hardware/context/SemContext$1;
 
@@ -203,392 +154,7 @@
 
     sput-object v0, Lcom/samsung/android/hardware/context/SemContext;->CREATOR:Landroid/os/Parcelable$Creator;
 
-    new-array v0, v3, [Ljava/lang/String;
-
-    const-string/jumbo v1, "Approach"
-
-    const/4 v2, 0x0
-
-    aput-object v1, v0, v2
-
-    const-string/jumbo v1, "Pedometer"
-
-    const/4 v2, 0x1
-
-    aput-object v1, v0, v2
-
-    const-string/jumbo v1, "S Count Alert"
-
-    const/4 v2, 0x2
-
-    aput-object v1, v0, v2
-
-    const-string/jumbo v1, "Motion"
-
-    const/4 v2, 0x3
-
-    aput-object v1, v0, v2
-
-    const-string/jumbo v1, "Movement"
-
-    const/4 v2, 0x4
-
-    aput-object v1, v0, v2
-
-    const-string/jumbo v1, "Auto Rotation"
-
-    const/4 v2, 0x5
-
-    aput-object v1, v0, v2
-
-    const-string/jumbo v1, "Air Motion"
-
-    const/4 v2, 0x6
-
-    aput-object v1, v0, v2
-
-    const-string/jumbo v1, "Environment"
-
-    const/4 v2, 0x7
-
-    aput-object v1, v0, v2
-
-    const-string/jumbo v1, "Movement For Positioning"
-
-    const/16 v2, 0x8
-
-    aput-object v1, v0, v2
-
-    const-string/jumbo v1, "Current Status For Positioning"
-
-    const/16 v2, 0x9
-
-    aput-object v1, v0, v2
-
-    const-string/jumbo v1, "Call Pose"
-
-    const/16 v2, 0xa
-
-    aput-object v1, v0, v2
-
-    const-string/jumbo v1, "Shake Motion"
-
-    const/16 v2, 0xb
-
-    aput-object v1, v0, v2
-
-    const-string/jumbo v1, "Flip Cover Action"
-
-    const/16 v2, 0xc
-
-    aput-object v1, v0, v2
-
-    const-string/jumbo v1, "Gyro Temperature"
-
-    const/16 v2, 0xd
-
-    aput-object v1, v0, v2
-
-    const-string/jumbo v1, "Put Down Motion"
-
-    const/16 v2, 0xe
-
-    aput-object v1, v0, v2
-
-    const-string/jumbo v1, "Wake Up Voice"
-
-    const/16 v2, 0xf
-
-    aput-object v1, v0, v2
-
-    const-string/jumbo v1, "Bounce Short Motion"
-
-    const/16 v2, 0x10
-
-    aput-object v1, v0, v2
-
-    const-string/jumbo v1, "Bounce Long Motion"
-
-    const/16 v2, 0x11
-
-    aput-object v1, v0, v2
-
-    const-string/jumbo v1, "Wrist Up Motion"
-
-    const/16 v2, 0x12
-
-    aput-object v1, v0, v2
-
-    const-string/jumbo v1, "Flat Motion"
-
-    const/16 v2, 0x13
-
-    aput-object v1, v0, v2
-
-    const-string/jumbo v1, "Movement Alert"
-
-    const/16 v2, 0x14
-
-    aput-object v1, v0, v2
-
-    const-string/jumbo v1, "Device Position"
-
-    const/16 v2, 0x15
-
-    aput-object v1, v0, v2
-
-    const-string/jumbo v1, "Temperature Alert"
-
-    const/16 v2, 0x16
-
-    aput-object v1, v0, v2
-
-    const-string/jumbo v1, "Activity Location Logging"
-
-    const/16 v2, 0x17
-
-    aput-object v1, v0, v2
-
-    const-string/jumbo v1, "Activity Tracker"
-
-    const/16 v2, 0x18
-
-    aput-object v1, v0, v2
-
-    const-string/jumbo v1, "Activity Batch"
-
-    const/16 v2, 0x19
-
-    aput-object v1, v0, v2
-
-    const-string/jumbo v1, "Activity Notification"
-
-    const/16 v2, 0x1a
-
-    aput-object v1, v0, v2
-
-    const-string/jumbo v1, "Specific Pose Alert"
-
-    const/16 v2, 0x1b
-
-    aput-object v1, v0, v2
-
-    const-string/jumbo v1, "Sleep Monitor"
-
-    const/16 v2, 0x1c
-
-    aput-object v1, v0, v2
-
-    const-string/jumbo v1, "Activity Notification Ex"
-
-    const/16 v2, 0x1d
-
-    aput-object v1, v0, v2
-
-    const-string/jumbo v1, "Capture Motion"
-
-    const/16 v2, 0x1e
-
-    aput-object v1, v0, v2
-
-    const-string/jumbo v1, "Call Motion"
-
-    const/16 v2, 0x1f
-
-    aput-object v1, v0, v2
-
-    const-string/jumbo v1, "Step Level Monitor"
-
-    const/16 v2, 0x20
-
-    aput-object v1, v0, v2
-
-    const-string/jumbo v1, "Active Time Monitor"
-
-    const/16 v2, 0x21
-
-    aput-object v1, v0, v2
-
-    const-string/jumbo v1, "Sedentary Timer"
-
-    const/16 v2, 0x22
-
-    aput-object v1, v0, v2
-
-    const-string/jumbo v1, "Flat Motion For Table Mode"
-
-    const/16 v2, 0x23
-
-    aput-object v1, v0, v2
-
-    const-string/jumbo v1, "Carrying Status Monitor"
-
-    const/16 v2, 0x24
-
-    aput-object v1, v0, v2
-
-    const-string/jumbo v1, "Bottom Flat Detector"
-
-    const/16 v2, 0x25
-
-    aput-object v1, v0, v2
-
-    const-string/jumbo v1, "Auto Brightness"
-
-    const/16 v2, 0x26
-
-    aput-object v1, v0, v2
-
-    const-string/jumbo v1, "Exercise"
-
-    const/16 v2, 0x27
-
-    aput-object v1, v0, v2
-
-    const-string/jumbo v1, "Abnormal Pressure"
-
-    const/16 v2, 0x28
-
-    aput-object v1, v0, v2
-
-    const-string/jumbo v1, "Phone Status Monitor"
-
-    const/16 v2, 0x29
-
-    aput-object v1, v0, v2
-
-    const-string/jumbo v1, "Hall Sensor"
-
-    const/16 v2, 0x2a
-
-    aput-object v1, v0, v2
-
-    const-string/jumbo v1, "Environment Adaptive Display"
-
-    const/16 v2, 0x2b
-
-    aput-object v1, v0, v2
-
-    const-string/jumbo v1, "Dual Display Angle"
-
-    const/16 v2, 0x2c
-
-    aput-object v1, v0, v2
-
-    const-string/jumbo v1, "Wireless Charging Detection"
-
-    const/16 v2, 0x2d
-
-    aput-object v1, v0, v2
-
-    const-string/jumbo v1, "SLocation Core"
-
-    const/16 v2, 0x2e
-
-    aput-object v1, v0, v2
-
-    const-string/jumbo v1, "Interrupt Gyro"
-
-    const/16 v2, 0x2f
-
-    aput-object v1, v0, v2
-
-    const-string/jumbo v1, "Flip Motion"
-
-    const/16 v2, 0x30
-
-    aput-object v1, v0, v2
-
-    const-string/jumbo v1, "Any Motion Detector"
-
-    const/16 v2, 0x31
-
-    aput-object v1, v0, v2
-
-    const-string/jumbo v1, "Carrying Detection"
-
-    const/16 v2, 0x32
-
-    aput-object v1, v0, v2
-
-    const-string/jumbo v1, "Sensor Status Check"
-
-    const/16 v2, 0x33
-
-    aput-object v1, v0, v2
-
-    const-string/jumbo v1, "Activity Calibration"
-
-    const/16 v2, 0x34
-
-    aput-object v1, v0, v2
-
-    sput-object v0, Lcom/samsung/android/hardware/context/SemContext;->sServiceList:[Ljava/lang/String;
-
-    new-array v0, v3, [I
-
-    fill-array-data v0, :array_0
-
-    sput-object v0, Lcom/samsung/android/hardware/context/SemContext;->sServiceReportingModes:[I
-
     return-void
-
-    :array_0
-    .array-data 4
-        0x3
-        0x3
-        0x2
-        0x3
-        0x2
-        0x4
-        0x3
-        0x1
-        0x3
-        0x3
-        0x3
-        0x3
-        0x3
-        0x1
-        0x3
-        0x3
-        0x3
-        0x3
-        0x3
-        0x4
-        0x2
-        0x4
-        0x2
-        0x3
-        0x3
-        0x5
-        0x4
-        0x3
-        0x5
-        0x3
-        0x3
-        0x3
-        0x3
-        0x3
-        0x3
-        0x3
-        0x3
-        0x3
-        0x3
-        0x3
-        0x3
-        0x3
-        0x4
-        0x3
-        0x4
-        0x4
-        0x3
-        0x3
-        0x4
-        0x2
-        0x3
-        0x4
-        0x3
-    .end array-data
 .end method
 
 .method constructor <init>()V
@@ -614,49 +180,399 @@
 .end method
 
 .method public static getReportingMode(I)I
-    .locals 2
+    .locals 1
 
-    sget-object v0, Lcom/samsung/android/hardware/context/SemContext;->sServiceReportingModes:[I
+    packed-switch p0, :pswitch_data_0
 
-    array-length v0, v0
-
-    if-gt p0, v0, :cond_0
-
-    sget-object v0, Lcom/samsung/android/hardware/context/SemContext;->sServiceReportingModes:[I
-
-    add-int/lit8 v1, p0, -0x1
-
-    aget v0, v0, v1
-
-    return v0
-
-    :cond_0
+    :pswitch_0
     const/4 v0, 0x0
 
     return v0
+
+    :pswitch_1
+    const/4 v0, 0x3
+
+    return v0
+
+    :pswitch_2
+    const/4 v0, 0x2
+
+    return v0
+
+    :pswitch_3
+    const/4 v0, 0x4
+
+    return v0
+
+    :pswitch_4
+    const/4 v0, 0x1
+
+    return v0
+
+    :pswitch_5
+    const/4 v0, 0x5
+
+    return v0
+
+    nop
+
+    :pswitch_data_0
+    .packed-switch 0x1
+        :pswitch_1
+        :pswitch_1
+        :pswitch_2
+        :pswitch_0
+        :pswitch_2
+        :pswitch_3
+        :pswitch_1
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_1
+        :pswitch_1
+        :pswitch_1
+        :pswitch_4
+        :pswitch_1
+        :pswitch_1
+        :pswitch_1
+        :pswitch_1
+        :pswitch_1
+        :pswitch_3
+        :pswitch_2
+        :pswitch_3
+        :pswitch_0
+        :pswitch_1
+        :pswitch_1
+        :pswitch_5
+        :pswitch_3
+        :pswitch_1
+        :pswitch_0
+        :pswitch_1
+        :pswitch_0
+        :pswitch_1
+        :pswitch_1
+        :pswitch_1
+        :pswitch_1
+        :pswitch_1
+        :pswitch_0
+        :pswitch_0
+        :pswitch_1
+        :pswitch_0
+        :pswitch_1
+        :pswitch_4
+        :pswitch_3
+        :pswitch_1
+        :pswitch_0
+        :pswitch_3
+        :pswitch_1
+        :pswitch_1
+        :pswitch_1
+        :pswitch_2
+        :pswitch_1
+        :pswitch_3
+        :pswitch_1
+        :pswitch_1
+        :pswitch_1
+    .end packed-switch
 .end method
 
 .method public static getServiceName(I)Ljava/lang/String;
-    .locals 2
+    .locals 1
 
-    sget-object v0, Lcom/samsung/android/hardware/context/SemContext;->sServiceList:[Ljava/lang/String;
+    packed-switch p0, :pswitch_data_0
 
-    array-length v0, v0
-
-    if-gt p0, v0, :cond_0
-
-    sget-object v0, Lcom/samsung/android/hardware/context/SemContext;->sServiceList:[Ljava/lang/String;
-
-    add-int/lit8 v1, p0, -0x1
-
-    aget-object v0, v0, v1
-
-    return-object v0
-
-    :cond_0
+    :pswitch_0
     const-string/jumbo v0, ""
 
     return-object v0
+
+    :pswitch_1
+    const-string/jumbo v0, "Service All"
+
+    return-object v0
+
+    :pswitch_2
+    const-string/jumbo v0, "Approach"
+
+    return-object v0
+
+    :pswitch_3
+    const-string/jumbo v0, "Pedometer"
+
+    return-object v0
+
+    :pswitch_4
+    const-string/jumbo v0, "Step Count Alert"
+
+    return-object v0
+
+    :pswitch_5
+    const-string/jumbo v0, "Movement"
+
+    return-object v0
+
+    :pswitch_6
+    const-string/jumbo v0, "Auto Rotation"
+
+    return-object v0
+
+    :pswitch_7
+    const-string/jumbo v0, "Air Motion"
+
+    return-object v0
+
+    :pswitch_8
+    const-string/jumbo v0, "Call Pose"
+
+    return-object v0
+
+    :pswitch_9
+    const-string/jumbo v0, "Shake Motion"
+
+    return-object v0
+
+    :pswitch_a
+    const-string/jumbo v0, "Flip Cover Action"
+
+    return-object v0
+
+    :pswitch_b
+    const-string/jumbo v0, "Gyro Temperature"
+
+    return-object v0
+
+    :pswitch_c
+    const-string/jumbo v0, "Put Down Motion"
+
+    return-object v0
+
+    :pswitch_d
+    const-string/jumbo v0, "Wake Up Voice"
+
+    return-object v0
+
+    :pswitch_e
+    const-string/jumbo v0, "Bounce Short Motion"
+
+    return-object v0
+
+    :pswitch_f
+    const-string/jumbo v0, "Bounce Long Motion"
+
+    return-object v0
+
+    :pswitch_10
+    const-string/jumbo v0, "Wrist Up Motion"
+
+    return-object v0
+
+    :pswitch_11
+    const-string/jumbo v0, "Flat Motion"
+
+    return-object v0
+
+    :pswitch_12
+    const-string/jumbo v0, "Movement Alert"
+
+    return-object v0
+
+    :pswitch_13
+    const-string/jumbo v0, "Device Position"
+
+    return-object v0
+
+    :pswitch_14
+    const-string/jumbo v0, "Activity Location Logging"
+
+    return-object v0
+
+    :pswitch_15
+    const-string/jumbo v0, "Activity Tracker"
+
+    return-object v0
+
+    :pswitch_16
+    const-string/jumbo v0, "Activity Batch"
+
+    return-object v0
+
+    :pswitch_17
+    const-string/jumbo v0, "Activity Notification"
+
+    return-object v0
+
+    :pswitch_18
+    const-string/jumbo v0, "Specific Pose Alert"
+
+    return-object v0
+
+    :pswitch_19
+    const-string/jumbo v0, "Activity Notification Ex"
+
+    return-object v0
+
+    :pswitch_1a
+    const-string/jumbo v0, "Call Motion"
+
+    return-object v0
+
+    :pswitch_1b
+    const-string/jumbo v0, "Step Level Monitor"
+
+    return-object v0
+
+    :pswitch_1c
+    const-string/jumbo v0, "Active Time Monitor"
+
+    return-object v0
+
+    :pswitch_1d
+    const-string/jumbo v0, "Sedentary Timer"
+
+    return-object v0
+
+    :pswitch_1e
+    const-string/jumbo v0, "Flat Motion For Table Mode"
+
+    return-object v0
+
+    :pswitch_1f
+    const-string/jumbo v0, "Auto Brightness"
+
+    return-object v0
+
+    :pswitch_20
+    const-string/jumbo v0, "Abnormal Pressure"
+
+    return-object v0
+
+    :pswitch_21
+    const-string/jumbo v0, "Phone Status Monitor"
+
+    return-object v0
+
+    :pswitch_22
+    const-string/jumbo v0, "Hall Sensor"
+
+    return-object v0
+
+    :pswitch_23
+    const-string/jumbo v0, "Environment Adaptive Display"
+
+    return-object v0
+
+    :pswitch_24
+    const-string/jumbo v0, "Wireless Charging Detection"
+
+    return-object v0
+
+    :pswitch_25
+    const-string/jumbo v0, "SLocation Core"
+
+    return-object v0
+
+    :pswitch_26
+    const-string/jumbo v0, "Interrupted Gyro"
+
+    return-object v0
+
+    :pswitch_27
+    const-string/jumbo v0, "Flip Motion"
+
+    return-object v0
+
+    :pswitch_28
+    const-string/jumbo v0, "Any Motion Detector"
+
+    return-object v0
+
+    :pswitch_29
+    const-string/jumbo v0, "Carrying Detection"
+
+    return-object v0
+
+    :pswitch_2a
+    const-string/jumbo v0, "Sensor Status Check"
+
+    return-object v0
+
+    :pswitch_2b
+    const-string/jumbo v0, "Activity Calibration"
+
+    return-object v0
+
+    :pswitch_2c
+    const-string/jumbo v0, "Location Change Trigger"
+
+    return-object v0
+
+    :pswitch_2d
+    const-string/jumbo v0, "Free Fall Detection"
+
+    return-object v0
+
+    nop
+
+    :pswitch_data_0
+    .packed-switch -0x1
+        :pswitch_1
+        :pswitch_0
+        :pswitch_2
+        :pswitch_3
+        :pswitch_4
+        :pswitch_0
+        :pswitch_5
+        :pswitch_6
+        :pswitch_7
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_8
+        :pswitch_9
+        :pswitch_a
+        :pswitch_b
+        :pswitch_c
+        :pswitch_d
+        :pswitch_e
+        :pswitch_f
+        :pswitch_10
+        :pswitch_11
+        :pswitch_12
+        :pswitch_13
+        :pswitch_0
+        :pswitch_14
+        :pswitch_15
+        :pswitch_16
+        :pswitch_17
+        :pswitch_18
+        :pswitch_0
+        :pswitch_19
+        :pswitch_0
+        :pswitch_1a
+        :pswitch_1b
+        :pswitch_1c
+        :pswitch_1d
+        :pswitch_1e
+        :pswitch_0
+        :pswitch_0
+        :pswitch_1f
+        :pswitch_0
+        :pswitch_20
+        :pswitch_21
+        :pswitch_22
+        :pswitch_23
+        :pswitch_0
+        :pswitch_24
+        :pswitch_25
+        :pswitch_26
+        :pswitch_27
+        :pswitch_28
+        :pswitch_29
+        :pswitch_2a
+        :pswitch_2b
+        :pswitch_2c
+        :pswitch_2d
+    .end packed-switch
 .end method
 
 .method private readFromParcel(Landroid/os/Parcel;)V

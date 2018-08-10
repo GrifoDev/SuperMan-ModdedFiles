@@ -237,7 +237,7 @@
 
     move-result v3
 
-    if-ge v0, v3, :cond_3
+    if-ge v0, v3, :cond_5
 
     iget-object v3, p0, Landroid/accessibilityservice/GestureDescription;->mStrokes:Ljava/util/List;
 
@@ -255,9 +255,27 @@
 
     aget-object v3, p3, v1
 
-    iput v0, v3, Landroid/accessibilityservice/GestureDescription$TouchPoint;->mPathIndex:I
+    invoke-virtual {v2}, Landroid/accessibilityservice/GestureDescription$StrokeDescription;->getId()I
+
+    move-result v6
+
+    iput v6, v3, Landroid/accessibilityservice/GestureDescription$TouchPoint;->mStrokeId:I
+
+    aget-object v3, p3, v1
+
+    invoke-virtual {v2}, Landroid/accessibilityservice/GestureDescription$StrokeDescription;->getContinuedStrokeId()I
+
+    move-result v6
+
+    iput v6, v3, Landroid/accessibilityservice/GestureDescription$TouchPoint;->mContinuedStrokeId:I
 
     aget-object v6, p3, v1
+
+    invoke-virtual {v2}, Landroid/accessibilityservice/GestureDescription$StrokeDescription;->getContinuedStrokeId()I
+
+    move-result v3
+
+    if-gez v3, :cond_2
 
     iget-wide v8, v2, Landroid/accessibilityservice/GestureDescription$StrokeDescription;->mStartTime:J
 
@@ -272,11 +290,17 @@
 
     aget-object v6, p3, v1
 
+    invoke-virtual {v2}, Landroid/accessibilityservice/GestureDescription$StrokeDescription;->willContinue()Z
+
+    move-result v3
+
+    if-nez v3, :cond_4
+
     iget-wide v8, v2, Landroid/accessibilityservice/GestureDescription$StrokeDescription;->mEndTime:J
 
     cmp-long v3, p1, v8
 
-    if-nez v3, :cond_2
+    if-nez v3, :cond_3
 
     move v3, v4
 
@@ -330,9 +354,19 @@
     :cond_2
     move v3, v5
 
-    goto :goto_2
+    goto :goto_1
 
     :cond_3
+    move v3, v5
+
+    goto :goto_2
+
+    :cond_4
+    move v3, v5
+
+    goto :goto_2
+
+    :cond_5
     return v1
 .end method
 

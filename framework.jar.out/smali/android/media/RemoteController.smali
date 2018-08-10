@@ -625,7 +625,9 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    xor-int/lit8 v0, v0, 0x1
+
+    if-eqz v0, :cond_0
 
     :cond_2
     iget-object v0, p0, Landroid/media/RemoteController;->mCurrentSession:Landroid/media/session/MediaController;
@@ -742,19 +744,19 @@
 
     invoke-direct {v1}, Landroid/os/Bundle;-><init>()V
 
-    iput-object v1, v0, Landroid/media/MediaMetadataEditor;->mEditorMetadata:Landroid/os/Bundle;
+    iput-object v1, v0, Landroid/media/RemoteController$MetadataEditor;->mEditorMetadata:Landroid/os/Bundle;
 
     const/4 v1, 0x0
 
-    iput-object v1, v0, Landroid/media/MediaMetadataEditor;->mEditorArtwork:Landroid/graphics/Bitmap;
+    iput-object v1, v0, Landroid/media/RemoteController$MetadataEditor;->mEditorArtwork:Landroid/graphics/Bitmap;
 
-    iput-boolean v2, v0, Landroid/media/MediaMetadataEditor;->mMetadataChanged:Z
+    iput-boolean v2, v0, Landroid/media/RemoteController$MetadataEditor;->mMetadataChanged:Z
 
-    iput-boolean v2, v0, Landroid/media/MediaMetadataEditor;->mArtworkChanged:Z
+    iput-boolean v2, v0, Landroid/media/RemoteController$MetadataEditor;->mArtworkChanged:Z
 
     const-wide/16 v2, 0x0
 
-    iput-wide v2, v0, Landroid/media/MediaMetadataEditor;->mEditableKeys:J
+    iput-wide v2, v0, Landroid/media/RemoteController$MetadataEditor;->mEditableKeys:J
 
     return-object v0
 .end method

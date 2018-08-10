@@ -171,7 +171,7 @@
 
     iget-object v4, p0, Lcom/android/internal/app/IBatteryStats$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v5, 0x4a
+    const/16 v5, 0x4d
 
     const/4 v6, 0x0
 
@@ -224,7 +224,7 @@
 
     iget-object v4, p0, Lcom/android/internal/app/IBatteryStats$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v5, 0x4b
+    const/16 v5, 0x4e
 
     const/4 v6, 0x0
 
@@ -447,7 +447,151 @@
     throw v3
 .end method
 
-.method public noteBleScanStarted(Landroid/os/WorkSource;)V
+.method public noteAodService(Z)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    const/4 v2, 0x0
+
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v1
+
+    :try_start_0
+    const-string/jumbo v3, "com.android.internal.app.IBatteryStats"
+
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    if-eqz p1, :cond_0
+
+    const/4 v2, 0x1
+
+    :cond_0
+    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
+
+    iget-object v2, p0, Lcom/android/internal/app/IBatteryStats$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+
+    const/16 v3, 0x26
+
+    const/4 v4, 0x0
+
+    invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    throw v2
+.end method
+
+.method public noteBleDutyScanStarted(Landroid/os/WorkSource;ZI)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    const/4 v2, 0x1
+
+    const/4 v3, 0x0
+
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v1
+
+    :try_start_0
+    const-string/jumbo v4, "com.android.internal.app.IBatteryStats"
+
+    invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    if-eqz p1, :cond_0
+
+    const/4 v4, 0x1
+
+    invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInt(I)V
+
+    const/4 v4, 0x0
+
+    invoke-virtual {p1, v0, v4}, Landroid/os/WorkSource;->writeToParcel(Landroid/os/Parcel;I)V
+
+    :goto_0
+    if-eqz p2, :cond_1
+
+    :goto_1
+    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
+
+    invoke-virtual {v0, p3}, Landroid/os/Parcel;->writeInt(I)V
+
+    iget-object v2, p0, Lcom/android/internal/app/IBatteryStats$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+
+    const/16 v3, 0x4f
+
+    const/4 v4, 0x0
+
+    invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    return-void
+
+    :cond_0
+    const/4 v4, 0x0
+
+    :try_start_1
+    invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInt(I)V
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    goto :goto_0
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    throw v2
+
+    :cond_1
+    move v2, v3
+
+    goto :goto_1
+.end method
+
+.method public noteBleDutyScanStopped(Landroid/os/WorkSource;I)V
     .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -479,9 +623,11 @@
     invoke-virtual {p1, v0, v2}, Landroid/os/WorkSource;->writeToParcel(Landroid/os/Parcel;I)V
 
     :goto_0
+    invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeInt(I)V
+
     iget-object v2, p0, Lcom/android/internal/app/IBatteryStats$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x4c
+    const/16 v3, 0x50
 
     const/4 v4, 0x0
 
@@ -515,6 +661,162 @@
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
     throw v2
+.end method
+
+.method public noteBleScanResults(Landroid/os/WorkSource;I)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v1
+
+    :try_start_0
+    const-string/jumbo v2, "com.android.internal.app.IBatteryStats"
+
+    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    if-eqz p1, :cond_0
+
+    const/4 v2, 0x1
+
+    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
+
+    const/4 v2, 0x0
+
+    invoke-virtual {p1, v0, v2}, Landroid/os/WorkSource;->writeToParcel(Landroid/os/Parcel;I)V
+
+    :goto_0
+    invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeInt(I)V
+
+    iget-object v2, p0, Lcom/android/internal/app/IBatteryStats$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+
+    const/16 v3, 0x54
+
+    const/4 v4, 0x0
+
+    invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    return-void
+
+    :cond_0
+    const/4 v2, 0x0
+
+    :try_start_1
+    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    goto :goto_0
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    throw v2
+.end method
+
+.method public noteBleScanStarted(Landroid/os/WorkSource;Z)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    const/4 v2, 0x1
+
+    const/4 v3, 0x0
+
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v1
+
+    :try_start_0
+    const-string/jumbo v4, "com.android.internal.app.IBatteryStats"
+
+    invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    if-eqz p1, :cond_0
+
+    const/4 v4, 0x1
+
+    invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInt(I)V
+
+    const/4 v4, 0x0
+
+    invoke-virtual {p1, v0, v4}, Landroid/os/WorkSource;->writeToParcel(Landroid/os/Parcel;I)V
+
+    :goto_0
+    if-eqz p2, :cond_1
+
+    :goto_1
+    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
+
+    iget-object v2, p0, Lcom/android/internal/app/IBatteryStats$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+
+    const/16 v3, 0x51
+
+    const/4 v4, 0x0
+
+    invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    return-void
+
+    :cond_0
+    const/4 v4, 0x0
+
+    :try_start_1
+    invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInt(I)V
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    goto :goto_0
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    throw v2
+
+    :cond_1
+    move v2, v3
+
+    goto :goto_1
 .end method
 
 .method public noteBleScanStopped(Landroid/os/WorkSource;)V
@@ -551,7 +853,7 @@
     :goto_0
     iget-object v2, p0, Lcom/android/internal/app/IBatteryStats$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x4d
+    const/16 v3, 0x52
 
     const/4 v4, 0x0
 
@@ -617,7 +919,7 @@
     :goto_0
     iget-object v1, p0, Lcom/android/internal/app/IBatteryStats$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v2, 0x51
+    const/16 v2, 0x57
 
     const/4 v3, 0x0
 
@@ -795,7 +1097,7 @@
 
     iget-object v2, p0, Lcom/android/internal/app/IBatteryStats$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x27
+    const/16 v3, 0x2a
 
     const/4 v4, 0x0
 
@@ -850,7 +1152,7 @@
 
     iget-object v2, p0, Lcom/android/internal/app/IBatteryStats$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x47
+    const/16 v3, 0x4a
 
     const/4 v4, 0x0
 
@@ -1058,7 +1360,7 @@
 
     iget-object v2, p0, Lcom/android/internal/app/IBatteryStats$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x36
+    const/16 v3, 0x39
 
     const/4 v4, 0x0
 
@@ -1118,7 +1420,7 @@
     :goto_0
     iget-object v2, p0, Lcom/android/internal/app/IBatteryStats$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x3c
+    const/16 v3, 0x3f
 
     const/4 v4, 0x0
 
@@ -1179,7 +1481,7 @@
 
     iget-object v2, p0, Lcom/android/internal/app/IBatteryStats$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x37
+    const/16 v3, 0x3a
 
     const/4 v4, 0x0
 
@@ -1239,7 +1541,7 @@
     :goto_0
     iget-object v2, p0, Lcom/android/internal/app/IBatteryStats$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x3d
+    const/16 v3, 0x40
 
     const/4 v4, 0x0
 
@@ -1307,7 +1609,7 @@
 
     iget-object v2, p0, Lcom/android/internal/app/IBatteryStats$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x26
+    const/16 v3, 0x29
 
     const/4 v4, 0x0
 
@@ -1439,6 +1741,116 @@
     throw v2
 .end method
 
+.method public noteLongPartialWakelockFinish(Ljava/lang/String;Ljava/lang/String;I)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v1
+
+    :try_start_0
+    const-string/jumbo v2, "com.android.internal.app.IBatteryStats"
+
+    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+
+    invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+
+    invoke-virtual {v0, p3}, Landroid/os/Parcel;->writeInt(I)V
+
+    iget-object v2, p0, Lcom/android/internal/app/IBatteryStats$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+
+    const/16 v3, 0x1f
+
+    const/4 v4, 0x0
+
+    invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    throw v2
+.end method
+
+.method public noteLongPartialWakelockStart(Ljava/lang/String;Ljava/lang/String;I)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v1
+
+    :try_start_0
+    const-string/jumbo v2, "com.android.internal.app.IBatteryStats"
+
+    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+
+    invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+
+    invoke-virtual {v0, p3}, Landroid/os/Parcel;->writeInt(I)V
+
+    iget-object v2, p0, Lcom/android/internal/app/IBatteryStats$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+
+    const/16 v3, 0x1e
+
+    const/4 v4, 0x0
+
+    invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    throw v2
+.end method
+
 .method public noteMobileRadioPowerState(IJI)V
     .locals 6
     .annotation system Ldalvik/annotation/Throws;
@@ -1468,7 +1880,7 @@
 
     iget-object v2, p0, Lcom/android/internal/app/IBatteryStats$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x28
+    const/16 v3, 0x2b
 
     const/4 v4, 0x0
 
@@ -1524,7 +1936,7 @@
     :goto_0
     iget-object v1, p0, Lcom/android/internal/app/IBatteryStats$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v2, 0x52
+    const/16 v2, 0x58
 
     const/4 v3, 0x0
 
@@ -1583,7 +1995,7 @@
 
     iget-object v2, p0, Lcom/android/internal/app/IBatteryStats$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x45
+    const/16 v3, 0x48
 
     const/4 v4, 0x0
 
@@ -1632,7 +2044,7 @@
 
     iget-object v2, p0, Lcom/android/internal/app/IBatteryStats$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x46
+    const/16 v3, 0x49
 
     const/4 v4, 0x0
 
@@ -1692,7 +2104,7 @@
 
     iget-object v2, p0, Lcom/android/internal/app/IBatteryStats$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x2c
+    const/16 v3, 0x2f
 
     const/4 v4, 0x0
 
@@ -1741,7 +2153,7 @@
 
     iget-object v2, p0, Lcom/android/internal/app/IBatteryStats$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x2a
+    const/16 v3, 0x2d
 
     const/4 v4, 0x0
 
@@ -1790,7 +2202,7 @@
 
     iget-object v2, p0, Lcom/android/internal/app/IBatteryStats$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x29
+    const/16 v3, 0x2c
 
     const/4 v4, 0x0
 
@@ -1850,7 +2262,7 @@
     :goto_0
     iget-object v2, p0, Lcom/android/internal/app/IBatteryStats$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x2b
+    const/16 v3, 0x2e
 
     const/4 v4, 0x0
 
@@ -1911,7 +2323,7 @@
 
     iget-object v2, p0, Lcom/android/internal/app/IBatteryStats$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x2d
+    const/16 v3, 0x30
 
     const/4 v4, 0x0
 
@@ -2009,7 +2421,7 @@
 
     iget-object v2, p0, Lcom/android/internal/app/IBatteryStats$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x4e
+    const/16 v3, 0x53
 
     const/4 v4, 0x0
 
@@ -2207,7 +2619,7 @@
 
     iget-object v2, p0, Lcom/android/internal/app/IBatteryStats$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x23
+    const/16 v3, 0x25
 
     const/4 v4, 0x0
 
@@ -2258,7 +2670,7 @@
 
     iget-object v2, p0, Lcom/android/internal/app/IBatteryStats$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x22
+    const/16 v3, 0x24
 
     const/4 v4, 0x0
 
@@ -2411,7 +2823,7 @@
 
     iget-object v2, p0, Lcom/android/internal/app/IBatteryStats$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x20
+    const/16 v3, 0x22
 
     const/4 v4, 0x0
 
@@ -2828,7 +3240,7 @@
 
     iget-object v2, p0, Lcom/android/internal/app/IBatteryStats$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x21
+    const/16 v3, 0x23
 
     const/4 v4, 0x0
 
@@ -3228,7 +3640,7 @@
 
     iget-object v2, p0, Lcom/android/internal/app/IBatteryStats$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x24
+    const/16 v3, 0x27
 
     const/4 v4, 0x0
 
@@ -3279,7 +3691,7 @@
 
     iget-object v2, p0, Lcom/android/internal/app/IBatteryStats$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x1f
+    const/16 v3, 0x21
 
     const/4 v4, 0x0
 
@@ -3332,7 +3744,7 @@
 
     iget-object v2, p0, Lcom/android/internal/app/IBatteryStats$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x1e
+    const/16 v3, 0x20
 
     const/4 v4, 0x0
 
@@ -3385,7 +3797,7 @@
 
     iget-object v2, p0, Lcom/android/internal/app/IBatteryStats$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x25
+    const/16 v3, 0x28
 
     const/4 v4, 0x0
 
@@ -3447,7 +3859,7 @@
 
     iget-object v2, p0, Lcom/android/internal/app/IBatteryStats$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x40
+    const/16 v3, 0x43
 
     const/4 v4, 0x0
 
@@ -3517,7 +3929,7 @@
     :goto_0
     iget-object v2, p0, Lcom/android/internal/app/IBatteryStats$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x41
+    const/16 v3, 0x44
 
     const/4 v4, 0x0
 
@@ -3583,7 +3995,7 @@
     :goto_0
     iget-object v1, p0, Lcom/android/internal/app/IBatteryStats$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v2, 0x53
+    const/16 v2, 0x59
 
     const/4 v3, 0x0
 
@@ -3640,7 +4052,7 @@
 
     iget-object v2, p0, Lcom/android/internal/app/IBatteryStats$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x3b
+    const/16 v3, 0x3e
 
     const/4 v4, 0x0
 
@@ -3700,7 +4112,7 @@
     :goto_0
     iget-object v2, p0, Lcom/android/internal/app/IBatteryStats$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x43
+    const/16 v3, 0x46
 
     const/4 v4, 0x0
 
@@ -3761,7 +4173,7 @@
 
     iget-object v2, p0, Lcom/android/internal/app/IBatteryStats$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x3a
+    const/16 v3, 0x3d
 
     const/4 v4, 0x0
 
@@ -3821,7 +4233,7 @@
     :goto_0
     iget-object v2, p0, Lcom/android/internal/app/IBatteryStats$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x42
+    const/16 v3, 0x45
 
     const/4 v4, 0x0
 
@@ -3880,7 +4292,7 @@
 
     iget-object v2, p0, Lcom/android/internal/app/IBatteryStats$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x2f
+    const/16 v3, 0x32
 
     const/4 v4, 0x0
 
@@ -3929,7 +4341,7 @@
 
     iget-object v2, p0, Lcom/android/internal/app/IBatteryStats$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x2e
+    const/16 v3, 0x31
 
     const/4 v4, 0x0
 
@@ -3984,7 +4396,7 @@
 
     iget-object v2, p0, Lcom/android/internal/app/IBatteryStats$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x44
+    const/16 v3, 0x47
 
     const/4 v4, 0x0
 
@@ -4035,7 +4447,7 @@
 
     iget-object v2, p0, Lcom/android/internal/app/IBatteryStats$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x35
+    const/16 v3, 0x38
 
     const/4 v4, 0x0
 
@@ -4095,7 +4507,7 @@
     :goto_0
     iget-object v2, p0, Lcom/android/internal/app/IBatteryStats$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x30
+    const/16 v3, 0x33
 
     const/4 v4, 0x0
 
@@ -4176,7 +4588,7 @@
     :goto_1
     iget-object v2, p0, Lcom/android/internal/app/IBatteryStats$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x31
+    const/16 v3, 0x34
 
     const/4 v4, 0x0
 
@@ -4247,7 +4659,7 @@
 
     iget-object v2, p0, Lcom/android/internal/app/IBatteryStats$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x38
+    const/16 v3, 0x3b
 
     const/4 v4, 0x0
 
@@ -4307,7 +4719,7 @@
     :goto_0
     iget-object v2, p0, Lcom/android/internal/app/IBatteryStats$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x3e
+    const/16 v3, 0x41
 
     const/4 v4, 0x0
 
@@ -4368,7 +4780,7 @@
 
     iget-object v2, p0, Lcom/android/internal/app/IBatteryStats$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x39
+    const/16 v3, 0x3c
 
     const/4 v4, 0x0
 
@@ -4428,7 +4840,7 @@
     :goto_0
     iget-object v2, p0, Lcom/android/internal/app/IBatteryStats$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x3f
+    const/16 v3, 0x42
 
     const/4 v4, 0x0
 
@@ -4491,7 +4903,7 @@
 
     iget-object v2, p0, Lcom/android/internal/app/IBatteryStats$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x33
+    const/16 v3, 0x36
 
     const/4 v4, 0x0
 
@@ -4551,7 +4963,7 @@
     :goto_0
     iget-object v2, p0, Lcom/android/internal/app/IBatteryStats$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x32
+    const/16 v3, 0x35
 
     const/4 v4, 0x0
 
@@ -4621,7 +5033,7 @@
 
     iget-object v2, p0, Lcom/android/internal/app/IBatteryStats$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x34
+    const/16 v3, 0x37
 
     const/4 v4, 0x0
 
@@ -4647,8 +5059,8 @@
     throw v2
 .end method
 
-.method public setBatteryState(IIIIIIII)V
-    .locals 5
+.method public setBatteryState(IIIIIIIIIII)V
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -4657,59 +5069,69 @@
 
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
-    move-result-object v0
+    move-result-object v1
 
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
-    move-result-object v1
+    move-result-object v2
 
     :try_start_0
-    const-string/jumbo v2, "com.android.internal.app.IBatteryStats"
+    const-string/jumbo v3, "com.android.internal.app.IBatteryStats"
 
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+    invoke-virtual {v1, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {v1, p1}, Landroid/os/Parcel;->writeInt(I)V
 
-    invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {v1, p2}, Landroid/os/Parcel;->writeInt(I)V
 
-    invoke-virtual {v0, p3}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {v1, p3}, Landroid/os/Parcel;->writeInt(I)V
 
-    invoke-virtual {v0, p4}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {v1, p4}, Landroid/os/Parcel;->writeInt(I)V
 
-    invoke-virtual {v0, p5}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {v1, p5}, Landroid/os/Parcel;->writeInt(I)V
 
-    invoke-virtual {v0, p6}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {v1, p6}, Landroid/os/Parcel;->writeInt(I)V
 
-    invoke-virtual {v0, p7}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {v1, p7}, Landroid/os/Parcel;->writeInt(I)V
 
-    invoke-virtual {v0, p8}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {v1, p8}, Landroid/os/Parcel;->writeInt(I)V
 
-    iget-object v2, p0, Lcom/android/internal/app/IBatteryStats$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+    invoke-virtual {v1, p9}, Landroid/os/Parcel;->writeInt(I)V
 
-    const/16 v3, 0x48
+    move/from16 v0, p10
 
-    const/4 v4, 0x0
+    invoke-virtual {v1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+    move/from16 v0, p11
 
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+    invoke-virtual {v1, v0}, Landroid/os/Parcel;->writeInt(I)V
+
+    iget-object v3, p0, Lcom/android/internal/app/IBatteryStats$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+
+    const/16 v4, 0x4b
+
+    const/4 v5, 0x0
+
+    invoke-interface {v3, v4, v1, v2, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+
+    invoke-virtual {v2}, Landroid/os/Parcel;->readException()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+    invoke-virtual {v2}, Landroid/os/Parcel;->recycle()V
 
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     return-void
 
     :catchall_0
-    move-exception v2
+    move-exception v3
+
+    invoke-virtual {v2}, Landroid/os/Parcel;->recycle()V
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    throw v2
+    throw v3
 .end method
 
 .method public setTemperatureNCurrent(IIIIII)V
@@ -4747,7 +5169,7 @@
 
     iget-object v2, p0, Lcom/android/internal/app/IBatteryStats$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x49
+    const/16 v3, 0x4c
 
     const/4 v4, 0x0
 
@@ -4798,7 +5220,7 @@
 
     iget-object v3, p0, Lcom/android/internal/app/IBatteryStats$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x4f
+    const/16 v4, 0x55
 
     const/4 v5, 0x0
 
@@ -4869,7 +5291,7 @@
 
     iget-object v3, p0, Lcom/android/internal/app/IBatteryStats$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x50
+    const/16 v4, 0x56
 
     const/4 v5, 0x0
 

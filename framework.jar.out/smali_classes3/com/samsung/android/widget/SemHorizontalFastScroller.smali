@@ -324,19 +324,19 @@
 
     iput-object p1, p0, Lcom/samsung/android/widget/SemHorizontalFastScroller;->mList:Landroid/widget/SemHorizontalAbsListView;
 
-    invoke-virtual {p1}, Landroid/widget/AdapterView;->getCount()I
+    invoke-virtual {p1}, Landroid/widget/SemHorizontalAbsListView;->getCount()I
 
     move-result v3
 
     iput v3, p0, Lcom/samsung/android/widget/SemHorizontalFastScroller;->mOldItemCount:I
 
-    invoke-virtual {p1}, Landroid/view/ViewGroup;->getChildCount()I
+    invoke-virtual {p1}, Landroid/widget/SemHorizontalAbsListView;->getChildCount()I
 
     move-result v3
 
     iput v3, p0, Lcom/samsung/android/widget/SemHorizontalFastScroller;->mOldChildCount:I
 
-    invoke-virtual {p1}, Landroid/view/View;->getContext()Landroid/content/Context;
+    invoke-virtual {p1}, Landroid/widget/SemHorizontalAbsListView;->getContext()Landroid/content/Context;
 
     move-result-object v0
 
@@ -350,7 +350,7 @@
 
     iput v3, p0, Lcom/samsung/android/widget/SemHorizontalFastScroller;->mScaledTouchSlop:I
 
-    invoke-virtual {p1}, Landroid/view/View;->getScrollBarStyle()I
+    invoke-virtual {p1}, Landroid/widget/SemHorizontalAbsListView;->getScrollBarStyle()I
 
     move-result v3
 
@@ -423,7 +423,7 @@
 
     invoke-virtual {p0, p2}, Lcom/samsung/android/widget/SemHorizontalFastScroller;->setStyle(I)V
 
-    invoke-virtual {p1}, Landroid/view/ViewGroup;->getOverlay()Landroid/view/ViewGroupOverlay;
+    invoke-virtual {p1}, Landroid/widget/SemHorizontalAbsListView;->getOverlay()Landroid/view/ViewGroupOverlay;
 
     move-result-object v1
 
@@ -457,7 +457,7 @@
 
     invoke-direct {p0, v2, v3}, Lcom/samsung/android/widget/SemHorizontalFastScroller;->updateLongList(II)V
 
-    invoke-virtual {p1}, Landroid/view/View;->semGetHorizontalScrollbarPosition()I
+    invoke-virtual {p1}, Landroid/widget/SemHorizontalAbsListView;->semGetHorizontalScrollbarPosition()I
 
     move-result v2
 
@@ -644,20 +644,12 @@
 
     if-nez v0, :cond_0
 
-    iget-object v0, p0, Lcom/samsung/android/widget/SemHorizontalFastScroller;->mList:Landroid/widget/SemHorizontalAbsListView;
-
-    if-eqz v0, :cond_0
-
     invoke-direct {p0}, Lcom/samsung/android/widget/SemHorizontalFastScroller;->getSectionsFromIndexer()V
 
     :cond_0
     iget-object v0, p0, Lcom/samsung/android/widget/SemHorizontalFastScroller;->mList:Landroid/widget/SemHorizontalAbsListView;
 
-    if-eqz v0, :cond_1
-
-    iget-object v0, p0, Lcom/samsung/android/widget/SemHorizontalFastScroller;->mList:Landroid/widget/SemHorizontalAbsListView;
-
-    invoke-virtual {v0, v2}, Landroid/view/ViewGroup;->requestDisallowInterceptTouchEvent(Z)V
+    invoke-virtual {v0, v2}, Landroid/widget/SemHorizontalAbsListView;->requestDisallowInterceptTouchEvent(Z)V
 
     iget-object v0, p0, Lcom/samsung/android/widget/SemHorizontalFastScroller;->mList:Landroid/widget/SemHorizontalAbsListView;
 
@@ -665,7 +657,6 @@
 
     invoke-direct {p0}, Lcom/samsung/android/widget/SemHorizontalFastScroller;->cancelFling()V
 
-    :cond_1
     return-void
 .end method
 
@@ -720,7 +711,7 @@
 
     invoke-direct {v1, p1}, Landroid/widget/TextView;-><init>(Landroid/content/Context;)V
 
-    invoke-virtual {v1, v0}, Landroid/view/View;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+    invoke-virtual {v1, v0}, Landroid/widget/TextView;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
     const/4 v2, 0x1
 
@@ -736,15 +727,15 @@
 
     const/4 v2, 0x0
 
-    invoke-virtual {v1, v2}, Landroid/view/View;->setAlpha(F)V
+    invoke-virtual {v1, v2}, Landroid/widget/TextView;->setAlpha(F)V
 
     iget-object v2, p0, Lcom/samsung/android/widget/SemHorizontalFastScroller;->mList:Landroid/widget/SemHorizontalAbsListView;
 
-    invoke-virtual {v2}, Landroid/view/View;->getLayoutDirection()I
+    invoke-virtual {v2}, Landroid/widget/SemHorizontalAbsListView;->getLayoutDirection()I
 
     move-result v2
 
-    invoke-virtual {v1, v2}, Landroid/view/View;->setLayoutDirection(I)V
+    invoke-virtual {v1, v2}, Landroid/widget/TextView;->setLayoutDirection(I)V
 
     return-object v1
 .end method
@@ -772,13 +763,13 @@
 
     iget-object v15, v0, Lcom/samsung/android/widget/SemHorizontalFastScroller;->mSectionIndexer:Landroid/widget/SectionIndexer;
 
-    if-eqz v15, :cond_3
+    if-eqz v15, :cond_4
 
     move-object/from16 v0, p0
 
     iget-object v15, v0, Lcom/samsung/android/widget/SemHorizontalFastScroller;->mSections:[Ljava/lang/Object;
 
-    if-eqz v15, :cond_3
+    if-eqz v15, :cond_4
 
     move-object/from16 v0, p0
 
@@ -786,45 +777,22 @@
 
     array-length v15, v15
 
-    if-lez v15, :cond_2
+    if-lez v15, :cond_3
 
-    const/4 v15, 0x1
+    const/4 v3, 0x1
 
     :goto_0
-    move v3, v15
-
-    :goto_1
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_2
 
     move-object/from16 v0, p0
 
     iget-boolean v15, v0, Lcom/samsung/android/widget/SemHorizontalFastScroller;->mMatchDragPosition:Z
 
-    if-eqz v15, :cond_4
+    xor-int/lit8 v15, v15, 0x1
 
-    move-object/from16 v0, p0
-
-    iget v15, v0, Lcom/samsung/android/widget/SemHorizontalFastScroller;->mHeaderCount:I
-
-    sub-int p1, p1, v15
-
-    if-gez p1, :cond_5
-
-    const/4 v15, 0x0
-
-    return v15
+    if-eqz v15, :cond_5
 
     :cond_2
-    const/4 v15, 0x0
-
-    goto :goto_0
-
-    :cond_3
-    const/4 v3, 0x0
-
-    goto :goto_1
-
-    :cond_4
     move/from16 v0, p1
 
     int-to-float v15, v0
@@ -841,7 +809,30 @@
 
     return v15
 
+    :cond_3
+    const/4 v3, 0x0
+
+    goto :goto_0
+
+    :cond_4
+    const/4 v3, 0x0
+
+    goto :goto_0
+
     :cond_5
+    move-object/from16 v0, p0
+
+    iget v15, v0, Lcom/samsung/android/widget/SemHorizontalFastScroller;->mHeaderCount:I
+
+    sub-int p1, p1, v15
+
+    if-gez p1, :cond_6
+
+    const/4 v15, 0x0
+
+    return v15
+
+    :cond_6
     move-object/from16 v0, p0
 
     iget v15, v0, Lcom/samsung/android/widget/SemHorizontalFastScroller;->mHeaderCount:I
@@ -854,22 +845,22 @@
 
     const/16 v16, 0x0
 
-    invoke-virtual/range {v15 .. v16}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual/range {v15 .. v16}, Landroid/widget/SemHorizontalAbsListView;->getChildAt(I)Landroid/view/View;
 
     move-result-object v1
 
-    if-eqz v1, :cond_6
+    if-eqz v1, :cond_7
 
     invoke-virtual {v1}, Landroid/view/View;->getWidth()I
 
     move-result v15
 
-    if-nez v15, :cond_8
+    if-nez v15, :cond_9
 
-    :cond_6
+    :cond_7
     const/4 v4, 0x0
 
-    :goto_2
+    :goto_1
     move-object/from16 v0, p0
 
     iget-object v15, v0, Lcom/samsung/android/widget/SemHorizontalFastScroller;->mSectionIndexer:Landroid/widget/SectionIndexer;
@@ -896,11 +887,11 @@
 
     add-int/lit8 v15, v13, -0x1
 
-    if-ge v12, v15, :cond_a
+    if-ge v12, v15, :cond_b
 
     add-int/lit8 v15, v12, 0x1
 
-    if-ge v15, v13, :cond_9
+    if-ge v15, v13, :cond_a
 
     move-object/from16 v0, p0
 
@@ -912,15 +903,15 @@
 
     move-result v7
 
-    :goto_3
+    :goto_2
     sub-int v9, v7, v14
 
-    :goto_4
-    if-nez v9, :cond_b
+    :goto_3
+    if-nez v9, :cond_c
 
     const/4 v8, 0x0
 
-    :goto_5
+    :goto_4
     int-to-float v15, v12
 
     add-float/2addr v15, v8
@@ -931,13 +922,13 @@
 
     div-float v10, v15, v16
 
-    if-lez p1, :cond_7
+    if-lez p1, :cond_8
 
     add-int v15, p1, p2
 
     move/from16 v0, p3
 
-    if-ne v15, v0, :cond_7
+    if-ne v15, v0, :cond_8
 
     move-object/from16 v0, p0
 
@@ -945,7 +936,7 @@
 
     add-int/lit8 v16, p2, -0x1
 
-    invoke-virtual/range {v15 .. v16}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual/range {v15 .. v16}, Landroid/widget/SemHorizontalAbsListView;->getChildAt(I)Landroid/view/View;
 
     move-result-object v5
 
@@ -953,7 +944,7 @@
 
     iget-object v15, v0, Lcom/samsung/android/widget/SemHorizontalFastScroller;->mList:Landroid/widget/SemHorizontalAbsListView;
 
-    invoke-virtual {v15}, Landroid/view/View;->getPaddingRight()I
+    invoke-virtual {v15}, Landroid/widget/SemHorizontalAbsListView;->getPaddingRight()I
 
     move-result v11
 
@@ -961,11 +952,11 @@
 
     iget-object v15, v0, Lcom/samsung/android/widget/SemHorizontalFastScroller;->mList:Landroid/widget/SemHorizontalAbsListView;
 
-    invoke-virtual {v15}, Landroid/view/ViewGroup;->getClipToPadding()Z
+    invoke-virtual {v15}, Landroid/widget/SemHorizontalAbsListView;->getClipToPadding()Z
 
     move-result v15
 
-    if-eqz v15, :cond_c
+    if-eqz v15, :cond_d
 
     invoke-virtual {v5}, Landroid/view/View;->getWidth()I
 
@@ -975,7 +966,7 @@
 
     iget-object v15, v0, Lcom/samsung/android/widget/SemHorizontalFastScroller;->mList:Landroid/widget/SemHorizontalAbsListView;
 
-    invoke-virtual {v15}, Landroid/view/View;->getWidth()I
+    invoke-virtual {v15}, Landroid/widget/SemHorizontalAbsListView;->getWidth()I
 
     move-result v15
 
@@ -987,10 +978,10 @@
 
     sub-int v2, v15, v16
 
-    :goto_6
-    if-lez v2, :cond_7
+    :goto_5
+    if-lez v2, :cond_8
 
-    if-lez v6, :cond_7
+    if-lez v6, :cond_8
 
     const/high16 v15, 0x3f800000    # 1.0f
 
@@ -1010,15 +1001,15 @@
 
     add-float/2addr v10, v15
 
-    :cond_7
+    :cond_8
     return v10
 
-    :cond_8
+    :cond_9
     move-object/from16 v0, p0
 
     iget-object v15, v0, Lcom/samsung/android/widget/SemHorizontalFastScroller;->mList:Landroid/widget/SemHorizontalAbsListView;
 
-    invoke-virtual {v15}, Landroid/view/View;->getPaddingLeft()I
+    invoke-virtual {v15}, Landroid/widget/SemHorizontalAbsListView;->getPaddingLeft()I
 
     move-result v15
 
@@ -1042,19 +1033,19 @@
 
     div-float v4, v15, v16
 
-    goto/16 :goto_2
+    goto/16 :goto_1
 
-    :cond_9
+    :cond_a
     add-int/lit8 v7, p3, -0x1
+
+    goto :goto_2
+
+    :cond_b
+    sub-int v9, p3, v14
 
     goto :goto_3
 
-    :cond_a
-    sub-int v9, p3, v14
-
-    goto :goto_4
-
-    :cond_b
+    :cond_c
     move/from16 v0, p1
 
     int-to-float v15, v0
@@ -1073,9 +1064,9 @@
 
     div-float v8, v15, v16
 
-    goto/16 :goto_5
+    goto/16 :goto_4
 
-    :cond_c
+    :cond_d
     invoke-virtual {v5}, Landroid/view/View;->getWidth()I
 
     move-result v15
@@ -1086,7 +1077,7 @@
 
     iget-object v15, v0, Lcom/samsung/android/widget/SemHorizontalFastScroller;->mList:Landroid/widget/SemHorizontalAbsListView;
 
-    invoke-virtual {v15}, Landroid/view/View;->getWidth()I
+    invoke-virtual {v15}, Landroid/widget/SemHorizontalAbsListView;->getWidth()I
 
     move-result v15
 
@@ -1096,7 +1087,7 @@
 
     sub-int v2, v15, v16
 
-    goto :goto_6
+    goto :goto_5
 .end method
 
 .method private getPosFromMotionEvent(F)F
@@ -1151,7 +1142,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/widget/SemHorizontalFastScroller;->mList:Landroid/widget/SemHorizontalAbsListView;
 
-    invoke-virtual {v1}, Landroid/widget/AdapterView;->getAdapter()Landroid/widget/Adapter;
+    invoke-virtual {v1}, Landroid/widget/SemHorizontalAbsListView;->getAdapter()Landroid/widget/Adapter;
 
     move-result-object v0
 
@@ -1161,9 +1152,7 @@
 
     move-object v1, v0
 
-    nop
-
-    nop
+    check-cast v1, Lcom/samsung/android/widget/SemHorizontalHeaderViewListAdapter;
 
     invoke-virtual {v1}, Lcom/samsung/android/widget/SemHorizontalHeaderViewListAdapter;->getHeadersCount()I
 
@@ -1171,9 +1160,7 @@
 
     iput v1, p0, Lcom/samsung/android/widget/SemHorizontalFastScroller;->mHeaderCount:I
 
-    nop
-
-    nop
+    check-cast v0, Lcom/samsung/android/widget/SemHorizontalHeaderViewListAdapter;
 
     invoke-virtual {v0}, Lcom/samsung/android/widget/SemHorizontalHeaderViewListAdapter;->getWrappedAdapter()Landroid/widget/ListAdapter;
 
@@ -1310,13 +1297,13 @@
 
     iget-object v4, p0, Lcom/samsung/android/widget/SemHorizontalFastScroller;->mThumbImage:Landroid/widget/ImageView;
 
-    invoke-virtual {v4}, Landroid/view/View;->getTranslationX()F
+    invoke-virtual {v4}, Landroid/widget/ImageView;->getTranslationX()F
 
     move-result v1
 
     iget-object v4, p0, Lcom/samsung/android/widget/SemHorizontalFastScroller;->mThumbImage:Landroid/widget/ImageView;
 
-    invoke-virtual {v4}, Landroid/view/View;->getLeft()I
+    invoke-virtual {v4}, Landroid/widget/ImageView;->getLeft()I
 
     move-result v4
 
@@ -1326,7 +1313,7 @@
 
     iget-object v4, p0, Lcom/samsung/android/widget/SemHorizontalFastScroller;->mThumbImage:Landroid/widget/ImageView;
 
-    invoke-virtual {v4}, Landroid/view/View;->getRight()I
+    invoke-virtual {v4}, Landroid/widget/ImageView;->getRight()I
 
     move-result v4
 
@@ -1361,7 +1348,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/widget/SemHorizontalFastScroller;->mThumbImage:Landroid/widget/ImageView;
 
-    invoke-virtual {v2}, Landroid/view/View;->getTop()I
+    invoke-virtual {v2}, Landroid/widget/ImageView;->getTop()I
 
     move-result v2
 
@@ -1382,7 +1369,7 @@
     :cond_1
     iget-object v2, p0, Lcom/samsung/android/widget/SemHorizontalFastScroller;->mThumbImage:Landroid/widget/ImageView;
 
-    invoke-virtual {v2}, Landroid/view/View;->getBottom()I
+    invoke-virtual {v2}, Landroid/widget/ImageView;->getBottom()I
 
     move-result v2
 
@@ -1811,7 +1798,7 @@
     :goto_0
     iget-object v0, p0, Lcom/samsung/android/widget/SemHorizontalFastScroller;->mList:Landroid/widget/SemHorizontalAbsListView;
 
-    invoke-virtual {v0}, Landroid/view/ViewGroup;->resolvePadding()V
+    invoke-virtual {v0}, Landroid/widget/SemHorizontalAbsListView;->resolvePadding()V
 
     return-void
 
@@ -1846,7 +1833,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/widget/SemHorizontalFastScroller;->mDeferHide:Ljava/lang/Runnable;
 
-    invoke-virtual {v0, v1}, Landroid/view/View;->removeCallbacks(Ljava/lang/Runnable;)Z
+    invoke-virtual {v0, v1}, Landroid/widget/SemHorizontalAbsListView;->removeCallbacks(Ljava/lang/Runnable;)Z
 
     iget-object v0, p0, Lcom/samsung/android/widget/SemHorizontalFastScroller;->mList:Landroid/widget/SemHorizontalAbsListView;
 
@@ -1854,7 +1841,7 @@
 
     const-wide/16 v2, 0x5dc
 
-    invoke-virtual {v0, v1, v2, v3}, Landroid/view/View;->postDelayed(Ljava/lang/Runnable;J)Z
+    invoke-virtual {v0, v1, v2, v3}, Landroid/widget/SemHorizontalAbsListView;->postDelayed(Ljava/lang/Runnable;J)Z
 
     return-void
 .end method
@@ -1873,11 +1860,11 @@
     :goto_0
     iget-object v1, p0, Lcom/samsung/android/widget/SemHorizontalFastScroller;->mThumbImage:Landroid/widget/ImageView;
 
-    invoke-virtual {v1, v0}, Landroid/view/View;->setPressed(Z)V
+    invoke-virtual {v1, v0}, Landroid/widget/ImageView;->setPressed(Z)V
 
     iget-object v1, p0, Lcom/samsung/android/widget/SemHorizontalFastScroller;->mTrackImage:Landroid/widget/ImageView;
 
-    invoke-virtual {v1, v0}, Landroid/view/View;->setPressed(Z)V
+    invoke-virtual {v1, v0}, Landroid/widget/ImageView;->setPressed(Z)V
 
     return-void
 
@@ -1904,7 +1891,7 @@
 
     move-object/from16 v20, v0
 
-    invoke-virtual/range {v20 .. v20}, Landroid/widget/AdapterView;->getCount()I
+    invoke-virtual/range {v20 .. v20}, Landroid/widget/SemHorizontalAbsListView;->getCount()I
 
     move-result v3
 
@@ -2245,7 +2232,7 @@
 
     add-int v21, v21, v18
 
-    invoke-virtual/range {v20 .. v21}, Landroid/widget/AdapterView;->setSelection(I)V
+    invoke-virtual/range {v20 .. v21}, Landroid/widget/SemHorizontalAbsListView;->setSelection(I)V
 
     goto :goto_5
 
@@ -2330,7 +2317,7 @@
 
     add-int v21, v21, v6
 
-    invoke-virtual/range {v20 .. v21}, Landroid/widget/AdapterView;->setSelection(I)V
+    invoke-virtual/range {v20 .. v21}, Landroid/widget/SemHorizontalAbsListView;->setSelection(I)V
 
     goto :goto_7
 
@@ -2343,7 +2330,9 @@
 
     if-eqz v20, :cond_6
 
-    if-nez v5, :cond_6
+    xor-int/lit8 v20, v5, 0x1
+
+    if-eqz v20, :cond_6
 
     invoke-direct/range {p0 .. p0}, Lcom/samsung/android/widget/SemHorizontalFastScroller;->transitionToVisible()V
 
@@ -2357,7 +2346,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/widget/SemHorizontalFastScroller;->mDeferHide:Ljava/lang/Runnable;
 
-    invoke-virtual {v0, v1}, Landroid/view/View;->removeCallbacks(Ljava/lang/Runnable;)Z
+    invoke-virtual {v0, v1}, Landroid/widget/SemHorizontalAbsListView;->removeCallbacks(Ljava/lang/Runnable;)Z
 
     iget-boolean v0, p0, Lcom/samsung/android/widget/SemHorizontalFastScroller;->mAlwaysShow:Z
 
@@ -2469,13 +2458,15 @@
 
     move-result v18
 
-    div-int/lit8 v18, v18, 0x2
-
     move/from16 v0, v18
 
     int-to-float v0, v0
 
     move/from16 v18, v0
+
+    const/high16 v19, 0x40000000    # 2.0f
+
+    div-float v18, v18, v19
 
     add-float v18, v18, v16
 
@@ -2540,7 +2531,7 @@
 
     move-object/from16 v0, v18
 
-    invoke-virtual {v0, v10}, Landroid/view/View;->setTranslationX(F)V
+    invoke-virtual {v0, v10}, Landroid/widget/TextView;->setTranslationX(F)V
 
     move-object/from16 v0, p0
 
@@ -2550,7 +2541,7 @@
 
     move-object/from16 v0, v18
 
-    invoke-virtual {v0, v10}, Landroid/view/View;->setTranslationX(F)V
+    invoke-virtual {v0, v10}, Landroid/widget/TextView;->setTranslationX(F)V
 
     return-void
 
@@ -2841,7 +2832,7 @@
 
     sub-int v8, v20, v21
 
-    invoke-virtual/range {v17 .. v17}, Landroid/view/View;->getHeight()I
+    invoke-virtual/range {v17 .. v17}, Landroid/widget/TextView;->getHeight()I
 
     move-result v18
 
@@ -2865,7 +2856,7 @@
 
     move/from16 v1, v20
 
-    invoke-virtual {v0, v1}, Landroid/view/View;->setScaleY(F)V
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setScaleY(F)V
 
     const/high16 v20, 0x3f800000    # 1.0f
 
@@ -2890,7 +2881,7 @@
     invoke-virtual {v5, v11}, Landroid/animation/AnimatorSet$Builder;->with(Landroid/animation/Animator;)Landroid/animation/AnimatorSet$Builder;
 
     :goto_1
-    invoke-virtual {v15}, Landroid/view/View;->getHeight()I
+    invoke-virtual {v15}, Landroid/widget/TextView;->getHeight()I
 
     move-result v16
 
@@ -2943,11 +2934,8 @@
 
     move-result v20
 
-    if-eqz v20, :cond_5
+    xor-int/lit8 v20, v20, 0x1
 
-    const/16 v20, 0x0
-
-    :goto_2
     return v20
 
     :cond_3
@@ -2970,14 +2958,9 @@
 
     move/from16 v1, v20
 
-    invoke-virtual {v0, v1}, Landroid/view/View;->setScaleY(F)V
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setScaleY(F)V
 
     goto :goto_1
-
-    :cond_5
-    const/16 v20, 0x1
-
-    goto :goto_2
 .end method
 
 .method private transitionToDragging()V
@@ -3141,7 +3124,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/widget/SemHorizontalFastScroller;->mThumbImage:Landroid/widget/ImageView;
 
-    invoke-virtual {v3}, Landroid/view/View;->getHeight()I
+    invoke-virtual {v3}, Landroid/widget/ImageView;->getHeight()I
 
     move-result v3
 
@@ -3195,7 +3178,7 @@
     :cond_1
     iget-object v3, p0, Lcom/samsung/android/widget/SemHorizontalFastScroller;->mThumbImage:Landroid/widget/ImageView;
 
-    invoke-virtual {v3}, Landroid/view/View;->getHeight()I
+    invoke-virtual {v3}, Landroid/widget/ImageView;->getHeight()I
 
     move-result v3
 
@@ -3332,7 +3315,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/widget/SemHorizontalFastScroller;->mList:Landroid/widget/SemHorizontalAbsListView;
 
-    invoke-virtual {v3}, Landroid/view/View;->getContext()Landroid/content/Context;
+    invoke-virtual {v3}, Landroid/widget/SemHorizontalAbsListView;->getContext()Landroid/content/Context;
 
     move-result-object v0
 
@@ -3369,19 +3352,19 @@
 
     iget v4, p0, Lcom/samsung/android/widget/SemHorizontalFastScroller;->mThumbMinWidth:I
 
-    invoke-virtual {v3, v4}, Landroid/view/View;->setMinimumWidth(I)V
+    invoke-virtual {v3, v4}, Landroid/widget/ImageView;->setMinimumWidth(I)V
 
     iget-object v3, p0, Lcom/samsung/android/widget/SemHorizontalFastScroller;->mThumbImage:Landroid/widget/ImageView;
 
     iget v4, p0, Lcom/samsung/android/widget/SemHorizontalFastScroller;->mThumbMinHeight:I
 
-    invoke-virtual {v3, v4}, Landroid/view/View;->setMinimumHeight(I)V
+    invoke-virtual {v3, v4}, Landroid/widget/ImageView;->setMinimumHeight(I)V
 
     iget-object v3, p0, Lcom/samsung/android/widget/SemHorizontalFastScroller;->mThumbImage:Landroid/widget/ImageView;
 
     const/high16 v4, 0x43870000    # 270.0f
 
-    invoke-virtual {v3, v4}, Landroid/view/View;->setRotation(F)V
+    invoke-virtual {v3, v4}, Landroid/widget/ImageView;->setRotation(F)V
 
     iget-object v3, p0, Lcom/samsung/android/widget/SemHorizontalFastScroller;->mThumbDrawable:Landroid/graphics/drawable/Drawable;
 
@@ -3481,11 +3464,11 @@
 
     iget-object v3, p0, Lcom/samsung/android/widget/SemHorizontalFastScroller;->mPrimaryText:Landroid/widget/TextView;
 
-    invoke-virtual {v3, v2}, Landroid/view/View;->setMinimumWidth(I)V
+    invoke-virtual {v3, v2}, Landroid/widget/TextView;->setMinimumWidth(I)V
 
     iget-object v3, p0, Lcom/samsung/android/widget/SemHorizontalFastScroller;->mPrimaryText:Landroid/widget/TextView;
 
-    invoke-virtual {v3, v2}, Landroid/view/View;->setMinimumHeight(I)V
+    invoke-virtual {v3, v2}, Landroid/widget/TextView;->setMinimumHeight(I)V
 
     iget-object v3, p0, Lcom/samsung/android/widget/SemHorizontalFastScroller;->mPrimaryText:Landroid/widget/TextView;
 
@@ -3493,11 +3476,11 @@
 
     iget-object v3, p0, Lcom/samsung/android/widget/SemHorizontalFastScroller;->mSecondaryText:Landroid/widget/TextView;
 
-    invoke-virtual {v3, v2}, Landroid/view/View;->setMinimumWidth(I)V
+    invoke-virtual {v3, v2}, Landroid/widget/TextView;->setMinimumWidth(I)V
 
     iget-object v3, p0, Lcom/samsung/android/widget/SemHorizontalFastScroller;->mSecondaryText:Landroid/widget/TextView;
 
-    invoke-virtual {v3, v2}, Landroid/view/View;->setMinimumHeight(I)V
+    invoke-virtual {v3, v2}, Landroid/widget/TextView;->setMinimumHeight(I)V
 
     iget-object v3, p0, Lcom/samsung/android/widget/SemHorizontalFastScroller;->mSecondaryText:Landroid/widget/TextView;
 
@@ -3517,7 +3500,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/widget/SemHorizontalFastScroller;->mList:Landroid/widget/SemHorizontalAbsListView;
 
-    invoke-virtual {v2}, Landroid/view/ViewGroup;->resolvePadding()V
+    invoke-virtual {v2}, Landroid/widget/SemHorizontalAbsListView;->resolvePadding()V
 
     iget-object v0, p0, Lcom/samsung/android/widget/SemHorizontalFastScroller;->mContainerRect:Landroid/graphics/Rect;
 
@@ -3525,13 +3508,13 @@
 
     iput v4, v0, Landroid/graphics/Rect;->top:I
 
-    invoke-virtual {v2}, Landroid/view/View;->getWidth()I
+    invoke-virtual {v2}, Landroid/widget/SemHorizontalAbsListView;->getWidth()I
 
     move-result v4
 
     iput v4, v0, Landroid/graphics/Rect;->right:I
 
-    invoke-virtual {v2}, Landroid/view/View;->getHeight()I
+    invoke-virtual {v2}, Landroid/widget/SemHorizontalAbsListView;->getHeight()I
 
     move-result v4
 
@@ -3546,7 +3529,7 @@
     :cond_0
     iget v4, v0, Landroid/graphics/Rect;->left:I
 
-    invoke-virtual {v2}, Landroid/view/View;->getPaddingLeft()I
+    invoke-virtual {v2}, Landroid/widget/SemHorizontalAbsListView;->getPaddingLeft()I
 
     move-result v5
 
@@ -3556,7 +3539,7 @@
 
     iget v4, v0, Landroid/graphics/Rect;->top:I
 
-    invoke-virtual {v2}, Landroid/view/View;->getPaddingTop()I
+    invoke-virtual {v2}, Landroid/widget/SemHorizontalAbsListView;->getPaddingTop()I
 
     move-result v5
 
@@ -3566,7 +3549,7 @@
 
     iget v4, v0, Landroid/graphics/Rect;->right:I
 
-    invoke-virtual {v2}, Landroid/view/View;->getPaddingRight()I
+    invoke-virtual {v2}, Landroid/widget/SemHorizontalAbsListView;->getPaddingRight()I
 
     move-result v5
 
@@ -3576,7 +3559,7 @@
 
     iget v4, v0, Landroid/graphics/Rect;->bottom:I
 
-    invoke-virtual {v2}, Landroid/view/View;->getPaddingBottom()I
+    invoke-virtual {v2}, Landroid/widget/SemHorizontalAbsListView;->getPaddingBottom()I
 
     move-result v5
 
@@ -3790,7 +3773,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/widget/SemHorizontalFastScroller;->mList:Landroid/widget/SemHorizontalAbsListView;
 
-    invoke-virtual {v1}, Landroid/view/View;->isInScrollingContainer()Z
+    invoke-virtual {v1}, Landroid/widget/SemHorizontalAbsListView;->isInScrollingContainer()Z
 
     move-result v1
 
@@ -3884,15 +3867,13 @@
 .method public onItemCountChanged(II)V
     .locals 4
 
-    const/4 v1, 0x0
-
     iget v2, p0, Lcom/samsung/android/widget/SemHorizontalFastScroller;->mOldItemCount:I
 
     if-ne v2, p2, :cond_0
 
     iget v2, p0, Lcom/samsung/android/widget/SemHorizontalFastScroller;->mOldChildCount:I
 
-    if-eq v2, p1, :cond_3
+    if-eq v2, p1, :cond_2
 
     :cond_0
     iput p2, p0, Lcom/samsung/android/widget/SemHorizontalFastScroller;->mOldItemCount:I
@@ -3901,22 +3882,22 @@
 
     sub-int v2, p2, p1
 
-    if-lez v2, :cond_1
+    if-lez v2, :cond_3
 
     const/4 v1, 0x1
 
-    :cond_1
-    if-eqz v1, :cond_2
+    :goto_0
+    if-eqz v1, :cond_1
 
     iget v2, p0, Lcom/samsung/android/widget/SemHorizontalFastScroller;->mState:I
 
     const/4 v3, 0x2
 
-    if-eq v2, v3, :cond_2
+    if-eq v2, v3, :cond_1
 
     iget-object v2, p0, Lcom/samsung/android/widget/SemHorizontalFastScroller;->mList:Landroid/widget/SemHorizontalAbsListView;
 
-    invoke-virtual {v2}, Landroid/widget/AdapterView;->getFirstVisiblePosition()I
+    invoke-virtual {v2}, Landroid/widget/SemHorizontalAbsListView;->getFirstVisiblePosition()I
 
     move-result v0
 
@@ -3926,71 +3907,81 @@
 
     invoke-direct {p0, v2}, Lcom/samsung/android/widget/SemHorizontalFastScroller;->setThumbPos(F)V
 
-    :cond_2
+    :cond_1
     invoke-direct {p0, p1, p2}, Lcom/samsung/android/widget/SemHorizontalFastScroller;->updateLongList(II)V
 
-    :cond_3
+    :cond_2
     return-void
+
+    :cond_3
+    const/4 v1, 0x0
+
+    goto :goto_0
 .end method
 
 .method public onScroll(III)V
-    .locals 4
+    .locals 5
 
-    const/4 v3, 0x2
+    const/4 v4, 0x2
 
-    const/4 v1, 0x1
+    const/4 v3, 0x1
 
-    const/4 v0, 0x0
+    const/4 v2, 0x0
 
     invoke-virtual {p0}, Lcom/samsung/android/widget/SemHorizontalFastScroller;->isEnabled()Z
 
-    move-result v2
+    move-result v1
 
-    if-nez v2, :cond_0
+    if-nez v1, :cond_0
 
-    invoke-direct {p0, v0}, Lcom/samsung/android/widget/SemHorizontalFastScroller;->setState(I)V
+    invoke-direct {p0, v2}, Lcom/samsung/android/widget/SemHorizontalFastScroller;->setState(I)V
 
     return-void
 
     :cond_0
-    sub-int v2, p3, p2
+    sub-int v1, p3, p2
 
-    if-lez v2, :cond_1
+    if-lez v1, :cond_3
 
-    move v0, v1
+    const/4 v0, 0x1
 
-    :cond_1
-    if-eqz v0, :cond_2
+    :goto_0
+    if-eqz v0, :cond_1
 
-    iget v2, p0, Lcom/samsung/android/widget/SemHorizontalFastScroller;->mState:I
+    iget v1, p0, Lcom/samsung/android/widget/SemHorizontalFastScroller;->mState:I
 
-    if-eq v2, v3, :cond_2
+    if-eq v1, v4, :cond_1
 
     invoke-direct {p0, p1, p2, p3}, Lcom/samsung/android/widget/SemHorizontalFastScroller;->getPosFromItemCount(III)F
 
-    move-result v2
+    move-result v1
 
-    invoke-direct {p0, v2}, Lcom/samsung/android/widget/SemHorizontalFastScroller;->setThumbPos(F)V
+    invoke-direct {p0, v1}, Lcom/samsung/android/widget/SemHorizontalFastScroller;->setThumbPos(F)V
 
-    :cond_2
-    iput-boolean v1, p0, Lcom/samsung/android/widget/SemHorizontalFastScroller;->mScrollCompleted:Z
+    :cond_1
+    iput-boolean v3, p0, Lcom/samsung/android/widget/SemHorizontalFastScroller;->mScrollCompleted:Z
 
-    iget v2, p0, Lcom/samsung/android/widget/SemHorizontalFastScroller;->mFirstVisibleItem:I
+    iget v1, p0, Lcom/samsung/android/widget/SemHorizontalFastScroller;->mFirstVisibleItem:I
 
-    if-eq v2, p1, :cond_3
+    if-eq v1, p1, :cond_2
 
     iput p1, p0, Lcom/samsung/android/widget/SemHorizontalFastScroller;->mFirstVisibleItem:I
 
-    iget v2, p0, Lcom/samsung/android/widget/SemHorizontalFastScroller;->mState:I
+    iget v1, p0, Lcom/samsung/android/widget/SemHorizontalFastScroller;->mState:I
 
-    if-eq v2, v3, :cond_3
+    if-eq v1, v4, :cond_2
 
-    invoke-direct {p0, v1}, Lcom/samsung/android/widget/SemHorizontalFastScroller;->setState(I)V
+    invoke-direct {p0, v3}, Lcom/samsung/android/widget/SemHorizontalFastScroller;->setState(I)V
 
     invoke-direct {p0}, Lcom/samsung/android/widget/SemHorizontalFastScroller;->postAutoHide()V
 
-    :cond_3
+    :cond_2
     return-void
+
+    :cond_3
+    const/4 v0, 0x0
+
+    goto :goto_0
 .end method
 
 .method public onSectionsChanged()V
@@ -4058,7 +4049,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/widget/SemHorizontalFastScroller;->mList:Landroid/widget/SemHorizontalAbsListView;
 
-    invoke-virtual {v1}, Landroid/view/View;->isInScrollingContainer()Z
+    invoke-virtual {v1}, Landroid/widget/SemHorizontalAbsListView;->isInScrollingContainer()Z
 
     move-result v1
 
@@ -4107,7 +4098,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/widget/SemHorizontalFastScroller;->mList:Landroid/widget/SemHorizontalAbsListView;
 
-    invoke-virtual {v1, v4}, Landroid/view/ViewGroup;->requestDisallowInterceptTouchEvent(Z)V
+    invoke-virtual {v1, v4}, Landroid/widget/SemHorizontalAbsListView;->requestDisallowInterceptTouchEvent(Z)V
 
     iget-object v1, p0, Lcom/samsung/android/widget/SemHorizontalFastScroller;->mList:Landroid/widget/SemHorizontalAbsListView;
 
@@ -4284,7 +4275,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/widget/SemHorizontalFastScroller;->mList:Landroid/widget/SemHorizontalAbsListView;
 
-    invoke-virtual {v3}, Landroid/view/View;->isLayoutRtl()Z
+    invoke-virtual {v3}, Landroid/widget/SemHorizontalAbsListView;->isLayoutRtl()Z
 
     move-result v3
 
@@ -4379,7 +4370,7 @@
 
     iget-object v5, p0, Lcom/samsung/android/widget/SemHorizontalFastScroller;->mList:Landroid/widget/SemHorizontalAbsListView;
 
-    invoke-virtual {v5}, Landroid/view/View;->getContext()Landroid/content/Context;
+    invoke-virtual {v5}, Landroid/widget/SemHorizontalAbsListView;->getContext()Landroid/content/Context;
 
     move-result-object v1
 
@@ -4555,13 +4546,13 @@
         :pswitch_9
         :pswitch_a
         :pswitch_0
-        :pswitch_4
-        :pswitch_b
-        :pswitch_c
-        :pswitch_5
-        :pswitch_3
         :pswitch_2
+        :pswitch_3
         :pswitch_1
+        :pswitch_4
+        :pswitch_c
+        :pswitch_b
+        :pswitch_5
     .end packed-switch
 .end method
 

@@ -19,6 +19,8 @@
 
 .field private mAudioType:I
 
+.field private mCableConnectionStatus:Ljava/lang/Integer;
+
 .field private mDeviceId:Ljava/lang/Integer;
 
 .field private mHdmiPortId:Ljava/lang/Integer;
@@ -28,7 +30,9 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 2
+    .locals 3
+
+    const/4 v2, 0x0
 
     const/4 v1, 0x0
 
@@ -38,15 +42,19 @@
 
     iput-object v1, p0, Landroid/media/tv/TvInputHardwareInfo$Builder;->mType:Ljava/lang/Integer;
 
-    const/4 v0, 0x0
-
-    iput v0, p0, Landroid/media/tv/TvInputHardwareInfo$Builder;->mAudioType:I
+    iput v2, p0, Landroid/media/tv/TvInputHardwareInfo$Builder;->mAudioType:I
 
     const-string/jumbo v0, ""
 
     iput-object v0, p0, Landroid/media/tv/TvInputHardwareInfo$Builder;->mAudioAddress:Ljava/lang/String;
 
     iput-object v1, p0, Landroid/media/tv/TvInputHardwareInfo$Builder;->mHdmiPortId:Ljava/lang/Integer;
+
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v0
+
+    iput-object v0, p0, Landroid/media/tv/TvInputHardwareInfo$Builder;->mCableConnectionStatus:Ljava/lang/Integer;
 
     return-void
 .end method
@@ -135,7 +143,7 @@
 
     move-result v1
 
-    invoke-static {v0, v1}, Landroid/media/tv/TvInputHardwareInfo;->-set2(Landroid/media/tv/TvInputHardwareInfo;I)I
+    invoke-static {v0, v1}, Landroid/media/tv/TvInputHardwareInfo;->-set3(Landroid/media/tv/TvInputHardwareInfo;I)I
 
     iget-object v1, p0, Landroid/media/tv/TvInputHardwareInfo$Builder;->mType:Ljava/lang/Integer;
 
@@ -143,7 +151,7 @@
 
     move-result v1
 
-    invoke-static {v0, v1}, Landroid/media/tv/TvInputHardwareInfo;->-set4(Landroid/media/tv/TvInputHardwareInfo;I)I
+    invoke-static {v0, v1}, Landroid/media/tv/TvInputHardwareInfo;->-set5(Landroid/media/tv/TvInputHardwareInfo;I)I
 
     iget v1, p0, Landroid/media/tv/TvInputHardwareInfo$Builder;->mAudioType:I
 
@@ -170,10 +178,30 @@
 
     move-result v1
 
-    invoke-static {v0, v1}, Landroid/media/tv/TvInputHardwareInfo;->-set3(Landroid/media/tv/TvInputHardwareInfo;I)I
+    invoke-static {v0, v1}, Landroid/media/tv/TvInputHardwareInfo;->-set4(Landroid/media/tv/TvInputHardwareInfo;I)I
 
     :cond_6
+    iget-object v1, p0, Landroid/media/tv/TvInputHardwareInfo$Builder;->mCableConnectionStatus:Ljava/lang/Integer;
+
+    invoke-virtual {v1}, Ljava/lang/Integer;->intValue()I
+
+    move-result v1
+
+    invoke-static {v0, v1}, Landroid/media/tv/TvInputHardwareInfo;->-set2(Landroid/media/tv/TvInputHardwareInfo;I)I
+
     return-object v0
+.end method
+
+.method public cableConnectionStatus(I)Landroid/media/tv/TvInputHardwareInfo$Builder;
+    .locals 1
+
+    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v0
+
+    iput-object v0, p0, Landroid/media/tv/TvInputHardwareInfo$Builder;->mCableConnectionStatus:Ljava/lang/Integer;
+
+    return-object p0
 .end method
 
 .method public deviceId(I)Landroid/media/tv/TvInputHardwareInfo$Builder;

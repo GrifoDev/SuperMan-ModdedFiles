@@ -17,15 +17,15 @@
 # instance fields
 .field private mBottom:I
 
-.field private mIsBottomRightSet:Z
-
-.field private mIsTopLeftSet:Z
+.field private mBottomRightCalls:I
 
 .field private mLeft:I
 
 .field private mRight:I
 
 .field private mTop:I
+
+.field private mTopLeftCalls:I
 
 .field private mView:Landroid/view/View;
 
@@ -58,9 +58,9 @@
 
     invoke-virtual {v0, v1, v2, v3, v4}, Landroid/view/View;->setLeftTopRightBottom(IIII)V
 
-    iput-boolean v5, p0, Landroid/transition/ChangeBounds$ViewBounds;->mIsTopLeftSet:Z
+    iput v5, p0, Landroid/transition/ChangeBounds$ViewBounds;->mTopLeftCalls:I
 
-    iput-boolean v5, p0, Landroid/transition/ChangeBounds$ViewBounds;->mIsBottomRightSet:Z
+    iput v5, p0, Landroid/transition/ChangeBounds$ViewBounds;->mBottomRightCalls:I
 
     return-void
 .end method
@@ -68,7 +68,7 @@
 
 # virtual methods
 .method public setBottomRight(Landroid/graphics/PointF;)V
-    .locals 1
+    .locals 2
 
     iget v0, p1, Landroid/graphics/PointF;->x:F
 
@@ -86,13 +86,17 @@
 
     iput v0, p0, Landroid/transition/ChangeBounds$ViewBounds;->mBottom:I
 
-    const/4 v0, 0x1
+    iget v0, p0, Landroid/transition/ChangeBounds$ViewBounds;->mBottomRightCalls:I
 
-    iput-boolean v0, p0, Landroid/transition/ChangeBounds$ViewBounds;->mIsBottomRightSet:Z
+    add-int/lit8 v0, v0, 0x1
 
-    iget-boolean v0, p0, Landroid/transition/ChangeBounds$ViewBounds;->mIsTopLeftSet:Z
+    iput v0, p0, Landroid/transition/ChangeBounds$ViewBounds;->mBottomRightCalls:I
 
-    if-eqz v0, :cond_0
+    iget v0, p0, Landroid/transition/ChangeBounds$ViewBounds;->mTopLeftCalls:I
+
+    iget v1, p0, Landroid/transition/ChangeBounds$ViewBounds;->mBottomRightCalls:I
+
+    if-ne v0, v1, :cond_0
 
     invoke-direct {p0}, Landroid/transition/ChangeBounds$ViewBounds;->setLeftTopRightBottom()V
 
@@ -101,7 +105,7 @@
 .end method
 
 .method public setTopLeft(Landroid/graphics/PointF;)V
-    .locals 1
+    .locals 2
 
     iget v0, p1, Landroid/graphics/PointF;->x:F
 
@@ -119,13 +123,17 @@
 
     iput v0, p0, Landroid/transition/ChangeBounds$ViewBounds;->mTop:I
 
-    const/4 v0, 0x1
+    iget v0, p0, Landroid/transition/ChangeBounds$ViewBounds;->mTopLeftCalls:I
 
-    iput-boolean v0, p0, Landroid/transition/ChangeBounds$ViewBounds;->mIsTopLeftSet:Z
+    add-int/lit8 v0, v0, 0x1
 
-    iget-boolean v0, p0, Landroid/transition/ChangeBounds$ViewBounds;->mIsBottomRightSet:Z
+    iput v0, p0, Landroid/transition/ChangeBounds$ViewBounds;->mTopLeftCalls:I
 
-    if-eqz v0, :cond_0
+    iget v0, p0, Landroid/transition/ChangeBounds$ViewBounds;->mTopLeftCalls:I
+
+    iget v1, p0, Landroid/transition/ChangeBounds$ViewBounds;->mBottomRightCalls:I
+
+    if-ne v0, v1, :cond_0
 
     invoke-direct {p0}, Landroid/transition/ChangeBounds$ViewBounds;->setLeftTopRightBottom()V
 

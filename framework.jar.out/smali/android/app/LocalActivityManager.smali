@@ -375,10 +375,13 @@
 
     if-ne v1, v2, :cond_0
 
-    if-eqz p2, :cond_2
+    xor-int/lit8 v1, p2, 0x1
+
+    if-eqz v1, :cond_0
+
+    invoke-direct {p0, p1, p2}, Landroid/app/LocalActivityManager;->performPause(Landroid/app/LocalActivityManager$LocalActivityRecord;Z)V
 
     :cond_0
-    :goto_0
     iget-object v1, p0, Landroid/app/LocalActivityManager;->mActivityThread:Landroid/app/ActivityThread;
 
     invoke-virtual {v1, p1, p2}, Landroid/app/ActivityThread;->performDestroyActivity(Landroid/os/IBinder;Z)Landroid/app/ActivityThread$ActivityClientRecord;
@@ -397,11 +400,6 @@
     iput v1, p1, Landroid/app/LocalActivityManager$LocalActivityRecord;->curState:I
 
     return-object v0
-
-    :cond_2
-    invoke-direct {p0, p1, p2}, Landroid/app/LocalActivityManager;->performPause(Landroid/app/LocalActivityManager$LocalActivityRecord;Z)V
-
-    goto :goto_0
 .end method
 
 .method private performPause(Landroid/app/LocalActivityManager$LocalActivityRecord;Z)V
@@ -475,7 +473,7 @@
 
     if-eqz p1, :cond_1
 
-    invoke-virtual {p1}, Landroid/os/BaseBundle;->keySet()Ljava/util/Set;
+    invoke-virtual {p1}, Landroid/os/Bundle;->keySet()Ljava/util/Set;
 
     move-result-object v5
 
@@ -958,13 +956,15 @@
 .end method
 
 .method public startActivity(Ljava/lang/String;Landroid/content/Intent;)Landroid/view/Window;
-    .locals 9
+    .locals 10
 
-    const/4 v8, 0x1
+    const/4 v9, 0x1
+
+    const/4 v8, 0x0
 
     iget v6, p0, Landroid/app/LocalActivityManager;->mCurState:I
 
-    if-ne v6, v8, :cond_0
+    if-ne v6, v9, :cond_0
 
     new-instance v6, Ljava/lang/IllegalStateException;
 
@@ -1043,7 +1043,7 @@
     :goto_1
     iput-object p2, v4, Landroid/app/LocalActivityManager$LocalActivityRecord;->intent:Landroid/content/Intent;
 
-    iput v8, v4, Landroid/app/LocalActivityManager$LocalActivityRecord;->curState:I
+    iput v9, v4, Landroid/app/LocalActivityManager$LocalActivityRecord;->curState:I
 
     iput-object v0, v4, Landroid/app/LocalActivityManager$LocalActivityRecord;->activityInfo:Landroid/content/pm/ActivityInfo;
 
@@ -1088,11 +1088,11 @@
 
     if-eq v0, v6, :cond_8
 
-    iget-object v6, v0, Landroid/content/pm/PackageItemInfo;->name:Ljava/lang/String;
+    iget-object v6, v0, Landroid/content/pm/ActivityInfo;->name:Ljava/lang/String;
 
     iget-object v7, v4, Landroid/app/LocalActivityManager$LocalActivityRecord;->activityInfo:Landroid/content/pm/ActivityInfo;
 
-    iget-object v7, v7, Landroid/content/pm/PackageItemInfo;->name:Ljava/lang/String;
+    iget-object v7, v7, Landroid/content/pm/ActivityInfo;->name:Ljava/lang/String;
 
     invoke-virtual {v6, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -1100,11 +1100,11 @@
 
     if-eqz v6, :cond_d
 
-    iget-object v6, v0, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
+    iget-object v6, v0, Landroid/content/pm/ActivityInfo;->packageName:Ljava/lang/String;
 
     iget-object v7, v4, Landroid/app/LocalActivityManager$LocalActivityRecord;->activityInfo:Landroid/content/pm/ActivityInfo;
 
-    iget-object v7, v7, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
+    iget-object v7, v7, Landroid/content/pm/ActivityInfo;->packageName:Ljava/lang/String;
 
     invoke-virtual {v6, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -1130,13 +1130,13 @@
     :cond_9
     new-instance v2, Ljava/util/ArrayList;
 
-    invoke-direct {v2, v8}, Ljava/util/ArrayList;-><init>(I)V
+    invoke-direct {v2, v9}, Ljava/util/ArrayList;-><init>(I)V
 
     new-instance v6, Lcom/android/internal/content/ReferrerIntent;
 
     iget-object v7, p0, Landroid/app/LocalActivityManager;->mParent:Landroid/app/Activity;
 
-    invoke-virtual {v7}, Landroid/content/ContextWrapper;->getPackageName()Ljava/lang/String;
+    invoke-virtual {v7}, Landroid/app/Activity;->getPackageName()Ljava/lang/String;
 
     move-result-object v7
 
@@ -1146,7 +1146,7 @@
 
     iget-object v6, p0, Landroid/app/LocalActivityManager;->mActivityThread:Landroid/app/ActivityThread;
 
-    invoke-virtual {v6, v4, v2}, Landroid/app/ActivityThread;->performNewIntents(Landroid/os/IBinder;Ljava/util/List;)V
+    invoke-virtual {v6, v4, v2, v8}, Landroid/app/ActivityThread;->performNewIntents(Landroid/os/IBinder;Ljava/util/List;Z)V
 
     iput-object p2, v4, Landroid/app/LocalActivityManager$LocalActivityRecord;->intent:Landroid/content/Intent;
 
@@ -1196,7 +1196,7 @@
     return-object v6
 
     :cond_d
-    invoke-direct {p0, v4, v8}, Landroid/app/LocalActivityManager;->performDestroy(Landroid/app/LocalActivityManager$LocalActivityRecord;Z)Landroid/view/Window;
+    invoke-direct {p0, v4, v9}, Landroid/app/LocalActivityManager;->performDestroy(Landroid/app/LocalActivityManager$LocalActivityRecord;Z)Landroid/view/Window;
 
     goto/16 :goto_1
 .end method

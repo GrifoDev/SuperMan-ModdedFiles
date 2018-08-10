@@ -468,7 +468,7 @@
 
     iget-object v3, p0, Landroid/widget/SemHorizontalAbsListView$RecycleBin;->this$0:Landroid/widget/SemHorizontalAbsListView;
 
-    invoke-virtual {v3, v4}, Landroid/view/View;->notifyViewAccessibilityStateChangedIfNeeded(I)V
+    invoke-virtual {v3, v4}, Landroid/widget/SemHorizontalAbsListView;->notifyViewAccessibilityStateChangedIfNeeded(I)V
 
     invoke-virtual {p1}, Landroid/view/View;->hasTransientState()Z
 
@@ -512,7 +512,7 @@
     :cond_5
     iget-object v3, p0, Landroid/widget/SemHorizontalAbsListView$RecycleBin;->this$0:Landroid/widget/SemHorizontalAbsListView;
 
-    iget-boolean v3, v3, Landroid/widget/AdapterView;->mDataChanged:Z
+    iget-boolean v3, v3, Landroid/widget/SemHorizontalAbsListView;->mDataChanged:Z
 
     if-nez v3, :cond_7
 
@@ -738,7 +738,7 @@
 
     iget-object v4, p0, Landroid/widget/SemHorizontalAbsListView$RecycleBin;->this$0:Landroid/widget/SemHorizontalAbsListView;
 
-    invoke-virtual {v4, v2}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {v4, v2}, Landroid/widget/SemHorizontalAbsListView;->getChildAt(I)Landroid/view/View;
 
     move-result-object v1
 
@@ -1283,7 +1283,7 @@
     :cond_4
     iget-object v11, p0, Landroid/widget/SemHorizontalAbsListView$RecycleBin;->this$0:Landroid/widget/SemHorizontalAbsListView;
 
-    iget-boolean v11, v11, Landroid/widget/AdapterView;->mDataChanged:Z
+    iget-boolean v11, v11, Landroid/widget/SemHorizontalAbsListView;->mDataChanged:Z
 
     if-nez v11, :cond_6
 

@@ -1,5 +1,5 @@
 .class public final Landroid/net/metrics/DefaultNetworkEvent;
-.super Landroid/net/metrics/IpConnectivityEvent;
+.super Ljava/lang/Object;
 .source "DefaultNetworkEvent.java"
 
 # interfaces
@@ -52,10 +52,10 @@
     return-void
 .end method
 
-.method private constructor <init>(I[IIZZ)V
+.method public constructor <init>(I[IIZZ)V
     .locals 0
 
-    invoke-direct {p0}, Landroid/net/metrics/IpConnectivityEvent;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput p1, p0, Landroid/net/metrics/DefaultNetworkEvent;->netId:I
 
@@ -77,7 +77,7 @@
 
     const/4 v2, 0x0
 
-    invoke-direct {p0}, Landroid/net/metrics/IpConnectivityEvent;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
@@ -175,28 +175,6 @@
     const-string/jumbo v0, "NONE"
 
     return-object v0
-.end method
-
-.method public static logEvent(I[IIZZ)V
-    .locals 6
-
-    new-instance v0, Landroid/net/metrics/DefaultNetworkEvent;
-
-    move v1, p0
-
-    move-object v2, p1
-
-    move v3, p2
-
-    move v4, p3
-
-    move v5, p4
-
-    invoke-direct/range {v0 .. v5}, Landroid/net/metrics/DefaultNetworkEvent;-><init>(I[IIZZ)V
-
-    invoke-static {v0}, Landroid/net/metrics/DefaultNetworkEvent;->logEvent(Landroid/net/metrics/IpConnectivityEvent;)V
-
-    return-void
 .end method
 
 

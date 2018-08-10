@@ -63,7 +63,7 @@
 
     const-string/jumbo v1, "SemFloatingFeature"
 
-    invoke-virtual {v0}, Ljava/lang/Throwable;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/Exception;->toString()Ljava/lang/String;
 
     move-result-object v2
 
@@ -243,7 +243,7 @@
     :try_start_5
     const-string/jumbo v14, "SemFloatingFeature"
 
-    invoke-virtual {v5}, Ljava/lang/Throwable;->toString()Ljava/lang/String;
+    invoke-virtual {v5}, Ljava/io/IOException;->toString()Ljava/lang/String;
 
     move-result-object v15
 
@@ -264,7 +264,7 @@
     :try_start_6
     const-string/jumbo v14, "SemFloatingFeature"
 
-    invoke-virtual {v6}, Ljava/lang/Throwable;->toString()Ljava/lang/String;
+    invoke-virtual {v6}, Lorg/xmlpull/v1/XmlPullParserException;->toString()Ljava/lang/String;
 
     move-result-object v15
 
@@ -275,7 +275,7 @@
     if-eqz v11, :cond_4
 
     :try_start_7
-    invoke-virtual {v11}, Ljava/io/FileInputStream;->close()V
+    invoke-virtual {v11}, Ljava/io/InputStream;->close()V
     :try_end_7
     .catch Ljava/io/IOException; {:try_start_7 .. :try_end_7} :catch_8
 
@@ -311,7 +311,7 @@
     :try_start_9
     const-string/jumbo v14, "SemFloatingFeature"
 
-    invoke-virtual {v8}, Ljava/lang/Throwable;->toString()Ljava/lang/String;
+    invoke-virtual {v8}, Ljava/lang/Exception;->toString()Ljava/lang/String;
 
     move-result-object v15
 
@@ -332,7 +332,7 @@
     :try_start_a
     const-string/jumbo v14, "SemFloatingFeature"
 
-    invoke-virtual {v4}, Ljava/lang/Throwable;->toString()Ljava/lang/String;
+    invoke-virtual {v4}, Ljava/io/FileNotFoundException;->toString()Ljava/lang/String;
 
     move-result-object v15
 
@@ -343,7 +343,7 @@
     if-eqz v11, :cond_4
 
     :try_start_b
-    invoke-virtual {v11}, Ljava/io/FileInputStream;->close()V
+    invoke-virtual {v11}, Ljava/io/InputStream;->close()V
     :try_end_b
     .catch Ljava/io/IOException; {:try_start_b .. :try_end_b} :catch_4
 
@@ -354,7 +354,7 @@
 
     const-string/jumbo v14, "SemFloatingFeature"
 
-    invoke-virtual {v5}, Ljava/lang/Throwable;->toString()Ljava/lang/String;
+    invoke-virtual {v5}, Ljava/io/IOException;->toString()Ljava/lang/String;
 
     move-result-object v15
 
@@ -368,7 +368,7 @@
     :try_start_c
     const-string/jumbo v14, "SemFloatingFeature"
 
-    invoke-virtual {v5}, Ljava/lang/Throwable;->toString()Ljava/lang/String;
+    invoke-virtual {v5}, Ljava/io/IOException;->toString()Ljava/lang/String;
 
     move-result-object v15
 
@@ -389,7 +389,7 @@
     if-eqz v11, :cond_6
 
     :try_start_d
-    invoke-virtual {v11}, Ljava/io/FileInputStream;->close()V
+    invoke-virtual {v11}, Ljava/io/InputStream;->close()V
     :try_end_d
     .catch Ljava/io/IOException; {:try_start_d .. :try_end_d} :catch_9
 
@@ -401,7 +401,7 @@
 
     :cond_7
     :try_start_e
-    invoke-virtual {v12}, Ljava/io/FileInputStream;->close()V
+    invoke-virtual {v12}, Ljava/io/InputStream;->close()V
     :try_end_e
     .catch Ljava/io/IOException; {:try_start_e .. :try_end_e} :catch_7
     .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_e .. :try_end_e} :catch_1
@@ -412,7 +412,7 @@
     if-eqz v12, :cond_8
 
     :try_start_f
-    invoke-virtual {v12}, Ljava/io/FileInputStream;->close()V
+    invoke-virtual {v12}, Ljava/io/InputStream;->close()V
     :try_end_f
     .catch Ljava/io/IOException; {:try_start_f .. :try_end_f} :catch_6
 
@@ -423,7 +423,7 @@
 
     const-string/jumbo v14, "SemFloatingFeature"
 
-    invoke-virtual {v5}, Ljava/lang/Throwable;->toString()Ljava/lang/String;
+    invoke-virtual {v5}, Ljava/io/IOException;->toString()Ljava/lang/String;
 
     move-result-object v15
 
@@ -440,7 +440,7 @@
     :try_start_10
     const-string/jumbo v14, "SemFloatingFeature"
 
-    invoke-virtual {v5}, Ljava/lang/Throwable;->toString()Ljava/lang/String;
+    invoke-virtual {v5}, Ljava/io/IOException;->toString()Ljava/lang/String;
 
     move-result-object v15
 
@@ -457,7 +457,7 @@
 
     const-string/jumbo v14, "SemFloatingFeature"
 
-    invoke-virtual {v5}, Ljava/lang/Throwable;->toString()Ljava/lang/String;
+    invoke-virtual {v5}, Ljava/io/IOException;->toString()Ljava/lang/String;
 
     move-result-object v15
 
@@ -470,7 +470,7 @@
 
     const-string/jumbo v15, "SemFloatingFeature"
 
-    invoke-virtual {v5}, Ljava/lang/Throwable;->toString()Ljava/lang/String;
+    invoke-virtual {v5}, Ljava/io/IOException;->toString()Ljava/lang/String;
 
     move-result-object v16
 
@@ -497,71 +497,59 @@
 
 # virtual methods
 .method public getBoolean(Ljava/lang/String;)Z
-    .locals 3
+    .locals 4
 
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
     :try_start_0
-    iget-object v1, p0, Lcom/samsung/android/feature/SemFloatingFeature;->mFeatureList:Ljava/util/Hashtable;
+    iget-object v2, p0, Lcom/samsung/android/feature/SemFloatingFeature;->mFeatureList:Ljava/util/Hashtable;
 
-    invoke-virtual {v1, p1}, Ljava/util/Hashtable;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v1
-
-    if-eqz v1, :cond_0
-
-    iget-object v1, p0, Lcom/samsung/android/feature/SemFloatingFeature;->mFeatureList:Ljava/util/Hashtable;
-
-    invoke-virtual {v1, p1}, Ljava/util/Hashtable;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, p1}, Ljava/util/Hashtable;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v1
 
     check-cast v1, Ljava/lang/String;
 
+    if-eqz v1, :cond_0
+
     invoke-static {v1}, Ljava/lang/Boolean;->parseBoolean(Ljava/lang/String;)Z
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    move-result v1
+    move-result v2
 
-    return v1
+    return v2
 
     :cond_0
-    return v2
+    return v3
 
     :catch_0
     move-exception v0
 
-    return v2
+    return v3
 .end method
 
 .method public getBoolean(Ljava/lang/String;Z)Z
-    .locals 2
+    .locals 3
 
     :try_start_0
-    iget-object v1, p0, Lcom/samsung/android/feature/SemFloatingFeature;->mFeatureList:Ljava/util/Hashtable;
+    iget-object v2, p0, Lcom/samsung/android/feature/SemFloatingFeature;->mFeatureList:Ljava/util/Hashtable;
 
-    invoke-virtual {v1, p1}, Ljava/util/Hashtable;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v1
-
-    if-eqz v1, :cond_0
-
-    iget-object v1, p0, Lcom/samsung/android/feature/SemFloatingFeature;->mFeatureList:Ljava/util/Hashtable;
-
-    invoke-virtual {v1, p1}, Ljava/util/Hashtable;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, p1}, Ljava/util/Hashtable;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v1
 
     check-cast v1, Ljava/lang/String;
 
+    if-eqz v1, :cond_0
+
     invoke-static {v1}, Ljava/lang/Boolean;->parseBoolean(Ljava/lang/String;)Z
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    move-result v1
+    move-result v2
 
-    return v1
+    return v2
 
     :cond_0
     return p2
@@ -573,71 +561,59 @@
 .end method
 
 .method public getInt(Ljava/lang/String;)I
-    .locals 3
+    .locals 4
 
-    const/4 v2, -0x1
+    const/4 v3, -0x1
 
     :try_start_0
-    iget-object v1, p0, Lcom/samsung/android/feature/SemFloatingFeature;->mFeatureList:Ljava/util/Hashtable;
+    iget-object v2, p0, Lcom/samsung/android/feature/SemFloatingFeature;->mFeatureList:Ljava/util/Hashtable;
 
-    invoke-virtual {v1, p1}, Ljava/util/Hashtable;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v1
-
-    if-eqz v1, :cond_0
-
-    iget-object v1, p0, Lcom/samsung/android/feature/SemFloatingFeature;->mFeatureList:Ljava/util/Hashtable;
-
-    invoke-virtual {v1, p1}, Ljava/util/Hashtable;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, p1}, Ljava/util/Hashtable;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v1
 
     check-cast v1, Ljava/lang/String;
 
+    if-eqz v1, :cond_0
+
     invoke-static {v1}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    move-result v1
+    move-result v2
 
-    return v1
+    return v2
 
     :cond_0
-    return v2
+    return v3
 
     :catch_0
     move-exception v0
 
-    return v2
+    return v3
 .end method
 
 .method public getInt(Ljava/lang/String;I)I
-    .locals 2
+    .locals 3
 
     :try_start_0
-    iget-object v1, p0, Lcom/samsung/android/feature/SemFloatingFeature;->mFeatureList:Ljava/util/Hashtable;
+    iget-object v2, p0, Lcom/samsung/android/feature/SemFloatingFeature;->mFeatureList:Ljava/util/Hashtable;
 
-    invoke-virtual {v1, p1}, Ljava/util/Hashtable;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v1
-
-    if-eqz v1, :cond_0
-
-    iget-object v1, p0, Lcom/samsung/android/feature/SemFloatingFeature;->mFeatureList:Ljava/util/Hashtable;
-
-    invoke-virtual {v1, p1}, Ljava/util/Hashtable;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, p1}, Ljava/util/Hashtable;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v1
 
     check-cast v1, Ljava/lang/String;
 
+    if-eqz v1, :cond_0
+
     invoke-static {v1}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    move-result v1
+    move-result v2
 
-    return v1
+    return v2
 
     :cond_0
     return p2
@@ -669,63 +645,51 @@
 .end method
 
 .method public getString(Ljava/lang/String;)Ljava/lang/String;
-    .locals 2
+    .locals 3
 
     :try_start_0
-    iget-object v1, p0, Lcom/samsung/android/feature/SemFloatingFeature;->mFeatureList:Ljava/util/Hashtable;
+    iget-object v2, p0, Lcom/samsung/android/feature/SemFloatingFeature;->mFeatureList:Ljava/util/Hashtable;
 
-    invoke-virtual {v1, p1}, Ljava/util/Hashtable;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v1
-
-    if-eqz v1, :cond_0
-
-    iget-object v1, p0, Lcom/samsung/android/feature/SemFloatingFeature;->mFeatureList:Ljava/util/Hashtable;
-
-    invoke-virtual {v1, p1}, Ljava/util/Hashtable;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, p1}, Ljava/util/Hashtable;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v1
 
     check-cast v1, Ljava/lang/String;
+
+    if-eqz v1, :cond_0
 
     return-object v1
 
     :cond_0
-    const-string/jumbo v1, ""
+    const-string/jumbo v2, ""
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-object v1
+    return-object v2
 
     :catch_0
     move-exception v0
 
-    const-string/jumbo v1, ""
+    const-string/jumbo v2, ""
 
-    return-object v1
+    return-object v2
 .end method
 
 .method public getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-    .locals 2
+    .locals 3
 
     :try_start_0
-    iget-object v1, p0, Lcom/samsung/android/feature/SemFloatingFeature;->mFeatureList:Ljava/util/Hashtable;
+    iget-object v2, p0, Lcom/samsung/android/feature/SemFloatingFeature;->mFeatureList:Ljava/util/Hashtable;
 
-    invoke-virtual {v1, p1}, Ljava/util/Hashtable;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v1
-
-    if-eqz v1, :cond_0
-
-    iget-object v1, p0, Lcom/samsung/android/feature/SemFloatingFeature;->mFeatureList:Ljava/util/Hashtable;
-
-    invoke-virtual {v1, p1}, Ljava/util/Hashtable;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, p1}, Ljava/util/Hashtable;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v1
 
     check-cast v1, Ljava/lang/String;
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    if-eqz v1, :cond_0
 
     return-object v1
 

@@ -50,7 +50,7 @@
     return-object v0
 .end method
 
-.method public onStatusChanged(II)V
+.method public onStatusChanged(ILjava/lang/String;)V
     .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -69,7 +69,7 @@
 
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
 
-    invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
     iget-object v1, p0, Landroid/hardware/ICameraServiceListener$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 

@@ -220,7 +220,7 @@
     throw v1
 .end method
 
-.method public onSvStatusChanged(I[I[F[F[F)V
+.method public onSvStatusChanged(I[I[F[F[F[F)V
     .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -246,6 +246,8 @@
     invoke-virtual {v0, p4}, Landroid/os/Parcel;->writeFloatArray([F)V
 
     invoke-virtual {v0, p5}, Landroid/os/Parcel;->writeFloatArray([F)V
+
+    invoke-virtual {v0, p6}, Landroid/os/Parcel;->writeFloatArray([F)V
 
     iget-object v1, p0, Landroid/location/IGnssStatusListener$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 

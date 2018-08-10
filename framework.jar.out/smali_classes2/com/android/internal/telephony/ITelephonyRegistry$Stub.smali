@@ -28,8 +28,6 @@
 
 .field static final TRANSACTION_addOnSubscriptionsChangedListener:I = 0x1
 
-.field static final TRANSACTION_broadcastCallStateChangedWithoutNotify:I = 0x20
-
 .field static final TRANSACTION_listen:I = 0x3
 
 .field static final TRANSACTION_listenForSubscriber:I = 0x4
@@ -42,11 +40,11 @@
 
 .field static final TRANSACTION_notifyCallStateForPhoneId:I = 0x6
 
-.field static final TRANSACTION_notifyCarrierNetworkChange:I = 0x1d
+.field static final TRANSACTION_notifyCarrierNetworkChange:I = 0x1f
 
 .field static final TRANSACTION_notifyCellInfo:I = 0x15
 
-.field static final TRANSACTION_notifyCellInfoForSubscriber:I = 0x19
+.field static final TRANSACTION_notifyCellInfoForSubscriber:I = 0x1a
 
 .field static final TRANSACTION_notifyCellLocation:I = 0x12
 
@@ -66,11 +64,11 @@
 
 .field static final TRANSACTION_notifyDisconnectCause:I = 0x17
 
-.field static final TRANSACTION_notifyFdnUpdated:I = 0x1e
+.field static final TRANSACTION_notifyFdnUpdated:I = 0x20
 
 .field static final TRANSACTION_notifyMessageWaitingChangedForPhoneId:I = 0x9
 
-.field static final TRANSACTION_notifyOemHookRawEventForSubscriber:I = 0x1b
+.field static final TRANSACTION_notifyOemHookRawEventForSubscriber:I = 0x1d
 
 .field static final TRANSACTION_notifyOtaspChanged:I = 0x14
 
@@ -78,19 +76,21 @@
 
 .field static final TRANSACTION_notifyPreciseDataConnectionFailed:I = 0x18
 
+.field static final TRANSACTION_notifyPreciseDataConnectionFailedForSubscriber:I = 0x19
+
 .field static final TRANSACTION_notifyServiceStateForPhoneId:I = 0x7
 
 .field static final TRANSACTION_notifySignalStrengthForPhoneId:I = 0x8
 
-.field static final TRANSACTION_notifySubscriptionInfoChanged:I = 0x1c
+.field static final TRANSACTION_notifySimActivationStateChangedForPhoneId:I = 0x1c
 
-.field static final TRANSACTION_notifyVoLteServiceStateChanged:I = 0x1a
+.field static final TRANSACTION_notifySubscriptionInfoChanged:I = 0x1e
+
+.field static final TRANSACTION_notifyVoLteServiceStateChanged:I = 0x1b
 
 .field static final TRANSACTION_notifyVoiceRadioBearerHoState:I = 0x21
 
 .field static final TRANSACTION_removeOnSubscriptionsChangedListener:I = 0x2
-
-.field static final TRANSACTION_updatePhoneStateExtras:I = 0x1f
 
 
 # direct methods
@@ -149,7 +149,7 @@
 .end method
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    .locals 46
+    .locals 52
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -184,7 +184,7 @@
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
-    move-result-object v34
+    move-result-object v40
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
@@ -192,13 +192,13 @@
 
     invoke-static {v5}, Lcom/android/internal/telephony/IOnSubscriptionsChangedListener$Stub;->asInterface(Landroid/os/IBinder;)Lcom/android/internal/telephony/IOnSubscriptionsChangedListener;
 
-    move-result-object v38
+    move-result-object v44
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v34
+    move-object/from16 v1, v40
 
-    move-object/from16 v2, v38
+    move-object/from16 v2, v44
 
     invoke-virtual {v0, v1, v2}, Lcom/android/internal/telephony/ITelephonyRegistry$Stub;->addOnSubscriptionsChangedListener(Ljava/lang/String;Lcom/android/internal/telephony/IOnSubscriptionsChangedListener;)V
 
@@ -217,7 +217,7 @@
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
-    move-result-object v34
+    move-result-object v40
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
@@ -225,13 +225,13 @@
 
     invoke-static {v5}, Lcom/android/internal/telephony/IOnSubscriptionsChangedListener$Stub;->asInterface(Landroid/os/IBinder;)Lcom/android/internal/telephony/IOnSubscriptionsChangedListener;
 
-    move-result-object v38
+    move-result-object v44
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v34
+    move-object/from16 v1, v40
 
-    move-object/from16 v2, v38
+    move-object/from16 v2, v44
 
     invoke-virtual {v0, v1, v2}, Lcom/android/internal/telephony/ITelephonyRegistry$Stub;->removeOnSubscriptionsChangedListener(Ljava/lang/String;Lcom/android/internal/telephony/IOnSubscriptionsChangedListener;)V
 
@@ -250,7 +250,7 @@
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
-    move-result-object v34
+    move-result-object v40
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
@@ -258,11 +258,11 @@
 
     invoke-static {v5}, Lcom/android/internal/telephony/IPhoneStateListener$Stub;->asInterface(Landroid/os/IBinder;)Lcom/android/internal/telephony/IPhoneStateListener;
 
-    move-result-object v39
+    move-result-object v45
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v42
+    move-result v48
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
@@ -270,18 +270,18 @@
 
     if-eqz v5, :cond_0
 
-    const/16 v45, 0x1
+    const/16 v51, 0x1
 
     :goto_0
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v34
+    move-object/from16 v1, v40
 
-    move-object/from16 v2, v39
+    move-object/from16 v2, v45
 
-    move/from16 v3, v42
+    move/from16 v3, v48
 
-    move/from16 v4, v45
+    move/from16 v4, v51
 
     invoke-virtual {v0, v1, v2, v3, v4}, Lcom/android/internal/telephony/ITelephonyRegistry$Stub;->listen(Ljava/lang/String;Lcom/android/internal/telephony/IPhoneStateListener;IZ)V
 
@@ -292,7 +292,7 @@
     return v5
 
     :cond_0
-    const/16 v45, 0x0
+    const/16 v51, 0x0
 
     goto :goto_0
 
@@ -389,7 +389,7 @@
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v42
+    move-result v48
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
@@ -399,7 +399,7 @@
 
     move/from16 v1, v23
 
-    move/from16 v2, v42
+    move/from16 v2, v48
 
     invoke-virtual {v0, v6, v1, v2, v15}, Lcom/android/internal/telephony/ITelephonyRegistry$Stub;->notifyCallStateForPhoneId(IIILjava/lang/String;)V
 
@@ -436,16 +436,16 @@
 
     invoke-interface {v5, v0}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
 
-    move-result-object v43
+    move-result-object v49
 
-    check-cast v43, Landroid/telephony/ServiceState;
+    check-cast v49, Landroid/telephony/ServiceState;
 
     :goto_2
     move-object/from16 v0, p0
 
     move/from16 v1, v23
 
-    move-object/from16 v2, v43
+    move-object/from16 v2, v49
 
     invoke-virtual {v0, v6, v1, v2}, Lcom/android/internal/telephony/ITelephonyRegistry$Stub;->notifyServiceStateForPhoneId(IILandroid/telephony/ServiceState;)V
 
@@ -456,7 +456,7 @@
     return v5
 
     :cond_2
-    const/16 v43, 0x0
+    const/16 v49, 0x0
 
     goto :goto_2
 
@@ -487,16 +487,16 @@
 
     invoke-interface {v5, v0}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
 
-    move-result-object v44
+    move-result-object v50
 
-    check-cast v44, Landroid/telephony/SignalStrength;
+    check-cast v50, Landroid/telephony/SignalStrength;
 
     :goto_3
     move-object/from16 v0, p0
 
     move/from16 v1, v23
 
-    move-object/from16 v2, v44
+    move-object/from16 v2, v50
 
     invoke-virtual {v0, v6, v1, v2}, Lcom/android/internal/telephony/ITelephonyRegistry$Stub;->notifySignalStrengthForPhoneId(IILandroid/telephony/SignalStrength;)V
 
@@ -507,7 +507,7 @@
     return v5
 
     :cond_3
-    const/16 v44, 0x0
+    const/16 v50, 0x0
 
     goto :goto_3
 
@@ -567,12 +567,12 @@
 
     if-eqz v5, :cond_5
 
-    const/16 v36, 0x1
+    const/16 v42, 0x1
 
     :goto_5
     move-object/from16 v0, p0
 
-    move/from16 v1, v36
+    move/from16 v1, v42
 
     invoke-virtual {v0, v1}, Lcom/android/internal/telephony/ITelephonyRegistry$Stub;->notifyCallForwardingChanged(Z)V
 
@@ -583,7 +583,7 @@
     return v5
 
     :cond_5
-    const/16 v36, 0x0
+    const/16 v42, 0x0
 
     goto :goto_5
 
@@ -909,7 +909,7 @@
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
-    move-result-object v34
+    move-result-object v40
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
@@ -917,7 +917,7 @@
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v34
+    move-object/from16 v1, v40
 
     invoke-virtual {v0, v1, v7}, Lcom/android/internal/telephony/ITelephonyRegistry$Stub;->notifyDataConnectionFailed(Ljava/lang/String;Ljava/lang/String;)V
 
@@ -975,14 +975,14 @@
 
     invoke-interface {v5, v0}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
 
-    move-result-object v32
+    move-result-object v38
 
-    check-cast v32, Landroid/os/Bundle;
+    check-cast v38, Landroid/os/Bundle;
 
     :goto_f
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v32
+    move-object/from16 v1, v38
 
     invoke-virtual {v0, v1}, Lcom/android/internal/telephony/ITelephonyRegistry$Stub;->notifyCellLocation(Landroid/os/Bundle;)V
 
@@ -993,7 +993,7 @@
     return v5
 
     :cond_f
-    const/16 v32, 0x0
+    const/16 v38, 0x0
 
     goto :goto_f
 
@@ -1020,14 +1020,14 @@
 
     invoke-interface {v5, v0}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
 
-    move-result-object v37
+    move-result-object v43
 
-    check-cast v37, Landroid/os/Bundle;
+    check-cast v43, Landroid/os/Bundle;
 
     :goto_10
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v37
+    move-object/from16 v1, v43
 
     invoke-virtual {v0, v6, v1}, Lcom/android/internal/telephony/ITelephonyRegistry$Stub;->notifyCellLocationForSubscriber(ILandroid/os/Bundle;)V
 
@@ -1038,7 +1038,7 @@
     return v5
 
     :cond_10
-    const/16 v37, 0x0
+    const/16 v43, 0x0
 
     goto :goto_10
 
@@ -1076,11 +1076,11 @@
 
     invoke-virtual {v0, v5}, Landroid/os/Parcel;->createTypedArrayList(Landroid/os/Parcelable$Creator;)Ljava/util/ArrayList;
 
-    move-result-object v35
+    move-result-object v41
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v35
+    move-object/from16 v1, v41
 
     invoke-virtual {v0, v1}, Lcom/android/internal/telephony/ITelephonyRegistry$Stub;->notifyCellInfo(Ljava/util/List;)V
 
@@ -1107,13 +1107,13 @@
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v42
+    move-result v48
 
     move-object/from16 v0, p0
 
     move/from16 v1, v23
 
-    move/from16 v2, v42
+    move/from16 v2, v48
 
     invoke-virtual {v0, v6, v1, v2}, Lcom/android/internal/telephony/ITelephonyRegistry$Stub;->notifyPreciseCallState(III)V
 
@@ -1159,7 +1159,7 @@
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
-    move-result-object v34
+    move-result-object v40
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
@@ -1175,7 +1175,7 @@
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v34
+    move-object/from16 v1, v40
 
     invoke-virtual {v0, v1, v7, v14, v15}, Lcom/android/internal/telephony/ITelephonyRegistry$Stub;->notifyPreciseDataConnectionFailed(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
@@ -1196,17 +1196,64 @@
 
     move-result v6
 
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v14
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v15
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v16
+
+    move-object/from16 v32, p0
+
+    move/from16 v33, v6
+
+    move-object/from16 v34, v7
+
+    move-object/from16 v35, v14
+
+    move-object/from16 v36, v15
+
+    move-object/from16 v37, v16
+
+    invoke-virtual/range {v32 .. v37}, Lcom/android/internal/telephony/ITelephonyRegistry$Stub;->notifyPreciseDataConnectionFailedForSubscriber(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    const/4 v5, 0x1
+
+    return v5
+
+    :sswitch_1a
+    const-string/jumbo v5, "com.android.internal.telephony.ITelephonyRegistry"
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v5}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v6
+
     sget-object v5, Landroid/telephony/CellInfo;->CREATOR:Landroid/os/Parcelable$Creator;
 
     move-object/from16 v0, p2
 
     invoke-virtual {v0, v5}, Landroid/os/Parcel;->createTypedArrayList(Landroid/os/Parcelable$Creator;)Ljava/util/ArrayList;
 
-    move-result-object v40
+    move-result-object v46
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v40
+    move-object/from16 v1, v46
 
     invoke-virtual {v0, v6, v1}, Lcom/android/internal/telephony/ITelephonyRegistry$Stub;->notifyCellInfoForSubscriber(ILjava/util/List;)V
 
@@ -1216,7 +1263,7 @@
 
     return v5
 
-    :sswitch_1a
+    :sswitch_1b
     const-string/jumbo v5, "com.android.internal.telephony.ITelephonyRegistry"
 
     move-object/from16 v0, p2
@@ -1235,14 +1282,14 @@
 
     invoke-interface {v5, v0}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
 
-    move-result-object v33
+    move-result-object v39
 
-    check-cast v33, Landroid/telephony/VoLteServiceState;
+    check-cast v39, Landroid/telephony/VoLteServiceState;
 
     :goto_11
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v33
+    move-object/from16 v1, v39
 
     invoke-virtual {v0, v1}, Lcom/android/internal/telephony/ITelephonyRegistry$Stub;->notifyVoLteServiceStateChanged(Landroid/telephony/VoLteServiceState;)V
 
@@ -1253,134 +1300,11 @@
     return v5
 
     :cond_11
-    const/16 v33, 0x0
+    const/16 v39, 0x0
 
     goto :goto_11
 
-    :sswitch_1b
-    const-string/jumbo v5, "com.android.internal.telephony.ITelephonyRegistry"
-
-    move-object/from16 v0, p2
-
-    invoke-virtual {v0, v5}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v6
-
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->createByteArray()[B
-
-    move-result-object v41
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v41
-
-    invoke-virtual {v0, v6, v1}, Lcom/android/internal/telephony/ITelephonyRegistry$Stub;->notifyOemHookRawEventForSubscriber(I[B)V
-
-    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
-
-    const/4 v5, 0x1
-
-    return v5
-
     :sswitch_1c
-    const-string/jumbo v5, "com.android.internal.telephony.ITelephonyRegistry"
-
-    move-object/from16 v0, p2
-
-    invoke-virtual {v0, v5}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    invoke-virtual/range {p0 .. p0}, Lcom/android/internal/telephony/ITelephonyRegistry$Stub;->notifySubscriptionInfoChanged()V
-
-    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
-
-    const/4 v5, 0x1
-
-    return v5
-
-    :sswitch_1d
-    const-string/jumbo v5, "com.android.internal.telephony.ITelephonyRegistry"
-
-    move-object/from16 v0, p2
-
-    invoke-virtual {v0, v5}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v5
-
-    if-eqz v5, :cond_12
-
-    const/16 v36, 0x1
-
-    :goto_12
-    move-object/from16 v0, p0
-
-    move/from16 v1, v36
-
-    invoke-virtual {v0, v1}, Lcom/android/internal/telephony/ITelephonyRegistry$Stub;->notifyCarrierNetworkChange(Z)V
-
-    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
-
-    const/4 v5, 0x1
-
-    return v5
-
-    :cond_12
-    const/16 v36, 0x0
-
-    goto :goto_12
-
-    :sswitch_1e
-    const-string/jumbo v5, "com.android.internal.telephony.ITelephonyRegistry"
-
-    move-object/from16 v0, p2
-
-    invoke-virtual {v0, v5}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    invoke-virtual/range {p0 .. p0}, Lcom/android/internal/telephony/ITelephonyRegistry$Stub;->notifyFdnUpdated()V
-
-    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
-
-    const/4 v5, 0x1
-
-    return v5
-
-    :sswitch_1f
-    const-string/jumbo v5, "com.android.internal.telephony.ITelephonyRegistry"
-
-    move-object/from16 v0, p2
-
-    invoke-virtual {v0, v5}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v6
-
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v14
-
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v15
-
-    move-object/from16 v0, p0
-
-    invoke-virtual {v0, v6, v7, v14, v15}, Lcom/android/internal/telephony/ITelephonyRegistry$Stub;->updatePhoneStateExtras(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-
-    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
-
-    const/4 v5, 0x1
-
-    return v5
-
-    :sswitch_20
     const-string/jumbo v5, "com.android.internal.telephony.ITelephonyRegistry"
 
     move-object/from16 v0, p2
@@ -1397,19 +1321,109 @@
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v42
+    move-result v48
 
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result-object v15
+    move-result v9
 
     move-object/from16 v0, p0
 
     move/from16 v1, v23
 
-    move/from16 v2, v42
+    move/from16 v2, v48
 
-    invoke-virtual {v0, v6, v1, v2, v15}, Lcom/android/internal/telephony/ITelephonyRegistry$Stub;->broadcastCallStateChangedWithoutNotify(IIILjava/lang/String;)V
+    invoke-virtual {v0, v6, v1, v2, v9}, Lcom/android/internal/telephony/ITelephonyRegistry$Stub;->notifySimActivationStateChangedForPhoneId(IIII)V
+
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    const/4 v5, 0x1
+
+    return v5
+
+    :sswitch_1d
+    const-string/jumbo v5, "com.android.internal.telephony.ITelephonyRegistry"
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v5}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v6
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->createByteArray()[B
+
+    move-result-object v47
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v47
+
+    invoke-virtual {v0, v6, v1}, Lcom/android/internal/telephony/ITelephonyRegistry$Stub;->notifyOemHookRawEventForSubscriber(I[B)V
+
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    const/4 v5, 0x1
+
+    return v5
+
+    :sswitch_1e
+    const-string/jumbo v5, "com.android.internal.telephony.ITelephonyRegistry"
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v5}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual/range {p0 .. p0}, Lcom/android/internal/telephony/ITelephonyRegistry$Stub;->notifySubscriptionInfoChanged()V
+
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    const/4 v5, 0x1
+
+    return v5
+
+    :sswitch_1f
+    const-string/jumbo v5, "com.android.internal.telephony.ITelephonyRegistry"
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v5}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v5
+
+    if-eqz v5, :cond_12
+
+    const/16 v42, 0x1
+
+    :goto_12
+    move-object/from16 v0, p0
+
+    move/from16 v1, v42
+
+    invoke-virtual {v0, v1}, Lcom/android/internal/telephony/ITelephonyRegistry$Stub;->notifyCarrierNetworkChange(Z)V
+
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    const/4 v5, 0x1
+
+    return v5
+
+    :cond_12
+    const/16 v42, 0x0
+
+    goto :goto_12
+
+    :sswitch_20
+    const-string/jumbo v5, "com.android.internal.telephony.ITelephonyRegistry"
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v5}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual/range {p0 .. p0}, Lcom/android/internal/telephony/ITelephonyRegistry$Stub;->notifyFdnUpdated()V
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 

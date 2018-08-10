@@ -58,20 +58,17 @@
     if-ne p3, v2, :cond_1
 
     :goto_0
-    iget-object v1, p0, Landroid/widget/TimePickerSpinnerDelegate$1;->this$0:Landroid/widget/TimePickerSpinnerDelegate;
-
     iget-object v0, p0, Landroid/widget/TimePickerSpinnerDelegate$1;->this$0:Landroid/widget/TimePickerSpinnerDelegate;
 
-    invoke-static {v0}, Landroid/widget/TimePickerSpinnerDelegate;->-get1(Landroid/widget/TimePickerSpinnerDelegate;)Z
+    iget-object v1, p0, Landroid/widget/TimePickerSpinnerDelegate$1;->this$0:Landroid/widget/TimePickerSpinnerDelegate;
 
-    move-result v0
+    invoke-static {v1}, Landroid/widget/TimePickerSpinnerDelegate;->-get1(Landroid/widget/TimePickerSpinnerDelegate;)Z
 
-    if-eqz v0, :cond_2
+    move-result v1
 
-    const/4 v0, 0x0
+    xor-int/lit8 v1, v1, 0x1
 
-    :goto_1
-    invoke-static {v1, v0}, Landroid/widget/TimePickerSpinnerDelegate;->-set0(Landroid/widget/TimePickerSpinnerDelegate;Z)Z
+    invoke-static {v0, v1}, Landroid/widget/TimePickerSpinnerDelegate;->-set0(Landroid/widget/TimePickerSpinnerDelegate;Z)Z
 
     iget-object v0, p0, Landroid/widget/TimePickerSpinnerDelegate$1;->this$0:Landroid/widget/TimePickerSpinnerDelegate;
 
@@ -90,9 +87,4 @@
     if-ne p3, v1, :cond_0
 
     goto :goto_0
-
-    :cond_2
-    const/4 v0, 0x1
-
-    goto :goto_1
 .end method

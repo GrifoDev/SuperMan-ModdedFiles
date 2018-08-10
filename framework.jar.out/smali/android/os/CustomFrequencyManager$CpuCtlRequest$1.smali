@@ -39,7 +39,7 @@
 
     iget-object v0, p0, Landroid/os/CustomFrequencyManager$CpuCtlRequest$1;->this$1:Landroid/os/CustomFrequencyManager$CpuCtlRequest;
 
-    invoke-virtual {v0}, Landroid/os/CustomFrequencyManager$FrequencyRequest;->cancelFrequencyRequest()V
+    invoke-virtual {v0}, Landroid/os/CustomFrequencyManager$CpuCtlRequest;->cancelFrequencyRequest()V
 
     return-void
 .end method

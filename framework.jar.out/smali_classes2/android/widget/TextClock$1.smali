@@ -36,7 +36,7 @@
 
     iget-object v1, p0, Landroid/widget/TextClock$1;->this$0:Landroid/widget/TextClock;
 
-    invoke-static {v1}, Landroid/widget/TextClock;->-get1(Landroid/widget/TextClock;)Ljava/lang/String;
+    invoke-static {v1}, Landroid/widget/TextClock;->-get3(Landroid/widget/TextClock;)Ljava/lang/String;
 
     move-result-object v1
 
@@ -65,47 +65,9 @@
     invoke-static {v1, v0}, Landroid/widget/TextClock;->-wrap1(Landroid/widget/TextClock;Ljava/lang/String;)V
 
     :cond_0
-    const-string/jumbo v1, "android.intent.action.TIME_TICK"
-
-    invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_1
-
-    const-string/jumbo v1, "TextClock"
-
-    const-string/jumbo v2, "TextClock received ACTION_TIME_TICK : start"
-
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_1
     iget-object v1, p0, Landroid/widget/TextClock$1;->this$0:Landroid/widget/TextClock;
 
     invoke-static {v1}, Landroid/widget/TextClock;->-wrap2(Landroid/widget/TextClock;)V
 
-    const-string/jumbo v1, "android.intent.action.TIME_TICK"
-
-    invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_2
-
-    const-string/jumbo v1, "TextClock"
-
-    const-string/jumbo v2, "TextClock received ACTION_TIME_TICK : end"
-
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_2
     return-void
 .end method

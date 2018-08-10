@@ -55,7 +55,7 @@
     .end annotation
 .end method
 
-.method public abstract onNotificationActionClick(Ljava/lang/String;JI)V
+.method public abstract onNotificationChannelGroupModification(Ljava/lang/String;Landroid/os/UserHandle;Landroid/app/NotificationChannelGroup;I)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -63,7 +63,7 @@
     .end annotation
 .end method
 
-.method public abstract onNotificationClick(Ljava/lang/String;J)V
+.method public abstract onNotificationChannelModification(Ljava/lang/String;Landroid/os/UserHandle;Landroid/app/NotificationChannel;I)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -71,7 +71,7 @@
     .end annotation
 .end method
 
-.method public abstract onNotificationEnqueued(Landroid/service/notification/IStatusBarNotificationHolder;IZ)V
+.method public abstract onNotificationEnqueued(Landroid/service/notification/IStatusBarNotificationHolder;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -95,7 +95,7 @@
     .end annotation
 .end method
 
-.method public abstract onNotificationRemoved(Landroid/service/notification/IStatusBarNotificationHolder;Landroid/service/notification/NotificationRankingUpdate;)V
+.method public abstract onNotificationRemoved(Landroid/service/notification/IStatusBarNotificationHolder;Landroid/service/notification/NotificationRankingUpdate;I)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -103,15 +103,7 @@
     .end annotation
 .end method
 
-.method public abstract onNotificationRemovedReason(Ljava/lang/String;JI)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract onNotificationVisibilityChanged(Ljava/lang/String;JZ)V
+.method public abstract onNotificationSnoozedUntilContext(Landroid/service/notification/IStatusBarNotificationHolder;Ljava/lang/String;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

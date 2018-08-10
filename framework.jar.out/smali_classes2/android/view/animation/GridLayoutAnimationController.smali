@@ -127,7 +127,7 @@
 .method private getTransformedColumnIndex(Landroid/view/animation/GridLayoutAnimationController$AnimationParameters;)I
     .locals 4
 
-    invoke-virtual {p0}, Landroid/view/animation/LayoutAnimationController;->getOrder()I
+    invoke-virtual {p0}, Landroid/view/animation/GridLayoutAnimationController;->getOrder()I
 
     move-result v2
 
@@ -165,7 +165,7 @@
     goto :goto_0
 
     :pswitch_1
-    iget-object v2, p0, Landroid/view/animation/LayoutAnimationController;->mRandomizer:Ljava/util/Random;
+    iget-object v2, p0, Landroid/view/animation/GridLayoutAnimationController;->mRandomizer:Ljava/util/Random;
 
     if-nez v2, :cond_1
 
@@ -173,14 +173,14 @@
 
     invoke-direct {v2}, Ljava/util/Random;-><init>()V
 
-    iput-object v2, p0, Landroid/view/animation/LayoutAnimationController;->mRandomizer:Ljava/util/Random;
+    iput-object v2, p0, Landroid/view/animation/GridLayoutAnimationController;->mRandomizer:Ljava/util/Random;
 
     :cond_1
     iget v2, p1, Landroid/view/animation/GridLayoutAnimationController$AnimationParameters;->columnsCount:I
 
     int-to-float v2, v2
 
-    iget-object v3, p0, Landroid/view/animation/LayoutAnimationController;->mRandomizer:Ljava/util/Random;
+    iget-object v3, p0, Landroid/view/animation/GridLayoutAnimationController;->mRandomizer:Ljava/util/Random;
 
     invoke-virtual {v3}, Ljava/util/Random;->nextFloat()F
 
@@ -204,7 +204,7 @@
 .method private getTransformedRowIndex(Landroid/view/animation/GridLayoutAnimationController$AnimationParameters;)I
     .locals 4
 
-    invoke-virtual {p0}, Landroid/view/animation/LayoutAnimationController;->getOrder()I
+    invoke-virtual {p0}, Landroid/view/animation/GridLayoutAnimationController;->getOrder()I
 
     move-result v2
 
@@ -242,7 +242,7 @@
     goto :goto_0
 
     :pswitch_1
-    iget-object v2, p0, Landroid/view/animation/LayoutAnimationController;->mRandomizer:Ljava/util/Random;
+    iget-object v2, p0, Landroid/view/animation/GridLayoutAnimationController;->mRandomizer:Ljava/util/Random;
 
     if-nez v2, :cond_1
 
@@ -250,14 +250,14 @@
 
     invoke-direct {v2}, Ljava/util/Random;-><init>()V
 
-    iput-object v2, p0, Landroid/view/animation/LayoutAnimationController;->mRandomizer:Ljava/util/Random;
+    iput-object v2, p0, Landroid/view/animation/GridLayoutAnimationController;->mRandomizer:Ljava/util/Random;
 
     :cond_1
     iget v2, p1, Landroid/view/animation/GridLayoutAnimationController$AnimationParameters;->rowsCount:I
 
     int-to-float v2, v2
 
-    iget-object v3, p0, Landroid/view/animation/LayoutAnimationController;->mRandomizer:Ljava/util/Random;
+    iget-object v3, p0, Landroid/view/animation/GridLayoutAnimationController;->mRandomizer:Ljava/util/Random;
 
     invoke-virtual {v3}, Ljava/util/Random;->nextFloat()F
 
@@ -324,7 +324,7 @@
 
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Landroid/view/animation/LayoutAnimationController;->mAnimation:Landroid/view/animation/Animation;
+    iget-object v0, v0, Landroid/view/animation/GridLayoutAnimationController;->mAnimation:Landroid/view/animation/Animation;
 
     move-object/from16 v16, v0
 
@@ -358,7 +358,7 @@
 
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Landroid/view/animation/LayoutAnimationController;->mInterpolator:Landroid/view/animation/Interpolator;
+    iget-object v0, v0, Landroid/view/animation/GridLayoutAnimationController;->mInterpolator:Landroid/view/animation/Interpolator;
 
     move-object/from16 v16, v0
 
@@ -372,7 +372,7 @@
 
     move-object/from16 v1, p0
 
-    iput-object v0, v1, Landroid/view/animation/LayoutAnimationController;->mInterpolator:Landroid/view/animation/Interpolator;
+    iput-object v0, v1, Landroid/view/animation/GridLayoutAnimationController;->mInterpolator:Landroid/view/animation/Interpolator;
 
     :cond_1
     move-object/from16 v0, p0
@@ -424,7 +424,7 @@
 
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Landroid/view/animation/LayoutAnimationController;->mInterpolator:Landroid/view/animation/Interpolator;
+    iget-object v0, v0, Landroid/view/animation/GridLayoutAnimationController;->mInterpolator:Landroid/view/animation/Interpolator;
 
     move-object/from16 v16, v0
 

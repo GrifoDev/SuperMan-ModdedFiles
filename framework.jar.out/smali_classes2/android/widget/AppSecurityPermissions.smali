@@ -137,7 +137,7 @@
 
     iget-object v0, p0, Landroid/widget/AppSecurityPermissions;->mContext:Landroid/content/Context;
 
-    const v1, 0x104041d
+    const v1, 0x1040810
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -352,7 +352,7 @@
 
     iget-object v1, p0, Landroid/widget/AppSecurityPermissions;->mPm:Landroid/content/pm/PackageManager;
 
-    invoke-virtual {p2, v1}, Landroid/content/pm/PackageItemInfo;->loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
+    invoke-virtual {p2, v1}, Landroid/widget/AppSecurityPermissions$MyPermissionInfo;->loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
 
     move-result-object v1
 
@@ -391,7 +391,7 @@
         }
     .end annotation
 
-    invoke-virtual {p2}, Landroid/view/ViewGroup;->removeAllViews()V
+    invoke-virtual {p2}, Landroid/widget/LinearLayout;->removeAllViews()V
 
     iget-object v0, p0, Landroid/widget/AppSecurityPermissions;->mContext:Landroid/content/Context;
 
@@ -475,7 +475,7 @@
 
     if-nez v7, :cond_0
 
-    iput v10, v8, Landroid/view/ViewGroup$MarginLayoutParams;->topMargin:I
+    iput v10, v8, Landroid/widget/LinearLayout$LayoutParams;->topMargin:I
 
     :cond_0
     iget-object v0, v1, Landroid/widget/AppSecurityPermissions$MyPermissionGroupInfo;->mAllPermissions:Ljava/util/ArrayList;
@@ -488,23 +488,23 @@
 
     if-ne v7, v0, :cond_1
 
-    iput v10, v8, Landroid/view/ViewGroup$MarginLayoutParams;->bottomMargin:I
+    iput v10, v8, Landroid/widget/LinearLayout$LayoutParams;->bottomMargin:I
 
     :cond_1
-    invoke-virtual {p2}, Landroid/view/ViewGroup;->getChildCount()I
+    invoke-virtual {p2}, Landroid/widget/LinearLayout;->getChildCount()I
 
     move-result v0
 
     if-nez v0, :cond_2
 
-    iget v0, v8, Landroid/view/ViewGroup$MarginLayoutParams;->topMargin:I
+    iget v0, v8, Landroid/widget/LinearLayout$LayoutParams;->topMargin:I
 
     mul-int/lit8 v0, v0, 0x2
 
-    iput v0, v8, Landroid/view/ViewGroup$MarginLayoutParams;->topMargin:I
+    iput v0, v8, Landroid/widget/LinearLayout$LayoutParams;->topMargin:I
 
     :cond_2
-    invoke-virtual {p2, v11, v8}, Landroid/view/ViewGroup;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
+    invoke-virtual {p2, v11, v8}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
     add-int/lit8 v7, v7, 0x1
 
@@ -694,7 +694,7 @@
 
     move-object/from16 v0, v17
 
-    iget-object v8, v0, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
+    iget-object v8, v0, Landroid/content/pm/PermissionInfo;->packageName:Ljava/lang/String;
 
     move-object/from16 v0, v17
 
@@ -840,7 +840,7 @@
     :try_start_1
     move-object/from16 v0, v17
 
-    iget-object v0, v0, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
+    iget-object v0, v0, Landroid/content/pm/PermissionInfo;->packageName:Ljava/lang/String;
 
     move-object/from16 v18, v0
 
@@ -975,7 +975,7 @@
 
     move-result-object v0
 
-    const v2, 0x11600e4
+    const v2, 0x111000e
 
     invoke-virtual {v0, v2, v6, v3}, Landroid/content/res/Resources$Theme;->resolveAttribute(ILandroid/util/TypedValue;Z)Z
 
@@ -1000,7 +1000,7 @@
 
     if-eqz v5, :cond_0
 
-    const v0, 0x10600da
+    const v0, 0x106015e
 
     invoke-virtual {v7, v0}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -1028,7 +1028,7 @@
 
     move-result-object v0
 
-    const v2, 0x11600e3
+    const v2, 0x111000f
 
     invoke-virtual {v0, v2, v6, v3}, Landroid/content/res/Resources$Theme;->resolveAttribute(ILandroid/util/TypedValue;Z)Z
 
@@ -1044,13 +1044,13 @@
 .method private static getPermissionItemView(Landroid/content/Context;Landroid/view/LayoutInflater;Landroid/widget/AppSecurityPermissions$MyPermissionGroupInfo;Landroid/widget/AppSecurityPermissions$MyPermissionInfo;ZLjava/lang/CharSequence;Ljava/lang/String;Z)Landroid/widget/AppSecurityPermissions$PermissionItemView;
     .locals 7
 
-    iget v1, p3, Landroid/content/pm/PermissionInfo;->flags:I
+    iget v1, p3, Landroid/widget/AppSecurityPermissions$MyPermissionInfo;->flags:I
 
     and-int/lit8 v1, v1, 0x1
 
     if-eqz v1, :cond_0
 
-    const v1, 0x1090037
+    const v1, 0x1090038
 
     :goto_0
     const/4 v2, 0x0
@@ -1078,7 +1078,7 @@
     return-object v0
 
     :cond_0
-    const v1, 0x1090036
+    const v1, 0x1090037
 
     goto :goto_0
 .end method
@@ -1114,13 +1114,13 @@
 
     const/4 v5, 0x0
 
-    const v4, 0x1090038
+    const v4, 0x1090039
 
     invoke-virtual {p1, v4, v5}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
     move-result-object v3
 
-    const v4, 0x10203a0
+    const v4, 0x10203f0
 
     invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1128,7 +1128,7 @@
 
     check-cast v2, Landroid/widget/TextView;
 
-    const v4, 0x10203a1
+    const v4, 0x10203f2
 
     invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1152,7 +1152,7 @@
 
     move-result-object v4
 
-    const v5, 0x1060158
+    const v5, 0x1060252
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -1161,7 +1161,7 @@
     invoke-virtual {v1, v4}, Landroid/widget/TextView;->setTextColor(I)V
 
     :cond_0
-    const v4, 0x102039c
+    const v4, 0x10203eb
 
     invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1185,7 +1185,7 @@
 
     const/16 v4, 0x8
 
-    invoke-virtual {v1, v4}, Landroid/view/View;->setVisibility(I)V
+    invoke-virtual {v1, v4}, Landroid/widget/TextView;->setVisibility(I)V
 
     goto :goto_0
 .end method
@@ -1282,7 +1282,7 @@
 
     iget-object v3, p0, Landroid/widget/AppSecurityPermissions;->mInflater:Landroid/view/LayoutInflater;
 
-    const v4, 0x1090039
+    const v4, 0x109003a
 
     const/4 v5, 0x0
 
@@ -1292,17 +1292,17 @@
 
     check-cast v2, Landroid/widget/LinearLayout;
 
-    const v3, 0x10203a3
+    const v3, 0x10203f3
 
-    invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v2, v3}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
     check-cast v0, Landroid/widget/LinearLayout;
 
-    const v3, 0x10203a2
+    const v3, 0x10203b2
 
-    invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v2, v3}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
     move-result-object v1
 
@@ -1310,7 +1310,7 @@
 
     invoke-direct {p0, v3, v0, p1, p2}, Landroid/widget/AppSecurityPermissions;->displayPermissions(Ljava/util/List;Landroid/widget/LinearLayout;IZ)V
 
-    invoke-virtual {v0}, Landroid/view/ViewGroup;->getChildCount()I
+    invoke-virtual {v0}, Landroid/widget/LinearLayout;->getChildCount()I
 
     move-result v3
 
@@ -1325,17 +1325,17 @@
 .method private isDisplayablePermission(Landroid/content/pm/PermissionInfo;II)Z
     .locals 10
 
-    const/4 v7, 0x1
+    const/4 v9, 0x1
 
     const/4 v8, 0x0
 
-    iget v9, p1, Landroid/content/pm/PermissionInfo;->protectionLevel:I
+    iget v7, p1, Landroid/content/pm/PermissionInfo;->protectionLevel:I
 
-    and-int/lit8 v0, v9, 0xf
+    and-int/lit8 v0, v7, 0xf
 
     if-nez v0, :cond_0
 
-    move v4, v7
+    const/4 v4, 0x1
 
     :goto_0
     if-eqz v4, :cond_1
@@ -1343,48 +1343,48 @@
     return v8
 
     :cond_0
-    move v4, v8
+    const/4 v4, 0x0
 
     goto :goto_0
 
     :cond_1
-    if-eq v0, v7, :cond_3
+    if-eq v0, v9, :cond_3
 
-    iget v9, p1, Landroid/content/pm/PermissionInfo;->protectionLevel:I
+    iget v7, p1, Landroid/content/pm/PermissionInfo;->protectionLevel:I
 
-    and-int/lit16 v9, v9, 0x80
+    and-int/lit16 v7, v7, 0x80
 
-    if-eqz v9, :cond_4
+    if-eqz v7, :cond_4
 
     const/4 v1, 0x1
 
     :goto_1
-    and-int/lit8 v9, p2, 0x1
+    and-int/lit8 v7, p2, 0x1
 
-    if-eqz v9, :cond_5
+    if-eqz v7, :cond_5
 
     const/4 v5, 0x1
 
     :goto_2
-    iget v9, p1, Landroid/content/pm/PermissionInfo;->protectionLevel:I
+    iget v7, p1, Landroid/content/pm/PermissionInfo;->protectionLevel:I
 
-    and-int/lit8 v9, v9, 0x20
+    and-int/lit8 v7, v7, 0x20
 
-    if-eqz v9, :cond_6
+    if-eqz v7, :cond_6
 
     const/4 v2, 0x1
 
     :goto_3
-    and-int/lit8 v9, p3, 0x2
+    and-int/lit8 v7, p3, 0x2
 
-    if-eqz v9, :cond_7
+    if-eqz v7, :cond_7
 
     const/4 v6, 0x1
 
     :goto_4
-    and-int/lit8 v9, p2, 0x2
+    and-int/lit8 v7, p2, 0x2
 
-    if-eqz v9, :cond_8
+    if-eqz v7, :cond_8
 
     const/4 v3, 0x1
 
@@ -1398,7 +1398,7 @@
     if-eqz v3, :cond_9
 
     :cond_2
-    return v7
+    return v9
 
     :cond_3
     const/4 v1, 0x1
@@ -1435,7 +1435,7 @@
 
     if-eqz v6, :cond_a
 
-    return v7
+    return v9
 
     :cond_a
     return v8
@@ -1485,7 +1485,7 @@
 
     iget-object v7, p0, Landroid/widget/AppSecurityPermissions;->mPermGroups:Ljava/util/Map;
 
-    iget-object v8, v3, Landroid/content/pm/PermissionInfo;->group:Ljava/lang/String;
+    iget-object v8, v3, Landroid/widget/AppSecurityPermissions$MyPermissionInfo;->group:Ljava/lang/String;
 
     invoke-interface {v7, v8}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -1497,7 +1497,7 @@
 
     iget-object v7, p0, Landroid/widget/AppSecurityPermissions;->mPm:Landroid/content/pm/PackageManager;
 
-    invoke-virtual {v3, v7}, Landroid/content/pm/PackageItemInfo;->loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
+    invoke-virtual {v3, v7}, Landroid/widget/AppSecurityPermissions$MyPermissionInfo;->loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
 
     move-result-object v7
 
@@ -1541,18 +1541,18 @@
 
     check-cast v5, Landroid/widget/AppSecurityPermissions$MyPermissionGroupInfo;
 
-    iget v7, v5, Landroid/content/pm/PackageItemInfo;->labelRes:I
+    iget v7, v5, Landroid/widget/AppSecurityPermissions$MyPermissionGroupInfo;->labelRes:I
 
     if-nez v7, :cond_2
 
-    iget-object v7, v5, Landroid/content/pm/PackageItemInfo;->nonLocalizedLabel:Ljava/lang/CharSequence;
+    iget-object v7, v5, Landroid/widget/AppSecurityPermissions$MyPermissionGroupInfo;->nonLocalizedLabel:Ljava/lang/CharSequence;
 
     if-eqz v7, :cond_3
 
     :cond_2
     iget-object v7, p0, Landroid/widget/AppSecurityPermissions;->mPm:Landroid/content/pm/PackageManager;
 
-    invoke-virtual {v5, v7}, Landroid/content/pm/PackageItemInfo;->loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
+    invoke-virtual {v5, v7}, Landroid/widget/AppSecurityPermissions$MyPermissionGroupInfo;->loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
 
     move-result-object v7
 
@@ -1569,7 +1569,7 @@
     :try_start_0
     iget-object v7, p0, Landroid/widget/AppSecurityPermissions;->mPm:Landroid/content/pm/PackageManager;
 
-    iget-object v8, v5, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
+    iget-object v8, v5, Landroid/widget/AppSecurityPermissions$MyPermissionGroupInfo;->packageName:Ljava/lang/String;
 
     const/4 v9, 0x0
 
@@ -1579,7 +1579,7 @@
 
     iget-object v7, p0, Landroid/widget/AppSecurityPermissions;->mPm:Landroid/content/pm/PackageManager;
 
-    invoke-virtual {v0, v7}, Landroid/content/pm/PackageItemInfo;->loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
+    invoke-virtual {v0, v7}, Landroid/content/pm/ApplicationInfo;->loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
 
     move-result-object v7
 
@@ -1594,7 +1594,7 @@
 
     iget-object v7, p0, Landroid/widget/AppSecurityPermissions;->mPm:Landroid/content/pm/PackageManager;
 
-    invoke-virtual {v5, v7}, Landroid/content/pm/PackageItemInfo;->loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
+    invoke-virtual {v5, v7}, Landroid/widget/AppSecurityPermissions$MyPermissionGroupInfo;->loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
 
     move-result-object v7
 

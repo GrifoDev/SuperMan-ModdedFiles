@@ -261,6 +261,14 @@
     .end annotation
 .end method
 
+.method public abstract setStandbyMode(Z)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract setSystemAudioMode(ZLandroid/hardware/hdmi/IHdmiControlCallback;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
