@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<shape android:shape="oval"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <stroke android:width="@dimen/sec_photo_stroke_width" android:color="@color/sec_cover_photo_container_yp_background" android:alpha="0.4" />
-    <size android:height="@dimen/sec_cover_photo_size" android:width="@dimen/sec_cover_photo_size" />
-    <solid android:color="@color/sec_cover_photo_container_yp_background" />
-    <padding android:left="@dimen/sec_photo_stroke_width" android:top="@dimen/sec_photo_stroke_width" android:right="@dimen/sec_photo_stroke_width" android:bottom="@dimen/sec_photo_stroke_width" />
-</shape>

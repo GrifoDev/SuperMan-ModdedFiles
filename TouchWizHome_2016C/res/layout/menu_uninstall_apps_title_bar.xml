@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:orientation="horizontal" android:background="@drawable/toolbar_bg" android:layout_width="fill_parent" android:layout_height="fill_parent"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <LinearLayout android:background="@drawable/tw_tab_unselected_bar_holo" android:layout_width="fill_parent" android:layout_height="fill_parent">
-        <include android:id="@id/menu_widgets_uninstall_selected_back_down" layout="@layout/menu_title_bar_back" />
-        <TextView android:textSize="@dimen/menu_title_bar_text_size" android:textColor="@color/menu_title_selected_text" android:gravity="start|center" android:id="@id/menu_selected_backtext" android:focusable="true" android:layout_width="fill_parent" android:layout_height="fill_parent" android:text="@string/quickoptions_uninstall" android:singleLine="true" android:shadowColor="#bf000000" android:shadowDx="2.0" android:shadowDy="2.0" android:shadowRadius="2.0" android:paddingStart="@dimen/menu_title_bar_left_padding" />
-    </LinearLayout>
-</LinearLayout>

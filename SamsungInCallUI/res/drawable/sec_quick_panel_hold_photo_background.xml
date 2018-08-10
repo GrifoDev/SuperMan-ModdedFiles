@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<shape android:shape="oval"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <solid android:color="@color/sec_contact_hold_photo_background_color" />
-    <size android:height="@dimen/sec_quick_panel_photo_diameter" android:width="@dimen/sec_quick_panel_photo_diameter" />
-</shape>

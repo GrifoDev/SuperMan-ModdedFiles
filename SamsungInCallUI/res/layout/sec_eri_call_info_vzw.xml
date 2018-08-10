@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <TextView android:textSize="@dimen/sec_video_eri_call_info_vzw_text_size" android:textColor="@color/sec_video_eri_call_info_vzw_text_color" android:id="@id/eriCallInfoVzwText" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/usa_vzw_video_call_eri_call_info" android:layout_centerVertical="true" android:fontFamily="sans-serif" />
-</RelativeLayout>

@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <TextView android:textSize="@dimen/sec_call_popup_call_label_text_size" android:textColor="@color/sec_popup_call_label_and_number_text_color" android:layout_gravity="center_vertical" android:id="@id/smartCallStatus" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/sec_call_popup_primary_label_and_number_bottom_margin" android:singleLine="true" android:includeFontPadding="false" android:fontFamily="sans-serif" />
-    <ImageView android:id="@id/status_cp_logo" android:visibility="gone" android:layout_width="@dimen/sec_smart_call_popup_cp_logo_width" android:layout_height="wrap_content" android:tint="@color/smart_call_content_provider_image_tint_theme" android:layout_marginEnd="12.0dip" android:layout_alignParentEnd="true" />
-</RelativeLayout>

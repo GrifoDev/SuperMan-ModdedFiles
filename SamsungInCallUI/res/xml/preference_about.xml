@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <Preference android:icon="@null" android:title="@string/about_build_version" android:key="@string/pref_build_version_key" />
-    <Preference android:icon="@null" android:title="@string/about_open_source_licenses" android:key="@string/pref_open_source_licenses_key" android:summary="@string/about_open_source_licenses_summary" />
-    <Preference android:icon="@null" android:title="@string/about_privacy_policy" android:key="@string/pref_privacy_policy_key" />
-    <Preference android:icon="@null" android:title="@string/about_terms_of_service" android:key="@string/pref_terms_of_service_key" />
-</PreferenceScreen>

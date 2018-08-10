@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <ImageView android:id="@id/simIconLabelLarge" android:visibility="gone" android:layout_width="@dimen/sec_call_popup_sim_icon_width" android:layout_height="@dimen/sec_call_popup_sim_icon_height" android:layout_marginEnd="@dimen/sec_call_sim_label_margin_right" />
-</RelativeLayout>

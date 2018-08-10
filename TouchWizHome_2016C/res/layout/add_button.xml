@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<FrameLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="fill_parent"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <TextView android:textSize="@dimen/menu_edit_button_text_size" android:textStyle="bold" android:textColor="@color/selectcount_text_color" android:gravity="center" android:layout_gravity="end|center" android:id="@id/select_add_button" android:background="@drawable/focusable_apps_edit_button_bg" android:focusable="true" android:clickable="true" android:layout_width="wrap_content" android:layout_height="@dimen/menu_edit_button_text_height" android:minWidth="@dimen/menu_edit_button_text_width" android:text="@string/select_app_add" android:textAllCaps="true" android:fontFamily="sec-roboto-condensed" android:paddingStart="@dimen/menu_edit_button_padding_horizontal" android:paddingEnd="@dimen/menu_edit_button_padding_horizontal" android:layout_marginEnd="@dimen/menu_edit_button_margin_end"
-      xmlns:launcher="http://schemas.android.com/apk/res/com.sec.android.app.launcher" />
-</FrameLayout>

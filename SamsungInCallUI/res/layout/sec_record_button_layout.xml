@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <com.android.incallui.widget.SecVoiceToggleButton android:enabled="false" android:textColor="@drawable/sec_incall_button_record_text_color" android:id="@id/recordButton" android:layout_width="fill_parent" android:textOn="@string/secOnscreenStopText" android:textOff="@string/secOnscreenRecordText" android:drawableTop="@drawable/sec_incall_button_record_icon" style="@style/SecInCallButton" />
-</RelativeLayout>

@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout android:gravity="center_vertical" android:id="@id/call_plus_subject" android:layout_width="fill_parent" android:layout_height="wrap_content"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <TextView android:textSize="14.0sp" android:textColor="@color/sec_popup_call_label_and_number_text_color" android:gravity="left" android:id="@id/callPlusSubject" android:visibility="gone" android:layout_width="208.0dip" android:layout_height="@dimen/sec_call_popup_primary_label_and_number_height" android:singleLine="true" android:fontFamily="sans-serif" />
-    <ImageView android:layout_gravity="center_vertical" android:id="@id/callPlusMapIcon" android:visibility="gone" android:layout_width="18.0dip" android:layout_height="18.0dip" android:src="@drawable/vodafone_callplus_popup_map_icon" android:tint="@color/call_popup_icon_tint_color" android:layout_marginStart="8.0dip" android:layout_toEndOf="@id/callPlusSubject" />
-    <ImageView android:layout_gravity="center_vertical" android:id="@id/callPlusImageIcon" android:visibility="gone" android:layout_width="18.0dip" android:layout_height="18.0dip" android:src="@drawable/vodafone_callplus_popup_image_icon" android:tint="@color/call_popup_icon_tint_color" android:layout_marginStart="3.0dip" android:layout_marginEnd="16.0dip" android:layout_toEndOf="@id/callPlusMapIcon" />
-</RelativeLayout>

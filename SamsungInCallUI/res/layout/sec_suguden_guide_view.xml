@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:orientation="vertical" android:id="@id/suguden_guide_layout" android:background="@drawable/sec_video_incoming_border_shape" android:layout_width="fill_parent" android:layout_height="wrap_content"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <TextView android:textSize="15.0dip" android:textColor="@color/incoming_call_suguden_guide_main_text_color" android:id="@id/suguden_guide_main_string" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="15.0dip" android:text="@string/suguden_guide_main_text_dcm" android:layout_marginStart="15.0dip" android:layout_marginEnd="15.0dip" />
-    <LinearLayout android:gravity="end" android:layout_gravity="center_vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="6.0dip" android:layout_marginBottom="15.0dip">
-        <CheckBox android:id="@id/suguden_guide_checkbox" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginEnd="6.0dip" />
-        <TextView android:textSize="15.0dip" android:textColor="@color/incoming_call_suguden_guide_checkbox_text_color" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/suguden_guide_do_not_show_again_dcm" android:layout_marginEnd="15.0dip" />
-    </LinearLayout>
-</LinearLayout>

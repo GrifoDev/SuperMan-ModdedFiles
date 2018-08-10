@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <dimen name="sec_call_label_text_size">16.0dip</dimen>
-    <dimen name="sec_primary_call_photo_margin_top">19.0dip</dimen>
-    <dimen name="sec_video_call_banner_more_button_side_padding">12.0dip</dimen>
-    <dimen name="sec_video_menu_button_text">16.0dip</dimen>
-    <dimen name="sec_video_call_banner_more_button_start_padding">12.0dip</dimen>
-</resources>

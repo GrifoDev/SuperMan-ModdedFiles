@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<inset android:insetLeft="@dimen/action_bar_icon_start_padding"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <layer-list>
-        <item>
-            <bitmap android:src="@drawable/tw_ic_ab_back_mtrl" android:tint="@color/help_back_button_color" />
-        </item>
-    </layer-list>
-</inset>

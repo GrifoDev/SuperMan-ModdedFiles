@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <ImageView android:id="@id/kt_business" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/voicecall_kt_twophone_2" android:tint="@color/call_popup_icon_tint_color" android:layout_centerVertical="true" android:layout_marginEnd="@dimen/sec_call_popup_kt_two_phone_image_margin_end" />
-    <ImageView android:id="@id/kt_personal" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/voicecall_kt_twophone_1" android:tint="@color/call_popup_icon_tint_color" android:layout_centerVertical="true" android:layout_marginEnd="@dimen/sec_call_popup_kt_two_phone_image_margin_end" />
-</RelativeLayout>

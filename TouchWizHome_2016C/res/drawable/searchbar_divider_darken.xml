@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<layer-list
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:drawable="@drawable/searchbar_divider_shape_darken" android:top="@dimen/searchbar_divider_shape_padding_top" android:bottom="@dimen/searchbar_divider_shape_padding_top" />
-    <item android:drawable="@color/searchbar_background_color_darken" />
-</layer-list>

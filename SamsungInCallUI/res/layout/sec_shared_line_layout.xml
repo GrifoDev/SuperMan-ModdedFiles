@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout android:gravity="center" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:paddingStart="@dimen/sec_call_banner_side_padding"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <TextView android:textSize="@dimen/sec_call_shared_line_text_size" android:textColor="@color/sec_incall_call_banner_text_color" android:id="@id/shared_line_ringing" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" android:fontFamily="sec-roboto-light" />
-    <TextView android:textSize="@dimen/sec_call_shared_line_text_size" android:textColor="@color/sec_incall_call_banner_text_color" android:id="@id/shared_line_list" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_toRightOf="@id/shared_line_ringing" android:fontFamily="sec-roboto-light" android:paddingStart="4.0dip" />
-</RelativeLayout>

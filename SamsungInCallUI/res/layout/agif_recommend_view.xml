@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout android:id="@id/agif_recommend_list" android:layout_width="fill_parent" android:layout_height="fill_parent" android:paddingStart="@dimen/agif_contents_padding" android:paddingEnd="@dimen/agif_contents_padding"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <Button android:id="@id/find_more" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/agif_recommend_botton_margin_top" android:layout_marginBottom="@dimen/agif_recommend_botton_margin_bottom" android:text="@string/agif_pickers_find_more" android:layout_alignParentBottom="true" android:layout_alignParentEnd="true" style="@style/AgifFindMoreText" />
-    <com.android.incallui.agif.AgifGridView android:id="@id/agif_list" android:layout_width="fill_parent" android:layout_height="wrap_content" android:horizontalSpacing="@dimen/agif_contents_padding" android:verticalSpacing="@dimen/agif_contents_padding" android:stretchMode="columnWidth" android:numColumns="3" android:layout_above="@id/find_more" />
-</RelativeLayout>

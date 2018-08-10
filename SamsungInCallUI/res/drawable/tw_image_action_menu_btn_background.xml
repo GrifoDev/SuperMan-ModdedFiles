@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<inset android:insetLeft="@dimen/sec_menu_button_side_padding" android:insetRight="@dimen/sec_menu_button_side_padding" android:insetTop="@dimen/sec_menu_button_top_padding" android:insetBottom="@dimen/sec_menu_button_top_padding"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <shape android:shape="rectangle">
-        <corners android:radius="2.0dip" />
-        <solid android:color="@color/show_button_background_color" />
-        <stroke android:width="2.0px" android:color="@color/show_button_background_stroke" />
-    </shape>
-</inset>

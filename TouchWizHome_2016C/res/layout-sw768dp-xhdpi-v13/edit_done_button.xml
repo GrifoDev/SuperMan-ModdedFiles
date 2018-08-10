@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<FrameLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="fill_parent"
-  xmlns:android="http://schemas.android.com/apk/res/android"
-  xmlns:launcher="http://schemas.android.com/apk/res/com.sec.android.app.launcher">
-    <TextView android:textSize="@dimen/menu_edit_button_text_size" android:textStyle="bold" android:textColor="@color/menu_title_text_color" android:gravity="center" android:layout_gravity="center" android:id="@id/edit_button_text" android:background="@drawable/focusable_apps_edit_button_bg" android:focusable="true" android:clickable="true" android:layout_width="@dimen/done_button_width" android:layout_height="@dimen/done_button_height" android:text="@string/menu_edit" android:shadowColor="@color/menu_edit_done_button_shadow_color" android:shadowDy="@integer/menu_text_shadow_dy" android:shadowRadius="2.0" android:onClick="onClickPopupMenuButton" android:textAllCaps="true" android:fontFamily="Roboto_Regular" />
-</FrameLayout>

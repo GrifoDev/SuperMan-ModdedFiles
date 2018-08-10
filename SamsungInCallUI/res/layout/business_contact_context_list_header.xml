@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:paddingEnd="@dimen/business_contact_context_end_padding"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <ImageView android:layout_gravity="center" android:id="@id/icon" android:layout_width="@dimen/contact_context_title_image_size" android:layout_height="@dimen/contact_context_title_image_size" android:layout_marginLeft="@dimen/contact_context_title_image_side_padding" android:layout_marginRight="@dimen/contact_context_title_image_side_padding" android:src="@drawable/ic_business_white_24dp" android:scaleType="center" android:tint="@color/business_contact_context_text_color" android:alpha="0.8" android:importantForAccessibility="no" />
-    <TextView android:textSize="@dimen/business_contact_context_detail_font_size" android:textColor="@color/business_contact_context_text_color" android:layout_gravity="center_vertical" android:id="@id/title" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/business_contact_context_title" android:fontFamily="sans-serif-medium" />
-</LinearLayout>

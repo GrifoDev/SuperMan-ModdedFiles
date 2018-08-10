@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <com.android.incallui.widget.SecMenuButton android:textSize="@dimen/sec_video_menu_button_text" android:ellipsize="marquee" android:id="@id/volumeButtonText" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="@dimen/sec_video_qcif_callstatecontainer_height" android:text="@string/secOnscreenVolumeText" android:includeFontPadding="true" android:marqueeRepeatLimit="marquee_forever" style="@style/SecVoiceMenuButton" />
-</RelativeLayout>

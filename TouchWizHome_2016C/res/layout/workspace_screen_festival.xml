@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<com.android.launcher2.CellLayoutWithResizableWidgets android:paddingTop="@dimen/home_pagePaddingTop" android:paddingBottom="@dimen/home_pagePaddingBottom" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/home_pageMarginTop" android:hapticFeedbackEnabled="false" android:paddingStart="@dimen/home_pagePaddingLeft" android:paddingEnd="@dimen/home_pagePaddingRight" launcher:cellWidth="@dimen/home_cellWidth" launcher:cellHeight="@dimen/home_cellHeight" launcher:cellGapX="@dimen/home_cellGapX" launcher:cellGapY="@dimen/home_cellGapY"
-  xmlns:android="http://schemas.android.com/apk/res/android"
-  xmlns:launcher="http://schemas.android.com/apk/res/com.sec.android.app.launcher">
-    <TextView android:textSize="@dimen/empty_message_font_size" android:textColor="#fffafafa" android:gravity="center" android:id="@id/empty_message" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/workspace_empty_message" android:shadowColor="@color/home_menu_icon_text_shadow_color" android:shadowDy="2.0" android:shadowRadius="1.0" android:fontFamily="Roboto_Regular" />
-</com.android.launcher2.CellLayoutWithResizableWidgets>

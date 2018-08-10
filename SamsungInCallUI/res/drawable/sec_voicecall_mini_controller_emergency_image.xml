@@ -1,3 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<bitmap android:src="@drawable/emergency_ic_nocallerid" android:tint="@color/sec_photo_emergency_background_color" android:tintMode="src_in"
-  xmlns:android="http://schemas.android.com/apk/res/android" />

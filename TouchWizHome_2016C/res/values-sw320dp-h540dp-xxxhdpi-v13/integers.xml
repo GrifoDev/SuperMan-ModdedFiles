@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <integer name="menuWidgets_cellCountY">3</integer>
-    <integer name="home_icon_text_maxline">2</integer>
-    <integer name="menu_icon_text_maxline">2</integer>
-    <integer name="open_folder_pageIndicatorMaxVisible">10</integer>
-    <integer name="config_appSearchRecentLineCount">2</integer>
-</resources>

@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<shape android:shape="oval"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <solid android:color="@color/sec_photo_emergency_background_color" />
-    <size android:height="@dimen/sec_primary_call_photo_size" android:width="@dimen/sec_primary_call_photo_size" />
-    <padding android:left="@dimen/sec_photo_stroke_width" android:top="@dimen/sec_photo_stroke_width" android:right="@dimen/sec_photo_stroke_width" android:bottom="@dimen/sec_photo_stroke_width" />
-</shape>

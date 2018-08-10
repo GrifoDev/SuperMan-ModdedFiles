@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout android:layout_width="wrap_content" android:layout_height="fill_parent"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <ImageView android:id="@id/smartCallSmallIcon" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="fill_parent" android:src="@drawable/voicecall_ic_smartcall" android:tint="@color/call_popup_icon_tint_color" android:layout_centerVertical="true" android:layout_marginEnd="7.0dip" />
-</RelativeLayout>

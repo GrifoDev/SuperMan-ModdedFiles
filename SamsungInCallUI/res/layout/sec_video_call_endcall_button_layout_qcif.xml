@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout android:gravity="center_horizontal" android:orientation="horizontal" android:id="@id/endcall_contact_btn_layout" android:layout_width="fill_parent" android:layout_height="wrap_content"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <com.android.incallui.widget.SecContactButton android:textSize="14.0sp" android:gravity="center" android:id="@id/endcall_contact_btn" android:focusable="true" android:visibility="gone" android:clickable="true" android:layout_width="fill_parent" android:layout_height="@dimen/sec_below_btn_height" android:layout_marginLeft="@dimen/sec_below_btn_margin" android:layout_marginTop="@dimen/sec_endcall_contact_video_btn_margin_top_qcif" android:layout_marginRight="@dimen/sec_below_btn_margin" android:layout_marginBottom="@dimen/sec_endcall_contact_video_btn_margin_bottom" android:text="@string/secOnscreenViewContactText" android:contentDescription="@string/secOnscreenViewContactText" android:textAllCaps="true" android:fontFamily="sans-serif" background="@color/reject_call_with_message_handler_background" />
-</RelativeLayout>

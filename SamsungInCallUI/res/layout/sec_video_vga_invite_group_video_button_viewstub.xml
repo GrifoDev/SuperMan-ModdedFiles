@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <ImageButton android:id="@id/inviteGroupVideoButton" android:visibility="gone" android:layout_marginTop="@dimen/sec_video_vga_invite_group_video_button_margin_top" android:src="@drawable/sec_video_vga_invite_group_video_call_icon" android:contentDescription="@string/secOnscreenMenuVideoConfCallText" android:layout_marginEnd="@dimen/sec_video_vga_invite_group_video_button_margin_end" android:layout_alignParentEnd="true" style="@style/SecInviteGroupVideoCallButtonVGAStyle" />
-</RelativeLayout>

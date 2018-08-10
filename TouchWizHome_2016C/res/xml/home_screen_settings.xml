@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <Preference android:title="@string/option_tray_screengrid" android:key="home_screen_grid" />
-    <Preference android:title="@string/home_screen_content" android:key="home_screen_mode" />
-    <Preference android:title="@string/badge_manage_title" android:key="badge_manager" android:summary="@string/badge_manage_summary" />
-</PreferenceScreen>

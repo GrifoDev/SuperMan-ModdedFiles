@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout android:gravity="center_vertical" android:background="@color/sec_voice_conference_banner_bg_color" android:layout_width="fill_parent" android:layout_height="@dimen/sec_modify_state_info_banner_height" android:paddingStart="16.0dip"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <TextView android:textSize="@dimen/sec_modify_state_info_banner_text_size" android:textColor="@color/sec_voice_conference_banner_text_color" android:ellipsize="end" android:id="@id/modifyStateInfoTextName" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" android:fontFamily="sans-serif" />
-    <TextView android:textSize="@dimen/sec_modify_state_info_banner_text_size" android:textColor="@color/sec_voice_conference_banner_text_color" android:ellipsize="end" android:id="@id/modifyStateInfoText" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" android:fontFamily="sans-serif" android:layout_marginStart="4.0dip" android:layout_toEndOf="@id/modifyStateInfoTextName" />
-</RelativeLayout>

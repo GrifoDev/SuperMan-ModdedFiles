@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <TextView android:textSize="18.0sp" android:textColor="@android:color/black" android:id="@id/message" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="22.0dip" android:layout_marginTop="16.0dip" android:layout_marginRight="22.0dip" android:layout_marginBottom="16.0dip" android:text="@string/replace_title" />
-    <ListView android:id="@id/listView1" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="15.0dip" android:layout_marginRight="10.0dip" />
-    <RelativeLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="15.0dip" android:layout_marginRight="5.0dip">
-        <Button android:textStyle="bold" android:textColor="@android:color/holo_blue_dark" android:id="@id/cancel" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/discard" android:layout_alignParentTop="true" android:layout_alignParentRight="true" android:onClick="onDiscard" android:layout_alignParentEnd="true" style="@android:style/DeviceDefault.Light.ButtonBar.AlertDialog" />
-    </RelativeLayout>
-</LinearLayout>

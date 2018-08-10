@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <ImageView android:id="@id/callPlusMap_incall_popup" android:layout_width="fill_parent" android:layout_height="fill_parent" android:scaleType="centerCrop" />
-    <TextView android:textSize="20.0sp" android:textColor="#ff000000" android:id="@id/call_plus_address_popup" android:background="#ffffffff" android:layout_width="fill_parent" android:layout_height="35.0dip" android:singleLine="true" android:drawableLeft="@drawable/vodafone_callplus_map_icon" android:drawablePadding="10.0dip" android:alpha="0.5" android:fontFamily="sans-serif" />
-</RelativeLayout>

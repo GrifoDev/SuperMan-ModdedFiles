@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<selector
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <item>
-        <bitmap android:src="@drawable/voicecall_multiparty_group_img" android:tint="@color/sec_photo_stroke_background_disconnected_color" />
-    </item>
-</selector>

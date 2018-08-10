@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:gravity="center" android:orientation="horizontal" android:background="@drawable/toolbar_bg" android:layout_width="fill_parent" android:layout_height="fill_parent"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/menu_widgets_search_selected_back_down" android:background="?android:actionBarItemBackground" android:focusable="true" android:layout_width="52.0dip" android:layout_height="fill_parent" android:contentDescription="@string/menu_navigate_up">
-        <ImageView android:id="@id/menu_widgets_search_selected_back_down_image" android:layout_width="wrap_content" android:layout_height="fill_parent" android:src="?android:homeAsUpIndicator" android:scaleType="center" />
-    </LinearLayout>
-    <SearchView android:textSize="@dimen/menu_title_bar_text_size" android:textColor="@color/menu_title_selected_text" android:id="@id/search_input" android:layout_width="0.0dip" android:layout_height="@dimen/menu_widgets_searchHeight" android:maxLength="30" android:layout_weight="1.0" android:inputType="textCapSentences" android:imeOptions="actionSearch|flagNoExtractUi" android:queryHint="@string/search_for_widgets" style="@style/android:TextAppearance.DeviceDefault.Widget.ActionBar.Title" />
-</LinearLayout>

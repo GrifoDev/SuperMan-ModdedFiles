@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout android:gravity="center" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <ImageView android:id="@id/line_icon" android:background="@drawable/sec_jansky_icon_bg" android:visibility="gone" android:layout_width="@dimen/sec_call_multi_line_icon_size" android:layout_height="@dimen/sec_call_multi_line_icon_size" android:layout_centerVertical="true" />
-    <TextView android:textSize="@dimen/sec_call_multi_line_text_size" android:textColor="@color/sec_incall_accent_color" android:id="@id/line_name" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" android:fontFamily="sans-serif" android:paddingStart="@dimen/sec_call_multi_line_text_margin" android:layout_toEndOf="@id/line_icon" />
-</RelativeLayout>

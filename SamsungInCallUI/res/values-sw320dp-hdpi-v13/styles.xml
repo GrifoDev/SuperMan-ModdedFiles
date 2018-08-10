@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <style name="SecSwitchCallButtonStyle">
-        <item name="android:background">#00000000</item>
-        <item name="android:layout_width">46.0dip</item>
-        <item name="android:layout_height">41.0dip</item>
-    </style>
-</resources>

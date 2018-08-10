@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="long_press_widget_to_add">Touch and hold a widget to move it.</string>
-    <string name="add_to_home_msg">Touch and hold an item to move it to the home screen</string>
-    <string name="guide_widgets_tap_area">Touch and hold a widget until it can be edited, then release it.</string>
-    <string name="workspace_empty_message">Touch and hold screen to add items</string>
-</resources>

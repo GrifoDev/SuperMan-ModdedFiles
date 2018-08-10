@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<shape android:shape="rectangle"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <stroke android:width="@dimen/sec_photo_stroke_width" android:color="@color/sec_photo_stroke_background_color" android:alpha="0.4" />
-    <size android:height="@dimen/sec_call_popup_photo_size" android:width="@dimen/sec_call_popup_photo_size" />
-    <solid android:color="@color/sec_contact_photo_background_color" />
-    <padding android:left="@dimen/sec_photo_stroke_width" android:top="@dimen/sec_photo_stroke_width" android:right="@dimen/sec_photo_stroke_width" android:bottom="@dimen/sec_photo_stroke_width" />
-    <corners android:radius="@dimen/sec_photo_conference_background_multiparty_rectangle_round" />
-</shape>

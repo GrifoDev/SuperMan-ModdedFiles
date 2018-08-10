@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <com.android.incallui.widget.SecVideoButton android:id="@id/cameraOnButton" android:visibility="gone" android:text="@string/secOnscreenCameraText" android:drawableTop="@drawable/sec_video_incall_button_camera_on_vzw_icon" style="@style/SecVideoCallVgaStubButton" />
-    <com.android.incallui.widget.SecVideoButton android:id="@id/cameraOffButton" android:visibility="visible" android:text="@string/secOnscreenCameraText" android:drawableTop="@drawable/sec_video_incall_button_camera_off_vzw_icon" style="@style/SecVideoCallVgaStubButton" />
-</RelativeLayout>

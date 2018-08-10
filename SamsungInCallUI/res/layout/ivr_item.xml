@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<com.android.incallui.visualcallcenter.MaterialRippleLayout android:layout_width="fill_parent" android:layout_height="70.0dip" app:rippleColor="#ffff9800" app:rippleDimension="30.0dip" app:rippleOverlay="false" app:rippleAlpha="0.8" app:rippleHover="true" app:rippleBackground="@color/sec_incall_screen_background"
-  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
-    <RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="@dimen/sec_incall_ivritem_height" android:paddingStart="@dimen/sec_incall_buttons_padding_start" android:paddingEnd="@dimen/sec_incall_buttons_padding_four">
-        <TextView android:textSize="16.0sp" android:id="@id/yulore_ivr_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="10.0dip" android:text="@string/vcc_press" android:layout_centerVertical="true" />
-        <ImageView android:id="@id/yulore_ivr_iv_right_icon" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/yulore_superyellowpage_icon_arrow" android:scaleType="centerInside" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
-        <TextView android:textSize="14.0sp" android:gravity="center_vertical" android:id="@id/yulore_ivr_tv_tag" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/vcc_press" android:singleLine="true" android:layout_toLeftOf="@id/yulore_ivr_iv_right_icon" android:layout_centerVertical="true" />
-    </RelativeLayout>
-</com.android.incallui.visualcallcenter.MaterialRippleLayout>

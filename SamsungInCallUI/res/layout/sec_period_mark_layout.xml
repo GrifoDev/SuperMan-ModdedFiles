@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:orientation="horizontal" android:id="@id/periodMarkContainer" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <ImageView android:id="@id/periodMark1" android:background="@drawable/sec_period_mark" android:layout_width="@dimen/sec_call_state_period_mark_diameter" android:layout_height="@dimen/sec_call_state_period_mark_diameter" android:layout_marginEnd="@dimen/sec_call_state_period_mark_between_margin" />
-    <ImageView android:id="@id/periodMark2" android:background="@drawable/sec_period_mark" android:layout_width="@dimen/sec_call_state_period_mark_diameter" android:layout_height="@dimen/sec_call_state_period_mark_diameter" android:layout_marginEnd="@dimen/sec_call_state_period_mark_between_margin" />
-    <ImageView android:id="@id/periodMark3" android:background="@drawable/sec_period_mark" android:layout_width="@dimen/sec_call_state_period_mark_diameter" android:layout_height="@dimen/sec_call_state_period_mark_diameter" />
-</LinearLayout>

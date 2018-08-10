@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<menu
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:id="@id/options_menu_edit" android:title="@string/menu_edit" />
-    <item android:id="@id/options_menu_AtoZ" android:title="@string/SS_A_Z_ABB" />
-    <item android:id="@id/options_menu_view_type" android:title="@string/options_menu_sort" />
-    <item android:id="@id/options_menu_contactus" android:title="@string/option_menu_contact_up" />
-    <item android:id="@id/options_menu_search_recommend" android:title="@string/options_menu_search_recommend" />
-</menu>

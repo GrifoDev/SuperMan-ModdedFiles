@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <RelativeLayout android:gravity="center" android:id="@id/video_banner_container" android:background="@color/sec_multiparty_video_secondary_banner_bg" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content">
-        <View android:id="@id/video_banner_info_divider" android:layout_width="fill_parent" android:layout_height="2.0px" android:layout_marginStart="@dimen/sec_call_banner_side_padding" android:layout_marginEnd="@dimen/sec_call_banner_side_padding" style="@style/SecVideoSecondaryDividerStyle" />
-        <TextView android:textSize="@dimen/sec_video_banner_text_size" android:textColor="@color/sec_incall_call_banner_text_color" android:gravity="center_vertical" android:id="@id/video_banner_info_text" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="@dimen/sec_video_banner_height" android:layout_below="@id/video_banner_info_divider" android:paddingStart="@dimen/sec_call_banner_side_padding" />
-    </RelativeLayout>
-</RelativeLayout>

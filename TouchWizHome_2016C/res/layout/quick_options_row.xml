@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:orientation="horizontal" android:id="@id/quick_options_row_layout" android:layout_width="wrap_content" android:layout_height="@dimen/quick_options_item_height"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <ImageView android:gravity="center_vertical" android:id="@id/quick_options_icon" android:visibility="visible" android:layout_width="@dimen/quick_options_item_height" android:layout_height="@dimen/quick_options_item_height" android:tint="@color/quick_popup_action_text_color" />
-    <TextView android:textSize="@dimen/quick_options_text_size" android:textColor="@color/quick_popup_action_text_color" android:gravity="center_vertical" android:id="@id/quick_options_text" android:layout_width="wrap_content" android:layout_height="fill_parent" android:singleLine="true" android:fontFamily="Roboto_Regular" android:layout_marginStart="@dimen/quick_options_item_gap" />
-</LinearLayout>

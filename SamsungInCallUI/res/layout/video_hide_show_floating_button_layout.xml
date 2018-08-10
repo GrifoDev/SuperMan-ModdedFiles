@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <ToggleButton android:id="@id/hideShowMeFloatingButton" android:background="@drawable/sec_video_hideme_button_background" android:clickable="false" android:textOn="@string/sec_showme_text" android:textOff="@string/sec_hideme_text" android:layout_centerInParent="true" android:drawableStart="@drawable/sec_video_incomingcall_hide_me_icon" style="@style/SecIncomingVGAVideoCallHideMeButton" />
-</RelativeLayout>

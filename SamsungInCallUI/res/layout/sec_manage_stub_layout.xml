@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout android:id="@id/manage_stub" android:layout_width="wrap_content" android:layout_height="wrap_content"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <Button android:textSize="@dimen/sec_menu_button_text" android:textStyle="bold" android:textColor="@color/sec_video_call_banner_text_color" android:id="@id/vt_conference_manage_button" android:background="@drawable/sec_incall_button_background" android:layout_width="wrap_content" android:layout_height="@dimen/sec_menu_height" android:text="@string/secOnscreenManageText" android:layout_centerVertical="true" android:textAllCaps="true" android:fontFamily="sec-roboto-condensed" />
-</RelativeLayout>

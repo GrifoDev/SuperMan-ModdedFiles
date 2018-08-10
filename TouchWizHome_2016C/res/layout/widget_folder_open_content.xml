@@ -1,3 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<com.android.launcher2.PagedViewGridLayout android:id="@id/widget_folder_open_grid" android:paddingBottom="@dimen/widget_folder_open_padding_bottom" android:layout_width="wrap_content" android:layout_height="wrap_content" android:paddingStart="@dimen/menuWidgets_widgetFolderOpen_folder_padding_left"
-  xmlns:android="http://schemas.android.com/apk/res/android" />

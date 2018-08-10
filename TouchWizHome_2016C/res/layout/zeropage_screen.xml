@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<com.android.launcher2.CellLayoutWithResizableWidgets android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginTop="0.0dip" android:hapticFeedbackEnabled="false" launcher:cellWidth="@dimen/home_cellWidth" launcher:cellHeight="@dimen/home_cellHeight" launcher:cellGapX="@dimen/home_cellGapX" launcher:cellGapY="@dimen/home_cellGapY" launcher:isZeroPage="true"
-  xmlns:android="http://schemas.android.com/apk/res/android"
-  xmlns:launcher="http://schemas.android.com/apk/res/com.sec.android.app.launcher" />

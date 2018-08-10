@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<com.android.launcher2.mainmenu.PinchLayerView android:layout_width="fill_parent" android:layout_height="fill_parent"
-  xmlns:android="http://schemas.android.com/apk/res/android"
-  xmlns:launcher="http://schemas.android.com/apk/res/com.sec.android.app.launcher">
-    <com.android.launcher2.MenuAppsGrid android:id="@id/apps_grid" android:layout_width="fill_parent" android:layout_height="fill_parent" launcher:clingFocusedX="@integer/menuAppsGrid_clingFocusedX" launcher:clingFocusedY="@integer/menuAppsGrid_clingFocusedY" launcher:cellCountX="@integer/menuAppsGrid_cellCountX" launcher:cellCountY="@integer/menuAppsGrid_cellCountY" launcher:pageSpacing="@dimen/home_pageSpacing" launcher:pageIndicatorTop="@dimen/menu_pageIndicatorTop" launcher:pageIndicatorGap="@dimen/menu_pageIndicatorGap" launcher:pageIndicatorMaxVisible="@integer/menu_pageIndicatorMaxVisible" launcher:pageIndicatorImageStyle="2" launcher:defaultScreen="2" />
-</com.android.launcher2.mainmenu.PinchLayerView>

@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:gravity="center" android:id="@id/screen_lock_container" android:background="#66000000" android:layout_width="fill_parent" android:layout_height="fill_parent"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <LinearLayout android:orientation="vertical" android:id="@id/screen_lock" android:padding="20.0dip" android:focusable="true" android:focusableInTouchMode="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:contentDescription="@string/lock_screen_during_call_double_tab">
-        <ImageView android:layout_gravity="center_horizontal" android:id="@id/unlock_image" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/voicecall_during_ic_lock" />
-        <TextView android:textSize="25.0dip" android:textColor="#fffafafa" android:gravity="center_horizontal" android:id="@id/textview_doubletap" android:paddingTop="28.0dip" android:focusable="false" android:focusableInTouchMode="false" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/lock_screen_during_call_double_tab" android:shadowDx="1.0" android:shadowDy="1.0" android:shadowRadius="0.75" />
-    </LinearLayout>
-</LinearLayout>

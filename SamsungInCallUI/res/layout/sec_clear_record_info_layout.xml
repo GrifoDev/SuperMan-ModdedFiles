@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout android:layout_width="wrap_content" android:layout_height="fill_parent"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <ImageView android:id="@id/recordIcon" android:background="@drawable/sec_clear_record_noti_icon" android:layout_width="@dimen/sec_record_time_icon_diameter" android:layout_height="@dimen/sec_record_time_icon_diameter" android:layout_marginRight="@dimen/sec_record_time_horizontal_margin" android:layout_centerVertical="true" />
-    <TextView android:textSize="@dimen/sec_call_elapsed_time_text_size_for_clear_cover" android:textColor="@color/sec_clear_cover_record_color" android:id="@id/recordText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="@dimen/sec_record_time_horizontal_margin_for_clear_cover" android:text="@string/record_text" android:includeFontPadding="false" android:layout_toRightOf="@id/recordIcon" android:layout_centerVertical="true" android:fontFamily="sans-serif" />
-    <Chronometer android:textSize="@dimen/sec_call_elapsed_time_text_size_for_clear_cover" android:textColor="@color/sec_clear_cover_record_color" android:id="@id/recordTime" android:layout_width="wrap_content" android:layout_height="wrap_content" android:includeFontPadding="false" android:layout_toRightOf="@id/recordText" android:layout_centerVertical="true" android:fontFamily="sans-serif" />
-</RelativeLayout>

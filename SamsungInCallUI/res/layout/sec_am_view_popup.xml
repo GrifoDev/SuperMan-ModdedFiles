@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/am_view_layout" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerHorizontal="true"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <ImageView android:id="@id/am_status_imageview" android:layout_width="27.0dip" android:layout_height="27.0dip" />
-    <TextView android:textSize="14.0sp" android:textColor="@color/sec_popup_call_label_and_number_text_color" android:id="@id/am_status_textview" android:layout_width="wrap_content" android:layout_height="wrap_content" />
-</LinearLayout>

@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <View android:layout_marginLeft="@dimen/sec_call_popup_reject_with_msg_item_side_margin" android:layout_marginRight="@dimen/sec_call_popup_reject_with_msg_item_side_margin" style="@style/RejectWithMsgItemDividerStyle" />
-    <TextView android:textSize="@dimen/sec_call_popup_reject_msg_list_item_text_size" android:id="@id/reject_call_with_message_item_text" android:paddingLeft="@dimen/sec_call_popup_reject_with_msg_item_text_side_padding" android:paddingRight="@dimen/sec_call_popup_reject_with_msg_item_text_side_padding" style="@style/RejectWithMsgItemText" />
-</LinearLayout>

@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:orientation="horizontal" android:id="@id/endCallButtons" android:layout_width="fill_parent" android:layout_height="wrap_content" android:paddingStart="@dimen/sec_incall_buttons_padding_three" android:paddingEnd="@dimen/sec_incall_buttons_padding_three"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <com.android.incallui.widget.SecVoiceButton android:id="@id/voiceCallButton" android:text="@string/secOnscreenVoiceCallText" android:drawableTop="@drawable/sec_endcall_button_voicecall_icon" android:contentDescription="@string/secOnscreenVoiceCallText" style="@style/SecEndCallButton" />
-    <com.android.incallui.widget.SecVoiceButton android:id="@id/messageButton" android:text="@string/secOnscreenMessageText" android:drawableTop="@drawable/sec_endcall_button_message_icon" android:contentDescription="@string/description_secOnscreenMessageText" android:layout_marginStart="@dimen/sec_endcall_buttons_margin_between_vertical" style="@style/SecEndCallButton" />
-    <com.android.incallui.widget.SecVoiceButton android:id="@id/videoCallButton" android:text="@string/secOnscreenVideoCallText" android:drawableTop="@drawable/sec_endcall_button_videocall_icon" android:contentDescription="@string/description_secOnscreenVideoCallText" android:layout_marginStart="@dimen/sec_endcall_buttons_margin_between_vertical" style="@style/SecEndCallButton" />
-</LinearLayout>

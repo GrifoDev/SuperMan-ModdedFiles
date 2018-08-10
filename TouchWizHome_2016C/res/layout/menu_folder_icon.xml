@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<com.android.launcher2.MenuAppIconView android:layout_width="fill_parent" android:layout_height="fill_parent"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <com.android.launcher2.FolderIconView android:id="@id/app_icon" android:layout_width="fill_parent" android:layout_height="fill_parent" style="@style/MenuIcon.Folder" />
-    <ImageView android:id="@id/uninstall_icon" android:focusable="false" android:visibility="gone" android:clickable="true" android:layout_width="@dimen/menu_uninstall_icon_width" android:layout_height="@dimen/menu_uninstall_icon_height" android:src="@drawable/menu_uninstall_icon" />
-</com.android.launcher2.MenuAppIconView>

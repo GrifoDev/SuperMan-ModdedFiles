@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:id="@id/searchbar_more_container" android:background="@android:color/transparent" android:paddingTop="0.0dip" android:layout_width="fill_parent" android:layout_height="fill_parent" android:paddingStart="@dimen/widget_search_titlebar_padding_left" android:paddingEnd="@dimen/widget_search_titlebar_padding_right"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <SearchView android:textSize="@dimen/appsearch_title_bar_text_size" android:textColor="@color/menu_title_selected_text" android:textColorHint="@color/apps_searchtext_color" android:gravity="center" android:layout_gravity="center_vertical" android:id="@id/searchbar_view" android:layout_width="fill_parent" android:layout_height="@dimen/searchbar_searchview_height" android:maxLength="30" android:layout_weight="1.0" android:inputType="textCapSentences" android:imeOptions="actionSearch|flagNoExtractUi" android:queryHint="@string/search_for_widgets" android:paddingEnd="@dimen/searchbar_searchview_padding_end" />
-    <View android:layout_gravity="center_vertical" android:id="@id/widget_searchbar_divider" android:background="@drawable/searchbar_divider" android:layout_width="1.0dip" android:layout_height="@dimen/searchbar_divider_height" />
-    <include android:id="@id/more_button_widget" layout="@layout/more_icon_button" />
-</LinearLayout>

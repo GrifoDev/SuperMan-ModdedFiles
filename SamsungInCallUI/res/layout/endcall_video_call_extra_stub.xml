@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="fill_parent"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <com.android.incallui.widget.SecVoiceButton android:id="@id/videoCallButtonExtra" android:text="@string/secOnscreenVideoCallText" android:drawableTop="@drawable/sec_endcall_button_videocall_icon" android:contentDescription="@string/secOnscreenVideoCallText" style="@style/SecEndCallButton" />
-</LinearLayout>

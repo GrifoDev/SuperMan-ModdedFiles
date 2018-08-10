@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<com.android.phone.common.dialpad.DialpadKeyButton android:background="@drawable/sec_incall_button_background" android:focusable="true" android:clickable="true" android:layout_width="fill_parent" android:layout_height="fill_parent" android:soundEffectsEnabled="false" cp:useDefaultRippleSize="true"
-  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:cp="http://schemas.android.com/apk/res-auto">
-    <RelativeLayout style="@style/SecVideoDialpadKeyInternalLayoutStyle">
-        <TextView android:id="@id/dialpad_key_number" android:layout_alignParentTop="true" style="@style/SecVideoCallDialpadKeyNumberStyle" />
-        <TextView android:id="@id/dialpad_key_subletters" android:layout_below="@id/dialpad_key_letters" style="@style/SecVideoCallDialpadKeySubLettersStyle" />
-        <TextView android:id="@id/dialpad_key_letters" android:layout_below="@id/dialpad_key_number" style="@style/SecVideoCallDialpadKeyLettersStyle" />
-    </RelativeLayout>
-</com.android.phone.common.dialpad.DialpadKeyButton>

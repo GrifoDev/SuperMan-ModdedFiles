@@ -1,3 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<bitmap android:src="@drawable/voicecall_gif_add" android:tint="@color/agif_button_tint_color"
-  xmlns:android="http://schemas.android.com/apk/res/android" />

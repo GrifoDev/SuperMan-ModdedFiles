@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:id="@id/toast_layout_root" android:background="@drawable/agif_sent_toast_bg" android:paddingTop="@dimen/agif_sent_toast_padding_top" android:paddingBottom="@dimen/agif_sent_toast_padding_top" android:layout_width="wrap_content" android:layout_height="wrap_content" android:paddingStart="@dimen/agif_sent_toast_padding_side" android:paddingEnd="@dimen/agif_sent_toast_padding_side" android:elevation="@dimen/agif_sent_toast_shadow"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <TextView android:id="@id/toast_message" android:layout_width="wrap_content" android:layout_height="wrap_content" style="@style/AgifSentToastText" />
-</LinearLayout>

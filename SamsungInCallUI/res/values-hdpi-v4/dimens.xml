@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <dimen name="sec_incall_pager_indicator_height">50.0dip</dimen>
-    <dimen name="sec_incall_pager_indicator_padding_top">14.0dip</dimen>
-</resources>

@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <TextView android:textSize="18.0sp" android:textColor="@android:color/black" android:id="@id/message" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="22.0dip" android:layout_marginTop="16.0dip" android:layout_marginRight="22.0dip" android:layout_marginBottom="16.0dip" android:text="@string/confirm_speaker_message" />
-    <RelativeLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
-        <Button android:textStyle="bold" android:textColor="@android:color/holo_blue_dark" android:id="@id/continue_button" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="2.0dip" android:text="@string/continue_button_text" android:layout_alignParentRight="true" android:onClick="onContinue" style="@android:style/DeviceDefault.Light.ButtonBar.AlertDialog" />
-        <Button android:textStyle="bold" android:textColor="@android:color/holo_blue_dark" android:id="@id/speaker_off" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/speaker_off_button_text" android:layout_alignParentTop="true" android:layout_centerHorizontal="true" android:onClick="onSpeakerOff" style="@android:style/DeviceDefault.Light.ButtonBar.AlertDialog" />
-    </RelativeLayout>
-</LinearLayout>

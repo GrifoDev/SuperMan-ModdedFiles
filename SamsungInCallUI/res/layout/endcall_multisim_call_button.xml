@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layoutDirection="locale"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <com.android.incallui.widget.SecVoiceButton android:id="@id/voiceCallSim1Button" android:text="@string/secOnscreenVoiceCallText" android:drawableTop="@drawable/call_multisim_call" android:contentDescription="@string/secOnscreenVoiceCallText" style="@style/SecEndCallButton" />
-    <com.android.incallui.widget.SecVoiceButton android:id="@id/voiceCallSim2Button" android:text="@string/secOnscreenVoiceCallText" android:drawableTop="@drawable/call_multisim_call" android:contentDescription="@string/secOnscreenVoiceCallText" style="@style/SecEndCallButton" />
-</LinearLayout>

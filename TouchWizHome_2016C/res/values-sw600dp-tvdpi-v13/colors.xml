@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <color name="home_menu_icon_text_color">#ffffffff</color>
-    <color name="home_menu_icon_text_shadow_color">#35000000</color>
-    <color name="homescreen_option_menu_text_color">#ffffffff</color>
-</resources>

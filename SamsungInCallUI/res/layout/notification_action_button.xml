@@ -1,3 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<com.android.incallui.phonevoicerecorder.PhoneVoiceRecorderNotiButton android:textStyle="bold" android:textColor="@color/notification_icon_bg_color" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10.0dip" android:minWidth="80.0dip" android:minHeight="35.0dip" android:paddingStart="10.0sp" android:paddingEnd="10.0sp" style="@style/Widget.AppCompat.Button.Borderless.Colored"
-  xmlns:android="http://schemas.android.com/apk/res/android" />

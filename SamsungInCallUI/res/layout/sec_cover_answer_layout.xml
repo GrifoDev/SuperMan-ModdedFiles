@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout android:id="@id/coverAnswerLayout" android:layout_width="fill_parent" android:layout_height="fill_parent" android:splitMotionEvents="false"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <com.android.incallui.widget.incomingwidget.IncomingCallImageWidget android:id="@id/incomingCallImageWidget" android:tag="sview_cover_incoming" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/sec_cover_incoming_widget_margin_bottom" android:layout_alignParentBottom="true" />
-    <View android:id="@id/maskPanelForSlidingDrawer" android:background="@color/incoming_call_sliding_drawer_mask_panel_color" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" />
-    <include layout="@layout/reject_call_with_message_sliding_drawer_cover" />
-    <ViewStub android:id="@id/am_cover_view_stub" android:layout="@layout/sec_am_cover_status_view" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_alignParentBottom="true" />
-</RelativeLayout>

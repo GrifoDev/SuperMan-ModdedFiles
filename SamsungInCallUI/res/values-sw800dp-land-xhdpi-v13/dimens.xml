@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <dimen name="sec_video_dialpad_key_numbers_size">30.0dip</dimen>
-    <dimen name="sec_video_dialpad_key_letters_with_subtext_margin_top">-3.0dip</dimen>
-    <dimen name="sec_video_dialpad_key_sub_letters_margin_top">-15.0dip</dimen>
-</resources>

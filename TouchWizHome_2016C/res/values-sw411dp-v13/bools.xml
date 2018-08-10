@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <bool name="config_FolderHovering">false</bool>
-    <bool name="hotseat_showTitle">true</bool>
-    <bool name="menu_titleExpandTabs">true</bool>
-    <bool name="menu_titleShowDownloadedText">false</bool>
-    <bool name="config_FingerTrackingEnable">true</bool>
-    <bool name="config_isHotseatRightPosition">true</bool>
-</resources>

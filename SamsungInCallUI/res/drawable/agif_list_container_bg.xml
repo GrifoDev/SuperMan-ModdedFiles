@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<shape android:shape="rectangle"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <solid android:color="@color/agif_button_bg_color" />
-    <corners android:radius="@dimen/agif_list_container_bg_radius" />
-    <stroke android:width="@dimen/agif_list_container_bg_stroke" android:color="@color/agif_list_bg_stroke_color" />
-</shape>

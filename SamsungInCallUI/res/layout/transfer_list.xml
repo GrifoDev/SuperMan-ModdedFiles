@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:gravity="center_vertical" android:descendantFocusability="blocksDescendants" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="?android:listPreferredItemHeight"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <RadioButton android:textSize="17.0sp" android:id="@id/transfer_list_item" android:focusable="false" android:layout_width="fill_parent" android:layout_height="wrap_content" />
-</LinearLayout>

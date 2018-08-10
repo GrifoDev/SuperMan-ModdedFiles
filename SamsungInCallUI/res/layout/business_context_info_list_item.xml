@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:paddingEnd="@dimen/business_contact_context_end_padding"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <ImageView android:layout_gravity="center" android:id="@id/icon" android:layout_width="@dimen/business_contact_context_image_size" android:layout_height="@dimen/business_contact_context_image_size" android:layout_marginLeft="@dimen/business_contact_context_image_padding" android:layout_marginRight="@dimen/business_contact_context_image_padding" android:scaleType="centerCrop" android:tint="@color/business_contact_context_text_color" android:alpha="0.8" />
-    <LinearLayout android:layout_gravity="center" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
-        <TextView android:textSize="@dimen/business_contact_context_heading_font_size" android:textColor="@color/business_contact_context_text_color" android:id="@id/heading" android:layout_width="fill_parent" android:layout_height="wrap_content" android:fontFamily="sans-serif-medium" />
-        <TextView android:textSize="@dimen/business_contact_context_detail_font_size" android:textColor="@color/business_contact_context_text_color" android:id="@id/detail" android:layout_width="fill_parent" android:layout_height="wrap_content" android:fontFamily="sans-serif-medium" />
-    </LinearLayout>
-</LinearLayout>

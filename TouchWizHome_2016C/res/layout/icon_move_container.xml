@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<com.android.launcher2.IconMoveContainer android:id="@id/icon_move_container" android:background="@drawable/move_apps_panel_bg" android:layout_width="fill_parent" android:layout_height="@dimen/moveApps_containerHeight"
-  xmlns:android="http://schemas.android.com/apk/res/android"
-  xmlns:launcher="http://schemas.android.com/apk/res/com.sec.android.app.launcher">
-    <TextView android:textSize="@dimen/moveApps_intro_text_size" android:textColor="#ff595959" android:gravity="center" android:layout_gravity="center" android:id="@id/move_apps_empty_message" android:visibility="visible" android:layout_width="@dimen/moveApps_intro_text_width" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/moveApps_intro_text_margin_left" android:text="@string/move_apps_intro" android:maxLines="2" android:singleLine="false" />
-    <HorizontalScrollView android:id="@id/iconMoveContainer_ScrollView" android:scrollbars="none" android:layout_width="fill_parent" android:layout_height="fill_parent">
-        <com.android.launcher2.CellLayoutMoveApps android:gravity="center|left" android:layout_gravity="center|left" android:id="@id/iconMoveContainer_CellLayout" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/moveApps_topGpadding" />
-    </HorizontalScrollView>
-</com.android.launcher2.IconMoveContainer>
