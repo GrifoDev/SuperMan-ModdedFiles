@@ -710,7 +710,12 @@
     goto :goto_1
 .end method
 
-.method public native checkIsApprivedProcess(Ljava/lang/String;)I
+.method public checkIsApprivedProcess(Ljava/lang/String;)I
+    .locals 2
+
+    const v0, 0x1
+
+    return v0
 .end method
 
 .method public d()V

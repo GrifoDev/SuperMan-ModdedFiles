@@ -74,55 +74,11 @@
 
 # virtual methods
 .method public a()I
-    .locals 4
+    .locals 2
 
-    const/4 v1, 0x1
+    const v0, 0x1
 
-    iget-object v0, p0, Lcom/sec/android/app/sysscope/service/SysScopeResultInfo;->b:Ljava/util/ArrayList;
-
-    if-nez v0, :cond_0
-
-    move v0, v1
-
-    :goto_0
     return v0
-
-    :cond_0
-    iget-object v0, p0, Lcom/sec/android/app/sysscope/service/SysScopeResultInfo;->b:Ljava/util/ArrayList;
-
-    invoke-virtual {v0}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
-
-    move-result-object v2
-
-    :cond_1
-    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_2
-
-    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/sec/android/app/sysscope/service/g;
-
-    sget-object v3, Lcom/sec/android/app/sysscope/service/g;->a:Lcom/sec/android/app/sysscope/service/g;
-
-    invoke-virtual {v0, v3}, Lcom/sec/android/app/sysscope/service/g;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_1
-
-    const/4 v0, 0x2
-
-    goto :goto_0
-
-    :cond_2
-    move v0, v1
-
-    goto :goto_0
 .end method
 
 .method public a(J)V
