@@ -827,7 +827,7 @@
 
     const v1, 0x8
 
-    const v0, 0x7f0a05ae
+    const v0, 0x7f0a05bb
 
     invoke-virtual {p0, v0}, Lcom/fmd/statusbarcolor/color;->findViewById(I)Landroid/view/View;
 
@@ -835,7 +835,7 @@
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
 
-    const v0, 0x7f0a05af
+    const v0, 0x7f0a05bc
 
     invoke-virtual {p0, v0}, Lcom/fmd/statusbarcolor/color;->findViewById(I)Landroid/view/View;
 
@@ -1902,7 +1902,7 @@
 
     const v1, 0x8
 
-    const v0, 0x7f0a05af
+    const v0, 0x7f0a05bc
 
     invoke-virtual {p0, v0}, Lcom/fmd/statusbarcolor/color;->findViewById(I)Landroid/view/View;
 
@@ -1921,7 +1921,7 @@
 
     const v1, 0x8
 
-    const v0, 0x7f0a05ae
+    const v0, 0x7f0a05bb
 
     invoke-virtual {p0, v0}, Lcom/fmd/statusbarcolor/color;->findViewById(I)Landroid/view/View;
 
@@ -1947,7 +1947,7 @@
     :cond_39
     const v1, 0x8
 
-    const v0, 0x7f0a05af
+    const v0, 0x7f0a05bc
 
     invoke-virtual {p0, v0}, Lcom/fmd/statusbarcolor/color;->findViewById(I)Landroid/view/View;
 
@@ -1966,7 +1966,7 @@
 
     const v1, 0x8
 
-    const v0, 0x7f0a05ae
+    const v0, 0x7f0a05bb
 
     invoke-virtual {p0, v0}, Lcom/fmd/statusbarcolor/color;->findViewById(I)Landroid/view/View;
 

@@ -1148,11 +1148,11 @@
 
     sget-boolean v1, Lcom/android/mwilky/Renovate;->mUnlockHeaderColors:Z
 
-    const v2, 0x7f06015f
+    const v2, 0x7f06016f
 
-    const v3, 0x7f060160
+    const v3, 0x7f060170
 
-    const v4, 0x7f060162
+    const v4, 0x7f060172
 
     if-eqz v1, :cond_0
 
@@ -1310,7 +1310,7 @@
 
     sget-object v1, Lcom/android/mwilky/Renovate;->mNavbarPinIconColorKey:Ljava/lang/String;
 
-    const v2, 0x7f060106
+    const v2, 0x7f060113
 
     invoke-virtual {p0, v2}, Landroid/content/Context;->getColor(I)I
 
@@ -1404,7 +1404,7 @@
 
     const/4 v6, 0x0
 
-    const v7, 0x7f060115
+    const v7, 0x7f060125
 
     if-eqz v1, :cond_0
 
@@ -1568,11 +1568,11 @@
 
     sget-boolean v1, Lcom/android/mwilky/Renovate;->mUnlockQsColors:Z
 
-    const v2, 0x7f06016c
+    const v2, 0x7f06017d
 
-    const v3, 0x7f060058
+    const v3, 0x7f060064
 
-    const v4, 0x7f06015e
+    const v4, 0x7f06016e
 
     const v5, 0x7f06003c
 
@@ -1580,15 +1580,15 @@
 
     const v7, 0x7f06003d
 
-    const v8, 0x7f060174
+    const v8, 0x7f060185
 
-    const v9, 0x7f060176
+    const v9, 0x7f060187
 
-    const v10, 0x7f060173
+    const v10, 0x7f060184
 
-    const v11, 0x7f060178
+    const v11, 0x7f060189
 
-    const v12, 0x7f060218
+    const v12, 0x7f06022e
 
     if-eqz v1, :cond_0
 
