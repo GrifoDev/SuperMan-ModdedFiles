@@ -9480,9 +9480,9 @@ Incorrect"</string>
     <string name="rom_name">Rom Name</string>
     <string name="rom_name_details">SuperMan-Rom</string>
     <string name="rom_ver">Rom Version</string>
-    <string name="rom_ver_details">V3.0.0</string>
+    <string name="rom_ver_details">V3.0.1</string>
     <string name="rom_date">Rom Date</string>
-    <string name="rom_date_details">17.08.18</string>
+    <string name="rom_date_details">30.08.18</string>
     <string name="rom_developer">Rom Developer</string>
     <string name="rom_developer_name">Tkkg1994</string>
     <string name="led_indicator_charging">Charging</string>

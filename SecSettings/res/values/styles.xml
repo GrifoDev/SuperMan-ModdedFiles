@@ -1596,7 +1596,6 @@
         <item name="apnPreferenceStyle">@style/ApnPreference</item>
         <item name="dialogPreferenceStyle">@style/SettingsDialogPreference</item>
         <item name="dropdownPreferenceStyle">@style/Preference.DropDown.Material</item>
-        <item name="dropdownPreferenceStyle">@style/SettingsDropdownPreference</item>
         <item name="editTextPreferenceStyle">@style/EditTextPreference</item>
         <item name="footerPreferenceStyle">@style/FooterPreference</item>
         <item name="preferenceCategoryStyle">@style/SettingsPreferenceCategory</item>

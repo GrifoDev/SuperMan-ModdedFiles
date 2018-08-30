@@ -1486,7 +1486,7 @@
 
     iput-object v4, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mDateTimeDivider:Landroid/view/View;
 
-    const v4, 0x7f0a0149
+    const v4, 0x7f0a0141
 
     invoke-virtual {p0, v4}, Lcom/android/systemui/qs/QuickStatusBarHeader;->findViewById(I)Landroid/view/View;
 

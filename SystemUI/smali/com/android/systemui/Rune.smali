@@ -5892,6 +5892,16 @@
 .method public static isSupportWOF()Z
     .locals 3
 
+    const-string v0, "wake_on_finger"
+
+    const/4 v1, 0x0
+
+    invoke-static {v0, v1}, Lcom/android/wubydax/GearUtils;->getDbIntForKey(Ljava/lang/String;I)I
+
+    move-result v0
+
+    if-nez v0, :cond_2
+
     const/4 v2, 0x1
 
     const-string/jumbo v1, "/sys/class/fingerprint/fingerprint/adm"
@@ -5926,6 +5936,44 @@
 
     :cond_1
     const/4 v1, 0x0
+
+    return v1
+
+    :cond_2
+    const/4 v2, 0x1
+
+    const-string/jumbo v1, "/sys/class/fingerprint/fingerprint/adm"
+
+    invoke-static {v1}, Lcom/android/systemui/Rune;->readFromFile(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_3
+
+    invoke-virtual {v0}, Ljava/lang/String;->isEmpty()Z
+
+    move-result v1
+
+    :goto_1
+    if-nez v1, :cond_4
+
+    const-string/jumbo v1, "1"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_4
+
+    return v2
+
+    :cond_3
+    move v1, v2
+
+    goto :goto_1
+
+    :cond_4
+    const/4 v1, 0x1
 
     return v1
 .end method

@@ -8155,13 +8155,15 @@
 
     iget v0, v0, Lcom/android/systemui/globalactions/GlobalActionsDialog;->mRecoveryIconResId:I
 
-    move/from16 v31, v0
+    move/from16 v32, v0
 
-    move/from16 v0, v31
+    move/from16 v0, v16
 
-    if-ne v15, v0, :cond_e
+    move/from16 v1, v32
 
-    const v8, 0x7f120c25
+    if-ne v0, v1, :cond_e
+
+    const v9, 0x7f120c25
 
     goto/16 :goto_0
 

@@ -2449,7 +2449,6 @@
         <item name="dialogTitleDecorLayout">@layout/tw_dialog_title_material</item>
         <item name="dialogTitleIconsDecorLayout">@layout/dialog_title_icons_material</item>
         <item name="dropdownListPreferredItemHeight">@dimen/tw_dropdown_list_item_height</item>
-        <item name="dropdownListPreferredItemHeight">@dimen/tw_dropdown_list_item_height</item>
         <item name="parentIsDeviceDefault">true</item>
         <item name="parentIsDeviceDefaultDark">true</item>
         <item name="searchResultListItemHeight">@dimen/tw_searchview_suggestion_item_height</item>
